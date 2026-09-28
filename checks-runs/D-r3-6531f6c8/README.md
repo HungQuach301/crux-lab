@@ -31,8 +31,6 @@ Lượt này chạy bộ luật đã khoá trên master cuối của bài D.
   - 19 luật K1 đã đổi cách đo được coi là không so được.
 - **Khoá mới `b97bfc6b…` (2026-09-28).** Khoá này chỉ khác `62b5206d…` ở `checks/README.md`: thêm mục "Ngưỡng tạm". Mã luật và ngưỡng không đổi, nên kết quả lượt chạy này vẫn đúng với khoá mới.
 
-## K2 (2026-09-28): chưa chạy lại được
+## K2 (2026-09-28)
 
-- Khoá K2 đọc mô hình, nhân vật, nguồn, trường hợp phải hiện và dải tiếng dữ liệu từ hợp đồng tập. Bài D không có hợp đồng; phiên K2 ghi lại hợp đồng từ các hằng số K1 đã gắn cứng: `contract.json` ở thư mục này (chạy: `run.py <root> --contract checks-runs/D-r3-6531f6c8/contract.json --baseline checks-runs/D-r3-6531f6c8/report.json`).
-- **Chưa chạy lại được trên master r3**: master, stem và artefact nằm ở repo `crux-spike-opus55`; phiên K2 không được cấp quyền đọc repo đó. Vì vậy điểm hiệu chỉnh "bài D vòng 3 → T1 phải trượt" chưa được đo bằng âm thanh. Về cấu trúc T1 K2 vẫn trượt trên r3 (tiếng dữ liệu trộn trong `sfx`, không có stem `sonify`), và L1 là MISSING.
-- Dự kiến khi chạy lại: các luật có định nghĩa không đổi giữ kết quả của `report.json` (REG so theo fingerprint); S01, S03–S06, V04, V09 đọc hợp đồng nên phải cho cùng kết quả như K1 nếu hợp đồng ghi đúng hằng số cũ (ngoại lệ đã biết: S04 nay lấy dung sai 0,5 pp từ hợp đồng thay vì từ `data/sources.json` của D; V04 nay đòi màu và hình **đúng** `#ffc857`/solid và `#5a9ceb`/dashed, và vẫn trượt vì màu chính của 1966 chỉ 94,0%).
+Đã chạy lại dưới khoá K2 `f9e24c91…`: `K2/README.md`. Kết quả 59 PASS · 18 FAIL · 1 MISSING; **T1 trượt** (0,11 lượt nghe thấy); REG đạt.
