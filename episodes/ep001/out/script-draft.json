@@ -1,31 +1,44 @@
 {
  "sentences": [
   {
-   "id": "co-bars.1",
+   "id": "co-maya.1",
    "act": "cold-open",
-   "scene": "co-bars",
-   "text": "A lower rate cuts the monthly payment.",
-   "claims": []
+   "scene": "co-maya",
+   "text": "Maya locked in 7.62%.",
+   "claims": [
+    "r_old"
+   ]
   },
   {
-   "id": "co-bill.1",
+   "id": "co-today.1",
    "act": "cold-open",
-   "scene": "co-bill",
-   "text": "But the refinance has a price, and the savings must repay it first.",
-   "claims": []
+   "scene": "co-today",
+   "text": "This week's average: 7.03%.",
+   "claims": [
+    "r_today"
+   ]
+  },
+  {
+   "id": "co-cost.1",
+   "act": "cold-open",
+   "scene": "co-cost",
+   "text": "Refinancing costs $5,124.",
+   "claims": [
+    "cost_maya"
+   ]
   },
   {
    "id": "co-question.1",
    "act": "cold-open",
    "scene": "co-question",
-   "text": "So how far do rates have to fall before a refinance pays for itself?",
+   "text": "So when does that money come back?",
    "claims": []
   },
   {
    "id": "a1-lab.1",
    "act": "act1",
    "scene": "a1-lab",
-   "text": "This is a lab for money decisions: we run the numbers on public data and show every assumption.",
+   "text": "This is a lab for money decisions: we run the numbers on public data, and show every assumption.",
    "claims": []
   },
   {
@@ -39,410 +52,382 @@
    "id": "a1-rehook.1",
    "act": "act1",
    "scene": "a1-rehook",
-   "text": "By the end, you will see the exact rate drop that repays a typical refinance within 36 months, and how every rate drop since 1971 actually played out.",
+   "text": "By the end, you will see the exact rate drop that pays back a refinance like Maya's within 36 months, and how every rate drop since 1971 actually played out.",
    "claims": [
     "hold36",
     "y1971"
    ]
   },
   {
-   "id": "a1-rates.1",
+   "id": "a1-maya.1",
    "act": "act1",
-   "scene": "a1-rates",
-   "text": "Here is the rate itself: the weekly average for a 30-year fixed mortgage, from Freddie Mac's survey.",
+   "scene": "a1-maya",
+   "text": "She borrowed $375,000 in October 2023, the month the 30-year rate peaked.",
    "claims": [
+    "loan_maya",
+    "oct2023",
     "term30"
    ]
   },
   {
-   "id": "a1-peak.1",
+   "id": "a1-you.1",
    "act": "act1",
-   "scene": "a1-peak",
-   "text": "It peaked at 18.63% in 1981.",
+   "scene": "a1-you",
+   "text": "And if your own rate starts with a 7, the question is yours as well.",
    "claims": [
-    "peak",
-    "y1981"
+    "seven"
    ]
-  },
-  {
-   "id": "a1-low.1",
-   "act": "act1",
-   "scene": "a1-low",
-   "text": "It bottomed at 2.65% in 2021.",
-   "claims": [
-    "low",
-    "y2021"
-   ]
-  },
-  {
-   "id": "a1-drops.1",
-   "act": "act1",
-   "scene": "a1-drops",
-   "text": "Every fall in that line is a moment when homeowners asked the same question.",
-   "claims": []
   },
   {
    "id": "a1-q.1",
    "act": "act1",
    "scene": "a1-q",
-   "text": "First question, then: what does a refinance actually cost?",
+   "text": "First: is Maya's bill unusual?",
    "claims": []
+  },
+  {
+   "id": "a1-median.1",
+   "act": "act1",
+   "scene": "a1-median",
+   "text": "No. In 2025, the median closing cost on a rate-and-term refinance was $5,124.",
+   "claims": [
+    "y2025",
+    "cost_maya"
+   ]
   },
   {
    "id": "a1-hmda.1",
    "act": "act1",
    "scene": "a1-hmda",
-   "text": "Lenders report it for every loan they make, under the Home Mortgage Disclosure Act, as total loan costs.",
-   "claims": []
-  },
-  {
-   "id": "a1-terms.1",
-   "act": "act1",
-   "scene": "a1-terms",
-   "text": "Those are the closing costs: origination charges, discount points, the appraisal, title insurance, and the rest.",
-   "claims": []
-  },
-  {
-   "id": "a1-points.1",
-   "act": "act1",
-   "scene": "a1-points",
-   "text": "Discount points are optional: paying more at closing buys a lower rate, so part of that bill is a choice.",
-   "claims": []
-  },
-  {
-   "id": "a1-cashout.1",
-   "act": "act1",
-   "scene": "a1-cashout",
-   "text": "Cash-out refinances, which also take equity out of the house, cost more: a median of $8,655. This film keeps to refinances that change only the rate and the term.",
+   "text": "Lenders must report every mortgage they make, and since 2018, the total loan costs of each one.",
    "claims": [
-    "cost_med_co"
+    "y2018"
    ]
   },
   {
    "id": "a1-count.1",
    "act": "act1",
    "scene": "a1-count",
-   "text": "In 2025, lenders reported 488,241 of those, into 30-year first mortgages.",
+   "text": "That is the middle of 488,241 such loans that lenders reported under the Home Mortgage Disclosure Act.",
    "claims": [
-    "y2025",
-    "n31",
-    "term30"
-   ]
-  },
-  {
-   "id": "a1-median.1",
-   "act": "act1",
-   "scene": "a1-median",
-   "text": "In nominal dollars, the median one cost $5,124.",
-   "claims": [
-    "cost_med"
+    "n31"
    ]
   },
   {
    "id": "a1-spread.1",
    "act": "act1",
    "scene": "a1-spread",
-   "text": "The middle half paid between $3,443 and $8,270.",
+   "text": "Half of those borrowers paid between $3,443 and $8,270.",
    "claims": [
     "cost_p25",
     "cost_p75"
    ]
   },
   {
-   "id": "a1-boom.1",
+   "id": "a1-terms.1",
    "act": "act1",
-   "scene": "a1-boom",
-   "text": "The count follows the rate. In 2021, near the bottom, lenders reported 3,089,298 of them.",
-   "claims": [
-    "y2021",
-    "n31_2021"
-   ]
-  },
-  {
-   "id": "a1-boomcost.1",
-   "act": "act1",
-   "scene": "a1-boomcost",
-   "text": "Their median bill that year was $3,406.",
-   "claims": [
-    "cost_med_2021"
-   ]
+   "scene": "a1-terms",
+   "text": "The bill is the closing costs: origination charges, discount points, the appraisal, title insurance, and the rest.",
+   "claims": []
   },
   {
    "id": "a1-turn.1",
    "act": "act1",
    "scene": "a1-turn",
-   "text": "But the dollar figure hides the real pattern. The bill barely grows with the size of the loan.",
+   "text": "But that bill barely grows with the loan, so it lands much harder on some borrowers than on others.",
    "claims": []
   },
   {
-   "id": "a1-small.1",
+   "id": "a1-dan.1",
    "act": "act1",
-   "scene": "a1-small",
-   "text": "On loans under $150,000, the median cost was 3.4% of the amount borrowed.",
+   "scene": "a1-dan",
+   "text": "Take Dan, who borrowed $115,000 in the same month, at the same rate.",
+   "claims": [
+    "loan_dan"
+   ]
+  },
+  {
+   "id": "a1-dan2.1",
+   "act": "act1",
+   "scene": "a1-dan2",
+   "text": "On loans under $150,000, the median bill was 3.4% of the amount borrowed.",
    "claims": [
     "band150",
     "share_small"
    ]
   },
   {
-   "id": "a1-big.1",
+   "id": "a1-dan3.1",
    "act": "act1",
-   "scene": "a1-big",
-   "text": "On loans of $750,000 and more, it was 0.5%.",
+   "scene": "a1-dan3",
+   "text": "For Dan, that is $3,667: fewer dollars than Maya, but a far larger share of his loan.",
+   "claims": [
+    "cost_dan"
+   ]
+  },
+  {
+   "id": "a1-priya.1",
+   "act": "act1",
+   "scene": "a1-priya",
+   "text": "Priya borrowed $1,005,000.",
+   "claims": [
+    "loan_priya"
+   ]
+  },
+  {
+   "id": "a1-priya2.1",
+   "act": "act1",
+   "scene": "a1-priya2",
+   "text": "On loans of $750,000 and more, the bill was 0.5%.",
    "claims": [
     "band750",
     "share_big"
    ]
   },
   {
-   "id": "a1-keep.1",
+   "id": "a1-priya3.1",
    "act": "act1",
-   "scene": "a1-keep",
-   "text": "So the same cut in rate repays a large loan faster than a small one. Keep that in mind; it comes back.",
-   "claims": []
+   "scene": "a1-priya3",
+   "text": "For Priya, that is $5,034: about Maya's bill, on a loan nearly three times the size.",
+   "claims": [
+    "cost_priya"
+   ]
+  },
+  {
+   "id": "a1-save.1",
+   "act": "act1",
+   "scene": "a1-save",
+   "text": "What the bill buys is a lower payment. At today's rate, Maya's payment falls by $221 a month.",
+   "claims": [
+    "sav_maya"
+   ]
   },
   {
    "id": "a1-rule.1",
    "act": "act1",
    "scene": "a1-rule",
-   "text": "Paying the bill back is simple division: the closing costs, divided by the drop in the monthly payment.",
-   "claims": []
+   "text": "Divide the bill by that saving, and you get the answer most calculators give: 24 months.",
+   "claims": [
+    "be_simple_maya"
+   ]
   },
   {
    "id": "a1-payoff.1",
    "act": "act1",
    "scene": "a1-payoff",
-   "text": "The answer is the break-even: the month when the savings have covered the bill.",
-   "claims": []
-  },
-  {
-   "id": "a1-after.1",
-   "act": "act1",
-   "scene": "a1-after",
-   "text": "Before that month, the refinance is still in the red. After it, every payment is money kept.",
+   "text": "By that count, the refinance has paid for itself. Or has it?",
    "claims": []
   },
   {
    "id": "a2-q.1",
    "act": "act2",
    "scene": "a2-q",
-   "text": "Now the main question: how big does the drop have to be?",
+   "text": "Here is what that division leaves out.",
    "claims": []
-  },
-  {
-   "id": "a2-loan.1",
-   "act": "act2",
-   "scene": "a2-loan",
-   "text": "Take the median refinance: a balance of $375,000, and $5,124 to close.",
-   "claims": [
-    "loan_med",
-    "cost_med"
-   ]
   },
   {
    "id": "a2-old.1",
    "act": "act2",
    "scene": "a2-old",
-   "text": "Say the old loan carries 7.62%, the average rate in the month the last big drop began, October 2023.",
+   "text": "Maya's old loan already has 35 payments behind it.",
    "claims": [
-    "r_old",
-    "oct2023"
+    "k35"
    ]
+  },
+  {
+   "id": "a2-reset.1",
+   "act": "act2",
+   "scene": "a2-reset",
+   "text": "A refinance starts a fresh 30 years, so the new loan pays the balance down more slowly than the old one would have.",
+   "claims": [
+    "term30"
+   ]
+  },
+  {
+   "id": "a2-why.1",
+   "act": "act2",
+   "scene": "a2-why",
+   "text": "Early payments are mostly interest. Maya's old loan was just starting to pay down real principal, and the new one starts that schedule over.",
+   "claims": []
+  },
+  {
+   "id": "a2-owe.1",
+   "act": "act2",
+   "scene": "a2-owe",
+   "text": "So count what she still owes on each loan, month by month.",
+   "claims": []
+  },
+  {
+   "id": "a2-gap.1",
+   "act": "act2",
+   "scene": "a2-gap",
+   "text": "After 24 months, the new loan leaves her owing $1,133 more than the old one would have.",
+   "claims": [
+    "be_simple_maya",
+    "gap24"
+   ]
+  },
+  {
+   "id": "a2-real.1",
+   "act": "act2",
+   "scene": "a2-real",
+   "text": "So, counting what she still owes, break-even is not 24 months. It is 30.",
+   "claims": [
+    "be_simple_maya",
+    "be_bal_maya"
+   ]
+  },
+  {
+   "id": "a2-thesis.1",
+   "act": "act2",
+   "scene": "a2-thesis",
+   "text": "Most calculators stop at the monthly saving. The balance keeps the score for longer.",
+   "claims": []
+  },
+  {
+   "id": "a2-small.1",
+   "act": "act2",
+   "scene": "a2-small",
+   "text": "The smaller the cut, the bigger that gap.",
+   "claims": []
   },
   {
    "id": "a2-s025.1",
    "act": "act2",
    "scene": "a2-s025",
-   "text": "Cut the rate by 0.25 points, and the payment falls by $64 a month.",
+   "text": "At a cut of 0.25 points, the division would promise 38 months.",
    "claims": [
     "s025",
-    "sav025"
+    "be_simple_025"
    ]
   },
   {
-   "id": "a2-be025.1",
+   "id": "a2-s025b.1",
    "act": "act2",
-   "scene": "a2-be025",
-   "text": "At that pace, the bill takes 80 months to come back.",
-   "claims": [
-    "be025"
-   ]
-  },
-  {
-   "id": "a2-s05.1",
-   "act": "act2",
-   "scene": "a2-s05",
-   "text": "Double the cut to 0.5 points, and the payment falls by $128 a month.",
-   "claims": [
-    "s05",
-    "sav05"
-   ]
-  },
-  {
-   "id": "a2-be05.1",
-   "act": "act2",
-   "scene": "a2-be05",
-   "text": "Break-even arrives in 41 months.",
-   "claims": [
-    "be05"
-   ]
-  },
-  {
-   "id": "a2-s10.1",
-   "act": "act2",
-   "scene": "a2-s10",
-   "text": "A cut of 1 point saves $253 a month.",
-   "claims": [
-    "s10",
-    "sav10"
-   ]
-  },
-  {
-   "id": "a2-be10.1",
-   "act": "act2",
-   "scene": "a2-be10",
-   "text": "That pays back the bill in 21 months.",
-   "claims": [
-    "be10"
-   ]
-  },
-  {
-   "id": "a2-s20.1",
-   "act": "act2",
-   "scene": "a2-s20",
-   "text": "2 points pay back in 11 months, well inside a year.",
-   "claims": [
-    "s20",
-    "be20"
-   ]
-  },
-  {
-   "id": "a2-curve.1",
-   "act": "act2",
-   "scene": "a2-curve",
-   "text": "Look at the shape of that curve. It is not a straight line.",
+   "scene": "a2-s025b",
+   "text": "Counting the balance, Maya never catches up before her old loan would have been paid off.",
    "claims": []
   },
   {
    "id": "a2-cliff.1",
    "act": "act2",
    "scene": "a2-cliff",
-   "text": "Below 0.5 points it climbs steeply: each smaller cut adds years, not months.",
+   "text": "Below 0.5 points, the fresh start can swallow the savings entirely.",
    "claims": [
     "s05"
    ]
   },
   {
-   "id": "a2-thumb.1",
+   "id": "a2-s10.1",
    "act": "act2",
-   "scene": "a2-thumb",
-   "text": "That is where the common rule of thumb about a full point comes from: for this loan, 1 point pays back in 21 months, 0.5 points in 41.",
+   "scene": "a2-s10",
+   "text": "At a cut of 1 point, the two answers nearly meet.",
    "claims": [
-    "s10",
-    "be10",
-    "s05",
-    "be05"
+    "s10"
    ]
   },
   {
-   "id": "a2-turn.1",
+   "id": "a2-s10b.1",
    "act": "act2",
-   "scene": "a2-turn",
-   "text": "But remember the pattern in the costs, and move the same question to a different loan.",
-   "claims": []
-  },
-  {
-   "id": "a2-mid.1",
-   "act": "act2",
-   "scene": "a2-mid",
-   "text": "To break even within 36 months, the median loan needs a cut of 0.56 points.",
+   "scene": "a2-s10b",
+   "text": "The division says 16 months; the balance says 18.",
    "claims": [
-    "hold36",
-    "sp36_mid"
+    "be_simple_10",
+    "be_bal_10"
    ]
   },
   {
-   "id": "a2-small.1",
+   "id": "a2-dan.1",
    "act": "act2",
-   "scene": "a2-small",
-   "text": "A loan under $150,000 needs 1.32 points, because its bill is a bigger share of the balance.",
+   "scene": "a2-dan",
+   "text": "Now Dan. At today's rate, his payment falls by only $68 a month.",
    "claims": [
-    "band150",
-    "sp36_small"
+    "sav_dan"
    ]
   },
   {
-   "id": "a2-big.1",
+   "id": "a2-dan2.1",
    "act": "act2",
-   "scene": "a2-big",
-   "text": "A loan of $750,000 or more needs only 0.2.",
+   "scene": "a2-dan2",
+   "text": "The division says 55 months. Counting what he still owes, it is 75.",
    "claims": [
-    "band750",
-    "sp36_big"
+    "be_simple_dan",
+    "be_bal_dan"
    ]
   },
   {
-   "id": "a2-hold60.1",
+   "id": "a2-dan3.1",
    "act": "act2",
-   "scene": "a2-hold60",
-   "text": "Give the median loan 60 months instead, and 0.33 points is enough.",
+   "scene": "a2-dan3",
+   "text": "If Dan sells after 3 years, the refinance leaves him $1,777 behind.",
    "claims": [
-    "hold60",
-    "sp60_mid"
+    "y3",
+    "net36_dan"
    ]
   },
   {
-   "id": "a2-hold84.1",
+   "id": "a2-dan4.1",
    "act": "act2",
-   "scene": "a2-hold84",
-   "text": "Give it 84 months, and it needs 0.24.",
+   "scene": "a2-dan4",
+   "text": "After 7 years, he is only $386 ahead.",
    "claims": [
-    "hold84",
-    "sp84_mid"
+    "y7",
+    "net84_dan"
    ]
   },
   {
-   "id": "a2-flip.1",
+   "id": "a2-priya.1",
    "act": "act2",
-   "scene": "a2-flip",
-   "text": "Read each of those as a flip point: below it, the bill outlasts the stay; above it, the savings win.",
+   "scene": "a2-priya",
+   "text": "Priya saves $593 a month, and is even after 11 months.",
+   "claims": [
+    "sav_priya",
+    "be_bal_priya"
+   ]
+  },
+  {
+   "id": "a2-priya2.1",
+   "act": "act2",
+   "scene": "a2-priya2",
+   "text": "If she sells after 3 years, she is $11,482 ahead; after 7, $30,387.",
+   "claims": [
+    "y3",
+    "net36_priya",
+    "y7",
+    "net84_priya"
+   ]
+  },
+  {
+   "id": "a2-maya.1",
+   "act": "act2",
+   "scene": "a2-maya",
+   "text": "And Maya, the middle case: $1,039 ahead after 3 years, $8,093 after 7.",
+   "claims": [
+    "net36_maya",
+    "y3",
+    "net84_maya",
+    "y7"
+   ]
+  },
+  {
+   "id": "a2-sell.1",
+   "act": "act2",
+   "scene": "a2-sell",
+   "text": "Put another way: a house sold before the break-even month turns the refinance into a loss, and one kept past it turns it into a gain.",
    "claims": []
   },
   {
    "id": "a2-payoff.1",
    "act": "act2",
    "scene": "a2-payoff",
-   "text": "So there is no single threshold. The drop that pays back depends on two things: how big the loan is, and how long it is kept.",
-   "claims": []
-  },
-  {
-   "id": "a2-hold.1",
-   "act": "act2",
-   "scene": "a2-hold",
-   "text": "And how long it is kept is the one number no dataset can supply.",
-   "claims": []
-  },
-  {
-   "id": "a2-reset.1",
-   "act": "act2",
-   "scene": "a2-reset",
-   "text": "One more cost hides inside the new loan. It starts a fresh 30 years, so the last payment moves further away, even when each payment is smaller.",
-   "claims": [
-    "term30"
-   ]
-  },
-  {
-   "id": "a2-reset2.1",
-   "act": "act2",
-   "scene": "a2-reset2",
-   "text": "The simple division ignores that. It answers only the first question: when do the savings cover the bill?",
+   "text": "Same rate, same month. The answer depends on the size of the loan, how old it is, and how long the house is kept.",
    "claims": []
   },
   {
    "id": "a3-q.1",
    "act": "act3",
    "scene": "a3-q",
-   "text": "The division assumes the new rate is the last one. What happened in the real drops?",
+   "text": "The division also assumes today's rate is the last one. What happened in the real drops?",
    "claims": []
   },
   {
@@ -461,7 +446,7 @@
    "id": "a3-rules.1",
    "act": "act3",
    "scene": "a3-rules",
-   "text": "In each, a borrower who took a loan at the peak refinances in the first month the rate is 1 point lower.",
+   "text": "In each, someone like Maya borrows at the peak and refinances in the first month the rate is 1 point lower.",
    "claims": [
     "s10"
    ]
@@ -470,78 +455,84 @@
    "id": "a3-costs.1",
    "act": "act3",
    "scene": "a3-costs",
-   "text": "Closing costs use the median share for that year; before 2018, lenders did not report them, so a fixed share is used and marked illustrative.",
+   "text": "Closing costs use each year's median share; before 2018, lenders did not report them, so a fixed share is used and marked illustrative.",
    "claims": [
     "y2018"
-   ]
-  },
-  {
-   "id": "a3-80s.1",
-   "act": "act3",
-   "scene": "a3-80s",
-   "text": "The steepest falls came in the early 1980s.",
-   "claims": [
-    "y1980s"
-   ]
-  },
-  {
-   "id": "a3-81.1",
-   "act": "act3",
-   "scene": "a3-81",
-   "text": "After the peak of 1981, the first cut of 1 point came 2 months later.",
-   "claims": [
-    "y1981",
-    "s10",
-    "m81"
-   ]
-  },
-  {
-   "id": "a3-81be.1",
-   "act": "act3",
-   "scene": "a3-81be",
-   "text": "It paid back in 13 months, but the slide went on, and the next point came 9 months after the refinance.",
-   "claims": [
-    "be81",
-    "g81"
-   ]
-  },
-  {
-   "id": "a3-short.1",
-   "act": "act3",
-   "scene": "a3-short",
-   "text": "Some drops were brief. The fall that began in 1987 lasted 4 months, and the refinance came at its very bottom.",
-   "claims": [
-    "y1987",
-    "d87"
-   ]
-  },
-  {
-   "id": "a3-06.1",
-   "act": "act3",
-   "scene": "a3-06",
-   "text": "The drop that began in 2006 was slower. The refinance came in January 2008, and it had paid for itself before the next point arrived.",
-   "claims": [
-    "y2006",
-    "r06"
    ]
   },
   {
    "id": "a3-range.1",
    "act": "act3",
    "scene": "a3-range",
-   "text": "At a cut of 1 point, break-even took between 10 and 21 months across all 13 drops.",
+   "text": "Counting what was still owed, break-even took between 10 and 20 months.",
    "claims": [
-    "s10",
     "beh_min",
-    "beh_max",
-    "n_eps"
+    "beh_max"
+   ]
+  },
+  {
+   "id": "a3-simple.1",
+   "act": "act3",
+   "scene": "a3-simple",
+   "text": "The simple division would have said between 10 and 21.",
+   "claims": [
+    "behs_min",
+    "behs_max"
+   ]
+  },
+  {
+   "id": "a3-young.1",
+   "act": "act3",
+   "scene": "a3-young",
+   "text": "Nearly the same, because those loans were only months old when the rate fell, so the fresh start cost them little. Maya's loan is 35 payments old.",
+   "claims": [
+    "k35"
+   ]
+  },
+  {
+   "id": "a3-81.1",
+   "act": "act3",
+   "scene": "a3-81",
+   "text": "The biggest fall began after the peak of 18.63% in 1981.",
+   "claims": [
+    "peak",
+    "y1981"
+   ]
+  },
+  {
+   "id": "a3-81b.1",
+   "act": "act3",
+   "scene": "a3-81b",
+   "text": "A refinance 2 months later paid back in 13 months, and the rate kept falling.",
+   "claims": [
+    "m81",
+    "be81"
+   ]
+  },
+  {
+   "id": "a3-priya.1",
+   "act": "act3",
+   "scene": "a3-priya",
+   "text": "For Priya's loan size, every one of those drops paid back within 6 months.",
+   "claims": [
+    "behp_max"
+   ]
+  },
+  {
+   "id": "a3-dan.1",
+   "act": "act3",
+   "scene": "a3-dan",
+   "text": "For a loan like Dan's, with the bill a bigger share, the same drops took between 18 and 39 months.",
+   "claims": [
+    "behd_min",
+    "behd_max"
    ]
   },
   {
    "id": "a3-turn.1",
    "act": "act3",
    "scene": "a3-turn",
-   "text": "But in 5 of them, the rate kept falling: another drop of 1 point before the first refinance had paid for itself.",
+   "text": "But in 3 of those drops, the rate fell another 1 point before the first refinance had paid for itself.",
    "claims": [
     "n_further",
     "s10"
@@ -558,7 +549,7 @@
    "id": "a3-example.1",
    "act": "act3",
    "scene": "a3-example",
-   "text": "In the drop that began in November 2018, the refinance came in June 2019.",
+   "text": "In the drop that began in July 1984, the refinance came in November 1984.",
    "claims": [
     "ex_peak",
     "ex_refi"
@@ -568,7 +559,7 @@
    "id": "a3-example2.1",
    "act": "act3",
    "scene": "a3-example2",
-   "text": "It needed 18 months to break even, and the next drop of 1 point came only 17 months later.",
+   "text": "It needed 19 months to pay back, and the next drop of 1 point came 7 months later.",
    "claims": [
     "ex_be",
     "s10",
@@ -579,7 +570,7 @@
    "id": "a3-quiet.1",
    "act": "act3",
    "scene": "a3-quiet",
-   "text": "In the other 8, the first refinance was the one that mattered.",
+   "text": "In the other 10, the first refinance was the one that mattered.",
    "claims": [
     "n_nofurther"
    ]
@@ -588,7 +579,7 @@
    "id": "a3-23.1",
    "act": "act3",
    "scene": "a3-23",
-   "text": "The latest drop began in October 2023. The cut of 1 point arrived in August 2024.",
+   "text": "Maya's own drop began in October 2023. A cut of 1 point first arrived in August 2024.",
    "claims": [
     "oct2023",
     "s10",
@@ -599,7 +590,7 @@
    "id": "a3-23be.1",
    "act": "act3",
    "scene": "a3-23be",
-   "text": "At that year's median cost, it paid back in 21 months.",
+   "text": "Refinancing then would have paid back in 19 months.",
    "claims": [
     "be23"
    ]
@@ -615,30 +606,38 @@
    "id": "a3-answer2.1",
    "act": "act3",
    "scene": "a3-answer2",
-   "text": "For the median loan and median costs, a cut that repays it within 36 months is 0.56 points.",
+   "text": "For a loan like Maya's, counting what is still owed, a cut of 0.5 points pays it back within 36 months.",
    "claims": [
-    "hold36",
-    "sp36_mid"
+    "cut36_maya",
+    "hold36"
    ]
   },
   {
    "id": "a3-answer3.1",
    "act": "act3",
    "scene": "a3-answer3",
-   "text": "Half as much patience asks for more: to pay back in 21 months takes 1 point.",
+   "text": "Dan would need 1.12 points. Priya, 0.2.",
    "claims": [
-    "be10",
-    "s10"
+    "cut36_dan",
+    "cut36_priya"
+   ]
+  },
+  {
+   "id": "a3-today.1",
+   "act": "act3",
+   "scene": "a3-today",
+   "text": "Today's cut is 0.59 points. For Maya, that means ahead after 30 months, and behind if the house is sold before then.",
+   "claims": [
+    "cut_today",
+    "be_bal_maya"
    ]
   },
   {
    "id": "a3-limit.1",
    "act": "act3",
    "scene": "a3-limit",
-   "text": "That answer has limits. It counts payment savings only: no taxes, no return on the cash, and a new 30-year loan restarts the clock on owning the house outright.",
-   "claims": [
-    "term30"
-   ]
+   "text": "That answer has limits. It leaves out taxes and any return on the cash, and it assumes the bill is paid up front, not added to the loan.",
+   "claims": []
   },
   {
    "id": "a3-median.1",
@@ -646,7 +645,7 @@
    "scene": "a3-median",
    "text": "It uses medians: half of borrowers paid more than $5,124, and an offered rate can differ from the survey average.",
    "claims": [
-    "cost_med"
+    "cost_maya"
    ]
   },
   {
@@ -660,7 +659,7 @@
    "id": "a3-close.1",
    "act": "act3",
    "scene": "a3-close",
-   "text": "What history does show is the shape of the trade: a known bill up front, against savings that arrive one month at a time, for as long as the loan lasts.",
+   "text": "What history does show is the shape of the trade: a known bill up front, against savings and a balance that settle month by month.",
    "claims": []
   },
   {
@@ -694,31 +693,40 @@
    ]
   },
   {
+   "id": "m-chars.1",
+   "act": "method",
+   "scene": "m-chars",
+   "text": "Maya, Dan and Priya are illustrative: each one's loan and bill are the medians for that loan size.",
+   "claims": []
+  },
+  {
    "id": "m-assume.1",
    "act": "method",
    "scene": "m-assume",
-   "text": "Closing costs are paid in cash, with no taxes and no discounting. Every figure and formula is listed in the description.",
+   "text": "Break-even counts payment savings plus the difference in balance still owed. Closing costs paid in cash; no taxes. Every figure is listed in the description.",
    "claims": []
   },
   {
    "id": "o-recap.1",
    "act": "outro",
    "scene": "o-recap",
-   "text": "A small cut needs a long stay. A large loan needs a smaller cut. And a falling rate can make the first refinance too early.",
+   "text": "A small cut needs a long stay. A small loan needs a bigger cut. And a young loan loses less to the fresh start.",
    "claims": []
+  },
+  {
+   "id": "o-you.1",
+   "act": "outro",
+   "scene": "o-you",
+   "text": "If the rate on your own statement starts with a 7, the same three questions apply: how big the cut, how old the loan, and how long the stay.",
+   "claims": [
+    "seven"
+   ]
   },
   {
    "id": "o-close.1",
    "act": "outro",
    "scene": "o-close",
-   "text": "The break-even is simple division. The hard part is the number only the borrower knows: how long the loan will be kept.",
-   "claims": []
-  },
-  {
-   "id": "o-bill.1",
-   "act": "outro",
-   "scene": "o-bill",
-   "text": "The bill is known the day the loan closes. The savings arrive one month at a time.",
+   "text": "The monthly saving is only half of the answer. The other half, just as real, is what is still owed.",
    "claims": []
   },
   {
@@ -731,14 +739,21 @@
  ],
  "check": {
   "sentences": 83,
-  "words": 1334,
-  "estSpeechSeconds": 516.4,
-  "newNumbers": 59,
-  "scenesOver2New": {},
-  "sentenceLengthCV": 0.371,
-  "claims": 62,
+  "words": 1271,
+  "estSpeechSeconds": 492.0,
+  "newNumbers": 69,
+  "scenesOver2New": {
+   "a1-maya": [
+    "loan_maya",
+    "oct2023",
+    "term30"
+   ]
+  },
+  "sentenceLengthCV": 0.399,
+  "claims": 73,
   "unusedClaims": [
-   "sav20"
+   "be_simple_priya",
+   "low"
   ]
  }
 }

@@ -2,43 +2,55 @@
  "shots": [
   {
    "id": "sh001",
-   "scene": "co-bars",
-   "layout": "bars/payments",
+   "scene": "co-maya",
+   "layout": "person/maya",
+   "size": "close",
+   "move": "push-in 1.2 s",
+   "moveReason": "come close to one household before any chart",
+   "picture": "Maya's card, shown before the first word: a house icon, loan $375,000; rate 7.62% lands on the word (ILLUSTRATIVE badge); October 2023 is said in act 1",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "sh002",
+   "scene": "co-today",
+   "layout": "line/today",
    "size": "medium",
+   "move": "track right 1.4 s",
+   "moveReason": "from her month to this week along the rate line",
+   "picture": "rate line Oct 2023 -> this week; today's dot 7.03%",
+   "sonify": [
+    "line",
+    "dot"
+   ]
+  },
+  {
+   "id": "sh003",
+   "scene": "co-cost",
+   "layout": "stack/bill",
+   "size": "close",
    "move": "none",
-   "moveReason": "hold still: the eye must read the two bar heights",
-   "picture": "two monthly-payment bars side by side; the right one drops",
+   "moveReason": "the bill lands beside her card",
+   "picture": "closing-cost bill $5,124 drops next to Maya's card",
    "sonify": [
     "bar"
    ]
   },
   {
-   "id": "sh002",
-   "scene": "co-bill",
-   "layout": "stack/bill",
-   "size": "close",
-   "move": "push-in 1.2 s",
-   "moveReason": "close in on the closing-cost bill as it lands",
-   "picture": "a stack (the closing-cost bill) drops beside the bars; coins start moving from the bar gap to the stack",
-   "sonify": [
-    "bar",
-    "counter"
-   ]
-  },
-  {
-   "id": "sh003",
+   "id": "sh004",
    "scene": "co-question",
    "layout": "title/question",
    "size": "wide",
    "move": "pull-out 1.4 s",
    "moveReason": "reveal the empty month counter under the question",
-   "picture": "question text; below it a month counter at 0 and an empty progress rail",
+   "picture": "question \"When does that money come back?\"; month counter at 0",
    "sonify": [
     "counter"
    ]
   },
   {
-   "id": "sh004",
+   "id": "sh005",
    "scene": "ident",
    "layout": "ident/logo",
    "size": "wide",
@@ -48,17 +60,17 @@
    "sonify": []
   },
   {
-   "id": "sh005",
+   "id": "sh006",
    "scene": "a1-lab",
    "layout": "title/lab",
    "size": "wide",
    "move": "drift 8 px/s",
    "moveReason": "slow drift keeps the title card alive",
-   "picture": "lab card: data -> model -> number, three icons",
+   "picture": "lab card: data -> model -> number",
    "sonify": []
   },
   {
-   "id": "sh006",
+   "id": "sh007",
    "scene": "a1-scope",
    "layout": "title/scope",
    "size": "medium",
@@ -68,556 +80,505 @@
    "sonify": []
   },
   {
-   "id": "sh007",
+   "id": "sh008",
    "scene": "a1-rehook",
    "layout": "ruler/rehook",
    "size": "medium",
    "move": "track right 1.5 s",
-   "moveReason": "follow the marker along the ruler to the 36-month line",
-   "picture": "ONE object: a horizontal ruler of rate cut (0 to 2 points); a marker sweeps it and one \"?\" hangs over it, the answer is not placed until act 3 (hold36 ILLUSTRATIVE badge); 13 small ticks under the ruler = the drops since 1971",
+   "moveReason": "the marker sweeps the ruler; the answer is not placed yet",
+   "picture": "ONE object: a ruler of rate cut (0 to 2 points) with Maya's card at its left end; a marker sweeps it and one \"?\" hangs over the 36-month line (ILLUSTRATIVE badge); 13 ticks under it = every drop since 1971",
    "sonify": [
     "dot"
    ]
   },
   {
-   "id": "sh008",
-   "scene": "a1-rates",
-   "layout": "line/history",
-   "size": "wide",
-   "move": "push-in 1.5 s",
-   "moveReason": "bring the viewer onto the rate line as it starts to draw",
-   "picture": "weekly 30-year rate 1971-2026 draws left to right",
-   "sonify": [
-    "line"
-   ]
-  },
-  {
    "id": "sh009",
-   "scene": "a1-peak",
-   "layout": "line/peak",
+   "scene": "a1-maya",
+   "layout": "person/maya2",
    "size": "medium",
-   "move": "track to peak 1.3 s",
-   "moveReason": "go to the maximum the line names",
-   "picture": "peak dot 18.63% (1981)",
+   "move": "none",
+   "moveReason": "Maya's card again, now with the month on the rate line",
+   "picture": "Maya's card beside the October 2023 peak of the rate line",
    "sonify": [
     "dot"
    ]
   },
   {
    "id": "sh010",
-   "scene": "a1-low",
-   "layout": "line/low",
+   "scene": "a1-you",
+   "layout": "person/you",
    "size": "medium",
-   "move": "track to low 1.4 s",
-   "moveReason": "travel along the line to its minimum",
-   "picture": "low dot 2.65% (2021)",
-   "sonify": [
-    "dot"
-   ]
+   "move": "push-in 1.2 s",
+   "moveReason": "turn the question to the viewer",
+   "picture": "a blank statement with a rate field \"7.__%\" next to Maya's",
+   "sonify": []
   },
   {
    "id": "sh011",
-   "scene": "a1-drops",
-   "layout": "line/drops",
-   "size": "wide",
-   "move": "pull-out 1.5 s",
-   "moveReason": "show the whole line again to count the falls",
-   "picture": "13 falling segments highlight one after another",
-   "sonify": [
-    "line"
-   ]
-  },
-  {
-   "id": "sh012",
    "scene": "a1-q",
    "layout": "title/act1",
    "size": "wide",
    "move": "none",
    "moveReason": "hold on the act question",
-   "picture": "act 1 question card",
+   "picture": "act 1 question: is Maya's bill unusual?",
    "sonify": []
+  },
+  {
+   "id": "sh012",
+   "scene": "a1-median",
+   "layout": "hist/median",
+   "size": "medium",
+   "move": "push-in 1.3 s",
+   "moveReason": "land on the median line",
+   "picture": "the middle half of 2025 bills; the median line reaches Maya's bill",
+   "sonify": [
+    "bar",
+    "dot"
+   ]
   },
   {
    "id": "sh013",
    "scene": "a1-hmda",
    "layout": "ledger/hmda",
    "size": "medium",
-   "move": "push-in 1.2 s",
-   "moveReason": "approach the disclosure record",
-   "picture": "one loan record card with the field \"total loan costs\" highlighted",
+   "move": "none",
+   "moveReason": "hold on the disclosure record",
+   "picture": "one loan record, field \"total loan costs\" highlighted",
    "sonify": []
   },
   {
    "id": "sh014",
-   "scene": "a1-terms",
-   "layout": "stack/parts",
-   "size": "close",
-   "move": "tilt down 1.2 s",
-   "moveReason": "read the stack from top to bottom",
-   "picture": "the bill splits into labelled layers: origination, points, appraisal, title, other",
-   "sonify": [
-    "bar"
-   ]
-  },
-  {
-   "id": "sh015",
-   "scene": "a1-points",
-   "layout": "stack/points",
-   "size": "close",
-   "move": "none",
-   "moveReason": "hold: the points layer detaches",
-   "picture": "the points layer slides out (optional)",
-   "sonify": [
-    "bar"
-   ]
-  },
-  {
-   "id": "sh016",
-   "scene": "a1-cashout",
-   "layout": "bars/cashout",
-   "size": "medium",
-   "move": "track left 1.2 s",
-   "moveReason": "move from the cash-out bar back to the rate-and-term bar",
-   "picture": "two median bars: cash-out vs rate-and-term",
-   "sonify": [
-    "bar"
-   ]
-  },
-  {
-   "id": "sh017",
    "scene": "a1-count",
    "layout": "ledger/count",
    "size": "medium",
    "move": "none",
-   "moveReason": "hold on the count",
+   "moveReason": "hold while the count rolls",
    "picture": "counter rolls to 488,241",
    "sonify": [
     "counter"
    ]
   },
   {
-   "id": "sh018",
-   "scene": "a1-median",
-   "layout": "hist/median",
-   "size": "medium",
-   "move": "push-in 1.3 s",
-   "moveReason": "land on the median line of the distribution",
-   "picture": "distribution of total loan costs; median line $5,124",
-   "sonify": [
-    "bar",
-    "dot"
-   ]
-  },
-  {
-   "id": "sh019",
+   "id": "sh015",
    "scene": "a1-spread",
    "layout": "hist/iqr",
    "size": "medium",
    "move": "none",
-   "moveReason": "hold: the middle-half band spreads from the median",
+   "moveReason": "hold: the band opens from the median",
    "picture": "IQR band $3,443-$8,270 opens",
    "sonify": [
     "bar"
    ]
   },
   {
-   "id": "sh020",
-   "scene": "a1-boom",
-   "layout": "line/count",
+   "id": "sh016",
+   "scene": "a1-terms",
+   "layout": "stack/parts",
+   "size": "close",
+   "move": "tilt down 1.2 s",
+   "moveReason": "read the bill top to bottom",
+   "picture": "the bill splits into labelled layers",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "sh017",
+   "scene": "a1-turn",
+   "layout": "bands/intro",
    "size": "wide",
-   "move": "pull-out 1.4 s",
-   "moveReason": "widen to the yearly counts 2018-2025",
-   "picture": "yearly refinance counts as bars, 2021 towers",
+   "move": "push-in 1.2 s",
+   "moveReason": "move into the loan-size bands",
+   "picture": "three cards: Dan (left, amber), Maya (centre), Priya (right, blue)",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "sh018",
+   "scene": "a1-dan",
+   "layout": "person/dan",
+   "size": "medium",
+   "move": "track left 1.3 s",
+   "moveReason": "go to Dan",
+   "picture": "Dan's card: $115,000, same month, same rate (ILLUSTRATIVE)",
+   "sonify": []
+  },
+  {
+   "id": "sh019",
+   "scene": "a1-dan2",
+   "layout": "bands/small",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "hold on his band",
+   "picture": "band \"under $150,000\": 3.4% of the loan",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "sh020",
+   "scene": "a1-dan3",
+   "layout": "stack/dan",
+   "size": "close",
+   "move": "push-in 1.2 s",
+   "moveReason": "his bill against his loan",
+   "picture": "Dan's bill $3,667 as a slice of his loan column",
    "sonify": [
     "bar"
    ]
   },
   {
    "id": "sh021",
-   "scene": "a1-boomcost",
-   "layout": "ledger/2021",
+   "scene": "a1-priya",
+   "layout": "person/priya",
    "size": "medium",
-   "move": "none",
-   "moveReason": "hold on the 2021 median",
-   "picture": "2021 median bill next to its bar",
-   "sonify": [
-    "counter"
-   ]
+   "move": "track right 1.6 s",
+   "moveReason": "cross to Priya",
+   "picture": "Priya's card: $1,005,000 (ILLUSTRATIVE)",
+   "sonify": []
   },
   {
    "id": "sh022",
-   "scene": "a1-turn",
-   "layout": "bands/intro",
-   "size": "wide",
-   "move": "push-in 1.2 s",
-   "moveReason": "move into the size bands",
-   "picture": "five loan-size bands appear, dollar bars nearly equal",
+   "scene": "a1-priya2",
+   "layout": "bands/large",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "hold on her band",
+   "picture": "band \"$750,000 and more\": 0.5%",
    "sonify": [
     "bar"
    ]
   },
   {
    "id": "sh023",
-   "scene": "a1-small",
-   "layout": "bands/small",
-   "size": "medium",
-   "move": "track left 1.3 s",
-   "moveReason": "go to the SMALL loan (left, amber)",
-   "picture": "SMALL band: cost as a share of the loan, 3.4%",
+   "scene": "a1-priya3",
+   "layout": "stack/priya",
+   "size": "close",
+   "move": "pull-out 1.3 s",
+   "moveReason": "her bill beside Maya's",
+   "picture": "Priya's $5,034 next to Maya's $5,124, on a loan column three times as tall",
    "sonify": [
     "bar"
    ]
   },
   {
    "id": "sh024",
-   "scene": "a1-big",
-   "layout": "bands/large",
+   "scene": "a1-save",
+   "layout": "bars/payments",
    "size": "medium",
-   "move": "track right 1.5 s",
-   "moveReason": "cross to the LARGE loan (right, blue)",
-   "picture": "LARGE band: 0.5%",
+   "move": "none",
+   "moveReason": "hold: the new payment bar drops",
+   "picture": "Maya's old vs new monthly payment; the new bar drops $221",
    "sonify": [
     "bar"
    ]
   },
   {
    "id": "sh025",
-   "scene": "a1-keep",
-   "layout": "bands/both",
-   "size": "wide",
-   "move": "pull-out 1.2 s",
-   "moveReason": "both characters in one frame",
-   "picture": "SMALL and LARGE side by side, shares labelled",
-   "sonify": []
-  },
-  {
-   "id": "sh026",
    "scene": "a1-rule",
    "layout": "title/formula",
    "size": "medium",
-   "move": "none",
-   "moveReason": "hold on the division",
-   "picture": "formula: bill / monthly drop = months",
+   "move": "push-in 1.2 s",
+   "moveReason": "land on the division",
+   "picture": "$5,124 / $221 = 24 months (what most calculators give)",
    "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "sh026",
+   "scene": "a1-payoff",
+   "layout": "stack/fill",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "the bill fills, then a doubt mark",
+   "picture": "monthly savings fill the bill in 24 months; a \"?\" appears",
+   "sonify": [
+    "bar",
     "counter"
    ]
   },
   {
    "id": "sh027",
-   "scene": "a1-payoff",
-   "layout": "stack/fill",
-   "size": "medium",
-   "move": "push-in 1.2 s",
-   "moveReason": "watch the savings fill the bill",
-   "picture": "monthly savings fill the bill stack; counter of months",
-   "sonify": [
-    "bar",
-    "counter"
-   ]
-  },
-  {
-   "id": "sh028",
-   "scene": "a1-after",
-   "layout": "stack/green",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "hold: past break-even the fill turns positive",
-   "picture": "after break-even the fill spills over in positive colour",
-   "sonify": [
-    "bar"
-   ]
-  },
-  {
-   "id": "sh029",
    "scene": "a2-q",
    "layout": "title/act2",
    "size": "wide",
    "move": "none",
    "moveReason": "hold on the act question",
-   "picture": "act 2 question card",
+   "picture": "act 2 question: what does the division leave out?",
    "sonify": []
+  },
+  {
+   "id": "sh028",
+   "scene": "a2-old",
+   "layout": "person/maya35",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "hold: her payment calendar",
+   "picture": "Maya's calendar with 35 payments ticked",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "sh029",
+   "scene": "a2-reset",
+   "layout": "bars/timeline",
+   "size": "wide",
+   "move": "track right 1.5 s",
+   "moveReason": "follow the new schedule to its end, 30 years out",
+   "picture": "two payment timelines: the old one ends in 2053, the new one 30 years from today",
+   "sonify": [
+    "line"
+   ]
   },
   {
    "id": "sh030",
-   "scene": "a2-loan",
-   "layout": "ledger/loan",
+   "scene": "a2-why",
+   "layout": "bars/split",
    "size": "medium",
-   "move": "push-in 1.2 s",
-   "moveReason": "approach the median loan card",
-   "picture": "MEDIAN loan card: $375,000 balance, $5,124 bill",
-   "sonify": []
+   "move": "none",
+   "moveReason": "hold on the interest/principal split",
+   "picture": "one payment split: interest vs principal, old loan month 36 vs new loan month 1",
+   "sonify": [
+    "bar"
+   ]
   },
   {
    "id": "sh031",
-   "scene": "a2-old",
-   "layout": "line/2023",
+   "scene": "a2-owe",
+   "layout": "balance/two",
    "size": "medium",
-   "move": "track to 2023 1.4 s",
-   "moveReason": "find October 2023 on the rate line",
-   "picture": "rate line zoomed to 2023-2026, October 2023 dot 7.62%",
+   "move": "push-in 1.2 s",
+   "moveReason": "the two balance lines start to draw",
+   "picture": "balance still owed: old loan (grey) and new loan (blue), month by month",
    "sonify": [
-    "line",
-    "dot"
+    "line"
    ]
   },
   {
    "id": "sh032",
-   "scene": "a2-s025",
-   "layout": "curve/025",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "hold: the first point of the curve",
-   "picture": "axes: rate cut (x) vs months to break even (y); payment bars inset drop $64",
+   "scene": "a2-gap",
+   "layout": "balance/gap",
+   "size": "close",
+   "move": "push-in 1.3 s",
+   "moveReason": "go to the gap at month 24",
+   "picture": "the gap between the two lines at month 24: $1,133",
    "sonify": [
-    "bar",
     "dot"
    ]
   },
   {
    "id": "sh033",
-   "scene": "a2-be025",
-   "layout": "curve/025m",
+   "scene": "a2-real",
+   "layout": "balance/real",
    "size": "medium",
-   "move": "push-in 1.2 s",
-   "moveReason": "stress the height of the first point",
-   "picture": "first point at 80 months",
+   "move": "track right 1.2 s",
+   "moveReason": "move from 24 to 30 on the month axis",
+   "picture": "savings + balance gap crosses the bill at month 30 (not 24)",
    "sonify": [
+    "line",
     "dot"
    ]
   },
   {
    "id": "sh034",
-   "scene": "a2-s05",
-   "layout": "curve/05",
-   "size": "medium",
-   "move": "track right 1.2 s",
-   "moveReason": "move along the cut axis to 0.5",
-   "picture": "second point; inset bars drop $128",
-   "sonify": [
-    "bar",
-    "dot"
-   ]
+   "scene": "a2-thesis",
+   "layout": "title/thesis",
+   "size": "wide",
+   "move": "none",
+   "moveReason": "hold on the two answers",
+   "picture": "\"most calculators: 24\" / \"counting what is owed: 30\"",
+   "sonify": []
   },
   {
    "id": "sh035",
-   "scene": "a2-be05",
-   "layout": "curve/05m",
+   "scene": "a2-small",
+   "layout": "curve/intro",
    "size": "medium",
    "move": "none",
-   "moveReason": "hold on the value",
-   "picture": "41 months",
+   "moveReason": "the two curves appear",
+   "picture": "break-even months against the cut, two curves: simple (dashed grey) and balance (solid)",
    "sonify": [
-    "dot"
+    "line"
    ]
   },
   {
    "id": "sh036",
-   "scene": "a2-s10",
-   "layout": "curve/10",
+   "scene": "a2-s025",
+   "layout": "curve/025",
    "size": "medium",
-   "move": "track right 1.2 s",
-   "moveReason": "move along to 1 point",
-   "picture": "third point; bars drop $253",
+   "move": "track left 1.2 s",
+   "moveReason": "move to the smallest cut",
+   "picture": "at 0.25 points: simple 38 months",
    "sonify": [
-    "bar",
     "dot"
    ]
   },
   {
    "id": "sh037",
-   "scene": "a2-be10",
-   "layout": "curve/10m",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "hold on the value",
-   "picture": "21 months",
+   "scene": "a2-s025b",
+   "layout": "curve/never",
+   "size": "close",
+   "move": "tilt up 1.3 s",
+   "moveReason": "the balance curve leaves the chart",
+   "picture": "the balance curve goes off the top: never",
    "sonify": [
-    "dot"
+    "line"
    ]
   },
   {
    "id": "sh038",
-   "scene": "a2-s20",
-   "layout": "curve/20",
+   "scene": "a2-cliff",
+   "layout": "curve/cliff",
    "size": "medium",
-   "move": "track right 1.2 s",
-   "moveReason": "move along to 2 points",
-   "picture": "fourth point 11 months",
+   "move": "pull-out 1.2 s",
+   "moveReason": "show the steep part below 0.5",
+   "picture": "the steep region below 0.5 points shaded",
    "sonify": [
-    "dot"
+    "line"
    ]
   },
   {
    "id": "sh039",
-   "scene": "a2-curve",
-   "layout": "curve/full",
-   "size": "wide",
-   "move": "pull-out 1.5 s",
-   "moveReason": "see the whole curve",
-   "picture": "the full curve draws through the points",
-   "sonify": [
-    "line"
-   ]
+   "scene": "a2-s10",
+   "layout": "curve/10",
+   "size": "medium",
+   "move": "track right 1.3 s",
+   "moveReason": "move along to 1 point",
+   "picture": "the two curves close in at 1 point",
+   "sonify": []
   },
   {
    "id": "sh040",
-   "scene": "a2-cliff",
-   "layout": "curve/cliff",
-   "size": "close",
-   "move": "push-in 1.4 s",
-   "moveReason": "go to the steep part below 0.5",
-   "picture": "the steep segment glows; years ticks on the y axis",
+   "scene": "a2-s10b",
+   "layout": "curve/10m",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "hold on the two values",
+   "picture": "16 vs 18 months",
    "sonify": [
-    "line"
+    "dot"
    ]
   },
   {
    "id": "sh041",
-   "scene": "a2-thumb",
-   "layout": "curve/thumb",
+   "scene": "a2-dan",
+   "layout": "person/dan2",
    "size": "medium",
-   "move": "pull-out 1.2 s",
-   "moveReason": "compare the two named points",
-   "picture": "points at 1 and 0.5 highlighted together",
-   "sonify": []
+   "move": "track left 1.3 s",
+   "moveReason": "back to Dan",
+   "picture": "Dan's payment bars: -$68",
+   "sonify": [
+    "bar"
+   ]
   },
   {
    "id": "sh042",
-   "scene": "a2-turn",
-   "layout": "bands/return",
-   "size": "wide",
+   "scene": "a2-dan2",
+   "layout": "balance/dan",
+   "size": "medium",
    "move": "none",
-   "moveReason": "callback to the size bands",
-   "picture": "the SMALL / MEDIAN / LARGE bands return",
-   "sonify": []
+   "moveReason": "his two answers",
+   "picture": "Dan: 55 (division) vs 75 (balance) months",
+   "sonify": [
+    "dot"
+   ]
   },
   {
    "id": "sh043",
-   "scene": "a2-mid",
-   "layout": "curve/median36",
-   "size": "medium",
+   "scene": "a2-dan3",
+   "layout": "ledger/dan3",
+   "size": "close",
    "move": "push-in 1.2 s",
-   "moveReason": "the 36-month line meets the median curve",
-   "picture": "horizontal 36-month line (ILLUSTRATIVE badge), crossing at 0.56",
+   "moveReason": "Dan sells after 3 years",
+   "picture": "Dan's position after 3 years: -$1,777 (red)",
    "sonify": [
-    "line",
-    "dot"
+    "counter"
    ]
   },
   {
    "id": "sh044",
-   "scene": "a2-small",
-   "layout": "curve/small36",
-   "size": "medium",
-   "move": "track left 1.3 s",
-   "moveReason": "the SMALL curve crosses further right",
-   "picture": "SMALL curve (amber solid) crossing at 1.32",
+   "scene": "a2-dan4",
+   "layout": "ledger/dan7",
+   "size": "close",
+   "move": "none",
+   "moveReason": "hold",
+   "picture": "after 7 years: +$386",
    "sonify": [
-    "line",
-    "dot"
+    "counter"
    ]
   },
   {
    "id": "sh045",
-   "scene": "a2-big",
-   "layout": "curve/large36",
+   "scene": "a2-priya",
+   "layout": "person/priya2",
    "size": "medium",
-   "move": "track right 1.3 s",
-   "moveReason": "the LARGE curve crosses near zero",
-   "picture": "LARGE curve (blue dashed) crossing at 0.2",
+   "move": "track right 1.6 s",
+   "moveReason": "across to Priya",
+   "picture": "Priya: -$593 a month, even after 11 months",
    "sonify": [
-    "line",
+    "bar",
     "dot"
    ]
   },
   {
    "id": "sh046",
-   "scene": "a2-hold60",
-   "layout": "curve/60",
+   "scene": "a2-priya2",
+   "layout": "ledger/priya",
    "size": "medium",
-   "move": "tilt up 1.2 s",
-   "moveReason": "raise the target line to 60 months",
-   "picture": "60-month line, crossing at 0.33",
+   "move": "none",
+   "moveReason": "hold on her two horizons",
+   "picture": "Priya after 3 years +$11,482; after 7 +$30,387",
    "sonify": [
-    "dot"
+    "counter"
    ]
   },
   {
    "id": "sh047",
-   "scene": "a2-hold84",
-   "layout": "curve/84",
+   "scene": "a2-maya",
+   "layout": "ledger/maya",
    "size": "medium",
-   "move": "tilt up 1.2 s",
-   "moveReason": "raise it to 84 months",
-   "picture": "84-month line, crossing at 0.24",
+   "move": "track left 1.3 s",
+   "moveReason": "back to the middle",
+   "picture": "Maya after 3 years +$1,039; after 7 +$8,093",
    "sonify": [
-    "dot"
+    "counter"
    ]
   },
   {
    "id": "sh048",
-   "scene": "a2-flip",
-   "layout": "curve/flip",
+   "scene": "a2-sell",
+   "layout": "balance/sell",
    "size": "wide",
-   "move": "pull-out 1.3 s",
-   "moveReason": "show both sides of the flip point",
-   "picture": "area left of the crossing shaded \"bill outlasts the stay\", right shaded \"savings win\"",
+   "move": "none",
+   "moveReason": "hold: before / after the break-even month",
+   "picture": "a \"sell here\" slider across Maya's timeline: red before month 30, green after",
    "sonify": []
   },
   {
    "id": "sh049",
    "scene": "a2-payoff",
-   "layout": "ledger/two",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "hold on the two drivers",
-   "picture": "two dials: loan size, time kept",
+   "layout": "person/three",
+   "size": "wide",
+   "move": "pull-out 1.3 s",
+   "moveReason": "the three households together",
+   "picture": "Dan, Maya, Priya side by side: loan size, loan age, time kept",
    "sonify": []
   },
   {
    "id": "sh050",
-   "scene": "a2-hold",
-   "layout": "ledger/unknown",
-   "size": "close",
-   "move": "push-in 1.2 s",
-   "moveReason": "close on the unknown dial",
-   "picture": "the time-kept dial shows \"?\"",
-   "sonify": []
-  },
-  {
-   "id": "sh051",
-   "scene": "a2-reset",
-   "layout": "bars/timeline",
-   "size": "wide",
-   "move": "track right 1.5 s",
-   "moveReason": "follow the payment timeline to its new end",
-   "picture": "two payment timelines: old ends earlier, new ends 30 years out",
-   "sonify": [
-    "line"
-   ]
-  },
-  {
-   "id": "sh052",
-   "scene": "a2-reset2",
-   "layout": "title/firstq",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "hold on the question the division answers",
-   "picture": "the division card again, only \"when\" is lit",
-   "sonify": []
-  },
-  {
-   "id": "sh053",
    "scene": "a3-q",
    "layout": "title/act3",
    "size": "wide",
    "move": "none",
    "moveReason": "hold on the act question",
-   "picture": "act 3 question card",
+   "picture": "act 3 question: what happened in the real drops?",
    "sonify": []
   },
   {
-   "id": "sh054",
+   "id": "sh051",
    "scene": "a3-all",
    "layout": "episodes/strip",
    "size": "wide",
@@ -630,231 +591,253 @@
    ]
   },
   {
-   "id": "sh055",
+   "id": "sh052",
    "scene": "a3-rules",
    "layout": "episodes/rule",
    "size": "medium",
    "move": "push-in 1.3 s",
    "moveReason": "go to one episode to show the rule",
-   "picture": "one episode: peak dot, 1-point-lower dot, refinance marker",
+   "picture": "one episode: peak, 1 point lower, refinance marker",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "sh053",
+   "scene": "a3-costs",
+   "layout": "episodes/costs",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "hold: pre-2018 bills badged",
+   "picture": "bill icons per episode, pre-2018 badged ILLUSTRATIVE",
+   "sonify": []
+  },
+  {
+   "id": "sh054",
+   "scene": "a3-range",
+   "layout": "episodes/grid",
+   "size": "wide",
+   "move": "none",
+   "moveReason": "all 13 break-evens (balance method)",
+   "picture": "13 bars, months to break even counting the balance (every case shown)",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "sh055",
+   "scene": "a3-simple",
+   "layout": "episodes/grid2",
+   "size": "wide",
+   "move": "none",
+   "moveReason": "the simple answers appear as ticks",
+   "picture": "a tick per bar for the simple division",
    "sonify": [
     "dot"
    ]
   },
   {
    "id": "sh056",
-   "scene": "a3-costs",
-   "layout": "episodes/costs",
+   "scene": "a3-young",
+   "layout": "episodes/young",
    "size": "medium",
-   "move": "none",
-   "moveReason": "hold: pre-2018 bills get the ILLUSTRATIVE badge",
-   "picture": "bill icons on each episode, pre-2018 badged ILLUSTRATIVE",
-   "sonify": []
-  },
-  {
-   "id": "sh057",
-   "scene": "a3-80s",
-   "layout": "episodes/1980s",
-   "size": "wide",
-   "move": "track left 1.5 s",
-   "moveReason": "travel back to the 1980s",
-   "picture": "the three 1980s drops glow",
-   "sonify": [
-    "line"
-   ]
-  },
-  {
-   "id": "sh058",
-   "scene": "a3-81",
-   "layout": "episodes/1981",
-   "size": "medium",
-   "move": "push-in 1.3 s",
-   "moveReason": "into the 1981 drop",
-   "picture": "1981 peak, refinance 2 months later",
-   "sonify": [
-    "dot"
-   ]
-  },
-  {
-   "id": "sh059",
-   "scene": "a3-81be",
-   "layout": "episodes/1981be",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "hold while the counter runs",
-   "picture": "break-even counter to 13; the next-point dot lands at 9",
-   "sonify": [
-    "counter",
-    "dot"
-   ]
-  },
-  {
-   "id": "sh060",
-   "scene": "a3-short",
-   "layout": "episodes/1987",
-   "size": "medium",
-   "move": "track right 1.3 s",
-   "moveReason": "jump to the brief 1987 drop",
-   "picture": "1987 drop, 4 months, refinance at the bottom",
-   "sonify": [
-    "dot"
-   ]
-  },
-  {
-   "id": "sh061",
-   "scene": "a3-06",
-   "layout": "episodes/2006",
-   "size": "medium",
-   "move": "track right 1.5 s",
-   "moveReason": "jump to the long 2006-2012 drop",
-   "picture": "slow fall; refinance January 2008; break-even before the next point",
-   "sonify": [
-    "line",
-    "dot"
-   ]
-  },
-  {
-   "id": "sh062",
-   "scene": "a3-range",
-   "layout": "episodes/grid",
-   "size": "wide",
-   "move": "pull-out 1.2 s",
-   "moveReason": "all 13 break-evens at once",
-   "picture": "13 bars of break-even months (every case shown, DX-H6)",
+   "move": "push-in 1.2 s",
+   "moveReason": "the loans were months old",
+   "picture": "months on the old loan at refinance (1-4) vs Maya's 35",
    "sonify": [
     "bar"
    ]
   },
   {
-   "id": "sh063",
-   "scene": "a3-turn",
-   "layout": "episodes/further",
-   "size": "wide",
-   "move": "none",
-   "moveReason": "hold: 5 bars get a second marker",
-   "picture": "5 bars marked \"next point before break-even\"",
+   "id": "sh057",
+   "scene": "a3-81",
+   "layout": "episodes/1981",
+   "size": "medium",
+   "move": "track left 1.5 s",
+   "moveReason": "travel back to 1981",
+   "picture": "1981 peak 18.63%",
    "sonify": [
     "dot"
    ]
   },
   {
-   "id": "sh064",
+   "id": "sh058",
+   "scene": "a3-81b",
+   "layout": "episodes/1981be",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "hold while the counter runs",
+   "picture": "refinance 2 months later, paid back in 13",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "sh059",
+   "scene": "a3-priya",
+   "layout": "episodes/priya",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "Priya's lens on the 13 drops",
+   "picture": "the 13 bars shrink to Priya's cost share",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "sh060",
+   "scene": "a3-dan",
+   "layout": "episodes/dan",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "Dan's lens on the 13 drops",
+   "picture": "the 13 bars grow to Dan's cost share (18-39 months)",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "sh061",
+   "scene": "a3-turn",
+   "layout": "episodes/further",
+   "size": "wide",
+   "move": "none",
+   "moveReason": "hold: 3 bars get a second marker",
+   "picture": "3 bars marked \"next point before break-even\"",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "sh062",
    "scene": "a3-twice",
    "layout": "stack/second",
    "size": "medium",
    "move": "push-in 1.2 s",
    "moveReason": "a second bill lands on the first",
-   "picture": "a second bill drops; the counter restarts",
+   "picture": "a second bill; the counter restarts",
    "sonify": [
     "bar",
     "counter"
    ]
   },
   {
-   "id": "sh065",
+   "id": "sh063",
    "scene": "a3-example",
-   "layout": "episodes/2018",
+   "layout": "episodes/1984",
    "size": "medium",
-   "move": "track right 1.5 s",
-   "moveReason": "go to the 2018-2020 drop",
-   "picture": "November 2018 peak, refinance June 2019",
+   "move": "track right 1.4 s",
+   "moveReason": "to the 1984 drop",
+   "picture": "July 1984 peak, refinance November 1984",
    "sonify": [
     "dot"
    ]
   },
   {
-   "id": "sh066",
+   "id": "sh064",
    "scene": "a3-example2",
-   "layout": "episodes/2020",
+   "layout": "episodes/1984be",
    "size": "medium",
    "move": "none",
-   "moveReason": "hold while the two clocks run",
-   "picture": "break-even clock 18 vs next-drop clock 17",
+   "moveReason": "two clocks",
+   "picture": "break-even clock 19 vs next-drop clock 7",
    "sonify": [
     "counter"
    ]
   },
   {
-   "id": "sh067",
+   "id": "sh065",
    "scene": "a3-quiet",
    "layout": "episodes/quiet",
    "size": "wide",
    "move": "pull-out 1.2 s",
-   "moveReason": "the other 8 bars settle",
-   "picture": "the 8 remaining bars",
+   "moveReason": "the other drops settle",
+   "picture": "the remaining 10 bars",
    "sonify": []
   },
   {
-   "id": "sh068",
+   "id": "sh066",
    "scene": "a3-23",
    "layout": "episodes/2023",
    "size": "medium",
    "move": "track right 1.4 s",
-   "moveReason": "to the latest drop",
-   "picture": "October 2023 peak, August 2024 cut",
+   "moveReason": "to Maya's own drop",
+   "picture": "October 2023 peak (Maya's month), 1 point lower in August 2024",
    "sonify": [
     "line",
     "dot"
    ]
   },
   {
-   "id": "sh069",
+   "id": "sh067",
    "scene": "a3-23be",
    "layout": "episodes/2023be",
    "size": "medium",
    "move": "none",
    "moveReason": "hold while the counter runs",
-   "picture": "break-even 21 months (HMDA 2024 cost share)",
+   "picture": "would have paid back in 19 months",
    "sonify": [
     "counter"
    ]
   },
   {
-   "id": "sh070",
+   "id": "sh068",
    "scene": "a3-answer",
    "layout": "ruler/answer",
    "size": "medium",
    "move": "none",
    "moveReason": "the rehook ruler returns: same object, same place",
-   "picture": "the ruler of the rehook; the \"?\" marker",
+   "picture": "the ruler and Maya's card; the \"?\"",
    "sonify": []
   },
   {
-   "id": "sh071",
+   "id": "sh069",
    "scene": "a3-answer2",
    "layout": "ruler/answer2",
    "size": "close",
    "move": "push-in 1.2 s",
    "moveReason": "land on the answer",
-   "picture": "marker lands on 0.56 at the 36-month line",
+   "picture": "marker lands on 0.5 at the 36-month line",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "sh070",
+   "scene": "a3-answer3",
+   "layout": "ruler/answer3",
+   "size": "medium",
+   "move": "pull-out 1.2 s",
+   "moveReason": "Dan and Priya get their own marks",
+   "picture": "Dan 1.12 (amber), Priya 0.2 (blue)",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "sh071",
+   "scene": "a3-today",
+   "layout": "ruler/today",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "today's cut on the same ruler",
+   "picture": "today's cut 0.59 marked; Maya ahead after 30 months",
    "sonify": [
     "dot"
    ]
   },
   {
    "id": "sh072",
-   "scene": "a3-answer3",
-   "layout": "ruler/answer3",
-   "size": "medium",
-   "move": "track right 1.2 s",
-   "moveReason": "follow the marker to 1 point",
-   "picture": "second mark at 1 point / 21 months",
-   "sonify": [
-    "dot"
-   ]
-  },
-  {
-   "id": "sh073",
    "scene": "a3-limit",
    "layout": "title/limits",
    "size": "medium",
    "move": "none",
-   "moveReason": "hold on the three limits",
-   "picture": "three limit lines: taxes, return on cash, term reset",
+   "moveReason": "hold on the limits",
+   "picture": "limits: taxes, return on cash, bill not rolled into the loan",
    "sonify": []
   },
   {
-   "id": "sh074",
+   "id": "sh073",
    "scene": "a3-median",
    "layout": "hist/limit",
    "size": "medium",
@@ -864,29 +847,29 @@
    "sonify": []
   },
   {
-   "id": "sh075",
+   "id": "sh074",
    "scene": "a3-history",
    "layout": "title/history",
    "size": "wide",
    "move": "none",
-   "moveReason": "hold: the forecast line stops at today",
+   "moveReason": "hold: the line stops at this week",
    "picture": "rate line ends at the last week; nothing beyond",
    "sonify": []
   },
   {
-   "id": "sh076",
+   "id": "sh075",
    "scene": "a3-close",
    "layout": "stack/close",
    "size": "wide",
    "move": "pull-out 1.5 s",
-   "moveReason": "the bill and the months side by side",
-   "picture": "bill on the left, months arriving on the right",
+   "moveReason": "the bill against savings and balance",
+   "picture": "bill on the left; savings and balance settling month by month on the right",
    "sonify": [
     "counter"
    ]
   },
   {
-   "id": "sh077",
+   "id": "sh076",
    "scene": "m-rates",
    "layout": "card/method-rates",
    "size": "medium",
@@ -896,7 +879,7 @@
    "sonify": []
   },
   {
-   "id": "sh078",
+   "id": "sh077",
    "scene": "m-drops",
    "layout": "card/method-drops",
    "size": "medium",
@@ -906,7 +889,7 @@
    "sonify": []
   },
   {
-   "id": "sh079",
+   "id": "sh078",
    "scene": "m-costs",
    "layout": "card/method-costs",
    "size": "medium",
@@ -916,13 +899,23 @@
    "sonify": []
   },
   {
+   "id": "sh079",
+   "scene": "m-chars",
+   "layout": "card/method-chars",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "static",
+   "picture": "the three characters and their medians (ILLUSTRATIVE)",
+   "sonify": []
+  },
+  {
    "id": "sh080",
    "scene": "m-assume",
    "layout": "card/method-assume",
    "size": "medium",
    "move": "none",
    "moveReason": "static",
-   "picture": "assumptions list",
+   "picture": "break-even definition: savings + balance difference >= bill",
    "sonify": []
   },
   {
@@ -932,27 +925,27 @@
    "size": "wide",
    "move": "none",
    "moveReason": "hold on the three lines",
-   "picture": "three recap lines",
+   "picture": "three recap lines with the three households",
    "sonify": []
   },
   {
    "id": "sh082",
+   "scene": "o-you",
+   "layout": "person/you2",
+   "size": "medium",
+   "move": "none",
+   "moveReason": "the blank statement returns",
+   "picture": "the viewer's blank statement \"7.__%\" and the three questions",
+   "sonify": []
+  },
+  {
+   "id": "sh083",
    "scene": "o-close",
    "layout": "title/close",
    "size": "wide",
    "move": "drift 8 px/s",
    "moveReason": "slow drift to the end",
    "picture": "closing line",
-   "sonify": []
-  },
-  {
-   "id": "sh083",
-   "scene": "o-bill",
-   "layout": "stack/end",
-   "size": "wide",
-   "move": "none",
-   "moveReason": "hold",
-   "picture": "bill and months, final image",
    "sonify": []
   },
   {
@@ -967,17 +960,17 @@
   }
  ],
  "characters": {
-  "small": {
+  "dan": {
    "color": "warn",
    "shape": "solid",
    "side": "left"
   },
-  "large": {
+  "priya": {
    "color": "accent",
    "shape": "dashed",
    "side": "right"
   },
-  "median": {
+  "maya": {
    "color": "ink",
    "shape": "solid",
    "side": "centre"
@@ -986,28 +979,28 @@
  "sonification": [
   {
    "element": "bar",
-   "sound": "",
+   "sound": "S2 (owner's pick, 2026-09-28): a soft low pulse at the value's pitch (MIDI 36-60, D minor pentatonic) with a soft filtered tick (4.5-7 kHz) at the start",
    "mapping": "pitch = bar value on one fixed scale for the film, snapped to the music key; lasts while the bar grows",
    "pan": "x of the bar",
    "timing": "starts when the bar starts to grow (moved into the nearest syllable gap if the voice is sounding)"
   },
   {
    "element": "line",
-   "sound": "",
+   "sound": "S2: soft low pulses on eighth notes of the music tempo while the tip moves, pitch following the slope, each with a faint filtered tick",
    "mapping": "pitch follows the slope at the drawing tip (rising line = higher), snapped to the music key",
    "pan": "x of the tip",
    "timing": "while the tip moves; discrete notes of a run land in syllable gaps"
   },
   {
    "element": "dot",
-   "sound": "",
+   "sound": "S2: one deeper pulse, pitch from the dot height, plus a soft filtered tick",
    "mapping": "pitch from the dot height on screen (higher = higher)",
    "pan": "x of the dot",
    "timing": "on the frame the dot appears (nearest syllable gap, -60..+120 ms, when the voice is sounding)"
   },
   {
    "element": "counter",
-   "sound": "",
+   "sound": "S2: a soft filtered tick per value change; above 8 changes/s the ticks merge into a soft roll",
    "mapping": "one soft event per value change; > 8 changes/s merge into one roll whose density follows the rate of change",
    "pan": "x of the counter",
    "timing": "on the digit change"

@@ -1,32 +1,39 @@
 {
  "sentences": [
   {
-   "id": "co-bars.1",
+   "id": "co-maya.1",
    "act": "cold-open",
-   "scene": "co-bars",
-   "text": "A lower rate cuts the monthly payment.",
-   "spoken": "A lower rate cuts the monthly payment."
+   "scene": "co-maya",
+   "text": "Maya locked in 7.62%.",
+   "spoken": "Maya locked in seven point six two percent."
   },
   {
-   "id": "co-bill.1",
+   "id": "co-today.1",
    "act": "cold-open",
-   "scene": "co-bill",
-   "text": "But the refinance has a price, and the savings must repay it first.",
-   "spoken": "But the refinance has a price... and the savings must repay it first."
+   "scene": "co-today",
+   "text": "This week's average: 7.03%.",
+   "spoken": "This week's average, seven point zero three percent."
+  },
+  {
+   "id": "co-cost.1",
+   "act": "cold-open",
+   "scene": "co-cost",
+   "text": "Refinancing costs $5,124.",
+   "spoken": "Refinancing costs five thousand, one hundred twenty-four dollars."
   },
   {
    "id": "co-question.1",
    "act": "cold-open",
    "scene": "co-question",
-   "text": "So how far do rates have to fall before a refinance pays for itself?",
-   "spoken": "So how far do rates have to fall... before a refinance pays for itself?"
+   "text": "So when does that money come back?",
+   "spoken": "So... when does that money... come back?"
   },
   {
    "id": "a1-lab.1",
    "act": "act1",
    "scene": "a1-lab",
-   "text": "This is a lab for money decisions: we run the numbers on public data and show every assumption.",
-   "spoken": "This is a lab for money decisions... we run the numbers on public data and show every assumption."
+   "text": "This is a lab for money decisions: we run the numbers on public data, and show every assumption.",
+   "spoken": "This is a lab for money decisions... we run the numbers on public data... and show every assumption."
   },
   {
    "id": "a1-scope.1",
@@ -39,330 +46,302 @@
    "id": "a1-rehook.1",
    "act": "act1",
    "scene": "a1-rehook",
-   "text": "By the end, you will see the exact rate drop that repays a typical refinance within 36 months, and how every rate drop since 1971 actually played out.",
-   "spoken": "By the end... you will see the exact rate drop that repays a typical refinance within thirty-six months... and how every rate drop since nineteen seventy-one actually played out."
+   "text": "By the end, you will see the exact rate drop that pays back a refinance like Maya's within 36 months, and how every rate drop since 1971 actually played out.",
+   "spoken": "By the end... you will see the exact rate drop that pays back a refinance like Maya's within thirty-six months... and how every rate drop since nineteen seventy-one actually played out."
   },
   {
-   "id": "a1-rates.1",
+   "id": "a1-maya.1",
    "act": "act1",
-   "scene": "a1-rates",
-   "text": "Here is the rate itself: the weekly average for a 30-year fixed mortgage, from Freddie Mac's survey.",
-   "spoken": "Here is the rate itself... the weekly average for a thirty-year fixed mortgage... from Freddie Mac's survey."
+   "scene": "a1-maya",
+   "text": "She borrowed $375,000 in October 2023, the month the 30-year rate peaked.",
+   "spoken": "She borrowed three hundred seventy-five thousand dollars in October twenty twenty-three... the month the thirty-year rate peaked."
   },
   {
-   "id": "a1-peak.1",
+   "id": "a1-you.1",
    "act": "act1",
-   "scene": "a1-peak",
-   "text": "It peaked at 18.63% in 1981.",
-   "spoken": "It peaked at eighteen point six three percent... in nineteen eighty-one."
-  },
-  {
-   "id": "a1-low.1",
-   "act": "act1",
-   "scene": "a1-low",
-   "text": "It bottomed at 2.65% in 2021.",
-   "spoken": "It bottomed at two point six five percent... in twenty twenty-one."
-  },
-  {
-   "id": "a1-drops.1",
-   "act": "act1",
-   "scene": "a1-drops",
-   "text": "Every fall in that line is a moment when homeowners asked the same question.",
-   "spoken": "Every fall in that line is a moment... when homeowners asked the same question."
+   "scene": "a1-you",
+   "text": "And if your own rate starts with a 7, the question is yours as well.",
+   "spoken": "And if your own rate starts with a seven... the question is yours as well."
   },
   {
    "id": "a1-q.1",
    "act": "act1",
    "scene": "a1-q",
-   "text": "First question, then: what does a refinance actually cost?",
-   "spoken": "First question... then... what does a refinance actually cost?"
-  },
-  {
-   "id": "a1-hmda.1",
-   "act": "act1",
-   "scene": "a1-hmda",
-   "text": "Lenders report it for every loan they make, under the Home Mortgage Disclosure Act, as total loan costs.",
-   "spoken": "Lenders report it for every loan they make... under the Home Mortgage Disclosure Act... as total loan costs."
-  },
-  {
-   "id": "a1-terms.1",
-   "act": "act1",
-   "scene": "a1-terms",
-   "text": "Those are the closing costs: origination charges, discount points, the appraisal, title insurance, and the rest.",
-   "spoken": "Those are the closing costs... origination charges... discount points... the appraisal... title insurance... and the rest."
-  },
-  {
-   "id": "a1-points.1",
-   "act": "act1",
-   "scene": "a1-points",
-   "text": "Discount points are optional: paying more at closing buys a lower rate, so part of that bill is a choice.",
-   "spoken": "Discount points are optional... paying more at closing buys a lower rate... so part of that bill is a choice."
-  },
-  {
-   "id": "a1-cashout.1",
-   "act": "act1",
-   "scene": "a1-cashout",
-   "text": "Cash-out refinances, which also take equity out of the house, cost more: a median of $8,655. This film keeps to refinances that change only the rate and the term.",
-   "spoken": "Cash-out refinances... which also take equity out of the house... cost more... a median of eight thousand six hundred fifty-five dollars. This film keeps to refinances that change only the rate and the term."
-  },
-  {
-   "id": "a1-count.1",
-   "act": "act1",
-   "scene": "a1-count",
-   "text": "In 2025, lenders reported 488,241 of those, into 30-year first mortgages.",
-   "spoken": "In twenty twenty-five... lenders reported four hundred eighty-eight thousand two hundred forty-one of those... into thirty-year first mortgages."
+   "text": "First: is Maya's bill unusual?",
+   "spoken": "First... is Maya's bill unusual?"
   },
   {
    "id": "a1-median.1",
    "act": "act1",
    "scene": "a1-median",
-   "text": "In nominal dollars, the median one cost $5,124.",
-   "spoken": "In nominal dollars... the median one cost five thousand one hundred twenty-four dollars."
+   "text": "No. In 2025, the median closing cost on a rate-and-term refinance was $5,124.",
+   "spoken": "No. In twenty twenty-five... the median closing cost on a rate-and-term refinance was five thousand one hundred twenty-four dollars."
+  },
+  {
+   "id": "a1-hmda.1",
+   "act": "act1",
+   "scene": "a1-hmda",
+   "text": "Lenders must report every mortgage they make, and since 2018, the total loan costs of each one.",
+   "spoken": "Lenders must report every mortgage they make... and since twenty eighteen... the total loan costs of each one."
+  },
+  {
+   "id": "a1-count.1",
+   "act": "act1",
+   "scene": "a1-count",
+   "text": "That is the middle of 488,241 such loans that lenders reported under the Home Mortgage Disclosure Act.",
+   "spoken": "That is the middle of four hundred eighty-eight thousand two hundred forty-one such loans that lenders reported under the Home Mortgage Disclosure Act."
   },
   {
    "id": "a1-spread.1",
    "act": "act1",
    "scene": "a1-spread",
-   "text": "The middle half paid between $3,443 and $8,270.",
-   "spoken": "The middle half paid between three thousand four hundred forty-three dollars... and eight thousand two hundred seventy dollars."
+   "text": "Half of those borrowers paid between $3,443 and $8,270.",
+   "spoken": "Half of those borrowers paid between three thousand four hundred forty-three dollars... and eight thousand two hundred seventy dollars."
   },
   {
-   "id": "a1-boom.1",
+   "id": "a1-terms.1",
    "act": "act1",
-   "scene": "a1-boom",
-   "text": "The count follows the rate. In 2021, near the bottom, lenders reported 3,089,298 of them.",
-   "spoken": "The count follows the rate. In twenty twenty-one... near the bottom... lenders reported three million eighty-nine thousand two hundred ninety-eight of them."
-  },
-  {
-   "id": "a1-boomcost.1",
-   "act": "act1",
-   "scene": "a1-boomcost",
-   "text": "Their median bill that year was $3,406.",
-   "spoken": "Their median bill that year was three thousand four hundred six dollars."
+   "scene": "a1-terms",
+   "text": "The bill is the closing costs: origination charges, discount points, the appraisal, title insurance, and the rest.",
+   "spoken": "The bill is the closing costs... origination charges... discount points... the appraisal... title insurance... and the rest."
   },
   {
    "id": "a1-turn.1",
    "act": "act1",
    "scene": "a1-turn",
-   "text": "But the dollar figure hides the real pattern. The bill barely grows with the size of the loan.",
-   "spoken": "But the dollar figure hides the real pattern. The bill barely grows... with the size of the loan."
+   "text": "But that bill barely grows with the loan, so it lands much harder on some borrowers than on others.",
+   "spoken": "But that bill barely grows with the loan... so it lands much harder on some borrowers than on others."
   },
   {
-   "id": "a1-small.1",
+   "id": "a1-dan.1",
    "act": "act1",
-   "scene": "a1-small",
-   "text": "On loans under $150,000, the median cost was 3.4% of the amount borrowed.",
-   "spoken": "On loans under one hundred fifty thousand dollars... the median cost was three point four percent of the amount borrowed."
+   "scene": "a1-dan",
+   "text": "Take Dan, who borrowed $115,000 in the same month, at the same rate.",
+   "spoken": "Take Dan... who borrowed one hundred fifteen thousand dollars in the same month... at the same rate."
   },
   {
-   "id": "a1-big.1",
+   "id": "a1-dan2.1",
    "act": "act1",
-   "scene": "a1-big",
-   "text": "On loans of $750,000 and more, it was 0.5%.",
-   "spoken": "On loans of seven hundred fifty thousand dollars and more... it was zero point five percent."
+   "scene": "a1-dan2",
+   "text": "On loans under $150,000, the median bill was 3.4% of the amount borrowed.",
+   "spoken": "On loans under one hundred fifty thousand dollars... the median bill was three point four percent of the amount borrowed."
   },
   {
-   "id": "a1-keep.1",
+   "id": "a1-dan3.1",
    "act": "act1",
-   "scene": "a1-keep",
-   "text": "So the same cut in rate repays a large loan faster than a small one. Keep that in mind; it comes back.",
-   "spoken": "So the same cut in rate repays a large loan faster than a small one. Keep that in mind... it comes back."
+   "scene": "a1-dan3",
+   "text": "For Dan, that is $3,667: fewer dollars than Maya, but a far larger share of his loan.",
+   "spoken": "For Dan... that is three thousand six hundred sixty-seven dollars... fewer dollars than Maya... but a far larger share of his loan."
+  },
+  {
+   "id": "a1-priya.1",
+   "act": "act1",
+   "scene": "a1-priya",
+   "text": "Priya borrowed $1,005,000.",
+   "spoken": "Priya borrowed one million five thousand dollars."
+  },
+  {
+   "id": "a1-priya2.1",
+   "act": "act1",
+   "scene": "a1-priya2",
+   "text": "On loans of $750,000 and more, the bill was 0.5%.",
+   "spoken": "On loans of seven hundred fifty thousand dollars and more... the bill was zero point five percent."
+  },
+  {
+   "id": "a1-priya3.1",
+   "act": "act1",
+   "scene": "a1-priya3",
+   "text": "For Priya, that is $5,034: about Maya's bill, on a loan nearly three times the size.",
+   "spoken": "For Priya... that is five thousand thirty-four dollars... about Maya's bill... on a loan nearly three times the size."
+  },
+  {
+   "id": "a1-save.1",
+   "act": "act1",
+   "scene": "a1-save",
+   "text": "What the bill buys is a lower payment. At today's rate, Maya's payment falls by $221 a month.",
+   "spoken": "What the bill buys is a lower payment. At today's rate... Maya's payment falls by two hundred twenty-one dollars a month."
   },
   {
    "id": "a1-rule.1",
    "act": "act1",
    "scene": "a1-rule",
-   "text": "Paying the bill back is simple division: the closing costs, divided by the drop in the monthly payment.",
-   "spoken": "Paying the bill back is simple division... the closing costs... divided by the drop in the monthly payment."
+   "text": "Divide the bill by that saving, and you get the answer most calculators give: 24 months.",
+   "spoken": "Divide the bill by that saving... and you get the answer most calculators give... twenty-four months."
   },
   {
    "id": "a1-payoff.1",
    "act": "act1",
    "scene": "a1-payoff",
-   "text": "The answer is the break-even: the month when the savings have covered the bill.",
-   "spoken": "The answer is the break-even... the month when the savings have covered the bill."
-  },
-  {
-   "id": "a1-after.1",
-   "act": "act1",
-   "scene": "a1-after",
-   "text": "Before that month, the refinance is still in the red. After it, every payment is money kept.",
-   "spoken": "Before that month... the refinance is still in the red. After it... every payment is money kept."
+   "text": "By that count, the refinance has paid for itself. Or has it?",
+   "spoken": "By that count... the refinance has paid for itself. Or has it?"
   },
   {
    "id": "a2-q.1",
    "act": "act2",
    "scene": "a2-q",
-   "text": "Now the main question: how big does the drop have to be?",
-   "spoken": "Now the main question... how big does the drop have to be?"
-  },
-  {
-   "id": "a2-loan.1",
-   "act": "act2",
-   "scene": "a2-loan",
-   "text": "Take the median refinance: a balance of $375,000, and $5,124 to close.",
-   "spoken": "Take the median refinance... a balance of three hundred seventy-five thousand dollars... and five thousand one hundred twenty-four dollars to close."
+   "text": "Here is what that division leaves out.",
+   "spoken": "Here is what that division leaves out."
   },
   {
    "id": "a2-old.1",
    "act": "act2",
    "scene": "a2-old",
-   "text": "Say the old loan carries 7.62%, the average rate in the month the last big drop began, October 2023.",
-   "spoken": "Say the old loan carries seven point six two percent... the average rate in the month the last big drop began... October twenty twenty-three."
-  },
-  {
-   "id": "a2-s025.1",
-   "act": "act2",
-   "scene": "a2-s025",
-   "text": "Cut the rate by 0.25 points, and the payment falls by $64 a month.",
-   "spoken": "Cut the rate by zero point two five points... and the payment falls by sixty-four dollars a month."
-  },
-  {
-   "id": "a2-be025.1",
-   "act": "act2",
-   "scene": "a2-be025",
-   "text": "At that pace, the bill takes 80 months to come back.",
-   "spoken": "At that pace... the bill takes eighty months to come back."
-  },
-  {
-   "id": "a2-s05.1",
-   "act": "act2",
-   "scene": "a2-s05",
-   "text": "Double the cut to 0.5 points, and the payment falls by $128 a month.",
-   "spoken": "Double the cut to zero point five points... and the payment falls by one hundred twenty-eight dollars a month."
-  },
-  {
-   "id": "a2-be05.1",
-   "act": "act2",
-   "scene": "a2-be05",
-   "text": "Break-even arrives in 41 months.",
-   "spoken": "Break-even arrives in forty-one months."
-  },
-  {
-   "id": "a2-s10.1",
-   "act": "act2",
-   "scene": "a2-s10",
-   "text": "A cut of 1 point saves $253 a month.",
-   "spoken": "A cut of one point saves two hundred fifty-three dollars a month."
-  },
-  {
-   "id": "a2-be10.1",
-   "act": "act2",
-   "scene": "a2-be10",
-   "text": "That pays back the bill in 21 months.",
-   "spoken": "That pays back the bill in twenty-one months."
-  },
-  {
-   "id": "a2-s20.1",
-   "act": "act2",
-   "scene": "a2-s20",
-   "text": "2 points pay back in 11 months, well inside a year.",
-   "spoken": "two points pay back in eleven months... well inside a year."
-  },
-  {
-   "id": "a2-curve.1",
-   "act": "act2",
-   "scene": "a2-curve",
-   "text": "Look at the shape of that curve. It is not a straight line.",
-   "spoken": "Look at the shape of that curve. It is not a straight line."
-  },
-  {
-   "id": "a2-cliff.1",
-   "act": "act2",
-   "scene": "a2-cliff",
-   "text": "Below 0.5 points it climbs steeply: each smaller cut adds years, not months.",
-   "spoken": "Below zero point five points it climbs steeply... each smaller cut adds years... not months."
-  },
-  {
-   "id": "a2-thumb.1",
-   "act": "act2",
-   "scene": "a2-thumb",
-   "text": "That is where the common rule of thumb about a full point comes from: for this loan, 1 point pays back in 21 months, 0.5 points in 41.",
-   "spoken": "That is where the common rule of thumb about a full point comes from... for this loan... one point pays back in twenty-one months... zero point five points in forty-one."
-  },
-  {
-   "id": "a2-turn.1",
-   "act": "act2",
-   "scene": "a2-turn",
-   "text": "But remember the pattern in the costs, and move the same question to a different loan.",
-   "spoken": "But remember the pattern in the costs... and move the same question to a different loan."
-  },
-  {
-   "id": "a2-mid.1",
-   "act": "act2",
-   "scene": "a2-mid",
-   "text": "To break even within 36 months, the median loan needs a cut of 0.56 points.",
-   "spoken": "To break even within thirty-six months... the median loan needs a cut of zero point five six points."
-  },
-  {
-   "id": "a2-small.1",
-   "act": "act2",
-   "scene": "a2-small",
-   "text": "A loan under $150,000 needs 1.32 points, because its bill is a bigger share of the balance.",
-   "spoken": "A loan under one hundred fifty thousand dollars needs one point three two points... because its bill is a bigger share of the balance."
-  },
-  {
-   "id": "a2-big.1",
-   "act": "act2",
-   "scene": "a2-big",
-   "text": "A loan of $750,000 or more needs only 0.2.",
-   "spoken": "A loan of seven hundred fifty thousand dollars or more needs only zero point two."
-  },
-  {
-   "id": "a2-hold60.1",
-   "act": "act2",
-   "scene": "a2-hold60",
-   "text": "Give the median loan 60 months instead, and 0.33 points is enough.",
-   "spoken": "Give the median loan sixty months instead... and zero point three three points is enough."
-  },
-  {
-   "id": "a2-hold84.1",
-   "act": "act2",
-   "scene": "a2-hold84",
-   "text": "Give it 84 months, and it needs 0.24.",
-   "spoken": "Give it eighty-four months... and it needs zero point two four."
-  },
-  {
-   "id": "a2-flip.1",
-   "act": "act2",
-   "scene": "a2-flip",
-   "text": "Read each of those as a flip point: below it, the bill outlasts the stay; above it, the savings win.",
-   "spoken": "Read each of those as a flip point... below it... the bill outlasts the stay... above it... the savings win."
-  },
-  {
-   "id": "a2-payoff.1",
-   "act": "act2",
-   "scene": "a2-payoff",
-   "text": "So there is no single threshold. The drop that pays back depends on two things: how big the loan is, and how long it is kept.",
-   "spoken": "So there is no single threshold. The drop that pays back depends on two things... how big the loan is... and how long it is kept."
-  },
-  {
-   "id": "a2-hold.1",
-   "act": "act2",
-   "scene": "a2-hold",
-   "text": "And how long it is kept is the one number no dataset can supply.",
-   "spoken": "And how long it is kept is the one number no dataset can supply."
+   "text": "Maya's old loan already has 35 payments behind it.",
+   "spoken": "Maya's old loan already has thirty-five payments behind it."
   },
   {
    "id": "a2-reset.1",
    "act": "act2",
    "scene": "a2-reset",
-   "text": "One more cost hides inside the new loan. It starts a fresh 30 years, so the last payment moves further away, even when each payment is smaller.",
-   "spoken": "One more cost hides inside the new loan. It starts a fresh thirty years... so the last payment moves further away... even when each payment is smaller."
+   "text": "A refinance starts a fresh 30 years, so the new loan pays the balance down more slowly than the old one would have.",
+   "spoken": "A refinance starts a fresh thirty years... so the new loan pays the balance down more slowly than the old one would have."
   },
   {
-   "id": "a2-reset2.1",
+   "id": "a2-why.1",
    "act": "act2",
-   "scene": "a2-reset2",
-   "text": "The simple division ignores that. It answers only the first question: when do the savings cover the bill?",
-   "spoken": "The simple division ignores that. It answers only the first question... when do the savings cover the bill?"
+   "scene": "a2-why",
+   "text": "Early payments are mostly interest. Maya's old loan was just starting to pay down real principal, and the new one starts that schedule over.",
+   "spoken": "Early payments are mostly interest. Maya's old loan was just starting to pay down real principal... and the new one starts that schedule over."
+  },
+  {
+   "id": "a2-owe.1",
+   "act": "act2",
+   "scene": "a2-owe",
+   "text": "So count what she still owes on each loan, month by month.",
+   "spoken": "So count what she still owes on each loan... month by month."
+  },
+  {
+   "id": "a2-gap.1",
+   "act": "act2",
+   "scene": "a2-gap",
+   "text": "After 24 months, the new loan leaves her owing $1,133 more than the old one would have.",
+   "spoken": "After twenty-four months... the new loan leaves her owing one thousand one hundred thirty-three dollars more than the old one would have."
+  },
+  {
+   "id": "a2-real.1",
+   "act": "act2",
+   "scene": "a2-real",
+   "text": "So, counting what she still owes, break-even is not 24 months. It is 30.",
+   "spoken": "So... counting what she still owes... break-even is not twenty-four months. It is thirty."
+  },
+  {
+   "id": "a2-thesis.1",
+   "act": "act2",
+   "scene": "a2-thesis",
+   "text": "Most calculators stop at the monthly saving. The balance keeps the score for longer.",
+   "spoken": "Most calculators stop at the monthly saving. The balance keeps the score for longer."
+  },
+  {
+   "id": "a2-small.1",
+   "act": "act2",
+   "scene": "a2-small",
+   "text": "The smaller the cut, the bigger that gap.",
+   "spoken": "The smaller the cut... the bigger that gap."
+  },
+  {
+   "id": "a2-s025.1",
+   "act": "act2",
+   "scene": "a2-s025",
+   "text": "At a cut of 0.25 points, the division would promise 38 months.",
+   "spoken": "At a cut of zero point two five points... the division would promise thirty-eight months."
+  },
+  {
+   "id": "a2-s025b.1",
+   "act": "act2",
+   "scene": "a2-s025b",
+   "text": "Counting the balance, Maya never catches up before her old loan would have been paid off.",
+   "spoken": "Counting the balance... Maya never catches up before her old loan would have been paid off."
+  },
+  {
+   "id": "a2-cliff.1",
+   "act": "act2",
+   "scene": "a2-cliff",
+   "text": "Below 0.5 points, the fresh start can swallow the savings entirely.",
+   "spoken": "Below zero point five points... the fresh start can swallow the savings entirely."
+  },
+  {
+   "id": "a2-s10.1",
+   "act": "act2",
+   "scene": "a2-s10",
+   "text": "At a cut of 1 point, the two answers nearly meet.",
+   "spoken": "At a cut of one point... the two answers nearly meet."
+  },
+  {
+   "id": "a2-s10b.1",
+   "act": "act2",
+   "scene": "a2-s10b",
+   "text": "The division says 16 months; the balance says 18.",
+   "spoken": "The division says sixteen months... the balance says eighteen."
+  },
+  {
+   "id": "a2-dan.1",
+   "act": "act2",
+   "scene": "a2-dan",
+   "text": "Now Dan. At today's rate, his payment falls by only $68 a month.",
+   "spoken": "Now Dan. At today's rate... his payment falls by only sixty-eight dollars a month."
+  },
+  {
+   "id": "a2-dan2.1",
+   "act": "act2",
+   "scene": "a2-dan2",
+   "text": "The division says 55 months. Counting what he still owes, it is 75.",
+   "spoken": "The division says fifty-five months. Counting what he still owes... it is seventy-five."
+  },
+  {
+   "id": "a2-dan3.1",
+   "act": "act2",
+   "scene": "a2-dan3",
+   "text": "If Dan sells after 3 years, the refinance leaves him $1,777 behind.",
+   "spoken": "If Dan sells after three years... the refinance leaves him one thousand seven hundred seventy-seven dollars behind."
+  },
+  {
+   "id": "a2-dan4.1",
+   "act": "act2",
+   "scene": "a2-dan4",
+   "text": "After 7 years, he is only $386 ahead.",
+   "spoken": "After seven years... he is only three hundred eighty-six dollars ahead."
+  },
+  {
+   "id": "a2-priya.1",
+   "act": "act2",
+   "scene": "a2-priya",
+   "text": "Priya saves $593 a month, and is even after 11 months.",
+   "spoken": "Priya saves five hundred ninety-three dollars a month... and is even after eleven months."
+  },
+  {
+   "id": "a2-priya2.1",
+   "act": "act2",
+   "scene": "a2-priya2",
+   "text": "If she sells after 3 years, she is $11,482 ahead; after 7, $30,387.",
+   "spoken": "If she sells after three years... she is eleven thousand four hundred eighty-two dollars ahead... after seven... thirty thousand three hundred eighty-seven dollars."
+  },
+  {
+   "id": "a2-maya.1",
+   "act": "act2",
+   "scene": "a2-maya",
+   "text": "And Maya, the middle case: $1,039 ahead after 3 years, $8,093 after 7.",
+   "spoken": "And Maya... the middle case... one thousand thirty-nine dollars ahead after three years... eight thousand ninety-three dollars after seven."
+  },
+  {
+   "id": "a2-sell.1",
+   "act": "act2",
+   "scene": "a2-sell",
+   "text": "Put another way: a house sold before the break-even month turns the refinance into a loss, and one kept past it turns it into a gain.",
+   "spoken": "Put another way... a house sold before the break-even month turns the refinance into a loss... and one kept past it turns it into a gain."
+  },
+  {
+   "id": "a2-payoff.1",
+   "act": "act2",
+   "scene": "a2-payoff",
+   "text": "Same rate, same month. The answer depends on the size of the loan, how old it is, and how long the house is kept.",
+   "spoken": "Same rate... same month. The answer depends on the size of the loan... how old it is... and how long the house is kept."
   },
   {
    "id": "a3-q.1",
    "act": "act3",
    "scene": "a3-q",
-   "text": "The division assumes the new rate is the last one. What happened in the real drops?",
-   "spoken": "The division assumes the new rate is the last one. What happened... in the real drops?"
+   "text": "The division also assumes today's rate is the last one. What happened in the real drops?",
+   "spoken": "The division also assumes today's rate is the last one. What happened... in the real drops?"
   },
   {
    "id": "a3-all.1",
@@ -375,64 +354,71 @@
    "id": "a3-rules.1",
    "act": "act3",
    "scene": "a3-rules",
-   "text": "In each, a borrower who took a loan at the peak refinances in the first month the rate is 1 point lower.",
-   "spoken": "In each... a borrower who took a loan at the peak refinances in the first month the rate is one point lower."
+   "text": "In each, someone like Maya borrows at the peak and refinances in the first month the rate is 1 point lower.",
+   "spoken": "In each... someone like Maya borrows at the peak and refinances in the first month the rate is one point lower."
   },
   {
    "id": "a3-costs.1",
    "act": "act3",
    "scene": "a3-costs",
-   "text": "Closing costs use the median share for that year; before 2018, lenders did not report them, so a fixed share is used and marked illustrative.",
-   "spoken": "Closing costs use the median share for that year... before twenty eighteen... lenders did not report them... so a fixed share is used and marked illustrative."
-  },
-  {
-   "id": "a3-80s.1",
-   "act": "act3",
-   "scene": "a3-80s",
-   "text": "The steepest falls came in the early 1980s.",
-   "spoken": "The steepest falls came in the early nineteen-eighties."
-  },
-  {
-   "id": "a3-81.1",
-   "act": "act3",
-   "scene": "a3-81",
-   "text": "After the peak of 1981, the first cut of 1 point came 2 months later.",
-   "spoken": "After the peak of nineteen eighty-one... the first cut of one point came two months later."
-  },
-  {
-   "id": "a3-81be.1",
-   "act": "act3",
-   "scene": "a3-81be",
-   "text": "It paid back in 13 months, but the slide went on, and the next point came 9 months after the refinance.",
-   "spoken": "It paid back in thirteen months... but the slide went on... and the next point came nine months after the refinance."
-  },
-  {
-   "id": "a3-short.1",
-   "act": "act3",
-   "scene": "a3-short",
-   "text": "Some drops were brief. The fall that began in 1987 lasted 4 months, and the refinance came at its very bottom.",
-   "spoken": "Some drops were brief. The fall that began in nineteen eighty-seven lasted four months... and the refinance came at its very bottom."
-  },
-  {
-   "id": "a3-06.1",
-   "act": "act3",
-   "scene": "a3-06",
-   "text": "The drop that began in 2006 was slower. The refinance came in January 2008, and it had paid for itself before the next point arrived.",
-   "spoken": "The drop that began in two thousand six was slower. The refinance came in January two thousand eight... and it had paid for itself before the next point arrived."
+   "text": "Closing costs use each year's median share; before 2018, lenders did not report them, so a fixed share is used and marked illustrative.",
+   "spoken": "Closing costs use each year's median share... before twenty eighteen... lenders did not report them... so a fixed share is used and marked illustrative."
   },
   {
    "id": "a3-range.1",
    "act": "act3",
    "scene": "a3-range",
-   "text": "At a cut of 1 point, break-even took between 10 and 21 months across all 13 drops.",
-   "spoken": "At a cut of one point... break-even took between ten and twenty-one months across all thirteen drops."
+   "text": "Counting what was still owed, break-even took between 10 and 20 months.",
+   "spoken": "Counting what was still owed... break-even took between ten and twenty months."
+  },
+  {
+   "id": "a3-simple.1",
+   "act": "act3",
+   "scene": "a3-simple",
+   "text": "The simple division would have said between 10 and 21.",
+   "spoken": "The simple division would have said between ten and twenty-one."
+  },
+  {
+   "id": "a3-young.1",
+   "act": "act3",
+   "scene": "a3-young",
+   "text": "Nearly the same, because those loans were only months old when the rate fell, so the fresh start cost them little. Maya's loan is 35 payments old.",
+   "spoken": "Nearly the same... because those loans were only months old when the rate fell... so the fresh start cost them little. Maya's loan is thirty-five payments old."
+  },
+  {
+   "id": "a3-81.1",
+   "act": "act3",
+   "scene": "a3-81",
+   "text": "The biggest fall began after the peak of 18.63% in 1981.",
+   "spoken": "The biggest fall began... after the peak of eighteen point six three percent in nineteen eighty-one."
+  },
+  {
+   "id": "a3-81b.1",
+   "act": "act3",
+   "scene": "a3-81b",
+   "text": "A refinance 2 months later paid back in 13 months, and the rate kept falling.",
+   "spoken": "A refinance two months later paid back in thirteen months... and the rate kept falling."
+  },
+  {
+   "id": "a3-priya.1",
+   "act": "act3",
+   "scene": "a3-priya",
+   "text": "For Priya's loan size, every one of those drops paid back within 6 months.",
+   "spoken": "For Priya's loan size... every one of those drops paid back within six months."
+  },
+  {
+   "id": "a3-dan.1",
+   "act": "act3",
+   "scene": "a3-dan",
+   "text": "For a loan like Dan's, with the bill a bigger share, the same drops took between 18 and 39 months.",
+   "spoken": "For a loan like Dan's... with the bill a bigger share... the same drops took between eighteen and thirty-nine months."
   },
   {
    "id": "a3-turn.1",
    "act": "act3",
    "scene": "a3-turn",
-   "text": "But in 5 of them, the rate kept falling: another drop of 1 point before the first refinance had paid for itself.",
-   "spoken": "But in five of them... the rate kept falling... another drop of one point before the first refinance had paid for itself."
+   "text": "But in 3 of those drops, the rate fell another 1 point before the first refinance had paid for itself.",
+   "spoken": "But in three of those drops... the rate fell another one point before the first refinance had paid for itself."
   },
   {
    "id": "a3-twice.1",
@@ -445,36 +431,36 @@
    "id": "a3-example.1",
    "act": "act3",
    "scene": "a3-example",
-   "text": "In the drop that began in November 2018, the refinance came in June 2019.",
-   "spoken": "In the drop that began in November twenty eighteen... the refinance came in June twenty nineteen."
+   "text": "In the drop that began in July 1984, the refinance came in November 1984.",
+   "spoken": "In the drop that began in July nineteen eighty-four... the refinance came in November nineteen eighty-four."
   },
   {
    "id": "a3-example2.1",
    "act": "act3",
    "scene": "a3-example2",
-   "text": "It needed 18 months to break even, and the next drop of 1 point came only 17 months later.",
-   "spoken": "It needed eighteen months to break even... and the next drop of one point came only seventeen months later."
+   "text": "It needed 19 months to pay back, and the next drop of 1 point came 7 months later.",
+   "spoken": "It needed nineteen months to pay back... and the next drop of one point came seven months later."
   },
   {
    "id": "a3-quiet.1",
    "act": "act3",
    "scene": "a3-quiet",
-   "text": "In the other 8, the first refinance was the one that mattered.",
-   "spoken": "In the other eight... the first refinance was the one that mattered."
+   "text": "In the other 10, the first refinance was the one that mattered.",
+   "spoken": "In the other ten... the first refinance was the one that mattered."
   },
   {
    "id": "a3-23.1",
    "act": "act3",
    "scene": "a3-23",
-   "text": "The latest drop began in October 2023. The cut of 1 point arrived in August 2024.",
-   "spoken": "The latest drop began... in October twenty twenty-three. The cut of one point arrived in August twenty twenty-four."
+   "text": "Maya's own drop began in October 2023. A cut of 1 point first arrived in August 2024.",
+   "spoken": "Maya's own drop began... in October twenty twenty-three. A cut of one point first arrived in August twenty twenty-four."
   },
   {
    "id": "a3-23be.1",
    "act": "act3",
    "scene": "a3-23be",
-   "text": "At that year's median cost, it paid back in 21 months.",
-   "spoken": "At that year's median cost... it paid back in twenty-one months."
+   "text": "Refinancing then would have paid back in 19 months.",
+   "spoken": "Refinancing then would have paid back in nineteen months."
   },
   {
    "id": "a3-answer.1",
@@ -487,22 +473,29 @@
    "id": "a3-answer2.1",
    "act": "act3",
    "scene": "a3-answer2",
-   "text": "For the median loan and median costs, a cut that repays it within 36 months is 0.56 points.",
-   "spoken": "For the median loan and median costs... a cut that repays it within thirty-six months is zero point five six points."
+   "text": "For a loan like Maya's, counting what is still owed, a cut of 0.5 points pays it back within 36 months.",
+   "spoken": "For a loan like Maya's... counting what is still owed... a cut of zero point five points pays it back within thirty-six months."
   },
   {
    "id": "a3-answer3.1",
    "act": "act3",
    "scene": "a3-answer3",
-   "text": "Half as much patience asks for more: to pay back in 21 months takes 1 point.",
-   "spoken": "Half as much patience asks for more... to pay back in twenty-one months takes one point."
+   "text": "Dan would need 1.12 points. Priya, 0.2.",
+   "spoken": "Dan would need one point one two points. Priya... zero point two."
+  },
+  {
+   "id": "a3-today.1",
+   "act": "act3",
+   "scene": "a3-today",
+   "text": "Today's cut is 0.59 points. For Maya, that means ahead after 30 months, and behind if the house is sold before then.",
+   "spoken": "Today's cut is zero point five nine points. For Maya... that means ahead after thirty months... and behind if the house is sold before then."
   },
   {
    "id": "a3-limit.1",
    "act": "act3",
    "scene": "a3-limit",
-   "text": "That answer has limits. It counts payment savings only: no taxes, no return on the cash, and a new 30-year loan restarts the clock on owning the house outright.",
-   "spoken": "That answer has limits. It counts payment savings only... no taxes... no return on the cash... and a new thirty-year loan restarts the clock on owning the house outright."
+   "text": "That answer has limits. It leaves out taxes and any return on the cash, and it assumes the bill is paid up front, not added to the loan.",
+   "spoken": "That answer has limits. It leaves out taxes and any return on the cash... and it assumes the bill is paid up front... not added to the loan."
   },
   {
    "id": "a3-median.1",
@@ -522,8 +515,8 @@
    "id": "a3-close.1",
    "act": "act3",
    "scene": "a3-close",
-   "text": "What history does show is the shape of the trade: a known bill up front, against savings that arrive one month at a time, for as long as the loan lasts.",
-   "spoken": "What history does show is the shape of the trade... a known bill up front... against savings that arrive one month at a time... for as long as the loan lasts."
+   "text": "What history does show is the shape of the trade: a known bill up front, against savings and a balance that settle month by month.",
+   "spoken": "What history does show is the shape of the trade... a known bill up front... against savings and a balance that settle month by month."
   },
   {
    "id": "m-rates.1",
@@ -547,32 +540,39 @@
    "spoken": "Costs are H.M.D.A. loan-level data from twenty eighteen to twenty twenty-five... originated refinances... first lien... thirty-year term."
   },
   {
+   "id": "m-chars.1",
+   "act": "method",
+   "scene": "m-chars",
+   "text": "Maya, Dan and Priya are illustrative: each one's loan and bill are the medians for that loan size.",
+   "spoken": "Maya... Dan and Priya are illustrative... each one's loan and bill are the medians for that loan size."
+  },
+  {
    "id": "m-assume.1",
    "act": "method",
    "scene": "m-assume",
-   "text": "Closing costs are paid in cash, with no taxes and no discounting. Every figure and formula is listed in the description.",
-   "spoken": "Closing costs are paid in cash... with no taxes and no discounting. Every figure and formula is listed in the description."
+   "text": "Break-even counts payment savings plus the difference in balance still owed. Closing costs paid in cash; no taxes. Every figure is listed in the description.",
+   "spoken": "Break-even counts payment savings plus the difference in balance still owed. Closing costs paid in cash... no taxes. Every figure is listed in the description."
   },
   {
    "id": "o-recap.1",
    "act": "outro",
    "scene": "o-recap",
-   "text": "A small cut needs a long stay. A large loan needs a smaller cut. And a falling rate can make the first refinance too early.",
-   "spoken": "A small cut needs a long stay. A large loan needs a smaller cut.... And a falling rate can make the first refinance too early."
+   "text": "A small cut needs a long stay. A small loan needs a bigger cut. And a young loan loses less to the fresh start.",
+   "spoken": "A small cut needs a long stay... A small loan needs a bigger cut... And a young loan... loses less to the fresh start."
+  },
+  {
+   "id": "o-you.1",
+   "act": "outro",
+   "scene": "o-you",
+   "text": "If the rate on your own statement starts with a 7, the same three questions apply: how big the cut, how old the loan, and how long the stay.",
+   "spoken": "If the rate on your own statement starts with a seven... the same three questions apply... how big the cut... how old the loan... and how long the stay."
   },
   {
    "id": "o-close.1",
    "act": "outro",
    "scene": "o-close",
-   "text": "The break-even is simple division. The hard part is the number only the borrower knows: how long the loan will be kept.",
-   "spoken": "The break-even is simple division. The hard part is the number only the borrower knows... how long the loan will be kept."
-  },
-  {
-   "id": "o-bill.1",
-   "act": "outro",
-   "scene": "o-bill",
-   "text": "The bill is known the day the loan closes. The savings arrive one month at a time.",
-   "spoken": "The bill is known the day the loan closes. The savings arrive one month at a time."
+   "text": "The monthly saving is only half of the answer. The other half, just as real, is what is still owed.",
+   "spoken": "The monthly saving is only half of the answer. The other half... just as real... is what is still owed."
   },
   {
    "id": "o-sources.1",

@@ -4,87 +4,87 @@ Every shot: size, camera move, reason (DX-V8, DX-V12). Planned times from the ta
 
 | # | t (s) | scene | layout | size | move | reason | picture | data sounds |
 |---|---|---|---|---|---|---|---|---|
-| sh001 | 0.0 | `co-bars` | bars/payments | medium | none | hold still: the eye must read the two bar heights | two monthly-payment bars side by side; the right one drops | bar |
-| sh002 | 3.9 | `co-bill` | stack/bill | close | push-in 1.2 s | close in on the closing-cost bill as it lands | a stack (the closing-cost bill) drops beside the bars; coins start moving from the bar gap to the stack | bar, counter |
-| sh003 | 8.8 | `co-question` | title/question | wide | pull-out 1.4 s | reveal the empty month counter under the question | question text; below it a month counter at 0 and an empty progress rail | counter |
-| sh004 | 14.7 | `ident` | ident/logo | wide | none | no move on the 3 s ident | channel ident, 3 s, no narration | — |
-| sh005 | 17.7 | `a1-lab` | title/lab | wide | drift 8 px/s | slow drift keeps the title card alive | lab card: data -> model -> number, three icons | — |
-| sh006 | 24.4 | `a1-scope` | title/scope | medium | none | hold on the two scope badges | "US only" and "history, not a forecast" badges | — |
-| sh007 | 30.4 | `a1-rehook` | ruler/rehook | medium | track right 1.5 s | follow the marker along the ruler to the 36-month line | ONE object: a horizontal ruler of rate cut (0 to 2 points); a marker sweeps it and one "?" hangs over it, the answer is not placed until act 3 (hold36 ILLUSTRATIVE badge); 13 small ticks under the ruler = the drops since 1971 | dot |
-| sh008 | 43.3 | `a1-rates` | line/history | wide | push-in 1.5 s | bring the viewer onto the rate line as it starts to draw | weekly 30-year rate 1971-2026 draws left to right | line |
-| sh009 | 50.3 | `a1-peak` | line/peak | medium | track to peak 1.3 s | go to the maximum the line names | peak dot 18.63% (1981) | dot |
-| sh010 | 55.4 | `a1-low` | line/low | medium | track to low 1.4 s | travel along the line to its minimum | low dot 2.65% (2021) | dot |
-| sh011 | 60.9 | `a1-drops` | line/drops | wide | pull-out 1.5 s | show the whole line again to count the falls | 13 falling segments highlight one after another | line |
-| sh012 | 66.4 | `a1-q` | title/act1 | wide | none | hold on the act question | act 1 question card | — |
-| sh013 | 72.4 | `a1-hmda` | ledger/hmda | medium | push-in 1.2 s | approach the disclosure record | one loan record card with the field "total loan costs" highlighted | — |
-| sh014 | 81.1 | `a1-terms` | stack/parts | close | tilt down 1.2 s | read the stack from top to bottom | the bill splits into labelled layers: origination, points, appraisal, title, other | bar |
-| sh015 | 89.3 | `a1-points` | stack/points | close | none | hold: the points layer detaches | the points layer slides out (optional) | bar |
-| sh016 | 97.5 | `a1-cashout` | bars/cashout | medium | track left 1.2 s | move from the cash-out bar back to the rate-and-term bar | two median bars: cash-out vs rate-and-term | bar |
-| sh017 | 111.0 | `a1-count` | ledger/count | medium | none | hold on the count | counter rolls to 488,241 | counter |
-| sh018 | 121.4 | `a1-median` | hist/median | medium | push-in 1.3 s | land on the median line of the distribution | distribution of total loan costs; median line $5,124 | bar, dot |
-| sh019 | 130.7 | `a1-spread` | hist/iqr | medium | none | hold: the middle-half band spreads from the median | IQR band $3,443-$8,270 opens | bar |
-| sh020 | 138.5 | `a1-boom` | line/count | wide | pull-out 1.4 s | widen to the yearly counts 2018-2025 | yearly refinance counts as bars, 2021 towers | bar |
-| sh021 | 148.1 | `a1-boomcost` | ledger/2021 | medium | none | hold on the 2021 median | 2021 median bill next to its bar | counter |
-| sh022 | 153.0 | `a1-turn` | bands/intro | wide | push-in 1.2 s | move into the size bands | five loan-size bands appear, dollar bars nearly equal | bar |
-| sh023 | 159.8 | `a1-small` | bands/small | medium | track left 1.3 s | go to the SMALL loan (left, amber) | SMALL band: cost as a share of the loan, 3.4% | bar |
-| sh024 | 166.5 | `a1-big` | bands/large | medium | track right 1.5 s | cross to the LARGE loan (right, blue) | LARGE band: 0.5% | bar |
-| sh025 | 173.1 | `a1-keep` | bands/both | wide | pull-out 1.2 s | both characters in one frame | SMALL and LARGE side by side, shares labelled | — |
-| sh026 | 180.4 | `a1-rule` | title/formula | medium | none | hold on the division | formula: bill / monthly drop = months | counter |
-| sh027 | 187.3 | `a1-payoff` | stack/fill | medium | push-in 1.2 s | watch the savings fill the bill | monthly savings fill the bill stack; counter of months | bar, counter |
-| sh028 | 192.5 | `a1-after` | stack/green | medium | none | hold: past break-even the fill turns positive | after break-even the fill spills over in positive colour | bar |
-| sh029 | 202.7 | `a2-q` | title/act2 | wide | none | hold on the act question | act 2 question card | — |
-| sh030 | 207.6 | `a2-loan` | ledger/loan | medium | push-in 1.2 s | approach the median loan card | MEDIAN loan card: $375,000 balance, $5,124 bill | — |
-| sh031 | 217.3 | `a2-old` | line/2023 | medium | track to 2023 1.4 s | find October 2023 on the rate line | rate line zoomed to 2023-2026, October 2023 dot 7.62% | line, dot |
-| sh032 | 226.2 | `a2-s025` | curve/025 | medium | none | hold: the first point of the curve | axes: rate cut (x) vs months to break even (y); payment bars inset drop $64 | bar, dot |
-| sh033 | 234.0 | `a2-be025` | curve/025m | medium | push-in 1.2 s | stress the height of the first point | first point at 80 months | dot |
-| sh034 | 238.4 | `a2-s05` | curve/05 | medium | track right 1.2 s | move along the cut axis to 0.5 | second point; inset bars drop $128 | bar, dot |
-| sh035 | 245.7 | `a2-be05` | curve/05m | medium | none | hold on the value | 41 months | dot |
-| sh036 | 249.1 | `a2-s10` | curve/10 | medium | track right 1.2 s | move along to 1 point | third point; bars drop $253 | bar, dot |
-| sh037 | 253.4 | `a2-be10` | curve/10m | medium | none | hold on the value | 21 months | dot |
-| sh038 | 256.5 | `a2-s20` | curve/20 | medium | track right 1.2 s | move along to 2 points | fourth point 11 months | dot |
-| sh039 | 260.5 | `a2-curve` | curve/full | wide | pull-out 1.5 s | see the whole curve | the full curve draws through the points | line |
-| sh040 | 264.4 | `a2-cliff` | curve/cliff | close | push-in 1.4 s | go to the steep part below 0.5 | the steep segment glows; years ticks on the y axis | line |
-| sh041 | 273.8 | `a2-thumb` | curve/thumb | medium | pull-out 1.2 s | compare the two named points | points at 1 and 0.5 highlighted together | — |
-| sh042 | 284.8 | `a2-turn` | bands/return | wide | none | callback to the size bands | the SMALL / MEDIAN / LARGE bands return | — |
-| sh043 | 290.8 | `a2-mid` | curve/median36 | medium | push-in 1.2 s | the 36-month line meets the median curve | horizontal 36-month line (ILLUSTRATIVE badge), crossing at 0.56 | line, dot |
-| sh044 | 298.0 | `a2-small` | curve/small36 | medium | track left 1.3 s | the SMALL curve crosses further right | SMALL curve (amber solid) crossing at 1.32 | line, dot |
-| sh045 | 307.9 | `a2-big` | curve/large36 | medium | track right 1.3 s | the LARGE curve crosses near zero | LARGE curve (blue dashed) crossing at 0.2 | line, dot |
-| sh046 | 314.7 | `a2-hold60` | curve/60 | medium | tilt up 1.2 s | raise the target line to 60 months | 60-month line, crossing at 0.33 | dot |
-| sh047 | 320.9 | `a2-hold84` | curve/84 | medium | tilt up 1.2 s | raise it to 84 months | 84-month line, crossing at 0.24 | dot |
-| sh048 | 325.6 | `a2-flip` | curve/flip | wide | pull-out 1.3 s | show both sides of the flip point | area left of the crossing shaded "bill outlasts the stay", right shaded "savings win" | — |
-| sh049 | 335.4 | `a2-payoff` | ledger/two | medium | none | hold on the two drivers | two dials: loan size, time kept | — |
-| sh050 | 343.6 | `a2-hold` | ledger/unknown | close | push-in 1.2 s | close on the unknown dial | the time-kept dial shows "?" | — |
-| sh051 | 348.6 | `a2-reset` | bars/timeline | wide | track right 1.5 s | follow the payment timeline to its new end | two payment timelines: old ends earlier, new ends 30 years out | line |
-| sh052 | 359.4 | `a2-reset2` | title/firstq | medium | none | hold on the question the division answers | the division card again, only "when" is lit | — |
-| sh053 | 368.2 | `a3-q` | title/act3 | wide | none | hold on the act question | act 3 question card | — |
-| sh054 | 374.9 | `a3-all` | episodes/strip | wide | pull-out 1.5 s | the full history with all 13 drops marked | 13 drop episodes shaded on the rate line | line, dot |
-| sh055 | 382.0 | `a3-rules` | episodes/rule | medium | push-in 1.3 s | go to one episode to show the rule | one episode: peak dot, 1-point-lower dot, refinance marker | dot |
-| sh056 | 389.2 | `a3-costs` | episodes/costs | medium | none | hold: pre-2018 bills get the ILLUSTRATIVE badge | bill icons on each episode, pre-2018 badged ILLUSTRATIVE | — |
-| sh057 | 401.2 | `a3-80s` | episodes/1980s | wide | track left 1.5 s | travel back to the 1980s | the three 1980s drops glow | line |
-| sh058 | 404.2 | `a3-81` | episodes/1981 | medium | push-in 1.3 s | into the 1981 drop | 1981 peak, refinance 2 months later | dot |
-| sh059 | 409.6 | `a3-81be` | episodes/1981be | medium | none | hold while the counter runs | break-even counter to 13; the next-point dot lands at 9 | counter, dot |
-| sh060 | 417.6 | `a3-short` | episodes/1987 | medium | track right 1.3 s | jump to the brief 1987 drop | 1987 drop, 4 months, refinance at the bottom | dot |
-| sh061 | 426.9 | `a3-06` | episodes/2006 | medium | track right 1.5 s | jump to the long 2006-2012 drop | slow fall; refinance January 2008; break-even before the next point | line, dot |
-| sh062 | 437.3 | `a3-range` | episodes/grid | wide | pull-out 1.2 s | all 13 break-evens at once | 13 bars of break-even months (every case shown, DX-H6) | bar |
-| sh063 | 444.4 | `a3-turn` | episodes/further | wide | none | hold: 5 bars get a second marker | 5 bars marked "next point before break-even" | dot |
-| sh064 | 454.4 | `a3-twice` | stack/second | medium | push-in 1.2 s | a second bill lands on the first | a second bill drops; the counter restarts | bar, counter |
-| sh065 | 462.2 | `a3-example` | episodes/2018 | medium | track right 1.5 s | go to the 2018-2020 drop | November 2018 peak, refinance June 2019 | dot |
-| sh066 | 468.2 | `a3-example2` | episodes/2020 | medium | none | hold while the two clocks run | break-even clock 18 vs next-drop clock 17 | counter |
-| sh067 | 475.6 | `a3-quiet` | episodes/quiet | wide | pull-out 1.2 s | the other 8 bars settle | the 8 remaining bars | — |
-| sh068 | 480.9 | `a3-23` | episodes/2023 | medium | track right 1.4 s | to the latest drop | October 2023 peak, August 2024 cut | line, dot |
-| sh069 | 489.8 | `a3-23be` | episodes/2023be | medium | none | hold while the counter runs | break-even 21 months (HMDA 2024 cost share) | counter |
-| sh070 | 494.9 | `a3-answer` | ruler/answer | medium | none | the rehook ruler returns: same object, same place | the ruler of the rehook; the "?" marker | — |
-| sh071 | 500.1 | `a3-answer2` | ruler/answer2 | close | push-in 1.2 s | land on the answer | marker lands on 0.56 at the 36-month line | dot |
-| sh072 | 510.1 | `a3-answer3` | ruler/answer3 | medium | track right 1.2 s | follow the marker to 1 point | second mark at 1 point / 21 months | dot |
-| sh073 | 516.6 | `a3-limit` | title/limits | medium | none | hold on the three limits | three limit lines: taxes, return on cash, term reset | — |
-| sh074 | 528.8 | `a3-median` | hist/limit | medium | none | callback to the distribution | the cost distribution: right half shaded (paid more than $5,124) | — |
-| sh075 | 539.6 | `a3-history` | title/history | wide | none | hold: the forecast line stops at today | rate line ends at the last week; nothing beyond | — |
-| sh076 | 545.5 | `a3-close` | stack/close | wide | pull-out 1.5 s | the bill and the months side by side | bill on the left, months arriving on the right | counter |
-| sh077 | 558.8 | `m-rates` | card/method-rates | medium | none | method card: static, readable | sources: PMMS via FRED, Optimal Blue check | — |
-| sh078 | 567.8 | `m-drops` | card/method-drops | medium | none | static | zig-zag rule diagram | — |
-| sh079 | 575.6 | `m-costs` | card/method-costs | medium | none | static | HMDA filter list | — |
-| sh080 | 587.8 | `m-assume` | card/method-assume | medium | none | static | assumptions list | — |
-| sh081 | 597.0 | `o-recap` | title/recap | wide | none | hold on the three lines | three recap lines | — |
-| sh082 | 607.7 | `o-close` | title/close | wide | drift 8 px/s | slow drift to the end | closing line | — |
-| sh083 | 616.2 | `o-bill` | stack/end | wide | none | hold | bill and months, final image | — |
-| sh084 | 621.5 | `o-sources` | end/screen | wide | none | end screen space (>= 20 s outro) | end-screen layout, empty areas for the platform | — |
+| sh001 | 0.0 | `co-maya` | person/maya | close | push-in 1.2 s | come close to one household before any chart | Maya's card, shown before the first word: a house icon, loan $375,000; rate 7.62% lands on the word (ILLUSTRATIVE badge); October 2023 is said in act 1 | counter |
+| sh002 | 4.2 | `co-today` | line/today | medium | track right 1.4 s | from her month to this week along the rate line | rate line Oct 2023 -> this week; today's dot 7.03% | line, dot |
+| sh003 | 7.7 | `co-cost` | stack/bill | close | none | the bill lands beside her card | closing-cost bill $5,124 drops next to Maya's card | bar |
+| sh004 | 11.4 | `co-question` | title/question | wide | pull-out 1.4 s | reveal the empty month counter under the question | question "When does that money come back?"; month counter at 0 | counter |
+| sh005 | 14.7 | `ident` | ident/logo | wide | none | no move on the 3 s ident | channel ident, 3 s, no narration | — |
+| sh006 | 17.7 | `a1-lab` | title/lab | wide | drift 8 px/s | slow drift keeps the title card alive | lab card: data -> model -> number | — |
+| sh007 | 24.3 | `a1-scope` | title/scope | medium | none | hold on the two scope badges | "US only" and "history, not a forecast" badges | — |
+| sh008 | 30.3 | `a1-rehook` | ruler/rehook | medium | track right 1.5 s | the marker sweeps the ruler; the answer is not placed yet | ONE object: a ruler of rate cut (0 to 2 points) with Maya's card at its left end; a marker sweeps it and one "?" hangs over the 36-month line (ILLUSTRATIVE badge); 13 ticks under it = every drop since 1971 | dot |
+| sh009 | 43.1 | `a1-maya` | person/maya2 | medium | none | Maya's card again, now with the month on the rate line | Maya's card beside the October 2023 peak of the rate line | dot |
+| sh010 | 50.9 | `a1-you` | person/you | medium | push-in 1.2 s | turn the question to the viewer | a blank statement with a rate field "7.__%" next to Maya's | — |
+| sh011 | 56.7 | `a1-q` | title/act1 | wide | none | hold on the act question | act 1 question: is Maya's bill unusual? | — |
+| sh012 | 59.7 | `a1-median` | hist/median | medium | push-in 1.3 s | land on the median line | the middle half of 2025 bills; the median line reaches Maya's bill | bar, dot |
+| sh013 | 70.0 | `a1-hmda` | ledger/hmda | medium | none | hold on the disclosure record | one loan record, field "total loan costs" highlighted | — |
+| sh014 | 78.0 | `a1-count` | ledger/count | medium | none | hold while the count rolls | counter rolls to 488,241 | counter |
+| sh015 | 87.4 | `a1-spread` | hist/iqr | medium | none | hold: the band opens from the median | IQR band $3,443-$8,270 opens | bar |
+| sh016 | 96.0 | `a1-terms` | stack/parts | close | tilt down 1.2 s | read the bill top to bottom | the bill splits into labelled layers | bar |
+| sh017 | 104.2 | `a1-turn` | bands/intro | wide | push-in 1.2 s | move into the loan-size bands | three cards: Dan (left, amber), Maya (centre), Priya (right, blue) | bar |
+| sh018 | 111.0 | `a1-dan` | person/dan | medium | track left 1.3 s | go to Dan | Dan's card: $115,000, same month, same rate (ILLUSTRATIVE) | — |
+| sh019 | 118.2 | `a1-dan2` | bands/small | medium | none | hold on his band | band "under $150,000": 3.4% of the loan | bar |
+| sh020 | 125.9 | `a1-dan3` | stack/dan | close | push-in 1.2 s | his bill against his loan | Dan's bill $3,667 as a slice of his loan column | bar |
+| sh021 | 136.3 | `a1-priya` | person/priya | medium | track right 1.6 s | cross to Priya | Priya's card: $1,005,000 (ILLUSTRATIVE) | — |
+| sh022 | 139.9 | `a1-priya2` | bands/large | medium | none | hold on her band | band "$750,000 and more": 0.5% | bar |
+| sh023 | 145.9 | `a1-priya3` | stack/priya | close | pull-out 1.3 s | her bill beside Maya's | Priya's $5,034 next to Maya's $5,124, on a loan column three times as tall | bar |
+| sh024 | 155.0 | `a1-save` | bars/payments | medium | none | hold: the new payment bar drops | Maya's old vs new monthly payment; the new bar drops $221 | bar |
+| sh025 | 163.6 | `a1-rule` | title/formula | medium | push-in 1.2 s | land on the division | $5,124 / $221 = 24 months (what most calculators give) | counter |
+| sh026 | 170.5 | `a1-payoff` | stack/fill | medium | none | the bill fills, then a doubt mark | monthly savings fill the bill in 24 months; a "?" appears | bar, counter |
+| sh027 | 177.7 | `a2-q` | title/act2 | wide | none | hold on the act question | act 2 question: what does the division leave out? | — |
+| sh028 | 180.9 | `a2-old` | person/maya35 | medium | none | hold: her payment calendar | Maya's calendar with 35 payments ticked | counter |
+| sh029 | 185.0 | `a2-reset` | bars/timeline | wide | track right 1.5 s | follow the new schedule to its end, 30 years out | two payment timelines: the old one ends in 2053, the new one 30 years from today | line |
+| sh030 | 193.4 | `a2-why` | bars/split | medium | none | hold on the interest/principal split | one payment split: interest vs principal, old loan month 36 vs new loan month 1 | bar |
+| sh031 | 203.0 | `a2-owe` | balance/two | medium | push-in 1.2 s | the two balance lines start to draw | balance still owed: old loan (grey) and new loan (blue), month by month | line |
+| sh032 | 207.8 | `a2-gap` | balance/gap | close | push-in 1.3 s | go to the gap at month 24 | the gap between the two lines at month 24: $1,133 | dot |
+| sh033 | 217.4 | `a2-real` | balance/real | medium | track right 1.2 s | move from 24 to 30 on the month axis | savings + balance gap crosses the bill at month 30 (not 24) | line, dot |
+| sh034 | 224.1 | `a2-thesis` | title/thesis | wide | none | hold on the two answers | "most calculators: 24" / "counting what is owed: 30" | — |
+| sh035 | 230.4 | `a2-small` | curve/intro | medium | none | the two curves appear | break-even months against the cut, two curves: simple (dashed grey) and balance (solid) | line |
+| sh036 | 234.0 | `a2-s025` | curve/025 | medium | track left 1.2 s | move to the smallest cut | at 0.25 points: simple 38 months | dot |
+| sh037 | 240.6 | `a2-s025b` | curve/never | close | tilt up 1.3 s | the balance curve leaves the chart | the balance curve goes off the top: never | line |
+| sh038 | 247.3 | `a2-cliff` | curve/cliff | medium | pull-out 1.2 s | show the steep part below 0.5 | the steep region below 0.5 points shaded | line |
+| sh039 | 253.4 | `a2-s10` | curve/10 | medium | track right 1.3 s | move along to 1 point | the two curves close in at 1 point | — |
+| sh040 | 257.9 | `a2-s10b` | curve/10m | medium | none | hold on the two values | 16 vs 18 months | dot |
+| sh041 | 262.2 | `a2-dan` | person/dan2 | medium | track left 1.3 s | back to Dan | Dan's payment bars: -$68 | bar |
+| sh042 | 268.2 | `a2-dan2` | balance/dan | medium | none | his two answers | Dan: 55 (division) vs 75 (balance) months | dot |
+| sh043 | 274.9 | `a2-dan3` | ledger/dan3 | close | push-in 1.2 s | Dan sells after 3 years | Dan's position after 3 years: -$1,777 (red) | counter |
+| sh044 | 283.2 | `a2-dan4` | ledger/dan7 | close | none | hold | after 7 years: +$386 | counter |
+| sh045 | 288.6 | `a2-priya` | person/priya2 | medium | track right 1.6 s | across to Priya | Priya: -$593 a month, even after 11 months | bar, dot |
+| sh046 | 295.1 | `a2-priya2` | ledger/priya | medium | none | hold on her two horizons | Priya after 3 years +$11,482; after 7 +$30,387 | counter |
+| sh047 | 307.1 | `a2-maya` | ledger/maya | medium | track left 1.3 s | back to the middle | Maya after 3 years +$1,039; after 7 +$8,093 | counter |
+| sh048 | 315.8 | `a2-sell` | balance/sell | wide | none | hold: before / after the break-even month | a "sell here" slider across Maya's timeline: red before month 30, green after | — |
+| sh049 | 326.9 | `a2-payoff` | person/three | wide | pull-out 1.3 s | the three households together | Dan, Maya, Priya side by side: loan size, loan age, time kept | — |
+| sh050 | 337.1 | `a3-q` | title/act3 | wide | none | hold on the act question | act 3 question: what happened in the real drops? | — |
+| sh051 | 343.9 | `a3-all` | episodes/strip | wide | pull-out 1.5 s | the full history with all 13 drops marked | 13 drop episodes shaded on the rate line | line, dot |
+| sh052 | 351.2 | `a3-rules` | episodes/rule | medium | push-in 1.3 s | go to one episode to show the rule | one episode: peak, 1 point lower, refinance marker | dot |
+| sh053 | 359.4 | `a3-costs` | episodes/costs | medium | none | hold: pre-2018 bills badged | bill icons per episode, pre-2018 badged ILLUSTRATIVE | — |
+| sh054 | 370.0 | `a3-range` | episodes/grid | wide | none | all 13 break-evens (balance method) | 13 bars, months to break even counting the balance (every case shown) | bar |
+| sh055 | 375.3 | `a3-simple` | episodes/grid2 | wide | none | the simple answers appear as ticks | a tick per bar for the simple division | dot |
+| sh056 | 379.4 | `a3-young` | episodes/young | medium | push-in 1.2 s | the loans were months old | months on the old loan at refinance (1-4) vs Maya's 35 | bar |
+| sh057 | 390.0 | `a3-81` | episodes/1981 | medium | track left 1.5 s | travel back to 1981 | 1981 peak 18.63% | dot |
+| sh058 | 397.4 | `a3-81b` | episodes/1981be | medium | none | hold while the counter runs | refinance 2 months later, paid back in 13 | counter |
+| sh059 | 403.4 | `a3-priya` | episodes/priya | medium | none | Priya's lens on the 13 drops | the 13 bars shrink to Priya's cost share | bar |
+| sh060 | 410.8 | `a3-dan` | episodes/dan | medium | none | Dan's lens on the 13 drops | the 13 bars grow to Dan's cost share (18-39 months) | bar |
+| sh061 | 419.7 | `a3-turn` | episodes/further | wide | none | hold: 3 bars get a second marker | 3 bars marked "next point before break-even" | dot |
+| sh062 | 427.7 | `a3-twice` | stack/second | medium | push-in 1.2 s | a second bill lands on the first | a second bill; the counter restarts | bar, counter |
+| sh063 | 435.5 | `a3-example` | episodes/1984 | medium | track right 1.4 s | to the 1984 drop | July 1984 peak, refinance November 1984 | dot |
+| sh064 | 443.0 | `a3-example2` | episodes/1984be | medium | none | two clocks | break-even clock 19 vs next-drop clock 7 | counter |
+| sh065 | 450.5 | `a3-quiet` | episodes/quiet | wide | pull-out 1.2 s | the other drops settle | the remaining 10 bars | — |
+| sh066 | 455.6 | `a3-23` | episodes/2023 | medium | track right 1.4 s | to Maya's own drop | October 2023 peak (Maya's month), 1 point lower in August 2024 | line, dot |
+| sh067 | 464.4 | `a3-23be` | episodes/2023be | medium | none | hold while the counter runs | would have paid back in 19 months | counter |
+| sh068 | 468.4 | `a3-answer` | ruler/answer | medium | none | the rehook ruler returns: same object, same place | the ruler and Maya's card; the "?" | — |
+| sh069 | 473.8 | `a3-answer2` | ruler/answer2 | close | push-in 1.2 s | land on the answer | marker lands on 0.5 at the 36-month line | dot |
+| sh070 | 484.4 | `a3-answer3` | ruler/answer3 | medium | pull-out 1.2 s | Dan and Priya get their own marks | Dan 1.12 (amber), Priya 0.2 (blue) | dot |
+| sh071 | 490.8 | `a3-today` | ruler/today | medium | none | today's cut on the same ruler | today's cut 0.59 marked; Maya ahead after 30 months | dot |
+| sh072 | 501.3 | `a3-limit` | title/limits | medium | none | hold on the limits | limits: taxes, return on cash, bill not rolled into the loan | — |
+| sh073 | 511.5 | `a3-median` | hist/limit | medium | none | callback to the distribution | the cost distribution: right half shaded (paid more than $5,124) | — |
+| sh074 | 521.5 | `a3-history` | title/history | wide | none | hold: the line stops at this week | rate line ends at the last week; nothing beyond | — |
+| sh075 | 527.5 | `a3-close` | stack/close | wide | pull-out 1.5 s | the bill against savings and balance | bill on the left; savings and balance settling month by month on the right | counter |
+| sh076 | 537.2 | `m-rates` | card/method-rates | medium | none | method card: static, readable | sources: PMMS via FRED, Optimal Blue check | — |
+| sh077 | 545.4 | `m-drops` | card/method-drops | medium | none | static | zig-zag rule diagram | — |
+| sh078 | 553.1 | `m-costs` | card/method-costs | medium | none | static | HMDA filter list | — |
+| sh079 | 562.1 | `m-chars` | card/method-chars | medium | none | static | the three characters and their medians (ILLUSTRATIVE) | — |
+| sh080 | 569.8 | `m-assume` | card/method-assume | medium | none | static | break-even definition: savings + balance difference >= bill | — |
+| sh081 | 580.5 | `o-recap` | title/recap | wide | none | hold on the three lines | three recap lines with the three households | — |
+| sh082 | 590.6 | `o-you` | person/you2 | medium | none | the blank statement returns | the viewer's blank statement "7.__%" and the three questions | — |
+| sh083 | 601.6 | `o-close` | title/close | wide | drift 8 px/s | slow drift to the end | closing line | — |
+| sh084 | 610.3 | `o-sources` | end/screen | wide | none | end screen space (>= 20 s outro) | end-screen layout, empty areas for the platform | — |

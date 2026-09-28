@@ -198,15 +198,22 @@
   }
  },
  "terms": {
-  "quote": null,
-  "status": "NOT FOUND",
-  "note": "No data-use terms page was found on the hosts this environment can reach (ffiec.cfpb.gov, files.ffiec.cfpb.gov). The CFPB website terms and the HMDA pages on consumerfinance.gov are behind a blocked host (www.consumerfinance.gov, proxy 403). HMDA public data are published by the CFPB/FFIEC for public use, but no sentence to that effect was quoted, so DX-H4 is OPEN for this source: the owner (or a session that can reach consumerfinance.gov) must quote the terms before release.",
-  "triedUrls": [
-   "https://ffiec.cfpb.gov/data-browser/",
-   "https://ffiec.cfpb.gov/documentation/faq/static-dataset-faq",
-   "https://ffiec.cfpb.gov/documentation/faq/data-browser-faq (404)",
-   "https://www.consumerfinance.gov/data-research/hmda/ (blocked)"
-  ]
+  "quote": "Website content: Information created by the CFPB is in the public domain and you may reproduce, publish, or otherwise use it without the Bureau\u2019s permission. Please consider appropriate citation to the Bureau as the source.",
+  "url": "https://www.consumerfinance.gov/privacy/website-privacy-policy/",
+  "section": "Legal notices > Copyright and trademark",
+  "retrieved": "2026-09-28",
+  "alsoQuoted": [
+   {
+    "quote": "Copyrighted materials created by entities outside of the Bureau also may appear on this website, or may be reached through a link on this website.",
+    "url": "https://www.consumerfinance.gov/privacy/website-privacy-policy/"
+   },
+   {
+    "quote": "HMDA data are the most comprehensive source of publicly available information on the U.S. mortgage market.",
+    "url": "https://www.consumerfinance.gov/data-research/hmda/"
+   }
+  ],
+  "reading": "HMDA public data are published by the CFPB (FFIEC HMDA platform, ffiec.cfpb.gov, \"An official website of the CFPB's HMDA\"). The CFPB states that information it creates is in the public domain and may be reproduced, published or otherwise used without permission, with citation to the Bureau suggested: compatible with an ad-supported channel. The aggregates in data/normalized/ are our own computation; the description cites the CFPB/FFIEC as the source.",
+  "status": "QUOTED (DX-H4)"
  },
  "observations": {
   "loanAmountBinned": "loan_amount values in the public data end in 5,000 (e.g. 115000, 225000, 375000): amounts are published binned, so medians of loan_amount are bin midpoints"

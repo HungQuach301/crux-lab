@@ -1,38 +1,88 @@
 {
- "loan": 375000.0,
- "cost": 5123.53,
- "oldRate": 7.62,
- "cases": {
-  "0.25": {
-   "oldPayment": 2652.9368209931545,
-   "newPayment": 2588.754042431624,
-   "monthlySavings": 64.18277856153054,
-   "breakEvenMonths": 80
+ "scenario": {
+  "borrowed": "2023-10",
+  "oldRate": 7.62,
+  "paymentsMade": 35,
+  "todayWeek": "2026-09-24",
+  "todayRate": 7.03
+ },
+ "characters": {
+  "maya": {
+   "loan": 375000.0,
+   "cost": 5123.53,
+   "balance": 364388.96896570234,
+   "monthlySavings": 221.3018074230754,
+   "simple": 24,
+   "withBalance": 30,
+   "net36": 1039.0512106753022,
+   "net84": 8092.993053949721,
+   "cut36": 0.4954232883874785,
+   "cut84": 0.27575620861438527
   },
-  "0.5": {
-   "oldPayment": 2652.9368209931545,
-   "newPayment": 2525.179038274451,
-   "monthlySavings": 127.75778271870331,
-   "breakEvenMonths": 41
+  "dan": {
+   "loan": 115000.0,
+   "cost": 3667.05,
+   "balance": 111745.95048281539,
+   "monthlySavings": 67.86588760974325,
+   "simple": 55,
+   "withBalance": 75,
+   "net36": -1777.1917620595937,
+   "net84": 386.0170698779193,
+   "cut36": 1.117936255569768,
+   "cut84": 0.5410806976665402
   },
-  "1.0": {
-   "oldPayment": 2652.9368209931545,
-   "newPayment": 2399.926465776589,
-   "monthlySavings": 253.01035521656559,
-   "breakEvenMonths": 21
-  },
-  "2.0": {
-   "oldPayment": 2652.9368209931545,
-   "newPayment": 2157.5278586980053,
-   "monthlySavings": 495.4089622951492,
-   "breakEvenMonths": 11
+  "priya": {
+   "loan": 1005000.0,
+   "cost": 5033.725,
+   "balance": 976562.4368280822,
+   "monthlySavings": 593.0888438938418,
+   "simple": 9,
+   "withBalance": 11,
+   "net36": 11481.992644610042,
+   "net84": 30386.5567845856,
+   "cut36": 0.20016928049172167,
+   "cut84": 0.14898129321129128
   }
  },
- "sp36": {
-  "mid": 0.5576115382360158,
-  "small": 1.3215196839045402,
-  "big": 0.2030450014043477
+ "mayaByCut": {
+  "0.25": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 137.43437718661153,
+   "simple": 38,
+   "withBalance": null
+  },
+  "0.5": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 199.21045776480514,
+   "simple": 26,
+   "withBalance": 36
+  },
+  "0.75": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 260.37795945194375,
+   "simple": 20,
+   "withBalance": 23
+  },
+  "1.0": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 320.9188731055988,
+   "simple": 16,
+   "withBalance": 18
+  },
+  "1.5": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 440.049110869606,
+   "simple": 12,
+   "withBalance": 12
+  },
+  "2.0": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 556.4585491378325,
+   "simple": 10,
+   "withBalance": 9
+  }
  },
+ "gapAtSimpleBreakEven": 1132.951085689303,
  "costSharesByYear": {
   "2018": 1.7076,
   "2019": 1.1986,
@@ -63,7 +113,8 @@
      "costIllustrative": true,
      "closingCost": 4779.46,
      "monthlySavings": 123.41,
-     "breakEvenMonths": 39,
+     "breakEvenMonths": 35,
+     "breakEvenSimple": 39,
      "beforeBreakEvenAnotherDrop": "1975-03",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -79,7 +130,8 @@
      "costIllustrative": true,
      "closingCost": 4775.08,
      "monthlySavings": 240.28,
-     "breakEvenMonths": 20,
+     "breakEvenMonths": 18,
+     "breakEvenSimple": 20,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -109,6 +161,7 @@
      "closingCost": 4785.39,
      "monthlySavings": 496.45,
      "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
      "beforeBreakEvenAnotherDrop": "1980-06",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -125,6 +178,7 @@
      "closingCost": 4785.39,
      "monthlySavings": 496.45,
      "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
      "beforeBreakEvenAnotherDrop": "1980-06",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -141,6 +195,7 @@
      "closingCost": 4785.39,
      "monthlySavings": 496.45,
      "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
      "beforeBreakEvenAnotherDrop": "1980-07",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -166,6 +221,7 @@
      "closingCost": 4785.6,
      "monthlySavings": 154.41,
      "breakEvenMonths": 31,
+     "breakEvenSimple": 31,
      "beforeBreakEvenAnotherDrop": "1981-12",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -182,6 +238,7 @@
      "closingCost": 4785.29,
      "monthlySavings": 369.21,
      "breakEvenMonths": 13,
+     "breakEvenSimple": 13,
      "beforeBreakEvenAnotherDrop": "1982-09",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -198,6 +255,7 @@
      "closingCost": 4782.64,
      "monthlySavings": 535.68,
      "breakEvenMonths": 9,
+     "breakEvenSimple": 9,
      "beforeBreakEvenAnotherDrop": "1982-11",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -222,7 +280,8 @@
      "costIllustrative": true,
      "closingCost": 4783.63,
      "monthlySavings": 129.88,
-     "breakEvenMonths": 37,
+     "breakEvenMonths": 36,
+     "breakEvenSimple": 37,
      "beforeBreakEvenAnotherDrop": "1984-12",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -238,7 +297,8 @@
      "costIllustrative": true,
      "closingCost": 4782.86,
      "monthlySavings": 247.06,
-     "breakEvenMonths": 20,
+     "breakEvenMonths": 19,
+     "breakEvenSimple": 20,
      "beforeBreakEvenAnotherDrop": "1985-06",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -254,8 +314,9 @@
      "costIllustrative": true,
      "closingCost": 4777.16,
      "monthlySavings": 583.84,
-     "breakEvenMonths": 9,
-     "beforeBreakEvenAnotherDrop": "1986-03",
+     "breakEvenMonths": 8,
+     "breakEvenSimple": 9,
+     "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
     }
@@ -279,7 +340,8 @@
      "costIllustrative": true,
      "closingCost": 4784.29,
      "monthlySavings": 139.08,
-     "breakEvenMonths": 35,
+     "breakEvenMonths": 32,
+     "breakEvenSimple": 35,
      "beforeBreakEvenAnotherDrop": "1988-02",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -295,7 +357,8 @@
      "costIllustrative": true,
      "closingCost": 4779.36,
      "monthlySavings": 310.71,
-     "breakEvenMonths": 16,
+     "breakEvenMonths": 14,
+     "breakEvenSimple": 16,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -324,7 +387,8 @@
      "costIllustrative": true,
      "closingCost": 4782.51,
      "monthlySavings": 193.94,
-     "breakEvenMonths": 25,
+     "breakEvenMonths": 23,
+     "breakEvenSimple": 25,
      "beforeBreakEvenAnotherDrop": "1990-12",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -340,7 +404,8 @@
      "costIllustrative": true,
      "closingCost": 4780.79,
      "monthlySavings": 264.39,
-     "breakEvenMonths": 19,
+     "breakEvenMonths": 17,
+     "breakEvenSimple": 19,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -357,6 +422,7 @@
      "closingCost": 4730.08,
      "monthlySavings": 481.0,
      "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -381,7 +447,8 @@
      "costIllustrative": true,
      "closingCost": 4778.32,
      "monthlySavings": 161.71,
-     "breakEvenMonths": 30,
+     "breakEvenMonths": 26,
+     "breakEvenSimple": 30,
      "beforeBreakEvenAnotherDrop": "1995-05",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -397,7 +464,8 @@
      "costIllustrative": true,
      "closingCost": 4773.16,
      "monthlySavings": 270.67,
-     "breakEvenMonths": 18,
+     "breakEvenMonths": 16,
+     "breakEvenSimple": 18,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -413,7 +481,8 @@
      "costIllustrative": true,
      "closingCost": 4751.75,
      "monthlySavings": 469.06,
-     "breakEvenMonths": 11,
+     "breakEvenMonths": 9,
+     "breakEvenSimple": 11,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -438,7 +507,8 @@
      "costIllustrative": true,
      "closingCost": 4770.65,
      "monthlySavings": 153.41,
-     "breakEvenMonths": 32,
+     "breakEvenMonths": 28,
+     "breakEvenSimple": 32,
      "beforeBreakEvenAnotherDrop": "1997-12",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -454,7 +524,8 @@
      "costIllustrative": true,
      "closingCost": 4735.18,
      "monthlySavings": 234.87,
-     "breakEvenMonths": 21,
+     "breakEvenMonths": 19,
+     "breakEvenSimple": 21,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -483,7 +554,8 @@
      "costIllustrative": true,
      "closingCost": 4774.21,
      "monthlySavings": 132.34,
-     "breakEvenMonths": 37,
+     "breakEvenMonths": 32,
+     "breakEvenSimple": 37,
      "beforeBreakEvenAnotherDrop": "2000-12",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -499,8 +571,9 @@
      "costIllustrative": true,
      "closingCost": 4765.23,
      "monthlySavings": 245.43,
-     "breakEvenMonths": 20,
-     "beforeBreakEvenAnotherDrop": "2002-08",
+     "breakEvenMonths": 17,
+     "breakEvenSimple": 20,
+     "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
     },
@@ -515,7 +588,8 @@
      "costIllustrative": true,
      "closingCost": 4703.69,
      "monthlySavings": 449.21,
-     "breakEvenMonths": 11,
+     "breakEvenMonths": 10,
+     "breakEvenSimple": 11,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -540,7 +614,8 @@
      "costIllustrative": true,
      "closingCost": 4769.32,
      "monthlySavings": 109.48,
-     "breakEvenMonths": 44,
+     "breakEvenMonths": 37,
+     "breakEvenSimple": 44,
      "beforeBreakEvenAnotherDrop": "2008-12",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -556,7 +631,8 @@
      "costIllustrative": true,
      "closingCost": 4708.26,
      "monthlySavings": 224.47,
-     "breakEvenMonths": 21,
+     "breakEvenMonths": 20,
+     "breakEvenSimple": 21,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -573,6 +649,7 @@
      "closingCost": 4565.41,
      "monthlySavings": 457.6,
      "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -597,7 +674,8 @@
      "costIllustrative": true,
      "closingCost": 4688.67,
      "monthlySavings": 138.07,
-     "breakEvenMonths": 34,
+     "breakEvenMonths": 32,
+     "breakEvenSimple": 34,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -614,6 +692,7 @@
      "closingCost": 4557.43,
      "monthlySavings": 245.0,
      "breakEvenMonths": 19,
+     "breakEvenSimple": 19,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -642,7 +721,8 @@
      "costIllustrative": false,
      "closingCost": 3577.98,
      "monthlySavings": 114.86,
-     "breakEvenMonths": 32,
+     "breakEvenMonths": 25,
+     "breakEvenSimple": 32,
      "beforeBreakEvenAnotherDrop": "2019-08",
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -658,8 +738,9 @@
      "costIllustrative": false,
      "closingCost": 3564.42,
      "monthlySavings": 199.89,
-     "breakEvenMonths": 18,
-     "beforeBreakEvenAnotherDrop": "2020-11",
+     "breakEvenMonths": 14,
+     "breakEvenSimple": 18,
+     "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
     },
@@ -674,7 +755,8 @@
      "costIllustrative": false,
      "closingCost": 3589.7,
      "monthlySavings": 384.56,
-     "breakEvenMonths": 10,
+     "breakEvenMonths": 8,
+     "breakEvenSimple": 10,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false
@@ -699,7 +781,8 @@
      "costIllustrative": false,
      "closingCost": 6811.48,
      "monthlySavings": 166.42,
-     "breakEvenMonths": 41,
+     "breakEvenMonths": 34,
+     "breakEvenSimple": 41,
      "beforeBreakEvenAnotherDrop": "2024-09",
      "dataOnlyTo": "2026-09",
      "censored": true
@@ -715,7 +798,8 @@
      "costIllustrative": false,
      "closingCost": 5039.35,
      "monthlySavings": 240.28,
-     "breakEvenMonths": 21,
+     "breakEvenMonths": 19,
+     "breakEvenSimple": 21,
      "beforeBreakEvenAnotherDrop": null,
      "dataOnlyTo": "2026-09",
      "censored": false

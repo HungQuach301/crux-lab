@@ -24,22 +24,22 @@ J = lambda p: json.load(open(os.path.join(EP, p)))
 
 GAP_READ = 0.35          # table read: between sentences
 GAP_READ_ACT = 0.75      # table read: between acts (still <= 0.8 s)
-LEAD = 1.2               # cold open: picture before words
+LEAD = 0.9               # cold open: picture before words (Maya's card)
+GAP_COLD = 0.3           # between the short cold-open lines
 IDENT = 3.0
 GAP = 0.45               # edit: between sentences
 DECISIVE_PAUSE = 1.2     # after a sentence that says a decisive number (DX-R3 >= 1.0 s)
-SILENCES = {'a1-median': (1.2, 'let the median bill land'),
-            'a2-cliff': (1.0, 'let the steep part of the curve sink in'), 'a3-answer2': (1.3, 'the answer lands'),
-            'a1-after': (1.6, 'end of act 1: ad break'), 'a2-reset2': (1.6, 'end of act 2: ad break')}
+SILENCES = {'a1-median': (1.2, 'Maya\'s bill is the national median: let it land'), 'a2-real': (1.3, 'the thesis lands: 24 becomes 30'),
+            'a3-answer2': (1.3, 'the answer lands'), 'a1-payoff': (1.6, 'end of act 1: ad break'), 'a2-payoff': (1.6, 'end of act 2: ad break')}
 OUTRO_HOLD = 12.0        # end screen after the last line (outro >= 20 s)
 MUSIC = {'cold-open': ('A minor', 72, 'suspense under the open question; pad + pulse, no melody'),
          'ident': ('A minor', 72, 'ident sting'),
-         'act1': ('C major', 84, 'curious, light pulse; the SMALL and LARGE motifs introduced (amber: low plucks, blue: high bells)'),
-         'act2': ('D minor', 92, 'building: the pulse tightens toward the cliff (a2-cliff), valley after it; re-voiced at the loan-size turn'),
+         'act1': ('C major', 84, 'curious, light pulse; the three households get motifs (Dan: low plucks, Maya: piano, Priya: high bells)'),
+         'act2': ('D minor', 92, 'building to the thesis (a2-real: 24 becomes 30), valley after it; re-voiced at Dan\'s and Priya\'s positions'),
          'act3': ('F major', 88, 'history: darker at the further-drop turn, resolves on the answer'),
          'method': ('F major', 70, 'thin pad under the method card'),
          'outro': ('C major', 76, 'resolved; both motifs together')}
-CLIMAX = {'act1': 'a1-turn', 'act2': 'a2-cliff', 'act3': 'a3-answer2'}
+CLIMAX = {'act1': 'a1-turn', 'act2': 'a2-real', 'act3': 'a3-answer2'}
 
 
 def dur(path):
@@ -55,6 +55,17 @@ def main():
     choice = J('out/voice/choice-report.json')
     wpm = {r['id']: r['chosen']['wpm'] for r in choice['sentences']}
     D = {s['id']: dur(os.path.join(EP, takes[s['id']]['final'])) for s in draft}
+    # cold open: cut the breath/decay after the last word at ASR end + 250 ms (the same cut toolkit/audio/d_m2_audio.py makes
+    # after decisive lines; trimming, not stretching). M2 must apply it in the voice stem too (timeline-plan.json: tailCut).
+    EL = J('out/voice/el-takes.json')
+    TAIL = {}
+    for s in draft:
+        if s['act'] == 'cold-open':
+            rec = EL.get(os.path.basename(takes[s['id']]['raw'])[:-4])
+            if rec and rec.get('words'):
+                cut = 0.03 + rec['words'][-1]['end'] + 0.25
+                if cut < D[s['id']]:
+                    TAIL[s['id']] = round(cut, 3); D[s['id']] = cut
 
     # 1) continuous table read
     parts, t, prev_act, tr = [], 0.0, None, []
@@ -75,10 +86,10 @@ def main():
     parts.append(np.zeros(int(0.5 * SR)))
     y = np.concatenate(parts)
     os.makedirs(os.path.join(EP, 'work'), exist_ok=True)
-    os.makedirs(os.path.join(EP, 'review-m1'), exist_ok=True)
+    os.makedirs(os.path.join(EP, 'review-m1b'), exist_ok=True)
     sf.write(os.path.join(EP, 'work', 'table-read.wav'), y, SR)
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', os.path.join(EP, 'work', 'table-read.wav'), '-af', 'loudnorm=I=-16:TP=-1.5', '-c:a', 'aac', '-b:a', '128k',
-                    os.path.join(EP, 'review-m1', 'table-read-full.m4a')], check=True)
+                    os.path.join(EP, 'review-m1b', 'table-read-full.m4a')], check=True)
     gaps = [b['start'] - a['end'] for a, b in zip(tr, tr[1:])]
     json.dump({'sentences': tr, 'maxGap': round(max(gaps), 3), 'duration': round(len(y) / SR, 2)}, open(os.path.join(EP, 'work', 'table-read.json'), 'w'), indent=1)
 
@@ -93,10 +104,14 @@ def main():
             if s['act'] == 'cold-open':
                 t += LEAD
             prev = s['act']
+        if s['scene'] == 'a1-rehook' and t < 30.3:
+            t = 30.3  # a breath before the promise: the rehook starts inside 0:30-0:45 (DX-S4)
         st = t
         t += D[s['id']]
         sents.append({'id': s['id'], 'scene': s['scene'], 'text': s['text'], 'start': round(st, 3), 'end': round(t, 3)})
-        pause = GAP
+        pause = GAP_COLD if s['act'] == 'cold-open' else GAP
+        if s['scene'] == 'co-question':
+            pause = 0.0  # the ident starts on the question's last syllable decay
         if s['id'] in decisive:
             pause = max(pause, DECISIVE_PAUSE)
         if s['scene'] in SILENCES:
@@ -115,7 +130,7 @@ def main():
         if a['id'] in CLIMAX:
             a['climax'] = next(x['start'] for x in scenes if x['id'] == CLIMAX[a['id']])
     total = round(t, 3)
-    json.dump({'fps': 30, 'total': total, 'acts': acts, 'scenes': scenes, 'sentences': sents, 'note': 'PLANNED at M1 from the table-read takes; M2 re-times from the final takes'},
+    json.dump({'fps': 30, 'total': total, 'acts': acts, 'scenes': scenes, 'sentences': sents, 'tailCut': TAIL, 'note': 'PLANNED at M1 from the table-read takes; M2 re-times from the final takes'},
               open(os.path.join(HERE, 'timeline-plan.json'), 'w'), indent=1)
 
     # 3) cues + silences + sonification counts
@@ -149,9 +164,9 @@ def main():
           '## Sound design', '', '- whoosh per camera move, level from peak speed (A10); riser into each reveal; impact on the decisive numbers (`cost_med`, `sp36_mid`); room tone throughout.',
           '- every spoken number: music and sfx dip from 0.5 s before to 1.6 s after (DX-A6); the data sounds follow the voice side-chain below.', '',
           '## Data sonification plan (DX-A1, sổ gu G-001, G-005, G-006), per element type', '',
-          'Timbre: **not chosen yet**, left empty until the owner picks S1, S2 or S3 (`review-m1/sonify-S1.mp4`, `-S2`, `-S3`; blind names).', '',
+          'Timbre: **S2**, chosen by the owner in the blind test on a phone speaker (sổ gu G-005, 2026-09-28): palette `minimal` of `toolkit/audio/sonify_palettes.py`, soft filtered tick + low pulse. "S2 không lấn lời."', '',
           '| element | timbre | value mapping | pan | timing | scenes using it |', '|---|---|---|---|---|---|']
-    L += [f"| {r['element']} | {r['sound'] or '(chờ chọn)'} | {r['mapping']} | {r['pan']} | {r['timing']} | {son_count.get(r['element'], 0)} |" for r in SH['sonification']]
+    L += [f"| {r['element']} | {r['sound']} | {r['mapping']} | {r['pan']} | {r['timing']} | {son_count.get(r['element'], 0)} |" for r in SH['sonification']]
     L += ['', '### Heard without covering the voice', ''] + [f'- {x}' for x in SH['separation']]
     L += ['', 'Measured on the 10 s sample, blind palettes (review-m1/sonify-metrics.json): data layer about -21 dB under the voice; 1-4 kHz while speaking 31-56 dB under the voice; T1-style lift median 0 dB (up to 6.6 dB in voice pauses). The m0 version at +10 dB (-6 dB under the voice) was judged by the owner to cover the voice.']
     open(os.path.join(HERE, 'cue-sheet.md'), 'w').write('\n'.join(L) + '\n')

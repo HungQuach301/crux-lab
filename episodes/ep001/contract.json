@@ -1,6 +1,7 @@
 {
  "episode": "ep001",
  "question": "At what rate spread does a refinance pay back its closing costs?",
+ "thesis": "most calculators divide the bill by the monthly saving; counting what is still owed on each loan, break-even comes later for a loan that is already some years old (Maya: 24 -> 30 months)",
  "line": "content line 1 (borrowing and debt), housing decision",
  "targetDurationSec": [
   600,
@@ -13,43 +14,74 @@
   "history": "history, not a forecast (act 1, once each)"
  },
  "characters": {
-  "median": {
-   "what": "the median rate-and-term refinance (HMDA 2025): balance $375,000, closing costs $5,124",
+  "maya": {
+   "what": "ILLUSTRATIVE: borrowed the HMDA 2025 median rate-and-term refinance amount ($375,000) in October 2023 at that month's average rate; bill = median ($5,124)",
    "color": "cmedian",
    "shape": "solid",
    "side": "centre"
   },
-  "small": {
-   "what": "loans under $150,000",
+  "dan": {
+   "what": "ILLUSTRATIVE: same month and rate; median loan and bill of loans under $150,000",
    "color": "csmall",
    "shape": "solid",
    "side": "left"
   },
-  "large": {
-   "what": "loans of $750,000 and more",
+  "priya": {
+   "what": "ILLUSTRATIVE: same month and rate; median loan and bill of loans of $750,000 and more",
    "color": "clarge",
    "shape": "dashed",
    "side": "right"
   },
-  "note": "the locked rules V04/V09 look for characters \"1966\"/\"mirror\" (test D); this episode tags its character shapes with char \"small\"/\"large\" (and \"median\"). K session to confirm how V04/V09 read a new episode (checks/README.md: \"tập mới cần hợp đồng riêng cho mô hình của nó\")."
+  "note": "the locked rules V04/V09 look for characters \"1966\"/\"mirror\" (test D); this episode tags its character shapes with char \"maya\"/\"dan\"/\"priya\". Session K to confirm how V04/V09 read a new episode."
  },
  "colors": "design/tokens.json (all channel tokens)",
  "claims": {
   "file": "out/claims.json",
-  "count": 62,
+  "count": 73,
   "core": [
-   "cost_med",
-   "be10",
-   "sp36_mid"
+   "cut_today",
+   "cost_maya",
+   "be_bal_maya",
+   "cut36_maya"
   ],
   "decisive": [
-   "cost_med",
-   "sp36_mid"
+   "be_bal_maya",
+   "cut36_maya"
   ],
   "illustrative": [
+   "k35",
+   "loan_maya",
+   "sav_maya",
+   "be_simple_maya",
+   "be_bal_maya",
+   "net36_maya",
+   "net84_maya",
+   "cut36_maya",
+   "loan_dan",
+   "sav_dan",
+   "be_simple_dan",
+   "be_bal_dan",
+   "net36_dan",
+   "net84_dan",
+   "cut36_dan",
+   "loan_priya",
+   "sav_priya",
+   "be_simple_priya",
+   "be_bal_priya",
+   "net36_priya",
+   "net84_priya",
+   "cut36_priya",
+   "gap24",
    "hold36",
-   "hold60",
-   "hold84",
+   "y3",
+   "y7",
+   "be_simple_025",
+   "be_simple_10",
+   "be_bal_10",
+   "ex_be",
+   "behd_min",
+   "behd_max",
+   "behp_max",
    "be81"
   ],
   "rule": "every number in narration and on screen is a claim; narration numbers are filled from claims by build.py (script/script.tpl.md)"
@@ -59,7 +91,9 @@
   "tests": "model/test_refi.py",
   "output": "out/model.json",
   "recompute": [
-   "payment = P*r/(1-(1+r)^-n), r = annual%/1200; savings = payment(B, r_old, 360) - payment(B, r_new, 360); break-even = ceil(C / savings)",
+   "payment = P*r/(1-(1+r)^-n), r = annual%/1200; old loan P0 at r_old over 360 with k payments made; balance B = balance after k; new loan B at r_new over 360",
+   "MAIN break-even (counting what is still owed): first month m with (payment_old - payment_new) x m + (balance_old(k+m) - balance_new(m)) >= C",
+   "simple break-even (shown as the contrast): ceil(C / (payment_old - payment_new))",
    "history: monthly means of MORTGAGE30US; drop episodes = zig-zag swings >= 1.00 point; refinance in the first month >= spread under the peak; cost = HMDA median share of that year (fixed median share before 2018, ILLUSTRATIVE)"
   ],
   "note": "S01/S05/S06 of the locked checks re-compute test D's retirement model; this episode needs its own independent re-computation (K session)."

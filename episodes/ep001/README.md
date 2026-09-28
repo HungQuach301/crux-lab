@@ -2,27 +2,25 @@
 
 Đề tài 7, dòng 1 (vay và nợ, quyết định về nhà). Phiên D1, nhánh `ep001`.
 
-## Trạng thái: M1 XONG, dừng chờ chủ dự án duyệt (không làm M2)
+## Trạng thái: M1b XONG (sửa theo duyệt M1), dừng chờ chủ dự án duyệt; chưa làm M2
 
-| Bước | Trạng thái |
+Duyệt M1 của chủ dự án (2026-09-28): cold open TRUNG BÌNH; câu móc lại rõ lời hứa; toàn bài TRUNG BÌNH (thiên về diễn giải số liệu); chọn S2 (không lấn lời). Sổ gu: G-005 · chọn, G-007, G-008.
+
+| Việc | Kết quả |
 |---|---|
-| A-M0a, M0b | xong (lượt trước): toolkit theo cấu trúc crux-lab, mẫu 10 giây |
-| A-M0c lãi suất | xong: FRED `MORTGAGE30US` + đối chiếu `OBMMIC30YF` (`data/sources.json`) |
-| A-M0c chi phí đóng hồ sơ | **xong**: HMDA 2018–2025 toàn quốc, đọc theo luồng, **không lưu file thô**. `data/hmda.py` (tái tạo), `data/hmda-sources.json` (URL, SHA-256 của từng luồng, byte, ngày tải, số dòng, định nghĩa trường trích nguyên văn), `data/normalized/hmda_refi_costs.csv` (trung vị và P25–P75, theo năm × mục đích × quy mô khoản vay, đô la và % số tiền vay). **Điều khoản HMDA: chưa trích được câu nào**, xem mục mở dưới đây. |
-| M1-1 mô hình, claims, test | `model/refi.py`, `model/test_refi.py` (8 test đạt), `build.py` → `out/model.json`, `out/claims.json` (62 claim) |
-| M1-2 kịch bản | `script/script.tpl.md` (mẫu, số chỉ lấy từ claim) → `script/script.md`, `out/script-draft.json`; 83 câu, 1.334 từ, không cảnh nào > 2 số mới, CV độ dài câu 0,37 |
-| M1-3 đọc thử | 84 take Eric `eleven_v3`, **4.292 ký tự**; `review-m1/table-read-full.m4a` (10:09, khoảng lặng ≤ 0,75 s); `script/table-read-notes.md` |
-| M1-4 storyboard, shot list, cue sheet, tension map | `preprod/` (storyboard 14 khung, 84 shot, cue sheet có kế hoạch âm thanh theo dữ liệu cho cột, đường, điểm, bộ đếm; tension map dự kiến), `edit/cues.json`, `preprod/timeline-plan.json` (10:39) |
-| M1-5 hợp đồng tập | `contract.json`, `design/tokens.json` |
-| M1-6 gói duyệt | `review-m1/`: `summary.md`, `animatic-0000-0120.mp4` (2 phút: cold open + câu móc lại, hình là storyboard), `table-read-full.m4a`, `sb-01…05.png` |
+| Sổ gu | `taste-ledger.md`: lựa chọn S2, G-007, G-008 (nguyên văn, nguồn "duyệt M1 Tập 1"). Âm sắc S2 điền vào `preprod/cue-sheet.md`. |
+| Phương pháp hoà vốn | `model/refi.py`: `break_even_balance` (tiết kiệm cộng dồn + chênh lệch dư nợ ≥ phí) là **đáp án chính**; `both`, `net_after`, `cut_for_break_even_balance`; mô phỏng lịch sử tính cả hai cách. 12 test (có bản cài đặt độc lập tính từng tháng). Bảng: `review-m1b/break-even-methods.md`, `out/break-even-methods.csv`. |
+| Kịch bản | Viết lại theo G-007/G-008: cold open là Maya và khoảnh khắc lãi tuần này; ba nhân vật ILLUSTRATIVE (Maya, Dan, Priya: trung vị HMDA 2025 theo quy mô); luận điểm "most calculators say 24; counting what she still owes, 30". 83 câu, 1.275 từ, 73 claim, không cảnh nào > 2 số mới. |
+| Giọng | Sinh lại câu đổi; vòng lặp 4 take v3 + dự phòng multilingual_v2. Mỗi hồi 151–158 wpm; mọi câu trong 120–190; 0 từ quan trọng bị thiếu. Câu có "rates" ("raids") đã thay. Vòng này tốn **10.883 ký tự**. `script/table-read-notes.md`. |
+| Timeline dự kiến | 10:29; cold open 14,7 s (cắt đuôi hơi thở sau từ cuối, `tailCut` phải áp ở M2); câu móc lại 0:30,3–0:42,7. |
+| Điều khoản HMDA | **Đã trích** (consumerfinance.gov): "Information created by the CFPB is in the public domain and you may reproduce, publish, or otherwise use it without the Bureau’s permission. Please consider appropriate citation to the Bureau as the source." (`data/hmda-sources.json`) |
+| Gói duyệt mới | `review-m1b/`: `summary.md`, `animatic-0000-0080.mp4` (giọng + S2), `break-even-methods.md`, `table-read-full.m4a`, `sb-01…04.png` |
 
 ## Mục mở
 
-1. **Điều khoản HMDA (DX-H4).** Không trang nào đọc được từ môi trường này có câu điều khoản sử dụng dữ liệu HMDA; điều khoản web của CFPB nằm ở `www.consumerfinance.gov` (proxy 403). Cần trích trước khi phát hành.
-2. **FRED.** Theo quyết định của chủ dự án: video hiển thị số kèm ghi nguồn; không công bố lại file; mô tả video chỉ dẫn link tới nguồn gốc.
-3. **Hợp đồng với phiên kiểm.** S01, S03–S06, V04, V09 của bộ luật khoá gắn với mô hình và nhân vật bài D (xem `contract.json`).
-4. **Tốc độ đọc ở M2.** v3 đọc 180–240 wpm ở câu ngắn; cold open 180 wpm, act 2 167 wpm (`script/table-read-notes.md`).
-5. **Tiếng dữ liệu.** Chủ dự án nghe m0: âm sắc chưa hợp, vẫn lấn lời, không tăng +10 dB (sổ gu G-005, G-006). Thử mù ba bảng âm: `review-m1/sonify-S1/S2/S3.mp4`; cue sheet để trống âm sắc tới khi chọn. Xung đột T1 và G-006: `checks-notes.md`.
+1. **Hợp đồng với phiên kiểm.** S01, S03–S06, V04, V09 gắn với bài D (`contract.json`); T1 xung đột G-006 (`checks-notes.md`).
+2. **FRED.** Video hiển thị số kèm ghi nguồn; không công bố lại file; mô tả video trỏ link nguồn gốc.
+3. **M2:** áp `tailCut` của cold open vào stem giọng; tiếng dữ liệu S2 theo `preprod/cue-sheet.md`; mức cuối chờ tai chủ dự án.
 
 ## Thư mục
 

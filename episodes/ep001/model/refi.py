@@ -81,6 +81,57 @@ def spread_for_break_even(balance, old_rate, closing_cost, months_target, old_mo
     return hi
 
 
+# ------------------------------------------------------------------ break-even counting what is still owed (main method)
+def break_even_balance(principal, old_rate, months_paid, new_rate, closing_cost, new_months=360, old_months=360):
+    """Month m after the refinance when
+         (old payment - new payment) x m  +  (old loan's balance after k+m payments - new loan's balance after m)  >=  closing cost.
+    The old loan is `principal` at `old_rate` over `old_months`, with `months_paid` (k) payments already made; the new loan
+    refinances the remaining balance at `new_rate` over `new_months` (a fresh 30 years), closing costs paid in cash.
+    The second term is negative when the new loan pays principal down more slowly (the term reset): what the simple
+    division leaves out. Searched up to the old loan's last payment; None if never reached."""
+    k = months_paid
+    bal = balance_after(principal, old_rate, old_months, k)
+    p_old = payment(principal, old_rate, old_months)
+    p_new = payment(bal, new_rate, new_months)
+    for m in range(1, old_months - k + 1):
+        gap = balance_after(principal, old_rate, old_months, k + m) - balance_after(bal, new_rate, new_months, m)
+        if (p_old - p_new) * m + gap >= closing_cost - 1e-9:
+            return m
+    return None
+
+
+def net_after(principal, old_rate, months_paid, new_rate, closing_cost, months, new_months=360, old_months=360):
+    """Position after `months` (e.g. selling the house then): savings + balance difference - closing cost (dollars)."""
+    k = months_paid
+    bal = balance_after(principal, old_rate, old_months, k)
+    s = (payment(principal, old_rate, old_months) - payment(bal, new_rate, new_months)) * months
+    gap = balance_after(principal, old_rate, old_months, k + months) - balance_after(bal, new_rate, new_months, months)
+    return s + gap - closing_cost
+
+
+def both(principal, old_rate, months_paid, new_rate, closing_cost):
+    """Simple (cost / monthly savings) and balance-counting break-even for the same case."""
+    bal = balance_after(principal, old_rate, 360, months_paid)
+    simple = refi(bal, old_rate, 360 - months_paid, new_rate, closing_cost)
+    return {'balance': bal, 'monthlySavings': simple['monthlySavings'], 'simple': simple['breakEvenMonths'],
+            'withBalance': break_even_balance(principal, old_rate, months_paid, new_rate, closing_cost)}
+
+
+def cut_for_break_even_balance(principal, old_rate, months_paid, cost_share_or_cost, months_target, cost_is_share=False):
+    """Smallest rate cut (points) whose balance-counting break-even is <= months_target."""
+    bal = balance_after(principal, old_rate, 360, months_paid)
+    cost = bal * cost_share_or_cost / 100 if cost_is_share else cost_share_or_cost
+    lo, hi = 0.0, old_rate
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        be = break_even_balance(principal, old_rate, months_paid, old_rate - mid, cost)
+        if be is not None and be <= months_target:
+            hi = mid
+        else:
+            lo = mid
+    return hi
+
+
 # ------------------------------------------------------------------ history
 def monthly_means(weekly):
     acc = {}
@@ -136,13 +187,14 @@ def history(monthly, cost_share_pct, loan=300_000.0, spreads=(0.5, 0.75, 1.0, 1.
             share, illus = cost_share_pct(int(monthly[j][0][:4])) if callable(cost_share_pct) else (cost_share_pct, True)
             cost = bal * share / 100
             res = refi(bal, r0, 360 - k, monthly[j][1], cost)
-            be = res['breakEvenMonths']
+            be_simple = res['breakEvenMonths']
+            be = break_even_balance(loan, r0, k, monthly[j][1], cost)  # main method: counts what is still owed
             nxt = None
             if be is not None:
                 nxt = next((m for m in range(j + 1, min(len(monthly), j + be + 1)) if monthly[m][1] <= monthly[j][1] - s), None)
             row['cases'].append({'spread': s, 'reached': True, 'refiMonth': monthly[j][0], 'newRate': round(monthly[j][1], 2), 'monthsOnOldLoan': k,
                                  'balance': round(bal, 2), 'costSharePct': round(share, 4), 'costIllustrative': illus, 'closingCost': round(cost, 2), 'monthlySavings': round(res['monthlySavings'], 2),
-                                 'breakEvenMonths': be, 'beforeBreakEvenAnotherDrop': monthly[nxt][0] if nxt is not None else None,
+                                 'breakEvenMonths': be, 'breakEvenSimple': be_simple, 'beforeBreakEvenAnotherDrop': monthly[nxt][0] if nxt is not None else None,
                                  'dataOnlyTo': monthly[-1][0], 'censored': be is not None and j + be >= len(monthly)})
         out.append(row)
     return out

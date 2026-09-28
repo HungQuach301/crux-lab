@@ -68,3 +68,41 @@ def test_history_cases_reach_only_spreads_the_episode_reached():
     assert c[0.5]['reached'] and c[0.5]['refiMonth'] == '2000-04'  # 7.6 is only 0.4 under the 8.0 peak; 7.2 is the first >= 0.5
     assert c[1.0]['reached'] and c[1.0]['refiMonth'] == '2000-05'
     assert not c[1.5]['reached']
+
+
+# ------------------------------------------------------------------ balance-counting break-even (main method)
+def _brute(P, r0, k, r1, C):
+    """Independent re-implementation by explicit month-by-month amortisation (no closed forms)."""
+    def sched(P, r, n, months):
+        i = r / 1200; pay = refi.payment(P, r, n); b = P; out = []
+        for _ in range(months):
+            b = b * (1 + i) - pay; out.append(b)
+        return pay, out
+    p_old, old = sched(P, r0, 360, 360)
+    B = P if k == 0 else old[k - 1]
+    p_new, new = sched(B, r1, 360, 360)
+    for m in range(1, 360 - k + 1):
+        if (p_old - p_new) * m + (old[k + m - 1] - new[m - 1]) >= C:
+            return m
+    return None
+
+
+def test_balance_break_even_matches_month_by_month_schedule():
+    for case in [(375000, 7.62, 35, 7.03, 5124), (115000, 7.62, 35, 6.62, 3900), (1005000, 7.62, 0, 7.12, 5750), (300000, 16.33, 1, 14.26, 4800)]:
+        assert refi.break_even_balance(*case) == _brute(*case), case
+
+
+def test_balance_method_is_never_earlier_than_simple_when_the_term_resets_late():
+    # a loan already 5 years old refinanced into a fresh 30 years: the new loan pays principal more slowly,
+    # so counting the balance makes break-even later than cost / savings
+    b = refi.both(375000, 7.62, 60, 6.62, 5124)
+    assert b['withBalance'] >= b['simple']
+
+
+def test_balance_method_same_rate_never_breaks_even():
+    assert refi.break_even_balance(300000, 6.5, 24, 6.5, 5000) is None
+
+
+def test_net_after_equals_zero_near_break_even():
+    m = refi.break_even_balance(375000, 7.62, 35, 6.62, 5124)
+    assert refi.net_after(375000, 7.62, 35, 6.62, 5124, m) >= 0 > refi.net_after(375000, 7.62, 35, 6.62, 5124, m - 1)
