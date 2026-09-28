@@ -333,7 +333,7 @@ ASR_PAD = 0.6  # s of audio kept on each side of a sentence's declared window wh
 
 def asr_key(sentences):
     """Cache key of the sentence cut: the declared windows (a changed script timing re-runs the recogniser)."""
-    return hashlib.sha256(json.dumps([[s.get('id'), round(float(s['start']), 3), round(float(s['end']), 3)] for s in sentences]).encode()).hexdigest()[:8]
+    return hashlib.sha256(json.dumps(['sentence-cut, two-pass'] + [[s.get('id'), round(float(s['start']), 3), round(float(s['end']), 3)] for s in sentences]).encode()).hexdigest()[:8]
 
 
 def sentence_clips(sents, dur):
@@ -347,17 +347,27 @@ def sentence_clips(sents, dur):
     return out
 
 
+def choose_pass(first, second, expected):
+    """Whisper sometimes stops inside a clip and drops the rest of a sentence (seen on test D at 671 s: "and the portfolio is rebalanced
+    once a year" missing, heard on a second decode). When the first decode has fewer than 85% of the sentence's words, decode again with
+    voice-activity segmentation and keep whichever decode has more words. A word that was not said is heard by neither."""
+    if len(first) >= 0.85 * expected:
+        return first
+    alt = second()
+    return alt if len(alt) > len(first) else first
+
+
 def asr_master(ctx):
     """Own ASR of the audio track of the video (the mix a viewer hears), cut sentence by sentence (K1): whole-file Whisper
     drops words in long-form audio, so each out/script.json sentence is recognised on its own clip [start − 0.6 s, end + 0.6 s]
-    (faster-whisper small.en, CPU, int8, word timestamps, no VAD, no conditioning on earlier text). Clips overlap; a word is
+    (faster-whisper small.en, CPU, int8, word timestamps, no VAD, no conditioning on earlier text; a second decode with VAD when the first has < 85% of the sentence's words, the longer kept: choose_pass). Clips overlap; a word is
     kept by the sentence whose share of the timeline holds its midpoint (boundaries halfway between one sentence's end and the
     next one's start). Returns all words, sorted, with absolute times. Cached by the video's SHA-256 and the sentence windows."""
     def get():
         from common import sha256_file
         sents = sorted(ctx.sentences(), key=lambda s: s['start'])
         h = sha256_file(ctx.video())[:16]
-        cp = os.path.join(ctx.cache_dir, f'asr-{h}-{asr_key(sents)}.json')
+        cp = os.path.join(ctx.cache_dir, f'asr-{h}-{asr_key(sents)}.json')  # (sentence cut, two-pass decode)
         if os.path.exists(cp):
             return json.load(open(cp))
         from faster_whisper import WhisperModel
@@ -370,12 +380,11 @@ def asr_master(ctx):
                 continue
             p = write_wav_tmp(x[int(a * SR): int(b * SR)])
             try:
-                segs, _ = mdl.transcribe(p, word_timestamps=True, beam_size=5, language='en', condition_on_previous_text=False, vad_filter=False)
-                for sg in segs:
-                    for w in (sg.words or []):
-                        st, en = a + w.start, a + w.end
-                        if lo <= (st + en) / 2 < hi:
-                            ws.append({'w': w.word.strip(), 'start': round(st, 3), 'end': round(en, 3), 'sentence': s.get('id')})
+                def decode(vad):
+                    segs, _ = mdl.transcribe(p, word_timestamps=True, beam_size=5, language='en', condition_on_previous_text=False, vad_filter=vad)
+                    return [{'w': w.word.strip(), 'start': round(a + w.start, 3), 'end': round(a + w.end, 3), 'sentence': s.get('id')}
+                            for sg in segs for w in (sg.words or []) if lo <= (2 * a + w.start + w.end) / 2 < hi]
+                ws += choose_pass(decode(False), lambda: decode(True), len(words(s.get('spoken') or s['text'])))
             finally:
                 os.unlink(p)
         ws.sort(key=lambda w: w['start'])
@@ -423,7 +432,7 @@ def key_words(sentences, extra_terms=()):
 def match_keys(keys, asr_words):
     text = asr_join(asr_words)
     nums = spoken_numbers(text)
-    stems = {stem(x) for x in text.split()} | {stem(p) for x in text.split() for p in x.split('-')}
+    stems = {stem(x) for x in text.split()} | {stem(p) for x in text.split() for p in re.split(r'[-&]', x) if p}
     # ASR often writes 'U.S.'/'US', 'S&P' as 'S and P'
     low = text.lower()
     missing = []
@@ -444,7 +453,7 @@ def match_keys(keys, asr_words):
 @rule('A14', 'DX-A7', 'own ASR (faster-whisper small.en, int8, word timestamps) of the video\'s mixed audio, recognised sentence by sentence (asr_master). '
       'Key words per script sentence (out/script.json): every number, every proper name, every defined term (locked list DEFINED_TERMS + out/terms.json). '
       'A key word is heard if the ASR has it (numbers compared as values; names/terms by stem(), the same normal form on both sides: possessive, then one '
-      'inflection, then a final e; "S&P" as S&P or "S and P", ASR tokens "S" "&P" joined) among words starting within the sentence window [start − 1.5 s, end + 1.5 s]',
+      'inflection, then a final e; "S&P" as S&P or "S and P", ASR tokens "S" "&P" joined; a joined token also counts by its parts, so "Standard&Poor’s" has standard and poor) among words starting within the sentence window [start − 1.5 s, end + 1.5 s]',
       '0 key words missing (no percentage threshold)')
 def a14_keywords(ctx):
     sents = ctx.sentences()

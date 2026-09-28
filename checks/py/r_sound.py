@@ -231,12 +231,13 @@ ENTRY = (0.150, 0.400)   # s: the bed releases into the silence over this long (
 BED_DROP = 30.0          # dB below the bed's level before the silence = released
 FLOOR_DB = -80.0         # dBFS: the master never falls below this inside a silence (room tone floor, never digital silence)
 ROOM_DB = -75.0          # dBFS: the room stem is present through the silence
+QUIET_BED = 20.0         # dB: a bed whose median inside the silence stays within this of its level before did not go silent (a quiet passage)
 
 
 @rule('T3', 'DX-R6 (sổ gu G-003)', 'intentional silences = master spans ≤ −40 dBFS (50 ms RMS, 10 ms hop) of 0.8–1.5 s (as A09). Bed = music + sfx + whoosh (+ sonify) stems summed, '
       '20 ms RMS, 5 ms hop. Reference = 90th percentile of the bed in [start − 0.8, start − 0.1]. Entry = from the last instant the bed is within 3 dB of the reference '
-      '(searched in [start − 1.0, start + 0.3]) to the first instant after it the bed is 30 dB below the reference (or below −70 dBFS). A bed already below −60 dBFS before the '
-      'silence has nothing to release and is reported, not judged. Floor: master 50 ms RMS minimum inside the silence (edges 0.1 s excluded) and the room stem mean level there',
+      '(searched in [start − 1.0, start + 0.3]) to the first instant after it the bed is 30 dB below the reference (or below −70 dBFS). Reported, not judged: a bed already below '
+      '−60 dBFS before the silence (nothing to release), and a bed whose median inside the silence stays within 20 dB of the reference (a quiet passage, no cut to judge; A09 still counts it). Floor: master 50 ms RMS minimum inside the silence (edges 0.1 s excluded) and the room stem mean level there',
       'every entry 150–400 ms; master ≥ −80 dBFS and room stem ≥ −75 dBFS through every silence; ≥ 1 silence')
 def t3_silence_entry(ctx):
     x = master(ctx)
@@ -255,8 +256,10 @@ def t3_silence_entry(ctx):
         pre = (bt >= a - 0.8) & (bt <= a - 0.1)
         ref = float(np.percentile(bdb[pre], 90)) if pre.any() else -120.0
         row = {'start': round(a, 2), 'dur': round(b - a, 2), 'bedRef': round(ref, 1)}
-        if ref < -60:
-            row['entry'] = None
+        inb = (bt >= a + 0.1) & (bt <= b - 0.1)
+        row['bedInside'] = round(float(np.median(bdb[inb])), 1) if inb.any() else None
+        if ref < -60 or (row['bedInside'] is not None and row['bedInside'] > ref - QUIET_BED):
+            row['entry'] = None  # nothing to release (bed already silent), or the bed does not fall: a quiet passage, not a cut into silence
         else:
             sel = np.flatnonzero((bt >= a - 1.0) & (bt <= a + 0.3) & (bdb >= ref - 3))
             if not len(sel):
@@ -270,7 +273,8 @@ def t3_silence_entry(ctx):
         row['masterMin'] = round(float(mdb[inside].min()), 1) if inside.any() else None
         rin = (rt >= a + 0.1) & (rt <= b - 0.1)
         row['room'] = round(float(10 * np.log10(np.mean(10 ** (rdb[rin] / 10)))), 1) if rin.any() else None
-        row['entryOk'] = row['entry'] is None and ref < -60 or (row['entry'] is not None and ENTRY[0] <= row['entry'] <= ENTRY[1])
+        row['judged'] = not (ref < -60 or (row['bedInside'] is not None and row['bedInside'] > ref - QUIET_BED))
+        row['entryOk'] = not row['judged'] or (row['entry'] is not None and ENTRY[0] <= row['entry'] <= ENTRY[1])
         row['floorOk'] = row['masterMin'] is not None and row['masterMin'] >= FLOOR_DB and row['room'] is not None and row['room'] >= ROOM_DB
         rows.append(row)
     return verdict('T3', [metric('silences measured', len(rows), '>=', 1), metric('entries outside 150–400 ms', sum(not r['entryOk'] for r in rows), '<=', 0),

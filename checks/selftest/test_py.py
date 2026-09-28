@@ -399,18 +399,20 @@ def asr_words(text, start, rate_wpm=155):
 
 KEY_SENT = [{'id': 's1', 'scene': 'a', 'text': 'Damodaran data starts in 1928.', 'spoken': 'Damodaran data starts in nineteen twenty-eight.', 'start': 1.0, 'end': 3.0},
             {'id': 's2', 'scene': 'a', 'text': 'The real balance falls by $120,000.', 'spoken': 'The real balance falls by one hundred twenty thousand dollars.', 'start': 4.0, 'end': 6.5},
-            {'id': 's3', 'scene': 'a', 'text': "The retiree's stocks track the S&P 500.", 'spoken': "The retiree's stocks track the S and P five hundred.", 'start': 7.0, 'end': 9.0}]
+            {'id': 's3', 'scene': 'a', 'text': "The retiree's stocks track the S&P 500.", 'spoken': "The retiree's stocks track the S and P five hundred.", 'start': 7.0, 'end': 9.0},
+            {'id': 's4', 'scene': 'a', 'text': "That is the Standard & Poor's 500 index.", 'start': 10.0, 'end': 12.0}]
 
 
 @case('A14')
 def _(f, bad):
     # good: the script's possessive "retiree's" is heard as "retirees", and "S&P" comes back from Whisper as the tokens "S" "&P"
     # (audit §4.1–4.2: both were false misses); bad: a number heard wrong
-    f.video(size='64x36', dur=10, src='color')
+    f.video(size='64x36', dur=13, src='color')
     f.json('out/script.json', {'sentences': KEY_SENT})
-    f.json('out/timeline.json', {'total': 10, 'scenes': [{'id': 'a', 'act': 'act1', 'start': 0, 'dur': 10}]})
+    f.json('out/timeline.json', {'total': 13, 'scenes': [{'id': 'a', 'act': 'act1', 'start': 0, 'dur': 13}]})
     heard2 = 'The real balance falls by $12,000.' if bad else 'The real balance falls by $120,000.'
-    f.asr(asr_words('Damodaran data starts in 1928.', 1.0) + asr_words(heard2, 4.0) + asr_words('The retirees stocks track the S &P 500.', 7.0))
+    f.asr(asr_words('Damodaran data starts in 1928.', 1.0) + asr_words(heard2, 4.0) + asr_words('The retirees stocks track the S &P 500.', 7.0)
+          + asr_words("That is the Standard &Poor's 500 index.", 10.0))
 
 
 @case('A15')
@@ -1020,7 +1022,21 @@ def asr_cut_case(bad):
     return common.Result('A14', 'PASS' if ok else 'FAIL', [common.metric('sentence clips partition the timeline', ok, '==', True)])
 
 
-EXTRA = {'REG': reg_case, 'A14/asr-cut': asr_cut_case}
+def asr_pass_case(bad):
+    """Two-pass decode: a first decode that stops half-way (4 of 9 words) is replaced by the full second decode; bad = a chooser that keeps the
+    first pass must not pass. A complete first decode is kept without a second decode."""
+    import r_audio
+    first = [{'w': w} for w in 'returns include dividends and'.split()]
+    full = [{'w': w} for w in 'returns include dividends and the portfolio is rebalanced yearly'.split()]
+    chooser = (lambda a, b, n: a) if bad else r_audio.choose_pass
+    got = chooser(first, lambda: full, 9)
+    calls = []
+    kept = chooser(full, lambda: calls.append(1) or first, 9)
+    ok = got is full and kept is full and not calls
+    return common.Result('A14', 'PASS' if ok else 'FAIL', [common.metric('second decode replaces a truncated first decode', ok, '==', True)])
+
+
+EXTRA = {'REG': reg_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case}
 
 
 def main():
