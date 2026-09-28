@@ -1,15 +1,19 @@
-# Tập 1 — Cold open (hai phương án)
+# Tập 1 — Cold open (vòng 2, hai phương án)
 
-Cả hai: bối cảnh trước, rồi một người (Nora, ILLUSTRATIVE) trong một khoảnh khắc, kết bằng một câu hỏi mở mà hồi 3 (beat B23) trả lời bằng cùng hình (laptop, thư đề nghị) và cùng chữ. Lưu ý: DX-S1 cho cold open ≤ 15 s; 45–70 từ ở 150–160 wpm là khoảng 18–27 s. Cần chủ dự án hoặc K1 chốt độ dài.
+Cả hai: bối cảnh trước, rồi Nora (ILLUSTRATIVE) trong một khoảnh khắc nhìn thấy được, kết bằng câu hỏi mở. B22 (hồi 3) trả lời câu hỏi bằng cùng hình (lá thư đề nghị) và cùng chữ. Hoá đơn **$5,124 [cost_median]** chỉ hiện trên màn hình, không đọc. Mốc "within three years" [hold36] nằm ở câu hứa B2, không nhồi vào cold open. Độ dài 45–55 từ viết, tương đương khoảng 19–22 s. Trần DX-S1 là 15 s; điều phối sẽ trao đổi với chủ dự án.
 
 ## A: đỉnh 2023
 
-> In October 2023, the average US mortgage rate climbed to its highest level since 2000. Families still needed homes, so many of them signed anyway. Nora was one of them. Now a refinance offer is open on her laptop: a lower rate, a smaller monthly payment, and a bill for loan costs, due up front. How far does a rate have to fall before that bill pays itself back?
+**Hình trước lời (≈ 1.5 s):** đường lãi vẽ lên tới đỉnh, nhãn chữ "highest since 2000". Cắt sang laptop: thư đề nghị, dòng cuối "Loan costs due at closing: $5,124".
 
-Claims: [oct2023], [peak2023_since]. Ghi chú: A mở bằng lịch sử dài (đỉnh 2023) và hỏi một câu tổng quát về ngưỡng; hồi 3 trả lời "0.32, 0.5 hay 1.12 điểm tuỳ khoản vay; với Nora là nửa điểm".
+> In October 2023, the average 30-year fixed mortgage rate in the US reached its highest level since 2000. Many families signed anyway. Nora was one of them. Now a refinance offer is open on her laptop, with a bill due up front. How far must her rate fall before that bill pays itself back?
 
-## B: một năm lên xuống
+54 từ. Claims: [oct2023], [peak2023_since] (cả hai cũng hiện trên hình). Ghi chú: A đi từ lịch sử lãi suất đến một người, và hỏi câu tổng quát "phải giảm bao nhiêu". Hồi 3 đáp bằng ba ngưỡng, với Nora là nửa điểm.
 
-> In the week ending September 24, 2026, the average US mortgage rate was back above seven percent. A year earlier, it had been 6.30. For anyone who borrowed near the 2023 peak, those weeks mattered. Nora is one of them. Her refinance offer cuts her rate by just over half a point. The rule of thumb she keeps hearing says wait for a full point. Is half a point enough?
+## B: quy tắc một điểm
 
-Claims: [anchor_date], [seven], [r_year_ago], [cut_today], [s10]. Ghi chú: B mở bằng biến động gần đây và đặt quy tắc một điểm đối đầu với con số của chính Nora; câu hỏi hẹp và nhị phân hơn, hồi 3 trả lời "với Nora, nửa điểm hoà vốn đúng 36 tháng; với Walt thì không, với Anjali thì dư". B dày số hơn A (4 số trong khoảng 27 s), sát giới hạn mật độ.
+**Hình trước lời (≈ 1.5 s):** một hộp thư trước hiên nhà lúc tối; phong bì của ngân hàng. Trong thư, dòng "New rate" và dòng cuối "Loan costs: $5,124"; ngón tay dừng ở dòng cuối.
+
+> There is a common rule of thumb about refinancing a US mortgage: wait for a full percentage-point drop. Nora borrowed in October 2023, near the peak. Tonight a letter offers her a rate just over half a point below hers, with a bill attached. Is half a point enough to pay that bill back?
+
+54 từ. Claims: [s10], [oct2023], [cut_today] ("just over half a point" = 0.59). Ghi chú: B lấy bối cảnh là điều người xem vẫn nghe, rồi đặt quy tắc ấy đối đầu với con số của chính Nora. Câu hỏi hẹp hơn, dạng có/không. Hồi 3 đáp: với Nora là có, hoà vốn trong ba năm, nhưng với Walt thì không. Mật độ: 3 số trong khoảng 20 s, chia hai cảnh.
