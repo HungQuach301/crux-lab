@@ -1,0 +1,1011 @@
+{
+ "seconds": 7014.7,
+ "samples": 7060,
+ "pixelSamples": 3372,
+ "movingSamples": 781,
+ "cameraFromFile": true,
+ "rules": {
+  "C01": {
+   "framesFlagged": 0,
+   "scenes": [],
+   "examples": []
+  },
+  "C02": {
+   "framesFlagged": 0,
+   "scenes": [],
+   "examples": []
+  },
+  "C03": {
+   "framesFlagged": 0,
+   "scenes": [],
+   "examples": []
+  },
+  "C04": {
+   "framesFlagged": 0,
+   "scenes": [],
+   "examples": []
+  },
+  "C05": {
+   "framesFlagged": 0,
+   "scenes": [],
+   "examples": []
+  },
+  "C06": {
+   "framesFlagged": 0,
+   "scenes": [],
+   "examples": []
+  },
+  "C07": {
+   "framesFlagged": 40,
+   "scenes": [
+    "a1-samewd (40)"
+   ],
+   "examples": [
+    {
+     "t": 136.4,
+     "rule": "C07",
+     "id": "sw-1966-0",
+     "why": "bar runs off the frame along its value axis",
+     "box": [
+      206,
+      1063,
+      225,
+      1094
+     ]
+    },
+    {
+     "t": 136.4,
+     "rule": "C07",
+     "id": "sw-1966-1",
+     "why": "bar runs off the frame along its value axis",
+     "box": [
+      230,
+      1078,
+      249,
+      1094
+     ]
+    },
+    {
+     "t": 136.4,
+     "rule": "C07",
+     "id": "sw-mirror-0",
+     "why": "bar runs off the frame along its value axis",
+     "box": [
+      1000,
+      1063,
+      1018,
+      1094
+     ]
+    }
+   ]
+  },
+  "C15": {
+   "framesFlagged": 0,
+   "scenes": [],
+   "examples": []
+  },
+  "C10": {
+   "failing": []
+  },
+  "C12": {
+   "violations": []
+  },
+  "S08": {
+   "framesWithout": 0,
+   "maxLagFrames": 0,
+   "examples": []
+  },
+  "S09": {
+   "framesMissing": 0,
+   "examples": []
+  },
+  "V02": {
+   "samples": 5355,
+   "ok": 5324,
+   "examples": [
+    {
+     "t": 574.6,
+     "scene": "a3-share",
+     "tid": "a3-share-l1",
+     "ok": false,
+     "c": [
+      960,
+      280
+     ]
+    },
+    {
+     "t": 574.7,
+     "scene": "a3-share",
+     "tid": "a3-share-l1",
+     "ok": false,
+     "c": [
+      960,
+      280
+     ]
+    },
+    {
+     "t": 574.8,
+     "scene": "a3-share",
+     "tid": "a3-share-l1",
+     "ok": false,
+     "c": [
+      960,
+      280
+     ]
+    },
+    {
+     "t": 574.9,
+     "scene": "a3-share",
+     "tid": "a3-share-l1",
+     "ok": false,
+     "c": [
+      960,
+      280
+     ]
+    },
+    {
+     "t": 575,
+     "scene": "a3-share",
+     "tid": "a3-share-l1",
+     "ok": false,
+     "c": [
+      960,
+      280
+     ]
+    },
+    {
+     "t": 575.1,
+     "scene": "a3-share",
+     "tid": "a3-share-l1",
+     "ok": false,
+     "c": [
+      960,
+      280
+     ]
+    },
+    {
+     "t": 576,
+     "scene": "a3-share",
+     "tid": "a3-share-l1",
+     "ok": false,
+     "c": [
+      960,
+      280
+     ]
+    },
+    {
+     "t": 576.1,
+     "scene": "a3-share",
+     "tid": "a3-share-l1",
+     "ok": false,
+     "c": [
+      960,
+      280
+     ]
+    }
+   ]
+  },
+  "V03": {
+   "violations": 32,
+   "travellingSamples": 12,
+   "examples": [
+    {
+     "t": 8,
+     "scene": "co-broke",
+     "tid": "cb-lab-1966",
+     "ink": [
+      1655,
+      788,
+      1825,
+      812
+     ],
+     "inMove": false,
+     "samples": 1
+    },
+    {
+     "t": 33.4,
+     "scene": "a1-hook",
+     "tid": "hk-a0",
+     "ink": [
+      0,
+      746,
+      8,
+      768
+     ],
+     "inMove": false,
+     "samples": 2
+    },
+    {
+     "t": 33.6,
+     "scene": "a1-hook",
+     "tid": "hk-cap",
+     "ink": [
+      9,
+      501,
+      317,
+      533
+     ],
+     "inMove": false,
+     "samples": 1
+    },
+    {
+     "t": 446,
+     "scene": "a2-payoff",
+     "tid": "a2-payoff-lab-mirror",
+     "ink": [
+      95,
+      666,
+      325,
+      707
+     ],
+     "inMove": false,
+     "samples": 28
+    }
+   ]
+  },
+  "V08": {
+   "violations": 59,
+   "worst": {
+    "t": 137.2,
+    "tid": "sw-a",
+    "cr": 1.02,
+    "fg": [
+     212,
+     175,
+     67
+    ],
+    "bg": [
+     210,
+     173,
+     66
+    ]
+   },
+   "examples": [
+    {
+     "t": 137.2,
+     "scene": "a1-samewd",
+     "tid": "sw-a",
+     "cr": 1.02,
+     "fg": [
+      212,
+      175,
+      67
+     ],
+     "bg": [
+      210,
+      173,
+      66
+     ],
+     "inMove": true,
+     "samples": 1
+    },
+    {
+     "t": 137.2,
+     "scene": "a1-samewd",
+     "tid": "sw-b",
+     "cr": 1.03,
+     "fg": [
+      82,
+      151,
+      219
+     ],
+     "bg": [
+      80,
+      149,
+      216
+     ],
+     "inMove": true,
+     "samples": 1
+    },
+    {
+     "t": 369.6,
+     "scene": "a2-climb",
+     "tid": "a2-climb-lab-mirror",
+     "cr": 4.45,
+     "fg": [
+      81,
+      149,
+      217
+     ],
+     "bg": [
+      45,
+      44,
+      33
+     ],
+     "inMove": false,
+     "samples": 2
+    },
+    {
+     "t": 370,
+     "scene": "a2-climax-in",
+     "tid": "a2-climax-in-lab-mirror",
+     "cr": 3.96,
+     "fg": [
+      85,
+      155,
+      225
+     ],
+     "bg": [
+      60,
+      57,
+      42
+     ],
+     "inMove": false,
+     "samples": 11
+    },
+    {
+     "t": 372.2,
+     "scene": "a2-climax",
+     "tid": "a2-climax-lab-mirror",
+     "cr": 3.75,
+     "fg": [
+      84,
+      155,
+      225
+     ],
+     "bg": [
+      65,
+      60,
+      45
+     ],
+     "inMove": false,
+     "samples": 44
+    }
+   ]
+  },
+  "V11": {
+   "violations": 48,
+   "movingNotPersistent": 3,
+   "byRole": {
+    "label": 29,
+    "axis-label": 19
+   },
+   "examples": [
+    {
+     "t": 10.4,
+     "scene": "co-broke",
+     "tid": "cb-lab-mirror",
+     "role": "label",
+     "with": "graphics",
+     "pixels": 177,
+     "samples": 9
+    },
+    {
+     "t": 118.2,
+     "scene": "a1-mirror-rule",
+     "tid": "mr-t66",
+     "role": "label",
+     "with": "graphics",
+     "pixels": 369,
+     "samples": 1
+    },
+    {
+     "t": 137,
+     "scene": "a1-samewd",
+     "tid": "sw-a",
+     "role": "label",
+     "with": "graphics",
+     "pixels": 1260,
+     "samples": 3
+    },
+    {
+     "t": 137,
+     "scene": "a1-samewd",
+     "tid": "sw-b",
+     "role": "label",
+     "with": "graphics",
+     "pixels": 1413,
+     "samples": 3
+    },
+    {
+     "t": 379.2,
+     "scene": "a2-climax",
+     "tid": "a2-climax-ax1",
+     "role": "axis-label",
+     "with": "graphics",
+     "pixels": 5,
+     "samples": 9
+    },
+    {
+     "t": 379.4,
+     "scene": "a2-climax",
+     "tid": "a2-climax-ax0",
+     "role": "axis-label",
+     "with": "graphics",
+     "pixels": 22,
+     "samples": 8
+    },
+    {
+     "t": 402.6,
+     "scene": "a2-mirror-late",
+     "tid": "a2-mirror-late-lab-mirror",
+     "role": "label",
+     "with": "graphics",
+     "pixels": 396,
+     "moving": true,
+     "samples": 2
+    },
+    {
+     "t": 603.6,
+     "scene": "a3-answer",
+     "tid": "a3-answer-avg",
+     "role": "label",
+     "with": "graphics",
+     "pixels": 492,
+     "samples": 11
+    },
+    {
+     "t": 691,
+     "scene": "outro",
+     "tid": "outro-a0",
+     "role": "axis-label",
+     "with": "graphics",
+     "pixels": 12,
+     "samples": 1
+    },
+    {
+     "t": 691,
+     "scene": "outro",
+     "tid": "outro-a1",
+     "role": "axis-label",
+     "with": "graphics",
+     "pixels": 140,
+     "samples": 1
+    }
+   ]
+  },
+  "C14": {
+   "violations": 0,
+   "examples": []
+  },
+  "V12": {
+   "threshold": 0.97,
+   "violations": 110,
+   "textSamples": 12999,
+   "skippedFlat": 0,
+   "staticMedian": 0.999,
+   "staticP05": 0.998,
+   "movingMedian": 0.999,
+   "movingP05": 0.961,
+   "movingSamples": 1356,
+   "lowest": {
+    "t": 118.4,
+    "scene": "a1-mirror-rule",
+    "tid": "mr-z66",
+    "ncc": 0.715,
+    "movingText": true,
+    "cameraMove": true
+   },
+   "worst": [
+    {
+     "t": 118.4,
+     "scene": "a1-mirror-rule",
+     "tid": "mr-z66",
+     "text": "0%",
+     "ncc": 0.715,
+     "movingText": true,
+     "cameraMove": true
+    },
+    {
+     "t": 118.6,
+     "scene": "a1-mirror-rule",
+     "tid": "mr-z66",
+     "text": "0%",
+     "ncc": 0.75,
+     "movingText": true,
+     "cameraMove": true
+    },
+    {
+     "t": 118.6,
+     "scene": "a1-mirror-rule",
+     "tid": "mr-t20",
+     "text": "20%",
+     "ncc": 0.776,
+     "movingText": true,
+     "cameraMove": true
+    },
+    {
+     "t": 184.2,
+     "scene": "a1-arith",
+     "tid": "ar-a0",
+     "text": "1966",
+     "ncc": 0.785,
+     "movingText": true,
+     "cameraMove": true
+    },
+    {
+     "t": 184.2,
+     "scene": "a1-arith",
+     "tid": "ar-a1",
+     "text": "1995",
+     "ncc": 0.813,
+     "movingText": true,
+     "cameraMove": true
+    },
+    {
+     "t": 184.4,
+     "scene": "a1-arith",
+     "tid": "ar-a0",
+     "text": "1966",
+     "ncc": 0.831,
+     "movingText": true,
+     "cameraMove": true
+    },
+    {
+     "t": 184.4,
+     "scene": "a1-arith",
+     "tid": "ar-a1",
+     "text": "1995",
+     "ncc": 0.837,
+     "movingText": true,
+     "cameraMove": true
+    },
+    {
+     "t": 184,
+     "scene": "a1-arith",
+     "tid": "ar-a0",
+     "text": "1966",
+     "ncc": 0.845,
+     "movingText": true,
+     "cameraMove": true
+    },
+    {
+     "t": 184,
+     "scene": "a1-arith",
+     "tid": "ar-a1",
+     "text": "1995",
+     "ncc": 0.852,
+     "movingText": true,
+     "cameraMove": true
+    },
+    {
+     "t": 255,
+     "scene": "a2-bal74",
+     "tid": "a2-bal74-refl",
+     "text": "starting balance",
+     "ncc": 0.874,
+     "movingText": true,
+     "cameraMove": true
+    }
+   ],
+   "examples": [
+    {
+     "t": 25,
+     "scene": "a1-start",
+     "tid": "st-basis",
+     "text": "real dollars",
+     "ncc": 0.964,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 77.4,
+     "scene": "a1-raise",
+     "tid": "rs-a0",
+     "text": "1966",
+     "ncc": 0.959,
+     "movingText": true,
+     "cameraMove": false,
+     "samples": 5
+    },
+    {
+     "t": 77.4,
+     "scene": "a1-raise",
+     "tid": "rs-a1",
+     "text": "1995",
+     "ncc": 0.957,
+     "movingText": true,
+     "cameraMove": false,
+     "samples": 5
+    },
+    {
+     "t": 78.8,
+     "scene": "a1-raise",
+     "tid": "rs-g100k",
+     "text": "$100,000 nominal",
+     "ncc": 0.969,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 91.6,
+     "scene": "a1-real",
+     "tid": "re-a0",
+     "text": "1966",
+     "ncc": 0.96,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 91.6,
+     "scene": "a1-real",
+     "tid": "re-a1",
+     "text": "1995",
+     "ncc": 0.96,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 118.4,
+     "scene": "a1-mirror-rule",
+     "tid": "mr-z66",
+     "text": "0%",
+     "ncc": 0.715,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 3
+    },
+    {
+     "t": 118.6,
+     "scene": "a1-mirror-rule",
+     "tid": "mr-t20",
+     "text": "20%",
+     "ncc": 0.776,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 2
+    },
+    {
+     "t": 126.2,
+     "scene": "a1-mirror-rule-b",
+     "tid": "mr-zm",
+     "text": "0%",
+     "ncc": 0.96,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 183.8,
+     "scene": "a1-arith",
+     "tid": "ar-a0",
+     "text": "1966",
+     "ncc": 0.933,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 4
+    },
+    {
+     "t": 184,
+     "scene": "a1-arith",
+     "tid": "ar-a1",
+     "text": "1995",
+     "ncc": 0.852,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 3
+    },
+    {
+     "t": 230.8,
+     "scene": "a2-infl",
+     "tid": "a2-infl-cap1",
+     "text": "inflation per year",
+     "ncc": 0.962,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 3
+    },
+    {
+     "t": 254.8,
+     "scene": "a2-bal74",
+     "tid": "a2-bal74-refl",
+     "text": "starting balance",
+     "ncc": 0.924,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 4
+    },
+    {
+     "t": 272.8,
+     "scene": "a2-bite",
+     "tid": "a2-bite-c0",
+     "text": "the pile at the start",
+     "ncc": 0.963,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 2
+    },
+    {
+     "t": 272.8,
+     "scene": "a2-bite",
+     "tid": "a2-bite-c1",
+     "text": "after the bad start",
+     "ncc": 0.962,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 2
+    },
+    {
+     "t": 315.4,
+     "scene": "a2-1979",
+     "tid": "a2-1979-y",
+     "text": "1979",
+     "ncc": 0.962,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 2
+    },
+    {
+     "t": 329.6,
+     "scene": "a2-1981-b",
+     "tid": "a2-1981-y",
+     "text": "1981",
+     "ncc": 0.966,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 2
+    },
+    {
+     "t": 334.8,
+     "scene": "a2-1982",
+     "tid": "a2-1982-y",
+     "text": "1982",
+     "ncc": 0.893,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 3
+    },
+    {
+     "t": 406.4,
+     "scene": "a2-1991",
+     "tid": "a2-1991-cap",
+     "text": "withdrawals, nominal",
+     "ncc": 0.967,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 2
+    },
+    {
+     "t": 406.4,
+     "scene": "a2-1991",
+     "tid": "a2-1991-cb",
+     "text": "balance, nominal",
+     "ncc": 0.966,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 2
+    },
+    {
+     "t": 464.8,
+     "scene": "a3-all",
+     "tid": "a3-all-28",
+     "text": "1928",
+     "ncc": 0.959,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 492.8,
+     "scene": "a3-1929",
+     "tid": "a3-1929-y",
+     "text": "1929",
+     "ncc": 0.968,
+     "movingText": true,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 534.8,
+     "scene": "a3-avg-not",
+     "tid": "a3-avg-not-axl",
+     "text": "lower real average",
+     "ncc": 0.943,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 2
+    },
+    {
+     "t": 534.8,
+     "scene": "a3-avg-not",
+     "tid": "a3-avg-not-axr",
+     "text": "higher real average",
+     "ncc": 0.943,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 2
+    },
+    {
+     "t": 538.4,
+     "scene": "a3-real66",
+     "tid": "a3-real66-axr",
+     "text": "higher real average",
+     "ncc": 0.966,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 4
+    },
+    {
+     "t": 538.6,
+     "scene": "a3-real66",
+     "tid": "a3-real66-axl",
+     "text": "lower real average",
+     "ncc": 0.935,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 3
+    },
+    {
+     "t": 539,
+     "scene": "a3-real66",
+     "tid": "a3-real66-who",
+     "text": "1966 retiree, real average",
+     "ncc": 0.959,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 1
+    },
+    {
+     "t": 553.8,
+     "scene": "a3-1969",
+     "tid": "a3-1969-axx",
+     "text": "higher real average \u2192",
+     "ncc": 0.957,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 1
+    },
+    {
+     "t": 553.8,
+     "scene": "a3-1969",
+     "tid": "a3-1969-axy",
+     "text": "\u2191 more left at the end, after inflation",
+     "ncc": 0.961,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 1
+    },
+    {
+     "t": 553.8,
+     "scene": "a3-1969",
+     "tid": "a3-1969-y",
+     "text": "1969",
+     "ncc": 0.969,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 1
+    },
+    {
+     "t": 561,
+     "scene": "a3-1969-b",
+     "tid": "a3-1928-y",
+     "text": "1928",
+     "ncc": 0.967,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 565.4,
+     "scene": "a3-1928",
+     "tid": "a3-1928-axx",
+     "text": "higher real average \u2192",
+     "ncc": 0.963,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 3
+    },
+    {
+     "t": 571.6,
+     "scene": "a3-1928",
+     "tid": "a3-1928-axy",
+     "text": "\u2191 more left at the end, after inflation",
+     "ncc": 0.965,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 571.6,
+     "scene": "a3-1928",
+     "tid": "a3-1969-y2",
+     "text": "1969",
+     "ncc": 0.97,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 586,
+     "scene": "a3-1966d",
+     "tid": "a3-1966d-z",
+     "text": "zero",
+     "ncc": 0.967,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 4
+    },
+    {
+     "t": 591.2,
+     "scene": "a3-1966d",
+     "tid": "a3-1966d-y",
+     "text": "1966",
+     "ncc": 0.969,
+     "movingText": false,
+     "cameraMove": false,
+     "samples": 1
+    },
+    {
+     "t": 622,
+     "scene": "a3-avg-callback",
+     "tid": "a3-avg-callback-lab",
+     "text": "first retiree, real balance",
+     "ncc": 0.968,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 4
+    },
+    {
+     "t": 622.2,
+     "scene": "a3-avg-callback",
+     "tid": "a3-avg-callback-a0",
+     "text": "1966",
+     "ncc": 0.928,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 3
+    },
+    {
+     "t": 622.6,
+     "scene": "a3-avg-callback",
+     "tid": "a3-avg-callback-a1",
+     "text": "1995",
+     "ncc": 0.959,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 1
+    },
+    {
+     "t": 631.4,
+     "scene": "a3-limits",
+     "tid": "a3-limits-r0",
+     "text": "History, not a forecast",
+     "ncc": 0.963,
+     "movingText": true,
+     "cameraMove": true,
+     "samples": 3
+    }
+   ]
+  },
+  "V04": {
+   "characters": {
+    "1966": {
+     "mainColour": "#ffc857",
+     "colourShare": 0.9399770904925544,
+     "mainShape": "solid",
+     "shapeShare": 1
+    },
+    "mirror": {
+     "mainColour": "#5a9ceb",
+     "colourShare": 1,
+     "mainShape": "dashed",
+     "shapeShare": 1
+    }
+   },
+   "sideSamples": 884,
+   "sideSigns": [
+    -1
+   ],
+   "timeOrderViolations": []
+  }
+ },
+ "characters": {
+  "1966": {
+   "mainColour": "#ffc857",
+   "colourShare": 0.9399770904925544,
+   "mainShape": "solid",
+   "shapeShare": 1
+  },
+  "mirror": {
+   "mainColour": "#5a9ceb",
+   "colourShare": 1,
+   "mainShape": "dashed",
+   "shapeShare": 1
+  }
+ },
+ "chartEventsCount": 6862
+}
