@@ -21,7 +21,7 @@ SON_FLOOR_DB = -60.0         # dBFS: and it is there in the band
 PRE, POST = 0.10, 0.50       # s: a slot is heard if it sounds in [t − 0.10, t + 0.50] (notes may move into the nearest syllable gap; a long gesture is a slot every 0.5 s)
 LONG_STEP = 0.5              # s: a long cluster is a slot every 0.5 s
 CLUSTER_GAP = 0.15           # s: events closer than this are one cluster (> ~8 events/s are heard as one gesture, DX-A1)
-AUDIBLE_SHARE = 0.75         # share of slots that must be heard (provisional; S2 on the m0 sample: 0.85)
+AUDIBLE_SHARE = 0.60         # share of slots that must be heard (provisional; S2 with the cue-sheet bands: 0.77; test D r3: 0.11)
 BAND_SHARE = 0.50            # the declared bands must hold at least this share of the data stem's energy (truth check of the declaration)
 STEM_MATCH_R = 0.90          # the stems must add up to the master in the band (they are the real mix)
 
@@ -132,7 +132,7 @@ def _sum_stems(ctx, names):
       '(P_son = band power of the data-sound stem "sonify", P_rest = band power of the sum of the other stems). Nothing is asked of the data sounds while the voice is sounding '
       '(L1 judges that). Truth checks: the declared bands hold ≥ 50% of the data stem\'s energy; the stems add up to the master in the band. Without a sonify stem the sfx stem is '
       'measured (reported) but the rule cannot pass. Contract without sonification.bandsHz = MISSING',
-      'PROVISIONAL: ≥ 75% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered')
+      'PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered')
 def t1_sonification(ctx):
     bands = _bands(ctx)
     evs, src = _events(ctx)

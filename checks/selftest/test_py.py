@@ -516,24 +516,43 @@ def _(f, bad):
 
 
 def refi_case(bad):
-    """S01 kind refinance-breakeven (Episode 1): a model file written from an independent textbook formula; bad = one break-even month off by one."""
+    """S01 kind refinance-breakeven (Episode 1, M1b). The characters' part is written from a textbook amortisation in this file (not the rule's
+    code); the history part from a synthetic weekly series with two drops, laid out by hand (peaks 9.0 and 8.2, troughs 7.0 and 6.9). bad = one
+    history break-even month off by one."""
     import math
+    import r_model
     f = F('S01-refi')
     try:
-        L, C, R_, n = 375000.0, 5123.53, 7.62, 360
-        pay = lambda r: L * (r / 1200) / (1 - (1 + r / 1200) ** -n)
-        cases = {}
-        for sp in (0.25, 0.5, 1.0, 2.0):
-            sv = pay(R_) - pay(R_ - sp)
-            cases[str(sp)] = {'oldPayment': pay(R_), 'newPayment': pay(R_ - sp), 'monthlySavings': sv, 'breakEvenMonths': math.ceil(C / sv)}
+        n, k, r0, rt = 360, 35, 7.62, 7.03
+        pay = lambda P, r: P * (r / 1200) / (1 - (1 + r / 1200) ** -n)
+        owed = lambda P, r, j: P * ((1 + r / 1200) ** n - (1 + r / 1200) ** j) / ((1 + r / 1200) ** n - 1)
+        chars, out_c = {'maya': {'loan': 375000.0, 'cost': 5123.53}}, {}
+        for name, c in chars.items():
+            L, C = c['loan'], c['cost']
+            B = owed(L, r0, k)
+            sv = pay(L, r0) - pay(B, rt)
+            net = lambda m: sv * m + owed(L, r0, k + m) - owed(B, rt, m) - C
+            out_c[name] = {'loan': L, 'cost': C, 'balance': B, 'monthlySavings': sv, 'simple': math.ceil(C / sv), 'withBalance': next(m for m in range(1, n + 1) if net(m) >= 0)}
+        # weekly series: monthly means 9.0 (peak, 2000-03) falling to 7.0 (2000-09), up to 8.2 (2001-03), down to 6.9 (2001-09), flat after
+        path = [8.5, 8.8, 9.0, 8.7, 8.4, 8.0, 7.6, 7.3, 7.0, 7.4, 7.8, 8.0, 8.1, 8.2, 7.9, 7.5, 7.2, 7.0, 6.9, 7.1, 7.2, 7.3, 7.3, 7.3]
+        with open(f.p('data/normalized/weekly.csv'), 'w') as fh:
+            fh.write('date,rate\n')
+            for i, r in enumerate(path):
+                y, mo = 2000 + (i // 12), i % 12 + 1
+                for d in (3, 10, 17, 24):
+                    fh.write(f'{y}-{mo:02d}-{d:02d},{r}\n')
+        with open(f.p('data/normalized/costs.csv'), 'w') as fh:
+            fh.write('year,purpose,share\n2018,r,1.5\n2019,r,1.7\n')
+        h = {'series': {'file': 'data/normalized/weekly.csv', 'dateColumn': 'date', 'rateColumn': 'rate'}, 'swingPoints': 1.0, 'spreads': [0.5, 1.0], 'loan': 300000,
+             'termMonths': 360, 'costShares': {'file': 'data/normalized/costs.csv', 'filter': {'purpose': 'r'}, 'yearColumn': 'year', 'shareColumn': 'share'}}
+        params = {'scenario': {'oldRate': r0, 'paymentsMade': k, 'todayRate': rt, 'termMonths': n}, 'characters': chars, 'history': h}
+        f.contract(model={'kind': 'refinance-breakeven', 'output': 'out/model.json', 'params': params})
+        hist, sh, fixed = r_model.history(common.Ctx(f.root), h)
+        assert [(e['peak'], e['trough']) for e in hist] == [('2000-03', '2000-09'), ('2001-02', '2001-07')], hist
         if bad:
-            cases['0.5']['breakEvenMonths'] += 1
-        lo, hi = 0.0, 5.0
-        for _ in range(100):
-            mid = (lo + hi) / 2
-            lo, hi = (lo, mid) if pay(R_) - pay(R_ - mid) >= C / 36 else (mid, hi)
-        f.json('out/model.json', {'loan': L, 'cost': C, 'oldRate': R_, 'cases': cases, 'sp36': {'mid': hi}})
-        f.contract(model={'kind': 'refinance-breakeven', 'output': 'out/model.json', 'params': {'loan': L, 'cost': C, 'oldRate': R_, 'termMonths': n, 'breakEvenTargets': {'sp36': 36}}})
+            hist[1]['cases'][0]['breakEvenMonths'] += 1
+        f.json('out/model.json', {'scenario': {'oldRate': r0, 'paymentsMade': k, 'todayRate': rt}, 'characters': out_c,
+                                  'costSharesByYear': {str(y): v for y, v in sh.items()}, 'fixedSharePre2018': fixed, 'history': hist})
         return f.run('S01')
     finally:
         f.close()
@@ -655,8 +674,17 @@ def _(f, bad):
 
 @case('S13')
 def _(f, bad):
-    s = ['One two three four five six.'] * 8 if bad else ['Short.', 'This one is a little longer than that.', 'Tiny.', 'And this sentence keeps going for quite a while longer than the others do.', 'Then two.', 'A middle sized one here.']
-    f.json('out/script.json', {'sentences': [{'id': f's{i}', 'scene': 'a', 'text': x, 'start': i, 'end': i + 1} for i, x in enumerate(s)]})
+    # K2 (G-009): good = a flowing script whose long and short sentences alternate, one short sentence for emphasis;
+    # bad = the same content cut into a staccato string of fragments (which would have raised the old all-sentence CV)
+    good = ['Maya borrowed $375,000 in October 2023, the month the 30-year rate peaked, and she has made 35 payments since then.',
+            'Rates have come down.', 'This week the average is 7.03%, so the question she faces is whether a refinance pays for itself before she moves.',
+            'The bill is the closing costs, and for a loan like hers it came to $5,124.',
+            'Most calculators divide that bill by the monthly saving and stop there, which is where the story starts to go wrong.',
+            'Here is why.', 'A new loan starts the 30-year schedule again, and early payments are mostly interest.']
+    staccato = ['Maya borrowed in 2023.', 'Rates peaked.', 'She paid 35 times.', 'Rates fell.', 'The bill: $5,124.',
+                'Most calculators divide that bill by the monthly saving and stop there, which is where the story starts to go wrong.', 'Here is why.']
+    s = staccato if bad else good
+    f.json('out/script.json', {'sentences': [{'id': f's{i}', 'scene': 'a', 'text': t, 'start': i, 'end': i + 1} for i, t in enumerate(s)]})
 
 
 @case('S14')
@@ -1030,7 +1058,10 @@ def _(f, bad):
     f.contract(characters={'median': {'color': '#ffffff', 'shape': 'solid', 'words': ['median borrower', 'median refinance']}},
                scenarios={'hold36': {'words': ['three years', '36 months']}}, claims={'decisive': ['cost_med', 'sp36'], 'core': [], 'illustrative': []})
     f.json('out/claims.json', {'claims': [{'claimId': 'cost_med', 'display': '$5,124', 'decisive': True}, {'claimId': 'sp36', 'display': '0.56'}]})
-    s = [{'id': 'a1', 'scene': 'x', 'text': 'Take the median borrower.' if not bad else 'Take a loan.', 'start': 0, 'end': 1},
+    # K2 (G-009): the name two sentences back in the same scene still ties the number (good); a name in another scene does not (bad)
+    s = [{'id': 'a0', 'scene': 'w', 'text': 'Take the median borrower.' if bad else 'Rates fell this year.', 'start': -1, 'end': 0},
+         {'id': 'a1', 'scene': 'x', 'text': 'Take the median borrower.' if not bad else 'Take a loan.', 'start': 0, 'end': 1},
+         {'id': 'a1b', 'scene': 'x', 'text': 'It has 35 payments behind it.', 'start': 0.5, 'end': 0.9},
          {'id': 'a2', 'scene': 'x', 'text': 'Closing costs come to $5,124.', 'start': 1, 'end': 2},
          {'id': 'b1', 'scene': 'y', 'text': ('If you stay 36 months, you need a cut of 0.56 points.' if not bad else 'You need a cut of 0.56 points.'), 'start': 3, 'end': 5}]
     f.json('out/script.json', {'sentences': s})

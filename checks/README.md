@@ -85,7 +85,7 @@ Giữ nguyên, K1 chưa quyết:
 
 | Mã | Thay đổi | Lý do |
 |---|---|---|
-| S01 | Tính lại mô hình theo `model.kind` của hợp đồng tập. Hai loại có bản tính lại độc lập (`py/r_model.py`): `retirement-6040` (bài D, giữ nguyên phép tính K1) và `refinance-breakeven` (Tập 1). Phần nào của file mô hình không được tính lại thì bị liệt kê, và luật trượt. | chỉ dẫn K2 §1; `episodes/ep001/checks-notes.md` §2 |
+| S01 | Tính lại mô hình theo `model.kind` của hợp đồng tập. Hai loại có bản tính lại độc lập (`py/r_model.py`): `retirement-6040` (bài D, giữ nguyên phép tính K1) và `refinance-breakeven` (Tập 1, mô hình M1b: hoà vốn tính cả dư nợ, ba nhân vật, **mô phỏng lịch sử** 13 đợt giảm lãi do phiên kiểm tự viết từ câu mô tả trong hợp đồng). Phần nào của file mô hình không được tính lại thì bị liệt kê, và luật trượt. Trên `out/model.json` của Tập 1 (`ep001` @ `bbc28fb`): 619 giá trị, 0 lệch, không còn phần nào chưa tính lại. | chỉ dẫn K2 §1, §3 (vòng 2); `episodes/ep001/checks-notes.md` §2 |
 | S03 | Tên miền nguồn chính và nguồn đối chiếu đọc từ `data.hosts`, file nguồn từ `data.sources`. | như trên |
 | S04 | Các cặp chuỗi đối chiếu (file, cột, khoá, hệ số, dung sai, khoảng dùng) đọc từ `data.crosscheck[]`. | như trên |
 | S05 | Claim nào là đại lượng mô hình đọc từ `model.claims`; bất biến của luận điểm (bài D: hai đường cùng trung bình nhân) từ `model.params`; claim phải gắn ILLUSTRATIVE đọc từ `claims.illustrative` và từ nhân vật `illustrative:true`. | như trên |
@@ -94,10 +94,25 @@ Giữ nguyên, K1 chưa quyết:
 | V09 | Mô phỏng mù màu cho **mọi cặp** nhân vật của hợp đồng. | như trên |
 | T1 | **Định nghĩa lại**: nghe thấy ở khe nghỉ của lời (giữa âm tiết, giữa từ, giữa câu) và ở chỗ không có lời; dải tần lấy từ `sonification.bandsHz` của tập (theo cue sheet); không đòi nổi lên trong lúc lời đang đọc. Mỗi mẫu của một lần vẽ đường là một sự kiện, nên lần vẽ được đo mỗi 0,5 s. Kiểm thật thêm: dải khai báo phải chứa ≥ 50% năng lượng của stem `sonify`. | sổ gu G-006; `episodes/ep001/checks-notes.md` §1 |
 | L1 | **Mới**: tiếng dữ liệu không lấn lời (năng lượng lời so với tiếng dữ liệu ở 1–4 kHz khi có lời; ASR không mất từ khoá vì tiếng dữ liệu). | sổ gu G-006 |
-| S16 | **Mới, tạm**: câu nói con số quyết định phải gắn với một nhân vật hoặc kịch bản của hợp đồng tập. | sổ gu G-008 (câu chữ theo chỉ dẫn K2) |
+| S16 | **Mới, tạm**: câu nói con số quyết định phải gắn với một nhân vật hoặc kịch bản của hợp đồng tập. Tên có thể nằm ở bất kỳ câu nào trước đó **trong cùng cảnh** (không bắt lặp tên ở mỗi câu). | sổ gu G-008; G-009 |
+| S13 | **Định nghĩa lại** (G-009). Luật cũ (CV độ dài mọi câu ≥ 0,35) **thưởng câu vụn**: chèn câu 1–3 chữ làm CV tăng (chuỗi "Maya borrowed in 2023. Rates peaked. She paid 35 times. Rates fell. The bill: $5,124." có CV 1,14, đạt dễ). Nay: CV chỉ tính trên câu ≥ 4 chữ (xen kẽ dài ngắn thật), và **cấm chuỗi ≥ 3 câu liền nhau ≤ 6 chữ**. Một câu ngắn để nhấn vẫn được. Câu dẫn chuyện không có số không bao giờ bị phạt. | sổ gu G-009 |
 | F11 | **Mới**: artefact mốc phát hành (`artefacts.M3`) đã khai đều được giao, và danh sách khai gồm mọi file phát hành của `CONTRACT.md`. | chỉ dẫn K2 §1 (artefact phải giao); CHARTER §7.3 |
 
 Hợp đồng của bài D do phiên kiểm ghi lại từ các hằng số K1 đã gắn cứng: `checks-runs/D-r3-6531f6c8/contract.json` (nằm ngoài `checks/`).
+
+**Rà luật về lời theo G-009** ("kịch bản phải là một câu chuyện … liền mạch, có chuyển ý, không cụt lủn"):
+
+| Luật | Ép câu vụn / cấm câu dẫn chuyện không số? | Quyết định |
+|---|---|---|
+| S13 (DX-S8) | **Có**: CV trên mọi câu, câu vụn làm CV tăng | **Sửa** (trên) |
+| S16 | Bắt câu có số quyết định (hoặc câu ngay trước) gọi tên nhân vật: ép lặp tên, cắt ngang mạch kể | **Sửa**: xét cả cảnh tới câu đó |
+| S12 (DX-S7, ≤ 1 số mới / 8 s, ≤ 2 số mới / cảnh) | Không: chỉ giới hạn số, không đòi số; càng nhiều câu dẫn chuyện không số càng dễ đạt | Giữ |
+| A15 (150–160 wpm mỗi hồi, không câu > 175 wpm) | Không: câu vụn đọc TTS thường vượt 175 wpm, nên luật này còn chống câu vụn | Giữ |
+| R03 (≥ 1,0 s thở sau số quyết định) | Đẩy số quyết định về cuối câu, không ép tách câu; một khoảng thở ở ranh giới mệnh đề cũng đạt | Giữ |
+| S09 (câu có số $ hoặc câu ngay trước nói thực/danh nghĩa) | Có thể ép lặp "nominal" trong mạch kể; nhưng đây là luật nội dung (DX-H3), nới cần chủ dự án quyết | Giữ, **ghi để chủ dự án cân nhắc** |
+| S10, S11, S07, A14, C13, F09 | Không liên quan độ dài câu hay câu không số | Giữ |
+
+Trên kịch bản M1b của Tập 1 (`out/script-draft.json` @ `bbc28fb`): S13 mới **trượt** (cold open "Maya locked in 7.62%. / This week's average: 7.03%. / Refinancing costs $5,124. / So when does that money come back?" là một chuỗi câu vụn), luật cũ cho đạt (CV 0,40). Bài D r3: S13 mới trượt ("Same money in. / Same money out. / Same average.").
 
 Còn gắn với bài D, ngoài phạm vi K2 (ghi để khoá sau xử lý): A14 (danh sách thuật ngữ khoá `DEFINED_TERMS` là từ vựng hưu trí; tập mới chỉ **thêm** được qua `out/terms.json`), S02 (cụm "no taxes" / "no fees" là giả định của mô hình bài D).
 
@@ -107,9 +122,10 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
 
 | Luật | Ngưỡng tạm |
 |---|---|
-| T1 *(K2)* | ở khe nghỉ của lời: độ nổi ≥ 3 dB (khung 20 ms); ≥ 75% số lượt nghe được; dải khai báo ≥ 50% năng lượng stem `sonify` |
+| T1 *(K2)* | ở khe nghỉ của lời: độ nổi ≥ 3 dB (khung 20 ms); ≥ 60% số lượt nghe được; dải khai báo ≥ 50% năng lượng stem `sonify` |
 | L1 *(K2)* | lời/tiếng dữ liệu ở 1–4 kHz, phân vị 10 của các cửa sổ có tiếng dữ liệu, ≥ 20 dB; 0 từ khoá bị mất |
-| S16 *(K2)* | ≥ 75% câu có số quyết định gắn nhân vật hoặc kịch bản |
+| S16 *(K2)* | ≥ 75% câu có số quyết định gắn nhân vật hoặc kịch bản (tên trong cùng cảnh, tới câu đó) |
+| S13 *(K2)* | CV độ dài câu (câu ≥ 4 chữ) ≥ 0,35; 0 chuỗi ≥ 3 câu liền ≤ 6 chữ |
 | T2 | câu nhạc lặp ≤ 5% |
 | T3 | chuyển tiếp vào khoảng lặng 150–400 ms; sàn master ≥ −80 dBFS, room ≥ −75 dBFS |
 | V12 | NCC ≥ 0,97 |
@@ -117,17 +133,22 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
 
 ### Điểm hiệu chỉnh của T1 và L1 (K2)
 
-Chuẩn là phán đoán của chủ dự án, cả hai điểm đều bắt buộc:
+Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
 
-| Mẫu | Phán đoán của chủ dự án | Phải | T1 (lượt nghe được) | L1 (phân vị 10, 1–4 kHz) | Kết quả |
-|---|---|---|---|---|---|
-| Bài D vòng 3 (master `6531f6c8…`) | "chưa có tiếng dữ liệu" (H7 = 3,5) | T1 **trượt** | **chưa đo lại được**: master và stem nằm ở repo `crux-spike-opus55`, phiên K2 không được cấp quyền đọc. Về cấu trúc T1 vẫn trượt (tiếng dữ liệu trộn vào `sfx`, không có stem `sonify`) | MISSING (không có stem `sonify`) | **chưa xác nhận bằng âm thanh** |
-| Tập 1, bảng âm **S2** (minimal) trên mẫu m0 | chọn; "nghe thấy", "không lấn lời" | T1 và L1 **đạt** | 11/13 = 0,85 (dải 40–250 Hz) | 26,9 dB, 0 từ mất | **đạt cả hai** |
-| S1 (breath) — tham khảo | — | — | 10/13 = 0,77 (125–500 Hz) | 22,6 dB | đạt, đạt |
-| S3 (mallet) — tham khảo | — | — | 11/13 = 0,85 (125–1000 Hz) | 16,1 dB | đạt, **trượt** |
-| m0 +10 dB — tham khảo | "vẫn bị tiếng dữ liệu lấn" | — | 12/13 = 0,92 (500–4000 Hz) | −17,9 dB | đạt, **trượt** |
+| Mẫu | Phán đoán của chủ dự án | Phải | T1 (lượt nghe được ≥ 0,60) | L1 (phân vị 10, 1–4 kHz, ≥ 20 dB) |
+|---|---|---|---|---|
+| **Bài D vòng 3** (master `6531f6c8…`, stem M3) | "chưa có tiếng dữ liệu" (H7 = 3,5) | T1 trượt | **TRƯỢT**: 39/355 = 0,11 (dải 1,5–8 kHz của hợp đồng D). Mở dải ra 40 Hz–16 kHz (lợi nhất cho D): 0,16, vẫn trượt. Không có stem `sonify` | MISSING (không có stem `sonify`) |
+| **m0 gốc** (tiếng dữ liệu 0 dB, trước +10 dB) | "vẫn bị lấn" | L1 trượt | đạt, 10/13 = 0,77 | **TRƯỢT**: −7,9 dB |
+| **S2** (chủ dự án chọn), dải theo cue sheet M1b: 60–270 Hz + 4,5–7 kHz | "nghe thấy", "không lấn lời" | T1, L1 đạt | **ĐẠT**: 10/13 = 0,77 | **ĐẠT**: 26,9 dB, 0 từ mất |
+| S1 (tham khảo), 125–500 Hz | — | — | đạt, 0,77 | đạt, 22,6 dB |
+| S3 (tham khảo), 125–1000 Hz | — | — | đạt, 0,85 | trượt, 16,1 dB |
+| m0 +10 dB (tham khảo) | "vẫn bị lấn" | — | đạt, 0,92 | trượt, −17,9 dB |
 
-Cách đo S1–S3: bộ duyệt chỉ có bản mix mp4 (AAC 256 kbps). Máy kiểm tách lớp tiếng dữ liệu = mix / g − Σ(stem khác của m0), với g là hệ số bình phương nhỏ nhất (1,134). Làm y hệt với bản xem trước của m0 (có stem `sonify` thật) cho T1 giống hệt (0,92) và L1 lệch 2,7 dB. Nhiễu mã hoá cộng vào lớp tách ra, nên L1 của S1–S3 là cận dưới (thận trọng). Dải tần là dải bội tám chứa ≥ 80% năng lượng lớp tách ra, vì cue sheet Tập 1 chưa khai dải. Kịch bản, số đo và báo cáo: `checks-runs/K2-calibration/`.
+- Ngưỡng T1 hạ từ 0,75 (lượt trước) xuống **0,60**: với dải đúng cue sheet, S2 chỉ còn 0,77, sát 0,75; D ở 0,11. 0,60 để S2 có biên 0,17 và D cách xa 0,49.
+- Ngưỡng L1 giữ **20 dB**: m0 gốc −7,9 dB và m0 +10 dB −17,9 dB đều trượt xa; S2 đạt với biên 6,9 dB. Không cần nâng.
+- m0 gốc = stem `sonify` của `m0-sample` hạ 10 dB (bản +10 dB là bản đã commit; README của mẫu ghi `SONIFY_GAIN_DB=10`), master = tổng stem.
+- Cách tách lớp tiếng dữ liệu cho S1–S3 (bộ duyệt chỉ có mp4): mix / g − Σ(stem khác của m0), g bình phương nhỏ nhất (1,134). Kiểm trên m0 có stem thật: T1 giống hệt, L1 lệch 2,7 dB; nhiễu AAC làm L1 của S1–S3 là cận dưới.
+- Số đo và kịch bản: `checks-runs/K2-calibration/`; bài D: `checks-runs/D-r3-6531f6c8/K2/`.
 
 **Mọi thay đổi ngưỡng về sau cần chủ dự án duyệt, và phải khoá lại** (LOCK mới, CHARTER §7.1). Bên dựng không đổi ngưỡng. Phiên kiểm cũng không tự đổi ngưỡng khi chưa được duyệt.
 
@@ -147,7 +168,7 @@ Cách đo S1–S3: bộ duyệt chỉ có bản mix mp4 (AAC 256 kbps). Máy ki�
    - mức dải của tiếng dữ liệu ≥ −60 dBFS.
 
    Trong lúc lời đang đọc, T1 **không đòi gì** (L1 chấm chỗ đó).
-5. **Ngưỡng (tạm).** ≥ 75% số lượt nghe thấy.
+5. **Ngưỡng (tạm).** ≥ 60% số lượt nghe thấy.
 6. **Kiểm thật.** Dải khai báo chứa ≥ 50% năng lượng của stem `sonify` (không khai dải rỗng để né). Tổng các stem khớp master trong dải (tương quan ≥ 0,90). Phải có stem `sonify` riêng; tiếng dữ liệu trộn vào `sfx` thì luật đo trên `sfx`, báo số, nhưng không thể đạt.
 
 **L1 — không lấn lời** (DX-A1, DX-A9, sổ gu G-006; K2, mới)
@@ -260,7 +281,7 @@ Cách đo S1–S3: bộ duyệt chỉ có bản mix mp4 (AAC 256 kbps). Máy ki�
 | S10 | DX-I1, DX-I2 | every narration sentence (out/script.json text) and every visible on-screen text, lower-cased, against locked regex lists: ADVICE, FORECAST, FOUR (4% as a recommendation), WE_BAD ("we/our/us" used for the viewer); required phrases "US only" and "history, not a forecast" (narration or screen) | 0 matches of ADVICE, FORECAST, FOUR, WE_BAD; both required phrases present | Python |
 | S11 *(sửa)* | DX-S6 | claims with core=true. Appearances = distinct scenes where the claim is visible (page sampler) or spoken (heard by own ASR in that scene's narration window). Declared callbacks[] each need scene + distinct non-empty meaning, and must be real appearances | ≥ 1 core claim; each core claim appears in ≥ 3 distinct scenes spanning ≥ 2 acts; ≥ 3 declared callbacks with distinct meanings, all verified | trang + Python |
 | S12 | DX-S7 | new number = first appearance (screen or narration) of a claim; axis-role claims (role "axis", only ever shown as axis labels/anchors per the page sampler) excluded. Scene of a new number = scene containing its first-appearance time | new numbers ≤ duration / 8 s; no scene with > 2 new numbers; 0 claims marked axis but shown outside axis labels | trang + Python |
-| S13 | DX-S8 | sentence length = words in each out/script.json sentence text; coefficient of variation = population std / mean | CV ≥ 0.35 | Python |
+| S13 *(K2 sửa)* | DX-S8 | sentence length = words in each out/script.json sentence text; coefficient of variation = population std / mean | CV ≥ 0.35 | Python |
 | S14 | DX-S10 | out/adbreaks.json times; act boundaries from out/timeline.json acts; natural silence = span where the master RMS (50 ms/10 ms) stays ≤ −40 dBFS | 2 … 3 breaks; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s | Python |
 | S15 | DX-S1 | out/timeline.json acts[] (id, start, end) and scenes[].act; acts contiguous and in the brief's order | order cold-open, ident, act1, act2, act3, method, outro; cold open ≤ 15 s; ident ≤ 3 s; outro ≥ 20 s; timeline total ≥ 600 s; every scene inside its act | Python |
 | S16 **(K2 mới)** | DX-S3, RUBRIC H4 (sổ gu G-008) | decisive numbers = displays of the claims with decisive=true in out/claims.json or listed in contract.json claims.decisive; a decisive sentence = an out/script.json sentence whose text says one of them (numbers compared as values). It is tied to the viewer's situation when that sentence, or the sentence before it in the same scene, names a character or a scenario the episode contract declares (characters.<k>.words, scenarios.<k>.words; whole-word match, case-insensitive). Contract without the words of its characters/scenarios = MISSING | PROVISIONAL: ≥ 1 decisive sentence; ≥ 75% of decisive sentences tied to a declared character or scenario | Python |

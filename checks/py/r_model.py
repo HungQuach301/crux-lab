@@ -140,97 +140,228 @@ def ret_invariants(ctx, params):
     return out
 
 
-# ---- kind "refinance-breakeven" (Episode 1) ----------------------------------------------------------------
+# ---- kind "refinance-breakeven" (Episode 1, M1b: break-even counting what is still owed) ---------------------------
+# Written by the checking session from the episode contract's recompute text (contract.json model.recompute), never from model/refi.py.
+# Conventions the text leaves open are parameters of the contract (model.params), each named below; the checker does not guess them.
 def payment(balance, annual_pct, months):
     r = annual_pct / 1200.0
     return balance * r / (1 - (1 + r) ** -months) if r else balance / months
 
 
-def _refi(params):
-    loan, cost, old, n = _need(params, 'loan', 'cost', 'oldRate', 'termMonths')
-    return float(loan), float(cost), float(old), int(n)
+def balance_after(principal, annual_pct, months, k):
+    """Balance of a level-payment loan after k payments."""
+    r = annual_pct / 1200.0
+    if not r:
+        return principal * (1 - k / months)
+    return principal * ((1 + r) ** months - (1 + r) ** k) / ((1 + r) ** months - 1)
 
 
-def breakeven(loan, cost, old, spread, n):
-    s = payment(loan, old, n) - payment(loan, old - spread, n)
-    return math.ceil(cost / s) if s > 0 else None, s
+def net_after(p0, r_old, k, bal, r_new, cost, m, n):
+    """What the refinance has earned after m months: payments saved + (balance still owed on the old loan − balance owed on the new one) − cost."""
+    sav = payment(p0, r_old, n) - payment(bal, r_new, n)
+    return sav * m + balance_after(p0, r_old, n, k + m) - balance_after(bal, r_new, n, m) - cost
 
 
-def spread_for(loan, cost, old, n, months):
-    """Smallest rate cut (points) whose break-even is ≤ `months`: savings(spread) ≥ cost / months, solved by bisection on the continuous
-    savings (the break-even itself is a whole number of months)."""
-    need = cost / months
-    lo, hi = 0.0, old
-    for _ in range(200):
+def be_balance(p0, r_old, k, bal, r_new, cost, n, horizon=None):
+    """MAIN break-even: first month m ≥ 1 with net_after ≥ 0 (None if never within the horizon, default the new term)."""
+    for m in range(1, (horizon or n) + 1):
+        if net_after(p0, r_old, k, bal, r_new, cost, m, n) >= 0:
+            return m
+    return None
+
+
+def be_simple(p0, r_old, bal, r_new, cost, n):
+    sav = payment(p0, r_old, n) - payment(bal, r_new, n)
+    return math.ceil(cost / sav) if sav > 0 else None
+
+
+def cut_for(p0, r_old, k, cost, n, months):
+    """Smallest rate cut (points below the old rate) whose MAIN break-even is ≤ `months` (bisection on the cut)."""
+    bal = balance_after(p0, r_old, n, k)
+    lo, hi = 0.0, r_old
+    for _ in range(100):
         mid = (lo + hi) / 2
-        if payment(loan, old, n) - payment(loan, old - mid, n) >= need:
+        be = be_balance(p0, r_old, k, bal, r_old - mid, cost, n, months)
+        if be is not None:
             hi = mid
         else:
             lo = mid
     return hi
 
 
-def refi_compare(ctx, params, out):
-    loan, cost, old, n = _refi(params)
-    bad, checked = [], 0
-    for k, want in (('loan', loan), ('cost', cost), ('oldRate', old)):
-        checked += 1
-        if out.get(k) is None or not close(float(out[k]), want, 0.005):
-            bad.append((k, out.get(k), want))
-    for sp, c in (out.get('cases') or {}).items():
-        be, s = breakeven(loan, cost, old, float(sp), n)
-        for name, mine, tol in (('oldPayment', payment(loan, old, n), 0.005), ('newPayment', payment(loan, old - float(sp), n), 0.005),
-                                ('monthlySavings', s, 0.005), ('breakEvenMonths', be, 0)):
-            checked += 1
-            if c.get(name) is None or (not close(float(c[name]), mine, tol) if tol else c[name] != mine):
-                bad.append((f'cases.{sp}', name, c.get(name), round(mine, 4) if isinstance(mine, float) else mine))
-    if not out.get('cases'):
-        bad.append(('cases', 'missing'))
-    targets = params.get('breakEvenTargets') or {}
-    classes = params.get('classes') or {}
-    covered = {'loan', 'cost', 'oldRate', 'cases'}
-    unrec = []
-    for key, months in targets.items():
-        got = out.get(key)
-        if got is None:
-            bad.append((key, 'missing'))
+def _months(a, b):
+    return (int(b[:4]) - int(a[:4])) * 12 + int(b[5:7]) - int(a[5:7])
+
+
+def _add(m, k):
+    y, mo = int(m[:4]), int(m[5:7]) - 1 + k
+    return f'{y + mo // 12:04d}-{mo % 12 + 1:02d}'
+
+
+def monthly_means(ctx, spec):
+    """{file, dateColumn, rateColumn}: calendar-month mean of a weekly series (unrounded; rates are reported rounded to 2 decimals)."""
+    rows = list(csv.DictReader(open(ctx.need(spec['file']))))
+    by = {}
+    for r in rows:
+        by.setdefault(r[spec['dateColumn']][:7], []).append(float(r[spec['rateColumn']]))
+    return {m: sum(v) / len(v) for m, v in sorted(by.items())}
+
+
+def zigzag_drops(rate, swing):
+    """Alternating peaks and troughs of the monthly series where each reversal is ≥ `swing` points; ties go to the later month.
+    Drop episodes = (peak, trough) pairs; a drop still running at the end of the data (≥ swing below its peak) is an episode too."""
+    ms = list(rate)
+    hi = lo = ms[0]
+    trend, cand, piv = None, None, []
+    for m in ms[1:]:
+        if trend is None:
+            if rate[m] >= rate[hi]:
+                hi = m
+            if rate[m] <= rate[lo]:
+                lo = m
+            if rate[hi] - rate[m] >= swing - 1e-9:
+                trend, cand = 'down', m
+                piv.append(('peak', hi))
+            elif rate[m] - rate[lo] >= swing - 1e-9:
+                trend, cand = 'up', m
+                piv.append(('trough', lo))
             continue
-        covered.add(key)
-        for cls, v in (got.items() if isinstance(got, dict) else [('mid', got)]):
-            if cls == 'mid':
-                L, C = loan, cost
-            elif cls in classes:
-                L, C = float(classes[cls]['loan']), float(classes[cls]['cost'])
-            else:
-                unrec.append(f'{key}.{cls}')
+        if trend == 'down':
+            if rate[m] <= rate[cand]:
+                cand = m
+            elif rate[m] - rate[cand] >= swing - 1e-9:
+                piv.append(('trough', cand))
+                trend, cand = 'up', m
+        else:
+            if rate[m] >= rate[cand]:
+                cand = m
+            elif rate[cand] - rate[m] >= swing - 1e-9:
+                piv.append(('peak', cand))
+                trend, cand = 'down', m
+    if trend == 'down' and piv and piv[-1][0] == 'peak' and rate[piv[-1][1]] - rate[cand] >= swing - 1e-9:
+        piv.append(('trough', cand))
+    return [(a[1], b[1]) for a, b in zip(piv, piv[1:]) if a[0] == 'peak' and b[0] == 'trough']
+
+
+def cost_shares(ctx, spec):
+    """{file, filter: {column: value}, yearColumn, shareColumn}: the HMDA median cost share (% of the loan) by year."""
+    out = {}
+    for r in csv.DictReader(open(ctx.need(spec['file']))):
+        if all(r.get(k) == v for k, v in spec['filter'].items()):
+            out[int(r[spec['yearColumn']])] = float(r[spec['shareColumn']])
+    return out
+
+
+def history(ctx, h):
+    """The history simulation (contract text: "monthly means of MORTGAGE30US; drop episodes = zig-zag swings >= 1.00 point; refinance in the
+    first month >= spread under the peak; cost = HMDA median share of that year (fixed median share before 2018, ILLUSTRATIVE)").
+    Old loan: h.loan at the peak month's rate over h.termMonths, first payment the month after the peak. Refinance month: first month after the
+    peak, up to the trough, whose mean is ≤ peak − spread; payments made on the old loan = months since the peak; the new loan = the balance then,
+    at that month's rate; cost = share of that year (years before the first HMDA year: the median of the HMDA years' shares) × new loan.
+    Another drop before break-even: first month in (refinance, refinance + break-even] whose mean is strictly more than `spread` below the new rate. Censored: the data end
+    before refinance + break-even."""
+    rate = monthly_means(ctx, h['series'])
+    sh = cost_shares(ctx, h['costShares'])
+    fixed = float(np.median(list(sh.values())))
+    n, p0 = int(h['termMonths']), float(h['loan'])
+    last = list(rate)[-1]
+    out = []
+    for pk, tr in zigzag_drops(rate, float(h['swingPoints'])):
+        cases = []
+        for sp in h['spreads']:
+            ms = [m for m in rate if pk < m <= tr and rate[m] <= rate[pk] - sp + 1e-9]
+            if not ms:
+                cases.append({'spread': sp, 'reached': False})
                 continue
-            checked += 1
-            mine = spread_for(L, C, old, n, int(months))
-            if not close(float(v), mine, 0.0005):
-                bad.append((f'{key}.{cls}', round(float(v), 5), round(mine, 5)))
-    unrec += sorted(set(out) - covered - set(params.get('notModel', [])))
-    return checked, bad, unrec
+            m = ms[0]
+            k = _months(pk, m)
+            bal = balance_after(p0, rate[pk], n, k)
+            y = int(m[:4])
+            share = sh.get(y, fixed) if y >= min(sh) else fixed
+            cost = share / 100 * bal
+            be = be_balance(p0, rate[pk], k, bal, rate[m], cost, n)
+            nxt = next((x for x in rate if m < x <= _add(m, be or n) and rate[x] < rate[m] - sp), None)
+            cases.append({'spread': sp, 'reached': True, 'refiMonth': m, 'newRate': round(rate[m], 2), 'monthsOnOldLoan': k, 'balance': bal, 'costSharePct': share,
+                          'costIllustrative': y < min(sh), 'closingCost': cost, 'monthlySavings': payment(p0, rate[pk], n) - payment(bal, rate[m], n),
+                          'breakEvenMonths': be, 'breakEvenSimple': be_simple(p0, rate[pk], bal, rate[m], cost, n), 'beforeBreakEvenAnotherDrop': nxt,
+                          'censored': _add(m, be or n) > last})
+        out.append({'peak': pk, 'peakRate': round(rate[pk], 2), 'trough': tr, 'troughRate': round(rate[tr], 2), 'drop': round(rate[pk] - rate[tr], 2), 'cases': cases})
+    return out, sh, fixed
+
+
+def _cmp(bad, where, theirs, mine, tol):
+    if isinstance(mine, bool) or mine is None or isinstance(mine, str):
+        ok = theirs == mine
+    else:
+        ok = theirs is not None and abs(float(theirs) - float(mine)) <= tol
+    if not ok:
+        bad.append((where, theirs, round(mine, 4) if isinstance(mine, float) else mine))
+    return 1
+
+
+def refi_compare(ctx, params, out):
+    sc, chars, h = _need(params, 'scenario', 'characters', 'history')
+    n, k, r0, rt = int(sc['termMonths']), int(sc['paymentsMade']), float(sc['oldRate']), float(sc['todayRate'])
+    bad, checked = [], 0
+    for key, want in (('oldRate', r0), ('paymentsMade', k), ('todayRate', rt)):
+        checked += _cmp(bad, f'scenario.{key}', (out.get('scenario') or {}).get(key), want, 1e-9)
+    for name, c in chars.items():
+        o = (out.get('characters') or {}).get(name) or {}
+        L, C = float(c['loan']), float(c['cost'])
+        bal = balance_after(L, r0, n, k)
+        mine = {'loan': L, 'cost': C, 'balance': bal, 'monthlySavings': payment(L, r0, n) - payment(bal, rt, n), 'simple': be_simple(L, r0, bal, rt, C, n),
+                'withBalance': be_balance(L, r0, k, bal, rt, C, n)}
+        for hz in sc.get('netHorizons', []):
+            mine[f'net{hz}'] = net_after(L, r0, k, bal, rt, C, hz, n)
+            mine[f'cut{hz}'] = cut_for(L, r0, k, C, n, hz)
+        for f_, v in mine.items():
+            checked += _cmp(bad, f'characters.{name}.{f_}', o.get(f_), v, 0.0005 if f_.startswith('cut') else 0.01)
+    ref = sc.get('byCutOf')
+    if ref:
+        L, C = float(chars[ref]['loan']), float(chars[ref]['cost'])
+        bal = balance_after(L, r0, n, k)
+        for cut, o in (out.get(f'{ref}ByCut') or {}).items():
+            rn = r0 - float(cut)
+            for f_, v in (('balance', bal), ('monthlySavings', payment(L, r0, n) - payment(bal, rn, n)), ('simple', be_simple(L, r0, bal, rn, C, n)),
+                          ('withBalance', be_balance(L, r0, k, bal, rn, C, n))):
+                checked += _cmp(bad, f'{ref}ByCut.{cut}.{f_}', o.get(f_), v, 0.01)
+        s_ = be_simple(L, r0, bal, rt, C, n)
+        # still owed more on the new loan than on the old one at the simple break-even month (the thesis: "counting what is still owed")
+        checked += _cmp(bad, 'gapAtSimpleBreakEven', out.get('gapAtSimpleBreakEven'), balance_after(bal, rt, n, s_) - balance_after(L, r0, n, k + s_), 0.01)
+    hist, sh, fixed = history(ctx, h)
+    for y, v in sh.items():
+        checked += _cmp(bad, f'costSharesByYear.{y}', (out.get('costSharesByYear') or {}).get(str(y)), v, 1e-9)
+    checked += _cmp(bad, 'fixedSharePre2018', out.get('fixedSharePre2018'), fixed, 1e-9)
+    theirs = out.get('history') or []
+    checked += _cmp(bad, 'history episodes', len(theirs), len(hist), 0)
+    for i, (e, t) in enumerate(zip(hist, theirs)):
+        for f_ in ('peak', 'peakRate', 'trough', 'troughRate', 'drop'):
+            checked += _cmp(bad, f'history[{i}].{f_}', t.get(f_), e[f_], 1e-9)
+        for j, (c, tc) in enumerate(zip(e['cases'], t.get('cases', []))):
+            for f_, v in c.items():
+                tol = 0.01 if f_ in ('balance', 'closingCost', 'monthlySavings') else 1e-9
+                checked += _cmp(bad, f'history[{i}].cases[{j}].{f_}', tc.get(f_), v, tol)
+    covered = {'scenario', 'characters', 'costSharesByYear', 'fixedSharePre2018', 'history'} | ({f'{ref}ByCut', 'gapAtSimpleBreakEven'} if ref else set())
+    return checked, bad, sorted(set(out) - covered - set(params.get('notModel', [])))
 
 
 def refi_value(ctx, params, key):
-    """"breakEven:<spread>" (months), "savings:<spread>" ($/month), "spreadFor:<months>[:<class>]" (points), "payment" ($/month at the old rate)."""
-    loan, cost, old, n = _refi(params)
-    kind, _, arg = key.partition(':')
-    if kind == 'breakEven':
-        return float(breakeven(loan, cost, old, float(arg), n)[0]), 0
-    if kind == 'savings':
-        return breakeven(loan, cost, old, float(arg), n)[1], 0.5
-    if kind == 'payment':
-        return payment(loan, old, n), 0.5
-    if kind == 'spreadFor':
-        months, _, cls = arg.partition(':')
-        L, C = loan, cost
-        if cls and cls != 'mid':
-            c = (params.get('classes') or {}).get(cls)
-            if not c:
-                raise Missing(f'contract.json: model.params.classes.{cls}')
-            L, C = float(c['loan']), float(c['cost'])
-        return spread_for(L, C, old, n, int(months)), 0.005
+    """"<character>.<field>" (a recomputed character field, e.g. maya.withBalance, maya.cut36), "history.<i>.<spread>.<field>"."""
+    sc, chars = _need(params, 'scenario', 'characters')
+    n, k, r0, rt = int(sc['termMonths']), int(sc['paymentsMade']), float(sc['oldRate']), float(sc['todayRate'])
+    who, _, f_ = key.partition('.')
+    if who in chars:
+        L, C = float(chars[who]['loan']), float(chars[who]['cost'])
+        bal = balance_after(L, r0, n, k)
+        vals = {'loan': (L, 0.5), 'cost': (C, 0.5), 'balance': (bal, 0.5), 'monthlySavings': (payment(L, r0, n) - payment(bal, rt, n), 0.5),
+                'simple': (be_simple(L, r0, bal, rt, C, n), 0), 'withBalance': (be_balance(L, r0, k, bal, rt, C, n), 0)}
+        if f_.startswith('cut'):
+            return cut_for(L, r0, k, C, n, int(f_[3:])), 0.005
+        if f_.startswith('net'):
+            return net_after(L, r0, k, bal, rt, C, int(f_[3:]), n), 0.5
+        if f_ in vals:
+            v, t = vals[f_]
+            return float(v), t
     raise Missing(f'contract.json: model.claims key "{key}" is not a quantity of kind refinance-breakeven')
 
 

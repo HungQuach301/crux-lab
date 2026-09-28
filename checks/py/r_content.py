@@ -410,11 +410,33 @@ def s12_density(ctx):
                    details=[{'limit': round(total / 8, 1), 'crowded': {k: v for k, v in per.items() if len(v) > 2}}])
 
 
-@rule('S13', 'DX-S8', 'sentence length = words in each out/script.json sentence text; coefficient of variation = population std / mean', 'CV ≥ 0.35')
-def s13_sentence_cv(ctx):
-    n = np.array([len(words(s['text'])) for s in ctx.sentences()], float)
-    cv = float(n.std() / n.mean()) if len(n) else None
-    return verdict('S13', [metric('sentence length CV', cv, '>=', 0.35)], details=[{'sentences': len(n), 'mean': round(float(n.mean()), 1) if len(n) else None}])
+S13_SHORT = 6      # words: a short sentence
+S13_RUN = 3        # this many short sentences in a row = a staccato passage (sổ gu G-009: "không cụt lủn")
+S13_MINW = 4       # words: sentences shorter than this do not count toward the length variation
+
+
+@rule('S13', 'DX-S8 (sổ gu G-009)', 'K2 redefinition. Sentence length = words in each out/script.json sentence text (in script order). (a) Variation: coefficient of variation '
+      '(population std / mean) over the sentences of ≥ 4 words: long and short sentences alternate, and fragments cannot buy the variation. (b) Flow: a staccato passage '
+      '= ≥ 3 consecutive sentences of ≤ 6 words each (a single short sentence for emphasis is allowed; a string of them is choppy). Narration without numbers is never penalised',
+      'PROVISIONAL: CV (sentences ≥ 4 words) ≥ 0.35; 0 staccato passages')
+def s13_sentence_flow(ctx):
+    ss = ctx.sentences()
+    n = np.array([len(words(s['text'])) for s in ss], float)
+    m = n[n >= S13_MINW]
+    cv = float(m.std() / m.mean()) if len(m) else None
+    runs, cur = [], []
+    for s, k in zip(ss, n):
+        if k <= S13_SHORT:
+            cur.append(s)
+            continue
+        if len(cur) >= S13_RUN:
+            runs.append(cur)
+        cur = []
+    if len(cur) >= S13_RUN:
+        runs.append(cur)
+    return verdict('S13', [metric('sentence length CV (≥ 4 words)', cv, '>=', 0.35), metric('staccato passages', len(runs), '<=', 0)],
+                   details=[{'sentences': len(n), 'mean': round(float(n.mean()), 1) if len(n) else None, 'cvAllSentences': round(float(n.std() / n.mean()), 3) if len(n) else None},
+                            *[{'from': r[0].get('id'), 'texts': [x['text'] for x in r]} for r in runs[:10]]])
 
 
 @rule('S14', 'DX-S10', 'out/adbreaks.json times; act boundaries from out/timeline.json acts; natural silence = span where the master RMS (50 ms/10 ms) stays ≤ −40 dBFS',
@@ -478,8 +500,8 @@ def _says(text, phrase):
 
 
 @rule('S16', 'DX-S3, RUBRIC H4 (sổ gu G-008)', 'decisive numbers = displays of the claims with decisive=true in out/claims.json or listed in contract.json claims.decisive; a decisive '
-      'sentence = an out/script.json sentence whose text says one of them (numbers compared as values). It is tied to the viewer\'s situation when that sentence, or the sentence '
-      'before it in the same scene, names a character or a scenario the episode contract declares (characters.<k>.words, scenarios.<k>.words; whole-word match, case-insensitive). '
+      'sentence = an out/script.json sentence whose text says one of them (numbers compared as values). It is tied to the viewer\'s situation when that sentence, or any sentence '
+      'before it in the same scene (the story has already put the viewer with that person or scenario; sổ gu G-009: a story does not repeat the name in every sentence), names a character or a scenario the episode contract declares (characters.<k>.words, scenarios.<k>.words; whole-word match, case-insensitive). '
       'Contract without the words of its characters/scenarios = MISSING',
       'PROVISIONAL: ≥ 1 decisive sentence; ≥ 75% of decisive sentences tied to a declared character or scenario')
 def s16_situation(ctx):
@@ -494,7 +516,10 @@ def s16_situation(ctx):
         hit = [cid for cid, cs in want.items() if any(canon_matches(c, have) for c in cs)]
         if not hit:
             continue
-        ctx_text = s['text'] + (' ' + sents[i - 1]['text'] if i and sents[i - 1].get('scene') == s.get('scene') else '')
+        j = i
+        while j and sents[j - 1].get('scene') == s.get('scene'):
+            j -= 1
+        ctx_text = ' '.join(x['text'] for x in sents[j:i + 1])
         tied = sorted(k for k, ws in anchors.items() if any(_says(ctx_text, w) for w in ws))
         rows.append({'sentence': s.get('id'), 'claims': hit, 'tiedTo': tied, 'text': s['text'][:120]})
     tied = sum(1 for r in rows if r['tiedTo'])
