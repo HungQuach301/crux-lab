@@ -200,6 +200,21 @@ Ghi chú cột:
 - Với net36/net84, số hiển thị là trị tuyệt đối; lời hay lỗ phải nói bằng chữ. Riêng `net36_small` là **lỗ $1,777**.
 - `cost_*` là **total loan costs** (Closing Disclosure mục D), *không* gồm "Other Costs" (thuế, phí đăng ký, trả trước). Xem mục 6, ý 6.
 
+### G. Dạng đọc bằng lời (gắn với claim gốc; `parent` trong claims.json)
+
+| Claim ID | Hiển thị | Gốc | Nghĩa / điều kiện | Nguồn | Ngày/năm dữ liệu | ILLUSTRATIVE? |
+|---|---|---|---|---|---|---|
+| `share_walt` | about 3.2% | `cost_small` ÷ `loan_small` | $3,667 ÷ $115,000 = 3.19%: hoá đơn của chính nhân vật small so với khoản vay. **Khác** `share_small` 3.4% (trung vị các tỉ lệ từng khoản); đừng dùng hai số trong cùng một cảnh. | hmda-lar (https://ffiec.cfpb.gov/data-browser/) | 2025 | ILLUSTRATIVE |
+| `n31_approx` | nearly half a million | `n31` 488,241 | kiểm: 450,000 ≤ n31 < 500,000 | hmda-lar | 2025 | |
+| `cut_today_words` | just over half a point | `cut_today` 0.59 | kiểm: 0.50 < x < 0.625 | fred-MORTGAGE30US | as of 2026-09-24 | |
+| `cut36_large_words` | about a third of a point | `cut36_large` 0.32 | kiểm: \|x − 1/3\| ≤ 0.04 | hmda-lar + FRED (mô hình) | [2023, 2025] | ILLUSTRATIVE |
+| `purch23_words` | three in ten | `purch23_ge7` 30.3% | 881,835 trên 2,906,771 khoản vay **mua nhà giải ngân năm 2023** (HMDA 2023, lien 1, 360 tháng, có lãi) có lãi ≥ 7.00%. **Không phải** tỉ lệ trong số khoản còn dư nợ hôm nay. Tải trực tiếp từ ffiec.cfpb.gov, SHA `aeacd608…` | hmda-lar (https://ffiec.cfpb.gov/data-browser/) | 2023 | |
+| `ge7_threshold` | seven percent | ngưỡng của `purch23_ge7` | **Tham số phân tích do ta chọn** (số tròn, ngay dưới lãi ngày mốc 7.03%), **không có nguồn**. Khi đọc, nói đây là ngưỡng ta chọn, không gán cho một cơ quan nào. | — | — | |
+
+Các ID cơ bản đều đã có trong bảng: `y1971` (1971), `term30` (30 năm), `s025` / `s05` / `s10` (¼, ½, 1 điểm), `y3` / `y7` (3 và 7 năm).
+
+**Quy tắc "1%":** chưa tìm được câu trích nào từ nguồn truy cập được. Các host có thể có câu này đều bị chặn: cbsnews.com, freddiemac.com, fanniemae.com, nar.realtor. consumerfinance.gov truy cập được nhưng không có câu nào như vậy. Câu "a common rule of thumb … wait for a full percentage-point drop" hiện **không có nguồn**. Chỉ dùng được nếu nói rõ đó là cách nói phổ biến, không gán nguồn, hoặc sau khi chủ dự án mở một host.
+
 ## 5. Màu nhân vật (design/tokens.json)
 
 `genre-spec/channel/visual-tokens.json` chỉ có 6 màu ngoài nền: ink, ink-muted, accent, warn, positive, negative. Chữ dùng ink và ink-muted, đường lãi dùng accent. Vì thế ba nhân vật buộc phải lấy warn, positive, negative. Không thêm màu mới.

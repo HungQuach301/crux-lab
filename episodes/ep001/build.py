@@ -195,6 +195,21 @@ def main():
     claim('purch23_ge7', round(cx23['share_ge_7_pct'], 1), pct(cx23['share_ge_7_pct'], 0), 'share of 2023 home-purchase originations (first lien, 360 months, interest_rate reported) with interest_rate >= 7.00%', HMDA, 2023)
     claim('purch23_n_ge7', cx23['n_ge_7'], '{:,}'.format(cx23['n_ge_7']), 'count of the same loans at >= 7.00%', HMDA, 2023)
     claim('purch23_n', cx23['n_purchase_rate_valid'], '{:,}'.format(cx23['n_purchase_rate_valid']), '2023 home-purchase originations, first lien, 360 months, interest_rate reported', HMDA, 2023)
+    # ---- spoken-word variants (each points to its parent claim; value = the parent's value)
+    sw = ch['small']['cost'] / ch['small']['loan'] * 100
+    claim('share_walt', round(sw, 3), f'about {sw:.1f}%', f"cost_small / loan_small = {usd(ch['small']['cost'])} / {usd(ch['small']['loan'])} (the small character's own bill as a share of the loan; differs from share_small = median of per-loan shares)", HMDA, Y, parent=['cost_small', 'loan_small'], **IL)
+    def words(cid, parent, display, why):
+        claim(cid, C[parent]['value'], display, f'spoken form of {parent} ({C[parent]["display"]}): {why}', C[parent]['source'], C[parent].get('dataYear', C[parent].get('dataYears')),
+              parent=parent, spokenForm=True, illustrative=C[parent]['illustrative'], **({'asOf': C[parent]['asOf']} if C[parent].get('asOf') else {}))
+    assert 450_000 <= C['n31']['value'] < 500_000
+    words('n31_approx', 'n31', 'nearly half a million', '450,000 <= n31 < 500,000')
+    assert 0.5 < C['cut_today']['value'] < 0.625
+    words('cut_today_words', 'cut_today', 'just over half a point', '0.50 < cut_today < 0.625 (percentage points)')
+    assert 0.29 <= C['cut36_large']['value'] <= 0.37
+    words('cut36_large_words', 'cut36_large', 'about a third of a point', '|cut36_large - 1/3| <= 0.04 point')
+    assert 29 <= C['purch23_ge7']['value'] < 31.5
+    words('purch23_words', 'purch23_ge7', 'three in ten', 'purch23_ge7 rounds to 30% (share of 2023 home-purchase originations at >= 7.00%)')
+    claim('ge7_threshold', 7.0, 'seven percent', 'threshold of purch23_ge7 (interest_rate >= 7.00): an analysis parameter chosen by us (round number; the anchor-date rate 7.03% is just above it), not a sourced figure', None, None, historical=False, role='parameter')
 
     # script
     lines, act = [], None
