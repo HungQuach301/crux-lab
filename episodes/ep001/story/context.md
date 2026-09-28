@@ -28,7 +28,7 @@ Trung vị 2025 [y2025]: $5,124 [cost_median] (một nửa số người trả t
 
 ## 4. Người xem thường nghe gì
 
-- "A common rule of thumb": chỉ vay lại khi lãi giảm ít nhất một điểm [ctx_rule1pct — **không trích, không gán nguồn**, chỉ nói là quy tắc truyền miệng].
+- Vạch một điểm: không khẳng định là quy tắc phổ biến (chưa có nguồn, `ctx_rule1pct`); lời nói "You may have heard…", rồi người phân tích thử "1-point line" [s10].
 - Phép chia hiển nhiên: phí ÷ số tiền trả hằng tháng giảm được. Không nói "máy tính online dùng công thức này" (chưa có nguồn, `ctx_formula`); trình bày như phép tính ai cũng làm được.
 
 ## 5. Điều họ không biết
@@ -41,7 +41,7 @@ Trung vị 2025 [y2025]: $5,124 [cost_median] (một nửa số người trả t
 
 | Dữ kiện | Trạng thái | Cách xử lý trong kịch bản |
 |---|---|---|
-| Trích nguyên văn quy tắc 1% | CHƯA DÙNG ĐƯỢC | "a common rule of thumb", không gán nguồn |
+| Trích nguyên văn quy tắc 1% | CHƯA DÙNG ĐƯỢC | không khẳng định; lời dùng "You may have heard… We tested that one-point line" [s10] |
 | Công thức phí ÷ tiết kiệm của máy tính | chỉ có ví dụ CFPB, không công thức | trình bày là phép chia của người xem |
 | Tỉ lệ khoản đang lưu hành lãi ≥ 6% (NMDB) | CHƯA DÙNG ĐƯỢC | thay bằng [purch23_ge7] |
 | Số năm ở nhà trước khi bán (NAR/AHS) | CHƯA DÙNG ĐƯỢC | hỏi người xem; dùng kịch bản 3 và 7 năm [y3, y7] ILLUSTRATIVE |
@@ -51,5 +51,5 @@ Trung vị 2025 [y2025]: $5,124 [cost_median] (một nửa số người trả t
 ## Logline ứng viên (EN)
 
 1. In October 2023, a household locked in the highest mortgage rates since 2000; three years later, we measure exactly how far rates must fall before a refinance pays back what it costs.
-2. The one-point rule of thumb treats a small loan and a large loan the same way; we run three households through the real numbers to see where it holds and where it breaks.
+2. A one-point drop treats a small loan and a large loan the same way; we test that line on three households to see where it holds and where it breaks.
 3. For households who borrowed at the 2023 peak, we find the rate drop at which the loan costs of a refinance actually come back, and why it is different for every loan.
