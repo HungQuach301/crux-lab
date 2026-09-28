@@ -1,8 +1,8 @@
 {
- "root": "checks-runs/K2-calibration/<root>/S3",
- "contract": "checks-runs/K2-calibration/<root>/S3/contract.json",
+ "root": "checks-runs/K2-calibration/<root>/m0-0dB",
+ "contract": "checks-runs/K2-calibration/<root>/m0-0dB/contract.json",
  "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
- "video_sha256": "da34cf33b8016f15d7efac76b6a781ff37daf42901428b68accfd11e7c32ab0e",
+ "video_sha256": "e9ff3666be7727450d8fc374e857c23f5a14d1fbef8375d232a5ba46b1c416b6",
  "counts": {
   "PASS": 1,
   "FAIL": 1,
@@ -26,7 +26,7 @@
     },
     {
      "name": "share of slots heard in a pause",
-     "value": 0.846154,
+     "value": 0.769231,
      "op": ">=",
      "threshold": 0.6,
      "unit": "",
@@ -35,7 +35,7 @@
     },
     {
      "name": "declared bands share of data-stem energy",
-     "value": 0.959158,
+     "value": 0.906484,
      "op": ">=",
      "threshold": 0.5,
      "unit": "",
@@ -44,7 +44,7 @@
     },
     {
      "name": "stems ~ master in band r",
-     "value": 1.0,
+     "value": 0.999923,
      "op": ">=",
      "threshold": 0.9,
      "unit": "",
@@ -70,18 +70,24 @@
      "dataStem": "sonify",
      "bandsHz": [
       [
-       125.0,
-       1000.0
+       500.0,
+       4000.0
       ]
      ],
      "slots": 13,
-     "heard": 11,
+     "heard": 10,
      "slotsWithoutPause": 1
     },
     {
      "t": 1.4,
      "pauseFrames": 9,
-     "bestLiftInPause": 1.53,
+     "bestLiftInPause": 2.9,
+     "heard": false
+    },
+    {
+     "t": 1.7,
+     "pauseFrames": 5,
+     "bestLiftInPause": 2.9,
      "heard": false
     },
     {
@@ -95,7 +101,7 @@
    "section": "DX-A1 (sổ gu G-001, G-006)",
    "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
    "fingerprint": "e7a5925e1b04aae3",
-   "seconds": 1.2
+   "seconds": 1.0
   },
   {
    "id": "L1",
@@ -112,7 +118,7 @@
     },
     {
      "name": "voice/data 1–4 kHz ratio, 10th percentile (dB)",
-     "value": 16.105891,
+     "value": -7.911347,
      "op": ">=",
      "threshold": 20.0,
      "unit": "dB",
@@ -131,9 +137,9 @@
    ],
    "details": [
     {
-     "windowsWithDataSound": 66,
-     "medianRatioDb": 28.4,
-     "minRatioDb": -25.2,
+     "windowsWithDataSound": 54,
+     "medianRatioDb": 5.9,
+     "minRatioDb": -44.3,
      "keyWords": 4
     }
    ],
@@ -141,7 +147,7 @@
    "section": "DX-A1, DX-A9 (sổ gu G-006)",
    "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
    "fingerprint": "01832a4e805c145e",
-   "seconds": 0.2
+   "seconds": 0.3
   }
  ]
 }

@@ -56,7 +56,12 @@
    "sameGeomean": [
     "1966",
     "mirror"
-   ]
+   ],
+   "conventions": {
+    "realBasis": "end-of-year balance deflated by cumulative CPI-U (Dec/Dec) since the start of year 1: dollars of the start year",
+    "rebalance": "annual",
+    "withdrawalTiming": "start of year"
+   }
   },
   "claims": [
    {

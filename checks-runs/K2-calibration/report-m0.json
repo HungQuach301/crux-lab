@@ -1,7 +1,7 @@
 {
  "root": "checks-runs/K2-calibration/<root>/m0",
  "contract": "checks-runs/K2-calibration/<root>/m0/contract.json",
- "lock": "effe7cc27a6679e9335cd8474db6dac27e578c941de54b9e6079537f15647b57",
+ "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
  "video_sha256": "ecf5c140ea8efac82836f9d479381bcebb3212f443806f020f6bbeebb5d1c55f",
  "counts": {
   "PASS": 1,
@@ -28,7 +28,7 @@
      "name": "share of slots heard in a pause",
      "value": 0.923077,
      "op": ">=",
-     "threshold": 0.75,
+     "threshold": 0.6,
      "unit": "",
      "pass": true,
      "near": false
@@ -87,8 +87,8 @@
    ],
    "note": null,
    "section": "DX-A1 (sổ gu G-001, G-006)",
-   "threshold": "PROVISIONAL: ≥ 75% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
-   "fingerprint": "084af333dac95ed3",
+   "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
+   "fingerprint": "e7a5925e1b04aae3",
    "seconds": 1.0
   },
   {

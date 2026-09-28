@@ -160,7 +160,7 @@
   "metrics": [
    {
     "name": "video Mbps",
-    "value": 2.3213,
+    "value": 2.319124,
     "op": ">=",
     "threshold": 16.0,
     "unit": "Mbps",
@@ -1189,10 +1189,10 @@
   "ok": true,
   "metrics": [
    {
-    "name": "sentence length CV",
-    "value": 0.0,
-    "op": ">=",
-    "threshold": 0.35,
+    "name": "staccato passages",
+    "value": 1,
+    "op": "<=",
+    "threshold": 0,
     "unit": "",
     "pass": false,
     "near": false
@@ -2192,7 +2192,7 @@
     "name": "share of slots heard in a pause",
     "value": 0.0,
     "op": ">=",
-    "threshold": 0.75,
+    "threshold": 0.6,
     "unit": "",
     "pass": false,
     "near": false

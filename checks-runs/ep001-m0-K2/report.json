@@ -1,7 +1,7 @@
 {
- "root": "episodes/ep001/m0-sample (branch ep001 @ 10b5438, copied)",
- "contract": "episodes/ep001/contract.json (branch ep001 @ 10b5438)",
- "lock": "effe7cc27a6679e9335cd8474db6dac27e578c941de54b9e6079537f15647b57",
+ "root": "episodes/ep001/m0-sample (branch ep001, copied)",
+ "contract": "episodes/ep001/contract.json (branch ep001 @ bbc28fb)",
+ "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
  "video_sha256": null,
  "counts": {
   "PASS": 26,
@@ -366,7 +366,7 @@
    "section": "DX-A5",
    "threshold": "Spearman ρ(peak speed, whoosh dB) ≥ 0.6 over ≥ 5 moves; every move with peak ≥ 0.3 fw/s has a whoosh ≥ −45 dBFS",
    "fingerprint": "ab5f84cfaa6d1084",
-   "seconds": 0.3
+   "seconds": 0.2
   },
   {
    "id": "A11",
@@ -448,7 +448,7 @@
    "section": "DX-A3",
    "threshold": "≥ 5 accents; 100% of accents land on a cut; ≥ 90% of accents are real; ≥ 70% of beats while music is audible have an onset within ±50 ms",
    "fingerprint": "e1e4b52c36ecb215",
-   "seconds": 0.7
+   "seconds": 0.5
   },
   {
    "id": "A13",
@@ -889,25 +889,35 @@
    "status": "FAIL",
    "metrics": [
     {
-     "name": "sentence length CV",
+     "name": "sentence length CV (≥ 4 words)",
      "value": 0.0,
      "op": ">=",
      "threshold": 0.35,
      "unit": "",
      "pass": false,
      "near": false
+    },
+    {
+     "name": "staccato passages",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
     }
    ],
    "details": [
     {
      "sentences": 1,
-     "mean": 11.0
+     "mean": 11.0,
+     "cvAllSentences": 0.0
     }
    ],
    "note": null,
-   "section": "DX-S8",
-   "threshold": "CV ≥ 0.35",
-   "fingerprint": "a81945ccc5d58097",
+   "section": "DX-S8 (sổ gu G-009)",
+   "threshold": "PROVISIONAL: CV (sentences ≥ 4 words) ≥ 0.35; 0 staccato passages",
+   "fingerprint": "f6f525969e4f2c7b",
    "seconds": 0.0
   },
   {
@@ -1016,10 +1026,10 @@
    "status": "MISSING",
    "metrics": [],
    "details": [],
-   "note": "artifact missing: contract.json: characters.median.words",
+   "note": "artifact missing: contract.json: characters.maya.words",
    "section": "DX-S3, RUBRIC H4 (sổ gu G-008)",
    "threshold": "PROVISIONAL: ≥ 1 decisive sentence; ≥ 75% of decisive sentences tied to a declared character or scenario",
-   "fingerprint": "4a85a29ade485c77",
+   "fingerprint": "63091769966d83b9",
    "seconds": 0.0
   },
   {
@@ -1091,7 +1101,7 @@
    "section": "DX-R1",
    "threshold": "Pearson r ≥ 0.8 (cut rate), ≥ 0.7 (music level), ≥ 0.6 (audio density); 0 false peaks; 3 acts with a climax peak; 0 peaks without valley",
    "fingerprint": "59e28c6b5996ccba",
-   "seconds": 0.1
+   "seconds": 0.0
   },
   {
    "id": "R02",
@@ -1345,7 +1355,7 @@
    "status": "MISSING",
    "metrics": [],
    "details": [],
-   "note": "artifact missing: design/tokens.json colour token \"cmedian\" (contract characters.median.color)",
+   "note": "artifact missing: design/tokens.json colour token \"cmedian\" (contract characters.maya.color)",
    "section": "DX-V4, DX-X3",
    "threshold": "every declared character seen; main colour = declared colour and ≥ 95% of its observations; main shape = declared shape and ≥ 95%; declared colours all differ; each pair keeps one side for the whole video, and the side the contract declares (left < centre < right) when both sides are declared; 0 time-order violations",
    "fingerprint": "9435eec7b39c2e24",
@@ -1413,7 +1423,7 @@
    "status": "MISSING",
    "metrics": [],
    "details": [],
-   "note": "artifact missing: design/tokens.json colour token \"cmedian\" (contract characters.median.color)",
+   "note": "artifact missing: design/tokens.json colour token \"cmedian\" (contract characters.maya.color)",
    "section": "DX-V4, DX-X3",
    "threshold": "every declared character seen; for every pair: ΔE2000 ≥ 20 under each simulation, grey contrast ≥ 1.5:1",
    "fingerprint": "518bbadd35d36817",
@@ -1861,8 +1871,8 @@
    "details": [],
    "note": "artifact missing: contract.json: sonification.bandsHz",
    "section": "DX-A1 (sổ gu G-001, G-006)",
-   "threshold": "PROVISIONAL: ≥ 75% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
-   "fingerprint": "084af333dac95ed3",
+   "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
+   "fingerprint": "e7a5925e1b04aae3",
    "seconds": 0.0
   },
   {
@@ -1965,7 +1975,7 @@
    "section": "DX-A1, DX-A9 (sổ gu G-006)",
    "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
    "fingerprint": "01832a4e805c145e",
-   "seconds": 0.3
+   "seconds": 0.4
   },
   {
    "id": "REG",
@@ -1973,7 +1983,7 @@
    "metrics": [
     {
      "name": "comparable rules",
-     "value": 66,
+     "value": 65,
      "op": ">=",
      "threshold": 1,
      "unit": "",
@@ -2027,7 +2037,6 @@
       "S10",
       "S11",
       "S12",
-      "S13",
       "S14",
       "S15",
       "R01",
@@ -2068,6 +2077,7 @@
       "S04",
       "S05",
       "S06",
+      "S13",
       "V04",
       "V09",
       "T1"

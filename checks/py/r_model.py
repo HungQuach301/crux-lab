@@ -112,7 +112,14 @@ def ret_compare(ctx, params, out):
             bad.append((y, 'start year missing'))
             continue
         cmp(str(y), [data[k] for k in range(y, y + years)], p)
-    covered = {'initial', 'rate', 'years', 'weights', 'tax', 'fees', 'paths', 'starts'}
+    # declared conventions (e.g. "rebalance": "annual"): text fields of the model file that name how it was computed; they must say exactly
+    # what the contract says the model is (the re-computation above follows the contract), so they are covered, not trusted
+    conv = params.get('conventions') or {}
+    for k, v in conv.items():
+        checked += 1
+        if out.get(k) != v:
+            bad.append((k, out.get(k), v))
+    covered = {'initial', 'rate', 'years', 'weights', 'tax', 'fees', 'paths', 'starts'} | set(conv)
     return checked, bad, sorted(set(out) - covered)
 
 

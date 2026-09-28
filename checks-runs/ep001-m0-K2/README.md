@@ -20,10 +20,11 @@
 | T1 | T1 | FAIL → MISSING | Hợp đồng tập chưa khai `sonification.bandsHz` |
 | Mới | L1 | — → **FAIL** | lời/tiếng dữ liệu ở 1–4 kHz: phân vị 10 = −17,9 dB (cần ≥ 20). Khớp phán đoán của chủ dự án về m0 +10 dB: "vẫn bị tiếng dữ liệu lấn" |
 | Mới | F11, S16 | — → MISSING | Hợp đồng tập chưa có `artefacts.M3`; nhân vật chưa có `words` |
+| G-009 | S13 | FAIL → FAIL | mẫu chỉ có một câu: CV không tính được (0), như trước |
 
 Mọi luật có định nghĩa không đổi và còn đủ artefact cho **cùng kết quả** với báo cáo của bên dựng.
 
 ## REG
 
-- So được: 66 luật (cùng fingerprint). Không so: S01, S03, S04, S05, S06, V04, V09, T1 (K2 đổi định nghĩa); F11, S16, L1 mới.
+- So được: 65 luật (cùng fingerprint). Không so: S01, S03, S04, S05, S06, S13, V04, V09, T1 (K2 đổi định nghĩa); F11, S16, L1 mới.
 - 14 "hồi quy" (F01–F06, F08, A01, A02, A04–A06, A14, C13: PASS → MISSING) đều do thiếu master trong cây đã commit, không do luật. Với master `82ba6767…` các luật này chạy như cũ.

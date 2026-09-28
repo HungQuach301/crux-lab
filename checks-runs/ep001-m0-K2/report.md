@@ -1,7 +1,7 @@
 # checks/ report
 
-root: `episodes/ep001/m0-sample (branch ep001 @ 10b5438, copied)`  
-lock: `effe7cc27a6679e9335cd8474db6dac27e578c941de54b9e6079537f15647b57`  
+root: `episodes/ep001/m0-sample (branch ep001, copied)`  
+lock: `f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd`  
 master SHA-256: `None`  
 {'PASS': 26, 'FAIL': 15, 'MISSING': 37, 'ERROR': 0}
 
@@ -45,10 +45,10 @@ master SHA-256: `None`
 | S10 | DX-I1, DX-I2 | FAIL | "US only" stated = False (need == True); "history, not a forecast" stated = False (need == True) |
 | S11 | DX-S6 | MISSING | artifact missing: out/video.mp4 |
 | S12 | DX-S7 | FAIL | new numbers = 4 (need <= 1.25); max new numbers in a scene = 4 (need <= 2) |
-| S13 | DX-S8 | FAIL | sentence length CV = 0.0 (need >= 0.35) |
+| S13 | DX-S8 (sổ gu G-009) | FAIL | sentence length CV (≥ 4 words) = 0.0 (need >= 0.35) |
 | S14 | DX-S10 | MISSING | artifact missing: out/video.mp4 |
 | S15 | DX-S1 | FAIL | act order = ['cold-open'] (need == ['cold-open', 'ident', 'act1', 'act2', 'act3', 'method', 'outro']); ident s = None (need <= 3.0); outro s = None (need >= 20.0); total s = 10.0 (need >= 600.0) |
-| S16 | DX-S3, RUBRIC H4 (sổ gu G-008) | MISSING | artifact missing: contract.json: characters.median.words |
+| S16 | DX-S3, RUBRIC H4 (sổ gu G-008) | MISSING | artifact missing: contract.json: characters.maya.words |
 | R01 | DX-R1 | FAIL | r cut rate = 0.0 (need >= 0.8); acts with climax peak = 0 (need >= 3) |
 | R02 | DX-R2 | PASS |  |
 | R03 | DX-R3 | MISSING | artifact missing: out/video.mp4 |
@@ -58,10 +58,10 @@ master SHA-256: `None`
 | V01 | DX-V12 | PASS |  |
 | V02 | DX-V1 | PASS |  |
 | V03 | DX-V3 | PASS |  |
-| V04 | DX-V4, DX-X3 | MISSING | artifact missing: design/tokens.json colour token "cmedian" (contract characters.median.color) |
+| V04 | DX-V4, DX-X3 | MISSING | artifact missing: design/tokens.json colour token "cmedian" (contract characters.maya.color) |
 | V05 | DX-V8 | MISSING | artifact missing: out/video.mp4 |
 | V08 | DX-V6 | PASS |  |
-| V09 | DX-V4, DX-X3 | MISSING | artifact missing: design/tokens.json colour token "cmedian" (contract characters.median.color) |
+| V09 | DX-V4, DX-X3 | MISSING | artifact missing: design/tokens.json colour token "cmedian" (contract characters.maya.color) |
 | V10 | DX-V10 | MISSING | artifact missing: out/video.mp4 |
 | V11 | DX-V11 (C rule text-line-collision, upgraded to pixels) | PASS |  |
 | V12 | DX-V9 (replaces the camera-move exemption) | PASS |  |

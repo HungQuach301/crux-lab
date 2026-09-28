@@ -4,9 +4,14 @@
   "stem": "sonify",
   "bandsHz": [
    [
-    40,
-    250
+    60,
+    270
+   ],
+   [
+    4500,
+    7000
    ]
-  ]
+  ],
+  "note": "bands from the M1b cue sheet: low pulse MIDI 36-60 (65-262 Hz) + filtered tick 4.5-7 kHz"
  }
 }
