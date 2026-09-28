@@ -1,0 +1,660 @@
+"""Test D M2 sound: music (generated), sound design, voice, mix and master for the M2 contract root.
+
+    python3 audio/d_m2_audio.py out/m2/root
+
+Reads (root/out): timeline.json, script.json, camera.json, tempo-map.json, sfx-events.json, voice/takes.json.
+Writes root/out/audio/stems/{voice,music,sfx,whoosh,room}.flac (48 kHz stereo, same time base, at mix level),
+root/out/audio/master.wav, root/../audio-report.json and out/music-ledger-d.json (licence ledger).
+
+Music: every sound is synthesised here (numpy); seed fixed; no samples, no loops (each bar re-voices the chord and
+re-rolls velocities). Layers: pad (detuned saws, low-pass with envelope), a plucked pulse on every beat of the tempo
+map (so the music follows the edit), the two leitmotifs (1966: rising D-F-A-C figure, electric-piano timbre, left of
+centre; mirror: its retrograde C-A-F-D, bell timbre, right of centre, from the moment the mirror retiree appears),
+accent hits on the declared accents (cuts), and ONE reverb space (a 1.8 s synthetic hall) for all music.
+Voice: high-pass, de-esser, gentle compression. Mix: music ducked in the 1-4 kHz band under the voice (multiband).
+Master: -14 LUFS integrated, true peak <= -1 dBTP.
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+import tempfile
+
+import numpy as np
+from scipy import signal
+from scipy.io import wavfile
+
+SR = 48000
+RNG = np.random.default_rng(20260926)
+ROOT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else 'out/m2/root')
+REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+J = lambda p: json.load(open(os.path.join(ROOT, p)))
+NOTE = {'C': 0, 'C#': 1, 'Db': 1, 'D': 2, 'Eb': 3, 'E': 4, 'F': 5, 'F#': 6, 'G': 7, 'Ab': 8, 'A': 9, 'Bb': 10, 'B': 11}
+hz = lambda midi: 440.0 * 2 ** ((midi - 69) / 12)
+
+
+def db(x):
+    return 20 * np.log10(np.maximum(x, 1e-12))
+
+
+def pan_gains(p):
+    p = np.clip(p, -1, 1)
+    a = (p + 1) * np.pi / 4
+    return np.cos(a), np.sin(a)
+
+
+def onepole_lp(x, fc):
+    a = np.exp(-2 * np.pi * fc / SR)
+    return signal.lfilter([1 - a], [1, -a], x)
+
+
+def band(x, lo, hi, order=4):
+    sos = signal.butter(order, [lo, hi], btype='band', fs=SR, output='sos')
+    return signal.sosfiltfilt(sos, x)
+
+
+def split3(x):
+    lo = signal.sosfiltfilt(signal.butter(4, 1000, 'low', fs=SR, output='sos'), x)
+    mid = signal.sosfiltfilt(signal.butter(4, [1000, 4000], 'band', fs=SR, output='sos'), x)
+    hi = x - lo - mid
+    return lo, mid, hi
+
+
+def reverb_ir(rt60=1.8, seed=7):
+    n = int(rt60 * SR)
+    t = np.arange(n) / SR
+    env = np.exp(-6.9 * t / rt60)
+    r = np.random.default_rng(seed)
+    L = r.standard_normal(n) * env
+    R = 0.8 * L + 0.6 * r.standard_normal(n) * env  # correlated room: keeps the mix mono-safe
+    L[: int(0.012 * SR)] = 0
+    R[: int(0.017 * SR)] = 0
+    lp = signal.butter(2, 6000, 'low', fs=SR, output='sos')
+    L, R = signal.sosfilt(lp, L), signal.sosfilt(lp, R)
+    return L / np.sqrt(np.sum(L ** 2)), R / np.sqrt(np.sum(R ** 2))
+
+
+def add(buf, i0, sig, gl=1.0, gr=1.0):
+    i0 = int(i0)
+    if i0 >= buf.shape[0] or i0 + len(sig) <= 0:
+        return
+    s0 = max(0, -i0)
+    i0 = max(0, i0)
+    n = min(len(sig) - s0, buf.shape[0] - i0)
+    buf[i0:i0 + n, 0] += sig[s0:s0 + n] * gl
+    buf[i0:i0 + n, 1] += sig[s0:s0 + n] * gr
+
+
+# ---------------------------------------------------------------- instruments
+def pluck(f, dur=0.45, vel=1.0):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    x = (np.sin(2 * np.pi * f * t) + 0.45 * np.sin(4 * np.pi * f * t) + 0.2 * np.sin(6 * np.pi * f * t))
+    env = np.minimum(1, t / 0.003) * np.exp(-t / 0.12)
+    return onepole_lp(x * env, 2400) * vel
+
+
+def epiano(f, dur=1.4, vel=1.0):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    mod = 1.6 * np.exp(-t / 0.35) * np.sin(2 * np.pi * f * 1.0 * t)
+    x = np.sin(2 * np.pi * f * t + mod)
+    env = np.minimum(1, t / 0.006) * np.exp(-t / 0.7)
+    return x * env * vel
+
+
+def bell(f, dur=1.8, vel=1.0):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    mod = 2.4 * np.exp(-t / 0.6) * np.sin(2 * np.pi * f * 3.5 * t)
+    x = np.sin(2 * np.pi * f * t + mod)
+    env = np.minimum(1, t / 0.004) * np.exp(-t / 0.9)
+    return x * env * vel
+
+
+def pad(freqs, dur, vel=1.0, bright=900):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    x = np.zeros(n)
+    for f in freqs:
+        for det in (-0.004, 0.0, 0.005):
+            ph = RNG.uniform(0, 1)
+            x += 2 * ((f * (1 + det) * t + ph) % 1.0) - 1
+    x /= 3 * len(freqs)
+    cutoff = bright * (0.6 + 0.4 * np.minimum(1, t / (0.5 * dur)))
+    y = np.zeros(n)
+    a_prev = 0.0
+    step = 256
+    for i in range(0, n, step):  # time-varying one-pole low-pass
+        a = np.exp(-2 * np.pi * cutoff[i] / SR)
+        seg = signal.lfilter([1 - a], [1, -a], x[i:i + step], zi=[a_prev * 1.0])[0]
+        y[i:i + step] = seg
+        a_prev = seg[-1] if len(seg) else a_prev
+    env = np.minimum(1, t / 0.4) * np.minimum(1, (dur - t) / 0.4)
+    return y * env * vel
+
+
+def boom(vel=1.0):
+    n = int(1.2 * SR)
+    t = np.arange(n) / SR
+    f = 55 * (1 + 1.5 * np.exp(-t / 0.05))
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.35)
+    click = RNG.standard_normal(n) * np.exp(-t / 0.008) * 0.3
+    return (x + onepole_lp(click, 3000)) * vel
+
+
+CHORDS = {  # per key: progression of (root pitch class, quality)
+    'D minor': [('D', 'm'), ('Bb', ''), ('F', ''), ('C', '')],
+    'F major': [('F', ''), ('C', ''), ('D', 'm'), ('Bb', '')],
+    'Bb major': [('Bb', ''), ('F', ''), ('G', 'm'), ('Eb', '')],
+    'A minor': [('A', 'm'), ('F', ''), ('C', ''), ('G', '')],
+    'C major': [('C', ''), ('G', ''), ('A', 'm'), ('F', '')],
+}
+
+
+def chord_notes(root, q, base=48):
+    r = base + NOTE[root]
+    return [r, r + (3 if q == 'm' else 4), r + 7, r + 12 + (3 if q == 'm' else 4)]
+
+
+def qpenta(m):
+    m = int(round(m))
+    for d in range(0, 7):
+        for c in (m - d, m + d):
+            if c % 12 in PENTA:
+                return c
+    return m
+
+
+def sonify(N, ev):
+    """Every chart element that changes gets its own sound, starting on the frame it changes (events from
+    src/d/m3-sonify-events.js, read from the render page's scene state):
+      bar grows   -> a tone rising into its pitch; pitch from the bar's value on one fixed scale for the whole film
+                     (value / largest |value| of its chart: positive values MIDI 67-79, negative values 43-55, D minor
+                     pentatonic); lasts as long as the bar grows
+      line drawn  -> a continuous soft tone whose pitch follows the slope at the tip (rising line = higher)
+      dot appears -> a light pluck, pitch from its height on screen
+      number text changes -> a tick (the film has no running counters: 0 events)
+    More than 8 discrete events a second: they merge into one cluster sound per 125 ms (a soft chord + air), not a
+    rattle. Levels sit with the other sound effects; the mix ducks this layer under the voice."""
+    fps = ev['fps']
+    out = np.zeros((N, 2), np.float32)
+    mx = {}
+    for b in ev['bar']:
+        if b.get('value') is not None:
+            mx[b['chart']] = max(mx.get(b['chart'], 0), abs(b['value']))
+    disc = []  # (t, kind, midi, pan, dur)
+    for b in ev['bar']:
+        if b.get('value') is None or not mx.get(b['chart']):
+            continue
+        v = b['value'] / mx[b['chart']]
+        m = qpenta(67 + 12 * v if v >= 0 else 55 + 12 * v)
+        disc.append((b['f0'] / fps, 'bar', m, np.clip((b['x'] - 960) / 960, -0.8, 0.8), float(np.clip((b['f1'] - b['f0']) / fps, 0.08, 1.2))))
+    for d in ev['dot']:
+        disc.append((d['f'] / fps, 'dot', qpenta(84 - 36 * np.clip(d['y'], 0, 1080) / 1080), np.clip((d['x'] - 960) / 960, -0.8, 0.8), 0.3))
+    for k in ev.get('tick', []):
+        disc.append((k['f'] / fps, 'tick', 96, np.clip((k['x'] - 960) / 960, -0.8, 0.8), 0.03))
+    disc.sort()
+    ts = np.array([d[0] for d in disc])
+    dense = np.array([((ts > t - 0.5) & (ts <= t + 0.5)).sum() > 8 for t in ts]) if len(ts) else np.array([], bool)
+    stats = {'bars': sum(1 for d in disc if d[1] == 'bar'), 'dots': sum(1 for d in disc if d[1] == 'dot'), 'ticks': sum(1 for d in disc if d[1] == 'tick'), 'clustered': int(dense.sum())}
+    bins = {}
+    for (t, kind, m, pan, dur), dz in zip(disc, dense):
+        if dz:
+            bins.setdefault(int(t / 0.125), []).append((t, m, pan))
+            continue
+        gl, gr = pan_gains(pan)
+        if kind == 'bar':  # rising into the value's pitch while the bar grows
+            n = int((dur + 0.25) * SR)
+            tt = np.arange(n) / SR
+            fr = hz(m) * 2 ** (-np.clip(1 - tt / dur, 0, 1) * 7 / 12)
+            ph = 2 * np.pi * np.cumsum(fr) / SR
+            x = (np.sin(ph) + 0.25 * np.sin(2 * ph)) * np.minimum(1, tt / 0.01) * np.where(tt < dur, 1, np.exp(-(tt - dur) / 0.08))
+            add(out, t * SR, x * 0.045, gl, gr)
+        elif kind == 'dot':
+            add(out, t * SR, pluck(hz(m), 0.3, 0.06), gl, gr)
+        else:
+            n = int(0.03 * SR)
+            tt = np.arange(n) / SR
+            add(out, t * SR, band(RNG.standard_normal(n), 3000, 8000) * np.exp(-tt / 0.006) * 0.05, gl, gr)
+    for kb, grp in bins.items():  # one cluster per 125 ms
+        t = grp[0][0]
+        ms = sorted(m for _, m, _ in grp)
+        med = ms[len(ms) // 2]
+        pan = float(np.mean([p_ for _, _, p_ in grp]))
+        n = int(0.35 * SR)
+        tt = np.arange(n) / SR
+        x = sum(np.sin(2 * np.pi * hz(qpenta(med + d)) * tt) for d in (0, 5, 12)) / 3
+        x = x + 0.3 * band(RNG.standard_normal(n), 2000, 7000)
+        x *= np.minimum(1, tt / 0.01) * np.exp(-tt / 0.1) * min(1.0, 0.5 + 0.08 * len(grp))
+        gl, gr = pan_gains(np.clip(pan, -0.8, 0.8))
+        add(out, t * SR, x * 0.04, gl, gr)
+    stats['clusters'] = len(bins)
+    # lines: continuous tone per drawing run, pitch follows the slope at the tip
+    runs = {}
+    for l in ev['line']:
+        runs.setdefault(l['id'], []).append(l)
+    nr = 0
+    for lid, ls in runs.items():
+        ls.sort(key=lambda r: r['f'])
+        cur = [ls[0]]
+        segs = []
+        for r in ls[1:]:
+            if r['f'] - cur[-1]['f'] <= 2:
+                cur.append(r)
+            else:
+                segs.append(cur); cur = [r]
+        segs.append(cur)
+        for sg in segs:
+            if len(sg) < 3:
+                continue
+            nr += 1
+            f0, f1 = sg[0]['f'], sg[-1]['f'] + 1
+            n = int((f1 - f0) / fps * SR)
+            tf = np.array([r['f'] for r in sg]) / fps
+            base = 62 if (sg[0].get('char') != 'mirror') else 69
+            mid = np.array([base + 9 * np.tanh(1.2 * r['slope']) for r in sg])
+            tt = f0 / fps + np.arange(n) / SR
+            fr = hz(np.interp(tt, tf, mid))
+            ph = 2 * np.pi * np.cumsum(fr) / SR
+            env = np.minimum(1, np.minimum(np.arange(n), n - np.arange(n)) / (0.03 * SR))
+            x = (np.sin(ph) + 0.15 * np.sin(3 * ph)) * env * 0.022
+            pan = np.clip((sg[-1]['x'] - 960) / 960, -0.7, 0.7)
+            gl, gr = pan_gains(pan)
+            add(out, f0 / fps * SR, x, gl, gr)
+    stats['lineRuns'] = nr
+    return out, stats
+
+
+def main():
+    tl, sc = J('out/timeline.json'), J('out/script.json')
+    total = tl['total']
+    N = int(round(total * SR))
+    tempo = J('out/tempo-map.json')
+    beats = [b for b in tempo['beats'] if b < total - 0.05]
+    accents = tempo.get('accents', [])
+    cp = os.path.join(ROOT, 'out', 'cues.json')
+    cues = json.load(open(cp if os.path.exists(cp) else os.path.join(REPO, 'out', 'cues.json')))['cues']
+    sil = J('out/silences.json')['silences']
+    first_mirror = next((s['start'] for s in tl['scenes'] if s['id'] in ('a1-mirror-in', 'a2-7374')), total)
+
+    # ---------------------------------------------------------------- music
+    dry = np.zeros((N, 2), np.float32)
+    key_at = lambda t: next((c['key'] for c in reversed([c for c in cues if c['layer'] == 'music']) if c['t'] <= t), 'D minor')
+    # arrangement (round 3, H7b): the music follows the story instead of looping one 4-bar pattern.
+    # - each section has its own texture: cold open / ident: pad and motif only; act 1: straight pluck pulse; act 2:
+    #   syncopated pulse over a darker pad and a longer bass; act 3: half-time electric piano; method / outro: pad and
+    #   both motifs, resolved
+    # - every 4-bar phrase takes the next of 3 progressions of its key (as written / rotated / substituted) and the
+    #   pulse alternates its pattern every phrase, so no 4-bar phrase repeats as-is
+    # - leitmotifs follow the plot: 1966 (electric piano, left) major and rising while the plan is young, minor and
+    #   falling from the first losses (a2-7374), a broken two-note fragment after it runs out (a2-1991), minor and
+    #   quiet in act 3; mirror (bell, right, retrograde) neutral in act 1, major in act 2 (it thrives), both resolved
+    #   in the outro. Motif rhythm and register change from one statement to the next.
+    act_at = lambda t: next((a_['id'] for a_ in tl['acts'] if a_['start'] <= t < a_['end']), tl['acts'][-1]['id'])
+    st_ = {s_['id']: s_['start'] for s_ in tl['scenes']}
+    t_loss, t_broke = st_.get('a2-7374', total), st_.get('a2-1991', total)
+    def prog(key, p_):
+        base_ = CHORDS[key]
+        v_ = p_ % 3
+        return base_ if v_ == 0 else (base_[2:] + base_[:2] if v_ == 1 else [base_[0], base_[3], base_[1], base_[2]])
+    def beat_t(x):  # fractional beat index -> time
+        j = int(np.floor(x))
+        j = min(max(j, 0), len(beats) - 2)
+        return beats[j] + (x - j) * (beats[j + 1] - beats[j])
+    PAD = {'cold-open': (0.15, 600), 'ident': (0.15, 600), 'act1': (0.20, 1100), 'act2': (0.22, 650), 'act3': (0.18, 1300), 'method': (0.16, 900), 'outro': (0.19, 1000)}
+    bars = beats[::4]
+    for bi, b0 in enumerate(bars):
+        b1 = bars[bi + 1] if bi + 1 < len(bars) else min(total, b0 + 2.6)
+        key, sec, p_ = key_at(b0), act_at(b0), bi // 4
+        root, q = prog(key, p_)[bi % 4]
+        notes = chord_notes(root, q)
+        inv = (p_ + bi) % 3
+        notes = sorted([n + (12 if k < inv else 0) for k, n in enumerate(notes)])  # re-voiced every bar
+        pv, br = PAD.get(sec, (0.2, 900))
+        p = pad([hz(n) for n in notes], b1 - b0 + 0.6, pv * RNG.uniform(0.9, 1.1), bright=br if 'minor' not in key else 0.75 * br)
+        add(dry, b0 * SR, p, 0.9, 0.9)
+        bn = int((1.0 if sec == 'act2' else 0.8) * SR * (b1 - b0))
+        tt = np.arange(bn) / SR
+        bass = np.sin(2 * np.pi * hz(36 + NOTE[root]) * tt) * np.minimum(1, tt / 0.02) * np.exp(-tt / (1.8 if sec == 'act2' else 1.2)) * (0.26 if sec == 'act2' else 0.18 if sec == 'act3' else 0.22)
+        add(dry, b0 * SR, bass, 1, 1)
+    # pulse
+    for i, b in enumerate(beats[:-1]):
+        sec, p_ = act_at(b), i // 16
+        if sec in ('cold-open', 'ident', 'method', 'outro'):
+            continue
+        key = key_at(b)
+        root, q = prog(key, p_)[(i // 4) % 4]
+        pat, pos = p_ % 2, i % 4
+        v = (0.5 if pos == 0 else 0.32) * RNG.uniform(0.85, 1.1)
+        if sec == 'act1':
+            if pat == 1 and pos == 2:
+                continue
+            f = hz(60 + NOTE[root] + (7 if i % 2 else 0) + (12 if pat == 1 and pos == 3 else 0))
+            gl, gr = pan_gains(-0.15 if i % 2 else 0.15)
+            add(dry, b * SR, pluck(f, 0.4, v), gl, gr)
+        elif sec == 'act2':
+            offs = [0.5] if pat == 0 else ([0.0, 0.75] if pos in (0, 2) else [0.5])
+            for o in offs:
+                f = hz(57 + NOTE[root] + (3 if q == 'm' and o > 0.6 else 0) + (7 if o == 0.5 else 0))
+                gl, gr = pan_gains(0.2 if o == 0.5 else -0.2)
+                add(dry, beat_t(i + o) * SR, pluck(f, 0.32, 0.8 * v), gl, gr)
+        else:  # act 3: half time
+            if i % 2:
+                continue
+            f = hz(60 + NOTE[root] + ((3 if q == 'm' else 4) if (i // 2) % 2 else 0) + (12 if pat else 0))
+            add(dry, b * SR, epiano(f, 1.0, 0.22 * RNG.uniform(0.85, 1.05)), 0.8, 0.8)
+    # leitmotifs, every second bar, rhythm and register varying
+    RH = [[0, 1, 2, 3], [0, 1, 2, 2.5], [0, 0.5, 1, 2], [0, 1.5, 2, 3]]
+    MAJ_UP, MIN_UP, MIN_DOWN = [0, 4, 7, 11], [0, 3, 7, 10], [10, 7, 3, 0]
+    for bi in range(0, len(bars), 2):
+        b0 = bars[bi]
+        if bi * 4 + 8 >= len(beats):
+            break
+        key, sec = key_at(b0), act_at(b0)
+        shift = 0 if 'D' in key else (3 if key.startswith('F') else 0)
+        k_ = bi // 2
+        rh, reg = RH[k_ % 4], (12 if k_ % 3 == 2 else 0)
+        if b0 < t_loss:
+            m66, v66 = MAJ_UP, 0.30
+        elif b0 < t_broke:
+            m66, v66 = (MIN_DOWN if k_ % 2 else MIN_UP), 0.30
+        elif sec == 'act2':
+            m66, v66 = ([3, 0] if k_ % 2 == 0 else []), 0.24  # the broken fragment, every other statement
+        elif sec in ('method', 'outro'):
+            m66, v66 = MAJ_UP, 0.24
+        else:
+            m66, v66 = MIN_UP, 0.22
+        gl, gr = pan_gains(-0.3)
+        for k, iv in enumerate(m66):
+            add(dry, beat_t(bi * 4 + rh[k]) * SR, epiano(hz(62 + shift + iv - (12 if b0 >= t_broke and sec == 'act2' else 0) + reg), 1.2, v66 * RNG.uniform(0.85, 1.05)), gl, gr)
+        if b0 >= first_mirror and (k_ % 2 == 1 or sec in ('method', 'outro')):  # the mirror answers a bar later
+            mm = list(reversed(MAJ_UP if sec in ('act2', 'act3', 'method', 'outro') else MIN_UP))
+            gl, gr = pan_gains(0.3)
+            for k, iv in enumerate(mm):
+                add(dry, beat_t(bi * 4 + 4 + RH[(k_ + 1) % 4][k]) * SR, bell(hz(74 + shift + iv - reg), 1.6, (0.20 if sec == 'act2' else 0.16) * RNG.uniform(0.85, 1.05)), gl, gr)
+    # accents: a low hit on each declared accent (all are cuts)
+    for a in accents:
+        add(dry, a * SR, boom(0.55), 1, 1)
+    # air: a soft band-limited (1.2-3.8 kHz) noise pad, slow swells, left/right slightly different
+    air = np.zeros((N, 2), np.float32)
+    for ch in range(2):
+        nz = band(RNG.standard_normal(N), 1200, 3800)
+        sw = 0.6 + 0.4 * np.sin(2 * np.pi * np.arange(N) / SR / 7.3 + ch)
+        air[:, ch] = nz * sw * 0.035
+    dry += air
+    # tension: the music builds over the 20 s before each act climax (+6 dB), drops to a valley after it (-5 dB at +8 s)
+    # and recovers by +25 s (acts[].climax of the timeline; none in a segment without climaxes)
+    env_db = np.zeros(N)
+    tt_ = np.arange(N) / SR
+    for a_ in tl['acts']:
+        c_ = a_.get('climax')
+        if c_ is None:
+            continue
+        up = np.clip((tt_ - (c_ - 20)) / 20, 0, 1) * (tt_ <= c_)
+        down = (tt_ > c_) * np.interp(tt_, [c_, c_ + 8, c_ + 25], [6, -5, 0])
+        env_db += 6 * up ** 2 + down
+    dry *= 10 ** (env_db / 20)[:, None]
+    # one reverb space
+    irL, irR = reverb_ir()
+    wetL = signal.oaconvolve(dry[:, 0], irL)[:N]  # overlap-add: memory stays small for a full-length film
+    wetR = signal.oaconvolve(dry[:, 1], irR)[:N]
+    music = (dry + 0.22 * np.stack([wetL, wetR], 1)).astype(np.float32)
+    del wetL, wetR, air
+
+    # ---------------------------------------------------------------- voice
+    takes = {t['id']: t for t in json.load(open(os.path.join(ROOT, 'out', 'voice', 'takes.json')))['takes']}
+    EL = json.load(open(os.path.join(ROOT, 'out', 'voice', 'el-takes.json')))
+    cl = json.load(open(os.path.join(ROOT, 'out', 'claims.json')))['claims']
+    DECISIVE = {sp['sentence'] for c in cl if c.get('decisive') for sp in c.get('spoken', [])}
+    vbuf = np.zeros(N)
+    for s in sc['sentences']:
+        f = os.path.join(REPO, takes[s['id']]['final'])
+        with tempfile.TemporaryDirectory() as d:
+            w = os.path.join(d, 'a.wav')
+            subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', f, '-ac', '1', '-ar', str(SR),
+                            '-af', 'highpass=f=70,deesser=i=0.4:m=0.5:f=0.5,acompressor=threshold=0.1:ratio=2.5:attack=8:release=150:makeup=1.5', w], check=True)
+            x = wavfile.read(w)[1].astype(np.float64) / 32768
+        if s['id'] in DECISIVE:
+            # cut the breath/decay after the last word (take ASR end + 250 ms, 40 ms fade: the ASR ends a final word early): the decisive pause starts clean
+            el = EL.get(os.path.basename(takes[s['id']]['raw'])[:-4])
+            if el and el.get('words'):
+                e = int((0.03 + el['words'][-1]['end'] + 0.25) * SR)
+                f = int(0.04 * SR)
+                if e < len(x):
+                    x = x.copy()
+                    x[e:e + f] *= np.linspace(1, 0, len(x[e:e + f]))
+                    x[e + f:] = 0
+        i0 = int(round(s['start'] * SR))
+        n = min(len(x), N - i0)
+        vbuf[i0:i0 + n] += x[:n]
+    # performance dynamics by section (the reading gets closer/quieter in the cold open and fuller at the reveals)
+    starts = {s_['id']: s_['start'] for s_ in tl['scenes']}
+    # section dynamics of the reading (dB): close and quiet in the cold open, fuller at the reveals and climaxes, pulled
+    # back for the reflective and technical passages (this is what gives the film its loudness range)
+    SECT = [x for x in [('co-lines', -9.0), ('a1-est', -4.0), ('a1-mirror-in', -1.5), ('a1-avg1966', 2.0), ('a1-geo', -3.0), ('a2-est', -3.0), ('a2-7374', -2.0),
+                        ('a2-1982', 0.0), ('a2-climb', 1.5), ('a2-climax', 3.0), ('a2-years', 0.0), ('a2-rest', -4.0), ('a2-payoff', -1.0), ('a3-est', -3.0),
+                        ('a3-four', 0.5), ('a3-decade', 2.5), ('a3-answer', 1.0), ('a3-nuance', -2.0), ('a3-limits', -5.0), ('method', -8.0), ('outro', -6.0)] if x[0] in starts]
+    gv = np.zeros(N)
+    for k, (sid, g_) in enumerate(SECT):
+        i0 = int(starts[sid] * SR)
+        i1 = int(starts[SECT[k + 1][0]] * SR) if k + 1 < len(SECT) else N
+        gv[i0:i1] = g_
+    from scipy.ndimage import uniform_filter1d as _uf
+    gv = _uf(gv, int(0.5 * SR))
+    vbuf = vbuf * 10 ** (gv / 20)
+    # voice peak control (soft clip of rare plosive peaks, 4 ms look-ahead gain)
+    from scipy.ndimage import minimum_filter1d as _minf, uniform_filter1d as _unif
+    vc = np.sqrt(np.mean(vbuf[np.abs(vbuf) > 1e-4] ** 2)) * 10 ** (12 / 20)  # ceiling: 12 dB over the speech RMS
+    gpk = np.minimum(1, vc / np.maximum(np.abs(vbuf), 1e-9))
+    gpk = np.minimum(_unif(_minf(gpk, int(0.004 * SR)), int(0.002 * SR)), _minf(gpk, int(0.004 * SR)))
+    vbuf = vbuf * gpk
+    voice = np.stack([vbuf, vbuf], 1).astype(np.float32)
+
+    # voice activity (100 ms RMS > -45 dBFS) -> multiband ducking of the music (1-4 kHz only)
+    hop = int(0.01 * SR)
+    from scipy.ndimage import uniform_filter1d as _uf2
+    vr = np.sqrt(np.maximum(_uf2(vbuf ** 2, int(0.1 * SR)), 0))
+    act = (db(vr) > -45).astype(float)
+    # smooth: attack 40 ms, release 350 ms
+    g = np.zeros(N)
+    a_att, a_rel = np.exp(-1 / (0.04 * SR)), np.exp(-1 / (0.35 * SR))
+    cur = 0.0
+    step = hop
+    for i in range(0, N, step):
+        target = act[i]
+        a = a_att if target > cur else a_rel
+        cur = target + (cur - target) * a ** step
+        g[i:i + step] = cur
+    duck_mid = 10 ** (-12 * g / 20)  # -12 dB in 1-4 kHz under voice
+    duck_all = np.ones(N)  # the dip is band-limited: low and high bands keep their level
+    mus = np.zeros_like(music)
+    for ch in range(2):
+        lo, mid, hi = split3(music[:, ch])
+        mus[:, ch] = (lo + mid * duck_mid + hi) * duck_all
+
+    # ---------------------------------------------------------------- sound design
+    sfx = np.zeros((N, 2), np.float32)
+    events = J('out/sfx-events.json')['events']
+    for e in events:
+        n = int(0.16 * SR)
+        t = np.arange(n) / SR
+        blip = np.sin(2 * np.pi * (880 + 300 * RNG.uniform()) * t) * np.exp(-t / 0.05)
+        noise = band(RNG.standard_normal(n), 1500, 6000) * np.exp(-t / 0.03)
+        x = (0.5 * blip + 0.6 * noise) * (0.09 if e.get('kind') != 'impact' else 0.14)
+        if e.get('kind') == 'impact':
+            x = x + boom(0.9)[:n] * 0.16
+        gl, gr = pan_gains((e['x'] - 960) / 960)
+        add(sfx, e['t'] * SR, x, gl, gr)
+        if e.get('riser'):
+            rn = int(e['riser'] * SR)
+            rt = np.arange(rn) / SR
+            rs = band(RNG.standard_normal(rn), 400, 5000) * (rt / rt[-1]) ** 2 * 0.05
+            add(sfx, e['t'] * SR - rn, rs, 0.8, 0.8)
+    # whoosh per camera move, level from the peak speed (frame widths per second at the focus plane)
+    cam = J('out/camera.json')
+    fr = cam['frames']
+    ct = np.array([f['t'] for f in fr])
+    pos = np.array([f['pos'] for f in fr], float)
+    tgt = np.array([f['target'] for f in fr], float)
+    fov = np.array([f['fovDeg'] for f in fr], float)
+    fd = np.array([f['focusDist'] for f in fr], float)
+    width = 2 * fd * np.tan(np.radians(fov) / 2) * 16 / 9
+    dt = np.gradient(ct)
+    sp = np.maximum(np.linalg.norm(np.gradient(pos, axis=0), axis=1), np.linalg.norm(np.gradient(tgt, axis=0), axis=1)) / dt / width
+    cut_frames = {int(round(s['start'] * 30)) for s in tl['scenes']}
+    for c in cut_frames:  # the jump at a cut is not a move
+        for k in (c - 1, c, c + 1):
+            if 0 <= k < len(sp):
+                sp[k] = 0
+    whoosh = np.zeros((N, 2), np.float32)
+    on = sp > 0.05
+    moves = []
+    i = 0
+    while i < len(on):
+        if on[i]:
+            j = i
+            while j < len(on) and on[j]:
+                j += 1
+            if ct[j - 1] - ct[i] >= 0.3:
+                moves.append((i, j))
+            i = j
+        else:
+            i += 1
+    wrows = []
+    for a, b in moves:
+        pk = float(sp[a:b].max())
+        t0, t1 = ct[a] - 0.15, ct[b - 1] + 0.25
+        n = int((t1 - t0) * SR)
+        tt = t0 + np.arange(n) / SR
+        envs = np.interp(tt, ct, sp) / pk
+        nz = RNG.standard_normal(n)
+        lvl = 10 ** ((-26 + 10 * np.log10(pk / 0.3)) / 20)  # monotonic in peak speed
+        w = band(nz, 250, 4500) * envs ** 1.5 * lvl * 3.0
+        dx = pos[b - 1, 0] - pos[a, 0]
+        gl, gr = pan_gains(np.clip(dx / 1500, -0.5, 0.5))
+        add(whoosh, t0 * SR, w, gl, gr)
+        wrows.append({'t': round(float(ct[a]), 2), 'peakSpeed': round(pk, 3)})
+    # room tone: quiet pink noise, one space
+    wn = RNG.standard_normal(N)
+    pink = signal.lfilter([0.049922035, -0.095993537, 0.050612699, -0.004408786], [1, -2.494956002, 2.017265875, -0.522189400], wn)
+    pink = onepole_lp(pink, 3000)
+    pink = pink / np.sqrt(np.mean(pink ** 2)) * 10 ** (-60 / 20)
+    room = np.stack([pink, np.roll(pink, 480) * 0.9 + 0.1 * pink], 1).astype(np.float32)
+
+    # intentional silences (round 3, H5): no hard cut into them. The music releases like a reverb tail (exponential,
+    # tau 90 ms from 50 ms before the silence: -30 dB about 0.3 s later), the sound effects and whooshes fade over 150 ms, and the
+    # room tone rises 6 dB into the silence over 250 ms (a floor, never digital zero); everything returns over 200 ms.
+    gate_m, gate_s, room_up = np.ones(N), np.ones(N), np.zeros(N)
+    tt_s = np.arange(N) / SR
+    for s in sil:
+        t0, t1 = s['t'], s['t'] + s['dur']
+        i0, i1 = int((t0 - 0.05) * SR), int(t1 * SR)
+        seg = tt_s[i0:i1] - (t0 - 0.05)
+        gate_m[i0:i1] = np.minimum(gate_m[i0:i1], np.exp(-seg / 0.09))
+        j0, j1 = int((t0 - 0.1) * SR), int((t0 + 0.05) * SR)
+        gate_s[j0:j1] = np.minimum(gate_s[j0:j1], np.linspace(1, 0, j1 - j0) ** 2)
+        gate_s[j1:i1] = 0
+        r = int(0.2 * SR)
+        up = np.linspace(0, 1, r) ** 2
+        gate_m[i1:i1 + r] = np.minimum(gate_m[i1:i1 + r], up[:len(gate_m[i1:i1 + r])])
+        gate_s[i1:i1 + r] = np.minimum(gate_s[i1:i1 + r], up[:len(gate_s[i1:i1 + r])])
+        k0, k1 = int((t0 - 0.1) * SR), int((t0 + 0.15) * SR)
+        room_up[k0:k1] = np.maximum(room_up[k0:k1], np.linspace(0, 1, k1 - k0))
+        room_up[k1:i1] = 1
+        room_up[i1:i1 + r] = np.maximum(room_up[i1:i1 + r], np.linspace(1, 0, r)[:len(room_up[i1:i1 + r])])
+    gate = gate_s
+    mus *= gate_m[:, None]
+    for arr in (sfx, whoosh):
+        arr *= gate_s[:, None]
+    room *= (1 + (10 ** (6 / 20) - 1) * room_up)[:, None]
+    # every spoken number keeps the air to itself: music, whoosh and sound effects dip -24 dB from 0.5 s before it
+    # starts to 1.6 s after (a spoken year like "nineteen ninety-one" lasts ~1 s) (only when the root lists the
+    # numbers: out/physical.json)
+    pj = os.path.join(ROOT, 'out', 'physical.json')
+    if os.path.exists(pj):
+        dn = np.ones(N)
+        for tn in json.load(open(pj)).get('numbers', []):
+            dn[int(max(0, tn - 0.5) * SR):int(min(N / SR, tn + 1.6) * SR)] = 10 ** (-24 / 20)
+        from scipy.ndimage import uniform_filter1d as _ufn
+        dn = _ufn(dn, int(0.05 * SR))
+        for arr in (mus, sfx):  # whooshes keep their level: they follow the camera speed (A10)
+            arr *= dn[:, None]
+    # sonification of the data (round 3, H7a): its own layer inside the sfx stem, ducked 10 dB under the voice and
+    # 16 dB inside the spoken-number windows, silent in the intentional silences
+    son_stats = None
+    sp_ = os.path.join(ROOT, 'out', 'sonify-events.json')
+    if os.path.exists(sp_):
+        son, son_stats = sonify(N, json.load(open(sp_)))
+        dson = 10 ** (-10 * g / 20)
+        if os.path.exists(pj):
+            for tn in json.load(open(pj)).get('numbers', []):
+                i0, i1 = int(max(0, tn - 0.5) * SR), int(min(N / SR, tn + 1.6) * SR)
+                dson[i0:i1] = np.minimum(dson[i0:i1], 10 ** (-16 / 20))
+        from scipy.ndimage import uniform_filter1d as _ufs
+        dson = _ufs(dson, int(0.03 * SR)) * gate_s
+        son *= dson[:, None].astype(np.float32)
+        sfx += son
+        del son
+    # ---------------------------------------------------------------- levels
+    # voice-active windows: music 20 dB under the voice (mean power)
+    vt = act > 0
+    pv = np.mean(vbuf[vt] ** 2)
+    pm = np.mean(mus[vt].mean(1) ** 2)
+    mus *= np.sqrt(pv / pm) * 10 ** (-20 / 20)
+    stems = {'voice': voice, 'music': mus, 'sfx': sfx, 'whoosh': whoosh, 'room': room}
+    mix = sum(stems.values())
+    # master: loudness to -14 LUFS (measured like the check: ffmpeg ebur128), then a true-peak limiter
+    def ebu(x):
+        with tempfile.TemporaryDirectory() as d:
+            w = os.path.join(d, 'm.wav')
+            wavfile.write(w, SR, np.clip(x, -1, 1).astype(np.float32))
+            o = subprocess.run(['ffmpeg', '-nostats', '-i', w, '-af', 'ebur128=peak=true', '-f', 'null', '-'], capture_output=True, text=True).stderr
+        return float(re.findall(r'I:\s+(-?[\d.]+) LUFS', o)[-1]), float(re.findall(r'LRA:\s+(-?[\d.]+) LU', o)[-1]), float(re.findall(r'Peak:\s+(-?[\d.]+) dBFS', o)[-1])
+    I0, _, _ = ebu(mix)
+    gain = 10 ** ((-14.0 - I0) / 20)
+    mix *= gain
+    for k in stems:
+        stems[k] = stems[k] * gain
+    # look-ahead true-peak limiter (4x oversampled detection), ceiling -1.3 dBTP
+    ceil = 10 ** (-1.3 / 20)
+    # 4x oversampled peak per sample, in chunks (a full-length 4x buffer does not fit the memory of a 12-minute film)
+    pk = np.zeros(N)
+    CH, OV = SR * 20, 256
+    for i0 in range(0, N, CH):
+        a0, a1 = max(0, i0 - OV), min(N, i0 + CH + OV)
+        up = signal.resample_poly(mix[a0:a1], 4, 1, axis=0)
+        p_ = np.abs(up).max(1).reshape(-1, 4).max(1)
+        pk[i0:min(N, i0 + CH)] = p_[i0 - a0:i0 - a0 + min(CH, N - i0)]
+    need = np.minimum(1, ceil / np.maximum(pk, 1e-9))
+    la = int(0.003 * SR)
+    need = np.minimum.accumulate(np.concatenate([need[la:], np.ones(la)])[::-1])[::-1] if False else need
+    gmin = signal.minimum_filter1d(need, 2 * la + 1) if hasattr(signal, 'minimum_filter1d') else None
+    from scipy.ndimage import minimum_filter1d, uniform_filter1d
+    gmin = minimum_filter1d(need, 2 * la + 1)
+    gsm = uniform_filter1d(gmin, la)
+    gsm = np.minimum(gsm, gmin)
+    master = mix * gsm[:, None]
+    I1, LRA, TP = ebu(master)
+    os.makedirs(os.path.join(ROOT, 'out', 'audio', 'stems'), exist_ok=True)
+    for k, v in stems.items():
+        p = os.path.join(ROOT, 'out', 'audio', 'stems', k + '.flac')
+        with tempfile.TemporaryDirectory() as d:
+            w = os.path.join(d, 'a.wav')
+            wavfile.write(w, SR, np.clip(v * gsm[:, None], -1, 1).astype(np.float32))
+            subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', w, '-sample_fmt', 's32', p], check=True)
+    wavfile.write(os.path.join(ROOT, 'out', 'audio', 'master.wav'), SR, np.clip(master, -1, 1).astype(np.float32))
+    # voice / music gap as the check measures it (100 ms windows, voice RMS > -45 dBFS)
+    rep = {'integratedLUFS': I1, 'LRA': LRA, 'truePeakDbfs': TP, 'limiterMinGainDb': round(float(db(gsm.min())), 2), 'moves': wrows, 'accents': len(accents), 'beats': len(beats),
+           'silences': sil, 'events': len(events), 'sonification': son_stats}
+    json.dump(rep, open(os.path.join(ROOT, '..', 'audio-report.json'), 'w'), indent=1)
+    ledger = {'assets': [{'name': 'music (pad, pulse, leitmotifs, accents, reverb)', 'origin': 'synthesised in audio/d_m2_audio.py', 'seed': 20260926, 'licence': 'original work of this project; no samples or third-party audio'},
+                         {'name': 'sfx, risers, impacts, whooshes, room tone', 'origin': 'synthesised in audio/d_m2_audio.py', 'seed': 20260926, 'licence': 'original work of this project'},
+                         {'name': 'voice', 'origin': 'ElevenLabs text-to-speech, voice Eric (premade), eleven_v3 / eleven_multilingual_v2', 'licence': 'ElevenLabs output under the account\'s plan; provisional voice (not decision #158)'}]}
+    json.dump(ledger, open(os.path.join(REPO, 'out', 'music-ledger-d.json'), 'w'), indent=1)
+    print(json.dumps({k: v for k, v in rep.items() if k not in ('moves', 'silences')}))
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,28 @@
+# Sổ gu
+
+Sổ gu ghi các phán đoán của chủ dự án mà máy chưa đo được, hoặc chưa đo đúng. Nó đứng sau hiến chương, `decisions/` và spec thể loại (CHARTER §10).
+
+Mỗi dòng có: ngày, nguồn, ví dụ, trạng thái.
+
+Trạng thái là một trong ba mức:
+- **chưa thành luật**: chỉ có trong sổ gu và spec;
+- **đã thành luật mã `<id>` @ `<SHA LOCK>`**: đã có luật khoá trong `checks/`;
+- **đã bỏ**: kèm lý do.
+
+Chỉ Phiên kiểm (K1…) được đổi trạng thái sang "đã thành luật mã", sau khi chủ dự án duyệt (CHARTER §7.1).
+
+## Nguồn chung của 4 dòng đầu
+
+- **Bài D** ("Same average, different fate") ở repo [crux-spike-opus55](https://github.com/HungQuach301/crux-spike-opus55), nhánh `claude/opus55-cine-phase-d-jw6me1`.
+- **Chấm tay vòng 2** của chủ dự án trên master r2 (`dd6117c6…`): H1 4 · H2 2 · H3 3 · H4 3 · H5 4 · H6 4 · H7 3, trung bình 3,29, chưa đạt. Chỉ dẫn sửa ghi ở [BRIEF-D-amendments.md mục 17–19](https://github.com/HungQuach301/crux-spike-opus55/blob/76613cfa756e2604770043435f79eb00e269e2b6/BRIEF-D-amendments.md).
+- **Vòng 3**: master r3 `6531f6c8…`, gói duyệt [`out/r3/review/`](https://github.com/HungQuach301/crux-spike-opus55/tree/76613cfa756e2604770043435f79eb00e269e2b6/out/r3/review) (mỗi clip có bản trước và sau), báo cáo ở [REPORT-D.md, mục "M3 vòng 3"](https://github.com/HungQuach301/crux-spike-opus55/blob/76613cfa756e2604770043435f79eb00e269e2b6/REPORT-D.md).
+- **Câu chữ của 4 phán đoán** do chủ dự án tổng kết khi giao việc Phiên B0 ngày 2026-09-28, sau khi nghe vòng 2 và vòng 3. Riêng nhấn mạnh "NGHE THẤY ĐƯỢC" ở (a) là của chủ dự án.
+
+## Các dòng
+
+| # | Phán đoán | Ngày | Nguồn | Ví dụ | Trạng thái |
+|---|---|---|---|---|---|
+| G-001 (a) | Mỗi phần tử biểu đồ khi biến động có tiếng riêng, và tiếng đó **NGHE THẤY ĐƯỢC**. | 2026-09-28 | Chấm tay vòng 2 (H7 = 3) → Am 19a. Vòng 3 thêm lớp sonification, duck −10 dB dưới lời và −16 dB quanh số. Chủ dự án nhấn "nghe thấy được" sau vòng 3. | `h7-sonification.mp4`: phim 8:00, 8:50, 10:50, trước/sau. 550 lần cột mọc, 89 điểm, 21 lần vẽ đường; 517 sự kiện gộp thành 166 cụm. | chưa thành luật. Spec: DX-A1. Bài D chỉ đo khớp khung (0 khung lệch), không đo nghe thấy được. |
+| G-002 (b) | Nhạc không lộ vòng lặp. | 2026-09-28 | Chấm tay vòng 2, H7 = 3 (RUBRIC H7 "nhạc không lộ vòng lặp") → Am 19b. | `h7-music.mp4`: phim 1:25 và 2:49, là hai đoạn nhạc r2 lặp nhiều nhất. Tự tương đồng r2: 7,6% cặp câu 4 ô ≥ 0,90; r3: 0%. | chưa thành luật. Spec: DX-A2. Số đo có sẵn ở `toolkit/audio/d_music_selfsim.py` nhưng chưa phải luật khoá, và chưa được chấm là đủ. |
+| G-003 (c) | Vào khoảng lặng phải có chuyển tiếp, không cắt cứng. | 2026-09-28 | Chỉ dẫn vòng 2, ghi dưới mục H5 → Am 18. | `h5-silences.mp4`: phim 0:11.1, 2:39.0, 6:19.9, trước/sau. r3: nhạc nhả như đuôi reverb (τ 90 ms), sfx tắt trong 150 ms, room tone +6 dB làm sàn, trở lại trong 200 ms. | chưa thành luật. Spec: DX-R6. Luật A09 của bài D chỉ đếm khoảng lặng 0,8–1,5 s, không xét cách vào. |
+| G-004 (d) | Ở nhịp then chốt, hình minh hoạ đúng lời đang hứa, và người xem hiểu trong 1 giây. | 2026-09-28 | Chấm tay vòng 2, H2 = 2 (câu móc lại 0:30–0:45) → Am 17. | `h2-rehook.mp4`: phim 0:20–0:55. r2 dùng lưới 69 ô, không khớp câu "which ten years decided…". r3 dùng một dải 30 ô và một khung 10 năm trượt theo lời rồi dừng ở thập kỷ đầu. | chưa thành luật. Spec: DX-V2, DX-S4. Máy chưa đo được "khớp lời hứa". Cần phiếu chấm tay, hoặc đề xuất của K1. |
