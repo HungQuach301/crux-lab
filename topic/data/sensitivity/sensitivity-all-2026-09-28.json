@@ -1,0 +1,545 @@
+[
+ {
+  "model": "M-001",
+  "title": "Tỷ lệ chi phí quỹ ăn mòn danh mục",
+  "conclusionOutput": "totalFeeDragUsd",
+  "error": null,
+  "problems": [],
+  "flips": [],
+  "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (initialBalanceUsd, grossAnnualReturnPct, expenseRatioPct, years), nhưng dấu của 'totalFeeDragUsd' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết.",
+  "result": {
+   "schemaVersion": 0,
+   "modelId": "data-explainer/M-001",
+   "modelVersion": "1.0",
+   "runAt": "2026-09-28T00:00:00Z",
+   "conclusionOutput": "totalFeeDragUsd",
+   "parameters": [
+    {
+     "name": "initialBalanceUsd",
+     "scannedRange": [
+      0,
+      1000000000
+     ],
+     "step": 1000000,
+     "classification": "sensitive"
+    },
+    {
+     "name": "grossAnnualReturnPct",
+     "scannedRange": [
+      -50,
+      50
+     ],
+     "step": 0.1,
+     "classification": "sensitive"
+    },
+    {
+     "name": "expenseRatioPct",
+     "scannedRange": [
+      0,
+      5
+     ],
+     "step": 0.005,
+     "classification": "sensitive"
+    },
+    {
+     "name": "years",
+     "scannedRange": [
+      1,
+      60
+     ],
+     "step": 0.059,
+     "classification": "sensitive"
+    }
+   ],
+   "flipPoints": [],
+   "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (initialBalanceUsd, grossAnnualReturnPct, expenseRatioPct, years), nhưng dấu của 'totalFeeDragUsd' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết."
+  }
+ },
+ {
+  "model": "M-002",
+  "title": "Điểm hoà vốn của mortgage discount points",
+  "conclusionOutput": "monthlySavingsUsd",
+  "error": null,
+  "problems": [],
+  "flips": [
+   {
+    "parameter": "baseRatePct",
+    "value": 4.875,
+    "before": "monthlySavingsUsd âm (-2.729513 tại baseRatePct=4.85)",
+    "after": "monthlySavingsUsd bằng 0 (0 tại baseRatePct=4.875)"
+   },
+   {
+    "parameter": "rateWithPointsPct",
+    "value": 5,
+    "before": "monthlySavingsUsd dương (2.748337 tại rateWithPointsPct=4.975)",
+    "after": "monthlySavingsUsd bằng 0 (0 tại rateWithPointsPct=5)"
+   }
+  ],
+  "stableConclusion": null,
+  "result": {
+   "schemaVersion": 0,
+   "modelId": "data-explainer/M-002",
+   "modelVersion": "1.0",
+   "runAt": "2026-09-28T00:00:00Z",
+   "conclusionOutput": "monthlySavingsUsd",
+   "parameters": [
+    {
+     "name": "loanAmountUsd",
+     "scannedRange": [
+      1000,
+      50000000
+     ],
+     "step": 49999,
+     "classification": "sensitive"
+    },
+    {
+     "name": "baseRatePct",
+     "scannedRange": [
+      0,
+      25
+     ],
+     "step": 0.025,
+     "classification": "flips"
+    },
+    {
+     "name": "rateWithPointsPct",
+     "scannedRange": [
+      0,
+      25
+     ],
+     "step": 0.025,
+     "classification": "flips"
+    },
+    {
+     "name": "pointsPct",
+     "scannedRange": [
+      -5,
+      5
+     ],
+     "step": 0.01,
+     "classification": "stable"
+    },
+    {
+     "name": "termMonths",
+     "scannedRange": [
+      12,
+      480
+     ],
+     "step": 0.468,
+     "classification": "sensitive"
+    }
+   ],
+   "flipPoints": [
+    {
+     "parameter": "baseRatePct",
+     "value": 4.875,
+     "unit": "percent",
+     "conclusionBefore": "monthlySavingsUsd âm (-2.729513 tại baseRatePct=4.85)",
+     "conclusionAfter": "monthlySavingsUsd bằng 0 (0 tại baseRatePct=4.875)"
+    },
+    {
+     "parameter": "rateWithPointsPct",
+     "value": 5,
+     "unit": "percent",
+     "conclusionBefore": "monthlySavingsUsd dương (2.748337 tại rateWithPointsPct=4.975)",
+     "conclusionAfter": "monthlySavingsUsd bằng 0 (0 tại rateWithPointsPct=5)"
+    }
+   ]
+  }
+ },
+ {
+  "model": "M-003",
+  "title": "APY của một khoản tiền gửi theo Regulation DD",
+  "conclusionOutput": "apyPct",
+  "error": null,
+  "problems": [],
+  "flips": [],
+  "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (interestEarnedUsd, principalUsd, termDays), nhưng dấu của 'apyPct' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết.",
+  "result": {
+   "schemaVersion": 0,
+   "modelId": "data-explainer/M-003",
+   "modelVersion": "1.0",
+   "runAt": "2026-09-28T00:00:00Z",
+   "conclusionOutput": "apyPct",
+   "parameters": [
+    {
+     "name": "interestEarnedUsd",
+     "scannedRange": [
+      0,
+      1000000000
+     ],
+     "step": 1000000,
+     "classification": "sensitive"
+    },
+    {
+     "name": "principalUsd",
+     "scannedRange": [
+      0.01,
+      1000000000
+     ],
+     "step": 999999.99999,
+     "classification": "sensitive"
+    },
+    {
+     "name": "termDays",
+     "scannedRange": [
+      1,
+      3650
+     ],
+     "step": 3.649,
+     "classification": "sensitive"
+    }
+   ],
+   "flipPoints": [],
+   "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (interestEarnedUsd, principalUsd, termDays), nhưng dấu của 'apyPct' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết."
+  }
+ },
+ {
+  "model": "M-004",
+  "title": "Giảm trừ khi nhận trợ cấp an sinh trước tuổi hưu đầy đủ",
+  "conclusionOutput": "reductionUsd",
+  "error": null,
+  "problems": [],
+  "flips": [],
+  "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (primaryInsuranceAmountUsd, monthsBeforeFullRetirementAge, firstTierNumerator, firstTierDenominator, secondTierNumerator, secondTierDenominator), nhưng dấu của 'reductionUsd' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết.",
+  "result": {
+   "schemaVersion": 0,
+   "modelId": "data-explainer/M-004",
+   "modelVersion": "1.0",
+   "runAt": "2026-09-28T00:00:00Z",
+   "conclusionOutput": "reductionUsd",
+   "parameters": [
+    {
+     "name": "primaryInsuranceAmountUsd",
+     "scannedRange": [
+      0,
+      20000
+     ],
+     "step": 20,
+     "classification": "sensitive"
+    },
+    {
+     "name": "monthsBeforeFullRetirementAge",
+     "scannedRange": [
+      0,
+      72
+     ],
+     "step": 0.072,
+     "classification": "sensitive"
+    },
+    {
+     "name": "firstTierNumerator",
+     "scannedRange": [
+      1,
+      100
+     ],
+     "step": 0.099,
+     "classification": "sensitive"
+    },
+    {
+     "name": "firstTierDenominator",
+     "scannedRange": [
+      1,
+      100
+     ],
+     "step": 0.099,
+     "classification": "sensitive"
+    },
+    {
+     "name": "secondTierNumerator",
+     "scannedRange": [
+      1,
+      100
+     ],
+     "step": 0.099,
+     "classification": "sensitive"
+    },
+    {
+     "name": "secondTierDenominator",
+     "scannedRange": [
+      1,
+      100
+     ],
+     "step": 0.099,
+     "classification": "sensitive"
+    }
+   ],
+   "flipPoints": [],
+   "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (primaryInsuranceAmountUsd, monthsBeforeFullRetirementAge, firstTierNumerator, firstTierDenominator, secondTierNumerator, secondTierDenominator), nhưng dấu của 'reductionUsd' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết."
+  }
+ },
+ {
+  "model": "M-005",
+  "title": "Khoản rút tối thiểu bắt buộc từ IRA truyền thống",
+  "conclusionOutput": "rmdUsd",
+  "error": null,
+  "problems": [],
+  "flips": [],
+  "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (priorYearEndBalanceUsd, applicableDenominator), nhưng dấu của 'rmdUsd' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết.",
+  "result": {
+   "schemaVersion": 0,
+   "modelId": "data-explainer/M-005",
+   "modelVersion": "1.0",
+   "runAt": "2026-09-28T00:00:00Z",
+   "conclusionOutput": "rmdUsd",
+   "parameters": [
+    {
+     "name": "priorYearEndBalanceUsd",
+     "scannedRange": [
+      0,
+      1000000000
+     ],
+     "step": 1000000,
+     "classification": "sensitive"
+    },
+    {
+     "name": "applicableDenominator",
+     "scannedRange": [
+      1,
+      120
+     ],
+     "step": 0.119,
+     "classification": "sensitive"
+    }
+   ],
+   "flipPoints": [],
+   "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (priorYearEndBalanceUsd, applicableDenominator), nhưng dấu của 'rmdUsd' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết."
+  }
+ },
+ {
+  "model": "M-006",
+  "title": "Lãi suất tổng hợp của trái phiếu tiết kiệm Series I",
+  "conclusionOutput": "compositeRatePct",
+  "error": null,
+  "problems": [],
+  "flips": [],
+  "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (fixedRatePct, semiannualInflationRatePct), nhưng dấu của 'compositeRatePct' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết.",
+  "result": {
+   "schemaVersion": 0,
+   "modelId": "data-explainer/M-006",
+   "modelVersion": "1.0",
+   "runAt": "2026-09-28T00:00:00Z",
+   "conclusionOutput": "compositeRatePct",
+   "parameters": [
+    {
+     "name": "fixedRatePct",
+     "scannedRange": [
+      0,
+      10
+     ],
+     "step": 0.01,
+     "classification": "sensitive"
+    },
+    {
+     "name": "semiannualInflationRatePct",
+     "scannedRange": [
+      -10,
+      10
+     ],
+     "step": 0.02,
+     "classification": "sensitive"
+    }
+   ],
+   "flipPoints": [],
+   "stableConclusion": "Không tìm thấy điểm đảo chiều nào trên các tham số đã quét (fixedRatePct, semiannualInflationRatePct), nhưng dấu của 'compositeRatePct' không đồng nhất giữa các tham số — xem từng mục 'parameters' để biết chi tiết."
+  }
+ },
+ {
+  "model": "M-007",
+  "title": "Phần trợ cấp an sinh xã hội phải chịu thuế liên bang",
+  "conclusionOutput": "taxableBenefitsUsd",
+  "error": null,
+  "problems": [],
+  "flips": [
+   {
+    "parameter": "adjustmentsUsd",
+    "value": 100000,
+    "before": "taxableBenefitsUsd dương (2990 tại adjustmentsUsd=0)",
+    "after": "taxableBenefitsUsd bằng 0 (0 tại adjustmentsUsd=100000)"
+   },
+   {
+    "parameter": "baseAmountUsd",
+    "value": 32000,
+    "before": "taxableBenefitsUsd dương (40 tại baseAmountUsd=31900)",
+    "after": "taxableBenefitsUsd bằng 0 (0 tại baseAmountUsd=32000)"
+   }
+  ],
+  "stableConclusion": null,
+  "result": {
+   "schemaVersion": 0,
+   "modelId": "data-explainer/M-007",
+   "modelVersion": "1.0",
+   "runAt": "2026-09-28T00:00:00Z",
+   "conclusionOutput": "taxableBenefitsUsd",
+   "parameters": [
+    {
+     "name": "netBenefitsUsd",
+     "scannedRange": [
+      0,
+      1000000
+     ],
+     "step": 1000,
+     "classification": "sensitive"
+    },
+    {
+     "name": "otherIncomeUsd",
+     "scannedRange": [
+      0,
+      100000000
+     ],
+     "step": 100000,
+     "classification": "sensitive"
+    },
+    {
+     "name": "taxExemptInterestUsd",
+     "scannedRange": [
+      0,
+      100000000
+     ],
+     "step": 100000,
+     "classification": "sensitive"
+    },
+    {
+     "name": "exclusionsUsd",
+     "scannedRange": [
+      0,
+      100000000
+     ],
+     "step": 100000,
+     "classification": "sensitive"
+    },
+    {
+     "name": "adjustmentsUsd",
+     "scannedRange": [
+      0,
+      100000000
+     ],
+     "step": 100000,
+     "classification": "flips"
+    },
+    {
+     "name": "baseAmountUsd",
+     "scannedRange": [
+      0,
+      100000
+     ],
+     "step": 100,
+     "classification": "flips"
+    },
+    {
+     "name": "secondThresholdAdderUsd",
+     "scannedRange": [
+      0,
+      100000
+     ],
+     "step": 100,
+     "classification": "sensitive"
+    }
+   ],
+   "flipPoints": [
+    {
+     "parameter": "adjustmentsUsd",
+     "value": 100000,
+     "unit": "usd",
+     "conclusionBefore": "taxableBenefitsUsd dương (2990 tại adjustmentsUsd=0)",
+     "conclusionAfter": "taxableBenefitsUsd bằng 0 (0 tại adjustmentsUsd=100000)"
+    },
+    {
+     "parameter": "baseAmountUsd",
+     "value": 32000,
+     "unit": "usd",
+     "conclusionBefore": "taxableBenefitsUsd dương (40 tại baseAmountUsd=31900)",
+     "conclusionAfter": "taxableBenefitsUsd bằng 0 (0 tại baseAmountUsd=32000)"
+    }
+   ]
+  }
+ },
+ {
+  "model": "M-008",
+  "title": "Khấu trừ IRA truyền thống bị giảm theo thu nhập",
+  "conclusionOutput": "iraDeductionUsd",
+  "error": null,
+  "problems": [],
+  "flips": [
+   {
+    "parameter": "modifiedAgiUsd",
+    "value": 200000,
+    "before": "iraDeductionUsd dương (7000 tại modifiedAgiUsd=100000)",
+    "after": "iraDeductionUsd bằng 0 (0 tại modifiedAgiUsd=200000)"
+   }
+  ],
+  "stableConclusion": null,
+  "result": {
+   "schemaVersion": 0,
+   "modelId": "data-explainer/M-008",
+   "modelVersion": "1.0",
+   "runAt": "2026-09-28T00:00:00Z",
+   "conclusionOutput": "iraDeductionUsd",
+   "parameters": [
+    {
+     "name": "phaseoutTopUsd",
+     "scannedRange": [
+      0,
+      1000000
+     ],
+     "step": 1000,
+     "classification": "sensitive"
+    },
+    {
+     "name": "phaseoutWidthUsd",
+     "scannedRange": [
+      1,
+      1000000
+     ],
+     "step": 999.999,
+     "classification": "sensitive"
+    },
+    {
+     "name": "modifiedAgiUsd",
+     "scannedRange": [
+      0,
+      100000000
+     ],
+     "step": 100000,
+     "classification": "flips"
+    },
+    {
+     "name": "phaseoutPct",
+     "scannedRange": [
+      0,
+      100
+     ],
+     "step": 0.1,
+     "classification": "sensitive"
+    },
+    {
+     "name": "compensationUsd",
+     "scannedRange": [
+      0,
+      100000000
+     ],
+     "step": 100000,
+     "classification": "sensitive"
+    },
+    {
+     "name": "contributionUsd",
+     "scannedRange": [
+      0,
+      20000
+     ],
+     "step": 20,
+     "classification": "sensitive"
+    }
+   ],
+   "flipPoints": [
+    {
+     "parameter": "modifiedAgiUsd",
+     "value": 200000,
+     "unit": "usd",
+     "conclusionBefore": "iraDeductionUsd dương (7000 tại modifiedAgiUsd=100000)",
+     "conclusionAfter": "iraDeductionUsd bằng 0 (0 tại modifiedAgiUsd=200000)"
+    }
+   ]
+  }
+ }
+]
