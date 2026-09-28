@@ -29,3 +29,4 @@ Lượt này chạy bộ luật đã khoá trên master cuối của bài D.
 - **REG trượt** vì V04: r2 PASS, r3 FAIL. Màu chính của nhân vật 1966 chỉ chiếm 94,0% số quan sát, ngưỡng là ≥ 95%.
   - Chính báo cáo của Phiên D trên r3 (LOCK cũ) cũng cho V04 FAIL.
   - 19 luật K1 đã đổi cách đo được coi là không so được.
+- **Khoá mới `b97bfc6b…` (2026-09-28).** Khoá này chỉ khác `62b5206d…` ở `checks/README.md`: thêm mục "Ngưỡng tạm". Mã luật và ngưỡng không đổi, nên kết quả lượt chạy này vẫn đúng với khoá mới.

@@ -79,6 +79,20 @@ Giữ nguyên, K1 chưa quyết:
 - R06 ("cắt thấy được trong hình"): DX-V10 ghi rằng luật này có thể không hợp với biểu đồ nối tiếp. Đổi luật cần chủ dự án duyệt.
 - Các luật gắn với mô hình và nhân vật của bài D (S01, S05, S06, V04, V09: `1966`/`mirror`, 60/40, 4%): tập mới cần hợp đồng riêng cho mô hình của nó.
 
+## Ngưỡng tạm (chủ dự án duyệt 2026-09-28)
+
+Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện sau. Các ngưỡng dưới đây là **NGƯỠNG TẠM**. Chúng được hiệu chỉnh sau Tập 1 bằng điểm chấm tay của chủ dự án (phiếu `RUBRIC.md`, H5 cho V12/V13, H7 cho T2, H8 cho T1/T3).
+
+| Luật | Ngưỡng tạm |
+|---|---|
+| T1 | độ nổi ≥ 3 dB; ≥ 1 dB trong cửa sổ số được đọc |
+| T2 | câu nhạc lặp ≤ 5% |
+| T3 | chuyển tiếp vào khoảng lặng 150–400 ms; sàn master ≥ −80 dBFS, room ≥ −75 dBFS |
+| V12 | NCC ≥ 0,97 |
+| V13 | mỗi cú máy ≤ 3 s; tổng thời gian máy chuyển ≤ 15% |
+
+**Mọi thay đổi ngưỡng về sau cần chủ dự án duyệt, và phải khoá lại** (LOCK mới, CHARTER §7.1). Bên dựng không đổi ngưỡng. Phiên kiểm cũng không tự đổi ngưỡng khi chưa được duyệt.
+
 ## Luật mới: định nghĩa và cách đo
 
 **T1 — âm thanh theo dữ liệu nghe thấy được** (DX-A1, sổ gu G-001)
