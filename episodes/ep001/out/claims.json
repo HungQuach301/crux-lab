@@ -1,58 +1,10 @@
 {
  "claims": [
   {
-   "claimId": "oct2023",
-   "value": 2023,
-   "display": "October 2023",
-   "formula": "month of the monthly peak that starts the latest drop episode (Maya's borrowing month: scenario)",
-   "source": {
-    "id": "fred-MORTGAGE30US",
-    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
-   },
-   "dataYear": 2023,
-   "historical": true,
-   "illustrative": false,
-   "callbacks": [],
-   "shownIn": [
-    "a1-maya",
-    "a3-23"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-maya.1"
-    },
-    {
-     "sentence": "a3-23.1"
-    }
-   ]
-  },
-  {
-   "claimId": "r_old",
-   "value": 7.62,
-   "display": "7.62%",
-   "formula": "monthly mean of MORTGAGE30US, October 2023",
-   "source": {
-    "id": "fred-MORTGAGE30US",
-    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
-   },
-   "dataYear": 2023,
-   "historical": true,
-   "illustrative": false,
-   "callbacks": [],
-   "shownIn": [
-    "co-maya"
-   ],
-   "spoken": [
-    {
-     "sentence": "co-maya.1"
-    }
-   ]
-  },
-  {
-   "claimId": "r_today",
-   "value": 7.03,
-   "display": "7.03%",
-   "formula": "MORTGAGE30US, latest week (2026-09-24)",
+   "claimId": "anchor_date",
+   "value": "2026-09-24",
+   "display": "September 24, 2026",
+   "formula": "date of the latest MORTGAGE30US observation = PMMS week ending Thursday September 24, 2026 (FRED: \"Frequency: Weekly, Ending Thursday\"; \"Updated: Sep 24, 2026 11:02 AM CDT\"); every \"today\" number is as of this date",
    "source": {
     "id": "fred-MORTGAGE30US",
     "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
@@ -61,14 +13,57 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "co-today"
-   ],
-   "spoken": [
-    {
-     "sentence": "co-today.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "oct2023",
+   "value": 2023,
+   "display": "October 2023",
+   "formula": "month of the monthly peak that starts the latest drop episode (the characters' borrowing month: scenario)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2023,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "r_old",
+   "value": 7.62,
+   "display": "7.62%",
+   "formula": "monthly mean of the weekly MORTGAGE30US values dated in October 2023",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2023,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "r_today",
+   "value": 7.03,
+   "display": "7.03%",
+   "formula": "MORTGAGE30US, PMMS week ending Thursday September 24, 2026 (2026-09-24)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "asOf": "2026-09-24"
   },
   {
    "claimId": "term30",
@@ -83,32 +78,14 @@
    "historical": false,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a1-maya",
-    "a2-reset",
-    "a3-all",
-    "m-costs"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-maya.1"
-    },
-    {
-     "sentence": "a2-reset.1"
-    },
-    {
-     "sentence": "a3-all.1"
-    },
-    {
-     "sentence": "m-costs.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "seven",
    "value": 7,
    "display": "7",
-   "formula": "first digit of the latest weekly average rate (7.03%, week of 2026-09-24)",
+   "formula": "first digit of the MORTGAGE30US value for the PMMS week ending Thursday September 24, 2026 (7.03%)",
    "source": {
     "id": "fred-MORTGAGE30US",
     "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
@@ -117,24 +94,15 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a1-you",
-    "o-you"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-you.1"
-    },
-    {
-     "sentence": "o-you.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": [],
+   "asOf": "2026-09-24"
   },
   {
    "claimId": "cut_today",
    "value": 0.59,
    "display": "0.59",
-   "formula": "7.62% (October 2023 mean) - 7.03% (week of 2026-09-24)",
+   "formula": "7.62% (October 2023 monthly mean) - 7.03% (PMMS week ending Thursday September 24, 2026)",
    "source": {
     "id": "fred-MORTGAGE30US",
     "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
@@ -146,21 +114,16 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-today"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-today.1"
-    }
-   ],
-   "core": true
+   "shownIn": [],
+   "spoken": [],
+   "core": true,
+   "asOf": "2026-09-24"
   },
   {
    "claimId": "k35",
    "value": 35,
    "display": "35",
-   "formula": "monthly payments from October 2023 to 2026-09 (scenario: Maya has paid since she borrowed)",
+   "formula": "monthly payments counted from October 2023 to September 2026 (month of the date anchor September 24, 2026); scenario: each character has paid since borrowing",
    "source": {
     "id": "fred-MORTGAGE30US",
     "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
@@ -172,24 +135,15 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a2-old",
-    "a3-young"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-old.1"
-    },
-    {
-     "sentence": "a3-young.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": [],
+   "asOf": "2026-09-24"
   },
   {
-   "claimId": "loan_maya",
+   "claimId": "loan_median",
    "value": 375000.0,
    "display": "$375,000",
-   "formula": "median loan_amount, HMDA 2025, loan_purpose 31, all sizes (character Maya: ILLUSTRATIVE)",
+   "formula": "median loan_amount, HMDA 2025, loan_purpose 31, first lien, 360 months, all sizes (character median: ILLUSTRATIVE; binned amounts, so a bin midpoint)",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -199,17 +153,11 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [
-    "a1-maya"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-maya.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
-   "claimId": "cost_maya",
+   "claimId": "cost_median",
    "value": 5123.53,
    "display": "$5,124",
    "formula": "median total_loan_costs, HMDA 2025, loan_purpose 31, first lien, 360 months, all sizes",
@@ -221,40 +169,17 @@
    "historical": true,
    "illustrative": false,
    "basis": "nominal",
-   "callbacks": [
-    {
-     "scene": "a1-median",
-     "meaning": "Maya's bill is the national median"
-    },
-    {
-     "scene": "a3-median",
-     "meaning": "a median: half paid more"
-    }
-   ],
-   "shownIn": [
-    "co-cost",
-    "a1-median",
-    "a3-median"
-   ],
-   "spoken": [
-    {
-     "sentence": "co-cost.1"
-    },
-    {
-     "sentence": "a1-median.1"
-    },
-    {
-     "sentence": "a3-median.1"
-    }
-   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
    "core": true,
    "decisive": false
   },
   {
-   "claimId": "sav_maya",
+   "claimId": "sav_median",
    "value": 221.3018074230754,
    "display": "$221",
-   "formula": "payment($375,000, 7.62%, 360) - payment(balance after 35 payments $364,389, 7.03%, 360)",
+   "formula": "payment($375,000, 7.62%, 360) - payment(balance after 35 payments $364,389, 7.03% [PMMS week ending Thursday September 24, 2026], 360)",
    "source": {
     "id": "fred-MORTGAGE30US",
     "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
@@ -267,452 +192,16 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [
-    "a1-save"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-save.1"
-    }
-   ],
-   "model": "refi.both"
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.both",
+   "asOf": "2026-09-24"
   },
   {
-   "claimId": "be_simple_maya",
+   "claimId": "be_simple_median",
    "value": 24,
    "display": "24",
-   "formula": "ceil(cost_maya / sav_maya) (the simple division)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "callbacks": [],
-   "shownIn": [
-    "a1-rule",
-    "a2-gap",
-    "a2-real"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-rule.1"
-    },
-    {
-     "sentence": "a2-gap.1"
-    },
-    {
-     "sentence": "a2-real.1"
-    }
-   ],
-   "model": "refi.break_even_months"
-  },
-  {
-   "claimId": "be_bal_maya",
-   "value": 30,
-   "display": "30",
-   "formula": "first month m with savings x m + (old balance - new balance) >= closing cost (counting what is still owed)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "callbacks": [
-    {
-     "scene": "a3-today",
-     "meaning": "what today's cut means for Maya"
-    }
-   ],
-   "shownIn": [
-    "a2-real",
-    "a3-today"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-real.1"
-    },
-    {
-     "sentence": "a3-today.1"
-    }
-   ],
-   "model": "refi.break_even_balance",
-   "core": true,
-   "decisive": true
-  },
-  {
-   "claimId": "net36_maya",
-   "value": 1039.0512106753022,
-   "display": "$1,039",
-   "formula": "net_after(36 months): savings + balance difference - closing cost ($1,039)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a2-maya"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-maya.1"
-    }
-   ],
-   "model": "refi.net_after"
-  },
-  {
-   "claimId": "net84_maya",
-   "value": 8092.993053949721,
-   "display": "$8,093",
-   "formula": "net_after(84 months) ($8,093)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a2-maya"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-maya.1"
-    }
-   ],
-   "model": "refi.net_after"
-  },
-  {
-   "claimId": "cut36_maya",
-   "value": 0.5,
-   "display": "0.5",
-   "formula": "smallest rate cut with the balance-counting break-even <= 36 months (bisection)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "callbacks": [],
-   "shownIn": [
-    "a3-answer2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-answer2.1"
-    }
-   ],
-   "model": "refi.cut_for_break_even_balance",
-   "decisive": true,
-   "core": true
-  },
-  {
-   "claimId": "loan_dan",
-   "value": 115000.0,
-   "display": "$115,000",
-   "formula": "median loan_amount, HMDA 2025, loan_purpose 31, under $150k (character Dan: ILLUSTRATIVE)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYear": 2025,
-   "historical": true,
-   "illustrative": true,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a1-dan"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-dan.1"
-    }
-   ]
-  },
-  {
-   "claimId": "cost_dan",
-   "value": 3667.05,
-   "display": "$3,667",
-   "formula": "median total_loan_costs, HMDA 2025, loan_purpose 31, first lien, 360 months, under $150k",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYear": 2025,
-   "historical": true,
-   "illustrative": false,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a1-dan3"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-dan3.1"
-    }
-   ]
-  },
-  {
-   "claimId": "sav_dan",
-   "value": 67.86588760974325,
-   "display": "$68",
-   "formula": "payment($115,000, 7.62%, 360) - payment(balance after 35 payments $111,746, 7.03%, 360)",
-   "source": {
-    "id": "fred-MORTGAGE30US",
-    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
-   },
-   "dataYears": [
-    2023,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a2-dan"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-dan.1"
-    }
-   ],
-   "model": "refi.both"
-  },
-  {
-   "claimId": "be_simple_dan",
-   "value": 55,
-   "display": "55",
-   "formula": "ceil(cost_dan / sav_dan) (the simple division)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "callbacks": [],
-   "shownIn": [
-    "a2-dan2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-dan2.1"
-    }
-   ],
-   "model": "refi.break_even_months"
-  },
-  {
-   "claimId": "be_bal_dan",
-   "value": 75,
-   "display": "75",
-   "formula": "first month m with savings x m + (old balance - new balance) >= closing cost (counting what is still owed)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "callbacks": [],
-   "shownIn": [
-    "a2-dan2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-dan2.1"
-    }
-   ],
-   "model": "refi.break_even_balance"
-  },
-  {
-   "claimId": "net36_dan",
-   "value": -1777.1917620595937,
-   "display": "$1,777",
-   "formula": "net_after(36 months): savings + balance difference - closing cost (-$1,777)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a2-dan3"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-dan3.1"
-    }
-   ],
-   "model": "refi.net_after"
-  },
-  {
-   "claimId": "net84_dan",
-   "value": 386.0170698779193,
-   "display": "$386",
-   "formula": "net_after(84 months) ($386)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a2-dan4"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-dan4.1"
-    }
-   ],
-   "model": "refi.net_after"
-  },
-  {
-   "claimId": "cut36_dan",
-   "value": 1.12,
-   "display": "1.12",
-   "formula": "smallest rate cut with the balance-counting break-even <= 36 months (bisection)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "callbacks": [],
-   "shownIn": [
-    "a3-answer3"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-answer3.1"
-    }
-   ],
-   "model": "refi.cut_for_break_even_balance"
-  },
-  {
-   "claimId": "loan_priya",
-   "value": 1005000.0,
-   "display": "$1,005,000",
-   "formula": "median loan_amount, HMDA 2025, loan_purpose 31, $750k and over (character Priya: ILLUSTRATIVE)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYear": 2025,
-   "historical": true,
-   "illustrative": true,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a1-priya"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-priya.1"
-    }
-   ]
-  },
-  {
-   "claimId": "cost_priya",
-   "value": 5033.725,
-   "display": "$5,034",
-   "formula": "median total_loan_costs, HMDA 2025, loan_purpose 31, first lien, 360 months, $750k and over",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYear": 2025,
-   "historical": true,
-   "illustrative": false,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a1-priya3"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-priya3.1"
-    }
-   ]
-  },
-  {
-   "claimId": "sav_priya",
-   "value": 593.0888438938418,
-   "display": "$593",
-   "formula": "payment($1,005,000, 7.62%, 360) - payment(balance after 35 payments $976,562, 7.03%, 360)",
-   "source": {
-    "id": "fred-MORTGAGE30US",
-    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
-   },
-   "dataYears": [
-    2023,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a2-priya"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-priya.1"
-    }
-   ],
-   "model": "refi.both"
-  },
-  {
-   "claimId": "be_simple_priya",
-   "value": 9,
-   "display": "9",
-   "formula": "ceil(cost_priya / sav_priya) (the simple division)",
+   "formula": "ceil(cost_median / sav_median) (the simple division), rate of September 24, 2026",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -726,13 +215,14 @@
    "callbacks": [],
    "shownIn": [],
    "spoken": [],
-   "model": "refi.break_even_months"
+   "model": "refi.break_even_months",
+   "asOf": "2026-09-24"
   },
   {
-   "claimId": "be_bal_priya",
-   "value": 11,
-   "display": "11",
-   "formula": "first month m with savings x m + (old balance - new balance) >= closing cost (counting what is still owed)",
+   "claimId": "be_bal_median",
+   "value": 30,
+   "display": "30",
+   "formula": "first month m with savings x m + (old balance - new balance) >= closing cost (counting what is still owed), rate of September 24, 2026",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -744,48 +234,18 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a2-priya"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-priya.1"
-    }
-   ],
-   "model": "refi.break_even_balance"
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.break_even_balance",
+   "asOf": "2026-09-24",
+   "core": true,
+   "decisive": true
   },
   {
-   "claimId": "net36_priya",
-   "value": 11481.992644610042,
-   "display": "$11,482",
-   "formula": "net_after(36 months): savings + balance difference - closing cost ($11,482)",
-   "source": {
-    "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
-   },
-   "dataYears": [
-    2023,
-    2025
-   ],
-   "historical": true,
-   "illustrative": true,
-   "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [
-    "a2-priya2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-priya2.1"
-    }
-   ],
-   "model": "refi.net_after"
-  },
-  {
-   "claimId": "net84_priya",
-   "value": 30386.5567845856,
-   "display": "$30,387",
-   "formula": "net_after(84 months) ($30,387)",
+   "claimId": "net36_median",
+   "value": 1039.0512106753022,
+   "display": "$1,039",
+   "formula": "net_after(36 months) = savings + balance difference - closing cost ($1,039; sign shown by wording), rate of September 24, 2026",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -798,21 +258,38 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [
-    "a2-priya2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-priya2.1"
-    }
-   ],
-   "model": "refi.net_after"
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.net_after",
+   "asOf": "2026-09-24"
   },
   {
-   "claimId": "cut36_priya",
-   "value": 0.2,
-   "display": "0.2",
-   "formula": "smallest rate cut with the balance-counting break-even <= 36 months (bisection)",
+   "claimId": "net84_median",
+   "value": 8092.993053949721,
+   "display": "$8,093",
+   "formula": "net_after(84 months) ($8,093), rate of September 24, 2026",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.net_after",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "cut36_median",
+   "value": 0.5,
+   "display": "0.5",
+   "formula": "smallest rate cut below 7.62% with the balance-counting break-even <= 36 months (bisection); independent of the date anchor except through k = 35",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -824,21 +301,348 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a3-answer3"
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.cut_for_break_even_balance",
+   "decisive": true,
+   "core": true
+  },
+  {
+   "claimId": "loan_small",
+   "value": 115000.0,
+   "display": "$115,000",
+   "formula": "median loan_amount, HMDA 2025, loan_purpose 31, first lien, 360 months, under $150k (character small: ILLUSTRATIVE; binned amounts, so a bin midpoint)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "cost_small",
+   "value": 3667.05,
+   "display": "$3,667",
+   "formula": "median total_loan_costs, HMDA 2025, loan_purpose 31, first lien, 360 months, under $150k",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "sav_small",
+   "value": 67.86588760974325,
+   "display": "$68",
+   "formula": "payment($115,000, 7.62%, 360) - payment(balance after 35 payments $111,746, 7.03% [PMMS week ending Thursday September 24, 2026], 360)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2023,
+    2026
    ],
-   "spoken": [
-    {
-     "sentence": "a3-answer3.1"
-    }
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.both",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "be_simple_small",
+   "value": 55,
+   "display": "55",
+   "formula": "ceil(cost_small / sav_small) (the simple division), rate of September 24, 2026",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
    ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.break_even_months",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "be_bal_small",
+   "value": 75,
+   "display": "75",
+   "formula": "first month m with savings x m + (old balance - new balance) >= closing cost (counting what is still owed), rate of September 24, 2026",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.break_even_balance",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "net36_small",
+   "value": -1777.1917620595937,
+   "display": "$1,777",
+   "formula": "net_after(36 months) = savings + balance difference - closing cost (-$1,777; sign shown by wording), rate of September 24, 2026",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.net_after",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "net84_small",
+   "value": 386.0170698779193,
+   "display": "$386",
+   "formula": "net_after(84 months) ($386), rate of September 24, 2026",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.net_after",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "cut36_small",
+   "value": 1.12,
+   "display": "1.12",
+   "formula": "smallest rate cut below 7.62% with the balance-counting break-even <= 36 months (bisection); independent of the date anchor except through k = 35",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.cut_for_break_even_balance"
+  },
+  {
+   "claimId": "loan_large",
+   "value": 655000.0,
+   "display": "$655,000",
+   "formula": "median loan_amount, HMDA 2025, loan_purpose 31, first lien, 360 months, conforming_loan_limit = C, loan_amount 600,000-719,999 (10k-bin midpoints 605,000-715,000) (character large: ILLUSTRATIVE; binned amounts, so a bin midpoint)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "cost_large",
+   "value": 5513.97,
+   "display": "$5,514",
+   "formula": "median total_loan_costs, HMDA 2025, loan_purpose 31, first lien, 360 months, conforming_loan_limit = C, loan_amount 600,000-719,999 (10k-bin midpoints 605,000-715,000)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "sav_large",
+   "value": 386.54049029897214,
+   "display": "$387",
+   "formula": "payment($655,000, 7.62%, 360) - payment(balance after 35 payments $636,466, 7.03% [PMMS week ending Thursday September 24, 2026], 360)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2023,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.both",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "be_simple_large",
+   "value": 15,
+   "display": "15",
+   "formula": "ceil(cost_large / sav_large) (the simple division), rate of September 24, 2026",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.break_even_months",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "be_bal_large",
+   "value": 18,
+   "display": "18",
+   "formula": "first month m with savings x m + (old balance - new balance) >= closing cost (counting what is still owed), rate of September 24, 2026",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.break_even_balance",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "net36_large",
+   "value": 5250.005181312897,
+   "display": "$5,250",
+   "formula": "net_after(36 months) = savings + balance difference - closing cost ($5,250; sign shown by wording), rate of September 24, 2026",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.net_after",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "net84_large",
+   "value": 17570.890267565774,
+   "display": "$17,571",
+   "formula": "net_after(84 months) ($17,571), rate of September 24, 2026",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.net_after",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "cut36_large",
+   "value": 0.32,
+   "display": "0.32",
+   "formula": "smallest rate cut below 7.62% with the balance-counting break-even <= 36 months (bisection); independent of the date anchor except through k = 35",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.cut_for_break_even_balance"
   },
   {
    "claimId": "gap24",
    "value": 1132.951085689303,
    "display": "$1,133",
-   "formula": "new balance - old balance after 24 months (Maya)",
+   "formula": "new balance - old balance after 24 months (median character), rate of September 24, 2026",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -851,15 +655,10 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [
-    "a2-gap"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-gap.1"
-    }
-   ],
-   "model": "refi.balance_after"
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.balance_after",
+   "asOf": "2026-09-24"
   },
   {
    "claimId": "hold36",
@@ -870,18 +669,8 @@
    "historical": false,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a1-rehook",
-    "a3-answer2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-rehook.1"
-    },
-    {
-     "sentence": "a3-answer2.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "y3",
@@ -892,22 +681,8 @@
    "historical": false,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a2-dan3",
-    "a2-priya2",
-    "a2-maya"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-dan3.1"
-    },
-    {
-     "sentence": "a2-priya2.1"
-    },
-    {
-     "sentence": "a2-maya.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "y7",
@@ -918,22 +693,8 @@
    "historical": false,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a2-dan4",
-    "a2-priya2",
-    "a2-maya"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-dan4.1"
-    },
-    {
-     "sentence": "a2-priya2.1"
-    },
-    {
-     "sentence": "a2-maya.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "s025",
@@ -944,14 +705,8 @@
    "historical": false,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a2-s025"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-s025.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "s05",
@@ -962,14 +717,8 @@
    "historical": false,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a2-cliff"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-cliff.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "s10",
@@ -980,47 +729,14 @@
    "historical": false,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a2-s10",
-    "a3-all",
-    "a3-rules",
-    "a3-turn",
-    "a3-example2",
-    "a3-23",
-    "m-drops"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-s10.1"
-    },
-    {
-     "sentence": "a3-all.1"
-    },
-    {
-     "sentence": "a3-rules.1"
-    },
-    {
-     "sentence": "a3-turn.1"
-    },
-    {
-     "sentence": "a3-example2.1"
-    },
-    {
-     "sentence": "a3-23.1"
-    },
-    {
-     "sentence": "m-drops.1"
-    },
-    {
-     "sentence": "m-drops.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "be_simple_025",
    "value": 38,
    "display": "38",
-   "formula": "simple division for Maya at a cut of 0.25 point(s)",
+   "formula": "simple division for the median character at a cut of 0.25 point(s) below 7.62%",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -1032,21 +748,75 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a2-s025"
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.both"
+  },
+  {
+   "claimId": "be_bal_025",
+   "value": null,
+   "display": "never",
+   "formula": "balance-counting break-even for the median character at a cut of 0.25 point(s): not reached before the old loan ends",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
    ],
-   "spoken": [
-    {
-     "sentence": "a2-s025.1"
-    }
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.both"
+  },
+  {
+   "claimId": "be_simple_05",
+   "value": 26,
+   "display": "26",
+   "formula": "simple division for the median character at a cut of 0.5 point(s) below 7.62%",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
    ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.both"
+  },
+  {
+   "claimId": "be_bal_05",
+   "value": 36,
+   "display": "36",
+   "formula": "balance-counting break-even for the median character at a cut of 0.5 point(s) below 7.62%",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.both"
   },
   {
    "claimId": "be_simple_10",
    "value": 16,
    "display": "16",
-   "formula": "simple division for Maya at a cut of 1 point(s)",
+   "formula": "simple division for the median character at a cut of 1 point(s) below 7.62%",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -1058,21 +828,15 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a2-s10b"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-s10b.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.both"
   },
   {
    "claimId": "be_bal_10",
    "value": 18,
    "display": "18",
-   "formula": "balance-counting break-even for Maya at a cut of 1 point(s)",
+   "formula": "balance-counting break-even for the median character at a cut of 1 point(s) below 7.62%",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -1084,14 +848,8 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a2-s10b"
-   ],
-   "spoken": [
-    {
-     "sentence": "a2-s10b.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.both"
   },
   {
@@ -1107,18 +865,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a1-rehook",
-    "a3-all"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-rehook.1"
-    },
-    {
-     "sentence": "a3-all.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "y2025",
@@ -1133,18 +881,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a1-median",
-    "m-costs"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-median.1"
-    },
-    {
-     "sentence": "m-costs.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "y2018",
@@ -1159,22 +897,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a1-hmda",
-    "a3-costs",
-    "m-costs"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-hmda.1"
-    },
-    {
-     "sentence": "a3-costs.1"
-    },
-    {
-     "sentence": "m-costs.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "y2017",
@@ -1189,20 +913,14 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "m-rates"
-   ],
-   "spoken": [
-    {
-     "sentence": "m-rates.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "n31",
    "value": 488241,
    "display": "488,241",
-   "formula": "count, HMDA 2025, loan_purpose 31, first lien, 360 months, total_loan_costs > 0",
+   "formula": "count, HMDA 2025, loan_purpose 31, originated, first lien, 360 months, total_loan_costs > 0",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -1211,14 +929,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a1-count"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-count.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "cost_p25",
@@ -1234,14 +946,8 @@
    "illustrative": false,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [
-    "a1-spread"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-spread.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "cost_p75",
@@ -1257,14 +963,8 @@
    "illustrative": false,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [
-    "a1-spread"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-spread.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "band150",
@@ -1276,35 +976,102 @@
    "illustrative": false,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [
-    "a1-dan2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-dan2.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "role": "axis"
   },
   {
    "claimId": "band750",
    "value": 750000,
    "display": "$750,000",
-   "formula": "loan-size band edge (analysis parameter)",
+   "formula": "loan-size band edge (analysis parameter; context band, not a character)",
    "source": null,
    "historical": false,
    "illustrative": false,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [
-    "a1-priya2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-priya2.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "role": "axis"
+  },
+  {
+   "claimId": "band600",
+   "value": 600000,
+   "display": "$600,000",
+   "formula": "lower edge of the large character band (analysis parameter)",
+   "source": null,
+   "historical": false,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "band720",
+   "value": 720000,
+   "display": "$720,000",
+   "formula": "upper edge (exclusive) of the large character band: keeps the October 2023 loan under the 2023 baseline limit (analysis parameter)",
+   "source": null,
+   "historical": false,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "cll2023",
+   "value": 726200,
+   "display": "$726,200",
+   "formula": "FHFA baseline conforming loan limit 2023, one-unit property, most of the US (WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch)",
+   "source": {
+    "id": "fhfa-cll",
+    "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2023"
+   },
+   "dataYear": 2023,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "cll2025",
+   "value": 806500,
+   "display": "$806,500",
+   "formula": "FHFA baseline conforming loan limit 2025, one-unit property, most of the US (WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch)",
+   "source": {
+    "id": "fhfa-cll",
+    "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2025"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "cll2026",
+   "value": 832750,
+   "display": "$832,750",
+   "formula": "FHFA baseline conforming loan limit 2026, one-unit property, most of the US (WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch)",
+   "source": {
+    "id": "fhfa-cll",
+    "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026"
+   },
+   "dataYear": 2026,
+   "historical": false,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "share_small",
@@ -1319,20 +1086,14 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a1-dan2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-dan2.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
-   "claimId": "share_big",
-   "value": 0.4717,
-   "display": "0.5%",
-   "formula": "same, loans $750k and over",
+   "claimId": "share_median",
+   "value": 1.4982,
+   "display": "1.5%",
+   "formula": "median total_loan_costs / loan_amount, HMDA 2025, loan_purpose 31, all sizes",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -1341,14 +1102,58 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a1-priya2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a1-priya2.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_large",
+   "value": 0.8476,
+   "display": "0.8%",
+   "formula": "median total_loan_costs / loan_amount, HMDA 2025, loan_purpose 31, conforming (C), $600,000 to under $720,000",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_large",
+   "value": 36385,
+   "display": "36,385",
+   "formula": "count of loans in the large character band, HMDA 2025",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_small",
+   "value": 25038,
+   "display": "25,038",
+   "formula": "count of loans in the small character band, HMDA 2025",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "n_eps",
@@ -1366,21 +1171,15 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-all"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-all.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.drop_episodes"
   },
   {
    "claimId": "beh_min",
    "value": 10,
    "display": "10",
-   "formula": "min balance-counting break-even over the episodes, refinance at a 1-point cut",
+   "formula": "min balance-counting break-even over the episodes, refinance at a 1-point cut ($300,000 ILLUSTRATIVE loan)",
    "source": {
     "id": "fred-MORTGAGE30US",
     "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
@@ -1392,14 +1191,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-range"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-range.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1418,14 +1211,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-range"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-range.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1444,14 +1231,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-simple"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-simple.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1470,14 +1251,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-simple"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-simple.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1496,14 +1271,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-turn"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-turn.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1522,14 +1291,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-quiet"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-quiet.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1545,14 +1308,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-example"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-example.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "ex_refi",
@@ -1567,14 +1324,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-example"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-example.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "ex_be",
@@ -1589,14 +1340,8 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a3-example2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-example2.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1612,14 +1357,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-example2"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-example2.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1635,14 +1374,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-23"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-23.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "be23",
@@ -1657,21 +1390,15 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-23be"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-23be.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
    "claimId": "behd_min",
    "value": 18,
    "display": "18",
-   "formula": "min balance-counting break-even over the episodes with the under-$150k cost share (Dan-like loans)",
+   "formula": "min balance-counting break-even over the episodes with the under-$150k cost share (small-character-like loans)",
    "source": {
     "id": "hmda-lar",
     "url": "https://ffiec.cfpb.gov/data-browser/"
@@ -1683,14 +1410,8 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a3-dan"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-dan.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1709,24 +1430,19 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a3-dan"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-dan.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
-   "claimId": "behp_max",
-   "value": 6,
-   "display": "6",
-   "formula": "max balance-counting break-even over the episodes with the $750k+ cost share (Priya-like loans)",
+   "claimId": "behl_max",
+   "value": 11,
+   "display": "11",
+   "formula": "max balance-counting break-even over the episodes with the large band cost share of 2025 (0.85%) applied to every year",
    "source": {
     "id": "hmda-lar",
-    "url": "https://ffiec.cfpb.gov/data-browser/"
+    "url": "https://ffiec.cfpb.gov/data-browser/",
+    "file": "data/normalized/hmda_refi31_conforming.csv"
    },
    "dataYears": [
     1971,
@@ -1735,14 +1451,8 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a3-priya"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-priya.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1758,14 +1468,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-81"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-81.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": []
   },
   {
    "claimId": "m81",
@@ -1780,14 +1484,8 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-81b"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-81b.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
@@ -1803,21 +1501,15 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [
-    "a3-81b"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-81b.1"
-    }
-   ],
+   "shownIn": [],
+   "spoken": [],
    "model": "refi.history"
   },
   {
    "claimId": "peak",
    "value": 18.63,
    "display": "18.63%",
-   "formula": "max of MORTGAGE30US weekly (week of 1981-10-09)",
+   "formula": "max of MORTGAGE30US weekly (week ending October 9, 1981)",
    "source": {
     "id": "fred-MORTGAGE30US",
     "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
@@ -1826,25 +1518,221 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [
-    "a3-81"
-   ],
-   "spoken": [
-    {
-     "sentence": "a3-81.1"
-    }
-   ]
+   "shownIn": [],
+   "spoken": [],
+   "date": "1981-10-09"
   },
   {
    "claimId": "low",
    "value": 2.65,
    "display": "2.65%",
-   "formula": "min of MORTGAGE30US weekly (week of 2021-01-07)",
+   "formula": "min of MORTGAGE30US weekly (week ending January 7, 2021)",
    "source": {
     "id": "fred-MORTGAGE30US",
     "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
    },
    "dataYear": 2021,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2021-01-07"
+  },
+  {
+   "claimId": "low_date",
+   "value": "2021-01-07",
+   "display": "January 7, 2021",
+   "formula": "week of the all-time weekly low of MORTGAGE30US",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2021,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "rise_since_low",
+   "value": 4.38,
+   "display": "4.38",
+   "formula": "7.03% (September 24, 2026) - 2.65% (January 7, 2021), percentage points",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2021,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "peak2023",
+   "value": 7.79,
+   "display": "7.79%",
+   "formula": "max weekly MORTGAGE30US in 2023 (week ending October 26, 2023)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2023,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2023-10-26"
+  },
+  {
+   "claimId": "peak2023_since",
+   "value": 2000,
+   "display": "2000",
+   "formula": "last week before 2023-10-26 with a weekly rate >= 7.79% (week ending November 10, 2000, 7.79%): \"highest since 2000\"",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2000,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2000-11-10"
+  },
+  {
+   "claimId": "today_since",
+   "value": "2025-01-16",
+   "display": "January 16, 2025",
+   "formula": "last week before September 24, 2026 with a weekly rate >= 7.03% (7.04%)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2025-01-16"
+  },
+  {
+   "claimId": "r_year_ago",
+   "value": 6.3,
+   "display": "6.30%",
+   "formula": "MORTGAGE30US, week ending September 25, 2025 (52 weeks before the date anchor)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2025-09-25"
+  },
+  {
+   "claimId": "n31_conforming",
+   "value": 457217,
+   "display": "457,217",
+   "formula": "of the n31 loans, count with conforming_loan_limit = C (HMDA 2025)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "conv_share31",
+   "value": 54.6,
+   "display": "55%",
+   "formula": "share of the n31 loans with loan_type = 1 (conventional; the rest FHA/VA/USDA), HMDA 2025",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "rate31_p50",
+   "value": 6.0,
+   "display": "6.00%",
+   "formula": "median interest_rate of the n31 loans (new rate-and-term refinances originated in 2025)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "purch23_ge7",
+   "value": 30.3,
+   "display": "30%",
+   "formula": "share of 2023 home-purchase originations (first lien, 360 months, interest_rate reported) with interest_rate >= 7.00%",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2023,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "purch23_n_ge7",
+   "value": 881835,
+   "display": "881,835",
+   "formula": "count of the same loans at >= 7.00%",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2023,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "purch23_n",
+   "value": 2906771,
+   "display": "2,906,771",
+   "formula": "2023 home-purchase originations, first lien, 360 months, interest_rate reported",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2023,
    "historical": true,
    "illustrative": false,
    "callbacks": [],

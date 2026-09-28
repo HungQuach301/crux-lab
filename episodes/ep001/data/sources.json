@@ -9,6 +9,15 @@
    "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
    "downloaded": "2026-09-28",
    "bytes": 46931,
+   "latestObservation": {
+    "date": "2026-09-24",
+    "value": "7.03",
+    "frequencyQuote": "Frequency: Weekly, Ending Thursday",
+    "updatedQuote": "Updated: Sep 24, 2026 11:02 AM CDT",
+    "nextReleaseQuote": "Next Release Date: Oct 1, 2026",
+    "quotedFrom": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "retrieved": "2026-09-28"
+   },
    "terms": {
     "quote": "Notes: On November 17, 2022, Freddie Mac changed the methodology of the Primary Mortgage Market Survey® (PMMS®). The weekly mortgage rate is now based on applications submitted to Freddie Mac from lenders across the country. For more information regarding Freddie Mac’s enhancement, see their research note . Data are provided “as is” by Freddie Mac®, with no warranties of any kind, express or implied, including but not limited to warranties of accuracy or implied warranties of merchantability or fitness for a particular purpose. Use of the data is at the user’s sole risk. In no event will Freddie Mac be liable for any damages arising out of or related to the data, including but not limited to direct, indirect, incidental, special, consequential, or punitive damages, whether under a contract, tort, or any other theory of liability, even if Freddie Mac is aware of the possibility of such damages. Copyright, 2016, Freddie Mac. Reprinted with permission.",
     "url": "https://fred.stlouisfed.org/series/MORTGAGE30US#notes",
@@ -28,6 +37,15 @@
    "sha256": "e73ec643f02cdbbdcf90d90c494a1b66b745b9155c0b62bfcfb010be62271e1a",
    "downloaded": "2026-09-28",
    "bytes": 42656,
+   "latestObservation": {
+    "date": "2026-09-25",
+    "value": "7.225",
+    "frequencyQuote": "Frequency: Daily",
+    "updatedQuote": "Updated: Sep 28, 2026 7:02 AM CDT",
+    "nextReleaseQuote": "Next Release Date: Sep 29, 2026",
+    "quotedFrom": "https://fred.stlouisfed.org/series/OBMMIC30YF",
+    "retrieved": "2026-09-28"
+   },
    "terms": {
     "quote": "Notes: Optimal Blue Mortgage Market Indices ™ (OBMMI™) is calculated from actual locked rates with consumers across over one-third of all mortgage transactions nationwide. OBMMI includes multiple mortgage pricing indices developed around the most popular products and specific borrower and loan level attributes. Each index is calculated as the average of all appropriate rate locks locked through the Optimal Blue product eligibility and pricing engine on a given day. More details about methodology and definitions are available here .",
     "url": "https://fred.stlouisfed.org/series/OBMMIC30YF#notes",
@@ -53,7 +71,7 @@
  "notUsed": [
   {
    "source": "HMDA loan-level data (ffiec.cfpb.gov / files.ffiec.cfpb.gov / s3 cfpb-hmda-public)",
-   "status": "not reachable from this environment (proxy 403 / S3 AccessDenied), see data/HMDA-ACCESS.md"
+   "status": "not a FRED file: streamed from ffiec.cfpb.gov (files.ffiec.cfpb.gov now reachable), not stored; SHA-256, URLs and terms in data/hmda-sources.json (HMDA-ACCESS.md is the earlier blocked-access record)"
   }
  ]
 }

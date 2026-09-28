@@ -9,7 +9,7 @@ Definitions (all nominal dollars, US only):
                          balance B and remaining term n_old, versus a new 30-year loan for the same balance
   break-even months      closing costs C / s, rounded up to a whole month (the month in which the saved payments first
                          reach C). Closing costs paid in cash, not rolled into the loan; no tax effect; no discounting
-                         (the CFPB's own presentation of break-even). s <= 0 -> never.
+                         (the common "costs / monthly savings" presentation). s <= 0 -> never.
   balance check          the new 30-year loan amortises more slowly than the old one; `balance_gap(months)` reports how
                          much more principal is still owed on the new loan after m months, so the film can say what the
                          simple break-even leaves out.

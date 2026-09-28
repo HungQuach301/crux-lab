@@ -1,0 +1,18 @@
+{
+ "_note": "FHFA baseline conforming loan limits (one-unit property, most of the US). www.fhfa.gov (also singlefamily.fanniemae.com, freddiemac.com, federalregister.gov) is blocked by the network egress proxy from this environment for curl AND WebFetch (EGRESS_BLOCKED, checked 2026-09-28). The quotes below are the text of the FHFA news releases as returned by the WebSearch tool for those exact fhfa.gov URLs on 2026-09-28 (search-index excerpt, not a direct page fetch). Owner action to make them first-hand: open the URLs and confirm the sentence, or allow host www.fhfa.gov. Cross-check in our own data: HMDA 2025 flag conforming_loan_limit (C/NC) is county-specific; every loan in the large-character band (< $720,000) is below all three values.",
+ "2023": {"value": 726200, "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2023",
+          "quote": "In most of the United States, the 2023 conforming loan limit (CLL) value for one-unit properties is $726,200, an increase of $79,000 from $647,200 in 2022.",
+          "how": "WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch", "retrieved": "2026-09-28"},
+ "2025": {"value": 806500, "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2025",
+          "quote": "In most of the United States, the 2025 CLL value for one-unit properties will be $806,500, an increase of $39,950 (or 5.2 percent) from 2024.",
+          "released": "2024-11-26",
+          "how": "WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch", "retrieved": "2026-09-28"},
+ "2026": {"value": 832750, "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026",
+          "quote": "In most of the United States, the 2026 conforming loan limit (CLL) value for one-unit properties will be $832,750, an increase of $26,250 from 2025.",
+          "ceilingQuote": "the new ceiling loan limit for one-unit properties will be $1,249,125, which is 150 percent of $832,750.",
+          "consistency": "832,750 - 26,250 = 806,500 = the 2025 value above",
+          "how": "WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch", "retrieved": "2026-09-28"},
+ "hmdaFlag": {"url": "https://ffiec.cfpb.gov/documentation/publications/loan-level-datasets/lar-data-fields", "retrieved": "2026-09-28",
+              "quote": "conforming_loan_limit Description: Indicates whether the reported loan amount exceeds the GSE (government sponsored enterprise) conforming loan limit Values: C (Conforming) NC (Nonconforming) U (Undetermined) NA (Not Applicable)",
+              "how": "curl, direct page text"}
+}

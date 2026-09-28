@@ -7,7 +7,7 @@
   "todayRate": 7.03
  },
  "characters": {
-  "maya": {
+  "median": {
    "loan": 375000.0,
    "cost": 5123.53,
    "balance": 364388.96896570234,
@@ -19,7 +19,7 @@
    "cut36": 0.4954232883874785,
    "cut84": 0.27575620861438527
   },
-  "dan": {
+  "small": {
    "loan": 115000.0,
    "cost": 3667.05,
    "balance": 111745.95048281539,
@@ -31,20 +31,20 @@
    "cut36": 1.117936255569768,
    "cut84": 0.5410806976665402
   },
-  "priya": {
-   "loan": 1005000.0,
-   "cost": 5033.725,
-   "balance": 976562.4368280822,
-   "monthlySavings": 593.0888438938418,
-   "simple": 9,
-   "withBalance": 11,
-   "net36": 11481.992644610042,
-   "net84": 30386.5567845856,
-   "cut36": 0.20016928049172167,
-   "cut84": 0.14898129321129128
+  "large": {
+   "loan": 655000.0,
+   "cost": 5513.97,
+   "balance": 636466.0657934267,
+   "monthlySavings": 386.54049029897214,
+   "simple": 15,
+   "withBalance": 18,
+   "net36": 5250.005181312897,
+   "net84": 17570.890267565774,
+   "cut36": 0.31647165906411306,
+   "cut84": 0.199486904268126
   }
  },
- "mayaByCut": {
+ "medianByCut": {
   "0.25": {
    "balance": 364388.96896570234,
    "monthlySavings": 137.43437718661153,
@@ -80,6 +80,54 @@
    "monthlySavings": 556.4585491378325,
    "simple": 10,
    "withBalance": 9
+  }
+ },
+ "dateAnchor": {
+  "date": "2026-09-24",
+  "text": "September 24, 2026",
+  "meaning": "PMMS week ending Thursday September 24, 2026",
+  "fred": {
+   "date": "2026-09-24",
+   "value": "7.03",
+   "frequencyQuote": "Frequency: Weekly, Ending Thursday",
+   "updatedQuote": "Updated: Sep 24, 2026 11:02 AM CDT",
+   "nextReleaseQuote": "Next Release Date: Oct 1, 2026",
+   "quotedFrom": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "retrieved": "2026-09-28"
+  }
+ },
+ "largeBand": "$600k-<$720k, conforming (C)",
+ "conformingLimits": {
+  "_note": "FHFA baseline conforming loan limits (one-unit property, most of the US). www.fhfa.gov (also singlefamily.fanniemae.com, freddiemac.com, federalregister.gov) is blocked by the network egress proxy from this environment for curl AND WebFetch (EGRESS_BLOCKED, checked 2026-09-28). The quotes below are the text of the FHFA news releases as returned by the WebSearch tool for those exact fhfa.gov URLs on 2026-09-28 (search-index excerpt, not a direct page fetch). Owner action to make them first-hand: open the URLs and confirm the sentence, or allow host www.fhfa.gov. Cross-check in our own data: HMDA 2025 flag conforming_loan_limit (C/NC) is county-specific; every loan in the large-character band (< $720,000) is below all three values.",
+  "2023": {
+   "value": 726200,
+   "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2023",
+   "quote": "In most of the United States, the 2023 conforming loan limit (CLL) value for one-unit properties is $726,200, an increase of $79,000 from $647,200 in 2022.",
+   "how": "WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch",
+   "retrieved": "2026-09-28"
+  },
+  "2025": {
+   "value": 806500,
+   "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2025",
+   "quote": "In most of the United States, the 2025 CLL value for one-unit properties will be $806,500, an increase of $39,950 (or 5.2 percent) from 2024.",
+   "released": "2024-11-26",
+   "how": "WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch",
+   "retrieved": "2026-09-28"
+  },
+  "2026": {
+   "value": 832750,
+   "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026",
+   "quote": "In most of the United States, the 2026 conforming loan limit (CLL) value for one-unit properties will be $832,750, an increase of $26,250 from 2025.",
+   "ceilingQuote": "the new ceiling loan limit for one-unit properties will be $1,249,125, which is 150 percent of $832,750.",
+   "consistency": "832,750 - 26,250 = 806,500 = the 2025 value above",
+   "how": "WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch",
+   "retrieved": "2026-09-28"
+  },
+  "hmdaFlag": {
+   "url": "https://ffiec.cfpb.gov/documentation/publications/loan-level-datasets/lar-data-fields",
+   "retrieved": "2026-09-28",
+   "quote": "conforming_loan_limit Description: Indicates whether the reported loan amount exceeds the GSE (government sponsored enterprise) conforming loan limit Values: C (Conforming) NC (Nonconforming) U (Undetermined) NA (Not Applicable)",
+   "how": "curl, direct page text"
   }
  },
  "gapAtSimpleBreakEven": 1132.951085689303,

@@ -66,9 +66,18 @@ def main():
         notes_q = page[k:page.find('Suggested Citation', k)].strip()
         m = re.search(r'Suggested Citation: (.*?https://fred\.stlouisfed\.org/series/\w+)', page)
         status = re.search(r'Copyrighted: [A-Za-z ]+?(?= |$)|Public Domain: [A-Za-z ]+?(?= |$)', page)
+        fq = re.search(r'Frequency: [^:]*?(?= Notes:| Fullscreen)', page)
+        up = re.search(r'Updated: [A-Z][a-z]{2} \d{1,2}, \d{4} [\d:]+ [AP]M [A-Z]{3}', page)
+        nr = re.search(r'Next Release Date: [A-Z][a-z]{2} \d{1,2}, \d{4}', page)
+        last = [l.split(',') for l in r.text.strip().splitlines()[1:] if not l.endswith(',.') and not l.endswith(',')][-1]
         files.append({'path': os.path.relpath(p, os.path.join(HERE, '..')), 'role': role, 'series': sid, 'url': url,
                       'seriesPage': f'https://fred.stlouisfed.org/series/{sid}', 'sha256': sha(p), 'downloaded': today,
                       'bytes': len(r.content),
+                      'latestObservation': {'date': last[0], 'value': last[1],
+                                            'frequencyQuote': fq.group(0).strip() if fq else None,
+                                            'updatedQuote': up.group(0) if up else None,
+                                            'nextReleaseQuote': nr.group(0) if nr else None,
+                                            'quotedFrom': f'https://fred.stlouisfed.org/series/{sid}', 'retrieved': today},
                       'terms': {'quote': notes_q, 'url': f'https://fred.stlouisfed.org/series/{sid}#notes',
                                 'fredCopyrightStatus': 'Copyrighted: Citation Required' if 'itation' in (status.group(0) if status else 'itation') else status.group(0),
                                 'fredLegalQuote': legal_q, 'fredLegalProhibitedQuote': prohibited_q, 'fredLegalUrl': LEGAL,
@@ -103,7 +112,7 @@ def main():
                                  'outsideTolerance': len(mism)},
            'mismatches': mism,
            'notUsed': [{'source': 'HMDA loan-level data (ffiec.cfpb.gov / files.ffiec.cfpb.gov / s3 cfpb-hmda-public)',
-                        'status': 'not reachable from this environment (proxy 403 / S3 AccessDenied), see data/HMDA-ACCESS.md'}]}
+                        'status': 'not a FRED file: streamed from ffiec.cfpb.gov (files.ffiec.cfpb.gov now reachable), not stored; SHA-256, URLs and terms in data/hmda-sources.json (HMDA-ACCESS.md is the earlier blocked-access record)'}]}
     json.dump(src, open(os.path.join(HERE, 'sources.json'), 'w'), indent=1, ensure_ascii=False)
     print(json.dumps(src['crosscheckSummary']), [(f['series'], f['sha256'][:12], f['bytes']) for f in files])
 

@@ -217,5 +217,63 @@
  },
  "observations": {
   "loanAmountBinned": "loan_amount values in the public data end in 5,000 (e.g. 115000, 225000, 375000): amounts are published binned, so medians of loan_amount are bin midpoints"
+ },
+ "extFiles": [
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2025&actions_taken=1&loan_purposes=31",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2025/filtered-queries/snapshot/2ba8385d0c5c31e09745f643a3a9918f.csv",
+   "sha256": "f7b407dfa195fdde54cdbf7733dae3608700a447f6d1814d02668ae72b157c91",
+   "bytes": 401285617,
+   "rowsRead": 1042078,
+   "rowsKept": 573096,
+   "seconds": 16.0,
+   "year": 2025,
+   "downloaded": "2026-09-28",
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=31, nationwide",
+    "client": "action_taken=1, lien_status=1, loan_term=360"
+   },
+   "use": "conforming"
+  },
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2023&actions_taken=1&loan_purposes=1",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2023/filtered-queries/one-year/a5a77b5e9528ccb95aae0dc60cea9d70.csv",
+   "sha256": "aeacd608a063097fbdeea96823f01072f33f52378213f8879c3546e2815ccaf3",
+   "bytes": 1336213978,
+   "rowsRead": 3452630,
+   "rowsKept": 2907761,
+   "seconds": 50.2,
+   "year": 2023,
+   "downloaded": "2026-09-28",
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=1, nationwide",
+    "client": "action_taken=1, lien_status=1, loan_term=360"
+   },
+   "use": "purchaseRates"
+  }
+ ],
+ "context": {
+  "conforming2025": {
+   "n_all_31": 488241,
+   "n_31_flag": {
+    "C": 457217,
+    "NC": 30962,
+    "U": 57
+   },
+   "n_31_any_cost": 573096,
+   "rate_31_p50": 6.0,
+   "rate_31_valid": 488237,
+   "conventional_share_31_pct": 54.6081
+  },
+  "purchaseRates2023": {
+   "n_purchase_rate_valid": 2906771,
+   "n_purchase_kept": 2907761,
+   "share_ge_7_pct": 30.3373,
+   "share_ge_6_pct": 77.3561,
+   "n_ge_7": 881835,
+   "rate_p50": 6.625
+  }
  }
 }
