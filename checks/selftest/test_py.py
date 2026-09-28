@@ -82,6 +82,24 @@ class F:
         sents = json.load(open(self.p('out/script.json')))['sentences'] if os.path.exists(self.p('out/script.json')) else []
         self.json(f'out/checks/cache/asr-{h}-{r_audio.asr_key(sorted(sents, key=lambda s: s["start"]))}.json', words)
 
+    def asr_stems(self, clean, full):
+        """Fixed transcripts for L1's two stem mixes (all stems but sonify / all stems), keyed as r_sound._asr_audio keys them."""
+        import r_audio
+        import r_sound
+        ctx = common.Ctx(self.root)
+        sents = sorted(ctx.sentences(), key=lambda s: s['start'])
+        c = r_sound._sum_stems(ctx, r_sound._rest_names('sonify'))
+        s_ = r_audio.stem_audio(ctx, 'sonify')
+        m = min(len(c), len(s_))
+        for tag, x, ws in (('clean', c[:m], clean), ('withdata', c[:m] + s_[:m], full)):
+            mono = x.mean(1).astype(np.float32)
+            h = hashlib.sha256(mono.tobytes()).hexdigest()[:16]
+            self.json(f'out/checks/cache/asr-{tag}-{h}-{r_audio.asr_key(sents)}.json', ws)
+
+    def contract(self, **kw):
+        """Episode contract (K2): contract.json at the fixture root."""
+        self.json('contract.json', {'episode': 'fixture', **kw})
+
     def run(self, rid):
         return common.safe(RULES[rid], common.Ctx(self.root))
 
@@ -464,8 +482,16 @@ def model_path(seq, init=1_000_000.0):
     return {'withdrawals': out_w, 'endNominal': out_n, 'endReal': out_r, 'depletedYear': dep}
 
 
+
+RET_PARAMS = {'annual': 'data/normalized/annual.csv', 'rate': 0.04, 'years': 30, 'weights': {'stocks': 0.6, 'bonds': 0.4}, 'startRange': [1928, 1996],
+              'paths': {'1966': {'from': 1966}, 'mirror': {'from': 1966, 'reverse': ['returns', 'inflation']}}, 'sameGeomean': ['1966', 'mirror']}
+RET_CONTRACT = {'kind': 'retirement-6040', 'output': 'out/model.json', 'params': RET_PARAMS,
+                'claims': [{'where': {'kind': 'geomean', 'character': '1966'}, 'key': 'geomean:1966'}, {'where': {'kind': 'geomean', 'character': 'mirror'}, 'key': 'geomean:mirror'}]}
+D_CHARS = {'1966': {'color': '#ffc857', 'shape': 'solid', 'side': 'left', 'words': ['1966']}, 'mirror': {'color': '#5a9ceb', 'shape': 'dashed', 'side': 'right', 'illustrative': True, 'words': ['mirror']}}
+
 @case('S01')
 def _(f, bad):
+    f.contract(model=RET_CONTRACT)
     d = data_fixture(f)
     tup = lambda y: (d[y]['stocks'], d[y]['bonds'], d[y]['inflation'])
     base = [tup(y) for y in range(1966, 1996)]
@@ -476,6 +502,41 @@ def _(f, bad):
         p66['endNominal'][12] *= 1.01
     f.json('out/model.json', {'initial': 1_000_000, 'rate': 0.04, 'years': 30, 'weights': {'stocks': 0.6, 'bonds': 0.4}, 'tax': 0, 'fees': 0,
                               'paths': {'1966': p66, 'mirror': {**mir, 'reverse': ['returns', 'inflation']}}, 'starts': starts})
+
+
+@case('F11')
+def _(f, bad):
+    import r_file
+    decl = [x.replace('.*', '.wav') for x in r_file.RELEASE_FILES]
+    for x in decl:
+        f.text(x, 'x')
+    if bad:
+        os.remove(f.p('out/cues.json'))
+    f.contract(artefacts={'M3': decl})
+
+
+def refi_case(bad):
+    """S01 kind refinance-breakeven (Episode 1): a model file written from an independent textbook formula; bad = one break-even month off by one."""
+    import math
+    f = F('S01-refi')
+    try:
+        L, C, R_, n = 375000.0, 5123.53, 7.62, 360
+        pay = lambda r: L * (r / 1200) / (1 - (1 + r / 1200) ** -n)
+        cases = {}
+        for sp in (0.25, 0.5, 1.0, 2.0):
+            sv = pay(R_) - pay(R_ - sp)
+            cases[str(sp)] = {'oldPayment': pay(R_), 'newPayment': pay(R_ - sp), 'monthlySavings': sv, 'breakEvenMonths': math.ceil(C / sv)}
+        if bad:
+            cases['0.5']['breakEvenMonths'] += 1
+        lo, hi = 0.0, 5.0
+        for _ in range(100):
+            mid = (lo + hi) / 2
+            lo, hi = (lo, mid) if pay(R_) - pay(R_ - mid) >= C / 36 else (mid, hi)
+        f.json('out/model.json', {'loan': L, 'cost': C, 'oldRate': R_, 'cases': cases, 'sp36': {'mid': hi}})
+        f.contract(model={'kind': 'refinance-breakeven', 'output': 'out/model.json', 'params': {'loan': L, 'cost': C, 'oldRate': R_, 'termMonths': n, 'breakEvenTargets': {'sp36': 36}}})
+        return f.run('S01')
+    finally:
+        f.close()
 
 
 def timeline_acts(f, total=100):
@@ -498,6 +559,7 @@ def _(f, bad):
     f.text('data/raw/CPIAUCNS.csv', 'fred data')
     sha = lambda p: common.sha256_file(f.p(p))
     q = {'quote': 'This data may be used freely with attribution to the source page.', 'url': 'https://example.org/terms'}
+    f.contract(data={'sources': 'data/sources.json', 'hosts': {'primary': ['stern.nyu.edu'], 'crosscheck': ['fred.stlouisfed.org']}})
     f.json('data/sources.json', {'files': [
         {'path': 'data/raw/histretSP.html', 'role': 'primary', 'url': 'https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html', 'sha256': sha('data/raw/histretSP.html'), 'downloaded': '2026-09-26', 'terms': q},
         {'path': 'data/raw/CPIAUCNS.csv', 'role': 'crosscheck', 'url': 'https://fred.stlouisfed.org/series/CPIAUCNS', 'sha256': '0' * 64 if bad else sha('data/raw/CPIAUCNS.csv'), 'downloaded': '2026-09-26', 'terms': q}]})
@@ -511,7 +573,10 @@ def _(f, bad):
         for y in YEARS:
             v = d[y]['inflation'] + (0.012 if bad and y == 1974 else 0.001)
             fh.write(f'{y},{v}\n')
-    f.json('data/sources.json', {'files': [], 'tolerance': {'inflation_pp': 0.3, 'stocks_pp': 0.3}, 'mismatches': []})
+    f.json('data/sources.json', {'files': [], 'mismatches': []})
+    f.contract(data={'sources': 'data/sources.json', 'crosscheck': [{'series': 'inflation', 'tolerance': 0.3, 'used': {'from': 1928, 'to': 2025},
+                                                                     'primary': {'file': 'data/normalized/annual.csv', 'key': 'year', 'column': 'inflation', 'scale': 100},
+                                                                     'crosscheck': {'file': 'data/normalized/fred_inflation.csv', 'key': 'year', 'column': 'inflation', 'scale': 100}}]})
 
 
 @case('S05')
@@ -519,6 +584,7 @@ def _(f, bad):
     d = data_fixture(f)
     seq = [(d[y]['stocks'], d[y]['bonds']) for y in range(1966, 1996)]
     g = (np.prod([1 + 0.6 * s + 0.4 * b for s, b in seq]) ** (1 / 30) - 1) * 100
+    f.contract(model=RET_CONTRACT, characters=D_CHARS, claims={'illustrative': ['gm'], 'core': [], 'decisive': []})
     f.json('out/claims.json', {'claims': [{'claimId': 'g66', 'kind': 'geomean', 'character': '1966', 'value': round(g, 4), 'display': f'{g:.2f}%'},
                                           {'claimId': 'gm', 'kind': 'geomean', 'character': 'mirror', 'value': round(g, 4), 'display': f'{g:.2f}%', 'illustrative': not bad}]})
 
@@ -528,7 +594,9 @@ def _(f, bad):
     timeline_acts(f)
     f.json('out/timeline.json', {'total': 100, 'acts': [{'id': 'act3', 'start': 0, 'end': 100}], 'scenes': [{'id': 'm3', 'act': 'act3', 'start': 0, 'dur': 100}]})
     years = [y for y in range(1928, 1997) if not (bad and y == 1975)]
-    f.json('out/checks/page.json', {'rules': {}, 'yearsTrack': [{'t': 5, 'scene': 'm3', 'years': years}]})
+    cases = [f'd{i}' for i in range(13) if not (bad and i == 4)]
+    f.contract(coverage=[{'attribute': 'year', 'act': 'act3', 'range': [1928, 1996]}, {'attribute': 'case', 'act': 'act3', 'values': [f'd{i}' for i in range(13)]}])
+    f.json('out/checks/page.json', {'rules': {}, 'yearsTrack': [{'t': 5, 'scene': 'm3', 'years': years}], 'casesTrack': [{'t': 6, 'scene': 'm3', 'cases': cases}]})
 
 
 BASE_CLAIMS = [{'claimId': 'y66', 'value': 1966, 'display': '1966', 'formula': 'first year', 'source': {'id': 'damodaran'}, 'dataYear': 1966, 'shownIn': ['a']},
@@ -805,6 +873,7 @@ def _(f, bad):
 @case('V09')
 def _(f, bad):
     c = ('#E5484D', '#3FBF7F') if bad else ('#F2B441', '#4C8DFF')
+    f.contract(characters={'1966': {'color': c[0], 'shape': 'solid'}, 'mirror': {'color': c[1], 'shape': 'dashed'}})
     f.json('out/checks/page.json', {'rules': {}, 'characters': {'1966': {'mainColour': c[0]}, 'mirror': {'mainColour': c[1]}}})
 
 
@@ -852,9 +921,11 @@ def _(f, bad):
     f.json('out/timeline.json', {'total': 100, 'scenes': [{'id': f's{i}', 'start': 15 * i, 'dur': 15, 'layout': l} for i, l in enumerate(lay)]})
 
 
-def page_rule_case(rid, good, bad_):
+def page_rule_case(rid, good, bad_, contract=None):
     def fn(f, bad):
         f.json('out/checks/page.json', {'rules': {rid: bad_ if bad else good}})
+        if contract:
+            f.contract(**contract)
     T[rid] = fn
 
 
@@ -869,8 +940,9 @@ page_rule_case('V08', {'violations': 0, 'worst': {'cr': 8}, 'examples': []}, {'v
 page_rule_case('V12', {'violations': 0, 'textSamples': 40, 'worst': []}, {'violations': 2, 'textSamples': 40, 'worst': [{'t': 1.0, 'tid': 'lab', 'ncc': 0.55}]})
 page_rule_case('V11', {'violations': 0, 'byRole': {}, 'transientDuringMoves': 0, 'examples': []}, {'violations': 1, 'byRole': {'badge': 1}, 'transientDuringMoves': 0, 'examples': []})
 CH = lambda a, b: {'1966': {'mainColour': '#f2b441', 'colourShare': a, 'mainShape': 'circle', 'shapeShare': 1}, 'mirror': {'mainColour': '#4c8dff', 'colourShare': 1, 'mainShape': b, 'shapeShare': 1}}
-page_rule_case('V04', {'characters': CH(1, 'square'), 'sideSamples': 5, 'sideSigns': [-1], 'timeOrderViolations': []},
-               {'characters': CH(0.8, 'circle'), 'sideSamples': 5, 'sideSigns': [-1, 1], 'timeOrderViolations': []})
+page_rule_case('V04', {'characters': CH(1, 'square'), 'pairs': {'1966|mirror': {'samples': 5, 'signs': {'-1': 5}}}, 'timeOrderViolations': []},
+               {'characters': CH(0.8, 'circle'), 'pairs': {'1966|mirror': {'samples': 5, 'signs': {'-1': 3, '1': 2}}}, 'timeOrderViolations': []},
+               contract={'characters': {'1966': {'color': '#F2B441', 'shape': 'circle', 'side': 'left'}, 'mirror': {'color': '#4C8DFF', 'shape': 'square', 'side': 'right'}}})
 
 
 @case('C13')
@@ -895,24 +967,73 @@ def mix_master(f, stems, dur):
     f.video(size='64x36', dur=dur, src='color', audio=np.stack([tot, tot], 1).astype(np.float32))
 
 
+def syllabic_voice(sec, spans, level=-22, syl=0.22, gap=0.07):
+    """Speech-like voice: 200–4000 Hz noise in syllables of 220 ms with 70 ms gaps inside each span (the pauses T1 listens in)."""
+    x = voice_like(sec, spans, level)
+    for a, b in spans:
+        t = a + syl
+        while t < b:
+            x[int(t * SR): int((t + gap) * SR)] = 0
+            t += syl + gap
+    return x
+
+
+def flat_bursts(sec, times, dur=0.5, freq=3000, level=-20):
+    x = np.zeros(int(sec * SR))
+    k = np.arange(int(dur * SR)) / SR
+    b = np.sin(2 * np.pi * freq * k) * db(level)
+    for t in times:
+        i = int(t * SR)
+        x[i:i + len(b)] += b[: len(x) - i]
+    return x
+
+
 @case('T1')
 def _(f, bad):
-    # voice and music fill the band; the data sounds (sonify stem) are 2–6 kHz plucks at each declared event. Good: the plucks
-    # carry more band power than everything else; bad: the same plucks 22 dB lower (the round-3 situation: present but masked)
+    # K2: heard in the voice's pauses. The data sounds (sonify stem, 3 kHz, declared band 2.5–6 kHz) sound for 0.5 s from each event while a
+    # syllabic voice runs; good: they raise the band well over music + room in the syllable gaps; bad: the same sounds 30 dB lower (masked)
     dur = 12
-    ev = [2.0, 2.05, 2.1, 2.15, 4.0, 6.0, 6.5, 9.0]  # a burst of bars (one cluster), single dots, a line draw
-    son = np.zeros(dur * SR)
-    for t in ev:
-        son += tone_bursts(dur, [t], dur=0.12, freq=3000, level=-8 if not bad else -30) + tone_bursts(dur, [t], dur=0.12, freq=5200, level=-11 if not bad else -33)
-    voice = voice_like(dur, [(1.0, 5.5), (6.2, 11.0)], level=-22)
+    ev = [2.0, 2.05, 2.1, 2.15, 4.0, 6.0, 6.5, 9.0]
+    son = flat_bursts(dur, ev, level=-24 if not bad else -54)
+    voice = syllabic_voice(dur, [(1.0, 5.5), (6.2, 11.0)], level=-22)
     music = noise(dur, 80, 9000) * db(-34)
     room = noise(dur, 50, 12000) * db(-62)
     mix_master(f, {'voice': voice, 'music': music, 'sfx': np.zeros(dur * SR), 'whoosh': np.zeros(dur * SR), 'room': room, 'sonify': son}, dur)
     f.json('out/sonify-events.json', {'fps': 30, 'bar': [{'id': f'b{i}', 'f0': round(t * 30)} for i, t in enumerate(ev[:4])],
                                       'dot': [{'id': 'd1', 'f': 120}, {'id': 'd2', 'f': 180}, {'id': 'd3', 'f': 195}],
                                       'line': [{'id': 'l1', 'f': 270 + k} for k in range(4)]})
+    f.contract(sonification={'stem': 'sonify', 'bandsHz': [[2500, 6000]]})
     f.json('out/script.json', {'sentences': []})
     f.asr([])
+
+
+@case('L1')
+def _(f, bad):
+    # the data sounds do not cover the voice. good: a low pulse (300 Hz) far under the voice in 1–4 kHz, and every key word still heard;
+    # bad: a 2 kHz tone at the voice's level through the sentence (ratio ≈ 0 dB) and the number lost to the ASR when the data sounds play
+    dur = 6
+    voice = syllabic_voice(dur, [(1.0, 4.0)], level=-22)
+    son = flat_bursts(dur, [1.2, 2.2, 3.2], dur=0.8, freq=2000, level=-24) if bad else flat_bursts(dur, [1.2, 2.2, 3.2], dur=0.3, freq=300, level=-40)
+    music = noise(dur, 80, 9000) * db(-44)
+    room = noise(dur, 50, 12000) * db(-62)
+    z = np.zeros(dur * SR)
+    mix_master(f, {'voice': voice, 'music': music, 'sfx': z, 'whoosh': z, 'room': room, 'sonify': son}, dur)
+    f.json('out/script.json', {'sentences': [{'id': 's1', 'scene': 'a', 'text': 'The median refinance cost $5,124.', 'start': 1.0, 'end': 4.0}]})
+    heard = asr_words('The median refinance cost $5,124.', 1.0)
+    f.asr_stems(heard, asr_words('The median refinance cost uh.', 1.0) if bad else heard)
+
+
+@case('S16')
+def _(f, bad):
+    # G-008: decisive numbers tied to a character or scenario the contract declares. good: both decisive sentences name one (itself or the
+    # sentence before in the same scene); bad: neither does
+    f.contract(characters={'median': {'color': '#ffffff', 'shape': 'solid', 'words': ['median borrower', 'median refinance']}},
+               scenarios={'hold36': {'words': ['three years', '36 months']}}, claims={'decisive': ['cost_med', 'sp36'], 'core': [], 'illustrative': []})
+    f.json('out/claims.json', {'claims': [{'claimId': 'cost_med', 'display': '$5,124', 'decisive': True}, {'claimId': 'sp36', 'display': '0.56'}]})
+    s = [{'id': 'a1', 'scene': 'x', 'text': 'Take the median borrower.' if not bad else 'Take a loan.', 'start': 0, 'end': 1},
+         {'id': 'a2', 'scene': 'x', 'text': 'Closing costs come to $5,124.', 'start': 1, 'end': 2},
+         {'id': 'b1', 'scene': 'y', 'text': ('If you stay 36 months, you need a cut of 0.56 points.' if not bad else 'You need a cut of 0.56 points.'), 'start': 3, 'end': 5}]
+    f.json('out/script.json', {'sentences': s})
 
 
 def music_bars(n_bars, bar_s, variant, seed=3):
@@ -1036,7 +1157,7 @@ def asr_pass_case(bad):
     return common.Result('A14', 'PASS' if ok else 'FAIL', [common.metric('second decode replaces a truncated first decode', ok, '==', True)])
 
 
-EXTRA = {'REG': reg_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case}
+EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case}
 
 
 def main():

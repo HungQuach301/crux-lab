@@ -1,27 +1,54 @@
-"""T rules (K1, 2026-09-28): data sonification that can be heard (T1), music that does not loop (T2), silences entered through a
-transition onto a room-tone floor (T3). Measured on the delivered master and stems; declared event files only say where to look."""
-import json
+"""T rules (K1, 2026-09-28; T1 redefined and L1 added by K2): data sonification that can be heard in the voice's pauses (T1) and does not cover
+the voice (L1), music that does not loop (T2), silences entered through a transition onto a room-tone floor (T3). Measured on the delivered master and stems; declared event files only say where to look."""
 import subprocess
 
 import numpy as np
 from scipy import signal
 
-from common import FPS, SR, Missing, asr_join, canon_matches, frame_rms_db, master, metric, numbers_in_text, rule, spoken_numbers, verdict
-from r_audio import asr_master, silent_spans, stem_audio, stem_path
+from common import FPS, SR, Missing, frame_rms_db, master, metric, rule, verdict
+from r_audio import silent_spans, stem_audio, stem_path
 
-BAND = (1500.0, 8000.0)      # Hz: where the data sounds must stand out (above most of the voice's energy, below air)
-LIFT_DB = 3.0                # dB: the sonification raises the band at least this much (its band power ≥ that of everything else)
-LIFT_NUM_DB = 1.0            # dB: inside a spoken-number window, where DX-A6 lowers music and effects (replacement criterion, not an exemption)
-SON_FLOOR_DB = -60.0         # dBFS: the data sound itself must be there in the band
+# ---- T1 (K2 redefinition, 2026-09-28): heard in the voice's pauses and where there is no voice, in the band the episode puts the data sounds ----
+# PROVISIONAL thresholds (checks/README.md "Ngưỡng tạm"), calibrated on: test D round 3 (owner: "no data sounds yet" -> must FAIL) and the
+# Episode 1 blind palette S2 on the m0 sample (owner's choice: "heard", "does not cover the voice" -> must PASS); S1, S3 and m0 (+10 dB) reported.
+FRAME = 0.02                 # s: frame of the pause/lift measurement (5 ms hop): short enough to see the gaps between syllables
+HOP = 0.005
+GAP_DB = -45.0               # dBFS: a voice-stem frame below this is a pause of the voice (same level as the VAD of A07)
+DIP_DB = 15.0                # dB: ... or a frame this far below the voice's own maximum within ±0.3 s (a gap between syllables or words)
+DIP_SPAN = 0.3               # s
+LIFT_DB = 3.0                # dB: in a pause, the data sound raises its band at least this much over everything else
+SON_FLOOR_DB = -60.0         # dBFS: and it is there in the band
+PRE, POST = 0.10, 0.50       # s: a slot is heard if it sounds in [t − 0.10, t + 0.50] (notes may move into the nearest syllable gap; a long gesture is a slot every 0.5 s)
+LONG_STEP = 0.5              # s: a long cluster is a slot every 0.5 s
 CLUSTER_GAP = 0.15           # s: events closer than this are one cluster (> ~8 events/s are heard as one gesture, DX-A1)
-WIN = 0.15                   # s: measurement window from an onset
-LONG_STEP = 0.5              # s: a long cluster is measured again every 0.5 s
+AUDIBLE_SHARE = 0.75         # share of slots that must be heard (provisional; S2 on the m0 sample: 0.85)
+BAND_SHARE = 0.50            # the declared bands must hold at least this share of the data stem's energy (truth check of the declaration)
 STEM_MATCH_R = 0.90          # the stems must add up to the master in the band (they are the real mix)
 
 
-def _band(x):
-    sos = signal.butter(4, BAND, btype='bandpass', fs=SR, output='sos')
-    return signal.sosfilt(sos, x.mean(1) if x.ndim == 2 else x)
+def _bands(ctx):
+    bands = ctx.cfield('sonification', 'bandsHz', kind=list)
+    if not bands or not all(isinstance(b, list) and len(b) == 2 and 0 < float(b[0]) < float(b[1]) < SR / 2 for b in bands):
+        raise Missing('contract.json: sonification.bandsHz ([[lo, hi], ...] in Hz)')
+    return [(float(a), float(b)) for a, b in bands]
+
+
+def _bandpass(x, bands):
+    x = x.mean(1) if x.ndim == 2 else x
+    y = np.zeros(len(x))
+    for lo, hi in bands:
+        sos = signal.butter(4, (lo, hi), btype='bandpass', fs=SR, output='sos')
+        y += signal.sosfilt(sos, x)
+    return y
+
+
+def _frames_pow(x, win=FRAME, hop=HOP):
+    x = x.mean(1) if x.ndim == 2 else x
+    w, h = int(win * SR), int(hop * SR)
+    n = max(0, 1 + (len(x) - w) // h)
+    c = np.concatenate([[0.0], np.cumsum(x.astype(np.float64) ** 2)])
+    st = np.arange(n) * h
+    return (st + w / 2) / SR, (c[st + w] - c[st]) / w
 
 
 def _pow_db(p):
@@ -42,12 +69,7 @@ def declared_events(ctx):
     fps = float(d.get('fps', FPS))
     ev = [(b['f0'] / fps, 'bar', b.get('id')) for b in d.get('bar', [])]
     ev += [(x['f'] / fps, 'dot', x.get('id')) for x in d.get('dot', [])]
-    last = {}
-    for x in sorted(d.get('line', []), key=lambda x: (x.get('id'), x['f'])):
-        k = x.get('id')
-        if k not in last or x['f'] - last[k] > 2:
-            ev.append((x['f'] / fps, 'line', k))
-        last[k] = x['f']
+    ev += [(x['f'] / fps, 'line', x.get('id')) for x in d.get('line', [])]  # every sample of a draw (K2): the draw is one cluster, a slot every 0.5 s
     return ev
 
 
@@ -75,31 +97,7 @@ def clusters(times):
     return out
 
 
-def number_windows(ctx):
-    """[onset − 0.5 s, end + 1.6 s] around every number the narration says (own ASR), the windows where DX-A6 lowers music and effects."""
-    from r_page import number_run
-    asr = asr_master(ctx)
-    wins = []
-    for s in ctx.sentences():
-        nums = [c for c, _ in numbers_in_text(s['text'])]
-        if not nums:
-            continue
-        ws = [w for w in asr if s['start'] - 1 <= w['start'] <= s['end'] + 1]
-        for n in dict.fromkeys(nums):
-            r = number_run(ws, n)
-            if r:
-                wins.append((ws[r[0]]['start'] - 0.5, ws[r[1]]['end'] + 1.6))
-    return wins
-
-
-@rule('T1', 'DX-A1 (sổ gu G-001)', 'events = union of the declared out/sonify-events.json (bar f0, dot f, start of each line draw) and the chart events the page sampler measured '
-      'with the camera frozen (a bar, series, mark or character shape appears or changes); events closer than 0.15 s form one cluster, measured at its onset and every 0.5 s '
-      'to its end. Band 1.5–8 kHz (4th-order Butterworth), window [t, t + 0.15 s]: lift = 10·log10((P_son + P_rest) / P_rest), P_son = band power of the data-sound stem '
-      '("sonify", or "sfx" when the data sounds are mixed into it), P_rest = band power of the sum of the other stems (voice, music, whoosh, room [, sfx]). '
-      'Inside a spoken-number window [onset − 0.5 s, end + 1.6 s] (own ASR), where DX-A6 lowers effects, the lift needed is 1 dB. Truth check: the stems add up to the '
-      'master in the band (correlation of the band signals). Without a sonify stem the sfx stem is measured (reported) but the rule cannot pass: other effects would count as data sounds',
-      'every measured window: lift ≥ 3 dB (≥ 1 dB in a spoken-number window) and data-sound band level ≥ −60 dBFS; stems ~ master r ≥ 0.90; ≥ 1 cluster; sonify stem delivered')
-def t1_sonification(ctx):
+def _events(ctx):
     evs, src = [], []
     for name, fn in (('declared', declared_events), ('page', detected_events)):
         try:
@@ -110,41 +108,156 @@ def t1_sonification(ctx):
             pass
     if not src:
         raise Missing('out/sonify-events.json or out/checks/page.json chartEvents')
-    sname = son_stem_name(ctx)
-    rest_names = ['voice', 'music', 'whoosh', 'room'] + (['sfx'] if sname == 'sonify' else [])
-    son = _band(stem_audio(ctx, sname))
-    rest = None
-    for n in rest_names:
+    return evs, src
+
+
+def _rest_names(sname):
+    return ['voice', 'music', 'whoosh', 'room'] + (['sfx'] if sname == 'sonify' else [])
+
+
+def _sum_stems(ctx, names):
+    tot = None
+    for n in names:
         x = stem_audio(ctx, n)
-        rest = x.copy() if rest is None else rest[: len(x)] + x[: len(rest)]
-    rest = _band(rest)
-    m = _band(master(ctx))
-    n = min(len(son), len(rest), len(m))  # the master's encoder padding and the stems' lengths differ by a few hundred samples
+        tot = x.copy() if tot is None else tot[: len(x)] + x[: len(tot)]
+    return tot
+
+
+@rule('T1', 'DX-A1 (sổ gu G-001, G-006)', 'K2 redefinition. Events = union of the declared out/sonify-events.json (bar f0, dot f, start of each line draw) and the chart events '
+      'the page sampler measured with the camera frozen (every declared line sample is an event, so a line draw is one cluster); events closer than 0.15 s form one cluster; '
+      'a slot = the onset of a cluster and every 0.5 s to its end. '
+      'Band = the bands the episode puts its data sounds in (contract.json sonification.bandsHz, from the cue sheet; 4th-order Butterworth each, summed). '
+      'Frames of 20 ms (5 ms hop). A pause of the voice = a frame where the voice stem is below −45 dBFS or ≥ 15 dB below its own maximum within ±0.3 s (gaps between syllables '
+      'and words, between sentences, and where there is no voice). A slot is heard when, in some pause frame of [t − 0.10 s, t + 0.50 s], lift = 10·log10((P_son + P_rest) / P_rest) ≥ 3 dB and the data-sound band level ≥ −60 dBFS '
+      '(P_son = band power of the data-sound stem "sonify", P_rest = band power of the sum of the other stems). Nothing is asked of the data sounds while the voice is sounding '
+      '(L1 judges that). Truth checks: the declared bands hold ≥ 50% of the data stem\'s energy; the stems add up to the master in the band. Without a sonify stem the sfx stem is '
+      'measured (reported) but the rule cannot pass. Contract without sonification.bandsHz = MISSING',
+      'PROVISIONAL: ≥ 75% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered')
+def t1_sonification(ctx):
+    bands = _bands(ctx)
+    evs, src = _events(ctx)
+    sname = son_stem_name(ctx)
+    son_full = stem_audio(ctx, sname)
+    son = _bandpass(son_full, bands)
+    rest = _bandpass(_sum_stems(ctx, _rest_names(sname)), bands)
+    voice = stem_audio(ctx, 'voice')
+    m = _bandpass(master(ctx), bands)
+    n = min(len(son), len(rest), len(m), len(voice))  # the master's encoder padding and the stems' lengths differ by a few hundred samples
     son, rest, m = son[:n], rest[:n], m[:n]
     mix = son + rest
     r_mix = float(np.dot(m, mix) / np.sqrt(np.dot(m, m) * np.dot(mix, mix) + 1e-20))
-    numw = number_windows(ctx)
-    innum = lambda t: any(a <= t <= b for a, b in numw)
+    sf_ = son_full[:n].mean(1) if son_full.ndim == 2 else son_full[:n]
+    share = float(np.sum(son ** 2) / (np.sum(sf_ ** 2) + 1e-20))
+    ft, ps = _frames_pow(son)
+    _, pr_ = _frames_pow(rest)
+    _, pv = _frames_pow(voice[:n])
+    from scipy.ndimage import maximum_filter1d
+    vdb = _pow_db(pv)
+    gap = (vdb < GAP_DB) | (vdb < maximum_filter1d(vdb, size=2 * int(DIP_SPAN / HOP) + 1) - DIP_DB)
+    lift = _pow_db(ps + pr_) - _pow_db(pr_)
+    ok_f = gap & (lift >= LIFT_DB) & (_pow_db(ps) >= SON_FLOOR_DB)
     rows = []
     for a, b in clusters([e[0] for e in evs]):
-        ts = [a] + list(np.arange(a + LONG_STEP, b + 1e-9, LONG_STEP))
-        for t in ts:
-            i, j = int(t * SR), int((t + WIN) * SR)
-            if j > n or i < 0:
+        for t in [a] + list(np.arange(a + LONG_STEP, b + 1e-9, LONG_STEP)):
+            sel = (ft >= t - PRE) & (ft <= t + POST)
+            if not sel.any():
                 continue
-            ps, pr_ = float(np.mean(son[i:j] ** 2)), float(np.mean(rest[i:j] ** 2))
-            lift = 10 * np.log10((ps + pr_ + 1e-20) / (pr_ + 1e-20))
-            need = LIFT_NUM_DB if innum(t) else LIFT_DB
-            rows.append({'t': round(float(t), 2), 'lift': round(float(lift), 2), 'son_dB': round(float(_pow_db(ps)), 1), 'rest_dB': round(float(_pow_db(pr_)), 1),
-                         'need': need, 'ok': bool(lift >= need and _pow_db(ps) >= SON_FLOOR_DB)})
-    bad = [r for r in rows if not r['ok']]
-    lifts = [r['lift'] for r in rows]
-    return verdict('T1', [metric('event clusters', len(clusters([e[0] for e in evs])), '>=', 1), metric('windows measured', len(rows), '>=', 1),
-                          metric('windows not audible', len(bad), '<=', 0), metric('stems ~ master in band r', r_mix, '>=', STEM_MATCH_R),
+            g = sel & gap
+            best = float(lift[g].max()) if g.any() else None
+            rows.append({'t': round(float(t), 2), 'pauseFrames': int(g.sum()), 'bestLiftInPause': None if best is None else round(best, 2),
+                         'heard': bool((sel & ok_f).any())})
+    heard = sum(r['heard'] for r in rows)
+    sh = heard / len(rows) if rows else None
+    return verdict('T1', [metric('slots measured', len(rows), '>=', 1), metric('share of slots heard in a pause', sh, '>=', AUDIBLE_SHARE),
+                          metric('declared bands share of data-stem energy', share, '>=', BAND_SHARE), metric('stems ~ master in band r', r_mix, '>=', STEM_MATCH_R),
                           metric('data sounds delivered as their own stem (sonify)', sname == 'sonify', '==', True)],
-                   details=[{'events': src, 'dataStem': sname, 'medianLiftDb': round(float(np.median(lifts)), 2) if lifts else None,
-                             'p90LiftDb': round(float(np.percentile(lifts, 90)), 2) if lifts else None, 'inNumberWindows': sum(1 for r in rows if r['need'] == LIFT_NUM_DB),
-                             'audible': len(rows) - len(bad)}, *sorted(bad, key=lambda r: r['lift'])[:15]])
+                   details=[{'events': src, 'dataStem': sname, 'bandsHz': bands, 'slots': len(rows), 'heard': heard,
+                             'slotsWithoutPause': sum(1 for r in rows if not r['pauseFrames'])}, *[r for r in rows if not r['heard']][:15]])
+
+
+# ---- L1 (K2, sổ gu G-006): the data sounds do not cover the voice --------------------------------------------
+SPEECH_BAND = (1000.0, 4000.0)  # Hz: consonants and upper formants, where masking costs intelligibility
+L1_WIN = 0.1                    # s: windows where the voice is active (voice stem RMS > −45 dBFS, as A07)
+L1_PRESENT_DB = -80.0           # dBFS: a window "has a data sound" when the data stem's 1–4 kHz level is above this
+L1_RATIO_DB = 20.0              # dB: PROVISIONAL, voice over data sound in 1–4 kHz, 10th percentile of the windows that have a data sound
+L1_PCT = 10
+
+
+def _asr_audio(ctx, x, tag):
+    """Own ASR of a stem mix, cut sentence by sentence exactly as asr_master (same clips, same model, same two-pass rule); cached by the audio's SHA-256."""
+    import hashlib
+    import json
+    import os
+    from common import words, write_wav_tmp
+    from r_audio import asr_key, choose_pass, sentence_clips
+    sents = sorted(ctx.sentences(), key=lambda s: s['start'])
+    mono = (x.mean(1) if x.ndim == 2 else x).astype(np.float32)
+    h = hashlib.sha256(mono.tobytes()).hexdigest()[:16]
+    cp = os.path.join(ctx.cache_dir, f'asr-{tag}-{h}-{asr_key(sents)}.json')
+    if os.path.exists(cp):
+        return json.load(open(cp))
+    from faster_whisper import WhisperModel
+    mdl = WhisperModel('small.en', device='cpu', compute_type='int8')
+    dur = len(mono) / SR
+    ws = []
+    for s, (a, b, lo, hi) in zip(sents, sentence_clips(sents, dur)):
+        if b - a < 0.2:
+            continue
+        p = write_wav_tmp(mono[int(a * SR): int(b * SR)])
+        try:
+            def decode(vad):
+                segs, _ = mdl.transcribe(p, word_timestamps=True, beam_size=5, language='en', condition_on_previous_text=False, vad_filter=vad)
+                return [{'w': w.word.strip(), 'start': round(a + w.start, 3), 'end': round(a + w.end, 3), 'sentence': s.get('id')}
+                        for sg in segs for w in (sg.words or []) if lo <= (2 * a + w.start + w.end) / 2 < hi]
+            ws += choose_pass(decode(False), lambda: decode(True), len(words(s.get('spoken') or s['text'])))
+        finally:
+            os.unlink(p)
+    ws.sort(key=lambda w: w['start'])
+    json.dump(ws, open(cp, 'w'))
+    return ws
+
+
+@rule('L1', 'DX-A1, DX-A9 (sổ gu G-006)', 'the data sounds do not cover the voice. (a) Energy: 100 ms windows where the voice stem is active (RMS > −45 dBFS); '
+      '1–4 kHz band (4th-order Butterworth) of the voice stem and of the data-sound stem "sonify"; ratio = 10·log10(P_voice / P_son) per window, over the windows where the data '
+      'sound is present in the band (≥ −80 dBFS); the 10th percentile of those ratios. (b) Words: own ASR (as asr_master: sentence clips, small.en, two-pass) of the sum of all stems '
+      'and of the sum of all stems but sonify; key words of each sentence as A14 (numbers, names, defined terms + out/terms.json); a key word heard without the data sounds and '
+      'missed with them is lost. Needs the sonify stem (MISSING without it: the data sounds must be separable to be judged)',
+      'PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds')
+def l1_not_over_voice(ctx):
+    from r_audio import key_words, match_keys
+    son = stem_audio(ctx, 'sonify')
+    voice = stem_audio(ctx, 'voice')
+    n = min(len(son), len(voice))
+    bp = lambda x: _bandpass(x[:n], [SPEECH_BAND])
+    _, pv_full = _frames_pow(voice[:n], L1_WIN, L1_WIN)
+    _, pv = _frames_pow(bp(voice), L1_WIN, L1_WIN)
+    _, ps = _frames_pow(bp(son), L1_WIN, L1_WIN)
+    act = _pow_db(pv_full) > GAP_DB
+    pres = act & (_pow_db(ps) >= L1_PRESENT_DB)
+    ratio = _pow_db(pv[pres]) - _pow_db(ps[pres])
+    p10 = float(np.percentile(ratio, L1_PCT)) if pres.any() else None
+    others = [x for x in _rest_names('sonify')]
+    clean = _sum_stems(ctx, others)
+    m_ = min(len(clean), len(son))
+    full = clean[:m_] + son[:m_]
+    sents = ctx.sentences()
+    extra = ctx.json('out/terms.json').get('terms', []) if ctx.has('out/terms.json') else []
+    keys = key_words(sents, extra)
+    a_clean, a_full = _asr_audio(ctx, clean[:m_], 'clean'), _asr_audio(ctx, full, 'withdata')
+    lost = []
+    for s, k in zip(sents, keys):
+        if not k:
+            continue
+        win = lambda asr: [w for w in asr if s['start'] - 1.5 <= w['start'] <= s['end'] + 1.5]
+        miss_c, miss_f = set(match_keys(k, win(a_clean))), match_keys(k, win(a_full))
+        gone = [w for w in miss_f if w not in miss_c]
+        if gone:
+            lost.append({'sentence': s.get('id'), 't': s['start'], 'lost': gone})
+    ms = [metric('voice-active windows', int(act.sum()), '>=', 1),
+          metric('voice/data 1–4 kHz ratio, 10th percentile (dB)', p10 if p10 is not None else float('inf'), '>=', L1_RATIO_DB, 'dB'),
+          metric('key words lost to the data sounds', sum(len(x['lost']) for x in lost), '<=', 0)]
+    return verdict('L1', ms, details=[{'windowsWithDataSound': int(pres.sum()), 'medianRatioDb': round(float(np.median(ratio)), 1) if pres.any() else None,
+                                       'minRatioDb': round(float(ratio.min()), 1) if pres.any() else None, 'keyWords': sum(len(k) for k in keys)}, *lost[:15]])
 
 
 # ---- T2 music self-similarity ----------------------------------------------------------------------------

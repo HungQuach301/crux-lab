@@ -41,7 +41,7 @@ const mod = (fn) => { const e = good(); fn(e); return e; };
 const find = (e, tid) => e.find((x) => x.tid === tid);
 
 const CASES = {
-  good: { els: good(), expect: { PASS: ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C10', 'C12', 'C14', 'C15', 'V02', 'V03', 'V04', 'V08', 'V11', 'V12', 'S08', 'S09', 'S07'] } },
+  good: { els: good(), expect: { PASS: ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C10', 'C12', 'C14', 'C15', 'V02', 'V03', 'V04', 'V09', 'V08', 'V11', 'V12', 'S08', 'S09', 'S07'] } },
   'V11-text-on-line': { els: mod((e) => { Object.assign(find(e, 'money'), { y: 780 }); find(e, 'money').x = 400; }), expect: { FAIL: ['V11'] } },
   'V11-badge-on-series': { els: mod((e) => Object.assign(find(e, 'ill'), { x: 900, y: 590 })), expect: { FAIL: ['V11'] } },
   'V11-axis-label-on-axis': { els: mod((e) => Object.assign(find(e, 'y1'), { y: 785 })), expect: { FAIL: ['V11'] } },
@@ -65,6 +65,8 @@ const CASES = {
   'S09-no-basis': { els: mod((e) => { find(e, 'money').text = 'Mirror ends with $1,200'; }), expect: { FAIL: ['S09'] } },
   'V02-off-thirds': { els: mod((e) => Object.assign(find(e, 'head'), { x: 960, y: 540 })), expect: { FAIL: ['V02'] } },
   'V04-side-swap': { els: mod((e) => { e.find((x) => x.char === '1966').anim = { prop: 'cx', from: 500, to: 1600, t0: 0.9, t1: 1.0 }; }), expect: { FAIL: ['V04'] } },
+  // K2: the colour on screen must be the one the episode contract declares for the character
+  'V04-not-declared-colour': { els: good(), mirrorColour: 'pos', expect: { FAIL: ['V04'] } },
   'V04-time-reversed': { els: mod((e) => { find(e, 'y0').x = 1560; find(e, 'y1').x = 270; }), expect: { FAIL: ['V04'] } },
   // K1: a filled closed polygon of >= 10 vertices in a series colour (a pie / "pile of money" wedge) is not a line series: C04 must not flag it (audit §4.4)
   'C04-pie-is-not-a-series': { els: mod((e) => e.push({ type: 'path', d: 'M 1500 250 L 1560 240 L 1600 260 L 1620 300 L 1610 340 L 1570 370 L 1520 370 L 1480 340 L 1470 300 L 1480 270 Z', fill: TOK.warn, role: 'mark', panel: 'p' })),
@@ -86,13 +88,15 @@ const CASES = {
   'S07-orphan-number': { els: mod((e) => e.push({ type: 'text', tid: 'orph', text: 'Up 12% since then', x: 700, y: 980, size: 32, color: TOK.ink })), expect: { FAIL: ['S07'] } },
 };
 
-function writeRoot(name, els, move = 0) {
+function writeRoot(name, els, move = 0, contractMirrorColour = 'accent') {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'kpage-' + name + '-'));
   const w = (rel, o) => { fs.mkdirSync(path.dirname(path.join(root, rel)), { recursive: true }); fs.writeFileSync(path.join(root, rel), JSON.stringify(o)); };
   w('out/timeline.json', { fps: 30, total: DUR, acts: [{ id: 'act1', start: 0, end: DUR }], scenes: [{ id: 'a', act: 'act1', start: 0, dur: DUR, move, panels: ['p'], chart: true, layout: 'line/single', shot: 'medium' }] });
   w('out/claims.json', { claims: CLAIMS });
   w('out/script.json', { sentences: [] });
   w('design/tokens.json', TOKENS);
+  // episode contract (K2): V04/V09 read the characters, their colour token, shape and side from it
+  w('contract.json', { episode: 'fixture', characters: { 1966: { color: 'warn', shape: 'circle', side: 'left' }, mirror: { color: contractMirrorColour, shape: 'square', side: 'right' } } });
   w('out/page.json', { url: 'file://' + FIX + '?spec=' + encodeURIComponent(JSON.stringify({ els })) });
   return root;
 }
@@ -118,7 +122,7 @@ async function main() {
   const results = [];
   for (const [name, c] of Object.entries(CASES)) {
     if (only && name !== only) continue;
-    const root = writeRoot(name, c.els, c.move || 0);
+    const root = writeRoot(name, c.els, c.move || 0, c.mirrorColour);
     if (process.env.K_VERBOSE) console.log('case', name);
     await renderVideo(root, c.videoEls || c.els, c.videoBlur);
     execFileSync('node', [path.join(CHECKS, 'page', 'sampler.js'), root, '--step', '3', '--pixel-step', '3'], { stdio: ['ignore', 'ignore', 'inherit'] });
