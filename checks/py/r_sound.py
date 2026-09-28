@@ -118,9 +118,9 @@ def t1_sonification(ctx):
         x = stem_audio(ctx, n)
         rest = x.copy() if rest is None else rest[: len(x)] + x[: len(rest)]
     rest = _band(rest)
-    n = min(len(son), len(rest))
-    son, rest = son[:n], rest[:n]
-    m = _band(master(ctx))[:n]
+    m = _band(master(ctx))
+    n = min(len(son), len(rest), len(m))  # the master's encoder padding and the stems' lengths differ by a few hundred samples
+    son, rest, m = son[:n], rest[:n], m[:n]
     mix = son + rest
     r_mix = float(np.dot(m, mix) / np.sqrt(np.dot(m, m) * np.dot(mix, mix) + 1e-20))
     numw = number_windows(ctx)
