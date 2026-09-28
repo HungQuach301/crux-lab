@@ -57,5 +57,5 @@ Bên dựng tự đo độ nổi ở 1,5–8 kHz (cùng cửa sổ 0,15 s như T
 Kết luận cho M1:
 - Khi lời đang đọc, năng lượng 1,5–8 kHz của lời rất lớn (−16 đến −30 dBFS trong dải). Muốn tiếng dữ liệu nổi ≥ 3 dB giữa lúc lời đang đọc, nó phải to gần bằng lời. Điều đó dễ va với H8 "không át lời".
 - Cách dựng khả thi là **biên đạo**: cho biểu đồ biến động chủ yếu ở chỗ lời nghỉ (hình đi trước lời, khoảng thở sau số). Nếu phải biến động khi đang có lời thì rơi vào cửa sổ số được đọc, nơi ngưỡng là 1 dB.
-- Mức +10 dB cần chủ dự án nghe bằng tai trên loa điện thoại (RUBRIC H8) trước khi dùng cho cả tập.
+- **Chủ dự án nghe trên loa điện thoại (2026-09-28):** nghe thấy tiếng riêng của cột, đường, điểm, nhưng âm sắc chưa phù hợp; lời rõ nhưng vẫn bị tiếng dữ liệu lấn; không tăng +10 dB (sổ gu G-005, G-006). Thử mù ba bảng âm: `palettes.py` → `../review-m1/sonify-S1/S2/S3.mp4`.
 - Bài D hạ lớp này −10 dB dưới lời và trộn vào `sfx`. Toolkit nay tách thành stem riêng và bỏ việc hạ đó (`toolkit/README.md`).

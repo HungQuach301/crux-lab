@@ -1,0 +1,14 @@
+{
+ "note": "blind names; decoding in key.json (do not open before choosing)",
+ "key": {
+  "S1": "breath",
+  "S2": "minimal",
+  "S3": "mallet"
+ },
+ "order": "random (SystemRandom)",
+ "palettes": {
+  "mallet": "soft pitched mallet (marimba-like), tuned to the music key",
+  "breath": "breath / soft pad that swells with the change",
+  "minimal": "soft filtered tick + low pulse"
+ }
+}

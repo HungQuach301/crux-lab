@@ -21,6 +21,6 @@ Muốn hoà vốn trong 36 tháng (ILLUSTRATIVE) cần cắt **0.56 điểm**; k
 1. Nghe `animatic-0000-0120.mp4` (cold open + câu móc lại, hình là storyboard) và `table-read-full.m4a`. Danh sách chỗ sửa: `script/table-read-notes.md`.
 2. Điều khoản dữ liệu HMDA chưa trích được câu nào (trang điều khoản ở consumerfinance.gov, host bị chặn): cần trích trước khi phát hành (DX-H4).
 3. Vài luật khoá gắn với bài D (S01, S03–S06, V04, V09) cần phiên kiểm làm hợp đồng cho mô hình của tập này (`contract.json`).
-4. Mức âm lượng của tiếng dữ liệu chốt bằng tai ở M2 (kế hoạch tách dải: `preprod/cue-sheet.md`).
+4. **Chọn bảng âm cho tiếng dữ liệu** (sổ gu G-005, G-006): nghe mù `sonify-S1.mp4`, `sonify-S2.mp4`, `sonify-S3.mp4` trên loa điện thoại. Cùng mẫu 10 giây, cùng độ to, cùng luật (ép xuống khi có lời, bỏ 1–4 kHz khi có lời, đặt vào khe giữa âm tiết, giữ ánh xạ cao độ). Giải mã ở `key.json`; mở sau khi chọn. Mục âm sắc trong cue sheet để trống tới khi chọn. Xung đột với T1 đã ghi cho Phiên K: `../checks-notes.md`.
 
-**Trong gói:** `summary.md` · `animatic-0000-0120.mp4` · `table-read-full.m4a` · storyboard `sb-01.png` … `sb-05.png` (bản gốc: `../preprod/storyboard/`)
+**Trong gói:** `summary.md` · `animatic-0000-0120.mp4` · `table-read-full.m4a` · `sonify-S1/S2/S3.mp4` · `sonify-metrics.json` · storyboard `sb-01.png` … `sb-05.png` (bản gốc: `../preprod/storyboard/`)

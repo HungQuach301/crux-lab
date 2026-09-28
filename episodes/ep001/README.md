@@ -22,7 +22,7 @@
 2. **FRED.** Theo quyết định của chủ dự án: video hiển thị số kèm ghi nguồn; không công bố lại file; mô tả video chỉ dẫn link tới nguồn gốc.
 3. **Hợp đồng với phiên kiểm.** S01, S03–S06, V04, V09 của bộ luật khoá gắn với mô hình và nhân vật bài D (xem `contract.json`).
 4. **Tốc độ đọc ở M2.** v3 đọc 180–240 wpm ở câu ngắn; cold open 180 wpm, act 2 167 wpm (`script/table-read-notes.md`).
-5. **Mức tiếng dữ liệu** chốt bằng tai chủ dự án ở M2 (`preprod/cue-sheet.md`).
+5. **Tiếng dữ liệu.** Chủ dự án nghe m0: âm sắc chưa hợp, vẫn lấn lời, không tăng +10 dB (sổ gu G-005, G-006). Thử mù ba bảng âm: `review-m1/sonify-S1/S2/S3.mp4`; cue sheet để trống âm sắc tới khi chọn. Xung đột T1 và G-006: `checks-notes.md`.
 
 ## Thư mục
 

@@ -147,11 +147,13 @@ def main():
     ab = ', '.join('%.1f s' % b['t'] for b in json.load(open(os.path.join(EP, 'edit', 'cues.json')))['adBreaks'])
     L += ['', f"Ad breaks (DX-S10): {ab}, inside the act1|act2 and act2|act3 silences.", '',
           '## Sound design', '', '- whoosh per camera move, level from peak speed (A10); riser into each reveal; impact on the decisive numbers (`cost_med`, `sp36_mid`); room tone throughout.',
-          '- every spoken number: music and sfx dip from 0.5 s before to 1.6 s after (DX-A6). The data sounds are NOT dipped there (see below).', '',
-          '## Data sonification plan (DX-A1, sổ gu G-001), per element type', '', '| element | sound | band | pan | timing | scenes using it |', '|---|---|---|---|---|---|']
-    L += [f"| {r['element']} | {r['sound']} | {r['band']} | {r['pan']} | {r['timing']} | {son_count.get(r['element'], 0)} |" for r in SH['sonification']]
+          '- every spoken number: music and sfx dip from 0.5 s before to 1.6 s after (DX-A6); the data sounds follow the voice side-chain below.', '',
+          '## Data sonification plan (DX-A1, sổ gu G-001, G-005, G-006), per element type', '',
+          'Timbre: **not chosen yet**, left empty until the owner picks S1, S2 or S3 (`review-m1/sonify-S1.mp4`, `-S2`, `-S3`; blind names).', '',
+          '| element | timbre | value mapping | pan | timing | scenes using it |', '|---|---|---|---|---|---|']
+    L += [f"| {r['element']} | {r['sound'] or '(chờ chọn)'} | {r['mapping']} | {r['pan']} | {r['timing']} | {son_count.get(r['element'], 0)} |" for r in SH['sonification']]
     L += ['', '### Heard without covering the voice', ''] + [f'- {x}' for x in SH['separation']]
-    L += ['', 'Measured at A-M0 on the 10 s sample (builder\'s own T1-style measure): with the data sounds 6 dB under the voice, the lift in 1.5-8 kHz was 1.4-7.9 dB during speech and 17-28 dB in pauses. The band carve above is new at M1 and is measured at M2 before the owner listens.']
+    L += ['', 'Measured on the 10 s sample, blind palettes (review-m1/sonify-metrics.json): data layer about -21 dB under the voice; 1-4 kHz while speaking 31-56 dB under the voice; T1-style lift median 0 dB (up to 6.6 dB in voice pauses). The m0 version at +10 dB (-6 dB under the voice) was judged by the owner to cover the voice.']
     open(os.path.join(HERE, 'cue-sheet.md'), 'w').write('\n'.join(L) + '\n')
 
     # 4) planned tension map (targets): cut rate from scene lengths, music level from the cue plan, density from layers

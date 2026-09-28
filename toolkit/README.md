@@ -72,6 +72,7 @@ Mọi file khác giữ nguyên văn. Tất cả qua `node --check` và `python3 
 - âm sắc mới đặt năng lượng ở 1,5–8 kHz (cao độ gốc MIDI 72–96, bồi âm 2–5): đường vẽ là một âm liên tục có rung nhẹ, cao độ theo độ dốc và pan theo x; điểm là tiếng gảy sáng theo trục y; cột là âm vút lên cao độ theo giá trị; bộ đếm là tiếng tích 3–8 kHz;
 - nhạc được khoét 9 dB ở 1,5–8 kHz trong lúc có tiếng dữ liệu;
 - sổ giấy phép ghi vào `<gốc>/out/music-ledger.json`.
+- `audio/sonify_palettes.py` (Tập 1, sau khi chủ dự án nghe m0, sổ gu G-005/G-006): ba bảng âm (mallet, breath, minimal) với luật chung: sidechain −8 dB dưới lời, bỏ 1–4 kHz khi có lời, dời nốt vào khe âm tiết, giữ ánh xạ cao độ, cân cùng độ to. Bảng được chọn sẽ thay hàm `sonify()` của `d_m2_audio.py` ở M2.
 
 **Khác:** `render/render.js`, `m3-merge.js`, `m3-encode-range.js`, `m3-splice.js`, `audio/m3-sonify-events.js`, `finish/m3-finish.sh`, `finish/m3-glue.js`, `voice/d_asr.py`, `voice/d_el_voice_one.py` đổi đường dẫn theo bảng trên. `m3-finish.sh` nhận gốc tập làm đối số.
 
