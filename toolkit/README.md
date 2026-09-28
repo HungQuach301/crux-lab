@@ -50,17 +50,40 @@ Nó **không phải nền tảng**. Code thực thi là đồ dùng một lần 
 2. `voice/speak.js`: `require('../av/normalize')` → `require('./normalize')`.
 3. `audio/d_m2_audio.py`: bỏ phần 3D như trên.
 
-Mọi file khác giữ nguyên văn. Tất cả qua `node --check` và `python3 -m py_compile`. **Chưa chạy lại đầu cuối trong repo này.**
+Mọi file khác giữ nguyên văn. Tất cả qua `node --check` và `python3 -m py_compile`.
+
+## Sửa ở Tập 1, bước 0 (Phiên D1, 2026-09-28)
+
+**Bố cục mới.** Mọi công cụ nhận **gốc tập** (`episodes/<tập>/`, hoặc một gốc thử như `episodes/ep001/m0-sample/`), qua đối số hoặc biến `EP_ROOT`:
+
+| Ở đâu | Chứa gì |
+|---|---|
+| `<gốc>/out/` | file hợp đồng (`checks/CONTRACT.md`) |
+| `<gốc>/render/data.js`, `scenes-ep.js` | dữ liệu trang dựng và các builder cảnh của tập; `toolkit/render/page.html?root=<gốc>` nạp hai file này |
+| `<gốc>/edit/glue.json`, `cues.json`, `description.md` | quyết định dựng của tập mà `m3-glue.js` trước đây viết cứng (bảng match cut, khoảng lặng, accent, điểm quảng cáo, impact, tempo theo hồi, cue sheet, mô tả với `{act:…}`/`{scene:…}`) |
+| `<gốc>/work/` | file làm việc không giao: `picture.mp4`, `stills/`, `render-run.json`, `text-first.json`, `audio-report.json`, `preview.mp4` |
+| `$FRAMES_DIR` (mặc định `<tmp>/crux-frames/<tập>/`) | các phần render không nén |
+
+**Tách khỏi `checks/`.** `voice/d_el_voice.py` và `voice/d_choose.py` không còn nhập gì từ `checks/`. Bên dựng có hàm riêng `voice/keywords.py` (`key_words`, `match_keys`: số so theo giá trị và đơn vị, tên riêng, thuật ngữ của tập; gộp token ASR kiểu "18" ".63" "%"). Đây là bộ lọc chọn take của bên dựng, không phải luật A14; máy kiểm vẫn đo trên master bằng định nghĩa của nó. `python3 toolkit/voice/keywords.py` chạy test tự kiểm.
+
+**Âm thanh theo dữ liệu (sổ gu G-001).** `audio/d_m2_audio.py`:
+- ghi stem riêng `sonify` (không trộn vào `sfx`), đúng `checks/CONTRACT.md`;
+- **không** hạ lớp này dưới lời nữa (bài D hạ −10 dB dưới lời và −16 dB quanh số, nên không nghe thấy);
+- âm sắc mới đặt năng lượng ở 1,5–8 kHz (cao độ gốc MIDI 72–96, bồi âm 2–5): đường vẽ là một âm liên tục có rung nhẹ, cao độ theo độ dốc và pan theo x; điểm là tiếng gảy sáng theo trục y; cột là âm vút lên cao độ theo giá trị; bộ đếm là tiếng tích 3–8 kHz;
+- nhạc được khoét 9 dB ở 1,5–8 kHz trong lúc có tiếng dữ liệu;
+- sổ giấy phép ghi vào `<gốc>/out/music-ledger.json`.
+
+**Khác:** `render/render.js`, `m3-merge.js`, `m3-encode-range.js`, `m3-splice.js`, `audio/m3-sonify-events.js`, `finish/m3-finish.sh`, `finish/m3-glue.js`, `voice/d_asr.py`, `voice/d_el_voice_one.py` đổi đường dẫn theo bảng trên. `m3-finish.sh` nhận gốc tập làm đối số.
+
+**Chạy đầu cuối:** đã chạy trên mẫu 10 giây `episodes/ep001/m0-sample/` (xem `README.md` ở đó).
 
 ## Phải biết trước khi dùng
 
-- **Đường dẫn vẫn theo bố cục repo bài D.** Ví dụ: `out/…`, `out/m3/root`, `render-d/prod/…`, `ROOT = dirname/..`. Phiên dựng Tập 1 chỉnh đường dẫn theo thư mục tập của mình (`episodes/<tập>/`).
-- **`m3-glue.js` chứa dữ liệu của bài D**, ví dụ bảng `MATCH` của các match cut. Thay trước khi dùng.
-- **`d_el_voice.py` và `d_choose.py` nhập `key_words`, `match_keys` từ `checks/py/r_audio.py`.** Đây là thiết kế cố ý: bên dựng dùng đúng định nghĩa của bên kiểm, chỉ đọc. `checks/` đang trống. Đến khi Phiên K1 cung cấp hàm tương đương, hai file này chưa chạy được. Hàm cũ của bài D có lỗi stem không đối xứng và lỗi nối `&` (audit §4.1–4.2).
+- **Còn di sản bài D trong code:** `scenes.js` giữ các builder hồi 1 của bài D làm ví dụ; `d_m2_audio.py` còn bảng động lực theo cảnh (`SECT`) và leitmotif hai nhân vật gắn id cảnh của bài D (không khớp id nào của tập khác thì không có tác dụng).
 - **Khoá ElevenLabs do proxy môi trường gắn** (header `xi-api-key`). Khoá không có trong code, lệnh hay log. Giọng đang dùng: Eric `eleven_v3`, dự phòng `eleven_multilingual_v2`. Đây là giọng tạm, không phải quyết định #158.
 - **Lỗi đã biết của trang dựng:** nhãn bị nhân đôi hoặc nhoè khi máy quay chuyển (audit §3a, D-2). Nhãn trong cold open của bài D đã sửa bằng cách vẽ tại giữa phơi sáng; các cảnh khác chưa sửa.
 - **Phụ thuộc:**
   - Node 20+ và `playwright` (Chromium có sẵn ở `/opt/pw-browsers`);
   - Python 3 với `numpy`, `scipy`, `requests`, `faster-whisper`;
   - `ffmpeg` (bài D tự cài bằng `apt-get`).
-  Chưa có `package.json` ở repo này. Tập 1 tạo khi cần.
+  Chưa có `package.json` ở repo này. Dùng `playwright` cài toàn cục: `export NODE_PATH=$(npm root -g)`.

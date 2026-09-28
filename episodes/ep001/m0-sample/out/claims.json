@@ -1,0 +1,113 @@
+{
+ "claims": [
+  {
+   "claimId": "y1971",
+   "value": 1971,
+   "display": "1971",
+   "formula": "first observation of MORTGAGE30US (week ending 1971-04-02)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1971,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "m0-rates"
+   ],
+   "spoken": [
+    {
+     "sentence": "m0.1"
+    }
+   ]
+  },
+  {
+   "claimId": "y2026",
+   "value": 2026,
+   "display": "2026",
+   "formula": "last observation of MORTGAGE30US (week ending 2026-09-24)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": true,
+   "illustrative": false,
+   "role": "axis",
+   "callbacks": [],
+   "shownIn": [
+    "m0-rates"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "term30",
+   "value": 30,
+   "display": "30",
+   "formula": "loan term of the series (30-year fixed-rate mortgage), series definition",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "m0-rates"
+   ],
+   "spoken": [
+    {
+     "sentence": "m0.1"
+    }
+   ]
+  },
+  {
+   "claimId": "peak",
+   "value": 18.63,
+   "display": "18.63%",
+   "formula": "max over all weeks of MORTGAGE30US (week ending 1981-10-09)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1981,
+   "historical": true,
+   "illustrative": false,
+   "decisive": true,
+   "core": false,
+   "callbacks": [],
+   "shownIn": [
+    "m0-rates"
+   ],
+   "spoken": [
+    {
+     "sentence": "m0.1"
+    }
+   ]
+  },
+  {
+   "claimId": "y1981",
+   "value": 1981,
+   "display": "1981",
+   "formula": "calendar year of the week of the maximum",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1981,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "m0-rates"
+   ],
+   "spoken": [
+    {
+     "sentence": "m0.1"
+    }
+   ]
+  }
+ ]
+}

@@ -3,7 +3,7 @@ audio/d_el_voice.py: (a) every key word heard, (b) 120-190 wpm, (c) nearest 156 
 kept: the clip must fit the sentence's existing slot (start fixed, end <= --max-end), so no other sentence moves.
 Key: injected by the environment proxy (xi-api-key); never read, sent or printed here.
 
-  python3 audio/d_el_voice_one.py a2-gains80.1 --max-end 358.46
+  EP_ROOT=episodes/<ep> python3 toolkit/voice/d_el_voice_one.py a2-gains80.1 --max-end 358.46
 Updates out/voice/{el-takes,takes,asr-takes,choice-report}.json for that sentence, out/voice/final/<sid>.flac and the
 sentence end in out/script.json.
 """
@@ -17,7 +17,9 @@ import numpy as np
 from scipy.io import wavfile
 
 sys.dont_write_bytecode = True
-sys.path.insert(0, os.path.dirname(__file__))
+if not os.environ.get('EP_ROOT'):
+    raise SystemExit('set EP_ROOT=<episode root> (the first argument here is the sentence id)')
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import d_el_voice as V  # noqa: E402
 
 ROOT = V.ROOT

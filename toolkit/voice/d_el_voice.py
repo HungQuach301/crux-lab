@@ -1,7 +1,7 @@
 """Test D M1b-2: the whole script with the V8 voice (ElevenLabs, Eric, eleven_v3), one clip per sentence.
 
 Per sentence, up to 4 takes (eleven_v3, `seed` = take index). A take is judged on its own faster-whisper ASR:
-  (a) every key word heard (the locked A14 functions key_words/match_keys, read-only import),
+  (a) every key word heard (toolkit/voice/keywords.py: the builder's own matcher, not the checks' code),
   (b) pace 120-190 wpm (spoken words / ASR span, the A15 definition),
   (c) nearest 156 wpm.
 Takes are generated while no take passes (a)+(b) within +-10 wpm of 156. If 4 eleven_v3 takes still fail, Eric on eleven_multilingual_v2
@@ -30,9 +30,10 @@ from scipy.io import wavfile
 
 warnings.filterwarnings('ignore', category=wavfile.WavFileWarning)
 sys.dont_write_bytecode = True
-ROOT = os.path.join(os.path.dirname(__file__), '..')
-sys.path.insert(0, os.path.join(ROOT, 'checks', 'py'))
-from r_audio import key_words, match_keys  # noqa: E402  (locked implementation, read-only)
+# episode root (crux-lab: episodes/<ep>/), from EP_ROOT or the first argument; outputs go to <root>/out/voice
+ROOT = os.path.abspath(os.environ.get('EP_ROOT') or (sys.argv[1] if len(sys.argv) > 1 else '.'))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from keywords import key_words, match_keys  # noqa: E402  (the builder's own matcher; nothing is imported from checks/)
 
 VDIR = os.path.join(ROOT, 'out', 'voice')
 EDIR, FDIR = os.path.join(VDIR, 'el'), os.path.join(VDIR, 'final')
@@ -235,7 +236,7 @@ def main():
                      'missing': r['missing'], 'heard': r['text']}, 'takes': len(cands[s['id']]),
                      'problem': ('missing ' + ', '.join(r['missing'])) if r['missing'] else ('outside 120-190' if not LO <= r['wpm'] <= HI else '')})
     json.dump({'takes': takes, 'voice': {'provider': 'ElevenLabs', 'voiceId': VOICE_ID, 'name': 'Eric', 'model': MAIN, 'fallback': FALLBACK,
-                                         'note': 'provisional voice for test D, not decision #158; no time stretching (final = raw trimmed)'}},
+                                         'note': 'provisional voice (DX-A8), not decision #158; no time stretching (final = raw trimmed)'}},
               open(os.path.join(VDIR, 'takes.json'), 'w'), indent=1)
     # schema read by src/d/timeline.js and audio/d_tableread.py
     json.dump({n: {**r, 'speech': [round(r['speech'][0], 3), round(r['speech'][1], 3)]} for n, r in

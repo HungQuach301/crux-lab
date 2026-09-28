@@ -1,13 +1,17 @@
 'use strict';
-// Test D M3 (whole film) contract files (from src/d/m2-glue.js) that depend on the timeline and the render:
-//   node src/d/m3-glue.js pre    -> tempo-map.json (beats + accents on cuts), transitions.json, silences.json, captions.srt,
+// Contract files that depend on the timeline and the render (from test D's src/d/m3-glue.js).
+// crux-lab: EP_ROOT = episode root. The episode's own edit decisions come from <root>/edit/glue.json:
+//   {bpm:{act:bpm}, match:{sceneId:[type, reason]}, silences:[[sentenceId, why]], accents:[sceneId], adBreaksAfter:[sentenceId],
+//    impacts:[textId]}, the cue sheet from <root>/edit/cues.json and the description from <root>/edit/description.md,
+//   where {act:<id>} and {scene:<id>} become m:ss.
+//   node toolkit/finish/m3-glue.js pre    -> tempo-map.json (beats + accents on cuts), transitions.json, silences.json, captions.srt,
 //                                   package/description.md, cues.json, tension-map (M2 range), adbreaks.json, render-log.json
-//   node src/d/m3-glue.js post   -> sfx-events.json from the render's first-visible texts
+//   node toolkit/finish/m3-glue.js post  -> sfx-events.json from the render's first-visible texts
 const fs = require('fs');
 const path = require('path');
 
-const REPO = path.join(__dirname, '..', '..');
-const R = path.join(REPO, 'out', 'm3', 'root');
+const R = path.resolve(process.env.EP_ROOT || '.');
+const GLUE = JSON.parse(fs.readFileSync(path.join(R, 'edit', 'glue.json'), 'utf8'));
 const J = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 const W = (rel, o) => { const p = path.join(R, rel); fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, typeof o === 'string' ? o : JSON.stringify(o, null, 1)); };
 const tl = J(path.join(R, 'out', 'timeline.json'));
@@ -15,28 +19,11 @@ const script = J(path.join(R, 'out', 'script.json'));
 const FR = 1 / 30;
 
 // match cuts (semantic: the idea carries across the cut; reasons >= 5 words)
-const MATCH = {
-  'co-broke': ['semantic', 'the shared end point splits into two very different balances'],
-  'co-question': ['semantic', 'the zero point of 1991 becomes the open question'],
-  'a1-assets': ['semantic', 'the two slices of the ring open into what each slice holds'],
-  'a1-raise': ['semantic', 'the slice taken from the column becomes the first withdrawal bar'],
-  'a1-real': ['semantic', 'the same staircase of withdrawals is now read in real terms'],
-  'a1-mirror-rule': ['semantic', 'the second track becomes the reversed row of the same returns'],
-  'a1-avgmirror': ['semantic', 'the same number reappears on the other side for the mirror retiree'],
-  'a1-payoff': ['semantic', 'the arithmetic bars resolve into the balanced scale of the question'],
-  'a2-gap1': ['semantic', 'the first-year bars become the start of the two balance lines'],
-  'a2-bal74m': ['semantic', 'the 1966 ledger number is answered by the mirror ledger at the same year'],
-  'a2-1982r': ['semantic', 'the dawn of 1982 lands as the 1982 bar of the return row'],
-  'a2-climax': ['semantic', 'the widening gap closes up on its peak value'],
-  'a3-all': ['semantic', 'the single 1966 tile becomes one of 69 start-year tiles'],
-  'a3-decade': ['semantic', 'the four failing tiles become four first-decade bars'],
-  'a3-mirror-d': ['semantic', 'the 1966 first decade is answered by the mirror first decade'],
-};
+const MATCH = GLUE.match || {};
 
 function pre() {
   // intentional silences (music, sfx and whoosh out; room tone stays under -40 dBFS): after decisive / reveal lines
-  const SIL = [['co-broke.1', 'let "1991" land'], ['co-question.1', 'the open question hangs before the title'], ['a1-avg1966.1', 'let the first average land before the mirror answers'],
-    ['a1-payoff.4', 'end of act 1: ad break'], ['a2-climax.1', 'let the $1.96 million gap land'], ['a2-payoff.2', 'end of act 2: ad break'], ['a3-answer.3', 'the answer lands']];
+  const SIL = GLUE.silences || [];
   const silences = SIL.map(([sid, why]) => {
     const i = script.sentences.findIndex((l) => l.id === sid);
     const l = script.sentences[i], nx = script.sentences[i + 1];
@@ -45,7 +32,7 @@ function pre() {
     return room >= 0.8 ? { t: +t0.toFixed(3), dur: +Math.min(cap, room).toFixed(3), why, after: sid } : null;
   }).filter(Boolean);
   W('out/silences.json', { silences });
-  const full = J(path.join(REPO, 'out', 'tempo-map.json'));
+  const full = { bpm: GLUE.bpm };
   const cuts = tl.scenes.slice(1).map((s) => s.start);
   // the tempo map follows the edit: every cut is a beat; each shot is divided into a whole number of beats at the
   // act's nominal tempo (so the local tempo moves a little shot to shot, like a conductor following picture)
@@ -59,7 +46,7 @@ function pre() {
   }
   const onBeat = (c) => beats.some((b) => Math.abs(b - c) <= FR + 1e-6);
   // accents: cuts that sit on a beat at the start of a new idea (act boundary, reveal scenes)
-  const ACC = ['ident', 'a1-est', 'a1-mix', 'a1-rule', 'a1-horizon', 'a1-mirror-in', 'a1-question', 'a1-avg1966', 'a1-avgmirror', 'a1-geo', 'a1-payoff', 'co-broke', 'a2-est', 'a2-7374', 'a2-1982', 'a2-climax', 'a2-1991', 'a3-est', 'a3-four', 'a3-decade', 'a3-answer', 'method', 'outro'];
+  const ACC = GLUE.accents || [];
   const silPre = J(path.join(R, 'out', 'silences.json')).silences;
   const accents = tl.scenes.filter((s) => ACC.includes(s.id) && onBeat(s.start) && !silPre.some((x) => s.start >= x.t - 0.1 && s.start <= x.t + x.dur + 0.1)).map((s) => s.start);
   W('out/tempo-map.json', { bpm: full.bpm, beats, accents, note: 'tempo map follows the edit: every cut is a beat, each shot holds a whole number of beats near the act tempo; accents are cuts' });
@@ -115,37 +102,28 @@ function pre() {
   const sc = (id) => tl.scenes.find((s) => s.id === id).start;
   const mmss = (t) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
   const act = (id) => tl.acts.find((a) => a.id === id).start;
-  W('out/package/description.md', [
-    '# Same average, different fate: why two retirees with the same average return ended so differently', '',
-    'Two retirees start with the same money, take out the same dollars every year and earn the same average return over 30 years. One runs out of money in 1991; the other ends with more than they started with. The only difference is the order of the years. This is history, not a forecast. US only. Not financial advice.', '',
-    'Chapters', `0:00 Two retirees, one average`, `${mmss(act('act1'))} The first retiree and the rules`, `${mmss(sc('a1-mirror-in'))} The mirror retiree`, `${mmss(act('act2'))} Year by year: when order starts to matter`,
-    `${mmss(act('act3'))} Every start year since 1928`, `${mmss(sc('a3-limits'))} The limits of this analysis`, `${mmss(act('method'))} Data and method`, '',
-    'Sources: Aswath Damodaran, NYU Stern, Historical Returns on Stocks, Bonds and Bills 1928-2025 (https://pages.stern.nyu.edu/~adamodar/pc/datasets/histretSP.xls; data years 1928-2025, 1966-1995 for the two retirees); inflation: U.S. Bureau of Labor Statistics CPI-U via FRED (https://fred.stlouisfed.org/series/CPIAUCNS).',
-    'Assumptions: $1,000,000 start (illustrative); 60% S&P 500 with dividends and 40% 10-year US Treasury bonds, rebalanced every January; 4% of the start balance withdrawn at the start of year one, then raised each year by the previous year\'s inflation; 30 years; no taxes, no fees. The mirror retiree lives the same 30 annual returns in reverse order and is illustrative. Every number and formula is listed in the claims registry (out/claims.json).',
-    'Not advice: this video describes history and does not recommend any withdrawal rate, portfolio or product.',
-    'Narration: synthetic voice (ElevenLabs text-to-speech). Music and sound: original, synthesised for this video.', '',
-  ].join('\n'));
+  W('out/package/description.md', fs.readFileSync(path.join(R, 'edit', 'description.md'), 'utf8').replace(/\{(act|scene):([\w-]+)\}/g, (_, k, id) => mmss(k === 'act' ? act(id) : sc(id))));
   // adbreaks: none inside the M2 segment (its only act-to-act boundary with speech on both sides is act1|act2, after the end)
   // ad breaks: inside the silences at the act1|act2 and act2|act3 boundaries
-  const brk = ['a1-payoff.4', 'a2-payoff.2'].map((sid) => silences.find((x) => x.after === sid)).filter(Boolean).map((x) => { const bnd = tl.acts.find((a) => a.start > x.t).start; return { t: +Math.min(x.t + x.dur - 0.5, Math.max(x.t + 0.5, bnd)).toFixed(3), boundary: bnd, why: 'act boundary, inside a ' + x.dur.toFixed(2) + ' s silence' }; });
+  const brk = (GLUE.adBreaksAfter || []).map((sid) => silences.find((x) => x.after === sid)).filter(Boolean).map((x) => { const bnd = tl.acts.find((a) => a.start > x.t).start; return { t: +Math.min(x.t + x.dur - 0.5, Math.max(x.t + 0.5, bnd)).toFixed(3), boundary: bnd, why: 'act boundary, inside a ' + x.dur.toFixed(2) + ' s silence' }; });
   W('out/adbreaks.json', { breaks: brk });
   // cue sheet and tension map, cut to the M2 range
-  const cs = J(path.join(REPO, 'out', 'cues.json'));
+  const cs = J(path.join(R, 'edit', 'cues.json'));
   W('out/cues.json', { ...cs, silences });
   // numbers[]: video time of every spoken number (the mix dips music, whoosh and sfx around each one); no physical beds
-  const cm = eval(fs.readFileSync(path.join(REPO, 'render-d', 'prod', 'data.js'), 'utf8').replace('window.DATA = ', '(').replace(/;\s*$/, ')')).cues;
+  const cm = eval(fs.readFileSync(path.join(R, 'render', 'data.js'), 'utf8').replace('window.DATA = ', '(').replace(/;\s*$/, ')')).cues;
   const numbers = [...new Set(Object.entries(cm).filter(([k]) => /\|[−$]?\d/.test(k)).map(([, v]) => v))].sort((a, b) => a - b);
   W('out/physical.json', { beds: [], events: [], numbers });
   console.log('beats', beats.length, 'accents', accents.length, '| cuts', cuts.length, 'on beat', cuts.filter(onBeat).length, '| silences', silences.length, '| captions', cues.length);
 }
 
 function post() {
-  const seen = J(path.join(R, '..', 'text-first.json'));
+  const seen = J(path.join(R, 'work', 'text-first.json'));
   const events = [];
   for (const [tid, v] of Object.entries(seen)) {
     if (!(v.level === 1 || v.claims > 0 || v.role === 'badge')) continue;
     if (v.t < 0.3) continue;
-    const impact = ['cb-l1', 'av-l1', 'am-id'].includes(tid) || /-l1$/.test(tid) && v.claims > 0;
+    const impact = (GLUE.impacts || []).includes(tid) || /-l1$/.test(tid) && v.claims > 0;
     events.push({ t: v.t, x: v.x, id: tid, kind: impact ? 'impact' : 'reveal', ...(impact ? { riser: 0.9 } : {}) });
   }
   events.sort((a, b) => a.t - b.t);
@@ -153,9 +131,8 @@ function post() {
   const kept = [];
   for (const e of events) if (!kept.length || e.t - kept[kept.length - 1].t >= 0.25) kept.push(e);
   W('out/sfx-events.json', { events: kept.map((e) => ({ t: e.t, x: e.x, id: e.id, kind: e.kind, ...(e.riser ? { riser: e.riser } : {}) })) });
-  const run = J(path.join(R, '..', 'render-run.json'));
-  const step0 = J(path.join(REPO, 'out', 'render-log.json')).stepZero;
-  W('out/render-log.json', { subframes: 8, shutter: 0.5, stepZero: step0, m3: run });
+  const run = J(path.join(R, 'work', 'render-run.json'));
+  W('out/render-log.json', { subframes: 8, shutter: 0.5, render: run });
   console.log('sfx events', kept.length);
 }
 

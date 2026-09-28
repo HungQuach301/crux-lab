@@ -1,4 +1,5 @@
 'use strict';
+// crux-lab: EP_ROOT = episode root (contract files in <root>/out, work files in <root>/work, frame parts in $FRAMES_DIR).
 // Test D M3 fix round 2: re-render ONLY the scenes with picture errors and splice them into the master picture.
 //   node src/d/m3-splice.js render <scene,scene,...>   render each scene range (render.js --from/--to, frame-exact)
 //   node src/d/m3-splice.js splice                      build the new master picture from the renders
@@ -10,9 +11,8 @@
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
-const REPO = path.join(__dirname, '..', '..');
-const R = path.join(REPO, 'out', 'm3', 'root');
-const OUT = path.join(REPO, 'out', 'm3');
+const R = path.resolve(process.env.EP_ROOT || '.');
+const OUT = path.join(R, 'work');
 const J = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 const FPS = 30;
 const ROUND = process.env.ROUND || 'r2', BASE = process.env.BASE || 'r1'; // round 3: ROUND=r3 BASE=r2 (splice onto the round-2 master)
@@ -36,8 +36,8 @@ function render(ids) {
   const rs = ranges(ids), t0 = Date.now(), runs = [];
   for (const [a, b, sc] of rs) {
     const r = range(a, b);
-    if (fs.existsSync(path.join(OUT, `render-run-${r}.json`)) && fs.existsSync(path.join(REPO, '.frames', 'm3', r))) { runs.push({ range: r, scenes: sc, skipped: true }); continue; }
-    execFileSync('node', [path.join(REPO, 'render-d', 'prod', 'render.js'), R, '--from', String(a / FPS), '--to', String(b / FPS)], { stdio: 'inherit' });
+    if (fs.existsSync(path.join(OUT, `render-run-${r}.json`)) && fs.existsSync(path.join(path.join(process.env.FRAMES_DIR || path.join(require('os').tmpdir(), 'crux-frames'), path.basename(R)), r))) { runs.push({ range: r, scenes: sc, skipped: true }); continue; }
+    execFileSync('node', [path.join(__dirname, 'render.js'), R, '--from', String(a / FPS), '--to', String(b / FPS)], { stdio: 'inherit' });
     const run = J(path.join(OUT, `render-run-${r}.json`));
     if (run.frames !== b - a) throw new Error(`range ${r}: ${run.frames} frames, expected ${b - a}`);
     runs.push({ range: r, scenes: sc, frames: run.frames, framesSupersampled: run.framesSupersampled, wallSeconds: run.wallSeconds });
@@ -61,7 +61,7 @@ function splice() {
     const l = spans[spans.length - 1];
     if (l && kA <= l.kB) { l.kB = Math.max(l.kB, kB); l.parts.push(r); } else spans.push({ kA, kB, parts: [r] });
   }
-  const t0 = Date.now(), dir = path.join(REPO, '.frames', 'm3', 'splice');
+  const t0 = Date.now(), dir = path.join(path.join(process.env.FRAMES_DIR || path.join(require('os').tmpdir(), 'crux-frames'), path.basename(R)), 'splice');
   fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });
   // 1) the untouched stretches, cut at keyframes without re-encoding
   const cuts = spans.flatMap((s) => [s.kA, s.kB]).filter((f) => f > 0 && f < NF);
@@ -79,7 +79,7 @@ function splice() {
     const masterPart = (f0, f1) => { args.push('-ss', (f0 / FPS - 0.001).toFixed(6), '-i', master); /* 1 ms early: the first frame kept is exactly f0 */ fc.push(`[${n}:v]trim=end_frame=${f1 - f0},setpts=PTS-STARTPTS,format=yuv420p[p${n}]`); labels.push(`[p${n}]`); n++; };
     for (const r of sp.parts) {
       if (r.f0 > cur) masterPart(cur, r.f0);
-      const rdir = path.join(REPO, '.frames', 'm3', r.range);
+      const rdir = path.join(path.join(process.env.FRAMES_DIR || path.join(require('os').tmpdir(), 'crux-frames'), path.basename(R)), r.range);
       const parts = fs.readdirSync(rdir).filter((f) => /^part\d+\.mkv$/.test(f)).sort((x, y) => +x.match(/\d+/)[0] - +y.match(/\d+/)[0]).map((f) => path.join(rdir, f));
       const pl = path.join(rdir, 'list.txt'); fs.writeFileSync(pl, parts.map((f) => `file '${f}'`).join('\n'));
       args.push('-f', 'concat', '-safe', '0', '-i', pl);

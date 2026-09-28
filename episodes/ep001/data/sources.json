@@ -1,0 +1,59 @@
+{
+ "files": [
+  {
+   "path": "data/raw/MORTGAGE30US.csv",
+   "role": "primary",
+   "series": "MORTGAGE30US",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+   "downloaded": "2026-09-28",
+   "bytes": 46931,
+   "terms": {
+    "quote": "Notes: On November 17, 2022, Freddie Mac changed the methodology of the Primary Mortgage Market Survey® (PMMS®). The weekly mortgage rate is now based on applications submitted to Freddie Mac from lenders across the country. For more information regarding Freddie Mac’s enhancement, see their research note . Data are provided “as is” by Freddie Mac®, with no warranties of any kind, express or implied, including but not limited to warranties of accuracy or implied warranties of merchantability or fitness for a particular purpose. Use of the data is at the user’s sole risk. In no event will Freddie Mac be liable for any damages arising out of or related to the data, including but not limited to direct, indirect, incidental, special, consequential, or punitive damages, whether under a contract, tort, or any other theory of liability, even if Freddie Mac is aware of the possibility of such damages. Copyright, 2016, Freddie Mac. Reprinted with permission.",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US#notes",
+    "fredCopyrightStatus": "Copyrighted: Citation Required",
+    "fredLegalQuote": "Copyrighted: Citation required These series are under copyright; but, provided you have not engaged in any prohibited uses, you may use these data series with proper attribution of the source and acknowledgment that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it. We recommend using the citation provided in the series notes. Graphs and maps downloaded from FRED are self-citing and do not require a separate citation.",
+    "fredLegalProhibitedQuote": "Redistribute any third party’s proprietary content, including any graphs, maps, images, logos, data, or datasets, for commercial use without first obtaining express written permission from the data provider.",
+    "fredLegalUrl": "https://fred.stlouisfed.org/legal/",
+    "suggestedCitation": "Freddie Mac, 30-Year Fixed Rate Mortgage Average in the United States [MORTGAGE30US], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MORTGAGE30US"
+   }
+  },
+  {
+   "path": "data/raw/OBMMIC30YF.csv",
+   "role": "crosscheck",
+   "series": "OBMMIC30YF",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YF",
+   "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YF",
+   "sha256": "e73ec643f02cdbbdcf90d90c494a1b66b745b9155c0b62bfcfb010be62271e1a",
+   "downloaded": "2026-09-28",
+   "bytes": 42656,
+   "terms": {
+    "quote": "Notes: Optimal Blue Mortgage Market Indices ™ (OBMMI™) is calculated from actual locked rates with consumers across over one-third of all mortgage transactions nationwide. OBMMI includes multiple mortgage pricing indices developed around the most popular products and specific borrower and loan level attributes. Each index is calculated as the average of all appropriate rate locks locked through the Optimal Blue product eligibility and pricing engine on a given day. More details about methodology and definitions are available here .",
+    "url": "https://fred.stlouisfed.org/series/OBMMIC30YF#notes",
+    "fredCopyrightStatus": "Copyrighted: Citation Required",
+    "fredLegalQuote": "Copyrighted: Citation required These series are under copyright; but, provided you have not engaged in any prohibited uses, you may use these data series with proper attribution of the source and acknowledgment that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it. We recommend using the citation provided in the series notes. Graphs and maps downloaded from FRED are self-citing and do not require a separate citation.",
+    "fredLegalProhibitedQuote": "Redistribute any third party’s proprietary content, including any graphs, maps, images, logos, data, or datasets, for commercial use without first obtaining express written permission from the data provider.",
+    "fredLegalUrl": "https://fred.stlouisfed.org/legal/",
+    "suggestedCitation": "Optimal Blue, 30-Year Fixed Rate Conforming Mortgage Index [OBMMIC30YF], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/OBMMIC30YF"
+   }
+  }
+ ],
+ "tolerance": {
+  "mortgage_rate_pp": 0.5,
+  "basis": "weekly PMMS rate vs mean of Optimal Blue daily rates of the 7 days ending that Thursday"
+ },
+ "crosscheckSummary": {
+  "weeks": 507,
+  "meanAbsDiffPp": 0.145,
+  "maxAbsDiffPp": 0.384,
+  "outsideTolerance": 0
+ },
+ "mismatches": [],
+ "notUsed": [
+  {
+   "source": "HMDA loan-level data (ffiec.cfpb.gov / files.ffiec.cfpb.gov / s3 cfpb-hmda-public)",
+   "status": "not reachable from this environment (proxy 403 / S3 AccessDenied), see data/HMDA-ACCESS.md"
+  }
+ ]
+}

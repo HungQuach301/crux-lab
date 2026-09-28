@@ -1,0 +1,16 @@
+{
+ "video": "/home/user/crux-lab/episodes/ep001/m0-sample/out/video.mp4",
+ "pairs": 299,
+ "method": "luma, gblur sigma 1.5 (grain removed), |dY| > 4 codes",
+ "at0.5": {
+  "threshold%": 0.5,
+  "framesChanged%": 12.7,
+  "longestStillRun_s": 3.37
+ },
+ "at0.1": {
+  "threshold%": 0.1,
+  "framesChanged%": 91.0,
+  "longestStillRun_s": 0.1
+ },
+ "medianChangedPixels%": 0.303
+}

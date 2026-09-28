@@ -1,1 +1,8 @@
 __pycache__/
+# crux-lab episodes: large work files are not committed (the master is recorded by SHA-256)
+episodes/*/work/picture*.mp4
+episodes/*/*/work/picture*.mp4
+episodes/*/out/video.mp4
+episodes/*/*/out/video.mp4
+episodes/*/out/audio/master.wav
+episodes/*/*/out/audio/master.wav

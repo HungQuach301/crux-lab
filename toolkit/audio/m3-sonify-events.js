@@ -1,15 +1,15 @@
 'use strict';
 // Test D M3 round 3 (H7a): data events for the sonification, read frame by frame from the render page's own scene
 // state (RENDER.stateAt: the builders, no drawing), so every sound starts on the frame its element changes.
-//   node src/d/m3-sonify-events.js out/m3/root   -> <root>/out/sonify-events.json
+//   node toolkit/audio/m3-sonify-events.js <episode root>   -> <root>/out/sonify-events.json
 // Events: bar (a bar grows: start/end frame, value, chart), line (a series is drawn: per-frame tip slope and height),
 // dot (a circle mark appears: frame, screen y), tick (a number text changes: frame). Appearances on the first frame of a
 // scene (things that are simply there at the cut) are not events.
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
-const ROOT = path.resolve(process.argv[2] || 'out/m3/root');
-const PAGE = path.join(__dirname, '..', '..', 'render-d', 'prod', 'page.html');
+const ROOT = path.resolve(process.argv[2] || '.');
+const PAGE = path.join(__dirname, '..', 'render', 'page.html');
 const FPS = 30;
 
 (async () => {
@@ -17,7 +17,7 @@ const FPS = 30;
   const N = Math.round(tl.total * FPS);
   const browser = await chromium.launch({ args: ['--disable-gpu'] });
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
-  await page.goto('file://' + PAGE);
+  await page.goto('file://' + PAGE + '?root=' + encodeURIComponent(ROOT));
   await page.waitForFunction(() => window.RENDER && window.DATA);
   await page.evaluate(() => { window.__SON = { prev: {}, scene: null, bars: {}, out: { bar: [], line: [], dot: [], tick: [] } }; });
   const t0 = Date.now();
@@ -48,6 +48,7 @@ const FPS = 30;
           } else if (m.role === 'series' && it.pts && it.pts.length >= 2) {
             const q = it.pts[it.pts.length - 1], k = 's:' + it.id, p = S.prev[k];
             cur[k] = q;
+            if (!fresh && !p) { const P = cam.project([q[0], q[1], it.z || 0]); S.out.line.push({ f, id: it.id, char: m.char || null, slope: 0, x: P[0], y: P[1], appear: true }); } // the line appears (crux-lab: its sound starts here)
             if (!fresh && p && (Math.abs(q[0] - p[0]) > 0.3 || Math.abs(q[1] - p[1]) > 0.3)) {
               const dx = q[0] - p[0], dy = q[1] - p[1];
               const P = cam.project([q[0], q[1], it.z || 0]);

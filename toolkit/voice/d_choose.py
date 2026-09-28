@@ -1,4 +1,4 @@
-"""Test D: pick one TTS take per sentence. Uses the locked check functions (checks/py, read-only import) so a take is
+"""Test D: pick one TTS take per sentence. Uses the builder's own key-word matcher (toolkit/voice/keywords.py) so a take is
 kept only if every key word of its sentence (numbers, proper names, defined terms: rule A14) is in its own ASR.
 Among those, the take whose pace (A15 definition) is nearest 156 wpm and at most 172 wpm wins; the planned time
 stretch that brings it to 156 wpm is clamped to ±10% (rule A13).
@@ -7,9 +7,9 @@ import json
 import os
 import sys
 
-ROOT = os.path.join(os.path.dirname(__file__), '..')
-sys.path.insert(0, os.path.join(ROOT, 'checks', 'py'))
-from r_audio import key_words, match_keys  # noqa: E402  (locked implementation, used read-only)
+ROOT = os.path.abspath(os.environ.get('EP_ROOT') or (sys.argv[1] if len(sys.argv) > 1 else '.'))  # episode root
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from keywords import key_words, match_keys  # noqa: E402  (the builder's own matcher; nothing is imported from checks/)
 
 VDIR = os.path.join(ROOT, 'out', 'voice')
 AIM, CAP, STRETCH = 156.0, 172.0, 0.10

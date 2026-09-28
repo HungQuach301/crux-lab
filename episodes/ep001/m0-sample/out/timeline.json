@@ -1,0 +1,32 @@
+{
+ "fps": 30,
+ "total": 10,
+ "acts": [
+  {
+   "id": "cold-open",
+   "start": 0,
+   "end": 10
+  }
+ ],
+ "scenes": [
+  {
+   "id": "m0-rates",
+   "act": "cold-open",
+   "start": 0,
+   "dur": 10,
+   "layout": "line/full",
+   "shot": "wide",
+   "panels": [
+    "m0"
+   ],
+   "chart": "rates",
+   "move": 2
+  }
+ ],
+ "turns": [
+  {
+   "t": 5.03,
+   "what": "the line reaches its peak"
+  }
+ ]
+}

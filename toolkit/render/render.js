@@ -4,26 +4,31 @@
 // a fixed light grain and vignette, and encodes H.264 High / yuv420p / BT.709 limited / 30 fps CFR.
 // Also writes, per frame, the camera (out/camera.json) and the first-visible frame of every text (sfx events with the
 // screen x of the text that appears).
-//   node render-d/prod/render.js <rootDir> [--from s] [--to s] [--stills t1,t2,...]
+//   node toolkit/render/render.js <episode root> [--from s] [--to s] [--stills t1,t2,...]
+// crux-lab layout: the page is toolkit/render/page.html?root=<episode root> (loads <root>/render/data.js and
+// scenes-ep.js); contract files go to <root>/out/, work files (picture.mp4, stills, logs) to <root>/work/, lossless
+// frame parts to $FRAMES_DIR (default: <tmp>/crux-frames/<episode>/<range>).
 const fs = require('fs');
 const path = require('path');
 const { spawn, execFileSync } = require('child_process');
 const { chromium } = require('playwright');
 
 const args = process.argv.slice(2);
-const ROOT = path.resolve(args[0] || 'out/m2/root');
+const ROOT = path.resolve(args[0] || '.');
+const WORK = path.join(ROOT, 'work');
+fs.mkdirSync(WORK, { recursive: true });
 const opt = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : d; };
 const WORKERS = +(process.env.WORKERS || 4), FPS = 30;
 const PAGE = path.resolve(__dirname, 'page.html');
 const TL = JSON.parse(fs.readFileSync(path.join(ROOT, 'out', 'timeline.json'), 'utf8'));
 const RANGE = opt('from') || opt('to') ? `${(+opt('from', 0)).toFixed(3)}-${(+opt('to', TL.total)).toFixed(3)}` : null; // a partial render keeps its own parts and outputs
-const TMP = path.resolve(__dirname, '..', '..', '.frames', path.basename(path.dirname(ROOT)), RANGE || 'all');
+const TMP = path.join(process.env.FRAMES_DIR || path.join(require('os').tmpdir(), 'crux-frames'), path.basename(ROOT), RANGE || 'all');
 const SUF = RANGE ? '-' + RANGE : '';
 
 async function openPage(browser) {
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
   page.on('pageerror', (e) => console.error('pageerror', e.message));
-  await page.goto('file://' + PAGE);
+  await page.goto('file://' + PAGE + '?root=' + encodeURIComponent(ROOT));
   await page.evaluate(async () => { await document.fonts.load('700 40px Inter'); await document.fonts.load('600 40px Inter'); await document.fonts.load('400 40px Inter'); await document.fonts.ready; });
   return page;
 }
@@ -69,7 +74,7 @@ async function chunk(browser, f0, f1, file, log) {
 async function main() {
   const browser = await chromium.launch({ args: ['--font-render-hinting=none', '--disable-lcd-text', '--disable-gpu'] });
   if (opt('stills')) {
-    await stills(browser, opt('stills').split(',').map(Number), path.join(ROOT, '..', 'stills'));
+    await stills(browser, opt('stills').split(',').map(Number), path.join(WORK, 'stills'));
     await browser.close();
     return;
   }
@@ -93,12 +98,12 @@ async function main() {
   fs.writeFileSync(path.join(ROOT, 'out', 'camera' + SUF + '.json'), JSON.stringify({ fovAxis: 'vertical', note: 'world px; focus plane z = 0 unless racked; coc = background (far wall) circle of confusion in px at 1080p', frames }));
   const seen = {};
   for (const r of res) for (const [k, v] of Object.entries(r.seen)) if (!(k in seen) || v.t < seen[k].t) seen[k] = v;
-  fs.writeFileSync(path.join(ROOT, '..', 'text-first' + SUF + '.json'), JSON.stringify(seen, null, 1));
-  if (RANGE && !process.env.ENCODE_PARTIAL) { console.log(JSON.stringify({ range: RANGE, wallSeconds: +((Date.now() - t0) / 1000).toFixed(1), frames: F1 - F0, framesSupersampled: res.reduce((a, r) => a + r.moving, 0) })); fs.writeFileSync(path.join(ROOT, '..', 'render-run' + SUF + '.json'), JSON.stringify({ range: RANGE, wallSeconds: +((Date.now() - t0) / 1000).toFixed(1), frames: F1 - F0, framesSupersampled: res.reduce((a, r) => a + r.moving, 0), workerSeconds: res.map((r) => +r.seconds.toFixed(1)) }, null, 1)); return; }
+  fs.writeFileSync(path.join(WORK, 'text-first' + SUF + '.json'), JSON.stringify(seen, null, 1));
+  if (RANGE && !process.env.ENCODE_PARTIAL) { console.log(JSON.stringify({ range: RANGE, wallSeconds: +((Date.now() - t0) / 1000).toFixed(1), frames: F1 - F0, framesSupersampled: res.reduce((a, r) => a + r.moving, 0) })); fs.writeFileSync(path.join(WORK, 'render-run' + SUF + '.json'), JSON.stringify({ range: RANGE, wallSeconds: +((Date.now() - t0) / 1000).toFixed(1), frames: F1 - F0, framesSupersampled: res.reduce((a, r) => a + r.moving, 0), workerSeconds: res.map((r) => +r.seconds.toFixed(1)) }, null, 1)); return; }
   // concat + grade + grain + vignette -> master picture
   const list = path.join(TMP, 'list.txt');
   fs.writeFileSync(list, res.map((r) => `file '${path.join(TMP, `part${r.w}.mkv`)}'`).join('\n'));
-  const out = path.join(ROOT, '..', 'picture.mp4');
+  const out = path.join(WORK, 'picture.mp4');
   const vf = [
     // ONE grade for the whole film (token colours in, graded colours out): gentle filmic curve, slight warm highlights
     "curves=master='0/0.02 0.25/0.235 0.5/0.5 0.75/0.765 1/0.98':r='0/0 0.5/0.505 1/1':b='0/0.01 0.5/0.495 1/0.99'",
@@ -112,7 +117,7 @@ async function main() {
     '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv', '-r', String(FPS), '-video_track_timescale', '15360', out]);
   const log2 = { subframes: 8, shutter: 0.5, workers: WORKERS, frames: F1 - F0, framesSupersampled: res.reduce((a, r) => a + r.moving, 0), wallSeconds: +wall.toFixed(1),
     secondsPerVideoSecond: +(wall / ((F1 - F0) / FPS)).toFixed(2), workerSeconds: res.map((r) => +r.seconds.toFixed(1)) };
-  fs.writeFileSync(path.join(ROOT, '..', 'render-run.json'), JSON.stringify(log2, null, 1));
+  fs.writeFileSync(path.join(WORK, 'render-run.json'), JSON.stringify(log2, null, 1));
   console.log(JSON.stringify(log2));
 }
 main().catch((e) => { console.error(e); process.exit(1); });
