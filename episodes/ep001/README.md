@@ -2,30 +2,30 @@
 
 Đề tài 7, dòng 1 (vay và nợ, quyết định về nhà). Phiên D1, nhánh `ep001`.
 
-## Trạng thái: DỪNG ở A-M0c, chờ chủ dự án chọn phương án dữ liệu chi phí đóng hồ sơ
+## Trạng thái: M1 XONG, dừng chờ chủ dự án duyệt (không làm M2)
 
 | Bước | Trạng thái |
 |---|---|
-| A-M0a: toolkit theo cấu trúc crux-lab, tách khỏi `checks/` | **xong**: `toolkit/README.md`, mục "Sửa ở Tập 1, bước 0" |
-| A-M0b: mẫu 10 giây chạy đầu cuối, chạy luật lên mẫu | **xong**: `m0-sample/README.md`. 41 PASS; 3 trượt thật (T1, R03, A15), đã ghi cách xử lý cho M1 |
-| A-M0c: lãi suất FRED `MORTGAGE30US` | **xong**: `data/raw/MORTGAGE30US.csv`, `data/sources.json` (SHA-256, URL, ngày tải, điều khoản trích nguyên câu); đối chiếu độc lập với Optimal Blue `OBMMIC30YF` (507 tuần, lệch tối đa 0,38 pp, dung sai 0,5 pp, 0 tuần ngoài dung sai) |
-| A-M0c: chi phí đóng hồ sơ HMDA | **KHÔNG TẢI ĐƯỢC** → điều kiện dừng. Chi tiết và 3 phương án: [`data/HMDA-ACCESS.md`](data/HMDA-ACCESS.md) |
-| A-M1 (mô hình, kịch bản, đọc thử, storyboard, hợp đồng, gói duyệt) | **chưa làm** (dừng theo đầu bài) |
+| A-M0a, M0b | xong (lượt trước): toolkit theo cấu trúc crux-lab, mẫu 10 giây |
+| A-M0c lãi suất | xong: FRED `MORTGAGE30US` + đối chiếu `OBMMIC30YF` (`data/sources.json`) |
+| A-M0c chi phí đóng hồ sơ | **xong**: HMDA 2018–2025 toàn quốc, đọc theo luồng, **không lưu file thô**. `data/hmda.py` (tái tạo), `data/hmda-sources.json` (URL, SHA-256 của từng luồng, byte, ngày tải, số dòng, định nghĩa trường trích nguyên văn), `data/normalized/hmda_refi_costs.csv` (trung vị và P25–P75, theo năm × mục đích × quy mô khoản vay, đô la và % số tiền vay). **Điều khoản HMDA: chưa trích được câu nào**, xem mục mở dưới đây. |
+| M1-1 mô hình, claims, test | `model/refi.py`, `model/test_refi.py` (8 test đạt), `build.py` → `out/model.json`, `out/claims.json` (62 claim) |
+| M1-2 kịch bản | `script/script.tpl.md` (mẫu, số chỉ lấy từ claim) → `script/script.md`, `out/script-draft.json`; 83 câu, 1.334 từ, không cảnh nào > 2 số mới, CV độ dài câu 0,37 |
+| M1-3 đọc thử | 84 take Eric `eleven_v3`, **4.292 ký tự**; `review-m1/table-read-full.m4a` (10:09, khoảng lặng ≤ 0,75 s); `script/table-read-notes.md` |
+| M1-4 storyboard, shot list, cue sheet, tension map | `preprod/` (storyboard 14 khung, 84 shot, cue sheet có kế hoạch âm thanh theo dữ liệu cho cột, đường, điểm, bộ đếm; tension map dự kiến), `edit/cues.json`, `preprod/timeline-plan.json` (10:39) |
+| M1-5 hợp đồng tập | `contract.json`, `design/tokens.json` |
+| M1-6 gói duyệt | `review-m1/`: `summary.md`, `animatic-0000-0120.mp4` (2 phút: cold open + câu móc lại, hình là storyboard), `table-read-full.m4a`, `sb-01…05.png` |
 
-## Lý do dừng
+## Mục mở
 
-HMDA cấp khoản vay (có trường `total_loan_costs`) chỉ tải được từ `files.ffiec.cfpb.gov`. Chính sách mạng của môi trường chặn host này (proxy 403), và bản S3 công khai trả `AccessDenied`. API tổng hợp của `ffiec.cfpb.gov` tải được nhưng không có trường chi phí. Vì bản lọc theo bang cũng nằm trên cùng host bị chặn, phương án "mẫu theo bang" cũng không làm được trong môi trường này.
-
-## Việc chủ dự án cần quyết
-
-1. **Phương án dữ liệu chi phí đóng hồ sơ** (`data/HMDA-ACCESS.md`). Khuyến nghị: mở `files.ffiec.cfpb.gov` trong Network access của môi trường, rồi chạy M1 với trung vị HMDA thật.
-2. **Điều khoản `MORTGAGE30US`.** FRED xếp chuỗi này vào loại *"Copyrighted: Citation Required"*: được dùng khi ghi nguồn khi hiển thị hoặc công bố (câu trích ở `data/sources.json`). Nhưng điều khoản FRED cũng cấm *"Redistribute any third party’s proprietary content, including any graphs, maps, images, logos, data, or datasets, for commercial use without first obtaining express written permission from the data provider."* Theo đọc của phiên này:
-   - hiển thị đường lãi suất trong video có ghi nguồn là được;
-   - **công bố lại file dữ liệu** (ví dụ "bảng tính mô hình công khai" ở `persona.md`, cơ chế 2) trên kênh có quảng cáo có thể cần Freddie Mac cho phép bằng văn bản.
-   Đây là việc irreversible và pháp lý, nên chủ dự án quyết. Trang điều khoản của Freddie Mac (`freddiemac.com`) cũng bị chặn ở môi trường này.
-3. **Mức âm thanh theo dữ liệu** (`m0-sample/README.md`, bảng mức tăng): cần nghe bằng tai trước khi dùng cho cả tập.
+1. **Điều khoản HMDA (DX-H4).** Không trang nào đọc được từ môi trường này có câu điều khoản sử dụng dữ liệu HMDA; điều khoản web của CFPB nằm ở `www.consumerfinance.gov` (proxy 403). Cần trích trước khi phát hành.
+2. **FRED.** Theo quyết định của chủ dự án: video hiển thị số kèm ghi nguồn; không công bố lại file; mô tả video chỉ dẫn link tới nguồn gốc.
+3. **Hợp đồng với phiên kiểm.** S01, S03–S06, V04, V09 của bộ luật khoá gắn với mô hình và nhân vật bài D (xem `contract.json`).
+4. **Tốc độ đọc ở M2.** v3 đọc 180–240 wpm ở câu ngắn; cold open 180 wpm, act 2 167 wpm (`script/table-read-notes.md`).
+5. **Mức tiếng dữ liệu** chốt bằng tai chủ dự án ở M2 (`preprod/cue-sheet.md`).
 
 ## Thư mục
 
-- `data/`: dữ liệu và script tải lại (`python3 episodes/ep001/data/fetch.py`; kiểm SHA: `--verify`).
+- `data/`: dữ liệu và script tải lại (`python3 episodes/ep001/data/fetch.py`, kiểm SHA: `--verify`; HMDA: `python3 episodes/ep001/data/hmda.py --years 2025,...,2018`).
+- Dựng lại M1: `python3 build.py && python3 contract_build.py && python3 preprod/plan.py && python3 preprod/storyboard.py && python3 preprod/edit.py && python3 preprod/animatic.py` (trong `episodes/ep001`; đọc thử: `EP_ROOT=$PWD EL_MAX_TAKES=1 EL_MAX_FALLBACK=0 python3 ../../toolkit/voice/d_el_voice.py`).
 - `m0-sample/`: mẫu 10 giây (gốc thử riêng, cùng cấu trúc với gốc tập).

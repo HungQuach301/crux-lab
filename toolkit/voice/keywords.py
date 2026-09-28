@@ -138,7 +138,7 @@ def match_keys(keys, asr_words):
     toks = []
     for w in asr_words:  # Whisper splits "18.63%" into "18" ".63" "%" and "$4,500" into "$4" ",500": glue them back
         t = (w['w'] if isinstance(w, dict) else w).strip()
-        if toks and (re.match(r'^[,.%](?!\.\.)', t) or toks[-1].endswith(('$', '&'))):
+        if toks and (re.match(r'^[,.%](?!\.\.)', t) or re.match(r'^-\w', t) or toks[-1].endswith(('$', '&', '-'))):  # also "break" "-even"
             toks[-1] += t
         elif t:
             toks.append(t)
@@ -172,4 +172,6 @@ if __name__ == '__main__':
     assert match_keys(k2, [{'w': x} for x in 'Closing costs of four thousand five hundred dollars on a three hundred thousand dollar refinance.'.split()]) == []
     assert match_keys(k2, [{'w': x} for x in 'Closing costs of $4,500 on a $300,000 refinancing.'.split()]) == []
     assert match_keys(k, [{'w': x} for x in 'Since 1971, the rate peaked at 18 .63 % and fell to 2 .65 %, per Freddie Mac.'.split()]) == []
+    kb = key_words([{'text': 'The break-even is simple division.'}])[0]
+    assert match_keys(kb, [{'w': x} for x in ['The', 'break', '-even', 'is', 'simple', 'division.']]) == []
     print('keywords self-test: OK')

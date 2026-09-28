@@ -1,0 +1,1583 @@
+{
+ "claims": [
+  {
+   "claimId": "term30",
+   "value": 30,
+   "display": "30",
+   "formula": "loan term of the series and of the HMDA filter (30-year fixed; loan_term = 360 months)",
+   "source": {
+    "id": "series-definition",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-rates",
+    "a1-count",
+    "a2-reset",
+    "a3-all",
+    "a3-limit",
+    "m-costs"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-rates.1"
+    },
+    {
+     "sentence": "a1-count.1"
+    },
+    {
+     "sentence": "a2-reset.1"
+    },
+    {
+     "sentence": "a3-all.1"
+    },
+    {
+     "sentence": "a3-limit.1"
+    },
+    {
+     "sentence": "m-costs.1"
+    }
+   ]
+  },
+  {
+   "claimId": "y1971",
+   "value": 1971,
+   "display": "1971",
+   "formula": "first observation of MORTGAGE30US (week of 1971-04-02)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1971,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-rehook",
+    "a3-all"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-rehook.1"
+    },
+    {
+     "sentence": "a3-all.1"
+    }
+   ]
+  },
+  {
+   "claimId": "y1981",
+   "value": 1981,
+   "display": "1981",
+   "formula": "year of the weekly maximum (1981-10-09)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1981,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-peak",
+    "a3-81"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-peak.1"
+    },
+    {
+     "sentence": "a3-81.1"
+    }
+   ]
+  },
+  {
+   "claimId": "peak",
+   "value": 18.63,
+   "display": "18.63%",
+   "formula": "max of MORTGAGE30US weekly, 1971-2026 (week of 1981-10-09)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1981,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-peak"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-peak.1"
+    }
+   ]
+  },
+  {
+   "claimId": "y2021",
+   "value": 2021,
+   "display": "2021",
+   "formula": "year of the weekly minimum (2021-01-07)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2021,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-low",
+    "a1-boom"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-low.1"
+    },
+    {
+     "sentence": "a1-boom.1"
+    }
+   ]
+  },
+  {
+   "claimId": "low",
+   "value": 2.65,
+   "display": "2.65%",
+   "formula": "min of MORTGAGE30US weekly, 1971-2026 (week of 2021-01-07)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2021,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-low"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-low.1"
+    }
+   ]
+  },
+  {
+   "claimId": "y2025",
+   "value": 2025,
+   "display": "2025",
+   "formula": "latest HMDA data year used",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-count",
+    "m-costs"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-count.1"
+    },
+    {
+     "sentence": "m-costs.1"
+    }
+   ]
+  },
+  {
+   "claimId": "y2018",
+   "value": 2018,
+   "display": "2018",
+   "formula": "first HMDA year with total_loan_costs",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2018,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-costs",
+    "m-costs"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-costs.1"
+    },
+    {
+     "sentence": "m-costs.1"
+    }
+   ]
+  },
+  {
+   "claimId": "y2017",
+   "value": 2017,
+   "display": "2017",
+   "formula": "first year of the Optimal Blue 30-year conforming index (OBMMIC30YF, from 2017-01-03)",
+   "source": {
+    "id": "fred-OBMMIC30YF",
+    "url": "https://fred.stlouisfed.org/series/OBMMIC30YF"
+   },
+   "dataYear": 2017,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "m-rates"
+   ],
+   "spoken": [
+    {
+     "sentence": "m-rates.1"
+    }
+   ]
+  },
+  {
+   "claimId": "n31",
+   "value": 488241,
+   "display": "488,241",
+   "formula": "count of HMDA 2025 originated refinances (loan_purpose 31), first lien, loan_term 360, total_loan_costs > 0",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-count"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-count.1"
+    }
+   ]
+  },
+  {
+   "claimId": "cost_med",
+   "value": 5123.53,
+   "display": "$5,124",
+   "formula": "median total_loan_costs, HMDA 2025, loan_purpose 31, first lien, 360 months",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [
+    {
+     "scene": "a2-loan",
+     "meaning": "the bill that the monthly savings must repay"
+    },
+    {
+     "scene": "a3-median",
+     "meaning": "a median: half of borrowers paid more"
+    }
+   ],
+   "shownIn": [
+    "a1-median",
+    "a2-loan",
+    "a3-median"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-median.1"
+    },
+    {
+     "sentence": "a2-loan.1"
+    },
+    {
+     "sentence": "a3-median.1"
+    }
+   ],
+   "core": true,
+   "decisive": true
+  },
+  {
+   "claimId": "cost_p25",
+   "value": 3442.59,
+   "display": "$3,443",
+   "formula": "25th percentile, same population",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "a1-spread"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-spread.1"
+    }
+   ]
+  },
+  {
+   "claimId": "cost_p75",
+   "value": 8270.26,
+   "display": "$8,270",
+   "formula": "75th percentile, same population",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "a1-spread"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-spread.1"
+    }
+   ]
+  },
+  {
+   "claimId": "band150",
+   "value": 150000,
+   "display": "$150,000",
+   "formula": "loan-size band edge chosen for the analysis (not a data value); analysis parameter",
+   "source": null,
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-small",
+    "a2-small"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-small.1"
+    },
+    {
+     "sentence": "a2-small.1"
+    }
+   ],
+   "role": "axis",
+   "basis": "nominal"
+  },
+  {
+   "claimId": "band750",
+   "value": 750000,
+   "display": "$750,000",
+   "formula": "loan-size band edge chosen for the analysis (not a data value)",
+   "source": null,
+   "historical": false,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "a1-big",
+    "a2-big"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-big.1"
+    },
+    {
+     "sentence": "a2-big.1"
+    }
+   ],
+   "role": "axis"
+  },
+  {
+   "claimId": "share_small",
+   "value": 3.408,
+   "display": "3.4%",
+   "formula": "median of total_loan_costs / loan_amount, HMDA 2025, loan_purpose 31, loans under $150k",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-small"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-small.1"
+    }
+   ]
+  },
+  {
+   "claimId": "share_big",
+   "value": 0.4717,
+   "display": "0.5%",
+   "formula": "median of total_loan_costs / loan_amount, HMDA 2025, loan_purpose 31, loans $750k and over",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-big"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-big.1"
+    }
+   ]
+  },
+  {
+   "claimId": "loan_med",
+   "value": 375000.0,
+   "display": "$375,000",
+   "formula": "median loan_amount, HMDA 2025, loan_purpose 31 (public data bins amounts to $10,000 midpoints)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "a2-loan"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-loan.1"
+    }
+   ]
+  },
+  {
+   "claimId": "r_old",
+   "value": 7.62,
+   "display": "7.62%",
+   "formula": "monthly mean of MORTGAGE30US, October 2023 (peak month of the latest drop episode)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2023,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-old"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-old.1"
+    }
+   ]
+  },
+  {
+   "claimId": "oct2023",
+   "value": 2023,
+   "display": "October 2023",
+   "formula": "month of the monthly peak that starts the latest drop episode",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2023,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-old",
+    "a3-23"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-old.1"
+    },
+    {
+     "sentence": "a3-23.1"
+    }
+   ]
+  },
+  {
+   "claimId": "hold36",
+   "value": 36,
+   "display": "36",
+   "formula": "holding-period target of the scenario (3 years): an assumption, not data",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [
+    "a1-rehook",
+    "a2-mid",
+    "a3-answer2"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-rehook.1"
+    },
+    {
+     "sentence": "a2-mid.1"
+    },
+    {
+     "sentence": "a3-answer2.1"
+    }
+   ]
+  },
+  {
+   "claimId": "s025",
+   "value": 0.25,
+   "display": "0.25",
+   "formula": "rate cut in percentage points (analysis grid); scenario grid value",
+   "source": null,
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-s025"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-s025.1"
+    }
+   ]
+  },
+  {
+   "claimId": "sav025",
+   "value": 64.18277856153054,
+   "display": "$64",
+   "formula": "payment($375,000, 7.62%, 360) - payment($375,000, 7.37%, 360)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "a2-s025"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-s025.1"
+    }
+   ],
+   "model": "refi.refi"
+  },
+  {
+   "claimId": "be025",
+   "value": 80,
+   "display": "80",
+   "formula": "ceil(cost_med / sav025) = ceil(5123.53 / 64.18)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-be025"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-be025.1"
+    }
+   ],
+   "model": "refi.break_even_months"
+  },
+  {
+   "claimId": "s05",
+   "value": 0.5,
+   "display": "0.5",
+   "formula": "rate cut in percentage points (analysis grid); scenario grid value",
+   "source": null,
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-s05",
+    "a2-cliff",
+    "a2-thumb"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-s05.1"
+    },
+    {
+     "sentence": "a2-cliff.1"
+    },
+    {
+     "sentence": "a2-thumb.1"
+    }
+   ]
+  },
+  {
+   "claimId": "sav05",
+   "value": 127.75778271870331,
+   "display": "$128",
+   "formula": "payment($375,000, 7.62%, 360) - payment($375,000, 7.12%, 360)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "a2-s05"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-s05.1"
+    }
+   ],
+   "model": "refi.refi"
+  },
+  {
+   "claimId": "be05",
+   "value": 41,
+   "display": "41",
+   "formula": "ceil(cost_med / sav05) = ceil(5123.53 / 127.76)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-be05",
+    "a2-thumb"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-be05.1"
+    },
+    {
+     "sentence": "a2-thumb.1"
+    }
+   ],
+   "model": "refi.break_even_months"
+  },
+  {
+   "claimId": "s10",
+   "value": 1.0,
+   "display": "1",
+   "formula": "rate cut in percentage points (analysis grid); scenario grid value",
+   "source": null,
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-s10",
+    "a2-thumb",
+    "a3-all",
+    "a3-rules",
+    "a3-81",
+    "a3-range",
+    "a3-turn",
+    "a3-example2",
+    "a3-23",
+    "a3-answer3",
+    "m-drops"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-s10.1"
+    },
+    {
+     "sentence": "a2-thumb.1"
+    },
+    {
+     "sentence": "a3-all.1"
+    },
+    {
+     "sentence": "a3-rules.1"
+    },
+    {
+     "sentence": "a3-81.1"
+    },
+    {
+     "sentence": "a3-range.1"
+    },
+    {
+     "sentence": "a3-turn.1"
+    },
+    {
+     "sentence": "a3-example2.1"
+    },
+    {
+     "sentence": "a3-23.1"
+    },
+    {
+     "sentence": "a3-answer3.1"
+    },
+    {
+     "sentence": "m-drops.1"
+    },
+    {
+     "sentence": "m-drops.1"
+    }
+   ]
+  },
+  {
+   "claimId": "sav10",
+   "value": 253.01035521656559,
+   "display": "$253",
+   "formula": "payment($375,000, 7.62%, 360) - payment($375,000, 6.62%, 360)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "a2-s10"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-s10.1"
+    }
+   ],
+   "model": "refi.refi"
+  },
+  {
+   "claimId": "be10",
+   "value": 21,
+   "display": "21",
+   "formula": "ceil(cost_med / sav10) = ceil(5123.53 / 253.01)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [
+    {
+     "scene": "a2-thumb",
+     "meaning": "where the one-point rule of thumb comes from"
+    }
+   ],
+   "shownIn": [
+    "a2-be10",
+    "a2-thumb",
+    "a3-answer3"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-be10.1"
+    },
+    {
+     "sentence": "a2-thumb.1"
+    },
+    {
+     "sentence": "a3-answer3.1"
+    }
+   ],
+   "model": "refi.break_even_months",
+   "core": true
+  },
+  {
+   "claimId": "s20",
+   "value": 2.0,
+   "display": "2",
+   "formula": "rate cut in percentage points (analysis grid); scenario grid value",
+   "source": null,
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-s20"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-s20.1"
+    }
+   ]
+  },
+  {
+   "claimId": "sav20",
+   "value": 495.4089622951492,
+   "display": "$495",
+   "formula": "payment($375,000, 7.62%, 360) - payment($375,000, 5.62%, 360)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.refi"
+  },
+  {
+   "claimId": "be20",
+   "value": 11,
+   "display": "11",
+   "formula": "ceil(cost_med / sav20) = ceil(5123.53 / 495.41)",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-s20"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-s20.1"
+    }
+   ],
+   "model": "refi.break_even_months"
+  },
+  {
+   "claimId": "sp36_mid",
+   "value": 0.56,
+   "display": "0.56",
+   "formula": "smallest rate cut with break-even <= 36 months (bisection), loan and cost medians of all sizes, HMDA 2025, old rate 7.62%",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-mid",
+    "a3-answer2"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-mid.1"
+    },
+    {
+     "sentence": "a3-answer2.1"
+    }
+   ],
+   "model": "refi.spread_for_break_even",
+   "decisive": true,
+   "core": true
+  },
+  {
+   "claimId": "sp36_small",
+   "value": 1.32,
+   "display": "1.32",
+   "formula": "smallest rate cut with break-even <= 36 months (bisection), loan and cost medians of under $150k, HMDA 2025, old rate 7.62%",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-small"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-small.1"
+    }
+   ],
+   "model": "refi.spread_for_break_even"
+  },
+  {
+   "claimId": "sp36_big",
+   "value": 0.2,
+   "display": "0.2",
+   "formula": "smallest rate cut with break-even <= 36 months (bisection), loan and cost medians of $750k and over, HMDA 2025, old rate 7.62%",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-big"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-big.1"
+    }
+   ],
+   "model": "refi.spread_for_break_even"
+  },
+  {
+   "claimId": "n_eps",
+   "value": 13,
+   "display": "13",
+   "formula": "drop episodes: zig-zag swings of the monthly mean rate of >= 1.00 point, 1971-2026",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    1971,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-all",
+    "a3-range"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-all.1"
+    },
+    {
+     "sentence": "a3-range.1"
+    }
+   ],
+   "model": "refi.drop_episodes"
+  },
+  {
+   "claimId": "beh_min",
+   "value": 10,
+   "display": "10",
+   "formula": "min break-even months over the episodes, refinance at a 1-point cut, $300,000 loan (ILLUSTRATIVE size; months do not depend on it)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    1971,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-range"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-range.1"
+    }
+   ],
+   "model": "refi.history"
+  },
+  {
+   "claimId": "beh_max",
+   "value": 21,
+   "display": "21",
+   "formula": "max of the same",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    1971,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-range"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-range.1"
+    }
+   ],
+   "model": "refi.history"
+  },
+  {
+   "claimId": "n_further",
+   "value": 5,
+   "display": "5",
+   "formula": "episodes where the rate fell another full point before the 1-point refinance broke even",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    1971,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-turn"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-turn.1"
+    }
+   ],
+   "model": "refi.history"
+  },
+  {
+   "claimId": "n_nofurther",
+   "value": 8,
+   "display": "8",
+   "formula": "the other episodes that reached a 1-point cut",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    1971,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-quiet"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-quiet.1"
+    }
+   ],
+   "model": "refi.history"
+  },
+  {
+   "claimId": "ex_peak",
+   "value": 2018,
+   "display": "November 2018",
+   "formula": "peak month of the example episode",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2018,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-example"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-example.1"
+    }
+   ]
+  },
+  {
+   "claimId": "ex_refi",
+   "value": 2019,
+   "display": "June 2019",
+   "formula": "refinance month of the example (first month 1 point under the peak)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2019,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-example"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-example.1"
+    }
+   ]
+  },
+  {
+   "claimId": "ex_be",
+   "value": 18,
+   "display": "18",
+   "formula": "break-even months of the example",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2019,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-example2"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-example2.1"
+    }
+   ],
+   "model": "refi.history"
+  },
+  {
+   "claimId": "ex_gap",
+   "value": 17,
+   "display": "17",
+   "formula": "months from the refinance to the first month another full point lower",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2019,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-example2"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-example2.1"
+    }
+   ],
+   "model": "refi.history"
+  },
+  {
+   "claimId": "cost_med_co",
+   "value": 8655.1,
+   "display": "$8,655",
+   "formula": "median total_loan_costs, HMDA 2025, loan_purpose 32 (cash-out), first lien, 360 months",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2025,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "a1-cashout"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-cashout.1"
+    }
+   ]
+  },
+  {
+   "claimId": "n31_2021",
+   "value": 3089298,
+   "display": "3,089,298",
+   "formula": "count of HMDA 2021 loan_purpose 31, first lien, 360 months, total_loan_costs > 0",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2021,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a1-boom"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-boom.1"
+    }
+   ]
+  },
+  {
+   "claimId": "cost_med_2021",
+   "value": 3405.8,
+   "display": "$3,406",
+   "formula": "median total_loan_costs, HMDA 2021, loan_purpose 31",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2021,
+   "historical": true,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "a1-boomcost"
+   ],
+   "spoken": [
+    {
+     "sentence": "a1-boomcost.1"
+    }
+   ]
+  },
+  {
+   "claimId": "hold60",
+   "value": 60,
+   "display": "60",
+   "formula": "holding-period target of the scenario (5 years): an assumption, not data",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [
+    "a2-hold60"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-hold60.1"
+    }
+   ]
+  },
+  {
+   "claimId": "sp60_mid",
+   "value": 0.33,
+   "display": "0.33",
+   "formula": "smallest rate cut with break-even <= 60 months, median loan and cost, HMDA 2025, old rate 7.62%",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-hold60"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-hold60.1"
+    }
+   ],
+   "model": "refi.spread_for_break_even"
+  },
+  {
+   "claimId": "hold84",
+   "value": 84,
+   "display": "84",
+   "formula": "holding-period target of the scenario (7 years): an assumption, not data",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [
+    "a2-hold84"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-hold84.1"
+    }
+   ]
+  },
+  {
+   "claimId": "sp84_mid",
+   "value": 0.24,
+   "display": "0.24",
+   "formula": "smallest rate cut with break-even <= 84 months, median loan and cost, HMDA 2025, old rate 7.62%",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a2-hold84"
+   ],
+   "spoken": [
+    {
+     "sentence": "a2-hold84.1"
+    }
+   ],
+   "model": "refi.spread_for_break_even"
+  },
+  {
+   "claimId": "y1980s",
+   "value": 1980,
+   "display": "1980s",
+   "formula": "decade of the three largest drop episodes (1980-04, 1981-10, 1984-07 peaks)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    1980,
+    1987
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-80s"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-80s.1"
+    }
+   ]
+  },
+  {
+   "claimId": "m81",
+   "value": 2,
+   "display": "2",
+   "formula": "months from the 1981-10 monthly peak to the first month 1 point lower",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1981,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-81"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-81.1"
+    }
+   ],
+   "model": "refi.history"
+  },
+  {
+   "claimId": "be81",
+   "value": 13,
+   "display": "13",
+   "formula": "break-even months of that refinance (closing-cost share fixed, pre-HMDA)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1981,
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [
+    "a3-81be"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-81be.1"
+    }
+   ],
+   "model": "refi.history"
+  },
+  {
+   "claimId": "g81",
+   "value": 9,
+   "display": "9",
+   "formula": "months from that refinance to the first month another full point lower",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1982,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-81be"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-81be.1"
+    }
+   ],
+   "model": "refi.history"
+  },
+  {
+   "claimId": "y1987",
+   "value": 1987,
+   "display": "1987",
+   "formula": "peak month of the episode: 1987-10",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 1987,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-short"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-short.1"
+    }
+   ]
+  },
+  {
+   "claimId": "d87",
+   "value": 4,
+   "display": "4",
+   "formula": "months from the monthly peak 1987-10 to the trough 1988-02",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    1987,
+    1988
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-short"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-short.1"
+    }
+   ],
+   "model": "refi.drop_episodes"
+  },
+  {
+   "claimId": "y2006",
+   "value": 2006,
+   "display": "2006",
+   "formula": "peak month of the episode: 2006-07",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2006,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-06"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-06.1"
+    }
+   ]
+  },
+  {
+   "claimId": "r06",
+   "value": 2008,
+   "display": "January 2008",
+   "formula": "refinance month (first month 1 point under the peak)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2008,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-06"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-06.1"
+    }
+   ]
+  },
+  {
+   "claimId": "r23",
+   "value": 2024,
+   "display": "August 2024",
+   "formula": "refinance month (first month 1 point under the 2023-10 peak)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2024,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-23"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-23.1"
+    }
+   ]
+  },
+  {
+   "claimId": "be23",
+   "value": 21,
+   "display": "21",
+   "formula": "break-even months, HMDA 2024 median cost share",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYear": 2024,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "a3-23be"
+   ],
+   "spoken": [
+    {
+     "sentence": "a3-23be.1"
+    }
+   ],
+   "model": "refi.history"
+  }
+ ]
+}

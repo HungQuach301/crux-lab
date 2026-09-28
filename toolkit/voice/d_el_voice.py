@@ -41,7 +41,7 @@ VOICE_ID = 'cjVigY5qzO86Huf0OWal'  # Eric (premade library voice), V8 of the bli
 MAIN, FALLBACK = 'eleven_v3', 'eleven_multilingual_v2'
 URL = 'https://api.elevenlabs.io/v1/text-to-speech/{}/with-timestamps?output_format=mp3_44100_128'
 AIM, LO, HI, ACT_LO, ACT_HI = 156.0, 120.0, 190.0, 153.0, 159.0  # act target inside 150-160 with margin: the check (A15) measured act 1 ~9 wpm under this measure in M2
-MAX_TAKES, MAX_FALLBACK = 4, 4
+MAX_TAKES, MAX_FALLBACK = int(os.environ.get('EL_MAX_TAKES', 4)), int(os.environ.get('EL_MAX_FALLBACK', 4))  # a table read: EL_MAX_TAKES=1 EL_MAX_FALLBACK=0
 cost = {'characters': 0, 'calls': 0}
 
 

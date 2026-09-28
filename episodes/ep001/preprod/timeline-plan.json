@@ -1,0 +1,1595 @@
+{
+ "fps": 30,
+ "total": 639.3,
+ "acts": [
+  {
+   "id": "cold-open",
+   "start": 0.0,
+   "end": 14.67
+  },
+  {
+   "id": "ident",
+   "start": 14.67,
+   "end": 17.67
+  },
+  {
+   "id": "act1",
+   "start": 17.67,
+   "end": 202.74,
+   "climax": 153.0
+  },
+  {
+   "id": "act2",
+   "start": 202.74,
+   "end": 368.18,
+   "climax": 264.43
+  },
+  {
+   "id": "act3",
+   "start": 368.18,
+   "end": 558.84,
+   "climax": 500.13
+  },
+  {
+   "id": "method",
+   "start": 558.84,
+   "end": 597.0
+  },
+  {
+   "id": "outro",
+   "start": 597.0,
+   "end": 639.3
+  }
+ ],
+ "scenes": [
+  {
+   "id": "co-bars",
+   "act": "cold-open",
+   "start": 0.0,
+   "dur": 3.91,
+   "layout": "bars/payments",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "co-bill",
+   "act": "cold-open",
+   "start": 3.91,
+   "dur": 4.89,
+   "layout": "stack/bill",
+   "shot": "close",
+   "move": "push-in 1.2 s",
+   "sonify": [
+    "bar",
+    "counter"
+   ]
+  },
+  {
+   "id": "co-question",
+   "act": "cold-open",
+   "start": 8.8,
+   "dur": 5.87,
+   "layout": "title/question",
+   "shot": "wide",
+   "move": "pull-out 1.4 s",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "ident",
+   "act": "ident",
+   "start": 14.67,
+   "dur": 3.0,
+   "layout": "ident/logo",
+   "shot": "wide",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a1-lab",
+   "act": "act1",
+   "start": 17.67,
+   "dur": 6.71,
+   "layout": "title/lab",
+   "shot": "wide",
+   "move": "drift 8 px/s",
+   "sonify": []
+  },
+  {
+   "id": "a1-scope",
+   "act": "act1",
+   "start": 24.38,
+   "dur": 6.03,
+   "layout": "title/scope",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a1-rehook",
+   "act": "act1",
+   "start": 30.41,
+   "dur": 12.89,
+   "layout": "ruler/rehook",
+   "shot": "medium",
+   "move": "track right 1.5 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a1-rates",
+   "act": "act1",
+   "start": 43.3,
+   "dur": 6.99,
+   "layout": "line/history",
+   "shot": "wide",
+   "move": "push-in 1.5 s",
+   "sonify": [
+    "line"
+   ]
+  },
+  {
+   "id": "a1-peak",
+   "act": "act1",
+   "start": 50.29,
+   "dur": 5.09,
+   "layout": "line/peak",
+   "shot": "medium",
+   "move": "track to peak 1.3 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a1-low",
+   "act": "act1",
+   "start": 55.38,
+   "dur": 5.54,
+   "layout": "line/low",
+   "shot": "medium",
+   "move": "track to low 1.4 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a1-drops",
+   "act": "act1",
+   "start": 60.92,
+   "dur": 5.45,
+   "layout": "line/drops",
+   "shot": "wide",
+   "move": "pull-out 1.5 s",
+   "sonify": [
+    "line"
+   ]
+  },
+  {
+   "id": "a1-q",
+   "act": "act1",
+   "start": 66.37,
+   "dur": 6.06,
+   "layout": "title/act1",
+   "shot": "wide",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a1-hmda",
+   "act": "act1",
+   "start": 72.43,
+   "dur": 8.65,
+   "layout": "ledger/hmda",
+   "shot": "medium",
+   "move": "push-in 1.2 s",
+   "sonify": []
+  },
+  {
+   "id": "a1-terms",
+   "act": "act1",
+   "start": 81.08,
+   "dur": 8.25,
+   "layout": "stack/parts",
+   "shot": "close",
+   "move": "tilt down 1.2 s",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a1-points",
+   "act": "act1",
+   "start": 89.33,
+   "dur": 8.18,
+   "layout": "stack/points",
+   "shot": "close",
+   "move": "none",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a1-cashout",
+   "act": "act1",
+   "start": 97.51,
+   "dur": 13.51,
+   "layout": "bars/cashout",
+   "shot": "medium",
+   "move": "track left 1.2 s",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a1-count",
+   "act": "act1",
+   "start": 111.02,
+   "dur": 10.37,
+   "layout": "ledger/count",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "a1-median",
+   "act": "act1",
+   "start": 121.39,
+   "dur": 9.28,
+   "layout": "hist/median",
+   "shot": "medium",
+   "move": "push-in 1.3 s",
+   "sonify": [
+    "bar",
+    "dot"
+   ]
+  },
+  {
+   "id": "a1-spread",
+   "act": "act1",
+   "start": 130.67,
+   "dur": 7.84,
+   "layout": "hist/iqr",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a1-boom",
+   "act": "act1",
+   "start": 138.51,
+   "dur": 9.61,
+   "layout": "line/count",
+   "shot": "wide",
+   "move": "pull-out 1.4 s",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a1-boomcost",
+   "act": "act1",
+   "start": 148.12,
+   "dur": 4.88,
+   "layout": "ledger/2021",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "a1-turn",
+   "act": "act1",
+   "start": 153.0,
+   "dur": 6.75,
+   "layout": "bands/intro",
+   "shot": "wide",
+   "move": "push-in 1.2 s",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a1-small",
+   "act": "act1",
+   "start": 159.75,
+   "dur": 6.78,
+   "layout": "bands/small",
+   "shot": "medium",
+   "move": "track left 1.3 s",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a1-big",
+   "act": "act1",
+   "start": 166.53,
+   "dur": 6.59,
+   "layout": "bands/large",
+   "shot": "medium",
+   "move": "track right 1.5 s",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a1-keep",
+   "act": "act1",
+   "start": 173.12,
+   "dur": 7.32,
+   "layout": "bands/both",
+   "shot": "wide",
+   "move": "pull-out 1.2 s",
+   "sonify": []
+  },
+  {
+   "id": "a1-rule",
+   "act": "act1",
+   "start": 180.44,
+   "dur": 6.89,
+   "layout": "title/formula",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "a1-payoff",
+   "act": "act1",
+   "start": 187.33,
+   "dur": 5.15,
+   "layout": "stack/fill",
+   "shot": "medium",
+   "move": "push-in 1.2 s",
+   "sonify": [
+    "bar",
+    "counter"
+   ]
+  },
+  {
+   "id": "a1-after",
+   "act": "act1",
+   "start": 192.48,
+   "dur": 10.26,
+   "layout": "stack/green",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a2-q",
+   "act": "act2",
+   "start": 202.74,
+   "dur": 4.87,
+   "layout": "title/act2",
+   "shot": "wide",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a2-loan",
+   "act": "act2",
+   "start": 207.61,
+   "dur": 9.72,
+   "layout": "ledger/loan",
+   "shot": "medium",
+   "move": "push-in 1.2 s",
+   "sonify": []
+  },
+  {
+   "id": "a2-old",
+   "act": "act2",
+   "start": 217.33,
+   "dur": 8.83,
+   "layout": "line/2023",
+   "shot": "medium",
+   "move": "track to 2023 1.4 s",
+   "sonify": [
+    "line",
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-s025",
+   "act": "act2",
+   "start": 226.16,
+   "dur": 7.83,
+   "layout": "curve/025",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "bar",
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-be025",
+   "act": "act2",
+   "start": 233.99,
+   "dur": 4.38,
+   "layout": "curve/025m",
+   "shot": "medium",
+   "move": "push-in 1.2 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-s05",
+   "act": "act2",
+   "start": 238.37,
+   "dur": 7.35,
+   "layout": "curve/05",
+   "shot": "medium",
+   "move": "track right 1.2 s",
+   "sonify": [
+    "bar",
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-be05",
+   "act": "act2",
+   "start": 245.72,
+   "dur": 3.36,
+   "layout": "curve/05m",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-s10",
+   "act": "act2",
+   "start": 249.08,
+   "dur": 4.35,
+   "layout": "curve/10",
+   "shot": "medium",
+   "move": "track right 1.2 s",
+   "sonify": [
+    "bar",
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-be10",
+   "act": "act2",
+   "start": 253.43,
+   "dur": 3.05,
+   "layout": "curve/10m",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-s20",
+   "act": "act2",
+   "start": 256.48,
+   "dur": 4.06,
+   "layout": "curve/20",
+   "shot": "medium",
+   "move": "track right 1.2 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-curve",
+   "act": "act2",
+   "start": 260.54,
+   "dur": 3.89,
+   "layout": "curve/full",
+   "shot": "wide",
+   "move": "pull-out 1.5 s",
+   "sonify": [
+    "line"
+   ]
+  },
+  {
+   "id": "a2-cliff",
+   "act": "act2",
+   "start": 264.43,
+   "dur": 9.4,
+   "layout": "curve/cliff",
+   "shot": "close",
+   "move": "push-in 1.4 s",
+   "sonify": [
+    "line"
+   ]
+  },
+  {
+   "id": "a2-thumb",
+   "act": "act2",
+   "start": 273.83,
+   "dur": 10.97,
+   "layout": "curve/thumb",
+   "shot": "medium",
+   "move": "pull-out 1.2 s",
+   "sonify": []
+  },
+  {
+   "id": "a2-turn",
+   "act": "act2",
+   "start": 284.8,
+   "dur": 5.96,
+   "layout": "bands/return",
+   "shot": "wide",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a2-mid",
+   "act": "act2",
+   "start": 290.76,
+   "dur": 7.22,
+   "layout": "curve/median36",
+   "shot": "medium",
+   "move": "push-in 1.2 s",
+   "sonify": [
+    "line",
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-small",
+   "act": "act2",
+   "start": 297.98,
+   "dur": 9.87,
+   "layout": "curve/small36",
+   "shot": "medium",
+   "move": "track left 1.3 s",
+   "sonify": [
+    "line",
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-big",
+   "act": "act2",
+   "start": 307.85,
+   "dur": 6.85,
+   "layout": "curve/large36",
+   "shot": "medium",
+   "move": "track right 1.3 s",
+   "sonify": [
+    "line",
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-hold60",
+   "act": "act2",
+   "start": 314.7,
+   "dur": 6.25,
+   "layout": "curve/60",
+   "shot": "medium",
+   "move": "tilt up 1.2 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-hold84",
+   "act": "act2",
+   "start": 320.95,
+   "dur": 4.61,
+   "layout": "curve/84",
+   "shot": "medium",
+   "move": "tilt up 1.2 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a2-flip",
+   "act": "act2",
+   "start": 325.56,
+   "dur": 9.89,
+   "layout": "curve/flip",
+   "shot": "wide",
+   "move": "pull-out 1.3 s",
+   "sonify": []
+  },
+  {
+   "id": "a2-payoff",
+   "act": "act2",
+   "start": 335.45,
+   "dur": 8.2,
+   "layout": "ledger/two",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a2-hold",
+   "act": "act2",
+   "start": 343.65,
+   "dur": 4.9,
+   "layout": "ledger/unknown",
+   "shot": "close",
+   "move": "push-in 1.2 s",
+   "sonify": []
+  },
+  {
+   "id": "a2-reset",
+   "act": "act2",
+   "start": 348.55,
+   "dur": 10.87,
+   "layout": "bars/timeline",
+   "shot": "wide",
+   "move": "track right 1.5 s",
+   "sonify": [
+    "line"
+   ]
+  },
+  {
+   "id": "a2-reset2",
+   "act": "act2",
+   "start": 359.42,
+   "dur": 8.76,
+   "layout": "title/firstq",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a3-q",
+   "act": "act3",
+   "start": 368.18,
+   "dur": 6.67,
+   "layout": "title/act3",
+   "shot": "wide",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a3-all",
+   "act": "act3",
+   "start": 374.85,
+   "dur": 7.11,
+   "layout": "episodes/strip",
+   "shot": "wide",
+   "move": "pull-out 1.5 s",
+   "sonify": [
+    "line",
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-rules",
+   "act": "act3",
+   "start": 381.96,
+   "dur": 7.23,
+   "layout": "episodes/rule",
+   "shot": "medium",
+   "move": "push-in 1.3 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-costs",
+   "act": "act3",
+   "start": 389.19,
+   "dur": 11.97,
+   "layout": "episodes/costs",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a3-80s",
+   "act": "act3",
+   "start": 401.16,
+   "dur": 3.07,
+   "layout": "episodes/1980s",
+   "shot": "wide",
+   "move": "track left 1.5 s",
+   "sonify": [
+    "line"
+   ]
+  },
+  {
+   "id": "a3-81",
+   "act": "act3",
+   "start": 404.23,
+   "dur": 5.39,
+   "layout": "episodes/1981",
+   "shot": "medium",
+   "move": "push-in 1.3 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-81be",
+   "act": "act3",
+   "start": 409.62,
+   "dur": 7.97,
+   "layout": "episodes/1981be",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "counter",
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-short",
+   "act": "act3",
+   "start": 417.59,
+   "dur": 9.36,
+   "layout": "episodes/1987",
+   "shot": "medium",
+   "move": "track right 1.3 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-06",
+   "act": "act3",
+   "start": 426.95,
+   "dur": 10.35,
+   "layout": "episodes/2006",
+   "shot": "medium",
+   "move": "track right 1.5 s",
+   "sonify": [
+    "line",
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-range",
+   "act": "act3",
+   "start": 437.3,
+   "dur": 7.05,
+   "layout": "episodes/grid",
+   "shot": "wide",
+   "move": "pull-out 1.2 s",
+   "sonify": [
+    "bar"
+   ]
+  },
+  {
+   "id": "a3-turn",
+   "act": "act3",
+   "start": 444.35,
+   "dur": 10.0,
+   "layout": "episodes/further",
+   "shot": "wide",
+   "move": "none",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-twice",
+   "act": "act3",
+   "start": 454.35,
+   "dur": 7.81,
+   "layout": "stack/second",
+   "shot": "medium",
+   "move": "push-in 1.2 s",
+   "sonify": [
+    "bar",
+    "counter"
+   ]
+  },
+  {
+   "id": "a3-example",
+   "act": "act3",
+   "start": 462.16,
+   "dur": 6.07,
+   "layout": "episodes/2018",
+   "shot": "medium",
+   "move": "track right 1.5 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-example2",
+   "act": "act3",
+   "start": 468.23,
+   "dur": 7.33,
+   "layout": "episodes/2020",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "a3-quiet",
+   "act": "act3",
+   "start": 475.56,
+   "dur": 5.31,
+   "layout": "episodes/quiet",
+   "shot": "wide",
+   "move": "pull-out 1.2 s",
+   "sonify": []
+  },
+  {
+   "id": "a3-23",
+   "act": "act3",
+   "start": 480.87,
+   "dur": 8.89,
+   "layout": "episodes/2023",
+   "shot": "medium",
+   "move": "track right 1.4 s",
+   "sonify": [
+    "line",
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-23be",
+   "act": "act3",
+   "start": 489.76,
+   "dur": 5.15,
+   "layout": "episodes/2023be",
+   "shot": "medium",
+   "move": "none",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "a3-answer",
+   "act": "act3",
+   "start": 494.91,
+   "dur": 5.22,
+   "layout": "ruler/answer",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a3-answer2",
+   "act": "act3",
+   "start": 500.13,
+   "dur": 9.98,
+   "layout": "ruler/answer2",
+   "shot": "close",
+   "move": "push-in 1.2 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-answer3",
+   "act": "act3",
+   "start": 510.11,
+   "dur": 6.48,
+   "layout": "ruler/answer3",
+   "shot": "medium",
+   "move": "track right 1.2 s",
+   "sonify": [
+    "dot"
+   ]
+  },
+  {
+   "id": "a3-limit",
+   "act": "act3",
+   "start": 516.59,
+   "dur": 12.25,
+   "layout": "title/limits",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a3-median",
+   "act": "act3",
+   "start": 528.84,
+   "dur": 10.72,
+   "layout": "hist/limit",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a3-history",
+   "act": "act3",
+   "start": 539.56,
+   "dur": 5.99,
+   "layout": "title/history",
+   "shot": "wide",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "a3-close",
+   "act": "act3",
+   "start": 545.55,
+   "dur": 13.29,
+   "layout": "stack/close",
+   "shot": "wide",
+   "move": "pull-out 1.5 s",
+   "sonify": [
+    "counter"
+   ]
+  },
+  {
+   "id": "m-rates",
+   "act": "method",
+   "start": 558.84,
+   "dur": 8.97,
+   "layout": "card/method-rates",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "m-drops",
+   "act": "method",
+   "start": 567.81,
+   "dur": 7.79,
+   "layout": "card/method-drops",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "m-costs",
+   "act": "method",
+   "start": 575.6,
+   "dur": 12.15,
+   "layout": "card/method-costs",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "m-assume",
+   "act": "method",
+   "start": 587.75,
+   "dur": 9.25,
+   "layout": "card/method-assume",
+   "shot": "medium",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "o-recap",
+   "act": "outro",
+   "start": 597.0,
+   "dur": 10.71,
+   "layout": "title/recap",
+   "shot": "wide",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "o-close",
+   "act": "outro",
+   "start": 607.71,
+   "dur": 8.45,
+   "layout": "title/close",
+   "shot": "wide",
+   "move": "drift 8 px/s",
+   "sonify": []
+  },
+  {
+   "id": "o-bill",
+   "act": "outro",
+   "start": 616.16,
+   "dur": 5.39,
+   "layout": "stack/end",
+   "shot": "wide",
+   "move": "none",
+   "sonify": []
+  },
+  {
+   "id": "o-sources",
+   "act": "outro",
+   "start": 621.55,
+   "dur": 17.75,
+   "layout": "end/screen",
+   "shot": "wide",
+   "move": "none",
+   "sonify": []
+  }
+ ],
+ "sentences": [
+  {
+   "id": "co-bars.1",
+   "scene": "co-bars",
+   "text": "A lower rate cuts the monthly payment.",
+   "start": 1.2,
+   "end": 3.46
+  },
+  {
+   "id": "co-bill.1",
+   "scene": "co-bill",
+   "text": "But the refinance has a price, and the savings must repay it first.",
+   "start": 3.91,
+   "end": 8.35
+  },
+  {
+   "id": "co-question.1",
+   "scene": "co-question",
+   "text": "So how far do rates have to fall before a refinance pays for itself?",
+   "start": 8.8,
+   "end": 14.22
+  },
+  {
+   "id": "a1-lab.1",
+   "scene": "a1-lab",
+   "text": "This is a lab for money decisions: we run the numbers on public data and show every assumption.",
+   "start": 17.67,
+   "end": 23.93
+  },
+  {
+   "id": "a1-scope.1",
+   "scene": "a1-scope",
+   "text": "US only. The rates here are history, not a forecast.",
+   "start": 24.38,
+   "end": 29.96
+  },
+  {
+   "id": "a1-rehook.1",
+   "scene": "a1-rehook",
+   "text": "By the end, you will see the exact rate drop that repays a typical refinance within 36 months, and how every rate drop since 1971 actually played out.",
+   "start": 30.41,
+   "end": 42.85
+  },
+  {
+   "id": "a1-rates.1",
+   "scene": "a1-rates",
+   "text": "Here is the rate itself: the weekly average for a 30-year fixed mortgage, from Freddie Mac's survey.",
+   "start": 43.3,
+   "end": 49.84
+  },
+  {
+   "id": "a1-peak.1",
+   "scene": "a1-peak",
+   "text": "It peaked at 18.63% in 1981.",
+   "start": 50.29,
+   "end": 54.93
+  },
+  {
+   "id": "a1-low.1",
+   "scene": "a1-low",
+   "text": "It bottomed at 2.65% in 2021.",
+   "start": 55.38,
+   "end": 60.47
+  },
+  {
+   "id": "a1-drops.1",
+   "scene": "a1-drops",
+   "text": "Every fall in that line is a moment when homeowners asked the same question.",
+   "start": 60.92,
+   "end": 65.92
+  },
+  {
+   "id": "a1-q.1",
+   "scene": "a1-q",
+   "text": "First question, then: what does a refinance actually cost?",
+   "start": 66.37,
+   "end": 71.98
+  },
+  {
+   "id": "a1-hmda.1",
+   "scene": "a1-hmda",
+   "text": "Lenders report it for every loan they make, under the Home Mortgage Disclosure Act, as total loan costs.",
+   "start": 72.43,
+   "end": 80.63
+  },
+  {
+   "id": "a1-terms.1",
+   "scene": "a1-terms",
+   "text": "Those are the closing costs: origination charges, discount points, the appraisal, title insurance, and the rest.",
+   "start": 81.08,
+   "end": 88.88
+  },
+  {
+   "id": "a1-points.1",
+   "scene": "a1-points",
+   "text": "Discount points are optional: paying more at closing buys a lower rate, so part of that bill is a choice.",
+   "start": 89.33,
+   "end": 97.06
+  },
+  {
+   "id": "a1-cashout.1",
+   "scene": "a1-cashout",
+   "text": "Cash-out refinances, which also take equity out of the house, cost more: a median of $8,655. This film keeps to refinances that change only the rate and the term.",
+   "start": 97.51,
+   "end": 110.57
+  },
+  {
+   "id": "a1-count.1",
+   "scene": "a1-count",
+   "text": "In 2025, lenders reported 488,241 of those, into 30-year first mortgages.",
+   "start": 111.02,
+   "end": 120.94
+  },
+  {
+   "id": "a1-median.1",
+   "scene": "a1-median",
+   "text": "In nominal dollars, the median one cost $5,124.",
+   "start": 121.39,
+   "end": 129.17
+  },
+  {
+   "id": "a1-spread.1",
+   "scene": "a1-spread",
+   "text": "The middle half paid between $3,443 and $8,270.",
+   "start": 130.67,
+   "end": 138.06
+  },
+  {
+   "id": "a1-boom.1",
+   "scene": "a1-boom",
+   "text": "The count follows the rate. In 2021, near the bottom, lenders reported 3,089,298 of them.",
+   "start": 138.51,
+   "end": 147.67
+  },
+  {
+   "id": "a1-boomcost.1",
+   "scene": "a1-boomcost",
+   "text": "Their median bill that year was $3,406.",
+   "start": 148.12,
+   "end": 152.55
+  },
+  {
+   "id": "a1-turn.1",
+   "scene": "a1-turn",
+   "text": "But the dollar figure hides the real pattern. The bill barely grows with the size of the loan.",
+   "start": 153.0,
+   "end": 159.3
+  },
+  {
+   "id": "a1-small.1",
+   "scene": "a1-small",
+   "text": "On loans under $150,000, the median cost was 3.4% of the amount borrowed.",
+   "start": 159.75,
+   "end": 166.08
+  },
+  {
+   "id": "a1-big.1",
+   "scene": "a1-big",
+   "text": "On loans of $750,000 and more, it was 0.5%.",
+   "start": 166.53,
+   "end": 172.67
+  },
+  {
+   "id": "a1-keep.1",
+   "scene": "a1-keep",
+   "text": "So the same cut in rate repays a large loan faster than a small one. Keep that in mind; it comes back.",
+   "start": 173.12,
+   "end": 179.99
+  },
+  {
+   "id": "a1-rule.1",
+   "scene": "a1-rule",
+   "text": "Paying the bill back is simple division: the closing costs, divided by the drop in the monthly payment.",
+   "start": 180.44,
+   "end": 186.88
+  },
+  {
+   "id": "a1-payoff.1",
+   "scene": "a1-payoff",
+   "text": "The answer is the break-even: the month when the savings have covered the bill.",
+   "start": 187.33,
+   "end": 192.03
+  },
+  {
+   "id": "a1-after.1",
+   "scene": "a1-after",
+   "text": "Before that month, the refinance is still in the red. After it, every payment is money kept.",
+   "start": 192.48,
+   "end": 200.84
+  },
+  {
+   "id": "a2-q.1",
+   "scene": "a2-q",
+   "text": "Now the main question: how big does the drop have to be?",
+   "start": 202.74,
+   "end": 207.16
+  },
+  {
+   "id": "a2-loan.1",
+   "scene": "a2-loan",
+   "text": "Take the median refinance: a balance of $375,000, and $5,124 to close.",
+   "start": 207.61,
+   "end": 216.13
+  },
+  {
+   "id": "a2-old.1",
+   "scene": "a2-old",
+   "text": "Say the old loan carries 7.62%, the average rate in the month the last big drop began, October 2023.",
+   "start": 217.33,
+   "end": 225.71
+  },
+  {
+   "id": "a2-s025.1",
+   "scene": "a2-s025",
+   "text": "Cut the rate by 0.25 points, and the payment falls by $64 a month.",
+   "start": 226.16,
+   "end": 233.54
+  },
+  {
+   "id": "a2-be025.1",
+   "scene": "a2-be025",
+   "text": "At that pace, the bill takes 80 months to come back.",
+   "start": 233.99,
+   "end": 237.92
+  },
+  {
+   "id": "a2-s05.1",
+   "scene": "a2-s05",
+   "text": "Double the cut to 0.5 points, and the payment falls by $128 a month.",
+   "start": 238.37,
+   "end": 245.27
+  },
+  {
+   "id": "a2-be05.1",
+   "scene": "a2-be05",
+   "text": "Break-even arrives in 41 months.",
+   "start": 245.72,
+   "end": 248.63
+  },
+  {
+   "id": "a2-s10.1",
+   "scene": "a2-s10",
+   "text": "A cut of 1 point saves $253 a month.",
+   "start": 249.08,
+   "end": 252.98
+  },
+  {
+   "id": "a2-be10.1",
+   "scene": "a2-be10",
+   "text": "That pays back the bill in 21 months.",
+   "start": 253.43,
+   "end": 256.03
+  },
+  {
+   "id": "a2-s20.1",
+   "scene": "a2-s20",
+   "text": "2 points pay back in 11 months, well inside a year.",
+   "start": 256.48,
+   "end": 260.09
+  },
+  {
+   "id": "a2-curve.1",
+   "scene": "a2-curve",
+   "text": "Look at the shape of that curve. It is not a straight line.",
+   "start": 260.54,
+   "end": 263.98
+  },
+  {
+   "id": "a2-cliff.1",
+   "scene": "a2-cliff",
+   "text": "Below 0.5 points it climbs steeply: each smaller cut adds years, not months.",
+   "start": 264.43,
+   "end": 272.53
+  },
+  {
+   "id": "a2-thumb.1",
+   "scene": "a2-thumb",
+   "text": "That is where the common rule of thumb about a full point comes from: for this loan, 1 point pays back in 21 months, 0.5 points in 41.",
+   "start": 273.83,
+   "end": 284.35
+  },
+  {
+   "id": "a2-turn.1",
+   "scene": "a2-turn",
+   "text": "But remember the pattern in the costs, and move the same question to a different loan.",
+   "start": 284.8,
+   "end": 290.31
+  },
+  {
+   "id": "a2-mid.1",
+   "scene": "a2-mid",
+   "text": "To break even within 36 months, the median loan needs a cut of 0.56 points.",
+   "start": 290.76,
+   "end": 296.78
+  },
+  {
+   "id": "a2-small.1",
+   "scene": "a2-small",
+   "text": "A loan under $150,000 needs 1.32 points, because its bill is a bigger share of the balance.",
+   "start": 297.98,
+   "end": 307.4
+  },
+  {
+   "id": "a2-big.1",
+   "scene": "a2-big",
+   "text": "A loan of $750,000 or more needs only 0.2.",
+   "start": 307.85,
+   "end": 314.25
+  },
+  {
+   "id": "a2-hold60.1",
+   "scene": "a2-hold60",
+   "text": "Give the median loan 60 months instead, and 0.33 points is enough.",
+   "start": 314.7,
+   "end": 320.5
+  },
+  {
+   "id": "a2-hold84.1",
+   "scene": "a2-hold84",
+   "text": "Give it 84 months, and it needs 0.24.",
+   "start": 320.95,
+   "end": 325.11
+  },
+  {
+   "id": "a2-flip.1",
+   "scene": "a2-flip",
+   "text": "Read each of those as a flip point: below it, the bill outlasts the stay; above it, the savings win.",
+   "start": 325.56,
+   "end": 335.0
+  },
+  {
+   "id": "a2-payoff.1",
+   "scene": "a2-payoff",
+   "text": "So there is no single threshold. The drop that pays back depends on two things: how big the loan is, and how long it is kept.",
+   "start": 335.45,
+   "end": 343.2
+  },
+  {
+   "id": "a2-hold.1",
+   "scene": "a2-hold",
+   "text": "And how long it is kept is the one number no dataset can supply.",
+   "start": 343.65,
+   "end": 348.1
+  },
+  {
+   "id": "a2-reset.1",
+   "scene": "a2-reset",
+   "text": "One more cost hides inside the new loan. It starts a fresh 30 years, so the last payment moves further away, even when each payment is smaller.",
+   "start": 348.55,
+   "end": 358.97
+  },
+  {
+   "id": "a2-reset2.1",
+   "scene": "a2-reset2",
+   "text": "The simple division ignores that. It answers only the first question: when do the savings cover the bill?",
+   "start": 359.42,
+   "end": 366.28
+  },
+  {
+   "id": "a3-q.1",
+   "scene": "a3-q",
+   "text": "The division assumes the new rate is the last one. What happened in the real drops?",
+   "start": 368.18,
+   "end": 374.4
+  },
+  {
+   "id": "a3-all.1",
+   "scene": "a3-all",
+   "text": "We found every fall of at least 1 point in the 30-year rate since 1971: 13 of them.",
+   "start": 374.85,
+   "end": 381.51
+  },
+  {
+   "id": "a3-rules.1",
+   "scene": "a3-rules",
+   "text": "In each, a borrower who took a loan at the peak refinances in the first month the rate is 1 point lower.",
+   "start": 381.96,
+   "end": 388.74
+  },
+  {
+   "id": "a3-costs.1",
+   "scene": "a3-costs",
+   "text": "Closing costs use the median share for that year; before 2018, lenders did not report them, so a fixed share is used and marked illustrative.",
+   "start": 389.19,
+   "end": 400.71
+  },
+  {
+   "id": "a3-80s.1",
+   "scene": "a3-80s",
+   "text": "The steepest falls came in the early 1980s.",
+   "start": 401.16,
+   "end": 403.78
+  },
+  {
+   "id": "a3-81.1",
+   "scene": "a3-81",
+   "text": "After the peak of 1981, the first cut of 1 point came 2 months later.",
+   "start": 404.23,
+   "end": 409.17
+  },
+  {
+   "id": "a3-81be.1",
+   "scene": "a3-81be",
+   "text": "It paid back in 13 months, but the slide went on, and the next point came 9 months after the refinance.",
+   "start": 409.62,
+   "end": 417.14
+  },
+  {
+   "id": "a3-short.1",
+   "scene": "a3-short",
+   "text": "Some drops were brief. The fall that began in 1987 lasted 4 months, and the refinance came at its very bottom.",
+   "start": 417.59,
+   "end": 426.5
+  },
+  {
+   "id": "a3-06.1",
+   "scene": "a3-06",
+   "text": "The drop that began in 2006 was slower. The refinance came in January 2008, and it had paid for itself before the next point arrived.",
+   "start": 426.95,
+   "end": 436.85
+  },
+  {
+   "id": "a3-range.1",
+   "scene": "a3-range",
+   "text": "At a cut of 1 point, break-even took between 10 and 21 months across all 13 drops.",
+   "start": 437.3,
+   "end": 443.9
+  },
+  {
+   "id": "a3-turn.1",
+   "scene": "a3-turn",
+   "text": "But in 5 of them, the rate kept falling: another drop of 1 point before the first refinance had paid for itself.",
+   "start": 444.35,
+   "end": 453.9
+  },
+  {
+   "id": "a3-twice.1",
+   "scene": "a3-twice",
+   "text": "Those borrowers met the same question twice, and a second refinance starts a new clock with a new bill.",
+   "start": 454.35,
+   "end": 461.71
+  },
+  {
+   "id": "a3-example.1",
+   "scene": "a3-example",
+   "text": "In the drop that began in November 2018, the refinance came in June 2019.",
+   "start": 462.16,
+   "end": 467.78
+  },
+  {
+   "id": "a3-example2.1",
+   "scene": "a3-example2",
+   "text": "It needed 18 months to break even, and the next drop of 1 point came only 17 months later.",
+   "start": 468.23,
+   "end": 475.11
+  },
+  {
+   "id": "a3-quiet.1",
+   "scene": "a3-quiet",
+   "text": "In the other 8, the first refinance was the one that mattered.",
+   "start": 475.56,
+   "end": 480.42
+  },
+  {
+   "id": "a3-23.1",
+   "scene": "a3-23",
+   "text": "The latest drop began in October 2023. The cut of 1 point arrived in August 2024.",
+   "start": 480.87,
+   "end": 489.31
+  },
+  {
+   "id": "a3-23be.1",
+   "scene": "a3-23be",
+   "text": "At that year's median cost, it paid back in 21 months.",
+   "start": 489.76,
+   "end": 494.46
+  },
+  {
+   "id": "a3-answer.1",
+   "scene": "a3-answer",
+   "text": "So, how far do rates have to fall before a refinance pays for itself?",
+   "start": 494.91,
+   "end": 499.68
+  },
+  {
+   "id": "a3-answer2.1",
+   "scene": "a3-answer2",
+   "text": "For the median loan and median costs, a cut that repays it within 36 months is 0.56 points.",
+   "start": 500.13,
+   "end": 508.51
+  },
+  {
+   "id": "a3-answer3.1",
+   "scene": "a3-answer3",
+   "text": "Half as much patience asks for more: to pay back in 21 months takes 1 point.",
+   "start": 510.11,
+   "end": 516.14
+  },
+  {
+   "id": "a3-limit.1",
+   "scene": "a3-limit",
+   "text": "That answer has limits. It counts payment savings only: no taxes, no return on the cash, and a new 30-year loan restarts the clock on owning the house outright.",
+   "start": 516.59,
+   "end": 528.39
+  },
+  {
+   "id": "a3-median.1",
+   "scene": "a3-median",
+   "text": "It uses medians: half of borrowers paid more than $5,124, and an offered rate can differ from the survey average.",
+   "start": 528.84,
+   "end": 538.36
+  },
+  {
+   "id": "a3-history.1",
+   "scene": "a3-history",
+   "text": "And it is history, not a forecast: nothing here says where rates go next.",
+   "start": 539.56,
+   "end": 545.1
+  },
+  {
+   "id": "a3-close.1",
+   "scene": "a3-close",
+   "text": "What history does show is the shape of the trade: a known bill up front, against savings that arrive one month at a time, for as long as the loan lasts.",
+   "start": 545.55,
+   "end": 558.39
+  },
+  {
+   "id": "m-rates.1",
+   "scene": "m-rates",
+   "text": "Method. Rates are Freddie Mac's weekly survey via FRED, checked against the Optimal Blue index since 2017.",
+   "start": 558.84,
+   "end": 567.36
+  },
+  {
+   "id": "m-drops.1",
+   "scene": "m-drops",
+   "text": "A drop counts when the monthly average falls at least 1 point from a peak before rising 1 point from its low.",
+   "start": 567.81,
+   "end": 575.15
+  },
+  {
+   "id": "m-costs.1",
+   "scene": "m-costs",
+   "text": "Costs are HMDA loan-level data from 2018 to 2025: originated refinances, first lien, 30-year term.",
+   "start": 575.6,
+   "end": 587.3
+  },
+  {
+   "id": "m-assume.1",
+   "scene": "m-assume",
+   "text": "Closing costs are paid in cash, with no taxes and no discounting. Every figure and formula is listed in the description.",
+   "start": 587.75,
+   "end": 596.55
+  },
+  {
+   "id": "o-recap.1",
+   "scene": "o-recap",
+   "text": "A small cut needs a long stay. A large loan needs a smaller cut. And a falling rate can make the first refinance too early.",
+   "start": 597.0,
+   "end": 607.26
+  },
+  {
+   "id": "o-close.1",
+   "scene": "o-close",
+   "text": "The break-even is simple division. The hard part is the number only the borrower knows: how long the loan will be kept.",
+   "start": 607.71,
+   "end": 615.71
+  },
+  {
+   "id": "o-bill.1",
+   "scene": "o-bill",
+   "text": "The bill is known the day the loan closes. The savings arrive one month at a time.",
+   "start": 616.16,
+   "end": 621.1
+  },
+  {
+   "id": "o-sources.1",
+   "scene": "o-sources",
+   "text": "The sources are linked in the description, and the next decision is already on the bench.",
+   "start": 621.55,
+   "end": 626.85
+  }
+ ],
+ "note": "PLANNED at M1 from the table-read takes; M2 re-times from the final takes"
+}

@@ -1,0 +1,214 @@
+{
+ "files": [
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2025&actions_taken=1&loan_purposes=31,32",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2025/filtered-queries/snapshot/f2875ee5590ac4586203103001f6122.csv",
+   "sha256": "d8f37d1e767bf43c074f61e7879dd6efe51a7c6e26b930a221433d284eb88b99",
+   "bytes": 768695716,
+   "rowsRead": 1995427,
+   "excluded": {
+    "term": 415052,
+    "lien": 480756,
+    "purpose": 0,
+    "action": 0,
+    "cost_missing": 177508
+   },
+   "seconds": 30.2,
+   "year": 2025,
+   "downloaded": "2026-09-28",
+   "rowsKept": 922111,
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=31,32, nationwide",
+    "client": "action_taken=1, loan_purpose in {31,32}, lien_status=1, loan_term=360, total_loan_costs>0, loan_amount>0"
+   }
+  },
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2024&actions_taken=1&loan_purposes=31,32",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2024/filtered-queries/one-year/32179e75bf2c688fded66359a26c58e7.csv",
+   "sha256": "9f1a9ee5bb7a0c547120722fdfb1ff784b774adbbeab71bd59e68a025e140ec0",
+   "bytes": 567105178,
+   "rowsRead": 1468797,
+   "excluded": {
+    "term": 282149,
+    "lien": 364424,
+    "purpose": 0,
+    "action": 0,
+    "cost_missing": 126234
+   },
+   "seconds": 25.9,
+   "year": 2024,
+   "downloaded": "2026-09-28",
+   "rowsKept": 695990,
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=31,32, nationwide",
+    "client": "action_taken=1, loan_purpose in {31,32}, lien_status=1, loan_term=360, total_loan_costs>0, loan_amount>0"
+   }
+  },
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2023&actions_taken=1&loan_purposes=31,32",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2023/filtered-queries/one-year/94672c92afb085562038fa0c2cd8ba98.csv",
+   "sha256": "a4a774bac6dcb63dcb424a54284f0ab6d19b1f623af65d82b5356f14d77e133c",
+   "bytes": 422339667,
+   "rowsRead": 1084479,
+   "excluded": {
+    "term": 252742,
+    "lien": 294390,
+    "purpose": 0,
+    "action": 0,
+    "cost_missing": 95654
+   },
+   "seconds": 20.4,
+   "year": 2023,
+   "downloaded": "2026-09-28",
+   "rowsKept": 441693,
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=31,32, nationwide",
+    "client": "action_taken=1, loan_purpose in {31,32}, lien_status=1, loan_term=360, total_loan_costs>0, loan_amount>0"
+   }
+  },
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2022&actions_taken=1&loan_purposes=31,32",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2022/filtered-queries/three-year/ddf1bddac7b8fec109e5fdd3cd9ff70a.csv",
+   "sha256": "7a66ac366f762b3190d43fe05de2e475f0e4c33064de9f7b296073ee740f4565",
+   "bytes": 1022083373,
+   "rowsRead": 2632650,
+   "excluded": {
+    "term": 819777,
+    "lien": 255421,
+    "purpose": 0,
+    "action": 0,
+    "cost_missing": 165051
+   },
+   "seconds": 41.0,
+   "year": 2022,
+   "downloaded": "2026-09-28",
+   "rowsKept": 1392401,
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=31,32, nationwide",
+    "client": "action_taken=1, loan_purpose in {31,32}, lien_status=1, loan_term=360, total_loan_costs>0, loan_amount>0"
+   }
+  },
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2021&actions_taken=1&loan_purposes=31,32",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2021/filtered-queries/three-year/6ff42d713c48cf57ee8611297dc44e37.csv",
+   "sha256": "9e268345568b8fc02086be535962c92c7639837ae979a1f48bf19390c01d2d15",
+   "bytes": 3381874973,
+   "rowsRead": 8712028,
+   "excluded": {
+    "term": 3217621,
+    "lien": 161095,
+    "purpose": 0,
+    "action": 0,
+    "cost_missing": 362261
+   },
+   "seconds": 135.1,
+   "year": 2021,
+   "downloaded": "2026-09-28",
+   "rowsKept": 4971051,
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=31,32, nationwide",
+    "client": "action_taken=1, loan_purpose in {31,32}, lien_status=1, loan_term=360, total_loan_costs>0, loan_amount>0"
+   }
+  },
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2020&actions_taken=1&loan_purposes=31,32",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2020/filtered-queries/three-year/59ae5d3d8d3d8fbd613fa6e8fdacda5a.csv",
+   "sha256": "78a2e468bef7256c78ec65b0eaf6634f140ee9228256a2ea5995faff870484ce",
+   "bytes": 3437910278,
+   "rowsRead": 8866976,
+   "excluded": {
+    "term": 3178104,
+    "lien": 183893,
+    "purpose": 0,
+    "action": 0,
+    "cost_missing": 274244
+   },
+   "seconds": 116.9,
+   "year": 2020,
+   "downloaded": "2026-09-28",
+   "rowsKept": 5230735,
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=31,32, nationwide",
+    "client": "action_taken=1, loan_purpose in {31,32}, lien_status=1, loan_term=360, total_loan_costs>0, loan_amount>0"
+   }
+  },
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2019&actions_taken=1&loan_purposes=31,32",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2019/filtered-queries/three-year/bf01567b9e08bc87c3ea0fc367191284.csv",
+   "sha256": "3e9e685b0b9141aea8657dcbbaf42a3f01a90209b357f5972f47704f8e3294ce",
+   "bytes": 1504688467,
+   "rowsRead": 3784768,
+   "excluded": {
+    "term": 1121449,
+    "lien": 250122,
+    "purpose": 0,
+    "action": 0,
+    "cost_missing": 187805
+   },
+   "seconds": 62.2,
+   "year": 2019,
+   "downloaded": "2026-09-28",
+   "rowsKept": 2225392,
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=31,32, nationwide",
+    "client": "action_taken=1, loan_purpose in {31,32}, lien_status=1, loan_term=360, total_loan_costs>0, loan_amount>0"
+   }
+  },
+  {
+   "url": "https://ffiec.cfpb.gov/v2/data-browser-api/view/nationwide/csv?years=2018&actions_taken=1&loan_purposes=31,32",
+   "finalUrl": "https://files.ffiec.cfpb.gov/data-browser/datasets/2018/filtered-queries/three-year/b8975e74f11fc42aa3506cdbb8310cda.csv",
+   "sha256": "2c9a7812024281483f100f3aa6bf0ff48702f0831ed0c7d3b3ebac31e66888bc",
+   "bytes": 914773563,
+   "rowsRead": 2300222,
+   "excluded": {
+    "term": 770256,
+    "lien": 260240,
+    "purpose": 0,
+    "action": 0,
+    "cost_missing": 147487
+   },
+   "seconds": 32.1,
+   "year": 2018,
+   "downloaded": "2026-09-28",
+   "rowsKept": 1122239,
+   "stored": false,
+   "filters": {
+    "server": "actions_taken=1, loan_purposes=31,32, nationwide",
+    "client": "action_taken=1, loan_purpose in {31,32}, lien_status=1, loan_term=360, total_loan_costs>0, loan_amount>0"
+   }
+  }
+ ],
+ "fieldDefinitions": {
+  "url": "https://ffiec.cfpb.gov/documentation/publications/loan-level-datasets/lar-data-fields",
+  "retrieved": "2026-09-28",
+  "quotes": {
+   "action_taken": "action_taken  Description: The action taken on the covered loan or application Values: 1 - Loan originated 2 - Application approved but not accepted 3 - Application denied 4 - Application withdrawn by applicant 5 - File closed for incompleteness 6 - Purchased loan 7 - Preapproval request denied 8 - Preapproval request approved but",
+   "loan_purpose": "loan_purpose  Description: The purpose of covered loan or application Values: 1 - Home purchase 2 - Home improvement 31 - Refinancing 32 - Cash-out refinancing 4 - Other purpose 5 - Not applicable lien_status  Description: Lien status of the property securing the covered loan, or in the case of an application, proposed to secure",
+   "lien_status": "lien_status  Description: Lien status of the property securing the covered loan, or in the case of an application, proposed to secure the covered loan Values: 1 - Secured by a first lien 2 - Secured by a subordinate lien reverse_mortgage  Description: Whether the covered loan or application is for a reverse mortgage Values: 1 - Reverse",
+   "loan_amount": "loan_amount  Description: The amount of the covered loan, or the amount applied for Values: Varying values",
+   "loan_term": "loan_term  Description: The number of months after which the legal obligation will mature or terminate, or would have matured or terminated Values: Varying values",
+   "total_loan_costs": "total_loan_costs  Description: The amount, in dollars, of total loan costs Values: Varying values"
+  }
+ },
+ "terms": {
+  "quote": null,
+  "status": "NOT FOUND",
+  "note": "No data-use terms page was found on the hosts this environment can reach (ffiec.cfpb.gov, files.ffiec.cfpb.gov). The CFPB website terms and the HMDA pages on consumerfinance.gov are behind a blocked host (www.consumerfinance.gov, proxy 403). HMDA public data are published by the CFPB/FFIEC for public use, but no sentence to that effect was quoted, so DX-H4 is OPEN for this source: the owner (or a session that can reach consumerfinance.gov) must quote the terms before release.",
+  "triedUrls": [
+   "https://ffiec.cfpb.gov/data-browser/",
+   "https://ffiec.cfpb.gov/documentation/faq/static-dataset-faq",
+   "https://ffiec.cfpb.gov/documentation/faq/data-browser-faq (404)",
+   "https://www.consumerfinance.gov/data-research/hmda/ (blocked)"
+  ]
+ },
+ "observations": {
+  "loanAmountBinned": "loan_amount values in the public data end in 5,000 (e.g. 115000, 225000, 375000): amounts are published binned, so medians of loan_amount are bin midpoints"
+ }
+}

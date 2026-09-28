@@ -1,0 +1,1854 @@
+{
+ "aim": 156.0,
+ "sentenceRange": [
+  120.0,
+  190.0
+ ],
+ "actRange": [
+  153.0,
+  159.0
+ ],
+ "acts": {
+  "cold-open": {
+   "rawWpm": 180.2,
+   "afterStretchWpm": 180.2
+  },
+  "act1": {
+   "rawWpm": 153.7,
+   "afterStretchWpm": 153.7
+  },
+  "act2": {
+   "rawWpm": 167.2,
+   "afterStretchWpm": 167.2
+  },
+  "act3": {
+   "rawWpm": 161.5,
+   "afterStretchWpm": 161.5
+  },
+  "method": {
+   "rawWpm": 132.7,
+   "afterStretchWpm": 132.7
+  },
+  "outro": {
+   "rawWpm": 173.7,
+   "afterStretchWpm": 173.7
+  }
+ },
+ "fallbackSentences": [
+  "co-bars.1",
+  "co-question.1",
+  "a1-scope.1",
+  "a1-q.1",
+  "a1-count.1",
+  "a1-median.1",
+  "a1-boomcost.1",
+  "a1-small.1",
+  "a1-big.1",
+  "a1-keep.1",
+  "a1-payoff.1",
+  "a2-be05.1",
+  "a2-s10.1",
+  "a2-be10.1",
+  "a2-s20.1",
+  "a2-curve.1",
+  "a2-cliff.1",
+  "a2-payoff.1",
+  "a2-hold.1",
+  "a3-rules.1",
+  "a3-80s.1",
+  "a3-81.1",
+  "a3-range.1",
+  "m-costs.1",
+  "o-close.1",
+  "o-bill.1",
+  "o-sources.1"
+ ],
+ "problems": [
+  {
+   "id": "co-bars.1",
+   "act": "cold-open",
+   "words": 7,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 203.9,
+    "wpmAfter": 203.9,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "a lower rate cuts the monthly payment."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "co-question.1",
+   "act": "cold-open",
+   "words": 14,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 164.7,
+    "wpmAfter": 164.7,
+    "stretch": 1.0,
+    "missing": [
+     "rat"
+    ],
+    "heard": "So how far do raids have to fall before a refinance pays for itself?"
+   },
+   "takes": 1,
+   "problem": "missing rat"
+  },
+  {
+   "id": "a1-scope.1",
+   "act": "act1",
+   "words": 10,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 115.8,
+    "wpmAfter": 115.8,
+    "stretch": 1.0,
+    "missing": [
+     "us"
+    ],
+    "heard": "U .S. only. The rates here are history, not a forecast."
+   },
+   "takes": 1,
+   "problem": "missing us"
+  },
+  {
+   "id": "a1-q.1",
+   "act": "act1",
+   "words": 9,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 101.5,
+    "wpmAfter": 101.5,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "First question, then what does a refinance actually cost?"
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-count.1",
+   "act": "act1",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 113.4,
+    "wpmAfter": 113.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "In 2025, lenders reported 488 ,241 of those into 30 -year first mortgages."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-median.1",
+   "act": "act1",
+   "words": 13,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 116.4,
+    "wpmAfter": 116.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "In nominal dollars, the median one cost $5 ,124."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-boomcost.1",
+   "act": "act1",
+   "words": 12,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 191.5,
+    "wpmAfter": 191.5,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Their median bill that year was $3 ,406."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-small.1",
+   "act": "act1",
+   "words": 20,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 201.3,
+    "wpmAfter": 201.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "On loans under $150 ,000, the median cost was 3 .4 % of the amount borrowed."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-big.1",
+   "act": "act1",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 192.0,
+    "wpmAfter": 192.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "On loans of $750 ,000 and more, it was 0 .5%."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-keep.1",
+   "act": "act1",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 198.2,
+    "wpmAfter": 198.2,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "So the same cut in rate repays a large loan faster than a small one. Keep that in mind, it comes back."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-payoff.1",
+   "act": "act1",
+   "words": 14,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 186.7,
+    "wpmAfter": 186.7,
+    "stretch": 1.0,
+    "missing": [
+     "break-even"
+    ],
+    "heard": "The answer is the break -even, the month when the savings have covered the bill."
+   },
+   "takes": 1,
+   "problem": "missing break-even"
+  },
+  {
+   "id": "a2-be05.1",
+   "act": "act2",
+   "words": 5,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 122.0,
+    "wpmAfter": 122.0,
+    "stretch": 1.0,
+    "missing": [
+     "break-even"
+    ],
+    "heard": "Breakeven arrives in 41 months."
+   },
+   "takes": 1,
+   "problem": "missing break-even"
+  },
+  {
+   "id": "a2-s10.1",
+   "act": "act2",
+   "words": 12,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 195.7,
+    "wpmAfter": 195.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "A cut of one point saves $253 a month."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-be10.1",
+   "act": "act2",
+   "words": 8,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 208.7,
+    "wpmAfter": 208.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "That pays back the bill in 21 months."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-s20.1",
+   "act": "act2",
+   "words": 11,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 195.3,
+    "wpmAfter": 195.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Two points pay back in 11 months. Well, inside a year."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-curve.1",
+   "act": "act2",
+   "words": 13,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 239.3,
+    "wpmAfter": 239.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Look at the shape of that curve. It is not a straight line."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-cliff.1",
+   "act": "act2",
+   "words": 15,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 115.4,
+    "wpmAfter": 115.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Below 0 .5 points it climbs steeply. Each smaller cut adds years, not months."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-payoff.1",
+   "act": "act2",
+   "words": 26,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 206.9,
+    "wpmAfter": 206.9,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "So there is no single threshold. The drop that pays back depends on two things, how big the loan is and how long it is kept."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-hold.1",
+   "act": "act2",
+   "words": 14,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 209.0,
+    "wpmAfter": 209.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "and how long it is kept is the one number no dataset can supply."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a3-rules.1",
+   "act": "act3",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 201.8,
+    "wpmAfter": 201.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "In each, a borrower who took a loan at the peak refinances in the first month, the rate is one point lower."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a3-80s.1",
+   "act": "act3",
+   "words": 8,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 192.0,
+    "wpmAfter": 192.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The steepest falls came in the early 1980s."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a3-81.1",
+   "act": "act3",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 200.0,
+    "wpmAfter": 200.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "After the peak of 1981, the first cut of one point came two months later."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a3-range.1",
+   "act": "act3",
+   "words": 17,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 160.9,
+    "wpmAfter": 160.9,
+    "stretch": 1.0,
+    "missing": [
+     "break-even"
+    ],
+    "heard": "At a cut of one point, break -even took between 10 and 21 months across all 13 drops."
+   },
+   "takes": 1,
+   "problem": "missing break-even"
+  },
+  {
+   "id": "m-costs.1",
+   "act": "method",
+   "words": 17,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 88.7,
+    "wpmAfter": 88.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Costs are HMDA. Loan level data from 2018 to 2025 originated refinances, first lien, 30 year term."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "o-close.1",
+   "act": "outro",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 168.8,
+    "wpmAfter": 168.8,
+    "stretch": 1.0,
+    "missing": [
+     "break-even"
+    ],
+    "heard": "The break -even is simple division. The hard part is the number only the borrower knows. How long the loan will be kept."
+   },
+   "takes": 1,
+   "problem": "missing break-even"
+  },
+  {
+   "id": "o-bill.1",
+   "act": "outro",
+   "words": 17,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 213.4,
+    "wpmAfter": 213.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The bill is known the day the loan closes. The savings arrive one month at a time."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "o-sources.1",
+   "act": "outro",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 192.8,
+    "wpmAfter": 192.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The sources are linked in the description, and the next decision is already on the bench."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  }
+ ],
+ "sentences": [
+  {
+   "id": "co-bars.1",
+   "act": "cold-open",
+   "words": 7,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 203.9,
+    "wpmAfter": 203.9,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "a lower rate cuts the monthly payment."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "co-bill.1",
+   "act": "cold-open",
+   "words": 13,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 187.5,
+    "wpmAfter": 187.5,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "But the refinance has a price, and the savings must repay it first."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "co-question.1",
+   "act": "cold-open",
+   "words": 14,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 164.7,
+    "wpmAfter": 164.7,
+    "stretch": 1.0,
+    "missing": [
+     "rat"
+    ],
+    "heard": "So how far do raids have to fall before a refinance pays for itself?"
+   },
+   "takes": 1,
+   "problem": "missing rat"
+  },
+  {
+   "id": "a1-lab.1",
+   "act": "act1",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 182.4,
+    "wpmAfter": 182.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "This is a lab for money decisions. We run the numbers on public data and show every assumption."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-scope.1",
+   "act": "act1",
+   "words": 10,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 115.8,
+    "wpmAfter": 115.8,
+    "stretch": 1.0,
+    "missing": [
+     "us"
+    ],
+    "heard": "U .S. only. The rates here are history, not a forecast."
+   },
+   "takes": 1,
+   "problem": "missing us"
+  },
+  {
+   "id": "a1-rehook.1",
+   "act": "act1",
+   "words": 29,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 140.8,
+    "wpmAfter": 140.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "By the end, you will see the exact rate drop that repays a typical refinance within 36 months, and how every rate drop since 1971 actually played out."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-rates.1",
+   "act": "act1",
+   "words": 17,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 160.4,
+    "wpmAfter": 160.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Here's the rate itself, the weekly average for a 30 -year fixed mortgage from Freddie Mac's survey."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-peak.1",
+   "act": "act1",
+   "words": 11,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 158.7,
+    "wpmAfter": 158.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "It peaked at 18 .63 % in 1981."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-low.1",
+   "act": "act1",
+   "words": 11,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 148.6,
+    "wpmAfter": 148.6,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "It bottomed at 2 .65 % in 2021."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-drops.1",
+   "act": "act1",
+   "words": 14,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 180.3,
+    "wpmAfter": 180.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Every fall in that line is a moment when homeowners asked the same question."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-q.1",
+   "act": "act1",
+   "words": 9,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 101.5,
+    "wpmAfter": 101.5,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "First question, then what does a refinance actually cost?"
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-hmda.1",
+   "act": "act1",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 137.8,
+    "wpmAfter": 137.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Lenders report it for every loan they make, under the Home Mortgage Disclosure Act, as total loan costs."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-terms.1",
+   "act": "act1",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 127.7,
+    "wpmAfter": 127.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Those are the closing costs, origination charges, discount points, the appraisal, title insurance, and the rest."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-points.1",
+   "act": "act1",
+   "words": 20,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 164.8,
+    "wpmAfter": 164.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Discount points are optional. Paying more at closing buys a lower rate. So part of that bill is a choice."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-cashout.1",
+   "act": "act1",
+   "words": 34,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 158.4,
+    "wpmAfter": 158.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "cash out refinances, which also take equity out of the house, cost more. A median of $8 ,655. This film keeps to refinances that change only the rate and the term."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-count.1",
+   "act": "act1",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 113.4,
+    "wpmAfter": 113.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "In 2025, lenders reported 488 ,241 of those into 30 -year first mortgages."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-median.1",
+   "act": "act1",
+   "words": 13,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 116.4,
+    "wpmAfter": 116.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "In nominal dollars, the median one cost $5 ,124."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-spread.1",
+   "act": "act1",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 164.6,
+    "wpmAfter": 164.6,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The middle half paid between $3 ,443 and $8 ,270."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-boom.1",
+   "act": "act1",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 146.3,
+    "wpmAfter": 146.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The count follows the rate. In 2021, near the bottom, lenders reported 3 ,089 ,298 of them."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-boomcost.1",
+   "act": "act1",
+   "words": 12,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 191.5,
+    "wpmAfter": 191.5,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Their median bill that year was $3 ,406."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-turn.1",
+   "act": "act1",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 178.8,
+    "wpmAfter": 178.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "But the dollar figure hides the real pattern. The bill barely grows with the size of the loan."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-small.1",
+   "act": "act1",
+   "words": 20,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 201.3,
+    "wpmAfter": 201.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "On loans under $150 ,000, the median cost was 3 .4 % of the amount borrowed."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-big.1",
+   "act": "act1",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 192.0,
+    "wpmAfter": 192.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "On loans of $750 ,000 and more, it was 0 .5%."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-keep.1",
+   "act": "act1",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 198.2,
+    "wpmAfter": 198.2,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "So the same cut in rate repays a large loan faster than a small one. Keep that in mind, it comes back."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a1-rule.1",
+   "act": "act1",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 172.0,
+    "wpmAfter": 172.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Paying the bill back is simple division. The closing costs divided by the drop in the monthly payment."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a1-payoff.1",
+   "act": "act1",
+   "words": 14,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 186.7,
+    "wpmAfter": 186.7,
+    "stretch": 1.0,
+    "missing": [
+     "break-even"
+    ],
+    "heard": "The answer is the break -even, the month when the savings have covered the bill."
+   },
+   "takes": 1,
+   "problem": "missing break-even"
+  },
+  {
+   "id": "a1-after.1",
+   "act": "act1",
+   "words": 17,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 125.6,
+    "wpmAfter": 125.6,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Before that month, the refinance is still in the red. After it, every payment is money kept."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-q.1",
+   "act": "act2",
+   "words": 12,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 168.2,
+    "wpmAfter": 168.2,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Now the main question, how big does the drop have to be?"
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-loan.1",
+   "act": "act2",
+   "words": 21,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 153.7,
+    "wpmAfter": 153.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Take the median refinance, a balance of $375 ,000 and $5 ,124 to close."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-old.1",
+   "act": "act2",
+   "words": 24,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 176.5,
+    "wpmAfter": 176.5,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Say the old loan carries 7 .62%. The average rate in the month, the last big drop again, October, 2023."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-s025.1",
+   "act": "act2",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 151.7,
+    "wpmAfter": 151.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "cut the rate by 0 .25 points, and the payment falls by $64 a month."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-be025.1",
+   "act": "act2",
+   "words": 11,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 176.5,
+    "wpmAfter": 176.5,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "At that pace, the bill takes 80 months to come back."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-s05.1",
+   "act": "act2",
+   "words": 19,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 170.1,
+    "wpmAfter": 170.1,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Double the cut to 0 .5 points and the payment falls by $128 a month."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-be05.1",
+   "act": "act2",
+   "words": 5,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 122.0,
+    "wpmAfter": 122.0,
+    "stretch": 1.0,
+    "missing": [
+     "break-even"
+    ],
+    "heard": "Breakeven arrives in 41 months."
+   },
+   "takes": 1,
+   "problem": "missing break-even"
+  },
+  {
+   "id": "a2-s10.1",
+   "act": "act2",
+   "words": 12,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 195.7,
+    "wpmAfter": 195.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "A cut of one point saves $253 a month."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-be10.1",
+   "act": "act2",
+   "words": 8,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 208.7,
+    "wpmAfter": 208.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "That pays back the bill in 21 months."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-s20.1",
+   "act": "act2",
+   "words": 11,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 195.3,
+    "wpmAfter": 195.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Two points pay back in 11 months. Well, inside a year."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-curve.1",
+   "act": "act2",
+   "words": 13,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 239.3,
+    "wpmAfter": 239.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Look at the shape of that curve. It is not a straight line."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-cliff.1",
+   "act": "act2",
+   "words": 15,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 115.4,
+    "wpmAfter": 115.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Below 0 .5 points it climbs steeply. Each smaller cut adds years, not months."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-thumb.1",
+   "act": "act2",
+   "words": 30,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 176.1,
+    "wpmAfter": 176.1,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "That is where the common rule of thumb about a full point comes from. For this loan, one point pays back in 21 months, 0 .5 points in 41."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-turn.1",
+   "act": "act2",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 183.2,
+    "wpmAfter": 183.2,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "But remember the pattern in the costs and move the same question to a different loan."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-mid.1",
+   "act": "act2",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 186.9,
+    "wpmAfter": 186.9,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "To break even within 36 months, the median loan needs a cut of 0 .56 points."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-small.1",
+   "act": "act2",
+   "words": 24,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 157.9,
+    "wpmAfter": 157.9,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "A loan under $150 ,000 needs 1 .32 points because its bill is a bigger share of the balance."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-big.1",
+   "act": "act2",
+   "words": 15,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 143.8,
+    "wpmAfter": 143.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "A loan of $750 ,000 or more needs only 0 .2."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-hold60.1",
+   "act": "act2",
+   "words": 15,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 161.9,
+    "wpmAfter": 161.9,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "give the median loan 60 months instead, and 0 .33 points is enough."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-hold84.1",
+   "act": "act2",
+   "words": 11,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 177.4,
+    "wpmAfter": 177.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "give it 84 months, and it needs 0 .24."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-flip.1",
+   "act": "act2",
+   "words": 20,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 131.0,
+    "wpmAfter": 131.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Read each of those as a flip point. Below it, the bill outlasts the stay. Above it, the savings win."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-payoff.1",
+   "act": "act2",
+   "words": 26,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 206.9,
+    "wpmAfter": 206.9,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "So there is no single threshold. The drop that pays back depends on two things, how big the loan is and how long it is kept."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-hold.1",
+   "act": "act2",
+   "words": 14,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 209.0,
+    "wpmAfter": 209.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "and how long it is kept is the one number no dataset can supply."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a2-reset.1",
+   "act": "act2",
+   "words": 27,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 159.1,
+    "wpmAfter": 159.1,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "One more cost hides inside the new loan. It starts a fresh 30 years, so the last payment moves further away, even when each payment is smaller."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a2-reset2.1",
+   "act": "act2",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 161.2,
+    "wpmAfter": 161.2,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The simple division ignores that. It answers only the first question. When do the savings cover the bill?"
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-q.1",
+   "act": "act3",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 161.6,
+    "wpmAfter": 161.6,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The division assumes the new rate is the last one. What happened in the real drops?"
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-all.1",
+   "act": "act3",
+   "words": 19,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 174.8,
+    "wpmAfter": 174.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "We found every fall of at least one point in the 30 -year rate since 1971, 13 of them."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-rules.1",
+   "act": "act3",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 201.8,
+    "wpmAfter": 201.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "In each, a borrower who took a loan at the peak refinances in the first month, the rate is one point lower."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a3-costs.1",
+   "act": "act3",
+   "words": 26,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 138.1,
+    "wpmAfter": 138.1,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "closing costs use the median share for that year. Before 2018, lenders did not report them, so a fixed share is used and marked illustrative."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-80s.1",
+   "act": "act3",
+   "words": 8,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 192.0,
+    "wpmAfter": 192.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The steepest falls came in the early 1980s."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a3-81.1",
+   "act": "act3",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 200.0,
+    "wpmAfter": 200.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "After the peak of 1981, the first cut of one point came two months later."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "a3-81be.1",
+   "act": "act3",
+   "words": 21,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 176.0,
+    "wpmAfter": 176.0,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "It paid back in 13 months, but the slide went on, and the next point came nine months after the refinance."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-short.1",
+   "act": "act3",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 152.4,
+    "wpmAfter": 152.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Some drops were brief. The fall that began in 1987 lasted four months and the refinance came at its very bottom."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-06.1",
+   "act": "act3",
+   "words": 29,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 179.8,
+    "wpmAfter": 179.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The drop that began in 2006 was slower, the refinance came in January 2008, and it had paid for itself before the next point arrived."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-range.1",
+   "act": "act3",
+   "words": 17,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 160.9,
+    "wpmAfter": 160.9,
+    "stretch": 1.0,
+    "missing": [
+     "break-even"
+    ],
+    "heard": "At a cut of one point, break -even took between 10 and 21 months across all 13 drops."
+   },
+   "takes": 1,
+   "problem": "missing break-even"
+  },
+  {
+   "id": "a3-turn.1",
+   "act": "act3",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 143.8,
+    "wpmAfter": 143.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "But in five of them, the rate kept falling. Another drop of one point before the first refinance had paid for itself."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-twice.1",
+   "act": "act3",
+   "words": 19,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 158.3,
+    "wpmAfter": 158.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Those borrowers met the same question twice, and a second refinance starts a new clock with a new bill."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-example.1",
+   "act": "act3",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 184.6,
+    "wpmAfter": 184.6,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "In the drop that began in November 2018, the refinance came in June 2019."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-example2.1",
+   "act": "act3",
+   "words": 19,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 170.1,
+    "wpmAfter": 170.1,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "It needed 18 months to break even. And the next drop of one point came only 17 months later."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-quiet.1",
+   "act": "act3",
+   "words": 12,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 153.8,
+    "wpmAfter": 153.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "In the other eight, the first refinance was the one that mattered."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-23.1",
+   "act": "act3",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 135.3,
+    "wpmAfter": 135.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The latest drop began in October, 2023. The cut of one point arrived in August, 2024."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-23be.1",
+   "act": "act3",
+   "words": 11,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 149.3,
+    "wpmAfter": 149.3,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "At that year's median cost, it paid back in 21 months."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-answer.1",
+   "act": "act3",
+   "words": 14,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 185.8,
+    "wpmAfter": 185.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "So, how far do rates have to fall before a refinance pays for itself?"
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-answer2.1",
+   "act": "act3",
+   "words": 21,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 155.6,
+    "wpmAfter": 155.6,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "For the median loan and median costs, a cut that repays it within 36 months is 0 .56 points."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-answer3.1",
+   "act": "act3",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 161.1,
+    "wpmAfter": 161.1,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Half as much patience asks for more. To pay back in 21 months takes one point."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-limit.1",
+   "act": "act3",
+   "words": 29,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 151.6,
+    "wpmAfter": 151.6,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "That answer has limits. It counts payment savings only, no taxes, no return on the cash, and a new 30 -year loan restarts the clock on owning the house outright."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-median.1",
+   "act": "act3",
+   "words": 25,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 160.9,
+    "wpmAfter": 160.9,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "It uses medians. Half of borrowers paid more than $5 ,124, and an offered rate can differ from the survey average."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-history.1",
+   "act": "act3",
+   "words": 14,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 159.1,
+    "wpmAfter": 159.1,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "And it is history, not a forecast. Nothing here says where rates go next."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "a3-close.1",
+   "act": "act3",
+   "words": 31,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 148.6,
+    "wpmAfter": 148.6,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "What history does show is the shape of the trade. A known bill upfront against savings that arrive one month at a time for as long as the loan lasts."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "m-rates.1",
+   "act": "method",
+   "words": 18,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 133.7,
+    "wpmAfter": 133.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "method. Rates are Freddie Mac's weekly survey via Fred, checked against the optimal blue index since 2017."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "m-drops.1",
+   "act": "method",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 183.8,
+    "wpmAfter": 183.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "A drop counts when the monthly average falls at least one point from a peak before rising one point from its low."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "m-costs.1",
+   "act": "method",
+   "words": 17,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 88.7,
+    "wpmAfter": 88.7,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Costs are HMDA. Loan level data from 2018 to 2025 originated refinances, first lien, 30 year term."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "m-assume.1",
+   "act": "method",
+   "words": 21,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 147.9,
+    "wpmAfter": 147.9,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "Closing costs are paid in cash, with no taxes and no discounting. Every figure and formula is listed in the description."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "o-recap.1",
+   "act": "outro",
+   "words": 25,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 149.1,
+    "wpmAfter": 149.1,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "A small cut needs a long stay, a large loan needs a smaller cut, and a falling rate can make the first refinance too early."
+   },
+   "takes": 1,
+   "problem": ""
+  },
+  {
+   "id": "o-close.1",
+   "act": "outro",
+   "words": 22,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 168.8,
+    "wpmAfter": 168.8,
+    "stretch": 1.0,
+    "missing": [
+     "break-even"
+    ],
+    "heard": "The break -even is simple division. The hard part is the number only the borrower knows. How long the loan will be kept."
+   },
+   "takes": 1,
+   "problem": "missing break-even"
+  },
+  {
+   "id": "o-bill.1",
+   "act": "outro",
+   "words": 17,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 213.4,
+    "wpmAfter": 213.4,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The bill is known the day the loan closes. The savings arrive one month at a time."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  },
+  {
+   "id": "o-sources.1",
+   "act": "outro",
+   "words": 16,
+   "chosen": {
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 192.8,
+    "wpmAfter": 192.8,
+    "stretch": 1.0,
+    "missing": [],
+    "heard": "The sources are linked in the description, and the next decision is already on the bench."
+   },
+   "takes": 1,
+   "problem": "outside 120-190"
+  }
+ ]
+}

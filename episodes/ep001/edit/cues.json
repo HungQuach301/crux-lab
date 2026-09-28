@@ -1,0 +1,126 @@
+{
+ "cues": [
+  {
+   "t": 0.0,
+   "end": 14.67,
+   "function": "suspense under the open question; pad + pulse, no melody",
+   "key": "A minor",
+   "tempo": 72,
+   "layer": "music"
+  },
+  {
+   "t": 14.67,
+   "end": 17.67,
+   "function": "ident sting",
+   "key": "A minor",
+   "tempo": 72,
+   "layer": "music"
+  },
+  {
+   "t": 17.67,
+   "end": 202.74,
+   "function": "curious, light pulse; the SMALL and LARGE motifs introduced (amber: low plucks, blue: high bells)",
+   "key": "C major",
+   "tempo": 84,
+   "layer": "music"
+  },
+  {
+   "t": 202.74,
+   "end": 368.18,
+   "function": "building: the pulse tightens toward the cliff (a2-cliff), valley after it; re-voiced at the loan-size turn",
+   "key": "D minor",
+   "tempo": 92,
+   "layer": "music"
+  },
+  {
+   "t": 368.18,
+   "end": 558.84,
+   "function": "history: darker at the further-drop turn, resolves on the answer",
+   "key": "F major",
+   "tempo": 88,
+   "layer": "music"
+  },
+  {
+   "t": 558.84,
+   "end": 597.0,
+   "function": "thin pad under the method card",
+   "key": "F major",
+   "tempo": 70,
+   "layer": "music"
+  },
+  {
+   "t": 597.0,
+   "end": 639.3,
+   "function": "resolved; both motifs together",
+   "key": "C major",
+   "tempo": 76,
+   "layer": "music"
+  },
+  {
+   "t": 133.0,
+   "end": 153.0,
+   "function": "build to the act1 climax (+6 dB over 20 s)",
+   "key": "C major",
+   "tempo": 84,
+   "layer": "music-dynamics"
+  },
+  {
+   "t": 244.43,
+   "end": 264.43,
+   "function": "build to the act2 climax (+6 dB over 20 s)",
+   "key": "D minor",
+   "tempo": 92,
+   "layer": "music-dynamics"
+  },
+  {
+   "t": 480.13,
+   "end": 500.13,
+   "function": "build to the act3 climax (+6 dB over 20 s)",
+   "key": "F major",
+   "tempo": 88,
+   "layer": "music-dynamics"
+  }
+ ],
+ "silences": [
+  {
+   "t": 129.25,
+   "dur": 1.2,
+   "why": "let the median bill land",
+   "after": "a1-median.1"
+  },
+  {
+   "t": 200.92,
+   "dur": 1.6,
+   "why": "end of act 1: ad break",
+   "after": "a1-after.1"
+  },
+  {
+   "t": 272.61,
+   "dur": 1.0,
+   "why": "let the steep part of the curve sink in",
+   "after": "a2-cliff.1"
+  },
+  {
+   "t": 366.36,
+   "dur": 1.6,
+   "why": "end of act 2: ad break",
+   "after": "a2-reset2.1"
+  },
+  {
+   "t": 508.59,
+   "dur": 1.3,
+   "why": "the answer lands",
+   "after": "a3-answer2.1"
+  }
+ ],
+ "adBreaks": [
+  {
+   "t": 201.72,
+   "after": "a1-after.1"
+  },
+  {
+   "t": 367.16,
+   "after": "a2-reset2.1"
+  }
+ ]
+}
