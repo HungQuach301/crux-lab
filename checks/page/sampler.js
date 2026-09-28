@@ -203,10 +203,10 @@ async function run() {
         const tm = await shotMask('text'), gm = await shotMask('graphics');
         const td = P.dilate(tm, 2);
         const hits = new Set();
-        const hit = (o, other, n) => {
+        const hit = (o, other, n, moving = isMoving(o)) => {
           const k = o.tid + '|' + other;
           hits.add(k);
-          if (!isMoving(o)) px.collisions.push({ t: +t.toFixed(2), scene: s.id, tid: o.tid, role: o.role, with: other, pixels: n });
+          if (!moving) px.collisions.push({ t: +t.toFixed(2), scene: s.id, tid: o.tid, role: o.role, with: other, pixels: n });
           else if (prevMovingHits.has(k)) px.collisions.push({ t: +t.toFixed(2), scene: s.id, tid: o.tid, role: o.role, with: other, pixels: n, moving: true });
           else px.movingCollisions++;
         };
@@ -223,7 +223,7 @@ async function run() {
           if (R.gapBetween(R.inflate(R.B(a), 3), R.B(b)) > 0) continue;
           const ma = P.dilate(await shotMask('only', [a.id]), 2), mb2 = await shotMask('only', [b.id]);
           const n = P.overlapIn(ma, mb2, [Math.min(a.box[0], b.box[0]) - 3, Math.min(a.box[1], b.box[1]) - 3, Math.max(a.box[2], b.box[2]) + 3, Math.max(a.box[3], b.box[3]) + 3]);
-          if (n >= 4) hit(isMoving(a) && !isMoving(b) ? b : a, 'text:' + (isMoving(a) && !isMoving(b) ? a.tid : b.tid), n);
+          if (n >= 4) hit(a, 'text:' + b.tid, n, isMoving(a) || isMoving(b)); // a pair with a moving text: the persistence criterion
         }
         prevMovingHits = hits;
         // V03 safe area: text ink outside the 90% rectangle, unless the text is travelling (in or out of frame)

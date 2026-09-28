@@ -90,7 +90,7 @@ def v08(ctx):
 
 @rule('V11', 'DX-V11 (C rule text-line-collision, upgraded to pixels)', 'every frame (no camera-move exemption), every 0.2 s: text ink from the page\'s text layer (glyphs, badges with their pill, axis labels; alpha > 64) '
       'dilated by 2 px vs ink of the graphics layer (lines, axes, series, bars, marks, stroked outlines; neutral cards and backgrounds excluded); and text vs text (each text rendered alone). '
-      'A text standing still collides when it overlaps in one sample; a text moving on screen (box moved ≥ 2 px in 0.1 s) when the same overlap is there in two consecutive samples (0.2 s)',
+      'A text standing still collides when it overlaps in one sample; a text moving on screen (box moved ≥ 2 px in 0.1 s), or a pair of texts one of which moves, when the same overlap is there in two consecutive samples (0.2 s)',
       '< 4 overlapping pixels for every text in every sample (moving text: not in two consecutive samples); 0 violations')
 def v11(ctx):
     r = pr(ctx, 'V11')
