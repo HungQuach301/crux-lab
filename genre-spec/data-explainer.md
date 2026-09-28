@@ -174,6 +174,8 @@ Phần này chỉ chủ dự án được sửa (CHARTER §7.5).
 
 [CH §5; RB]
 
-Bài D dừng ở 3,29 (vòng 2: H1 4 · H2 2 · H3 3 · H4 3 · H5 4 · H6 4 · H7 3), chưa đạt [R M3 vòng 3].
+Bài D: **3,29 sau vòng 2; 3,71 sau vòng 3 (vẫn dưới ngưỡng 4)**.
+- Vòng 2: H1 4 · H2 2 · H3 3 · H4 3 · H5 4 · H6 4 · H7 3 [R M3 vòng 3].
+- Vòng 3: H1 4 · H2 4 · H3 3 · H4 3 · H5 4,5 · H6 4 · H7 3,5 [`taste-ledger.md`].
 
 Phiếu chấm tay cho Tập 1 do K1 soạn lại từ các mục `[NGƯỜI]` ở trên.
