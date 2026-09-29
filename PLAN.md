@@ -13,8 +13,8 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 |---|---|---|---|
 | Việc 0 | XONG — merge `main` `7ebc7ea` | — | Khung 3 lớp duyệt; D-002 |
 | C1 Ý tưởng | XONG | `episodes/ep001/gates/C1.md` | Logline C; bộ đo mới (vai khán giả đích, tiếng Anh, đối chứng yếu) |
-| C2 Kịch bản | CHỜ CHỦ DỰ ÁN | `episodes/ep001/gates/C2.md` | |
-| C3 Thiết kế và giọng | chờ | | |
+| C2 Kịch bản | XONG | `episodes/ep001/gates/C2.md` | OK; lịch sử rút (a); câu hứa nói với người xem (2 phương án ở C3) |
+| C3 Thiết kế và giọng | ĐANG LÀM | | |
 | C4 Animatic có chuyển động | chờ | | |
 | C5 Render và L1 | chờ (cần khoá K3 của Phiên K) | | |
 | C6 Chấm cuối | chờ | | |
