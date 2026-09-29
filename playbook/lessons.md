@@ -34,6 +34,15 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 | B11 | Truyện phải chốt ở animatic, trước khi tốn công dựng. | KHUNG-CHAT-LUONG §3 | C4 trước C5. |
 | B12 | Mọi quyết định sáng tạo ghi AUTHORSHIP kèm đóng góp biểu đạt cụ thể của con người; mọi tài sản vào RIGHTS với nguồn, giấy phép (trích nguyên câu), phạm vi. | CLAUDE.md, AUTHORSHIP.md, RIGHTS.md | `AUTHORSHIP.md`, `RIGHTS.md` ở gốc repo. |
 
+## B2. Bộ đo kiểm mù (Tập 1, C1–C2)
+
+| # | Chuyện đã xảy ra | Bài học |
+|---|---|---|
+| M1 | Hỏi "muốn xem" từng bản riêng: người đọc vai khán giả đích nói "Yes" với mọi bản (kể cả đối chứng yếu 5/5). | Câu hỏi riêng lẻ bị trần: không phân biệt được. Dùng so cặp ép chọn. |
+| M2 | So cặp: đối chứng yếu thắng 19/19 ở cả hai vị trí. P2 ghi "không đạt → C"; chủ dự án sửa: bộ đo đã phân biệt được, chỉ là ứng viên thua. | Tiêu chí "không đạt" phải tách **"không phân biệt được"** với **"ứng viên thua"**. Một bộ đo cho kết quả trái ý đồ vẫn có thể là bộ đo tốt. |
+| M3 | Câu hỏi "hiểu" (tóm tắt + đáp án): kịch bản M1b bị chủ dự án chê vẫn được hiểu 3/3. | "Hiểu được" là điều kiện cần, không nói kịch bản hay. Tín hiệu phân biệt nằm ở "chỗ mất chú ý" và "chỗ khó hiểu". |
+| M4 | Người đọc vai khán giả đích chọn bản nói với "người như tôi" và cho sẵn ngưỡng tự đối chiếu. | Khớp nhận xét M1 của chủ dự án (G-008) → G-013. |
+
 ## C. Vận hành
 
 - Chủ dự án không đọc tài liệu dài; chỉ trả lời gói quyết định (≤ 3 câu, < 1 phút đọc).
