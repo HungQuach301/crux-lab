@@ -1,0 +1,188 @@
+{
+ "episode": "test-D (crux-spike-opus55, master r3 6531f6c8)",
+ "note": "Written by the checking session K2 from the constants the K1 rules had hard-coded for test D (checks @ LOCK b97bfc6b). It is the checker's record of test D's contract, kept outside checks/; the builder of test D never wrote one. Colours and shapes: as the K1 page sampler measured them on r3 (page-summary.json V04). Tolerances: 0.5 pp (the K1 threshold); D's own declared values are in its data/sources.json, not available to this session.",
+ "characters": {
+  "1966": {
+   "what": "the retiree who starts in 1966",
+   "color": "#ffc857",
+   "shape": "solid",
+   "side": "left",
+   "words": [
+    "1966"
+   ]
+  },
+  "mirror": {
+   "what": "the same 30 years in reverse order",
+   "color": "#5a9ceb",
+   "shape": "dashed",
+   "side": "right",
+   "illustrative": true,
+   "words": [
+    "mirror"
+   ]
+  }
+ },
+ "claims": {
+  "core": [],
+  "decisive": [],
+  "illustrative": []
+ },
+ "model": {
+  "kind": "retirement-6040",
+  "output": "out/model.json",
+  "params": {
+   "annual": "data/normalized/annual.csv",
+   "rate": 0.04,
+   "years": 30,
+   "weights": {
+    "stocks": 0.6,
+    "bonds": 0.4
+   },
+   "startRange": [
+    1928,
+    1996
+   ],
+   "paths": {
+    "1966": {
+     "from": 1966
+    },
+    "mirror": {
+     "from": 1966,
+     "reverse": [
+      "returns"
+     ]
+    }
+   },
+   "sameGeomean": [
+    "1966",
+    "mirror"
+   ],
+   "conventions": {
+    "realBasis": "end-of-year balance deflated by cumulative CPI-U (Dec/Dec) since the start of year 1: dollars of the start year",
+    "rebalance": "annual",
+    "withdrawalTiming": "start of year"
+   }
+  },
+  "claims": [
+   {
+    "where": {
+     "kind": "geomean",
+     "character": "1966"
+    },
+    "key": "geomean:1966"
+   },
+   {
+    "where": {
+     "kind": "geomean",
+     "character": "mirror"
+    },
+    "key": "geomean:mirror"
+   }
+  ]
+ },
+ "data": {
+  "sources": "data/sources.json",
+  "hosts": {
+   "primary": [
+    "stern.nyu.edu"
+   ],
+   "crosscheck": [
+    "stlouisfed.org"
+   ]
+  },
+  "crosscheck": [
+   {
+    "series": "inflation",
+    "tolerance": 0.5,
+    "used": {
+     "from": 1928,
+     "to": 2025
+    },
+    "primary": {
+     "file": "data/normalized/annual.csv",
+     "key": "year",
+     "column": "inflation",
+     "scale": 100
+    },
+    "crosscheck": {
+     "file": "data/normalized/fred_inflation.csv",
+     "key": "year",
+     "column": "inflation",
+     "scale": 100
+    }
+   },
+   {
+    "series": "stocks",
+    "tolerance": 0.5,
+    "used": {
+     "from": 1928,
+     "to": 2025
+    },
+    "primary": {
+     "file": "data/normalized/annual.csv",
+     "key": "year",
+     "column": "stocks",
+     "scale": 100
+    },
+    "crosscheck": {
+     "file": "data/normalized/stocks2.csv",
+     "key": "year",
+     "column": "stocks",
+     "scale": 100
+    }
+   }
+  ]
+ },
+ "coverage": [
+  {
+   "attribute": "year",
+   "act": "act3",
+   "range": [
+    1928,
+    1996
+   ]
+  }
+ ],
+ "sonification": {
+  "stem": "sonify",
+  "bandsHz": [
+   [
+    1500,
+    8000
+   ]
+  ],
+  "note": "D mixed its data sounds into sfx; band = the 1.5-8 kHz band of the owner's measurement (taste-ledger, -0.2 dB)"
+ },
+ "artefacts": {
+  "M3": [
+   "out/video.mp4",
+   "out/captions.srt",
+   "out/package/description.md",
+   "out/timeline.json",
+   "out/script.json",
+   "out/claims.json",
+   "out/audio/stems/voice.*",
+   "out/audio/stems/music.*",
+   "out/audio/stems/sfx.*",
+   "out/audio/stems/whoosh.*",
+   "out/audio/stems/room.*",
+   "out/audio/stems/sonify.*",
+   "out/voice/takes.json",
+   "out/camera.json",
+   "out/sfx-events.json",
+   "out/sonify-events.json",
+   "out/tempo-map.json",
+   "out/transitions.json",
+   "out/cues.json",
+   "out/tension-map.json",
+   "out/tension-map.png",
+   "out/adbreaks.json",
+   "preprod/shotlist.json",
+   "design/tokens.json",
+   "out/package/thumb-1.png",
+   "out/package/thumb-2.png",
+   "out/package/thumb-3.png",
+   "out/page.json"
+  ]
+ }
+}

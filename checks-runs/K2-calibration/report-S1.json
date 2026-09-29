@@ -1,0 +1,153 @@
+{
+ "root": "checks-runs/K2-calibration/<root>/S1",
+ "contract": "checks-runs/K2-calibration/<root>/S1/contract.json",
+ "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
+ "video_sha256": "c6441f511308289a7ecdd27dfc81d71ee4313564983955b5d7c6700440ba6ab5",
+ "counts": {
+  "PASS": 2,
+  "FAIL": 0,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "T1",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "slots measured",
+     "value": 13,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "share of slots heard in a pause",
+     "value": 0.769231,
+     "op": ">=",
+     "threshold": 0.6,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "declared bands share of data-stem energy",
+     "value": 0.860734,
+     "op": ">=",
+     "threshold": 0.5,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "stems ~ master in band r",
+     "value": 1.0,
+     "op": ">=",
+     "threshold": 0.9,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "data sounds delivered as their own stem (sonify)",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "events": [
+      "declared: 165",
+      "page: 4"
+     ],
+     "dataStem": "sonify",
+     "bandsHz": [
+      [
+       125.0,
+       500.0
+      ]
+     ],
+     "slots": 13,
+     "heard": 10,
+     "slotsWithoutPause": 1
+    },
+    {
+     "t": 2.2,
+     "pauseFrames": 0,
+     "bestLiftInPause": null,
+     "heard": false
+    },
+    {
+     "t": 4.7,
+     "pauseFrames": 45,
+     "bestLiftInPause": 2.23,
+     "heard": false
+    },
+    {
+     "t": 8.1,
+     "pauseFrames": 30,
+     "bestLiftInPause": 2.76,
+     "heard": false
+    }
+   ],
+   "note": null,
+   "section": "DX-A1 (sổ gu G-001, G-006)",
+   "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
+   "fingerprint": "e7a5925e1b04aae3",
+   "seconds": 1.0
+  },
+  {
+   "id": "L1",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "voice-active windows",
+     "value": 66,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "voice/data 1–4 kHz ratio, 10th percentile (dB)",
+     "value": 22.56737,
+     "op": ">=",
+     "threshold": 20.0,
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "key words lost to the data sounds",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "windowsWithDataSound": 66,
+     "medianRatioDb": 32.9,
+     "minRatioDb": -15.7,
+     "keyWords": 4
+    }
+   ],
+   "note": null,
+   "section": "DX-A1, DX-A9 (sổ gu G-006)",
+   "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
+   "fingerprint": "01832a4e805c145e",
+   "seconds": 0.1
+  }
+ ]
+}

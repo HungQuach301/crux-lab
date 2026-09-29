@@ -163,17 +163,26 @@ def cvd_report(c1, c2):
     return out
 
 
-@rule('V09', 'DX-V4, DX-X3', 'main colour of each character = most frequent fill/stroke of objects with char "1966" / "mirror" seen by the page sampler; simulated with Machado 2009 '
-      '(severity 1) protanopia and deuteranopia, ΔE2000 between the two simulated colours; grey = WCAG relative-luminance contrast between them',
-      'ΔE2000 ≥ 20 under each simulation; grey contrast ≥ 1.5:1')
+@rule('V09', 'DX-V4, DX-X3', 'every pair of characters declared in the episode contract (contract.json characters; colours resolved from design/tokens.json): the main '
+      'colour of each on screen (page sampler) simulated with Machado 2009 (severity 1) protanopia and deuteranopia, ΔE2000 between the two simulated colours; '
+      'grey = WCAG relative-luminance contrast between them. Contract without characters = MISSING',
+      'every declared character seen; for every pair: ΔE2000 ≥ 20 under each simulation, grey contrast ≥ 1.5:1')
 def v09_cvd(ctx):
+    from r_page import contract_characters
+    want = contract_characters(ctx)
     ch = ctx.json('out/checks/page.json').get('characters', {})
-    if '1966' not in ch or 'mirror' not in ch:
-        return verdict('V09', [metric('both characters seen on screen', False, '==', True)])
-    c1, c2 = ch['1966']['mainColour'], ch['mirror']['mainColour']
-    r = cvd_report(c1, c2)
-    return verdict('V09', [metric('ΔE2000 protanopia', r['protanopia'], '>=', 20.0), metric('ΔE2000 deuteranopia', r['deuteranopia'], '>=', 20.0),
-                           metric('grey contrast', r['grey contrast'], '>=', 1.5)], details=[{'1966': c1, 'mirror': c2}])
+    unseen = [k for k in want if k not in ch]
+    ms = [metric('declared characters seen on screen', len(want) - len(unseen), '>=', len(want))]
+    keys = [k for k in want if k in ch]
+    rows = []
+    for i in range(len(keys)):
+        for j in range(i + 1, len(keys)):
+            a, b = keys[i], keys[j]
+            r = cvd_report(ch[a]['mainColour'], ch[b]['mainColour'])
+            ms += [metric(f'{a}/{b} ΔE2000 protanopia', r['protanopia'], '>=', 20.0), metric(f'{a}/{b} ΔE2000 deuteranopia', r['deuteranopia'], '>=', 20.0),
+                   metric(f'{a}/{b} grey contrast', r['grey contrast'], '>=', 1.5)]
+            rows.append({a: ch[a]['mainColour'], b: ch[b]['mainColour']})
+    return verdict('V09', ms, details=[{'unseen': unseen}, *rows])
 
 
 # ---- transitions ------------------------------------------------------------------------------------

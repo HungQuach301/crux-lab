@@ -30,3 +30,7 @@ Lượt này chạy bộ luật đã khoá trên master cuối của bài D.
   - Chính báo cáo của Phiên D trên r3 (LOCK cũ) cũng cho V04 FAIL.
   - 19 luật K1 đã đổi cách đo được coi là không so được.
 - **Khoá mới `b97bfc6b…` (2026-09-28).** Khoá này chỉ khác `62b5206d…` ở `checks/README.md`: thêm mục "Ngưỡng tạm". Mã luật và ngưỡng không đổi, nên kết quả lượt chạy này vẫn đúng với khoá mới.
+
+## K2 (2026-09-28)
+
+Đã chạy lại dưới khoá K2 `f9e24c91…`: `K2/README.md`. Kết quả 59 PASS · 18 FAIL · 1 MISSING; **T1 trượt** (0,11 lượt nghe thấy); REG đạt.

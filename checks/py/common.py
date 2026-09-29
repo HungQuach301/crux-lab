@@ -61,8 +61,9 @@ def verdict(rid, metrics, details=None, note=None):
 
 
 class Ctx:
-    def __init__(self, root, cache=None):
+    def __init__(self, root, cache=None, contract=None):
         self.root = os.path.abspath(root)
+        self.contract_path = os.path.abspath(contract) if contract else (os.path.abspath(os.environ['K_CONTRACT']) if os.environ.get('K_CONTRACT') else None)
         self.cache_dir = cache or os.path.join(self.root, 'out', 'checks', 'cache')
         os.makedirs(self.cache_dir, exist_ok=True)
         self._memo = {}
@@ -116,6 +117,30 @@ class Ctx:
 
     def total(self):
         return float(self.timeline()['total'])
+
+    # ---- episode contract (episodes/<ep>/contract.json; K2) ----------------------------------------
+    def contract(self):
+        """The episode contract (checks/CONTRACT.md §Episode contract): <root>/contract.json, or the file given with --contract
+        (env K_CONTRACT). Absent = MISSING for every rule that reads it: the checker never guesses an episode's model or characters."""
+        key = ('contract',)
+        if key not in self._memo:
+            p = self.contract_path or self.path('contract.json')
+            if not os.path.exists(p):
+                raise Missing('contract.json (episode contract)')
+            with open(p, encoding='utf-8') as f:
+                self._memo[key] = json.load(f)
+        return self._memo[key]
+
+    def cfield(self, *path, kind=None):
+        """A required contract field: contract[path[0]][path[1]]…; absent (or of the wrong type) = MISSING, naming the field."""
+        o = self.contract()
+        for k in path:
+            if not isinstance(o, dict) or k not in o or o[k] is None:
+                raise Missing('contract.json: ' + '.'.join(path))
+            o = o[k]
+        if kind is not None and not isinstance(o, kind):
+            raise Missing('contract.json: ' + '.'.join(path) + f' (must be {kind.__name__ if isinstance(kind, type) else "/".join(k.__name__ for k in kind)})')
+        return o
 
 
 # ---- media --------------------------------------------------------------------------------------

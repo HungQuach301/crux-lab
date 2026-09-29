@@ -1,6 +1,8 @@
 """Run every machine rule (genre-spec/data-explainer.md [MÁY]) on a project root and write <root>/out/checks/report.json and report.md.
 
-    python3 checks/py/run.py <root> [--only F01,A01] [--list] [--baseline <previous report.json> | --first]
+    python3 checks/py/run.py <root> [--contract <episode contract.json>] [--only F01,A01] [--list] [--baseline <previous report.json> | --first]
+
+The episode contract defaults to <root>/contract.json (checks/CONTRACT.md §Episode contract).
 
 REG (regression gate): every rule that PASSed in the checker's report of the previous version of the episode (--baseline, a
 report the checking session keeps outside the builder's tree) and is comparable (same definition) must still PASS. --first
@@ -17,7 +19,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import common  # noqa: E402
 import r_file, r_audio, r_content, r_rhythm, r_visual, r_page, r_sound  # noqa: E402,F401
 
-ORDER = ['F', 'A', 'S', 'R', 'V', 'C', 'P', 'T']
+ORDER = ['F', 'A', 'S', 'R', 'V', 'C', 'P', 'T', 'L']
 
 # Rules whose measurement K1 changed at the first crux-lab lock, by the lock of the rule set they changed from. A baseline report made under
 # that lock carries no per-rule fingerprint, so REG compares its rules by threshold text and leaves these out (their old verdicts measured
@@ -76,7 +78,7 @@ def main():
         return
     root = args[0]
     only = set(args[args.index('--only') + 1].split(',')) if '--only' in args else None
-    ctx = common.Ctx(root)
+    ctx = common.Ctx(root, contract=args[args.index('--contract') + 1] if '--contract' in args else None)
     if only:
         only.discard('')
     res = []
@@ -103,7 +105,7 @@ def main():
     counts = {s: sum(1 for r in res if r['status'] == s) for s in ('PASS', 'FAIL', 'MISSING', 'ERROR')}
     lock = open(os.path.join(os.path.dirname(__file__), '..', 'LOCK')).read().strip() if os.path.exists(os.path.join(os.path.dirname(__file__), '..', 'LOCK')) else None
     vsha = common.sha256_file(ctx.path('out/video.mp4')) if ctx.has('out/video.mp4') else None
-    out = {'root': ctx.root, 'lock': lock, 'video_sha256': vsha, 'counts': counts, 'near': near, 'results': res}
+    out = {'root': ctx.root, 'contract': ctx.contract_path or ctx.path('contract.json'), 'lock': lock, 'video_sha256': vsha, 'counts': counts, 'near': near, 'results': res}
     os.makedirs(ctx.path('out/checks'), exist_ok=True)
     name = 'report' if not only else 'report-partial'
     json.dump(out, open(ctx.path(f'out/checks/{name}.json'), 'w'), indent=1, ensure_ascii=False, default=str)

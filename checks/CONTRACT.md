@@ -1,17 +1,18 @@
 # checks/ — hợp đồng artefact (phiên dựng giao, phiên kiểm chấm)
 
-Máy kiểm chỉ đọc những file dưới đây, theo đường dẫn tương đối từ gốc repo. Thiếu file ⇒ luật dùng nó báo **MISSING** (tính là không đạt).
+Máy kiểm chỉ đọc những file dưới đây, theo đường dẫn tương đối từ gốc được chấm (gốc tập: `episodes/<tập>/`). Thiếu file ⇒ luật dùng nó báo **MISSING** (tính là không đạt).
 Báo cáo kiểm của phiên bản trước (baseline cho REG) do phiên kiểm giữ, không nằm trong cây của bên dựng.
 Máy kiểm không đọc mã dựng. Số liệu tự đo (ffprobe, giải mã khung, ASR riêng, âm thanh) luôn thắng số liệu khai báo; file khai báo chỉ được dùng để biết *đo ở đâu* và luôn được đối chiếu với file đã dựng khi có thể.
 
 | File | Nội dung bắt buộc | Luật dùng |
 |---|---|---|
+| `contract.json` | **hợp đồng tập** (mục "Hợp đồng tập" dưới đây): nhân vật, màu và hình dạng nhận diện, mô hình và claims, nguồn và đối chiếu dữ liệu, trường hợp phải hiện đủ, dải tần tiếng dữ liệu, artefact phải giao. Mặc định `<gốc>/contract.json`; `run.py --contract <file>` chỉ file khác | F11, S01, S03–S06, S16, V04, V09, T1, L1 |
 | `out/video.mp4` | bản giao cuối | F01–F08, F10, A01–A06, A09, A14, A15, R03, R04, R06, V05, V10, C13, S11, S14, T1, T3, trang (V08, V12, C14) |
 | `out/captions.srt` | phụ đề | F09 |
 | `out/package/description.md` | mô tả; chapters dạng dòng `m:ss Tiêu đề` | F10 |
 | `out/timeline.json` | `{fps, total, acts:[{id, start, end, climax?}], scenes:[{id, act, start, dur, layout, shot, panels, chart, move, composition?}], turns:[{t, what}]}` — `act` ∈ `cold-open, ident, act1, act2, act3, method, outro`; `layout` dạng `họ/biến thể`; `shot` là chuỗi cỡ cảnh hoặc `{size,…}`; `move` = số giây chuyển động máy ở đầu cảnh (chỉ dùng khi không có `out/camera.json`; luật bố cục chấm hai đầu đã dừng của cú máy, V13 giới hạn độ dài; luật chữ không miễn trừ); `panels` = các panel thuộc cảnh (`["*"]` = tất cả); `composition:"center"` khai báo trục giữa có chủ ý | S12, S14, S15, R01, R02, R05, V01, V13, C11, trang |
 | `out/script.json` | `{sentences:[{id, scene, text, spoken, start, end}]}` — `text` = đúng chữ phụ đề/màn hình (số viết bằng chữ số), `spoken` = chữ gửi TTS, `start/end` = thời điểm câu trong video. ASR của máy kiểm cắt audio theo `start/end` ± 0,6 s, nên thời điểm câu phải đúng | F09, A14, A15, S07, S09–S11, S13, R03, V10, C13, T1 |
-| `out/claims.json` | `{claims:[{claimId, value, display, formula, source:{id,url}\|null, dataYear\|dataYears, historical?, illustrative, basis:"nominal"\|"real" (mọi số $), role:"axis"?, core?, decisive?, callbacks:[{scene, meaning}], kind?:"geomean", character?:"1966"\|"mirror", shownIn, spoken}]}` | S05, S07–S09, S11, S12, R03, C13, trang |
+| `out/claims.json` | `{claims:[{claimId, value, display, formula, source:{id,url}\|null, dataYear\|dataYears, historical?, illustrative, basis:"nominal"\|"real" (mọi số $), role:"axis"?, core?, decisive?, callbacks:[{scene, meaning}], kind?, character? (một khoá của `characters` trong hợp đồng tập), shownIn, spoken}]}` | S05, S07–S09, S11, S12, S16, R03, C13, trang |
 | `out/terms.json` (tuỳ chọn) | `{terms:[…]}` — chỉ **thêm** thuật ngữ định nghĩa vào danh sách khoá | A14 |
 | `out/audio/stems/{voice,music,sfx,whoosh,room,sonify}.wav\|flac` | stem 48 kHz stereo, cùng gốc thời gian với video, ở mức mix (tổng các stem = bản mix trước master bus). `sonify` = riêng lớp âm thanh theo dữ liệu (không nằm trong `sfx`). Thiếu stem = MISSING, không có luật nào thay bằng ASR hay số khai báo | A07, A08, A10–A12, R01, R03, T1, T2, T3 |
 | `out/voice/takes.json` | `{takes:[{id, raw, final}]}` — `raw` = file TTS gốc, `final` = file sau giãn | A13 |
@@ -23,10 +24,9 @@ Máy kiểm không đọc mã dựng. Số liệu tự đo (ffprobe, giải mã 
 | `out/cues.json` | `{cues:[{t, end, function, key, tempo, layer}], silences:[…]}` | R02 |
 | `out/tension-map.json` + `.png` | `{samples:[{t, cutRate, audioDensity, musicLevel, tension}], peaks:[{t}], valleys:[{t}]}` | R01 |
 | `out/adbreaks.json` | `{breaks:[t]}` | S14 |
-| `out/model.json` | `{initial, rate, years, weights:{stocks,bonds}, tax:0, fees:0, paths:{"1966":P, "mirror":P+{reverse:["returns",("inflation")]}}, starts:{"1928":P … "1996":P}}`, P = `{withdrawals[30], endNominal[30], endReal[30] (đô la năm bắt đầu), depletedYear}` | S01 |
-| `data/sources.json` | `{files:[{path, role:"primary"\|"crosscheck", url, sha256, downloaded, terms:{quote, url}}], tolerance:{inflation_pp, stocks_pp}, mismatches:[{year, series, note}]}` | S03, S04 |
-| `data/normalized/annual.csv` | `year,stocks,bonds,inflation` (số thập phân, từ Damodaran) | S01, S04, S05 |
-| `data/normalized/fred_inflation.csv`, `stocks2.csv` (nếu có) | `year,inflation` / `year,stocks` | S04 |
+| file mô hình (`model.output` của hợp đồng tập, thường `out/model.json`) | dạng theo loại mô hình (`model.kind`, mục "Loại mô hình" dưới đây) | S01 |
+| file nguồn (`data.sources` của hợp đồng tập, thường `data/sources.json`) | `{files:[{path, role:"primary"\|"crosscheck", url, sha256, downloaded, terms:{quote, url}}], mismatches:[{key\|year, series, note}]}` | S03, S04 |
+| các chuỗi dữ liệu đã chuẩn hoá mà hợp đồng tập khai trong `data.crosscheck[]` và `model.params` | CSV có dòng tiêu đề; cột khoá và cột giá trị do hợp đồng tập chỉ ra | S01, S04, S05 |
 | `preprod/shotlist.json`, `preprod/storyboard.*`, `preprod/color-script.*` | `{shots:[{id, scene, size, move, moveReason}]}` (2.5D: không có tiêu cự giả lập, không có góc máy 3D) | V01 |
 | `design/tokens.json` | `{colors:{name:hex}, series:{key:hex}, seriesOf:{series:hex}}` — `colors.bg`, `colors.grid`, `colors.muted` bắt buộc | trang, P01 |
 | `out/package/thumb-{1,2,3}.png` + `.json` | ảnh 1280×720; `{texts:[{text, box:[x,y,w,h], fontPx}]}` | P01 |
@@ -41,7 +41,40 @@ Trang tại `out/page.json.url` phải cung cấp `window.CHECKS`:
 - `objects()` — mảng đối tượng toạ độ màn hình theo **thứ tự vẽ**:
   - chữ: `{id, kind:"text", tid, role:"label"|"badge"|"axis-label"|"title", text, box:[l,t,r,b], opacity (hiệu dụng), level:1|2|3|null, emph, series, anchor (id biểu đồ nếu là neo trục), chart, year, char, runs:[{color,size}], color, fontPx (cỡ nhỏ nhất), background, parent, claims:[{id, text, box, opacity, color, series, roll}], key, sig}`
   - hình: `{id, kind:"shape", tag, role:"series"|"axis"|"bar"|"mark"|"line"|"card"|"bg"|"axis-break", panel, chart, label, series, value, full, orient, char, shape, year, stroke, fill, opacity, box, curve, vertices, key, sig}`. `fill` = null với nét hở (đường); C04 chỉ coi nét hở là chuỗi đường. Hình `bar`, `series`, `mark` (và hình mang `char`) là phần tử dữ liệu: khi chúng hiện ra hoặc đổi hộp lúc camera đứng yên, T1 coi đó là một sự kiện cần có tiếng
-  - `ILLUSTRATIVE` là một đối tượng chữ `role:"badge"`; `char` = `"1966"`/`"mirror"` trên mọi hình của hai nhân vật; mọi ô của bản đồ hồi 3 mang `year`.
+  - `ILLUSTRATIVE` là một đối tượng chữ `role:"badge"`; `char` = khoá nhân vật của hợp đồng tập (bài D: `"1966"`/`"mirror"`) trên mọi hình của nhân vật đó; `shape` = tên hình dạng nhận diện (trùng `characters.<k>.shape`); mỗi phần tử của một trường hợp mà tập hứa hiện đủ mang `year` (năm) hoặc `case` (mã trường hợp), trùng với `coverage[]` của hợp đồng tập.
 - `layer(name, ids?)` — `"all"`; `"text"` (chỉ chữ + huy hiệu kèm nền pill, nền trong suốt); `"glyph"` (chỉ nét chữ, bỏ nền pill); `"graphics"` (mọi hình trừ `bg` và phần tô của `card`, không chữ, nền trong suốt); `"only"` (chỉ các `ids`); `"notext"`.
 
 Bài C được chạy qua `checks/adapters/c/` (dịch artefact của C sang hợp đồng này; không bịa thứ C không có).
+
+## Hợp đồng tập (`contract.json`, K2)
+
+Mỗi tập có một hợp đồng ở `episodes/<tập>/contract.json`. Bên dựng viết; phiên kiểm đọc. Các luật dưới đây **không còn gắn cứng** mô hình hay nhân vật của bài D: chúng đọc mọi thứ riêng của tập từ file này.
+
+**Thiếu trường thì luật dùng trường đó báo MISSING** (tính là không đạt), và ghi rõ tên trường (`contract.json: model.params.loan`). Máy kiểm không đoán, không lấy mặc định của bài D. Không có `contract.json` thì mọi luật dưới đây là MISSING.
+
+| Trường | Bắt buộc | Dạng | Luật |
+|---|---|---|---|
+| `episode` | có | mã tập | — |
+| `characters` | có (luật V04, V09, S05, S16) | `{<khoá>: {color, shape, side?, illustrative?, words?}}`. `color` = tên token của `design/tokens.json` (`colors`, `series`, `seriesOf`) hoặc `#hex`. `shape` = tên hình dạng trên trang (trường `shape` của đối tượng). `side` ∈ `left`, `centre`, `right`: bên của nhân vật khi hai nhân vật cùng hiện. `illustrative:true` = mọi claim của nhân vật này phải gắn ILLUSTRATIVE. `words` = cách kịch bản gọi tên nhân vật (bắt buộc cho S16). Mục không phải object (ví dụ `note`) bị bỏ qua | V04 (color, shape, side), V09 (color), S05 (illustrative), S16 (words) |
+| `scenarios` | không (S16 đọc nếu có) | `{<khoá>: {what, words:[…]}}`: kịch bản người xem có thể ở trong (ví dụ "giữ nhà 36 tháng"); `words` bắt buộc khi có mục | S16 |
+| `claims.core`, `claims.decisive`, `claims.illustrative` | có (S05: `illustrative`; S16: `decisive`) | mảng `claimId` | S05, S16 |
+| `model.kind` | có | tên loại mô hình mà máy kiểm có bản tính lại độc lập (bảng "Loại mô hình") | S01, S05 |
+| `model.output` | có | đường dẫn file mô hình của bên dựng | S01 |
+| `model.params` | có | tham số của loại mô hình (bảng dưới). Thiếu một tham số bắt buộc = MISSING | S01, S05 |
+| `model.claims` | có | `{claimId: khoá}` hoặc `[{where:{trường: giá trị}, key}]`: claim nào là một đại lượng của mô hình, để máy tính lại và so | S05 |
+| `data.sources` | có | đường dẫn file nguồn (`data/sources.json`) | S03, S04 |
+| `data.hosts.primary`, `data.hosts.crosscheck` | có | mảng tên miền: file nguồn chính và file đối chiếu phải lấy từ các miền này | S03 |
+| `data.crosscheck[]` | có | `{series, primary:{file, key, column, scale?}, crosscheck:{file, key, column, scale?}, tolerance (điểm %, ≤ 0,5), used}`. `scale` nhân vào giá trị (100 = đổi tỉ lệ thập phân sang điểm %). `used` = `{from, to}` (năm, gồm hai đầu) hoặc `"crosscheck"` (mọi khoá của chuỗi đối chiếu nằm trong khoảng của chuỗi chính) | S04 |
+| `coverage[]` | có | `{attribute:"year"\|"case", act, values:[…] \| range:[a, b]}`: mọi trường hợp tập hứa hiện đủ trong hồi đó | S06 |
+| `sonification.stem` | có | `"sonify"` | T1, L1 |
+| `sonification.bandsHz` | có | `[[lo, hi], …]` Hz: dải tần tiếng dữ liệu được đặt, lấy từ cue sheet của tập. Phải chứa ≥ 50% năng lượng của stem `sonify` (T1 đo lại) | T1 |
+| `artefacts` | có (`M3`) | `{<mốc>: [đường dẫn hoặc glob]}`: artefact bên dựng phải giao ở từng mốc (M1, M2, M3). Mốc phát hành `M3` phải gồm mọi file phát hành ở bảng đầu trang này | F11 |
+
+### Loại mô hình (`model.kind`)
+
+Mỗi loại có một bản tính lại độc lập trong `checks/py/r_model.py`, viết từ đầu bài, không đọc code dựng. Loại chưa có bản tính lại thì S01 và S05 báo MISSING, và phiên kiểm viết thêm.
+
+| `kind` | `params` bắt buộc | Tính lại (S01) | Khoá cho `model.claims` (S05) |
+|---|---|---|---|
+| `retirement-6040` (bài D) | `annual` (CSV `year,stocks,bonds,inflation`), `rate`, `years`, `weights:{stocks,bonds}`, `startRange:[a,b]`, `paths:{<tên>: {from, reverse?}}`; tuỳ chọn `sameGeomean:[a,b]`, `conventions:{<trường chữ của file mô hình>: giá trị}` (phải trùng nguyên văn) | mọi đường trong `paths` và mọi năm bắt đầu: tiền rút, số dư danh nghĩa và thực, năm cạn | `geomean:<tên đường>` (%, sai số 0,005) |
+| `refinance-breakeven` (Tập 1, M1b: hoà vốn tính cả dư nợ) | `scenario:{oldRate, paymentsMade, todayRate, termMonths, netHorizons?:[tháng], byCutOf?:<nhân vật>}`, `characters:{<tên>: {loan, cost}}`, `history:{series:{file, dateColumn, rateColumn}, swingPoints, spreads:[…], loan, termMonths, costShares:{file, filter:{cột: giá trị}, yearColumn, shareColumn}}`; tuỳ chọn `notModel:[khoá]` | nhân vật: dư nợ sau `paymentsMade` kỳ, tiền tiết kiệm, hoà vốn đơn giản `ceil(C/tiết kiệm)`, hoà vốn chính (tháng đầu mà tiết kiệm × m + (dư nợ cũ − dư nợ mới) ≥ C), `net<h>`, `cut<h>` (mức cắt nhỏ nhất để hoà vốn chính ≤ h tháng); `<byCutOf>ByCut`, `gapAtSimpleBreakEven` (dư nợ mới − dư nợ cũ ở tháng hoà vốn đơn giản); lịch sử: trung bình tháng (không làm tròn khi so, báo 2 chữ số), zig-zag ≥ `swingPoints` (hoà thì lấy tháng sau; đợt giảm còn đang chạy ở cuối dữ liệu cũng tính), tái cấp vốn ở tháng đầu ≤ đỉnh − spread tới đáy, khoản cũ `loan` từ tháng đỉnh, chi phí = tỉ lệ HMDA của năm (trước năm HMDA đầu: trung vị các năm, ILLUSTRATIVE) × dư nợ, "đợt giảm tiếp" = tháng đầu trong (tái cấp, tái cấp + hoà vốn] **thấp hơn hẳn** lãi mới − spread, `censored` khi dữ liệu hết trước tháng hoà vốn. Phần nào không tính lại thì bị liệt kê và S01 trượt | `<nhân vật>.<trường>` (ví dụ `maya.withBalance`, `maya.cut36`, `maya.net84`) |

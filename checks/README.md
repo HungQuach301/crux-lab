@@ -1,4 +1,4 @@
-# checks/ — máy kiểm của crux-lab (Phiên K1, khoá SHA)
+# checks/ — máy kiểm của crux-lab (Phiên K1, K2; khoá SHA)
 
 Bộ luật này chấm mọi yêu cầu `[MÁY]` của [`genre-spec/data-explainer.md`](../genre-spec/data-explainer.md). Các yêu cầu `[NGƯỜI]` nằm trong [`RUBRIC.md`](RUBRIC.md) (H1–H8). Danh sách artefact bên dựng phải giao nằm trong [`CONTRACT.md`](CONTRACT.md).
 
@@ -6,13 +6,13 @@ Khoá: `checks/LOCK` là SHA-256 của toàn thư mục (cách tính ở cuối 
 - Bên dựng không sửa thư mục này (CHARTER §7.1, §8).
 - Cho rằng một luật sai thì ghi khiếu nại. Luật chỉ đổi qua vai kiểm, và cần chủ dự án duyệt.
 
-Gốc: `checks/` của bài D (`crux-spike-opus55`, nhánh `spike/opus55-cine`, LOCK `0478df73…`), đã sửa theo audit `audit/d-final` (`audit/REPORT.md` @ `afad899`). Các thay đổi ghi ở mục "Thay đổi so với bài D".
+Gốc: `checks/` của bài D (`crux-spike-opus55`, nhánh `spike/opus55-cine`, LOCK `0478df73…`), đã sửa theo audit `audit/d-final` (`audit/REPORT.md` @ `afad899`). Các thay đổi ghi ở mục "Thay đổi so với bài D". Thay đổi của K2 (luật đọc từ hợp đồng tập; T1 định nghĩa lại; L1, S16, F11 mới) ghi ở mục "Thay đổi ở khoá K2".
 
 ## Chạy
 
 ```
 pip install numpy scipy soundfile av faster-whisper      # ffmpeg, ffprobe trên PATH; Node ≥ 18 và playwright (Chromium)
-checks/run.sh [root] [--baseline <báo cáo kiểm của phiên bản trước>.json | --first]
+checks/run.sh [root] [--contract <contract.json>] [--baseline <báo cáo kiểm của phiên bản trước>.json | --first]   # gốc tập: episodes/<tập>
 checks/selftest/run.sh [thư-mục-kết-quả]                 # test tự chứng minh
 ```
 
@@ -20,7 +20,9 @@ checks/selftest/run.sh [thư-mục-kết-quả]                 # test tự ch�
 1. `node checks/page/sampler.js <root>`: bộ lấy mẫu trang dựng.
 2. `python3 checks/py/run.py <root>`: mọi luật.
 
-Kết quả ghi vào `<root>/out/checks/report.json` và `report.md`. Báo cáo ghi LOCK và SHA-256 của master được chấm.
+Kết quả ghi vào `<root>/out/checks/report.json` và `report.md`. Báo cáo ghi LOCK, SHA-256 của master được chấm và đường dẫn hợp đồng tập đã đọc.
+
+**Hợp đồng tập.** Mặc định là `<root>/contract.json` (gốc tập `episodes/<tập>/`); `--contract` chỉ file khác. Luật đọc từ đó nhân vật, màu và hình dạng nhận diện, mô hình và claims, nguồn và đối chiếu dữ liệu, các trường hợp phải hiện đủ, dải tần tiếng dữ liệu, artefact phải giao (schema: `CONTRACT.md`, mục "Hợp đồng tập"). Thiếu trường thì luật báo MISSING và nêu tên trường.
 
 Trạng thái của một luật:
 - **PASS**: đạt.
@@ -77,42 +79,114 @@ Quyết định của K1 về DX-S11: A14 đã sửa, nên cách né ở lời �
 
 Giữ nguyên, K1 chưa quyết:
 - R06 ("cắt thấy được trong hình"): DX-V10 ghi rằng luật này có thể không hợp với biểu đồ nối tiếp. Đổi luật cần chủ dự án duyệt.
-- Các luật gắn với mô hình và nhân vật của bài D (S01, S05, S06, V04, V09: `1966`/`mirror`, 60/40, 4%): tập mới cần hợp đồng riêng cho mô hình của nó.
+- ~~Các luật gắn với mô hình và nhân vật của bài D~~: K2 đã chuyển sang hợp đồng tập (mục "Thay đổi ở khoá K2").
 
-## Ngưỡng tạm (chủ dự án duyệt 2026-09-28)
+## Thay đổi ở khoá K2 (2026-09-28, chờ chủ dự án duyệt)
+
+| Mã | Thay đổi | Lý do |
+|---|---|---|
+| S01 | Tính lại mô hình theo `model.kind` của hợp đồng tập. Hai loại có bản tính lại độc lập (`py/r_model.py`): `retirement-6040` (bài D, giữ nguyên phép tính K1) và `refinance-breakeven` (Tập 1, mô hình M1b: hoà vốn tính cả dư nợ, ba nhân vật, **mô phỏng lịch sử** 13 đợt giảm lãi do phiên kiểm tự viết từ câu mô tả trong hợp đồng). Phần nào của file mô hình không được tính lại thì bị liệt kê, và luật trượt. Trên `out/model.json` của Tập 1 (`ep001` @ `bbc28fb`): 619 giá trị, 0 lệch, không còn phần nào chưa tính lại. | chỉ dẫn K2 §1, §3 (vòng 2); `episodes/ep001/checks-notes.md` §2 |
+| S03 | Tên miền nguồn chính và nguồn đối chiếu đọc từ `data.hosts`, file nguồn từ `data.sources`. | như trên |
+| S04 | Các cặp chuỗi đối chiếu (file, cột, khoá, hệ số, dung sai, khoảng dùng) đọc từ `data.crosscheck[]`. | như trên |
+| S05 | Claim nào là đại lượng mô hình đọc từ `model.claims`; bất biến của luận điểm (bài D: hai đường cùng trung bình nhân) từ `model.params`; claim phải gắn ILLUSTRATIVE đọc từ `claims.illustrative` và từ nhân vật `illustrative:true`. | như trên |
+| S06 | Trường hợp phải hiện đủ đọc từ `coverage[]` (`year` hoặc `case`, hồi, danh sách hay khoảng). Bộ lấy mẫu ghi thêm `casesTrack` (thuộc tính `case` của đối tượng trang). | như trên |
+| V04 | Nhân vật, màu (token hoặc hex), hình dạng và bên đọc từ `characters`. Màu và hình chính trên màn hình phải **đúng cái hợp đồng khai**, không chỉ "khác nhau". Mọi cặp nhân vật giữ một bên suốt phim, đúng bên khai báo. Bộ lấy mẫu ghi mọi cặp `char`, không còn gắn `1966`/`mirror`. | như trên |
+| V09 | Mô phỏng mù màu cho **mọi cặp** nhân vật của hợp đồng. | như trên |
+| T1 | **Định nghĩa lại**: nghe thấy ở khe nghỉ của lời (giữa âm tiết, giữa từ, giữa câu) và ở chỗ không có lời; dải tần lấy từ `sonification.bandsHz` của tập (theo cue sheet); không đòi nổi lên trong lúc lời đang đọc. Mỗi mẫu của một lần vẽ đường là một sự kiện, nên lần vẽ được đo mỗi 0,5 s. Kiểm thật thêm: dải khai báo phải chứa ≥ 50% năng lượng của stem `sonify`. | sổ gu G-006; `episodes/ep001/checks-notes.md` §1 |
+| L1 | **Mới**: tiếng dữ liệu không lấn lời (năng lượng lời so với tiếng dữ liệu ở 1–4 kHz khi có lời; ASR không mất từ khoá vì tiếng dữ liệu). | sổ gu G-006 |
+| S16 | **Mới, tạm**: câu nói con số quyết định phải gắn với một nhân vật hoặc kịch bản của hợp đồng tập. Tên có thể nằm ở bất kỳ câu nào trước đó **trong cùng cảnh** (không bắt lặp tên ở mỗi câu). | sổ gu G-008; G-009 |
+| S13 | **Định nghĩa lại** (G-009). Luật cũ (CV độ dài mọi câu ≥ 0,35) **thưởng câu vụn**: chèn câu 1–3 chữ làm CV tăng (chuỗi "Maya borrowed in 2023. Rates peaked. She paid 35 times. Rates fell. The bill: $5,124." có CV 1,14, đạt dễ). Nay: CV chỉ tính trên câu ≥ 4 chữ (xen kẽ dài ngắn thật), và **cấm chuỗi ≥ 3 câu liền nhau ≤ 6 chữ**. Một câu ngắn để nhấn vẫn được. Câu dẫn chuyện không có số không bao giờ bị phạt. | sổ gu G-009 |
+| F11 | **Mới**: artefact mốc phát hành (`artefacts.M3`) đã khai đều được giao, và danh sách khai gồm mọi file phát hành của `CONTRACT.md`. | chỉ dẫn K2 §1 (artefact phải giao); CHARTER §7.3 |
+
+Hợp đồng của bài D do phiên kiểm ghi lại từ các hằng số K1 đã gắn cứng: `checks-runs/D-r3-6531f6c8/contract.json` (nằm ngoài `checks/`).
+
+**Rà luật về lời theo G-009** ("kịch bản phải là một câu chuyện … liền mạch, có chuyển ý, không cụt lủn"):
+
+| Luật | Ép câu vụn / cấm câu dẫn chuyện không số? | Quyết định |
+|---|---|---|
+| S13 (DX-S8) | **Có**: CV trên mọi câu, câu vụn làm CV tăng | **Sửa** (trên) |
+| S16 | Bắt câu có số quyết định (hoặc câu ngay trước) gọi tên nhân vật: ép lặp tên, cắt ngang mạch kể | **Sửa**: xét cả cảnh tới câu đó |
+| S12 (DX-S7, ≤ 1 số mới / 8 s, ≤ 2 số mới / cảnh) | Không: chỉ giới hạn số, không đòi số; càng nhiều câu dẫn chuyện không số càng dễ đạt | Giữ |
+| A15 (150–160 wpm mỗi hồi, không câu > 175 wpm) | Không: câu vụn đọc TTS thường vượt 175 wpm, nên luật này còn chống câu vụn | Giữ |
+| R03 (≥ 1,0 s thở sau số quyết định) | Đẩy số quyết định về cuối câu, không ép tách câu; một khoảng thở ở ranh giới mệnh đề cũng đạt | Giữ |
+| S09 (câu có số $ hoặc câu ngay trước nói thực/danh nghĩa) | Có thể ép lặp "nominal" trong mạch kể; nhưng đây là luật nội dung (DX-H3), nới cần chủ dự án quyết | Giữ, **ghi để chủ dự án cân nhắc** |
+| S10, S11, S07, A14, C13, F09 | Không liên quan độ dài câu hay câu không số | Giữ |
+
+Trên kịch bản M1b của Tập 1 (`out/script-draft.json` @ `bbc28fb`): S13 mới **trượt** (cold open "Maya locked in 7.62%. / This week's average: 7.03%. / Refinancing costs $5,124. / So when does that money come back?" là một chuỗi câu vụn), luật cũ cho đạt (CV 0,40). Bài D r3: S13 mới trượt ("Same money in. / Same money out. / Same average.").
+
+Còn gắn với bài D, ngoài phạm vi K2 (ghi để khoá sau xử lý): A14 (danh sách thuật ngữ khoá `DEFINED_TERMS` là từ vựng hưu trí; tập mới chỉ **thêm** được qua `out/terms.json`), S02 (cụm "no taxes" / "no fees" là giả định của mô hình bài D).
+
+## Ngưỡng tạm (chủ dự án duyệt 2026-09-28; K2 bổ sung, chờ duyệt)
 
 Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện sau. Các ngưỡng dưới đây là **NGƯỠNG TẠM**. Chúng được hiệu chỉnh sau Tập 1 bằng điểm chấm tay của chủ dự án (phiếu `RUBRIC.md`, H5 cho V12/V13, H7 cho T2, H8 cho T1/T3).
 
 | Luật | Ngưỡng tạm |
 |---|---|
-| T1 | độ nổi ≥ 3 dB; ≥ 1 dB trong cửa sổ số được đọc |
+| T1 *(K2)* | ở khe nghỉ của lời: độ nổi ≥ 3 dB (khung 20 ms); ≥ 60% số lượt nghe được; dải khai báo ≥ 50% năng lượng stem `sonify` |
+| L1 *(K2)* | lời/tiếng dữ liệu ở 1–4 kHz, phân vị 10 của các cửa sổ có tiếng dữ liệu, ≥ 20 dB; 0 từ khoá bị mất |
+| S16 *(K2)* | ≥ 75% câu có số quyết định gắn nhân vật hoặc kịch bản (tên trong cùng cảnh, tới câu đó) |
+| S13 *(K2)* | CV độ dài câu (câu ≥ 4 chữ) ≥ 0,35; 0 chuỗi ≥ 3 câu liền ≤ 6 chữ |
 | T2 | câu nhạc lặp ≤ 5% |
 | T3 | chuyển tiếp vào khoảng lặng 150–400 ms; sàn master ≥ −80 dBFS, room ≥ −75 dBFS |
 | V12 | NCC ≥ 0,97 |
 | V13 | mỗi cú máy ≤ 3 s; tổng thời gian máy chuyển ≤ 15% |
 
+### Điểm hiệu chỉnh của T1 và L1 (K2)
+
+Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
+
+| Mẫu | Phán đoán của chủ dự án | Phải | T1 (lượt nghe được ≥ 0,60) | L1 (phân vị 10, 1–4 kHz, ≥ 20 dB) |
+|---|---|---|---|---|
+| **Bài D vòng 3** (master `6531f6c8…`, stem M3) | "chưa có tiếng dữ liệu" (H7 = 3,5) | T1 trượt | **TRƯỢT**: 39/355 = 0,11 (dải 1,5–8 kHz của hợp đồng D). Mở dải ra 40 Hz–16 kHz (lợi nhất cho D): 0,16, vẫn trượt. Không có stem `sonify` | MISSING (không có stem `sonify`) |
+| **m0 gốc** (tiếng dữ liệu 0 dB, trước +10 dB) | "vẫn bị lấn" | L1 trượt | đạt, 10/13 = 0,77 | **TRƯỢT**: −7,9 dB |
+| **S2** (chủ dự án chọn), dải theo cue sheet M1b: 60–270 Hz + 4,5–7 kHz | "nghe thấy", "không lấn lời" | T1, L1 đạt | **ĐẠT**: 10/13 = 0,77 | **ĐẠT**: 26,9 dB, 0 từ mất |
+| S1 (tham khảo), 125–500 Hz | — | — | đạt, 0,77 | đạt, 22,6 dB |
+| S3 (tham khảo), 125–1000 Hz | — | — | đạt, 0,85 | trượt, 16,1 dB |
+| m0 +10 dB (tham khảo) | "vẫn bị lấn" | — | đạt, 0,92 | trượt, −17,9 dB |
+
+- Ngưỡng T1 hạ từ 0,75 (lượt trước) xuống **0,60**: với dải đúng cue sheet, S2 chỉ còn 0,77, sát 0,75; D ở 0,11. 0,60 để S2 có biên 0,17 và D cách xa 0,49.
+- Ngưỡng L1 giữ **20 dB**: m0 gốc −7,9 dB và m0 +10 dB −17,9 dB đều trượt xa; S2 đạt với biên 6,9 dB. Không cần nâng.
+- m0 gốc = stem `sonify` của `m0-sample` hạ 10 dB (bản +10 dB là bản đã commit; README của mẫu ghi `SONIFY_GAIN_DB=10`), master = tổng stem.
+- Cách tách lớp tiếng dữ liệu cho S1–S3 (bộ duyệt chỉ có mp4): mix / g − Σ(stem khác của m0), g bình phương nhỏ nhất (1,134). Kiểm trên m0 có stem thật: T1 giống hệt, L1 lệch 2,7 dB; nhiễu AAC làm L1 của S1–S3 là cận dưới.
+- Số đo và kịch bản: `checks-runs/K2-calibration/`; bài D: `checks-runs/D-r3-6531f6c8/K2/`.
+
 **Mọi thay đổi ngưỡng về sau cần chủ dự án duyệt, và phải khoá lại** (LOCK mới, CHARTER §7.1). Bên dựng không đổi ngưỡng. Phiên kiểm cũng không tự đổi ngưỡng khi chưa được duyệt.
 
 ## Luật mới: định nghĩa và cách đo
 
-**T1 — âm thanh theo dữ liệu nghe thấy được** (DX-A1, sổ gu G-001)
+**T1 — âm thanh theo dữ liệu nghe thấy được** (DX-A1, sổ gu G-001, G-006; K2 định nghĩa lại)
 
 1. **Sự kiện.** Hợp của hai nguồn:
-   - sự kiện khai báo trong `out/sonify-events.json`: `f0` của mỗi cột, `f` của mỗi điểm, lúc bắt đầu mỗi lần vẽ đường;
+   - sự kiện khai báo trong `out/sonify-events.json`: `f0` của mỗi cột, `f` của mỗi điểm, **mọi mẫu** của mỗi lần vẽ đường (nên một lần vẽ là một cụm);
    - sự kiện biểu đồ bộ lấy mẫu tự đo: camera giữ đứng, trang tiến 0,1 s, và một hình `bar`/`series`/`mark` (hoặc hình mang `char`) hiện ra hay đổi hộp ≥ 1 px.
-   
-   Các sự kiện cách nhau ≤ 0,15 s gộp thành một cụm. Mỗi cụm được đo ở lúc bắt đầu, và mỗi 0,5 s sau đó cho tới hết cụm.
-2. **Độ nổi.** Đo trong cửa sổ `[t, t + 0,15 s]`, ở dải 1,5–8 kHz (Butterworth bậc 4):
-   - độ nổi = 10·log10((P_son + P_rest) / P_rest);
-   - P_son là công suất trong dải của stem `sonify`;
-   - P_rest là công suất trong dải của tổng các stem còn lại (voice, music, whoosh, room, sfx).
-   
-   Độ nổi đo mức một tiếng làm dải đó to lên so với nền đang có.
-3. **Ngưỡng.**
-   - Độ nổi ≥ 3 dB, tức tiếng theo dữ liệu có công suất trong dải ít nhất bằng tất cả phần còn lại cộng lại.
-   - Mức dải của chính tiếng đó ≥ −60 dBFS.
-   - Trong cửa sổ số được đọc `[onset − 0,5 s, end + 1,6 s]` (ASR riêng), DX-A6 cho hạ sfx, nên ngưỡng là ≥ 1 dB. Đây là tiêu chí thay thế, không phải miễn trừ.
-4. **Kiểm thật.** Tổng các stem phải khớp master trong dải (tương quan ≥ 0,90). Phải giao stem `sonify` riêng: nếu tiếng dữ liệu trộn vào `sfx` thì các hiệu ứng khác cũng bị tính là tiếng dữ liệu. Khi đó luật vẫn đo trên `sfx` và báo số, nhưng không thể đạt.
+
+   Các sự kiện cách nhau ≤ 0,15 s gộp thành một cụm. Mỗi cụm cho một **lượt** ở lúc bắt đầu và mỗi 0,5 s sau đó tới hết cụm.
+2. **Dải tần** = `sonification.bandsHz` của hợp đồng tập, lấy từ cue sheet (tiếng dữ liệu đặt ở đâu thì đo ở đó). Không có thì MISSING.
+3. **Khe nghỉ của lời.** Khung 20 ms (bước 5 ms) mà stem giọng < −45 dBFS, hoặc thấp hơn đỉnh của chính nó trong ±0,3 s ít nhất 15 dB: khe giữa âm tiết, giữa từ, giữa câu, và mọi chỗ không có lời.
+4. **Nghe thấy.** Một lượt ở `t` nghe thấy khi, ở một khung khe nghỉ trong `[t − 0,10, t + 0,50 s]`:
+   - độ nổi = 10·log10((P_son + P_rest) / P_rest) ≥ 3 dB (P_son: công suất trong dải của stem `sonify`; P_rest: của tổng các stem còn lại);
+   - mức dải của tiếng dữ liệu ≥ −60 dBFS.
+
+   Trong lúc lời đang đọc, T1 **không đòi gì** (L1 chấm chỗ đó).
+5. **Ngưỡng (tạm).** ≥ 60% số lượt nghe thấy.
+6. **Kiểm thật.** Dải khai báo chứa ≥ 50% năng lượng của stem `sonify` (không khai dải rỗng để né). Tổng các stem khớp master trong dải (tương quan ≥ 0,90). Phải có stem `sonify` riêng; tiếng dữ liệu trộn vào `sfx` thì luật đo trên `sfx`, báo số, nhưng không thể đạt.
+
+**L1 — không lấn lời** (DX-A1, DX-A9, sổ gu G-006; K2, mới)
+
+1. **Năng lượng.** Cửa sổ 100 ms có lời (stem giọng > −45 dBFS, như A07). Ở dải 1–4 kHz (phụ âm và formant trên, nơi bị che thì mất độ rõ): tỉ số = 10·log10(P_giọng / P_sonify), chỉ tính các cửa sổ có tiếng dữ liệu trong dải (≥ −80 dBFS). Lấy phân vị 10. Ngưỡng tạm: ≥ 20 dB. Không cửa sổ nào có tiếng dữ liệu khi có lời thì đạt.
+2. **Từ khoá.** ASR riêng (như `asr_master`: cắt theo câu, small.en, hai lượt) trên hai bản trộn stem: mọi stem, và mọi stem trừ `sonify`. Từ khoá như A14 (số, tên riêng, thuật ngữ). Một từ nghe được khi không có tiếng dữ liệu mà mất khi có là **bị mất**. Ngưỡng: 0.
+3. Cần stem `sonify` (thiếu thì MISSING: phải tách được mới chấm được).
+
+**S16 — số quyết định gắn với hoàn cảnh người xem** (DX-S3, RUBRIC H4, sổ gu G-008; K2, mới, tạm)
+
+- Số quyết định = `display` của claim `decisive=true` trong `out/claims.json` hoặc có tên trong `claims.decisive` của hợp đồng tập.
+- Câu quyết định = câu của `out/script.json` nói một số đó (so theo giá trị).
+- Câu đó **gắn** khi nó, hoặc câu ngay trước trong cùng cảnh, gọi tên một nhân vật hay kịch bản của hợp đồng tập (`characters.<k>.words`, `scenarios.<k>.words`; khớp nguyên từ, không phân biệt hoa thường, từ đơn khớp cả số nhiều).
+- Ngưỡng tạm: ≥ 1 câu quyết định; ≥ 75% câu quyết định được gắn. Chưa có tập nào được chủ dự án chấm H4 theo tiêu chí mới để hiệu chỉnh.
+
+**F11 — artefact phải giao** (K2, mới)
+
+- `artefacts.M3` của hợp đồng tập (đường dẫn hoặc glob): mỗi mục khớp ≥ 1 file; danh sách phải gồm mọi file phát hành của `CONTRACT.md` (`RELEASE_FILES` trong `py/r_file.py`).
 
 **T2 — nhạc không lặp** (DX-A2, sổ gu G-002)
 
@@ -138,6 +212,7 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
 - Luật **so được** khi có mặt trong cả hai báo cáo và định nghĩa không đổi:
   - cùng `fingerprint`;
   - hoặc, với báo cáo cũ chưa có fingerprint: cùng câu ngưỡng, và không nằm trong danh sách luật K1 đã đổi cách đo (`CHANGED_SINCE` trong `py/run.py`).
+  - K2 đổi định nghĩa của S01, S03–S06, S13, V04, V09, T1 (câu đo đổi, nên fingerprint đổi): REG không so các luật này với báo cáo khoá trước. F11, S16, L1 mới, không có gì để so.
 - Một luật so được, PASS ở phiên bản trước mà nay không PASS, là **hồi quy** và chặn phát hành.
 - Báo cáo liệt kê các luật không so được và các luật đã cải thiện.
 
@@ -159,10 +234,12 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
     - chữ đang đi qua mép khung và qua đường (V03, V11 phải đạt);
     - V12 nhãn nhân đôi và nhãn nhoè (phải trượt);
     - T1: bộ lấy mẫu phải thấy điểm hiện ra và cột mọc, và không được sinh sự kiện từ phần tĩnh.
+    - K2: V04 trượt khi màu trên màn hình khác màu hợp đồng tập khai (`V04-not-declared-colour`); mọi fixture có `contract.json`.
+- **K2** (Python): S01 thêm ca `S01/refinance` (mô hình Tập 1, một tháng hoà vốn lệch 1 phải trượt); S03–S06, V04, V09 đọc hợp đồng của fixture; T1 mới (tiếng dữ liệu trong khe âm tiết: nổi thì đạt, thấp 30 dB thì trượt); L1 (tiếng 2 kHz ngang lời và làm mất con số thì trượt; nhịp 300 Hz thấp thì đạt); S16 (hai câu số quyết định gọi tên nhân vật hoặc kịch bản thì đạt, không gọi thì trượt); F11 (thiếu một file đã khai thì trượt).
 
 ## Bảng luật
 
-75 luật. **(mới)** = thêm ở khoá này; *(sửa)* = đổi cách đo so với bài D. Bỏ: V06, V07.
+78 luật. **(mới)** = thêm ở khoá K1; *(sửa)* = K1 đổi cách đo so với bài D; **(K2 mới)**, *(K2 sửa)* = khoá K2. Bỏ: V06, V07. Cột định nghĩa và ngưỡng sinh từ `python3 checks/py/run.py x --list`.
 
 | Mã | Spec | Định nghĩa đo | Ngưỡng | Máy |
 |---|---|---|---|---|
@@ -176,6 +253,7 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
 | F08 | DX-V5 | decoded luma of 1 frame/2 s; banding score per frame (banding_score: 240 px tiles, mean Y ≤ 80, 16-px block means fitting a plane that spans 2–40 codes with residual ≤ 1 code; share of their pixels in flat runs ≥ 12 px ending in a 1–2 code step) | worst frame ≤ 5% (frames with < 1% dark-gradient area are skipped) | Python |
 | F09 | DX-F5 | out/captions.srt parsed; joined subtitle text vs joined narration text of out/script.json (whitespace-normalised, exact characters otherwise); per cue: characters per line, lines, duration; cues must not overlap | text identical (100%); every line ≤ 42 chars; ≤ 2 lines; 1.0 ≤ duration ≤ 7.0 s; 0 overlaps | Python |
 | F10 | DX-F6 | chapters from out/package/description.md (lines "m:ss Title") and, if present, the MP4 chapter atoms; chapter length = next start − start (last: to end of video) | ≥ 3 chapters; first at 0:00; each ≥ 10 s; MP4 chapters (if any) equal the description's | Python |
+| F11 **(K2 mới)** | CH §4 khâu 3 (hợp đồng tập, K2) | episode contract (contract.json) artefacts.M3: the release list of paths (globs allowed); each must match ≥ 1 file under the root. The list must include every release file of checks/CONTRACT.md (RELEASE_FILES; a stem may be .wav or .flac). Contract without artefacts.M3 = MISSING | every declared M3 artefact delivered; every checks/CONTRACT.md release file declared | Python |
 | A01 | DX-A10 | integrated loudness of the video's audio track, ITU-R BS.1770-4 (ffmpeg ebur128) | −14 LUFS ± 1 (−15 … −13) | Python |
 | A02 | DX-A10 | true peak, 4× oversampled (ffmpeg ebur128 peak=true), max over both channels | ≤ −1.0 dBTP | Python |
 | A03 | DX-A10 | loudness range (EBU Tech 3342, ffmpeg ebur128) | 6 … 10 LU | Python |
@@ -191,21 +269,22 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
 | A13 | DX-A7 | out/voice/takes.json: for each take, the raw TTS file and the final (stretched) file; stretch = active speech span of final / of raw (span between first and last 20 ms window above −45 dBFS) | every \|stretch − 1\| ≤ 0.10 | Python |
 | A14 *(sửa)* | DX-A7 | own ASR (faster-whisper small.en, int8, word timestamps) of the video's mixed audio, recognised sentence by sentence (asr_master). Key words per script sentence (out/script.json): every number, every proper name, every defined term (locked list DEFINED_TERMS + out/terms.json). A key word is heard if the ASR has it (numbers compared as values; names/terms by stem(), the same normal form on both sides: possessive, then one inflection, then a final e; "S&P" as S&P or "S and P", ASR tokens "S" "&P" joined; a joined token also counts by its parts, so "Standard&Poor’s" has standard and poor) among words starting within the sentence window [start − 1.5 s, end + 1.5 s] | 0 key words missing (no percentage threshold) | Python |
 | A15 *(sửa)* | DX-A7 | own ASR words inside each sentence window; sentence rate = words of `spoken` / (last ASR word end − first ASR word start) × 60; act rate = Σ words / Σ sentence spans of the act (sentences of < 4 words are left out of the per-sentence cap) | every act 150 … 160 wpm; no sentence > 175 wpm | Python |
-| S01 | DX-H1 | independent re-computation of every path in out/model.json from data/normalized/annual.csv with the brief's model (60/40 S&P 500 TR / 10-y Treasury, yearly rebalance, start-of-year withdrawal, year 1 = 4% of initial, then × (1 + previous year's inflation), 30 years, no tax, no fee); compared value by value (withdrawals, end-of-year nominal and real balances, depletion year) | model parameters exactly 0.60/0.40, 4%, 30 years; every value within max($0.50, 1e-6 relative); 0 mismatches | Python |
+| S01 *(K2 sửa)* | DX-H1 | independent re-computation of the episode model (K2: read from the episode contract, contract.json `model`): `kind` names the checker's own re-implementation (checks/py/r_model.py: "retirement-6040" = test D's 60/40 withdrawal model, "refinance-breakeven" = Episode 1: payment = P·r/(1 − (1 + r)^−n), r = annual %/1200, savings = payment(old) − payment(old − spread), break-even = ceil(cost / savings), spread for a target = smallest cut with savings ≥ cost / months); `params` its inputs; `output` the builder's model file, compared value by value. A part of the model output the kind does not re-compute is listed (not silently trusted). Contract without model.kind / output / params, or a kind without a re-implementation = MISSING | every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared | Python |
 | S02 | DX-H1 | visible on-screen text (page sampler text track, every 0.1 s): phrases for "no taxes" and "no fees" (regex NO_TAX / NO_FEE), looked for in the methodology card scenes (act "method") and in the rest of the video | both phrases visible in the methodology card AND both visible outside it | trang + Python |
-| S03 | DX-H4 | data/sources.json: per raw file path, url, sha256, downloaded (ISO date), terms {quote, url}; SHA-256 recomputed from the committed file; hosts of primary (Damodaran) and cross-check (FRED) sources | every file present with matching SHA-256, valid date, http(s) URL, terms quote ≥ 20 chars and terms URL; a primary file on pages.stern.nyu.edu; a cross-check file on fred.stlouisfed.org | Python |
-| S04 | DX-H5 | data/normalized/annual.csv (primary) vs data/normalized/fred_inflation.csv (FRED CPI) and, if present, data/normalized/stocks2.csv; years used = 1928 … 2025 (every 30-year window 1928–1996); \|primary − cross-check\| per year in percentage points vs the tolerance declared in data/sources.json | declared tolerance ≤ 0.5 pp (inflation) and ≤ 0.5 pp (stocks); every year outside tolerance is listed in sources.json "mismatches" (reported, not silently resolved); every used year present in both | Python |
-| S05 | DX-H1, DX-H2 | geometric mean of the 60/40 yearly return, recomputed for 1966–1995 and for the mirror sequence (1995 → 1966); the displayed claims (claims with character "1966"/"mirror" and kind "geomean") compared with the recomputation; mirror claims flagged illustrative | \|G(1966) − G(mirror)\| ≤ 0.01 pp; each displayed geomean claim within 0.005 pp of its recomputation; every mirror claim illustrative | Python |
-| S06 | DX-H6 | page sampler: objects with a `year` attribute visible (opacity > 0.5, on frame) in act-3 frames; union over act 3 | every start year 1928 … 1996 shown (69 of 69), including years where order did no harm | trang + Python |
+| S03 *(K2 sửa)* | DX-H4 | sources file named by the episode contract (contract.json data.sources, e.g. data/sources.json): per raw file path, url, sha256, downloaded (ISO date), terms {quote, url}; SHA-256 recomputed from the committed file; host of each file by role vs the hosts the contract declares (data.hosts.primary / data.hosts.crosscheck; test D: pages.stern.nyu.edu / fred.stlouisfed.org). Contract without data.sources or data.hosts = MISSING | every file present with matching SHA-256, valid date, http(s) URL, terms quote ≥ 20 chars and terms URL; ≥ 1 primary file on a declared primary host; ≥ 1 cross-check file on a declared cross-check host | Python |
+| S04 *(K2 sửa)* | DX-H5 | series pairs the episode contract declares (contract.json data.crosscheck[]: series, primary {file, key, column, scale}, crosscheck {file, key, column, scale}, tolerance, used); per used key \|primary − cross-check\| (after scale) vs the declared tolerance; mismatches listed in the sources file (data.sources) "mismatches" [{year\|key, series}]. Test D: annual.csv vs fred_inflation.csv (inflation) and stocks2.csv (stocks), 1928–2025. Contract without data.crosscheck = MISSING | ≥ 1 pair; every declared tolerance ≤ 0.5 (pp); every used key present in both series; every key outside tolerance listed in "mismatches" (reported, not silently resolved) | Python |
+| S05 *(K2 sửa)* | DX-H1, DX-H2 | claims the episode contract maps to model quantities (contract.json model.claims) compared with the checker's own re-computation of that quantity (r_model value(): e.g. "geomean:1966", "breakEven:0.5", "spreadFor:36"); the model kind's thesis invariants from model.params (test D: sameGeomean 1966/mirror within 0.01 pp); ILLUSTRATIVE flags: every claim listed in contract claims.illustrative, and every claim of a character the contract marks illustrative, carries illustrative=true in out/claims.json | ≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag | Python |
+| S06 *(K2 sửa)* | DX-H6 | every case the episode promises to show (contract.json coverage[]: attribute "year" or "case", act, values [..] or range [a, b]): page sampler objects carrying that attribute, visible (opacity > 0.5, on frame) in frames of that act; union over the act. Test D: year, act 3, 1928–1996. Contract without coverage = MISSING | every declared value shown (e.g. 69 of 69 start years), including cases where the thesis did not hold | trang + Python |
 | S07 | DX-H1, DX-H2 | claims registry out/claims.json vs what is shown and said. On screen: every number in visible text (page sampler) must sit inside a claim span (data-claim). Narration: every number in out/script.json text must equal (value+unit) the display of a claim listed for that sentence's scene. Every claim: formula; source or illustrative; historical (source) claims carry dataYear | 0 orphan numbers on screen; 0 unregistered numbers in narration; 0 claims without formula; 0 unsourced non-illustrative claims; 0 sourced claims without dataYear | trang + Python |
 | S08 | DX-H2 | page sampler, every 0.1 s and every frame in ±0.5 s around each first appearance: frames where an illustrative claim span is visible (opacity > 0.5, on frame) but no ILLUSTRATIVE badge is visible; and badge lag = first frame the claim is visible − first frame a badge is visible in that scene | 0 frames without badge; badge never later than the number (lag ≤ 0 frames) | trang + Python |
 | S09 | DX-H3 | claims whose display contains "$" must declare basis nominal\|real. Screen (page sampler): whenever a $ claim is visible, a visible text in the same text block or within 300 px carries its basis word (BASIS regex). Narration: the sentence with the $ number, or the one before it in the same scene, carries the basis word | 0 money claims without basis; 0 frames missing the on-screen basis; 0 narration sentences missing it | trang + Python |
 | S10 | DX-I1, DX-I2 | every narration sentence (out/script.json text) and every visible on-screen text, lower-cased, against locked regex lists: ADVICE, FORECAST, FOUR (4% as a recommendation), WE_BAD ("we/our/us" used for the viewer); required phrases "US only" and "history, not a forecast" (narration or screen) | 0 matches of ADVICE, FORECAST, FOUR, WE_BAD; both required phrases present | Python |
 | S11 *(sửa)* | DX-S6 | claims with core=true. Appearances = distinct scenes where the claim is visible (page sampler) or spoken (heard by own ASR in that scene's narration window). Declared callbacks[] each need scene + distinct non-empty meaning, and must be real appearances | ≥ 1 core claim; each core claim appears in ≥ 3 distinct scenes spanning ≥ 2 acts; ≥ 3 declared callbacks with distinct meanings, all verified | trang + Python |
 | S12 | DX-S7 | new number = first appearance (screen or narration) of a claim; axis-role claims (role "axis", only ever shown as axis labels/anchors per the page sampler) excluded. Scene of a new number = scene containing its first-appearance time | new numbers ≤ duration / 8 s; no scene with > 2 new numbers; 0 claims marked axis but shown outside axis labels | trang + Python |
-| S13 | DX-S8 | sentence length = words in each out/script.json sentence text; coefficient of variation = population std / mean | CV ≥ 0.35 | Python |
+| S13 *(K2 sửa)* | DX-S8 (sổ gu G-009) | K2 redefinition. Sentence length = words in each out/script.json sentence text (in script order). (a) Variation: coefficient of variation (population std / mean) over the sentences of ≥ 4 words: long and short sentences alternate, and fragments cannot buy the variation. (b) Flow: a staccato passage = ≥ 3 consecutive sentences of ≤ 6 words each (a single short sentence for emphasis is allowed; a string of them is choppy). Narration without numbers is never penalised | PROVISIONAL: CV (sentences ≥ 4 words) ≥ 0.35; 0 staccato passages | Python |
 | S14 | DX-S10 | out/adbreaks.json times; act boundaries from out/timeline.json acts; natural silence = span where the master RMS (50 ms/10 ms) stays ≤ −40 dBFS | 2 … 3 breaks; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s | Python |
 | S15 | DX-S1 | out/timeline.json acts[] (id, start, end) and scenes[].act; acts contiguous and in the brief's order | order cold-open, ident, act1, act2, act3, method, outro; cold open ≤ 15 s; ident ≤ 3 s; outro ≥ 20 s; timeline total ≥ 600 s; every scene inside its act | Python |
+| S16 **(K2 mới)** | DX-S3, RUBRIC H4 (sổ gu G-008) | decisive numbers = displays of the claims with decisive=true in out/claims.json or listed in contract.json claims.decisive; a decisive sentence = an out/script.json sentence whose text says one of them (numbers compared as values). It is tied to the viewer's situation when that sentence, or any sentence before it in the same scene (the story has already put the viewer with that person or scenario; sổ gu G-009: a story does not repeat the name in every sentence), names a character or a scenario the episode contract declares (characters.<k>.words, scenarios.<k>.words; whole-word match, case-insensitive). Contract without the words of its characters/scenarios = MISSING | PROVISIONAL: ≥ 1 decisive sentence; ≥ 75% of decisive sentences tied to a declared character or scenario | Python |
 | R01 | DX-R1 | out/tension-map.json samples (t, cutRate, audioDensity, musicLevel, tension), peaks[], valleys[]; out/tension-map.png present. Declared curves vs measured: cut rate = cuts per 10 s window (out/transitions.json); music level = music-stem RMS dB (1 s); audio density = number of stems (voice, music, sfx, whoosh) above −45 dBFS per 1 s, 5 s moving mean. Peaks: local maximum of tension within ±10 s (5% of range slack); each act 1–3 has a peak within ±5 s of its climax (timeline acts[].climax); every peak is followed within 45 s by a declared valley that is ≥ 25% of the range lower | Pearson r ≥ 0.8 (cut rate), ≥ 0.7 (music level), ≥ 0.6 (audio density); 0 false peaks; 3 acts with a climax peak; 0 peaks without valley | Python |
 | R02 | DX-R2 | change points = scene starts where the layout family (text before "/" in scenes[].layout) or the shot size (scenes[].shot / shot.size) changes, plus starts of audio-layer cues (out/cues.json cues[].t); gap between consecutive change points (0 and the end included) | longest gap ≤ 60 s | Python |
 | R03 *(sửa)* | DX-R3 | decisive claims (decisive=true); each narration sentence saying one: own-ASR word run that says the value, extended over the unit words that follow it (dollars, percent, million, real, …; audit K-5). Pause measured on the voice stem (required): the first ≥ 120 ms run below −45 dBFS (20 ms RMS) that starts within [run end − 0.25 s, run end + 0.8 s], until the voice comes back for ≥ 30 ms; no such run = the voice runs on, pause 0 | ≥ 1 decisive claim; every pause ≥ 1.0 s; 0 decisive numbers not found in ASR | Python |
@@ -215,10 +294,10 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
 | V01 *(sửa)* | DX-V12 | preprod/shotlist.json shots[]: fields size, move, moveReason (2.5D shot list: no simulated focal length, no 3D camera angle); coverage of out/timeline.json scenes (shots[].scene); storyboard (preprod/storyboard.*) and colour script (preprod/color-script.*) present | every shot has all 3 fields non-empty; moveReason ≥ 3 words; every timeline scene has ≥ 1 shot; storyboard and colour script present | Python |
 | V02 *(sửa)* | DX-V1 | settled frames every 0.1 s: centre of each visible level-1 text vs the four thirds intersections (±96 px x, ±54 px y), or the vertical centre line (±48 px) when the scene declares composition "center" | ≥ 90% of level-1 samples placed | trang + Python |
 | V03 *(sửa)* | DX-V3 | every frame (no camera-move exemption), every 0.2 s: ink bounding box of each visible text from the page's text layer (alpha > 64, badges included). A text travelling in or out of frame (its box moved ≥ 4 px since the object sample 0.1 s earlier) may cross the edge | all text ink of non-travelling texts inside x 96–1824, y 54–1026 (90% safe area); 0 violations | trang + Python |
-| V04 | DX-V4, DX-X3 | objects with char "1966"/"mirror" every 0.1 s: horizontal order when both are visible (\|Δx\| ≥ 20 px), share of the main colour and main shape of each; year axis labels (role axis-label with year) ordered left → right | one side only for the whole video (≥ 1 sample); each character's main colour ≥ 95% and main shape ≥ 95% of its observations; colours differ; shapes differ; 0 time-order violations | trang + Python |
+| V04 *(K2 sửa)* | DX-V4, DX-X3 | characters read from the episode contract (contract.json characters: color token or hex, shape, side); page objects with that `char` every 0.1 s: main colour and main shape of each (most frequent fill/stroke, shape) and their shares; for every pair of characters seen together (\|Δx\| ≥ 20 px) the sign of their horizontal order; year axis labels (role axis-label with year) ordered left → right. Contract without characters (or a character without color/shape) = MISSING | every declared character seen; main colour = declared colour and ≥ 95% of its observations; main shape = declared shape and ≥ 95%; declared colours all differ; each pair keeps one side for the whole video, and the side the contract declares (left < centre < right) when both sides are declared; 0 time-order violations | trang + Python |
 | V05 *(sửa)* | DX-V8 | camera path out/camera.json, per frame: 2.5D {t, x, y, zoom} (pan over the chart plane in page px, zoom = scale) or the legacy {t, pos, target, fovDeg, focusDist}. Speeds/accelerations normalised to frame widths (fw; 2.5D: pan / (1920/zoom) + \|d ln zoom\|). Moves as in A10, ≥ 0.5 s. Per move: ease = mean speed over the first and last 10% of the move ÷ peak; linear = speed stays within ±10% of its mean over ≥ 60% of the move; progress u from the rest position 0.6 s before to the rest position 0.6 s after; anticipation = u ≤ −0.3% before the peak-speed instant; overshoot = u peaks 0.3–8% past 1 after it and settles within 0.3%; peak \|acceleration\|. Truth check: Spearman ρ between camera speed and picture change (mean \|ΔY\| per 0.5 s window) | ≥ 5 moves; every move eased (≤ 0.4) and none linear; anticipation in ≥ 30% and overshoot in ≥ 30% of moves ≥ 1 s; no overshoot > 8%; peak \|a\| ≤ 8 fw/s²; ρ ≥ 0.3 | Python |
 | V08 *(sửa)* | DX-V6 | every frame (no camera-move exemption), every 0.2 s, texts with opacity ≥ 0.95 standing still on screen (box moved < 2 px in 0.1 s; moving texts are judged by V12), on the delivered video frame: text colour = median of glyph-core pixels (glyph mask eroded 1 px), background = median of the ring 1–4 px around the ink (inside the badge for badge text); WCAG contrast | ≥ 4.5:1 for every text sample | trang + Python |
-| V09 | DX-V4, DX-X3 | main colour of each character = most frequent fill/stroke of objects with char "1966" / "mirror" seen by the page sampler; simulated with Machado 2009 (severity 1) protanopia and deuteranopia, ΔE2000 between the two simulated colours; grey = WCAG relative-luminance contrast between them | ΔE2000 ≥ 20 under each simulation; grey contrast ≥ 1.5:1 | trang + Python |
+| V09 *(K2 sửa)* | DX-V4, DX-X3 | every pair of characters declared in the episode contract (contract.json characters; colours resolved from design/tokens.json): the main colour of each on screen (page sampler) simulated with Machado 2009 (severity 1) protanopia and deuteranopia, ΔE2000 between the two simulated colours; grey = WCAG relative-luminance contrast between them. Contract without characters = MISSING | every declared character seen; for every pair: ΔE2000 ≥ 20 under each simulation, grey contrast ≥ 1.5:1 | trang + Python |
 | V10 *(sửa)* | DX-V10 | out/transitions.json cuts[] (t, from, to, type, match: geometric\|semantic, audio: j\|l, reason). Match cut, geometric: centroid of the bright salient region (Y > median + 2σ) of the last outgoing and first incoming frame within 10% of the frame; semantic: reason ≥ 5 words. J-cut: first own-ASR word of the incoming scene's first sentence starts ≥ 0.2 s before the cut; L-cut: last ASR word of the outgoing scene's last sentence ends ≥ 0.2 s after it. Dissolve detector on every cut ±15 frames (see dissolve_at) | ≥ 5 verified match cuts; ≥ 4 verified J/L-cuts; every declared dissolve has a reason ≥ 5 words and not "default"; 0 undeclared dissolves detected | Python |
 | V11 *(sửa)* | DX-V11 (C rule text-line-collision, upgraded to pixels) | every frame (no camera-move exemption), every 0.2 s: text ink from the page's text layer (glyphs, badges with their pill, axis labels; alpha > 64) dilated by 2 px vs ink of the graphics layer (lines, axes, series, bars, marks, stroked outlines; neutral cards and backgrounds excluded); and text vs text (each text rendered alone). A text standing still collides when it overlaps in one sample; a text moving on screen (box moved ≥ 2 px in 0.1 s), or a pair of texts one of which moves, when the same overlap is there in two consecutive samples (0.2 s) | < 4 overlapping pixels for every text in every sample (moving text: not in two consecutive samples); 0 violations | trang + Python |
 | V12 **(mới)** | DX-V9 (replaces the camera-move exemption) | every frame, every 0.2 s, every text with opacity ≥ 0.95 fully on frame: normalised cross-correlation of luma between the delivered video frame's coded Y plane and the clean page render's Y' (BT.709 weights) of the same instant (window.CHECKS.seek), inside the text box + 4 px. A doubled, smeared or motion-blurred label correlates poorly with its single sharp render (a ghost copy at 30% opacity: ≈ 0.96; at 50%: ≈ 0.91); grain, grade and vignette barely move it (affine inside a box). Texts with no ink contrast in the render (RMS < 8 codes) are skipped and counted | NCC ≥ 0.97 for every text sample; 0 violations | trang + Python |
@@ -237,9 +316,10 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
 | C14 *(sửa)* | DX-V11, DX-X4 (legible at 25%) | every frame (no camera-move exemption), every 0.2 s, texts with opacity ≥ 0.95 standing still on screen (moving texts: V12): smallest font run in px; on the delivered video frame downscaled 4× (box average), WCAG contrast between the 95th and 5th luminance percentile inside the text box | every text ≥ 28 px (cap height ≥ 5 px at 25%) and ≥ 3:1 at 25%; 0 violations | trang + Python |
 | C15 | DX-V5 (C rule tokens only) | every 0.1 s: a colour on a visible object (text runs, text background, shape fill/stroke; gradients excepted) that is not in design/tokens.json colors | 0 flagged frames | trang + Python |
 | P01 | DX-P2 | out/package/thumb-1..3.png with sidecars thumb-N.json texts[] (text, box [x,y,w,h], fontPx); design/tokens.json colours. Token share = pixels within 12 (RGB) of a token or of a blend of two tokens. Readability at 10%: area-downscale to 128×72; in each text box, WCAG contrast between the 95th and 5th luminance percentile | 3 thumbnails, each 1280×720; token share ≥ 97%; every text fontPx ≥ 90 (≥ 9 px at 10%) and contrast at 10% ≥ 3:1 | Python |
-| T1 **(mới)** | DX-A1 (sổ gu G-001) | events = union of the declared out/sonify-events.json (bar f0, dot f, start of each line draw) and the chart events the page sampler measured with the camera frozen (a bar, series, mark or character shape appears or changes); events closer than 0.15 s form one cluster, measured at its onset and every 0.5 s to its end. Band 1.5–8 kHz (4th-order Butterworth), window [t, t + 0.15 s]: lift = 10·log10((P_son + P_rest) / P_rest), P_son = band power of the data-sound stem ("sonify", or "sfx" when the data sounds are mixed into it), P_rest = band power of the sum of the other stems (voice, music, whoosh, room [, sfx]). Inside a spoken-number window [onset − 0.5 s, end + 1.6 s] (own ASR), where DX-A6 lowers effects, the lift needed is 1 dB. Truth check: the stems add up to the master in the band (correlation of the band signals). Without a sonify stem the sfx stem is measured (reported) but the rule cannot pass: other effects would count as data sounds | every measured window: lift ≥ 3 dB (≥ 1 dB in a spoken-number window) and data-sound band level ≥ −60 dBFS; stems ~ master r ≥ 0.90; ≥ 1 cluster; sonify stem delivered | trang + Python |
+| T1 *(K2 sửa)* | DX-A1 (sổ gu G-001, G-006) | K2 redefinition. Events = union of the declared out/sonify-events.json (bar f0, dot f, start of each line draw) and the chart events the page sampler measured with the camera frozen (every declared line sample is an event, so a line draw is one cluster); events closer than 0.15 s form one cluster; a slot = the onset of a cluster and every 0.5 s to its end. Band = the bands the episode puts its data sounds in (contract.json sonification.bandsHz, from the cue sheet; 4th-order Butterworth each, summed). Frames of 20 ms (5 ms hop). A pause of the voice = a frame where the voice stem is below −45 dBFS or ≥ 15 dB below its own maximum within ±0.3 s (gaps between syllables and words, between sentences, and where there is no voice). A slot is heard when, in some pause frame of [t − 0.10 s, t + 0.50 s], lift = 10·log10((P_son + P_rest) / P_rest) ≥ 3 dB and the data-sound band level ≥ −60 dBFS (P_son = band power of the data-sound stem "sonify", P_rest = band power of the sum of the other stems). Nothing is asked of the data sounds while the voice is sounding (L1 judges that). Truth checks: the declared bands hold ≥ 50% of the data stem's energy; the stems add up to the master in the band. Without a sonify stem the sfx stem is measured (reported) but the rule cannot pass. Contract without sonification.bandsHz = MISSING | PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered | trang + Python |
 | T2 **(mới)** | DX-A2 (sổ gu G-002) | music stem; bars of 4 beats from out/tempo-map.json beats (A12 checks those beats against the music's onsets); 4-bar phrases of chroma + onset pattern (phrase_features). For each phrase: the highest cosine similarity with the 1, 2, 3 and 4 phrases before it (a loop of 1–4 phrases repeats at one of these lags). A repeat = similarity ≥ 0.90. Quiet phrases (< −50 dBFS) are left out | ≥ 8 phrases measured; repeats ≤ 5% of phrases; never 2 repeated phrases in a row | Python |
 | T3 **(mới)** | DX-R6 (sổ gu G-003) | intentional silences = master spans ≤ −40 dBFS (50 ms RMS, 10 ms hop) of 0.8–1.5 s (as A09). Bed = music + sfx + whoosh (+ sonify) stems summed, 20 ms RMS, 5 ms hop. Reference = 90th percentile of the bed in [start − 0.8, start − 0.1]. Entry = from the last instant the bed is within 3 dB of the reference (searched in [start − 1.0, start + 0.3]) to the first instant after it the bed is 30 dB below the reference (or below −70 dBFS). Reported, not judged: a bed already below −60 dBFS before the silence (nothing to release), and a bed whose median inside the silence stays within 20 dB of the reference (a quiet passage, no cut to judge; A09 still counts it). Floor: master 50 ms RMS minimum inside the silence (edges 0.1 s excluded) and the room stem mean level there | every entry 150–400 ms; master ≥ −80 dBFS and room stem ≥ −75 dBFS through every silence; ≥ 1 silence | Python |
+| L1 **(K2 mới)** | DX-A1, DX-A9 (sổ gu G-006) | the data sounds do not cover the voice. (a) Energy: 100 ms windows where the voice stem is active (RMS > −45 dBFS); 1–4 kHz band (4th-order Butterworth) of the voice stem and of the data-sound stem "sonify"; ratio = 10·log10(P_voice / P_son) per window, over the windows where the data sound is present in the band (≥ −80 dBFS); the 10th percentile of those ratios. (b) Words: own ASR (as asr_master: sentence clips, small.en, two-pass) of the sum of all stems and of the sum of all stems but sonify; key words of each sentence as A14 (numbers, names, defined terms + out/terms.json); a key word heard without the data sounds and missed with them is lost. Needs the sonify stem (MISSING without it: the data sounds must be separable to be judged) | PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds | Python |
 | REG **(mới)** | CH §5, §4 khâu 3 (cổng hồi quy) | baseline = the checker's report of the previous version of the episode (--baseline). A rule is comparable when it is in both reports and its definition is unchanged: same fingerprint (sha256 of measure + threshold), or, for a baseline without fingerprints, the same threshold text and not in CHANGED_SINCE[baseline lock]. Regression = comparable rule PASS in the baseline and not PASS now (FAIL, MISSING or ERROR) | 0 regressions (a --first run has nothing to compare and passes; no baseline and no --first = MISSING) | Python |
 
 ## Khoá

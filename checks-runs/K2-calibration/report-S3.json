@@ -1,0 +1,147 @@
+{
+ "root": "checks-runs/K2-calibration/<root>/S3",
+ "contract": "checks-runs/K2-calibration/<root>/S3/contract.json",
+ "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
+ "video_sha256": "da34cf33b8016f15d7efac76b6a781ff37daf42901428b68accfd11e7c32ab0e",
+ "counts": {
+  "PASS": 1,
+  "FAIL": 1,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "T1",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "slots measured",
+     "value": 13,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "share of slots heard in a pause",
+     "value": 0.846154,
+     "op": ">=",
+     "threshold": 0.6,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "declared bands share of data-stem energy",
+     "value": 0.959158,
+     "op": ">=",
+     "threshold": 0.5,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "stems ~ master in band r",
+     "value": 1.0,
+     "op": ">=",
+     "threshold": 0.9,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "data sounds delivered as their own stem (sonify)",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "events": [
+      "declared: 165",
+      "page: 4"
+     ],
+     "dataStem": "sonify",
+     "bandsHz": [
+      [
+       125.0,
+       1000.0
+      ]
+     ],
+     "slots": 13,
+     "heard": 11,
+     "slotsWithoutPause": 1
+    },
+    {
+     "t": 1.4,
+     "pauseFrames": 9,
+     "bestLiftInPause": 1.53,
+     "heard": false
+    },
+    {
+     "t": 2.2,
+     "pauseFrames": 0,
+     "bestLiftInPause": null,
+     "heard": false
+    }
+   ],
+   "note": null,
+   "section": "DX-A1 (sổ gu G-001, G-006)",
+   "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
+   "fingerprint": "e7a5925e1b04aae3",
+   "seconds": 1.2
+  },
+  {
+   "id": "L1",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "voice-active windows",
+     "value": 66,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "voice/data 1–4 kHz ratio, 10th percentile (dB)",
+     "value": 16.105891,
+     "op": ">=",
+     "threshold": 20.0,
+     "unit": "dB",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "key words lost to the data sounds",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "windowsWithDataSound": 66,
+     "medianRatioDb": 28.4,
+     "minRatioDb": -25.2,
+     "keyWords": 4
+    }
+   ],
+   "note": null,
+   "section": "DX-A1, DX-A9 (sổ gu G-006)",
+   "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
+   "fingerprint": "01832a4e805c145e",
+   "seconds": 0.2
+  }
+ ]
+}
