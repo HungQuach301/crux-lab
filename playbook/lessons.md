@@ -56,6 +56,16 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 |---|---|---|
 | R1 | Phiên K3.1 ghi điểm mù: tài sản bên thứ ba có thể lọt qua máy kiểm nếu nhúng dạng `data:` hoặc ghép hậu kỳ ngoài đường khai báo. | Quy ước ở `quality-framework.md` §8; rà lại ở C5. |
 
+## B5. Vận hành tác vụ dài (Tập 1, C4)
+
+| # | Chuyện đã xảy ra | Bài học | Luật bây giờ |
+|---|---|---|---|
+| O1 | Sinh giọng v3.2: proxy ngắt kết nối ở cảnh 14/20 (ProxyError RemoteDisconnected), `gen.py` dừng; vòng chờ bên ngoài đợi dòng "calls" không bao giờ tới nên treo; container khởi động lại làm mất mọi tác vụ nền. | Tác vụ dài phải **chạy tiếp được** (bỏ qua phần đã xong, không tốn lại ký tự), **thử lại khi lỗi mạng** (nghỉ 2/4/8/16 s), **commit từng phần**. Mọi vòng chờ phải **có trần thời gian** và **thoát khi tiến trình con chết**, không chờ một dòng log. | Mẫu: `episodes/ep001/work/v32-voice/src/run_resume.sh`; chờ bằng `until xong \|\| ! pgrep … \|\| hết_giờ`. Điểm dừng an toàn trong PLAN.md cập nhật trước mỗi bước dài. |
+
+## D. Mục tiêu cải tiến cho Tập 2
+
+1. **Hình tự mang ý nghĩa** (chủ dự án, C4 Tập 1): kiểm mù tắt tiếng Tập 1 đạt 20/20 nhưng người đọc hiểu *"mostly from the words and numbers"*; hình mới mang cấu trúc. Tập 2 đặt mục tiêu: nhịp then chốt phải đọc được khi che chữ/số (đo bằng dải che nhãn, có đối chứng).
+
 ## C. Vận hành
 
 - Chủ dự án không đọc tài liệu dài; chỉ trả lời gói quyết định (≤ 3 câu, < 1 phút đọc).
