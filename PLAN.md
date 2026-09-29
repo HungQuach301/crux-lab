@@ -12,7 +12,7 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 | Cổng | Trạng thái | Gói | Quyết định của chủ dự án |
 |---|---|---|---|
 | Việc 0 | XONG — merge `main` `7ebc7ea` | — | Khung 3 lớp duyệt; D-002 |
-| C1 Ý tưởng | ĐANG LÀM | `episodes/ep001/gates/C1.md` | — |
+| C1 Ý tưởng | CHỜ CHỦ DỰ ÁN (issue #2) | `episodes/ep001/gates/C1.md` | — |
 | C2 Kịch bản | chờ | | |
 | C3 Thiết kế và giọng | chờ | | |
 | C4 Animatic có chuyển động | chờ | | |
