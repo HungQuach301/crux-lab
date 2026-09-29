@@ -21,3 +21,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 | 2026-09-29 | CRITIC kịch bản vòng 2 | 0 | `story/critic-script-r2.md`: H1 5 · H2 4 · H3 5 · H4 5 · G-007 5 · G-008 5 · G-009 4 (TB 4,71, thấp nhất 4). Dừng lặp (mọi điểm ≥ 4); 4 sửa nhỏ giao WRITER. | 2 |
 | 2026-09-29 | WRITER sửa nhỏ | 0 | S04.2, S06.2, S13.3 (đổi lời), S08.3 (ngày trên màn hình), S27.6 (ID). | 3 |
 | 2026-09-29 | DATA giai đoạn 4b | 17.831 | Giọng V8 (28 câu eleven_v3, 104 câu multilingual_v2 speed 0,70–0,72 vì Eric v3 đọc 190–230 wpm và bỏ qua speed); wpm mỗi hồi 154,2–159,6, câu 127,7–184,8; 0 từ khoá thiếu; storyboard 34 cảnh; animatic đầy đủ có S2; clip Cổng B 87,4 s. Checks: S01/S03/S04/S05/A13/R02/L1 PASS; FAIL S10 (S04.2), S13, S15 (26,65 s), S16, F11. | 1 |
+| 2026-09-29 | WRITER sửa theo checks | 0 | S10/S13/S16 qua (mô phỏng bằng mã khoá); đổi lời 19 câu, phụ đề 3 câu; 1.524 từ ~10:56. S16 80% (S01.1 "30-year" bị đếm nhầm là 30 tháng — ghi cho Phiên K). | 4 |
