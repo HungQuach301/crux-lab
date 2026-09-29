@@ -22,7 +22,10 @@ export function build({ T }) {
     const m38 = +CL('be_simple_025'), aX = easeOut(t, tD, tD + 0.4) * (1 - ease(t, tN - 0.6, tN - 0.2));
     dot(ctx, xOfM(m38, X), yF, 13, C.ink, aX);
     line(ctx, [[xOfM(m38, X), yF + 16], [xOfM(m38, X), G.YB]], C.ink, 2, { dash: [6, 8], alpha: aX });
-    text(ctx, 'division: month ' + CL('be_simple_025'), xOfM(m38, X) + 16, G.YB - 30, 'label', { alpha: aX });
+    text(ctx, 'simple division: month ' + CL('be_simple_025'), xOfM(m38, X) + 16, G.YB - 30, 'label', { alpha: aX });
+    // name the white line where it ends (C4 blind: readers took it for the 1-point cut)
+    const aW = easeOut(t, tD - 0.2, tD + 0.2) * (1 - ease(t, tN - 0.6, tN - 0.2));
+    text(ctx, 'same ' + CL('s025') + ' cut, savings alone', xOfM(Math.min(mD, X), X) - 20, yOf(Math.min(mD, X) * Q.sav) - 34, 'label', { align: 'right', color: C.ink, alpha: aW });
     // counting what she still owes
     const up = t < tN - 0.6 ? ease(t, tC, tN - 0.6) * 58 : 58 + ease(t, tN - 0.6, tN + 0.8) * (NM - 58);
     if (t > tC) curve(ctx, Q.net, up, X);
