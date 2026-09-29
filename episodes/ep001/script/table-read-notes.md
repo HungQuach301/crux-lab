@@ -17,7 +17,7 @@ Audio: `review-b/table-read-full.m4a` (675.4 s). Pace measured on the clean take
 Slowest sentence: S10.4 122.2 wpm. Fastest: S02.2 186.0 wpm. Outside 120-190: none.
 Key words missing from ASR: none.
 
-ElevenLabs characters (Character-Cost header, all takes of this pass): **17707**; takes generated: 712.
+ElevenLabs characters (Character-Cost header, cumulative: takes in use + retired takes + calibration calls): **20868**; takes in the store: 722.
 
 ## Sentences regenerated (more than one take) and why
 

@@ -26,8 +26,11 @@ for (const w of words) cues[s0.id + '|' + w.w.replace(/[.,]$/, '')] = w.t;
 const at = (w) => { const x = words.find((y) => y.w.replace(/[.,]$/, '') === w); if (!x) throw new Error('no word ' + w); return x; };
 cues[s0.id + '|18.63%'] = at('18').t; // Whisper splits "18.63%" into "18" ".63" "%"
 
-// data
-const rows = fs.readFileSync(path.join(EP, 'data', 'normalized', 'mortgage30_weekly.csv'), 'utf8').trim().split('\n').slice(1).map((l) => l.split(','));
+// data: render/data.js carries the full FRED series, so it is NOT tracked (public repo, amendments.md E1-A2; .gitignore
+// episodes/*/*/render/data.js). It is rebuilt here from the fetched CSV: run `python3 episodes/ep001/data/fetch.py --verify` first.
+const CSV = path.join(EP, 'data', 'normalized', 'mortgage30_weekly.csv');
+if (!fs.existsSync(CSV)) throw new Error('missing ' + CSV + ': run python3 episodes/ep001/data/fetch.py --verify (FRED data is not in the repo)');
+const rows = fs.readFileSync(CSV, 'utf8').trim().split('\n').slice(1).map((l) => l.split(','));
 const series = rows.map(([d, v]) => [d, +v]);
 const peak = series.reduce((a, b) => (b[1] > a[1] ? b : a));
 const src = { id: 'fred-MORTGAGE30US', url: 'https://fred.stlouisfed.org/series/MORTGAGE30US' };

@@ -1071,10 +1071,10 @@
    "claimId": "s025",
    "value": 0.25,
    "display": "0.25",
-   "formula": "rate cut in percentage points (analysis grid)",
+   "formula": "rate cut in percentage points (analysis grid; an analyst choice, not data)",
    "source": null,
    "historical": false,
-   "illustrative": false,
+   "illustrative": true,
    "callbacks": [],
    "shownIn": [
     "S18"
@@ -1089,10 +1089,10 @@
    "claimId": "s05",
    "value": 0.5,
    "display": "0.5",
-   "formula": "rate cut in percentage points (analysis grid)",
+   "formula": "rate cut in percentage points (analysis grid; an analyst choice, not data)",
    "source": null,
    "historical": false,
-   "illustrative": false,
+   "illustrative": true,
    "callbacks": [],
    "shownIn": [
     "S21"
@@ -1107,10 +1107,10 @@
    "claimId": "s10",
    "value": 1.0,
    "display": "1",
-   "formula": "rate cut in percentage points (analysis grid)",
+   "formula": "rate cut in percentage points (analysis grid; an analyst choice, not data)",
    "source": null,
    "historical": false,
-   "illustrative": false,
+   "illustrative": true,
    "callbacks": [
     {
      "scene": "S32",
@@ -2391,7 +2391,7 @@
    "formula": "threshold of purch23_ge7 (interest_rate >= 7.00): an analysis parameter chosen by us (round number; the anchor-date rate 7.03% is just above it), not a sourced figure",
    "source": null,
    "historical": false,
-   "illustrative": false,
+   "illustrative": true,
    "callbacks": [
     {
      "scene": "S32",

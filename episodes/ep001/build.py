@@ -129,7 +129,7 @@ def main():
     claim('y3', 3, '3', 'holding scenario: sell after 3 years (36 months)', None, None, **IL, historical=False)
     claim('y7', 7, '7', 'holding scenario: sell after 7 years (84 months)', None, None, **IL, historical=False)
     for s, key in ((0.25, '025'), (0.5, '05'), (1.0, '10')):
-        claim('s' + key, s, f'{s:g}', 'rate cut in percentage points (analysis grid)', None, None, historical=False)
+        claim('s' + key, s, f'{s:g}', 'rate cut in percentage points (analysis grid; an analyst choice, not data)', None, None, historical=False, illustrative=True)
     for s, key in ((0.25, '025'), (0.5, '05'), (1.0, '10')):
         claim(f'be_simple_{key}', cuts[s]['simple'], str(cuts[s]['simple']), f'simple division for the median character at a cut of {s:g} point(s) below {pct(r_old)}', HMDA, [2023, Y], model='refi.both', **IL)
         if cuts[s]['withBalance']:
@@ -230,7 +230,7 @@ def main():
     words('cut36_large_words', 'cut36_large', 'about a third of a point', '|cut36_large - 1/3| <= 0.04 point')
     assert 29 <= C['purch23_ge7']['value'] < 31.5
     words('purch23_words', 'purch23_ge7', 'three in ten', 'purch23_ge7 rounds to 30% (share of 2023 home-purchase originations at >= 7.00%)')
-    claim('ge7_threshold', 7.0, 'seven percent', 'threshold of purch23_ge7 (interest_rate >= 7.00): an analysis parameter chosen by us (round number; the anchor-date rate 7.03% is just above it), not a sourced figure', None, None, historical=False, role='parameter')
+    claim('ge7_threshold', 7.0, 'seven percent', 'threshold of purch23_ge7 (interest_rate >= 7.00): an analysis parameter chosen by us (round number; the anchor-date rate 7.03% is just above it), not a sourced figure', None, None, historical=False, role='parameter', illustrative=True)
 
     # the character each character-level claim belongs to (checks/CONTRACT.md claims.character = a key of the contract's characters)
     for cid, c in C.items():

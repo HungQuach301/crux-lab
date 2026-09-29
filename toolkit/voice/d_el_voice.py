@@ -252,7 +252,19 @@ def main():
     json.dump(rep, open(os.path.join(VDIR, 'choice-report.json'), 'w'), indent=1)
     json.dump({s['id']: 0 for s in sents}, open(os.path.join(VDIR, 'choice.json'), 'w'))
     spent = sum(r.get('characterCost', 0) for r in recs.values())
-    json.dump({'thisRun': cost, 'allTakesCharacterCost': spent, 'takesGenerated': len(recs)}, open(os.path.join(VDIR, 'el-credits.json'), 'w'), indent=1)
+    # cumulative credits: takes in the store + takes retired from it (their files may be gone; the recorded figure is kept) + calls made
+    # outside the take store (calibration). Earlier figures are carried over from the existing file, never dropped.
+    cp = os.path.join(VDIR, 'el-credits.json')
+    prev = json.load(open(cp)) if os.path.exists(cp) else {}
+    rdir = os.path.join(ROOT, 'work', 'retired-takes')
+    retired = sum(json.load(open(os.path.join(d, f))).get('characterCost', 0) for d, _, fs in os.walk(rdir) for f in fs if f.endswith('.json')) if os.path.isdir(rdir) else 0
+    retired = max(retired, prev.get('retiredTakesCharacterCost', 0))
+    calib = prev.get('calibrationCalls', [])
+    total = spent + retired + sum(c['characters'] for c in calib)
+    json.dump({'thisRun': cost, 'allTakesCharacterCost': spent, 'takesGenerated': len(recs), 'retiredTakesCharacterCost': retired, 'calibrationCalls': calib,
+               'cumulativeCharacterCost': total, 'passes': prev.get('passes', []),
+               'note': 'Character-Cost header units. cumulative = takes in el-takes.json + retired takes + calibration calls outside the take store'},
+              open(cp, 'w'), indent=1)
     print('acts', {k: round(v, 1) for k, v in rates.items()}, '| fallback', fallback, '| problems', len(rep['problems']), '| credits (all takes)', spent)
 
 

@@ -46,7 +46,7 @@ Move: travel from the 2021 low to the 2023 peak along the line.
 
 ![S06](storyboard/S06.png)
 
-Lưới 10 ngôi nhà; 3 nhà sáng lên. Máy quay đẩy vào một trong ba nhà đó.
+Lưới 10 ngôi nhà; 3 nhà sáng lên. Máy quay đẩy vào một trong ba nhà đó. ILLUSTRATIVE badge beside "seven percent or more" (ge7_threshold: an analyst threshold).
 
 Move: from ten houses into the one that is Nora's.
 
@@ -94,7 +94,7 @@ Move: hold: two empty answer slots.
 
 ![S12](storyboard/S12.png)
 
-Màn hình chia đôi: trái là vạch "1-point line" (nhãn "test value"), marker Nora nằm dưới vạch; phải là đồng hồ đếm lên 24.
+Màn hình chia đôi: trái là vạch "1-point line" (nhãn "test value"), marker Nora nằm dưới vạch; phải là đồng hồ đếm lên 24. ILLUSTRATIVE badge on the "1-point line (test value)" label (s10).
 
 Move: split screen: the one-point line and the counter.
 
@@ -142,7 +142,7 @@ Move: hold while the counter passes 24 and stops at 30.
 
 ![S18](storyboard/S18.png)
 
-Đồng hồ phép chia dừng ở 38; đường nợ mới hiện lên phía dưới.
+Đồng hồ phép chia dừng ở 38; đường nợ mới hiện lên phía dưới. ILLUSTRATIVE badge beside "a quarter of a percentage point" (s025: an analysis cut).
 
 Move: hold: division stops at 38.
 
@@ -166,7 +166,7 @@ Move: the circle tries the one-point mark, then a quarter.
 
 ![S21](storyboard/S21.png)
 
-Marker tròn dừng trên thước ở 0.5, lần đầu thước có một điểm. Hai ô trống còn lại ở 2 phía.
+Marker tròn dừng trên thước ở 0.5, lần đầu thước có một điểm. Hai ô trống còn lại ở 2 phía. ILLUSTRATIVE badge beside "half a point" (s05: an analysis cut).
 
 Move: hold: the circle lands at 0.5.
 

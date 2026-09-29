@@ -40,3 +40,8 @@ Phạm vi: nhánh ep001 @ `af47109`, khoá K2 `f9e24c91`. Chỉ đọc; `fetch.p
 | cost_median / n31 | $5,124 / 488,241 | 5,123.53 / 488,241 (HMDA CSV) | ✓ |
 
 Mọi số trong lời (`out/script.json`) đều gắn với một claim qua `spoken`. Không có claim nào trỏ tới câu không tồn tại. Các số chỉ có trên màn hình: xem mục 4.
+
+## Sau khi sửa (P1, 2026-09-29)
+- NẶNG 1: s025, s05, s10, ge7_threshold gắn ILLUSTRATIVE (build.py, contract.json, shotlist S06/S12/S18/S21); kiểm độc lập 47/47, S05 PASS.
+- NẶNG 2: `m0-sample/render/data.js` gỡ khỏi git (`ce43180`), .gitignore; build.js dựng lại từ fetch.py.
+- Ledger 20.868 ký tự là đúng; el-credits.json đã bổ sung phần thiếu.

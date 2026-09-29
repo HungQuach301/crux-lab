@@ -252,6 +252,11 @@ FR = {
 }
 
 
+# ILLUSTRATIVE badge with the analyst-choice numbers (Gate B review, NẶNG #1): ge7_threshold (S06), s10 (S12), s025 (S18), s05 (S21)
+for _sc, _xy in {'S06': (11.4, 6.2), 'S12': (1.6, 5.9), 'S18': (10.3, 3.3), 'S21': (11.0, 7.7)}.items():
+    FR[_sc] = (lambda f, xy: (lambda ax: (f(ax), badge(ax, *xy))))(FR[_sc], _xy)
+
+
 def draw(scene, path=None, caption=None, size=(12.8, 7.2)):
     fig = plt.figure(figsize=size, dpi=100, facecolor=BG)
     ax = fig.add_axes([0, 0, 1, 1])

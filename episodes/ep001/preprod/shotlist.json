@@ -80,10 +80,11 @@
    "size": "medium",
    "move": "push-in 1.5 s",
    "moveReason": "from ten houses into the one that is Nora's",
-   "picture": "Lưới 10 ngôi nhà; 3 nhà sáng lên. Máy quay đẩy vào một trong ba nhà đó.",
+   "picture": "Lưới 10 ngôi nhà; 3 nhà sáng lên. Máy quay đẩy vào một trong ba nhà đó. ILLUSTRATIVE badge beside \"seven percent or more\" (ge7_threshold: an analyst threshold).",
    "sonify": [
     "bar"
-   ]
+   ],
+   "badge": "ILLUSTRATIVE badge beside \"seven percent or more\" (ge7_threshold: an analyst threshold)"
   },
   {
    "id": "sh007",
@@ -163,10 +164,11 @@
    "size": "medium",
    "move": "none",
    "moveReason": "split screen: the one-point line and the counter",
-   "picture": "Màn hình chia đôi: trái là vạch \"1-point line\" (nhãn \"test value\"), marker Nora nằm dưới vạch; phải là đồng hồ đếm lên 24.",
+   "picture": "Màn hình chia đôi: trái là vạch \"1-point line\" (nhãn \"test value\"), marker Nora nằm dưới vạch; phải là đồng hồ đếm lên 24. ILLUSTRATIVE badge on the \"1-point line (test value)\" label (s10).",
    "sonify": [
     "counter"
-   ]
+   ],
+   "badge": "ILLUSTRATIVE badge on the \"1-point line (test value)\" label (s10)"
   },
   {
    "id": "sh013",
@@ -245,10 +247,11 @@
    "size": "medium",
    "move": "none",
    "moveReason": "hold: division stops at 38",
-   "picture": "Đồng hồ phép chia dừng ở 38; đường nợ mới hiện lên phía dưới.",
+   "picture": "Đồng hồ phép chia dừng ở 38; đường nợ mới hiện lên phía dưới. ILLUSTRATIVE badge beside \"a quarter of a percentage point\" (s025: an analysis cut).",
    "sonify": [
     "counter"
-   ]
+   ],
+   "badge": "ILLUSTRATIVE badge beside \"a quarter of a percentage point\" (s025: an analysis cut)"
   },
   {
    "id": "sh019",
@@ -287,10 +290,11 @@
    "size": "medium",
    "move": "none",
    "moveReason": "hold: the circle lands at 0.5",
-   "picture": "Marker tròn dừng trên thước ở 0.5, lần đầu thước có một điểm. Hai ô trống còn lại ở 2 phía.",
+   "picture": "Marker tròn dừng trên thước ở 0.5, lần đầu thước có một điểm. Hai ô trống còn lại ở 2 phía. ILLUSTRATIVE badge beside \"half a point\" (s05: an analysis cut).",
    "sonify": [
     "dot"
-   ]
+   ],
+   "badge": "ILLUSTRATIVE badge beside \"half a point\" (s05: an analysis cut)"
   },
   {
    "id": "sh022",

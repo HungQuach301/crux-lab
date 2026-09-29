@@ -230,7 +230,7 @@ def main():
          '## Pace per act (wpm)', '', '| act | wpm |', '|---|---|'] + [f'| {k} | {v["rawWpm"]} |' for k, v in acts_w.items()] + [
          '', f'Slowest sentence: {lo[0]} {lo[1]} wpm. Fastest: {hi[0]} {hi[1]} wpm. Outside 120-190: ' + (', '.join(f'{k} ({v})' for k, v in wp if not 120 <= v <= 190) or 'none') + '.',
          f"Key words missing from ASR: {', '.join(f'{k} {v}' for k, v in missing) or 'none'}.", '',
-         f"ElevenLabs characters (Character-Cost header, all takes of this pass): **{cred['allTakesCharacterCost']}**; takes generated: {cred['takesGenerated']}.", '',
+         f"ElevenLabs characters (Character-Cost header, cumulative: takes in use + retired takes + calibration calls): **{cred.get('cumulativeCharacterCost', cred['allTakesCharacterCost'])}**; takes in the store: {cred['takesGenerated']}.", '',
          '## Sentences regenerated (more than one take) and why', '', '| sentence | chosen | takes (wpm, missing key words) |', '|---|---|---|']
     N += [f"| {sid} | t{c['take']} {c['model'].replace('eleven_', '')} {c['wpm']} wpm | {why} |" for sid, c, why in regen]
     open(os.path.join(EP, 'script', 'table-read-notes.md'), 'w').write('\n'.join(N) + '\n')
