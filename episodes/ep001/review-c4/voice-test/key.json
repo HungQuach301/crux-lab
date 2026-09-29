@@ -1,0 +1,1273 @@
+{
+ "_": "GIẢI MÃ — không đưa cho người nghe mù, không mở trước khi chọn.",
+ "key": {
+  "X": "V2",
+  "Y": "V3",
+  "Z": "V1"
+ },
+ "common": {
+  "voice": "Eric (cjVigY5qzO86Huf0OWal, thư viện premade ElevenLabs)",
+  "model_id": "eleven_v3 (một model cho cả ba bản)",
+  "voice_settings": "không gửi (mặc định API)",
+  "speed": "không gửi",
+  "endpoint": "POST /v1/text-to-speech/cjVigY5qzO86Huf0OWal/with-timestamps?output_format=mp3_44100_128, body {text, model_id, seed}",
+  "seed": "1 cho mọi lần gọi mới (V1 tái dùng take seed 1 của C2/v3.1); không lần sinh lại nào (ASR không mất từ khoá/số/tên ở bản nào)",
+  "text_source": "story/script-v3.1.md @4f0edb3, câu v3.1 số 1–8 (S01, S02 cả cảnh, câu hứa mới) + 49–52 (S10 \"$1,133\" → \"month 30\"); chuẩn hoá chữ đọc như v3.1 (parse.to_tts)",
+  "previous_text_next_text": "eleven_v3 KHÔNG hỗ trợ: gọi thử trả HTTP 400 unsupported_model \"Providing previous_text or next_text is not yet supported with the 'eleven_v3' model.\" (work/voice-test/probe-previous_text.json; 0 ký tự bị tính). Không cần: cảnh dài nhất 491 ký tự < giới hạn 5.000 ký tự/lần.",
+  "trim": "mỗi take/cảnh cắt về vùng có tiếng (-50 dBFS, cửa sổ 10 ms) +40 ms trước/+120 ms sau, fade 5 ms (như v3.1); không cắt trong câu (V2/V3: không cắt trong cảnh)",
+  "assembly": "đầu 0,5 s, cuối 1,0 s, 1,4 s giữa hai cảnh (S01|S02|S10) ở cả ba bản; V1 thêm 0,45 s giữa câu và 1,0 s ở [beat]",
+  "loudness": "chỉ gain, cả ba -19.5 LUFS tích hợp, đỉnh mẫu ≤ −1 dBFS; không nén/limit",
+  "encoding": "AAC 192 kbps mono 48 kHz (PyAV; không ffmpeg)",
+  "shuffle": "secrets.SystemRandom().shuffle",
+  "asr": "faster-whisper small.en int8 beam 5; từ khoá bằng checks/py/r_audio.py key_words/match_keys (chỉ import)"
+ },
+ "tags_v3_positions": {
+  "S01": "[softly] trước \"She didn't take it.\"",
+  "S02": "[curious] trước câu hứa \"How big a rate cut makes that worth it for Nora — and where would your own loan fall?\"",
+  "S10": "[thoughtful] trước \"If she sold the house then…\"; [serious] trước \"Count it, and break-even moves from month twenty-four to month thirty.\""
+ },
+ "tags_source": "Tài liệu elevenlabs.io bị proxy chặn (EGRESS_BLOCKED); danh sách thẻ đọc gián tiếp qua tìm kiếm (blog \"Audio Tags 101\", help.elevenlabs.io \"How do audio tags work with Eleven v3?\"): [curious], [serious], [thoughtful], [softly]/[whispers], [sighs]… là thẻ cảm xúc/giọng điệu hợp lệ; API không trả lỗi cho 4 thẻ đã dùng, ASR không đọc thẻ thành chữ.",
+ "el_total": {
+  "charged": 1045,
+  "sent": 2611,
+  "probe_previous_text": {
+   "sent": 9,
+   "charged": 0
+  }
+ },
+ "files": {
+  "sample-Z.m4a": {
+   "version": "V1",
+   "description": "Cách làm hiện tại: từng câu một lần gọi, nghỉ cố định do dựng (0,45 s giữa câu, 1,0 s [beat], 1,4 s giữa cảnh). 11/12 câu dùng take có sẵn (7 take C2 seed 1, 4 take mới của v3.1 seed 1); câu hứa mới (câu 7) sinh mới seed 1.",
+   "tags": null,
+   "el_calls": 1,
+   "el_characters_charged": 34,
+   "el_characters_sent": 85,
+   "regenerated": "không",
+   "takes": [
+    "V1.n01.reuse-v001.c2-c000.s1.mp3",
+    "V1.n02.reuse-v002.c2-c001.s1.mp3",
+    "V1.n03.reuse-v003.c2-c002.s1.mp3",
+    "V1.n04.reuse-v004.c2-c003.s1.mp3",
+    "V1.n05.reuse-v005.c2-c004.s1.mp3",
+    "V1.n06.reuse-v006.s1.mp3",
+    "V1.n07.seed1.mp3",
+    "V1.n08.reuse-v008.s1.mp3",
+    "V1.n49.reuse-v049.c2-c056.s1.mp3",
+    "V1.n50.reuse-v050.s1.mp3",
+    "V1.n51.reuse-v051.s1.mp3",
+    "V1.n52.reuse-v052.c2-c058.s1.mp3"
+   ],
+   "texts_sent": [
+    "In February twenty twenty-six, the average thirty-year fixed mortgage rate in the U.S. fell to five point nine eight percent, the lowest since September twenty twenty-two.",
+    "Nora had borrowed in twenty twenty-three, at seven point six two percent.",
+    "At the February rate, a new loan would have cut her payment by four hundred fifty-nine dollars a month.",
+    "She didn't take it.",
+    "By late September, the rate was back above seven percent, for the first time since January twenty twenty-five.",
+    "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for five thousand one hundred twenty-four dollars in fees.",
+    "How big a rate cut makes that worth it for Nora — and where would your own loan fall?",
+    "And why would a smaller mortgage need a bigger cut?",
+    "By month twenty-four, she owes one thousand one hundred thirty-three dollars more than if she had kept the old loan.",
+    "If she sold the house then, that one thousand one hundred thirty-three dollars would come out of her sale money, so it cancels part of what she has saved.",
+    "Her savings need a few more months to cover it, and the gap keeps growing a little while they do.",
+    "Count it, and break-even moves from month twenty-four to month thirty."
+   ],
+   "asr": [
+    "In February, 2026, the average 30 -year fixed mortgage rate in the U .S. fell to 5 .98 percent, the lowest since September, 2022.",
+    "Nora had borrowed in 2023 at 7 .62%.",
+    "At the February rate, a new loan would have cut our payment by $459 a month.",
+    "She didn't take it.",
+    "By late September, the rate was back above 7%, for the first time since January 2025.",
+    "Now a letter comes from her lender, an offer to refinance, a new loan at a slightly lower rate that pays off the old one for $5 ,124 in fees.",
+    "How big a rate cut makes that worth it for Nora. And where would your own loan fall?",
+    "And why would a smaller mortgage need a bigger cut?",
+    "By month 24, she owes $1 ,133 more than if she had kept the old loan.",
+    "If she sold the house then, that $1 ,133 would come out of her sale money, so it cancels part of what she has saved.",
+    "Her savings need a few more months to cover it, and the gap keeps growing a little while they do.",
+    "Count it and break even moves from month 24 to month 30."
+   ],
+   "duration_s": 83.03,
+   "lufs": -19.51,
+   "peak_dbfs": -1.61,
+   "gain_db": -0.69,
+   "prosody": {
+    "passage": {
+     "n_sentences": 12,
+     "st_sd_all": 4.08,
+     "st_range_all_p5_p95": 12.98,
+     "st_range_sentence_mean": 13.28,
+     "st_sd_sentence_mean": 4.05,
+     "sd_of_sentence_means_st": 1.06,
+     "sd_of_onsets_st": 2.32,
+     "energy_sd_db_mean": 7.94,
+     "contour_corr_mean": 0.241,
+     "finals": {
+      "lên": 0,
+      "ngang": 3,
+      "xuống": 9
+     },
+     "final_delta_mean_st": -3.3,
+     "wpm_talk": 186.5,
+     "wpm_sd_across_sentences": 52.7,
+     "wpm_cv": 0.259
+    },
+    "sentence_gaps": {
+     "in_scene_mean_s": 0.776,
+     "in_scene_sd_s": 0.269,
+     "in_scene_min_max_s": [
+      0.49,
+      1.16
+     ],
+     "all": [
+      {
+       "after_n": 1,
+       "kind": "in_scene",
+       "s": 0.49
+      },
+      {
+       "after_n": 2,
+       "kind": "in_scene",
+       "s": 0.5
+      },
+      {
+       "after_n": 3,
+       "kind": "in_scene",
+       "s": 1.03
+      },
+      {
+       "after_n": 4,
+       "kind": "in_scene",
+       "s": 1.16
+      },
+      {
+       "after_n": 5,
+       "kind": "scene",
+       "s": 1.51
+      },
+      {
+       "after_n": 6,
+       "kind": "in_scene",
+       "s": 0.61
+      },
+      {
+       "after_n": 7,
+       "kind": "in_scene",
+       "s": 1.04
+      },
+      {
+       "after_n": 8,
+       "kind": "scene",
+       "s": 1.44
+      },
+      {
+       "after_n": 49,
+       "kind": "in_scene",
+       "s": 1.05
+      },
+      {
+       "after_n": 50,
+       "kind": "in_scene",
+       "s": 0.61
+      },
+      {
+       "after_n": 51,
+       "kind": "in_scene",
+       "s": 0.49
+      }
+     ]
+    },
+    "pauses_file_ge120ms": {
+     "count": 29,
+     "mean_s": 0.571,
+     "sd_s": 0.373,
+     "cv": 0.652,
+     "min_s": 0.12,
+     "max_s": 1.5,
+     "p25_p50_p75": [
+      0.21,
+      0.52,
+      0.67
+     ]
+    },
+    "sentences": [
+     {
+      "dur_s": 10.28,
+      "words": 26,
+      "wpm": 151.8,
+      "f0_median_hz": 152.1,
+      "st_range_p5_p95": 13.33,
+      "st_sd": 4.39,
+      "st_mean": 7.09,
+      "energy_sd_db": 7.93,
+      "energy_range_p10_p90": 20.1,
+      "st_onset": 9.31,
+      "final_delta_st": -1.97,
+      "final": "xuống",
+      "slope_st_per_s": -0.22,
+      "n": 1,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 4.39,
+      "words": 12,
+      "wpm": 164.0,
+      "f0_median_hz": 147.4,
+      "st_range_p5_p95": 11.59,
+      "st_sd": 3.88,
+      "st_mean": 6.38,
+      "energy_sd_db": 8.3,
+      "energy_range_p10_p90": 20.65,
+      "st_onset": 13.51,
+      "final_delta_st": -1.38,
+      "final": "xuống",
+      "slope_st_per_s": -1.07,
+      "n": 2,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 5.24,
+      "words": 19,
+      "wpm": 217.6,
+      "f0_median_hz": 148.5,
+      "st_range_p5_p95": 10.32,
+      "st_sd": 3.12,
+      "st_mean": 6.91,
+      "energy_sd_db": 8.46,
+      "energy_range_p10_p90": 22.19,
+      "st_onset": 7.36,
+      "final_delta_st": 0.8,
+      "final": "ngang",
+      "slope_st_per_s": -1.18,
+      "n": 3,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 0.68,
+      "words": 4,
+      "wpm": 352.9,
+      "f0_median_hz": 122.0,
+      "st_range_p5_p95": 10.46,
+      "st_sd": 3.42,
+      "st_mean": 3.66,
+      "energy_sd_db": 7.66,
+      "energy_range_p10_p90": 18.09,
+      "st_onset": 5.17,
+      "final_delta_st": -2.9,
+      "final": "xuống",
+      "slope_st_per_s": -16.23,
+      "n": 4,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 6.34,
+      "words": 18,
+      "wpm": 170.3,
+      "f0_median_hz": 148.5,
+      "st_range_p5_p95": 12.68,
+      "st_sd": 4.02,
+      "st_mean": 6.58,
+      "energy_sd_db": 8.07,
+      "energy_range_p10_p90": 21.0,
+      "st_onset": 9.21,
+      "final_delta_st": -5.79,
+      "final": "xuống",
+      "slope_st_per_s": -0.69,
+      "n": 5,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 11.78,
+      "words": 34,
+      "wpm": 173.2,
+      "f0_median_hz": 139.5,
+      "st_range_p5_p95": 11.71,
+      "st_sd": 3.41,
+      "st_mean": 5.75,
+      "energy_sd_db": 7.97,
+      "energy_range_p10_p90": 21.35,
+      "st_onset": 8.49,
+      "final_delta_st": -1.7,
+      "final": "xuống",
+      "slope_st_per_s": -0.1,
+      "n": 6,
+      "scene": "S02"
+     },
+     {
+      "dur_s": 5.48,
+      "words": 19,
+      "wpm": 208.0,
+      "f0_median_hz": 160.7,
+      "st_range_p5_p95": 17.69,
+      "st_sd": 5.02,
+      "st_mean": 7.73,
+      "energy_sd_db": 9.15,
+      "energy_range_p10_p90": 25.87,
+      "st_onset": 10.11,
+      "final_delta_st": 0.91,
+      "final": "ngang",
+      "slope_st_per_s": -0.77,
+      "n": 7,
+      "scene": "S02"
+     },
+     {
+      "dur_s": 2.86,
+      "words": 10,
+      "wpm": 209.8,
+      "f0_median_hz": 144.0,
+      "st_range_p5_p95": 22.13,
+      "st_sd": 5.68,
+      "st_mean": 5.83,
+      "energy_sd_db": 6.2,
+      "energy_range_p10_p90": 11.72,
+      "st_onset": 8.81,
+      "final_delta_st": -12.85,
+      "final": "xuống",
+      "slope_st_per_s": -5.03,
+      "n": 8,
+      "scene": "S02"
+     },
+     {
+      "dur_s": 7.94,
+      "words": 20,
+      "wpm": 151.1,
+      "f0_median_hz": 144.9,
+      "st_range_p5_p95": 10.59,
+      "st_sd": 3.74,
+      "st_mean": 6.62,
+      "energy_sd_db": 7.85,
+      "energy_range_p10_p90": 18.13,
+      "st_onset": 9.42,
+      "final_delta_st": -3.88,
+      "final": "xuống",
+      "slope_st_per_s": -0.65,
+      "n": 49,
+      "scene": "S10"
+     },
+     {
+      "dur_s": 7.73,
+      "words": 29,
+      "wpm": 225.1,
+      "f0_median_hz": 160.3,
+      "st_range_p5_p95": 12.16,
+      "st_sd": 3.6,
+      "st_mean": 8.05,
+      "energy_sd_db": 7.51,
+      "energy_range_p10_p90": 18.08,
+      "st_onset": 6.53,
+      "final_delta_st": 0.22,
+      "final": "ngang",
+      "slope_st_per_s": -0.56,
+      "n": 50,
+      "scene": "S10"
+     },
+     {
+      "dur_s": 5.11,
+      "words": 20,
+      "wpm": 234.8,
+      "f0_median_hz": 147.5,
+      "st_range_p5_p95": 10.28,
+      "st_sd": 3.66,
+      "st_mean": 6.31,
+      "energy_sd_db": 8.05,
+      "energy_range_p10_p90": 20.09,
+      "st_onset": 7.65,
+      "final_delta_st": -3.37,
+      "final": "xuống",
+      "slope_st_per_s": -1.19,
+      "n": 51,
+      "scene": "S10"
+     },
+     {
+      "dur_s": 3.58,
+      "words": 11,
+      "wpm": 184.4,
+      "f0_median_hz": 147.8,
+      "st_range_p5_p95": 16.39,
+      "st_sd": 4.63,
+      "st_mean": 6.49,
+      "energy_sd_db": 8.16,
+      "energy_range_p10_p90": 21.96,
+      "st_onset": 13.14,
+      "final_delta_st": -7.75,
+      "final": "xuống",
+      "slope_st_per_s": -2.91,
+      "n": 52,
+      "scene": "S10"
+     }
+    ],
+    "sentence_spans_s": [
+     [
+      1,
+      0.54,
+      10.82
+     ],
+     [
+      2,
+      11.31,
+      15.7
+     ],
+     [
+      3,
+      16.2,
+      21.44
+     ],
+     [
+      4,
+      22.47,
+      23.15
+     ],
+     [
+      5,
+      24.31,
+      30.65
+     ],
+     [
+      6,
+      32.16,
+      43.94
+     ],
+     [
+      7,
+      44.55,
+      50.03
+     ],
+     [
+      8,
+      51.07,
+      53.93
+     ],
+     [
+      49,
+      55.37,
+      63.31
+     ],
+     [
+      50,
+      64.36,
+      72.09
+     ],
+     [
+      51,
+      72.7,
+      77.81
+     ],
+     [
+      52,
+      78.3,
+      81.88
+     ]
+    ]
+   }
+  },
+  "sample-X.m4a": {
+   "version": "V2",
+   "description": "Sinh theo cảnh: mỗi cảnh một lần gọi, văn xuôi liền (câu nối bằng khoảng trắng, [beat] → dòng trống), nghỉ trong cảnh do model; 1,4 s giữa cảnh.",
+   "tags": null,
+   "el_calls": 3,
+   "el_characters_charged": 497,
+   "el_characters_sent": 1242,
+   "regenerated": "không",
+   "takes": [
+    "V2.S01.seed1.mp3",
+    "V2.S02.seed1.mp3",
+    "V2.S10.seed1.mp3"
+   ],
+   "texts_sent": [
+    "In February twenty twenty-six, the average thirty-year fixed mortgage rate in the U.S. fell to five point nine eight percent, the lowest since September twenty twenty-two. Nora had borrowed in twenty twenty-three, at seven point six two percent. At the February rate, a new loan would have cut her payment by four hundred fifty-nine dollars a month.\n\nShe didn't take it.\n\nBy late September, the rate was back above seven percent, for the first time since January twenty twenty-five.",
+    "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for five thousand one hundred twenty-four dollars in fees. How big a rate cut makes that worth it for Nora — and where would your own loan fall?\n\nAnd why would a smaller mortgage need a bigger cut?",
+    "By month twenty-four, she owes one thousand one hundred thirty-three dollars more than if she had kept the old loan.\n\nIf she sold the house then, that one thousand one hundred thirty-three dollars would come out of her sale money, so it cancels part of what she has saved. Her savings need a few more months to cover it, and the gap keeps growing a little while they do. Count it, and break-even moves from month twenty-four to month thirty."
+   ],
+   "asr": [
+    "In February 2026, the average 30 -year fixed mortgage rate in the U .S. fell to 5 .98 percent, the lowest since September 2022. Nora had borrowed in 2023 at 7 .62 percent. At the February rate, a new loan would have cut her payment by $459 a month. She didn't take it. By late September, the rate was back above 7 percent. for the first time since January 2025.",
+    "Now a letter comes from her lender, an offer to refinance, a new loan at a slightly lower rate that pays off the old one for $5 ,124 in fees. How big a rate cut makes that worth it for Nora. And where would your own loan fall? And why would a smaller mortgage need a bigger cut?",
+    "By month 24, she owes $1 ,133 more than if she had kept the old loan. If she sold the house then, that $1 ,133 would come out of her sale money, so it cancels part of what she has saved. Her savings need a few more months to cover it, and the gap keeps growing a little while they do. Count it, and break even moves from month 24 to month 30."
+   ],
+   "duration_s": 88.83,
+   "lufs": -19.5,
+   "peak_dbfs": -1.27,
+   "gain_db": -0.79,
+   "prosody": {
+    "passage": {
+     "n_sentences": 12,
+     "st_sd_all": 4.3,
+     "st_range_all_p5_p95": 13.99,
+     "st_range_sentence_mean": 14.01,
+     "st_sd_sentence_mean": 4.29,
+     "sd_of_sentence_means_st": 0.75,
+     "sd_of_onsets_st": 2.36,
+     "energy_sd_db_mean": 7.69,
+     "contour_corr_mean": 0.155,
+     "finals": {
+      "lên": 1,
+      "ngang": 0,
+      "xuống": 11
+     },
+     "final_delta_mean_st": -2.58,
+     "wpm_talk": 177.8,
+     "wpm_sd_across_sentences": 44.5,
+     "wpm_cv": 0.232
+    },
+    "sentence_gaps": {
+     "in_scene_mean_s": 1.012,
+     "in_scene_sd_s": 0.184,
+     "in_scene_min_max_s": [
+      0.81,
+      1.34
+     ],
+     "all": [
+      {
+       "after_n": 1,
+       "kind": "in_scene",
+       "s": 0.925
+      },
+      {
+       "after_n": 2,
+       "kind": "in_scene",
+       "s": 0.81
+      },
+      {
+       "after_n": 3,
+       "kind": "in_scene",
+       "s": 0.82
+      },
+      {
+       "after_n": 4,
+       "kind": "in_scene",
+       "s": 1.01
+      },
+      {
+       "after_n": 5,
+       "kind": "scene",
+       "s": 1.565
+      },
+      {
+       "after_n": 6,
+       "kind": "in_scene",
+       "s": 0.915
+      },
+      {
+       "after_n": 7,
+       "kind": "in_scene",
+       "s": 0.95
+      },
+      {
+       "after_n": 8,
+       "kind": "scene",
+       "s": 1.555
+      },
+      {
+       "after_n": 49,
+       "kind": "in_scene",
+       "s": 1.325
+      },
+      {
+       "after_n": 50,
+       "kind": "in_scene",
+       "s": 1.01
+      },
+      {
+       "after_n": 51,
+       "kind": "in_scene",
+       "s": 1.34
+      }
+     ]
+    },
+    "pauses_file_ge120ms": {
+     "count": 33,
+     "mean_s": 0.62,
+     "sd_s": 0.416,
+     "cv": 0.67,
+     "min_s": 0.12,
+     "max_s": 1.54,
+     "p25_p50_p75": [
+      0.2,
+      0.61,
+      0.89
+     ]
+    },
+    "sentences": [
+     {
+      "dur_s": 10.56,
+      "words": 26,
+      "wpm": 147.7,
+      "f0_median_hz": 143.4,
+      "st_range_p5_p95": 13.55,
+      "st_sd": 4.53,
+      "st_mean": 6.55,
+      "energy_sd_db": 8.23,
+      "energy_range_p10_p90": 21.27,
+      "st_onset": 9.72,
+      "final_delta_st": -1.82,
+      "final": "xuống",
+      "slope_st_per_s": -0.32,
+      "n": 1,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 4.34,
+      "words": 12,
+      "wpm": 165.9,
+      "f0_median_hz": 153.0,
+      "st_range_p5_p95": 15.14,
+      "st_sd": 4.53,
+      "st_mean": 7.09,
+      "energy_sd_db": 7.32,
+      "energy_range_p10_p90": 18.75,
+      "st_onset": 14.33,
+      "final_delta_st": -1.06,
+      "final": "xuống",
+      "slope_st_per_s": -0.86,
+      "n": 2,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 5.43,
+      "words": 19,
+      "wpm": 209.9,
+      "f0_median_hz": 163.7,
+      "st_range_p5_p95": 13.16,
+      "st_sd": 3.98,
+      "st_mean": 8.45,
+      "energy_sd_db": 7.53,
+      "energy_range_p10_p90": 18.71,
+      "st_onset": 5.67,
+      "final_delta_st": -2.88,
+      "final": "xuống",
+      "slope_st_per_s": -0.23,
+      "n": 3,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 0.79,
+      "words": 4,
+      "wpm": 303.8,
+      "f0_median_hz": 138.4,
+      "st_range_p5_p95": 15.7,
+      "st_sd": 4.52,
+      "st_mean": 5.49,
+      "energy_sd_db": 7.78,
+      "energy_range_p10_p90": 20.55,
+      "st_onset": 9.55,
+      "final_delta_st": -3.01,
+      "final": "xuống",
+      "slope_st_per_s": -17.53,
+      "n": 4,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 6.32,
+      "words": 18,
+      "wpm": 170.9,
+      "f0_median_hz": 150.8,
+      "st_range_p5_p95": 14.89,
+      "st_sd": 4.39,
+      "st_mean": 7.09,
+      "energy_sd_db": 8.22,
+      "energy_range_p10_p90": 20.76,
+      "st_onset": 12.57,
+      "final_delta_st": -4.75,
+      "final": "xuống",
+      "slope_st_per_s": -0.79,
+      "n": 5,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 11.63,
+      "words": 34,
+      "wpm": 175.4,
+      "f0_median_hz": 140.9,
+      "st_range_p5_p95": 13.29,
+      "st_sd": 3.89,
+      "st_mean": 5.89,
+      "energy_sd_db": 7.62,
+      "energy_range_p10_p90": 19.97,
+      "st_onset": 8.58,
+      "final_delta_st": -4.26,
+      "final": "xuống",
+      "slope_st_per_s": -0.05,
+      "n": 6,
+      "scene": "S02"
+     },
+     {
+      "dur_s": 5.14,
+      "words": 19,
+      "wpm": 221.8,
+      "f0_median_hz": 145.6,
+      "st_range_p5_p95": 16.68,
+      "st_sd": 5.08,
+      "st_mean": 6.93,
+      "energy_sd_db": 8.55,
+      "energy_range_p10_p90": 23.31,
+      "st_onset": 14.08,
+      "final_delta_st": -3.84,
+      "final": "xuống",
+      "slope_st_per_s": -0.72,
+      "n": 7,
+      "scene": "S02"
+     },
+     {
+      "dur_s": 2.66,
+      "words": 10,
+      "wpm": 225.6,
+      "f0_median_hz": 144.1,
+      "st_range_p5_p95": 15.44,
+      "st_sd": 4.35,
+      "st_mean": 6.62,
+      "energy_sd_db": 6.11,
+      "energy_range_p10_p90": 13.83,
+      "st_onset": 10.21,
+      "final_delta_st": -2.24,
+      "final": "xuống",
+      "slope_st_per_s": -3.62,
+      "n": 8,
+      "scene": "S02"
+     },
+     {
+      "dur_s": 7.98,
+      "words": 20,
+      "wpm": 150.4,
+      "f0_median_hz": 146.1,
+      "st_range_p5_p95": 10.56,
+      "st_sd": 3.57,
+      "st_mean": 6.51,
+      "energy_sd_db": 7.95,
+      "energy_range_p10_p90": 19.61,
+      "st_onset": 9.53,
+      "final_delta_st": -2.59,
+      "final": "xuống",
+      "slope_st_per_s": -0.56,
+      "n": 49,
+      "scene": "S10"
+     },
+     {
+      "dur_s": 9.8,
+      "words": 29,
+      "wpm": 177.6,
+      "f0_median_hz": 159.3,
+      "st_range_p5_p95": 13.67,
+      "st_sd": 4.32,
+      "st_mean": 7.64,
+      "energy_sd_db": 6.57,
+      "energy_range_p10_p90": 15.46,
+      "st_onset": 8.29,
+      "final_delta_st": -3.5,
+      "final": "xuống",
+      "slope_st_per_s": -0.33,
+      "n": 50,
+      "scene": "S10"
+     },
+     {
+      "dur_s": 5.48,
+      "words": 20,
+      "wpm": 219.0,
+      "f0_median_hz": 139.0,
+      "st_range_p5_p95": 13.63,
+      "st_sd": 4.3,
+      "st_mean": 6.43,
+      "energy_sd_db": 7.18,
+      "energy_range_p10_p90": 17.33,
+      "st_onset": 9.59,
+      "final_delta_st": 2.5,
+      "final": "lên",
+      "slope_st_per_s": -0.86,
+      "n": 51,
+      "scene": "S10"
+     },
+     {
+      "dur_s": 4.78,
+      "words": 11,
+      "wpm": 138.1,
+      "f0_median_hz": 152.2,
+      "st_range_p5_p95": 12.39,
+      "st_sd": 4.07,
+      "st_mean": 7.37,
+      "energy_sd_db": 9.21,
+      "energy_range_p10_p90": 23.61,
+      "st_onset": 11.23,
+      "final_delta_st": -3.57,
+      "final": "xuống",
+      "slope_st_per_s": -0.63,
+      "n": 52,
+      "scene": "S10"
+     }
+    ],
+    "sentence_spans_s": [
+     [
+      1,
+      0.54,
+      11.1
+     ],
+     [
+      2,
+      12.025,
+      16.365
+     ],
+     [
+      3,
+      17.175,
+      22.605
+     ],
+     [
+      4,
+      23.425,
+      24.215
+     ],
+     [
+      5,
+      25.225,
+      31.545
+     ],
+     [
+      6,
+      33.11,
+      44.74
+     ],
+     [
+      7,
+      45.655,
+      50.795
+     ],
+     [
+      8,
+      51.745,
+      54.405
+     ],
+     [
+      49,
+      55.96,
+      63.94
+     ],
+     [
+      50,
+      65.265,
+      75.065
+     ],
+     [
+      51,
+      76.075,
+      81.555
+     ],
+     [
+      52,
+      82.895,
+      87.675
+     ]
+    ]
+   }
+  },
+  "sample-Y.m4a": {
+   "version": "V3",
+   "description": "Như V2 + 4 thẻ cảm xúc eleven_v3 (xem tags); không thẻ ngắt/nghỉ/tốc độ.",
+   "tags": [
+    {
+     "before_sentence_n": 4,
+     "tag": "[softly]"
+    },
+    {
+     "before_sentence_n": 7,
+     "tag": "[curious]"
+    },
+    {
+     "before_sentence_n": 50,
+     "tag": "[thoughtful]"
+    },
+    {
+     "before_sentence_n": 52,
+     "tag": "[serious]"
+    }
+   ],
+   "el_calls": 3,
+   "el_characters_charged": 514,
+   "el_characters_sent": 1284,
+   "regenerated": "không",
+   "takes": [
+    "V3.S01.seed1.mp3",
+    "V3.S02.seed1.mp3",
+    "V3.S10.seed1.mp3"
+   ],
+   "texts_sent": [
+    "In February twenty twenty-six, the average thirty-year fixed mortgage rate in the U.S. fell to five point nine eight percent, the lowest since September twenty twenty-two. Nora had borrowed in twenty twenty-three, at seven point six two percent. At the February rate, a new loan would have cut her payment by four hundred fifty-nine dollars a month.\n\n[softly] She didn't take it.\n\nBy late September, the rate was back above seven percent, for the first time since January twenty twenty-five.",
+    "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for five thousand one hundred twenty-four dollars in fees. [curious] How big a rate cut makes that worth it for Nora — and where would your own loan fall?\n\nAnd why would a smaller mortgage need a bigger cut?",
+    "By month twenty-four, she owes one thousand one hundred thirty-three dollars more than if she had kept the old loan.\n\n[thoughtful] If she sold the house then, that one thousand one hundred thirty-three dollars would come out of her sale money, so it cancels part of what she has saved. Her savings need a few more months to cover it, and the gap keeps growing a little while they do. [serious] Count it, and break-even moves from month twenty-four to month thirty."
+   ],
+   "asr": [
+    "In February 2026, the average 30 -year fixed mortgage rate in the U .S. fell to 5 .98 percent, the lowest since September 2022. Nora had borrowed in 2023 at 7 .62 percent. At the February rate, a new loan would have cut her payment by $459 a month. She didn't take it. By late September, the rate was back above 7 percent. for the first time since January 2025.",
+    "Now a letter comes from her lender, an offer to refinance, a new loan at a slightly lower rate that pays off the old one for $5 ,124 in fees. How big a rate cut makes that worth it for Nora? And where would your own loan fall? And why would a smaller mortgage need a bigger cut?",
+    "By month 24, she owes $1 ,133 more than if she had kept the old loan. If she sold the house then, that $1 ,133 would come out of her sale money, so it cancels part of what she has saved. Her savings need a few more months to cover it, and the gap keeps growing a little while they do. Count it and break even moves from month 24 to month 30."
+   ],
+   "duration_s": 90.6,
+   "lufs": -19.51,
+   "peak_dbfs": -1.9,
+   "gain_db": -0.76,
+   "prosody": {
+    "passage": {
+     "n_sentences": 12,
+     "st_sd_all": 4.26,
+     "st_range_all_p5_p95": 14.0,
+     "st_range_sentence_mean": 13.35,
+     "st_sd_sentence_mean": 4.14,
+     "sd_of_sentence_means_st": 1.69,
+     "sd_of_onsets_st": 2.69,
+     "energy_sd_db_mean": 7.86,
+     "contour_corr_mean": 0.195,
+     "finals": {
+      "lên": 0,
+      "ngang": 1,
+      "xuống": 11
+     },
+     "final_delta_mean_st": -3.06,
+     "wpm_talk": 174.0,
+     "wpm_sd_across_sentences": 38.2,
+     "wpm_cv": 0.207
+    },
+    "sentence_gaps": {
+     "in_scene_mean_s": 1.043,
+     "in_scene_sd_s": 0.275,
+     "in_scene_min_max_s": [
+      0.675,
+      1.51
+     ],
+     "all": [
+      {
+       "after_n": 1,
+       "kind": "in_scene",
+       "s": 0.915
+      },
+      {
+       "after_n": 2,
+       "kind": "in_scene",
+       "s": 0.82
+      },
+      {
+       "after_n": 3,
+       "kind": "in_scene",
+       "s": 1.03
+      },
+      {
+       "after_n": 4,
+       "kind": "in_scene",
+       "s": 1.23
+      },
+      {
+       "after_n": 5,
+       "kind": "scene",
+       "s": 1.445
+      },
+      {
+       "after_n": 6,
+       "kind": "in_scene",
+       "s": 0.675
+      },
+      {
+       "after_n": 7,
+       "kind": "in_scene",
+       "s": 0.76
+      },
+      {
+       "after_n": 8,
+       "kind": "scene",
+       "s": 1.555
+      },
+      {
+       "after_n": 49,
+       "kind": "in_scene",
+       "s": 1.425
+      },
+      {
+       "after_n": 50,
+       "kind": "in_scene",
+       "s": 1.02
+      },
+      {
+       "after_n": 51,
+       "kind": "in_scene",
+       "s": 1.51
+      }
+     ]
+    },
+    "pauses_file_ge120ms": {
+     "count": 38,
+     "mean_s": 0.581,
+     "sd_s": 0.419,
+     "cv": 0.721,
+     "min_s": 0.12,
+     "max_s": 1.51,
+     "p25_p50_p75": [
+      0.17,
+      0.555,
+      0.755
+     ]
+    },
+    "sentences": [
+     {
+      "dur_s": 10.56,
+      "words": 26,
+      "wpm": 147.7,
+      "f0_median_hz": 150.5,
+      "st_range_p5_p95": 13.27,
+      "st_sd": 4.29,
+      "st_mean": 6.89,
+      "energy_sd_db": 8.14,
+      "energy_range_p10_p90": 20.66,
+      "st_onset": 9.71,
+      "final_delta_st": -1.7,
+      "final": "xuống",
+      "slope_st_per_s": -0.22,
+      "n": 1,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 4.33,
+      "words": 12,
+      "wpm": 166.3,
+      "f0_median_hz": 158.0,
+      "st_range_p5_p95": 14.95,
+      "st_sd": 4.43,
+      "st_mean": 7.17,
+      "energy_sd_db": 7.64,
+      "energy_range_p10_p90": 20.29,
+      "st_onset": 14.6,
+      "final_delta_st": 0.01,
+      "final": "ngang",
+      "slope_st_per_s": -1.12,
+      "n": 2,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 5.52,
+      "words": 19,
+      "wpm": 206.5,
+      "f0_median_hz": 160.6,
+      "st_range_p5_p95": 13.22,
+      "st_sd": 4.2,
+      "st_mean": 8.0,
+      "energy_sd_db": 7.99,
+      "energy_range_p10_p90": 20.36,
+      "st_onset": 5.65,
+      "final_delta_st": -3.46,
+      "final": "xuống",
+      "slope_st_per_s": -0.42,
+      "n": 3,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 0.92,
+      "words": 4,
+      "wpm": 260.9,
+      "f0_median_hz": 107.5,
+      "st_range_p5_p95": 8.67,
+      "st_sd": 3.03,
+      "st_mean": 1.94,
+      "energy_sd_db": 8.16,
+      "energy_range_p10_p90": 19.16,
+      "st_onset": 4.15,
+      "final_delta_st": -2.77,
+      "final": "xuống",
+      "slope_st_per_s": -10.26,
+      "n": 4,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 7.12,
+      "words": 18,
+      "wpm": 151.7,
+      "f0_median_hz": 155.9,
+      "st_range_p5_p95": 15.4,
+      "st_sd": 4.42,
+      "st_mean": 7.78,
+      "energy_sd_db": 8.31,
+      "energy_range_p10_p90": 21.65,
+      "st_onset": 12.45,
+      "final_delta_st": -4.09,
+      "final": "xuống",
+      "slope_st_per_s": -0.81,
+      "n": 5,
+      "scene": "S01"
+     },
+     {
+      "dur_s": 11.66,
+      "words": 34,
+      "wpm": 175.0,
+      "f0_median_hz": 140.9,
+      "st_range_p5_p95": 11.65,
+      "st_sd": 3.44,
+      "st_mean": 6.16,
+      "energy_sd_db": 7.89,
+      "energy_range_p10_p90": 20.71,
+      "st_onset": 8.66,
+      "final_delta_st": -1.19,
+      "final": "xuống",
+      "slope_st_per_s": -0.1,
+      "n": 6,
+      "scene": "S02"
+     },
+     {
+      "dur_s": 4.87,
+      "words": 19,
+      "wpm": 234.1,
+      "f0_median_hz": 177.3,
+      "st_range_p5_p95": 16.27,
+      "st_sd": 5.09,
+      "st_mean": 8.96,
+      "energy_sd_db": 8.51,
+      "energy_range_p10_p90": 23.05,
+      "st_onset": 10.54,
+      "final_delta_st": -1.33,
+      "final": "xuống",
+      "slope_st_per_s": -1.26,
+      "n": 7,
+      "scene": "S02"
+     },
+     {
+      "dur_s": 2.88,
+      "words": 10,
+      "wpm": 208.3,
+      "f0_median_hz": 164.7,
+      "st_range_p5_p95": 14.22,
+      "st_sd": 4.04,
+      "st_mean": 8.2,
+      "energy_sd_db": 6.61,
+      "energy_range_p10_p90": 15.28,
+      "st_onset": 10.19,
+      "final_delta_st": -1.25,
+      "final": "xuống",
+      "slope_st_per_s": -3.67,
+      "n": 8,
+      "scene": "S02"
+     },
+     {
+      "dur_s": 7.66,
+      "words": 20,
+      "wpm": 156.7,
+      "f0_median_hz": 152.1,
+      "st_range_p5_p95": 11.1,
+      "st_sd": 3.63,
+      "st_mean": 7.02,
+      "energy_sd_db": 7.58,
+      "energy_range_p10_p90": 17.72,
+      "st_onset": 9.51,
+      "final_delta_st": -4.49,
+      "final": "xuống",
+      "slope_st_per_s": -0.76,
+      "n": 49,
+      "scene": "S10"
+     },
+     {
+      "dur_s": 9.87,
+      "words": 29,
+      "wpm": 176.3,
+      "f0_median_hz": 164.7,
+      "st_range_p5_p95": 13.56,
+      "st_sd": 4.04,
+      "st_mean": 7.86,
+      "energy_sd_db": 7.15,
+      "energy_range_p10_p90": 18.15,
+      "st_onset": 10.15,
+      "final_delta_st": -4.9,
+      "final": "xuống",
+      "slope_st_per_s": -0.66,
+      "n": 50,
+      "scene": "S10"
+     },
+     {
+      "dur_s": 5.76,
+      "words": 20,
+      "wpm": 208.3,
+      "f0_median_hz": 145.6,
+      "st_range_p5_p95": 14.94,
+      "st_sd": 4.67,
+      "st_mean": 6.47,
+      "energy_sd_db": 7.32,
+      "energy_range_p10_p90": 18.29,
+      "st_onset": 7.33,
+      "final_delta_st": -3.91,
+      "final": "xuống",
+      "slope_st_per_s": -1.11,
+      "n": 51,
+      "scene": "S10"
+     },
+     {
+      "dur_s": 5.42,
+      "words": 11,
+      "wpm": 121.8,
+      "f0_median_hz": 148.1,
+      "st_range_p5_p95": 12.97,
+      "st_sd": 4.4,
+      "st_mean": 6.76,
+      "energy_sd_db": 9.0,
+      "energy_range_p10_p90": 24.04,
+      "st_onset": 8.13,
+      "final_delta_st": -7.61,
+      "final": "xuống",
+      "slope_st_per_s": -1.2,
+      "n": 52,
+      "scene": "S10"
+     }
+    ],
+    "sentence_spans_s": [
+     [
+      1,
+      0.54,
+      11.1
+     ],
+     [
+      2,
+      12.015,
+      16.345
+     ],
+     [
+      3,
+      17.165,
+      22.685
+     ],
+     [
+      4,
+      23.715,
+      24.635
+     ],
+     [
+      5,
+      25.865,
+      32.985
+     ],
+     [
+      6,
+      34.43,
+      46.09
+     ],
+     [
+      7,
+      46.765,
+      51.635
+     ],
+     [
+      8,
+      52.395,
+      55.275
+     ],
+     [
+      49,
+      56.83,
+      64.49
+     ],
+     [
+      50,
+      65.915,
+      75.785
+     ],
+     [
+      51,
+      76.805,
+      82.565
+     ],
+     [
+      52,
+      84.075,
+      89.495
+     ]
+    ]
+   }
+  }
+ },
+ "metric_notes": "F0: pyworld Harvest 60–300 Hz, khung 5 ms, semitone re 100 Hz. st_range = p95−p5 trong câu; sd_of_sentence_means = độ lệch chuẩn cao độ trung bình giữa các câu (biến thiên theo đoạn); contour_corr_mean = tương quan trung bình giữa đường nét 50 điểm của các câu (cao = các câu cùng một khuôn). final: Δ trung vị 250 ms hữu thanh cuối so với 250–750 ms trước đó (>+1 st lên, <−1 st xuống). sentence_gaps = từ hết tiếng câu trước đến đầu tiếng câu sau (vùng −50 dBFS). wpm = từ chữ đọc / thời lượng câu có tiếng."
+}

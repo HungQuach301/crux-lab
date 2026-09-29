@@ -1,0 +1,393 @@
+{
+ "result": {
+  "V1": [
+   {
+    "n": 1,
+    "scene": "S01",
+    "pause_kind": "first",
+    "tts_text": "In February twenty twenty-six, the average thirty-year fixed mortgage rate in the U.S. fell to five point nine eight percent, the lowest since September twenty twenty-two.",
+    "takes": [
+     {
+      "file": "V1.n01.reuse-v001.c2-c000.s1.mp3",
+      "seed": 1,
+      "source": "reused_c2",
+      "from": "episodes/ep001/work/v31-voice/v001.c2-c000.s1.mp3",
+      "asr": "In February, 2026, the average 30 -year fixed mortgage rate in the U .S. fell to 5 .98 percent, the lowest since September, 2022.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n01.reuse-v001.c2-c000.s1.mp3"
+   },
+   {
+    "n": 2,
+    "scene": "S01",
+    "pause_kind": "same",
+    "tts_text": "Nora had borrowed in twenty twenty-three, at seven point six two percent.",
+    "takes": [
+     {
+      "file": "V1.n02.reuse-v002.c2-c001.s1.mp3",
+      "seed": 1,
+      "source": "reused_c2",
+      "from": "episodes/ep001/work/v31-voice/v002.c2-c001.s1.mp3",
+      "asr": "Nora had borrowed in 2023 at 7 .62%.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n02.reuse-v002.c2-c001.s1.mp3"
+   },
+   {
+    "n": 3,
+    "scene": "S01",
+    "pause_kind": "same",
+    "tts_text": "At the February rate, a new loan would have cut her payment by four hundred fifty-nine dollars a month.",
+    "takes": [
+     {
+      "file": "V1.n03.reuse-v003.c2-c002.s1.mp3",
+      "seed": 1,
+      "source": "reused_c2",
+      "from": "episodes/ep001/work/v31-voice/v003.c2-c002.s1.mp3",
+      "asr": "At the February rate, a new loan would have cut our payment by $459 a month.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n03.reuse-v003.c2-c002.s1.mp3"
+   },
+   {
+    "n": 4,
+    "scene": "S01",
+    "pause_kind": "beat",
+    "tts_text": "She didn't take it.",
+    "takes": [
+     {
+      "file": "V1.n04.reuse-v004.c2-c003.s1.mp3",
+      "seed": 1,
+      "source": "reused_c2",
+      "from": "episodes/ep001/work/v31-voice/v004.c2-c003.s1.mp3",
+      "asr": "She didn't take it.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n04.reuse-v004.c2-c003.s1.mp3"
+   },
+   {
+    "n": 5,
+    "scene": "S01",
+    "pause_kind": "beat",
+    "tts_text": "By late September, the rate was back above seven percent, for the first time since January twenty twenty-five.",
+    "takes": [
+     {
+      "file": "V1.n05.reuse-v005.c2-c004.s1.mp3",
+      "seed": 1,
+      "source": "reused_c2",
+      "from": "episodes/ep001/work/v31-voice/v005.c2-c004.s1.mp3",
+      "asr": "By late September, the rate was back above 7%, for the first time since January 2025.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n05.reuse-v005.c2-c004.s1.mp3"
+   },
+   {
+    "n": 6,
+    "scene": "S02",
+    "pause_kind": "scene",
+    "tts_text": "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for five thousand one hundred twenty-four dollars in fees.",
+    "takes": [
+     {
+      "file": "V1.n06.reuse-v006.s1.mp3",
+      "seed": 1,
+      "source": "new",
+      "from": "episodes/ep001/work/v31-voice/v006.s1.mp3",
+      "asr": "Now a letter comes from her lender, an offer to refinance, a new loan at a slightly lower rate that pays off the old one for $5 ,124 in fees.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n06.reuse-v006.s1.mp3"
+   },
+   {
+    "n": 7,
+    "scene": "S02",
+    "pause_kind": "same",
+    "tts_text": "How big a rate cut makes that worth it for Nora — and where would your own loan fall?",
+    "takes": [
+     {
+      "file": "V1.n07.seed1.mp3",
+      "seed": 1,
+      "source": "new",
+      "characterCost": 34,
+      "len": 85,
+      "asr": "How big a rate cut makes that worth it for Nora. And where would your own loan fall?",
+      "missing": []
+     }
+    ],
+    "use": "V1.n07.seed1.mp3"
+   },
+   {
+    "n": 8,
+    "scene": "S02",
+    "pause_kind": "beat",
+    "tts_text": "And why would a smaller mortgage need a bigger cut?",
+    "takes": [
+     {
+      "file": "V1.n08.reuse-v008.s1.mp3",
+      "seed": 1,
+      "source": "new",
+      "from": "episodes/ep001/work/v31-voice/v008.s1.mp3",
+      "asr": "And why would a smaller mortgage need a bigger cut?",
+      "missing": []
+     }
+    ],
+    "use": "V1.n08.reuse-v008.s1.mp3"
+   },
+   {
+    "n": 49,
+    "scene": "S10",
+    "pause_kind": "same",
+    "tts_text": "By month twenty-four, she owes one thousand one hundred thirty-three dollars more than if she had kept the old loan.",
+    "takes": [
+     {
+      "file": "V1.n49.reuse-v049.c2-c056.s1.mp3",
+      "seed": 1,
+      "source": "reused_c2",
+      "from": "episodes/ep001/work/v31-voice/v049.c2-c056.s1.mp3",
+      "asr": "By month 24, she owes $1 ,133 more than if she had kept the old loan.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n49.reuse-v049.c2-c056.s1.mp3"
+   },
+   {
+    "n": 50,
+    "scene": "S10",
+    "pause_kind": "beat",
+    "tts_text": "If she sold the house then, that one thousand one hundred thirty-three dollars would come out of her sale money, so it cancels part of what she has saved.",
+    "takes": [
+     {
+      "file": "V1.n50.reuse-v050.s1.mp3",
+      "seed": 1,
+      "source": "new",
+      "from": "episodes/ep001/work/v31-voice/v050.s1.mp3",
+      "asr": "If she sold the house then, that $1 ,133 would come out of her sale money, so it cancels part of what she has saved.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n50.reuse-v050.s1.mp3"
+   },
+   {
+    "n": 51,
+    "scene": "S10",
+    "pause_kind": "same",
+    "tts_text": "Her savings need a few more months to cover it, and the gap keeps growing a little while they do.",
+    "takes": [
+     {
+      "file": "V1.n51.reuse-v051.s1.mp3",
+      "seed": 1,
+      "source": "new",
+      "from": "episodes/ep001/work/v31-voice/v051.s1.mp3",
+      "asr": "Her savings need a few more months to cover it, and the gap keeps growing a little while they do.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n51.reuse-v051.s1.mp3"
+   },
+   {
+    "n": 52,
+    "scene": "S10",
+    "pause_kind": "same",
+    "tts_text": "Count it, and break-even moves from month twenty-four to month thirty.",
+    "takes": [
+     {
+      "file": "V1.n52.reuse-v052.c2-c058.s1.mp3",
+      "seed": 1,
+      "source": "reused_c2",
+      "from": "episodes/ep001/work/v31-voice/v052.c2-c058.s1.mp3",
+      "asr": "Count it and break even moves from month 24 to month 30.",
+      "missing": []
+     }
+    ],
+    "use": "V1.n52.reuse-v052.c2-c058.s1.mp3"
+   }
+  ],
+  "V2": [
+   {
+    "scene": "S01",
+    "n": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "text_sent": "In February twenty twenty-six, the average thirty-year fixed mortgage rate in the U.S. fell to five point nine eight percent, the lowest since September twenty twenty-two. Nora had borrowed in twenty twenty-three, at seven point six two percent. At the February rate, a new loan would have cut her payment by four hundred fifty-nine dollars a month.\n\nShe didn't take it.\n\nBy late September, the rate was back above seven percent, for the first time since January twenty twenty-five.",
+    "sentences": [
+     "In February twenty twenty-six, the average thirty-year fixed mortgage rate in the U.S. fell to five point nine eight percent, the lowest since September twenty twenty-two.",
+     "Nora had borrowed in twenty twenty-three, at seven point six two percent.",
+     "At the February rate, a new loan would have cut her payment by four hundred fifty-nine dollars a month.",
+     "She didn't take it.",
+     "By late September, the rate was back above seven percent, for the first time since January twenty twenty-five."
+    ],
+    "takes": [
+     {
+      "file": "V2.S01.seed1.mp3",
+      "seed": 1,
+      "characterCost": 193,
+      "len": 482,
+      "asr": "In February 2026, the average 30 -year fixed mortgage rate in the U .S. fell to 5 .98 percent, the lowest since September 2022. Nora had borrowed in 2023 at 7 .62 percent. At the February rate, a new loan would have cut her payment by $459 a month. She didn't take it. By late September, the rate was back above 7 percent. for the first time since January 2025.",
+      "missing": []
+     }
+    ],
+    "use": "V2.S01.seed1.mp3"
+   },
+   {
+    "scene": "S02",
+    "n": [
+     6,
+     7,
+     8
+    ],
+    "text_sent": "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for five thousand one hundred twenty-four dollars in fees. How big a rate cut makes that worth it for Nora — and where would your own loan fall?\n\nAnd why would a smaller mortgage need a bigger cut?",
+    "sentences": [
+     "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for five thousand one hundred twenty-four dollars in fees.",
+     "How big a rate cut makes that worth it for Nora — and where would your own loan fall?",
+     "And why would a smaller mortgage need a bigger cut?"
+    ],
+    "takes": [
+     {
+      "file": "V2.S02.seed1.mp3",
+      "seed": 1,
+      "characterCost": 128,
+      "len": 319,
+      "asr": "Now a letter comes from her lender, an offer to refinance, a new loan at a slightly lower rate that pays off the old one for $5 ,124 in fees. How big a rate cut makes that worth it for Nora. And where would your own loan fall? And why would a smaller mortgage need a bigger cut?",
+      "missing": []
+     }
+    ],
+    "use": "V2.S02.seed1.mp3"
+   },
+   {
+    "scene": "S10",
+    "n": [
+     49,
+     50,
+     51,
+     52
+    ],
+    "text_sent": "By month twenty-four, she owes one thousand one hundred thirty-three dollars more than if she had kept the old loan.\n\nIf she sold the house then, that one thousand one hundred thirty-three dollars would come out of her sale money, so it cancels part of what she has saved. Her savings need a few more months to cover it, and the gap keeps growing a little while they do. Count it, and break-even moves from month twenty-four to month thirty.",
+    "sentences": [
+     "By month twenty-four, she owes one thousand one hundred thirty-three dollars more than if she had kept the old loan.",
+     "If she sold the house then, that one thousand one hundred thirty-three dollars would come out of her sale money, so it cancels part of what she has saved.",
+     "Her savings need a few more months to cover it, and the gap keeps growing a little while they do.",
+     "Count it, and break-even moves from month twenty-four to month thirty."
+    ],
+    "takes": [
+     {
+      "file": "V2.S10.seed1.mp3",
+      "seed": 1,
+      "characterCost": 176,
+      "len": 441,
+      "asr": "By month 24, she owes $1 ,133 more than if she had kept the old loan. If she sold the house then, that $1 ,133 would come out of her sale money, so it cancels part of what she has saved. Her savings need a few more months to cover it, and the gap keeps growing a little while they do. Count it, and break even moves from month 24 to month 30.",
+      "missing": []
+     }
+    ],
+    "use": "V2.S10.seed1.mp3"
+   }
+  ],
+  "V3": [
+   {
+    "scene": "S01",
+    "n": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "text_sent": "In February twenty twenty-six, the average thirty-year fixed mortgage rate in the U.S. fell to five point nine eight percent, the lowest since September twenty twenty-two. Nora had borrowed in twenty twenty-three, at seven point six two percent. At the February rate, a new loan would have cut her payment by four hundred fifty-nine dollars a month.\n\n[softly] She didn't take it.\n\nBy late September, the rate was back above seven percent, for the first time since January twenty twenty-five.",
+    "sentences": [
+     "In February twenty twenty-six, the average thirty-year fixed mortgage rate in the U.S. fell to five point nine eight percent, the lowest since September twenty twenty-two.",
+     "Nora had borrowed in twenty twenty-three, at seven point six two percent.",
+     "At the February rate, a new loan would have cut her payment by four hundred fifty-nine dollars a month.",
+     "She didn't take it.",
+     "By late September, the rate was back above seven percent, for the first time since January twenty twenty-five."
+    ],
+    "takes": [
+     {
+      "file": "V3.S01.seed1.mp3",
+      "seed": 1,
+      "characterCost": 196,
+      "len": 491,
+      "asr": "In February 2026, the average 30 -year fixed mortgage rate in the U .S. fell to 5 .98 percent, the lowest since September 2022. Nora had borrowed in 2023 at 7 .62 percent. At the February rate, a new loan would have cut her payment by $459 a month. She didn't take it. By late September, the rate was back above 7 percent. for the first time since January 2025.",
+      "missing": []
+     }
+    ],
+    "use": "V3.S01.seed1.mp3"
+   },
+   {
+    "scene": "S02",
+    "n": [
+     6,
+     7,
+     8
+    ],
+    "text_sent": "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for five thousand one hundred twenty-four dollars in fees. [curious] How big a rate cut makes that worth it for Nora — and where would your own loan fall?\n\nAnd why would a smaller mortgage need a bigger cut?",
+    "sentences": [
+     "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for five thousand one hundred twenty-four dollars in fees.",
+     "How big a rate cut makes that worth it for Nora — and where would your own loan fall?",
+     "And why would a smaller mortgage need a bigger cut?"
+    ],
+    "takes": [
+     {
+      "file": "V3.S02.seed1.mp3",
+      "seed": 1,
+      "characterCost": 132,
+      "len": 329,
+      "asr": "Now a letter comes from her lender, an offer to refinance, a new loan at a slightly lower rate that pays off the old one for $5 ,124 in fees. How big a rate cut makes that worth it for Nora? And where would your own loan fall? And why would a smaller mortgage need a bigger cut?",
+      "missing": []
+     }
+    ],
+    "use": "V3.S02.seed1.mp3"
+   },
+   {
+    "scene": "S10",
+    "n": [
+     49,
+     50,
+     51,
+     52
+    ],
+    "text_sent": "By month twenty-four, she owes one thousand one hundred thirty-three dollars more than if she had kept the old loan.\n\n[thoughtful] If she sold the house then, that one thousand one hundred thirty-three dollars would come out of her sale money, so it cancels part of what she has saved. Her savings need a few more months to cover it, and the gap keeps growing a little while they do. [serious] Count it, and break-even moves from month twenty-four to month thirty.",
+    "sentences": [
+     "By month twenty-four, she owes one thousand one hundred thirty-three dollars more than if she had kept the old loan.",
+     "If she sold the house then, that one thousand one hundred thirty-three dollars would come out of her sale money, so it cancels part of what she has saved.",
+     "Her savings need a few more months to cover it, and the gap keeps growing a little while they do.",
+     "Count it, and break-even moves from month twenty-four to month thirty."
+    ],
+    "takes": [
+     {
+      "file": "V3.S10.seed1.mp3",
+      "seed": 1,
+      "characterCost": 186,
+      "len": 464,
+      "asr": "By month 24, she owes $1 ,133 more than if she had kept the old loan. If she sold the house then, that $1 ,133 would come out of her sale money, so it cancels part of what she has saved. Her savings need a few more months to cover it, and the gap keeps growing a little while they do. Count it and break even moves from month 24 to month 30.",
+      "missing": []
+     }
+    ],
+    "use": "V3.S10.seed1.mp3"
+   }
+  ]
+ },
+ "el_characters_charged": {
+  "V1": 34,
+  "V2": 497,
+  "V3": 514
+ },
+ "el_characters_sent": {
+  "V1": 85,
+  "V2": 1242,
+  "V3": 1284
+ },
+ "tags_v3": {
+  "4": "[softly]",
+  "7": "[curious]",
+  "50": "[thoughtful]",
+  "52": "[serious]"
+ }
+}
