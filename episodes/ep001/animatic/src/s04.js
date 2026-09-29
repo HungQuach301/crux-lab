@@ -33,8 +33,8 @@ export function build({ scene, camera, renderer, T }) {
     const row = (y, k, v, tt) => {
       const a = easeOut(t, tt, tt + 0.4) * aC; if (a <= 0) return;
       text(ctx, k, cx + 36, y, 'note', { color: '#4B5563', alpha: a });
-      const typed = Math.round(v.length * ease(t, tt, tt + 0.6));
-      text(ctx, v.slice(0, Math.max(1, typed)), cx + cw - 36, y + 70, 'number', { color: '#20242C', align: 'right', alpha: a });
+      // the whole value slides in from the right (never a partial number)
+      text(ctx, v, cx + cw - 36 + 60 * (1 - easeOut(t, tt, tt + 0.5)), y + 70, 'number', { color: '#20242C', align: 'right', alpha: a });
     };
     row(cy + 170, 'Loan', CL('loan_median'), tLn);
     row(cy + 330, 'Rate', CL('r_old'), tR);

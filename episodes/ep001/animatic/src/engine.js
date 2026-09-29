@@ -228,7 +228,7 @@ export function boot(mod, T) {
     S.overlay(ctx, t, proj, m);
   }
   const b64 = (u8) => { let s = ''; const n = 0x8000; for (let i = 0; i < u8.length; i += n) s += String.fromCharCode.apply(null, u8.subarray(i, i + n)); return btoa(s); };
-  const N = Math.round(T.dur * TOK.canvas.fps);
+  const N = Math.round((T.start + T.dur) * TOK.canvas.fps) - Math.round(T.start * TOK.canvas.fps);
   const even = [0.08, 0.25, 0.42, 0.6, 0.78, 0.97].map((f) => f * T.dur);
   return {
     duration: T.dur, frames: N, stripTimes: (S.stripTimes || even).map((x) => Math.min(x, (N - 1) / TOK.canvas.fps)),
