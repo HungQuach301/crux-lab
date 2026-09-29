@@ -20,10 +20,10 @@ Cả hai: bối cảnh thế giới (đỉnh 2023) trước, rồi Nora (ILLUSTR
 
 ## A-20s (đề xuất Cổng B)
 
-Chưa áp vào `script.md`. Bản này rút từ A (57 từ đọc) xuống 49 từ đọc. Vẫn giữ đủ: bối cảnh trước nhân vật, Nora, lá thư có hoá đơn ($5,124 chỉ hiện trên màn hình, kèm nhãn "nominal $"), và câu hỏi mở. Câu bị cắt là "Many families signed anyway. Nora was one of them."; ý này được gộp vào "Nora signed anyway."
+Chưa áp vào `script.md`. Bản này rút từ A (57 từ đọc) xuống 48 từ đọc. Vẫn giữ đủ: bối cảnh trước nhân vật, Nora, lá thư có hoá đơn ($5,124 chỉ hiện trên màn hình, kèm nhãn "nominal $"), và câu hỏi mở. Câu bị cắt là "Many families signed anyway. Nora was one of them."; ý này được gộp vào "Nora signed anyway."
 
-> In October 2023, the average 30-year fixed mortgage rate in the US hit its highest level since 2000. Nora signed anyway. Now a letter offers her a lower rate, with a bill at the bottom. How far must her rate fall before that bill pays itself back?
+> In October 2023, the average 30-year fixed mortgage rate in the US hit its highest since 2000. Nora signed anyway. Now a letter offers her a lower rate, with a bill at the bottom. How far must her rate fall before that bill pays itself back?
 
-Lời gửi TTS: "In October twenty twenty-three, the average thirty-year fixed mortgage rate in the U.S. hit its highest level since two thousand. Nora signed anyway. Now a letter offers her a lower rate, with a bill at the bottom. How far must her rate fall before that bill pays itself back?"
+Lời gửi TTS: "In October twenty twenty-three, the average thirty-year fixed mortgage rate in the U.S. hit its highest since two thousand. Nora signed anyway. Now a letter offers her a lower rate, with a bill at the bottom. How far must her rate fall before that bill pays itself back?"
 
-Claims: [oct2023], [peak2023_since]. Ở 155 wpm, 49 từ đọc mất khoảng 19.0 s, cộng 0.9 s hình trước lời là khoảng 19.9 s.
+Claims: [oct2023], [peak2023_since]. Ở 155 wpm, 48 từ đọc mất khoảng 18.6 s, cộng 0.9 s hình trước lời là khoảng 19.5 s.
