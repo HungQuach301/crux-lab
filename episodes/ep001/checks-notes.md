@@ -38,7 +38,10 @@ Ba bảng âm dùng chung luật (`toolkit/audio/sonify_palettes.py`):
 - trong lúc có lời, thay "độ nổi ≥ 1 dB" bằng một tiêu chí không lấn lời: tiếng dữ liệu ở 1–4 kHz ≤ lời − X dB, cộng với việc nó có mặt ở dải khác;
 - hiệu chỉnh bằng điểm H8 của chủ dự án trên bảng âm được chọn (`review-m1/sonify-S1/S2/S3.mp4`).
 
-## 2. Luật gắn với bài D (đã ghi ở `contract.json`)
+## 2. Luật gắn với bài D (đã giải ở K2)
+
+**2026-09-29, khoá K2 `f9e24c91`:** các luật dưới đây đọc hợp đồng tập. `contract.json` (sinh bởi `contract_build.py`) khai `model.kind = refinance-breakeven`, nhân vật `median/small/large`, `data.hosts` và cặp đối chiếu FRED. Kết quả kiểm độc lập: `out/checks/independent.md` (S01, S03, S04, S05 đạt). Phần dưới là ghi chú cũ (khoá K1).
+
 
 - S01, S05, S06: mô hình hưu trí của bài D.
 - V04, V09: nhân vật `1966`/`mirror`. Tập 1 dùng `small`/`large`/`median`.
