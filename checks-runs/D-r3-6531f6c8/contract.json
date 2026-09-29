@@ -25,7 +25,17 @@
  "claims": {
   "core": [],
   "decisive": [],
-  "illustrative": []
+  "illustrative": [],
+  "assumptions": [
+   {
+    "id": "no-tax",
+    "pattern": "\\bno (income )?tax(es)?\\b|\\bbefore tax(es)?\\b|\\btaxes? (are )?(not|ignored)"
+   },
+   {
+    "id": "no-fee",
+    "pattern": "\\bno fees?\\b|\\bfees? (are )?(not|ignored)|\\bwithout fees\\b|\\bno (fund )?costs?\\b"
+   }
+  ]
  },
  "model": {
   "kind": "retirement-6040",
