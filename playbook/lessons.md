@@ -47,7 +47,8 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 
 | # | Chuyện đã xảy ra | Bài học |
 |---|---|---|
-| V1 | Giọng B nghe thử (7 câu mới sinh) được chọn; bản đọc cả tập (105 câu, sinh từng câu riêng, 82 câu tái dùng từ C2, nghỉ cố định 0,45 s) bị chê "đều đều, mất nhấn nhá". | Chọn giọng trên một mẫu nhỏ chưa đủ; cách **sinh** (từng câu hay cả cảnh) và cách **ghép** là một phần của giọng. Thử mù phải dùng đúng quy trình sẽ dùng cho cả tập. (Chờ kết quả V1/V2/V3 để xác nhận nguyên nhân.) |
+| V1 | Giọng B nghe thử (7 câu mới sinh) được chọn; bản đọc cả tập (105 câu, sinh từng câu riêng, 82 câu tái dùng từ C2, nghỉ cố định 0,45 s) bị chê "đều đều, mất nhấn nhá". | Chọn giọng trên một mẫu nhỏ chưa đủ; cách **sinh** (từng câu hay cả cảnh) và cách **ghép** là một phần của giọng. Thử mù phải dùng đúng quy trình sẽ dùng cho cả tập. Kết quả thử mù: chủ dự án thích hai bản sinh theo cảnh (V2, V3) hơn bản từng câu (V1), chọn V3 — theo cảnh + thẻ cảm xúc thưa (G-015 · chọn). Cách chuẩn từ nay. |
+| V2 | Chủ dự án chọn trong gói mù rồi mô tả lựa chọn theo tên kiểu ("theo cảnh, không thẻ") — mô tả không khớp nhãn đã giải mã. | Khi câu trả lời về bản mù kèm mô tả, đối chiếu với giải mã trước khi làm; mâu thuẫn thì hỏi lại, không tự chọn. |
 
 ## B4. Quyền tài sản
 
