@@ -54,7 +54,8 @@ const thumbs = [
     name: 'thumb-3', claims: { low: 'low2026', now: 'r_today' },
     html: () => `
       ${T('low', 80, 120, 150, CL('low2026'), tok.accent)}
-      ${T('arrow', 575, 120, 150, '→', tok.muted)}
+      <div style="position:absolute;left:600px;top:192px;width:90px;height:12px;background:${tok.muted}"></div>
+      <div style="position:absolute;left:688px;top:172px;width:0;height:0;border-top:26px solid transparent;border-bottom:26px solid transparent;border-left:40px solid ${tok.muted}"></div>
       ${T('now', 760, 120, 150, CL('r_today'), tok.negative)}
       <div style="position:absolute;left:80px;top:330px;width:1120px;height:6px;background:${tok.grid}"></div>
       ${T('h1', 80, 420, 110, 'The window closed.')}
