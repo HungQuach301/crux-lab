@@ -5832,6 +5832,379 @@
     ],
     "missing": []
    }
+  ],
+  "use": "S13.seed1.mp3"
+ },
+ "S14": {
+  "scene": "S14",
+  "n": [
+   65,
+   66,
+   67,
+   68,
+   69,
+   70
+  ],
+  "text_sent": "Walt is another borrower we built from typical figures. He bought a smaller house the same month as Nora, with a one hundred fifteen thousand dollar loan at the same rate. His letter offers the same cut. The bill at the bottom: three thousand six hundred sixty-seven dollars.\n\nHis loan is far smaller than hers. His bill is only a little smaller.",
+  "tags": {},
+  "sentences": [
+   "Walt is another borrower we built from typical figures.",
+   "He bought a smaller house the same month as Nora, with a one hundred fifteen thousand dollar loan at the same rate.",
+   "His letter offers the same cut.",
+   "The bill at the bottom: three thousand six hundred sixty-seven dollars.",
+   "His loan is far smaller than hers.",
+   "His bill is only a little smaller."
+  ],
+  "text_plain": [
+   "Walt is another borrower we built from typical figures.",
+   "He bought a smaller house the same month as Nora, with a $115,000 loan at the same rate.",
+   "His letter offers the same cut.",
+   "The bill at the bottom: $3,667.",
+   "His loan is far smaller than hers.",
+   "His bill is only a little smaller."
+  ],
+  "takes": [
+   {
+    "file": "S14.seed1.mp3",
+    "seed": 1,
+    "characterCost": 138,
+    "len": 346,
+    "requestId": "ubXsgBQeSg7YywUGajGx",
+    "asr": "Walt is another borrower we built from Typical Figures. He bought a smaller house the same month as Nora, with a $115 ,000 loan at the same rate. His letter offers the same cut. The bill at the bottom, $3 ,667. His loan is far smaller than hers. His bill is only a little smaller.",
+    "asr_words": [
+     {
+      "w": "Walt",
+      "start": 0.0,
+      "end": 0.28,
+      "p": 0.98
+     },
+     {
+      "w": "is",
+      "start": 0.28,
+      "end": 0.5,
+      "p": 0.99
+     },
+     {
+      "w": "another",
+      "start": 0.5,
+      "end": 0.76,
+      "p": 1.0
+     },
+     {
+      "w": "borrower",
+      "start": 0.76,
+      "end": 1.16,
+      "p": 0.99
+     },
+     {
+      "w": "we",
+      "start": 1.16,
+      "end": 1.48,
+      "p": 0.98
+     },
+     {
+      "w": "built",
+      "start": 1.48,
+      "end": 1.68,
+      "p": 0.92
+     },
+     {
+      "w": "from",
+      "start": 1.68,
+      "end": 1.9,
+      "p": 1.0
+     },
+     {
+      "w": "Typical",
+      "start": 1.9,
+      "end": 2.2,
+      "p": 0.6
+     },
+     {
+      "w": "Figures.",
+      "start": 2.2,
+      "end": 2.48,
+      "p": 0.94
+     },
+     {
+      "w": "He",
+      "start": 3.34,
+      "end": 3.46,
+      "p": 0.99
+     },
+     {
+      "w": "bought",
+      "start": 3.46,
+      "end": 3.6,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 3.6,
+      "end": 3.76,
+      "p": 1.0
+     },
+     {
+      "w": "smaller",
+      "start": 3.76,
+      "end": 4.08,
+      "p": 0.99
+     },
+     {
+      "w": "house",
+      "start": 4.08,
+      "end": 4.38,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 4.38,
+      "end": 4.58,
+      "p": 0.97
+     },
+     {
+      "w": "same",
+      "start": 4.58,
+      "end": 4.78,
+      "p": 1.0
+     },
+     {
+      "w": "month",
+      "start": 4.78,
+      "end": 4.96,
+      "p": 1.0
+     },
+     {
+      "w": "as",
+      "start": 4.96,
+      "end": 5.16,
+      "p": 1.0
+     },
+     {
+      "w": "Nora,",
+      "start": 5.16,
+      "end": 5.42,
+      "p": 0.95
+     },
+     {
+      "w": "with",
+      "start": 5.86,
+      "end": 6.12,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 6.12,
+      "end": 6.22,
+      "p": 0.98
+     },
+     {
+      "w": "$115",
+      "start": 6.22,
+      "end": 6.94,
+      "p": 0.95
+     },
+     {
+      "w": ",000",
+      "start": 6.94,
+      "end": 7.76,
+      "p": 0.98
+     },
+     {
+      "w": "loan",
+      "start": 7.76,
+      "end": 8.2,
+      "p": 0.98
+     },
+     {
+      "w": "at",
+      "start": 8.2,
+      "end": 8.42,
+      "p": 0.99
+     },
+     {
+      "w": "the",
+      "start": 8.42,
+      "end": 8.54,
+      "p": 1.0
+     },
+     {
+      "w": "same",
+      "start": 8.54,
+      "end": 8.72,
+      "p": 1.0
+     },
+     {
+      "w": "rate.",
+      "start": 8.72,
+      "end": 9.02,
+      "p": 1.0
+     },
+     {
+      "w": "His",
+      "start": 9.74,
+      "end": 9.92,
+      "p": 1.0
+     },
+     {
+      "w": "letter",
+      "start": 9.92,
+      "end": 10.16,
+      "p": 1.0
+     },
+     {
+      "w": "offers",
+      "start": 10.16,
+      "end": 10.6,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 10.6,
+      "end": 10.82,
+      "p": 1.0
+     },
+     {
+      "w": "same",
+      "start": 10.82,
+      "end": 11.06,
+      "p": 1.0
+     },
+     {
+      "w": "cut.",
+      "start": 11.06,
+      "end": 11.38,
+      "p": 0.99
+     },
+     {
+      "w": "The",
+      "start": 12.3,
+      "end": 12.52,
+      "p": 0.98
+     },
+     {
+      "w": "bill",
+      "start": 12.52,
+      "end": 12.7,
+      "p": 0.97
+     },
+     {
+      "w": "at",
+      "start": 12.7,
+      "end": 12.92,
+      "p": 0.98
+     },
+     {
+      "w": "the",
+      "start": 12.92,
+      "end": 13.06,
+      "p": 1.0
+     },
+     {
+      "w": "bottom,",
+      "start": 13.06,
+      "end": 13.32,
+      "p": 1.0
+     },
+     {
+      "w": "$3",
+      "start": 14.3,
+      "end": 14.58,
+      "p": 0.94
+     },
+     {
+      "w": ",667.",
+      "start": 14.58,
+      "end": 15.84,
+      "p": 0.99
+     },
+     {
+      "w": "His",
+      "start": 17.08,
+      "end": 17.58,
+      "p": 0.98
+     },
+     {
+      "w": "loan",
+      "start": 17.58,
+      "end": 17.76,
+      "p": 1.0
+     },
+     {
+      "w": "is",
+      "start": 17.76,
+      "end": 17.94,
+      "p": 1.0
+     },
+     {
+      "w": "far",
+      "start": 17.94,
+      "end": 18.16,
+      "p": 1.0
+     },
+     {
+      "w": "smaller",
+      "start": 18.16,
+      "end": 18.52,
+      "p": 1.0
+     },
+     {
+      "w": "than",
+      "start": 18.52,
+      "end": 18.78,
+      "p": 1.0
+     },
+     {
+      "w": "hers.",
+      "start": 18.78,
+      "end": 19.04,
+      "p": 0.99
+     },
+     {
+      "w": "His",
+      "start": 19.04,
+      "end": 19.78,
+      "p": 0.71
+     },
+     {
+      "w": "bill",
+      "start": 19.78,
+      "end": 20.12,
+      "p": 0.99
+     },
+     {
+      "w": "is",
+      "start": 20.12,
+      "end": 20.56,
+      "p": 0.99
+     },
+     {
+      "w": "only",
+      "start": 20.56,
+      "end": 20.74,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 20.74,
+      "end": 20.9,
+      "p": 1.0
+     },
+     {
+      "w": "little",
+      "start": 20.9,
+      "end": 21.02,
+      "p": 1.0
+     },
+     {
+      "w": "smaller.",
+      "start": 21.02,
+      "end": 21.38,
+      "p": 1.0
+     }
+    ],
+    "missing": []
+   }
   ]
  }
 }
