@@ -266,18 +266,61 @@ def _in_repo(ctx, rel):
         d = up
 
 
-@rule('F12', 'DX-A3 (sổ giấy phép), CH §5 (K3: quyền tài sản)', 'rights ledger out/rights.json {assets:[{name, stems:[…], origin, licence, thirdParty, '
-      'terms:{quote, url}, commercial, generator}]}. Every delivered stem (out/audio/stems/<name>.wav|flac of voice, music, sfx, whoosh, room, sonify) with sound '
-      '(1 s RMS above −60 dBFS somewhere) must be covered by an asset listing it in stems. Every asset: origin and licence non-empty, thirdParty a boolean. A '
-      'third-party asset (TTS voice, library music or sound, font, …): terms quote ≥ 20 chars and http(s) terms URL, commercial = true (the terms allow an '
-      'ad-supported channel). An asset made by this project: generator = a path that exists under the root or one of its parent folders',
-      '0 sounding stems without a rights entry; 0 assets with a missing field; 0 third-party assets without terms or not cleared for commercial use; ≥ 1 asset')
-def f12_rights(ctx):
+VISUAL_KINDS = ('image', 'document', 'font', 'model3d', 'texture', 'quote-card')
+
+
+def _visual_list(ctx):
+    """Third-party-capable visual assets of the build: contract.json rights.visual[] and/or the builder's manifest
+    out/visual-assets.json {assets:[…]} (union by name). Neither declared = MISSING: the checker never infers the build's pictures."""
+    items, found = [], False
+    try:
+        c = ctx.contract()
+    except Missing:
+        c = {}
+    cv = (c.get('rights') or {}).get('visual') if isinstance(c.get('rights'), dict) else None
+    if isinstance(cv, list):
+        items += cv
+        found = True
+    if ctx.has('out/visual-assets.json'):
+        m = ctx.json('out/visual-assets.json').get('assets')
+        if isinstance(m, list):
+            items += m
+            found = True
+    if not found:
+        raise Missing('visual asset list (contract.json rights.visual or out/visual-assets.json)')
+    seen = {}
+    for v in items:
+        if isinstance(v, dict) and v.get('name'):
+            seen.setdefault(v['name'], v)
+        else:
+            seen.setdefault('?%d' % len(seen), {'name': None, 'kind': None})
+    return list(seen.values())
+
+
+def _url(x):
     from urllib.parse import urlparse
+    return urlparse(x or '').scheme in ('http', 'https')
+
+
+@rule('F12', 'DX-A3 (sổ giấy phép), CH §5 (K3: quyền tài sản; K3.1: tài sản hình)', 'rights ledger out/rights.json {assets:[{name, stems:[…], visuals:[…], kind, origin, licence, '
+      'thirdParty, terms:{quote, url}, commercial, generator, publicDomain, pdBasis, source:{url}, quoteSource:{who, url}}]}. (1) Sound: every delivered stem '
+      '(out/audio/stems/<name>.wav|flac of voice, music, sfx, whoosh, room, sonify) with sound (1 s RMS above −60 dBFS somewhere) must be covered by an asset '
+      'listing it in stems. (2) Pictures (K3.1): the visual asset list = contract.json rights.visual[] ∪ out/visual-assets.json assets[] ({name, kind ∈ image, '
+      'document, font, model3d, texture, quote-card}); neither declared = MISSING. Every listed visual must be covered by an asset listing its name in visuals. '
+      'Every asset: origin and licence non-empty, thirdParty a boolean. Public-domain asset (publicDomain = true, e.g. a US federal document): source.url http(s) '
+      'and pdBasis ≥ 20 chars (the ground for public domain), no terms needed. Other third-party asset (TTS voice, library music or sound, photo, font, 3D model, '
+      'texture, …): terms quote ≥ 20 chars and http(s) terms URL, commercial = true (the terms allow an ad-supported channel). An asset made by this project: '
+      'generator = a path that exists under the root or one of its parent folders. A reconstructed quote card (kind or listed kind quote-card), whoever drew it: '
+      'quoteSource.who non-empty and quoteSource.url http(s) (where the quoted words come from)',
+      '0 sounding stems without a rights entry; visual list declared; 0 listed visuals without a rights entry; 0 visuals of an unknown kind; 0 assets with a '
+      'missing field; 0 third-party assets without terms (or public-domain source and basis) or not cleared for commercial use; ≥ 1 asset')
+def f12_rights(ctx):
     import r_audio
     from common import frame_rms_db
     assets = ctx.json('out/rights.json').get('assets') or []
+    visuals = _visual_list(ctx)
     covered = {s for a in assets for s in (a.get('stems') or [])}
+    vcovered = {s for a in assets for s in (a.get('visuals') or [])}
     uncovered, bad = [], []
     for name in STEMS:
         try:
@@ -287,18 +330,32 @@ def f12_rights(ctx):
         _, db = frame_rms_db(x, win=1.0)
         if len(db) and db.max() > -60 and name not in covered:
             uncovered.append(name)
+    vkind = {v.get('name'): v.get('kind') for v in visuals}
+    vbadkind = [v.get('name') or '?' for v in visuals if v.get('kind') not in VISUAL_KINDS]
+    vuncovered = [v.get('name') or '?' for v in visuals if v.get('name') not in vcovered]
     for a in assets:
         nm = a.get('name') or '?'
         if not (a.get('origin') or '').strip() or not (a.get('licence') or '').strip() or not isinstance(a.get('thirdParty'), bool):
             bad.append((nm, 'origin, licence or thirdParty missing'))
             continue
-        if a['thirdParty']:
+        quote_card = a.get('kind') == 'quote-card' or any(vkind.get(v) == 'quote-card' for v in (a.get('visuals') or []))
+        if quote_card:
+            q = a.get('quoteSource') or {}
+            if not (q.get('who') or '').strip() or not _url(q.get('url')):
+                bad.append((nm, 'quote card without the origin of the quote (quoteSource.who/url)'))
+        if a.get('publicDomain') is True:
+            if not _url((a.get('source') or {}).get('url')) or len((a.get('pdBasis') or '').strip()) < 20:
+                bad.append((nm, 'public domain without source url or basis (pdBasis)'))
+        elif a['thirdParty']:
             t = a.get('terms') or {}
-            if len(t.get('quote') or '') < 20 or urlparse(t.get('url') or '').scheme not in ('http', 'https'):
+            if len(t.get('quote') or '') < 20 or not _url(t.get('url')):
                 bad.append((nm, 'terms quote/url missing'))
             if a.get('commercial') is not True:
                 bad.append((nm, 'not cleared for commercial use'))
         elif not a.get('generator') or not _in_repo(ctx, a['generator']):
             bad.append((nm, 'generator path missing'))
     return verdict('F12', [metric('assets', len(assets), '>=', 1), metric('sounding stems without a rights entry', len(uncovered), '<=', 0),
-                           metric('assets with a problem', len(bad), '<=', 0)], details=[{'uncovered': uncovered}, {'problems': bad[:30]}])
+                           metric('listed visuals without a rights entry', len(vuncovered), '<=', 0),
+                           metric('visuals of an unknown kind', len(vbadkind), '<=', 0),
+                           metric('assets with a problem', len(bad), '<=', 0)],
+                   details=[{'uncovered': uncovered}, {'visualsUncovered': vuncovered[:30]}, {'visualsBadKind': vbadkind[:30]}, {'problems': bad[:30]}])
