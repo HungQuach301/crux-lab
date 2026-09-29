@@ -1,0 +1,56 @@
+{
+ "desc": "A calm, precise and warm American woman in her late thirties, General American accent, clear mid-low pitch, measured unhurried pace, grounded and friendly like a trusted financial analyst explaining data; studio-quality close-mic recording, no reverb, no hype.",
+ "text": "Here is how the numbers work for one household. The fees come first, then the monthly savings, and then a simple question: how long until the savings pay back what you spent to get them?",
+ "body": {
+  "voice_description": "A calm, precise and warm American woman in her late thirties, General American accent, clear mid-low pitch, measured unhurried pace, grounded and friendly like a trusted financial analyst explaining data; studio-quality close-mic recording, no reverb, no hype.",
+  "model_id": "eleven_ttv_v3",
+  "text": "Here is how the numbers work for one household. The fees come first, then the monthly savings, and then a simple question: how long until the savings pay back what you spent to get them?",
+  "auto_generate_text": false,
+  "guidance_scale": 5,
+  "seed": 7
+ },
+ "previews": [
+  {
+   "generated_voice_id": "5CfKXK0Ja3g60C7kDGrV",
+   "media_type": "audio/mpeg",
+   "duration_secs": 13.9521875,
+   "language": "en",
+   "detected_labels": null,
+   "previews": null
+  },
+  {
+   "generated_voice_id": "Zv3dFa2aSpOgCtdBRQiZ",
+   "media_type": "audio/mpeg",
+   "duration_secs": 12.5154375,
+   "language": "en",
+   "detected_labels": null,
+   "previews": null
+  },
+  {
+   "generated_voice_id": "4EQ2DsnrRPyxtdEYc43b",
+   "media_type": "audio/mpeg",
+   "duration_secs": 13.32525,
+   "language": "en",
+   "detected_labels": null,
+   "previews": null
+  }
+ ],
+ "headers": {
+  "Connection": "close",
+  "Transfer-Encoding": "chunked",
+  "Access-Control-Allow-Headers": "*",
+  "Access-Control-Allow-Methods": "POST, PATCH, OPTIONS, DELETE, GET, PUT",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Max-Age": "600",
+  "Alt-Svc": "h3=\":443\"; ma=2592000",
+  "Content-Encoding": "gzip",
+  "Content-Type": "application/json",
+  "Date": "Tue, 29 Sep 2026 09:41:30 GMT",
+  "Server": "uvicorn",
+  "Strict-Transport-Security": "max-age=1800;",
+  "Vary": "Accept-Language, Accept-Encoding",
+  "Via": "1.1 google",
+  "X-Region": "us-central1",
+  "X-Trace-Id": "be97057e88190a5a5824aeb146211a58"
+ }
+}

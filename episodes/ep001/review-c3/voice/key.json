@@ -1,0 +1,119 @@
+{
+ "_": "GIẢI MÃ — không đưa cho người nghe mù. Đoạn: script-v3.md (@3802b4e) S01 toàn bộ + S02 đến hết câu hỏi thứ nhất; lời đọc = chữ đã chuẩn hoá của table read C2 (work/c2-voice/c000–c006). Nghỉ do dựng: đầu 0,5 s; 0,45 s giữa câu; 1,0 s ở [beat]; 1,4 s giữa S01 và S02; cuối 1,0 s. Take cắt theo vùng tiếng ±30 ms, không giãn/nén. Âm lượng: chỉ gain, cùng −20,15 LUFS cho cả ba (−19 không đạt được với đỉnh ≤ −1 dBFS ở một bản nên cả ba hạ chung), không nén/limit. Mã hoá AAC 192 kbps mono 48 kHz (PyAV).",
+ "files": {
+  "voice-A.m4a": {
+   "version": "G2",
+   "model": "eleven_multilingual_v2",
+   "voice_id": "cjVigY5qzO86Huf0OWal",
+   "voice": "Eric (thư viện premade ElevenLabs)",
+   "voice_settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.0,
+    "use_speaker_boost": true,
+    "speed": 0.72
+   },
+   "speed": 0.72,
+   "speedNote": "speed 0.72 cố định cho mọi câu; nếu G2 được chọn, 0.72 dùng cho CẢ TẬP. Hiệu chuẩn trên 3 câu S03/S04 (ngoài đoạn thử): speed 1.0 → 218 wpm, 0.85 → 178, 0.75 → 163 (wpm lúc nói, take đã cắt im lặng); nội suy ra 0.72 → đo được 155,4 wpm trên đoạn thử. Lưu ý A2: v1 dùng đúng dải 0,70–0,72 và bị chê \"cố kéo dài\" — ở v1 là dự phòng xen kẽ với v3; ở đây là một model duy nhất cho cả bản.",
+   "seed": 11,
+   "takes": [
+    "episodes/ep001/work/c3-voice/takes/G2.s0.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G2.s1.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G2.s2.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G2.s3.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G2.s4.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G2.s5.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G2.s6.seed11.mp3"
+   ],
+   "regenerated": "không",
+   "durationSec": 52.19,
+   "speechSec": 45.94,
+   "words": 119,
+   "wpmSpeaking": 155.4,
+   "wpmWithPauses": 140.9,
+   "wpmNote": "lúc nói = từ / tổng thời lượng take đã cắt; cả nghỉ = từ / (thời lượng − 1,5 s đầu+cuối)",
+   "lufs": -20.15,
+   "peakDbfs": -1.0,
+   "elCharactersCharged": 271,
+   "elCharactersSent": 679
+  },
+  "voice-B.m4a": {
+   "version": "G1",
+   "model": "eleven_v3",
+   "voice_id": "cjVigY5qzO86Huf0OWal",
+   "voice": "Eric (thư viện premade ElevenLabs)",
+   "voice_settings": "mặc định (không gửi voice_settings)",
+   "speed": null,
+   "seed": 11,
+   "takes": [
+    "episodes/ep001/work/c3-voice/takes/G1.s0.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G1.s1.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G1.s2.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G1.s3.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G1.s4.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G1.s5.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G1.s6.seed12.mp3"
+   ],
+   "regenerated": "câu 7 (S02 \"How big a rate cut…\"): take seed 11 ASR nghe \"rake cut\" → sinh lại 1 lần seed 12, ASR đúng",
+   "durationSec": 47.09,
+   "speechSec": 40.84,
+   "words": 119,
+   "wpmSpeaking": 174.8,
+   "wpmWithPauses": 156.6,
+   "wpmNote": "lúc nói = từ / tổng thời lượng take đã cắt; cả nghỉ = từ / (thời lượng − 1,5 s đầu+cuối)",
+   "lufs": -20.15,
+   "peakDbfs": -3.26,
+   "elCharactersCharged": 290,
+   "elCharactersSent": 726
+  },
+  "voice-C.m4a": {
+   "version": "G3",
+   "model": "eleven_v3",
+   "voice_id": "4EQ2DsnrRPyxtdEYc43b",
+   "voice": "crux-analyst-f1 (ElevenLabs Voice Design, category generated, nữ)",
+   "voice_settings": "mặc định (không gửi voice_settings)",
+   "speed": null,
+   "design": {
+    "voice_description": "A calm, precise and warm American woman in her late thirties, General American accent, clear mid-low pitch, measured unhurried pace, grounded and friendly like a trusted financial analyst explaining data; studio-quality close-mic recording, no reverb, no hype.",
+    "model_id": "eleven_ttv_v3",
+    "text": "Here is how the numbers work for one household. The fees come first, then the monthly savings, and then a simple question: how long until the savings pay back what you spent to get them?",
+    "auto_generate_text": false,
+    "guidance_scale": 5,
+    "seed": 7,
+    "endpoint": "POST /v1/text-to-voice/design rồi POST /v1/text-to-voice (lưu)",
+    "previews": [
+     "5CfKXK0Ja3g60C7kDGrV",
+     "Zv3dFa2aSpOgCtdBRQiZ",
+     "4EQ2DsnrRPyxtdEYc43b"
+    ],
+    "choiceRule": "định trước khi nghe: cả 3 preview ASR đúng 100%; chọn preview có nhịp gần 155 wpm nhất (144,9 / 162,6 / 151,4 → preview 3), cũng là cao độ trầm nhất (F0 trung vị ~168 Hz so với 174/178), khớp \"mid-low pitch\""
+   },
+   "seed": 11,
+   "takes": [
+    "episodes/ep001/work/c3-voice/takes/G3.s0.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G3.s1.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G3.s2.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G3.s3.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G3.s4.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G3.s5.seed11.mp3",
+    "episodes/ep001/work/c3-voice/takes/G3.s6.seed12.mp3"
+   ],
+   "regenerated": "câu 7: take seed 11 ASR nghe thêm chữ \"But\" ở đầu (đọc sai lời) → sinh lại 1 lần seed 12, ASR đúng",
+   "durationSec": 50.39,
+   "speechSec": 44.14,
+   "words": 119,
+   "wpmSpeaking": 161.8,
+   "wpmWithPauses": 146.0,
+   "wpmNote": "lúc nói = từ / tổng thời lượng take đã cắt; cả nghỉ = từ / (thời lượng − 1,5 s đầu+cuối)",
+   "lufs": -20.15,
+   "peakDbfs": -7.04,
+   "elCharactersCharged": 290,
+   "elCharactersSent": 726
+  }
+ },
+ "elTotal": {
+  "charged": 1157,
+  "sent": 2905,
+  "breakdown": "G1 290, G2 271, G3 290 (gồm 2 lần sinh lại, mỗi lần 19); hiệu chuẩn speed G2 306 (9 lần gọi, 765 ký tự gửi); Voice Design: 1 lần design + 1 lần lưu, API không trả header Character-Cost (chưa rõ tốn credit)"
+ }
+}
