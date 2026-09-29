@@ -154,7 +154,8 @@
    "basis": "nominal",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "character": "median"
   },
   {
    "claimId": "cost_median",
@@ -173,7 +174,8 @@
    "shownIn": [],
    "spoken": [],
    "core": true,
-   "decisive": false
+   "decisive": false,
+   "character": "median"
   },
   {
    "claimId": "sav_median",
@@ -195,7 +197,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.both",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "median"
   },
   {
    "claimId": "be_simple_median",
@@ -216,7 +219,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.break_even_months",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "median"
   },
   {
    "claimId": "be_bal_median",
@@ -239,7 +243,8 @@
    "model": "refi.break_even_balance",
    "asOf": "2026-09-24",
    "core": true,
-   "decisive": true
+   "decisive": true,
+   "character": "median"
   },
   {
    "claimId": "net36_median",
@@ -261,7 +266,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.net_after",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "median"
   },
   {
    "claimId": "net84_median",
@@ -283,7 +289,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.net_after",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "median"
   },
   {
    "claimId": "cut36_median",
@@ -305,7 +312,8 @@
    "spoken": [],
    "model": "refi.cut_for_break_even_balance",
    "decisive": true,
-   "core": true
+   "core": true,
+   "character": "median"
   },
   {
    "claimId": "loan_small",
@@ -322,7 +330,8 @@
    "basis": "nominal",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "character": "small"
   },
   {
    "claimId": "cost_small",
@@ -339,7 +348,8 @@
    "basis": "nominal",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "character": "small"
   },
   {
    "claimId": "sav_small",
@@ -361,7 +371,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.both",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "small"
   },
   {
    "claimId": "be_simple_small",
@@ -382,7 +393,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.break_even_months",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "small"
   },
   {
    "claimId": "be_bal_small",
@@ -403,7 +415,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.break_even_balance",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "small"
   },
   {
    "claimId": "net36_small",
@@ -425,7 +438,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.net_after",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "small"
   },
   {
    "claimId": "net84_small",
@@ -447,7 +461,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.net_after",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "small"
   },
   {
    "claimId": "cut36_small",
@@ -467,7 +482,8 @@
    "callbacks": [],
    "shownIn": [],
    "spoken": [],
-   "model": "refi.cut_for_break_even_balance"
+   "model": "refi.cut_for_break_even_balance",
+   "character": "small"
   },
   {
    "claimId": "loan_large",
@@ -485,7 +501,8 @@
    "basis": "nominal",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "character": "large"
   },
   {
    "claimId": "cost_large",
@@ -503,7 +520,8 @@
    "basis": "nominal",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "character": "large"
   },
   {
    "claimId": "sav_large",
@@ -525,7 +543,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.both",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "large"
   },
   {
    "claimId": "be_simple_large",
@@ -547,7 +566,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.break_even_months",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "large"
   },
   {
    "claimId": "be_bal_large",
@@ -569,7 +589,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.break_even_balance",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "large"
   },
   {
    "claimId": "net36_large",
@@ -592,7 +613,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.net_after",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "large"
   },
   {
    "claimId": "net84_large",
@@ -615,7 +637,8 @@
    "shownIn": [],
    "spoken": [],
    "model": "refi.net_after",
-   "asOf": "2026-09-24"
+   "asOf": "2026-09-24",
+   "character": "large"
   },
   {
    "claimId": "cut36_large",
@@ -636,7 +659,8 @@
    "callbacks": [],
    "shownIn": [],
    "spoken": [],
-   "model": "refi.cut_for_break_even_balance"
+   "model": "refi.cut_for_break_even_balance",
+   "character": "large"
   },
   {
    "claimId": "gap24",
@@ -1037,7 +1061,8 @@
    "basis": "nominal",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "ownerVerified": false
   },
   {
    "claimId": "cll2025",
@@ -1054,13 +1079,15 @@
    "basis": "nominal",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "ownerVerified": false,
+   "released": "2024-11-26"
   },
   {
    "claimId": "cll2026",
    "value": 832750,
    "display": "$832,750",
-   "formula": "FHFA baseline conforming loan limit 2026, one-unit property, most of the US (WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch)",
+   "formula": "FHFA baseline conforming loan limit 2026, one-unit property, most of the US (owner-verified: the project owner read $832,750 in the official FHFA news release dated November 25, 2025 at the source URL and confirmed it on 2026-09-29)",
    "source": {
     "id": "fhfa-cll",
     "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026"
@@ -1071,7 +1098,9 @@
    "basis": "nominal",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "ownerVerified": true,
+   "released": "2025-11-25"
   },
   {
    "claimId": "share_small",
@@ -1610,6 +1639,34 @@
    "date": "2000-11-10"
   },
   {
+   "claimId": "peak_since2000",
+   "value": 2000,
+   "display": "2000",
+   "formula": "week ending October 26, 2023 = highest weekly MORTGAGE30US value of October 2023 (7.79%); the last earlier week with a value >= 7.79% is the week ending November 10, 2000 (7.79%, equal), the last earlier week strictly above it is the week ending October 20, 2000 (7.83%); no week from November 17, 2000 to October 19, 2023 reached 7.79%. \"Highest since 2000\" = the highest weekly value since the week ending November 10, 2000 (tied with that week; above every week since November 17, 2000). Monthly means agree: October 2023 (7.62%) is the highest monthly mean since November 2000 (7.745%). Search window: whole series from 2000-01-01.",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2000,
+    2023
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2000-11-10",
+   "peakWeek": "2023-10-26",
+   "peakValue": 7.79,
+   "lastWeekAtOrAbove": "2000-11-10",
+   "lastWeekAbove": "2000-10-20",
+   "noWeekAtOrAboveFrom": "2000-11-17",
+   "lastMonthAtOrAbove": "2000-11",
+   "sentence": "In October 2023, the average 30-year fixed mortgage rate in the US hit its highest level since 2000.",
+   "meaning": "Freddie Mac PMMS weekly average (FRED MORTGAGE30US), week ending October 26, 2023: 7.79%, a level no week had reached since the week ending November 10, 2000"
+  },
+  {
    "claimId": "today_since",
    "value": "2025-01-16",
    "display": "January 16, 2025",
@@ -1819,7 +1876,8 @@
    "shownIn": [],
    "spoken": [],
    "parent": "cut36_large",
-   "spokenForm": true
+   "spokenForm": true,
+   "character": "large"
   },
   {
    "claimId": "purch23_words",

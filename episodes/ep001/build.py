@@ -148,7 +148,8 @@ def main():
     claim('band600', 600000, '$600,000', 'lower edge of the large character band (analysis parameter)', None, None, role='axis', historical=False)
     claim('band720', 720000, '$720,000', 'upper edge (exclusive) of the large character band: keeps the October 2023 loan under the 2023 baseline limit (analysis parameter)', None, None, role='axis', historical=False)
     for yy in ('2023', '2025', '2026'):
-        claim(f'cll{yy}', CLL[yy]['value'], usd(CLL[yy]['value']), f'FHFA baseline conforming loan limit {yy}, one-unit property, most of the US ({CLL[yy]["how"]})', {'id': 'fhfa-cll', 'url': CLL[yy]['url']}, int(yy), historical=yy != '2026')
+        claim(f'cll{yy}', CLL[yy]['value'], usd(CLL[yy]['value']), f'FHFA baseline conforming loan limit {yy}, one-unit property, most of the US ({CLL[yy]["how"]})', {'id': 'fhfa-cll', 'url': CLL[yy]['url']}, int(yy), historical=yy != '2026',
+              ownerVerified=CLL[yy].get('verifiedBy') == 'project owner', **({'released': CLL[yy]['released']} if CLL[yy].get('released') else {}))
     claim('share_small', H(Y, P31, 'under $150k', 'cost_p50_pct'), pct(H(Y, P31, 'under $150k', 'cost_p50_pct'), 1), f'median total_loan_costs / loan_amount, HMDA {Y}, loan_purpose 31, loans under $150k', HMDA, Y)
     claim('share_median', H(Y, P31, 'all sizes', 'cost_p50_pct'), pct(H(Y, P31, 'all sizes', 'cost_p50_pct'), 1), f'median total_loan_costs / loan_amount, HMDA {Y}, loan_purpose 31, all sizes', HMDA, Y)
     claim('share_large', H(Y, P31, LARGE, 'cost_p50_pct'), pct(H(Y, P31, LARGE, 'cost_p50_pct'), 1), f'median total_loan_costs / loan_amount, HMDA {Y}, loan_purpose 31, conforming (C), $600,000 to under $720,000', HMC, Y)
@@ -184,6 +185,26 @@ def main():
     prev = max((d for d, v in weekly if d < p23[0] and v >= p23[1]), default=None)
     if prev:
         claim('peak2023_since', int(prev[:4]), prev[:4], f'last week before {p23[0]} with a weekly rate >= {pct(p23[1])} (week ending {dtxt(prev)}, {pct(wk[prev])}): "highest since {prev[:4]}"', FRED, int(prev[:4]), date=prev)
+    # cold-open sentence (cold open A): "In October 2023, the average 30-year fixed mortgage rate in the US hit its highest level since 2000."
+    # peak week of October 2023 vs every week since 2000-01-01; "since 2000" = no week after the last week of 2000 with a value >= the peak
+    pk = max(((d, v) for d, v in weekly if d.startswith('2023-10')), key=lambda x: x[1])
+    after = [(d, v) for d, v in weekly if d > pk[0]]
+    assert pk == p23 and not any(v > pk[1] for d, v in after if d.startswith('2023')), (pk, p23)
+    tie = max(d for d, v in weekly if d < pk[0] and v >= pk[1])            # last week before the peak at or above it
+    above = max(d for d, v in weekly if d < pk[0] and v > pk[1])           # last week before the peak strictly above it
+    first_after_tie = min(d for d, v in weekly if d > tie)
+    mm = dict(monthly)
+    tie_m = max(m for m, v in monthly if m < '2023-10' and v >= mm['2023-10'])
+    assert tie[:4] == above[:4] == tie_m[:4] == '2000' and pk[1] == max(v for d, v in weekly if d > tie)
+    claim('peak_since2000', int(tie[:4]), tie[:4],
+          f'week ending {dtxt(pk[0])} = highest weekly MORTGAGE30US value of October 2023 ({pct(pk[1])}); the last earlier week with a value >= {pct(pk[1])} is the week ending '
+          f'{dtxt(tie)} ({pct(wk[tie])}, equal), the last earlier week strictly above it is the week ending {dtxt(above)} ({pct(wk[above])}); no week from {dtxt(first_after_tie)} '
+          f'to {dtxt(max(d for d in wk if d < pk[0]))} reached {pct(pk[1])}. "Highest since 2000" = the highest weekly value since the week ending {dtxt(tie)} '
+          f'(tied with that week; above every week since {dtxt(first_after_tie)}). Monthly means agree: October 2023 ({pct(mm["2023-10"])}) is the highest monthly mean '
+          f'since {mname(tie_m)} ({pct(mm[tie_m], 3)}). Search window: whole series from 2000-01-01.', FRED, [int(tie[:4]), 2023], date=tie,
+          peakWeek=pk[0], peakValue=pk[1], lastWeekAtOrAbove=tie, lastWeekAbove=above, noWeekAtOrAboveFrom=first_after_tie, lastMonthAtOrAbove=tie_m,
+          sentence='In October 2023, the average 30-year fixed mortgage rate in the US hit its highest level since 2000.',
+          meaning=f'Freddie Mac PMMS weekly average (FRED MORTGAGE30US), week ending {dtxt(pk[0])}: {pct(pk[1])}, a level no week had reached since the week ending {dtxt(tie)}')
     prev_t = max((d for d, v in weekly if d < last_week and v >= r_today), default=None)
     claim('today_since', prev_t, dtxt(prev_t), f'last week before {anchor_txt} with a weekly rate >= {pct(r_today)} ({pct(wk[prev_t])})', FRED, int(prev_t[:4]), date=prev_t)
     ya = max(d for d, v in weekly if d <= (anchor - datetime.timedelta(days=364)).isoformat())
@@ -210,6 +231,13 @@ def main():
     assert 29 <= C['purch23_ge7']['value'] < 31.5
     words('purch23_words', 'purch23_ge7', 'three in ten', 'purch23_ge7 rounds to 30% (share of 2023 home-purchase originations at >= 7.00%)')
     claim('ge7_threshold', 7.0, 'seven percent', 'threshold of purch23_ge7 (interest_rate >= 7.00): an analysis parameter chosen by us (round number; the anchor-date rate 7.03% is just above it), not a sourced figure', None, None, historical=False, role='parameter')
+
+    # the character each character-level claim belongs to (checks/CONTRACT.md claims.character = a key of the contract's characters)
+    for cid, c in C.items():
+        base = c['parent'] if isinstance(c.get('parent'), str) else cid
+        n = base.rsplit('_', 1)[-1]
+        if n in CH and base.split('_')[0] in ('loan', 'cost', 'sav', 'be', 'net36', 'net84', 'cut36'):
+            c['character'] = n
 
     # script
     lines, act = [], None

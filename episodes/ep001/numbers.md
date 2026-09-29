@@ -22,7 +22,9 @@ Mọi con số tập 1 được phép dùng. Bảng sinh từ `out/claims.json` 
 | 2025 | $806,500 | "In most of the United States, the 2025 CLL value for one-unit properties will be $806,500, an increase of $39,950 (or 5.2 percent) from 2024." | https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2025 |
 | 2023 | $726,200 | "In most of the United States, the 2023 conforming loan limit (CLL) value for one-unit properties is $726,200, an increase of $79,000 from $647,200 in 2022." | https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2023 |
 
-**Cách lấy.** Cả curl lẫn WebFetch đều bị proxy chặn `www.fhfa.gov` (EGRESS_BLOCKED). Chặn cả singlefamily.fanniemae.com, freddiemac.com, federalregister.gov. Câu trích ở trên là nội dung trang fhfa.gov do công cụ WebSearch trả về, không phải trang tải trực tiếp. Có một kiểm chéo nội tại: 832,750 − 26,250 = 806,500, khớp giá trị 2025. **Chủ dự án cần mở một trong 3 URL để xác nhận câu trích, hoặc mở host `www.fhfa.gov`.**
+**Cách lấy.**
+- **2026: chủ dự án đã xác minh (owner-verified, 2026-09-29).** Chủ dự án đọc giá trị **$832,750** trong thông cáo báo chí chính thức của FHFA, "FHFA Announces Conforming Loan Limit Values for 2026", ngày **November 25, 2025**: https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026. Ghi ở `data/cll.json → 2026` (`verifiedBy`, `verified`, `released`) và claim `cll2026` (`ownerVerified: true`, `released: 2025-11-25`).
+- 2023 và 2025: `www.fhfa.gov` vẫn bị proxy chặn với curl lẫn WebFetch (EGRESS_BLOCKED). Câu trích của hai năm này là nội dung trang fhfa.gov do WebSearch trả về, chưa được chủ dự án xác minh. Kiểm chéo nội tại: 832,750 − 26,250 = 806,500, khớp giá trị 2025. Tập chỉ cần 2023 để giải thích mép $720k; nếu dùng hai số này trên màn hình, cần chủ dự án xác minh như 2026.
 
 **Quyết định: giữ nhân vật lớn là một nhóm HMDA thật và đưa khoản vay xuống dưới hạn mức.**
 - Nhóm mới: HMDA 2025, mục đích 31, lien 1, 360 tháng, total_loan_costs > 0. Thêm cờ `conforming_loan_limit = C` và loan_amount từ $600,000 tới **dưới $720,000**. loan_amount công bố theo bin 10k, nên nhóm chỉ gồm các bin 600–610k … 710–720k.
@@ -75,6 +77,7 @@ Giá trị của median, small và phần lịch sử **không đổi**: FRED kh
 | `rise_since_low` | 4.38 | Lãi ngày mốc cao hơn đáy 2021 bao nhiêu điểm | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | [2021, 2026]; as of 2026-09-24 |  | n/a |
 | `peak2023` | 7.79% | Lãi tuần cao nhất năm 2023 | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2023-10-26 |  | n/a |
 | `peak2023_since` | 2000 | Đỉnh 2023 cao nhất kể từ năm này | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2000-11-10 |  | n/a |
+| `peak_since2000` | 2000 | Câu cold open A: *"In October 2023, the average 30-year fixed mortgage rate in the US hit its highest level since 2000."* Tuần cao nhất của 10/2023 là tuần kết thúc October 26, 2023 (7.79%). Tìm trên cả chuỗi từ 2000-01-01: tuần cuối trước đó có giá trị ≥ 7.79% là **November 10, 2000** (7.79%, bằng); tuần cuối cao hơn hẳn là October 20, 2000 (7.83%). Không tuần nào từ November 17, 2000 tới October 19, 2023 đạt 7.79%. Nghĩa của "since 2000": cao nhất kể từ tuần November 10, 2000 (bằng tuần đó). Trung bình tháng cũng khớp: 10/2023 (7.62%) cao nhất kể từ 11/2000. Test: `model/test_refi.py::test_peak_since2000_recomputed_from_csv` | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2000–2023 |  | n/a |
 | `today_since` | January 16, 2025 | Lần gần nhất trước ngày mốc lãi tuần ≥ 7.03% | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2025-01-16 |  | n/a |
 | `r_year_ago` | 6.30% | Lãi tuần cách mốc 52 tuần | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2025-09-25 |  | n/a |
 | `y1971` | 1971 | Năm bắt đầu chuỗi PMMS | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 1971 |  | n/a |
@@ -101,7 +104,7 @@ Giá trị của median, small và phần lịch sử **không đổi**: FRED kh
 | `band750` | $750,000 | Mép nhóm $750k+ (chỉ còn là bối cảnh) | — (giả định/tham số) | — |  | danh nghĩa (USD năm dữ liệu) |
 | `cll2023` | $726,200 | Hạn mức vay conforming cơ sở 2023 (nhà 1 căn, phần lớn nước Mỹ) | fhfa-cll (https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2023) | 2023 |  | danh nghĩa (USD năm dữ liệu) |
 | `cll2025` | $806,500 | Hạn mức conforming cơ sở 2025 | fhfa-cll (https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2025) | 2025 |  | danh nghĩa (USD năm dữ liệu) |
-| `cll2026` | $832,750 | Hạn mức conforming cơ sở 2026 (hiện hành) | fhfa-cll (https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026) | 2026 |  | danh nghĩa (USD năm dữ liệu) |
+| `cll2026` | $832,750 | Hạn mức conforming cơ sở 2026 (hiện hành); **chủ dự án đã xác minh** trên thông cáo FHFA ngày November 25, 2025 | fhfa-cll (https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026) | 2026 |  | danh nghĩa (USD năm dữ liệu) |
 
 ### C1. Nhân vật median (mọi quy mô)
 
@@ -247,7 +250,7 @@ Các ID cơ bản đều đã có trong bảng: `y1971` (1971), `term30` (30 nă
 ### 6a. Dữ kiện bối cảnh có sẵn (tính từ dữ liệu trong repo; claim ở bảng mục 4)
 
 - Đáy lịch sử 2.65% vào tuần kết thúc January 7, 2021. Tới ngày mốc, lãi cao hơn đáy **4.38 điểm** (`low`, `low_date`, `rise_since_low`).
-- Đỉnh 2023 là 7.79% (tuần October 26, 2023), cao nhất kể từ năm **2000** (tuần November 10, 2000, cũng 7.79%) (`peak2023`, `peak2023_since`).
+- Đỉnh 2023 là 7.79% (tuần October 26, 2023), cao nhất kể từ năm **2000** (tuần November 10, 2000, cũng 7.79%) (`peak2023`, `peak2023_since`; câu cold open A dùng `peak_since2000`, cùng giá trị, ghi đủ nghĩa "since 2000").
 - 7.03% ngày mốc là mức cao nhất kể từ tuần **January 16, 2025** (7.04%). 52 tuần trước (September 25, 2025) lãi là 6.30% (`today_since`, `r_year_ago`).
 - HMDA 2025 có **488,241** khoản tái cấp vốn đổi lãi/kỳ hạn (lien 1, 30 năm, có chi phí). Trong đó 457,217 là conforming, 55% là conventional, lãi trung vị của khoản mới là **6.00%** (`n31`, `n31_conforming`, `conv_share31`, `rate31_p50`).
 - Vay mua nhà năm 2023 (HMDA, lien 1, 30 năm): **30%** (881,835 trên 2,906,771 khoản) có lãi ≥ 7.00% (`purch23_ge7`, `purch23_n_ge7`, `purch23_n`). Đây là tỉ lệ trong số khoản *được giải ngân năm 2023*, không phải tỉ lệ trong số khoản *còn dư nợ hôm nay*.

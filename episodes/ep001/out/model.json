@@ -98,7 +98,7 @@
  },
  "largeBand": "$600k-<$720k, conforming (C)",
  "conformingLimits": {
-  "_note": "FHFA baseline conforming loan limits (one-unit property, most of the US). www.fhfa.gov (also singlefamily.fanniemae.com, freddiemac.com, federalregister.gov) is blocked by the network egress proxy from this environment for curl AND WebFetch (EGRESS_BLOCKED, checked 2026-09-28). The quotes below are the text of the FHFA news releases as returned by the WebSearch tool for those exact fhfa.gov URLs on 2026-09-28 (search-index excerpt, not a direct page fetch). Owner action to make them first-hand: open the URLs and confirm the sentence, or allow host www.fhfa.gov. Cross-check in our own data: HMDA 2025 flag conforming_loan_limit (C/NC) is county-specific; every loan in the large-character band (< $720,000) is below all three values.",
+  "_note": "FHFA baseline conforming loan limits (one-unit property, most of the US). 2026: OWNER-VERIFIED \u2014 the project owner read the value $832,750 in FHFA's official news release \"FHFA Announces Conforming Loan Limit Values for 2026\" (dated November 25, 2025) at the URL below and confirmed it on 2026-09-29. 2023 and 2025: www.fhfa.gov is blocked by this environment's egress proxy for curl and WebFetch (EGRESS_BLOCKED, checked 2026-09-28); their quotes are the text of the FHFA releases as returned by the WebSearch tool for those exact fhfa.gov URLs (search-index excerpt, not owner-verified). Internal consistency: 832,750 - 26,250 = 806,500. Cross-check in our own data: HMDA 2025 flag conforming_loan_limit (C/NC) is county-specific; every loan in the large-character band (< $720,000) is below all three values.",
   "2023": {
    "value": 726200,
    "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2023",
@@ -117,10 +117,15 @@
   "2026": {
    "value": 832750,
    "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026",
+   "releaseTitle": "FHFA Announces Conforming Loan Limit Values for 2026",
+   "released": "2025-11-25",
    "quote": "In most of the United States, the 2026 conforming loan limit (CLL) value for one-unit properties will be $832,750, an increase of $26,250 from 2025.",
    "ceilingQuote": "the new ceiling loan limit for one-unit properties will be $1,249,125, which is 150 percent of $832,750.",
    "consistency": "832,750 - 26,250 = 806,500 = the 2025 value above",
-   "how": "WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch",
+   "how": "owner-verified: the project owner read $832,750 in the official FHFA news release dated November 25, 2025 at the source URL and confirmed it on 2026-09-29",
+   "verifiedBy": "project owner",
+   "verified": "2026-09-29",
+   "quoteHow": "sentence wording as returned by WebSearch for this URL on 2026-09-28; the value $832,750 and the release date are owner-verified",
    "retrieved": "2026-09-28"
   },
   "hmdaFlag": {

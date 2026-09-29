@@ -5,6 +5,10 @@
    "role": "primary",
    "series": "MORTGAGE30US",
    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "inRepo": false,
+   "storage": "not stored in the repo: the repo is public and this FRED series is copyrighted by its provider (FRED: \"Copyrighted: Citation Required\"), not public domain (amendments.md E1-A2); re-download with the fetch command, which checks the SHA-256 below",
+   "fetch": "python3 episodes/ep001/data/fetch.py --verify",
    "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
    "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
    "downloaded": "2026-09-28",
@@ -33,6 +37,10 @@
    "role": "crosscheck",
    "series": "OBMMIC30YF",
    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YF",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YF&coed=2026-09-25",
+   "inRepo": false,
+   "storage": "not stored in the repo: the repo is public and this FRED series is copyrighted by its provider (FRED: \"Copyrighted: Citation Required\"), not public domain (amendments.md E1-A2); re-download with the fetch command, which checks the SHA-256 below",
+   "fetch": "python3 episodes/ep001/data/fetch.py --verify",
    "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YF",
    "sha256": "e73ec643f02cdbbdcf90d90c494a1b66b745b9155c0b62bfcfb010be62271e1a",
    "downloaded": "2026-09-28",
@@ -68,6 +76,35 @@
   "outsideTolerance": 0
  },
  "mismatches": [],
+ "derived": [
+  {
+   "path": "data/normalized/mortgage30_weekly.csv",
+   "from": [
+    "data/raw/MORTGAGE30US.csv"
+   ],
+   "sha256": "6bb85668015096aed2b1b72e9678b04de60b2b7aaac0c77d5a0ea58cae0bd52a",
+   "inRepo": false,
+   "storage": "not stored in the repo (verbatim copy of the FRED series); rebuilt from data/raw by the fetch command",
+   "fetch": "python3 episodes/ep001/data/fetch.py --verify"
+  },
+  {
+   "path": "data/normalized/crosscheck_weekly.csv",
+   "from": [
+    "data/raw/MORTGAGE30US.csv",
+    "data/raw/OBMMIC30YF.csv"
+   ],
+   "sha256": "efb0ae84e46e7be7116ceefd4b01598be6d8ccf1a5b25cd0746ba87eda8c11b3",
+   "inRepo": false,
+   "storage": "not stored in the repo (verbatim copy of the FRED series); rebuilt from data/raw by the fetch command",
+   "fetch": "python3 episodes/ep001/data/fetch.py --verify"
+  }
+ ],
+ "storage": {
+  "inRepo": false,
+  "why": "public repo; FRED MORTGAGE30US (Freddie Mac) and OBMMIC30YF (Optimal Blue) are copyrighted, not public domain (amendments.md E1-A2)",
+  "fetch": "python3 episodes/ep001/data/fetch.py --verify",
+  "refresh": "python3 episodes/ep001/data/fetch.py (new vintage; then python3 episodes/ep001/build.py)"
+ },
  "notUsed": [
   {
    "source": "HMDA loan-level data (ffiec.cfpb.gov / files.ffiec.cfpb.gov / s3 cfpb-hmda-public)",

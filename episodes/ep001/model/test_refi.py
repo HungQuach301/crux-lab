@@ -106,3 +106,29 @@ def test_balance_method_same_rate_never_breaks_even():
 def test_net_after_equals_zero_near_break_even():
     m = refi.break_even_balance(375000, 7.62, 35, 6.62, 5124)
     assert refi.net_after(375000, 7.62, 35, 6.62, 5124, m) >= 0 > refi.net_after(375000, 7.62, 35, 6.62, 5124, m - 1)
+
+
+# ------------------------------------------------------------------ cold-open claim peak_since2000 (recomputed from the CSV, not from build.py)
+def test_peak_since2000_recomputed_from_csv():
+    import csv
+    import json
+    import pytest
+    ep = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+    p = os.path.join(ep, 'data', 'normalized', 'mortgage30_weekly.csv')
+    if not os.path.exists(p):
+        pytest.skip('FRED data not in the repo (public repo): run python3 episodes/ep001/data/fetch.py --verify first')
+    w = [(r['date'], float(r['rate'])) for r in csv.DictReader(open(p))]
+    since2000 = [(d, v) for d, v in w if d >= '2000-01-01']
+    oct23 = [(d, v) for d, v in since2000 if d.startswith('2023-10')]
+    peak_d, peak_v = max(oct23, key=lambda x: x[1])
+    assert (peak_d, peak_v) == ('2023-10-26', 7.79)
+    before = [(d, v) for d, v in since2000 if d < peak_d]
+    tie = [d for d, v in before if v >= peak_v][-1]
+    above = [d for d, v in before if v > peak_v][-1]
+    assert tie == '2000-11-10' and above == '2000-10-20'
+    # no week between the tie week and the peak week reached the peak: the statement "highest since 2000" is true
+    assert all(v < peak_v for d, v in since2000 if tie < d < peak_d)
+    claims = {c['claimId']: c for c in json.load(open(os.path.join(ep, 'out', 'claims.json')))['claims']}
+    c = claims['peak_since2000']
+    assert c['value'] == 2000 and c['display'] == '2000' and c['date'] == tie and c['lastWeekAbove'] == above
+    assert c['peakWeek'] == peak_d and c['peakValue'] == peak_v and not c['illustrative']
