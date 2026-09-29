@@ -1,6 +1,9 @@
-# CRUX — HIẾN CHƯƠNG v2 (bản nháp, chờ chủ dự án duyệt)
+# CRUX — HIẾN CHƯƠNG v2.1
 
-Chủ dự án: Hung Quach. Thay thế CHARTER v1 khi được duyệt. Tài liệu này là nguồn thẩm quyền số một; mọi file khác phải khớp với nó.
+Chủ dự án: Hung Quach. v2.1 (29/09/2026): thêm khung chất lượng 3 lớp, 6 cổng, ba tham chiếu (§5), khởi động phiên (§0). Tài liệu này là nguồn thẩm quyền số một; mọi file khác phải khớp với nó.
+
+## 0. Khởi động mọi phiên
+Đọc `CHARTER.md`, **`playbook/lessons.md`**, `playbook/quality-framework.md`, `taste-ledger.md`, rồi `PLAN.md` và `ledger.md` của tập đang làm.
 
 ## 1. Định vị
 - **Kênh:** `us-personal-finance`, tiếng Anh Mỹ, không lộ mặt, data-explainer, 8–15 phút.
@@ -35,38 +38,41 @@ Chủ dự án: Hung Quach. Thay thế CHARTER v1 khi được duyệt. Tài li�
 | 4. Duyệt người | Gói clip ngắn xem trên điện thoại; phiếu chấm; ghi sổ gu |
 | 5. Phát hành và học | Dữ liệu khán giả, A/B tiêu đề và thumbnail; bài học ngược về khâu 1 |
 
-- **Động cơ tiến hoá:** kho tập kèm kết quả; benchmark A–D; phiên R&D định kỳ; thí nghiệm có đối chứng; tỉa khi đổi model.
-- **Kho tri thức nghề:** kinh điển, thư viện mẫu, chuyên gia (tuỳ chọn), dữ liệu khán giả, hội đồng phê bình (model đã hiệu chỉnh). Khi mâu thuẫn: luật cứng > dữ liệu khán giả > gu chủ dự án > chuyên gia > mẫu hình > kinh điển > ý kiến model.
+- Khi mâu thuẫn: luật cứng > dữ liệu khán giả > gu chủ dự án > chuyên gia > mẫu hình > kinh điển > ý kiến model.
 
-## 5. Chuẩn chất lượng
-- **Luật cứng, không nhân nhượng:** lỗi số liệu = 0; mọi số có claim và nguồn; số không nguồn gắn ILLUSTRATIVE; chính sách nền tảng.
-- **Nhân dạng (gen được bảo vệ):** "we" chỉ người phân tích; không khuyên; không dự báo thị trường; "US only"; "history, not a forecast" khi dùng dữ liệu lịch sử.
-- **Chuẩn thể loại = tay nghề:** cấu trúc hồi, vòng mở, câu móc lại, cái giá cụ thể, nhịp căng–chùng, âm thanh theo dữ liệu, mix, kỹ thuật file, khả năng tiếp cận. Không dùng thế giới 3D cho thể loại này.
-- **Đạt phát hành:** máy kiểm không trượt luật cứng, không hồi quy; điểm phiếu chấm của chủ dự án trung bình ≥ 4/5, không câu dưới 3.
+## 5. Chuẩn chất lượng — khung 3 lớp (`playbook/quality-framework.md`)
+- **Định nghĩa:** người xem, xem một lần, đánh giá tập ngang ba tham chiếu (`playbook/references.md`): Vox (truyện), 3Blue1Brown (hình mang nghĩa), WSJ "three charts" (thể loại).
+- **L1 Kỹ thuật (máy, Chặn):** lỗi số liệu = 0; mọi số có claim và nguồn, số không nguồn gắn ILLUSTRATIVE; điều khoản nguồn; quyền tài sản (`RIGHTS.md`); kỹ thuật file; âm lượng; ASR không mất từ khoá; chính sách nền tảng.
+- **L2 Nghề:** phiếu chấm kèm bằng chứng; phần máy đo chỉ cảnh báo. Luật máy phân cấp Chặn / Chính / Tham khảo.
+- **L3 Khán giả (thước đo cuối):** chủ dự án xem một lần và chấm theo phiếu; kiểm mù AI ở mỗi cổng.
+- **Ưu tiên:** cảm xúc > truyện > nhịp > đường mắt > bố cục.
+- **Chống Goodhart:** không chỉ tiêu số lượng cho kỹ thuật nghệ thuật; chỉ số trong ±5% quanh ngưỡng phải nêu tên; không thủ thuật (dấu ngắt giả, giãn thời gian, đổi model giọng giữa tập).
+- **Sáu cổng mỗi tập:** C1 Ý tưởng → C2 Kịch bản → C3 Thiết kế và giọng → C4 Animatic có chuyển động (chốt truyện) → C5 Render và L1 → C6 Chấm cuối. Trượt thì quay lại; mỗi cổng dừng với gói quyết định ≤ 3 câu.
+- **Nhân dạng (gen được bảo vệ):** "we" chỉ người phân tích; không khuyên; không dự báo thị trường; "US only"; "history, not a forecast" khi dùng dữ liệu lịch sử. Không dùng thế giới 3D.
+- **Đạt phát hành:** không lỗi Chặn, không hồi quy; chủ dự án duyệt ở C6.
 
 ## 6. Tiến hoá
-- **Định nghĩa:** bộ gen (hợp đồng và tri thức, không phụ thuộc model) thay đổi qua mỗi chu kỳ sao cho độ thích nghi đo được tăng; thay đổi do hệ thống sinh, chọn lọc, lưu giữ, luôn trong các bất biến do chủ dự án giữ.
-- **Cấp số nhân:** khi model mạnh lên, mức thích nghi nhảy bậc và tốc độ tiến hoá tăng mà không cần thiết kế lại; bị giới hạn bởi vòng chậm nhất (thời gian duyệt, dữ liệu khán giả, chính sách).
-- **Ba vòng:** mỗi tập (lỗi → luật hoặc sổ gu); mỗi chu kỳ (R&D → thí nghiệm → giữ biến thể thắng); mỗi thế hệ model (benchmark → đổi → tỉa → nâng chuẩn).
-- **Bậc:** L1 học có hướng dẫn (xuất phát) → L2 tự tiến hoá trong vùng an toàn → L3 theo thế hệ model → L4 sinh sản. Lên bậc theo bằng chứng.
+- Bộ gen (hợp đồng, tri thức, sổ gu, bài học; không phụ thuộc model) thay đổi qua mỗi tập sao cho độ thích nghi đo được tăng, luôn trong các bất biến do chủ dự án giữ.
+- Ba vòng: mỗi tập (lỗi → `playbook/lessons.md`, sổ gu hoặc luật); mỗi chu kỳ (thí nghiệm có đối chứng → giữ biến thể thắng); mỗi thế hệ model (benchmark → đổi → tỉa). Lên bậc tự chủ theo bằng chứng.
 
 ## 7. Hệ miễn dịch
 1. Không biến thể nào được sửa bộ đo đang chấm nó; bộ đo chỉ đổi qua vai riêng và cần chủ dự án duyệt.
 2. Không có số đo trên sản phẩm cuối thì coi như chưa làm, chưa cải thiện.
 3. Mỗi miễn trừ trong luật kiểm phải có tiêu chí thay thế; không có điểm mù không được canh.
 4. Hạn mức kích thước bộ gen; bắt buộc tỉa khi đổi model.
-5. Việc irreversible chỉ chủ dự án quyết: phát hành công khai, chi tiêu mới, tài khoản và secret, nhà cung cấp mới, sửa hiến chương, sửa gen được bảo vệ, chọn giọng cuối (#158).
+5. Việc irreversible chỉ chủ dự án quyết: phát hành công khai, chi tiêu mới, tài khoản và secret, nhà cung cấp mới, sửa hiến chương, sửa gen được bảo vệ, chọn giọng cuối (#158). Gu (truyện, giọng, hình, âm sắc, nhạc) không bao giờ tự quyết.
 
 ## 8. Vai trò
 | Vai | Làm | Không làm |
 |---|---|---|
-| Chủ dự án | Định hướng, gu, duyệt gói, quyết irreversible, chịu trách nhiệm | Không dựng, không viết luật |
+| Chủ dự án | Định hướng, gu, duyệt gói, quyết irreversible, chịu trách nhiệm; tác giả – đạo diễn (`AUTHORSHIP.md`) | Không dựng, không viết luật |
+| Phiên điều phối (P) | Giữ `PLAN.md` của tập, chạy cổng, kiểm mù; duy nhất merge vào `main` | Không tự quyết gu; không sửa luật kiểm |
 | Phiên dựng | Dựng trọn tập theo đầu bài | Không sửa luật kiểm |
 | Phiên kiểm | Viết và giữ luật; chấm độc lập; tính lại số | Không dựng |
 | Phiên R&D | Đề xuất biến thể bộ gen; chạy thí nghiệm | Không tự áp dụng khi chưa đủ bậc |
 
 ## 9. Chỉ số
-Chất lượng (điểm phiếu chấm, tỷ lệ luật đạt, lỗi số = 0) · Khán giả (giữ chân ở giây 30, thời lượng xem, CTR, giờ xem) · Hiệu quả (chi phí/tập, phút duyệt/tập, vòng sửa/tập) · Tiến hoá (biến thể đề xuất/thử/giữ, độ khớp hội đồng phê bình với chủ dự án, độ trễ học, hệ số nhảy bậc) · Cảnh báo (việc không phải tập > 20%, chu kỳ không ra tập, máy móc phình to, hồi quy).
+Chất lượng (điểm phiếu chấm, tỷ lệ luật đạt, lỗi số = 0) · Khán giả (giữ chân ở giây 30, thời lượng xem, CTR, giờ xem) · Hiệu quả (chi phí/tập, phút duyệt/tập, vòng sửa/tập) · Tiến hoá (biến thể đề xuất/thử/giữ, độ khớp kiểm mù AI với chủ dự án) · Cảnh báo (việc không phải tập > 20%, chu kỳ không ra tập, máy móc phình to, hồi quy).
 
 ## 10. Thẩm quyền và kênh chỉ dẫn
-Thứ tự: hiến chương → quyết định (`decisions/`) → spec thể loại → sổ gu. Chỉ dẫn của chủ dự án đi qua issue chỉ dẫn và gói duyệt; phiên chỉ nhận việc gắn với một tập hoặc một chỉ dẫn.
+Thứ tự: hiến chương → quyết định (`decisions/`) → `playbook/quality-framework.md` → spec thể loại → sổ gu. Chỉ dẫn của chủ dự án đi qua issue chỉ dẫn và gói duyệt; phiên chỉ nhận việc gắn với một tập hoặc một chỉ dẫn.
