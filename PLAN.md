@@ -15,8 +15,8 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 | C1 Ý tưởng | XONG | `episodes/ep001/gates/C1.md` | Logline C; bộ đo mới (vai khán giả đích, tiếng Anh, đối chứng yếu) |
 | C2 Kịch bản | XONG | `episodes/ep001/gates/C2.md` | OK; lịch sử rút (a); câu hứa nói với người xem (2 phương án ở C3) |
 | C3 Thiết kế và giọng | XONG hình (hợp đồng ký, sàn chữ 40 px); **giọng: thử mù V1/V2/V3 đang làm** | `gates/C3.md`, `gates/C3-contract.md` | D theo nhịp; Eric eleven_v3; câu hứa "…where would your own loan fall?" |
-| C4 Animatic có chuyển động | **GÓI ĐÃ GỬI** — kiểm mù 20/20 (sau sửa S11); giọng Y sinh lại cả tập; animatic 9:52; chờ chủ dự án | `gates/C4.md`, `gates/C4-blind.md` | Giọng Y (theo cảnh + thẻ thưa) |
-| C5 Render và L1 | chờ (cần khoá K3 của Phiên K) | | |
+| C4 Animatic có chuyển động | XONG | `gates/C4.md`, `gates/C4-blind.md` | OK sang C5; giữ 8 thẻ; hình mang ý: mục tiêu số 1 Tập 2 |
+| C5 Render và L1 | ĐANG LÀM — 3 luồng P/A/D (`gates/C5-plan.md`); khoá K3.1 `81cf3997`; **chờ chủ dự án dán điều khoản ElevenLabs** | | |
 | C6 Chấm cuối | chờ | | |
 
 ## Việc treo cần chủ dự án (không chặn cổng)
@@ -33,6 +33,7 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 - 2026-09-29 16:25 UTC (4): container khởi động lại. Lời đọc v3.2 theo cảnh: **13/20 cảnh xong** (S01–S13, `work/v32-voice/takes/`, 0 từ khoá mất theo ASR). S14 lỗi 14:20 do proxy ngắt kết nối (ProxyError RemoteDisconnected), gen.py dừng; vòng chờ treo vì chờ dòng "calls" không bao giờ tới. Tiếp: `work/v32-voice/src/run_resume.sh` (chỉ sinh cảnh còn thiếu, thử lại 5 lần) → build lời → định thời → render → gói C4.
 - 2026-09-29 16:35 UTC (5): lời v3.2 đủ 20/20 cảnh, ghép 9:52 (`cd6d846`); animatic định thời lại. Đang render 20 cảnh (3 hàng `render_all.sh`, log `animatic/work/logs/`). Nếu bị ngắt: chạy lại chỉ cảnh chưa có `work/scenes/Sxx.mp4` mới hơn `timing.json`, rồi `check.py` → `assemble.py` (trỏ `review-c4/narration-v32.m4a`) → clip ≤ 2 phút → gói C4.
 - 2026-09-29 18:20 UTC (6): gói C4 gửi (`gates/C4.md`, clip `review-c4/c4-highlights.mp4`). Chờ trả lời 3 câu.
+- 2026-09-29 (7): C4 duyệt (sổ gu main `31fe42b`). C5 chạy 3 luồng. Nếu bị ngắt: đọc `gates/C5-plan.md`, `work/c5/`, ledger; chạy tiếp luồng dở (render tiếp cảnh thiếu).
 
 ## Checklist C5 (Chặn)
 - Rà quy ước quyền `quality-framework.md` §8: tìm `data:` trong mã dựng/bản dựng trang; đối chiếu mọi nguồn ghép hậu kỳ với `RIGHTS.md`.
