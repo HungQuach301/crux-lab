@@ -38,6 +38,86 @@ Mẫu:
 3. Lời chê lặp lại ở ≥ 4/5 agent: L-A "the bank's offer is smaller" mơ hồ (5/5); L-B "one-point line" dễ nhầm với discount point (5/5); cả hai "refinance", "cut" không nói rõ (10/10); không nói vay gì, ở đâu (7/10).
 4. L-B gây tò mò ở vế "smaller loan need more" (5/5 nhắc "nghe ngược đời").
 
+## Vòng 2 (2026-09-29) — sau lượt sửa 1/2 của WRITER
+
+Câu hỏi và tiêu chí giữ nguyên như vòng 1. 10 agent mới, không agent nào của vòng 1.
+- **L-A v2:** "Nora could have swapped her US mortgage for a cheaper one when rates dipped and saved $459 a month; she waited, rates climbed back — is a smaller rate drop still worth thousands in lender fees?" (34 từ)
+- **L-B v2:** "Nora's lender offers to swap her US mortgage for one with a lower rate — for $5,124 in fees. How big a rate cut makes that worth it for her, and why would a smaller mortgage need a bigger one?" (39 từ — **trong ±5% quanh trần 40 từ** mà P2 đặt cho WRITER)
+
+| Mẫu | File | TC1 | TC2 | TC3 | Kể đúng | Muốn xem |
+|---|---|---|---|---|---|---|
+| L-A | 4e19c640 | ✔ ("vay mua nhà ở Mỹ") | ✔ | ✔ | ✔ | Có thể |
+| L-A | d55d9f64 | ✔ | ✔ | ✔ | ✔ | Có thể |
+| L-A | 5112b849 | ✔ | ✔ | ✔ | ✔ | Có thể |
+| L-A | 6e61ffd7 | ✔ | ✔ | ✔ | ✔ | Có thể |
+| L-A | a895a3f6 | ✔ | ✔ | ✔ | ✔ | Có thể |
+| L-B | ba7226fd | ✔ | ✔ | ✔ | ✔ | Có thể |
+| L-B | 96beb0fc | ✔ | ✔ | ✔ | ✔ | Có thể |
+| L-B | da2d0b9a | ✔ | ✔ | ✔ | ✔ | Có thể |
+| L-B | 5b748194 | ✔ | ✔ | ✔ | ✔ | Có thể |
+| L-B | 448bed8e | ✔ | ✔ | ✔ | ✔ | Có thể |
+
+**Kết quả vòng 2:** L-A kể đúng **5/5**, muốn xem **0/5**; L-B kể đúng **5/5**, muốn xem **0/5**. Cả hai **TRƯỢT** ngưỡng "muốn xem" (≥ 3/5). Hết 2 vòng → đưa chủ dự án (không sửa tiếp).
+
+**Đọc kết quả (P2):**
+- Kể đúng tăng từ 0/5 lên 5/5 ở cả hai: sửa "US mortgage" và bỏ "refinance/one-point line" có tác dụng.
+- "Muốn xem" 0/23 ở cả hai vòng, **kể cả đối chứng**. Lý do lặp lại 10/10 ở vòng 2: "không có khoản vay mua nhà ở Mỹ nên không liên quan tới tôi" / "người xem Việt Nam". Câu hỏi cố định buộc trả lời bằng tiếng Việt với vai "người xem YouTube bình thường", nên agent nhập vai người không thuộc khán giả đích. Với câu hỏi này, chỉ số "muốn xem" **không phân biệt được** logline tốt với logline kém (đối chứng cũng 3/3 "Có thể") → theo `playbook/lessons.md` B4, số đo này nên hạ cấp hoặc sửa câu hỏi. Sửa câu hỏi là đổi bộ đo, cần chủ dự án duyệt.
+- Tín hiệu định tính: L-A — "lỡ 459 đô/tháng khá đau/cuốn" (4/5); L-B — "vay nhỏ lại cần giảm nhiều hơn nghe ngược đời, tò mò" (5/5), "$5,124 cụ thể nên nghe thật" (2/5). Chê chung: "swap" không rõ là refinance (8/10); L-B "a bigger one" phải đọc lại (5/5); L-A câu dài, dồn ý (3/5).
+
+### Nguyên văn vòng 2
+
+#### 4e19c640 (L-A)
+> 1. Kể lại bằng lời của tôi: Video nói về Nora, một người đang trả khoản vay mua nhà ở Mỹ. Lúc lãi suất giảm, cô ấy đã có thể chuyển sang một khoản vay rẻ hơn và tiết kiệm được 459 đô mỗi tháng. Nhưng cô ấy chần chừ, rồi lãi suất lại tăng lên. Video sẽ trả lời câu hỏi: nếu giờ lãi suất chỉ giảm một chút thôi thì có còn đáng để vay lại hay không, khi phải trả cho bên cho vay hàng nghìn đô tiền phí.
+> 2. Có muốn xem không: Có thể. Chuyện "bỏ lỡ cơ hội tiết kiệm 459 đô/tháng" khá cuốn và câu hỏi rất thực tế, nhưng chủ đề này chủ yếu hữu ích cho người đang có khoản vay mua nhà ở Mỹ, nên với người xem bình thường ở Việt Nam thì sức hút không cao lắm.
+> 3. "swapped her mortgage for a cheaper one": thật ra đây là refinance (vay mới để trả khoản vay cũ), nhưng logline không dùng từ đó. Người không rành sẽ không biết "đổi khoản vay" cụ thể là làm gì, cũng không biết tại sao lại phải trả phí. "lender fees": không nói rõ đây là phí gì (phí đóng hồ sơ hay closing costs) và tại sao lại mất tới "hàng nghìn đô". "a smaller rate drop": không nói giảm nhỏ là bao nhiêu (ví dụ 0,5%?). Câu cũng không nói rõ hiện tại lãi suất có đang giảm nhẹ trở lại không, hay đây chỉ là giả định. Câu văn khá dài và nhồi nhiều ý. Chỗ "she waited, rates climbed back —" đọc hơi gấp, phải đọc lại mới thấy mạch chuyện.
+
+#### d55d9f64 (L-A)
+> 1. Video kể về Nora, một người đang vay mua nhà trả góp ở Mỹ. Có lúc lãi suất giảm, nếu khi đó chị chuyển sang khoản vay rẻ hơn (tái cấp vốn) thì mỗi tháng đã bớt được 459 đô. Nhưng chị chần chừ, rồi lãi suất lại tăng lên. Video muốn trả lời câu hỏi: nếu lãi suất chỉ giảm ít thì có đáng đổi khoản vay không, khi làm vậy phải trả cho ngân hàng vài nghìn đô phí?
+> 2. Có thể. Mình thấy tò mò vì chuyện lỡ mất 459 đô mỗi tháng khá "đau", nhưng chủ đề vay mua nhà ở Mỹ không liên quan lắm đến mình nếu mình không sống ở đó.
+> 3. "Swapped her US mortgage for a cheaper one": người xem bình thường chưa chắc biết đây là tái cấp vốn (refinance), tức là vay khoản mới để trả khoản cũ. "Lender fees": không rõ đây là phí gì (phí hồ sơ, chi phí khi hoàn tất khoản vay...) và vì sao lên tới "hàng nghìn đô". "A smaller rate drop": không nói rõ là giảm ít hơn so với lần trước bao nhiêu. Người đọc cũng không biết lãi suất ban đầu và lãi suất lúc giảm của Nora là bao nhiêu, nên khó tự hình dung mức chênh lệch. Câu hơi dài, có dấu chấm phẩy và gạch ngang, phải đọc hai lần mới thấy phần câu hỏi nằm ở cuối.
+
+#### 5112b849 (L-A)
+> 1. Kể lại: Video nói về Nora, một người đang trả khoản vay mua nhà ở Mỹ. Có lúc lãi suất giảm, nếu khi đó chị chuyển sang khoản vay rẻ hơn (tái cấp vốn) thì mỗi tháng chị tiết kiệm được 459 đô, nhưng chị chờ thêm và lãi suất lại tăng lên. Video sẽ trả lời câu hỏi: nếu lãi suất chỉ giảm ít hơn lần trước thì việc chuyển khoản vay có còn đáng không, khi phải trả cho ngân hàng vài nghìn đô phí.
+> 2. Có thể. Tình huống lỡ cơ hội rồi lại phân vân thì dễ đồng cảm, con số 459 đô/tháng cũng cụ thể. Nhưng đây là chuyện vay mua nhà ở Mỹ, không liên quan trực tiếp đến tôi, nên tôi chỉ bấm xem nếu đang quan tâm đến vay mua nhà.
+> 3. "swapped her US mortgage for a cheaper one": người xem không rành tài chính có thể không biết là được phép đổi khoản vay giữa chừng. Câu cũng không dùng từ "refinance" (tái cấp vốn) nên phải tự đoán. "a smaller rate drop": nhỏ hơn so với cái gì? Có lẽ so với lần giảm trước mà chị bỏ lỡ, nhưng câu không nói rõ và cũng không cho con số nào về lãi suất. "thousands in lender fees": không rõ đây là loại phí gì (phí đóng hồ sơ, phí làm khoản vay mới?) và tại sao đổi khoản vay lại mất phí. Người không biết về vay mua nhà sẽ thấy ý này đột ngột. Câu khá dài, dồn hai dấu chấm phẩy và một gạch ngang, nên phải đọc hai lần mới nắm được mạch: lỡ cơ hội, lãi suất tăng lại, rồi mới đến câu hỏi hiện tại.
+
+#### 6e61ffd7 (L-A)
+> 1. Nội dung: Video kể về Nora, một người ở Mỹ đang trả góp mua nhà. Có lúc lãi suất giảm, nếu khi ấy cô chuyển sang một khoản vay rẻ hơn (tái cấp vốn) thì mỗi tháng đã tiết kiệm được 459 đô. Cô chần chừ nên lỡ mất, và giờ lãi suất đã tăng lại. Câu hỏi video sẽ trả lời: nếu lãi suất chỉ giảm ít hơn lần trước thì có còn đáng chuyển khoản vay không, khi phải trả cho ngân hàng vài nghìn đô phí?
+> 2. Có muốn xem không: Có thể. Chuyện lỡ cơ hội tiết kiệm 459 đô mỗi tháng khá cuốn và câu hỏi cũng thực tế, nhưng nó chỉ thật sự liên quan đến người đang vay mua nhà ở Mỹ. Người xem Việt Nam không ở hoàn cảnh đó thì có thể bỏ qua.
+> 3. "swapped her US mortgage for a cheaper one": người không rành tài chính khó nhận ra đây là tái cấp vốn (refinance), tức vay khoản mới lãi thấp hơn để trả khoản cũ. Cách nói "đổi khoản vay" hơi mơ hồ. "lender fees" (thousands): không nói rõ phí gì. Thật ra đó là phí làm hồ sơ và thủ tục (closing costs) khi vay lại, nhưng người xem bình thường sẽ không biết vì sao chuyển khoản vay lại tốn tới vài nghìn đô. "a smaller rate drop": không nói nhỏ hơn bao nhiêu. Lần trước giảm bao nhiêu thì không có con số nào, chỉ có số 459 đô/tháng, nên khó hình dung được mức so sánh. Câu hơi dài và dồn nhiều ý (lỡ cơ hội → lãi suất tăng lại → câu hỏi mới), phải đọc hai lần mới thấy được mạch từ chuyện của Nora sang câu hỏi chung.
+
+#### a895a3f6 (L-A)
+> 1. Kể lại: Video kể về Nora, một người đang vay mua nhà ở Mỹ. Có lúc lãi suất giảm, Nora có thể chuyển sang khoản vay rẻ hơn và tiết kiệm được 459 đô mỗi tháng, nhưng cô chần chừ và lãi suất lại tăng lên. Câu hỏi video sẽ trả lời: nếu bây giờ lãi suất chỉ giảm một chút thì có còn đáng chuyển khoản vay không, khi phải trả phí cho ngân hàng lên tới vài nghìn đô?
+> 2. Có muốn xem không: Có thể. Tình huống lỡ cơ hội rồi phân vân có nên làm lại không khá đời thường và dễ đồng cảm, nhưng chuyện vay mua nhà ở Mỹ thì không sát với tôi lắm.
+> 3. "swapped her US mortgage for a cheaper one": người không rành tài chính sẽ không biết đây chính là "refinance" (vay mới để trả khoản vay cũ). Câu không dùng từ này nên dễ hiểu hơn, nhưng cũng khiến người xem khó hình dung việc "đổi khoản vay" diễn ra thế nào. "lender fees": không rõ là những phí gì (phí mở hồ sơ, phí thẩm định, closing costs...). Cũng không rõ vì sao đổi khoản vay lại mất tới "hàng nghìn đô". "a smaller rate drop": không nói giảm bao nhiêu, nên khó tự đoán trước câu trả lời. Có thể người làm cố ý để gây tò mò, nhưng cũng hơi mơ hồ. Con số 459 đô/tháng là tiết kiệm trong lần giảm trước. Lần đầu đọc, tôi dễ nhầm đó là số tiền đang được bàn tới bây giờ.
+
+#### ba7226fd (L-B)
+> 1. Tóm tắt: Video kể về Nora, một người đang vay mua nhà ở Mỹ. Ngân hàng đề nghị cô đổi khoản vay hiện tại sang một khoản vay mới có lãi suất thấp hơn, nhưng cô phải trả 5.124 USD phí. Video sẽ trả lời hai câu hỏi: lãi suất phải giảm bao nhiêu thì việc đổi mới đáng tiền với Nora, và tại sao khoản vay càng nhỏ thì lãi suất lại càng phải giảm nhiều mới bõ.
+> 2. Có muốn xem không: Có thể. Con số cụ thể và câu hỏi "vì sao khoản vay nhỏ lại cần giảm nhiều hơn" khá gợi tò mò. Nhưng đây là chuyện vay mua nhà ở Mỹ, nếu tôi không vay ở Mỹ thì chưa chắc thấy nó liên quan đến mình.
+> 3. "swap her US mortgage" (đổi khoản vay mua nhà): thực ra đây là refinance (vay mới để trả nợ khoản cũ), nhưng câu này không dùng từ đó. Người xem không rành tài chính có thể không nhận ra ngay. "a smaller mortgage need a bigger one": chữ "one" ở đây chỉ "rate cut" (mức giảm lãi suất), nhưng phải đọc lại mới hiểu. Thoạt đầu dễ tưởng là "một khoản vay lớn hơn". Câu không cho biết khoản vay của Nora lớn bao nhiêu, lãi suất hiện tại là bao nhiêu, cũng không nói "đáng tiền" được tính trong bao lâu. Tôi đoán video sẽ giải thích, nhưng chỉ đọc câu này thì thiếu thông tin để tự hình dình.
+
+#### 96beb0fc (L-B)
+> 1. Tóm tắt: Video kể về Nora, người đang có khoản vay mua nhà ở Mỹ. Ngân hàng đề nghị đổi khoản vay của cô sang khoản mới có lãi suất thấp hơn, nhưng cô phải trả 5.124 đô phí. Video sẽ trả lời hai câu hỏi: lãi suất phải giảm bao nhiêu thì việc đổi mới đáng tiền với Nora, và tại sao khoản vay càng nhỏ thì lãi suất lại càng phải giảm nhiều mới đáng đổi.
+> 2. Có muốn xem không: Có thể. Chủ đề thực tế, có con số cụ thể, và câu hỏi "vay nhỏ lại cần giảm lãi nhiều hơn" khá gợi tò mò. Nhưng đây là chuyện vay mua nhà ở Mỹ nên với người xem Việt Nam thì hơi xa, chưa chắc liên quan tới mình.
+> 3. "Swap her US mortgage" có nghĩa là refinance (vay mới để trả khoản vay cũ). Người không rành tài chính có thể không biết đây là một việc phổ biến, và cũng không biết khoản phí 5.124 đô là phí gì (phí đóng hồ sơ, closing costs). Logline không cho biết khoản vay của Nora lớn bao nhiêu, còn bao nhiêu năm, lãi suất hiện tại là bao nhiêu. Vì vậy chưa hình dung được con số 5.124 đô là nhiều hay ít. Vế "smaller mortgage need a bigger one" hơi khó đọc lúc đầu: phải đọc lại mới hiểu "one" là "rate cut" (mức giảm lãi suất). Nhưng ý này cũng chính là điểm gây tò mò.
+
+#### da2d0b9a (L-B)
+> 1. Kể lại: Video nói về Nora, một người đang vay mua nhà ở Mỹ. Ngân hàng cho vay đề nghị cô đổi khoản vay hiện tại sang một khoản vay có lãi suất thấp hơn (tái cấp vốn, tức refinance), nhưng cô phải trả 5.124 đô phí. Video sẽ trả lời hai câu hỏi: lãi suất phải giảm bao nhiêu thì việc đổi mới đáng tiền với Nora, và vì sao khoản vay càng nhỏ thì lãi suất càng phải giảm nhiều mới bõ.
+> 2. Có thể. Câu hỏi thực tế, có con số cụ thể, và vế "khoản vay nhỏ lại cần giảm nhiều hơn" nghe hơi ngược đời nên gây tò mò. Nhưng chuyện vay nhà ở Mỹ không liên quan trực tiếp đến tôi.
+> 3. "swap her US mortgage" (đổi khoản vay mua nhà): người xem không rành tài chính có thể không biết đây là refinance, và không rõ đổi như vậy thì được gì. "rate cut" dễ bị hiểu nhầm là ngân hàng trung ương cắt lãi suất, trong khi ở đây nó là mức chênh giữa lãi suất cũ và lãi suất mới của Nora. "a smaller mortgage need a bigger one": chữ "one" trỏ về "rate cut", phải đọc lại mới hiểu. Ý là khoản vay nhỏ hơn thì cần lãi suất giảm nhiều hơn. Câu giới thiệu không cho biết khoản vay của Nora lớn bao nhiêu và lãi suất hiện tại là bao nhiêu, nên người xem chưa tự ước lượng được gì.
+
+#### 5b748194 (L-B)
+> 1. Kể lại: Nora có một khoản vay mua nhà ở Mỹ. Ngân hàng cho vay đề nghị đổi sang khoản vay mới có lãi suất thấp hơn, nhưng cô phải trả 5.124 đô phí. Video trả lời hai câu hỏi. Thứ nhất, lãi suất phải giảm bao nhiêu thì việc đổi mới đáng tiền. Thứ hai, vì sao khoản vay càng nhỏ thì lãi suất càng phải giảm nhiều mới bù được phí.
+> 2. Có thể. Câu hỏi thực tế, con số cụ thể và vế "vay nhỏ lại cần giảm nhiều hơn" hơi ngược đời nên gây tò mò. Nhưng tôi không có khoản vay mua nhà ở Mỹ, nên chủ đề không liên quan trực tiếp đến tôi.
+> 3. "Swap her US mortgage" thực chất là tái cấp vốn (refinance), nhưng logline không dùng từ này. Người xem không rành tài chính có thể không hiểu "đổi khoản vay" nghĩa là gì. "Rate cut" ở đây là lãi suất khoản vay của Nora giảm, không phải ngân hàng trung ương cắt lãi suất. Người đọc dễ hiểu nhầm. "Worth it for her" chưa nói rõ đáng tiền tính theo mốc nào: bao lâu thì hòa vốn, hay cô định giữ nhà bao lâu. Vế "smaller mortgage need a bigger one" đọc lần đầu hơi rối vì "one" ở đây chỉ mức giảm lãi suất. Nó cũng cần hiểu ngầm rằng phí gần như cố định, trong khi tiền lãi tiết kiệm được lại tỷ lệ với số tiền vay.
+
+#### 448bed8e (L-B)
+> 1. Kể lại: Video kể về Nora, một người đang vay mua nhà ở Mỹ. Bên cho vay đề nghị đổi khoản vay của cô sang một khoản mới có lãi suất thấp hơn, nhưng cô phải trả 5.124 đô phí. Video sẽ trả lời hai câu hỏi. Thứ nhất, lãi suất phải giảm bao nhiêu thì khoản phí đó mới đáng bỏ ra. Thứ hai, vì sao khoản vay càng nhỏ thì lãi suất lại càng phải giảm nhiều mới đáng.
+> 2. Có muốn xem không: Có thể. Con số 5.124 đô cụ thể nên nghe thật, và ý "vay ít lại cần giảm lãi nhiều hơn" nghe ngược đời nên tôi tò mò. Nhưng nếu tôi không có khoản vay mua nhà ở Mỹ thì chủ đề khá xa với tôi.
+> 3. "swap her US mortgage" (đổi khoản vay mua nhà): người xem bình thường có thể không biết đây chính là "refinance" (vay mới để trả khoản vay cũ). Trong câu không nêu từ này. "a smaller mortgage": không rõ là số tiền còn nợ ít hơn hay thời hạn vay ngắn hơn. Tôi đoán là số tiền nợ ít hơn, nhưng phải đọc lại mới chắc. "a bigger one" ở cuối câu: phải đọc lại mới hiểu "one" là mức giảm lãi suất, không phải khoản vay lớn hơn. Câu khá dài và dồn hai câu hỏi vào một. Câu hỏi thứ hai xuất hiện đột ngột, vì trước đó chưa hề nói Nora có khoản vay nhỏ.
+
+(Một số agent chép lại dòng logline ở đầu câu trả lời; đã lược vì trùng mẫu.)
+
 ## Phụ lục — nguyên văn vòng 1
 
 ### 32eaead6 (L-A)
