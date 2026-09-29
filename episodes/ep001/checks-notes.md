@@ -52,3 +52,11 @@ Tập 1 cần hợp đồng riêng cho các luật này trước khi kiểm M3.
 ## 3. Điều khoản HMDA (DX-H4)
 
 Chưa trích được câu điều khoản nào: trang nằm ở `www.consumerfinance.gov`, bị proxy chặn. Xem `data/hmda-sources.json`.
+
+## 4. S16: "30-year" counted as the 30-month break-even (2026-09-29, Stage 4b/4c, lock K2 f9e24c91)
+
+**What happens.** S16 finds a decisive sentence by comparing the numbers in the sentence text with the display of each decisive claim, *as values*. `be_bal_median` shows "30" (months). So every sentence with the loan term "30-year" counts as a decisive sentence, even though it is a different quantity (years of loan term, not months to break even):
+- Stage 4b (script v2): 6 decisive sentences, 1 tied (0.17). Four of the six were "30-year" (S01.1, S05.1, S06.2, S15.2).
+- Stage 4c (script fixes): 5 decisive sentences, 4 tied (0.80), PASS. The one untied sentence is still a false positive: S01.1 "the average 30-year fixed mortgage rate…" (cold open, before any character exists).
+
+**Proposal for session K** (not a request; K and the owner decide): compare the number together with its unit/noun, as S07 does for value + unit. "30-year" = (30, year) should not match a claim whose display is "30" with unit "months" (e.g. read the unit from the claim's formula or a `unit` field, or skip a number joined by a hyphen to "year"). The builder did not change the claims or the script to dodge the rule.

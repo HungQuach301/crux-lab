@@ -15,13 +15,13 @@ Model claims vs the checker's re-computation (checks/py/r_model.py): **47/47 mat
 | S07 | MISSING |  | needs out/checks/page.json (numbers on screen) |
 | S08 | MISSING |  | needs out/checks/page.json |
 | S09 | MISSING |  | needs out/checks/page.json |
-| S10 | FAIL | forecast sentences = 1 |  |
+| S10 | PASS |  |  |
 | S11 | MISSING |  | needs out/checks/page.json |
 | S12 | MISSING |  | needs out/checks/page.json |
-| S13 | FAIL | staccato passages = 2 |  |
+| S13 | PASS |  |  |
 | S14 | MISSING |  | needs out/video.mp4 (master silences) |
-| S15 | FAIL | cold open s = 26.65 |  |
-| S16 | FAIL | share tied to a character or scenario = 0.166667 |  |
+| S15 | FAIL | cold open s = 21.94 |  |
+| S16 | PASS |  |  |
 | R02 | PASS |  |  |
 | V04 | MISSING |  | page rule: needs out/checks/page.json (rendered page) |
 | V09 | MISSING |  | page rule: needs out/checks/page.json (rendered page) |

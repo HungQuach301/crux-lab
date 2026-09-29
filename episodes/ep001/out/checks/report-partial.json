@@ -4,8 +4,8 @@
  "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
  "video_sha256": null,
  "counts": {
-  "PASS": 6,
-  "FAIL": 5,
+  "PASS": 9,
+  "FAIL": 2,
   "MISSING": 12,
   "ERROR": 0
  },
@@ -135,7 +135,7 @@
     },
     {
      "name": "max |stretch-1|",
-     "value": 0.001908,
+     "value": 0.059329,
      "op": "<=",
      "threshold": 0.1,
      "unit": "",
@@ -152,7 +152,7 @@
    "section": "DX-A7",
    "threshold": "every |stretch − 1| ≤ 0.10",
    "fingerprint": "d9a3e6fde6d2f573",
-   "seconds": 19.0
+   "seconds": 18.7
   },
   {
    "id": "A15",
@@ -435,7 +435,7 @@
   },
   {
    "id": "S10",
-   "status": "FAIL",
+   "status": "PASS",
    "metrics": [
     {
      "name": "advice sentences",
@@ -448,11 +448,11 @@
     },
     {
      "name": "forecast sentences",
-     "value": 1,
+     "value": 0,
      "op": "<=",
      "threshold": 0,
      "unit": "",
-     "pass": false,
+     "pass": true,
      "near": false
     },
     {
@@ -495,13 +495,7 @@
    "details": [
     {
      "advice": [],
-     "forecast": [
-      [
-       "narration",
-       "S04.2",
-       "By the end, you will see the rate drop that pays that bill back within three years, for th"
-      ]
-     ],
+     "forecast": [],
      "four": [],
      "we": []
     }
@@ -536,11 +530,11 @@
   },
   {
    "id": "S13",
-   "status": "FAIL",
+   "status": "PASS",
    "metrics": [
     {
      "name": "sentence length CV (≥ 4 words)",
-     "value": 0.42965,
+     "value": 0.419769,
      "op": ">=",
      "threshold": 0.35,
      "unit": "",
@@ -549,35 +543,19 @@
     },
     {
      "name": "staccato passages",
-     "value": 2,
+     "value": 0,
      "op": "<=",
      "threshold": 0,
      "unit": "",
-     "pass": false,
+     "pass": true,
      "near": false
     }
    ],
    "details": [
     {
      "sentences": 132,
-     "mean": 10.7,
-     "cvAllSentences": 0.447
-    },
-    {
-     "from": "S13.4",
-     "texts": [
-      "The division looks airtight.",
-      "It is missing one line.",
-      "Back to the letter."
-     ]
-    },
-    {
-     "from": "S18.2",
-     "texts": [
-      "Division would promise 38 months.",
-      "Longer, but still a finish line.",
-      "Then the balance gets counted."
-     ]
+     "mean": 10.9,
+     "cvAllSentences": 0.438
     }
    ],
    "note": null,
@@ -628,7 +606,7 @@
     },
     {
      "name": "cold open s",
-     "value": 26.65,
+     "value": 21.94,
      "op": "<=",
      "threshold": 15.0,
      "unit": "s",
@@ -655,7 +633,7 @@
     },
     {
      "name": "total s",
-     "value": 737.169,
+     "value": 741.502,
      "op": ">=",
      "threshold": 600.0,
      "unit": "s",
@@ -695,11 +673,11 @@
   },
   {
    "id": "S16",
-   "status": "FAIL",
+   "status": "PASS",
    "metrics": [
     {
      "name": "decisive sentences",
-     "value": 6,
+     "value": 5,
      "op": ">=",
      "threshold": 1,
      "unit": "",
@@ -708,11 +686,11 @@
     },
     {
      "name": "share tied to a character or scenario",
-     "value": 0.166667,
+     "value": 0.8,
      "op": ">=",
      "threshold": 0.75,
      "unit": "",
-     "pass": false,
+     "pass": true,
      "near": false
     }
    ],
@@ -737,38 +715,6 @@
      ],
      "tiedTo": [],
      "text": "In October 2023, the average 30-year fixed mortgage rate in the US hit its highest level since 2000."
-    },
-    {
-     "sentence": "S05.1",
-     "claims": [
-      "be_bal_median"
-     ],
-     "tiedTo": [],
-     "text": "One week in January 2021, the average 30-year fixed rate was 2.65%, the lowest in the weekly record."
-    },
-    {
-     "sentence": "S06.2",
-     "claims": [
-      "be_bal_median"
-     ],
-     "tiedTo": [],
-     "text": "Three in ten 30-year home-purchase loans made in 2023 carried a rate of seven percent or more."
-    },
-    {
-     "sentence": "S15.2",
-     "claims": [
-      "be_bal_median"
-     ],
-     "tiedTo": [],
-     "text": "A new loan starts the 30-year clock over."
-    },
-    {
-     "sentence": "S17.1",
-     "claims": [
-      "be_bal_median"
-     ],
-     "tiedTo": [],
-     "text": "With the gap counted, the bill comes back at month 30."
     }
    ],
    "note": null,
@@ -793,8 +739,8 @@
    ],
    "details": [
     {
-     "from": 648.269,
-     "to": 696.619
+     "from": 652.602,
+     "to": 700.952
     }
    ],
    "note": null,

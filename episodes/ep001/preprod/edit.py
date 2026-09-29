@@ -25,9 +25,9 @@ EP = os.path.join(HERE, '..')
 SR = 48000
 J = lambda p: json.load(open(os.path.join(EP, p)))
 
-LEAD = 1.5          # picture before the first word (script: the rate line draws ~1.5 s first)
+LEAD = 0.9          # picture before the first word (Stage 4c: 1.5 -> 0.9 s to bring the cold open toward the approved ~20 s)
 GAP = 0.45          # between sentences of a scene
-GAP_COLD = 0.3      # cold open
+GAP_COLD = 0.12     # cold open: between sentences, between its two scenes and into the ident (Stage 4c: 0.3/0.7 -> 0.12)
 GAP_SCENE = 0.7     # between scenes
 IDENT = 3.0
 CARD_HOLD = {'S32.4': 5.0, 'S32.5': 5.0, 'S33.1': 16.0}   # on-screen-only card blocks (method card >= 12 s; history card 16 s)
@@ -93,7 +93,7 @@ def main():
             # gap before a new scene: the pending pause, at least GAP_SCENE after a spoken line (GAP_COLD inside the cold open),
             # nothing after a card, the ident or a hold
             if cur_scene is not None and pending:
-                t += max(pending, GAP_COLD if r['act'] == 'cold-open' else GAP_SCENE)
+                t += max(pending, GAP_COLD if cur_act == 'cold-open' else GAP_SCENE)
             pending = 0.0
             if r['act'] != cur_act:
                 acts.append({'id': r['act'], 'start': round(t, 3)})

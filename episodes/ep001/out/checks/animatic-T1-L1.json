@@ -6,29 +6,18 @@
  "counts": {
   "PASS": 1,
   "FAIL": 0,
-  "MISSING": 1,
+  "MISSING": 0,
   "ERROR": 0
  },
  "near": [],
  "results": [
-  {
-   "id": "T1",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/video.mp4",
-   "section": "DX-A1 (sổ gu G-001, G-006)",
-   "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
-   "fingerprint": "e7a5925e1b04aae3",
-   "seconds": 74.1
-  },
   {
    "id": "L1",
    "status": "PASS",
    "metrics": [
     {
      "name": "voice-active windows",
-     "value": 5428,
+     "value": 5498,
      "op": ">=",
      "threshold": 1,
      "unit": "",
@@ -37,7 +26,7 @@
     },
     {
      "name": "voice/data 1–4 kHz ratio, 10th percentile (dB)",
-     "value": 29.230181,
+     "value": 28.080559,
      "op": ">=",
      "threshold": 20.0,
      "unit": "dB",
@@ -57,16 +46,16 @@
    "details": [
     {
      "windowsWithDataSound": 45,
-     "medianRatioDb": 38.8,
-     "minRatioDb": 19.9,
-     "keyWords": 99
+     "medianRatioDb": 36.8,
+     "minRatioDb": 9.6,
+     "keyWords": 112
     }
    ],
    "note": null,
    "section": "DX-A1, DX-A9 (sổ gu G-006)",
    "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
    "fingerprint": "01832a4e805c145e",
-   "seconds": 620.2
+   "seconds": 603.8
   }
  ]
 }

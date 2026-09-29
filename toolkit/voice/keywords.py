@@ -67,6 +67,9 @@ def numbers_in_words(tokens):
     for t in tokens:
         toks += [x for x in re.split(r'[-\s]', t.lower().strip('.,;:!?')) if x]
     out, i = [], 0
+    for k, w in enumerate(toks):  # "half a point" / "a half" = 0.5 (script v2 says 0.5 on screen, "half a ... point" aloud)
+        if w == 'half' and (k == 0 or toks[k - 1] not in ONES and toks[k - 1] not in TENS and toks[k - 1] != 'and'):
+            out.append((0.5, ''))
     while i < len(toks):
         if toks[i] not in ONES and toks[i] not in TENS:
             i += 1

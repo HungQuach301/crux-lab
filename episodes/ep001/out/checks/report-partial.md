@@ -3,7 +3,7 @@
 root: `/home/user/crux-lab/episodes/ep001`  
 lock: `f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd`  
 master SHA-256: `None`  
-{'PASS': 6, 'FAIL': 5, 'MISSING': 12, 'ERROR': 0}
+{'PASS': 9, 'FAIL': 2, 'MISSING': 12, 'ERROR': 0}
 
 | rule | § | status | failing metrics |
 |---|---|---|---|
@@ -18,13 +18,13 @@ master SHA-256: `None`
 | S07 | DX-H1, DX-H2 | MISSING | artifact missing: out/checks/page.json |
 | S08 | DX-H2 | MISSING | artifact missing: out/checks/page.json |
 | S09 | DX-H3 | MISSING | artifact missing: out/checks/page.json |
-| S10 | DX-I1, DX-I2 | FAIL | forecast sentences = 1 (need <= 0) |
+| S10 | DX-I1, DX-I2 | PASS |  |
 | S11 | DX-S6 | MISSING | artifact missing: out/checks/page.json |
 | S12 | DX-S7 | MISSING | artifact missing: out/checks/page.json |
-| S13 | DX-S8 (sổ gu G-009) | FAIL | staccato passages = 2 (need <= 0) |
+| S13 | DX-S8 (sổ gu G-009) | PASS |  |
 | S14 | DX-S10 | MISSING | artifact missing: out/video.mp4 |
-| S15 | DX-S1 | FAIL | cold open s = 26.65 (need <= 15.0) |
-| S16 | DX-S3, RUBRIC H4 (sổ gu G-008) | FAIL | share tied to a character or scenario = 0.166667 (need >= 0.75) |
+| S15 | DX-S1 | FAIL | cold open s = 21.94 (need <= 15.0) |
+| S16 | DX-S3, RUBRIC H4 (sổ gu G-008) | PASS |  |
 | R02 | DX-R2 | PASS |  |
 | V04 | DX-V4, DX-X3 | MISSING | artifact missing: out/checks/page.json |
 | V09 | DX-V4, DX-X3 | MISSING | artifact missing: out/checks/page.json |

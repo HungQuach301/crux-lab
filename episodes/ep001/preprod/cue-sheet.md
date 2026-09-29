@@ -1,47 +1,47 @@
 # Episode 1 — cue sheet (Stage 4b, script v2)
 
-Planned length **12.29 min** (737.2 s) from the V8 takes. Music is generated in code; no third-party audio.
+Planned length **12.36 min** (741.5 s) from the V8 takes. Music is generated in code; no third-party audio.
 
 ## Music cues
 
 | t (s) | end | layer | key | tempo | dramatic function |
 |---|---|---|---|---|---|
-| 0.0 | 26.6 | music | D minor | 72 | suspense under the open question: pad and low pulse, no melody |
-| 26.6 | 29.6 | music | D minor | 72 | ident sting over the long rate-line tone |
-| 29.6 | 219.7 | music | D minor | 84 | curious, light pulse; Nora's motif (piano) |
-| 219.7 | 392.5 | music | D minor | 92 | build through the balance gap to the quarter-point climax (S19), release on the full point |
-| 392.5 | 648.3 | music | F major | 88 | Walt (low plucks), Anjali (high bells); resolves on the three-line answer (S29) |
-| 648.3 | 696.6 | music | F major | 70 | thin pad under the method cards |
-| 696.6 | 737.2 | music | F major | 76 | resolved; three motifs together; tail into the end screen |
-| 184.8 | 204.8 | music-dynamics | D minor | 84 | build to the act1 climax |
-| 315.8 | 335.8 | music-dynamics | D minor | 92 | build to the act2 climax |
-| 548.7 | 568.7 | music-dynamics | F major | 88 | build to the act3 climax |
+| 0.0 | 21.9 | music | D minor | 72 | suspense under the open question: pad and low pulse, no melody |
+| 21.9 | 24.9 | music | D minor | 72 | ident sting over the long rate-line tone |
+| 24.9 | 219.2 | music | D minor | 84 | curious, light pulse; Nora's motif (piano) |
+| 219.2 | 396.5 | music | D minor | 92 | build through the balance gap to the quarter-point climax (S19), release on the full point |
+| 396.5 | 652.6 | music | F major | 88 | Walt (low plucks), Anjali (high bells); resolves on the three-line answer (S29) |
+| 652.6 | 701.0 | music | F major | 70 | thin pad under the method cards |
+| 701.0 | 741.5 | music | F major | 76 | resolved; three motifs together; tail into the end screen |
+| 184.3 | 204.3 | music-dynamics | D minor | 84 | build to the act1 climax |
+| 318.2 | 338.2 | music-dynamics | D minor | 92 | build to the act2 climax |
+| 553.3 | 573.3 | music-dynamics | F major | 88 | build to the act3 climax |
 
 ## Intentional silences (script pauses; ~300 ms release in, room tone floor)
 
 | t (s) | length | after | why |
 |---|---|---|---|
-| 131.64 | 1.0 s | `S09.2` | script pause after S09.2 |
-| 200.26 | 1.0 s | `S12.4` | script pause after S12.4 |
-| 218.57 | 1.2 s | `S13.5` | ad break |
-| 288.68 | 1.0 s | `S16.1` | script pause after S16.1 |
-| 308.81 | 1.0 s | `S17.1` | script pause after S17.1 |
-| 329.17 | 1.0 s | `S18.2` | script pause after S18.2 |
-| 343.23 | 1.2 s | `S19.1` | script pause after S19.1 |
-| 352.79 | 1.0 s | `S20.1` | script pause after S20.1 |
-| 380.44 | 1.0 s | `S21.3` | script pause after S21.3 |
-| 391.34 | 1.2 s | `S21.6` | ad break |
-| 422.32 | 1.0 s | `S22.5` | script pause after S22.5 |
-| 446.31 | 1.0 s | `S23.3` | script pause after S23.3 |
-| 461.77 | 1.0 s | `S24.2` | script pause after S24.2 |
-| 478.17 | 1.0 s | `S25.1` | script pause after S25.1 |
-| 502.42 | 1.0 s | `S26.1` | script pause after S26.1 |
-| 554.22 | 1.0 s | `S28.1` | script pause after S28.1 |
-| 596.50 | 1.0 s | `S29.7` | script pause after S29.7 |
-| 624.68 | 1.0 s | `S30.3` | script pause after S30.3 |
-| 631.18 | 1.0 s | `S31.1` | script pause after S31.1 |
+| 126.77 | 1.0 s | `S09.2` | script pause after S09.2 |
+| 199.77 | 1.0 s | `S12.4` | script pause after S12.4 |
+| 218.08 | 1.2 s | `S13.5` | ad break |
+| 288.94 | 1.0 s | `S16.1` | script pause after S16.1 |
+| 309.27 | 1.0 s | `S17.1` | script pause after S17.1 |
+| 330.16 | 1.0 s | `S18.2` | script pause after S18.2 |
+| 345.38 | 1.2 s | `S19.1` | script pause after S19.1 |
+| 355.66 | 1.0 s | `S20.1` | script pause after S20.1 |
+| 384.46 | 1.0 s | `S21.3` | script pause after S21.3 |
+| 395.36 | 1.2 s | `S21.6` | ad break |
+| 426.34 | 1.0 s | `S22.5` | script pause after S22.5 |
+| 450.33 | 1.0 s | `S23.3` | script pause after S23.3 |
+| 465.79 | 1.0 s | `S24.2` | script pause after S24.2 |
+| 482.19 | 1.0 s | `S25.1` | script pause after S25.1 |
+| 506.94 | 1.0 s | `S26.1` | script pause after S26.1 |
+| 558.78 | 1.0 s | `S28.1` | script pause after S28.1 |
+| 601.06 | 1.0 s | `S29.7` | script pause after S29.7 |
+| 629.24 | 1.0 s | `S30.3` | script pause after S30.3 |
+| 635.51 | 1.0 s | `S31.1` | script pause after S31.1 |
 
-Ad breaks: 219.1 s, 391.9 s (end of act 1, end of act 2).
+Ad breaks: 218.6 s, 395.9 s (end of act 1, end of act 2).
 
 ## Data sonification plan (sổ gu G-001, G-005, G-006)
 

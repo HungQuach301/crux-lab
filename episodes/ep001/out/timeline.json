@@ -1,44 +1,44 @@
 {
  "fps": 30,
- "total": 737.169,
+ "total": 741.502,
  "acts": [
   {
    "id": "cold-open",
    "start": 0.0,
-   "end": 26.65
+   "end": 21.94
   },
   {
    "id": "ident",
-   "start": 26.65,
-   "end": 29.65
+   "start": 21.94,
+   "end": 24.94
   },
   {
    "id": "act1",
-   "start": 29.65,
-   "end": 219.72,
-   "climax": 204.81
+   "start": 24.94,
+   "end": 219.23,
+   "climax": 204.32
   },
   {
    "id": "act2",
-   "start": 219.72,
-   "end": 392.49,
-   "climax": 335.8
+   "start": 219.23,
+   "end": 396.512,
+   "climax": 338.17
   },
   {
    "id": "act3",
-   "start": 392.49,
-   "end": 648.269,
-   "climax": 568.729
+   "start": 396.512,
+   "end": 652.602,
+   "climax": 573.292
   },
   {
    "id": "method",
-   "start": 648.269,
-   "end": 696.619
+   "start": 652.602,
+   "end": 700.952
   },
   {
    "id": "outro",
-   "start": 696.619,
-   "end": 737.169
+   "start": 700.952,
+   "end": 741.502
   }
  ],
  "scenes": [
@@ -46,7 +46,7 @@
    "id": "S01",
    "act": "cold-open",
    "start": 0.0,
-   "dur": 11.75,
+   "dur": 9.84,
    "layout": "line/peak",
    "shot": "wide",
    "panels": [
@@ -58,8 +58,8 @@
   {
    "id": "S02",
    "act": "cold-open",
-   "start": 11.75,
-   "dur": 14.9,
+   "start": 9.84,
+   "dur": 12.1,
    "layout": "letter/offer",
    "shot": "close",
    "panels": [
@@ -71,7 +71,7 @@
   {
    "id": "S03",
    "act": "ident",
-   "start": 26.65,
+   "start": 21.94,
    "dur": 3.0,
    "layout": "ident/logo",
    "shot": "wide",
@@ -84,8 +84,8 @@
   {
    "id": "S04",
    "act": "act1",
-   "start": 29.65,
-   "dur": 17.87,
+   "start": 24.94,
+   "dur": 17.03,
    "layout": "ruler/empty",
    "shot": "medium",
    "panels": [
@@ -97,8 +97,8 @@
   {
    "id": "S05",
    "act": "act1",
-   "start": 47.52,
-   "dur": 20.73,
+   "start": 41.97,
+   "dur": 19.98,
    "layout": "line/low-to-peak",
    "shot": "wide",
    "panels": [
@@ -110,7 +110,7 @@
   {
    "id": "S06",
    "act": "act1",
-   "start": 68.25,
+   "start": 61.95,
    "dur": 14.65,
    "layout": "grid/houses",
    "shot": "medium",
@@ -123,8 +123,8 @@
   {
    "id": "S07",
    "act": "act1",
-   "start": 82.9,
-   "dur": 23.25,
+   "start": 76.6,
+   "dur": 23.68,
    "layout": "line/nora-lands",
    "shot": "medium",
    "panels": [
@@ -136,7 +136,7 @@
   {
    "id": "S08",
    "act": "act1",
-   "start": 106.15,
+   "start": 100.28,
    "dur": 15.74,
    "layout": "letter/today",
    "shot": "medium",
@@ -149,8 +149,8 @@
   {
    "id": "S09",
    "act": "act1",
-   "start": 121.89,
-   "dur": 21.94,
+   "start": 116.02,
+   "dur": 22.94,
    "layout": "bars/payment",
    "shot": "close",
    "panels": [
@@ -162,8 +162,8 @@
   {
    "id": "S10",
    "act": "act1",
-   "start": 143.83,
-   "dur": 28.19,
+   "start": 138.96,
+   "dur": 32.17,
    "layout": "blocks/bill-vs-saving",
    "shot": "medium",
    "panels": [
@@ -175,7 +175,7 @@
   {
    "id": "S11",
    "act": "act1",
-   "start": 172.02,
+   "start": 171.13,
    "dur": 7.85,
    "layout": "letter/two-slots",
    "shot": "wide",
@@ -188,8 +188,8 @@
   {
    "id": "S12",
    "act": "act1",
-   "start": 179.87,
-   "dur": 24.94,
+   "start": 178.98,
+   "dur": 25.34,
    "layout": "split/line-vs-division",
    "shot": "medium",
    "panels": [
@@ -201,7 +201,7 @@
   {
    "id": "S13",
    "act": "act1",
-   "start": 204.81,
+   "start": 204.32,
    "dur": 14.91,
    "layout": "letter/missing-line",
    "shot": "close",
@@ -214,8 +214,8 @@
   {
    "id": "S14",
    "act": "act2",
-   "start": 219.72,
-   "dur": 25.16,
+   "start": 219.23,
+   "dur": 26.23,
    "layout": "blocks/stack",
    "shot": "medium",
    "panels": [
@@ -227,7 +227,7 @@
   {
    "id": "S15",
    "act": "act2",
-   "start": 244.88,
+   "start": 245.46,
    "dur": 35.67,
    "layout": "balance/stairs",
    "shot": "medium",
@@ -240,8 +240,8 @@
   {
    "id": "S16",
    "act": "act2",
-   "start": 280.55,
-   "dur": 23.45,
+   "start": 281.13,
+   "dur": 23.13,
    "layout": "balance/gap24",
    "shot": "close",
    "panels": [
@@ -253,8 +253,8 @@
   {
    "id": "S17",
    "act": "act2",
-   "start": 304.0,
-   "dur": 16.62,
+   "start": 304.26,
+   "dur": 16.82,
    "layout": "clock/30",
    "shot": "medium",
    "panels": [
@@ -266,8 +266,8 @@
   {
    "id": "S18",
    "act": "act2",
-   "start": 320.62,
-   "dur": 15.18,
+   "start": 321.08,
+   "dur": 17.09,
    "layout": "clock/38",
    "shot": "medium",
    "panels": [
@@ -279,8 +279,8 @@
   {
    "id": "S19",
    "act": "act2",
-   "start": 335.8,
-   "dur": 11.64,
+   "start": 338.17,
+   "dur": 11.42,
    "layout": "clock/never",
    "shot": "wide",
    "panels": [
@@ -292,8 +292,8 @@
   {
    "id": "S20",
    "act": "act2",
-   "start": 347.44,
-   "dur": 15.09,
+   "start": 349.59,
+   "dur": 15.81,
    "layout": "ruler/test",
    "shot": "medium",
    "panels": [
@@ -305,8 +305,8 @@
   {
    "id": "S21",
    "act": "act2",
-   "start": 362.53,
-   "dur": 29.96,
+   "start": 365.4,
+   "dur": 31.112,
    "layout": "ruler/nora",
    "shot": "medium",
    "panels": [
@@ -318,7 +318,7 @@
   {
    "id": "S22",
    "act": "act3",
-   "start": 392.49,
+   "start": 396.512,
    "dur": 35.29,
    "layout": "person/walt",
    "shot": "medium",
@@ -331,7 +331,7 @@
   {
    "id": "S23",
    "act": "act3",
-   "start": 427.78,
+   "start": 431.802,
    "dur": 23.63,
    "layout": "blocks/three-bills",
    "shot": "wide",
@@ -344,7 +344,7 @@
   {
    "id": "S24",
    "act": "act3",
-   "start": 451.41,
+   "start": 455.432,
    "dur": 20.27,
    "layout": "blocks/walt-stack",
    "shot": "medium",
@@ -357,8 +357,8 @@
   {
    "id": "S25",
    "act": "act3",
-   "start": 471.68,
-   "dur": 25.259,
+   "start": 475.702,
+   "dur": 25.88,
    "layout": "timeline/walt3",
    "shot": "medium",
    "panels": [
@@ -370,8 +370,8 @@
   {
    "id": "S26",
    "act": "act3",
-   "start": 496.939,
-   "dur": 18.33,
+   "start": 501.582,
+   "dur": 18.21,
    "layout": "ruler/walt",
    "shot": "medium",
    "panels": [
@@ -383,7 +383,7 @@
   {
    "id": "S27",
    "act": "act3",
-   "start": 515.269,
+   "start": 519.792,
    "dur": 32.46,
    "layout": "person/anjali",
    "shot": "medium",
@@ -396,8 +396,8 @@
   {
    "id": "S28",
    "act": "act3",
-   "start": 547.729,
-   "dur": 21.0,
+   "start": 552.252,
+   "dur": 21.04,
    "layout": "ruler/anjali",
    "shot": "medium",
    "panels": [
@@ -409,7 +409,7 @@
   {
    "id": "S29",
    "act": "act3",
-   "start": 568.729,
+   "start": 573.292,
    "dur": 41.95,
    "layout": "ruler/answer",
    "shot": "wide",
@@ -422,7 +422,7 @@
   {
    "id": "S30",
    "act": "act3",
-   "start": 610.679,
+   "start": 615.242,
    "dur": 14.95,
    "layout": "timeline/nora3",
    "shot": "medium",
@@ -435,8 +435,8 @@
   {
    "id": "S31",
    "act": "act3",
-   "start": 625.629,
-   "dur": 22.64,
+   "start": 630.192,
+   "dur": 22.41,
    "layout": "timeline/nora7",
    "shot": "wide",
    "panels": [
@@ -448,7 +448,7 @@
   {
    "id": "S32",
    "act": "method",
-   "start": 648.269,
+   "start": 652.602,
    "dur": 32.35,
    "layout": "card/method",
    "shot": "medium",
@@ -461,7 +461,7 @@
   {
    "id": "S33",
    "act": "method",
-   "start": 680.619,
+   "start": 684.952,
    "dur": 16.0,
    "layout": "card/history",
    "shot": "medium",
@@ -474,7 +474,7 @@
   {
    "id": "S34",
    "act": "outro",
-   "start": 696.619,
+   "start": 700.952,
    "dur": 40.55,
    "layout": "end/screen",
    "shot": "wide",
@@ -487,23 +487,23 @@
  ],
  "turns": [
   {
-   "t": 204.81,
+   "t": 204.32,
    "what": "act 1 turn: neither answer is right; the division misses one line"
   },
   {
-   "t": 280.55,
+   "t": 281.13,
    "what": "the missing line: $1,133 more owed at month 24"
   },
   {
-   "t": 335.8,
+   "t": 338.17,
    "what": "act 2 climax: at a quarter point the bill never comes back"
   },
   {
-   "t": 427.78,
+   "t": 431.802,
    "what": "act 3 turn: the bill barely shrinks with the loan"
   },
   {
-   "t": 568.729,
+   "t": 573.292,
    "what": "the answer: a third of a point, half a point, more than one"
   }
  ],

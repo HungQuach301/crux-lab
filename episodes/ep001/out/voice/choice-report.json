@@ -10,20 +10,21 @@
  ],
  "acts": {
   "cold-open": {
-   "rawWpm": 154.9,
-   "afterStretchWpm": 154.9
+   "rawWpm": 176.5,
+   "afterStretchWpm": 176.5,
+   "note": "Stage 4c: fastest passing take per sentence (approved ~20 s cold open)"
   },
   "act1": {
-   "rawWpm": 158.0,
-   "afterStretchWpm": 158.0
+   "rawWpm": 156.5,
+   "afterStretchWpm": 156.5
   },
   "act2": {
-   "rawWpm": 154.2,
-   "afterStretchWpm": 154.2
+   "rawWpm": 155.1,
+   "afterStretchWpm": 155.1
   },
   "act3": {
-   "rawWpm": 158.5,
-   "afterStretchWpm": 158.5
+   "rawWpm": 158.3,
+   "afterStretchWpm": 158.3
   },
   "method": {
    "rawWpm": 158.8,
@@ -42,13 +43,14 @@
    "act": "cold-open",
    "words": 20,
    "chosen": {
-    "take": 0,
+    "take": 52,
     "model": "eleven_v3",
-    "wpm": 160.0,
-    "wpmAfter": 160.0,
+    "wpm": 181.8,
+    "wpmAfter": 181.8,
     "stretch": 1.0,
     "missing": [],
-    "heard": "In October, 2023, the average 30 -year fixed mortgage rate in the U .S. hit its highest level since 2000."
+    "heard": "In October, 2023, the average 30 -year fixed mortgage rate in the U .S. hit its highest level since 2000.",
+    "coldOpenFastest": true
    },
    "takes": 2,
    "problem": ""
@@ -64,7 +66,8 @@
     "wpmAfter": 166.7,
     "stretch": 1.0,
     "missing": [],
-    "heard": "Many families signed anyway."
+    "heard": "Many families signed anyway.",
+    "coldOpenFastest": true
    },
    "takes": 4,
    "problem": ""
@@ -74,13 +77,14 @@
    "act": "cold-open",
    "words": 5,
    "chosen": {
-    "take": 20,
+    "take": 21,
     "model": "eleven_multilingual_v2",
-    "wpm": 141.5,
-    "wpmAfter": 141.5,
+    "wpm": 176.5,
+    "wpmAfter": 176.5,
     "stretch": 1.0,
     "missing": [],
-    "heard": "Nora was one of them."
+    "heard": "Nora was one of them.",
+    "coldOpenFastest": true
    },
    "takes": 8,
    "problem": ""
@@ -90,13 +94,14 @@
    "act": "cold-open",
    "words": 16,
    "chosen": {
-    "take": 20,
+    "take": 11,
     "model": "eleven_multilingual_v2",
-    "wpm": 146.8,
-    "wpmAfter": 146.8,
+    "wpm": 186.0,
+    "wpmAfter": 186.0,
     "stretch": 1.0,
     "missing": [],
-    "heard": "Now a letter from her lender offers a lower rate with a bill at the bottom."
+    "heard": "Now a letter from her lender offers a lower rate with a bill at the bottom.",
+    "coldOpenFastest": true
    },
    "takes": 7,
    "problem": ""
@@ -112,7 +117,8 @@
     "wpmAfter": 160.7,
     "stretch": 1.0,
     "missing": [],
-    "heard": "How far must her rate fall before that bill pays itself back?"
+    "heard": "How far must her rate fall before that bill pays itself back?",
+    "coldOpenFastest": true
    },
    "takes": 2,
    "problem": ""
@@ -136,17 +142,17 @@
   {
    "id": "S04.2",
    "act": "act1",
-   "words": 22,
+   "words": 23,
    "chosen": {
     "take": 10,
     "model": "eleven_multilingual_v2",
-    "wpm": 138.9,
-    "wpmAfter": 138.9,
+    "wpm": 159.4,
+    "wpmAfter": 159.4,
     "stretch": 1.0,
     "missing": [],
-    "heard": "By the end, you will see the rate drop that pays that bill back within three years for three different loan sizes."
+    "heard": "By the end, the rate drop that pays that bill back within three years is on the screen for three different loan sizes."
    },
-   "takes": 6,
+   "takes": 3,
    "problem": ""
   },
   {
@@ -168,17 +174,17 @@
   {
    "id": "S05.1",
    "act": "act1",
-   "words": 23,
+   "words": 22,
    "chosen": {
-    "take": 11,
-    "model": "eleven_multilingual_v2",
-    "wpm": 152.3,
-    "wpmAfter": 152.3,
+    "take": 0,
+    "model": "eleven_v3",
+    "wpm": 159.8,
+    "wpmAfter": 159.8,
     "stretch": 1.0,
     "missing": [],
-    "heard": "One week in January 2021, the average 30 -year fixed rate was 2 .65%, the lowest in the weekly record."
+    "heard": "One week in January 2021, that same average rate was 2 .65%, the lowest in the weekly record."
    },
-   "takes": 4,
+   "takes": 2,
    "problem": ""
   },
   {
@@ -300,13 +306,13 @@
    "chosen": {
     "take": 0,
     "model": "eleven_v3",
-    "wpm": 166.7,
-    "wpmAfter": 166.7,
+    "wpm": 150.0,
+    "wpmAfter": 150.0,
     "stretch": 1.0,
     "missing": [],
-    "heard": "she borrowed $375 ,000."
+    "heard": "Nora borrowed $375 ,000."
    },
-   "takes": 4,
+   "takes": 1,
    "problem": ""
   },
   {
@@ -392,17 +398,17 @@
   {
    "id": "S09.1",
    "act": "act1",
-   "words": 11,
+   "words": 13,
    "chosen": {
     "take": 21,
     "model": "eleven_multilingual_v2",
-    "wpm": 161.8,
-    "wpmAfter": 161.8,
+    "wpm": 157.9,
+    "wpmAfter": 157.9,
     "stretch": 1.0,
     "missing": [],
-    "heard": "That is just over half a percentage point below her rate."
+    "heard": "That is just over half a percentage point below the rate Nora pays."
    },
-   "takes": 8,
+   "takes": 6,
    "problem": ""
   },
   {
@@ -456,15 +462,15 @@
   {
    "id": "S10.1",
    "act": "act1",
-   "words": 14,
+   "words": 16,
    "chosen": {
     "take": 0,
     "model": "eleven_v3",
-    "wpm": 162.8,
-    "wpmAfter": 162.8,
+    "wpm": 162.7,
+    "wpmAfter": 162.7,
     "stretch": 1.0,
     "missing": [],
-    "heard": "$5 ,124 in loan costs, paid in cash at closing."
+    "heard": "$5 ,124 in loan costs for Nora, paid in cash at closing."
    },
    "takes": 2,
    "problem": ""
@@ -506,10 +512,10 @@
    "act": "act1",
    "words": 24,
    "chosen": {
-    "take": 0,
-    "model": "eleven_v3",
-    "wpm": 168.2,
-    "wpmAfter": 168.2,
+    "take": 20,
+    "model": "eleven_multilingual_v2",
+    "wpm": 122.2,
+    "wpmAfter": 122.2,
     "stretch": 1.0,
     "missing": [],
     "heard": "Nora is an illustrative borrower, but her loan and that bill are the real medians from nearly half a million refinances in 2025."
@@ -584,17 +590,17 @@
   {
    "id": "S12.3",
    "act": "act1",
-   "words": 6,
+   "words": 8,
    "chosen": {
     "take": 20,
     "model": "eleven_multilingual_v2",
-    "wpm": 155.2,
-    "wpmAfter": 155.2,
+    "wpm": 176.5,
+    "wpmAfter": 176.5,
     "stretch": 1.0,
     "missing": [],
-    "heard": "Her offer falls short of it."
+    "heard": "The offer to Nora falls short of it."
    },
-   "takes": 7,
+   "takes": 6,
    "problem": ""
   },
   {
@@ -712,17 +718,17 @@
   {
    "id": "S14.1",
    "act": "act2",
-   "words": 4,
+   "words": 8,
    "chosen": {
-    "take": 20,
+    "take": 21,
     "model": "eleven_multilingual_v2",
-    "wpm": 155.8,
-    "wpmAfter": 155.8,
+    "wpm": 176.5,
+    "wpmAfter": 176.5,
     "stretch": 1.0,
     "missing": [],
-    "heard": "Back to the letter."
+    "heard": "Back to the letter on the kitchen table."
    },
-   "takes": 7,
+   "takes": 6,
    "problem": ""
   },
   {
@@ -796,13 +802,13 @@
    "chosen": {
     "take": 10,
     "model": "eleven_multilingual_v2",
-    "wpm": 151.7,
-    "wpmAfter": 151.7,
+    "wpm": 150.8,
+    "wpmAfter": 150.8,
     "stretch": 1.0,
     "missing": [],
-    "heard": "She has made 35 payments on her old loan."
+    "heard": "Nora has made 35 payments on her old loan."
    },
-   "takes": 5,
+   "takes": 3,
    "problem": ""
   },
   {
@@ -892,13 +898,13 @@
    "chosen": {
     "take": 0,
     "model": "eleven_v3",
-    "wpm": 151.5,
-    "wpmAfter": 151.5,
+    "wpm": 158.3,
+    "wpmAfter": 158.3,
     "stretch": 1.0,
     "missing": [],
-    "heard": "At month 24, she owes $1 ,133 more than she would have on the old loan."
+    "heard": "At month 24, Nora owes $1 ,133 more than she would have on the old loan."
    },
-   "takes": 1,
+   "takes": 2,
    "problem": ""
   },
   {
@@ -952,17 +958,17 @@
   {
    "id": "S17.1",
    "act": "act2",
-   "words": 11,
+   "words": 12,
    "chosen": {
     "take": 20,
     "model": "eleven_multilingual_v2",
-    "wpm": 148.0,
-    "wpmAfter": 148.0,
+    "wpm": 153.2,
+    "wpmAfter": 153.2,
     "stretch": 1.0,
     "missing": [],
-    "heard": "With the gap counted, the bill comes back at month 30."
+    "heard": "With the gap counted, Nora gets the bill back at month 30."
    },
-   "takes": 7,
+   "takes": 5,
    "problem": ""
   },
   {
@@ -1016,17 +1022,17 @@
   {
    "id": "S18.1",
    "act": "act2",
-   "words": 15,
+   "words": 17,
    "chosen": {
     "take": 20,
     "model": "eleven_multilingual_v2",
-    "wpm": 155.7,
-    "wpmAfter": 155.7,
+    "wpm": 162.4,
+    "wpmAfter": 162.4,
     "stretch": 1.0,
     "missing": [],
-    "heard": "Suppose the offer had cut her rate by only a quarter of a percentage point."
+    "heard": "Suppose the offer to Nora had cut her rate by only a quarter of a percentage point."
    },
-   "takes": 7,
+   "takes": 5,
    "problem": ""
   },
   {
@@ -1064,17 +1070,17 @@
   {
    "id": "S18.5",
    "act": "act2",
-   "words": 5,
+   "words": 9,
    "chosen": {
-    "take": 21,
+    "take": 10,
     "model": "eleven_multilingual_v2",
-    "wpm": 156.2,
-    "wpmAfter": 156.2,
+    "wpm": 161.7,
+    "wpmAfter": 161.7,
     "stretch": 1.0,
     "missing": [],
-    "heard": "then the balance gets counted."
+    "heard": "then the balance she still owes gets counted too."
    },
-   "takes": 6,
+   "takes": 3,
    "problem": ""
   },
   {
@@ -1082,15 +1088,15 @@
    "act": "act2",
    "words": 19,
    "chosen": {
-    "take": 10,
+    "take": 11,
     "model": "eleven_multilingual_v2",
-    "wpm": 157.9,
-    "wpmAfter": 157.9,
+    "wpm": 162.9,
+    "wpmAfter": 162.9,
     "stretch": 1.0,
     "missing": [],
-    "heard": "Counting what she owes, the bill does not come back before her old loan would have been paid off."
+    "heard": "Counting what Nora owes, the bill does not come back before her old loan would have been paid off."
    },
-   "takes": 5,
+   "takes": 4,
    "problem": ""
   },
   {
@@ -1112,17 +1118,17 @@
   {
    "id": "S20.1",
    "act": "act2",
-   "words": 12,
+   "words": 13,
    "chosen": {
     "take": 10,
     "model": "eleven_multilingual_v2",
-    "wpm": 148.1,
-    "wpmAfter": 148.1,
+    "wpm": 138.8,
+    "wpmAfter": 138.8,
     "stretch": 1.0,
     "missing": [],
-    "heard": "At a full percentage point, her bill comes back in 18 months."
+    "heard": "At a full percentage point, Nora gets her bill back in 18 months."
    },
-   "takes": 5,
+   "takes": 4,
    "problem": ""
   },
   {
@@ -1160,33 +1166,33 @@
   {
    "id": "S21.1",
    "act": "act2",
-   "words": 12,
+   "words": 13,
    "chosen": {
     "take": 10,
     "model": "eleven_multilingual_v2",
-    "wpm": 139.5,
-    "wpmAfter": 139.5,
+    "wpm": 138.8,
+    "wpmAfter": 138.8,
     "stretch": 1.0,
     "missing": [],
-    "heard": "At half a point, the bill comes back in exactly 36 months."
+    "heard": "At half a point, Nora gets the bill back in exactly 36 months."
    },
-   "takes": 6,
+   "takes": 4,
    "problem": ""
   },
   {
    "id": "S21.2",
    "act": "act2",
-   "words": 16,
+   "words": 17,
    "chosen": {
     "take": 10,
     "model": "eleven_multilingual_v2",
-    "wpm": 164.9,
-    "wpmAfter": 164.9,
+    "wpm": 158.4,
+    "wpmAfter": 158.4,
     "stretch": 1.0,
     "missing": [],
-    "heard": "So to pay it back within three years, Nora needs a drop of half a point."
+    "heard": "So to pay it back within three years, Nora needs a drop of half a percentage point. Right."
    },
-   "takes": 5,
+   "takes": 6,
    "problem": ""
   },
   {
@@ -1514,10 +1520,10 @@
    "act": "act3",
    "words": 12,
    "chosen": {
-    "take": 11,
+    "take": 20,
     "model": "eleven_multilingual_v2",
-    "wpm": 170.6,
-    "wpmAfter": 170.6,
+    "wpm": 139.0,
+    "wpmAfter": 139.0,
     "stretch": 1.0,
     "missing": [],
     "heard": "For him, the refinance would have been a cost, not a saving."
@@ -1544,17 +1550,17 @@
   {
    "id": "S26.1",
    "act": "act3",
-   "words": 13,
+   "words": 14,
    "chosen": {
-    "take": 20,
+    "take": 21,
     "model": "eleven_multilingual_v2",
-    "wpm": 150.6,
-    "wpmAfter": 150.6,
+    "wpm": 164.7,
+    "wpmAfter": 164.7,
     "stretch": 1.0,
     "missing": [],
-    "heard": "by a little more than one full percentage point, 1 .12."
+    "heard": "Walt needs a little more than one full percentage point, 1 .12."
    },
-   "takes": 5,
+   "takes": 4,
    "problem": ""
   },
   {
@@ -1706,15 +1712,15 @@
    "act": "act3",
    "words": 17,
    "chosen": {
-    "take": 0,
-    "model": "eleven_v3",
-    "wpm": 162.4,
-    "wpmAfter": 162.4,
+    "take": 67,
+    "model": "eleven_multilingual_v2",
+    "wpm": 160.4,
+    "wpmAfter": 160.4,
     "stretch": 1.0,
     "missing": [],
-    "heard": "If she sold after three years, she would come out $5 ,250 a head."
+    "heard": "If Anjali sold after three years, she would come out $5 ,250 a head."
    },
-   "takes": 2,
+   "takes": 15,
    "problem": ""
   },
   {
@@ -1962,15 +1968,15 @@
    "act": "act3",
    "words": 13,
    "chosen": {
-    "take": 12,
-    "model": "eleven_multilingual_v2",
-    "wpm": 146.1,
-    "wpmAfter": 146.1,
+    "take": 1,
+    "model": "eleven_v3",
+    "wpm": 157.3,
+    "wpmAfter": 157.3,
     "stretch": 1.0,
     "missing": [],
-    "heard": "If she stays seven years, she comes out $8 ,093 a head."
+    "heard": "If Nora stays seven years, she comes out $8 ,093 a head."
    },
-   "takes": 5,
+   "takes": 2,
    "problem": ""
   },
   {
@@ -2066,7 +2072,7 @@
     "missing": [],
     "heard": "Loans and loan costs come from federal mortgage records for 2025."
    },
-   "takes": 3,
+   "takes": 5,
    "problem": ""
   },
   {

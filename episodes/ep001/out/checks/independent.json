@@ -78,10 +78,8 @@
    "why": "needs out/checks/page.json"
   },
   "S10": {
-   "status": "FAIL",
-   "failing": [
-    "forecast sentences = 1"
-   ],
+   "status": "PASS",
+   "failing": [],
    "note": null
   },
   "S11": {
@@ -97,10 +95,8 @@
    "why": "needs out/checks/page.json"
   },
   "S13": {
-   "status": "FAIL",
-   "failing": [
-    "staccato passages = 2"
-   ],
+   "status": "PASS",
+   "failing": [],
    "note": null
   },
   "S14": {
@@ -112,15 +108,13 @@
   "S15": {
    "status": "FAIL",
    "failing": [
-    "cold open s = 26.65"
+    "cold open s = 21.94"
    ],
    "note": null
   },
   "S16": {
-   "status": "FAIL",
-   "failing": [
-    "share tied to a character or scenario = 0.166667"
-   ],
+   "status": "PASS",
+   "failing": [],
    "note": null
   },
   "R02": {

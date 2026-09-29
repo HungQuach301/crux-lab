@@ -374,46 +374,46 @@
  },
  "timeline": {
   "source": "preprod/timeline-plan.json (animatic, V8 takes); the render re-times at M2",
-  "coldOpenEnd": 26.65,
+  "coldOpenEnd": 21.94,
   "rehook": [
-   33.46,
-   43.21
+   28.75,
+   37.66
   ],
   "acts": {
    "cold-open": [
     0.0,
-    26.65
+    21.94
    ],
    "ident": [
-    26.65,
-    29.65
+    21.94,
+    24.94
    ],
    "act1": [
-    29.65,
-    219.72
+    24.94,
+    219.23
    ],
    "act2": [
-    219.72,
-    392.49
+    219.23,
+    396.512
    ],
    "act3": [
-    392.49,
-    648.269
+    396.512,
+    652.602
    ],
    "method": [
-    648.269,
-    696.619
+    652.602,
+    700.952
    ],
    "outro": [
-    696.619,
-    737.169
+    700.952,
+    741.502
    ]
   },
   "adBreaks": [
-   219.12,
-   391.89
+   218.63,
+   395.912
   ],
-  "total": 737.169,
+  "total": 741.502,
   "amendments": [
    "E1-A1: cold open ~20 s accepted for Episode 1 (S15 cold open <= 15 s fails by approval)"
   ]
