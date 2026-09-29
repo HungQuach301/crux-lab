@@ -2,6 +2,30 @@
 
 WRITER C1, 29/09/2026. Claim ID theo `episodes/ep001/numbers.md` (mục 1, 4A, 4H). Treatment đã qua Cổng A giữ nguyên cấu trúc; file này chỉ nêu điểm chạm.
 
+## Vòng 2 (sửa lần 1/2, theo kiểm mù vòng 1)
+
+Kiểm mù vòng 1 (10 agent): người đọc hiểu đúng ý chính, nhưng 10/10 chỉ trả lời "Có thể" muốn xem. Lý do: không ai biết đây là mortgage ở Mỹ; "refinance / cut / pay back its fees" không rõ cái gì giảm, phí gì; "smaller offer" (L-A) mơ hồ; "one-point line" (L-B) dễ nhầm với discount points. Vế "why would a smaller loan need more?" thì được thích (5/5), nên giữ lại. Cách sửa: nói bằng lời thường ("US mortgage", "rate", "fees"), đổi "refinance" thành "swap her mortgage for one with a lower rate", thêm cho Nora một cái giá cụ thể, không đưa đáp án. Góc kể của mỗi logline giữ nguyên.
+
+**L-A v2: cửa sổ đã mở rồi khép** (34 từ; số: $459 [sav_low2026_median], ILLUSTRATIVE, là khoản cô *đã có thể* tiết kiệm ở tuần đáy [low2026_date], không phải đáp án. "Thousands in lender fees" ứng với [cost_median] nhưng không nêu số)
+
+> Nora could have swapped her US mortgage for a cheaper one when rates dipped and saved $459 a month; she waited, rates climbed back — is a smaller rate drop still worth thousands in lender fees?
+
+- Ưu: nói rõ thứ Nora đánh mất (tiền mỗi tháng) và cảm giác lỡ nhịp, thứ nhiều người xem đã trải qua. Câu hỏi "still worth it?" được hồi 2 trả lời thật.
+- Nhược: $459 là số giả định (ILLUSTRATIVE), nên trên màn hình và trong phần mô tả phải ghi như vậy. Góc "thời điểm" vẫn không chạm tới Walt và Anjali.
+
+**L-B v2: ngưỡng của chính khoản vay** (hai câu ngắn, 39 từ; số: $5,124 [cost_median], là phí đầu vào của câu hỏi, không phải đáp án)
+
+> Nora's lender offers to swap her US mortgage for one with a lower rate — for $5,124 in fees. How big a rate cut makes that worth it for her, and why would a smaller mortgage need a bigger one?
+
+- Ưu: người xem thấy ngay cái giá cụ thể, và vế ngược đời mà người kiểm mù thích được giữ nguyên. Không còn "points" hay "line" để nhầm.
+- Nhược: bỏ hẳn "one-point line" nên mất cái móc "điều bạn từng nghe là sai" (cái móc này chuyển vào cold open / hồi 1). Logline dài sát trần 40 từ.
+
+Khuyến nghị vòng 2 vẫn là **L-B**. Câu hỏi của tập (mục 3) giữ nguyên. Chủ dự án chọn.
+
+---
+
+# Vòng 1 (giữ nguyên để đối chiếu)
+
 ## 1. Bối cảnh cập nhật
 
 Mốc "hiện tại" [anchor_date]: lời nói **"the week ending September 24, 2026"**, không bao giờ "this week" hay "today".
