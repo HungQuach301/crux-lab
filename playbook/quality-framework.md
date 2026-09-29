@@ -63,6 +63,8 @@ Trượt cổng thì quay lại cổng trước. **Truyện chốt ở C4 (anima
 4. Ghi **nguyên văn** câu trả lời vào `episodes/<tập>/gates/Cx-blind.md`, kèm bảng chấm so với ý đồ. Người chấm "khớp/không khớp" là P2, theo tiêu chí viết trong file ý đồ.
 5. Khi có thể, kèm **đối chứng** (mẫu biết trước là tốt hoặc kém) để biết câu hỏi phân biệt được.
 6. Tối đa 2 vòng sửa–kiểm cho một mẫu; vẫn trượt thì đưa lên chủ dự án kèm phương án, không lặp tiếp.
+7. **Vai người đọc (từ C2, chủ dự án duyệt 29/09/2026):** khán giả đích — *"an American currently paying a mortgage signed in 2022–2024"*; câu hỏi và trả lời bằng **tiếng Anh**; P2 tóm tắt tiếng Việt cho chủ dự án, nguyên văn giữ tiếng Anh. Mỗi lượt thêm **1 người đọc phổ thông** (không vai) làm đối chứng.
+8. **Bộ đo phải phân biệt được:** mỗi lượt có một **đối chứng yếu** (bản cũ đã bị chủ dự án bác). Nếu đối chứng yếu đạt ngang ứng viên ở chỉ số đang chấm thì **báo chủ dự án, không tự sửa tiếp**. Bộ đo mới được hiệu chuẩn một lần trên logline C1 Tập 1 trước khi dùng.
 
 ## 6. Gói quyết định (mỗi cổng)
 
