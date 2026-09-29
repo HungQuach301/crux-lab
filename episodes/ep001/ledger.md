@@ -40,3 +40,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 | 2026-09-29 | Kiểm mù C2 (P2) | 0 | 9 agent: ứng viên 5/5 đúng (+G đúng) → đạt; đối chứng yếu M1b 3/3 đúng → câu hỏi hiểu không phân biệt được. 6/6 người đọc bản mới mất chú ý ở đoạn lịch sử 2021–2023 sau câu hứa; 4 chỗ khó hiểu ≥ 2 người nêu. Kiểm số: 60/60 ID, 46/46 số. `gates/C2-blind.md`. | 1 |
 | 2026-09-29 | Cổng C2 gửi | 0 | Gói `gates/C2.md`; issue GitHub (thông báo). | — |
 | 2026-09-29 | Cổng C2 (chủ dự án) | 0 | OK, a; câu hứa nói thẳng với người xem (2 phương án ở C3); kết có ngưỡng tự đối chiếu; sửa §5.10 (so cặp phân biệt được, ứng viên thua); G-013. | — |
+| 2026-09-29 | WRITER C3 | 0 | `story/script-v3.1.md` (sửa theo Cổng C2: S03 còn 2 câu gắn Nora; câu hứa P-A nói với người xem; S18 thước ba mốc theo quy mô khoản vay; 4 chỗ người đọc mù vấp), `story/promise-options.md` (P-A 28 từ, P-B 35 từ), `story/changes-v3.1.md`. Kiểm ID: 56, thiếu 0; cần DATA thêm `yrs_left_old`. | 1 |
