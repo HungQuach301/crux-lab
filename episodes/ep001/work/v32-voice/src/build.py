@@ -7,7 +7,9 @@ import numpy as np, pyloudnorm as pyln
 ROOT = '/home/user/crux-lab'; EP = f'{ROOT}/episodes/ep001'; W = f'{EP}/work/v32-voice'; TAKES = f'{W}/takes'; OUT = f'{EP}/out/voice-v32'
 sys.path.insert(0, f'{EP}/work/voice-test/src')
 import prosody as P
-from gen import rows_v32
+import importlib.util as _u
+_sp = _u.spec_from_file_location('gen32', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'gen.py')); _g = _u.module_from_spec(_sp); _sp.loader.exec_module(_g)
+rows_v32 = _g.rows_v32  # gen.py của v3.2 (tên 'gen' trùng với voice-test)
 SR = 48000; LEAD, TAIL, GAP = 0.5, 1.0, 1.4
 
 

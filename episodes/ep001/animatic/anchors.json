@@ -10,8 +10,8 @@
    "action": "vẽ: đường lãi tuần 2025–2026 tự vẽ xuống",
    "meaning_muted": "lãi thị trường đang giảm theo thời gian",
    "sentence": "In February 2026, the average 30-year fixed mortgage rate in the US fell to 5.98 percent, the lowest since September 2022.",
-   "resolved_s": 0.7,
-   "local_s": 0.7,
+   "resolved_s": 0.74,
+   "local_s": 0.74,
    "keyword_found": true
   },
   {
@@ -23,8 +23,8 @@
    "action": "dừng ở đáy; nhãn 5.98% + tuần 26/2/2026",
    "meaning_muted": "đây là mức thấp nhất (một cơ hội)",
    "sentence": "In February 2026, the average 30-year fixed mortgage rate in the US fell to 5.98 percent, the lowest since September 2022.",
-   "resolved_s": 6.93,
-   "local_s": 6.93,
+   "resolved_s": 7.12,
+   "local_s": 7.12,
    "keyword_found": true
   },
   {
@@ -36,8 +36,8 @@
    "action": "nhãn 'lowest since September 2022'",
    "meaning_muted": "đáy này hiếm: thấp nhất từ 2022",
    "sentence": "In February 2026, the average 30-year fixed mortgage rate in the US fell to 5.98 percent, the lowest since September 2022.",
-   "resolved_s": 8.45,
-   "local_s": 8.45,
+   "resolved_s": 8.68,
+   "local_s": 8.68,
    "keyword_found": true
   },
   {
@@ -49,8 +49,8 @@
    "action": "cắt H3→H1: bàn bếp, hồ sơ vay của Nora",
    "meaning_muted": "đổi thang: từ thị trường sang một hộ",
    "sentence": "Nora had borrowed in 2023, at 7.62 percent.",
-   "resolved_s": 11.12,
-   "local_s": 11.12,
+   "resolved_s": 11.87,
+   "local_s": 11.87,
    "keyword_found": true
   },
   {
@@ -62,8 +62,8 @@
    "action": "nhãn phẳng 'Nora's loan · 7.62%' sáng",
    "meaning_muted": "cô đang trả lãi cao hơn nhiều so với đáy",
    "sentence": "Nora had borrowed in 2023, at 7.62 percent.",
-   "resolved_s": 14.37,
-   "local_s": 14.37,
+   "resolved_s": 15.04,
+   "local_s": 15.04,
    "keyword_found": true
   },
   {
@@ -75,8 +75,8 @@
    "action": "nhấc lên: tấm $459 rời khỏi chồng khoản trả hằng tháng, sáng",
    "meaning_muted": "một khoản bớt được mỗi tháng đã có thể có",
    "sentence": "At the February rate, a new loan would have cut her payment by $459 a month.",
-   "resolved_s": 20.24,
-   "local_s": 20.24,
+   "resolved_s": 21.47,
+   "local_s": 21.47,
    "keyword_found": true
   },
   {
@@ -88,8 +88,8 @@
    "action": "xám đi + gạch đỏ '$459 a month less'",
    "meaning_muted": "cô không nhận khoản đó",
    "sentence": "She didn't take it.",
-   "resolved_s": 22.44,
-   "local_s": 22.44,
+   "resolved_s": 23.64,
+   "local_s": 23.64,
    "keyword_found": true
   },
   {
@@ -101,8 +101,8 @@
    "action": "rơi về chồng cũ",
    "meaning_muted": "khoản bớt biến mất",
    "sentence": "She didn't take it.",
-   "resolved_s": 23.37,
-   "local_s": 23.37,
+   "resolved_s": 24.53,
+   "local_s": 24.53,
    "keyword_found": true
   },
   {
@@ -114,8 +114,8 @@
    "action": "cắt H1→H3: đường lãi leo lại",
    "meaning_muted": "quay về thị trường sau đó",
    "sentence": "By late September, the rate was back above 7 percent, for the first time since January 2025.",
-   "resolved_s": 24.12,
-   "local_s": 24.12,
+   "resolved_s": 25.28,
+   "local_s": 25.28,
    "keyword_found": true
   },
   {
@@ -127,8 +127,8 @@
    "action": "đường vượt vạch 7%; cửa sổ đóng (sọc)",
    "meaning_muted": "lãi lên lại cao, cơ hội đã đóng",
    "sentence": "By late September, the rate was back above 7 percent, for the first time since January 2025.",
-   "resolved_s": 26.86,
-   "local_s": 26.86,
+   "resolved_s": 28.04,
+   "local_s": 28.04,
    "keyword_found": true
   },
   {
@@ -140,8 +140,8 @@
    "action": "nhãn 'first time since January 2025' + 7.03%",
    "meaning_muted": "lần đầu cao như vậy kể từ đầu 2025",
    "sentence": "By late September, the rate was back above 7 percent, for the first time since January 2025.",
-   "resolved_s": 29.81,
-   "local_s": 29.81,
+   "resolved_s": 31.01,
+   "local_s": 31.01,
    "keyword_found": true
   },
   {
@@ -153,8 +153,8 @@
    "action": "lá thư trượt vào bàn bếp",
    "meaning_muted": "một đề nghị gửi tới Nora",
    "sentence": "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for $5,124 in fees.",
-   "resolved_s": 32.33,
-   "local_s": 0.56,
+   "resolved_s": 33.62,
+   "local_s": 0.54,
    "keyword_found": true
   },
   {
@@ -166,8 +166,8 @@
    "action": "dòng 'New rate 7.03%' sáng",
    "meaning_muted": "đề nghị: lãi mới thấp hơn một chút",
    "sentence": "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for $5,124 in fees.",
-   "resolved_s": 36.18,
-   "local_s": 4.41,
+   "resolved_s": 37.37,
+   "local_s": 4.29,
    "keyword_found": true
   },
   {
@@ -179,8 +179,8 @@
    "action": "dòng 'Loan costs $5,124' sáng + số phẳng lớn",
    "meaning_muted": "đề nghị có giá: phí $5,124",
    "sentence": "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for $5,124 in fees.",
-   "resolved_s": 42.59,
-   "local_s": 10.82,
+   "resolved_s": 43.56,
+   "local_s": 10.48,
    "keyword_found": true
   },
   {
@@ -191,9 +191,9 @@
    "dt": -0.3,
    "action": "máy lùi ra; ba nhà mô hình mọc lên (nhỏ, Nora, lớn)",
    "meaning_muted": "có nhiều cỡ khoản vay",
-   "sentence": "How big a rate cut makes that worth it for Nora — and where does a loan your size fall?",
-   "resolved_s": 44.21,
-   "local_s": 12.44,
+   "sentence": "How big a rate cut makes that worth it for Nora — and where would your own loan fall?",
+   "resolved_s": 46.2,
+   "local_s": 13.12,
    "keyword_found": true
   },
   {
@@ -204,9 +204,9 @@
    "dt": 0.2,
    "action": "câu hứa dòng 1 (câu-chú-thích)",
    "meaning_muted": "câu hỏi: giảm bao nhiêu thì đáng",
-   "sentence": "How big a rate cut makes that worth it for Nora — and where does a loan your size fall?",
-   "resolved_s": 44.71,
-   "local_s": 12.94,
+   "sentence": "How big a rate cut makes that worth it for Nora — and where would your own loan fall?",
+   "resolved_s": 46.7,
+   "local_s": 13.62,
    "keyword_found": true
   },
   {
@@ -217,9 +217,9 @@
    "dt": -0.2,
    "action": "nhà viền 'your loan?' trượt vào cạnh ba nhà, không số",
    "meaning_muted": "khoản vay của người xem cũng nằm đâu đó trên thang này",
-   "sentence": "How big a rate cut makes that worth it for Nora — and where does a loan your size fall?",
-   "resolved_s": 49.67,
-   "local_s": 17.9,
+   "sentence": "How big a rate cut makes that worth it for Nora — and where would your own loan fall?",
+   "resolved_s": 49.88,
+   "local_s": 16.8,
    "keyword_found": true
   },
   {
@@ -231,8 +231,8 @@
    "action": "nhà nhỏ sáng đèn, nổi lên",
    "meaning_muted": "khoản vay nhỏ hơn là trường hợp đặc biệt",
    "sentence": "And why would a smaller mortgage need a bigger cut?",
-   "resolved_s": 52.9,
-   "local_s": 21.13,
+   "resolved_s": 52.7,
+   "local_s": 19.62,
    "keyword_found": true
   },
   {
@@ -244,7 +244,7 @@
    "action": "vẽ: đường lãi tuần 2023 tự vẽ lên",
    "meaning_muted": "lãi 2023 leo lên",
    "sentence": "Nora borrowed in October 2023, the month the average rate reached 7.79 percent, its highest since 2000.",
-   "resolved_s": 56.89,
+   "resolved_s": 56.02,
    "local_s": 0.35,
    "keyword_found": true
   },
@@ -257,8 +257,8 @@
    "action": "chấm Nora rơi vào tháng 10/2023",
    "meaning_muted": "Nora vay đúng lúc này",
    "sentence": "Nora borrowed in October 2023, the month the average rate reached 7.79 percent, its highest since 2000.",
-   "resolved_s": 58.27,
-   "local_s": 1.73,
+   "resolved_s": 57.65,
+   "local_s": 1.98,
    "keyword_found": true
   },
   {
@@ -270,8 +270,8 @@
    "action": "nhãn đỉnh 7.79%",
    "meaning_muted": "gần đỉnh",
    "sentence": "Nora borrowed in October 2023, the month the average rate reached 7.79 percent, its highest since 2000.",
-   "resolved_s": 62.26,
-   "local_s": 5.72,
+   "resolved_s": 62.33,
+   "local_s": 6.66,
    "keyword_found": true
   },
   {
@@ -283,8 +283,8 @@
    "action": "'highest since 2000'",
    "meaning_muted": "đỉnh hiếm: cao nhất từ 2000",
    "sentence": "Nora borrowed in October 2023, the month the average rate reached 7.79 percent, its highest since 2000.",
-   "resolved_s": 63.72,
-   "local_s": 7.18,
+   "resolved_s": 64.05,
+   "local_s": 8.38,
    "keyword_found": true
   },
   {
@@ -295,9 +295,9 @@
    "dt": -0.15,
    "action": "cắt H3→H1: một dãy mười nhà mua năm 2023",
    "meaning_muted": "nhiều người mua nhà năm đó",
-   "sentence": "She was far from alone: three in ten of that year's 30-year loans to buy a home carried a rate of 7 percent or more.",
-   "resolved_s": 65.57,
-   "local_s": 9.03,
+   "sentence": "She wasn't the only one: three in ten of that year's 30-year loans to buy a home carried a rate of 7 percent or more.",
+   "resolved_s": 66.62,
+   "local_s": 10.95,
    "keyword_found": true
   },
   {
@@ -308,9 +308,9 @@
    "dt": 0,
    "action": "ba nhà lần lượt sáng đèn (một là của Nora)",
    "meaning_muted": "ba trong mười người như Nora",
-   "sentence": "She was far from alone: three in ten of that year's 30-year loans to buy a home carried a rate of 7 percent or more.",
-   "resolved_s": 67.51,
-   "local_s": 10.97,
+   "sentence": "She wasn't the only one: three in ten of that year's 30-year loans to buy a home carried a rate of 7 percent or more.",
+   "resolved_s": 68.57,
+   "local_s": 12.9,
    "keyword_found": true
   },
   {
@@ -321,9 +321,9 @@
    "dt": 0,
    "action": "nhãn 'three in ten … at 7% or more'",
    "meaning_muted": "lãi của họ từ 7% trở lên",
-   "sentence": "She was far from alone: three in ten of that year's 30-year loans to buy a home carried a rate of 7 percent or more.",
-   "resolved_s": 73.02,
-   "local_s": 16.48,
+   "sentence": "She wasn't the only one: three in ten of that year's 30-year loans to buy a home carried a rate of 7 percent or more.",
+   "resolved_s": 73.9,
+   "local_s": 18.23,
    "keyword_found": true
   },
   {
@@ -335,7 +335,7 @@
    "action": "nhà của Nora hiện, máy đẩy vào chậm; huy hiệu ILLUSTRATIVE",
    "meaning_muted": "Nora là nhân vật minh hoạ",
    "sentence": "Nora isn't a real person; we built her from typical figures, to show how the math works for one household.",
-   "resolved_s": 75.56,
+   "resolved_s": 76.53,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -348,8 +348,8 @@
    "action": "nhãn 'built from typical figures'",
    "meaning_muted": "dựng từ số điển hình",
    "sentence": "Nora isn't a real person; we built her from typical figures, to show how the math works for one household.",
-   "resolved_s": 78.38,
-   "local_s": 2.97,
+   "resolved_s": 79.32,
+   "local_s": 2.94,
    "keyword_found": true
   },
   {
@@ -361,8 +361,8 @@
    "action": "thùng chuyển nhà rơi xuống hiên; đèn nhà bật",
    "meaning_muted": "cô vừa chuyển tới nhà đầu tiên",
    "sentence": "She had moved for a new job and bought her first home, with a $375,000 loan at 7.62 percent, the average rate that month.",
-   "resolved_s": 83.24,
-   "local_s": 7.83,
+   "resolved_s": 84.58,
+   "local_s": 8.2,
    "keyword_found": true
   },
   {
@@ -374,8 +374,8 @@
    "action": "hồ sơ vay điền dòng 'Loan $375,000'",
    "meaning_muted": "khoản vay $375,000",
    "sentence": "She had moved for a new job and bought her first home, with a $375,000 loan at 7.62 percent, the average rate that month.",
-   "resolved_s": 87.94,
-   "local_s": 12.53,
+   "resolved_s": 88.92,
+   "local_s": 12.54,
    "keyword_found": true
   },
   {
@@ -387,8 +387,8 @@
    "action": "hồ sơ điền dòng 'Rate 7.62% · October 2023'",
    "meaning_muted": "lãi 7.62% (trung bình tháng đó)",
    "sentence": "She had moved for a new job and bought her first home, with a $375,000 loan at 7.62 percent, the average rate that month.",
-   "resolved_s": 89.48,
-   "local_s": 14.07,
+   "resolved_s": 90.35,
+   "local_s": 13.97,
    "keyword_found": true
   },
   {
@@ -400,8 +400,8 @@
    "action": "con dấu 'Dollars of the day' đóng lên hồ sơ",
    "meaning_muted": "tiền không điều chỉnh lạm phát",
    "sentence": "Every dollar amount in this story is in the dollars of the day, not adjusted for inflation.",
-   "resolved_s": 95.92,
-   "local_s": 20.51,
+   "resolved_s": 97.37,
+   "local_s": 20.99,
    "keyword_found": true
   },
   {
@@ -413,7 +413,7 @@
    "action": "vẽ: đường lãi 2025–2026 + vạch lãi Nora",
    "meaning_muted": "quay lại thị trường",
    "sentence": "You may have heard that a refinance only pays off once rates fall a full percentage point below yours.",
-   "resolved_s": 100.06,
+   "resolved_s": 101.99,
    "local_s": 0.35,
    "keyword_found": true
   },
@@ -426,8 +426,8 @@
    "action": "trượt: vạch 'one point below Nora' hạ từ vạch lãi Nora xuống 1 điểm",
    "meaning_muted": "ngưỡng một điểm",
    "sentence": "You may have heard that a refinance only pays off once rates fall a full percentage point below yours.",
-   "resolved_s": 103.83,
-   "local_s": 4.12,
+   "resolved_s": 105.42,
+   "local_s": 3.78,
    "keyword_found": true
   },
   {
@@ -439,8 +439,8 @@
    "action": "nhãn 'test value'",
    "meaning_muted": "vạch này là phép thử, không phải luật",
    "sentence": "We use that one-point line as a test.",
-   "resolved_s": 108.26,
-   "local_s": 8.55,
+   "resolved_s": 109.29,
+   "local_s": 7.65,
    "keyword_found": true
   },
   {
@@ -452,8 +452,8 @@
    "action": "các tuần dưới vạch tô sáng dần",
    "meaning_muted": "lãi đã xuống dưới ngưỡng",
    "sentence": "And for Nora, rates did cross that line.",
-   "resolved_s": 111.1,
-   "local_s": 11.39,
+   "resolved_s": 111.68,
+   "local_s": 10.04,
    "keyword_found": true
   },
   {
@@ -465,8 +465,8 @@
    "action": "29 vạch tuần sáng lần lượt; nhãn '29 weeks in 2026'",
    "meaning_muted": "cửa sổ mở gần 7 tháng",
    "sentence": "In 2026, the average spent 29 weeks at least a full point below her rate.",
-   "resolved_s": 114.7,
-   "local_s": 14.99,
+   "resolved_s": 115.08,
+   "local_s": 13.44,
    "keyword_found": true
   },
   {
@@ -478,8 +478,8 @@
    "action": "mọc: cột khe 1.64 points ở đáy",
    "meaning_muted": "khoảng cách sâu nhất",
    "sentence": "At the February low, the gap was 1.64 points.",
-   "resolved_s": 122.09,
-   "local_s": 22.38,
+   "resolved_s": 121.96,
+   "local_s": 20.32,
    "keyword_found": true
   },
   {
@@ -491,8 +491,8 @@
    "action": "mốc 23/7/2026; phần sau tô sọc 'window closed'",
    "meaning_muted": "cửa sổ đã đóng",
    "sentence": "After the week ending July 23, 2026, the gap never again reached a full point, and the window closed.",
-   "resolved_s": 125.44,
-   "local_s": 25.73,
+   "resolved_s": 125.34,
+   "local_s": 23.7,
    "keyword_found": true
   },
   {
@@ -504,8 +504,8 @@
    "action": "vùng '?' sau tuần mốc, dấu 'history, not a forecast · US only'",
    "meaning_muted": "không biết tương lai; chỉ lịch sử Mỹ",
    "sentence": "Whether it opens again, we can't tell you: everything in this story is history, not a forecast, and it covers the US only.",
-   "resolved_s": 132.71,
-   "local_s": 33.0,
+   "resolved_s": 132.35,
+   "local_s": 30.71,
    "keyword_found": true
   },
   {
@@ -517,7 +517,7 @@
    "action": "lá thư trượt vào lại (bàn bếp)",
    "meaning_muted": "cùng lá thư, nhìn kỹ đề nghị",
    "sentence": "So the letter arrives in a different world.",
-   "resolved_s": 142.38,
+   "resolved_s": 141.13,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -530,8 +530,8 @@
    "action": "dòng 'New rate 7.03%' sáng + nhãn phẳng",
    "meaning_muted": "lãi đề nghị 7.03%",
    "sentence": "Say the rate it offers matches the national average for the week ending September 24, 2026: 7.03 percent.",
-   "resolved_s": 153.0,
-   "local_s": 10.77,
+   "resolved_s": 151.41,
+   "local_s": 10.43,
    "keyword_found": true
   },
   {
@@ -543,8 +543,8 @@
    "action": "nhãn 'national average, week ending September 24, 2026'",
    "meaning_muted": "lãi này = trung bình toàn quốc tuần mốc",
    "sentence": "Say the rate it offers matches the national average for the week ending September 24, 2026: 7.03 percent.",
-   "resolved_s": 150.72,
-   "local_s": 8.49,
+   "resolved_s": 149.0,
+   "local_s": 8.03,
    "keyword_found": true
   },
   {
@@ -556,8 +556,8 @@
    "action": "cắt H1→H3: hai vạch lãi 7.62 và 7.03 trên một thang; khe giữa mọc lên",
    "meaning_muted": "khoảng giảm lãi",
    "sentence": "That is just over half a percentage point below what she pays now.",
-   "resolved_s": 154.6,
-   "local_s": 12.37,
+   "resolved_s": 153.53,
+   "local_s": 12.55,
    "keyword_found": true
   },
   {
@@ -569,8 +569,8 @@
    "action": "nhãn '0.59 point · just over half a point'",
    "meaning_muted": "giảm hơn nửa điểm",
    "sentence": "That is just over half a percentage point below what she pays now.",
-   "resolved_s": 155.83,
-   "local_s": 13.6,
+   "resolved_s": 154.75,
+   "local_s": 13.77,
    "keyword_found": true
   },
   {
@@ -582,8 +582,8 @@
    "action": "thước 1 điểm đặt cạnh khe (so kích thước)",
    "meaning_muted": "'point' = một điểm phần trăm lãi; 0.59 nhỏ hơn 1",
    "sentence": "From here on, when we say a point, we mean exactly that: one percentage point off the rate.",
-   "resolved_s": 162.24,
-   "local_s": 20.01,
+   "resolved_s": 162.02,
+   "local_s": 21.04,
    "keyword_found": true
   },
   {
@@ -595,8 +595,8 @@
    "action": "cắt H3→H1: chồng khoản trả hằng tháng",
    "meaning_muted": "quay về tiền của Nora",
    "sentence": "Her monthly payment would drop by $221.",
-   "resolved_s": 164.89,
-   "local_s": 22.66,
+   "resolved_s": 165.55,
+   "local_s": 24.57,
    "keyword_found": true
   },
   {
@@ -608,8 +608,8 @@
    "action": "nhấc lên: tấm $221 rời chồng, sáng, lơ lửng",
    "meaning_muted": "mỗi tháng trả ít đi $221",
    "sentence": "Her monthly payment would drop by $221.",
-   "resolved_s": 168.57,
-   "local_s": 26.34,
+   "resolved_s": 168.2,
+   "local_s": 27.22,
    "keyword_found": true
   },
   {
@@ -621,7 +621,7 @@
    "action": "máy dừng ở dòng cuối lá thư; dòng 'Loan costs' sáng",
    "meaning_muted": "dòng cuối là hoá đơn",
    "sentence": "Then comes the last line.",
-   "resolved_s": 170.63,
+   "resolved_s": 170.26,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -634,8 +634,8 @@
    "action": "mọc: xấp giấy $5,124 mọc cạnh tấm $221, cùng thang",
    "meaning_muted": "phí lớn gấp nhiều lần khoản bớt mỗi tháng",
    "sentence": "$5,124 in loan costs, paid in cash at closing: the lender's charges for making the loan, plus anything she pays up front to buy the rate down.",
-   "resolved_s": 172.76,
-   "local_s": 2.28,
+   "resolved_s": 172.48,
+   "local_s": 2.37,
    "keyword_found": true
   },
   {
@@ -647,8 +647,8 @@
    "action": "nhãn 'paid in cash at closing'",
    "meaning_muted": "trả ngay bằng tiền mặt khi ký",
    "sentence": "$5,124 in loan costs, paid in cash at closing: the lender's charges for making the loan, plus anything she pays up front to buy the rate down.",
-   "resolved_s": 174.84,
-   "local_s": 4.36,
+   "resolved_s": 174.67,
+   "local_s": 4.56,
    "keyword_found": true
   },
   {
@@ -660,8 +660,8 @@
    "action": "cắt H1→H3: thang hoá đơn vay lại 2025",
    "meaning_muted": "con số lấy từ dữ liệu thật",
    "sentence": "That bill is not made up.",
-   "resolved_s": 184.83,
-   "local_s": 14.35,
+   "resolved_s": 185.9,
+   "local_s": 15.78,
    "keyword_found": true
   },
   {
@@ -673,8 +673,8 @@
    "action": "trượt: chấm $5,124 trượt trên thang, dừng ở trung vị",
    "meaning_muted": "$5,124 là mức giữa của gần nửa triệu hoá đơn",
    "sentence": "It is the median from nearly half a million refinances in 2025, and her loan size is the median too.",
-   "resolved_s": 188.21,
-   "local_s": 17.73,
+   "resolved_s": 188.54,
+   "local_s": 18.43,
    "keyword_found": true
   },
   {
@@ -686,8 +686,8 @@
    "action": "nhãn 'her loan size: the median too · $375,000'",
    "meaning_muted": "khoản vay của Nora cũng là mức giữa",
    "sentence": "It is the median from nearly half a million refinances in 2025, and her loan size is the median too.",
-   "resolved_s": 192.97,
-   "local_s": 22.49,
+   "resolved_s": 193.96,
+   "local_s": 23.85,
    "keyword_found": true
   },
   {
@@ -699,8 +699,8 @@
    "action": "lá thư viền 'your letter?' trượt vào",
    "meaning_muted": "người xem có thể có lá thư như vậy",
    "sentence": "If a letter like this has reached you, this is the math behind it.",
-   "resolved_s": 196.6,
-   "local_s": 26.12,
+   "resolved_s": 198.65,
+   "local_s": 28.54,
    "keyword_found": true
   },
   {
@@ -712,7 +712,7 @@
    "action": "trục thời gian + nhà: 'refinance' ở mốc đầu",
    "meaning_muted": "đáng hay không là chuyện thời gian",
    "sentence": "Is it worth paying?",
-   "resolved_s": 200.22,
+   "resolved_s": 202.74,
    "local_s": 0.35,
    "keyword_found": true
   },
@@ -725,8 +725,8 @@
    "action": "ngoặc xanh 'fees paid back' mọc trước cờ 'sells or moves'",
    "meaning_muted": "đáng = phí được trả lại trước khi rời nhà",
    "sentence": "Worth it, here, means one thing: the savings pay back the fees before she sells or moves.",
-   "resolved_s": 204.66,
-   "local_s": 4.79,
+   "resolved_s": 207.88,
+   "local_s": 5.49,
    "keyword_found": true
   },
   {
@@ -738,8 +738,8 @@
    "action": "cờ trượt, dừng ở mốc '3 years'",
    "meaning_muted": "phép thử: ở 3 năm (do chúng tôi chọn)",
    "sentence": "We test a stay of three years, a choice we made, not a rule.",
-   "resolved_s": 209.44,
-   "local_s": 9.57,
+   "resolved_s": 213.03,
+   "local_s": 10.64,
    "keyword_found": true
   },
   {
@@ -751,8 +751,8 @@
    "action": "màn hình chia đôi",
    "meaning_muted": "có hai câu trả lời nhanh",
    "sentence": "There are two quick answers.",
-   "resolved_s": 212.7,
-   "local_s": 12.83,
+   "resolved_s": 216.38,
+   "local_s": 13.99,
    "keyword_found": true
   },
   {
@@ -764,8 +764,8 @@
    "action": "trái: thước rate cut với vạch 1 điểm",
    "meaning_muted": "câu trả lời 1: luật một điểm",
    "sentence": "The one-point line says no.",
-   "resolved_s": 214.85,
-   "local_s": 14.98,
+   "resolved_s": 218.81,
+   "local_s": 16.42,
    "keyword_found": true
   },
   {
@@ -777,8 +777,8 @@
    "action": "chấm Nora trượt tới 0.59, dừng trước vạch; 'NO'",
    "meaning_muted": "theo luật 1 điểm: không đáng",
    "sentence": "Her cut falls short.",
-   "resolved_s": 217.22,
-   "local_s": 17.35,
+   "resolved_s": 220.84,
+   "local_s": 18.46,
    "keyword_found": true
   },
   {
@@ -790,8 +790,8 @@
    "action": "phải: phép chia 5,124 ÷ 221 hiện",
    "meaning_muted": "câu trả lời 2: phép chia",
    "sentence": "Simple division says yes: $5,124 divided by $221 is about 24 months.",
-   "resolved_s": 224.31,
-   "local_s": 24.44,
+   "resolved_s": 226.96,
+   "local_s": 24.57,
    "keyword_found": true
   },
   {
@@ -803,8 +803,8 @@
    "action": "lịch lật tới 24; 'about 24 months · YES'",
    "meaning_muted": "theo phép chia: đáng, hoà vốn 24 tháng",
    "sentence": "Simple division says yes: $5,124 divided by $221 is about 24 months.",
-   "resolved_s": 229.15,
-   "local_s": 29.28,
+   "resolved_s": 231.16,
+   "local_s": 28.77,
    "keyword_found": true
   },
   {
@@ -816,8 +816,8 @@
    "action": "hai nửa cùng mờ; dấu '?' ở giữa",
    "meaning_muted": "cả hai đều chưa đúng",
    "sentence": "Neither is quite right.",
-   "resolved_s": 232.04,
-   "local_s": 32.17,
+   "resolved_s": 234.12,
+   "local_s": 31.74,
    "keyword_found": true
   },
   {
@@ -829,8 +829,8 @@
    "action": "trái: hoá đơn $5,124 hiện rồi bị gạch 'not counted'",
    "meaning_muted": "luật 1 điểm không nhìn phí",
    "sentence": "The one-point line never looks at the bill.",
-   "resolved_s": 236.13,
-   "local_s": 36.26,
+   "resolved_s": 237.4,
+   "local_s": 35.01,
    "keyword_found": true
   },
   {
@@ -842,8 +842,8 @@
    "action": "phải: ô nét đứt '+ ?' sau phép chia",
    "meaning_muted": "phép chia bỏ sót một thứ",
    "sentence": "And the division leaves something out.",
-   "resolved_s": 238.6,
-   "local_s": 38.73,
+   "resolved_s": 239.37,
+   "local_s": 36.98,
    "keyword_found": true
   },
   {
@@ -855,7 +855,7 @@
    "action": "bàn: lá thư + xấp phí $5,124 mọc",
    "meaning_muted": "bắt đầu tính lại từ hoá đơn",
    "sentence": "Back to the letter.",
-   "resolved_s": 241.67,
+   "resolved_s": 241.69,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -868,8 +868,8 @@
    "action": "vạch sáng ngang từ đỉnh xấp phí sang chỗ để tiền",
    "meaning_muted": "hoà vốn = tiền tiết kiệm cao ngang phí",
    "sentence": "Break-even is the month when what she has saved covers the bill.",
-   "resolved_s": 245.71,
-   "local_s": 4.19,
+   "resolved_s": 245.21,
+   "local_s": 3.67,
    "keyword_found": true
   },
   {
@@ -881,8 +881,8 @@
    "action": "chồng: mỗi tháng một cọc $221 rơi xuống, thước tháng sáng dần",
    "meaning_muted": "tiền tiết kiệm dồn lại theo tháng",
    "sentence": "Division stacks up $221 a month and stops at month 24.",
-   "resolved_s": 248.1,
-   "local_s": 6.58,
+   "resolved_s": 247.54,
+   "local_s": 6.0,
    "keyword_found": true
   },
   {
@@ -894,8 +894,8 @@
    "action": "cọc tới ngang xấp phí ở tháng 24",
    "meaning_muted": "phép chia: tháng 24",
    "sentence": "Division stacks up $221 a month and stops at month 24.",
-   "resolved_s": 251.72,
-   "local_s": 10.2,
+   "resolved_s": 250.5,
+   "local_s": 8.96,
    "keyword_found": true
   },
   {
@@ -907,8 +907,8 @@
    "action": "hai chồng 'balance paid off' (khoản cũ/mới) hiện, dấu '?'",
    "meaning_muted": "còn chuyện dư nợ",
    "sentence": "But while the savings stack up, something else is happening, to what she still owes.",
-   "resolved_s": 256.29,
-   "local_s": 14.77,
+   "resolved_s": 255.39,
+   "local_s": 13.85,
    "keyword_found": true
   },
   {
@@ -920,7 +920,7 @@
    "action": "đồng hồ 30 năm (360 vạch tháng)",
    "meaning_muted": "khoản vay là một đồng hồ 30 năm",
    "sentence": "Nora has made 35 payments on her old loan, one a month since she moved in.",
-   "resolved_s": 258.96,
+   "resolved_s": 258.1,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -933,8 +933,8 @@
    "action": "kim quét 35 vạch; nhãn '35 payments made'",
    "meaning_muted": "Nora đã trả 35 kỳ",
    "sentence": "Nora has made 35 payments on her old loan, one a month since she moved in.",
-   "resolved_s": 259.73,
-   "local_s": 0.92,
+   "resolved_s": 258.99,
+   "local_s": 1.04,
    "keyword_found": true
   },
   {
@@ -946,8 +946,8 @@
    "action": "thanh một kỳ trả: lãi | gốc (khoản cũ)",
    "meaning_muted": "mỗi kỳ trả một phần gốc",
    "sentence": "With each one, a little more goes to paying down what she owes.",
-   "resolved_s": 266.21,
-   "local_s": 7.4,
+   "resolved_s": 266.14,
+   "local_s": 8.19,
    "keyword_found": true
   },
   {
@@ -959,8 +959,8 @@
    "action": "kim quay ngược về 0: 'new loan: 30 years again'",
    "meaning_muted": "vay lại = đồng hồ chạy lại từ đầu",
    "sentence": "A refinance starts a fresh 30-year clock, and in the early years of any mortgage, most of each payment goes to interest.",
-   "resolved_s": 269.69,
-   "local_s": 10.88,
+   "resolved_s": 269.93,
+   "local_s": 11.98,
    "keyword_found": true
   },
   {
@@ -972,8 +972,8 @@
    "action": "thanh kỳ trả của khoản mới: phần lãi dày hơn, gốc mỏng hơn",
    "meaning_muted": "khoản mới trả gốc ít hơn mỗi tháng",
    "sentence": "A refinance starts a fresh 30-year clock, and in the early years of any mortgage, most of each payment goes to interest.",
-   "resolved_s": 273.42,
-   "local_s": 14.61,
+   "resolved_s": 274.14,
+   "local_s": 16.19,
    "keyword_found": true
   },
   {
@@ -985,8 +985,8 @@
    "action": "cắt H3→H1: hai chồng 'balance paid off' mọc theo tháng, chồng mới thấp hơn",
    "meaning_muted": "khoản mới trả nợ chậm hơn",
    "sentence": "So the new loan pays down her balance more slowly than the old one would have.",
-   "resolved_s": 276.13,
-   "local_s": 17.32,
+   "resolved_s": 277.56,
+   "local_s": 19.62,
    "keyword_found": true
   },
   {
@@ -998,8 +998,8 @@
    "action": "mọc: tấm sọc $1,133 = phần chênh",
    "meaning_muted": "tháng 24 còn nợ thêm $1,133",
    "sentence": "By month 24, she owes $1,133 more than if she had kept the old loan.",
-   "resolved_s": 283.09,
-   "local_s": 24.28,
+   "resolved_s": 285.57,
+   "local_s": 27.62,
    "keyword_found": true
   },
   {
@@ -1011,8 +1011,8 @@
    "action": "chuyển: tấm sọc bay lên xấp phí",
    "meaning_muted": "khoản đó cũng phải bù như phí",
    "sentence": "If she sold the house then, that $1,133 would come out of her sale money, so it cancels part of what she has saved.",
-   "resolved_s": 293.75,
-   "local_s": 34.94,
+   "resolved_s": 296.8,
+   "local_s": 38.85,
    "keyword_found": true
   },
   {
@@ -1024,8 +1024,8 @@
    "action": "thêm cọc tháng 25–30, tấm sọc lớn chậm",
    "meaning_muted": "cần thêm vài tháng",
    "sentence": "Her savings need a few more months to cover it, and the gap keeps growing a little while they do.",
-   "resolved_s": 298.85,
-   "local_s": 40.04,
+   "resolved_s": 303.39,
+   "local_s": 45.44,
    "keyword_found": true
   },
   {
@@ -1037,8 +1037,8 @@
    "action": "gạch '24'",
    "meaning_muted": "hoà vốn không phải 24",
    "sentence": "Count it, and break-even moves from month 24 to month 30.",
-   "resolved_s": 305.9,
-   "local_s": 47.09,
+   "resolved_s": 312.26,
+   "local_s": 54.31,
    "keyword_found": true
   },
   {
@@ -1050,8 +1050,8 @@
    "action": "'Break-even: month 30'",
    "meaning_muted": "hoà vốn thật: tháng 30",
    "sentence": "Count it, and break-even moves from month 24 to month 30.",
-   "resolved_s": 306.69,
-   "local_s": 47.88,
+   "resolved_s": 313.27,
+   "local_s": 55.32,
    "keyword_found": true
   },
   {
@@ -1063,7 +1063,7 @@
    "action": "thước rate cut; chấm Nora rời 0.59 trượt sang trái",
    "meaning_muted": "giả sử giảm ít hơn",
    "sentence": "The smaller the cut, the more that gap matters.",
-   "resolved_s": 308.68,
+   "resolved_s": 315.55,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -1076,8 +1076,8 @@
    "action": "chấm dừng ở 0.25",
    "meaning_muted": "chỉ giảm một phần tư điểm",
    "sentence": "Suppose her offer were only a quarter of a point.",
-   "resolved_s": 314.11,
-   "local_s": 5.58,
+   "resolved_s": 321.27,
+   "local_s": 5.87,
    "keyword_found": true
   },
   {
@@ -1089,8 +1089,8 @@
    "action": "vẽ: đường 'division' thẳng cắt vạch phí ở tháng 38",
    "meaning_muted": "phép chia hứa hoà vốn tháng 38",
    "sentence": "Division promises break-even in 38 months.",
-   "resolved_s": 317.82,
-   "local_s": 9.29,
+   "resolved_s": 324.51,
+   "local_s": 9.11,
    "keyword_found": true
   },
   {
@@ -1102,8 +1102,8 @@
    "action": "vẽ: đường 'savings minus what she still owes' lên gần vạch phí, không chạm",
    "meaning_muted": "tính cả nợ thêm thì không đuổi kịp phí",
    "sentence": "But a saving that small can't outrun the growing gap in what she owes.",
-   "resolved_s": 321.1,
-   "local_s": 12.57,
+   "resolved_s": 327.72,
+   "local_s": 12.32,
    "keyword_found": true
   },
   {
@@ -1115,8 +1115,8 @@
    "action": "trục kéo tới kỳ trả cuối của khoản cũ, đường rơi; chữ 'Never'",
    "meaning_muted": "không bao giờ hoà vốn",
    "sentence": "Counting it, the fees never come back, not in all the years her old loan had left.",
-   "resolved_s": 325.44,
-   "local_s": 16.91,
+   "resolved_s": 332.36,
+   "local_s": 16.96,
    "keyword_found": true
   },
   {
@@ -1128,8 +1128,8 @@
    "action": "chấm trượt tới vạch 1 điểm; trục co về 48 tháng",
    "meaning_muted": "giảm đủ 1 điểm",
    "sentence": "At a full point, she would break even in 18 months, well inside three years.",
-   "resolved_s": 330.69,
-   "local_s": 0.35,
+   "resolved_s": 338.12,
+   "local_s": 0.36,
    "keyword_found": true
   },
   {
@@ -1141,8 +1141,8 @@
    "action": "đường cắt vạch phí ở tháng 18",
    "meaning_muted": "hoà vốn tháng 18",
    "sentence": "At a full point, she would break even in 18 months, well inside three years.",
-   "resolved_s": 332.89,
-   "local_s": 2.55,
+   "resolved_s": 340.36,
+   "local_s": 2.6,
    "keyword_found": true
   },
   {
@@ -1154,8 +1154,8 @@
    "action": "ngoặc từ 18 tới mốc 3 năm",
    "meaning_muted": "còn cách xa mốc 3 năm",
    "sentence": "At a full point, she would break even in 18 months, well inside three years.",
-   "resolved_s": 333.66,
-   "local_s": 3.32,
+   "resolved_s": 341.14,
+   "local_s": 3.38,
    "keyword_found": true
   },
   {
@@ -1167,7 +1167,7 @@
    "action": "chấm lắc giữa 0.25 và 1",
    "meaning_muted": "ngưỡng nằm đâu đó ở giữa",
    "sentence": "Somewhere between a quarter point and a full point is her line.",
-   "resolved_s": 336.72,
+   "resolved_s": 344.23,
    "local_s": 0.35,
    "keyword_found": true
   },
@@ -1180,8 +1180,8 @@
    "action": "chấm dừng ở 0.5; đường mới vẽ",
    "meaning_muted": "thử nửa điểm",
    "sentence": "At half a point, the fees come back in exactly 36 months.",
-   "resolved_s": 340.28,
-   "local_s": 3.91,
+   "resolved_s": 348.01,
+   "local_s": 4.13,
    "keyword_found": true
   },
   {
@@ -1193,8 +1193,8 @@
    "action": "đường cắt vạch phí đúng ở tháng 36 = mốc 3 năm",
    "meaning_muted": "nửa điểm hoà vốn đúng 3 năm",
    "sentence": "At half a point, the fees come back in exactly 36 months.",
-   "resolved_s": 343.4,
-   "local_s": 7.03,
+   "resolved_s": 351.2,
+   "local_s": 7.32,
    "keyword_found": true
   },
   {
@@ -1206,8 +1206,8 @@
    "action": "thước có dấu cố định '0.5 · Nora's line'",
    "meaning_muted": "ngưỡng của Nora là nửa điểm",
    "sentence": "So for Nora, the answer is half a point, half of the one-point line.",
-   "resolved_s": 346.47,
-   "local_s": 10.1,
+   "resolved_s": 354.04,
+   "local_s": 10.16,
    "keyword_found": true
   },
   {
@@ -1219,8 +1219,8 @@
    "action": "chấm thật 0.59 hiện bên phải dấu, 'clears it'",
    "meaning_muted": "đề nghị thật vượt ngưỡng",
    "sentence": "Her real offer, just over half a point, clears it.",
-   "resolved_s": 350.95,
-   "local_s": 14.58,
+   "resolved_s": 358.98,
+   "local_s": 15.1,
    "keyword_found": true
   },
   {
@@ -1232,8 +1232,8 @@
    "action": "đường 0.59 cắt vạch phí trước mốc 3 năm",
    "meaning_muted": "lá thư này vẫn đáng với Nora",
    "sentence": "The February window closed, but by the three-year test, this letter still pays her back.",
-   "resolved_s": 359.06,
-   "local_s": 22.69,
+   "resolved_s": 366.72,
+   "local_s": 22.84,
    "keyword_found": true
   },
   {
@@ -1245,8 +1245,8 @@
    "action": "tam giác và vuông mờ với '?' trên thước",
    "meaning_muted": "người khác thì sao?",
    "sentence": "Is half a point the line for everyone?",
-   "resolved_s": 361.15,
-   "local_s": 24.78,
+   "resolved_s": 368.57,
+   "local_s": 24.69,
    "keyword_found": true
   },
   {
@@ -1258,7 +1258,7 @@
    "action": "nhà nhỏ của Walt mọc bên trái nhà Nora; tam giác",
    "meaning_muted": "một người vay khác (minh hoạ)",
    "sentence": "Walt is another borrower we built from typical figures.",
-   "resolved_s": 365.07,
+   "resolved_s": 372.35,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -1271,8 +1271,8 @@
    "action": "nhãn '$115,000 loan' dưới nhà Walt, '$375,000' dưới nhà Nora",
    "meaning_muted": "khoản vay nhỏ hơn nhiều",
    "sentence": "He bought a smaller house the same month as Nora, with a $115,000 loan at the same rate.",
-   "resolved_s": 372.41,
-   "local_s": 7.49,
+   "resolved_s": 379.31,
+   "local_s": 7.11,
    "keyword_found": true
   },
   {
@@ -1284,8 +1284,8 @@
    "action": "nhãn 'October 2023 · 7.62%' chung",
    "meaning_muted": "cùng thời điểm, cùng lãi",
    "sentence": "He bought a smaller house the same month as Nora, with a $115,000 loan at the same rate.",
-   "resolved_s": 373.85,
-   "local_s": 8.93,
+   "resolved_s": 380.68,
+   "local_s": 8.48,
    "keyword_found": true
   },
   {
@@ -1297,8 +1297,8 @@
    "action": "lá thư trượt tới trước nhà Walt; '7.62% → 7.03%'",
    "meaning_muted": "cùng đề nghị giảm lãi",
    "sentence": "His letter offers the same cut.",
-   "resolved_s": 375.09,
-   "local_s": 10.17,
+   "resolved_s": 382.07,
+   "local_s": 9.88,
    "keyword_found": true
   },
   {
@@ -1310,8 +1310,8 @@
    "action": "mọc: xấp phí $3,667 cạnh xấp $5,124 của Nora (cùng thang)",
    "meaning_muted": "phí của Walt",
    "sentence": "The bill at the bottom: $3,667.",
-   "resolved_s": 381.75,
-   "local_s": 16.83,
+   "resolved_s": 387.91,
+   "local_s": 15.71,
    "keyword_found": true
   },
   {
@@ -1323,8 +1323,8 @@
    "action": "hai nhà: nhãn 'far smaller loan' sáng",
    "meaning_muted": "khoản vay nhỏ hơn nhiều",
    "sentence": "His loan is far smaller than hers.",
-   "resolved_s": 384.39,
-   "local_s": 19.47,
+   "resolved_s": 390.0,
+   "local_s": 17.8,
    "keyword_found": true
   },
   {
@@ -1336,8 +1336,8 @@
    "action": "vạch ngang từ đỉnh xấp phí Nora sang xấp Walt: chênh ít",
    "meaning_muted": "phí chỉ nhỏ hơn một chút",
    "sentence": "His bill is only a little smaller.",
-   "resolved_s": 387.06,
-   "local_s": 22.14,
+   "resolved_s": 392.2,
+   "local_s": 20.0,
    "keyword_found": true
   },
   {
@@ -1349,7 +1349,7 @@
    "action": "cắt H1→H3: hàng 'loan' — thanh của Walt co từ độ dài của Nora về $115,000",
    "meaning_muted": "khoản vay co nhiều",
    "sentence": "In the 2025 data, refinance bills grow far more slowly than the loans they come with.",
-   "resolved_s": 390.64,
+   "resolved_s": 395.39,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -1362,8 +1362,8 @@
    "action": "hàng 'bill' — thanh của Walt co rất ít",
    "meaning_muted": "hoá đơn gần như không co",
    "sentence": "In the 2025 data, refinance bills grow far more slowly than the loans they come with.",
-   "resolved_s": 392.78,
-   "local_s": 2.29,
+   "resolved_s": 397.49,
+   "local_s": 2.25,
    "keyword_found": true
   },
   {
@@ -1375,8 +1375,8 @@
    "action": "nhãn 'bill = about 3.2% of his loan'",
    "meaning_muted": "phí là phần lớn so với khoản vay nhỏ",
    "sentence": "For Walt, it comes to about 3.2 percent of what he borrowed.",
-   "resolved_s": 397.84,
-   "local_s": 7.35,
+   "resolved_s": 402.94,
+   "local_s": 7.7,
    "keyword_found": true
   },
   {
@@ -1388,8 +1388,8 @@
    "action": "hàng 'monthly savings' — thanh Walt co mạnh",
    "meaning_muted": "tiết kiệm co theo khoản vay",
    "sentence": "His savings, though, shrink with the loan.",
-   "resolved_s": 401.46,
-   "local_s": 10.97,
+   "resolved_s": 407.08,
+   "local_s": 11.84,
    "keyword_found": true
   },
   {
@@ -1401,8 +1401,8 @@
    "action": "nhãn '$68 a month' vs '$221'",
    "meaning_muted": "Walt chỉ bớt $68/tháng",
    "sentence": "The same cut takes only $68 a month off his payment.",
-   "resolved_s": 404.57,
-   "local_s": 14.08,
+   "resolved_s": 410.43,
+   "local_s": 15.19,
    "keyword_found": true
   },
   {
@@ -1414,8 +1414,8 @@
    "action": "cắt H3→H1: cọc $68 chồng rất chậm cạnh xấp $3,667 + tấm sọc",
    "meaning_muted": "phải rất lâu mới bù phí",
    "sentence": "$68 a month, against a $3,667 bill.",
-   "resolved_s": 407.55,
-   "local_s": 17.06,
+   "resolved_s": 413.05,
+   "local_s": 17.81,
    "keyword_found": true
   },
   {
@@ -1427,8 +1427,8 @@
    "action": "cọc ngang phí + nợ thêm ở tháng 75; 'Break-even: month 75'",
    "meaning_muted": "hoà vốn tháng 75 (hơn 6 năm)",
    "sentence": "Counting what he owes, he breaks even in month 75.",
-   "resolved_s": 416.88,
-   "local_s": 26.39,
+   "resolved_s": 422.19,
+   "local_s": 26.95,
    "keyword_found": true
   },
   {
@@ -1440,7 +1440,7 @@
    "action": "sân nhà Walt: 36 cọc $68 cạnh xấp phí + tấm sọc sau 3 năm",
    "meaning_muted": "nếu Walt bán sau 3 năm",
    "sentence": "If Walt sold after three years, he would come out $1,777 behind.",
-   "resolved_s": 418.48,
+   "resolved_s": 423.82,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -1453,8 +1453,8 @@
    "action": "khoảng hở giữa cột tiền và đỉnh phí sáng đỏ; '$1,777 short'",
    "meaning_muted": "Walt lỗ $1,777",
    "sentence": "If Walt sold after three years, he would come out $1,777 behind.",
-   "resolved_s": 423.27,
-   "local_s": 4.94,
+   "resolved_s": 428.4,
+   "local_s": 4.73,
    "keyword_found": true
   },
   {
@@ -1466,8 +1466,8 @@
    "action": "cắt H1→H3: tam giác trượt trên thước qua vạch 1 điểm, dừng ở 1.12",
    "meaning_muted": "Walt cần giảm 1.12 điểm",
    "sentence": "For his fees to come back within three years, his rate would need to fall 1.12 points.",
-   "resolved_s": 430.87,
-   "local_s": 12.54,
+   "resolved_s": 435.33,
+   "local_s": 11.66,
    "keyword_found": true
   },
   {
@@ -1479,8 +1479,8 @@
    "action": "vạch 1 điểm nhấp nháy; đoạn 1→1.12 tô",
    "meaning_muted": "hơn cả luật một điểm",
    "sentence": "That is more than the one-point line.",
-   "resolved_s": 433.19,
-   "local_s": 14.86,
+   "resolved_s": 437.95,
+   "local_s": 14.28,
    "keyword_found": true
   },
   {
@@ -1492,8 +1492,8 @@
    "action": "nhà nhỏ ↔ 1.12, nhà vừa ↔ 0.5: cột cao hơn cho nhà nhỏ hơn",
    "meaning_muted": "khoản nhỏ cần giảm nhiều hơn",
    "sentence": "So that is why a smaller mortgage needs a bigger rate cut.",
-   "resolved_s": 436.01,
-   "local_s": 17.68,
+   "resolved_s": 440.81,
+   "local_s": 17.13,
    "keyword_found": true
   },
   {
@@ -1505,8 +1505,8 @@
    "action": "hàng 'bill': Walt gần bằng Nora",
    "meaning_muted": "phí gần như không co",
    "sentence": "The fees barely shrink with the loan, and the monthly savings shrink right along with it.",
-   "resolved_s": 439.8,
-   "local_s": 21.47,
+   "resolved_s": 445.21,
+   "local_s": 21.54,
    "keyword_found": true
   },
   {
@@ -1518,8 +1518,8 @@
    "action": "hàng 'monthly savings': Walt nhỏ hơn nhiều",
    "meaning_muted": "tiết kiệm co theo khoản vay",
    "sentence": "The fees barely shrink with the loan, and the monthly savings shrink right along with it.",
-   "resolved_s": 441.98,
-   "local_s": 23.65,
+   "resolved_s": 447.63,
+   "local_s": 23.96,
    "keyword_found": true
   },
   {
@@ -1531,7 +1531,7 @@
    "action": "nhà lớn của Anjali mọc bên phải; hình vuông",
    "meaning_muted": "một người vay khác ở đầu kia",
    "sentence": "Anjali sits at the other end.",
-   "resolved_s": 445.61,
+   "resolved_s": 451.64,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -1544,8 +1544,8 @@
    "action": "tiêu đề 'Same offer: 7.62% → 7.03%'",
    "meaning_muted": "cùng đề nghị",
    "sentence": "Same month, same rate, same cut.",
-   "resolved_s": 447.8,
-   "local_s": 2.34,
+   "resolved_s": 453.89,
+   "local_s": 2.4,
    "keyword_found": true
   },
   {
@@ -1557,8 +1557,8 @@
    "action": "nhãn '$655,000 loan'",
    "meaning_muted": "khoản vay lớn",
    "sentence": "She bought a bigger house, with a $655,000 loan, still under the conforming limit: the ceiling for the standard loans that Fannie Mae and Freddie Mac buy.",
-   "resolved_s": 453.33,
-   "local_s": 7.87,
+   "resolved_s": 459.51,
+   "local_s": 8.02,
    "keyword_found": true
   },
   {
@@ -1570,8 +1570,8 @@
    "action": "ghi chú 'under the conforming limit'",
    "meaning_muted": "vẫn là khoản vay chuẩn",
    "sentence": "She bought a bigger house, with a $655,000 loan, still under the conforming limit: the ceiling for the standard loans that Fannie Mae and Freddie Mac buy.",
-   "resolved_s": 455.65,
-   "local_s": 10.19,
+   "resolved_s": 461.66,
+   "local_s": 10.17,
    "keyword_found": true
   },
   {
@@ -1583,8 +1583,8 @@
    "action": "mọc: xấp phí $5,514 cạnh xấp $5,124 của Nora",
    "meaning_muted": "phí gần bằng Nora",
    "sentence": "Her bill is $5,514, close to what Nora pays.",
-   "resolved_s": 463.82,
-   "local_s": 18.36,
+   "resolved_s": 469.69,
+   "local_s": 18.2,
    "keyword_found": true
   },
   {
@@ -1596,8 +1596,8 @@
    "action": "chồng: cọc $387 lên nhanh, vượt phí + nợ thêm ở tháng 18",
    "meaning_muted": "hoà vốn sớm",
    "sentence": "If she sold after three years, she would come out $5,250 ahead.",
-   "resolved_s": 468.61,
-   "local_s": 23.15,
+   "resolved_s": 474.13,
+   "local_s": 22.64,
    "keyword_found": true
   },
   {
@@ -1609,8 +1609,8 @@
    "action": "'+$5,250 ahead after 3 years'",
    "meaning_muted": "sau 3 năm dư $5,250",
    "sentence": "If she sold after three years, she would come out $5,250 ahead.",
-   "resolved_s": 473.02,
-   "local_s": 27.56,
+   "resolved_s": 478.49,
+   "local_s": 27.0,
    "keyword_found": true
   },
   {
@@ -1622,8 +1622,8 @@
    "action": "cắt H1→H3: hình vuông trượt trên thước dừng ở 'about a third of a point'",
    "meaning_muted": "Anjali chỉ cần khoảng 1/3 điểm",
    "sentence": "To get her fees back within three years, she needs a cut of only about a third of a point.",
-   "resolved_s": 478.61,
-   "local_s": 33.15,
+   "resolved_s": 484.96,
+   "local_s": 33.47,
    "keyword_found": true
   },
   {
@@ -1635,7 +1635,7 @@
    "action": "lá thư quay lại trên bàn bếp, dòng phí sáng",
    "meaning_muted": "trở lại câu hỏi ban đầu",
    "sentence": "So, back to the letter, and the question it started with.",
-   "resolved_s": 481.73,
+   "resolved_s": 487.67,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -1648,8 +1648,8 @@
    "action": "cắt H1→H3: tiêu đề 'Rate cut needed, by loan size'",
    "meaning_muted": "câu trả lời ở dạng thước",
    "sentence": "How big a rate cut makes a refinance worth it, if worth it means the fees come back within three years?",
-   "resolved_s": 485.42,
-   "local_s": 3.84,
+   "resolved_s": 491.61,
+   "local_s": 4.09,
    "keyword_found": true
   },
   {
@@ -1661,8 +1661,8 @@
    "action": "trục 'loan size' + ba nhà (diện tích theo khoản vay)",
    "meaning_muted": "tuỳ cỡ khoản vay",
    "sentence": "It depends on the size of the loan.",
-   "resolved_s": 492.67,
-   "local_s": 11.09,
+   "resolved_s": 500.53,
+   "local_s": 13.01,
    "keyword_found": true
   },
   {
@@ -1674,8 +1674,8 @@
    "action": "mọc: cột tam giác 1.12 points ở $115,000",
    "meaning_muted": "khoản nhỏ: hơn 1 điểm",
    "sentence": "On a loan of $115,000, like Walt's, it takes more than a full point.",
-   "resolved_s": 495.02,
-   "local_s": 13.44,
+   "resolved_s": 503.01,
+   "local_s": 15.49,
    "keyword_found": true
   },
   {
@@ -1687,8 +1687,8 @@
    "action": "mọc: cột tròn 0.5 point ở $375,000",
    "meaning_muted": "khoản vừa: nửa điểm",
    "sentence": "On $375,000, like Nora's, half a point.",
-   "resolved_s": 500.11,
-   "local_s": 18.53,
+   "resolved_s": 508.37,
+   "local_s": 20.85,
    "keyword_found": true
   },
   {
@@ -1700,8 +1700,8 @@
    "action": "mọc: cột vuông 'about a third of a point' ở $655,000",
    "meaning_muted": "khoản lớn: khoảng 1/3 điểm",
    "sentence": "On $655,000, like Anjali's, about a third of a point.",
-   "resolved_s": 504.58,
-   "local_s": 23.0,
+   "resolved_s": 512.63,
+   "local_s": 25.11,
    "keyword_found": true
   },
   {
@@ -1713,8 +1713,8 @@
    "action": "viền: nhà nét đứt 'your loan?' trượt dọc trục, dừng giữa hai mốc, không số",
    "meaning_muted": "người xem tự đặt khoản vay của mình",
    "sentence": "Put your own loan on that scale, and you can see which of them you are closest to.",
-   "resolved_s": 510.35,
-   "local_s": 28.77,
+   "resolved_s": 517.87,
+   "local_s": 30.35,
    "keyword_found": true
   },
   {
@@ -1726,8 +1726,8 @@
    "action": "chú thích giả định dưới thước",
    "meaning_muted": "các ngưỡng dựa trên giả định",
    "sentence": "Those lines rest on our assumptions: a loan taken out at the October 2023 rate, a median bill, and a three-year stay.",
-   "resolved_s": 516.02,
-   "local_s": 34.44,
+   "resolved_s": 524.64,
+   "local_s": 37.12,
    "keyword_found": true
   },
   {
@@ -1739,8 +1739,8 @@
    "action": "trượt: vạch '1-point rule of thumb' quét qua ba cột, không khớp, mờ",
    "meaning_muted": "luật một điểm không đúng với ai",
    "sentence": "The one-point line fits none of them.",
-   "resolved_s": 523.13,
-   "local_s": 41.55,
+   "resolved_s": 532.46,
+   "local_s": 44.94,
    "keyword_found": true
   },
   {
@@ -1752,7 +1752,7 @@
    "action": "cột mờ thành dải; nhãn 'national averages · median bills · illustrative borrowers'",
    "meaning_muted": "đây là số trung bình",
    "sentence": "These are national average rates, median bills, and three made-up borrowers.",
-   "resolved_s": 527.22,
+   "resolved_s": 535.91,
    "local_s": 0.15,
    "keyword_found": true
   },
@@ -1765,8 +1765,8 @@
    "action": "thang hoá đơn: mốc $3,443 hiện",
    "meaning_muted": "phí thật dao động",
    "sentence": "In 2025, half of refinance bills fell between $3,443 and $8,270.",
-   "resolved_s": 538.31,
-   "local_s": 11.24,
+   "resolved_s": 547.92,
+   "local_s": 12.16,
    "keyword_found": true
   },
   {
@@ -1778,8 +1778,8 @@
    "action": "mốc $8,270; dải giữa tô, chấm $5,124 ở giữa",
    "meaning_muted": "một nửa hoá đơn nằm trong dải rộng",
    "sentence": "In 2025, half of refinance bills fell between $3,443 and $8,270.",
-   "resolved_s": 539.78,
-   "local_s": 12.71,
+   "resolved_s": 549.5,
+   "local_s": 13.74,
    "keyword_found": true
   },
   {
@@ -1791,8 +1791,8 @@
    "action": "nhãn 'your rate? your bill? your balance?' quanh nhà viền",
    "meaning_muted": "số của người xem sẽ khác",
    "sentence": "A real rate, a real bill and a real balance will be different.",
-   "resolved_s": 541.4,
-   "local_s": 14.33,
+   "resolved_s": 551.19,
+   "local_s": 15.43,
    "keyword_found": true
   },
   {
@@ -1804,8 +1804,8 @@
    "action": "thẻ 'fees added to the loan' + '→ different math'",
    "meaning_muted": "cách trả phí cũng đổi phép tính",
    "sentence": "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too.",
-   "resolved_s": 546.91,
-   "local_s": 19.84,
+   "resolved_s": 556.19,
+   "local_s": 20.43,
    "keyword_found": true
   },
   {
@@ -1817,8 +1817,8 @@
    "action": "thẻ 'a shorter term'",
    "meaning_muted": "kỳ hạn ngắn hơn cũng đổi phép tính",
    "sentence": "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too.",
-   "resolved_s": 549.29,
-   "local_s": 22.22,
+   "resolved_s": 558.71,
+   "local_s": 22.95,
    "keyword_found": true
   },
   {
@@ -1830,8 +1830,8 @@
    "action": "nhà Nora; dấu thời gian bắt đầu chạy dọc lối đi",
    "meaning_muted": "con số quyết định: ở bao lâu",
    "sentence": "Which leaves the one number only you know: how long you will stay.",
-   "resolved_s": 556.18,
-   "local_s": 3.59,
+   "resolved_s": 565.25,
+   "local_s": 2.96,
    "keyword_found": true
   },
   {
@@ -1843,8 +1843,8 @@
    "action": "dấu dừng ở 'year 3'; cọc dư mọc '+$1,039 ahead'",
    "meaning_muted": "bán sau 3 năm: dư $1,039",
    "sentence": "For Nora, the same offer comes out $1,039 ahead if she sells after three years, and $8,093 ahead if she stays seven.",
-   "resolved_s": 565.25,
-   "local_s": 12.66,
+   "resolved_s": 574.15,
+   "local_s": 11.86,
    "keyword_found": true
   },
   {
@@ -1856,8 +1856,8 @@
    "action": "dấu chạy tới 'year 7'; cọc dư lớn lên '+$8,093 ahead'",
    "meaning_muted": "ở 7 năm: dư $8,093",
    "sentence": "For Nora, the same offer comes out $1,039 ahead if she sells after three years, and $8,093 ahead if she stays seven.",
-   "resolved_s": 569.57,
-   "local_s": 16.98,
+   "resolved_s": 578.06,
+   "local_s": 15.77,
    "keyword_found": true
   },
   {
@@ -1869,8 +1869,8 @@
    "action": "nhãn 'the rate cut: how fast'",
    "meaning_muted": "mức giảm lãi quyết định tốc độ",
    "sentence": "The rate cut decides how fast the fees come back.",
-   "resolved_s": 570.72,
-   "local_s": 18.13,
+   "resolved_s": 579.81,
+   "local_s": 17.52,
    "keyword_found": true
   },
   {
@@ -1882,8 +1882,8 @@
    "action": "dấu chạy tiếp ra khỏi khung, không mốc",
    "meaning_muted": "ở lâu hay không quyết định có hưởng hay không",
    "sentence": "How long you stay decides whether you are still there when they do.",
-   "resolved_s": 574.25,
-   "local_s": 21.66,
+   "resolved_s": 583.0,
+   "local_s": 20.71,
    "keyword_found": true
   },
   {
@@ -1895,8 +1895,8 @@
    "action": "nhà viền 'your home?' hiện cạnh nhà Nora; câu hỏi",
    "meaning_muted": "câu hỏi cho người xem",
    "sentence": "How long do you picture yourself in your home?",
-   "resolved_s": 579.59,
-   "local_s": 27.0,
+   "resolved_s": 588.52,
+   "local_s": 26.24,
    "keyword_found": true
   }
  ]
