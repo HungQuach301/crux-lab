@@ -6205,6 +6205,3056 @@
     ],
     "missing": []
    }
-  ]
+  ],
+  "use": "S14.seed1.mp3"
+ },
+ "S15": {
+  "scene": "S15",
+  "n": [
+   71,
+   72,
+   73,
+   74,
+   75,
+   76
+  ],
+  "text_sent": "In the twenty twenty-five data, refinance bills grow far more slowly than the loans they come with. For Walt, it comes to about three point two percent of what he borrowed. His savings, though, shrink with the loan. The same cut takes only sixty-eight dollars a month off his payment.\n\nSixty-eight dollars a month, against a three thousand six hundred sixty-seven dollar bill. Counting what he owes, he breaks even in month seventy-five.",
+  "tags": {},
+  "sentences": [
+   "In the twenty twenty-five data, refinance bills grow far more slowly than the loans they come with.",
+   "For Walt, it comes to about three point two percent of what he borrowed.",
+   "His savings, though, shrink with the loan.",
+   "The same cut takes only sixty-eight dollars a month off his payment.",
+   "Sixty-eight dollars a month, against a three thousand six hundred sixty-seven dollar bill.",
+   "Counting what he owes, he breaks even in month seventy-five."
+  ],
+  "text_plain": [
+   "In the 2025 data, refinance bills grow far more slowly than the loans they come with.",
+   "For Walt, it comes to about 3.2 percent of what he borrowed.",
+   "His savings, though, shrink with the loan.",
+   "The same cut takes only $68 a month off his payment.",
+   "$68 a month, against a $3,667 bill.",
+   "Counting what he owes, he breaks even in month 75."
+  ],
+  "takes": [
+   {
+    "file": "S15.seed1.mp3",
+    "seed": 1,
+    "characterCost": 175,
+    "len": 437,
+    "requestId": "mQkUqc1xjRrv4aEx29Fz",
+    "asr": "In the 2025 data, refinance bills grow far more slowly than the loans they come with. For Walt, it comes to about 3 .2 % of what he borrowed. His savings, though, shrink with the loan. The same cut takes only $68 a month off his payment. $68 a month against a $3 ,667 bill. Counting what he owes, he breaks even in month 75.",
+    "asr_words": [
+     {
+      "w": "In",
+      "start": 0.0,
+      "end": 0.16,
+      "p": 0.94
+     },
+     {
+      "w": "the",
+      "start": 0.16,
+      "end": 0.26,
+      "p": 1.0
+     },
+     {
+      "w": "2025",
+      "start": 0.26,
+      "end": 0.82,
+      "p": 0.99
+     },
+     {
+      "w": "data,",
+      "start": 0.82,
+      "end": 1.42,
+      "p": 0.98
+     },
+     {
+      "w": "refinance",
+      "start": 1.9,
+      "end": 2.3,
+      "p": 0.89
+     },
+     {
+      "w": "bills",
+      "start": 2.3,
+      "end": 2.66,
+      "p": 0.99
+     },
+     {
+      "w": "grow",
+      "start": 2.66,
+      "end": 2.9,
+      "p": 0.99
+     },
+     {
+      "w": "far",
+      "start": 2.9,
+      "end": 3.26,
+      "p": 1.0
+     },
+     {
+      "w": "more",
+      "start": 3.26,
+      "end": 3.5,
+      "p": 1.0
+     },
+     {
+      "w": "slowly",
+      "start": 3.5,
+      "end": 3.9,
+      "p": 1.0
+     },
+     {
+      "w": "than",
+      "start": 3.9,
+      "end": 4.16,
+      "p": 0.99
+     },
+     {
+      "w": "the",
+      "start": 4.16,
+      "end": 4.3,
+      "p": 1.0
+     },
+     {
+      "w": "loans",
+      "start": 4.3,
+      "end": 4.54,
+      "p": 1.0
+     },
+     {
+      "w": "they",
+      "start": 4.54,
+      "end": 4.76,
+      "p": 0.99
+     },
+     {
+      "w": "come",
+      "start": 4.76,
+      "end": 4.96,
+      "p": 1.0
+     },
+     {
+      "w": "with.",
+      "start": 4.96,
+      "end": 5.24,
+      "p": 1.0
+     },
+     {
+      "w": "For",
+      "start": 6.08,
+      "end": 6.28,
+      "p": 1.0
+     },
+     {
+      "w": "Walt,",
+      "start": 6.28,
+      "end": 6.54,
+      "p": 0.95
+     },
+     {
+      "w": "it",
+      "start": 6.7,
+      "end": 6.76,
+      "p": 1.0
+     },
+     {
+      "w": "comes",
+      "start": 6.76,
+      "end": 6.98,
+      "p": 1.0
+     },
+     {
+      "w": "to",
+      "start": 6.98,
+      "end": 7.24,
+      "p": 1.0
+     },
+     {
+      "w": "about",
+      "start": 7.24,
+      "end": 7.64,
+      "p": 0.99
+     },
+     {
+      "w": "3",
+      "start": 7.64,
+      "end": 8.08,
+      "p": 0.99
+     },
+     {
+      "w": ".2",
+      "start": 8.08,
+      "end": 8.54,
+      "p": 1.0
+     },
+     {
+      "w": "%",
+      "start": 8.54,
+      "end": 8.86,
+      "p": 0.87
+     },
+     {
+      "w": "of",
+      "start": 8.86,
+      "end": 9.0,
+      "p": 1.0
+     },
+     {
+      "w": "what",
+      "start": 9.0,
+      "end": 9.12,
+      "p": 1.0
+     },
+     {
+      "w": "he",
+      "start": 9.12,
+      "end": 9.22,
+      "p": 1.0
+     },
+     {
+      "w": "borrowed.",
+      "start": 9.22,
+      "end": 9.54,
+      "p": 1.0
+     },
+     {
+      "w": "His",
+      "start": 10.46,
+      "end": 10.72,
+      "p": 1.0
+     },
+     {
+      "w": "savings,",
+      "start": 10.72,
+      "end": 11.1,
+      "p": 1.0
+     },
+     {
+      "w": "though,",
+      "start": 11.1,
+      "end": 11.46,
+      "p": 1.0
+     },
+     {
+      "w": "shrink",
+      "start": 12.0,
+      "end": 12.12,
+      "p": 0.98
+     },
+     {
+      "w": "with",
+      "start": 12.12,
+      "end": 12.38,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 12.38,
+      "end": 12.54,
+      "p": 1.0
+     },
+     {
+      "w": "loan.",
+      "start": 12.54,
+      "end": 12.8,
+      "p": 1.0
+     },
+     {
+      "w": "The",
+      "start": 13.74,
+      "end": 13.88,
+      "p": 1.0
+     },
+     {
+      "w": "same",
+      "start": 13.88,
+      "end": 14.12,
+      "p": 1.0
+     },
+     {
+      "w": "cut",
+      "start": 14.12,
+      "end": 14.36,
+      "p": 1.0
+     },
+     {
+      "w": "takes",
+      "start": 14.36,
+      "end": 14.58,
+      "p": 0.99
+     },
+     {
+      "w": "only",
+      "start": 14.58,
+      "end": 14.84,
+      "p": 1.0
+     },
+     {
+      "w": "$68",
+      "start": 14.84,
+      "end": 15.42,
+      "p": 0.99
+     },
+     {
+      "w": "a",
+      "start": 15.42,
+      "end": 15.86,
+      "p": 0.92
+     },
+     {
+      "w": "month",
+      "start": 15.86,
+      "end": 16.06,
+      "p": 1.0
+     },
+     {
+      "w": "off",
+      "start": 16.06,
+      "end": 16.28,
+      "p": 0.99
+     },
+     {
+      "w": "his",
+      "start": 16.28,
+      "end": 16.46,
+      "p": 0.99
+     },
+     {
+      "w": "payment.",
+      "start": 16.46,
+      "end": 16.78,
+      "p": 1.0
+     },
+     {
+      "w": "$68",
+      "start": 17.84,
+      "end": 18.36,
+      "p": 0.98
+     },
+     {
+      "w": "a",
+      "start": 18.36,
+      "end": 18.88,
+      "p": 0.99
+     },
+     {
+      "w": "month",
+      "start": 18.88,
+      "end": 19.2,
+      "p": 1.0
+     },
+     {
+      "w": "against",
+      "start": 19.2,
+      "end": 19.9,
+      "p": 0.87
+     },
+     {
+      "w": "a",
+      "start": 19.9,
+      "end": 20.12,
+      "p": 0.99
+     },
+     {
+      "w": "$3",
+      "start": 20.12,
+      "end": 20.8,
+      "p": 0.86
+     },
+     {
+      "w": ",667",
+      "start": 20.8,
+      "end": 21.78,
+      "p": 0.98
+     },
+     {
+      "w": "bill.",
+      "start": 21.78,
+      "end": 22.76,
+      "p": 0.98
+     },
+     {
+      "w": "Counting",
+      "start": 23.72,
+      "end": 24.22,
+      "p": 0.73
+     },
+     {
+      "w": "what",
+      "start": 24.22,
+      "end": 24.32,
+      "p": 1.0
+     },
+     {
+      "w": "he",
+      "start": 24.32,
+      "end": 24.44,
+      "p": 1.0
+     },
+     {
+      "w": "owes,",
+      "start": 24.44,
+      "end": 24.68,
+      "p": 0.99
+     },
+     {
+      "w": "he",
+      "start": 25.04,
+      "end": 25.18,
+      "p": 1.0
+     },
+     {
+      "w": "breaks",
+      "start": 25.18,
+      "end": 25.44,
+      "p": 0.99
+     },
+     {
+      "w": "even",
+      "start": 25.44,
+      "end": 25.74,
+      "p": 1.0
+     },
+     {
+      "w": "in",
+      "start": 25.74,
+      "end": 25.92,
+      "p": 1.0
+     },
+     {
+      "w": "month",
+      "start": 25.92,
+      "end": 26.06,
+      "p": 0.93
+     },
+     {
+      "w": "75.",
+      "start": 26.06,
+      "end": 26.62,
+      "p": 0.91
+     }
+    ],
+    "missing": []
+   }
+  ],
+  "use": "S15.seed1.mp3"
+ },
+ "S16": {
+  "scene": "S16",
+  "n": [
+   77,
+   78,
+   79,
+   80,
+   81
+  ],
+  "text_sent": "If Walt sold after three years, he would come out one thousand seven hundred seventy-seven dollars behind. For his fees to come back within three years, his rate would need to fall one point one two points. That is more than the one-point line.\n\n[serious] So that is why a smaller mortgage needs a bigger rate cut. The fees barely shrink with the loan, and the monthly savings shrink right along with it.",
+  "tags": {
+   "80": "[serious]"
+  },
+  "sentences": [
+   "If Walt sold after three years, he would come out one thousand seven hundred seventy-seven dollars behind.",
+   "For his fees to come back within three years, his rate would need to fall one point one two points.",
+   "That is more than the one-point line.",
+   "So that is why a smaller mortgage needs a bigger rate cut.",
+   "The fees barely shrink with the loan, and the monthly savings shrink right along with it."
+  ],
+  "text_plain": [
+   "If Walt sold after three years, he would come out $1,777 behind.",
+   "For his fees to come back within three years, his rate would need to fall 1.12 points.",
+   "That is more than the one-point line.",
+   "So that is why a smaller mortgage needs a bigger rate cut.",
+   "The fees barely shrink with the loan, and the monthly savings shrink right along with it."
+  ],
+  "takes": [
+   {
+    "file": "S16.seed1.mp3",
+    "seed": 1,
+    "characterCost": 162,
+    "len": 404,
+    "requestId": "f6E8HB7Hi7b8zZYY3ysD",
+    "asr": "If Walt sold after three years, he would come out $1 ,777 behind. For his fees to come back within three years, his rate would need to fall 1 .12 points. That is more than the one -point line. So that is why a smaller mortgage needs a bigger rate cut. The fees barely shrink with the loan, and the monthly savings shrink right along with it.",
+    "asr_words": [
+     {
+      "w": "If",
+      "start": 0.0,
+      "end": 0.2,
+      "p": 0.93
+     },
+     {
+      "w": "Walt",
+      "start": 0.2,
+      "end": 0.44,
+      "p": 0.86
+     },
+     {
+      "w": "sold",
+      "start": 0.44,
+      "end": 0.84,
+      "p": 0.99
+     },
+     {
+      "w": "after",
+      "start": 0.84,
+      "end": 1.1,
+      "p": 0.98
+     },
+     {
+      "w": "three",
+      "start": 1.1,
+      "end": 1.4,
+      "p": 0.89
+     },
+     {
+      "w": "years,",
+      "start": 1.4,
+      "end": 1.72,
+      "p": 1.0
+     },
+     {
+      "w": "he",
+      "start": 2.12,
+      "end": 2.3,
+      "p": 1.0
+     },
+     {
+      "w": "would",
+      "start": 2.3,
+      "end": 2.42,
+      "p": 1.0
+     },
+     {
+      "w": "come",
+      "start": 2.42,
+      "end": 2.62,
+      "p": 1.0
+     },
+     {
+      "w": "out",
+      "start": 2.62,
+      "end": 2.88,
+      "p": 1.0
+     },
+     {
+      "w": "$1",
+      "start": 2.88,
+      "end": 3.24,
+      "p": 0.93
+     },
+     {
+      "w": ",777",
+      "start": 3.24,
+      "end": 4.44,
+      "p": 0.98
+     },
+     {
+      "w": "behind.",
+      "start": 4.44,
+      "end": 5.96,
+      "p": 0.99
+     },
+     {
+      "w": "For",
+      "start": 6.86,
+      "end": 7.0,
+      "p": 0.99
+     },
+     {
+      "w": "his",
+      "start": 7.0,
+      "end": 7.18,
+      "p": 1.0
+     },
+     {
+      "w": "fees",
+      "start": 7.18,
+      "end": 7.44,
+      "p": 1.0
+     },
+     {
+      "w": "to",
+      "start": 7.44,
+      "end": 7.62,
+      "p": 1.0
+     },
+     {
+      "w": "come",
+      "start": 7.62,
+      "end": 7.8,
+      "p": 1.0
+     },
+     {
+      "w": "back",
+      "start": 7.8,
+      "end": 8.0,
+      "p": 1.0
+     },
+     {
+      "w": "within",
+      "start": 8.0,
+      "end": 8.26,
+      "p": 1.0
+     },
+     {
+      "w": "three",
+      "start": 8.26,
+      "end": 8.54,
+      "p": 0.98
+     },
+     {
+      "w": "years,",
+      "start": 8.54,
+      "end": 8.94,
+      "p": 1.0
+     },
+     {
+      "w": "his",
+      "start": 9.32,
+      "end": 9.62,
+      "p": 1.0
+     },
+     {
+      "w": "rate",
+      "start": 9.62,
+      "end": 9.94,
+      "p": 1.0
+     },
+     {
+      "w": "would",
+      "start": 9.94,
+      "end": 10.14,
+      "p": 1.0
+     },
+     {
+      "w": "need",
+      "start": 10.14,
+      "end": 10.28,
+      "p": 1.0
+     },
+     {
+      "w": "to",
+      "start": 10.28,
+      "end": 10.44,
+      "p": 1.0
+     },
+     {
+      "w": "fall",
+      "start": 10.44,
+      "end": 10.72,
+      "p": 1.0
+     },
+     {
+      "w": "1",
+      "start": 10.72,
+      "end": 11.14,
+      "p": 0.8
+     },
+     {
+      "w": ".12",
+      "start": 11.14,
+      "end": 12.12,
+      "p": 0.99
+     },
+     {
+      "w": "points.",
+      "start": 12.12,
+      "end": 12.58,
+      "p": 0.99
+     },
+     {
+      "w": "That",
+      "start": 13.56,
+      "end": 13.82,
+      "p": 1.0
+     },
+     {
+      "w": "is",
+      "start": 13.82,
+      "end": 13.94,
+      "p": 1.0
+     },
+     {
+      "w": "more",
+      "start": 13.94,
+      "end": 14.28,
+      "p": 1.0
+     },
+     {
+      "w": "than",
+      "start": 14.28,
+      "end": 14.68,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 14.68,
+      "end": 14.8,
+      "p": 1.0
+     },
+     {
+      "w": "one",
+      "start": 14.8,
+      "end": 15.06,
+      "p": 0.93
+     },
+     {
+      "w": "-point",
+      "start": 15.06,
+      "end": 15.3,
+      "p": 0.71
+     },
+     {
+      "w": "line.",
+      "start": 15.3,
+      "end": 15.74,
+      "p": 0.99
+     },
+     {
+      "w": "So",
+      "start": 16.98,
+      "end": 17.34,
+      "p": 0.99
+     },
+     {
+      "w": "that",
+      "start": 17.34,
+      "end": 17.82,
+      "p": 0.75
+     },
+     {
+      "w": "is",
+      "start": 17.82,
+      "end": 17.94,
+      "p": 1.0
+     },
+     {
+      "w": "why",
+      "start": 17.94,
+      "end": 18.12,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 18.12,
+      "end": 18.22,
+      "p": 0.99
+     },
+     {
+      "w": "smaller",
+      "start": 18.22,
+      "end": 18.5,
+      "p": 1.0
+     },
+     {
+      "w": "mortgage",
+      "start": 18.5,
+      "end": 18.92,
+      "p": 1.0
+     },
+     {
+      "w": "needs",
+      "start": 18.92,
+      "end": 19.4,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 19.4,
+      "end": 19.56,
+      "p": 1.0
+     },
+     {
+      "w": "bigger",
+      "start": 19.56,
+      "end": 19.74,
+      "p": 1.0
+     },
+     {
+      "w": "rate",
+      "start": 19.74,
+      "end": 19.98,
+      "p": 1.0
+     },
+     {
+      "w": "cut.",
+      "start": 19.98,
+      "end": 20.24,
+      "p": 0.99
+     },
+     {
+      "w": "The",
+      "start": 21.12,
+      "end": 21.32,
+      "p": 1.0
+     },
+     {
+      "w": "fees",
+      "start": 21.32,
+      "end": 21.72,
+      "p": 1.0
+     },
+     {
+      "w": "barely",
+      "start": 21.72,
+      "end": 22.3,
+      "p": 1.0
+     },
+     {
+      "w": "shrink",
+      "start": 22.3,
+      "end": 22.64,
+      "p": 1.0
+     },
+     {
+      "w": "with",
+      "start": 22.64,
+      "end": 22.84,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 22.84,
+      "end": 22.96,
+      "p": 0.99
+     },
+     {
+      "w": "loan,",
+      "start": 22.96,
+      "end": 23.2,
+      "p": 1.0
+     },
+     {
+      "w": "and",
+      "start": 23.68,
+      "end": 24.06,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 24.06,
+      "end": 24.16,
+      "p": 1.0
+     },
+     {
+      "w": "monthly",
+      "start": 24.16,
+      "end": 24.4,
+      "p": 1.0
+     },
+     {
+      "w": "savings",
+      "start": 24.4,
+      "end": 24.92,
+      "p": 1.0
+     },
+     {
+      "w": "shrink",
+      "start": 24.92,
+      "end": 25.42,
+      "p": 0.98
+     },
+     {
+      "w": "right",
+      "start": 25.42,
+      "end": 25.78,
+      "p": 1.0
+     },
+     {
+      "w": "along",
+      "start": 25.78,
+      "end": 26.02,
+      "p": 1.0
+     },
+     {
+      "w": "with",
+      "start": 26.02,
+      "end": 26.24,
+      "p": 1.0
+     },
+     {
+      "w": "it.",
+      "start": 26.24,
+      "end": 26.34,
+      "p": 0.5
+     }
+    ],
+    "missing": []
+   }
+  ],
+  "use": "S16.seed1.mp3"
+ },
+ "S17": {
+  "scene": "S17",
+  "n": [
+   82,
+   83,
+   84,
+   85,
+   86,
+   87
+  ],
+  "text_sent": "Anjali sits at the other end. Same month, same rate, same cut. She bought a bigger house, with a six hundred fifty-five thousand dollar loan, still under the conforming limit: the ceiling for the standard loans that Fannie Mae and Freddie Mac buy. Her bill is five thousand five hundred fourteen dollars, close to what Nora pays. If she sold after three years, she would come out five thousand two hundred fifty dollars ahead. To get her fees back within three years, she needs a cut of only about a third of a point.",
+  "tags": {},
+  "sentences": [
+   "Anjali sits at the other end.",
+   "Same month, same rate, same cut.",
+   "She bought a bigger house, with a six hundred fifty-five thousand dollar loan, still under the conforming limit: the ceiling for the standard loans that Fannie Mae and Freddie Mac buy.",
+   "Her bill is five thousand five hundred fourteen dollars, close to what Nora pays.",
+   "If she sold after three years, she would come out five thousand two hundred fifty dollars ahead.",
+   "To get her fees back within three years, she needs a cut of only about a third of a point."
+  ],
+  "text_plain": [
+   "Anjali sits at the other end.",
+   "Same month, same rate, same cut.",
+   "She bought a bigger house, with a $655,000 loan, still under the conforming limit: the ceiling for the standard loans that Fannie Mae and Freddie Mac buy.",
+   "Her bill is $5,514, close to what Nora pays.",
+   "If she sold after three years, she would come out $5,250 ahead.",
+   "To get her fees back within three years, she needs a cut of only about a third of a point."
+  ],
+  "takes": [
+   {
+    "file": "S17.seed1.mp3",
+    "seed": 1,
+    "characterCost": 207,
+    "len": 517,
+    "requestId": "wirXUk6JPPYEHkubJ42H",
+    "asr": "Anjali sits at the other end. Same month, same rate, same cut. She bought a bigger house, with a $655 ,000 loan, still under the conforming limit, the ceiling for the standard loans that Fannie Mae and Freddie Mac buy. Her bill is $5 ,514, close to what Nora pays. If she sold after three years, she would come out $5 ,250 a head. To get her fees back within three years, she needs a cut of only about a third of a point.",
+    "asr_words": [
+     {
+      "w": "Anjali",
+      "start": 0.0,
+      "end": 0.4,
+      "p": 0.63
+     },
+     {
+      "w": "sits",
+      "start": 0.4,
+      "end": 0.68,
+      "p": 0.95
+     },
+     {
+      "w": "at",
+      "start": 0.68,
+      "end": 0.84,
+      "p": 0.99
+     },
+     {
+      "w": "the",
+      "start": 0.84,
+      "end": 0.96,
+      "p": 0.99
+     },
+     {
+      "w": "other",
+      "start": 0.96,
+      "end": 1.14,
+      "p": 1.0
+     },
+     {
+      "w": "end.",
+      "start": 1.14,
+      "end": 1.52,
+      "p": 1.0
+     },
+     {
+      "w": "Same",
+      "start": 2.2,
+      "end": 2.32,
+      "p": 0.93
+     },
+     {
+      "w": "month,",
+      "start": 2.32,
+      "end": 2.66,
+      "p": 1.0
+     },
+     {
+      "w": "same",
+      "start": 3.04,
+      "end": 3.22,
+      "p": 1.0
+     },
+     {
+      "w": "rate,",
+      "start": 3.22,
+      "end": 3.56,
+      "p": 1.0
+     },
+     {
+      "w": "same",
+      "start": 4.08,
+      "end": 4.22,
+      "p": 1.0
+     },
+     {
+      "w": "cut.",
+      "start": 4.22,
+      "end": 4.56,
+      "p": 1.0
+     },
+     {
+      "w": "She",
+      "start": 5.78,
+      "end": 5.86,
+      "p": 0.98
+     },
+     {
+      "w": "bought",
+      "start": 5.86,
+      "end": 6.0,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 6.0,
+      "end": 6.12,
+      "p": 1.0
+     },
+     {
+      "w": "bigger",
+      "start": 6.12,
+      "end": 6.32,
+      "p": 1.0
+     },
+     {
+      "w": "house,",
+      "start": 6.32,
+      "end": 6.68,
+      "p": 1.0
+     },
+     {
+      "w": "with",
+      "start": 7.24,
+      "end": 7.42,
+      "p": 0.99
+     },
+     {
+      "w": "a",
+      "start": 7.42,
+      "end": 7.54,
+      "p": 0.97
+     },
+     {
+      "w": "$655",
+      "start": 7.54,
+      "end": 8.26,
+      "p": 0.89
+     },
+     {
+      "w": ",000",
+      "start": 8.26,
+      "end": 9.38,
+      "p": 0.99
+     },
+     {
+      "w": "loan,",
+      "start": 9.38,
+      "end": 9.9,
+      "p": 0.97
+     },
+     {
+      "w": "still",
+      "start": 10.52,
+      "end": 10.76,
+      "p": 1.0
+     },
+     {
+      "w": "under",
+      "start": 10.76,
+      "end": 10.96,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 10.96,
+      "end": 11.1,
+      "p": 1.0
+     },
+     {
+      "w": "conforming",
+      "start": 11.1,
+      "end": 11.5,
+      "p": 1.0
+     },
+     {
+      "w": "limit,",
+      "start": 11.5,
+      "end": 11.84,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 12.52,
+      "end": 12.62,
+      "p": 0.99
+     },
+     {
+      "w": "ceiling",
+      "start": 12.62,
+      "end": 12.94,
+      "p": 0.99
+     },
+     {
+      "w": "for",
+      "start": 12.94,
+      "end": 13.24,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 13.24,
+      "end": 13.4,
+      "p": 1.0
+     },
+     {
+      "w": "standard",
+      "start": 13.4,
+      "end": 13.68,
+      "p": 0.98
+     },
+     {
+      "w": "loans",
+      "start": 13.68,
+      "end": 14.08,
+      "p": 1.0
+     },
+     {
+      "w": "that",
+      "start": 14.08,
+      "end": 14.28,
+      "p": 0.99
+     },
+     {
+      "w": "Fannie",
+      "start": 14.28,
+      "end": 14.6,
+      "p": 0.98
+     },
+     {
+      "w": "Mae",
+      "start": 14.6,
+      "end": 14.8,
+      "p": 0.99
+     },
+     {
+      "w": "and",
+      "start": 14.8,
+      "end": 15.0,
+      "p": 1.0
+     },
+     {
+      "w": "Freddie",
+      "start": 15.0,
+      "end": 15.28,
+      "p": 0.99
+     },
+     {
+      "w": "Mac",
+      "start": 15.28,
+      "end": 15.5,
+      "p": 0.97
+     },
+     {
+      "w": "buy.",
+      "start": 15.5,
+      "end": 15.86,
+      "p": 0.96
+     },
+     {
+      "w": "Her",
+      "start": 16.98,
+      "end": 17.1,
+      "p": 0.99
+     },
+     {
+      "w": "bill",
+      "start": 17.1,
+      "end": 17.34,
+      "p": 0.99
+     },
+     {
+      "w": "is",
+      "start": 17.34,
+      "end": 17.52,
+      "p": 0.99
+     },
+     {
+      "w": "$5",
+      "start": 17.52,
+      "end": 17.92,
+      "p": 0.84
+     },
+     {
+      "w": ",514,",
+      "start": 17.92,
+      "end": 18.98,
+      "p": 0.98
+     },
+     {
+      "w": "close",
+      "start": 20.22,
+      "end": 20.54,
+      "p": 1.0
+     },
+     {
+      "w": "to",
+      "start": 20.54,
+      "end": 20.74,
+      "p": 1.0
+     },
+     {
+      "w": "what",
+      "start": 20.74,
+      "end": 20.88,
+      "p": 1.0
+     },
+     {
+      "w": "Nora",
+      "start": 20.88,
+      "end": 21.12,
+      "p": 0.89
+     },
+     {
+      "w": "pays.",
+      "start": 21.12,
+      "end": 21.44,
+      "p": 1.0
+     },
+     {
+      "w": "If",
+      "start": 22.44,
+      "end": 22.6,
+      "p": 0.99
+     },
+     {
+      "w": "she",
+      "start": 22.6,
+      "end": 22.78,
+      "p": 1.0
+     },
+     {
+      "w": "sold",
+      "start": 22.78,
+      "end": 23.12,
+      "p": 0.99
+     },
+     {
+      "w": "after",
+      "start": 23.12,
+      "end": 23.36,
+      "p": 0.99
+     },
+     {
+      "w": "three",
+      "start": 23.36,
+      "end": 23.68,
+      "p": 0.91
+     },
+     {
+      "w": "years,",
+      "start": 23.68,
+      "end": 24.04,
+      "p": 1.0
+     },
+     {
+      "w": "she",
+      "start": 24.6,
+      "end": 24.82,
+      "p": 1.0
+     },
+     {
+      "w": "would",
+      "start": 24.82,
+      "end": 24.96,
+      "p": 1.0
+     },
+     {
+      "w": "come",
+      "start": 24.96,
+      "end": 25.16,
+      "p": 1.0
+     },
+     {
+      "w": "out",
+      "start": 25.16,
+      "end": 25.36,
+      "p": 0.72
+     },
+     {
+      "w": "$5",
+      "start": 25.36,
+      "end": 25.84,
+      "p": 0.85
+     },
+     {
+      "w": ",250",
+      "start": 25.84,
+      "end": 27.22,
+      "p": 0.99
+     },
+     {
+      "w": "a",
+      "start": 27.22,
+      "end": 27.88,
+      "p": 0.59
+     },
+     {
+      "w": "head.",
+      "start": 27.88,
+      "end": 28.16,
+      "p": 0.99
+     },
+     {
+      "w": "To",
+      "start": 29.28,
+      "end": 29.36,
+      "p": 0.99
+     },
+     {
+      "w": "get",
+      "start": 29.36,
+      "end": 29.52,
+      "p": 1.0
+     },
+     {
+      "w": "her",
+      "start": 29.52,
+      "end": 29.68,
+      "p": 1.0
+     },
+     {
+      "w": "fees",
+      "start": 29.68,
+      "end": 29.94,
+      "p": 0.99
+     },
+     {
+      "w": "back",
+      "start": 29.94,
+      "end": 30.26,
+      "p": 1.0
+     },
+     {
+      "w": "within",
+      "start": 30.26,
+      "end": 30.54,
+      "p": 0.99
+     },
+     {
+      "w": "three",
+      "start": 30.54,
+      "end": 30.82,
+      "p": 0.75
+     },
+     {
+      "w": "years,",
+      "start": 30.82,
+      "end": 31.24,
+      "p": 1.0
+     },
+     {
+      "w": "she",
+      "start": 31.9,
+      "end": 32.0,
+      "p": 1.0
+     },
+     {
+      "w": "needs",
+      "start": 32.0,
+      "end": 32.16,
+      "p": 0.99
+     },
+     {
+      "w": "a",
+      "start": 32.16,
+      "end": 32.34,
+      "p": 1.0
+     },
+     {
+      "w": "cut",
+      "start": 32.34,
+      "end": 32.56,
+      "p": 1.0
+     },
+     {
+      "w": "of",
+      "start": 32.56,
+      "end": 32.84,
+      "p": 0.99
+     },
+     {
+      "w": "only",
+      "start": 32.84,
+      "end": 33.14,
+      "p": 0.98
+     },
+     {
+      "w": "about",
+      "start": 33.14,
+      "end": 33.42,
+      "p": 0.97
+     },
+     {
+      "w": "a",
+      "start": 33.42,
+      "end": 33.58,
+      "p": 0.95
+     },
+     {
+      "w": "third",
+      "start": 33.58,
+      "end": 33.82,
+      "p": 0.99
+     },
+     {
+      "w": "of",
+      "start": 33.82,
+      "end": 34.1,
+      "p": 0.99
+     },
+     {
+      "w": "a",
+      "start": 34.1,
+      "end": 34.24,
+      "p": 0.99
+     },
+     {
+      "w": "point.",
+      "start": 34.24,
+      "end": 34.46,
+      "p": 1.0
+     }
+    ],
+    "missing": []
+   }
+  ],
+  "use": "S17.seed1.mp3"
+ },
+ "S18": {
+  "scene": "S18",
+  "n": [
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   94,
+   95,
+   96
+  ],
+  "text_sent": "So, back to the letter, and the question it started with. How big a rate cut makes a refinance worth it, if worth it means the fees come back within three years? [matter-of-fact] It depends on the size of the loan. On a loan of one hundred fifteen thousand dollars, like Walt's, it takes more than a full point. On three hundred seventy-five thousand dollars, like Nora's, half a point. On six hundred fifty-five thousand dollars, like Anjali's, about a third of a point.\n\nPut your own loan on that scale, and you can see which of them you are closest to. Those lines rest on our assumptions: a loan taken out at the October twenty twenty-three rate, a median bill, and a three-year stay. The one-point line fits none of them.",
+  "tags": {
+   "90": "[matter-of-fact]"
+  },
+  "sentences": [
+   "So, back to the letter, and the question it started with.",
+   "How big a rate cut makes a refinance worth it, if worth it means the fees come back within three years?",
+   "It depends on the size of the loan.",
+   "On a loan of one hundred fifteen thousand dollars, like Walt's, it takes more than a full point.",
+   "On three hundred seventy-five thousand dollars, like Nora's, half a point.",
+   "On six hundred fifty-five thousand dollars, like Anjali's, about a third of a point.",
+   "Put your own loan on that scale, and you can see which of them you are closest to.",
+   "Those lines rest on our assumptions: a loan taken out at the October twenty twenty-three rate, a median bill, and a three-year stay.",
+   "The one-point line fits none of them."
+  ],
+  "text_plain": [
+   "So, back to the letter, and the question it started with.",
+   "How big a rate cut makes a refinance worth it, if worth it means the fees come back within three years?",
+   "It depends on the size of the loan.",
+   "On a loan of $115,000, like Walt's, it takes more than a full point.",
+   "On $375,000, like Nora's, half a point.",
+   "On $655,000, like Anjali's, about a third of a point.",
+   "Put your own loan on that scale, and you can see which of them you are closest to.",
+   "Those lines rest on our assumptions: a loan taken out at the October 2023 rate, a median bill, and a three-year stay.",
+   "The one-point line fits none of them."
+  ],
+  "takes": [
+   {
+    "file": "S18.seed1.mp3",
+    "seed": 1,
+    "characterCost": 290,
+    "len": 726,
+    "requestId": "BfVK2A90VSIt787UG4id",
+    "asr": "So, back to the letter and the question it started with. How big a rate cut makes a refinance worth it? If worth it means the fees come back within three years. It depends on the size of the loan. On a loan of $115 ,000 like Waltz, it takes more than a full point. On $375 ,000 like Nora's, half a point. On $655 ,000 like Angeli's, about a third of a point. Put your own loan on that scale and you can see which of them you are closest to. Those lines rest on our assumptions. A loan taken out at the October 2023 rate, a median bill, and a three -year stay. The one -point line fits none of them.",
+    "asr_words": [
+     {
+      "w": "So,",
+      "start": 0.0,
+      "end": 0.24,
+      "p": 0.96
+     },
+     {
+      "w": "back",
+      "start": 0.4,
+      "end": 0.72,
+      "p": 1.0
+     },
+     {
+      "w": "to",
+      "start": 0.72,
+      "end": 0.88,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 0.88,
+      "end": 0.98,
+      "p": 1.0
+     },
+     {
+      "w": "letter",
+      "start": 0.98,
+      "end": 1.18,
+      "p": 0.99
+     },
+     {
+      "w": "and",
+      "start": 1.18,
+      "end": 1.74,
+      "p": 0.46
+     },
+     {
+      "w": "the",
+      "start": 1.74,
+      "end": 1.86,
+      "p": 1.0
+     },
+     {
+      "w": "question",
+      "start": 1.86,
+      "end": 2.08,
+      "p": 1.0
+     },
+     {
+      "w": "it",
+      "start": 2.08,
+      "end": 2.32,
+      "p": 0.98
+     },
+     {
+      "w": "started",
+      "start": 2.32,
+      "end": 2.58,
+      "p": 0.99
+     },
+     {
+      "w": "with.",
+      "start": 2.58,
+      "end": 2.98,
+      "p": 1.0
+     },
+     {
+      "w": "How",
+      "start": 3.88,
+      "end": 4.12,
+      "p": 0.98
+     },
+     {
+      "w": "big",
+      "start": 4.12,
+      "end": 4.36,
+      "p": 0.99
+     },
+     {
+      "w": "a",
+      "start": 4.36,
+      "end": 4.5,
+      "p": 0.98
+     },
+     {
+      "w": "rate",
+      "start": 4.5,
+      "end": 4.72,
+      "p": 1.0
+     },
+     {
+      "w": "cut",
+      "start": 4.72,
+      "end": 4.98,
+      "p": 0.98
+     },
+     {
+      "w": "makes",
+      "start": 4.98,
+      "end": 5.32,
+      "p": 0.99
+     },
+     {
+      "w": "a",
+      "start": 5.32,
+      "end": 5.5,
+      "p": 1.0
+     },
+     {
+      "w": "refinance",
+      "start": 5.5,
+      "end": 6.0,
+      "p": 0.97
+     },
+     {
+      "w": "worth",
+      "start": 6.0,
+      "end": 6.34,
+      "p": 1.0
+     },
+     {
+      "w": "it?",
+      "start": 6.34,
+      "end": 6.72,
+      "p": 1.0
+     },
+     {
+      "w": "If",
+      "start": 7.24,
+      "end": 7.5,
+      "p": 0.98
+     },
+     {
+      "w": "worth",
+      "start": 7.5,
+      "end": 7.94,
+      "p": 0.78
+     },
+     {
+      "w": "it",
+      "start": 7.94,
+      "end": 8.2,
+      "p": 0.99
+     },
+     {
+      "w": "means",
+      "start": 8.2,
+      "end": 8.56,
+      "p": 0.93
+     },
+     {
+      "w": "the",
+      "start": 8.56,
+      "end": 9.04,
+      "p": 0.9
+     },
+     {
+      "w": "fees",
+      "start": 9.04,
+      "end": 9.28,
+      "p": 1.0
+     },
+     {
+      "w": "come",
+      "start": 9.28,
+      "end": 9.54,
+      "p": 1.0
+     },
+     {
+      "w": "back",
+      "start": 9.54,
+      "end": 9.8,
+      "p": 1.0
+     },
+     {
+      "w": "within",
+      "start": 9.8,
+      "end": 10.1,
+      "p": 1.0
+     },
+     {
+      "w": "three",
+      "start": 10.1,
+      "end": 10.4,
+      "p": 0.94
+     },
+     {
+      "w": "years.",
+      "start": 10.4,
+      "end": 10.82,
+      "p": 1.0
+     },
+     {
+      "w": "It",
+      "start": 12.0,
+      "end": 12.28,
+      "p": 1.0
+     },
+     {
+      "w": "depends",
+      "start": 12.28,
+      "end": 12.56,
+      "p": 1.0
+     },
+     {
+      "w": "on",
+      "start": 12.56,
+      "end": 12.72,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 12.72,
+      "end": 12.84,
+      "p": 1.0
+     },
+     {
+      "w": "size",
+      "start": 12.84,
+      "end": 13.04,
+      "p": 1.0
+     },
+     {
+      "w": "of",
+      "start": 13.04,
+      "end": 13.2,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 13.2,
+      "end": 13.3,
+      "p": 0.98
+     },
+     {
+      "w": "loan.",
+      "start": 13.3,
+      "end": 13.6,
+      "p": 1.0
+     },
+     {
+      "w": "On",
+      "start": 14.34,
+      "end": 14.5,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 14.5,
+      "end": 14.64,
+      "p": 0.99
+     },
+     {
+      "w": "loan",
+      "start": 14.64,
+      "end": 14.82,
+      "p": 1.0
+     },
+     {
+      "w": "of",
+      "start": 14.82,
+      "end": 15.0,
+      "p": 1.0
+     },
+     {
+      "w": "$115",
+      "start": 15.0,
+      "end": 15.58,
+      "p": 0.97
+     },
+     {
+      "w": ",000",
+      "start": 15.58,
+      "end": 16.42,
+      "p": 0.99
+     },
+     {
+      "w": "like",
+      "start": 16.42,
+      "end": 17.0,
+      "p": 0.7
+     },
+     {
+      "w": "Waltz,",
+      "start": 17.0,
+      "end": 17.58,
+      "p": 0.83
+     },
+     {
+      "w": "it",
+      "start": 17.94,
+      "end": 18.14,
+      "p": 0.99
+     },
+     {
+      "w": "takes",
+      "start": 18.14,
+      "end": 18.36,
+      "p": 1.0
+     },
+     {
+      "w": "more",
+      "start": 18.36,
+      "end": 18.7,
+      "p": 1.0
+     },
+     {
+      "w": "than",
+      "start": 18.7,
+      "end": 18.86,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 18.86,
+      "end": 19.0,
+      "p": 1.0
+     },
+     {
+      "w": "full",
+      "start": 19.0,
+      "end": 19.22,
+      "p": 1.0
+     },
+     {
+      "w": "point.",
+      "start": 19.22,
+      "end": 19.7,
+      "p": 1.0
+     },
+     {
+      "w": "On",
+      "start": 20.5,
+      "end": 20.64,
+      "p": 1.0
+     },
+     {
+      "w": "$375",
+      "start": 20.64,
+      "end": 21.2,
+      "p": 0.99
+     },
+     {
+      "w": ",000",
+      "start": 21.2,
+      "end": 22.02,
+      "p": 1.0
+     },
+     {
+      "w": "like",
+      "start": 22.02,
+      "end": 22.6,
+      "p": 0.83
+     },
+     {
+      "w": "Nora's,",
+      "start": 22.6,
+      "end": 23.26,
+      "p": 0.9
+     },
+     {
+      "w": "half",
+      "start": 23.5,
+      "end": 23.72,
+      "p": 0.97
+     },
+     {
+      "w": "a",
+      "start": 23.72,
+      "end": 23.88,
+      "p": 0.99
+     },
+     {
+      "w": "point.",
+      "start": 23.88,
+      "end": 24.12,
+      "p": 1.0
+     },
+     {
+      "w": "On",
+      "start": 24.76,
+      "end": 24.96,
+      "p": 1.0
+     },
+     {
+      "w": "$655",
+      "start": 24.96,
+      "end": 25.52,
+      "p": 0.95
+     },
+     {
+      "w": ",000",
+      "start": 25.52,
+      "end": 26.36,
+      "p": 1.0
+     },
+     {
+      "w": "like",
+      "start": 26.36,
+      "end": 26.86,
+      "p": 0.95
+     },
+     {
+      "w": "Angeli's,",
+      "start": 26.86,
+      "end": 27.62,
+      "p": 0.64
+     },
+     {
+      "w": "about",
+      "start": 27.8,
+      "end": 28.16,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 28.16,
+      "end": 28.34,
+      "p": 0.95
+     },
+     {
+      "w": "third",
+      "start": 28.34,
+      "end": 28.56,
+      "p": 0.99
+     },
+     {
+      "w": "of",
+      "start": 28.56,
+      "end": 28.72,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 28.72,
+      "end": 28.84,
+      "p": 1.0
+     },
+     {
+      "w": "point.",
+      "start": 28.84,
+      "end": 29.12,
+      "p": 1.0
+     },
+     {
+      "w": "Put",
+      "start": 30.0,
+      "end": 30.2,
+      "p": 0.92
+     },
+     {
+      "w": "your",
+      "start": 30.2,
+      "end": 30.36,
+      "p": 1.0
+     },
+     {
+      "w": "own",
+      "start": 30.36,
+      "end": 30.58,
+      "p": 0.99
+     },
+     {
+      "w": "loan",
+      "start": 30.58,
+      "end": 30.8,
+      "p": 0.99
+     },
+     {
+      "w": "on",
+      "start": 30.8,
+      "end": 30.96,
+      "p": 1.0
+     },
+     {
+      "w": "that",
+      "start": 30.96,
+      "end": 31.14,
+      "p": 0.99
+     },
+     {
+      "w": "scale",
+      "start": 31.14,
+      "end": 31.48,
+      "p": 1.0
+     },
+     {
+      "w": "and",
+      "start": 31.48,
+      "end": 31.88,
+      "p": 0.74
+     },
+     {
+      "w": "you",
+      "start": 31.88,
+      "end": 32.02,
+      "p": 0.99
+     },
+     {
+      "w": "can",
+      "start": 32.02,
+      "end": 32.18,
+      "p": 1.0
+     },
+     {
+      "w": "see",
+      "start": 32.18,
+      "end": 32.4,
+      "p": 1.0
+     },
+     {
+      "w": "which",
+      "start": 32.4,
+      "end": 32.6,
+      "p": 1.0
+     },
+     {
+      "w": "of",
+      "start": 32.6,
+      "end": 32.76,
+      "p": 0.99
+     },
+     {
+      "w": "them",
+      "start": 32.76,
+      "end": 33.02,
+      "p": 1.0
+     },
+     {
+      "w": "you",
+      "start": 33.02,
+      "end": 33.44,
+      "p": 0.99
+     },
+     {
+      "w": "are",
+      "start": 33.44,
+      "end": 33.56,
+      "p": 0.97
+     },
+     {
+      "w": "closest",
+      "start": 33.56,
+      "end": 33.88,
+      "p": 0.99
+     },
+     {
+      "w": "to.",
+      "start": 33.88,
+      "end": 34.28,
+      "p": 0.99
+     },
+     {
+      "w": "Those",
+      "start": 35.34,
+      "end": 35.34,
+      "p": 0.99
+     },
+     {
+      "w": "lines",
+      "start": 35.34,
+      "end": 35.66,
+      "p": 1.0
+     },
+     {
+      "w": "rest",
+      "start": 35.66,
+      "end": 36.0,
+      "p": 0.99
+     },
+     {
+      "w": "on",
+      "start": 36.0,
+      "end": 36.34,
+      "p": 1.0
+     },
+     {
+      "w": "our",
+      "start": 36.34,
+      "end": 36.5,
+      "p": 1.0
+     },
+     {
+      "w": "assumptions.",
+      "start": 36.5,
+      "end": 36.96,
+      "p": 1.0
+     },
+     {
+      "w": "A",
+      "start": 37.98,
+      "end": 38.12,
+      "p": 0.98
+     },
+     {
+      "w": "loan",
+      "start": 38.12,
+      "end": 38.32,
+      "p": 1.0
+     },
+     {
+      "w": "taken",
+      "start": 38.32,
+      "end": 38.58,
+      "p": 1.0
+     },
+     {
+      "w": "out",
+      "start": 38.58,
+      "end": 38.88,
+      "p": 1.0
+     },
+     {
+      "w": "at",
+      "start": 38.88,
+      "end": 39.02,
+      "p": 0.99
+     },
+     {
+      "w": "the",
+      "start": 39.02,
+      "end": 39.14,
+      "p": 0.99
+     },
+     {
+      "w": "October",
+      "start": 39.14,
+      "end": 39.48,
+      "p": 0.99
+     },
+     {
+      "w": "2023",
+      "start": 39.48,
+      "end": 40.52,
+      "p": 0.93
+     },
+     {
+      "w": "rate,",
+      "start": 40.52,
+      "end": 40.9,
+      "p": 0.99
+     },
+     {
+      "w": "a",
+      "start": 41.42,
+      "end": 41.48,
+      "p": 0.99
+     },
+     {
+      "w": "median",
+      "start": 41.48,
+      "end": 41.76,
+      "p": 0.99
+     },
+     {
+      "w": "bill,",
+      "start": 41.76,
+      "end": 42.16,
+      "p": 1.0
+     },
+     {
+      "w": "and",
+      "start": 42.46,
+      "end": 42.82,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 42.82,
+      "end": 43.02,
+      "p": 0.99
+     },
+     {
+      "w": "three",
+      "start": 43.02,
+      "end": 43.22,
+      "p": 0.8
+     },
+     {
+      "w": "-year",
+      "start": 43.22,
+      "end": 43.4,
+      "p": 0.76
+     },
+     {
+      "w": "stay.",
+      "start": 43.4,
+      "end": 43.78,
+      "p": 1.0
+     },
+     {
+      "w": "The",
+      "start": 44.6,
+      "end": 44.74,
+      "p": 0.99
+     },
+     {
+      "w": "one",
+      "start": 44.74,
+      "end": 44.92,
+      "p": 0.87
+     },
+     {
+      "w": "-point",
+      "start": 44.92,
+      "end": 45.12,
+      "p": 0.9
+     },
+     {
+      "w": "line",
+      "start": 45.12,
+      "end": 45.48,
+      "p": 0.96
+     },
+     {
+      "w": "fits",
+      "start": 45.48,
+      "end": 45.86,
+      "p": 1.0
+     },
+     {
+      "w": "none",
+      "start": 45.86,
+      "end": 46.32,
+      "p": 0.98
+     },
+     {
+      "w": "of",
+      "start": 46.32,
+      "end": 46.46,
+      "p": 1.0
+     },
+     {
+      "w": "them.",
+      "start": 46.46,
+      "end": 46.64,
+      "p": 1.0
+     }
+    ],
+    "missing": [
+     "Walt's",
+     "Anjali's"
+    ]
+   }
+  ],
+  "use": "S18.seed1.mp3",
+  "no_regen_reason": "P2 29/09: ASR 'Waltz' / \"Angeli's\" là viết sai tên đồng âm (Walt's / Anjali's); số và phần còn lại khớp; không sinh lại (không tốn ký tự). Chủ dự án nghe trong animatic."
+ },
+ "S19": {
+  "scene": "S19",
+  "n": [
+   97,
+   98,
+   99,
+   100
+  ],
+  "text_sent": "These are national average rates, median bills, and three made-up borrowers. In twenty twenty-five, half of refinance bills fell between three thousand four hundred forty-three dollars and eight thousand two hundred seventy dollars. A real rate, a real bill and a real balance will be different. Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too.",
+  "tags": {},
+  "sentences": [
+   "These are national average rates, median bills, and three made-up borrowers.",
+   "In twenty twenty-five, half of refinance bills fell between three thousand four hundred forty-three dollars and eight thousand two hundred seventy dollars.",
+   "A real rate, a real bill and a real balance will be different.",
+   "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too."
+  ],
+  "text_plain": [
+   "These are national average rates, median bills, and three made-up borrowers.",
+   "In 2025, half of refinance bills fell between $3,443 and $8,270.",
+   "A real rate, a real bill and a real balance will be different.",
+   "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too."
+  ],
+  "takes": [
+   {
+    "file": "S19.seed1.mp3",
+    "seed": 1,
+    "characterCost": 156,
+    "len": 389,
+    "requestId": "NeVqnMGILOFXSXDTRomE",
+    "asr": "These are national average rates, median bills and three made up borrowers. In 2025, half of refinance bills fell between $3 ,443 and $8 ,270. A real rate, a real bill and a real balance will be different. Paying the fees by adding them to the loan or choosing a shorter term changes the math too.",
+    "asr_words": [
+     {
+      "w": "These",
+      "start": 0.0,
+      "end": 0.18,
+      "p": 0.94
+     },
+     {
+      "w": "are",
+      "start": 0.18,
+      "end": 0.32,
+      "p": 1.0
+     },
+     {
+      "w": "national",
+      "start": 0.32,
+      "end": 0.74,
+      "p": 0.97
+     },
+     {
+      "w": "average",
+      "start": 0.74,
+      "end": 1.06,
+      "p": 0.99
+     },
+     {
+      "w": "rates,",
+      "start": 1.06,
+      "end": 1.48,
+      "p": 1.0
+     },
+     {
+      "w": "median",
+      "start": 1.7,
+      "end": 1.92,
+      "p": 1.0
+     },
+     {
+      "w": "bills",
+      "start": 1.92,
+      "end": 2.38,
+      "p": 0.99
+     },
+     {
+      "w": "and",
+      "start": 2.38,
+      "end": 2.8,
+      "p": 0.39
+     },
+     {
+      "w": "three",
+      "start": 2.8,
+      "end": 3.32,
+      "p": 0.89
+     },
+     {
+      "w": "made",
+      "start": 3.32,
+      "end": 3.74,
+      "p": 0.99
+     },
+     {
+      "w": "up",
+      "start": 3.74,
+      "end": 3.92,
+      "p": 0.7
+     },
+     {
+      "w": "borrowers.",
+      "start": 3.92,
+      "end": 4.32,
+      "p": 1.0
+     },
+     {
+      "w": "In",
+      "start": 5.54,
+      "end": 5.64,
+      "p": 0.99
+     },
+     {
+      "w": "2025,",
+      "start": 5.64,
+      "end": 6.28,
+      "p": 1.0
+     },
+     {
+      "w": "half",
+      "start": 6.96,
+      "end": 7.32,
+      "p": 0.99
+     },
+     {
+      "w": "of",
+      "start": 7.32,
+      "end": 7.5,
+      "p": 1.0
+     },
+     {
+      "w": "refinance",
+      "start": 7.5,
+      "end": 8.0,
+      "p": 0.96
+     },
+     {
+      "w": "bills",
+      "start": 8.0,
+      "end": 8.46,
+      "p": 0.99
+     },
+     {
+      "w": "fell",
+      "start": 8.46,
+      "end": 9.02,
+      "p": 0.99
+     },
+     {
+      "w": "between",
+      "start": 9.02,
+      "end": 9.38,
+      "p": 1.0
+     },
+     {
+      "w": "$3",
+      "start": 9.38,
+      "end": 9.82,
+      "p": 0.97
+     },
+     {
+      "w": ",443",
+      "start": 9.82,
+      "end": 11.0,
+      "p": 0.98
+     },
+     {
+      "w": "and",
+      "start": 12.12,
+      "end": 12.44,
+      "p": 0.94
+     },
+     {
+      "w": "$8",
+      "start": 12.44,
+      "end": 12.86,
+      "p": 1.0
+     },
+     {
+      "w": ",270.",
+      "start": 12.86,
+      "end": 14.18,
+      "p": 0.99
+     },
+     {
+      "w": "A",
+      "start": 15.08,
+      "end": 15.3,
+      "p": 0.99
+     },
+     {
+      "w": "real",
+      "start": 15.3,
+      "end": 15.5,
+      "p": 1.0
+     },
+     {
+      "w": "rate,",
+      "start": 15.5,
+      "end": 15.84,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 16.16,
+      "end": 16.3,
+      "p": 1.0
+     },
+     {
+      "w": "real",
+      "start": 16.3,
+      "end": 16.52,
+      "p": 1.0
+     },
+     {
+      "w": "bill",
+      "start": 16.52,
+      "end": 16.8,
+      "p": 1.0
+     },
+     {
+      "w": "and",
+      "start": 16.8,
+      "end": 17.04,
+      "p": 0.78
+     },
+     {
+      "w": "a",
+      "start": 17.04,
+      "end": 17.14,
+      "p": 0.99
+     },
+     {
+      "w": "real",
+      "start": 17.14,
+      "end": 17.36,
+      "p": 1.0
+     },
+     {
+      "w": "balance",
+      "start": 17.36,
+      "end": 17.76,
+      "p": 1.0
+     },
+     {
+      "w": "will",
+      "start": 17.76,
+      "end": 17.94,
+      "p": 1.0
+     },
+     {
+      "w": "be",
+      "start": 17.94,
+      "end": 18.06,
+      "p": 1.0
+     },
+     {
+      "w": "different.",
+      "start": 18.06,
+      "end": 18.38,
+      "p": 1.0
+     },
+     {
+      "w": "Paying",
+      "start": 19.26,
+      "end": 19.46,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 19.46,
+      "end": 19.56,
+      "p": 1.0
+     },
+     {
+      "w": "fees",
+      "start": 19.56,
+      "end": 19.8,
+      "p": 1.0
+     },
+     {
+      "w": "by",
+      "start": 19.8,
+      "end": 20.02,
+      "p": 1.0
+     },
+     {
+      "w": "adding",
+      "start": 20.02,
+      "end": 20.32,
+      "p": 1.0
+     },
+     {
+      "w": "them",
+      "start": 20.32,
+      "end": 20.5,
+      "p": 1.0
+     },
+     {
+      "w": "to",
+      "start": 20.5,
+      "end": 20.64,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 20.64,
+      "end": 20.74,
+      "p": 1.0
+     },
+     {
+      "w": "loan",
+      "start": 20.74,
+      "end": 21.04,
+      "p": 1.0
+     },
+     {
+      "w": "or",
+      "start": 21.54,
+      "end": 21.86,
+      "p": 0.82
+     },
+     {
+      "w": "choosing",
+      "start": 21.86,
+      "end": 22.2,
+      "p": 1.0
+     },
+     {
+      "w": "a",
+      "start": 22.2,
+      "end": 22.42,
+      "p": 1.0
+     },
+     {
+      "w": "shorter",
+      "start": 22.42,
+      "end": 22.62,
+      "p": 1.0
+     },
+     {
+      "w": "term",
+      "start": 22.62,
+      "end": 23.16,
+      "p": 1.0
+     },
+     {
+      "w": "changes",
+      "start": 23.16,
+      "end": 24.04,
+      "p": 0.83
+     },
+     {
+      "w": "the",
+      "start": 24.04,
+      "end": 24.3,
+      "p": 1.0
+     },
+     {
+      "w": "math",
+      "start": 24.3,
+      "end": 24.54,
+      "p": 1.0
+     },
+     {
+      "w": "too.",
+      "start": 24.54,
+      "end": 24.9,
+      "p": 0.77
+     }
+    ],
+    "missing": []
+   }
+  ],
+  "use": "S19.seed1.mp3"
+ },
+ "S20": {
+  "scene": "S20",
+  "n": [
+   101,
+   102,
+   103,
+   104,
+   105
+  ],
+  "text_sent": "Which leaves the one number only you know: how long you will stay. For Nora, the same offer comes out one thousand thirty-nine dollars ahead if she sells after three years, and eight thousand ninety-three dollars ahead if she stays seven. The rate cut decides how fast the fees come back. How long you stay decides whether you are still there when they do.\n\n[softly] How long do you picture yourself in your home?",
+  "tags": {
+   "105": "[softly]"
+  },
+  "sentences": [
+   "Which leaves the one number only you know: how long you will stay.",
+   "For Nora, the same offer comes out one thousand thirty-nine dollars ahead if she sells after three years, and eight thousand ninety-three dollars ahead if she stays seven.",
+   "The rate cut decides how fast the fees come back.",
+   "How long you stay decides whether you are still there when they do.",
+   "How long do you picture yourself in your home?"
+  ],
+  "text_plain": [
+   "Which leaves the one number only you know: how long you will stay.",
+   "For Nora, the same offer comes out $1,039 ahead if she sells after three years, and $8,093 ahead if she stays seven.",
+   "The rate cut decides how fast the fees come back.",
+   "How long you stay decides whether you are still there when they do.",
+   "How long do you picture yourself in your home?"
+  ],
+  "takes": [
+   {
+    "file": "S20.seed1.mp3",
+    "seed": 1,
+    "characterCost": 165,
+    "len": 413,
+    "requestId": "CURDT4mqhYTMGh0CmeMc",
+    "asr": "which leaves the one number only you know. How long you will stay. For Nora, the same offer comes out $1 ,039 ahead if she sells after three years and $8 ,093 ahead if she stays seven. The rate cut decides how fast the fees come back. How long you stay decides whether you are still there when they do. How long do you picture yourself in your home?",
+    "asr_words": [
+     {
+      "w": "which",
+      "start": 0.0,
+      "end": 0.16,
+      "p": 0.79
+     },
+     {
+      "w": "leaves",
+      "start": 0.16,
+      "end": 0.52,
+      "p": 0.99
+     },
+     {
+      "w": "the",
+      "start": 0.52,
+      "end": 0.7,
+      "p": 1.0
+     },
+     {
+      "w": "one",
+      "start": 0.7,
+      "end": 0.9,
+      "p": 0.97
+     },
+     {
+      "w": "number",
+      "start": 0.9,
+      "end": 1.28,
+      "p": 1.0
+     },
+     {
+      "w": "only",
+      "start": 1.28,
+      "end": 1.78,
+      "p": 0.98
+     },
+     {
+      "w": "you",
+      "start": 1.78,
+      "end": 2.06,
+      "p": 0.93
+     },
+     {
+      "w": "know.",
+      "start": 2.06,
+      "end": 2.4,
+      "p": 1.0
+     },
+     {
+      "w": "How",
+      "start": 3.26,
+      "end": 3.48,
+      "p": 0.98
+     },
+     {
+      "w": "long",
+      "start": 3.48,
+      "end": 3.74,
+      "p": 0.84
+     },
+     {
+      "w": "you",
+      "start": 3.74,
+      "end": 3.96,
+      "p": 0.99
+     },
+     {
+      "w": "will",
+      "start": 3.96,
+      "end": 4.1,
+      "p": 1.0
+     },
+     {
+      "w": "stay.",
+      "start": 4.1,
+      "end": 4.44,
+      "p": 1.0
+     },
+     {
+      "w": "For",
+      "start": 5.72,
+      "end": 5.88,
+      "p": 0.99
+     },
+     {
+      "w": "Nora,",
+      "start": 5.88,
+      "end": 6.14,
+      "p": 0.95
+     },
+     {
+      "w": "the",
+      "start": 6.74,
+      "end": 6.86,
+      "p": 0.99
+     },
+     {
+      "w": "same",
+      "start": 6.86,
+      "end": 7.08,
+      "p": 1.0
+     },
+     {
+      "w": "offer",
+      "start": 7.08,
+      "end": 7.34,
+      "p": 0.99
+     },
+     {
+      "w": "comes",
+      "start": 7.34,
+      "end": 7.68,
+      "p": 1.0
+     },
+     {
+      "w": "out",
+      "start": 7.68,
+      "end": 7.94,
+      "p": 1.0
+     },
+     {
+      "w": "$1",
+      "start": 7.94,
+      "end": 8.3,
+      "p": 0.88
+     },
+     {
+      "w": ",039",
+      "start": 8.3,
+      "end": 9.22,
+      "p": 0.98
+     },
+     {
+      "w": "ahead",
+      "start": 9.22,
+      "end": 9.9,
+      "p": 0.52
+     },
+     {
+      "w": "if",
+      "start": 9.9,
+      "end": 10.58,
+      "p": 0.82
+     },
+     {
+      "w": "she",
+      "start": 10.58,
+      "end": 10.74,
+      "p": 1.0
+     },
+     {
+      "w": "sells",
+      "start": 10.74,
+      "end": 11.06,
+      "p": 1.0
+     },
+     {
+      "w": "after",
+      "start": 11.06,
+      "end": 11.46,
+      "p": 1.0
+     },
+     {
+      "w": "three",
+      "start": 11.46,
+      "end": 11.8,
+      "p": 0.88
+     },
+     {
+      "w": "years",
+      "start": 11.8,
+      "end": 12.04,
+      "p": 1.0
+     },
+     {
+      "w": "and",
+      "start": 12.04,
+      "end": 12.76,
+      "p": 0.61
+     },
+     {
+      "w": "$8",
+      "start": 12.76,
+      "end": 13.12,
+      "p": 0.96
+     },
+     {
+      "w": ",093",
+      "start": 13.12,
+      "end": 13.94,
+      "p": 0.99
+     },
+     {
+      "w": "ahead",
+      "start": 13.94,
+      "end": 14.56,
+      "p": 0.97
+     },
+     {
+      "w": "if",
+      "start": 14.56,
+      "end": 15.16,
+      "p": 0.9
+     },
+     {
+      "w": "she",
+      "start": 15.16,
+      "end": 15.32,
+      "p": 1.0
+     },
+     {
+      "w": "stays",
+      "start": 15.32,
+      "end": 15.68,
+      "p": 1.0
+     },
+     {
+      "w": "seven.",
+      "start": 15.68,
+      "end": 16.22,
+      "p": 0.97
+     },
+     {
+      "w": "The",
+      "start": 17.26,
+      "end": 17.5,
+      "p": 1.0
+     },
+     {
+      "w": "rate",
+      "start": 17.5,
+      "end": 17.68,
+      "p": 1.0
+     },
+     {
+      "w": "cut",
+      "start": 17.68,
+      "end": 17.9,
+      "p": 0.99
+     },
+     {
+      "w": "decides",
+      "start": 17.9,
+      "end": 18.3,
+      "p": 1.0
+     },
+     {
+      "w": "how",
+      "start": 18.3,
+      "end": 18.58,
+      "p": 1.0
+     },
+     {
+      "w": "fast",
+      "start": 18.58,
+      "end": 18.88,
+      "p": 1.0
+     },
+     {
+      "w": "the",
+      "start": 18.88,
+      "end": 19.08,
+      "p": 1.0
+     },
+     {
+      "w": "fees",
+      "start": 19.08,
+      "end": 19.32,
+      "p": 1.0
+     },
+     {
+      "w": "come",
+      "start": 19.32,
+      "end": 19.56,
+      "p": 1.0
+     },
+     {
+      "w": "back.",
+      "start": 19.56,
+      "end": 19.94,
+      "p": 1.0
+     },
+     {
+      "w": "How",
+      "start": 20.48,
+      "end": 20.72,
+      "p": 1.0
+     },
+     {
+      "w": "long",
+      "start": 20.72,
+      "end": 20.92,
+      "p": 1.0
+     },
+     {
+      "w": "you",
+      "start": 20.92,
+      "end": 21.08,
+      "p": 1.0
+     },
+     {
+      "w": "stay",
+      "start": 21.08,
+      "end": 21.5,
+      "p": 1.0
+     },
+     {
+      "w": "decides",
+      "start": 21.5,
+      "end": 22.26,
+      "p": 0.85
+     },
+     {
+      "w": "whether",
+      "start": 22.26,
+      "end": 22.54,
+      "p": 0.99
+     },
+     {
+      "w": "you",
+      "start": 22.54,
+      "end": 22.9,
+      "p": 1.0
+     },
+     {
+      "w": "are",
+      "start": 22.9,
+      "end": 23.02,
+      "p": 0.98
+     },
+     {
+      "w": "still",
+      "start": 23.02,
+      "end": 23.24,
+      "p": 1.0
+     },
+     {
+      "w": "there",
+      "start": 23.24,
+      "end": 23.68,
+      "p": 1.0
+     },
+     {
+      "w": "when",
+      "start": 23.68,
+      "end": 24.04,
+      "p": 0.97
+     },
+     {
+      "w": "they",
+      "start": 24.04,
+      "end": 24.22,
+      "p": 1.0
+     },
+     {
+      "w": "do.",
+      "start": 24.22,
+      "end": 24.48,
+      "p": 1.0
+     },
+     {
+      "w": "How",
+      "start": 25.84,
+      "end": 26.26,
+      "p": 1.0
+     },
+     {
+      "w": "long",
+      "start": 26.26,
+      "end": 26.44,
+      "p": 1.0
+     },
+     {
+      "w": "do",
+      "start": 26.44,
+      "end": 26.58,
+      "p": 0.87
+     },
+     {
+      "w": "you",
+      "start": 26.58,
+      "end": 26.68,
+      "p": 1.0
+     },
+     {
+      "w": "picture",
+      "start": 26.68,
+      "end": 26.92,
+      "p": 1.0
+     },
+     {
+      "w": "yourself",
+      "start": 26.92,
+      "end": 27.4,
+      "p": 1.0
+     },
+     {
+      "w": "in",
+      "start": 27.4,
+      "end": 27.62,
+      "p": 1.0
+     },
+     {
+      "w": "your",
+      "start": 27.62,
+      "end": 27.76,
+      "p": 1.0
+     },
+     {
+      "w": "home?",
+      "start": 27.76,
+      "end": 28.02,
+      "p": 1.0
+     }
+    ],
+    "missing": []
+   }
+  ],
+  "use": "S20.seed1.mp3"
  }
 }
