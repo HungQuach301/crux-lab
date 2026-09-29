@@ -1,4 +1,4 @@
-# checks/ — máy kiểm của crux-lab (Phiên K1, K2; khoá SHA)
+# checks/ — máy kiểm của crux-lab (Phiên K1, K2, K3; khoá SHA)
 
 Bộ luật này chấm mọi yêu cầu `[MÁY]` của [`genre-spec/data-explainer.md`](../genre-spec/data-explainer.md). Các yêu cầu `[NGƯỜI]` nằm trong [`RUBRIC.md`](RUBRIC.md) (H1–H8). Danh sách artefact bên dựng phải giao nằm trong [`CONTRACT.md`](CONTRACT.md).
 
@@ -6,7 +6,7 @@ Khoá: `checks/LOCK` là SHA-256 của toàn thư mục (cách tính ở cuối 
 - Bên dựng không sửa thư mục này (CHARTER §7.1, §8).
 - Cho rằng một luật sai thì ghi khiếu nại. Luật chỉ đổi qua vai kiểm, và cần chủ dự án duyệt.
 
-Gốc: `checks/` của bài D (`crux-spike-opus55`, nhánh `spike/opus55-cine`, LOCK `0478df73…`), đã sửa theo audit `audit/d-final` (`audit/REPORT.md` @ `afad899`). Các thay đổi ghi ở mục "Thay đổi so với bài D". Thay đổi của K2 (luật đọc từ hợp đồng tập; T1 định nghĩa lại; L1, S16, F11 mới) ghi ở mục "Thay đổi ở khoá K2".
+Gốc: `checks/` của bài D (`crux-spike-opus55`, nhánh `spike/opus55-cine`, LOCK `0478df73…`), đã sửa theo audit `audit/d-final` (`audit/REPORT.md` @ `afad899`). Các thay đổi ghi ở mục "Thay đổi so với bài D". Thay đổi của K2 (luật đọc từ hợp đồng tập; T1 định nghĩa lại; L1, S16, F11 mới) ghi ở mục "Thay đổi ở khoá K2". Thay đổi của K3 (mỗi luật một cấp CHẶN / CHÍNH / THAM KHẢO; F12, A16–A18 mới; S02, REG, F07 sửa) ghi ở mục "Thay đổi ở khoá K3"; cấp của từng luật ở mục "Cấp của luật".
 
 ## Chạy
 
@@ -30,7 +30,14 @@ Trạng thái của một luật:
 - **MISSING**: thiếu artefact, tính là không đạt.
 - **ERROR**: luật lỗi, tính là không đạt.
 
-`near` liệt kê mọi chỉ số nằm trong 5% quanh ngưỡng.
+**Cấp của luật (K3).** Mỗi luật có một cấp (`py/tiers.py`; bảng ở mục "Cấp của luật"):
+- **CHẶN** (lớp L1 của Cine Lab): số liệu, claim, nguồn, điều khoản, quyền tài sản, kỹ thuật file, âm lượng, true peak, ASR không mất từ khoá. **Chỉ luật CHẶN làm trượt tập**: một luật CHẶN không PASS (FAIL, MISSING hay ERROR) thì tập **TRƯỢT**.
+- **CHÍNH**: độ rõ lời (L1 "không lấn lời"), va chạm chữ, tương phản, đọc được (ở 25%, vùng an toàn, chữ không nhân đôi); theo quyết định của chủ dự án khi duyệt K3: độ dài (F07) và đổi model giọng giữa tập (A18). Luật CHÍNH không đạt thì bên dựng phải giải thích trong `out/explanations.json` (≥ 8 chữ mỗi luật); chưa giải thích thì tập ở trạng thái **CHỜ GIẢI THÍCH**. Chủ dự án đọc lời giải thích ở gói duyệt.
+- **THAM KHẢO**: mọi chỉ tiêu tay nghề hay số lượng. Chỉ báo số đo; không làm trượt, không cần giải thích (nguyên tắc chống Goodhart của Cine Lab: số lần dùng kỹ thuật chỉ là cảnh báo).
+
+Báo cáo ghi `episode` = TRƯỢT / CHỜ GIẢI THÍCH / ĐẠT và bảng đạt/không đạt theo cấp. Trạng thái PASS/FAIL của từng luật vẫn giữ (để hiệu chỉnh và để REG so).
+
+`near` liệt kê **mọi chỉ số nằm trong ±5% quanh ngưỡng**, đạt hay không, kèm tên luật, tên chỉ số và cấp; `report.md` có mục riêng "Chỉ số trong ±5% quanh ngưỡng". Ngưỡng 0 (đếm lỗi) không có dải ±5%; ngưỡng `==` không có dải.
 
 **REG (cổng hồi quy)** cần báo cáo kiểm của phiên bản trước (`--baseline`). Báo cáo này do phiên kiểm giữ, không lấy từ cây của bên dựng. Phiên bản đầu tiên chạy với `--first`. Không có cả hai thì REG là MISSING.
 
@@ -116,7 +123,28 @@ Trên kịch bản M1b của Tập 1 (`out/script-draft.json` @ `bbc28fb`): S13 
 
 Còn gắn với bài D, ngoài phạm vi K2 (ghi để khoá sau xử lý): A14 (danh sách thuật ngữ khoá `DEFINED_TERMS` là từ vựng hưu trí; tập mới chỉ **thêm** được qua `out/terms.json`), S02 (cụm "no taxes" / "no fees" là giả định của mô hình bài D).
 
-## Ngưỡng tạm (chủ dự án duyệt 2026-09-28; K2 bổ sung, chờ duyệt)
+## Thay đổi ở khoá K3 (chủ dự án duyệt 2026-09-29, kèm hai sửa: F07 hạ CHÍNH với ngưỡng 480–900 s; A18 nâng CHÍNH)
+
+Nguồn: chỉ dẫn K3 của chủ dự án; Cine Lab `docs/cine-lab/CINE-LAB-KHUNG-CHAT-LUONG.md` §1 (mô hình 3 lớp, "Nguyên tắc chống Goodhart") và `docs/cine-lab/CINE-LAB-BAI-HOC-BRIEF-D.md` (W1–W9, N1–N7) @ `HungQuach301/cine-lab` main.
+
+| Mã | Thay đổi | Lý do |
+|---|---|---|
+| mọi luật | Mỗi luật một cấp CHẶN / CHÍNH / THAM KHẢO (`py/tiers.py`, bảng "Cấp của luật"). Báo cáo có phán quyết tập: chỉ CHẶN làm trượt; CHÍNH không đạt cần giải thích (`out/explanations.json`); THAM KHẢO chỉ báo số đo. Đo và ngưỡng của các luật cũ **không đổi**, trừ S02, REG, F07 (fingerprint giữ nguyên, REG so được với báo cáo K2) | W2, W3, N2, N3; chỉ dẫn K3 §1–2 |
+| REG | Chỉ hồi quy của luật CHẶN làm trượt; hồi quy khác liệt kê kèm cấp | chỉ dẫn K3 §2: chỉ CHẶN làm trượt tập |
+| S02 | Giả định phải hiện đọc từ `claims.assumptions` của hợp đồng tập (trước: gắn cứng "no taxes"/"no fees" của bài D). Hợp đồng bài D ghi lại hai regex K1 | S02 nay là CHẶN (claim); K2 đã ghi nó còn gắn bài D, nên không được chặn Tập 1 bằng giả định của bài khác |
+| F12 | **Mới, CHẶN**: sổ quyền `out/rights.json`: mọi stem có tiếng có mục; tài sản bên thứ ba có trích điều khoản, URL và `commercial:true`; tài sản tự làm có đường dẫn mã sinh | "quyền tài sản" thuộc CHẶN nhưng chưa có luật nào canh (CHARTER §7.3: không có điểm mù không được canh); DX-A3 (sổ giấy phép); Cine Lab R1 |
+| A16 | **Mới, THAM KHẢO**: dấu ngắt giả trong văn bản gửi TTS (`spoken` so với `text`) | chỉ dẫn K3 §3 |
+| A17 | **Mới, THAM KHẢO**: mật độ khoảng lặng trong câu và giữa câu bất thường (đo trên stem giọng) | chỉ dẫn K3 §3 |
+| A18 | **Mới, CHÍNH** (chủ dự án nâng khi duyệt): đổi giọng hay model giọng giữa tập; xảy ra thì bên dựng phải giải thích | chỉ dẫn K3 §3; duyệt K3: lỗi gốc của Tập 1 v1, trái G-010 |
+| F07 | **Sửa, CHÍNH** (chủ dự án hạ khi duyệt): độ dài 480–900 s (trước: ≥ 600 s) | duyệt K3: ngưỡng cũ lệch CHARTER §1 (8–15 phút); chặn độ dài dễ dẫn tới giãn thời gian |
+| báo cáo | Mục "Chỉ số trong ±5% quanh ngưỡng" nêu tên luật, chỉ số, cấp; `--list` in cấp và lý do | chỉ dẫn K3 §4 |
+
+**Hiệu chỉnh cảnh báo mới trên Tập 1** (nhánh `ep001`, `out/voice/` @ `bbc28fb`; số đo và kịch bản ở `checks-runs/K3-calibration/`):
+- A16: 73/83 câu `spoken` có dấu ngắt giả (114 dấu "…", 1 dấu câu thừa, 0 thẻ pause); câu viết không có các chỗ ngắt đó.
+- A18: `takes.json` khai 78 take `eleven_v3` và 5 take `eleven_multilingual_v2` cùng giọng Eric: **đổi model giữa tập**. Phổ dài hạn **từng take** không tách được hai model (5 take v2 nằm trong phân bố v3: v3 trung vị 2,01 dB, p95 3,30 dB; v2 1,89–4,24 dB), nên luật không đặt ngưỡng trên từng take. **Theo nhóm** thì tách được: 5 take v2 cách trung bình v3 2,44 dB; 5 take v3 ngẫu nhiên: p99 1,69 dB. A18 đọc giọng khai báo và ghi số đo nhóm để đối chiếu. Điểm mù còn lại: bên dựng khai một model mà thực tế dùng hai thì máy không thấy (ghi để khoá sau).
+- A17: Tập 1 chưa có stem giọng đủ tập; mẫu m0 (1 câu) đạt. Ngưỡng tạm, hiệu chỉnh khi có stem Tập 1.
+
+## Ngưỡng tạm (chủ dự án duyệt 2026-09-28; K2, K3 bổ sung, chờ duyệt)
 
 Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện sau. Các ngưỡng dưới đây là **NGƯỠNG TẠM**. Chúng được hiệu chỉnh sau Tập 1 bằng điểm chấm tay của chủ dự án (phiếu `RUBRIC.md`, H5 cho V12/V13, H7 cho T2, H8 cho T1/T3).
 
@@ -130,6 +158,9 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
 | T3 | chuyển tiếp vào khoảng lặng 150–400 ms; sàn master ≥ −80 dBFS, room ≥ −75 dBFS |
 | V12 | NCC ≥ 0,97 |
 | V13 | mỗi cú máy ≤ 3 s; tổng thời gian máy chuyển ≤ 15% |
+| A17 *(K3)* | câu có khoảng lặng trong câu > 20% hoặc ≥ 1 lần / 5 chữ: ≤ 10% số câu; khoảng giữa câu < 0,10 s hoặc > max(3·G, G + 1 s): ≤ 10% |
+| A18 *(K3)* | 1 giọng (nhà cung cấp, voiceId, model) cho cả tập |
+| F07 *(K3)* | 480–900 s (CHARTER §1) |
 
 ### Điểm hiệu chỉnh của T1 và L1 (K2)
 
@@ -213,7 +244,8 @@ Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
   - cùng `fingerprint`;
   - hoặc, với báo cáo cũ chưa có fingerprint: cùng câu ngưỡng, và không nằm trong danh sách luật K1 đã đổi cách đo (`CHANGED_SINCE` trong `py/run.py`).
   - K2 đổi định nghĩa của S01, S03–S06, S13, V04, V09, T1 (câu đo đổi, nên fingerprint đổi): REG không so các luật này với báo cáo khoá trước. F11, S16, L1 mới, không có gì để so.
-- Một luật so được, PASS ở phiên bản trước mà nay không PASS, là **hồi quy** và chặn phát hành.
+  - K3 đổi định nghĩa của S02, REG và F07 (fingerprint đổi); F12, A16, A17, A18 mới. Mọi luật khác giữ fingerprint của khoá K2 `f9e24c91…`, nên REG so được với báo cáo K2.
+- Một luật so được, PASS ở phiên bản trước mà nay không PASS, là **hồi quy**. K3: chỉ hồi quy của luật **CHẶN** làm REG trượt; hồi quy của luật CHÍNH, THAM KHẢO được liệt kê kèm cấp (luật CHÍNH đó vẫn cần giải thích vì nó không PASS).
 - Báo cáo liệt kê các luật không so được và các luật đã cải thiện.
 
 ## Test tự chứng minh
@@ -237,9 +269,111 @@ Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
     - K2: V04 trượt khi màu trên màn hình khác màu hợp đồng tập khai (`V04-not-declared-colour`); mọi fixture có `contract.json`.
 - **K2** (Python): S01 thêm ca `S01/refinance` (mô hình Tập 1, một tháng hoà vốn lệch 1 phải trượt); S03–S06, V04, V09 đọc hợp đồng của fixture; T1 mới (tiếng dữ liệu trong khe âm tiết: nổi thì đạt, thấp 30 dB thì trượt); L1 (tiếng 2 kHz ngang lời và làm mất con số thì trượt; nhịp 300 Hz thấp thì đạt); S16 (hai câu số quyết định gọi tên nhân vật hoặc kịch bản thì đạt, không gọi thì trượt); F11 (thiếu một file đã khai thì trượt).
 
+- **K3** (Python): A16 (`spoken` có "…" và thẻ `[pause]` thì trượt; số đọc bằng chữ có dấu phẩy và gạch ngang có trong câu viết thì đạt); A17 (mỗi câu có hai khoảng lặng 0,6 s thì trượt; câu liền, cách nhau 0,4 s thì đạt); A18 (hai model khai trong `takes.json` thì trượt, số đo nhóm phải tách được); F12 (thiếu mục cho stem nhạc và giọng không được phép thương mại thì trượt; stem im lặng không cần mục); S02 đọc giả định từ hợp đồng fixture. Ca riêng: `F07/too-long` (905 s trượt, 480 s đạt); `TIERS` (mọi luật có cấp, F07 và A18 là CHÍNH theo quyết định của chủ dự án; một luật không cấp thì trượt), `VERDICT` (CHẶN không đạt → TRƯỢT; chỉ THAM KHẢO không đạt → ĐẠT; CHÍNH không đạt chưa giải thích → CHỜ GIẢI THÍCH, có giải thích → ĐẠT), `REG/tier` (hồi quy của luật THAM KHẢO không làm REG trượt, của luật CHẶN thì có), `NEAR` (chỉ số cách ngưỡng 4,5% ở hai phía được nêu, cách 6% thì không).
+
+## Cấp của luật (K3)
+
+Sinh từ `py/tiers.py` (`python3 checks/py/run.py x --list` in `tier`, `tierReason`). Số luật: **29 CHẶN · 11 CHÍNH · 42 THAM KHẢO** (82 luật, gồm REG).
+
+| Cấp | Luật |
+|---|---|
+| CHẶN | F01, F02, F03, F04, F05, F06, F08, F09, F10, F11, F12, A01, A02, A04, A05, A06, A14, S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, C07, REG |
+| CHÍNH | F07, A18, V03, V08, V09, V11, V12, C02, C05, C14, L1 |
+| THAM KHẢO | A03, A07, A08, A09, A10, A11, A12, A13, A15, A16, A17, S11, S12, S13, S14, S15, S16, R01, R02, R03, R04, R05, R06, V01, V02, V04, V05, V10, V13, C01, C03, C04, C06, C10, C11, C12, C13, C15, P01, T1, T2, T3 |
+
+| Mã | Cấp | Vì sao |
+|---|---|---|
+| F01 | CHẶN | kỹ thuật file |
+| F02 | CHẶN | kỹ thuật file |
+| F03 | CHẶN | kỹ thuật file |
+| F04 | CHẶN | kỹ thuật file |
+| F05 | CHẶN | kỹ thuật file |
+| F06 | CHẶN | kỹ thuật file |
+| F07 | CHÍNH | độ dài theo CHARTER §1 (8–15 phút); chủ dự án hạ CHÍNH: chặn độ dài dễ dẫn tới giãn thời gian |
+| F08 | CHẶN | kỹ thuật file: banding do mã hoá |
+| F09 | CHẶN | kỹ thuật file: phụ đề đúng lời, đúng quy cách |
+| F10 | CHẶN | kỹ thuật file: chapters hợp lệ với YouTube (≥ 3, từ 0:00, mỗi chương ≥ 10 s) |
+| F11 | CHẶN | kỹ thuật file: artefact phát hành đã giao |
+| F12 | CHẶN | quyền tài sản |
+| A01 | CHẶN | âm lượng |
+| A02 | CHẶN | true peak |
+| A03 | THAM KHẢO | độ động (LRA) là lựa chọn nghề; nền tảng chỉ chuẩn hoá âm lượng tích hợp (A01) |
+| A04 | CHẶN | kỹ thuật file: clip |
+| A05 | CHẶN | kỹ thuật file: pha |
+| A06 | CHẶN | kỹ thuật file: gộp mono |
+| A07 | THAM KHẢO | tỉ lệ lời/nhạc là chỉ tiêu mix; độ rõ lời do L1 và A14 canh |
+| A08 | THAM KHẢO | cách duck nhạc là tay nghề |
+| A09 | THAM KHẢO | số lần dùng kỹ thuật (≥ 3 khoảng lặng) |
+| A10 | THAM KHẢO | tay nghề: whoosh theo máy |
+| A11 | THAM KHẢO | tay nghề: pan theo vật |
+| A12 | THAM KHẢO | tay nghề: điểm nhấn nhạc |
+| A13 | THAM KHẢO | tay nghề: giãn giọng |
+| A14 | CHẶN | ASR không mất từ khoá |
+| A15 | THAM KHẢO | chỉ tiêu tốc độ đọc |
+| A16 | THAM KHẢO | cảnh báo: dấu ngắt giả trong văn bản gửi TTS |
+| A17 | THAM KHẢO | cảnh báo: mật độ khoảng lặng giữa câu bất thường |
+| A18 | CHÍNH | đổi model giọng giữa tập; chủ dự án nâng CHÍNH: lỗi gốc của Tập 1 v1, trái G-010 |
+| S01 | CHẶN | số liệu: tính lại mô hình |
+| S02 | CHẶN | claim: giả định của mô hình hiện trên màn hình |
+| S03 | CHẶN | nguồn và điều khoản sử dụng dữ liệu |
+| S04 | CHẶN | số liệu: đối chiếu nguồn |
+| S05 | CHẶN | claim khớp mô hình; ILLUSTRATIVE |
+| S06 | CHẶN | số liệu: hiện đủ mọi trường hợp đã hứa (không chọn lọc) |
+| S07 | CHẶN | claim: mọi số có claim, công thức, nguồn |
+| S08 | CHẶN | claim: huy hiệu ILLUSTRATIVE |
+| S09 | CHẶN | claim: thực/danh nghĩa |
+| S10 | CHẶN | claim: không khuyên, không dự báo (gen được bảo vệ, CHARTER §5) |
+| S11 | THAM KHẢO | số lần dùng kỹ thuật (callback ≥ 3) |
+| S12 | THAM KHẢO | chỉ tiêu mật độ số |
+| S13 | THAM KHẢO | chỉ tiêu độ dài câu |
+| S14 | THAM KHẢO | tay nghề: điểm chèn quảng cáo |
+| S15 | THAM KHẢO | tay nghề: cấu trúc hồi, trần cold open |
+| S16 | THAM KHẢO | chỉ tiêu gắn số với nhân vật |
+| R01 | THAM KHẢO | luật nhịp |
+| R02 | THAM KHẢO | luật nhịp |
+| R03 | THAM KHẢO | luật nhịp |
+| R04 | THAM KHẢO | luật nhịp |
+| R05 | THAM KHẢO | luật nhịp |
+| R06 | THAM KHẢO | luật nhịp |
+| V01 | THAM KHẢO | tay nghề: hồ sơ tiền kỳ |
+| V02 | THAM KHẢO | tay nghề: bố cục một phần ba |
+| V03 | CHÍNH | đọc được: chữ ngoài vùng an toàn bị giao diện trình phát che |
+| V04 | THAM KHẢO | tay nghề: nhận diện nhân vật |
+| V05 | THAM KHẢO | tay nghề: chuyển động máy |
+| V08 | CHÍNH | tương phản |
+| V09 | CHÍNH | tương phản: mù màu |
+| V10 | THAM KHẢO | số lần dùng kỹ thuật (match cut, J/L-cut) |
+| V11 | CHÍNH | va chạm chữ |
+| V12 | CHÍNH | đọc được: chữ nhân đôi, nhoè |
+| V13 | THAM KHẢO | chỉ tiêu thời lượng cú máy |
+| C01 | THAM KHẢO | tay nghề: lộ panel khác cảnh |
+| C02 | CHÍNH | va chạm: nền đè lên dữ liệu |
+| C03 | THAM KHẢO | tay nghề: nhãn đường |
+| C04 | THAM KHẢO | tay nghề: trục và mốc |
+| C05 | CHÍNH | tương phản: nhấn mạnh trong thang xám |
+| C06 | THAM KHẢO | tay nghề: màu số theo chuỗi |
+| C07 | CHẶN | số liệu: cột bị cắt trục hoặc lệch tỉ lệ làm sai số liệu |
+| C10 | THAM KHẢO | tay nghề: một chữ cấp 1 |
+| C11 | THAM KHẢO | tay nghề: lặp bố cục |
+| C12 | THAM KHẢO | tay nghề: thay đổi chia đôi khung |
+| C13 | THAM KHẢO | luật nhịp: số khớp lời ±250 ms |
+| C14 | CHÍNH | đọc được ở 25% |
+| C15 | THAM KHẢO | tay nghề: chỉ dùng token màu |
+| P01 | THAM KHẢO | tay nghề: thumbnail |
+| T1 | THAM KHẢO | chỉ tiêu tay nghề: tiếng dữ liệu nghe thấy |
+| T2 | THAM KHẢO | chỉ tiêu tay nghề: nhạc không lặp |
+| T3 | THAM KHẢO | chỉ tiêu tay nghề: vào khoảng lặng |
+| L1 | CHÍNH | độ rõ lời: tiếng dữ liệu không lấn lời |
+| REG | CHẶN | cổng hồi quy của luật CHẶN (CHARTER §5) |
+
+**Luật không có trong danh sách của chủ dự án, K3 tự xếp** (cần chủ dự án duyệt):
+- CHẶN: F08 (banding), F09 (phụ đề), F10 (chapters hợp lệ), F11 (artefact), A04–A06 (clip, pha, gộp mono) — kỹ thuật file; S06 (hiện đủ trường hợp), S10 (không khuyên, không dự báo), C07 (cột cắt trục) — số liệu và claim; S02 (giả định hiện trên màn hình) — claim.
+- CHÍNH: V03 (vùng an toàn), V12 (chữ nhân đôi, nhoè), V09 và C05 (tương phản khi mù màu và trong thang xám), C02 (nền đè dữ liệu) — cùng họ với đọc được, tương phản, va chạm.
+- THAM KHẢO (hạ từ "mọi luật ngang hàng" của K2): A03 (độ động LRA: lựa chọn nghề, nền tảng chỉ chuẩn hoá âm lượng tích hợp), A07–A13 (mix, duck, whoosh, pan, nhấn, giãn giọng), S11, S14, S15 (callback, điểm quảng cáo, cấu trúc hồi), V01, V02, V04, V05, V10, C01, C03, C04, C06, C10–C13, C15, P01 — tay nghề hoặc số lượng.
+
 ## Bảng luật
 
-78 luật. **(mới)** = thêm ở khoá K1; *(sửa)* = K1 đổi cách đo so với bài D; **(K2 mới)**, *(K2 sửa)* = khoá K2. Bỏ: V06, V07. Cột định nghĩa và ngưỡng sinh từ `python3 checks/py/run.py x --list`.
+82 luật. **(mới)** = thêm ở khoá K1; *(sửa)* = K1 đổi cách đo so với bài D; **(K2 mới)**, *(K2 sửa)* = khoá K2; **(K3 mới)**, *(K3 sửa)* = khoá K3. Bỏ: V06, V07. Cấp của từng luật ở mục "Cấp của luật". Cột định nghĩa và ngưỡng sinh từ `python3 checks/py/run.py x --list`.
 
 | Mã | Spec | Định nghĩa đo | Ngưỡng | Máy |
 |---|---|---|---|---|
@@ -249,11 +383,12 @@ Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
 | F04 | DX-F2 | video bitrate = sum of video packet sizes × 8 / stream duration (measured, not the header value) | ≥ 16 Mbps | Python |
 | F05 | DX-F2 | stream colour tags (color_primaries, color_transfer, color_space, color_range) + decoded luma codes of 1 frame/10 s: share of Y samples outside 16–235 | all tags bt709, range tv (limited); Y outside 16–235 ≤ 0.1% of samples | Python |
 | F06 | DX-F4 | ffprobe of the audio stream; bitrate = audio packet bytes × 8 / duration | AAC (LC), 48 kHz, 2 channels, measured ≥ 272 kbps (= 85% of the 320 kbps nominal: ffmpeg's native AAC at -b:a 320k measured 276 kbps on test C's master, so the measure allows its ABR undershoot but not a 256k or lower setting) | Python |
-| F07 | DX-S1 (CH §1 length) | container duration (ffprobe format.duration) | ≥ 600 s (10:00) | Python |
+| F07 *(K3 sửa)* | DX-S1 (CH §1 length) | container duration (ffprobe format.duration); K3: the range of CHARTER §1 (8–15 minutes) | 480 … 900 s (8:00–15:00) | Python |
 | F08 | DX-V5 | decoded luma of 1 frame/2 s; banding score per frame (banding_score: 240 px tiles, mean Y ≤ 80, 16-px block means fitting a plane that spans 2–40 codes with residual ≤ 1 code; share of their pixels in flat runs ≥ 12 px ending in a 1–2 code step) | worst frame ≤ 5% (frames with < 1% dark-gradient area are skipped) | Python |
 | F09 | DX-F5 | out/captions.srt parsed; joined subtitle text vs joined narration text of out/script.json (whitespace-normalised, exact characters otherwise); per cue: characters per line, lines, duration; cues must not overlap | text identical (100%); every line ≤ 42 chars; ≤ 2 lines; 1.0 ≤ duration ≤ 7.0 s; 0 overlaps | Python |
 | F10 | DX-F6 | chapters from out/package/description.md (lines "m:ss Title") and, if present, the MP4 chapter atoms; chapter length = next start − start (last: to end of video) | ≥ 3 chapters; first at 0:00; each ≥ 10 s; MP4 chapters (if any) equal the description's | Python |
 | F11 **(K2 mới)** | CH §4 khâu 3 (hợp đồng tập, K2) | episode contract (contract.json) artefacts.M3: the release list of paths (globs allowed); each must match ≥ 1 file under the root. The list must include every release file of checks/CONTRACT.md (RELEASE_FILES; a stem may be .wav or .flac). Contract without artefacts.M3 = MISSING | every declared M3 artefact delivered; every checks/CONTRACT.md release file declared | Python |
+| F12 **(K3 mới)** | DX-A3 (sổ giấy phép), CH §5 (K3: quyền tài sản) | rights ledger out/rights.json {assets:[{name, stems:[…], origin, licence, thirdParty, terms:{quote, url}, commercial, generator}]}. Every delivered stem (out/audio/stems/<name>.wav\|flac of voice, music, sfx, whoosh, room, sonify) with sound (1 s RMS above −60 dBFS somewhere) must be covered by an asset listing it in stems. Every asset: origin and licence non-empty, thirdParty a boolean. A third-party asset (TTS voice, library music or sound, font, …): terms quote ≥ 20 chars and http(s) terms URL, commercial = true (the terms allow an ad-supported channel). An asset made by this project: generator = a path that exists under the root or one of its parent folders | 0 sounding stems without a rights entry; 0 assets with a missing field; 0 third-party assets without terms or not cleared for commercial use; ≥ 1 asset | Python |
 | A01 | DX-A10 | integrated loudness of the video's audio track, ITU-R BS.1770-4 (ffmpeg ebur128) | −14 LUFS ± 1 (−15 … −13) | Python |
 | A02 | DX-A10 | true peak, 4× oversampled (ffmpeg ebur128 peak=true), max over both channels | ≤ −1.0 dBTP | Python |
 | A03 | DX-A10 | loudness range (EBU Tech 3342, ffmpeg ebur128) | 6 … 10 LU | Python |
@@ -269,8 +404,11 @@ Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
 | A13 | DX-A7 | out/voice/takes.json: for each take, the raw TTS file and the final (stretched) file; stretch = active speech span of final / of raw (span between first and last 20 ms window above −45 dBFS) | every \|stretch − 1\| ≤ 0.10 | Python |
 | A14 *(sửa)* | DX-A7 | own ASR (faster-whisper small.en, int8, word timestamps) of the video's mixed audio, recognised sentence by sentence (asr_master). Key words per script sentence (out/script.json): every number, every proper name, every defined term (locked list DEFINED_TERMS + out/terms.json). A key word is heard if the ASR has it (numbers compared as values; names/terms by stem(), the same normal form on both sides: possessive, then one inflection, then a final e; "S&P" as S&P or "S and P", ASR tokens "S" "&P" joined; a joined token also counts by its parts, so "Standard&Poor’s" has standard and poor) among words starting within the sentence window [start − 1.5 s, end + 1.5 s] | 0 key words missing (no percentage threshold) | Python |
 | A15 *(sửa)* | DX-A7 | own ASR words inside each sentence window; sentence rate = words of `spoken` / (last ASR word end − first ASR word start) × 60; act rate = Σ words / Σ sentence spans of the act (sentences of < 4 words are left out of the per-sentence cap) | every act 150 … 160 wpm; no sentence > 175 wpm | Python |
+| A16 **(K3 mới)** | DX-A7 (K3, cảnh báo) | every sentence of out/script.json: `spoken` (the text sent to TTS) against `text` (the written sentence). Fake break = a mark that asks the TTS for a pause the written sentence does not have: ellipsis (... or …), a dash used as a pause (spaced hyphen, en or em dash, --) that the written sentence does not have, a pause tag (SSML <break>, [pause]/[beat]/[silence], (pause)), doubled punctuation (",,"), and every comma, semicolon, colon or sentence-internal full stop the spoken text carries beyond the written text (tokens with digits left out) | 0 fake break marks (REFERENCE: reported, never fails the episode) | Python |
+| A17 **(K3 mới)** | DX-A7, DX-R6 (K3, cảnh báo) | voice stem, 20 ms RMS, 10 ms hop, active above −45 dBFS; each sentence of out/script.json: its voiced span (first to last active frame within [start − 0.3, end + 0.3]) and its inner pauses (inactive runs ≥ 0.25 s inside the span); gap = silence between the voiced spans of two consecutive sentences of the same scene; G = the episode's median gap. Abnormal sentence: inner pauses > 20% of its voiced span, or ≥ 1 inner pause per 5 words. Abnormal gap: < 0.10 s (sentences run together) or > max(3·G, G + 1.0 s) | PROVISIONAL: abnormal sentences ≤ 10%; abnormal gaps ≤ 10%; ≥ 1 sentence voiced (REFERENCE: reported, never fails the episode) | Python |
+| A18 **(K3 mới)** | DX-A8 (K3, cảnh báo) | out/voice/takes.json: the voice of each take = (provider, voiceId, model), per take or else from the file's "voice" block (no model anywhere = MISSING); distinct voices across the takes. Truth check on the take files (final, else raw): long-term spectrum of the voiced frames (20 ms, above −45 dBFS) in 1/3-octave bands 100 Hz–8 kHz, level-normalised; for each declared voice other than the main one with ≥ 3 measured takes, the distance between its mean spectrum and the main voice's, against the 99th percentile of the same distance for random sets of main-voice takes (reported: one take alone does not separate two models, so the check reads the declared voice and measures a group) | PROVISIONAL: 1 voice (provider, voiceId, model) for the whole episode (REFERENCE: reported, never fails the episode) | Python |
 | S01 *(K2 sửa)* | DX-H1 | independent re-computation of the episode model (K2: read from the episode contract, contract.json `model`): `kind` names the checker's own re-implementation (checks/py/r_model.py: "retirement-6040" = test D's 60/40 withdrawal model, "refinance-breakeven" = Episode 1: payment = P·r/(1 − (1 + r)^−n), r = annual %/1200, savings = payment(old) − payment(old − spread), break-even = ceil(cost / savings), spread for a target = smallest cut with savings ≥ cost / months); `params` its inputs; `output` the builder's model file, compared value by value. A part of the model output the kind does not re-compute is listed (not silently trusted). Contract without model.kind / output / params, or a kind without a re-implementation = MISSING | every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared | Python |
-| S02 | DX-H1 | visible on-screen text (page sampler text track, every 0.1 s): phrases for "no taxes" and "no fees" (regex NO_TAX / NO_FEE), looked for in the methodology card scenes (act "method") and in the rest of the video | both phrases visible in the methodology card AND both visible outside it | trang + Python |
+| S02 *(K3 sửa)* | DX-H1 | visible on-screen text (page sampler text track, every 0.1 s): the model assumptions the episode contract declares (K3: contract.json claims.assumptions [{id, pattern}], each pattern a case-insensitive regular expression; test D: "no taxes" and "no fees", the K1 regexes NO_TAX / NO_FEE), looked for in the methodology card scenes (act "method") and in the rest of the video. Contract without claims.assumptions = MISSING | every declared assumption visible in the methodology card AND visible outside it; ≥ 1 assumption declared | trang + Python |
 | S03 *(K2 sửa)* | DX-H4 | sources file named by the episode contract (contract.json data.sources, e.g. data/sources.json): per raw file path, url, sha256, downloaded (ISO date), terms {quote, url}; SHA-256 recomputed from the committed file; host of each file by role vs the hosts the contract declares (data.hosts.primary / data.hosts.crosscheck; test D: pages.stern.nyu.edu / fred.stlouisfed.org). Contract without data.sources or data.hosts = MISSING | every file present with matching SHA-256, valid date, http(s) URL, terms quote ≥ 20 chars and terms URL; ≥ 1 primary file on a declared primary host; ≥ 1 cross-check file on a declared cross-check host | Python |
 | S04 *(K2 sửa)* | DX-H5 | series pairs the episode contract declares (contract.json data.crosscheck[]: series, primary {file, key, column, scale}, crosscheck {file, key, column, scale}, tolerance, used); per used key \|primary − cross-check\| (after scale) vs the declared tolerance; mismatches listed in the sources file (data.sources) "mismatches" [{year\|key, series}]. Test D: annual.csv vs fred_inflation.csv (inflation) and stocks2.csv (stocks), 1928–2025. Contract without data.crosscheck = MISSING | ≥ 1 pair; every declared tolerance ≤ 0.5 (pp); every used key present in both series; every key outside tolerance listed in "mismatches" (reported, not silently resolved) | Python |
 | S05 *(K2 sửa)* | DX-H1, DX-H2 | claims the episode contract maps to model quantities (contract.json model.claims) compared with the checker's own re-computation of that quantity (r_model value(): e.g. "geomean:1966", "breakEven:0.5", "spreadFor:36"); the model kind's thesis invariants from model.params (test D: sameGeomean 1966/mirror within 0.01 pp); ILLUSTRATIVE flags: every claim listed in contract claims.illustrative, and every claim of a character the contract marks illustrative, carries illustrative=true in out/claims.json | ≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag | Python |
@@ -320,7 +458,7 @@ Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
 | T2 **(mới)** | DX-A2 (sổ gu G-002) | music stem; bars of 4 beats from out/tempo-map.json beats (A12 checks those beats against the music's onsets); 4-bar phrases of chroma + onset pattern (phrase_features). For each phrase: the highest cosine similarity with the 1, 2, 3 and 4 phrases before it (a loop of 1–4 phrases repeats at one of these lags). A repeat = similarity ≥ 0.90. Quiet phrases (< −50 dBFS) are left out | ≥ 8 phrases measured; repeats ≤ 5% of phrases; never 2 repeated phrases in a row | Python |
 | T3 **(mới)** | DX-R6 (sổ gu G-003) | intentional silences = master spans ≤ −40 dBFS (50 ms RMS, 10 ms hop) of 0.8–1.5 s (as A09). Bed = music + sfx + whoosh (+ sonify) stems summed, 20 ms RMS, 5 ms hop. Reference = 90th percentile of the bed in [start − 0.8, start − 0.1]. Entry = from the last instant the bed is within 3 dB of the reference (searched in [start − 1.0, start + 0.3]) to the first instant after it the bed is 30 dB below the reference (or below −70 dBFS). Reported, not judged: a bed already below −60 dBFS before the silence (nothing to release), and a bed whose median inside the silence stays within 20 dB of the reference (a quiet passage, no cut to judge; A09 still counts it). Floor: master 50 ms RMS minimum inside the silence (edges 0.1 s excluded) and the room stem mean level there | every entry 150–400 ms; master ≥ −80 dBFS and room stem ≥ −75 dBFS through every silence; ≥ 1 silence | Python |
 | L1 **(K2 mới)** | DX-A1, DX-A9 (sổ gu G-006) | the data sounds do not cover the voice. (a) Energy: 100 ms windows where the voice stem is active (RMS > −45 dBFS); 1–4 kHz band (4th-order Butterworth) of the voice stem and of the data-sound stem "sonify"; ratio = 10·log10(P_voice / P_son) per window, over the windows where the data sound is present in the band (≥ −80 dBFS); the 10th percentile of those ratios. (b) Words: own ASR (as asr_master: sentence clips, small.en, two-pass) of the sum of all stems and of the sum of all stems but sonify; key words of each sentence as A14 (numbers, names, defined terms + out/terms.json); a key word heard without the data sounds and missed with them is lost. Needs the sonify stem (MISSING without it: the data sounds must be separable to be judged) | PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds | Python |
-| REG **(mới)** | CH §5, §4 khâu 3 (cổng hồi quy) | baseline = the checker's report of the previous version of the episode (--baseline). A rule is comparable when it is in both reports and its definition is unchanged: same fingerprint (sha256 of measure + threshold), or, for a baseline without fingerprints, the same threshold text and not in CHANGED_SINCE[baseline lock]. Regression = comparable rule PASS in the baseline and not PASS now (FAIL, MISSING or ERROR) | 0 regressions (a --first run has nothing to compare and passes; no baseline and no --first = MISSING) | Python |
+| REG *(K3 sửa)* | CH §5, §4 khâu 3 (cổng hồi quy) | baseline = the checker's report of the previous version of the episode (--baseline). A rule is comparable when it is in both reports and its definition is unchanged: same fingerprint (sha256 of measure + threshold), or, for a baseline without fingerprints, the same threshold text and not in CHANGED_SINCE[baseline lock]. Regression = comparable rule PASS in the baseline and not PASS now (FAIL, MISSING or ERROR). K3: only a regression of a BLOCK (CHẶN) rule counts; regressions of MAJOR and REFERENCE rules are listed with their tier | 0 regressions of BLOCK rules (a --first run has nothing to compare and passes; no baseline and no --first = MISSING) | Python |
 
 ## Khoá
 

@@ -1,0 +1,37 @@
+{
+ "A16": {
+  "sentences": 83,
+  "withFakeBreak": 73,
+  "marks": {
+   "ellipsis": 114,
+   "extra punctuation": 1
+  }
+ },
+ "A18": {
+  "takesByModel": {
+   "eleven_v3": 78,
+   "eleven_multilingual_v2": 5
+  },
+  "perTakeDistanceToMedianDb": {
+   "eleven_v3": {
+    "p50": 2.01,
+    "p95": 3.3039999999999967,
+    "max": 4.58
+   },
+   "eleven_multilingual_v2": {
+    "p50": 2.67,
+    "p95": 3.974,
+    "max": 4.24
+   }
+  },
+  "multilingualV2PerTakeDb": [
+   1.89,
+   2.45,
+   2.67,
+   2.91,
+   4.24
+  ],
+  "groupDistanceDb": 2.44,
+  "chanceP99Db": 1.69
+ }
+}
