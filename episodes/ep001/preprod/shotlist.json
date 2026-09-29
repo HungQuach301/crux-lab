@@ -1,536 +1,377 @@
 {
- "source": "story/script.md (v2) via out/script-draft.json",
+ "source": "out/timeline.json + animatic/anchors.json (in-scene H1<->H3 cuts); 2.5D: no simulated focal length, no 3D camera angle",
  "shots": [
   {
    "id": "sh001",
    "scene": "S01",
    "act": "cold-open",
-   "beat": "B1",
-   "layout": "line/peak",
+   "start": 0.0,
+   "dur": 11.87,
+   "look": "H3",
+   "layout": "line/window-low",
    "size": "wide",
-   "move": "track right 3.0 s",
-   "moveReason": "follow the rate line as it draws up to the October 2023 peak",
-   "picture": "Hình đi trước lời khoảng 1.5 s: đường lãi tự vẽ lên tới đỉnh 10/2023, nhãn chữ \"highest since 2000\"; một vạch mờ \"1-point line\" nằm dưới đỉnh, không có lời.",
-   "sonify": [
-    "line",
-    "dot"
-   ]
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh002",
-   "scene": "S02",
+   "scene": "S01",
    "act": "cold-open",
-   "beat": "B1",
-   "layout": "letter/offer",
-   "size": "close",
-   "move": "tilt down 1.5 s",
-   "moveReason": "read the letter top to bottom and stop on the bill line",
-   "picture": "Cắt sang bàn bếp: lá thư đề nghị, dòng \"New rate\", dòng cuối \"Loan costs: $5,124\" cùng huy hiệu ILLUSTRATIVE và nhãn nhỏ \"nominal $\". Ngón tay dừng ở dòng cuối.",
-   "sonify": [
-    "counter"
-   ]
+   "start": 11.87,
+   "dur": 13.41,
+   "look": "H1",
+   "layout": "line/window-low",
+   "size": "medium",
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh003",
-   "scene": "S03",
-   "act": "ident",
-   "beat": "B2",
-   "layout": "ident/logo",
+   "scene": "S01",
+   "act": "cold-open",
+   "start": 25.28,
+   "dur": 7.8,
+   "look": "H3",
+   "layout": "line/window-low",
    "size": "wide",
-   "move": "none",
-   "moveReason": "no move on the 3 s ident",
-   "picture": "Ident ≤ 3 s; tiếng dữ liệu của đường lãi ngân dài dưới ident.",
-   "sonify": []
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh004",
-   "scene": "S04",
-   "act": "act1",
-   "beat": "B2",
-   "layout": "ruler/empty",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "hold: the empty rate-drop ruler is the promise",
-   "picture": "Một thước ngang \"rate drop\" trống; ba marker (tròn, tam giác, vuông) chờ ở mép, chưa có vị trí.",
-   "sonify": [
-    "dot"
-   ]
+   "scene": "S02",
+   "act": "cold-open",
+   "start": 33.08,
+   "dur": 22.59,
+   "look": "H1",
+   "layout": "letter/offer",
+   "size": "close",
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh005",
-   "scene": "S05",
+   "scene": "S03",
    "act": "act1",
-   "beat": "B3",
-   "layout": "line/low-to-peak",
+   "start": 55.67,
+   "dur": 10.95,
+   "look": "H3",
+   "layout": "line/peak-2023",
    "size": "wide",
-   "move": "track right 4.0 s",
-   "moveReason": "travel from the 2021 low to the 2023 peak along the line",
-   "picture": "Một đường lãi duy nhất, máy quay đi dọc đường từ đáy 2021 lên đỉnh 2023; điểm đáy sáng rồi lùi; chữ \"week ending January 7, 2021\" hiện cạnh điểm đáy.",
-   "sonify": [
-    "line",
-    "dot"
-   ]
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh006",
-   "scene": "S06",
+   "scene": "S03",
    "act": "act1",
-   "beat": "B3",
-   "layout": "grid/houses",
+   "start": 66.62,
+   "dur": 9.76,
+   "look": "H1",
+   "layout": "line/peak-2023",
    "size": "medium",
-   "move": "push-in 1.5 s",
-   "moveReason": "from ten houses into the one that is Nora's",
-   "picture": "Lưới 10 ngôi nhà; 3 nhà sáng lên. Máy quay đẩy vào một trong ba nhà đó. ILLUSTRATIVE badge beside \"seven percent or more\" (ge7_threshold: an analyst threshold).",
-   "sonify": [
-    "bar"
-   ],
-   "badge": "ILLUSTRATIVE badge beside \"seven percent or more\" (ge7_threshold: an analyst threshold)"
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh007",
-   "scene": "S07",
+   "scene": "S04",
    "act": "act1",
-   "beat": "B4",
-   "layout": "line/nora-lands",
+   "start": 76.38,
+   "dur": 25.26,
+   "look": "H1",
+   "layout": "object/loan-file",
    "size": "medium",
-   "move": "none",
-   "moveReason": "hold: Nora's circle drops onto October 2023",
-   "picture": "Căn nhà với thùng đồ chuyển nhà ở hiên. Marker tròn của Nora rơi xuống đường lãi ở tháng 10/2023; huy hiệu ILLUSTRATIVE hiện cùng số.",
-   "sonify": [
-    "dot"
-   ]
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh008",
-   "scene": "S08",
+   "scene": "S05",
    "act": "act1",
-   "beat": "B5",
-   "layout": "letter/today",
-   "size": "medium",
-   "move": "track right 1.5 s",
-   "moveReason": "from her month to the week of September 24, 2026 on the line",
-   "picture": "Lá thư từ cold open trở lại; dòng \"New rate 7.03%\" sáng lên. Chữ trên màn hình ở S08.3: \"Week ending September 24, 2026\" (lời không đọc ngày). Trên đường lãi, một điểm ở tuần đó.",
-   "sonify": [
-    "line",
-    "dot"
-   ]
+   "start": 101.64,
+   "dur": 39.34,
+   "look": "H3",
+   "layout": "line/window",
+   "size": "wide",
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh009",
-   "scene": "S09",
+   "scene": "S06",
    "act": "act1",
-   "beat": "B5",
-   "layout": "bars/payment",
+   "start": 140.98,
+   "dur": 12.55,
+   "look": "H1",
+   "layout": "letter/new-rate",
    "size": "close",
-   "move": "none",
-   "moveReason": "hold: the payment bar shrinks by $221",
-   "picture": "Khoản trả hằng tháng co lại; phần co tách thành một khối nhỏ $221 (màu Nora). Số \"0.59 point\" hiện trên màn hình; nhãn \"percentage point ≠ points\" chỉ hiện 2 s.",
-   "sonify": [
-    "bar"
-   ]
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh010",
-   "scene": "S10",
+   "scene": "S06",
    "act": "act1",
-   "beat": "B6",
-   "layout": "blocks/bill-vs-saving",
-   "size": "medium",
-   "move": "pull-out 1.2 s",
-   "moveReason": "reveal the $5,124 block beside the small $221 block",
-   "picture": "Khối $5,124 đặt đối diện khối $221, đúng tỉ lệ; khối $221 trông rất nhỏ.",
-   "sonify": [
-    "bar"
-   ]
+   "start": 153.53,
+   "dur": 12.02,
+   "look": "H3",
+   "layout": "letter/new-rate",
+   "size": "close",
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh011",
-   "scene": "S11",
+   "scene": "S06",
    "act": "act1",
-   "beat": "B6",
-   "layout": "letter/two-slots",
-   "size": "wide",
-   "move": "none",
-   "moveReason": "hold: two empty answer slots",
-   "picture": "Lá thư thu nhỏ vào giữa khung; hai ô trống hai bên chờ hai câu trả lời.",
-   "sonify": []
+   "start": 165.55,
+   "dur": 4.56,
+   "look": "H1",
+   "layout": "letter/new-rate",
+   "size": "medium",
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh012",
-   "scene": "S12",
+   "scene": "S07",
    "act": "act1",
-   "beat": "B7",
-   "layout": "split/line-vs-division",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "split screen: the one-point line and the counter",
-   "picture": "Màn hình chia đôi: trái là vạch \"1-point line\" (nhãn \"test value\"), marker Nora nằm dưới vạch; phải là đồng hồ đếm lên 24. ILLUSTRATIVE badge on the \"1-point line (test value)\" label (s10).",
-   "sonify": [
-    "counter"
-   ],
-   "badge": "ILLUSTRATIVE badge on the \"1-point line (test value)\" label (s10)"
+   "start": 170.11,
+   "dur": 15.79,
+   "look": "H1",
+   "layout": "letter/bill",
+   "size": "close",
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh013",
-   "scene": "S13",
+   "scene": "S07",
    "act": "act1",
-   "beat": "B7",
-   "layout": "letter/missing-line",
+   "start": 185.9,
+   "dur": 16.49,
+   "look": "H3",
+   "layout": "letter/bill",
    "size": "close",
-   "move": "push-in 1.5 s",
-   "moveReason": "into the blank line of the letter before the break",
-   "picture": "Cả hai nửa màn hình mờ đi; chỉ còn lá thư, một dòng trống ở giữa nhấp nháy nhẹ.",
-   "sonify": []
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh014",
-   "scene": "S14",
-   "act": "act2",
-   "beat": "B8",
-   "layout": "blocks/stack",
-   "size": "medium",
-   "move": "tilt up 2.0 s",
-   "moveReason": "follow the monthly blocks up to the bill line",
-   "picture": "Mỗi tháng một khối $221 chồng lên, tiến dần tới vạch $5,124; tiếng dữ liệu gảy nhẹ theo từng khối.",
-   "sonify": [
-    "bar"
-   ]
+   "scene": "S08",
+   "act": "act1",
+   "start": 202.39,
+   "dur": 39.15,
+   "look": "H3",
+   "layout": "split/two-answers",
+   "size": "wide",
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh015",
-   "scene": "S15",
+   "scene": "S09",
    "act": "act2",
-   "beat": "B9",
-   "layout": "balance/stairs",
+   "start": 241.54,
+   "dur": 16.41,
+   "look": "H1",
+   "layout": "stack/break-even",
    "size": "medium",
-   "move": "none",
-   "moveReason": "hold: two balance lines, old steeper than new",
-   "picture": "Hai đường \"what she still owes\": khoản cũ dốc hơn, khoản mới thoải hơn. Một đồng hồ 30 năm quay về 0.",
-   "sonify": [
-    "line"
-   ]
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh016",
-   "scene": "S16",
+   "scene": "S10",
    "act": "act2",
-   "beat": "B10",
-   "layout": "balance/gap24",
-   "size": "close",
-   "move": "push-in 1.3 s",
-   "moveReason": "into the gap between the lines at month 24",
-   "picture": "Khe hở giữa hai đường tô ink-muted có hoa văn, nhãn $1,133.",
-   "sonify": [
-    "dot"
-   ]
+   "start": 257.95,
+   "dur": 19.61,
+   "look": "H3",
+   "layout": "stack/balance-gap",
+   "size": "medium",
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh017",
-   "scene": "S17",
+   "scene": "S10",
    "act": "act2",
-   "beat": "B11",
-   "layout": "clock/30",
+   "start": 277.56,
+   "dur": 37.84,
+   "look": "H1",
+   "layout": "stack/balance-gap",
    "size": "medium",
-   "move": "none",
-   "moveReason": "hold while the counter passes 24 and stops at 30",
-   "picture": "Đồng hồ đếm qua 24, không dừng, dừng ở 30.",
-   "sonify": [
-    "counter"
-   ]
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh018",
-   "scene": "S18",
+   "scene": "S11",
    "act": "act2",
-   "beat": "B12",
-   "layout": "clock/38",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "hold: division stops at 38",
-   "picture": "Đồng hồ phép chia dừng ở 38; đường nợ mới hiện lên phía dưới. ILLUSTRATIVE badge beside \"a quarter of a percentage point\" (s025: an analysis cut).",
-   "sonify": [
-    "counter"
-   ],
-   "badge": "ILLUSTRATIVE badge beside \"a quarter of a percentage point\" (s025: an analysis cut)"
+   "start": 315.4,
+   "dur": 22.36,
+   "look": "H3",
+   "layout": "plot/never",
+   "size": "wide",
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh019",
-   "scene": "S19",
+   "scene": "S12",
    "act": "act2",
-   "beat": "B12",
-   "layout": "clock/never",
+   "start": 337.76,
+   "dur": 6.12,
+   "look": "H3",
+   "layout": "plot/full-point",
    "size": "wide",
-   "move": "pull-out 1.5 s",
-   "moveReason": "the break-even mark drifts out of frame",
-   "picture": "Đồng hồ chạy mãi; vạch hoà vốn trôi ra khỏi khung. Tiếng dữ liệu kéo dài rồi tắt dần.",
-   "sonify": [
-    "line"
-   ]
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh020",
-   "scene": "S20",
+   "scene": "S13",
    "act": "act2",
-   "beat": "B13",
-   "layout": "ruler/test",
-   "size": "medium",
-   "move": "track left 1.2 s",
-   "moveReason": "the circle tries the one-point mark, then a quarter",
-   "picture": "Thước \"rate drop\" từ S04 quay lại; marker tròn thử ở \"1-point line\", rồi ở một phần tư.",
-   "sonify": [
-    "dot"
-   ]
+   "start": 343.88,
+   "dur": 28.32,
+   "look": "H3",
+   "layout": "ruler/half-point",
+   "size": "wide",
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh021",
-   "scene": "S21",
-   "act": "act2",
-   "beat": "B14",
-   "layout": "ruler/nora",
+   "scene": "S14",
+   "act": "act3",
+   "start": 372.2,
+   "dur": 23.04,
+   "look": "H1",
+   "layout": "house/walt",
    "size": "medium",
-   "move": "none",
-   "moveReason": "hold: the circle lands at 0.5",
-   "picture": "Marker tròn dừng trên thước ở 0.5, lần đầu thước có một điểm. Hai ô trống còn lại ở 2 phía. ILLUSTRATIVE badge beside \"half a point\" (s05: an analysis cut).",
-   "sonify": [
-    "dot"
-   ],
-   "badge": "ILLUSTRATIVE badge beside \"half a point\" (s05: an analysis cut)"
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh022",
-   "scene": "S22",
+   "scene": "S15",
    "act": "act3",
-   "beat": "B15",
-   "layout": "person/walt",
+   "start": 395.24,
+   "dur": 17.81,
+   "look": "H3",
+   "layout": "bars/bill-shrinks",
    "size": "medium",
-   "move": "track left 1.5 s",
-   "moveReason": "cross to Walt on the left",
-   "picture": "Marker tam giác ở bên trái khung; lá thư giống hệt thư của Nora; khối phí gần bằng khối của Nora. Huy hiệu ILLUSTRATIVE.",
-   "sonify": [
-    "bar"
-   ]
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh023",
-   "scene": "S23",
+   "scene": "S15",
    "act": "act3",
-   "beat": "B16",
-   "layout": "blocks/three-bills",
-   "size": "wide",
-   "move": "none",
-   "moveReason": "hold: three bills beside three loans, to scale",
-   "picture": "Ba khối phí $3,667 / $5,124 / $5,514 cạnh ba khối khoản vay, đúng tỉ lệ: khối phí chênh ít, khối khoản vay chênh xa.",
-   "sonify": [
-    "bar"
-   ]
+   "start": 413.05,
+   "dur": 10.62,
+   "look": "H1",
+   "layout": "bars/bill-shrinks",
+   "size": "medium",
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh024",
-   "scene": "S24",
+   "scene": "S16",
    "act": "act3",
-   "beat": "B17",
-   "layout": "blocks/walt-stack",
+   "start": 423.67,
+   "dur": 11.66,
+   "look": "H1",
+   "layout": "stack/walt-3y",
    "size": "medium",
-   "move": "none",
-   "moveReason": "hold: $68 blocks stack slowly",
-   "picture": "Khối $68 chồng rất chậm; đồng hồ quay nhiều vòng.",
-   "sonify": [
-    "bar",
-    "counter"
-   ]
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh025",
-   "scene": "S25",
+   "scene": "S16",
    "act": "act3",
-   "beat": "B18",
-   "layout": "timeline/walt3",
+   "start": 435.33,
+   "dur": 16.16,
+   "look": "H3",
+   "layout": "stack/walt-3y",
    "size": "medium",
-   "move": "track right 1.2 s",
-   "moveReason": "along Walt's timeline to year 3",
-   "picture": "Trục thời gian dừng ở năm 3; khối \"behind\" màu ink-muted có hoa văn.",
-   "sonify": [
-    "bar"
-   ]
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh026",
-   "scene": "S26",
+   "scene": "S17",
    "act": "act3",
-   "beat": "B19",
-   "layout": "ruler/walt",
+   "start": 451.49,
+   "dur": 33.47,
+   "look": "H1",
+   "layout": "house/anjali",
    "size": "medium",
-   "move": "track right 1.2 s",
-   "moveReason": "the triangle lands past the one-point mark",
-   "picture": "Marker tam giác đặt trên thước ở 1.12, bên phải \"1-point line\".",
-   "sonify": [
-    "dot"
-   ]
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh027",
-   "scene": "S27",
+   "scene": "S17",
    "act": "act3",
-   "beat": "B20",
-   "layout": "person/anjali",
+   "start": 484.96,
+   "dur": 2.56,
+   "look": "H3",
+   "layout": "house/anjali",
    "size": "medium",
-   "move": "track right 1.5 s",
-   "moveReason": "cross to Anjali on the right",
-   "picture": "Marker vuông ở bên phải khung (nhãn tên bằng ink); cùng lá thư. Huy hiệu ILLUSTRATIVE.",
-   "sonify": [
-    "bar"
-   ]
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh028",
-   "scene": "S28",
+   "scene": "S18",
    "act": "act3",
-   "beat": "B21",
-   "layout": "ruler/anjali",
-   "size": "medium",
-   "move": "pull-out 1.2 s",
-   "moveReason": "the square lands at 0.32; all three markers in frame",
-   "picture": "Marker vuông dừng trên thước ở 0.32; ba marker cùng hiện trên thước.",
-   "sonify": [
-    "dot"
-   ]
+   "start": 487.52,
+   "dur": 4.09,
+   "look": "H1",
+   "layout": "ruler/three-marks",
+   "size": "wide",
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   },
   {
    "id": "sh029",
-   "scene": "S29",
+   "scene": "S18",
    "act": "act3",
-   "beat": "B22",
-   "layout": "ruler/answer",
+   "start": 491.61,
+   "dur": 44.15,
+   "look": "H3",
+   "layout": "ruler/three-marks",
    "size": "wide",
-   "move": "none",
-   "moveReason": "the letter and the ruler: same objects as the open",
-   "picture": "Lá thư của Nora trở lại như ở cold open; dòng \"New rate\" giờ có thước bên cạnh, ba marker ở 0.32, 0.5, 1.12, vạch \"1-point line\" không trùng ai.",
-   "sonify": [
-    "dot"
-   ]
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh030",
-   "scene": "S30",
-   "act": "act3",
-   "beat": "B23",
-   "layout": "timeline/nora3",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "hold on year 3",
-   "picture": "Trục thời gian của Nora với mốc năm 3 và một khối dư nhỏ.",
-   "sonify": [
-    "bar"
-   ]
+   "scene": "S19",
+   "act": "method",
+   "start": 535.76,
+   "dur": 26.53,
+   "look": "H3",
+   "layout": "band/fee-range",
+   "size": "wide",
+   "move": "static",
+   "moveReason": "the chart is read against its fixed scale, so the frame holds still while the marks move"
   },
   {
    "id": "sh031",
-   "scene": "S31",
-   "act": "act3",
-   "beat": "B23",
-   "layout": "timeline/nora7",
-   "size": "wide",
-   "move": "pull-out 1.5 s",
-   "moveReason": "the timeline extends to year 7",
-   "picture": "Trục thời gian kéo dài tới năm 7; khối dư lớn hơn nhiều. Ba marker lùi về cạnh.",
-   "sonify": [
-    "bar"
-   ]
-  },
-  {
-   "id": "sh032",
-   "scene": "S32",
-   "act": "method",
-   "beat": "B24",
-   "layout": "card/method",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "method card: static, readable",
-   "picture": "Thẻ chữ tĩnh, chia 5 khối theo đúng thứ tự dòng; đường lãi mờ phía sau. Thẻ đứng ≥ 12 s.",
-   "sonify": []
-  },
-  {
-   "id": "sh033",
-   "scene": "S33",
-   "act": "method",
-   "beat": "B24",
-   "layout": "card/history",
-   "size": "medium",
-   "move": "none",
-   "moveReason": "static card: 13 drops since 1971, 3 marked",
-   "picture": "Khối thẻ riêng cho lịch sử (DX-H6: mọi đợt, kể cả đợt đi ngược); 13 dải nhỏ trên đường lãi mờ, 3 dải có mũi tên xuống thêm. Không đọc thành lời.",
-   "sonify": [
-    "dot"
-   ]
-  },
-  {
-   "id": "sh034",
-   "scene": "S34",
+   "scene": "S20",
    "act": "outro",
-   "beat": "B24",
-   "layout": "end/screen",
+   "start": 562.29,
+   "dur": 29.43,
+   "look": "H1",
+   "layout": "house/horizon",
    "size": "wide",
-   "move": "drift 8 px/s",
-   "moveReason": "slow drift into the end-screen space",
-   "picture": "Ba marker trôi về góc; vùng trống 20 s cho end screen, chỉ có đường lãi mờ và room tone.",
-   "sonify": []
+   "move": "slow push-in",
+   "moveReason": "a slow push toward the object that carries the number keeps attention on it without a new shot"
   }
- ],
- "characters": {
-  "median": {
-   "name": "Nora",
-   "color": "median",
-   "shape": "circle",
-   "side": "centre"
-  },
-  "small": {
-   "name": "Walt",
-   "color": "small",
-   "shape": "triangle",
-   "side": "left"
-  },
-  "large": {
-   "name": "Anjali",
-   "color": "large",
-   "shape": "square",
-   "side": "right"
-  }
- },
- "sonification": [
-  {
-   "element": "bar",
-   "sound": "S2 'minimal' (owner's pick, 2026-09-28): a soft low pulse at the value's pitch (MIDI 36-60, D minor pentatonic) with a soft filtered tick (4.5-7 kHz) at the start",
-   "mapping": "pitch = bar value on one fixed scale for the film, snapped to the music key; lasts while the bar grows",
-   "pan": "x of the bar",
-   "timing": "starts when the bar starts to grow (moved into the nearest syllable gap if the voice is sounding)"
-  },
-  {
-   "element": "line",
-   "sound": "S2: soft low pulses on eighth notes while the tip moves, pitch following the slope, each with a faint filtered tick",
-   "mapping": "pitch follows the slope at the drawing tip (rising line = higher)",
-   "pan": "x of the tip",
-   "timing": "while the tip moves; notes land in syllable gaps"
-  },
-  {
-   "element": "dot",
-   "sound": "S2: one deeper pulse, pitch from the dot height, plus a soft filtered tick",
-   "mapping": "pitch from the dot height on screen",
-   "pan": "x of the dot",
-   "timing": "on the frame the dot appears (nearest syllable gap, -60..+120 ms)"
-  },
-  {
-   "element": "counter",
-   "sound": "S2: a soft filtered tick per value change; above 8 changes/s the ticks merge into a soft roll",
-   "mapping": "one event per value change",
-   "pan": "x of the counter",
-   "timing": "on the digit change"
-  }
- ],
- "separation": [
-  "Owner, 2026-09-28 (sổ gu G-006): the voice comes first; the data sounds must not cover it; never solved by raising the level.",
-  "Side-chain: the whole data layer ducks 8 dB while the voice is active (20 ms attack, 250 ms release).",
-  "Band: while the voice is active the data layer loses 1-4 kHz (the speech band) almost entirely.",
-  "Timing: notes that would start while a syllable sounds move to the quietest instant within -60..+120 ms.",
-  "Level: -16 dB under the voice before the side-chain (toolkit/audio/sonify_palettes.py); never raised."
  ]
 }

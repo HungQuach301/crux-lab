@@ -1,0 +1,37 @@
+{
+ "texts": [
+  {
+   "text": "$5,124",
+   "box": [
+    80,
+    150,
+    667,
+    190
+   ],
+   "fontPx": 190,
+   "claim": "cost_median"
+  },
+  {
+   "text": "in fees.",
+   "box": [
+    84,
+    360,
+    357,
+    100
+   ],
+   "fontPx": 100
+  },
+  {
+   "text": "Worth it?",
+   "box": [
+    84,
+    500,
+    493,
+    110
+   ],
+   "fontPx": 110
+  }
+ ],
+ "source": "preprod/thumbs_c5.js; numbers = out/claims.json display",
+ "option": "thumb-1"
+}

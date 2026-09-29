@@ -1,0 +1,58 @@
+{
+ "texts": [
+  {
+   "text": "5.98%",
+   "box": [
+    80,
+    120,
+    483,
+    150
+   ],
+   "fontPx": 150,
+   "claim": "low2026"
+  },
+  {
+   "text": "→",
+   "box": [
+    575,
+    120,
+    150,
+    150
+   ],
+   "fontPx": 150
+  },
+  {
+   "text": "7.03%",
+   "box": [
+    760,
+    120,
+    483,
+    150
+   ],
+   "fontPx": 150,
+   "claim": "r_today"
+  },
+  {
+   "text": "The window closed.",
+   "box": [
+    80,
+    420,
+    1076,
+    110
+   ],
+   "fontPx": 110
+  },
+  {
+   "text": "Still worth it?",
+   "box": [
+    80,
+    560,
+    628,
+    100
+   ],
+   "fontPx": 100
+  }
+ ],
+ "source": "preprod/thumbs_c5.js; numbers = out/claims.json display",
+ "option": "thumb-3"
+}
