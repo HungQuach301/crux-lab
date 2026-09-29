@@ -28,7 +28,7 @@ S03.1 | CRUX | (silent) | - | ident 3 s, no voice
 
 ## S04 · act1 · B2
 S04.1 | This is one decision, followed through three households. | | - | conversational
-S04.2 | By the end, you will see the exact rate drop that pays that bill back within three years, for three different loan sizes. | | hold36 | the promise, clear and specific (lands ≈ 0:31–0:38)
+S04.2 | By the end, you will see the rate drop that pays that bill back within three years, for three different loan sizes. | | hold36 | the promise, clear and specific (lands ≈ 0:31–0:38)
 S04.3 | The answer starts with how rates got here. | | - | transition, lighter
 
 *Một thước ngang "rate drop" trống; ba marker (tròn, tam giác, vuông) chờ ở mép, chưa có vị trí.*
@@ -42,7 +42,7 @@ S05.3 | That line is history, not a forecast, and it covers the US only. | That 
 
 ## S06 · act1 · B3
 S06.1 | Families still needed homes. | | - | human, simple
-S06.2 | Three in ten 30-year home-purchase loans made that year carried a rate of seven percent or more. | Three in ten thirty-year home-purchase loans made that year carried a rate of seven percent or more. | purch23_words, ge7_threshold | steady; beat after
+S06.2 | Three in ten 30-year home-purchase loans made in 2023 carried a rate of seven percent or more. | Three in ten thirty-year home-purchase loans made in twenty twenty-three carried a rate of seven percent or more. | purch23_words, ge7_threshold | steady; beat after
 S06.3 | Nora lives in one of those three houses. | | - | transition, warm
 
 *Lưới 10 ngôi nhà; 3 nhà sáng lên. Máy quay đẩy vào một trong ba nhà đó.*
@@ -61,7 +61,7 @@ S08.1 | Almost three years later, her lender has a proposal. | | k35 | transitio
 S08.2 | It is a refinance: a new loan that pays off the old one. | | - | explanatory, simple
 S08.3 | The offer is priced at the latest weekly average, 7.03%. | The offer is priced at the latest weekly average, seven point oh three percent. | r_today, anchor_date | precise, unhurried
 
-*Lá thư từ cold open trở lại; dòng "New rate 7.03%" sáng lên. Trên đường lãi, một điểm ở tuần kết thúc 24/9/2026.*
+*Lá thư từ cold open trở lại; dòng "New rate 7.03%" sáng lên. Chữ trên màn hình ở S08.3: "Week ending September 24, 2026" (lời không đọc ngày). Trên đường lãi, một điểm ở tuần đó.*
 
 ## S09 · act1 · B5
 S09.1 | That is just over half a percentage point below her rate. | | cut_today_words, cut_today | clear
@@ -99,7 +99,7 @@ S12.6 | Two years, and the bill is paid back. | | be_simple_median | light
 ## S13 · act1 · B7
 S13.1 | So which answer is right? | | - | question
 S13.2 | Neither one, as it turns out. | | - | the turn, quiet confidence
-S13.3 | The one-point line never looks at the bill, and the division leaves out one thing. | | - | clear
+S13.3 | The one-point line never looks at the bill. | | - | clear
 S13.4 | The division looks airtight. | | - | slow
 S13.5 | It is missing one line. | | - | hook, then silence
 S13.6 | [pause 1.2] — AD BREAK 1 | (silent) | - | natural silence ≥ 1 s
@@ -232,7 +232,7 @@ S27.2 | She and her husband bought a larger place for a growing family. | | - | 
 S27.3 | Her loan was $655,000, still under the conforming limit. | Her loan was six hundred fifty-five thousand dollars, still under the conforming limit. | loan_large | even
 S27.4 | She got the same drop, and a bill of $5,514, close to what Nora pays. | She got the same drop, and a bill of five thousand, five hundred fourteen dollars, close to what Nora pays. | cost_large | even
 S27.5 | Almost the same bill, spread over a much bigger loan. | | - | transition
-S27.6 | Her monthly savings are far bigger than what Nora saves. | | - | plain, sets up the win
+S27.6 | Her monthly savings are far bigger than what Nora saves. | | sav_large, sav_median | plain, sets up the win
 
 *Marker vuông ở bên phải khung (nhãn tên bằng ink); cùng lá thư. Huy hiệu ILLUSTRATIVE.*
 
@@ -361,3 +361,7 @@ S34.4 | [end screen 20 s] | (silent) | - | music tail, room tone
 **Mọi claim ID đã dùng (48):** `anchor_date`, `be_bal_025`, `be_bal_05`, `be_bal_10`, `be_bal_median`, `be_bal_small`, `be_simple_025`, `be_simple_median`, `cost_large`, `cost_median`, `cost_small`, `cut36_large_words`, `cut36_median`, `cut36_small`, `cut_today`, `cut_today_words`, `gap24`, `ge7_threshold`, `hold36`, `k35`, `loan_large`, `loan_median`, `loan_small`, `low`, `low_date`, `n31_approx`, `n_eps`, `n_further`, `net36_large`, `net36_median`, `net36_small`, `net84_median`, `oct2023`, `peak2023_since`, `purch23_words`, `r_old`, `r_today`, `s025`, `s05`, `s10`, `sav_median`, `sav_small`, `share_walt`, `term30`, `y1971`, `y2025`, `y3`, `y7`.
 
 **Claim ID còn thiếu:** không. Mọi ID đều có trong `numbers.md` (§4 A–G).
+
+## Changelog
+
+- 2026-09-29, micro-fix trong lúc đang thu giọng (ID không đổi): S04.2 bỏ "exact"; S06.2 "made that year" → "made in 2023"; S13.3 cắt nửa sau (trùng S13.4–S13.5); S08.3 ghi chú hình: chữ "Week ending September 24, 2026" trên màn hình; S27.6 thêm claim sav_large, sav_median. Bảng tự kiểm chưa chạy lại; chênh lệch ≈ −8 từ lời đọc, không đổi mật độ số.

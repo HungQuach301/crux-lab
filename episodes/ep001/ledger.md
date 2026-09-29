@@ -19,3 +19,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 | 2026-09-29 | CRITIC kịch bản vòng 1 | 0 | `story/critic-script-r1.md`: H1 5 · H2 4 · H3 4 · H4 5 · G-007 4 · G-008 4 · G-009 4 (TB 4,29, thấp nhất 4); 1 lỗi logic S13, vài câu sai nghĩa, "nominal" muộn, hồi 1 chậm. | 1 |
 | 2026-09-29 | WRITER kịch bản v2 | 0 | Sửa theo critic-script-r1: 1.510 từ, ~10:50; $221 ở ~1:50; 48 ID đều có trong numbers.md. | 2 |
 | 2026-09-29 | CRITIC kịch bản vòng 2 | 0 | `story/critic-script-r2.md`: H1 5 · H2 4 · H3 5 · H4 5 · G-007 5 · G-008 5 · G-009 4 (TB 4,71, thấp nhất 4). Dừng lặp (mọi điểm ≥ 4); 4 sửa nhỏ giao WRITER. | 2 |
+| 2026-09-29 | WRITER sửa nhỏ | 0 | S04.2, S06.2, S13.3 (đổi lời), S08.3 (ngày trên màn hình), S27.6 (ID). | 3 |
