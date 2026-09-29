@@ -9,101 +9,29 @@ import numpy as np
 from common import (asr_join, Missing, canon, canon_matches, metric, numbers_in_text, rule, sha256_file, spoken_numbers, verdict, words)
 from r_audio import asr_master, silent_spans, master
 
-STOCK_W, BOND_W = 0.6, 0.4
-FIRST_START, LAST_START, HORIZON = 1928, 1996, 30
-
-
 def page(ctx):
     """Output of the page sampler (checks/page/sampler.js): text track, claims seen, page-rule results."""
     return ctx.json('out/checks/page.json')
 
 
-def annual(ctx):
-    rows = list(csv.DictReader(open(ctx.need('data/normalized/annual.csv'))))
-    return {int(r['year']): (float(r['stocks']), float(r['bonds']), float(r['inflation'])) for r in rows}
+def model_out(ctx):
+    return ctx.json(ctx.cfield('model', 'output', kind=str))
 
 
-def simulate(seq, initial, rate):
-    """seq: list of (stocks, bonds, inflation) for years 1..30. Withdraw at the start of each year: year 1 = rate × initial,
-    later years = previous withdrawal × (1 + previous year's inflation). Then the rest earns the 60/40 return (rebalanced yearly).
-    Returns withdrawals, end-of-year nominal balances, end-of-year real balances (start-year dollars), depleted year index (1-based) or None."""
-    B, W = float(initial), rate * initial
-    ws, en, er, dep = [], [], [], None
-    price = 1.0
-    for k, (s, b, inf) in enumerate(seq):
-        if k > 0:
-            W *= 1 + seq[k - 1][2]
-        take = min(W, B)
-        if dep is None and B < W:
-            dep = k + 1
-        B = (B - take) * (1 + STOCK_W * s + BOND_W * b)
-        price *= 1 + inf
-        ws.append(take)
-        en.append(B)
-        er.append(B / price)
-    return ws, en, er, dep
-
-
-def close(a, b):
-    return abs(a - b) <= max(0.5, 1e-6 * abs(b))
-
-
-@rule('S01', 'DX-H1', 'independent re-computation of every path in out/model.json from data/normalized/annual.csv with the brief\'s model '
-      '(60/40 S&P 500 TR / 10-y Treasury, yearly rebalance, start-of-year withdrawal, year 1 = 4% of initial, then × (1 + previous year\'s inflation), 30 years, no tax, no fee); '
-      'compared value by value (withdrawals, end-of-year nominal and real balances, depletion year)',
-      'model parameters exactly 0.60/0.40, 4%, 30 years; every value within max($0.50, 1e-6 relative); 0 mismatches')
+@rule('S01', 'DX-H1', 'independent re-computation of the episode model (K2: read from the episode contract, contract.json `model`): `kind` names the checker\'s own '
+      're-implementation (checks/py/r_model.py: "retirement-6040" = test D\'s 60/40 withdrawal model, "refinance-breakeven" = Episode 1: payment = P·r/(1 − (1 + r)^−n), '
+      'r = annual %/1200, savings = payment(old) − payment(old − spread), break-even = ceil(cost / savings), spread for a target = smallest cut with savings ≥ cost / months); '
+      '`params` its inputs; `output` the builder\'s model file, compared value by value. A part of the model output the kind does not re-compute is listed (not silently trusted). '
+      'Contract without model.kind / output / params, or a kind without a re-implementation = MISSING',
+      'every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared')
 def s01_model(ctx):
-    m = ctx.json('out/model.json')
-    data = annual(ctx)
-    ms = [metric('weights', [m.get('weights', {}).get('stocks'), m.get('weights', {}).get('bonds')], '==', [0.6, 0.4]),
-          metric('withdrawal rate', m.get('rate'), '==', 0.04), metric('horizon years', m.get('years'), '==', 30),
-          metric('tax', m.get('tax', 0), '==', 0), metric('fees', m.get('fees', 0), '==', 0)]
-    init = m['initial']
-    bad, checked = [], 0
-
-    def cmp(key, seq, p):
-        nonlocal checked
-        ws, en, er, dep = simulate(seq, init, 0.04)
-        for name, mine in (('withdrawals', ws), ('endNominal', en), ('endReal', er)):
-            theirs = p.get(name)
-            if theirs is None:
-                bad.append((key, name, 'missing'))
-                continue
-            for k, (a, b) in enumerate(zip(theirs, mine)):
-                checked += 1
-                if not close(a, b):
-                    bad.append((key, name, k + 1, round(a, 2), round(b, 2)))
-                    break
-            if len(theirs) != len(mine):
-                bad.append((key, name, 'length', len(theirs)))
-        if p.get('depletedYear', None) != dep:
-            bad.append((key, 'depletedYear', p.get('depletedYear'), dep))
-
-    paths = m.get('paths', {})
-    if '1966' in paths:
-        cmp('1966', [data[y] for y in range(1966, 1996)], paths['1966'])
-    else:
-        bad.append(('1966', 'path missing'))
-    if 'mirror' in paths:
-        mir = paths['mirror']
-        rev = set(mir.get('reverse', []))
-        base = [data[y] for y in range(1966, 1996)]
-        rr = base[::-1]
-        seq = [(rr[k][0], rr[k][1], (rr[k] if 'inflation' in rev else base[k])[2]) for k in range(30)] if 'returns' in rev else None
-        if seq is None:
-            bad.append(('mirror', 'reverse must include "returns"'))
-        else:
-            cmp('mirror', seq, mir)
-    else:
-        bad.append(('mirror', 'path missing'))
-    for y in range(FIRST_START, LAST_START + 1):
-        p = m.get('starts', {}).get(str(y))
-        if p is None:
-            bad.append((y, 'start year missing'))
-            continue
-        cmp(str(y), [data[k] for k in range(y, y + HORIZON)], p)
-    ms += [metric('values compared', checked, '>=', 1), metric('mismatches', len(bad), '<=', 0)]
-    return verdict('S01', ms, details=bad[:20])
+    import r_model
+    cmp_, _, _ = r_model.kind(ctx)
+    params = ctx.cfield('model', 'params', kind=dict)
+    checked, bad, unrec = cmp_(ctx, params, model_out(ctx))
+    return verdict('S01', [metric('values compared', checked, '>=', 1), metric('mismatches', len(bad), '<=', 0),
+                           metric('model parts not re-computed', len(unrec), '<=', 0)],
+                   details=[{'kind': ctx.cfield('model', 'kind'), 'notRecomputed': unrec}, *bad[:20]])
 
 
 def visible_texts(ctx, scene_filter=None):
@@ -138,11 +66,13 @@ def s02_notax(ctx):
                            metric('no-tax on screen elsewhere', f(out, NO_TAX), '==', True), metric('no-fee on screen elsewhere', f(out, NO_FEE), '==', True)])
 
 
-@rule('S03', 'DX-H4', 'data/sources.json: per raw file path, url, sha256, downloaded (ISO date), terms {quote, url}; SHA-256 recomputed from the committed file; '
-      'hosts of primary (Damodaran) and cross-check (FRED) sources',
-      'every file present with matching SHA-256, valid date, http(s) URL, terms quote ≥ 20 chars and terms URL; a primary file on pages.stern.nyu.edu; a cross-check file on fred.stlouisfed.org')
+@rule('S03', 'DX-H4', 'sources file named by the episode contract (contract.json data.sources, e.g. data/sources.json): per raw file path, url, sha256, downloaded (ISO date), '
+      'terms {quote, url}; SHA-256 recomputed from the committed file; host of each file by role vs the hosts the contract declares (data.hosts.primary / data.hosts.crosscheck; '
+      'test D: pages.stern.nyu.edu / fred.stlouisfed.org). Contract without data.sources or data.hosts = MISSING',
+      'every file present with matching SHA-256, valid date, http(s) URL, terms quote ≥ 20 chars and terms URL; ≥ 1 primary file on a declared primary host; ≥ 1 cross-check file on a declared cross-check host')
 def s03_provenance(ctx):
-    src = ctx.json('data/sources.json')
+    src = ctx.json(ctx.cfield('data', 'sources', kind=str))
+    want = {r: [h.lower() for h in ctx.cfield('data', 'hosts', r, kind=list)] for r in ('primary', 'crosscheck')}
     bad = []
     hosts = {'primary': set(), 'crosscheck': set()}
     for f in src.get('files', []):
@@ -162,79 +92,146 @@ def s03_provenance(ctx):
         t = f.get('terms') or {}
         if len(t.get('quote') or '') < 20 or urlparse(t.get('url') or '').scheme not in ('http', 'https'):
             bad.append((pid, 'terms quote/url missing'))
-        hosts.setdefault(f.get('role'), set()).add(u.netloc)
+        hosts.setdefault(f.get('role'), set()).add(u.netloc.lower())
+    on = lambda role: any(h == w or h.endswith('.' + w) for h in hosts.get(role, ()) for w in want[role])
     ms = [metric('files', len(src.get('files', [])), '>=', 2), metric('file problems', len(bad), '<=', 0),
-          metric('primary on pages.stern.nyu.edu', any(h.endswith('stern.nyu.edu') for h in hosts.get('primary', ())), '==', True),
-          metric('cross-check on fred.stlouisfed.org', any(h.endswith('stlouisfed.org') for h in hosts.get('crosscheck', ())), '==', True)]
-    return verdict('S03', ms, details=bad)
+          metric('primary on a declared host', on('primary'), '==', True), metric('cross-check on a declared host', on('crosscheck'), '==', True)]
+    return verdict('S03', ms, details=[{'declaredHosts': want, 'seenHosts': {k: sorted(v) for k, v in hosts.items()}}, *bad])
 
 
-@rule('S04', 'DX-H5', 'data/normalized/annual.csv (primary) vs data/normalized/fred_inflation.csv (FRED CPI) and, if present, data/normalized/stocks2.csv; '
-      'years used = 1928 … 2025 (every 30-year window 1928–1996); |primary − cross-check| per year in percentage points vs the tolerance declared in data/sources.json',
-      'declared tolerance ≤ 0.5 pp (inflation) and ≤ 0.5 pp (stocks); every year outside tolerance is listed in sources.json "mismatches" (reported, not silently resolved); every used year present in both')
+def _series(ctx, spec):
+    """{file, key, column, scale?}: key -> value × scale (e.g. scale 100 turns a fraction into percentage points)."""
+    for k in ('file', 'key', 'column'):
+        if not spec.get(k):
+            raise Missing(f'contract.json: data.crosscheck[].{{primary|crosscheck}}.{k}')
+    sc = float(spec.get('scale', 1))
+    out = {}
+    for r in csv.DictReader(open(ctx.need(spec['file']))):
+        v = r.get(spec['column'])
+        if v not in (None, ''):
+            out[str(r[spec['key']]).strip()] = float(v) * sc
+    return out
+
+
+def _keys(spec, prim, cross):
+    """Keys used by the episode: `used: {"from": a, "to": b}` (integer years, inclusive) or `used: "crosscheck"` (every key of the cross-check
+    series inside the primary series' span, the overlap the episode declares it checked)."""
+    u = spec.get('used')
+    if isinstance(u, dict) and 'from' in u and 'to' in u:
+        return [str(y) for y in range(int(u['from']), int(u['to']) + 1)]
+    if u == 'crosscheck':
+        lo, hi = min(prim), max(prim)
+        return sorted(k for k in cross if lo <= k <= hi)
+    raise Missing('contract.json: data.crosscheck[].used ({"from","to"} or "crosscheck")')
+
+
+@rule('S04', 'DX-H5', 'series pairs the episode contract declares (contract.json data.crosscheck[]: series, primary {file, key, column, scale}, crosscheck {file, key, column, scale}, '
+      'tolerance, used); per used key |primary − cross-check| (after scale) vs the declared tolerance; mismatches listed in the sources file (data.sources) "mismatches" '
+      '[{year|key, series}]. Test D: annual.csv vs fred_inflation.csv (inflation) and stocks2.csv (stocks), 1928–2025. Contract without data.crosscheck = MISSING',
+      '≥ 1 pair; every declared tolerance ≤ 0.5 (pp); every used key present in both series; every key outside tolerance listed in "mismatches" (reported, not silently resolved)')
 def s04_crosscheck(ctx):
-    src = ctx.json('data/sources.json')
-    tol = src.get('tolerance', {})
-    prim = annual(ctx)
-    used = range(FIRST_START, LAST_START + HORIZON)
-    listed = {(int(m['year']), m['series']) for m in src.get('mismatches', [])}
-    unreported, missing, over = [], [], 0
-
-    def compare(rel, col, idx, series, t):
-        nonlocal over
-        rows = {int(r['year']): float(r[col]) for r in csv.DictReader(open(ctx.need(rel)))}
-        for y in used:
-            if y not in rows or y not in prim:
-                missing.append((series, y))
+    pairs = ctx.cfield('data', 'crosscheck', kind=list)
+    src = ctx.json(ctx.cfield('data', 'sources', kind=str))
+    listed = {(str(m.get('key', m.get('year'))), m.get('series')) for m in src.get('mismatches', [])}
+    ms, rows = [metric('series pairs', len(pairs), '>=', 1)], []
+    unreported, missing = [], []
+    for sp in pairs:
+        name, tol = sp.get('series'), sp.get('tolerance')
+        if name is None or tol is None:
+            raise Missing('contract.json: data.crosscheck[].series / tolerance')
+        prim, cross = _series(ctx, sp.get('primary') or {}), _series(ctx, sp.get('crosscheck') or {})
+        over = 0
+        for k in _keys(sp, prim, cross):
+            if k not in prim or k not in cross:
+                missing.append((name, k))
                 continue
-            d = abs(rows[y] - prim[y][idx]) * 100
-            if d > t:
+            d = abs(prim[k] - cross[k])
+            if d > float(tol) + 1e-12:
                 over += 1
-                if (y, series) not in listed:
-                    unreported.append((series, y, round(d, 3)))
-
-    ti, ts = tol.get('inflation_pp'), tol.get('stocks_pp')
-    compare('data/normalized/fred_inflation.csv', 'inflation', 2, 'inflation', ti if ti is not None else 0)
-    if ctx.has('data/normalized/stocks2.csv'):
-        compare('data/normalized/stocks2.csv', 'stocks', 0, 'stocks', ts if ts is not None else 0)
-    ms = [metric('inflation tolerance pp', ti, '<=', 0.5, 'pp') if ti is not None else metric('inflation tolerance declared', False, '==', True),
-          metric('stocks tolerance pp', ts, '<=', 0.5, 'pp') if ts is not None else metric('stocks tolerance declared', False, '==', True),
-          metric('used years missing in a source', len(missing), '<=', 0), metric('out-of-tolerance years not reported', len(unreported), '<=', 0)]
-    return verdict('S04', ms, details=[{'overTolerance': over, 'unreported': unreported[:15], 'missing': missing[:15]}])
+                if (k, name) not in listed:
+                    unreported.append((name, k, round(d, 3)))
+        ms.append(metric(f'{name} tolerance', float(tol), '<=', 0.5, 'pp'))
+        rows.append({'series': name, 'overTolerance': over})
+    ms += [metric('used keys missing in a source', len(missing), '<=', 0), metric('out-of-tolerance keys not reported', len(unreported), '<=', 0)]
+    return verdict('S04', ms, details=[{'pairs': rows, 'unreported': unreported[:15], 'missing': missing[:15]}])
 
 
-def geo_mean(seq):
-    g = np.prod([1 + STOCK_W * s + BOND_W * b for s, b, _ in seq]) ** (1 / len(seq)) - 1
-    return float(g)
-
-
-@rule('S05', 'DX-H1, DX-H2', 'geometric mean of the 60/40 yearly return, recomputed for 1966–1995 and for the mirror sequence (1995 → 1966); the displayed claims '
-      '(claims with character "1966"/"mirror" and kind "geomean") compared with the recomputation; mirror claims flagged illustrative',
-      '|G(1966) − G(mirror)| ≤ 0.01 pp; each displayed geomean claim within 0.005 pp of its recomputation; every mirror claim illustrative')
-def s05_mirror(ctx):
-    data = annual(ctx)
-    base = [data[y] for y in range(1966, 1996)]
-    g1, g2 = geo_mean(base), geo_mean(base[::-1])
+def _mapped_claims(ctx):
+    """contract.json model.claims: {claimId: key} or [{where: {field: value}, key}] (a claim matched by its fields, e.g. kind + character)."""
+    spec = ctx.cfield('model', 'claims')
     cl = ctx.claims()
-    gm = [c for c in cl if c.get('kind') == 'geomean' and c.get('character') in ('1966', 'mirror')]
-    off = [(c['claimId'], c['value']) for c in gm if abs(float(c['value']) - 100 * (g1 if c['character'] == '1966' else g2)) > 0.005]
-    mir = [c['claimId'] for c in cl if c.get('character') == 'mirror' and not c.get('illustrative')]
-    return verdict('S05', [metric('|G1966 - Gmirror| pp', abs(g1 - g2) * 100, '<=', 0.01, 'pp'), metric('geomean claims shown', len(gm), '>=', 2),
-                           metric('geomean claims off', len(off), '<=', 0), metric('mirror claims not illustrative', len(mir), '<=', 0)],
-                   details=[{'G1966 %': round(g1 * 100, 4), 'Gmirror %': round(g2 * 100, 4), 'off': off, 'notIllustrative': mir}])
+    out = []
+    if isinstance(spec, dict):
+        by = {c['claimId']: c for c in cl}
+        for cid, key in spec.items():
+            out.append((cid, by.get(cid), key))
+    elif isinstance(spec, list):
+        for m in spec:
+            hit = [c for c in cl if all(c.get(k) == v for k, v in (m.get('where') or {}).items())]
+            out += [(c['claimId'], c, m['key']) for c in hit] or [(str(m.get('where')), None, m['key'])]
+    else:
+        raise Missing('contract.json: model.claims')
+    return out
 
 
-@rule('S06', 'DX-H6', 'page sampler: objects with a `year` attribute visible (opacity > 0.5, on frame) in act-3 frames; union over act 3',
-      'every start year 1928 … 1996 shown (69 of 69), including years where order did no harm')
-def s06_allyears(ctx):
+@rule('S05', 'DX-H1, DX-H2', 'claims the episode contract maps to model quantities (contract.json model.claims) compared with the checker\'s own re-computation of that '
+      'quantity (r_model value(): e.g. "geomean:1966", "breakEven:0.5", "spreadFor:36"); the model kind\'s thesis invariants from model.params (test D: sameGeomean '
+      '1966/mirror within 0.01 pp); ILLUSTRATIVE flags: every claim listed in contract claims.illustrative, and every claim of a character the contract marks illustrative, '
+      'carries illustrative=true in out/claims.json',
+      '≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag')
+def s05_model_claims(ctx):
+    import r_model
+    _, value, inv = r_model.kind(ctx)
+    params = ctx.cfield('model', 'params', kind=dict)
+    ill = ctx.cfield('claims', 'illustrative', kind=list)
+    chars = ctx.cfield('characters', kind=dict)
+    cl = ctx.claims()
+    by = {c['claimId']: c for c in cl}
+    off, absent = [], []
+    mapped = _mapped_claims(ctx)
+    for cid, c, key in mapped:
+        if c is None:
+            absent.append(cid)
+            continue
+        mine, tol = value(ctx, params, key)
+        if abs(float(c['value']) - mine) > tol + 1e-9:
+            off.append((cid, key, c['value'], round(mine, 4)))
+    ill_chars = {k for k, v in chars.items() if isinstance(v, dict) and v.get('illustrative')}
+    noflag = [cid for cid in ill if cid in by and not by[cid].get('illustrative')] + [c['claimId'] for c in cl if c.get('character') in ill_chars and not c.get('illustrative')]
+    noflag += [f'{cid} (not in claims)' for cid in ill if cid not in by]
+    ms = [metric('mapped claims', len(mapped), '>=', 1), metric('mapped claims absent', len(absent), '<=', 0), metric('claims off their re-computation', len(off), '<=', 0),
+          *inv(ctx, params), metric('claims missing their ILLUSTRATIVE flag', len(noflag), '<=', 0)]
+    return verdict('S05', ms, details=[{'off': off, 'absent': absent, 'missingIllustrative': noflag}])
+
+
+@rule('S06', 'DX-H6', 'every case the episode promises to show (contract.json coverage[]: attribute "year" or "case", act, values [..] or range [a, b]): page sampler objects '
+      'carrying that attribute, visible (opacity > 0.5, on frame) in frames of that act; union over the act. Test D: year, act 3, 1928–1996. Contract without coverage = MISSING',
+      'every declared value shown (e.g. 69 of 69 start years), including cases where the thesis did not hold')
+def s06_allcases(ctx):
+    cov = ctx.cfield('coverage', kind=list)
     p = page(ctx)
     acts = scene_acts(ctx)
-    shown = set()
-    for s in p.get('yearsTrack', []):
-        if acts.get(s['scene']) == 'act3':
-            shown |= set(int(y) for y in s['years'])
-    want = set(range(FIRST_START, LAST_START + 1))
-    return verdict('S06', [metric('start years shown in act 3', len(want & shown), '>=', len(want))], details=[{'missing': sorted(want - shown)[:30]}])
+    ms, det = [metric('coverage statements', len(cov), '>=', 1)], []
+    for c in cov:
+        attr, act = c.get('attribute'), c.get('act')
+        if attr not in ('year', 'case') or not act:
+            raise Missing('contract.json: coverage[].attribute ("year"|"case") / act')
+        if c.get('values') is not None:
+            want = {str(v) for v in c['values']}
+        elif c.get('range'):
+            want = {str(y) for y in range(int(c['range'][0]), int(c['range'][1]) + 1)}
+        else:
+            raise Missing('contract.json: coverage[].values or range')
+        track = p.get('yearsTrack' if attr == 'year' else 'casesTrack')
+        if track is None:
+            raise Missing(f'out/checks/page.json {"yearsTrack" if attr == "year" else "casesTrack"}')
+        shown = set()
+        for s in track:
+            if acts.get(s['scene']) == act:
+                shown |= {str(v) for v in s.get('years' if attr == 'year' else 'cases', [])}
+        ms.append(metric(f'{attr} values shown in {act}', len(want & shown), '>=', len(want)))
+        det.append({'attribute': attr, 'act': act, 'missing': sorted(want - shown)[:30]})
+    return verdict('S06', ms, details=det)
 
 
 def claim_canons(c):
@@ -413,11 +410,33 @@ def s12_density(ctx):
                    details=[{'limit': round(total / 8, 1), 'crowded': {k: v for k, v in per.items() if len(v) > 2}}])
 
 
-@rule('S13', 'DX-S8', 'sentence length = words in each out/script.json sentence text; coefficient of variation = population std / mean', 'CV ≥ 0.35')
-def s13_sentence_cv(ctx):
-    n = np.array([len(words(s['text'])) for s in ctx.sentences()], float)
-    cv = float(n.std() / n.mean()) if len(n) else None
-    return verdict('S13', [metric('sentence length CV', cv, '>=', 0.35)], details=[{'sentences': len(n), 'mean': round(float(n.mean()), 1) if len(n) else None}])
+S13_SHORT = 6      # words: a short sentence
+S13_RUN = 3        # this many short sentences in a row = a staccato passage (sổ gu G-009: "không cụt lủn")
+S13_MINW = 4       # words: sentences shorter than this do not count toward the length variation
+
+
+@rule('S13', 'DX-S8 (sổ gu G-009)', 'K2 redefinition. Sentence length = words in each out/script.json sentence text (in script order). (a) Variation: coefficient of variation '
+      '(population std / mean) over the sentences of ≥ 4 words: long and short sentences alternate, and fragments cannot buy the variation. (b) Flow: a staccato passage '
+      '= ≥ 3 consecutive sentences of ≤ 6 words each (a single short sentence for emphasis is allowed; a string of them is choppy). Narration without numbers is never penalised',
+      'PROVISIONAL: CV (sentences ≥ 4 words) ≥ 0.35; 0 staccato passages')
+def s13_sentence_flow(ctx):
+    ss = ctx.sentences()
+    n = np.array([len(words(s['text'])) for s in ss], float)
+    m = n[n >= S13_MINW]
+    cv = float(m.std() / m.mean()) if len(m) else None
+    runs, cur = [], []
+    for s, k in zip(ss, n):
+        if k <= S13_SHORT:
+            cur.append(s)
+            continue
+        if len(cur) >= S13_RUN:
+            runs.append(cur)
+        cur = []
+    if len(cur) >= S13_RUN:
+        runs.append(cur)
+    return verdict('S13', [metric('sentence length CV (≥ 4 words)', cv, '>=', 0.35), metric('staccato passages', len(runs), '<=', 0)],
+                   details=[{'sentences': len(n), 'mean': round(float(n.mean()), 1) if len(n) else None, 'cvAllSentences': round(float(n.std() / n.mean()), 3) if len(n) else None},
+                            *[{'from': r[0].get('id'), 'texts': [x['text'] for x in r]} for r in runs[:10]]])
 
 
 @rule('S14', 'DX-S10', 'out/adbreaks.json times; act boundaries from out/timeline.json acts; natural silence = span where the master RMS (50 ms/10 ms) stays ≤ −40 dBFS',
@@ -450,3 +469,60 @@ def s15_structure(ctx):
           metric('outro s', d.get('outro'), '>=', 20.0, 's'), metric('total s', ctx.total(), '>=', 600.0, 's'), metric('act gaps', len(gaps), '<=', 0),
           metric('scenes outside their act', len(outside), '<=', 0)]
     return verdict('S15', ms, details=[{'gaps': gaps, 'outside': outside[:10]}])
+
+
+# ---- S16 (K2, sổ gu G-008, PROVISIONAL): decisive numbers tied to the viewer's situation ---------------------------------
+S16_SHARE = 0.75  # provisional; no owner-scored episode to calibrate on yet (checks/README.md "Ngưỡng tạm")
+
+
+def _anchors(ctx):
+    """contract.json characters[k].words and scenarios[k].words: the words and phrases by which the script names that character or scenario
+    ("the median borrower", "36 months"). A character or scenario without `words` = MISSING (the checker does not guess how the script names it)."""
+    out = {}
+    for group in ('characters', 'scenarios'):
+        for k, v in (ctx.contract().get(group) or {}).items():
+            if not isinstance(v, dict):
+                continue
+            ws = v.get('words')
+            if not ws or not isinstance(ws, list):
+                raise Missing(f'contract.json: {group}.{k}.words')
+            out[f'{group}.{k}'] = [w.lower() for w in ws]
+    if not out:
+        raise Missing('contract.json: characters or scenarios (with words)')
+    return out
+
+
+def _says(text, phrase):
+    """Whole-word, case-insensitive; a one-word phrase also matches its plural ("retiree" / "retirees")."""
+    norm = lambda x: ' ' + ' '.join(re.findall(r"[a-z0-9$%]+(?:[.,][0-9]+)*", x.lower())) + ' '
+    t, p = norm(text), norm(phrase)
+    return p in t or (len(p.split()) == 1 and p[:-1] + 's ' in t)
+
+
+@rule('S16', 'DX-S3, RUBRIC H4 (sổ gu G-008)', 'decisive numbers = displays of the claims with decisive=true in out/claims.json or listed in contract.json claims.decisive; a decisive '
+      'sentence = an out/script.json sentence whose text says one of them (numbers compared as values). It is tied to the viewer\'s situation when that sentence, or any sentence '
+      'before it in the same scene (the story has already put the viewer with that person or scenario; sổ gu G-009: a story does not repeat the name in every sentence), names a character or a scenario the episode contract declares (characters.<k>.words, scenarios.<k>.words; whole-word match, case-insensitive). '
+      'Contract without the words of its characters/scenarios = MISSING',
+      'PROVISIONAL: ≥ 1 decisive sentence; ≥ 75% of decisive sentences tied to a declared character or scenario')
+def s16_situation(ctx):
+    anchors = _anchors(ctx)
+    dec_ids = set(ctx.cfield('claims', 'decisive', kind=list))
+    dec = [c for c in ctx.claims() if c.get('decisive') or c.get('claimId') in dec_ids]
+    want = {c['claimId']: [x for x, _ in numbers_in_text(str(c.get('display', '')))] for c in dec}
+    sents = sorted(ctx.sentences(), key=lambda s: s['start'])
+    rows = []
+    for i, s in enumerate(sents):
+        have = [x for x, _ in numbers_in_text(s['text'])]
+        hit = [cid for cid, cs in want.items() if any(canon_matches(c, have) for c in cs)]
+        if not hit:
+            continue
+        j = i
+        while j and sents[j - 1].get('scene') == s.get('scene'):
+            j -= 1
+        ctx_text = ' '.join(x['text'] for x in sents[j:i + 1])
+        tied = sorted(k for k, ws in anchors.items() if any(_says(ctx_text, w) for w in ws))
+        rows.append({'sentence': s.get('id'), 'claims': hit, 'tiedTo': tied, 'text': s['text'][:120]})
+    tied = sum(1 for r in rows if r['tiedTo'])
+    share = tied / len(rows) if rows else None
+    return verdict('S16', [metric('decisive sentences', len(rows), '>=', 1), metric('share tied to a character or scenario', share, '>=', S16_SHARE)],
+                   details=[{'decisiveClaims': sorted(want), 'anchors': sorted(anchors)}, *[r for r in rows if not r['tiedTo']][:15]])

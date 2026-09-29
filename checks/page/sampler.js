@@ -106,7 +106,7 @@ async function run() {
   const textTrack = [], yearsTrack = [];
   let lastTextSig = '';
   const claimScenes = {}, claimFirst = {}, claimRoles = {}, claimFinal = {};
-  const orphan = [], charObs = {}, posRows = [], timeBad = [];
+  const orphan = [], charObs = {}, charSides = {}, casesTrack = [], posRows = [], timeBad = [];
   let s08Without = 0, s08Lag = 0; const s08Ex = []; const s09Ex = []; let s09Missing = 0;
   const badgeFirst = {}, illFirst = {};
   const px = { collisions: [], movingCollisions: 0, safe: [], safeTravelling: 0, contrast: [], small: [], worstContrast: null, samples: 0,
@@ -181,7 +181,14 @@ async function run() {
     for (const o of R.orphanNumbers(objs)) if (orphan.length < 200 && !orphan.some((x) => x.text === o.text)) orphan.push({ t: +t.toFixed(2), scene: s.id, ...o });
     const ch = R.characters(objs);
     for (const [k, v] of Object.entries(ch)) { const c = charObs[k] ||= { xs: [], colours: {}, shapes: {} }; v.colours.forEach((x) => { c.colours[x] = (c.colours[x] || 0) + 1; }); v.shapes.forEach((x) => { c.shapes[x] = (c.shapes[x] || 0) + 1; }); }
-    if (ch['1966'] && ch.mirror) (charObs.sides ||= []).push(Math.sign(Math.min(...ch['1966'].xs) - Math.min(...ch.mirror.xs)) * (Math.abs(Math.min(...ch['1966'].xs) - Math.min(...ch.mirror.xs)) >= 20 ? 1 : 0));
+    // K2: every pair of characters seen together (names come from the page's `char`; the episode contract says which are characters and on which side)
+    const cks = Object.keys(ch).sort();
+    for (let i = 0; i < cks.length; i++) for (let j = i + 1; j < cks.length; j++) {
+      const d = Math.min(...ch[cks[i]].xs) - Math.min(...ch[cks[j]].xs);
+      if (Math.abs(d) >= 20) { const sp = (charSides[cks[i] + '|' + cks[j]] ||= { samples: 0, signs: {} }); sp.samples++; sp.signs[Math.sign(d)] = (sp.signs[Math.sign(d)] || 0) + 1; }
+    }
+    const cases = [...new Set(objs.filter((o) => o.case != null && o.opacity > 0.5 && R.onFrame(R.B(o))).map((o) => String(o.case)))];
+    if (cases.length) casesTrack.push({ t: +t.toFixed(2), scene: s.id, cases });
     const tb = R.timeOrder(objs); if (tb.length && timeBad.length < 10) timeBad.push({ t: +t.toFixed(2), ...tb[0] });
     const years = [...new Set(objs.filter((o) => o.year != null && o.opacity > 0.5 && R.onFrame(R.B(o))).map((o) => +o.year))];
     if (years.length) yearsTrack.push({ t: +t.toFixed(2), scene: s.id, years });
@@ -360,14 +367,13 @@ async function run() {
     worst: [...px.ncc].sort((a, b) => a.ncc - b.ncc).slice(0, 10), examples: distinct(px.ncc, (x) => x.scene + '|' + x.tid) };
   const mode = (o) => Object.entries(o || {}).sort((a, b) => b[1] - a[1])[0];
   const characters = {};
-  for (const k of ['1966', 'mirror']) if (charObs[k]) { const mc = mode(charObs[k].colours), ms = mode(charObs[k].shapes); const n = Object.values(charObs[k].colours).reduce((a, b) => a + b, 0); const ns = Object.values(charObs[k].shapes).reduce((a, b) => a + b, 0);
+  for (const k of Object.keys(charObs)) { const mc = mode(charObs[k].colours), ms = mode(charObs[k].shapes); const n = Object.values(charObs[k].colours).reduce((a, b) => a + b, 0); const ns = Object.values(charObs[k].shapes).reduce((a, b) => a + b, 0);
     characters[k] = { mainColour: mc && mc[0], colourShare: mc ? mc[1] / n : 0, mainShape: ms && ms[0], shapeShare: ms ? ms[1] / ns : 0 }; }
-  const sides = charObs.sides || [];
-  rules.V04 = { characters, sideSamples: sides.filter((x) => x).length, sideSigns: [...new Set(sides.filter((x) => x))], timeOrderViolations: timeBad };
+  rules.V04 = { characters, pairs: charSides, timeOrderViolations: timeBad };
   const out = {
     root: ROOT, step: STEP, pixelStep: PSTEP, samples: Object.values(per).reduce((a, p) => a + p.samples, 0), pixelSamples: px.samples, seconds: +((Date.now() - t0) / 1000).toFixed(1),
     rules, characters, chartEvents, movingSamples, cameraFromFile: hasCam,
-    textTrack, yearsTrack, orphanNumbers: orphan,
+    textTrack, yearsTrack, casesTrack, orphanNumbers: orphan,
     claimScenes: Object.fromEntries(Object.entries(claimScenes).map(([k, v]) => [k, [...v]])), claimFirst, claimRoles: Object.fromEntries(Object.entries(claimRoles).map(([k, v]) => [k, [...v]])), claimFinal,
     scenes: Object.fromEntries(Object.entries(per).map(([k, v]) => [k, { samples: v.samples, issues: v.issues }])),
   };

@@ -228,3 +228,23 @@ def f10_chapters(ctx):
     ms = [metric('chapters', len(ch), '>=', 3), metric('first chapter start s', ch[0]['start'] if ch else None, '==', 0),
           metric('shortest chapter s', min(lens) if lens else 0, '>=', 10.0, 's'), metric('mp4 chapters agree', same, '==', True)]
     return verdict('F10', ms, details=[{'chapters': ch, 'mp4': mp4}])
+
+
+RELEASE_FILES = ['out/video.mp4', 'out/captions.srt', 'out/package/description.md', 'out/timeline.json', 'out/script.json', 'out/claims.json',
+                 'out/audio/stems/voice.*', 'out/audio/stems/music.*', 'out/audio/stems/sfx.*', 'out/audio/stems/whoosh.*', 'out/audio/stems/room.*',
+                 'out/audio/stems/sonify.*', 'out/voice/takes.json', 'out/camera.json', 'out/sfx-events.json', 'out/sonify-events.json', 'out/tempo-map.json',
+                 'out/transitions.json', 'out/cues.json', 'out/tension-map.json', 'out/tension-map.png', 'out/adbreaks.json', 'preprod/shotlist.json',
+                 'design/tokens.json', 'out/package/thumb-1.png', 'out/package/thumb-2.png', 'out/package/thumb-3.png', 'out/page.json']
+
+
+@rule('F11', 'CH §4 khâu 3 (hợp đồng tập, K2)', 'episode contract (contract.json) artefacts.M3: the release list of paths (globs allowed); each must match ≥ 1 file under the root. '
+      'The list must include every release file of checks/CONTRACT.md (RELEASE_FILES; a stem may be .wav or .flac). Contract without artefacts.M3 = MISSING',
+      'every declared M3 artefact delivered; every checks/CONTRACT.md release file declared')
+def f11_artefacts(ctx):
+    import fnmatch
+    import glob
+    decl = ctx.cfield('artefacts', 'M3', kind=list)
+    absent = [p for p in decl if not glob.glob(ctx.path(p))]
+    undeclared = [r for r in RELEASE_FILES if not any(fnmatch.fnmatch(r, d) or fnmatch.fnmatch(d, r) for d in decl)]
+    return verdict('F11', [metric('declared M3 artefacts', len(decl), '>=', 1), metric('declared artefacts not delivered', len(absent), '<=', 0),
+                           metric('release files not declared', len(undeclared), '<=', 0)], details=[{'notDelivered': absent[:30], 'notDeclared': undeclared}])

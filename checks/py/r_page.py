@@ -63,21 +63,62 @@ def v03(ctx):
     return verdict('V03', [metric('text outside safe area', r['violations'], '<=', 0)], details=[{'travellingSamples': r.get('travellingSamples')}, *r['examples']])
 
 
-@rule('V04', 'DX-V4, DX-X3', 'objects with char "1966"/"mirror" every 0.1 s: horizontal order when both are visible (|Δx| ≥ 20 px), share of the main colour and main shape of each; '
-      'year axis labels (role axis-label with year) ordered left → right',
-      'one side only for the whole video (≥ 1 sample); each character\'s main colour ≥ 95% and main shape ≥ 95% of its observations; colours differ; shapes differ; 0 time-order violations')
+def contract_characters(ctx):
+    """contract.json characters: {key: {color, shape, side?, illustrative?}}; `color` = a token name of design/tokens.json (colors, series, seriesOf)
+    or a #hex. Entries that are not objects (e.g. a "note") are ignored. A character without color or shape = MISSING."""
+    chars = {k: v for k, v in ctx.cfield('characters', kind=dict).items() if isinstance(v, dict)}
+    if not chars:
+        raise Missing('contract.json: characters (no character declared)')
+    tok = ctx.json('design/tokens.json') if ctx.has('design/tokens.json') else {}
+    pal = {**(tok.get('seriesOf') or {}), **(tok.get('series') or {}), **(tok.get('colors') or {})}
+    out = {}
+    for k, v in chars.items():
+        for f in ('color', 'shape'):
+            if not v.get(f):
+                raise Missing(f'contract.json: characters.{k}.{f}')
+        c = v['color']
+        if not str(c).startswith('#'):
+            if c not in pal:
+                raise Missing(f'design/tokens.json colour token "{c}" (contract characters.{k}.color)')
+            c = pal[c]
+        out[k] = {**v, 'hex': str(c).lower()}
+    return out
+
+
+SIDE_ORDER = {'left': 0, 'centre': 1, 'center': 1, 'right': 2}
+
+
+@rule('V04', 'DX-V4, DX-X3', 'characters read from the episode contract (contract.json characters: color token or hex, shape, side); page objects with that `char` every 0.1 s: '
+      'main colour and main shape of each (most frequent fill/stroke, shape) and their shares; for every pair of characters seen together (|Δx| ≥ 20 px) the sign of their '
+      'horizontal order; year axis labels (role axis-label with year) ordered left → right. Contract without characters (or a character without color/shape) = MISSING',
+      'every declared character seen; main colour = declared colour and ≥ 95% of its observations; main shape = declared shape and ≥ 95%; declared colours all differ; '
+      'each pair keeps one side for the whole video, and the side the contract declares (left < centre < right) when both sides are declared; 0 time-order violations')
 def v04(ctx):
+    want = contract_characters(ctx)
     r = pr(ctx, 'V04')
     ch = r['characters']
-    both = '1966' in ch and 'mirror' in ch
-    ms = [metric('both characters seen', both, '==', True), metric('side samples', r['sideSamples'], '>=', 1), metric('sides used', len(r['sideSigns']), '<=', 1)]
-    if both:
-        ms += [metric('1966 colour share', ch['1966']['colourShare'], '>=', 0.95), metric('mirror colour share', ch['mirror']['colourShare'], '>=', 0.95),
-               metric('1966 shape share', ch['1966']['shapeShare'], '>=', 0.95), metric('mirror shape share', ch['mirror']['shapeShare'], '>=', 0.95),
-               metric('colours differ', ch['1966']['mainColour'] != ch['mirror']['mainColour'], '==', True),
-               metric('shapes differ', ch['1966']['mainShape'] != ch['mirror']['mainShape'], '==', True)]
-    ms.append(metric('time-order violations', len(r['timeOrderViolations']), '<=', 0))
-    return verdict('V04', ms, details=[ch, r['timeOrderViolations'][:5]])
+    ms = []
+    for k, w in want.items():
+        c = ch.get(k)
+        ms.append(metric(f'{k} seen', c is not None, '==', True))
+        if c is None:
+            continue
+        ms += [metric(f'{k} main colour is the declared {w["color"]}', str(c['mainColour']).lower() == w['hex'], '==', True), metric(f'{k} colour share', c['colourShare'], '>=', 0.95),
+               metric(f'{k} main shape is the declared {w["shape"]}', c['mainShape'] == w['shape'], '==', True), metric(f'{k} shape share', c['shapeShare'], '>=', 0.95)]
+    hexes = [w['hex'] for w in want.values()]
+    ms.append(metric('declared colours differ', len(set(hexes)) == len(hexes), '==', True))
+    bad_side = []
+    for pair, sp in (r.get('pairs') or {}).items():
+        a, b = pair.split('|')
+        if a not in want or b not in want:
+            continue
+        signs = {int(float(x)) for x, n in sp['signs'].items() if n and int(float(x))}
+        sa, sb = SIDE_ORDER.get(want[a].get('side')), SIDE_ORDER.get(want[b].get('side'))
+        expect = None if sa is None or sb is None or sa == sb else (-1 if sa < sb else 1)
+        if len(signs) > 1 or (expect is not None and signs and signs != {expect}):
+            bad_side.append({'pair': pair, 'signs': sp['signs'], 'declared': [want[a].get('side'), want[b].get('side')]})
+    ms += [metric('character pairs on the wrong or on both sides', len(bad_side), '<=', 0), metric('time-order violations', len(r['timeOrderViolations']), '<=', 0)]
+    return verdict('V04', ms, details=[ch, *bad_side[:5], r['timeOrderViolations'][:5]])
 
 
 @rule('V08', 'DX-V6', 'every frame (no camera-move exemption), every 0.2 s, texts with opacity ≥ 0.95 standing still on screen (box moved < 2 px in 0.1 s; moving texts are judged by V12), on the delivered video frame: text colour = median of glyph-core pixels (glyph mask eroded 1 px), background = median of the ring '

@@ -1,0 +1,17 @@
+{
+ "episode": "ep001-calibration-S2",
+ "sonification": {
+  "stem": "sonify",
+  "bandsHz": [
+   [
+    60,
+    270
+   ],
+   [
+    4500,
+    7000
+   ]
+  ],
+  "note": "bands from the M1b cue sheet: low pulse MIDI 36-60 (65-262 Hz) + filtered tick 4.5-7 kHz"
+ }
+}
