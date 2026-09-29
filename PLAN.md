@@ -31,6 +31,7 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 
 - 2026-09-29 (3): chủ dự án chọn giọng Y (theo cảnh + thẻ cảm xúc thưa; sổ gu `e4fe3b1` main). WRITER v3.2 8 thẻ (`e80e28a`). Đang: VOICE sinh lại cả tập theo cảnh → định thời → render animatic. Tiếp: clip nổi bật ≤ 2 phút, gói C4, issue, đóng #5.
 - 2026-09-29 16:25 UTC (4): container khởi động lại. Lời đọc v3.2 theo cảnh: **13/20 cảnh xong** (S01–S13, `work/v32-voice/takes/`, 0 từ khoá mất theo ASR). S14 lỗi 14:20 do proxy ngắt kết nối (ProxyError RemoteDisconnected), gen.py dừng; vòng chờ treo vì chờ dòng "calls" không bao giờ tới. Tiếp: `work/v32-voice/src/run_resume.sh` (chỉ sinh cảnh còn thiếu, thử lại 5 lần) → build lời → định thời → render → gói C4.
+- 2026-09-29 16:35 UTC (5): lời v3.2 đủ 20/20 cảnh, ghép 9:52 (`cd6d846`); animatic định thời lại. Đang render 20 cảnh (3 hàng `render_all.sh`, log `animatic/work/logs/`). Nếu bị ngắt: chạy lại chỉ cảnh chưa có `work/scenes/Sxx.mp4` mới hơn `timing.json`, rồi `check.py` → `assemble.py` (trỏ `review-c4/narration-v32.m4a`) → clip ≤ 2 phút → gói C4.
 
 ## Checklist C5 (Chặn)
 - Rà quy ước quyền `quality-framework.md` §8: tìm `data:` trong mã dựng/bản dựng trang; đối chiếu mọi nguồn ghép hậu kỳ với `RIGHTS.md`.
