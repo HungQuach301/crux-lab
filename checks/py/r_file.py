@@ -266,18 +266,126 @@ def _in_repo(ctx, rel):
         d = up
 
 
-@rule('F12', 'DX-A3 (sổ giấy phép), CH §5 (K3: quyền tài sản)', 'rights ledger out/rights.json {assets:[{name, stems:[…], origin, licence, thirdParty, '
-      'terms:{quote, url}, commercial, generator}]}. Every delivered stem (out/audio/stems/<name>.wav|flac of voice, music, sfx, whoosh, room, sonify) with sound '
-      '(1 s RMS above −60 dBFS somewhere) must be covered by an asset listing it in stems. Every asset: origin and licence non-empty, thirdParty a boolean. A '
-      'third-party asset (TTS voice, library music or sound, font, …): terms quote ≥ 20 chars and http(s) terms URL, commercial = true (the terms allow an '
-      'ad-supported channel). An asset made by this project: generator = a path that exists under the root or one of its parent folders',
-      '0 sounding stems without a rights entry; 0 assets with a missing field; 0 third-party assets without terms or not cleared for commercial use; ≥ 1 asset')
-def f12_rights(ctx):
+VISUAL_KINDS = ('image', 'document', 'font', 'model3d', 'texture', 'quote-card')
+# K3.1: what a loaded page resource is, by URL extension (content type and Playwright resource type as a fallback)
+RES_EXT = {'image': {'png', 'jpg', 'jpeg', 'gif', 'webp', 'avif', 'svg', 'bmp', 'ico', 'tif', 'tiff', 'apng', 'jxl'}, 'document': {'pdf'},
+           'model3d': {'glb', 'gltf', 'obj', 'fbx', 'stl', 'ply', 'usdz', 'dae', '3ds'}, 'texture': {'ktx', 'ktx2', 'basis', 'dds', 'hdr', 'exr', 'tga'}}
+FONT_EXT = {'woff', 'woff2', 'ttf', 'otf', 'eot'}
+INTERNAL_SCHEMES = ('data', 'blob', 'about', 'chrome', 'chrome-extension', 'chrome-error', 'chrome-search', 'devtools', 'javascript')
+
+
+def _declared(ctx):
+    """Declared visual assets and generated-file rules: contract.json rights.visual[] / rights.generated[] and/or the builder's manifest
+    out/visual-assets.json {assets:[…], generated:[{glob, generator}]} (assets: union by name). No visual list anywhere = MISSING:
+    the checker never infers the build's pictures from nothing."""
+    items, gen, found = [], [], False
+    try:
+        c = ctx.contract()
+    except Missing:
+        c = {}
+    r = c.get('rights') if isinstance(c.get('rights'), dict) else {}
+    if isinstance(r.get('visual'), list):
+        items += r['visual']
+        found = True
+    gen += [g for g in r.get('generated') or [] if isinstance(g, dict)]
+    if ctx.has('out/visual-assets.json'):
+        m = ctx.json('out/visual-assets.json')
+        if isinstance(m.get('assets'), list):
+            items += m['assets']
+            found = True
+        gen += [g for g in m.get('generated') or [] if isinstance(g, dict)]
+    if not found:
+        raise Missing('visual asset list (contract.json rights.visual or out/visual-assets.json)')
+    seen = {}
+    for v in items:
+        if isinstance(v, dict) and v.get('name'):
+            seen.setdefault(v['name'], v)
+        else:
+            seen.setdefault('?%d' % len(seen), {'name': None, 'kind': None})
+    return list(seen.values()), gen
+
+
+def _url(x):
     from urllib.parse import urlparse
+    return urlparse(x or '').scheme in ('http', 'https')
+
+
+def _loaded(ctx):
+    """Resources the page really loaded while the sampler rendered it (out/checks/page.json resources, K3.1 sampler). Returns
+    (visual resources [(location, kind)], font families loaded). Excluded as browser-internal: data:/blob:/about:/chrome*:/devtools: URLs,
+    failed requests and HTTP ≥ 400, the browser's own /favicon.ico probe (type other). Fonts are judged by family (document.fonts, status
+    loaded), whatever their source (a font file, a data: URL, a buffer); only @font-face / FontFace faces are listed, never system fonts."""
+    import os
+    from urllib.parse import urlparse, unquote
+    pg = ctx.json('out/checks/page.json')
+    res = pg.get('resources')
+    if not isinstance(res, dict):
+        raise Missing('out/checks/page.json resources (run the K3.1 page sampler)')
+    root = os.path.realpath(ctx.root)
+    out, seen = [], set()
+    rows = [r for r in res.get('requests') or [] if not r.get('failed') and not (isinstance(r.get('status'), int) and r['status'] >= 400)]
+    rows += [{'url': e.get('url'), 'type': e.get('initiator')} for e in res.get('entries') or []]
+    for r in rows:
+        u = urlparse(r.get('url') or '')
+        if not u.scheme or u.scheme in INTERNAL_SCHEMES:
+            continue
+        p = unquote(u.path)
+        if p.endswith('/favicon.ico') and r.get('type') == 'other':
+            continue
+        ext = p.rsplit('.', 1)[-1].lower() if '.' in os.path.basename(p) else ''
+        ct = (r.get('contentType') or '').lower()
+        if ext in FONT_EXT or r.get('type') == 'font' or ct.startswith('font/'):
+            continue  # judged by family below
+        kind = next((k for k, xs in RES_EXT.items() if ext in xs), None)
+        if kind is None:
+            kind = 'image' if ct.startswith('image/') or r.get('type') in ('image', 'img') else 'model3d' if ct.startswith('model/') else 'document' if ct == 'application/pdf' else None
+        if kind is None:
+            continue  # page code, styles, data: not a picture
+        if u.scheme == 'file':
+            rp = os.path.realpath(p)
+            loc = os.path.relpath(rp, root) if rp.startswith(root + os.sep) else rp
+        else:
+            loc = u.scheme + '://' + u.netloc + p
+        if loc not in seen:
+            seen.add(loc)
+            out.append((loc, kind))
+    fams = sorted({(f.get('family') or '').strip().strip('"\'') for f in res.get('fonts') or [] if f.get('status') == 'loaded'} - {''})
+    return out, fams
+
+
+def _matches(loc, pattern):
+    import fnmatch
+    pattern = pattern[2:] if pattern.startswith('./') else pattern
+    return loc == pattern or loc.endswith('/' + pattern) or fnmatch.fnmatch(loc, pattern) or fnmatch.fnmatch(loc, '*/' + pattern)
+
+
+@rule('F12', 'DX-A3 (sổ giấy phép), CH §5 (K3: quyền tài sản; K3.1: tài sản hình)', 'rights ledger out/rights.json {assets:[{name, stems:[…], visuals:[…], kind, origin, licence, '
+      'thirdParty, terms:{quote, url}, commercial, generator, publicDomain, pdBasis, source:{url}, quoteSource:{who, url}}]}. (1) Sound: every delivered stem '
+      '(out/audio/stems/<name>.wav|flac of voice, music, sfx, whoosh, room, sonify) with sound (1 s RMS above −60 dBFS somewhere) must be covered by an asset '
+      'listing it in stems. (2) Pictures (K3.1): the visual asset list = contract.json rights.visual[] ∪ out/visual-assets.json assets[] ({name, kind ∈ image, '
+      'document, font, model3d, texture, quote-card, path|paths (root-relative path or glob of the loaded file), family (font)}); neither declared = MISSING. '
+      'Every listed visual must be covered by an asset listing its name in visuals. (3) Loaded (K3.1): the page sampler records what the render page really '
+      'loads (Playwright requests + Resource Timing; document.fonts). Every loaded picture file (image, pdf, 3D model, texture by extension or content type) '
+      'must match a declared visual (path/paths glob, else file name = name), and every loaded font family (status loaded) must be a declared font (family or '
+      'name, case-insensitive). Not counted: browser-internal URLs (data:, blob:, about:, chrome*:, devtools:), failed loads, the browser\'s /favicon.ico '
+      'probe, page code/styles/data; files made by the project\'s own code = matching a generated rule {glob, generator} (contract rights.generated or '
+      'manifest generated) whose generator path exists. No sampler resources = MISSING. '
+      'Every asset: origin and licence non-empty, thirdParty a boolean. Public-domain asset (publicDomain = true, e.g. a US federal document): source.url http(s) '
+      'and pdBasis ≥ 20 chars (the ground for public domain), no terms needed. Other third-party asset (TTS voice, library music or sound, photo, font, 3D model, '
+      'texture, …): terms quote ≥ 20 chars and http(s) terms URL, commercial = true (the terms allow an ad-supported channel). An asset made by this project: '
+      'generator = a path that exists under the root or one of its parent folders. A reconstructed quote card (kind or listed kind quote-card), whoever drew it: '
+      'quoteSource.who non-empty and quoteSource.url http(s) (where the quoted words come from)',
+      '0 sounding stems without a rights entry; visual list declared; 0 listed visuals without a rights entry; 0 visuals of an unknown kind; 0 loaded picture '
+      'files or font families not declared; 0 generated rules without an existing generator; 0 assets with a missing field; 0 third-party assets without terms '
+      '(or public-domain source and basis) or not cleared for commercial use; ≥ 1 asset')
+def f12_rights(ctx):
     import r_audio
     from common import frame_rms_db
     assets = ctx.json('out/rights.json').get('assets') or []
+    visuals, generated = _declared(ctx)
+    loaded, families = _loaded(ctx)
     covered = {s for a in assets for s in (a.get('stems') or [])}
+    vcovered = {s for a in assets for s in (a.get('visuals') or [])}
     uncovered, bad = [], []
     for name in STEMS:
         try:
@@ -287,18 +395,49 @@ def f12_rights(ctx):
         _, db = frame_rms_db(x, win=1.0)
         if len(db) and db.max() > -60 and name not in covered:
             uncovered.append(name)
+    vkind = {v.get('name'): v.get('kind') for v in visuals}
+    vbadkind = [v.get('name') or '?' for v in visuals if v.get('kind') not in VISUAL_KINDS]
+    vuncovered = [v.get('name') or '?' for v in visuals if v.get('name') not in vcovered]
+    # loaded but not declared
+    gen_ok = [g for g in generated if g.get('glob') and g.get('generator') and _in_repo(ctx, g['generator'])]
+    gen_bad = [g.get('glob') or '?' for g in generated if g not in gen_ok]
+    undeclared = []
+    for loc, kind in loaded:
+        pats = [(v, p) for v in visuals if v.get('kind') != 'font' for p in ([v['path']] if isinstance(v.get('path'), str) else []) + [x for x in v.get('paths') or [] if isinstance(x, str)]]
+        if any(_matches(loc, p) for _, p in pats) or any(v.get('name') == loc.rsplit('/', 1)[-1] for v in visuals if v.get('kind') != 'font'):
+            continue
+        if any(_matches(loc, g['glob']) for g in gen_ok):
+            continue
+        undeclared.append(f'{kind}: {loc}')
+    fonts = {(v.get('family') or v.get('name') or '').strip().lower() for v in visuals if v.get('kind') == 'font'}
+    undeclared += [f'font: {f}' for f in families if f.lower() not in fonts]
     for a in assets:
         nm = a.get('name') or '?'
         if not (a.get('origin') or '').strip() or not (a.get('licence') or '').strip() or not isinstance(a.get('thirdParty'), bool):
             bad.append((nm, 'origin, licence or thirdParty missing'))
             continue
-        if a['thirdParty']:
+        quote_card = a.get('kind') == 'quote-card' or any(vkind.get(v) == 'quote-card' for v in (a.get('visuals') or []))
+        if quote_card:
+            q = a.get('quoteSource') or {}
+            if not (q.get('who') or '').strip() or not _url(q.get('url')):
+                bad.append((nm, 'quote card without the origin of the quote (quoteSource.who/url)'))
+        if a.get('publicDomain') is True:
+            if not _url((a.get('source') or {}).get('url')) or len((a.get('pdBasis') or '').strip()) < 20:
+                bad.append((nm, 'public domain without source url or basis (pdBasis)'))
+        elif a['thirdParty']:
             t = a.get('terms') or {}
-            if len(t.get('quote') or '') < 20 or urlparse(t.get('url') or '').scheme not in ('http', 'https'):
+            if len(t.get('quote') or '') < 20 or not _url(t.get('url')):
                 bad.append((nm, 'terms quote/url missing'))
             if a.get('commercial') is not True:
                 bad.append((nm, 'not cleared for commercial use'))
         elif not a.get('generator') or not _in_repo(ctx, a['generator']):
             bad.append((nm, 'generator path missing'))
     return verdict('F12', [metric('assets', len(assets), '>=', 1), metric('sounding stems without a rights entry', len(uncovered), '<=', 0),
-                           metric('assets with a problem', len(bad), '<=', 0)], details=[{'uncovered': uncovered}, {'problems': bad[:30]}])
+                           metric('listed visuals without a rights entry', len(vuncovered), '<=', 0),
+                           metric('visuals of an unknown kind', len(vbadkind), '<=', 0),
+                           metric('loaded picture files or fonts not declared', len(undeclared), '<=', 0),
+                           metric('generated rules without an existing generator', len(gen_bad), '<=', 0),
+                           metric('assets with a problem', len(bad), '<=', 0)],
+                   details=[{'uncovered': uncovered}, {'visualsUncovered': vuncovered[:30]}, {'visualsBadKind': vbadkind[:30]},
+                            {'loadedUndeclared': undeclared[:30]}, {'loaded': len(loaded), 'fontFamilies': families}, {'generatedBad': gen_bad[:30]},
+                            {'problems': bad[:30]}])

@@ -85,6 +85,13 @@ async function run() {
   const browser = await chromium.launch({ args: ['--font-render-hinting=none', '--disable-lcd-text'] });
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
   const url = /^[a-z]+:/.test(pageCfg.url) ? pageCfg.url : 'file://' + path.join(ROOT, pageCfg.url);
+  // K3.1 (F12): every resource the page really loads while it renders (Playwright requests + Resource Timing entries) and every font face of
+  // document.fonts; F12 compares them with the declared visual assets
+  const resources = { requests: [], entries: [], fonts: [] };
+  page.on('requestfinished', async (req) => { let res = null; try { res = await req.response(); } catch (e) { /* ignore */ }
+    resources.requests.push({ url: req.url(), type: req.resourceType(), status: res ? res.status() : null, contentType: res ? res.headers()['content-type'] || null : null }); });
+  page.on('requestfailed', (req) => resources.requests.push({ url: req.url(), type: req.resourceType(), failed: true }));
+  await page.addInitScript(() => { try { performance.setResourceTimingBufferSize(100000); } catch (e) { /* ignore */ } });
   await page.goto(url);
   await page.evaluate(async () => { await document.fonts.ready; });
   if (pageCfg.ready) await page.evaluate(pageCfg.ready);
@@ -341,6 +348,8 @@ async function run() {
   if (splitRun.length) splitRuns.push(splitRun);
   video.close();
   videoY.close();
+  resources.entries = await page.evaluate(() => performance.getEntriesByType('resource').map((e) => ({ url: e.name, initiator: e.initiatorType })));
+  resources.fonts = await page.evaluate(() => [...document.fonts].map((f) => ({ family: f.family, status: f.status, style: f.style, weight: f.weight })));
   await browser.close();
 
   // ---- aggregate --------------------------------------------------------------------------------
@@ -372,7 +381,7 @@ async function run() {
   rules.V04 = { characters, pairs: charSides, timeOrderViolations: timeBad };
   const out = {
     root: ROOT, step: STEP, pixelStep: PSTEP, samples: Object.values(per).reduce((a, p) => a + p.samples, 0), pixelSamples: px.samples, seconds: +((Date.now() - t0) / 1000).toFixed(1),
-    rules, characters, chartEvents, movingSamples, cameraFromFile: hasCam,
+    rules, characters, chartEvents, movingSamples, cameraFromFile: hasCam, resources, pageUrl: url,
     textTrack, yearsTrack, casesTrack, orphanNumbers: orphan,
     claimScenes: Object.fromEntries(Object.entries(claimScenes).map(([k, v]) => [k, [...v]])), claimFirst, claimRoles: Object.fromEntries(Object.entries(claimRoles).map(([k, v]) => [k, [...v]])), claimFinal,
     scenes: Object.fromEntries(Object.entries(per).map(([k, v]) => [k, { samples: v.samples, issues: v.issues }])),

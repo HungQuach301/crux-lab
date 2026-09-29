@@ -90,3 +90,11 @@ Chủ dự án xem một lần, rồi chấm 1–5 mỗi dòng, ngang với tham
 | 4 | Nhịp: có chỗ nào tôi muốn tua? | WSJ |
 | 5 | Giọng tự nhiên, ổn định, một màu? | — |
 | 6 | Tôi có muốn xem tập tiếp theo? | — |
+
+## 8. Quy ước quyền tài sản (K3.1 ghi điểm mù, chủ dự án duyệt 29/09/2026)
+
+Máy kiểm quyền (luật F12 và các luật L1 về tài sản) chỉ thấy tài sản đi qua đường khai báo. Vì vậy:
+1. **Không nhúng tài sản bên thứ ba dạng `data:`** (URI base64 trong HTML/CSS/JS của trang dựng, trong SVG, trong JSON) — mọi ảnh, font, âm, video bên thứ ba phải là file riêng có đường dẫn.
+2. **Không đưa tài sản bên thứ ba vào bằng video hay ghép hậu kỳ** (lớp phủ, chèn clip, ghép âm sau render) mà **không khai trong `RIGHTS.md`** (nguồn, giấy phép trích nguyên câu, phạm vi).
+3. Tài sản tự sinh bằng mã vẫn ghi một dòng chung trong `RIGHTS.md`.
+4. **Rà lại ở C5** (checklist C5, cấp Chặn): tìm `data:` trong mã dựng và bản dựng trang; liệt kê mọi nguồn đầu vào của bước ghép hậu kỳ và đối chiếu với `RIGHTS.md`.

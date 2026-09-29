@@ -16,7 +16,8 @@ Máy kiểm không đọc mã dựng. Số liệu tự đo (ffprobe, giải mã 
 | `out/terms.json` (tuỳ chọn) | `{terms:[…]}` — chỉ **thêm** thuật ngữ định nghĩa vào danh sách khoá | A14 |
 | `out/audio/stems/{voice,music,sfx,whoosh,room,sonify}.wav\|flac` | stem 48 kHz stereo, cùng gốc thời gian với video, ở mức mix (tổng các stem = bản mix trước master bus). `sonify` = riêng lớp âm thanh theo dữ liệu (không nằm trong `sfx`). Thiếu stem = MISSING, không có luật nào thay bằng ASR hay số khai báo | A07, A08, A10–A12, R01, R03, T1, T2, T3 |
 | `out/voice/takes.json` | `{takes:[{id, raw, final, model?, voiceId?, provider?}], voice:{provider, voiceId, model}}` — `raw` = file TTS gốc, `final` = file sau giãn; giọng của mỗi take = trường của take, thiếu thì lấy khối `voice` (K3: không có `model` ở đâu cả = MISSING) | A13, A18 |
-| `out/rights.json` (K3) | `{assets:[{name, stems:[…], origin, licence, thirdParty, terms:{quote, url}, commercial, generator}]}` — sổ quyền: mọi stem có tiếng phải có mục; tài sản bên thứ ba (giọng TTS, nhạc/tiếng thư viện, font) có trích điều khoản, URL và `commercial:true`; tài sản tự làm có `generator` (đường dẫn tới mã sinh) | F12 |
+| `out/rights.json` (K3; K3.1) | `{assets:[{name, stems:[…], visuals:[…], kind?, origin, licence, thirdParty, terms:{quote, url}, commercial, generator, publicDomain?, pdBasis?, source:{url}?, quoteSource:{who, url}?}]}` — sổ quyền: mọi stem có tiếng và mọi tài sản hình đã khai (`visuals` = tên trong danh sách hình) phải có mục; tài sản bên thứ ba (giọng TTS, nhạc/tiếng thư viện, ảnh, phông chữ, mô hình/texture 3D) có trích điều khoản, URL và `commercial:true`; tài sản public domain (`publicDomain:true`, ví dụ tài liệu liên bang) có `source.url` và `pdBasis` (căn cứ public domain); tài sản tự làm có `generator` (đường dẫn tới mã sinh, phải tồn tại); thẻ trích dẫn dựng lại có `quoteSource.who` và `quoteSource.url` (nguồn gốc câu trích) | F12 |
+| `out/visual-assets.json` (K3.1; hoặc `rights.visual` của hợp đồng tập) | `{assets:[{name, kind, path?, paths?, family?}], generated?:[{glob, generator}]}` — `path`/`paths` = đường dẫn (từ gốc tập) hoặc glob của file trang nạp; `family` = họ phông trong `document.fonts`; `generated` = file do mã dự án sinh (generator phải tồn tại), không tính là tài sản hình. Máy kiểm dò tài nguyên trang thực sự nạp (`out/checks/page.json` → `resources`) và mọi file hình / họ phông nạp mà không khai thì F12 trượt (quy tắc loại trừ: `README.md`, mục K3.1). `kind` `kind` ∈ `image`, `document`, `font`, `model3d`, `texture`, `quote-card` — manifest mọi tài sản hình của bản dựng (ảnh, tài liệu, phông chữ, mô hình và texture 3D, thẻ trích dẫn), bên thứ ba hay tự làm. Hợp nhất với `rights.visual` của hợp đồng tập; không khai ở đâu cả = F12 **MISSING**. Danh sách rỗng khai rõ = không có tài sản hình | F12 |
 | `out/explanations.json` (K3, khi có luật CHÍNH không đạt) | `{"<mã luật>": "vì sao không đạt và vì sao tập vẫn đi được"}` (≥ 8 chữ) — thiếu thì tập ở trạng thái CHỜ GIẢI THÍCH | báo cáo |
 | `out/camera.json` | máy quay 2.5D, mỗi khung: `{frames:[{t, x, y, zoom}]}` — `x, y` = tâm khung trên mặt phẳng biểu đồ (px của trang), `zoom` = tỉ lệ (1 = cả trang). Dạng cũ của bài D `{fovAxis, frames:[{t, pos, target, fovDeg, focusDist}]}` vẫn đọc được. Có file này thì "khung đang trong cú máy" đo từ nó, `scenes[].move` bị bỏ qua | A10, V05, V13, trang |
 | `out/sfx-events.json` | `{events:[{t, x}]}` — `x` = toạ độ ngang (px) của vật phát tiếng | A11 |
@@ -32,7 +33,7 @@ Máy kiểm không đọc mã dựng. Số liệu tự đo (ffprobe, giải mã 
 | `preprod/shotlist.json`, `preprod/storyboard.*`, `preprod/color-script.*` | `{shots:[{id, scene, size, move, moveReason}]}` (2.5D: không có tiêu cự giả lập, không có góc máy 3D) | V01 |
 | `design/tokens.json` | `{colors:{name:hex}, series:{key:hex}, seriesOf:{series:hex}}` — `colors.bg`, `colors.grid`, `colors.muted` bắt buộc | trang, P01 |
 | `out/package/thumb-{1,2,3}.png` + `.json` | ảnh 1280×720; `{texts:[{text, box:[x,y,w,h], fontPx}]}` | P01 |
-| `out/page.json` | `{url, ready?}` — trang dựng, cùng trang đã sinh ra video | trang |
+| `out/page.json` | `{url, ready?}` — trang dựng, cùng trang đã sinh ra video | trang, F12 (K3.1: tài nguyên trang nạp) |
 
 ## Trang dựng (§Page)
 
@@ -72,6 +73,7 @@ Mỗi tập có một hợp đồng ở `episodes/<tập>/contract.json`. Bên d
 | `sonification.stem` | có | `"sonify"` | T1, L1 |
 | `sonification.bandsHz` | có | `[[lo, hi], …]` Hz: dải tần tiếng dữ liệu được đặt, lấy từ cue sheet của tập. Phải chứa ≥ 50% năng lượng của stem `sonify` (T1 đo lại) | T1 |
 | `artefacts` | có (`M3`) | `{<mốc>: [đường dẫn hoặc glob]}`: artefact bên dựng phải giao ở từng mốc (M1, M2, M3). Mốc phát hành `M3` phải gồm mọi file phát hành ở bảng đầu trang này | F11 |
+| `rights.visual`, `rights.generated` | không (K3.1: F12 cần `rights.visual` **hoặc** `out/visual-assets.json`) | `visual: [{name, kind, path?, paths?, family?}]`, `generated: [{glob, generator}]` (như manifest); `kind` ∈ `image`, `document`, `font`, `model3d`, `texture`, `quote-card`: tài sản hình của tập (ảnh, tài liệu, phông chữ, mô hình và texture 3D, thẻ trích dẫn dựng lại). Hợp nhất với manifest của bên dựng; không có cả hai thì F12 MISSING | F12 |
 
 ### Loại mô hình (`model.kind`)
 
