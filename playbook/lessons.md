@@ -43,6 +43,12 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 | M3 | Câu hỏi "hiểu" (tóm tắt + đáp án): kịch bản M1b bị chủ dự án chê vẫn được hiểu 3/3. | "Hiểu được" là điều kiện cần, không nói kịch bản hay. Tín hiệu phân biệt nằm ở "chỗ mất chú ý" và "chỗ khó hiểu". |
 | M4 | Người đọc vai khán giả đích chọn bản nói với "người như tôi" và cho sẵn ngưỡng tự đối chiếu. | Khớp nhận xét M1 của chủ dự án (G-008) → G-013. |
 
+## B3. Giọng (Tập 1, C3–C4)
+
+| # | Chuyện đã xảy ra | Bài học |
+|---|---|---|
+| V1 | Giọng B nghe thử (7 câu mới sinh) được chọn; bản đọc cả tập (105 câu, sinh từng câu riêng, 82 câu tái dùng từ C2, nghỉ cố định 0,45 s) bị chê "đều đều, mất nhấn nhá". | Chọn giọng trên một mẫu nhỏ chưa đủ; cách **sinh** (từng câu hay cả cảnh) và cách **ghép** là một phần của giọng. Thử mù phải dùng đúng quy trình sẽ dùng cho cả tập. (Chờ kết quả V1/V2/V3 để xác nhận nguyên nhân.) |
+
 ## C. Vận hành
 
 - Chủ dự án không đọc tài liệu dài; chỉ trả lời gói quyết định (≤ 3 câu, < 1 phút đọc).
