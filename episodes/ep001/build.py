@@ -236,7 +236,8 @@ def main():
     for cid, c in C.items():
         base = c['parent'] if isinstance(c.get('parent'), str) else cid
         n = base.rsplit('_', 1)[-1]
-        if n in CH and base.split('_')[0] in ('loan', 'cost', 'sav', 'be', 'net36', 'net84', 'cut36'):
+        # cost_<n> is left untagged: it is the real HMDA median of the band (not ILLUSTRATIVE), the other fields are the illustrative person's
+        if n in CH and base.split('_')[0] in ('loan', 'sav', 'be', 'net36', 'net84', 'cut36'):
             c['character'] = n
 
     # script
