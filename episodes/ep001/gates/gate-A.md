@@ -16,3 +16,6 @@
 3. Cold open ~20 s vượt trần 15 s của spec (S15 sẽ trượt). Chấp nhận ~20 s cho Tập 1, hay cắt còn 15 s (~38 từ, bỏ bớt bối cảnh)? — *Khuyến nghị: chấp nhận ~20 s* (bối cảnh trước nhân vật là yêu cầu G-009; ghi miễn trừ S15 cho Tập 1).
 
 Ghi chú (không cần trả lời): hạn mức khoản vay chuẩn 2026 $832,750 đọc qua kết quả tìm kiếm vì fhfa.gov bị chặn; khớp 2025 ($806,500) + $26,250. Khoản lớn $655,000 nằm dưới cả hạn mức 2023.
+
+## Trả lời của chủ dự án (2026-09-29)
+A; câu chuyện OK; chấp nhận cold open 20 giây cho Tập 1 (G-009 cần bối cảnh trước nhân vật; ghi vào amendments của tập). → `amendments.md` E1-A1; sổ gu trên main `498b296`.

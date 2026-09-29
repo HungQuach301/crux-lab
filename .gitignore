@@ -11,3 +11,10 @@ episodes/*/work/*.wav
 episodes/*/out/voice/final/
 episodes/*/*/work/palettes/
 episodes/*/work/replaced-takes/
+
+# Third-party data that is not public domain (FRED / Freddie Mac PMMS, Optimal Blue):
+# never commit raw or verbatim-normalized copies. Re-fetch with
+# episodes/<ep>/data/fetch.py (SHA-256, URL and download date are in data/sources.json).
+episodes/*/data/raw/
+episodes/*/data/normalized/mortgage30_weekly.csv
+episodes/*/data/normalized/crosscheck_weekly.csv
