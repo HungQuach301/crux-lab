@@ -4,7 +4,7 @@ Viết từ `treatment.md` và `beats.md` đã qua Cổng A (cold open A; cold o
 Mỗi dòng một câu (riêng khối chữ của thẻ phương pháp S32–S33 là khối chữ trên màn hình). Mỗi dòng có 5 cột: `id | chữ trên màn hình/phụ đề | lời gửi TTS (chỉ ghi khi khác cột 2; số viết bằng chữ) | claim ID | ghi chú đọc`. Cột 3 để trống nghĩa là đọc đúng cột 2. `(silent)` nghĩa là chỉ có chữ, không đọc.
 Số lấy từ `numbers.md`. "Mới" nghĩa là claim xuất hiện lần đầu (tính cả số chỉ hiện trên màn hình). Mốc ngày ([anchor_date], [low_date], [oct2023]) là mốc thời gian, không tính vào mật độ.
 Nhân vật Nora, Walt, Anjali là ILLUSTRATIVE; huy hiệu ILLUSTRATIVE hiện cùng lúc với số đầu tiên của mỗi người.
-Tự kiểm ở cuối file (`## Tự kiểm`). Điểm chèn quảng cáo: sau S13 (hết hồi 1) và sau S21 (hết hồi 2).
+Tự kiểm ở cuối file (`## Tự kiểm`). Điểm chèn quảng cáo: sau S13 (hết hồi 1) và sau S21 (hết hồi 2). Vòng 2: đã sửa theo `critic-script-r1.md`.
 
 ---
 
@@ -19,7 +19,7 @@ S02.1 | Nora was one of them. | | - | warmer, close
 S02.2 | Now a letter from her lender offers a lower rate, with a bill at the bottom. | | cost_median | curious, even
 S02.3 | How far must her rate fall before that bill pays itself back? | | - | open question, let it hang
 
-*Cắt sang bàn bếp: lá thư đề nghị, dòng "New rate", dòng cuối "Loan costs: $5,124" cùng huy hiệu ILLUSTRATIVE. Ngón tay dừng ở dòng cuối.*
+*Cắt sang bàn bếp: lá thư đề nghị, dòng "New rate", dòng cuối "Loan costs: $5,124" cùng huy hiệu ILLUSTRATIVE và nhãn nhỏ "nominal $". Ngón tay dừng ở dòng cuối.*
 
 ## S03 · ident · B2
 S03.1 | CRUX | (silent) | - | ident 3 s, no voice
@@ -34,61 +34,55 @@ S04.3 | The answer starts with how rates got here. | | - | transition, lighter
 *Một thước ngang "rate drop" trống; ba marker (tròn, tam giác, vuông) chờ ở mép, chưa có vị trí.*
 
 ## S05 · act1 · B3
-S05.1 | Go back to the winter of 2021. | Go back to the winter of twenty twenty-one. | - | reflective
-S05.2 | In the week ending January 7, 2021, the average 30-year fixed rate was 2.65%. | In the week ending January seventh, twenty twenty-one, the average thirty-year fixed rate was two point six five percent. | low, low_date | measured
-S05.3 | That was the lowest level in the whole weekly record, which goes back to 1971. | That was the lowest level in the whole weekly record, which goes back to nineteen seventy-one. | y1971 | matter-of-fact
-S05.4 | From there, it climbed, and by late October 2023 it had reached the peak you saw at the start. | From there, it climbed, and by late October twenty twenty-three it had reached the peak you saw at the start. | - | building
+S05.1 | One week in January 2021, the average 30-year fixed rate was 2.65%, the lowest in the weekly record. | One week in January twenty twenty-one, the average thirty-year fixed rate was two point six five percent, the lowest in the weekly record. | low, low_date | measured
+S05.2 | From there it climbed to the peak you saw at the start. | | - | building
+S05.3 | That line is history, not a forecast, and it covers the US only. | That line is history, not a forecast, and it covers the U.S. only. | - | plain disclaimer, not rushed
 
-*Một đường lãi duy nhất, máy quay đi dọc đường từ đáy 2021 lên đỉnh 2023; điểm đáy sáng rồi lùi.*
+*Một đường lãi duy nhất, máy quay đi dọc đường từ đáy 2021 lên đỉnh 2023; điểm đáy sáng rồi lùi; chữ "week ending January 7, 2021" hiện cạnh điểm đáy.*
 
 ## S06 · act1 · B3
 S06.1 | Families still needed homes. | | - | human, simple
-S06.2 | Three in ten home-purchase loans made that year carried a rate of seven percent or more. | | purch23_words, ge7_threshold | steady; beat after
-S06.3 | [pause 1.0] | (silent) | - | pause
-S06.4 | What follows is history, not a forecast, and it covers the US only. | What follows is history, not a forecast, and it covers the U.S. only. | - | plain disclaimer, not rushed
-S06.5 | Nora lives in one of those three houses. | | - | transition, warm
+S06.2 | Three in ten 30-year home-purchase loans made that year carried a rate of seven percent or more. | Three in ten thirty-year home-purchase loans made that year carried a rate of seven percent or more. | purch23_words, ge7_threshold | steady; beat after
+S06.3 | Nora lives in one of those three houses. | | - | transition, warm
 
 *Lưới 10 ngôi nhà; 3 nhà sáng lên. Máy quay đẩy vào một trong ba nhà đó.*
 
 ## S07 · act1 · B4
 S07.1 | She moved for a new job in October 2023 and bought her first home. | She moved for a new job in October twenty twenty-three and bought her first home. | oct2023 | warm, storytelling
-S07.2 | The rate was high, but the job was real, and so was the house. | | - | wry, gentle
-S07.3 | She knew the rate was high when she signed. | | - | matter-of-fact
-S07.4 | She signed anyway, because the move could not wait. | | - | plain
-S07.5 | She borrowed $375,000, at 7.62%, the average rate that month. | She borrowed three hundred seventy-five thousand dollars, at seven point six two percent, the average rate that month. | loan_median, r_old | clear, even
-S07.6 | Since then, the payment has gone out on the first of every month. | | - | plain
+S07.2 | She knew the rate was high; the move could not wait. | | - | matter-of-fact
+S07.3 | She borrowed $375,000. | She borrowed three hundred seventy-five thousand dollars. | loan_median | clear
+S07.4 | All dollar amounts here are nominal. | | - | quick, plain
+S07.5 | Her rate, 7.62%, was the average that month. | Her rate, seven point six two percent, was the average that month. | r_old | even
 
 *Căn nhà với thùng đồ chuyển nhà ở hiên. Marker tròn của Nora rơi xuống đường lãi ở tháng 10/2023; huy hiệu ILLUSTRATIVE hiện cùng số.*
 
 ## S08 · act1 · B5
 S08.1 | Almost three years later, her lender has a proposal. | | k35 | transition, a little lift
 S08.2 | It is a refinance: a new loan that pays off the old one. | | - | explanatory, simple
-S08.3 | The offer is priced at the average 30-year fixed rate for the week ending September 24, 2026: 7.03%. | The offer is priced at the average thirty-year fixed rate for the week ending September twenty-fourth, twenty twenty-six: seven point zero three percent. | r_today, anchor_date | precise, unhurried
+S08.3 | The offer is priced at the latest weekly average, 7.03%. | The offer is priced at the latest weekly average, seven point oh three percent. | r_today, anchor_date | precise, unhurried
 
 *Lá thư từ cold open trở lại; dòng "New rate 7.03%" sáng lên. Trên đường lãi, một điểm ở tuần kết thúc 24/9/2026.*
 
 ## S09 · act1 · B5
-S09.1 | That is 0.59 of a percentage point below her rate. | That is zero point five nine of a percentage point below her rate. | cut_today | clear
-S09.2 | A percentage point is a drop in the rate itself, not the fees that lenders call points. | | - | clarifying aside
-S09.3 | Her monthly payment would fall by $221. | Her monthly payment would fall by two hundred twenty-one dollars. | sav_median | decisive, then rest
-S09.4 | [pause 1.0] | (silent) | - | pause
+S09.1 | That is just over half a percentage point below her rate. | | cut_today_words, cut_today | clear
+S09.2 | Her monthly payment would fall by $221. | Her monthly payment would fall by two hundred twenty-one dollars. | sav_median | decisive, then rest
+S09.3 | [pause 1.0] | (silent) | - | pause
+S09.4 | That drop is in the rate itself, not the fees that lenders call points. | | - | clarifying aside
 S09.5 | Then there is the line at the bottom of the letter. | | - | transition, lower
 
-*Khoản trả hằng tháng co lại; phần co tách thành một khối nhỏ $221 (màu Nora). Nhãn "percentage point ≠ points" chỉ hiện 2 s.*
+*Khoản trả hằng tháng co lại; phần co tách thành một khối nhỏ $221 (màu Nora). Số "0.59 point" hiện trên màn hình; nhãn "percentage point ≠ points" chỉ hiện 2 s.*
 
 ## S10 · act1 · B6
 S10.1 | $5,124 in loan costs, paid in cash at closing. | Five thousand, one hundred twenty-four dollars in loan costs, paid in cash at closing. | cost_median | weight on the number
 S10.2 | That covers the fees for making the loan, plus any points she pays to lower the rate. | | - | explanatory
-S10.3 | Nora is an illustrative borrower, but her loan and that bill are the real medians from nearly half a million refinances in 2025. | Nora is an illustrative borrower, but her loan and that bill are the real medians from nearly half a million refinances in twenty twenty-five. | n31_approx, y2025 | trust, steady
-S10.4 | All dollar amounts in this video are nominal. | | - | quick, plain
+S10.3 | If a letter like this has reached you, this is the math behind it. | | - | direct, gentle, not advice
+S10.4 | Nora is an illustrative borrower, but her loan and that bill are the real medians from nearly half a million refinances in 2025. | Nora is an illustrative borrower, but her loan and that bill are the real medians from nearly half a million refinances in twenty twenty-five. | n31_approx, y2025 | trust, steady
 
 *Khối $5,124 đặt đối diện khối $221, đúng tỉ lệ; khối $221 trông rất nhỏ.*
 
 ## S11 · act1 · B6
 S11.1 | So is a bill like this worth paying? | | - | genuine question
 S11.2 | Nora hears two answers, and they do not agree. | | - | set-up; act 1 question: which of the two is right?
-S11.3 | One is about the size of the drop. | | - | even
-S11.4 | The other is a piece of arithmetic about the bill. | | - | even, setting up
 
 *Lá thư thu nhỏ vào giữa khung; hai ô trống hai bên chờ hai câu trả lời.*
 
@@ -98,26 +92,26 @@ S12.2 | We tested that one-point line. | | - | analyst voice, brief
 S12.3 | Her offer falls short of it. | | - | flat
 S12.4 | Simple division says otherwise: $5,124 divided by $221 is about 24 months. | Simple division says otherwise: five thousand, one hundred twenty-four dollars divided by two hundred twenty-one is about twenty-four months. | be_simple_median | brighter, confident
 S12.5 | [pause 1.0] | (silent) | - | pause
-S12.6 | Two years, and the bill is paid back. | | - | light
+S12.6 | Two years, and the bill is paid back. | | be_simple_median | light
 
 *Màn hình chia đôi: trái là vạch "1-point line" (nhãn "test value"), marker Nora nằm dưới vạch; phải là đồng hồ đếm lên 24.*
 
 ## S13 · act1 · B7
 S13.1 | So which answer is right? | | - | question
-S13.2 | As it turns out, neither one, because both leave out the same thing. | | - | the turn, quiet confidence
-S13.3 | The division looks airtight. | | - | slow
-S13.4 | It is missing one line on the letter. | | - | hook, then silence
-S13.5 | [pause 1.2] — AD BREAK 1 | (silent) | - | natural silence ≥ 1 s
+S13.2 | Neither one, as it turns out. | | - | the turn, quiet confidence
+S13.3 | The one-point line never looks at the bill, and the division leaves out one thing. | | - | clear
+S13.4 | The division looks airtight. | | - | slow
+S13.5 | It is missing one line. | | - | hook, then silence
+S13.6 | [pause 1.2] — AD BREAK 1 | (silent) | - | natural silence ≥ 1 s
 
 *Cả hai nửa màn hình mờ đi; chỉ còn lá thư, một dòng trống ở giữa nhấp nháy nhẹ.*
 
 ## S14 · act2 · B8
-S14.1 | Here is the question for the next few minutes: what does the division leave out, and how long does it really take? | | - | act 2 question, clear
-S14.2 | First, a definition. | | - | brisk
-S14.3 | Break-even is the month when what Nora has saved covers the bill. | | - | teaching, even
-S14.4 | Every month, another $221 stays with her instead of going to the lender. | Every month, another two hundred twenty-one dollars stays with her instead of going to the lender. | sav_median | steady
-S14.5 | Stack those months up, and sooner or later they reach the bill. | | - | building
-S14.6 | But while the savings stack up, something else is happening to what she owes. | | - | transition, shade of doubt
+S14.1 | Back to the letter. | | - | fresh start after the break
+S14.2 | Break-even is the month when what Nora has saved covers the bill. | | - | teaching, even
+S14.3 | Every month, her payment is $221 smaller. | Every month, her payment is two hundred twenty-one dollars smaller. | sav_median | steady
+S14.4 | Stack those months up, and sooner or later they reach the bill. | | - | building
+S14.5 | But while the savings stack up, something else is happening to what she owes. | | - | transition, shade of doubt
 
 *Mỗi tháng một khối $221 chồng lên, tiến dần tới vạch $5,124; tiếng dữ liệu gảy nhẹ theo từng khối.*
 
@@ -151,25 +145,24 @@ S17.5 | And the smaller the drop, the more that gap matters. | | - | transition,
 
 ## S18 · act2 · B12
 S18.1 | Suppose the offer had cut her rate by only a quarter of a percentage point. | | s025 | hypothetical, lighter
-S18.2 | A quarter point is the smallest step on the grid we tested. | | - | aside
-S18.3 | Division would promise 38 months. | Division would promise thirty-eight months. | be_simple_025 | even
-S18.4 | [pause 1.0] | (silent) | - | pause
-S18.5 | Longer, but still a finish line. | | - | short
-S18.6 | Then the balance gets counted. | | - | pivot, slower
+S18.2 | Division would promise 38 months. | Division would promise thirty-eight months. | be_simple_025 | even
+S18.3 | [pause 1.0] | (silent) | - | pause
+S18.4 | Longer, but still a finish line. | | - | short
+S18.5 | Then the balance gets counted. | | - | pivot, slower
 
 *Đồng hồ phép chia dừng ở 38; đường nợ mới hiện lên phía dưới.*
 
 ## S19 · act2 · B12
 S19.1 | Counting what she owes, the bill does not come back before her old loan would have been paid off. | | be_bal_025 | climax, slow, every word
 S19.2 | [pause 1.2] | (silent) | - | pause
-S19.3 | So what about the full point that the one-point line asks for? | | - | transition, lift
+S19.3 | So what about a full point? | | - | transition, lift
 
 *Đồng hồ chạy mãi; vạch hoà vốn trôi ra khỏi khung. Tiếng dữ liệu kéo dài rồi tắt dần.*
 
 ## S20 · act2 · B13
 S20.1 | At a full percentage point, her bill comes back in 18 months. | At a full percentage point, her bill comes back in eighteen months. | be_bal_10 | relief
 S20.2 | [pause 1.0] | (silent) | - | pause
-S20.3 | That is well inside three years. | | - | light
+S20.3 | That is well inside three years. | | hold36 | light
 S20.4 | Somewhere between a quarter point and a full point is her line. | | - | transition, curious
 
 *Thước "rate drop" từ S04 quay lại; marker tròn thử ở "1-point line", rồi ở một phần tư.*
@@ -186,14 +179,13 @@ S21.7 | [pause 1.2] — AD BREAK 2 | (silent) | - | natural silence ≥ 1 s
 *Marker tròn dừng trên thước ở 0.5, lần đầu thước có một điểm. Hai ô trống còn lại ở 2 phía.*
 
 ## S22 · act3 · B15
-S22.1 | That is the question for the rest of this video. | | - | act 3 question, framing
-S22.2 | Walt borrowed the same month as Nora, for a smaller house. | | - | storytelling
-S22.3 | He teaches at the high school across town, and the house was what he could afford on one salary. | | - | warm
-S22.4 | His loan was $115,000. | His loan was one hundred fifteen thousand dollars. | loan_small | even
-S22.5 | His letter offers the same drop, and he reads it the same way, down to the last line. | | - | small smile
-S22.6 | The bill at the bottom is $3,667. | The bill at the bottom is three thousand, six hundred sixty-seven dollars. | cost_small | decisive
-S22.7 | [pause 1.0] | (silent) | - | pause
-S22.8 | Why did the bill barely shrink when the loan did? | | - | transition question
+S22.1 | Walt borrowed the same month as Nora, for a smaller house. | | - | storytelling
+S22.2 | He teaches at the high school across town, and the house was what he could afford on one salary. | | - | warm
+S22.3 | His loan was $115,000. | His loan was one hundred fifteen thousand dollars. | loan_small | even
+S22.4 | His letter offers the same drop, and he reads it the same way, down to the last line. | | - | small smile
+S22.5 | The bill at the bottom is $3,667. | The bill at the bottom is three thousand, six hundred sixty-seven dollars. | cost_small | decisive
+S22.6 | [pause 1.0] | (silent) | - | pause
+S22.7 | Why did the bill barely shrink when the loan did? | | - | transition question
 
 *Marker tam giác ở bên trái khung; lá thư giống hệt thư của Nora; khối phí gần bằng khối của Nora. Huy hiệu ILLUSTRATIVE.*
 
@@ -219,17 +211,17 @@ S24.5 | And if he sells before the clock gets there? | | - | transition question
 ## S25 · act3 · B18
 S25.1 | If Walt sells after three years, the refinance leaves him $1,777 behind. | If Walt sells after three years, the refinance leaves him one thousand, seven hundred seventy-seven dollars behind. | net36_small, y3 | decisive, somber
 S25.2 | [pause 1.0] | (silent) | - | pause
-S25.3 | He paid the bill up front, and the savings never caught up. | | - | quiet
+S25.3 | He paid the bill up front, and by then the savings had not caught up. | | - | quiet
 S25.4 | For him, the refinance would have been a cost, not a saving. | | - | plain
 S25.5 | To pay his bill back within three years, how far would his rate have to fall? | | - | transition question
 
 *Trục thời gian dừng ở năm 3; khối "behind" màu ink-muted có hoa văn.*
 
 ## S26 · act3 · B19
-S26.1 | By 1.12 percentage points. | By one point one two percentage points. | cut36_small | decisive
+S26.1 | By a little more than one full percentage point: 1.12. | By a little more than one full percentage point: one point one two. | cut36_small | decisive
 S26.2 | [pause 1.0] | (silent) | - | pause
 S26.3 | That is more than the one-point line. | | - | plain
-S26.4 | For a small loan, even the full-point line falls short. | | - | transition
+S26.4 | For a loan this small, even the full-point line falls short. | | - | transition
 S26.5 | At the other end, the opposite happens. | | - | transition, turn
 
 *Marker tam giác đặt trên thước ở 1.12, bên phải "1-point line".*
@@ -240,11 +232,12 @@ S27.2 | She and her husband bought a larger place for a growing family. | | - | 
 S27.3 | Her loan was $655,000, still under the conforming limit. | Her loan was six hundred fifty-five thousand dollars, still under the conforming limit. | loan_large | even
 S27.4 | She got the same drop, and a bill of $5,514, close to what Nora pays. | She got the same drop, and a bill of five thousand, five hundred fourteen dollars, close to what Nora pays. | cost_large | even
 S27.5 | Almost the same bill, spread over a much bigger loan. | | - | transition
+S27.6 | Her monthly savings are far bigger than what Nora saves. | | - | plain, sets up the win
 
 *Marker vuông ở bên phải khung (nhãn tên bằng ink); cùng lá thư. Huy hiệu ILLUSTRATIVE.*
 
 ## S28 · act3 · B21
-S28.1 | If she sold after three years, she would come out $5,250 ahead. | If she sold after three years, she would come out five thousand, two hundred fifty dollars ahead. | net36_large | decisive, a small win
+S28.1 | If she sold after three years, she would come out $5,250 ahead. | If she sold after three years, she would come out five thousand, two hundred fifty dollars ahead. | net36_large, y3 | decisive, a small win
 S28.2 | [pause 1.0] | (silent) | - | pause
 S28.3 | To pay her bill back within three years, she needs a drop of only about a third of a point. | | cut36_large_words | light
 S28.4 | Three households, three lines. | | - | slow
@@ -254,14 +247,15 @@ S28.5 | So back to the question Nora started with. | | - | transition
 
 ## S29 · act3 · B22
 S29.1 | How far must her rate fall before that bill pays itself back? | | - | callback of the cold open, same words
-S29.2 | To pay the bill back within three years, it depends on the loan. | | - | answer begins
+S29.2 | To pay the bill back within three years, the drop depends on the loan. | | hold36 | answer begins
 S29.3 | About a third of a point for Anjali. | | cut36_large_words | even
 S29.4 | Half a point for Nora. | | cut36_median | even
 S29.5 | More than one for Walt. | | cut36_small | even
 S29.6 | The one-point line fits none of them. | | - | the answer, firm
-S29.7 | [pause 1.0] | (silent) | - | pause
-S29.8 | These are average rates, median bills, and three illustrative households, so a real rate, a real bill, and a real balance will differ. | | - | limit, plain, right after the answer
-S29.9 | Which leaves one number that only you know. | | - | transition, softer
+S29.7 | Half a point is the line for Nora, not for everyone. | | cut36_median | firm, closes act 3 question
+S29.8 | [pause 1.0] | (silent) | - | pause
+S29.9 | These are average rates, median bills, and three illustrative households, so a real rate, a real bill, and a real balance will differ. | | - | limit, plain, right after the answer
+S29.10 | Which leaves one number that only you know. | | - | transition, softer
 
 *Lá thư của Nora trở lại như ở cold open; dòng "New rate" giờ có thước bên cạnh, ba marker ở 0.32, 0.5, 1.12, vạch "1-point line" không trùng ai.*
 
@@ -274,12 +268,11 @@ S30.4 | [pause 1.0] | (silent) | - | pause
 *Trục thời gian của Nora với mốc năm 3 và một khối dư nhỏ.*
 
 ## S31 · act3 · B23
-S31.1 | [pause 1.0] | (silent) | - | pause
-S31.2 | If she stays seven years, she comes out $8,093 ahead. | If she stays seven years, she comes out eight thousand, ninety-three dollars ahead. | y7, net84_median | even, warm
-S31.3 | [pause 1.0] | (silent) | - | pause
-S31.4 | Seven years is not a prediction. | | - | plain
-S31.5 | It is one of the two horizons we tested, and the longer she stays, the further the savings run past the bill. | | - | reflective
-S31.6 | How long do you picture yourself there? | | - | final question, let it breathe
+S31.1 | If she stays seven years, she comes out $8,093 ahead. | If she stays seven years, she comes out eight thousand, ninety-three dollars ahead. | y7, net84_median | even, warm
+S31.2 | [pause 1.0] | (silent) | - | pause
+S31.3 | Seven years is not a prediction. | | - | plain
+S31.4 | It is one of the two horizons we tested, and the longer she stays, the further the savings run past the bill. | | y3, y7 | reflective
+S31.5 | How long do you picture yourself there? | | - | final question, let it breathe
 
 *Trục thời gian kéo dài tới năm 7; khối dư lớn hơn nhiều. Ba marker lùi về cạnh.*
 
@@ -309,21 +302,22 @@ S34.4 | [end screen 20 s] | (silent) | - | music tail, room tone
 
 ## Tự kiểm (tự động, `155 wpm`; cộng khoảng lặng, 1.5 s hình trước lời, 3 s ident, thẻ phương pháp 6 s + 16 s, end screen 20 s)
 
-- **Tổng lời đọc:** 1608 từ. **Thời lượng ước tính:** 11:30.
-- **Độ dài câu:** 145 câu; trung bình 11.1 từ; độ lệch chuẩn/trung bình = 0.45 (≥ 0.35 đạt).
-- **Mật độ số:** 41 số mới trong 691 s, tức trung bình 1 số mới mỗi 16.8 s (≥ 8 s đạt). Không cảnh nào quá 2 số mới. Mốc ngày (anchor_date, low_date, oct2023) không tính. Dạng đọc bằng lời được gộp với claim gốc (cut36_median = s05; be_bal_05 và y3 = hold36; cut_today_words = cut_today; cut36_large_words = cut36_large).
+- **Tổng lời đọc:** 1510 từ. **Thời lượng ước tính:** 10:50.
+- **Độ dài câu:** 139 câu; trung bình 10.9 từ; độ lệch chuẩn/trung bình = 0.46 (≥ 0.35 đạt).
+- **Mật độ số:** 40 số mới trong 651 s, tức trung bình 1 số mới mỗi 16.3 s (≥ 8 s đạt). Không cảnh nào quá 2 số mới. Mốc ngày và năm (anchor_date, low_date, oct2023, y1971) không tính. Dạng đọc bằng lời được gộp với claim gốc (cut36_median = s05; be_bal_05 và y3 = hold36; cut_today_words = cut_today; cut36_large_words = cut36_large).
 - **Câu móc lại:** S04.2, khoảng 0:30–0:38.
-- **Điểm chèn quảng cáo:** cuối S13 (khoảng 3:43) và cuối S21 (khoảng 6:30).
-- **"US only" / "history, not a forecast":** mỗi cụm một lần trong lời hồi 1 (S06). Thẻ S33 nhắc lại bằng chữ.
-- **Sở hữu cách trên tên riêng:** không có. **"we":** chỉ ở S12.2, S18.2, S31, S32.1 (người phân tích).
+- **$221 [sav_median]:** khoảng 1:50 (S09.2). **Nominal:** nhãn "nominal $" trên màn hình ở S02; lời nói "nominal" ngay sau số tiền đầu tiên được đọc (S07.4).
+- **Điểm chèn quảng cáo:** cuối S13 (khoảng 3:14) và cuối S21 (khoảng 5:43).
+- **"US only" / "history, not a forecast":** mỗi cụm một lần trong lời hồi 1 (S05.3, ngay sau phần lịch sử lãi suất). Thẻ S33 nhắc lại bằng chữ.
+- **Sở hữu cách trên tên riêng:** không có. **"we":** chỉ ở S12.2, S31.4, S32.1 (người phân tích).
 
 | Hồi | Từ | Thời lượng (s) |
 |---|---|---|
 | cold-open | 57 | 24 |
 | ident | 0 | 3 |
-| act1 | 500 | 198 |
-| act2 | 413 | 167 |
-| act3 | 542 | 220 |
+| act1 | 425 | 168 |
+| act2 | 368 | 150 |
+| act3 | 564 | 227 |
 | method | 47 | 40 |
 | outro | 49 | 39 |
 
@@ -333,38 +327,37 @@ S34.4 | [end screen 20 s] | (silent) | - | music tail, room tone
 | S02 | cold-open | B1 | 0:10 | 33 | 12.8 | 1 | cost_median | 12.8 |
 | S03 | ident | B2 | 0:23 | 0 | 3.0 | 0 | - | - |
 | S04 | act1 | B2 | 0:26 | 39 | 15.1 | 1 | hold36 | 15.1 |
-| S05 | act1 | B3 | 0:41 | 63 | 24.4 | 2 | low, y1971 | 12.2 |
-| S06 | act1 | B3 | 1:06 | 41 | 16.9 | 2 | purch23_words, ge7_threshold | 8.4 |
-| S07 | act1 | B4 | 1:22 | 78 | 30.2 | 2 | loan_median, r_old | 15.1 |
-| S08 | act1 | B5 | 1:53 | 45 | 17.4 | 2 | k35, r_today | 8.7 |
-| S09 | act1 | B5 | 2:10 | 51 | 20.7 | 2 | cut_today, sav_median | 10.4 |
-| S10 | act1 | B6 | 2:31 | 63 | 24.4 | 2 | n31_approx, y2025 | 12.2 |
-| S11 | act1 | B6 | 2:55 | 35 | 13.5 | 0 | - | - |
-| S12 | act1 | B7 | 3:09 | 55 | 22.3 | 2 | s10, be_simple_median | 11.1 |
-| S13 | act1 | B7 | 3:31 | 30 | 12.8 | 0 | - | - |
-| S14 | act2 | B8 | 3:44 | 79 | 30.6 | 0 | - | - |
-| S15 | act2 | B9 | 4:14 | 81 | 31.4 | 1 | term30 | 31.4 |
-| S16 | act2 | B10 | 4:46 | 51 | 20.7 | 1 | gap24 | 20.7 |
-| S17 | act2 | B11 | 5:06 | 33 | 13.8 | 1 | be_bal_median | 13.8 |
-| S18 | act2 | B12 | 5:20 | 43 | 17.6 | 2 | s025, be_simple_025 | 8.8 |
-| S19 | act2 | B12 | 5:38 | 31 | 13.2 | 1 | be_bal_025 | 13.2 |
-| S20 | act2 | B13 | 5:51 | 30 | 12.6 | 1 | be_bal_10 | 12.6 |
-| S21 | act2 | B14 | 6:04 | 65 | 27.4 | 1 | s05 | 27.4 |
-| S22 | act3 | B15 | 6:31 | 88 | 35.1 | 2 | loan_small, cost_small | 17.5 |
-| S23 | act3 | B16 | 7:06 | 50 | 20.4 | 2 | cost_large, share_walt | 10.2 |
-| S24 | act3 | B17 | 7:27 | 44 | 18.0 | 2 | sav_small, be_bal_small | 9.0 |
-| S25 | act3 | B18 | 7:45 | 57 | 23.1 | 1 | net36_small | 23.1 |
-| S26 | act3 | B19 | 8:08 | 31 | 13.0 | 1 | cut36_small | 13.0 |
-| S27 | act3 | B20 | 8:21 | 61 | 23.6 | 1 | loan_large | 23.6 |
-| S28 | act3 | B21 | 8:44 | 49 | 20.0 | 2 | net36_large, cut36_large_words | 10.0 |
-| S29 | act3 | B22 | 9:04 | 81 | 32.4 | 0 | - | - |
-| S30 | act3 | B23 | 9:37 | 33 | 13.8 | 1 | net36_median | 13.8 |
-| S31 | act3 | B23 | 9:50 | 48 | 20.6 | 2 | y7, net84_median | 10.3 |
-| S32 | method | B24 | 10:11 | 47 | 24.2 | 0 | - | - |
-| S33 | method | B24 | 10:35 | 0 | 16.0 | 2 | n_eps, n_further | 8.0 |
-| S34 | outro | B24 | 10:51 | 49 | 39.0 | 0 | - | - |
+| S05 | act1 | B3 | 0:41 | 48 | 18.6 | 1 | low | 18.6 |
+| S06 | act1 | B3 | 1:00 | 29 | 11.2 | 2 | purch23_words, ge7_threshold | 5.6 |
+| S07 | act1 | B4 | 1:11 | 51 | 19.7 | 2 | loan_median, r_old | 9.9 |
+| S08 | act1 | B5 | 1:31 | 36 | 13.9 | 2 | k35, r_today | 7.0 |
+| S09 | act1 | B5 | 1:45 | 46 | 18.8 | 2 | cut_today_words, sav_median | 9.4 |
+| S10 | act1 | B6 | 2:03 | 69 | 26.7 | 2 | n31_approx, y2025 | 13.4 |
+| S11 | act1 | B6 | 2:30 | 17 | 6.6 | 0 | - | - |
+| S12 | act1 | B7 | 2:37 | 55 | 22.3 | 2 | s10, be_simple_median | 11.1 |
+| S13 | act1 | B7 | 2:59 | 35 | 14.7 | 0 | - | - |
+| S14 | act2 | B8 | 3:14 | 52 | 20.1 | 0 | - | - |
+| S15 | act2 | B9 | 3:34 | 81 | 31.4 | 1 | term30 | 31.4 |
+| S16 | act2 | B10 | 4:05 | 51 | 20.7 | 1 | gap24 | 20.7 |
+| S17 | act2 | B11 | 4:26 | 33 | 13.8 | 1 | be_bal_median | 13.8 |
+| S18 | act2 | B12 | 4:40 | 31 | 13.0 | 2 | s025, be_simple_025 | 6.5 |
+| S19 | act2 | B12 | 4:53 | 25 | 10.9 | 1 | be_bal_025 | 10.9 |
+| S20 | act2 | B13 | 5:04 | 30 | 12.6 | 1 | be_bal_10 | 12.6 |
+| S21 | act2 | B14 | 5:16 | 65 | 27.4 | 1 | s05 | 27.4 |
+| S22 | act3 | B15 | 5:44 | 78 | 31.2 | 2 | loan_small, cost_small | 15.6 |
+| S23 | act3 | B16 | 6:15 | 50 | 20.4 | 2 | cost_large, share_walt | 10.2 |
+| S24 | act3 | B17 | 6:35 | 44 | 18.0 | 2 | sav_small, be_bal_small | 9.0 |
+| S25 | act3 | B18 | 6:53 | 60 | 24.2 | 1 | net36_small | 24.2 |
+| S26 | act3 | B19 | 7:17 | 38 | 15.7 | 1 | cut36_small | 15.7 |
+| S27 | act3 | B20 | 7:33 | 71 | 27.5 | 1 | loan_large | 27.5 |
+| S28 | act3 | B21 | 8:01 | 49 | 20.0 | 2 | net36_large, cut36_large_words | 10.0 |
+| S29 | act3 | B22 | 8:21 | 93 | 37.0 | 0 | - | - |
+| S30 | act3 | B23 | 8:58 | 33 | 13.8 | 1 | net36_median | 13.8 |
+| S31 | act3 | B23 | 9:11 | 48 | 19.6 | 2 | y7, net84_median | 9.8 |
+| S32 | method | B24 | 9:31 | 47 | 24.2 | 0 | - | - |
+| S33 | method | B24 | 9:55 | 0 | 16.0 | 2 | n_eps, n_further | 8.0 |
+| S34 | outro | B24 | 10:11 | 49 | 39.0 | 0 | - | - |
 
 **Mọi claim ID đã dùng (48):** `anchor_date`, `be_bal_025`, `be_bal_05`, `be_bal_10`, `be_bal_median`, `be_bal_small`, `be_simple_025`, `be_simple_median`, `cost_large`, `cost_median`, `cost_small`, `cut36_large_words`, `cut36_median`, `cut36_small`, `cut_today`, `cut_today_words`, `gap24`, `ge7_threshold`, `hold36`, `k35`, `loan_large`, `loan_median`, `loan_small`, `low`, `low_date`, `n31_approx`, `n_eps`, `n_further`, `net36_large`, `net36_median`, `net36_small`, `net84_median`, `oct2023`, `peak2023_since`, `purch23_words`, `r_old`, `r_today`, `s025`, `s05`, `s10`, `sav_median`, `sav_small`, `share_walt`, `term30`, `y1971`, `y2025`, `y3`, `y7`.
 
 **Claim ID còn thiếu:** không. Mọi ID đều có trong `numbers.md` (§4 A–G).
-- **Ghi chú:** $221 [sav_median] đến khoảng 2:20, trễ hơn mục tiêu 1:30 của vòng 2. Lý do: giữ mật độ ≤ 1 số mới mỗi 8 s ở hồi 1.
