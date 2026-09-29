@@ -12,8 +12,8 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 | Cổng | Trạng thái | Gói | Quyết định của chủ dự án |
 |---|---|---|---|
 | Việc 0 | XONG — merge `main` `7ebc7ea` | — | Khung 3 lớp duyệt; D-002 |
-| C1 Ý tưởng | CHỜ CHỦ DỰ ÁN (issue #2) | `episodes/ep001/gates/C1.md` | — |
-| C2 Kịch bản | chờ | | |
+| C1 Ý tưởng | XONG | `episodes/ep001/gates/C1.md` | Logline C; bộ đo mới (vai khán giả đích, tiếng Anh, đối chứng yếu) |
+| C2 Kịch bản | ĐANG LÀM (hiệu chuẩn bộ đo + WRITER) | | |
 | C3 Thiết kế và giọng | chờ | | |
 | C4 Animatic có chuyển động | chờ | | |
 | C5 Render và L1 | chờ (cần khoá K3 của Phiên K) | | |
@@ -26,3 +26,4 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 - Ý đồ kiểm mù ghi trước ở `gates/Cx-intent.md`; kết quả nguyên văn ở `gates/Cx-blind.md`.
 - Mỗi agent con, mỗi cổng: một dòng ở `episodes/ep001/ledger.md`.
 - Điểm dừng an toàn sau mỗi cổng (commit + push `ep001-v2`).
+- Luật F12 (chủ dự án nhắc ở C1 cho screenshot/bằng chứng) chưa có trong `checks/` (K2 tới F11) → cần Phiên K3 viết trước C3/C5.
