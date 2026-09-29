@@ -27,6 +27,10 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 ## Điểm dừng an toàn (cập nhật mỗi khi có thể phải dừng)
 - 2026-09-29: C3 hình đã ký; giọng đang thử mù V1/V2/V3 (`review-c3/voice-v/`); animatic C4 đang dựng (`episodes/ep001/animatic/`). Tiếp tục: gửi gói thử giọng → chủ dự án chọn → sinh lại cả tập một kiểu → định thời animatic → kiểm mù tắt tiếng C4.
 
+## Checklist C5 (Chặn)
+- Rà quy ước quyền `quality-framework.md` §8: tìm `data:` trong mã dựng/bản dựng trang; đối chiếu mọi nguồn ghép hậu kỳ với `RIGHTS.md`.
+- Điều khoản ElevenLabs trích nguyên văn; Inter OFL trích nguyên văn.
+
 ## Quy ước
 - Ý đồ kiểm mù ghi trước ở `gates/Cx-intent.md`; kết quả nguyên văn ở `gates/Cx-blind.md`.
 - Mỗi agent con, mỗi cổng: một dòng ở `episodes/ep001/ledger.md`.
