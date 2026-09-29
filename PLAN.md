@@ -15,7 +15,7 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 | C1 Ý tưởng | XONG | `episodes/ep001/gates/C1.md` | Logline C; bộ đo mới (vai khán giả đích, tiếng Anh, đối chứng yếu) |
 | C2 Kịch bản | XONG | `episodes/ep001/gates/C2.md` | OK; lịch sử rút (a); câu hứa nói với người xem (2 phương án ở C3) |
 | C3 Thiết kế và giọng | XONG hình (hợp đồng ký, sàn chữ 40 px); **giọng: thử mù V1/V2/V3 đang làm** | `gates/C3.md`, `gates/C3-contract.md` | D theo nhịp; Eric eleven_v3; câu hứa "…where would your own loan fall?" |
-| C4 Animatic có chuyển động | ĐANG LÀM (dựng hình toàn tập, định thời lại khi chốt giọng) | | |
+| C4 Animatic có chuyển động | ĐANG LÀM — kiểm mù tắt tiếng **19/20 nhịp qua** (S11 trượt, thiết kế lại); chờ chủ dự án chọn kiểu giọng (a/b/c) → sinh lại cả tập → định thời → gói | `gates/C4-blind.md` | |
 | C5 Render và L1 | chờ (cần khoá K3 của Phiên K) | | |
 | C6 Chấm cuối | chờ | | |
 
@@ -26,6 +26,8 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 
 ## Điểm dừng an toàn (cập nhật mỗi khi có thể phải dừng)
 - 2026-09-29: C3 hình đã ký; giọng đang thử mù V1/V2/V3 (`review-c3/voice-v/`); animatic C4 đang dựng (`episodes/ep001/animatic/`). Tiếp tục: gửi gói thử giọng → chủ dự án chọn → sinh lại cả tập một kiểu → định thời animatic → kiểm mù tắt tiếng C4.
+
+- 2026-09-29 (2): kiểm mù tắt tiếng C4 xong (63 agent, `gates/C4-blind.md`). Tiếp: chờ a/b/c giọng; sửa S11 (nhãn "division", đường trắng); gói C4.
 
 ## Checklist C5 (Chặn)
 - Rà quy ước quyền `quality-framework.md` §8: tìm `data:` trong mã dựng/bản dựng trang; đối chiếu mọi nguồn ghép hậu kỳ với `RIGHTS.md`.
