@@ -10,7 +10,7 @@ import json, os, re, sys
 from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__)); AN = os.path.dirname(HERE); EP = os.path.dirname(AN)
 claims = json.load(open(os.path.join(EP, 'out', 'claims.json')))['claims']
-NUM = re.compile(r'\d[\d,]*(?:\.\d+)?')
+NUM = re.compile(r'\d+(?:,\d{3})*(?:\.\d+)?')
 tok = {}
 for c in claims:
     for x in NUM.findall(c['display']):

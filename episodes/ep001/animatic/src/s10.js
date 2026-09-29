@@ -45,7 +45,7 @@ export function build(ctx0) {
     bar(740, sp.new, aI, 'one payment, new loan');
     text(ctx, 'goes to interest', BX + 20, 470, 'note', { color: C.ink, alpha: aE });
     text(ctx, 'green: pays down the loan (below: magnified)', BX, 600, 'note', { color: C.positive, alpha: aE });
-    text(ctx, 'the new loan pays down less each month', W / 2, 1000, 'label', { align: 'center', color: C.warn, alpha: easeOut(t, tI + 0.8, tI + 1.2) });
+    text(ctx, 'the new loan pays down less each month', BX, 900, 'label', { color: C.warn, alpha: easeOut(t, tI + 0.8, tI + 1.2) });
     chrome(ctx, { illus: 1 });
   }
   // ---- H1 table ----

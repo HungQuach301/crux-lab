@@ -38,8 +38,8 @@ export function build({ T }) {
     text(ctx, 'her offer (' + CL('cut_today') + '): paid back within ' + CL('y3') + ' years', G.X0 + 20, yF + 80, 'label', { alpha: aP, plate: PL });
     // is half a point the line for everyone?
     const aE = easeOut(t, tE, tE + 0.5);
-    mark(ctx, 'walt', rx(1.12) + 20, RU.y - 90, 18, aE * 0.8); mark(ctx, 'anjali', rx(0.25), RU.y - 90, 18, aE * 0.8);
-    text(ctx, '?', rx(1.12) + 60, RU.y - 72, 'label', { color: C.warn, alpha: aE }); text(ctx, '?', rx(0.25) + 40, RU.y - 72, 'label', { color: C.warn, alpha: aE });
+    mark(ctx, 'walt', rx(0.78), RU.y - 90, 18, aE * 0.8); mark(ctx, 'anjali', rx(0.12), RU.y - 90, 18, aE * 0.8);
+    text(ctx, '?', rx(0.78) + 34, RU.y - 72, 'label', { color: C.warn, alpha: aE }); text(ctx, '?', rx(0.12) + 34, RU.y - 72, 'label', { color: C.warn, alpha: aE });
     text(ctx, 'The same line for everyone?', W / 2, 1036, 'caption', { align: 'center', alpha: aE, plate: PL, sent: true });
     chrome(ctx, { illus: 1, source: t < tE ? 'Nora (illustrative). Counting what she still owes.' : '' });
   }

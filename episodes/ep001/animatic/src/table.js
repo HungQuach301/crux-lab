@@ -55,7 +55,7 @@ export function makeTable({ scene, camera, renderer }) {
   function overlay(ctx, t, P, s) {
     const o = owedState(s);
     const pb0 = P(new THREE.Vector3(X.bill, 0, FD / 2)), ps0 = P(new THREE.Vector3(X.sav, 0, FD / 2));
-    text(ctx, 'loan costs', pb0.x, pb0.y + 54, 'label', { align: 'center', alpha: s.billGrow, shadow: true });
+    text(ctx, 'loan costs', pb0.x, pb0.y + 54, 'label', { align: 'center', alpha: s.billGrow * ease(1 - (s.letterCam || 0), 0.9, 1), shadow: true });
     text(ctx, '+' + CL('sav_median') + ' a month', ps0.x, ps0.y + 54, 'label', { align: 'center', color: '#8FE0B5', alpha: s.savLabel, shadow: true });
     const pst = P(new THREE.Vector3((X.old + X.nw) / 2, at(M.oldPaid, s.paidMonth) * K, 0));
     text(ctx, 'balance paid off', pst.x, Math.min(pst.y - 90, 690), 'label', { align: 'center', alpha: s.paidOn, shadow: true });

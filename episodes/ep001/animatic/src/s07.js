@@ -53,7 +53,7 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, 'the median bill: half pay less, half pay more', xOf(B.p50), Y + 236, 'label', { align: 'center', alpha: easeOut(t, tMd + 1.4, tMd + 1.8) });
     text(ctx, "Nora's loan size is the median too: " + CL('loan_median'), W / 2, 960, 'label', { align: 'center', color: C.positive, alpha: easeOut(t, tSz, tSz + 0.4) });
     // a letter like this: an outline letter slides in
-    const aY = easeOut(t, tY, tY + 0.6), lx = mix(1900, 1500, back(t, tY, tY + 1.0));
+    const aY = easeOut(t, tY, tY + 0.6), lx = mix(1640, 1500, back(t, tY, tY + 1.0));
     if (aY > 0) { srect(ctx, lx, 250, 170, 220, C.ink, 4, aY, [10, 8]); text(ctx, 'your letter?', lx + 85, 520, 'label', { align: 'center', alpha: aY }); }
     chrome(ctx, { source: 'HMDA ' + CL('y2025') + ', refinances (total loan costs).' });
   }

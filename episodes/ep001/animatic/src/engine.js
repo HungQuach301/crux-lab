@@ -245,8 +245,8 @@ export function boot(mod, T) {
       times.forEach((t, i) => {
         const x = 2 + (i % 3) * 640 + 1, y = 2 + Math.floor(i / 3) * 363;
         draw(t); g.drawImage(out, x, y, 636, 358);
-        g.fillStyle = C.warn; g.fillRect(x + 6, y + 6, 40, 40);
-        ptxt(g, String(i + 1), x + 26, y + 38, { size: 30, weight: 700, color: C.bg, align: 'center' });
+        g.fillStyle = C.warn; g.fillRect(x + 636 - 46, y + 358 - 46, 40, 40);
+        ptxt(g, String(i + 1), x + 636 - 26, y + 358 - 14, { size: 30, weight: 700, color: C.bg, align: 'center' });
       });
       window.NOCAP = was;
       return sc.toDataURL('image/png');

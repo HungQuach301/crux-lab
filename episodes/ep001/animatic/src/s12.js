@@ -19,8 +19,8 @@ export function build({ T }) {
     dot(ctx, x18, yF, 13, C.ink, aX);
     text(ctx, 'month ' + CL('be_bal_10'), x18, G.YB + 64, 'label', { align: 'center', alpha: aX });
     const aB = easeOut(t, tI, tI + 0.4);
-    rect(ctx, x18, yF - 90, (xOfM(m3, X) - x18) * aB, 16, C.positive, 0.8);
-    text(ctx, 'well inside ' + CL('y3') + ' years', (x18 + xOfM(m3, X)) / 2, yF - 110, 'label', { align: 'center', color: C.positive, alpha: aB });
+    rect(ctx, x18, yF + 60, (xOfM(m3, X) - x18) * aB, 16, C.positive, 0.8);
+    text(ctx, 'well inside ' + CL('y3') + ' years', (x18 + xOfM(m3, X)) / 2, yF + 130, 'label', { align: 'center', color: C.positive, alpha: aB });
     chrome(ctx, { illus: 1, source: 'Nora (illustrative). Counting what she still owes.' });
   }
   return { update: () => {}, overlay, stripTimes: [0.3, tF, tF + 0.9, t18 + 0.2, tI + 0.4, T.dur - 0.1] };

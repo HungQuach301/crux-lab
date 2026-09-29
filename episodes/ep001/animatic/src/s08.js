@@ -22,7 +22,7 @@ export function build({ T }) {
       const fx = mix(X1 - 40, xOf(+CL('hold36')), back(t, tSt, tSt + 1.2)), aF = p1 * easeOut(t, tWo - 0.4, tWo);
       line(ctx, [[fx, Y], [fx, Y - 230]], C.ink, 5, { alpha: aF });
       ctx.save(); ctx.globalAlpha = aF; ctx.fillStyle = C.warn; ctx.beginPath(); ctx.moveTo(fx, Y - 230); ctx.lineTo(fx + 90, Y - 200); ctx.lineTo(fx, Y - 170); ctx.fill(); ctx.restore();
-      text(ctx, 'she sells or moves', fx + 110, Y - 190, 'label', { alpha: aF });
+      text(ctx, 'she sells or moves', fx - 20, Y - 190, 'label', { align: 'right', alpha: aF });
       // green bracket: fees paid back before the flag
       const g = easeOut(t, tWo, tWo + 1.0);
       rect(ctx, X0, Y - 60, (fx - X0 - 20) * g, 30, C.positive, 0.85 * p1);

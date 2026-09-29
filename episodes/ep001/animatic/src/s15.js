@@ -29,7 +29,7 @@ export function build(ctx0) {
       rect(ctx, BX, y + 10, BL * k, 60, C.warn, 0.95 * a); mark(ctx, 'walt', BX - 30, y + 40, 16, a);
       text(ctx, r.vw, BX + BL * k + 20, y + 58, 'number', { alpha: easeOut(t, r.t + 1.6, r.t + 2.0) });
     });
-    text(ctx, 'the bill barely shrinks', BX + BL * rows[1].w + 330, 330 + 230 + 58, 'label', { color: C.warn, alpha: easeOut(t, tB + 2.0, tB + 2.4) * (1 - ease(t, tSh - 0.3, tSh)) });
+    text(ctx, 'the bill barely shrinks', BX, 330 + 230 + 136, 'label', { color: C.warn, alpha: easeOut(t, tB + 2.0, tB + 2.4) * (1 - ease(t, tSh - 0.3, tSh)) });
     text(ctx, 'his bill = ' + CL('share_walt') + ' of his loan', BX, 330 + 230 + 136, 'label', { color: C.warn, alpha: easeOut(t, tSh, tSh + 0.4) });
     text(ctx, 'savings shrink with the loan', 96, 960, 'caption', { alpha: easeOut(t, t68, t68 + 0.4), plate: PL });
     chrome(ctx, { illus: 1, source: 'Walt, Nora: illustrative. Same offer: ' + CL('r_old') + ' → ' + CL('r_today') + '.' });

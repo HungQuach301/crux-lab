@@ -22,9 +22,9 @@ export function build({ scene, camera, renderer, T }) {
   function room(ctx, t, P) {
     if (t < tP) {
       const aR = easeOut(t, tR, tR + 0.4);
-      text(ctx, 'New rate: ' + CL('r_today'), 1180, 560, 'number', { alpha: aR, plate: PL });
-      text(ctx, 'national average,', 1180, 650, 'label', { alpha: easeOut(t, tW, tW + 0.4), plate: PL });
-      text(ctx, 'week ending ' + CL('anchor_date'), 1180, 716, 'label', { alpha: easeOut(t, tW, tW + 0.4), plate: PL });
+      text(ctx, 'New rate: ' + CL('r_today'), 1060, 560, 'number', { alpha: aR, plate: PL });
+      text(ctx, 'national average,', 1060, 650, 'label', { alpha: easeOut(t, tW, tW + 0.4), plate: PL });
+      text(ctx, 'week ending ' + CL('anchor_date'), 1060, 716, 'label', { alpha: easeOut(t, tW, tW + 0.4), plate: PL });
       chrome(ctx, { source: 'Assumes the offer matches the national average (Freddie Mac).', plate: true });
       return;
     }
@@ -54,12 +54,12 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, CL('cut_today') + ' point', XA + 220, yOf(7.03) + 90, 'number', { align: 'center', alpha: easeOut(t, tG + 1.4, tG + 1.8) });
     text(ctx, CL('cut_today_words'), XA + 220, yOf(7.03) + 150, 'label', { align: 'center', alpha: easeOut(t, tHf, tHf + 0.4) });
     // the 1-point ruler beside the gap
-    const u = easeOut(t, tU, tU + 1.0), xu = 1440;
+    const u = easeOut(t, tU, tU + 1.0), xu = 1290;
     rect(ctx, xu, yOf(DATA.f1.rOld), 60, PX * u, C.muted, 0.5);
     line(ctx, [[xu - 20, yOf(DATA.f1.rOld)], [xu + 80, yOf(DATA.f1.rOld)]], C.ink, 3, { alpha: u });
     line(ctx, [[xu - 20, yOf(DATA.f1.rOld) + PX * u], [xu + 80, yOf(DATA.f1.rOld) + PX * u]], C.ink, 3, { alpha: u });
-    text(ctx, CL('s10') + ' point', xu + 110, yOf(DATA.f1.rOld) + PX / 2, 'number', { alpha: easeOut(t, tU + 0.8, tU + 1.2) });
-    text(ctx, '= one percentage point', xu + 110, yOf(DATA.f1.rOld) + PX / 2 + 60, 'note', { color: C.ink, alpha: easeOut(t, tU + 0.8, tU + 1.2) });
+    text(ctx, CL('s10') + ' point', xu + 90, yOf(DATA.f1.rOld) + PX / 2, 'number', { alpha: easeOut(t, tU + 0.8, tU + 1.2) });
+    text(ctx, '= one percentage point', xu + 90, yOf(DATA.f1.rOld) + PX / 2 + 60, 'note', { color: C.ink, alpha: easeOut(t, tU + 0.8, tU + 1.2) });
     chrome(ctx, { source: 'Freddie Mac weekly survey, via FRED.' });
   }
   return {
