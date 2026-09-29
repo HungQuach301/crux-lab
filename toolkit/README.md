@@ -13,8 +13,8 @@ Nó **không phải nền tảng**. Code thực thi là đồ dùng một lần 
 | `render/` | `engine.js`, `page.js`, `page.html`, `cameras.js`, `scenes.js`, `BUILDERS.md`, `fonts/` | `render-d/prod/*`, `render-av/fonts/` | Trang dựng Chromium: biểu đồ trên mặt phẳng, parallax, máy quay có quán tính, chữ HUD sắc nét. Mỗi phần tử vẽ ra được khai báo làm đối tượng hợp đồng (`window.CHECKS`). `scenes.js` chứa các helper (`K`) và, làm ví dụ, các builder hồi 1 của bài D. |
 | `render/` | `render.js` | `render-d/prod/render.js` | Playwright → khung PNG → ffmpeg; render theo đoạn `--from/--to`. |
 | `render/` | `m3-merge.js`, `m3-encode-range.js`, `m3-splice.js` | `src/d/` | Ghép các đoạn render. Render lại riêng từng cảnh rồi ghép vào master tại keyframe, không render lại cả phim. |
-| `voice/` | `normalize.js`, `speak.js`, `pauses.js` | `src/av/normalize.js`, `src/d/speak.js`, `src/d/pauses.js` | Chuẩn hoá lời: số, năm, tiền, % thành chữ đọc được; chèn chỗ nghỉ. |
-| `voice/` | `d_el_voice.py`, `d_el_voice_one.py` | `audio/` | TTS ElevenLabs qua proxy: mỗi câu tối đa 4 take, không giãn thời gian, chọn take theo từ khoá và wpm. |
+| `voice/` | `normalize.js`, `speak.js` | `src/av/normalize.js`, `src/d/speak.js` | Chuẩn hoá lời: số, năm, tiền, % thành chữ đọc được. (`pauses.js`, chèn "..." giả để ép tốc độ đọc, đã xoá 2026-09-29 theo G-010 và `playbook/quality-framework.md`.) |
+| `voice/` | `d_el_voice.py`, `d_el_voice_one.py` | `audio/` | TTS ElevenLabs qua proxy: mỗi câu tối đa 4 take, không giãn thời gian. **Từ 2026-09-29:** một model giọng cả tập (model dự phòng tắt, `MAX_FALLBACK = 0`); wpm chỉ là cảnh báo, không dùng làm đích để chọn take (G-010). |
 | `voice/` | `d_asr.py`, `d_choose.py` | `audio/` | faster-whisper (small.en, int8): chép lời từng take, lấy mốc từ, chọn take. |
 | `audio/` | `d_m2_audio.py` | `audio/d_m2_audio.py` | Nhạc sinh bằng code (phối theo hồi, leitmotif), sound design, sonification, khoảng lặng có chuyển tiếp, ducking đa dải, master −14 LUFS và limiter true peak, ghi stem. |
 | `audio/` | `m3-sonify-events.js` | `src/d/` | Đọc trạng thái trang theo từng khung, sinh sự kiện âm thanh theo dữ liệu. |
