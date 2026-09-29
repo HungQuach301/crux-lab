@@ -49,6 +49,12 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 |---|---|---|
 | V1 | Giọng B nghe thử (7 câu mới sinh) được chọn; bản đọc cả tập (105 câu, sinh từng câu riêng, 82 câu tái dùng từ C2, nghỉ cố định 0,45 s) bị chê "đều đều, mất nhấn nhá". | Chọn giọng trên một mẫu nhỏ chưa đủ; cách **sinh** (từng câu hay cả cảnh) và cách **ghép** là một phần của giọng. Thử mù phải dùng đúng quy trình sẽ dùng cho cả tập. (Chờ kết quả V1/V2/V3 để xác nhận nguyên nhân.) |
 
+## B4. Quyền tài sản
+
+| # | Chuyện | Bài học |
+|---|---|---|
+| R1 | Phiên K3.1 ghi điểm mù: tài sản bên thứ ba có thể lọt qua máy kiểm nếu nhúng dạng `data:` hoặc ghép hậu kỳ ngoài đường khai báo. | Quy ước ở `quality-framework.md` §8; rà lại ở C5. |
+
 ## C. Vận hành
 
 - Chủ dự án không đọc tài liệu dài; chỉ trả lời gói quyết định (≤ 3 câu, < 1 phút đọc).
