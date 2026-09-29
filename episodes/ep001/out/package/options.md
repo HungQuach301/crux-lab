@@ -1,5 +1,7 @@
 # Tập 1 · Gói phát hành: phương án cho chủ dự án chọn (C5, luồng D)
 
+**Chủ dự án đã chọn (29/09/2026):** tiêu đề **T1**; mô tả **D1**; thumbnail: giữ cả 3 để tải lên Test & Compare của YouTube, **thumb-3 làm mặc định**.
+
 Chủ dự án chọn phần gu. Không mục nào dưới đây đã chốt. Mọi con số lấy từ `out/claims.json`. Không câu nào khuyên hay dự báo (S10).
 
 ## Tiêu đề (≤ 70 ký tự)

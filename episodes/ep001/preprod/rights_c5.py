@@ -17,6 +17,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 EP = os.path.normpath(os.path.join(HERE, '..'))
 REPO = os.path.normpath(os.path.join(EP, '..', '..'))
 PENDING = 'PENDING-OWNER-PASTE'
+# Điều khoản ElevenLabs: P2 trích nguyên văn 29/09/2026 (work/c5/elevenlabs-terms.json). commercial = true chỉ khi chủ dự án xác nhận gói trả phí.
+EL = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'work', 'c5', 'elevenlabs-terms.json'), encoding='utf-8'))
+PAID_PLAN_CONFIRMED = None
 AUDIO_GEN = 'work/audio/src/mix.py'   # stream A's mix/music/sonification code (C5); resolved from the episode root
 
 
@@ -47,9 +50,11 @@ def main():
     assets = [
         {'name': 'Voice "Eric" (ElevenLabs)', 'kind': 'voice', 'stems': ['voice'], 'visuals': [],
          'origin': 'ElevenLabs text-to-speech, premade voice "Eric" (voice_id cjVigY5qzO86Huf0OWal), model eleven_v3, paid plan; takes: out/voice/takes.json',
-         'licence': 'ElevenLabs Terms of Service, commercial licence of paid plans (verbatim quote pending: elevenlabs.io is blocked by the session proxy)',
-         'thirdParty': True, 'terms': {'quote': PENDING, 'url': PENDING}, 'commercial': None,
-         'pending': 'owner pastes the verbatim sentence granting commercial use (Terms of Use / billing page) and its URL, then sets commercial = true (RIGHTS.md V-ERIC)',
+         'licence': 'ElevenLabs Terms of Service (Last Updated 31 March 2026), commercial use for Paid Users (§(c)(ii)); verbatim quotes in work/c5/elevenlabs-terms.json',
+         'thirdParty': True, 'terms': {'quote': EL['terms']['quotes'][0] + ' — ' + EL['terms']['quotes'][1] + ' — Billing: ' + EL['billing']['quotes'][0],
+                                          'url': EL['terms']['url'], 'version': EL['terms']['version'], 'urls': [EL['terms']['url'], EL['billing']['url']]},
+         'commercial': True if PAID_PLAN_CONFIRMED else None,
+         **({} if PAID_PLAN_CONFIRMED else {'pending': 'owner confirms the account is on a paid subscription plan (Terms (c)(ii)); then PAID_PLAN_CONFIRMED = True'}),
          'rightsRow': 'V-ERIC'},
         {'name': 'Music, sound design and room tone (generated)', 'kind': 'music', 'stems': ['music', 'sfx', 'whoosh', 'room'], 'visuals': [],
          'origin': 'synthesised in code for this episode (numpy; no samples, no loops, no third-party audio)', 'licence': 'own work of the project',

@@ -9,14 +9,19 @@
    ],
    "visuals": [],
    "origin": "ElevenLabs text-to-speech, premade voice \"Eric\" (voice_id cjVigY5qzO86Huf0OWal), model eleven_v3, paid plan; takes: out/voice/takes.json",
-   "licence": "ElevenLabs Terms of Service, commercial licence of paid plans (verbatim quote pending: elevenlabs.io is blocked by the session proxy)",
+   "licence": "ElevenLabs Terms of Service (Last Updated 31 March 2026), commercial use for Paid Users (§(c)(ii)); verbatim quotes in work/c5/elevenlabs-terms.json",
    "thirdParty": true,
    "terms": {
-    "quote": "PENDING-OWNER-PASTE",
-    "url": "PENDING-OWNER-PASTE"
+    "quote": "(c) Use Restrictions. Your access to and use of the Services and your use of any Output (defined below) must comply with these Terms. Without limiting the forgoing: (i) if you access or use our Services free of charge (such a user, a “ Free User ”), you may only use the Services for non-commercial purposes; (ii) if you access or use our Services through a paid subscription plan (such a user, a “ Paid User ”), you may use the Services for commercial purposes, but in either case, your access and use of the Services and any Output must still comply with the Prohibited Use Policy. — Except as expressly set forth herein, as between you and ElevenLabs, you retain all rights in and to your Output. — Billing: When generating content on our paid plans, you get commercial rights to use that content. If you are on the free plan, you can use the content non-commercially with attribution.",
+    "url": "https://elevenlabs.io/terms-of-use",
+    "version": "Last Updated: 31 March 2026",
+    "urls": [
+     "https://elevenlabs.io/terms-of-use",
+     "https://elevenlabs.io/docs/overview/administration/billing"
+    ]
    },
    "commercial": null,
-   "pending": "owner pastes the verbatim sentence granting commercial use (Terms of Use / billing page) and its URL, then sets commercial = true (RIGHTS.md V-ERIC)",
+   "pending": "owner confirms the account is on a paid subscription plan (Terms (c)(ii)); then PAID_PLAN_CONFIRMED = True",
    "rightsRow": "V-ERIC"
   },
   {
