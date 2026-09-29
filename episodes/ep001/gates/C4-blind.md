@@ -32,7 +32,7 @@ Một câu trả lời được tính là **đọc đúng** khi nói được ý
 | S19 | 3/3 | 3 thanh màu ở khung 1 không có nhãn; chấm che chữ "Nora's $5,124" |
 | S20 | 3/3 | từ "refinance" không xuất hiện trên hình |
 
-**Kết quả: 19/20 nhịp đọc đúng (95%) → QUA ngưỡng C4. 57/60 câu trả lời đọc đúng.** Nhịp trượt S11 sẽ được thiết kế lại trước C5, theo luật ghi trong ý đồ.
+**Kết quả: 19/20 nhịp đọc đúng (95%) → QUA ngưỡng C4. 57/60 câu trả lời đọc đúng.** Nhịp trượt S11 đã được thiết kế lại (`e8f6fce`): nhãn nằm ngay trên đường trắng "same 0.25 cut, savings alone", và "division" đổi thành "simple division". Kiểm lại với 3 agent mới cho kết quả **3/3 đọc đúng** (mục cuối). Sau sửa: **20/20 nhịp**.
 
 **Hiểu nhờ hình hay chữ:** hầu hết câu trả lời nói "Both, but mostly the words and numbers". Hình mang được cấu trúc (lên/xuống, chồng tiền đuổi khối phí, cỡ nhà), còn số và nhãn mang ý. Đây là dải ảnh tĩnh, nên chưa đo được chuyển động (G-011).
 
@@ -971,3 +971,57 @@ I could read all the words and numbers. What isn't clear:
 - It doesn't give the rate cut, the loan amount or the fees behind $1,039 and $8,093, so I can't compare them with my own loan. The "ILLUSTRATIVE" tag tells me they're example numbers anyway.
 - The timeline has no break-even point, so I can't tell when she starts coming out ahead. I also don't know if "ahead" already has the fees taken out.
 - The dotted house labelled "your home?" in the last frame is vague. I think it's asking me to think about my own home and how long I'll stay, but it could also mean moving to a different house.
+
+---
+## Kiểm lại S11 sau sửa (`e8f6fce`): 3 agent mới, file ngẫu nhiên, cùng câu hỏi. Kết quả 3/3 đọc đúng (0.25 điểm; phép chia: tháng 38; tính dư nợ: không bao giờ). Chỗ còn khó: đường xanh ở khung 3–4 chưa có nhãn; lý do đường cong đi xuống; đường xám mảnh không có nhãn.
+
+===== S11-v2 02355f75
+File: 02355f75
+
+(Viewer: an American paying a mortgage signed in 2022–2024.)
+
+1. What is this scene telling you?
+If someone like me refinances for only a 0.25-point rate cut, the usual "divide the closing costs by monthly savings" math says I'd break even around month 38. But once you account for what I still owe on the new loan, the benefit never gets past the $5,124 in loan costs before the old loan would have been paid off. So a tiny rate cut isn't worth refinancing.
+
+2. Did I understand it from the pictures, the words and numbers, or both?
+Both, but mostly from the words and numbers. The picture of the straight white line crossing the cost line at month 38, and then the green curve rising and falling back without ever reaching it, shows the idea. I needed the labels ("loan costs $5,124", "simple division: month 38", "Never", "savings minus what she still owes") to know what the lines meant.
+
+3. What did I not understand, and what couldn't I read?
+- I wasn't sure what the green line in frames 3–4 was before it turned into the curve in frame 5, or why it bends back down. I'm guessing it's because the new loan restarts the payoff clock, but the scene doesn't say that.
+- The "1-point line" mark on the rate-cut slider isn't explained. I assume it's a comparison to a full 1-point cut, but it's never shown.
+- The thin gray diagonal line in frames 5–6 isn't labeled.
+- "Dollars of the day" in the footnote was unclear to me (I think it means not adjusted for inflation).
+- It never says Nora's loan size, her old or new rate, or what month "Never" is measured up to, so I can't compare it to my own mortgage.
+- The small gray text (the footnote, "months after refinancing", "rate cut") is small but I could read it. There were no numbers I couldn't read.
+===== S11-v2 19080052
+File: 19080052
+
+1. What is this scene telling you?
+If "Nora" refinances for a rate only 0.25 point lower and pays $5,124 in closing costs, the usual shortcut (costs divided by monthly savings) says she breaks even around month 38. But once you count what she still owes on the new loan, her savings never catch up with the costs before the old loan would have been paid off. So for someone like me, a 2022–2024 borrower hoping for a small rate drop, a quarter-point refi likely never pays for itself.
+
+2. Did you understand it from the pictures, from the words and numbers on screen, or both?
+Both. The words and numbers ("loan costs $5,124", "simple division: month 38", "Never", "not before the old loan's last payment") give the message. The pictures back it up: the white line crosses the cost line, the green line stays lower, and then the green curve rises and falls without ever reaching the cost line.
+
+3. Which part, if any, did you not understand, and which words or numbers could you not read?
+I could read all the text. What was unclear:
+- The "1-point line" mark on the rate-cut slider is never explained. I guess it is a comparison to a full 1-point cut, but it never gets used.
+- In panels 2–4 I'm not sure what the green line is, or why it runs lower than the "savings alone" line. It has no label until panels 5–6.
+- "Savings minus what she still owes" is fuzzy to me. I'm not sure if it means the loan balance, or why the curve rises and then drops back to zero.
+- The faint gray diagonal line in panels 5–6 has no label.
+- The x-axis has no month numbers except the 38, so I can't tell when the old loan's last payment is. "Dollars of the day" is also a little jargon-y. I take it to mean the numbers aren't adjusted for inflation.
+===== S11-v2 a6f0557c
+File: a6f0557c
+
+1. What is this scene telling you?
+If Nora refinanced for only a 0.25-point rate cut, the simple math (closing costs of $5,124 divided by the monthly savings) says she breaks even in month 38. But once you account for what she still owes on the loan, her savings never actually cover the costs, "not before the old loan's last payment." For me, with a 2022-2024 mortgage, the point is that a small rate drop probably isn't worth refinancing for.
+
+2. Pictures, words/numbers, or both?
+Both. The words and numbers set it up: "If her rate were cut only 0.25 point," "loan costs $5,124," "simple division: month 38," and the big red "Never." The lines show the story: the white "savings alone" line crosses the cost line, but the green line rises much more slowly, then curves back down and ends below it without ever reaching it. Without the "Never" label I wouldn't have been sure what the arch meant.
+
+3. What I didn't understand / couldn't read
+- "Savings minus what she still owes": I don't fully get why the amount she still owes is subtracted from her savings, or why that makes the green line turn down and head toward zero. It's the key idea, and I had to take it on faith.
+- In frames 3-4 the green line appears without a label until frame 5, so at first I didn't know it was a different measure.
+- The "1-point line" mark on the rate-cut slider isn't explained. I guess it's a comparison to a full 1-point cut shown earlier in the video.
+- "Fees paid in cash. Dollars of the day." is small and I'm not sure what "dollars of the day" means (no inflation adjustment?).
+- There are no numbers on the time axis, so I can't tell when the green line peaks or ends, or how long the loan is.
+- Everything was readable, though the small grey footnote and axis labels were faint. In frames 5-6 the thin grey line runs through "loan costs" and "not before," but I could still read them.
