@@ -8,7 +8,7 @@ WRITER C3, 29/09/2026. Sửa từ `script-v3.md` theo quyết định Cổng C2 
 - *Hình:* là ghi chú ngắn cho C3/C4 (tiếng Việt; chữ trên màn hình để trong ngoặc kép, tiếng Anh). Hướng hình do C3 chọn; ở đây chỉ mô tả chuyển động mang nghĩa.
 - Huy hiệu **ILLUSTRATIVE** hiện cùng lúc với mọi số của nhân vật (Nora, Walt, Anjali), với mốc ba năm [hold36] và các kịch bản bán nhà [y3] [y7]. Mọi tiền là danh nghĩa (nhãn "nominal $" từ S01).
 - Mốc thời gian là ước lượng ở ~150 từ/phút cộng khoảng nghỉ; không phải chỉ tiêu. Tính lại cho v3.1: 1.414 từ lời (v3: 1.341), ~9:39 trước thẻ phương pháp (v3 ~9:12). S03 ngắn đi ~25 s; S02, S05, S10, S18 dài thêm vì các câu giải thích và thước ba mốc.
-- ⟦PROMISE⟧ đánh dấu chỗ thay câu hứa (P-A mặc định; P-B ở `promise-options.md`).
+- ⟦PROMISE⟧: câu hứa đã chốt ở C3 (chủ dự án ghép từ P-A và P-B, `promise-options.md`).
 
 ---
 
@@ -33,11 +33,11 @@ By late September, the rate was back above 7 percent [seven], for the first time
 *Hình:* Đường lãi leo trở lại qua vạch "7%". Một lá thư trượt vào khung, nằm trên bàn bếp. Máy đi dọc lá thư: "Refinance offer" → dòng cuối "Loan costs: $5,124" sáng lên. Ba căn nhà mờ hiện phía sau: nhỏ, vừa, lớn; ở câu "a loan your size", một căn nhà thứ tư chỉ có đường viền, không số, hiện cạnh ba căn kia (chỗ của người xem).
 
 Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for $5,124 in fees [cost_median].
-*Ghi chú:* ⟦PROMISE — P-A, bắt đầu⟧
-How big a rate cut makes that worth it for Nora, and for a loan your size?
+*Ghi chú:* ⟦PROMISE — câu ghép của chủ dự án (C3, 29/09/2026), bắt đầu⟧
+How big a rate cut makes that worth it for Nora — and where does a loan your size fall?
 [beat]
-And why would a smaller mortgage need a bigger rate cut?
-*Ghi chú:* ⟦PROMISE — P-A, hết⟧ Câu hứa nói thẳng với người xem ("a loan your size"), Nora vẫn dẫn truyện (G-009 · C2). Câu hỏi rơi ~0:43, trong khoảng 0:30–0:45 của DX-S4. Hồi 2 trả lời cho Nora (S13), hồi 3 trả lời vế "smaller mortgage" (S16), phần kết đưa thước ba mốc để người xem đặt khoản của mình (S18). Chữ "letter" có ngay ở câu đầu S02 (sửa lỗi "that letter" của v3).
+And why would a smaller mortgage need a bigger cut?
+*Ghi chú:* ⟦PROMISE — hết⟧ Câu hứa nói thẳng với người xem ("a loan your size"), Nora vẫn dẫn truyện (G-009 · C2). Câu hỏi rơi ~0:43, trong khoảng 0:30–0:45 của DX-S4. Hồi 2 trả lời cho Nora (S13), hồi 3 trả lời vế "smaller mortgage" (S16), phần kết đưa thước ba mốc để người xem đặt khoản của mình (S18). Chữ "letter" có ngay ở câu đầu S02 (sửa lỗi "that letter" của v3).
 
 **— ident ≤ 3 s —**
 
