@@ -23,8 +23,11 @@
    rect  {type:'rect', x,y,w,h, fill, stroke, role, chart, panel, value, full, orient, show}
    circle{type:'circle', cx,cy,r, fill, stroke, role, char, shape, panel, show, anim}
    path  {type:'path', d, stroke, fill, role, chart, label, panel, show}
-   anim  {prop, from, to, t0, t1}: linear keyframes on one numeric property. */
+   anim  {prop, from, to, t0, t1}: linear keyframes on one numeric property.
+   load  {images:[url], fonts:[{family, url}]}: resources the page loads without drawing them (F12, K3.1: the sampler must see them). */
 const SPEC = window.SPEC || JSON.parse(new URLSearchParams(location.search).get('spec') || '{"els":[]}');
+for (const u of (SPEC.load && SPEC.load.images) || []) { const im = new Image(); im.src = u; }
+for (const f of (SPEC.load && SPEC.load.fonts) || []) { const ff = new FontFace(f.family, 'url(' + JSON.stringify(f.url) + ')'); document.fonts.add(ff); ff.load().catch(() => {}); }
 const stage = document.getElementById('stage');
 let frozen = null;
 const hexOf = (c) => { if (!c || c === 'none') return null; if (c.startsWith('#')) return c.toLowerCase(); const m = c.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/); if (!m || (m[4] !== undefined && +m[4] === 0)) return null; return '#' + [m[1], m[2], m[3]].map((v) => (+v).toString(16).padStart(2, '0')).join(''); };

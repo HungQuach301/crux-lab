@@ -85,19 +85,43 @@ const CASES = {
   'T1-chart-events': { els: mod((e) => { e.push({ type: 'circle', cx: 800, cy: 250, r: 14, fill: TOK.warn, role: 'mark', panel: 'p', show: [1.0, 99] });
     e.push({ type: 'rect', x: 1650, y: 600, w: 40, h: 150, fill: TOK.accent, role: 'bar', panel: 'p', anim: { prop: 'y', from: 750, to: 600, t0: 0.5, t1: 1.2 } }); }),
     expect: { PASS: ['C07'] }, events: ['appear', 'bar'] },
+  // K3.1 F12: the sampler records what the page really loads; a font face loaded but not declared fails, a declared image passes
+  'F12-undeclared-font': { els: good(), load: { image: true, font: true }, expect: { FAIL: ['F12'] } },
+  'F12-declared-image': { els: good(), load: { image: true }, expect: { PASS: ['F12'] } },
   'S07-orphan-number': { els: mod((e) => e.push({ type: 'text', tid: 'orph', text: 'Up 12% since then', x: 700, y: 980, size: 32, color: TOK.ink })), expect: { FAIL: ['S07'] } },
 };
 
-function writeRoot(name, els, move = 0, contractMirrorColour = 'accent') {
+// F12 (K3.1): a declared third-party photo the page loads (and, for the failing case, a font face nobody declared)
+function f12Load(root, w, want) {
+  const load = { images: [], fonts: [] };
+  fs.mkdirSync(path.join(root, 'page', 'img'), { recursive: true });
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=red:s=16x16', '-frames:v', '1', path.join(root, 'page', 'img', 'house.png')]);
+  if (want.image) load.images.push('file://' + path.join(root, 'page', 'img', 'house.png'));
+  if (want.font) {
+    let src = '';
+    try { src = execFileSync('fc-match', ['-f', '%{file}', 'sans'], { encoding: 'utf8' }).trim(); } catch (e) { /* no fontconfig */ }
+    if (!src || !fs.existsSync(src)) throw new Error('F12 fixture: no system font file to load (fc-match sans)');
+    fs.mkdirSync(path.join(root, 'page', 'fonts'), { recursive: true });
+    fs.copyFileSync(src, path.join(root, 'page', 'fonts', 'fixture' + path.extname(src)));
+    load.fonts.push({ family: 'Fixture Sans', url: 'file://' + path.join(root, 'page', 'fonts', 'fixture' + path.extname(src)) });
+  }
+  w('out/visual-assets.json', { assets: [{ name: 'house.png', kind: 'image', path: 'page/img/house.png' }] });
+  w('out/rights.json', { assets: [{ name: 'house photo', visuals: ['house.png'], origin: 'stock photo library', licence: 'standard licence', thirdParty: true,
+    terms: { quote: 'You may use the photo in commercial and monetised videos.', url: 'https://example.org/photo-terms' }, commercial: true }] });
+  return load;
+}
+
+function writeRoot(name, els, move = 0, contractMirrorColour = 'accent', f12 = null) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'kpage-' + name + '-'));
   const w = (rel, o) => { fs.mkdirSync(path.dirname(path.join(root, rel)), { recursive: true }); fs.writeFileSync(path.join(root, rel), JSON.stringify(o)); };
+  const load = f12 ? f12Load(root, w, f12) : null;
   w('out/timeline.json', { fps: 30, total: DUR, acts: [{ id: 'act1', start: 0, end: DUR }], scenes: [{ id: 'a', act: 'act1', start: 0, dur: DUR, move, panels: ['p'], chart: true, layout: 'line/single', shot: 'medium' }] });
   w('out/claims.json', { claims: CLAIMS });
   w('out/script.json', { sentences: [] });
   w('design/tokens.json', TOKENS);
   // episode contract (K2): V04/V09 read the characters, their colour token, shape and side from it
   w('contract.json', { episode: 'fixture', characters: { 1966: { color: 'warn', shape: 'circle', side: 'left' }, mirror: { color: contractMirrorColour, shape: 'square', side: 'right' } } });
-  w('out/page.json', { url: 'file://' + FIX + '?spec=' + encodeURIComponent(JSON.stringify({ els })) });
+  w('out/page.json', { url: 'file://' + FIX + '?spec=' + encodeURIComponent(JSON.stringify(load ? { els, load } : { els })) });
   return root;
 }
 
@@ -122,7 +146,7 @@ async function main() {
   const results = [];
   for (const [name, c] of Object.entries(CASES)) {
     if (only && name !== only) continue;
-    const root = writeRoot(name, c.els, c.move || 0, c.mirrorColour);
+    const root = writeRoot(name, c.els, c.move || 0, c.mirrorColour, c.load);
     if (process.env.K_VERBOSE) console.log('case', name);
     await renderVideo(root, c.videoEls || c.els, c.videoBlur);
     execFileSync('node', [path.join(CHECKS, 'page', 'sampler.js'), root, '--step', '3', '--pixel-step', '3'], { stdio: ['ignore', 'ignore', 'inherit'] });

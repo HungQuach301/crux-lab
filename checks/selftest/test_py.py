@@ -1240,6 +1240,17 @@ def _(f, bad):
 F12_TERMS = {'quote': 'You may use the output for commercial purposes, including monetised videos.', 'url': 'https://example.org/terms'}
 
 
+def f12_page(f, requests=(), fonts=()):
+    """out/checks/page.json resources as the K3.1 sampler writes them: the page document and its script (not pictures), a data: image (browser-internal)
+    and the given requests / font faces."""
+    base = 'file://' + os.path.realpath(f.root) + '/'
+    req = [{'url': base + 'page/index.html', 'type': 'document', 'status': 200, 'contentType': 'text/html'},
+           {'url': base + 'page/app.js', 'type': 'script', 'status': 200, 'contentType': 'text/javascript'},
+           {'url': 'data:image/png;base64,iVBORw0KGgo=', 'type': 'image', 'status': 200, 'contentType': 'image/png'}]
+    req += [dict(r, url=base + r['url']) if not r['url'].startswith(('http', 'data')) else r for r in requests]
+    f.json('out/checks/page.json', {'resources': {'requests': req, 'entries': [], 'fonts': list(fonts)}})
+
+
 def f12_sound(f):
     """Voice (third party, cleared) and music (made here) stems with sound; room stem silent (needs no entry)."""
     v = voice_like(4, [(0.5, 3.5)])
@@ -1249,6 +1260,7 @@ def f12_sound(f):
     f.wav('out/audio/stems/room.wav', np.zeros((4 * SR, 2)))
     f.text('toolkit/music_gen.py', '# generator')
     f.text('toolkit/texture_gen.py', '# generator')
+    f12_page(f)
     voice = {'name': 'voice', 'stems': ['voice'], 'origin': 'TTS provider, premade voice', 'licence': 'provider output under the paid plan', 'thirdParty': True,
              'terms': dict(F12_TERMS), 'commercial': True}
     music = {'name': 'music', 'stems': ['music'], 'origin': 'synthesised by this project', 'licence': 'original work', 'thirdParty': False, 'generator': 'toolkit/music_gen.py'}
@@ -1279,17 +1291,22 @@ def _(f, bad):
     sound = f12_sound(f)
     if bad:
         sound[0]['commercial'] = False
+    f12_page(f, [{'url': 'page/img/house.jpg', 'type': 'image', 'status': 200}, {'url': 'page/docs/hmda-form.pdf', 'type': 'other', 'status': 200},
+                 {'url': 'page/fonts/inter-600.woff2', 'type': 'font', 'status': 200}], [{'family': 'Inter', 'status': 'loaded'}])
     f.json('out/visual-assets.json', {'assets': F12_VISUALS})
     f.json('out/rights.json', {'assets': sound + [F12_PHOTO, F12_FONT, F12_PD, F12_TEXTURE, F12_QUOTE]})
 
 
-def f12_variant(name, visuals, ledger, where='manifest'):
+def f12_variant(name, visuals, ledger, where='manifest', requests=(), fonts=(), generated=None, files=()):
     """One F12 fixture: sound covered, the given visual list (in out/visual-assets.json or contract.json rights.visual, or none) and ledger entries."""
     f = F('F12-' + name)
     try:
         sound = f12_sound(f)
+        for rel in files:
+            f.text(rel, '# generator')
+        f12_page(f, requests, fonts)
         if where == 'manifest':
-            f.json('out/visual-assets.json', {'assets': visuals})
+            f.json('out/visual-assets.json', {'assets': visuals, **({'generated': generated} if generated else {})})
         elif where == 'contract':
             f.json('contract.json', {'episode': 'x', 'rights': {'visual': visuals}})
         f.json('out/rights.json', {'assets': sound + ledger})
@@ -1325,6 +1342,29 @@ def f12_selfmade_case(bad):
     """K3.1: a texture made by the project; bad = its generator path does not exist."""
     t = dict(F12_TEXTURE, generator='toolkit/no_such_gen.py') if bad else F12_TEXTURE
     return f12_variant('selfmade', [{'name': 'paper-texture', 'kind': 'texture'}], [t])
+
+
+def f12_loaded_case(bad):
+    """K3.1 (loaded resources): the page loads a photo; bad = not in the visual list (the ledger is clean otherwise) must fail;
+    good = declared by its path glob passes."""
+    photo = [{'name': 'house.jpg', 'kind': 'image', 'path': 'page/img/*.jpg'}]
+    return f12_variant('loaded', [] if bad else photo, [] if bad else [F12_PHOTO], where='contract' if bad else 'manifest',
+                       requests=[{'url': 'page/img/street.jpg', 'type': 'image', 'status': 200}])
+
+
+def f12_loaded_font_case(bad):
+    """K3.1 (loaded fonts): document.fonts has a family loaded (here from a data: URL, so no file request); bad = not declared fails."""
+    return f12_variant('loaded-font', [{'name': 'inter', 'kind': 'font', 'family': 'Inter'}], [F12_FONT],
+                       fonts=[{'family': 'Inter', 'status': 'loaded'}, {'family': '"Other Sans"' if bad else 'Inter', 'status': 'loaded'},
+                              {'family': 'Unused', 'status': 'unloaded'}])
+
+
+def f12_generated_case(bad):
+    """K3.1: a chart texture rendered by the project's code is excluded by a generated rule {glob, generator}; bad = the generator path does not exist,
+    so the rule does not hold and the loaded file is undeclared."""
+    gen = [{'glob': 'out/render/*.png', 'generator': 'toolkit/missing.py' if bad else 'toolkit/render_png.py'}]
+    return f12_variant('generated', [], [], generated=gen, files=['toolkit/render_png.py'],
+                       requests=[{'url': 'out/render/chart-bg.png', 'type': 'image', 'status': 200}, {'url': 'page/img/gone.png', 'type': 'image', 'status': 404}])
 
 
 def f12_manifest_case(bad):
@@ -1398,7 +1438,8 @@ def f07_long_case(bad):
 EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case,
          'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case, 'F07/too-long': f07_long_case,
          'F12/photo': f12_photo_case, 'F12/font': f12_font_case, 'F12/public-domain': f12_pd_case, 'F12/quote-card': f12_quote_case,
-         'F12/self-made': f12_selfmade_case, 'F12/no-manifest': f12_manifest_case}
+         'F12/self-made': f12_selfmade_case, 'F12/no-manifest': f12_manifest_case,
+         'F12/loaded': f12_loaded_case, 'F12/loaded-font': f12_loaded_font_case, 'F12/generated': f12_generated_case}
 
 
 def main():
