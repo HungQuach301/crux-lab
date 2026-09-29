@@ -248,3 +248,57 @@ def f11_artefacts(ctx):
     undeclared = [r for r in RELEASE_FILES if not any(fnmatch.fnmatch(r, d) or fnmatch.fnmatch(d, r) for d in decl)]
     return verdict('F11', [metric('declared M3 artefacts', len(decl), '>=', 1), metric('declared artefacts not delivered', len(absent), '<=', 0),
                            metric('release files not declared', len(undeclared), '<=', 0)], details=[{'notDelivered': absent[:30], 'notDeclared': undeclared}])
+
+
+STEMS = ['voice', 'music', 'sfx', 'whoosh', 'room', 'sonify']
+
+
+def _in_repo(ctx, rel):
+    """A path relative to the root or to one of its parent folders (the repository holds the toolkit that generated an asset)."""
+    import os
+    d = ctx.root
+    while True:
+        if os.path.exists(os.path.join(d, rel)):
+            return True
+        up = os.path.dirname(d)
+        if up == d:
+            return False
+        d = up
+
+
+@rule('F12', 'DX-A3 (sổ giấy phép), CH §5 (K3: quyền tài sản)', 'rights ledger out/rights.json {assets:[{name, stems:[…], origin, licence, thirdParty, '
+      'terms:{quote, url}, commercial, generator}]}. Every delivered stem (out/audio/stems/<name>.wav|flac of voice, music, sfx, whoosh, room, sonify) with sound '
+      '(1 s RMS above −60 dBFS somewhere) must be covered by an asset listing it in stems. Every asset: origin and licence non-empty, thirdParty a boolean. A '
+      'third-party asset (TTS voice, library music or sound, font, …): terms quote ≥ 20 chars and http(s) terms URL, commercial = true (the terms allow an '
+      'ad-supported channel). An asset made by this project: generator = a path that exists under the root or one of its parent folders',
+      '0 sounding stems without a rights entry; 0 assets with a missing field; 0 third-party assets without terms or not cleared for commercial use; ≥ 1 asset')
+def f12_rights(ctx):
+    from urllib.parse import urlparse
+    import r_audio
+    from common import frame_rms_db
+    assets = ctx.json('out/rights.json').get('assets') or []
+    covered = {s for a in assets for s in (a.get('stems') or [])}
+    uncovered, bad = [], []
+    for name in STEMS:
+        try:
+            x = r_audio.stem_audio(ctx, name)
+        except Missing:
+            continue
+        _, db = frame_rms_db(x, win=1.0)
+        if len(db) and db.max() > -60 and name not in covered:
+            uncovered.append(name)
+    for a in assets:
+        nm = a.get('name') or '?'
+        if not (a.get('origin') or '').strip() or not (a.get('licence') or '').strip() or not isinstance(a.get('thirdParty'), bool):
+            bad.append((nm, 'origin, licence or thirdParty missing'))
+            continue
+        if a['thirdParty']:
+            t = a.get('terms') or {}
+            if len(t.get('quote') or '') < 20 or urlparse(t.get('url') or '').scheme not in ('http', 'https'):
+                bad.append((nm, 'terms quote/url missing'))
+            if a.get('commercial') is not True:
+                bad.append((nm, 'not cleared for commercial use'))
+        elif not a.get('generator') or not _in_repo(ctx, a['generator']):
+            bad.append((nm, 'generator path missing'))
+    return verdict('F12', [metric('assets', len(assets), '>=', 1), metric('sounding stems without a rights entry', len(uncovered), '<=', 0),
+                           metric('assets with a problem', len(bad), '<=', 0)], details=[{'uncovered': uncovered}, {'problems': bad[:30]}])

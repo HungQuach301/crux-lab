@@ -565,6 +565,9 @@ def timeline_acts(f, total=100):
 
 @case('S02')
 def _(f, bad):
+    # K3: the assumptions come from the episode contract (test D's two, with the K1 regexes)
+    import r_content
+    f.contract(claims={'assumptions': [{'id': 'no-tax', 'pattern': r_content.NO_TAX.pattern}, {'id': 'no-fee', 'pattern': r_content.NO_FEE.pattern}]})
     timeline_acts(f)
     tt = [{'t': 60, 'scene': 'm', 'items': [{'text': 'No taxes. No fees.'}]}]
     if not bad:
@@ -1188,7 +1191,116 @@ def asr_pass_case(bad):
     return common.Result('A14', 'PASS' if ok else 'FAIL', [common.metric('second decode replaces a truncated first decode', ok, '==', True)])
 
 
-EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case}
+# ---- K3: voice warnings, rights, tiers ------------------------------------------------------------------
+@case('A16')
+def _(f, bad):
+    # good: numbers spelled out with their comma ("five thousand, one hundred"), a dash the written sentence has too
+    good = [{'id': 's1', 'scene': 'a', 'text': 'Refinancing costs $5,124.', 'spoken': 'Refinancing costs five thousand, one hundred twenty-four dollars.', 'start': 0, 'end': 2},
+            {'id': 's2', 'scene': 'a', 'text': 'The bill - all of it - comes due.', 'spoken': 'The bill - all of it - comes due.', 'start': 2, 'end': 4}]
+    badl = [{'id': 's1', 'scene': 'a', 'text': 'So when does that money come back?', 'spoken': 'So... when does that money... come back?', 'start': 0, 'end': 2},
+            {'id': 's2', 'scene': 'a', 'text': 'Rates fell fast.', 'spoken': 'Rates fell, [pause] fast.', 'start': 2, 'end': 4}]
+    f.json('out/script.json', {'sentences': badl if bad else good})
+
+
+def a17_voice(bad):
+    """6 sentences of 2 s in one scene, 0.4 s apart; bad: every sentence carries two 0.6 s pauses (TTS asked to stop mid-sentence)."""
+    spans, sents, t = [], [], 0.5
+    for k in range(6):
+        if bad:
+            parts = [(t, t + 0.6), (t + 1.2, t + 1.8), (t + 2.4, t + 3.0)]
+            end = t + 3.0
+        else:
+            parts = [(t, t + 2.0)]
+            end = t + 2.0
+        spans += parts
+        sents.append({'id': f's{k}', 'scene': 'a', 'text': 'We ran every window through the same rule today.', 'start': round(t, 2), 'end': round(end, 2)})
+        t = end + 0.4
+    return spans, sents, t + 1
+
+
+@case('A17')
+def _(f, bad):
+    spans, sents, dur = a17_voice(bad)
+    v = voice_like(dur, spans)
+    f.wav('out/audio/stems/voice.wav', np.stack([v, v], 1))
+    f.json('out/script.json', {'sentences': sents})
+
+
+@case('A18')
+def _(f, bad):
+    takes = []
+    for k in range(7):
+        other = bad and k >= 4
+        x = noise(1.5, 1500, 7000) if other else noise(1.5, 150, 3000)
+        f.wav(f'out/voice/t{k}.wav', x * db(-20))
+        takes.append({'id': f't{k}', 'raw': f'out/voice/t{k}.wav', 'final': f'out/voice/t{k}.wav', 'model': 'model_b' if other else 'model_a'})
+    f.json('out/voice/takes.json', {'takes': takes, 'voice': {'provider': 'P', 'voiceId': 'v1', 'model': 'model_a'}})
+
+
+@case('F12')
+def _(f, bad):
+    v = voice_like(4, [(0.5, 3.5)])
+    m = noise(4) * db(-30)
+    f.wav('out/audio/stems/voice.wav', np.stack([v, v], 1))
+    f.wav('out/audio/stems/music.wav', np.stack([m, m], 1))
+    f.wav('out/audio/stems/room.wav', np.zeros((4 * SR, 2)))  # silent: needs no entry
+    f.text('toolkit/music_gen.py', '# generator')
+    voice = {'name': 'voice', 'stems': ['voice'], 'origin': 'TTS provider, premade voice', 'licence': 'provider output under the paid plan', 'thirdParty': True,
+             'terms': {'quote': 'You may use the output for commercial purposes, including monetised videos.', 'url': 'https://example.org/terms'}, 'commercial': not bad}
+    music = {'name': 'music', 'stems': ['music'], 'origin': 'synthesised by this project', 'licence': 'original work', 'thirdParty': False, 'generator': 'toolkit/music_gen.py'}
+    f.json('out/rights.json', {'assets': [voice] if bad else [voice, music]})
+
+
+def tiers_case(bad):
+    """Every registered rule (and REG) has a tier among BLOCK/MAJOR/REFERENCE with a reason; bad = a registry with a rule left untiered."""
+    import tiers as T_
+    ids = [m['id'] for m in runner.registry()] + (['X99'] if bad else [])
+    ok = all(i in T_.TIERS and T_.TIERS[i][0] in T_.LABEL and T_.TIERS[i][1] for i in ids)
+    extra = [i for i in T_.TIERS if i not in ids]
+    return common.Result('TIERS', 'PASS' if ok and not extra else 'FAIL', [common.metric('every rule tiered', ok, '==', True), common.metric('tiers of unknown rules', len(extra), '<=', 0)])
+
+
+def verdict_case(bad):
+    """Only BLOCK fails the episode; MAJOR needs an explanation (≥ 8 words); REFERENCE is measurement only.
+    bad = a verdict that lets a failed BLOCK rule through, or fails the episode on REFERENCE rules, must not pass."""
+    def v(rows, expl=None):
+        res = [{'id': i, 'status': st, 'tier': t} for i, st, t in rows]
+        return runner.episode_verdict(res, expl or {})[0]
+    B, M, R = 'BLOCK', 'MAJOR', 'REFERENCE'
+    got = [v([('A01', 'FAIL', B), ('A15', 'PASS', R)]), v([('A01', 'MISSING', B)]), v([('A01', 'PASS', B), ('A15', 'FAIL', R), ('T1', 'FAIL', R)]),
+           v([('A01', 'PASS', B), ('V11', 'FAIL', M)]), v([('A01', 'PASS', B), ('V11', 'FAIL', M)], {'V11': 'the label touches the line for two frames while it slides in'})]
+    want = ['TRƯỢT', 'TRƯỢT', 'ĐẠT', 'CHỜ GIẢI THÍCH', 'ĐẠT']
+    if bad:
+        got[0] = 'ĐẠT'
+    ok = got == want
+    return common.Result('VERDICT', 'PASS' if ok else 'FAIL', [common.metric('verdicts as the tiers say', ok, '==', True)], details=[got])
+
+
+def reg_tier_case(bad):
+    """REG (K3): a regression of a REFERENCE rule is listed but does not fail REG; a regression of a BLOCK rule does."""
+    fp = {fn.rid: fn.meta['fingerprint'] for fn in common.RULES}
+    rid = 'A02' if bad else 'A09'
+    base = {'lock': 'x', 'results': [{'id': 'F01', 'status': 'PASS', 'fingerprint': fp['F01']}, {'id': rid, 'status': 'PASS', 'fingerprint': fp[rid]}]}
+    now = [{'id': 'F01', 'status': 'PASS', 'fingerprint': fp['F01'], 'metrics': []}, {'id': rid, 'status': 'FAIL', 'fingerprint': fp[rid], 'metrics': []}]
+    r = runner.regression(now, base)
+    listed = any(isinstance(d, dict) and d.get('rule') == rid for d in r['details'])
+    return r if listed else common.Result('REG', 'ERROR', note='regression not listed')
+
+
+def near_case(bad):
+    """±5% band: a metric just inside and one just outside its threshold are both named, one 6% away is not; bad = a band of 3% must not pass."""
+    band = 0.03 if bad else 0.05
+    m = [common.metric('a', 0.955, '>=', 1.0), common.metric('b', 1.045, '>=', 1.0), common.metric('c', 0.94, '>=', 1.0), common.metric('d', 21.0, 'in', [18, 22])]
+    want = [True, True, False, True]
+    got = [x['near'] for x in m]
+    if bad:
+        got = [abs(x['value'] - 1.0) <= band if x['name'] != 'd' else True for x in m]
+    ok = got == want
+    return common.Result('NEAR', 'PASS' if ok else 'FAIL', [common.metric('near flags', ok, '==', True)], details=[got])
+
+
+EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case,
+         'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case}
 
 
 def main():

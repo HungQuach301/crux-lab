@@ -53,17 +53,24 @@ NO_TAX = re.compile(r'\bno (income )?tax(es)?\b|\bbefore tax(es)?\b|\btaxes? (ar
 NO_FEE = re.compile(r'\bno fees?\b|\bfees? (are )?(not|ignored)|\bwithout fees\b|\bno (fund )?costs?\b', re.I)
 
 
-@rule('S02', 'DX-H1', 'visible on-screen text (page sampler text track, every 0.1 s): phrases for "no taxes" and "no fees" (regex NO_TAX / NO_FEE), '
-      'looked for in the methodology card scenes (act "method") and in the rest of the video',
-      'both phrases visible in the methodology card AND both visible outside it')
-def s02_notax(ctx):
+@rule('S02', 'DX-H1', 'visible on-screen text (page sampler text track, every 0.1 s): the model assumptions the episode contract declares (K3: contract.json '
+      'claims.assumptions [{id, pattern}], each pattern a case-insensitive regular expression; test D: "no taxes" and "no fees", the K1 regexes NO_TAX / NO_FEE), '
+      'looked for in the methodology card scenes (act "method") and in the rest of the video. Contract without claims.assumptions = MISSING',
+      'every declared assumption visible in the methodology card AND visible outside it; ≥ 1 assumption declared')
+def s02_assumptions(ctx):
+    decl = ctx.cfield('claims', 'assumptions', kind=list)
     acts = scene_acts(ctx)
     tx = visible_texts(ctx)
     inm = [x for x in tx if acts.get(x[1]) == 'method']
     out = [x for x in tx if acts.get(x[1]) != 'method']
     f = lambda xs, rx: any(rx.search(x[2]) for x in xs)
-    return verdict('S02', [metric('no-tax in method card', f(inm, NO_TAX), '==', True), metric('no-fee in method card', f(inm, NO_FEE), '==', True),
-                           metric('no-tax on screen elsewhere', f(out, NO_TAX), '==', True), metric('no-fee on screen elsewhere', f(out, NO_FEE), '==', True)])
+    ms = [metric('declared assumptions', len(decl), '>=', 1)]
+    for a in decl:
+        if not isinstance(a, dict) or not a.get('id') or not a.get('pattern'):
+            raise Missing('contract.json: claims.assumptions[] {id, pattern}')
+        rx = re.compile(a['pattern'], re.I)
+        ms += [metric(f"{a['id']} in method card", f(inm, rx), '==', True), metric(f"{a['id']} on screen elsewhere", f(out, rx), '==', True)]
+    return verdict('S02', ms)
 
 
 @rule('S03', 'DX-H4', 'sources file named by the episode contract (contract.json data.sources, e.g. data/sources.json): per raw file path, url, sha256, downloaded (ISO date), '
