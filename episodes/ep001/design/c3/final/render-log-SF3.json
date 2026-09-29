@@ -1,0 +1,167 @@
+{
+ "frame": "SF3",
+ "frames": 360,
+ "filmSeconds": 12,
+ "wallSeconds": 282.4,
+ "browserFrameSeconds": 276.5,
+ "machineSecPerFilmSec": 23.53,
+ "posterTime": 11.9667,
+ "hardTime": 11.95,
+ "stripTimes": [
+  0.4,
+  3,
+  5,
+  6,
+  7.4,
+  11.9
+ ],
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-29T11:30:33.514Z",
+ "claimsUsed": [
+  "be_bal_median",
+  "be_simple_median",
+  "cost_median",
+  "gap24",
+  "sav_median"
+ ],
+ "texts": [
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 48,
+   "n": 368,
+   "out": 0,
+   "firstT": 0
+  },
+  {
+   "s": "Nora (illustrative). Fees: 2025 median (HMDA). Dollars of the day.",
+   "tier": "note",
+   "px": 48,
+   "n": 368,
+   "out": 0,
+   "firstT": 0
+  },
+  {
+   "s": "loan costs",
+   "tier": "label",
+   "px": 54,
+   "n": 438,
+   "out": 0,
+   "firstT": 0.13333333333333333
+  },
+  {
+   "s": "months",
+   "tier": "note",
+   "px": 48,
+   "n": 351,
+   "out": 0,
+   "firstT": 0.5333333333333333
+  },
+  {
+   "s": "+$221 a month",
+   "tier": "label",
+   "px": 54,
+   "n": 342,
+   "out": 0,
+   "firstT": 0.8333333333333334
+  },
+  {
+   "s": "balance paid off",
+   "tier": "label",
+   "px": 54,
+   "n": 336,
+   "out": 0,
+   "firstT": 1.0333333333333334
+  },
+  {
+   "s": "since refinancing",
+   "tier": "note",
+   "px": 48,
+   "n": 336,
+   "out": 0,
+   "firstT": 1.0333333333333334
+  },
+  {
+   "s": "old loan",
+   "tier": "label",
+   "px": 54,
+   "n": 336,
+   "out": 0,
+   "firstT": 1.0333333333333334
+  },
+  {
+   "s": "new loan",
+   "tier": "label",
+   "px": 54,
+   "n": 336,
+   "out": 0,
+   "firstT": 1.0333333333333334
+  },
+  {
+   "s": "24",
+   "tier": "label",
+   "px": 54,
+   "n": 227,
+   "out": 0,
+   "firstT": 4.633333333333334
+  },
+  {
+   "s": "$5,124 ÷ $221 a month = 24 months",
+   "tier": "head",
+   "px": 72,
+   "n": 146,
+   "out": 0,
+   "firstT": 4.833333333333333
+  },
+  {
+   "s": "$1,133 still owed",
+   "tier": "number",
+   "px": 96,
+   "n": 49,
+   "out": 0,
+   "firstT": 5.633333333333334
+  },
+  {
+   "s": "on the new loan vs the old one",
+   "tier": "label",
+   "px": 54,
+   "n": 49,
+   "out": 0,
+   "firstT": 5.633333333333334
+  },
+  {
+   "s": "+ $1,133 still owed",
+   "tier": "label",
+   "px": 54,
+   "n": 70,
+   "out": 0,
+   "firstT": 7.233333333333333
+  },
+  {
+   "s": "Break-even: month 30",
+   "tier": "number",
+   "px": 96,
+   "n": 74,
+   "out": 0,
+   "firstT": 9.633333333333333
+  },
+  {
+   "s": "+ still owed",
+   "tier": "label",
+   "px": 54,
+   "n": 74,
+   "out": 0,
+   "firstT": 9.633333333333333
+  },
+  {
+   "s": "30",
+   "tier": "label",
+   "px": 54,
+   "n": 74,
+   "out": 0,
+   "firstT": 9.633333333333333
+  }
+ ]
+}
