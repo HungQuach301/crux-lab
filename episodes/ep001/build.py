@@ -209,6 +209,65 @@ def main():
     claim('today_since', prev_t, dtxt(prev_t), f'last week before {anchor_txt} with a weekly rate >= {pct(r_today)} ({pct(wk[prev_t])})', FRED, int(prev_t[:4]), date=prev_t)
     ya = max(d for d, v in weekly if d <= (anchor - datetime.timedelta(days=364)).isoformat())
     claim('r_year_ago', wk[ya], pct(wk[ya]), f'MORTGAGE30US, week ending {dtxt(ya)} (52 weeks before the date anchor)', FRED, int(ya[:4]), date=ya)
+    # ---- context: the refinance window of 2026 opened and is closing (weekly MORTGAGE30US; the year 2026 runs to the date anchor)
+    wy = [(d, v) for d, v in weekly if d.startswith(str(ly))]
+    lo26 = min(wy, key=lambda x: (x[1], x[0]))
+    assert [d for d, v in wy if v == lo26[1]] == [lo26[0]], 'the 2026 low is not unique'
+    claim('low2026', lo26[1], pct(lo26[1]), f'min weekly MORTGAGE30US from the first week of {ly} to the date anchor (week ending {dtxt(lo26[0])}; {len(wy)} weeks, {dtxt(wy[0][0])}-{anchor_txt})',
+          FRED, ly, date=lo26[0], asOf=last_week)
+    claim('low2026_date', lo26[0], dtxt(lo26[0]), f'week of low2026 ({pct(lo26[1])}): PMMS week ending Thursday {dtxt(lo26[0])}', FRED, ly, date=lo26[0], asOf=last_week)
+    lo26_tie = max(d for d, v in weekly if d < lo26[0] and v <= lo26[1])     # last earlier week at or below the 2026 low
+    lo26_below6 = max(d for d, v in weekly if d < lo26[0] and v < 6.0)         # last earlier week under 6.00%
+    yrs = (datetime.date.fromisoformat(lo26[0]) - datetime.date.fromisoformat(lo26_tie)).days / 365.25
+    assert 3 < yrs < 4 and lo26_below6 == lo26_tie
+    claim('low2026_since', lo26_tie, mname(lo26_tie),
+          f'last week before {dtxt(lo26[0])} with a weekly rate <= {pct(lo26[1])}: week ending {dtxt(lo26_tie)} ({pct(wk[lo26_tie])}); no week from '
+          f'{dtxt(min(d for d in wk if d > lo26_tie))} to {dtxt(max(d for d in wk if d < lo26[0]))} was at or below {pct(lo26[1])} ({yrs:.2f} years). '
+          f'"Lowest since September 2022" and "lowest in more than three years" are both true; it was also the first week under 6% since {dtxt(lo26_below6)}',
+          FRED, [int(lo26_tie[:4]), ly], date=lo26_tie, yearsBetween=round(yrs, 2), lastWeekUnder6=lo26_below6,
+          sentence=f'In the week ending {dtxt(lo26[0])}, the average 30-year rate fell to {pct(lo26[1])}, its lowest since September 2022.')
+    j26 = ('2026-01-15', wk['2026-01-15'])
+    j26_tie = max(d for d, v in weekly if d < j26[0] and v <= j26[1])
+    assert j26[1] == 6.06 and j26[1] > lo26[1]
+    claim('jan2026', j26[1], pct(j26[1]),
+          f'MORTGAGE30US, week ending Thursday {dtxt(j26[0])}: at that time the lowest since the week ending {dtxt(j26_tie)} ({pct(wk[j26_tie])}); NOT the 2026 low '
+          f'(low2026 = {pct(lo26[1])}, {dtxt(lo26[0])}). There is no PMMS week dated January 12, 2026 (a Monday)', FRED, ly, date=j26[0], lowestSince=j26_tie)
+    claim('jan2026_since', j26_tie, mname(j26_tie), f'last week before {dtxt(j26[0])} with a weekly rate <= {pct(j26[1])}: week ending {dtxt(j26_tie)} ({pct(wk[j26_tie])})',
+          FRED, [int(j26_tie[:4]), ly], date=j26_tie, parent='jan2026')
+    claim('cut_low2026', round(r_old - lo26[1], 2), f'{r_old - lo26[1]:.2f}', f'{pct(r_old)} (r_old, October 2023 monthly mean) - {pct(lo26[1])} (low2026, week ending {dtxt(lo26[0])}), percentage points',
+          FRED, [2023, ly])
+    k26 = months.index(lo26[0][:7]) - months.index('2023-10')  # same convention as k35: months from October 2023 to the refinance month
+    Ml, Mc = M['loan'], M['cost']
+    b26 = refi.both(Ml, r_old, k26, lo26[1], Mc)
+    claim('k_low2026', k26, str(k26), f'monthly payments counted from October 2023 to {mname(lo26[0])} (month of low2026), same convention as k35', FRED, [2023, ly], **IL)
+    fl26 = f'median character (loan_median {usd(Ml)}, cost_median {usd(Mc)}), borrowed October 2023 at {pct(r_old)}, refinancing in the week of low2026 ({dtxt(lo26[0])}, {pct(lo26[1])}) after {k26} payments'
+    claim('sav_low2026_median', b26['monthlySavings'], usd(b26['monthlySavings']), f"payment({usd(Ml)}, {r_old:.2f}%, 360) - payment(balance after {k26} payments {usd(b26['balance'])}, {lo26[1]:.2f}%, 360): {fl26}",
+          FRED, [2023, ly], model='refi.both', **IL)
+    claim('be_simple_low2026_median', b26['simple'], str(b26['simple']), f'ceil(cost_median / sav_low2026_median) (the simple division): {fl26}', HMDA, [2023, Y], model='refi.break_even_months', **IL)
+    claim('be_bal_low2026_median', b26['withBalance'], str(b26['withBalance']), f'refi.break_even_balance (counting what is still owed): {fl26}', HMDA, [2023, Y], model='refi.break_even_balance', **IL)
+    f7 = max(d for d, v in weekly if d < last_week and v >= 7.0)
+    below7 = [d for d, v in weekly if f7 < d < last_week]
+    assert all(wk[d] < 7.0 for d in below7)
+    claim('first7_since', f7, mname(f7), f'{anchor_txt} ({pct(r_today)}) is the first week at or above 7.00% since the week ending {dtxt(f7)} ({pct(wk[f7])}); '
+          f'the {len(below7)} weeks in between ({dtxt(below7[0])}-{dtxt(below7[-1])}) were all under 7.00%. Same week as today_since (threshold {pct(r_today)}), different threshold',
+          FRED, [int(f7[:4]), ly], date=f7, weeksUnder7=len(below7), asOf=last_week)
+    wks = weekly.index((last_week, r_today)) - weekly.index(lo26)
+    assert (anchor - datetime.date.fromisoformat(lo26[0])).days == 7 * wks
+    claim('rise_since_low2026', round(r_today - lo26[1], 2), f'{r_today - lo26[1]:.2f}', f'{pct(r_today)} ({anchor_txt}) - {pct(lo26[1])} (low2026, {dtxt(lo26[0])}), percentage points, over {wks} weeks',
+          FRED, ly, weeks=wks, asOf=last_week)
+    claim('weeks_rise_since_low2026', wks, str(wks), f'weekly observations from {dtxt(lo26[0])} to {anchor_txt} (both PMMS Thursdays; {wks} x 7 days)', FRED, ly, parent='rise_since_low2026', asOf=last_week)
+    thr = round(r_old - 1.0, 2)
+    win = [(d, v) for d, v in wy if v <= thr + 1e-9]
+    i0 = weekly.index(win[0])
+    while i0 > 0 and weekly[i0 - 1][1] <= thr + 1e-9:
+        i0 -= 1
+    i1 = weekly.index(win[-1])
+    assert weekly[i0:i1 + 1] == [x for x in weekly[i0:i1 + 1] if x[1] <= thr + 1e-9] and all(v > thr for d, v in weekly[i1 + 1:])
+    claim('weeks_below_r_old_minus_1', len(win), str(len(win)), f'weeks of {ly} (to the date anchor) with MORTGAGE30US <= {pct(thr)} (r_old {pct(r_old)} minus 1.00 point): '
+          f'{dtxt(win[0][0])}-{dtxt(win[-1][0])}, consecutive; the same run began the week ending {dtxt(weekly[i0][0])} ({i1 - i0 + 1} weeks in all) and every week after '
+          f'{dtxt(win[-1][0])} is above {pct(thr)}', FRED, ly, threshold=thr, firstWeek=win[0][0], lastWeek=win[-1][0], runStart=weekly[i0][0], runWeeks=i1 - i0 + 1, asOf=last_week)
+    claim('cut1_last_2026', win[-1][0], dtxt(win[-1][0]), f'last week with MORTGAGE30US <= {pct(thr)} (a cut of at least 1.00 point from r_old {pct(r_old)}): {pct(win[-1][1])}; '
+          f'next week {dtxt(weekly[i1 + 1][0])} {pct(weekly[i1 + 1][1])}', FRED, ly, date=win[-1][0], parent='weeks_below_r_old_minus_1', asOf=last_week)
     cx25, cx23 = HS['context'][f'conforming{Y}'], HS['context']['purchaseRates2023']
     claim('n31_conforming', cx25['n_31_flag']['C'], '{:,}'.format(cx25['n_31_flag']['C']), f'of the n31 loans, count with conforming_loan_limit = C (HMDA {Y})', HMDA, Y)
     claim('conv_share31', round(cx25['conventional_share_31_pct'], 1), pct(cx25['conventional_share_31_pct'], 0), f'share of the n31 loans with loan_type = 1 (conventional; the rest FHA/VA/USDA), HMDA {Y}', HMDA, Y)
@@ -277,6 +336,7 @@ def main():
               'unusedClaims': [c for c in C if c not in seen]}
     os.makedirs(os.path.join(HERE, 'out'), exist_ok=True)
     json.dump({'claims': list(C.values())}, open(os.path.join(HERE, 'out', 'claims.json'), 'w'), indent=1)
+    write_window_section(C)
     json.dump({'scenario': {'borrowed': '2023-10', 'oldRate': r_old, 'paymentsMade': k, 'todayWeek': last_week, 'todayRate': r_today},
                'characters': ch, 'medianByCut': cuts, 'dateAnchor': {'date': last_week, 'text': anchor_txt, 'meaning': week_txt, 'fred': fred_latest}, 'largeBand': LARGE, 'conformingLimits': CLL, 'gapAtSimpleBreakEven': gap_at, 'costSharesByYear': shares, 'fixedSharePre2018': fixed, 'history': hist},
               open(os.path.join(HERE, 'out', 'model.json'), 'w'), indent=1)
@@ -295,6 +355,49 @@ def main():
     with open(os.path.join(HERE, 'out', 'break-even-methods.csv'), 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
     print(json.dumps(report, indent=1))
+
+
+WINDOW_VI = {  # Vietnamese meaning column of numbers.md section H (the values, dates and sources come from the claims)
+    'low2026': 'Lãi tuần thấp nhất năm 2026 (tới ngày mốc)',
+    'low2026_date': 'Tuần của mức thấp nhất 2026',
+    'low2026_since': 'Đáy 2026 thấp nhất kể từ tuần này (lần gần nhất trước đó lãi ≤ mức đáy); cũng là lần đầu dưới 6% kể từ tuần này. "Lowest since September 2022" và "lowest in more than three years" đều đúng',
+    'jan2026': 'Lãi tuần kết thúc 15/1/2026: lúc đó thấp nhất kể từ tuần 15/9/2022. **Không phải** đáy 2026 (đáy là `low2026`). Không có tuần PMMS nào ghi ngày 12/1/2026',
+    'jan2026_since': 'Mức 6.06% tuần 15/1/2026 thấp nhất kể từ tuần này',
+    'cut_low2026': 'Chênh giữa lãi cũ của nhân vật (`r_old`) và đáy 2026, điểm %',
+    'k_low2026': 'Số kỳ trả đã qua nếu vay lại ở tháng đáy 2026 (10/2023 → 2/2026, cùng quy ước với `k35`)',
+    'sav_low2026_median': 'Nhân vật median vay lại ở tuần đáy 2026: tiết kiệm mỗi tháng',
+    'be_simple_low2026_median': 'Như trên: hoà vốn cách chia đơn giản (tháng)',
+    'be_bal_low2026_median': 'Như trên: hoà vốn tính cả dư nợ (tháng)',
+    'first7_since': 'Ngày mốc là lần đầu lãi ≥ 7.00% kể từ tuần này (cùng tuần với `today_since`, nhưng ngưỡng 7.00% thay vì 7.03%)',
+    'rise_since_low2026': 'Lãi ngày mốc cao hơn đáy 2026 bao nhiêu điểm',
+    'weeks_rise_since_low2026': 'Số tuần từ đáy 2026 tới ngày mốc',
+    'weeks_below_r_old_minus_1': 'Số tuần năm 2026 lãi thấp hơn `r_old` ít nhất 1 điểm (≤ 6.62%): "cửa sổ" mở bao lâu trong năm; chuỗi liền bắt đầu từ tuần 14/8/2025',
+    'cut1_last_2026': 'Tuần cuối cùng của cửa sổ đó (sau tuần này lãi luôn > 6.62%)',
+}
+BEGIN, END = '<!-- build.py: section H BEGIN (generated, do not edit) -->', '<!-- build.py: section H END -->'
+
+
+def write_window_section(C):
+    """Writes numbers.md section H (the 2026 refinance window) from the claims, between the BEGIN/END markers."""
+    p = os.path.join(HERE, 'numbers.md')
+    text = open(p).read()
+    rows = ['### H. Cửa sổ tái cấp vốn 2026: từng mở, đang khép (sinh bởi `build.py`)', '',
+            'Tuần = tuần PMMS kết thúc thứ Năm. Test tính lại độc lập từ CSV: `model/test_refi.py::test_window2026_recomputed_from_csv`.', '',
+            '| Claim ID | Hiển thị | Nghĩa | Nguồn | Ngày/năm dữ liệu | ILLUSTRATIVE? | Danh nghĩa/thực |', '|---|---|---|---|---|---|---|']
+    for cid, vi in WINDOW_VI.items():
+        c = C[cid]
+        yr = c.get('date') or c.get('dataYear') or c.get('dataYears')
+        yr = f"{yr}; as of {c['asOf']}" if c.get('asOf') else yr
+        src = f"{c['source']['id']} ({c['source']['url']})" if c.get('source') else '—'
+        nom = 'danh nghĩa (USD năm dữ liệu)' if c.get('basis') == 'nominal' else 'n/a'
+        rows.append(f"| `{cid}` | {c['display']} | {vi} | {src} | {yr} | {'ILLUSTRATIVE' if c['illustrative'] else ''} | {nom} |")
+    block = BEGIN + '\n' + '\n'.join(rows) + '\n' + END
+    if BEGIN in text:
+        text = text[:text.index(BEGIN)] + block + text[text.index(END) + len(END):]
+    else:
+        anchor = '\n## 5. '
+        text = text.replace(anchor, '\n' + block + '\n' + anchor, 1)
+    open(p, 'w').write(text)
 
 
 if __name__ == '__main__':

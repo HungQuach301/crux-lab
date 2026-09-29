@@ -132,3 +132,87 @@ def test_peak_since2000_recomputed_from_csv():
     c = claims['peak_since2000']
     assert c['value'] == 2000 and c['display'] == '2000' and c['date'] == tie and c['lastWeekAbove'] == above
     assert c['peakWeek'] == peak_d and c['peakValue'] == peak_v and not c['illustrative']
+
+
+# ------------------------------------------------------------------ 2026 refinance-window claims (recomputed from the CSV, not from build.py)
+def test_window2026_recomputed_from_csv():
+    import csv
+    import datetime
+    import json
+    import pytest
+    ep = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+    p = os.path.join(ep, 'data', 'normalized', 'mortgage30_weekly.csv')
+    if not os.path.exists(p):
+        pytest.skip('FRED data not in the repo (public repo): run python3 episodes/ep001/data/fetch.py --verify first')
+    rows = [(r['date'], float(r['rate'])) for r in csv.DictReader(open(p))]
+    rate = dict(rows)
+    claims = {c['claimId']: c for c in json.load(open(os.path.join(ep, 'out', 'claims.json')))['claims']}
+    anchor = '2026-09-24'
+    assert rows[-1] == (anchor, 7.03)
+    # 1. low of 2026 (scan by hand, no min())
+    best = None
+    for d, v in rows:
+        if d[:4] == '2026' and (best is None or v < best[1]):
+            best = (d, v)
+    assert best == ('2026-02-26', 5.98)
+    assert claims['low2026']['value'] == 5.98 and claims['low2026']['date'] == '2026-02-26' and claims['low2026']['asOf'] == anchor
+    assert claims['low2026_date']['display'] == 'February 26, 2026'
+    # 2. walk back from the low to the last week at or below it
+    i = [d for d, _ in rows].index('2026-02-26') - 1
+    while rows[i][1] > 5.98:
+        i -= 1
+    assert rows[i] == ('2022-09-08', 5.89)
+    assert claims['low2026_since']['value'] == '2022-09-08' and claims['low2026_since']['display'] == 'September 2022'
+    gap_days = (datetime.date(2026, 2, 26) - datetime.date(2022, 9, 8)).days
+    assert 3 * 365 < gap_days < 4 * 365  # "lowest in more than three years" holds
+    # 3. week ending 2026-01-15 = 6.06%, lowest since the week ending 2022-09-15; not the 2026 low; no week dated 2026-01-12
+    assert rate['2026-01-15'] == 6.06 and '2026-01-12' not in rate and datetime.date(2026, 1, 12).weekday() == 0
+    j = [d for d, _ in rows].index('2026-01-15') - 1
+    while rows[j][1] > 6.06:
+        j -= 1
+    assert rows[j] == ('2022-09-15', 6.02)
+    assert claims['jan2026']['value'] == 6.06 and claims['jan2026_since']['value'] == '2022-09-15' and 6.06 > best[1]
+    # 4. the median character (Nora) refinancing at the 2026 low: month-by-month amortisation, own payment formula
+    r_old = sum(v for d, v in rows if d[:7] == '2023-10') / len([d for d in rate if d[:7] == '2023-10'])
+    assert round(r_old, 2) == 7.62 and claims['cut_low2026']['value'] == round(7.62 - 5.98, 2) == 1.64
+    k = (2026 - 2023) * 12 + (2 - 10)
+    assert k == 28 == claims['k_low2026']['value']
+
+    def pay(P, r, n=360):
+        i_ = r / 1200
+        return P * i_ * (1 + i_) ** n / ((1 + i_) ** n - 1)
+
+    def sched(P, r, months):
+        i_, p_, b, out = r / 1200, pay(P, r), P, []
+        for _ in range(months):
+            b = b * (1 + i_) - p_
+            out.append(b)
+        return out
+    hm = next(r for r in csv.DictReader(open(os.path.join(ep, 'data', 'normalized', 'hmda_refi_costs.csv')))
+              if r['year'] == '2025' and r['purpose'] == 'refinance (31)' and r['loanSize'] == 'all sizes')
+    L, cost = float(hm['loan_p50_usd']), float(hm['cost_p50_usd'])  # the HMDA medians of loan_median / cost_median
+    assert (L, cost) == (claims['loan_median']['value'], claims['cost_median']['value']) == (375000.0, 5123.53)
+    old = sched(L, r_old, 360)
+    B = old[k - 1]
+    new = sched(B, 5.98, 360)
+    s = pay(L, r_old) - pay(B, 5.98)
+    assert abs(s - claims['sav_low2026_median']['value']) < 0.01 and claims['sav_low2026_median']['display'] == '$459'
+    assert claims['be_simple_low2026_median']['value'] == math.ceil(cost / s) == 12
+    be = next(m for m in range(1, 360 - k + 1) if s * m + old[k + m - 1] - new[m - 1] >= cost)
+    assert claims['be_bal_low2026_median']['value'] == be == 11
+    for c in ('k_low2026', 'sav_low2026_median', 'be_simple_low2026_median', 'be_bal_low2026_median'):
+        assert claims[c]['illustrative'], c
+    # 5. first week >= 7.00% since ...
+    back = [d for d, v in rows if d < anchor and v >= 7.0]
+    assert back[-1] == '2025-01-16' and rate['2025-01-16'] == 7.04
+    assert all(v < 7.0 for d, v in rows if '2025-01-16' < d < anchor)
+    assert claims['first7_since']['value'] == '2025-01-16' and claims['first7_since']['asOf'] == anchor
+    # 6. rise since the 2026 low and the number of weeks
+    weeks = sum(1 for d, _ in rows if '2026-02-26' < d <= anchor)
+    assert weeks == 30 == claims['weeks_rise_since_low2026']['value'] == claims['rise_since_low2026']['weeks']
+    assert claims['rise_since_low2026']['value'] == round(7.03 - 5.98, 2) == 1.05
+    # 7. weeks of 2026 with a cut of at least 1.00 point from 7.62% (rate <= 6.62%)
+    win = [d for d, v in rows if d[:4] == '2026' and round(7.62 - v, 2) >= 1.0]
+    assert len(win) == 29 == claims['weeks_below_r_old_minus_1']['value']
+    assert win[0] == '2026-01-08' and win[-1] == '2026-07-23' == claims['cut1_last_2026']['value']
+    assert all(v > 6.62 for d, v in rows if d > '2026-07-23')

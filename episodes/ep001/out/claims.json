@@ -2140,6 +2140,305 @@
    "date": "2025-09-25"
   },
   {
+   "claimId": "low2026",
+   "value": 5.98,
+   "display": "5.98%",
+   "formula": "min weekly MORTGAGE30US from the first week of 2026 to the date anchor (week ending February 26, 2026; 38 weeks, January 8, 2026-September 24, 2026)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2026-02-26",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "low2026_date",
+   "value": "2026-02-26",
+   "display": "February 26, 2026",
+   "formula": "week of low2026 (5.98%): PMMS week ending Thursday February 26, 2026",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2026-02-26",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "low2026_since",
+   "value": "2022-09-08",
+   "display": "September 2022",
+   "formula": "last week before February 26, 2026 with a weekly rate <= 5.98%: week ending September 8, 2022 (5.89%); no week from September 15, 2022 to February 19, 2026 was at or below 5.98% (3.47 years). \"Lowest since September 2022\" and \"lowest in more than three years\" are both true; it was also the first week under 6% since September 8, 2022",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2022,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2022-09-08",
+   "yearsBetween": 3.47,
+   "lastWeekUnder6": "2022-09-08",
+   "sentence": "In the week ending February 26, 2026, the average 30-year rate fell to 5.98%, its lowest since September 2022."
+  },
+  {
+   "claimId": "jan2026",
+   "value": 6.06,
+   "display": "6.06%",
+   "formula": "MORTGAGE30US, week ending Thursday January 15, 2026: at that time the lowest since the week ending September 15, 2022 (6.02%); NOT the 2026 low (low2026 = 5.98%, February 26, 2026). There is no PMMS week dated January 12, 2026 (a Monday)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2026-01-15",
+   "lowestSince": "2022-09-15"
+  },
+  {
+   "claimId": "jan2026_since",
+   "value": "2022-09-15",
+   "display": "September 2022",
+   "formula": "last week before January 15, 2026 with a weekly rate <= 6.06%: week ending September 15, 2022 (6.02%)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2022,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2022-09-15",
+   "parent": "jan2026"
+  },
+  {
+   "claimId": "cut_low2026",
+   "value": 1.64,
+   "display": "1.64",
+   "formula": "7.62% (r_old, October 2023 monthly mean) - 5.98% (low2026, week ending February 26, 2026), percentage points",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2023,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "k_low2026",
+   "value": 28,
+   "display": "28",
+   "formula": "monthly payments counted from October 2023 to February 2026 (month of low2026), same convention as k35",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2023,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "sav_low2026_median",
+   "value": 459.07836300043436,
+   "display": "$459",
+   "formula": "payment($375,000, 7.62%, 360) - payment(balance after 28 payments $366,703, 5.98%, 360): median character (loan_median $375,000, cost_median $5,124), borrowed October 2023 at 7.62%, refinancing in the week of low2026 (February 26, 2026, 5.98%) after 28 payments",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2023,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.both",
+   "character": "median"
+  },
+  {
+   "claimId": "be_simple_low2026_median",
+   "value": 12,
+   "display": "12",
+   "formula": "ceil(cost_median / sav_low2026_median) (the simple division): median character (loan_median $375,000, cost_median $5,124), borrowed October 2023 at 7.62%, refinancing in the week of low2026 (February 26, 2026, 5.98%) after 28 payments",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.break_even_months",
+   "character": "median"
+  },
+  {
+   "claimId": "be_bal_low2026_median",
+   "value": 11,
+   "display": "11",
+   "formula": "refi.break_even_balance (counting what is still owed): median character (loan_median $375,000, cost_median $5,124), borrowed October 2023 at 7.62%, refinancing in the week of low2026 (February 26, 2026, 5.98%) after 28 payments",
+   "source": {
+    "id": "hmda-lar",
+    "url": "https://ffiec.cfpb.gov/data-browser/"
+   },
+   "dataYears": [
+    2023,
+    2025
+   ],
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "model": "refi.break_even_balance",
+   "character": "median"
+  },
+  {
+   "claimId": "first7_since",
+   "value": "2025-01-16",
+   "display": "January 2025",
+   "formula": "September 24, 2026 (7.03%) is the first week at or above 7.00% since the week ending January 16, 2025 (7.04%); the 87 weeks in between (January 23, 2025-September 17, 2026) were all under 7.00%. Same week as today_since (threshold 7.03%), different threshold",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYears": [
+    2025,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2025-01-16",
+   "weeksUnder7": 87,
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "rise_since_low2026",
+   "value": 1.05,
+   "display": "1.05",
+   "formula": "7.03% (September 24, 2026) - 5.98% (low2026, February 26, 2026), percentage points, over 30 weeks",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "weeks": 30,
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "weeks_rise_since_low2026",
+   "value": 30,
+   "display": "30",
+   "formula": "weekly observations from February 26, 2026 to September 24, 2026 (both PMMS Thursdays; 30 x 7 days)",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "parent": "rise_since_low2026",
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "weeks_below_r_old_minus_1",
+   "value": 29,
+   "display": "29",
+   "formula": "weeks of 2026 (to the date anchor) with MORTGAGE30US <= 6.62% (r_old 7.62% minus 1.00 point): January 8, 2026-July 23, 2026, consecutive; the same run began the week ending August 14, 2025 (50 weeks in all) and every week after July 23, 2026 is above 6.62%",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "threshold": 6.62,
+   "firstWeek": "2026-01-08",
+   "lastWeek": "2026-07-23",
+   "runStart": "2025-08-14",
+   "runWeeks": 50,
+   "asOf": "2026-09-24"
+  },
+  {
+   "claimId": "cut1_last_2026",
+   "value": "2026-07-23",
+   "display": "July 23, 2026",
+   "formula": "last week with MORTGAGE30US <= 6.62% (a cut of at least 1.00 point from r_old 7.62%): 6.58%; next week July 30, 2026 6.66%",
+   "source": {
+    "id": "fred-MORTGAGE30US",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "dataYear": 2026,
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "date": "2026-07-23",
+   "parent": "weeks_below_r_old_minus_1",
+   "asOf": "2026-09-24"
+  },
+  {
    "claimId": "n31_conforming",
    "value": 457217,
    "display": "457,217",

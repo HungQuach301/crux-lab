@@ -70,6 +70,16 @@ def checker_values(ctx, P):
                                             'yearColumn': 'year', 'shareColumn': 'cost_p50_pct'})
     bl = [c['breakEvenMonths'] for e in R.history(ctx, hl)[0] for c in e['cases'] if c['reached'] and c['breakEvenMonths']]
     v.update({'behd_min': (min(bs), 0), 'behd_max': (max(bs), 0), 'behl_max': (max(bl), 0)})
+    # the median character refinancing at the 2026 low (claims *_low2026_median): the checker's functions with that week's rate and k.
+    # The week and its rate are read here from the weekly CSV (plain csv module; the builder's refi.py is not imported).
+    import csv
+    rows = [(r['date'], float(r['rate'])) for r in csv.DictReader(open(os.path.join(HERE, 'data', 'normalized', 'mortgage30_weekly.csv')))]
+    lo = min((x for x in rows if x[0][:4] == '2026'), key=lambda x: x[1])
+    k26 = months_between('2023-10', lo[0][:7])
+    b26 = R.balance_after(L, r0, n, k26)
+    v.update({'sav_low2026_median': (R.payment(L, r0, n) - R.payment(b26, lo[1], n), 0.5),
+              'be_simple_low2026_median': (R.be_simple(L, r0, b26, lo[1], C, n), 0),
+              'be_bal_low2026_median': (R.be_balance(L, r0, k26, b26, lo[1], C, n), 0)})
     return v
 
 

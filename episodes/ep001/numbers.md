@@ -219,6 +219,30 @@ Các ID cơ bản đều đã có trong bảng: `y1971` (1971), `term30` (30 nă
 
 **Quy tắc "1%":** chưa tìm được câu trích nào từ nguồn truy cập được. Các host có thể có câu này đều bị chặn: cbsnews.com, freddiemac.com, fanniemae.com, nar.realtor. consumerfinance.gov truy cập được nhưng không có câu nào như vậy. Câu "a common rule of thumb … wait for a full percentage-point drop" hiện **không có nguồn**. Chỉ dùng được nếu nói rõ đó là cách nói phổ biến, không gán nguồn, hoặc sau khi chủ dự án mở một host.
 
+<!-- build.py: section H BEGIN (generated, do not edit) -->
+### H. Cửa sổ tái cấp vốn 2026: từng mở, đang khép (sinh bởi `build.py`)
+
+Tuần = tuần PMMS kết thúc thứ Năm. Test tính lại độc lập từ CSV: `model/test_refi.py::test_window2026_recomputed_from_csv`.
+
+| Claim ID | Hiển thị | Nghĩa | Nguồn | Ngày/năm dữ liệu | ILLUSTRATIVE? | Danh nghĩa/thực |
+|---|---|---|---|---|---|---|
+| `low2026` | 5.98% | Lãi tuần thấp nhất năm 2026 (tới ngày mốc) | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2026-02-26; as of 2026-09-24 |  | n/a |
+| `low2026_date` | February 26, 2026 | Tuần của mức thấp nhất 2026 | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2026-02-26; as of 2026-09-24 |  | n/a |
+| `low2026_since` | September 2022 | Đáy 2026 thấp nhất kể từ tuần này (lần gần nhất trước đó lãi ≤ mức đáy); cũng là lần đầu dưới 6% kể từ tuần này. "Lowest since September 2022" và "lowest in more than three years" đều đúng | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2022-09-08 |  | n/a |
+| `jan2026` | 6.06% | Lãi tuần kết thúc 15/1/2026: lúc đó thấp nhất kể từ tuần 15/9/2022. **Không phải** đáy 2026 (đáy là `low2026`). Không có tuần PMMS nào ghi ngày 12/1/2026 | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2026-01-15 |  | n/a |
+| `jan2026_since` | September 2022 | Mức 6.06% tuần 15/1/2026 thấp nhất kể từ tuần này | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2022-09-15 |  | n/a |
+| `cut_low2026` | 1.64 | Chênh giữa lãi cũ của nhân vật (`r_old`) và đáy 2026, điểm % | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | [2023, 2026] |  | n/a |
+| `k_low2026` | 28 | Số kỳ trả đã qua nếu vay lại ở tháng đáy 2026 (10/2023 → 2/2026, cùng quy ước với `k35`) | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | [2023, 2026] | ILLUSTRATIVE | n/a |
+| `sav_low2026_median` | $459 | Nhân vật median vay lại ở tuần đáy 2026: tiết kiệm mỗi tháng | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | [2023, 2026] | ILLUSTRATIVE | danh nghĩa (USD năm dữ liệu) |
+| `be_simple_low2026_median` | 12 | Như trên: hoà vốn cách chia đơn giản (tháng) | hmda-lar (https://ffiec.cfpb.gov/data-browser/) | [2023, 2025] | ILLUSTRATIVE | n/a |
+| `be_bal_low2026_median` | 11 | Như trên: hoà vốn tính cả dư nợ (tháng) | hmda-lar (https://ffiec.cfpb.gov/data-browser/) | [2023, 2025] | ILLUSTRATIVE | n/a |
+| `first7_since` | January 2025 | Ngày mốc là lần đầu lãi ≥ 7.00% kể từ tuần này (cùng tuần với `today_since`, nhưng ngưỡng 7.00% thay vì 7.03%) | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2025-01-16; as of 2026-09-24 |  | n/a |
+| `rise_since_low2026` | 1.05 | Lãi ngày mốc cao hơn đáy 2026 bao nhiêu điểm | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2026; as of 2026-09-24 |  | n/a |
+| `weeks_rise_since_low2026` | 30 | Số tuần từ đáy 2026 tới ngày mốc | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2026; as of 2026-09-24 |  | n/a |
+| `weeks_below_r_old_minus_1` | 29 | Số tuần năm 2026 lãi thấp hơn `r_old` ít nhất 1 điểm (≤ 6.62%): "cửa sổ" mở bao lâu trong năm; chuỗi liền bắt đầu từ tuần 14/8/2025 | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2026; as of 2026-09-24 |  | n/a |
+| `cut1_last_2026` | July 23, 2026 | Tuần cuối cùng của cửa sổ đó (sau tuần này lãi luôn > 6.62%) | fred-MORTGAGE30US (https://fred.stlouisfed.org/series/MORTGAGE30US) | 2026-07-23; as of 2026-09-24 |  | n/a |
+<!-- build.py: section H END -->
+
 ## 5. Màu nhân vật (design/tokens.json)
 
 `genre-spec/channel/visual-tokens.json` chỉ có 6 màu ngoài nền: ink, ink-muted, accent, warn, positive, negative. Chữ dùng ink và ink-muted, đường lãi dùng accent. Vì thế ba nhân vật buộc phải lấy warn, positive, negative. Không thêm màu mới.
