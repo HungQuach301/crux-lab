@@ -14,3 +14,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 | 2026-09-28 | CRITIC vòng 2 | 0 | `story/critic-r2.md`: treatment/beats TB 4,0; CO-A và CO-B TB 3,67; thấp nhất 3. Câu "rule of thumb" không có nguồn → không đạt luật cứng. Hết 2 vòng; P1 cho WRITER một lượt sửa luật cứng/độ chính xác (không chấm lại) trước Cổng A. | 2 |
 | 2026-09-28 | WRITER sửa cuối + Cổng A gửi | 0 | Bỏ câu "rule of thumb" không nguồn; history/US only ở nhịp 3; Anjali có kết quả bằng $; ID thật thay chỗ giữ. Gói `gates/gate-A.md` gửi chủ dự án. | 2 |
 | 2026-09-29 | Cổng A (chủ dự án) | 0 | A; câu chuyện OK; cold open 20 s được chấp nhận (E1-A1). Sổ gu `498b296`; merge khoá K2 f9e24c91 từ main; gỡ dữ liệu thô FRED khỏi repo (E1-A2, .gitignore). | — |
+| 2026-09-29 | WRITER kịch bản v1 | 0 | `story/script.md`: 1.608 từ, ~11:30; cold open A nguyên văn; câu móc lại S04.2 ~0:30–0:38; 41 số mới (1/16,8 s), không cảnh nào > 2; std/mean 0,45; quảng cáo ~3:43, ~6:30. | 1 |
