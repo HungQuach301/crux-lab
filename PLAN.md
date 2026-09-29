@@ -14,8 +14,8 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 | Việc 0 | XONG — merge `main` `7ebc7ea` | — | Khung 3 lớp duyệt; D-002 |
 | C1 Ý tưởng | XONG | `episodes/ep001/gates/C1.md` | Logline C; bộ đo mới (vai khán giả đích, tiếng Anh, đối chứng yếu) |
 | C2 Kịch bản | XONG | `episodes/ep001/gates/C2.md` | OK; lịch sử rút (a); câu hứa nói với người xem (2 phương án ở C3) |
-| C3 Thiết kế và giọng | ĐANG LÀM (style frame cuối → ký hợp đồng hình qua clip) | `episodes/ep001/gates/C3.md` | D theo nhịp; giọng B (Eric v3 mặc định); câu hứa ghép |
-| C4 Animatic có chuyển động | chờ | | |
+| C3 Thiết kế và giọng | XONG hình (hợp đồng ký, sàn chữ 40 px); **giọng: thử mù V1/V2/V3 đang làm** | `gates/C3.md`, `gates/C3-contract.md` | D theo nhịp; Eric eleven_v3; câu hứa "…where would your own loan fall?" |
+| C4 Animatic có chuyển động | ĐANG LÀM (dựng hình toàn tập, định thời lại khi chốt giọng) | | |
 | C5 Render và L1 | chờ (cần khoá K3 của Phiên K) | | |
 | C6 Chấm cuối | chờ | | |
 
@@ -23,6 +23,9 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 - Proxy phiên chặn đẩy tag và xoá nhánh (HTTP 403). Tag `ep001-v1-stopped` (`3cab8ba`) có ở máy phiên, chưa lên GitHub; bốn nhánh `claude/stoic-lamport-lt6z0z`, `claude/vigilant-tesla-xogj17`, `checks-v2`, `ccr-b659da90-fg2k6j` đã kiểm (ba nhánh đã merge vào main; `ccr-…` trùng `ep001`) nhưng chưa xoá được. `3cab8ba` vẫn an toàn trên nhánh `ep001`.
 
 - Điều khoản thương mại ElevenLabs (gói trả phí): proxy chặn elevenlabs.io → cần chủ dự án dán nguyên văn (billing + Terms of Use) hoặc mở domain; L1 Chặn trước C5.
+
+## Điểm dừng an toàn (cập nhật mỗi khi có thể phải dừng)
+- 2026-09-29: C3 hình đã ký; giọng đang thử mù V1/V2/V3 (`review-c3/voice-v/`); animatic C4 đang dựng (`episodes/ep001/animatic/`). Tiếp tục: gửi gói thử giọng → chủ dự án chọn → sinh lại cả tập một kiểu → định thời animatic → kiểm mù tắt tiếng C4.
 
 ## Quy ước
 - Ý đồ kiểm mù ghi trước ở `gates/Cx-intent.md`; kết quả nguyên văn ở `gates/Cx-blind.md`.

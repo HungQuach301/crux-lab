@@ -34,7 +34,7 @@ By late September, the rate was back above 7 percent [seven], for the first time
 
 Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for $5,124 in fees [cost_median].
 *Ghi chú:* ⟦PROMISE — câu ghép của chủ dự án (C3, 29/09/2026), bắt đầu⟧
-How big a rate cut makes that worth it for Nora — and where does a loan your size fall?
+How big a rate cut makes that worth it for Nora — and where would your own loan fall?
 [beat]
 And why would a smaller mortgage need a bigger cut?
 *Ghi chú:* ⟦PROMISE — hết⟧ Câu hứa nói thẳng với người xem ("a loan your size"), Nora vẫn dẫn truyện (G-009 · C2). Câu hỏi rơi ~0:43, trong khoảng 0:30–0:45 của DX-S4. Hồi 2 trả lời cho Nora (S13), hồi 3 trả lời vế "smaller mortgage" (S16), phần kết đưa thước ba mốc để người xem đặt khoản của mình (S18). Chữ "letter" có ngay ở câu đầu S02 (sửa lỗi "that letter" của v3).
@@ -52,7 +52,7 @@ And why would a smaller mortgage need a bigger cut?
 *Hình:* Đường lãi 2023 ngắn (chỉ năm 2023, không kéo về 2021) tự vẽ; chấm tròn của Nora rơi xuống tháng 10/2023, sát đỉnh "7.79% · highest since 2000". Chuyển: một con phố mười ngôi nhà mua năm 2023; ba nhà sáng đèn, một trong đó là nhà của Nora.
 
 Nora borrowed in October 2023 [oct2023], the month the average rate reached 7.79 percent [peak2023], its highest since 2000 [peak2023_since].
-She was far from alone: three in ten [purch23_words] of that year's 30-year loans to buy a home carried a rate of 7 percent or more [ge7_threshold].
+She wasn't the only one: three in ten [purch23_words] of that year's 30-year loans to buy a home carried a rate of 7 percent or more [ge7_threshold].
 
 *Ghi chú:* Rút từ 7 câu (v3) còn 2, gắn vào Nora: bỏ 2021 (2.65%, 1971), bỏ 881,835 và "a cutoff we chose". Ngưỡng 7% vẫn là lựa chọn của người phân tích [ge7_threshold]; nói trên thẻ phương pháp, không nói trong lời. "History, not a forecast" và "US only" chuyển sang cuối S05, chỗ nói về dự báo.
 

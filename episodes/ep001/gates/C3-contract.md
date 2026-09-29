@@ -14,3 +14,8 @@
 2. **Câu hứa:** nhận dạng giọng (ASR) nghe "a loan your size" thành "**alone** your size" (hai chữ dính âm với giọng B). Nghe file 23 s rồi chọn: **giữ** nguyên văn / **đổi** thành "…— and where would your own loan fall?". — *Khuyến nghị: nghe rồi quyết; nếu tai anh/chị cũng nghe dính, chọn đổi.*
 
 (Không cần trả lời: P2 sẽ cho WRITER đổi câu "far from alone" — ASR nghe "far from a loan" — thành "She wasn't the only one", và C4 nới khoảng nghỉ quanh vài câu đọc nhanh, không giãn giọng.)
+
+## Trả lời của chủ dự án (2026-09-29)
+> Hợp đồng hình: OK, kèm sửa — giảm đều mọi cỡ chữ ~20%, sàn chữ nhỏ nhất 40 px ở 1080p; kiểm lại "đọc được ở 25%", chỗ trượt thì giải thích (CHÍNH). Áp vào animatic C4, không gửi lại clip hợp đồng. Câu hứa: đổi thành "…— and where would your own loan fall?". "far from alone" đổi như anh/chị đề xuất. Giọng: nhịp đều đều, mất nhấn nhá so với lần đầu nghe giọng B. Tìm nguyên nhân gốc, không vá. Nghi: sinh từng câu riêng lẻ (không ngữ cảnh) + ghép nghỉ cố định 0,45 s + 82 câu tái dùng từ C2. Làm thử mù cùng một đoạn ~60–90 s (gồm một đoạn giải thích của hồi 2): V1 bản hiện tại; V2 sinh theo CẢNH; V3 như V2 + vài thẻ cảm xúc eleven_v3 ở nhịp then chốt (không thẻ ngắt/nghỉ, không speed). Vẫn Eric, eleven_v3, một model. Tôi nghe mù chọn; sau đó sinh lại CẢ TẬP một kiểu, không tái dùng take C2 nếu khác kiểu. Chất lượng ưu tiên hơn hạn mức…
+
+→ Sổ gu "G-009 · C3 · ký", G-015, "Vận hành · chất lượng"; AUTHORSHIP; bài học B3 (main). Script v3.1: câu hứa và "She wasn't the only one" đã thay.
