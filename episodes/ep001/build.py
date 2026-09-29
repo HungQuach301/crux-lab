@@ -119,11 +119,11 @@ def main():
         claim(f'sav_{n}', c['monthlySavings'], usd(c['monthlySavings']), f"payment({usd(c['loan'])}, {r_old:.2f}%, 360) - payment(balance after {k} payments {usd(c['balance'])}, {r_today:.2f}% [{week_txt}], 360)", FRED, [2023, ly], model='refi.both', **IL, asOf=last_week)
         claim(f'be_simple_{n}', c['simple'], str(c['simple']), f"ceil(cost_{n} / sav_{n}) (the simple division), rate of {anchor_txt}", src, [2023, Y], model='refi.break_even_months', **IL, asOf=last_week)
         claim(f'be_bal_{n}', c['withBalance'], str(c['withBalance']), f'first month m with savings x m + (old balance - new balance) >= closing cost (counting what is still owed), rate of {anchor_txt}', src, [2023, Y],
-              model='refi.break_even_balance', **IL, asOf=last_week, **({'core': True, 'decisive': True} if n == 'median' else {}))
+              model='refi.break_even_balance', **IL, asOf=last_week, **({'core': False, 'decisive': True} if n == 'median' else {}))
         claim(f'net36_{n}', c['net36'], usd(abs(c['net36'])), f'net_after(36 months) = savings + balance difference - closing cost ({usd(c["net36"])}; sign shown by wording), rate of {anchor_txt}', src, [2023, Y], model='refi.net_after', **IL, asOf=last_week)
         claim(f'net84_{n}', c['net84'], usd(abs(c['net84'])), f'net_after(84 months) ({usd(c["net84"])}), rate of {anchor_txt}', src, [2023, Y], model='refi.net_after', **IL, asOf=last_week)
         claim(f'cut36_{n}', round(c['cut36'], 2), f"{c['cut36']:.2f}".rstrip('0').rstrip('.'), f'smallest rate cut below {pct(r_old)} with the balance-counting break-even <= 36 months (bisection); independent of the date anchor except through k = {k}', src, [2023, Y],
-              model='refi.cut_for_break_even_balance', **IL, **({'decisive': True, 'core': True} if n == 'median' else {}))
+              model='refi.cut_for_break_even_balance', **IL, **({'decisive': True, 'core': True} if n == 'median' else {'decisive': True} if n == 'small' else {}))
     claim('gap24', gap_at, usd(gap_at), f"new balance - old balance after {M['simple']} months (median character), rate of {anchor_txt}", HMDA, [2023, Y], model='refi.balance_after', **IL, asOf=last_week)
     claim('hold36', 36, '36', 'payback target of the question (3 years): an assumption, not data', None, None, **IL, historical=False)
     claim('y3', 3, '3', 'holding scenario: sell after 3 years (36 months)', None, None, **IL, historical=False)
@@ -299,40 +299,61 @@ def main():
         if n in CH and base.split('_')[0] in ('loan', 'sav', 'be', 'net36', 'net84', 'cut36'):
             c['character'] = n
 
-    # script: the approved story/script.md (v2), converted by preprod/script_from_story.py into out/script-draft.json.
-    # The old template script (script/script.tpl.md) is retired; build.py no longer writes any script file.
+    # script (C5): the final narration story/script-v3.2.md, converted by preprod/script_from_v32.py into out/script-draft.json
+    # (and out/script.json with the sentence times of the final video). Earlier: story/script.md v2 via preprod/script_from_story.py.
     dp = os.path.join(HERE, 'out', 'script-draft.json')
     lines = [r for r in json.load(open(dp))['sentences'] if r.get('claims')] if os.path.exists(dp) else []
     unknown = sorted({c for l in lines for c in l['claims'] if c not in C})
-    assert not unknown, f'story/script.md uses claim IDs not in claims.json: {unknown}'
+    assert not unknown, f'the script uses claim IDs not in claims.json: {unknown}'
     for l in lines:
         for cid in l['claims']:
             if l['kind'] == 'line':
-                C[cid]['spoken'].append({'sentence': l['id']})
+                C[cid]['spoken'].append({'sentence': l['id'], 'scene': l['scene']})
             if l['scene'] not in C[cid]['shownIn']:
                 C[cid]['shownIn'].append(l['scene'])
-    # callbacks: a number that comes back in a later scene, and what it means there (script v2)
-    MEAN = {'cost_median': {'S10': 'the bill from the letter, now said: the real 2025 median', 'S23': 'Nora\'s bill beside Walt\'s and Anjali\'s'},
-            'sav_median': {'S14': 'the same monthly saving, now stacked month by month', 'S27': 'Nora\'s saving as the yardstick for Anjali\'s'},
-            'be_bal_median': {'S21': 'her real offer pays back at month 30: inside three years'},
-            'be_simple_median': {'S12': 'two years, said in words'},
-            'cut_today': {'S21': 'her real offer clears the half-point line'},
-            'cut_today_words': {'S21': 'her real offer clears the half-point line'},
-            'cut36_median': {'S29': 'the answer for Nora, beside Anjali and Walt'},
-            'cut36_small': {'S29': 'the answer for Walt'}, 'cut36_large_words': {'S29': 'the answer for Anjali'},
-            'hold36': {'S20': 'the full point is inside three years', 'S21': 'the three-year line decides', 'S29': 'the answer is stated for three years'},
-            'k35': {'S15': 'the 35 payments already made are what the reset throws away'},
-            'y3': {'S28': 'Anjali at three years', 'S31': 'one of the two horizons'}, 'y7': {'S31': 'one of the two horizons'},
-            's10': {'S32': 'the one-point line is an analyst choice', 'S33': 'history of one-point drops'},
-            'anchor_date': {'S32': 'date of the rate used'}, 'r_old': {'S32': 'method: how the old rate is set'}, 'r_today': {'S32': 'method: how the new rate is set'},
-            'y2025': {'S32': 'method: data year'}, 'ge7_threshold': {'S32': 'analyst choice'}, 'term30': {'S32': 'method: new loan term'}}
+    # on screen: every claim the render page draws through CL(id), per scene (animatic/check-report.json claimsUsed, written by
+    # animatic/src/check.py from the render logs; re-run build.py after the final render's check.py)
+    cr = os.path.join(HERE, 'animatic', 'check-report.json')
+    screen = json.load(open(cr)) if os.path.exists(cr) else {}
+    bad = sorted({c for v in screen.values() for c in v.get('claimsUsed', []) if c not in C})
+    assert not bad, f'the page draws claim IDs not in claims.json: {bad}'
+    for sc in sorted(screen):
+        for cid in screen[sc].get('claimsUsed', []):
+            if sc not in C[cid]['shownIn']:
+                C[cid]['shownIn'].append(sc)
+    for c in C.values():
+        c['shownIn'].sort()
+    # callbacks: a number that comes back in a later scene, and what it means there (script v3.2, scenes S01-S20)
+    MEAN = {'cost_median': {'S07': 'the bill from the letter, now explained: the real 2025 median', 'S09': 'the bar the monthly savings must reach',
+                            'S14': 'Nora\'s bill beside Walt\'s, almost as big', 'S18': 'back to the letter: the same bill behind all three lines',
+                            'S19': 'the middle of the wide range of real 2025 bills'},
+            'cut_today': {'S08': 'her cut falls short of the one-point line', 'S11': 'her real cut beside a quarter point',
+                          'S13': 'her real offer clears the half-point line'},
+            'cut36_median': {'S16': 'Nora\'s half point beside the cut Walt needs', 'S17': 'Nora\'s half point beside Anjali\'s third',
+                             'S18': 'Nora\'s line on the three-mark ruler'},
+            'sav_median': {'S09': 'the same monthly saving, now stacked month by month', 'S15': 'Nora\'s saving beside Walt\'s much smaller one'},
+            'be_simple_median': {'S09': 'division stops at month 24', 'S10': 'the month where the balance gap is measured'},
+            'be_bal_median': {'S10': 'counting what she owes moves break-even from 24 to 30'},
+            'hold36': {'S12': 'a full point is well inside three years', 'S13': 'the three-year line decides her answer',
+                       'S18': 'the answer is stated for a three-year payback'},
+            'k35': {'S10': 'the payments already made are what the fresh 30-year clock starts over'},
+            's10': {'S08': 'the first quick answer', 'S12': 'the one-point line tested on Nora', 'S16': 'Walt needs more than the one-point line',
+                    'S18': 'the one-point line fits none of the three'},
+            'y3': {'S16': 'Walt sells after three years', 'S17': 'Anjali at three years', 'S20': 'one of the two horizons'},
+            'y7': {'S20': 'the second horizon'},
+            'r_old': {'S04': 'her rate, said again with her loan'},
+            'loan_median': {'S18': 'Nora\'s loan size on the ruler'}, 'loan_small': {'S18': 'Walt\'s loan size on the ruler'},
+            'loan_large': {'S18': 'Anjali\'s loan size on the ruler'},
+            'cut36_small': {'S18': 'Walt\'s line on the ruler'}, 'cut36_large_words': {'S18': 'Anjali\'s line on the ruler'},
+            'r_today': {'S06': 'the offer\'s rate = the national average of the date anchor'}, 'anchor_date': {'S06': 'date of the rate used'}}
     for cid, m in MEAN.items():
         C[cid]['callbacks'] = [{'scene': s, 'meaning': v} for s, v in m.items() if s in C[cid]['shownIn']]
+        assert len(C[cid]['callbacks']) == len(m), (cid, [s for s in m if s not in C[cid]['shownIn']])
     words = [len(re.findall(r"[\w$%.,'-]+", l['text'])) for l in lines]
     seen = set()
     for l in lines:
         seen |= set(l['claims'])
-    report = {'scriptSource': 'story/script.md via out/script-draft.json', 'rowsWithClaims': len(lines), 'claims': len(C), 'claimsUsed': len(seen),
+    report = {'scriptSource': 'story/script-v3.2.md via out/script-draft.json (preprod/script_from_v32.py)', 'rowsWithClaims': len(lines), 'claims': len(C), 'claimsUsed': len(seen),
               'unusedClaims': [c for c in C if c not in seen]}
     os.makedirs(os.path.join(HERE, 'out'), exist_ok=True)
     json.dump({'claims': list(C.values())}, open(os.path.join(HERE, 'out', 'claims.json'), 'w'), indent=1)
