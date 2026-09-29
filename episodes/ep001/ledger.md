@@ -33,3 +33,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 | 2026-09-29 | Kiểm mù C1 (P2) | 0 | Vòng 1: 13 agent (L-A, L-B ×5, đối chứng ×3): kể đúng 0/5 chặt (thiếu "ở Mỹ"), muốn xem 0/13. Vòng 2 (WRITER sửa 1/2): 10 agent mới: kể đúng 5/5 cả hai, muốn xem 0/5 cả hai → trượt, hết 2 vòng, đưa chủ dự án. Nguyên văn `gates/C1-blind.md`. | 2 |
 | 2026-09-29 | Cổng C1 gửi | 0 | Gói `gates/C1.md`; issue GitHub (thông báo). | — |
 | 2026-09-29 | Cổng C1 (chủ dự án) | 0 | C; đổi bộ đo kèm điều kiện (vai người Mỹ trả khoản vay 2022–2024, tiếng Anh, đối chứng yếu, hiệu chuẩn trước C2); C2 dùng "refinance" có giải thích, sửa "a bigger one"; G-012 đầu vào C3. Sổ gu/AUTHORSHIP main `0e01b42`. | — |
+| 2026-09-29 | Hiệu chuẩn bộ đo (P2) | 0 | 18 agent (vai khán giả đích ×15, phổ thông ×3) trên L-A v2, L-B v2, đối chứng yếu: T "Yes" 5/5 ở cả ba → KHÔNG phân biệt được; báo chủ dự án, không sửa bộ đo. G: L-B Yes, L-A Maybe, đối chứng Maybe. `gates/CAL-blind.md`. | 1 |
