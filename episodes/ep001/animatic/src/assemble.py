@@ -42,7 +42,7 @@ for p in vs.encode():
 oc.close()
 # mux narration (copy) with the silent video (copy)
 full = os.path.join(AN, 'out', 'animatic-720p.mp4')
-vin = av.open(silent); ain = av.open(os.path.join(EP, 'review-c4', 'narration.m4a'))
+vin = av.open(silent); ain = av.open(os.path.join(EP, 'review-c4', 'narration-v32.m4a'))
 out = av.open(full, 'w')
 ov = out.add_stream_from_template(vin.streams.video[0]); oa = out.add_stream_from_template(ain.streams.audio[0])
 for pkt in vin.demux(vin.streams.video[0]):
