@@ -2,7 +2,7 @@
 explanation (out/explanations.json); a REFERENCE rule only reports its measurements.
 
     BLOCK     (CHẶN, L1)      numbers, claims, sources, terms of use, asset rights, file technique, loudness, true peak, key words heard (ASR)
-    MAJOR     (CHÍNH)         the voice is clear (not covered), text does not collide, contrast, legible at 25%
+    MAJOR     (CHÍNH)         the voice is clear (not covered), text does not collide, contrast, legible at 25%; owner (K3 approval): F07 length, A18 voice model
     REFERENCE (THAM KHẢO)     every craft or count target (anti-Goodhart: a count of techniques is a warning, not a goal)
 
 Cine Lab, CINE-LAB-KHUNG-CHAT-LUONG.md §1 (3 layers; anti-Goodhart principle 5) and CINE-LAB-BAI-HOC-BRIEF-D.md W2, W3, N2, N3."""
@@ -14,7 +14,7 @@ _B = 'kỹ thuật file'
 TIERS = {
     # file technique
     'F01': (BLOCK, _B), 'F02': (BLOCK, _B), 'F03': (BLOCK, _B), 'F04': (BLOCK, _B), 'F05': (BLOCK, _B), 'F06': (BLOCK, _B),
-    'F07': (BLOCK, 'kỹ thuật file: độ dài phát hành (CHARTER §1)'),
+    'F07': (MAJOR, 'độ dài theo CHARTER §1 (8–15 phút); chủ dự án hạ CHÍNH: chặn độ dài dễ dẫn tới giãn thời gian'),
     'F08': (BLOCK, 'kỹ thuật file: banding do mã hoá'),
     'F09': (BLOCK, 'kỹ thuật file: phụ đề đúng lời, đúng quy cách'),
     'F10': (BLOCK, 'kỹ thuật file: chapters hợp lệ với YouTube (≥ 3, từ 0:00, mỗi chương ≥ 10 s)'),
@@ -33,7 +33,7 @@ TIERS = {
     'A15': (REFERENCE, 'chỉ tiêu tốc độ đọc'),
     'A16': (REFERENCE, 'cảnh báo: dấu ngắt giả trong văn bản gửi TTS'),
     'A17': (REFERENCE, 'cảnh báo: mật độ khoảng lặng giữa câu bất thường'),
-    'A18': (REFERENCE, 'cảnh báo: đổi model giọng giữa tập'),
+    'A18': (MAJOR, 'đổi model giọng giữa tập; chủ dự án nâng CHÍNH: lỗi gốc của Tập 1 v1, trái G-010'),
     # numbers, claims, sources, terms
     'S01': (BLOCK, 'số liệu: tính lại mô hình'), 'S02': (BLOCK, 'claim: giả định của mô hình hiện trên màn hình'),
     'S03': (BLOCK, 'nguồn và điều khoản sử dụng dữ liệu'), 'S04': (BLOCK, 'số liệu: đối chiếu nguồn'),

@@ -6,7 +6,7 @@ Khoá: `checks/LOCK` là SHA-256 của toàn thư mục (cách tính ở cuối 
 - Bên dựng không sửa thư mục này (CHARTER §7.1, §8).
 - Cho rằng một luật sai thì ghi khiếu nại. Luật chỉ đổi qua vai kiểm, và cần chủ dự án duyệt.
 
-Gốc: `checks/` của bài D (`crux-spike-opus55`, nhánh `spike/opus55-cine`, LOCK `0478df73…`), đã sửa theo audit `audit/d-final` (`audit/REPORT.md` @ `afad899`). Các thay đổi ghi ở mục "Thay đổi so với bài D". Thay đổi của K2 (luật đọc từ hợp đồng tập; T1 định nghĩa lại; L1, S16, F11 mới) ghi ở mục "Thay đổi ở khoá K2". Thay đổi của K3 (mỗi luật một cấp CHẶN / CHÍNH / THAM KHẢO; F12, A16–A18 mới; S02, REG sửa) ghi ở mục "Thay đổi ở khoá K3"; cấp của từng luật ở mục "Cấp của luật".
+Gốc: `checks/` của bài D (`crux-spike-opus55`, nhánh `spike/opus55-cine`, LOCK `0478df73…`), đã sửa theo audit `audit/d-final` (`audit/REPORT.md` @ `afad899`). Các thay đổi ghi ở mục "Thay đổi so với bài D". Thay đổi của K2 (luật đọc từ hợp đồng tập; T1 định nghĩa lại; L1, S16, F11 mới) ghi ở mục "Thay đổi ở khoá K2". Thay đổi của K3 (mỗi luật một cấp CHẶN / CHÍNH / THAM KHẢO; F12, A16–A18 mới; S02, REG, F07 sửa) ghi ở mục "Thay đổi ở khoá K3"; cấp của từng luật ở mục "Cấp của luật".
 
 ## Chạy
 
@@ -32,7 +32,7 @@ Trạng thái của một luật:
 
 **Cấp của luật (K3).** Mỗi luật có một cấp (`py/tiers.py`; bảng ở mục "Cấp của luật"):
 - **CHẶN** (lớp L1 của Cine Lab): số liệu, claim, nguồn, điều khoản, quyền tài sản, kỹ thuật file, âm lượng, true peak, ASR không mất từ khoá. **Chỉ luật CHẶN làm trượt tập**: một luật CHẶN không PASS (FAIL, MISSING hay ERROR) thì tập **TRƯỢT**.
-- **CHÍNH**: độ rõ lời (L1 "không lấn lời"), va chạm chữ, tương phản, đọc được (ở 25%, vùng an toàn, chữ không nhân đôi). Luật CHÍNH không đạt thì bên dựng phải giải thích trong `out/explanations.json` (≥ 8 chữ mỗi luật); chưa giải thích thì tập ở trạng thái **CHỜ GIẢI THÍCH**. Chủ dự án đọc lời giải thích ở gói duyệt.
+- **CHÍNH**: độ rõ lời (L1 "không lấn lời"), va chạm chữ, tương phản, đọc được (ở 25%, vùng an toàn, chữ không nhân đôi); theo quyết định của chủ dự án khi duyệt K3: độ dài (F07) và đổi model giọng giữa tập (A18). Luật CHÍNH không đạt thì bên dựng phải giải thích trong `out/explanations.json` (≥ 8 chữ mỗi luật); chưa giải thích thì tập ở trạng thái **CHỜ GIẢI THÍCH**. Chủ dự án đọc lời giải thích ở gói duyệt.
 - **THAM KHẢO**: mọi chỉ tiêu tay nghề hay số lượng. Chỉ báo số đo; không làm trượt, không cần giải thích (nguyên tắc chống Goodhart của Cine Lab: số lần dùng kỹ thuật chỉ là cảnh báo).
 
 Báo cáo ghi `episode` = TRƯỢT / CHỜ GIẢI THÍCH / ĐẠT và bảng đạt/không đạt theo cấp. Trạng thái PASS/FAIL của từng luật vẫn giữ (để hiệu chỉnh và để REG so).
@@ -123,19 +123,20 @@ Trên kịch bản M1b của Tập 1 (`out/script-draft.json` @ `bbc28fb`): S13 
 
 Còn gắn với bài D, ngoài phạm vi K2 (ghi để khoá sau xử lý): A14 (danh sách thuật ngữ khoá `DEFINED_TERMS` là từ vựng hưu trí; tập mới chỉ **thêm** được qua `out/terms.json`), S02 (cụm "no taxes" / "no fees" là giả định của mô hình bài D).
 
-## Thay đổi ở khoá K3 (2026-09-29, chờ chủ dự án duyệt)
+## Thay đổi ở khoá K3 (chủ dự án duyệt 2026-09-29, kèm hai sửa: F07 hạ CHÍNH với ngưỡng 480–900 s; A18 nâng CHÍNH)
 
 Nguồn: chỉ dẫn K3 của chủ dự án; Cine Lab `docs/cine-lab/CINE-LAB-KHUNG-CHAT-LUONG.md` §1 (mô hình 3 lớp, "Nguyên tắc chống Goodhart") và `docs/cine-lab/CINE-LAB-BAI-HOC-BRIEF-D.md` (W1–W9, N1–N7) @ `HungQuach301/cine-lab` main.
 
 | Mã | Thay đổi | Lý do |
 |---|---|---|
-| mọi luật | Mỗi luật một cấp CHẶN / CHÍNH / THAM KHẢO (`py/tiers.py`, bảng "Cấp của luật"). Báo cáo có phán quyết tập: chỉ CHẶN làm trượt; CHÍNH không đạt cần giải thích (`out/explanations.json`); THAM KHẢO chỉ báo số đo. Đo và ngưỡng của các luật cũ **không đổi** (fingerprint giữ nguyên, REG so được với báo cáo K2) | W2, W3, N2, N3; chỉ dẫn K3 §1–2 |
+| mọi luật | Mỗi luật một cấp CHẶN / CHÍNH / THAM KHẢO (`py/tiers.py`, bảng "Cấp của luật"). Báo cáo có phán quyết tập: chỉ CHẶN làm trượt; CHÍNH không đạt cần giải thích (`out/explanations.json`); THAM KHẢO chỉ báo số đo. Đo và ngưỡng của các luật cũ **không đổi**, trừ S02, REG, F07 (fingerprint giữ nguyên, REG so được với báo cáo K2) | W2, W3, N2, N3; chỉ dẫn K3 §1–2 |
 | REG | Chỉ hồi quy của luật CHẶN làm trượt; hồi quy khác liệt kê kèm cấp | chỉ dẫn K3 §2: chỉ CHẶN làm trượt tập |
 | S02 | Giả định phải hiện đọc từ `claims.assumptions` của hợp đồng tập (trước: gắn cứng "no taxes"/"no fees" của bài D). Hợp đồng bài D ghi lại hai regex K1 | S02 nay là CHẶN (claim); K2 đã ghi nó còn gắn bài D, nên không được chặn Tập 1 bằng giả định của bài khác |
 | F12 | **Mới, CHẶN**: sổ quyền `out/rights.json`: mọi stem có tiếng có mục; tài sản bên thứ ba có trích điều khoản, URL và `commercial:true`; tài sản tự làm có đường dẫn mã sinh | "quyền tài sản" thuộc CHẶN nhưng chưa có luật nào canh (CHARTER §7.3: không có điểm mù không được canh); DX-A3 (sổ giấy phép); Cine Lab R1 |
 | A16 | **Mới, THAM KHẢO**: dấu ngắt giả trong văn bản gửi TTS (`spoken` so với `text`) | chỉ dẫn K3 §3 |
 | A17 | **Mới, THAM KHẢO**: mật độ khoảng lặng trong câu và giữa câu bất thường (đo trên stem giọng) | chỉ dẫn K3 §3 |
-| A18 | **Mới, THAM KHẢO**: đổi giọng hay model giọng giữa tập | chỉ dẫn K3 §3 |
+| A18 | **Mới, CHÍNH** (chủ dự án nâng khi duyệt): đổi giọng hay model giọng giữa tập; xảy ra thì bên dựng phải giải thích | chỉ dẫn K3 §3; duyệt K3: lỗi gốc của Tập 1 v1, trái G-010 |
+| F07 | **Sửa, CHÍNH** (chủ dự án hạ khi duyệt): độ dài 480–900 s (trước: ≥ 600 s) | duyệt K3: ngưỡng cũ lệch CHARTER §1 (8–15 phút); chặn độ dài dễ dẫn tới giãn thời gian |
 | báo cáo | Mục "Chỉ số trong ±5% quanh ngưỡng" nêu tên luật, chỉ số, cấp; `--list` in cấp và lý do | chỉ dẫn K3 §4 |
 
 **Hiệu chỉnh cảnh báo mới trên Tập 1** (nhánh `ep001`, `out/voice/` @ `bbc28fb`; số đo và kịch bản ở `checks-runs/K3-calibration/`):
@@ -159,6 +160,7 @@ Chủ dự án duyệt khoá `62b5206d…` ngày 2026-09-28, kèm điều kiện
 | V13 | mỗi cú máy ≤ 3 s; tổng thời gian máy chuyển ≤ 15% |
 | A17 *(K3)* | câu có khoảng lặng trong câu > 20% hoặc ≥ 1 lần / 5 chữ: ≤ 10% số câu; khoảng giữa câu < 0,10 s hoặc > max(3·G, G + 1 s): ≤ 10% |
 | A18 *(K3)* | 1 giọng (nhà cung cấp, voiceId, model) cho cả tập |
+| F07 *(K3)* | 480–900 s (CHARTER §1) |
 
 ### Điểm hiệu chỉnh của T1 và L1 (K2)
 
@@ -242,7 +244,7 @@ Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
   - cùng `fingerprint`;
   - hoặc, với báo cáo cũ chưa có fingerprint: cùng câu ngưỡng, và không nằm trong danh sách luật K1 đã đổi cách đo (`CHANGED_SINCE` trong `py/run.py`).
   - K2 đổi định nghĩa của S01, S03–S06, S13, V04, V09, T1 (câu đo đổi, nên fingerprint đổi): REG không so các luật này với báo cáo khoá trước. F11, S16, L1 mới, không có gì để so.
-  - K3 đổi định nghĩa của S02 và REG (fingerprint đổi); F12, A16, A17, A18 mới. Mọi luật khác giữ fingerprint của khoá K2 `f9e24c91…`, nên REG so được với báo cáo K2.
+  - K3 đổi định nghĩa của S02, REG và F07 (fingerprint đổi); F12, A16, A17, A18 mới. Mọi luật khác giữ fingerprint của khoá K2 `f9e24c91…`, nên REG so được với báo cáo K2.
 - Một luật so được, PASS ở phiên bản trước mà nay không PASS, là **hồi quy**. K3: chỉ hồi quy của luật **CHẶN** làm REG trượt; hồi quy của luật CHÍNH, THAM KHẢO được liệt kê kèm cấp (luật CHÍNH đó vẫn cần giải thích vì nó không PASS).
 - Báo cáo liệt kê các luật không so được và các luật đã cải thiện.
 
@@ -267,17 +269,17 @@ Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
     - K2: V04 trượt khi màu trên màn hình khác màu hợp đồng tập khai (`V04-not-declared-colour`); mọi fixture có `contract.json`.
 - **K2** (Python): S01 thêm ca `S01/refinance` (mô hình Tập 1, một tháng hoà vốn lệch 1 phải trượt); S03–S06, V04, V09 đọc hợp đồng của fixture; T1 mới (tiếng dữ liệu trong khe âm tiết: nổi thì đạt, thấp 30 dB thì trượt); L1 (tiếng 2 kHz ngang lời và làm mất con số thì trượt; nhịp 300 Hz thấp thì đạt); S16 (hai câu số quyết định gọi tên nhân vật hoặc kịch bản thì đạt, không gọi thì trượt); F11 (thiếu một file đã khai thì trượt).
 
-- **K3** (Python): A16 (`spoken` có "…" và thẻ `[pause]` thì trượt; số đọc bằng chữ có dấu phẩy và gạch ngang có trong câu viết thì đạt); A17 (mỗi câu có hai khoảng lặng 0,6 s thì trượt; câu liền, cách nhau 0,4 s thì đạt); A18 (hai model khai trong `takes.json` thì trượt, số đo nhóm phải tách được); F12 (thiếu mục cho stem nhạc và giọng không được phép thương mại thì trượt; stem im lặng không cần mục); S02 đọc giả định từ hợp đồng fixture. Ca riêng: `TIERS` (mọi luật có cấp; một luật không cấp thì trượt), `VERDICT` (CHẶN không đạt → TRƯỢT; chỉ THAM KHẢO không đạt → ĐẠT; CHÍNH không đạt chưa giải thích → CHỜ GIẢI THÍCH, có giải thích → ĐẠT), `REG/tier` (hồi quy của luật THAM KHẢO không làm REG trượt, của luật CHẶN thì có), `NEAR` (chỉ số cách ngưỡng 4,5% ở hai phía được nêu, cách 6% thì không).
+- **K3** (Python): A16 (`spoken` có "…" và thẻ `[pause]` thì trượt; số đọc bằng chữ có dấu phẩy và gạch ngang có trong câu viết thì đạt); A17 (mỗi câu có hai khoảng lặng 0,6 s thì trượt; câu liền, cách nhau 0,4 s thì đạt); A18 (hai model khai trong `takes.json` thì trượt, số đo nhóm phải tách được); F12 (thiếu mục cho stem nhạc và giọng không được phép thương mại thì trượt; stem im lặng không cần mục); S02 đọc giả định từ hợp đồng fixture. Ca riêng: `F07/too-long` (905 s trượt, 480 s đạt); `TIERS` (mọi luật có cấp, F07 và A18 là CHÍNH theo quyết định của chủ dự án; một luật không cấp thì trượt), `VERDICT` (CHẶN không đạt → TRƯỢT; chỉ THAM KHẢO không đạt → ĐẠT; CHÍNH không đạt chưa giải thích → CHỜ GIẢI THÍCH, có giải thích → ĐẠT), `REG/tier` (hồi quy của luật THAM KHẢO không làm REG trượt, của luật CHẶN thì có), `NEAR` (chỉ số cách ngưỡng 4,5% ở hai phía được nêu, cách 6% thì không).
 
 ## Cấp của luật (K3)
 
-Sinh từ `py/tiers.py` (`python3 checks/py/run.py x --list` in `tier`, `tierReason`). Số luật: **30 CHẶN · 9 CHÍNH · 43 THAM KHẢO** (82 luật, gồm REG).
+Sinh từ `py/tiers.py` (`python3 checks/py/run.py x --list` in `tier`, `tierReason`). Số luật: **29 CHẶN · 11 CHÍNH · 42 THAM KHẢO** (82 luật, gồm REG).
 
 | Cấp | Luật |
 |---|---|
-| CHẶN | F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F11, F12, A01, A02, A04, A05, A06, A14, S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, C07, REG |
-| CHÍNH | V03, V08, V09, V11, V12, C02, C05, C14, L1 |
-| THAM KHẢO | A03, A07, A08, A09, A10, A11, A12, A13, A15, A16, A17, A18, S11, S12, S13, S14, S15, S16, R01, R02, R03, R04, R05, R06, V01, V02, V04, V05, V10, V13, C01, C03, C04, C06, C10, C11, C12, C13, C15, P01, T1, T2, T3 |
+| CHẶN | F01, F02, F03, F04, F05, F06, F08, F09, F10, F11, F12, A01, A02, A04, A05, A06, A14, S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, C07, REG |
+| CHÍNH | F07, A18, V03, V08, V09, V11, V12, C02, C05, C14, L1 |
+| THAM KHẢO | A03, A07, A08, A09, A10, A11, A12, A13, A15, A16, A17, S11, S12, S13, S14, S15, S16, R01, R02, R03, R04, R05, R06, V01, V02, V04, V05, V10, V13, C01, C03, C04, C06, C10, C11, C12, C13, C15, P01, T1, T2, T3 |
 
 | Mã | Cấp | Vì sao |
 |---|---|---|
@@ -287,7 +289,7 @@ Sinh từ `py/tiers.py` (`python3 checks/py/run.py x --list` in `tier`, `tierRea
 | F04 | CHẶN | kỹ thuật file |
 | F05 | CHẶN | kỹ thuật file |
 | F06 | CHẶN | kỹ thuật file |
-| F07 | CHẶN | kỹ thuật file: độ dài phát hành (CHARTER §1) |
+| F07 | CHÍNH | độ dài theo CHARTER §1 (8–15 phút); chủ dự án hạ CHÍNH: chặn độ dài dễ dẫn tới giãn thời gian |
 | F08 | CHẶN | kỹ thuật file: banding do mã hoá |
 | F09 | CHẶN | kỹ thuật file: phụ đề đúng lời, đúng quy cách |
 | F10 | CHẶN | kỹ thuật file: chapters hợp lệ với YouTube (≥ 3, từ 0:00, mỗi chương ≥ 10 s) |
@@ -310,7 +312,7 @@ Sinh từ `py/tiers.py` (`python3 checks/py/run.py x --list` in `tier`, `tierRea
 | A15 | THAM KHẢO | chỉ tiêu tốc độ đọc |
 | A16 | THAM KHẢO | cảnh báo: dấu ngắt giả trong văn bản gửi TTS |
 | A17 | THAM KHẢO | cảnh báo: mật độ khoảng lặng giữa câu bất thường |
-| A18 | THAM KHẢO | cảnh báo: đổi model giọng giữa tập |
+| A18 | CHÍNH | đổi model giọng giữa tập; chủ dự án nâng CHÍNH: lỗi gốc của Tập 1 v1, trái G-010 |
 | S01 | CHẶN | số liệu: tính lại mô hình |
 | S02 | CHẶN | claim: giả định của mô hình hiện trên màn hình |
 | S03 | CHẶN | nguồn và điều khoản sử dụng dữ liệu |
@@ -365,7 +367,7 @@ Sinh từ `py/tiers.py` (`python3 checks/py/run.py x --list` in `tier`, `tierRea
 | REG | CHẶN | cổng hồi quy của luật CHẶN (CHARTER §5) |
 
 **Luật không có trong danh sách của chủ dự án, K3 tự xếp** (cần chủ dự án duyệt):
-- CHẶN: F07 (độ dài), F08 (banding), F09 (phụ đề), F10 (chapters hợp lệ), F11 (artefact), A04–A06 (clip, pha, gộp mono) — kỹ thuật file; S06 (hiện đủ trường hợp), S10 (không khuyên, không dự báo), C07 (cột cắt trục) — số liệu và claim; S02 (giả định hiện trên màn hình) — claim.
+- CHẶN: F08 (banding), F09 (phụ đề), F10 (chapters hợp lệ), F11 (artefact), A04–A06 (clip, pha, gộp mono) — kỹ thuật file; S06 (hiện đủ trường hợp), S10 (không khuyên, không dự báo), C07 (cột cắt trục) — số liệu và claim; S02 (giả định hiện trên màn hình) — claim.
 - CHÍNH: V03 (vùng an toàn), V12 (chữ nhân đôi, nhoè), V09 và C05 (tương phản khi mù màu và trong thang xám), C02 (nền đè dữ liệu) — cùng họ với đọc được, tương phản, va chạm.
 - THAM KHẢO (hạ từ "mọi luật ngang hàng" của K2): A03 (độ động LRA: lựa chọn nghề, nền tảng chỉ chuẩn hoá âm lượng tích hợp), A07–A13 (mix, duck, whoosh, pan, nhấn, giãn giọng), S11, S14, S15 (callback, điểm quảng cáo, cấu trúc hồi), V01, V02, V04, V05, V10, C01, C03, C04, C06, C10–C13, C15, P01 — tay nghề hoặc số lượng.
 
@@ -381,7 +383,7 @@ Sinh từ `py/tiers.py` (`python3 checks/py/run.py x --list` in `tier`, `tierRea
 | F04 | DX-F2 | video bitrate = sum of video packet sizes × 8 / stream duration (measured, not the header value) | ≥ 16 Mbps | Python |
 | F05 | DX-F2 | stream colour tags (color_primaries, color_transfer, color_space, color_range) + decoded luma codes of 1 frame/10 s: share of Y samples outside 16–235 | all tags bt709, range tv (limited); Y outside 16–235 ≤ 0.1% of samples | Python |
 | F06 | DX-F4 | ffprobe of the audio stream; bitrate = audio packet bytes × 8 / duration | AAC (LC), 48 kHz, 2 channels, measured ≥ 272 kbps (= 85% of the 320 kbps nominal: ffmpeg's native AAC at -b:a 320k measured 276 kbps on test C's master, so the measure allows its ABR undershoot but not a 256k or lower setting) | Python |
-| F07 | DX-S1 (CH §1 length) | container duration (ffprobe format.duration) | ≥ 600 s (10:00) | Python |
+| F07 *(K3 sửa)* | DX-S1 (CH §1 length) | container duration (ffprobe format.duration); K3: the range of CHARTER §1 (8–15 minutes) | 480 … 900 s (8:00–15:00) | Python |
 | F08 | DX-V5 | decoded luma of 1 frame/2 s; banding score per frame (banding_score: 240 px tiles, mean Y ≤ 80, 16-px block means fitting a plane that spans 2–40 codes with residual ≤ 1 code; share of their pixels in flat runs ≥ 12 px ending in a 1–2 code step) | worst frame ≤ 5% (frames with < 1% dark-gradient area are skipped) | Python |
 | F09 | DX-F5 | out/captions.srt parsed; joined subtitle text vs joined narration text of out/script.json (whitespace-normalised, exact characters otherwise); per cue: characters per line, lines, duration; cues must not overlap | text identical (100%); every line ≤ 42 chars; ≤ 2 lines; 1.0 ≤ duration ≤ 7.0 s; 0 overlaps | Python |
 | F10 | DX-F6 | chapters from out/package/description.md (lines "m:ss Title") and, if present, the MP4 chapter atoms; chapter length = next start − start (last: to end of video) | ≥ 3 chapters; first at 0:00; each ≥ 10 s; MP4 chapters (if any) equal the description's | Python |

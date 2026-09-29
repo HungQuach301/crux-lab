@@ -112,6 +112,20 @@
   "ok": true
  },
  {
+  "rule": "F07/too-long",
+  "fixture": "must fail",
+  "want": "FAIL",
+  "got": "FAIL",
+  "ok": true
+ },
+ {
+  "rule": "F07/too-long",
+  "fixture": "must pass",
+  "want": "PASS",
+  "got": "PASS",
+  "ok": true
+ },
+ {
   "rule": "F01",
   "fixture": "must fail",
   "want": "FAIL",
@@ -216,7 +230,7 @@
   "metrics": [
    {
     "name": "video Mbps",
-    "value": 2.325452,
+    "value": 2.324764,
     "op": ">=",
     "threshold": 16.0,
     "unit": "Mbps",
@@ -322,8 +336,11 @@
    {
     "name": "duration s",
     "value": 5.0,
-    "op": ">=",
-    "threshold": 600.0,
+    "op": "in",
+    "threshold": [
+     480.0,
+     900.0
+    ],
     "unit": "s",
     "pass": false,
     "near": false

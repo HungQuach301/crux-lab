@@ -1256,6 +1256,7 @@ def tiers_case(bad):
     import tiers as T_
     ids = [m['id'] for m in runner.registry()] + (['X99'] if bad else [])
     ok = all(i in T_.TIERS and T_.TIERS[i][0] in T_.LABEL and T_.TIERS[i][1] for i in ids)
+    ok = ok and T_.tier('F07') == T_.MAJOR and T_.tier('A18') == T_.MAJOR  # owner's decisions at the K3 approval
     extra = [i for i in T_.TIERS if i not in ids]
     return common.Result('TIERS', 'PASS' if ok and not extra else 'FAIL', [common.metric('every rule tiered', ok, '==', True), common.metric('tiers of unknown rules', len(extra), '<=', 0)])
 
@@ -1299,8 +1300,18 @@ def near_case(bad):
     return common.Result('NEAR', 'PASS' if ok else 'FAIL', [common.metric('near flags', ok, '==', True)], details=[got])
 
 
+def f07_long_case(bad):
+    """F07 (K3): CHARTER §1 caps the length at 15:00; bad = 905 s must fail, good = 480 s (the lower edge) must pass."""
+    f = F('F07-long')
+    try:
+        f.video(size='64x36', dur=905 if bad else 480, src='color')
+        return f.run('F07')
+    finally:
+        f.close()
+
+
 EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case,
-         'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case}
+         'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case, 'F07/too-long': f07_long_case}
 
 
 def main():
