@@ -38,9 +38,9 @@ export function build({ T }) {
     text(ctx, 'her offer (' + CL('cut_today') + '): paid back within ' + CL('y3') + ' years', G.X0 + 20, yF + 80, 'label', { alpha: aP, plate: PL });
     // is half a point the line for everyone?
     const aE = easeOut(t, tE, tE + 0.5);
-    mark(ctx, 'walt', rx(0.78), RU.y - 90, 18, aE * 0.8); mark(ctx, 'anjali', rx(0.12), RU.y - 90, 18, aE * 0.8);
-    text(ctx, '?', rx(0.78) + 34, RU.y - 72, 'label', { color: C.warn, alpha: aE }); text(ctx, '?', rx(0.12) + 34, RU.y - 72, 'label', { color: C.warn, alpha: aE });
-    text(ctx, 'The same line for everyone?', W / 2, 1036, 'caption', { align: 'center', alpha: aE, plate: PL, sent: true });
+    mark(ctx, 'walt', rx(0.72), RU.y - 90, 18, aE * 0.8); mark(ctx, 'anjali', rx(0.12), RU.y - 90, 18, aE * 0.8);
+    text(ctx, 'smaller loan?', rx(0.72) - 34, RU.y - 72, 'label', { align: 'right', color: C.warn, alpha: aE }); text(ctx, 'larger loan?', rx(0.12) - 34, RU.y - 72, 'label', { align: 'right', color: C.warn, alpha: aE });
+    text(ctx, 'The same line for everyone?', W / 2, 1014, 'caption', { align: 'center', alpha: aE, plate: PL, sent: true });
     chrome(ctx, { illus: 1, source: t < tE ? 'Nora (illustrative). Counting what she still owes.' : '' });
   }
   return { update: () => {}, overlay, stripTimes: [tB + 1.0, t36 + 0.6, tA + 0.8, tR + 0.8, tP + 1.8, T.dur - 0.2] };

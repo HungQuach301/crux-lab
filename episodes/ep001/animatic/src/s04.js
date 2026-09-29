@@ -27,7 +27,7 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, 'Nora is illustrative:', 96, 128, 'head', { alpha: aN, shadow: true });
     text(ctx, 'built from typical figures', 96, 196, 'label', { alpha: easeOut(t, tB, tB + 0.4), shadow: true });
     // the loan file (flat card), rows fill in
-    const cx = 1150, cy = 300, cw = 660, ch = 560, aC = easeOut(t, tM - 0.4, tM + 0.2);
+    const cx = 1150, cy = 260, cw = 660, ch = 560, aC = easeOut(t, tM - 0.4, tM + 0.2);
     card(ctx, cx, cy, cw, ch, aC);
     text(ctx, "NORA'S LOAN", cx + 36, cy + 66, 'label', { color: '#FFFFFF', alpha: aC });
     const row = (y, k, v, tt) => {
@@ -45,7 +45,7 @@ export function build({ scene, camera, renderer, T }) {
       ctx.save(); ctx.translate(cx + cw / 2, cy + ch + 90); ctx.rotate(-0.06); ctx.scale(sc, sc);
       ctx.globalAlpha = aS; ctx.strokeStyle = C.warn; ctx.lineWidth = 6; roundRect(ctx, -300, -52, 600, 104, 12); ctx.stroke(); ctx.restore();
       text(ctx, 'Dollars of the day', cx + cw / 2, cy + ch + 86, 'label', { align: 'center', color: C.warn, alpha: aS });
-      text(ctx, 'not adjusted for inflation', cx + cw / 2, cy + ch + 186, 'note', { align: 'center', color: C.ink, alpha: aS, shadow: true });
+      text(ctx, 'not adjusted for inflation', cx + cw / 2, cy + ch + 196, 'note', { align: 'center', color: C.ink, alpha: aS, shadow: true });
     }
     chrome(ctx, { illus: aN });
   }

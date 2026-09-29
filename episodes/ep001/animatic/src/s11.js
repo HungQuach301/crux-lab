@@ -36,7 +36,7 @@ export function build({ T }) {
     text(ctx, CL('be_bal_025').replace(/^./, (s) => s.toUpperCase()), 1180, 620, 'hero', { align: 'center', color: C.negative, alpha: aN });
     text(ctx, "not before the old loan's last payment", 1180, 690, 'label', { align: 'center', color: C.ink, alpha: aN });
     text(ctx, 'savings minus what she still owes', G.X0 + 20, G.YB - 30, 'label', { color: C.positive, alpha: aN });
-    chrome(ctx, { illus: 1, source: 'Nora (illustrative). Fees paid in cash. Dollars of the day.' });
+    chrome(ctx, { illus: 1, source: 'Nora (illustrative). Fees paid in cash. Dollars of the day (before inflation).' });
   }
   return { update: () => {}, overlay, stripTimes: [tQ + 0.4, tD + 0.8, tC + 1.2, tC + 2.8, tN + 1.2, T.dur - 0.2] };
 }

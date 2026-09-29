@@ -1,5 +1,5 @@
 // S01 · The week rates bottomed. Kết hợp H3 -> H1 -> H3 (signed SF1), every action anchored (anchors.json).
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, dot, hatch, strike, ease, easeOut, mix, canvasTex, ptxt, mat, box, pm } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, dot, hatch, strike, ease, easeOut, mix, canvasTex, ptxt, mat, box, pm , CLY } from './engine.js';
 import { kitchen, paymentStack, rateLine, PL } from './common.js';
 
 export const uses3d = true;
@@ -24,10 +24,10 @@ export function build({ scene, camera, renderer, T }) {
   function chart(ctx, t) {
     const hd = head(t);
     const a0 = easeOut(t, 0, 0.4);
-    text(ctx, 'US 30-year mortgage rate, weekly', 96, 128, 'head', { alpha: a0 });
+    text(ctx, 'US ' + CL('term30') + '-year mortgage rate, weekly', 96, 128, 'head', { alpha: a0 });
     text(ctx, 'latest: week ending ' + CL('anchor_date'), 96, 190, 'note', { color: C.muted, alpha: easeOut(t, climbEnd - 0.4, climbEnd) });
     line(ctx, [[X0, YB], [X1, YB]], C.grid, 3);
-    const ticks = [['2025-08', 'Aug ' + CL('y2025')], ['2025-11', 'Nov'], ['2026-02', 'Feb 2026'], ['2026-05', 'May'], ['2026-08', 'Aug']];
+    const ticks = [['2025-08', 'Aug ' + CL('y2025')], ['2025-11', 'Nov'], ['2026-02', 'Feb ' + CLY('y2026', '2026')], ['2026-05', 'May'], ['2026-08', 'Aug']];
     for (const [m, s] of ticks) { const i = wk.findIndex((w) => w.d.slice(0, 7) === m); const x = xOf(i); line(ctx, [[x, YB], [x, YB + 14]], C.grid, 3); text(ctx, s, x, YB + 60, 'note', { color: C.muted, align: 'center' }); }
     const xa = xOf(iFirst - 0.5), xb = xOf(Math.min(iLast + 0.5, hd)), yT = yOf(F.thr);
     const closed = ease(t, closeAt, closeAt + 0.6);
@@ -56,9 +56,9 @@ export function build({ scene, camera, renderer, T }) {
     const aE = easeOut(t, tAbove, tAbove + 0.4), ye = yOf(wk[Math.min(iEnd, Math.floor(hd))].r);
     text(ctx, CL('r_today'), X1 + 24, yOf(wk[iEnd].r) + 42, 'number', { color: C.negative, alpha: easeOut(t, climbEnd - 0.3, climbEnd) });
     text(ctx, 'Back above ' + CL('seven') + '%', W / 2, 972, 'caption', { align: 'center', alpha: aE });
-    text(ctx, 'first time since ' + CL('first7_since'), W / 2, 1030, 'note', { align: 'center', color: C.muted, alpha: easeOut(t, tSince7, tSince7 + 0.4) });
+    text(ctx, 'first time since ' + CL('first7_since'), W / 2, 1016, 'note', { align: 'center', color: C.muted, alpha: easeOut(t, tSince7, tSince7 + 0.4) });
     chrome(ctx, { illus: 0 });
-    text(ctx, 'Source: Freddie Mac weekly survey, via FRED', 96, 1030, 'note', { color: C.muted, alpha: 1 - aE });
+    text(ctx, 'Source: Freddie Mac weekly survey, via FRED (St. Louis Fed data)', 96, 1016, 'note', { color: C.muted, alpha: 1 - aE });
   }
 
   // ---- H1 kitchen (SF1) ----
@@ -93,8 +93,8 @@ export function build({ scene, camera, renderer, T }) {
     const w459 = text(ctx, CL('sav_low2026_median') + ' a month less', lx, sl.y + 10, 'number', { align: 'right', color: gk > 0.5 ? C.muted : C.positive, alpha: aS, shadow: true });
     text(ctx, 'at the ' + CL('low2026') + ' rate', lx, sl.y + 70, 'label', { align: 'right', alpha: aS * (1 - gk), shadow: true });
     if (gk > 0) strike(ctx, lx - w459 - 10, sl.y - 20, lx + 10, C.negative, gk);
-    text(ctx, "She didn't take it.", W / 2, 340, 'caption', { align: 'center', alpha: easeOut(t, tGrey, tGrey + 0.3), plate: 'rgba(14,17,22,0.8)', sent: true });
-    chrome(ctx, { illus: 1, source: 'Nora is an illustrative borrower. Dollars of the day.', plate: true });
+    text(ctx, "She didn't take it.", 1580, 620, 'caption', { align: 'center', alpha: easeOut(t, tGrey, tGrey + 0.3), plate: 'rgba(14,17,22,0.8)', sent: true });
+    chrome(ctx, { illus: 1, source: 'Nora is illustrative. Dollars of the day = not adjusted for inflation.', plate: true });
   }
   return {
     mode: (t) => (t >= tK && t < tC ? '3d' : '2d'),

@@ -50,7 +50,7 @@ export function build({ T }) {
     const aBi = p2 * easeOut(t, tB, tB + 0.4);
     const wb = text(ctx, 'the bill: ' + CL('cost_median'), 480, 930, 'label', { align: 'center', alpha: aBi });
     if (aBi > 0) strike(ctx, 480 - wb / 2 - 8, 916, 480 + wb / 2 + 8, C.negative, ease(t, tB + 0.3, tB + 0.7), 6);
-    text(ctx, 'not counted', 480, 990, 'note', { align: 'center', color: C.negative, alpha: p2 * easeOut(t, tB + 0.5, tB + 0.9) });
+    text(ctx, 'not counted', 480, 970, 'note', { align: 'center', color: C.negative, alpha: p2 * easeOut(t, tB + 0.5, tB + 0.9) });
     // RIGHT: division
     const aR = p2 * easeOut(t, tDv, tDv + 0.4) * dimR;
     text(ctx, 'Simple division', 1440, 260, 'caption', { align: 'center', alpha: aR });
@@ -64,12 +64,12 @@ export function build({ T }) {
     const aO = p2 * easeOut(t, tOut, tOut + 0.4);
     srect(ctx, 1700, 355, 130, 90, C.warn, 4, aO, [10, 8]);
     text(ctx, '+ ?', 1765, 420, 'label', { align: 'center', color: C.warn, alpha: aO });
-    text(ctx, 'something left out', 1440, 980, 'label', { align: 'center', color: C.warn, alpha: aO, plate: PL });
+    text(ctx, 'something left out', 1440, 962, 'label', { align: 'center', color: C.warn, alpha: aO, plate: PL });
     // neither
     const aQ = p2 * inout(t, tN, tN + 0.4, tB - 0.3, tB);
     text(ctx, '?', W / 2, 640, 'hero', { align: 'center', color: C.warn, alpha: aQ, plate: PL });
     text(ctx, 'Neither is quite right', W / 2, 180 + 0, 'caption', { align: 'center', alpha: p2 * easeOut(t, tN, tN + 0.4), plate: PL, sent: true });
-    chrome(ctx, { illus: 1, source: 'Nora (illustrative). Fees: 2025 median (HMDA).' });
+    chrome(ctx, { illus: 1, source: 'Nora (illustrative). Fees: ' + CL('y2025') + ' median (HMDA, US home-loan records).' });
   }
   return { update: () => {}, overlay, stripTimes: [tWo + 1.2, tSt + 1.8, tSh + 2.0, tD24 + 0.6, tB + 1.0, T.dur - 0.2] };
 }

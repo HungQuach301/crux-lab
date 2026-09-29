@@ -39,7 +39,7 @@ export function build(ctx0) {
     text(ctx, 'bill ' + CL('cost_median'), rn.x, rn.y - 30, 'label', { align: 'center', alpha: aB, plate: PL });
     text(ctx, 'far smaller loan', W / 2, 900, 'caption', { align: 'center', color: C.warn, alpha: easeOut(t, tF, tF + 0.4) * (1 - ease(t, tLi, tLi + 0.3)), plate: PL });
     text(ctx, 'only a little smaller bill', W / 2, 900, 'caption', { align: 'center', alpha: easeOut(t, tLi, tLi + 0.4), plate: PL });
-    chrome(ctx, { illus: 1, source: 'Walt, Nora: illustrative. Bills: 2025 medians (HMDA). House size to scale with the loan.', plate: true });
+    chrome(ctx, { illus: 1, source: 'Walt, Nora: illustrative. Bills: ' + CL('y2025') + ' medians (HMDA, US home-loan records).', plate: true });
   }
   return { update, overlay, stripTimes: [tW + 1.0, tL + 1.4, tLe + 1.4, tB + 1.2, tF + 0.8, T.dur - 0.2] };
 }

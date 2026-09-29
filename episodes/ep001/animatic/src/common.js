@@ -1,7 +1,7 @@
 // C4 animatic: shared pieces lifted from the signed C3 style frames (SF1-SF6) so every scene uses the same objects,
 // the same scale rules and the same motion grammar (design/c3/final/system.md §3-§4).
 import { THREE, C, W, H, DATA, CL, text, measure, line, rect, dot, hatch, strike, mark, ease, easeOut, back, mix, clamp,
-  canvasTex, ptxt, mat, box, pm, woodTable, paperEdgeTex, house } from './engine.js';
+  canvasTex, ptxt, mat, box, pm, woodTable, paperEdgeTex, house, withObj, obj } from './engine.js';
 
 export const PL = 'rgba(14,17,22,0.85)';
 
@@ -41,7 +41,6 @@ export function letter(scene, { rows = [], width = 2.2 } = {}) {
     ptxt(g, 'REFINANCE OFFER', 70, 128, { size: 92, weight: 700, color: '#FFFFFF' });
     ptxt(g, 'A new loan at a lower rate', 70, 290, { size: 62, weight: 600, color: '#20242C' });
     ptxt(g, 'pays off your current loan.', 70, 370, { size: 62, weight: 600, color: '#20242C' });
-    g.fillStyle = '#CFC9BB'; for (let i = 0; i < 3; i++) g.fillRect(70, 440 + i * 56, 900 - (i % 3) * 170, 20);
     // rows: [{label, value}] from y=640; the last row is the bill (boxed)
     rows.forEach((r, i) => {
       const y = 660 + i * 190, k = hl[i] || 0, bill = i === rows.length - 1;
@@ -125,8 +124,7 @@ export function ream(scene, { dollars, K, FW = 1.25, FD = 0.95, label = null, bi
 // rate-cut ruler (horizontal): 0 .. max points; the 1-point line as a dashed tick (test value)
 export function cutRuler(ctx, { x0 = 260, x1 = 1660, y = 560, max = 1.25, alpha = 1, onePt = 1, label = true, oneLabel = true }) {
   const xOf = (c) => x0 + (c / max) * (x1 - x0);
-  line(ctx, [[x0, y], [x1, y]], C.grid, 6, { alpha });
-  line(ctx, [[x0, y - 20], [x0, y + 20]], C.grid, 4, { alpha });
+  withObj({ role: 'axis', chart: 'cut-ruler' }, () => { line(ctx, [[x0, y], [x1, y]], C.grid, 6, { alpha }); line(ctx, [[x0, y - 20], [x0, y + 20]], C.grid, 4, { alpha }); });
   if (label) text(ctx, 'rate cut (points) →', x1, y + 70, 'note', { align: 'right', color: C.muted, alpha });
   text(ctx, 'no cut', x0, y + 70, 'note', { align: 'center', color: C.muted, alpha });
   if (onePt > 0) {
@@ -138,41 +136,48 @@ export function cutRuler(ctx, { x0 = 260, x1 = 1660, y = 560, max = 1.25, alpha 
 // month ruler (flat, SF3): ticks per month, only listed months numbered
 export function monthRuler(ctx, { x0 = 330, x1 = 1590, y = 912, max = 36, m = 0, numbered = [], alpha = 1, late = 1e9, word = 'months', color }) {
   const rx = (k) => x0 + (k / max) * (x1 - x0);
-  ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = C.grid; ctx.fillRect(x0, y, x1 - x0, 4); ctx.restore();
+  obj({ role: 'axis', tag: 'rect', chart: 'month-ruler' }, () => { ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = C.grid; ctx.fillRect(x0, y, x1 - x0, 4); ctx.restore(); });
   const step = max > 60 ? 1 : 1, wbar = max > 60 ? 4 : 8;
   for (let k = 1; k <= max; k += step) {
-    const lit = k <= m + 1e-6; ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = lit ? (k > late ? C.negative : (color || C.ink)) : C.grid;
-    ctx.fillRect(rx(k) - wbar / 2, y - (lit ? 30 : 16), wbar, lit ? 30 : 16); ctx.restore();
+    const lit = k <= m + 1e-6;
+    obj({ role: lit ? 'mark' : 'axis', tag: 'rect', chart: 'month-ruler', key: 'month-tick-' + k }, () => { ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = lit ? (k > late ? C.negative : (color || C.ink)) : C.grid;
+    ctx.fillRect(rx(k) - wbar / 2, y - (lit ? 30 : 16), wbar, lit ? 30 : 16); ctx.restore(); });
   }
   text(ctx, word, x1 + 24, y + 4, 'note', { color: C.muted, alpha });
-  for (const [k, s, a, col] of numbered) text(ctx, s, rx(k), y + 62, 'label', { align: 'center', color: col || C.ink, alpha: alpha * a });
+  for (const [k, s, a, col] of numbered) text(ctx, s, rx(k), y + 52, 'label', { align: 'center', color: col || C.ink, alpha: alpha * a });
   return rx;
 }
 export function houseIcon(ctx, cx, yb, s, fill, a, outline, lw = 4) { // 2D house (SF6): (cx, yb) = bottom centre
   if (a <= 0) return;
   const w = 70 * s, h = 46 * s, rf = 34 * s;
+  obj({ role: 'mark', tag: 'path', shape: 'house', fill: outline ? null : undefined }, () => {
   ctx.save(); ctx.globalAlpha = a; ctx.beginPath();
   ctx.moveTo(cx - w / 2, yb); ctx.lineTo(cx + w / 2, yb); ctx.lineTo(cx + w / 2, yb - h); ctx.lineTo(cx + w / 2 + 6 * s, yb - h);
   ctx.lineTo(cx, yb - h - rf); ctx.lineTo(cx - w / 2 - 6 * s, yb - h); ctx.lineTo(cx - w / 2, yb - h); ctx.closePath();
   if (outline) { ctx.setLineDash([10, 8]); ctx.strokeStyle = C.ink; ctx.lineWidth = lw; ctx.stroke(); }
   else { ctx.fillStyle = fill; ctx.fill(); }
   ctx.restore();
+  });
 }
 // weekly rate chart (SF1 grammar): weeks [{d, r}], draws to fractional index `head`
 export function rateLine(ctx, weeks, xOf, yOf, head, color = C.accent, lw = 7, from = 0) {
   if (head <= from) return null;
+  return withObj({ role: 'series', series: 'rate', chart: 'rate' }, () => {
   const pts = []; const full = Math.floor(head);
   for (let i = from; i <= Math.min(full, weeks.length - 1); i++) pts.push([xOf(i), yOf(weeks[i].r)]);
   if (head > full && full + 1 < weeks.length) { const f = head - full; pts.push([mix(xOf(full), xOf(full + 1), f), mix(yOf(weeks[full].r), yOf(weeks[full + 1].r), f)]); }
   if (pts.length === 1) pts.push(pts[0]);
   line(ctx, pts, color, lw);
   return pts[pts.length - 1];
+  });
 }
 // a plain paper card (flat, H1 overlay): the loan file
 export function card(ctx, x, y, w, h, a = 1) {
   if (a <= 0) return;
+  obj({ role: 'card', tag: 'rect' }, () => {
   ctx.save(); ctx.globalAlpha = a; ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 10;
   ctx.fillStyle = '#EFEBE2'; ctx.fillRect(x, y, w, h); ctx.shadowColor = 'transparent';
   ctx.fillStyle = '#2E3440'; ctx.fillRect(x, y, w, 96); ctx.restore();
+  });
 }
 export { house };

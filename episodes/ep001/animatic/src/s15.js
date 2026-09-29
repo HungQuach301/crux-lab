@@ -1,7 +1,7 @@
 // S15 · The bill barely shrinks. Kết hợp: H3 three rows, Walt's bar shrinking from Nora's length: loan (a lot),
 // bill (a little), monthly savings (a lot) -> H1 Walt's yard: $68 bundles stack very slowly to the ream + hatched
 // slab; level at month 75. (Deviation from the C3 table "H1": the three-way size comparison is a scale reading -> H3.)
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, srect, mark, ease, easeOut, mix } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, srect, mark, ease, easeOut, mix , withObj } from './engine.js';
 import { monthRuler, PL } from './common.js';
 import { makeYard } from './yard.js';
 export const uses3d = true;
@@ -23,10 +23,10 @@ export function build(ctx0) {
       const y = 330 + i * 230, a = easeOut(t, r.t - 0.3, r.t + 0.2);
       if (a <= 0) return;
       text(ctx, r.lab, 96, y + 40, 'label', { alpha: a });
-      rect(ctx, BX, y - 50, BL, 44, C.positive, 0.35 * a); mark(ctx, 'nora', BX - 30, y - 28, 14, a);
+      withObj({ role: 'bar', chart: 's15-row' + i, value: 1, full: true, orient: 'h', char: 'median' }, () => rect(ctx, BX, y - 50, BL, 44, C.positive, 0.35 * a)); mark(ctx, 'nora', BX - 30, y - 28, 14, a);
       text(ctx, r.vn, BX + BL + 20, y - 14, 'label', { color: C.positive, alpha: a });
       const k = mix(1, r.w, ease(t, r.t + 0.4, r.t + 1.8));
-      rect(ctx, BX, y + 10, BL * k, 60, C.warn, 0.95 * a); mark(ctx, 'walt', BX - 30, y + 40, 16, a);
+      withObj({ role: 'bar', chart: 's15-row' + i, value: k, full: ease(t, r.t + 0.4, r.t + 1.8) >= 1, orient: 'h', char: 'small' }, () => rect(ctx, BX, y + 10, BL * k, 60, C.warn, 0.95 * a)); mark(ctx, 'walt', BX - 30, y + 40, 16, a);
       text(ctx, r.vw, BX + BL * k + 20, y + 58, 'number', { alpha: easeOut(t, r.t + 1.6, r.t + 2.0) });
     });
     text(ctx, 'the bill barely shrinks', BX, 330 + 230 + 136, 'label', { color: C.warn, alpha: easeOut(t, tB + 2.0, tB + 2.4) * (1 - ease(t, tSh - 0.3, tSh)) });
@@ -49,7 +49,7 @@ export function build(ctx0) {
     text(ctx, 'Break-even: month ' + CL('be_bal_small'), 96, 214, 'number', { color: C.positive, alpha: easeOut(t, t75 + 0.2, t75 + 0.6), shadow: true });
     const pr = P(new THREE.Vector3(w.x - w.FW / 2, 0.9, w.Z + w.FD / 2)), pc = P(new THREE.Vector3(w.xs + w.FW / 2, 0.5, w.Z + w.FD / 2));
     text(ctx, 'loan costs', pr.x - 24, pr.y - 30, 'label', { align: 'right', shadow: true });
-    text(ctx, '+ still owed', pr.x - 24, pr.y + 26, 'label', { align: 'right', color: '#FF8A8E', shadow: true });
+    text(ctx, '+ extra owed', pr.x - 24, pr.y + 26, 'label', { align: 'right', color: '#FF8A8E', shadow: true });
     text(ctx, '+' + CL('sav_small') + ' a month', pc.x + 24, pc.y, 'label', { color: '#8FE0B5', shadow: true });
     monthRuler(ctx, { x0: 330, x1: 1590, y: 930, max: 80, m, numbered: [[75, CL('be_bal_small'), easeOut(t, t75, t75 + 0.3), C.positive]] });
     chrome(ctx, { illus: 1 });

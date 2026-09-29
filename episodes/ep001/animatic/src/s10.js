@@ -32,7 +32,7 @@ export function build(ctx0) {
     const aR = easeOut(t, tR + 0.8, tR + 1.2);
     text(ctx, 'new loan: the clock starts again', CX, CY + RR + 90, 'label', { align: 'center', color: C.warn, alpha: aR });
     // payment bars: dollars scale; interest (muted) | pays down the loan (green)
-    const px = 0.28, BX = 1000;
+    const px = 0.28, BX = 950;
     const bar = (y, s, a, lab) => {
       if (a <= 0) return;
       text(ctx, lab, BX, y - 26, 'label', { alpha: a });
@@ -65,7 +65,7 @@ export function build(ctx0) {
       text(ctx, 'By month ' + CL('be_simple_median') + ': old loan vs new loan', 96, 128, 'head', { alpha: aD * easeOut(t, tSl, tSl + 0.4) * (1 - ease(t, tG, tG + 0.3)) });
       text(ctx, 'Break-even: month ' + CL('be_bal_median'), 96, 150, 'number', { color: C.positive, alpha: easeOut(t, t30, t30 + 0.4) });
       text(ctx, 'not month ' + CL('be_simple_median'), 96, 226, 'label', { alpha: easeOut(t, t30 + 0.3, t30 + 0.7) });
-      chrome(ctx, { illus: 1, source: 'Nora (illustrative). Fees: 2025 median (HMDA). Dollars of the day.', plate: true });
+      chrome(ctx, { illus: 1, source: 'Nora: illustrative. Fees: HMDA ' + CL('y2025') + ' median. Dollars of the day (before inflation).', plate: true });
     },
     stripTimes: [tK + 0.8, tE + 1.4, tI + 1.4, tSl + 3.4, tMv + 1.6, T.dur - 0.2],
   };

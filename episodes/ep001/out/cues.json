@@ -1,201 +1,347 @@
 {
+ "_about": "Cue sheet of the C5 mix (work/audio/src/mix.py). Music follows preprod/cue-sheet.md re-timed to the 20 scenes of v3.2. Silences = the script [beat] pauses (sổ gu G-003).",
  "cues": [
   {
    "t": 0.0,
-   "end": 21.94,
-   "function": "suspense under the open question: pad and low pulse, no melody",
+   "end": 33.08,
+   "scene": "S01",
+   "function": "suspense under the open question: pad and a slow low pulse, no melody",
    "key": "D minor",
-   "tempo": 72,
-   "layer": "music"
+   "tempo": 72.551,
+   "layer": "music",
+   "section": "cold",
+   "levelDb": -2.0
   },
   {
-   "t": 21.94,
-   "end": 24.94,
-   "function": "ident sting over the long rate-line tone",
+   "t": 33.08,
+   "end": 55.67,
+   "scene": "S02",
+   "function": "the offer and the promise: pad, soft pulse, first statement of Nora's motif",
    "key": "D minor",
-   "tempo": 72,
-   "layer": "music"
+   "tempo": 74.369,
+   "layer": "music",
+   "section": "promise",
+   "levelDb": -1.5
   },
   {
-   "t": 24.94,
-   "end": 219.23,
-   "function": "curious, light pulse; Nora's motif (piano)",
+   "t": 55.67,
+   "end": 76.38,
+   "scene": "S03",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
    "key": "D minor",
-   "tempo": 84,
-   "layer": "music"
+   "tempo": 81.12,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
   },
   {
-   "t": 219.23,
-   "end": 396.512,
-   "function": "build through the balance gap to the quarter-point climax (S19), release on the full point",
+   "t": 76.38,
+   "end": 101.64,
+   "scene": "S04",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
    "key": "D minor",
-   "tempo": 92,
-   "layer": "music"
+   "tempo": 85.511,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
   },
   {
-   "t": 396.512,
-   "end": 652.602,
-   "function": "Walt (low plucks), Anjali (high bells); resolves on the three-line answer (S29)",
+   "t": 101.64,
+   "end": 140.98,
+   "scene": "S05",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
+   "key": "D minor",
+   "tempo": 85.409,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 140.98,
+   "end": 170.11,
+   "scene": "S06",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
+   "key": "D minor",
+   "tempo": 82.389,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 170.11,
+   "end": 202.39,
+   "scene": "S07",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
+   "key": "D minor",
+   "tempo": 81.784,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 202.39,
+   "end": 241.54,
+   "scene": "S08",
+   "function": "build through the break-even and the balance gap: eighth-note pulse, bass on each bar",
+   "key": "D minor",
+   "tempo": 85.824,
+   "layer": "music",
+   "section": "build1",
+   "levelDb": 0.5
+  },
+  {
+   "t": 241.54,
+   "end": 257.95,
+   "scene": "S09",
+   "function": "build through the break-even and the balance gap: eighth-note pulse, bass on each bar",
+   "key": "D minor",
+   "tempo": 87.751,
+   "layer": "music",
+   "section": "build1",
+   "levelDb": 0.5
+  },
+  {
+   "t": 257.95,
+   "end": 315.4,
+   "scene": "S10",
+   "function": "build to the climax (\"Never\", the quarter point): fuller pad, pulse and bass, crescendo",
+   "key": "D minor",
+   "tempo": 91.906,
+   "layer": "music",
+   "section": "build2",
+   "levelDb": 1.5
+  },
+  {
+   "t": 315.4,
+   "end": 337.76,
+   "scene": "S11",
+   "function": "build to the climax (\"Never\", the quarter point): fuller pad, pulse and bass, crescendo",
+   "key": "D minor",
+   "tempo": 96.601,
+   "layer": "music",
+   "section": "build2",
+   "levelDb": 1.5
+  },
+  {
+   "t": 337.76,
+   "end": 343.88,
+   "scene": "S12",
+   "function": "release on the full point (18 months): open pad",
+   "key": "D minor",
+   "tempo": 88.235,
+   "layer": "music",
+   "section": "release",
+   "levelDb": 1.0
+  },
+  {
+   "t": 343.88,
+   "end": 372.2,
+   "scene": "S13",
+   "function": "the half-point answer: warm, Nora's motif resolved",
+   "key": "D minor",
+   "tempo": 84.746,
+   "layer": "music",
+   "section": "answer",
+   "levelDb": 0.0
+  },
+  {
+   "t": 372.2,
+   "end": 395.24,
+   "scene": "S14",
+   "function": "Walt: F major, low plucked motif, light pulse",
    "key": "F major",
-   "tempo": 88,
-   "layer": "music"
+   "tempo": 83.333,
+   "layer": "music",
+   "section": "walt",
+   "levelDb": 0.0
   },
   {
-   "t": 652.602,
-   "end": 700.952,
-   "function": "thin pad under the method cards",
+   "t": 395.24,
+   "end": 423.67,
+   "scene": "S15",
+   "function": "Walt: F major, low plucked motif, light pulse",
    "key": "F major",
-   "tempo": 70,
-   "layer": "music"
+   "tempo": 84.418,
+   "layer": "music",
+   "section": "walt",
+   "levelDb": 0.0
   },
   {
-   "t": 700.952,
-   "end": 741.502,
-   "function": "resolved; three motifs together; tail into the end screen",
+   "t": 423.67,
+   "end": 451.49,
+   "scene": "S16",
+   "function": "Walt: F major, low plucked motif, light pulse",
    "key": "F major",
-   "tempo": 76,
-   "layer": "music"
+   "tempo": 86.269,
+   "layer": "music",
+   "section": "walt",
+   "levelDb": 0.0
   },
   {
-   "t": 184.32,
-   "end": 204.32,
-   "function": "build to the act1 climax",
-   "key": "D minor",
-   "tempo": 84,
-   "layer": "music-dynamics"
-  },
-  {
-   "t": 318.17,
-   "end": 338.17,
-   "function": "build to the act2 climax",
-   "key": "D minor",
-   "tempo": 92,
-   "layer": "music-dynamics"
-  },
-  {
-   "t": 553.29,
-   "end": 573.292,
-   "function": "build to the act3 climax",
+   "t": 451.49,
+   "end": 487.52,
+   "scene": "S17",
+   "function": "Anjali: high bells, light pulse; resolves on the three-mark ruler",
    "key": "F major",
-   "tempo": 88,
-   "layer": "music-dynamics"
+   "tempo": 86.595,
+   "layer": "music",
+   "section": "anjali",
+   "levelDb": 0.5
+  },
+  {
+   "t": 487.52,
+   "end": 535.76,
+   "scene": "S18",
+   "function": "Anjali: high bells, light pulse; resolves on the three-mark ruler",
+   "key": "F major",
+   "tempo": 89.552,
+   "layer": "music",
+   "section": "anjali",
+   "levelDb": 0.5
+  },
+  {
+   "t": 535.76,
+   "end": 562.29,
+   "scene": "S19",
+   "function": "what the numbers do not say: thin pad only",
+   "key": "F major",
+   "tempo": 72.371,
+   "layer": "music",
+   "section": "thin",
+   "levelDb": -1.0
+  },
+  {
+   "t": 562.29,
+   "end": 591.733,
+   "scene": "S20",
+   "function": "resolved: three motifs together, sparse; tail into the end",
+   "key": "F major",
+   "tempo": 73.361,
+   "layer": "music",
+   "section": "resolve",
+   "levelDb": -1.0
+  },
+  {
+   "t": 0.0,
+   "end": 591.733,
+   "function": "data sonification, palette S2 \"minimal\" (sổ gu G-005 · chọn): soft low pulse MIDI 36-62 + filtered tick 4.5-7 kHz; bands for T1 60-270 Hz + 4.5-7 kHz",
+   "key": "D minor pentatonic (= F major pentatonic)",
+   "tempo": null,
+   "layer": "sonify"
+  },
+  {
+   "t": 0.0,
+   "end": 591.733,
+   "function": "room tone floor (pink noise, one space); +8 dB inside the silences",
+   "key": null,
+   "tempo": null,
+   "layer": "room"
   }
  ],
  "silences": [
   {
-   "t": 126.77,
+   "t": 22.725,
+   "end": 23.645,
+   "dur": 0.92,
+   "beforeSentence": 4,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 24.425,
+   "end": 25.425,
    "dur": 1.0,
-   "after": "S09.2",
-   "why": "script pause after S09.2"
+   "beforeSentence": 5,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 199.77,
-   "dur": 1.0,
-   "after": "S12.4",
-   "why": "script pause after S12.4"
+   "t": 51.115,
+   "end": 51.895,
+   "dur": 0.78,
+   "beforeSentence": 8,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 218.08,
-   "dur": 1.2,
-   "after": "S13.5",
-   "why": "ad break"
+   "t": 131.655,
+   "end": 132.355,
+   "dur": 0.7,
+   "beforeSentence": 20,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 288.94,
-   "dur": 1.0,
-   "after": "S16.1",
-   "why": "script pause after S16.1"
+   "t": 232.795,
+   "end": 234.125,
+   "dur": 1.33,
+   "beforeSentence": 38,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 309.27,
-   "dur": 1.0,
-   "after": "S17.1",
-   "why": "script pause after S17.1"
+   "t": 290.815,
+   "end": 291.855,
+   "dur": 1.04,
+   "beforeSentence": 50,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 330.16,
-   "dur": 1.0,
-   "after": "S18.2",
-   "why": "script pause after S18.2"
+   "t": 352.225,
+   "end": 352.855,
+   "dur": 0.63,
+   "beforeSentence": 61,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 345.38,
-   "dur": 1.2,
-   "after": "S19.1",
-   "why": "script pause after S19.1"
+   "t": 367.985,
+   "end": 368.775,
+   "dur": 0.79,
+   "beforeSentence": 64,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 355.66,
-   "dur": 1.0,
-   "after": "S20.1",
-   "why": "script pause after S20.1"
+   "t": 389.295,
+   "end": 389.995,
+   "dur": 0.7,
+   "beforeSentence": 69,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 384.462,
-   "dur": 1.0,
-   "after": "S21.3",
-   "why": "script pause after S21.3"
+   "t": 412.375,
+   "end": 413.245,
+   "dur": 0.87,
+   "beforeSentence": 75,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 395.362,
-   "dur": 1.2,
-   "after": "S21.6",
-   "why": "ad break"
+   "t": 439.815,
+   "end": 441.005,
+   "dur": 1.19,
+   "beforeSentence": 80,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 426.342,
-   "dur": 1.0,
-   "after": "S22.5",
-   "why": "script pause after S22.5"
+   "t": 517.085,
+   "end": 517.965,
+   "dur": 0.88,
+   "beforeSentence": 94,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   },
   {
-   "t": 450.332,
-   "dur": 1.0,
-   "after": "S23.3",
-   "why": "script pause after S23.3"
-  },
-  {
-   "t": 465.792,
-   "dur": 1.0,
-   "after": "S24.2",
-   "why": "script pause after S24.2"
-  },
-  {
-   "t": 482.192,
-   "dur": 1.0,
-   "after": "S25.1",
-   "why": "script pause after S25.1"
-  },
-  {
-   "t": 506.942,
-   "dur": 1.0,
-   "after": "S26.1",
-   "why": "script pause after S26.1"
-  },
-  {
-   "t": 558.782,
-   "dur": 1.0,
-   "after": "S28.1",
-   "why": "script pause after S28.1"
-  },
-  {
-   "t": 601.062,
-   "dur": 1.0,
-   "after": "S29.7",
-   "why": "script pause after S29.7"
-  },
-  {
-   "t": 629.242,
-   "dur": 1.0,
-   "after": "S30.3",
-   "why": "script pause after S30.3"
-  },
-  {
-   "t": 635.512,
-   "dur": 1.0,
-   "after": "S31.1",
-   "why": "script pause after S31.1"
+   "t": 587.075,
+   "end": 588.725,
+   "dur": 1.65,
+   "beforeSentence": 105,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
   }
- ],
- "source": "planned cue sheet (preprod/edit.py, Stage 4b); M2 writes the rendered cues"
+ ]
 }

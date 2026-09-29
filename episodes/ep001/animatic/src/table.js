@@ -65,15 +65,15 @@ export function makeTable({ scene, camera, renderer }) {
     text(ctx, 'new loan', pn.x, pn.y + 54, 'label', { align: 'center', color: '#B9CFFA', alpha: s.paidOn, shadow: true });
     if (s.paidQ > 0) { const pq = P(new THREE.Vector3(X.nw, 0.9, 0)); text(ctx, '?', pq.x, pq.y, 'number', { align: 'center', color: '#FF8A8E', alpha: s.paidQ, shadow: true }); }
     const aO = s.owedLabel;
-    text(ctx, CL('gap24') + ' still owed', 96, 268, 'number', { color: '#FF8A8E', alpha: aO, plate: 'rgba(14,17,22,0.85)' });
+    text(ctx, CL('gap24') + ' extra owed', 96, 268, 'number', { color: '#FF8A8E', alpha: aO, plate: 'rgba(14,17,22,0.85)' });
     text(ctx, 'on the new loan vs the old one', 96, 334, 'label', { alpha: aO, plate: 'rgba(14,17,22,0.85)' });
     const pr = P(new THREE.Vector3(X.bill, billH + o.g, 0));
-    text(ctx, '+ ' + CL('gap24') + ' still owed', pr.x, pr.y - 40, 'label', { align: 'center', color: '#FF8A8E', alpha: s.onBill * (1 - s.done), shadow: true });
+    text(ctx, '+ ' + CL('gap24') + ' extra owed', pr.x, pr.y - 40, 'label', { align: 'center', color: '#FF8A8E', alpha: s.onBill * (1 - s.done), shadow: true });
     text(ctx, 'loan costs', pr.x, pr.y - 92, 'label', { align: 'center', color: C.ink, alpha: s.done, shadow: true });
-    text(ctx, '+ still owed', pr.x, pr.y - 40, 'label', { align: 'center', color: '#FF8A8E', alpha: s.done, shadow: true });
+    text(ctx, '+ extra owed', pr.x, pr.y - 40, 'label', { align: 'center', color: '#FF8A8E', alpha: s.done, shadow: true });
     const rx = monthRuler(ctx, { m: s.month, max: 36, late: 24, alpha: s.ruler, numbered: [
       [24, CL('be_simple_median'), s.n24, s.strike24 > 0 ? C.muted : C.ink], [30, CL('be_bal_median'), s.done, C.positive]] });
-    if (s.strike24 > 0) strike(ctx, rx(24) - 36, 912 + 42, rx(24) + 36, C.negative, s.strike24, 6);
+    if (s.strike24 > 0) strike(ctx, rx(24) - 36, 912 + 32, rx(24) + 36, C.negative, s.strike24, 6);
   }
   return { update, overlay, K, billH, X };
 }

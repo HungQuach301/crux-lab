@@ -1,11 +1,11 @@
 // Break-even plot (signed SF4 grammar), shared by S11-S13: x = months after refinancing, y = dollars.
 // Fees = a flat line. "Division" = savings only (straight line). Green curve = savings minus what she still owes
 // (model/refi.py via data.js; never printed). A small rate-cut ruler (top right) shows which cut is being tried.
-import { C, W, H, DATA, CL, text, line, rect, dot, mark, ease, easeOut, mix } from './engine.js';
+import { C, W, H, DATA, CL, text, line, rect, dot, mark, ease, easeOut, mix, withObj } from './engine.js';
 
 export const G = { X0: 200, X1: 1500, YB: 880, YT: 420, VMAX: 6000 };
 export function axes(ctx, xmax, a = 1) {
-  line(ctx, [[G.X0, G.YB], [G.X1, G.YB]], C.grid, 3, { alpha: a });
+  withObj({ role: 'axis', chart: 'breakeven' }, () => line(ctx, [[G.X0, G.YB], [G.X1, G.YB]], C.grid, 3, { alpha: a }));
   text(ctx, 'months after refinancing →', G.X1, G.YB + 64, 'note', { color: C.muted, align: 'right', alpha: a });
   const yF = yOf(DATA.median.cost);
   line(ctx, [[G.X0, yF], [G.X1, yF]], C.muted, 6, { alpha: a });
@@ -22,7 +22,7 @@ export function curve(ctx, net, upto, xmax, color = C.positive, lw = 7, a = 1) {
     if (net[m] > G.VMAX * 1.08) break;
     pts.push([xOfM(m, xmax), yOf(net[m])]);
   }
-  if (pts.length > 1) line(ctx, pts, color, lw, { alpha: a });
+  if (pts.length > 1) withObj({ role: 'series', chart: 'breakeven' }, () => line(ctx, pts, color, lw, { alpha: a }));
   const h = pts[pts.length - 1]; if (h) dot(ctx, h[0], h[1], 10, color, a);
   return h;
 }
@@ -30,7 +30,7 @@ export function curve(ctx, net, upto, xmax, color = C.positive, lw = 7, a = 1) {
 export const RU = { x0: 1060, x1: 1760, y: 260, max: 1.25 };
 export const rx = (c) => RU.x0 + (c / RU.max) * (RU.x1 - RU.x0);
 export function ruler(ctx, a = 1) {
-  line(ctx, [[RU.x0, RU.y], [RU.x1, RU.y]], C.grid, 5, { alpha: a });
+  withObj({ role: 'axis', chart: 'cut-ruler' }, () => line(ctx, [[RU.x0, RU.y], [RU.x1, RU.y]], C.grid, 5, { alpha: a }));
   line(ctx, [[rx(1), RU.y - 44], [rx(1), RU.y + 24]], C.ink, 3, { dash: [10, 8], alpha: a });
   text(ctx, CL('s10') + '-point line', rx(1), RU.y - 56, 'note', { align: 'center', alpha: a });
   text(ctx, 'rate cut', RU.x0 - 20, RU.y + 14, 'note', { align: 'right', color: C.muted, alpha: a });

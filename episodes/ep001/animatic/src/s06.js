@@ -35,7 +35,7 @@ export function build({ scene, camera, renderer, T }) {
     const aS = easeOut(t, tLf + 0.3, tLf + 0.7);
     text(ctx, CL('sav_median') + ' a month less', lx, sl.y + 10, 'number', { align: 'right', color: C.positive, alpha: aS, shadow: true });
     text(ctx, 'at ' + CL('r_today') + ' instead of ' + CL('r_old'), lx, sl.y + 70, 'label', { align: 'right', alpha: aS, shadow: true });
-    chrome(ctx, { illus: 1, source: 'Nora is an illustrative borrower. Dollars of the day.', plate: true });
+    chrome(ctx, { illus: 1, source: 'Nora is illustrative. Dollars of the day = not adjusted for inflation.', plate: true });
   }
   // H3: one rate scale, 400 px per percentage point
   const Y0 = 900, R0 = 6.4, PX = 400, yOf = (r) => Y0 - (r - R0) * PX;
@@ -60,7 +60,7 @@ export function build({ scene, camera, renderer, T }) {
     line(ctx, [[xu - 20, yOf(DATA.f1.rOld) + PX * u], [xu + 80, yOf(DATA.f1.rOld) + PX * u]], C.ink, 3, { alpha: u });
     text(ctx, CL('s10') + ' point', xu + 90, yOf(DATA.f1.rOld) + PX / 2, 'number', { alpha: easeOut(t, tU + 0.8, tU + 1.2) });
     text(ctx, '= one percentage point', xu + 90, yOf(DATA.f1.rOld) + PX / 2 + 60, 'note', { color: C.ink, alpha: easeOut(t, tU + 0.8, tU + 1.2) });
-    chrome(ctx, { source: 'Freddie Mac weekly survey, via FRED.' });
+    chrome(ctx, { source: 'Freddie Mac weekly survey, via FRED (St. Louis Fed data).' });
   }
   return {
     mode: (t) => (t >= tG && t < tP ? '2d' : '3d'), update,

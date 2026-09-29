@@ -1,7 +1,7 @@
 // S05 · The window, and the one-point line. H3 (SF1 window grammar): the test line slides down 1 point below Nora's
 // rate; weeks under it light up (29 in 2026); the gap at the low grows into a 1.64-point bar; after July 23, 2026 the
 // window is hatched "closed"; to the right of the latest week an empty dashed zone "?" = no forecast.
-import { C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, hatch, ease, easeOut, mix } from './engine.js';
+import { C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, hatch, ease, easeOut, mix , CLY } from './engine.js';
 import { rateLine, PL } from './common.js';
 export const uses3d = false;
 
@@ -13,9 +13,9 @@ export function build({ T }) {
   const iLow = wk.findIndex((w) => w.d === F.low), iLast = wk.findIndex((w) => w.d === F.lastIn), iFirst = wk.findIndex((w) => w.in);
   const in26 = wk.map((w, i) => [w, i]).filter(([w]) => w.in && w.d.startsWith('2026')).map(([, i]) => i);
   function overlay(ctx, t) {
-    text(ctx, 'US 30-year mortgage rate, weekly', 96, 128, 'head');
+    text(ctx, 'US ' + CL('term30') + '-year mortgage rate, weekly', 96, 128, 'head');
     line(ctx, [[X0, YB], [X1, YB]], C.grid, 3);
-    for (const [m, s] of [['2025-08', 'Aug ' + CL('y2025')], ['2025-11', 'Nov'], ['2026-02', 'Feb 2026'], ['2026-05', 'May'], ['2026-08', 'Aug']]) {
+    for (const [m, s] of [['2025-08', 'Aug ' + CL('y2025')], ['2025-11', 'Nov'], ['2026-02', 'Feb ' + CLY('y2026', '2026')], ['2026-05', 'May'], ['2026-08', 'Aug']]) {
       const i = wk.findIndex((w) => w.d.slice(0, 7) === m); const x = xOf(i); line(ctx, [[x, YB], [x, YB + 14]], C.grid, 3); text(ctx, s, x, YB + 60, 'note', { color: C.muted, align: 'center' });
     }
     // Nora's rate + the test line sliding down from it
@@ -34,7 +34,7 @@ export function build({ T }) {
     // 29 weeks of 2026: one tick per week, lit in order, then the count
     const aw = ease(t, tW, tW + 2.2);
     in26.forEach((i, k) => { const on = aw * in26.length >= k + 1; rect(ctx, xOf(i) - 5, YB + 90, 10, 34, on ? C.accent : C.grid, easeOut(t, tW - 0.3, tW)); });
-    text(ctx, CL('weeks_below_r_old_minus_1') + ' weeks in 2026 at least ' + CL('s10') + ' point below', mix(xOf(in26[0]), xOf(in26[in26.length - 1]), 0.5), YB + 180, 'label', { align: 'center', color: C.accent, alpha: easeOut(t, tW + 2.2, tW + 2.6) });
+    text(ctx, CL('weeks_below_r_old_minus_1') + ' weeks in ' + CLY('y2026', '2026') + ' at least ' + CL('s10') + ' point below', mix(xOf(in26[0]), xOf(in26[in26.length - 1]), 0.5), YB + 180, 'label', { align: 'center', color: C.accent, alpha: easeOut(t, tW + 2.2, tW + 2.6) });
     // the gap at the low: a bar from the low up to Nora's rate
     const g = easeOut(t, tG, tG + 0.9), xl = xOf(iLow), yl = yOf(wk[iLow].r);
     if (g > 0) { rect(ctx, xl - 14, mix(yl, yN, g), 28, (yl - yN) * g, C.positive, 0.85); }
@@ -51,7 +51,7 @@ export function build({ T }) {
     text(ctx, '?', (fx0 + fx1) / 2, (YT + YB) / 2 + 40, 'hero', { align: 'center', color: C.muted, alpha: aF });
     text(ctx, 'next?', (fx0 + fx1) / 2, YB - 30, 'label', { align: 'center', color: C.muted, alpha: aF });
     text(ctx, 'History, not a forecast · US only', 96, 200, 'caption', { alpha: easeOut(t, tF + 0.8, tF + 1.2), plate: PL });
-    chrome(ctx, { illus: 1, source: t < tF ? 'Freddie Mac weekly survey, via FRED. Nora is illustrative.' : '' });
+    chrome(ctx, { illus: 1, source: t < tF ? 'Freddie Mac weekly survey, via FRED (St. Louis Fed data). Nora: illustrative.' : '' });
   }
   return { update: () => {}, overlay, stripTimes: [tL + 1.8, tX + 2.8, tW + 3.0, tG + 1.4, tC + 1.2, T.dur - 0.2], hardTime: T.dur - 0.1 };
 }

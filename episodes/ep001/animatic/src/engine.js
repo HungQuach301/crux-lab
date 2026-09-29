@@ -4,11 +4,16 @@
 //  3. timing: every scene gets T (its sentences from timing.json, local seconds) and T.a(id) resolves an anchor from
 //     anchors.json (sentence n + keyword) -> no hard-coded seconds for any meaningful action;
 //  4. text({sent:true}) marks a sentence-caption (a line that restates narration); hidden when NOCAP (blind strips).
+//  5 (C5). Renders at 1920x1080 (the signed system's own size; tokens canvas.out) through ONE page for the whole film
+//     (film.js / film.html: window.CHECKS for the checker, window.APP for render.js), so the video and the check page
+//     draw the same frames. Every 2D drawing call goes through a recording proxy of the canvas context (REC below):
+//     each paint op belongs to a screen object (text or shape) with its box, colours, opacity, role; layer masks
+//     redraw the frame keeping only some objects (CHECKS.layer). In 'all' mode the proxy only passes calls through.
 // Every scene is a deterministic function of t (seconds, scene-local). Every number on screen goes through CL(claimId).
 import * as THREE from 'three';
 export { THREE };
 
-export const TOK = await (await fetch('/src/tokens.json')).json();
+export const TOK = window.TOK;
 export const DATA = window.DATA;
 export const W = TOK.canvas.w, H = TOK.canvas.h, OW = TOK.canvas.out.w, OH = TOK.canvas.out.h;
 const col = TOK.color;
@@ -19,12 +24,24 @@ export const C = {
 export const TIER = TOK.type.tiers;
 
 // ---------- claims ----------
+// CL() returns the claim's display text and queues the id: the next text() call looks for each queued display in its
+// string (at number boundaries) and reports those spans as claim spans (CHECKS.objects() -> claims[]). A number in a
+// text that did not come through CL() is reported without a claim span (the checker counts it as an orphan).
 export const USED = new Set();
+const PEND = [];
+export const SCENE_CL = new Map(); // scene id -> claim ids that scene took through CL() (build time included)
 export function CL(id) {
   const c = DATA.claims[id];
   if (!c) throw new Error('unknown claim ' + id);
-  USED.add(id); return c.display;
+  USED.add(id); PEND.push(id);
+  const L = SCENE_CL.get(REC.scene) || []; if (!L.includes(id)) { L.push(id); SCENE_CL.set(REC.scene, L); }
+  return c.display;
 }
+
+
+// a year written on screen without a claim yet (axis ticks, data years): the same text either way; once out/claims.json has a
+// claim `id` whose display is exactly `lit`, it goes through CL() and the page reports it as a claim span
+export function CLY(id, lit) { const c = DATA.claims[id]; return c && String(c.display) === lit ? CL(id) : lit; }
 
 // ---------- timing (timing.json + anchors.json) ----------
 export const ANCH_USED = new Set();
@@ -62,10 +79,130 @@ export const mix = (a, b, x) => a + (b - a) * x;
 export const inout = (t, a, b, c, d) => Math.min(ease(t, a, b), 1 - ease(t, c, d));
 export function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
 
+// ---------- recording proxy (C5): screen objects and layer masks for window.CHECKS ----------
+// REC.layer: 'all' (normal frame: every call passes through; objects are recorded), 'notext', 'text', 'glyph', 'graphics',
+// 'only' (REC.ids). Mask layers start from a transparent canvas and drop the background, the 3D view and text shadows.
+export const REC = { on: true, layer: 'all', ids: null, scene: '', objs: [], stack: [], meta: [], seen: new Map(), n: 0 };
+const MASK = () => REC.layer !== 'all' && REC.layer !== 'notext';
+export function hex(c) {
+  if (typeof c !== 'string') return { hex: 'url(gradient)', a: 1 };
+  if (c[0] === '#') { const h = c.length === 4 ? '#' + [...c.slice(1)].map((x) => x + x).join('') : c.slice(0, 7); return { hex: h.toLowerCase(), a: 1 }; }
+  const m = c.match(/rgba?\(([^)]+)\)/);
+  if (!m) return { hex: c, a: 1 };
+  const p = m[1].split(',').map((x) => parseFloat(x));
+  return { hex: '#' + p.slice(0, 3).map((v) => Math.round(v).toString(16).padStart(2, '0')).join(''), a: p.length > 3 ? p[3] : 1 };
+}
+function callKey() { // stable key of a drawing call: the call path (bundle line:col of the last few frames)
+  const e = {}; const lim = Error.stackTraceLimit; Error.stackTraceLimit = 7; Error.captureStackTrace(e); Error.stackTraceLimit = lim;
+  const st = e.stack.split('\n').slice(3).map((l) => (l.match(/:(\d+:\d+)\)?$/) || [])[1] || '').join('/');
+  let h = 0; for (let i = 0; i < st.length; i++) h = (h * 31 + st.charCodeAt(i)) | 0;
+  return (h >>> 0).toString(36);
+}
+// meta for the objects drawn inside fn (role, chart, value, char, ...): withObj({role:'bar', chart:'x', value: 3}, () => rect(...))
+export function withObj(meta, fn) { REC.meta.push(meta); try { return fn(); } finally { REC.meta.pop(); } }
+const metaTop = () => Object.assign({}, ...REC.meta);
+export function beginObj(o) {
+  const m = metaTop();
+  const ob = o.kind === 'text' ? { ...o, _first: true, opacity: 0 } : { kind: 'shape', ...o, ...m, _first: true, opacity: 0 };
+  if (!ob.key) ob.key = REC.scene + ':' + (ob.kind === 'text' ? 't:' + ob.text : ob.role + ':' + callKey());
+  const k = (REC.seen.get(ob.key) || 0); REC.seen.set(ob.key, k + 1);
+  if (k) ob.key += '#' + k;
+  ob.id = ob.key; if (ob.kind === 'text') ob.tid = ob.key;
+  REC.stack.push(ob); return ob;
+}
+export function endObj() { REC.stack.pop(); }
+function curObj(tag) { // the object a paint op belongs to: the open one, or a new anonymous shape (raw ctx calls in scenes)
+  if (REC.stack.length) return [REC.stack[REC.stack.length - 1], false];
+  const ob = beginObj({ tag, role: 'mark' }); REC.stack.pop(); return [ob, true];
+}
+function show(ob, op) {
+  switch (REC.layer) {
+    case 'all': return true;
+    case 'notext': return ob.kind !== 'text';
+    case 'text': return ob.kind === 'text' && (op === 'glyph' || op === 'pill');
+    case 'glyph': return ob.kind === 'text' && op === 'glyph';
+    case 'graphics': return ob.kind === 'shape' && ob.role !== 'bg' && ob.role !== 'card';
+    case 'only': return REC.ids && REC.ids.has(ob.id) && (ob.kind !== 'text' || op === 'glyph' || op === 'pill');
+    default: return true;
+  }
+}
+function tbox(ctx, pts) { // device-space bbox of points under the current transform
+  const m = ctx.getTransform(); let l = 1e9, t = 1e9, r = -1e9, b = -1e9;
+  for (const [x, y] of pts) { const X = m.a * x + m.c * y + m.e, Y = m.b * x + m.d * y + m.f; if (X < l) l = X; if (X > r) r = X; if (Y < t) t = Y; if (Y > b) b = Y; }
+  return [l, t, r, b];
+}
+const uni = (a, b) => (a ? [Math.min(a[0], b[0]), Math.min(a[1], b[1]), Math.max(a[2], b[2]), Math.max(a[3], b[3])] : b.slice());
+// every paint op: attribute to an object, update it, and draw it or not (layer)
+function paint(ctx, op, box, colour, draw) {
+  if (!REC.on) return draw();
+  const tag = op === 'glyph' ? 'text' : op;
+  const [ob, anon] = curObj(tag);
+  const kind = ob.kind === 'text' ? (op === 'glyph' ? 'glyph' : (ob._fillOp || 'plate')) : op;
+  if (REC.layer === 'all') {
+    const c = hex(colour), a = ctx.globalAlpha * c.a;
+    if (ob._first) { ob._first = false; REC.objs.push(ob); }
+    if (ob.kind === 'text') {
+      if (kind === 'glyph') ob.opacity = Math.max(ob.opacity, a);
+      else if (kind === 'plate') ob.background = c.hex;
+    } else {
+      ob.box = uni(ob.box, box); ob.opacity = Math.max(ob.opacity, a);
+      if (op === 'stroke' || op === 'strokeRect') { if (!ob.stroke) ob.stroke = c.hex; }
+      else if (op !== 'image' && !ob.fill) ob.fill = c.hex;
+      if (op === 'image' && !ob.tag) ob.tag = 'image';
+      if (!ob.tag) ob.tag = op === 'fillRect' || op === 'strokeRect' ? 'rect' : 'path';
+      if (ob._verts) ob.vertices = Math.max(ob.vertices || 0, ob._verts);
+    }
+  }
+  if (!show(ob, kind)) return;
+  if (MASK() && ob.kind === 'text') { ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0)'; draw(); ctx.restore(); return; }
+  draw();
+}
+// the proxy handed to scenes as ctx: tracks the current path's device bbox and routes every paint op through paint()
+export function recorder(raw) {
+  let P = null, nv = 0;
+  const add = (pts) => { const b = tbox(raw, pts); P = uni(P, b); nv += pts.length; };
+  const cache = new Map();
+  const wrap = {
+    beginPath() { P = null; nv = 0; raw.beginPath(); },
+    moveTo(x, y) { add([[x, y]]); raw.moveTo(x, y); },
+    lineTo(x, y) { add([[x, y]]); raw.lineTo(x, y); },
+    arc(x, y, r, a0, a1, cc) { add([[x - r, y - r], [x + r, y + r], [x - r, y + r], [x + r, y - r]]); nv -= 3; raw.arc(x, y, r, a0, a1, cc); },
+    arcTo(x1, y1, x2, y2, r) { add([[x1, y1], [x2, y2]]); nv -= 1; raw.arcTo(x1, y1, x2, y2, r); },
+    rect(x, y, w, h) { add([[x, y], [x + w, y + h], [x, y + h], [x + w, y]]); raw.rect(x, y, w, h); },
+    bezierCurveTo(a, b, c, d, e, f) { add([[a, b], [c, d], [e, f]]); raw.bezierCurveTo(a, b, c, d, e, f); },
+    quadraticCurveTo(a, b, c, d) { add([[a, b], [c, d]]); raw.quadraticCurveTo(a, b, c, d); },
+    closePath() { raw.closePath(); },
+    fill(...a) { const b = P; const [ob] = REC.stack.length ? [REC.stack[REC.stack.length - 1]] : [null]; if (ob && ob.kind !== 'text') ob._verts = nv;
+      paint(raw, 'fill', b || [0, 0, 0, 0], raw.fillStyle, () => raw.fill(...a)); },
+    stroke(...a) { const lw = raw.lineWidth / 2 * Math.hypot(raw.getTransform().a, raw.getTransform().b); const b = P ? [P[0] - lw, P[1] - lw, P[2] + lw, P[3] + lw] : [0, 0, 0, 0];
+      const top = REC.stack.length ? REC.stack[REC.stack.length - 1] : null; if (top && top.kind !== 'text') top._verts = nv;
+      paint(raw, 'stroke', b, raw.strokeStyle, () => raw.stroke(...a)); },
+    fillRect(x, y, w, h) { paint(raw, 'fillRect', tbox(raw, [[x, y], [x + w, y + h], [x, y + h], [x + w, y]]), raw.fillStyle, () => raw.fillRect(x, y, w, h)); },
+    strokeRect(x, y, w, h) { const lw = raw.lineWidth / 2; paint(raw, 'strokeRect', tbox(raw, [[x - lw, y - lw], [x + w + lw, y + h + lw]]), raw.strokeStyle, () => raw.strokeRect(x, y, w, h)); },
+    fillText(s, x, y, mw) { const m = raw.measureText(s); const b = tbox(raw, [[x - m.actualBoundingBoxLeft, y - m.actualBoundingBoxAscent], [x + m.actualBoundingBoxRight, y + m.actualBoundingBoxDescent]]);
+      paint(raw, 'glyph', b, raw.fillStyle, () => (mw === undefined ? raw.fillText(s, x, y) : raw.fillText(s, x, y, mw))); },
+    drawImage(img, ...a) { const [x, y, w, h] = a.length >= 8 ? a.slice(4) : a.length === 4 ? a : [a[0], a[1], img.width, img.height];
+      paint(raw, 'image', tbox(raw, [[x, y], [x + w, y + h]]), '#000000', () => raw.drawImage(img, ...a)); },
+  };
+  return new Proxy(raw, {
+    get(t, k) {
+      if (k in wrap) return wrap[k];
+      const v = Reflect.get(t, k);
+      if (typeof v === 'function') { let f = cache.get(k); if (!f) { f = v.bind(t); cache.set(k, f); } return f; }
+      return v;
+    },
+    set(t, k, v) { return Reflect.set(t, k, v); },
+  });
+}
+// a shape object around a primitive
+export function obj(meta, fn) { beginObj({ kind: 'shape', ...meta }); try { return fn(); } finally { endObj(); } }
+
 // ---------- text (flat, screen space, always sharp) ----------
-export const TEXTLOG = new Map(); // string -> {tier, px, n, out}
-let CUR_T = 0;
-const SAFE = { x0: 40, x1: W - 40, y0: 36, y1: H - 18 };
+export const TEXTLOG = new Map(); // string -> {tier, px, n, out, outV03}
+export let CUR_T = 0;
+export function setCurT(t) { CUR_T = t; }
+const SAFE = { x0: 40, x1: W - 40, y0: 36, y1: H - 18 };           // C4 engine check (signed system: safe x 96, top 64, bottom 40)
+const SAFE3 = { x0: 96, x1: 1824, y0: 54, y1: 1026 };            // the checker's V03 rectangle (90% action/title safe)
 export function rgba(hex, a) { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; }
 export function roundRect(ctx, x, y, w, h, r) {
   ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
@@ -74,12 +211,42 @@ export function roundRect(ctx, x, y, w, h, r) {
 export function measure(ctx, s, tier, weight) {
   const T = TIER[tier]; ctx.save(); ctx.font = `${weight || T.weight} ${T.px}px Inter`; const w = ctx.measureText(s).width; ctx.restore(); return w;
 }
-// tier: hero | number | head | caption | label | note. o: color, align, alpha, weight, plate (bg colour), shadow
+const LEVEL = { hero: 1, number: 2, head: 2, caption: 2, label: 3, note: 3 };
+function claimSpans(ctx, s, x0, top, bot, alpha, color) {
+  // queued ids first (this text's own CL calls), then the claims the scene took earlier (values computed ahead, e.g. rows built at build time)
+  const own = new Set(PEND); PEND.length = 0;
+  const ids = [...new Set([...own, ...(SCENE_CL.get(REC.scene) || [])])];
+  const used = [], out = [];
+  for (const id of ids) {
+    const d = String(DATA.claims[id].display);
+    let i = -1, from = 0;
+    while ((i = s.indexOf(d, from)) >= 0) {
+      const pre = s[i - 1] || ' ', post = s[i + d.length] || ' ';
+      const okB = !/[\d.,$]/.test(pre) && !/\d/.test(post) && !(post === '.' && /\d/.test(s[i + d.length + 1] || ''));
+      if (okB && !used.some(([a, b]) => i < b && i + d.length > a)) break;
+      from = i + 1; i = -1;
+    }
+    const hits = [];
+    if (i >= 0) hits.push([i, d]);
+    else if (own.has(id)) for (const tok of d.match(/\d+(?:,\d{3})*(?:\.\d+)?/g) || []) { // a number taken from the display (e.g. the year of "October 2023")
+      let j = -1, f2 = 0;
+      while ((j = s.indexOf(tok, f2)) >= 0) { const pr = s[j - 1] || ' ', po = s[j + tok.length] || ' '; if (!/[\d.,$]/.test(pr) && !/\d/.test(po) && !used.some(([a, b]) => j < b && j + tok.length > a)) break; f2 = j + 1; j = -1; }
+      if (j >= 0) hits.push([j, tok]);
+    }
+    for (const [k, txt] of hits) {
+      used.push([k, k + txt.length]);
+      const a = x0 + ctx.measureText(s.slice(0, k)).width, b = x0 + ctx.measureText(s.slice(0, k + txt.length)).width;
+      out.push({ id, text: txt, box: [a, top, b, bot], opacity: alpha, color, series: null, roll: false });
+    }
+  }
+  return out.sort((p, q) => q.text.length - p.text.length); // longest first (a checker removing span texts one by one keeps "2023" whole)
+}
+// tier: hero | number | head | caption | label | note. o: color, align, alpha, weight, plate (bg colour), shadow, role, char, series
 export function text(ctx, s, x, y, tier, o = {}) {
   const T = TIER[tier]; if (!T) throw new Error('tier ' + tier);
   const alpha = o.alpha === undefined ? 1 : o.alpha;
-  if (alpha <= 0.001 || !s) return 0;
-  if (o.sent && window.NOCAP) return measure(ctx, s, tier, o.weight);
+  if (alpha <= 0.001 || !s) { PEND.length = 0; return 0; }
+  if (o.sent && window.NOCAP) { PEND.length = 0; return measure(ctx, s, tier, o.weight); }
   const px = T.px, weight = o.weight || T.weight;
   ctx.save(); ctx.globalAlpha = alpha;
   ctx.font = `${weight} ${px}px Inter`; ctx.textAlign = o.align || 'left'; ctx.textBaseline = 'alphabetic';
@@ -87,14 +254,25 @@ export function text(ctx, s, x, y, tier, o = {}) {
   const w = ctx.measureText(s).width;
   const x0 = o.align === 'center' ? x - w / 2 : o.align === 'right' ? x - w : x;
   const top = y - px * 0.76, bot = y + px * 0.22;
+  const colour = hex(o.color || C.ink).hex;
+  const bx = tbox(ctx, [[x0, top], [x0 + w, bot]]);
+  const spans = claimSpans(ctx, s, x0, top, bot, alpha, colour).map((sp) => ({ ...sp, box: tbox(ctx, [[sp.box[0], sp.box[1]], [sp.box[2], sp.box[3]]]) }));
+  const m = metaTop();
+  const ob = beginObj({ kind: 'text', role: o.role || (o.pill ? 'badge' : tier === 'head' && y < 260 ? 'title' : 'label'), text: s, tier, fontPx: px, level: o.pill ? null : LEVEL[tier],
+    emph: false, color: colour, runs: [{ color: colour, size: px }], background: null, box: bx, claims: spans, parent: null, anchor: null, chart: o.chart || m.chart || null,
+    year: null, char: o.char || m.char || null, series: o.series || m.series || null, sent: !!o.sent });
+  if (o.pill) { ob._fillOp = 'pill'; ctx.fillStyle = o.pill; roundRect(ctx, x0 - 16, top - 12, w + 32, px * 0.98 + 24, 8); ctx.fill(); ob.background = hex(o.pill).hex; ob._fillOp = 'plate'; }
   if (o.plate) { ctx.fillStyle = o.plate; roundRect(ctx, x0 - 18, top - 12, w + 36, bot - top + 24, 10); ctx.fill(); }
   else if (o.shadow) { ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = 14; ctx.shadowOffsetY = 3; }
   ctx.fillStyle = o.color || C.ink; ctx.fillText(s, x, y);
+  endObj();
   ctx.restore();
-  if (alpha >= 0.2) {
+  if (alpha >= 0.2 && REC.layer === 'all') {
     const out = x0 < SAFE.x0 || x0 + w > SAFE.x1 || top < SAFE.y0 || bot > SAFE.y1;
-    const e = TEXTLOG.get(s) || { tier, px, n: 0, out: 0, firstT: CUR_T, sent: !!o.sent };
-    e.n++; if (out) e.out++; TEXTLOG.set(s, e);
+    const pb = o.pill ? 12 : 0, ph = o.pill ? 16 : 0; // the checker's text mask: glyphs + badge pill (text plates are not in it)
+    const out3 = x0 - ph < SAFE3.x0 || x0 + w + ph > SAFE3.x1 || top - pb < SAFE3.y0 || bot + pb > SAFE3.y1;
+    const e = TEXTLOG.get(s) || { tier, px, n: 0, out: 0, outV03: 0, firstT: CUR_T, sent: !!o.sent };
+    e.n++; if (out) e.out++; if (out3) e.outV03++; TEXTLOG.set(s, e);
   }
   return w;
 }
@@ -103,37 +281,43 @@ export function badge(ctx, x, y, alpha = 1, align = 'right') { // ILLUSTRATIVE p
   const s = 'ILLUSTRATIVE', px = TOK.type.badge.px;
   ctx.save(); ctx.font = `700 ${px}px Inter`; const w = ctx.measureText(s).width; ctx.restore();
   const x0 = align === 'right' ? x - w : x;
-  ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = C.warn; roundRect(ctx, x0 - 16, y - px * 0.76 - 12, w + 32, px * 0.98 + 24, 8); ctx.fill(); ctx.restore();
-  text(ctx, s, x0, y, 'note', { weight: 700, color: C.bg, alpha });
+  text(ctx, s, x0, y, 'note', { weight: 700, color: C.bg, alpha, pill: C.warn, role: 'badge' });
   return w + 32;
 }
 // constant furniture: ILLUSTRATIVE badge (top right) and ONE source line (bottom left), both >= note tier
 export function chrome(ctx, { illus = 0, source = '', srcAlpha = 1, plate = false } = {}) {
-  if (illus > 0) badge(ctx, W - 96, 110, illus);
-  if (source) text(ctx, source, 96, H - 44, 'note', { color: C.muted, alpha: srcAlpha, plate: plate ? 'rgba(14,17,22,0.78)' : null });
+  // C5: badge pill and source line moved inside the checker's 90% safe rectangle (V03: 96..1824 x 54..1026)
+  if (illus > 0) badge(ctx, W - 112, 110, illus);
+  if (source) text(ctx, source, 96, H - 64, 'note', { color: C.muted, alpha: srcAlpha, plate: plate ? 'rgba(14,17,22,0.78)' : null });
 }
 export function strike(ctx, x0, y, x1, color, alpha, lw = 7) {
-  if (alpha <= 0) return; ctx.save(); ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round';
-  ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke(); ctx.restore();
+  if (alpha <= 0) return; obj({ role: 'line', tag: 'line' }, () => { ctx.save(); ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke(); ctx.restore(); });
 }
 // 2D primitives (H3)
 export function line(ctx, pts, color, lw, o = {}) {
-  ctx.save(); ctx.globalAlpha = o.alpha === undefined ? 1 : o.alpha; ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.lineCap = o.cap || 'round';
-  if (o.dash) ctx.setLineDash(o.dash); ctx.beginPath(); pts.forEach((p, i) => (i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]))); ctx.stroke(); ctx.restore();
+  obj({ role: 'line', tag: pts.length > 2 ? 'polyline' : 'line', fill: null, vertices: pts.length }, () => {
+    ctx.save(); ctx.globalAlpha = o.alpha === undefined ? 1 : o.alpha; ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.lineCap = o.cap || 'round';
+    if (o.dash) ctx.setLineDash(o.dash); ctx.beginPath(); pts.forEach((p, i) => (i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]))); ctx.stroke(); ctx.restore();
+  });
 }
-export function rect(ctx, x, y, w, h, fill, a = 1) { if (a <= 0.001 || !h || !w) return; ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = fill; ctx.fillRect(x, y, w, h); ctx.restore(); }
-export function srect(ctx, x, y, w, h, color, lw, a = 1, dash) { if (a <= 0.001) return; ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = color; ctx.lineWidth = lw; if (dash) ctx.setLineDash(dash); ctx.strokeRect(x, y, w, h); ctx.restore(); }
+export function rect(ctx, x, y, w, h, fill, a = 1) { if (a <= 0.001 || !h || !w) return; obj({ role: 'mark', tag: 'rect' }, () => { ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = fill; ctx.fillRect(x, y, w, h); ctx.restore(); }); }
+export function srect(ctx, x, y, w, h, color, lw, a = 1, dash) { if (a <= 0.001) return; obj({ role: 'mark', tag: 'rect', fill: null }, () => { ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = color; ctx.lineWidth = lw; if (dash) ctx.setLineDash(dash); ctx.strokeRect(x, y, w, h); ctx.restore(); }); }
 export function hatch(ctx, x, y, w, h, color, a, step = 16, lw = 4) {
   if (a <= 0.001 || h <= 0 || w <= 0) return;
-  ctx.save(); ctx.globalAlpha = a; ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip(); ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.beginPath();
-  for (let k = -h; k < w + h; k += step) { ctx.moveTo(x + k, y + h); ctx.lineTo(x + k + h, y); }
-  ctx.stroke(); ctx.restore();
+  obj({ role: 'mark', tag: 'hatch', fill: null }, () => {
+    ctx.save(); ctx.globalAlpha = a; ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip(); ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.beginPath();
+    for (let k = -h; k < w + h; k += step) { ctx.moveTo(x + k, y + h); ctx.lineTo(x + k + h, y); }
+    ctx.stroke(); ctx.restore();
+    const ob = REC.stack[REC.stack.length - 1]; if (ob && ob.box) ob.box = [Math.max(ob.box[0], x), Math.max(ob.box[1], y), Math.min(ob.box[2], x + w), Math.min(ob.box[3], y + h)];
+  });
 }
-export function dot(ctx, cx, cy, r, color, a = 1) { if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = color; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fill(); ctx.restore(); }
-export function tri(ctx, cx, cy, r, color, a = 1) { if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(cx, cy - r); ctx.lineTo(cx + r * 0.95, cy + r * 0.7); ctx.lineTo(cx - r * 0.95, cy + r * 0.7); ctx.closePath(); ctx.fill(); ctx.restore(); }
-export function sq(ctx, cx, cy, r, color, a = 1) { rect(ctx, cx - r * 0.8, cy - r * 0.8, r * 1.6, r * 1.6, color, a); }
+export function dot(ctx, cx, cy, r, color, a = 1) { if (a <= 0) return; obj({ role: 'mark', tag: 'circle', shape: 'circle' }, () => { ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = color; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.fill(); ctx.restore(); }); }
+export function tri(ctx, cx, cy, r, color, a = 1) { if (a <= 0) return; obj({ role: 'mark', tag: 'polygon', shape: 'triangle' }, () => { ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(cx, cy - r); ctx.lineTo(cx + r * 0.95, cy + r * 0.7); ctx.lineTo(cx - r * 0.95, cy + r * 0.7); ctx.closePath(); ctx.fill(); ctx.restore(); }); }
+export function sq(ctx, cx, cy, r, color, a = 1) { if (a <= 0.001) return; obj({ role: 'mark', tag: 'rect', shape: 'square' }, () => { ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = color; ctx.fillRect(cx - r * 0.8, cy - r * 0.8, r * 1.6, r * 1.6); ctx.restore(); }); }
 export const MARK = { nora: [dot, C.positive], walt: [tri, C.warn], anjali: [sq, C.negative] };
-export function mark(ctx, who, cx, cy, r, a = 1) { const [f, c] = MARK[who]; f(ctx, cx, cy, r, c, a); }
+export const CHAR = { nora: 'median', walt: 'small', anjali: 'large' }; // contract.json characters keys
+export function mark(ctx, who, cx, cy, r, a = 1) { const [f, c] = MARK[who]; withObj({ char: CHAR[who], case: CHAR[who] }, () => f(ctx, cx, cy, r, c, a)); }
 
 // ---------- canvas textures (text printed on objects) ----------
 export function canvasTex(w, h, draw) {
@@ -198,58 +382,47 @@ export function outlineHouse({ w = 3, d = 2.4, h = 1.8, roof = 1.2, color = C.in
   g.userData.mat = m; return g;
 }
 
-// ---------- boot: 3D (optional) + 2D overlay, frame/strip/png API ----------
-export function boot(mod, T) {
-  const out = document.createElement('canvas'); out.width = OW; out.height = OH; document.body.appendChild(out);
-  const ctx = out.getContext('2d', { willReadFrequently: true });
-  let renderer = null, scene = null, camera = null;
+
+// ---------- scenes: 3D (optional, one shared WebGL renderer) + 2D overlay (C5: film.js drives them) ----------
+let GL = null;
+export function sharedRenderer() {
+  if (GL) return GL;
+  const gl = document.createElement('canvas'); gl.width = OW; gl.height = OH;
+  const renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, preserveDrawingBuffer: true, powerPreference: 'low-power' });
+  renderer.setPixelRatio(1); renderer.setSize(OW, OH, false);
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  GL = renderer; return GL;
+}
+// build one scene (module + its timing); ctx = the recording proxy of the film canvas
+export function makeScene(mod, T, ctx) {
+  let renderer = null, scene = null, camera = null, target = new THREE.Vector3();
   if (mod.uses3d) {
-    const gl = document.createElement('canvas'); gl.width = OW; gl.height = OH;
-    renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, preserveDrawingBuffer: true, powerPreference: 'low-power' });
-    renderer.setPixelRatio(1); renderer.setSize(OW, OH, false);
-    renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer = sharedRenderer(); renderer.toneMappingExposure = 1.0;
     scene = new THREE.Scene(); camera = new THREE.PerspectiveCamera(35, W / H, 0.1, 200);
+    const la = camera.lookAt.bind(camera);
+    camera.lookAt = (x, y, z) => { if (x && x.isVector3) target.copy(x); else target.set(x, y, z); la(x, y, z); };
   }
+  PEND.length = 0; REC.scene = T.id;
   const S = mod.build({ THREE, scene, camera, renderer, ctx, T });
-  const proj = (v) => { const p = v.clone().project(camera); return { x: (p.x + 1) / 2 * W, y: (1 - p.y) / 2 * H }; };
-  function draw(t) {
-    CUR_T = t;
-    const m = S.mode ? S.mode(t) : (mod.uses3d ? '3d' : '2d');
-    ctx.setTransform(OW / W, 0, 0, OH / H, 0, 0);
-    ctx.save(); ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H); ctx.restore();
-    if (m === '3d') {
-      S.update(t); camera.updateMatrixWorld(); renderer.render(scene, camera);
-      ctx.drawImage(renderer.domElement, 0, 0, W, H);
-      const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.4, W / 2, H / 2, H * 0.98);
-      vg.addColorStop(0, 'rgba(14,17,22,0)'); vg.addColorStop(1, 'rgba(14,17,22,0.5)'); ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
-    }
-    S.overlay(ctx, t, proj, m);
-  }
-  const b64 = (u8) => { let s = ''; const n = 0x8000; for (let i = 0; i < u8.length; i += n) s += String.fromCharCode.apply(null, u8.subarray(i, i + n)); return btoa(s); };
+  PEND.length = 0;
+  const exposure = renderer ? renderer.toneMappingExposure : 1;
   const N = Math.round((T.start + T.dur) * TOK.canvas.fps) - Math.round(T.start * TOK.canvas.fps);
-  const even = [0.08, 0.25, 0.42, 0.6, 0.78, 0.97].map((f) => f * T.dur);
+  const modeAt = (t) => (S.mode ? S.mode(t) : (mod.uses3d ? '3d' : '2d'));
+  const pose = () => ({ pos: camera.position.toArray(), quat: camera.quaternion.toArray(), fov: camera.fov, target: target.toArray() });
+  const setPose = (p) => { camera.position.fromArray(p.pos); camera.quaternion.fromArray(p.quat); camera.fov = p.fov; camera.updateProjectionMatrix(); target.fromArray(p.target); };
   return {
-    duration: T.dur, frames: N, stripTimes: (S.stripTimes || even).map((x) => Math.min(x, (N - 1) / TOK.canvas.fps)),
-    hardTime: Math.min(S.hardTime ?? (N - 1) / TOK.canvas.fps, (N - 1) / TOK.canvas.fps), modeAt: (t) => (S.mode ? S.mode(t) : (mod.uses3d ? '3d' : '2d')),
-    info: () => { if (!renderer) return '2d canvas'; const g = renderer.getContext(); const e = g.getExtension('WEBGL_debug_renderer_info'); return e ? g.getParameter(e.UNMASKED_RENDERER_WEBGL) : g.getParameter(g.RENDERER); },
-    frame(t) { draw(t); return b64(new Uint8Array(ctx.getImageData(0, 0, OW, OH).data.buffer)); },
-    png(t) { draw(t); return out.toDataURL('image/png'); },
-    log: () => ({ used: [...USED].sort(), texts: [...TEXTLOG.entries()].map(([s, e]) => ({ s, ...e })),
-      anchorsUsed: [...ANCH_USED].sort(), anchorsDeclared: T.anchorIds, anchorsKeywordMissing: T.missing }),
-    strip(times) { // blind-test strip: 3 x 2 grid of 636x358 frames, numbered 1-6 (reading order), NO sentence captions
-      const sc = document.createElement('canvas'); sc.width = 1920; sc.height = 728; const g = sc.getContext('2d');
-      g.fillStyle = '#05070A'; g.fillRect(0, 0, 1920, 728);
-      const was = window.NOCAP; window.NOCAP = true;
-      times.forEach((t, i) => {
-        const x = 2 + (i % 3) * 640 + 1, y = 2 + Math.floor(i / 3) * 363;
-        draw(t); g.drawImage(out, x, y, 636, 358);
-        g.fillStyle = C.warn; g.fillRect(x + 636 - 46, y + 358 - 46, 40, 40);
-        ptxt(g, String(i + 1), x + 636 - 26, y + 358 - 14, { size: 30, weight: 700, color: C.bg, align: 'center' });
+    id: T.id, T, S, N, scene, camera, renderer, exposure, modeAt, pose, setPose,
+    proj: (v) => { const p = v.clone().project(camera); return { x: (p.x + 1) / 2 * W, y: (1 - p.y) / 2 * H }; },
+    dispose() {
+      if (!scene) return;
+      scene.traverse((o) => {
+        if (o.geometry) o.geometry.dispose();
+        const ms = Array.isArray(o.material) ? o.material : o.material ? [o.material] : [];
+        for (const m of ms) { for (const k of Object.keys(m)) if (m[k] && m[k].isTexture) m[k].dispose(); m.dispose(); }
+        if (o.isLight && o.shadow && o.shadow.map) o.shadow.map.dispose();
       });
-      window.NOCAP = was;
-      return sc.toDataURL('image/png');
     },
   };
 }

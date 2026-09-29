@@ -1,6 +1,6 @@
 // S03 · Near the top. Kết hợp: H3 2023 weekly line (Nora's dot at October 2023, near the 7.79% peak) -> cut ->
 // H1 a street of ten houses bought in 2023; three light up, one of them Nora's (three in ten at 7% or more).
-import { THREE, C, W, H, DATA, CL, text, chrome, line, dot, mark, ease, easeOut, back, mix, house } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, dot, mark, ease, easeOut, back, mix, house , CLY } from './engine.js';
 import { outdoors, rateLine, shadowAll, PL } from './common.js';
 export const uses3d = true;
 
@@ -13,7 +13,7 @@ export function build({ scene, camera, renderer, T }) {
   const head = (t) => t < tN ? ease(t, tD, tN) * iOct : iOct + ease(t, tN, tP + 0.8) * (N - 1 - iOct);
   function chart(ctx, t) {
     const a0 = easeOut(t, 0, 0.4);
-    text(ctx, 'US 30-year mortgage rate, weekly, ' + CL('oct2023').slice(-4), 96, 128, 'head', { alpha: a0 });
+    text(ctx, 'US ' + CL('term30') + '-year mortgage rate, weekly, ' + CL('oct2023').slice(-4), 96, 128, 'head', { alpha: a0 });
     line(ctx, [[X0, YB], [X1, YB]], C.grid, 3);
     for (const [m, s] of [['2023-01', 'Jan'], ['2023-04', 'Apr'], ['2023-07', 'Jul'], ['2023-10', 'Oct']]) {
       const i = wk.findIndex((w) => w.d.slice(0, 7) === m); const x = xOf(i); line(ctx, [[x, YB], [x, YB + 14]], C.grid, 3); text(ctx, s, x, YB + 60, 'note', { color: C.muted, align: 'center' });
@@ -29,7 +29,7 @@ export function build({ scene, camera, renderer, T }) {
     dot(ctx, xp, yp, 13, C.ink, aP);
     text(ctx, 'peak ' + CL('peak2023'), xp + 30, yp - 40, 'label', { alpha: aP, plate: PL });
     text(ctx, 'highest since ' + CL('peak2023_since'), xp + 30, yp + 16, 'note', { color: C.ink, alpha: easeOut(t, tS, tS + 0.4), plate: PL });
-    chrome(ctx, { illus: aN, source: 'Freddie Mac weekly survey, via FRED. Nora is illustrative.' });
+    chrome(ctx, { illus: aN, source: 'Freddie Mac weekly survey, via FRED (St. Louis Fed data). Nora: illustrative.' });
   }
   outdoors(scene, renderer, { sky: '#161E2C' });
   const cols = ['#CDBF9F', '#B9C3CC', '#C9BBA4', '#BFB3A0', '#D2C6B0', '#C9BBA4', '#B7BEC6', '#CDBF9F', '#C4B8A2', '#BAC2C9'];
@@ -60,7 +60,7 @@ export function build({ scene, camera, renderer, T }) {
     const s0 = CL('purch23_words'); const s1 = s0[0].toUpperCase() + s0.slice(1);
     text(ctx, s1 + ' had a rate of ' + CL('seven') + '% or more', W / 2, 900, 'caption', { align: 'center', alpha: aL, plate: PL });
     text(ctx, CL('term30') + '-year home-purchase loans made in ' + CL('oct2023').slice(-4), W / 2, 966, 'note', { align: 'center', color: C.ink, alpha: aL, plate: PL });
-    chrome(ctx, { illus: aN, source: 'HMDA 2023. Nora is illustrative.', plate: true });
+    chrome(ctx, { illus: aN, source: 'HMDA ' + CLY('y2023', '2023') + ' (US home-loan records). Nora is illustrative.', plate: true });
   }
   return {
     mode: (t) => (t >= tSt ? '3d' : '2d'), update,

@@ -34,27 +34,28 @@ export function build(ctx0) {
     text(ctx, 'bill ' + CL('cost_large'), ra.x, ra.y - 30, 'label', { align: 'center', alpha: aB, plate: PL });
     text(ctx, 'bill ' + CL('cost_median'), rn.x, rn.y - 30, 'label', { align: 'center', alpha: easeOut(t, tB + 0.4, tB + 0.8), plate: PL });
     const pc = P(new THREE.Vector3(a.xs + a.FW / 2, 0.4, a.Z + a.FD / 2));
-    text(ctx, '+' + CL('sav_large') + ' a month', pc.x + 20, pc.y, 'label', { color: '#8FE0B5', alpha: easeOut(t, tS, tS + 0.4), shadow: true });
+    text(ctx, '+' + CL('sav_large') + ' a month', Math.min(pc.x + 20, 1824 - measure(ctx, '+' + CL('sav_large') + ' a month', 'label')), pc.y, 'label', { color: '#8FE0B5', alpha: easeOut(t, tS, tS + 0.4), shadow: true });
     const pt = P(new THREE.Vector3(a.x - a.FW / 2, a.rh, a.Z));
     const a18 = easeOut(t, t18, t18 + 0.3) * (1 - ease(t, tAh - 0.4, tAh - 0.1));
     text(ctx, 'paid back: month ' + CL('be_bal_large'), pt.x - 20, pt.y, 'label', { align: 'right', color: C.positive, alpha: a18, plate: PL });
     const aAh = easeOut(t, tAh, tAh + 0.4);
     text(ctx, CL('net36_large') + ' ahead', pt.x - 20, pt.y - 20, 'number', { align: 'right', color: C.positive, alpha: aAh, plate: PL });
     text(ctx, 'after ' + CL('y3') + ' years', pt.x - 20, pt.y + 44, 'label', { align: 'right', alpha: aAh, plate: PL });
-    monthRuler(ctx, { y: 930, max: 36, m: month(t), alpha: easeOut(t, tS - 0.3, tS), numbered: [[18, CL('be_bal_large'), easeOut(t, t18, t18 + 0.3), C.positive], [36, CL('y3') + ' years', easeOut(t, tAh - 0.3, tAh), C.ink]] });
-    chrome(ctx, { illus: 1, source: 'Anjali, Nora: illustrative. Bills: 2025 medians (HMDA).', plate: true });
+    monthRuler(ctx, { y: 912, max: 36, m: month(t), alpha: easeOut(t, tS - 0.3, tS), numbered: [[18, CL('be_bal_large'), easeOut(t, t18, t18 + 0.3), C.positive], [36, CL('y3') + ' years', easeOut(t, tAh - 0.3, tAh), C.ink]] });
+    chrome(ctx, { illus: 1, source: 'Anjali, Nora: illustrative. Bills: ' + CL('y2025') + ' medians (HMDA, US home-loan records).', plate: true });
   }
   function ruler(ctx, t) {
     text(ctx, 'Rate cut needed to pay back within ' + CL('y3') + ' years', 96, 128, 'head');
     text(ctx, 'point = one percentage point of the rate', 96, 190, 'note', { color: C.muted });
     const xOf = cutRuler(ctx, { x0: 300, x1: 1620, y: 560, max: 1.25, label: false });
-    mark(ctx, 'walt', xOf(1.12), 560, 20, 0.6); text(ctx, CL('cut36_small'), xOf(1.12), 640, 'note', { align: 'center', color: C.muted });
-    mark(ctx, 'nora', xOf(0.5), 560, 18, 0.6); text(ctx, CL('cut36_median'), xOf(0.5), 640, 'note', { align: 'center', color: C.muted });
+    mark(ctx, 'walt', xOf(1.12), 560, 20, 0.6); text(ctx, 'Walt ' + CL('cut36_small'), xOf(1.12), 640, 'note', { align: 'center', color: C.muted });
+    mark(ctx, 'nora', xOf(0.5), 560, 18, 0.6); text(ctx, 'Nora ' + CL('cut36_median'), xOf(0.5), 640, 'note', { align: 'center', color: C.muted });
     const xa = mix(xOf(1.25), xOf(DATA.cuts.large), easeOut(t, tTh, tTh + 1.4));
     mark(ctx, 'anjali', xa, 560, 24);
     const aT = easeOut(t, tTh + 1.2, tTh + 1.6);
     text(ctx, 'about a third', xOf(DATA.cuts.large), 430, 'number', { align: 'center', alpha: aT });
     text(ctx, 'of a point', xOf(DATA.cuts.large), 500, 'label', { align: 'center', alpha: aT });
+    text(ctx, 'Anjali', xOf(DATA.cuts.large), 640, 'note', { align: 'center', alpha: aT });
     chrome(ctx, { illus: 1, source: 'Anjali: ' + CL('cut36_large_words') + ' (illustrative).' });
   }
   return {

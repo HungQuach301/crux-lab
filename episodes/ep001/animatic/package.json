@@ -1,0 +1,9 @@
+{
+  "name": "crux-ep001-film-page",
+  "private": true,
+  "description": "Build of the C5 film page (film.html + build/film.js). npm ci && node src/build_page.mjs",
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "three": "0.186.1"
+  }
+}

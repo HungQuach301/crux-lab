@@ -31,10 +31,10 @@ export function build({ scene, camera, renderer, T }) {
     const RX0 = 260, RX1 = 1700, RY = 960, rx = (mm) => RX0 + (mm / 96) * (RX1 - RX0);
     ctx.save(); ctx.fillStyle = C.grid; ctx.fillRect(RX0, RY, RX1 - RX0, 4); ctx.restore();
     for (let y = 1; y <= 8; y++) rect(ctx, rx(y * 12) - 3, RY - 18, 6, 18, C.grid, 1);
-    text(ctx, 'years in the home →', RX0, RY + 58, 'note', { color: C.muted });
+    text(ctx, 'years in the home →', RX0, RY + 55, 'note', { color: C.muted });
     const a3 = easeOut(t, t3 - 0.2, t3 + 0.2), a7 = easeOut(t, t7 - 0.2, t7 + 0.2);
-    text(ctx, CL('y3') + ' years', rx(36), RY + 58, 'label', { align: 'center', alpha: a3 });
-    text(ctx, CL('y7') + ' years', rx(84), RY + 58, 'label', { align: 'center', alpha: a7 });
+    text(ctx, CL('y3') + ' years', rx(36), RY + 55, 'label', { align: 'center', alpha: a3 });
+    text(ctx, CL('y7') + ' years', rx(84), RY + 55, 'label', { align: 'center', alpha: a7 });
     const xm = rx(m);
     if (t > tS) { mark(ctx, 'nora', xm, RY - 34, 18); line(ctx, [[RX0, RY + 2], [Math.min(xm, RX1 + 300), RY + 2]], C.positive, 6); }
     // what the same offer comes to

@@ -2,7 +2,7 @@
 // the three-mark ruler (signed SF6): three separate bars by loan size, no line between them; the outline house
 // "your loan?" slides along the axis and stops between marks with no value; the 1-point rule of thumb slides across
 // and matches none.
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, measure, ease, easeOut, back, mix } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, measure, ease, easeOut, back, mix , withObj, CHAR } from './engine.js';
 import { kitchen, letter, houseIcon, PL } from './common.js';
 export const uses3d = true;
 
@@ -19,7 +19,7 @@ export function build({ scene, camera, renderer, T }) {
   }
   function room(ctx, t) {
     text(ctx, 'Back to the letter', 1180, 560, 'caption', { alpha: easeOut(t, tL, tL + 0.4), plate: PL, sent: true });
-    chrome(ctx, { source: 'Fees: median 2025 refinance bill (HMDA).', plate: true });
+    chrome(ctx, { source: 'Fees: median ' + CL('y2025') + ' refinance bill (HMDA, US home-loan records).', plate: true });
   }
   // ---- H3 three-mark ruler (SF6) ----
   const LMIN = 50000, LMAX = 720000, X0 = 200, X1 = 1600, YB = 690, PX = 300;
@@ -43,7 +43,7 @@ export function build({ scene, camera, renderer, T }) {
       const wn = measure(ctx, w.name, 'note');
       mark(ctx, w.k, x - wn / 2 - 20, YB + 202, 14, aH); text(ctx, w.name, x - wn / 2 + 2, YB + 216, 'note', { color: C.ink, alpha: aH });
       const g = easeOut(t, w.t0, w.t0 + 0.9), hb = w.cut * PX * g;
-      rect(ctx, x - 75, YB - hb, 150, hb, w.col, 0.95);
+      withObj({ role: 'bar', chart: 's18-cut', value: w.cut * g, full: g >= 1, orient: 'v', char: CHAR[w.k], case: CHAR[w.k] }, () => rect(ctx, x - 75, YB - hb, 150, hb, w.col, 0.95));
       const aL = easeOut(t, w.t0 + 0.8, w.t0 + 1.1);
       if (w.k === 'anjali') { text(ctx, 'about a third', x, YB - hb - 76, 'label', { align: 'center', alpha: aL }); text(ctx, 'of a point', x, YB - hb - 24, 'label', { align: 'center', alpha: aL }); }
       else text(ctx, w.lab, x, YB - hb - 24, 'number', { align: 'center', alpha: aL });
@@ -55,8 +55,8 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, 'your loan?', ox, YB + 216, 'label', { align: 'center', alpha: easeOut(t, tY + 1.2, tY + 1.6) });
     // assumptions (fixed footnote)
     const aA = easeOut(t, tAs, tAs + 0.5);
-    text(ctx, 'Assumes: fees paid back within ' + CL('y3') + ' years · median ' + CL('y2025') + ' bills · ' + CL('oct2023') + ' rate', W / 2, 990, 'note', { align: 'center', color: C.ink, alpha: aA, plate: PL });
-    text(ctx, 'fees paid in cash · illustrative borrowers · not advice', W / 2, 1044, 'note', { align: 'center', color: C.ink, alpha: aA, plate: PL });
+    text(ctx, 'Assumes: fees paid back within ' + CL('y3') + ' years · median ' + CL('y2025') + ' bills · ' + CL('oct2023') + ' rate', W / 2, 962, 'note', { align: 'center', color: C.ink, alpha: aA, plate: PL });
+    text(ctx, 'fees paid in cash · illustrative borrowers · not advice', W / 2, 1016, 'note', { align: 'center', color: C.ink, alpha: aA, plate: PL });
     // the 1-point rule of thumb: slides across, matches none, fades
     const sl = ease(t, tO, tO + 1.6), fade = 1 - 0.7 * ease(t, tO + 2.2, tO + 2.8), y1 = YB - PX * 1;
     if (t > tO) line(ctx, [[X0 - 40, y1], [mix(X0 - 40, X1 + 40, sl), y1]], C.ink, 4, { dash: [16, 12], alpha: fade });
