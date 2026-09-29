@@ -1,0 +1,42 @@
+[
+ ["S16","sell",77,"start",-0.2,"sân nhà Walt: 36 cọc $68 cạnh xấp phí + tấm sọc sau 3 năm","nếu Walt bán sau 3 năm"],
+ ["S16","short",77,"$1,777",-0.4,"khoảng hở giữa cột tiền và đỉnh phí sáng đỏ; '$1,777 short'","Walt lỗ $1,777"],
+ ["S16","cut",78,"1.12",-0.6,"cắt H1→H3: tam giác trượt trên thước qua vạch 1 điểm, dừng ở 1.12","Walt cần giảm 1.12 điểm"],
+ ["S16","more",79,"more than",-0.2,"vạch 1 điểm nhấp nháy; đoạn 1→1.12 tô","hơn cả luật một điểm"],
+ ["S16","why",80,"start",-0.2,"nhà nhỏ ↔ 1.12, nhà vừa ↔ 0.5: cột cao hơn cho nhà nhỏ hơn","khoản nhỏ cần giảm nhiều hơn"],
+ ["S16","fees",81,"fees barely shrink",-0.2,"hàng 'bill': Walt gần bằng Nora","phí gần như không co"],
+ ["S16","savings",81,"monthly savings",-0.2,"hàng 'monthly savings': Walt nhỏ hơn nhiều","tiết kiệm co theo khoản vay"],
+
+ ["S17","anj",82,"start",-0.2,"nhà lớn của Anjali mọc bên phải; hình vuông","một người vay khác ở đầu kia"],
+ ["S17","same",83,"start",0,"tiêu đề 'Same offer: 7.62% → 7.03%'","cùng đề nghị"],
+ ["S17","loan",84,"$655,000",-0.3,"nhãn '$655,000 loan'","khoản vay lớn"],
+ ["S17","limit",84,"conforming limit",-0.2,"ghi chú 'under the conforming limit'","vẫn là khoản vay chuẩn"],
+ ["S17","bill",85,"$5,514",-0.4,"mọc: xấp phí $5,514 cạnh xấp $5,124 của Nora","phí gần bằng Nora"],
+ ["S17","stack",86,"start",-0.2,"chồng: cọc $387 lên nhanh, vượt phí + nợ thêm ở tháng 18","hoà vốn sớm"],
+ ["S17","ahead",86,"$5,250",-0.4,"'+$5,250 ahead after 3 years'","sau 3 năm dư $5,250"],
+ ["S17","third",87,"third",-0.4,"cắt H1→H3: hình vuông trượt trên thước dừng ở 'about a third of a point'","Anjali chỉ cần khoảng 1/3 điểm"],
+
+ ["S18","letter",88,"start",-0.2,"lá thư quay lại trên bàn bếp, dòng phí sáng","trở lại câu hỏi ban đầu"],
+ ["S18","q",89,"start",-0.2,"cắt H1→H3: tiêu đề 'Rate cut needed, by loan size'","câu trả lời ở dạng thước"],
+ ["S18","size",90,"size of the loan",-0.3,"trục 'loan size' + ba nhà (diện tích theo khoản vay)","tuỳ cỡ khoản vay"],
+ ["S18","walt",91,"$115,000",-0.3,"mọc: cột tam giác 1.12 points ở $115,000","khoản nhỏ: hơn 1 điểm"],
+ ["S18","nora",92,"$375,000",-0.3,"mọc: cột tròn 0.5 point ở $375,000","khoản vừa: nửa điểm"],
+ ["S18","anj",93,"$655,000",-0.3,"mọc: cột vuông 'about a third of a point' ở $655,000","khoản lớn: khoảng 1/3 điểm"],
+ ["S18","you",94,"your own loan",-0.3,"viền: nhà nét đứt 'your loan?' trượt dọc trục, dừng giữa hai mốc, không số","người xem tự đặt khoản vay của mình"],
+ ["S18","assume",95,"assumptions",-0.2,"chú thích giả định dưới thước","các ngưỡng dựa trên giả định"],
+ ["S18","one",96,"one-point line",-0.3,"trượt: vạch '1-point rule of thumb' quét qua ba cột, không khớp, mờ","luật một điểm không đúng với ai"],
+
+ ["S19","fade",97,"start",-0.2,"cột mờ thành dải; nhãn 'national averages · median bills · illustrative borrowers'","đây là số trung bình"],
+ ["S19","p25",98,"$3,443",-0.3,"thang hoá đơn: mốc $3,443 hiện","phí thật dao động"],
+ ["S19","p75",98,"$8,270",-0.3,"mốc $8,270; dải giữa tô, chấm $5,124 ở giữa","một nửa hoá đơn nằm trong dải rộng"],
+ ["S19","real",99,"real rate",-0.2,"nhãn 'your rate? your bill? your balance?' quanh nhà viền","số của người xem sẽ khác"],
+ ["S19","roll",100,"adding them to the loan",-0.3,"thẻ 'fees added to the loan' + '→ different math'","cách trả phí cũng đổi phép tính"],
+ ["S19","term",100,"shorter term",-0.2,"thẻ 'a shorter term'","kỳ hạn ngắn hơn cũng đổi phép tính"],
+
+ ["S20","stay",101,"how long you will stay",-0.3,"nhà Nora; dấu thời gian bắt đầu chạy dọc lối đi","con số quyết định: ở bao lâu"],
+ ["S20","y3",102,"three years",-0.3,"dấu dừng ở 'year 3'; cọc dư mọc '+$1,039 ahead'","bán sau 3 năm: dư $1,039"],
+ ["S20","y7",102,"seven",-0.3,"dấu chạy tới 'year 7'; cọc dư lớn lên '+$8,093 ahead'","ở 7 năm: dư $8,093"],
+ ["S20","fast",103,"start",-0.2,"nhãn 'the rate cut: how fast'","mức giảm lãi quyết định tốc độ"],
+ ["S20","there",104,"start",-0.2,"dấu chạy tiếp ra khỏi khung, không mốc","ở lâu hay không quyết định có hưởng hay không"],
+ ["S20","q",105,"start",-0.2,"nhà viền 'your home?' hiện cạnh nhà Nora; câu hỏi","câu hỏi cho người xem"]
+]
