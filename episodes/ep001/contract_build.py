@@ -1,6 +1,8 @@
-"""Episode 1 contract (checks/CONTRACT.md, section "Hợp đồng tập", lock K2 f9e24c91).
+"""Episode 1 contract (checks/CONTRACT.md, section "Hợp đồng tập", lock K3.1 81cf3997; C5: script v3.2, final timing).
 
-    python3 episodes/ep001/build.py            # first: out/model.json, out/claims.json
+    python3 episodes/ep001/preprod/script_from_v32.py   # out/script.json, out/script-draft.json (v3.2)
+    python3 episodes/ep001/build.py            # out/model.json, out/claims.json
+    python3 episodes/ep001/preprod/dossier_c5.py        # out/timeline.json (acts) and the rest of the dossier
     python3 episodes/ep001/contract_build.py   # writes episodes/ep001/contract.json only
 
 Every field the K2 rules read is filled from the episode's own files (out/model.json, out/claims.json, design/tokens.json,
@@ -23,7 +25,19 @@ RELEASE = ['out/video.mp4', 'out/captions.srt', 'out/package/description.md', 'o
 # model files and the data the rules re-compute from (S01, S03, S04), plus the rest of the CONTRACT.md table the builder delivers
 EXTRA_M3 = ['out/model.json', 'data/sources.json', 'data/normalized/mortgage30_weekly.csv', 'data/normalized/crosscheck_weekly.csv',
             'data/normalized/hmda_refi_costs.csv', 'data/normalized/hmda_refi31_conforming.csv', 'contract.json', 'out/package/thumb-1.json',
-            'out/package/thumb-2.json', 'out/package/thumb-3.json', 'preprod/storyboard.*', 'preprod/color-script.*']
+            'out/package/thumb-2.json', 'out/package/thumb-3.json', 'preprod/storyboard.*', 'preprod/color-script.*',
+            'out/rights.json', 'out/visual-assets.json', 'out/voice/takes.json']
+LOCK = '81cf3997737724314346c49254c26c2b1018bc545d95fb3d3f5edf8106f766f8 (K3.1)'
+# model assumptions that must be on screen (S02, K3): in the method act (S19, or a method card after S20) AND elsewhere. Case-insensitive regex.
+# Where each is on screen now (animatic/src): offer-average S06 source line; fees-in-cash S07 label, S11 source, S18 footnote;
+# payback-3y and oct2023-rate and median-bill S18 footnote (median bill also S02 source); new-loan-30y S10 head "A mortgage is a 30-year clock".
+ASSUMPTIONS = [
+    {'id': 'offer-average', 'pattern': r'matches the national average|national average rate', 'what': 'the offered rate = the national weekly average (MORTGAGE30US) of the date anchor'},
+    {'id': 'fees-in-cash', 'pattern': r'paid in cash', 'what': 'closing costs are paid in cash, not added to the loan'},
+    {'id': 'payback-3y', 'pattern': r'within (3|three) years|(3|three)-year (payback|stay|test)', 'what': 'worth it = fees paid back within 3 years (analyst choice)'},
+    {'id': 'oct2023-rate', 'pattern': r'oct(ober|\.)? 2023 (average )?rate', 'what': 'the old loan was taken out at the October 2023 average rate'},
+    {'id': 'median-bill', 'pattern': r'median (\d{4} )?(refinance )?bills?', 'what': 'the bill is the HMDA 2025 median for the loan size'},
+    {'id': 'new-loan-30y', 'pattern': r'30-year (term|clock|loan)', 'what': 'the new loan is a fresh 30-year fixed loan'}]
 FIELDS = {'loan': 'loan', 'cost': 'cost', 'sav': 'monthlySavings', 'be_simple': 'simple', 'be_bal': 'withBalance', 'net36': 'net36', 'net84': 'net84', 'cut36': 'cut36'}
 
 
@@ -42,7 +56,7 @@ def main():
     characters = {n: {'color': n, 'shape': tok['shapes'][n], 'side': side[n], 'illustrative': True, 'words': words[n],
                       'what': f"ILLUSTRATIVE: borrowed {model['scenario']['borrowed']} at that month's mean rate ({sc['oldRate']}%), "
                               f"{sc['paymentsMade']} payments made; loan ${ch[n]['loan']:,.0f}, bill ${ch[n]['cost']:,.2f} = {what[n]}",
-                      'wordsFrom': 'story/script.md v2 (out/script.json)'} for n in names}
+                      'wordsFrom': 'story/script-v3.2.md (out/script.json)'} for n in names}
     mapped = {}
     for n in names:
         for pre, f in FIELDS.items():
@@ -55,19 +69,20 @@ def main():
     hist = model['history']
     contract = {
         'episode': 'ep001',
-        'lock': 'f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd (K2)',
+        'lock': LOCK,
         'question': 'At what rate spread does a refinance pay back its closing costs?',
         'thesis': 'most calculators divide the bill by the monthly saving; counting what is still owed on each loan, break-even comes later for a loan that is already some years old',
-        'targetDurationSec': [600, 660],
+        'targetDurationSec': [480, 900],
         'characters': characters,
-        'scenarios': {'hold36': {'what': 'sell or refinance again after 3 years (36 months): the payback target of the question', 'words': ['three years', '36 months'],
-                                 'wordsFrom': 'story/script.md v2: "within three years", "after three years"'},
-                      'hold84': {'what': 'keep the loan 7 years (84 months)', 'words': ['seven years', '84 months'],
-                                 'wordsFrom': 'story/script.md v2: "stays seven years" (S31)'}},
+        'scenarios': {'hold36': {'what': 'sell or refinance again after 3 years (36 months): the payback target of the question', 'words': ['three years', 'three-year', '36 months'],
+                                 'wordsFrom': 'story/script-v3.2.md: "a stay of three years" (S08), "after three years" (S16, S17, S20), "the three-year test" (S13)'},
+                      'hold84': {'what': 'keep the loan 7 years (84 months)', 'words': ['stays seven', 'seven years', '84 months'],
+                                 'wordsFrom': 'story/script-v3.2.md: "if she stays seven" (S20)'}},
         'claims': {'file': 'out/claims.json', 'count': len(claims),
                    'core': [c['claimId'] for c in claims if c.get('core')],
                    'decisive': [c['claimId'] for c in claims if c.get('decisive')],
-                   'illustrative': [c['claimId'] for c in claims if c.get('illustrative')]},
+                   'illustrative': [c['claimId'] for c in claims if c.get('illustrative')],
+                   'assumptions': ASSUMPTIONS},
         'model': {
             'kind': 'refinance-breakeven',
             'output': 'out/model.json',
@@ -99,13 +114,11 @@ def main():
             'fetch': 'python3 episodes/ep001/data/fetch.py --verify (the FRED files are not in the public repo: amendments.md E1-A2; run this before the checks)',
             'other': {'hmda': 'data/hmda-sources.json + data/normalized/hmda_refi_costs.csv, hmda_refi31_conforming.csv (HMDA 2018-2025, ffiec.cfpb.gov, public domain, streamed; not in data/sources.json because S03 reads FRED-style raw files)',
                       'fhfa': 'data/cll.json (2026 limit owner-verified 2026-09-29)'}},
-        'coverage': [{'attribute': 'case', 'act': 'method', 'values': [e['peak'] for e in hist],
-                      'what': f'every drop episode of the history simulation ({len(hist)}, keyed by peak month), including those where the rate fell another point before break-even',
-                      'where': 'S33 history card (act method), script v2; page objects carry case = peak month'},
-                     {'attribute': 'case', 'act': 'act3', 'values': names,
-                      'what': 'the three characters\' answers (cut for a 36-month break-even)', 'where': 'S29, the three markers on the ruler (act3), script v2; page objects carry case = character key'}],
+        'coverage': [{'attribute': 'case', 'act': 'act3', 'values': names,
+                      'what': 'the three characters\' answers (rate cut for a 36-month break-even), all three shown: the promise of S02 answered for each loan size',
+                      'where': 'S18 three-mark ruler (act3), script v3.2; page objects of each column/marker carry case = character key (median, small, large)'}],
         'sonification': {'stem': 'sonify', 'bandsHz': [[60, 270], [4500, 7000]],
-                         'from': 'preprod/cue-sheet.md, palette S2 (owner pick 2026-09-28): low pulse MIDI 36-60 (65-262 Hz) + filtered tick 4.5-7 kHz',
+                         'from': 'preprod/cue-sheet.md, palette S2 (owner pick 2026-09-28): low pulse MIDI 36-60 (65-262 Hz) + filtered tick 4.5-7 kHz; same bands as SON_BANDS of the C5 mix (work/audio/src/mix.py)',
                          'todo': 'T1 measures that these bands hold >= 50% of the sonify stem energy once the stem is rendered'},
         'artefacts': {
             'M1': ['out/claims.json', 'out/model.json', 'out/script-draft.json', 'script/script.md', 'preprod/shotlist.json', 'preprod/storyboard.md',
@@ -115,17 +128,20 @@ def main():
                    'out/transitions.json', 'out/sonify-events.json', 'out/sfx-events.json'],
             'M3': RELEASE + EXTRA_M3},
     }
-    tp = os.path.join(HERE, 'preprod', 'timeline-plan.json')
-    if os.path.exists(tp):
-        mk = json.load(open(tp))['marks']
-        contract['timeline'] = {'source': 'preprod/timeline-plan.json (animatic, V8 takes); the render re-times at M2', 'coldOpenEnd': mk['coldOpenEnd'],
-                                'rehook': mk['rehook'], 'acts': mk['acts'], 'adBreaks': mk['adBreaks'], 'total': mk['total'],
-                                'amendments': ['E1-A1: cold open ~20 s accepted for Episode 1 (S15 cold open <= 15 s fails by approval)']}
+    tl = os.path.join(HERE, 'out', 'timeline.json')
+    if os.path.exists(tl):
+        t = json.load(open(tl))
+        ab = os.path.join(HERE, 'out', 'adbreaks.json')
+        contract['timeline'] = {'source': 'out/timeline.json (final sentence times: animatic/timing.json, narration v3.2)', 'total': t['total'],
+                                'acts': {a['id']: [a['start'], a['end']] for a in t['acts']},
+                                'climax': {a['id']: a['climax'] for a in t['acts'] if a.get('climax') is not None},
+                                'adBreaks': json.load(open(ab))['breaks'] if os.path.exists(ab) else None,
+                                'note': 'cold open S01-S02 = 55.7 s (E1-A1 accepted a long cold open; S15 is REFERENCE); no ident rendered; method = S19 unless a method card is added after S20'}
     contract['todo'] = [
-        'characters.*.shape / side and coverage[] `case` on page objects: must match the rendered page (V04, V09, S06 need the page)',
-        'sonification.bandsHz: from the cue sheet; T1 checks the >= 50% energy share only on the rendered sonify stem',
-        'artefacts.M3: every release file is declared; video, stems, page and package files do not exist yet (F11 fails "not delivered" until M3)',
-        'timeline: planned from the animatic; out/timeline.json and out/script.json are re-timed by the render at M2']
+        'rights: out/rights.json voice entry waits for the verbatim ElevenLabs quote (owner): F12 fails until then',
+        'claims.assumptions: every pattern must also be on screen in the method act (S19 or a method card), see out/timeline.json acts',
+        'coverage: the S18 columns/markers must carry case = median/small/large on the page (window.CHECKS objects)',
+        'sonification.bandsHz: T1 checks the >= 50% energy share on the rendered sonify stem']
     json.dump(contract, open(os.path.join(HERE, 'contract.json'), 'w'), indent=1, ensure_ascii=False)
     print('contract.json:', len(claims), 'claims,', len(mapped), 'mapped to model quantities,', len(contract['artefacts']['M3']), 'M3 artefacts')
 
