@@ -17,10 +17,21 @@
   "F11": {
    "status": "FAIL",
    "failing": [
-    "declared artefacts not delivered = 27"
+    "declared artefacts not delivered = 23"
    ],
    "note": null,
    "why": "every CONTRACT.md release file is declared in artefacts.M3; the video, voice, stems and render files are not produced yet (M3)"
+  },
+  "A13": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "A15": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/video.mp4",
+   "why": "needs out/video.mp4 (ASR on the master)"
   },
   "S01": {
    "status": "PASS",
@@ -48,11 +59,74 @@
    "note": "artifact missing: out/checks/page.json",
    "why": "needs out/checks/page.json (page sampler on the rendered page: yearsTrack/casesTrack); no page yet (M2)"
   },
-  "S16": {
+  "S07": {
    "status": "MISSING",
    "failing": [],
-   "note": "artifact missing: out/script.json",
-   "why": "needs out/script.json (sentences with timings); the script is in story/, not yet built into out/script.json"
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json (numbers on screen)"
+  },
+  "S08": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json"
+  },
+  "S09": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json"
+  },
+  "S10": {
+   "status": "FAIL",
+   "failing": [
+    "forecast sentences = 1"
+   ],
+   "note": null
+  },
+  "S11": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json"
+  },
+  "S12": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json"
+  },
+  "S13": {
+   "status": "FAIL",
+   "failing": [
+    "staccato passages = 2"
+   ],
+   "note": null
+  },
+  "S14": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/video.mp4",
+   "why": "needs out/video.mp4 (master silences)"
+  },
+  "S15": {
+   "status": "FAIL",
+   "failing": [
+    "cold open s = 26.65"
+   ],
+   "note": null
+  },
+  "S16": {
+   "status": "FAIL",
+   "failing": [
+    "share tied to a character or scenario = 0.166667"
+   ],
+   "note": null
+  },
+  "R02": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
   },
   "V04": {
    "status": "MISSING",
@@ -70,13 +144,13 @@
    "status": "MISSING",
    "failing": [],
    "note": "artifact missing: out/sonify-events.json or out/checks/page.json chartEvents",
-   "why": "needs out/sonify-events.json or page chartEvents, and the audio stems (voice, sonify); no render or voice yet"
+   "why": "needs the stems and out/video.mp4; on the animatic stems (scratch root) still MISSING: out/video.mp4"
   },
   "L1": {
    "status": "MISSING",
    "failing": [],
    "note": "artifact missing: out/audio/stems/sonify.wav|flac",
-   "why": "needs out/audio/stems/sonify.* and the voice stem; no voice yet (0 ElevenLabs characters used)"
+   "why": "needs the stems; on the animatic stems (scratch root, out/checks/animatic-T1-L1.json): PASS, 29.2 dB, 0 key words lost"
   }
  },
  "claims": [

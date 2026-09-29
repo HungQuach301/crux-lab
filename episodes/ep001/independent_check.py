@@ -21,14 +21,15 @@ sys.path.insert(0, os.path.join(REPO, 'checks', 'py'))
 import common  # noqa: E402  (checker, read only)
 import r_model as R  # noqa: E402
 
-RULES = 'S01,S03,S04,S05,S06,S16,F11,T1,L1,V04,V09'
+RULES = 'S01,S03,S04,S05,S06,S07,S08,S09,S10,S11,S12,S13,S14,S15,S16,A13,A15,R02,F11,T1,L1,V04,V09'
 WHY_MISSING = {
     'S06': 'needs out/checks/page.json (page sampler on the rendered page: yearsTrack/casesTrack); no page yet (M2)',
-    'S16': 'needs out/script.json (sentences with timings); the script is in story/, not yet built into out/script.json',
+    'S07': 'needs out/checks/page.json (numbers on screen)', 'S08': 'needs out/checks/page.json', 'S09': 'needs out/checks/page.json',
+    'S11': 'needs out/checks/page.json', 'S12': 'needs out/checks/page.json', 'S14': 'needs out/video.mp4 (master silences)', 'A15': 'needs out/video.mp4 (ASR on the master)',
     'V04': 'page rule: needs out/checks/page.json (rendered page)',
     'V09': 'page rule: needs out/checks/page.json (rendered page)',
-    'T1': 'needs out/sonify-events.json or page chartEvents, and the audio stems (voice, sonify); no render or voice yet',
-    'L1': 'needs out/audio/stems/sonify.* and the voice stem; no voice yet (0 ElevenLabs characters used)',
+    'T1': 'needs the stems and out/video.mp4; on the animatic stems (scratch root) still MISSING: out/video.mp4',
+    'L1': 'needs the stems; on the animatic stems (scratch root, out/checks/animatic-T1-L1.json): PASS, 29.2 dB, 0 key words lost',
 }
 
 

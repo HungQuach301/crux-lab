@@ -31,6 +31,8 @@ UNIT_WORDS = {'percent': 'pct', 'dollars': 'usd', 'dollar': 'usd'}
 def norm(w):
     w = w.lower().strip(".,;:!?\"()[]“”‘’'")
     w = re.sub(r"['’]s$", '', w)
+    if re.fullmatch(r'[a-z](\s*\.\s*[a-z])+\.?', w):  # initialisms: "U.S." / ASR "U .S." = "US"
+        return re.sub(r'[\s.]', '', w)
     for suf in ('ing', 'ies', 'es', 's', 'ed'):
         if len(w) > len(suf) + 2 and w.endswith(suf):
             w = w[: -len(suf)] + ('y' if suf == 'ies' else '')
@@ -174,4 +176,5 @@ if __name__ == '__main__':
     assert match_keys(k, [{'w': x} for x in 'Since 1971, the rate peaked at 18 .63 % and fell to 2 .65 %, per Freddie Mac.'.split()]) == []
     kb = key_words([{'text': 'The break-even is simple division.'}])[0]
     assert match_keys(kb, [{'w': x} for x in ['The', 'break', '-even', 'is', 'simple', 'division.']]) == []
+    assert match_keys(key_words([{'text': 'Rates in the US only.'}])[0], [{'w': x} for x in ['Rates', 'in', 'the', 'U', '.S.', 'only.']]) == []
     print('keywords self-test: OK')

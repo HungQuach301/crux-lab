@@ -1,0 +1,511 @@
+{
+ "fps": 30,
+ "total": 737.169,
+ "acts": [
+  {
+   "id": "cold-open",
+   "start": 0.0,
+   "end": 26.65
+  },
+  {
+   "id": "ident",
+   "start": 26.65,
+   "end": 29.65
+  },
+  {
+   "id": "act1",
+   "start": 29.65,
+   "end": 219.72,
+   "climax": 204.81
+  },
+  {
+   "id": "act2",
+   "start": 219.72,
+   "end": 392.49,
+   "climax": 335.8
+  },
+  {
+   "id": "act3",
+   "start": 392.49,
+   "end": 648.269,
+   "climax": 568.729
+  },
+  {
+   "id": "method",
+   "start": 648.269,
+   "end": 696.619
+  },
+  {
+   "id": "outro",
+   "start": 696.619,
+   "end": 737.169
+  }
+ ],
+ "scenes": [
+  {
+   "id": "S01",
+   "act": "cold-open",
+   "start": 0.0,
+   "dur": 11.75,
+   "layout": "line/peak",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 3.0
+  },
+  {
+   "id": "S02",
+   "act": "cold-open",
+   "start": 11.75,
+   "dur": 14.9,
+   "layout": "letter/offer",
+   "shot": "close",
+   "panels": [
+    "*"
+   ],
+   "chart": "letter",
+   "move": 1.5
+  },
+  {
+   "id": "S03",
+   "act": "ident",
+   "start": 26.65,
+   "dur": 3.0,
+   "layout": "ident/logo",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "ident",
+   "move": 0.0
+  },
+  {
+   "id": "S04",
+   "act": "act1",
+   "start": 29.65,
+   "dur": 17.87,
+   "layout": "ruler/empty",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 0.0
+  },
+  {
+   "id": "S05",
+   "act": "act1",
+   "start": 47.52,
+   "dur": 20.73,
+   "layout": "line/low-to-peak",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 4.0
+  },
+  {
+   "id": "S06",
+   "act": "act1",
+   "start": 68.25,
+   "dur": 14.65,
+   "layout": "grid/houses",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "grid",
+   "move": 1.5
+  },
+  {
+   "id": "S07",
+   "act": "act1",
+   "start": 82.9,
+   "dur": 23.25,
+   "layout": "line/nora-lands",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 0.0
+  },
+  {
+   "id": "S08",
+   "act": "act1",
+   "start": 106.15,
+   "dur": 15.74,
+   "layout": "letter/today",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "letter",
+   "move": 1.5
+  },
+  {
+   "id": "S09",
+   "act": "act1",
+   "start": 121.89,
+   "dur": 21.94,
+   "layout": "bars/payment",
+   "shot": "close",
+   "panels": [
+    "*"
+   ],
+   "chart": "bars",
+   "move": 0.0
+  },
+  {
+   "id": "S10",
+   "act": "act1",
+   "start": 143.83,
+   "dur": 28.19,
+   "layout": "blocks/bill-vs-saving",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "blocks",
+   "move": 1.2
+  },
+  {
+   "id": "S11",
+   "act": "act1",
+   "start": 172.02,
+   "dur": 7.85,
+   "layout": "letter/two-slots",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "letter",
+   "move": 0.0
+  },
+  {
+   "id": "S12",
+   "act": "act1",
+   "start": 179.87,
+   "dur": 24.94,
+   "layout": "split/line-vs-division",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "split",
+   "move": 0.0
+  },
+  {
+   "id": "S13",
+   "act": "act1",
+   "start": 204.81,
+   "dur": 14.91,
+   "layout": "letter/missing-line",
+   "shot": "close",
+   "panels": [
+    "*"
+   ],
+   "chart": "letter",
+   "move": 1.5
+  },
+  {
+   "id": "S14",
+   "act": "act2",
+   "start": 219.72,
+   "dur": 25.16,
+   "layout": "blocks/stack",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "blocks",
+   "move": 2.0
+  },
+  {
+   "id": "S15",
+   "act": "act2",
+   "start": 244.88,
+   "dur": 35.67,
+   "layout": "balance/stairs",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "balance",
+   "move": 0.0
+  },
+  {
+   "id": "S16",
+   "act": "act2",
+   "start": 280.55,
+   "dur": 23.45,
+   "layout": "balance/gap24",
+   "shot": "close",
+   "panels": [
+    "*"
+   ],
+   "chart": "balance",
+   "move": 1.3
+  },
+  {
+   "id": "S17",
+   "act": "act2",
+   "start": 304.0,
+   "dur": 16.62,
+   "layout": "clock/30",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "clock",
+   "move": 0.0
+  },
+  {
+   "id": "S18",
+   "act": "act2",
+   "start": 320.62,
+   "dur": 15.18,
+   "layout": "clock/38",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "clock",
+   "move": 0.0
+  },
+  {
+   "id": "S19",
+   "act": "act2",
+   "start": 335.8,
+   "dur": 11.64,
+   "layout": "clock/never",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "clock",
+   "move": 1.5
+  },
+  {
+   "id": "S20",
+   "act": "act2",
+   "start": 347.44,
+   "dur": 15.09,
+   "layout": "ruler/test",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 1.2
+  },
+  {
+   "id": "S21",
+   "act": "act2",
+   "start": 362.53,
+   "dur": 29.96,
+   "layout": "ruler/nora",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 0.0
+  },
+  {
+   "id": "S22",
+   "act": "act3",
+   "start": 392.49,
+   "dur": 35.29,
+   "layout": "person/walt",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "person",
+   "move": 1.5
+  },
+  {
+   "id": "S23",
+   "act": "act3",
+   "start": 427.78,
+   "dur": 23.63,
+   "layout": "blocks/three-bills",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "blocks",
+   "move": 0.0
+  },
+  {
+   "id": "S24",
+   "act": "act3",
+   "start": 451.41,
+   "dur": 20.27,
+   "layout": "blocks/walt-stack",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "blocks",
+   "move": 0.0
+  },
+  {
+   "id": "S25",
+   "act": "act3",
+   "start": 471.68,
+   "dur": 25.259,
+   "layout": "timeline/walt3",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "timeline",
+   "move": 1.2
+  },
+  {
+   "id": "S26",
+   "act": "act3",
+   "start": 496.939,
+   "dur": 18.33,
+   "layout": "ruler/walt",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 1.2
+  },
+  {
+   "id": "S27",
+   "act": "act3",
+   "start": 515.269,
+   "dur": 32.46,
+   "layout": "person/anjali",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "person",
+   "move": 1.5
+  },
+  {
+   "id": "S28",
+   "act": "act3",
+   "start": 547.729,
+   "dur": 21.0,
+   "layout": "ruler/anjali",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 1.2
+  },
+  {
+   "id": "S29",
+   "act": "act3",
+   "start": 568.729,
+   "dur": 41.95,
+   "layout": "ruler/answer",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 0.0
+  },
+  {
+   "id": "S30",
+   "act": "act3",
+   "start": 610.679,
+   "dur": 14.95,
+   "layout": "timeline/nora3",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "timeline",
+   "move": 0.0
+  },
+  {
+   "id": "S31",
+   "act": "act3",
+   "start": 625.629,
+   "dur": 22.64,
+   "layout": "timeline/nora7",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "timeline",
+   "move": 1.5
+  },
+  {
+   "id": "S32",
+   "act": "method",
+   "start": 648.269,
+   "dur": 32.35,
+   "layout": "card/method",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "card",
+   "move": 0.0
+  },
+  {
+   "id": "S33",
+   "act": "method",
+   "start": 680.619,
+   "dur": 16.0,
+   "layout": "card/history",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "card",
+   "move": 0.0
+  },
+  {
+   "id": "S34",
+   "act": "outro",
+   "start": 696.619,
+   "dur": 40.55,
+   "layout": "end/screen",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "end",
+   "move": 0.0
+  }
+ ],
+ "turns": [
+  {
+   "t": 204.81,
+   "what": "act 1 turn: neither answer is right; the division misses one line"
+  },
+  {
+   "t": 280.55,
+   "what": "the missing line: $1,133 more owed at month 24"
+  },
+  {
+   "t": 335.8,
+   "what": "act 2 climax: at a quarter point the bill never comes back"
+  },
+  {
+   "t": 427.78,
+   "what": "act 3 turn: the bill barely shrinks with the loan"
+  },
+  {
+   "t": 568.729,
+   "what": "the answer: a third of a point, half a point, more than one"
+  }
+ ],
+ "source": "animatic timeline (preprod/edit.py, Stage 4b); not yet a render"
+}

@@ -4,9 +4,9 @@
  "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
  "video_sha256": null,
  "counts": {
-  "PASS": 4,
-  "FAIL": 1,
-  "MISSING": 6,
+  "PASS": 6,
+  "FAIL": 5,
+  "MISSING": 12,
   "ERROR": 0
  },
  "near": [
@@ -39,6 +39,16 @@
    "unit": "pp",
    "pass": true,
    "near": true
+  },
+  {
+   "rule": "S15",
+   "name": "ident s",
+   "value": 3.0,
+   "op": "<=",
+   "threshold": 3.0,
+   "unit": "s",
+   "pass": true,
+   "near": true
   }
  ],
  "results": [
@@ -57,7 +67,7 @@
     },
     {
      "name": "declared artefacts not delivered",
-     "value": 27,
+     "value": 23,
      "op": "<=",
      "threshold": 0,
      "unit": "",
@@ -80,8 +90,6 @@
       "out/video.mp4",
       "out/captions.srt",
       "out/package/description.md",
-      "out/timeline.json",
-      "out/script.json",
       "out/audio/stems/voice.*",
       "out/audio/stems/music.*",
       "out/audio/stems/sfx.*",
@@ -93,10 +101,8 @@
       "out/sonify-events.json",
       "out/tempo-map.json",
       "out/transitions.json",
-      "out/cues.json",
       "out/tension-map.json",
       "out/tension-map.png",
-      "out/adbreaks.json",
       "out/package/thumb-1.png",
       "out/package/thumb-2.png",
       "out/package/thumb-3.png",
@@ -112,6 +118,51 @@
    "section": "CH §4 khâu 3 (hợp đồng tập, K2)",
    "threshold": "every declared M3 artefact delivered; every checks/CONTRACT.md release file declared",
    "fingerprint": "eb72b164041573de",
+   "seconds": 0.0
+  },
+  {
+   "id": "A13",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "takes",
+     "value": 132,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "max |stretch-1|",
+     "value": 0.001908,
+     "op": "<=",
+     "threshold": 0.1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "over": []
+    }
+   ],
+   "note": null,
+   "section": "DX-A7",
+   "threshold": "every |stretch − 1| ≤ 0.10",
+   "fingerprint": "d9a3e6fde6d2f573",
+   "seconds": 19.0
+  },
+  {
+   "id": "A15",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/video.mp4",
+   "section": "DX-A7",
+   "threshold": "every act 150 … 160 wpm; no sentence > 175 wpm",
+   "fingerprint": "553d76fabbd6ca76",
    "seconds": 0.0
   },
   {
@@ -156,7 +207,7 @@
    "section": "DX-H1",
    "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
    "fingerprint": "bd6d0ee85cf6c7c1",
-   "seconds": 0.1
+   "seconds": 0.0
   },
   {
    "id": "S03",
@@ -350,14 +401,406 @@
    "seconds": 0.0
   },
   {
-   "id": "S16",
+   "id": "S07",
    "status": "MISSING",
    "metrics": [],
    "details": [],
-   "note": "artifact missing: out/script.json",
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-H1, DX-H2",
+   "threshold": "0 orphan numbers on screen; 0 unregistered numbers in narration; 0 claims without formula; 0 unsourced non-illustrative claims; 0 sourced claims without dataYear",
+   "fingerprint": "db7b830d6bc3afa5",
+   "seconds": 0.0
+  },
+  {
+   "id": "S08",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-H2",
+   "threshold": "0 frames without badge; badge never later than the number (lag ≤ 0 frames)",
+   "fingerprint": "80936cb783720361",
+   "seconds": 0.0
+  },
+  {
+   "id": "S09",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-H3",
+   "threshold": "0 money claims without basis; 0 frames missing the on-screen basis; 0 narration sentences missing it",
+   "fingerprint": "8d3ae038239df8fc",
+   "seconds": 0.0
+  },
+  {
+   "id": "S10",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "advice sentences",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "forecast sentences",
+     "value": 1,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "4% as recommendation",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "\"we\" for the viewer",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "\"US only\" stated",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "\"history, not a forecast\" stated",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "advice": [],
+     "forecast": [
+      [
+       "narration",
+       "S04.2",
+       "By the end, you will see the rate drop that pays that bill back within three years, for th"
+      ]
+     ],
+     "four": [],
+     "we": []
+    }
+   ],
+   "note": null,
+   "section": "DX-I1, DX-I2",
+   "threshold": "0 matches of ADVICE, FORECAST, FOUR, WE_BAD; both required phrases present",
+   "fingerprint": "9a9de6ba4714eb57",
+   "seconds": 0.0
+  },
+  {
+   "id": "S11",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-S6",
+   "threshold": "≥ 1 core claim; each core claim appears in ≥ 3 distinct scenes spanning ≥ 2 acts; ≥ 3 declared callbacks with distinct meanings, all verified",
+   "fingerprint": "dbdc0a42eec78a77",
+   "seconds": 0.0
+  },
+  {
+   "id": "S12",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-S7",
+   "threshold": "new numbers ≤ duration / 8 s; no scene with > 2 new numbers; 0 claims marked axis but shown outside axis labels",
+   "fingerprint": "eed051aeced11bb2",
+   "seconds": 0.0
+  },
+  {
+   "id": "S13",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "sentence length CV (≥ 4 words)",
+     "value": 0.42965,
+     "op": ">=",
+     "threshold": 0.35,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "staccato passages",
+     "value": 2,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "sentences": 132,
+     "mean": 10.7,
+     "cvAllSentences": 0.447
+    },
+    {
+     "from": "S13.4",
+     "texts": [
+      "The division looks airtight.",
+      "It is missing one line.",
+      "Back to the letter."
+     ]
+    },
+    {
+     "from": "S18.2",
+     "texts": [
+      "Division would promise 38 months.",
+      "Longer, but still a finish line.",
+      "Then the balance gets counted."
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-S8 (sổ gu G-009)",
+   "threshold": "PROVISIONAL: CV (sentences ≥ 4 words) ≥ 0.35; 0 staccato passages",
+   "fingerprint": "f6f525969e4f2c7b",
+   "seconds": 0.0
+  },
+  {
+   "id": "S14",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/video.mp4",
+   "section": "DX-S10",
+   "threshold": "2 … 3 breaks; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s",
+   "fingerprint": "130b08063ddb2a97",
+   "seconds": 0.0
+  },
+  {
+   "id": "S15",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "act order",
+     "value": [
+      "cold-open",
+      "ident",
+      "act1",
+      "act2",
+      "act3",
+      "method",
+      "outro"
+     ],
+     "op": "==",
+     "threshold": [
+      "cold-open",
+      "ident",
+      "act1",
+      "act2",
+      "act3",
+      "method",
+      "outro"
+     ],
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "cold open s",
+     "value": 26.65,
+     "op": "<=",
+     "threshold": 15.0,
+     "unit": "s",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "ident s",
+     "value": 3.0,
+     "op": "<=",
+     "threshold": 3.0,
+     "unit": "s",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "outro s",
+     "value": 40.55,
+     "op": ">=",
+     "threshold": 20.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "total s",
+     "value": 737.169,
+     "op": ">=",
+     "threshold": 600.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "act gaps",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "scenes outside their act",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "gaps": [],
+     "outside": []
+    }
+   ],
+   "note": null,
+   "section": "DX-S1",
+   "threshold": "order cold-open, ident, act1, act2, act3, method, outro; cold open ≤ 15 s; ident ≤ 3 s; outro ≥ 20 s; timeline total ≥ 600 s; every scene inside its act",
+   "fingerprint": "9ed1c02c0bbc8b97",
+   "seconds": 0.0
+  },
+  {
+   "id": "S16",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "decisive sentences",
+     "value": 6,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "share tied to a character or scenario",
+     "value": 0.166667,
+     "op": ">=",
+     "threshold": 0.75,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "decisiveClaims": [
+      "be_bal_median",
+      "cut36_median"
+     ],
+     "anchors": [
+      "characters.large",
+      "characters.median",
+      "characters.small",
+      "scenarios.hold36",
+      "scenarios.hold84"
+     ]
+    },
+    {
+     "sentence": "S01.1",
+     "claims": [
+      "be_bal_median"
+     ],
+     "tiedTo": [],
+     "text": "In October 2023, the average 30-year fixed mortgage rate in the US hit its highest level since 2000."
+    },
+    {
+     "sentence": "S05.1",
+     "claims": [
+      "be_bal_median"
+     ],
+     "tiedTo": [],
+     "text": "One week in January 2021, the average 30-year fixed rate was 2.65%, the lowest in the weekly record."
+    },
+    {
+     "sentence": "S06.2",
+     "claims": [
+      "be_bal_median"
+     ],
+     "tiedTo": [],
+     "text": "Three in ten 30-year home-purchase loans made in 2023 carried a rate of seven percent or more."
+    },
+    {
+     "sentence": "S15.2",
+     "claims": [
+      "be_bal_median"
+     ],
+     "tiedTo": [],
+     "text": "A new loan starts the 30-year clock over."
+    },
+    {
+     "sentence": "S17.1",
+     "claims": [
+      "be_bal_median"
+     ],
+     "tiedTo": [],
+     "text": "With the gap counted, the bill comes back at month 30."
+    }
+   ],
+   "note": null,
    "section": "DX-S3, RUBRIC H4 (sổ gu G-008)",
    "threshold": "PROVISIONAL: ≥ 1 decisive sentence; ≥ 75% of decisive sentences tied to a declared character or scenario",
    "fingerprint": "63091769966d83b9",
+   "seconds": 0.0
+  },
+  {
+   "id": "R02",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "longest stretch without a break s",
+     "value": 48.35,
+     "op": "<=",
+     "threshold": 60.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "from": 648.269,
+     "to": 696.619
+    }
+   ],
+   "note": null,
+   "section": "DX-R2",
+   "threshold": "longest gap ≤ 60 s",
+   "fingerprint": "7050a680e8f99ac0",
    "seconds": 0.0
   },
   {

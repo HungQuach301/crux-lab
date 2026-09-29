@@ -4,17 +4,29 @@ Model claims vs the checker's re-computation (checks/py/r_model.py): **47/47 mat
 
 | rule | status | failing | why |
 |---|---|---|---|
-| F11 | FAIL | declared artefacts not delivered = 27 | every CONTRACT.md release file is declared in artefacts.M3; the video, voice, stems and render files are not produced yet (M3) |
+| F11 | FAIL | declared artefacts not delivered = 23 | every CONTRACT.md release file is declared in artefacts.M3; the video, voice, stems and render files are not produced yet (M3) |
+| A13 | PASS |  |  |
+| A15 | MISSING |  | needs out/video.mp4 (ASR on the master) |
 | S01 | PASS |  |  |
 | S03 | PASS |  |  |
 | S04 | PASS |  |  |
 | S05 | PASS |  |  |
 | S06 | MISSING |  | needs out/checks/page.json (page sampler on the rendered page: yearsTrack/casesTrack); no page yet (M2) |
-| S16 | MISSING |  | needs out/script.json (sentences with timings); the script is in story/, not yet built into out/script.json |
+| S07 | MISSING |  | needs out/checks/page.json (numbers on screen) |
+| S08 | MISSING |  | needs out/checks/page.json |
+| S09 | MISSING |  | needs out/checks/page.json |
+| S10 | FAIL | forecast sentences = 1 |  |
+| S11 | MISSING |  | needs out/checks/page.json |
+| S12 | MISSING |  | needs out/checks/page.json |
+| S13 | FAIL | staccato passages = 2 |  |
+| S14 | MISSING |  | needs out/video.mp4 (master silences) |
+| S15 | FAIL | cold open s = 26.65 |  |
+| S16 | FAIL | share tied to a character or scenario = 0.166667 |  |
+| R02 | PASS |  |  |
 | V04 | MISSING |  | page rule: needs out/checks/page.json (rendered page) |
 | V09 | MISSING |  | page rule: needs out/checks/page.json (rendered page) |
-| T1 | MISSING |  | needs out/sonify-events.json or page chartEvents, and the audio stems (voice, sonify); no render or voice yet |
-| L1 | MISSING |  | needs out/audio/stems/sonify.* and the voice stem; no voice yet (0 ElevenLabs characters used) |
+| T1 | MISSING |  | needs the stems and out/video.mp4; on the animatic stems (scratch root) still MISSING: out/video.mp4 |
+| L1 | MISSING |  | needs the stems; on the animatic stems (scratch root, out/checks/animatic-T1-L1.json): PASS, 29.2 dB, 0 key words lost |
 
 ## Mismatches
 

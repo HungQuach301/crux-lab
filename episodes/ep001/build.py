@@ -2,7 +2,7 @@
 
     python3 episodes/ep001/build.py
 
-Writes out/model.json, out/claims.json, out/script-draft.json, script/script.md and review tables
+Writes out/model.json, out/claims.json (spoken/shownIn/callbacks from out/script-draft.json = story/script.md) and review tables
 (out/break-even-methods.csv/.md). Main break-even = counting what is still owed (model.refi.break_even_balance);
 the simple division (cost / monthly saving) is shown next to it as the thesis of the episode.
 Characters `median` / `small` / `large` (neutral IDs; the writer names them) are ILLUSTRATIVE: each borrowed in October 2023
@@ -240,59 +240,46 @@ def main():
         if n in CH and base.split('_')[0] in ('loan', 'sav', 'be', 'net36', 'net84', 'cut36'):
             c['character'] = n
 
-    # script
-    lines, act = [], None
-    tpl_all = open(os.path.join(HERE, 'script', 'script.tpl.md')).read()
-    missing = sorted({i for i in re.findall(r'\{\{(\w+)\}\}', tpl_all) if i not in C})
-    render = not missing  # a stale template (old claim IDs) is not rendered: script.md is left as it is
-    for raw in (tpl_all.splitlines() if render else []):
-        raw = raw.rstrip('\n')
-        if act is None and not raw.startswith('@act'):
-            continue
-        if raw.startswith('@act'):
-            act = raw.split()[1]; continue
-        if not raw.strip() or raw.startswith('#') or '|' not in raw:
-            continue
-        scene, tpl = [x.strip() for x in raw.split('|', 1)]
-        ids = re.findall(r'\{\{(\w+)\}\}', tpl)
-        text = re.sub(r'\{\{(\w+)\}\}', lambda m: C[m.group(1)]['display'], tpl)
-        sid = scene + '.1'
-        lines.append({'id': sid, 'act': act, 'scene': scene, 'text': text, 'claims': ids})
-        for cid in ids:
-            C[cid]['spoken'].append({'sentence': sid})
-            if scene not in C[cid]['shownIn']:
-                C[cid]['shownIn'].append(scene)
-    MEAN = {'cost_median': {'a1-median': 'the median character\'s bill is the national median', 'a3-median': 'a median: half paid more'},
-            'be_bal_median': {'a3-today': 'what the cut of the anchor date means for the median character'},
-            'cut_today': {}}
+    # script: the approved story/script.md (v2), converted by preprod/script_from_story.py into out/script-draft.json.
+    # The old template script (script/script.tpl.md) is retired; build.py no longer writes any script file.
+    dp = os.path.join(HERE, 'out', 'script-draft.json')
+    lines = [r for r in json.load(open(dp))['sentences'] if r.get('claims')] if os.path.exists(dp) else []
+    unknown = sorted({c for l in lines for c in l['claims'] if c not in C})
+    assert not unknown, f'story/script.md uses claim IDs not in claims.json: {unknown}'
+    for l in lines:
+        for cid in l['claims']:
+            if l['kind'] == 'line':
+                C[cid]['spoken'].append({'sentence': l['id']})
+            if l['scene'] not in C[cid]['shownIn']:
+                C[cid]['shownIn'].append(l['scene'])
+    # callbacks: a number that comes back in a later scene, and what it means there (script v2)
+    MEAN = {'cost_median': {'S10': 'the bill from the letter, now said: the real 2025 median', 'S23': 'Nora\'s bill beside Walt\'s and Anjali\'s'},
+            'sav_median': {'S14': 'the same monthly saving, now stacked month by month', 'S27': 'Nora\'s saving as the yardstick for Anjali\'s'},
+            'be_bal_median': {'S21': 'her real offer pays back at month 30: inside three years'},
+            'be_simple_median': {'S12': 'two years, said in words'},
+            'cut_today': {'S21': 'her real offer clears the half-point line'},
+            'cut_today_words': {'S21': 'her real offer clears the half-point line'},
+            'cut36_median': {'S29': 'the answer for Nora, beside Anjali and Walt'},
+            'cut36_small': {'S29': 'the answer for Walt'}, 'cut36_large_words': {'S29': 'the answer for Anjali'},
+            'hold36': {'S20': 'the full point is inside three years', 'S21': 'the three-year line decides', 'S29': 'the answer is stated for three years'},
+            'k35': {'S15': 'the 35 payments already made are what the reset throws away'},
+            'y3': {'S28': 'Anjali at three years', 'S31': 'one of the two horizons'}, 'y7': {'S31': 'one of the two horizons'},
+            's10': {'S32': 'the one-point line is an analyst choice', 'S33': 'history of one-point drops'},
+            'anchor_date': {'S32': 'date of the rate used'}, 'r_old': {'S32': 'method: how the old rate is set'}, 'r_today': {'S32': 'method: how the new rate is set'},
+            'y2025': {'S32': 'method: data year'}, 'ge7_threshold': {'S32': 'analyst choice'}, 'term30': {'S32': 'method: new loan term'}}
     for cid, m in MEAN.items():
         C[cid]['callbacks'] = [{'scene': s, 'meaning': v} for s, v in m.items() if s in C[cid]['shownIn']]
     words = [len(re.findall(r"[\w$%.,'-]+", l['text'])) for l in lines]
-    seen, per_scene = set(), {}
+    seen = set()
     for l in lines:
-        new = [c for c in l['claims'] if c not in seen and C[c].get('role') != 'axis']
-        seen |= set(l['claims']); per_scene[l['scene']] = new
-    report = {'sentences': len(lines), 'words': sum(words), 'estSpeechSeconds': round(sum(words) / WPM * 60, 1),
-              'newNumbers': len([c for c in seen if C[c].get('role') != 'axis']), 'scenesOver2New': {s: n for s, n in per_scene.items() if len(n) > 2},
-              'sentenceLengthCV': round(statistics.pstdev(words) / statistics.mean(words), 3) if words else None, 'claims': len(C), 'unusedClaims': [c for c in C if not C[c]['spoken']]}
+        seen |= set(l['claims'])
+    report = {'scriptSource': 'story/script.md via out/script-draft.json', 'rowsWithClaims': len(lines), 'claims': len(C), 'claimsUsed': len(seen),
+              'unusedClaims': [c for c in C if c not in seen]}
     os.makedirs(os.path.join(HERE, 'out'), exist_ok=True)
     json.dump({'claims': list(C.values())}, open(os.path.join(HERE, 'out', 'claims.json'), 'w'), indent=1)
     json.dump({'scenario': {'borrowed': '2023-10', 'oldRate': r_old, 'paymentsMade': k, 'todayWeek': last_week, 'todayRate': r_today},
                'characters': ch, 'medianByCut': cuts, 'dateAnchor': {'date': last_week, 'text': anchor_txt, 'meaning': week_txt, 'fred': fred_latest}, 'largeBand': LARGE, 'conformingLimits': CLL, 'gapAtSimpleBreakEven': gap_at, 'costSharesByYear': shares, 'fixedSharePre2018': fixed, 'history': hist},
               open(os.path.join(HERE, 'out', 'model.json'), 'w'), indent=1)
-    if render:
-        json.dump({'sentences': lines, 'check': report}, open(os.path.join(HERE, 'out', 'script-draft.json'), 'w'), indent=1)
-    report['templateMissingClaims'] = missing
-    report['scriptRendered'] = render
-    for f_ in ([] if render else [0]):
-        print('script/script.tpl.md uses claim IDs not in claims.json; script.md NOT regenerated:', missing[:12], '...' if len(missing) > 12 else '')
-    with (open(os.path.join(HERE, 'script', 'script.md'), 'w') if render else open(os.devnull, 'w')) as f:
-        f.write('# Episode 1 — script M1b (generated from script.tpl.md and out/claims.json; do not edit)\n')
-        a = None
-        for l in lines:
-            if l['act'] != a:
-                a = l['act']; f.write(f'\n## {a}\n\n')
-            f.write(f"- `{l['scene']}` {l['text']}\n")
     # comparison table of the two methods
     rows = []
     for n in CH:

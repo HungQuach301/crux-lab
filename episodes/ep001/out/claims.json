@@ -12,9 +12,24 @@
    "dataYear": 2026,
    "historical": true,
    "illustrative": false,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "callbacks": [
+    {
+     "scene": "S32",
+     "meaning": "date of the rate used"
+    }
+   ],
+   "shownIn": [
+    "S08",
+    "S32"
+   ],
+   "spoken": [
+    {
+     "sentence": "S08.3"
+    },
+    {
+     "sentence": "S32.2"
+    }
+   ]
   },
   {
    "claimId": "oct2023",
@@ -29,8 +44,18 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "shownIn": [
+    "S01",
+    "S07"
+   ],
+   "spoken": [
+    {
+     "sentence": "S01.1"
+    },
+    {
+     "sentence": "S07.1"
+    }
+   ]
   },
   {
    "claimId": "r_old",
@@ -44,9 +69,24 @@
    "dataYear": 2023,
    "historical": true,
    "illustrative": false,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "callbacks": [
+    {
+     "scene": "S32",
+     "meaning": "method: how the old rate is set"
+    }
+   ],
+   "shownIn": [
+    "S07",
+    "S32"
+   ],
+   "spoken": [
+    {
+     "sentence": "S07.5"
+    },
+    {
+     "sentence": "S32.2"
+    }
+   ]
   },
   {
    "claimId": "r_today",
@@ -60,9 +100,24 @@
    "dataYear": 2026,
    "historical": true,
    "illustrative": false,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S32",
+     "meaning": "method: how the new rate is set"
+    }
+   ],
+   "shownIn": [
+    "S08",
+    "S32"
+   ],
+   "spoken": [
+    {
+     "sentence": "S08.3"
+    },
+    {
+     "sentence": "S32.2"
+    }
+   ],
    "asOf": "2026-09-24"
   },
   {
@@ -77,9 +132,21 @@
    "dataYear": 2026,
    "historical": false,
    "illustrative": false,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "callbacks": [
+    {
+     "scene": "S32",
+     "meaning": "method: new loan term"
+    }
+   ],
+   "shownIn": [
+    "S15",
+    "S32"
+   ],
+   "spoken": [
+    {
+     "sentence": "S15.2"
+    }
+   ]
   },
   {
    "claimId": "seven",
@@ -114,8 +181,14 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": [
+    {
+     "sentence": "S09.1"
+    }
+   ],
    "core": true,
    "asOf": "2026-09-24"
   },
@@ -134,9 +207,24 @@
    ],
    "historical": true,
    "illustrative": true,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S15",
+     "meaning": "the 35 payments already made are what the reset throws away"
+    }
+   ],
+   "shownIn": [
+    "S08",
+    "S15"
+   ],
+   "spoken": [
+    {
+     "sentence": "S08.1"
+    },
+    {
+     "sentence": "S15.1"
+    }
+   ],
    "asOf": "2026-09-24"
   },
   {
@@ -153,8 +241,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S07"
+   ],
+   "spoken": [
+    {
+     "sentence": "S07.3"
+    }
+   ],
    "character": "median"
   },
   {
@@ -170,9 +264,32 @@
    "historical": true,
    "illustrative": false,
    "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S10",
+     "meaning": "the bill from the letter, now said: the real 2025 median"
+    },
+    {
+     "scene": "S23",
+     "meaning": "Nora's bill beside Walt's and Anjali's"
+    }
+   ],
+   "shownIn": [
+    "S02",
+    "S10",
+    "S23"
+   ],
+   "spoken": [
+    {
+     "sentence": "S02.2"
+    },
+    {
+     "sentence": "S10.1"
+    },
+    {
+     "sentence": "S23.1"
+    }
+   ],
    "core": true,
    "decisive": false
   },
@@ -192,9 +309,32 @@
    "historical": true,
    "illustrative": true,
    "basis": "nominal",
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S14",
+     "meaning": "the same monthly saving, now stacked month by month"
+    },
+    {
+     "scene": "S27",
+     "meaning": "Nora's saving as the yardstick for Anjali's"
+    }
+   ],
+   "shownIn": [
+    "S09",
+    "S14",
+    "S27"
+   ],
+   "spoken": [
+    {
+     "sentence": "S09.2"
+    },
+    {
+     "sentence": "S14.3"
+    },
+    {
+     "sentence": "S27.6"
+    }
+   ],
    "model": "refi.both",
    "asOf": "2026-09-24",
    "character": "median"
@@ -214,9 +354,23 @@
    ],
    "historical": true,
    "illustrative": true,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S12",
+     "meaning": "two years, said in words"
+    }
+   ],
+   "shownIn": [
+    "S12"
+   ],
+   "spoken": [
+    {
+     "sentence": "S12.4"
+    },
+    {
+     "sentence": "S12.6"
+    }
+   ],
    "model": "refi.break_even_months",
    "asOf": "2026-09-24",
    "character": "median"
@@ -236,9 +390,24 @@
    ],
    "historical": true,
    "illustrative": true,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S21",
+     "meaning": "her real offer pays back at month 30: inside three years"
+    }
+   ],
+   "shownIn": [
+    "S17",
+    "S21"
+   ],
+   "spoken": [
+    {
+     "sentence": "S17.1"
+    },
+    {
+     "sentence": "S21.3"
+    }
+   ],
    "model": "refi.break_even_balance",
    "asOf": "2026-09-24",
    "core": true,
@@ -262,8 +431,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S30"
+   ],
+   "spoken": [
+    {
+     "sentence": "S30.3"
+    }
+   ],
    "model": "refi.net_after",
    "asOf": "2026-09-24",
    "character": "median"
@@ -285,8 +460,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S31"
+   ],
+   "spoken": [
+    {
+     "sentence": "S31.1"
+    }
+   ],
    "model": "refi.net_after",
    "asOf": "2026-09-24",
    "character": "median"
@@ -306,9 +487,27 @@
    ],
    "historical": true,
    "illustrative": true,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S29",
+     "meaning": "the answer for Nora, beside Anjali and Walt"
+    }
+   ],
+   "shownIn": [
+    "S21",
+    "S29"
+   ],
+   "spoken": [
+    {
+     "sentence": "S21.2"
+    },
+    {
+     "sentence": "S29.4"
+    },
+    {
+     "sentence": "S29.7"
+    }
+   ],
    "model": "refi.cut_for_break_even_balance",
    "decisive": true,
    "core": true,
@@ -328,8 +527,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S22"
+   ],
+   "spoken": [
+    {
+     "sentence": "S22.3"
+    }
+   ],
    "character": "small"
   },
   {
@@ -346,8 +551,18 @@
    "illustrative": false,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "shownIn": [
+    "S22",
+    "S23"
+   ],
+   "spoken": [
+    {
+     "sentence": "S22.5"
+    },
+    {
+     "sentence": "S23.1"
+    }
+   ]
   },
   {
    "claimId": "sav_small",
@@ -366,8 +581,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S24"
+   ],
+   "spoken": [
+    {
+     "sentence": "S24.1"
+    }
+   ],
    "model": "refi.both",
    "asOf": "2026-09-24",
    "character": "small"
@@ -410,8 +631,14 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S24"
+   ],
+   "spoken": [
+    {
+     "sentence": "S24.2"
+    }
+   ],
    "model": "refi.break_even_balance",
    "asOf": "2026-09-24",
    "character": "small"
@@ -433,8 +660,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S25"
+   ],
+   "spoken": [
+    {
+     "sentence": "S25.1"
+    }
+   ],
    "model": "refi.net_after",
    "asOf": "2026-09-24",
    "character": "small"
@@ -477,9 +710,24 @@
    ],
    "historical": true,
    "illustrative": true,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S29",
+     "meaning": "the answer for Walt"
+    }
+   ],
+   "shownIn": [
+    "S26",
+    "S29"
+   ],
+   "spoken": [
+    {
+     "sentence": "S26.1"
+    },
+    {
+     "sentence": "S29.5"
+    }
+   ],
    "model": "refi.cut_for_break_even_balance",
    "character": "small"
   },
@@ -498,8 +746,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S27"
+   ],
+   "spoken": [
+    {
+     "sentence": "S27.3"
+    }
+   ],
    "character": "large"
   },
   {
@@ -517,8 +771,18 @@
    "illustrative": false,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "shownIn": [
+    "S23",
+    "S27"
+   ],
+   "spoken": [
+    {
+     "sentence": "S23.1"
+    },
+    {
+     "sentence": "S27.4"
+    }
+   ]
   },
   {
    "claimId": "sav_large",
@@ -537,8 +801,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S27"
+   ],
+   "spoken": [
+    {
+     "sentence": "S27.6"
+    }
+   ],
    "model": "refi.both",
    "asOf": "2026-09-24",
    "character": "large"
@@ -607,8 +877,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S28"
+   ],
+   "spoken": [
+    {
+     "sentence": "S28.1"
+    }
+   ],
    "model": "refi.net_after",
    "asOf": "2026-09-24",
    "character": "large"
@@ -676,8 +952,14 @@
    "illustrative": true,
    "basis": "nominal",
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S16"
+   ],
+   "spoken": [
+    {
+     "sentence": "S16.1"
+    }
+   ],
    "model": "refi.balance_after",
    "asOf": "2026-09-24"
   },
@@ -689,9 +971,40 @@
    "source": null,
    "historical": false,
    "illustrative": true,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "callbacks": [
+    {
+     "scene": "S20",
+     "meaning": "the full point is inside three years"
+    },
+    {
+     "scene": "S21",
+     "meaning": "the three-year line decides"
+    },
+    {
+     "scene": "S29",
+     "meaning": "the answer is stated for three years"
+    }
+   ],
+   "shownIn": [
+    "S04",
+    "S20",
+    "S21",
+    "S29"
+   ],
+   "spoken": [
+    {
+     "sentence": "S04.2"
+    },
+    {
+     "sentence": "S20.3"
+    },
+    {
+     "sentence": "S21.2"
+    },
+    {
+     "sentence": "S29.2"
+    }
+   ]
   },
   {
    "claimId": "y3",
@@ -701,9 +1014,32 @@
    "source": null,
    "historical": false,
    "illustrative": true,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "callbacks": [
+    {
+     "scene": "S28",
+     "meaning": "Anjali at three years"
+    },
+    {
+     "scene": "S31",
+     "meaning": "one of the two horizons"
+    }
+   ],
+   "shownIn": [
+    "S25",
+    "S28",
+    "S31"
+   ],
+   "spoken": [
+    {
+     "sentence": "S25.1"
+    },
+    {
+     "sentence": "S28.1"
+    },
+    {
+     "sentence": "S31.4"
+    }
+   ]
   },
   {
    "claimId": "y7",
@@ -713,9 +1049,23 @@
    "source": null,
    "historical": false,
    "illustrative": true,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "callbacks": [
+    {
+     "scene": "S31",
+     "meaning": "one of the two horizons"
+    }
+   ],
+   "shownIn": [
+    "S31"
+   ],
+   "spoken": [
+    {
+     "sentence": "S31.1"
+    },
+    {
+     "sentence": "S31.4"
+    }
+   ]
   },
   {
    "claimId": "s025",
@@ -726,8 +1076,14 @@
    "historical": false,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "shownIn": [
+    "S18"
+   ],
+   "spoken": [
+    {
+     "sentence": "S18.1"
+    }
+   ]
   },
   {
    "claimId": "s05",
@@ -738,8 +1094,14 @@
    "historical": false,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "shownIn": [
+    "S21"
+   ],
+   "spoken": [
+    {
+     "sentence": "S21.1"
+    }
+   ]
   },
   {
    "claimId": "s10",
@@ -749,9 +1111,26 @@
    "source": null,
    "historical": false,
    "illustrative": false,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "callbacks": [
+    {
+     "scene": "S32",
+     "meaning": "the one-point line is an analyst choice"
+    },
+    {
+     "scene": "S33",
+     "meaning": "history of one-point drops"
+    }
+   ],
+   "shownIn": [
+    "S12",
+    "S32",
+    "S33"
+   ],
+   "spoken": [
+    {
+     "sentence": "S12.1"
+    }
+   ]
   },
   {
    "claimId": "be_simple_025",
@@ -769,8 +1148,14 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S18"
+   ],
+   "spoken": [
+    {
+     "sentence": "S18.2"
+    }
+   ],
    "model": "refi.both"
   },
   {
@@ -789,8 +1174,14 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S19"
+   ],
+   "spoken": [
+    {
+     "sentence": "S19.1"
+    }
+   ],
    "model": "refi.both"
   },
   {
@@ -829,8 +1220,14 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S21"
+   ],
+   "spoken": [
+    {
+     "sentence": "S21.1"
+    }
+   ],
    "model": "refi.both"
   },
   {
@@ -869,8 +1266,14 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S20"
+   ],
+   "spoken": [
+    {
+     "sentence": "S20.1"
+    }
+   ],
    "model": "refi.both"
   },
   {
@@ -886,7 +1289,9 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
+   "shownIn": [
+    "S33"
+   ],
    "spoken": []
   },
   {
@@ -901,9 +1306,24 @@
    "dataYear": 2025,
    "historical": true,
    "illustrative": false,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "callbacks": [
+    {
+     "scene": "S32",
+     "meaning": "method: data year"
+    }
+   ],
+   "shownIn": [
+    "S10",
+    "S32"
+   ],
+   "spoken": [
+    {
+     "sentence": "S10.4"
+    },
+    {
+     "sentence": "S32.3"
+    }
+   ]
   },
   {
    "claimId": "y2018",
@@ -1197,7 +1617,9 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
+   "shownIn": [
+    "S33"
+   ],
    "spoken": [],
    "model": "refi.drop_episodes"
   },
@@ -1297,7 +1719,9 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
+   "shownIn": [
+    "S33"
+   ],
    "spoken": [],
    "model": "refi.history"
   },
@@ -1561,8 +1985,14 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "sentence": "S05.1"
+    }
+   ],
    "date": "2021-01-07"
   },
   {
@@ -1578,8 +2008,14 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": []
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "sentence": "S05.1"
+    }
+   ]
   },
   {
    "claimId": "rise_since_low",
@@ -1631,8 +2067,14 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S01"
+   ],
+   "spoken": [
+    {
+     "sentence": "S01.1"
+    }
+   ],
    "date": "2000-11-10"
   },
   {
@@ -1806,8 +2248,14 @@
    "historical": true,
    "illustrative": true,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S23"
+   ],
+   "spoken": [
+    {
+     "sentence": "S23.2"
+    }
+   ],
    "parent": [
     "cost_small",
     "loan_small"
@@ -1826,8 +2274,14 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": [
+    {
+     "sentence": "S10.4"
+    }
+   ],
    "parent": "n31",
    "spokenForm": true
   },
@@ -1846,9 +2300,24 @@
    ],
    "historical": true,
    "illustrative": false,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S21",
+     "meaning": "her real offer clears the half-point line"
+    }
+   ],
+   "shownIn": [
+    "S09",
+    "S21"
+   ],
+   "spoken": [
+    {
+     "sentence": "S09.1"
+    },
+    {
+     "sentence": "S21.3"
+    }
+   ],
    "parent": "cut_today",
    "spokenForm": true,
    "asOf": "2026-09-24"
@@ -1869,9 +2338,24 @@
    ],
    "historical": true,
    "illustrative": true,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S29",
+     "meaning": "the answer for Anjali"
+    }
+   ],
+   "shownIn": [
+    "S28",
+    "S29"
+   ],
+   "spoken": [
+    {
+     "sentence": "S28.3"
+    },
+    {
+     "sentence": "S29.3"
+    }
+   ],
    "parent": "cut36_large",
    "spokenForm": true,
    "character": "large"
@@ -1889,8 +2373,14 @@
    "historical": true,
    "illustrative": false,
    "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "shownIn": [
+    "S06"
+   ],
+   "spoken": [
+    {
+     "sentence": "S06.2"
+    }
+   ],
    "parent": "purch23_ge7",
    "spokenForm": true
   },
@@ -1902,9 +2392,21 @@
    "source": null,
    "historical": false,
    "illustrative": false,
-   "callbacks": [],
-   "shownIn": [],
-   "spoken": [],
+   "callbacks": [
+    {
+     "scene": "S32",
+     "meaning": "analyst choice"
+    }
+   ],
+   "shownIn": [
+    "S06",
+    "S32"
+   ],
+   "spoken": [
+    {
+     "sentence": "S06.2"
+    }
+   ],
    "role": "parameter"
   }
  ]

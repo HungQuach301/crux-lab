@@ -1,17 +1,20 @@
-"""Episode 1 M1 edit plan from the table-read takes.
+"""Episode 1 edit plan (Stage 4b, script v2) from the V8 voice takes.
 
     python3 episodes/ep001/preprod/edit.py
 
-Reads out/voice/takes.json (final clips = raw takes trimmed, no stretching), out/script-draft.json, preprod/shotlist.json.
+Reads out/script-draft.json (story/script.md), out/voice/takes.json + el-takes.json + choice-report.json (final clips = raw takes
+trimmed to the speech span, no time stretching), preprod/shotlist.json.
 Writes:
-  work/table-read.wav + review-m1/table-read-full.m4a   continuous reading, every gap <= 0.8 s (M1 item 3)
-  preprod/timeline-plan.json                            planned edit timeline (picture lead, ident, pauses, ad breaks, outro)
-  edit/cues.json, preprod/cue-sheet.md                  music cues, intentional silences, sound design, sonification plan
-  preprod/tension-map.json + .png                       planned tension curve (targets, not measurements)
-  preprod/shotlist.md, preprod/color-script.md
+  work/table-read.wav, review-b/table-read-full.m4a   continuous table read (0.35 s between sentences, 0.75 s between scenes)
+  script/table-read-notes.md                          pace per act and sentence, key words, regenerated sentences and why, credits
+  preprod/timeline-plan.json                          planned edit timeline (picture lead, ident, script pauses, card holds, end screen)
+  out/timeline.json, out/script.json, out/adbreaks.json   contract files for the animatic timeline (checks/CONTRACT.md); the render
+                                                      re-times them at M2
+  edit/cues.json, preprod/cue-sheet.md, preprod/tension-map.json/.png, preprod/shotlist.md, preprod/color-script.md
 """
 import json
 import os
+import re
 import subprocess
 
 import numpy as np
@@ -22,24 +25,23 @@ EP = os.path.join(HERE, '..')
 SR = 48000
 J = lambda p: json.load(open(os.path.join(EP, p)))
 
-GAP_READ = 0.35          # table read: between sentences
-GAP_READ_ACT = 0.75      # table read: between acts (still <= 0.8 s)
-LEAD = 0.9               # cold open: picture before words (Maya's card)
-GAP_COLD = 0.3           # between the short cold-open lines
+LEAD = 1.5          # picture before the first word (script: the rate line draws ~1.5 s first)
+GAP = 0.45          # between sentences of a scene
+GAP_COLD = 0.3      # cold open
+GAP_SCENE = 0.7     # between scenes
 IDENT = 3.0
-GAP = 0.45               # edit: between sentences
-DECISIVE_PAUSE = 1.2     # after a sentence that says a decisive number (DX-R3 >= 1.0 s)
-SILENCES = {'a1-median': (1.2, 'Maya\'s bill is the national median: let it land'), 'a2-real': (1.3, 'the thesis lands: 24 becomes 30'),
-            'a3-answer2': (1.3, 'the answer lands'), 'a1-payoff': (1.6, 'end of act 1: ad break'), 'a2-payoff': (1.6, 'end of act 2: ad break')}
-OUTRO_HOLD = 12.0        # end screen after the last line (outro >= 20 s)
-MUSIC = {'cold-open': ('A minor', 72, 'suspense under the open question; pad + pulse, no melody'),
-         'ident': ('A minor', 72, 'ident sting'),
-         'act1': ('C major', 84, 'curious, light pulse; the three households get motifs (Dan: low plucks, Maya: piano, Priya: high bells)'),
-         'act2': ('D minor', 92, 'building to the thesis (a2-real: 24 becomes 30), valley after it; re-voiced at Dan\'s and Priya\'s positions'),
-         'act3': ('F major', 88, 'history: darker at the further-drop turn, resolves on the answer'),
-         'method': ('F major', 70, 'thin pad under the method card'),
-         'outro': ('C major', 76, 'resolved; both motifs together')}
-CLIMAX = {'act1': 'a1-turn', 'act2': 'a2-real', 'act3': 'a3-answer2'}
+CARD_HOLD = {'S32.4': 5.0, 'S32.5': 5.0, 'S33.1': 16.0}   # on-screen-only card blocks (method card >= 12 s; history card 16 s)
+MUSIC = {'cold-open': ('D minor', 72, 'suspense under the open question: pad and low pulse, no melody'),
+         'ident': ('D minor', 72, 'ident sting over the long rate-line tone'),
+         'act1': ('D minor', 84, 'curious, light pulse; Nora\'s motif (piano)'),
+         'act2': ('D minor', 92, 'build through the balance gap to the quarter-point climax (S19), release on the full point'),
+         'act3': ('F major', 88, 'Walt (low plucks), Anjali (high bells); resolves on the three-line answer (S29)'),
+         'method': ('F major', 70, 'thin pad under the method cards'),
+         'outro': ('F major', 76, 'resolved; three motifs together; tail into the end screen')}
+CLIMAX = {'act1': 'S13', 'act2': 'S19', 'act3': 'S29'}
+TURNS = {'S13': 'act 1 turn: neither answer is right; the division misses one line', 'S16': 'the missing line: $1,133 more owed at month 24',
+         'S19': 'act 2 climax: at a quarter point the bill never comes back', 'S23': 'act 3 turn: the bill barely shrinks with the loan',
+         'S29': 'the answer: a third of a point, half a point, more than one'}
 
 
 def dur(path):
@@ -47,131 +49,127 @@ def dur(path):
     return i.frames / i.samplerate
 
 
+def move_seconds(m):
+    x = re.search(r'([\d.]+) s', m)
+    return float(x.group(1)) if x else 0.0
+
+
 def main():
-    draft = J('out/script-draft.json')['sentences']
+    D0 = J('out/script-draft.json')
+    rows, scenes_src = D0['sentences'], {s['id']: s for s in D0['scenes']}
     takes = {t['id']: t for t in J('out/voice/takes.json')['takes']}
+    el = J('out/voice/el-takes.json')
+    rep = J('out/voice/choice-report.json')
     shots = {s['scene']: s for s in J('preprod/shotlist.json')['shots']}
-    claims = {c['claimId']: c for c in J('out/claims.json')['claims']}
-    choice = J('out/voice/choice-report.json')
-    wpm = {r['id']: r['chosen']['wpm'] for r in choice['sentences']}
-    D = {s['id']: dur(os.path.join(EP, takes[s['id']]['final'])) for s in draft}
-    # cold open: cut the breath/decay after the last word at ASR end + 250 ms (the same cut toolkit/audio/d_m2_audio.py makes
-    # after decisive lines; trimming, not stretching). M2 must apply it in the voice stem too (timeline-plan.json: tailCut).
-    EL = J('out/voice/el-takes.json')
-    TAIL = {}
-    for s in draft:
-        if s['act'] == 'cold-open':
-            rec = EL.get(os.path.basename(takes[s['id']]['raw'])[:-4])
-            if rec and rec.get('words'):
-                cut = 0.03 + rec['words'][-1]['end'] + 0.25
-                if cut < D[s['id']]:
-                    TAIL[s['id']] = round(cut, 3); D[s['id']] = cut
+    lines = [r for r in rows if r['kind'] == 'line']
+    D = {r['id']: dur(os.path.join(EP, takes[r['id']]['final'])) for r in lines}
 
     # 1) continuous table read
-    parts, t, prev_act, tr = [], 0.0, None, []
-    for s in draft:
-        if prev_act and s['act'] != prev_act:
-            g = GAP_READ_ACT
-        else:
-            g = GAP_READ if prev_act else 0.3
-        parts.append(np.zeros(int(g * SR))); t += g
-        x, sr = sf.read(os.path.join(EP, takes[s['id']]['final']), always_2d=False)
-        if x.ndim > 1:
-            x = x.mean(1)
-        if sr != SR:
-            raise SystemExit('unexpected sample rate')
-        tr.append({'id': s['id'], 'start': round(t, 3), 'end': round(t + len(x) / SR, 3)})
-        parts.append(x); t += len(x) / SR
-        prev_act = s['act']
+    parts, t, prev, tr = [], 0.3, None, []
+    parts.append(np.zeros(int(0.3 * SR)))
+    for r in lines:
+        if prev is not None:
+            g = 0.75 if r['scene'] != prev else 0.35
+            parts.append(np.zeros(int(g * SR))); t += g
+        x, sr = sf.read(os.path.join(EP, takes[r['id']]['final']), always_2d=False)
+        x = x.mean(1) if x.ndim > 1 else x
+        assert sr == SR
+        tr.append({'id': r['id'], 'start': round(t, 3), 'end': round(t + len(x) / SR, 3)})
+        parts.append(x); t += len(x) / SR; prev = r['scene']
     parts.append(np.zeros(int(0.5 * SR)))
     y = np.concatenate(parts)
     os.makedirs(os.path.join(EP, 'work'), exist_ok=True)
-    os.makedirs(os.path.join(EP, 'review-m1b'), exist_ok=True)
+    os.makedirs(os.path.join(EP, 'review-b'), exist_ok=True)
     sf.write(os.path.join(EP, 'work', 'table-read.wav'), y, SR)
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', os.path.join(EP, 'work', 'table-read.wav'), '-af', 'loudnorm=I=-16:TP=-1.5', '-c:a', 'aac', '-b:a', '128k',
-                    os.path.join(EP, 'review-m1b', 'table-read-full.m4a')], check=True)
-    gaps = [b['start'] - a['end'] for a, b in zip(tr, tr[1:])]
-    json.dump({'sentences': tr, 'maxGap': round(max(gaps), 3), 'duration': round(len(y) / SR, 2)}, open(os.path.join(EP, 'work', 'table-read.json'), 'w'), indent=1)
+                    os.path.join(EP, 'review-b', 'table-read-full.m4a')], check=True)
+    json.dump({'sentences': tr, 'duration': round(len(y) / SR, 2)}, open(os.path.join(EP, 'work', 'table-read.json'), 'w'), indent=1)
 
     # 2) planned edit timeline
-    decisive = {sp['sentence'] for c in claims.values() if c.get('decisive') for sp in c['spoken']}
-    t, scenes, acts, sents, prev = 0.0, [], [], [], None
-    for s in draft:
-        if s['act'] != prev:
-            if prev == 'cold-open':
-                acts.append({'id': 'ident', 'start': round(t, 3)}); scenes.append({'id': 'ident', 'act': 'ident', 'start': round(t, 3), 'dur': IDENT}); t += IDENT
-            acts.append({'id': s['act'], 'start': round(t, 3)})
-            if s['act'] == 'cold-open':
+    t, acts, scenes, sents, breaks, sil = 0.0, [], [], [], [], []
+    pending, cur_scene, cur_act = 0.0, None, None
+    for r in rows:
+        if r['scene'] != cur_scene:
+            # gap before a new scene: the pending pause, at least GAP_SCENE after a spoken line (GAP_COLD inside the cold open),
+            # nothing after a card, the ident or a hold
+            if cur_scene is not None and pending:
+                t += max(pending, GAP_COLD if r['act'] == 'cold-open' else GAP_SCENE)
+            pending = 0.0
+            if r['act'] != cur_act:
+                acts.append({'id': r['act'], 'start': round(t, 3)})
+                cur_act = r['act']
+            scenes.append({'id': r['scene'], 'act': r['act'], 'start': round(t, 3)})
+            cur_scene = r['scene']
+            if r['scene'] == 'S01':
                 t += LEAD
-            prev = s['act']
-        if s['scene'] == 'a1-rehook' and t < 30.3:
-            t = 30.3  # a breath before the promise: the rehook starts inside 0:30-0:45 (DX-S4)
-        st = t
-        t += D[s['id']]
-        sents.append({'id': s['id'], 'scene': s['scene'], 'text': s['text'], 'start': round(st, 3), 'end': round(t, 3)})
-        pause = GAP_COLD if s['act'] == 'cold-open' else GAP
-        if s['scene'] == 'co-question':
-            pause = 0.0  # the ident starts on the question's last syllable decay
-        if s['id'] in decisive:
-            pause = max(pause, DECISIVE_PAUSE)
-        if s['scene'] in SILENCES:
-            pause = max(pause, SILENCES[s['scene']][0] + 0.3)
-        t += pause
-        scenes.append({'id': s['scene'], 'act': s['act'], 'start': round(st if scenes else 0.0, 3)})
-    t += OUTRO_HOLD
+        if r['kind'] == 'line':
+            t += pending
+            st = t; t += D[r['id']]
+            sents.append({'id': r['id'], 'scene': r['scene'], 'text': r['text'], 'spoken': r['spoken'], 'start': round(st, 3), 'end': round(t, 3), 'claims': r['claims']})
+            pending = GAP_COLD if r['act'] == 'cold-open' else GAP
+        elif r['kind'] == 'pause':
+            pending = max(pending, r['pause'])
+            sil.append({'t': round(t + 0.05, 3), 'dur': r['pause'], 'after': sents[-1]['id'], 'why': 'ad break' if r.get('adBreak') else f"script pause after {sents[-1]['id']}"})
+            if r.get('adBreak'):
+                breaks.append({'t': round(t + r['pause'] / 2, 3), 'after': sents[-1]['id']})
+        elif r['kind'] == 'card':
+            if r['scene'] == 'S03':
+                t += IDENT
+            else:
+                t += pending; pending = 0.0; t += CARD_HOLD.get(r['id'], 4.0)
+            pending = 0.0
+        elif r['kind'] == 'hold':
+            t += pending; pending = 0.0; t += r['pause']
+    total = round(t + pending, 3)
     for i, sc in enumerate(scenes):
-        nxt = scenes[i + 1]['start'] if i + 1 < len(scenes) else t
-        if sc['id'] != 'ident':
-            sc['dur'] = round(nxt - sc['start'], 3)
+        nxt = scenes[i + 1]['start'] if i + 1 < len(scenes) else total
         sh = shots[sc['id']]
-        sc.update({'layout': sh['layout'], 'shot': sh['size'], 'move': sh['move'], 'sonify': sh['sonify']})
+        sc.update({'dur': round(nxt - sc['start'], 3), 'layout': sh['layout'], 'shot': sh['size'], 'panels': ['*'], 'chart': sh['layout'].split('/')[0],
+                   'move': move_seconds(sh['move']), 'moveText': sh['move'], 'sonify': sh['sonify']})
     for i, a in enumerate(acts):
-        a['end'] = acts[i + 1]['start'] if i + 1 < len(acts) else round(t, 3)
+        a['end'] = acts[i + 1]['start'] if i + 1 < len(acts) else total
         if a['id'] in CLIMAX:
             a['climax'] = next(x['start'] for x in scenes if x['id'] == CLIMAX[a['id']])
-    total = round(t, 3)
-    json.dump({'fps': 30, 'total': total, 'acts': acts, 'scenes': scenes, 'sentences': sents, 'tailCut': TAIL, 'note': 'PLANNED at M1 from the table-read takes; M2 re-times from the final takes'},
-              open(os.path.join(HERE, 'timeline-plan.json'), 'w'), indent=1)
+    sstart = {s['id']: s['start'] for s in scenes}
+    turns = [{'t': sstart[k], 'what': v} for k, v in TURNS.items()]
+    rehook = next(s for s in sents if s['id'] == 'S04.2')
+    marks = {'coldOpenEnd': next(a['start'] for a in acts if a['id'] == 'ident'), 'rehook': [rehook['start'], rehook['end']],
+             'acts': {a['id']: [a['start'], a['end']] for a in acts}, 'adBreaks': [b['t'] for b in breaks], 'total': total}
+    json.dump({'fps': 30, 'total': total, 'acts': acts, 'scenes': scenes, 'sentences': sents, 'turns': turns, 'marks': marks,
+               'note': 'PLANNED at Stage 4b from the V8 takes (animatic timeline); the render re-times at M2'}, open(os.path.join(HERE, 'timeline-plan.json'), 'w'), indent=1)
+    os.makedirs(os.path.join(EP, 'out'), exist_ok=True)
+    json.dump({'fps': 30, 'total': total, 'acts': acts, 'scenes': [{k: v for k, v in s.items() if k not in ('sonify', 'moveText')} for s in scenes], 'turns': turns,
+               'source': 'animatic timeline (preprod/edit.py, Stage 4b); not yet a render'}, open(os.path.join(EP, 'out', 'timeline.json'), 'w'), indent=1)
+    json.dump({'sentences': [{k: s[k] for k in ('id', 'scene', 'text', 'spoken', 'start', 'end')} for s in sents],
+               'source': 'story/script.md v2; times = animatic timeline (preprod/edit.py)'}, open(os.path.join(EP, 'out', 'script.json'), 'w'), indent=1, ensure_ascii=False)
+    json.dump({'breaks': [b['t'] for b in breaks]}, open(os.path.join(EP, 'out', 'adbreaks.json'), 'w'), indent=1)
 
-    # 3) cues + silences + sonification counts
-    cues = []
-    for a in acts:
-        k, bpm, fn = MUSIC[a['id']]
-        cues.append({'t': a['start'], 'end': a['end'], 'function': fn, 'key': k, 'tempo': bpm, 'layer': 'music'})
-    for a in acts:
-        if 'climax' in a:
-            cues.append({'t': round(a['climax'] - 20, 2), 'end': a['climax'], 'function': f"build to the {a['id']} climax (+6 dB over 20 s)", 'key': MUSIC[a['id']][0], 'tempo': MUSIC[a['id']][1], 'layer': 'music-dynamics'})
-    sil = []
-    for s in sents:
-        if s['scene'] in SILENCES:
-            sil.append({'t': round(s['end'] + 0.08, 3), 'dur': SILENCES[s['scene']][0], 'why': SILENCES[s['scene']][1], 'after': s['id']})
-    breaks = [x for x in sil if 'ad break' in x['why']]
+    # 3) cues + silences
+    cues = [{'t': a['start'], 'end': a['end'], 'function': MUSIC[a['id']][2], 'key': MUSIC[a['id']][0], 'tempo': MUSIC[a['id']][1], 'layer': 'music'} for a in acts]
+    cues += [{'t': round(max(a['start'], a['climax'] - 20), 2), 'end': a['climax'], 'function': f"build to the {a['id']} climax", 'key': MUSIC[a['id']][0], 'tempo': MUSIC[a['id']][1],
+              'layer': 'music-dynamics'} for a in acts if 'climax' in a]
     os.makedirs(os.path.join(EP, 'edit'), exist_ok=True)
-    json.dump({'cues': cues, 'silences': sil, 'adBreaks': [{'t': round(x['t'] + x['dur'] / 2, 3), 'after': x['after']} for x in breaks]},
-              open(os.path.join(EP, 'edit', 'cues.json'), 'w'), indent=1)
+    json.dump({'cues': cues, 'silences': sil, 'adBreaks': breaks}, open(os.path.join(EP, 'edit', 'cues.json'), 'w'), indent=1)
+    json.dump({'cues': cues, 'silences': sil, 'source': 'planned cue sheet (preprod/edit.py, Stage 4b); M2 writes the rendered cues'}, open(os.path.join(EP, 'out', 'cues.json'), 'w'), indent=1)
+    SH = J('preprod/shotlist.json')
     son_count = {}
     for sc in scenes:
         for e in sc['sonify']:
             son_count[e] = son_count.get(e, 0) + 1
-    SH = J('preprod/shotlist.json')
-    L = ['# Episode 1 — cue sheet (M1 plan)', '', f'Planned length **{total / 60:.2f} min** ({total:.1f} s) from the table-read takes. Music is generated in code (toolkit/audio/d_m2_audio.py, one reverb space, per-act arrangement); no third-party audio.', '',
+    L = ['# Episode 1 — cue sheet (Stage 4b, script v2)', '', f'Planned length **{total / 60:.2f} min** ({total:.1f} s) from the V8 takes. Music is generated in code; no third-party audio.', '',
          '## Music cues', '', '| t (s) | end | layer | key | tempo | dramatic function |', '|---|---|---|---|---|---|']
     L += [f"| {c['t']:.1f} | {c['end']:.1f} | {c['layer']} | {c['key']} | {c['tempo']} | {c['function']} |" for c in cues]
-    L += ['', '## Intentional silences (DX-R6: ~300 ms release in, room tone floor, back in 200 ms)', '', '| t (s) | length | after | why |', '|---|---|---|---|']
+    L += ['', '## Intentional silences (script pauses; ~300 ms release in, room tone floor)', '', '| t (s) | length | after | why |', '|---|---|---|---|']
     L += [f"| {x['t']:.2f} | {x['dur']} s | `{x['after']}` | {x['why']} |" for x in sil]
-    ab = ', '.join('%.1f s' % b['t'] for b in json.load(open(os.path.join(EP, 'edit', 'cues.json')))['adBreaks'])
-    L += ['', f"Ad breaks (DX-S10): {ab}, inside the act1|act2 and act2|act3 silences.", '',
-          '## Sound design', '', '- whoosh per camera move, level from peak speed (A10); riser into each reveal; impact on the decisive numbers (`cost_med`, `sp36_mid`); room tone throughout.',
-          '- every spoken number: music and sfx dip from 0.5 s before to 1.6 s after (DX-A6); the data sounds follow the voice side-chain below.', '',
-          '## Data sonification plan (DX-A1, sổ gu G-001, G-005, G-006), per element type', '',
-          'Timbre: **S2**, chosen by the owner in the blind test on a phone speaker (sổ gu G-005, 2026-09-28): palette `minimal` of `toolkit/audio/sonify_palettes.py`, soft filtered tick + low pulse. "S2 không lấn lời."', '',
+    L += ['', f"Ad breaks: {', '.join('%.1f s' % b['t'] for b in breaks)} (end of act 1, end of act 2).", '',
+          '## Data sonification plan (sổ gu G-001, G-005, G-006)', '',
+          'Timbre: **S2**, palette `minimal` of `toolkit/audio/sonify_palettes.py` (owner\'s pick, 2026-09-28): soft filtered tick (4.5-7 kHz) + low pulse (MIDI 36-60). Bands for T1: 60-270 Hz + 4.5-7 kHz.', '',
           '| element | timbre | value mapping | pan | timing | scenes using it |', '|---|---|---|---|---|---|']
     L += [f"| {r['element']} | {r['sound']} | {r['mapping']} | {r['pan']} | {r['timing']} | {son_count.get(r['element'], 0)} |" for r in SH['sonification']]
     L += ['', '### Heard without covering the voice', ''] + [f'- {x}' for x in SH['separation']]
-    L += ['', 'Measured on the 10 s sample, blind palettes (review-m1/sonify-metrics.json): data layer about -21 dB under the voice; 1-4 kHz while speaking 31-56 dB under the voice; T1-style lift median 0 dB (up to 6.6 dB in voice pauses). The m0 version at +10 dB (-6 dB under the voice) was judged by the owner to cover the voice.']
     open(os.path.join(HERE, 'cue-sheet.md'), 'w').write('\n'.join(L) + '\n')
 
-    # 4) planned tension map (targets): cut rate from scene lengths, music level from the cue plan, density from layers
+    # 4) planned tension map
     ts = np.arange(0, total, 1.0)
     starts = np.array([s['start'] for s in scenes])
     cut = np.array([((starts > x - 5) & (starts <= x + 5)).sum() for x in ts], float)
@@ -182,9 +180,8 @@ def main():
             ten += np.clip(1 - np.abs(ts - c) / 25, 0, 1) * (ts <= c) + np.clip(1 - (ts - c) / 8, 0, 1) * (ts > c) * 0.3
     ten = 0.4 * cut / max(cut.max(), 1) + 0.6 * ten
     peaks = [{'t': a['climax'], 'act': a['id']} for a in acts if 'climax' in a]
-    valleys = [{'t': round(p['t'] + 10, 1)} for p in peaks]
-    json.dump({'samples': [{'t': float(x), 'cutRate': float(c), 'tension': round(float(v), 3)} for x, c, v in zip(ts, cut, ten)], 'peaks': peaks, 'valleys': valleys,
-               'note': 'PLANNED targets at M1; M2 measures cut rate, music level and audio density from the edit and stems (toolkit/audio/d_tension.py)'},
+    json.dump({'samples': [{'t': float(x), 'cutRate': float(c), 'tension': round(float(v), 3)} for x, c, v in zip(ts, cut, ten)], 'peaks': peaks,
+               'valleys': [{'t': round(p['t'] + 10, 1)} for p in peaks], 'note': 'PLANNED targets (Stage 4b); M2 measures from the edit and stems'},
               open(os.path.join(HERE, 'tension-map.json'), 'w'), indent=1)
     import matplotlib
     matplotlib.use('Agg')
@@ -193,31 +190,52 @@ def main():
     ax.plot(ts, ten, color='#4c8dff'); ax.set_xlim(0, total); ax.set_ylim(0, 1.05)
     for a in acts:
         ax.axvline(a['start'], color='#9aa4b2', lw=0.6); ax.text(a['start'] + 2, 1.0, a['id'], fontsize=7, color='#555')
-    for p in peaks:
-        ax.plot(p['t'], np.interp(p['t'], ts, ten), 'v', color='#e5484d')
     for x in sil:
         ax.axvspan(x['t'], x['t'] + x['dur'], color='#f2b441', alpha=0.4, lw=0)
-    ax.set_xlabel('seconds'); ax.set_title('Episode 1 — planned tension (peaks at the act climaxes, amber = intentional silences)', fontsize=9)
+    ax.set_xlabel('seconds'); ax.set_title('Episode 1 — planned tension (script v2)', fontsize=9)
     fig.tight_layout(); fig.savefig(os.path.join(HERE, 'tension-map.png')); plt.close(fig)
 
-    # 5) human-readable shot list + colour script
-    L = ['# Episode 1 — shot list (M1)', '', 'Every shot: size, camera move, reason (DX-V8, DX-V12). Planned times from the table read. Data sounds: element types that change in the shot.', '',
-         '| # | t (s) | scene | layout | size | move | reason | picture | data sounds |', '|---|---|---|---|---|---|---|---|---|']
-    tmap = {s['id']: s['start'] for s in scenes}
-    for s in SH['shots']:
-        L.append(f"| {s['id']} | {tmap.get(s['scene'], 0):.1f} | `{s['scene']}` | {s['layout']} | {s['size']} | {s['move']} | {s['moveReason']} | {s['picture']} | {', '.join(s['sonify']) or '—'} |")
+    # 5) shot list with times, colour script
+    L = ['# Episode 1 — shot list (Stage 4b, script v2)', '', 'Every shot: size, camera move, reason. Times from the animatic timeline. 2.5D: moves on the chart plane only.', '',
+         '| # | t (s) | scene | act | layout | size | move | reason | picture | data sounds |', '|---|---|---|---|---|---|---|---|---|---|']
+    L += [f"| {s['id']} | {sstart[s['scene']]:.1f} | `{s['scene']}` | {s['act']} | {s['layout']} | {s['size']} | {s['move']} | {s['moveReason']} | {s['picture']} | {', '.join(s['sonify']) or '—'} |"
+          for s in SH['shots']]
     open(os.path.join(HERE, 'shotlist.md'), 'w').write('\n'.join(L) + '\n')
-    CS = ['# Episode 1 — colour script', '', 'All colours are channel tokens (`design/tokens.json`). One grade for the whole film; light fixed grain and vignette.', '',
+    CS = ['# Episode 1 — colour script (script v2)', '', 'All colours are channel tokens (`design/tokens.json`). Characters: Nora = positive green circle (centre), Walt = warn amber triangle (left), '
+          'Anjali = negative red square (right); names in ink. Rate line = accent, no marker. Bill/saved bars use ink-muted or a pattern whenever a character marker is on screen.', '',
           '| act | background | lead colour | feeling |', '|---|---|---|---|',
-          '| cold open | bg | accent (new payment) against negative (the bill) | a gain with a price |',
-          '| act 1 | bg | ink data, amber SMALL / blue LARGE introduced | inventory, calm |',
-          '| act 2 | bg, surface panels for the curve | ink curve; amber and blue curves at the turn; positive/negative shading at the flip | tension rises to the cliff |',
-          '| act 3 | bg | accent rate line, grey ILLUSTRATIVE bars pre-2018, negative marks for "next point came first" | history, weight |',
-          '| method | surface | ink-muted text | quiet |', '| outro | bg | ink + accent | resolved |']
+          '| cold open | bg | accent rate line to the 2023 peak; the paper letter (light) | a gain with a price |',
+          '| act 1 | bg | accent line; Nora green enters; the bill block ink-muted | story, calm |',
+          '| act 2 | bg | ink-muted old loan vs accent new loan; hatched gap | doubt rises to the quarter-point climax |',
+          '| act 3 | bg | amber Walt (left), red Anjali (right), green Nora (centre) on one ruler | contrast, resolution |',
+          '| method | surface | ink-muted text | quiet |', '| outro | bg | the three markers together | resolved |']
     open(os.path.join(HERE, 'color-script.md'), 'w').write('\n'.join(CS) + '\n')
-    acts_wpm = choice['acts']
-    print(json.dumps({'tableRead': round(len(y) / SR, 1), 'maxGap': round(max(gaps), 3), 'plannedTotal': total, 'acts': {a['id']: round(a['end'] - a['start'], 1) for a in acts},
-                      'actWpm': acts_wpm, 'fastSentences': sorted([(k, v) for k, v in wpm.items() if v and v > 190], key=lambda x: -x[1])[:10]}, indent=1))
+
+    # 6) table-read notes
+    acts_w = rep['acts']
+    ch = {r['id']: r for r in rep['sentences']}
+    wp = [(r['id'], r['chosen']['wpm']) for r in rep['sentences'] if r['chosen']['wpm']]
+    lo, hi = min(wp, key=lambda x: x[1]), max(wp, key=lambda x: x[1])
+    missing = [(r['id'], r['chosen']['missing']) for r in rep['sentences'] if r['chosen']['missing']]
+    regen = []
+    for r in lines:
+        tk = sorted([x for x in el.values() if x['sid'] == r['id']], key=lambda x: (x['model'], x['take']))
+        if len(tk) > 1:
+            why = '; '.join(f"t{x['take']} {x['model'].replace('eleven_', '')}: {x['wpm']} wpm" + (f", missing {', '.join(x['missing'])}" if x['missing'] else '') for x in tk)
+            regen.append((r['id'], ch[r['id']]['chosen'], why))
+    cred = J('out/voice/el-credits.json')
+    N = ['# Episode 1 — table read notes (Stage 4b, voice V8)', '',
+         f"Voice: ElevenLabs Eric (V8), `eleven_v3`, fallback `eleven_multilingual_v2` per sentence. No time stretching (final clip = raw take trimmed to the speech span).",
+         f"Audio: `review-b/table-read-full.m4a` ({len(y) / SR:.1f} s). Pace measured on the clean take: spoken words / ASR word span (faster-whisper small.en) of the raw take trimmed to its speech span.", '',
+         '## Pace per act (wpm)', '', '| act | wpm |', '|---|---|'] + [f'| {k} | {v["rawWpm"]} |' for k, v in acts_w.items()] + [
+         '', f'Slowest sentence: {lo[0]} {lo[1]} wpm. Fastest: {hi[0]} {hi[1]} wpm. Outside 120-190: ' + (', '.join(f'{k} ({v})' for k, v in wp if not 120 <= v <= 190) or 'none') + '.',
+         f"Key words missing from ASR: {', '.join(f'{k} {v}' for k, v in missing) or 'none'}.", '',
+         f"ElevenLabs characters (Character-Cost header, all takes of this pass): **{cred['allTakesCharacterCost']}**; takes generated: {cred['takesGenerated']}.", '',
+         '## Sentences regenerated (more than one take) and why', '', '| sentence | chosen | takes (wpm, missing key words) |', '|---|---|---|']
+    N += [f"| {sid} | t{c['take']} {c['model'].replace('eleven_', '')} {c['wpm']} wpm | {why} |" for sid, c, why in regen]
+    open(os.path.join(EP, 'script', 'table-read-notes.md'), 'w').write('\n'.join(N) + '\n')
+    print(json.dumps({'tableRead': round(len(y) / SR, 1), 'plannedTotal': total, 'marks': marks, 'actWpm': {k: v['rawWpm'] for k, v in acts_w.items()}, 'min': lo, 'max': hi,
+                      'missing': missing, 'regenerated': len(regen)}, indent=1))
 
 
 if __name__ == '__main__':

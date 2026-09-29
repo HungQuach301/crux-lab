@@ -1,12 +1,12 @@
-# Episode 1 — colour script
+# Episode 1 — colour script (script v2)
 
-All colours are channel tokens (`design/tokens.json`). One grade for the whole film; light fixed grain and vignette.
+All colours are channel tokens (`design/tokens.json`). Characters: Nora = positive green circle (centre), Walt = warn amber triangle (left), Anjali = negative red square (right); names in ink. Rate line = accent, no marker. Bill/saved bars use ink-muted or a pattern whenever a character marker is on screen.
 
 | act | background | lead colour | feeling |
 |---|---|---|---|
-| cold open | bg | accent (new payment) against negative (the bill) | a gain with a price |
-| act 1 | bg | ink data, amber SMALL / blue LARGE introduced | inventory, calm |
-| act 2 | bg, surface panels for the curve | ink curve; amber and blue curves at the turn; positive/negative shading at the flip | tension rises to the cliff |
-| act 3 | bg | accent rate line, grey ILLUSTRATIVE bars pre-2018, negative marks for "next point came first" | history, weight |
+| cold open | bg | accent rate line to the 2023 peak; the paper letter (light) | a gain with a price |
+| act 1 | bg | accent line; Nora green enters; the bill block ink-muted | story, calm |
+| act 2 | bg | ink-muted old loan vs accent new loan; hatched gap | doubt rises to the quarter-point climax |
+| act 3 | bg | amber Walt (left), red Anjali (right), green Nora (centre) on one ruler | contrast, resolution |
 | method | surface | ink-muted text | quiet |
-| outro | bg | ink + accent | resolved |
+| outro | bg | the three markers together | resolved |

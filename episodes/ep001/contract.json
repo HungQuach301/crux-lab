@@ -17,7 +17,7 @@
     "Nora"
    ],
    "what": "ILLUSTRATIVE: borrowed 2023-10 at that month's mean rate (7.62%), 35 payments made; loan $375,000, bill $5,123.53 = HMDA 2025 median rate-and-term refinance (all sizes)",
-   "todo": "words: confirm the name against the final out/script.json (S16)"
+   "wordsFrom": "story/script.md v2 (out/script.json)"
   },
   "small": {
    "color": "small",
@@ -28,7 +28,7 @@
     "Walt"
    ],
    "what": "ILLUSTRATIVE: borrowed 2023-10 at that month's mean rate (7.62%), 35 payments made; loan $115,000, bill $3,667.05 = HMDA 2025 median, loans under $150,000",
-   "todo": "words: confirm the name against the final out/script.json (S16)"
+   "wordsFrom": "story/script.md v2 (out/script.json)"
   },
   "large": {
    "color": "large",
@@ -39,7 +39,7 @@
     "Anjali"
    ],
    "what": "ILLUSTRATIVE: borrowed 2023-10 at that month's mean rate (7.62%), 35 payments made; loan $655,000, bill $5,513.97 = HMDA 2025 median, conforming (flag C) loans of $600,000 to under $720,000",
-   "todo": "words: confirm the name against the final out/script.json (S16)"
+   "wordsFrom": "story/script.md v2 (out/script.json)"
   }
  },
  "scenarios": {
@@ -49,7 +49,7 @@
     "three years",
     "36 months"
    ],
-   "todo": "words: confirm against the final out/script.json (S16)"
+   "wordsFrom": "story/script.md v2: \"within three years\", \"after three years\""
   },
   "hold84": {
    "what": "keep the loan 7 years (84 months)",
@@ -57,7 +57,7 @@
     "seven years",
     "84 months"
    ],
-   "todo": "words: confirm against the final out/script.json (S16)"
+   "wordsFrom": "story/script.md v2: \"stays seven years\" (S31)"
   }
  },
  "claims": {
@@ -271,7 +271,7 @@
     "2023-10"
    ],
    "what": "every drop episode of the history simulation (13, keyed by peak month), including those where the rate fell another point before break-even",
-   "todo": "act: confirm where the history is shown once out/timeline.json exists (planned: methodology card)"
+   "where": "S33 history card (act method), script v2; page objects carry case = peak month"
   },
   {
    "attribute": "case",
@@ -282,7 +282,7 @@
     "large"
    ],
    "what": "the three characters' answers (cut for a 36-month break-even)",
-   "todo": "act: confirm against out/timeline.json"
+   "where": "S29, the three markers on the ruler (act3), script v2; page objects carry case = character key"
   }
  ],
  "sonification": {
@@ -372,12 +372,56 @@
    "preprod/color-script.*"
   ]
  },
+ "timeline": {
+  "source": "preprod/timeline-plan.json (animatic, V8 takes); the render re-times at M2",
+  "coldOpenEnd": 26.65,
+  "rehook": [
+   33.46,
+   43.21
+  ],
+  "acts": {
+   "cold-open": [
+    0.0,
+    26.65
+   ],
+   "ident": [
+    26.65,
+    29.65
+   ],
+   "act1": [
+    29.65,
+    219.72
+   ],
+   "act2": [
+    219.72,
+    392.49
+   ],
+   "act3": [
+    392.49,
+    648.269
+   ],
+   "method": [
+    648.269,
+    696.619
+   ],
+   "outro": [
+    696.619,
+    737.169
+   ]
+  },
+  "adBreaks": [
+   219.12,
+   391.89
+  ],
+  "total": 737.169,
+  "amendments": [
+   "E1-A1: cold open ~20 s accepted for Episode 1 (S15 cold open <= 15 s fails by approval)"
+  ]
+ },
  "todo": [
-  "characters.*.words (Nora / Walt / Anjali) and scenarios.*.words: from story notes; confirm against the final out/script.json (S16 needs the script)",
-  "coverage[].act (method, act3) and the page `case` attribute (peak month / character key) on every object: confirm once out/timeline.json and the page exist (S06 needs the render)",
+  "characters.*.shape / side and coverage[] `case` on page objects: must match the rendered page (V04, V09, S06 need the page)",
   "sonification.bandsHz: from the cue sheet; T1 checks the >= 50% energy share only on the rendered sonify stem",
-  "characters.*.shape (circle / triangle / square from design/tokens.json shapes) and side: must match the page objects (V04, V09 need the render)",
-  "artefacts.M3: every release file is declared; none of the video/voice/render files exist yet (F11 fails \"not delivered\" until M3)",
-  "claims.decisive: S16 needs out/script.json (not written)"
+  "artefacts.M3: every release file is declared; video, stems, page and package files do not exist yet (F11 fails \"not delivered\" until M3)",
+  "timeline: planned from the animatic; out/timeline.json and out/script.json are re-timed by the render at M2"
  ]
 }

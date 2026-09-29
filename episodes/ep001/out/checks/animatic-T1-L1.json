@@ -1,0 +1,72 @@
+{
+ "root": "/tmp/claude-0/anroot",
+ "contract": "/tmp/claude-0/anroot/contract.json",
+ "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
+ "video_sha256": null,
+ "counts": {
+  "PASS": 1,
+  "FAIL": 0,
+  "MISSING": 1,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "T1",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/video.mp4",
+   "section": "DX-A1 (sổ gu G-001, G-006)",
+   "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
+   "fingerprint": "e7a5925e1b04aae3",
+   "seconds": 74.1
+  },
+  {
+   "id": "L1",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "voice-active windows",
+     "value": 5428,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "voice/data 1–4 kHz ratio, 10th percentile (dB)",
+     "value": 29.230181,
+     "op": ">=",
+     "threshold": 20.0,
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "key words lost to the data sounds",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "windowsWithDataSound": 45,
+     "medianRatioDb": 38.8,
+     "minRatioDb": 19.9,
+     "keyWords": 99
+    }
+   ],
+   "note": null,
+   "section": "DX-A1, DX-A9 (sổ gu G-006)",
+   "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
+   "fingerprint": "01832a4e805c145e",
+   "seconds": 620.2
+  }
+ ]
+}

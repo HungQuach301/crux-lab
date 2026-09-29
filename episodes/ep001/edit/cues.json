@@ -2,80 +2,80 @@
  "cues": [
   {
    "t": 0.0,
-   "end": 14.72,
-   "function": "suspense under the open question; pad + pulse, no melody",
-   "key": "A minor",
+   "end": 26.65,
+   "function": "suspense under the open question: pad and low pulse, no melody",
+   "key": "D minor",
    "tempo": 72,
    "layer": "music"
   },
   {
-   "t": 14.72,
-   "end": 17.72,
-   "function": "ident sting",
-   "key": "A minor",
+   "t": 26.65,
+   "end": 29.65,
+   "function": "ident sting over the long rate-line tone",
+   "key": "D minor",
    "tempo": 72,
    "layer": "music"
   },
   {
-   "t": 17.72,
-   "end": 177.74,
-   "function": "curious, light pulse; the three households get motifs (Dan: low plucks, Maya: piano, Priya: high bells)",
-   "key": "C major",
+   "t": 29.65,
+   "end": 219.72,
+   "function": "curious, light pulse; Nora's motif (piano)",
+   "key": "D minor",
    "tempo": 84,
    "layer": "music"
   },
   {
-   "t": 177.74,
-   "end": 337.06,
-   "function": "building to the thesis (a2-real: 24 becomes 30), valley after it; re-voiced at Dan's and Priya's positions",
+   "t": 219.72,
+   "end": 392.49,
+   "function": "build through the balance gap to the quarter-point climax (S19), release on the full point",
    "key": "D minor",
    "tempo": 92,
    "layer": "music"
   },
   {
-   "t": 337.06,
-   "end": 537.23,
-   "function": "history: darker at the further-drop turn, resolves on the answer",
+   "t": 392.49,
+   "end": 648.269,
+   "function": "Walt (low plucks), Anjali (high bells); resolves on the three-line answer (S29)",
    "key": "F major",
    "tempo": 88,
    "layer": "music"
   },
   {
-   "t": 537.23,
-   "end": 580.48,
-   "function": "thin pad under the method card",
+   "t": 648.269,
+   "end": 696.619,
+   "function": "thin pad under the method cards",
    "key": "F major",
    "tempo": 70,
    "layer": "music"
   },
   {
-   "t": 580.48,
-   "end": 629.12,
-   "function": "resolved; both motifs together",
-   "key": "C major",
+   "t": 696.619,
+   "end": 737.169,
+   "function": "resolved; three motifs together; tail into the end screen",
+   "key": "F major",
    "tempo": 76,
    "layer": "music"
   },
   {
-   "t": 84.22,
-   "end": 104.22,
-   "function": "build to the act1 climax (+6 dB over 20 s)",
-   "key": "C major",
+   "t": 184.81,
+   "end": 204.81,
+   "function": "build to the act1 climax",
+   "key": "D minor",
    "tempo": 84,
    "layer": "music-dynamics"
   },
   {
-   "t": 197.42,
-   "end": 217.42,
-   "function": "build to the act2 climax (+6 dB over 20 s)",
+   "t": 315.8,
+   "end": 335.8,
+   "function": "build to the act2 climax",
    "key": "D minor",
    "tempo": 92,
    "layer": "music-dynamics"
   },
   {
-   "t": 453.81,
-   "end": 473.81,
-   "function": "build to the act3 climax (+6 dB over 20 s)",
+   "t": 548.73,
+   "end": 568.729,
+   "function": "build to the act3 climax",
    "key": "F major",
    "tempo": 88,
    "layer": "music-dynamics"
@@ -83,44 +83,128 @@
  ],
  "silences": [
   {
-   "t": 68.62,
+   "t": 131.64,
+   "dur": 1.0,
+   "after": "S09.2",
+   "why": "script pause after S09.2"
+  },
+  {
+   "t": 200.26,
+   "dur": 1.0,
+   "after": "S12.4",
+   "why": "script pause after S12.4"
+  },
+  {
+   "t": 218.57,
    "dur": 1.2,
-   "why": "Maya's bill is the national median: let it land",
-   "after": "a1-median.1"
+   "after": "S13.5",
+   "why": "ad break"
   },
   {
-   "t": 175.92,
-   "dur": 1.6,
-   "why": "end of act 1: ad break",
-   "after": "a1-payoff.1"
+   "t": 288.68,
+   "dur": 1.0,
+   "after": "S16.1",
+   "why": "script pause after S16.1"
   },
   {
-   "t": 222.59,
-   "dur": 1.3,
-   "why": "the thesis lands: 24 becomes 30",
-   "after": "a2-real.1"
+   "t": 308.81,
+   "dur": 1.0,
+   "after": "S17.1",
+   "why": "script pause after S17.1"
   },
   {
-   "t": 335.24,
-   "dur": 1.6,
-   "why": "end of act 2: ad break",
-   "after": "a2-payoff.1"
+   "t": 329.17,
+   "dur": 1.0,
+   "after": "S18.2",
+   "why": "script pause after S18.2"
   },
   {
-   "t": 482.87,
-   "dur": 1.3,
-   "why": "the answer lands",
-   "after": "a3-answer2.1"
+   "t": 343.23,
+   "dur": 1.2,
+   "after": "S19.1",
+   "why": "script pause after S19.1"
+  },
+  {
+   "t": 352.79,
+   "dur": 1.0,
+   "after": "S20.1",
+   "why": "script pause after S20.1"
+  },
+  {
+   "t": 380.44,
+   "dur": 1.0,
+   "after": "S21.3",
+   "why": "script pause after S21.3"
+  },
+  {
+   "t": 391.34,
+   "dur": 1.2,
+   "after": "S21.6",
+   "why": "ad break"
+  },
+  {
+   "t": 422.32,
+   "dur": 1.0,
+   "after": "S22.5",
+   "why": "script pause after S22.5"
+  },
+  {
+   "t": 446.31,
+   "dur": 1.0,
+   "after": "S23.3",
+   "why": "script pause after S23.3"
+  },
+  {
+   "t": 461.77,
+   "dur": 1.0,
+   "after": "S24.2",
+   "why": "script pause after S24.2"
+  },
+  {
+   "t": 478.17,
+   "dur": 1.0,
+   "after": "S25.1",
+   "why": "script pause after S25.1"
+  },
+  {
+   "t": 502.419,
+   "dur": 1.0,
+   "after": "S26.1",
+   "why": "script pause after S26.1"
+  },
+  {
+   "t": 554.219,
+   "dur": 1.0,
+   "after": "S28.1",
+   "why": "script pause after S28.1"
+  },
+  {
+   "t": 596.499,
+   "dur": 1.0,
+   "after": "S29.7",
+   "why": "script pause after S29.7"
+  },
+  {
+   "t": 624.679,
+   "dur": 1.0,
+   "after": "S30.3",
+   "why": "script pause after S30.3"
+  },
+  {
+   "t": 631.179,
+   "dur": 1.0,
+   "after": "S31.1",
+   "why": "script pause after S31.1"
   }
  ],
  "adBreaks": [
   {
-   "t": 176.72,
-   "after": "a1-payoff.1"
+   "t": 219.12,
+   "after": "S13.5"
   },
   {
-   "t": 336.04,
-   "after": "a2-payoff.1"
+   "t": 391.89,
+   "after": "S21.6"
   }
  ]
 }

@@ -34,8 +34,7 @@ def main():
     tok = J('design', 'tokens.json')
     sc, ch = model['scenario'], model['characters']
     names = list(ch)  # median, small, large: the model's character keys = the page's `char` = claims' `character`
-    # names the story gives the characters: story/cold-open.md (Nora, the median bill $5,124), claim share_walt (Walt = small), ledger.md
-    # WRITER step 2 ("nhân vật Nora/Walt/Anjali"; Anjali = the large loan). To be confirmed against the final script.
+    # names the approved script (story/script.md v2) gives the characters: Nora = median, Walt = small, Anjali = large
     words = {'median': ['Nora'], 'small': ['Walt'], 'large': ['Anjali']}
     side = {'small': 'left', 'median': 'centre', 'large': 'right'}
     what = {'median': 'HMDA 2025 median rate-and-term refinance (all sizes)', 'small': 'HMDA 2025 median, loans under $150,000',
@@ -43,7 +42,7 @@ def main():
     characters = {n: {'color': n, 'shape': tok['shapes'][n], 'side': side[n], 'illustrative': True, 'words': words[n],
                       'what': f"ILLUSTRATIVE: borrowed {model['scenario']['borrowed']} at that month's mean rate ({sc['oldRate']}%), "
                               f"{sc['paymentsMade']} payments made; loan ${ch[n]['loan']:,.0f}, bill ${ch[n]['cost']:,.2f} = {what[n]}",
-                      'todo': 'words: confirm the name against the final out/script.json (S16)'} for n in names}
+                      'wordsFrom': 'story/script.md v2 (out/script.json)'} for n in names}
     mapped = {}
     for n in names:
         for pre, f in FIELDS.items():
@@ -62,9 +61,9 @@ def main():
         'targetDurationSec': [600, 660],
         'characters': characters,
         'scenarios': {'hold36': {'what': 'sell or refinance again after 3 years (36 months): the payback target of the question', 'words': ['three years', '36 months'],
-                                 'todo': 'words: confirm against the final out/script.json (S16)'},
+                                 'wordsFrom': 'story/script.md v2: "within three years", "after three years"'},
                       'hold84': {'what': 'keep the loan 7 years (84 months)', 'words': ['seven years', '84 months'],
-                                 'todo': 'words: confirm against the final out/script.json (S16)'}},
+                                 'wordsFrom': 'story/script.md v2: "stays seven years" (S31)'}},
         'claims': {'file': 'out/claims.json', 'count': len(claims),
                    'core': [c['claimId'] for c in claims if c.get('core')],
                    'decisive': [c['claimId'] for c in claims if c.get('decisive')],
@@ -102,9 +101,9 @@ def main():
                       'fhfa': 'data/cll.json (2026 limit owner-verified 2026-09-29)'}},
         'coverage': [{'attribute': 'case', 'act': 'method', 'values': [e['peak'] for e in hist],
                       'what': f'every drop episode of the history simulation ({len(hist)}, keyed by peak month), including those where the rate fell another point before break-even',
-                      'todo': 'act: confirm where the history is shown once out/timeline.json exists (planned: methodology card)'},
+                      'where': 'S33 history card (act method), script v2; page objects carry case = peak month'},
                      {'attribute': 'case', 'act': 'act3', 'values': names,
-                      'what': 'the three characters\' answers (cut for a 36-month break-even)', 'todo': 'act: confirm against out/timeline.json'}],
+                      'what': 'the three characters\' answers (cut for a 36-month break-even)', 'where': 'S29, the three markers on the ruler (act3), script v2; page objects carry case = character key'}],
         'sonification': {'stem': 'sonify', 'bandsHz': [[60, 270], [4500, 7000]],
                          'from': 'preprod/cue-sheet.md, palette S2 (owner pick 2026-09-28): low pulse MIDI 36-60 (65-262 Hz) + filtered tick 4.5-7 kHz',
                          'todo': 'T1 measures that these bands hold >= 50% of the sonify stem energy once the stem is rendered'},
@@ -116,13 +115,17 @@ def main():
                    'out/transitions.json', 'out/sonify-events.json', 'out/sfx-events.json'],
             'M3': RELEASE + EXTRA_M3},
     }
+    tp = os.path.join(HERE, 'preprod', 'timeline-plan.json')
+    if os.path.exists(tp):
+        mk = json.load(open(tp))['marks']
+        contract['timeline'] = {'source': 'preprod/timeline-plan.json (animatic, V8 takes); the render re-times at M2', 'coldOpenEnd': mk['coldOpenEnd'],
+                                'rehook': mk['rehook'], 'acts': mk['acts'], 'adBreaks': mk['adBreaks'], 'total': mk['total'],
+                                'amendments': ['E1-A1: cold open ~20 s accepted for Episode 1 (S15 cold open <= 15 s fails by approval)']}
     contract['todo'] = [
-        'characters.*.words (Nora / Walt / Anjali) and scenarios.*.words: from story notes; confirm against the final out/script.json (S16 needs the script)',
-        'coverage[].act (method, act3) and the page `case` attribute (peak month / character key) on every object: confirm once out/timeline.json and the page exist (S06 needs the render)',
+        'characters.*.shape / side and coverage[] `case` on page objects: must match the rendered page (V04, V09, S06 need the page)',
         'sonification.bandsHz: from the cue sheet; T1 checks the >= 50% energy share only on the rendered sonify stem',
-        'characters.*.shape (circle / triangle / square from design/tokens.json shapes) and side: must match the page objects (V04, V09 need the render)',
-        'artefacts.M3: every release file is declared; none of the video/voice/render files exist yet (F11 fails "not delivered" until M3)',
-        'claims.decisive: S16 needs out/script.json (not written)']
+        'artefacts.M3: every release file is declared; video, stems, page and package files do not exist yet (F11 fails "not delivered" until M3)',
+        'timeline: planned from the animatic; out/timeline.json and out/script.json are re-timed by the render at M2']
     json.dump(contract, open(os.path.join(HERE, 'contract.json'), 'w'), indent=1, ensure_ascii=False)
     print('contract.json:', len(claims), 'claims,', len(mapped), 'mapped to model quantities,', len(contract['artefacts']['M3']), 'M3 artefacts')
 

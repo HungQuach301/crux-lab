@@ -48,6 +48,11 @@ cost = {'characters': 0, 'calls': 0}
 def synth(text, model, take, path, speed=None):
     if os.path.exists(path) and os.path.exists(path[:-4] + '.json'):
         return json.load(open(path[:-4] + '.json'))
+    budget = int(os.environ.get('EL_BUDGET', 0) or 0)  # stop BEFORE a call that could pass the pass budget (characters, Character-Cost header)
+    if budget:
+        spent = sum(json.load(open(os.path.join(EDIR, f))).get('characterCost', 0) for f in os.listdir(EDIR) if f.endswith('.json'))
+        if spent + len(text) > budget:
+            raise SystemExit(f'ElevenLabs budget: {spent} characters spent, next call ({len(text)}) would pass EL_BUDGET={budget}; stopping')
     body = {'text': text, 'model_id': model, 'seed': 1000 + take,
             'voice_settings': {'stability': 0.5, 'speed': 0.9} if model == MAIN else {'stability': 0.5, 'similarity_boost': 0.75, 'speed': round(speed or 0.95, 3)}}
     for attempt in range(6):
