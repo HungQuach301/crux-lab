@@ -18,7 +18,7 @@ def main():
     tl = json.load(open(os.path.join(EP, 'out', 'voice-v32', 'timeline.json')))
     at = {s['scene']: s for s in tl['scenes']}
     takes, models, voices = [], set(), set()
-    for sc in sorted(gen):
+    for sc in sorted(k for k in gen if '@' not in k):  # 'S18@r1' = take cũ đã thay (30/09), không dùng
         use = gen[sc]['use']
         meta = json.load(open(os.path.join(V, 'takes', use[:-4] + '.json')))
         models.add(meta['model'])

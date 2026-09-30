@@ -649,7 +649,7 @@ def true_peak_gain(mix, ceil_db):
 # ================================================================== main
 def main():
     args = sys.argv[1:]
-    total = float(args[args.index('--total') + 1]) if '--total' in args else 17752 / 30  # video: 17 752 frames at 30 fps
+    total = float(args[args.index('--total') + 1]) if '--total' in args else 17740 / 30  # video: 17 740 frames at 30 fps (S18 sửa 30/09; trước: 17 752)
     tl = TL(total)
     N = tl.N
     log('total', total, 'samples', N)

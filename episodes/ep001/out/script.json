@@ -1088,7 +1088,7 @@
    "text": "It depends on the size of the loan.",
    "spoken": "It depends on the size of the loan.",
    "tag": "[matter-of-fact]",
-   "start": 500.055,
+   "start": 500.065,
    "end": 501.565,
    "claims": []
   },
@@ -1096,11 +1096,11 @@
    "id": "S18.4",
    "n": 91,
    "scene": "S18",
-   "text": "On a loan of $115,000, like Walt's, it takes more than a full point.",
-   "spoken": "On a loan of one hundred fifteen thousand dollars, like Walt's, it takes more than a full point.",
+   "text": "For Walt, with a loan of $115,000, it takes more than a full point.",
+   "spoken": "For Walt, with a loan of one hundred fifteen thousand dollars, it takes more than a full point.",
    "tag": null,
-   "start": 502.275,
-   "end": 507.675,
+   "start": 502.285,
+   "end": 507.105,
    "claims": [
     "loan_small",
     "cut36_small"
@@ -1110,11 +1110,11 @@
    "id": "S18.5",
    "n": 92,
    "scene": "S18",
-   "text": "On $375,000, like Nora's, half a point.",
-   "spoken": "On three hundred seventy-five thousand dollars, like Nora's, half a point.",
+   "text": "For Nora, with $375,000, half a point.",
+   "spoken": "For Nora, with three hundred seventy-five thousand dollars, half a point.",
    "tag": null,
-   "start": 508.385,
-   "end": 512.065,
+   "start": 507.855,
+   "end": 511.775,
    "claims": [
     "loan_median",
     "cut36_median"
@@ -1124,11 +1124,11 @@
    "id": "S18.6",
    "n": 93,
    "scene": "S18",
-   "text": "On $655,000, like Anjali's, about a third of a point.",
-   "spoken": "On six hundred fifty-five thousand dollars, like Anjali's, about a third of a point.",
+   "text": "For Anjali, with $655,000, about a third of a point.",
+   "spoken": "For Anjali, with six hundred fifty-five thousand dollars, about a third of a point.",
    "tag": null,
-   "start": 512.685,
-   "end": 517.085,
+   "start": 512.545,
+   "end": 516.985,
    "claims": [
     "loan_large",
     "cut36_large_words"
@@ -1141,8 +1141,8 @@
    "text": "Put your own loan on that scale, and you can see which of them you are closest to.",
    "spoken": "Put your own loan on that scale, and you can see which of them you are closest to.",
    "tag": null,
-   "start": 517.965,
-   "end": 522.165,
+   "start": 518.015,
+   "end": 522.275,
    "claims": []
   },
   {
@@ -1152,8 +1152,8 @@
    "text": "Those lines rest on our assumptions: a loan taken out at the October 2023 rate, a median bill, and a three-year stay.",
    "spoken": "Those lines rest on our assumptions: a loan taken out at the October twenty twenty-three rate, a median bill, and a three-year stay.",
    "tag": null,
-   "start": 523.055,
-   "end": 531.755,
+   "start": 523.135,
+   "end": 531.215,
    "claims": []
   },
   {
@@ -1163,8 +1163,8 @@
    "text": "The one-point line fits none of them.",
    "spoken": "The one-point line fits none of them.",
    "tag": null,
-   "start": 532.535,
-   "end": 534.585,
+   "start": 532.075,
+   "end": 534.135,
    "claims": []
   },
   {
@@ -1174,8 +1174,8 @@
    "text": "These are national average rates, median bills, and three made-up borrowers.",
    "spoken": "These are national average rates, median bills, and three made-up borrowers.",
    "tag": null,
-   "start": 536.11,
-   "end": 540.6,
+   "start": 535.7,
+   "end": 540.19,
    "claims": []
   },
   {
@@ -1185,8 +1185,8 @@
    "text": "In 2025, half of refinance bills fell between $3,443 and $8,270.",
    "spoken": "In twenty twenty-five, half of refinance bills fell between three thousand four hundred forty-three dollars and eight thousand two hundred seventy dollars.",
    "tag": null,
-   "start": 541.605,
-   "end": 550.805,
+   "start": 541.195,
+   "end": 550.395,
    "claims": [
     "cost_p25",
     "cost_p75"
@@ -1199,8 +1199,8 @@
    "text": "A real rate, a real bill and a real balance will be different.",
    "spoken": "A real rate, a real bill and a real balance will be different.",
    "tag": null,
-   "start": 551.285,
-   "end": 554.485,
+   "start": 550.875,
+   "end": 554.075,
    "claims": []
   },
   {
@@ -1210,8 +1210,8 @@
    "text": "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too.",
    "spoken": "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too.",
    "tag": null,
-   "start": 555.305,
-   "end": 561.085,
+   "start": 554.895,
+   "end": 560.675,
    "claims": []
   },
   {
@@ -1221,8 +1221,8 @@
    "text": "Which leaves the one number only you know: how long you will stay.",
    "spoken": "Which leaves the one number only you know: how long you will stay.",
    "tag": null,
-   "start": 562.64,
-   "end": 567.1,
+   "start": 562.23,
+   "end": 566.69,
    "claims": []
   },
   {
@@ -1232,8 +1232,8 @@
    "text": "For Nora, the same offer comes out $1,039 ahead if she sells after three years, and $8,093 ahead if she stays seven.",
    "spoken": "For Nora, the same offer comes out one thousand thirty-nine dollars ahead if she sells after three years, and eight thousand ninety-three dollars ahead if she stays seven.",
    "tag": null,
-   "start": 568.355,
-   "end": 578.905,
+   "start": 567.945,
+   "end": 578.495,
    "claims": [
     "net36_median",
     "y3",
@@ -1248,8 +1248,8 @@
    "text": "The rate cut decides how fast the fees come back.",
    "spoken": "The rate cut decides how fast the fees come back.",
    "tag": null,
-   "start": 580.015,
-   "end": 582.595,
+   "start": 579.605,
+   "end": 582.185,
    "claims": []
   },
   {
@@ -1259,8 +1259,8 @@
    "text": "How long you stay decides whether you are still there when they do.",
    "spoken": "How long you stay decides whether you are still there when they do.",
    "tag": null,
-   "start": 583.195,
-   "end": 587.075,
+   "start": 582.785,
+   "end": 586.665,
    "claims": []
   },
   {
@@ -1270,8 +1270,8 @@
    "text": "How long do you picture yourself in your home?",
    "spoken": "How long do you picture yourself in your home?",
    "tag": "[softly]",
-   "start": 588.725,
-   "end": 590.715,
+   "start": 588.315,
+   "end": 590.305,
    "claims": []
   }
  ]
