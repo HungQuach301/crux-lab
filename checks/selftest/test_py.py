@@ -694,6 +694,49 @@ def _(f, bad):
     f.json('out/script.json', {'sentences': [{'id': f's{i}', 'scene': 'a', 'text': x, 'start': i, 'end': i + 1} for i, x in enumerate(s)]})
 
 
+S10_BASE = ['We ran every start year from 1928.', 'This is history, not a forecast.', 'The rules here are US only.']
+
+
+def s10_variant(name, narration=(), screen=()):
+    """One S10 fixture (K3.4): the required phrases plus the given narration lines and on-screen texts (page.json textTrack)."""
+    f = F('S10-' + name)
+    try:
+        s = S10_BASE + list(narration)
+        f.json('out/script.json', {'sentences': [{'id': f's{i}', 'scene': 'a', 'text': x, 'start': i, 'end': i + 1} for i, x in enumerate(s)]})
+        f.json('out/checks/page.json', {'rules': {}, 'textTrack': [{'t': 1.0, 'scene': 'S11', 'items': [{'text': x} for x in screen]}]})
+        return f.run('S10')
+    finally:
+        f.close()
+
+
+def s10_never_label_case(bad):
+    """K3.4: the S11 result label "Never / not before the old loan's last payment" on screen and a lone "Never" must pass; bad = the imperative
+    "Never refinance before the old loan's last payment." on screen must fail."""
+    screen = ["Never refinance before the old loan's last payment."] if bad else ['Never', "Never / not before the old loan's last payment"]
+    return s10_variant('never-label', screen=screen)
+
+
+def s10_never_narration_case(bad):
+    """K3.4: "the fees never come back" in the narration is a statement, not advice (pass); bad = "Never refinance before the fees come back." fails."""
+    return s10_variant('never-narration', narration=['Never refinance before the fees come back.' if bad else 'For Maya, the fees never come back.'])
+
+
+def s10_should_case(bad):
+    """K3.4 keeps the modal advice: bad = "You should refinance." on screen fails; good = "Maya could refinance." passes."""
+    return s10_variant('should', screen=['You should refinance.' if bad else 'Maya could refinance.'])
+
+
+def s10_old_advice_case(bad):
+    """The pre-K3.4 advice forms still fail: imperative with a directive word ("Don't sell in a crash.", "Always lock the rate."), a bare imperative
+    ("Consider the fees."); good = the same facts told as history."""
+    lines = ["Don't sell in a crash.", 'Always lock the rate.', 'Consider the fees.'] if bad else ['Few sold in the crash.', 'She always paid on time.', 'The fees came to $5,124.']
+    r = s10_variant('old-advice', narration=lines)
+    if bad and r['status'] == 'FAIL':
+        n = next(m['value'] for m in r['metrics'] if m['name'] == 'advice sentences')
+        return dict(r, status='FAIL' if n == 3 else f'CAUGHT-{n}-OF-3')
+    return r
+
+
 @case('S11')
 def _(f, bad):
     f.video(size='64x36', dur=40, src='color')
@@ -1482,7 +1525,8 @@ EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_cas
          'F12/photo': f12_photo_case, 'F12/font': f12_font_case, 'F12/public-domain': f12_pd_case, 'F12/quote-card': f12_quote_case,
          'F12/self-made': f12_selfmade_case, 'F12/no-manifest': f12_manifest_case,
          'F12/loaded': f12_loaded_case, 'F12/loaded-font': f12_loaded_font_case, 'F12/generated': f12_generated_case,
-         'S09/said-once': s09_once_case, 'S09/every-basis': s09_both_case, 'S09/screen': s09_screen_case, 'S09/unknown-basis': s09_unknown_case}
+         'S09/said-once': s09_once_case, 'S09/every-basis': s09_both_case, 'S09/screen': s09_screen_case, 'S09/unknown-basis': s09_unknown_case,
+         'S10/never-label': s10_never_label_case, 'S10/never-narration': s10_never_narration_case, 'S10/should': s10_should_case, 'S10/old-advice': s10_old_advice_case}
 
 
 def main():

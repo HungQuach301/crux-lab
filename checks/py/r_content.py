@@ -311,8 +311,13 @@ def s09_basis(ctx):
                    details=[{'noBasis': nob[:10], 'basesUsed': sorted(used), 'basesSaid': sorted(said), 'neverSaid': miss, 'unknownBasis$': unknown[:10], 'screen': r.get('examples', [])[:5]}])
 
 
+ACTION = (r'(refinanc\w*|refi|buy|sell|lock|wait|pay|borrow|invest|withdraw|take|sign|switch|choose|pick|keep|start|stop|spend|save|retire|move|'
+          r'cash|trust|rely|touch|bet|open|close|apply|accept|skip|ignore|assume|consider|forget|let|go|get|put|use|count|panic|time|chase|hold)')
 ADVICE = [r"\byou (should|must|need to|ought to|have to|'d better)\b", r'\b(we|i) (recommend|suggest|advise)\b', r'\b(should|must) (you|retirees|investors|everyone)\b',
-          r'^(consider|make sure|don\'t|do not|avoid|invest|buy|sell|choose|pick|keep|start|stop|never|always|talk to|plan)\b',
+          r'^(consider|make sure|avoid|invest|buy|sell|choose|pick|keep|start|stop|talk to|plan)\b',
+          # K3.4: a directive word (never/always/don't/do not) is advice only in the imperative, i.e. at the start of a line or clause, followed by an
+          # action verb aimed at the viewer; a lone "Never" (a result label) or "the fees never come back" is not
+          r'(^|[.!?;:\u2014\u2013]\s*)(never|always|don\'t|do not)\s+(ever\s+)?' + ACTION + r'\b',
           r'\b(the right|a safe|the safe) (withdrawal )?(rate|amount)\b', r'\bsafe withdrawal rate\b']
 FORECAST = [r'\b(will|is going to|are going to)\b[^.]{0,40}\b(rise|fall|crash|return|grow|drop|outperform|underperform|recover|beat)\b',
             r'\b(next|coming) (year|decade|few years|ten years|30 years)\b', r'\bthe market will\b', r'\b(we|i) (expect|predict|forecast)\b',
@@ -322,7 +327,8 @@ WE_BAD = [r'\bwe (all|should|need|must|retire|save|invest|spend|can\'t afford|wa
           r'\blet\'?s (retire|invest|save)\b', r'\bus (retirees|investors|savers)\b']
 
 
-@rule('S10', 'DX-I1, DX-I2', 'every narration sentence (out/script.json text) and every visible on-screen text, lower-cased, against locked regex lists: ADVICE, FORECAST, FOUR (4% as a recommendation), '
+@rule('S10', 'DX-I1, DX-I2', 'every narration sentence (out/script.json text) and every visible on-screen text, lower-cased, against locked regex lists: ADVICE (K3.4: never/always/don\'t/do not '
+      'count only in the imperative, at the start of a line or clause and followed by an action verb aimed at the viewer; a lone directive word or a result label does not), FORECAST, FOUR (4% as a recommendation), '
       'WE_BAD ("we/our/us" used for the viewer); required phrases "US only" and "history, not a forecast" (narration or screen)',
       '0 matches of ADVICE, FORECAST, FOUR, WE_BAD; both required phrases present')
 def s10_identity(ctx):
