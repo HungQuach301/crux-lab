@@ -1,22 +1,22 @@
 {
- "total_s": 591.7333333333333,
- "samples": 28403200,
+ "total_s": 591.3,
+ "samples": 28382400,
  "master": {
   "I": -14.0,
-  "LRA": 3.8,
+  "LRA": 3.7,
   "TP": -1.5
  },
- "limiterMinGainDb": -2.18,
- "limiterGainBelow1dBShare": 0.00204,
+ "limiterMinGainDb": -2.19,
+ "limiterGainBelow1dBShare": 0.00169,
  "preGainLUFS": -16.5,
  "voiceOverMusicDb": 20.0,
  "sonUnderVoiceDb": 16.0,
  "sonification": {
   "notes": 488,
   "shiftedIntoGaps": 372,
-  "medianShiftMs": 43.7
+  "medianShiftMs": 44.55
  },
- "sonBandShare": 0.9644587434894296,
+ "sonBandShare": 0.9646728941220682,
  "silences": [
   {
    "t": 22.725,
@@ -125,16 +125,16 @@
    "return": "200 ms"
   },
   {
-   "t": 517.085,
-   "end": 517.965,
-   "dur": 0.88,
+   "t": 516.985,
+   "end": 518.015,
+   "dur": 1.03,
    "beforeSentence": 94,
    "release": "exp tau 90 ms",
    "return": "200 ms"
   },
   {
-   "t": 587.075,
-   "end": 588.725,
+   "t": 586.665,
+   "end": 588.315,
    "dur": 1.65,
    "beforeSentence": 105,
    "release": "exp tau 90 ms",
@@ -159,9 +159,9 @@
   "S15": 84.418,
   "S16": 86.269,
   "S17": 86.595,
-  "S18": 89.552,
+  "S18": 90.32,
   "S19": 72.371,
-  "S20": 73.361
+  "S20": 73.419
  },
  "bars": 208,
  "stemLevelsDbfs": {
@@ -170,7 +170,7 @@
   "sfx": -200.0,
   "whoosh": -200.0,
   "room": -66.12,
-  "sonify": -45.47
+  "sonify": -45.52
  },
  "sumMinusMasterMax": 0.0
 }

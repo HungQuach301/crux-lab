@@ -1,41 +1,41 @@
 {
  "_about": "Audio files of the C5 mix are not committed (size); this manifest records them. Rebuild: python3 episodes/ep001/work/audio/src/events.py && python3 episodes/ep001/work/audio/src/mix.py (deterministic seeds). Stems: 48 kHz stereo PCM 24-bit, same time base as out/video.mp4, at mix level: their sum is the master.",
  "generator": "episodes/ep001/work/audio/src/mix.py",
- "total_s": 591.7333333333333,
+ "total_s": 591.3,
  "sampleRate": 48000,
  "files": {
   "out/audio/stems/voice.wav": {
-   "sha256": "094bcf432bc0f8abb2b927b6ffe5135397d59dbdada5f7946676f22bbea9a65c",
-   "bytes": 170419244
+   "sha256": "e00fb85b707842d6cb180c1f5591765fd5d494bcd863bbcf0c1cb0f061076145",
+   "bytes": 170294444
   },
   "out/audio/stems/music.wav": {
-   "sha256": "45553cd9bf815c6da6d1696e653ce7334bb7475e174df1732ee86515c430b250",
-   "bytes": 170419244
+   "sha256": "8ab7bf80ef5fbd72768ed34d75c20fb5edba03caf080ef99f450c8085786a54b",
+   "bytes": 170294444
   },
   "out/audio/stems/sfx.wav": {
-   "sha256": "78d978ead9437ffd9490631abf228d207cdf9e8877a07b14927dc8dba0be5801",
-   "bytes": 170419244
+   "sha256": "3bf96349674bdc4363a4d6da352aa71e3dafd7b5c245130ffd2004ce36f2e0eb",
+   "bytes": 170294444
   },
   "out/audio/stems/whoosh.wav": {
-   "sha256": "78d978ead9437ffd9490631abf228d207cdf9e8877a07b14927dc8dba0be5801",
-   "bytes": 170419244
+   "sha256": "3bf96349674bdc4363a4d6da352aa71e3dafd7b5c245130ffd2004ce36f2e0eb",
+   "bytes": 170294444
   },
   "out/audio/stems/room.wav": {
-   "sha256": "aa131d9a0057f17fd5c7ca98dbda1ec2e9c7f938b2b1d5789e1dda255b7c3ed5",
-   "bytes": 170419244
+   "sha256": "423a6567abd8cb1cf0c28cd1b9cfd43590fd3e7cffc3f62c21c869016b057a5c",
+   "bytes": 170294444
   },
   "out/audio/stems/sonify.wav": {
-   "sha256": "09399838ed9a5715f41383fb8dee00890cd4cc33ed85b6bc86fd246883d1db17",
-   "bytes": 170419244
+   "sha256": "89db4418125f00bd04aff2e9064497cc05bd88cbd66ba93cded2b16d53eb565a",
+   "bytes": 170294444
   },
   "out/audio/master.wav": {
-   "sha256": "2ce0f3baee23003bff65ca6c690f87bad4db23ee5c4be6384e30adf45bf07f92",
-   "bytes": 170419244
+   "sha256": "8b6384a924ed77816a737d4d9f947c785b7f5468e2cc32a5dca113407c3d6822",
+   "bytes": 170294444
   }
  },
  "master": {
   "integratedLUFS": -14.0,
   "truePeakDbtp": -1.5,
-  "LRA": 3.8
+  "LRA": 3.7
  }
 }

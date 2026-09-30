@@ -190,18 +190,18 @@
   },
   {
    "t": 487.52,
-   "end": 535.76,
+   "end": 535.35,
    "scene": "S18",
    "function": "Anjali: high bells, light pulse; resolves on the three-mark ruler",
    "key": "F major",
-   "tempo": 89.552,
+   "tempo": 90.32,
    "layer": "music",
    "section": "anjali",
    "levelDb": 0.5
   },
   {
-   "t": 535.76,
-   "end": 562.29,
+   "t": 535.35,
+   "end": 561.88,
    "scene": "S19",
    "function": "what the numbers do not say: thin pad only",
    "key": "F major",
@@ -211,19 +211,19 @@
    "levelDb": -1.0
   },
   {
-   "t": 562.29,
-   "end": 591.733,
+   "t": 561.88,
+   "end": 591.3,
    "scene": "S20",
    "function": "resolved: three motifs together, sparse; tail into the end",
    "key": "F major",
-   "tempo": 73.361,
+   "tempo": 73.419,
    "layer": "music",
    "section": "resolve",
    "levelDb": -1.0
   },
   {
    "t": 0.0,
-   "end": 591.733,
+   "end": 591.3,
    "function": "data sonification, palette S2 \"minimal\" (sổ gu G-005 · chọn): soft low pulse MIDI 36-62 + filtered tick 4.5-7 kHz; bands for T1 60-270 Hz + 4.5-7 kHz",
    "key": "D minor pentatonic (= F major pentatonic)",
    "tempo": null,
@@ -231,7 +231,7 @@
   },
   {
    "t": 0.0,
-   "end": 591.733,
+   "end": 591.3,
    "function": "room tone floor (pink noise, one space); +8 dB inside the silences",
    "key": null,
    "tempo": null,
@@ -346,16 +346,16 @@
    "return": "200 ms"
   },
   {
-   "t": 517.085,
-   "end": 517.965,
-   "dur": 0.88,
+   "t": 516.985,
+   "end": 518.015,
+   "dur": 1.03,
    "beforeSentence": 94,
    "release": "exp tau 90 ms",
    "return": "200 ms"
   },
   {
-   "t": 587.075,
-   "end": 588.725,
+   "t": 586.665,
+   "end": 588.315,
    "dur": 1.65,
    "beforeSentence": 105,
    "release": "exp tau 90 ms",
