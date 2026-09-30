@@ -1,0 +1,107 @@
+{
+ "H": {
+  "size": "1280x720",
+  "tokenSharePct": 93.7,
+  "words_excl_badge": 4,
+  "minFontPx": 34,
+  "minFontPx_excl_badge": 104,
+  "minContrast10": 3.92,
+  "badge": true,
+  "texts": [
+   {
+    "text": "−1.12 pts",
+    "fontPx": 104,
+    "px_at_25pct": 26.0,
+    "contrast_at_10pct": 10.11,
+    "claim": "cut36_small",
+    "claimDisplayMatches": true,
+    "illustrativeClaim": true
+   },
+   {
+    "text": "−0.32 pts",
+    "fontPx": 104,
+    "px_at_25pct": 26.0,
+    "contrast_at_10pct": 7.99,
+    "claim": "cut36_large",
+    "claimDisplayMatches": true,
+    "illustrativeClaim": true
+   },
+   {
+    "text": "ILLUSTRATIVE",
+    "fontPx": 34,
+    "px_at_25pct": 8.5,
+    "contrast_at_10pct": 3.92,
+    "claim": null,
+    "claimDisplayMatches": null,
+    "illustrativeClaim": null
+   }
+  ]
+ },
+ "L": {
+  "size": "1280x720",
+  "tokenSharePct": 45.0,
+  "words_excl_badge": 2,
+  "minFontPx": 34,
+  "minFontPx_excl_badge": 108,
+  "minContrast10": 3.84,
+  "badge": true,
+  "texts": [
+   {
+    "text": "$5,124",
+    "fontPx": 108,
+    "px_at_25pct": 27.0,
+    "contrast_at_10pct": 12.81,
+    "claim": "cost_median",
+    "claimDisplayMatches": true,
+    "illustrativeClaim": false
+   },
+   {
+    "text": "+$1,133",
+    "fontPx": 110,
+    "px_at_25pct": 27.5,
+    "contrast_at_10pct": 8.04,
+    "claim": "gap24",
+    "claimDisplayMatches": true,
+    "illustrativeClaim": true
+   },
+   {
+    "text": "ILLUSTRATIVE",
+    "fontPx": 34,
+    "px_at_25pct": 8.5,
+    "contrast_at_10pct": 3.84,
+    "claim": null,
+    "claimDisplayMatches": null,
+    "illustrativeClaim": null
+   }
+  ]
+ },
+ "W": {
+  "size": "1280x720",
+  "tokenSharePct": 87.7,
+  "words_excl_badge": 3,
+  "minFontPx": 100,
+  "minFontPx_excl_badge": 100,
+  "minContrast10": 10.28,
+  "badge": false,
+  "texts": [
+   {
+    "text": "5.98%",
+    "fontPx": 150,
+    "px_at_25pct": 37.5,
+    "contrast_at_10pct": 17.27,
+    "claim": "low2026",
+    "claimDisplayMatches": true,
+    "illustrativeClaim": false
+   },
+   {
+    "text": "Missed it?",
+    "fontPx": 100,
+    "px_at_25pct": 25.0,
+    "contrast_at_10pct": 10.28,
+    "claim": null,
+    "claimDisplayMatches": null,
+    "illustrativeClaim": null
+   }
+  ]
+ }
+}
