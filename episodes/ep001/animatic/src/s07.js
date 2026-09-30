@@ -33,7 +33,7 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, 'loan costs ' + CL('cost_median'), Math.min(r.x + 30, 1824 - measure(ctx, 'loan costs ' + CL('cost_median'), 'number')), r.y, 'number', { alpha: easeOut(t, tRm + 0.9, tRm + 1.3), shadow: true });
     text(ctx, 'paid in cash at closing', r.x + 30, r.y + 64, 'label', { alpha: easeOut(t, tCa, tCa + 0.4), shadow: true });
     text(ctx, 'one scale for both', r.x + 30, r.y + 124, 'note', { color: C.muted, alpha: easeOut(t, tRm + 1.3, tRm + 1.7), shadow: true });
-    chrome(ctx, { illus: aS, source: 'Nora is illustrative. Dollars of the day = not adjusted for inflation.', plate: true });
+    chrome(ctx, { illus: aS, source: nb('Nora is illustrative. Dollars of the day = not adjusted for inflation.', 'Nora is illustrative.'), plate: true }); // C6 owner: corner mode drops the footer basis clause (S01 keeps it)
   }
   // H3: one scale of 2025 refinance bills (no tick numbers: only the claimed median is printed here)
   const B = DATA.bills, X0 = 260, X1 = 1660, V0 = 1500, V1 = 11500, xOf = (v) => X0 + (v - V0) / (V1 - V0) * (X1 - X0), Y = 600;

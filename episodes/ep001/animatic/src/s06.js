@@ -1,6 +1,6 @@
 // S06 · The offer. Kết hợp: H1 letter (new rate line lights) -> H3 one rate scale: 7.62 vs 7.03, the gap grows
 // "0.59 point", a 1-point ruler set beside it (what "a point" means) -> H1 the payment stack: $221 lifts off.
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, dot, mark, ease, easeOut, mix, basisNote } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, dot, mark, ease, easeOut, mix, basisNote, nb } from './engine.js';
 import { kitchen, letter, paymentStack, PL } from './common.js';
 export const uses3d = true;
 
@@ -36,7 +36,7 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, CL('sav_median') + ' a month less', lx, sl.y + 10, 'number', { align: 'right', color: C.positive, alpha: aS, shadow: true });
     text(ctx, 'at ' + CL('r_today') + ' instead of ' + CL('r_old'), lx, sl.y + 70, 'label', { align: 'right', alpha: aS, shadow: true });
     basisNote(ctx, lx, sl.y + 124, { s: 'in dollars of the day', align: 'right', color: C.ink, alpha: aS, shadow: true }); // C5 S09
-    chrome(ctx, { illus: 1, source: 'Nora is illustrative. Dollars of the day = not adjusted for inflation.', plate: true });
+    chrome(ctx, { illus: 1, source: nb('Nora is illustrative. Dollars of the day = not adjusted for inflation.', 'Nora is illustrative.'), plate: true }); // C6 owner: corner mode drops the footer basis clause (S01 keeps it)
   }
   // H3: one rate scale, 400 px per percentage point
   const Y0 = 900, R0 = 6.4, PX = 400, yOf = (r) => Y0 - (r - R0) * PX;
