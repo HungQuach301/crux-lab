@@ -1,7 +1,7 @@
 // Break-even plot (signed SF4 grammar), shared by S11-S13: x = months after refinancing, y = dollars.
 // Fees = a flat line. "Division" = savings only (straight line). Green curve = savings minus what she still owes
 // (model/refi.py via data.js; never printed). A small rate-cut ruler (top right) shows which cut is being tried.
-import { C, W, H, DATA, CL, text, line, rect, dot, mark, ease, easeOut, mix, withObj } from './engine.js';
+import { C, W, H, DATA, CL, text, line, rect, dot, mark, ease, easeOut, mix, withObj, basisNote } from './engine.js';
 
 export const G = { X0: 200, X1: 1500, YB: 880, YT: 420, VMAX: 6000 };
 export function axes(ctx, xmax, a = 1) {
@@ -10,7 +10,7 @@ export function axes(ctx, xmax, a = 1) {
   const yF = yOf(DATA.median.cost);
   line(ctx, [[G.X0, yF], [G.X1, yF]], C.muted, 6, { alpha: a });
   text(ctx, 'loan costs ' + CL('cost_median'), G.X0 + 10, yF - 20, 'label', { alpha: a });
-  text(ctx, 'dollars of the day', G.X0 + 10, yF - 76, 'note', { color: C.muted, alpha: a }); // C5 S09: basis next to the $
+  basisNote(ctx, G.X0 + 10, yF - 76, { alpha: a }); // C5 S09: basis next to the $
   return yF;
 }
 export const yOf = (v) => G.YB - (v / G.VMAX) * (G.YB - G.YT);

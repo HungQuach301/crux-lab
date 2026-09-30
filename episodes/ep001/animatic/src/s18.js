@@ -2,7 +2,7 @@
 // the three-mark ruler (signed SF6): three separate bars by loan size, no line between them; the outline house
 // "your loan?" slides along the axis and stops between marks with no value; the 1-point rule of thumb slides across
 // and matches none.
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, measure, ease, easeOut, back, mix, withObj, CHAR, basisNote, BASIS } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, measure, ease, easeOut, back, mix, withObj, CHAR, basisNote, BASIS, NEAR } from './engine.js';
 import { kitchen, letter, houseIcon, PL } from './common.js';
 export const uses3d = true;
 
@@ -56,7 +56,8 @@ export function build({ scene, camera, renderer, T }) {
     // assumptions (fixed footnote)
     const aA = easeOut(t, tAs, tAs + 0.5);
     text(ctx, 'Assumes: fees paid back within ' + CL('y3') + ' years · median ' + CL('y2025') + ' bills · ' + CL('oct2023') + ' rate', W / 2, 962, 'note', { align: 'center', color: C.ink, alpha: aA, plate: PL });
-    { // C5 S09: line 2 = 'fees paid in cash · ' + BASIS + ' · illustrative borrowers · not advice'; the basis piece shows with the loan sizes
+    if (!NEAR) text(ctx, 'fees paid in cash · illustrative borrowers · not advice', W / 2, 1016, 'note', { align: 'center', color: C.ink, alpha: aA, plate: PL });
+    else { // C5 S09: line 2 = 'fees paid in cash · ' + BASIS + ' · illustrative borrowers · not advice'; the basis piece shows with the loan sizes
       const L2 = 'fees paid in cash · ', R2 = ' · illustrative borrowers · not advice', wl = measure(ctx, L2, 'note'), wa = measure(ctx, 'amounts in ' + BASIS, 'note'), wr = measure(ctx, R2, 'note');
       const x0 = Math.min(900, 1822 - wr - wa / 2) - wa / 2 - wl; // the basis piece centred at x 900: within 300 px of all three loan labels (Walt 336 · Nora 860 · Anjali 1466)
       text(ctx, L2, x0, 1016, 'note', { color: C.ink, alpha: aA });

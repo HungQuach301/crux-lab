@@ -1,6 +1,6 @@
 // S02 · The letter, and the promise. H1 (signed SF2): the letter lands, its bill line lights, the camera pulls back to
 // three model houses (volume = loan) and the outline house "your loan?" (the viewer's own loan, no number).
-import { THREE, C, W, H, DATA, CL, text, chrome, ease, easeOut, back, mix, mark, house, outlineHouse } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, ease, easeOut, back, mix, mark, house, outlineHouse, basisNote, nb } from './engine.js';
 import { kitchen, letter, PL } from './common.js';
 export const uses3d = true;
 
@@ -41,7 +41,7 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, 'Loan costs:', 1180, 560, 'caption', { alpha: aB, plate: PL });
     text(ctx, CL('cost_median'), 1180, 680, 'hero', { alpha: aB, color: C.warn, plate: PL });
     text(ctx, 'the fees for the new loan', 1180, 770, 'label', { alpha: aB, plate: PL });
-    text(ctx, 'in dollars of the day', 1180, 830, 'note', { alpha: aB, plate: PL }); // C5 S09
+    basisNote(ctx, 1180, 830, { s: 'in dollars of the day', color: C.ink, alpha: aB, plate: PL }); // C5 S09
     const aR = easeOut(t, tR, tR + 0.4) * (1 - ease(t, tF - 0.3, tF));
     text(ctx, 'a new loan at a lower rate', 1180, 600, 'label', { alpha: aR, plate: PL });
     text(ctx, CL('r_old') + ' → ' + CL('r_today'), 1180, 700, 'number', { alpha: aR, plate: PL });
@@ -59,7 +59,7 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, 'How big a rate cut makes that worth it for Nora —', W / 2, 200, 'caption', { align: 'center', alpha: easeOut(t, tP1, tP1 + 0.4), plate: 'rgba(14,17,22,0.72)', sent: true });
     text(ctx, 'and where would your own loan fall?', W / 2, 280, 'caption', { align: 'center', alpha: easeOut(t, tY, tY + 0.4), plate: 'rgba(14,17,22,0.72)', sent: true });
     text(ctx, 'And why would a smaller mortgage need a bigger cut?', W / 2, 360, 'caption', { align: 'center', alpha: easeOut(t, tS - 0.6, tS - 0.2), plate: 'rgba(14,17,22,0.72)', sent: true });
-    chrome(ctx, { illus: aN, source: 'Fees: median ' + CL('y2025') + ' refinance bill (HMDA, US home-loan records), dollars of the day.', srcAlpha: easeOut(t, tF, tF + 0.4), plate: true });
+    chrome(ctx, { illus: aN, source: 'Fees: median ' + CL('y2025') + ' refinance bill (HMDA, US home-loan records)' + nb(', dollars of the day.', '. Nora: illustrative.'), srcAlpha: easeOut(t, tF, tF + 0.4), plate: true });
   }
   return { update, overlay, stripTimes: [tL + 1.2, tR + 0.8, tF + 1.0, tP + 3.0, tY + 1.4, T.dur - 0.2] };
 }

@@ -68,8 +68,16 @@ function draw(tg) {
     }
   }
   s.S.overlay(ctx, t, s.proj, m);
+  if (!E.NEAR) cornerBasis(R);
   if (R.layer === 'all') lastObjs = R.objs;
   return { w, t, s, m };
+}
+// BASIS_MODE corner (owner, C5 / checks K3.3): one fixed label under the ILLUSTRATIVE badge, as opaque as the most visible $ number
+// of the frame (so it appears and fades with them); nothing when no $ number is on screen. Episode 1 has only nominal $.
+function cornerBasis(R) {
+  let a = 0;
+  for (const o of R.objs) if (o.kind === 'text') for (const sp of o.claims || []) if (String((E.DATA.claims[sp.id] || {}).display || '').includes('$')) a = Math.max(a, sp.opacity);
+  if (a > 0.001) E.text(ctx, E.BASIS, W - 112, 176, 'note', { align: 'right', color: E.C.muted, alpha: Math.min(1, a), shadow: true });
 }
 const OUTF = ['id', 'kind', 'tid', 'tag', 'role', 'text', 'box', 'opacity', 'level', 'emph', 'series', 'anchor', 'chart', 'year', 'char', 'case', 'runs', 'color',
   'fontPx', 'background', 'parent', 'claims', 'key', 'sig', 'panel', 'label', 'value', 'full', 'orient', 'shape', 'stroke', 'fill', 'curve', 'vertices', 'tier', 'sent'];

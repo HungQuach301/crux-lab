@@ -1,6 +1,6 @@
 // S07 · The bill. Kết hợp: H1 the letter's last line lights; a paper ream ($5,124) grows beside the lifted $221 slab,
 // SAME dollar scale -> H3 a scale of 2025 refinance bills: the $5,124 dot slides in and stops at the median.
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, ease, easeOut, back, mix, measure, basisNote, BASIS } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, ease, easeOut, back, mix, measure, basisNote, BASIS, nb } from './engine.js';
 import { kitchen, letter, paymentStack, ream, PL } from './common.js';
 export const uses3d = true;
 
@@ -56,7 +56,7 @@ export function build({ scene, camera, renderer, T }) {
     // a letter like this: an outline letter slides in
     const aY = easeOut(t, tY, tY + 0.6), lx = mix(1640, 1500, back(t, tY, tY + 1.0));
     if (aY > 0) { srect(ctx, lx, 250, 170, 220, C.ink, 4, aY, [10, 8]); text(ctx, 'your letter?', lx + 85, 520, 'label', { align: 'center', alpha: aY }); }
-    chrome(ctx, { illus: easeOut(t, tSz - 0.3, tSz + 0.1), source: 'HMDA ' + CL('y2025') + ' (US home-loan records), refinances: total loan costs, dollars of the day.' });
+    chrome(ctx, { illus: easeOut(t, tSz - 0.3, tSz + 0.1), source: 'HMDA ' + CL('y2025') + ' (US home-loan records), refinances: total loan costs' + nb(', dollars of the day.', '.') });
   }
   return {
     mode: (t) => (t >= tRe ? '2d' : '3d'), update,

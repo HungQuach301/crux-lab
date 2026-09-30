@@ -1,6 +1,6 @@
 // S06 · The offer. Kết hợp: H1 letter (new rate line lights) -> H3 one rate scale: 7.62 vs 7.03, the gap grows
 // "0.59 point", a 1-point ruler set beside it (what "a point" means) -> H1 the payment stack: $221 lifts off.
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, dot, mark, ease, easeOut, mix } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, dot, mark, ease, easeOut, mix, basisNote } from './engine.js';
 import { kitchen, letter, paymentStack, PL } from './common.js';
 export const uses3d = true;
 
@@ -35,7 +35,7 @@ export function build({ scene, camera, renderer, T }) {
     const aS = easeOut(t, tLf + 0.3, tLf + 0.7);
     text(ctx, CL('sav_median') + ' a month less', lx, sl.y + 10, 'number', { align: 'right', color: C.positive, alpha: aS, shadow: true });
     text(ctx, 'at ' + CL('r_today') + ' instead of ' + CL('r_old'), lx, sl.y + 70, 'label', { align: 'right', alpha: aS, shadow: true });
-    text(ctx, 'in dollars of the day', lx, sl.y + 124, 'note', { align: 'right', color: C.ink, alpha: aS, shadow: true }); // C5 S09
+    basisNote(ctx, lx, sl.y + 124, { s: 'in dollars of the day', align: 'right', color: C.ink, alpha: aS, shadow: true }); // C5 S09
     chrome(ctx, { illus: 1, source: 'Nora is illustrative. Dollars of the day = not adjusted for inflation.', plate: true });
   }
   // H3: one rate scale, 400 px per percentage point

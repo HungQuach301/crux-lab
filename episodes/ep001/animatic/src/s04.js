@@ -1,6 +1,6 @@
 // S04 · Nora. H1: Nora's house at dusk, moving boxes land on the porch and the lights come on; her loan file fills in
 // line by line (flat card, labels >= label tier): loan $375,000, rate 7.62%, October 2023; stamp "Dollars of the day".
-import { THREE, C, W, H, DATA, CL, text, chrome, mark, ease, easeOut, back, mix, box, mat, house, rgba, roundRect } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, mark, ease, easeOut, back, mix, box, mat, house, rgba, roundRect, nb } from './engine.js';
 import { outdoors, shadowAll, card, PL } from './common.js';
 export const uses3d = true;
 
@@ -36,7 +36,7 @@ export function build({ scene, camera, renderer, T }) {
       // the whole value slides in from the right (never a partial number)
       text(ctx, v, cx + cw - 36 + 60 * (1 - easeOut(t, tt, tt + 0.5)), y + 70, 'number', { color: '#20242C', align: 'right', alpha: a });
     };
-    row(cy + 170, 'Loan, in dollars of the day', CL('loan_median'), tLn); // C5 S09: basis next to the $
+    row(cy + 170, nb('Loan, in dollars of the day', 'Loan'), CL('loan_median'), tLn); // C5 S09: basis next to the $
     row(cy + 330, 'Rate', CL('r_old'), tR);
     text(ctx, 'Signed ' + CL('oct2023'), cx + 36, cy + 510, 'label', { color: '#20242C', alpha: easeOut(t, tR + 0.5, tR + 0.9) * aC });
     // stamp: dollars of the day

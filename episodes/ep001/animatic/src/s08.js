@@ -2,7 +2,7 @@
 // stay = 3 years). Then a split screen: LEFT the 1-point line (Nora's cut 0.59 stops short: NO); RIGHT the division
 // 5,124 / 221 (month tiles flip to 24: YES). Both dim, "?": the left never looks at the bill (bill struck), the right
 // leaves something out (dashed "+ ?").
-import { C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, mark, strike, ease, easeOut, back, mix, inout } from './engine.js';
+import { C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, mark, strike, ease, easeOut, back, mix, inout, basisNote, nb } from './engine.js';
 import { houseIcon, cutRuler, PL } from './common.js';
 export const uses3d = false;
 
@@ -55,7 +55,7 @@ export function build({ T }) {
     const aR = p2 * easeOut(t, tDv, tDv + 0.4) * dimR;
     text(ctx, 'Simple division', 1440, 260, 'caption', { align: 'center', alpha: aR });
     text(ctx, CL('cost_median') + ' ÷ ' + CL('sav_median'), 1420, 420, 'number', { align: 'center', alpha: aR });
-    text(ctx, 'dollars of the day', 1420, 480, 'note', { align: 'center', color: C.muted, alpha: aR }); // C5 S09
+    basisNote(ctx, 1420, 480, { align: 'center', alpha: aR }); // C5 S09
     // month tiles flip (24 tiles, 2 rows of 12), unnumbered; the count appears when all have flipped
     const f = ease(t, tDv + 0.5, tD24);
     for (let i = 0; i < 24; i++) { const on = f * 24 >= i + 1; rect(ctx, 1110 + (i % 12) * 56, 500 + Math.floor(i / 12) * 70, 46, 56, on ? C.ink : C.grid, aR * (on ? 0.9 : 0.5)); }
@@ -70,7 +70,7 @@ export function build({ T }) {
     const aQ = p2 * inout(t, tN, tN + 0.4, tB - 0.3, tB);
     text(ctx, '?', W / 2, 640, 'hero', { align: 'center', color: C.warn, alpha: aQ, plate: PL });
     text(ctx, 'Neither is quite right', W / 2, 180 + 0, 'caption', { align: 'center', alpha: p2 * easeOut(t, tN, tN + 0.4), plate: PL, sent: true });
-    chrome(ctx, { illus: 1, source: 'Nora (illustrative). Fees: ' + CL('y2025') + ' median (HMDA, US home-loan records). Dollars of the day.' });
+    chrome(ctx, { illus: 1, source: 'Nora (illustrative). Fees: ' + CL('y2025') + ' median (HMDA, US home-loan records).' + nb(' Dollars of the day.') });
   }
   return { update: () => {}, overlay, stripTimes: [tWo + 1.2, tSt + 1.8, tSh + 2.0, tD24 + 0.6, tB + 1.0, T.dur - 0.2] };
 }

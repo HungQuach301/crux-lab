@@ -1,7 +1,7 @@
 // S19 · What this does not tell you. H3: the three bars fade to ghosts; a scale of 2025 refinance bills appears with
 // the middle half ($3,443 - $8,270) shaded and $5,124 inside it; around an outline house: your rate? your bill? your
 // balance?; two chips: fees added to the loan / a shorter term -> different math.
-import { C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, mark, ease, easeOut, back, mix, roundRect , withObj, CHAR } from './engine.js';
+import { C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, mark, ease, easeOut, back, mix, roundRect, withObj, CHAR, nb } from './engine.js';
 import { houseIcon, PL } from './common.js';
 export const uses3d = false;
 
@@ -28,7 +28,7 @@ export function build({ T }) {
     // the bill scale
     const aS = easeOut(t, t25 - 0.6, t25);
     line(ctx, [[X0, Y], [X1, Y]], C.grid, 6, { alpha: aS });
-    text(ctx, CL('y2025') + ' refinance bills, in dollars of the day', X0, Y - 130, 'label', { alpha: aS });
+    text(ctx, CL('y2025') + ' refinance bills' + nb(', in dollars of the day'), X0, Y - 130, 'label', { alpha: aS });
     const a25 = easeOut(t, t25, t25 + 0.4), a75 = easeOut(t, t75, t75 + 0.4);
     line(ctx, [[xOf(B.p25), Y - 60], [xOf(B.p25), Y + 40]], C.ink, 4, { alpha: a25 });
     text(ctx, CL('cost_p25'), xOf(B.p25), Y + 110, 'number', { align: 'center', alpha: a25 });
