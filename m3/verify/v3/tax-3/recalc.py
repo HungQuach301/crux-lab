@@ -1,4 +1,11 @@
-import csv, json
+import csv, json, os, sys
+IDS = ['cpi_factor_2009_to_last12','start_160k_in_current_prices_usd','end_180k_in_current_prices_usd',
+ 'max_credit_2500_in_current_prices_usd','credit_for_that_couple_now_usd','couple_160k_2009_grown_with_median_income_usd',
+ 'credit_for_median_growth_couple_now_usd','start_as_multiple_of_median_income_2009',
+ 'start_as_multiple_of_median_income_latest','median_income_latest_year']
+if not (os.path.exists('data/CPIAUCSL.csv') and os.path.exists('data/MEHOINUSA646N.csv')):
+    # FRED series could not be downloaded; every number depends on them
+    print(json.dumps({i: None for i in IDS}, indent=1)); sys.exit(0)
 def load(p):
     rows=list(csv.reader(open(p)))[1:]
     return [(d, float(v)) for d, v in rows if v not in ('', '.')]
