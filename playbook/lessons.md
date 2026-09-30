@@ -74,6 +74,13 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 
 Nguồn 2–5: bốn luật CHÍNH không đạt ở C6 Tập 1 (K3.3), chủ dự án chấp nhận lời giải thích cho Tập 1 và yêu cầu đưa cách sửa vào playbook (30/09/2026). Lời giải thích: `episodes/ep001/out/explanations.json` (nhánh `ep001-v2`).
 
+## M3. Cổng Mốc 3 (so mù luận điểm máy / đối chứng, 30/09/2026 — `decisions/D-003.md`)
+
+| # | Chuyện đã xảy ra | Bài học |
+|---|---|---|
+| T1 | Chủ dự án cảm nhận các cặp gần ngang nhau, "nhiều lựa chọn là buộc phải chọn"; chỉ 1/20 cặp chấm hoà, A được chọn 15/19 (máy ở A 6–3, ở B 1–9). | Trang chấm phải **nói rõ "Không phân biệt được" là câu trả lời hợp lệ** (đặt ngang hàng, không phải nút phụ); cân nhắc **thang 5 mức** (A hơn rõ / A hơn chút / ngang / B hơn chút / B hơn rõ). Luôn báo cáo lệch vị trí (tỉ lệ chọn A, kết quả tách theo vị trí). |
+| T2 | Thẻ đối chứng thắng nhờ là **một quyết định cụ thể** người xem nhận ra ngay (trả góp hai tuần, vay xe kỳ hạn dài); thẻ máy thường là kết luận thống kê trừu tượng dù có dữ liệu. | Khớp bài học gói phát hành "người như tôi" (G-013): luận điểm phải được **diễn đạt thành quyết định của người xem**; dữ liệu là để bảo vệ luận điểm, không thay cho móc. Đây là điều kiện chạy lại Cổng Mốc 3 (D-003). |
+
 ## C. Vận hành
 
 - Chủ dự án không đọc tài liệu dài; chỉ trả lời gói quyết định (≤ 3 câu, < 1 phút đọc).

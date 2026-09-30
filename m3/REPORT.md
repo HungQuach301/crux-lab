@@ -46,7 +46,9 @@ Key: `key.json` commit sau khi nhận mã; SHA-256 `d479f9ac40b3e576d76b6eaa4f9d
 - **Máy thắng 7, đối chứng thắng 12, hoà 1.** Tỉ lệ máy thắng trên cặp không hoà: **7/19 = 36.8 %** → **dưới ngưỡng D-002 (≥ 60 %)**. Cửa sổ ±5 % là 57–63 %; 36,8 % nằm ngoài cửa sổ.
 - Theo trụ (máy / đối chứng / hoà): vay nợ 3/3/1 · hưu trí 2/5/0 · thuế 2/4/0.
 - **Lệch vị trí:** chọn A ở **15/19** cặp không hoà (p hai phía ≈ 0,019 nếu vị trí không ảnh hưởng). Khi máy ở A: máy 6 · đối chứng 3 · hoà 1; khi máy ở B: máy 1 · đối chứng 9. Thiết kế cân 10/10 nên lệch vị trí không tự nghiêng về bên nào, nhưng nó cho thấy phần lớn lựa chọn đi theo vị trí; tách hiệu ứng vị trí khỏi hiệu ứng nguồn gốc cần thêm dữ liệu (xem gói quyết định).
-- Kết luận theo D-002: **hợp lệ 19/20 ĐẠT; tỉ lệ thắng 36,8 % KHÔNG ĐẠT → cổng Mốc 3 KHÔNG QUA** ở lần chạy này.
+- Kết luận theo D-002: **hợp lệ 19/20 ĐẠT; tỉ lệ thắng KHÔNG ĐẠT → Cổng Mốc 3 KHÔNG QUA** (chủ dự án chốt (a), 2026-09-30; `decisions/D-003.md`).
+- Tính cả hai cách cho cặp 07 (luận điểm máy retire-2 không hợp lệ): giữ cặp **7/19 = 36,8 %**; loại cặp **7/18 = 38,9 %** — cả hai dưới 60 %, không qua.
+- **Ghi chú của chủ dự án:** cảm nhận các cặp gần ngang nhau, nhiều lựa chọn là buộc phải chọn; kết quả đi theo vị trí (máy ở A 6–3, ở B 1–9) → **không có tín hiệu máy hơn đối chứng**. Không chạy lại lần kiểm vị trí.
 
 ## Nguyên văn 20 cặp
 
