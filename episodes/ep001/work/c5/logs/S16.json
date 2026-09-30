@@ -1,0 +1,320 @@
+{
+ "scene": "S16",
+ "frames": 835,
+ "frames3d": 350,
+ "filmSeconds": 27.833333333333332,
+ "wallSeconds": 717.7,
+ "browserFrameSeconds": 703.9,
+ "machineSecPerFilmSec": 25.79,
+ "hardTime": 27.8,
+ "crf": 8,
+ "size": "1920x1080",
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-30T01:46:32.548Z",
+ "texts": [
+  {
+   "s": "If Walt sells after 3 years",
+   "tier": "head",
+   "px": 58,
+   "n": 350,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "loan costs",
+   "tier": "label",
+   "px": 43,
+   "n": 350,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "+ extra owed",
+   "tier": "label",
+   "px": 43,
+   "n": 557,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "+$68 a month",
+   "tier": "label",
+   "px": 43,
+   "n": 350,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 877,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "months",
+   "tier": "note",
+   "px": 40,
+   "n": 350,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 40,
+   "n": 836,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "3 years",
+   "tier": "label",
+   "px": 43,
+   "n": 216,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 4.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "$1,777 short",
+   "tier": "number",
+   "px": 77,
+   "n": 207,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 4.7666666666666515,
+   "sent": false
+  },
+  {
+   "s": "after 3 years, savings still",
+   "tier": "label",
+   "px": 43,
+   "n": 207,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 4.7666666666666515,
+   "sent": false
+  },
+  {
+   "s": "below loan costs",
+   "tier": "label",
+   "px": 43,
+   "n": 207,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 4.7666666666666515,
+   "sent": false
+  },
+  {
+   "s": "Rate cut needed to pay back within 3 years",
+   "tier": "head",
+   "px": 58,
+   "n": 486,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 11.666666666666629,
+   "sent": false
+  },
+  {
+   "s": "point = one percentage point of the rate",
+   "tier": "note",
+   "px": 40,
+   "n": 486,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 11.666666666666629,
+   "sent": false
+  },
+  {
+   "s": "no cut",
+   "tier": "note",
+   "px": 40,
+   "n": 486,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 11.666666666666629,
+   "sent": false
+  },
+  {
+   "s": "1-point line",
+   "tier": "note",
+   "px": 40,
+   "n": 486,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 11.666666666666629,
+   "sent": false
+  },
+  {
+   "s": "1.12 points",
+   "tier": "number",
+   "px": 77,
+   "n": 443,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 13.099999999999966,
+   "sent": false
+  },
+  {
+   "s": "more than the 1-point line",
+   "tier": "label",
+   "px": 43,
+   "n": 76,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.833333333333314,
+   "sent": false
+  },
+  {
+   "s": "0.5 point",
+   "tier": "label",
+   "px": 43,
+   "n": 320,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 17.19999999999999,
+   "sent": false
+  },
+  {
+   "s": "Walt $115,000",
+   "tier": "note",
+   "px": 40,
+   "n": 320,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 17.19999999999999,
+   "sent": false
+  },
+  {
+   "s": "Nora $375,000",
+   "tier": "note",
+   "px": 40,
+   "n": 320,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 17.19999999999999,
+   "sent": false
+  },
+  {
+   "s": "Smaller loan, bigger cut needed",
+   "tier": "caption",
+   "px": 51,
+   "n": 320,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 17.19999999999999,
+   "sent": false
+  },
+  {
+   "s": "Bill: barely shrinks",
+   "tier": "label",
+   "px": 43,
+   "n": 188,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 21.599999999999966,
+   "sent": false
+  },
+  {
+   "s": "Walt $3,667",
+   "tier": "note",
+   "px": 40,
+   "n": 188,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 21.599999999999966,
+   "sent": false
+  },
+  {
+   "s": "Nora $5,124",
+   "tier": "note",
+   "px": 40,
+   "n": 188,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 21.599999999999966,
+   "sent": false
+  },
+  {
+   "s": "Savings: shrink",
+   "tier": "label",
+   "px": 43,
+   "n": 116,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 24,
+   "sent": false
+  },
+  {
+   "s": "Walt $68",
+   "tier": "note",
+   "px": 40,
+   "n": 116,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 24,
+   "sent": false
+  },
+  {
+   "s": "Nora $221",
+   "tier": "note",
+   "px": 40,
+   "n": 116,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 24,
+   "sent": false
+  }
+ ],
+ "anchorsUsed": [
+  "cut",
+  "fees",
+  "more",
+  "savings",
+  "sell",
+  "short",
+  "why"
+ ],
+ "anchorsDeclared": [
+  "sell",
+  "short",
+  "cut",
+  "more",
+  "why",
+  "fees",
+  "savings"
+ ],
+ "anchorsKeywordMissing": [],
+ "claimsUsed": [
+  "cost_median",
+  "cost_small",
+  "cut36_median",
+  "cut36_small",
+  "loan_median",
+  "loan_small",
+  "net36_small",
+  "s10",
+  "sav_median",
+  "sav_small",
+  "y3"
+ ]
+}
