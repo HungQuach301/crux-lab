@@ -1,39 +1,24 @@
 # checks/ report
 
 root: `/home/user/crux-lab/episodes/ep001`  
-lock: `f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd`  
-master SHA-256: `None`  
-{'PASS': 9, 'FAIL': 2, 'MISSING': 12, 'ERROR': 0}
+lock: `beffb49be5917559419867513257b37c4ae827581db00039abb53804aaf2bb33`  
+master SHA-256: `087830ea3c61968c7e04722fc4ad3b92f5e826588f3b5bf2663ac5577d5460aa`  
+{'PASS': 3, 'FAIL': 0, 'MISSING': 0, 'ERROR': 0}
 
-| rule | § | status | failing metrics |
+**Tập: ĐẠT** (chỉ luật CHẶN làm trượt tập; luật CHÍNH không đạt cần bên dựng giải thích; luật THAM KHẢO chỉ báo số đo)
+
+| cấp | luật | đạt | không đạt |
 |---|---|---|---|
-| F11 | CH §4 khâu 3 (hợp đồng tập, K2) | FAIL | declared artefacts not delivered = 23 (need <= 0) |
-| A13 | DX-A7 | PASS |  |
-| A15 | DX-A7 | MISSING | artifact missing: out/video.mp4 |
-| S01 | DX-H1 | PASS |  |
-| S03 | DX-H4 | PASS |  |
-| S04 | DX-H5 | PASS |  |
-| S05 | DX-H1, DX-H2 | PASS |  |
-| S06 | DX-H6 | MISSING | artifact missing: out/checks/page.json |
-| S07 | DX-H1, DX-H2 | MISSING | artifact missing: out/checks/page.json |
-| S08 | DX-H2 | MISSING | artifact missing: out/checks/page.json |
-| S09 | DX-H3 | MISSING | artifact missing: out/checks/page.json |
-| S10 | DX-I1, DX-I2 | PASS |  |
-| S11 | DX-S6 | MISSING | artifact missing: out/checks/page.json |
-| S12 | DX-S7 | MISSING | artifact missing: out/checks/page.json |
-| S13 | DX-S8 (sổ gu G-009) | PASS |  |
-| S14 | DX-S10 | MISSING | artifact missing: out/video.mp4 |
-| S15 | DX-S1 | FAIL | cold open s = 21.94 (need <= 15.0) |
-| S16 | DX-S3, RUBRIC H4 (sổ gu G-008) | PASS |  |
-| R02 | DX-R2 | PASS |  |
-| V04 | DX-V4, DX-X3 | MISSING | artifact missing: out/checks/page.json |
-| V09 | DX-V4, DX-X3 | MISSING | artifact missing: out/checks/page.json |
-| T1 | DX-A1 (sổ gu G-001, G-006) | MISSING | artifact missing: out/sonify-events.json or out/checks/page.json chartEvents |
-| L1 | DX-A1, DX-A9 (sổ gu G-006) | MISSING | artifact missing: out/audio/stems/sonify.wav|flac |
+| CHẶN | 3 | 3 | — |
+| CHÍNH | 0 | 0 | — |
+| THAM KHẢO | 0 | 0 | — |
 
-## Metrics within 5% of a threshold
+## Chỉ số trong ±5% quanh ngưỡng
 
-- S03 files = 2 (threshold >= 2)
-- S04 series pairs = 1 (threshold >= 1)
-- S04 mortgage30 tolerance = 0.5 (threshold <= 0.5)
-- S15 ident s = 3.0 (threshold <= 3.0)
+không có
+
+| rule | tier | § | status | failing metrics |
+|---|---|---|---|---|
+| F09 | CHẶN | DX-F5 | PASS |  |
+| F10 | CHẶN | DX-F6 | PASS |  |
+| F11 | CHẶN | CH §4 khâu 3 (hợp đồng tập, K2) | PASS |  |

@@ -1,64 +1,211 @@
 {
  "root": "/home/user/crux-lab/episodes/ep001",
  "contract": "/home/user/crux-lab/episodes/ep001/contract.json",
- "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
- "video_sha256": null,
+ "lock": "beffb49be5917559419867513257b37c4ae827581db00039abb53804aaf2bb33",
+ "video_sha256": "087830ea3c61968c7e04722fc4ad3b92f5e826588f3b5bf2663ac5577d5460aa",
+ "episode": "ĐẠT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 3,
+   "pass": 3,
+   "notPass": []
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "explained": {},
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 0,
+   "pass": 0,
+   "notPass": []
+  }
+ },
  "counts": {
-  "PASS": 9,
-  "FAIL": 2,
-  "MISSING": 12,
+  "PASS": 3,
+  "FAIL": 0,
+  "MISSING": 0,
   "ERROR": 0
  },
- "near": [
-  {
-   "rule": "S03",
-   "name": "files",
-   "value": 2,
-   "op": ">=",
-   "threshold": 2,
-   "unit": "",
-   "pass": true,
-   "near": true
-  },
-  {
-   "rule": "S04",
-   "name": "series pairs",
-   "value": 1,
-   "op": ">=",
-   "threshold": 1,
-   "unit": "",
-   "pass": true,
-   "near": true
-  },
-  {
-   "rule": "S04",
-   "name": "mortgage30 tolerance",
-   "value": 0.5,
-   "op": "<=",
-   "threshold": 0.5,
-   "unit": "pp",
-   "pass": true,
-   "near": true
-  },
-  {
-   "rule": "S15",
-   "name": "ident s",
-   "value": 3.0,
-   "op": "<=",
-   "threshold": 3.0,
-   "unit": "s",
-   "pass": true,
-   "near": true
-  }
- ],
+ "near": [],
  "results": [
   {
+   "id": "F09",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "text identical to script",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "lines > 42 chars",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "cues > 2 lines",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "cues outside 1-7 s",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "overlapping cues",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "firstDiff": null,
+     "longLines": [],
+     "badDurations": [],
+     "overlaps": [],
+     "cues": 137
+    }
+   ],
+   "note": null,
+   "section": "DX-F5",
+   "threshold": "text identical (100%); every line ≤ 42 chars; ≤ 2 lines; 1.0 ≤ duration ≤ 7.0 s; 0 overlaps",
+   "fingerprint": "206df129d7ea34ab",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "F10",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "chapters",
+     "value": 11,
+     "op": ">=",
+     "threshold": 3,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "first chapter start s",
+     "value": 0,
+     "op": "==",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "shortest chapter s",
+     "value": 26,
+     "op": ">=",
+     "threshold": 10.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mp4 chapters agree",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "chapters": [
+      {
+       "start": 0,
+       "title": "The week rates bottomed"
+      },
+      {
+       "start": 55,
+       "title": "How Nora got here"
+      },
+      {
+       "start": 140,
+       "title": "The offer and the bill"
+      },
+      {
+       "start": 202,
+       "title": "Two quick answers"
+      },
+      {
+       "start": 241,
+       "title": "The 30-year clock"
+      },
+      {
+       "start": 315,
+       "title": "A quarter point, a full point, half a point"
+      },
+      {
+       "start": 372,
+       "title": "Walt: a smaller loan"
+      },
+      {
+       "start": 451,
+       "title": "Anjali: a bigger loan"
+      },
+      {
+       "start": 487,
+       "title": "A line for each loan size"
+      },
+      {
+       "start": 535,
+       "title": "What this does not tell you"
+      },
+      {
+       "start": 561,
+       "title": "How long will you stay?"
+      }
+     ],
+     "mp4": []
+    }
+   ],
+   "note": null,
+   "section": "DX-F6",
+   "threshold": "≥ 3 chapters; first at 0:00; each ≥ 10 s; MP4 chapters (if any) equal the description's",
+   "fingerprint": "a9005215f87e44e2",
+   "tier": "BLOCK",
+   "seconds": 0.1
+  },
+  {
    "id": "F11",
-   "status": "FAIL",
+   "status": "PASS",
    "metrics": [
     {
      "name": "declared M3 artefacts",
-     "value": 40,
+     "value": 43,
      "op": ">=",
      "threshold": 1,
      "unit": "",
@@ -67,11 +214,11 @@
     },
     {
      "name": "declared artefacts not delivered",
-     "value": 23,
+     "value": 0,
      "op": "<=",
      "threshold": 0,
      "unit": "",
-     "pass": false,
+     "pass": true,
      "near": false
     },
     {
@@ -86,31 +233,7 @@
    ],
    "details": [
     {
-     "notDelivered": [
-      "out/video.mp4",
-      "out/captions.srt",
-      "out/package/description.md",
-      "out/audio/stems/voice.*",
-      "out/audio/stems/music.*",
-      "out/audio/stems/sfx.*",
-      "out/audio/stems/whoosh.*",
-      "out/audio/stems/room.*",
-      "out/audio/stems/sonify.*",
-      "out/camera.json",
-      "out/sfx-events.json",
-      "out/sonify-events.json",
-      "out/tempo-map.json",
-      "out/transitions.json",
-      "out/tension-map.json",
-      "out/tension-map.png",
-      "out/package/thumb-1.png",
-      "out/package/thumb-2.png",
-      "out/package/thumb-3.png",
-      "out/page.json",
-      "out/package/thumb-1.json",
-      "out/package/thumb-2.json",
-      "out/package/thumb-3.json"
-     ],
+     "notDelivered": [],
      "notDeclared": []
     }
    ],
@@ -118,679 +241,7 @@
    "section": "CH §4 khâu 3 (hợp đồng tập, K2)",
    "threshold": "every declared M3 artefact delivered; every checks/CONTRACT.md release file declared",
    "fingerprint": "eb72b164041573de",
-   "seconds": 0.0
-  },
-  {
-   "id": "A13",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "takes",
-     "value": 132,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "max |stretch-1|",
-     "value": 0.059329,
-     "op": "<=",
-     "threshold": 0.1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "over": []
-    }
-   ],
-   "note": null,
-   "section": "DX-A7",
-   "threshold": "every |stretch − 1| ≤ 0.10",
-   "fingerprint": "d9a3e6fde6d2f573",
-   "seconds": 17.7
-  },
-  {
-   "id": "A15",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/video.mp4",
-   "section": "DX-A7",
-   "threshold": "every act 150 … 160 wpm; no sentence > 175 wpm",
-   "fingerprint": "553d76fabbd6ca76",
-   "seconds": 0.0
-  },
-  {
-   "id": "S01",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "values compared",
-     "value": 619,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "mismatches",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "model parts not re-computed",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "kind": "refinance-breakeven",
-     "notRecomputed": []
-    }
-   ],
-   "note": null,
-   "section": "DX-H1",
-   "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
-   "fingerprint": "bd6d0ee85cf6c7c1",
-   "seconds": 0.0
-  },
-  {
-   "id": "S03",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "files",
-     "value": 2,
-     "op": ">=",
-     "threshold": 2,
-     "unit": "",
-     "pass": true,
-     "near": true
-    },
-    {
-     "name": "file problems",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "primary on a declared host",
-     "value": true,
-     "op": "==",
-     "threshold": true,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "cross-check on a declared host",
-     "value": true,
-     "op": "==",
-     "threshold": true,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "declaredHosts": {
-      "primary": [
-       "fred.stlouisfed.org"
-      ],
-      "crosscheck": [
-       "fred.stlouisfed.org"
-      ]
-     },
-     "seenHosts": {
-      "primary": [
-       "fred.stlouisfed.org"
-      ],
-      "crosscheck": [
-       "fred.stlouisfed.org"
-      ]
-     }
-    }
-   ],
-   "note": null,
-   "section": "DX-H4",
-   "threshold": "every file present with matching SHA-256, valid date, http(s) URL, terms quote ≥ 20 chars and terms URL; ≥ 1 primary file on a declared primary host; ≥ 1 cross-check file on a declared cross-check host",
-   "fingerprint": "d698b88b0419a45f",
-   "seconds": 0.0
-  },
-  {
-   "id": "S04",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "series pairs",
-     "value": 1,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": true
-    },
-    {
-     "name": "mortgage30 tolerance",
-     "value": 0.5,
-     "op": "<=",
-     "threshold": 0.5,
-     "unit": "pp",
-     "pass": true,
-     "near": true
-    },
-    {
-     "name": "used keys missing in a source",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "out-of-tolerance keys not reported",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "pairs": [
-      {
-       "series": "mortgage30",
-       "overTolerance": 0
-      }
-     ],
-     "unreported": [],
-     "missing": []
-    }
-   ],
-   "note": null,
-   "section": "DX-H5",
-   "threshold": "≥ 1 pair; every declared tolerance ≤ 0.5 (pp); every used key present in both series; every key outside tolerance listed in \"mismatches\" (reported, not silently resolved)",
-   "fingerprint": "952fa38fc028f677",
-   "seconds": 0.0
-  },
-  {
-   "id": "S05",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "mapped claims",
-     "value": 25,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "mapped claims absent",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "claims off their re-computation",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "claims missing their ILLUSTRATIVE flag",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "off": [],
-     "absent": [],
-     "missingIllustrative": []
-    }
-   ],
-   "note": null,
-   "section": "DX-H1, DX-H2",
-   "threshold": "≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag",
-   "fingerprint": "fe95bd49817e5c0c",
-   "seconds": 0.0
-  },
-  {
-   "id": "S06",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/checks/page.json",
-   "section": "DX-H6",
-   "threshold": "every declared value shown (e.g. 69 of 69 start years), including cases where the thesis did not hold",
-   "fingerprint": "f5c41f1cb86285f5",
-   "seconds": 0.0
-  },
-  {
-   "id": "S07",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/checks/page.json",
-   "section": "DX-H1, DX-H2",
-   "threshold": "0 orphan numbers on screen; 0 unregistered numbers in narration; 0 claims without formula; 0 unsourced non-illustrative claims; 0 sourced claims without dataYear",
-   "fingerprint": "db7b830d6bc3afa5",
-   "seconds": 0.0
-  },
-  {
-   "id": "S08",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/checks/page.json",
-   "section": "DX-H2",
-   "threshold": "0 frames without badge; badge never later than the number (lag ≤ 0 frames)",
-   "fingerprint": "80936cb783720361",
-   "seconds": 0.0
-  },
-  {
-   "id": "S09",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/checks/page.json",
-   "section": "DX-H3",
-   "threshold": "0 money claims without basis; 0 frames missing the on-screen basis; 0 narration sentences missing it",
-   "fingerprint": "8d3ae038239df8fc",
-   "seconds": 0.0
-  },
-  {
-   "id": "S10",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "advice sentences",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "forecast sentences",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "4% as recommendation",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "\"we\" for the viewer",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "\"US only\" stated",
-     "value": true,
-     "op": "==",
-     "threshold": true,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "\"history, not a forecast\" stated",
-     "value": true,
-     "op": "==",
-     "threshold": true,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "advice": [],
-     "forecast": [],
-     "four": [],
-     "we": []
-    }
-   ],
-   "note": null,
-   "section": "DX-I1, DX-I2",
-   "threshold": "0 matches of ADVICE, FORECAST, FOUR, WE_BAD; both required phrases present",
-   "fingerprint": "9a9de6ba4714eb57",
-   "seconds": 0.0
-  },
-  {
-   "id": "S11",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/checks/page.json",
-   "section": "DX-S6",
-   "threshold": "≥ 1 core claim; each core claim appears in ≥ 3 distinct scenes spanning ≥ 2 acts; ≥ 3 declared callbacks with distinct meanings, all verified",
-   "fingerprint": "dbdc0a42eec78a77",
-   "seconds": 0.0
-  },
-  {
-   "id": "S12",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/checks/page.json",
-   "section": "DX-S7",
-   "threshold": "new numbers ≤ duration / 8 s; no scene with > 2 new numbers; 0 claims marked axis but shown outside axis labels",
-   "fingerprint": "eed051aeced11bb2",
-   "seconds": 0.0
-  },
-  {
-   "id": "S13",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "sentence length CV (≥ 4 words)",
-     "value": 0.419769,
-     "op": ">=",
-     "threshold": 0.35,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "staccato passages",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "sentences": 132,
-     "mean": 10.9,
-     "cvAllSentences": 0.438
-    }
-   ],
-   "note": null,
-   "section": "DX-S8 (sổ gu G-009)",
-   "threshold": "PROVISIONAL: CV (sentences ≥ 4 words) ≥ 0.35; 0 staccato passages",
-   "fingerprint": "f6f525969e4f2c7b",
-   "seconds": 0.0
-  },
-  {
-   "id": "S14",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/video.mp4",
-   "section": "DX-S10",
-   "threshold": "2 … 3 breaks; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s",
-   "fingerprint": "130b08063ddb2a97",
-   "seconds": 0.0
-  },
-  {
-   "id": "S15",
-   "status": "FAIL",
-   "metrics": [
-    {
-     "name": "act order",
-     "value": [
-      "cold-open",
-      "ident",
-      "act1",
-      "act2",
-      "act3",
-      "method",
-      "outro"
-     ],
-     "op": "==",
-     "threshold": [
-      "cold-open",
-      "ident",
-      "act1",
-      "act2",
-      "act3",
-      "method",
-      "outro"
-     ],
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "cold open s",
-     "value": 21.94,
-     "op": "<=",
-     "threshold": 15.0,
-     "unit": "s",
-     "pass": false,
-     "near": false
-    },
-    {
-     "name": "ident s",
-     "value": 3.0,
-     "op": "<=",
-     "threshold": 3.0,
-     "unit": "s",
-     "pass": true,
-     "near": true
-    },
-    {
-     "name": "outro s",
-     "value": 40.55,
-     "op": ">=",
-     "threshold": 20.0,
-     "unit": "s",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "total s",
-     "value": 741.502,
-     "op": ">=",
-     "threshold": 600.0,
-     "unit": "s",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "act gaps",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "scenes outside their act",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "gaps": [],
-     "outside": []
-    }
-   ],
-   "note": null,
-   "section": "DX-S1",
-   "threshold": "order cold-open, ident, act1, act2, act3, method, outro; cold open ≤ 15 s; ident ≤ 3 s; outro ≥ 20 s; timeline total ≥ 600 s; every scene inside its act",
-   "fingerprint": "9ed1c02c0bbc8b97",
-   "seconds": 0.0
-  },
-  {
-   "id": "S16",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "decisive sentences",
-     "value": 5,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "share tied to a character or scenario",
-     "value": 0.8,
-     "op": ">=",
-     "threshold": 0.75,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "decisiveClaims": [
-      "be_bal_median",
-      "cut36_median"
-     ],
-     "anchors": [
-      "characters.large",
-      "characters.median",
-      "characters.small",
-      "scenarios.hold36",
-      "scenarios.hold84"
-     ]
-    },
-    {
-     "sentence": "S01.1",
-     "claims": [
-      "be_bal_median"
-     ],
-     "tiedTo": [],
-     "text": "In October 2023, the average 30-year fixed mortgage rate in the US hit its highest level since 2000."
-    }
-   ],
-   "note": null,
-   "section": "DX-S3, RUBRIC H4 (sổ gu G-008)",
-   "threshold": "PROVISIONAL: ≥ 1 decisive sentence; ≥ 75% of decisive sentences tied to a declared character or scenario",
-   "fingerprint": "63091769966d83b9",
-   "seconds": 0.0
-  },
-  {
-   "id": "R02",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "longest stretch without a break s",
-     "value": 48.35,
-     "op": "<=",
-     "threshold": 60.0,
-     "unit": "s",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "from": 652.602,
-     "to": 700.952
-    }
-   ],
-   "note": null,
-   "section": "DX-R2",
-   "threshold": "longest gap ≤ 60 s",
-   "fingerprint": "7050a680e8f99ac0",
-   "seconds": 0.0
-  },
-  {
-   "id": "V04",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/checks/page.json",
-   "section": "DX-V4, DX-X3",
-   "threshold": "every declared character seen; main colour = declared colour and ≥ 95% of its observations; main shape = declared shape and ≥ 95%; declared colours all differ; each pair keeps one side for the whole video, and the side the contract declares (left < centre < right) when both sides are declared; 0 time-order violations",
-   "fingerprint": "9435eec7b39c2e24",
-   "seconds": 0.0
-  },
-  {
-   "id": "V09",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/checks/page.json",
-   "section": "DX-V4, DX-X3",
-   "threshold": "every declared character seen; for every pair: ΔE2000 ≥ 20 under each simulation, grey contrast ≥ 1.5:1",
-   "fingerprint": "518bbadd35d36817",
-   "seconds": 0.0
-  },
-  {
-   "id": "T1",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/sonify-events.json or out/checks/page.json chartEvents",
-   "section": "DX-A1 (sổ gu G-001, G-006)",
-   "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
-   "fingerprint": "e7a5925e1b04aae3",
-   "seconds": 0.0
-  },
-  {
-   "id": "L1",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/audio/stems/sonify.wav|flac",
-   "section": "DX-A1, DX-A9 (sổ gu G-006)",
-   "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
-   "fingerprint": "01832a4e805c145e",
+   "tier": "BLOCK",
    "seconds": 0.0
   }
  ]
