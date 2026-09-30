@@ -1,7 +1,7 @@
 // S15 · The bill barely shrinks. Kết hợp: H3 three rows, Walt's bar shrinking from Nora's length: loan (a lot),
 // bill (a little), monthly savings (a lot) -> H1 Walt's yard: $68 bundles stack very slowly to the ream + hatched
 // slab; level at month 75. (Deviation from the C3 table "H1": the three-way size comparison is a scale reading -> H3.)
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, srect, mark, ease, easeOut, mix , withObj } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, srect, mark, ease, easeOut, mix, withObj, basisNote, BASIS, measure } from './engine.js';
 import { monthRuler, PL } from './common.js';
 import { makeYard } from './yard.js';
 export const uses3d = true;
@@ -28,6 +28,7 @@ export function build(ctx0) {
       const k = mix(1, r.w, ease(t, r.t + 0.4, r.t + 1.8));
       withObj({ role: 'bar', chart: 's15-row' + i, value: k, full: ease(t, r.t + 0.4, r.t + 1.8) >= 1, orient: 'h', char: 'small' }, () => rect(ctx, BX, y + 10, BL * k, 60, C.warn, 0.95 * a)); mark(ctx, 'walt', BX - 30, y + 40, 16, a);
       text(ctx, r.vw, BX + BL * k + 20, y + 58, 'number', { alpha: easeOut(t, r.t + 1.6, r.t + 2.0) });
+      basisNote(ctx, (BX + BL * r.w + 20 + measure(ctx, r.vw, 'number') + BX + BL + 20) / 2, y + 118, { align: 'center', alpha: a }); // C5 S09
     });
     text(ctx, 'the bill barely shrinks', BX, 330 + 230 + 136, 'label', { color: C.warn, alpha: easeOut(t, tB + 2.0, tB + 2.4) * (1 - ease(t, tSh - 0.3, tSh)) });
     text(ctx, 'his bill = ' + CL('share_walt') + ' of his loan', BX, 330 + 230 + 136, 'label', { color: C.warn, alpha: easeOut(t, tSh, tSh + 0.4) });
@@ -46,7 +47,9 @@ export function build(ctx0) {
   function yard(ctx, t, P) {
     const m = month(t);
     text(ctx, CL('sav_small') + ' a month, against a ' + CL('cost_small') + ' bill', 96, 128, 'head', { shadow: true });
-    text(ctx, 'Break-even: month ' + CL('be_bal_small'), 96, 214, 'number', { color: C.positive, alpha: easeOut(t, t75 + 0.2, t75 + 0.6), shadow: true });
+    basisNote(ctx, 96, 186, { color: C.ink, shadow: true }); // C5 S09
+    basisNote(ctx, 1824, H - 64, { align: 'right', color: C.ink, shadow: true }); // C5 S09: next to the +$68 label
+    text(ctx, 'Break-even: month ' + CL('be_bal_small'), 96, 262, 'number', { color: C.positive, alpha: easeOut(t, t75 + 0.2, t75 + 0.6), shadow: true });
     const pr = P(new THREE.Vector3(w.x - w.FW / 2, 0.9, w.Z + w.FD / 2)), pc = P(new THREE.Vector3(w.xs + w.FW / 2, 0.5, w.Z + w.FD / 2));
     text(ctx, 'loan costs', pr.x - 24, pr.y - 30, 'label', { align: 'right', shadow: true });
     text(ctx, '+ extra owed', pr.x - 24, pr.y + 26, 'label', { align: 'right', color: '#FF8A8E', shadow: true });

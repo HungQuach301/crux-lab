@@ -10,6 +10,7 @@ export function axes(ctx, xmax, a = 1) {
   const yF = yOf(DATA.median.cost);
   line(ctx, [[G.X0, yF], [G.X1, yF]], C.muted, 6, { alpha: a });
   text(ctx, 'loan costs ' + CL('cost_median'), G.X0 + 10, yF - 20, 'label', { alpha: a });
+  text(ctx, 'dollars of the day', G.X0 + 10, yF - 76, 'note', { color: C.muted, alpha: a }); // C5 S09: basis next to the $
   return yF;
 }
 export const yOf = (v) => G.YB - (v / G.VMAX) * (G.YB - G.YT);

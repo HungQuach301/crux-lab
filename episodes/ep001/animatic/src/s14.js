@@ -1,6 +1,6 @@
 // S14 · Walt. H1 yard: Walt's smaller house rises beside Nora's (volume = loan); the same letter slides to Walt;
 // his bill ($3,667) drops in beside Nora's ($5,124) on one dollar scale; a level line shows how little lower it is.
-import { THREE, C, W, H, DATA, CL, text, chrome, mark, ease, easeOut, back, mix, measure } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, mark, ease, easeOut, back, mix, measure, basisNote, BASIS } from './engine.js';
 import { letter, PL } from './common.js';
 import { makeYard } from './yard.js';
 export const uses3d = true;
@@ -37,6 +37,7 @@ export function build(ctx0) {
     const aB = easeOut(t, tB + 0.4, tB + 0.8);
     text(ctx, 'bill ' + CL('cost_small'), rw.x, rw.y - 30, 'label', { align: 'center', alpha: aB, plate: PL });
     text(ctx, 'bill ' + CL('cost_median'), rn.x, rn.y - 30, 'label', { align: 'center', alpha: aB, plate: PL });
+    basisNote(ctx, W / 2, 470, { align: 'center', color: C.ink, alpha: easeOut(t, tL, tL + 0.4), plate: PL }); // C5 S09: amounts are dollars of the day
     text(ctx, 'far smaller loan', W / 2, 900, 'caption', { align: 'center', color: C.warn, alpha: easeOut(t, tF, tF + 0.4) * (1 - ease(t, tLi, tLi + 0.3)), plate: PL });
     text(ctx, 'only a little smaller bill', W / 2, 900, 'caption', { align: 'center', alpha: easeOut(t, tLi, tLi + 0.4), plate: PL });
     chrome(ctx, { illus: 1, source: 'Walt, Nora: illustrative. Bills: ' + CL('y2025') + ' medians (HMDA, US home-loan records).', plate: true });

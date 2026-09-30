@@ -42,6 +42,9 @@ export function CL(id) {
 // a year written on screen without a claim yet (axis ticks, data years): the same text either way; once out/claims.json has a
 // claim `id` whose display is exactly `lit`, it goes through CL() and the page reports it as a claim span
 export function CLY(id, lit) { const c = DATA.claims[id]; return c && String(c.display) === lit ? CL(id) : lit; }
+// CLT(id, tok): a number token taken from a claim's display (e.g. the year 2026 of the date anchor "September 24, 2026"); the
+// next text() reports it as a span of that claim. Call it inside the text() argument so the id is still queued.
+export function CLT(id, tok) { const d = String(CL(id)); if (!new RegExp('(^|[^\\d])' + tok + '($|[^\\d])').test(d)) throw new Error('CLT: ' + tok + ' not in ' + id); return tok; }
 
 // ---------- timing (timing.json + anchors.json) ----------
 export const ANCH_USED = new Set();
@@ -276,6 +279,12 @@ export function text(ctx, s, x, y, tier, o = {}) {
   }
   return w;
 }
+// C5 (rule S09 on screen): the money basis next to $ numbers, in the owner's words ("dollars of the day" = not adjusted
+// for inflation). One helper so every scene uses the same wording, tier and colour.
+export const BASIS = 'dollars of the day';
+export function basisNote(ctx, x, y, o = {}) {
+  return text(ctx, o.s || BASIS, x, y, 'note', { color: o.color || C.muted, align: o.align || 'left', alpha: o.alpha === undefined ? 1 : o.alpha, plate: o.plate || null, shadow: o.shadow });
+}
 export function badge(ctx, x, y, alpha = 1, align = 'right') { // ILLUSTRATIVE pill; (x,y) = text baseline anchor
   if (alpha <= 0.001) return 0;
   const s = 'ILLUSTRATIVE', px = TOK.type.badge.px;
@@ -287,8 +296,9 @@ export function badge(ctx, x, y, alpha = 1, align = 'right') { // ILLUSTRATIVE p
 // constant furniture: ILLUSTRATIVE badge (top right) and ONE source line (bottom left), both >= note tier
 export function chrome(ctx, { illus = 0, source = '', srcAlpha = 1, plate = false } = {}) {
   // C5: badge pill and source line moved inside the checker's 90% safe rectangle (V03: 96..1824 x 54..1026)
-  if (illus > 0) badge(ctx, W - 112, 110, illus);
+  // source first: its claim ids (CL/CLT inside the argument) are still queued for its own text() call
   if (source) text(ctx, source, 96, H - 64, 'note', { color: C.muted, alpha: srcAlpha, plate: plate ? 'rgba(14,17,22,0.78)' : null });
+  if (illus > 0) badge(ctx, W - 112, 110, illus);
 }
 export function strike(ctx, x0, y, x1, color, alpha, lw = 7) {
   if (alpha <= 0) return; obj({ role: 'line', tag: 'line' }, () => { ctx.save(); ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round';

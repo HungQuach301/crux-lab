@@ -1,7 +1,7 @@
 // S17 · Anjali (signed SF5, Anjali side). H1 yard: Anjali's big house rises right of Nora's; same offer; her bill
 // ($5,514) beside Nora's ($5,124); $387 bundles pass ream + slab at month 18; +$5,250 after 3 years -> H3 ruler:
 // her square stops at about a third of a point (Walt 1.12 and Nora 0.5 shown for reference).
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, measure, ease, easeOut, back, mix, clamp } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, measure, ease, easeOut, back, mix, clamp, basisNote, BASIS } from './engine.js';
 import { monthRuler, cutRuler, PL } from './common.js';
 import { makeYard } from './yard.js';
 export const uses3d = true;
@@ -28,13 +28,16 @@ export function build(ctx0) {
     lab('anjali', 'Anjali · ' + CL('loan_large') + ' loan', pa, easeOut(t, tL, tL + 0.4));
     text(ctx, 'Anjali', pa.x, pa.y, 'label', { align: 'center', alpha: easeOut(t, tA + 0.5, tA + 0.9) * (1 - easeOut(t, tL, tL + 0.4)), shadow: true });
     lab('nora', 'Nora · ' + CL('loan_median') + ' loan', pn, 1);
+    basisNote(ctx, pn.x, pn.y + 50, { align: 'center', color: C.ink, shadow: true }); // C5 S09
     text(ctx, 'under the conforming limit (the ceiling for standard loans)', W - 96, 330, 'note', { align: 'right', plate: PL, alpha: easeOut(t, tLi, tLi + 0.4) * (1 - ease(t, tS, tS + 0.4)), shadow: true });
     const ra = P(new THREE.Vector3(a.x, a.rh, a.Z)), rn = P(new THREE.Vector3(n.x, n.rh, n.Z));
     const aB = easeOut(t, tB + 0.4, tB + 0.8) * (1 - ease(t, tS, tS + 0.3));
     text(ctx, 'bill ' + CL('cost_large'), ra.x, ra.y - 30, 'label', { align: 'center', alpha: aB, plate: PL });
     text(ctx, 'bill ' + CL('cost_median'), rn.x, rn.y - 30, 'label', { align: 'center', alpha: easeOut(t, tB + 0.4, tB + 0.8), plate: PL });
+    basisNote(ctx, (ra.x + rn.x) / 2, Math.min(ra.y, rn.y) - 84, { align: 'center', color: C.ink, alpha: easeOut(t, tB + 0.4, tB + 0.8), plate: PL }); // C5 S09
     const pc = P(new THREE.Vector3(a.xs + a.FW / 2, 0.4, a.Z + a.FD / 2));
     text(ctx, '+' + CL('sav_large') + ' a month', Math.min(pc.x + 20, 1824 - measure(ctx, '+' + CL('sav_large') + ' a month', 'label')), pc.y, 'label', { color: '#8FE0B5', alpha: easeOut(t, tS, tS + 0.4), shadow: true });
+    basisNote(ctx, Math.min(pc.x + 20, 1824 - measure(ctx, BASIS, 'note')), pc.y + 54, { color: C.ink, alpha: easeOut(t, tS, tS + 0.4), shadow: true }); // C5 S09
     const pt = P(new THREE.Vector3(a.x - a.FW / 2, a.rh, a.Z));
     const a18 = easeOut(t, t18, t18 + 0.3) * (1 - ease(t, tAh - 0.4, tAh - 0.1));
     text(ctx, 'paid back: month ' + CL('be_bal_large'), pt.x - 20, pt.y, 'label', { align: 'right', color: C.positive, alpha: a18, plate: PL });

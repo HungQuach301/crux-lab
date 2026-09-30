@@ -66,9 +66,10 @@ export function makeTable({ scene, camera, renderer }) {
     if (s.paidQ > 0) { const pq = P(new THREE.Vector3(X.nw, 0.9, 0)); text(ctx, '?', pq.x, pq.y, 'number', { align: 'center', color: '#FF8A8E', alpha: s.paidQ, shadow: true }); }
     const aO = s.owedLabel;
     text(ctx, CL('gap24') + ' extra owed', 96, 268, 'number', { color: '#FF8A8E', alpha: aO, plate: 'rgba(14,17,22,0.85)' });
-    text(ctx, 'on the new loan vs the old one', 96, 334, 'label', { alpha: aO, plate: 'rgba(14,17,22,0.85)' });
+    text(ctx, 'on the new loan vs the old one (dollars of the day)', 96, 334, 'label', { alpha: aO, plate: 'rgba(14,17,22,0.85)' });
     const pr = P(new THREE.Vector3(X.bill, billH + o.g, 0));
     text(ctx, '+ ' + CL('gap24') + ' extra owed', pr.x, pr.y - 40, 'label', { align: 'center', color: '#FF8A8E', alpha: s.onBill * (1 - s.done), shadow: true });
+    text(ctx, 'dollars of the day', pr.x, pr.y - 92, 'note', { align: 'center', color: C.ink, alpha: s.onBill * (1 - s.done), shadow: true }); // C5 S09 (the slot 'loan costs' takes once done)
     text(ctx, 'loan costs', pr.x, pr.y - 92, 'label', { align: 'center', color: C.ink, alpha: s.done, shadow: true });
     text(ctx, '+ extra owed', pr.x, pr.y - 40, 'label', { align: 'center', color: '#FF8A8E', alpha: s.done, shadow: true });
     const rx = monthRuler(ctx, { m: s.month, max: 36, late: 24, alpha: s.ruler, numbered: [

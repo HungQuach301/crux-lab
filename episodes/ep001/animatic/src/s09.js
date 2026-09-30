@@ -20,7 +20,7 @@ export function build(ctx0) {
       tb.overlay(ctx, t, P, st(t));
       text(ctx, 'Break-even: savings stack up to the bill', 96, 128, 'head', { alpha: easeOut(t, tLv, tLv + 0.4) });
       const aD = easeOut(t, t24, t24 + 0.4);
-      text(ctx, CL('cost_median') + ' ÷ ' + CL('sav_median') + ' a month = ' + CL('be_simple_median') + ' months', 96, 196, 'label', { alpha: aD });
+      text(ctx, CL('cost_median') + ' ÷ ' + CL('sav_median') + ' a month = ' + CL('be_simple_median') + ' months (dollars of the day)', 96, 196, 'label', { alpha: aD });
       chrome(ctx, { illus: 1, source: 'Nora: illustrative. Fees: HMDA ' + CL('y2025') + ' median. Dollars of the day (before inflation).', plate: true });
     },
     stripTimes: [tL + 1.2, tLv + 1.0, mix(tS, t24, 0.5), t24 + 0.6, tO + 1.8, T.dur - 0.2],

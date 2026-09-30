@@ -1,6 +1,6 @@
 // S03 · Near the top. Kết hợp: H3 2023 weekly line (Nora's dot at October 2023, near the 7.79% peak) -> cut ->
 // H1 a street of ten houses bought in 2023; three light up, one of them Nora's (three in ten at 7% or more).
-import { THREE, C, W, H, DATA, CL, text, chrome, line, dot, mark, ease, easeOut, back, mix, house , CLY } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, dot, mark, ease, easeOut, back, mix, house, CLT } from './engine.js';
 import { outdoors, rateLine, shadowAll, PL } from './common.js';
 export const uses3d = true;
 
@@ -60,7 +60,7 @@ export function build({ scene, camera, renderer, T }) {
     const s0 = CL('purch23_words'); const s1 = s0[0].toUpperCase() + s0.slice(1);
     text(ctx, s1 + ' had a rate of ' + CL('seven') + '% or more', W / 2, 900, 'caption', { align: 'center', alpha: aL, plate: PL });
     text(ctx, CL('term30') + '-year home-purchase loans made in ' + CL('oct2023').slice(-4), W / 2, 966, 'note', { align: 'center', color: C.ink, alpha: aL, plate: PL });
-    chrome(ctx, { illus: aN, source: 'HMDA ' + CLY('y2023', '2023') + ' (US home-loan records). Nora is illustrative.', plate: true });
+    chrome(ctx, { illus: aN, source: 'HMDA ' + CLT('oct2023', '2023') + ' (US home-loan records). Nora is illustrative.', plate: true });
   }
   return {
     mode: (t) => (t >= tSt ? '3d' : '2d'), update,

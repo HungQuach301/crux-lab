@@ -2,7 +2,7 @@
 // the three-mark ruler (signed SF6): three separate bars by loan size, no line between them; the outline house
 // "your loan?" slides along the axis and stops between marks with no value; the 1-point rule of thumb slides across
 // and matches none.
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, measure, ease, easeOut, back, mix , withObj, CHAR } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, measure, ease, easeOut, back, mix, withObj, CHAR, basisNote, BASIS } from './engine.js';
 import { kitchen, letter, houseIcon, PL } from './common.js';
 export const uses3d = true;
 
@@ -56,12 +56,18 @@ export function build({ scene, camera, renderer, T }) {
     // assumptions (fixed footnote)
     const aA = easeOut(t, tAs, tAs + 0.5);
     text(ctx, 'Assumes: fees paid back within ' + CL('y3') + ' years · median ' + CL('y2025') + ' bills · ' + CL('oct2023') + ' rate', W / 2, 962, 'note', { align: 'center', color: C.ink, alpha: aA, plate: PL });
-    text(ctx, 'fees paid in cash · illustrative borrowers · not advice', W / 2, 1016, 'note', { align: 'center', color: C.ink, alpha: aA, plate: PL });
+    { // C5 S09: line 2 = 'fees paid in cash · ' + BASIS + ' · illustrative borrowers · not advice'; the basis piece shows with the loan sizes
+      const L2 = 'fees paid in cash · ', R2 = ' · illustrative borrowers · not advice', wl = measure(ctx, L2, 'note'), wa = measure(ctx, 'amounts in ' + BASIS, 'note'), wr = measure(ctx, R2, 'note');
+      const x0 = Math.min(900, 1822 - wr - wa / 2) - wa / 2 - wl; // the basis piece centred at x 900: within 300 px of all three loan labels (Walt 336 · Nora 860 · Anjali 1466)
+      text(ctx, L2, x0, 1016, 'note', { color: C.ink, alpha: aA });
+      basisNote(ctx, x0 + wl, 1016, { s: 'amounts in ' + BASIS, color: C.ink, alpha: aX });
+      text(ctx, R2, x0 + wl + wa, 1016, 'note', { color: C.ink, alpha: aA }); // no plates: the flat chart needs none and plates would cover the neighbour's glyphs
+    }
     // the 1-point rule of thumb: slides across, matches none, fades
     const sl = ease(t, tO, tO + 1.6), fade = 1 - 0.7 * ease(t, tO + 2.2, tO + 2.8), y1 = YB - PX * 1;
     if (t > tO) line(ctx, [[X0 - 40, y1], [mix(X0 - 40, X1 + 40, sl), y1]], C.ink, 4, { dash: [16, 12], alpha: fade });
     text(ctx, CL('s10') + '-point rule of thumb: fits none', X1 + 40, y1 - 24, 'label', { align: 'right', color: C.ink, alpha: easeOut(t, tO + 1.4, tO + 1.8) });
-    chrome(ctx, { illus: aX });
+    chrome(ctx, { illus: 1 });
   }
   return {
     mode: (t) => (t < tQ ? '3d' : '2d'), update,

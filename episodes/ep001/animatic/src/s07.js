@@ -1,6 +1,6 @@
 // S07 · The bill. Kết hợp: H1 the letter's last line lights; a paper ream ($5,124) grows beside the lifted $221 slab,
 // SAME dollar scale -> H3 a scale of 2025 refinance bills: the $5,124 dot slides in and stops at the median.
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, ease, easeOut, back, mix , measure } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, ease, easeOut, back, mix, measure, basisNote, BASIS } from './engine.js';
 import { kitchen, letter, paymentStack, ream, PL } from './common.js';
 export const uses3d = true;
 
@@ -28,6 +28,7 @@ export function build({ scene, camera, renderer, T }) {
     const s = P(new THREE.Vector3(st.x, st.slabY(1, 0.5) + st.hSlab / 2, st.z));
     const aS = easeOut(t, tRm, tRm + 0.4);
     text(ctx, CL('sav_median') + ' a month', s.x, s.y - 30, 'label', { align: 'center', color: '#8FE0B5', alpha: aS, shadow: true });
+    basisNote(ctx, s.x, s.y - 84, { align: 'center', color: C.ink, alpha: aS, shadow: true }); // C5 S09
     const r = P(new THREE.Vector3(RX + 0.75, R.userData.h * 0.8, 0.1));
     text(ctx, 'loan costs ' + CL('cost_median'), Math.min(r.x + 30, 1824 - measure(ctx, 'loan costs ' + CL('cost_median'), 'number')), r.y, 'number', { alpha: easeOut(t, tRm + 0.9, tRm + 1.3), shadow: true });
     text(ctx, 'paid in cash at closing', r.x + 30, r.y + 64, 'label', { alpha: easeOut(t, tCa, tCa + 0.4), shadow: true });
@@ -55,7 +56,7 @@ export function build({ scene, camera, renderer, T }) {
     // a letter like this: an outline letter slides in
     const aY = easeOut(t, tY, tY + 0.6), lx = mix(1640, 1500, back(t, tY, tY + 1.0));
     if (aY > 0) { srect(ctx, lx, 250, 170, 220, C.ink, 4, aY, [10, 8]); text(ctx, 'your letter?', lx + 85, 520, 'label', { align: 'center', alpha: aY }); }
-    chrome(ctx, { source: 'HMDA ' + CL('y2025') + ' (US home-loan records), refinances: total loan costs.' });
+    chrome(ctx, { illus: easeOut(t, tSz - 0.3, tSz + 0.1), source: 'HMDA ' + CL('y2025') + ' (US home-loan records), refinances: total loan costs, dollars of the day.' });
   }
   return {
     mode: (t) => (t >= tRe ? '2d' : '3d'), update,

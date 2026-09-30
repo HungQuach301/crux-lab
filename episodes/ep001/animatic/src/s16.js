@@ -1,7 +1,7 @@
 // S16 · If Walt sells after three years. Kết hợp: H1 Walt's yard at 3 years: 36 bundles of $68 still short of the
 // ream + hatched slab ($1,777 short) -> H3 rate-cut ruler: Walt's triangle slides past the 1-point line to 1.12;
 // Nora's 0.5 beside it (smaller house -> bigger cut); two rows: the bill barely shrinks, savings shrink.
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, ease, easeOut, back, mix, inout , withObj } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, ease, easeOut, back, mix, inout, withObj, basisNote, BASIS, measure } from './engine.js';
 import { monthRuler, cutRuler, houseIcon, PL } from './common.js';
 import { makeYard } from './yard.js';
 export const uses3d = true;
@@ -24,10 +24,12 @@ export function build(ctx0) {
     text(ctx, 'after ' + CL('y3') + ' years, savings still', 1250, 490, 'label', { alpha: aS, plate: PL });
     text(ctx, 'below loan costs', 1250, 546, 'label', { alpha: aS, plate: PL });
     text(ctx, '+ extra owed', 1250, 602, 'label', { alpha: aS, plate: PL });
+    basisNote(ctx, 1250, 658, { color: C.ink, alpha: aS, plate: PL }); // C5 S09
     const pr = P(new THREE.Vector3(w.x - w.FW / 2, 0.7, w.Z + w.FD / 2)), pc = P(new THREE.Vector3(w.xs + w.FW / 2, 0.3, w.Z + w.FD / 2));
     text(ctx, 'loan costs', pr.x - 24, pr.y - 30, 'label', { align: 'right', shadow: true });
     text(ctx, '+ extra owed', pr.x - 24, pr.y + 26, 'label', { align: 'right', color: '#FF8A8E', shadow: true });
     text(ctx, '+' + CL('sav_small') + ' a month', pc.x + 24, pc.y, 'label', { color: '#8FE0B5', shadow: true });
+    basisNote(ctx, pc.x + 24, pc.y + 54, { color: C.ink, shadow: true }); // C5 S09
     monthRuler(ctx, { y: 930, max: 36, m: month(t), numbered: [[36, CL('y3') + ' years', easeOut(t, tSh - 0.3, tSh), C.ink]] });
     chrome(ctx, { illus: 1 });
   }
@@ -42,7 +44,7 @@ export function build(ctx0) {
     text(ctx, 'more than the 1-point line', xOf(1.06), 690, 'label', { align: 'center', color: C.warn, alpha: easeOut(t, tM + 0.5, tM + 0.9) * (1 - ease(t, tWy, tWy + 0.3)) });
     const xw = mix(xOf(0), xOf(1.12), easeOut(t, tC, tC + 1.6));
     mark(ctx, 'walt', xw, 600, 24);
-    text(ctx, CL('cut36_small') + ' points', xOf(1.12) + 40, 540, 'number', { align: 'center', alpha: easeOut(t, tC + 1.4, tC + 1.8) });
+    text(ctx, CL('cut36_small') + ' points', xOf(1.12) + 60, 540, 'number', { align: 'center', alpha: easeOut(t, tC + 1.4, tC + 1.8) });
     // why: smaller house -> bigger cut
     const aY = easeOut(t, tWy, tWy + 0.5);
     mark(ctx, 'nora', xOf(0.5), 600, 20, aY);
@@ -51,6 +53,7 @@ export function build(ctx0) {
     houseIcon(ctx, xOf(0.5), 760, 0.95, '#C9BBA4', aY, false);
     text(ctx, 'Walt ' + CL('loan_small'), xOf(1.12), 810, 'note', { align: 'center', alpha: aY });
     text(ctx, 'Nora ' + CL('loan_median'), xOf(0.5), 810, 'note', { align: 'center', alpha: aY });
+    basisNote(ctx, xOf(0.81), 810, { align: 'center', alpha: aY }); // C5 S09
     text(ctx, 'Smaller loan, bigger cut needed', W / 2, 330, 'caption', { align: 'center', color: C.warn, alpha: aY, plate: PL });
     // the two reasons
     const row = (y, lab, vw, vn, fw, a) => {

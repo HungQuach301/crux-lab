@@ -28,11 +28,11 @@ export function build({ T }) {
     // the bill scale
     const aS = easeOut(t, t25 - 0.6, t25);
     line(ctx, [[X0, Y], [X1, Y]], C.grid, 6, { alpha: aS });
-    text(ctx, CL('y2025') + ' refinance bills', X0, Y - 130, 'label', { alpha: aS });
+    text(ctx, CL('y2025') + ' refinance bills, in dollars of the day', X0, Y - 130, 'label', { alpha: aS });
     const a25 = easeOut(t, t25, t25 + 0.4), a75 = easeOut(t, t75, t75 + 0.4);
-    line(ctx, [[xOf(B.p25), Y - 60], [xOf(B.p25), Y + 60]], C.ink, 4, { alpha: a25 });
+    line(ctx, [[xOf(B.p25), Y - 60], [xOf(B.p25), Y + 40]], C.ink, 4, { alpha: a25 });
     text(ctx, CL('cost_p25'), xOf(B.p25), Y + 110, 'number', { align: 'center', alpha: a25 });
-    line(ctx, [[xOf(B.p75), Y - 60], [xOf(B.p75), Y + 60]], C.ink, 4, { alpha: a75 });
+    line(ctx, [[xOf(B.p75), Y - 60], [xOf(B.p75), Y + 40]], C.ink, 4, { alpha: a75 });
     text(ctx, CL('cost_p75'), xOf(B.p75), Y + 110, 'number', { align: 'center', alpha: a75 });
     const fl = ease(t, t75, t75 + 1.0);
     rect(ctx, xOf(B.p25), Y - 50, (xOf(B.p75) - xOf(B.p25)) * fl, 100, C.accent, 0.25);

@@ -1,7 +1,7 @@
 // S20 · The question that stays with you. H1: Nora's house at dusk; a time marker walks along the path under it
 // (flat year ruler); at year 3 a cash stack rises in front: +$1,039 ahead; at year 7 it has grown to +$8,093; the
 // marker keeps walking off the frame with no more marks; an outline house "your home?" appears beside hers.
-import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, dot, mark, ease, easeOut, back, mix, house, outlineHouse, box, mat, pm } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, dot, mark, ease, easeOut, back, mix, house, outlineHouse, box, mat, pm, basisNote, BASIS, measure } from './engine.js';
 import { outdoors, shadowAll, cashMats, PL } from './common.js';
 export const uses3d = true;
 
@@ -43,6 +43,7 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, 'if she sells after ' + CL('y3') + ' years', ps.x + 20, ps.y + 20, 'label', { alpha: a3 * (1 - ease(t, t7 - 0.3, t7)), plate: PL });
     text(ctx, '+' + CL('net84_median') + ' ahead', ps.x + 20, ps.y - 40, 'number', { color: C.positive, alpha: a7, plate: PL });
     text(ctx, 'if she stays ' + CL('y7') + ' years', ps.x + 20, ps.y + 20, 'label', { alpha: a7, plate: PL });
+    basisNote(ctx, ps.x + 20, ps.y + 76, { color: C.ink, alpha: Math.max(a3 * (1 - ease(t, t7 - 0.3, t7)), a7), plate: PL }); // C5 S09
     text(ctx, 'rate cut: how fast the fees come back', 96, 196, 'label', { color: C.muted, alpha: easeOut(t, tF, tF + 0.4), shadow: true });
     text(ctx, 'your stay: whether you are still there', 96, 250, 'label', { color: C.ink, alpha: easeOut(t, tTh, tTh + 0.4), shadow: true });
     const po = P(new THREE.Vector3(4.4, 3.4, -3.0));
