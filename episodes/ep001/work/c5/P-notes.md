@@ -1,9 +1,8 @@
 # C5 · Luồng P (hình) — ghi chú
 
 ## TIẾP TỤC Ở ĐÂY (cập nhật sau mỗi chặng)
-- 30/09 05:15 — Render bản góc xong 20/20 (02:13–03:36 UTC, 2 hàng đợi, log `queue-c*.txt`; `logs/S*.json` commit `da54dac`); `check.py` ALL OK (`259ff5c`). Ghép lần 1 (c0s=3, tune animation) + mux với master 03:49 → `out/video.mp4` đạt F01–F07, F10, A01/A02/A04–A06 nhưng **F08 5,19 %** (> 5). Đang ghép lại: dither c0s=4 + `-tune grain` (thử S16: 0,0 %), rồi mux lại (ghi đè nguyên tử `out/video.mp4`).
-- Nếu container khởi động lại: `cd episodes/ep001 && nohup python3 animatic/src/assemble_c5.py > work/c5/logs/assemble-full.txt 2>&1 &` (ghép + mux, ~70 phút), rồi kiểm tệp: `python3 <main>/checks/py/run.py episodes/ep001 --only F01,F02,F03,F04,F05,F06,F07,F08,F10,A01,A02,A04,A05,A06 --first` (ffmpeg trong PATH; hoàn lại `out/checks/report-partial.*` sau đó, không phải của P).
-- Mã hoá (P2 duyệt): trung gian CRF 8; giao bản CBR 24 Mb/s nal-hrd=cbr (F04) + dither luma; AAC 320k (đo 285,8 kb/s), không chapter, không metadata.
+- 30/09 06:10 — **XONG.** `out/video.mp4` (không commit, .gitignore; sha256 bắt đầu `991e196a7bd80516`): 1920×1080 H.264 High yuv420p BT.709 tv, 30/1 CFR, 17 739 khung = 591,3 s, video CBR 24,0 Mb/s (dither luma c0s=4 + tune grain), AAC-LC 48 kHz stereo 285,8 kb/s đo, 0 chapter. Luật tệp K3.3 (LOCK beffb49b): F01–F08, F10, A01, A02, A04–A06 ĐẠT 14/14 (F08 trước sửa 5,19 %). Hình: `work/c5/picture-1080.mp4`; manifest `work/c5/logs/assemble.json`. `check.py` ALL OK.
+- Còn mở: `--probe-crf` (CRF 16 mỗi cảnh tốn bao nhiêu) chưa chạy (~60 phút máy); sampler trang toàn phim + run.sh đầy đủ là việc của P2.
 
 ## Dựng lại trang (không commit `build/`, `src/data.js`)
 ```
