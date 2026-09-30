@@ -1,13 +1,12 @@
 # tax-3 recalculation notes
-BLOCKER: both FRED downloads (CPIAUCSL, MEHOINUSA646N) failed every attempt (retries 2/4/8/16 s, 2 full rounds, timeout 120 s): agent proxy returned "Unable to connect to proxy / RemoteDisconnected" for fred.stlouisfed.org only (uscode.house.gov fetched fine). No values were taken from input.json lastObservation or the claim. All numbers are null. Re-run recalc.py once data/*.csv exist.
-Statute check (data/usc_25A.html, 26 USC 25A): (b)(1) 100% of first $2,000 + 25% of next $2,000 = $2,500 max; (d)(1) phase-out over $160,000 joint across $20,000 ($80,000 / $10,000 others). Matches the credit formula in the definitions.
-- cpi_factor_2009_to_last12: null (no CPIAUCSL). Planned: mean(Sep 2025-Aug 2026)/mean(2009 Jan-Dec), unrounded; asserts window is exactly Sep 2025-Aug 2026.
-- start_160k_in_current_prices_usd: null. Planned round(160000*factor).
-- end_180k_in_current_prices_usd: null. Planned round(180000*factor).
-- max_credit_2500_in_current_prices_usd: null. Planned round(2500*factor).
-- credit_for_that_couple_now_usd: null. Planned 2500*clamp((180000-160000*factor)/20000), MAGI unrounded.
-- couple_160k_2009_grown_with_median_income_usd: null (no MEHOINUSA646N). Planned round(160000*latest/2009).
-- credit_for_median_growth_couple_now_usd: null. Planned same formula at the rounded grown MAGI.
-- start_as_multiple_of_median_income_2009: null. Planned round(160000/2009 value, 2).
-- start_as_multiple_of_median_income_latest: null. Planned round(160000/latest value, 2).
-- median_income_latest_year: null. Planned year of last non-missing observation.
+Data: the orchestrator placed data/CPIAUCSL.csv and data/MEHOINUSA646N.csv (from the pinned URLs); my own FRED downloads failed at the proxy. Statute text data/usc_25A.html was fetched by me: 25A(b)(1) max = $2,000 + 25% x $2,000 = $2,500; 25A(d)(1) joint phase-out starts at $160,000 and runs over $20,000. These match the credit formula.
+- cpi_factor_2009_to_last12 = 1.536124: CPIAUCSL has a blank value for 2025-10. The definition and the assumption fix the window to Sep 2025-Aug 2026, so I averaged the 11 values present in that window, divided by the 2009 average of 12 values. Other reading: the last 12 non-missing values (Aug 2025-Aug 2026, skipping Oct) give 1.533675, which is the claim's 1.534. With that factor the next three numbers would be $245,388, $276,061 and $3,834, and both credits would still be 0.
+- start_160k_in_current_prices_usd = 245780: round(160000 x unrounded factor).
+- end_180k_in_current_prices_usd = 276502: round(180000 x factor).
+- max_credit_2500_in_current_prices_usd = 3840: round(2500 x factor).
+- credit_for_that_couple_now_usd = 0: MAGI = 160000 x factor (not rounded) is above 180000.
+- couple_160k_2009_grown_with_median_income_usd = 281109: 160000 x 87460/49780.
+- credit_for_median_growth_couple_now_usd = 0: MAGI 281109 is above 180000.
+- start_as_multiple_of_median_income_2009 = 3.21: 160000/49780.
+- start_as_multiple_of_median_income_latest = 1.83: 160000/87460 (2025).
+- median_income_latest_year = 2025: date of the last MEHOINUSA646N row (2025-01-01).

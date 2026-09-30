@@ -1,6 +1,66 @@
 {
  "id": "tax-3",
- "items": [],
- "ok": false,
- "why": "no result.json"
+ "items": [
+  {
+   "id": "cpi_factor_2009_to_last12",
+   "declared": 1.5337,
+   "recomputed": 1.536124307512576,
+   "ok": true
+  },
+  {
+   "id": "start_160k_in_current_prices_usd",
+   "declared": 245388.0,
+   "recomputed": 245780,
+   "ok": true
+  },
+  {
+   "id": "end_180k_in_current_prices_usd",
+   "declared": 276061.0,
+   "recomputed": 276502,
+   "ok": true
+  },
+  {
+   "id": "max_credit_2500_in_current_prices_usd",
+   "declared": 3834.0,
+   "recomputed": 3840,
+   "ok": true
+  },
+  {
+   "id": "credit_for_that_couple_now_usd",
+   "declared": 0.0,
+   "recomputed": 0,
+   "ok": true
+  },
+  {
+   "id": "couple_160k_2009_grown_with_median_income_usd",
+   "declared": 281109.0,
+   "recomputed": 281109,
+   "ok": true
+  },
+  {
+   "id": "credit_for_median_growth_couple_now_usd",
+   "declared": 0.0,
+   "recomputed": 0,
+   "ok": true
+  },
+  {
+   "id": "start_as_multiple_of_median_income_2009",
+   "declared": 3.21,
+   "recomputed": 3.21,
+   "ok": true
+  },
+  {
+   "id": "start_as_multiple_of_median_income_latest",
+   "declared": 1.83,
+   "recomputed": 1.83,
+   "ok": true
+  },
+  {
+   "id": "median_income_latest_year",
+   "declared": 2025,
+   "recomputed": 2025,
+   "ok": true
+  }
+ ],
+ "ok": true
 }
