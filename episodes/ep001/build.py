@@ -143,10 +143,10 @@ def main():
     claim('n31', int(H(Y, P31, 'all sizes', 'n')), '{:,}'.format(int(H(Y, P31, 'all sizes', 'n'))), f'count, HMDA {Y}, loan_purpose 31, originated, first lien, 360 months, total_loan_costs > 0', HMDA, Y)
     claim('cost_p25', H(Y, P31, 'all sizes', 'cost_p25_usd'), usd(H(Y, P31, 'all sizes', 'cost_p25_usd')), '25th percentile, same population', HMDA, Y)
     claim('cost_p75', H(Y, P31, 'all sizes', 'cost_p75_usd'), usd(H(Y, P31, 'all sizes', 'cost_p75_usd')), '75th percentile, same population', HMDA, Y)
-    claim('band150', 150000, '$150,000', 'loan-size band edge (analysis parameter)', None, None, role='axis', historical=False)
-    claim('band750', 750000, '$750,000', 'loan-size band edge (analysis parameter; context band, not a character)', None, None, role='axis', historical=False)
-    claim('band600', 600000, '$600,000', 'lower edge of the large character band (analysis parameter)', None, None, role='axis', historical=False)
-    claim('band720', 720000, '$720,000', 'upper edge (exclusive) of the large character band: keeps the October 2023 loan under the 2023 baseline limit (analysis parameter)', None, None, role='axis', historical=False)
+    claim('band150', 150000, '$150,000', 'loan-size band edge (analysis parameter)', None, None, role='axis', historical=False, **IL)
+    claim('band750', 750000, '$750,000', 'loan-size band edge (analysis parameter; context band, not a character)', None, None, role='axis', historical=False, **IL)
+    claim('band600', 600000, '$600,000', 'lower edge of the large character band (analysis parameter)', None, None, role='axis', historical=False, **IL)
+    claim('band720', 720000, '$720,000', 'upper edge (exclusive) of the large character band: keeps the October 2023 loan under the 2023 baseline limit (analysis parameter)', None, None, role='axis', historical=False, **IL)
     for yy in ('2023', '2025', '2026'):
         claim(f'cll{yy}', CLL[yy]['value'], usd(CLL[yy]['value']), f'FHFA baseline conforming loan limit {yy}, one-unit property, most of the US ({CLL[yy]["how"]})', {'id': 'fhfa-cll', 'url': CLL[yy]['url']}, int(yy), historical=yy != '2026',
               ownerVerified=CLL[yy].get('verifiedBy') == 'project owner', **({'released': CLL[yy]['released']} if CLL[yy].get('released') else {}))

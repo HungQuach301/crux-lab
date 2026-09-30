@@ -7,8 +7,8 @@
  "tiers": {
   "BLOCK": {
    "label": "CHẶN",
-   "rules": 3,
-   "pass": 3,
+   "rules": 9,
+   "pass": 9,
    "notPass": []
   },
   "MAJOR": {
@@ -27,178 +27,69 @@
   }
  },
  "counts": {
-  "PASS": 3,
+  "PASS": 9,
   "FAIL": 0,
   "MISSING": 0,
   "ERROR": 0
  },
- "near": [],
+ "near": [
+  {
+   "rule": "S03",
+   "tier": "BLOCK",
+   "name": "files",
+   "value": 2,
+   "op": ">=",
+   "threshold": 2,
+   "unit": "",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "S04",
+   "tier": "BLOCK",
+   "name": "series pairs",
+   "value": 1,
+   "op": ">=",
+   "threshold": 1,
+   "unit": "",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "S04",
+   "tier": "BLOCK",
+   "name": "mortgage30 tolerance",
+   "value": 0.5,
+   "op": "<=",
+   "threshold": 0.5,
+   "unit": "pp",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "S06",
+   "tier": "BLOCK",
+   "name": "coverage statements",
+   "value": 1,
+   "op": ">=",
+   "threshold": 1,
+   "unit": "",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "S06",
+   "tier": "BLOCK",
+   "name": "case values shown in act3",
+   "value": 3,
+   "op": ">=",
+   "threshold": 3,
+   "unit": "",
+   "pass": true,
+   "near": true
+  }
+ ],
  "results": [
-  {
-   "id": "F09",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "text identical to script",
-     "value": true,
-     "op": "==",
-     "threshold": true,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "lines > 42 chars",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "cues > 2 lines",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "cues outside 1-7 s",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "overlapping cues",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "firstDiff": null,
-     "longLines": [],
-     "badDurations": [],
-     "overlaps": [],
-     "cues": 137
-    }
-   ],
-   "note": null,
-   "section": "DX-F5",
-   "threshold": "text identical (100%); every line ≤ 42 chars; ≤ 2 lines; 1.0 ≤ duration ≤ 7.0 s; 0 overlaps",
-   "fingerprint": "206df129d7ea34ab",
-   "tier": "BLOCK",
-   "seconds": 0.0
-  },
-  {
-   "id": "F10",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "chapters",
-     "value": 11,
-     "op": ">=",
-     "threshold": 3,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "first chapter start s",
-     "value": 0,
-     "op": "==",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "shortest chapter s",
-     "value": 26,
-     "op": ">=",
-     "threshold": 10.0,
-     "unit": "s",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "mp4 chapters agree",
-     "value": true,
-     "op": "==",
-     "threshold": true,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "chapters": [
-      {
-       "start": 0,
-       "title": "The week rates bottomed"
-      },
-      {
-       "start": 55,
-       "title": "How Nora got here"
-      },
-      {
-       "start": 140,
-       "title": "The offer and the bill"
-      },
-      {
-       "start": 202,
-       "title": "Two quick answers"
-      },
-      {
-       "start": 241,
-       "title": "The 30-year clock"
-      },
-      {
-       "start": 315,
-       "title": "A quarter point, a full point, half a point"
-      },
-      {
-       "start": 372,
-       "title": "Walt: a smaller loan"
-      },
-      {
-       "start": 451,
-       "title": "Anjali: a bigger loan"
-      },
-      {
-       "start": 487,
-       "title": "A line for each loan size"
-      },
-      {
-       "start": 535,
-       "title": "What this does not tell you"
-      },
-      {
-       "start": 561,
-       "title": "How long will you stay?"
-      }
-     ],
-     "mp4": []
-    }
-   ],
-   "note": null,
-   "section": "DX-F6",
-   "threshold": "≥ 3 chapters; first at 0:00; each ≥ 10 s; MP4 chapters (if any) equal the description's",
-   "fingerprint": "a9005215f87e44e2",
-   "tier": "BLOCK",
-   "seconds": 0.1
-  },
   {
    "id": "F11",
    "status": "PASS",
@@ -241,6 +132,422 @@
    "section": "CH §4 khâu 3 (hợp đồng tập, K2)",
    "threshold": "every declared M3 artefact delivered; every checks/CONTRACT.md release file declared",
    "fingerprint": "eb72b164041573de",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S01",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "values compared",
+     "value": 619,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mismatches",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "model parts not re-computed",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "kind": "refinance-breakeven",
+     "notRecomputed": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1",
+   "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
+   "fingerprint": "bd6d0ee85cf6c7c1",
+   "tier": "BLOCK",
+   "seconds": 0.1
+  },
+  {
+   "id": "S03",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "files",
+     "value": 2,
+     "op": ">=",
+     "threshold": 2,
+     "unit": "",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "file problems",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "primary on a declared host",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "cross-check on a declared host",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "declaredHosts": {
+      "primary": [
+       "fred.stlouisfed.org"
+      ],
+      "crosscheck": [
+       "fred.stlouisfed.org"
+      ]
+     },
+     "seenHosts": {
+      "primary": [
+       "fred.stlouisfed.org"
+      ],
+      "crosscheck": [
+       "fred.stlouisfed.org"
+      ]
+     }
+    }
+   ],
+   "note": null,
+   "section": "DX-H4",
+   "threshold": "every file present with matching SHA-256, valid date, http(s) URL, terms quote ≥ 20 chars and terms URL; ≥ 1 primary file on a declared primary host; ≥ 1 cross-check file on a declared cross-check host",
+   "fingerprint": "d698b88b0419a45f",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S04",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "series pairs",
+     "value": 1,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "mortgage30 tolerance",
+     "value": 0.5,
+     "op": "<=",
+     "threshold": 0.5,
+     "unit": "pp",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "used keys missing in a source",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "out-of-tolerance keys not reported",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "pairs": [
+      {
+       "series": "mortgage30",
+       "overTolerance": 0
+      }
+     ],
+     "unreported": [],
+     "missing": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H5",
+   "threshold": "≥ 1 pair; every declared tolerance ≤ 0.5 (pp); every used key present in both series; every key outside tolerance listed in \"mismatches\" (reported, not silently resolved)",
+   "fingerprint": "952fa38fc028f677",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S05",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "mapped claims",
+     "value": 25,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mapped claims absent",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims off their re-computation",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims missing their ILLUSTRATIVE flag",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "off": [],
+     "absent": [],
+     "missingIllustrative": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1, DX-H2",
+   "threshold": "≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag",
+   "fingerprint": "fe95bd49817e5c0c",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S06",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "coverage statements",
+     "value": 1,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "case values shown in act3",
+     "value": 3,
+     "op": ">=",
+     "threshold": 3,
+     "unit": "",
+     "pass": true,
+     "near": true
+    }
+   ],
+   "details": [
+    {
+     "attribute": "case",
+     "act": "act3",
+     "missing": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H6",
+   "threshold": "every declared value shown (e.g. 69 of 69 start years), including cases where the thesis did not hold",
+   "fingerprint": "f5c41f1cb86285f5",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S07",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "orphan numbers on screen",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "unregistered numbers in narration",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims without formula",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "unsourced non-illustrative claims",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "sourced claims without dataYear",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "orphans": [],
+     "unregistered": [],
+     "noFormula": [],
+     "unsourced": [],
+     "noYear": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1, DX-H2",
+   "threshold": "0 orphan numbers on screen; 0 unregistered numbers in narration; 0 claims without formula; 0 unsourced non-illustrative claims; 0 sourced claims without dataYear",
+   "fingerprint": "db7b830d6bc3afa5",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S08",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "frames without badge",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "max badge lag frames",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-H2",
+   "threshold": "0 frames without badge; badge never later than the number (lag ≤ 0 frames)",
+   "fingerprint": "80936cb783720361",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S09",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "money claims without basis",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "frames missing basis on screen",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "bases never said in narration",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "noBasis": [],
+     "basesUsed": [
+      "nominal"
+     ],
+     "basesSaid": [
+      "nominal",
+      "real"
+     ],
+     "neverSaid": [],
+     "unknownBasis$": [],
+     "screen": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H3",
+   "threshold": "0 money claims without basis; 0 frames missing the on-screen basis; 0 bases used but never said in the narration",
+   "fingerprint": "87c9f20c51da53b0",
    "tier": "BLOCK",
    "seconds": 0.0
   }
