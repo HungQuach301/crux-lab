@@ -15,6 +15,7 @@ SRC = f'{EP}/story/script-v3.2.md'
 # 8 thẻ theo story/voice-tags.md (thứ tự trong kịch bản); tách TRƯỚC khi parse (parse.py coi [chữ] là claim ID)
 TAGS8 = ['[softly]', '[curious]', '[thoughtful]', '[serious]', '[warmly]', '[serious]', '[matter-of-fact]', '[softly]']
 Y_TAGS = {4: '[softly]', 7: '[curious]', 50: '[thoughtful]', 52: '[serious]'}  # vị trí đã nghe trong bản Y
+REV = {'S18': 'r2'}  # 30/09: S18 sửa chữ, sinh lại (take cũ giữ trong gen-result.json khoá 'S18@r1')
 TAG_RE = re.compile(r'^\[(softly|curious|thoughtful|serious|warmly|matter-of-fact)\]\s+')
 
 
@@ -28,7 +29,9 @@ def rows_v32():
     with tempfile.NamedTemporaryFile('w', suffix='.md', delete=False, encoding='utf-8') as f: f.write('\n'.join(out)); tmp = f.name
     rows = parse(tmp); os.unlink(tmp)
     ref = parse(f'{EP}/story/script-v3.1.md')
-    assert [r['text_plain'] for r in rows] == [r['text_plain'] for r in ref] and len(rows) == 105, 'v3.2 bỏ thẻ phải trùng v3.1'
+    # 30/09 (C5, chủ dự án): S18.4–S18.6 bỏ dạng sở hữu (A14 "Walt's"→"Waltz"); mọi câu khác vẫn phải trùng v3.1
+    assert len(rows) == 105 and all(a['text_plain'] == b['text_plain'] or (a['scene'] == 'S18' and a['text_plain'].startswith('For '))
+                                    for a, b in zip(rows, ref)), 'v3.2 bỏ thẻ phải trùng v3.1 (trừ S18 thước)'
     for i, (r, t) in enumerate(zip(rows, to_tts([r['text_plain'] for r in rows]))): r['tts_text'] = t; r['n'] = i + 1
     for r, k in zip(rows, key_words([{'text': r['text_plain']} for r in rows])): r['keys'] = k
     assert not any('[' in r['tts_text'] or ']' in r['tts_text'] for r in rows)
@@ -68,7 +71,7 @@ def main():
         assert e['text_sent'] == s['text']
         want = 1 if not e['takes'] else (2 if (e['takes'][0]['missing'] or sc in regen) else len(e['takes']))
         while len(e['takes']) < want:
-            seed = len(e['takes']) + 1; p = f'{TAKES}/{sc}.seed{seed}'
+            seed = len(e['takes']) + 1; p = f'{TAKES}/{sc}{REV.get(sc, "")}.seed{seed}'
             m = VT.synth(s['text'], p, seed); assert 'error' not in m, m
             w = VT.asr(p + '.mp3')
             tk = {'file': os.path.basename(p) + '.mp3', 'seed': seed, 'characterCost': m['characterCost'], 'len': m['len'], 'requestId': m['requestId'],

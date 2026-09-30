@@ -14,6 +14,9 @@
 - Mốc thời gian là ước lượng ở ~150 từ/phút cộng khoảng nghỉ; không phải chỉ tiêu. Tính lại cho v3.1: 1.414 từ lời (v3: 1.341), ~9:39 trước thẻ phương pháp (v3 ~9:12). S03 ngắn đi ~25 s; S02, S05, S10, S18 dài thêm vì các câu giải thích và thước ba mốc.
 - ⟦PROMISE⟧: câu hứa đã chốt ở C3 (chủ dự án ghép từ P-A và P-B, `promise-options.md`).
 
+
+**Sửa 30/09/2026 (C5, chủ dự án duyệt):** S18 ba câu thước bỏ dạng sở hữu ("like Walt's / Nora's / Anjali's" → "For Walt, with … / For Nora, with … / For Anjali, with …") vì ASR nghe "Walt's" thành "Waltz" (A14 CHẶN); giữ nguyên ý và số. Chỉ S18 sinh lại giọng.
+
 ---
 
 ## SEQUENCE 0 — COLD OPEN: the window (0:00–0:55)
@@ -253,9 +256,9 @@ To get her fees back within three years, she needs a cut of only about a third o
 So, back to the letter, and the question it started with.
 How big a rate cut makes a refinance worth it, if worth it means the fees come back within three years [hold36]?
 [matter-of-fact] It depends on the size of the loan.
-On a loan of $115,000 [loan_small], like Walt's, it takes more than a full point [cut36_small].
-On $375,000 [loan_median], like Nora's, half a point [cut36_median].
-On $655,000 [loan_large], like Anjali's, about a third of a point [cut36_large_words].
+For Walt, with a loan of $115,000 [loan_small], it takes more than a full point [cut36_small].
+For Nora, with $375,000 [loan_median], half a point [cut36_median].
+For Anjali, with $655,000 [loan_large], about a third of a point [cut36_large_words].
 [beat]
 Put your own loan on that scale, and you can see which of them you are closest to.
 Those lines rest on our assumptions: a loan taken out at the October 2023 rate, a median bill, and a three-year stay.

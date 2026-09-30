@@ -1,42 +1,42 @@
 {
- "total_s": 591.72,
+ "total_s": 591.31,
  "loudness": {
-  "before_gain_lufs": -18.56,
-  "gain_db": -0.94,
+  "before_gain_lufs": -18.58,
+  "gain_db": -0.92,
   "integrated_lufs": -19.5,
-  "sample_peak_dbfs": -2.06,
+  "sample_peak_dbfs": -2.04,
   "processing": "gain only",
   "encoded_m4a": {
-   "duration_s": 591.744,
+   "duration_s": 591.339,
    "lufs": -19.51,
-   "peak_dbfs": -2.05
+   "peak_dbfs": -2.04
   }
  },
  "gaps": {
   "same": {
    "n": 72,
-   "mean": 0.805,
-   "sd": 0.258,
+   "mean": 0.808,
+   "sd": 0.257,
    "min": 0.12,
    "max": 1.505
   },
   "beat": {
    "n": 13,
-   "mean": 0.96,
-   "sd": 0.277,
+   "mean": 0.972,
+   "sd": 0.276,
    "min": 0.63,
    "max": 1.65
   },
   "scene": {
    "n": 19,
-   "mean": 1.513,
-   "sd": 0.057,
+   "mean": 1.515,
+   "sd": 0.058,
    "min": 1.4,
    "max": 1.625
   },
   "in_scene_all": {
    "n": 85,
-   "mean": 0.829,
+   "mean": 0.833,
    "sd": 0.267,
    "min": 0.12,
    "max": 1.65
@@ -164,22 +164,22 @@
   },
   {
    "scene": "S18",
-   "take": "S18.seed1.mp3",
+   "take": "S18r2.seed1.mp3",
    "start_s": 487.87,
-   "dur_s": 46.8,
-   "raw_dur_s": 46.8
+   "dur_s": 46.39,
+   "raw_dur_s": 46.4
   },
   {
    "scene": "S19",
    "take": "S19.seed1.mp3",
-   "start_s": 536.07,
+   "start_s": 535.66,
    "dur_s": 25.13,
    "raw_dur_s": 25.28
   },
   {
    "scene": "S20",
    "take": "S20.seed1.mp3",
-   "start_s": 562.6,
+   "start_s": 562.19,
    "dur_s": 28.12,
    "raw_dur_s": 28.16
   }

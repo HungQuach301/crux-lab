@@ -1,5 +1,5 @@
 {
- "total_s": 591.72,
+ "total_s": 591.31,
  "sample_rate": 48000,
  "lead_s": 0.5,
  "tail_s": 1.0,
@@ -10,15 +10,15 @@
  "note": "Voice v3.2 (script-v3.2.md, 8 emotion tags): one eleven_v3 call per scene (recipe of sample Y). Sentence start/end = speech span (-50 dBFS) inside the sentence segment; segment boundaries = lowest-energy 10 ms frame between the aligned last char of a sentence and first char of the next (with-timestamps alignment). In-scene pauses are the model's own; 1.4 s silence between scene clips; no cut inside any scene.",
  "trim": "scene speech span (-50 dBFS, 10 ms windows) +40 ms before / +120 ms after, 5 ms fades",
  "loudness": {
-  "before_gain_lufs": -18.56,
-  "gain_db": -0.94,
+  "before_gain_lufs": -18.58,
+  "gain_db": -0.92,
   "integrated_lufs": -19.5,
-  "sample_peak_dbfs": -2.06,
+  "sample_peak_dbfs": -2.04,
   "processing": "gain only",
   "encoded_m4a": {
-   "duration_s": 591.744,
+   "duration_s": 591.339,
    "lufs": -19.51,
-   "peak_dbfs": -2.05
+   "peak_dbfs": -2.04
   }
  },
  "file": "episodes/ep001/review-c4/narration-v32.m4a (AAC 192 kbps mono 48 kHz)",
@@ -144,22 +144,22 @@
   },
   {
    "scene": "S18",
-   "take": "S18.seed1.mp3",
+   "take": "S18r2.seed1.mp3",
    "start_s": 487.87,
-   "dur_s": 46.8,
-   "raw_dur_s": 46.8
+   "dur_s": 46.39,
+   "raw_dur_s": 46.4
   },
   {
    "scene": "S19",
    "take": "S19.seed1.mp3",
-   "start_s": 536.07,
+   "start_s": 535.66,
    "dur_s": 25.13,
    "raw_dur_s": 25.28
   },
   {
    "scene": "S20",
    "take": "S20.seed1.mp3",
-   "start_s": 562.6,
+   "start_s": 562.19,
    "dur_s": 28.12,
    "raw_dur_s": 28.16
   }
@@ -1674,8 +1674,8 @@
    "type": "pause",
    "kind": "same",
    "start_s": 498.825,
-   "end_s": 500.055,
-   "dur_s": 1.23,
+   "end_s": 500.065,
+   "dur_s": 1.24,
    "before_n": 90
   },
   {
@@ -1683,7 +1683,7 @@
    "n": 90,
    "sequence": 4,
    "scene": "S18",
-   "start_s": 500.055,
+   "start_s": 500.065,
    "end_s": 501.565,
    "text": "It depends on the size of the loan."
   },
@@ -1691,8 +1691,8 @@
    "type": "pause",
    "kind": "same",
    "start_s": 501.565,
-   "end_s": 502.275,
-   "dur_s": 0.71,
+   "end_s": 502.285,
+   "dur_s": 0.72,
    "before_n": 91
   },
   {
@@ -1700,16 +1700,16 @@
    "n": 91,
    "sequence": 4,
    "scene": "S18",
-   "start_s": 502.275,
-   "end_s": 507.675,
-   "text": "On a loan of $115,000, like Walt's, it takes more than a full point."
+   "start_s": 502.285,
+   "end_s": 507.105,
+   "text": "For Walt, with a loan of $115,000, it takes more than a full point."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 507.675,
-   "end_s": 508.385,
-   "dur_s": 0.71,
+   "start_s": 507.105,
+   "end_s": 507.855,
+   "dur_s": 0.75,
    "before_n": 92
   },
   {
@@ -1717,16 +1717,16 @@
    "n": 92,
    "sequence": 4,
    "scene": "S18",
-   "start_s": 508.385,
-   "end_s": 512.065,
-   "text": "On $375,000, like Nora's, half a point."
+   "start_s": 507.855,
+   "end_s": 511.775,
+   "text": "For Nora, with $375,000, half a point."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 512.065,
-   "end_s": 512.685,
-   "dur_s": 0.62,
+   "start_s": 511.775,
+   "end_s": 512.545,
+   "dur_s": 0.77,
    "before_n": 93
   },
   {
@@ -1734,16 +1734,16 @@
    "n": 93,
    "sequence": 4,
    "scene": "S18",
-   "start_s": 512.685,
-   "end_s": 517.085,
-   "text": "On $655,000, like Anjali's, about a third of a point."
+   "start_s": 512.545,
+   "end_s": 516.985,
+   "text": "For Anjali, with $655,000, about a third of a point."
   },
   {
    "type": "pause",
    "kind": "beat",
-   "start_s": 517.085,
-   "end_s": 517.965,
-   "dur_s": 0.88,
+   "start_s": 516.985,
+   "end_s": 518.015,
+   "dur_s": 1.03,
    "before_n": 94
   },
   {
@@ -1751,16 +1751,16 @@
    "n": 94,
    "sequence": 4,
    "scene": "S18",
-   "start_s": 517.965,
-   "end_s": 522.165,
+   "start_s": 518.015,
+   "end_s": 522.275,
    "text": "Put your own loan on that scale, and you can see which of them you are closest to."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 522.165,
-   "end_s": 523.055,
-   "dur_s": 0.89,
+   "start_s": 522.275,
+   "end_s": 523.135,
+   "dur_s": 0.86,
    "before_n": 95
   },
   {
@@ -1768,16 +1768,16 @@
    "n": 95,
    "sequence": 4,
    "scene": "S18",
-   "start_s": 523.055,
-   "end_s": 531.755,
+   "start_s": 523.135,
+   "end_s": 531.215,
    "text": "Those lines rest on our assumptions: a loan taken out at the October 2023 rate, a median bill, and a three-year stay."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 531.755,
-   "end_s": 532.535,
-   "dur_s": 0.78,
+   "start_s": 531.215,
+   "end_s": 532.075,
+   "dur_s": 0.86,
    "before_n": 96
   },
   {
@@ -1785,16 +1785,16 @@
    "n": 96,
    "sequence": 4,
    "scene": "S18",
-   "start_s": 532.535,
-   "end_s": 534.585,
+   "start_s": 532.075,
+   "end_s": 534.135,
    "text": "The one-point line fits none of them."
   },
   {
    "type": "pause",
    "kind": "scene",
-   "start_s": 534.585,
-   "end_s": 536.11,
-   "dur_s": 1.525,
+   "start_s": 534.135,
+   "end_s": 535.7,
+   "dur_s": 1.565,
    "before_n": 97
   },
   {
@@ -1802,15 +1802,15 @@
    "n": 97,
    "sequence": 4,
    "scene": "S19",
-   "start_s": 536.11,
-   "end_s": 540.6,
+   "start_s": 535.7,
+   "end_s": 540.19,
    "text": "These are national average rates, median bills, and three made-up borrowers."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 540.6,
-   "end_s": 541.605,
+   "start_s": 540.19,
+   "end_s": 541.195,
    "dur_s": 1.005,
    "before_n": 98
   },
@@ -1819,15 +1819,15 @@
    "n": 98,
    "sequence": 4,
    "scene": "S19",
-   "start_s": 541.605,
-   "end_s": 550.805,
+   "start_s": 541.195,
+   "end_s": 550.395,
    "text": "In 2025, half of refinance bills fell between $3,443 and $8,270."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 550.805,
-   "end_s": 551.285,
+   "start_s": 550.395,
+   "end_s": 550.875,
    "dur_s": 0.48,
    "before_n": 99
   },
@@ -1836,15 +1836,15 @@
    "n": 99,
    "sequence": 4,
    "scene": "S19",
-   "start_s": 551.285,
-   "end_s": 554.485,
+   "start_s": 550.875,
+   "end_s": 554.075,
    "text": "A real rate, a real bill and a real balance will be different."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 554.485,
-   "end_s": 555.305,
+   "start_s": 554.075,
+   "end_s": 554.895,
    "dur_s": 0.82,
    "before_n": 100
   },
@@ -1853,15 +1853,15 @@
    "n": 100,
    "sequence": 4,
    "scene": "S19",
-   "start_s": 555.305,
-   "end_s": 561.085,
+   "start_s": 554.895,
+   "end_s": 560.675,
    "text": "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too."
   },
   {
    "type": "pause",
    "kind": "scene",
-   "start_s": 561.085,
-   "end_s": 562.64,
+   "start_s": 560.675,
+   "end_s": 562.23,
    "dur_s": 1.555,
    "before_n": 101
   },
@@ -1870,15 +1870,15 @@
    "n": 101,
    "sequence": 4,
    "scene": "S20",
-   "start_s": 562.64,
-   "end_s": 567.1,
+   "start_s": 562.23,
+   "end_s": 566.69,
    "text": "Which leaves the one number only you know: how long you will stay."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 567.1,
-   "end_s": 568.355,
+   "start_s": 566.69,
+   "end_s": 567.945,
    "dur_s": 1.255,
    "before_n": 102
   },
@@ -1887,15 +1887,15 @@
    "n": 102,
    "sequence": 4,
    "scene": "S20",
-   "start_s": 568.355,
-   "end_s": 578.905,
+   "start_s": 567.945,
+   "end_s": 578.495,
    "text": "For Nora, the same offer comes out $1,039 ahead if she sells after three years, and $8,093 ahead if she stays seven."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 578.905,
-   "end_s": 580.015,
+   "start_s": 578.495,
+   "end_s": 579.605,
    "dur_s": 1.11,
    "before_n": 103
   },
@@ -1904,15 +1904,15 @@
    "n": 103,
    "sequence": 4,
    "scene": "S20",
-   "start_s": 580.015,
-   "end_s": 582.595,
+   "start_s": 579.605,
+   "end_s": 582.185,
    "text": "The rate cut decides how fast the fees come back."
   },
   {
    "type": "pause",
    "kind": "same",
-   "start_s": 582.595,
-   "end_s": 583.195,
+   "start_s": 582.185,
+   "end_s": 582.785,
    "dur_s": 0.6,
    "before_n": 104
   },
@@ -1921,15 +1921,15 @@
    "n": 104,
    "sequence": 4,
    "scene": "S20",
-   "start_s": 583.195,
-   "end_s": 587.075,
+   "start_s": 582.785,
+   "end_s": 586.665,
    "text": "How long you stay decides whether you are still there when they do."
   },
   {
    "type": "pause",
    "kind": "beat",
-   "start_s": 587.075,
-   "end_s": 588.725,
+   "start_s": 586.665,
+   "end_s": 588.315,
    "dur_s": 1.65,
    "before_n": 105
   },
@@ -1938,8 +1938,8 @@
    "n": 105,
    "sequence": 4,
    "scene": "S20",
-   "start_s": 588.725,
-   "end_s": 590.715,
+   "start_s": 588.315,
+   "end_s": 590.305,
    "text": "How long do you picture yourself in your home?"
   }
  ]
