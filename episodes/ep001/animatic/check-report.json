@@ -13,9 +13,10 @@
    "s10",
    "sav_low2026_median",
    "seven",
+   "term30",
    "y2025"
   ],
-  "strings": 29,
+  "strings": 30,
   "sentenceCaptions": [
    "She didn't take it."
   ],
@@ -26,21 +27,23 @@
   "anchorsDeclared": 11,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 992,
   "frames3d": 403,
-  "wallSeconds": 239.4,
-  "machineSecPerFilmSec": 7.24,
+  "wallSeconds": 600.1,
+  "machineSecPerFilmSec": 18.15,
   "hardTime": 32.98
  },
  "S02": {
   "claimsUsed": [
    "cost_median",
    "r_old",
-   "r_today"
+   "r_today",
+   "y2025"
   ],
-  "strings": 15,
+  "strings": 16,
   "sentenceCaptions": [
-   "How big a rate cut makes it worth it for Nora —",
+   "How big a rate cut makes that worth it for Nora —",
    "and where would your own loan fall?",
    "And why would a smaller mortgage need a bigger cut?"
   ],
@@ -51,10 +54,11 @@
   "anchorsDeclared": 7,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 678,
   "frames3d": 678,
-  "wallSeconds": 308.7,
-  "machineSecPerFilmSec": 13.66,
+  "wallSeconds": 942.4,
+  "machineSecPerFilmSec": 41.7,
   "hardTime": 22.566666666666666
  },
  "S03": {
@@ -76,10 +80,11 @@
   "anchorsDeclared": 7,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 621,
   "frames3d": 292,
-  "wallSeconds": 120.3,
-  "machineSecPerFilmSec": 5.81,
+  "wallSeconds": 229.5,
+  "machineSecPerFilmSec": 11.09,
   "hardTime": 20.666666666666668
  },
  "S04": {
@@ -88,7 +93,7 @@
    "oct2023",
    "r_old"
   ],
-  "strings": 12,
+  "strings": 13,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -97,19 +102,22 @@
   "anchorsDeclared": 6,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 758,
   "frames3d": 758,
-  "wallSeconds": 162.1,
-  "machineSecPerFilmSec": 6.42,
+  "wallSeconds": 646.8,
+  "machineSecPerFilmSec": 25.6,
   "hardTime": 25.233333333333334
  },
  "S05": {
   "claimsUsed": [
+   "anchor_date",
    "cut1_last_2026",
    "cut_low2026",
    "low2026",
    "r_old",
    "s10",
+   "term30",
    "weeks_below_r_old_minus_1",
    "y2025"
   ],
@@ -122,10 +130,11 @@
   "anchorsDeclared": 8,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 1180,
   "frames3d": 0,
-  "wallSeconds": 156.5,
-  "machineSecPerFilmSec": 3.98,
+  "wallSeconds": 79.7,
+  "machineSecPerFilmSec": 2.03,
   "hardTime": 39.24
  },
  "S06": {
@@ -139,7 +148,7 @@
    "s10",
    "sav_median"
   ],
-  "strings": 18,
+  "strings": 19,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -148,10 +157,11 @@
   "anchorsDeclared": 8,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 874,
   "frames3d": 514,
-  "wallSeconds": 267.5,
-  "machineSecPerFilmSec": 9.18,
+  "wallSeconds": 702.7,
+  "machineSecPerFilmSec": 24.12,
   "hardTime": 29.1
  },
  "S07": {
@@ -164,7 +174,7 @@
    "sav_median",
    "y2025"
   ],
-  "strings": 17,
+  "strings": 18,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -173,10 +183,11 @@
   "anchorsDeclared": 7,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 969,
   "frames3d": 474,
-  "wallSeconds": 293.3,
-  "machineSecPerFilmSec": 9.08,
+  "wallSeconds": 734,
+  "machineSecPerFilmSec": 22.72,
   "hardTime": 32.266666666666666
  },
  "S08": {
@@ -187,9 +198,10 @@
    "hold36",
    "s10",
    "sav_median",
+   "y2025",
    "y3"
   ],
-  "strings": 26,
+  "strings": 27,
   "sentenceCaptions": [
    "Neither is quite right"
   ],
@@ -200,10 +212,11 @@
   "anchorsDeclared": 11,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 1174,
   "frames3d": 0,
-  "wallSeconds": 158.9,
-  "machineSecPerFilmSec": 4.06,
+  "wallSeconds": 57,
+  "machineSecPerFilmSec": 1.46,
   "hardTime": 39.1
  },
  "S09": {
@@ -214,9 +227,10 @@
    "gap24",
    "r_old",
    "r_today",
-   "sav_median"
+   "sav_median",
+   "y2025"
   ],
-  "strings": 13,
+  "strings": 14,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -225,10 +239,11 @@
   "anchorsDeclared": 5,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 493,
   "frames3d": 493,
-  "wallSeconds": 230.5,
-  "machineSecPerFilmSec": 14.02,
+  "wallSeconds": 665.9,
+  "machineSecPerFilmSec": 40.52,
   "hardTime": 16.4
  },
  "S10": {
@@ -241,9 +256,10 @@
    "r_old",
    "r_today",
    "sav_median",
-   "term30"
+   "term30",
+   "y2025"
   ],
-  "strings": 27,
+  "strings": 28,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -252,10 +268,11 @@
   "anchorsDeclared": 11,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 1723,
   "frames3d": 1134,
-  "wallSeconds": 675.3,
-  "machineSecPerFilmSec": 11.76,
+  "wallSeconds": 1716.5,
+  "machineSecPerFilmSec": 29.89,
   "hardTime": 57.4
  },
  "S11": {
@@ -267,7 +284,7 @@
    "s025",
    "s10"
   ],
-  "strings": 14,
+  "strings": 15,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -276,10 +293,11 @@
   "anchorsDeclared": 5,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 671,
   "frames3d": 0,
-  "wallSeconds": 80.4,
-  "machineSecPerFilmSec": 3.59,
+  "wallSeconds": 34.9,
+  "machineSecPerFilmSec": 1.56,
   "hardTime": 22.333333333333332
  },
  "S12": {
@@ -290,7 +308,7 @@
    "s10",
    "y3"
   ],
-  "strings": 10,
+  "strings": 11,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -299,10 +317,11 @@
   "anchorsDeclared": 3,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 183,
   "frames3d": 0,
-  "wallSeconds": 21.1,
-  "machineSecPerFilmSec": 3.45,
+  "wallSeconds": 9.6,
+  "machineSecPerFilmSec": 1.58,
   "hardTime": 6.066666666666666
  },
  "S13": {
@@ -315,7 +334,7 @@
    "s10",
    "y3"
   ],
-  "strings": 15,
+  "strings": 17,
   "sentenceCaptions": [
    "The same line for everyone?"
   ],
@@ -326,10 +345,11 @@
   "anchorsDeclared": 7,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 850,
   "frames3d": 0,
-  "wallSeconds": 101.2,
-  "machineSecPerFilmSec": 3.57,
+  "wallSeconds": 53.7,
+  "machineSecPerFilmSec": 1.9,
   "hardTime": 28.3
  },
  "S14": {
@@ -340,9 +360,10 @@
    "loan_small",
    "oct2023",
    "r_old",
-   "r_today"
+   "r_today",
+   "y2025"
   ],
-  "strings": 12,
+  "strings": 13,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -351,10 +372,11 @@
   "anchorsDeclared": 7,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 691,
   "frames3d": 691,
-  "wallSeconds": 204.5,
-  "machineSecPerFilmSec": 8.88,
+  "wallSeconds": 490.8,
+  "machineSecPerFilmSec": 21.31,
   "hardTime": 23
  },
  "S15": {
@@ -370,7 +392,7 @@
    "sav_small",
    "share_walt"
   ],
-  "strings": 23,
+  "strings": 24,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -379,10 +401,11 @@
   "anchorsDeclared": 7,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 853,
   "frames3d": 318,
-  "wallSeconds": 126.9,
-  "machineSecPerFilmSec": 4.46,
+  "wallSeconds": 321,
+  "machineSecPerFilmSec": 11.29,
   "hardTime": 28.4
  },
  "S16": {
@@ -399,7 +422,7 @@
    "sav_small",
    "y3"
   ],
-  "strings": 26,
+  "strings": 27,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -408,10 +431,11 @@
   "anchorsDeclared": 7,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 835,
   "frames3d": 350,
-  "wallSeconds": 169,
-  "machineSecPerFilmSec": 6.07,
+  "wallSeconds": 428,
+  "machineSecPerFilmSec": 15.38,
   "hardTime": 27.8
  },
  "S17": {
@@ -430,9 +454,10 @@
    "r_today",
    "s10",
    "sav_large",
+   "y2025",
    "y3"
   ],
-  "strings": 26,
+  "strings": 27,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -441,10 +466,11 @@
   "anchorsDeclared": 8,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 1081,
   "frames3d": 1004,
-  "wallSeconds": 288.3,
-  "machineSecPerFilmSec": 8,
+  "wallSeconds": 859.4,
+  "machineSecPerFilmSec": 23.85,
   "hardTime": 36
  },
  "S18": {
@@ -462,7 +488,7 @@
    "y2025",
    "y3"
   ],
-  "strings": 19,
+  "strings": 20,
   "sentenceCaptions": [
    "Back to the letter"
   ],
@@ -473,20 +499,24 @@
   "anchorsDeclared": 9,
   "anchorsUnused": [],
   "keywordsMissing": [],
-  "frames": 1447,
+  "size": "1920x1080",
+  "frames": 1435,
   "frames3d": 123,
-  "wallSeconds": 234.8,
-  "machineSecPerFilmSec": 4.87,
-  "hardTime": 48.14
+  "wallSeconds": 389.5,
+  "machineSecPerFilmSec": 8.14,
+  "hardTime": 47.73
  },
  "S19": {
   "claimsUsed": [
    "cost_median",
    "cost_p25",
    "cost_p75",
-   "y2025"
+   "oct2023",
+   "term30",
+   "y2025",
+   "y3"
   ],
-  "strings": 15,
+  "strings": 22,
   "sentenceCaptions": [],
   "numbersNotInClaims": [],
   "outOfSafeArea": [],
@@ -495,10 +525,11 @@
   "anchorsDeclared": 6,
   "anchorsUnused": [],
   "keywordsMissing": [],
-  "frames": 796,
+  "size": "1920x1080",
+  "frames": 795,
   "frames3d": 0,
-  "wallSeconds": 90.9,
-  "machineSecPerFilmSec": 3.43,
+  "wallSeconds": 42.6,
+  "machineSecPerFilmSec": 1.61,
   "hardTime": 26.43
  },
  "S20": {
@@ -508,7 +539,7 @@
    "y3",
    "y7"
   ],
-  "strings": 13,
+  "strings": 14,
   "sentenceCaptions": [
    "How long do you picture yourself in your home?"
   ],
@@ -519,10 +550,11 @@
   "anchorsDeclared": 6,
   "anchorsUnused": [],
   "keywordsMissing": [],
+  "size": "1920x1080",
   "frames": 883,
   "frames3d": 883,
-  "wallSeconds": 224.7,
-  "machineSecPerFilmSec": 7.63,
+  "wallSeconds": 749.8,
+  "machineSecPerFilmSec": 25.47,
   "hardTime": 16.769310344827613
  }
 }

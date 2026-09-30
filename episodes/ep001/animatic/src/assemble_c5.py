@@ -20,7 +20,8 @@ FF = subprocess.check_output([sys.executable, '-c', 'import imageio_ffmpeg;print
 mode = sys.argv[sys.argv.index('--mode') + 1] if '--mode' in sys.argv else 'cbr'
 timing = json.load(open(os.path.join(AN, 'timing.json')))
 FPS = 30
-scenes = [(s['id'], round((s['start'] + s['dur']) * FPS) - round(s['start'] * FPS)) for s in timing['scenes']]
+jround = lambda x: int(__import__('math').floor(x + 0.5))  # JS Math.round (render.js/film.js), not Python's banker's rounding
+scenes = [(s['id'], jround((s['start'] + s['dur']) * FPS) - jround(s['start'] * FPS)) for s in timing['scenes']]
 total = sum(n for _, n in scenes)
 
 
