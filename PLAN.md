@@ -17,7 +17,7 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 | C3 Thiết kế và giọng | XONG hình (hợp đồng ký, sàn chữ 40 px); **giọng: thử mù V1/V2/V3 đang làm** | `gates/C3.md`, `gates/C3-contract.md` | D theo nhịp; Eric eleven_v3; câu hứa "…where would your own loan fall?" |
 | C4 Animatic có chuyển động | XONG | `gates/C4.md`, `gates/C4-blind.md` | OK sang C5; giữ 8 thẻ; hình mang ý: mục tiêu số 1 Tập 2 |
 | C5 Render và L1 | ĐANG LÀM — khoá **K3.3 `beffb49b`** (SHA đã kiểm); nhãn góc gốc tiền; render lại cảnh có \$; mix sau render; checks | `gates/C5-plan.md`, `gates/C5-rights-audit.md` | ElevenLabs Creator; S09 → K3.2/K3.3; S18 bỏ sở hữu; T1/D1/thumb-3 |
-| C6 Chấm cuối | chờ | | |
+| C6 Chấm cuối | ĐÃ CHẤM — L3 4/5/4/4/4/4; **phát hành CÓ sau khi sửa nhạc + checks đạt** | `gates/C6.md` | G-016 nhạc sáng/nhanh; dòng chân gốc tiền giữ S01, bỏ S06/S07 |
 
 ## Việc treo cần chủ dự án (không chặn cổng)
 - Proxy phiên chặn đẩy tag và xoá nhánh (HTTP 403). Tag `ep001-v1-stopped` (`3cab8ba`) có ở máy phiên, chưa lên GitHub; bốn nhánh `claude/stoic-lamport-lt6z0z`, `claude/vigilant-tesla-xogj17`, `checks-v2`, `ccr-b659da90-fg2k6j` đã kiểm (ba nhánh đã merge vào main; `ccr-…` trùng `ep001`) nhưng chưa xoá được. `3cab8ba` vẫn an toàn trên nhánh `ep001`.
@@ -37,6 +37,7 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 - 2026-09-30 (8): container khởi động lại lần 2, mất agent P và A. Ảnh chụp dở dang `524ac85`. Tiếng đã mix xong (master −14,0 LUFS, TP −1,5; stem trên đĩa, SHA trong `out/audio/manifest.json`). Hình: mới render 1080p S12. Đã khởi động lại P (chạy tiếp từ `524ac85`, ghi chú `work/c5/P-notes.md`) và A (kiểm, điểm quảng cáo, tự kiểm; `work/audio/NOTES.md`). ElevenLabs đã trích; chờ chủ dự án xác nhận gói trả phí và hướng S09/K3.2.
 - 2026-09-30 (9): S18 sửa chữ + sinh lại (A14 qua). Nhãn gốc tiền: chủ dự án chọn nhãn góc (K3.3); bản hiện tại vẫn nhãn cạnh số (đạt K3.1), bản nhãn góc chuẩn bị sau cờ, **render lại sau khi K3.3 merge**; ảnh trước/sau S01/S07/S15/S18 đi kèm gói C6. Chờ: K3.2 + K3.3 merge → chạy checks. Đang: mix lại 17 739 khung, render S18–S20, ghép video.
 - 2026-09-30 (10): K3.3 merge (`c6bdaea`, LOCK beffb49b, SHA khớp). `contract.json` khoá K3.3 (`58881d9`). Rà §8 xong (`gates/C5-rights-audit.md`). **ffmpeg/ffprobe cài bằng apt (mất khi container khởi động lại: `apt-get install -y ffmpeg`)**. Luồng P: bật nhãn góc, render lại 18 cảnh có \$ (≤ 2 hàng); `work/audio/src/mix_after_render.sh` chạy mix sau render; rồi ghép video, checks, gói C6.
+- 2026-09-30 07:50 (11): container khởi động lại lần 3 (mất lần chạy checks đầu, sampler chưa ra page.json). Đang: (a) MUSIC 3 bản thử mù A/C/A+C (`review-c6/music-test/`), chờ chủ dự án chọn → sinh lại nhạc cả tập, mix lại; (b) P bỏ dòng chân S06/S07, render lại 2 cảnh, ghép lại hình. Sau (b): chạy sampler trang một lần; sau (a): mux lại, `SKIP_PAGE=1` run.py đầy đủ K3.3; CHẶN sửa, CHÍNH giải thích; rồi phát hành.
 
 ## Checklist C5 (Chặn)
 - Rà quy ước quyền `quality-framework.md` §8: tìm `data:` trong mã dựng/bản dựng trang; đối chiếu mọi nguồn ghép hậu kỳ với `RIGHTS.md`.
