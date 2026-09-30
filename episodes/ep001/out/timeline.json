@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "total": 591.72,
+ "total": 591.31,
  "acts": [
   {
    "id": "cold-open",
@@ -22,18 +22,18 @@
   {
    "id": "act3",
    "start": 372.2,
-   "end": 535.76,
+   "end": 535.35,
    "climax": 441.005
   },
   {
    "id": "method",
-   "start": 535.76,
-   "end": 562.29
+   "start": 535.35,
+   "end": 561.88
   },
   {
    "id": "outro",
-   "start": 562.29,
-   "end": 591.72
+   "start": 561.88,
+   "end": 591.31
   }
  ],
  "scenes": [
@@ -296,7 +296,7 @@
    "id": "S18",
    "act": "act3",
    "start": 487.52,
-   "dur": 48.24,
+   "dur": 47.83,
    "layout": "ruler/three-marks",
    "shot": "wide",
    "panels": [
@@ -310,7 +310,7 @@
   {
    "id": "S19",
    "act": "method",
-   "start": 535.76,
+   "start": 535.35,
    "dur": 26.53,
    "layout": "band/fee-range",
    "shot": "wide",
@@ -325,7 +325,7 @@
   {
    "id": "S20",
    "act": "outro",
-   "start": 562.29,
+   "start": 561.88,
    "dur": 29.43,
    "layout": "house/horizon",
    "shot": "wide",
@@ -375,12 +375,12 @@
    "what": "answer to the promise: a smaller mortgage needs a bigger cut"
   },
   {
-   "t": 500.055,
+   "t": 500.065,
    "scene": "S18",
    "what": "the answer: a line for each loan size"
   },
   {
-   "t": 588.725,
+   "t": 588.315,
    "scene": "S20",
    "what": "the question left with the viewer"
   }

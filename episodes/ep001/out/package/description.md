@@ -15,7 +15,7 @@ Chapters
 7:31 Anjali: a bigger loan
 8:07 A line for each loan size
 8:55 What this does not tell you
-9:22 How long will you stay?
+9:21 How long will you stay?
 
 What this is and is not
 - History, not a forecast. US only. Not advice: the borrowers are illustrative, and a real rate, a real bill and a real balance will be different.
