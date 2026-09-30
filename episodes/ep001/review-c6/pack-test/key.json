@@ -1,0 +1,288 @@
+{
+ "_": "GIẢI MÃ — không mở trước khi chọn.",
+ "about": "Pair images: card \"1\" on top, card \"2\" below. set = package (title + thumbnail) or thumbnail (same title on both).",
+ "packages": {
+  "a1": {
+   "title": "Why a Smaller Loan Needs a Bigger Rate Cut to Be Worth It",
+   "thumb": "v2/thumb-H.png"
+  },
+  "a2": {
+   "title": "Same Rate Cut, Opposite Results for a Small and Big Mortgage",
+   "thumb": "v2/thumb-H.png"
+  },
+  "b1": {
+   "title": "The Refinance Cost That Isn't in the Fees",
+   "thumb": "v2/thumb-L.png"
+  },
+  "b2": {
+   "title": "Refinance Break-Even: The $1,133 That Simple Division Misses",
+   "thumb": "v2/thumb-L.png"
+  },
+  "c1": {
+   "title": "Got a 2023 Mortgage? The 1-Point Rule May Not Fit Your Loan",
+   "thumb": "v2/thumb-W.png"
+  },
+  "c2": {
+   "title": "Borrowed Over 7% in 2023? The Rate Cut a Refinance Needs",
+   "thumb": "v2/thumb-W.png"
+  },
+  "control": {
+   "title": "How Big a Rate Cut Makes a Refinance Worth It?",
+   "thumb": "thumb-3.png"
+  }
+ },
+ "thumbnailOnly": {
+  "title": "How Big a Rate Cut Makes a Refinance Worth It?",
+  "thumbs": {
+   "H": "v2/thumb-H.png",
+   "L": "v2/thumb-L.png",
+   "W": "v2/thumb-W.png"
+  }
+ },
+ "pairs": {
+  "30707a6e99": {
+   "1": "c2",
+   "2": "control",
+   "set": "package"
+  },
+  "99e00a5487": {
+   "1": "control",
+   "2": "c1",
+   "set": "package"
+  },
+  "aaa98130e4": {
+   "1": "c1",
+   "2": "control",
+   "set": "package"
+  },
+  "5431b2417b": {
+   "1": "c2",
+   "2": "b1",
+   "set": "package"
+  },
+  "b61eafcae4": {
+   "1": "b1",
+   "2": "a1",
+   "set": "package"
+  },
+  "ea36c42f5e": {
+   "1": "control",
+   "2": "b1",
+   "set": "package"
+  },
+  "1761c619d1": {
+   "1": "a1",
+   "2": "control",
+   "set": "package"
+  },
+  "89c5e0029e": {
+   "1": "a2",
+   "2": "c1",
+   "set": "package"
+  },
+  "b7c333afc5": {
+   "1": "c2",
+   "2": "c1",
+   "set": "package"
+  },
+  "bd1589e0aa": {
+   "1": "a2",
+   "2": "b2",
+   "set": "package"
+  },
+  "bf607ccd38": {
+   "1": "c2",
+   "2": "a1",
+   "set": "package"
+  },
+  "7a1130f74b": {
+   "1": "b1",
+   "2": "c1",
+   "set": "package"
+  },
+  "4e7727f20e": {
+   "1": "a2",
+   "2": "c2",
+   "set": "package"
+  },
+  "54d103f4aa": {
+   "1": "c2",
+   "2": "b2",
+   "set": "package"
+  },
+  "5ceb196dd4": {
+   "1": "c2",
+   "2": "a2",
+   "set": "package"
+  },
+  "c53e5eec00": {
+   "1": "W",
+   "2": "L",
+   "set": "thumbnail"
+  },
+  "4bfdb01d31": {
+   "1": "H",
+   "2": "W",
+   "set": "thumbnail"
+  },
+  "5254349145": {
+   "1": "c1",
+   "2": "a1",
+   "set": "package"
+  },
+  "39af0ca711": {
+   "1": "b1",
+   "2": "a2",
+   "set": "package"
+  },
+  "f6d65d5be9": {
+   "1": "L",
+   "2": "H",
+   "set": "thumbnail"
+  },
+  "a2a818930c": {
+   "1": "c1",
+   "2": "a2",
+   "set": "package"
+  },
+  "c40011a4b4": {
+   "1": "b1",
+   "2": "control",
+   "set": "package"
+  },
+  "fdb747c022": {
+   "1": "H",
+   "2": "L",
+   "set": "thumbnail"
+  },
+  "4fe34277b2": {
+   "1": "b2",
+   "2": "a1",
+   "set": "package"
+  },
+  "13986cb1ba": {
+   "1": "W",
+   "2": "H",
+   "set": "thumbnail"
+  },
+  "ca60cb59cf": {
+   "1": "b2",
+   "2": "c2",
+   "set": "package"
+  },
+  "1a73a3aecc": {
+   "1": "b2",
+   "2": "a2",
+   "set": "package"
+  },
+  "9d31cd7fd3": {
+   "1": "L",
+   "2": "W",
+   "set": "thumbnail"
+  },
+  "31a092f39c": {
+   "1": "control",
+   "2": "c2",
+   "set": "package"
+  },
+  "90684b92c8": {
+   "1": "a1",
+   "2": "c1",
+   "set": "package"
+  },
+  "3ca2efe6de": {
+   "1": "a1",
+   "2": "c2",
+   "set": "package"
+  },
+  "83f8545e06": {
+   "1": "b2",
+   "2": "b1",
+   "set": "package"
+  },
+  "14f4de775a": {
+   "1": "c1",
+   "2": "b2",
+   "set": "package"
+  },
+  "409793f456": {
+   "1": "a2",
+   "2": "control",
+   "set": "package"
+  },
+  "fd98e7bad7": {
+   "1": "c1",
+   "2": "c2",
+   "set": "package"
+  },
+  "298edbc951": {
+   "1": "a2",
+   "2": "a1",
+   "set": "package"
+  },
+  "2f01dfa589": {
+   "1": "a1",
+   "2": "b2",
+   "set": "package"
+  },
+  "f15e4a7f11": {
+   "1": "a1",
+   "2": "a2",
+   "set": "package"
+  },
+  "3d636e85ff": {
+   "1": "c1",
+   "2": "b1",
+   "set": "package"
+  },
+  "7b19548960": {
+   "1": "b1",
+   "2": "b2",
+   "set": "package"
+  },
+  "af23e0b6e6": {
+   "1": "control",
+   "2": "b2",
+   "set": "package"
+  },
+  "47b02f3121": {
+   "1": "control",
+   "2": "a1",
+   "set": "package"
+  },
+  "2afe9e7bf1": {
+   "1": "b2",
+   "2": "c1",
+   "set": "package"
+  },
+  "5c1ce90c9c": {
+   "1": "b2",
+   "2": "control",
+   "set": "package"
+  },
+  "0bb04ef47f": {
+   "1": "a1",
+   "2": "b1",
+   "set": "package"
+  },
+  "ccb6014257": {
+   "1": "control",
+   "2": "a2",
+   "set": "package"
+  },
+  "810c1af15a": {
+   "1": "b1",
+   "2": "c2",
+   "set": "package"
+  },
+  "67a6151917": {
+   "1": "a2",
+   "2": "b1",
+   "set": "package"
+  }
+ },
+ "counts": {
+  "package": 42,
+  "thumbnail": 6
+ }
+}

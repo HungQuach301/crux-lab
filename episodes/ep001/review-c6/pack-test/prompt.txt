@@ -1,0 +1,12 @@
+Blind packaging test · Crux Episode 1 (REFERENCE only; the owner picks)
+
+Show ONE image per agent (a fresh agent for each image; no image names, no other context, no key.json).
+Each image shows two YouTube search results, one above the other, labelled 1 (top) and 2 (bottom).
+42 images compare title + thumbnail packages; 6 images compare thumbnails only (both cards carry the same title).
+Every pair appears in both orders, so position bias can be measured.
+
+Fixed question (paste verbatim, English):
+
+You are an American currently paying a mortgage you signed between 2022 and 2024. You are scrolling YouTube search results for 'refinance'. Which one of these two videos would you click? Answer 1 or 2 and one sentence why.
+
+Record: image id (folder name), answer (1 or 2), the one sentence. Decode with key.json only after all answers are in.
