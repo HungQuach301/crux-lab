@@ -1,0 +1,242 @@
+{
+  "card": {
+    "thesis": "At banks, stretching a new-car loan by an extra year has barely raised the interest rate, so nearly all the added cost comes from paying interest longer.",
+    "overturns": "\"Longer car loans cost more mainly because lenders charge a much higher rate.\""
+  },
+  "claim": "In every quarter since the Federal Reserve began publishing a 72-month new-car loan rate at commercial banks (44 quarters, August 2015 to May 2026), the 72-month rate averaged only 0.097 points above the 60-month rate, never more than 0.52 points, and was equal to or lower than the 60-month rate in 34.1% of quarters; in May 2026 it was 6.97% versus 7.14%. On a $30,000 loan at the 7.14% 60-month rate, adding the extra year alone adds about $1,210 of interest, while charging the average term premium adds only about $101 more, so about 7.7% of the extra interest comes from a higher rate and the rest from paying longer. The cost of a longer car loan is time, not the rate. This is history, not a forecast.",
+  "numbers": [
+    {
+      "id": "n_months",
+      "value": 44,
+      "unit": "quarters",
+      "definition": "Monthly-dated files RIFLPBCIANM60NM and RIFLPBCIANM72NM (Federal Reserve G.19, finance rate on new-auto installment loans at commercial banks, percent); values are published for Feb/May/Aug/Nov only, other months blank. Use only dates where both have a value: 44 quarters, 2015-08-01 through 2026-05-01. Count of those dates."
+    },
+    {
+      "id": "mean_premium_72_vs_60",
+      "value": 0.097,
+      "unit": "percentage points",
+      "definition": "Monthly-dated files RIFLPBCIANM60NM and RIFLPBCIANM72NM (Federal Reserve G.19, finance rate on new-auto installment loans at commercial banks, percent); values are published for Feb/May/Aug/Nov only, other months blank. Use only dates where both have a value: 44 quarters, 2015-08-01 through 2026-05-01. Mean over those dates of (72-month rate - 60-month rate), rounded to 0.001."
+    },
+    {
+      "id": "share_months_72_le_60",
+      "value": 34.1,
+      "unit": "percent of quarters",
+      "definition": "Monthly-dated files RIFLPBCIANM60NM and RIFLPBCIANM72NM (Federal Reserve G.19, finance rate on new-auto installment loans at commercial banks, percent); values are published for Feb/May/Aug/Nov only, other months blank. Use only dates where both have a value: 44 quarters, 2015-08-01 through 2026-05-01. Share of those dates where the 72-month rate <= the 60-month rate (compared in hundredths), times 100, rounded to 0.1."
+    },
+    {
+      "id": "max_premium",
+      "value": 0.52,
+      "unit": "percentage points",
+      "definition": "Monthly-dated files RIFLPBCIANM60NM and RIFLPBCIANM72NM (Federal Reserve G.19, finance rate on new-auto installment loans at commercial banks, percent); values are published for Feb/May/Aug/Nov only, other months blank. Use only dates where both have a value: 44 quarters, 2015-08-01 through 2026-05-01. Maximum over those dates of (72-month - 60-month), rounded to 0.01."
+    },
+    {
+      "id": "latest_r60",
+      "value": 7.14,
+      "unit": "percent",
+      "definition": "60-month rate on 2026-05-01."
+    },
+    {
+      "id": "latest_r72",
+      "value": 6.97,
+      "unit": "percent",
+      "definition": "72-month rate on 2026-05-01."
+    },
+    {
+      "id": "term_effect_30k",
+      "value": 1210,
+      "unit": "US dollars",
+      "definition": "interest(r, n) on $30,000 = n * 30000*i/(1-(1+i)^-n) - 30000 with i = r/1200 (standard level-payment amortization). term_effect = interest(7.14, 72) - interest(7.14, 60), rounded to the dollar (7.14 = latest 60-month rate)."
+    },
+    {
+      "id": "rate_effect_30k",
+      "value": 101,
+      "unit": "US dollars",
+      "definition": "interest(r, n) on $30,000 = n * 30000*i/(1-(1+i)^-n) - 30000 with i = r/1200 (standard level-payment amortization). rate_effect = interest(7.14 + m, 72) - interest(7.14, 72), where m is the unrounded mean_premium_72_vs_60; rounded to the dollar."
+    },
+    {
+      "id": "rate_share_of_extra_interest",
+      "value": 7.7,
+      "unit": "percent",
+      "definition": "100 * rate_effect / (term_effect + rate_effect), using unrounded values, rounded to 0.1."
+    }
+  ],
+  "series": [
+    {
+      "id": "RIFLPBCIANM60NM",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RIFLPBCIANM60NM&coed=2026-05-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+      "file": "data/RIFLPBCIANM60NM.csv",
+      "sha256": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-05-01",
+      "terms": {
+        "quote": "Public Domain: Citation Requested",
+        "url": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM"
+      }
+    },
+    {
+      "id": "RIFLPBCIANM72NM",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RIFLPBCIANM72NM&coed=2026-05-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/RIFLPBCIANM72NM",
+      "file": "data/RIFLPBCIANM72NM.csv",
+      "sha256": "c7a55f78428a3054acf9400d6bbfa5ccc2b0b9bb26f5e96d65f0a14d29d0a7d7",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-05-01",
+      "terms": {
+        "quote": "Public Domain: Citation Requested",
+        "url": "https://fred.stlouisfed.org/series/RIFLPBCIANM72NM"
+      }
+    }
+  ],
+  "provisions": [],
+  "assumptions": [
+    "Loan of $30,000, level monthly payments, no fees, no early payoff; rates are the bank survey averages, not any one borrower's offer.",
+    "The average term premium over 2015-2026 is applied to the latest 60-month rate to split extra interest into a term part and a rate part.",
+    "The two rates come from the same survey of commercial banks; dealer-arranged and captive-finance loans are not covered."
+  ],
+  "limits": "History, not a forecast. The series covers commercial banks only; borrowers who take longer loans may have different credit profiles, and captive lenders, credit unions and dealer markups can price terms differently. Longer loans also raise the risk of owing more than the car is worth, which this measure does not capture.",
+  "novelty": {
+    "queries": [
+      "72-month auto loan rate vs 60-month auto loan rate same bank rates Federal Reserve data",
+      "longer car loans higher interest rates myth 72 month vs 60 month rate difference small",
+      "extra interest 72-month car loan comes from longer term not higher rate analysis"
+    ],
+    "results": [
+      {
+        "query": "72-month auto loan rate vs 60-month auto loan rate same bank rates Federal Reserve data",
+        "top": [
+          {
+            "title": "60 Month vs 72 Month Auto Loans | Car Loan Comparison | Space Coast Credit Union",
+            "url": "https://www.sccu.com/articles/auto/60-month-vs-72-month-auto-loan-comparison"
+          },
+          {
+            "title": "Current Used Car Loan Rates: 2026 Guide | Broadview Federal Credit Union",
+            "url": "https://www.broadviewfcu.com/blogs/current-used-car-loan-rates-guide/"
+          },
+          {
+            "title": "Best Auto Loan Rates in September 2026 | LendingTree",
+            "url": "https://www.lendingtree.com/auto/"
+          },
+          {
+            "title": "Auto Loan Rates & Financing in 2026 | Bankrate",
+            "url": "https://www.bankrate.com/loans/auto-loans/rates/"
+          },
+          {
+            "title": "Auto Loan Rates 2026 — By Credit Score, Lender & Tax Deduction | FinanceWonk",
+            "url": "https://www.financewonk.com/references/auto-loan-rates"
+          },
+          {
+            "title": "Car Payment Calculator 72 Months — Is a 6-Year Auto Loan Worth It? | RateRoverAuto",
+            "url": "https://rateroverauto.com/guides/car-payment-calculator-72-months"
+          },
+          {
+            "title": "New Car Loan Rates in 2026: Current Averages & Tips",
+            "url": "https://www.autotrue.us/new-car-loan-rates-2026/"
+          },
+          {
+            "title": "auto loan rate forecast",
+            "url": "https://www.bankrate.com/loans/auto-loans/auto-loan-rate-forecast"
+          },
+          {
+            "title": "www.bankrate.com",
+            "url": "https://www.bankrate.com/loans/auto-loans/rates/?caret=3a"
+          }
+        ]
+      },
+      {
+        "query": "longer car loans higher interest rates myth 72 month vs 60 month rate difference small",
+        "top": [
+          {
+            "title": "60 Month vs 72 Month Auto Loans | Space Coast Credit Union",
+            "url": "https://www.sccu.com/articles/auto/60-month-vs-72-month-auto-loan-comparison"
+          },
+          {
+            "title": "How to Determine the Best Loan Term for Your Auto Loan - North Jersey Federal Credit Union",
+            "url": "https://njfcu.org/how-to-determine-the-best-loan-term-for-your-auto-loan/"
+          },
+          {
+            "title": "Short-Term vs. Long-Term Car Loans",
+            "url": "https://www.experian.com/blogs/ask-experian/long-term-vs-short-term-auto-loans/"
+          },
+          {
+            "title": "60 vs. 72 vs. 84-Month Car Loans: Which Loan Term Should You Choose? - Nalley Automotive",
+            "url": "https://www.nalleycars.com/blog/60-vs-72-vs-84-month-car-loans-which-loan-term-should-you-choose"
+          },
+          {
+            "title": "How Long Should A Car Loan Be? 60 vs. 72 Months & More – Preston Chrysler Dodge Jeep Ram of Dover Blog",
+            "url": "https://www.dovercdjr.com/blogs/4531/index.php/2026/02/24/how-long-should-a-car-loan-be/"
+          },
+          {
+            "title": "How Long Should A Car Loan Be? | Boulevard Lincoln",
+            "url": "https://www.boulevardlincoln.com/blog/how-long-should-a-car-loan-be"
+          },
+          {
+            "title": "How Long Should A Car Loan Be? | Preston Chrysler Dodge Jeep Ram of Wilmington",
+            "url": "https://www.wilmingtoncdjr.com/blog/how-long-should-a-car-loan-be"
+          },
+          {
+            "title": "How Long Should A Car Loan Be? 60 vs. 72 Months & More – Millsboro Chrysler Dodge Jeep Ram Blog",
+            "url": "https://www.millsborocdjr.com/blogs/3411/cdjr/how-long-should-a-car-loan-be/"
+          },
+          {
+            "title": "72 months car financing",
+            "url": "https://policy-wizard.fas.harvard.edu/72-months-car-financing"
+          }
+        ]
+      },
+      {
+        "query": "extra interest 72-month car loan comes from longer term not higher rate analysis",
+        "top": [
+          {
+            "title": "Current Used Car Loan Rates: 2026 Guide | Broadview Federal Credit Union",
+            "url": "https://www.broadviewfcu.com/blogs/current-used-car-loan-rates-guide/"
+          },
+          {
+            "title": "72-Month Car Loan: What to Know About Long-Term Loans | Capital One Auto Navigator",
+            "url": "https://www.capitalone.com/cars/learn/managing-your-money-wisely/72month-car-loan-what-to-know-about-longterm-loans/1571"
+          },
+          {
+            "title": "How Long Should a Car Loan Be?",
+            "url": "https://www.edmunds.com/car-loan/how-long-should-my-car-loan-be.html"
+          },
+          {
+            "title": "60 Month vs 72 Month Auto Loans | Space Coast Credit Union",
+            "url": "https://www.sccu.com/articles/auto/60-month-vs-72-month-auto-loan-comparison"
+          },
+          {
+            "title": "A 72-Month Car Loan Makes the Payment Look Better. Here’s What It Does to the Total Cost",
+            "url": "https://www.inkl.com/news/a-72-month-car-loan-makes-the-payment-look-better-heres-what-it-does-to-the-total-cost"
+          },
+          {
+            "title": "Auto Loan Rates Explained: What Is a Good APR for a 72-Month Car Loan?",
+            "url": "https://www.speedwaycars.com/best-apr-72-month-auto-loans-indianapolis/"
+          },
+          {
+            "title": "Car Payment Calculator 72 Months — Is a 6-Year Auto Loan Worth It? | RateRoverAuto",
+            "url": "https://rateroverauto.com/guides/car-payment-calculator-72-months"
+          },
+          {
+            "title": "Understanding APR and Loan Terms: What is a Good APR for a 72-Month Car Loan? – Sunset Hills Subaru Blog",
+            "url": "https://www.sunsethillssubaru.com/blogs/4580/understanding-apr-and-loan-terms-what-is-a-good-apr-for-a-72-month-car-loan/"
+          },
+          {
+            "title": "Auto Loan Interest Rates by Year, 1972-2026: Full History - True Driving Cost",
+            "url": "https://truedrivingcost.com/articles/auto-loan-rates-over-time"
+          },
+          {
+            "title": "72 months car financing",
+            "url": "https://policy-wizard.fas.harvard.edu/72-months-car-financing"
+          }
+        ]
+      }
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://www.sccu.com/articles/auto/60-month-vs-72-month-auto-loan-comparison",
+      "https://rateroverauto.com/guides/car-payment-calculator-72-months"
+    ],
+    "note": "Most results assert that 72-month loans carry notably higher rates (one cites 0.50 to 1.25 points); one result mentions that the latest bank figures show a lower 72-month rate. None measures the premium across the full bank history or splits the extra interest into term and rate parts. Queries 1-2 returned 9 results."
+  }
+}

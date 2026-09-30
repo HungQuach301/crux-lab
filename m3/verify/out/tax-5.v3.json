@@ -1,0 +1,84 @@
+{
+ "id": "tax-5",
+ "items": [
+  {
+   "id": "last_purchase_year_gain_over_250k",
+   "declared": 2017,
+   "recomputed": 2017,
+   "ok": true
+  },
+  {
+   "id": "last_purchase_quarter_of_that_year",
+   "declared": 1,
+   "recomputed": 1,
+   "ok": true
+  },
+  {
+   "id": "quarters_gain_over_500k",
+   "declared": 0,
+   "recomputed": 0,
+   "ok": true
+  },
+  {
+   "id": "gain_median_bought_1997q3_usd",
+   "declared": 421964.0,
+   "recomputed": 421964,
+   "ok": true
+  },
+  {
+   "id": "gain_median_bought_2000q1_usd",
+   "declared": 387451.0,
+   "recomputed": 387451,
+   "ok": true
+  },
+  {
+   "id": "taxable_gain_single_bought_1997q3_usd",
+   "declared": 171964.0,
+   "recomputed": 171964,
+   "ok": true
+  },
+  {
+   "id": "tax_at_15pct_single_bought_1997q3_usd",
+   "declared": 25795.0,
+   "recomputed": 25795,
+   "ok": true
+  },
+  {
+   "id": "quarters_gain_over_250k",
+   "declared": 107,
+   "recomputed": 107,
+   "ok": true
+  },
+  {
+   "id": "quarters_total",
+   "declared": 158,
+   "recomputed": 158,
+   "ok": true
+  },
+  {
+   "id": "max_gain_any_quarter_usd",
+   "declared": 439615.0,
+   "recomputed": 439615,
+   "ok": true
+  },
+  {
+   "id": "exclusion_250k_in_current_prices_usd",
+   "declared": 512494.0,
+   "recomputed": 513313,
+   "ok": true
+  },
+  {
+   "id": "exclusion_to_median_price_1997",
+   "declared": 1.72,
+   "recomputed": 1.72,
+   "ok": true
+  },
+  {
+   "id": "exclusion_to_median_price_latest",
+   "declared": 0.61,
+   "recomputed": 0.61,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

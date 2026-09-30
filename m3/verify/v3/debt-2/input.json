@@ -1,0 +1,75 @@
+{
+ "id": "debt-2",
+ "claim": "Taking a 30-year mortgage and paying it at the 15-year payment is not the same as a 15-year loan, because the 15-year rate is lower. At the latest weekly survey rates (30-year 7.03%, 15-year 6.42%, a 0.61-point gap), a borrower who pays the 15-year payment on a 30-year loan needs 193 months instead of 180 to finish and pays about $11,181 more interest per $100,000 borrowed. Across all 1,831 weeks since 1991 in which both rates were published, the gap averaged 0.575 points, was at least 0.50 points in 62.9% of weeks, and the median extra cost of this 'flexibility' was about $8,860 per $100,000. The flexibility of the lower required payment has a price, and this is history, not a forecast.",
+ "numbers": [
+  {
+   "id": "latest_r30",
+   "unit": "percent",
+   "definition": "MORTGAGE30US value for the last common week, 2026-09-24."
+  },
+  {
+   "id": "latest_r15",
+   "unit": "percent",
+   "definition": "MORTGAGE15US value for the last common week, 2026-09-24."
+  },
+  {
+   "id": "latest_spread",
+   "unit": "percentage points",
+   "definition": "latest_r30 - latest_r15, rounded to 0.01."
+  },
+  {
+   "id": "latest_premium_per_100k",
+   "unit": "US dollars per $100,000 borrowed",
+   "definition": "Weekly Freddie Mac PMMS averages MORTGAGE30US and MORTGAGE15US (percent) from data/, using only weeks present in both files (1991-08-30 through 2026-09-24). Premium for rates (r30, r15) on a $100,000 loan: P = 100000*i15/(1-(1+i15)^-180) with i15 = r15/1200 (the 15-year payment). 15-year interest = 180*P - 100000. Then amortize a 100000 balance at monthly rate i30 = r30/1200, paying P each month (final month pays the remaining balance*(1+i30)); 30-year-prepaid interest = total paid - 100000. Premium = 30-year-prepaid interest - 15-year interest, in dollars. Evaluated at r30=7.03, r15=6.42 (week 2026-09-24); rounded to the dollar."
+  },
+  {
+   "id": "latest_months_to_payoff",
+   "unit": "months",
+   "definition": "Number of monthly payments (including the final partial one) needed to repay the 30-year loan at 7.03% when paying the 15-year payment computed at 6.42%, per the method in latest_premium_per_100k."
+  },
+  {
+   "id": "mean_spread_all_weeks",
+   "unit": "percentage points",
+   "definition": "Weekly Freddie Mac PMMS averages MORTGAGE30US and MORTGAGE15US (percent) from data/, using only weeks present in both files (1991-08-30 through 2026-09-24). Arithmetic mean over those weeks of MORTGAGE30US - MORTGAGE15US, rounded to 0.001."
+  },
+  {
+   "id": "median_premium_all_weeks",
+   "unit": "US dollars per $100,000 borrowed",
+   "definition": "Weekly Freddie Mac PMMS averages MORTGAGE30US and MORTGAGE15US (percent) from data/, using only weeks present in both files (1991-08-30 through 2026-09-24). Premium for rates (r30, r15) on a $100,000 loan: P = 100000*i15/(1-(1+i15)^-180) with i15 = r15/1200 (the 15-year payment). 15-year interest = 180*P - 100000. Then amortize a 100000 balance at monthly rate i30 = r30/1200, paying P each month (final month pays the remaining balance*(1+i30)); 30-year-prepaid interest = total paid - 100000. Premium = 30-year-prepaid interest - 15-year interest, in dollars. Computed for each common week with that week's two rates; value = median across weeks, rounded to the dollar."
+  },
+  {
+   "id": "share_weeks_spread_ge_050",
+   "unit": "percent of weeks",
+   "definition": "Weekly Freddie Mac PMMS averages MORTGAGE30US and MORTGAGE15US (percent) from data/, using only weeks present in both files (1991-08-30 through 2026-09-24). Share of common weeks in which round((MORTGAGE30US - MORTGAGE15US)*100) >= 50, times 100, rounded to 0.1."
+  },
+  {
+   "id": "n_weeks",
+   "unit": "weeks",
+   "definition": "Number of weeks present in both files."
+  }
+ ],
+ "assumptions": [
+  "Borrower's rates equal the national weekly survey averages for each term; points, fees and credit adjustments are ignored (both surveys report averages that include points paid).",
+  "Monthly compounding at annual rate/12; no taxes, no mortgage insurance, no refinancing, no missed or extra payments beyond the 15-year payment.",
+  "Dollar amounts are undiscounted totals of interest paid, per $100,000 of principal."
+ ],
+ "series": [
+  {
+   "id": "MORTGAGE30US",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "file": "data/MORTGAGE30US.csv",
+   "lastObservation": "2026-09-24"
+  },
+  {
+   "id": "MORTGAGE15US",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE15US&coed=2026-09-24",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE15US",
+   "file": "data/MORTGAGE15US.csv",
+   "lastObservation": "2026-09-24"
+  }
+ ],
+ "provisions": []
+}

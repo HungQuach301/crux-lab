@@ -1,0 +1,173 @@
+{
+ "pillar": "debt",
+ "quota": 7,
+ "model": "gpt-5.5",
+ "role": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+ "prompt": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Borrowing and debt (mortgages, refinancing, student loans, auto loans, credit cards, paying down debt)\n\nTask: propose 7 distinct theses for episodes in this pillar. A thesis is a specific, checkable claim that a viewer facing a real decision would care about, and that overturns a common belief.\n\nWrite each thesis as a card with exactly two fields:\n- thesis: one sentence, 20 to 28 words.\n- overturns: the common belief it contradicts, one sentence in double quotes, 10 to 16 words.\n\nCard rules (strict, checked by machine):\n- No digits, no % or $ signs, no years.\n- No numbers written as words (for example one, two, ten, hundred, half, double, twice, triple, quarter, third, dozen, percent).\n- No names of data sources, datasets, series codes, laws, acts or code sections (write \"workplace retirement plan\", not a plan's code name).\n- One sentence per field.",
+ "kept": [
+  {
+   "card": {
+    "thesis": "Buying mortgage points usually loses after typical homeowner turnover and refinancing chances are simulated, even when quoted break-even math looks comfortably positive.",
+    "overturns": "\"Paying points is smart whenever the rate break-even arrives before you move.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "A higher-rate no-closing-cost refinance can leave borrowers richer than paying cash costs when remaining loan life is uncertain and payment savings are invested.",
+    "overturns": "\"Lowest mortgage rate is always the best refinance choice after fees.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "For many income-driven student loan borrowers, extra principal payments can destroy wealth because forgiveness tax risk is smaller than lost liquidity.",
+    "overturns": "\"Student loans should always be attacked before building real financial buffers.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "Choosing a longer auto loan often raises total car cost far beyond disclosed interest because it keeps borrowers underwater for longer.",
+    "overturns": "\"A longer auto loan is harmless if the monthly payment fits.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "With realistic dropout risk, the debt snowball can eliminate balances faster than avalanche math for borrowers juggling several credit cards.",
+    "overturns": "\"Always pay the highest interest card before any smaller balance.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "Biweekly mortgage plans rarely beat a simple extra principal autopay, after enrollment fees, timing rules, and servicer posting delays are included.",
+    "overturns": "\"Biweekly mortgage payment programs are a secret hack for interest savings.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "A smaller down payment with mortgage insurance can outperform waiting to save more when rents rise and cash reserves prevent expensive debt.",
+    "overturns": "\"Avoid mortgage insurance at all costs before buying a home.\""
+   },
+   "call": 1
+  }
+ ],
+ "attempts": [
+  {
+   "call": 1,
+   "raw": "raw/debt-call1.json",
+   "seconds": 28.2,
+   "cards": [
+    {
+     "original": {
+      "thesis": "Buying mortgage points usually loses after typical homeowner turnover and refinancing chances are simulated, even when quoted break-even math looks comfortably positive.",
+      "overturns": "\"Paying points is smart whenever the rate break-even arrives before you move.\""
+     },
+     "normalized": {
+      "thesis": "Buying mortgage points usually loses after typical homeowner turnover and refinancing chances are simulated, even when quoted break-even math looks comfortably positive.",
+      "overturns": "\"Paying points is smart whenever the rate break-even arrives before you move.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "A higher-rate no-closing-cost refinance can leave borrowers richer than paying cash costs when remaining loan life is uncertain and payment savings are invested.",
+      "overturns": "\"Lowest mortgage rate is always the best refinance choice after fees.\""
+     },
+     "normalized": {
+      "thesis": "A higher-rate no-closing-cost refinance can leave borrowers richer than paying cash costs when remaining loan life is uncertain and payment savings are invested.",
+      "overturns": "\"Lowest mortgage rate is always the best refinance choice after fees.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "For many income-driven student loan borrowers, extra principal payments can destroy wealth because forgiveness tax risk is smaller than lost liquidity.",
+      "overturns": "\"Student loans should always be attacked before building real financial buffers.\""
+     },
+     "normalized": {
+      "thesis": "For many income-driven student loan borrowers, extra principal payments can destroy wealth because forgiveness tax risk is smaller than lost liquidity.",
+      "overturns": "\"Student loans should always be attacked before building real financial buffers.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "Choosing a longer auto loan often raises total car cost far beyond disclosed interest because it keeps borrowers underwater for longer.",
+      "overturns": "\"A longer auto loan is harmless if the monthly payment fits.\""
+     },
+     "normalized": {
+      "thesis": "Choosing a longer auto loan often raises total car cost far beyond disclosed interest because it keeps borrowers underwater for longer.",
+      "overturns": "\"A longer auto loan is harmless if the monthly payment fits.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "With realistic dropout risk, the debt snowball can eliminate balances faster than avalanche math for borrowers juggling several credit cards.",
+      "overturns": "\"Always pay the highest interest card before any smaller balance.\""
+     },
+     "normalized": {
+      "thesis": "With realistic dropout risk, the debt snowball can eliminate balances faster than avalanche math for borrowers juggling several credit cards.",
+      "overturns": "\"Always pay the highest interest card before any smaller balance.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "Biweekly mortgage plans rarely beat a simple extra principal autopay, after enrollment fees, timing rules, and servicer posting delays are included.",
+      "overturns": "\"Biweekly mortgage payment programs are a secret hack for interest savings.\""
+     },
+     "normalized": {
+      "thesis": "Biweekly mortgage plans rarely beat a simple extra principal autopay, after enrollment fees, timing rules, and servicer posting delays are included.",
+      "overturns": "\"Biweekly mortgage payment programs are a secret hack for interest savings.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "A smaller down payment with mortgage insurance can outperform waiting to save more when rents rise and cash reserves prevent expensive debt.",
+      "overturns": "\"Avoid mortgage insurance at all costs before buying a home.\""
+     },
+     "normalized": {
+      "thesis": "A smaller down payment with mortgage insurance can outperform waiting to save more when rents rise and cash reserves prevent expensive debt.",
+      "overturns": "\"Avoid mortgage insurance at all costs before buying a home.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    }
+   ],
+   "model": "gpt-5.5-2026-04-23",
+   "usage": {
+    "input_tokens": 391,
+    "input_tokens_details": {
+     "cache_write_tokens": 0,
+     "cached_tokens": 0
+    },
+    "output_tokens": 2924,
+    "output_tokens_details": {
+     "reasoning_tokens": 2588
+    },
+    "total_tokens": 3315
+   },
+   "status": "completed"
+  }
+ ],
+ "complete": true
+}

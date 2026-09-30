@@ -1,0 +1,193 @@
+{
+ "id": "tax-5",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MSPUS",
+    "file": "data/MSPUS.csv",
+    "sha256": "d1a49477d3f6e7c10b1145583ee4e6ef551ba660406ddd19d317784e6c51aa71",
+    "declared": "d1a49477d3f6e7c10b1145583ee4e6ef551ba660406ddd19d317784e6c51aa71",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "CSUSHPINSA",
+    "file": "data/CSUSHPINSA.csv",
+    "sha256": "d60c389a1b0596f1d034c6a19710e4dc2751bafdbeee7aac8bd3a14c6d886525",
+    "declared": "d60c389a1b0596f1d034c6a19710e4dc2751bafdbeee7aac8bd3a14c6d886525",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCSL",
+    "file": "data/CPIAUCSL.csv",
+    "sha256": "f8ecddf53a9a9a74dda92c2c4204e6039466fcb744bc74171b73b5f6aac48119",
+    "declared": "f8ecddf53a9a9a74dda92c2c4204e6039466fcb744bc74171b73b5f6aac48119",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "last_purchase_year_gain_over_250k",
+    "declared": 2017,
+    "recomputed": 2017,
+    "ok": true
+   },
+   {
+    "id": "last_purchase_quarter_of_that_year",
+    "declared": 1,
+    "recomputed": 1,
+    "ok": true
+   },
+   {
+    "id": "quarters_gain_over_500k",
+    "declared": 0,
+    "recomputed": 0,
+    "ok": true
+   },
+   {
+    "id": "gain_median_bought_1997q3_usd",
+    "declared": 421964.0,
+    "recomputed": 421964.0,
+    "ok": true
+   },
+   {
+    "id": "gain_median_bought_2000q1_usd",
+    "declared": 387451.0,
+    "recomputed": 387451.0,
+    "ok": true
+   },
+   {
+    "id": "taxable_gain_single_bought_1997q3_usd",
+    "declared": 171964.0,
+    "recomputed": 171964.0,
+    "ok": true
+   },
+   {
+    "id": "tax_at_15pct_single_bought_1997q3_usd",
+    "declared": 25795.0,
+    "recomputed": 25795.0,
+    "ok": true
+   },
+   {
+    "id": "quarters_gain_over_250k",
+    "declared": 107,
+    "recomputed": 107,
+    "ok": true
+   },
+   {
+    "id": "quarters_total",
+    "declared": 158,
+    "recomputed": 158,
+    "ok": true
+   },
+   {
+    "id": "max_gain_any_quarter_usd",
+    "declared": 439615.0,
+    "recomputed": 439615.0,
+    "ok": true
+   },
+   {
+    "id": "exclusion_250k_in_current_prices_usd",
+    "declared": 512494.0,
+    "recomputed": 512494.0,
+    "ok": true
+   },
+   {
+    "id": "exclusion_to_median_price_1997",
+    "declared": 1.72,
+    "recomputed": 1.72,
+    "ok": true
+   },
+   {
+    "id": "exclusion_to_median_price_latest",
+    "declared": 0.61,
+    "recomputed": 0.61,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MSPUS",
+    "page": "https://fred.stlouisfed.org/series/MSPUS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/MSPUS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "CSUSHPINSA",
+    "page": "https://fred.stlouisfed.org/series/CSUSHPINSA",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CSUSHPINSA",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCSL",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCSL",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCSL",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 121(b)(1) (limit, single)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 121(b)(4) (surviving spouse: $500,000 only within 2 years)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 121, amendment note, 1997 (Pub. L. 105-34)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "Pub. L. 105-34 sec. 312(d), effective date note under 26 U.S.C. 121",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 1(h)(1)(C) (15% long-term capital gain rate)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V1245": true
+}

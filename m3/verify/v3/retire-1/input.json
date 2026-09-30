@@ -1,0 +1,82 @@
+{
+ "id": "retire-1",
+ "claim": "The individual retirement account (IRA) contribution limit was set at $2,000 for tax years beginning in 1982, when IRAs opened to all workers, and stayed there until 2001, losing 45.5% of its purchasing power over that freeze. The 2026 limit is $7,500. In August-2026 dollars the 1982 limit was worth $6942.59, so after 44 years the cap is only 8.03% higher in real terms. Measured against the average hourly earnings of production and nonsupervisory workers, the 1982 cap equalled 254.3 hours of pay and the 2026 cap equals 230.6 hours (-9.32%): relative to pay, a saver can shelter less today than in 1982.",
+ "numbers": [
+  {
+   "id": "limit1982_in_aug2026_dollars",
+   "unit": "USD (Aug 2026 prices)",
+   "definition": "2000 x CPIAUCNS(2026-08-01) / mean(CPIAUCNS monthly values 1982-01-01..1982-12-01). CPIAUCNS = CPI-U all items, US city average, not seasonally adjusted, monthly, from the pinned FRED CSV."
+  },
+  {
+   "id": "real_change_1982_to_2026_pct",
+   "unit": "percent",
+   "definition": "(7500 / limit1982_in_aug2026_dollars - 1) x 100, using the unrounded limit1982_in_aug2026_dollars; 7500 = 2026 IRA limit (IRS news release), 2000 = limit for taxable years beginning after 1981-12-31 (26 U.S.C. 219 notes)."
+  },
+  {
+   "id": "real_loss_1982_to_2001_pct",
+   "unit": "percent",
+   "definition": "(1 - mean(CPIAUCNS 1982-01..1982-12) / mean(CPIAUCNS 2001-01..2001-12)) x 100: loss of purchasing power of a fixed $2,000 limit between the 1982 and 2001 annual-average price levels."
+  },
+  {
+   "id": "hours_of_pay_1982",
+   "unit": "hours",
+   "definition": "2000 / mean(AHETPI monthly values 1982-01-01..1982-12-01), rounded to 0.1. AHETPI = average hourly earnings of production and nonsupervisory employees, total private, USD per hour, seasonally adjusted, monthly."
+  },
+  {
+   "id": "hours_of_pay_2026",
+   "unit": "hours",
+   "definition": "7500 / AHETPI(2026-08-01), rounded to 0.1."
+  },
+  {
+   "id": "hours_change_pct",
+   "unit": "percent",
+   "definition": "(hours_of_pay_2026 / hours_of_pay_1982 - 1) x 100 computed from the two values rounded to 0.1 hour."
+  }
+ ],
+ "assumptions": [
+  "Background (not recomputed): the 1981 amendments effective for taxable years beginning after December 31, 1981 also removed the bar on IRA deductions for workers covered by a workplace plan, which is why 1982 is described as the year every worker became eligible.",
+  "The IRA limit was $2,000 for every tax year 1982-2001 (the 2001 law replaced \"$2,000\" with \"the deductible amount\" starting 2002) and is $7,500 in 2026; catch-up contributions for age 50+ are ignored.",
+  "Price level for 1982 and 2001 = calendar-year mean of monthly CPI-U (NSA); price level for 2026 = August 2026 CPI-U, the latest observation.",
+  "Pay = average hourly earnings of production and nonsupervisory workers (a typical-worker wage), 1982 annual mean vs August 2026."
+ ],
+ "series": [
+  {
+   "id": "CPIAUCNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "file": "data/CPIAUCNS.csv",
+   "lastObservation": "2026-08-01"
+  },
+  {
+   "id": "AHETPI",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=AHETPI&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/AHETPI",
+   "file": "data/AHETPI.csv",
+   "lastObservation": "2026-08-01"
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 219, Amendments note (2001)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section219&num=0&edition=prelim",
+   "quote": "Pub. L. 107–16, §601(a)(1), substituted \"the deductible amount\" for \"$2,000\"."
+  },
+  {
+   "cite": "26 U.S.C. 219, Amendments note (1981)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section219&num=0&edition=prelim",
+   "quote": "provision for allowance of a deduction not to exceed the lesser of (A) $2,000, or (B) an amount equal to the compensation includible in the individual's gross income for such taxable year"
+  },
+  {
+   "cite": "26 U.S.C. 219, Effective Date of 1981 Amendment note",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section219&num=0&edition=prelim",
+   "quote": "shall apply to taxable years beginning after December 31, 1981."
+  },
+  {
+   "cite": "IRS news release, 2026 limits",
+   "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+   "quote": "The limit on annual contributions to an IRA is increased to $7,500 from $7,000."
+  }
+ ]
+}

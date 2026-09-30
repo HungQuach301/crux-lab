@@ -1,0 +1,139 @@
+{
+ "id": "tax-5",
+ "claim": "Since the 1997 rewrite (sales after May 6, 1997), up to $250,000 of gain on a main home is tax-free for a single filer and $500,000 for most joint filers; the dollar amounts have never been adjusted. $250,000 in 1997 prices is about $512,494 in prices of the 12 months to August 2026, and the limit fell from 1.72 times the median new-home price (1997) to 0.61 times (2026 Q2). Take a home bought at the national median new-home sales price in a given quarter and grow its value with a national repeat-sales home price index to June 2026: the gain exceeds $250,000 for purchases in 107 of the 158 quarters from 1987 Q1 to 2026 Q2 - every quarter from 1987 through 2005 Q1 and from 2008 Q4 through 2017 Q1. A median home bought in 1997 Q3 shows a gain of about $421,964; a single seller (never married, divorced, or widowed more than 2 years earlier) would owe tax on about $171,964, about $25,795 at the 15% long-term rate, while a married couple owes nothing (no quarter's gain exceeds $500,000; maximum about $439,615). Bought 2000 Q1: gain about $387,451. Sources: 26 U.S.C. 121(b); FRED MSPUS, CSUSHPINSA, CPIAUCSL. Tax year 2026 rules.",
+ "numbers": [
+  {
+   "id": "last_purchase_year_gain_over_250k",
+   "unit": "year",
+   "definition": "For each quarter q with MSPUS (median sales price of new houses sold, quarterly) and all 3 monthly CSUSHPINSA values: gain(q) = MSPUS(q) x (CSUSHPINSA latest month / mean of CSUSHPINSA over the 3 months of q - 1). Year of the latest q with gain > 250,000."
+  },
+  {
+   "id": "last_purchase_quarter_of_that_year",
+   "unit": "quarter (1-4)",
+   "definition": "Quarter number of that latest q."
+  },
+  {
+   "id": "quarters_gain_over_500k",
+   "unit": "count",
+   "definition": "Number of quarters q with gain(q) > 500,000."
+  },
+  {
+   "id": "gain_median_bought_1997q3_usd",
+   "unit": "USD",
+   "definition": "gain(1997-07-01), rounded to the dollar."
+  },
+  {
+   "id": "gain_median_bought_2000q1_usd",
+   "unit": "USD",
+   "definition": "gain(2000-01-01), rounded to the dollar."
+  },
+  {
+   "id": "taxable_gain_single_bought_1997q3_usd",
+   "unit": "USD",
+   "definition": "max(0, gain(1997-07-01) - 250,000), rounded."
+  },
+  {
+   "id": "tax_at_15pct_single_bought_1997q3_usd",
+   "unit": "USD",
+   "definition": "0.15 x taxable_gain_single_bought_1997q3_usd (unrounded), rounded."
+  },
+  {
+   "id": "quarters_gain_over_250k",
+   "unit": "count",
+   "definition": "Number of quarters q with gain(q) > 250,000."
+  },
+  {
+   "id": "quarters_total",
+   "unit": "count",
+   "definition": "Number of quarters q for which gain(q) is defined (1987 Q1 - 2026 Q2)."
+  },
+  {
+   "id": "max_gain_any_quarter_usd",
+   "unit": "USD",
+   "definition": "Maximum gain(q) over all quarters, rounded."
+  },
+  {
+   "id": "exclusion_250k_in_current_prices_usd",
+   "unit": "USD",
+   "definition": "250000 x (mean of last 12 monthly CPIAUCSL values, Sep 2025-Aug 2026) / (mean of the 12 monthly values of 1997), rounded."
+  },
+  {
+   "id": "exclusion_to_median_price_1997",
+   "unit": "ratio",
+   "definition": "250000 / mean of the 4 quarterly MSPUS values of 1997, 2 decimals."
+  },
+  {
+   "id": "exclusion_to_median_price_latest",
+   "unit": "ratio",
+   "definition": "250000 / latest MSPUS value (2026 Q2), 2 decimals."
+  }
+ ],
+ "assumptions": [
+  "Purchase price = national median sales price of new houses sold in the purchase quarter; value today = purchase price x change in the national repeat-sales index (quarter mean to June 2026).",
+  "Gain = value today minus purchase price: no improvements added to basis, no selling costs, no depreciation; seller meets the 2-of-5-year ownership and use tests.",
+  "Single seller = unmarried filer (including divorced, or widowed more than 2 years before the sale); joint sellers get $500,000.",
+  "Tax illustration uses the 15% long-term rate only (ignores the 0%/20% brackets, the 3.8% net investment income tax and state tax)."
+ ],
+ "series": [
+  {
+   "id": "MSPUS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Census Bureau and HUD, New Residential Sales)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MSPUS&coed=2026-04-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/MSPUS",
+   "file": "data/MSPUS.csv",
+   "lastObservation": {
+    "date": "2026-04-01",
+    "value": "410700"
+   }
+  },
+  {
+   "id": "CSUSHPINSA",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: S&P Dow Jones Indices, CoreLogic Case-Shiller U.S. National Home Price Index, not seasonally adjusted)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CSUSHPINSA&coed=2026-06-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CSUSHPINSA",
+   "file": "data/CSUSHPINSA.csv",
+   "lastObservation": {
+    "date": "2026-06-01",
+    "value": "336.663"
+   }
+  },
+  {
+   "id": "CPIAUCSL",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCSL",
+   "file": "data/CPIAUCSL.csv",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.131"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 121(b)(1) (limit, single)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+   "quote": "The amount of gain excluded from gross income under subsection (a) with respect to any sale or exchange shall not exceed $250,000."
+  },
+  {
+   "cite": "26 U.S.C. 121(b)(4) (surviving spouse: $500,000 only within 2 years)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+   "quote": "if such sale occurs not later than 2 years after the date of death of such spouse"
+  },
+  {
+   "cite": "26 U.S.C. 121, amendment note, 1997 (Pub. L. 105-34)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+   "quote": "amended section catchline and text generally. Prior to amendment, section related to one-time exclusion of gain from sale of principal residence by individual who had attained age 55."
+  },
+  {
+   "cite": "Pub. L. 105-34 sec. 312(d), effective date note under 26 U.S.C. 121",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+   "quote": "shall apply to sales and exchanges after May 6, 1997."
+  },
+  {
+   "cite": "26 U.S.C. 1(h)(1)(C) (15% long-term capital gain rate)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+   "quote": "15 percent of the lesser of"
+  }
+ ]
+}

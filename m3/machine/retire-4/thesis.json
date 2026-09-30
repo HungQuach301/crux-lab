@@ -1,0 +1,239 @@
+{
+  "id": "retire-4",
+  "pillar": "retire",
+  "card": {
+    "thesis": "Holding government notes to maturity did not protect savers: notes bought in the later low-rate years all lost purchasing power by the time they repaid.",
+    "overturns": "\"If you hold a Treasury bond until it matures, you cannot lose money.\""
+  },
+  "claim": "A 10-year Treasury note held to maturity returns its face value plus coupons, but not its purchasing power. Buying at the monthly average 10-year yield in any month from April 1953 to August 2016 and holding for ten years (760 purchase months), the note lost to CPI-U inflation in 22.76% of cases, and in 51.46% of purchase months since 2008. All 30 of 30 purchase months from February 2014 to August 2016 lost purchasing power, averaging -0.86% a year after inflation (worst -1.77%), compared with the worst outcome on record (-2.53% a year for notes bought in late 1971).",
+  "numbers": [
+    {
+      "id": "purchase_months",
+      "value": 760,
+      "unit": "months",
+      "definition": "Purchase months s in the GS10 file (monthly average 10-year constant-maturity Treasury yield, percent) with s+120 months <= 2026-08 and CPIAUCNS (CPI-U all items, NSA) present at s and s+120; 2015-10 is dropped because CPI for 2025-10 is missing."
+    },
+    {
+      "id": "share_negative_pct",
+      "value": 22.76,
+      "unit": "percent",
+      "definition": "Share of purchase months whose realized real return r is negative, x100, where r = ((1 + GS10(s)/200)^20 / (CPIAUCNS(s+120)/CPIAUCNS(s)))^(1/10) - 1 (par note, semiannual coupons reinvested at the purchase yield)."
+    },
+    {
+      "id": "late_lowrate_months",
+      "value": 30,
+      "unit": "months",
+      "definition": "Number of valid purchase months from 2014-02 to 2016-08 inclusive."
+    },
+    {
+      "id": "late_lowrate_negative",
+      "value": 30,
+      "unit": "months",
+      "definition": "Number of those months with r < 0."
+    },
+    {
+      "id": "late_lowrate_worst_real_pct_per_year",
+      "value": -1.77,
+      "unit": "percent per year",
+      "definition": "Minimum r over purchase months 2014-02..2016-08, x100."
+    },
+    {
+      "id": "late_lowrate_mean_real_pct_per_year",
+      "value": -0.86,
+      "unit": "percent per year",
+      "definition": "Arithmetic mean of r over purchase months 2014-02..2016-08, x100."
+    },
+    {
+      "id": "share_negative_since_2008_pct",
+      "value": 51.46,
+      "unit": "percent",
+      "definition": "Share of valid purchase months from 2008-01 onward with r < 0, x100."
+    },
+    {
+      "id": "worst_real_pct_per_year",
+      "value": -2.53,
+      "unit": "percent per year",
+      "definition": "Minimum r over all valid purchase months, x100."
+    }
+  ],
+  "series": [
+    {
+      "id": "GS10",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS10&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/GS10",
+      "file": "data/GS10.csv",
+      "sha256": "e22128f6caa50e4e7fed03a1c2d323a517bad452a2c69eab89277450fb59bc5c",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-08-01",
+      "terms": {
+        "quote": "Notes: Averages of business days. For further information regarding treasury constant maturity data, please refer to the H.15 Statistical Release notes and the Treasury Yield Curve Methodology . For questions on the data, please contact the data source . For questions on FRED functionality, please contact us here .",
+        "url": "https://fred.stlouisfed.org/series/GS10",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    },
+    {
+      "id": "CPIAUCNS",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+      "file": "data/CPIAUCNS.csv",
+      "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-08-01",
+      "terms": {
+        "quote": "Notes: Handbook of Methods Understanding the CPI: Frequently Asked Questions",
+        "url": "https://fred.stlouisfed.org/series/CPIAUCNS",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    }
+  ],
+  "provisions": [],
+  "assumptions": [
+    "The note is bought at par at the monthly average constant-maturity yield of the purchase month and held 120 months; coupons are reinvested at the purchase yield (so the nominal result equals the yield to maturity), no taxes or fees.",
+    "Inflation over the holding period = CPI-U (NSA) at the maturity month divided by CPI-U at the purchase month."
+  ],
+  "limits": "History, not a forecast. Reinvesting coupons at the purchase yield is an approximation; actual reinvestment rates differed. Taxes on interest would make real results worse. Inflation-protected Treasuries, which adjust principal for inflation, are a different instrument not covered here.",
+  "novelty": {
+    "queries": [
+      "10-year Treasury bought 2014 2016 held to maturity lost money after inflation",
+      "holding bonds to maturity you can't lose money myth inflation real return",
+      "ex post real return 10-year Treasury held to maturity negative share of history"
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://www.aei.org/economics/treasury-yields-inflation-and-real-interest-rates-analyzing-the-historical-record/",
+      "https://www.pragcap.com/the-biggest-myths-in-investing-part-5-bonds-lose-value-if-rates-rise/"
+    ],
+    "note": "The nominal-vs-real distinction for held-to-maturity bonds and negative ex post real yields for 1963-1973 purchases are discussed (AEI). Not found: that every 10-year note bought from February 2014 through August 2016 and held to maturity has now lost purchasing power, or that over half of purchase months since 2008 did.",
+    "results": [
+      {
+        "query": "10-year Treasury bought 2014 2016 held to maturity lost money after inflation",
+        "top": [
+          {
+            "title": "FSOC 2016 Annual Report Charts",
+            "url": "https://home.treasury.gov/system/files/261/FSOC-2016-Annual-Report-Charts.pdf"
+          },
+          {
+            "title": "Treasury Yields, Inflation, and Real Interest Rates: Analyzing the Historical Record | American Enterprise Institute - AEI",
+            "url": "https://www.aei.org/economics/treasury-yields-inflation-and-real-interest-rates-analyzing-the-historical-record/"
+          },
+          {
+            "title": "10-Year Breakeven Inflation Rate (T10YIE) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/T10YIE"
+          },
+          {
+            "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity ... | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/graph/?g=cPw"
+          },
+          {
+            "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis, Inflation-Indexed (FII10) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/FII10"
+          },
+          {
+            "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis, Inflation-Indexed | ALFRED | St. Louis Fed",
+            "url": "https://alfred.stlouisfed.org/series?seid=DFII10"
+          },
+          {
+            "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis, Inflation-Indexed (DFII10) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/DFII10"
+          },
+          {
+            "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis, Inflation-Indexed | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/graph/?g=3Xlk"
+          },
+          {
+            "title": "Treasury Long-Term Average (Over 10 Years), Inflation-Indexed (DLTIIT) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/DLTIIT"
+          },
+          {
+            "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis (DGS10) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/DGS10"
+          }
+        ]
+      },
+      {
+        "query": "holding bonds to maturity you can't lose money myth inflation real return",
+        "top": [
+          {
+            "title": "The Biggest Myths in Investing, Part 5 – Bonds Lose Value if Rates Rise – Pragmatic Capitalism",
+            "url": "https://www.pragcap.com/the-biggest-myths-in-investing-part-5-bonds-lose-value-if-rates-rise/"
+          },
+          {
+            "title": "TIPS and investing in inflation | Fidelity",
+            "url": "https://www.fidelity.com/learning-center/trading-investing/tips-and-inflation"
+          },
+          {
+            "title": "Understanding Bond Yield and Return | FINRA.org",
+            "url": "https://www.finra.org/investors/insights/bond-yield-return"
+          },
+          {
+            "title": "The relationship between bonds, interest rates and inflation",
+            "url": "https://us.etrade.com/knowledge/library/bonds-cds/bond-interest-rate-inflation"
+          },
+          {
+            "title": "Rational Kernel on Pricing Models of Inflation Derivatives",
+            "url": "https://arxiv.org/pdf/2001.05124"
+          },
+          {
+            "title": "Why Bonds Still Belong: Rethinking Fixed Income in Modern Portfolios - Return Stacked",
+            "url": "https://www.returnstacked.com/why-bonds-still-belong-rethinking-fixed-income-in-modern-portfolios/"
+          },
+          {
+            "title": "Misspecified Recovery",
+            "url": "https://arxiv.org/pdf/1412.0042"
+          },
+          {
+            "title": "Jonathan Clements's Blog, page 219",
+            "url": "https://www.goodreads.com/author/show/7391769.Jonathan_Clements/blog?page=219"
+          },
+          {
+            "title": "Ditching Bonds",
+            "url": "https://www.goodreads.com/author_blog_posts/22416287-ditching-bonds?tab=book"
+          }
+        ]
+      },
+      {
+        "query": "ex post real return 10-year Treasury held to maturity negative share of history",
+        "top": [
+          {
+            "title": "Treasury Yields, Inflation, and Real Interest Rates: Analyzing the Historical Record | American Enterprise Institute - AEI",
+            "url": "https://www.aei.org/economics/treasury-yields-inflation-and-real-interest-rates-analyzing-the-historical-record/"
+          },
+          {
+            "title": "Observations: U.S. 10-Year Treasury Note Real Return History",
+            "url": "https://observationsandnotes.blogspot.com/2010/12/us-treasury-bond-real-return-history.html"
+          },
+          {
+            "title": "10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity (T10Y2Y) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/T10Y2Y"
+          },
+          {
+            "title": "Stocks for the Long Run",
+            "url": "https://en.wikipedia.org/wiki/Stocks_for_the_Long_Run"
+          },
+          {
+            "title": "Treasury Return Calculator, With Coupon Reinvestment",
+            "url": "https://dqydj.com/treasury-return-calculator/"
+          },
+          {
+            "title": "Table Data - Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/data/gs10"
+          },
+          {
+            "title": "10-Year Treasury Constant Maturity Minus 3-Month Treasury Constant Maturity (T10Y3M) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/T10Y3M"
+          },
+          {
+            "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis (DGS10) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/dgs10"
+          },
+          {
+            "title": "lessons 125 years us bond and stock returns",
+            "url": "https://piie.com/blogs/realtime-economic-issues-watch/lessons-125-years-us-bond-and-stock-returns"
+          }
+        ]
+      }
+    ]
+  }
+}

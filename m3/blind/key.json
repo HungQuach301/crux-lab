@@ -1,0 +1,145 @@
+{
+ "salt": "ba53c094f014adf65157046474ce958b",
+ "pairs": [
+  {
+   "pair": "01",
+   "pillar": "debt",
+   "machine": "B",
+   "A": "control/out/debt.json#kept[2]",
+   "B": "machine/debt-6"
+  },
+  {
+   "pair": "02",
+   "pillar": "debt",
+   "machine": "B",
+   "A": "control/out/debt.json#kept[5]",
+   "B": "machine/debt-7"
+  },
+  {
+   "pair": "03",
+   "pillar": "debt",
+   "machine": "A",
+   "A": "machine/debt-1",
+   "B": "control/out/debt.json#kept[3]"
+  },
+  {
+   "pair": "04",
+   "pillar": "retire",
+   "machine": "A",
+   "A": "machine/retire-6",
+   "B": "control/out/retire.json#kept[2]"
+  },
+  {
+   "pair": "05",
+   "pillar": "debt",
+   "machine": "A",
+   "A": "machine/debt-4",
+   "B": "control/out/debt.json#kept[6]"
+  },
+  {
+   "pair": "06",
+   "pillar": "tax",
+   "machine": "B",
+   "A": "control/out/tax.json#kept[1]",
+   "B": "machine/tax-6"
+  },
+  {
+   "pair": "07",
+   "pillar": "retire",
+   "machine": "B",
+   "A": "control/out/retire.json#kept[1]",
+   "B": "machine/retire-2"
+  },
+  {
+   "pair": "08",
+   "pillar": "debt",
+   "machine": "A",
+   "A": "machine/debt-5",
+   "B": "control/out/debt.json#kept[0]"
+  },
+  {
+   "pair": "09",
+   "pillar": "tax",
+   "machine": "B",
+   "A": "control/out/tax.json#kept[0]",
+   "B": "machine/tax-1"
+  },
+  {
+   "pair": "10",
+   "pillar": "tax",
+   "machine": "B",
+   "A": "control/out/tax.json#kept[4]",
+   "B": "machine/tax-3"
+  },
+  {
+   "pair": "11",
+   "pillar": "debt",
+   "machine": "A",
+   "A": "machine/debt-3",
+   "B": "control/out/debt.json#kept[4]"
+  },
+  {
+   "pair": "12",
+   "pillar": "tax",
+   "machine": "A",
+   "A": "machine/tax-2",
+   "B": "control/out/tax.json#kept[5]"
+  },
+  {
+   "pair": "13",
+   "pillar": "retire",
+   "machine": "B",
+   "A": "control/out/retire.json#kept[5]",
+   "B": "machine/retire-5"
+  },
+  {
+   "pair": "14",
+   "pillar": "debt",
+   "machine": "A",
+   "A": "machine/debt-2",
+   "B": "control/out/debt.json#kept[1]"
+  },
+  {
+   "pair": "15",
+   "pillar": "tax",
+   "machine": "B",
+   "A": "control/out/tax.json#kept[3]",
+   "B": "machine/tax-4"
+  },
+  {
+   "pair": "16",
+   "pillar": "retire",
+   "machine": "B",
+   "A": "control/out/retire.json#kept[4]",
+   "B": "machine/retire-7"
+  },
+  {
+   "pair": "17",
+   "pillar": "retire",
+   "machine": "B",
+   "A": "control/out/retire.json#kept[3]",
+   "B": "machine/retire-4"
+  },
+  {
+   "pair": "18",
+   "pillar": "retire",
+   "machine": "A",
+   "A": "machine/retire-3",
+   "B": "control/out/retire.json#kept[0]"
+  },
+  {
+   "pair": "19",
+   "pillar": "retire",
+   "machine": "A",
+   "A": "machine/retire-1",
+   "B": "control/out/retire.json#kept[6]"
+  },
+  {
+   "pair": "20",
+   "pillar": "tax",
+   "machine": "A",
+   "A": "machine/tax-5",
+   "B": "control/out/tax.json#kept[2]"
+  }
+ ]
+}

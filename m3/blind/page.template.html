@@ -1,0 +1,142 @@
+<title>Crux M3 Blind Pairs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: one pair per screen, two stacked thesis cards, a three-way verdict row, a code sheet at the end. */
+:root {
+  --bg: #f3f5f7; --surface: #ffffff; --fg: #17202b; --muted: #5a6776; --line: #d5dce3;
+  --accent: #1f4f8a; --accent-fg: #ffffff; --chosen: #e3ecf7; --tie: #eef0f2;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11161c; --surface: #19212a; --fg: #e6ebf0; --muted: #9aa7b4; --line: #2c3743;
+  --accent: #7fb0ec; --accent-fg: #0d1520; --chosen: #1d3350; --tie: #242d37; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11161c; --surface: #19212a; --fg: #e6ebf0; --muted: #9aa7b4; --line: #2c3743;
+  --accent: #7fb0ec; --accent-fg: #0d1520; --chosen: #1d3350; --tie: #242d37; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 1rem; line-height: 1.45 }
+main { max-width: 38rem; margin: 0 auto; padding: 1rem 16px 2rem; display: grid; gap: 1rem }
+header { display: grid; gap: .35rem }
+.meta { display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap; font-size: .8rem; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .06em; font-variant-numeric: tabular-nums }
+.bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden }
+.bar > i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s }
+.q { font-family: var(--serif); font-size: 1.02rem; color: var(--muted); margin: 0; text-wrap: balance }
+.cards { display: grid; gap: .75rem }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1rem; display: grid;
+  gap: .55rem; min-width: 0 }
+.card.chosen { background: var(--chosen); border-color: var(--accent) }
+.side { font-family: var(--mono); font-size: .85rem; color: var(--accent) }
+.thesis { font-family: var(--serif); font-size: 1.14rem; line-height: 1.42; margin: 0 }
+.over { font-size: .92rem; color: var(--muted); margin: 0 }
+.over b { font-weight: 600; color: var(--fg) }
+.verdict { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem }
+.verdict button.tie { grid-column: 1 / -1 }
+button { font: 600 1rem var(--sans); border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--fg); padding: .8rem .6rem; cursor: pointer; min-height: 3rem }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px }
+button.on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent) }
+.nav { display: flex; justify-content: space-between; gap: .5rem }
+.nav button { font-weight: 400; min-height: 2.6rem; padding: .5rem .9rem }
+.done { display: grid; gap: .75rem }
+.done h2 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; margin: 0; text-wrap: balance }
+.code { font-family: var(--mono); font-size: .95rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: .8rem; word-break: break-word; user-select: all }
+.hint { font-size: .85rem; color: var(--muted); margin: 0 }
+.grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .35rem }
+.grid button { font: 500 .85rem var(--mono); min-height: 2.4rem; padding: .3rem }
+.grid button.tieon { background: var(--tie) }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none } }
+</style>
+
+<main>
+  <header>
+    <div class="meta"><span id="pos">Pair 01 of 20</span><span id="pillar"></span></div>
+    <div class="bar"><i id="prog"></i></div>
+    <p class="q" id="question"></p>
+  </header>
+
+  <section id="pairView" class="cards" aria-live="polite">
+    <article class="card" id="cardA"><span class="side">A</span><p class="thesis" id="thA"></p><p class="over"><b>Overturns:</b> <span id="ovA"></span></p></article>
+    <article class="card" id="cardB"><span class="side">B</span><p class="thesis" id="thB"></p><p class="over"><b>Overturns:</b> <span id="ovB"></span></p></article>
+    <div class="verdict">
+      <button id="vA" data-v="A">A is better</button>
+      <button id="vB" data-v="B">B is better</button>
+      <button id="vT" class="tie" data-v="=">Can't tell them apart</button>
+    </div>
+    <div class="nav"><button id="prev">Back</button><button id="toEnd">Review all</button></div>
+  </section>
+
+  <section id="endView" class="done" hidden>
+    <h2 id="endTitle">Send this code in the chat</h2>
+    <div class="code" id="code"></div>
+    <button id="copy">Copy code</button>
+    <p class="hint" id="copyNote">A = A is better · B = B is better · = can't tell. Tap a pair below to change it.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<script>
+const DATA = /*CARDS_JSON*/null;
+const KEY = 'crux-m3-picks-' + /*CARDS_SHA*/'';
+let picks = {}, i = 0;
+try { picks = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { picks = {}; }
+const n = DATA.pairs.length;
+const $ = id => document.getElementById(id);
+$('question').textContent = DATA.question;
+function save() { try { localStorage.setItem(KEY, JSON.stringify(picks)); } catch (e) {} }
+function codeText() { return DATA.pairs.map(p => p.pair + (picks[p.pair] || '?')).join(' '); }
+function showPair() {
+  const p = DATA.pairs[i];
+  $('endView').hidden = true; $('pairView').hidden = false;
+  $('pos').textContent = 'Pair ' + p.pair + ' of ' + n;
+  $('pillar').textContent = p.pillar;
+  $('thA').textContent = p.A.thesis; $('ovA').textContent = p.A.overturns;
+  $('thB').textContent = p.B.thesis; $('ovB').textContent = p.B.overturns;
+  const v = picks[p.pair];
+  ['vA', 'vB', 'vT'].forEach(id => $(id).classList.toggle('on', $(id).dataset.v === v));
+  $('cardA').classList.toggle('chosen', v === 'A'); $('cardB').classList.toggle('chosen', v === 'B');
+  $('prev').disabled = i === 0;
+  progress();
+}
+function progress() { $('prog').style.width = (100 * Object.keys(picks).length / n) + '%'; }
+function showEnd() {
+  $('pairView').hidden = true; $('endView').hidden = false;
+  const left = n - Object.keys(picks).length;
+  $('pos').textContent = left ? left + ' pairs left' : 'All ' + n + ' pairs graded';
+  $('pillar').textContent = '';
+  $('endTitle').textContent = left ? 'Some pairs are still open' : 'Send this code in the chat';
+  $('code').textContent = codeText();
+  const g = $('grid'); g.textContent = '';
+  DATA.pairs.forEach((p, k) => {
+    const b = document.createElement('button');
+    b.textContent = p.pair + ' ' + (picks[p.pair] || '?');
+    if (picks[p.pair] === '=') b.classList.add('tieon');
+    if (!picks[p.pair]) b.classList.add('on');
+    b.addEventListener('click', () => { i = k; showPair(); });
+    g.appendChild(b);
+  });
+  progress();
+}
+document.querySelectorAll('.verdict button').forEach(b => b.addEventListener('click', () => {
+  picks[DATA.pairs[i].pair] = b.dataset.v; save();
+  const next = DATA.pairs.findIndex((p, k) => k > i && !picks[p.pair]);
+  const any = DATA.pairs.findIndex(p => !picks[p.pair]);
+  if (next >= 0) { i = next; showPair(); } else if (any >= 0) { i = any; showPair(); } else { showEnd(); }
+}));
+$('prev').addEventListener('click', () => { if (i > 0) { i--; showPair(); } });
+$('toEnd').addEventListener('click', showEnd);
+$('copy').addEventListener('click', () => {
+  const t = codeText();
+  const ok = () => { $('copyNote').textContent = 'Copied. Paste it in the chat.'; };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents($('code'));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); $('copyNote').textContent = 'Code selected. Copy it and paste it in the chat.'; };
+  try { navigator.clipboard.writeText(t).then(ok, fallback); } catch (e) { fallback(); }
+});
+const first = DATA.pairs.findIndex(p => !picks[p.pair]);
+if (first < 0) showEnd(); else { i = first; showPair(); }
+</script>

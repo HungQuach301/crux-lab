@@ -1,0 +1,83 @@
+{
+ "id": "retire-5",
+ "claim": "Take an account that withdraws only the required minimum from age 73 (balance divided by the Uniform Lifetime Table divisor) and earns a constant real return equal to the 20-year TIPS yield. The first withdrawal is 3.77% of the starting balance. At the latest yield (3.14% real, 28 September 2026) the inflation-adjusted withdrawal rises every year until age 93, reaching 5.44% of the starting balance, and at 90 the account still holds 65.9% of its starting real value while paying 5.4%. At the series low (-0.76%, 9 November 2021) the same rules shrink real withdrawals in every year after 73 (0 rising years), to 2.8% at 90, with 34.2% of the real balance left. Whether minimum withdrawals feel like a shrinking or a growing income is set by real yields, not by the table alone.",
+ "numbers": [
+  {
+   "id": "real_yield_now_pct",
+   "unit": "percent",
+   "definition": "Last non-missing daily value in the DFII20 file (20-year Treasury inflation-indexed constant-maturity yield, percent), dated 2026-09-28."
+  },
+  {
+   "id": "real_yield_low_pct",
+   "unit": "percent",
+   "definition": "Minimum daily DFII20 value in the file (2004-07-27 to 2026-09-28)."
+  },
+  {
+   "id": "first_withdrawal_pct_of_start",
+   "unit": "percent of starting balance",
+   "definition": "Simulation: start balance B73 = 1 (real) at age 73. Each age a = 73..100: withdrawal W_a = B_a / D_a at the start of the year, where D_a is the Uniform Lifetime Table divisor (73: 26.5 ... 100: 6.4); then B_{a+1} = (B_a - W_a) x (1 + r/100), r = constant real yield. This number = W_73 x 100 (independent of r)."
+  },
+  {
+   "id": "now_balance_at_90_pct_of_start",
+   "unit": "percent of starting real balance",
+   "definition": "B_90 x 100 with r = real_yield_now_pct."
+  },
+  {
+   "id": "now_withdrawal_at_90_pct_of_start",
+   "unit": "percent of starting real balance",
+   "definition": "W_90 x 100 with r = real_yield_now_pct."
+  },
+  {
+   "id": "now_peak_withdrawal_age",
+   "unit": "age",
+   "definition": "Age a in 73..100 with the largest W_a when r = real_yield_now_pct."
+  },
+  {
+   "id": "now_peak_withdrawal_pct_of_start",
+   "unit": "percent of starting real balance",
+   "definition": "W at now_peak_withdrawal_age x 100, r = real_yield_now_pct."
+  },
+  {
+   "id": "low_balance_at_90_pct_of_start",
+   "unit": "percent of starting real balance",
+   "definition": "B_90 x 100 with r = real_yield_low_pct."
+  },
+  {
+   "id": "low_withdrawal_at_90_pct_of_start",
+   "unit": "percent of starting real balance",
+   "definition": "W_90 x 100 with r = real_yield_low_pct."
+  },
+  {
+   "id": "low_years_withdrawal_rises_after_73",
+   "unit": "years",
+   "definition": "Count of ages a in 74..100 with W_a > W_{a-1} when r = real_yield_low_pct."
+  }
+ ],
+ "assumptions": [
+  "The account earns a constant real return equal to the 20-year TIPS yield on the chosen date for all years (as if locked in with inflation-protected bonds); no taxes, fees, or extra withdrawals.",
+  "Owner starts required distributions at 73 (born 1951-1959) and uses the Uniform Lifetime Table (spouse not more than 10 years younger or not the sole beneficiary).",
+  "Withdrawal happens at the start of each year; balances and withdrawals are in constant (inflation-adjusted) dollars."
+ ],
+ "series": [
+  {
+   "id": "DFII20",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII20&coed=2026-09-28",
+   "seriesPage": "https://fred.stlouisfed.org/series/DFII20",
+   "file": "data/DFII20.csv",
+   "lastObservation": "2026-09-28"
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 401(a)(9)(C)(v)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section401&num=0&edition=prelim",
+   "quote": "In the case of an individual who attains age 72 after December 31, 2022, and age 73 before January 1, 2033, the applicable age is 73."
+  },
+  {
+   "cite": "26 CFR 1.401(a)(9)-9(c), Uniform Lifetime Table",
+   "url": "https://www.law.cornell.edu/cfr/text/26/1.401(a)(9)-9",
+   "quote": "Age of employee Applicable denominator 72 27.4 73 26.5 74 25.5 75 24.6 76 23.7 77 22.9 78 22.0 79 21.1 80 20.2 81 19.4 82 18.5 83 17.7 84 16.8 85 16.0 86 15.2 87 14.4 88 13.7 89 12.9 90 12.2 91 11.5 92 10.8 93 10.1 94 9.5 95 8.9 96 8.4 97 7.8 98 7.3 99 6.8 100 6.4"
+  }
+ ]
+}

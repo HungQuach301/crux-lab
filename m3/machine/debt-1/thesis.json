@@ -1,0 +1,233 @@
+{
+  "card": {
+    "thesis": "A quick refinance after buying at a high mortgage rate is a coin flip: historically, large rate drops arrived within a few years less often than not.",
+    "overturns": "\"Marry the house, date the rate, you can always refinance later.\""
+  },
+  "claim": "Across every week of the 30-year fixed mortgage rate survey since April 1971, the rate fell by at least a full percentage point at some point within the next 3 years only 48.3% of the time (2,739 starting weeks), within 2 years 39.9% of the time, and within 5 years 61.9% of the time. Even restricted to purchase weeks from the October 1981 peak through 2020, the longest falling-rate stretch on record, the 3-year figure is only 60.2%. A buyer who takes a payment they can only afford after refinancing is betting on an outcome that, in history, happened within 3 years less often than not. With the latest weekly rate at 7.03%, this is history, not a forecast.",
+  "numbers": [
+    {
+      "id": "share_3y_1pt",
+      "value": 48.3,
+      "unit": "percent of starting weeks",
+      "definition": "Weekly MORTGAGE30US (Freddie Mac PMMS 30-year fixed average, percent) from data/MORTGAGE30US.csv, all published weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths of a point. For each week t whose horizon end t + round(365.25*3) calendar days is on or before 2026-09-24, take the minimum rate over the weeks strictly after t up to and including the horizon end; the week counts as a success if that minimum is <= rate(t) - 1.00 point. Value = successes / eligible weeks * 100, rounded to 0.1."
+    },
+    {
+      "id": "n_weeks_3y",
+      "value": 2739,
+      "unit": "weeks",
+      "definition": "Number of eligible starting weeks in the share_3y_1pt calculation (weeks t with t + round(365.25*3) days <= 2026-09-24)."
+    },
+    {
+      "id": "share_2y_1pt",
+      "value": 39.9,
+      "unit": "percent of starting weeks",
+      "definition": "Weekly MORTGAGE30US (Freddie Mac PMMS 30-year fixed average, percent) from data/MORTGAGE30US.csv, all published weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths of a point. For each week t whose horizon end t + round(365.25*2) calendar days is on or before 2026-09-24, take the minimum rate over the weeks strictly after t up to and including the horizon end; the week counts as a success if that minimum is <= rate(t) - 1.00 point. Value = successes / eligible weeks * 100, rounded to 0.1."
+    },
+    {
+      "id": "n_weeks_2y",
+      "value": 2791,
+      "unit": "weeks",
+      "definition": "Number of eligible starting weeks in the share_2y_1pt calculation."
+    },
+    {
+      "id": "share_5y_1pt",
+      "value": 61.9,
+      "unit": "percent of starting weeks",
+      "definition": "Weekly MORTGAGE30US (Freddie Mac PMMS 30-year fixed average, percent) from data/MORTGAGE30US.csv, all published weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths of a point. For each week t whose horizon end t + round(365.25*5) calendar days is on or before 2026-09-24, take the minimum rate over the weeks strictly after t up to and including the horizon end; the week counts as a success if that minimum is <= rate(t) - 1.00 point. Value = successes / eligible weeks * 100, rounded to 0.1."
+    },
+    {
+      "id": "n_weeks_5y",
+      "value": 2635,
+      "unit": "weeks",
+      "definition": "Number of eligible starting weeks in the share_5y_1pt calculation."
+    },
+    {
+      "id": "share_3y_1pt_falling_era",
+      "value": 60.2,
+      "unit": "percent of starting weeks",
+      "definition": "Same as share_3y_1pt but starting weeks restricted to 1981-10-09 (the all-time weekly peak, 18.63) through 2020-12-31 inclusive; future weeks may extend past 2020 up to the 3-year horizon end."
+    },
+    {
+      "id": "n_weeks_3y_falling_era",
+      "value": 2048,
+      "unit": "weeks",
+      "definition": "Number of starting weeks in share_3y_1pt_falling_era."
+    },
+    {
+      "id": "latest_rate",
+      "value": 7.03,
+      "unit": "percent",
+      "definition": "Last observation in data/MORTGAGE30US.csv (week of 2026-09-24)."
+    }
+  ],
+  "series": [
+    {
+      "id": "MORTGAGE30US",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+      "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+      "file": "data/MORTGAGE30US.csv",
+      "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-09-24",
+      "terms": {
+        "quote": "Copyrighted: Citation Required",
+        "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+      }
+    }
+  ],
+  "provisions": [],
+  "assumptions": [
+    "A drop of at least 1.00 percentage point in the national weekly average is used as the conventional 'refinance-sized' threshold; an individual borrower's quoted rate, closing costs and eligibility can differ.",
+    "The borrower's own rate is taken to equal the national weekly average in the purchase week.",
+    "A drop counts if it occurs in any single week within the horizon, even briefly; this makes the shares an upper bound on usable refinance windows.",
+    "Overlapping starting weeks are counted separately, so the shares are not independent observations."
+  ],
+  "limits": "History, not a forecast: the 1971-2026 sample is dominated by a single four-decade decline in rates, which flatters the odds; the national average ignores credit score, points, and whether a borrower could qualify to refinance at the time.",
+  "novelty": {
+    "queries": [
+      "\"date the rate\" refinance historical probability mortgage rates drop 1 percentage point within 3 years",
+      "how often have mortgage rates fallen enough to refinance within a few years historical analysis Freddie Mac data",
+      "marry the house date the rate risk rates may not fall history data"
+    ],
+    "results": [
+      {
+        "query": "\"date the rate\" refinance historical probability mortgage rates drop 1 percentage point within 3 years",
+        "top": [
+          {
+            "title": "Mortgage Rates Drop to a 3-Year Low — Is Now the Best Time to Refinance?",
+            "url": "https://www.noradarealestate.com/blog/mortgage-rates-drop-to-3-year-low-is-now-the-best-time-to-refinance/"
+          },
+          {
+            "title": "Will mortgage rates ever drop to 3% again?",
+            "url": "https://finance.yahoo.com/personal-finance/mortgages/article/will-mortgage-rates-ever-be-3-again-183831629.html"
+          },
+          {
+            "title": "Mortgage rates fall below 6% for first time in over 3 years",
+            "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-rates-fall-below-6-for-first-time-in-over-3-years-110032209.html"
+          },
+          {
+            "title": "Mortgage Rate Forecast: When Will Interest Rates Go Down?",
+            "url": "https://money.usnews.com/loans/mortgages/mortgage-rate-forecast"
+          },
+          {
+            "title": "Current Refinance Rates - Compare Rates Today | Bankrate",
+            "url": "https://www.bankrate.com/mortgages/refinance-rates/"
+          },
+          {
+            "title": "When will mortgage rates go down? Right now, 8% may be closer than 6%",
+            "url": "https://finance.yahoo.com/personal-finance/mortgages/article/when-will-mortgage-rates-go-down-right-now-8-may-be-closer-than-6-190610094.html"
+          },
+          {
+            "title": "Mortgage Rate History | Chart & Trends Over Time",
+            "url": "https://themortgagereports.com/61853/30-year-mortgage-rates-chart"
+          },
+          {
+            "title": "Mortgage interest rates fall to 3-year low: What it means for you",
+            "url": "https://www.rate.com/mortgage/resource/mortgage-interest-rates-fall-to-3-year-low"
+          },
+          {
+            "title": "Mortgage Rates Forecast 2026–2027: Expert Predictions & Outlook – Forbes Advisor",
+            "url": "https://www.forbes.com/advisor/mortgages/mortgage-interest-rates-forecast/"
+          }
+        ]
+      },
+      {
+        "query": "how often have mortgage rates fallen enough to refinance within a few years historical analysis Freddie Mac data",
+        "top": [
+          {
+            "title": "Freddie Mac: 30-year mortgage rates fall to lowest point in three years - Scotsman Guide",
+            "url": "https://www.scotsmanguide.com/news/freddie-mac-30-year-mortgage-rates-fall-to-lowest-point-in-three-years/"
+          },
+          {
+            "title": "Freddie Mac reveals shifting mortgage rate trends - TheStreet",
+            "url": "https://www.thestreet.com/real-estate/freddie-mac-mortgage-rates-jump-but-new-data-reveals-hidden-win"
+          },
+          {
+            "title": "Refinance Trends - Freddie Mac",
+            "url": "https://www.freddiemac.com/research/insights/refinance-trends"
+          },
+          {
+            "title": "7 Key Insights Into Historical Mortgage Rates: What 50+ Years of Data Reveals for 2026 Home Buyers",
+            "url": "https://www.amerisave.com/learn/key-insights-into-historical-mortgage-rates-what-years-of-data-reveals-for-home-buyers"
+          },
+          {
+            "title": "Average 30-Year Fixed-Rate Mortgage Hits Another Low | Freddie Mac",
+            "url": "https://freddiemac.gcs-web.com/news-releases/news-release-details/average-30-year-fixed-rate-mortgage-hits-another-low"
+          },
+          {
+            "title": "Mortgage Rate History | Chart & Trends Over Time",
+            "url": "https://themortgagereports.com/61853/30-year-mortgage-rates-chart"
+          },
+          {
+            "title": "Mortgage Rates Remain Lower and Steady | Freddie Mac",
+            "url": "https://freddiemac.gcs-web.com/news-releases/news-release-details/mortgage-rates-remain-lower-and-steady"
+          },
+          {
+            "title": "Mortgage Rates Decrease to Lowest Level in Over a Year | Freddie Mac",
+            "url": "https://freddiemac.gcs-web.com/news-releases/news-release-details/mortgage-rates-decrease-lowest-level-over-year-0"
+          },
+          {
+            "title": "© 2022 Freddie Mac Economic & Housing Research Note",
+            "url": "https://www.freddiemac.com/research/pdf/202204-Note-Refinancing-04.pdf"
+          },
+          {
+            "title": "Freddie Mac: 30-year mortgage rate holds at 6% | FMCC Stock News",
+            "url": "https://www.stocktitan.net/news/FMCC/mortgage-rates-hold-3opwakl4xgo6.html"
+          }
+        ]
+      },
+      {
+        "query": "marry the house date the rate risk rates may not fall history data",
+        "top": [
+          {
+            "title": "Is It Time to Ditch the 'Date the Rate, Marry the House' ...",
+            "url": "https://www.nar.realtor/news/real-estate-news/sales-and-marketing/is-it-time-to-ditch-the-date-the-rate-marry-the-house-phrase"
+          },
+          {
+            "title": "‘Buy now, refinance later,’ they said. Mortgage rates said otherwise.",
+            "url": "https://finance.yahoo.com/real-estate/articles/buy-now-refinance-later-said-190000124.html"
+          },
+          {
+            "title": "What Does “Marry the House, Date the Rate” Mean? (2026)",
+            "url": "https://www.consumeraffairs.com/finance/marry-the-house-date-the-rate-meaning.html"
+          },
+          {
+            "title": "‘Buy now, refinance later,’ they said. Mortgage rates said otherwise. - Bankrate",
+            "url": "https://www.bankrate.com/mortgages/buy-now-refi-later-includes-pitfalls/"
+          },
+          {
+            "title": "‘Buy now, refinance later,’ they said. Mortgage rates say otherwise",
+            "url": "https://www.spokesman.com/stories/2026/aug/02/buy-now-refinance-later-they-said-mortgage-rates-s/"
+          },
+          {
+            "title": "The 'Marry the House, Date the Rate' Strategy Is Backfiring ...",
+            "url": "https://www.yahoo.com/lifestyle/articles/marry-house-date-rate-strategy-182639830.html"
+          },
+          {
+            "title": "Is Marry the House, Date the Rate a Good Homebuying Strategy? - Your AAA Network",
+            "url": "https://magazine.northeast.aaa.com/daily/money/mortgages/marry-the-house-date-the-rate-a-good-homebuying-strategy/"
+          },
+          {
+            "title": "Defining 'Date the Rate, Marry the House'",
+            "url": "https://www.rate.com/mortgage/resource/date-the-rate"
+          },
+          {
+            "title": "\"Date the Rate\" Marry the House",
+            "url": "https://www.rate.com/resources/date-the-rate"
+          },
+          {
+            "title": "marry house date rate advice",
+            "url": "https://www.bankrate.com/mortgages/marry-house-date-rate-advice"
+          }
+        ]
+      }
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://www.bankrate.com/mortgages/buy-now-refi-later-includes-pitfalls/",
+      "https://www.nar.realtor/news/real-estate-news/sales-and-marketing/is-it-time-to-ditch-the-date-the-rate-marry-the-house-phrase"
+    ],
+    "note": "Critiques of 'marry the house, date the rate' exist (rates did not fall after 2023), but no result computes the historical base rate of a refinance-sized drop within a given horizon across all weeks since 1971; the quantified base rate is new. The first query returned 9 results."
+  }
+}

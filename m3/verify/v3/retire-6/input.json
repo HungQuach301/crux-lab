@@ -1,0 +1,81 @@
+{
+ "id": "retire-6",
+ "claim": "A retiree who keeps savings in 3-month Treasury bills and spends only the interest has a principal that never falls, but an income that tracks the bill rate. The average bill yield fell from 4.353% in 2007 to 0.15% in 2009, cutting that income by 96.6%, and stayed below 0.25% for 7 straight years (2009-2015). It happened again from 2019 (2.061%) to 2021 (0.044%), a 97.9% cut, before recovering to 4.967% in 2024. Across 90 starting years from 1934 to 2023, interest income fell by more than half within two years 15 times, and in 14 of 92 calendar years it was below 0.25% of principal.",
+ "numbers": [
+  {
+   "id": "yield_2007_pct",
+   "unit": "percent",
+   "definition": "Mean of the 12 monthly values of TB3MS (3-month Treasury bill secondary market rate, discount basis, percent, monthly) in calendar 2007."
+  },
+  {
+   "id": "yield_2009_pct",
+   "unit": "percent",
+   "definition": "Mean of the 12 monthly TB3MS values in 2009."
+  },
+  {
+   "id": "income_drop_2007_2009_pct",
+   "unit": "percent",
+   "definition": "(1 - yield_2009/yield_2007) x 100 using unrounded annual means: fall in interest income on a fixed principal."
+  },
+  {
+   "id": "yield_2019_pct",
+   "unit": "percent",
+   "definition": "Mean of the 12 monthly TB3MS values in 2019."
+  },
+  {
+   "id": "yield_2021_pct",
+   "unit": "percent",
+   "definition": "Mean of the 12 monthly TB3MS values in 2021."
+  },
+  {
+   "id": "income_drop_2019_2021_pct",
+   "unit": "percent",
+   "definition": "(1 - yield_2021/yield_2019) x 100 using unrounded annual means."
+  },
+  {
+   "id": "years_below_quarter_point_2009_2015",
+   "unit": "years",
+   "definition": "Number of calendar years 2009..2015 whose annual mean TB3MS is below 0.25."
+  },
+  {
+   "id": "years_below_quarter_point_all",
+   "unit": "years",
+   "definition": "Number of complete calendar years 1934..2025 (all 12 months present) whose annual mean TB3MS is below 0.25."
+  },
+  {
+   "id": "years_in_sample",
+   "unit": "years",
+   "definition": "Number of complete calendar years 1934..2025 in TB3MS."
+  },
+  {
+   "id": "eligible_start_years",
+   "unit": "years",
+   "definition": "Complete years y for which years y+1 and y+2 are also complete (1934..2023)."
+  },
+  {
+   "id": "years_income_halved_within_two",
+   "unit": "years",
+   "definition": "Count of eligible years y where min(annual mean y+1, annual mean y+2) < 0.5 x annual mean y."
+  },
+  {
+   "id": "yield_2024_pct",
+   "unit": "percent",
+   "definition": "Mean of the 12 monthly TB3MS values in 2024."
+  }
+ ],
+ "assumptions": [
+  "Interest income on a fixed principal is proportional to the annual average 3-month bill yield (bills rolled continuously; discount-basis yield used as quoted).",
+  "No taxes, no inflation adjustment (the comparison is of nominal income on unchanged principal), no reinvestment of interest."
+ ],
+ "series": [
+  {
+   "id": "TB3MS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+   "file": "data/TB3MS.csv",
+   "lastObservation": "2026-08-01"
+  }
+ ],
+ "provisions": []
+}

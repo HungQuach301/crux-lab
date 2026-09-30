@@ -1,0 +1,106 @@
+{
+ "id": "retire-7",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "GS10",
+    "file": "data/GS10.csv",
+    "sha256": "e22128f6caa50e4e7fed03a1c2d323a517bad452a2c69eab89277450fb59bc5c",
+    "declared": "e22128f6caa50e4e7fed03a1c2d323a517bad452a2c69eab89277450fb59bc5c",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "TB3MS",
+    "file": "data/TB3MS.csv",
+    "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "declared": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "purchase_months",
+    "declared": 762,
+    "recomputed": 762,
+    "ok": true
+   },
+   {
+    "id": "first_purchase_yyyymm",
+    "declared": 195304,
+    "recomputed": 195304,
+    "ok": true
+   },
+   {
+    "id": "last_purchase_yyyymm",
+    "declared": 201609,
+    "recomputed": 201609,
+    "ok": true
+   },
+   {
+    "id": "share_bills_won_pct",
+    "declared": 32.68,
+    "recomputed": 32.68,
+    "ok": true
+   },
+   {
+    "id": "share_bills_won_1960_1979_pct",
+    "declared": 85.42,
+    "recomputed": 85.42,
+    "ok": true
+   },
+   {
+    "id": "share_bills_won_since_1980_pct",
+    "declared": 2.27,
+    "recomputed": 2.27,
+    "ok": true
+   },
+   {
+    "id": "best_bills_advantage_pct",
+    "declared": 24.8,
+    "recomputed": 24.8,
+    "ok": true
+   },
+   {
+    "id": "best_note_advantage_pct",
+    "declared": 103.4,
+    "recomputed": 103.4,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "GS10",
+    "page": "https://fred.stlouisfed.org/series/GS10",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/GS10",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "TB3MS",
+    "page": "https://fred.stlouisfed.org/series/TB3MS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/TB3MS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V1245": true
+}

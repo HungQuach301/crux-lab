@@ -1,0 +1,60 @@
+{
+ "id": "debt-4",
+ "items": [
+  {
+   "id": "n_days",
+   "declared": 2434,
+   "recomputed": 2434,
+   "ok": true
+  },
+  {
+   "id": "mean_ltv_gap",
+   "declared": 0.065,
+   "recomputed": 0.065,
+   "ok": true
+  },
+  {
+   "id": "max_ltv_gap",
+   "declared": 0.173,
+   "recomputed": 0.173,
+   "ok": true
+  },
+  {
+   "id": "mean_credit_gap",
+   "declared": 0.343,
+   "recomputed": 0.343,
+   "ok": true
+  },
+  {
+   "id": "credit_to_ltv_ratio",
+   "declared": 5.3,
+   "recomputed": 5.3,
+   "ok": true
+  },
+  {
+   "id": "share_days_credit_gap_gt_ltv_gap",
+   "declared": 99.2,
+   "recomputed": 99.2,
+   "ok": true
+  },
+  {
+   "id": "latest_le80_ge740",
+   "declared": 7.268,
+   "recomputed": 7.268,
+   "ok": true
+  },
+  {
+   "id": "latest_gt80_ge740",
+   "declared": 7.331,
+   "recomputed": 7.331,
+   "ok": true
+  },
+  {
+   "id": "latest_le80_lt680",
+   "declared": 7.529,
+   "recomputed": 7.529,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

@@ -1,0 +1,149 @@
+{
+ "id": "tax-4",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "RIFLPBCIANM60NM",
+    "file": "data/RIFLPBCIANM60NM.csv",
+    "sha256": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+    "declared": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "loan_rate_pct",
+    "declared": 7.14,
+    "recomputed": 7.14,
+    "ok": true
+   },
+   {
+    "id": "total_interest_per_10k_usd",
+    "declared": 1920.39,
+    "recomputed": 1920.39,
+    "ok": true
+   },
+   {
+    "id": "deductible_share_start2026",
+    "declared": 0.8245,
+    "recomputed": 0.8245,
+    "ok": true
+   },
+   {
+    "id": "deductible_share_start2027",
+    "declared": 0.6192,
+    "recomputed": 0.6192,
+    "ok": true
+   },
+   {
+    "id": "deductible_share_start2028",
+    "declared": 0.3428,
+    "recomputed": 0.3428,
+    "ok": true
+   },
+   {
+    "id": "tax_saving_per_10k_12pct_start2026_usd",
+    "declared": 190.0,
+    "recomputed": 190.0,
+    "ok": true
+   },
+   {
+    "id": "equiv_rate_12pct_start2026_pct",
+    "declared": 6.467,
+    "recomputed": 6.467,
+    "ok": true
+   },
+   {
+    "id": "equiv_rate_22pct_start2026_pct",
+    "declared": 5.901,
+    "recomputed": 5.901,
+    "ok": true
+   },
+   {
+    "id": "equiv_rate_12pct_start2028_pct",
+    "declared": 6.861,
+    "recomputed": 6.861,
+    "ok": true
+   },
+   {
+    "id": "equiv_rate_22pct_start2028_pct",
+    "declared": 6.628,
+    "recomputed": 6.628,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "RIFLPBCIANM60NM",
+    "page": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 163(h)(4)(A) (years covered)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 163(h)(4)(B)(i) (qualifying interest)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 163(h)(4)(C)(i) (dollar limit)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 163(h)(4)(C)(ii) (MAGI phase-out)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 163(h)(4)(D) (U.S. final assembly)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 63(b)(7) (available without itemizing)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section63&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V1245": true
+}

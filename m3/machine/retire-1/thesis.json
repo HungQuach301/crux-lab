@@ -1,0 +1,247 @@
+{
+  "id": "retire-1",
+  "pillar": "retire",
+  "card": {
+    "thesis": "After inflation, the yearly cap on personal retirement account contributions is barely higher than when every worker first became eligible, and it covers fewer hours of typical pay.",
+    "overturns": "\"Retirement account contribution limits keep rising, so today's savers can shelter far more than earlier generations.\""
+  },
+  "claim": "The individual retirement account (IRA) contribution limit was set at $2,000 for tax years beginning in 1982, when IRAs opened to all workers, and stayed there until 2001, losing 45.5% of its purchasing power over that freeze. The 2026 limit is $7,500. In August-2026 dollars the 1982 limit was worth $6942.59, so after 44 years the cap is only 8.03% higher in real terms. Measured against the average hourly earnings of production and nonsupervisory workers, the 1982 cap equalled 254.3 hours of pay and the 2026 cap equals 230.6 hours (-9.32%): relative to pay, a saver can shelter less today than in 1982.",
+  "numbers": [
+    {
+      "id": "limit1982_in_aug2026_dollars",
+      "value": 6942.59,
+      "unit": "USD (Aug 2026 prices)",
+      "definition": "2000 x CPIAUCNS(2026-08-01) / mean(CPIAUCNS monthly values 1982-01-01..1982-12-01). CPIAUCNS = CPI-U all items, US city average, not seasonally adjusted, monthly, from the pinned FRED CSV."
+    },
+    {
+      "id": "real_change_1982_to_2026_pct",
+      "value": 8.03,
+      "unit": "percent",
+      "definition": "(7500 / limit1982_in_aug2026_dollars - 1) x 100, using the unrounded limit1982_in_aug2026_dollars; 7500 = 2026 IRA limit (IRS news release), 2000 = limit for taxable years beginning after 1981-12-31 (26 U.S.C. 219 notes)."
+    },
+    {
+      "id": "real_loss_1982_to_2001_pct",
+      "value": 45.5,
+      "unit": "percent",
+      "definition": "(1 - mean(CPIAUCNS 1982-01..1982-12) / mean(CPIAUCNS 2001-01..2001-12)) x 100: loss of purchasing power of a fixed $2,000 limit between the 1982 and 2001 annual-average price levels."
+    },
+    {
+      "id": "hours_of_pay_1982",
+      "value": 254.3,
+      "unit": "hours",
+      "definition": "2000 / mean(AHETPI monthly values 1982-01-01..1982-12-01), rounded to 0.1. AHETPI = average hourly earnings of production and nonsupervisory employees, total private, USD per hour, seasonally adjusted, monthly."
+    },
+    {
+      "id": "hours_of_pay_2026",
+      "value": 230.6,
+      "unit": "hours",
+      "definition": "7500 / AHETPI(2026-08-01), rounded to 0.1."
+    },
+    {
+      "id": "hours_change_pct",
+      "value": -9.32,
+      "unit": "percent",
+      "definition": "(hours_of_pay_2026 / hours_of_pay_1982 - 1) x 100 computed from the two values rounded to 0.1 hour."
+    }
+  ],
+  "series": [
+    {
+      "id": "CPIAUCNS",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+      "file": "data/CPIAUCNS.csv",
+      "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-08-01",
+      "terms": {
+        "quote": "Notes: Handbook of Methods Understanding the CPI: Frequently Asked Questions",
+        "url": "https://fred.stlouisfed.org/series/CPIAUCNS",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    },
+    {
+      "id": "AHETPI",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=AHETPI&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/AHETPI",
+      "file": "data/AHETPI.csv",
+      "sha256": "bf666fc39bfc5b0cbc8fbe0d5abc06e84233f0300edbf88299ba696801e1ca7a",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-08-01",
+      "terms": {
+        "quote": "Notes: Production and related employees include working supervisors and all nonsupervisory employees (including group leaders and trainees) engaged in fabricating, processing, assembling, inspecting, receiving, storing, handling, packing, warehousing, shipping, trucking, hauling, maintenance, repair, janitorial, guard services, product development, auxiliary production for plant's own use (for exa",
+        "url": "https://fred.stlouisfed.org/series/AHETPI",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    }
+  ],
+  "provisions": [
+    {
+      "cite": "26 U.S.C. 219, Amendments note (2001)",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section219&num=0&edition=prelim",
+      "quote": "Pub. L. 107–16, §601(a)(1), substituted \"the deductible amount\" for \"$2,000\"."
+    },
+    {
+      "cite": "26 U.S.C. 219, Amendments note (1981)",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section219&num=0&edition=prelim",
+      "quote": "provision for allowance of a deduction not to exceed the lesser of (A) $2,000, or (B) an amount equal to the compensation includible in the individual's gross income for such taxable year"
+    },
+    {
+      "cite": "26 U.S.C. 219, Effective Date of 1981 Amendment note",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section219&num=0&edition=prelim",
+      "quote": "shall apply to taxable years beginning after December 31, 1981."
+    },
+    {
+      "cite": "IRS news release, 2026 limits",
+      "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+      "quote": "The limit on annual contributions to an IRA is increased to $7,500 from $7,000."
+    }
+  ],
+  "assumptions": [
+    "Background (not recomputed): the 1981 amendments effective for taxable years beginning after December 31, 1981 also removed the bar on IRA deductions for workers covered by a workplace plan, which is why 1982 is described as the year every worker became eligible.",
+    "The IRA limit was $2,000 for every tax year 1982-2001 (the 2001 law replaced \"$2,000\" with \"the deductible amount\" starting 2002) and is $7,500 in 2026; catch-up contributions for age 50+ are ignored.",
+    "Price level for 1982 and 2001 = calendar-year mean of monthly CPI-U (NSA); price level for 2026 = August 2026 CPI-U, the latest observation.",
+    "Pay = average hourly earnings of production and nonsupervisory workers (a typical-worker wage), 1982 annual mean vs August 2026."
+  ],
+  "limits": "History, not a forecast. The comparison is about the cap, not about what savers actually contribute; most savers contribute less than the cap. Workplace plans have separate, higher limits not covered here. The hourly-pay measure covers production and nonsupervisory workers only.",
+  "novelty": {
+    "queries": [
+      "IRA contribution limit adjusted for inflation since 1982 $2,000 today's dollars",
+      "IRA limit has not kept pace with inflation or wages",
+      "history of IRA contribution limits real value 1982 2001 frozen"
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://pennycalc.com/ira-contribution-limits/history/",
+      "https://dqydj.com/historical-ira-contribution-limit/",
+      "https://www.everycrsreport.com/reports/R41476.html"
+    ],
+    "note": "The 1982-2001 freeze and its roughly halved real value are widely described. Not found: the full-span comparison showing the 2026 limit only about 8% above the 1982 limit in real terms, or the wage comparison showing the cap now covers fewer hours of typical pay than in 1982.",
+    "results": [
+      {
+        "query": "IRA contribution limit adjusted for inflation since 1982 $2,000 today's dollars",
+        "top": [
+          {
+            "title": "Historical Solo 401k Contribution Limits by Year: A Complete Timeline (1978–2026) - Carry",
+            "url": "https://carry.com/learn/historical-solo-401k-contribution-limits-by-year"
+          },
+          {
+            "title": "IRA Contribution Limit History 1974–2026 | Goldiew",
+            "url": "https://goldiew.com/guide/ira-contribution-limit-history-1974-2026/"
+          },
+          {
+            "title": "Historical 401(k) Limit: Contribution Limits from 1978 to 2026 - DQYDJ",
+            "url": "https://dqydj.com/historical-401k-contribution-limit/"
+          },
+          {
+            "title": "IRA Contribution Limit History (1974-2026) - PennyCalc",
+            "url": "https://pennycalc.com/ira-contribution-limits/history/"
+          },
+          {
+            "title": "Historical Roth IRA Contribution Limits Since The Beginning",
+            "url": "https://www.financialsamurai.com/historical-roth-ira-contribution-limits/"
+          },
+          {
+            "title": "Historical IRA Limit: Contribution Limit from 1974 to 2026 - DQYDJ",
+            "url": "https://dqydj.com/historical-ira-contribution-limit/"
+          },
+          {
+            "title": "IRA Contribution Limits History (2000–2026) - IRA.com",
+            "url": "https://ira.com/contribution-limits/ira-contribution-limits-history/"
+          },
+          {
+            "title": "IRA Contribution Limits Over Time: Historical Timeline - Pro Invest News",
+            "url": "https://proinvestnews.com/2024/06/07/ira-contribution-limits-over-time-historical-timeline/"
+          },
+          {
+            "title": "IRS Announces Pension Plan Limitations for 2011",
+            "url": "https://www.irs.gov/node/6960"
+          }
+        ]
+      },
+      {
+        "query": "IRA limit has not kept pace with inflation or wages",
+        "top": [
+          {
+            "title": "IRA Contribution Limit History (1974-2026) - PennyCalc",
+            "url": "https://pennycalc.com/ira-contribution-limits/history/"
+          },
+          {
+            "title": "Inflation hike: IRS is raising the 401(k) contribution limit by record amount - CBS News",
+            "url": "https://www.cbsnews.com/news/irs-401k-contribution-limit-increasing-by-record/"
+          },
+          {
+            "title": "IRA Contribution Limits History (2000–2026) - IRA.com",
+            "url": "https://ira.com/contribution-limits/ira-contribution-limits-history/"
+          },
+          {
+            "title": "IRA Contribution Limits Over Time: Historical Timeline - Pro Invest News",
+            "url": "https://proinvestnews.com/2024/06/07/ira-contribution-limits-over-time-historical-timeline/"
+          },
+          {
+            "title": "wages fail to keep up with inflation",
+            "url": "https://www.npr.org/2005/04/20/4607804/wages-fail-to-keep-up-with-inflation"
+          },
+          {
+            "title": "how ira contribution limits change with inflation",
+            "url": "https://www.fool.com/retirement/iras/2014/10/12/how-ira-contribution-limits-change-with-inflation.aspx"
+          },
+          {
+            "title": "The IRS is raising your 401(k) and IRA contribution limits for 2026",
+            "url": "https://finance.yahoo.com/news/irs-raising-401-k-ira-162243536.html"
+          },
+          {
+            "title": "inflation and cola how they affect your ira 202507181431",
+            "url": "https://www.fxstreet.com/news/inflation-and-cola-how-they-affect-your-ira-202507181431"
+          },
+          {
+            "title": "Increasing wages not keeping up with inflation",
+            "url": "https://cbsnews.com/amp/pittsburgh/news/increasing-wages-not-keeping-up-with-inflation"
+          }
+        ]
+      },
+      {
+        "query": "history of IRA contribution limits real value 1982 2001 frozen",
+        "top": [
+          {
+            "title": "Ownership of Individual Retirement Accounts (IRAs) and Policy Options for Congress - EveryCRSReport.com",
+            "url": "https://www.everycrsreport.com/reports/R41476.html"
+          },
+          {
+            "title": "IRA Contribution Limit History (1974-2026) - PennyCalc",
+            "url": "https://pennycalc.com/ira-contribution-limits/history/"
+          },
+          {
+            "title": "Historical IRA Limit: Contribution Limit from 1974 to 2026 - DQYDJ",
+            "url": "https://dqydj.com/historical-ira-contribution-limit/"
+          },
+          {
+            "title": "IRA Contribution Limit History 1974–2026 | Goldiew",
+            "url": "https://goldiew.com/guide/ira-contribution-limit-history-1974-2026/"
+          },
+          {
+            "title": "What were Traditional IRA and Roth IRA Contribution Limits in the Past? - Financial Security for All",
+            "url": "https://personal-finance.extension.org/what-were-traditional-ira-and-roth-ira-contribution-limits-in-the-past/"
+          },
+          {
+            "title": "IRA Contribution Limits History (2000–2026) - IRA.com",
+            "url": "https://ira.com/contribution-limits/ira-contribution-limits-history/"
+          },
+          {
+            "title": "Historical Roth IRA Contribution Limits Since The Beginning",
+            "url": "https://www.financialsamurai.com/historical-roth-ira-contribution-limits/"
+          },
+          {
+            "title": "IRA Contribution Limits Over Time: Historical Timeline - Pro Invest News",
+            "url": "https://proinvestnews.com/2024/06/07/ira-contribution-limits-over-time-historical-timeline/"
+          },
+          {
+            "title": "Individual retirement account",
+            "url": "https://en.wikipedia.org/wiki/Individual_retirement_account"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,278 @@
+{
+ "card": {
+  "thesis": "In the lower brackets, the new break on car loan interest is worth less than a single point off the loan rate, and it shrinks for later loans.",
+  "overturns": "\"The new tax break makes borrowing for a new car dramatically cheaper.\""
+ },
+ "claim": "The deduction for interest on loans for new, U.S.-assembled passenger vehicles (up to $10,000 of interest a year, available to non-itemizers, phasing out above $100,000 / $200,000 MAGI) applies only to tax years 2025 through 2028. At the latest average commercial-bank rate for a 60-month new-car loan (7.14%, May 2026), a $10,000 loan carries $1,920 of interest over its life. If payments start in January 2026, 82.5% of that interest falls in deductible years; starting January 2027, 61.9%; starting January 2028, 34.3%. For a borrower in the 12% bracket, a loan starting in 2026 saves about $190 per $10,000 borrowed - the same total cost as a loan at about 6.47% with no deduction, i.e. about 0.67 percentage point off the rate (22% bracket: about 5.90%, 1.24 points). For a loan starting in 2028 the equivalent rate is about 6.86% in the 12% bracket (0.28 point) and 6.63% in the 22% bracket. Sources: 26 U.S.C. 163(h)(4), 63(b)(7); FRED RIFLPBCIANM60NM (Federal Reserve G.19).",
+ "numbers": [
+  {
+   "id": "loan_rate_pct",
+   "unit": "percent per year",
+   "definition": "Latest non-missing monthly observation in the pinned RIFLPBCIANM60NM file (finance rate on consumer installment loans at commercial banks, new autos, 60-month loan; 2026-05-01).",
+   "value": 7.14
+  },
+  {
+   "id": "total_interest_per_10k_usd",
+   "unit": "USD",
+   "definition": "Total interest on a fully amortizing $10,000 loan, 60 equal monthly payments at monthly rate loan_rate_pct/1200 (payment = P*i/(1-(1+i)^-60); interest each month = balance*i).",
+   "value": 1920.39
+  },
+  {
+   "id": "deductible_share_start2026",
+   "unit": "fraction",
+   "definition": "Share of total_interest_per_10k_usd paid in calendar years 2026-2028 when payment 1 is in January 2026 (12 payments per calendar year; payments 1-36).",
+   "value": 0.8245
+  },
+  {
+   "id": "deductible_share_start2027",
+   "unit": "fraction",
+   "definition": "Same, payment 1 in January 2027 (payments 1-24 deductible).",
+   "value": 0.6192
+  },
+  {
+   "id": "deductible_share_start2028",
+   "unit": "fraction",
+   "definition": "Same, payment 1 in January 2028 (payments 1-12 deductible).",
+   "value": 0.3428
+  },
+  {
+   "id": "tax_saving_per_10k_12pct_start2026_usd",
+   "unit": "USD",
+   "definition": "0.12 x interest in payments 1-36 of the loan starting January 2026 (no discounting).",
+   "value": 190.0
+  },
+  {
+   "id": "equiv_rate_12pct_start2026_pct",
+   "unit": "percent per year",
+   "definition": "Rate r (bisection) at which total interest of the same $10,000 60-month loan with no deduction equals total interest at loan_rate_pct minus 0.12 x deductible interest (loan starting January 2026).",
+   "value": 6.467
+  },
+  {
+   "id": "equiv_rate_22pct_start2026_pct",
+   "unit": "percent per year",
+   "definition": "Same as equiv_rate_12pct_start2026_pct with a 22% bracket.",
+   "value": 5.901
+  },
+  {
+   "id": "equiv_rate_12pct_start2028_pct",
+   "unit": "percent per year",
+   "definition": "Same with 12% bracket, loan starting January 2028 (payments 1-12 deductible).",
+   "value": 6.861
+  },
+  {
+   "id": "equiv_rate_22pct_start2028_pct",
+   "unit": "percent per year",
+   "definition": "Same with 22% bracket, loan starting January 2028.",
+   "value": 6.628
+  }
+ ],
+ "series": [
+  {
+   "id": "RIFLPBCIANM60NM",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, G.19 Consumer Credit)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RIFLPBCIANM60NM&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+   "file": "data/RIFLPBCIANM60NM.csv",
+   "sha256": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+   "retrieved": "2026-09-30",
+   "lastObservation": {
+    "date": "2026-05-01",
+    "value": "7.14"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 163(h)(4)(A) (years covered)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "In the case of taxable years beginning after December 31, 2024, and before January 1, 2029, for purposes of this subsection"
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(4)(B)(i) (qualifying interest)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "means any interest which is paid or accrued during the taxable year on indebtedness incurred by the taxpayer after December 31, 2024, for the purchase of, and that is secured by a first lien on, an applicable passenger vehicle for personal use."
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(4)(C)(i) (dollar limit)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "for any taxable year shall not exceed $10,000."
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(4)(C)(ii) (MAGI phase-out)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "shall be reduced (but not below zero) by $200 for each $1,000 (or portion thereof) by which the modified adjusted gross income of the taxpayer for the taxable year exceeds $100,000 ($200,000 in the case of a joint return)."
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(4)(D) (U.S. final assembly)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "Such term shall not include any vehicle the final assembly of which did not occur within the United States."
+  },
+  {
+   "cite": "26 U.S.C. 63(b)(7) (available without itemizing)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section63&num=0&edition=prelim",
+   "quote": "so much of the deduction allowed by section 163(a) as is attributable to the exception under section 163(h)(4)(A)"
+  }
+ ],
+ "assumptions": [
+  "Eligible loan: new, U.S.-assembled vehicle for personal use, first lien, originated after 2024; MAGI below the phase-out; interest well under the $10,000 cap.",
+  "Rate = latest monthly average for 60-month new-car loans at commercial banks; individual rates differ (dealer/captive financing, credit score).",
+  "60 equal monthly payments; payment 1 in January of the start year; interest counted in the calendar year paid; the borrower stays in the same bracket for the whole loan; no discounting of later savings.",
+  "Equivalent rate compares total nominal interest cost with and without the tax saving."
+ ],
+ "limits": "A rule-based computation on the latest published rate, not a forecast of rates. Law could change before 2028. No personal advice.",
+ "novelty": {
+  "queries": [
+   "car loan interest deduction how much will it save typical buyer expires 2028 before loan paid off",
+   "car loan interest deduction effective interest rate reduction percentage point 12% bracket worth",
+   "buying a new car in 2028 vs 2026 car loan interest deduction fewer years deductible share of interest"
+  ],
+  "results": [
+   {
+    "query": 1,
+    "title": "Auto loan interest tax deduction for 2025-2028 | U.S. Bank",
+    "url": "https://www.usbank.com/vehicle-loans/auto-loans/auto-loan-tax-deduction.html"
+   },
+   {
+    "query": 1,
+    "title": "Can You Deduct Car Loan Interest on Taxes? | TaxAct",
+    "url": "https://blog.taxact.com/car-loan-interest-tax-deduction/"
+   },
+   {
+    "query": 1,
+    "title": "2025-2028 Vehicle Loan Interest Deduction: What You Need to Know | Thomson Reuters",
+    "url": "https://tax.thomsonreuters.com/news/2025-2028-vehicle-loan-interest-deduction-what-you-need-to-know/"
+   },
+   {
+    "query": 1,
+    "title": "IRS Rules for the One Big Beautiful Bill Car Loan Interest Deduction | TurboTax",
+    "url": "https://turbotax.intuit.com/tax-tips/tax-deductions-and-credits/irs-rules-for-the-obbb-car-loan-interest-deduction-what-you-need-to-know/c7PzL4pUY"
+   },
+   {
+    "query": 1,
+    "title": "New Auto Loan Interest Deduction: How to Save Up to $10,000 on Your Taxes | eTax.com",
+    "url": "https://www.etax.com/blog/2026/02/19/new-auto-loan-interest-deduction-how-to-save-up-to-10000-on-your-taxes-2025-2028/"
+   },
+   {
+    "query": 1,
+    "title": "Auto Loan Interest Tax Deduction Calculator | 2025-2028",
+    "url": "https://autoloandeductiblecalculator.com/"
+   },
+   {
+    "query": 1,
+    "title": "Auto Loan Interest Tax Deduction Guide | World Hyundai Matteson",
+    "url": "https://www.worldhyundaimatteson.com/auto-interest-rate-tax-deduction-calculator/"
+   },
+   {
+    "query": 1,
+    "title": "Federal Auto Loan Interest Tax Deduction (2025-2028) | Delaney Toyota",
+    "url": "https://www.delaneytoyota.com/federal-auto-loan-iinterest-tax-deduction-dubois-pa/"
+   },
+   {
+    "query": 1,
+    "title": "If You Borrowed To Buy A New Car In 2025, You Might Get To Deduct The Interest | Forbes",
+    "url": "https://www.forbes.com/sites/kellyphillipserb/2026/01/01/irs-rolls-out-rules-for-deducting-car-loan-interest-under-the-new-tax-law/"
+   },
+   {
+    "query": 2,
+    "title": "Here's who will - and won't - qualify for the new car loan interest deduction | CNN Business",
+    "url": "https://www.cnn.com/2025/07/09/business/car-loan-interest-deduction-qualify"
+   },
+   {
+    "query": 2,
+    "title": "The Car Loan Interest Deduction Is Real - But Dealers...",
+    "url": "https://getoutofdebt.org/269698/car-loan-interest-deduction-2026-who-qualifies"
+   },
+   {
+    "query": 2,
+    "title": "The Auto Loan Interest Deduction: How Claiming and Reporting Work | BPC",
+    "url": "https://bipartisanpolicy.org/explainer/the-auto-loan-interest-deduction-how-claiming-and-reporting-work/"
+   },
+   {
+    "query": 2,
+    "title": "Federal Register :: Car Loan Interest Deduction",
+    "url": "https://www.federalregister.gov/documents/2026/01/02/2025-24154/car-loan-interest-deduction"
+   },
+   {
+    "query": 2,
+    "title": "Effective interest rate - Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Effective_interest_rate"
+   },
+   {
+    "query": 2,
+    "title": "Nominal interest rate - Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Nominal_interest_rate"
+   },
+   {
+    "query": 2,
+    "title": "OBBB Tax Deduction for Car Loan Interest | H&R Block",
+    "url": "https://www.hrblock.com/tax-center/filing/adjustments-and-deductions/deducting-car-loan-interest/"
+   },
+   {
+    "query": 2,
+    "title": "Auto Loan Interest Tax Deduction Guide | World Hyundai Matteson",
+    "url": "https://www.worldhyundaimatteson.com/auto-interest-rate-tax-deduction-calculator/"
+   },
+   {
+    "query": 2,
+    "title": "IRS Rules for the One Big Beautiful Bill Car Loan Interest Deduction | TurboTax",
+    "url": "https://turbotax.intuit.com/tax-tips/tax-deductions-and-credits/irs-rules-for-the-obbb-car-loan-interest-deduction-what-you-need-to-know/c7PzL4pUY"
+   },
+   {
+    "query": 3,
+    "title": "Current Tax Updates Car Owners Need to Know About in 2026 | Capital One Auto Navigator",
+    "url": "https://www.capitalone.com/cars/learn/managing-your-money-wisely/current-tax-updates-car-owners-need-to-know-about-in-2026/4063"
+   },
+   {
+    "query": 3,
+    "title": "2025-2028 Vehicle Loan Interest Deduction: What You Need to Know | Thomson Reuters",
+    "url": "https://tax.thomsonreuters.com/news/2025-2028-vehicle-loan-interest-deduction-what-you-need-to-know/"
+   },
+   {
+    "query": 3,
+    "title": "IRS Rules for the One Big Beautiful Bill Car Loan Interest Deduction | TurboTax",
+    "url": "https://turbotax.intuit.com/tax-tips/tax-deductions-and-credits/irs-rules-for-the-obbb-car-loan-interest-deduction-what-you-need-to-know/c7PzL4pUY"
+   },
+   {
+    "query": 3,
+    "title": "Auto loan interest tax deduction for 2025-2028 | U.S. Bank",
+    "url": "https://www.usbank.com/vehicle-loans/auto-loans/auto-loan-tax-deduction.html"
+   },
+   {
+    "query": 3,
+    "title": "OBBB Tax Deduction for Car Loan Interest | H&R Block",
+    "url": "https://www.hrblock.com/tax-center/filing/adjustments-and-deductions/deducting-car-loan-interest/"
+   },
+   {
+    "query": 3,
+    "title": "The Auto Loan Interest Deduction: How Claiming and Reporting Work | BPC",
+    "url": "https://bipartisanpolicy.org/explainer/the-auto-loan-interest-deduction-how-claiming-and-reporting-work/"
+   },
+   {
+    "query": 3,
+    "title": "The Car Loan Interest Deduction Is Real - But Dealers...",
+    "url": "https://getoutofdebt.org/269698/car-loan-interest-deduction-2026-who-qualifies"
+   },
+   {
+    "query": 3,
+    "title": "Big Beautiful Bill No Tax on Car Loan Interest changes explained | Jackson Hewitt",
+    "url": "https://www.jacksonhewitt.com/tax-help/tax-tips-topics/personal-finance-savings/no-tax-on-car-loan-interest/"
+   },
+   {
+    "query": 3,
+    "title": "How to Deduct Up to $10000 in Auto Loan Interest (2026 Guide)",
+    "url": "https://ourtaxpartner.com/deduct-up-to-10000-in-auto-loan-interest/"
+   }
+  ],
+  "verdict": "partly-said",
+  "nearest": [
+   "https://tax.thomsonreuters.com/news/2025-2028-vehicle-loan-interest-deduction-what-you-need-to-know/",
+   "https://www.usbank.com/vehicle-loans/auto-loans/auto-loan-tax-deduction.html",
+   "https://getoutofdebt.org/269698/car-loan-interest-deduction-2026-who-qualifies"
+  ],
+  "note": "Said widely: the saving is only the bracket rate times the interest (a few hundred dollars) and the break ends after 2028. Not found: translating the break into an equivalent loan rate on the current average rate (about 0.67 point in the 12% bracket for 2026 loans, 0.28 point for 2028 loans), or the share of lifetime interest that falls in deductible years by start year."
+ }
+}

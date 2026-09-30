@@ -1,0 +1,129 @@
+{
+ "id": "debt-4",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "OBMMIC30YFLVLE80FGE740",
+    "file": "data/OBMMIC30YFLVLE80FGE740.csv",
+    "sha256": "be02b48ca0f7b9a9b7850e354aa2beeadd7ce541ca0f1fcab0c6b2bf5d54fd4f",
+    "declared": "be02b48ca0f7b9a9b7850e354aa2beeadd7ce541ca0f1fcab0c6b2bf5d54fd4f",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "OBMMIC30YFLVGT80FGE740",
+    "file": "data/OBMMIC30YFLVGT80FGE740.csv",
+    "sha256": "b75447c1581adde607575135986b69758d710b32b963b252c8680b453777b67b",
+    "declared": "b75447c1581adde607575135986b69758d710b32b963b252c8680b453777b67b",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "OBMMIC30YFLVLE80FLT680",
+    "file": "data/OBMMIC30YFLVLE80FLT680.csv",
+    "sha256": "2e12c8c46237d928ae3a408e439f010c67c7cbec561fee5d54d4b1ad0a4791e8",
+    "declared": "2e12c8c46237d928ae3a408e439f010c67c7cbec561fee5d54d4b1ad0a4791e8",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "n_days",
+    "declared": 2434,
+    "recomputed": 2434,
+    "ok": true
+   },
+   {
+    "id": "mean_ltv_gap",
+    "declared": 0.065,
+    "recomputed": 0.065,
+    "ok": true
+   },
+   {
+    "id": "max_ltv_gap",
+    "declared": 0.173,
+    "recomputed": 0.173,
+    "ok": true
+   },
+   {
+    "id": "mean_credit_gap",
+    "declared": 0.343,
+    "recomputed": 0.343,
+    "ok": true
+   },
+   {
+    "id": "credit_to_ltv_ratio",
+    "declared": 5.3,
+    "recomputed": 5.3,
+    "ok": true
+   },
+   {
+    "id": "share_days_credit_gap_gt_ltv_gap",
+    "declared": 99.2,
+    "recomputed": 99.2,
+    "ok": true
+   },
+   {
+    "id": "latest_le80_ge740",
+    "declared": 7.268,
+    "recomputed": 7.268,
+    "ok": true
+   },
+   {
+    "id": "latest_gt80_ge740",
+    "declared": 7.331,
+    "recomputed": 7.331,
+    "ok": true
+   },
+   {
+    "id": "latest_le80_lt680",
+    "declared": 7.529,
+    "recomputed": 7.529,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "OBMMIC30YFLVLE80FGE740",
+    "page": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FGE740",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FGE740",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "OBMMIC30YFLVGT80FGE740",
+    "page": "https://fred.stlouisfed.org/series/OBMMIC30YFLVGT80FGE740",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/OBMMIC30YFLVGT80FGE740",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "OBMMIC30YFLVLE80FLT680",
+    "page": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FLT680",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FLT680",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V1245": true
+}

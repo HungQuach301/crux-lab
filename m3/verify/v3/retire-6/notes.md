@@ -1,0 +1,13 @@
+# retire-6 recomputation notes (TB3MS downloaded 2026-09-30, last obs 2026-08-01; 1934-01..2026-08, no missing values)
+- yield_2007_pct: plain arithmetic mean of 12 monthly values; no ambiguity. 4.3533
+- yield_2009_pct: same method. 0.15
+- income_drop_2007_2009_pct: (1 - m2009/m2007)*100 on unrounded means. 96.554
+- yield_2019_pct: same method. 2.0608
+- yield_2021_pct: same method. 0.04417
+- income_drop_2019_2021_pct: unrounded means. 97.857
+- years_below_quarter_point_2009_2015: strict "< 0.25"; all 7 years 2009-2015 qualify.
+- years_below_quarter_point_all: strict "<"; complete years 1934..2025; 14 (1935,1936,1938-1941, 2009-2015, 2021). No year sits exactly at 0.25.
+- years_in_sample: 92 complete years 1934..2025 (2026 is partial and excluded by the range).
+- eligible_start_years: y in 1934..2023 with y, y+1, y+2 all complete = 90.
+- years_income_halved_within_two: strict "<" against 0.5 x mean(y) on unrounded means; 15.
+- yield_2024_pct: same method. 4.9667

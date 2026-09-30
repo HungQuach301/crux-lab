@@ -1,0 +1,173 @@
+{
+ "pillar": "retire",
+ "quota": 7,
+ "model": "gpt-5.5",
+ "role": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+ "prompt": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Retirement and long-term investing (saving for retirement, retirement accounts, Social Security timing, long-horizon investing through history)\n\nTask: propose 7 distinct theses for episodes in this pillar. A thesis is a specific, checkable claim that a viewer facing a real decision would care about, and that overturns a common belief.\n\nWrite each thesis as a card with exactly two fields:\n- thesis: one sentence, 20 to 28 words.\n- overturns: the common belief it contradicts, one sentence in double quotes, 10 to 16 words.\n\nCard rules (strict, checked by machine):\n- No digits, no % or $ signs, no years.\n- No numbers written as words (for example one, two, ten, hundred, half, double, twice, triple, quarter, third, dozen, percent).\n- No names of data sources, datasets, series codes, laws, acts or code sections (write \"workplace retirement plan\", not a plan's code name).\n- One sentence per field.",
+ "kept": [
+  {
+   "card": {
+    "thesis": "Delaying Social Security can beat claiming early and investing the checks for retirees near average health, because guaranteed inflation adjusted payments are hard to replicate.",
+    "overturns": "\"Claim early, invest the money, and markets will make waiting look foolish.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "Capturing the workplace retirement match before sending extra cash to moderate interest debt often wins, even after tax and investment risk are modeled.",
+    "overturns": "\"Pay every debt down before investing for retirement at all.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "A low cost target date fund left comparable savers with competitive after tax wealth in history, not a forecast, versus chasing recent winners.",
+    "overturns": "\"Managing your own funds should beat the boring default retirement option.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "Adding bonds during the final working stretch raised safe retirement income in bad historical sequences, history, not a forecast, even when average returns fell.",
+    "overturns": "\"Stocks always make the best retirement portfolio if your horizon feels long.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "Strategic conversions from pretax retirement accounts during low income retirement years can reduce lifetime taxes, even for households already in modest brackets.",
+    "overturns": "\"Conversions only help rich retirees facing very high future tax rates.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "Maxing tax advantaged retirement accounts before using taxable brokerage usually improves long horizon outcomes, despite withdrawal rules and reduced flexibility.",
+    "overturns": "\"Taxable investing is almost as good because retirement accounts trap your money.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "For long horizon savers, investing extra cash often beat prepaying low rate mortgages in history, not a forecast, even after taxes and volatility.",
+    "overturns": "\"The mortgage is guaranteed debt, so prepaying must beat retirement investing.\""
+   },
+   "call": 1
+  }
+ ],
+ "attempts": [
+  {
+   "call": 1,
+   "raw": "raw/retire-call1.json",
+   "seconds": 26.0,
+   "cards": [
+    {
+     "original": {
+      "thesis": "Delaying Social Security can beat claiming early and investing the checks for retirees near average health, because guaranteed inflation adjusted payments are hard to replicate.",
+      "overturns": "\"Claim early, invest the money, and markets will make waiting look foolish.\""
+     },
+     "normalized": {
+      "thesis": "Delaying Social Security can beat claiming early and investing the checks for retirees near average health, because guaranteed inflation adjusted payments are hard to replicate.",
+      "overturns": "\"Claim early, invest the money, and markets will make waiting look foolish.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "Capturing the workplace retirement match before sending extra cash to moderate interest debt often wins, even after tax and investment risk are modeled.",
+      "overturns": "\"Pay every debt down before investing for retirement at all.\""
+     },
+     "normalized": {
+      "thesis": "Capturing the workplace retirement match before sending extra cash to moderate interest debt often wins, even after tax and investment risk are modeled.",
+      "overturns": "\"Pay every debt down before investing for retirement at all.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "A low cost target date fund left comparable savers with competitive after tax wealth in history, not a forecast, versus chasing recent winners.",
+      "overturns": "\"Managing your own funds should beat the boring default retirement option.\""
+     },
+     "normalized": {
+      "thesis": "A low cost target date fund left comparable savers with competitive after tax wealth in history, not a forecast, versus chasing recent winners.",
+      "overturns": "\"Managing your own funds should beat the boring default retirement option.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "Adding bonds during the final working stretch raised safe retirement income in bad historical sequences, history, not a forecast, even when average returns fell.",
+      "overturns": "\"Stocks always make the best retirement portfolio if your horizon feels long.\""
+     },
+     "normalized": {
+      "thesis": "Adding bonds during the final working stretch raised safe retirement income in bad historical sequences, history, not a forecast, even when average returns fell.",
+      "overturns": "\"Stocks always make the best retirement portfolio if your horizon feels long.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "Strategic conversions from pretax retirement accounts during low income retirement years can reduce lifetime taxes, even for households already in modest brackets.",
+      "overturns": "\"Conversions only help rich retirees facing very high future tax rates.\""
+     },
+     "normalized": {
+      "thesis": "Strategic conversions from pretax retirement accounts during low income retirement years can reduce lifetime taxes, even for households already in modest brackets.",
+      "overturns": "\"Conversions only help rich retirees facing very high future tax rates.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "Maxing tax advantaged retirement accounts before using taxable brokerage usually improves long horizon outcomes, despite withdrawal rules and reduced flexibility.",
+      "overturns": "\"Taxable investing is almost as good because retirement accounts trap your money.\""
+     },
+     "normalized": {
+      "thesis": "Maxing tax advantaged retirement accounts before using taxable brokerage usually improves long horizon outcomes, despite withdrawal rules and reduced flexibility.",
+      "overturns": "\"Taxable investing is almost as good because retirement accounts trap your money.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "For long horizon savers, investing extra cash often beat prepaying low rate mortgages in history, not a forecast, even after taxes and volatility.",
+      "overturns": "\"The mortgage is guaranteed debt, so prepaying must beat retirement investing.\""
+     },
+     "normalized": {
+      "thesis": "For long horizon savers, investing extra cash often beat prepaying low rate mortgages in history, not a forecast, even after taxes and volatility.",
+      "overturns": "\"The mortgage is guaranteed debt, so prepaying must beat retirement investing.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    }
+   ],
+   "model": "gpt-5.5-2026-04-23",
+   "usage": {
+    "input_tokens": 392,
+    "input_tokens_details": {
+     "cache_write_tokens": 0,
+     "cached_tokens": 0
+    },
+    "output_tokens": 2428,
+    "output_tokens_details": {
+     "reasoning_tokens": 2070
+    },
+    "total_tokens": 2820
+   },
+   "status": "completed"
+  }
+ ],
+ "complete": true
+}

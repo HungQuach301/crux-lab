@@ -1,0 +1,75 @@
+{
+ "id": "debt-3",
+ "claim": "In every quarter since the Federal Reserve began publishing a 72-month new-car loan rate at commercial banks (44 quarters, August 2015 to May 2026), the 72-month rate averaged only 0.097 points above the 60-month rate, never more than 0.52 points, and was equal to or lower than the 60-month rate in 34.1% of quarters; in May 2026 it was 6.97% versus 7.14%. On a $30,000 loan at the 7.14% 60-month rate, adding the extra year alone adds about $1,210 of interest, while charging the average term premium adds only about $101 more, so about 7.7% of the extra interest comes from a higher rate and the rest from paying longer. The cost of a longer car loan is time, not the rate. This is history, not a forecast.",
+ "numbers": [
+  {
+   "id": "n_months",
+   "unit": "quarters",
+   "definition": "Monthly-dated files RIFLPBCIANM60NM and RIFLPBCIANM72NM (Federal Reserve G.19, finance rate on new-auto installment loans at commercial banks, percent); values are published for Feb/May/Aug/Nov only, other months blank. Use only dates where both have a value: 44 quarters, 2015-08-01 through 2026-05-01. Count of those dates."
+  },
+  {
+   "id": "mean_premium_72_vs_60",
+   "unit": "percentage points",
+   "definition": "Monthly-dated files RIFLPBCIANM60NM and RIFLPBCIANM72NM (Federal Reserve G.19, finance rate on new-auto installment loans at commercial banks, percent); values are published for Feb/May/Aug/Nov only, other months blank. Use only dates where both have a value: 44 quarters, 2015-08-01 through 2026-05-01. Mean over those dates of (72-month rate - 60-month rate), rounded to 0.001."
+  },
+  {
+   "id": "share_months_72_le_60",
+   "unit": "percent of quarters",
+   "definition": "Monthly-dated files RIFLPBCIANM60NM and RIFLPBCIANM72NM (Federal Reserve G.19, finance rate on new-auto installment loans at commercial banks, percent); values are published for Feb/May/Aug/Nov only, other months blank. Use only dates where both have a value: 44 quarters, 2015-08-01 through 2026-05-01. Share of those dates where the 72-month rate <= the 60-month rate (compared in hundredths), times 100, rounded to 0.1."
+  },
+  {
+   "id": "max_premium",
+   "unit": "percentage points",
+   "definition": "Monthly-dated files RIFLPBCIANM60NM and RIFLPBCIANM72NM (Federal Reserve G.19, finance rate on new-auto installment loans at commercial banks, percent); values are published for Feb/May/Aug/Nov only, other months blank. Use only dates where both have a value: 44 quarters, 2015-08-01 through 2026-05-01. Maximum over those dates of (72-month - 60-month), rounded to 0.01."
+  },
+  {
+   "id": "latest_r60",
+   "unit": "percent",
+   "definition": "60-month rate on 2026-05-01."
+  },
+  {
+   "id": "latest_r72",
+   "unit": "percent",
+   "definition": "72-month rate on 2026-05-01."
+  },
+  {
+   "id": "term_effect_30k",
+   "unit": "US dollars",
+   "definition": "interest(r, n) on $30,000 = n * 30000*i/(1-(1+i)^-n) - 30000 with i = r/1200 (standard level-payment amortization). term_effect = interest(7.14, 72) - interest(7.14, 60), rounded to the dollar (7.14 = latest 60-month rate)."
+  },
+  {
+   "id": "rate_effect_30k",
+   "unit": "US dollars",
+   "definition": "interest(r, n) on $30,000 = n * 30000*i/(1-(1+i)^-n) - 30000 with i = r/1200 (standard level-payment amortization). rate_effect = interest(7.14 + m, 72) - interest(7.14, 72), where m is the unrounded mean_premium_72_vs_60; rounded to the dollar."
+  },
+  {
+   "id": "rate_share_of_extra_interest",
+   "unit": "percent",
+   "definition": "100 * rate_effect / (term_effect + rate_effect), using unrounded values, rounded to 0.1."
+  }
+ ],
+ "assumptions": [
+  "Loan of $30,000, level monthly payments, no fees, no early payoff; rates are the bank survey averages, not any one borrower's offer.",
+  "The average term premium over 2015-2026 is applied to the latest 60-month rate to split extra interest into a term part and a rate part.",
+  "The two rates come from the same survey of commercial banks; dealer-arranged and captive-finance loans are not covered."
+ ],
+ "series": [
+  {
+   "id": "RIFLPBCIANM60NM",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RIFLPBCIANM60NM&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+   "file": "data/RIFLPBCIANM60NM.csv",
+   "lastObservation": "2026-05-01"
+  },
+  {
+   "id": "RIFLPBCIANM72NM",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RIFLPBCIANM72NM&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/RIFLPBCIANM72NM",
+   "file": "data/RIFLPBCIANM72NM.csv",
+   "lastObservation": "2026-05-01"
+  }
+ ],
+ "provisions": []
+}

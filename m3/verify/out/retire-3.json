@@ -1,0 +1,89 @@
+{
+ "id": "retire-3",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "file": "data/CPIAUCNS.csv",
+    "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "declared": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "windows_25y",
+    "declared": 655,
+    "recomputed": 655,
+    "ok": true
+   },
+   {
+    "id": "min_loss_25y_pct",
+    "declared": 40.64,
+    "recomputed": 40.64,
+    "ok": true
+   },
+   {
+    "id": "min_loss_25y_start_yyyymm",
+    "declared": 199505,
+    "recomputed": 199505,
+    "ok": true
+   },
+   {
+    "id": "median_loss_25y_pct",
+    "declared": 57.87,
+    "recomputed": 57.87,
+    "ok": true
+   },
+   {
+    "id": "max_loss_25y_pct",
+    "declared": 76.37,
+    "recomputed": 76.37,
+    "ok": true
+   },
+   {
+    "id": "share_25y_over_half_pct",
+    "declared": 70.99,
+    "recomputed": 70.99,
+    "ok": true
+   },
+   {
+    "id": "min_loss_30y_pct",
+    "declared": 48.54,
+    "recomputed": 48.54,
+    "ok": true
+   },
+   {
+    "id": "median_loss_30y_pct",
+    "declared": 71.85,
+    "recomputed": 71.85,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V1245": true
+}

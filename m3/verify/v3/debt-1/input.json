@@ -1,0 +1,68 @@
+{
+ "id": "debt-1",
+ "claim": "Across every week of the 30-year fixed mortgage rate survey since April 1971, the rate fell by at least a full percentage point at some point within the next 3 years only 48.3% of the time (2,739 starting weeks), within 2 years 39.9% of the time, and within 5 years 61.9% of the time. Even restricted to purchase weeks from the October 1981 peak through 2020, the longest falling-rate stretch on record, the 3-year figure is only 60.2%. A buyer who takes a payment they can only afford after refinancing is betting on an outcome that, in history, happened within 3 years less often than not. With the latest weekly rate at 7.03%, this is history, not a forecast.",
+ "numbers": [
+  {
+   "id": "share_3y_1pt",
+   "unit": "percent of starting weeks",
+   "definition": "Weekly MORTGAGE30US (Freddie Mac PMMS 30-year fixed average, percent) from data/MORTGAGE30US.csv, all published weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths of a point. For each week t whose horizon end t + round(365.25*3) calendar days is on or before 2026-09-24, take the minimum rate over the weeks strictly after t up to and including the horizon end; the week counts as a success if that minimum is <= rate(t) - 1.00 point. Value = successes / eligible weeks * 100, rounded to 0.1."
+  },
+  {
+   "id": "n_weeks_3y",
+   "unit": "weeks",
+   "definition": "Number of eligible starting weeks in the share_3y_1pt calculation (weeks t with t + round(365.25*3) days <= 2026-09-24)."
+  },
+  {
+   "id": "share_2y_1pt",
+   "unit": "percent of starting weeks",
+   "definition": "Weekly MORTGAGE30US (Freddie Mac PMMS 30-year fixed average, percent) from data/MORTGAGE30US.csv, all published weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths of a point. For each week t whose horizon end t + round(365.25*2) calendar days is on or before 2026-09-24, take the minimum rate over the weeks strictly after t up to and including the horizon end; the week counts as a success if that minimum is <= rate(t) - 1.00 point. Value = successes / eligible weeks * 100, rounded to 0.1."
+  },
+  {
+   "id": "n_weeks_2y",
+   "unit": "weeks",
+   "definition": "Number of eligible starting weeks in the share_2y_1pt calculation."
+  },
+  {
+   "id": "share_5y_1pt",
+   "unit": "percent of starting weeks",
+   "definition": "Weekly MORTGAGE30US (Freddie Mac PMMS 30-year fixed average, percent) from data/MORTGAGE30US.csv, all published weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths of a point. For each week t whose horizon end t + round(365.25*5) calendar days is on or before 2026-09-24, take the minimum rate over the weeks strictly after t up to and including the horizon end; the week counts as a success if that minimum is <= rate(t) - 1.00 point. Value = successes / eligible weeks * 100, rounded to 0.1."
+  },
+  {
+   "id": "n_weeks_5y",
+   "unit": "weeks",
+   "definition": "Number of eligible starting weeks in the share_5y_1pt calculation."
+  },
+  {
+   "id": "share_3y_1pt_falling_era",
+   "unit": "percent of starting weeks",
+   "definition": "Same as share_3y_1pt but starting weeks restricted to 1981-10-09 (the all-time weekly peak, 18.63) through 2020-12-31 inclusive; future weeks may extend past 2020 up to the 3-year horizon end."
+  },
+  {
+   "id": "n_weeks_3y_falling_era",
+   "unit": "weeks",
+   "definition": "Number of starting weeks in share_3y_1pt_falling_era."
+  },
+  {
+   "id": "latest_rate",
+   "unit": "percent",
+   "definition": "Last observation in data/MORTGAGE30US.csv (week of 2026-09-24)."
+  }
+ ],
+ "assumptions": [
+  "A drop of at least 1.00 percentage point in the national weekly average is used as the conventional 'refinance-sized' threshold; an individual borrower's quoted rate, closing costs and eligibility can differ.",
+  "The borrower's own rate is taken to equal the national weekly average in the purchase week.",
+  "A drop counts if it occurs in any single week within the horizon, even briefly; this makes the shares an upper bound on usable refinance windows.",
+  "Overlapping starting weeks are counted separately, so the shares are not independent observations."
+ ],
+ "series": [
+  {
+   "id": "MORTGAGE30US",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "file": "data/MORTGAGE30US.csv",
+   "lastObservation": "2026-09-24"
+  }
+ ],
+ "provisions": []
+}

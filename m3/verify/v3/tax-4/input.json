@@ -1,0 +1,107 @@
+{
+ "id": "tax-4",
+ "claim": "The deduction for interest on loans for new, U.S.-assembled passenger vehicles (up to $10,000 of interest a year, available to non-itemizers, phasing out above $100,000 / $200,000 MAGI) applies only to tax years 2025 through 2028. At the latest average commercial-bank rate for a 60-month new-car loan (7.14%, May 2026), a $10,000 loan carries $1,920 of interest over its life. If payments start in January 2026, 82.5% of that interest falls in deductible years; starting January 2027, 61.9%; starting January 2028, 34.3%. For a borrower in the 12% bracket, a loan starting in 2026 saves about $190 per $10,000 borrowed - the same total cost as a loan at about 6.47% with no deduction, i.e. about 0.67 percentage point off the rate (22% bracket: about 5.90%, 1.24 points). For a loan starting in 2028 the equivalent rate is about 6.86% in the 12% bracket (0.28 point) and 6.63% in the 22% bracket. Sources: 26 U.S.C. 163(h)(4), 63(b)(7); FRED RIFLPBCIANM60NM (Federal Reserve G.19).",
+ "numbers": [
+  {
+   "id": "loan_rate_pct",
+   "unit": "percent per year",
+   "definition": "Latest non-missing monthly observation in the pinned RIFLPBCIANM60NM file (finance rate on consumer installment loans at commercial banks, new autos, 60-month loan; 2026-05-01)."
+  },
+  {
+   "id": "total_interest_per_10k_usd",
+   "unit": "USD",
+   "definition": "Total interest on a fully amortizing $10,000 loan, 60 equal monthly payments at monthly rate loan_rate_pct/1200 (payment = P*i/(1-(1+i)^-60); interest each month = balance*i)."
+  },
+  {
+   "id": "deductible_share_start2026",
+   "unit": "fraction",
+   "definition": "Share of total_interest_per_10k_usd paid in calendar years 2026-2028 when payment 1 is in January 2026 (12 payments per calendar year; payments 1-36)."
+  },
+  {
+   "id": "deductible_share_start2027",
+   "unit": "fraction",
+   "definition": "Same, payment 1 in January 2027 (payments 1-24 deductible)."
+  },
+  {
+   "id": "deductible_share_start2028",
+   "unit": "fraction",
+   "definition": "Same, payment 1 in January 2028 (payments 1-12 deductible)."
+  },
+  {
+   "id": "tax_saving_per_10k_12pct_start2026_usd",
+   "unit": "USD",
+   "definition": "0.12 x interest in payments 1-36 of the loan starting January 2026 (no discounting)."
+  },
+  {
+   "id": "equiv_rate_12pct_start2026_pct",
+   "unit": "percent per year",
+   "definition": "Rate r (bisection) at which total interest of the same $10,000 60-month loan with no deduction equals total interest at loan_rate_pct minus 0.12 x deductible interest (loan starting January 2026)."
+  },
+  {
+   "id": "equiv_rate_22pct_start2026_pct",
+   "unit": "percent per year",
+   "definition": "Same as equiv_rate_12pct_start2026_pct with a 22% bracket."
+  },
+  {
+   "id": "equiv_rate_12pct_start2028_pct",
+   "unit": "percent per year",
+   "definition": "Same with 12% bracket, loan starting January 2028 (payments 1-12 deductible)."
+  },
+  {
+   "id": "equiv_rate_22pct_start2028_pct",
+   "unit": "percent per year",
+   "definition": "Same with 22% bracket, loan starting January 2028."
+  }
+ ],
+ "assumptions": [
+  "Eligible loan: new, U.S.-assembled vehicle for personal use, first lien, originated after 2024; MAGI below the phase-out; interest well under the $10,000 cap.",
+  "Rate = latest monthly average for 60-month new-car loans at commercial banks; individual rates differ (dealer/captive financing, credit score).",
+  "60 equal monthly payments; payment 1 in January of the start year; interest counted in the calendar year paid; the borrower stays in the same bracket for the whole loan; no discounting of later savings.",
+  "Equivalent rate compares total nominal interest cost with and without the tax saving."
+ ],
+ "series": [
+  {
+   "id": "RIFLPBCIANM60NM",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, G.19 Consumer Credit)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RIFLPBCIANM60NM&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+   "file": "data/RIFLPBCIANM60NM.csv",
+   "lastObservation": {
+    "date": "2026-05-01",
+    "value": "7.14"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 163(h)(4)(A) (years covered)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "In the case of taxable years beginning after December 31, 2024, and before January 1, 2029, for purposes of this subsection"
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(4)(B)(i) (qualifying interest)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "means any interest which is paid or accrued during the taxable year on indebtedness incurred by the taxpayer after December 31, 2024, for the purchase of, and that is secured by a first lien on, an applicable passenger vehicle for personal use."
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(4)(C)(i) (dollar limit)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "for any taxable year shall not exceed $10,000."
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(4)(C)(ii) (MAGI phase-out)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "shall be reduced (but not below zero) by $200 for each $1,000 (or portion thereof) by which the modified adjusted gross income of the taxpayer for the taxable year exceeds $100,000 ($200,000 in the case of a joint return)."
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(4)(D) (U.S. final assembly)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "Such term shall not include any vehicle the final assembly of which did not occur within the United States."
+  },
+  {
+   "cite": "26 U.S.C. 63(b)(7) (available without itemizing)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section63&num=0&edition=prelim",
+   "quote": "so much of the deduction allowed by section 163(a) as is attributable to the exception under section 163(h)(4)(A)"
+  }
+ ]
+}

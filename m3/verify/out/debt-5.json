@@ -1,0 +1,124 @@
+{
+ "id": "debt-5",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MORTGAGE30US",
+    "file": "data/MORTGAGE30US.csv",
+    "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "declared": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "USSTHPI",
+    "file": "data/USSTHPI.csv",
+    "sha256": "c02d4187c8c9836d4049fe2005ab34129326e7538d2cd923173c2839ca25df16",
+    "declared": "c02d4187c8c9836d4049fe2005ab34129326e7538d2cd923173c2839ca25df16",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "simple_n_cohorts",
+    "declared": 173,
+    "recomputed": 173,
+    "ok": true
+   },
+   {
+    "id": "simple_median_years_schedule",
+    "declared": 11.58,
+    "recomputed": 11.58,
+    "ok": true
+   },
+   {
+    "id": "simple_median_years_value",
+    "declared": 3.0,
+    "recomputed": 3.0,
+    "ok": true
+   },
+   {
+    "id": "simple_share_value_faster_3y",
+    "declared": 89.0,
+    "recomputed": 89.0,
+    "ok": true
+   },
+   {
+    "id": "seasoned_median_years_value",
+    "declared": 4.0,
+    "recomputed": 4.0,
+    "ok": true
+   },
+   {
+    "id": "seasoned_share_value_faster_3y",
+    "declared": 87.9,
+    "recomputed": 87.9,
+    "ok": true
+   },
+   {
+    "id": "seasoned_share_value_not_faster",
+    "declared": 2.9,
+    "recomputed": 2.9,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MORTGAGE30US",
+    "page": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "USSTHPI",
+    "page": "https://fred.stlouisfed.org/series/USSTHPI",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/USSTHPI",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "CFPB, \"When can I remove private mortgage insurance (PMI) from my loan?\" (borrower-requested cancellation, Homeowners Protection Act rules)",
+    "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "CFPB, same page (automatic termination)",
+    "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "CFPB, same page (investor guidelines may be more favorable)",
+    "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V1245": true
+}

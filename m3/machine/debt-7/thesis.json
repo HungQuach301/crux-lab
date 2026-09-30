@@ -1,0 +1,257 @@
+{
+  "card": {
+    "thesis": "When mortgage rates actually fell, rising home prices historically ate only part of the payment relief, so the typical monthly payment still came down.",
+    "overturns": "\"If rates drop, home prices will jump and wipe out any savings.\""
+  },
+  "claim": "A common argument for buying before rates fall is that lower rates will push prices up and erase the savings. In national data since 1975, in every one of the 27 four-quarter windows in which the average 30-year rate fell by at least a full point, the monthly principal-and-interest payment on a home that tracked the national price index still fell, by a median of 8.2%; national price gains offset a median 38.7% of the rate relief. With smaller drops of at least half a point, the payment fell in 96.9% of 65 windows (median -5.6%), and over two-year windows with a full-point drop it fell in 91.2% of 57 windows (median -9.6%, median offset 53.0%). Rate drops cannot be known in advance, and local prices can behave very differently; this is history, not a forecast.",
+  "numbers": [
+    {
+      "id": "n_windows_4q_1pt",
+      "value": 27,
+      "unit": "windows",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Count of kept windows (4-quarter windows, drop >= 1.00 point)."
+    },
+    {
+      "id": "share_payment_fell_4q_1pt",
+      "value": 100.0,
+      "unit": "percent of windows",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Share of kept windows with payment change < 0, times 100, rounded to 0.1."
+    },
+    {
+      "id": "median_payment_change_4q_1pt",
+      "value": -8.2,
+      "unit": "percent",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median payment change over kept windows, times 100, rounded to 0.1."
+    },
+    {
+      "id": "median_offset_share_4q_1pt",
+      "value": 38.7,
+      "unit": "percent",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median offset share over kept windows, times 100, rounded to 0.1."
+    },
+    {
+      "id": "n_windows_4q_halfpt",
+      "value": 65,
+      "unit": "windows",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 0.50 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Count of kept windows (4-quarter windows, drop >= 0.50 point)."
+    },
+    {
+      "id": "share_payment_fell_4q_halfpt",
+      "value": 96.9,
+      "unit": "percent of windows",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 0.50 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Share of kept windows with payment change < 0, times 100, rounded to 0.1."
+    },
+    {
+      "id": "median_payment_change_4q_halfpt",
+      "value": -5.6,
+      "unit": "percent",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 0.50 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median payment change over kept windows, times 100, rounded to 0.1."
+    },
+    {
+      "id": "median_offset_share_4q_halfpt",
+      "value": 45.1,
+      "unit": "percent",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 0.50 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median offset share over kept windows, times 100, rounded to 0.1."
+    },
+    {
+      "id": "n_windows_8q_1pt",
+      "value": 57,
+      "unit": "windows",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 8 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Count of kept windows (8-quarter windows, drop >= 1.00 point)."
+    },
+    {
+      "id": "share_payment_fell_8q_1pt",
+      "value": 91.2,
+      "unit": "percent of windows",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 8 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Share of kept windows with payment change < 0, times 100, rounded to 0.1."
+    },
+    {
+      "id": "median_payment_change_8q_1pt",
+      "value": -9.6,
+      "unit": "percent",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 8 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median payment change over kept windows, times 100, rounded to 0.1."
+    },
+    {
+      "id": "median_offset_share_8q_1pt",
+      "value": 53.0,
+      "unit": "percent",
+      "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 8 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median offset share over kept windows, times 100, rounded to 0.1."
+    }
+  ],
+  "series": [
+    {
+      "id": "MORTGAGE30US",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+      "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+      "file": "data/MORTGAGE30US.csv",
+      "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-09-24",
+      "terms": {
+        "quote": "Copyrighted: Citation Required",
+        "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+      }
+    },
+    {
+      "id": "USSTHPI",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USSTHPI&coed=2026-04-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/USSTHPI",
+      "file": "data/USSTHPI.csv",
+      "sha256": "c02d4187c8c9836d4049fe2005ab34129326e7538d2cd923173c2839ca25df16",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-04-01",
+      "terms": {
+        "quote": "Public Domain: Citation Requested",
+        "url": "https://fred.stlouisfed.org/series/USSTHPI"
+      }
+    }
+  ],
+  "provisions": [],
+  "assumptions": [
+    "The home's price moves with the national all-transactions house price index; the loan is a fixed share of the price and is a 30-year fixed at the quarter's average survey rate.",
+    "Only principal and interest are compared; taxes, insurance and mortgage insurance are ignored.",
+    "Windows are selected on the rate drop that actually happened (hindsight); they describe what happened when rates fell, not the odds that rates fall.",
+    "Overlapping windows are counted separately, so they are not independent episodes."
+  ],
+  "limits": "History, not a forecast. Windows are chosen with hindsight and overlap, so the number of independent episodes is small. The national index smooths local markets where prices rose much faster (for example some metros in 2020-2021). Waiting also carries other costs and benefits (rent, savings growth) not measured here.",
+  "novelty": {
+    "queries": [
+      "when mortgage rates fall home prices rise offset savings monthly payment history data analysis",
+      "\"buy before rates drop\" prices will rise erase savings myth historical monthly payment",
+      "historical episodes mortgage rates fell one point monthly payment on typical home fell or rose house price index"
+    ],
+    "results": [
+      {
+        "query": "when mortgage rates fall home prices rise offset savings monthly payment history data analysis",
+        "top": [
+          {
+            "title": "Mortgage Rates Are Rising Again — and the Housing Market Is Feeling It",
+            "url": "https://www.kiplinger.com/personal-finance/mortgage-rates-are-rising-again-heres-what-it-means-for-buyers-and-refinancers"
+          },
+          {
+            "title": "Lower Interest Rates Fail to Offset Effects of High Home Prices | Joint Center for Housing Studies",
+            "url": "https://www.jchs.harvard.edu/blog/lower-interest-rates-fail-offset-effects-high-home-prices"
+          },
+          {
+            "title": "House prices & mortgages: Why do house prices fall when mortgage rates rise?",
+            "url": "https://www.clearscore.com/learn/mortgages/why-do-house-prices-fall-when-mortgage-rates-rise"
+          },
+          {
+            "title": "How Mortgage Rate Changes Affect Your Home Loan | Academy Bank",
+            "url": "https://www.academybank.com/article/how-mortgage-rate-changes-affect-your-home-loan"
+          },
+          {
+            "title": "Mortgage Calculator | Bankrate",
+            "url": "https://www.bankrate.com/mortgages/mortgage-calculator/"
+          },
+          {
+            "title": "Will Home Prices Keep Rising After the Rate Cut?",
+            "url": "https://www.midflorida.com/resources/insights-and-blogs/insights/mortgage/will-home-prices-keep-rising-after-the-rate-cut"
+          },
+          {
+            "title": "The impact of today’s interest rates on the housing market | U.S. Bank",
+            "url": "https://www.usbank.com/investing/financial-perspectives/investing-insights/interest-rates-impact-on-housing-market.html"
+          },
+          {
+            "title": "What Happens to Home Prices When Rates Drop - Potempa Team at CrossCountry Mortgage",
+            "url": "https://potempateam.com/what-happens-to-home-prices-when-rates-drop/"
+          },
+          {
+            "title": "What Rising Mortgage Rates Do to Home Prices (2026 Data)",
+            "url": "https://www.thecityceleb.com/editorial/what-rising-mortgage-rates-actually-do-to-home-prices-over-time/"
+          }
+        ]
+      },
+      {
+        "query": "\"buy before rates drop\" prices will rise erase savings myth historical monthly payment",
+        "top": [
+          {
+            "title": "Should You Wait for Rates to Drop Before Buying a Home? | The Federal Savings Bank",
+            "url": "https://www.thefederalsavingsbank.com/Blog/should-you-wait-for-rates-to-drop-before-buying-a-home/"
+          },
+          {
+            "title": "Should You Wait to Buy Until Rates Drop? Here’s What Experts Say",
+            "url": "https://www.crawfordwillisgroup.com/blog/should-you-wait-to-buy-until-rates-drop-heres-what-experts-say/"
+          },
+          {
+            "title": "5 Reasons You’ll Regret Waiting for Rates To Drop Before Buying a Home",
+            "url": "https://www.gobankingrates.com/home-loans/home-loans-advice/reasons-youll-regret-waiting-rates-drop-before-buying-home/"
+          },
+          {
+            "title": "Should You Wait For Mortgage Rates To Drop?",
+            "url": "https://fellowshiphomeloans.com/should-you-wait-for-mortgage-rates-to-drop-before-buying"
+          },
+          {
+            "title": "Should You Buy Down Your Rate or Wait for Rates to Drop? | Lower Mortgage",
+            "url": "https://www.lower.com/mortgages/should-you-buy-down-your-rate-or-wait-for-rates-to-drop"
+          },
+          {
+            "title": "Mortgage Money Myths: Should You Wait for Interest Rates to Drop Before Buying?",
+            "url": "https://www.dougisyourlender.com/mortgage-money-myths-should-you-wait-for-interest-rates-to-drop-before-buying/"
+          },
+          {
+            "title": "Should I Wait for Rates to Drop Before Buying a Home in California? - DiVita Home Finance, Inc",
+            "url": "https://mycahomeloan.com/should-i-wait-for-rates-to-drop-california/"
+          },
+          {
+            "title": "Should You Wait for Mortgage Rates to Drop? 2026 Buyer Guide",
+            "url": "https://www.kombrink.com/blog/should-you-wait-for-mortgage-rates-to-drop-2026-buyer-guide"
+          },
+          {
+            "title": "Waiting for Rates to Drop? What Else Could Change While You Wait?",
+            "url": "https://www.wesleystolsek.com/post/waiting-for-rates-to-drop-what-else-could-change-while-you-wait"
+          }
+        ]
+      },
+      {
+        "query": "historical episodes mortgage rates fell one point monthly payment on typical home fell or rose house price index",
+        "top": [
+          {
+            "title": "Historical Mortgage Rates: See Averages and Trends by Decade",
+            "url": "https://money.usnews.com/loans/mortgages/articles/historical-mortgage-rates"
+          },
+          {
+            "title": "Mortgage rate history: 1972 to 2026",
+            "url": "https://finance.yahoo.com/news/historical-mortgage-rate-trends-1970s-183910495.html"
+          },
+          {
+            "title": "Historical Mortgage Rates news | Mortgage Professional",
+            "url": "https://www.mpamag.com/us/glossary/historical-mortgage-rates/545144"
+          },
+          {
+            "title": "Mortgage Rate History: 1970s To 2026 | Bankrate",
+            "url": "https://www.bankrate.com/mortgages/historical-mortgage-rates/"
+          },
+          {
+            "title": "Mortgage Rate History | Chart & Trends Over Time",
+            "url": "https://themortgagereports.com/61853/30-year-mortgage-rates-chart"
+          },
+          {
+            "title": "Historical Mortgage Rates: Averages and Trends from the 1970s to 2022 - ValuePenguin",
+            "url": "https://www.valuepenguin.com/mortgages/historical-mortgage-rates"
+          },
+          {
+            "title": "7 Key Insights Into Historical Mortgage Rates: What 50+ Years of Data Reveals for 2026 Home Buyers",
+            "url": "https://www.amerisave.com/learn/key-insights-into-historical-mortgage-rates-what-years-of-data-reveals-for-home-buyers"
+          },
+          {
+            "title": "Historical mortgage rates: See how rates have changed over time",
+            "url": "https://finance.yahoo.com/personal-finance/mortgages/article/historical-mortgage-rates-164750874.html"
+          },
+          {
+            "title": "HISTORICAL MORTGAGE RATES 2023, 2024, 2025, 2026 - Long Forecast",
+            "url": "https://longforecast.com/mortgage-rates-history-30-year-15-year"
+          }
+        ]
+      }
+    ],
+    "verdict": "not-found",
+    "nearest": [
+      "https://www.jchs.harvard.edu/blog/lower-interest-rates-fail-offset-effects-high-home-prices",
+      "https://mycahomeloan.com/should-i-wait-for-rates-to-drop-california/"
+    ],
+    "note": "Results mostly repeat the claim that price rises cancel rate savings (one gives a California 2020 example); the Harvard JCHS post compares a rate cut with the cumulative price surge since 2020, a different question. No result tests, across all historical windows with a rate drop, whether national price gains cancelled the payment relief. Each query returned 9 results."
+  }
+}

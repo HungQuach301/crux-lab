@@ -1,0 +1,8 @@
+- purchase_months (760): all GS10 months 1953-04..2016-08 with maturity <= 2026-08 and CPI at both ends; only 2015-10 dropped (CPIAUCNS 2025-10 missing in the FRED file). Month arithmetic on YYYY-MM; s+120 compared as string <= "2026-08".
+- share_negative_pct (22.763): r<0 strictly; formula applied literally with GS10/200 semiannual compounding, 20 periods.
+- late_lowrate_months (30): 31 calendar months 2014-02..2016-08 minus 2015-10 (invalid).
+- late_lowrate_negative (30): strict r<0.
+- late_lowrate_worst_real_pct_per_year (-1.766): min r x100 in window.
+- late_lowrate_mean_real_pct_per_year (-0.860): simple arithmetic mean of r (not geometric), x100.
+- share_negative_since_2008_pct (51.456): valid months 2008-01..2016-08 (103 months), strict r<0.
+- worst_real_pct_per_year (-2.530): min over all valid months; occurs at purchase month 1971-11.

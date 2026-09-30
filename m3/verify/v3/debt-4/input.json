@@ -1,0 +1,82 @@
+{
+ "id": "debt-4",
+ "claim": "In daily locked-rate data on 30-year conforming mortgages from January 2017 to September 2026 (2,434 days), borrowers with credit scores of 740 or more who put down less than 20% (loan-to-value above 80) locked rates only 0.065 points higher on average than those putting down 20% or more, and the gap never exceeded 0.173 points. Holding the down payment at 20% or more, borrowers with scores below 680 locked 0.343 points higher than those at 740 or more, about 5.3 times the down-payment gap, and the credit gap was larger on 99.2% of days. On 2026-09-29 the three rates were 7.268%, 7.331% and 7.529%. The main price of a small down payment is mortgage insurance and a bigger balance, not the rate. This is history, not a forecast.",
+ "numbers": [
+  {
+   "id": "n_days",
+   "unit": "days",
+   "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Count of those dates."
+  },
+  {
+   "id": "mean_ltv_gap",
+   "unit": "percentage points",
+   "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Mean over those dates of (OBMMIC30YFLVGT80FGE740 - OBMMIC30YFLVLE80FGE740), rounded to 0.001."
+  },
+  {
+   "id": "max_ltv_gap",
+   "unit": "percentage points",
+   "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Maximum over those dates of (OBMMIC30YFLVGT80FGE740 - OBMMIC30YFLVLE80FGE740), rounded to 0.001."
+  },
+  {
+   "id": "mean_credit_gap",
+   "unit": "percentage points",
+   "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Mean over those dates of (OBMMIC30YFLVLE80FLT680 - OBMMIC30YFLVLE80FGE740), rounded to 0.001."
+  },
+  {
+   "id": "credit_to_ltv_ratio",
+   "unit": "ratio",
+   "definition": "Unrounded mean_credit_gap / unrounded mean_ltv_gap, rounded to 0.1."
+  },
+  {
+   "id": "share_days_credit_gap_gt_ltv_gap",
+   "unit": "percent of days",
+   "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Share of those dates where (LT680 - GE740, both LTV<=80) > (LTV>80 - LTV<=80, both FICO>=740), times 100, rounded to 0.1."
+  },
+  {
+   "id": "latest_le80_ge740",
+   "unit": "percent",
+   "definition": "OBMMIC30YFLVLE80FGE740 on 2026-09-29."
+  },
+  {
+   "id": "latest_gt80_ge740",
+   "unit": "percent",
+   "definition": "OBMMIC30YFLVGT80FGE740 on 2026-09-29."
+  },
+  {
+   "id": "latest_le80_lt680",
+   "unit": "percent",
+   "definition": "OBMMIC30YFLVLE80FLT680 on 2026-09-29."
+  }
+ ],
+ "assumptions": [
+  "Index averages of actual locks are used as the rate a typical borrower in each bucket receives; the buckets differ in other traits (points paid, loan size, lender mix) that the indices do not hold constant.",
+  "The comparison covers conforming 30-year fixed loans only; mortgage insurance premiums, which loans above 80 LTV generally require, are not in the rate and not measured here."
+ ],
+ "series": [
+  {
+   "id": "OBMMIC30YFLVLE80FGE740",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YFLVLE80FGE740&coed=2026-09-29",
+   "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FGE740",
+   "file": "data/OBMMIC30YFLVLE80FGE740.csv",
+   "lastObservation": "2026-09-29"
+  },
+  {
+   "id": "OBMMIC30YFLVGT80FGE740",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YFLVGT80FGE740&coed=2026-09-29",
+   "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YFLVGT80FGE740",
+   "file": "data/OBMMIC30YFLVGT80FGE740.csv",
+   "lastObservation": "2026-09-29"
+  },
+  {
+   "id": "OBMMIC30YFLVLE80FLT680",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YFLVLE80FLT680&coed=2026-09-29",
+   "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FLT680",
+   "file": "data/OBMMIC30YFLVLE80FLT680.csv",
+   "lastObservation": "2026-09-29"
+  }
+ ],
+ "provisions": []
+}

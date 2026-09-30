@@ -1,0 +1,106 @@
+{
+ "id": "retire-4",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "GS10",
+    "file": "data/GS10.csv",
+    "sha256": "e22128f6caa50e4e7fed03a1c2d323a517bad452a2c69eab89277450fb59bc5c",
+    "declared": "e22128f6caa50e4e7fed03a1c2d323a517bad452a2c69eab89277450fb59bc5c",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCNS",
+    "file": "data/CPIAUCNS.csv",
+    "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "declared": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "purchase_months",
+    "declared": 760,
+    "recomputed": 760,
+    "ok": true
+   },
+   {
+    "id": "share_negative_pct",
+    "declared": 22.76,
+    "recomputed": 22.76,
+    "ok": true
+   },
+   {
+    "id": "late_lowrate_months",
+    "declared": 30,
+    "recomputed": 30,
+    "ok": true
+   },
+   {
+    "id": "late_lowrate_negative",
+    "declared": 30,
+    "recomputed": 30,
+    "ok": true
+   },
+   {
+    "id": "late_lowrate_worst_real_pct_per_year",
+    "declared": -1.77,
+    "recomputed": -1.77,
+    "ok": true
+   },
+   {
+    "id": "late_lowrate_mean_real_pct_per_year",
+    "declared": -0.86,
+    "recomputed": -0.86,
+    "ok": true
+   },
+   {
+    "id": "share_negative_since_2008_pct",
+    "declared": 51.46,
+    "recomputed": 51.46,
+    "ok": true
+   },
+   {
+    "id": "worst_real_pct_per_year",
+    "declared": -2.53,
+    "recomputed": -2.53,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "GS10",
+    "page": "https://fred.stlouisfed.org/series/GS10",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/GS10",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCNS",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V1245": true
+}

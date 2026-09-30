@@ -1,0 +1,54 @@
+{
+ "id": "retire-4",
+ "items": [
+  {
+   "id": "purchase_months",
+   "declared": 760,
+   "recomputed": 760,
+   "ok": true
+  },
+  {
+   "id": "share_negative_pct",
+   "declared": 22.76,
+   "recomputed": 22.763157894736842,
+   "ok": true
+  },
+  {
+   "id": "late_lowrate_months",
+   "declared": 30,
+   "recomputed": 30,
+   "ok": true
+  },
+  {
+   "id": "late_lowrate_negative",
+   "declared": 30,
+   "recomputed": 30,
+   "ok": true
+  },
+  {
+   "id": "late_lowrate_worst_real_pct_per_year",
+   "declared": -1.77,
+   "recomputed": -1.7662455930609333,
+   "ok": true
+  },
+  {
+   "id": "late_lowrate_mean_real_pct_per_year",
+   "declared": -0.86,
+   "recomputed": -0.8596261222320378,
+   "ok": true
+  },
+  {
+   "id": "share_negative_since_2008_pct",
+   "declared": 51.46,
+   "recomputed": 51.45631067961165,
+   "ok": true
+  },
+  {
+   "id": "worst_real_pct_per_year",
+   "declared": -2.53,
+   "recomputed": -2.5299192858320385,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

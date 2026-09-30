@@ -1,0 +1,168 @@
+{
+ "id": "tax-6",
+ "claim": "Since 2018 federal tax amounts are adjusted with the chained CPI (C-CPI-U) instead of the regular CPI-U. For the tax year 2026 amounts, the statutory 12-month averages (September-August) show CPI-U up 33.76% from the 2016 window to the 2025 window but C-CPI-U up only 30.31%: amounts indexed from before 2017 (the 10% and 12% bracket limits, the earned income credit) are 2.648% lower than CPI-U indexing would give, and the upper bracket thresholds (2017 base) 2.308% lower - about 0.29 point a year. The 2026 joint 12% bracket ends at $100,800 instead of about $103,469. With the 2026 standard deduction unchanged, a married couple pays about $13 more at $100,000 AGI, $280 more at $200,000 (0.14% of AGI) and $378 more at $300,000. The maximum earned income credit for three or more children is $8,231 instead of about $8,449: a family earning $25,000 on the credit plateau gets about $218 less, 0.87% of its earnings - roughly 6 times the share lost by the $200,000 couple. Tax year 2026. Sources: 26 U.S.C. 1(f), 1(j)(3), 32(j); IRS IR-2025-103; FRED CPIAUCNS and SUUR0000SA0 (BLS).",
+ "numbers": [
+  {
+   "id": "cpiu_growth_2016_2025_pct",
+   "unit": "percent",
+   "definition": "100 x (A(CPIAUCNS, 2025) / A(CPIAUCNS, 2016) - 1), where A(series, y) = mean of the 12 monthly values Sep (y-1) through Aug (y)."
+  },
+  {
+   "id": "ccpiu_growth_2016_2025_pct",
+   "unit": "percent",
+   "definition": "Same with SUUR0000SA0 (chained CPI-U, not seasonally adjusted)."
+  },
+  {
+   "id": "gap_2016_base_pct",
+   "unit": "percent",
+   "definition": "100 x ([A(CPIAUCNS,2025)/A(CPIAUCNS,2016)] / [A(SUUR0000SA0,2025)/A(SUUR0000SA0,2016)] - 1) = g16."
+  },
+  {
+   "id": "gap_2017_base_pct",
+   "unit": "percent",
+   "definition": "Same with 2017 instead of 2016 = g17."
+  },
+  {
+   "id": "gap_per_year_pp",
+   "unit": "percentage points per year",
+   "definition": "100 x ((1 + g16)^(1/9) - 1)."
+  },
+  {
+   "id": "top12_mfj_under_cpiu_usd",
+   "unit": "USD",
+   "definition": "100800 x (1 + g16), rounded to the dollar (no $50 rounding)."
+  },
+  {
+   "id": "extra_tax_mfj_agi100k_usd",
+   "unit": "USD",
+   "definition": "Tax(T, actual 2026 joint schedule) - Tax(T, hypothetical schedule), T = AGI - 32,200 with AGI = 100,000. Actual: 10% to 24,800; 12% to 100,800; 22% to 211,400; 24% to 403,550; 32% to 512,450; 35% to 768,700; 37% above. Hypothetical: the 24,800 and 100,800 limits x (1 + g16); the 211,400, 403,550, 512,450 and 768,700 limits x (1 + g17); same rates; standard deduction unchanged."
+  },
+  {
+   "id": "extra_tax_mfj_agi200k_usd",
+   "unit": "USD",
+   "definition": "Same at AGI = 200,000."
+  },
+  {
+   "id": "extra_tax_mfj_agi300k_usd",
+   "unit": "USD",
+   "definition": "Same at AGI = 300,000."
+  },
+  {
+   "id": "eitc_max3_under_cpiu_usd",
+   "unit": "USD",
+   "definition": "8231 x (1 + g16), rounded to the dollar."
+  },
+  {
+   "id": "eitc_max3_shortfall_usd",
+   "unit": "USD",
+   "definition": "8231 x g16."
+  },
+  {
+   "id": "eitc_shortfall_share_of_25k_earnings_pct",
+   "unit": "percent",
+   "definition": "100 x 8231 x g16 / 25000."
+  },
+  {
+   "id": "extra_tax_share_of_agi200k_pct",
+   "unit": "percent",
+   "definition": "100 x extra_tax_mfj_agi200k_usd / 200000."
+  }
+ ],
+ "assumptions": [
+  "Tax year 2026 amounts are set from the Sep 2024-Aug 2025 averages; the counterfactual applies the same statutory windows and bases to CPI-U (the pre-2018 method).",
+  "FRED carries the latest (final) C-CPI-U values; the law uses values as published when the August initial value came out, so official amounts can differ by a few dollars (the formula reproduces the official 2026 amounts to within about $100 after rounding).",
+  "Counterfactual changes only bracket limits (and the earned income credit maximum); the 2026 standard deduction ($32,200) and $50 rounding are left as they are, so the household figures are a lower bound.",
+  "Households: married filing jointly, all income ordinary, standard deduction. Earned income credit family: three or more children, earnings on the plateau of the credit under both methods."
+ ],
+ "series": [
+  {
+   "id": "CPIAUCNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "file": "data/CPIAUCNS.csv",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.980"
+   }
+  },
+  {
+   "id": "SUUR0000SA0",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SUUR0000SA0&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/SUUR0000SA0",
+   "file": "data/SUUR0000SA0.csv",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "185.739"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 1(f)(3)(A) (cost-of-living adjustment uses C-CPI-U)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+   "quote": "the C-CPI-U for the preceding calendar year, exceeds (ii) the CPI for calendar year 2016, multiplied by the amount determined under subparagraph (B)."
+  },
+  {
+   "cite": "26 U.S.C. 1(f)(3)(B)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+   "quote": "the C-CPI-U for calendar year 2016, by (ii) the CPI for calendar year 2016."
+  },
+  {
+   "cite": "26 U.S.C. 1(f)(4) (CPI for a calendar year)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+   "quote": "the CPI for any calendar year is the average of the Consumer Price Index as of the close of the 12-month period ending on August 31 of such calendar year."
+  },
+  {
+   "cite": "26 U.S.C. 1(f)(6)(B) (C-CPI-U for a calendar year)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+   "quote": "The C-CPI-U for any calendar year is the average of the C-CPI-U as of the close of the 12-month period ending on August 31 of such calendar year."
+  },
+  {
+   "cite": "26 U.S.C. 1(j)(3)(B)(i) (2017 base for upper bracket thresholds)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+   "quote": "solely for purposes of determining the dollar amounts at which any rate bracket higher than 12 percent ends and at which any rate bracket higher than 22 percent begins"
+  },
+  {
+   "cite": "26 U.S.C. 32(j)(1) (earned income credit indexed through 1(f)(3))",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section32&num=0&edition=prelim",
+   "quote": "the cost-of-living adjustment determined under section 1(f)(3) for the calendar year in which the taxable year begins"
+  },
+  {
+   "cite": "IRS IR-2025-103 (2026 maximum earned income credit)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "The tax year 2026 maximum Earned Income Tax Credit (EITC) amount is $8,231 for qualifying taxpayers who have three or more qualifying children"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 standard deduction",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "For tax year 2026, the standard deduction increases to $32,200 for married couples filing jointly."
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 10%/12% brackets",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "12% for incomes over $12,400 ($24,800 for married couples filing jointly)."
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 22% bracket",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "22% for incomes over $50,400 ($100,800 for married couples filing jointly)"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 24% bracket",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "24% for incomes over $105,700 ($211,400 for married couples filing jointly)"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 32%/35% brackets",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "35% for incomes over $256,225 ($512,450 for married couples filing jointly); 32% for incomes over $201,775 ($403,550 for married couples filing jointly)"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 37% bracket",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "the top tax rate remains 37% for individual single taxpayers with incomes greater than $640,600 ($768,700 for married couples filing jointly)"
+  }
+ ]
+}

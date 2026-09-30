@@ -1,0 +1,91 @@
+{
+ "id": "debt-7",
+ "claim": "A common argument for buying before rates fall is that lower rates will push prices up and erase the savings. In national data since 1975, in every one of the 27 four-quarter windows in which the average 30-year rate fell by at least a full point, the monthly principal-and-interest payment on a home that tracked the national price index still fell, by a median of 8.2%; national price gains offset a median 38.7% of the rate relief. With smaller drops of at least half a point, the payment fell in 96.9% of 65 windows (median -5.6%), and over two-year windows with a full-point drop it fell in 91.2% of 57 windows (median -9.6%, median offset 53.0%). Rate drops cannot be known in advance, and local prices can behave very differently; this is history, not a forecast.",
+ "numbers": [
+  {
+   "id": "n_windows_4q_1pt",
+   "unit": "windows",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Count of kept windows (4-quarter windows, drop >= 1.00 point)."
+  },
+  {
+   "id": "share_payment_fell_4q_1pt",
+   "unit": "percent of windows",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Share of kept windows with payment change < 0, times 100, rounded to 0.1."
+  },
+  {
+   "id": "median_payment_change_4q_1pt",
+   "unit": "percent",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median payment change over kept windows, times 100, rounded to 0.1."
+  },
+  {
+   "id": "median_offset_share_4q_1pt",
+   "unit": "percent",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median offset share over kept windows, times 100, rounded to 0.1."
+  },
+  {
+   "id": "n_windows_4q_halfpt",
+   "unit": "windows",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 0.50 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Count of kept windows (4-quarter windows, drop >= 0.50 point)."
+  },
+  {
+   "id": "share_payment_fell_4q_halfpt",
+   "unit": "percent of windows",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 0.50 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Share of kept windows with payment change < 0, times 100, rounded to 0.1."
+  },
+  {
+   "id": "median_payment_change_4q_halfpt",
+   "unit": "percent",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 0.50 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median payment change over kept windows, times 100, rounded to 0.1."
+  },
+  {
+   "id": "median_offset_share_4q_halfpt",
+   "unit": "percent",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 4 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 0.50 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median offset share over kept windows, times 100, rounded to 0.1."
+  },
+  {
+   "id": "n_windows_8q_1pt",
+   "unit": "windows",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 8 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Count of kept windows (8-quarter windows, drop >= 1.00 point)."
+  },
+  {
+   "id": "share_payment_fell_8q_1pt",
+   "unit": "percent of windows",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 8 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Share of kept windows with payment change < 0, times 100, rounded to 0.1."
+  },
+  {
+   "id": "median_payment_change_8q_1pt",
+   "unit": "percent",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 8 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median payment change over kept windows, times 100, rounded to 0.1."
+  },
+  {
+   "id": "median_offset_share_8q_1pt",
+   "unit": "percent",
+   "definition": "Quarterly windows: USSTHPI (FHFA all-transactions house price index, quarterly, NSA, first quarter 1975Q1, last 2026Q2; a date's quarter = its month mapped to Q1-Q4) and MORTGAGE30US weekly; r(q) = arithmetic mean of the weekly MORTGAGE30US values dated in quarter q. For each start quarter q0 with q1 = q0 + 8 quarters inside the HPI data, keep the window if r(q0) - r(q1) >= 1.00 (1e-9 tolerance). Payment factor f(r) = i/(1-(1+i)^-360), i = r/1200 (30-year fixed, loan proportional to price). Payment change = HPI(q1)*f(r(q1)) / (HPI(q0)*f(r(q0))) - 1. Rate relief = 1 - f(r(q1))/f(r(q0)). Offset share = (HPI(q1)/HPI(q0) - 1) / rate relief. Windows overlap. Median offset share over kept windows, times 100, rounded to 0.1."
+  }
+ ],
+ "assumptions": [
+  "The home's price moves with the national all-transactions house price index; the loan is a fixed share of the price and is a 30-year fixed at the quarter's average survey rate.",
+  "Only principal and interest are compared; taxes, insurance and mortgage insurance are ignored.",
+  "Windows are selected on the rate drop that actually happened (hindsight); they describe what happened when rates fell, not the odds that rates fall.",
+  "Overlapping windows are counted separately, so they are not independent episodes."
+ ],
+ "series": [
+  {
+   "id": "MORTGAGE30US",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "file": "data/MORTGAGE30US.csv",
+   "lastObservation": "2026-09-24"
+  },
+  {
+   "id": "USSTHPI",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USSTHPI&coed=2026-04-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/USSTHPI",
+   "file": "data/USSTHPI.csv",
+   "lastObservation": "2026-04-01"
+  }
+ ],
+ "provisions": []
+}

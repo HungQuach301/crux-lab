@@ -1,0 +1,230 @@
+{
+  "id": "retire-3",
+  "pillar": "retire",
+  "card": {
+    "thesis": "In every retirement-length stretch since the postwar years, a pension without cost-of-living raises lost a large share of its buying power, even during the calmest inflation periods.",
+    "overturns": "\"In a low-inflation era, a pension without cost-of-living raises holds its value well.\""
+  },
+  "claim": "Across all 655 overlapping 25-year windows starting each month from January 1947 (the last ending August 2026), a pension paying a fixed dollar amount lost at least 40.64% of its purchasing power; that best case is the window starting May 1995 (start code 199505), which spans the low-inflation years of the late 1990s and 2010s. The median 25-year loss was 57.87%, the worst 76.37%, and 70.99% of windows lost more than half. Over 30-year windows the smallest loss was 48.54% (median 71.85%). Even the calmest stretch of US inflation since the war left a no-raise pension buying about 40% less by its 25th year.",
+  "numbers": [
+    {
+      "id": "windows_25y",
+      "value": 655,
+      "unit": "windows",
+      "definition": "Count of start months s from 1947-01 onward with s+300 months <= 2026-08 and CPIAUCNS present at both s and s+300 (CPIAUCNS = CPI-U all items, NSA, monthly; 2025-10 has no value, so the window starting 2000-10 is dropped)."
+    },
+    {
+      "id": "min_loss_25y_pct",
+      "value": 40.64,
+      "unit": "percent",
+      "definition": "Minimum over those windows of (1 - CPIAUCNS(s)/CPIAUCNS(s+300 months)) x 100: purchasing power lost by a fixed nominal payment after 25 years."
+    },
+    {
+      "id": "min_loss_25y_start_yyyymm",
+      "value": 199505,
+      "unit": "yyyymm",
+      "definition": "Start month s of the window with the minimum 25-year loss, written as year*100+month."
+    },
+    {
+      "id": "median_loss_25y_pct",
+      "value": 57.87,
+      "unit": "percent",
+      "definition": "Median (statistics.median, mean of the two middle values if even count) of the 25-year losses x 100."
+    },
+    {
+      "id": "max_loss_25y_pct",
+      "value": 76.37,
+      "unit": "percent",
+      "definition": "Maximum of the 25-year losses x 100."
+    },
+    {
+      "id": "share_25y_over_half_pct",
+      "value": 70.99,
+      "unit": "percent",
+      "definition": "Share of 25-year windows whose loss exceeds 0.5, x 100."
+    },
+    {
+      "id": "min_loss_30y_pct",
+      "value": 48.54,
+      "unit": "percent",
+      "definition": "Same as min_loss_25y_pct with 360-month windows (start 1947-01 to 1996-08, windows with a missing endpoint dropped)."
+    },
+    {
+      "id": "median_loss_30y_pct",
+      "value": 71.85,
+      "unit": "percent",
+      "definition": "Median of the 30-year losses x 100."
+    }
+  ],
+  "series": [
+    {
+      "id": "CPIAUCNS",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+      "file": "data/CPIAUCNS.csv",
+      "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-08-01",
+      "terms": {
+        "quote": "Notes: Handbook of Methods Understanding the CPI: Frequently Asked Questions",
+        "url": "https://fred.stlouisfed.org/series/CPIAUCNS",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    }
+  ],
+  "provisions": [],
+  "assumptions": [
+    "A fixed pension pays the same nominal amount every month with no cost-of-living adjustment; purchasing power is measured with CPI-U (all items, NSA).",
+    "Windows start every month and overlap; loss compares the price level in the first month of payment with the price level 25 (or 30) years later.",
+    "Missing CPI month (October 2025) is not interpolated; any window with that month as an endpoint is dropped."
+  ],
+  "limits": "History, not a forecast. CPI-U measures an average urban basket, not any one retiree's spending. Overlapping windows are not independent, so the share of windows is descriptive, not a probability. Pensions with partial or capped raises fall between this case and full indexing.",
+  "novelty": {
+    "queries": [
+      "fixed pension purchasing power lost over 25 years every period since 1947 inflation",
+      "pension without COLA lowest inflation 25-year period still lost 40% purchasing power",
+      "non-COLA annuity inflation erosion historical worst and best 30 year retirement"
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://www.aol.com/articles/uncomfortable-math-4-200-month-163914000.html",
+      "https://www.maxifi.com/blog/how-inflation-affects-your-retirement-income-over-30-years",
+      "https://equable.org/wp-content/uploads/2023/06/Fact-Sheet_Public-Pensions-and-Inflation_06092023-1.pdf"
+    ],
+    "note": "Inflation erosion of no-COLA pensions is widely explained with assumed constant rates (2-3%). Not found: the full distribution of actual 25/30-year windows since 1947, and the point that even the best (lowest-inflation) window still lost about 40%.",
+    "results": [
+      {
+        "query": "fixed pension purchasing power lost over 25 years every period since 1947 inflation",
+        "top": [
+          {
+            "title": "How Inflation Impacts Pension Plans in Retirement | Wealth Enhancement",
+            "url": "https://www.wealthenhancement.com/blog/how-inflation-impacts-pension-plans-in-retirement"
+          },
+          {
+            "title": "Pension Inflation Calculator | Watch Purchasing Power Erode",
+            "url": "https://www.insurancegeek.com/retirement/pension-inflation-impact-calculator/"
+          },
+          {
+            "title": "How to Plan for Inflation in Retirement | Colorado PERA",
+            "url": "https://copera.org/how-to-plan-for-inflation-in-retirement"
+          },
+          {
+            "title": "Distributional effects",
+            "url": "https://en.wikipedia.org/wiki/Distributional_effects"
+          },
+          {
+            "title": "1. INFLATION HAS ERODED THE VALUE OF BENEFITS FOR ...",
+            "url": "https://equable.org/wp-content/uploads/2023/06/Fact-Sheet_Public-Pensions-and-Inflation_06092023-1.pdf"
+          },
+          {
+            "title": "Inflation protection - CalSTRS",
+            "url": "http://www.calstrs.com/inflation-protection"
+          },
+          {
+            "title": "How inflation impacts retirement savings and investments",
+            "url": "https://www.blackrock.com/us/individual/education/retirement/inflation-retirement-impact"
+          },
+          {
+            "title": "Inflation has profound impact on purchasing power and retirement planning",
+            "url": "https://allianceam.com/expenses/inflation-impact-purchasing-power-retirement-planning"
+          },
+          {
+            "title": "Value of 1947 dollars today | Inflation Calculator",
+            "url": "https://www.in2013dollars.com/us/inflation/1947"
+          },
+          {
+            "title": "Deflated Pensions",
+            "url": "https://www.goodreads.com/author_blog_posts/21771812-deflated-pensions?tab=author"
+          }
+        ]
+      },
+      {
+        "query": "pension without COLA lowest inflation 25-year period still lost 40% purchasing power",
+        "top": [
+          {
+            "title": "You may have heard some talk recently about the COLA",
+            "url": "https://www.nirsonline.org/wp-content/uploads/2017/11/2014_pension_education_toolkit_full.pdf"
+          },
+          {
+            "title": "How Inflation Impacts Pension Plans in Retirement | Wealth Enhancement",
+            "url": "https://www.wealthenhancement.com/blog/how-inflation-impacts-pension-plans-in-retirement"
+          },
+          {
+            "title": "Uncomfortable Math: A $4,200-a-Month Pension With No COLA Buys $2,300 Worth of Living by Age 85 - AOL",
+            "url": "https://www.aol.com/articles/uncomfortable-math-4-200-month-163914000.html"
+          },
+          {
+            "title": "Does Your FERS Pension Keep Up With Inflation? The Truth About COLAs and Purchasing Power",
+            "url": "https://federalbenefitsexchange.com/blog/inflation-vs-federal-pension-fers-retirement/"
+          },
+          {
+            "title": "Addressing Inflation in the Design of Defined Benefit Pension Plans",
+            "url": "https://www.nasra.org/Files/Topical%20Reports/Cost-of-Living%20Adjustments/Addressing%20Inflation%20in%20the%20Design%20of%20Defined%20Benefit%20Pension%20Plans.pdf"
+          },
+          {
+            "title": "Pension Inflation Calculator | Watch Purchasing Power Erode",
+            "url": "https://www.insurancegeek.com/retirement/pension-inflation-impact-calculator/"
+          },
+          {
+            "title": "Inflation and COLA Pension Calculator – Present Value Pension Calculator",
+            "url": "https://valueyourpension.com/inflation-cola-pension-calculator/"
+          },
+          {
+            "title": "Fact Check: Are FERS Pensions Inflation-Protected? The Answer Depends on These Numbers - securitypension.com",
+            "url": "https://securitypension.com/fact-check-are-fers-pensions-inflation-protected-the-answer-depends-on-these-numbers/"
+          },
+          {
+            "title": "Deflated Pensions",
+            "url": "https://www.goodreads.com/author_blog_posts/21771812-deflated-pensions?tab=author"
+          }
+        ]
+      },
+      {
+        "query": "non-COLA annuity inflation erosion historical worst and best 30 year retirement",
+        "top": [
+          {
+            "title": "Protecting A Non-COLA's Pension From Inflation - Bogleheads.org",
+            "url": "https://www.bogleheads.org/forum/viewtopic.php?t=452105"
+          },
+          {
+            "title": "How Inflation Affects Your Retirement Income Over 30 Years",
+            "url": "https://www.maxifi.com/blog/how-inflation-affects-your-retirement-income-over-30-years"
+          },
+          {
+            "title": "Retirement spend-down",
+            "url": "https://en.wikipedia.org/wiki/Retirement_spend-down"
+          },
+          {
+            "title": "Inflation Protected Annuity Options: How to Keep Rising Prices From Eating Your Retirement Income - Annuity Gator",
+            "url": "https://www.annuitygator.com/annuity/inflation-protected-annuity-options-how-to-keep-rising-prices-from-eating-your-retirement-income"
+          },
+          {
+            "title": "How Does Inflation Affect Retirement Income and Savings?",
+            "url": "https://randallwealthgroup.com/how-does-inflation-affect-retirement/"
+          },
+          {
+            "title": "How a Fixed Index Annuity Guarantees Inflation-Protected Income in Retirement | ImmediateAnnuities.com",
+            "url": "https://www.immediateannuities.com/fixed-index-annuities/how-fia-guarantees-inflation-protection.html"
+          },
+          {
+            "title": "Beating Inflation in Retirement | Madison Partners",
+            "url": "https://www.themadisonpartners.com/beating-inflation-in-retirement/"
+          },
+          {
+            "title": "How Inflation Impacts Pension Plans in Retirement | Wealth Enhancement",
+            "url": "https://www.wealthenhancement.com/blog/how-inflation-impacts-pension-plans-in-retirement"
+          },
+          {
+            "title": "Income Annuities and Inflation: Are There Cost-of-Living Adjustments? | ImmediateAnnuities.com",
+            "url": "https://www.immediateannuities.com/immediate-annuities/annuities-and-cost-of-living-adjustments.html"
+          },
+          {
+            "title": "William Bengen",
+            "url": "https://en.wikipedia.org/wiki/William_Bengen"
+          }
+        ]
+      }
+    ]
+  }
+}

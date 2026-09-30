@@ -1,0 +1,240 @@
+{
+ "id": "tax-6",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "file": "data/CPIAUCNS.csv",
+    "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "declared": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "SUUR0000SA0",
+    "file": "data/SUUR0000SA0.csv",
+    "sha256": "69273ff3461dc49019e02991439867572aa04ceafb521b2ac969adcd1935395b",
+    "declared": "69273ff3461dc49019e02991439867572aa04ceafb521b2ac969adcd1935395b",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "cpiu_growth_2016_2025_pct",
+    "declared": 33.76,
+    "recomputed": 33.76,
+    "ok": true
+   },
+   {
+    "id": "ccpiu_growth_2016_2025_pct",
+    "declared": 30.31,
+    "recomputed": 30.31,
+    "ok": true
+   },
+   {
+    "id": "gap_2016_base_pct",
+    "declared": 2.648,
+    "recomputed": 2.648,
+    "ok": true
+   },
+   {
+    "id": "gap_2017_base_pct",
+    "declared": 2.308,
+    "recomputed": 2.308,
+    "ok": true
+   },
+   {
+    "id": "gap_per_year_pp",
+    "declared": 0.291,
+    "recomputed": 0.291,
+    "ok": true
+   },
+   {
+    "id": "top12_mfj_under_cpiu_usd",
+    "declared": 103469.0,
+    "recomputed": 103469.0,
+    "ok": true
+   },
+   {
+    "id": "extra_tax_mfj_agi100k_usd",
+    "declared": 13.13,
+    "recomputed": 13.13,
+    "ok": true
+   },
+   {
+    "id": "extra_tax_mfj_agi200k_usd",
+    "declared": 280.01,
+    "recomputed": 280.01,
+    "ok": true
+   },
+   {
+    "id": "extra_tax_mfj_agi300k_usd",
+    "declared": 377.58,
+    "recomputed": 377.58,
+    "ok": true
+   },
+   {
+    "id": "eitc_max3_under_cpiu_usd",
+    "declared": 8449.0,
+    "recomputed": 8449.0,
+    "ok": true
+   },
+   {
+    "id": "eitc_max3_shortfall_usd",
+    "declared": 217.92,
+    "recomputed": 217.92,
+    "ok": true
+   },
+   {
+    "id": "eitc_shortfall_share_of_25k_earnings_pct",
+    "declared": 0.872,
+    "recomputed": 0.872,
+    "ok": true
+   },
+   {
+    "id": "extra_tax_share_of_agi200k_pct",
+    "declared": 0.14,
+    "recomputed": 0.14,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "SUUR0000SA0",
+    "page": "https://fred.stlouisfed.org/series/SUUR0000SA0",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/SUUR0000SA0",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 1(f)(3)(A) (cost-of-living adjustment uses C-CPI-U)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 1(f)(3)(B)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 1(f)(4) (CPI for a calendar year)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 1(f)(6)(B) (C-CPI-U for a calendar year)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 1(j)(3)(B)(i) (2017 base for upper bracket thresholds)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 32(j)(1) (earned income credit indexed through 1(f)(3))",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section32&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103 (2026 maximum earned income credit)",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 standard deduction",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 10%/12% brackets",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 22% bracket",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 24% bracket",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 32%/35% brackets",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 37% bracket",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V1245": true
+}

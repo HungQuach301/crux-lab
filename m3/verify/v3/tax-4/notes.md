@@ -1,0 +1,12 @@
+# tax-4 recalculation notes
+- loan_rate_pct: last non-empty row of downloaded FRED CSV (2026-05-01 = 7.14); 2026-03/04 rows are blank and skipped.
+- total_interest_per_10k_usd: standard amortization, interest = balance*i each month, unrounded (no cent rounding of payment/interest).
+- deductible_share_start2026: sum of interest in payments 1-36 / total interest.
+- deductible_share_start2027: payments 1-24 / total.
+- deductible_share_start2028: payments 1-12 / total.
+- tax_saving_per_10k_12pct_start2026_usd: 0.12 x interest in payments 1-36; no discounting, no cap/phase-out binding (per assumptions).
+- equiv_rate_12pct_start2026_pct: bisection on r in [0, loan_rate] until total interest(r) = total - 0.12*deductible(1-36).
+- equiv_rate_22pct_start2026_pct: same with 0.22.
+- equiv_rate_12pct_start2028_pct: same with 0.12, deductible = payments 1-12.
+- equiv_rate_22pct_start2028_pct: same with 0.22, payments 1-12.
+- Provisions: no tax parameters needed for the arithmetic (brackets 12%/22% given in definitions); statute text not fetched.

@@ -1,0 +1,11 @@
+# debt-3 recalculation notes
+- n_months: 44 = count of dates with both series non-blank, 2015-08-01..2026-05-01 (inner join, capped at 2026-05-01). No ambiguity.
+- mean_premium_72_vs_60: 0.097 (unrounded 0.097273); simple arithmetic mean of 72m-60m over the 44 dates.
+- share_months_72_le_60: 34.1; comparison done on integer hundredths (round(x*100)) to avoid float error; 15/44.
+- max_premium: 0.52; max of raw difference, rounded to 0.01.
+- latest_r60: 7.14 (value dated 2026-05-01).
+- latest_r72: 6.97 (value dated 2026-05-01).
+- term_effect_30k: 1210; formula as given, r=7.14 literal (equals latest_r60).
+- rate_effect_30k: 101; m = unrounded mean premium (0.0972727...).
+- rate_share_of_extra_interest: 7.7; computed from unrounded term/rate effects.
+- Extra keys prefixed "_" in result.json are diagnostics, not number ids.

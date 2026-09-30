@@ -1,0 +1,112 @@
+{
+ "id": "debt-3",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "RIFLPBCIANM60NM",
+    "file": "data/RIFLPBCIANM60NM.csv",
+    "sha256": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+    "declared": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "RIFLPBCIANM72NM",
+    "file": "data/RIFLPBCIANM72NM.csv",
+    "sha256": "c7a55f78428a3054acf9400d6bbfa5ccc2b0b9bb26f5e96d65f0a14d29d0a7d7",
+    "declared": "c7a55f78428a3054acf9400d6bbfa5ccc2b0b9bb26f5e96d65f0a14d29d0a7d7",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "n_months",
+    "declared": 44,
+    "recomputed": 44,
+    "ok": true
+   },
+   {
+    "id": "mean_premium_72_vs_60",
+    "declared": 0.097,
+    "recomputed": 0.097,
+    "ok": true
+   },
+   {
+    "id": "share_months_72_le_60",
+    "declared": 34.1,
+    "recomputed": 34.1,
+    "ok": true
+   },
+   {
+    "id": "max_premium",
+    "declared": 0.52,
+    "recomputed": 0.52,
+    "ok": true
+   },
+   {
+    "id": "latest_r60",
+    "declared": 7.14,
+    "recomputed": 7.14,
+    "ok": true
+   },
+   {
+    "id": "latest_r72",
+    "declared": 6.97,
+    "recomputed": 6.97,
+    "ok": true
+   },
+   {
+    "id": "term_effect_30k",
+    "declared": 1210,
+    "recomputed": 1210,
+    "ok": true
+   },
+   {
+    "id": "rate_effect_30k",
+    "declared": 101,
+    "recomputed": 101,
+    "ok": true
+   },
+   {
+    "id": "rate_share_of_extra_interest",
+    "declared": 7.7,
+    "recomputed": 7.7,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "RIFLPBCIANM60NM",
+    "page": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "RIFLPBCIANM72NM",
+    "page": "https://fred.stlouisfed.org/series/RIFLPBCIANM72NM",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/RIFLPBCIANM72NM",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V1245": true
+}

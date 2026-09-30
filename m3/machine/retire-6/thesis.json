@@ -1,0 +1,249 @@
+{
+  "id": "retire-6",
+  "pillar": "retire",
+  "card": {
+    "thesis": "Living only on interest from safe short-term government bills left retirees exposed to sudden income collapses that lasted years, even though their principal never shrank.",
+    "overturns": "\"Never touching principal and living on interest alone gives retirees a stable, safe income.\""
+  },
+  "claim": "A retiree who keeps savings in 3-month Treasury bills and spends only the interest has a principal that never falls, but an income that tracks the bill rate. The average bill yield fell from 4.353% in 2007 to 0.15% in 2009, cutting that income by 96.6%, and stayed below 0.25% for 7 straight years (2009-2015). It happened again from 2019 (2.061%) to 2021 (0.044%), a 97.9% cut, before recovering to 4.967% in 2024. Across 90 starting years from 1934 to 2023, interest income fell by more than half within two years 15 times, and in 14 of 92 calendar years it was below 0.25% of principal.",
+  "numbers": [
+    {
+      "id": "yield_2007_pct",
+      "value": 4.353,
+      "unit": "percent",
+      "definition": "Mean of the 12 monthly values of TB3MS (3-month Treasury bill secondary market rate, discount basis, percent, monthly) in calendar 2007."
+    },
+    {
+      "id": "yield_2009_pct",
+      "value": 0.15,
+      "unit": "percent",
+      "definition": "Mean of the 12 monthly TB3MS values in 2009."
+    },
+    {
+      "id": "income_drop_2007_2009_pct",
+      "value": 96.6,
+      "unit": "percent",
+      "definition": "(1 - yield_2009/yield_2007) x 100 using unrounded annual means: fall in interest income on a fixed principal."
+    },
+    {
+      "id": "yield_2019_pct",
+      "value": 2.061,
+      "unit": "percent",
+      "definition": "Mean of the 12 monthly TB3MS values in 2019."
+    },
+    {
+      "id": "yield_2021_pct",
+      "value": 0.044,
+      "unit": "percent",
+      "definition": "Mean of the 12 monthly TB3MS values in 2021."
+    },
+    {
+      "id": "income_drop_2019_2021_pct",
+      "value": 97.9,
+      "unit": "percent",
+      "definition": "(1 - yield_2021/yield_2019) x 100 using unrounded annual means."
+    },
+    {
+      "id": "years_below_quarter_point_2009_2015",
+      "value": 7,
+      "unit": "years",
+      "definition": "Number of calendar years 2009..2015 whose annual mean TB3MS is below 0.25."
+    },
+    {
+      "id": "years_below_quarter_point_all",
+      "value": 14,
+      "unit": "years",
+      "definition": "Number of complete calendar years 1934..2025 (all 12 months present) whose annual mean TB3MS is below 0.25."
+    },
+    {
+      "id": "years_in_sample",
+      "value": 92,
+      "unit": "years",
+      "definition": "Number of complete calendar years 1934..2025 in TB3MS."
+    },
+    {
+      "id": "eligible_start_years",
+      "value": 90,
+      "unit": "years",
+      "definition": "Complete years y for which years y+1 and y+2 are also complete (1934..2023)."
+    },
+    {
+      "id": "years_income_halved_within_two",
+      "value": 15,
+      "unit": "years",
+      "definition": "Count of eligible years y where min(annual mean y+1, annual mean y+2) < 0.5 x annual mean y."
+    },
+    {
+      "id": "yield_2024_pct",
+      "value": 4.967,
+      "unit": "percent",
+      "definition": "Mean of the 12 monthly TB3MS values in 2024."
+    }
+  ],
+  "series": [
+    {
+      "id": "TB3MS",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+      "file": "data/TB3MS.csv",
+      "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-08-01",
+      "terms": {
+        "quote": "Notes: Averages of Business Days, Discount Basis For questions on the data, please contact the data source . For questions on FRED functionality, please contact us here .",
+        "url": "https://fred.stlouisfed.org/series/TB3MS",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    }
+  ],
+  "provisions": [],
+  "assumptions": [
+    "Interest income on a fixed principal is proportional to the annual average 3-month bill yield (bills rolled continuously; discount-basis yield used as quoted).",
+    "No taxes, no inflation adjustment (the comparison is of nominal income on unchanged principal), no reinvestment of interest."
+  ],
+  "limits": "History, not a forecast. Bank CDs and money-market funds follow bill rates with lags and spreads, so their income swings differ in timing but not in direction. Longer-term bonds lock income for longer but expose principal to price changes. Inflation would make real income swings larger in some periods.",
+  "novelty": {
+    "queries": [
+      "living off interest in retirement income fell 2008 2009 T-bill CD rates collapse retirees",
+      "never touch principal live on interest only retirement strategy risk income volatility history",
+      "treasury bill interest income dropped 97% 2007 to 2009 retirees savers"
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://knowledge.wharton.upenn.edu/podcast/knowledge-at-wharton-podcast/why-low-interest-rates-hurt-retirees/",
+      "https://smartasset.com/retirement/living-off-interest",
+      "https://evolvemyretirement.com/blog/never-touch-the-principal/"
+    ],
+    "note": "That low rates hurt savers after 2008 and that interest-only income can vary is said in general terms. Not found: the measured size (income down about 97% in two years, twice since 2007) or the long-run count of how often bill income halved within two years since 1934.",
+    "results": [
+      {
+        "query": "living off interest in retirement income fell 2008 2009 T-bill CD rates collapse retirees",
+        "top": [
+          {
+            "title": "Retirement in 2008",
+            "url": "https://www.raymondjames.com/wrightselwm/resources/insights-and-commentary/2026/02/26/retirement-in-2008"
+          },
+          {
+            "title": "Getting through a 2008-like crash during retirement - Bogleheads.org",
+            "url": "https://www.bogleheads.org/forum/viewtopic.php?t=279386"
+          },
+          {
+            "title": "Why Low Interest Rates Hurt Retirees - Knowledge at Wharton",
+            "url": "https://knowledge.wharton.upenn.edu/podcast/knowledge-at-wharton-podcast/why-low-interest-rates-hurt-retirees/"
+          },
+          {
+            "title": "Pensions During the Crisis: Impact on Retirement Income Systems and Policy Responses",
+            "url": "https://link.springer.com/article/10.1057/gpp.2009.25"
+          },
+          {
+            "title": "These retirement funds took a beating in 2008 it could happen again",
+            "url": "https://www.cnbc.com/2018/09/13/these-retirement-funds-took-a-beating-in-2008-it-could-happen-again.html"
+          },
+          {
+            "title": "5 Retirement Lessons Learned From the Great Recession | Kiplinger",
+            "url": "https://www.kiplinger.com/slideshow/retirement/t047-s004-5-retirement-lessons-learned-from-great-recession/index.html"
+          },
+          {
+            "title": "The impact of the recent financial crisis on 401(k) account balances - PubMed",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/19361015/"
+          },
+          {
+            "title": "The Effects of the Great Recession on the Retirement Security ...",
+            "url": "https://crr.bc.edu/wp-content/uploads/2020/04/The-Effects-of-the-Great-Recession-on-the-Retirement-Security-of-Older-Workers.pdf"
+          },
+          {
+            "title": "are savers bailing out banks",
+            "url": "https://www.fool.com/personal-finance/saving/2008/01/25/are-savers-bailing-out-banks.aspx"
+          }
+        ]
+      },
+      {
+        "query": "never touch principal live on interest only retirement strategy risk income volatility history",
+        "top": [
+          {
+            "title": "How Much Do I Need for an Interest-Only Retirement?",
+            "url": "https://smartasset.com/retirement/living-off-interest"
+          },
+          {
+            "title": "The Ideal Withdrawal Rate For Retirement Does Not Touch Principal",
+            "url": "https://www.financialsamurai.com/the-ideal-withdrawal-rate-for-retirement-doesnt-touch-principal/"
+          },
+          {
+            "title": "How to live off investment interest in retirement | MassMutual",
+            "url": "https://blog.massmutual.com/retiring-investing/interest-only-retirement"
+          },
+          {
+            "title": "How To Create An Interest-Only Retirement Plan",
+            "url": "https://tenetwealthpartners.com/retirement-planning/how-to-create-an-interest-only-retirement-plan/"
+          },
+          {
+            "title": "How To Live Off Interest: Best Strategies | GOBankingRates",
+            "url": "https://www.gobankingrates.com/retirement/income-and-withdrawals/how-to-live-off-interest/"
+          },
+          {
+            "title": "How to Live Off Interest in Retirement: What You Need in 2026",
+            "url": "https://bogartwealth.com/how-to-live-off-interest/"
+          },
+          {
+            "title": "How Do You Live Off Interest, Without Eroding Principal? The Untouchable Nest Egg - YouTube",
+            "url": "https://www.youtube.com/watch?v=Auuwf3pS0g4"
+          },
+          {
+            "title": "How Do You Live Off Interest, Without Eroding Principal?",
+            "url": "https://wiserinvestor.com/how-do-you-live-off-interest-without-eroding-principal-the-untouchable-nest-egg/"
+          },
+          {
+            "title": "Never Touch The Principal? - EvolveMyRetirement",
+            "url": "https://evolvemyretirement.com/blog/never-touch-the-principal/"
+          },
+          {
+            "title": "We're in our 50s with $3.4 million saved for retirement – is it realistic that we can live off of just the interest?",
+            "url": "https://finance.yahoo.com/news/50s-3-4-million-saved-235535179.html"
+          }
+        ]
+      },
+      {
+        "query": "treasury bill interest income dropped 97% 2007 to 2009 retirees savers",
+        "top": [
+          {
+            "title": "Full speed ahead, stuck in neutral",
+            "url": "https://www.lmtribune.com/business/full-speed-ahead-stuck-in-neutral-2b17d932"
+          },
+          {
+            "title": "Low interest rates putting lid on earnings, hurting recovery",
+            "url": "https://tucson.com/business/article_27609980-e7f3-5793-a84d-45bf8f1a465c.html"
+          },
+          {
+            "title": "How Did the Recession of 2007–2009 Affect the Wealth and Retirement of the Near Retirement Age Population in the Health and Retirement Study?",
+            "url": "https://www.ssa.gov/policy/docs/ssb/v72n4/v72n4p47.html"
+          },
+          {
+            "title": "7 Ways That An Interest Rate Cut From The Fed Impacts Retirees | Bankrate",
+            "url": "https://www.bankrate.com/banking/federal-reserve/how-fed-interest-rate-cut-impacts-retirees/"
+          },
+          {
+            "title": "Why Low Interest Rates Hurt Retirees - Knowledge at Wharton",
+            "url": "https://knowledge.wharton.upenn.edu/podcast/knowledge-at-wharton-podcast/why-low-interest-rates-hurt-retirees/"
+          },
+          {
+            "title": "US Treasury Rates During the 2008 Financial Crisis · Apify",
+            "url": "https://apify.com/pepeschuster/us-treasury-interest-rates-api/examples/treasury-rates-2008-financial-crisis"
+          },
+          {
+            "title": "How Interest Rates Affect Your Retirement Savings - Slavic401k",
+            "url": "https://slavic401k.com/how-interest-rates-affect-your-retirement-savings/"
+          },
+          {
+            "title": "the rundown on rates",
+            "url": "https://www.fool.com/investing/dividends-income/2007/08/21/the-rundown-on-rates.aspx"
+          },
+          {
+            "title": "Average Interest Rates on U.S. Treasury Securities | U.S. Treasury Fiscal Data",
+            "url": "https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/"
+          }
+        ]
+      }
+    ]
+  }
+}

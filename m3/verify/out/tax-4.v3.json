@@ -1,0 +1,66 @@
+{
+ "id": "tax-4",
+ "items": [
+  {
+   "id": "loan_rate_pct",
+   "declared": 7.14,
+   "recomputed": 7.14,
+   "ok": true
+  },
+  {
+   "id": "total_interest_per_10k_usd",
+   "declared": 1920.39,
+   "recomputed": 1920.3904371229155,
+   "ok": true
+  },
+  {
+   "id": "deductible_share_start2026",
+   "declared": 0.8245,
+   "recomputed": 0.8244861507114123,
+   "ok": true
+  },
+  {
+   "id": "deductible_share_start2027",
+   "declared": 0.6192,
+   "recomputed": 0.6192273796898337,
+   "ok": true
+  },
+  {
+   "id": "deductible_share_start2028",
+   "declared": 0.3428,
+   "recomputed": 0.3427678424397496,
+   "ok": true
+  },
+  {
+   "id": "tax_saving_per_10k_12pct_start2026_usd",
+   "declared": 190.0,
+   "recomputed": 190.0002383239775,
+   "ok": true
+  },
+  {
+   "id": "equiv_rate_12pct_start2026_pct",
+   "declared": 6.467,
+   "recomputed": 6.466905045853588,
+   "ok": true
+  },
+  {
+   "id": "equiv_rate_22pct_start2026_pct",
+   "declared": 5.901,
+   "recomputed": 5.900913522003526,
+   "ok": true
+  },
+  {
+   "id": "equiv_rate_12pct_start2028_pct",
+   "declared": 6.861,
+   "recomputed": 6.860965974983513,
+   "ok": true
+  },
+  {
+   "id": "equiv_rate_22pct_start2028_pct",
+   "declared": 6.628,
+   "recomputed": 6.627575404687613,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

@@ -1,0 +1,153 @@
+{
+ "pillar": "tax",
+ "quota": 6,
+ "model": "gpt-5.5",
+ "role": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+ "prompt": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Taxes and policy (federal tax rules, tax-advantaged accounts, credits and deductions, the measurable impact of policy on households)\n\nTask: propose 6 distinct theses for episodes in this pillar. A thesis is a specific, checkable claim that a viewer facing a real decision would care about, and that overturns a common belief.\n\nWrite each thesis as a card with exactly two fields:\n- thesis: one sentence, 20 to 28 words.\n- overturns: the common belief it contradicts, one sentence in double quotes, 10 to 16 words.\n\nCard rules (strict, checked by machine):\n- No digits, no % or $ signs, no years.\n- No numbers written as words (for example one, two, ten, hundred, half, double, twice, triple, quarter, third, dozen, percent).\n- No names of data sources, datasets, series codes, laws, acts or code sections (write \"workplace retirement plan\", not a plan's code name).\n- One sentence per field.",
+ "kept": [
+  {
+   "card": {
+    "thesis": "A nonrefundable vehicle credit can disappear for moderate-income buyers after family credits, making a cheaper used car win after taxes.",
+    "overturns": "\"A posted tax credit always lowers the car's real price.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "For low-bracket workers receiving refundable family credits, pretax retirement contributions can reduce future flexibility without meaningfully lowering today's tax bill.",
+    "overturns": "\"Pretax retirement saving is automatically the best tax move for every worker.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "Alternating charitable gifts into high-deduction filing periods can beat steady giving, even when total donations and cash flow stay unchanged.",
+    "overturns": "\"The tax benefit of giving depends only on total donated.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "Using a payroll-funded medical savings account often beats claiming medical deductions, because payroll taxes fall even when income deductions vanish.",
+    "overturns": "\"Medical expenses mainly help at tax time through itemized deductions.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "Increasing paycheck withholding late in the year can prevent underpayment penalties more reliably than mailing catch-up estimated payments for gig income.",
+    "overturns": "\"Late estimated payments fix underpayment penalties as well as paycheck withholding.\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "thesis": "For partners using marketplace health subsidies, marrying before year-end can raise combined tax owed versus staying unmarried until January, despite shared expenses.",
+    "overturns": "\"Marriage almost always creates a tax bonus for committed partners.\""
+   },
+   "call": 1
+  }
+ ],
+ "attempts": [
+  {
+   "call": 1,
+   "raw": "raw/tax-call1.json",
+   "seconds": 25.2,
+   "cards": [
+    {
+     "original": {
+      "thesis": "A nonrefundable vehicle credit can disappear for moderate-income buyers after family credits, making a cheaper used car win after taxes.",
+      "overturns": "\"A posted tax credit always lowers the car's real price.\""
+     },
+     "normalized": {
+      "thesis": "A nonrefundable vehicle credit can disappear for moderate-income buyers after family credits, making a cheaper used car win after taxes.",
+      "overturns": "\"A posted tax credit always lowers the car's real price.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "For low-bracket workers receiving refundable family credits, pretax retirement contributions can reduce future flexibility without meaningfully lowering today's tax bill.",
+      "overturns": "\"Pretax retirement saving is automatically the best tax move for every worker.\""
+     },
+     "normalized": {
+      "thesis": "For low-bracket workers receiving refundable family credits, pretax retirement contributions can reduce future flexibility without meaningfully lowering today's tax bill.",
+      "overturns": "\"Pretax retirement saving is automatically the best tax move for every worker.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "Alternating charitable gifts into high-deduction filing periods can beat steady giving, even when total donations and cash flow stay unchanged.",
+      "overturns": "\"The tax benefit of giving depends only on total donated.\""
+     },
+     "normalized": {
+      "thesis": "Alternating charitable gifts into high-deduction filing periods can beat steady giving, even when total donations and cash flow stay unchanged.",
+      "overturns": "\"The tax benefit of giving depends only on total donated.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "Using a payroll-funded medical savings account often beats claiming medical deductions, because payroll taxes fall even when income deductions vanish.",
+      "overturns": "\"Medical expenses mainly help at tax time through itemized deductions.\""
+     },
+     "normalized": {
+      "thesis": "Using a payroll-funded medical savings account often beats claiming medical deductions, because payroll taxes fall even when income deductions vanish.",
+      "overturns": "\"Medical expenses mainly help at tax time through itemized deductions.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "Increasing paycheck withholding late in the year can prevent underpayment penalties more reliably than mailing catch-up estimated payments for gig income.",
+      "overturns": "\"Late estimated payments fix underpayment penalties as well as paycheck withholding.\""
+     },
+     "normalized": {
+      "thesis": "Increasing paycheck withholding late in the year can prevent underpayment penalties more reliably than mailing catch-up estimated payments for gig income.",
+      "overturns": "\"Late estimated payments fix underpayment penalties as well as paycheck withholding.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "thesis": "For partners using marketplace health subsidies, marrying before year-end can raise combined tax owed versus staying unmarried until January, despite shared expenses.",
+      "overturns": "\"Marriage almost always creates a tax bonus for committed partners.\""
+     },
+     "normalized": {
+      "thesis": "For partners using marketplace health subsidies, marrying before year-end can raise combined tax owed versus staying unmarried until January, despite shared expenses.",
+      "overturns": "\"Marriage almost always creates a tax bonus for committed partners.\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    }
+   ],
+   "model": "gpt-5.5-2026-04-23",
+   "usage": {
+    "input_tokens": 395,
+    "input_tokens_details": {
+     "cache_write_tokens": 0,
+     "cached_tokens": 0
+    },
+    "output_tokens": 2207,
+    "output_tokens_details": {
+     "reasoning_tokens": 1916
+    },
+    "total_tokens": 2602
+   },
+   "status": "completed"
+  }
+ ],
+ "complete": true
+}
