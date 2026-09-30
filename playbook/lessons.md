@@ -61,6 +61,7 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 | # | Chuyện đã xảy ra | Bài học | Luật bây giờ |
 |---|---|---|---|
 | O1 | Sinh giọng v3.2: proxy ngắt kết nối ở cảnh 14/20 (ProxyError RemoteDisconnected), `gen.py` dừng; vòng chờ bên ngoài đợi dòng "calls" không bao giờ tới nên treo; container khởi động lại làm mất mọi tác vụ nền. | Tác vụ dài phải **chạy tiếp được** (bỏ qua phần đã xong, không tốn lại ký tự), **thử lại khi lỗi mạng** (nghỉ 2/4/8/16 s), **commit từng phần**. Mọi vòng chờ phải **có trần thời gian** và **thoát khi tiến trình con chết**, không chờ một dòng log. | Mẫu: `episodes/ep001/work/v32-voice/src/run_resume.sh`; chờ bằng `until xong \|\| ! pgrep … \|\| hết_giờ`. Điểm dừng an toàn trong PLAN.md cập nhật trước mỗi bước dài. |
+| O2 | Hai lần vòng chờ treo vì `pgrep -f "<chuỗi>"` khớp nhầm: (1) vòng chờ của luồng P chứa chuỗi "node render.js"; (2) shell nền của P2 chứa "audio/src/mix.py" trong dòng lệnh. Script chờ mãi dù tiến trình thật đã xong. | Mẫu `pgrep -f` phải **neo đầu dòng lệnh** của tiến trình thật (`pgrep -f "^python3 .*mix.py"`, `"^node render.js"`) hoặc chờ theo PID / file kết quả; không bao giờ `pkill -f` một chuỗi có trong chính lệnh đang chạy. | Áp ngay trong `mix_after_render.sh`, `c6_final.sh`. |
 
 ## D. Mục tiêu cải tiến cho Tập 2
 
