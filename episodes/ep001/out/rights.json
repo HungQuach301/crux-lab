@@ -8,7 +8,7 @@
     "voice"
    ],
    "visuals": [],
-   "origin": "ElevenLabs text-to-speech, premade voice \"Eric\" (voice_id cjVigY5qzO86Huf0OWal), model eleven_v3, paid plan; takes: out/voice/takes.json",
+   "origin": "ElevenLabs text-to-speech, premade voice \"Eric\" (voice_id cjVigY5qzO86Huf0OWal), model eleven_v3, paid plan (Creator, owner-confirmed 2026-09-30); takes: out/voice/takes.json",
    "licence": "ElevenLabs Terms of Service (Last Updated 31 March 2026), commercial use for Paid Users (§(c)(ii)); verbatim quotes in work/c5/elevenlabs-terms.json",
    "thirdParty": true,
    "terms": {
@@ -20,8 +20,7 @@
      "https://elevenlabs.io/docs/overview/administration/billing"
     ]
    },
-   "commercial": null,
-   "pending": "owner confirms the account is on a paid subscription plan (Terms (c)(ii)); then PAID_PLAN_CONFIRMED = True",
+   "commercial": true,
    "rightsRow": "V-ERIC"
   },
   {

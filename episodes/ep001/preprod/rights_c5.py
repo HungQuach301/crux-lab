@@ -19,7 +19,7 @@ REPO = os.path.normpath(os.path.join(EP, '..', '..'))
 PENDING = 'PENDING-OWNER-PASTE'
 # Điều khoản ElevenLabs: P2 trích nguyên văn 29/09/2026 (work/c5/elevenlabs-terms.json). commercial = true chỉ khi chủ dự án xác nhận gói trả phí.
 EL = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'work', 'c5', 'elevenlabs-terms.json'), encoding='utf-8'))
-PAID_PLAN_CONFIRMED = None
+PAID_PLAN_CONFIRMED = True  # chủ dự án xác nhận 30/09/2026: gói trả phí Creator
 AUDIO_GEN = 'work/audio/src/mix.py'   # stream A's mix/music/sonification code (C5); resolved from the episode root
 
 
@@ -49,7 +49,7 @@ def main():
 
     assets = [
         {'name': 'Voice "Eric" (ElevenLabs)', 'kind': 'voice', 'stems': ['voice'], 'visuals': [],
-         'origin': 'ElevenLabs text-to-speech, premade voice "Eric" (voice_id cjVigY5qzO86Huf0OWal), model eleven_v3, paid plan; takes: out/voice/takes.json',
+         'origin': 'ElevenLabs text-to-speech, premade voice "Eric" (voice_id cjVigY5qzO86Huf0OWal), model eleven_v3, paid plan (Creator, owner-confirmed 2026-09-30); takes: out/voice/takes.json',
          'licence': 'ElevenLabs Terms of Service (Last Updated 31 March 2026), commercial use for Paid Users (§(c)(ii)); verbatim quotes in work/c5/elevenlabs-terms.json',
          'thirdParty': True, 'terms': {'quote': EL['terms']['quotes'][0] + ' — ' + EL['terms']['quotes'][1] + ' — Billing: ' + EL['billing']['quotes'][0],
                                           'url': EL['terms']['url'], 'version': EL['terms']['version'], 'urls': [EL['terms']['url'], EL['billing']['url']]},
