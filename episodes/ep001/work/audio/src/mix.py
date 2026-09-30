@@ -45,7 +45,17 @@ sys.path.insert(0, os.path.join(REPO, 'toolkit', 'audio'))
 import sonify_palettes as S2  # noqa: E402  (palette "minimal" instruments, the owner's pick)
 
 SR = 48000
-FFMPEG = os.environ.get('FFMPEG', 'ffmpeg')
+def _ffmpeg():  # máy phiên không có ffmpeg trên PATH; dùng bản của gói imageio-ffmpeg nếu có
+    if os.environ.get('FFMPEG'):
+        return os.environ['FFMPEG']
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        return 'ffmpeg'
+
+
+FFMPEG = _ffmpeg()
 CACHE = os.path.join(EP, 'work', 'audio', 'cache')
 RNG = np.random.default_rng(20260929)
 NOTE = {'C': 0, 'Db': 1, 'D': 2, 'Eb': 3, 'E': 4, 'F': 5, 'Gb': 6, 'G': 7, 'Ab': 8, 'A': 9, 'Bb': 10, 'B': 11}
