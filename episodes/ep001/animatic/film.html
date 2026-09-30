@@ -1,0 +1,16 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Episode 1 film page</title>
+<!-- C5: the page that draws every frame of out/video.mp4 (render.js) and that the checker samples (window.CHECKS).
+     Loads: Inter (3 weights, toolkit/render/fonts, OFL 1.1), src/data.js (built locally by src/build_data.py, not committed),
+     build/film.js (esbuild bundle of src/ + three.js, built by `npm ci && node src/build_page.mjs`, not committed). -->
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(../../../toolkit/render/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(../../../toolkit/render/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(../../../toolkit/render/fonts/inter-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:transparent;overflow:hidden}
+canvas{display:block}
+</style>
+<script src="src/data.js"></script>
+</head><body>
+<script src="build/film.js"></script>
+</body></html>

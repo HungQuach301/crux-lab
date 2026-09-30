@@ -1,0 +1,217 @@
+{
+ "scene": "S13",
+ "frames": 850,
+ "frames3d": 0,
+ "filmSeconds": 28.333333333333332,
+ "wallSeconds": 53.7,
+ "browserFrameSeconds": 48.8,
+ "machineSecPerFilmSec": 1.9,
+ "hardTime": 28.3,
+ "crf": 8,
+ "size": "1920x1080",
+ "basisMode": "corner",
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-30T03:32:02.783Z",
+ "texts": [
+  {
+   "s": "Where is her line?",
+   "tier": "head",
+   "px": 58,
+   "n": 122,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "1-point line",
+   "tier": "note",
+   "px": 40,
+   "n": 851,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "rate cut",
+   "tier": "note",
+   "px": 40,
+   "n": 851,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "months after refinancing →",
+   "tier": "note",
+   "px": 40,
+   "n": 851,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "loan costs $5,124",
+   "tier": "label",
+   "px": 43,
+   "n": 851,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "3 years",
+   "tier": "label",
+   "px": 43,
+   "n": 851,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "Nora (illustrative). Counting what she still owes.",
+   "tier": "note",
+   "px": 40,
+   "n": 741,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 40,
+   "n": 851,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 851,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "Half a point: paid back in exactly 3 years",
+   "tier": "head",
+   "px": 58,
+   "n": 630,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 7.366666666666674,
+   "sent": false
+  },
+  {
+   "s": "month 36",
+   "tier": "label",
+   "px": 43,
+   "n": 473,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 7.366666666666674,
+   "sent": false
+  },
+  {
+   "s": "0.5 · Nora's line",
+   "tier": "label",
+   "px": 43,
+   "n": 545,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 10.199999999999989,
+   "sent": false
+  },
+  {
+   "s": "offer 0.59",
+   "tier": "note",
+   "px": 40,
+   "n": 397,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 15.133333333333326,
+   "sent": false
+  },
+  {
+   "s": "her offer (0.59): paid back within 3 years",
+   "tier": "label",
+   "px": 43,
+   "n": 128,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 24.099999999999966,
+   "sent": false
+  },
+  {
+   "s": "smaller loan?",
+   "tier": "label",
+   "px": 43,
+   "n": 109,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 24.73333333333335,
+   "sent": false
+  },
+  {
+   "s": "larger loan?",
+   "tier": "label",
+   "px": 43,
+   "n": 109,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 24.73333333333335,
+   "sent": false
+  },
+  {
+   "s": "The same line for everyone?",
+   "tier": "caption",
+   "px": 51,
+   "n": 109,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 24.73333333333335,
+   "sent": true
+  }
+ ],
+ "anchorsUsed": [
+  "answer",
+  "between",
+  "everyone",
+  "half",
+  "m36",
+  "pays",
+  "real"
+ ],
+ "anchorsDeclared": [
+  "between",
+  "half",
+  "m36",
+  "answer",
+  "real",
+  "pays",
+  "everyone"
+ ],
+ "anchorsKeywordMissing": [],
+ "claimsUsed": [
+  "be_bal_05",
+  "cost_median",
+  "cut36_median",
+  "cut_today",
+  "hold36",
+  "s10",
+  "y3"
+ ]
+}

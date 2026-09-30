@@ -1,0 +1,171 @@
+{
+ "scene": "S04",
+ "frames": 758,
+ "frames3d": 758,
+ "filmSeconds": 25.266666666666666,
+ "wallSeconds": 646.8,
+ "browserFrameSeconds": 633.1,
+ "machineSecPerFilmSec": 25.6,
+ "hardTime": 25.233333333333334,
+ "crf": 8,
+ "size": "1920x1080",
+ "basisMode": "corner",
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-30T02:52:47.665Z",
+ "texts": [
+  {
+   "s": "Nora's first home",
+   "tier": "label",
+   "px": 43,
+   "n": 753,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.20000000000000284,
+   "sent": false
+  },
+  {
+   "s": "Nora is illustrative:",
+   "tier": "head",
+   "px": 58,
+   "n": 753,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.20000000000000284,
+   "sent": false
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 40,
+   "n": 753,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.20000000000000284,
+   "sent": false
+  },
+  {
+   "s": "built from typical figures",
+   "tier": "label",
+   "px": 43,
+   "n": 669,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 3,
+   "sent": false
+  },
+  {
+   "s": "NORA'S LOAN",
+   "tier": "label",
+   "px": 43,
+   "n": 523,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 7.866666666666674,
+   "sent": false
+  },
+  {
+   "s": "Loan",
+   "tier": "note",
+   "px": 40,
+   "n": 381,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 12.600000000000009,
+   "sent": false
+  },
+  {
+   "s": "$375,000",
+   "tier": "number",
+   "px": 77,
+   "n": 381,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 12.600000000000009,
+   "sent": false
+  },
+  {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 381,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 12.600000000000009,
+   "sent": false
+  },
+  {
+   "s": "Rate",
+   "tier": "note",
+   "px": 40,
+   "n": 338,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.033333333333346,
+   "sent": false
+  },
+  {
+   "s": "7.62%",
+   "tier": "number",
+   "px": 77,
+   "n": 338,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.033333333333346,
+   "sent": false
+  },
+  {
+   "s": "Signed October 2023",
+   "tier": "label",
+   "px": 43,
+   "n": 323,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.533333333333346,
+   "sent": false
+  },
+  {
+   "s": "Dollars of the day",
+   "tier": "label",
+   "px": 43,
+   "n": 128,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 21.033333333333346,
+   "sent": false
+  },
+  {
+   "s": "not adjusted for inflation",
+   "tier": "note",
+   "px": 40,
+   "n": 128,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 21.033333333333346,
+   "sent": false
+  }
+ ],
+ "anchorsUsed": [
+  "built",
+  "dollars",
+  "house",
+  "loan",
+  "moved",
+  "rate"
+ ],
+ "anchorsDeclared": [
+  "house",
+  "built",
+  "moved",
+  "loan",
+  "rate",
+  "dollars"
+ ],
+ "anchorsKeywordMissing": [],
+ "claimsUsed": [
+  "loan_median",
+  "oct2023",
+  "r_old"
+ ]
+}

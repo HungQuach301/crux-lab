@@ -1,0 +1,65 @@
+{
+ "request": {
+  "voice_name": "crux-analyst-f1",
+  "voice_description": "A calm, precise and warm American woman in her late thirties, General American accent, clear mid-low pitch, measured unhurried pace, grounded and friendly like a trusted financial analyst explaining data; studio-quality close-mic recording, no reverb, no hype.",
+  "generated_voice_id": "4EQ2DsnrRPyxtdEYc43b",
+  "labels": {
+   "project": "crux-lab",
+   "use": "ep001-C3-audition"
+  }
+ },
+ "status": 200,
+ "response": {
+  "voice_id": "4EQ2DsnrRPyxtdEYc43b",
+  "name": "crux-analyst-f1",
+  "samples": null,
+  "category": "generated",
+  "fine_tuning": {
+   "is_allowed_to_fine_tune": false,
+   "state": {},
+   "verification_failures": [],
+   "verification_attempts_count": 0,
+   "manual_verification_requested": false,
+   "language": null,
+   "progress": {},
+   "message": {},
+   "dataset_duration_seconds": null,
+   "verification_attempts": null,
+   "slice_ids": null,
+   "manual_verification": null,
+   "max_verification_attempts": null,
+   "next_max_verification_attempts_reset_unix_ms": null
+  },
+  "labels": {
+   "project": "crux-lab",
+   "use": "ep001-C3-audition"
+  },
+  "description": "A calm, precise and warm American woman in her late thirties, General American accent, clear mid-low pitch, measured unhurried pace, grounded and friendly like a trusted financial analyst explaining data; studio-quality close-mic recording, no reverb, no hype.",
+  "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/e4f8e8f10be345ac956d6e06f0db9e2f/voices/4EQ2DsnrRPyxtdEYc43b/f9104c0a-10c4-44af-96db-54f2ef27b070.mp3",
+  "available_for_tiers": [],
+  "settings": {
+   "stability": 0.5,
+   "use_speaker_boost": true,
+   "similarity_boost": 0.75,
+   "style": 0.0,
+   "speed": 1.0
+  },
+  "sharing": null,
+  "high_quality_base_model_ids": [],
+  "verified_languages": [],
+  "collection_ids": null,
+  "safety_control": null,
+  "voice_verification": null,
+  "permission_on_resource": null,
+  "is_owner": null,
+  "is_legacy": false,
+  "is_mixed": false,
+  "favorited_at_unix": null,
+  "created_at_unix": 1790674948,
+  "is_bookmarked": null,
+  "recording_quality": null,
+  "labelling_status": null,
+  "recording_quality_reason": null,
+  "orb_thumbnail_signed_urls": null
+ }
+}

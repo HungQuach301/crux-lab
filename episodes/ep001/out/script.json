@@ -1,0 +1,1278 @@
+{
+ "source": "story/script-v3.2.md + out/voice-v32/sentences.json (times = animatic/timing.json = final video)",
+ "spokenRule": "spoken = tts_text sent to eleven_v3 without the emotion tag (tag kept in `tag`): a tag is an instruction, not a word or a pause",
+ "sentences": [
+  {
+   "id": "S01.1",
+   "n": 1,
+   "scene": "S01",
+   "text": "In February 2026, the average 30-year fixed mortgage rate in the US fell to 5.98 percent, the lowest since September 2022.",
+   "spoken": "In February twenty twenty-six, the average thirty-year fixed mortgage rate in the U.S. fell to five point nine eight percent, the lowest since September twenty twenty-two.",
+   "tag": null,
+   "start": 0.54,
+   "end": 11.1,
+   "claims": [
+    "low2026",
+    "low2026_date",
+    "low2026_since",
+    "term30"
+   ]
+  },
+  {
+   "id": "S01.2",
+   "n": 2,
+   "scene": "S01",
+   "text": "Nora had borrowed in 2023, at 7.62 percent.",
+   "spoken": "Nora had borrowed in twenty twenty-three, at seven point six two percent.",
+   "tag": null,
+   "start": 12.015,
+   "end": 16.345,
+   "claims": [
+    "oct2023",
+    "r_old"
+   ]
+  },
+  {
+   "id": "S01.3",
+   "n": 3,
+   "scene": "S01",
+   "text": "At the February rate, a new loan would have cut her payment by $459 a month.",
+   "spoken": "At the February rate, a new loan would have cut her payment by four hundred fifty-nine dollars a month.",
+   "tag": null,
+   "start": 17.165,
+   "end": 22.725,
+   "claims": [
+    "sav_low2026_median"
+   ]
+  },
+  {
+   "id": "S01.4",
+   "n": 4,
+   "scene": "S01",
+   "text": "She didn't take it.",
+   "spoken": "She didn't take it.",
+   "tag": "[softly]",
+   "start": 23.645,
+   "end": 24.425,
+   "claims": []
+  },
+  {
+   "id": "S01.5",
+   "n": 5,
+   "scene": "S01",
+   "text": "By late September, the rate was back above 7 percent, for the first time since January 2025.",
+   "spoken": "By late September, the rate was back above seven percent, for the first time since January twenty twenty-five.",
+   "tag": null,
+   "start": 25.425,
+   "end": 31.925,
+   "claims": [
+    "seven",
+    "first7_since"
+   ]
+  },
+  {
+   "id": "S02.1",
+   "n": 6,
+   "scene": "S02",
+   "text": "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for $5,124 in fees.",
+   "spoken": "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for five thousand one hundred twenty-four dollars in fees.",
+   "tag": null,
+   "start": 33.43,
+   "end": 44.99,
+   "claims": [
+    "cost_median"
+   ]
+  },
+  {
+   "id": "S02.2",
+   "n": 7,
+   "scene": "S02",
+   "text": "How big a rate cut makes that worth it for Nora — and where would your own loan fall?",
+   "spoken": "How big a rate cut makes that worth it for Nora — and where would your own loan fall?",
+   "tag": "[curious]",
+   "start": 46.495,
+   "end": 51.115,
+   "claims": []
+  },
+  {
+   "id": "S02.3",
+   "n": 8,
+   "scene": "S02",
+   "text": "And why would a smaller mortgage need a bigger cut?",
+   "spoken": "And why would a smaller mortgage need a bigger cut?",
+   "tag": null,
+   "start": 51.895,
+   "end": 54.465,
+   "claims": []
+  },
+  {
+   "id": "S03.1",
+   "n": 9,
+   "scene": "S03",
+   "text": "Nora borrowed in October 2023, the month the average rate reached 7.79 percent, its highest since 2000.",
+   "spoken": "Nora borrowed in October twenty twenty-three, the month the average rate reached seven point seven nine percent, its highest since two thousand.",
+   "tag": null,
+   "start": 56.02,
+   "end": 65.87,
+   "claims": [
+    "oct2023",
+    "peak2023",
+    "peak2023_since"
+   ]
+  },
+  {
+   "id": "S03.2",
+   "n": 10,
+   "scene": "S03",
+   "text": "She wasn't the only one: three in ten of that year's 30-year loans to buy a home carried a rate of 7 percent or more.",
+   "spoken": "She wasn't the only one: three in ten of that year's thirty-year loans to buy a home carried a rate of seven percent or more.",
+   "tag": null,
+   "start": 66.775,
+   "end": 75.195,
+   "claims": [
+    "purch23_words",
+    "ge7_threshold"
+   ]
+  },
+  {
+   "id": "S04.1",
+   "n": 11,
+   "scene": "S04",
+   "text": "Nora isn't a real person; we built her from typical figures, to show how the math works for one household.",
+   "spoken": "Nora isn't a real person; we built her from typical figures, to show how the math works for one household.",
+   "tag": null,
+   "start": 76.73,
+   "end": 82.97,
+   "claims": []
+  },
+  {
+   "id": "S04.2",
+   "n": 12,
+   "scene": "S04",
+   "text": "She had moved for a new job and bought her first home, with a $375,000 loan at 7.62 percent, the average rate that month.",
+   "spoken": "She had moved for a new job and bought her first home, with a three hundred seventy-five thousand dollar loan at seven point six two percent, the average rate that month.",
+   "tag": null,
+   "start": 83.905,
+   "end": 94.085,
+   "claims": [
+    "loan_median",
+    "r_old"
+   ]
+  },
+  {
+   "id": "S04.3",
+   "n": 13,
+   "scene": "S04",
+   "text": "Every dollar amount in this story is in the dollars of the day, not adjusted for inflation.",
+   "spoken": "Every dollar amount in this story is in the dollars of the day, not adjusted for inflation.",
+   "tag": null,
+   "start": 95.055,
+   "end": 100.455,
+   "claims": []
+  },
+  {
+   "id": "S05.1",
+   "n": 14,
+   "scene": "S05",
+   "text": "You may have heard that a refinance only pays off once rates fall a full percentage point below yours.",
+   "spoken": "You may have heard that a refinance only pays off once rates fall a full percentage point below yours.",
+   "tag": null,
+   "start": 101.99,
+   "end": 107.13,
+   "claims": []
+  },
+  {
+   "id": "S05.2",
+   "n": 15,
+   "scene": "S05",
+   "text": "We use that one-point line as a test.",
+   "spoken": "We use that one-point line as a test.",
+   "tag": null,
+   "start": 107.465,
+   "end": 109.575,
+   "claims": [
+    "s10"
+   ]
+  },
+  {
+   "id": "S05.3",
+   "n": 16,
+   "scene": "S05",
+   "text": "And for Nora, rates did cross that line.",
+   "spoken": "And for Nora, rates did cross that line.",
+   "tag": null,
+   "start": 109.985,
+   "end": 112.805,
+   "claims": []
+  },
+  {
+   "id": "S05.4",
+   "n": 17,
+   "scene": "S05",
+   "text": "In 2026, the average spent 29 weeks at least a full point below her rate.",
+   "spoken": "In twenty twenty-six, the average spent twenty-nine weeks at least a full point below her rate.",
+   "tag": null,
+   "start": 113.395,
+   "end": 118.765,
+   "claims": [
+    "weeks_below_r_old_minus_1"
+   ]
+  },
+  {
+   "id": "S05.5",
+   "n": 18,
+   "scene": "S05",
+   "text": "At the February low, the gap was 1.64 points.",
+   "spoken": "At the February low, the gap was one point six four points.",
+   "tag": null,
+   "start": 119.035,
+   "end": 123.295,
+   "claims": [
+    "cut_low2026"
+   ]
+  },
+  {
+   "id": "S05.6",
+   "n": 19,
+   "scene": "S05",
+   "text": "After the week ending July 23, 2026, the gap never again reached a full point, and the window closed.",
+   "spoken": "After the week ending July twenty-third, twenty twenty-six, the gap never again reached a full point, and the window closed.",
+   "tag": null,
+   "start": 123.835,
+   "end": 131.655,
+   "claims": [
+    "cut1_last_2026"
+   ]
+  },
+  {
+   "id": "S05.7",
+   "n": 20,
+   "scene": "S05",
+   "text": "Whether it opens again, we can't tell you: everything in this story is history, not a forecast, and it covers the US only.",
+   "spoken": "Whether it opens again, we can't tell you: everything in this story is history, not a forecast, and it covers the U.S. only.",
+   "tag": null,
+   "start": 132.355,
+   "end": 139.705,
+   "claims": []
+  },
+  {
+   "id": "S06.1",
+   "n": 21,
+   "scene": "S06",
+   "text": "So the letter arrives in a different world.",
+   "spoken": "So the letter arrives in a different world.",
+   "tag": null,
+   "start": 141.33,
+   "end": 143.43,
+   "claims": []
+  },
+  {
+   "id": "S06.2",
+   "n": 22,
+   "scene": "S06",
+   "text": "Say the rate it offers matches the national average for the week ending September 24, 2026: 7.03 percent.",
+   "spoken": "Say the rate it offers matches the national average for the week ending September twenty-fourth, twenty twenty-six: seven point zero three percent.",
+   "tag": null,
+   "start": 143.925,
+   "end": 152.815,
+   "claims": [
+    "anchor_date",
+    "r_today"
+   ]
+  },
+  {
+   "id": "S06.3",
+   "n": 23,
+   "scene": "S06",
+   "text": "That is just over half a percentage point below what she pays now.",
+   "spoken": "That is just over half a percentage point below what she pays now.",
+   "tag": null,
+   "start": 153.725,
+   "end": 157.485,
+   "claims": [
+    "cut_today_words"
+   ]
+  },
+  {
+   "id": "S06.4",
+   "n": 24,
+   "scene": "S06",
+   "text": "From here on, when we say a point, we mean exactly that: one percentage point off the rate.",
+   "spoken": "From here on, when we say a point, we mean exactly that: one percentage point off the rate.",
+   "tag": null,
+   "start": 158.235,
+   "end": 164.755,
+   "claims": []
+  },
+  {
+   "id": "S06.5",
+   "n": 25,
+   "scene": "S06",
+   "text": "Her monthly payment would drop by $221.",
+   "spoken": "Her monthly payment would drop by two hundred twenty-one dollars.",
+   "tag": null,
+   "start": 165.745,
+   "end": 168.905,
+   "claims": [
+    "sav_median"
+   ]
+  },
+  {
+   "id": "S07.1",
+   "n": 26,
+   "scene": "S07",
+   "text": "Then comes the last line.",
+   "spoken": "Then comes the last line.",
+   "tag": null,
+   "start": 170.46,
+   "end": 171.91,
+   "claims": []
+  },
+  {
+   "id": "S07.2",
+   "n": 27,
+   "scene": "S07",
+   "text": "$5,124 in loan costs, paid in cash at closing: the lender's charges for making the loan, plus anything she pays up front to buy the rate down.",
+   "spoken": "Five thousand one hundred twenty-four dollars in loan costs, paid in cash at closing: the lender's charges for making the loan, plus anything she pays up front to buy the rate down.",
+   "tag": null,
+   "start": 172.785,
+   "end": 184.965,
+   "claims": [
+    "cost_median"
+   ]
+  },
+  {
+   "id": "S07.3",
+   "n": 28,
+   "scene": "S07",
+   "text": "That bill is not made up.",
+   "spoken": "That bill is not made up.",
+   "tag": null,
+   "start": 186.095,
+   "end": 187.775,
+   "claims": []
+  },
+  {
+   "id": "S07.4",
+   "n": 29,
+   "scene": "S07",
+   "text": "It is the median from nearly half a million refinances in 2025, and her loan size is the median too.",
+   "spoken": "It is the median from nearly half a million refinances in twenty twenty-five, and her loan size is the median too.",
+   "tag": null,
+   "start": 187.895,
+   "end": 196.315,
+   "claims": [
+    "n31_approx",
+    "y2025"
+   ]
+  },
+  {
+   "id": "S07.5",
+   "n": 30,
+   "scene": "S07",
+   "text": "If a letter like this has reached you, this is the math behind it.",
+   "spoken": "If a letter like this has reached you, this is the math behind it.",
+   "tag": null,
+   "start": 197.295,
+   "end": 201.245,
+   "claims": []
+  },
+  {
+   "id": "S08.1",
+   "n": 31,
+   "scene": "S08",
+   "text": "Is it worth paying?",
+   "spoken": "Is it worth paying?",
+   "tag": null,
+   "start": 202.74,
+   "end": 203.89,
+   "claims": []
+  },
+  {
+   "id": "S08.2",
+   "n": 32,
+   "scene": "S08",
+   "text": "Worth it, here, means one thing: the savings pay back the fees before she sells or moves.",
+   "spoken": "Worth it, here, means one thing: the savings pay back the fees before she sells or moves.",
+   "tag": null,
+   "start": 205.085,
+   "end": 211.215,
+   "claims": []
+  },
+  {
+   "id": "S08.3",
+   "n": 33,
+   "scene": "S08",
+   "text": "We test a stay of three years, a choice we made, not a rule.",
+   "spoken": "We test a stay of three years, a choice we made, not a rule.",
+   "tag": null,
+   "start": 212.145,
+   "end": 216.105,
+   "claims": [
+    "hold36"
+   ]
+  },
+  {
+   "id": "S08.4",
+   "n": 34,
+   "scene": "S08",
+   "text": "There are two quick answers.",
+   "spoken": "There are two quick answers.",
+   "tag": null,
+   "start": 216.575,
+   "end": 218.505,
+   "claims": []
+  },
+  {
+   "id": "S08.5",
+   "n": 35,
+   "scene": "S08",
+   "text": "The one-point line says no.",
+   "spoken": "The one-point line says no.",
+   "tag": null,
+   "start": 218.745,
+   "end": 220.565,
+   "claims": []
+  },
+  {
+   "id": "S08.6",
+   "n": 36,
+   "scene": "S08",
+   "text": "Her cut falls short.",
+   "spoken": "Her cut falls short.",
+   "tag": null,
+   "start": 221.045,
+   "end": 222.195,
+   "claims": []
+  },
+  {
+   "id": "S08.7",
+   "n": 37,
+   "scene": "S08",
+   "text": "Simple division says yes: $5,124 divided by $221 is about 24 months.",
+   "spoken": "Simple division says yes: five thousand one hundred twenty-four dollars divided by two hundred twenty-one dollars is about twenty-four months.",
+   "tag": null,
+   "start": 223.015,
+   "end": 232.795,
+   "claims": [
+    "be_simple_median"
+   ]
+  },
+  {
+   "id": "S08.8",
+   "n": 38,
+   "scene": "S08",
+   "text": "Neither is quite right.",
+   "spoken": "Neither is quite right.",
+   "tag": null,
+   "start": 234.125,
+   "end": 235.115,
+   "claims": []
+  },
+  {
+   "id": "S08.9",
+   "n": 39,
+   "scene": "S08",
+   "text": "The one-point line never looks at the bill.",
+   "spoken": "The one-point line never looks at the bill.",
+   "tag": null,
+   "start": 235.725,
+   "end": 237.965,
+   "claims": []
+  },
+  {
+   "id": "S08.10",
+   "n": 40,
+   "scene": "S08",
+   "text": "And the division leaves something out.",
+   "spoken": "And the division leaves something out.",
+   "tag": null,
+   "start": 238.375,
+   "end": 240.425,
+   "claims": []
+  },
+  {
+   "id": "S09.1",
+   "n": 41,
+   "scene": "S09",
+   "text": "Back to the letter.",
+   "spoken": "Back to the letter.",
+   "tag": null,
+   "start": 241.89,
+   "end": 242.58,
+   "claims": []
+  },
+  {
+   "id": "S09.2",
+   "n": 42,
+   "scene": "S09",
+   "text": "Break-even is the month when what she has saved covers the bill.",
+   "spoken": "Break-even is the month when what she has saved covers the bill.",
+   "tag": null,
+   "start": 243.095,
+   "end": 246.315,
+   "claims": []
+  },
+  {
+   "id": "S09.3",
+   "n": 43,
+   "scene": "S09",
+   "text": "Division stacks up $221 a month and stops at month 24.",
+   "spoken": "Division stacks up two hundred twenty-one dollars a month and stops at month twenty-four.",
+   "tag": null,
+   "start": 246.995,
+   "end": 251.445,
+   "claims": []
+  },
+  {
+   "id": "S09.4",
+   "n": 44,
+   "scene": "S09",
+   "text": "But while the savings stack up, something else is happening, to what she still owes.",
+   "spoken": "But while the savings stack up, something else is happening, to what she still owes.",
+   "tag": null,
+   "start": 252.365,
+   "end": 256.855,
+   "claims": []
+  },
+  {
+   "id": "S10.1",
+   "n": 45,
+   "scene": "S10",
+   "text": "Nora has made 35 payments on her old loan, one a month since she moved in.",
+   "spoken": "Nora has made thirty-five payments on her old loan, one a month since she moved in.",
+   "tag": null,
+   "start": 258.3,
+   "end": 263.51,
+   "claims": [
+    "k35"
+   ]
+  },
+  {
+   "id": "S10.2",
+   "n": 46,
+   "scene": "S10",
+   "text": "With each one, a little more goes to paying down what she owes.",
+   "spoken": "With each one, a little more goes to paying down what she owes.",
+   "tag": null,
+   "start": 264.505,
+   "end": 267.975,
+   "claims": []
+  },
+  {
+   "id": "S10.3",
+   "n": 47,
+   "scene": "S10",
+   "text": "A refinance starts a fresh 30-year clock, and in the early years of any mortgage, most of each payment goes to interest.",
+   "spoken": "A refinance starts a fresh thirty-year clock, and in the early years of any mortgage, most of each payment goes to interest.",
+   "tag": null,
+   "start": 268.815,
+   "end": 276.895,
+   "claims": [
+    "term30"
+   ]
+  },
+  {
+   "id": "S10.4",
+   "n": 48,
+   "scene": "S10",
+   "text": "So the new loan pays down her balance more slowly than the old one would have.",
+   "spoken": "So the new loan pays down her balance more slowly than the old one would have.",
+   "tag": null,
+   "start": 277.765,
+   "end": 282.555,
+   "claims": []
+  },
+  {
+   "id": "S10.5",
+   "n": 49,
+   "scene": "S10",
+   "text": "By month 24, she owes $1,133 more than if she had kept the old loan.",
+   "spoken": "By month twenty-four, she owes one thousand one hundred thirty-three dollars more than if she had kept the old loan.",
+   "tag": null,
+   "start": 283.505,
+   "end": 290.815,
+   "claims": [
+    "gap24"
+   ]
+  },
+  {
+   "id": "S10.6",
+   "n": 50,
+   "scene": "S10",
+   "text": "If she sold the house then, that $1,133 would come out of her sale money, so it cancels part of what she has saved.",
+   "spoken": "If she sold the house then, that one thousand one hundred thirty-three dollars would come out of her sale money, so it cancels part of what she has saved.",
+   "tag": "[thoughtful]",
+   "start": 291.855,
+   "end": 301.575,
+   "claims": [
+    "gap24"
+   ]
+  },
+  {
+   "id": "S10.7",
+   "n": 51,
+   "scene": "S10",
+   "text": "Her savings need a few more months to cover it, and the gap keeps growing a little while they do.",
+   "spoken": "Her savings need a few more months to cover it, and the gap keeps growing a little while they do.",
+   "tag": null,
+   "start": 302.555,
+   "end": 308.325,
+   "claims": []
+  },
+  {
+   "id": "S10.8",
+   "n": 52,
+   "scene": "S10",
+   "text": "Count it, and break-even moves from month 24 to month 30.",
+   "spoken": "Count it, and break-even moves from month twenty-four to month thirty.",
+   "tag": "[serious]",
+   "start": 309.445,
+   "end": 314.225,
+   "claims": [
+    "be_bal_median"
+   ]
+  },
+  {
+   "id": "S11.1",
+   "n": 53,
+   "scene": "S11",
+   "text": "The smaller the cut, the more that gap matters.",
+   "spoken": "The smaller the cut, the more that gap matters.",
+   "tag": null,
+   "start": 315.75,
+   "end": 318.77,
+   "claims": []
+  },
+  {
+   "id": "S11.2",
+   "n": 54,
+   "scene": "S11",
+   "text": "Suppose her offer were only a quarter of a point.",
+   "spoken": "Suppose her offer were only a quarter of a point.",
+   "tag": null,
+   "start": 319.865,
+   "end": 322.485,
+   "claims": [
+    "s025"
+   ]
+  },
+  {
+   "id": "S11.3",
+   "n": 55,
+   "scene": "S11",
+   "text": "Division promises break-even in 38 months.",
+   "spoken": "Division promises break-even in thirty-eight months.",
+   "tag": null,
+   "start": 323.145,
+   "end": 325.725,
+   "claims": [
+    "be_simple_025"
+   ]
+  },
+  {
+   "id": "S11.4",
+   "n": 56,
+   "scene": "S11",
+   "text": "But a saving that small can't outrun the growing gap in what she owes.",
+   "spoken": "But a saving that small can't outrun the growing gap in what she owes.",
+   "tag": null,
+   "start": 326.535,
+   "end": 330.225,
+   "claims": []
+  },
+  {
+   "id": "S11.5",
+   "n": 57,
+   "scene": "S11",
+   "text": "Counting it, the fees never come back, not in all the years her old loan had left.",
+   "spoken": "Counting it, the fees never come back, not in all the years her old loan had left.",
+   "tag": null,
+   "start": 331.175,
+   "end": 336.705,
+   "claims": [
+    "be_bal_025"
+   ]
+  },
+  {
+   "id": "S12.1",
+   "n": 58,
+   "scene": "S12",
+   "text": "At a full point, she would break even in 18 months, well inside three years.",
+   "spoken": "At a full point, she would break even in eighteen months, well inside three years.",
+   "tag": null,
+   "start": 338.11,
+   "end": 342.83,
+   "claims": [
+    "s10",
+    "be_bal_10"
+   ]
+  },
+  {
+   "id": "S13.1",
+   "n": 59,
+   "scene": "S13",
+   "text": "Somewhere between a quarter point and a full point is her line.",
+   "spoken": "Somewhere between a quarter point and a full point is her line.",
+   "tag": null,
+   "start": 344.23,
+   "end": 347.48,
+   "claims": []
+  },
+  {
+   "id": "S13.2",
+   "n": 60,
+   "scene": "S13",
+   "text": "At half a point, the fees come back in exactly 36 months.",
+   "spoken": "At half a point, the fees come back in exactly thirty-six months.",
+   "tag": null,
+   "start": 348.095,
+   "end": 352.225,
+   "claims": [
+    "s05",
+    "be_bal_05"
+   ]
+  },
+  {
+   "id": "S13.3",
+   "n": 61,
+   "scene": "S13",
+   "text": "So for Nora, the answer is half a point, half of the one-point line.",
+   "spoken": "So for Nora, the answer is half a point, half of the one-point line.",
+   "tag": "[warmly]",
+   "start": 352.855,
+   "end": 358.405,
+   "claims": [
+    "cut36_median"
+   ]
+  },
+  {
+   "id": "S13.4",
+   "n": 62,
+   "scene": "S13",
+   "text": "Her real offer, just over half a point, clears it.",
+   "spoken": "Her real offer, just over half a point, clears it.",
+   "tag": null,
+   "start": 358.955,
+   "end": 361.765,
+   "claims": []
+  },
+  {
+   "id": "S13.5",
+   "n": 63,
+   "scene": "S13",
+   "text": "The February window closed, but by the three-year test, this letter still pays her back.",
+   "spoken": "The February window closed, but by the three-year test, this letter still pays her back.",
+   "tag": null,
+   "start": 362.575,
+   "end": 367.985,
+   "claims": []
+  },
+  {
+   "id": "S13.6",
+   "n": 64,
+   "scene": "S13",
+   "text": "Is half a point the line for everyone?",
+   "spoken": "Is half a point the line for everyone?",
+   "tag": null,
+   "start": 368.775,
+   "end": 370.965,
+   "claims": []
+  },
+  {
+   "id": "S14.1",
+   "n": 65,
+   "scene": "S14",
+   "text": "Walt is another borrower we built from typical figures.",
+   "spoken": "Walt is another borrower we built from typical figures.",
+   "tag": null,
+   "start": 372.55,
+   "end": 375.19,
+   "claims": []
+  },
+  {
+   "id": "S14.2",
+   "n": 66,
+   "scene": "S14",
+   "text": "He bought a smaller house the same month as Nora, with a $115,000 loan at the same rate.",
+   "spoken": "He bought a smaller house the same month as Nora, with a one hundred fifteen thousand dollar loan at the same rate.",
+   "tag": null,
+   "start": 375.875,
+   "end": 381.635,
+   "claims": [
+    "loan_small"
+   ]
+  },
+  {
+   "id": "S14.3",
+   "n": 67,
+   "scene": "S14",
+   "text": "His letter offers the same cut.",
+   "spoken": "His letter offers the same cut.",
+   "tag": null,
+   "start": 382.275,
+   "end": 383.945,
+   "claims": []
+  },
+  {
+   "id": "S14.4",
+   "n": 68,
+   "scene": "S14",
+   "text": "The bill at the bottom: $3,667.",
+   "spoken": "The bill at the bottom: three thousand six hundred sixty-seven dollars.",
+   "tag": null,
+   "start": 384.935,
+   "end": 389.295,
+   "claims": [
+    "cost_small"
+   ]
+  },
+  {
+   "id": "S14.5",
+   "n": 69,
+   "scene": "S14",
+   "text": "His loan is far smaller than hers.",
+   "spoken": "His loan is far smaller than hers.",
+   "tag": null,
+   "start": 389.995,
+   "end": 391.725,
+   "claims": []
+  },
+  {
+   "id": "S14.6",
+   "n": 70,
+   "scene": "S14",
+   "text": "His bill is only a little smaller.",
+   "spoken": "His bill is only a little smaller.",
+   "tag": null,
+   "start": 392.205,
+   "end": 394.045,
+   "claims": []
+  },
+  {
+   "id": "S15.1",
+   "n": 71,
+   "scene": "S15",
+   "text": "In the 2025 data, refinance bills grow far more slowly than the loans they come with.",
+   "spoken": "In the twenty twenty-five data, refinance bills grow far more slowly than the loans they come with.",
+   "tag": null,
+   "start": 395.59,
+   "end": 400.84,
+   "claims": [
+    "y2025"
+   ]
+  },
+  {
+   "id": "S15.2",
+   "n": 72,
+   "scene": "S15",
+   "text": "For Walt, it comes to about 3.2 percent of what he borrowed.",
+   "spoken": "For Walt, it comes to about three point two percent of what he borrowed.",
+   "tag": null,
+   "start": 401.705,
+   "end": 405.215,
+   "claims": [
+    "share_walt"
+   ]
+  },
+  {
+   "id": "S15.3",
+   "n": 73,
+   "scene": "S15",
+   "text": "His savings, though, shrink with the loan.",
+   "spoken": "His savings, though, shrink with the loan.",
+   "tag": null,
+   "start": 406.125,
+   "end": 408.435,
+   "claims": []
+  },
+  {
+   "id": "S15.4",
+   "n": 74,
+   "scene": "S15",
+   "text": "The same cut takes only $68 a month off his payment.",
+   "spoken": "The same cut takes only sixty-eight dollars a month off his payment.",
+   "tag": null,
+   "start": 409.325,
+   "end": 412.375,
+   "claims": [
+    "sav_small"
+   ]
+  },
+  {
+   "id": "S15.5",
+   "n": 75,
+   "scene": "S15",
+   "text": "$68 a month, against a $3,667 bill.",
+   "spoken": "Sixty-eight dollars a month, against a three thousand six hundred sixty-seven dollar bill.",
+   "tag": null,
+   "start": 413.245,
+   "end": 418.425,
+   "claims": []
+  },
+  {
+   "id": "S15.6",
+   "n": 76,
+   "scene": "S15",
+   "text": "Counting what he owes, he breaks even in month 75.",
+   "spoken": "Counting what he owes, he breaks even in month seventy-five.",
+   "tag": null,
+   "start": 419.435,
+   "end": 422.575,
+   "claims": [
+    "be_bal_small"
+   ]
+  },
+  {
+   "id": "S16.1",
+   "n": 77,
+   "scene": "S16",
+   "text": "If Walt sold after three years, he would come out $1,777 behind.",
+   "spoken": "If Walt sold after three years, he would come out one thousand seven hundred seventy-seven dollars behind.",
+   "tag": null,
+   "start": 424.02,
+   "end": 430.14,
+   "claims": [
+    "y3",
+    "net36_small"
+   ]
+  },
+  {
+   "id": "S16.2",
+   "n": 78,
+   "scene": "S16",
+   "text": "For his fees to come back within three years, his rate would need to fall 1.12 points.",
+   "spoken": "For his fees to come back within three years, his rate would need to fall one point one two points.",
+   "tag": null,
+   "start": 430.865,
+   "end": 436.755,
+   "claims": [
+    "cut36_small"
+   ]
+  },
+  {
+   "id": "S16.3",
+   "n": 79,
+   "scene": "S16",
+   "text": "That is more than the one-point line.",
+   "spoken": "That is more than the one-point line.",
+   "tag": null,
+   "start": 437.695,
+   "end": 439.815,
+   "claims": []
+  },
+  {
+   "id": "S16.4",
+   "n": 80,
+   "scene": "S16",
+   "text": "So that is why a smaller mortgage needs a bigger rate cut.",
+   "spoken": "So that is why a smaller mortgage needs a bigger rate cut.",
+   "tag": "[serious]",
+   "start": 441.005,
+   "end": 444.255,
+   "claims": []
+  },
+  {
+   "id": "S16.5",
+   "n": 81,
+   "scene": "S16",
+   "text": "The fees barely shrink with the loan, and the monthly savings shrink right along with it.",
+   "spoken": "The fees barely shrink with the loan, and the monthly savings shrink right along with it.",
+   "tag": null,
+   "start": 445.175,
+   "end": 450.315,
+   "claims": []
+  },
+  {
+   "id": "S17.1",
+   "n": 82,
+   "scene": "S17",
+   "text": "Anjali sits at the other end.",
+   "spoken": "Anjali sits at the other end.",
+   "tag": null,
+   "start": 451.84,
+   "end": 453.26,
+   "claims": []
+  },
+  {
+   "id": "S17.2",
+   "n": 83,
+   "scene": "S17",
+   "text": "Same month, same rate, same cut.",
+   "spoken": "Same month, same rate, same cut.",
+   "tag": null,
+   "start": 453.895,
+   "end": 456.535,
+   "claims": []
+  },
+  {
+   "id": "S17.3",
+   "n": 84,
+   "scene": "S17",
+   "text": "She bought a bigger house, with a $655,000 loan, still under the conforming limit: the ceiling for the standard loans that Fannie Mae and Freddie Mac buy.",
+   "spoken": "She bought a bigger house, with a six hundred fifty-five thousand dollar loan, still under the conforming limit: the ceiling for the standard loans that Fannie Mae and Freddie Mac buy.",
+   "tag": null,
+   "start": 457.565,
+   "end": 467.745,
+   "claims": [
+    "loan_large"
+   ]
+  },
+  {
+   "id": "S17.4",
+   "n": 85,
+   "scene": "S17",
+   "text": "Her bill is $5,514, close to what Nora pays.",
+   "spoken": "Her bill is five thousand five hundred fourteen dollars, close to what Nora pays.",
+   "tag": null,
+   "start": 468.835,
+   "end": 473.435,
+   "claims": [
+    "cost_large"
+   ]
+  },
+  {
+   "id": "S17.5",
+   "n": 86,
+   "scene": "S17",
+   "text": "If she sold after three years, she would come out $5,250 ahead.",
+   "spoken": "If she sold after three years, she would come out five thousand two hundred fifty dollars ahead.",
+   "tag": null,
+   "start": 474.335,
+   "end": 480.075,
+   "claims": [
+    "net36_large"
+   ]
+  },
+  {
+   "id": "S17.6",
+   "n": 87,
+   "scene": "S17",
+   "text": "To get her fees back within three years, she needs a cut of only about a third of a point.",
+   "spoken": "To get her fees back within three years, she needs a cut of only about a third of a point.",
+   "tag": null,
+   "start": 481.105,
+   "end": 486.345,
+   "claims": [
+    "cut36_large_words"
+   ]
+  },
+  {
+   "id": "S18.1",
+   "n": 88,
+   "scene": "S18",
+   "text": "So, back to the letter, and the question it started with.",
+   "spoken": "So, back to the letter, and the question it started with.",
+   "tag": null,
+   "start": 487.87,
+   "end": 490.77,
+   "claims": []
+  },
+  {
+   "id": "S18.2",
+   "n": 89,
+   "scene": "S18",
+   "text": "How big a rate cut makes a refinance worth it, if worth it means the fees come back within three years?",
+   "spoken": "How big a rate cut makes a refinance worth it, if worth it means the fees come back within three years?",
+   "tag": null,
+   "start": 491.805,
+   "end": 498.825,
+   "claims": [
+    "hold36"
+   ]
+  },
+  {
+   "id": "S18.3",
+   "n": 90,
+   "scene": "S18",
+   "text": "It depends on the size of the loan.",
+   "spoken": "It depends on the size of the loan.",
+   "tag": "[matter-of-fact]",
+   "start": 500.065,
+   "end": 501.565,
+   "claims": []
+  },
+  {
+   "id": "S18.4",
+   "n": 91,
+   "scene": "S18",
+   "text": "For Walt, with a loan of $115,000, it takes more than a full point.",
+   "spoken": "For Walt, with a loan of one hundred fifteen thousand dollars, it takes more than a full point.",
+   "tag": null,
+   "start": 502.285,
+   "end": 507.105,
+   "claims": [
+    "loan_small",
+    "cut36_small"
+   ]
+  },
+  {
+   "id": "S18.5",
+   "n": 92,
+   "scene": "S18",
+   "text": "For Nora, with $375,000, half a point.",
+   "spoken": "For Nora, with three hundred seventy-five thousand dollars, half a point.",
+   "tag": null,
+   "start": 507.855,
+   "end": 511.775,
+   "claims": [
+    "loan_median",
+    "cut36_median"
+   ]
+  },
+  {
+   "id": "S18.6",
+   "n": 93,
+   "scene": "S18",
+   "text": "For Anjali, with $655,000, about a third of a point.",
+   "spoken": "For Anjali, with six hundred fifty-five thousand dollars, about a third of a point.",
+   "tag": null,
+   "start": 512.545,
+   "end": 516.985,
+   "claims": [
+    "loan_large",
+    "cut36_large_words"
+   ]
+  },
+  {
+   "id": "S18.7",
+   "n": 94,
+   "scene": "S18",
+   "text": "Put your own loan on that scale, and you can see which of them you are closest to.",
+   "spoken": "Put your own loan on that scale, and you can see which of them you are closest to.",
+   "tag": null,
+   "start": 518.015,
+   "end": 522.275,
+   "claims": []
+  },
+  {
+   "id": "S18.8",
+   "n": 95,
+   "scene": "S18",
+   "text": "Those lines rest on our assumptions: a loan taken out at the October 2023 rate, a median bill, and a three-year stay.",
+   "spoken": "Those lines rest on our assumptions: a loan taken out at the October twenty twenty-three rate, a median bill, and a three-year stay.",
+   "tag": null,
+   "start": 523.135,
+   "end": 531.215,
+   "claims": []
+  },
+  {
+   "id": "S18.9",
+   "n": 96,
+   "scene": "S18",
+   "text": "The one-point line fits none of them.",
+   "spoken": "The one-point line fits none of them.",
+   "tag": null,
+   "start": 532.075,
+   "end": 534.135,
+   "claims": []
+  },
+  {
+   "id": "S19.1",
+   "n": 97,
+   "scene": "S19",
+   "text": "These are national average rates, median bills, and three made-up borrowers.",
+   "spoken": "These are national average rates, median bills, and three made-up borrowers.",
+   "tag": null,
+   "start": 535.7,
+   "end": 540.19,
+   "claims": []
+  },
+  {
+   "id": "S19.2",
+   "n": 98,
+   "scene": "S19",
+   "text": "In 2025, half of refinance bills fell between $3,443 and $8,270.",
+   "spoken": "In twenty twenty-five, half of refinance bills fell between three thousand four hundred forty-three dollars and eight thousand two hundred seventy dollars.",
+   "tag": null,
+   "start": 541.195,
+   "end": 550.395,
+   "claims": [
+    "cost_p25",
+    "cost_p75"
+   ]
+  },
+  {
+   "id": "S19.3",
+   "n": 99,
+   "scene": "S19",
+   "text": "A real rate, a real bill and a real balance will be different.",
+   "spoken": "A real rate, a real bill and a real balance will be different.",
+   "tag": null,
+   "start": 550.875,
+   "end": 554.075,
+   "claims": []
+  },
+  {
+   "id": "S19.4",
+   "n": 100,
+   "scene": "S19",
+   "text": "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too.",
+   "spoken": "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too.",
+   "tag": null,
+   "start": 554.895,
+   "end": 560.675,
+   "claims": []
+  },
+  {
+   "id": "S20.1",
+   "n": 101,
+   "scene": "S20",
+   "text": "Which leaves the one number only you know: how long you will stay.",
+   "spoken": "Which leaves the one number only you know: how long you will stay.",
+   "tag": null,
+   "start": 562.23,
+   "end": 566.69,
+   "claims": []
+  },
+  {
+   "id": "S20.2",
+   "n": 102,
+   "scene": "S20",
+   "text": "For Nora, the same offer comes out $1,039 ahead if she sells after three years, and $8,093 ahead if she stays seven.",
+   "spoken": "For Nora, the same offer comes out one thousand thirty-nine dollars ahead if she sells after three years, and eight thousand ninety-three dollars ahead if she stays seven.",
+   "tag": null,
+   "start": 567.945,
+   "end": 578.495,
+   "claims": [
+    "net36_median",
+    "y3",
+    "net84_median",
+    "y7"
+   ]
+  },
+  {
+   "id": "S20.3",
+   "n": 103,
+   "scene": "S20",
+   "text": "The rate cut decides how fast the fees come back.",
+   "spoken": "The rate cut decides how fast the fees come back.",
+   "tag": null,
+   "start": 579.605,
+   "end": 582.185,
+   "claims": []
+  },
+  {
+   "id": "S20.4",
+   "n": 104,
+   "scene": "S20",
+   "text": "How long you stay decides whether you are still there when they do.",
+   "spoken": "How long you stay decides whether you are still there when they do.",
+   "tag": null,
+   "start": 582.785,
+   "end": 586.665,
+   "claims": []
+  },
+  {
+   "id": "S20.5",
+   "n": 105,
+   "scene": "S20",
+   "text": "How long do you picture yourself in your home?",
+   "spoken": "How long do you picture yourself in your home?",
+   "tag": "[softly]",
+   "start": 588.315,
+   "end": 590.305,
+   "claims": []
+  }
+ ]
+}

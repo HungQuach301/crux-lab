@@ -1,0 +1,77 @@
+{
+ "names": [
+  "S1",
+  "S2",
+  "S3"
+ ],
+ "measures": {
+  "S1": {
+   "liftDbPerWindow": [
+    0.0,
+    0.0,
+    0.0,
+    0.78,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.02,
+    0.0,
+    0.0,
+    0.32,
+    0.0,
+    0.0
+   ],
+   "medianLiftDb": 0.0,
+   "dataVsVoice1to4kWhileSpeakingDb": -34.1,
+   "dataVsVoiceFullBandDb": -20.5,
+   "fileMB": 5.32
+  },
+  "S2": {
+   "liftDbPerWindow": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.01
+   ],
+   "medianLiftDb": 0.0,
+   "dataVsVoice1to4kWhileSpeakingDb": -56.3,
+   "dataVsVoiceFullBandDb": -20.9,
+   "fileMB": 5.32
+  },
+  "S3": {
+   "liftDbPerWindow": [
+    0.0,
+    0.0,
+    0.0,
+    6.64,
+    0.0,
+    0.0,
+    0.0,
+    0.01,
+    0.01,
+    0.0,
+    0.0,
+    0.28,
+    0.0,
+    0.01
+   ],
+   "medianLiftDb": 0.0,
+   "dataVsVoice1to4kWhileSpeakingDb": -31.3,
+   "dataVsVoiceFullBandDb": -21.4,
+   "fileMB": 5.32
+  }
+ },
+ "rules": "all three: side-chain -8 dB under the voice, 1-4 kHz removed while the voice speaks, notes moved into syllable gaps (-60..+120 ms), pitch mapping unchanged, loudness-matched at -16 dB under the voice (before the side-chain); no +10 dB",
+ "note": "per blind name; fields that could reveal the palette (note counts, shifts) are left out to keep the test blind"
+}

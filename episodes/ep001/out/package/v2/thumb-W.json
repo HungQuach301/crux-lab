@@ -1,0 +1,48 @@
+{
+ "option": "thumb-W",
+ "hook": "c",
+ "illustrative": false,
+ "texts": [
+  {
+   "text": "5.98%",
+   "box": [
+    394,
+    152,
+    520,
+    180
+   ],
+   "fontPx": 150,
+   "claim": "low2026"
+  },
+  {
+   "text": "Missed it?",
+   "box": [
+    697,
+    580,
+    535,
+    130
+   ],
+   "fontPx": 100
+  }
+ ],
+ "anchors1080": {
+  "low": {
+   "x": 981.0438268416373,
+   "y": 781.8165829865482
+  },
+  "winTop": {
+   "x": 939.0590087525627,
+   "y": 194.4193256152759
+  },
+  "winBot": {
+   "x": 939.2170305848656,
+   "y": 903.7400425956924
+  },
+  "rightLeaf": {
+   "x": 1428.8618928338706,
+   "y": 551.8723548669927
+  }
+ },
+ "stillMs": 2124,
+ "source": "preprod/thumbs_v2/render.js; 3D = design/c3/final/src/engine.js (signed C3 H1 objects); numbers = out/claims.json display"
+}

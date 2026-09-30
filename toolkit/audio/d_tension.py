@@ -5,7 +5,7 @@ tension = 5 s moving mean of 0.4 x cut rate/4 + 0.4 x (music dB + 50)/30 + 0.2 x
 Peaks: the tension maximum within +-5 s of each act climax (timeline acts[].climax); valleys: the minimum in the 45 s
 after each peak. Also redraws the PNG.
 
-    python3 audio/d_tension.py out/m2/root
+    python3 toolkit/audio/d_tension.py <episode root>
 """
 import json
 import os

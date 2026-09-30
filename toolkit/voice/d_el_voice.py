@@ -1,7 +1,7 @@
 """Test D M1b-2: the whole script with the V8 voice (ElevenLabs, Eric, eleven_v3), one clip per sentence.
 
 Per sentence, up to 4 takes (eleven_v3, `seed` = take index). A take is judged on its own faster-whisper ASR:
-  (a) every key word heard (the locked A14 functions key_words/match_keys, read-only import),
+  (a) every key word heard (toolkit/voice/keywords.py: the builder's own matcher, not the checks' code),
   (b) pace 120-190 wpm (spoken words / ASR span, the A15 definition),
   (c) nearest 156 wpm.
 Takes are generated while no take passes (a)+(b) within +-10 wpm of 156. If 4 eleven_v3 takes still fail, Eric on eleven_multilingual_v2
@@ -30,9 +30,10 @@ from scipy.io import wavfile
 
 warnings.filterwarnings('ignore', category=wavfile.WavFileWarning)
 sys.dont_write_bytecode = True
-ROOT = os.path.join(os.path.dirname(__file__), '..')
-sys.path.insert(0, os.path.join(ROOT, 'checks', 'py'))
-from r_audio import key_words, match_keys  # noqa: E402  (locked implementation, read-only)
+# episode root (crux-lab: episodes/<ep>/), from EP_ROOT or the first argument; outputs go to <root>/out/voice
+ROOT = os.path.abspath(os.environ.get('EP_ROOT') or (sys.argv[1] if len(sys.argv) > 1 else '.'))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from keywords import key_words, match_keys  # noqa: E402  (the builder's own matcher; nothing is imported from checks/)
 
 VDIR = os.path.join(ROOT, 'out', 'voice')
 EDIR, FDIR = os.path.join(VDIR, 'el'), os.path.join(VDIR, 'final')
@@ -40,13 +41,18 @@ VOICE_ID = 'cjVigY5qzO86Huf0OWal'  # Eric (premade library voice), V8 of the bli
 MAIN, FALLBACK = 'eleven_v3', 'eleven_multilingual_v2'
 URL = 'https://api.elevenlabs.io/v1/text-to-speech/{}/with-timestamps?output_format=mp3_44100_128'
 AIM, LO, HI, ACT_LO, ACT_HI = 156.0, 120.0, 190.0, 153.0, 159.0  # act target inside 150-160 with margin: the check (A15) measured act 1 ~9 wpm under this measure in M2
-MAX_TAKES, MAX_FALLBACK = 4, 0  # G-010 (2026-09-29): one voice model for the whole episode; the fallback model is off. Never switch models to hit a pace.
+MAX_TAKES, MAX_FALLBACK = int(os.environ.get('EL_MAX_TAKES', 4)), 0  # G-010 (2026-09-29): one voice model for the whole episode; the fallback model is off. Never switch models to hit a pace.
 cost = {'characters': 0, 'calls': 0}
 
 
 def synth(text, model, take, path, speed=None):
     if os.path.exists(path) and os.path.exists(path[:-4] + '.json'):
         return json.load(open(path[:-4] + '.json'))
+    budget = int(os.environ.get('EL_BUDGET', 0) or 0)  # stop BEFORE a call that could pass the pass budget (characters, Character-Cost header)
+    if budget:
+        spent = sum(json.load(open(os.path.join(EDIR, f))).get('characterCost', 0) for f in os.listdir(EDIR) if f.endswith('.json'))
+        if spent + len(text) > budget:
+            raise SystemExit(f'ElevenLabs budget: {spent} characters spent, next call ({len(text)}) would pass EL_BUDGET={budget}; stopping')
     body = {'text': text, 'model_id': model, 'seed': 1000 + take,
             'voice_settings': {'stability': 0.5, 'speed': 0.9} if model == MAIN else {'stability': 0.5, 'similarity_boost': 0.75, 'speed': round(speed or 0.95, 3)}}
     for attempt in range(6):
@@ -235,7 +241,7 @@ def main():
                      'missing': r['missing'], 'heard': r['text']}, 'takes': len(cands[s['id']]),
                      'problem': ('missing ' + ', '.join(r['missing'])) if r['missing'] else ('outside 120-190' if not LO <= r['wpm'] <= HI else '')})
     json.dump({'takes': takes, 'voice': {'provider': 'ElevenLabs', 'voiceId': VOICE_ID, 'name': 'Eric', 'model': MAIN, 'fallback': FALLBACK,
-                                         'note': 'provisional voice for test D, not decision #158; no time stretching (final = raw trimmed)'}},
+                                         'note': 'provisional voice (DX-A8), not decision #158; no time stretching (final = raw trimmed)'}},
               open(os.path.join(VDIR, 'takes.json'), 'w'), indent=1)
     # schema read by src/d/timeline.js and audio/d_tableread.py
     json.dump({n: {**r, 'speech': [round(r['speech'][0], 3), round(r['speech'][1], 3)]} for n, r in
@@ -246,7 +252,19 @@ def main():
     json.dump(rep, open(os.path.join(VDIR, 'choice-report.json'), 'w'), indent=1)
     json.dump({s['id']: 0 for s in sents}, open(os.path.join(VDIR, 'choice.json'), 'w'))
     spent = sum(r.get('characterCost', 0) for r in recs.values())
-    json.dump({'thisRun': cost, 'allTakesCharacterCost': spent, 'takesGenerated': len(recs)}, open(os.path.join(VDIR, 'el-credits.json'), 'w'), indent=1)
+    # cumulative credits: takes in the store + takes retired from it (their files may be gone; the recorded figure is kept) + calls made
+    # outside the take store (calibration). Earlier figures are carried over from the existing file, never dropped.
+    cp = os.path.join(VDIR, 'el-credits.json')
+    prev = json.load(open(cp)) if os.path.exists(cp) else {}
+    rdir = os.path.join(ROOT, 'work', 'retired-takes')
+    retired = sum(json.load(open(os.path.join(d, f))).get('characterCost', 0) for d, _, fs in os.walk(rdir) for f in fs if f.endswith('.json')) if os.path.isdir(rdir) else 0
+    retired = max(retired, prev.get('retiredTakesCharacterCost', 0))
+    calib = prev.get('calibrationCalls', [])
+    total = spent + retired + sum(c['characters'] for c in calib)
+    json.dump({'thisRun': cost, 'allTakesCharacterCost': spent, 'takesGenerated': len(recs), 'retiredTakesCharacterCost': retired, 'calibrationCalls': calib,
+               'cumulativeCharacterCost': total, 'passes': prev.get('passes', []),
+               'note': 'Character-Cost header units. cumulative = takes in el-takes.json + retired takes + calibration calls outside the take store'},
+              open(cp, 'w'), indent=1)
     print('acts', {k: round(v, 1) for k, v in rates.items()}, '| fallback', fallback, '| problems', len(rep['problems']), '| credits (all takes)', spent)
 
 

@@ -1,0 +1,390 @@
+{
+ "fps": 30,
+ "total": 591.31,
+ "acts": [
+  {
+   "id": "cold-open",
+   "start": 0.0,
+   "end": 55.67
+  },
+  {
+   "id": "act1",
+   "start": 55.67,
+   "end": 241.54,
+   "climax": 234.125
+  },
+  {
+   "id": "act2",
+   "start": 241.54,
+   "end": 372.2,
+   "climax": 331.175
+  },
+  {
+   "id": "act3",
+   "start": 372.2,
+   "end": 535.35,
+   "climax": 441.005
+  },
+  {
+   "id": "method",
+   "start": 535.35,
+   "end": 561.88
+  },
+  {
+   "id": "outro",
+   "start": 561.88,
+   "end": 591.31
+  }
+ ],
+ "scenes": [
+  {
+   "id": "S01",
+   "act": "cold-open",
+   "start": 0.0,
+   "dur": 33.08,
+   "layout": "line/window-low",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 2.0,
+   "look": "H3→H1→H3",
+   "title": "The week rates bottomed"
+  },
+  {
+   "id": "S02",
+   "act": "cold-open",
+   "start": 33.08,
+   "dur": 22.59,
+   "layout": "letter/offer",
+   "shot": "close",
+   "panels": [
+    "*"
+   ],
+   "chart": "letter",
+   "move": 2.0,
+   "look": "H1",
+   "title": "The letter, and the promise"
+  },
+  {
+   "id": "S03",
+   "act": "act1",
+   "start": 55.67,
+   "dur": 20.71,
+   "layout": "line/peak-2023",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 2.0,
+   "look": "H3→H1",
+   "title": "Near the top"
+  },
+  {
+   "id": "S04",
+   "act": "act1",
+   "start": 76.38,
+   "dur": 25.26,
+   "layout": "object/loan-file",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "card",
+   "move": 2.0,
+   "look": "H1",
+   "title": "Nora"
+  },
+  {
+   "id": "S05",
+   "act": "act1",
+   "start": 101.64,
+   "dur": 39.34,
+   "layout": "line/window",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 0.0,
+   "look": "H3",
+   "title": "The window, and the one-point line"
+  },
+  {
+   "id": "S06",
+   "act": "act1",
+   "start": 140.98,
+   "dur": 29.13,
+   "layout": "letter/new-rate",
+   "shot": "close",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 2.0,
+   "look": "H1→H3→H1",
+   "title": "The offer"
+  },
+  {
+   "id": "S07",
+   "act": "act1",
+   "start": 170.11,
+   "dur": 32.28,
+   "layout": "letter/bill",
+   "shot": "close",
+   "panels": [
+    "*"
+   ],
+   "chart": "scatter",
+   "move": 2.0,
+   "look": "H1→H3",
+   "title": "The bill"
+  },
+  {
+   "id": "S08",
+   "act": "act1",
+   "start": 202.39,
+   "dur": 39.15,
+   "layout": "split/two-answers",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 0.0,
+   "look": "H3",
+   "title": "Two answers"
+  },
+  {
+   "id": "S09",
+   "act": "act2",
+   "start": 241.54,
+   "dur": 16.41,
+   "layout": "stack/break-even",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "stack",
+   "move": 2.0,
+   "look": "H1",
+   "title": "What break-even means"
+  },
+  {
+   "id": "S10",
+   "act": "act2",
+   "start": 257.95,
+   "dur": 57.45,
+   "layout": "stack/balance-gap",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "stack",
+   "move": 2.0,
+   "look": "H3→H1",
+   "title": "Starting the clock over"
+  },
+  {
+   "id": "S11",
+   "act": "act2",
+   "start": 315.4,
+   "dur": 22.36,
+   "layout": "plot/never",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 0.0,
+   "look": "H3",
+   "title": "A quarter point"
+  },
+  {
+   "id": "S12",
+   "act": "act2",
+   "start": 337.76,
+   "dur": 6.12,
+   "layout": "plot/full-point",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 0.0,
+   "look": "H3",
+   "title": "A full point"
+  },
+  {
+   "id": "S13",
+   "act": "act2",
+   "start": 343.88,
+   "dur": 28.32,
+   "layout": "ruler/half-point",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 0.0,
+   "look": "H3",
+   "title": "Half a point"
+  },
+  {
+   "id": "S14",
+   "act": "act3",
+   "start": 372.2,
+   "dur": 23.04,
+   "layout": "house/walt",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "stack",
+   "move": 2.0,
+   "look": "H1",
+   "title": "Walt"
+  },
+  {
+   "id": "S15",
+   "act": "act3",
+   "start": 395.24,
+   "dur": 28.43,
+   "layout": "bars/bill-shrinks",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "bar",
+   "move": 2.0,
+   "look": "H3→H1",
+   "title": "The bill barely shrinks"
+  },
+  {
+   "id": "S16",
+   "act": "act3",
+   "start": 423.67,
+   "dur": 27.82,
+   "layout": "stack/walt-3y",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "ruler",
+   "move": 2.0,
+   "look": "H1→H3",
+   "title": "If Walt sells after three years"
+  },
+  {
+   "id": "S17",
+   "act": "act3",
+   "start": 451.49,
+   "dur": 36.03,
+   "layout": "house/anjali",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "stack",
+   "move": 2.0,
+   "look": "H1→H3",
+   "title": "Anjali"
+  },
+  {
+   "id": "S18",
+   "act": "act3",
+   "start": 487.52,
+   "dur": 47.83,
+   "layout": "ruler/three-marks",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "bar",
+   "move": 2.0,
+   "look": "H1→H3",
+   "title": "A line for each loan size"
+  },
+  {
+   "id": "S19",
+   "act": "method",
+   "start": 535.35,
+   "dur": 26.53,
+   "layout": "band/fee-range",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "band",
+   "move": 0.0,
+   "look": "H3",
+   "title": "What this does not tell you"
+  },
+  {
+   "id": "S20",
+   "act": "outro",
+   "start": 561.88,
+   "dur": 29.43,
+   "layout": "house/horizon",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "stack",
+   "move": 2.0,
+   "look": "H1",
+   "title": "The question that stays with you"
+  }
+ ],
+ "turns": [
+  {
+   "t": 123.835,
+   "scene": "S05",
+   "what": "the one-point window closed (history, US only)"
+  },
+  {
+   "t": 234.125,
+   "scene": "S08",
+   "what": "act 1 turn: neither quick answer is right"
+  },
+  {
+   "t": 309.445,
+   "scene": "S10",
+   "what": "act 2 turn: counting what she still owes moves break-even from 24 to 30 months"
+  },
+  {
+   "t": 331.175,
+   "scene": "S11",
+   "what": "act 2 climax: at a quarter point the fees never come back"
+  },
+  {
+   "t": 352.855,
+   "scene": "S13",
+   "what": "answer for Nora: half a point"
+  },
+  {
+   "t": 395.59,
+   "scene": "S15",
+   "what": "act 3 turn: the bill barely shrinks with the loan"
+  },
+  {
+   "t": 441.005,
+   "scene": "S16",
+   "what": "answer to the promise: a smaller mortgage needs a bigger cut"
+  },
+  {
+   "t": 500.065,
+   "scene": "S18",
+   "what": "the answer: a line for each loan size"
+  },
+  {
+   "t": 588.315,
+   "scene": "S20",
+   "what": "the question left with the viewer"
+  }
+ ],
+ "source": "animatic/timing.json (final sentence times, 591.72 s narration) + preprod/dossier_c5.py; scenes cut 0.35 s before their first sentence",
+ "note": "no ident in the render (none at C4); move = seconds of camera push at the start (H1 slow push <= 20 px/s, H3 static); out/camera.json (P) overrides it"
+}

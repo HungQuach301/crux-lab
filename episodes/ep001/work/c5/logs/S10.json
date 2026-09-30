@@ -1,0 +1,338 @@
+{
+ "scene": "S10",
+ "frames": 1723,
+ "frames3d": 1134,
+ "filmSeconds": 57.43333333333333,
+ "wallSeconds": 1716.5,
+ "browserFrameSeconds": 1688.6,
+ "machineSecPerFilmSec": 29.89,
+ "hardTime": 57.4,
+ "crf": 8,
+ "size": "1920x1080",
+ "basisMode": "corner",
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-30T02:41:59.033Z",
+ "texts": [
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 40,
+   "n": 1724,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "A mortgage is a 30-year clock",
+   "tier": "head",
+   "px": 58,
+   "n": 583,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.20000000000004547,
+   "sent": false
+  },
+  {
+   "s": "one tick = one monthly payment",
+   "tier": "note",
+   "px": 40,
+   "n": 574,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.5,
+   "sent": false
+  },
+  {
+   "s": "35 payments made",
+   "tier": "label",
+   "px": 43,
+   "n": 336,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 1.0666666666667197,
+   "sent": false
+  },
+  {
+   "s": "one payment, old loan",
+   "tier": "label",
+   "px": 43,
+   "n": 341,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 8.266666666666708,
+   "sent": false
+  },
+  {
+   "s": "goes to interest",
+   "tier": "note",
+   "px": 40,
+   "n": 341,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 8.266666666666708,
+   "sent": false
+  },
+  {
+   "s": "green: pays down the loan (below: magnified)",
+   "tier": "note",
+   "px": 40,
+   "n": 341,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 8.266666666666708,
+   "sent": false
+  },
+  {
+   "s": "new loan: the clock starts again",
+   "tier": "label",
+   "px": 43,
+   "n": 204,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 12.833333333333371,
+   "sent": false
+  },
+  {
+   "s": "one payment, new loan",
+   "tier": "label",
+   "px": 43,
+   "n": 101,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 16.26666666666671,
+   "sent": false
+  },
+  {
+   "s": "the new loan pays down less each month",
+   "tier": "label",
+   "px": 43,
+   "n": 78,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 17.03333333333336,
+   "sent": false
+  },
+  {
+   "s": "loan costs",
+   "tier": "label",
+   "px": 43,
+   "n": 1198,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "+$221 a month",
+   "tier": "label",
+   "px": 43,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "balance paid off",
+   "tier": "label",
+   "px": 43,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "since refinancing",
+   "tier": "note",
+   "px": 40,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "old loan",
+   "tier": "label",
+   "px": 43,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "new loan",
+   "tier": "label",
+   "px": 43,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "months",
+   "tier": "note",
+   "px": 40,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "24",
+   "tier": "label",
+   "px": 43,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "Nora: illustrative. Fees: HMDA 2025 median. Dollars of the day (before inflation).",
+   "tier": "note",
+   "px": 40,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
+   "s": "By month 24: old loan vs new loan",
+   "tier": "head",
+   "px": 58,
+   "n": 246,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.666666666666686,
+   "sent": false
+  },
+  {
+   "s": "$1,133 extra owed",
+   "tier": "number",
+   "px": 77,
+   "n": 333,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 27.966666666666697,
+   "sent": false
+  },
+  {
+   "s": "on the new loan vs the old one",
+   "tier": "label",
+   "px": 43,
+   "n": 333,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 27.966666666666697,
+   "sent": false
+  },
+  {
+   "s": "+ $1,133 extra owed",
+   "tier": "label",
+   "px": 43,
+   "n": 468,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 39.900000000000034,
+   "sent": false
+  },
+  {
+   "s": "+ extra owed",
+   "tier": "label",
+   "px": 43,
+   "n": 63,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 55.366666666666674,
+   "sent": false
+  },
+  {
+   "s": "30",
+   "tier": "label",
+   "px": 43,
+   "n": 63,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 55.366666666666674,
+   "sent": false
+  },
+  {
+   "s": "Break-even: month 30",
+   "tier": "number",
+   "px": 77,
+   "n": 63,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 55.366666666666674,
+   "sent": false
+  },
+  {
+   "s": "not month 24",
+   "tier": "label",
+   "px": 43,
+   "n": 54,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 55.666666666666686,
+   "sent": false
+  }
+ ],
+ "anchorsUsed": [
+  "be30",
+  "clock",
+  "each",
+  "from24",
+  "gap",
+  "interest",
+  "k35",
+  "more",
+  "move",
+  "reset",
+  "slow"
+ ],
+ "anchorsDeclared": [
+  "clock",
+  "k35",
+  "each",
+  "reset",
+  "interest",
+  "slow",
+  "gap",
+  "move",
+  "more",
+  "from24",
+  "be30"
+ ],
+ "anchorsKeywordMissing": [],
+ "claimsUsed": [
+  "be_bal_median",
+  "be_simple_median",
+  "cost_median",
+  "gap24",
+  "k35",
+  "r_old",
+  "r_today",
+  "sav_median",
+  "term30",
+  "y2025"
+ ]
+}

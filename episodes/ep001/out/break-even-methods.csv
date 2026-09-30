@@ -1,0 +1,23 @@
+case,loan,closingCost,monthlySaving,simpleMonths,withBalanceMonths,net3y,net7y,cutFor36m
+"median (September 24, 2026, cut 0.59 pt)","$375,000","$5,124",$221,24,30,"$1,039","$8,093",0.50
+"small (September 24, 2026, cut 0.59 pt)","$115,000","$3,667",$68,55,75,"-$1,777",$386,1.12
+"large (September 24, 2026, cut 0.59 pt)","$655,000","$5,514",$387,15,18,"$5,250","$17,571",0.32
+"median, cut 0.25 pt","$375,000","$5,124",$137,38,never,,,
+"median, cut 0.5 pt","$375,000","$5,124",$199,26,36,,,
+"median, cut 0.75 pt","$375,000","$5,124",$260,20,23,,,
+"median, cut 1 pt","$375,000","$5,124",$321,16,18,,,
+"median, cut 1.5 pt","$375,000","$5,124",$440,12,12,,,
+"median, cut 2 pt","$375,000","$5,124",$556,10,9,,,
+history 1974-10 -> refi 1975-03 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,775",$240,20,18,,,
+history 1980-04 -> refi 1980-05 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,785",$496,10,10,,,
+history 1981-10 -> refi 1981-12 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,785",$369,13,13,,,
+history 1984-07 -> refi 1984-11 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,783",$247,20,19,,,
+history 1987-10 -> refi 1988-02 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,779",$311,16,14,,,
+history 1989-04 -> refi 1989-07 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,781",$264,19,17,,,
+history 1994-12 -> refi 1995-05 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,773",$271,18,16,,,
+history 1996-06 -> refi 1997-10 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,735",$235,21,19,,,
+history 2000-05 -> refi 2000-12 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,765",$245,20,17,,,
+history 2006-07 -> refi 2008-01 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,708",$224,21,20,,,
+history 2013-09 -> refi 2016-07 (1 pt) *,"$300,000 (ILLUSTRATIVE)","$4,557",$245,19,19,,,
+history 2018-11 -> refi 2019-06 (1 pt),"$300,000 (ILLUSTRATIVE)","$3,564",$200,18,14,,,
+history 2023-10 -> refi 2024-08 (1 pt),"$300,000 (ILLUSTRATIVE)","$5,039",$240,21,19,,,

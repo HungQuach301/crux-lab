@@ -1,0 +1,40 @@
+# Episode 1 — shot list (Stage 4b, script v2)
+
+Every shot: size, camera move, reason. Times from the animatic timeline. 2.5D: moves on the chart plane only.
+
+| # | t (s) | scene | act | layout | size | move | reason | picture | data sounds |
+|---|---|---|---|---|---|---|---|---|---|
+| sh001 | 0.0 | `S01` | cold-open | line/peak | wide | track right 3.0 s | follow the rate line as it draws up to the October 2023 peak | Hình đi trước lời khoảng 1.5 s: đường lãi tự vẽ lên tới đỉnh 10/2023, nhãn chữ "highest since 2000"; một vạch mờ "1-point line" nằm dưới đỉnh, không có lời. | line, dot |
+| sh002 | 9.8 | `S02` | cold-open | letter/offer | close | tilt down 1.5 s | read the letter top to bottom and stop on the bill line | Cắt sang bàn bếp: lá thư đề nghị, dòng "New rate", dòng cuối "Loan costs: $5,124" cùng huy hiệu ILLUSTRATIVE và nhãn nhỏ "nominal $". Ngón tay dừng ở dòng cuối. | counter |
+| sh003 | 21.9 | `S03` | ident | ident/logo | wide | none | no move on the 3 s ident | Ident ≤ 3 s; tiếng dữ liệu của đường lãi ngân dài dưới ident. | — |
+| sh004 | 24.9 | `S04` | act1 | ruler/empty | medium | none | hold: the empty rate-drop ruler is the promise | Một thước ngang "rate drop" trống; ba marker (tròn, tam giác, vuông) chờ ở mép, chưa có vị trí. | dot |
+| sh005 | 42.0 | `S05` | act1 | line/low-to-peak | wide | track right 4.0 s | travel from the 2021 low to the 2023 peak along the line | Một đường lãi duy nhất, máy quay đi dọc đường từ đáy 2021 lên đỉnh 2023; điểm đáy sáng rồi lùi; chữ "week ending January 7, 2021" hiện cạnh điểm đáy. | line, dot |
+| sh006 | 62.0 | `S06` | act1 | grid/houses | medium | push-in 1.5 s | from ten houses into the one that is Nora's | Lưới 10 ngôi nhà; 3 nhà sáng lên. Máy quay đẩy vào một trong ba nhà đó. ILLUSTRATIVE badge beside "seven percent or more" (ge7_threshold: an analyst threshold). | bar |
+| sh007 | 76.6 | `S07` | act1 | line/nora-lands | medium | none | hold: Nora's circle drops onto October 2023 | Căn nhà với thùng đồ chuyển nhà ở hiên. Marker tròn của Nora rơi xuống đường lãi ở tháng 10/2023; huy hiệu ILLUSTRATIVE hiện cùng số. | dot |
+| sh008 | 100.3 | `S08` | act1 | letter/today | medium | track right 1.5 s | from her month to the week of September 24, 2026 on the line | Lá thư từ cold open trở lại; dòng "New rate 7.03%" sáng lên. Chữ trên màn hình ở S08.3: "Week ending September 24, 2026" (lời không đọc ngày). Trên đường lãi, một điểm ở tuần đó. | line, dot |
+| sh009 | 116.0 | `S09` | act1 | bars/payment | close | none | hold: the payment bar shrinks by $221 | Khoản trả hằng tháng co lại; phần co tách thành một khối nhỏ $221 (màu Nora). Số "0.59 point" hiện trên màn hình; nhãn "percentage point ≠ points" chỉ hiện 2 s. | bar |
+| sh010 | 139.0 | `S10` | act1 | blocks/bill-vs-saving | medium | pull-out 1.2 s | reveal the $5,124 block beside the small $221 block | Khối $5,124 đặt đối diện khối $221, đúng tỉ lệ; khối $221 trông rất nhỏ. | bar |
+| sh011 | 171.1 | `S11` | act1 | letter/two-slots | wide | none | hold: two empty answer slots | Lá thư thu nhỏ vào giữa khung; hai ô trống hai bên chờ hai câu trả lời. | — |
+| sh012 | 179.0 | `S12` | act1 | split/line-vs-division | medium | none | split screen: the one-point line and the counter | Màn hình chia đôi: trái là vạch "1-point line" (nhãn "test value"), marker Nora nằm dưới vạch; phải là đồng hồ đếm lên 24. ILLUSTRATIVE badge on the "1-point line (test value)" label (s10). | counter |
+| sh013 | 204.3 | `S13` | act1 | letter/missing-line | close | push-in 1.5 s | into the blank line of the letter before the break | Cả hai nửa màn hình mờ đi; chỉ còn lá thư, một dòng trống ở giữa nhấp nháy nhẹ. | — |
+| sh014 | 219.2 | `S14` | act2 | blocks/stack | medium | tilt up 2.0 s | follow the monthly blocks up to the bill line | Mỗi tháng một khối $221 chồng lên, tiến dần tới vạch $5,124; tiếng dữ liệu gảy nhẹ theo từng khối. | bar |
+| sh015 | 245.5 | `S15` | act2 | balance/stairs | medium | none | hold: two balance lines, old steeper than new | Hai đường "what she still owes": khoản cũ dốc hơn, khoản mới thoải hơn. Một đồng hồ 30 năm quay về 0. | line |
+| sh016 | 281.1 | `S16` | act2 | balance/gap24 | close | push-in 1.3 s | into the gap between the lines at month 24 | Khe hở giữa hai đường tô ink-muted có hoa văn, nhãn $1,133. | dot |
+| sh017 | 304.3 | `S17` | act2 | clock/30 | medium | none | hold while the counter passes 24 and stops at 30 | Đồng hồ đếm qua 24, không dừng, dừng ở 30. | counter |
+| sh018 | 321.1 | `S18` | act2 | clock/38 | medium | none | hold: division stops at 38 | Đồng hồ phép chia dừng ở 38; đường nợ mới hiện lên phía dưới. ILLUSTRATIVE badge beside "a quarter of a percentage point" (s025: an analysis cut). | counter |
+| sh019 | 338.2 | `S19` | act2 | clock/never | wide | pull-out 1.5 s | the break-even mark drifts out of frame | Đồng hồ chạy mãi; vạch hoà vốn trôi ra khỏi khung. Tiếng dữ liệu kéo dài rồi tắt dần. | line |
+| sh020 | 349.6 | `S20` | act2 | ruler/test | medium | track left 1.2 s | the circle tries the one-point mark, then a quarter | Thước "rate drop" từ S04 quay lại; marker tròn thử ở "1-point line", rồi ở một phần tư. | dot |
+| sh021 | 365.4 | `S21` | act2 | ruler/nora | medium | none | hold: the circle lands at 0.5 | Marker tròn dừng trên thước ở 0.5, lần đầu thước có một điểm. Hai ô trống còn lại ở 2 phía. ILLUSTRATIVE badge beside "half a point" (s05: an analysis cut). | dot |
+| sh022 | 396.5 | `S22` | act3 | person/walt | medium | track left 1.5 s | cross to Walt on the left | Marker tam giác ở bên trái khung; lá thư giống hệt thư của Nora; khối phí gần bằng khối của Nora. Huy hiệu ILLUSTRATIVE. | bar |
+| sh023 | 431.8 | `S23` | act3 | blocks/three-bills | wide | none | hold: three bills beside three loans, to scale | Ba khối phí $3,667 / $5,124 / $5,514 cạnh ba khối khoản vay, đúng tỉ lệ: khối phí chênh ít, khối khoản vay chênh xa. | bar |
+| sh024 | 455.4 | `S24` | act3 | blocks/walt-stack | medium | none | hold: $68 blocks stack slowly | Khối $68 chồng rất chậm; đồng hồ quay nhiều vòng. | bar, counter |
+| sh025 | 475.7 | `S25` | act3 | timeline/walt3 | medium | track right 1.2 s | along Walt's timeline to year 3 | Trục thời gian dừng ở năm 3; khối "behind" màu ink-muted có hoa văn. | bar |
+| sh026 | 501.6 | `S26` | act3 | ruler/walt | medium | track right 1.2 s | the triangle lands past the one-point mark | Marker tam giác đặt trên thước ở 1.12, bên phải "1-point line". | dot |
+| sh027 | 519.8 | `S27` | act3 | person/anjali | medium | track right 1.5 s | cross to Anjali on the right | Marker vuông ở bên phải khung (nhãn tên bằng ink); cùng lá thư. Huy hiệu ILLUSTRATIVE. | bar |
+| sh028 | 552.3 | `S28` | act3 | ruler/anjali | medium | pull-out 1.2 s | the square lands at 0.32; all three markers in frame | Marker vuông dừng trên thước ở 0.32; ba marker cùng hiện trên thước. | dot |
+| sh029 | 573.3 | `S29` | act3 | ruler/answer | wide | none | the letter and the ruler: same objects as the open | Lá thư của Nora trở lại như ở cold open; dòng "New rate" giờ có thước bên cạnh, ba marker ở 0.32, 0.5, 1.12, vạch "1-point line" không trùng ai. | dot |
+| sh030 | 615.2 | `S30` | act3 | timeline/nora3 | medium | none | hold on year 3 | Trục thời gian của Nora với mốc năm 3 và một khối dư nhỏ. | bar |
+| sh031 | 630.2 | `S31` | act3 | timeline/nora7 | wide | pull-out 1.5 s | the timeline extends to year 7 | Trục thời gian kéo dài tới năm 7; khối dư lớn hơn nhiều. Ba marker lùi về cạnh. | bar |
+| sh032 | 652.6 | `S32` | method | card/method | medium | none | method card: static, readable | Thẻ chữ tĩnh, chia 5 khối theo đúng thứ tự dòng; đường lãi mờ phía sau. Thẻ đứng ≥ 12 s. | — |
+| sh033 | 685.0 | `S33` | method | card/history | medium | none | static card: 13 drops since 1971, 3 marked | Khối thẻ riêng cho lịch sử (DX-H6: mọi đợt, kể cả đợt đi ngược); 13 dải nhỏ trên đường lãi mờ, 3 dải có mũi tên xuống thêm. Không đọc thành lời. | dot |
+| sh034 | 701.0 | `S34` | outro | end/screen | wide | drift 8 px/s | slow drift into the end-screen space | Ba marker trôi về góc; vùng trống 20 s cho end screen, chỉ có đường lãi mờ và room tone. | — |

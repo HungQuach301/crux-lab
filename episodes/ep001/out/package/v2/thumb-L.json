@@ -1,0 +1,72 @@
+{
+ "option": "thumb-L",
+ "hook": "b",
+ "illustrative": true,
+ "texts": [
+  {
+   "text": "$5,124",
+   "box": [
+    336,
+    382,
+    373,
+    108
+   ],
+   "fontPx": 108,
+   "claim": "cost_median"
+  },
+  {
+   "text": "+$1,133",
+   "box": [
+    747,
+    269,
+    493,
+    140
+   ],
+   "fontPx": 110,
+   "claim": "gap24"
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    991,
+    30,
+    253,
+    52
+   ],
+   "fontPx": 32,
+   "role": "ILLUSTRATIVE badge (rule S08)"
+  }
+ ],
+ "anchors1080": {
+  "billL": {
+   "x": 491.18360255455036,
+   "y": 678.0374468610834
+  },
+  "billR": {
+   "x": 1071.6216601742374,
+   "y": 646.581942303783
+  },
+  "billC": {
+   "x": 783.343564626599,
+   "y": 669.5312021574105
+  },
+  "letterTop": {
+   "x": 782.0104437892886,
+   "y": 207.43568697976556
+  },
+  "slabC": {
+   "x": 1391.347853372459,
+   "y": 778.111637777505
+  },
+  "slabR": {
+   "x": 1645.3504765556943,
+   "y": 852.1092421541979
+  },
+  "slabL": {
+   "x": 1188.5383196185146,
+   "y": 719.0279186628417
+  }
+ },
+ "stillMs": 4228,
+ "source": "preprod/thumbs_v2/render.js; 3D = design/c3/final/src/engine.js (signed C3 H1 objects); numbers = out/claims.json display"
+}

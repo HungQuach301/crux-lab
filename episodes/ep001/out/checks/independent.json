@@ -1,0 +1,528 @@
+{
+ "lock": "f9e24c91a464b1948f6eabb08d6da05d5867f78d2fe7ce1f818ec92009f0dcdd",
+ "root": "episodes/ep001",
+ "contract": "episodes/ep001/contract.json",
+ "modelClaims": {
+  "total": 47,
+  "match": 47,
+  "pct": 100.0,
+  "mismatches": []
+ },
+ "S01": {
+  "values compared": 619,
+  "mismatches": 0,
+  "model parts not re-computed": 0
+ },
+ "rules": {
+  "F11": {
+   "status": "FAIL",
+   "failing": [
+    "declared artefacts not delivered = 23"
+   ],
+   "note": null,
+   "why": "every CONTRACT.md release file is declared in artefacts.M3; the video, voice, stems and render files are not produced yet (M3)"
+  },
+  "A13": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "A15": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/video.mp4",
+   "why": "needs out/video.mp4 (ASR on the master)"
+  },
+  "S01": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "S03": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "S04": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "S05": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "S06": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json (page sampler on the rendered page: yearsTrack/casesTrack); no page yet (M2)"
+  },
+  "S07": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json (numbers on screen)"
+  },
+  "S08": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json"
+  },
+  "S09": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json"
+  },
+  "S10": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "S11": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json"
+  },
+  "S12": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "needs out/checks/page.json"
+  },
+  "S13": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "S14": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/video.mp4",
+   "why": "needs out/video.mp4 (master silences)"
+  },
+  "S15": {
+   "status": "FAIL",
+   "failing": [
+    "cold open s = 21.94"
+   ],
+   "note": null
+  },
+  "S16": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "R02": {
+   "status": "PASS",
+   "failing": [],
+   "note": null
+  },
+  "V04": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "page rule: needs out/checks/page.json (rendered page)"
+  },
+  "V09": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/checks/page.json",
+   "why": "page rule: needs out/checks/page.json (rendered page)"
+  },
+  "T1": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/sonify-events.json or out/checks/page.json chartEvents",
+   "why": "needs the stems and out/video.mp4; on the animatic stems (scratch root) still MISSING: out/video.mp4"
+  },
+  "L1": {
+   "status": "MISSING",
+   "failing": [],
+   "note": "artifact missing: out/audio/stems/sonify.wav|flac",
+   "why": "needs the stems; on the animatic stems (scratch root, out/checks/animatic-T1-L1.json): PASS, 29.2 dB, 0 key words lost"
+  }
+ },
+ "claims": [
+  {
+   "claim": "loan_median",
+   "key": "median.loan",
+   "ours": 375000.0,
+   "checker": 375000.0,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "cost_median",
+   "key": "median.cost",
+   "ours": 5123.53,
+   "checker": 5123.53,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "sav_median",
+   "key": "median.monthlySavings",
+   "ours": 221.3018074230754,
+   "checker": 221.3018,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "be_simple_median",
+   "key": "median.simple",
+   "ours": 24,
+   "checker": 24.0,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be_bal_median",
+   "key": "median.withBalance",
+   "ours": 30,
+   "checker": 30.0,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "net36_median",
+   "key": "median.net36",
+   "ours": 1039.0512106753022,
+   "checker": 1039.0512,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "net84_median",
+   "key": "median.net84",
+   "ours": 8092.993053949721,
+   "checker": 8092.9931,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "cut36_median",
+   "key": "median.cut36",
+   "ours": 0.5,
+   "checker": 0.4954,
+   "tolerance": 0.005,
+   "match": true
+  },
+  {
+   "claim": "loan_small",
+   "key": "small.loan",
+   "ours": 115000.0,
+   "checker": 115000.0,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "cost_small",
+   "key": "small.cost",
+   "ours": 3667.05,
+   "checker": 3667.05,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "sav_small",
+   "key": "small.monthlySavings",
+   "ours": 67.86588760974325,
+   "checker": 67.8659,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "be_simple_small",
+   "key": "small.simple",
+   "ours": 55,
+   "checker": 55.0,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be_bal_small",
+   "key": "small.withBalance",
+   "ours": 75,
+   "checker": 75.0,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "net36_small",
+   "key": "small.net36",
+   "ours": -1777.1917620595937,
+   "checker": -1777.1918,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "net84_small",
+   "key": "small.net84",
+   "ours": 386.0170698779193,
+   "checker": 386.0171,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "cut36_small",
+   "key": "small.cut36",
+   "ours": 1.12,
+   "checker": 1.1179,
+   "tolerance": 0.005,
+   "match": true
+  },
+  {
+   "claim": "loan_large",
+   "key": "large.loan",
+   "ours": 655000.0,
+   "checker": 655000.0,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "cost_large",
+   "key": "large.cost",
+   "ours": 5513.97,
+   "checker": 5513.97,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "sav_large",
+   "key": "large.monthlySavings",
+   "ours": 386.54049029897214,
+   "checker": 386.5405,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "be_simple_large",
+   "key": "large.simple",
+   "ours": 15,
+   "checker": 15.0,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be_bal_large",
+   "key": "large.withBalance",
+   "ours": 18,
+   "checker": 18.0,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "net36_large",
+   "key": "large.net36",
+   "ours": 5250.005181312897,
+   "checker": 5250.0052,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "net84_large",
+   "key": "large.net84",
+   "ours": 17570.890267565774,
+   "checker": 17570.8903,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "cut36_large",
+   "key": "large.cut36",
+   "ours": 0.32,
+   "checker": 0.3165,
+   "tolerance": 0.005,
+   "match": true
+  },
+  {
+   "claim": "gap24",
+   "key": "gap",
+   "ours": 1132.951085689303,
+   "checker": 1132.9511,
+   "tolerance": 0.5,
+   "match": true
+  },
+  {
+   "claim": "be_simple_025",
+   "key": "simple@025",
+   "ours": 38,
+   "checker": 38,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be_bal_025",
+   "key": "bal@025",
+   "ours": null,
+   "checker": null,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be_simple_05",
+   "key": "simple@05",
+   "ours": 26,
+   "checker": 26,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be_bal_05",
+   "key": "bal@05",
+   "ours": 36,
+   "checker": 36,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be_simple_10",
+   "key": "simple@10",
+   "ours": 16,
+   "checker": 16,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be_bal_10",
+   "key": "bal@10",
+   "ours": 18,
+   "checker": 18,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "n_eps",
+   "key": "n_eps",
+   "ours": 13,
+   "checker": 13,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "beh_min",
+   "key": "beh_min",
+   "ours": 10,
+   "checker": 10,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "beh_max",
+   "key": "beh_max",
+   "ours": 20,
+   "checker": 20,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "behs_min",
+   "key": "behs_min",
+   "ours": 10,
+   "checker": 10,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "behs_max",
+   "key": "behs_max",
+   "ours": 21,
+   "checker": 21,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "n_further",
+   "key": "n_further",
+   "ours": 3,
+   "checker": 3,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "n_nofurther",
+   "key": "n_nofurther",
+   "ours": 10,
+   "checker": 10,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "ex_be",
+   "key": "ex_be",
+   "ours": 19,
+   "checker": 19,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "ex_gap",
+   "key": "ex_gap",
+   "ours": 7,
+   "checker": 7,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be23",
+   "key": "be23",
+   "ours": 19,
+   "checker": 19,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "behd_min",
+   "key": "behd_min",
+   "ours": 18,
+   "checker": 18,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "behd_max",
+   "key": "behd_max",
+   "ours": 39,
+   "checker": 39,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "behl_max",
+   "key": "behl_max",
+   "ours": 11,
+   "checker": 11,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "m81",
+   "key": "m81",
+   "ours": 2,
+   "checker": 2,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "be81",
+   "key": "be81",
+   "ours": 13,
+   "checker": 13,
+   "tolerance": 0,
+   "match": true
+  },
+  {
+   "claim": "cut36_large_words",
+   "key": "large.cut36",
+   "ours": 0.32,
+   "checker": 0.3165,
+   "tolerance": 0.005,
+   "match": true
+  }
+ ]
+}

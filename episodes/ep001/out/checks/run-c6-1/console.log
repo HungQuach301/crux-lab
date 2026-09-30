@@ -1,0 +1,104 @@
+F01  PASS       0.9s  
+F02  PASS      13.4s  
+F03  PASS       0.0s  
+F04  PASS       0.0s  
+F05  PASS     125.2s  
+F06  PASS       0.8s  
+F07  PASS       0.0s  
+F08  PASS     143.4s  
+F09  PASS       0.0s  
+F10  PASS       0.0s  
+F11  PASS       0.0s  
+F12  PASS      67.4s  
+A01  PASS      10.0s  
+A02  PASS       0.0s  
+A03  FAIL       0.0s  LRA LU=3.7
+A04  PASS       7.5s  
+A05  PASS       0.7s  
+A06  PASS      18.0s  
+A07  PASS       1.3s  
+A08  PASS       3.9s  
+A09  PASS      11.3s  
+A10  FAIL       4.6s  camera moves=3
+A11  FAIL       0.0s  events measured=0; Pearson pan~x=None
+A12  PASS      41.7s  
+A13  PASS       6.9s  
+A14  PASS       5.7s  
+A15  FAIL       0.0s  wpm act cold-open=184.514722; wpm act act1=175.488; wpm act act2=182.24809; wpm act act3=188.28999; wpm act method=171.888988; wpm act outro=187.660668; sentences > 175 wpm=68
+A16  FAIL       0.0s  fake break marks=14; sentences with a fake break=14
+A17  PASS       1.2s  
+A18  PASS       0.0s  
+S01  PASS       0.1s  
+S02  PASS       0.0s  
+S03  PASS       0.0s  
+S04  PASS       0.0s  
+S05  PASS       0.0s  
+S06  PASS       0.0s  
+S07  FAIL       0.0s  unsourced non-illustrative claims=4
+S08  PASS       0.0s  
+S09  PASS       0.0s  
+S10  FAIL       0.0s  advice sentences=1
+S11  FAIL       0.0s  cut_today callbacks unverified=1; cost_median callbacks unverified=1
+S12  FAIL       0.1s  max new numbers in a scene=22
+S13  FAIL       0.0s  staccato passages=1
+S14  PASS       2.0s  
+S15  FAIL       0.0s  act order=['cold-open', 'act1', 'act2', 'act3', 'method', 'outro']; cold open s=55.67; ident s=None; total s=591.31
+S16  PASS       0.0s  
+R01  PASS       5.1s  
+R02  PASS       0.0s  
+R03  FAIL       4.3s  shortest pause s=0.0; pauses < 1.0 s=4
+R04  FAIL       0.0s  cuts on beat/action (%)=63.333333
+R05  FAIL       0.0s  shots > 12 s=18; shot length CV=0.365716; act-2 scenes before climax=3
+R06  FAIL     125.3s  cuts visible in picture (%)=73.333333
+V01  PASS       0.0s  
+V02  FAIL       0.0s  level-1 placed (%)=0.0
+V03  PASS       0.0s  
+V04  FAIL       0.0s  median shape share=0.913295; small shape share=0.599415; large shape share=0.747178; character pairs on the wrong or on both sides=3
+V05  FAIL     131.8s  camera moves=3; anticipation in moves ≥1 s (%)=0.0; overshoot in moves ≥1 s (%)=0.0; camera~picture Spearman=0.13265
+V08  FAIL       0.0s  worst text contrast=2.37; samples below 4.5:1=349
+V09  FAIL       0.0s  median/small ΔE2000 protanopia=11.80888; median/small ΔE2000 deuteranopia=18.161131; median/small grey contrast=1.268686; median/large ΔE2000 deuteranopia=11.511445; small/large ΔE2000 deuteranopia=18
+V10  FAIL     129.7s  verified J/L cuts=0
+V11  FAIL       0.0s  text collisions=715
+V12  PASS       0.0s  
+V13  PASS       0.0s  
+C01  PASS       0.0s  
+C02  PASS       0.0s  
+C03  PASS       0.0s  
+C04  FAIL       0.0s  frames flagged=1091
+C05  FAIL       0.0s  frames flagged=1344
+C06  FAIL       0.0s  frames flagged=449
+C07  PASS       0.0s  
+C10  FAIL       0.0s  scenes failing=20
+C11  PASS       0.0s  
+C12  FAIL       0.0s  split-view runs=2
+C13  FAIL       0.0s  worst |offset| ms=34625; pairs > 250 ms=56
+C14  PASS       0.0s  
+C15  PASS       0.0s  
+P01  PASS      17.8s  
+T1   PASS      48.8s  
+T2   FAIL      11.4s  repeated phrases (%)=28.985507; longest run of repeated phrases=5
+T3   FAIL      23.8s  entries outside 150–400 ms=3
+L1   PASS     503.0s  
+REG  PASS       first version: nothing to compare
+near A12 (THAM KHẢO) accents on a cut (%) = 100.0 (threshold >= 100.0)
+near A18 (CHÍNH) distinct voices (provider, voiceId, model) = 1 (threshold <= 1)
+near S03 (CHẶN) files = 2 (threshold >= 2)
+near S04 (CHẶN) series pairs = 1 (threshold >= 1)
+near S04 (CHẶN) mortgage30 tolerance = 0.5 (threshold <= 0.5)
+near S06 (CHẶN) coverage statements = 1 (threshold >= 1)
+near S06 (CHẶN) case values shown in act3 = 3 (threshold >= 3)
+near S11 (THAM KHẢO) cut_today scenes = 3 (threshold >= 3)
+near S11 (THAM KHẢO) cut_today acts = 2 (threshold >= 2)
+near S11 (THAM KHẢO) cut_today callbacks w/ distinct meaning = 3 (threshold >= 3)
+near S11 (THAM KHẢO) cut36_median acts = 2 (threshold >= 2)
+near S11 (THAM KHẢO) cut36_median callbacks w/ distinct meaning = 3 (threshold >= 3)
+near S14 (THAM KHẢO) ad breaks = 2 (threshold in [2, 3])
+near S15 (THAM KHẢO) total s = 591.31 (threshold >= 600.0)
+near R01 (THAM KHẢO) acts with climax peak = 3 (threshold >= 3)
+near R02 (THAM KHẢO) longest stretch without a break s = 57.45 (threshold <= 60.0)
+near V04 (THAM KHẢO) median shape share = 0.913295 (threshold >= 0.95)
+near V09 (CHÍNH) declared characters seen on screen = 3 (threshold >= 3)
+near P01 (THAM KHẢO) thumb 1 token share (%) = 100.0 (threshold >= 97.0)
+near P01 (THAM KHẢO) thumb 2 token share (%) = 100.0 (threshold >= 97.0)
+near P01 (THAM KHẢO) thumb 3 token share (%) = 100.0 (threshold >= 97.0)
+{"PASS": 52, "FAIL": 30, "MISSING": 0, "ERROR": 0} episode: TRƯỢT

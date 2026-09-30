@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>thumb v2 still</title>
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(/fonts/inter-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0e1116}
+canvas{display:block}
+</style>
+<script type="importmap">{"imports":{"three":"/three/three.module.js"}}</script>
+<script src="/src/data.js"></script>
+</head><body>
+<script type="module">
+const q = new URLSearchParams(location.search);
+for (const w of [400, 600, 700]) await document.fonts.load(`${w} 48px Inter`);
+await document.fonts.ready;
+const { boot } = await import('/src/engine.js');
+const mod = await import('/v2/' + q.get('f') + '.js');
+window.APP = boot(mod);
+window.READY = true;
+</script>
+</body></html>

@@ -1,0 +1,35 @@
+{
+ "thisRun": {
+  "characters": 0,
+  "calls": 0
+ },
+ "allTakesCharacterCost": 18033,
+ "takesGenerated": 722,
+ "retiredTakesCharacterCost": 2619,
+ "calibrationCalls": [
+  {
+   "pass": "4b",
+   "characters": 159,
+   "what": "4 calls: eleven_v3 speed/stability tests and eleven_multilingual_v2 speed calibration (S22.2, S15.4)"
+  },
+  {
+   "pass": "4b",
+   "characters": 57,
+   "what": "3 calls: eleven_v3 audio tags and multilingual_v2 break-tag tests"
+  }
+ ],
+ "cumulativeCharacterCost": 20868,
+ "passes": [
+  {
+   "pass": "4b",
+   "characters": 17831,
+   "what": "17,615 takes (all sentences, from an empty take store) + 216 calibration"
+  },
+  {
+   "pass": "4c",
+   "characters": 3037,
+   "what": "19 re-voiced sentences, S28.1 name retakes, cold-open retakes"
+  }
+ ],
+ "note": "Character-Cost header units. cumulative = takes in el-takes.json (18,033) + retired takes (2,619, 4b takes of the 19 sentences re-voiced in 4c) + calibration calls outside the take store (216)"
+}

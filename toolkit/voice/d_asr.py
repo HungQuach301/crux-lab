@@ -4,6 +4,7 @@ wpm = spoken words / ASR span (first word start to last word end, as check A15 m
 Writes out/voice/asr-takes.json (cached by the TTS key)."""
 import json
 import os
+import sys
 import time
 
 import warnings
@@ -13,7 +14,7 @@ from scipy.io import wavfile
 
 warnings.filterwarnings('ignore', category=wavfile.WavFileWarning)
 
-ROOT = os.path.join(os.path.dirname(__file__), '..')
+ROOT = os.path.abspath(os.environ.get('EP_ROOT') or (sys.argv[1] if len(sys.argv) > 1 else '.'))  # episode root
 VDIR = os.path.join(ROOT, 'out', 'voice')
 
 

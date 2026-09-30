@@ -1,0 +1,365 @@
+{
+ "_about": "Cue sheet of the C5 mix (work/audio/src/mix.py). Music follows preprod/cue-sheet.md re-timed to the 20 scenes of v3.2. Silences = the script [beat] pauses (sổ gu G-003) + the two ad-break scene gaps (adBreak; music only).",
+ "cues": [
+  {
+   "t": 0.0,
+   "end": 33.08,
+   "scene": "S01",
+   "function": "suspense under the open question: pad and a slow low pulse, no melody",
+   "key": "D dorian",
+   "tempo": 108.827,
+   "layer": "music",
+   "section": "cold",
+   "levelDb": -2.0
+  },
+  {
+   "t": 33.08,
+   "end": 55.67,
+   "scene": "S02",
+   "function": "the offer and the promise: pad, soft pulse, first statement of Nora's motif",
+   "key": "D dorian",
+   "tempo": 116.866,
+   "layer": "music",
+   "section": "promise",
+   "levelDb": -1.5
+  },
+  {
+   "t": 55.67,
+   "end": 76.38,
+   "scene": "S03",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
+   "key": "D dorian",
+   "tempo": 115.886,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 76.38,
+   "end": 101.64,
+   "scene": "S04",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
+   "key": "D dorian",
+   "tempo": 123.515,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 101.64,
+   "end": 140.98,
+   "scene": "S05",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
+   "key": "D dorian",
+   "tempo": 122.013,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 140.98,
+   "end": 170.11,
+   "scene": "S06",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
+   "key": "D dorian",
+   "tempo": 123.584,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 170.11,
+   "end": 202.39,
+   "scene": "S07",
+   "function": "curious, light pulse; Nora's motif (electric piano)",
+   "key": "D dorian",
+   "tempo": 118.959,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 202.39,
+   "end": 241.54,
+   "scene": "S08",
+   "function": "build through the break-even and the balance gap: eighth-note pulse, bass on each bar",
+   "key": "D dorian",
+   "tempo": 128.736,
+   "layer": "music",
+   "section": "build1",
+   "levelDb": 0.5
+  },
+  {
+   "t": 241.54,
+   "end": 257.95,
+   "scene": "S09",
+   "function": "build through the break-even and the balance gap: eighth-note pulse, bass on each bar",
+   "key": "D dorian",
+   "tempo": 131.627,
+   "layer": "music",
+   "section": "build1",
+   "levelDb": 0.5
+  },
+  {
+   "t": 257.95,
+   "end": 315.4,
+   "scene": "S10",
+   "function": "build to the climax (\"Never\", the quarter point): fuller pad, pulse and bass, crescendo",
+   "key": "D dorian",
+   "tempo": 133.681,
+   "layer": "music",
+   "section": "build2",
+   "levelDb": 1.5
+  },
+  {
+   "t": 315.4,
+   "end": 337.76,
+   "scene": "S11",
+   "function": "build to the climax (\"Never\", the quarter point): fuller pad, pulse and bass, crescendo",
+   "key": "D dorian",
+   "tempo": 128.801,
+   "layer": "music",
+   "section": "build2",
+   "levelDb": 1.5
+  },
+  {
+   "t": 337.76,
+   "end": 343.88,
+   "scene": "S12",
+   "function": "release on the full point (18 months): open pad",
+   "key": "D dorian",
+   "tempo": 127.451,
+   "layer": "music",
+   "section": "release",
+   "levelDb": 1.0
+  },
+  {
+   "t": 343.88,
+   "end": 372.2,
+   "scene": "S13",
+   "function": "the half-point answer: warm, Nora's motif resolved",
+   "key": "D dorian",
+   "tempo": 118.644,
+   "layer": "music",
+   "section": "answer",
+   "levelDb": 0.0
+  },
+  {
+   "t": 372.2,
+   "end": 395.24,
+   "scene": "S14",
+   "function": "Walt: F major, low plucked motif, light pulse",
+   "key": "F major",
+   "tempo": 125.0,
+   "layer": "music",
+   "section": "walt",
+   "levelDb": 0.0
+  },
+  {
+   "t": 395.24,
+   "end": 423.67,
+   "scene": "S15",
+   "function": "Walt: F major, low plucked motif, light pulse",
+   "key": "F major",
+   "tempo": 126.627,
+   "layer": "music",
+   "section": "walt",
+   "levelDb": 0.0
+  },
+  {
+   "t": 423.67,
+   "end": 451.49,
+   "scene": "S16",
+   "function": "Walt: F major, low plucked motif, light pulse",
+   "key": "F major",
+   "tempo": 129.403,
+   "layer": "music",
+   "section": "walt",
+   "levelDb": 0.0
+  },
+  {
+   "t": 451.49,
+   "end": 487.52,
+   "scene": "S17",
+   "function": "Anjali: high bells, light pulse; resolves on the three-mark ruler",
+   "key": "F major",
+   "tempo": 126.561,
+   "layer": "music",
+   "section": "anjali",
+   "levelDb": 0.5
+  },
+  {
+   "t": 487.52,
+   "end": 535.35,
+   "scene": "S18",
+   "function": "Anjali: high bells, light pulse; resolves on the three-mark ruler",
+   "key": "F major",
+   "tempo": 125.444,
+   "layer": "music",
+   "section": "anjali",
+   "levelDb": 0.5
+  },
+  {
+   "t": 535.35,
+   "end": 561.88,
+   "scene": "S19",
+   "function": "what the numbers do not say: thin pad only",
+   "key": "F major",
+   "tempo": 99.51,
+   "layer": "music",
+   "section": "thin",
+   "levelDb": -1.0
+  },
+  {
+   "t": 561.88,
+   "end": 591.3,
+   "scene": "S20",
+   "function": "resolved: three motifs together, sparse; tail into the end",
+   "key": "F major",
+   "tempo": 106.05,
+   "layer": "music",
+   "section": "resolve",
+   "levelDb": -1.0
+  },
+  {
+   "t": 0.0,
+   "end": 591.3,
+   "function": "data sonification, palette S2 \"minimal\" (sổ gu G-005 · chọn): soft low pulse MIDI 36-62 + filtered tick 4.5-7 kHz; bands for T1 60-270 Hz + 4.5-7 kHz",
+   "key": "D minor pentatonic (= F major pentatonic)",
+   "tempo": null,
+   "layer": "sonify"
+  },
+  {
+   "t": 0.0,
+   "end": 591.3,
+   "function": "room tone floor (pink noise, one space); +8 dB inside the silences",
+   "key": null,
+   "tempo": null,
+   "layer": "room"
+  }
+ ],
+ "silences": [
+  {
+   "t": 22.725,
+   "end": 23.645,
+   "dur": 0.92,
+   "beforeSentence": 4,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 24.425,
+   "end": 25.425,
+   "dur": 1.0,
+   "beforeSentence": 5,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 51.115,
+   "end": 51.895,
+   "dur": 0.78,
+   "beforeSentence": 8,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 131.655,
+   "end": 132.355,
+   "dur": 0.7,
+   "beforeSentence": 20,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 232.795,
+   "end": 234.125,
+   "dur": 1.33,
+   "beforeSentence": 38,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 240.425,
+   "end": 241.89,
+   "dur": 1.465,
+   "beforeSentence": 41,
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 241.54
+  },
+  {
+   "t": 290.815,
+   "end": 291.855,
+   "dur": 1.04,
+   "beforeSentence": 50,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 352.225,
+   "end": 352.855,
+   "dur": 0.63,
+   "beforeSentence": 61,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 367.985,
+   "end": 368.775,
+   "dur": 0.79,
+   "beforeSentence": 64,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 370.965,
+   "end": 372.55,
+   "dur": 1.585,
+   "beforeSentence": 65,
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 372.2
+  },
+  {
+   "t": 389.295,
+   "end": 389.995,
+   "dur": 0.7,
+   "beforeSentence": 69,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 412.375,
+   "end": 413.245,
+   "dur": 0.87,
+   "beforeSentence": 75,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 439.815,
+   "end": 441.005,
+   "dur": 1.19,
+   "beforeSentence": 80,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 516.985,
+   "end": 518.015,
+   "dur": 1.03,
+   "beforeSentence": 94,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 586.665,
+   "end": 588.315,
+   "dur": 1.65,
+   "beforeSentence": 105,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  }
+ ]
+}

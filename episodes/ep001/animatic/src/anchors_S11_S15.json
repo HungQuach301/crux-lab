@@ -1,0 +1,35 @@
+[
+ ["S11","smaller",53,"start",-0.2,"thước rate cut; chấm Nora rời 0.59 trượt sang trái","giả sử giảm ít hơn"],
+ ["S11","q",54,"quarter",-0.2,"chấm dừng ở 0.25","chỉ giảm một phần tư điểm"],
+ ["S11","d38",55,"38",-0.6,"vẽ: đường 'division' thẳng cắt vạch phí ở tháng 38","phép chia hứa hoà vốn tháng 38"],
+ ["S11","curve",56,"outrun",-0.4,"vẽ: đường 'savings minus what she still owes' lên gần vạch phí, không chạm","tính cả nợ thêm thì không đuổi kịp phí"],
+ ["S11","never",57,"never",-0.3,"trục kéo tới kỳ trả cuối của khoản cũ, đường rơi; chữ 'Never'","không bao giờ hoà vốn"],
+
+ ["S12","full",58,"full point",-0.3,"chấm trượt tới vạch 1 điểm; trục co về 48 tháng","giảm đủ 1 điểm"],
+ ["S12","m18",58,"18 months",-0.3,"đường cắt vạch phí ở tháng 18","hoà vốn tháng 18"],
+ ["S12","inside",58,"well inside",-0.2,"ngoặc từ 18 tới mốc 3 năm","còn cách xa mốc 3 năm"],
+
+ ["S13","between",59,"start",0,"chấm lắc giữa 0.25 và 1","ngưỡng nằm đâu đó ở giữa"],
+ ["S13","half",60,"half a point",-0.3,"chấm dừng ở 0.5; đường mới vẽ","thử nửa điểm"],
+ ["S13","m36",60,"36 months",-0.3,"đường cắt vạch phí đúng ở tháng 36 = mốc 3 năm","nửa điểm hoà vốn đúng 3 năm"],
+ ["S13","answer",61,"answer",-0.2,"thước có dấu cố định '0.5 · Nora's line'","ngưỡng của Nora là nửa điểm"],
+ ["S13","real",62,"real offer",-0.2,"chấm thật 0.59 hiện bên phải dấu, 'clears it'","đề nghị thật vượt ngưỡng"],
+ ["S13","pays",63,"pays her back",-0.4,"đường 0.59 cắt vạch phí trước mốc 3 năm","lá thư này vẫn đáng với Nora"],
+ ["S13","everyone",64,"start",-0.2,"tam giác và vuông mờ với '?' trên thước","người khác thì sao?"],
+
+ ["S14","walt",65,"start",-0.2,"nhà nhỏ của Walt mọc bên trái nhà Nora; tam giác","một người vay khác (minh hoạ)"],
+ ["S14","loan",66,"$115,000",-0.3,"nhãn '$115,000 loan' dưới nhà Walt, '$375,000' dưới nhà Nora","khoản vay nhỏ hơn nhiều"],
+ ["S14","same",66,"same rate",-0.3,"nhãn 'October 2023 · 7.62%' chung","cùng thời điểm, cùng lãi"],
+ ["S14","letter",67,"start",-0.2,"lá thư trượt tới trước nhà Walt; '7.62% → 7.03%'","cùng đề nghị giảm lãi"],
+ ["S14","bill",68,"$3,667",-0.4,"mọc: xấp phí $3,667 cạnh xấp $5,124 của Nora (cùng thang)","phí của Walt"],
+ ["S14","far",69,"start",0,"hai nhà: nhãn 'far smaller loan' sáng","khoản vay nhỏ hơn nhiều"],
+ ["S14","little",70,"start",0,"vạch ngang từ đỉnh xấp phí Nora sang xấp Walt: chênh ít","phí chỉ nhỏ hơn một chút"],
+
+ ["S15","grow",71,"start",-0.2,"cắt H1→H3: hàng 'loan' — thanh của Walt co từ độ dài của Nora về $115,000","khoản vay co nhiều"],
+ ["S15","bills",71,"grow far more slowly",-0.2,"hàng 'bill' — thanh của Walt co rất ít","hoá đơn gần như không co"],
+ ["S15","share",72,"3.2",-0.4,"nhãn 'bill = about 3.2% of his loan'","phí là phần lớn so với khoản vay nhỏ"],
+ ["S15","sav",73,"shrink",-0.2,"hàng 'monthly savings' — thanh Walt co mạnh","tiết kiệm co theo khoản vay"],
+ ["S15","b68",74,"$68",-0.3,"nhãn '$68 a month' vs '$221'","Walt chỉ bớt $68/tháng"],
+ ["S15","stack",75,"start",-0.2,"cắt H3→H1: cọc $68 chồng rất chậm cạnh xấp $3,667 + tấm sọc","phải rất lâu mới bù phí"],
+ ["S15","m75",76,"75",-0.2,"cọc ngang phí + nợ thêm ở tháng 75; 'Break-even: month 75'","hoà vốn tháng 75 (hơn 6 năm)"]
+]

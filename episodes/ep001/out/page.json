@@ -1,0 +1,5 @@
+{
+ "url": "animatic/film.html",
+ "ready": "window.CHECKS.ready",
+ "about": "C5 film page: the same page draws every frame of out/video.mp4 (animatic/src/render.js) and serves window.CHECKS (seek, freeze, objects, layer). Build: cd animatic && npm ci && node src/build_page.mjs; python3 src/build_data.py (see work/c5/P-notes.md)."
+}

@@ -1,0 +1,867 @@
+{
+ "scenario": {
+  "borrowed": "2023-10",
+  "oldRate": 7.62,
+  "paymentsMade": 35,
+  "todayWeek": "2026-09-24",
+  "todayRate": 7.03
+ },
+ "characters": {
+  "median": {
+   "loan": 375000.0,
+   "cost": 5123.53,
+   "balance": 364388.96896570234,
+   "monthlySavings": 221.3018074230754,
+   "simple": 24,
+   "withBalance": 30,
+   "net36": 1039.0512106753022,
+   "net84": 8092.993053949721,
+   "cut36": 0.4954232883874785,
+   "cut84": 0.27575620861438527
+  },
+  "small": {
+   "loan": 115000.0,
+   "cost": 3667.05,
+   "balance": 111745.95048281539,
+   "monthlySavings": 67.86588760974325,
+   "simple": 55,
+   "withBalance": 75,
+   "net36": -1777.1917620595937,
+   "net84": 386.0170698779193,
+   "cut36": 1.117936255569768,
+   "cut84": 0.5410806976665402
+  },
+  "large": {
+   "loan": 655000.0,
+   "cost": 5513.97,
+   "balance": 636466.0657934267,
+   "monthlySavings": 386.54049029897214,
+   "simple": 15,
+   "withBalance": 18,
+   "net36": 5250.005181312897,
+   "net84": 17570.890267565774,
+   "cut36": 0.31647165906411306,
+   "cut84": 0.199486904268126
+  }
+ },
+ "medianByCut": {
+  "0.25": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 137.43437718661153,
+   "simple": 38,
+   "withBalance": null
+  },
+  "0.5": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 199.21045776480514,
+   "simple": 26,
+   "withBalance": 36
+  },
+  "0.75": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 260.37795945194375,
+   "simple": 20,
+   "withBalance": 23
+  },
+  "1.0": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 320.9188731055988,
+   "simple": 16,
+   "withBalance": 18
+  },
+  "1.5": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 440.049110869606,
+   "simple": 12,
+   "withBalance": 12
+  },
+  "2.0": {
+   "balance": 364388.96896570234,
+   "monthlySavings": 556.4585491378325,
+   "simple": 10,
+   "withBalance": 9
+  }
+ },
+ "dateAnchor": {
+  "date": "2026-09-24",
+  "text": "September 24, 2026",
+  "meaning": "PMMS week ending Thursday September 24, 2026",
+  "fred": {
+   "date": "2026-09-24",
+   "value": "7.03",
+   "frequencyQuote": "Frequency: Weekly, Ending Thursday",
+   "updatedQuote": "Updated: Sep 24, 2026 11:02 AM CDT",
+   "nextReleaseQuote": "Next Release Date: Oct 1, 2026",
+   "quotedFrom": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "retrieved": "2026-09-28"
+  }
+ },
+ "largeBand": "$600k-<$720k, conforming (C)",
+ "conformingLimits": {
+  "_note": "FHFA baseline conforming loan limits (one-unit property, most of the US). 2026: OWNER-VERIFIED \u2014 the project owner read the value $832,750 in FHFA's official news release \"FHFA Announces Conforming Loan Limit Values for 2026\" (dated November 25, 2025) at the URL below and confirmed it on 2026-09-29. 2023 and 2025: www.fhfa.gov is blocked by this environment's egress proxy for curl and WebFetch (EGRESS_BLOCKED, checked 2026-09-28); their quotes are the text of the FHFA releases as returned by the WebSearch tool for those exact fhfa.gov URLs (search-index excerpt, not owner-verified). Internal consistency: 832,750 - 26,250 = 806,500. Cross-check in our own data: HMDA 2025 flag conforming_loan_limit (C/NC) is county-specific; every loan in the large-character band (< $720,000) is below all three values.",
+  "2023": {
+   "value": 726200,
+   "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2023",
+   "quote": "In most of the United States, the 2023 conforming loan limit (CLL) value for one-unit properties is $726,200, an increase of $79,000 from $647,200 in 2022.",
+   "how": "WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch",
+   "retrieved": "2026-09-28"
+  },
+  "2025": {
+   "value": 806500,
+   "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2025",
+   "quote": "In most of the United States, the 2025 CLL value for one-unit properties will be $806,500, an increase of $39,950 (or 5.2 percent) from 2024.",
+   "released": "2024-11-26",
+   "how": "WebSearch excerpt of the fhfa.gov release, 2026-09-28; host blocked for direct fetch",
+   "retrieved": "2026-09-28"
+  },
+  "2026": {
+   "value": 832750,
+   "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026",
+   "releaseTitle": "FHFA Announces Conforming Loan Limit Values for 2026",
+   "released": "2025-11-25",
+   "quote": "In most of the United States, the 2026 conforming loan limit (CLL) value for one-unit properties will be $832,750, an increase of $26,250 from 2025.",
+   "ceilingQuote": "the new ceiling loan limit for one-unit properties will be $1,249,125, which is 150 percent of $832,750.",
+   "consistency": "832,750 - 26,250 = 806,500 = the 2025 value above",
+   "how": "owner-verified: the project owner read $832,750 in the official FHFA news release dated November 25, 2025 at the source URL and confirmed it on 2026-09-29",
+   "verifiedBy": "project owner",
+   "verified": "2026-09-29",
+   "quoteHow": "sentence wording as returned by WebSearch for this URL on 2026-09-28; the value $832,750 and the release date are owner-verified",
+   "retrieved": "2026-09-28"
+  },
+  "hmdaFlag": {
+   "url": "https://ffiec.cfpb.gov/documentation/publications/loan-level-datasets/lar-data-fields",
+   "retrieved": "2026-09-28",
+   "quote": "conforming_loan_limit Description: Indicates whether the reported loan amount exceeds the GSE (government sponsored enterprise) conforming loan limit Values: C (Conforming) NC (Nonconforming) U (Undetermined) NA (Not Applicable)",
+   "how": "curl, direct page text"
+  }
+ },
+ "gapAtSimpleBreakEven": 1132.951085689303,
+ "costSharesByYear": {
+  "2018": 1.7076,
+  "2019": 1.1986,
+  "2020": 1.2331,
+  "2021": 1.323,
+  "2022": 1.749,
+  "2023": 2.2738,
+  "2024": 1.6924,
+  "2025": 1.4982
+ },
+ "fixedSharePre2018": 1.5953,
+ "history": [
+  {
+   "peak": "1974-10",
+   "peakRate": 9.98,
+   "trough": "1977-02",
+   "troughRate": 8.67,
+   "drop": 1.31,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "1975-01",
+     "newRate": 9.43,
+     "monthsOnOldLoan": 3,
+     "balance": 299596.61,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4779.46,
+     "monthlySavings": 123.41,
+     "breakEvenMonths": 35,
+     "breakEvenSimple": 39,
+     "beforeBreakEvenAnotherDrop": "1975-03",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "1975-03",
+     "newRate": 8.9,
+     "monthsOnOldLoan": 5,
+     "balance": 299322.05,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4775.08,
+     "monthlySavings": 240.28,
+     "breakEvenMonths": 18,
+     "breakEvenSimple": 20,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": false
+    }
+   ]
+  },
+  {
+   "peak": "1980-04",
+   "peakRate": 16.33,
+   "trough": "1980-07",
+   "troughRate": 12.19,
+   "drop": 4.13,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "1980-05",
+     "newRate": 14.26,
+     "monthsOnOldLoan": 1,
+     "balance": 299968.27,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4785.39,
+     "monthlySavings": 496.45,
+     "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
+     "beforeBreakEvenAnotherDrop": "1980-06",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "1980-05",
+     "newRate": 14.26,
+     "monthsOnOldLoan": 1,
+     "balance": 299968.27,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4785.39,
+     "monthlySavings": 496.45,
+     "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
+     "beforeBreakEvenAnotherDrop": "1980-06",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": true,
+     "refiMonth": "1980-05",
+     "newRate": 14.26,
+     "monthsOnOldLoan": 1,
+     "balance": 299968.27,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4785.39,
+     "monthlySavings": 496.45,
+     "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
+     "beforeBreakEvenAnotherDrop": "1980-07",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    }
+   ]
+  },
+  {
+   "peak": "1981-10",
+   "peakRate": 18.45,
+   "trough": "1983-05",
+   "troughRate": 12.63,
+   "drop": 5.82,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "1981-11",
+     "newRate": 17.83,
+     "monthsOnOldLoan": 1,
+     "balance": 299980.96,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4785.6,
+     "monthlySavings": 154.41,
+     "breakEvenMonths": 31,
+     "breakEvenSimple": 31,
+     "beforeBreakEvenAnotherDrop": "1981-12",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "1981-12",
+     "newRate": 16.95,
+     "monthsOnOldLoan": 2,
+     "balance": 299961.62,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4785.29,
+     "monthlySavings": 369.21,
+     "breakEvenMonths": 13,
+     "breakEvenSimple": 13,
+     "beforeBreakEvenAnotherDrop": "1982-09",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": true,
+     "refiMonth": "1982-08",
+     "newRate": 16.27,
+     "monthsOnOldLoan": 10,
+     "balance": 299795.82,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4782.64,
+     "monthlySavings": 535.68,
+     "breakEvenMonths": 9,
+     "breakEvenSimple": 9,
+     "beforeBreakEvenAnotherDrop": "1982-11",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    }
+   ]
+  },
+  {
+   "peak": "1984-07",
+   "peakRate": 14.67,
+   "trough": "1987-03",
+   "troughRate": 9.04,
+   "drop": 5.63,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "1984-10",
+     "newRate": 14.13,
+     "monthsOnOldLoan": 3,
+     "balance": 299857.83,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4783.63,
+     "monthlySavings": 129.88,
+     "breakEvenMonths": 36,
+     "breakEvenSimple": 37,
+     "beforeBreakEvenAnotherDrop": "1984-12",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "1984-11",
+     "newRate": 13.64,
+     "monthsOnOldLoan": 4,
+     "balance": 299809.28,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4782.86,
+     "monthlySavings": 247.06,
+     "breakEvenMonths": 19,
+     "breakEvenSimple": 20,
+     "beforeBreakEvenAnotherDrop": "1985-06",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": true,
+     "refiMonth": "1985-06",
+     "newRate": 12.21,
+     "monthsOnOldLoan": 11,
+     "balance": 299452.38,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4777.16,
+     "monthlySavings": 583.84,
+     "breakEvenMonths": 8,
+     "breakEvenSimple": 9,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    }
+   ]
+  },
+  {
+   "peak": "1987-10",
+   "peakRate": 11.26,
+   "trough": "1988-02",
+   "troughRate": 9.89,
+   "drop": 1.37,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "1987-11",
+     "newRate": 10.65,
+     "monthsOnOldLoan": 1,
+     "balance": 299898.94,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4784.29,
+     "monthlySavings": 139.08,
+     "breakEvenMonths": 32,
+     "breakEvenSimple": 35,
+     "beforeBreakEvenAnotherDrop": "1988-02",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "1988-02",
+     "newRate": 9.89,
+     "monthsOnOldLoan": 4,
+     "balance": 299590.02,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4779.36,
+     "monthlySavings": 310.71,
+     "breakEvenMonths": 14,
+     "breakEvenSimple": 16,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": false
+    }
+   ]
+  },
+  {
+   "peak": "1989-04",
+   "peakRate": 11.05,
+   "trough": "1993-10",
+   "troughRate": 6.83,
+   "drop": 4.22,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "1989-06",
+     "newRate": 10.2,
+     "monthsOnOldLoan": 2,
+     "balance": 299787.41,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4782.51,
+     "monthlySavings": 193.94,
+     "breakEvenMonths": 23,
+     "breakEvenSimple": 25,
+     "beforeBreakEvenAnotherDrop": "1990-12",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "1989-07",
+     "newRate": 9.88,
+     "monthsOnOldLoan": 3,
+     "balance": 299679.64,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4780.79,
+     "monthlySavings": 264.39,
+     "breakEvenMonths": 17,
+     "breakEvenSimple": 19,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": true,
+     "refiMonth": "1991-09",
+     "newRate": 9.01,
+     "monthsOnOldLoan": 29,
+     "balance": 296501.08,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4730.08,
+     "monthlySavings": 481.0,
+     "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    }
+   ]
+  },
+  {
+   "peak": "1994-12",
+   "peakRate": 9.2,
+   "trough": "1996-01",
+   "troughRate": 7.03,
+   "drop": 2.17,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "1995-03",
+     "newRate": 8.46,
+     "monthsOnOldLoan": 3,
+     "balance": 299524.69,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4778.32,
+     "monthlySavings": 161.71,
+     "breakEvenMonths": 26,
+     "breakEvenSimple": 30,
+     "beforeBreakEvenAnotherDrop": "1995-05",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "1995-05",
+     "newRate": 7.96,
+     "monthsOnOldLoan": 5,
+     "balance": 299201.71,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4773.16,
+     "monthlySavings": 270.67,
+     "breakEvenMonths": 16,
+     "breakEvenSimple": 18,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": true,
+     "refiMonth": "1996-01",
+     "newRate": 7.03,
+     "monthsOnOldLoan": 13,
+     "balance": 297859.32,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4751.75,
+     "monthlySavings": 469.06,
+     "breakEvenMonths": 9,
+     "breakEvenSimple": 11,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    }
+   ]
+  },
+  {
+   "peak": "1996-06",
+   "peakRate": 8.32,
+   "trough": "1998-10",
+   "troughRate": 6.71,
+   "drop": 1.61,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "1996-11",
+     "newRate": 7.62,
+     "monthsOnOldLoan": 5,
+     "balance": 299043.93,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4770.65,
+     "monthlySavings": 153.41,
+     "breakEvenMonths": 28,
+     "breakEvenSimple": 32,
+     "beforeBreakEvenAnotherDrop": "1997-12",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "1997-10",
+     "newRate": 7.29,
+     "monthsOnOldLoan": 16,
+     "balance": 296820.63,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4735.18,
+     "monthlySavings": 234.87,
+     "breakEvenMonths": 19,
+     "breakEvenSimple": 21,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": false
+    }
+   ]
+  },
+  {
+   "peak": "2000-05",
+   "peakRate": 8.51,
+   "trough": "2003-06",
+   "troughRate": 5.23,
+   "drop": 3.28,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "2000-09",
+     "newRate": 7.91,
+     "monthsOnOldLoan": 4,
+     "balance": 299267.53,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4774.21,
+     "monthlySavings": 132.34,
+     "breakEvenMonths": 32,
+     "breakEvenSimple": 37,
+     "beforeBreakEvenAnotherDrop": "2000-12",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "2000-12",
+     "newRate": 7.38,
+     "monthsOnOldLoan": 7,
+     "balance": 298704.42,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4765.23,
+     "monthlySavings": 245.43,
+     "breakEvenMonths": 17,
+     "breakEvenSimple": 20,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": true,
+     "refiMonth": "2002-07",
+     "newRate": 6.49,
+     "monthsOnOldLoan": 26,
+     "balance": 294846.76,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4703.69,
+     "monthlySavings": 449.21,
+     "breakEvenMonths": 10,
+     "breakEvenSimple": 11,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    }
+   ]
+  },
+  {
+   "peak": "2006-07",
+   "peakRate": 6.76,
+   "trough": "2012-12",
+   "troughRate": 3.35,
+   "drop": 3.42,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "2006-11",
+     "newRate": 6.24,
+     "monthsOnOldLoan": 4,
+     "balance": 298960.6,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4769.32,
+     "monthlySavings": 109.48,
+     "breakEvenMonths": 37,
+     "breakEvenSimple": 44,
+     "beforeBreakEvenAnotherDrop": "2008-12",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "2008-01",
+     "newRate": 5.76,
+     "monthsOnOldLoan": 18,
+     "balance": 295133.09,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4708.26,
+     "monthlySavings": 224.47,
+     "breakEvenMonths": 20,
+     "breakEvenSimple": 21,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": true,
+     "refiMonth": "2010-06",
+     "newRate": 4.74,
+     "monthsOnOldLoan": 47,
+     "balance": 286178.88,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4565.41,
+     "monthlySavings": 457.6,
+     "breakEvenMonths": 10,
+     "breakEvenSimple": 10,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    }
+   ]
+  },
+  {
+   "peak": "2013-09",
+   "peakRate": 4.49,
+   "trough": "2016-08",
+   "troughRate": 3.44,
+   "drop": 1.06,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "2014-12",
+     "newRate": 3.86,
+     "monthsOnOldLoan": 15,
+     "balance": 293905.35,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4688.67,
+     "monthlySavings": 138.07,
+     "breakEvenMonths": 32,
+     "breakEvenSimple": 34,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "2016-07",
+     "newRate": 3.44,
+     "monthsOnOldLoan": 34,
+     "balance": 285678.79,
+     "costSharePct": 1.5953,
+     "costIllustrative": true,
+     "closingCost": 4557.43,
+     "monthlySavings": 245.0,
+     "breakEvenMonths": 19,
+     "breakEvenSimple": 19,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": false
+    }
+   ]
+  },
+  {
+   "peak": "2018-11",
+   "peakRate": 4.87,
+   "trough": "2020-12",
+   "troughRate": 2.68,
+   "drop": 2.18,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "2019-03",
+     "newRate": 4.26,
+     "monthsOnOldLoan": 4,
+     "balance": 298513.04,
+     "costSharePct": 1.1986,
+     "costIllustrative": false,
+     "closingCost": 3577.98,
+     "monthlySavings": 114.86,
+     "breakEvenMonths": 25,
+     "breakEvenSimple": 32,
+     "beforeBreakEvenAnotherDrop": "2019-08",
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "2019-06",
+     "newRate": 3.8,
+     "monthsOnOldLoan": 7,
+     "balance": 297381.92,
+     "costSharePct": 1.1986,
+     "costIllustrative": false,
+     "closingCost": 3564.42,
+     "monthlySavings": 199.89,
+     "breakEvenMonths": 14,
+     "breakEvenSimple": 18,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": true,
+     "refiMonth": "2020-10",
+     "newRate": 2.83,
+     "monthsOnOldLoan": 23,
+     "balance": 291111.77,
+     "costSharePct": 1.2331,
+     "costIllustrative": false,
+     "closingCost": 3589.7,
+     "monthlySavings": 384.56,
+     "breakEvenMonths": 8,
+     "breakEvenSimple": 10,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    }
+   ]
+  },
+  {
+   "peak": "2023-10",
+   "peakRate": 7.62,
+   "trough": "2026-02",
+   "troughRate": 6.05,
+   "drop": 1.57,
+   "cases": [
+    {
+     "spread": 0.5,
+     "reached": true,
+     "refiMonth": "2023-12",
+     "newRate": 6.81,
+     "monthsOnOldLoan": 2,
+     "balance": 299563.92,
+     "costSharePct": 2.2738,
+     "costIllustrative": false,
+     "closingCost": 6811.48,
+     "monthlySavings": 166.42,
+     "breakEvenMonths": 34,
+     "breakEvenSimple": 41,
+     "beforeBreakEvenAnotherDrop": "2024-09",
+     "dataOnlyTo": "2026-09",
+     "censored": true
+    },
+    {
+     "spread": 1.0,
+     "reached": true,
+     "refiMonth": "2024-08",
+     "newRate": 6.5,
+     "monthsOnOldLoan": 10,
+     "balance": 297763.33,
+     "costSharePct": 1.6924,
+     "costIllustrative": false,
+     "closingCost": 5039.35,
+     "monthlySavings": 240.28,
+     "breakEvenMonths": 19,
+     "breakEvenSimple": 21,
+     "beforeBreakEvenAnotherDrop": null,
+     "dataOnlyTo": "2026-09",
+     "censored": false
+    },
+    {
+     "spread": 2.0,
+     "reached": false
+    }
+   ]
+  }
+ ]
+}

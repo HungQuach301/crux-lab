@@ -1,0 +1,60 @@
+{
+ "option": "thumb-H",
+ "hook": "a",
+ "illustrative": true,
+ "texts": [
+  {
+   "text": "−1.12 pts",
+   "box": [
+    42,
+    181,
+    521,
+    134
+   ],
+   "fontPx": 104,
+   "claim": "cut36_small"
+  },
+  {
+   "text": "−0.32 pts",
+   "box": [
+    676,
+    96,
+    521,
+    134
+   ],
+   "fontPx": 104,
+   "claim": "cut36_large"
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    991,
+    30,
+    253,
+    52
+   ],
+   "fontPx": 32,
+   "role": "ILLUSTRATIVE badge (rule S08)"
+  }
+ ],
+ "anchors1080": {
+  "waltTop": {
+   "x": 453.2633225444035,
+   "y": 496.14161510867626
+  },
+  "anjTop": {
+   "x": 1403.6443876015394,
+   "y": 251.9954672465366
+  },
+  "waltBase": {
+   "x": 407.61390823766567,
+   "y": 872.3798901481239
+  },
+  "anjBase": {
+   "x": 1472.1871478991675,
+   "y": 859.5379614440427
+  }
+ },
+ "stillMs": 2973,
+ "source": "preprod/thumbs_v2/render.js; 3D = design/c3/final/src/engine.js (signed C3 H1 objects); numbers = out/claims.json display"
+}

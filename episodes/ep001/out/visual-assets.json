@@ -1,0 +1,21 @@
+{
+ "about": "Visual assets of the build (K3.1): every picture file and font the render page loads. The page draws everything else in code (canvas 2D, three.js geometry, CanvasTexture from project code); it loads no image, PDF, 3D model or texture file. Fonts are matched by family (document.fonts).",
+ "assets": [
+  {
+   "name": "Inter",
+   "kind": "font",
+   "family": "Inter",
+   "paths": [
+    "../../toolkit/render/fonts/inter-latin-400-normal.woff2",
+    "../../toolkit/render/fonts/inter-latin-600-normal.woff2",
+    "../../toolkit/render/fonts/inter-latin-700-normal.woff2"
+   ]
+  }
+ ],
+ "generated": [
+  {
+   "glob": "out/package/thumb-*.png",
+   "generator": "preprod/thumbs_c5.js"
+  }
+ ]
+}

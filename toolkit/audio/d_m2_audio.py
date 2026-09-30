@@ -1,10 +1,15 @@
-"""Test D M2 sound: music (generated), sound design, voice, mix and master for the M2 contract root.
+"""Sound: music (generated), sound design, data sonification, voice, mix and master for an episode root (from test D).
 
-    python3 audio/d_m2_audio.py out/m2/root
+    python3 toolkit/audio/d_m2_audio.py <episode root>
 
-Reads (root/out): timeline.json, script.json, camera.json, tempo-map.json, sfx-events.json, voice/takes.json.
-Writes root/out/audio/stems/{voice,music,sfx,whoosh,room}.flac (48 kHz stereo, same time base, at mix level),
-root/out/audio/master.wav, root/../audio-report.json and out/music-ledger-d.json (licence ledger).
+Reads (root/out): timeline.json, script.json, camera.json, tempo-map.json, sfx-events.json, sonify-events.json,
+silences.json, claims.json, voice/takes.json, voice/el-takes.json; root/edit/cues.json when out/cues.json is absent.
+Writes root/out/audio/stems/{voice,music,sfx,whoosh,room,sonify}.flac (48 kHz stereo, same time base, at mix level),
+root/out/audio/master.wav, root/work/audio-report.json and root/out/music-ledger.json (licence ledger).
+
+crux-lab change (sổ gu G-001, DX-A1): the data sonification is its own stem (`sonify`), no longer mixed into `sfx`
+and no longer ducked under the voice. Its timbres carry their energy in 1.5-8 kHz (the band where a sound is heard
+over speech), and the music is dipped in that band while a data sound plays.
 
 Music: every sound is synthesised here (numpy); seed fixed; no samples, no loops (each bar re-voices the chord and
 re-rolls velocities). Layers: pad (detuned saws, low-pass with envelope), a plucked pulse on every beat of the tempo
@@ -27,8 +32,7 @@ from scipy.io import wavfile
 
 SR = 48000
 RNG = np.random.default_rng(20260926)
-ROOT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else 'out/m2/root')
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+ROOT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else '.')
 J = lambda p: json.load(open(os.path.join(ROOT, p)))
 NOTE = {'C': 0, 'C#': 1, 'Db': 1, 'D': 2, 'Eb': 3, 'E': 4, 'F': 5, 'F#': 6, 'G': 7, 'Ab': 8, 'A': 9, 'Bb': 10, 'B': 11}
 hz = lambda midi: 440.0 * 2 ** ((midi - 69) / 12)
@@ -158,6 +162,9 @@ def chord_notes(root, q, base=48):
     return [r, r + (3 if q == 'm' else 4), r + 7, r + 12 + (3 if q == 'm' else 4)]
 
 
+PENTA = {2, 5, 7, 9, 0}  # D minor pentatonic (D F G A C); missing in the v0 copy, restored at A-M0
+
+
 def qpenta(m):
     m = int(round(m))
     for d in range(0, 7):
@@ -167,17 +174,22 @@ def qpenta(m):
     return m
 
 
-def sonify(N, ev):
+def bright(f, n, harm=(1.0, 0.8, 0.6, 0.45, 0.3)):
+    """A tone whose partials sit mostly above 1.5 kHz for f >= 500 Hz (partials 2-5), so it is heard over speech."""
+    t = np.arange(n) / SR
+    return sum(a * np.sin(2 * np.pi * f * (k + 1) * t) for k, a in enumerate(harm) if f * (k + 1) < 9000)
+
+
+def sonify(N, ev, level=1.0):
     """Every chart element that changes gets its own sound, starting on the frame it changes (events from
-    src/d/m3-sonify-events.js, read from the render page's scene state):
-      bar grows   -> a tone rising into its pitch; pitch from the bar's value on one fixed scale for the whole film
-                     (value / largest |value| of its chart: positive values MIDI 67-79, negative values 43-55, D minor
-                     pentatonic); lasts as long as the bar grows
-      line drawn  -> a continuous soft tone whose pitch follows the slope at the tip (rising line = higher)
-      dot appears -> a light pluck, pitch from its height on screen
-      number text changes -> a tick (the film has no running counters: 0 events)
-    More than 8 discrete events a second: they merge into one cluster sound per 125 ms (a soft chord + air), not a
-    rattle. Levels sit with the other sound effects; the mix ducks this layer under the voice."""
+    toolkit/audio/m3-sonify-events.js, read from the render page's scene state). One fixed pitch scale for the film
+    (MIDI 72-96, D minor pentatonic):
+      bar grows   -> a bright tone rising into its pitch (value / largest |value| of its chart), lasting while it grows
+      line drawn  -> a continuous bright tone, pitch follows the slope at the tip (rising line = higher), pan follows x
+      dot appears -> a bright pluck, pitch from its height on screen (higher on screen = higher pitch)
+      counter     -> a tick (3-8 kHz click) on every change of a number text
+    > 8 discrete events a second merge into one cluster sound per 125 ms. Returns (stereo buffer, activity 0..1, stats);
+    the activity envelope is used to dip the music in 1.5-8 kHz while a data sound plays."""
     fps = ev['fps']
     out = np.zeros((N, 2), np.float32)
     mx = {}
@@ -189,12 +201,12 @@ def sonify(N, ev):
         if b.get('value') is None or not mx.get(b['chart']):
             continue
         v = b['value'] / mx[b['chart']]
-        m = qpenta(67 + 12 * v if v >= 0 else 55 + 12 * v)
+        m = qpenta(84 + 12 * v if v >= 0 else 72 + 12 * v)
         disc.append((b['f0'] / fps, 'bar', m, np.clip((b['x'] - 960) / 960, -0.8, 0.8), float(np.clip((b['f1'] - b['f0']) / fps, 0.08, 1.2))))
     for d in ev['dot']:
-        disc.append((d['f'] / fps, 'dot', qpenta(84 - 36 * np.clip(d['y'], 0, 1080) / 1080), np.clip((d['x'] - 960) / 960, -0.8, 0.8), 0.3))
+        disc.append((d['f'] / fps, 'dot', qpenta(96 - 24 * np.clip(d['y'], 0, 1080) / 1080), np.clip((d['x'] - 960) / 960, -0.8, 0.8), 0.35))
     for k in ev.get('tick', []):
-        disc.append((k['f'] / fps, 'tick', 96, np.clip((k['x'] - 960) / 960, -0.8, 0.8), 0.03))
+        disc.append((k['f'] / fps, 'tick', 100, np.clip((k['x'] - 960) / 960, -0.8, 0.8), 0.03))
     disc.sort()
     ts = np.array([d[0] for d in disc])
     dense = np.array([((ts > t - 0.5) & (ts <= t + 0.5)).sum() > 8 for t in ts]) if len(ts) else np.array([], bool)
@@ -205,66 +217,75 @@ def sonify(N, ev):
             bins.setdefault(int(t / 0.125), []).append((t, m, pan))
             continue
         gl, gr = pan_gains(pan)
-        if kind == 'bar':  # rising into the value's pitch while the bar grows
-            n = int((dur + 0.25) * SR)
+        if kind == 'bar':
+            n = int((dur + 0.3) * SR)
             tt = np.arange(n) / SR
             fr = hz(m) * 2 ** (-np.clip(1 - tt / dur, 0, 1) * 7 / 12)
             ph = 2 * np.pi * np.cumsum(fr) / SR
-            x = (np.sin(ph) + 0.25 * np.sin(2 * ph)) * np.minimum(1, tt / 0.01) * np.where(tt < dur, 1, np.exp(-(tt - dur) / 0.08))
-            add(out, t * SR, x * 0.045, gl, gr)
+            x = sum(a * np.sin((k + 1) * ph) for k, a in enumerate((0.7, 0.8, 0.5, 0.3)))
+            x = x * np.minimum(1, tt / 0.008) * np.where(tt < dur, 1, np.exp(-(tt - dur) / 0.1))
+            add(out, t * SR, x * 0.05 * level, gl, gr)
         elif kind == 'dot':
-            add(out, t * SR, pluck(hz(m), 0.3, 0.06), gl, gr)
+            n = int(dur * SR)
+            tt = np.arange(n) / SR
+            x = bright(hz(m), n) * np.minimum(1, tt / 0.002) * np.exp(-tt / 0.11)
+            add(out, t * SR, x * 0.08 * level, gl, gr)
         else:
             n = int(0.03 * SR)
             tt = np.arange(n) / SR
-            add(out, t * SR, band(RNG.standard_normal(n), 3000, 8000) * np.exp(-tt / 0.006) * 0.05, gl, gr)
-    for kb, grp in bins.items():  # one cluster per 125 ms
+            add(out, t * SR, band(RNG.standard_normal(n), 3000, 8000) * np.exp(-tt / 0.006) * 0.12 * level, gl, gr)
+    for kb, grp in bins.items():
         t = grp[0][0]
         ms = sorted(m for _, m, _ in grp)
         med = ms[len(ms) // 2]
         pan = float(np.mean([p_ for _, _, p_ in grp]))
-        n = int(0.35 * SR)
+        n = int(0.3 * SR)
         tt = np.arange(n) / SR
-        x = sum(np.sin(2 * np.pi * hz(qpenta(med + d)) * tt) for d in (0, 5, 12)) / 3
-        x = x + 0.3 * band(RNG.standard_normal(n), 2000, 7000)
-        x *= np.minimum(1, tt / 0.01) * np.exp(-tt / 0.1) * min(1.0, 0.5 + 0.08 * len(grp))
+        x = sum(bright(hz(qpenta(med + d)), n) for d in (0, 5, 12)) / 3 + 0.3 * band(RNG.standard_normal(n), 2000, 7000)
+        x *= np.minimum(1, tt / 0.004) * np.exp(-tt / 0.09) * min(1.0, 0.5 + 0.08 * len(grp))
         gl, gr = pan_gains(np.clip(pan, -0.8, 0.8))
-        add(out, t * SR, x * 0.04, gl, gr)
+        add(out, t * SR, x * 0.06 * level, gl, gr)
     stats['clusters'] = len(bins)
-    # lines: continuous tone per drawing run, pitch follows the slope at the tip
     runs = {}
     for l in ev['line']:
         runs.setdefault(l['id'], []).append(l)
     nr = 0
     for lid, ls in runs.items():
         ls.sort(key=lambda r: r['f'])
-        cur = [ls[0]]
-        segs = []
+        cur, segs = [ls[0]], []
         for r in ls[1:]:
-            if r['f'] - cur[-1]['f'] <= 2:
+            if r['f'] - cur[-1]['f'] <= 8:  # one drawing run holds its tone through slow stretches (eased starts) of up to 8 frames
                 cur.append(r)
             else:
                 segs.append(cur); cur = [r]
         segs.append(cur)
         for sg in segs:
-            if len(sg) < 3:
+            if len(sg) < 2:
                 continue
             nr += 1
-            f0, f1 = sg[0]['f'], sg[-1]['f'] + 1
+            f0, f1 = sg[0]['f'], sg[-1]['f'] + 1  # starts on the frame the line appears (m3-sonify-events.js records it)
             n = int((f1 - f0) / fps * SR)
             tf = np.array([r['f'] for r in sg]) / fps
-            base = 62 if (sg[0].get('char') != 'mirror') else 69
+            base = 79 if (sg[0].get('char') != 'b') else 84
             mid = np.array([base + 9 * np.tanh(1.2 * r['slope']) for r in sg])
             tt = f0 / fps + np.arange(n) / SR
             fr = hz(np.interp(tt, tf, mid))
             ph = 2 * np.pi * np.cumsum(fr) / SR
             env = np.minimum(1, np.minimum(np.arange(n), n - np.arange(n)) / (0.03 * SR))
-            x = (np.sin(ph) + 0.15 * np.sin(3 * ph)) * env * 0.022
-            pan = np.clip((sg[-1]['x'] - 960) / 960, -0.7, 0.7)
+            trem = 0.85 + 0.15 * np.sin(2 * np.pi * 6 * np.arange(n) / SR)  # a slight shimmer: heard as moving, not as a test tone
+            x = sum(a * np.sin((k + 1) * ph) for k, a in enumerate((0.6, 0.7, 0.45, 0.25))) * env * trem * 0.035 * level
+            xs = np.interp(tt, tf, np.array([r['x'] for r in sg]))
+            pan = np.clip((xs - 960) / 960, -0.7, 0.7)
             gl, gr = pan_gains(pan)
-            add(out, f0 / fps * SR, x, gl, gr)
+            i0 = int(f0 / fps * SR)
+            m_ = min(n, N - i0)
+            out[i0:i0 + m_, 0] += (x * gl)[:m_]
+            out[i0:i0 + m_, 1] += (x * gr)[:m_]
     stats['lineRuns'] = nr
-    return out, stats
+    from scipy.ndimage import maximum_filter1d
+    e = np.abs(out).max(1)
+    act = np.clip(maximum_filter1d(e, int(0.05 * SR)) / 1e-3, 0, 1)
+    return out, act, stats
 
 
 def main():
@@ -275,7 +296,7 @@ def main():
     beats = [b for b in tempo['beats'] if b < total - 0.05]
     accents = tempo.get('accents', [])
     cp = os.path.join(ROOT, 'out', 'cues.json')
-    cues = json.load(open(cp if os.path.exists(cp) else os.path.join(REPO, 'out', 'cues.json')))['cues']
+    cues = json.load(open(cp if os.path.exists(cp) else os.path.join(ROOT, 'edit', 'cues.json')))['cues']
     sil = J('out/silences.json')['silences']
     first_mirror = next((s['start'] for s in tl['scenes'] if s['id'] in ('a1-mirror-in', 'a2-7374')), total)
 
@@ -410,7 +431,7 @@ def main():
     DECISIVE = {sp['sentence'] for c in cl if c.get('decisive') for sp in c.get('spoken', [])}
     vbuf = np.zeros(N)
     for s in sc['sentences']:
-        f = os.path.join(REPO, takes[s['id']]['final'])
+        f = os.path.join(ROOT, takes[s['id']]['final'])
         with tempfile.TemporaryDirectory() as d:
             w = os.path.join(d, 'a.wav')
             subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', f, '-ac', '1', '-ar', str(SR),
@@ -581,29 +602,26 @@ def main():
         dn = _ufn(dn, int(0.05 * SR))
         for arr in (mus, sfx):  # whooshes keep their level: they follow the camera speed (A10)
             arr *= dn[:, None]
-    # sonification of the data (round 3, H7a): its own layer inside the sfx stem, ducked 10 dB under the voice and
-    # 16 dB inside the spoken-number windows, silent in the intentional silences
+    # sonification of the data: its own stem, NOT ducked under the voice (sổ gu G-001: round 3 of test D ducked it
+    # -10/-16 dB and it was not heard). Silent in the intentional silences; the music dips 9 dB in 1.5-8 kHz while it plays.
     son_stats = None
+    son = np.zeros((N, 2), np.float32)
     sp_ = os.path.join(ROOT, 'out', 'sonify-events.json')
     if os.path.exists(sp_):
-        son, son_stats = sonify(N, json.load(open(sp_)))
-        dson = 10 ** (-10 * g / 20)
-        if os.path.exists(pj):
-            for tn in json.load(open(pj)).get('numbers', []):
-                i0, i1 = int(max(0, tn - 0.5) * SR), int(min(N / SR, tn + 1.6) * SR)
-                dson[i0:i1] = np.minimum(dson[i0:i1], 10 ** (-16 / 20))
+        son, son_act, son_stats = sonify(N, json.load(open(sp_)), level=10 ** (float(os.environ.get('SONIFY_GAIN_DB', '0')) / 20))
+        son *= gate_s[:, None].astype(np.float32)
         from scipy.ndimage import uniform_filter1d as _ufs
-        dson = _ufs(dson, int(0.03 * SR)) * gate_s
-        son *= dson[:, None].astype(np.float32)
-        sfx += son
-        del son
+        dip = 10 ** (-9 * _ufs(son_act, int(0.03 * SR)) / 20)
+        for ch in range(2):
+            hb = band(mus[:, ch], 1500, 8000)
+            mus[:, ch] = mus[:, ch] - hb + hb * dip
     # ---------------------------------------------------------------- levels
     # voice-active windows: music 20 dB under the voice (mean power)
     vt = act > 0
     pv = np.mean(vbuf[vt] ** 2)
     pm = np.mean(mus[vt].mean(1) ** 2)
     mus *= np.sqrt(pv / pm) * 10 ** (-20 / 20)
-    stems = {'voice': voice, 'music': mus, 'sfx': sfx, 'whoosh': whoosh, 'room': room}
+    stems = {'voice': voice, 'music': mus, 'sfx': sfx, 'whoosh': whoosh, 'room': room, 'sonify': son}
     mix = sum(stems.values())
     # master: loudness to -14 LUFS (measured like the check: ffmpeg ebur128), then a true-peak limiter
     def ebu(x):
@@ -648,11 +666,12 @@ def main():
     # voice / music gap as the check measures it (100 ms windows, voice RMS > -45 dBFS)
     rep = {'integratedLUFS': I1, 'LRA': LRA, 'truePeakDbfs': TP, 'limiterMinGainDb': round(float(db(gsm.min())), 2), 'moves': wrows, 'accents': len(accents), 'beats': len(beats),
            'silences': sil, 'events': len(events), 'sonification': son_stats}
-    json.dump(rep, open(os.path.join(ROOT, '..', 'audio-report.json'), 'w'), indent=1)
-    ledger = {'assets': [{'name': 'music (pad, pulse, leitmotifs, accents, reverb)', 'origin': 'synthesised in audio/d_m2_audio.py', 'seed': 20260926, 'licence': 'original work of this project; no samples or third-party audio'},
-                         {'name': 'sfx, risers, impacts, whooshes, room tone', 'origin': 'synthesised in audio/d_m2_audio.py', 'seed': 20260926, 'licence': 'original work of this project'},
+    os.makedirs(os.path.join(ROOT, 'work'), exist_ok=True)
+    json.dump(rep, open(os.path.join(ROOT, 'work', 'audio-report.json'), 'w'), indent=1)
+    ledger = {'assets': [{'name': 'music (pad, pulse, leitmotifs, accents, reverb)', 'origin': 'synthesised in toolkit/audio/d_m2_audio.py', 'seed': 20260926, 'licence': 'original work of this project; no samples or third-party audio'},
+                         {'name': 'sfx, risers, impacts, whooshes, room tone', 'origin': 'synthesised in toolkit/audio/d_m2_audio.py', 'seed': 20260926, 'licence': 'original work of this project'},
                          {'name': 'voice', 'origin': 'ElevenLabs text-to-speech, voice Eric (premade), eleven_v3 / eleven_multilingual_v2', 'licence': 'ElevenLabs output under the account\'s plan; provisional voice (not decision #158)'}]}
-    json.dump(ledger, open(os.path.join(REPO, 'out', 'music-ledger-d.json'), 'w'), indent=1)
+    json.dump(ledger, open(os.path.join(ROOT, 'out', 'music-ledger.json'), 'w'), indent=1)
     print(json.dumps({k: v for k, v in rep.items() if k not in ('moves', 'silences')}))
 
 

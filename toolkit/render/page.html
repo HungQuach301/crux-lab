@@ -7,9 +7,15 @@
 html, body { margin: 0; background: transparent; overflow: hidden; width: 1920px; height: 1080px; }
 </style></head>
 <body>
-<script src="data.js"></script>
-<script src="engine.js"></script>
-<script src="cameras.js"></script>
-<script src="scenes.js"></script>
-<script src="page.js"></script>
+<script>
+// crux-lab: the episode is chosen by the query string, page.html?root=<episode root> (absolute path). The page loads
+// <root>/render/data.js (window.DATA) and <root>/render/scenes-ep.js (the episode's scene builders, after scenes.js).
+(function () {
+  const root = new URLSearchParams(location.search).get('root');
+  if (!root) { document.write('<p style="color:#fff">page.html needs ?root=&lt;episode root&gt;</p>'); return; }
+  const f = (p) => 'file://' + root.replace(/\/$/, '') + '/render/' + p;
+  const src = [f('data.js'), 'engine.js', 'cameras.js', 'scenes.js', f('scenes-ep.js'), 'page.js'];
+  for (const s of src) document.write('<script src="' + s + '"><\/script>');
+})();
+</script>
 </body></html>

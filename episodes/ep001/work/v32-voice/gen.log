@@ -1,0 +1,76 @@
+S01 seed 1 491 cost 196 missing [] | In February 2026, the average 30 -year fixed mortgage rate in the U .S. fell to 5 .98 percent, the lowest since September 2022. Nora had borrowed in 2023 at 7 .62 percent. At the February rate, a new 
+S02 seed 1 329 cost 132 missing [] | Now a letter comes from her lender, an offer to refinance, a new loan at a slightly lower rate that pays off the old one for $5 ,124 in fees. How big a rate cut makes that worth it for Nora? And where
+S03 seed 1 270 cost 108 missing [] | Nora borrowed in October 2023. The month the average rate reached 7 .79 percent, its highest since 2000. She wasn't the only one. Three in ten of that year's 30 -year loans to buy a home carried a rat
+S04 seed 1 369 cost 148 missing [] | Nora isn't a real person. We built her from typical figures to show how the math works for one household. She had moved for a new job and bought her first home with a $375 ,000 loan at 7 .62%, the ave
+S05 seed 1 588 cost 235 missing [] | You may have heard that a refinance only pays off once rates fall a full percentage point below yours. We use that one point line as a test. And for Nora, rates did cross that line. In 2026, the avera
+S06 seed 1 416 cost 166 missing [] | So the letter arrives in a different world. Say the rate it offers matches the national average for the week ending September 24th, 2026. 7 .03%. That is just over half a percentage point below what s
+S07 seed 1 415 cost 166 missing [] | Then comes the last line. $5 ,124 in loan costs, paid in cash at closing. The lender's charges for making the loan, plus anything she pays up front to buy the rate down. That bill is not made up. It i
+S08 seed 1 499 cost 200 missing [] | Is it worth paying? Worth it here means one thing. The savings pay back the fees before she sells or moves. We test a stay of three years, a choice we made, not a rule. There are two quick answers. Th
+S09 seed 1 259 cost 104 missing [] | Back to the letter. Break -even is the month when what she has saved covers the bill. Division stacks up $221 a month and stops at month 24. But while the savings stack up, something else is happening
+S10 seed 1 816 cost 326 missing [] | Nora has made 35 payments on her old loan, one a month since she moved in. With each one, a little more goes to paying down what she owes. A refinance starts a fresh 30 -year clock, and in the early y
+S11 seed 1 304 cost 122 missing [] | The smaller the cut, the more that gap matters. Suppose her offer were only a quarter of a point. Division promises break even in 38 months, but a saving that small can't outrun the growing gap in wha
+S12 seed 1 82 cost 33 missing [] | At a full point, she would break even in 18 months, well inside 3 years.
+S13 seed 1 388 cost 155 missing [] | Somewhere between a quarter point and a full point is her line. At half a point, the fees come back in exactly 36 months. So for Nora, the answer is half a point, half of the one point line. Her real 
+Traceback (most recent call last):
+  File "/root/.local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.11/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 1415, in getresponse
+    response.begin()
+  File "/usr/lib/python3.11/http/client.py", line 330, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 299, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/.local/lib/python3.11/site-packages/requests/adapters.py", line 645, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.11/site-packages/urllib3/util/retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.elevenlabs.io', port=443): Max retries exceeded with url: /v1/text-to-speech/cjVigY5qzO86Huf0OWal/with-timestamps?output_format=mp3_44100_128 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/crux-lab/episodes/ep001/work/v32-voice/src/gen.py", line 88, in <module>
+    main()
+  File "/home/user/crux-lab/episodes/ep001/work/v32-voice/src/gen.py", line 72, in main
+    m = VT.synth(s['text'], p, seed); assert 'error' not in m, m
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/crux-lab/episodes/ep001/work/voice-test/src/gen.py", line 34, in synth
+    r = requests.post(URL, json=body, timeout=300)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.11/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.11/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.11/site-packages/requests/sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.11/site-packages/requests/sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.11/site-packages/requests/adapters.py", line 672, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.elevenlabs.io', port=443): Max retries exceeded with url: /v1/text-to-speech/cjVigY5qzO86Huf0OWal/with-timestamps?output_format=mp3_44100_128 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))

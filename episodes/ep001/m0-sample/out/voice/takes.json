@@ -1,0 +1,19 @@
+{
+ "takes": [
+  {
+   "id": "m0.1",
+   "raw": "out/voice/el/m0.1.t2.eleven_v3.mp3",
+   "final": "out/voice/final/m0.1.flac",
+   "model": "eleven_v3",
+   "take": 2
+  }
+ ],
+ "voice": {
+  "provider": "ElevenLabs",
+  "voiceId": "cjVigY5qzO86Huf0OWal",
+  "name": "Eric",
+  "model": "eleven_v3",
+  "fallback": "eleven_multilingual_v2",
+  "note": "provisional voice (DX-A8), not decision #158; no time stretching (final = raw trimmed)"
+ }
+}

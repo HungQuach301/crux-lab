@@ -1,0 +1,445 @@
+{
+ "episode": "ep001",
+ "lock": "64a15c4edfb3cc901b06efc4ddc29d85ef314af17d7b04e4a04fdb57ff632bd2 (K3.4)",
+ "question": "At what rate spread does a refinance pay back its closing costs?",
+ "thesis": "most calculators divide the bill by the monthly saving; counting what is still owed on each loan, break-even comes later for a loan that is already some years old",
+ "targetDurationSec": [
+  480,
+  900
+ ],
+ "characters": {
+  "median": {
+   "color": "median",
+   "shape": "circle",
+   "side": "centre",
+   "illustrative": true,
+   "words": [
+    "Nora"
+   ],
+   "what": "ILLUSTRATIVE: borrowed 2023-10 at that month's mean rate (7.62%), 35 payments made; loan $375,000, bill $5,123.53 = HMDA 2025 median rate-and-term refinance (all sizes)",
+   "wordsFrom": "story/script-v3.2.md (out/script.json)"
+  },
+  "small": {
+   "color": "small",
+   "shape": "triangle",
+   "side": "left",
+   "illustrative": true,
+   "words": [
+    "Walt"
+   ],
+   "what": "ILLUSTRATIVE: borrowed 2023-10 at that month's mean rate (7.62%), 35 payments made; loan $115,000, bill $3,667.05 = HMDA 2025 median, loans under $150,000",
+   "wordsFrom": "story/script-v3.2.md (out/script.json)"
+  },
+  "large": {
+   "color": "large",
+   "shape": "square",
+   "side": "right",
+   "illustrative": true,
+   "words": [
+    "Anjali"
+   ],
+   "what": "ILLUSTRATIVE: borrowed 2023-10 at that month's mean rate (7.62%), 35 payments made; loan $655,000, bill $5,513.97 = HMDA 2025 median, conforming (flag C) loans of $600,000 to under $720,000",
+   "wordsFrom": "story/script-v3.2.md (out/script.json)"
+  }
+ },
+ "scenarios": {
+  "hold36": {
+   "what": "sell or refinance again after 3 years (36 months): the payback target of the question",
+   "words": [
+    "three years",
+    "three-year",
+    "36 months"
+   ],
+   "wordsFrom": "story/script-v3.2.md: \"a stay of three years\" (S08), \"after three years\" (S16, S17, S20), \"the three-year test\" (S13)"
+  },
+  "hold84": {
+   "what": "keep the loan 7 years (84 months)",
+   "words": [
+    "stays seven",
+    "seven years",
+    "84 months"
+   ],
+   "wordsFrom": "story/script-v3.2.md: \"if she stays seven\" (S20)"
+  }
+ },
+ "claims": {
+  "file": "out/claims.json",
+  "count": 119,
+  "core": [
+   "cut_today",
+   "cost_median",
+   "cut36_median"
+  ],
+  "decisive": [
+   "be_bal_median",
+   "cut36_median",
+   "cut36_small"
+  ],
+  "illustrative": [
+   "k35",
+   "loan_median",
+   "sav_median",
+   "be_simple_median",
+   "be_bal_median",
+   "net36_median",
+   "net84_median",
+   "cut36_median",
+   "loan_small",
+   "sav_small",
+   "be_simple_small",
+   "be_bal_small",
+   "net36_small",
+   "net84_small",
+   "cut36_small",
+   "loan_large",
+   "sav_large",
+   "be_simple_large",
+   "be_bal_large",
+   "net36_large",
+   "net84_large",
+   "cut36_large",
+   "gap24",
+   "hold36",
+   "y3",
+   "y7",
+   "s025",
+   "s05",
+   "s10",
+   "be_simple_025",
+   "be_bal_025",
+   "be_simple_05",
+   "be_bal_05",
+   "be_simple_10",
+   "be_bal_10",
+   "ex_be",
+   "behd_min",
+   "behd_max",
+   "behl_max",
+   "be81",
+   "k_low2026",
+   "sav_low2026_median",
+   "be_simple_low2026_median",
+   "be_bal_low2026_median",
+   "share_walt",
+   "cut36_large_words",
+   "ge7_threshold"
+  ],
+  "assumptions": [
+   {
+    "id": "offer-average",
+    "pattern": "matches the national average|national average rate",
+    "what": "the offered rate = the national weekly average (MORTGAGE30US) of the date anchor"
+   },
+   {
+    "id": "fees-in-cash",
+    "pattern": "paid in cash",
+    "what": "closing costs are paid in cash, not added to the loan"
+   },
+   {
+    "id": "payback-3y",
+    "pattern": "within (3|three) years|(3|three)-year (payback|stay|test)",
+    "what": "worth it = fees paid back within 3 years (analyst choice)"
+   },
+   {
+    "id": "oct2023-rate",
+    "pattern": "oct(ober|\\.)? 2023 (average )?rate",
+    "what": "the old loan was taken out at the October 2023 average rate"
+   },
+   {
+    "id": "median-bill",
+    "pattern": "median (\\d{4} )?(refinance )?bills?",
+    "what": "the bill is the HMDA 2025 median for the loan size"
+   },
+   {
+    "id": "new-loan-30y",
+    "pattern": "30-year (term|clock|loan)",
+    "what": "the new loan is a fresh 30-year fixed loan"
+   }
+  ]
+ },
+ "model": {
+  "kind": "refinance-breakeven",
+  "output": "out/model.json",
+  "code": "model/refi.py",
+  "tests": "model/test_refi.py",
+  "params": {
+   "scenario": {
+    "oldRate": 7.62,
+    "paymentsMade": 35,
+    "todayRate": 7.03,
+    "termMonths": 360,
+    "netHorizons": [
+     36,
+     84
+    ],
+    "byCutOf": "median"
+   },
+   "characters": {
+    "median": {
+     "loan": 375000.0,
+     "cost": 5123.53
+    },
+    "small": {
+     "loan": 115000.0,
+     "cost": 3667.05
+    },
+    "large": {
+     "loan": 655000.0,
+     "cost": 5513.97
+    }
+   },
+   "history": {
+    "series": {
+     "file": "data/normalized/mortgage30_weekly.csv",
+     "dateColumn": "date",
+     "rateColumn": "rate"
+    },
+    "swingPoints": 1.0,
+    "spreads": [
+     0.5,
+     1.0,
+     2.0
+    ],
+    "loan": 300000.0,
+    "termMonths": 360,
+    "costShares": {
+     "file": "data/normalized/hmda_refi_costs.csv",
+     "filter": {
+      "purpose": "refinance (31)",
+      "loanSize": "all sizes"
+     },
+     "yearColumn": "year",
+     "shareColumn": "cost_p50_pct"
+    }
+   },
+   "notModel": [
+    "dateAnchor",
+    "largeBand",
+    "conformingLimits"
+   ],
+   "paramsFrom": {
+    "oldRate": "mean of the weekly MORTGAGE30US values dated October 2023 (claim r_old)",
+    "todayRate": "MORTGAGE30US, week ending 2026-09-24 (claim r_today)",
+    "paymentsMade": "months from 2023-10 to the date anchor month (claim k35)",
+    "characters": "HMDA 2025 medians (claims loan_*, cost_*)",
+    "notModel": "metadata copied into model.json, not computed: date anchor text, the large band label, FHFA limits (data/cll.json)"
+   }
+  },
+  "claims": {
+   "loan_median": "median.loan",
+   "cost_median": "median.cost",
+   "sav_median": "median.monthlySavings",
+   "be_simple_median": "median.simple",
+   "be_bal_median": "median.withBalance",
+   "net36_median": "median.net36",
+   "net84_median": "median.net84",
+   "cut36_median": "median.cut36",
+   "loan_small": "small.loan",
+   "cost_small": "small.cost",
+   "sav_small": "small.monthlySavings",
+   "be_simple_small": "small.simple",
+   "be_bal_small": "small.withBalance",
+   "net36_small": "small.net36",
+   "net84_small": "small.net84",
+   "cut36_small": "small.cut36",
+   "loan_large": "large.loan",
+   "cost_large": "large.cost",
+   "sav_large": "large.monthlySavings",
+   "be_simple_large": "large.simple",
+   "be_bal_large": "large.withBalance",
+   "net36_large": "large.net36",
+   "net84_large": "large.net84",
+   "cut36_large": "large.cut36",
+   "cut36_large_words": "large.cut36"
+  },
+  "recompute": [
+   "payment = P*r/(1-(1+r)^-n), r = annual%/1200; old loan P0 at r_old over 360 with k payments made; balance B = balance after k; new loan B at r_new over 360",
+   "MAIN break-even (counting what is still owed): first month m with (payment_old - payment_new) x m + (balance_old(k+m) - balance_new(m)) >= C",
+   "simple break-even (shown as the contrast): ceil(C / (payment_old - payment_new))",
+   "history: monthly means of MORTGAGE30US; drop episodes = zig-zag swings >= 1.00 point; refinance in the first month >= spread under the peak; cost = HMDA median share of that year (fixed median share before 2018, ILLUSTRATIVE)"
+  ]
+ },
+ "data": {
+  "sources": "data/sources.json",
+  "hosts": {
+   "primary": [
+    "fred.stlouisfed.org"
+   ],
+   "crosscheck": [
+    "fred.stlouisfed.org"
+   ]
+  },
+  "crosscheck": [
+   {
+    "series": "mortgage30",
+    "tolerance": 0.5,
+    "used": "crosscheck",
+    "primary": {
+     "file": "data/normalized/mortgage30_weekly.csv",
+     "key": "date",
+     "column": "rate"
+    },
+    "crosscheck": {
+     "file": "data/normalized/crosscheck_weekly.csv",
+     "key": "week",
+     "column": "obmmic30yf_weekmean"
+    },
+    "what": "Freddie Mac PMMS weekly (MORTGAGE30US) vs the mean of the Optimal Blue daily rates (OBMMIC30YF) of the 7 days ending that Thursday, every week since 2017-01-06"
+   }
+  ],
+  "fetch": "python3 episodes/ep001/data/fetch.py --verify (the FRED files are not in the public repo: amendments.md E1-A2; run this before the checks)",
+  "other": {
+   "hmda": "data/hmda-sources.json + data/normalized/hmda_refi_costs.csv, hmda_refi31_conforming.csv (HMDA 2018-2025, ffiec.cfpb.gov, public domain, streamed; not in data/sources.json because S03 reads FRED-style raw files)",
+   "fhfa": "data/cll.json (2026 limit owner-verified 2026-09-29)"
+  }
+ },
+ "coverage": [
+  {
+   "attribute": "case",
+   "act": "act3",
+   "values": [
+    "median",
+    "small",
+    "large"
+   ],
+   "what": "the three characters' answers (rate cut for a 36-month break-even), all three shown: the promise of S02 answered for each loan size",
+   "where": "S18 three-mark ruler (act3), script v3.2; page objects of each column/marker carry case = character key (median, small, large)"
+  }
+ ],
+ "sonification": {
+  "stem": "sonify",
+  "bandsHz": [
+   [
+    60,
+    270
+   ],
+   [
+    4500,
+    7000
+   ]
+  ],
+  "from": "preprod/cue-sheet.md, palette S2 (owner pick 2026-09-28): low pulse MIDI 36-60 (65-262 Hz) + filtered tick 4.5-7 kHz; same bands as SON_BANDS of the C5 mix (work/audio/src/mix.py)",
+  "todo": "T1 measures that these bands hold >= 50% of the sonify stem energy once the stem is rendered"
+ },
+ "artefacts": {
+  "M1": [
+   "out/claims.json",
+   "out/model.json",
+   "out/script-draft.json",
+   "script/script.md",
+   "preprod/shotlist.json",
+   "preprod/storyboard.md",
+   "preprod/color-script.md",
+   "preprod/cue-sheet.md",
+   "preprod/tension-map.json",
+   "preprod/tension-map.png",
+   "edit/cues.json",
+   "contract.json",
+   "design/tokens.json",
+   "data/sources.json"
+  ],
+  "M2": [
+   "out/script.json",
+   "out/timeline.json",
+   "out/voice/takes.json",
+   "out/page.json",
+   "out/camera.json",
+   "out/cues.json",
+   "out/tempo-map.json",
+   "out/transitions.json",
+   "out/sonify-events.json",
+   "out/sfx-events.json"
+  ],
+  "M3": [
+   "out/video.mp4",
+   "out/captions.srt",
+   "out/package/description.md",
+   "out/timeline.json",
+   "out/script.json",
+   "out/claims.json",
+   "out/audio/stems/voice.*",
+   "out/audio/stems/music.*",
+   "out/audio/stems/sfx.*",
+   "out/audio/stems/whoosh.*",
+   "out/audio/stems/room.*",
+   "out/audio/stems/sonify.*",
+   "out/voice/takes.json",
+   "out/camera.json",
+   "out/sfx-events.json",
+   "out/sonify-events.json",
+   "out/tempo-map.json",
+   "out/transitions.json",
+   "out/cues.json",
+   "out/tension-map.json",
+   "out/tension-map.png",
+   "out/adbreaks.json",
+   "preprod/shotlist.json",
+   "design/tokens.json",
+   "out/package/thumb-1.png",
+   "out/package/thumb-2.png",
+   "out/package/thumb-3.png",
+   "out/page.json",
+   "out/model.json",
+   "data/sources.json",
+   "data/normalized/mortgage30_weekly.csv",
+   "data/normalized/crosscheck_weekly.csv",
+   "data/normalized/hmda_refi_costs.csv",
+   "data/normalized/hmda_refi31_conforming.csv",
+   "contract.json",
+   "out/package/thumb-1.json",
+   "out/package/thumb-2.json",
+   "out/package/thumb-3.json",
+   "preprod/storyboard.*",
+   "preprod/color-script.*",
+   "out/rights.json",
+   "out/visual-assets.json",
+   "out/voice/takes.json"
+  ]
+ },
+ "timeline": {
+  "source": "out/timeline.json (final sentence times: animatic/timing.json, narration v3.2)",
+  "total": 591.72,
+  "acts": {
+   "cold-open": [
+    0.0,
+    55.67
+   ],
+   "act1": [
+    55.67,
+    241.54
+   ],
+   "act2": [
+    241.54,
+    372.2
+   ],
+   "act3": [
+    372.2,
+    535.76
+   ],
+   "method": [
+    535.76,
+    562.29
+   ],
+   "outro": [
+    562.29,
+    591.72
+   ]
+  },
+  "climax": {
+   "act1": 234.125,
+   "act2": 331.175,
+   "act3": 441.005
+  },
+  "adBreaks": [
+   241.54,
+   372.2
+  ],
+  "note": "cold open S01-S02 = 55.7 s (E1-A1 accepted a long cold open; S15 is REFERENCE); no ident rendered; method = S19 unless a method card is added after S20"
+ },
+ "todo": [
+  "rights: out/rights.json voice entry waits for the verbatim ElevenLabs quote (owner): F12 fails until then",
+  "claims.assumptions: every pattern must also be on screen in the method act (S19 or a method card), see out/timeline.json acts",
+  "coverage: the S18 columns/markers must carry case = median/small/large on the page (window.CHECKS objects)",
+  "sonification.bandsHz: T1 checks the >= 50% energy share on the rendered sonify stem"
+ ]
+}

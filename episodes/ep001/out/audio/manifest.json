@@ -1,0 +1,41 @@
+{
+ "_about": "Audio files of the C5 mix are not committed (size); this manifest records them. Rebuild: python3 episodes/ep001/work/audio/src/events.py && python3 episodes/ep001/work/audio/src/mix.py (deterministic seeds). Stems: 48 kHz stereo PCM 24-bit, same time base as out/video.mp4, at mix level: their sum is the master.",
+ "generator": "episodes/ep001/work/audio/src/mix.py",
+ "total_s": 591.3,
+ "sampleRate": 48000,
+ "files": {
+  "out/audio/stems/voice.wav": {
+   "sha256": "e4f20013ef2fba62a358eb61e34ae4f76ddafff7b0a6fc497723efa622536865",
+   "bytes": 170294444
+  },
+  "out/audio/stems/music.wav": {
+   "sha256": "deadebebb903ae4fffaf8caf7ad740b3822fe71310257aba3f10cabecabdf198",
+   "bytes": 170294444
+  },
+  "out/audio/stems/sfx.wav": {
+   "sha256": "3bf96349674bdc4363a4d6da352aa71e3dafd7b5c245130ffd2004ce36f2e0eb",
+   "bytes": 170294444
+  },
+  "out/audio/stems/whoosh.wav": {
+   "sha256": "3bf96349674bdc4363a4d6da352aa71e3dafd7b5c245130ffd2004ce36f2e0eb",
+   "bytes": 170294444
+  },
+  "out/audio/stems/room.wav": {
+   "sha256": "dadf185a8be43799f7992b824ac6add2558e6ce9d2e0628da70bfcf6fd2a43da",
+   "bytes": 170294444
+  },
+  "out/audio/stems/sonify.wav": {
+   "sha256": "488e2a09a2985effc153196ebc162c97c0d05e6b0db84c941b9433ee2e9e03cb",
+   "bytes": 170294444
+  },
+  "out/audio/master.wav": {
+   "sha256": "2dac5abbe4dac5ef701b8f2cc45e41364f6fe9ec1264fdc62fe35ac51f0e4471",
+   "bytes": 170294444
+  }
+ },
+ "master": {
+  "integratedLUFS": -14.0,
+  "truePeakDbtp": -1.5,
+  "LRA": 3.7
+ }
+}

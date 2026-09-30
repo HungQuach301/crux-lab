@@ -1,0 +1,265 @@
+{
+ "scene": "S19",
+ "frames": 795,
+ "frames3d": 0,
+ "filmSeconds": 26.5,
+ "wallSeconds": 42.6,
+ "browserFrameSeconds": 39.3,
+ "machineSecPerFilmSec": 1.61,
+ "hardTime": 26.43,
+ "crf": 8,
+ "size": "1920x1080",
+ "basisMode": "corner",
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-30T03:35:36.062Z",
+ "texts": [
+  {
+   "s": "Walt",
+   "tier": "label",
+   "px": 43,
+   "n": 346,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "Nora",
+   "tier": "label",
+   "px": 43,
+   "n": 346,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "Anjali",
+   "tier": "label",
+   "px": 43,
+   "n": 346,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "rate cut needed, by loan size",
+   "tier": "note",
+   "px": 40,
+   "n": 346,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "What these numbers are",
+   "tier": "head",
+   "px": 58,
+   "n": 796,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "HMDA 2025 (US home-loan records): total loan costs. Not advice.",
+   "tier": "note",
+   "px": 40,
+   "n": 796,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 40,
+   "n": 796,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "national average rates · median 2025 bills · three illustrative borrowers",
+   "tier": "note",
+   "px": 40,
+   "n": 790,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.20000000000004547,
+   "sent": false
+  },
+  {
+   "s": "Assumes: the offer matches the national average · October 2023 rate · 30-year term",
+   "tier": "note",
+   "px": 40,
+   "n": 790,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.20000000000004547,
+   "sent": false
+  },
+  {
+   "s": "fees paid in cash · fees paid back within 3 years",
+   "tier": "note",
+   "px": 40,
+   "n": 790,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.20000000000004547,
+   "sent": false
+  },
+  {
+   "s": "2025 refinance bills",
+   "tier": "label",
+   "px": 43,
+   "n": 447,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 11.633333333333326,
+   "sent": false
+  },
+  {
+   "s": "$3,443",
+   "tier": "number",
+   "px": 77,
+   "n": 430,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 12.200000000000045,
+   "sent": false
+  },
+  {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 430,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 12.200000000000045,
+   "sent": false
+  },
+  {
+   "s": "$8,270",
+   "tier": "number",
+   "px": 77,
+   "n": 382,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 13.799999999999955,
+   "sent": false
+  },
+  {
+   "s": "Nora's $5,124",
+   "tier": "note",
+   "px": 40,
+   "n": 375,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.033333333333303,
+   "sent": false
+  },
+  {
+   "s": "half of all bills fall in here",
+   "tier": "label",
+   "px": 43,
+   "n": 358,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.600000000000023,
+   "sent": false
+  },
+  {
+   "s": "your rate?",
+   "tier": "label",
+   "px": 43,
+   "n": 332,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 15.466666666666697,
+   "sent": false
+  },
+  {
+   "s": "your bill?",
+   "tier": "label",
+   "px": 43,
+   "n": 322,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 15.799999999999955,
+   "sent": false
+  },
+  {
+   "s": "your balance?",
+   "tier": "label",
+   "px": 43,
+   "n": 311,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 16.16666666666663,
+   "sent": false
+  },
+  {
+   "s": "fees added to the loan",
+   "tier": "label",
+   "px": 43,
+   "n": 182,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 20.466666666666697,
+   "sent": false
+  },
+  {
+   "s": "a shorter term",
+   "tier": "label",
+   "px": 43,
+   "n": 106,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 23,
+   "sent": false
+  },
+  {
+   "s": "→ different math",
+   "tier": "label",
+   "px": 43,
+   "n": 94,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 23.399999999999977,
+   "sent": false
+  }
+ ],
+ "anchorsUsed": [
+  "fade",
+  "p25",
+  "p75",
+  "real",
+  "roll",
+  "term"
+ ],
+ "anchorsDeclared": [
+  "fade",
+  "p25",
+  "p75",
+  "real",
+  "roll",
+  "term"
+ ],
+ "anchorsKeywordMissing": [],
+ "claimsUsed": [
+  "cost_median",
+  "cost_p25",
+  "cost_p75",
+  "oct2023",
+  "term30",
+  "y2025",
+  "y3"
+ ]
+}

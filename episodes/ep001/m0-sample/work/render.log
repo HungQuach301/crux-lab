@@ -1,0 +1,5 @@
+worker 0-75: frame 0 (1 s)
+worker 75-150: frame 75 (1 s)
+worker 225-300: frame 225 (2 s)
+worker 150-225: frame 150 (2 s)
+{"subframes":8,"shutter":0.5,"workers":4,"frames":300,"framesSupersampled":300,"wallSeconds":114.7,"secondsPerVideoSecond":11.47,"workerSeconds":[101.5,108.2,110.5,114.5]}

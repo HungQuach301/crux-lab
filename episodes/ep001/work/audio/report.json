@@ -1,0 +1,176 @@
+{
+ "total_s": 591.3,
+ "samples": 28382400,
+ "master": {
+  "I": -14.0,
+  "LRA": 3.7,
+  "TP": -1.5
+ },
+ "limiterMinGainDb": -2.0,
+ "limiterGainBelow1dBShare": 0.00184,
+ "preGainLUFS": -16.5,
+ "voiceOverMusicDb": 20.0,
+ "sonUnderVoiceDb": 16.0,
+ "sonification": {
+  "notes": 561,
+  "shiftedIntoGaps": 423,
+  "medianShiftMs": 43.5
+ },
+ "sonBandShare": 0.9655643934215743,
+ "silences": [
+  {
+   "t": 22.725,
+   "end": 23.645,
+   "dur": 0.92,
+   "beforeSentence": 4,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 24.425,
+   "end": 25.425,
+   "dur": 1.0,
+   "beforeSentence": 5,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 51.115,
+   "end": 51.895,
+   "dur": 0.78,
+   "beforeSentence": 8,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 131.655,
+   "end": 132.355,
+   "dur": 0.7,
+   "beforeSentence": 20,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 232.795,
+   "end": 234.125,
+   "dur": 1.33,
+   "beforeSentence": 38,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 240.425,
+   "end": 241.89,
+   "dur": 1.465,
+   "beforeSentence": 41,
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 241.54
+  },
+  {
+   "t": 290.815,
+   "end": 291.855,
+   "dur": 1.04,
+   "beforeSentence": 50,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 352.225,
+   "end": 352.855,
+   "dur": 0.63,
+   "beforeSentence": 61,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 367.985,
+   "end": 368.775,
+   "dur": 0.79,
+   "beforeSentence": 64,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 370.965,
+   "end": 372.55,
+   "dur": 1.585,
+   "beforeSentence": 65,
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 372.2
+  },
+  {
+   "t": 389.295,
+   "end": 389.995,
+   "dur": 0.7,
+   "beforeSentence": 69,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 412.375,
+   "end": 413.245,
+   "dur": 0.87,
+   "beforeSentence": 75,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 439.815,
+   "end": 441.005,
+   "dur": 1.19,
+   "beforeSentence": 80,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 516.985,
+   "end": 518.015,
+   "dur": 1.03,
+   "beforeSentence": 94,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 586.665,
+   "end": 588.315,
+   "dur": 1.65,
+   "beforeSentence": 105,
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  }
+ ],
+ "bpmByScene": {
+  "S01": 108.827,
+  "S02": 116.866,
+  "S03": 115.886,
+  "S04": 123.515,
+  "S05": 122.013,
+  "S06": 123.584,
+  "S07": 118.959,
+  "S08": 128.736,
+  "S09": 131.627,
+  "S10": 133.681,
+  "S11": 128.801,
+  "S12": 127.451,
+  "S13": 118.644,
+  "S14": 125.0,
+  "S15": 126.627,
+  "S16": 129.403,
+  "S17": 126.561,
+  "S18": 125.444,
+  "S19": 99.51,
+  "S20": 106.05
+ },
+ "bars": 302,
+ "stemLevelsDbfs": {
+  "voice": -17.72,
+  "music": -35.93,
+  "sfx": -200.0,
+  "whoosh": -200.0,
+  "room": -66.12,
+  "sonify": -45.55
+ },
+ "sumMinusMasterMax": 0.0
+}

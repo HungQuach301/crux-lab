@@ -1,0 +1,1946 @@
+{
+ "total_s": 591.31,
+ "sample_rate": 48000,
+ "lead_s": 0.5,
+ "tail_s": 1.0,
+ "pauses_s": {
+  "scene": 1.4,
+  "in_scene": "natural (one TTS call per scene; not edited)"
+ },
+ "note": "Voice v3.2 (script-v3.2.md, 8 emotion tags): one eleven_v3 call per scene (recipe of sample Y). Sentence start/end = speech span (-50 dBFS) inside the sentence segment; segment boundaries = lowest-energy 10 ms frame between the aligned last char of a sentence and first char of the next (with-timestamps alignment). In-scene pauses are the model's own; 1.4 s silence between scene clips; no cut inside any scene.",
+ "trim": "scene speech span (-50 dBFS, 10 ms windows) +40 ms before / +120 ms after, 5 ms fades",
+ "loudness": {
+  "before_gain_lufs": -18.58,
+  "gain_db": -0.92,
+  "integrated_lufs": -19.5,
+  "sample_peak_dbfs": -2.04,
+  "processing": "gain only",
+  "encoded_m4a": {
+   "duration_s": 591.339,
+   "lufs": -19.51,
+   "peak_dbfs": -2.04
+  }
+ },
+ "file": "episodes/ep001/review-c4/narration-v32.m4a (AAC 192 kbps mono 48 kHz)",
+ "scenes": [
+  {
+   "scene": "S01",
+   "take": "S01.seed1.mp3",
+   "start_s": 0.5,
+   "dur_s": 31.53,
+   "raw_dur_s": 31.6
+  },
+  {
+   "scene": "S02",
+   "take": "S02.seed1.mp3",
+   "start_s": 33.43,
+   "dur_s": 21.15,
+   "raw_dur_s": 21.2
+  },
+  {
+   "scene": "S03",
+   "take": "S03.seed1.mp3",
+   "start_s": 55.98,
+   "dur_s": 19.33,
+   "raw_dur_s": 19.36
+  },
+  {
+   "scene": "S04",
+   "take": "S04.seed1.mp3",
+   "start_s": 76.71,
+   "dur_s": 23.84,
+   "raw_dur_s": 23.84
+  },
+  {
+   "scene": "S05",
+   "take": "S05.seed1.mp3",
+   "start_s": 101.95,
+   "dur_s": 37.95,
+   "raw_dur_s": 38.0
+  },
+  {
+   "scene": "S06",
+   "take": "S06.seed1.mp3",
+   "start_s": 141.3,
+   "dur_s": 27.72,
+   "raw_dur_s": 27.76
+  },
+  {
+   "scene": "S07",
+   "take": "S07.seed1.mp3",
+   "start_s": 170.42,
+   "dur_s": 30.88,
+   "raw_dur_s": 30.88
+  },
+  {
+   "scene": "S08",
+   "take": "S08.seed1.mp3",
+   "start_s": 202.7,
+   "dur_s": 37.75,
+   "raw_dur_s": 37.84
+  },
+  {
+   "scene": "S09",
+   "take": "S09.seed1.mp3",
+   "start_s": 241.85,
+   "dur_s": 15.01,
+   "raw_dur_s": 15.04
+  },
+  {
+   "scene": "S10",
+   "take": "S10.seed1.mp3",
+   "start_s": 258.26,
+   "dur_s": 56.09,
+   "raw_dur_s": 56.16
+  },
+  {
+   "scene": "S11",
+   "take": "S11.seed1.mp3",
+   "start_s": 315.75,
+   "dur_s": 20.96,
+   "raw_dur_s": 20.96
+  },
+  {
+   "scene": "S12",
+   "take": "S12.seed1.mp3",
+   "start_s": 338.11,
+   "dur_s": 4.72,
+   "raw_dur_s": 4.72
+  },
+  {
+   "scene": "S13",
+   "take": "S13.seed1.mp3",
+   "start_s": 344.23,
+   "dur_s": 26.88,
+   "raw_dur_s": 26.88
+  },
+  {
+   "scene": "S14",
+   "take": "S14.seed1.mp3",
+   "start_s": 372.51,
+   "dur_s": 21.64,
+   "raw_dur_s": 21.68
+  },
+  {
+   "scene": "S15",
+   "take": "S15.seed1.mp3",
+   "start_s": 395.55,
+   "dur_s": 27.03,
+   "raw_dur_s": 27.04
+  },
+  {
+   "scene": "S16",
+   "take": "S16.seed1.mp3",
+   "start_s": 423.98,
+   "dur_s": 26.46,
+   "raw_dur_s": 26.56
+  },
+  {
+   "scene": "S17",
+   "take": "S17.seed1.mp3",
+   "start_s": 451.84,
+   "dur_s": 34.63,
+   "raw_dur_s": 34.64
+  },
+  {
+   "scene": "S18",
+   "take": "S18r2.seed1.mp3",
+   "start_s": 487.87,
+   "dur_s": 46.39,
+   "raw_dur_s": 46.4
+  },
+  {
+   "scene": "S19",
+   "take": "S19.seed1.mp3",
+   "start_s": 535.66,
+   "dur_s": 25.13,
+   "raw_dur_s": 25.28
+  },
+  {
+   "scene": "S20",
+   "take": "S20.seed1.mp3",
+   "start_s": 562.19,
+   "dur_s": 28.12,
+   "raw_dur_s": 28.16
+  }
+ ],
+ "events": [
+  {
+   "type": "sentence",
+   "n": 1,
+   "sequence": 0,
+   "scene": "S01",
+   "start_s": 0.54,
+   "end_s": 11.1,
+   "text": "In February 2026, the average 30-year fixed mortgage rate in the US fell to 5.98 percent, the lowest since September 2022."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 11.1,
+   "end_s": 12.015,
+   "dur_s": 0.915,
+   "before_n": 2
+  },
+  {
+   "type": "sentence",
+   "n": 2,
+   "sequence": 0,
+   "scene": "S01",
+   "start_s": 12.015,
+   "end_s": 16.345,
+   "text": "Nora had borrowed in 2023, at 7.62 percent."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 16.345,
+   "end_s": 17.165,
+   "dur_s": 0.82,
+   "before_n": 3
+  },
+  {
+   "type": "sentence",
+   "n": 3,
+   "sequence": 0,
+   "scene": "S01",
+   "start_s": 17.165,
+   "end_s": 22.725,
+   "text": "At the February rate, a new loan would have cut her payment by $459 a month."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 22.725,
+   "end_s": 23.645,
+   "dur_s": 0.92,
+   "before_n": 4
+  },
+  {
+   "type": "sentence",
+   "n": 4,
+   "sequence": 0,
+   "scene": "S01",
+   "start_s": 23.645,
+   "end_s": 24.425,
+   "text": "She didn't take it."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 24.425,
+   "end_s": 25.425,
+   "dur_s": 1.0,
+   "before_n": 5
+  },
+  {
+   "type": "sentence",
+   "n": 5,
+   "sequence": 0,
+   "scene": "S01",
+   "start_s": 25.425,
+   "end_s": 31.925,
+   "text": "By late September, the rate was back above 7 percent, for the first time since January 2025."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 31.925,
+   "end_s": 33.43,
+   "dur_s": 1.505,
+   "before_n": 6
+  },
+  {
+   "type": "sentence",
+   "n": 6,
+   "sequence": 0,
+   "scene": "S02",
+   "start_s": 33.43,
+   "end_s": 44.99,
+   "text": "Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for $5,124 in fees."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 44.99,
+   "end_s": 46.495,
+   "dur_s": 1.505,
+   "before_n": 7
+  },
+  {
+   "type": "sentence",
+   "n": 7,
+   "sequence": 0,
+   "scene": "S02",
+   "start_s": 46.495,
+   "end_s": 51.115,
+   "text": "How big a rate cut makes that worth it for Nora — and where would your own loan fall?"
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 51.115,
+   "end_s": 51.895,
+   "dur_s": 0.78,
+   "before_n": 8
+  },
+  {
+   "type": "sentence",
+   "n": 8,
+   "sequence": 0,
+   "scene": "S02",
+   "start_s": 51.895,
+   "end_s": 54.465,
+   "text": "And why would a smaller mortgage need a bigger cut?"
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 54.465,
+   "end_s": 56.02,
+   "dur_s": 1.555,
+   "before_n": 9
+  },
+  {
+   "type": "sentence",
+   "n": 9,
+   "sequence": 1,
+   "scene": "S03",
+   "start_s": 56.02,
+   "end_s": 65.87,
+   "text": "Nora borrowed in October 2023, the month the average rate reached 7.79 percent, its highest since 2000."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 65.87,
+   "end_s": 66.775,
+   "dur_s": 0.905,
+   "before_n": 10
+  },
+  {
+   "type": "sentence",
+   "n": 10,
+   "sequence": 1,
+   "scene": "S03",
+   "start_s": 66.775,
+   "end_s": 75.195,
+   "text": "She wasn't the only one: three in ten of that year's 30-year loans to buy a home carried a rate of 7 percent or more."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 75.195,
+   "end_s": 76.73,
+   "dur_s": 1.535,
+   "before_n": 11
+  },
+  {
+   "type": "sentence",
+   "n": 11,
+   "sequence": 1,
+   "scene": "S04",
+   "start_s": 76.73,
+   "end_s": 82.97,
+   "text": "Nora isn't a real person; we built her from typical figures, to show how the math works for one household."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 82.97,
+   "end_s": 83.905,
+   "dur_s": 0.935,
+   "before_n": 12
+  },
+  {
+   "type": "sentence",
+   "n": 12,
+   "sequence": 1,
+   "scene": "S04",
+   "start_s": 83.905,
+   "end_s": 94.085,
+   "text": "She had moved for a new job and bought her first home, with a $375,000 loan at 7.62 percent, the average rate that month."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 94.085,
+   "end_s": 95.055,
+   "dur_s": 0.97,
+   "before_n": 13
+  },
+  {
+   "type": "sentence",
+   "n": 13,
+   "sequence": 1,
+   "scene": "S04",
+   "start_s": 95.055,
+   "end_s": 100.455,
+   "text": "Every dollar amount in this story is in the dollars of the day, not adjusted for inflation."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 100.455,
+   "end_s": 101.99,
+   "dur_s": 1.535,
+   "before_n": 14
+  },
+  {
+   "type": "sentence",
+   "n": 14,
+   "sequence": 1,
+   "scene": "S05",
+   "start_s": 101.99,
+   "end_s": 107.13,
+   "text": "You may have heard that a refinance only pays off once rates fall a full percentage point below yours."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 107.13,
+   "end_s": 107.465,
+   "dur_s": 0.335,
+   "before_n": 15
+  },
+  {
+   "type": "sentence",
+   "n": 15,
+   "sequence": 1,
+   "scene": "S05",
+   "start_s": 107.465,
+   "end_s": 109.575,
+   "text": "We use that one-point line as a test."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 109.575,
+   "end_s": 109.985,
+   "dur_s": 0.41,
+   "before_n": 16
+  },
+  {
+   "type": "sentence",
+   "n": 16,
+   "sequence": 1,
+   "scene": "S05",
+   "start_s": 109.985,
+   "end_s": 112.805,
+   "text": "And for Nora, rates did cross that line."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 112.805,
+   "end_s": 113.395,
+   "dur_s": 0.59,
+   "before_n": 17
+  },
+  {
+   "type": "sentence",
+   "n": 17,
+   "sequence": 1,
+   "scene": "S05",
+   "start_s": 113.395,
+   "end_s": 118.765,
+   "text": "In 2026, the average spent 29 weeks at least a full point below her rate."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 118.765,
+   "end_s": 119.035,
+   "dur_s": 0.27,
+   "before_n": 18
+  },
+  {
+   "type": "sentence",
+   "n": 18,
+   "sequence": 1,
+   "scene": "S05",
+   "start_s": 119.035,
+   "end_s": 123.295,
+   "text": "At the February low, the gap was 1.64 points."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 123.295,
+   "end_s": 123.835,
+   "dur_s": 0.54,
+   "before_n": 19
+  },
+  {
+   "type": "sentence",
+   "n": 19,
+   "sequence": 1,
+   "scene": "S05",
+   "start_s": 123.835,
+   "end_s": 131.655,
+   "text": "After the week ending July 23, 2026, the gap never again reached a full point, and the window closed."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 131.655,
+   "end_s": 132.355,
+   "dur_s": 0.7,
+   "before_n": 20
+  },
+  {
+   "type": "sentence",
+   "n": 20,
+   "sequence": 1,
+   "scene": "S05",
+   "start_s": 132.355,
+   "end_s": 139.705,
+   "text": "Whether it opens again, we can't tell you: everything in this story is history, not a forecast, and it covers the US only."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 139.705,
+   "end_s": 141.33,
+   "dur_s": 1.625,
+   "before_n": 21
+  },
+  {
+   "type": "sentence",
+   "n": 21,
+   "sequence": 1,
+   "scene": "S06",
+   "start_s": 141.33,
+   "end_s": 143.43,
+   "text": "So the letter arrives in a different world."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 143.43,
+   "end_s": 143.925,
+   "dur_s": 0.495,
+   "before_n": 22
+  },
+  {
+   "type": "sentence",
+   "n": 22,
+   "sequence": 1,
+   "scene": "S06",
+   "start_s": 143.925,
+   "end_s": 152.815,
+   "text": "Say the rate it offers matches the national average for the week ending September 24, 2026: 7.03 percent."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 152.815,
+   "end_s": 153.725,
+   "dur_s": 0.91,
+   "before_n": 23
+  },
+  {
+   "type": "sentence",
+   "n": 23,
+   "sequence": 1,
+   "scene": "S06",
+   "start_s": 153.725,
+   "end_s": 157.485,
+   "text": "That is just over half a percentage point below what she pays now."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 157.485,
+   "end_s": 158.235,
+   "dur_s": 0.75,
+   "before_n": 24
+  },
+  {
+   "type": "sentence",
+   "n": 24,
+   "sequence": 1,
+   "scene": "S06",
+   "start_s": 158.235,
+   "end_s": 164.755,
+   "text": "From here on, when we say a point, we mean exactly that: one percentage point off the rate."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 164.755,
+   "end_s": 165.745,
+   "dur_s": 0.99,
+   "before_n": 25
+  },
+  {
+   "type": "sentence",
+   "n": 25,
+   "sequence": 1,
+   "scene": "S06",
+   "start_s": 165.745,
+   "end_s": 168.905,
+   "text": "Her monthly payment would drop by $221."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 168.905,
+   "end_s": 170.46,
+   "dur_s": 1.555,
+   "before_n": 26
+  },
+  {
+   "type": "sentence",
+   "n": 26,
+   "sequence": 1,
+   "scene": "S07",
+   "start_s": 170.46,
+   "end_s": 171.91,
+   "text": "Then comes the last line."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 171.91,
+   "end_s": 172.785,
+   "dur_s": 0.875,
+   "before_n": 27
+  },
+  {
+   "type": "sentence",
+   "n": 27,
+   "sequence": 1,
+   "scene": "S07",
+   "start_s": 172.785,
+   "end_s": 184.965,
+   "text": "$5,124 in loan costs, paid in cash at closing: the lender's charges for making the loan, plus anything she pays up front to buy the rate down."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 184.965,
+   "end_s": 186.095,
+   "dur_s": 1.13,
+   "before_n": 28
+  },
+  {
+   "type": "sentence",
+   "n": 28,
+   "sequence": 1,
+   "scene": "S07",
+   "start_s": 186.095,
+   "end_s": 187.775,
+   "text": "That bill is not made up."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 187.775,
+   "end_s": 187.895,
+   "dur_s": 0.12,
+   "before_n": 29
+  },
+  {
+   "type": "sentence",
+   "n": 29,
+   "sequence": 1,
+   "scene": "S07",
+   "start_s": 187.895,
+   "end_s": 196.315,
+   "text": "It is the median from nearly half a million refinances in 2025, and her loan size is the median too."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 196.315,
+   "end_s": 197.295,
+   "dur_s": 0.98,
+   "before_n": 30
+  },
+  {
+   "type": "sentence",
+   "n": 30,
+   "sequence": 1,
+   "scene": "S07",
+   "start_s": 197.295,
+   "end_s": 201.245,
+   "text": "If a letter like this has reached you, this is the math behind it."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 201.245,
+   "end_s": 202.74,
+   "dur_s": 1.495,
+   "before_n": 31
+  },
+  {
+   "type": "sentence",
+   "n": 31,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 202.74,
+   "end_s": 203.89,
+   "text": "Is it worth paying?"
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 203.89,
+   "end_s": 205.085,
+   "dur_s": 1.195,
+   "before_n": 32
+  },
+  {
+   "type": "sentence",
+   "n": 32,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 205.085,
+   "end_s": 211.215,
+   "text": "Worth it, here, means one thing: the savings pay back the fees before she sells or moves."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 211.215,
+   "end_s": 212.145,
+   "dur_s": 0.93,
+   "before_n": 33
+  },
+  {
+   "type": "sentence",
+   "n": 33,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 212.145,
+   "end_s": 216.105,
+   "text": "We test a stay of three years, a choice we made, not a rule."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 216.105,
+   "end_s": 216.575,
+   "dur_s": 0.47,
+   "before_n": 34
+  },
+  {
+   "type": "sentence",
+   "n": 34,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 216.575,
+   "end_s": 218.505,
+   "text": "There are two quick answers."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 218.505,
+   "end_s": 218.745,
+   "dur_s": 0.24,
+   "before_n": 35
+  },
+  {
+   "type": "sentence",
+   "n": 35,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 218.745,
+   "end_s": 220.565,
+   "text": "The one-point line says no."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 220.565,
+   "end_s": 221.045,
+   "dur_s": 0.48,
+   "before_n": 36
+  },
+  {
+   "type": "sentence",
+   "n": 36,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 221.045,
+   "end_s": 222.195,
+   "text": "Her cut falls short."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 222.195,
+   "end_s": 223.015,
+   "dur_s": 0.82,
+   "before_n": 37
+  },
+  {
+   "type": "sentence",
+   "n": 37,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 223.015,
+   "end_s": 232.795,
+   "text": "Simple division says yes: $5,124 divided by $221 is about 24 months."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 232.795,
+   "end_s": 234.125,
+   "dur_s": 1.33,
+   "before_n": 38
+  },
+  {
+   "type": "sentence",
+   "n": 38,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 234.125,
+   "end_s": 235.115,
+   "text": "Neither is quite right."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 235.115,
+   "end_s": 235.725,
+   "dur_s": 0.61,
+   "before_n": 39
+  },
+  {
+   "type": "sentence",
+   "n": 39,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 235.725,
+   "end_s": 237.965,
+   "text": "The one-point line never looks at the bill."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 237.965,
+   "end_s": 238.375,
+   "dur_s": 0.41,
+   "before_n": 40
+  },
+  {
+   "type": "sentence",
+   "n": 40,
+   "sequence": 1,
+   "scene": "S08",
+   "start_s": 238.375,
+   "end_s": 240.425,
+   "text": "And the division leaves something out."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 240.425,
+   "end_s": 241.89,
+   "dur_s": 1.465,
+   "before_n": 41
+  },
+  {
+   "type": "sentence",
+   "n": 41,
+   "sequence": 2,
+   "scene": "S09",
+   "start_s": 241.89,
+   "end_s": 242.58,
+   "text": "Back to the letter."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 242.58,
+   "end_s": 243.095,
+   "dur_s": 0.515,
+   "before_n": 42
+  },
+  {
+   "type": "sentence",
+   "n": 42,
+   "sequence": 2,
+   "scene": "S09",
+   "start_s": 243.095,
+   "end_s": 246.315,
+   "text": "Break-even is the month when what she has saved covers the bill."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 246.315,
+   "end_s": 246.995,
+   "dur_s": 0.68,
+   "before_n": 43
+  },
+  {
+   "type": "sentence",
+   "n": 43,
+   "sequence": 2,
+   "scene": "S09",
+   "start_s": 246.995,
+   "end_s": 251.445,
+   "text": "Division stacks up $221 a month and stops at month 24."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 251.445,
+   "end_s": 252.365,
+   "dur_s": 0.92,
+   "before_n": 44
+  },
+  {
+   "type": "sentence",
+   "n": 44,
+   "sequence": 2,
+   "scene": "S09",
+   "start_s": 252.365,
+   "end_s": 256.855,
+   "text": "But while the savings stack up, something else is happening, to what she still owes."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 256.855,
+   "end_s": 258.3,
+   "dur_s": 1.445,
+   "before_n": 45
+  },
+  {
+   "type": "sentence",
+   "n": 45,
+   "sequence": 2,
+   "scene": "S10",
+   "start_s": 258.3,
+   "end_s": 263.51,
+   "text": "Nora has made 35 payments on her old loan, one a month since she moved in."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 263.51,
+   "end_s": 264.505,
+   "dur_s": 0.995,
+   "before_n": 46
+  },
+  {
+   "type": "sentence",
+   "n": 46,
+   "sequence": 2,
+   "scene": "S10",
+   "start_s": 264.505,
+   "end_s": 267.975,
+   "text": "With each one, a little more goes to paying down what she owes."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 267.975,
+   "end_s": 268.815,
+   "dur_s": 0.84,
+   "before_n": 47
+  },
+  {
+   "type": "sentence",
+   "n": 47,
+   "sequence": 2,
+   "scene": "S10",
+   "start_s": 268.815,
+   "end_s": 276.895,
+   "text": "A refinance starts a fresh 30-year clock, and in the early years of any mortgage, most of each payment goes to interest."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 276.895,
+   "end_s": 277.765,
+   "dur_s": 0.87,
+   "before_n": 48
+  },
+  {
+   "type": "sentence",
+   "n": 48,
+   "sequence": 2,
+   "scene": "S10",
+   "start_s": 277.765,
+   "end_s": 282.555,
+   "text": "So the new loan pays down her balance more slowly than the old one would have."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 282.555,
+   "end_s": 283.505,
+   "dur_s": 0.95,
+   "before_n": 49
+  },
+  {
+   "type": "sentence",
+   "n": 49,
+   "sequence": 2,
+   "scene": "S10",
+   "start_s": 283.505,
+   "end_s": 290.815,
+   "text": "By month 24, she owes $1,133 more than if she had kept the old loan."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 290.815,
+   "end_s": 291.855,
+   "dur_s": 1.04,
+   "before_n": 50
+  },
+  {
+   "type": "sentence",
+   "n": 50,
+   "sequence": 2,
+   "scene": "S10",
+   "start_s": 291.855,
+   "end_s": 301.575,
+   "text": "If she sold the house then, that $1,133 would come out of her sale money, so it cancels part of what she has saved."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 301.575,
+   "end_s": 302.555,
+   "dur_s": 0.98,
+   "before_n": 51
+  },
+  {
+   "type": "sentence",
+   "n": 51,
+   "sequence": 2,
+   "scene": "S10",
+   "start_s": 302.555,
+   "end_s": 308.325,
+   "text": "Her savings need a few more months to cover it, and the gap keeps growing a little while they do."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 308.325,
+   "end_s": 309.445,
+   "dur_s": 1.12,
+   "before_n": 52
+  },
+  {
+   "type": "sentence",
+   "n": 52,
+   "sequence": 2,
+   "scene": "S10",
+   "start_s": 309.445,
+   "end_s": 314.225,
+   "text": "Count it, and break-even moves from month 24 to month 30."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 314.225,
+   "end_s": 315.75,
+   "dur_s": 1.525,
+   "before_n": 53
+  },
+  {
+   "type": "sentence",
+   "n": 53,
+   "sequence": 2,
+   "scene": "S11",
+   "start_s": 315.75,
+   "end_s": 318.77,
+   "text": "The smaller the cut, the more that gap matters."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 318.77,
+   "end_s": 319.865,
+   "dur_s": 1.095,
+   "before_n": 54
+  },
+  {
+   "type": "sentence",
+   "n": 54,
+   "sequence": 2,
+   "scene": "S11",
+   "start_s": 319.865,
+   "end_s": 322.485,
+   "text": "Suppose her offer were only a quarter of a point."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 322.485,
+   "end_s": 323.145,
+   "dur_s": 0.66,
+   "before_n": 55
+  },
+  {
+   "type": "sentence",
+   "n": 55,
+   "sequence": 2,
+   "scene": "S11",
+   "start_s": 323.145,
+   "end_s": 325.725,
+   "text": "Division promises break-even in 38 months."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 325.725,
+   "end_s": 326.535,
+   "dur_s": 0.81,
+   "before_n": 56
+  },
+  {
+   "type": "sentence",
+   "n": 56,
+   "sequence": 2,
+   "scene": "S11",
+   "start_s": 326.535,
+   "end_s": 330.225,
+   "text": "But a saving that small can't outrun the growing gap in what she owes."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 330.225,
+   "end_s": 331.175,
+   "dur_s": 0.95,
+   "before_n": 57
+  },
+  {
+   "type": "sentence",
+   "n": 57,
+   "sequence": 2,
+   "scene": "S11",
+   "start_s": 331.175,
+   "end_s": 336.705,
+   "text": "Counting it, the fees never come back, not in all the years her old loan had left."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 336.705,
+   "end_s": 338.11,
+   "dur_s": 1.405,
+   "before_n": 58
+  },
+  {
+   "type": "sentence",
+   "n": 58,
+   "sequence": 2,
+   "scene": "S12",
+   "start_s": 338.11,
+   "end_s": 342.83,
+   "text": "At a full point, she would break even in 18 months, well inside three years."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 342.83,
+   "end_s": 344.23,
+   "dur_s": 1.4,
+   "before_n": 59
+  },
+  {
+   "type": "sentence",
+   "n": 59,
+   "sequence": 2,
+   "scene": "S13",
+   "start_s": 344.23,
+   "end_s": 347.48,
+   "text": "Somewhere between a quarter point and a full point is her line."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 347.48,
+   "end_s": 348.095,
+   "dur_s": 0.615,
+   "before_n": 60
+  },
+  {
+   "type": "sentence",
+   "n": 60,
+   "sequence": 2,
+   "scene": "S13",
+   "start_s": 348.095,
+   "end_s": 352.225,
+   "text": "At half a point, the fees come back in exactly 36 months."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 352.225,
+   "end_s": 352.855,
+   "dur_s": 0.63,
+   "before_n": 61
+  },
+  {
+   "type": "sentence",
+   "n": 61,
+   "sequence": 2,
+   "scene": "S13",
+   "start_s": 352.855,
+   "end_s": 358.405,
+   "text": "So for Nora, the answer is half a point, half of the one-point line."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 358.405,
+   "end_s": 358.955,
+   "dur_s": 0.55,
+   "before_n": 62
+  },
+  {
+   "type": "sentence",
+   "n": 62,
+   "sequence": 2,
+   "scene": "S13",
+   "start_s": 358.955,
+   "end_s": 361.765,
+   "text": "Her real offer, just over half a point, clears it."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 361.765,
+   "end_s": 362.575,
+   "dur_s": 0.81,
+   "before_n": 63
+  },
+  {
+   "type": "sentence",
+   "n": 63,
+   "sequence": 2,
+   "scene": "S13",
+   "start_s": 362.575,
+   "end_s": 367.985,
+   "text": "The February window closed, but by the three-year test, this letter still pays her back."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 367.985,
+   "end_s": 368.775,
+   "dur_s": 0.79,
+   "before_n": 64
+  },
+  {
+   "type": "sentence",
+   "n": 64,
+   "sequence": 2,
+   "scene": "S13",
+   "start_s": 368.775,
+   "end_s": 370.965,
+   "text": "Is half a point the line for everyone?"
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 370.965,
+   "end_s": 372.55,
+   "dur_s": 1.585,
+   "before_n": 65
+  },
+  {
+   "type": "sentence",
+   "n": 65,
+   "sequence": 3,
+   "scene": "S14",
+   "start_s": 372.55,
+   "end_s": 375.19,
+   "text": "Walt is another borrower we built from typical figures."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 375.19,
+   "end_s": 375.875,
+   "dur_s": 0.685,
+   "before_n": 66
+  },
+  {
+   "type": "sentence",
+   "n": 66,
+   "sequence": 3,
+   "scene": "S14",
+   "start_s": 375.875,
+   "end_s": 381.635,
+   "text": "He bought a smaller house the same month as Nora, with a $115,000 loan at the same rate."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 381.635,
+   "end_s": 382.275,
+   "dur_s": 0.64,
+   "before_n": 67
+  },
+  {
+   "type": "sentence",
+   "n": 67,
+   "sequence": 3,
+   "scene": "S14",
+   "start_s": 382.275,
+   "end_s": 383.945,
+   "text": "His letter offers the same cut."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 383.945,
+   "end_s": 384.935,
+   "dur_s": 0.99,
+   "before_n": 68
+  },
+  {
+   "type": "sentence",
+   "n": 68,
+   "sequence": 3,
+   "scene": "S14",
+   "start_s": 384.935,
+   "end_s": 389.295,
+   "text": "The bill at the bottom: $3,667."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 389.295,
+   "end_s": 389.995,
+   "dur_s": 0.7,
+   "before_n": 69
+  },
+  {
+   "type": "sentence",
+   "n": 69,
+   "sequence": 3,
+   "scene": "S14",
+   "start_s": 389.995,
+   "end_s": 391.725,
+   "text": "His loan is far smaller than hers."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 391.725,
+   "end_s": 392.205,
+   "dur_s": 0.48,
+   "before_n": 70
+  },
+  {
+   "type": "sentence",
+   "n": 70,
+   "sequence": 3,
+   "scene": "S14",
+   "start_s": 392.205,
+   "end_s": 394.045,
+   "text": "His bill is only a little smaller."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 394.045,
+   "end_s": 395.59,
+   "dur_s": 1.545,
+   "before_n": 71
+  },
+  {
+   "type": "sentence",
+   "n": 71,
+   "sequence": 3,
+   "scene": "S15",
+   "start_s": 395.59,
+   "end_s": 400.84,
+   "text": "In the 2025 data, refinance bills grow far more slowly than the loans they come with."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 400.84,
+   "end_s": 401.705,
+   "dur_s": 0.865,
+   "before_n": 72
+  },
+  {
+   "type": "sentence",
+   "n": 72,
+   "sequence": 3,
+   "scene": "S15",
+   "start_s": 401.705,
+   "end_s": 405.215,
+   "text": "For Walt, it comes to about 3.2 percent of what he borrowed."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 405.215,
+   "end_s": 406.125,
+   "dur_s": 0.91,
+   "before_n": 73
+  },
+  {
+   "type": "sentence",
+   "n": 73,
+   "sequence": 3,
+   "scene": "S15",
+   "start_s": 406.125,
+   "end_s": 408.435,
+   "text": "His savings, though, shrink with the loan."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 408.435,
+   "end_s": 409.325,
+   "dur_s": 0.89,
+   "before_n": 74
+  },
+  {
+   "type": "sentence",
+   "n": 74,
+   "sequence": 3,
+   "scene": "S15",
+   "start_s": 409.325,
+   "end_s": 412.375,
+   "text": "The same cut takes only $68 a month off his payment."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 412.375,
+   "end_s": 413.245,
+   "dur_s": 0.87,
+   "before_n": 75
+  },
+  {
+   "type": "sentence",
+   "n": 75,
+   "sequence": 3,
+   "scene": "S15",
+   "start_s": 413.245,
+   "end_s": 418.425,
+   "text": "$68 a month, against a $3,667 bill."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 418.425,
+   "end_s": 419.435,
+   "dur_s": 1.01,
+   "before_n": 76
+  },
+  {
+   "type": "sentence",
+   "n": 76,
+   "sequence": 3,
+   "scene": "S15",
+   "start_s": 419.435,
+   "end_s": 422.575,
+   "text": "Counting what he owes, he breaks even in month 75."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 422.575,
+   "end_s": 424.02,
+   "dur_s": 1.445,
+   "before_n": 77
+  },
+  {
+   "type": "sentence",
+   "n": 77,
+   "sequence": 3,
+   "scene": "S16",
+   "start_s": 424.02,
+   "end_s": 430.14,
+   "text": "If Walt sold after three years, he would come out $1,777 behind."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 430.14,
+   "end_s": 430.865,
+   "dur_s": 0.725,
+   "before_n": 78
+  },
+  {
+   "type": "sentence",
+   "n": 78,
+   "sequence": 3,
+   "scene": "S16",
+   "start_s": 430.865,
+   "end_s": 436.755,
+   "text": "For his fees to come back within three years, his rate would need to fall 1.12 points."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 436.755,
+   "end_s": 437.695,
+   "dur_s": 0.94,
+   "before_n": 79
+  },
+  {
+   "type": "sentence",
+   "n": 79,
+   "sequence": 3,
+   "scene": "S16",
+   "start_s": 437.695,
+   "end_s": 439.815,
+   "text": "That is more than the one-point line."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 439.815,
+   "end_s": 441.005,
+   "dur_s": 1.19,
+   "before_n": 80
+  },
+  {
+   "type": "sentence",
+   "n": 80,
+   "sequence": 3,
+   "scene": "S16",
+   "start_s": 441.005,
+   "end_s": 444.255,
+   "text": "So that is why a smaller mortgage needs a bigger rate cut."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 444.255,
+   "end_s": 445.175,
+   "dur_s": 0.92,
+   "before_n": 81
+  },
+  {
+   "type": "sentence",
+   "n": 81,
+   "sequence": 3,
+   "scene": "S16",
+   "start_s": 445.175,
+   "end_s": 450.315,
+   "text": "The fees barely shrink with the loan, and the monthly savings shrink right along with it."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 450.315,
+   "end_s": 451.84,
+   "dur_s": 1.525,
+   "before_n": 82
+  },
+  {
+   "type": "sentence",
+   "n": 82,
+   "sequence": 3,
+   "scene": "S17",
+   "start_s": 451.84,
+   "end_s": 453.26,
+   "text": "Anjali sits at the other end."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 453.26,
+   "end_s": 453.895,
+   "dur_s": 0.635,
+   "before_n": 83
+  },
+  {
+   "type": "sentence",
+   "n": 83,
+   "sequence": 3,
+   "scene": "S17",
+   "start_s": 453.895,
+   "end_s": 456.535,
+   "text": "Same month, same rate, same cut."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 456.535,
+   "end_s": 457.565,
+   "dur_s": 1.03,
+   "before_n": 84
+  },
+  {
+   "type": "sentence",
+   "n": 84,
+   "sequence": 3,
+   "scene": "S17",
+   "start_s": 457.565,
+   "end_s": 467.745,
+   "text": "She bought a bigger house, with a $655,000 loan, still under the conforming limit: the ceiling for the standard loans that Fannie Mae and Freddie Mac buy."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 467.745,
+   "end_s": 468.835,
+   "dur_s": 1.09,
+   "before_n": 85
+  },
+  {
+   "type": "sentence",
+   "n": 85,
+   "sequence": 3,
+   "scene": "S17",
+   "start_s": 468.835,
+   "end_s": 473.435,
+   "text": "Her bill is $5,514, close to what Nora pays."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 473.435,
+   "end_s": 474.335,
+   "dur_s": 0.9,
+   "before_n": 86
+  },
+  {
+   "type": "sentence",
+   "n": 86,
+   "sequence": 3,
+   "scene": "S17",
+   "start_s": 474.335,
+   "end_s": 480.075,
+   "text": "If she sold after three years, she would come out $5,250 ahead."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 480.075,
+   "end_s": 481.105,
+   "dur_s": 1.03,
+   "before_n": 87
+  },
+  {
+   "type": "sentence",
+   "n": 87,
+   "sequence": 3,
+   "scene": "S17",
+   "start_s": 481.105,
+   "end_s": 486.345,
+   "text": "To get her fees back within three years, she needs a cut of only about a third of a point."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 486.345,
+   "end_s": 487.87,
+   "dur_s": 1.525,
+   "before_n": 88
+  },
+  {
+   "type": "sentence",
+   "n": 88,
+   "sequence": 4,
+   "scene": "S18",
+   "start_s": 487.87,
+   "end_s": 490.77,
+   "text": "So, back to the letter, and the question it started with."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 490.77,
+   "end_s": 491.805,
+   "dur_s": 1.035,
+   "before_n": 89
+  },
+  {
+   "type": "sentence",
+   "n": 89,
+   "sequence": 4,
+   "scene": "S18",
+   "start_s": 491.805,
+   "end_s": 498.825,
+   "text": "How big a rate cut makes a refinance worth it, if worth it means the fees come back within three years?"
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 498.825,
+   "end_s": 500.065,
+   "dur_s": 1.24,
+   "before_n": 90
+  },
+  {
+   "type": "sentence",
+   "n": 90,
+   "sequence": 4,
+   "scene": "S18",
+   "start_s": 500.065,
+   "end_s": 501.565,
+   "text": "It depends on the size of the loan."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 501.565,
+   "end_s": 502.285,
+   "dur_s": 0.72,
+   "before_n": 91
+  },
+  {
+   "type": "sentence",
+   "n": 91,
+   "sequence": 4,
+   "scene": "S18",
+   "start_s": 502.285,
+   "end_s": 507.105,
+   "text": "For Walt, with a loan of $115,000, it takes more than a full point."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 507.105,
+   "end_s": 507.855,
+   "dur_s": 0.75,
+   "before_n": 92
+  },
+  {
+   "type": "sentence",
+   "n": 92,
+   "sequence": 4,
+   "scene": "S18",
+   "start_s": 507.855,
+   "end_s": 511.775,
+   "text": "For Nora, with $375,000, half a point."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 511.775,
+   "end_s": 512.545,
+   "dur_s": 0.77,
+   "before_n": 93
+  },
+  {
+   "type": "sentence",
+   "n": 93,
+   "sequence": 4,
+   "scene": "S18",
+   "start_s": 512.545,
+   "end_s": 516.985,
+   "text": "For Anjali, with $655,000, about a third of a point."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 516.985,
+   "end_s": 518.015,
+   "dur_s": 1.03,
+   "before_n": 94
+  },
+  {
+   "type": "sentence",
+   "n": 94,
+   "sequence": 4,
+   "scene": "S18",
+   "start_s": 518.015,
+   "end_s": 522.275,
+   "text": "Put your own loan on that scale, and you can see which of them you are closest to."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 522.275,
+   "end_s": 523.135,
+   "dur_s": 0.86,
+   "before_n": 95
+  },
+  {
+   "type": "sentence",
+   "n": 95,
+   "sequence": 4,
+   "scene": "S18",
+   "start_s": 523.135,
+   "end_s": 531.215,
+   "text": "Those lines rest on our assumptions: a loan taken out at the October 2023 rate, a median bill, and a three-year stay."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 531.215,
+   "end_s": 532.075,
+   "dur_s": 0.86,
+   "before_n": 96
+  },
+  {
+   "type": "sentence",
+   "n": 96,
+   "sequence": 4,
+   "scene": "S18",
+   "start_s": 532.075,
+   "end_s": 534.135,
+   "text": "The one-point line fits none of them."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 534.135,
+   "end_s": 535.7,
+   "dur_s": 1.565,
+   "before_n": 97
+  },
+  {
+   "type": "sentence",
+   "n": 97,
+   "sequence": 4,
+   "scene": "S19",
+   "start_s": 535.7,
+   "end_s": 540.19,
+   "text": "These are national average rates, median bills, and three made-up borrowers."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 540.19,
+   "end_s": 541.195,
+   "dur_s": 1.005,
+   "before_n": 98
+  },
+  {
+   "type": "sentence",
+   "n": 98,
+   "sequence": 4,
+   "scene": "S19",
+   "start_s": 541.195,
+   "end_s": 550.395,
+   "text": "In 2025, half of refinance bills fell between $3,443 and $8,270."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 550.395,
+   "end_s": 550.875,
+   "dur_s": 0.48,
+   "before_n": 99
+  },
+  {
+   "type": "sentence",
+   "n": 99,
+   "sequence": 4,
+   "scene": "S19",
+   "start_s": 550.875,
+   "end_s": 554.075,
+   "text": "A real rate, a real bill and a real balance will be different."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 554.075,
+   "end_s": 554.895,
+   "dur_s": 0.82,
+   "before_n": 100
+  },
+  {
+   "type": "sentence",
+   "n": 100,
+   "sequence": 4,
+   "scene": "S19",
+   "start_s": 554.895,
+   "end_s": 560.675,
+   "text": "Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too."
+  },
+  {
+   "type": "pause",
+   "kind": "scene",
+   "start_s": 560.675,
+   "end_s": 562.23,
+   "dur_s": 1.555,
+   "before_n": 101
+  },
+  {
+   "type": "sentence",
+   "n": 101,
+   "sequence": 4,
+   "scene": "S20",
+   "start_s": 562.23,
+   "end_s": 566.69,
+   "text": "Which leaves the one number only you know: how long you will stay."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 566.69,
+   "end_s": 567.945,
+   "dur_s": 1.255,
+   "before_n": 102
+  },
+  {
+   "type": "sentence",
+   "n": 102,
+   "sequence": 4,
+   "scene": "S20",
+   "start_s": 567.945,
+   "end_s": 578.495,
+   "text": "For Nora, the same offer comes out $1,039 ahead if she sells after three years, and $8,093 ahead if she stays seven."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 578.495,
+   "end_s": 579.605,
+   "dur_s": 1.11,
+   "before_n": 103
+  },
+  {
+   "type": "sentence",
+   "n": 103,
+   "sequence": 4,
+   "scene": "S20",
+   "start_s": 579.605,
+   "end_s": 582.185,
+   "text": "The rate cut decides how fast the fees come back."
+  },
+  {
+   "type": "pause",
+   "kind": "same",
+   "start_s": 582.185,
+   "end_s": 582.785,
+   "dur_s": 0.6,
+   "before_n": 104
+  },
+  {
+   "type": "sentence",
+   "n": 104,
+   "sequence": 4,
+   "scene": "S20",
+   "start_s": 582.785,
+   "end_s": 586.665,
+   "text": "How long you stay decides whether you are still there when they do."
+  },
+  {
+   "type": "pause",
+   "kind": "beat",
+   "start_s": 586.665,
+   "end_s": 588.315,
+   "dur_s": 1.65,
+   "before_n": 105
+  },
+  {
+   "type": "sentence",
+   "n": 105,
+   "sequence": 4,
+   "scene": "S20",
+   "start_s": 588.315,
+   "end_s": 590.305,
+   "text": "How long do you picture yourself in your home?"
+  }
+ ]
+}

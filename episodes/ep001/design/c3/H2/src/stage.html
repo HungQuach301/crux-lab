@@ -1,0 +1,54 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>H2 stage</title>
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(../../../../../../toolkit/render/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(../../../../../../toolkit/render/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(../../../../../../toolkit/render/fonts/inter-latin-700-normal.woff2) format('woff2')}
+:root{
+  /* channel tokens only (genre-spec/channel/visual-tokens.json) */
+  --bg:#0e1116; --surface:#171b22; --ink:#f2f4f7; --ink-muted:#9aa4b2; --grid:#2a303b;
+  --accent:#4c8dff; --warn:#f2b441; --positive:#3fbf7f; --negative:#e5484d;
+}
+html,body{margin:0;padding:0;background:var(--bg);overflow:hidden}
+body{width:1280px;height:720px;font-family:Inter,sans-serif;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+#view{position:absolute;inset:0;perspective:1700px;perspective-origin:640px 330px;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 40%, #171b22 0%, #0e1116 75%)}
+#desk{position:absolute;left:0;top:0;transform-origin:0 0;transform-style:preserve-3d}
+#desk::before{content:"";position:absolute;inset:-800px;
+  background:
+   repeating-linear-gradient(92deg, rgba(42,48,59,.20) 0 2px, rgba(14,17,22,0) 2px 9px),
+   repeating-linear-gradient(88deg, rgba(23,27,34,.55) 0 1px, rgba(14,17,22,0) 1px 23px),
+   linear-gradient(180deg,#171b22,#0e1116);}
+.paper{position:absolute;background:var(--ink);color:var(--bg);border-radius:3px;
+  box-shadow:0 18px 40px rgba(0,0,0,.55),0 2px 4px rgba(0,0,0,.4);transform-style:flat;overflow:visible}
+.paper.lined{background:
+  repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 63px, rgba(76,141,255,.28) 63px 65px), var(--ink)}
+.paper.grid{background:
+  repeating-linear-gradient(90deg, rgba(42,48,59,.13) 0 1px, rgba(0,0,0,0) 1px 40px),
+  repeating-linear-gradient(180deg, rgba(42,48,59,.13) 0 1px, rgba(0,0,0,0) 1px 40px), var(--ink)}
+.folder{position:absolute;background:#9aa4b2;border-radius:6px;box-shadow:0 22px 50px rgba(0,0,0,.6)}
+.abs{position:absolute}
+.t{position:absolute;white-space:nowrap;line-height:1.1}
+.w4{font-weight:400}.w6{font-weight:600}.w7{font-weight:700}
+.dim{color:var(--grid)}
+.stamp{position:absolute;border:5px solid var(--warn);color:var(--bg);background:var(--warn);font-weight:700;
+  letter-spacing:.08em;padding:6px 14px;border-radius:4px;white-space:nowrap}
+.hl{position:absolute;mix-blend-mode:multiply;border-radius:6px;transform-origin:0 50%}
+.blurred{filter:blur(7px)}
+svg{position:absolute;overflow:visible}
+#vig{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 45%, rgba(14,17,22,0) 62%, rgba(14,17,22,.35) 100%)}
+</style></head>
+<body>
+<div id="view"><div id="desk"></div></div>
+<div id="vig"></div>
+<script src="common.js"></script>
+<script>
+  const q = new URLSearchParams(location.search);
+  const f = q.get('f') || 'F1';
+  const s = document.createElement('script');
+  s.src = f.toLowerCase() + '.js';
+  document.body.appendChild(s);
+</script>
+</body></html>
