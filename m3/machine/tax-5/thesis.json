@@ -1,0 +1,335 @@
+{
+ "card": {
+  "thesis": "A single owner selling an ordinary median-priced home bought about a decade ago can now owe capital gains tax, because the tax-free limit never adjusts.",
+  "overturns": "\"Only owners of expensive homes ever pay tax when they sell their house.\""
+ },
+ "claim": "Since the 1997 rewrite (sales after May 6, 1997), up to $250,000 of gain on a main home is tax-free for a single filer and $500,000 for most joint filers; the dollar amounts have never been adjusted. $250,000 in 1997 prices is about $512,494 in prices of the 12 months to August 2026, and the limit fell from 1.72 times the median new-home price (1997) to 0.61 times (2026 Q2). Take a home bought at the national median new-home sales price in a given quarter and grow its value with a national repeat-sales home price index to June 2026: the gain exceeds $250,000 for purchases in 107 of the 158 quarters from 1987 Q1 to 2026 Q2 - every quarter from 1987 through 2005 Q1 and from 2008 Q4 through 2017 Q1. A median home bought in 1997 Q3 shows a gain of about $421,964; a single seller (never married, divorced, or widowed more than 2 years earlier) would owe tax on about $171,964, about $25,795 at the 15% long-term rate, while a married couple owes nothing (no quarter's gain exceeds $500,000; maximum about $439,615). Bought 2000 Q1: gain about $387,451. Sources: 26 U.S.C. 121(b); FRED MSPUS, CSUSHPINSA, CPIAUCSL. Tax year 2026 rules.",
+ "numbers": [
+  {
+   "id": "last_purchase_year_gain_over_250k",
+   "unit": "year",
+   "definition": "For each quarter q with MSPUS (median sales price of new houses sold, quarterly) and all 3 monthly CSUSHPINSA values: gain(q) = MSPUS(q) x (CSUSHPINSA latest month / mean of CSUSHPINSA over the 3 months of q - 1). Year of the latest q with gain > 250,000.",
+   "value": 2017
+  },
+  {
+   "id": "last_purchase_quarter_of_that_year",
+   "unit": "quarter (1-4)",
+   "definition": "Quarter number of that latest q.",
+   "value": 1
+  },
+  {
+   "id": "quarters_gain_over_500k",
+   "unit": "count",
+   "definition": "Number of quarters q with gain(q) > 500,000.",
+   "value": 0
+  },
+  {
+   "id": "gain_median_bought_1997q3_usd",
+   "unit": "USD",
+   "definition": "gain(1997-07-01), rounded to the dollar.",
+   "value": 421964.0
+  },
+  {
+   "id": "gain_median_bought_2000q1_usd",
+   "unit": "USD",
+   "definition": "gain(2000-01-01), rounded to the dollar.",
+   "value": 387451.0
+  },
+  {
+   "id": "taxable_gain_single_bought_1997q3_usd",
+   "unit": "USD",
+   "definition": "max(0, gain(1997-07-01) - 250,000), rounded.",
+   "value": 171964.0
+  },
+  {
+   "id": "tax_at_15pct_single_bought_1997q3_usd",
+   "unit": "USD",
+   "definition": "0.15 x taxable_gain_single_bought_1997q3_usd (unrounded), rounded.",
+   "value": 25795.0
+  },
+  {
+   "id": "quarters_gain_over_250k",
+   "unit": "count",
+   "definition": "Number of quarters q with gain(q) > 250,000.",
+   "value": 107
+  },
+  {
+   "id": "quarters_total",
+   "unit": "count",
+   "definition": "Number of quarters q for which gain(q) is defined (1987 Q1 - 2026 Q2).",
+   "value": 158
+  },
+  {
+   "id": "max_gain_any_quarter_usd",
+   "unit": "USD",
+   "definition": "Maximum gain(q) over all quarters, rounded.",
+   "value": 439615.0
+  },
+  {
+   "id": "exclusion_250k_in_current_prices_usd",
+   "unit": "USD",
+   "definition": "250000 x (mean of last 12 monthly CPIAUCSL values, Sep 2025-Aug 2026) / (mean of the 12 monthly values of 1997), rounded.",
+   "value": 512494.0
+  },
+  {
+   "id": "exclusion_to_median_price_1997",
+   "unit": "ratio",
+   "definition": "250000 / mean of the 4 quarterly MSPUS values of 1997, 2 decimals.",
+   "value": 1.72
+  },
+  {
+   "id": "exclusion_to_median_price_latest",
+   "unit": "ratio",
+   "definition": "250000 / latest MSPUS value (2026 Q2), 2 decimals.",
+   "value": 0.61
+  }
+ ],
+ "series": [
+  {
+   "id": "MSPUS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Census Bureau and HUD, New Residential Sales)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MSPUS&coed=2026-04-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/MSPUS",
+   "file": "data/MSPUS.csv",
+   "sha256": "d1a49477d3f6e7c10b1145583ee4e6ef551ba660406ddd19d317784e6c51aa71",
+   "retrieved": "2026-09-30",
+   "lastObservation": {
+    "date": "2026-04-01",
+    "value": "410700"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/MSPUS"
+   }
+  },
+  {
+   "id": "CSUSHPINSA",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: S&P Dow Jones Indices, CoreLogic Case-Shiller U.S. National Home Price Index, not seasonally adjusted)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CSUSHPINSA&coed=2026-06-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CSUSHPINSA",
+   "file": "data/CSUSHPINSA.csv",
+   "sha256": "d60c389a1b0596f1d034c6a19710e4dc2751bafdbeee7aac8bd3a14c6d886525",
+   "retrieved": "2026-09-30",
+   "lastObservation": {
+    "date": "2026-06-01",
+    "value": "336.663"
+   },
+   "terms": {
+    "quote": "Copyright, 2016, Standard & Poor's Financial Services LLC. Reprinted with permission.",
+    "url": "https://fred.stlouisfed.org/series/CSUSHPINSA"
+   }
+  },
+  {
+   "id": "CPIAUCSL",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCSL",
+   "file": "data/CPIAUCSL.csv",
+   "sha256": "f8ecddf53a9a9a74dda92c2c4204e6039466fcb744bc74171b73b5f6aac48119",
+   "retrieved": "2026-09-30",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.131"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 121(b)(1) (limit, single)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+   "quote": "The amount of gain excluded from gross income under subsection (a) with respect to any sale or exchange shall not exceed $250,000."
+  },
+  {
+   "cite": "26 U.S.C. 121(b)(4) (surviving spouse: $500,000 only within 2 years)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+   "quote": "if such sale occurs not later than 2 years after the date of death of such spouse"
+  },
+  {
+   "cite": "26 U.S.C. 121, amendment note, 1997 (Pub. L. 105-34)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+   "quote": "amended section catchline and text generally. Prior to amendment, section related to one-time exclusion of gain from sale of principal residence by individual who had attained age 55."
+  },
+  {
+   "cite": "Pub. L. 105-34 sec. 312(d), effective date note under 26 U.S.C. 121",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section121&num=0&edition=prelim",
+   "quote": "shall apply to sales and exchanges after May 6, 1997."
+  },
+  {
+   "cite": "26 U.S.C. 1(h)(1)(C) (15% long-term capital gain rate)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section1&num=0&edition=prelim",
+   "quote": "15 percent of the lesser of"
+  }
+ ],
+ "assumptions": [
+  "Purchase price = national median sales price of new houses sold in the purchase quarter; value today = purchase price x change in the national repeat-sales index (quarter mean to June 2026).",
+  "Gain = value today minus purchase price: no improvements added to basis, no selling costs, no depreciation; seller meets the 2-of-5-year ownership and use tests.",
+  "Single seller = unmarried filer (including divorced, or widowed more than 2 years before the sale); joint sellers get $500,000.",
+  "Tax illustration uses the 15% long-term rate only (ignores the 0%/20% brackets, the 3.8% net investment income tax and state tax)."
+ ],
+ "limits": "History, not a forecast: gains are measured with national indexes to mid-2026; local prices, improvements and selling costs change any real case. No personal advice.",
+ "novelty": {
+  "queries": [
+   "single homeowner $250,000 home sale exclusion not indexed since 1997 median home bought 2017 capital gains tax",
+   "widowed divorced single sellers home sale capital gains exclusion $250,000 more homeowners exceed analysis",
+   "home sale exclusion worth in today's dollars inflation 1997 $500,000 share of homeowners gains exceed"
+  ],
+  "results": [
+   {
+    "query": 1,
+    "title": "Home Equity Tax | Capital Gains (NAR)",
+    "url": "https://www.nar.realtor/home-equity-tax"
+   },
+   {
+    "query": 1,
+    "title": "The Exclusion of Capital Gains for Owner-Occupied Housing | Congress.gov",
+    "url": "https://www.congress.gov/crs-product/RL32978"
+   },
+   {
+    "query": 1,
+    "title": "Section 121 Home Sale Exclusion: How Homeowners Can Skip Up to $500,000 in Capital Gains Taxes",
+    "url": "https://beancount.io/blog/2026/05/07/section-121-home-sale-exclusion-250k-500k-capital-gains-homeowners-guide"
+   },
+   {
+    "query": 1,
+    "title": "The $250,000/$500,000 Capital Gains Tax Exclusion for Homeowners | Nolo",
+    "url": "https://www.nolo.com/legal-encyclopedia/the-250000500000-home-sale-tax-exclusion.html"
+   },
+   {
+    "query": 1,
+    "title": "The Exclusion of Capital Gains for Owner-Occupied Housing (PDF)",
+    "url": "https://www.congress.gov/crs_external_products/RL/PDF/RL32978/RL32978.12.pdf"
+   },
+   {
+    "query": 1,
+    "title": "Home Sale Exclusion: How Much of Your Gain Is Tax-Free",
+    "url": "https://langanfinancialgroup.com/home-sale-exclusion/"
+   },
+   {
+    "query": 1,
+    "title": "Will Congress Update the Home Sale Exclusion?",
+    "url": "https://www.rainingpennies.com/taxes/will-congress-update-the-home-sale-exclusion/"
+   },
+   {
+    "query": 1,
+    "title": "Capital Gains Tax on Home Sale: 2026 Rules & Exclusions",
+    "url": "https://www.property-tax.info/blog/capital-gains-tax-selling-your-home"
+   },
+   {
+    "query": 1,
+    "title": "Home Sale Capital Gains Exclusion: $250k and $500k - Finluxy",
+    "url": "https://www.finluxy.com/tax-wealth/capital-gains/home-sale-capital-gains-exclusion/"
+   },
+   {
+    "query": 1,
+    "title": "Home Sale Capital Gains Exclusion 2026 | The Arca Labs",
+    "url": "https://thearcalabs.com/en/insights/home-sale-capital-gains-exclusion-2026-guide/"
+   },
+   {
+    "query": 2,
+    "title": "The Exclusion of Capital Gains for Owner-Occupied Housing | Congress.gov",
+    "url": "https://www.congress.gov/crs-product/RL32978"
+   },
+   {
+    "query": 2,
+    "title": "How to Avoid Capital Gains Tax When Selling Your Home | Nolo",
+    "url": "https://www.nolo.com/legal-encyclopedia/avoid-capital-gains-tax-selling-home-29901.html"
+   },
+   {
+    "query": 2,
+    "title": "Tax on Capital Gains When Selling Home After Spouse's Death",
+    "url": "https://www.elderlawanswers.com/the-tax-consequences-of-selling-a-house-after-the-death-of-a-spouse-18791"
+   },
+   {
+    "query": 2,
+    "title": "Publication 523 (2025), Selling Your Home | IRS",
+    "url": "https://www.irs.gov/publications/p523"
+   },
+   {
+    "query": 2,
+    "title": "How Divorce Affects Capital Gains Tax When You Sell Your Home",
+    "url": "https://www.divorcenet.com/resources/divorce/capital-gains-tax-sell-house-divorce.htm"
+   },
+   {
+    "query": 2,
+    "title": "My Spouse Died & I Want to Sell Our Home - What are the Tax Ramifications?",
+    "url": "https://www.aminovlaw.com/my-spouse-died-i-want-to-sell-our-home-what-are-the-tax-ramifications/"
+   },
+   {
+    "query": 2,
+    "title": "The Tax Consequences of Selling a House After the Death of a Spouse",
+    "url": "https://northernlaw.com/the-tax-consequences-of-selling-a-house-after-the-death-of-a-spouse/"
+   },
+   {
+    "query": 2,
+    "title": "Home Sale Capital Gains Exclusion 2026: $250k/$500k Rule - Tax47",
+    "url": "https://tax47.app/blog/home-sale-capital-gains-exclusion-2026/"
+   },
+   {
+    "query": 2,
+    "title": "p523 (Scribd)",
+    "url": "https://www.scribd.com/document/327871236/p523"
+   },
+   {
+    "query": 2,
+    "title": "I'm Netting $620k From Selling My House. Will I Owe Capital Gains Taxes?",
+    "url": "https://finance.yahoo.com/news/im-selling-house-downsize-retirement-123000978.html"
+   },
+   {
+    "query": 3,
+    "title": "Why the $250,000/$500,000 Home Sale Exclusion Threatens Your Gains | CBIZ",
+    "url": "https://www.cbiz.com/insights/article/why-the-250000-500000-home-sale-exclusion-threatens-your-gains"
+   },
+   {
+    "query": 3,
+    "title": "The Exclusion of Capital Gains for Owner-Occupied Housing | Congress.gov",
+    "url": "https://www.congress.gov/crs-product/RL32978"
+   },
+   {
+    "query": 3,
+    "title": "Will Congress Update the Home Sale Exclusion?",
+    "url": "https://www.rainingpennies.com/taxes/will-congress-update-the-home-sale-exclusion/"
+   },
+   {
+    "query": 3,
+    "title": "Selling the House She Bought for $140,000 in 1988 Will Cost a 74-Year-Old $90,000, Thanks to a Tax Break Frozen Since 1997 - 24/7 Wall St.",
+    "url": "https://247wallst.com/personal-finance/2026/09/19/selling-the-house-she-bought-for-140000-in-1988-will-cost-a-74-year-old-90000-thanks-to-a-tax-break-frozen-since-1997/"
+   },
+   {
+    "query": 3,
+    "title": "Outdated Capital Gains Rule is Keeping Homes Off the Market - TPCAR",
+    "url": "https://www.tpcar.org/2025/11/07/outdated-capital-gains-rule-is-keeping-homes-off-the-market/"
+   },
+   {
+    "query": 3,
+    "title": "1997 Tax Trap: Why St. Louis Homeowners Won't Sell",
+    "url": "https://www.housesoldeasy.com/blog/1997-tax-trap-why-st-louis-homeowners-won-t-sell"
+   },
+   {
+    "query": 3,
+    "title": "How Much is $500,000 in 1997 Worth Today?",
+    "url": "https://www.romeconomics.com/calculator/inflation/500000/1997"
+   },
+   {
+    "query": 3,
+    "title": "Calculate the Value of $500,000 in 1997",
+    "url": "https://www.dollartimes.com/inflation/inflation.php?amount=500000&year=1997"
+   },
+   {
+    "query": 3,
+    "title": "ir02 142 (IRS)",
+    "url": "https://www.irs.gov/pub/irs-news/ir02-142.pdf"
+   }
+  ],
+  "verdict": "partly-said",
+  "nearest": [
+   "https://247wallst.com/personal-finance/2026/09/19/selling-the-house-she-bought-for-140000-in-1988-will-cost-a-74-year-old-90000-thanks-to-a-tax-break-frozen-since-1997/",
+   "https://www.nar.realtor/home-equity-tax",
+   "https://www.rainingpennies.com/taxes/will-congress-update-the-home-sale-exclusion/"
+  ],
+  "note": "Widely said: the $250k/$500k limits are frozen since 1997 and worth about double in today's prices; anecdotes of long-held homes owing tax. Not found: a systematic purchase-quarter scan showing a median-priced home bought as recently as 2017 Q1 already exceeds the single limit (107 of 158 quarters) while no median purchase exceeds the joint limit - i.e. the exposure is concentrated on single, divorced and widowed sellers of ordinary homes."
+ }
+}

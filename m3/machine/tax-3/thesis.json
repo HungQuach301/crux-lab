@@ -1,0 +1,315 @@
+{
+ "card": {
+  "thesis": "College tuition credits use fixed income cutoffs, so a family that once qualified in full, with pay that merely kept pace with prices, now gets nothing.",
+  "overturns": "\"If our income only keeps pace with inflation, we keep qualifying for college tax credits.\""
+ },
+ "claim": "The American Opportunity credit (up to $2,500 per student) starts phasing out at modified AGI of $160,000 for joint filers ($80,000 single) and is gone at $180,000 ($90,000) - the same dollar amounts it had when it was created for tax year 2009, and the Lifetime Learning credit now uses the same fixed range (not adjusted since 2020). Consumer prices rose by a factor of about 1.534 from 2009 (annual average) to the 12 months ending August 2026, so the 2009 cutoff of $160,000 is about $245,388 in current prices and the 2009 end of the range, $180,000, is about $276,061. A married couple at exactly $160,000 in 2009 (full credit) whose income merely kept pace with prices now has about $245,388 and receives $0; if their income grew like U.S. median household income (from $49,780 in 2009 to $87,460 in 2025) they would have about $281,109, also $0. The start of the phase-out was 3.21 times median household income in 2009 and is 1.83 times in 2025. The $2,500 maximum would be about $3,834 if it had kept pace with prices. Tax year 2026 rules. Sources: 26 U.S.C. 25A(b), 25A(d); IRS IR-2025-103; IRS American opportunity tax credit Q&A (historical, 2009).",
+ "numbers": [
+  {
+   "id": "cpi_factor_2009_to_last12",
+   "unit": "ratio",
+   "definition": "Mean of the last 12 monthly CPIAUCSL values in the pinned file (Sep 2025-Aug 2026) divided by the mean of the 12 monthly values of calendar 2009.",
+   "value": 1.5337
+  },
+  {
+   "id": "start_160k_in_current_prices_usd",
+   "unit": "USD",
+   "definition": "160000 x cpi_factor_2009_to_last12 (unrounded factor), rounded to the dollar.",
+   "value": 245388.0
+  },
+  {
+   "id": "end_180k_in_current_prices_usd",
+   "unit": "USD",
+   "definition": "180000 x cpi_factor_2009_to_last12, rounded to the dollar.",
+   "value": 276061.0
+  },
+  {
+   "id": "max_credit_2500_in_current_prices_usd",
+   "unit": "USD",
+   "definition": "2500 x cpi_factor_2009_to_last12, rounded to the dollar.",
+   "value": 3834.0
+  },
+  {
+   "id": "credit_for_that_couple_now_usd",
+   "unit": "USD",
+   "definition": "Joint-return American Opportunity credit with full qualifying expenses at MAGI = 160000 x cpi_factor: 2500 x max(0, min(1, (180000 - MAGI) / 20000)).",
+   "value": 0.0
+  },
+  {
+   "id": "couple_160k_2009_grown_with_median_income_usd",
+   "unit": "USD",
+   "definition": "160000 x (MEHOINUSA646N latest annual value, 2025) / (MEHOINUSA646N 2009 value), rounded to the dollar.",
+   "value": 281109.0
+  },
+  {
+   "id": "credit_for_median_growth_couple_now_usd",
+   "unit": "USD",
+   "definition": "Same credit formula as credit_for_that_couple_now_usd at MAGI = couple_160k_2009_grown_with_median_income_usd.",
+   "value": 0.0
+  },
+  {
+   "id": "start_as_multiple_of_median_income_2009",
+   "unit": "ratio",
+   "definition": "160000 / MEHOINUSA646N 2009 value, 2 decimals.",
+   "value": 3.21
+  },
+  {
+   "id": "start_as_multiple_of_median_income_latest",
+   "unit": "ratio",
+   "definition": "160000 / MEHOINUSA646N latest value (2025), 2 decimals.",
+   "value": 1.83
+  },
+  {
+   "id": "median_income_latest_year",
+   "unit": "year",
+   "definition": "Year of the latest MEHOINUSA646N observation in the pinned file.",
+   "value": 2025
+  }
+ ],
+ "series": [
+  {
+   "id": "CPIAUCSL",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCSL",
+   "file": "data/CPIAUCSL.csv",
+   "sha256": "f8ecddf53a9a9a74dda92c2c4204e6039466fcb744bc74171b73b5f6aac48119",
+   "retrieved": "2026-09-30",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.131"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
+   }
+  },
+  {
+   "id": "MEHOINUSA646N",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Census Bureau, median household income in current dollars)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MEHOINUSA646N&coed=2025-01-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/MEHOINUSA646N",
+   "file": "data/MEHOINUSA646N.csv",
+   "sha256": "2052185cf05506b963bfe3aaee5dbbc1783e1518b144b74ecd85058b43de4bfc",
+   "retrieved": "2026-09-30",
+   "lastObservation": {
+    "date": "2025-01-01",
+    "value": "87460"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/MEHOINUSA646N"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 25A(d)(1) (phase-out range for both credits)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section25A&num=0&edition=prelim",
+   "quote": "over (ii) $80,000 ($160,000 in the case of a joint return), bears to (B) $10,000 ($20,000 in the case of a joint return)."
+  },
+  {
+   "cite": "26 U.S.C. 25A(b)(1) (American Opportunity credit amount)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section25A&num=0&edition=prelim",
+   "quote": "as does not exceed $2,000, plus (B) 25 percent of such expenses so paid as exceeds $2,000 but does not exceed $4,000."
+  },
+  {
+   "cite": "IRS IR-2025-103 (tax year 2026 items not indexed)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "The modified adjusted gross income (MAGI) amount used to phase out the Lifetime Learning Credit has not been adjusted for inflation for tax years beginning after Dec. 31, 2020."
+  },
+  {
+   "cite": "IRS, American opportunity tax credit: Questions and answers (historical page, 2009 thresholds)",
+   "url": "https://www.irs.gov/newsroom/american-opportunity-tax-credit-questions-and-answers",
+   "quote": "Generally, a taxpayer whose modified adjusted gross income is $80,000 or less ($160,000 or less for joint filers) can claim the credit for the qualified expenses of an eligible student."
+  },
+  {
+   "cite": "IRS, American opportunity tax credit: Questions and answers (credit began in tax year 2009)",
+   "url": "https://www.irs.gov/newsroom/american-opportunity-tax-credit-questions-and-answers",
+   "quote": "The American opportunity tax credit, which expanded and renamed the already-existing Hope scholarship credit, can be claimed in tax-years 2009 through 2017"
+  },
+  {
+   "cite": "IRS, American opportunity tax credit: Questions and answers (2009 upper limit)",
+   "url": "https://www.irs.gov/newsroom/american-opportunity-tax-credit-questions-and-answers",
+   "quote": "A taxpayer whose modified adjusted gross income is greater than $90,000 ($180,000 for joint filers) cannot claim the credit."
+  }
+ ],
+ "assumptions": [
+  "Tax year 2026 rules (U.S. Code as in force 2026-09-29): phase-out $160,000-$180,000 joint, $80,000-$90,000 other filers; maximum $2,500 per student with at least $4,000 of qualifying expenses.",
+  "Price comparison uses CPI-U (seasonally adjusted, all items): 2009 calendar-year average vs the latest 12 months (Sep 2025-Aug 2026).",
+  "Median household income is the Census current-dollar median (annual); the couple example is a stylized household whose income grows exactly with prices or with the median.",
+  "MAGI is treated as equal to the couple's income."
+ ],
+ "limits": "History, not a forecast. Uses a price index and a median; individual income paths differ. Tuition itself rose differently from the all-items index. No personal advice.",
+ "novelty": {
+  "queries": [
+   "American Opportunity Tax Credit income limit not indexed for inflation since 2009 fewer families qualify",
+   "education tax credit phase-out $160,000 $180,000 frozen inflation real value lost median household income families squeezed out",
+   "American opportunity credit $2,500 worth less today inflation adjusted value since 2009 tuition"
+  ],
+  "results": [
+   {
+    "query": 1,
+    "title": "American Opportunity Tax Credit (revised Hope Credit)",
+    "url": "https://www.westchesterlegislatorsny.gov/images/archive/committees/2008_2009Term/Economic%20Recovery%20Task%20Force/AmericanOpportunityTaxCredit.pdf"
+   },
+   {
+    "query": 1,
+    "title": "The American Opportunity Tax Credit: Overview, Analysis, and Policy Options | Congress.gov",
+    "url": "https://www.congress.gov/crs-product/R42561"
+   },
+   {
+    "query": 1,
+    "title": "American Opportunity Tax Credit - Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/American_Opportunity_Tax_Credit"
+   },
+   {
+    "query": 1,
+    "title": "What Is the American Opportunity Tax Credit? - TurboTax",
+    "url": "https://turbotax.intuit.com/tax-tips/college-and-education/what-is-the-american-opportunity-tax-credit/L1Mzj4ybX"
+   },
+   {
+    "query": 1,
+    "title": "What is the American Opportunity Tax Credit? - Appily",
+    "url": "https://www.appily.com/guidance/articles/paying-for-college/american-opportunity-tax-credit"
+   },
+   {
+    "query": 1,
+    "title": "American Opportunity and Lifetime Learning credits (uscode)",
+    "url": "https://uscode.house.gov/view.xhtml?req=%28title%3A26+section%3A25A+edition%3Aprelim%29"
+   },
+   {
+    "query": 1,
+    "title": "25A. American Opportunity and Lifetime Learning credits (uscode quicksearch)",
+    "url": "https://uscode.house.gov/quicksearch/get.plx?title=26&section=25A"
+   },
+   {
+    "query": 1,
+    "title": "Report AOTC 2010 (Treasury)",
+    "url": "https://home.treasury.gov/system/files/131/Report-AOTC-2010.pdf"
+   },
+   {
+    "query": 1,
+    "title": "New deductions, credits for '09 taxes - NBC News",
+    "url": "https://www.nbcnews.com/news/amp/wbna34940974"
+   },
+   {
+    "query": 1,
+    "title": "Lifetime Learning Credit Income Limits Frozen (2026) | The Money Pocket",
+    "url": "https://www.themoneypocket.com/articles/lifetime-learning-credit-income-limits"
+   },
+   {
+    "query": 1,
+    "title": "American Opportunity Tax Credit: What it is, how much it is worth | Fidelity",
+    "url": "https://www.fidelity.com/learning-center/personal-finance/american-opportunity-credit"
+   },
+   {
+    "query": 1,
+    "title": "American Opportunity Tax Credit Phase Out: Income Limits - LegalClarity",
+    "url": "https://legalclarity.org/american-opportunity-tax-credit-phase-out/"
+   },
+   {
+    "query": 2,
+    "title": "Education Credits and Deductions - American Opportunity Credit (TaxAct)",
+    "url": "https://support.taxact.com/support/14924/education-credits-and-deductions-american-opportunity-credit"
+   },
+   {
+    "query": 2,
+    "title": "IRS releases tax inflation adjustments for tax year 2026 (IRS)",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill"
+   },
+   {
+    "query": 2,
+    "title": "Section-by-section summary of the proposed (House Rules)",
+    "url": "https://rules.house.gov/sites/evo-subsites/republicans-rules.house.gov/files/114/PDF/114-SAHR2029Ex-SxS.pdf"
+   },
+   {
+    "query": 2,
+    "title": "Paying the 2025 Tax Bill: Reforming Higher Education Tax Benefits (BPC)",
+    "url": "https://bipartisanpolicy.org/explainer/paying-the-2025-tax-bill-reforming-higher-education-tax-benefits/"
+   },
+   {
+    "query": 2,
+    "title": "How do Education Tax Credits Work? - TurboTax",
+    "url": "https://turbotax.intuit.com/tax-tips/college-and-education/what-are-education-tax-credits/L7TuLrVqZ"
+   },
+   {
+    "query": 2,
+    "title": "Education Tax Credits: The AOTC and Lifetime Learning Credit",
+    "url": "https://chesapeakefp.com/education-tax-credits/"
+   },
+   {
+    "query": 2,
+    "title": "Lifetime Learning Credit Income Limits Frozen (2026) | The Money Pocket",
+    "url": "https://www.themoneypocket.com/articles/lifetime-learning-credit-income-limits"
+   },
+   {
+    "query": 2,
+    "title": "Education Credits 2026 Changes Explained for Students - Uncle Kam",
+    "url": "https://unclekam.com/tax-strategy-blog/education-credits-2026-changes/"
+   },
+   {
+    "query": 2,
+    "title": "Income Phase-Outs: How They Work and Affect Your Taxes - LegalClarity",
+    "url": "https://legalclarity.org/income-phase-outs-how-they-work-and-affect-your-taxes/"
+   },
+   {
+    "query": 3,
+    "title": "The American Opportunity Tax Credit: Overview, Analysis, and Policy Options | Congress.gov",
+    "url": "https://www.congress.gov/crs-product/R42561"
+   },
+   {
+    "query": 3,
+    "title": "CRS Updates Analysis of American Opportunity Credit Proposals | Tax Notes",
+    "url": "https://www.taxnotes.com/research/federal/legislative-documents/congressional-research-service-reports/crs-updates-analysis-of-american-opportunity-credit-proposals/fj1p"
+   },
+   {
+    "query": 3,
+    "title": "What is the American Opportunity Tax Credit (AOTC)? | H&R Block",
+    "url": "https://www.hrblock.com/tax-center/filing/credits/american-opportunity-tax-credit/"
+   },
+   {
+    "query": 3,
+    "title": "Background and data with respect to deduction (JCT)",
+    "url": "https://www.jct.gov/getattachment/fd12edc5-4481-4a0a-b91a-84454778a88f/Qualified-Tuition-Report_Apr2019.pdf"
+   },
+   {
+    "query": 3,
+    "title": "The Tax Break-Down: American Opportunity Tax Credit | CRFB",
+    "url": "https://www.crfb.org/blogs/tax-break-down-american-opportunity-tax-credit"
+   },
+   {
+    "query": 3,
+    "title": "American Opportunity Tax Credit - Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/American_Opportunity_Tax_Credit"
+   },
+   {
+    "query": 3,
+    "title": "What Is the American Opportunity Tax Credit? - TurboTax",
+    "url": "https://turbotax.intuit.com/tax-tips/college-and-education/what-is-the-american-opportunity-tax-credit/L1Mzj4ybX"
+   },
+   {
+    "query": 3,
+    "title": "What is the American Opportunity Tax Credit? - Appily",
+    "url": "https://www.appily.com/guidance/articles/paying-for-college/american-opportunity-tax-credit"
+   },
+   {
+    "query": 3,
+    "title": "What To Know About the American Opportunity Tax Credit",
+    "url": "https://www.vinceretax.com/post/what-to-know-about-the-american-opportunity-tax-credit"
+   },
+   {
+    "query": 3,
+    "title": "fs 10 04 (IRS fact sheet)",
+    "url": "https://www.irs.gov/pub/irs-news/fs-10-04.pdf"
+   }
+  ],
+  "verdict": "partly-said",
+  "nearest": [
+   "https://www.themoneypocket.com/articles/lifetime-learning-credit-income-limits",
+   "https://legalclarity.org/american-opportunity-tax-credit-phase-out/",
+   "https://www.crfb.org/blogs/tax-break-down-american-opportunity-tax-credit"
+  ],
+  "note": "That the phase-out is not indexed is said (mostly framed from 2020 for the Lifetime Learning credit). Not found: the computed 2009-to-now erosion (cutoff worth ~$245k in current prices; a family at the full-credit line in 2009 whose income only matched prices now gets $0; cutoff fell from 3.21x to 1.83x median household income) or the $2,500 maximum being worth ~$3,834 in current prices."
+ }
+}
