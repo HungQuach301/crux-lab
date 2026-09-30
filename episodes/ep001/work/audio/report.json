@@ -7,7 +7,7 @@
   "TP": -1.5
  },
  "limiterMinGainDb": -2.18,
- "limiterGainBelow1dBShare": 0.00203,
+ "limiterGainBelow1dBShare": 0.00204,
  "preGainLUFS": -16.5,
  "voiceOverMusicDb": 20.0,
  "sonUnderVoiceDb": 16.0,
@@ -16,7 +16,7 @@
   "shiftedIntoGaps": 372,
   "medianShiftMs": 43.7
  },
- "sonBandShare": 0.9644567414762122,
+ "sonBandShare": 0.9644587434894296,
  "silences": [
   {
    "t": 22.725,
@@ -59,6 +59,15 @@
    "return": "200 ms"
   },
   {
+   "t": 240.425,
+   "end": 241.89,
+   "dur": 1.465,
+   "beforeSentence": 41,
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 241.54
+  },
+  {
    "t": 290.815,
    "end": 291.855,
    "dur": 1.04,
@@ -81,6 +90,15 @@
    "beforeSentence": 64,
    "release": "exp tau 90 ms",
    "return": "200 ms"
+  },
+  {
+   "t": 370.965,
+   "end": 372.55,
+   "dur": 1.585,
+   "beforeSentence": 65,
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 372.2
   },
   {
    "t": 389.295,
@@ -148,10 +166,10 @@
  "bars": 208,
  "stemLevelsDbfs": {
   "voice": -17.72,
-  "music": -35.83,
+  "music": -35.89,
   "sfx": -200.0,
   "whoosh": -200.0,
-  "room": -66.21,
+  "room": -66.12,
   "sonify": -45.47
  },
  "sumMinusMasterMax": 0.0

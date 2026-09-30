@@ -1,5 +1,5 @@
 {
- "_about": "Cue sheet of the C5 mix (work/audio/src/mix.py). Music follows preprod/cue-sheet.md re-timed to the 20 scenes of v3.2. Silences = the script [beat] pauses (sổ gu G-003).",
+ "_about": "Cue sheet of the C5 mix (work/audio/src/mix.py). Music follows preprod/cue-sheet.md re-timed to the 20 scenes of v3.2. Silences = the script [beat] pauses (sổ gu G-003) + the two ad-break scene gaps (adBreak; music only).",
  "cues": [
   {
    "t": 0.0,
@@ -280,6 +280,15 @@
    "return": "200 ms"
   },
   {
+   "t": 240.425,
+   "end": 241.89,
+   "dur": 1.465,
+   "beforeSentence": 41,
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 241.54
+  },
+  {
    "t": 290.815,
    "end": 291.855,
    "dur": 1.04,
@@ -302,6 +311,15 @@
    "beforeSentence": 64,
    "release": "exp tau 90 ms",
    "return": "200 ms"
+  },
+  {
+   "t": 370.965,
+   "end": 372.55,
+   "dur": 1.585,
+   "beforeSentence": 65,
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 372.2
   },
   {
    "t": 389.295,

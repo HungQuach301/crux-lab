@@ -20,7 +20,7 @@ Music = the cue sheet's plan (preprod/cue-sheet.md), re-timed to the 20 scenes o
 F major for Walt and Anjali and the answer (S14-S20); pad, soft pulse, Nora's motif (electric piano), Walt (low plucks), Anjali (high bells),
 one reverb space. Tempo per scene fitted so every cut is a downbeat. Chords come from a seeded Markov walk that never repeats a 4-bar window
 within 24 bars (sổ gu G-002: no audible loop).
-Silences (sổ gu G-003): the 13 script [beat] pauses: the bed releases like a reverb tail (tau 90 ms), room tone rises 8 dB as a floor, return 200 ms.
+Silences (sổ gu G-003): the 13 script [beat] pauses and the 2 ad-break scene gaps (out/adbreaks.json, S14; music only, no accent on those cuts): the bed releases like a reverb tail (tau 90 ms), room tone rises 8 dB as a floor, return 200 ms.
 Data sounds (G-001, G-005 · chọn S2, G-006): toolkit/audio/sonify_palettes.py instruments `pulse` + `tick` (palette minimal), level -16 dB under
 the voice before the side-chain, -8 dB side-chain and 1-4 kHz removed while the voice sounds, notes moved into syllable gaps; never raised.
 The music makes room for them instead: -10 dB in the data bands (60-270 Hz, 4.5-7 kHz) while a data sound plays.
@@ -142,6 +142,14 @@ class TL:
         self.sentences = [x for s in sc for x in s['sentences']]
         self.beats_pauses = [p for p in t['pauses'] if p['kind'] == 'beat']
         self.scene_gaps = [p for p in t['pauses'] if p['kind'] == 'scene']
+        # ad breaks (out/adbreaks.json, stream D): each sits in a scene-cut voice gap; the bed goes silent there as in a [beat] pause (S14: the master
+        # needs >= 1 s <= -40 dBFS around the break). Voice untouched; the new act's music comes back 200 ms before its first sentence.
+        br = [b['t'] if isinstance(b, dict) else b for b in J('out/adbreaks.json')['breaks']]
+        self.ad_gaps = []
+        for b in br:
+            g = [p for p in self.scene_gaps if p['start'] <= b <= p['end']]
+            assert g, f'ad break {b} is not inside a scene-cut voice gap'
+            self.ad_gaps.append(dict(g[0], adBreak=b))
 
 
 SECTION = {'S01': 'cold', 'S02': 'promise', 'S03': 'curious', 'S04': 'curious', 'S05': 'curious', 'S06': 'curious', 'S07': 'curious',
@@ -395,7 +403,7 @@ def render_music(tl, bars, seq, pauses):
             bv = {'cold': 0.16, 'build1': 0.22, 'build2': 0.26, 'release': 0.2}.get(sec, 0.17)
             add(dry, b['t0'], soft_bass(hz(36 + (r % 12) + (12 if (r % 12) < 2 else 0)), dur + 0.2, bv * rng.uniform(0.9, 1.05)), 0.0)
         # accent on the cut: the scene's first downbeat (A12: accents land on cuts)
-        if b['i'] == 0:
+        if b['i'] == 0 and not any(a['start'] <= b['t0'] <= a['end'] for a in tl.ad_gaps):  # none on an ad-break cut (bed silent there)
             add(dry, b['t0'], felt(hz(48 + r % 12), 0.35), 0.0)
             add(dry, b['t0'], felt(hz(55 + r % 12 + (0 if 'm' in q else 0)), 0.18), 0.1)
         # pulse
@@ -484,6 +492,8 @@ def music_dynamics(tl, bars):
     down = (t > climax) * np.interp(t, [climax, climax + 4, climax + 10], [3.0, -1.0, 0.0])
     g += 3.0 * up ** 2 + down
     for p in tl.scene_gaps:
+        if any(p['start'] == a['start'] for a in tl.ad_gaps):
+            continue  # ad break: the bed goes silent instead of swelling
         g += 3.0 * np.clip(np.minimum((t - p['start']) / 0.3, (p['end'] - t) / 0.3), 0, 1)
     g = uniform_filter1d(g, 30)
     # fade in at the head (0.6 s), tail: out over the last 1.8 s after the last sentence
@@ -579,7 +589,7 @@ def son_process(son, voice, gate_v):
 
 
 # ================================================================== silences
-def silence_gates(tl):
+def silence_gates(tl, gaps=None):
     """Script [beat] pauses: bed release like a reverb tail (exp, tau 90 ms) from the end of the sentence, room tone +8 dB over 250 ms, return in 200 ms
     just before the next sentence. Returns (bed gain, room lift 0..1, list of silences)."""
     N = tl.N
@@ -587,7 +597,7 @@ def silence_gates(tl):
     lift = np.zeros(N)
     tt = np.arange(N) / SR
     rows = []
-    for p in tl.beats_pauses:
+    for p in (tl.beats_pauses if gaps is None else gaps):
         t0, t1 = p['start'], p['end']
         i0, i1 = int(t0 * SR), int((t1 - 0.2) * SR)
         if i1 <= i0 + int(0.2 * SR):
@@ -600,7 +610,8 @@ def silence_gates(tl):
         lift[k0:k1] = np.maximum(lift[k0:k1], np.linspace(0, 1, k1 - k0))
         lift[k1:i1] = 1
         lift[i1:i1 + r] = np.maximum(lift[i1:i1 + r], np.linspace(1, 0, r))
-        rows.append({'t': round(t0, 3), 'end': round(t1, 3), 'dur': round(t1 - t0, 3), 'beforeSentence': p['before_n'], 'release': 'exp tau 90 ms', 'return': '200 ms'})
+        rows.append({'t': round(t0, 3), 'end': round(t1, 3), 'dur': round(t1 - t0, 3), 'beforeSentence': p['before_n'], 'release': 'exp tau 90 ms', 'return': '200 ms',
+                     **({'adBreak': p['adBreak']} if 'adBreak' in p else {})})
     return g, lift, rows
 
 
@@ -644,7 +655,7 @@ def main():
     log('total', total, 'samples', N)
     beats, bars, bpms = tempo_grid(tl)
     seq = harmony(bars)
-    pauses = tl.beats_pauses
+    pauses = tl.beats_pauses + tl.ad_gaps  # render_music: no new pulse/motif note running into a silence
 
     # ---- voice (the approved narration, decoded; gain only)
     def _voice():
@@ -691,6 +702,8 @@ def main():
     # ---- mix moves
     log('mix')
     bed_gate, room_lift, silences = silence_gates(tl)
+    ad_gate, ad_lift, ad_rows = silence_gates(tl, tl.ad_gaps)  # ad breaks: music (and room lift) only; a data sound starting at the cut stays whole
+    silences = sorted(silences + ad_rows, key=lambda r: r['t'])
     # music: 1-4 kHz ducked 13 dB under the voice (band-limited dip, A08)
     duck_mid = 10 ** (-13 * gate_v_duck / 20)
     for ch in range(2):
@@ -706,7 +719,7 @@ def main():
             b = bandpass(music[:, ch], lo * 0.85, hi * 1.15)
             music[:, ch] = music[:, ch] - b + b * dip
     # silences
-    music *= bed_gate[:, None]
+    music *= (bed_gate * ad_gate)[:, None]
     son *= bed_gate[:, None]
     # level: music VOICE_OVER_MUSIC_DB under the voice over voice-active windows (as A07 measures it)
     vt = act > 0
@@ -719,7 +732,7 @@ def main():
     pink = onepole_lp(pink, 3500)
     pink = pink / np.sqrt(np.mean(pink ** 2))
     room = np.stack([pink, 0.85 * np.roll(pink, 480) + 0.15 * pink], 1)
-    room *= (1 + (10 ** (8 / 20) - 1) * room_lift)[:, None]
+    room *= (1 + (10 ** (8 / 20) - 1) * np.maximum(room_lift, ad_lift))[:, None]
     voice2 = np.stack([voice, voice], 1)
     zeros = np.zeros((N, 2))
     stems = {'voice': voice2, 'music': music, 'sfx': zeros, 'whoosh': zeros.copy(), 'room': room * 0.0, 'sonify': son}
@@ -759,9 +772,9 @@ def main():
     files['out/audio/master.wav'] = mp
 
     # ---- declared files
-    accents = [round(s['start'], 3) for s in tl.scenes[1:]]
+    accents = [round(s['start'], 3) for s in tl.scenes[1:] if not any(a['start'] <= s['start'] <= a['end'] for a in tl.ad_gaps)]
     json.dump({'_about': 'Music tempo map (work/audio/src/mix.py): beats from each cut to the next, tempo fitted per scene so every cut is a downbeat; '
-                         'accents = the cuts (a soft felt-piano downbeat). bpm = the section tempo per scene.',
+                         'accents = the cuts (a soft felt-piano downbeat), except the two ad-break cuts (out/adbreaks.json), where the bed is silent. bpm = the section tempo per scene.',
                'bpm': round(float(np.median(list(bpms.values()))), 2), 'bpmByScene': bpms, 'beats': [round(b, 4) for b in beats], 'accents': accents,
                'bars': [{'t': round(b['t0'], 4), 'scene': b['scene'], 'beats': b['beats'], 'chord': c[1], 'key': c[0]} for b, c in zip(bars, seq)]},
               open(os.path.join(EP, 'out', 'tempo-map.json'), 'w'), indent=1)
@@ -774,7 +787,7 @@ def main():
                  'bands for T1 60-270 Hz + 4.5-7 kHz', 'key': 'D minor pentatonic (= F major pentatonic)', 'tempo': None, 'layer': 'sonify'})
     cues.append({'t': 0.0, 'end': round(total, 3), 'function': 'room tone floor (pink noise, one space); +8 dB inside the silences', 'key': None, 'tempo': None, 'layer': 'room'})
     json.dump({'_about': 'Cue sheet of the C5 mix (work/audio/src/mix.py). Music follows preprod/cue-sheet.md re-timed to the 20 scenes of v3.2. '
-                         'Silences = the script [beat] pauses (sổ gu G-003).', 'cues': cues, 'silences': silences},
+                         'Silences = the script [beat] pauses (sổ gu G-003) + the two ad-break scene gaps (adBreak; music only).', 'cues': cues, 'silences': silences},
               open(os.path.join(EP, 'out', 'cues.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump({'_about': 'Sound effects: none. Palette S2 "minimal" has no sfx layer and the picture has no sound-effect events (whoosh and sfx stems are '
                          'silent). Data sounds are their own stem (sonify): out/sonify-events.json.', 'events': []},

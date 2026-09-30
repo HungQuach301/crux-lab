@@ -1,5 +1,5 @@
 {
- "_about": "Music tempo map (work/audio/src/mix.py): beats from each cut to the next, tempo fitted per scene so every cut is a downbeat; accents = the cuts (a soft felt-piano downbeat). bpm = the section tempo per scene.",
+ "_about": "Music tempo map (work/audio/src/mix.py): beats from each cut to the next, tempo fitted per scene so every cut is a downbeat; accents = the cuts (a soft felt-piano downbeat), except the two ad-break cuts (out/adbreaks.json), where the bed is silent. bpm = the section tempo per scene.",
  "bpm": 85.08,
  "bpmByScene": {
   "S01": 72.551,
@@ -862,12 +862,10 @@
   140.98,
   170.11,
   202.39,
-  241.54,
   257.95,
   315.4,
   337.76,
   343.88,
-  372.2,
   395.24,
   423.67,
   451.49,
