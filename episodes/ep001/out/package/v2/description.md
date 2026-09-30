@@ -1,6 +1,6 @@
-<!-- out/package/v2/description.md · PACKAGING v2 (2026-09-30). First two lines = option DA — CHOSEN by the owner 30/09 (DB not used). Body = the approved C5 description (D1) unchanged, plus the FHFA link. -->
+<!-- out/package/v2/description.md · PACKAGING v2 (2026-09-30). First two lines = DA rewritten 30/09 for title a1 (owner's final pick; claims cut36_small 1.12 > cut36_median 0.5 > cut36_large 0.32, test hold36). Body = the approved C5 description (D1) unchanged, plus the FHFA link. -->
 
-Got a refinance offer? Here is how big a rate cut it takes to earn back the fees within 3 years, and why the answer depends on your loan size.
+A refinance on a smaller loan needs a bigger rate cut to earn back its fees within 3 years. Here is how big, for small, typical and large loans.
 
 In February 2026 the average 30-year mortgage rate in the US fell to 5.98%. By late September it was back above 7%. If a refinance offer has reached you since, this video walks through the math behind it with three illustrative borrowers, Nora, Walt and Anjali, built from typical 2025 figures.
 

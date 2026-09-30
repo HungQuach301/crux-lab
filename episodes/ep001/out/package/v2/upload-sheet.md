@@ -1,14 +1,14 @@
 # Tập 1 · Phiếu tải lên YouTube (PACKAGING v2, 30/09/2026)
 
-Phiếu điền cho YouTube Studio. **Chủ dự án đã chốt 30/09/2026:** tiêu đề c2, thumbnail W (mặc định) + thumb-3 + L cho Test & Compare, mô tả DA, end screen E1. Chỗ còn ghi **ĐỀ XUẤT** là việc chủ dự án chọn khi tải lên. Chữ công khai viết tiếng Anh, ghi chú viết tiếng Việt. Tệp phim: `out/video.mp4` (591,3 s = **9:51**; PACKAGING không động vào).
+Phiếu điền cho YouTube Studio. **Chủ dự án chốt lần cuối 30/09/2026 (theo gu, khác kết quả so cặp mù):** tiêu đề a1, thumbnail H (mặc định) + W + L cho Test & Compare, mô tả DA sửa hai dòng đầu theo a1, end screen E1. (Lần chốt trước — c2 / W, thumb-3, L — đã thay.) Chỗ còn ghi **ĐỀ XUẤT** là việc chủ dự án chọn khi tải lên. Chữ công khai viết tiếng Anh, ghi chú viết tiếng Việt. Tệp phim: `out/video.mp4` (591,3 s = **9:51**; PACKAGING không động vào).
 
 ## 1. Chi tiết
 
 | Trường | Giá trị |
 |---|---|
-| Title | **Borrowed Over 7% in 2023? The Rate Cut a Refinance Needs** (c2, 56 ký tự; chốt 30/09). Test & Compare chỉ thử thumbnail, tiêu đề giữ cố định. |
-| Description | `description.md` — hai dòng đầu **DA** (chốt 30/09). Chapters đã có sẵn (0:00 …), phải bắt đầu bằng 0:00. |
-| Thumbnail | Test & Compare, 3 ảnh (chốt 30/09): **`thumb-W.png` (mặc định, tải lên đầu tiên)**, `../thumb-3.png`, `thumb-L.png`. Bỏ H. L giữ huy hiệu ILLUSTRATIVE cỡ theo token (32 px = 48 px × 2/3), vì $1,133 là số của nhân vật minh hoạ; W không cần huy hiệu (5.98% là số thật, `low2026`). Cả ba 1280×720, PNG < 2 MB. |
+| Title | **Why a Smaller Loan Needs a Bigger Rate Cut to Be Worth It** (a1, 57 ký tự; claim `cut36_small` 1.12 > `cut36_large` 0.32, phép thử 3 năm). Test & Compare chỉ thử thumbnail, tiêu đề giữ cố định. |
+| Description | `description.md` — hai dòng đầu **DA sửa theo a1** (144 ký tự): "A refinance on a smaller loan needs a bigger rate cut to earn back its fees within 3 years. Here is how big, for small, typical and large loans." Chapters đã có sẵn (0:00 …), phải bắt đầu bằng 0:00. |
+| Thumbnail | Test & Compare, 3 ảnh (chốt 30/09): **`thumb-H.png` (mặc định, tải lên đầu tiên)**, `thumb-W.png`, `thumb-L.png`. H và L giữ huy hiệu ILLUSTRATIVE cỡ theo token (32 px = 48 px × 2/3), vì 1.12 / 0.32 / $1,133 là số của nhân vật minh hoạ; H giữ "pts" (điểm phần trăm, không đổi sang %). W không cần huy hiệu (5.98% là số thật, `low2026`). Cả ba 1280×720, PNG < 2 MB. Test & Compare cho dữ liệu thật phân xử giữa gu (a1 + H) và so cặp mù (c2 + W). |
 | Playlist | **ĐỀ XUẤT**: tạo "Refinance & Mortgage Math" (Tập 1 là video đầu). Tên kênh dự phòng: "Crux: Money Math, Checked". |
 | Audience | **Made for kids: No** ("No, it's not made for kids"). |
 | Age restriction | Không. |
@@ -67,8 +67,8 @@ Kiểm claim: `cut36_small` 1.12, `cut36_median` 0.5 ("half a point", S18.5), `c
 
 ## 7. Trước khi bấm Public
 
-- [ ] Tiêu đề c2; bật Test & Compare với W (mặc định), thumb-3, L.
-- [ ] Mô tả DA (`description.md`); bấm thử link FHFA.
+- [ ] Tiêu đề a1; bật Test & Compare với H (mặc định), W, L.
+- [ ] Mô tả DA sửa theo a1 (`description.md`); bấm thử link FHFA.
 - [ ] Altered or synthetic = Yes; Made for kids = No; Education; English.
 - [ ] Phụ đề `captions.srt`.
 - [ ] Playlist.
