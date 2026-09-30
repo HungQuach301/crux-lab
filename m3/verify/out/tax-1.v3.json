@@ -1,0 +1,66 @@
+{
+ "id": "tax-1",
+ "items": [
+  {
+   "id": "mortgage_rate_pct",
+   "declared": 7.03,
+   "recomputed": 7.03,
+   "ok": true
+  },
+  {
+   "id": "median_price_usd",
+   "declared": 410700.0,
+   "recomputed": 410700.0,
+   "ok": true
+  },
+  {
+   "id": "loan_usd",
+   "declared": 328560.0,
+   "recomputed": 328560.0,
+   "ok": true
+  },
+  {
+   "id": "first_year_interest_usd",
+   "declared": 22992.2,
+   "recomputed": 22992.2,
+   "ok": true
+  },
+  {
+   "id": "benefit_salt5k_usd",
+   "declared": 0.0,
+   "recomputed": 0.0,
+   "ok": true
+  },
+  {
+   "id": "benefit_salt15k_usd",
+   "declared": 1274.28,
+   "recomputed": 1274.28,
+   "ok": true
+  },
+  {
+   "id": "benefit_salt25k_usd",
+   "declared": 3474.28,
+   "recomputed": 3474.28,
+   "ok": true
+  },
+  {
+   "id": "benefit_salt40k_usd",
+   "declared": 5058.28,
+   "recomputed": 5058.28,
+   "ok": true
+  },
+  {
+   "id": "benefit_salt40k_cap10k_usd",
+   "declared": 174.28,
+   "recomputed": 174.28,
+   "ok": true
+  },
+  {
+   "id": "breakeven_salt_usd",
+   "declared": 9207.8,
+   "recomputed": 9207.8,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

@@ -1,0 +1,247 @@
+{
+ "id": "tax-2",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCSL",
+    "file": "data/CPIAUCSL.csv",
+    "sha256": "f8ecddf53a9a9a74dda92c2c4204e6039466fcb744bc74171b73b5f6aac48119",
+    "declared": "f8ecddf53a9a9a74dda92c2c4204e6039466fcb744bc74171b73b5f6aac48119",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "credit_2026_usd_at_100k",
+    "declared": 2100.0,
+    "recomputed": 2100.0,
+    "ok": true
+   },
+   {
+    "id": "fsa_saving_usd_at_100k_12pct",
+    "declared": 1473.75,
+    "recomputed": 1473.75,
+    "ok": true
+   },
+   {
+    "id": "advantage_credit_usd_at_100k",
+    "declared": 626.25,
+    "recomputed": 626.25,
+    "ok": true
+   },
+   {
+    "id": "advantage_credit_usd_at_80k",
+    "declared": 626.25,
+    "recomputed": 626.25,
+    "ok": true
+   },
+   {
+    "id": "advantage_fsa_usd_at_40k",
+    "declared": 2153.25,
+    "recomputed": 2153.25,
+    "ok": true
+   },
+   {
+    "id": "advantage_fsa_usd_at_180k",
+    "declared": 603.75,
+    "recomputed": 603.75,
+    "ok": true
+   },
+   {
+    "id": "credit_wins_from_wages_usd",
+    "declared": 70500,
+    "recomputed": 70500,
+    "ok": true
+   },
+   {
+    "id": "credit_wins_to_wages_usd",
+    "declared": 139000,
+    "recomputed": 139000,
+    "ok": true
+   },
+   {
+    "id": "cap_6000_in_current_prices_usd",
+    "declared": 10731.0,
+    "recomputed": 10731.0,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCSL",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCSL",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCSL",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 21(a)(2)(A) (applicable percentage, first reduction)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section21&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 21(a)(2)(B) (applicable percentage, second reduction)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section21&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 21(c) (expense cap reduced by excluded assistance)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section21&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 129(a)(2)(A) (dependent care assistance exclusion limit)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section129&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "Rev. Proc. 2025-32 sec. 3.05(1), IRB 2025-45 (child tax credit 2026)",
+    "url": "https://www.irs.gov/irb/2025-45_IRB",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "Rev. Proc. 2025-32 sec. 3.05(2) (refundable portion 2026)",
+    "url": "https://www.irs.gov/irb/2025-45_IRB",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 24(d)(1)(B)(i) (15% of earned income)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section24&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 24(h)(6) ($2,500 threshold)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section24&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "Rev. Proc. 2025-32 sec. 3.06 table (earned income credit 2026)",
+    "url": "https://www.irs.gov/irb/2025-45_IRB",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "Rev. Proc. 2025-32 sec. 3.06 table (maximum credit 2026)",
+    "url": "https://www.irs.gov/irb/2025-45_IRB",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "Rev. Proc. 2025-32 sec. 3.06 table (joint phaseout start 2026)",
+    "url": "https://www.irs.gov/irb/2025-45_IRB",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 32(b)(1) (phaseout percentage, 2 children)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section32&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 3101(a) (employee social security tax)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section3101&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 3101(b)(1) (employee Medicare tax)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section3101&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 standard deduction",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 12% and 10% brackets",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 22% bracket",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 24% bracket",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 32% and 35% brackets",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V1245": true
+}

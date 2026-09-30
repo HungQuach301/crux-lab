@@ -1,0 +1,60 @@
+{
+ "id": "debt-3",
+ "items": [
+  {
+   "id": "n_months",
+   "declared": 44,
+   "recomputed": 44,
+   "ok": true
+  },
+  {
+   "id": "mean_premium_72_vs_60",
+   "declared": 0.097,
+   "recomputed": 0.097,
+   "ok": true
+  },
+  {
+   "id": "share_months_72_le_60",
+   "declared": 34.1,
+   "recomputed": 34.1,
+   "ok": true
+  },
+  {
+   "id": "max_premium",
+   "declared": 0.52,
+   "recomputed": 0.52,
+   "ok": true
+  },
+  {
+   "id": "latest_r60",
+   "declared": 7.14,
+   "recomputed": 7.14,
+   "ok": true
+  },
+  {
+   "id": "latest_r72",
+   "declared": 6.97,
+   "recomputed": 6.97,
+   "ok": true
+  },
+  {
+   "id": "term_effect_30k",
+   "declared": 1210,
+   "recomputed": 1210,
+   "ok": true
+  },
+  {
+   "id": "rate_effect_30k",
+   "declared": 101,
+   "recomputed": 101,
+   "ok": true
+  },
+  {
+   "id": "rate_share_of_extra_interest",
+   "declared": 7.7,
+   "recomputed": 7.7,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

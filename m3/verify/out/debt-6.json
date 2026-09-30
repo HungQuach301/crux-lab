@@ -1,0 +1,148 @@
+{
+ "id": "debt-6",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "OBMMIVA30YF",
+    "file": "data/OBMMIVA30YF.csv",
+    "sha256": "f9a9cd8bf35f6efaf370b5deb2a872cca85ed3448c59a66fd700cbd902ccd36a",
+    "declared": "f9a9cd8bf35f6efaf370b5deb2a872cca85ed3448c59a66fd700cbd902ccd36a",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "OBMMIC30YFLVLE80FGE740",
+    "file": "data/OBMMIC30YFLVLE80FGE740.csv",
+    "sha256": "be02b48ca0f7b9a9b7850e354aa2beeadd7ce541ca0f1fcab0c6b2bf5d54fd4f",
+    "declared": "be02b48ca0f7b9a9b7850e354aa2beeadd7ce541ca0f1fcab0c6b2bf5d54fd4f",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "n_days",
+    "declared": 2434,
+    "recomputed": 2434,
+    "ok": true
+   },
+   {
+    "id": "share_days_va_below_best_conv",
+    "declared": 92.4,
+    "recomputed": 92.4,
+    "ok": true
+   },
+   {
+    "id": "n_days_since_20230407",
+    "declared": 866,
+    "recomputed": 866,
+    "ok": true
+   },
+   {
+    "id": "share_days_va_below_since_20230407",
+    "declared": 99.9,
+    "recomputed": 99.9,
+    "ok": true
+   },
+   {
+    "id": "mean_va_since_20230407",
+    "declared": 6.261,
+    "recomputed": 6.261,
+    "ok": true
+   },
+   {
+    "id": "mean_conv_since_20230407",
+    "declared": 6.581,
+    "recomputed": 6.581,
+    "ok": true
+   },
+   {
+    "id": "mean_gap_since_20230407",
+    "declared": 0.32,
+    "recomputed": 0.32,
+    "ok": true
+   },
+   {
+    "id": "monthly_saving_per_100k",
+    "declared": 20.97,
+    "recomputed": 20.97,
+    "ok": true
+   },
+   {
+    "id": "breakeven_months_payment_only",
+    "declared": 59.6,
+    "recomputed": 59.6,
+    "ok": true
+   },
+   {
+    "id": "breakeven_months_net",
+    "declared": 47,
+    "recomputed": 47,
+    "ok": true
+   },
+   {
+    "id": "net_gain_10y_per_100k",
+    "declared": 1952,
+    "recomputed": 1952,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "OBMMIVA30YF",
+    "page": "https://fred.stlouisfed.org/series/OBMMIVA30YF",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/OBMMIVA30YF",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "OBMMIC30YFLVLE80FGE740",
+    "page": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FGE740",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FGE740",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "38 U.S.C. 3729(b)(2), loan fee table row (D)(iii): fee of 1.25 percent of the loan amount (active duty veteran and Reservist columns) for a purchase loan with 10-down closed on or after April 7, 2023 and before June 9, 2034",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title38-section3729&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "38 U.S.C. 3729(b)(4), definition of 10-down",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title38-section3729&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "38 U.S.C. 3729(c)(1), fee waiver for veterans receiving disability compensation",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title38-section3729&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V1245": true
+}

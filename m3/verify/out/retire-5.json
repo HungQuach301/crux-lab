@@ -1,0 +1,117 @@
+{
+ "id": "retire-5",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "DFII20",
+    "file": "data/DFII20.csv",
+    "sha256": "feeacf27f13bc40998c24bcc35559ff9e4cca629542324500c1b2c92ded20300",
+    "declared": "feeacf27f13bc40998c24bcc35559ff9e4cca629542324500c1b2c92ded20300",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "real_yield_now_pct",
+    "declared": 3.14,
+    "recomputed": 3.14,
+    "ok": true
+   },
+   {
+    "id": "real_yield_low_pct",
+    "declared": -0.76,
+    "recomputed": -0.76,
+    "ok": true
+   },
+   {
+    "id": "first_withdrawal_pct_of_start",
+    "declared": 3.77,
+    "recomputed": 3.77,
+    "ok": true
+   },
+   {
+    "id": "now_balance_at_90_pct_of_start",
+    "declared": 65.9,
+    "recomputed": 65.9,
+    "ok": true
+   },
+   {
+    "id": "now_withdrawal_at_90_pct_of_start",
+    "declared": 5.4,
+    "recomputed": 5.4,
+    "ok": true
+   },
+   {
+    "id": "now_peak_withdrawal_age",
+    "declared": 93,
+    "recomputed": 93,
+    "ok": true
+   },
+   {
+    "id": "now_peak_withdrawal_pct_of_start",
+    "declared": 5.44,
+    "recomputed": 5.44,
+    "ok": true
+   },
+   {
+    "id": "low_balance_at_90_pct_of_start",
+    "declared": 34.2,
+    "recomputed": 34.2,
+    "ok": true
+   },
+   {
+    "id": "low_withdrawal_at_90_pct_of_start",
+    "declared": 2.8,
+    "recomputed": 2.8,
+    "ok": true
+   },
+   {
+    "id": "low_years_withdrawal_rises_after_73",
+    "declared": 0,
+    "recomputed": 0,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "DFII20",
+    "page": "https://fred.stlouisfed.org/series/DFII20",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/DFII20",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 401(a)(9)(C)(v)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section401&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 CFR 1.401(a)(9)-9(c), Uniform Lifetime Table",
+    "url": "https://www.law.cornell.edu/cfr/text/26/1.401(a)(9)-9",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V1245": true
+}

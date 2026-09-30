@@ -1,0 +1,126 @@
+{
+ "id": "retire-1",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "file": "data/CPIAUCNS.csv",
+    "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "declared": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "AHETPI",
+    "file": "data/AHETPI.csv",
+    "sha256": "bf666fc39bfc5b0cbc8fbe0d5abc06e84233f0300edbf88299ba696801e1ca7a",
+    "declared": "bf666fc39bfc5b0cbc8fbe0d5abc06e84233f0300edbf88299ba696801e1ca7a",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "limit1982_in_aug2026_dollars",
+    "declared": 6942.59,
+    "recomputed": 6942.59,
+    "ok": true
+   },
+   {
+    "id": "real_change_1982_to_2026_pct",
+    "declared": 8.03,
+    "recomputed": 8.03,
+    "ok": true
+   },
+   {
+    "id": "real_loss_1982_to_2001_pct",
+    "declared": 45.5,
+    "recomputed": 45.5,
+    "ok": true
+   },
+   {
+    "id": "hours_of_pay_1982",
+    "declared": 254.3,
+    "recomputed": 254.3,
+    "ok": true
+   },
+   {
+    "id": "hours_of_pay_2026",
+    "declared": 230.6,
+    "recomputed": 230.6,
+    "ok": true
+   },
+   {
+    "id": "hours_change_pct",
+    "declared": -9.32,
+    "recomputed": -9.32,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "AHETPI",
+    "page": "https://fred.stlouisfed.org/series/AHETPI",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/AHETPI",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 219, Amendments note (2001)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section219&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 219, Amendments note (1981)",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section219&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 219, Effective Date of 1981 Amendment note",
+    "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section219&num=0&edition=prelim",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS news release, 2026 limits",
+    "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V1245": true
+}
