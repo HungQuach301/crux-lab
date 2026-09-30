@@ -1,17 +1,15 @@
 # C5 · Luồng P (hình) — ghi chú
 
 ## TIẾP TỤC Ở ĐÂY (cập nhật sau mỗi chặng)
-- 30/09 01:25 — Commit: `dc4894d` (sửa hình, CHECKS, page/camera/tokens), `bea45a6` (render_c5.sh, assemble_c5.py), `1c950f8`/`cd15ae6` (ảnh trước/sau ghi chú gốc tiền `review-c5/basis/`, camera.json theo định thời mới b5b91f1: 17 739 khung).
-- Định thời mới (P2 `b5b91f1`, S18 lời mới): `build/film.js` dựng lại 01:04. Cảnh dựng bằng bundle cũ: S10, S17, S02 (không đổi nội dung: định thời cục bộ S01–S17 y hệt) và S20 cũ (lệch pha lấy mẫu 0,02 s → đang render lại ở hàng 4). S18 cũ bị dừng ("FAILED S18" 01:04 là cố ý), đã render lại.
-- Chặng 2 đang chạy: 4 hàng đợi. Chạy lại khi container khởi động lại (render.js bỏ qua cảnh có mp4+log mới hơn build/film.js; S10/S17/S02 cũ hơn build → nếu phải chạy lại, `touch work/c5/scenes/S10.mp4 work/c5/logs/S10.json` … là đúng vì nội dung không đổi, hoặc để render lại):
+- 30/09 02:15 — K3.3 (LOCK beffb49b) đã vào main → **BASIS_MODE mặc định = corner** (engine.js, render.js; `out/page.json` giữ `animatic/film.html`, mặc định là góc). `build/film.js` dựng lại 02:12. Bản near (đã render đủ 17 cảnh 00:41–02:08, log `near-queue-*.txt`) bỏ.
+- Chặng 3 đang chạy: render lại bản góc mọi cảnh có số $ (tất cả trừ S05; S05 giữ bản render định thời mới, log đánh dấu `basisMode: corner` vì không có số $), 2 hàng đợi (giới hạn bộ nhớ: mix của A cần ~10 GB, `work/audio/src/mix_after_render.sh` chờ khi không còn `node render.js`). Chạy lại nếu container khởi động lại (bỏ qua cảnh đã xong):
 ```
 cd episodes/ep001 && R=animatic/src/render_c5.sh; L=work/c5/logs
-nohup $R S10 S06 S14 S07 S09 S03 > $L/queue-1.txt 2>&1 &
-nohup $R S17 S02 S16 S01 S05 S13 S12 > $L/queue-2.txt 2>&1 &
-nohup $R S20 S18 S04 S08 S15 S19 S11 > $L/queue-3.txt 2>&1 &
+nohup $R S10 S04 S06 S01 S09 S14 S08 S19 S11 S12 > $L/queue-c1.txt 2>&1 &
+nohup $R S02 S20 S17 S18 S16 S15 S07 S03 S13 > $L/queue-c2.txt 2>&1 &
 ```
-- Mã hoá giao bản (P2 duyệt 01:10): trung gian CRF 8; giao bản CBR 24 Mb/s nal-hrd=cbr (F04 ≥ 16 Mb/s đo từ gói) + dither luma `noise=c0s=3:c0f=t` (F08: S17 61 % → 0 %); `--probe-crf` ghi CRF 16 tốn bao nhiêu mỗi cảnh.
-- Sau render: `python3 animatic/src/assemble_c5.py --picture-only --probe-crf` → chờ `out/audio/master.wav` mới hơn 00:56 30/09 (P2 trộn lại 17 740 khung) → `python3 animatic/src/assemble_c5.py --mux-only` → `python3 animatic/src/check.py`.
+- Mã hoá giao bản (P2 duyệt): trung gian CRF 8; giao bản CBR 24 Mb/s nal-hrd=cbr (F04) + dither luma `noise=c0s=3:c0f=t` (F08: S17 61 % → 0 %); `--probe-crf` ghi CRF 16 tốn bao nhiêu mỗi cảnh.
+- Sau render: `python3 animatic/src/assemble_c5.py --picture-only --probe-crf`; khi `out/audio/master.wav` mới hơn dòng "=== XONG" của log mix: `python3 animatic/src/assemble_c5.py --mux-only`; rồi `python3 animatic/src/check.py`; báo P2.
 
 ## Dựng lại trang (không commit `build/`, `src/data.js`)
 ```

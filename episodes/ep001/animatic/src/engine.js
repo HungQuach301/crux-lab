@@ -284,8 +284,9 @@ export function text(ctx, s, x, y, tier, o = {}) {
 export const BASIS = 'dollars of the day';
 // BASIS_MODE (owner, C5): 'near' = a note next to each $ group (K3.1 rule S09: basis within 300 px of every $ number);
 // 'corner' = ONE fixed frame-level label under the ILLUSTRATIVE badge while any $ number is visible (film.js; checks K3.3),
-// the near notes and near-only wording then vanish. Set by window.BASIS_MODE or film.html?basis=corner; default near.
-export const BASIS_MODE = (() => { try { return window.BASIS_MODE || new URLSearchParams(location.search).get('basis') || 'near'; } catch (e) { return 'near'; } })();
+// the near notes and near-only wording then vanish. Set by window.BASIS_MODE or film.html?basis=near|corner.
+// Default corner since checks K3.3 (owner, 30/09: one frame-level label when every $ on the frame shares one basis).
+export const BASIS_MODE = (() => { try { return window.BASIS_MODE || new URLSearchParams(location.search).get('basis') || 'corner'; } catch (e) { return 'corner'; } })();
 export const NEAR = BASIS_MODE !== 'corner';
 export const nb = (near, plain = '') => (NEAR ? near : plain);
 export function basisNote(ctx, x, y, o = {}) {
