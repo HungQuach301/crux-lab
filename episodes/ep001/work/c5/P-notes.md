@@ -1,8 +1,15 @@
 # C5 · Luồng P (hình) — ghi chú
 
 ## TIẾP TỤC Ở ĐÂY (cập nhật sau mỗi chặng)
-- 30/09 00:15 — Chặng 1 (sửa hình + S07/S08/S09 trên hình) đang làm; chưa commit. Trang dựng `animatic/film.html` + `build/film.js` đã có `window.CHECKS`; `out/camera.json` đã xuất (17 752 khung).
-- Tiếp: kiểm nhanh đối tượng (`qc`) → commit sửa → `out/page.json` + tokens → sampler thử vài cảnh → render 1080p 20 cảnh (3 hàng đợi nohup) → ghép `work/c5/picture-1080.mp4` → mux `out/video.mp4` → `check.py`.
+- 30/09 00:40 — Chặng 1 xong, commit `dc4894d` (sửa hình, S07/S08/S09 trên hình, CHECKS, page.json, camera.json, tokens). `build/film.js` cuối dựng 00:3x: **không dựng lại** trước khi render xong (render.js coi mọi cảnh cũ hơn `build/film.js` là hết hạn).
+- Chặng 2 đang chạy: render 1080p, 3 hàng đợi từ 00:40 UTC. Tiếp tục (bỏ qua cảnh đã xong) — chạy lại đúng lệnh này:
+```
+cd episodes/ep001 && R=animatic/src/render_c5.sh; L=work/c5/logs
+nohup $R S10 S06 S14 S07 S09 S03 > $L/queue-1.txt 2>&1 &
+nohup $R S17 S02 S16 S01 S05 S13 S12 > $L/queue-2.txt 2>&1 &
+nohup $R S20 S18 S04 S08 S15 S19 S11 > $L/queue-3.txt 2>&1 &
+```
+- Sau render: `python3 animatic/src/assemble_c5.py` (ghép `work/c5/picture-1080.mp4` + mux `out/video.mp4`), `python3 animatic/src/check.py`, rồi D chạy `build.py`.
 
 ## Dựng lại trang (không commit `build/`, `src/data.js`)
 ```
