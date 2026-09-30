@@ -1,0 +1,168 @@
+{
+ "mode": "cbr",
+ "scenes": [
+  {
+   "id": "S01",
+   "frames": 992,
+   "expected": 992,
+   "size": "1920x1080",
+   "bytes": 11623835
+  },
+  {
+   "id": "S02",
+   "frames": 678,
+   "expected": 678,
+   "size": "1920x1080",
+   "bytes": 19099682
+  },
+  {
+   "id": "S03",
+   "frames": 621,
+   "expected": 621,
+   "size": "1920x1080",
+   "bytes": 4527866
+  },
+  {
+   "id": "S04",
+   "frames": 758,
+   "expected": 758,
+   "size": "1920x1080",
+   "bytes": 8300955
+  },
+  {
+   "id": "S05",
+   "frames": 1180,
+   "expected": 1180,
+   "size": "1920x1080",
+   "bytes": 4086216
+  },
+  {
+   "id": "S06",
+   "frames": 874,
+   "expected": 874,
+   "size": "1920x1080",
+   "bytes": 9116620
+  },
+  {
+   "id": "S07",
+   "frames": 969,
+   "expected": 969,
+   "size": "1920x1080",
+   "bytes": 7481477
+  },
+  {
+   "id": "S08",
+   "frames": 1174,
+   "expected": 1174,
+   "size": "1920x1080",
+   "bytes": 2498234
+  },
+  {
+   "id": "S09",
+   "frames": 493,
+   "expected": 493,
+   "size": "1920x1080",
+   "bytes": 13322369
+  },
+  {
+   "id": "S10",
+   "frames": 1723,
+   "expected": 1723,
+   "size": "1920x1080",
+   "bytes": 25755153
+  },
+  {
+   "id": "S11",
+   "frames": 671,
+   "expected": 671,
+   "size": "1920x1080",
+   "bytes": 2120139
+  },
+  {
+   "id": "S12",
+   "frames": 183,
+   "expected": 183,
+   "size": "1920x1080",
+   "bytes": 410080
+  },
+  {
+   "id": "S13",
+   "frames": 850,
+   "expected": 850,
+   "size": "1920x1080",
+   "bytes": 2101862
+  },
+  {
+   "id": "S14",
+   "frames": 691,
+   "expected": 691,
+   "size": "1920x1080",
+   "bytes": 7919754
+  },
+  {
+   "id": "S15",
+   "frames": 853,
+   "expected": 853,
+   "size": "1920x1080",
+   "bytes": 7407226
+  },
+  {
+   "id": "S16",
+   "frames": 835,
+   "expected": 835,
+   "size": "1920x1080",
+   "bytes": 7800377
+  },
+  {
+   "id": "S17",
+   "frames": 1081,
+   "expected": 1081,
+   "size": "1920x1080",
+   "bytes": 11934488
+  },
+  {
+   "id": "S18",
+   "frames": 1435,
+   "expected": 1435,
+   "size": "1920x1080",
+   "bytes": 7814342
+  },
+  {
+   "id": "S19",
+   "frames": 795,
+   "expected": 795,
+   "size": "1920x1080",
+   "bytes": 2849725
+  },
+  {
+   "id": "S20",
+   "frames": 883,
+   "expected": 883,
+   "size": "1920x1080",
+   "bytes": 8413889
+  }
+ ],
+ "totalFrames": 17739,
+ "date": "2026-09-30T04:48:04Z",
+ "pictureSeconds": 0.0,
+ "picture": {
+  "path": "work/c5/picture-1080.mp4",
+  "frames": 17739,
+  "bytes": 1774238414,
+  "videoMbps": 24.0
+ },
+ "muxSeconds": 67.7,
+ "video": {
+  "path": "out/video.mp4",
+  "bytes": 1795779484,
+  "frames": 17739,
+  "seconds": 591.3,
+  "videoMbps": 24.0,
+  "audioKbps": 285.8,
+  "audioRate": 48000,
+  "audioChannels": 2,
+  "audioCodec": "aac",
+  "profile": "High",
+  "chapters": 0
+ }
+}

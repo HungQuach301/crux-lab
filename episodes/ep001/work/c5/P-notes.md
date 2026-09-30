@@ -1,15 +1,9 @@
 # C5 · Luồng P (hình) — ghi chú
 
 ## TIẾP TỤC Ở ĐÂY (cập nhật sau mỗi chặng)
-- 30/09 02:15 — K3.3 (LOCK beffb49b) đã vào main → **BASIS_MODE mặc định = corner** (engine.js, render.js; `out/page.json` giữ `animatic/film.html`, mặc định là góc). `build/film.js` dựng lại 02:12. Bản near (đã render đủ 17 cảnh 00:41–02:08, log `near-queue-*.txt`) bỏ.
-- Chặng 3 đang chạy: render lại bản góc mọi cảnh có số $ (tất cả trừ S05; S05 giữ bản render định thời mới, log đánh dấu `basisMode: corner` vì không có số $), 2 hàng đợi (giới hạn bộ nhớ: mix của A cần ~10 GB, `work/audio/src/mix_after_render.sh` chờ khi không còn `node render.js`). Chạy lại nếu container khởi động lại (bỏ qua cảnh đã xong):
-```
-cd episodes/ep001 && R=animatic/src/render_c5.sh; L=work/c5/logs
-nohup $R S10 S04 S06 S01 S09 S14 S08 S19 S11 S12 > $L/queue-c1.txt 2>&1 &
-nohup $R S02 S20 S17 S18 S16 S15 S07 S03 S13 > $L/queue-c2.txt 2>&1 &
-```
-- Mã hoá giao bản (P2 duyệt): trung gian CRF 8; giao bản CBR 24 Mb/s nal-hrd=cbr (F04) + dither luma `noise=c0s=3:c0f=t` (F08: S17 61 % → 0 %); `--probe-crf` ghi CRF 16 tốn bao nhiêu mỗi cảnh.
-- Sau render: `python3 animatic/src/assemble_c5.py --picture-only --probe-crf`; khi `out/audio/master.wav` mới hơn dòng "=== XONG" của log mix: `python3 animatic/src/assemble_c5.py --mux-only`; rồi `python3 animatic/src/check.py`; báo P2.
+- 30/09 05:15 — Render bản góc xong 20/20 (02:13–03:36 UTC, 2 hàng đợi, log `queue-c*.txt`; `logs/S*.json` commit `da54dac`); `check.py` ALL OK (`259ff5c`). Ghép lần 1 (c0s=3, tune animation) + mux với master 03:49 → `out/video.mp4` đạt F01–F07, F10, A01/A02/A04–A06 nhưng **F08 5,19 %** (> 5). Đang ghép lại: dither c0s=4 + `-tune grain` (thử S16: 0,0 %), rồi mux lại (ghi đè nguyên tử `out/video.mp4`).
+- Nếu container khởi động lại: `cd episodes/ep001 && nohup python3 animatic/src/assemble_c5.py > work/c5/logs/assemble-full.txt 2>&1 &` (ghép + mux, ~70 phút), rồi kiểm tệp: `python3 <main>/checks/py/run.py episodes/ep001 --only F01,F02,F03,F04,F05,F06,F07,F08,F10,A01,A02,A04,A05,A06 --first` (ffmpeg trong PATH; hoàn lại `out/checks/report-partial.*` sau đó, không phải của P).
+- Mã hoá (P2 duyệt): trung gian CRF 8; giao bản CBR 24 Mb/s nal-hrd=cbr (F04) + dither luma; AAC 320k (đo 285,8 kb/s), không chapter, không metadata.
 
 ## Dựng lại trang (không commit `build/`, `src/data.js`)
 ```
