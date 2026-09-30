@@ -1,0 +1,291 @@
+{
+  "id": "retire-5",
+  "pillar": "retire",
+  "card": {
+    "thesis": "Whether required withdrawals from a retirement account grow or shrink after inflation depends on real interest rates, and at recent rates they keep rising until very old age.",
+    "overturns": "\"Required minimum withdrawals steadily drain a retirement account and shrink retirement income over time.\""
+  },
+  "claim": "Take an account that withdraws only the required minimum from age 73 (balance divided by the Uniform Lifetime Table divisor) and earns a constant real return equal to the 20-year TIPS yield. The first withdrawal is 3.77% of the starting balance. At the latest yield (3.14% real, 28 September 2026) the inflation-adjusted withdrawal rises every year until age 93, reaching 5.44% of the starting balance, and at 90 the account still holds 65.9% of its starting real value while paying 5.4%. At the series low (-0.76%, 9 November 2021) the same rules shrink real withdrawals in every year after 73 (0 rising years), to 2.8% at 90, with 34.2% of the real balance left. Whether minimum withdrawals feel like a shrinking or a growing income is set by real yields, not by the table alone.",
+  "numbers": [
+    {
+      "id": "real_yield_now_pct",
+      "value": 3.14,
+      "unit": "percent",
+      "definition": "Last non-missing daily value in the DFII20 file (20-year Treasury inflation-indexed constant-maturity yield, percent), dated 2026-09-28."
+    },
+    {
+      "id": "real_yield_low_pct",
+      "value": -0.76,
+      "unit": "percent",
+      "definition": "Minimum daily DFII20 value in the file (2004-07-27 to 2026-09-28)."
+    },
+    {
+      "id": "first_withdrawal_pct_of_start",
+      "value": 3.77,
+      "unit": "percent of starting balance",
+      "definition": "Simulation: start balance B73 = 1 (real) at age 73. Each age a = 73..100: withdrawal W_a = B_a / D_a at the start of the year, where D_a is the Uniform Lifetime Table divisor (73: 26.5 ... 100: 6.4); then B_{a+1} = (B_a - W_a) x (1 + r/100), r = constant real yield. This number = W_73 x 100 (independent of r)."
+    },
+    {
+      "id": "now_balance_at_90_pct_of_start",
+      "value": 65.9,
+      "unit": "percent of starting real balance",
+      "definition": "B_90 x 100 with r = real_yield_now_pct."
+    },
+    {
+      "id": "now_withdrawal_at_90_pct_of_start",
+      "value": 5.4,
+      "unit": "percent of starting real balance",
+      "definition": "W_90 x 100 with r = real_yield_now_pct."
+    },
+    {
+      "id": "now_peak_withdrawal_age",
+      "value": 93,
+      "unit": "age",
+      "definition": "Age a in 73..100 with the largest W_a when r = real_yield_now_pct."
+    },
+    {
+      "id": "now_peak_withdrawal_pct_of_start",
+      "value": 5.44,
+      "unit": "percent of starting real balance",
+      "definition": "W at now_peak_withdrawal_age x 100, r = real_yield_now_pct."
+    },
+    {
+      "id": "low_balance_at_90_pct_of_start",
+      "value": 34.2,
+      "unit": "percent of starting real balance",
+      "definition": "B_90 x 100 with r = real_yield_low_pct."
+    },
+    {
+      "id": "low_withdrawal_at_90_pct_of_start",
+      "value": 2.8,
+      "unit": "percent of starting real balance",
+      "definition": "W_90 x 100 with r = real_yield_low_pct."
+    },
+    {
+      "id": "low_years_withdrawal_rises_after_73",
+      "value": 0,
+      "unit": "years",
+      "definition": "Count of ages a in 74..100 with W_a > W_{a-1} when r = real_yield_low_pct."
+    }
+  ],
+  "series": [
+    {
+      "id": "DFII20",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII20&coed=2026-09-28",
+      "seriesPage": "https://fred.stlouisfed.org/series/DFII20",
+      "file": "data/DFII20.csv",
+      "sha256": "feeacf27f13bc40998c24bcc35559ff9e4cca629542324500c1b2c92ded20300",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-09-28",
+      "terms": {
+        "quote": "Notes: For further information regarding treasury constant maturity data, please refer to the H.15 Statistical Release notes and the Treasury Yield Curve Methodology . For questions on the data, please contact the data source . For questions on FRED functionality, please contact us here .",
+        "url": "https://fred.stlouisfed.org/series/DFII20",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    }
+  ],
+  "provisions": [
+    {
+      "cite": "26 U.S.C. 401(a)(9)(C)(v)",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section401&num=0&edition=prelim",
+      "quote": "In the case of an individual who attains age 72 after December 31, 2022, and age 73 before January 1, 2033, the applicable age is 73."
+    },
+    {
+      "cite": "26 CFR 1.401(a)(9)-9(c), Uniform Lifetime Table",
+      "url": "https://www.law.cornell.edu/cfr/text/26/1.401(a)(9)-9",
+      "quote": "Age of employee Applicable denominator 72 27.4 73 26.5 74 25.5 75 24.6 76 23.7 77 22.9 78 22.0 79 21.1 80 20.2 81 19.4 82 18.5 83 17.7 84 16.8 85 16.0 86 15.2 87 14.4 88 13.7 89 12.9 90 12.2 91 11.5 92 10.8 93 10.1 94 9.5 95 8.9 96 8.4 97 7.8 98 7.3 99 6.8 100 6.4"
+    }
+  ],
+  "assumptions": [
+    "The account earns a constant real return equal to the 20-year TIPS yield on the chosen date for all years (as if locked in with inflation-protected bonds); no taxes, fees, or extra withdrawals.",
+    "Owner starts required distributions at 73 (born 1951-1959) and uses the Uniform Lifetime Table (spouse not more than 10 years younger or not the sole beneficiary).",
+    "Withdrawal happens at the start of each year; balances and withdrawals are in constant (inflation-adjusted) dollars."
+  ],
+  "limits": "History, not a forecast: two historical real yields are used as fixed scenarios. Real accounts hold stocks and bonds with variable returns, so actual paths differ. Owners born in 1960 or later start at 75, which shifts but does not reverse the pattern. Taxes on withdrawals are ignored.",
+  "novelty": {
+    "queries": [
+      "RMD withdrawals rise faster than inflation real income increases with age real return",
+      "RMD method spending rule real withdrawals increase until late 80s TIPS yield",
+      "required minimum distributions income grows in real terms higher interest rates retirees",
+      "myth RMDs will drain my retirement account"
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://mullooly.net/required-minimum-distributions-wont-drain-account/",
+      "https://www.thinkadvisor.com/2022/07/19/will-rmds-leave-me-broke-morningstars-benz-answers-a-common-retirement-question/",
+      "https://www.fool.com/retirement/2026/02/08/are-you-falling-for-these-3-rmd-myths/"
+    ],
+    "note": "That RMDs alone do not drain an account is already said (Morningstar/Benz, Mullooly, Motley Fool). Not found: that the direction of real RMD income (rising vs shrinking with age) flips with the prevailing real yield, rising every year to the early 90s at the 2026 TIPS yield but falling every year at the 2021 low.",
+    "results": [
+      {
+        "query": "RMD withdrawals rise faster than inflation real income increases with age real return",
+        "top": [
+          {
+            "title": "The 7 RMD Tax Traps Waiting for You in Your 70s — and How to Start Disarming Them in Your 60s",
+            "url": "https://www.kiplinger.com/retirement/required-minimum-distributions-rmds/tax-traps-waiting-for-you-in-your-70s"
+          },
+          {
+            "title": "System and method for dynamically adapting asset allocation and withdrawal rates",
+            "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10515413"
+          },
+          {
+            "title": "Is $900,000 Enough to Outlast RMDs? The Math at Age 73 Is More Reassuring Than You Think - 24/7 Wall St.",
+            "url": "https://247wallst.com/investing/2026/03/14/is-900000-enough-to-outlast-rmds-the-math-at-age-73-is-more-reassuring-than-you-think/"
+          },
+          {
+            "title": "System and method for use in connection with an annuity",
+            "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8484051"
+          },
+          {
+            "title": "How to smart-manage higher 2026 RMDs and lower your tax bill",
+            "url": "https://www.inkl.com/news/how-to-smart-manage-higher-2026-rmds-and-lower-your-tax-bill"
+          },
+          {
+            "title": "When Safe Withdrawal Rates Collide With RMDs | Morningstar",
+            "url": "https://www.morningstar.com/retirement/when-safe-withdrawal-rates-collide-with-rmds-2"
+          },
+          {
+            "title": "How Do You Protect Your Wealth From Inflation in Retirement? - Winthrop Partners",
+            "url": "https://winthroppartners.com/retirement-planning/protect-wealth-from-inflation/"
+          },
+          {
+            "title": "RMDs by age: Understanding how distributions change as you get older",
+            "url": "https://www.thrivent.com/insights/retirement-planning/rmds-by-age-understanding-how-distributions-change-as-you-get-older"
+          },
+          {
+            "title": "Should Your Withdrawals Mirror Your RMDs? | Wintrust Wealth Management",
+            "url": "https://www.wintrustwealth.com/articles/2025/05/should-your-withdrawals-mirror-your-rmds.html"
+          },
+          {
+            "title": "RMDs impact on tax brackets and Medicare premiums",
+            "url": "https://www.instead.com/resources/blog/rmds-impact-on-tax-brackets-and-medicare-premiums"
+          }
+        ]
+      },
+      {
+        "query": "RMD method spending rule real withdrawals increase until late 80s TIPS yield",
+        "top": [
+          {
+            "title": "Modified RMD Safe Withdrawal Method To Reduce Retirement Income Volatility",
+            "url": "https://www.kitces.com/blog/modified-required-minimum-distributions-rmd-swr-safe-withdrawal-rate-method-portfolio-retirement-income-paycheck-irs/"
+          },
+          {
+            "title": "RMDs Unpacked: The Math Behind Your Required Withdrawals and Tax Strategy",
+            "url": "https://youstaywealthy.com/podcasts/required-minimum-distributions-tax-strategy/"
+          },
+          {
+            "title": "Safe Withdrawal Rate by Age: How to Calculate",
+            "url": "https://smartasset.com/retirement/safe-withdrawal-rate-by-age"
+          },
+          {
+            "title": "Required Minimum Distributions: Rules + Tax Strategy",
+            "url": "https://rcsplanning.com/required-minimum-distributions/"
+          },
+          {
+            "title": "Understanding RMDs: What you need to know about withdrawing from your retirement savings | Principal",
+            "url": "https://www.principal.com/individuals/learn/what-are-rmds-and-when-do-you-have-take-them"
+          },
+          {
+            "title": "Required minimum distributions (RMDs) | Rules and strategies | Fidelity",
+            "url": "https://www.fidelity.com/learning-center/personal-finance/retirement/required-minimum-distributions"
+          },
+          {
+            "title": "RMDs by age: Understanding how distributions change as you get older",
+            "url": "https://www.thrivent.com/insights/retirement-planning/rmds-by-age-understanding-how-distributions-change-as-you-get-older"
+          },
+          {
+            "title": "RMD rules, age, and deadlines explained | Vanguard",
+            "url": "https://investor.vanguard.com/investor-resources-education/retirement/rmd"
+          },
+          {
+            "title": "Retirement plan and IRA required minimum distributions FAQs | Internal Revenue Service",
+            "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs"
+          }
+        ]
+      },
+      {
+        "query": "required minimum distributions income grows in real terms higher interest rates retirees",
+        "top": [
+          {
+            "title": "Required Minimum Distributions Can Push Retirees Into a Higher Tax Bracket. Here’s How to Plan Ahead",
+            "url": "https://finance.yahoo.com/markets/articles/required-minimum-distributions-push-retirees-133701342.html"
+          },
+          {
+            "title": "Required minimum distributions: Overview and FAQ | Thomson Reuters",
+            "url": "https://tax.thomsonreuters.com/en/glossary/required-minimum-distributions"
+          },
+          {
+            "title": "Required Minimum Distributions Can Push Retirees Into a Higher Tax Bracket. Here's How to Plan Ahead - 24/7 Wall St.",
+            "url": "https://247wallst.com/personal-finance/2026/07/26/required-minimum-distributions-can-push-retirees-into-a-higher-tax-bracket-heres-how-to-plan-ahead/"
+          },
+          {
+            "title": "Understanding What is RMD | TIAA",
+            "url": "https://www.tiaa.org/public/support/faqs/required-minimum-distributions"
+          },
+          {
+            "title": "Required minimum distributions: The deal on RMDs",
+            "url": "https://www.empower.com/the-currency/life/required-minimum-distributions"
+          },
+          {
+            "title": "Understanding Required Minimum Distributions - Winged Wealth Management and Financial Planning",
+            "url": "https://www.wingedwealth.com/insights/understanding-required-minimum-distributions/"
+          },
+          {
+            "title": "What is RMD & How Do They Affect Your Retirement? - Farther",
+            "url": "https://www.farther.com/foundations/what-is-rmd-how-do-they-affect-your-retirement"
+          },
+          {
+            "title": "Retirement plan and IRA required minimum distributions FAQs | Internal Revenue Service",
+            "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs"
+          },
+          {
+            "title": "How Much Is Your Required Minimum Distribution With $462,410 in Your Retirement Account?",
+            "url": "https://www.nasdaq.com/articles/how-much-your-required-minimum-distribution-462410-your-retirement-account"
+          }
+        ]
+      },
+      {
+        "query": "myth RMDs will drain my retirement account",
+        "top": [
+          {
+            "title": "'Will RMDs Drain My Account?': Morningstar's Benz Answers a Common Retirement Question",
+            "url": "https://www.thinkadvisor.com/2022/07/19/will-rmds-leave-me-broke-morningstars-benz-answers-a-common-retirement-question/"
+          },
+          {
+            "title": "RMDs Can Drain Retirement Savings, But These 7 Mistakes Let the IRS Take More Than It Should | FinanceBuzz",
+            "url": "https://financebuzz.com/rmds-retirement-savings-mistakes-irs-2"
+          },
+          {
+            "title": "Required Minimum Distributions Will NOT Drain Your Retirement Account | Mullooly Asset Management",
+            "url": "https://mullooly.net/required-minimum-distributions-wont-drain-account/"
+          },
+          {
+            "title": "Are You Falling for These 3 RMD Myths? | The Motley Fool",
+            "url": "https://www.fool.com/retirement/2026/02/08/are-you-falling-for-these-3-rmd-myths/"
+          },
+          {
+            "title": "Do RMDs Ever Stop? The Honest 2026 Answer",
+            "url": "https://q3adv.com/do-rmds-ever-stop/"
+          },
+          {
+            "title": "Retirement plan and IRA required minimum distributions FAQs | Internal Revenue Service",
+            "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs"
+          },
+          {
+            "title": "What is RMD & How Do They Affect Your Retirement? - Farther",
+            "url": "https://www.farther.com/foundations/what-is-rmd-how-do-they-affect-your-retirement"
+          },
+          {
+            "title": "Retirement topics - Required minimum distributions (RMDs) | Internal Revenue Service",
+            "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-required-minimum-distributions-rmds"
+          },
+          {
+            "title": "6 required minimum distribution rmd myths",
+            "url": "https://www.fool.com/retirement/2025/10/12/6-required-minimum-distribution-rmd-myths"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,340 @@
+{
+ "card": {
+  "thesis": "Under the new child care rules, parents with modest wages usually keep more with the workplace child care account; the bigger credit wins only in a middle band.",
+  "overturns": "\"The bigger child care credit is the best deal for lower-income working parents.\""
+ },
+ "claim": "Tax year 2026, married couple filing jointly, two children under 13, at least $7,500 of child care, all income from wages. Option A: put $7,500 through a workplace dependent care assistance account (excluded from wages, saving income tax and 7.65% employee payroll tax; by law it reduces the $6,000 credit-eligible expense cap to zero). Option B: no account; claim the child and dependent care credit on $6,000 of expenses at the new rate schedule (50% reduced to 35% by AGI $45,000; for joint returns falling toward 20% above $150,000). At $100,000 of wages the credit is $2,100 while the account saves $1,474 (12% + 7.65% on $7,500), so the credit leaves the family about $626 better off. But computing the whole federal return (income tax, nonrefundable and refundable child tax credit, earned income credit, employee payroll tax) the credit wins only for wages from about $70,500 to $139,000. Below that band the account wins because the care credit cannot be refunded and the account lowers earned income and AGI, which raises the earned income credit (at $80,000 of wages the credit still wins by $626; at $40,000 the account wins by about $2,153). Above it the account wins because each excluded dollar saves 22% income tax (at $180,000 of wages the account wins by about $604). The $6,000 expense cap has not changed since tax year 2003; carried forward with consumer prices it would be about $10,731. Sources: 26 U.S.C. 21, 129, 24, 32, 3101; Rev. Proc. 2025-32 (IRB 2025-45); IRS IR-2025-103.",
+ "numbers": [
+  {
+   "id": "credit_2026_usd_at_100k",
+   "unit": "USD",
+   "definition": "Child and dependent care credit for a joint return with AGI $100,000 and two qualifying children: applicable percentage (50 minus 1 point per $2,000 or fraction of AGI over $15,000, not below 35; then minus 1 point per $4,000 or fraction of AGI over $150,000, not below 20) = 35%, times $6,000.",
+   "value": 2100.0
+  },
+  {
+   "id": "fsa_saving_usd_at_100k_12pct",
+   "unit": "USD",
+   "definition": "$7,500 x (0.12 + 0.0765): income tax at the 12% bracket plus employee Social Security (6.2%) and Medicare (1.45%) tax avoided on $7,500 excluded dependent care assistance.",
+   "value": 1473.75
+  },
+  {
+   "id": "advantage_credit_usd_at_100k",
+   "unit": "USD",
+   "definition": "NetCost(FSA) - NetCost(credit) at wages W = $100,000, where NetCost = federal income tax after all credits (can be negative) + 0.0765 x wages counted for payroll tax. FSA path: wages and AGI = W - 7,500, credit expense cap = max(0, 6,000 - 7,500) = 0. Credit path: wages and AGI = W, care credit = min(tax, rate(AGI) x 6,000). Income tax = 2026 joint schedule (10% to 24,800; 12% to 100,800; 22% to 211,400; 24% to 403,550; 32% to 512,450; 35% to 768,700; 37% above) on max(0, AGI - 32,200). Credits in order: care credit (nonrefundable), child tax credit 2 x 2,200 nonrefundable up to remaining tax, refundable remainder = min(unused CTC, 2 x 1,700, 0.15 x max(0, earned - 2,500)); earned income credit (two children, joint) = max(0, min(7,316, (7,316/18,290) x earned) - 0.2106 x max(0, max(AGI, earned) - 31,160)). Positive = credit path costs less.",
+   "value": 626.25
+  },
+  {
+   "id": "advantage_credit_usd_at_80k",
+   "unit": "USD",
+   "definition": "Same as advantage_credit_usd_at_100k at W = $80,000.",
+   "value": 626.25
+  },
+  {
+   "id": "advantage_fsa_usd_at_40k",
+   "unit": "USD",
+   "definition": "-(same difference as advantage_credit_usd_at_100k) at W = $40,000, i.e. how much less the FSA path costs.",
+   "value": 2153.25
+  },
+  {
+   "id": "advantage_fsa_usd_at_180k",
+   "unit": "USD",
+   "definition": "-(same difference) at W = $180,000, i.e. how much less the FSA path costs.",
+   "value": 603.75
+  },
+  {
+   "id": "credit_wins_from_wages_usd",
+   "unit": "USD",
+   "definition": "Lowest wage W, on a $500 grid, of the contiguous range containing $100,000 in which the difference defined in advantage_credit_usd_at_100k is > 0.",
+   "value": 70500
+  },
+  {
+   "id": "credit_wins_to_wages_usd",
+   "unit": "USD",
+   "definition": "Highest wage W, on a $500 grid, of that same contiguous range.",
+   "value": 139000
+  },
+  {
+   "id": "cap_6000_in_current_prices_usd",
+   "unit": "USD",
+   "definition": "6000 x (mean of the last 12 monthly CPIAUCSL values in the pinned file, Sep 2025-Aug 2026) / (mean of the 12 monthly CPIAUCSL values of 2003), rounded to the dollar.",
+   "value": 10731.0
+  }
+ ],
+ "series": [
+  {
+   "id": "CPIAUCSL",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCSL",
+   "file": "data/CPIAUCSL.csv",
+   "sha256": "f8ecddf53a9a9a74dda92c2c4204e6039466fcb744bc74171b73b5f6aac48119",
+   "retrieved": "2026-09-30",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.131"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 21(a)(2)(A) (applicable percentage, first reduction)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section21&num=0&edition=prelim",
+   "quote": "reduced (but not below 35 percent) by 1 percentage point for each $2,000 or fraction thereof by which the taxpayer's adjusted gross income for the taxable year exceeds $15,000"
+  },
+  {
+   "cite": "26 U.S.C. 21(a)(2)(B) (applicable percentage, second reduction)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section21&num=0&edition=prelim",
+   "quote": "further reduced (but not below 20 percent) by 1 percentage point for each $2,000 ($4,000 in the case of a joint return) or fraction thereof by which the taxpayer's adjusted gross income for the taxable year exceeds $75,000 ($150,000 in the case of a joint return)."
+  },
+  {
+   "cite": "26 U.S.C. 21(c) (expense cap reduced by excluded assistance)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section21&num=0&edition=prelim",
+   "quote": "$6,000 if there are 2 or more qualifying individuals with respect to the taxpayer for such taxable year. The amount determined under paragraph (1) or (2) (whichever is applicable) shall be reduced by the aggregate amount excludable from gross income under section 129 for the taxable year."
+  },
+  {
+   "cite": "26 U.S.C. 129(a)(2)(A) (dependent care assistance exclusion limit)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section129&num=0&edition=prelim",
+   "quote": "shall not exceed $7,500 ($3,750 in the case of a separate return by a married individual)."
+  },
+  {
+   "cite": "Rev. Proc. 2025-32 sec. 3.05(1), IRB 2025-45 (child tax credit 2026)",
+   "url": "https://www.irs.gov/irb/2025-45_IRB",
+   "quote": "For taxable years beginning in 2026, the maximum amount of the credit allowed under § 24(a) is $2,200."
+  },
+  {
+   "cite": "Rev. Proc. 2025-32 sec. 3.05(2) (refundable portion 2026)",
+   "url": "https://www.irs.gov/irb/2025-45_IRB",
+   "quote": "For taxable years beginning in 2026, the amount used in § 24(d)(1)(A) to determine the amount of the credit under § 24 that may be refundable is $1,700."
+  },
+  {
+   "cite": "26 U.S.C. 24(d)(1)(B)(i) (15% of earned income)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section24&num=0&edition=prelim",
+   "quote": "15 percent of so much of the taxpayer's earned income (within the meaning of section 32) which is taken into account in computing taxable income for the taxable year as exceeds $3,000"
+  },
+  {
+   "cite": "26 U.S.C. 24(h)(6) ($2,500 threshold)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section24&num=0&edition=prelim",
+   "quote": "Earned income threshold for refundable credit Subsection (d)(1)(B)(i) shall be applied by substituting"
+  },
+  {
+   "cite": "Rev. Proc. 2025-32 sec. 3.06 table (earned income credit 2026)",
+   "url": "https://www.irs.gov/irb/2025-45_IRB",
+   "quote": "Earned Income Amount $13,020 $18,290 $18,290 $8,680"
+  },
+  {
+   "cite": "Rev. Proc. 2025-32 sec. 3.06 table (maximum credit 2026)",
+   "url": "https://www.irs.gov/irb/2025-45_IRB",
+   "quote": "Maximum Amount of Credit $4,427 $7,316 $8,231 $664"
+  },
+  {
+   "cite": "Rev. Proc. 2025-32 sec. 3.06 table (joint phaseout start 2026)",
+   "url": "https://www.irs.gov/irb/2025-45_IRB",
+   "quote": "Threshold Phaseout Amount (Married Filing Jointly) $31,160 $31,160 $31,160 $18,140"
+  },
+  {
+   "cite": "26 U.S.C. 32(b)(1) (phaseout percentage, 2 children)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section32&num=0&edition=prelim",
+   "quote": "2 qualifying children 40 21.06"
+  },
+  {
+   "cite": "26 U.S.C. 3101(a) (employee social security tax)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section3101&num=0&edition=prelim",
+   "quote": "there is hereby imposed on the income of every individual a tax equal to 6.2 percent of the wages"
+  },
+  {
+   "cite": "26 U.S.C. 3101(b)(1) (employee Medicare tax)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section3101&num=0&edition=prelim",
+   "quote": "a tax equal to 1.45 percent of the wages"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 standard deduction",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "For tax year 2026, the standard deduction increases to $32,200 for married couples filing jointly."
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 12% and 10% brackets",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "12% for incomes over $12,400 ($24,800 for married couples filing jointly)."
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 22% bracket",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "22% for incomes over $50,400 ($100,800 for married couples filing jointly)"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 24% bracket",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "24% for incomes over $105,700 ($211,400 for married couples filing jointly)"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 32% and 35% brackets",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "35% for incomes over $256,225 ($512,450 for married couples filing jointly); 32% for incomes over $201,775 ($403,550 for married couples filing jointly)"
+  }
+ ],
+ "assumptions": [
+  "Tax year 2026 rules as in force on 2026-09-29 (U.S. Code) and Rev. Proc. 2025-32.",
+  "Married filing jointly; two qualifying children under 13; both spouses work; child care spending of at least $7,500 (e.g., $15,000), so both options are fully used.",
+  "All income is wages; no other income, deductions or credits; standard deduction; each spouse below the 2026 Social Security wage base.",
+  "The employer plan offers the full $7,500 and the family either uses the full $7,500 account or no account (a mix is never better: the credit cap falls dollar for dollar with the account).",
+  "Earned income credit computed with the Rev. Proc. 2025-32 two-child amounts and the statutory 40% / 21.06% rates (the published IRS tables round slightly differently).",
+  "Federal only: state income tax is ignored (in states that exclude the account from state wages, the account gains extra, e.g. about $375 at a 5% state rate, which would narrow but not close the $626 gap).",
+  "Payroll tax saved by the account also slightly lowers future Social Security benefit credits; not valued here."
+ ],
+ "limits": "A rule-based simulation for tax year 2026, not a forecast; the CPI comparison is history, not a forecast. Real households differ (one child, lower care spending, other income, state tax, employer plan design). No personal advice.",
+ "novelty": {
+  "queries": [
+   "2026 dependent care FSA $7,500 vs child and dependent care credit 50% which is better income breakeven",
+   "dependent care FSA or child care credit 2026 12% bracket married two kids credit wins by how much",
+   "new 50% child and dependent care credit 2026 makes dependent care FSA worse for middle income families earned income credit interaction"
+  ],
+  "results": [
+   {
+    "query": 1,
+    "title": "Which is better: a dependent care FSA or a tax credit for childcare expenses?",
+    "url": "https://www.trinet.com/insights/which-is-better-a-dependent-care-fsa-or-a-tax-credit-for-childcare-expenses"
+   },
+   {
+    "query": 1,
+    "title": "Claiming Daycare Expenses on Your Taxes: Dependent Care FSA vs the Child Care Tax Credit",
+    "url": "https://www.keepertax.com/posts/dependent-care-fsa-child-care-tax-credit"
+   },
+   {
+    "query": 1,
+    "title": "Dependent Care FSA vs. Dependent Care Tax Credit",
+    "url": "https://smartasset.com/taxes/dependent-care-fsa-vs-dependent-care-tax-credit"
+   },
+   {
+    "query": 1,
+    "title": "Dependent Care FSA vs Child Care Tax Credit 2026: Which Saves You More?",
+    "url": "https://nationaltaxtools.com/guides/dependent-care-fsa-vs-tax-credit/"
+   },
+   {
+    "query": 1,
+    "title": "FAQs - FSAFEDS",
+    "url": "https://www.fsafeds.gov/support/faq/all/312"
+   },
+   {
+    "query": 1,
+    "title": "Childcare Tax Credit vs. Dependent Care FSA in 2026",
+    "url": "https://selftaughtmoney.com/tax-saving/dependent-care-fsa-vs-child-tax-credit/"
+   },
+   {
+    "query": 1,
+    "title": "Dependent Care FSA vs. Child Care Tax Credit 2026 | Which Wins Now?",
+    "url": "https://statecalc.com/blog/dependent-care-fsa-vs-child-care-credit-guide/"
+   },
+   {
+    "query": 1,
+    "title": "Dependent Care Flexible Spending Account (FSA)",
+    "url": "https://benefits.adobe.com/us/employee-discounts-and-perks/dependent-care-flexible-spending-account-fsa"
+   },
+   {
+    "query": 1,
+    "title": "What is a dependent care FSA?",
+    "url": "https://finance.yahoo.com/personal-finance/taxes/article/what-is-a-dependent-care-fsa-192359976.html"
+   },
+   {
+    "query": 2,
+    "title": "Claiming Daycare Expenses on Your Taxes: Dependent Care FSA vs the Child Care Tax Credit",
+    "url": "https://www.keepertax.com/posts/dependent-care-fsa-child-care-tax-credit"
+   },
+   {
+    "query": 2,
+    "title": "Which is better: a dependent care FSA or a tax credit for childcare expenses?",
+    "url": "https://www.trinet.com/insights/which-is-better-a-dependent-care-fsa-or-a-tax-credit-for-childcare-expenses"
+   },
+   {
+    "query": 2,
+    "title": "Dependent Care FSA vs. Dependent Care Tax Credit",
+    "url": "https://smartasset.com/taxes/dependent-care-fsa-vs-dependent-care-tax-credit"
+   },
+   {
+    "query": 2,
+    "title": "The Ins and Outs of the Child and Dependent Care Credit - TurboTax Tax Tips & Videos",
+    "url": "https://turbotax.intuit.com/tax-tips/family/the-ins-and-outs-of-the-child-and-dependent-care-tax-credit/L2H7rzUWc"
+   },
+   {
+    "query": 2,
+    "title": "Dependent Care FSA vs Child Care Tax Credit 2026: Which Saves You More?",
+    "url": "https://nationaltaxtools.com/guides/dependent-care-fsa-vs-tax-credit/"
+   },
+   {
+    "query": 2,
+    "title": "Big Beautiful Bill permanently enhances dependent care benefits",
+    "url": "https://www.mercer.com/en-us/insights/us-health-news/big-beautiful-bill-permanently-enhances-dependent-care-benefits/"
+   },
+   {
+    "query": 2,
+    "title": "Child and Dependent Care Credit 2026 - Now Up to 50% | NewTaxTools",
+    "url": "https://newtaxtools.com/child-dependent-care-credit-2026"
+   },
+   {
+    "query": 2,
+    "title": "Dependent Care FSA vs. Child Care Tax Credit 2026 | Which Wins Now?",
+    "url": "https://statecalc.com/blog/dependent-care-fsa-vs-child-care-credit-guide/"
+   },
+   {
+    "query": 2,
+    "title": "What is a dependent care FSA?",
+    "url": "https://finance.yahoo.com/personal-finance/taxes/article/what-is-a-dependent-care-fsa-192359976.html"
+   },
+   {
+    "query": 3,
+    "title": "One Big Beautiful Bill Impact on Families | Poppins Payroll",
+    "url": "https://www.poppinspayroll.com/blog/2025-childcare-tax-savings-ctc-cdctc-dependent-care-fsa"
+   },
+   {
+    "query": 3,
+    "title": "The Ins and Outs of the Child and Dependent Care Credit - TurboTax Tax Tips & Videos",
+    "url": "https://turbotax.intuit.com/tax-tips/family/the-ins-and-outs-of-the-child-and-dependent-care-tax-credit/L2H7rzUWc"
+   },
+   {
+    "query": 3,
+    "title": "Big Beautiful Bill permanently enhances dependent care benefits",
+    "url": "https://www.mercer.com/en-us/insights/us-health-news/big-beautiful-bill-permanently-enhances-dependent-care-benefits/"
+   },
+   {
+    "query": 3,
+    "title": "Child and Dependent Care Credit 2026 - Now Up to 50% | NewTaxTools",
+    "url": "https://newtaxtools.com/child-dependent-care-credit-2026"
+   },
+   {
+    "query": 3,
+    "title": "Dependent Care FSA Limit 2026 | $7,500, Up From $5,000",
+    "url": "https://morkelfinancial.com/blog/dependent-care-fsa-limit-2026"
+   },
+   {
+    "query": 3,
+    "title": "Child and Dependent Care Tax Credit (2026): How It Works",
+    "url": "https://childcarecostfinder.com/guides/child-and-dependent-care-tax-credit/"
+   },
+   {
+    "query": 3,
+    "title": "Child Care Tax Credit 2026: Daycare, Summer Camp, and Limits | Ourtaxpartner.com",
+    "url": "https://ourtaxpartner.com/child-care-tax-credit-2026/"
+   },
+   {
+    "query": 3,
+    "title": "Dependent Care FSA vs. Child Care Tax Credit 2026 | Which Wins Now?",
+    "url": "https://statecalc.com/blog/dependent-care-fsa-vs-child-care-credit-guide/"
+   },
+   {
+    "query": 3,
+    "title": "ab 2676 cfa 20160505 154244 asm comm",
+    "url": "https://www.leginfo.ca.gov/pub/15-16/bill/asm/ab_2651-2700/ab_2676_cfa_20160505_154244_asm_comm.html"
+   }
+  ],
+  "verdict": "partly-said",
+  "nearest": [
+   "https://nationaltaxtools.com/guides/dependent-care-fsa-vs-tax-credit/",
+   "https://statecalc.com/blog/dependent-care-fsa-vs-child-care-credit-guide/",
+   "https://newtaxtools.com/child-dependent-care-credit-2026"
+  ],
+  "note": "Several 2026 guides say the credit now beats the account in the 12% bracket and that the account wins in the 22% bracket (the upper edge is said). Not found: the lower edge. Guides imply the credit wins more clearly at lower incomes (one example says it clearly wins at $40,000 AGI); a full-return computation shows the opposite below about $70,500 of wages, because the credit is nonrefundable and the account raises the earned income credit. Search returned 9 results per query."
+ }
+}

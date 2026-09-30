@@ -1,0 +1,236 @@
+{
+  "id": "retire-7",
+  "pillar": "retire",
+  "card": {
+    "thesis": "Rolling over short-term Treasury bills beat locking in a longer Treasury note held to maturity in a large share of past periods, especially when inflation was building.",
+    "overturns": "\"Locking in a longer-term bond rate always pays more than rolling over short-term cash.\""
+  },
+  "claim": "Compare two ways to hold a sum for ten years: buy a 10-year Treasury note at that month's yield and hold it, or keep rolling 3-month Treasury bills. Over 762 starting months from April 1953 to September 2016, rolling bills ended with more money in 32.68% of cases. The pattern is concentrated: bills won in 85.42% of starting months from 1960 to 1979, when inflation and rates were building, but in only 2.27% of starting months since 1980, when rates were mostly falling. The best case for bills left them 24.8% ahead after ten years; the best case for the note left it 103.4% ahead. Which choice won depended on the path of rates after purchase, not on the note's higher starting yield.",
+  "numbers": [
+    {
+      "id": "purchase_months",
+      "value": 762,
+      "unit": "months",
+      "definition": "Starting months s in the GS10 file (monthly average 10-year constant-maturity Treasury yield, percent) for which TB3MS (3-month Treasury bill secondary market rate, percent, monthly) exists for all 120 months s..s+119."
+    },
+    {
+      "id": "first_purchase_yyyymm",
+      "value": 195304,
+      "unit": "yyyymm",
+      "definition": "First valid starting month, year*100+month."
+    },
+    {
+      "id": "last_purchase_yyyymm",
+      "value": 201609,
+      "unit": "yyyymm",
+      "definition": "Last valid starting month, year*100+month."
+    },
+    {
+      "id": "share_bills_won_pct",
+      "value": 32.68,
+      "unit": "percent",
+      "definition": "Share of starting months with Bills/Note > 1, x100, where Bills = product over k=0..119 of (1 + TB3MS(s+k)/1200) and Note = (1 + GS10(s)/200)^20 (par note, semiannual coupons reinvested at the purchase yield)."
+    },
+    {
+      "id": "share_bills_won_1960_1979_pct",
+      "value": 85.42,
+      "unit": "percent",
+      "definition": "Same share restricted to starting months 1960-01..1979-12."
+    },
+    {
+      "id": "share_bills_won_since_1980_pct",
+      "value": 2.27,
+      "unit": "percent",
+      "definition": "Same share restricted to starting months 1980-01 onward."
+    },
+    {
+      "id": "best_bills_advantage_pct",
+      "value": 24.8,
+      "unit": "percent",
+      "definition": "(max over starting months of Bills/Note - 1) x 100."
+    },
+    {
+      "id": "best_note_advantage_pct",
+      "value": 103.4,
+      "unit": "percent",
+      "definition": "(1 / min over starting months of Bills/Note - 1) x 100."
+    }
+  ],
+  "series": [
+    {
+      "id": "GS10",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS10&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/GS10",
+      "file": "data/GS10.csv",
+      "sha256": "e22128f6caa50e4e7fed03a1c2d323a517bad452a2c69eab89277450fb59bc5c",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-08-01",
+      "terms": {
+        "quote": "Notes: Averages of business days. For further information regarding treasury constant maturity data, please refer to the H.15 Statistical Release notes and the Treasury Yield Curve Methodology . For questions on the data, please contact the data source . For questions on FRED functionality, please contact us here .",
+        "url": "https://fred.stlouisfed.org/series/GS10",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    },
+    {
+      "id": "TB3MS",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+      "file": "data/TB3MS.csv",
+      "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-08-01",
+      "terms": {
+        "quote": "Notes: Averages of Business Days, Discount Basis For questions on the data, please contact the data source . For questions on FRED functionality, please contact us here .",
+        "url": "https://fred.stlouisfed.org/series/TB3MS",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    }
+  ],
+  "provisions": [],
+  "assumptions": [
+    "Bills: each month earns TB3MS/12 (the quoted discount-basis annual rate, used as a simple monthly return), compounded monthly for 120 months, no taxes or fees.",
+    "Note: bought at par at the purchase month's average constant-maturity yield; coupons reinvested at that yield, so ending value = (1 + y/2)^20.",
+    "Both strategies are nominal and before tax; inflation affects both equally."
+  ],
+  "limits": "History, not a forecast. The outcome depended on how rates moved after purchase, which was not known at purchase. Overlapping ten-year windows are not independent. The discount-basis bill rate slightly understates bill returns, and reinvesting coupons at the purchase yield is an approximation.",
+  "novelty": {
+    "queries": [
+      "rolling T-bills vs buying 10-year Treasury held to maturity which won historically since 1953",
+      "lock in long-term bond yield or roll short-term treasuries historical comparison 10 year periods",
+      "how often did cash beat 10-year Treasury over the next decade history"
+    ],
+    "verdict": "not-found",
+    "nearest": [
+      "https://streetstats.finance/rates/term-premiums",
+      "https://awealthofcommonsense.com/2024/01/historical-returns-for-stocks-bonds-cash/"
+    ],
+    "note": "Term premiums and calendar-year cash-vs-bond comparisons exist. Not found: a start-month-by-start-month comparison of rolling 3-month bills against a 10-year note held to maturity, showing bills won about a third of the time overall, most of the time for 1960-1979 starts and almost never for post-1980 starts.",
+    "results": [
+      {
+        "query": "rolling T-bills vs buying 10-year Treasury held to maturity which won historically since 1953",
+        "top": [
+          {
+            "title": "Considerations for T-bill Issuance",
+            "url": "https://home.treasury.gov/system/files/221/TBACCharge1Q32024.pdf"
+          },
+          {
+            "title": "The Real Return of US T-Bills Since 1948 — A Complete History of Negative-Real-Rate Regimes",
+            "url": "https://eco3min.fr/en/us-3-month-tbill-real-returns/"
+          },
+          {
+            "title": "U.S. Treasury Securities: Bonds, Bills & More | Vanguard",
+            "url": "https://investor.vanguard.com/investor-resources-education/understanding-investment-types/us-treasury-bonds"
+          },
+          {
+            "title": "United States Treasury security",
+            "url": "https://en.wikipedia.org/wiki/United_States_Treasury_security"
+          },
+          {
+            "title": "U.S. Treasury Term Premiums & Rolling Returns - T-Bills, Treasury Notes, Treasury Bonds | StreetStats",
+            "url": "https://streetstats.finance/rates/term-premiums"
+          },
+          {
+            "title": "10-Year Treasury Constant Maturity Minus 3-Month Treasury Constant Maturity (T10Y3M) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/T10Y3M"
+          },
+          {
+            "title": "U.S. Treasury Yield Curve - T-Bills, Treasury Notes, Treasury Bonds Interest Rates | StreetStats",
+            "url": "https://streetstats.finance/rates/treasuries"
+          },
+          {
+            "title": "Historical Treasury Rates: Bills, Notes, and Bonds - Treasurlytics",
+            "url": "https://treasurlytics.com/historical-treasury-rates"
+          },
+          {
+            "title": "All US Treasuries are not created equal",
+            "url": "https://etfyourself.substack.com/p/all-us-treasuries-are-not-created"
+          }
+        ]
+      },
+      {
+        "query": "lock in long-term bond yield or roll short-term treasuries historical comparison 10 year periods",
+        "top": [
+          {
+            "title": "Long-Term Treasury Yields Rise to 5.5%, Mortgage Rates to 7.5%, as Bond Market Grapples with a Complex Reality | Wolf Street",
+            "url": "https://wolfstreet.com/2026/09/25/long-term-treasury-yields-rise-to-5-5-mortgage-rates-to-7-5-as-bond-market-grapples-with-a-complex-reality/"
+          },
+          {
+            "title": "Yield curve",
+            "url": "https://en.wikipedia.org/wiki/Yield_curve"
+          },
+          {
+            "title": "U.S. Treasury Term Premiums & Rolling Returns - T-Bills, Treasury Notes, Treasury Bonds | StreetStats",
+            "url": "https://streetstats.finance/rates/term-premiums"
+          },
+          {
+            "title": "U.S. Treasury Yield Curve - T-Bills, Treasury Notes, Treasury Bonds Interest Rates | StreetStats",
+            "url": "https://streetstats.finance/rates/treasuries"
+          },
+          {
+            "title": "Historical Treasury Rates: Bill, Note & Bond Yield Charts | Treasurlytics",
+            "url": "https://treasurlytics.com/historical-treasury-rates"
+          },
+          {
+            "title": "Yield on Long-Term United States Bonds ... | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/graph/?g=Doo"
+          },
+          {
+            "title": "What Drives Long-Term Treasury Yields - CME Group",
+            "url": "https://www.cmegroup.com/insights/economic-research/2024/what-drives-long-term-treasury-yields.html"
+          },
+          {
+            "title": "Long-term Treasuries at 5%: what you can gain, what you can lose, and how to hedge",
+            "url": "https://portfolio-terminal.com/blog/treasury-bonds-rising-yields-risk-hedge-2026"
+          },
+          {
+            "title": "Daily Treasury Par Yield Curve Rates",
+            "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026"
+          }
+        ]
+      },
+      {
+        "query": "how often did cash beat 10-year Treasury over the next decade history",
+        "top": [
+          {
+            "title": "Bonds Just Posted Their Worst Decade Since the Great Depression — Is This the Buying Opportunity of a Generation?",
+            "url": "https://finance.yahoo.com/markets/options/articles/bonds-just-posted-worst-decade-132335603.html"
+          },
+          {
+            "title": "Historical Returns For Stocks, Bonds & Cash - A Wealth of Common Sense",
+            "url": "https://awealthofcommonsense.com/2024/01/historical-returns-for-stocks-bonds-cash/"
+          },
+          {
+            "title": "How Often Do Long-Term Bonds Beat Stocks? - A Wealth of Common Sense",
+            "url": "https://awealthofcommonsense.com/2020/06/how-often-do-long-term-bonds-beat-stocks/"
+          },
+          {
+            "title": "Why Have 10-Year U.S. Treasury Yields Increased Since The Fed Started Cutting Rates? | J.P. Morgan",
+            "url": "https://www.jpmorgan.com/insights/markets-and-economy/top-market-takeaways/tmt-why-have-ten-year-us-treasury-yields-increased-since-the-fed-started-cutting-rates"
+          },
+          {
+            "title": "History shows financial calamities occur when rates rise rapidly like this: 'Something always breaks'",
+            "url": "https://www.cnbc.com/2026/09/24/history-shows-financial-calamities-occur-when-rates-rise-rapidly-like-this-something-always-breaks.html"
+          },
+          {
+            "title": "The 10-year Treasury yield is at its highest in nearly two decades. How we got here",
+            "url": "https://www.cnbc.com/2026/09/26/10-year-treasury-yield-is-at-its-highest-in-19-years-how-we-got-here.html"
+          },
+          {
+            "title": "US10Y: U.S. 10 Year Treasury - Stock Price, Quote and News - CNBC",
+            "url": "https://www.cnbc.com/quotes/US10Y"
+          },
+          {
+            "title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity, Quoted on an Investment Basis (DGS10) | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/series/DGS10"
+          },
+          {
+            "title": "will cash be the best performing asset in 2022",
+            "url": "https://www.nasdaq.com/articles/will-cash-be-the-best-performing-asset-in-2022"
+          }
+        ]
+      }
+    ]
+  }
+}

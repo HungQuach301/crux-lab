@@ -1,0 +1,251 @@
+{
+  "card": {
+    "thesis": "For borrowers with strong credit, a small down payment barely moves the locked mortgage rate, while a weaker credit score moves it several times as much.",
+    "overturns": "\"A bigger down payment is the surest way to get a lower mortgage rate.\""
+  },
+  "claim": "In daily locked-rate data on 30-year conforming mortgages from January 2017 to September 2026 (2,434 days), borrowers with credit scores of 740 or more who put down less than 20% (loan-to-value above 80) locked rates only 0.065 points higher on average than those putting down 20% or more, and the gap never exceeded 0.173 points. Holding the down payment at 20% or more, borrowers with scores below 680 locked 0.343 points higher than those at 740 or more, about 5.3 times the down-payment gap, and the credit gap was larger on 99.2% of days. On 2026-09-29 the three rates were 7.268%, 7.331% and 7.529%. The main price of a small down payment is mortgage insurance and a bigger balance, not the rate. This is history, not a forecast.",
+  "numbers": [
+    {
+      "id": "n_days",
+      "value": 2434,
+      "unit": "days",
+      "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Count of those dates."
+    },
+    {
+      "id": "mean_ltv_gap",
+      "value": 0.065,
+      "unit": "percentage points",
+      "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Mean over those dates of (OBMMIC30YFLVGT80FGE740 - OBMMIC30YFLVLE80FGE740), rounded to 0.001."
+    },
+    {
+      "id": "max_ltv_gap",
+      "value": 0.173,
+      "unit": "percentage points",
+      "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Maximum over those dates of (OBMMIC30YFLVGT80FGE740 - OBMMIC30YFLVLE80FGE740), rounded to 0.001."
+    },
+    {
+      "id": "mean_credit_gap",
+      "value": 0.343,
+      "unit": "percentage points",
+      "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Mean over those dates of (OBMMIC30YFLVLE80FLT680 - OBMMIC30YFLVLE80FGE740), rounded to 0.001."
+    },
+    {
+      "id": "credit_to_ltv_ratio",
+      "value": 5.3,
+      "unit": "ratio",
+      "definition": "Unrounded mean_credit_gap / unrounded mean_ltv_gap, rounded to 0.1."
+    },
+    {
+      "id": "share_days_credit_gap_gt_ltv_gap",
+      "value": 99.2,
+      "unit": "percent of days",
+      "definition": "Daily Optimal Blue 30-year fixed conforming locked-rate indices (percent): OBMMIC30YFLVLE80FGE740 (LTV <= 80, FICO >= 740), OBMMIC30YFLVGT80FGE740 (LTV > 80, FICO >= 740), OBMMIC30YFLVLE80FLT680 (LTV <= 80, FICO < 680). Use only dates on which all three have a numeric value (2017-01-03 through 2026-09-29). Share of those dates where (LT680 - GE740, both LTV<=80) > (LTV>80 - LTV<=80, both FICO>=740), times 100, rounded to 0.1."
+    },
+    {
+      "id": "latest_le80_ge740",
+      "value": 7.268,
+      "unit": "percent",
+      "definition": "OBMMIC30YFLVLE80FGE740 on 2026-09-29."
+    },
+    {
+      "id": "latest_gt80_ge740",
+      "value": 7.331,
+      "unit": "percent",
+      "definition": "OBMMIC30YFLVGT80FGE740 on 2026-09-29."
+    },
+    {
+      "id": "latest_le80_lt680",
+      "value": 7.529,
+      "unit": "percent",
+      "definition": "OBMMIC30YFLVLE80FLT680 on 2026-09-29."
+    }
+  ],
+  "series": [
+    {
+      "id": "OBMMIC30YFLVLE80FGE740",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YFLVLE80FGE740&coed=2026-09-29",
+      "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FGE740",
+      "file": "data/OBMMIC30YFLVLE80FGE740.csv",
+      "sha256": "be02b48ca0f7b9a9b7850e354aa2beeadd7ce541ca0f1fcab0c6b2bf5d54fd4f",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-09-29",
+      "terms": {
+        "quote": "Copyrighted: Citation Required",
+        "url": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FGE740"
+      }
+    },
+    {
+      "id": "OBMMIC30YFLVGT80FGE740",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YFLVGT80FGE740&coed=2026-09-29",
+      "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YFLVGT80FGE740",
+      "file": "data/OBMMIC30YFLVGT80FGE740.csv",
+      "sha256": "b75447c1581adde607575135986b69758d710b32b963b252c8680b453777b67b",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-09-29",
+      "terms": {
+        "quote": "Copyrighted: Citation Required",
+        "url": "https://fred.stlouisfed.org/series/OBMMIC30YFLVGT80FGE740"
+      }
+    },
+    {
+      "id": "OBMMIC30YFLVLE80FLT680",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YFLVLE80FLT680&coed=2026-09-29",
+      "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FLT680",
+      "file": "data/OBMMIC30YFLVLE80FLT680.csv",
+      "sha256": "2e12c8c46237d928ae3a408e439f010c67c7cbec561fee5d54d4b1ad0a4791e8",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-09-29",
+      "terms": {
+        "quote": "Copyrighted: Citation Required",
+        "url": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FLT680"
+      }
+    }
+  ],
+  "provisions": [],
+  "assumptions": [
+    "Index averages of actual locks are used as the rate a typical borrower in each bucket receives; the buckets differ in other traits (points paid, loan size, lender mix) that the indices do not hold constant.",
+    "The comparison covers conforming 30-year fixed loans only; mortgage insurance premiums, which loans above 80 LTV generally require, are not in the rate and not measured here."
+  ],
+  "limits": "History, not a forecast. The indices are averages of locks, not price quotes for one borrower; borrowers who choose small down payments may also buy points or differ in other ways. The total cost of a small down payment includes mortgage insurance and interest on the larger balance, which this rate comparison deliberately leaves out.",
+  "novelty": {
+    "queries": [
+      "does a bigger down payment lower your mortgage rate less than 20% down rate difference Optimal Blue data",
+      "credit score vs down payment which matters more for mortgage rate locked rates data",
+      "mortgage rate LTV above 80 vs below 80 same credit score rate barely different cost is PMI"
+    ],
+    "results": [
+      {
+        "query": "does a bigger down payment lower your mortgage rate less than 20% down rate difference Optimal Blue data",
+        "top": [
+          {
+            "title": "Is a larger down payment worth it in today's mortgage rate environment? What experts say - CBS News",
+            "url": "https://www.cbsnews.com/news/larger-mortgage-down-payment-worth-it-may-2026/"
+          },
+          {
+            "title": "Pros and Cons of a Large Down Payment on a House",
+            "url": "https://www.hsh.com/first-time-homebuyer/down-payment-size.html"
+          },
+          {
+            "title": "How a Larger Down Payment Can Affect Your Mortgage Terms and Monthly Payment | The Federal Savings Bank",
+            "url": "https://www.thefederalsavingsbank.com/Blog/how-a-larger-down-payment-can-affect-your-mortgage-terms-and-monthly-payment/"
+          },
+          {
+            "title": "How Down Payments Affect Your Mortgage | Broadview Federal Credit Union",
+            "url": "https://www.broadviewfcu.com/blogs/how-down-payments-affect-mortgages/"
+          },
+          {
+            "title": "Optimal Blue Mortgage Market Indices | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/release?rid=473"
+          },
+          {
+            "title": "How Much Should You Put Down on a House?",
+            "url": "https://themortgagereports.com/18520/20-percent-downpayment-risk-mortgage-interest-rate"
+          },
+          {
+            "title": "2026-06-25, Release Tables: Optimal Blue Mortgage Market Indices | FRED | St. Louis Fed",
+            "url": "https://fred.stlouisfed.org/release/tables?eid=1194106&rid=473"
+          },
+          {
+            "title": "xb03 sol5",
+            "url": "https://legacy-www.math.harvard.edu/archive/xb_spring_03/xb03_sol5.pdf"
+          },
+          {
+            "title": "what is down payment",
+            "url": "https://www.bankrate.com/mortgages/what-is-down-payment"
+          }
+        ]
+      },
+      {
+        "query": "credit score vs down payment which matters more for mortgage rate locked rates data",
+        "top": [
+          {
+            "title": "What's more important when applying for a mortgage: excellent credit or 20% down payment?",
+            "url": "https://www.cnbc.com/select/the-most-important-factor-in-getting-an-affordable-mortgage/"
+          },
+          {
+            "title": "How Credit Scores Affect Your Mortgage Rate | Chase",
+            "url": "https://www.chase.com/personal/mortgage/education/financing-a-home/how-credit-score-affects-mortgage-rates"
+          },
+          {
+            "title": "How Credit Scores Affect Your Mortgage Rate",
+            "url": "https://bettermoneyhabits.bankofamerica.com/en/home-ownership/how-credit-affects-mortgage-rate"
+          },
+          {
+            "title": "The Power of Down Payments and Credit Scores | C&N",
+            "url": "https://www.cnbankpa.com/Resource-Center/Education/C-N-Library/Down-Payments-and-Credit-Scores"
+          },
+          {
+            "title": "How Your Credit Score Impacts Your Mortgage Rate",
+            "url": "https://www.lendfriendmtg.com/learning-center/how-your-credit-score-impacts-your-mortgage-rate"
+          },
+          {
+            "title": "How much does credit score affect mortgage rate? | Liberty Bank",
+            "url": "https://www.libertybank.com/the-impact-of-credit-scores-on-your-mortgage-rate/"
+          },
+          {
+            "title": "How credit scores impact your mortgage | Old National Bank",
+            "url": "https://www.oldnational.com/resources/insights/how-credit-scores-impact-your-mortgage/"
+          },
+          {
+            "title": "Understanding Credit Scores for Home Buying",
+            "url": "https://www.themortgagelink.com/blog/understanding-credit-scores-for-home-buying"
+          },
+          {
+            "title": "credit score affects mortgage rate",
+            "url": "https://www.nerdwallet.com/article/credit-score-affects-mortgage-rate"
+          }
+        ]
+      },
+      {
+        "query": "mortgage rate LTV above 80 vs below 80 same credit score rate barely different cost is PMI",
+        "top": [
+          {
+            "title": "Loan-to-Value Ratio (LTV): The Formula, Thresholds, and How It Changes Your Rate | Opendoor",
+            "url": "https://www.opendoor.com/articles/loan-to-value-ratio"
+          },
+          {
+            "title": "How to Calculate Loan-to-Value (LTV) Ratio | Academy Bank",
+            "url": "https://www.academybank.com/article/understanding-loan-to-value-ltv-ratio-and-how-to-calculate-it"
+          },
+          {
+            "title": "Understanding Loan-to-Value Ratio (LTV)",
+            "url": "https://www.freedommortgage.com/learn/mortgages/loan-to-value-ratio"
+          },
+          {
+            "title": "Explaining LTV and how it impacts your mortgage",
+            "url": "https://finance.yahoo.com/personal-finance/mortgages/article/loan-to-value-ratio-ltv-203311942.html"
+          },
+          {
+            "title": "Mortgage insurance",
+            "url": "https://en.wikipedia.org/wiki/Mortgage_insurance"
+          },
+          {
+            "title": "What Is Loan-to-Value (LTV) Ratio? & It’s Impact – Alliant",
+            "url": "https://www.alliantcreditunion.org/money-mentor/understanding-loan-to-value-ltv-ratios"
+          },
+          {
+            "title": "Loan-to-value ratio",
+            "url": "https://en.wikipedia.org/wiki/Loan-to-value_ratio"
+          },
+          {
+            "title": "LTV Calculator for Mortgage PMI, Refinancing Mortgages & Home Equity Loan Qualification",
+            "url": "https://www.mortgagecalculator.org/calcs/ltv.php"
+          },
+          {
+            "title": "How LTV Impacts Your Mortgage Approval and Interest Rates - Rentastic Blogs",
+            "url": "https://www.rentastic.io/blog/loan-to-value-ratio-4c4b8"
+          }
+        ]
+      }
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://www.cnbc.com/select/the-most-important-factor-in-getting-an-affordable-mortgage/",
+      "https://www.hsh.com/first-time-homebuyer/down-payment-size.html"
+    ],
+    "note": "Sources commonly state that loans above 80 LTV carry 0.25 to 0.50 points higher rates and that down payment matters as much as credit score; one notes modest rate savings from larger down payments. None measures the locked-rate gap by LTV against the gap by credit score over the daily history. Each query returned 9 results."
+  }
+}

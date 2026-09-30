@@ -1,0 +1,253 @@
+{
+  "id": "retire-2",
+  "pillar": "retire",
+  "card": {
+    "thesis": "Because each cost-of-living raise arrives months after prices rise, Social Security retirees lose purchasing power almost every year, adding up to many missing monthly checks over a retirement.",
+    "overturns": "\"Social Security's annual cost-of-living raise fully protects retirees' benefits from inflation.\""
+  },
+  "claim": "Social Security raises benefits each December by the rise in the July-September average of the CPI for urban wage earners (CPI-W), so every check paid in a year is priced at the previous summer's level while prices keep moving. Recomputing the raises from CPI-W reproduces the official ones (for example 5.9% for 2022 and 8.7% for 2023). Measured against the very index the law uses, checks paid in 2022 were on average 6.76% short of the summer-2021 price level they were set to match, a loss equal to 0.811 of a monthly check that year and 1.635 of a check over 2021-2023. Over the 40 payment years 1985-2024 the average shortfall was 2.06% a year, adding up to 9.88 monthly checks never recovered; retirees came out ahead in only 4 of those years (when prices fell).",
+  "numbers": [
+    {
+      "id": "cola_2021_pct",
+      "value": 5.9,
+      "unit": "percent",
+      "definition": "COLA determined in 2021 (paid from January 2022): round((Q3(2021)/Q3(base)-1)x100, 1), Q3(y) = mean of CWUR0000SA0 (CPI-W, all items, US city average, NSA, monthly) for July, August, September of y; base = most recent earlier year whose computed COLA was > 0, starting the chain with base year 1983 and applying it to every year 1984..2023 (a year whose computed value is <= 0 gets no COLA and leaves the base unchanged)."
+    },
+    {
+      "id": "cola_2022_pct",
+      "value": 8.7,
+      "unit": "percent",
+      "definition": "Same as cola_2021_pct for the year 2022 (paid from January 2023)."
+    },
+    {
+      "id": "shortfall_2022_avg_pct",
+      "value": 6.76,
+      "unit": "percent",
+      "definition": "Mean over the 12 months m of 2022 of (1 - Q3(b)/CPIW(m)) x 100, where b = base year in force for benefits paid in 2022 (the latest year <= 2021 with a positive computed COLA, here 2021) and CPIW(m) = CWUR0000SA0 for month m."
+    },
+    {
+      "id": "shortfall_2022_months",
+      "value": 0.811,
+      "unit": "monthly checks",
+      "definition": "Sum over the 12 months of 2022 of (1 - Q3(b)/CPIW(m)), i.e. purchasing power missing relative to a check indexed to the base-quarter price level, in units of one monthly check."
+    },
+    {
+      "id": "shortfall_2021_2023_months",
+      "value": 1.635,
+      "unit": "monthly checks",
+      "definition": "Sum of the monthly shortfalls (1 - Q3(b_Y)/CPIW(m)) over all months of payment years 2021, 2022 and 2023, where b_Y = latest year <= Y-1 with a positive computed COLA."
+    },
+    {
+      "id": "cumulative_1985_2024_months",
+      "value": 9.88,
+      "unit": "monthly checks",
+      "definition": "Sum of the monthly shortfalls (1 - Q3(b_Y)/CPIW(m)) over all 480 months of payment years Y = 1985..2024 (negative months, when prices were below the base level, are included and offset)."
+    },
+    {
+      "id": "avg_annual_shortfall_1985_2024_pct",
+      "value": 2.06,
+      "unit": "percent",
+      "definition": "cumulative_1985_2024_months (unrounded) / 480 x 100."
+    },
+    {
+      "id": "years_retirees_ahead_1985_2024",
+      "value": 4,
+      "unit": "years",
+      "definition": "Number of payment years Y in 1985..2024 whose 12-month sum of shortfalls is negative."
+    }
+  ],
+  "series": [
+    {
+      "id": "CWUR0000SA0",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CWUR0000SA0&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/CWUR0000SA0",
+      "file": "data/CWUR0000SA0.csv",
+      "sha256": "27ceaacf4113963e47ec193ae819049c7d5f44fae8da26fd041a757bb1f951e0",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-08-01",
+      "terms": {
+        "quote": "",
+        "url": "https://fred.stlouisfed.org/series/CWUR0000SA0",
+        "copyrightQuote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing."
+      }
+    }
+  ],
+  "provisions": [
+    {
+      "cite": "42 U.S.C. 415(i)(1)(A)",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section415&num=0&edition=prelim",
+      "quote": "the term \"base quarter\" means (i) the calendar quarter ending on September 30 in each year after 1982"
+    },
+    {
+      "cite": "42 U.S.C. 415(i)(1)(D)",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section415&num=0&edition=prelim",
+      "quote": "the term \"CPI increase percentage\", with respect to a base quarter or cost-of-living computation quarter in any calendar year, means the percentage (rounded to the nearest one-tenth of 1 percent) by which the Consumer Price Index for that quarter (as prepared by the Department of Labor) exceeds such index for the most recent prior calendar quarter which was a base quarter under subparagraph (A)(ii) or, if later, the most recent cost-of-living computation quarter under subparagraph (B);"
+    },
+    {
+      "cite": "42 U.S.C. 415(i)(1)(G)",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section415&num=0&edition=prelim",
+      "quote": "the Consumer Price Index for a base quarter, a cost-of-living computation quarter, or any other calendar quarter shall be the arithmetical mean of such index for the 3 months in such quarter."
+    },
+    {
+      "cite": "42 U.S.C. 415(i)(2)(A)(ii)",
+      "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section415&num=0&edition=prelim",
+      "quote": "the Commissioner shall, effective with the month of December of that year as provided in subparagraph (B), increase-"
+    },
+    {
+      "cite": "20 CFR 404.272(a)",
+      "url": "https://www.law.cornell.edu/cfr/text/20/404.272",
+      "quote": "The revised Consumer Price Index (CPI) for urban wage earners and clerical workers as published by the Department of Labor"
+    }
+  ],
+  "assumptions": [
+    "The benefit paid in each month of year Y is indexed exactly to the base-quarter CPI-W level (Q3 of the last year with a COLA); rounding of COLAs to 0.1% and of benefits to the dime is ignored in the shortfall.",
+    "The December increase is first received in the January check, so a raise determined in year y applies to checks paid in year y+1.",
+    "CPI-W is used both for the COLA and as the yardstick, so the result measures only the timing lag, not any difference between CPI-W and retirees' actual spending.",
+    "The wage-index alternative in 415(i)(1)(C)(ii) (low trust-fund ratio) never applied in these years; the CPI rule is used throughout. The COLA chain starts from the 1983 base quarter."
+  ],
+  "limits": "History, not a forecast. The shortfall is relative to a hypothetical check that tracks prices month by month from the base-quarter level; it is not money the Social Security Administration owes. The size of the lag depends on how fast prices rise in each year; years of falling prices reduce it.",
+  "novelty": {
+    "queries": [
+      "Social Security COLA lag retirees lose purchasing power before COLA catches up",
+      "COLA timing third quarter lag cost retirees month of benefits 2022",
+      "Social Security cost-of-living adjustment delay permanent loss inflation 2021 2022 retirees estimate"
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://www.fool.com/retirement/2026/09/27/the-social-security-cola-trap-why-your-buying-powe/",
+      "https://financebuzz.com/why-social-security-colas-fail",
+      "https://www.myfederalretirement.com/fers-csrs-cola-watch/"
+    ],
+    "note": "The COLA timing lag and the 2021-2022 losses are discussed (Senior Citizens League estimates of dollar shortfalls; articles on the Q3 measurement window). Not found: the structural lag measured against the COLA's own index across 40 years, expressed as about ten monthly checks, with 2022 alone costing most of a check.",
+    "results": [
+      {
+        "query": "Social Security COLA lag retirees lose purchasing power before COLA catches up",
+        "top": [
+          {
+            "title": "Social Security COLA Preview: Will 2027 Benefits Go Up?",
+            "url": "https://www.aarp.org/social-security/cola-2027-increase-estimate/"
+          },
+          {
+            "title": "Social Security's 2.8% COLA is already losing ground - TheStreet",
+            "url": "https://www.thestreet.com/retirement/social-security-2026-cola-medicare-inflation-shrinking-raise"
+          },
+          {
+            "title": "The Social Security COLA Trap: Why Your Buying Power Might Still Shrink | The Motley Fool",
+            "url": "https://www.fool.com/retirement/2026/09/27/the-social-security-cola-trap-why-your-buying-powe/"
+          },
+          {
+            "title": "Why a Bigger 2027 Social Security COLA Might Still Feel Like a Pay Cut for Millions of Retirees | The Motley Fool",
+            "url": "https://www.fool.com/retirement/2026/09/29/why-a-bigger-2027-social-security-cola-might-still/"
+          },
+          {
+            "title": "The Social Security COLA Trap: Why Your Buying Power Might Still Shrink",
+            "url": "https://finance.yahoo.com/economy/policy/articles/social-security-cola-trap-why-102700561.html"
+          },
+          {
+            "title": "Why Social Security COLAs Continue To Fail, Even When They're Generous | FinanceBuzz",
+            "url": "https://financebuzz.com/why-social-security-colas-fail"
+          },
+          {
+            "title": "Social Security's 3.6% COLA hides a shortfall - TheStreet",
+            "url": "https://www.thestreet.com/retirement/social-security-2027-cola-3-6-percent-shortfall"
+          },
+          {
+            "title": "The Social Security COLA Trap: Why Your Buying Power Might Still Shrink - AOL",
+            "url": "https://www.aol.com/articles/social-security-cola-trap-why-102700000.html"
+          },
+          {
+            "title": "Social Security COLA Forecast for 2027 Is Falling and Here Is What It Means for Retirees | The Motley Fool",
+            "url": "https://www.fool.com/retirement/2026/09/27/social-security-cola-forecast-for-2027-is-falling/"
+          },
+          {
+            "title": "Social Security Benefits Lose 13.7% Purchasing Power Over Decade, Report Finds - News and Statistics - IndexBox",
+            "url": "https://www.indexbox.io/blog/social-security-colas-vs-retiree-expenses-a-growing-gap/"
+          }
+        ]
+      },
+      {
+        "query": "COLA timing third quarter lag cost retirees month of benefits 2022",
+        "top": [
+          {
+            "title": "2027 CSRS/FERS COLA Federal Retirees, Social Security - August 2026 update",
+            "url": "https://www.myfederalretirement.com/fers-csrs-cola-watch/"
+          },
+          {
+            "title": "How to Avoid the Military 'COLA Trap' by Getting Smart About Your Retirement Date",
+            "url": "https://www.military.com/benefits/military-pay/military-cola-trap-military-retirement.html"
+          },
+          {
+            "title": "Guide to Federal Retiree COLAs: What Are They and How Are They Calculated?",
+            "url": "https://www.myfederalretirement.com/federal-retiree-colas-guide/"
+          },
+          {
+            "title": "Cost-of-Living Adjustments for Federal Civil Service Annuities | Congress.gov | Library of Congress",
+            "url": "https://www.congress.gov/crs-product/94-834"
+          },
+          {
+            "title": "COLAs - Federal Cost of Living Adjustments - FEDweek",
+            "url": "https://www.fedweek.com/ask/federal-retirement/cola-cost-living-adjustments/"
+          },
+          {
+            "title": "Overview of COLA for Federal Employees - FEDLAW Federal Employment Law Firm",
+            "url": "https://fedemploymentattorneys.com/legal-blog/overview-of-cola-for-federal-employees/"
+          },
+          {
+            "title": "Learn more about cost-of-living adjustments (COLA)",
+            "url": "https://www.opm.gov/support/retirement/faq/cost-of-living-adjustments/"
+          },
+          {
+            "title": "Retirement Cost of Living Adjustment (COLA) | U.S. Customs and Border Protection",
+            "url": "https://www.cbp.gov/employee-resources/retirement/cola"
+          },
+          {
+            "title": "Good News for Retired Workers: The Monster Social Security COLA in 2023 Keeps Looking Better",
+            "url": "https://www.itiger.com/hans/news/2290783400"
+          }
+        ]
+      },
+      {
+        "query": "Social Security cost-of-living adjustment delay permanent loss inflation 2021 2022 retirees estimate",
+        "top": [
+          {
+            "title": "As inflation starts to subside, a lower Social Security cost-of-living adjustment for 2024 may be on the horizon",
+            "url": "https://www.cnbc.com/amp/2023/04/13/social-security-cost-of-living-adjustment-may-fall-with-inflation-rate.html"
+          },
+          {
+            "title": "Social Security's cost-of-living adjustment isn't keeping up with prices retirees pay",
+            "url": "https://www.cnbc.com/amp/2021/04/27/-social-security-cola-adjustment-not-keeping-up-with-prices-retirees-pay.html"
+          },
+          {
+            "title": "Social Security Cost-of-Living Adjustments and the Consumer Price Index",
+            "url": "https://www.ssa.gov/policy/docs/ssb/v67n3/v67n3p73.html"
+          },
+          {
+            "title": "Cost-of-Living Adjustment (COLA) Information | News | SSA",
+            "url": "https://www.ssa.gov/cola/"
+          },
+          {
+            "title": "Social Security: Cost-of-Living Adjustments | Congress.gov | Library of Congress",
+            "url": "https://www.congress.gov/crs-product/94-803"
+          },
+          {
+            "title": "social securitys big raise good news for retirees",
+            "url": "https://www.fool.com/retirement/2023/01/05/social-securitys-big-raise-good-news-for-retirees/"
+          },
+          {
+            "title": "seniors social security huge boost 2023 catch",
+            "url": "https://www.fool.com/retirement/2022/07/09/seniors-social-security-huge-boost-2023-catch"
+          },
+          {
+            "title": "retirees could get a big social security cost of living adjustment in 2023 because of inflation",
+            "url": "https://fortune.com/2022/04/13/retirees-could-get-a-big-social-security-cost-of-living-adjustment-in-2023-because-of-inflation"
+          },
+          {
+            "title": "social security benefits expect small raise 2024",
+            "url": "https://www.fool.com/retirement/2023/06/23/social-security-benefits-expect-small-raise-2024/"
+          }
+        ]
+      }
+    ]
+  }
+}

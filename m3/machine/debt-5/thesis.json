@@ -1,0 +1,243 @@
+{
+  "card": {
+    "thesis": "Mortgage insurance on a small down payment could usually have ended years earlier through rising home values than through the legal paydown schedule, but only on request.",
+    "overturns": "\"You're stuck paying mortgage insurance until your balance falls far enough on schedule.\""
+  },
+  "claim": "The legal right to cancel private mortgage insurance is keyed to paying the balance down to 80% of the home's original value, with automatic termination at 78%. For a buyer putting 5% down on a 30-year fixed loan at the average rate of the purchase quarter, that schedule took a median 11.58 years across the 173 purchase quarters from 1975 to 2018. If the home simply tracked the national house price index, the loan would have reached 80% of the home's current value in a median of 3.0 years; even under a stricter seasoning rule common among loan investors (at least 2 years, 75% until year 5, 80% after), the median was 4.0 years, and appreciation beat the schedule by 3 years or more for 87.9% of purchase quarters. It failed for only 2.9% of quarters, the 2005-2007 buyers. Using current value requires the borrower to ask and usually to pay for an appraisal. This is history, not a forecast.",
+  "numbers": [
+    {
+      "id": "simple_n_cohorts",
+      "value": 173,
+      "unit": "purchase quarters",
+      "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = 0.80 at any month. Count of kept cohorts."
+    },
+    {
+      "id": "simple_median_years_schedule",
+      "value": 11.58,
+      "unit": "years",
+      "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). Median over kept cohorts of schedule months/12, rounded to 0.01."
+    },
+    {
+      "id": "simple_median_years_value",
+      "value": 3.0,
+      "unit": "years",
+      "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = 0.80 at any month. Median over kept cohorts of value months/12 ('not reached' counts as infinitely long), rounded to 0.01."
+    },
+    {
+      "id": "simple_share_value_faster_3y",
+      "value": 89.0,
+      "unit": "percent of cohorts",
+      "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = 0.80 at any month. Share of kept cohorts with a value time and schedule years - value years >= 3, times 100, rounded to 0.1."
+    },
+    {
+      "id": "seasoned_median_years_value",
+      "value": 4.0,
+      "unit": "years",
+      "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = none before month 24, 0.75 for months 24-59, 0.80 from month 60 (a common investor seasoning rule). Median over kept cohorts of value months/12 ('not reached' counts as infinitely long), rounded to 0.01."
+    },
+    {
+      "id": "seasoned_share_value_faster_3y",
+      "value": 87.9,
+      "unit": "percent of cohorts",
+      "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = none before month 24, 0.75 for months 24-59, 0.80 from month 60 (a common investor seasoning rule). Share of kept cohorts with a value time and schedule years - value years >= 3, times 100, rounded to 0.1."
+    },
+    {
+      "id": "seasoned_share_value_not_faster",
+      "value": 2.9,
+      "unit": "percent of cohorts",
+      "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = none before month 24, 0.75 for months 24-59, 0.80 from month 60 (a common investor seasoning rule). Share of kept cohorts where the value time is 'not reached' or value months >= schedule months, times 100, rounded to 0.1."
+    }
+  ],
+  "series": [
+    {
+      "id": "MORTGAGE30US",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+      "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+      "file": "data/MORTGAGE30US.csv",
+      "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-09-24",
+      "terms": {
+        "quote": "Copyrighted: Citation Required",
+        "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+      }
+    },
+    {
+      "id": "USSTHPI",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USSTHPI&coed=2026-04-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/USSTHPI",
+      "file": "data/USSTHPI.csv",
+      "sha256": "c02d4187c8c9836d4049fe2005ab34129326e7538d2cd923173c2839ca25df16",
+      "retrieved": "2026-09-30",
+      "lastObservation": "2026-04-01",
+      "terms": {
+        "quote": "Public Domain: Citation Requested",
+        "url": "https://fred.stlouisfed.org/series/USSTHPI"
+      }
+    }
+  ],
+  "provisions": [
+    {
+      "cite": "CFPB, \"When can I remove private mortgage insurance (PMI) from my loan?\" (borrower-requested cancellation, Homeowners Protection Act rules)",
+      "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+      "quote": "You have the right to ask your servicer to cancel PMI on the date the principal balance of your mortgage is scheduled to fall to 80 percent of the original value of your home."
+    },
+    {
+      "cite": "CFPB, same page (automatic termination)",
+      "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+      "quote": "your servicer must automatically terminate PMI on the date when your principal balance is scheduled to reach 78 percent of the original value of your home."
+    },
+    {
+      "cite": "CFPB, same page (investor guidelines may be more favorable)",
+      "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+      "quote": "Loan investors, including Fannie Mae and Freddie Mac, often create their own PMI cancellation guidelines. But these guidelines cannot be less favorable to the borrower than the ones above."
+    }
+  ],
+  "assumptions": [
+    "The home's value moves exactly with the national all-transactions house price index; local markets vary widely.",
+    "Down payment 5%, 30-year fixed at the quarter's average survey rate, only scheduled payments, no refinancing.",
+    "The seasoning rule (2 years minimum, 75% before year 5, 80% after) stands in for loan-investor guidelines; actual servicer rules, appraisal requirements and payment-history conditions vary.",
+    "The schedule benchmark is the borrower-request date at 80% of original value; automatic termination at 78% comes later still."
+  ],
+  "limits": "History, not a forecast. National averages hide local price declines; the 2005-2007 cohorts show appreciation can fail. Cancelling on current value depends on the loan investor's rules, an appraisal the borrower may have to pay for, and a written request; the right keyed to original value is the only one guaranteed for these loans.",
+  "novelty": {
+    "queries": [
+      "remove PMI early home appreciation how many years historically typical buyer 5% down reach 80% LTV home prices",
+      "PMI cancellation based on original value vs current value appreciation borrowers overpay mortgage insurance study",
+      "how long do homeowners pay private mortgage insurance on average years scheduled 78% vs appreciation"
+    ],
+    "results": [
+      {
+        "query": "remove PMI early home appreciation how many years historically typical buyer 5% down reach 80% LTV home prices",
+        "top": [
+          {
+            "title": "Can I Cancel PMI If My Home Value Increases? - Orchard",
+            "url": "https://orchard.com/blog/posts/cancel-pmi-home-value-increase"
+          },
+          {
+            "title": "How to help get rid of PMI (Private Mortgage Insurance)",
+            "url": "https://www.chase.com/personal/mortgage/education/managing-your-mortgage/how-to-get-rid-of-pmi"
+          },
+          {
+            "title": "Can I Cancel PMI If My Home Value Increases? How to Get Rid of It",
+            "url": "https://www.homelight.com/blog/can-i-cancel-pmi-if-my-home-value-increases/"
+          },
+          {
+            "title": "Remove PMI Without Refinancing: Reappraisal, Automatic Cancellation & Lender Petition [2026]",
+            "url": "https://www.mothebroker.com/blog/remove-pmi-without-refinancing-2026"
+          },
+          {
+            "title": "Remove PMI in 2026 - Cancel and Save Thousands | Daily Calcs",
+            "url": "https://dailycalcs.com/blog/finance/pmi-removal-guide-cancel-save-thousands/"
+          },
+          {
+            "title": "PMI Explained: 2026 Costs, 3 Removal Paths & Your Rights Under Federal Law | FigureCal",
+            "url": "https://figurecal.com/guides/pmi-explained/"
+          },
+          {
+            "title": "How to Get Rid of PMI: 5 Ways to Remove Private Mortgage Insurance",
+            "url": "https://wisemoneylife.com/get-rid-of-pmi/"
+          },
+          {
+            "title": "When Can I Remove PMI? 2026 Rules, Steps, and Strategies | CalcFi",
+            "url": "https://calcfi.app/blog/when-can-i-remove-pmi"
+          },
+          {
+            "title": "PMI Removal Timeline: When and How to Drop Mortgage PMI",
+            "url": "https://calcbee.com/blog/pmi-removal-timeline/"
+          }
+        ]
+      },
+      {
+        "query": "PMI cancellation based on original value vs current value appreciation borrowers overpay mortgage insurance study",
+        "top": [
+          {
+            "title": "Lenders mortgage insurance",
+            "url": "https://en.wikipedia.org/wiki/Lenders_mortgage_insurance"
+          },
+          {
+            "title": "Homeowners Protection Act (PMI Cancellation Act) | NCUA",
+            "url": "https://ncua.gov/regulation-supervision/manuals-guides/federal-consumer-financial-protection-guide/compliance-management/lending-regulations/homeowners-protection-act-pmi-cancellation-act"
+          },
+          {
+            "title": "When can I remove private mortgage insurance (PMI) from my loan? | CFPB",
+            "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/"
+          },
+          {
+            "title": "PMI in Phoenix: What It Is, How It Works, and How to Get Rid of It",
+            "url": "https://movingtophoenixmetro.com/pmi-in-phoenix-what-it-is-how-it-works-and-how-to-get-rid-of-it/"
+          },
+          {
+            "title": "Can Lenders Waive PMI? (w/Examples) + FAQs",
+            "url": "https://taxsharkinc.com/can-lenders-waive-pmi-w-examples-faqs/"
+          },
+          {
+            "title": "Can You Remove PMI With a New Appraisal? Here’s How It Works | Madison & Park Appraisal",
+            "url": "https://www.madisonparkappraisal.com/blog/remove-pmi-with-appraisal"
+          },
+          {
+            "title": "How to Force Your Mortgage Servicer to Cancel PMI: Legal Rights and Remedies",
+            "url": "https://www.getbankshot.com/blog-posts/how-to-force-your-mortgage-servicer-to-cancel-pmi-legal-rights-and-remedies"
+          },
+          {
+            "title": "Yield on Investing in PMI Payoff",
+            "url": "https://www.mortgageprofessor.com/A%20-%20PMI/Yield_on_Mortgage_Insurance_Payoff.html"
+          },
+          {
+            "title": "www.schousing.sc.gov",
+            "url": "https://www.schousing.sc.gov/sites/schousing/files/Documents/Homeowners/PMIDisclosure.pdf"
+          }
+        ]
+      },
+      {
+        "query": "how long do homeowners pay private mortgage insurance on average years scheduled 78% vs appreciation",
+        "top": [
+          {
+            "title": "PMI Calculator: How Much Is Mortgage Insurance",
+            "url": "https://www.nerdwallet.com/mortgages/calculators/pmi"
+          },
+          {
+            "title": "How Much is Mortgage Insurance? | PMI Cost vs. Benefit",
+            "url": "https://themortgagereports.com/24154/private-mortgage-insurance-pmi-cost-low-downpayment-return-on-investment"
+          },
+          {
+            "title": "Lenders mortgage insurance",
+            "url": "https://en.wikipedia.org/wiki/Lenders_mortgage_insurance"
+          },
+          {
+            "title": "Guide to Private Mortgage Insurance | Liberty Bank",
+            "url": "https://www.libertybank.com/understanding-private-mortgage-insurance/"
+          },
+          {
+            "title": "Private Mortgage Insurance Fact Sheet",
+            "url": "https://www.ag.state.mn.us/consumer/Publications/PMIFact.asp"
+          },
+          {
+            "title": "Private Mortgage Insurance: Overview, Cost, & How to Avoid | Britannica Money",
+            "url": "https://www.britannica.com/money/private-mortgage-insurance-pmi"
+          },
+          {
+            "title": "Mortgage insurance",
+            "url": "https://en.wikipedia.org/wiki/Mortgage_insurance"
+          },
+          {
+            "title": "What Is PMI and How Much Will It Cost You? | VyStar Credit Union",
+            "url": "https://vystarcu.org/personal/resources/blog/what-is-pmi-and-how-much-will-it-cost-you"
+          },
+          {
+            "title": "Mortgage Insurance Calculator - PMI Calculator - HSH.com",
+            "url": "https://www.hsh.com/calc-pmi.html"
+          }
+        ]
+      }
+    ],
+    "verdict": "partly-said",
+    "nearest": [
+      "https://orchard.com/blog/posts/cancel-pmi-home-value-increase",
+      "https://www.homelight.com/blog/can-i-cancel-pmi-if-my-home-value-increases/"
+    ],
+    "note": "Many pages explain that appreciation can allow earlier PMI removal and describe the 75%/80% seasoning rules, but none measures, across decades of purchase cohorts, how much sooner national appreciation would have allowed removal than the legal schedule, or how often it failed. Each query returned 9 results."
+  }
+}

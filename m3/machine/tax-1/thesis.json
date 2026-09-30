@@ -1,0 +1,301 @@
+{
+ "card": {
+  "thesis": "Under current rules, an identical mortgage on an identical house can meaningfully cut federal income tax for a high-tax-state couple and do nothing for a low-tax-state couple.",
+  "overturns": "\"Paying mortgage interest gives every homeowner a tax break on their federal return.\""
+ },
+ "claim": "Tax year 2026, married couple filing jointly in the 22% bracket, buying the median-priced new home sold in the U.S. ($410,700, 2026 Q2) with 20% down and a 30-year fixed loan at the latest weekly average rate (7.03%, week of 2026-09-24): the $328,560 loan generates about $22,992 of interest in its first 12 payments. Whether that interest lowers federal tax depends on the couple's state and local taxes (SALT), because deductions only help above the $32,200 standard deduction. With $5,000 of SALT (e.g., a state with no income tax and a modest property tax bill) the mortgage cuts federal tax by $0; with $15,000 of SALT by about $1,274; with $25,000 by about $3,474; with SALT at the 2026 cap of $40,400 by about $5,058 (all $22,992 x 22%). Any couple paying less than about $9,208 of SALT gets nothing from this mortgage's interest. The large value in high-tax states exists only because the SALT cap rose to $40,400 for 2026; current law sets the cap back to $10,000 for tax years after 2029, and at that cap (with the 2026 standard deduction) the same high-SALT couple's benefit would be about $174. Sources: 26 U.S.C. 164(b)(6)-(7), 26 U.S.C. 163(h), IRS IR-2025-103 (Rev. Proc. 2025-32).",
+ "numbers": [
+  {
+   "id": "mortgage_rate_pct",
+   "unit": "percent per year",
+   "definition": "Latest weekly observation in the pinned MORTGAGE30US file (Freddie Mac 30-year fixed average, week of 2026-09-24).",
+   "value": 7.03
+  },
+  {
+   "id": "median_price_usd",
+   "unit": "USD",
+   "definition": "Latest quarterly observation in the pinned MSPUS file (median sales price of houses sold in the U.S., 2026-04-01 i.e. 2026 Q2).",
+   "value": 410700.0
+  },
+  {
+   "id": "loan_usd",
+   "unit": "USD",
+   "definition": "0.80 x median_price_usd (20% down payment).",
+   "value": 328560.0
+  },
+  {
+   "id": "first_year_interest_usd",
+   "unit": "USD",
+   "definition": "Sum of interest in the first 12 monthly payments of a fully amortizing 360-month fixed loan of loan_usd at monthly rate mortgage_rate_pct/1200: payment = L*i/(1-(1+i)^-360); each month interest = balance*i, balance -= payment - interest. Rounded to cents.",
+   "value": 22992.2
+  },
+  {
+   "id": "benefit_salt5k_usd",
+   "unit": "USD per year",
+   "definition": "0.22 x [max(32200, S + I) - max(32200, S)] with S = min(5000, 40400) SALT paid and I = first_year_interest_usd (unrounded): the federal tax reduction from the mortgage interest for a joint filer whose taxable income stays in the 22% bracket, no other itemized deductions.",
+   "value": 0.0
+  },
+  {
+   "id": "benefit_salt15k_usd",
+   "unit": "USD per year",
+   "definition": "Same formula as benefit_salt5k_usd with SALT paid = 15000.",
+   "value": 1274.28
+  },
+  {
+   "id": "benefit_salt25k_usd",
+   "unit": "USD per year",
+   "definition": "Same formula as benefit_salt5k_usd with SALT paid = 25000.",
+   "value": 3474.28
+  },
+  {
+   "id": "benefit_salt40k_usd",
+   "unit": "USD per year",
+   "definition": "Same formula as benefit_salt5k_usd with SALT paid = 40400 (the 2026 cap), i.e. 0.22 x I.",
+   "value": 5058.28
+  },
+  {
+   "id": "benefit_salt40k_cap10k_usd",
+   "unit": "USD per year",
+   "definition": "Same formula with SALT paid = 40400 but the cap set to 10000 (the amount current law applies after 2029), keeping the 2026 standard deduction 32200: 0.22 x [max(32200, 10000 + I) - 32200].",
+   "value": 174.28
+  },
+  {
+   "id": "breakeven_salt_usd",
+   "unit": "USD",
+   "definition": "32200 - first_year_interest_usd: SALT paid below which this mortgage interest gives no federal tax benefit.",
+   "value": 9207.8
+  }
+ ],
+ "series": [
+  {
+   "id": "MORTGAGE30US",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Freddie Mac, Primary Mortgage Market Survey)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "file": "data/MORTGAGE30US.csv",
+   "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+   "retrieved": "2026-09-30",
+   "lastObservation": {
+    "date": "2026-09-24",
+    "value": "7.03"
+   },
+   "terms": {
+    "quote": "Copyright, 2016, Freddie Mac. Reprinted with permission.",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   }
+  },
+  {
+   "id": "MSPUS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Census Bureau and HUD, New Residential Sales)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MSPUS&coed=2026-04-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/MSPUS",
+   "file": "data/MSPUS.csv",
+   "sha256": "d1a49477d3f6e7c10b1145583ee4e6ef551ba660406ddd19d317784e6c51aa71",
+   "retrieved": "2026-09-30",
+   "lastObservation": {
+    "date": "2026-04-01",
+    "value": "410700"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/MSPUS"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 164(b)(7)(A)(ii) (SALT cap, 2026)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section164&num=0&edition=prelim",
+   "quote": "in the case of any taxable year beginning in calendar year 2026, $40,400,"
+  },
+  {
+   "cite": "26 U.S.C. 164(b)(7)(A)(iv) (SALT cap after 2029)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section164&num=0&edition=prelim",
+   "quote": "in the case of any taxable year beginning after calendar year 2029, $10,000."
+  },
+  {
+   "cite": "26 U.S.C. 164(b)(7)(B)(ii)(II) (phasedown threshold, 2026)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section164&num=0&edition=prelim",
+   "quote": "in the case of any taxable year beginning in calendar year 2026, $505,000,"
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(2)(D) (qualified residence interest is not nondeductible personal interest)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "any qualified residence interest (within the meaning of paragraph (3))"
+  },
+  {
+   "cite": "IRS IR-2025-103 (Rev. Proc. 2025-32), 2026 standard deduction",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "For tax year 2026, the standard deduction increases to $32,200 for married couples filing jointly."
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 22% bracket (joint)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "22% for incomes over $50,400 ($100,800 for married couples filing jointly)"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 24% bracket (joint)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "24% for incomes over $105,700 ($211,400 for married couples filing jointly)"
+  }
+ ],
+ "assumptions": [
+  "Tax year 2026; married filing jointly; both with and without the mortgage the couple itemizes only if itemized deductions exceed the $32,200 standard deduction.",
+  "Taxable income stays inside the 22% joint bracket ($100,800-$211,400) in every case compared (e.g., AGI about $220,000), and MAGI is below $505,000 so the full $40,400 SALT cap applies.",
+  "No other itemized deductions (no charitable gifts, no medical); SALT figures are illustrative totals of state/local income (or sales) and property taxes paid.",
+  "Home price = national median sales price of new houses sold (latest quarter); 20% down; 30-year fixed at the latest weekly national average rate; loan below the $750,000 acquisition-debt limit; no points or mortgage insurance.",
+  "State income tax effects are ignored; federal income tax only."
+ ],
+ "limits": "Uses the latest published rate and price (not a history of outcomes and not a forecast). Actual SALT, rate, price and bracket vary by household; interest falls each year as the loan amortizes; the $10,000 comparison applies the post-2029 cap to the 2026 standard deduction for illustration only. No personal advice.",
+ "novelty": {
+  "queries": [
+   "SALT cap $40,000 makes mortgage interest deduction valuable again high-tax states vs no income tax states",
+   "mortgage interest deduction worth nothing standard deduction 2026 unless high state taxes median home 7% rate",
+   "how much is mortgage interest deduction worth 2026 by state and local taxes paid itemize break-even"
+  ],
+  "results": [
+   {
+    "query": 1,
+    "title": "How the $40,000 SALT expansion creates high-tax winners and income traps | KRDO",
+    "url": "https://krdo.com/news/2026/09/17/how-the-40000-salt-expansion-creates-high-tax-winners-and-income-traps/"
+   },
+   {
+    "query": 1,
+    "title": "How the $40,000 SALT expansion creates high-tax winners and income traps - KVIA",
+    "url": "https://kvia.com/stacker-real-estate/2026/09/18/how-the-40000-salt-expansion-creates-high-tax-winners-and-income-traps/"
+   },
+   {
+    "query": 1,
+    "title": "How the $40,000 SALT expansion creates high-tax winners and income traps - ABC17NEWS",
+    "url": "https://abc17news.com/stacker-real-estate/2026/09/19/how-the-40000-salt-expansion-creates-high-tax-winners-and-income-traps/"
+   },
+   {
+    "query": 1,
+    "title": "How the $40,000 SALT expansion creates high-tax winners and income traps - KTVZ",
+    "url": "https://ktvz.com/stacker-real-estate/2026/09/17/how-the-40000-salt-expansion-creates-high-tax-winners-and-income-traps/"
+   },
+   {
+    "query": 1,
+    "title": "How the new SALT deduction cap could affect your taxes | Fidelity",
+    "url": "https://www.fidelity.com/learning-center/personal-finance/SALT-deduction-increase"
+   },
+   {
+    "query": 1,
+    "title": "How the $40,000 SALT expansion creates high-tax winners and income traps - KQ2",
+    "url": "https://www.kq2.com/stacker-real-estate/2026/09/19/how-the-40000-salt-expansion-creates-high-tax-winners-and-income-traps/"
+   },
+   {
+    "query": 1,
+    "title": "How the $40,000 SALT expansion creates high-tax winners and income traps - KIFI",
+    "url": "https://localnews8.com/stacker-real-estate/2026/09/17/how-the-40000-salt-expansion-creates-high-tax-winners-and-income-traps/"
+   },
+   {
+    "query": 1,
+    "title": "How the $40,000 SALT expansion creates high-tax winners and income traps - KESQ",
+    "url": "https://kesq.com/stacker-real-estate/2026/09/17/how-the-40000-salt-expansion-creates-high-tax-winners-and-income-traps/"
+   },
+   {
+    "query": 1,
+    "title": "What Is the $40,000 Tax Deduction for Homeowners? - LegalClarity",
+    "url": "https://legalclarity.org/what-is-the-40000-tax-deduction-for-homeowners/"
+   },
+   {
+    "query": 2,
+    "title": "Standard deduction 2026: What it is and how it works | Fidelity",
+    "url": "https://www.fidelity.com/learning-center/smart-money/standard-deduction"
+   },
+   {
+    "query": 2,
+    "title": "7 Essential Tax Deductions Every Homeowner Should Claim in 2026",
+    "url": "https://www.cnbc.com/select/tax-deductions-for-homeowners/"
+   },
+   {
+    "query": 2,
+    "title": "Publication 936 (2025), Home Mortgage Interest Deduction | Internal Revenue Service",
+    "url": "https://www.irs.gov/publications/p936"
+   },
+   {
+    "query": 2,
+    "title": "Mortgage Interest Deduction: What It Is and How It Works in 2026",
+    "url": "https://www.amerisave.com/glossary/mortgage-interest-deduction-what-it-is-and-how-it-works-in"
+   },
+   {
+    "query": 2,
+    "title": "Common Tax Deductions for Homeowners In 2026",
+    "url": "https://www.newhomesource.com/news/policy-industry/common-tax-deductions-for-homeowners-in-2026/"
+   },
+   {
+    "query": 2,
+    "title": "10 Tax Deductions for Homeowners in 2026: Your Complete Guide to Maximizing Savings",
+    "url": "https://www.amerisave.com/learn/tax-deductions-for-homeowners-in-your-complete-guide-to-maximizing-savings"
+   },
+   {
+    "query": 2,
+    "title": "New 2025-2026 Tax Law Changes Every Homeowner Should Know - Homestead Financial Mortgage",
+    "url": "https://homesteadfinancial.com/personal-finance/2025-2026-tax-changes-homeowners/"
+   },
+   {
+    "query": 2,
+    "title": "Buying A Home Tax Benefits 2026: Mortgage Interest, SALT Cap, Section 121 | Taxstra",
+    "url": "https://taxstra.com/buying-a-home-tax-benefits/"
+   },
+   {
+    "query": 2,
+    "title": "Mortgage Interest Deduction 2026: Complete Guide ($750K Limit, HELOC Rules, Calculator)",
+    "url": "https://mortgage-info.com/blog/mortgage-interest-deduction-2026-complete-tax-guide"
+   },
+   {
+    "query": 3,
+    "title": "Standard Deduction vs. Itemized Deductions: Which Is Better? - TurboTax Tax Tips & Videos",
+    "url": "https://turbotax.intuit.com/tax-tips/tax-deductions-and-credits/tax-deduction-wisdom-should-you-itemize/L8Ln7K0Gp"
+   },
+   {
+    "query": 3,
+    "title": "Mortgage Interest Deduction: What It Is and How It Works in 2026",
+    "url": "https://www.amerisave.com/glossary/mortgage-interest-deduction-what-it-is-and-how-it-works-in"
+   },
+   {
+    "query": 3,
+    "title": "Is Mortgage Interest Tax Deductible? | Mortgage Interest Deduction",
+    "url": "https://www.directmortgageloans.com/homeowner-tips/mortgage-interest-deduction-how-to-save-when-filing-your-taxes/"
+   },
+   {
+    "query": 3,
+    "title": "10 Tax Deductions for Homeowners in 2026: Your Complete Guide to Maximizing Savings",
+    "url": "https://www.amerisave.com/learn/tax-deductions-for-homeowners-in-your-complete-guide-to-maximizing-savings"
+   },
+   {
+    "query": 3,
+    "title": "Common Tax Deductions for Homeowners In 2026",
+    "url": "https://www.newhomesource.com/news/policy-industry/common-tax-deductions-for-homeowners-in-2026/"
+   },
+   {
+    "query": 3,
+    "title": "2026 SALT Deductions: State and Local Tax Deductions - Jackson Hewitt",
+    "url": "https://www.jacksonhewitt.com/tax-help/tax-tips-topics/personal-finance-savings/state-and-local-tax-deductions/"
+   },
+   {
+    "query": 3,
+    "title": "Mortgage Interest Deduction 2026: Limits, PMI & New Rules | Zeitro",
+    "url": "https://www.zeitro.com/blog/mortgage-interest-deduction"
+   },
+   {
+    "query": 3,
+    "title": "Are Property Taxes Deductible? 2026 Guide & SALT Cap Rules | Ourtaxpartner.com",
+    "url": "https://ourtaxpartner.com/property-tax-deduction-guide-2026/"
+   },
+   {
+    "query": 3,
+    "title": "Mortgage Tax Deduction 2026: SALT Cap Now $40K - Save Up to $8,400 More This Year",
+    "url": "https://mortgage-info.com/blog/mortgage-tax-deduction-limits-2026-complete-guide"
+   }
+  ],
+  "verdict": "partly-said",
+  "nearest": [
+   "https://krdo.com/news/2026/09/17/how-the-40000-salt-expansion-creates-high-tax-winners-and-income-traps/",
+   "https://mortgage-info.com/blog/mortgage-tax-deduction-limits-2026-complete-guide",
+   "https://www.fidelity.com/learning-center/personal-finance/SALT-deduction-increase"
+  ],
+  "note": "Coverage says in general that high-SALT homeowners gain most from the $40,000 cap and that low-tax-state homeowners rarely itemize. Not found: a side-by-side of the SAME median-priced mortgage at the current rate showing $0 vs about $5,000 by SALT level, the SALT break-even (~$9,200) below which the interest is worthless, or the fall to ~$174 under the post-2029 cap. Search engine returned 9 results for each query."
+ }
+}
