@@ -117,7 +117,8 @@ function writeRoot(name, els, move = 0, contractMirrorColour = 'accent', f12 = n
   const load = f12 ? f12Load(root, w, f12) : null;
   w('out/timeline.json', { fps: 30, total: DUR, acts: [{ id: 'act1', start: 0, end: DUR }], scenes: [{ id: 'a', act: 'act1', start: 0, dur: DUR, move, panels: ['p'], chart: true, layout: 'line/single', shot: 'medium' }] });
   w('out/claims.json', { claims: CLAIMS });
-  w('out/script.json', { sentences: [] });
+  // S09 (K3.2): the narration says the basis of the $ claims once; the on-screen label is what the page cases test
+  w('out/script.json', { sentences: [{ id: 's1', scene: 'a', text: 'Every dollar figure here is in real terms.', start: 0, end: 2 }] });
   w('design/tokens.json', TOKENS);
   // episode contract (K2): V04/V09 read the characters, their colour token, shape and side from it
   w('contract.json', { episode: 'fixture', characters: { 1966: { color: 'warn', shape: 'circle', side: 'left' }, mirror: { color: contractMirrorColour, shape: 'square', side: 'right' } } });

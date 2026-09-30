@@ -644,6 +644,48 @@ def _(f, bad):
     f.json('out/script.json', {'sentences': [{'id': 's1', 'scene': 'a', 'text': 'It ends at $120,000.' if bad else 'In real terms, it ends at $120,000.', 'start': 0, 'end': 2}]})
 
 
+S09_CLAIMS = BASE_CLAIMS + [{'claimId': 'fee', 'value': 5124, 'display': '$5,124', 'formula': 'closing costs', 'source': {'id': 'damodaran'}, 'dataYear': 2024,
+                             'shownIn': ['a'], 'basis': 'nominal'}]
+
+
+def s09_variant(name, lines, frames_missing=0, claims=S09_CLAIMS):
+    """One S09 fixture (K3.2): lines = [(scene, text)] in episode order, claims as given, page S09 frames missing as given."""
+    f = F('S09-' + name)
+    try:
+        f.json('out/claims.json', {'claims': claims})
+        f.json('out/checks/page.json', {'rules': {'S09': {'framesMissing': frames_missing, 'examples': []}}})
+        f.json('out/script.json', {'sentences': [{'id': f's{i}', 'scene': sc, 'text': t, 'start': 2 * i, 'end': 2 * i + 2} for i, (sc, t) in enumerate(lines)]})
+        return f.run('S09')
+    finally:
+        f.close()
+
+
+NOMINAL_ONLY = [c for c in S09_CLAIMS if c.get('basis') != 'real']
+
+
+def s09_once_case(bad):
+    """K3.2: an episode with $ numbers whose narration never says the basis must fail; the basis said once, anywhere (here after the $ numbers,
+    in another scene), covers every $ sentence of the episode."""
+    lines = [('a', 'Maya paid $5,124 to refinance.'), ('b', 'Closing costs were $5,124 again.'), ('c', 'Once more: $5,124.')]
+    return s09_variant('once', lines + ([] if bad else [('c', 'Every dollar figure here is nominal, the dollars of the day.')]), claims=NOMINAL_ONLY)
+
+
+def s09_both_case(bad):
+    """K3.2: an episode using nominal and real $ claims must say both bases; bad = only 'nominal' is said must fail."""
+    lines = [('a', 'In nominal dollars, Maya paid $5,124.'), ('b', 'The balance ends at $120,000.' if bad else 'In real terms, the balance ends at $120,000.')]
+    return s09_variant('both', lines)
+
+
+def s09_screen_case(bad):
+    """K3.2 keeps the on-screen part: narration says the basis, but frames showing a $ claim without its basis label must still fail."""
+    return s09_variant('screen', [('a', 'In nominal dollars, Maya paid $5,124.')], frames_missing=4 if bad else 0, claims=NOMINAL_ONLY)
+
+
+def s09_unknown_case(bad):
+    """A spoken $ number matching no claim has no known basis: bad = '$9,999' (no claim) must fail even though 'nominal' is said."""
+    return s09_variant('unknown', [('a', 'In nominal dollars, Maya paid $5,124.'), ('a', 'Her neighbour paid $9,999.' if bad else 'Her neighbour paid $5,124.')], claims=NOMINAL_ONLY)
+
+
 @case('S10')
 def _(f, bad):
     s = ['We ran every start year from 1928.', 'This is history, not a forecast.', 'The rules here are US only.']
@@ -1439,7 +1481,8 @@ EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_cas
          'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case, 'F07/too-long': f07_long_case,
          'F12/photo': f12_photo_case, 'F12/font': f12_font_case, 'F12/public-domain': f12_pd_case, 'F12/quote-card': f12_quote_case,
          'F12/self-made': f12_selfmade_case, 'F12/no-manifest': f12_manifest_case,
-         'F12/loaded': f12_loaded_case, 'F12/loaded-font': f12_loaded_font_case, 'F12/generated': f12_generated_case}
+         'F12/loaded': f12_loaded_case, 'F12/loaded-font': f12_loaded_font_case, 'F12/generated': f12_generated_case,
+         'S09/said-once': s09_once_case, 'S09/every-basis': s09_both_case, 'S09/screen': s09_screen_case, 'S09/unknown-basis': s09_unknown_case}
 
 
 def main():
