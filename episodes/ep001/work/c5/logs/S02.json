@@ -1,0 +1,203 @@
+{
+ "scene": "S02",
+ "frames": 678,
+ "frames3d": 678,
+ "filmSeconds": 22.6,
+ "wallSeconds": 1822.7,
+ "browserFrameSeconds": 1784.6,
+ "machineSecPerFilmSec": 80.65,
+ "hardTime": 22.566666666666666,
+ "crf": 8,
+ "size": "1920x1080",
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-30T01:34:31.891Z",
+ "texts": [
+  {
+   "s": "a new loan at a lower rate",
+   "tier": "label",
+   "px": 43,
+   "n": 182,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 4.333333333333329,
+   "sent": false
+  },
+  {
+   "s": "7.62% → 7.03%",
+   "tier": "number",
+   "px": 77,
+   "n": 182,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 4.333333333333329,
+   "sent": false
+  },
+  {
+   "s": "Fees: median 2025 refinance bill (HMDA, US home-loan records), dollars of the day.",
+   "tier": "note",
+   "px": 40,
+   "n": 363,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 10.533333333333331,
+   "sent": false
+  },
+  {
+   "s": "Loan costs:",
+   "tier": "caption",
+   "px": 51,
+   "n": 81,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 10.733333333333327,
+   "sent": false
+  },
+  {
+   "s": "$5,124",
+   "tier": "hero",
+   "px": 120,
+   "n": 81,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 10.733333333333327,
+   "sent": false
+  },
+  {
+   "s": "the fees for the new loan",
+   "tier": "label",
+   "px": 43,
+   "n": 81,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 10.733333333333327,
+   "sent": false
+  },
+  {
+   "s": "in dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 81,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 10.733333333333327,
+   "sent": false
+  },
+  {
+   "s": "How big a rate cut makes that worth it for Nora —",
+   "tier": "caption",
+   "px": 51,
+   "n": 269,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 13.666666666666664,
+   "sent": true
+  },
+  {
+   "s": "fees $5,124",
+   "tier": "label",
+   "px": 43,
+   "n": 236,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.766666666666666,
+   "sent": false
+  },
+  {
+   "s": "Nora",
+   "tier": "label",
+   "px": 43,
+   "n": 236,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.766666666666666,
+   "sent": false
+  },
+  {
+   "s": "smaller loan",
+   "tier": "note",
+   "px": 40,
+   "n": 236,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.766666666666666,
+   "sent": false
+  },
+  {
+   "s": "larger loan",
+   "tier": "note",
+   "px": 40,
+   "n": 236,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.766666666666666,
+   "sent": false
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 40,
+   "n": 236,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 14.766666666666666,
+   "sent": false
+  },
+  {
+   "s": "and where would your own loan fall?",
+   "tier": "caption",
+   "px": 51,
+   "n": 174,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 16.83333333333333,
+   "sent": true
+  },
+  {
+   "s": "your loan?",
+   "tier": "label",
+   "px": 43,
+   "n": 159,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 17.33333333333333,
+   "sent": false
+  },
+  {
+   "s": "And why would a smaller mortgage need a bigger cut?",
+   "tier": "caption",
+   "px": 51,
+   "n": 107,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.066666666666663,
+   "sent": true
+  }
+ ],
+ "anchorsUsed": [
+  "fees",
+  "letter",
+  "promise1",
+  "pull",
+  "refi",
+  "smaller",
+  "yours"
+ ],
+ "anchorsDeclared": [
+  "letter",
+  "refi",
+  "fees",
+  "pull",
+  "promise1",
+  "yours",
+  "smaller"
+ ],
+ "anchorsKeywordMissing": [],
+ "claimsUsed": [
+  "cost_median",
+  "r_old",
+  "r_today",
+  "y2025"
+ ]
+}
