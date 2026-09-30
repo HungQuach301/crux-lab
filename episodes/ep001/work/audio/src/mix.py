@@ -1,6 +1,19 @@
 """C5 audio stream (Tập 1): music bed + data sonification (palette S2 "minimal") + mix + master, on the time base of the video.
 
-    python3 episodes/ep001/work/audio/src/mix.py [--total 591.7333] [--stage all|music|sonify|mix]
+    python3 episodes/ep001/work/audio/src/mix.py [--total 591.7333] [--stage all|music|sonify|mix] [--music-style current|A|C|AC]
+    python3 episodes/ep001/work/audio/src/mix.py --music-style A --window 16.7 55.2 --out x.wav [--vom-db 23.97] [--lufs -16] [--metrics m.json]
+
+--music-style (C6, owner 30/09: "chậm trên cả tập, hơi buồn" -> blind test of A / C / A+C): `current` (default) is the approved C5 music, output unchanged;
+  A = curious, bright, major (F major, then C major from S14), medium tempo, mallet arpeggios in eighths, lighter and higher voicings;
+  C = energetic, ~1.5x the current tempo, D dorian (minor tonic with a major IV: driving, not sad), then F major; 16th-note muted-pluck ostinato,
+      bass on eighths, soft low thump on the beats;
+  AC = the harmony and timbre of A with the tempo and drive of C.
+  Same engine for all: tempo fitted per scene (cuts are downbeats), Markov chords without a repeated 4-bar window in 24 bars, the same silences
+  ([beat] pauses and ad breaks, no new note 1.3 s before a silence), the same sonification S2 and mix moves and master chain.
+  Caches and outputs of a non-current style carry its name (cache/music-A.npy ...); stems/master are only written in full-episode mode.
+--window T0 T1 (sample mode): everything is computed on the full time base (music, sonification, gates), then the mix moves, the master chain
+  (-14 LUFS, TP -1.5) and a final gain to --lufs run on T0-3 s .. T1+3 s only (memory), trimmed to T0..T1 with 0.25 s / 0.6 s fades.
+  The music is set --vom-db under the voice over the window's voice-active 100 ms blocks (A07 method); default = the whole-episode rule (20 dB).
 
 Fixed inputs (never regenerated, re-timed or stretched): review-c4/narration-v32.m4a (final voice, owner-approved at C4), animatic/timing.json
 (sentences, [beat] pauses, scene cuts), out/sonify-events.json + work/audio/son-plan.json (events.py).
@@ -181,8 +194,21 @@ GAIN_DB = {'cold': -2.0, 'promise': -1.5, 'curious': -0.5, 'build1': 0.5, 'build
            'thin': -1.0, 'resolve': -1.0}
 
 
+STYLE = 'current'   # --music-style; set by main() before anything is rendered
+BPM_A = {'cold': 88, 'promise': 92, 'curious': 96, 'build1': 100, 'build2': 104, 'release': 104, 'answer': 96, 'walt': 100, 'anjali': 100, 'thin': 84,
+         'resolve': 88}
+BPM_C = {'cold': 108, 'promise': 114, 'curious': 120, 'build1': 126, 'build2': 132, 'release': 132, 'answer': 120, 'walt': 126, 'anjali': 126, 'thin': 100,
+         'resolve': 108}
+STYLES = {'current': {'bpm': BPM, 'keys': ('D minor', 'F major'), 'drive': False, 'bright': False},
+          'A': {'bpm': BPM_A, 'keys': ('F major', 'C major'), 'drive': False, 'bright': True},
+          'C': {'bpm': BPM_C, 'keys': ('D dorian', 'F major'), 'drive': True, 'bright': False},
+          'AC': {'bpm': BPM_C, 'keys': ('F major', 'C major'), 'drive': True, 'bright': True}}
+TONIC_PC = {'D minor': 2, 'D dorian': 2, 'F major': 5, 'C major': 0}
+
+
 def key_of(sid):
-    return 'D minor' if int(sid[1:]) <= 13 else 'F major'
+    k = STYLES[STYLE]['keys']
+    return k[0] if int(sid[1:]) <= 13 else k[1]
 
 
 def tempo_grid(tl):
@@ -191,7 +217,7 @@ def tempo_grid(tl):
     beats, bars, bpms = [], [], {}
     for s in tl.scenes:
         D = s['end'] - s['start']
-        target = BPM[SECTION[s['id']]]
+        target = STYLES[STYLE]['bpm'][SECTION[s['id']]]
         nb_bar = max(1, round(D / (240.0 / target)))
         bpm = 240.0 * nb_bar / D
         if abs(bpm / target - 1) <= 0.08:
@@ -226,6 +252,18 @@ MARKOV = {
                 'V': ['I', 'vi', 'IV', 'Iadd9'], 'vi': ['IV', 'ii', 'V', 'IVmaj7'], 'ii': ['V', 'I', 'IV'], 'iii': ['vi', 'IV', 'ii']},
 }
 TONIC = {'D minor': ['i', 'i7', 'VI'], 'F major': ['I', 'Iadd9', 'IV']}
+# C6 styles: C major (A, AC from S14: the same functions as F major, a fifth up) and D dorian (C: minor tonic, major IV, no sad bVI)
+CHORDS['C major'] = {'I': ('C', ''), 'V': ('G', ''), 'vi': ('A', 'm'), 'IV': ('F', ''), 'ii': ('D', 'm'), 'iii': ('E', 'm'), 'Iadd9': ('C', 'add9'), 'IVmaj7': ('F', 'maj7')}
+MARKOV['C major'] = MARKOV['F major']
+TONIC['C major'] = TONIC['F major']
+CHORDS['D dorian'] = {'i': ('D', 'm'), 'i7': ('D', 'm7'), 'IV': ('G', ''), 'IVadd9': ('G', 'add9'), 'VII': ('C', ''), 'III': ('F', ''), 'v': ('A', 'm'), 'ii': ('E', 'm')}
+MARKOV['D dorian'] = {'i': ['IV', 'VII', 'III', 'IVadd9', 'v'], 'i7': ['IV', 'VII', 'ii'], 'IV': ['i', 'VII', 'i7', 'III', 'v'], 'IVadd9': ['i', 'VII', 'III'],
+                      'VII': ['IV', 'i', 'III', 'i7'], 'III': ['IV', 'VII', 'i', 'ii'], 'v': ['IV', 'VII', 'i'], 'ii': ['IV', 'i7', 'v']}
+TONIC['D dorian'] = ['i', 'i7', 'IV']
+# bright styles (A, AC): the major-key walk leans on I, IV, V and their colours; vi and ii only as passing chords, no iii (the plain F major walk
+# of `current` sits on vi/ii/iii half the time and reads as minor)
+MARKOV_BRIGHT = {'I': ['IV', 'V', 'IVmaj7', 'vi', 'Iadd9'], 'Iadd9': ['IV', 'V', 'IVmaj7'], 'IV': ['I', 'V', 'Iadd9', 'ii'], 'IVmaj7': ['V', 'I', 'Iadd9'],
+                 'V': ['I', 'IV', 'Iadd9', 'vi'], 'vi': ['IV', 'V', 'IVmaj7'], 'ii': ['V', 'IV'], 'iii': ['IV']}
 
 
 def chord_pcs(root, q):
@@ -246,7 +284,7 @@ def harmony(bars):
                     c = 'I'
             else:
                 prev = seq[-1][1] if seq and seq[-1][0] == key else TONIC[key][0]
-                opts = MARKOV[key][prev]
+                opts = (MARKOV_BRIGHT if STYLES[STYLE]['bright'] and 'major' in key else MARKOV[key])[prev]
                 c = opts[rng.integers(0, len(opts))]
             cand = [s[1] for s in seq] + [c]
             if len(cand) >= 4:
@@ -367,6 +405,8 @@ RH = [[0, 1, 2, 3], [0, 1, 2, 2.5], [0, 0.5, 1, 2], [0, 1.5, 2, 3], [0, 1, 1.5, 
 
 
 def render_music(tl, bars, seq, pauses):
+    if STYLE != 'current':
+        return render_music_styled(tl, bars, seq, pauses)
     N = tl.N
     dry = np.zeros((N, 2), np.float32)
     rng = np.random.default_rng(11)
@@ -485,6 +525,194 @@ def render_music(tl, bars, seq, pauses):
                 state('walt', WALT[k_ % 4], lambda f, vel: pluck(f, 0.7, vel, lp=1200), 0.26, -0.35, RH[(k_ + 3) % 6])
             else:
                 state('anj', ANJ[k_ % 4], bell, 0.06, 0.35, RH[(k_ + 1) % 6])
+    return dry
+
+
+# ---- C6 styles (--music-style A | C | AC): the same engine (bars, chords, silences, motifs), other voicing, timbre and drive
+def mallet_m(f, dur=0.7, vel=1.0):
+    """A soft wooden mallet (music, not the data palette): partials 1, 4 and 10 with fast-decaying overtones, low-passed."""
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    x = np.sin(2 * np.pi * f * t) * np.exp(-t / 0.32) + 0.22 * np.sin(2 * np.pi * 4.0 * f * t) * np.exp(-t / 0.045) \
+        + 0.06 * np.sin(2 * np.pi * 10.0 * f * t) * np.exp(-t / 0.012)
+    return onepole_lp(x * np.minimum(1, t / 0.002), 6000) * vel
+
+
+def bass_pluck(f, dur, vel):
+    n = int(max(dur, 0.12) * SR)
+    t = np.arange(n) / SR
+    x = np.sin(2 * np.pi * f * t) + 0.18 * np.sin(4 * np.pi * f * t) * np.exp(-t / 0.05)
+    env = np.minimum(1, t / 0.006) * np.exp(-t / 0.16) * np.minimum(1, np.maximum(0, n / SR - t) / 0.03)
+    return x * env * vel
+
+
+def thump(vel):
+    """Soft low thump on the beat (energy for C / AC): a sine gliding 105 -> 48 Hz, 0.3 s, low-passed; no noise, no hi-hat
+    (the 4.5-7 kHz band belongs to the data ticks)."""
+    n = int(0.3 * SR)
+    t = np.arange(n) / SR
+    f = 48 + 57 * np.exp(-t / 0.035)
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR)
+    return onepole_lp(x * np.minimum(1, t / 0.002) * np.exp(-t / 0.11), 260) * vel
+
+
+# eighth-note masks for A (curious: syncopated, never the same two bars running), 16th masks for the drive (3+3+2 feel, varied)
+ARP8 = {'sparse': [[0, 3, 5], [0, 3, 6], [0, 2, 5], [0, 3, 5, 7], [1, 3, 6]],
+        'full': [[0, 2, 3, 5, 6], [0, 1, 3, 5, 7], [0, 2, 3, 4, 6], [0, 3, 4, 6, 7], [0, 2, 4, 5, 7]]}
+OST16 = [[0, 2, 3, 6, 8, 10, 11, 14], [0, 3, 6, 8, 9, 11, 14, 15], [0, 2, 3, 6, 8, 11, 12, 14], [0, 3, 4, 6, 8, 10, 12, 14],
+         [0, 2, 3, 5, 6, 8, 11, 14]]
+ACC16 = {0, 3, 6, 8, 11, 14}
+SHAPES = ['up', 'down', 'updown', 'broken', 'pedal']
+
+
+def _contour(shape, tones, k, rng):
+    m = len(tones)
+    if shape == 'up':
+        return tones[k % m]
+    if shape == 'down':
+        return tones[-1 - k % m]
+    if shape == 'updown':
+        c = k % (2 * m - 2)
+        return tones[c if c < m else 2 * m - 2 - c]
+    if shape == 'broken':
+        return tones[[0, 2, 1, 3, 2, 4, 3, 1][k % 8] % m]
+    return tones[0] if k % 2 == 0 else tones[1 + (k // 2) % (m - 1)]  # pedal
+
+
+def render_music_styled(tl, bars, seq, pauses):
+    cfg = STYLES[STYLE]
+    bright_t, drive = cfg['bright'], cfg['drive']
+    N = tl.N
+    dry = np.zeros((N, 2), np.float32)
+    rng = np.random.default_rng(11)
+    blocked = lambda t, pre=1.3: any(p['start'] - pre <= t <= p['end'] - 0.05 for p in pauses)  # same silence rule as `current`
+    motif_k = {'nora': 0, 'walt': 0, 'anj': 0}
+    prev_voicing = None
+    prev_fig = None
+    v_lo, v_hi, v_top = (55, 66, 79) if bright_t else (50, 61, 72)
+    for bi, (b, (key, cname)) in enumerate(zip(bars, seq)):
+        sec = SECTION[b['scene']]
+        root, q = CHORDS[key][cname]
+        r, pcs = chord_pcs(root, q)
+        pcl = [p % 12 for p in pcs]
+        cands = []
+        for inv in range(len(pcl)):
+            order = pcl[inv:] + pcl[:inv]
+            for low in range(v_lo, v_hi):
+                if low % 12 != order[0]:
+                    continue
+                v = [low]
+                for pc in order[1:]:
+                    n_ = v[-1] + 1
+                    while n_ % 12 != pc:
+                        n_ += 1
+                    v.append(n_)
+                if v[-1] <= v_top:
+                    cands.append(v)
+        vo = min(cands, key=lambda v: sum(min(abs(a - c) for c in prev_voicing) for a in v) + 0.3 * rng.random()) if prev_voicing else cands[0]
+        prev_voicing = vo
+        dur = b['t1'] - b['t0']
+        beat = 60.0 / b['bpm']
+        bright = {'cold': 520, 'promise': 650, 'curious': 900, 'build1': 1000, 'build2': 1250, 'release': 1400, 'answer': 1000, 'walt': 950,
+                  'anjali': 1100, 'thin': 600, 'resolve': 900}[sec] * (1.7 if bright_t else 1.25)
+        pv = {'thin': 0.16, 'cold': 0.18}.get(sec, 0.2) * (0.7 if bright_t else 0.8) * rng.uniform(0.92, 1.06)
+        add(dry, b['t0'], pad(hz(vo if sec != 'thin' else vo[:3]), dur + 0.7, pv, bright), 0.0)
+        lift = {'cold': 0.8, 'thin': 0.6, 'resolve': 0.75, 'build1': 1.1, 'build2': 1.2, 'release': 1.05}.get(sec, 1.0)
+        # bass: sustained root (A), or eighths with the octave on the off-beats (drive)
+        broot = 36 + (r % 12) + (12 if (r % 12) < 2 else 0)
+        if sec != 'thin':
+            if drive and sec != 'resolve':
+                for e in range(2 * b['beats']):
+                    t = b['t0'] + e * beat / 2
+                    if blocked(t):
+                        continue
+                    add(dry, t, bass_pluck(hz(broot + (12 if e % 2 else 0)), 0.45 * beat, (0.2 if e % 2 == 0 else 0.12) * lift * rng.uniform(0.9, 1.05)), 0.0)
+            else:
+                add(dry, b['t0'], soft_bass(hz(broot), dur + 0.2, 0.14 * rng.uniform(0.9, 1.05)), 0.0)
+        # accent on the cut (A12), none on an ad-break cut
+        if b['i'] == 0 and not any(a['start'] <= b['t0'] <= a['end'] for a in tl.ad_gaps):
+            base = 60 if bright_t else 48
+            add(dry, b['t0'], felt(hz(base + r % 12), 0.35), 0.0)
+            add(dry, b['t0'], felt(hz(base + 7 + r % 12), 0.18), 0.1)
+        # drive: soft thump on beats 1 and 3 in the cold open, on every beat after it
+        if drive and sec not in ('thin', 'resolve'):
+            for k in range(b['beats']):
+                t = b['t0'] + k * beat
+                if (sec == 'cold' and k % 2) or blocked(t):
+                    continue
+                add(dry, t, thump((0.5 if k == 0 else 0.38) * lift * rng.uniform(0.9, 1.05)), 0.0)
+        # figure: A = mallet arpeggio in eighths; C = muted-pluck ostinato in 16ths; AC = mallet ostinato in 16ths. Shape and rhythm vary per bar,
+        # never the same pair two bars running (no audible loop)
+        if sec != 'thin':
+            reg = 72 if bright_t else 57
+            tones = [n_ for n_ in range(reg, reg + 17) if n_ % 12 in pcl]
+            for _ in range(20):
+                shp = SHAPES[rng.integers(0, len(SHAPES))]
+                if drive:
+                    msk_i = int(rng.integers(0, len(OST16)))
+                else:
+                    msk_i = int(rng.integers(0, 5))
+                if (shp, msk_i) != prev_fig:
+                    break
+            prev_fig = (shp, msk_i)
+            if drive:
+                step, hits = beat / 4, [h for h in OST16[msk_i] if h < 4 * b['beats']]
+                if sec == 'cold':
+                    hits = [h for h in hits if h % 2 == 0 or h in ACC16]
+            else:
+                step = beat / 2
+                hits = [h for h in ARP8['sparse' if sec in ('cold', 'resolve') else 'full'][msk_i] if h < 2 * b['beats']]
+            for j, h in enumerate(hits):
+                t = b['t0'] + h * step
+                if blocked(t):
+                    continue
+                f = hz(_contour(shp, tones, j, rng))
+                if drive:
+                    v = (0.17 if h in ACC16 else 0.1) * lift * rng.uniform(0.88, 1.08)
+                    sig = mallet_m(f, 0.45, v * 0.8) if bright_t else pluck(f, 0.2, v, lp=1700)
+                else:
+                    v = (0.16 if h == 0 else 0.12) * lift * rng.uniform(0.88, 1.08)
+                    sig = mallet_m(f, 0.7, v)
+                add(dry, t, sig, 0.22 if j % 2 else -0.22)
+        # motifs: the same plan as `current`, transposed to the style's key
+        sh = lambda k_: ((TONIC_PC[k_] - 5 + 6) % 12) - 6  # F-major motifs -> this key
+        nora = (lambda i: NORA['D minor'][i % 5]) if 'minor' in key or 'dorian' in key else \
+            (lambda i: [n_ + sh(key) + (12 if bright_t else 0) for n_ in NORA['F major'][i % 3]])
+        tr = lambda notes: [n_ + sh(key) for n_ in notes]
+
+        def state(notes, inst, vel, pan, rhythm):
+            for n_, off in zip(notes, rhythm):
+                tt = b['t0'] + off * beat
+                if tt >= b['t1'] + 1.5 * beat or blocked(tt, 2.0):
+                    continue
+                add(dry, tt, inst(hz(n_), vel=vel * rng.uniform(0.88, 1.05)), pan)
+        walt_i = lambda f, vel: pluck(f, 0.7, vel, lp=1200)
+        if sec == 'promise' and b['i'] == 2:
+            state(nora(0), epiano, 0.16, -0.25, RH[0])
+        if sec in ('curious', 'build1', 'build2') and b['i'] % 4 == 1:
+            k_ = motif_k['nora']
+            motif_k['nora'] += 1
+            state(nora(k_), epiano, 0.14, -0.25, RH[k_ % 6])
+        if sec in ('release', 'answer') and b['i'] % 3 == 0:
+            k_ = motif_k['nora']
+            motif_k['nora'] += 1
+            state(nora(3 if sec == 'answer' else 1), epiano, 0.16, -0.2, RH[k_ % 6])
+        if sec == 'walt' and b['i'] % 2 == 1:
+            k_ = motif_k['walt']
+            motif_k['walt'] += 1
+            state(tr(WALT[k_ % 4]), walt_i, 0.3, -0.35, RH[k_ % 6])
+        if sec == 'anjali' and b['i'] % 2 == 1:
+            k_ = motif_k['anj']
+            motif_k['anj'] += 1
+            state(tr(ANJ[k_ % 4]), bell, 0.075, 0.35, RH[(k_ + 1) % 6])
+        if sec == 'resolve':
+            which, k_ = b['i'] % 3, b['i']
+            if which == 0:
+                state(nora(k_), epiano, 0.14, -0.25, RH[k_ % 6])
+            elif which == 1:
+                state(tr(WALT[k_ % 4]), walt_i, 0.26, -0.35, RH[(k_ + 3) % 6])
+            else:
+                state(tr(ANJ[k_ % 4]), bell, 0.06, 0.35, RH[(k_ + 1) % 6])
     return dry
 
 
@@ -656,10 +884,85 @@ def true_peak_gain(mix, ceil_db):
     return g
 
 
+# ================================================================== sample mode (--window): the same mix moves and master chain on a slice
+def a07_gap(v, m):
+    """A07 (checks/py/r_audio.py): 100 ms blocks where the voice stem is > -45 dBFS; 10 log10(voice power / music power) over them."""
+    w = int(0.1 * SR)
+    k = min(len(v), len(m)) // w
+    pv = (v[: k * w].mean(1) ** 2).reshape(k, w).mean(1)
+    pm = (m[: k * w].mean(1) ** 2).reshape(k, w).mean(1)
+    a = 10 * np.log10(pv + 1e-20) > -45
+    return float(10 * np.log10(pv[a].mean()) - 10 * np.log10(pm[a].mean() + 1e-20))
+
+
+def mix_window(tl, voice, gate_v_duck, music, son, window, vom_db, lufs, out, metrics):
+    w0, w1 = window
+    M = 3.0
+    a, b = int(max(0.0, w0 - M) * SR), int(min(tl.total, w1 + M) * SR)
+    i0, i1 = int(w0 * SR) - a, int(w1 * SR) - a
+    bed_gate, room_lift, _ = silence_gates(tl)
+    ad_gate, ad_lift, _ = silence_gates(tl, tl.ad_gaps)
+    bed_gate, ad_gate, room_lift, ad_lift = (x[a:b].copy() for x in (bed_gate, ad_gate, room_lift, ad_lift))
+    voice, gd = voice[a:b].copy(), gate_v_duck[a:b]
+    music, son = music[a:b].copy(), son[a:b].copy()
+    n = b - a
+    duck_mid = 10 ** (-13 * gd / 20)
+    for ch in range(2):
+        mid = bandpass(music[:, ch], 1000, 4000)
+        music[:, ch] = music[:, ch] - mid + mid * duck_mid
+    senv = maximum_filter1d(np.abs(son).max(1), int(0.03 * SR))
+    thr = 0.1 * np.percentile(senv[senv > 1e-7], 95) if (senv > 1e-7).any() else 1.0
+    dip = 10 ** (-10 * smooth_gate(np.clip(senv / thr, 0, 1), 0.015, 0.25) / 20)
+    for ch in range(2):
+        for lo, hi in SON_BANDS:
+            bb = bandpass(music[:, ch], lo * 0.85, hi * 1.15)
+            music[:, ch] = music[:, ch] - bb + bb * dip
+    music *= (bed_gate * ad_gate)[:, None]
+    son *= bed_gate[:, None]
+    voice2 = np.stack([voice, voice], 1)
+    # music level: vom_db under the voice over the window (A07 method), so every style sits exactly where the mix puts it now
+    music *= 10 ** ((a07_gap(voice2[i0:i1], music[i0:i1]) - vom_db) / 20)
+    rr = np.random.default_rng(20260930)
+    pink = signal.lfilter([0.049922035, -0.095993537, 0.050612699, -0.004408786], [1, -2.494956002, 2.017265875, -0.522189400], rr.standard_normal(n))
+    pink = onepole_lp(pink, 3500)
+    pink /= np.sqrt(np.mean(pink ** 2))
+    room = np.stack([pink, 0.85 * np.roll(pink, 480) + 0.15 * pink], 1) * (1 + (10 ** (8 / 20) - 1) * np.maximum(room_lift, ad_lift))[:, None]
+    stems = {'voice': voice2, 'music': music, 'sonify': son}
+    g = 10 ** ((MASTER_LUFS - ebur128((voice2 + music + son)[i0:i1])['I']) / 20)
+    stems = {k: v * g for k, v in stems.items()}
+    stems['room'] = room * 10 ** (ROOM_DBFS / 20)
+    g2 = 10 ** ((MASTER_LUFS - ebur128(sum(stems.values())[i0:i1])['I']) / 20)
+    stems = {k: v * g2 for k, v in stems.items()}
+    gl = true_peak_gain(sum(stems.values()), TP_CEIL_DB)
+    stems = {k: (v * gl[:, None])[i0:i1] for k, v in stems.items()}
+    L = i1 - i0
+    fade = np.minimum(1, np.minimum(np.arange(L) / (0.25 * SR), (L - 1 - np.arange(L)) / (0.6 * SR)))[:, None]
+    stems = {k: v * fade for k, v in stems.items()}
+    master = sum(stems.values())
+    g3 = 10 ** ((lufs - ebur128(master)['I']) / 20)   # loudness match of the samples: gain only
+    stems = {k: v * g3 for k, v in stems.items()}
+    master = master * g3
+    m = ebur128(master)
+    write_wav(out, master)
+    rep = {'window_s': [w0, w1], 'style': STYLE, 'keys': list(STYLES[STYLE]['keys']), 'voiceOverMusicDb_A07': round(a07_gap(stems['voice'], stems['music']), 2),
+           'voiceOverMusicTargetDb': vom_db, 'master': m, 'limiterMinGainDb': round(float(20 * np.log10(gl.min())), 2),
+           'stemLevelsDbfs': {k: round(float(10 * np.log10(np.mean(v ** 2) + 1e-20)), 2) for k, v in stems.items()}}
+    if metrics:
+        np.save(metrics + '.music.npy', stems['music'].astype(np.float32))
+        json.dump(rep, open(metrics, 'w'), indent=1)
+    log('window', json.dumps(rep))
+    return rep
+
+
 # ================================================================== main
 def main():
     args = sys.argv[1:]
     total = float(args[args.index('--total') + 1]) if '--total' in args else 17739 / 30  # video: 17 739 frames at 30 fps (S18 sửa 30/09; trước: 17 752)
+    global STYLE
+    STYLE = args[args.index('--music-style') + 1] if '--music-style' in args else 'current'
+    assert STYLE in STYLES, STYLE
+    sx = '' if STYLE == 'current' else '-' + STYLE   # cache names of the other styles; `current` keeps its own
+    window = (float(args[args.index('--window') + 1]), float(args[args.index('--window') + 2])) if '--window' in args else None
     tl = TL(total)
     N = tl.N
     log('total', total, 'samples', N)
@@ -694,7 +997,7 @@ def main():
         m = dry + 0.24 * np.stack([wetL, wetR], 1)
         m *= music_dynamics(tl, bars)[:, None]
         return m.astype(np.float32)
-    music = cached('music', _music).astype(np.float64)
+    music = cached('music' + sx, _music).astype(np.float64)
 
     # ---- sonification
     plan = J('work/audio/son-plan.json')['rows']
@@ -703,11 +1006,15 @@ def main():
     def _son():
         log('sonify:', len(notes), 'notes')
         s, st, placed = render_sonify(tl, notes, voice)
-        json.dump({'stats': st, 'placed': placed}, open(os.path.join(CACHE, 'son-stats.json'), 'w'))
+        json.dump({'stats': st, 'placed': placed}, open(os.path.join(CACHE, f'son-stats{sx}.json'), 'w'))
         return s.astype(np.float32)
-    son = cached('sonify_raw', _son).astype(np.float64)
-    son_stats = json.load(open(os.path.join(CACHE, 'son-stats.json')))['stats']
+    son = cached('sonify_raw' + sx, _son).astype(np.float64)
+    son_stats = json.load(open(os.path.join(CACHE, f'son-stats{sx}.json')))['stats']
     son = son_process(son, voice, gate_v_son)
+    if window:
+        opt = lambda k, d: type(d)(args[args.index(k) + 1]) if k in args else d
+        return mix_window(tl, voice, gate_v_duck, music, son, window, opt('--vom-db', VOICE_OVER_MUSIC_DB), opt('--lufs', MASTER_LUFS),
+                          opt('--out', 'window.wav'), opt('--metrics', ''))
 
     # ---- mix moves
     log('mix')

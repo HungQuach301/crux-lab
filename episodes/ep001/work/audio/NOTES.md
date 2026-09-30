@@ -8,6 +8,14 @@
 - Việc dở của lần tiếp tục này: (1) S14 — hai điểm quảng cáo 241,54 / 372,2 s không có ≥ 1 s ≤ −40 dBFS (nhạc phồng +3 dB và nhấn felt ở cú cắt). Sửa: nhạc (và room +8 dB) im như khoảng lặng [beat] trong khe lời cảnh của điểm quảng cáo, không nhấn felt ở hai cú cắt đó (bỏ khỏi `accents` của tempo-map), tiếng dữ liệu không đụng, lời không đụng. (2) dựng lại (nohup, log `work/audio/mix.log`), (3) kiểm manifest, (4) tự kiểm luật K3.1 trong scratch `A-audio/` (video.mp4 = animatic 720p + master, CHỈ để kiểm tiếng; P mux bản thật), (5) chạy lại `preprod/dossier_c5.py` để tension-map đo từ stem.
 - Mỗi bước xong: một dòng `ledger.md`, commit `git commit -- <đường dẫn>`.
 
+## C6 · thử mù nhạc nền (30/09/2026)
+- Chủ dự án (G-016): nhạc hiện tại chậm, hơi buồn; chấp nhận A (tò mò, sáng) hoặc C (năng động) → 3 bản thử mù A / C / A+C trên cùng đoạn 16,7–55,2 s.
+- Mã: `mix.py --music-style current|A|C|AC` (mặc định `current` = nhạc C5, không đổi: kiểm `music.npy` trùng từng mẫu); cache `music-<kiểu>.npy`,
+  `sonify_raw-<kiểu>.npy` (nốt dữ liệu kiểu line theo móc đơn của nhịp nhạc). `--window T0 T1 --vom-db --lufs --out --metrics`: tính nhạc/dữ liệu/cổng trên cả tập,
+  mix + master trên T0−3..T1+3 s (vài GB RAM, ~3 phút/kiểu). `music_test.py` dựng 3 bản, xáo nhãn, ghi `review-c6/music-test/` (key.json = khoá, đừng đọc to).
+- Sau khi chủ dự án chọn: `python3 episodes/ep001/work/audio/src/mix.py --music-style <kiểu>` (ghi stem/master/tempo-map/cues như C5), rồi chạy lại luật âm thanh.
+  Mức nhạc cả tập theo luật 20 dB toàn tập như C5 (đoạn mở vẫn ~24 dB vì GAIN_DB đoạn cold/promise giữ nguyên).
+
 ## Tự kiểm C5 (30/09/2026)
 Luật từ `origin/main` `fda4840` (checks LOCK `81cf3997…`, `git archive`, không sửa) chạy trên bản sao gốc tập (scratch `A-audio/root`, symlink vào `episodes/ep001`).
 `out/video.mp4` **tạm** = hình animatic 720p + `master.wav` (AAC 320k) — chỉ để các luật đọc tiếng từ video chạy được; P mux bản thật rồi chạy lại A01–A06, A09, A14, S14, T1, T3 (các luật đọc master qua video).

@@ -1,0 +1,121 @@
+{
+ "_": "GIẢI MÃ — không mở trước khi chọn.",
+ "window_s": [
+  16.7,
+  55.2
+ ],
+ "common": {
+  "segment": "S01.3 \"At the February rate…\" → hết S02.8 \"…need a bigger cut?\" (cold open + câu hứa)",
+  "voice": "review-c4/narration-v32.m4a (cố định)",
+  "sonification": "S2 minimal, luật cũ",
+  "voiceOverMusicTargetDb": 23.97,
+  "masterChain": "-14 LUFS, TP -1.5 dBTP như C5, rồi chỉ chỉnh gain về -16 LUFS",
+  "lufsTarget": -16.0,
+  "codec": "AAC 192k stereo 48 kHz",
+  "measures": "voiceOverMusicDb_A07 = A07 on the window stems; tempoMapBpm = the engine grid (cuts on downbeats); tempoMeasuredBpm = onset autocorrelation of the music stem, 60-180 BPM (rough: a syncopated figure can lock to a sub-multiple); keyEstimated = Krumhansl-Schmuckler on a 110-2000 Hz chroma of the music stem (D dorian shares its notes with A minor / C major)",
+  "generator": "episodes/ep001/work/audio/src/mix.py --music-style (music_test.py)"
+ },
+ "samples": {
+  "P": {
+   "style": "C",
+   "desc": "năng động, nhịp nhanh hơn rõ",
+   "voiceOverMusicDb_A07": 23.96,
+   "tempoMapBpm": {
+    "S01": 108.827,
+    "S02": 116.866
+   },
+   "tempoMeasuredBpm": 117.6,
+   "keyDeclared": "D dorian",
+   "keyEstimated": "A minor",
+   "chordsInWindow": [
+    "Am",
+    "G",
+    "Dm",
+    "C",
+    "Dm",
+    "Am",
+    "Dm",
+    "G",
+    "Dm7",
+    "Em",
+    "G",
+    "F",
+    "G",
+    "Dm7",
+    "Em",
+    "Dm7",
+    "G",
+    "F",
+    "C"
+   ],
+   "lufsM4a": -16.0,
+   "truePeakM4a": -3.4
+  },
+  "Q": {
+   "style": "AC",
+   "desc": "sáng như A, nhịp nhanh như C",
+   "voiceOverMusicDb_A07": 23.96,
+   "tempoMapBpm": {
+    "S01": 108.827,
+    "S02": 116.866
+   },
+   "tempoMeasuredBpm": 117.6,
+   "keyDeclared": "F major",
+   "keyEstimated": "F major",
+   "chordsInWindow": [
+    "Bbmaj7",
+    "C",
+    "F",
+    "C",
+    "Bb",
+    "Gm",
+    "Bb",
+    "F",
+    "Fadd9",
+    "Bbmaj7",
+    "C",
+    "Dm",
+    "Bb",
+    "C",
+    "Dm",
+    "Bb",
+    "Fadd9",
+    "Bb",
+    "Gm"
+   ],
+   "lufsM4a": -16.0,
+   "truePeakM4a": -3.4
+  },
+  "R": {
+   "style": "A",
+   "desc": "tò mò, sáng, giọng trưởng, nhịp vừa",
+   "voiceOverMusicDb_A07": 23.96,
+   "tempoMapBpm": {
+    "S01": 87.062,
+    "S02": 95.618
+   },
+   "tempoMeasuredBpm": 63.8,
+   "keyDeclared": "F major",
+   "keyEstimated": "F major",
+   "chordsInWindow": [
+    "Dm",
+    "Bbmaj7",
+    "C",
+    "F",
+    "C",
+    "Bb",
+    "F",
+    "Bbmaj7",
+    "Fadd9",
+    "Bb",
+    "Gm",
+    "C",
+    "Bb",
+    "Gm",
+    "C"
+   ],
+   "lufsM4a": -16.0,
+   "truePeakM4a": -3.4
+  }
+ }
+}
