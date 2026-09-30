@@ -1,14 +1,14 @@
 # Tập 1 · Phiếu tải lên YouTube (PACKAGING v2, 30/09/2026)
 
-Phiếu điền cho YouTube Studio. Chỗ nào ghi **ĐỀ XUẤT** là việc chủ dự án chọn. Chữ công khai viết tiếng Anh, ghi chú viết tiếng Việt. Tệp phim: `out/video.mp4` (591,3 s = **9:51**; PACKAGING không động vào).
+Phiếu điền cho YouTube Studio. **Chủ dự án đã chốt 30/09/2026:** tiêu đề c2, thumbnail W (mặc định) + thumb-3 + L cho Test & Compare, mô tả DA, end screen E1. Chỗ còn ghi **ĐỀ XUẤT** là việc chủ dự án chọn khi tải lên. Chữ công khai viết tiếng Anh, ghi chú viết tiếng Việt. Tệp phim: `out/video.mp4` (591,3 s = **9:51**; PACKAGING không động vào).
 
 ## 1. Chi tiết
 
 | Trường | Giá trị |
 |---|---|
-| Title | **ĐỀ XUẤT**: một trong 6 tiêu đề ở `titles.md §1` (hoặc T1 hiện hành). Nếu dùng Test & Compare (tiêu đề + thumbnail), đưa gói thắng so cặp mù cùng T1 làm đối chứng. |
-| Description | `description.md` (hai dòng đầu DA; DB ở `titles.md §3`). Chapters đã có sẵn (0:00 …), phải bắt đầu bằng 0:00. |
-| Thumbnail | **ĐỀ XUẤT**: `thumb-H.png` / `thumb-L.png` / `thumb-W.png` (1280×720, PNG < 2 MB). Test & Compare cho tối đa 3 thumbnail: ba ảnh v2, hoặc hai ảnh v2 và `../thumb-3.png` làm đối chứng. |
+| Title | **Borrowed Over 7% in 2023? The Rate Cut a Refinance Needs** (c2, 56 ký tự; chốt 30/09). Test & Compare chỉ thử thumbnail, tiêu đề giữ cố định. |
+| Description | `description.md` — hai dòng đầu **DA** (chốt 30/09). Chapters đã có sẵn (0:00 …), phải bắt đầu bằng 0:00. |
+| Thumbnail | Test & Compare, 3 ảnh (chốt 30/09): **`thumb-W.png` (mặc định, tải lên đầu tiên)**, `../thumb-3.png`, `thumb-L.png`. Bỏ H. L giữ huy hiệu ILLUSTRATIVE cỡ theo token (32 px = 48 px × 2/3), vì $1,133 là số của nhân vật minh hoạ; W không cần huy hiệu (5.98% là số thật, `low2026`). Cả ba 1280×720, PNG < 2 MB. |
 | Playlist | **ĐỀ XUẤT**: tạo "Refinance & Mortgage Math" (Tập 1 là video đầu). Tên kênh dự phòng: "Crux: Money Math, Checked". |
 | Audience | **Made for kids: No** ("No, it's not made for kids"). |
 | Age restriction | Không. |
@@ -57,7 +57,7 @@ Câu này hỏi con số trên lá thư chứ không hỏi thông tin cá nhân 
 
 Kiểm claim: `cut36_small` 1.12, `cut36_median` 0.5 ("half a point", S18.5), `cut36_large_words` "about a third of a point", `loan_small` / `loan_median` / `loan_large`, `cost_median` $5,124, `anchor_date`. Chương 8:07 "A line for each loan size". Quét S10: 0 khớp.
 
-## 6. End screen (ĐỀ XUẤT, không render lại)
+## 6. End screen — **E1** (chốt 30/09, không render lại)
 
 **Vấn đề.** Lời cuối (S20.5 "How long do you picture yourself in your home?") bắt đầu ở 588,3 s, phim hết ở 591,3 s. 20 s cuối (571–591 s) là cảnh S20 đầy chữ: tiêu đề trên cùng, "+$8,093 ahead / if she stays 7 years" giữa phải, câu hỏi cuối và thước năm ở dưới (khung đã xem ở 572 s, 582 s, 589 s). Không có vùng trống dành cho phần tử end screen, nên đặt phần tử nào cũng che số hoặc câu hỏi.
 
@@ -67,10 +67,10 @@ Kiểm claim: `cut36_small` 1.12, `cut36_median` 0.5 ("half a point", S18.5), `c
 
 ## 7. Trước khi bấm Public
 
-- [ ] Chọn tiêu đề + thumbnail (hoặc bật Test & Compare).
-- [ ] Mô tả: DA hoặc DB, bấm thử link FHFA.
+- [ ] Tiêu đề c2; bật Test & Compare với W (mặc định), thumb-3, L.
+- [ ] Mô tả DA (`description.md`); bấm thử link FHFA.
 - [ ] Altered or synthetic = Yes; Made for kids = No; Education; English.
 - [ ] Phụ đề `captions.srt`.
 - [ ] Playlist.
-- [ ] End screen E1 (hoặc bỏ qua, chờ E2).
+- [ ] End screen E1 (5 s, 2 phần tử), xem trước trong Studio.
 - [ ] Đăng bình luận ghim.

@@ -1,4 +1,4 @@
-<!-- out/package/v2/description.md · PACKAGING v2 (2026-09-30). First two lines = option DA (titles.md §3; option DB there). Body = the approved C5 description (D1) unchanged, plus the FHFA link. Owner picks. -->
+<!-- out/package/v2/description.md · PACKAGING v2 (2026-09-30). First two lines = option DA — CHOSEN by the owner 30/09 (DB not used). Body = the approved C5 description (D1) unchanged, plus the FHFA link. -->
 
 Got a refinance offer? Here is how big a rate cut it takes to earn back the fees within 3 years, and why the answer depends on your loan size.
 

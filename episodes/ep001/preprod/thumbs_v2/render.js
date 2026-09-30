@@ -35,7 +35,10 @@ const T = (id, x, y, px, text, o = {}) => {
   const tx = o.anchor === 'c' ? 'translateX(-50%)' : o.anchor === 'r' ? 'translateX(-100%)' : 'none';
   return `<div class="t${o.plate ? ' pl' : ''}" data-t="${id}" data-px="${px}" style="left:${Math.round(x)}px;top:${Math.round(y)}px;font-size:${px}px;color:${o.color || tok.text};transform:${tx};${o.plate ? `background:${o.plate};` : ''}${o.extra || ''}">${text}</div>`;
 };
-const BADGE = (px = 34) => `<div class="t" data-t="badge" data-px="${px}" style="right:36px;top:30px;font-size:${px}px;color:${tok['badge-text']};background:${tok['badge-bg']};padding:10px 16px 11px;border-radius:9px">ILLUSTRATIVE</div>`;
+// Badge size = signed type token (design/c3/final/tokens.json type.badge, 48 px at 1080) scaled 2/3 like the still: 32 px
+// (owner, 30/09: keep ILLUSTRATIVE on L, sized by the token; P01's 90 px floor is waived for the badge, THAM KHẢO).
+const BADGE_TOK = JSON.parse(fs.readFileSync(path.join(C3, 'tokens.json'), 'utf8')).type.badge;
+const BADGE = (px = Math.round(BADGE_TOK.px * 2 / 3)) => `<div class="t" data-t="badge" data-px="${px}" style="right:36px;top:30px;font-size:${px}px;font-weight:${BADGE_TOK.weight};color:${tok['badge-text']};background:${tok['badge-bg']};padding:${Math.round(px * 0.3)}px ${Math.round(px * 0.47)}px ${Math.round(px * 0.32)}px;border-radius:${Math.round(px * 0.26)}px">ILLUSTRATIVE</div>`;
 const s = (p) => ({ x: p.x * 2 / 3, y: p.y * 2 / 3 });
 
 const THUMBS = {

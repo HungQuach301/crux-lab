@@ -72,9 +72,18 @@ Tập 1 đóng gói ở cuối (C5), sau khi phim đã xong, nên gói phải n�
 | Cổng | Thêm gì | Vì sao |
 |---|---|---|
 | **C1 Ý tưởng** | Lời hứa = **tiêu đề nháp** + kiểu móc (2–3 hướng từ thư viện mục 2), người xem cụ thể, "sự thật lạ" dự kiến (đợi DATA xác nhận). Kiểm mù ý tưởng bằng thẻ chỉ tiêu đề. | Nếu không viết được một tiêu đề hút mà vẫn đúng claim, ý tưởng chưa đủ. Móc chọn ở C1 dẫn cold open. |
-| **C3 Thiết kế** | Mỗi hướng thiết kế kèm **một concept thumbnail** dựng từ chính hệ hình (vật thể, token). Chừa sẵn: vật thể "anh hùng" đọc được ở 10%, chỗ cho huy hiệu minh hoạ ≥ 90 px nếu định in số nhân vật. **Chừa đuôi end screen 15–20 s** trong kế hoạch dựng. | Tập 1 không có đuôi end screen và không có chỗ cho huy hiệu lớn: hai căng thẳng này sinh ra vì gói đến muộn. |
+| **C3 Thiết kế** | Mỗi hướng thiết kế kèm **một concept thumbnail** dựng từ chính hệ hình (vật thể, token). Chừa sẵn: vật thể "anh hùng" đọc được ở 10%, chỗ cho huy hiệu minh hoạ nếu định in số nhân vật (cỡ theo token `type.badge`, Tập 1: 48 px ở 1080 → 32 px ở thumbnail). **Chừa đuôi end screen 15–20 s** trong kế hoạch dựng. | Tập 1 không có đuôi end screen và không có chỗ cho huy hiệu lớn: hai căng thẳng này sinh ra vì gói đến muộn. |
 | **C6 Chấm cuối** | Chốt gói: 3 thumbnail cho Test & Compare, 1–2 tiêu đề, mô tả, phiếu tải lên; so cặp mù L3; chủ dự án chọn trong cùng gói quyết định C6 (≤ 3 câu hỏi). | Gói được duyệt cùng phim, theo cùng quy tắc kiểm mù. |
 
 Đề xuất sửa luật (cho K-review, không tự áp):
-- **P01**: đổi "token share toàn ảnh ≥ 97%" thành "chữ và mảng phẳng: màu token; vật 3D: vật liệu đã ký (`design/c3/final/tokens.json → materials`)". Thêm ngoại lệ có lý do cho huy hiệu ILLUSTRATIVE < 90 px, hoặc đặt cỡ huy hiệu riêng cho thumbnail.
+- **P01**: đổi "token share toàn ảnh ≥ 97%" thành "chữ và mảng phẳng: màu token; vật 3D: vật liệu đã ký (`design/c3/final/tokens.json → materials`)". Huy hiệu ILLUSTRATIVE lấy cỡ từ token `type.badge` theo tỉ lệ ảnh, không theo sàn 90 px của chữ (chủ dự án chốt cho Tập 1: minh bạch trước, huy hiệu nhỏ vẫn phải có).
 - **Thêm luật tham khảo P02** (gói): tiêu đề ≤ 60 ký tự; mỗi số trong tiêu đề/thumbnail/mô tả khớp `display` của claim; quét S10 trên chữ của gói.
+
+## 6. Bài học Tập 1 (so cặp mù gói v2, 48 agent; chủ dự án chốt 30/09/2026)
+
+Kết quả: `episodes/ep001/review-c6/pack-test/results.md`. Chủ dự án chọn tiêu đề c2, thumbnail W (mặc định) + thumb-3 + L, mô tả DA, end screen E1.
+
+1. **Hướng "người như tôi" + lời hứa đáp án thắng hướng nghịch lý.** c2 "Borrowed Over 7% in 2023? The Rate Cut a Refinance Needs" thắng 12/12; a1 (nghịch lý "smaller loan needs a bigger cut") chỉ 3/12, a2 1/12. Khớp kết quả C1: người xem bấm khi thấy mình trong tiêu đề và thấy được hứa một đáp án dùng được, không bấm vì một nghịch lý trừu tượng. Mặc định cho tập sau: gọi đúng nhóm người xem + hứa đáp án; nghịch lý để trong phim (cold open, câu hứa), không đặt lên tiêu đề.
+2. **Vai người đọc trùng với móc của tiêu đề làm lệch kết quả.** Vai mù là "đã vay 2022–2024", đúng nhóm mà c1/c2 gọi tên, nên hướng (c) được lợi từ chính câu hỏi. Lần sau: dùng **hỗn hợp người tìm kiếm** (ví dụ: người đang có lời mời refinance, người mua nhà lần đầu đang so lãi, người chỉ tò mò về lãi suất, người vay trước 2022), chia đều cho mỗi cặp, và báo kết quả theo từng vai lẫn tổng.
+3. **Mỗi hướng một thumbnail làm gộp nhiễu.** Tập 1 ghép a→H, b→L, c→W, nên không tách được c thắng nhờ tiêu đề hay nhờ W (lý do nguyên văn nhắc cả hai). Lần sau thiết kế để tách: (i) vòng tiêu đề với một thumbnail trung tính cố định; (ii) vòng thumbnail với một tiêu đề cố định; (iii) nếu cần tương tác, lưới đầy đủ tiêu đề × thumbnail cho các ứng viên cuối, cả hai thứ tự.
+
