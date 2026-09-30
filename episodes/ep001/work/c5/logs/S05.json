@@ -9,7 +9,7 @@
  "hardTime": 39.24,
  "crf": 8,
  "size": "1920x1080",
- "basisMode": "near",
+ "basisMode": "corner",
  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
  "cpus": 4,
  "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
@@ -196,7 +196,7 @@
    "sent": false
   },
   {
-   "s": "History, not a forecast · US only",
+   "s": "History, not a forecast \u00b7 US only",
    "tier": "caption",
    "px": 51,
    "n": 234,
