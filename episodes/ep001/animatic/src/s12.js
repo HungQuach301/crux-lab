@@ -2,6 +2,7 @@
 import { C, W, H, DATA, CL, text, chrome, line, rect, dot, mark, ease, easeOut, mix } from './engine.js';
 import { G, axes, yOf, xOfM, curve, ruler, rx, RU } from './plot.js';
 export const uses3d = false;
+export const basisCorner = [1824, 1016]; // BASIS_MODE corner: label position (right-aligned baseline) here: the small cut ruler holds the top right
 
 export function build({ T }) {
   const tF = T.a('full'), t18 = T.a('m18'), tI = T.a('inside');

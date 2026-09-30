@@ -5,6 +5,7 @@
 import { THREE, C, W, H, DATA, CL, text, chrome, line, rect, mark, measure, ease, easeOut, back, mix, withObj, CHAR, basisNote, BASIS, NEAR } from './engine.js';
 import { kitchen, letter, houseIcon, PL } from './common.js';
 export const uses3d = true;
+export const basisCorner = [1808, 256]; // BASIS_MODE corner: label position (right-aligned baseline) here: the subtitle runs to x 1690 on the badge line
 
 export function build({ scene, camera, renderer, T }) {
   const tL = T.a('letter'), tQ = T.a('q'), tSz = T.a('size'), tW = T.a('walt'), tN = T.a('nora'), tA = T.a('anj'), tY = T.a('you'), tAs = T.a('assume'), tO = T.a('one');

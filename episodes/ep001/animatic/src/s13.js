@@ -5,6 +5,7 @@ import { C, W, H, DATA, CL, text, chrome, line, rect, dot, mark, ease, easeOut, 
 import { G, axes, yOf, xOfM, curve, ruler, rx, RU } from './plot.js';
 import { PL } from './common.js';
 export const uses3d = false;
+export const basisCorner = [1824, 1016]; // BASIS_MODE corner: label position (right-aligned baseline) here: the small cut ruler and its markers hold the top right
 
 export function build({ T }) {
   const tB = T.a('between'), tH = T.a('half'), t36 = T.a('m36'), tA = T.a('answer'), tR = T.a('real'), tP = T.a('pays'), tE = T.a('everyone');

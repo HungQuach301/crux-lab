@@ -1,8 +1,9 @@
 // S02 · The letter, and the promise. H1 (signed SF2): the letter lands, its bill line lights, the camera pulls back to
 // three model houses (volume = loan) and the outline house "your loan?" (the viewer's own loan, no number).
-import { THREE, C, W, H, DATA, CL, text, chrome, ease, easeOut, back, mix, mark, house, outlineHouse, basisNote, nb } from './engine.js';
+import { THREE, C, W, H, DATA, CL, text, chrome, ease, easeOut, back, mix, mark, house, outlineHouse, basisNote, nb, NEAR } from './engine.js';
 import { kitchen, letter, PL } from './common.js';
 export const uses3d = true;
+const CAPDY = NEAR ? 0 : 50; // corner basis label (BASIS_MODE corner) sits under the badge: the promise captions step down
 
 export function build({ scene, camera, renderer, T }) {
   const tL = T.a('letter'), tR = T.a('refi'), tF = T.a('fees'), tP = T.a('pull'), tP1 = T.a('promise1'), tY = T.a('yours'), tS = T.a('smaller');
@@ -56,9 +57,9 @@ export function build({ scene, camera, renderer, T }) {
     text(ctx, 'larger loan', lh.x, lh.y + 60, 'note', { align: 'center', color: C.muted, alpha: aN, shadow: true });
     const ob = P(new THREE.Vector3(out.position.x, 0, HZ + 1.0));
     text(ctx, 'your loan?', ob.x, ob.y + 60, 'label', { align: 'center', alpha: easeOut(t, tY + 0.5, tY + 0.9), shadow: true });
-    text(ctx, 'How big a rate cut makes that worth it for Nora —', W / 2, 200, 'caption', { align: 'center', alpha: easeOut(t, tP1, tP1 + 0.4), plate: 'rgba(14,17,22,0.72)', sent: true });
-    text(ctx, 'and where would your own loan fall?', W / 2, 280, 'caption', { align: 'center', alpha: easeOut(t, tY, tY + 0.4), plate: 'rgba(14,17,22,0.72)', sent: true });
-    text(ctx, 'And why would a smaller mortgage need a bigger cut?', W / 2, 360, 'caption', { align: 'center', alpha: easeOut(t, tS - 0.6, tS - 0.2), plate: 'rgba(14,17,22,0.72)', sent: true });
+    text(ctx, 'How big a rate cut makes that worth it for Nora —', W / 2, 200 + CAPDY, 'caption', { align: 'center', alpha: easeOut(t, tP1, tP1 + 0.4), plate: 'rgba(14,17,22,0.72)', sent: true });
+    text(ctx, 'and where would your own loan fall?', W / 2, 280 + CAPDY, 'caption', { align: 'center', alpha: easeOut(t, tY, tY + 0.4), plate: 'rgba(14,17,22,0.72)', sent: true });
+    text(ctx, 'And why would a smaller mortgage need a bigger cut?', W / 2, 360 + CAPDY, 'caption', { align: 'center', alpha: easeOut(t, tS - 0.6, tS - 0.2), plate: 'rgba(14,17,22,0.72)', sent: true });
     chrome(ctx, { illus: aN, source: 'Fees: median ' + CL('y2025') + ' refinance bill (HMDA, US home-loan records)' + nb(', dollars of the day.', '. Nora: illustrative.'), srcAlpha: easeOut(t, tF, tF + 0.4), plate: true });
   }
   return { update, overlay, stripTimes: [tL + 1.2, tR + 0.8, tF + 1.0, tP + 3.0, tY + 1.4, T.dur - 0.2] };

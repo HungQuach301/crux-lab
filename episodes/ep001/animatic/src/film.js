@@ -77,7 +77,8 @@ function draw(tg) {
 function cornerBasis(R) {
   let a = 0;
   for (const o of R.objs) if (o.kind === 'text') for (const sp of o.claims || []) if (String((E.DATA.claims[sp.id] || {}).display || '').includes('$')) a = Math.max(a, sp.opacity);
-  if (a > 0.001) E.text(ctx, E.BASIS, W - 112, 176, 'note', { align: 'right', color: E.C.muted, alpha: Math.min(1, a), shadow: true });
+  const [x, y] = MODS[R.scene].basisCorner || [W - 112, 176]; // default: under the badge; a scene may move it (basisCorner)
+  if (a > 0.001) E.text(ctx, E.BASIS, x, y, 'note', { align: 'right', color: E.C.muted, alpha: Math.min(1, a), shadow: true });
 }
 const OUTF = ['id', 'kind', 'tid', 'tag', 'role', 'text', 'box', 'opacity', 'level', 'emph', 'series', 'anchor', 'chart', 'year', 'char', 'case', 'runs', 'color',
   'fontPx', 'background', 'parent', 'claims', 'key', 'sig', 'panel', 'label', 'value', 'full', 'orient', 'shape', 'stroke', 'fill', 'curve', 'vertices', 'tier', 'sent'];

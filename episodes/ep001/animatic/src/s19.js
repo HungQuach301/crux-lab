@@ -4,6 +4,7 @@
 import { C, W, H, DATA, CL, text, chrome, line, rect, srect, dot, mark, ease, easeOut, back, mix, roundRect, withObj, CHAR, nb } from './engine.js';
 import { houseIcon, PL } from './common.js';
 export const uses3d = false;
+export const basisCorner = [1824, 1016]; // BASIS_MODE corner: label position (right-aligned baseline) here: the assumptions lines run under the badge
 
 export function build({ T }) {
   const tF = T.a('fade'), t25 = T.a('p25'), t75 = T.a('p75'), tR = T.a('real'), tRo = T.a('roll'), tTe = T.a('term');
