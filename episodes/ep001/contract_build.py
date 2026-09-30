@@ -27,7 +27,7 @@ EXTRA_M3 = ['out/model.json', 'data/sources.json', 'data/normalized/mortgage30_w
             'data/normalized/hmda_refi_costs.csv', 'data/normalized/hmda_refi31_conforming.csv', 'contract.json', 'out/package/thumb-1.json',
             'out/package/thumb-2.json', 'out/package/thumb-3.json', 'preprod/storyboard.*', 'preprod/color-script.*',
             'out/rights.json', 'out/visual-assets.json', 'out/voice/takes.json']
-LOCK = '81cf3997737724314346c49254c26c2b1018bc545d95fb3d3f5edf8106f766f8 (K3.1)'
+LOCK = 'beffb49be5917559419867513257b37c4ae827581db00039abb53804aaf2bb33 (K3.3)'
 # model assumptions that must be on screen (S02, K3): in the method act (S19, or a method card after S20) AND elsewhere. Case-insensitive regex.
 # Where each is on screen now (animatic/src): offer-average S06 source line; fees-in-cash S07 label, S11 source, S18 footnote;
 # payback-3y and oct2023-rate and median-bill S18 footnote (median bill also S02 source); new-loan-30y S10 head "A mortgage is a 30-year clock".
