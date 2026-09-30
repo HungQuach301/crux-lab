@@ -1,0 +1,12 @@
+# retire-5 recalculation notes
+- real_yield_now_pct: last non-missing DFII20 row (blank/"." skipped); dated 2026-09-28 = 3.14. No ambiguity.
+- real_yield_low_pct: min over all non-missing rows = -0.76 (2021-11-09; unique occurrence). No ambiguity.
+- first_withdrawal_pct_of_start: 1/26.5 x 100 = 3.7736. Divisors taken from the 26 CFR 1.401(a)(9)-9(c) quote in input.json (not re-fetched).
+- now_balance_at_90_pct_of_start: B_90 is the start-of-year balance at 90, before the age-90 withdrawal (literal B_a). 65.899.
+- now_withdrawal_at_90_pct_of_start: W_90 = B_90/12.2. 5.4015.
+- now_peak_withdrawal_age: argmax over 73..100; unique max at 93 (no tie handling needed).
+- now_peak_withdrawal_pct_of_start: W_93 x 100 = 5.4449.
+- low_balance_at_90_pct_of_start: B_90 (pre-withdrawal) with r = -0.76. 34.221.
+- low_withdrawal_at_90_pct_of_start: 2.8050.
+- low_years_withdrawal_rises_after_73: strict inequality W_a > W_{a-1}, a = 74..100. Result 0.
+- General: r applied as the annual real return on the post-withdrawal balance, as defined; values unrounded.

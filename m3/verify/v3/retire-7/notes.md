@@ -1,0 +1,8 @@
+- purchase_months: 762. Months s in GS10 with TB3MS present for all s..s+119 (calendar-month arithmetic); missing/"." values treated as absent (none found). No ambiguity.
+- first_purchase_yyyymm: 195304 = first GS10 observation (TB3MS starts 1934). No ambiguity.
+- last_purchase_yyyymm: 201609, since s+119 = 2026-08, the last TB3MS observation (coed=2026-08-01). No ambiguity.
+- share_bills_won_pct: 32.677. Strict Bills/Note > 1 (no ties occurred at float precision); denominator = all 762 valid months.
+- share_bills_won_1960_1979_pct: 85.417 (240 months, inclusive 1960-01..1979-12).
+- share_bills_won_since_1980_pct: 2.268; "1980-01 onward" = 1980-01..2016-09 (441 valid months).
+- best_bills_advantage_pct: 24.826; max ratio over all 762 months.
+- best_note_advantage_pct: 103.385; 1/min ratio - 1, over all 762 months.

@@ -15,7 +15,7 @@ M3 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MACHINE = os.path.join(M3, 'machine')
 WORK = os.path.join(M3, 'verify', 'work')
 OUT = os.path.join(M3, 'verify', 'out')
-UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) crux-lab-m3-verify'}
+UA_FALLBACK = {'User-Agent': 'Mozilla/5.0'}  # default requests UA first; proxy drops some custom UAs
 OFFICIAL = ('irs.gov', 'uscode.house.gov', 'law.cornell.edu', 'ecfr.gov', 'federalregister.gov', 'consumerfinance.gov',
             'fred.stlouisfed.org', 'stlouisfed.org', 'govinfo.gov', 'ssa.gov', 'congress.gov', 'treasury.gov')
 REL_TOL, ABS_TOL = 0.005, 0.01
@@ -25,7 +25,9 @@ def get(url, binary=False):
     last = None
     for wait in [2, 4, 8, 16, None]:
         try:
-            r = requests.get(url, headers=UA, timeout=(30, 120))
+            r = requests.get(url, timeout=(30, 120))
+            if r.status_code == 403:
+                r = requests.get(url, headers=UA_FALLBACK, timeout=(30, 120))
             if r.status_code in (429, 500, 502, 503, 504):
                 raise requests.ConnectionError(f'HTTP {r.status_code}')
             return r

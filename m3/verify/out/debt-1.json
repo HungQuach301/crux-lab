@@ -1,0 +1,95 @@
+{
+ "id": "debt-1",
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MORTGAGE30US",
+    "file": "data/MORTGAGE30US.csv",
+    "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "declared": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "share_3y_1pt",
+    "declared": 48.3,
+    "recomputed": 48.3,
+    "ok": true
+   },
+   {
+    "id": "n_weeks_3y",
+    "declared": 2739,
+    "recomputed": 2739,
+    "ok": true
+   },
+   {
+    "id": "share_2y_1pt",
+    "declared": 39.9,
+    "recomputed": 39.9,
+    "ok": true
+   },
+   {
+    "id": "n_weeks_2y",
+    "declared": 2791,
+    "recomputed": 2791,
+    "ok": true
+   },
+   {
+    "id": "share_5y_1pt",
+    "declared": 61.9,
+    "recomputed": 61.9,
+    "ok": true
+   },
+   {
+    "id": "n_weeks_5y",
+    "declared": 2635,
+    "recomputed": 2635,
+    "ok": true
+   },
+   {
+    "id": "share_3y_1pt_falling_era",
+    "declared": 60.2,
+    "recomputed": 60.2,
+    "ok": true
+   },
+   {
+    "id": "n_weeks_3y_falling_era",
+    "declared": 2048,
+    "recomputed": 2048,
+    "ok": true
+   },
+   {
+    "id": "latest_rate",
+    "declared": 7.03,
+    "recomputed": 7.03,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MORTGAGE30US",
+    "page": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V1245": true
+}
