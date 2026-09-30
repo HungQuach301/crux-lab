@@ -1,0 +1,327 @@
+{
+ "scene": "S17",
+ "frames": 1081,
+ "frames3d": 1004,
+ "filmSeconds": 36.03333333333333,
+ "wallSeconds": 1358.9,
+ "browserFrameSeconds": 1330.3,
+ "machineSecPerFilmSec": 37.71,
+ "hardTime": 36,
+ "crf": 8,
+ "size": "1920x1080",
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-30T01:04:04.935Z",
+ "texts": [
+  {
+   "s": "Nora · $375,000 loan",
+   "tier": "label",
+   "px": 43,
+   "n": 1004,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 1772,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "Anjali, Nora: illustrative. Bills: 2025 medians (HMDA, US home-loan records).",
+   "tier": "note",
+   "px": 40,
+   "n": 1004,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 40,
+   "n": 1082,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "Anjali",
+   "tier": "label",
+   "px": 43,
+   "n": 266,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.6999999999999886,
+   "sent": false
+  },
+  {
+   "s": "Same month, same rate, same cut",
+   "tier": "head",
+   "px": 58,
+   "n": 930,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 2.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "October 2023 · 7.62% → 7.03%",
+   "tier": "label",
+   "px": 43,
+   "n": 930,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 2.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "Anjali · $655,000 loan",
+   "tier": "label",
+   "px": 43,
+   "n": 762,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 8.066666666666663,
+   "sent": false
+  },
+  {
+   "s": "under the conforming limit (the ceiling for standard loans)",
+   "tier": "note",
+   "px": 40,
+   "n": 381,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 10.233333333333348,
+   "sent": false
+  },
+  {
+   "s": "bill $5,514",
+   "tier": "label",
+   "px": 43,
+   "n": 127,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 18.633333333333326,
+   "sent": false
+  },
+  {
+   "s": "bill $5,124",
+   "tier": "label",
+   "px": 43,
+   "n": 445,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 18.633333333333326,
+   "sent": false
+  },
+  {
+   "s": "months",
+   "tier": "note",
+   "px": 40,
+   "n": 333,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 22.366666666666674,
+   "sent": false
+  },
+  {
+   "s": "+$387 a month",
+   "tier": "label",
+   "px": 43,
+   "n": 323,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 22.69999999999999,
+   "sent": false
+  },
+  {
+   "s": "paid back: month 18",
+   "tier": "label",
+   "px": 43,
+   "n": 64,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 24.69999999999999,
+   "sent": false
+  },
+  {
+   "s": "18",
+   "tier": "label",
+   "px": 43,
+   "n": 263,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 24.69999999999999,
+   "sent": false
+  },
+  {
+   "s": "3 years",
+   "tier": "label",
+   "px": 43,
+   "n": 202,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 26.73333333333335,
+   "sent": false
+  },
+  {
+   "s": "$5,250 ahead",
+   "tier": "number",
+   "px": 77,
+   "n": 193,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 27.03333333333336,
+   "sent": false
+  },
+  {
+   "s": "after 3 years",
+   "tier": "label",
+   "px": 43,
+   "n": 193,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 27.03333333333336,
+   "sent": false
+  },
+  {
+   "s": "Rate cut needed to pay back within 3 years",
+   "tier": "head",
+   "px": 58,
+   "n": 78,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 33.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "point = one percentage point of the rate",
+   "tier": "note",
+   "px": 40,
+   "n": 78,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 33.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "no cut",
+   "tier": "note",
+   "px": 40,
+   "n": 78,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 33.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "1-point line",
+   "tier": "note",
+   "px": 40,
+   "n": 78,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 33.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "Walt 1.12",
+   "tier": "note",
+   "px": 40,
+   "n": 78,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 33.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "Nora 0.5",
+   "tier": "note",
+   "px": 40,
+   "n": 78,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 33.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "Anjali: about a third of a point (illustrative).",
+   "tier": "note",
+   "px": 40,
+   "n": 78,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 33.46666666666664,
+   "sent": false
+  },
+  {
+   "s": "about a third",
+   "tier": "number",
+   "px": 77,
+   "n": 41,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 34.69999999999999,
+   "sent": false
+  },
+  {
+   "s": "of a point",
+   "tier": "label",
+   "px": 43,
+   "n": 41,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 34.69999999999999,
+   "sent": false
+  }
+ ],
+ "anchorsUsed": [
+  "ahead",
+  "anj",
+  "bill",
+  "limit",
+  "loan",
+  "same",
+  "stack",
+  "third"
+ ],
+ "anchorsDeclared": [
+  "anj",
+  "same",
+  "loan",
+  "limit",
+  "bill",
+  "stack",
+  "ahead",
+  "third"
+ ],
+ "anchorsKeywordMissing": [],
+ "claimsUsed": [
+  "be_bal_large",
+  "cost_large",
+  "cost_median",
+  "cut36_large_words",
+  "cut36_median",
+  "cut36_small",
+  "loan_large",
+  "loan_median",
+  "net36_large",
+  "oct2023",
+  "r_old",
+  "r_today",
+  "s10",
+  "sav_large",
+  "y2025",
+  "y3"
+ ]
+}

@@ -1,0 +1,181 @@
+{
+ "scene": "S20",
+ "frames": 883,
+ "frames3d": 883,
+ "filmSeconds": 29.433333333333334,
+ "wallSeconds": 1137.8,
+ "browserFrameSeconds": 1111.3,
+ "machineSecPerFilmSec": 38.66,
+ "hardTime": 16.769310344827613,
+ "crf": 8,
+ "size": "1920x1080",
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-30T01:00:25.153Z",
+ "texts": [
+  {
+   "s": "years in the home →",
+   "tier": "note",
+   "px": 40,
+   "n": 884,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 40,
+   "n": 884,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "The number only you know: how long you stay",
+   "tier": "head",
+   "px": 58,
+   "n": 877,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0.2333333333333485,
+   "sent": false
+  },
+  {
+   "s": "3 years",
+   "tier": "label",
+   "px": 43,
+   "n": 533,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 11.700000000000045,
+   "sent": false
+  },
+  {
+   "s": "+$1,039 ahead",
+   "tier": "number",
+   "px": 77,
+   "n": 120,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 11.700000000000045,
+   "sent": false
+  },
+  {
+   "s": "if she sells after 3 years",
+   "tier": "label",
+   "px": 43,
+   "n": 120,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 11.700000000000045,
+   "sent": false
+  },
+  {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 533,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 11.700000000000045,
+   "sent": false
+  },
+  {
+   "s": "7 years",
+   "tier": "label",
+   "px": 43,
+   "n": 416,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 15.600000000000023,
+   "sent": false
+  },
+  {
+   "s": "+$8,093 ahead",
+   "tier": "number",
+   "px": 77,
+   "n": 416,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 15.600000000000023,
+   "sent": false
+  },
+  {
+   "s": "if she stays 7 years",
+   "tier": "label",
+   "px": 43,
+   "n": 416,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 15.600000000000023,
+   "sent": false
+  },
+  {
+   "s": "rate cut: how fast the fees come back",
+   "tier": "label",
+   "px": 43,
+   "n": 356,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 17.56666666666672,
+   "sent": false
+  },
+  {
+   "s": "your stay: whether you are still there",
+   "tier": "label",
+   "px": 43,
+   "n": 260,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 20.766666666666765,
+   "sent": false
+  },
+  {
+   "s": "How long do you picture yourself in your home?",
+   "tier": "caption",
+   "px": 51,
+   "n": 89,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 26.466666666666697,
+   "sent": true
+  },
+  {
+   "s": "your home?",
+   "tier": "label",
+   "px": 43,
+   "n": 80,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 26.766666666666765,
+   "sent": false
+  }
+ ],
+ "anchorsUsed": [
+  "fast",
+  "q",
+  "stay",
+  "there",
+  "y3",
+  "y7"
+ ],
+ "anchorsDeclared": [
+  "stay",
+  "y3",
+  "y7",
+  "fast",
+  "there",
+  "q"
+ ],
+ "anchorsKeywordMissing": [],
+ "claimsUsed": [
+  "net36_median",
+  "net84_median",
+  "y3",
+  "y7"
+ ]
+}
