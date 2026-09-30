@@ -288,8 +288,9 @@ BASIS = {'real': re.compile(r"\breal\b|inflation[- ]adjusted|today'?s dollars|\b
          'nominal': re.compile(r'\bnominal\b|before inflation|dollars of the day|then-year', re.I)}
 
 
-@rule('S09', 'DX-H3', 'claims whose display contains "$" must declare basis nominal|real. Screen (page sampler): whenever a $ claim is visible, a visible text in the same '
-      'text block or within 300 px carries its basis word (BASIS regex). Narration (K3.2, whole episode): every basis used in the episode (the basis of each $ claim of '
+@rule('S09', 'DX-H3', 'claims whose display contains "$" must declare basis nominal|real. Screen (page sampler, K3.3): on a frame whose visible $ claims share one basis, a '
+      'frame-level label (any visible on-frame text carrying that basis word) covers them all; on a frame mixing bases, each $ claim needs its basis word in the same '
+      'text block or within 300 px (BASIS regex). Narration (K3.2, whole episode): every basis used in the episode (the basis of each $ claim of '
       'out/claims.json) has its basis word said at least once anywhere in out/script.json; a $ number spoken in the narration that matches no claim has no known basis and counts as missing',
       '0 money claims without basis; 0 frames missing the on-screen basis; 0 bases used but never said in the narration')
 def s09_basis(ctx):

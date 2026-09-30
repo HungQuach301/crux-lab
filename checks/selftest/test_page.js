@@ -36,7 +36,11 @@ const CLAIMS = [
   { claimId: 'y1966', value: 1966, display: '1966', formula: 'first year of the sequence', source: { id: 'damodaran' }, dataYear: 1966, role: 'axis' },
   { claimId: 'y1995', value: 1995, display: '1995', formula: 'last year of the sequence', source: { id: 'damodaran' }, dataYear: 1995, role: 'axis' },
   { claimId: 'm_end', value: 1200, display: '$1,200', formula: 'mirror path end balance', illustrative: true, basis: 'real' },
+  { claimId: 'm_fee', value: 900, display: '$900', formula: 'fee in dollars of the day', illustrative: true, basis: 'nominal' },
 ];
+const CORNER = { type: 'text', tid: 'basis', text: 'All $ in real terms', x: 150, y: 100, size: 32, color: TOK.muted, role: 'basis-label' };
+const FEE = { type: 'text', tid: 'fee', text: 'Fee $900', x: 1400, y: 250, size: 36, color: TOK.ink, claims: [{ id: 'm_fee', text: '$900' }] };
+const FEE_BASIS = { type: 'text', tid: 'feeb', text: 'nominal', x: 1400, y: 300, size: 32, color: TOK.muted };
 const mod = (fn) => { const e = good(); fn(e); return e; };
 const find = (e, tid) => e.find((x) => x.tid === tid);
 
@@ -62,7 +66,12 @@ const CASES = {
   'C15-off-token': { els: mod((e) => { find(e, 'money').color = '#123456'; }), expect: { FAIL: ['C15'] } },
   'S08-no-badge': { els: mod((e) => { e.splice(e.indexOf(find(e, 'ill')), 1); }), expect: { FAIL: ['S08'] } },
   'S08-badge-late': { els: mod((e) => { find(e, 'ill').show = [0.2, 99]; }), expect: { FAIL: ['S08'] } },
+  // K3.3: one basis on the frame, no label anywhere -> fail; one basis, a frame-level corner label far from the number -> pass
   'S09-no-basis': { els: mod((e) => { find(e, 'money').text = 'Mirror ends with $1,200'; }), expect: { FAIL: ['S09'] } },
+  'S09-frame-label': { els: mod((e) => { find(e, 'money').text = 'Mirror ends with $1,200'; e.push(CORNER); }), expect: { PASS: ['S09'] } },
+  // K3.3: two bases on the frame (real $1,200, nominal $900) with only the corner label: each number needs its own basis within 300 px -> fail
+  'S09-mixed-corner-only': { els: mod((e) => { find(e, 'money').text = 'Mirror ends with $1,200'; e.push(CORNER, FEE); }), expect: { FAIL: ['S09'] } },
+  'S09-mixed-labelled': { els: mod((e) => { e.push(FEE, FEE_BASIS); }), expect: { PASS: ['S09'] } },
   'V02-off-thirds': { els: mod((e) => Object.assign(find(e, 'head'), { x: 960, y: 540 })), expect: { FAIL: ['V02'] } },
   'V04-side-swap': { els: mod((e) => { e.find((x) => x.char === '1966').anim = { prop: 'cx', from: 500, to: 1600, t0: 0.9, t1: 1.0 }; }), expect: { FAIL: ['V04'] } },
   // K2: the colour on screen must be the one the episode contract declares for the character
@@ -118,7 +127,7 @@ function writeRoot(name, els, move = 0, contractMirrorColour = 'accent', f12 = n
   w('out/timeline.json', { fps: 30, total: DUR, acts: [{ id: 'act1', start: 0, end: DUR }], scenes: [{ id: 'a', act: 'act1', start: 0, dur: DUR, move, panels: ['p'], chart: true, layout: 'line/single', shot: 'medium' }] });
   w('out/claims.json', { claims: CLAIMS });
   // S09 (K3.2): the narration says the basis of the $ claims once; the on-screen label is what the page cases test
-  w('out/script.json', { sentences: [{ id: 's1', scene: 'a', text: 'Every dollar figure here is in real terms.', start: 0, end: 2 }] });
+  w('out/script.json', { sentences: [{ id: 's1', scene: 'a', text: 'Balances here are in real terms; fees are nominal, in dollars of the day.', start: 0, end: 2 }] });
   w('design/tokens.json', TOKENS);
   // episode contract (K2): V04/V09 read the characters, their colour token, shape and side from it
   w('contract.json', { episode: 'fixture', characters: { 1966: { color: 'warn', shape: 'circle', side: 'left' }, mirror: { color: contractMirrorColour, shape: 'square', side: 'right' } } });
