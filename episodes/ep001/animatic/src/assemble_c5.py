@@ -3,14 +3,14 @@
   1. the 20 scene intermediates work/c5/scenes/Sxx.mp4 (render.js, H.264 CRF 8, exact frame counts from timing.json) are
      checked (frame count per scene) and concatenated in order;
   2. ONE delivery encode -> work/c5/picture-1080.mp4: libx264 High, yuv420p, BT.709 limited range, 1920x1080, 30/1 CFR,
-     GOP 2 s, rate mode below;
+     GOP 2 s, a light temporal luma dither (noise c0s=3) against banding of dark gradients (F08), rate mode below;
   3. mux with the audio master out/audio/master.wav (stream A) -> out/video.mp4: video copied, AAC-LC 48 kHz stereo 320 kb/s,
      no global metadata, NO chapters (the chapters live in out/package/description.md only), +faststart.
 Rate mode (--mode): 'cbr' (default) = constant 24 Mb/s with x264 nal-hrd=cbr filler, because the checker's F04 measures the
 video bitrate from packet sizes and needs >= 16 Mb/s, which a CRF encode of flat animation never reaches; the report
 (work/c5/logs/assemble.json) also gives what CRF 16 would spend per scene (--probe-crf), to show CBR 24 is above it everywhere.
 'crf' = CRF 16 (the owner's quality floor, CRF <= 18) for comparison.
-   python3 assemble_c5.py [--mode cbr|crf] [--probe-crf]"""
+   python3 assemble_c5.py [--mode cbr|crf] [--probe-crf] [--picture-only | --mux-only]"""
 import json, os, subprocess, sys, time
 import av
 
@@ -46,21 +46,24 @@ if bad:
 lst = os.path.join(WK, 'scenes.txt')
 open(lst, 'w').write(''.join(f"file '{os.path.join(SC, sid + '.mp4')}'\n" for sid, _ in scenes))
 tags = ['-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv']
-venc = ['-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-tune', 'animation', '-g', '60', '-bf', '2']
+DITHER = ['-vf', 'noise=c0s=3:c0f=t']  # luma dither (about +-1 code, temporal): breaks the 8-bit steps of dark 3D gradients (F08: 61% -> ~0% on S17)
+venc = DITHER + ['-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-tune', 'animation', '-g', '60', '-bf', '2']
 if mode == 'cbr':
     venc += ['-b:v', '24M', '-minrate', '24M', '-maxrate', '24M', '-bufsize', '24M', '-x264-params', 'nal-hrd=cbr:force-cfr=1']
 else:
     venc += ['-crf', '16']
 pic = os.path.join(WK, 'picture-1080.mp4')
 t0 = time.time()
-subprocess.run([FF, '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-an', '-r', '30', '-fps_mode', 'cfr', *venc, *tags,
+if '--mux-only' not in sys.argv: subprocess.run([FF, '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-an', '-r', '30', '-fps_mode', 'cfr', *venc, *tags,
                 '-map_metadata', '-1', '-map_chapters', '-1', '-movflags', '+faststart', pic + '.part.mp4'], check=True)
-os.replace(pic + '.part.mp4', pic)
+if '--mux-only' not in sys.argv: os.replace(pic + '.part.mp4', pic)
 rep['pictureSeconds'] = round(time.time() - t0, 1)
 k, w, h = frames_of(pic)
 rep['picture'] = {'path': 'work/c5/picture-1080.mp4', 'frames': k, 'bytes': os.path.getsize(pic), 'videoMbps': round(os.path.getsize(pic) * 8 / (k / FPS) / 1e6, 2)}
 assert k == total, f'picture frames {k} != {total}'
 
+if '--picture-only' in sys.argv:
+    json.dump(rep, open(os.path.join(LOG, 'assemble.json'), 'w'), indent=1); print(json.dumps(rep['picture'])); sys.exit(0)
 wav = os.path.join(EP, 'out', 'audio', 'master.wav')
 out = os.path.join(EP, 'out', 'video.mp4')
 t0 = time.time()
@@ -85,7 +88,7 @@ if '--probe-crf' in sys.argv:  # what CRF 16 would spend, scene by scene (same e
     pr = []
     for sid, n in scenes:
         tmp = os.path.join(WK, 'probe.mp4')
-        subprocess.run([FF, '-v', 'error', '-y', '-i', os.path.join(SC, sid + '.mp4'), '-an', '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high',
+        subprocess.run([FF, '-v', 'error', '-y', '-i', os.path.join(SC, sid + '.mp4'), '-an', *DITHER, '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high',
                         '-pix_fmt', 'yuv420p', '-tune', 'animation', '-g', '60', '-crf', '16', tmp], check=True)
         pr.append({'id': sid, 'crf16Mbps': round(os.path.getsize(tmp) * 8 / (n / FPS) / 1e6, 2)})
         os.remove(tmp)
