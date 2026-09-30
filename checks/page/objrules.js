@@ -177,17 +177,26 @@ function offToken(objs, ctx) {
   return out;
 }
 
-// S09 money basis on screen
+// S09 money basis on screen (K3.3). One basis on the frame: a frame-level label (any visible on-frame text carrying that basis word, e.g. a corner
+// "All $ in dollars of the day") covers every $ number of the frame. Several bases on the frame (nominal and real): each $ number needs its own
+// basis word in the same text block or within 300 px (the K1 rule). A $ claim with no declared basis always fails.
 const BASIS = { real: /\breal\b|inflation[- ]adjusted|today'?s dollars|\b(19|20)\d\d dollars\b|after inflation/i, nominal: /\bnominal\b|before inflation|dollars of the day|then-year/i };
 function moneyBasis(objs, ctx) {
   const T = texts(objs);
-  const out = [];
+  const shown = [];
   for (const t of T) for (const sp of t.claims || []) {
     const c = ctx.claims[sp.id];
-    if (!c || !String(c.display).includes('$') || sp.opacity <= 0.5) continue;
-    const rx = BASIS[c.basis];
+    if (c && String(c.display).includes('$') && sp.opacity > 0.5) shown.push({ t, sp, basis: c.basis });
+  }
+  const bases = new Set(shown.map((m) => m.basis));
+  const frameLabel = bases.size === 1 && BASIS[[...bases][0]] && T.some((o) => onFrame(B(o), 1) && BASIS[[...bases][0]].test(o.text));
+  const out = [];
+  for (const { t, sp, basis } of shown) {
+    const rx = BASIS[basis];
+    if (!rx) { out.push({ rule: 'S09', claim: sp.id, basis: basis || null }); continue; }
+    if (frameLabel) continue;
     const near = T.filter((o) => o === t || gapBetween(B(o), B(t)) <= 300);
-    if (!rx || !near.some((o) => rx.test(o.text))) out.push({ rule: 'S09', claim: sp.id, basis: c.basis || null });
+    if (!near.some((o) => rx.test(o.text))) out.push({ rule: 'S09', claim: sp.id, basis, mixed: bases.size > 1 });
   }
   return out;
 }
