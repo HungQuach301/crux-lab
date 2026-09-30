@@ -35,6 +35,7 @@ Dữ liệu và mô hình (`data/`, `model/`, kiểm độc lập 619/619), `num
 - 2026-09-29 18:20 UTC (6): gói C4 gửi (`gates/C4.md`, clip `review-c4/c4-highlights.mp4`). Chờ trả lời 3 câu.
 - 2026-09-29 (7): C4 duyệt (sổ gu main `31fe42b`). C5 chạy 3 luồng. Nếu bị ngắt: đọc `gates/C5-plan.md`, `work/c5/`, ledger; chạy tiếp luồng dở (render tiếp cảnh thiếu).
 - 2026-09-30 (8): container khởi động lại lần 2, mất agent P và A. Ảnh chụp dở dang `524ac85`. Tiếng đã mix xong (master −14,0 LUFS, TP −1,5; stem trên đĩa, SHA trong `out/audio/manifest.json`). Hình: mới render 1080p S12. Đã khởi động lại P (chạy tiếp từ `524ac85`, ghi chú `work/c5/P-notes.md`) và A (kiểm, điểm quảng cáo, tự kiểm; `work/audio/NOTES.md`). ElevenLabs đã trích; chờ chủ dự án xác nhận gói trả phí và hướng S09/K3.2.
+- 2026-09-30 (9): S18 sửa chữ + sinh lại (A14 qua). Nhãn gốc tiền: chủ dự án chọn nhãn góc (K3.3); bản hiện tại vẫn nhãn cạnh số (đạt K3.1), bản nhãn góc chuẩn bị sau cờ, **render lại sau khi K3.3 merge**; ảnh trước/sau S01/S07/S15/S18 đi kèm gói C6. Chờ: K3.2 + K3.3 merge → chạy checks. Đang: mix lại 17 739 khung, render S18–S20, ghép video.
 
 ## Checklist C5 (Chặn)
 - Rà quy ước quyền `quality-framework.md` §8: tìm `data:` trong mã dựng/bản dựng trang; đối chiếu mọi nguồn ghép hậu kỳ với `RIGHTS.md`.
