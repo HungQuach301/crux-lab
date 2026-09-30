@@ -1,0 +1,101 @@
+{
+ "id": "debt-6",
+ "claim": "Common advice says a veteran who can put 20% down should skip the VA loan, because conventional loans then need no mortgage insurance and the VA charges an upfront fee (1.25% of the loan with 10% or more down). But in daily locked-rate data, the average VA rate was below the average rate for the best conventional tier (credit score 740+, 20% or more down) on 92.4% of days since January 2017 and on 99.9% of days since the current fee table took effect in April 2023, by 0.32 points on average (6.261% vs 6.581%). At those averages a $100,000 VA loan pays about $20.97 less per month; counting both the lower payment and the faster-shrinking balance, the $1,250 fee is recovered after 47 months, and after 10 years the VA borrower is about $1,952 ahead per $100,000. Veterans receiving disability compensation pay no fee at all. This is history, not a forecast.",
+ "numbers": [
+  {
+   "id": "n_days",
+   "unit": "days",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Count of those dates."
+  },
+  {
+   "id": "share_days_va_below_best_conv",
+   "unit": "percent of days",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Share of those dates where VA < conventional (compared in thousandths), times 100, rounded to 0.1."
+  },
+  {
+   "id": "n_days_since_20230407",
+   "unit": "days",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Fee-regime window: common dates on or after 2023-04-07 (the start of the current fee-table period). Count."
+  },
+  {
+   "id": "share_days_va_below_since_20230407",
+   "unit": "percent of days",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Fee-regime window: common dates on or after 2023-04-07 (the start of the current fee-table period). Share of window dates where VA < conventional (compared in thousandths), times 100, rounded to 0.1."
+  },
+  {
+   "id": "mean_va_since_20230407",
+   "unit": "percent",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Fee-regime window: common dates on or after 2023-04-07 (the start of the current fee-table period). Mean VA rate, rounded to 0.001."
+  },
+  {
+   "id": "mean_conv_since_20230407",
+   "unit": "percent",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Fee-regime window: common dates on or after 2023-04-07 (the start of the current fee-table period). Mean conventional (740+, LTV<=80) rate, rounded to 0.001."
+  },
+  {
+   "id": "mean_gap_since_20230407",
+   "unit": "percentage points",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Fee-regime window: common dates on or after 2023-04-07 (the start of the current fee-table period). Mean of (conventional - VA), rounded to 0.001."
+  },
+  {
+   "id": "monthly_saving_per_100k",
+   "unit": "US dollars per month",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Fee-regime window: common dates on or after 2023-04-07 (the start of the current fee-table period). Let rv = mean VA rate and rc = mean conventional rate over the window (unrounded). Loan $100,000, 30-year level payment p(r) = 100000*i/(1-(1+i)^-360), i = r/1200. Fee = 1.25% of $100,000 = $1,250 paid in cash at closing (not financed). Balances evolve b_m = b_{m-1}*(1+i) - p(r). p(rc) - p(rv), rounded to 0.01."
+  },
+  {
+   "id": "breakeven_months_payment_only",
+   "unit": "months",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Fee-regime window: common dates on or after 2023-04-07 (the start of the current fee-table period). Let rv = mean VA rate and rc = mean conventional rate over the window (unrounded). Loan $100,000, 30-year level payment p(r) = 100000*i/(1-(1+i)^-360), i = r/1200. Fee = 1.25% of $100,000 = $1,250 paid in cash at closing (not financed). Balances evolve b_m = b_{m-1}*(1+i) - p(r). 1250 / (p(rc) - p(rv)), rounded to 0.1."
+  },
+  {
+   "id": "breakeven_months_net",
+   "unit": "months",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Fee-regime window: common dates on or after 2023-04-07 (the start of the current fee-table period). Let rv = mean VA rate and rc = mean conventional rate over the window (unrounded). Loan $100,000, 30-year level payment p(r) = 100000*i/(1-(1+i)^-360), i = r/1200. Fee = 1.25% of $100,000 = $1,250 paid in cash at closing (not financed). Balances evolve b_m = b_{m-1}*(1+i) - p(r). First month m (1..360) where cumulative payment savings m*(p(rc)-p(rv)) plus (conventional balance - VA balance) after m payments is >= 1250."
+  },
+  {
+   "id": "net_gain_10y_per_100k",
+   "unit": "US dollars",
+   "definition": "Daily Optimal Blue 30-year fixed locked-rate indices (percent): OBMMIVA30YF (VA) and OBMMIC30YFLVLE80FGE740 (conforming, LTV <= 80, FICO >= 740). Use only dates on which both have a numeric value (2017-01-03 to 2026-09-29). Fee-regime window: common dates on or after 2023-04-07 (the start of the current fee-table period). Let rv = mean VA rate and rc = mean conventional rate over the window (unrounded). Loan $100,000, 30-year level payment p(r) = 100000*i/(1-(1+i)^-360), i = r/1200. Fee = 1.25% of $100,000 = $1,250 paid in cash at closing (not financed). Balances evolve b_m = b_{m-1}*(1+i) - p(r). After 120 payments: 120*(p(rc)-p(rv)) + (conventional balance - VA balance) - 1250, rounded to the dollar (undiscounted)."
+  }
+ ],
+ "assumptions": [
+  "The VA index averages all VA locks (every credit score and down payment) while the conventional comparator is its best tier (740+, 20%+ down); if VA pricing improves with credit score as conventional pricing does, this understates the gap for a strong-credit veteran. Individual quotes differ.",
+  "First-use or subsequent-use purchase loan with at least 10% down, fee 1.25% (fee table row (D)(iii)), paid in cash; financing the fee would add interest.",
+  "No mortgage insurance on either loan, same loan amount, same 30-year term, no refinancing; closing costs other than the VA fee assumed equal; undiscounted dollars."
+ ],
+ "series": [
+  {
+   "id": "OBMMIVA30YF",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIVA30YF&coed=2026-09-29",
+   "seriesPage": "https://fred.stlouisfed.org/series/OBMMIVA30YF",
+   "file": "data/OBMMIVA30YF.csv",
+   "lastObservation": "2026-09-29"
+  },
+  {
+   "id": "OBMMIC30YFLVLE80FGE740",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YFLVLE80FGE740&coed=2026-09-29",
+   "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YFLVLE80FGE740",
+   "file": "data/OBMMIC30YFLVLE80FGE740.csv",
+   "lastObservation": "2026-09-29"
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "38 U.S.C. 3729(b)(2), loan fee table row (D)(iii): fee of 1.25 percent of the loan amount (active duty veteran and Reservist columns) for a purchase loan with 10-down closed on or after April 7, 2023 and before June 9, 2034",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title38-section3729&num=0&edition=prelim",
+   "quote": "Loan described in section 3710(a) to purchase or construct a dwelling with 10-down (closed on or after April 7, 2023, and before June 9, 2034)"
+  },
+  {
+   "cite": "38 U.S.C. 3729(b)(4), definition of 10-down",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title38-section3729&num=0&edition=prelim",
+   "quote": "means a downpayment of 10 percent or more of the total purchase price or construction cost of the dwelling."
+  },
+  {
+   "cite": "38 U.S.C. 3729(c)(1), fee waiver for veterans receiving disability compensation",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title38-section3729&num=0&edition=prelim",
+   "quote": "A fee may not be collected under this section from a veteran who is receiving compensation"
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "id": "retire-7",
+ "claim": "Compare two ways to hold a sum for ten years: buy a 10-year Treasury note at that month's yield and hold it, or keep rolling 3-month Treasury bills. Over 762 starting months from April 1953 to September 2016, rolling bills ended with more money in 32.68% of cases. The pattern is concentrated: bills won in 85.42% of starting months from 1960 to 1979, when inflation and rates were building, but in only 2.27% of starting months since 1980, when rates were mostly falling. The best case for bills left them 24.8% ahead after ten years; the best case for the note left it 103.4% ahead. Which choice won depended on the path of rates after purchase, not on the note's higher starting yield.",
+ "numbers": [
+  {
+   "id": "purchase_months",
+   "unit": "months",
+   "definition": "Starting months s in the GS10 file (monthly average 10-year constant-maturity Treasury yield, percent) for which TB3MS (3-month Treasury bill secondary market rate, percent, monthly) exists for all 120 months s..s+119."
+  },
+  {
+   "id": "first_purchase_yyyymm",
+   "unit": "yyyymm",
+   "definition": "First valid starting month, year*100+month."
+  },
+  {
+   "id": "last_purchase_yyyymm",
+   "unit": "yyyymm",
+   "definition": "Last valid starting month, year*100+month."
+  },
+  {
+   "id": "share_bills_won_pct",
+   "unit": "percent",
+   "definition": "Share of starting months with Bills/Note > 1, x100, where Bills = product over k=0..119 of (1 + TB3MS(s+k)/1200) and Note = (1 + GS10(s)/200)^20 (par note, semiannual coupons reinvested at the purchase yield)."
+  },
+  {
+   "id": "share_bills_won_1960_1979_pct",
+   "unit": "percent",
+   "definition": "Same share restricted to starting months 1960-01..1979-12."
+  },
+  {
+   "id": "share_bills_won_since_1980_pct",
+   "unit": "percent",
+   "definition": "Same share restricted to starting months 1980-01 onward."
+  },
+  {
+   "id": "best_bills_advantage_pct",
+   "unit": "percent",
+   "definition": "(max over starting months of Bills/Note - 1) x 100."
+  },
+  {
+   "id": "best_note_advantage_pct",
+   "unit": "percent",
+   "definition": "(1 / min over starting months of Bills/Note - 1) x 100."
+  }
+ ],
+ "assumptions": [
+  "Bills: each month earns TB3MS/12 (the quoted discount-basis annual rate, used as a simple monthly return), compounded monthly for 120 months, no taxes or fees.",
+  "Note: bought at par at the purchase month's average constant-maturity yield; coupons reinvested at that yield, so ending value = (1 + y/2)^20.",
+  "Both strategies are nominal and before tax; inflation affects both equally."
+ ],
+ "series": [
+  {
+   "id": "GS10",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS10&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/GS10",
+   "file": "data/GS10.csv",
+   "lastObservation": "2026-08-01"
+  },
+  {
+   "id": "TB3MS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+   "file": "data/TB3MS.csv",
+   "lastObservation": "2026-08-01"
+  }
+ ],
+ "provisions": []
+}

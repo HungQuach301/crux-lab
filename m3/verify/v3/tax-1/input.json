@@ -1,0 +1,124 @@
+{
+ "id": "tax-1",
+ "claim": "Tax year 2026, married couple filing jointly in the 22% bracket, buying the median-priced new home sold in the U.S. ($410,700, 2026 Q2) with 20% down and a 30-year fixed loan at the latest weekly average rate (7.03%, week of 2026-09-24): the $328,560 loan generates about $22,992 of interest in its first 12 payments. Whether that interest lowers federal tax depends on the couple's state and local taxes (SALT), because deductions only help above the $32,200 standard deduction. With $5,000 of SALT (e.g., a state with no income tax and a modest property tax bill) the mortgage cuts federal tax by $0; with $15,000 of SALT by about $1,274; with $25,000 by about $3,474; with SALT at the 2026 cap of $40,400 by about $5,058 (all $22,992 x 22%). Any couple paying less than about $9,208 of SALT gets nothing from this mortgage's interest. The large value in high-tax states exists only because the SALT cap rose to $40,400 for 2026; current law sets the cap back to $10,000 for tax years after 2029, and at that cap (with the 2026 standard deduction) the same high-SALT couple's benefit would be about $174. Sources: 26 U.S.C. 164(b)(6)-(7), 26 U.S.C. 163(h), IRS IR-2025-103 (Rev. Proc. 2025-32).",
+ "numbers": [
+  {
+   "id": "mortgage_rate_pct",
+   "unit": "percent per year",
+   "definition": "Latest weekly observation in the pinned MORTGAGE30US file (Freddie Mac 30-year fixed average, week of 2026-09-24)."
+  },
+  {
+   "id": "median_price_usd",
+   "unit": "USD",
+   "definition": "Latest quarterly observation in the pinned MSPUS file (median sales price of houses sold in the U.S., 2026-04-01 i.e. 2026 Q2)."
+  },
+  {
+   "id": "loan_usd",
+   "unit": "USD",
+   "definition": "0.80 x median_price_usd (20% down payment)."
+  },
+  {
+   "id": "first_year_interest_usd",
+   "unit": "USD",
+   "definition": "Sum of interest in the first 12 monthly payments of a fully amortizing 360-month fixed loan of loan_usd at monthly rate mortgage_rate_pct/1200: payment = L*i/(1-(1+i)^-360); each month interest = balance*i, balance -= payment - interest. Rounded to cents."
+  },
+  {
+   "id": "benefit_salt5k_usd",
+   "unit": "USD per year",
+   "definition": "0.22 x [max(32200, S + I) - max(32200, S)] with S = min(5000, 40400) SALT paid and I = first_year_interest_usd (unrounded): the federal tax reduction from the mortgage interest for a joint filer whose taxable income stays in the 22% bracket, no other itemized deductions."
+  },
+  {
+   "id": "benefit_salt15k_usd",
+   "unit": "USD per year",
+   "definition": "Same formula as benefit_salt5k_usd with SALT paid = 15000."
+  },
+  {
+   "id": "benefit_salt25k_usd",
+   "unit": "USD per year",
+   "definition": "Same formula as benefit_salt5k_usd with SALT paid = 25000."
+  },
+  {
+   "id": "benefit_salt40k_usd",
+   "unit": "USD per year",
+   "definition": "Same formula as benefit_salt5k_usd with SALT paid = 40400 (the 2026 cap), i.e. 0.22 x I."
+  },
+  {
+   "id": "benefit_salt40k_cap10k_usd",
+   "unit": "USD per year",
+   "definition": "Same formula with SALT paid = 40400 but the cap set to 10000 (the amount current law applies after 2029), keeping the 2026 standard deduction 32200: 0.22 x [max(32200, 10000 + I) - 32200]."
+  },
+  {
+   "id": "breakeven_salt_usd",
+   "unit": "USD",
+   "definition": "32200 - first_year_interest_usd: SALT paid below which this mortgage interest gives no federal tax benefit."
+  }
+ ],
+ "assumptions": [
+  "Tax year 2026; married filing jointly; both with and without the mortgage the couple itemizes only if itemized deductions exceed the $32,200 standard deduction.",
+  "Taxable income stays inside the 22% joint bracket ($100,800-$211,400) in every case compared (e.g., AGI about $220,000), and MAGI is below $505,000 so the full $40,400 SALT cap applies.",
+  "No other itemized deductions (no charitable gifts, no medical); SALT figures are illustrative totals of state/local income (or sales) and property taxes paid.",
+  "Home price = national median sales price of new houses sold (latest quarter); 20% down; 30-year fixed at the latest weekly national average rate; loan below the $750,000 acquisition-debt limit; no points or mortgage insurance.",
+  "State income tax effects are ignored; federal income tax only."
+ ],
+ "series": [
+  {
+   "id": "MORTGAGE30US",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Freddie Mac, Primary Mortgage Market Survey)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "file": "data/MORTGAGE30US.csv",
+   "lastObservation": {
+    "date": "2026-09-24",
+    "value": "7.03"
+   }
+  },
+  {
+   "id": "MSPUS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Census Bureau and HUD, New Residential Sales)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MSPUS&coed=2026-04-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/MSPUS",
+   "file": "data/MSPUS.csv",
+   "lastObservation": {
+    "date": "2026-04-01",
+    "value": "410700"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 164(b)(7)(A)(ii) (SALT cap, 2026)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section164&num=0&edition=prelim",
+   "quote": "in the case of any taxable year beginning in calendar year 2026, $40,400,"
+  },
+  {
+   "cite": "26 U.S.C. 164(b)(7)(A)(iv) (SALT cap after 2029)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section164&num=0&edition=prelim",
+   "quote": "in the case of any taxable year beginning after calendar year 2029, $10,000."
+  },
+  {
+   "cite": "26 U.S.C. 164(b)(7)(B)(ii)(II) (phasedown threshold, 2026)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section164&num=0&edition=prelim",
+   "quote": "in the case of any taxable year beginning in calendar year 2026, $505,000,"
+  },
+  {
+   "cite": "26 U.S.C. 163(h)(2)(D) (qualified residence interest is not nondeductible personal interest)",
+   "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title26-section163&num=0&edition=prelim",
+   "quote": "any qualified residence interest (within the meaning of paragraph (3))"
+  },
+  {
+   "cite": "IRS IR-2025-103 (Rev. Proc. 2025-32), 2026 standard deduction",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "For tax year 2026, the standard deduction increases to $32,200 for married couples filing jointly."
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 22% bracket (joint)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "22% for incomes over $50,400 ($100,800 for married couples filing jointly)"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 24% bracket (joint)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "24% for incomes over $105,700 ($211,400 for married couples filing jointly)"
+  }
+ ]
+}

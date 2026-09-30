@@ -1,0 +1,82 @@
+{
+ "id": "debt-5",
+ "claim": "The legal right to cancel private mortgage insurance is keyed to paying the balance down to 80% of the home's original value, with automatic termination at 78%. For a buyer putting 5% down on a 30-year fixed loan at the average rate of the purchase quarter, that schedule took a median 11.58 years across the 173 purchase quarters from 1975 to 2018. If the home simply tracked the national house price index, the loan would have reached 80% of the home's current value in a median of 3.0 years; even under a stricter seasoning rule common among loan investors (at least 2 years, 75% until year 5, 80% after), the median was 4.0 years, and appreciation beat the schedule by 3 years or more for 87.9% of purchase quarters. It failed for only 2.9% of quarters, the 2005-2007 buyers. Using current value requires the borrower to ask and usually to pay for an appraisal. This is history, not a forecast.",
+ "numbers": [
+  {
+   "id": "simple_n_cohorts",
+   "unit": "purchase quarters",
+   "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = 0.80 at any month. Count of kept cohorts."
+  },
+  {
+   "id": "simple_median_years_schedule",
+   "unit": "years",
+   "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). Median over kept cohorts of schedule months/12, rounded to 0.01."
+  },
+  {
+   "id": "simple_median_years_value",
+   "unit": "years",
+   "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = 0.80 at any month. Median over kept cohorts of value months/12 ('not reached' counts as infinitely long), rounded to 0.01."
+  },
+  {
+   "id": "simple_share_value_faster_3y",
+   "unit": "percent of cohorts",
+   "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = 0.80 at any month. Share of kept cohorts with a value time and schedule years - value years >= 3, times 100, rounded to 0.1."
+  },
+  {
+   "id": "seasoned_median_years_value",
+   "unit": "years",
+   "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = none before month 24, 0.75 for months 24-59, 0.80 from month 60 (a common investor seasoning rule). Median over kept cohorts of value months/12 ('not reached' counts as infinitely long), rounded to 0.01."
+  },
+  {
+   "id": "seasoned_share_value_faster_3y",
+   "unit": "percent of cohorts",
+   "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = none before month 24, 0.75 for months 24-59, 0.80 from month 60 (a common investor seasoning rule). Share of kept cohorts with a value time and schedule years - value years >= 3, times 100, rounded to 0.1."
+  },
+  {
+   "id": "seasoned_share_value_not_faster",
+   "unit": "percent of cohorts",
+   "definition": "Cohorts: each quarter q from 1975Q1 in USSTHPI (FHFA all-transactions house price index, quarterly, NSA; a date's quarter = its month mapped to Q1-Q4). Loan: 30-year fixed, 95 borrowed on a home worth 100 (5% down), rate = arithmetic mean of the weekly MORTGAGE30US values whose dates fall in quarter q; level payment P = 95*i/(1-(1+i)^-360), i = rate/1200; balance after month m: b_m = b_{m-1}*(1+i) - P. Schedule time = first month m with b_m <= 80 (80% of original value). Value time = first month m that is a multiple of 3 (m = 3k) with quarter index q+k inside the HPI data and b_m / (100*HPI[q+k]/HPI[q]) <= LIMIT; if never, the cohort is 'not reached'. Cohorts are kept only if the quarter index q + ceil(schedule months/3) is inside the HPI data (last quarter 2026Q2), which keeps 1975Q1-2018Q1 (173 cohorts). LIMIT = none before month 24, 0.75 for months 24-59, 0.80 from month 60 (a common investor seasoning rule). Share of kept cohorts where the value time is 'not reached' or value months >= schedule months, times 100, rounded to 0.1."
+  }
+ ],
+ "assumptions": [
+  "The home's value moves exactly with the national all-transactions house price index; local markets vary widely.",
+  "Down payment 5%, 30-year fixed at the quarter's average survey rate, only scheduled payments, no refinancing.",
+  "The seasoning rule (2 years minimum, 75% before year 5, 80% after) stands in for loan-investor guidelines; actual servicer rules, appraisal requirements and payment-history conditions vary.",
+  "The schedule benchmark is the borrower-request date at 80% of original value; automatic termination at 78% comes later still."
+ ],
+ "series": [
+  {
+   "id": "MORTGAGE30US",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "file": "data/MORTGAGE30US.csv",
+   "lastObservation": "2026-09-24"
+  },
+  {
+   "id": "USSTHPI",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USSTHPI&coed=2026-04-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/USSTHPI",
+   "file": "data/USSTHPI.csv",
+   "lastObservation": "2026-04-01"
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "CFPB, \"When can I remove private mortgage insurance (PMI) from my loan?\" (borrower-requested cancellation, Homeowners Protection Act rules)",
+   "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+   "quote": "You have the right to ask your servicer to cancel PMI on the date the principal balance of your mortgage is scheduled to fall to 80 percent of the original value of your home."
+  },
+  {
+   "cite": "CFPB, same page (automatic termination)",
+   "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+   "quote": "your servicer must automatically terminate PMI on the date when your principal balance is scheduled to reach 78 percent of the original value of your home."
+  },
+  {
+   "cite": "CFPB, same page (investor guidelines may be more favorable)",
+   "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+   "quote": "Loan investors, including Fannie Mae and Freddie Mac, often create their own PMI cancellation guidelines. But these guidelines cannot be less favorable to the borrower than the ones above."
+  }
+ ]
+}

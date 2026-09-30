@@ -1,0 +1,69 @@
+{
+ "id": "retire-4",
+ "claim": "A 10-year Treasury note held to maturity returns its face value plus coupons, but not its purchasing power. Buying at the monthly average 10-year yield in any month from April 1953 to August 2016 and holding for ten years (760 purchase months), the note lost to CPI-U inflation in 22.76% of cases, and in 51.46% of purchase months since 2008. All 30 of 30 purchase months from February 2014 to August 2016 lost purchasing power, averaging -0.86% a year after inflation (worst -1.77%), compared with the worst outcome on record (-2.53% a year for notes bought in late 1971).",
+ "numbers": [
+  {
+   "id": "purchase_months",
+   "unit": "months",
+   "definition": "Purchase months s in the GS10 file (monthly average 10-year constant-maturity Treasury yield, percent) with s+120 months <= 2026-08 and CPIAUCNS (CPI-U all items, NSA) present at s and s+120; 2015-10 is dropped because CPI for 2025-10 is missing."
+  },
+  {
+   "id": "share_negative_pct",
+   "unit": "percent",
+   "definition": "Share of purchase months whose realized real return r is negative, x100, where r = ((1 + GS10(s)/200)^20 / (CPIAUCNS(s+120)/CPIAUCNS(s)))^(1/10) - 1 (par note, semiannual coupons reinvested at the purchase yield)."
+  },
+  {
+   "id": "late_lowrate_months",
+   "unit": "months",
+   "definition": "Number of valid purchase months from 2014-02 to 2016-08 inclusive."
+  },
+  {
+   "id": "late_lowrate_negative",
+   "unit": "months",
+   "definition": "Number of those months with r < 0."
+  },
+  {
+   "id": "late_lowrate_worst_real_pct_per_year",
+   "unit": "percent per year",
+   "definition": "Minimum r over purchase months 2014-02..2016-08, x100."
+  },
+  {
+   "id": "late_lowrate_mean_real_pct_per_year",
+   "unit": "percent per year",
+   "definition": "Arithmetic mean of r over purchase months 2014-02..2016-08, x100."
+  },
+  {
+   "id": "share_negative_since_2008_pct",
+   "unit": "percent",
+   "definition": "Share of valid purchase months from 2008-01 onward with r < 0, x100."
+  },
+  {
+   "id": "worst_real_pct_per_year",
+   "unit": "percent per year",
+   "definition": "Minimum r over all valid purchase months, x100."
+  }
+ ],
+ "assumptions": [
+  "The note is bought at par at the monthly average constant-maturity yield of the purchase month and held 120 months; coupons are reinvested at the purchase yield (so the nominal result equals the yield to maturity), no taxes or fees.",
+  "Inflation over the holding period = CPI-U (NSA) at the maturity month divided by CPI-U at the purchase month."
+ ],
+ "series": [
+  {
+   "id": "GS10",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS10&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/GS10",
+   "file": "data/GS10.csv",
+   "lastObservation": "2026-08-01"
+  },
+  {
+   "id": "CPIAUCNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "file": "data/CPIAUCNS.csv",
+   "lastObservation": "2026-08-01"
+  }
+ ],
+ "provisions": []
+}
