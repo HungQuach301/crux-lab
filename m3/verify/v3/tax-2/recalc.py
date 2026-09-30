@@ -77,9 +77,12 @@ def cpi_ratio():
     rows.sort()
     last12 = [v for d, v in rows if "2025-09-01" <= d <= "2026-08-01"]
     y2003 = [v for d, v in rows if d.startswith("2003-")]
-    assert len(last12) == 12 and len(y2003) == 12, (len(last12), len(y2003))
+    # Oct 2025 is blank in the FRED file (no BLS release); the window
+    # Sep 2025-Aug 2026 therefore has 11 values. Literal reading: mean of the
+    # values present in that named window.
+    assert len(last12) == 11 and len(y2003) == 12, (len(last12), len(y2003))
     assert rows[-1][0] == "2026-08-01"
-    return (sum(last12) / 12) / (sum(y2003) / 12)
+    return (sum(last12) / len(last12)) / (sum(y2003) / 12)
 
 
 def main():
