@@ -289,29 +289,40 @@ BASIS = {'real': re.compile(r"\breal\b|inflation[- ]adjusted|today'?s dollars|\b
 
 
 @rule('S09', 'DX-H3', 'claims whose display contains "$" must declare basis nominal|real. Screen (page sampler): whenever a $ claim is visible, a visible text in the same '
-      'text block or within 300 px carries its basis word (BASIS regex). Narration: the sentence with the $ number, or the one before it in the same scene, carries the basis word',
-      '0 money claims without basis; 0 frames missing the on-screen basis; 0 narration sentences missing it')
+      'text block or within 300 px carries its basis word (BASIS regex). Narration (K3.2, per act): the act of a sentence is out/script.json sentences[].act; in each act, '
+      'for each basis of the $ numbers spoken in it, the basis word is said in the first sentence of that act carrying a $ number of that basis or in an earlier sentence '
+      'of the same act (once per act; later $ sentences of the act need not repeat it). A $ number matching no claim has no known basis and counts as missing. '
+      'A sentence without act = MISSING',
+      '0 money claims without basis; 0 frames missing the on-screen basis; 0 acts whose first $ sentence (per basis) comes before the basis is said')
 def s09_basis(ctx):
     cl = ctx.claims()
     money = [c for c in cl if '$' in str(c.get('display', ''))]
     nob = [c['claimId'] for c in money if c.get('basis') not in ('nominal', 'real')]
     r = page(ctx)['rules'].get('S09', {'framesMissing': None})
     sents = ctx.sentences()
-    miss = []
+    noact = [s.get('id') for s in sents if s.get('act') in (None, '')]
+    if noact:
+        raise Missing(f'out/script.json: sentences[].act (S09 checks the basis once per act; no act on {noact[:5]})')
     basis_of = {}
     for c in money:
         for cn in claim_canons(c):
             basis_of.setdefault(cn, set()).add(c.get('basis'))
-    for i, s in enumerate(sents):
+    miss, done, said = [], set(), {}
+    for s in sents:
+        a = s['act']
+        heard = said.setdefault(a, set())
+        heard.update(b for b in BASIS if BASIS[b].search(s['text']))
         for cn, span in numbers_in_text(s['text']):
             if not cn.startswith('usd:'):
                 continue
-            bs = basis_of.get(cn, {None})
-            prev = sents[i - 1]['text'] if i and sents[i - 1]['scene'] == s['scene'] else ''
-            if not any(b and (BASIS[b].search(s['text']) or BASIS[b].search(prev)) for b in bs):
-                miss.append((s.get('id'), span))
+            for b in basis_of.get(cn, {None}):
+                if (a, b) in done:
+                    continue
+                done.add((a, b))
+                if b not in heard:
+                    miss.append({'act': a, 'basis': b, 'sentence': s.get('id'), 'number': span})
     return verdict('S09', [metric('money claims without basis', len(nob), '<=', 0), metric('frames missing basis on screen', r.get('framesMissing'), '<=', 0),
-                           metric('narration $ without basis', len(miss), '<=', 0)], details=[{'noBasis': nob[:10], 'narration': miss[:10], 'screen': r.get('examples', [])[:5]}])
+                           metric('acts with $ before the basis is said', len(miss), '<=', 0)], details=[{'noBasis': nob[:10], 'narration': miss[:10], 'screen': r.get('examples', [])[:5]}])
 
 
 ADVICE = [r"\byou (should|must|need to|ought to|have to|'d better)\b", r'\b(we|i) (recommend|suggest|advise)\b', r'\b(should|must) (you|retirees|investors|everyone)\b',
