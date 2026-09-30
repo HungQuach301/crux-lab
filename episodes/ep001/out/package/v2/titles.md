@@ -53,4 +53,4 @@ Cả hai chứa "refinance", lời hứa có đáp án (mức giảm lãi), đi�
 
 ## 4. So cặp mù (THAM KHẢO)
 
-Vật liệu ở `episodes/ep001/review-c6/pack-test/` (P2 chạy agent mù): 42 ảnh gói (7 gói × mọi cặp × 2 thứ tự) + 6 ảnh chỉ thumbnail (H/L/W cùng tiêu đề T1), tên hex ngẫu nhiên, `prompt.txt`, khoá `key.json`. Thẻ kết quả tìm kiếm của từng gói: `cards/card-*.png` (để chủ dự án xem, không đưa cho agent mù).
+Vật liệu ở `episodes/ep001/review-c6/pack-test/` (P2 chạy agent mù): 42 ảnh gói (7 gói → 21 cặp × 2 thứ tự) + 6 ảnh chỉ thumbnail (H/L/W cùng tiêu đề T1), tên hex ngẫu nhiên, `prompt.txt`, khoá `key.json`. Thẻ kết quả tìm kiếm của từng gói: `cards/card-*.png` (để chủ dự án xem, không đưa cho agent mù).
