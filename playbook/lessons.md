@@ -67,6 +67,13 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 
 1. **Hình tự mang ý nghĩa** (chủ dự án, C4 Tập 1): kiểm mù tắt tiếng Tập 1 đạt 20/20 nhưng người đọc hiểu *"mostly from the words and numbers"*; hình mới mang cấu trúc. Tập 2 đặt mục tiêu: nhịp then chốt phải đọc được khi che chữ/số (đo bằng dải che nhãn, có đối chứng).
 
+2. **Tấm nền cho nhãn trên vật liệu 3D** (V08, C6 Tập 1: 349 mẫu chữ < 4,5:1, tệ nhất 2,37:1 — nhãn muted trên gỗ/tường sáng). Mọi chữ đặt trên vật liệu 3D (không phải nền `bg` phẳng) có tấm nền token `bg` (như chữ thumbnail), đo tương phản trên chữ + tấm nền ngay khi dựng cảnh.
+3. **Chọn màu nhân vật qua mô phỏng protan/deutan ở C3** (V09: ba màu nhân vật ΔE2000 11,5–18,2 < 20 dưới mô phỏng đỏ-lục, Nora/Walt thang xám 1,27 < 1,5). Ở C3, mọi cặp màu nhân vật phải đạt ΔE2000 ≥ 20 dưới protan và deutan và tương phản thang xám ≥ 1,5:1 trước khi ký hệ hình; hình dạng (tròn/tam giác/vuông) vẫn giữ làm kênh thứ hai.
+4. **Bộ dựng tự tránh va chạm nhãn, đệm ≥ 4 px** (V11: 715 va chạm, 714 là nhãn chạm nét đường/trục/dấu 1–2 px). Bộ đặt nhãn của engine giữ khoảng đệm ≥ 4 px với mọi nét đồ hoạ và chữ khác, kể cả khi đường đang vẽ; chạy V11 theo từng cảnh ngay khi dựng, không đợi C5.
+5. **Chữ phụ cạnh số nhấn dùng muted** (C05: 1 344 khung, số nhấn in mực trên giấy tối hơn nhãn trắng cạnh nó trong thang xám). Chữ phụ đứng cạnh một số nhấn mạnh dùng màu `muted`, không dùng `text`; số in trên vật liệu sáng (giấy) có tấm nền tối để vẫn là chữ sáng nhất khung.
+
+Nguồn 2–5: bốn luật CHÍNH không đạt ở C6 Tập 1 (K3.3), chủ dự án chấp nhận lời giải thích cho Tập 1 và yêu cầu đưa cách sửa vào playbook (30/09/2026). Lời giải thích: `episodes/ep001/out/explanations.json` (nhánh `ep001-v2`).
+
 ## C. Vận hành
 
 - Chủ dự án không đọc tài liệu dài; chỉ trả lời gói quyết định (≤ 3 câu, < 1 phút đọc).
