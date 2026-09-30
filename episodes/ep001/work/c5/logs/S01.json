@@ -3,16 +3,17 @@
  "frames": 992,
  "frames3d": 403,
  "filmSeconds": 33.06666666666667,
- "wallSeconds": 673.5,
- "browserFrameSeconds": 661,
- "machineSecPerFilmSec": 20.37,
+ "wallSeconds": 600.1,
+ "browserFrameSeconds": 588.7,
+ "machineSecPerFilmSec": 18.15,
  "hardTime": 32.98,
  "crf": 8,
  "size": "1920x1080",
+ "basisMode": "corner",
  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
  "cpus": 4,
  "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
- "date": "2026-09-30T01:57:47.600Z",
+ "date": "2026-09-30T03:14:33.712Z",
  "texts": [
   {
    "s": "Aug 2025",
@@ -235,7 +236,7 @@
    "sent": false
   },
   {
-   "s": "in dollars of the day",
+   "s": "dollars of the day",
    "tier": "note",
    "px": 40,
    "n": 104,

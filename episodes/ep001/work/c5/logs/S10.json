@@ -3,16 +3,17 @@
  "frames": 1723,
  "frames3d": 1134,
  "filmSeconds": 57.43333333333333,
- "wallSeconds": 3003.8,
- "browserFrameSeconds": 2945.5,
- "machineSecPerFilmSec": 52.3,
+ "wallSeconds": 1716.5,
+ "browserFrameSeconds": 1688.6,
+ "machineSecPerFilmSec": 29.89,
  "hardTime": 57.4,
  "crf": 8,
  "size": "1920x1080",
+ "basisMode": "corner",
  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
  "cpus": 4,
  "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
- "date": "2026-09-30T01:31:33.323Z",
+ "date": "2026-09-30T02:41:59.033Z",
  "texts": [
   {
    "s": "ILLUSTRATIVE",
@@ -205,6 +206,16 @@
    "sent": false
   },
   {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 1135,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 19.633333333333383,
+   "sent": false
+  },
+  {
    "s": "By month 24: old loan vs new loan",
    "tier": "head",
    "px": 58,
@@ -225,7 +236,7 @@
    "sent": false
   },
   {
-   "s": "on the new loan vs the old one (dollars of the day)",
+   "s": "on the new loan vs the old one",
    "tier": "label",
    "px": 43,
    "n": 333,
@@ -238,16 +249,6 @@
    "s": "+ $1,133 extra owed",
    "tier": "label",
    "px": 43,
-   "n": 468,
-   "out": 0,
-   "outV03": 0,
-   "firstT": 39.900000000000034,
-   "sent": false
-  },
-  {
-   "s": "dollars of the day",
-   "tier": "note",
-   "px": 40,
    "n": 468,
    "out": 0,
    "outV03": 0,

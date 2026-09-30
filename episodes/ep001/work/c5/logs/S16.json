@@ -3,16 +3,17 @@
  "frames": 835,
  "frames3d": 350,
  "filmSeconds": 27.833333333333332,
- "wallSeconds": 717.7,
- "browserFrameSeconds": 703.9,
- "machineSecPerFilmSec": 25.79,
+ "wallSeconds": 428,
+ "browserFrameSeconds": 419.8,
+ "machineSecPerFilmSec": 15.38,
  "hardTime": 27.8,
  "crf": 8,
  "size": "1920x1080",
+ "basisMode": "corner",
  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
  "cpus": 4,
  "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
- "date": "2026-09-30T01:46:32.548Z",
+ "date": "2026-09-30T03:09:38.233Z",
  "texts": [
   {
    "s": "If Walt sells after 3 years",
@@ -55,16 +56,6 @@
    "sent": false
   },
   {
-   "s": "dollars of the day",
-   "tier": "note",
-   "px": 40,
-   "n": 877,
-   "out": 0,
-   "outV03": 0,
-   "firstT": 0,
-   "sent": false
-  },
-  {
    "s": "months",
    "tier": "note",
    "px": 40,
@@ -79,6 +70,16 @@
    "tier": "note",
    "px": 40,
    "n": 836,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 670,
    "out": 0,
    "outV03": 0,
    "firstT": 0,

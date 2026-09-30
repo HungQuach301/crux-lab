@@ -1,0 +1,184 @@
+{
+ "scene": "S09",
+ "frames": 493,
+ "frames3d": 493,
+ "filmSeconds": 16.433333333333334,
+ "wallSeconds": 665.9,
+ "browserFrameSeconds": 655.2,
+ "machineSecPerFilmSec": 40.52,
+ "hardTime": 16.4,
+ "crf": 8,
+ "size": "1920x1080",
+ "basisMode": "corner",
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+ "date": "2026-09-30T03:25:41.371Z",
+ "texts": [
+  {
+   "s": "Nora: illustrative. Fees: HMDA 2025 median. Dollars of the day (before inflation).",
+   "tier": "note",
+   "px": 40,
+   "n": 494,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 40,
+   "n": 494,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 0,
+   "sent": false
+  },
+  {
+   "s": "loan costs",
+   "tier": "label",
+   "px": 43,
+   "n": 401,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 3.0999999999999943,
+   "sent": false
+  },
+  {
+   "s": "Break-even: savings stack up to the bill",
+   "tier": "head",
+   "px": 58,
+   "n": 383,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 3.6999999999999886,
+   "sent": false
+  },
+  {
+   "s": "+$221 a month",
+   "tier": "label",
+   "px": 43,
+   "n": 325,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 5.633333333333326,
+   "sent": false
+  },
+  {
+   "s": "months",
+   "tier": "note",
+   "px": 40,
+   "n": 325,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 5.633333333333326,
+   "sent": false
+  },
+  {
+   "s": "dollars of the day",
+   "tier": "note",
+   "px": 40,
+   "n": 325,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 5.633333333333326,
+   "sent": false
+  },
+  {
+   "s": "24",
+   "tier": "label",
+   "px": 43,
+   "n": 224,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 9,
+   "sent": false
+  },
+  {
+   "s": "$5,124 ÷ $221 a month = 24 months",
+   "tier": "label",
+   "px": 43,
+   "n": 224,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 9,
+   "sent": false
+  },
+  {
+   "s": "balance paid off",
+   "tier": "label",
+   "px": 43,
+   "n": 77,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 13.900000000000006,
+   "sent": false
+  },
+  {
+   "s": "since refinancing",
+   "tier": "note",
+   "px": 40,
+   "n": 77,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 13.900000000000006,
+   "sent": false
+  },
+  {
+   "s": "old loan",
+   "tier": "label",
+   "px": 43,
+   "n": 77,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 13.900000000000006,
+   "sent": false
+  },
+  {
+   "s": "new loan",
+   "tier": "label",
+   "px": 43,
+   "n": 77,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 13.900000000000006,
+   "sent": false
+  },
+  {
+   "s": "?",
+   "tier": "number",
+   "px": 77,
+   "n": 41,
+   "out": 0,
+   "outV03": 0,
+   "firstT": 15.099999999999994,
+   "sent": false
+  }
+ ],
+ "anchorsUsed": [
+  "letter",
+  "level",
+  "m24",
+  "owes",
+  "stack"
+ ],
+ "anchorsDeclared": [
+  "letter",
+  "level",
+  "stack",
+  "m24",
+  "owes"
+ ],
+ "anchorsKeywordMissing": [],
+ "claimsUsed": [
+  "be_bal_median",
+  "be_simple_median",
+  "cost_median",
+  "gap24",
+  "r_old",
+  "r_today",
+  "sav_median",
+  "y2025"
+ ]
+}
