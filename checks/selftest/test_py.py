@@ -641,57 +641,49 @@ def _(f, bad):
 def _(f, bad):
     f.json('out/claims.json', {'claims': BASE_CLAIMS})
     f.json('out/checks/page.json', {'rules': {'S09': {'framesMissing': 0, 'examples': []}}})
-    f.json('out/script.json', {'sentences': [{'id': 's1', 'scene': 'a', 'act': 'act1', 'text': 'It ends at $120,000.' if bad else 'In real terms, it ends at $120,000.', 'start': 0, 'end': 2}]})
+    f.json('out/script.json', {'sentences': [{'id': 's1', 'scene': 'a', 'text': 'It ends at $120,000.' if bad else 'In real terms, it ends at $120,000.', 'start': 0, 'end': 2}]})
 
 
 S09_CLAIMS = BASE_CLAIMS + [{'claimId': 'fee', 'value': 5124, 'display': '$5,124', 'formula': 'closing costs', 'source': {'id': 'damodaran'}, 'dataYear': 2024,
                              'shownIn': ['a'], 'basis': 'nominal'}]
 
 
-def s09_variant(name, lines, frames_missing=0):
-    """One S09 fixture (K3.2): lines = [(act, scene, text)], claims $120,000 real and $5,124 nominal, page S09 frames missing as given."""
+def s09_variant(name, lines, frames_missing=0, claims=S09_CLAIMS):
+    """One S09 fixture (K3.2): lines = [(scene, text)] in episode order, claims as given, page S09 frames missing as given."""
     f = F('S09-' + name)
     try:
-        f.json('out/claims.json', {'claims': S09_CLAIMS})
+        f.json('out/claims.json', {'claims': claims})
         f.json('out/checks/page.json', {'rules': {'S09': {'framesMissing': frames_missing, 'examples': []}}})
-        f.json('out/script.json', {'sentences': [dict({'id': f's{i}', 'scene': sc, 'text': t, 'start': 2 * i, 'end': 2 * i + 2}, **({'act': a} if a else {}))
-                                                 for i, (a, sc, t) in enumerate(lines)]})
+        f.json('out/script.json', {'sentences': [{'id': f's{i}', 'scene': sc, 'text': t, 'start': 2 * i, 'end': 2 * i + 2} for i, (sc, t) in enumerate(lines)]})
         return f.run('S09')
     finally:
         f.close()
 
 
+NOMINAL_ONLY = [c for c in S09_CLAIMS if c.get('basis') != 'real']
+
+
 def s09_once_case(bad):
-    """K3.2: the basis said once at the head of the act covers every later $ sentence of the act, across scenes; bad = the act's first $ sentence
-    comes before any sentence saying the basis (said only later) must fail."""
-    head = [] if bad else [('act1', 'a', 'Every figure here is in nominal dollars, the dollars of the day.')]
-    body = [('act1', 'a', 'Maya paid $5,124 to refinance.'), ('act1', 'b', 'Closing costs were $5,124 again.'), ('act1', 'c', 'Once more: $5,124.')]
-    tail = [('act1', 'c', 'All of that is nominal.')] if bad else []
-    return s09_variant('once', head + body + tail)
+    """K3.2: an episode with $ numbers whose narration never says the basis must fail; the basis said once, anywhere (here after the $ numbers,
+    in another scene), covers every $ sentence of the episode."""
+    lines = [('a', 'Maya paid $5,124 to refinance.'), ('b', 'Closing costs were $5,124 again.'), ('c', 'Once more: $5,124.')]
+    return s09_variant('once', lines + ([] if bad else [('c', 'Every dollar figure here is nominal, the dollars of the day.')]), claims=NOMINAL_ONLY)
 
 
-def s09_per_act_case(bad):
-    """K3.2: the basis must be said again in every act; bad = act 2 has a $ number and only act 1 said the basis must fail."""
-    lines = [('act1', 'a', 'In nominal dollars, Maya paid $5,124.'), ('act1', 'a', 'That is $5,124 up front.')]
-    lines += [('act2', 'b', 'Back to the bill.' if bad else 'Still in nominal dollars.'), ('act2', 'b', 'The $5,124 comes back in year three.')]
-    return s09_variant('per-act', lines)
-
-
-def s09_basis_kind_case(bad):
-    """K3.2: the word said must be the basis of the number; bad = an act says 'nominal' before a real $ number must fail."""
-    second = 'The balance ends at $120,000.' if bad else 'In real terms, the balance ends at $120,000.'
-    return s09_variant('kind', [('act1', 'a', 'In nominal dollars the fee was $5,124.'), ('act1', 'a', second)])
+def s09_both_case(bad):
+    """K3.2: an episode using nominal and real $ claims must say both bases; bad = only 'nominal' is said must fail."""
+    lines = [('a', 'In nominal dollars, Maya paid $5,124.'), ('b', 'The balance ends at $120,000.' if bad else 'In real terms, the balance ends at $120,000.')]
+    return s09_variant('both', lines)
 
 
 def s09_screen_case(bad):
-    """K3.2 keeps the on-screen part: narration correct once per act, but frames showing a $ claim without its basis label must still fail."""
-    return s09_variant('screen', [('act1', 'a', 'In nominal dollars, Maya paid $5,124.')], frames_missing=4 if bad else 0)
+    """K3.2 keeps the on-screen part: narration says the basis, but frames showing a $ claim without its basis label must still fail."""
+    return s09_variant('screen', [('a', 'In nominal dollars, Maya paid $5,124.')], frames_missing=4 if bad else 0, claims=NOMINAL_ONLY)
 
 
-def s09_no_act_case(bad):
-    """K3.2: the act comes from out/script.json; bad = sentences without act must be MISSING (reported here as FAIL), good = with act passes."""
-    r = s09_variant('no-act', [(None if bad else 'act1', 'a', 'In nominal dollars, Maya paid $5,124.')])
-    return dict(r, status='FAIL') if bad and r['status'] == 'MISSING' else (dict(r, status='UNEXPECTED-' + r['status']) if bad else r)
+def s09_unknown_case(bad):
+    """A spoken $ number matching no claim has no known basis: bad = '$9,999' (no claim) must fail even though 'nominal' is said."""
+    return s09_variant('unknown', [('a', 'In nominal dollars, Maya paid $5,124.'), ('a', 'Her neighbour paid $9,999.' if bad else 'Her neighbour paid $5,124.')], claims=NOMINAL_ONLY)
 
 
 @case('S10')
@@ -1490,8 +1482,7 @@ EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_cas
          'F12/photo': f12_photo_case, 'F12/font': f12_font_case, 'F12/public-domain': f12_pd_case, 'F12/quote-card': f12_quote_case,
          'F12/self-made': f12_selfmade_case, 'F12/no-manifest': f12_manifest_case,
          'F12/loaded': f12_loaded_case, 'F12/loaded-font': f12_loaded_font_case, 'F12/generated': f12_generated_case,
-         'S09/once-per-act': s09_once_case, 'S09/every-act': s09_per_act_case, 'S09/basis-kind': s09_basis_kind_case, 'S09/screen': s09_screen_case,
-         'S09/no-act': s09_no_act_case}
+         'S09/said-once': s09_once_case, 'S09/every-basis': s09_both_case, 'S09/screen': s09_screen_case, 'S09/unknown-basis': s09_unknown_case}
 
 
 def main():
