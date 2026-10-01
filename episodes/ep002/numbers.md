@@ -86,6 +86,11 @@ Mọi số của tập phải trỏ về một claim ID ở đây. Kiểm độc
 | `cap25_share` | 14.2% |  | share costlier, rate capped at 25% | model | có | b |
 | `cap25_early` | 28.4% |  | cap 25: 1954-1980 | model | có | b |
 | `cap25_worst` | +$11,219 |  | cap 25: worst Difference | model | có | b |
+| `ctx_plus_end` | July 1, 2026 |  | 34 CFR 685.200(b)(2)(i): "Beginning on July 1, 2026, a graduate student or professional student may not borrow a Direct PLUS Loan." | policy | không | a |
+| `ctx_plus_exception` | already enrolled and borrowing before July 2026: up to 3 more years |  | 34 CFR 685.200(b)(2)(ii), 685.102 'expected time to credential' | policy | không | a |
+| `ctx_unsub_annual` | $20,500 a year |  | Direct Unsubsidized annual limit, graduate (non-professional) student, periods of enrollment from 2026-07-01 (unchanged from before) | policy | không | a |
+| `ctx_unsub_aggregate` | $100,000 total |  | Direct Unsubsidized aggregate limit, graduate (non-professional) student, from 2026-07-01 (was $138,500) | policy | không | a |
+| `ctx_unsub_rate` | 8.07% fixed |  | Direct Unsubsidized, graduate/professional, first disbursed 2026-07-01..2027-06-30 = 10-yr Treasury high yield 4.47% (May 12, 2026) + 3.6, cap 9.5 (34 CFR 685.202(a)(8)) | policy | không | a |
 
 ## Ghi chú
 

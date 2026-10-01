@@ -1453,6 +1453,96 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b"
+  },
+  {
+   "claimId": "ctx_plus_end",
+   "value": "2026-07-01",
+   "display": "July 1, 2026",
+   "formula": "34 CFR 685.200(b)(2)(i): \"Beginning on July 1, 2026, a graduate student or professional student may not borrow a Direct PLUS Loan.\"",
+   "source": {
+    "id": "ecfr-685.200",
+    "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.200"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "verify": "V1",
+   "asOf": "2026-09-29"
+  },
+  {
+   "claimId": "ctx_plus_exception",
+   "value": "enrolled 2026-06-30 + Direct Loan for the program before 2026-07-01; up to 3 academic years",
+   "display": "already enrolled and borrowing before July 2026: up to 3 more years",
+   "formula": "34 CFR 685.200(b)(2)(ii), 685.102 'expected time to credential'",
+   "source": {
+    "id": "ecfr-685.200",
+    "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.200"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "verify": "V1"
+  },
+  {
+   "claimId": "ctx_unsub_annual",
+   "value": 20500,
+   "display": "$20,500 a year",
+   "formula": "Direct Unsubsidized annual limit, graduate (non-professional) student, periods of enrollment from 2026-07-01 (unchanged from before)",
+   "source": {
+    "id": "fr-2026-08556",
+    "url": "https://www.federalregister.gov/documents/2026/05/01/2026-08556/reimagining-and-improving-student-education-federal-student-loan-program-final-regulations"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "basis": "nominal",
+   "verify": "V2/V3 (old $20,500 = V1)",
+   "needsOwnerVerification": true
+  },
+  {
+   "claimId": "ctx_unsub_aggregate",
+   "value": 100000,
+   "display": "$100,000 total",
+   "formula": "Direct Unsubsidized aggregate limit, graduate (non-professional) student, from 2026-07-01 (was $138,500)",
+   "source": {
+    "id": "fr-2026-08556",
+    "url": "https://www.federalregister.gov/documents/2026/05/01/2026-08556/reimagining-and-improving-student-education-federal-student-loan-program-final-regulations"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "basis": "nominal",
+   "verify": "V2/V3",
+   "needsOwnerVerification": true
+  },
+  {
+   "claimId": "ctx_unsub_rate",
+   "value": 8.07,
+   "display": "8.07% fixed",
+   "formula": "Direct Unsubsidized, graduate/professional, first disbursed 2026-07-01..2027-06-30 = 10-yr Treasury high yield 4.47% (May 12, 2026) + 3.6, cap 9.5 (34 CFR 685.202(a)(8))",
+   "source": {
+    "id": "fr-2026-18493",
+    "url": "https://www.federalregister.gov/documents/2026/09/10/2026-18493/annual-notice-of-interest-rates-for-fixed-rate-federal-student-loans-made-under-the-william-d-ford"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "verify": "V2 (formula V1; 4.47 + 3.60 = 8.07)"
   }
  ]
 }
