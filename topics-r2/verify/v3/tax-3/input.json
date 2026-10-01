@@ -1,0 +1,145 @@
+{
+ "id": "tax-3",
+ "claim": "A couple with $130,000 of income can deduct at most $10,000 a year of rental losses against wages: the $25,000 allowance shrinks by 50 cents per dollar of income above $100,000 and is gone at $150,000. Those dollar lines have not changed since their first tax year, 1987. Prices rose by a factor of 2.8334 from 1987 to 2025, so the $100,000 starting line is worth 35.3% of its original value; kept at 1987 value it would be $283,300 (full phase-out at $425,000, allowance $70,800). In 1987 the line sat at 3.84 times the median household income ($26,060); in 2025 it is 1.14 times ($87,460), and the full phase-out is 1.72 times. The couple's $130,000 is about $45,900 in 1987 prices, an income that then got the full allowance; with the lines indexed to prices they could deduct up to $70,800.",
+ "numbers": [
+  {
+   "id": "cpi_1987_avg",
+   "unit": "index 1982-84=100",
+   "definition": "Mean of the 12 monthly CPIAUCNS values for 1987, rounded to 0.001."
+  },
+  {
+   "id": "cpi_2025_avg",
+   "unit": "index 1982-84=100",
+   "definition": "Mean of the monthly CPIAUCNS values published for 2025 (11 months; October missing), rounded to 0.001."
+  },
+  {
+   "id": "cpi_2025_months",
+   "unit": "months",
+   "definition": "Number of 2025 monthly CPIAUCNS values averaged."
+  },
+  {
+   "id": "price_factor_1987_2025",
+   "unit": "ratio",
+   "definition": "price factor k = cpi_2025_avg / cpi_1987_avg, where each is the mean of the monthly CPIAUCNS values published for that calendar year (1987: 12 months; 2025: 11 months, October 2025 was never published), rounded to 0.0001."
+  },
+  {
+   "id": "start_in_2025_dollars",
+   "unit": "USD (2025)",
+   "definition": "100000 * k, rounded to the nearest $100: the 1987 phase-out start expressed in 2025 prices."
+  },
+  {
+   "id": "end_in_2025_dollars",
+   "unit": "USD (2025)",
+   "definition": "150000 * k, rounded to the nearest $100: the 1987 full phase-out point in 2025 prices."
+  },
+  {
+   "id": "cap_in_2025_dollars",
+   "unit": "USD (2025)",
+   "definition": "25000 * k, rounded to the nearest $100: the 1987 allowance in 2025 prices."
+  },
+  {
+   "id": "start_real_value_pct_of_1987",
+   "unit": "percent",
+   "definition": "100 / k, rounded to 0.1: real value of the unchanged $100,000 line in 2025 as a share of its 1987 value."
+  },
+  {
+   "id": "median_1987",
+   "unit": "USD (current)",
+   "definition": "MEHOINUSA646N value for 1987 (median household income, current dollars)."
+  },
+  {
+   "id": "median_2025",
+   "unit": "USD (current)",
+   "definition": "MEHOINUSA646N value for 2025."
+  },
+  {
+   "id": "start_over_median_1987",
+   "unit": "ratio",
+   "definition": "100000 / median_1987, rounded to 0.01."
+  },
+  {
+   "id": "start_over_median_2025",
+   "unit": "ratio",
+   "definition": "100000 / median_2025, rounded to 0.01."
+  },
+  {
+   "id": "end_over_median_2025",
+   "unit": "ratio",
+   "definition": "150000 / median_2025, rounded to 0.01."
+  },
+  {
+   "id": "start_if_tracked_median_2025",
+   "unit": "USD (2025)",
+   "definition": "100000 * median_2025 / median_1987, rounded to the nearest $100: where the line would be if it had grown with median household income."
+  },
+  {
+   "id": "income_in_1987_dollars",
+   "unit": "USD (1987)",
+   "definition": "130000 / k, rounded to the nearest $100: the couple's $130,000 expressed in 1987 prices."
+  },
+  {
+   "id": "allowance_at_income",
+   "unit": "USD",
+   "definition": "max(0, 25000 - 0.5 * max(0, 130000 - 100000)) = rental loss deductible against other income for a couple with $130,000 of modified adjusted gross income under current law."
+  },
+  {
+   "id": "allowance_at_income_if_cpi_indexed",
+   "unit": "USD (2025)",
+   "definition": "Same formula with the $25,000 cap and the $100,000 start both multiplied by k: max(0, 25000k - 0.5*max(0, 130000 - 100000k)), rounded to the nearest $100 (equals the full inflation-adjusted cap because 130000 < 100000k)."
+  }
+ ],
+ "assumptions": [
+  "Married couple filing jointly, actively participating in one rental, modified adjusted gross income $130,000 (wages after pre-tax 401(k) deferrals; the allowance's income measure ignores IRA deductions and some other items).",
+  "Not a real estate professional; no short-term-rental exception; losses above the allowance are suspended and carried forward, released when the property is sold.",
+  "Prices measured by the CPI-U annual average; 2025 average uses the 11 published months.",
+  "Median household income in current dollars, all households (not only married couples, whose median is higher)."
+ ],
+ "series": [
+  {
+   "id": "CPIAUCNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics, CPI for All Urban Consumers: All Items in U.S. City Average, not seasonally adjusted)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&cosd=1986-01-01&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "file": "data/CPIAUCNS.csv",
+   "sha256": "226a78125aee00125dca04a52fbf1850b0df3211654be0c3b57256678fc93633",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.980"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCNS"
+   }
+  },
+  {
+   "id": "MEHOINUSA646N",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Census Bureau, Median Household Income in the United States, current dollars, annual)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MEHOINUSA646N&cosd=1984-01-01&coed=2025-01-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/MEHOINUSA646N",
+   "file": "data/MEHOINUSA646N.csv",
+   "sha256": "2052185cf05506b963bfe3aaee5dbbc1783e1518b144b74ecd85058b43de4bfc",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2025-01-01",
+    "value": "87460"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/MEHOINUSA646N"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 469(i)(2) (dollar limitation)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/469",
+   "quote": "the aggregate amount to which paragraph (1) applies for any taxable year shall not exceed $25,000."
+  },
+  {
+   "cite": "26 U.S.C. 469(i)(3)(A) (phase-out)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/469",
+   "quote": "the $25,000 amount under paragraph (2) shall be reduced (but not below zero) by 50 percent of the amount by which the adjusted gross income of the taxpayer for the taxable year exceeds $100,000."
+  }
+ ]
+}

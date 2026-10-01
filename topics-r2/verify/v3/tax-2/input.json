@@ -1,0 +1,174 @@
+{
+ "id": "tax-2",
+ "claim": "The $1,000 emergency withdrawal carries no 10% additional tax, so in the 12% bracket its cost is $120 of federal income tax (recoverable if the money is repaid to the plan within three years). Putting the bill on a card and paying it off in equal monthly payments, at the latest average rate on accounts charged interest (22.15% in 2026-05), costs $65.59 over 6 months and $124.0 over 12; the card interest passes the $120 tax only after 12 months. Across 127 quarterly rates since 1994-11, that crossover ranged from 11 months (at 23.37%, 2024-08) to 23 months (at 11.96%, 2003-02), median 18. For a 22% bracket worker the tax is $220 and the crossover is 22 months at today's rate (history: 21 to 41, median 33). Lost investment growth on the withdrawn money is not included. History, not a forecast.",
+ "numbers": [
+  {
+   "id": "observations",
+   "unit": "quarterly observations",
+   "definition": "Number of TERMCBCCINTNS observations used (Nov 1994 - May 2026). Card cost: a $1,000 balance repaid in n equal monthly payments at monthly rate i = APR/100/12, payment = 1000*i/(1-(1+i)^-n), total interest = n*payment - 1000. APR = TERMCBCCINTNS (average interest rate on credit card accounts assessed interest, commercial banks; quarterly observations Feb/May/Aug/Nov, Nov 1994 - May 2026). Withdrawal cost: federal income tax on the $1,000 emergency withdrawal at the viewer's marginal rate, 12% = $120 (22% = $220 for comparison); no 10% additional tax. 'Months to exceed' = smallest whole n with total interest > tax."
+  },
+  {
+   "id": "first_obs",
+   "unit": "month",
+   "definition": "First observation."
+  },
+  {
+   "id": "last_obs",
+   "unit": "month",
+   "definition": "Latest observation."
+  },
+  {
+   "id": "apr_last_pct",
+   "unit": "percent APR",
+   "definition": "TERMCBCCINTNS value for the latest observation (2026-05)."
+  },
+  {
+   "id": "tax_12_usd",
+   "unit": "USD",
+   "definition": "0.12 * 1000: federal tax on the withdrawal in the 12% bracket."
+  },
+  {
+   "id": "tax_22_usd",
+   "unit": "USD",
+   "definition": "0.22 * 1000: same in the 22% bracket."
+  },
+  {
+   "id": "months_12_last",
+   "unit": "months",
+   "definition": "Smallest n with card interest > $120 at the latest APR. Card cost: a $1,000 balance repaid in n equal monthly payments at monthly rate i = APR/100/12, payment = 1000*i/(1-(1+i)^-n), total interest = n*payment - 1000. APR = TERMCBCCINTNS (average interest rate on credit card accounts assessed interest, commercial banks; quarterly observations Feb/May/Aug/Nov, Nov 1994 - May 2026). Withdrawal cost: federal income tax on the $1,000 emergency withdrawal at the viewer's marginal rate, 12% = $120 (22% = $220 for comparison); no 10% additional tax. 'Months to exceed' = smallest whole n with total interest > tax."
+  },
+  {
+   "id": "months_22_last",
+   "unit": "months",
+   "definition": "Smallest n with card interest > $220 at the latest APR."
+  },
+  {
+   "id": "interest_12mo_last_usd",
+   "unit": "USD",
+   "definition": "Total card interest, n = 12, latest APR, rounded to cents."
+  },
+  {
+   "id": "interest_24mo_last_usd",
+   "unit": "USD",
+   "definition": "Total card interest, n = 24, latest APR, rounded to cents."
+  },
+  {
+   "id": "interest_6mo_last_usd",
+   "unit": "USD",
+   "definition": "Total card interest, n = 6, latest APR, rounded to cents."
+  },
+  {
+   "id": "apr_min_pct",
+   "unit": "percent APR",
+   "definition": "Lowest TERMCBCCINTNS observation 1994-2026."
+  },
+  {
+   "id": "apr_min_obs",
+   "unit": "month",
+   "definition": "Month of the lowest observation."
+  },
+  {
+   "id": "months_12_at_min",
+   "unit": "months",
+   "definition": "Smallest n with card interest > $120 at the lowest APR."
+  },
+  {
+   "id": "apr_max_pct",
+   "unit": "percent APR",
+   "definition": "Highest TERMCBCCINTNS observation 1994-2026."
+  },
+  {
+   "id": "apr_max_obs",
+   "unit": "month",
+   "definition": "Month of the highest observation."
+  },
+  {
+   "id": "months_12_at_max",
+   "unit": "months",
+   "definition": "Smallest n with card interest > $120 at the highest APR."
+  },
+  {
+   "id": "months_12_median",
+   "unit": "months",
+   "definition": "Median over all observations of the smallest n with card interest > $120."
+  },
+  {
+   "id": "months_22_median",
+   "unit": "months",
+   "definition": "Median over all observations of the smallest n with card interest > $220."
+  },
+  {
+   "id": "months_12_min",
+   "unit": "months",
+   "definition": "Minimum over observations of months to exceed $120."
+  },
+  {
+   "id": "months_12_max",
+   "unit": "months",
+   "definition": "Maximum over observations of months to exceed $120."
+  },
+  {
+   "id": "months_22_min",
+   "unit": "months",
+   "definition": "Minimum over observations of months to exceed $220."
+  },
+  {
+   "id": "months_22_max",
+   "unit": "months",
+   "definition": "Maximum over observations of months to exceed $220."
+  }
+ ],
+ "assumptions": [
+  "The worker's plan offers the emergency personal expense distribution and the worker qualifies (self-certified need, at least $2,000 vested so $1,000 is available, none taken in the last 3 years without repayment).",
+  "The whole $1,000 is taxed at the worker's federal marginal rate (12%, or 22% for comparison); no state income tax; the withdrawal is not repaid (if repaid within three years the tax can be recovered).",
+  "Card balance of exactly $1,000, no new charges, no fees, equal monthly payments; APR equal to the national average on accounts assessed interest at that observation, held fixed for the payoff period.",
+  "Lost investment growth on the $1,000 while out of the 401(k) is not counted; it would add to the withdrawal's cost.",
+  "Withholding at the time of withdrawal affects cash flow, not the final tax, and is ignored."
+ ],
+ "series": [
+  {
+   "id": "TERMCBCCINTNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, G.19 Consumer Credit; commercial bank interest rate on credit card plans, accounts assessed interest)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TERMCBCCINTNS&cosd=1994-11-01&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TERMCBCCINTNS",
+   "file": "data/TERMCBCCINTNS.csv",
+   "sha256": "bb3976b121fab9443ba38b23eecdfe524757c4b3159dbafdb8df6c603c81bf61",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-05-01",
+    "value": "22.15"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TERMCBCCINTNS"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 72(t)(1) (10-percent additional tax on early distributions)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "shall be increased by an amount equal to 10 percent of the portion of such amount which is includible in gross income"
+  },
+  {
+   "cite": "26 U.S.C. 72(t)(2)(I)(ii) (one emergency personal expense distribution per calendar year)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "Not more than 1 distribution per calendar year may be treated as an emergency personal expense distribution by any individual."
+  },
+  {
+   "cite": "26 U.S.C. 72(t)(2)(I)(iii) (dollar limitation)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "shall not exceed the lesser of $1,000 or an amount equal to the excess of"
+  },
+  {
+   "cite": "26 U.S.C. 72(t)(2)(I)(vi) (repayment, by reference to the 3-year rules of subparagraph (H)(v))",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "Rules similar to the rules of subparagraph (H)(v) shall apply with respect to an individual who receives a distribution to which clause (i) applies."
+  },
+  {
+   "cite": "26 U.S.C. 72(t)(2)(H)(v)(I) (3-year repayment window, applied to emergency distributions by 72(t)(2)(I)(vi))",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "at any time during the 3-year period beginning on the day after the date on which such distribution was received, make one or more contributions in an aggregate amount not to exceed the amount of such distribution"
+  }
+ ]
+}

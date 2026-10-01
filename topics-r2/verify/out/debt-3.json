@@ -1,0 +1,170 @@
+{
+ "id": "debt-3",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "stretching on mortgage payment will get easier as income rises how many years": 2,
+      "buy house mortgage 35% of income now will raises make it affordable later wage growth history": 3,
+      "should I stretch my budget for a house expecting future raises": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "AHETPI",
+    "file": "data/AHETPI.csv",
+    "sha256": "bf666fc39bfc5b0cbc8fbe0d5abc06e84233f0300edbf88299ba696801e1ca7a",
+    "declared": "bf666fc39bfc5b0cbc8fbe0d5abc06e84233f0300edbf88299ba696801e1ca7a",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "n_starts",
+    "declared": 691,
+    "recomputed": 691,
+    "ok": true
+   },
+   {
+    "id": "first_start",
+    "declared": "1964-01-01",
+    "recomputed": "1964-01-01",
+    "ok": true
+   },
+   {
+    "id": "last_start",
+    "declared": "2021-07-01",
+    "recomputed": "2021-07-01",
+    "ok": true
+   },
+   {
+    "id": "median_months",
+    "declared": 82,
+    "recomputed": 82,
+    "ok": true
+   },
+   {
+    "id": "min_months",
+    "declared": 34,
+    "recomputed": 34,
+    "ok": true
+   },
+   {
+    "id": "min_start",
+    "declared": "1977-12-01",
+    "recomputed": "1977-12-01",
+    "ok": true
+   },
+   {
+    "id": "max_months",
+    "declared": 120,
+    "recomputed": 120,
+    "ok": true
+   },
+   {
+    "id": "share_le48",
+    "declared": 0.237,
+    "recomputed": 0.237,
+    "ok": true
+   },
+   {
+    "id": "n_starts_1990",
+    "declared": 379,
+    "recomputed": 379,
+    "ok": true
+   },
+   {
+    "id": "median_months_1990",
+    "declared": 86,
+    "recomputed": 86,
+    "ok": true
+   },
+   {
+    "id": "min_months_1990",
+    "declared": 52,
+    "recomputed": 52,
+    "ok": true
+   },
+   {
+    "id": "share_le48_1990",
+    "declared": 0.0,
+    "recomputed": 0.0,
+    "ok": true
+   },
+   {
+    "id": "median_share_after60_1990",
+    "declared": 30.0,
+    "recomputed": 30.0,
+    "ok": true
+   },
+   {
+    "id": "n_share5_1990",
+    "declared": 380,
+    "recomputed": 380,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "AHETPI",
+    "page": "https://fred.stlouisfed.org/series/AHETPI",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/AHETPI",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}

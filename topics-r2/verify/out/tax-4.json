@@ -1,0 +1,216 @@
+{
+ "id": "tax-4",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 4,
+     "resultsPerQuery": {
+      "keep emergency fund in Roth IRA vs high-yield savings account tax savings on interest calculation": 3,
+      "Roth IRA as emergency fund cash how much tax does it save on interest history inflation savings account real return": 3,
+      "after-tax real return on cash savings T-bills history 22% bracket how often savings lose to inflation": 3,
+      "young adult keep savings in Roth IRA instead of savings account pros cons example numbers": 2
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "TB3MS",
+    "file": "data/TB3MS.csv",
+    "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "declared": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCNS",
+    "file": "data/CPIAUCNS.csv",
+    "sha256": "2c258a8cdf5a4f22910354e7bacbf7cec94adef04203bfe6b1df8a95cc845439",
+    "declared": "2c258a8cdf5a4f22910354e7bacbf7cec94adef04203bfe6b1df8a95cc845439",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "windows",
+    "declared": 83,
+    "recomputed": 83,
+    "ok": true
+   },
+   {
+    "id": "roth_real_loss_windows",
+    "declared": 39,
+    "recomputed": 39,
+    "ok": true
+   },
+   {
+    "id": "taxable_real_loss_windows",
+    "declared": 47,
+    "recomputed": 47,
+    "ok": true
+   },
+   {
+    "id": "roth_real_loss_share_pct",
+    "declared": 47.0,
+    "recomputed": 47.0,
+    "ok": true
+   },
+   {
+    "id": "taxable_real_loss_share_pct",
+    "declared": 56.6,
+    "recomputed": 56.6,
+    "ok": true
+   },
+   {
+    "id": "median_real_end_roth_usd",
+    "declared": 7644.89,
+    "recomputed": 7644.89,
+    "ok": true
+   },
+   {
+    "id": "median_real_end_taxable_usd",
+    "declared": 7098.09,
+    "recomputed": 7098.09,
+    "ok": true
+   },
+   {
+    "id": "median_diff_usd",
+    "declared": 578.37,
+    "recomputed": 578.37,
+    "ok": true
+   },
+   {
+    "id": "max_diff_usd",
+    "declared": 1874.21,
+    "recomputed": 1874.21,
+    "ok": true
+   },
+   {
+    "id": "max_diff_start",
+    "declared": 1980,
+    "recomputed": 1980,
+    "ok": true
+   },
+   {
+    "id": "latest_start",
+    "declared": 2016,
+    "recomputed": 2016,
+    "ok": true
+   },
+   {
+    "id": "latest_real_end_roth_usd",
+    "declared": 6790.14,
+    "recomputed": 6790.14,
+    "ok": true
+   },
+   {
+    "id": "latest_real_end_taxable_usd",
+    "declared": 6477.33,
+    "recomputed": 6477.33,
+    "ok": true
+   },
+   {
+    "id": "calendar_years",
+    "declared": 92,
+    "recomputed": 92,
+    "ok": true
+   },
+   {
+    "id": "years_beat_inflation_untaxed",
+    "declared": 52,
+    "recomputed": 52,
+    "ok": true
+   },
+   {
+    "id": "years_beat_inflation_after_tax",
+    "declared": 40,
+    "recomputed": 40,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "TB3MS",
+    "page": "https://fred.stlouisfed.org/series/TB3MS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/TB3MS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCNS",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "IRS, Retirement topics - IRA contribution limits (2026 limit)",
+    "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS Publication 590-B, Are Distributions Taxable? (Roth IRA return of regular contributions)",
+    "url": "https://www.irs.gov/publications/p590b",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V01245": true
+}

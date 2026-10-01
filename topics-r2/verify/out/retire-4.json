@@ -1,0 +1,240 @@
+{
+ "id": "retire-4",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "retirees travel early in retirement or later do travel prices rise faster than savings airfare inflation": 3,
+      "go-go years travel early in retirement cost of waiting airfare hotel prices over the past decades": 3,
+      "should retirees front-load travel spending early retirement or spread out analysis inflation travel costs": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CUUR0000SETG01",
+    "file": "data/CUUR0000SETG01.csv",
+    "sha256": "2bfb2c0fadf9ebc06cff361b99a306209819491208364752c9a1ce3fe489874a",
+    "declared": "2bfb2c0fadf9ebc06cff361b99a306209819491208364752c9a1ce3fe489874a",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "CUUR0000SEHB",
+    "file": "data/CUUR0000SEHB.csv",
+    "sha256": "9aaf1932b768312ac12c517d3ed7648013761debe06cd2e2457c2f99f10974a1",
+    "declared": "9aaf1932b768312ac12c517d3ed7648013761debe06cd2e2457c2f99f10974a1",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "TB3MS",
+    "file": "data/TB3MS.csv",
+    "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "declared": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "air_starts_10y",
+    "declared": 588,
+    "recomputed": 588,
+    "ok": true
+   },
+   {
+    "id": "air_first_start_10y",
+    "declared": "1963-12-01",
+    "recomputed": "1963-12-01",
+    "ok": true
+   },
+   {
+    "id": "air_share_waiting_cost_more_10y_pct",
+    "declared": 43.2,
+    "recomputed": 43.2,
+    "ok": true
+   },
+   {
+    "id": "air_median_coverage_10y_pct",
+    "declared": 103.3,
+    "recomputed": 103.3,
+    "ok": true
+   },
+   {
+    "id": "air_latest_coverage_10y_pct",
+    "declared": 109.7,
+    "recomputed": 109.7,
+    "ok": true
+   },
+   {
+    "id": "lodging_starts_10y",
+    "declared": 224,
+    "recomputed": 224,
+    "ok": true
+   },
+   {
+    "id": "lodging_first_start_10y",
+    "declared": "1997-12-01",
+    "recomputed": "1997-12-01",
+    "ok": true
+   },
+   {
+    "id": "lodging_share_waiting_cost_more_10y_pct",
+    "declared": 65.2,
+    "recomputed": 65.2,
+    "ok": true
+   },
+   {
+    "id": "lodging_median_coverage_10y_pct",
+    "declared": 96.6,
+    "recomputed": 96.6,
+    "ok": true
+   },
+   {
+    "id": "lodging_latest_coverage_10y_pct",
+    "declared": 106.1,
+    "recomputed": 106.1,
+    "ok": true
+   },
+   {
+    "id": "trip_starts_10y",
+    "declared": 224,
+    "recomputed": 224,
+    "ok": true
+   },
+   {
+    "id": "trip_first_start_10y",
+    "declared": "1997-12-01",
+    "recomputed": "1997-12-01",
+    "ok": true
+   },
+   {
+    "id": "trip_share_waiting_cost_more_10y_pct",
+    "declared": 52.2,
+    "recomputed": 52.2,
+    "ok": true
+   },
+   {
+    "id": "trip_median_coverage_10y_pct",
+    "declared": 99.1,
+    "recomputed": 99.1,
+    "ok": true
+   },
+   {
+    "id": "trip_latest_coverage_10y_pct",
+    "declared": 107.8,
+    "recomputed": 107.8,
+    "ok": true
+   },
+   {
+    "id": "trip_starts_5y",
+    "declared": 284,
+    "recomputed": 284,
+    "ok": true
+   },
+   {
+    "id": "trip_share_waiting_cost_more_5y_pct",
+    "declared": 45.1,
+    "recomputed": 45.1,
+    "ok": true
+   },
+   {
+    "id": "air_price_growth_annual_pct",
+    "declared": 1.63,
+    "recomputed": 1.63,
+    "ok": true
+   },
+   {
+    "id": "lodging_price_growth_annual_pct",
+    "declared": 2.38,
+    "recomputed": 2.38,
+    "ok": true
+   },
+   {
+    "id": "tbill_growth_annual_pct",
+    "declared": 2.15,
+    "recomputed": 2.15,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CUUR0000SETG01",
+    "page": "https://fred.stlouisfed.org/series/CUUR0000SETG01",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CUUR0000SETG01",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "CUUR0000SEHB",
+    "page": "https://fred.stlouisfed.org/series/CUUR0000SEHB",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CUUR0000SEHB",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "TB3MS",
+    "page": "https://fred.stlouisfed.org/series/TB3MS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/TB3MS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}
