@@ -32,3 +32,7 @@
 - 01/10 12:28 Chủ dự án C4 Q3a: S10.1 mỗi bậc một số (tỉ lệ chung) giữ ≥ 3 s, chèn 2,0 s nghỉ sau S10.1 (S10 = 67,1 s, phim 9:44,4); K4 thêm 'not to scale' (final: K4-v3.* giữ bản trước). Dựng lại S06/S09/S10, dải, check ALL OK (0 số ngoài claim), phim 19,1/9,6 MB.
 - 01/10 12:48 S08 dựng xong: S08 wall 217 s x 3.54 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":71.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
 - 01/10 12:49 S08 take v5.1 (S08.d97e2064, 59,95 s, '…in dollars of the day'), nghỉ S08 1,25 s (khe S08.8→S09.1 = 1,38 s ở −40 dBFS); S08 = 61,23 s, phim 9:49,6; dựng lại S08, dải, check ALL OK, phim 19,3/9,7 MB.
+- 01/10 13:46 S04 dựng xong: S04 wall 220 s x 4.39 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 13:46 S09 dựng xong: S09 wall 238 s x 4.29 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 13:47 S10 dựng xong: S10 wall 284 s x 4.22 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 13:49 Script v5.2: take mới S04/S09/S10; timing lại (S04 50,13 · S09 55,40 · S10 67,33 · tổng 585,6 s), neo S04 k2b đổi từ khoá; dựng lại S04/S09/S10, dải (KEY-7 khung 6 ở 3 điểm), check ALL OK, phim 19,2/9,8 MB.

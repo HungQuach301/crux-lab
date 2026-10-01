@@ -36,18 +36,18 @@
   },
   {
    "t": 126.8,
-   "end": 175.333,
+   "end": 176.933,
    "scene": "S04",
    "function": "Leah's loan, the head start and the promise of the replay: full drive, Leah's motif (electric piano)",
    "key": "D dorian",
-   "tempo": 121.154,
+   "tempo": 123.271,
    "layer": "music",
    "section": "curious",
    "levelDb": -0.5
   },
   {
-   "t": 175.333,
-   "end": 222.833,
+   "t": 176.933,
+   "end": 224.433,
    "scene": "S05",
    "function": "the contradiction, the cushion and the two kinds of history: drive, bass on eighths",
    "key": "D dorian",
@@ -57,8 +57,8 @@
    "levelDb": 0.5
   },
   {
-   "t": 222.833,
-   "end": 262.167,
+   "t": 224.433,
+   "end": 263.767,
    "scene": "S06",
    "function": "the contradiction, the cushion and the two kinds of history: drive, bass on eighths",
    "key": "D dorian",
@@ -68,8 +68,8 @@
    "levelDb": 0.5
   },
   {
-   "t": 262.167,
-   "end": 320.467,
+   "t": 263.767,
+   "end": 322.067,
    "scene": "S07",
    "function": "the contradiction, the cushion and the two kinds of history: drive, bass on eighths",
    "key": "D dorian",
@@ -79,8 +79,8 @@
    "levelDb": 0.5
   },
   {
-   "t": 320.467,
-   "end": 381.7,
+   "t": 322.067,
+   "end": 383.3,
    "scene": "S08",
    "function": "the worst stretch (April 1977): fullest drive, crescendo to \"43% more\"",
    "key": "D dorian",
@@ -90,30 +90,30 @@
    "levelDb": 1.5
   },
   {
-   "t": 381.7,
-   "end": 442.967,
+   "t": 383.3,
+   "end": 438.7,
    "scene": "S09",
    "function": "the line: F major, the drive returns lighter as the head start widens",
    "key": "F major",
-   "tempo": 125.354,
+   "tempo": 125.632,
    "layer": "music",
    "section": "release",
    "levelDb": 1.0
   },
   {
-   "t": 442.967,
-   "end": 510.067,
+   "t": 438.7,
+   "end": 506.033,
    "scene": "S10",
    "function": "the answer in two halves: F major, steady",
    "key": "F major",
-   "tempo": 118.033,
+   "tempo": 119.406,
    "layer": "music",
    "section": "answer",
    "levelDb": 0.0
   },
   {
-   "t": 510.067,
-   "end": 534.067,
+   "t": 506.033,
+   "end": 530.033,
    "scene": "S11",
    "function": "\"How we know this\" (method card): thin pad only",
    "key": "F major",
@@ -123,8 +123,8 @@
    "levelDb": -1.0
   },
   {
-   "t": 534.067,
-   "end": 573.633,
+   "t": 530.033,
+   "end": 569.6,
    "scene": "S12",
    "function": "warm close and end screen: sparse, Leah's motif, tail",
    "key": "F major",
@@ -134,8 +134,8 @@
    "levelDb": -1.0
   },
   {
-   "t": 573.633,
-   "end": 589.633,
+   "t": 569.6,
+   "end": 585.6,
    "scene": "S13",
    "function": "warm close and end screen: sparse, Leah's motif, tail",
    "key": "F major",
@@ -146,7 +146,7 @@
   },
   {
    "t": 0.0,
-   "end": 589.633,
+   "end": 585.6,
    "function": "data sonification, palette S2 \"minimal\" (sổ gu G-005 · chọn): soft low pulse MIDI 36-62 + filtered tick 4.5-7 kHz; bands 60-270 Hz + 4.5-7 kHz; events out/sonify-events.json",
    "key": "D minor pentatonic (= F major pentatonic)",
    "tempo": null,
@@ -154,7 +154,7 @@
   },
   {
    "t": 0.0,
-   "end": 589.633,
+   "end": 585.6,
    "function": "room tone floor (pink noise, one space); +8 dB inside the silences",
    "key": null,
    "tempo": null,
@@ -173,9 +173,9 @@
    "return": "200 ms"
   },
   {
-   "t": 174.312,
-   "end": 175.35,
-   "dur": 1.038,
+   "t": 176.002,
+   "end": 176.95,
+   "dur": 0.948,
    "after": "S04.6",
    "before": "S05.1",
    "why": "after \"history, not a forecast\", before the first results",
@@ -183,19 +183,8 @@
    "return": "200 ms"
   },
   {
-   "t": 221.22,
-   "end": 222.926,
-   "dur": 1.706,
-   "after": "S05.5",
-   "before": "S06.1",
-   "why": "ad break (out/adbreaks.json)",
-   "release": "exp tau 90 ms",
-   "return": "200 ms",
-   "adBreak": 221.993
-  },
-  {
-   "t": 319.435,
-   "end": 320.604,
+   "t": 321.035,
+   "end": 322.204,
    "dur": 1.169,
    "after": "S07.7",
    "before": "S08.1",
@@ -204,20 +193,19 @@
    "return": "200 ms"
   },
   {
-   "t": 380.335,
-   "end": 381.755,
-   "dur": 1.42,
+   "t": 381.935,
+   "end": 383.369,
+   "dur": 1.435,
    "after": "S08.8",
    "before": "S09.1",
    "why": "after the worst stretch, before the line",
    "release": "exp tau 90 ms",
-   "return": "200 ms",
-   "adBreak": 380.923
+   "return": "200 ms"
   },
   {
-   "t": 509.061,
-   "end": 510.205,
-   "dur": 1.143,
+   "t": 505.215,
+   "end": 506.171,
+   "dur": 0.956,
    "after": "S10.7",
    "before": "S11.1",
    "why": "after the answer, before \"How we know this\"",
@@ -225,8 +213,8 @@
    "return": "200 ms"
   },
   {
-   "t": 569.944,
-   "end": 570.953,
+   "t": 565.911,
+   "end": 566.92,
    "dur": 1.009,
    "after": "S12.4",
    "before": "S12.5",

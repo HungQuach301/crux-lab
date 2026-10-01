@@ -1,23 +1,23 @@
 {
- "total_s": 589.6333,
- "samples": 28302398,
+ "total_s": 585.6,
+ "samples": 28108800,
  "master": {
   "I": -14.1,
-  "LRA": 3.2,
+  "LRA": 3.1,
   "TP": -1.5
  },
- "limiterMinGainDb": -2.22,
- "limiterGainBelow1dBShare": 0.00247,
+ "limiterMinGainDb": -2.41,
+ "limiterGainBelow1dBShare": 0.00253,
  "preGainLUFS": -15.6,
- "voiceOverMusicDb_A07": 19.97,
+ "voiceOverMusicDb_A07": 19.95,
  "voiceOverMusicTargetDb": 20.0,
  "sonUnderVoiceDb": 16.0,
  "sonification": {
-  "notes": 455,
-  "shiftedIntoGaps": 342,
-  "medianShiftMs": 57.75
+  "notes": 453,
+  "shiftedIntoGaps": 335,
+  "medianShiftMs": 56.8
  },
- "sonBandShare": 0.9728243597617497,
+ "sonBandShare": 0.9735730563790721,
  "silences": [
   {
    "t": 26.148,
@@ -30,9 +30,9 @@
    "return": "200 ms"
   },
   {
-   "t": 174.312,
-   "end": 175.35,
-   "dur": 1.038,
+   "t": 176.002,
+   "end": 176.95,
+   "dur": 0.948,
    "after": "S04.6",
    "before": "S05.1",
    "why": "after \"history, not a forecast\", before the first results",
@@ -40,19 +40,8 @@
    "return": "200 ms"
   },
   {
-   "t": 221.22,
-   "end": 222.926,
-   "dur": 1.706,
-   "after": "S05.5",
-   "before": "S06.1",
-   "why": "ad break (out/adbreaks.json)",
-   "release": "exp tau 90 ms",
-   "return": "200 ms",
-   "adBreak": 221.993
-  },
-  {
-   "t": 319.435,
-   "end": 320.604,
+   "t": 321.035,
+   "end": 322.204,
    "dur": 1.169,
    "after": "S07.7",
    "before": "S08.1",
@@ -61,20 +50,19 @@
    "return": "200 ms"
   },
   {
-   "t": 380.335,
-   "end": 381.755,
-   "dur": 1.42,
+   "t": 381.935,
+   "end": 383.369,
+   "dur": 1.435,
    "after": "S08.8",
    "before": "S09.1",
    "why": "after the worst stretch, before the line",
    "release": "exp tau 90 ms",
-   "return": "200 ms",
-   "adBreak": 380.923
+   "return": "200 ms"
   },
   {
-   "t": 509.061,
-   "end": 510.205,
-   "dur": 1.143,
+   "t": 505.215,
+   "end": 506.171,
+   "dur": 0.956,
    "after": "S10.7",
    "before": "S11.1",
    "why": "after the answer, before \"How we know this\"",
@@ -82,8 +70,8 @@
    "return": "200 ms"
   },
   {
-   "t": 569.944,
-   "end": 570.953,
+   "t": 565.911,
+   "end": 566.92,
    "dur": 1.009,
    "after": "S12.4",
    "before": "S12.5",
@@ -95,27 +83,28 @@
  "swellCuts": [
   66.245,
   125.794,
-  261.195,
-  441.972,
-  518.663,
-  572.817
+  222.82,
+  262.795,
+  437.765,
+  514.63,
+  568.783
  ],
  "bpmByScene": {
   "S01": 106.798,
   "S02": 114.546,
   "S03": 121.008,
-  "S04": 121.154,
+  "S04": 123.271,
   "S05": 123.789,
   "S06": 126.61,
   "S07": 127.616,
   "S08": 133.261,
-  "S09": 125.354,
-  "S10": 118.033,
+  "S09": 125.632,
+  "S10": 119.406,
   "S11": 100.0,
   "S12": 110.699,
   "S13": 105.0
  },
- "bars": 299,
+ "bars": 298,
  "voice": [
   {
    "scene": "S01",
@@ -140,51 +129,51 @@
   },
   {
    "scene": "S04",
-   "take": "S04.d56343a5.seed1.mp3",
+   "take": "S04.9519444f.seed1.mp3",
    "at": 126.8,
-   "takeS": 47.726,
+   "takeS": 49.319,
    "inserted": []
   },
   {
    "scene": "S05",
    "take": "S05.077baada.seed1.mp3",
-   "at": 175.3333,
+   "at": 176.9333,
    "takeS": 46.681,
    "inserted": []
   },
   {
    "scene": "S06",
    "take": "S06.seed1.mp3",
-   "at": 222.8333,
+   "at": 224.4333,
    "takeS": 38.531,
    "inserted": []
   },
   {
    "scene": "S07",
    "take": "S07.40ce21fa.seed1.mp3",
-   "at": 262.1667,
+   "at": 263.7667,
    "takeS": 57.469,
    "inserted": []
   },
   {
    "scene": "S08",
    "take": "S08.d97e2064.seed1.mp3",
-   "at": 320.4667,
+   "at": 322.0667,
    "takeS": 59.951,
    "inserted": []
   },
   {
    "scene": "S09",
-   "take": "S09.3b126a0d.seed1.mp3",
-   "at": 381.7,
-   "takeS": 60.447,
+   "take": "S09.f5608718.seed2.mp3",
+   "at": 383.3,
+   "takeS": 54.596,
    "inserted": []
   },
   {
    "scene": "S10",
-   "take": "S10.4e2d2ecf.seed1.mp3",
-   "at": 442.9667,
-   "takeS": 66.287,
+   "take": "S10.f5caf058.seed1.mp3",
+   "at": 438.7,
+   "takeS": 66.522,
    "inserted": [
     {
      "after": "S10.1",
@@ -196,30 +185,30 @@
   {
    "scene": "S11",
    "take": "S11.52483032.seed1.mp3",
-   "at": 510.0667,
+   "at": 506.0333,
    "takeS": 8.829,
    "inserted": []
   },
   {
    "scene": "S12",
    "take": "S12.ea0b3724.seed1.mp3",
-   "at": 534.0667,
+   "at": 530.0333,
    "takeS": 38.766,
    "inserted": []
   },
   {
    "scene": "S13",
    "take": "S13.seed1.mp3",
-   "at": 573.6333,
+   "at": 569.6,
    "takeS": 7.158,
    "inserted": []
   }
  ],
  "stemLevelsDbfs": {
-  "voice": -17.78,
-  "music": -36.45,
+  "voice": -17.74,
+  "music": -36.41,
   "sonify": -46.31,
-  "room": -66.31
+  "room": -66.38
  },
  "sumMinusMasterMax": 0.0
 }

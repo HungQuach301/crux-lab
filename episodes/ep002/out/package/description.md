@@ -9,14 +9,14 @@ Chapters
 0:26 Why private loans
 1:07 Leah's loan and the head start
 2:06 Every stretch since January 1954
-2:55 The contradiction
-3:42 The cushion
-4:22 Two kinds of history
-5:20 The worst stretch: April 1977
-6:21 Moving the head start
-7:22 Other offers, and the answer
-8:30 How we know this
-8:54 Where an offer falls
+2:56 The contradiction
+3:44 The cushion
+4:23 Two kinds of history
+5:22 The worst stretch: April 1977
+6:23 Moving the head start
+7:18 Other offers, and the answer
+8:26 How we know this
+8:50 Where an offer falls
 
 What the replay found (history, not a forecast; US only; ILLUSTRATIVE: Leah's pair of rates and her loan are not a real lender's offer)
 - Leah's head start is 1.5 points (9% fixed minus 7.5% variable). At some point her variable rate rose above 9% in 76.2% of stretches, yet it cost more in total interest in 14.2%: 28.4% of starts from 1954 to 1980 and 3.5% of starts from 1981 on. The worst stretch, from April 1977, cost $11,219 more, 43% more interest than the fixed loan's $26,005.

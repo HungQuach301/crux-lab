@@ -400,8 +400,8 @@
    "action": "K5 2.9 s: the first ride ends; frames start stepping right, faster and faster, dropping a cell each",
    "meaning_muted": "the same loan replayed at every start",
    "sentence_text": "Each replay moves her rate up and down exactly as much as the 3-month Treasury bill rate moved in that stretch of history, and the data is US only.",
-   "resolved_s": 140.28,
-   "local_s": 13.48,
+   "resolved_s": 140.12,
+   "local_s": 13.32,
    "keyword_found": true
   },
   {
@@ -413,8 +413,8 @@
    "action": "K5 8.7 s: every stop done, both halves visible; 'US only' label top right",
    "meaning_muted": "all of US history, one cell per start",
    "sentence_text": "Each replay moves her rate up and down exactly as much as the 3-month Treasury bill rate moved in that stretch of history, and the data is US only.",
-   "resolved_s": 144.44,
-   "local_s": 17.64,
+   "resolved_s": 144.58,
+   "local_s": 17.78,
    "keyword_found": true
   },
   {
@@ -426,8 +426,8 @@
    "action": "dip to two coin piles (H3 K6 coin piles): interest paid, fixed vs variable",
    "meaning_muted": "what counts is total interest",
    "sentence_text": "\"Worth it\" gets one plain meaning here: how often the variable loan cost more in total interest than the 9% fixed loan, and how much more at worst.",
-   "resolved_s": 146.42,
-   "local_s": 19.62,
+   "resolved_s": 146.08,
+   "local_s": 19.28,
    "keyword_found": true
   },
   {
@@ -439,8 +439,8 @@
    "action": "both piles rise to the same height; labels '9% fixed' / 'variable'",
    "meaning_muted": "interest paid on each loan",
    "sentence_text": "\"Worth it\" gets one plain meaning here: how often the variable loan cost more in total interest than the 9% fixed loan, and how much more at worst.",
-   "resolved_s": 152.26,
-   "local_s": 25.46,
+   "resolved_s": 151.72,
+   "local_s": 24.92,
    "keyword_found": true
   },
   {
@@ -452,8 +452,8 @@
    "action": "a costlier (red, hatched) block grows on the variable pile",
    "meaning_muted": "sometimes the variable costs more",
    "sentence_text": "\"Worth it\" gets one plain meaning here: how often the variable loan cost more in total interest than the 9% fixed loan, and how much more at worst.",
-   "resolved_s": 156.34,
-   "local_s": 29.54,
+   "resolved_s": 155.66,
+   "local_s": 28.86,
    "keyword_found": true
   },
   {
@@ -464,9 +464,9 @@
    "dt": -0.3,
    "action": "dip to the signed K2 picture: start point jumps 3 -> 1.5 -> 0 -> above the line",
    "meaning_muted": "the head start will be moved",
-   "sentence_text": "Then the replay moves the head start, from 3 points down to minus 1 point, to see where that history changes.",
-   "resolved_s": 158.68,
-   "local_s": 31.88,
+   "sentence_text": "Then the replay moves the head start, from 3 points down to a variable rate starting 1 point above the fixed one, to see where that history changes.",
+   "resolved_s": 157.86,
+   "local_s": 31.06,
    "keyword_found": true
   },
   {
@@ -477,22 +477,22 @@
    "dt": -0.3,
    "action": "K2 0.6 s: start 3 points below the line",
    "meaning_muted": "a big gap",
-   "sentence_text": "Then the replay moves the head start, from 3 points down to minus 1 point, to see where that history changes.",
-   "resolved_s": 160.72,
-   "local_s": 33.92,
+   "sentence_text": "Then the replay moves the head start, from 3 points down to a variable rate starting 1 point above the fixed one, to see where that history changes.",
+   "resolved_s": 160.02,
+   "local_s": 33.22,
    "keyword_found": true
   },
   {
    "scene": "S04",
    "id": "k2b",
    "sentence": "S04.4",
-   "at": "minus one point",
-   "dt": 0.6,
+   "at": "variable rate starting",
+   "dt": 0,
    "action": "K2 2.0 s: flip to 1.5 points below",
    "meaning_muted": "a smaller gap",
-   "sentence_text": "Then the replay moves the head start, from 3 points down to minus 1 point, to see where that history changes.",
-   "resolved_s": 162.94,
-   "local_s": 36.14,
+   "sentence_text": "Then the replay moves the head start, from 3 points down to a variable rate starting 1 point above the fixed one, to see where that history changes.",
+   "resolved_s": 162.06,
+   "local_s": 35.26,
    "keyword_found": true
   },
   {
@@ -503,9 +503,9 @@
    "dt": 0,
    "action": "K2 3.6 s: flip to on the line",
    "meaning_muted": "no gap",
-   "sentence_text": "Then the replay moves the head start, from 3 points down to minus 1 point, to see where that history changes.",
-   "resolved_s": 163.48,
-   "local_s": 36.68,
+   "sentence_text": "Then the replay moves the head start, from 3 points down to a variable rate starting 1 point above the fixed one, to see where that history changes.",
+   "resolved_s": 165.1,
+   "local_s": 38.3,
    "keyword_found": true
   },
   {
@@ -514,11 +514,11 @@
    "sentence": "S04.4",
    "at": "history changes",
    "dt": 0,
-   "action": "K2 5.2 s: flip to above the line",
+   "action": "K2 5.2 s: flip to above the line (variable starts 1 point above the fixed one)",
    "meaning_muted": "reversed",
-   "sentence_text": "Then the replay moves the head start, from 3 points down to minus 1 point, to see where that history changes.",
-   "resolved_s": 164.88,
-   "local_s": 38.08,
+   "sentence_text": "Then the replay moves the head start, from 3 points down to a variable rate starting 1 point above the fixed one, to see where that history changes.",
+   "resolved_s": 166.34,
+   "local_s": 39.54,
    "keyword_found": true
   },
   {
@@ -530,8 +530,8 @@
    "action": "dip: one blank offer card floats up, empty",
    "meaning_muted": "any offer can be checked",
    "sentence_text": "By the end there's a line that any real offer can be held up against, including yours.",
-   "resolved_s": 166.04,
-   "local_s": 39.24,
+   "resolved_s": 167.5,
+   "local_s": 40.7,
    "keyword_found": true
   },
   {
@@ -543,8 +543,8 @@
    "action": "dip: the ridge (T-bill history) ends at today, empty space to its right; caption 'History, not a forecast'",
    "meaning_muted": "the past, not the future",
    "sentence_text": "This is history, not a forecast.",
-   "resolved_s": 172.0,
-   "local_s": 45.2,
+   "resolved_s": 173.48,
+   "local_s": 46.68,
    "keyword_found": true
   },
   {
@@ -556,7 +556,7 @@
    "action": "KEY-3 (signed K3): a 10-year frame scans the whole ridge; under it an amber tally fills almost everywhere",
    "meaning_muted": "the variable rate went above the fixed one in most stretches",
    "sentence_text": "Leah's variable rate rose above 9% at some point in 76.2% of stretches, about 3 in 4.",
-   "resolved_s": 178.89,
+   "resolved_s": 180.49,
    "local_s": 3.56,
    "keyword_found": true
   },
@@ -569,7 +569,7 @@
    "action": "K3 2.75 s: '76.2%' + 'went above the fixed rate' (share_rate_above_fixed)",
    "meaning_muted": "most of them",
    "sentence_text": "Leah's variable rate rose above 9% at some point in 76.2% of stretches, about 3 in 4.",
-   "resolved_s": 181.99,
+   "resolved_s": 183.59,
    "local_s": 6.66,
    "keyword_found": true
   },
@@ -582,7 +582,7 @@
    "action": "K3 4.3 s: cells flip left to right: only some turn red",
    "meaning_muted": "yet only a few cost more",
    "sentence_text": "Yet it cost more in total interest in 14.2%, about 1 in 7.",
-   "resolved_s": 187.35,
+   "resolved_s": 188.95,
    "local_s": 12.02,
    "keyword_found": true
   },
@@ -595,7 +595,7 @@
    "action": "K3 4.75 s: '14.2%' + 'cost more in total' (share_all)",
    "meaning_muted": "a few",
    "sentence_text": "Yet it cost more in total interest in 14.2%, about 1 in 7.",
-   "resolved_s": 190.03,
+   "resolved_s": 191.63,
    "local_s": 14.7,
    "keyword_found": true
   },
@@ -608,7 +608,7 @@
    "action": "K3 6.5 s: right half dims; left half (before 1981) clearly redder",
    "meaning_muted": "the earlier half far worse",
    "sentence_text": "That 1 in 7 is made of two very different parts: 28.4%, more than 1 in 4, for starts from 1954 to 1980, and 3.5%, about 1 in 30, from 1981 on; the worst stretch, from April 1977, cost $11,219 more.",
-   "resolved_s": 194.33,
+   "resolved_s": 195.93,
    "local_s": 19.0,
    "keyword_found": true
   },
@@ -621,7 +621,7 @@
    "action": "K3 6.75 s: '28.4%' under the left half (share_early)",
    "meaning_muted": "earlier half",
    "sentence_text": "That 1 in 7 is made of two very different parts: 28.4%, more than 1 in 4, for starts from 1954 to 1980, and 3.5%, about 1 in 30, from 1981 on; the worst stretch, from April 1977, cost $11,219 more.",
-   "resolved_s": 197.31,
+   "resolved_s": 198.91,
    "local_s": 21.98,
    "keyword_found": true
   },
@@ -634,7 +634,7 @@
    "action": "K3 8.35 s: right half lit, '3.5%' under it (share_late)",
    "meaning_muted": "later half: almost none",
    "sentence_text": "That 1 in 7 is made of two very different parts: 28.4%, more than 1 in 4, for starts from 1954 to 1980, and 3.5%, about 1 in 30, from 1981 on; the worst stretch, from April 1977, cost $11,219 more.",
-   "resolved_s": 204.73,
+   "resolved_s": 206.33,
    "local_s": 29.4,
    "keyword_found": true
   },
@@ -647,7 +647,7 @@
    "action": "a ring pulses around one dark cell in the left half (the worst start, April 1977); no new number",
    "meaning_muted": "one worst case, in the early half",
    "sentence_text": "That 1 in 7 is made of two very different parts: 28.4%, more than 1 in 4, for starts from 1954 to 1980, and 3.5%, about 1 in 30, from 1981 on; the worst stretch, from April 1977, cost $11,219 more.",
-   "resolved_s": 211.57,
+   "resolved_s": 213.17,
    "local_s": 36.24,
    "keyword_found": true
   },
@@ -660,7 +660,7 @@
    "action": "dip to the signed K2 picture at Leah's 1.5-point head start (label '1.5 points')",
    "meaning_muted": "the head start explains it",
    "sentence_text": "The reason both are true is the head start.",
-   "resolved_s": 218.05,
+   "resolved_s": 219.65,
    "local_s": 42.72,
    "keyword_found": true
   },
@@ -673,7 +673,7 @@
    "action": "KEY-4 (signed K4, C3d fix): replay of Leah's loan from April 1976 starts; jar empty until here, then fills from the gap under the 9% line",
    "meaning_muted": "while the rate is under the line, savings pile up in the jar",
    "sentence_text": "Every month the variable rate sits below 9%, Leah pays less interest than on the fixed loan, and that saving builds a cushion.",
-   "resolved_s": 226.15,
+   "resolved_s": 227.75,
    "local_s": 3.32,
    "keyword_found": true
   },
@@ -686,7 +686,7 @@
    "action": "K4 2.5 s: month 20, jar near full (held: inflow still running)",
    "meaning_muted": "the jar is full early",
    "sentence_text": "Every month the variable rate sits below 9%, Leah pays less interest than on the fixed loan, and that saving builds a cushion.",
-   "resolved_s": 230.65,
+   "resolved_s": 232.25,
    "local_s": 7.82,
    "keyword_found": true
   },
@@ -699,7 +699,7 @@
    "action": "K4 2.6 -> 3.3 s: the short blip and the climb above 9% begin (amber)",
    "meaning_muted": "the rate goes above the line",
    "sentence_text": "When the rate later climbs above 9%, the extra interest has to use up that cushion before the variable loan has cost more overall.",
-   "resolved_s": 239.69,
+   "resolved_s": 241.29,
    "local_s": 16.86,
    "keyword_found": true
   },
@@ -712,7 +712,7 @@
    "action": "K4 5.0 s: month 40, the jar is empty (warn stream out)",
    "meaning_muted": "the savings are used up",
    "sentence_text": "When the rate later climbs above 9%, the extra interest has to use up that cushion before the variable loan has cost more overall.",
-   "resolved_s": 246.29,
+   "resolved_s": 247.89,
    "local_s": 23.46,
    "keyword_found": true
   },
@@ -725,7 +725,7 @@
    "action": "K4 8.8 s: end of the replay; the costlier block under the jar has grown",
    "meaning_muted": "after that the variable costs more",
    "sentence_text": "A short jump above 9% only dents it; emptying it needs rates that rise early and stay high for years.",
-   "resolved_s": 255.03,
+   "resolved_s": 256.63,
    "local_s": 32.2,
    "keyword_found": true
   },
@@ -738,7 +738,7 @@
    "action": "dip to the same picture for a falling stretch (August 1981): the bead stays under the line, the jar keeps filling (own jar scale)",
    "meaning_muted": "when rates fall, the jar only fills",
    "sentence_text": "In a stretch where rates drift down, the cushion just keeps growing.",
-   "resolved_s": 257.09,
+   "resolved_s": 258.69,
    "local_s": 34.26,
    "keyword_found": true
   },
@@ -751,7 +751,7 @@
    "action": "the whole ridge (T-bill history), dashed split at 1981, years 1954 / 1981 / today",
    "meaning_muted": "one long history in two halves",
    "sentence_text": "And the two halves of the record are very different.",
-   "resolved_s": 262.17,
+   "resolved_s": 263.77,
    "local_s": 0.0,
    "keyword_found": true
   },
@@ -764,7 +764,7 @@
    "action": "left half bright, right half dimmed",
    "meaning_muted": "first half: rates climbed",
    "sentence_text": "From 1954 to 1980, the Treasury bill rate mostly climbed, in waves.",
-   "resolved_s": 265.35,
+   "resolved_s": 266.95,
    "local_s": 3.18,
    "keyword_found": true
   },
@@ -777,7 +777,7 @@
    "action": "diamond-free ring on the summit + '16.3%' (tb_peak) beside it",
    "meaning_muted": "the top, around 1981",
    "sentence_text": "It peaked at 16.3% in May 1981, then mostly drifted down over the following decades, with big swings.",
-   "resolved_s": 271.23,
+   "resolved_s": 272.83,
    "local_s": 9.06,
    "keyword_found": true
   },
@@ -790,7 +790,7 @@
    "action": "right half bright, left half dimmed; summit label fades",
    "meaning_muted": "second half: rates came down",
    "sentence_text": "It peaked at 16.3% in May 1981, then mostly drifted down over the following decades, with big swings.",
-   "resolved_s": 276.25,
+   "resolved_s": 277.85,
    "local_s": 14.08,
    "keyword_found": true
   },
@@ -803,7 +803,7 @@
    "action": "both halves bright; two identical 10-year frames with Leah's bead at their start: one in the climbing half (April 1976), one in the falling half (November 2000)",
    "meaning_muted": "same loan, two places in history",
    "sentence_text": "Same loan, same head start; the only difference is where in history it began.",
-   "resolved_s": 280.57,
+   "resolved_s": 282.17,
    "local_s": 18.4,
    "keyword_found": true
   },
@@ -816,7 +816,7 @@
    "action": "left frame rides: bead climbs, rail turns amber; its jar fills a little then drains, a costlier block grows under it",
    "meaning_muted": "early-half loan: rates rose and stayed high, cushion lost",
    "sentence_text": "Loans started in the climbing years often met rates that rose early and stayed high, and loans started after the peak mostly rode rates down.",
-   "resolved_s": 288.19,
+   "resolved_s": 289.79,
    "local_s": 26.02,
    "keyword_found": true
   },
@@ -829,7 +829,7 @@
    "action": "right frame rides: bead sinks under the rail; its jar fills high",
    "meaning_muted": "late-half loan: rates fell, cushion grew",
    "sentence_text": "Loans started in the climbing years often met rates that rose early and stayed high, and loans started after the peak mostly rode rates down.",
-   "resolved_s": 294.37,
+   "resolved_s": 295.97,
    "local_s": 32.2,
    "keyword_found": true
   },
@@ -842,7 +842,7 @@
    "action": "left frame fades; right frame moves to August 1981 (best), its jar full; caption 'August 1981' (best_start)",
    "meaning_muted": "the best start, right at the top",
    "sentence_text": "The best stretch began in August 1981, near that peak, and cost $15,295 less than the fixed loan.",
-   "resolved_s": 299.45,
+   "resolved_s": 301.05,
    "local_s": 37.28,
    "keyword_found": true
   },
@@ -855,7 +855,7 @@
    "action": "'−$15,295' (best_diff) beside the full jar; caption fades",
    "meaning_muted": "it saved the most",
    "sentence_text": "The best stretch began in August 1981, near that peak, and cost $15,295 less than the fixed loan.",
-   "resolved_s": 302.47,
+   "resolved_s": 304.07,
    "local_s": 40.3,
    "keyword_found": true
   },
@@ -868,7 +868,7 @@
    "action": "jars fade; the 753 start cells appear under the ridge (red = costlier at 1.5 points); ring on the best cell (right half)",
    "meaning_muted": "every start, coloured by result",
    "sentence_text": "It belongs to the falling half, while the worst, April 1977, belongs to the climbing half, where far more of Leah's stretches cost more.",
-   "resolved_s": 308.51,
+   "resolved_s": 310.11,
    "local_s": 46.34,
    "keyword_found": true
   },
@@ -881,7 +881,7 @@
    "action": "ring moves to the worst cell (left half); frame on April 1977",
    "meaning_muted": "the worst start is in the early half",
    "sentence_text": "It belongs to the falling half, while the worst, April 1977, belongs to the climbing half, where far more of Leah's stretches cost more.",
-   "resolved_s": 311.91,
+   "resolved_s": 313.51,
    "local_s": 49.74,
    "keyword_found": true
   },
@@ -894,7 +894,7 @@
    "action": "'28.4%' under the left half (share_early, recall)",
    "meaning_muted": "far more red in the early half",
    "sentence_text": "It belongs to the falling half, while the worst, April 1977, belongs to the climbing half, where far more of Leah's stretches cost more.",
-   "resolved_s": 316.35,
+   "resolved_s": 317.95,
    "local_s": 54.18,
    "keyword_found": true
   },
@@ -907,7 +907,7 @@
    "action": "KEY-6 (signed K6): the 753 cells fade, the view zooms onto the April 1977 frame; caption 'Starting April 1977' (worst_start)",
    "meaning_muted": "one particular start: the worst",
    "sentence_text": "Here is Leah's same loan, started in April 1977.",
-   "resolved_s": 322.39,
+   "resolved_s": 323.99,
    "local_s": 1.92,
    "keyword_found": true
   },
@@ -920,7 +920,7 @@
    "action": "K6 2.6 s: the bead starts riding the steep climb; the jar beside fills a little",
    "meaning_muted": "same loan, starts lower",
    "sentence_text": "It begins at 7.5%, like every replay, and for a while her cushion grows.",
-   "resolved_s": 324.73,
+   "resolved_s": 326.33,
    "local_s": 4.26,
    "keyword_found": true
   },
@@ -933,7 +933,7 @@
    "action": "K6 3.2 s: month 21, jar at its (small) high",
    "meaning_muted": "a small cushion",
    "sentence_text": "It begins at 7.5%, like every replay, and for a while her cushion grows.",
-   "resolved_s": 329.57,
+   "resolved_s": 331.17,
    "local_s": 9.1,
    "keyword_found": true
   },
@@ -946,7 +946,7 @@
    "action": "K6 5.0 s: bead far above the rail, rail amber for years; '19.3%' (worst_peak_rate) at the top",
    "meaning_muted": "rates went far above the fixed rate for years",
    "sentence_text": "Then the Treasury bill rate climbs year after year, and her rate follows it, to 19.3% at its highest.",
-   "resolved_s": 335.95,
+   "resolved_s": 337.55,
    "local_s": 15.48,
    "keyword_found": true
   },
@@ -959,7 +959,7 @@
    "action": "K6 6.0 s: ride done, jar empty; held through S08.5 (payments are spoken, not drawn: K6 has no payment object)",
    "meaning_muted": "the cushion is gone",
    "sentence_text": "The cushion from her first months is soon gone, and every further month above 9% adds to what she owes in interest.",
-   "resolved_s": 346.73,
+   "resolved_s": 348.33,
    "local_s": 26.26,
    "keyword_found": true
   },
@@ -972,7 +972,7 @@
    "action": "K6 6.5 s: two coin piles (interest paid) rise, fixed and variable",
    "meaning_muted": "interest paid on each",
    "sentence_text": "Over 10 years, the fixed loan charges $26,005 in interest, in dollars of the day.",
-   "resolved_s": 356.49,
+   "resolved_s": 358.09,
    "local_s": 36.02,
    "keyword_found": true
   },
@@ -985,7 +985,7 @@
    "action": "K6 7.3 s: '$26,005' over the fixed pile (fixed_int)",
    "meaning_muted": "the fixed loan's interest",
    "sentence_text": "Over 10 years, the fixed loan charges $26,005 in interest, in dollars of the day.",
-   "resolved_s": 358.97,
+   "resolved_s": 360.57,
    "local_s": 38.5,
    "keyword_found": true
   },
@@ -998,7 +998,7 @@
    "action": "K6 7.9 s: a red (costlier) block grows on the variable pile",
    "meaning_muted": "the variable cost more",
    "sentence_text": "Leah's variable loan charges 43% more interest than the fixed loan, the worst stretch in the whole replay.",
-   "resolved_s": 364.49,
+   "resolved_s": 366.09,
    "local_s": 44.02,
    "keyword_found": true
   },
@@ -1011,7 +1011,7 @@
    "action": "K6 8.6 s: '43% more' (worst_share_of_fixed); block = 43% of the fixed pile",
    "meaning_muted": "almost half again",
    "sentence_text": "Leah's variable loan charges 43% more interest than the fixed loan, the worst stretch in the whole replay.",
-   "resolved_s": 365.55,
+   "resolved_s": 367.15,
    "local_s": 45.08,
    "keyword_found": true
   },
@@ -1024,7 +1024,7 @@
    "action": "dip to the same layout (K6 end state, redrawn): a dashed ceiling over the April 1977 track",
    "meaning_muted": "a rate cap",
    "sentence_text": "This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller.",
-   "resolved_s": 372.81,
+   "resolved_s": 374.41,
    "local_s": 52.34,
    "keyword_found": true
   },
@@ -1037,7 +1037,7 @@
    "action": "the ceiling lowers; the red block on the variable pile shrinks to the worst case with a 15% cap, then 12% (heights from cap15_worst, cap12_worst; no number)",
    "meaning_muted": "a low cap would shrink the worst case",
    "sentence_text": "This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller.",
-   "resolved_s": 377.33,
+   "resolved_s": 378.93,
    "local_s": 56.86,
    "keyword_found": true
   },
@@ -1050,8 +1050,8 @@
    "action": "dip to KEY-7 (signed K7 r2): the knob (fixed bar, variable-start bar, cushion gap) over two big columns (before 1981 / from 1981), red = share costlier",
    "meaning_muted": "one control, two halves of history",
    "sentence_text": "So the replay ran again, holding the fixed rate at 9% and moving only where the variable rate starts.",
-   "resolved_s": 389.29,
-   "local_s": 7.59,
+   "resolved_s": 390.44,
+   "local_s": 7.14,
    "keyword_found": true
   },
   {
@@ -1063,8 +1063,8 @@
    "action": "K7 1.0 s: the gap starts to open (0 -> 1 point); the fixed bar never moves",
    "meaning_muted": "only the start moves",
    "sentence_text": "So the replay ran again, holding the fixed rate at 9% and moving only where the variable rate starts.",
-   "resolved_s": 391.62,
-   "local_s": 9.92,
+   "resolved_s": 392.26,
+   "local_s": 8.96,
    "keyword_found": true
   },
   {
@@ -1076,8 +1076,8 @@
    "action": "K7 2.0 s: gap at 1 point; red columns shorter",
    "meaning_muted": "bigger gap, less red",
    "sentence_text": "So the replay ran again, holding the fixed rate at 9% and moving only where the variable rate starts.",
-   "resolved_s": 394.6,
-   "local_s": 12.9,
+   "resolved_s": 395.26,
+   "local_s": 11.96,
    "keyword_found": true
   },
   {
@@ -1089,8 +1089,8 @@
    "action": "K7 2.8 -> 3.4 s: gap opens to 1.5 points (Leah)",
    "meaning_muted": "Leah's gap",
    "sentence_text": "Leah's 1.5 points gives the split already heard, with her April 1977 worst.",
-   "resolved_s": 401.92,
-   "local_s": 20.22,
+   "resolved_s": 402.28,
+   "local_s": 18.98,
    "keyword_found": true
   },
   {
@@ -1102,8 +1102,8 @@
    "action": "K7 3.4 s: label '1.5 points' (gap_start)",
    "meaning_muted": "her number",
    "sentence_text": "Leah's 1.5 points gives the split already heard, with her April 1977 worst.",
-   "resolved_s": 402.26,
-   "local_s": 20.56,
+   "resolved_s": 402.62,
+   "local_s": 19.32,
    "keyword_found": true
   },
   {
@@ -1114,9 +1114,9 @@
    "dt": -0.2,
    "action": "K7 4.4 -> 5.0 s: gap 2 points; right column empty (bright outline), '0%' in it (gap20_late)",
    "meaning_muted": "later half: no losing starts",
-   "sentence_text": "At 2 points, none of the starts from 1981 on cost more, but 20.4% of the 1954-to-1980 starts still did, the worst by $9,472.",
-   "resolved_s": 407.54,
-   "local_s": 25.84,
+   "sentence_text": "At 2 points, none of the starts from 1981 on cost more, but 20.4% of the starts from 1954 to 1980 still did, the worst by $9,472.",
+   "resolved_s": 407.78,
+   "local_s": 24.48,
    "keyword_found": true
   },
   {
@@ -1127,9 +1127,9 @@
    "dt": 0,
    "action": "switch to the same K7 r2 layout drawn with the gap held at 2 points (lib.k7At = k7.js code): '0%' fades, then '8.8%' + 'of all starts' (spread2_share, overall share)",
    "meaning_muted": "earlier half still loses",
-   "sentence_text": "At 2 points, none of the starts from 1981 on cost more, but 20.4% of the 1954-to-1980 starts still did, the worst by $9,472.",
-   "resolved_s": 414.92,
-   "local_s": 33.22,
+   "sentence_text": "At 2 points, none of the starts from 1981 on cost more, but 20.4% of the starts from 1954 to 1980 still did, the worst by $9,472.",
+   "resolved_s": 413.74,
+   "local_s": 30.44,
    "keyword_found": true
   },
   {
@@ -1140,9 +1140,9 @@
    "dt": -0.3,
    "action": "gap 2 -> 2.5 -> 3 points (as K7 r2); then '4.5%' + 'of all starts' (spread3_share)",
    "meaning_muted": "even bigger gap",
-   "sentence_text": "At 3 points, still none from 1981 on, but 10.5% of the 1954-to-1980 starts cost more, the worst by $6,033.",
-   "resolved_s": 425.32,
-   "local_s": 43.62,
+   "sentence_text": "At 3 points, still none from 1981 on, but 10.5% of the starts from 1954 to 1980 cost more, the worst by $6,033.",
+   "resolved_s": 423.78,
+   "local_s": 40.48,
    "keyword_found": true
   },
   {
@@ -1153,9 +1153,9 @@
    "dt": -0.3,
    "action": "K7 8.0 s: '10.5%' over the left column's red (gap30_early); held to the end of the beat (S10.3)",
    "meaning_muted": "earlier half never clears",
-   "sentence_text": "At 3 points, still none from 1981 on, but 10.5% of the 1954-to-1980 starts cost more, the worst by $6,033.",
-   "resolved_s": 431.42,
-   "local_s": 49.72,
+   "sentence_text": "At 3 points, still none from 1981 on, but 10.5% of the starts from 1954 to 1980 cost more, the worst by $6,033.",
+   "resolved_s": 428.68,
+   "local_s": 45.38,
    "keyword_found": true
   },
   {
@@ -1167,7 +1167,7 @@
    "action": "the variable bar FLIPS (K2-style jump) to 1 point; both red columns jump up; ONE figure, held >= 3 s: '31.3%' of all starts (spread1_share), with both columns on screen",
    "meaning_muted": "smaller gap, more red in both halves",
    "sentence_text": "With a smaller head start, or a variable rate that starts higher, more stretches cost more in both halves, and the worst gets bigger.",
-   "resolved_s": 443.17,
+   "resolved_s": 438.9,
    "local_s": 0.2,
    "keyword_found": true
   },
@@ -1180,8 +1180,8 @@
    "action": "jump to 0 points; '57.9%' of all starts (spread0_share)",
    "meaning_muted": "no gap: more red",
    "sentence_text": "With a smaller head start, or a variable rate that starts higher, more stretches cost more in both halves, and the worst gets bigger.",
-   "resolved_s": 447.09,
-   "local_s": 4.12,
+   "resolved_s": 442.96,
+   "local_s": 4.26,
    "keyword_found": true
   },
   {
@@ -1193,7 +1193,7 @@
    "action": "jump to −1 point (variable bar above the fixed bar, warn gap); '72.9%' of all starts (spreadm1_share); 2.0 s pause inserted after S10.1 (make_timing INSERT) so it holds >= 3 s",
    "meaning_muted": "reversed: most red",
    "sentence_text": "With a smaller head start, or a variable rate that starts higher, more stretches cost more in both halves, and the worst gets bigger.",
-   "resolved_s": 451.07,
+   "resolved_s": 446.8,
    "local_s": 8.1,
    "keyword_found": true
   },
@@ -1206,7 +1206,7 @@
    "action": "jump back to 3 points (widest gap) and hold to the end of the beat",
    "meaning_muted": "the beat ends on the widest gap",
    "sentence_text": "At every head start tested, the worst stretch began in April 1977.",
-   "resolved_s": 454.95,
+   "resolved_s": 450.68,
    "local_s": 11.98,
    "keyword_found": true
   },
@@ -1219,8 +1219,8 @@
    "action": "a ring marker pulses on the left column's red layer + 'April 1977' (gap_worst_start_all)",
    "meaning_muted": "the worst start never moves",
    "sentence_text": "At every head start tested, the worst stretch began in April 1977.",
-   "resolved_s": 458.27,
-   "local_s": 15.3,
+   "resolved_s": 454.02,
+   "local_s": 15.32,
    "keyword_found": true
   },
   {
@@ -1231,9 +1231,9 @@
    "dt": 0,
    "action": "ring around the left red layer that never clears, red pulses; '10.5%' (min_gap_early)",
    "meaning_muted": "the early half never clears",
-   "sentence_text": "And at every head start tested, some of the 1954-to-1980 starts still cost more.",
-   "resolved_s": 460.99,
-   "local_s": 18.02,
+   "sentence_text": "And at every head start tested, some of the starts from 1954 to 1980 still cost more.",
+   "resolved_s": 456.68,
+   "local_s": 17.98,
    "keyword_found": true
   },
   {
@@ -1245,8 +1245,8 @@
    "action": "dip to the KEY-1 picture, final state (one person, two offers)",
    "meaning_muted": "back to the question",
    "sentence_text": "So, back to the question: how much lower does a variable rate have to start before the risk has been worth it?",
-   "resolved_s": 468.45,
-   "local_s": 25.48,
+   "resolved_s": 464.16,
+   "local_s": 25.46,
    "keyword_found": true
   },
   {
@@ -1258,8 +1258,8 @@
    "action": "dip to KEY-7 final state: gap 3 points; right column clear, left column still red",
    "meaning_muted": "two answers",
    "sentence_text": "Measured as how often it cost more in total interest than the 9% fixed loan, and how much more at worst, history gives two answers.",
-   "resolved_s": 476.59,
-   "local_s": 33.62,
+   "resolved_s": 472.4,
+   "local_s": 33.7,
    "keyword_found": true
   },
   {
@@ -1271,8 +1271,8 @@
    "action": "dip to KEY-7 at 2 points: right column empty, '0%'",
    "meaning_muted": "later half: 2 points was enough",
    "sentence_text": "From 1981 on, a 2-point head start was enough every time; from 1954 to 1980, even 3 points was not, and the worst still cost $6,033 more.",
-   "resolved_s": 487.43,
-   "local_s": 44.46,
+   "resolved_s": 484.14,
+   "local_s": 45.44,
    "keyword_found": true
   },
   {
@@ -1284,8 +1284,8 @@
    "action": "K7 holds at 2 points",
    "meaning_muted": "—",
    "sentence_text": "From 1981 on, a 2-point head start was enough every time; from 1954 to 1980, even 3 points was not, and the worst still cost $6,033 more.",
-   "resolved_s": 491.65,
-   "local_s": 48.68,
+   "resolved_s": 488.44,
+   "local_s": 49.74,
    "keyword_found": true
   },
   {
@@ -1297,8 +1297,8 @@
    "action": "K7 runs 2 -> 3 points: left column shrinks but keeps red; '10.5%'",
    "meaning_muted": "earlier half: even 3 was not",
    "sentence_text": "From 1981 on, a 2-point head start was enough every time; from 1954 to 1980, even 3 points was not, and the worst still cost $6,033 more.",
-   "resolved_s": 492.71,
-   "local_s": 49.74,
+   "resolved_s": 490.3,
+   "local_s": 51.6,
    "keyword_found": true
   },
   {
@@ -1310,8 +1310,8 @@
    "action": "K7 8.0 s: '10.5%' shown; held",
    "meaning_muted": "—",
    "sentence_text": "From 1981 on, a 2-point head start was enough every time; from 1954 to 1980, even 3 points was not, and the worst still cost $6,033 more.",
-   "resolved_s": 497.35,
-   "local_s": 54.38,
+   "resolved_s": 493.92,
+   "local_s": 55.22,
    "keyword_found": true
   },
   {
@@ -1323,8 +1323,8 @@
    "action": "dip: the ridge ends at today, empty space to its right",
    "meaning_muted": "the future is unknown",
    "sentence_text": "Which kind of history comes next is something no replay can show.",
-   "resolved_s": 504.17,
-   "local_s": 61.2,
+   "resolved_s": 500.84,
+   "local_s": 62.14,
    "keyword_found": true
   },
   {
@@ -1336,8 +1336,8 @@
    "action": "method card: title + 8 lines revealed one by one (0.3 s apart), then held still until the scene ends (>= 1 s per 3 words)",
    "meaning_muted": "how the replay was built; its limits",
    "sentence_text": "The replay uses the 3-month Treasury bill rate as a stand-in for the lender's index; how it was built is on screen and in the description.",
-   "resolved_s": 510.07,
-   "local_s": 0.0,
+   "resolved_s": 506.03,
+   "local_s": -0.0,
    "keyword_found": true
   },
   {
@@ -1349,8 +1349,8 @@
    "action": "KEY-7 picture at Leah's 1.5 points (signed K7 r2 at 4.0 s): label '1.5 points'; both columns still red",
    "meaning_muted": "at her gap, both halves still lose sometimes",
    "sentence_text": "Leah's illustrative offer sits at 1.5 points, short of that 2-point mark; at her point, starts from both halves of history still cost more, including her April 1977 worst.",
-   "resolved_s": 534.07,
-   "local_s": 0.0,
+   "resolved_s": 530.03,
+   "local_s": -0.0,
    "keyword_found": true
   },
   {
@@ -1362,7 +1362,7 @@
    "action": "dip: one blank offer card, not placed",
    "meaning_muted": "a real offer is its own case",
    "sentence_text": "A real offer has its own two rates, its own head start and its own place on the line.",
-   "resolved_s": 547.31,
+   "resolved_s": 543.27,
    "local_s": 13.24,
    "keyword_found": true
   },
@@ -1375,7 +1375,7 @@
    "action": "label 'the lender's real index' above the card",
    "meaning_muted": "left out: the real index",
    "sentence_text": "It also has what this replay leaves out: the lender's real index, a rate cap, a grace period, fees, and the borrower's own budget.",
-   "resolved_s": 557.05,
+   "resolved_s": 553.01,
    "local_s": 22.98,
    "keyword_found": true
   },
@@ -1388,7 +1388,7 @@
    "action": "label 'a rate cap' right of the card",
    "meaning_muted": "left out: a cap",
    "sentence_text": "It also has what this replay leaves out: the lender's real index, a rate cap, a grace period, fees, and the borrower's own budget.",
-   "resolved_s": 558.43,
+   "resolved_s": 554.39,
    "local_s": 24.36,
    "keyword_found": true
   },
@@ -1401,7 +1401,7 @@
    "action": "label 'a grace period' left of the card",
    "meaning_muted": "left out: grace period",
    "sentence_text": "It also has what this replay leaves out: the lender's real index, a rate cap, a grace period, fees, and the borrower's own budget.",
-   "resolved_s": 559.47,
+   "resolved_s": 555.43,
    "local_s": 25.4,
    "keyword_found": true
   },
@@ -1414,7 +1414,7 @@
    "action": "label 'fees' right of the card",
    "meaning_muted": "left out: fees",
    "sentence_text": "It also has what this replay leaves out: the lender's real index, a rate cap, a grace period, fees, and the borrower's own budget.",
-   "resolved_s": 560.65,
+   "resolved_s": 556.61,
    "local_s": 26.58,
    "keyword_found": true
   },
@@ -1427,7 +1427,7 @@
    "action": "label 'your own budget' under the card",
    "meaning_muted": "left out: the budget",
    "sentence_text": "It also has what this replay leaves out: the lender's real index, a rate cap, a grace period, fees, and the borrower's own budget.",
-   "resolved_s": 562.33,
+   "resolved_s": 558.29,
    "local_s": 28.26,
    "keyword_found": true
   },
@@ -1440,7 +1440,7 @@
    "action": "dip to KEY-7 final state (3 points)",
    "meaning_muted": "what each gap meant, in each half",
    "sentence_text": "The line doesn't say which offer is better; it shows what each head start meant in each kind of history.",
-   "resolved_s": 562.77,
+   "resolved_s": 558.73,
    "local_s": 28.7,
    "keyword_found": true
   },
@@ -1453,7 +1453,7 @@
    "action": "dip: the ridge ends at today, empty space to its right; caption 'History, not a forecast'",
    "meaning_muted": "the past, not the future",
    "sentence_text": "History, not a forecast.",
-   "resolved_s": 571.01,
+   "resolved_s": 566.97,
    "local_s": 36.94,
    "keyword_found": true
   },
@@ -1466,8 +1466,8 @@
    "action": "end screen: the ridge as a quiet band at the bottom, an empty video slot (grid outline) for the end-screen element",
    "meaning_muted": "the end",
    "sentence_text": "Every assumption behind this replay is listed in the description.",
-   "resolved_s": 573.63,
-   "local_s": -0.0,
+   "resolved_s": 569.6,
+   "local_s": 0.0,
    "keyword_found": true
   }
  ]

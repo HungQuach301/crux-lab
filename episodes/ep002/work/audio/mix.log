@@ -2,3 +2,10 @@
 13:41:24 WARNING ad break 221.993 is not inside a voice gap of this timing: ignored (out/adbreaks.json not re-timed yet?)
 13:41:24 WARNING ad break 380.923 is not inside a voice gap of this timing: ignored (out/adbreaks.json not re-timed yet?)
 13:41:24 silences [(np.float64(26.15), np.float64(0.85)), (np.float64(176.0), np.float64(0.95)), (np.float64(321.04), np.float64(1.17)), (np.float64(381.93), np.float64(1.43)), (np.float64(505.21), np.float64(0.96)), (np.float64(565.91), np.float64(1.01))]
+13:41:32 music: arrangement 298 bars
+13:41:43 music: reverb
+13:41:53 sonify: 453 notes
+13:43:16 mix
+13:43:57 limiter
+13:44:24 master {'I': -14.1, 'LRA': 3.1, 'TP': -1.5}
+13:45:45 done {"master": {"I": -14.1, "LRA": 3.1, "TP": -1.5}, "limiterMinGainDb": -2.41, "voiceOverMusicDb_A07": 19.95, "sonBandShare": 0.9735730563790721, "stemLevelsDbfs": {"voice": -17.74, "music": -36.41, "sonify": -46.31, "room": -66.38}}
