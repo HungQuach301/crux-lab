@@ -2,7 +2,7 @@
 
 ANIMATIC C4, 01/10/2026, theo `BRIEF.md`. Hệ hình đã ký `design/c3/final/` (D2 + E2), kịch bản v5 `story/script.md`, nhịp `story/beats.md`. Không commit/push.
 
-**Xem:** `out/animatic-720p.mp4` (9:42,4 · 1280×720 · 30 fps · H.264 + lời tạm AAC · 18,7 MB) · `out/silent-720p.mp4` (không tiếng, cho kiểm mù · 9,2 MB) · dải `strips/KEY-n.png` + `KEY-n-masked.png` (7 nhịp) và `strips/Sxx.png` (13 cảnh) · kiểm máy `check-report.json` · kiểm 25% `legibility.md`.
+**Xem:** `out/animatic-720p.mp4` (9:42,4 · 1280×720 · 30 fps · H.264 + lời tạm AAC · 19,1 MB) · `out/silent-720p.mp4` (không tiếng, cho kiểm mù · 9,6 MB) · dải `strips/KEY-n.png` + `KEY-n-masked.png` (7 nhịp) và `strips/Sxx.png` (13 cảnh) · kiểm máy `check-report.json` · kiểm 25% `legibility.md`.
 
 ## Cách dựng
 - **Không thêm gu.** `src/film.js` nạp nguyên hai engine đã ký (`design/c3/final/src/engine.js` = H2, `src/h3/engine.js` = H3) và nhập **nguyên văn** bảy clip đã ký: K1 r2 (`k1.js`), K2 vòng sửa (`k2.js`), K3/K5/K6 (`h3/scenes.js`), K4 bản hũ (`k4.js`, có sửa kỹ thuật việc 0), K7 r2 (`k7.js`). Mỗi clip chạy qua một **bẻ thời gian** (`warp`): mốc khung của clip được ghim vào neo câu + từ khoá, nên chuyển động đúng như bản ký, chỉ chậm/nhanh/giữ theo lời. Các cảnh không phải KEY dùng lại vật của hệ, mã chép từ mã ký vào `src/lib.js` (thẻ lời mời, người, sườn T-bill, cửa sổ 10 năm, dải 753 ô, vòng, hũ, chồng xu, `jarRun` = `k4.js` có tham số).
@@ -23,26 +23,26 @@ Giây máy: Chromium headless + canvas 2D, CPU 4 lõi, 3 cảnh song song (lần
 | S06 | 39,3 | KEY-4 S06.1–S06.5 (222,8–261,1) | 152 | K4 bản sửa C3d; S06.5 cùng hình K4 cho lần chạy giảm 8/1981 — **hũ thang riêng** ($15,295 = đầy) |
 | S07 | 58,3 | — | 212 | sườn hai nửa, đỉnh "16.3%", hai cửa sổ (4/1976, 11/2000) + hũ (thang $16,000, khối đỏ dưới hũ **cùng thang**), "August 1981", "−$15,295", 753 ô + vòng tệ nhất, "28.4%" (nhắc) |
 | S08 | 56,0 | KEY-6 S08.1–S08.7 (320,5–368,1) | 204 | K6 nguyên bản; S08.5 (khoản trả $863.36) chỉ có lời (K6 không có vật khoản trả); S08.8 dựng lại bố cục cuối K6 + đường trần đứt nét hạ dần, khối đỏ co theo `cap15_worst`, `cap12_worst` |
-| S09 | 61,3 | KEY-7 S09.4→S10.3 (396,7–460,4) | 235 | S09.1 hình K2 ở 1.5; KEY-7 = K7 r2 nguyên bản (không quét ngược) |
-| S10 | 65,1 | (tiếp KEY-7 tới S10.3) | 243 | S10.1–3 giữ trạng thái cuối K7; S10.4 khung cuối K1; S10.6 K7 từ 2 → 3 điểm; S10.7 sườn tới "today" |
+| S09 | 61,3 | KEY-7 S09.4→S10.3 (396,7–460,4) | 235 | S09.1 hình K2 ở 1.5; KEY-7 = K7 r2 nguyên bản tới "20.4"; từ đó cùng bố cục K7 r2 vẽ bằng `lib.k7At` (mã k7.js, khe cho trực tiếp) để thêm "8.8%" (2 điểm) và "4.5%" (3 điểm) + "of all starts", mỗi lúc một số |
+| S10 | 65,1 | (tiếp KEY-7 tới S10.3) | 243 | S10.1: núm NHẢY (lật kiểu K2) 1 → 0 → −1 điểm (−1: thanh thả nổi trên thanh cố định, khe `warn`), cột đỏ nhảy lên; mỗi bậc: tỉ lệ chung, rồi hai nửa + tệ nhất (`spread1/0/m1_share`, `gap10/00/m10_*`). S10.2: nhảy VỀ 3 điểm, vòng + "April 1977" (`gap_worst_start_all`); S10.3: lớp đỏ trái nhấp nháy nhẹ + "10.5%" (`min_gap_early`). Khung 6 dải KEY-7 ở 3 điểm. S10.5 K7 cuối (nhấp nháy); S10.6 K7 2 → 3; S10.7 sườn |
 | S11 | 24,0 | — | 98 | thẻ phương pháp (việc 3) |
-| S12 | 39,6 | — | 138 | K7 ở 1.5; thẻ trống + 5 nhãn điều bị bỏ ngoài; K7 cuối; "History, not a forecast" |
+| S12 | 39,6 | — | 138 | K7 ở 1.5 (đỏ nhấp nháy nhẹ); thẻ trống + 5 nhãn điều bị bỏ ngoài; K7 cuối; "History, not a forecast" |
 | S13 | 16,0 | — | 61 | sườn mờ + ô trống cho phần tử end screen, không chữ |
 | **Tổng** | **582,4** | | **2 182** | |
 
 Ghi rõ: **khối đỏ K4 không cùng thang với hũ** ($7,577 ↔ 150 px so với $1,046 ↔ 380 px), như bản ký; hũ S06.5 cũng thang riêng. Riêng S07 hũ và khối đỏ cùng một thang.
 
 ## Kiểm máy (`check-report.json`, `src/check.py`)
-0 số ngoài claim (13/13 cảnh; claim ID từng cảnh ở `claimsUsed`) · 0 chuỗi ngoài vùng an toàn (x 96, trên 64, dưới 40 @1080) · chữ nhỏ nhất 48 px @1080 · tương phản nhỏ nhất 7,50:1 · chữ→nét nhỏ nhất 8,3 px @720 (huy hiệu/nhãn "rate cap" ở S08) · huy hiệu ILLUSTRATIVE có ở mọi khung kiểm có số chỉ thuộc claim minh hoạ (0 thiếu) · neo khai báo = neo dùng (0 thừa) · 0 từ khoá không thấy. Tự kiểm chạy trên mỗi khung thứ 6 + mọi khung dải. "History, not a forecast" (S04.6, S12.5, thẻ S11) và "US only" (S04.2, thẻ S11) có cả lời lẫn chữ.
+0 số ngoài claim (13/13 cảnh; claim ID từng cảnh ở `claimsUsed`) · 0 chuỗi ngoài vùng an toàn (x 96, trên 64, dưới 40 @1080) · chữ nhỏ nhất 48 px @1080 · tương phản nhỏ nhất 7,50:1 · chữ→nét nhỏ nhất 7,4 px @720 (S10) · huy hiệu ILLUSTRATIVE có ở mọi khung kiểm có số chỉ thuộc claim minh hoạ (0 thiếu) · neo khai báo = neo dùng (0 thừa) · 0 từ khoá không thấy. Tự kiểm chạy trên mỗi khung thứ 6 + mọi khung dải. "History, not a forecast" (S04.6, S12.5, thẻ S11) và "US only" (S04.2, thẻ S11) có cả lời lẫn chữ.
 
 ## Cần chủ dự án xem
 1. **Vật ngoài hệ thay bằng ký hiệu gần nhất:** lịch/biểu mẫu S01.1 và S02 → chữ + khung chi phí trơn (`ink-muted`/`grid`/`ink`); phong bì S03.2/S08.5 → số trên thẻ (S03) hoặc chỉ lời (S08); đường trần S08.8 → vạch đứt `ink-muted` kiểu ray + nhãn "rate cap"; năm vật S12.3 (chỉ số, trần, đồng hồ cát, hoá đơn, ví) → 5 nhãn chữ quanh thẻ trống; khe end screen S13 → khung `grid`.
-2. **Theo luật hệ, bỏ phần ghi chú hình của script:** S10.1 "quét ngược về −1, cả hai thùng đỏ lại" và các số chỉ-trên-màn-hình S09.5/S09.6/S10.1 (8.8%, 4.5%, 31.3% …) không dựng — K7 r2 kết ở khe rộng nhất, không quét ngược; S10.1–S10.3 giữ khung cuối K7 (~23 s đứng yên). S10.6 không in "+$6,033" (K7 đang hiện 10.5%, một số mỗi lúc).
+2. **KEY-7 (sửa theo luật chủ dự án: dải không kết ở chiều "đỏ tăng"):** S10.1 nhảy rời 1 → 0 → −1 (không quét mượt), rồi S10.2 nhảy về 3 và giữ tới hết nhịp; khung 6 ở 3 điểm. Các bậc −1/0/1 và 8.8%/4.5% vẽ bằng bản chép mã k7.js (`lib.k7At`), không phải clip 10 s. Khe đảo (−1) vẽ `warn` trên thanh cố định — hình mới trong bố cục K7 (luật hệ: khởi đầu đảo = warn). Số mỗi bậc ở S10.1 hiện nhanh (≈ 1,5 s/lần). Vòng "April 1977" là khung `ink` trên lớp đỏ trái. S10.6 không in "+$6,033" (đang hiện 10.5%).
 3. KEY-2: bước "0" và "đảo" neo vào đầu S03.8 ("Real offers differ… bigger") chứ không đúng chữ "zero"/"negative" (cuối câu), để 6 khung dải thấy đủ bốn trạng thái.
 4. Hai thang hũ khác nhau (K4/S06.1–4 vs S06.5 vs S07), xem trên.
 5. Tiêu đề thẻ phương pháp viết "Treasury bill rate" (không ghi "3-month": số 3 không có claim riêng).
 
 ## Giới hạn
 - Lời tạm = take C2 (`review-c2/takes`), không nhạc/hiệu ứng; mốc câu từ ASR (lệch ±0,1–0,3 s; số đọc khác chữ được rải đều).
-- Chuyển cảnh là nhúng nền 0,44 s; vài khung đứng yên dài (S10.1–3, S12.1).
+- Chuyển cảnh là nhúng nền 0,44 s. Các đoạn giữ lâu ở bố cục K7 (S10.2–3, S10.5, S12.1, S12.4) có nhịp nhấp nháy nhẹ trên lớp đỏ.
 - Chưa kiểm mù (P chạy theo `gates/C4-intent.md` trên `strips/KEY-*-masked.png`).

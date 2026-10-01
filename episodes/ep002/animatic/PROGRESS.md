@@ -22,3 +22,7 @@
 - 01/10 11:15 S03 dựng xong: S03 wall 211 s x 3.55 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
 - 01/10 11:16 Dựng lại S03/S04/S07/S08/S12 sau tự kiểm; dải KEY/Sxx ghép; check.py ALL OK (0 số ngoài claim); assemble: 9:42,4, 18,7 MB / 9,2 MB; legibility.md xong.
 - 01/10 11:17 README.md xong. Hoàn tất việc 0–7.
+- 01/10 11:23 S12 dựng xong: S12 wall 151 s x 3.82 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:24 S09 dựng xong: S09 wall 226 s x 3.69 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 11:24 S10 dựng xong: S10 wall 241 s x 3.71 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 11:26 Sửa KEY-7 (điều phối): 8.8%/4.5% S09; S10.1 nhảy 1/0/−1 + số; S10.2 về 3 + April 1977, S10.3 10.5% nhấp nháy; S12.1 nhấp nháy. Dựng lại S09/S10/S12, dải, check ALL OK (0 số ngoài claim), phim 19,1/9,6 MB.

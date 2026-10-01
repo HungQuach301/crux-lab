@@ -145,3 +145,56 @@ export function cushionOf(i) {
   if (Math.abs(-out[119] - WIN[i].diff) > 0.5) throw new Error('cushion mismatch ' + i + ' ' + out[119] + ' ' + WIN[i].diff);
   CUSH.set(i, out); return out;
 }
+
+// ---------- KEY-7 r2 layout with the gap given directly (k7.js draw, copied; signed clip unchanged) ----------
+// Used where the narration needs states the 10 s clip does not hold: 8.8% / 4.5% (overall shares, S09.5-S09.6), the S10.1
+// jumps to 1, 0, -1 points (K2-style discrete jumps: the variable bar flips), the return to 3 points, and a slow pulse.
+// For g < 0 the variable-start bar sits ABOVE the fixed bar and the gap is warn (system: reversed head start = warn).
+const GS7 = [-1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3];
+export const share7 = (g, half) => { const i = Math.max(0, Math.min(GS7.length - 2, Math.floor((g + 1) / 0.5 + 1e-9))), f = clamp((g - GS7[i]) / 0.5);
+  return mix(H2.DATA.gap[String(GS7[i])][half], H2.DATA.gap[String(GS7[i + 1])][half], f); };
+export const K7G = { KX0: 760, KX1: 1400, FY: 132, BHt: 24, PP: 56, COLS: [['early', 690, 'n_early', 'before 1981'], ['late', 1130, 'n_late', 'from 1981']], CWd: 340, CT: 430, CB: 950 };
+// o: g (gap drawn), gc (gap used for the columns, default g), sx (flip of the variable bar, 1 = flat), a, l15/l0/l105 (alphas of
+// the signed labels '1.5 points', '0%', '10.5%'), pulse (0..1 alpha dip of the red layers), ring: [half, alpha] ring on a red layer
+export function k7At(ctx, o) {
+  const { KX0, KX1, FY, BHt, PP, COLS, CWd, CT, CB } = K7G, CHt = CB - CT, a = o.a ?? 1, g = o.g, gc = o.gc ?? g, sx = o.sx ?? 1;
+  const cx = (KX0 + KX1) / 2, Xs = (x) => cx + (x - cx) * sx;
+  if (g >= 0) {
+    const vy = FY + BHt + g * PP;
+    H2.rect(ctx, Xs(KX0), FY + BHt, (KX1 - KX0) * sx, vy - FY - BHt, C.cushion, a);
+    H2.rect(ctx, KX0, FY, KX1 - KX0, BHt, C.muted, a);
+    H2.rect(ctx, Xs(KX0), vy, (KX1 - KX0) * sx, BHt, C.ink, a);
+    if (sx > 0.5) H2.diamond(ctx, Xs(KX1 + 34), vy + BHt / 2, 26, a);
+  } else {
+    const vb = FY + g * PP;                        // bottom of the variable bar, |g| points above the fixed bar
+    H2.rect(ctx, Xs(KX0), vb, (KX1 - KX0) * sx, FY - vb, C.warn, a);
+    H2.rect(ctx, KX0, FY, KX1 - KX0, BHt, C.muted, a);
+    H2.rect(ctx, Xs(KX0), vb - BHt, (KX1 - KX0) * sx, BHt, C.ink, a);
+    if (sx > 0.5) H2.diamond(ctx, Xs(KX1 + 34), vb - BHt / 2, 26, a);
+  }
+  H2.numWord(ctx, CL('fixed_rate'), 'fixed', KX0 - 30, FY + BHt / 2 + 20, 'label', { align: 'right', alpha: a });
+  if (g >= 0) H2.text(ctx, 'variable', KX0 - 30, FY + BHt + g * PP + BHt / 2 + 20, 'label', { align: 'right', color: C.muted, alpha: a * (g > 0.7 ? 1 : ease(g, 0.4, 0.7)) * (sx > 0.98 ? 1 : 0) });
+  if (o.l15) H2.text(ctx, CL('gap_start'), KX1 + 84, FY + BHt + 1.5 * PP / 2 + 20, 'label', { alpha: o.l15 });
+  const pul = 1 - 0.35 * (o.pulse || 0);
+  for (const [half, x, cid, lab] of COLS) {
+    const s = share7(gc, half), h = CHt * s / 100, clear = s < 0.05;
+    H2.srect(ctx, x, CT, CWd, CHt, clear ? C.ink : C.grid, clear ? 6 : 4, a);
+    H2.negArea(ctx, x + 6, CB - h, CWd - 12, h, a * (half === 'early' ? pul : 1), 26);
+    H2.line(ctx, [[x - 20, CB], [x + CWd + 20, CB]], C.muted, 6, { cap: 'butt', alpha: a });
+    H2.USED.add(cid); H2.text(ctx, lab, x + CWd / 2, CB + 74, 'label', { align: 'center', color: C.muted, alpha: a });
+    if (o.ring && o.ring[0] === half && o.ring[1] > 0) H2.srect(ctx, x - 6, CB - h - 10, CWd + 12, h + 10, C.ink, 5, o.ring[1]);
+  }
+  if (o.l0) H2.text(ctx, CL('gap20_late'), 1130 + CWd / 2, CT + CHt / 2, 'number', { align: 'center', alpha: o.l0 });
+  if (o.l105) H2.text(ctx, CL('gap30_early'), 690 + CWd / 2, CB - CHt * 0.105 - 54, 'number', { align: 'center', alpha: o.l105 });
+  H2.badge(ctx, a);
+}
+// an overall share (both periods together), left of the columns: number + 'of all starts'
+export function overall(ctx, id, al) { if (al <= 0.02) return; H2.text(ctx, CL(id), 96, 640, 'number', { alpha: al }); H2.text(ctx, 'of all starts', 96, 730, 'caption', { color: C.muted, alpha: al }); }
+// per-half figures + worst at one gap: early% left of the left column, late% right of the right column, worst under the early one
+export function halves(ctx, ide, idl, idw, al) {
+  if (al <= 0.02) return;
+  H2.text(ctx, CL(ide), 660, 640, 'number', { align: 'right', alpha: al });
+  H2.text(ctx, CL(idl), 1500, 640, 'number', { alpha: al });
+  H2.text(ctx, CL(idw), 660, 820, 'number', { align: 'right', alpha: al });
+  H2.text(ctx, 'worst', 660, 900, 'label', { align: 'right', color: C.muted, alpha: al });
+}

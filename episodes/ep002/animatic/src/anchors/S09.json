@@ -1,11 +1,74 @@
 [
- ["k7in", "2", "start", -0.3, "dip to KEY-7 (signed K7 r2): the knob (fixed bar, variable-start bar, cushion gap) over two big columns (before 1981 / from 1981), red = share costlier", "one control, two halves of history"],
- ["hold", "2", "holding the fixed rate", 0, "K7 1.0 s: the gap starts to open (0 -> 1 point); the fixed bar never moves", "only the start moves"],
- ["moving", "2", "moving only where", 0.6, "K7 2.0 s: gap at 1 point; red columns shorter", "bigger gap, less red"],
- ["leah", "4", "start", 0, "K7 2.8 -> 3.4 s: gap opens to 1.5 points (Leah)", "Leah's gap"],
- ["leahL", "4", "one point five points", 0.2, "K7 3.4 s: label '1.5 points' (gap_start)", "her number"],
- ["two", "5", "at two points", -0.2, "K7 4.4 -> 5.0 s: gap 2 points; right column empty (bright outline), '0%' in it (gap20_late)", "later half: no losing starts"],
- ["early20", "5", "twenty point four", 0, "K7 6.0 s: '0%' label leaving; left column still red", "earlier half still loses"],
- ["three", "6", "at three points", -0.3, "K7 6.4 -> 7.6 s: gap 2.5 -> 3 points", "even bigger gap"],
- ["tenfive", "6", "ten point five", -0.3, "K7 8.0 s: '10.5%' over the left column's red (gap30_early); held to the end of the beat (S10.3)", "earlier half never clears"]
+ [
+  "k7in",
+  "2",
+  "start",
+  -0.3,
+  "dip to KEY-7 (signed K7 r2): the knob (fixed bar, variable-start bar, cushion gap) over two big columns (before 1981 / from 1981), red = share costlier",
+  "one control, two halves of history"
+ ],
+ [
+  "hold",
+  "2",
+  "holding the fixed rate",
+  0,
+  "K7 1.0 s: the gap starts to open (0 -> 1 point); the fixed bar never moves",
+  "only the start moves"
+ ],
+ [
+  "moving",
+  "2",
+  "moving only where",
+  0.6,
+  "K7 2.0 s: gap at 1 point; red columns shorter",
+  "bigger gap, less red"
+ ],
+ [
+  "leah",
+  "4",
+  "start",
+  0,
+  "K7 2.8 -> 3.4 s: gap opens to 1.5 points (Leah)",
+  "Leah's gap"
+ ],
+ [
+  "leahL",
+  "4",
+  "one point five points",
+  0.2,
+  "K7 3.4 s: label '1.5 points' (gap_start)",
+  "her number"
+ ],
+ [
+  "two",
+  "5",
+  "at two points",
+  -0.2,
+  "K7 4.4 -> 5.0 s: gap 2 points; right column empty (bright outline), '0%' in it (gap20_late)",
+  "later half: no losing starts"
+ ],
+ [
+  "early20",
+  "5",
+  "twenty point four",
+  0,
+  "switch to the same K7 r2 layout drawn with the gap held at 2 points (lib.k7At = k7.js code): '0%' fades, then '8.8%' + 'of all starts' (spread2_share, overall share)",
+  "earlier half still loses"
+ ],
+ [
+  "three",
+  "6",
+  "at three points",
+  -0.3,
+  "gap 2 -> 2.5 -> 3 points (as K7 r2); then '4.5%' + 'of all starts' (spread3_share)",
+  "even bigger gap"
+ ],
+ [
+  "tenfive",
+  "6",
+  "ten point five",
+  -0.3,
+  "K7 8.0 s: '10.5%' over the left column's red (gap30_early); held to the end of the beat (S10.3)",
+  "earlier half never clears"
+ ]
 ]

@@ -1,9 +1,106 @@
 [
- ["q", "4", "start", -0.3, "dip to the KEY-1 picture, final state (one person, two offers)", "back to the question"],
- ["two", "5", "start", -0.3, "dip to KEY-7 final state: gap 3 points; right column clear, left column still red", "two answers"],
- ["late", "6", "start", -0.3, "dip to KEY-7 at 2 points: right column empty, '0%'", "later half: 2 points was enough"],
- ["enough", "6", "enough every time", 0.3, "K7 holds at 2 points", "—"],
- ["early", "6", "from nineteen fifty four", 0, "K7 runs 2 -> 3 points: left column shrinks but keeps red; '10.5%'", "earlier half: even 3 was not"],
- ["notEnough", "6", "was not", 0, "K7 8.0 s: '10.5%' shown; held", "—"],
- ["today", "7", "start", -0.3, "dip: the ridge ends at today, empty space to its right", "the future is unknown"]
+ [
+  "j1",
+  "1",
+  "start",
+  0.2,
+  "the variable bar FLIPS (K2-style jump) to 1 point; both red layers jump up; '31.3%' of all starts, then '54.9%' / '13.5%' / '+$12,983' worst",
+  "smaller gap, more red in both halves"
+ ],
+ [
+  "j0",
+  "1",
+  "higher",
+  0,
+  "jump to 0 points; '57.9%', then '79%' / '42%' / '+$16,566'",
+  "no gap: more red"
+ ],
+ [
+  "jm",
+  "1",
+  "both",
+  -0.1,
+  "jump to −1 point (variable bar above the fixed bar, warn gap); '72.9%', then '92.9%' / '57.8%' / '+$20,217'",
+  "reversed: most red"
+ ],
+ [
+  "back",
+  "2",
+  "start",
+  -0.2,
+  "jump back to 3 points (widest gap) and hold to the end of the beat",
+  "the beat ends on the widest gap"
+ ],
+ [
+  "april",
+  "2",
+  "april nineteen seventy seven",
+  -0.3,
+  "a ring marker pulses on the left column's red layer + 'April 1977' (gap_worst_start_all)",
+  "the worst start never moves"
+ ],
+ [
+  "never",
+  "3",
+  "start",
+  0,
+  "ring around the left red layer that never clears, red pulses; '10.5%' (min_gap_early)",
+  "the early half never clears"
+ ],
+ [
+  "q",
+  "4",
+  "start",
+  -0.3,
+  "dip to the KEY-1 picture, final state (one person, two offers)",
+  "back to the question"
+ ],
+ [
+  "two",
+  "5",
+  "start",
+  -0.3,
+  "dip to KEY-7 final state: gap 3 points; right column clear, left column still red",
+  "two answers"
+ ],
+ [
+  "late",
+  "6",
+  "start",
+  -0.3,
+  "dip to KEY-7 at 2 points: right column empty, '0%'",
+  "later half: 2 points was enough"
+ ],
+ [
+  "enough",
+  "6",
+  "enough every time",
+  0.3,
+  "K7 holds at 2 points",
+  "—"
+ ],
+ [
+  "early",
+  "6",
+  "from nineteen fifty four",
+  0,
+  "K7 runs 2 -> 3 points: left column shrinks but keeps red; '10.5%'",
+  "earlier half: even 3 was not"
+ ],
+ [
+  "notEnough",
+  "6",
+  "was not",
+  0,
+  "K7 8.0 s: '10.5%' shown; held",
+  "—"
+ ],
+ [
+  "today",
+  "7",
+  "start",
+  -0.3,
+  "dip: the ridge ends at today, empty space to its right",
+  "the future is unknown"
+ ]
 ]
