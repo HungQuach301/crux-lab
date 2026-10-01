@@ -54,3 +54,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 - 01/10 KEY-7 (A) vòng mù duy nhất 0/3 (đọc là trả nợ/lãi cộng dồn theo thời gian) → dùng (B) = r2 theo lệnh C3b; A giữ ở K7-A.*. Rủi ro C4: sáu nhịp còn lại cần TB ≥ 0,79.
 - 01/10 Clip hợp đồng hình review-c3/contract-clip.mp4 (1:11) → gói C3c. EL ký tự: 0.
 - 01/10 C3c chủ dự án: KÝ hợp đồng hình (K1–K6 D2+E2, K7 r2). Cam kết C4 giữ: không hạ ngưỡng, trượt thì báo hai số. Trước animatic: kiểm mù nhanh K2/K4/K5 (ý đồ + khoá commit trước khi chạy).
+- 01/10 Kiểm mù nhanh K2/K4/K5: KEY-5 3/3 ĐẠT; KEY-2 0/3 (3 nửa: đọc thành một số dư theo thời gian); KEY-4 0/3 → sửa một vòng theo lệnh C3c.
