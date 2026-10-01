@@ -1,0 +1,91 @@
+{
+ "pillar": "tax",
+ "quota": 2,
+ "model": "gpt-5.5",
+ "role": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+ "prompt": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets or rates; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Taxes and policy (federal tax rules, tax-advantaged accounts, credits and deductions, the measurable impact of policy on households)\n\nTask: propose 2 distinct episode topics in this pillar. Start from a decision that a specific group of viewers is facing, not from a statistic. A good topic is one where the answer could change what that viewer decides, or differs from what they would guess.\n\nWrite each topic as a card with exactly five fields:\n- viewer: who the episode is for, in terms the viewer would recognize as \"people like me\"; one sentence, at most 25 words.\n- decision: the yes/no or A-versus-B decision that viewer faces; one question ending with a question mark, at most 20 words.\n- promise: what the episode promises to answer, without giving away the answer; one sentence, at most 25 words.\n- title: the YouTube title, at most 60 characters including spaces.\n- thumbnail: one line: the main object in the image (at most 12 words), then \" / \", then the on-image text in double quotes (at most 4 words).\n\nCard rules (strict, checked by machine):\n- Numbers that identify the viewer are allowed only in viewer and decision: for example a year, the rate they pay or are offered, a loan term, an age, a loan or balance size, an income level.\n- promise, title and thumbnail may only repeat numbers that already appear in viewer or decision. No other numbers anywhere, in digits or in words (for example one, two, ten, half, double, twice, third, dozen, percent): no results such as savings, break-even points, shares of people or percentages of outcomes.\n- viewer and decision must not state a result (no \"saves\", \"loses\", \"break even\", \"comes out ahead\" next to a number).\n- No names of data sources, datasets, agencies, series codes, laws, acts, bills or code sections. Common account names are allowed: 401(k), 403(b), 457(b), IRA, Roth IRA, HSA, 529 plan.\n- The promise answers a question with data; it does not tell the viewer what to do and does not predict markets or rates.\n- One sentence per field.\n\nAlready covered - do not propose a topic whose core decision is the same as any of these (all pillars):\n- Whether to refinance a mortgage taken at a high rate, and how big a rate cut makes refinancing pay back its costs.\n- Take a 7.5% variable rate or lock in 9% fixed for a 10-year payoff?\n- Work those 8 hours as overtime at $48 an hour, or at a second job paying $48 an hour?\n- Sell the house we bought in 2000 now, or keep it, given the $500,000 tax-free limit on home-sale gains?\n- Keep over-withholding for a $3,000 refund, or adjust withholding for bigger paychecks instead?\n- Take the 72-month loan for the lower payment, or stick with 60 months?\n- Is the 3% compound inflation option enough, or is the pricier 5% option worth paying for?\n- Should I lock money in savings bonds that double in 20 years, or keep rolling T-bills instead?\n- Sell now at the short-term tax rate, or wait a month for the lower long-term rate?\n- Pay one point to cut my rate from 7% to 6.75%, or skip it?\n- When a 1-year CD pays more than a 5-year CD, should I keep rolling the 1-year or lock the 5-year?\n- Should my spare $500 a month go toward the 3% mortgage or into T-bills?\n- At 65, should I take the bigger level annuity check or the smaller check that rises 2% a year?\n- Refinance the 7% mortgage to 6.5%, or keep the loan?\n- Take the 0% transfer with a 4% fee, or stay on the old card?\n- Should you pause 401(k) contributions beyond the match to pay cards faster?\n- Should you claim Social Security early or wait?\n- Should you spend 529 money before claiming a college tax credit?\n- Should you make pre-tax Solo 401(k) contributions instead of Roth contributions?",
+ "kept": [
+  {
+   "card": {
+    "viewer": "Parents paying daycare through an employer that offers a dependent care FSA.",
+    "decision": "Use the dependent care FSA or skip it and claim the child care credit?",
+    "promise": "We compare real household tax bills to show when each route changes out-of-pocket child care cost.",
+    "title": "Dependent Care FSA or Child Care Credit?",
+    "thumbnail": "Daycare bill and paycheck / \"FSA OR CREDIT?\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "viewer": "Households who give to charity but usually take the standard deduction.",
+    "decision": "Bunch donations this tax year or spread gifts as usual?",
+    "promise": "We model tax bills from real households to show when gift timing changes the after-tax cost of giving.",
+    "title": "Should You Bunch Charitable Giving?",
+    "thumbnail": "Donation receipt pile / \"BUNCH GIFTS?\""
+   },
+   "call": 1
+  }
+ ],
+ "attempts": [
+  {
+   "call": 1,
+   "raw": "raw/tax-call1.json",
+   "seconds": 15.3,
+   "cards": [
+    {
+     "original": {
+      "viewer": "Parents paying daycare through an employer that offers a dependent care FSA.",
+      "decision": "Use the dependent care FSA or skip it and claim the child care credit?",
+      "promise": "We compare real household tax bills to show when each route changes out-of-pocket child care cost.",
+      "title": "Dependent Care FSA or Child Care Credit?",
+      "thumbnail": "Daycare bill and paycheck / \"FSA OR CREDIT?\""
+     },
+     "normalized": {
+      "viewer": "Parents paying daycare through an employer that offers a dependent care FSA.",
+      "decision": "Use the dependent care FSA or skip it and claim the child care credit?",
+      "promise": "We compare real household tax bills to show when each route changes out-of-pocket child care cost.",
+      "title": "Dependent Care FSA or Child Care Credit?",
+      "thumbnail": "Daycare bill and paycheck / \"FSA OR CREDIT?\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "viewer": "Households who give to charity but usually take the standard deduction.",
+      "decision": "Bunch donations this tax year or spread gifts as usual?",
+      "promise": "We model tax bills from real households to show when gift timing changes the after-tax cost of giving.",
+      "title": "Should You Bunch Charitable Giving?",
+      "thumbnail": "Donation receipt pile / \"BUNCH GIFTS?\""
+     },
+     "normalized": {
+      "viewer": "Households who give to charity but usually take the standard deduction.",
+      "decision": "Bunch donations this tax year or spread gifts as usual?",
+      "promise": "We model tax bills from real households to show when gift timing changes the after-tax cost of giving.",
+      "title": "Should You Bunch Charitable Giving?",
+      "thumbnail": "Donation receipt pile / \"BUNCH GIFTS?\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    }
+   ],
+   "model": "gpt-5.5-2026-04-23",
+   "usage": {
+    "input_tokens": 1106,
+    "input_tokens_details": {
+     "cache_write_tokens": 0,
+     "cached_tokens": 0
+    },
+    "output_tokens": 1209,
+    "output_tokens_details": {
+     "reasoning_tokens": 1034
+    },
+    "total_tokens": 2315
+   },
+   "status": "completed"
+  }
+ ],
+ "complete": true
+}

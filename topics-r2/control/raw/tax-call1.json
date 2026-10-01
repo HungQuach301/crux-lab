@@ -1,0 +1,208 @@
+{
+ "request": {
+  "model": "gpt-5.5",
+  "instructions": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+  "input": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets or rates; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Taxes and policy (federal tax rules, tax-advantaged accounts, credits and deductions, the measurable impact of policy on households)\n\nTask: propose 2 distinct episode topics in this pillar. Start from a decision that a specific group of viewers is facing, not from a statistic. A good topic is one where the answer could change what that viewer decides, or differs from what they would guess.\n\nWrite each topic as a card with exactly five fields:\n- viewer: who the episode is for, in terms the viewer would recognize as \"people like me\"; one sentence, at most 25 words.\n- decision: the yes/no or A-versus-B decision that viewer faces; one question ending with a question mark, at most 20 words.\n- promise: what the episode promises to answer, without giving away the answer; one sentence, at most 25 words.\n- title: the YouTube title, at most 60 characters including spaces.\n- thumbnail: one line: the main object in the image (at most 12 words), then \" / \", then the on-image text in double quotes (at most 4 words).\n\nCard rules (strict, checked by machine):\n- Numbers that identify the viewer are allowed only in viewer and decision: for example a year, the rate they pay or are offered, a loan term, an age, a loan or balance size, an income level.\n- promise, title and thumbnail may only repeat numbers that already appear in viewer or decision. No other numbers anywhere, in digits or in words (for example one, two, ten, half, double, twice, third, dozen, percent): no results such as savings, break-even points, shares of people or percentages of outcomes.\n- viewer and decision must not state a result (no \"saves\", \"loses\", \"break even\", \"comes out ahead\" next to a number).\n- No names of data sources, datasets, agencies, series codes, laws, acts, bills or code sections. Common account names are allowed: 401(k), 403(b), 457(b), IRA, Roth IRA, HSA, 529 plan.\n- The promise answers a question with data; it does not tell the viewer what to do and does not predict markets or rates.\n- One sentence per field.\n\nAlready covered - do not propose a topic whose core decision is the same as any of these (all pillars):\n- Whether to refinance a mortgage taken at a high rate, and how big a rate cut makes refinancing pay back its costs.\n- Take a 7.5% variable rate or lock in 9% fixed for a 10-year payoff?\n- Work those 8 hours as overtime at $48 an hour, or at a second job paying $48 an hour?\n- Sell the house we bought in 2000 now, or keep it, given the $500,000 tax-free limit on home-sale gains?\n- Keep over-withholding for a $3,000 refund, or adjust withholding for bigger paychecks instead?\n- Take the 72-month loan for the lower payment, or stick with 60 months?\n- Is the 3% compound inflation option enough, or is the pricier 5% option worth paying for?\n- Should I lock money in savings bonds that double in 20 years, or keep rolling T-bills instead?\n- Sell now at the short-term tax rate, or wait a month for the lower long-term rate?\n- Pay one point to cut my rate from 7% to 6.75%, or skip it?\n- When a 1-year CD pays more than a 5-year CD, should I keep rolling the 1-year or lock the 5-year?\n- Should my spare $500 a month go toward the 3% mortgage or into T-bills?\n- At 65, should I take the bigger level annuity check or the smaller check that rises 2% a year?\n- Refinance the 7% mortgage to 6.5%, or keep the loan?\n- Take the 0% transfer with a 4% fee, or stay on the old card?\n- Should you pause 401(k) contributions beyond the match to pay cards faster?\n- Should you claim Social Security early or wait?\n- Should you spend 529 money before claiming a college tax credit?\n- Should you make pre-tax Solo 401(k) contributions instead of Roth contributions?",
+  "reasoning": {
+   "effort": "medium"
+  },
+  "max_output_tokens": 6000,
+  "tools": [],
+  "store": false,
+  "text": {
+   "format": {
+    "type": "json_schema",
+    "name": "cards",
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "cards"
+     ],
+     "properties": {
+      "cards": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "viewer",
+         "decision",
+         "promise",
+         "title",
+         "thumbnail"
+        ],
+        "properties": {
+         "viewer": {
+          "type": "string"
+         },
+         "decision": {
+          "type": "string"
+         },
+         "promise": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "thumbnail": {
+          "type": "string"
+         }
+        }
+       }
+      }
+     }
+    },
+    "strict": true
+   }
+  }
+ },
+ "seconds": 15.3,
+ "status": 200,
+ "response": {
+  "id": "resp_0ecbd29116ad813e016abdb0333e2887d2b988883fca841bfb",
+  "object": "response",
+  "created_at": 1790816307,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790816322,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "model": "gpt-5.5-2026-04-23",
+  "moderation": null,
+  "output": [
+   {
+    "id": "rs_0ecbd29116ad813e016abdb033fea087d2b22fce1e48112630",
+    "type": "reasoning",
+    "content": [],
+    "encrypted_content": "gAAAAABqvbBC8pXijguK6yS5rbSUHPzkgBbrXr0vA0NeHYEKa2TbUKcRHLWAULus7x80MwoFQT9A7e3a4kTfvAYva9GmlehDyTr_ShD2xEGsANj_z9-xoY1myeUa7iQLHMOqAFZ2RtgTOTfTiAAT0HqbnGtMNjFwvFee_35yCisC7N5JrYO3vTJKRo7wFaFweHMT_ZSLpQwODD_RVt8tJIWHa6kVaDWAEezq-hN9VQPR948ldAUAVEsatgkby3RjOKb2orVcFJiRqv62I8dITjllyKJvq2eMbhJkQ0rfqJyy9q8K1RAIZysCGoA6nV3bH-VrDUArhdaEXninTsF6YBDjqyMfSERBFRanILVNPLkCIZBJNyVoBxKsq6NNKFD3f6LuuMei7jyZKYAI_1UrJG2btcboJMX9MiFoBX7VaHD_Ba3PB9wso0n4oNVja0QFPHb3ElNQTVoyvDI7fb7VoNXuTIIl9uqRqNDG0u7GwTySoewSfZ0VPsnKLGJH8hvTlOKnFnIV31lGboVJoL57Wiiux6D8C7hYgpd3yT6_6bt4M7_vPjAAfMSm27L285mry18MI5AL9bo8if1TMt3ULaq691djgBp1leQzG81wwssRdoLnDfV_BF4Wv41t1QJ3gcxj7SYZZSdWXQ7GQ-8fjt9vpEvZIIJ1PHtAU21h3bAoljrX8HjD5Wa9A13gYKghswiKxsXsVdKXRlEkfTzGWK0-55--a_EitspK20fY_RC2JXdSTYdv6npKNMZQQ6d-iNONgwwgnHWE5t2bYiKBv-mJSUT6HaWZ46Vk3-HJbwdhM6OzvggAqKC7xBvksd99obL1OsTy9eNJYypGf3_ThOO9nJQejTsHS4fa-C9xt89GJ5NP6gx5sfk-fzWj9ERTVHuSHko_CFSJ0SzACfaK-nZxJDuu7YhQOEGQlzeS6u4vGb77hyUynO2tluoEhzvUbfCIskjcHdhnz2NuNRFf4LqHupMmx5Ckq-UW_jUgNyosLGPCfyBVYNWMzxpRs98RrcF4O0OWKMqY7wUI8ZKXyc6Z0JEhF03_cvscK9ac7cQYYx7L-OD8aoLemEqD94yfVbeICR0z1aXdAN0bRC7nQYu3Yj1-nywOwekMyjiO9ck6W150pk9iojPJHTdwTscFknax7B4vJYm2ehbXjCdwh-QGWRr_3sFn8tXS6z1kAb-OCS2H4FUy0FO6BWXBQkkuj0igJRqa2CWBXS1CAldca0hHYFPMpg0-cUAJkaqsAq1t1Iu3nV9U6oNePcXo4XQflkQ26rVcuOJae0-BqgouIgC5asiDwu7yNF3pXaBs5Uoq8l_R_doUNyqKy2nUpKwdv48M4WeNc_bvbrf11HPlZGAWLLnuWj1ZEJrLbD0FyQjcQ0Nhx5CfsQwRk-x83MuwxFNpDKXGjKngdV0aERFWpPhkStLC2xkgJz_po_X0iC1BjNSKibupvHXrZXC0pZ_Er9cCt08zpKj0EU1MB86o31bWIZ6GpN6Apeg0jplfZj5pVUBf6Sq2x4dUZf7KaGAY9bcxuI6nnPRUZ-l1708OfPh6yTEMbl-wfob5QB6NeVNRKQdXn6aMI31fm1R3N34rZvmaRuOyln_ow4X_Ry9OGZqBzcZljEPnFY1H8HZmozyw6QIQiV7SR5441Y1TzZKezUYIB06a17pGJxD03FRU_mLXx7iVQ5WZzL3W_E8IwMeSpC4j6g7tzcDrLnihsZxjq7HtvaZW62VZCoz8VpgYxVwAohnmuPtv98XRJ2jmp-UEtXMlfvsVQUiUlrfiY7glgpkVcwP-ElhAjDPbGqjDtg3LubRIl58F4RtBcI6f8vPV3F5tiugSqKVac6x3Yt-9jOkhxG6LaHKWTVRomNAewB6kMXAA-nckTZ980bOheVwCPkjHlK0wVVOQJyIS-IXM7Vaxem62g9rxffjB1kJGtROR-SF2NY8UfWcwT-JaSqKKCviLFnLGRnZohWfkNCSRViSWjFUqZthY1MbkY9GAv-riI5hvbvdC6XayTey3vQl8PId0Ae6j9F0Wase692ZqMe9DiwOqiGHp2AndTmRQJn3cmrsbgHh_MyfOz-5WMTZwaT4oMHRC0LMZd-iojBMA3Hn6Xe9Wrq5UhqB-Cv4JTe2q9lo3h7z23k9iXPgh4lGHlLrF4NLpjcdNYUj5Hwh5NrNVEoE4qCDBA0DHce9dLRX-YP7Tc0SClqtVLsu77N3C-nCcgz3gOnPZ3iT2VDdnFt3eOLm9-tKzWn_gSF41Yprf55MxqNgCbpRE4T7-M5e7RnmeXbbDnMCujGhiFy2HXQuRYZX7SoP1mIMqIngudZuvR1QfJfBk4C1uO5sQxVjZUg48je4y4llIy5thyyCUQHMj_iWCIK7evm-X-foAsirNnATaFVweqwK5ARnZVGLdQuhtBVOokjJ5ZO7jOcW03Ob7txj43U-VfEsellGUUnnFquCzBepTjRWSz4fvF21BE0Q3WXsKCTa4WJqRQu8n1BGQZdSO5_ZJqN9bRoG9vJsotouwI-ZViVLFxeX5SoZ-xPjeAFgJlZOlqjwLCuD8c0J3-Rex6u0t3slAeYqkcGLWhYCkFx2NSb34FsLv1DEZPR3TnX32OVsCQhFWwsdTYtFPB7dwTlJq24rmaYHhD3J8iKfoWT9rR9n0Ln6nQEq1bQElnnfG62-rJD1Pa9TwbZqvPMn1ZQ2ow5LsKQNle4agOqhydbwY9XqVUc1c1VCfzZ6fJ-7bmBSSFz7PDp0HrdoGi9YCyVKn26LSfio8upxzCQUiHx93cGXBPIW4iLlsZ1HBh0Jr2xRqyFlGK8cvi-wDANSohElGloVEC5VxafEfs1yuUD6fHJMZDbIguLFuv0VVUOvuXpCnex4tvnmV1QhA_2RV2WnoyzmzakaAdE9nUGrb2l2DQTZPtt04X1rVNdF_ALbTxKsz8VFEIrvy2YyblMBJIKqxPD-IVyXGmycVWifmo6QAqvYc8G2cQnL48dJbQPA-ap5dqfyVFNaUhID9FJ0Fq1VtC6_AdzWJFpN6JlFT-mbdvO5VZ-w23Ho8SNSVoLqOxGP90ca1ZvBOqiCJRfidGiXAakGip78yiT-eVhpilmbWTVIAzXCQzIFUOxw6wHFmErA7xgek18PI5WZJE6vqDWRqnx91zPUMsqrK22dNxROdWiNKqR_xE0IpDd4nqSFIHGh4PfWuXBsxIBRfBK2K5qCfHp0WNHHqtLlSBP7a5Qslx69O36dL3ICjIIkZdFu4ejXVtIabZM5UB04CduyaXc9R80XssZuAH-PDFqcGU2cOzAlWZXEDPTwiEphTUjLAhALfpu5TOmEP-5mPq5_eCVjYwaHkbhU0L3sc7cUTFQd3Tybxp5MzGtZOYLpd1qnuxLDvzDreNK9o00cmjxZ-dERNrcOSWV3mTBWkSylWTD_-eVNXY5hKJsXeZVstY333CKPtxqLpIog9p6JgYZcmRO1ZR6N_dpKWs-rhow15ufdR6p4Wd0bOlgsPVnu0zoQGRyg1c2QPuygI6HyO_VFHJqrneXGW3YcYAvAfbK09iKgaC9j01AXQkIYA8F23hPCcVyr36vTqjFFoXlLDqHQiR2wf0WK37IhHcQmEv4n8YH1cQTBCS6gkF-UCk05yDPD0Ys-8ERByVPNlpbyK9nzGL0Dlv_WOM4ugacA9g1U9Pzdb8-1-VCa_iOKqiffpv0O3MBGadgpr3qz_6nru71ELArf9_PVSIzQeUFiUteCsGZ6YfCf338h4hT3xCEfExTPs3Vzvek2eAADnQ2VqyqLYrQeMysMCVBJszpV4vLXOsIHAdwUXgDgZ1ZNrmBlI-Oa4QOiXoM1V0RsmM5BYmLEaqfVTVVDJFsAPxOtohcrh-FPTc4l-WzPsx2cp33o5IY693Bz3UQs9I1bzXw6ZsWzFmmfO0hrU_R57MFqb9nraKq2Cy0M7QDPt_y0RZ0rOIeZMuBToNkgGZpTq-U31Nq8SRCyWKqpqEoVzY86Tk_41fua4sPhGGIL_Od76NMhbQ_DitnfAmLhEFmUIL62ioQ4ngULJLg6Sr_Y1wXrT-1gDMP8dvctDDJhtcVvNV8uQLnmZvl8GRu2RUmtxK5T0V-9MVTswY7SLivVeAtq6BHqlcdhl7J6sdSLM9AE4GN8ZZpRAM-QMApGxoZhEJonpZ_0n_Dgr2_xRYSh2cDPvEQ_cwrv87vpTYNnSSb9g_IX5G7gdzd5Nz4PrPf8B6G3mJotTMzhsUj1-u86ZdNLa_Bg6MCA7xhrxJuklW4tssh-CqdQRDUU8IM1n29d_i5iOxhCneg_olYDS7_3MkIXF9XkhTIE-OdQeoKAlSUYCitHQcZZmEqqZWxcdYEj54ALNSFjVuowkDgTCO4aZaZ3j0Fz1fGCfJQoQLYhNpVmP29i0OPqyTZ63serO3Kb9n_9Ldgrvg18qW7u9H2pG6dPvM2w5sw8eTOk5j6TaUc1kmlF6Gi7S88N3WFxHw2W8OOdCHlqZtoZs171vOzZvlf6G8g7am-pSAyCZLERsRubGolCKiwyVQuLyBJtSCccyQAjtQuje1Xc0zssFS37REbGufnT5dZkgbCGyn6DRL9sCnDMSuD7kKDCOez6VIdZ8HuqlewatUO_tpAlsT_OHvJWEOEN-kFxKepm8k1v0EmXppGk1nzZ8M_aVaEx2pcMed8gzBbPgwCUHjRtM74e1TiavJZQXq2NxCin5l8N5jdG9djSnpbC1p1KuPlGkOL2JA5GwlI9EW8X3rIxXZSL53pKYll2jmVw3nTIaKnDCYmnHmS9RjlqBthHASeqSKoowon_XRWGMh5eiIqyY3AEJciN1iJ_k8I5X0Nt8n9agQFGaG5IY-DhNKgMd8ujf9ZkQVTrUinHzMeDRtN3b6jOn8fFpVexoJ4gONPMpnMMGhPEWrn3aRUfZWqgws0WclY2nCNgZnW_4njb8jermGtdM2fJKEMgK1E1vt4ZjF3pSy7Zm0GL-CW5pRkcrU7RYg-3R_3lifqKMPsABkVpRSQdkbnQ5Ge2n4XHZ-bR81mYAvdWuLrx0iIQr0KIeUALyJHzpSvSYNdoyAYev6-BHv-8MlfiRcEuI5GWXwMIAtsQhEr6XAdt59k2a9ObG2u2mVgm4D5t1OJtfzudivEYErtSQwuLQp86X2FCkUrXu6HutOFBJ8Ps2lR7FIJvfn-qTQxZ_P7QfvbVCXg8RX7I9C0yXdBE2IsDQijJL1Fg0MIF8u8Ks0waYf4ZP_rYhmOBFAJgQpoPBuu3aRJNIHHqnDfw7Z6zyYlQAOytF0Hu5TDG2x4yGPq9LIScOOVyWyOD0yzLTYbf7VRz3JiYxhytVkxelVBWq3PZtfwztWCMxB1r-vVUfByN5o7f8OyKFqyUzi_Q1qGPWfW5eFobMp53Du-v-O4BKe9vUkMhyqkpqHZIESvCNLPU5sGiTkn-zUoQC9ZIt0JwD0li1jE2oOVGBJXhkp4iMyWZn67ZxHkGCjfJaK-d-m2bO0FsW9I2-z2mC_XCbRHmuq7xu1Ke6QakjDDDsGdBw-zxGW0GFuNkn2H_HuS_mq2sfmE1WQczq3_I_93dBGzuED67NpXl4qz-fsXa69K9vQN3_fw1SvNXKblyR6X7XS5Q6oKZbNgXlJjEx1YuQXbk2lzYPT_pGaMRI1DSNpTB0yKRGIvTjI0BKHeYDL6NENw3FFX6sGjqr154hp1v2Md3uhoEpn2O9noeLXejqCk5OASLf2yLkU9lvUTmA8e1jQQkEJFtHHG3fRLaK_PPKjsM13Gb5sw_MNoDIucQYFkNIGJ1Y66MswPBFqPg3y4ubFYrk1tDYYYfYEgDxsG06-msCypa9Ylvlyc-_S9pDgNXKQ-gZuqNigNbZvBVqy91hwzwoKjBHMcIVRwbtZxal1DiAgsyj406m2FUeCK1AW7c1nWpgbNNN75L_SJjldlLyW8PQ5Bp2V36gZqBJ3xRY43id9kAQzmuGUdIqO4amd9ICQ2yZcS3Ms_gLMN-9bm529IH52Pg9a4AxqVY6Oo1bZz_IWSIbVGXt7OLNCj1vCmmALGljwt6dDHcMktYdJ-2YFpREh_Gl9HAGHvsp1eel4YCaHVB3BnG8ny4OXF3YtEePenSLfd-ulVu7kCQUy9PxJoHaWwXXFFdJY-K8fXPDizGGYuPYoikuljbl1B4WgWvM6QoKLZ4ORSAIS6u4T-lolzUE8eTn3HyIW1E4v3N9o5HXtp-x5cgOQWWI9H_M87xmiLhYFF5p9UhpHabBX2ttj80-8vn9o6FlgsIgLOBnrTYymJxkIUt2yrEExu7YhjBB2vL7cCX0mYYty-puePLF-3kjSatnqyifHcyg3ot1lGARcVSkGNUZJniBuFnrBiXnvIH_4mWejhFtxcsBk41BovRDCM91EE7JHr2VRfXuNwET48LXvv3WMsc9bWipL-FNwymQWxiTJz6q-jKRs9vbvUp38uwV1-d_lCmeca40Ey-QVW4lwentbk4h-3rd1J6K8pax9k5L1a-gl7S-ONiOSJrdzhSFH5ROM7eS4KJ3o0u5AAeio5CvyXy6UOI9EDbDwk5HMwBl_1x9XSgjEdyTyVonK3SFoYBNmeakqB_hoOfYU4qWpGbf7T7iQ__WEYVWcCnBR77TMahBI9_WK9XHJUZjdIsxkj0zjCzl_E1QGTHfSj1OXkBo0oDA0oymy2MjoaHwMMub-K_El4jNGSwFFOznD4nduKTglP35YjPpa6A_z6n1RnWkFmy0Wjxr2ttfpMw1H5-IauuAlF3ejM3iaVAGt4M5vmYDK0AQPSyS0kojYDxQNnD5p1iOtiDQ6GnDFNMZVEtqkuf1SbnLdLNfxYcGwCGphiKZhnDUVnakhyBKlEzu8m53eudyt0ltB3uvWo23huz3cXUWLO879YIuhgXEJtvTCsKsf13ne0pBVY2rC3F5hfdmMuCrFBhnMH5gBG4jLIJsrdS6KP-Ym3Nw78Wz-g4CoHyPx6sIrvpqiQYwnO6S8UoOzFrqZ-XM6PZHd0vrWAvhKjEqhYO3VB4r2aABku97-sdo3vJVCaqMAlwGoz0YIyAsNxbU8rBHMbSKC5LQtD5nLITfo_iQp4JJcURg1pw8W7O4kH9FVQW1qn6riv1JgfS4nymx6b539WvaxG0Uj4Eo09fobM8mDgEw84nG_QdjydfXX72OkKzy9ScBWqcsrXxiKboWxQ0PVpW5MJDVrquHDYCoE5uMinNxwECz0LG2bnfVspCY95YYV_rIZGkQvBAQLsUmlTyLEYFUX96o-rZnEFgk2wZKuMAutTbBJiVFmuKp9-nPIzqJ7l_1lgZ_-cWM5lwPjP2WSrDwH6qWvPiQyJ25fWwgQp0n8PC1t8YlIha4ja-_4EBifL8Bp9Ru1VqXU_8A0wvCbnYwbr3JPToHJIER1fXoA0sflfg04zi5arSDMu8YhOMBOe1EuHQn4Azz9oePRUe3yPp99oQ7v_RBYyWjRLjWkf0lCMwdH4QagMb8Nc5YR1wbDUBn1l9E_B2mVWILLeCHTPmteWhDSTjxLtSRM2K7eeUWYv7mn-vvcCIJaNAh7p1CeJ36VxI1rBs7LBxv6aFIlSJNg4gT71V4DgXp8Z5dmCzkGCyKTrZyddEUk9hn_X7EPuYRgHOjrgz4ytw17B6G0VAvxi3VTH9d-sZXqd69sJWgipMwbWCtu_cg3eeakf4AY2AUt_N-WdCFN1PpFmA7sfBGwrZGl_XJDojxzNI-RU4W40KLmxgq19627pdgxElyJOIo9cS_83Al7Es_ATj-WjzWl0nO5rsIrqFEL-S9v2PMt7nYM6ZNJcgsAbmvznkKkwMqmOXbnLTFOVAYoQaE8J-Ro2sObBt96MVH7fOf9BcW4hAPfwXrWX3Z_CK4uRCHGvkLGQ9rCI5RDJM2gsZPMEBT0hzjZDKMiBoG8iX1ekh_vQkKeGhkCX2FONOQv0OpkNsf-BtSd3QWtq4GdOLNmlP-G1ft2m9Nky2VKni8yj510mhGuY8Z5xoMGyUqWxij3MEy9rhhVN6yJlTy-GZFK0zcYb-6InZDrSG4UerJNQ-tOjgD9MPenct0pXteK8hOsEYTanrtGVhf9XS7zjh6wg-QZTQUe38VcUJuBfdHLJKYr_jRkf9eMscY23bGtmuPk7n5RbrpcqvN",
+    "summary": []
+   },
+   {
+    "id": "msg_0ecbd29116ad813e016abdb040e3d487d28443ceff8cc591d8",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [],
+      "logprobs": [],
+      "text": "{\"cards\":[{\"viewer\":\"Parents paying daycare through an employer that offers a dependent care FSA.\",\"decision\":\"Use the dependent care FSA or skip it and claim the child care credit?\",\"promise\":\"We compare real household tax bills to show when each route changes out-of-pocket child care cost.\",\"title\":\"Dependent Care FSA or Child Care Credit?\",\"thumbnail\":\"Daycare bill and paycheck / \\\"FSA OR CREDIT?\\\"\"},{\"viewer\":\"Households who give to charity but usually take the standard deduction.\",\"decision\":\"Bunch donations this tax year or spread gifts as usual?\",\"promise\":\"We model tax bills from real households to show when gift timing changes the after-tax cost of giving.\",\"title\":\"Should You Bunch Charitable Giving?\",\"thumbnail\":\"Donation receipt pile / \\\"BUNCH GIFTS?\\\"\"}]}"
+     }
+    ],
+    "phase": "final_answer",
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "json_schema",
+    "description": null,
+    "name": "cards",
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "cards"
+     ],
+     "properties": {
+      "cards": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "viewer",
+         "decision",
+         "promise",
+         "title",
+         "thumbnail"
+        ],
+        "properties": {
+         "viewer": {
+          "type": "string"
+         },
+         "decision": {
+          "type": "string"
+         },
+         "promise": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "thumbnail": {
+          "type": "string"
+         }
+        }
+       }
+      }
+     }
+    },
+    "strict": true
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 0
+   }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 1106,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 1209,
+   "output_tokens_details": {
+    "reasoning_tokens": 1034
+   },
+   "total_tokens": 2315
+  },
+  "user": null,
+  "metadata": {}
+ },
+ "timedOut": false
+}
