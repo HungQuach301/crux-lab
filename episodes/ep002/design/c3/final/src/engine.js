@@ -76,7 +76,7 @@ export function numWord(ctx, num, word, x, y, tier, o = {}) {
 }
 export function badge(ctx, alpha = 1) { // ILLUSTRATIVE pill, top right, type.badge (48 px at 1080)
   if (alpha <= 0.02) return;
-  const s = 'ILLUSTRATIVE', px = TOK.type.badge.px, xr = W - 96, y = 112;
+  const s = 'ILLUSTRATIVE', px = TOK.type.badge.px, xr = W - 96 - 18, y = 112; // C5 V03: pill (xr + 18) ends at the safe edge 1824 (was 1842)
   ctx.save(); ctx.font = `700 ${px}px Inter`; const w = ctx.measureText(s).width; const box = inkBox(ctx, s, xr - w, y); ctx.restore();
   const pill = [xr - w - 18, y - px * 0.76 - 13, w + 36, px * 0.98 + 26];
   logText(s, 'badge', px, C.bg, box, alpha, C.warn, pill);

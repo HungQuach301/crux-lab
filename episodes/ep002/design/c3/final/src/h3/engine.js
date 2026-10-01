@@ -62,8 +62,9 @@ export function text(ctx, s, x, y, tier, o = {}) {
   ctx.restore();
   return box;
 }
+// C5 V03: default x moved 16 px left so the plate (text + 16) ends at the safe edge 1824 (was 1840)
 // ILLUSTRATIVE badge: warn pill, bg text, token type.badge (48 px at 1080p = 32 px at 720p). (x,y) = right edge, baseline
-export function badge(ctx, x = W - 96, y = 118, alpha = 1) {
+export function badge(ctx, x = W - 96 - 16, y = 118, alpha = 1) {
   if (alpha <= 0.001) return;
   const w = measureText(ctx, 'ILLUSTRATIVE', 'note', 700);
   text(ctx, 'ILLUSTRATIVE', x - w, y, 'note', { weight: 700, color: C.bg, alpha, plate: C.warn });
