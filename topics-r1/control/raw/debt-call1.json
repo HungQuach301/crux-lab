@@ -1,0 +1,208 @@
+{
+ "request": {
+  "model": "gpt-5.5",
+  "instructions": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+  "input": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets or rates; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Borrowing and debt (mortgages, refinancing, student loans, auto loans, credit cards, paying down debt)\n\nTask: propose 2 distinct episode topics in this pillar. Start from a decision that a specific group of viewers is facing, not from a statistic. A good topic is one where the answer could change what that viewer decides, or differs from what they would guess.\n\nWrite each topic as a card with exactly five fields:\n- viewer: who the episode is for, in terms the viewer would recognize as \"people like me\"; one sentence, at most 25 words.\n- decision: the yes/no or A-versus-B decision that viewer faces; one question ending with a question mark, at most 20 words.\n- promise: what the episode promises to answer, without giving away the answer; one sentence, at most 25 words.\n- title: the YouTube title, at most 60 characters including spaces.\n- thumbnail: one line: the main object in the image (at most 12 words), then \" / \", then the on-image text in double quotes (at most 4 words).\n\nCard rules (strict, checked by machine):\n- Numbers that identify the viewer are allowed only in viewer and decision: for example a year, the rate they pay or are offered, a loan term, an age, a loan or balance size, an income level.\n- promise, title and thumbnail may only repeat numbers that already appear in viewer or decision. No other numbers anywhere, in digits or in words (for example one, two, ten, half, double, twice, third, dozen, percent): no results such as savings, break-even points, shares of people or percentages of outcomes.\n- viewer and decision must not state a result (no \"saves\", \"loses\", \"break even\", \"comes out ahead\" next to a number).\n- No names of data sources, datasets, agencies, series codes, laws, acts, bills or code sections. Common account names are allowed: 401(k), 403(b), 457(b), IRA, Roth IRA, HSA, 529 plan.\n- The promise answers a question with data; it does not tell the viewer what to do and does not predict markets or rates.\n- One sentence per field.",
+  "reasoning": {
+   "effort": "medium"
+  },
+  "max_output_tokens": 6000,
+  "tools": [],
+  "store": false,
+  "text": {
+   "format": {
+    "type": "json_schema",
+    "name": "cards",
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "cards"
+     ],
+     "properties": {
+      "cards": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "viewer",
+         "decision",
+         "promise",
+         "title",
+         "thumbnail"
+        ],
+        "properties": {
+         "viewer": {
+          "type": "string"
+         },
+         "decision": {
+          "type": "string"
+         },
+         "promise": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "thumbnail": {
+          "type": "string"
+         }
+        }
+       }
+      }
+     }
+    },
+    "strict": true
+   }
+  }
+ },
+ "seconds": 21.7,
+ "status": 200,
+ "response": {
+  "id": "resp_05d7a2cc14976d80016abda405177887d2b4f0ae45de09b6d4",
+  "object": "response",
+  "created_at": 1790813189,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790813208,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "model": "gpt-5.5-2026-04-23",
+  "moderation": null,
+  "output": [
+   {
+    "id": "rs_05d7a2cc14976d80016abda406a2f887d2921f8e084cdc7706",
+    "type": "reasoning",
+    "content": [],
+    "encrypted_content": "gAAAAABqvaQYY4QI6xRe0KpuXT9tBVbOP9GaNSB3bN3gECxjoOVcVENreIa9q_Ds32vy0kiMFkHmyn-wgQXntzMHAALFDheL01NTNWxiZ9VXpciNS3Umn0s-ZjqMWsMFvwjErucrIJL-F1L3AoiNj7xzYmB4jZ6yPHzAUI2dzvC4U9sKHSlyjgS_UzIXLySREnrl7LYp32mhCTN2RDIDDYZAAGR1tGFBugfO3njslzKy7gD0G6B_Iwry0Efw_rDkjQV4Dzidsh6Tea19pINfKH0vIBUgw2KbhH4cO-a4RRnTQ_WkDxI_HBoIRQiWVqNpldzSGrdJlM0Lfdt_SaXd3awZRb1T2N7hopfYCdJUOLp16n0e0yw-32pmoHImf7Jw4VWs9Me5SwPyxtVvSk_kgA3LDD6-oFz3GVKzjO5v2DxKhZp1wc5uHeqXYv4b6s0I9_wl6OhJoThZSWIWOK2Bx_EOK0rSIM9XDUkX-2ijHB89iGm245z67CKQGJxUuusAMIruw78OV30Br6NNF9VY5zfJcHxkYFf36joDJy35PFhvp1bPvvGJ5YUlS5N2C0bcLIsyKRGaGngeguZvoTp8vZl2Bgf8HFXsbWcnAG5qipCgCBP4OR6m9Mhmyy2B7jkbNf3m5mdU9fqSiarlOHlOB59tzzPtgO_Dte0xTZk-f_dpMn23HhEDd4yQnVQkN69R5NS-Q5qIlMKEDGGG7bSrIdJZOB9VNuCQEEwaaxygf7M0Bl1_qcLKF6cM1mkyYZPvJFeCXPvvru7ZlAsqUcaPA45UJQfvRCQEQkG9JZurFEnDWAQAxiscQRDuacEeT1T34WZ7DoIU7XZLhVRkMTQTV1yKbMwWNGUmZy8vxkykd3juBsoMaKASrEZ1RW-GUOZEiucdT4tfw1wJtl9lFOzeCBG98Aapc4n50u-R1i43JCBnUllUzAh1B44rvYYI2TFWim8a5uRB7zMDk5KADBybraS2ob-3f-L1WyaHAgCnUoTqRHeJM4FU-3C9uW3T6K-j0TsojKPRlSN49qecq3EHYajcQLQHtOU3WrwoUmTfzzlsnsC4Ym_Ugs0tP0oXuK2x-eg-G9B011H_-DlXfQFfoHobfWM26pweRiRKOiakQciLvXhY3kzEXkGfBNiWhBzVXxGJiNVIxpI9zbeZZiqDe5zBVAdE45fDncIsXAAJDF5iXJlcqF_29HU3GQvO2OQHC2v0bsp45zujAokTF7KoXffczN_1ihHSuUG_c75S9gm7bVOiq25N2pF-XajGD1sfc5bkY3befL8iwKkkeixEBrRQRTII6ykIltvigHJvPC1QQFb-hkVBQLz2N_DwaAGWGL4-HewVewWjksJBoqeIWBJu8hWI3n4qEyynpvgOnwB7Pohk2--P8qWWQ-33btcDSCSNIVPN7Ea76bCJaB2f7lE2PtB9-JF2tz4WE9hjBtc-s2woPLTKDAm1ChhR87xYxMGvR3grG7b2OqJcdhJ2OJAPdoLnM1wiK2op450PKoi4shJFKD9OpzZUxqC4cC96KoHe6MYBVSfYRVcRdvdjg5SF66vDvFPuxE0PFoJdubrSuiMYWTo_gvwMxm-EN--qreZWlHtjdja6OjH04Afts41bL6-J8oWBj3tTSj0BjEawFVEbQIGLiODDuAcPoRfGPe-p15WT37Y6dROrb8iWyxnP38O9LMm5nZ0CjoaVoSouW3mevY-LUvSQMt06fO4X6-nwLAGD9QMrz4N3rTLvkb4T_QQmo3Zh7tNcfWxHAI8mA5R3aayc51-eNoO8TyIZkgT7jMYyDfBnKEkBLtNVqlNSwXMjccmX3h6TTuT7MQkCacMrKmAiOq04a49Nn2M6YAtqpzhs-mQ6opMQSrsHmj80ImJvzxdKq4rnwrvonqq_Yt4dKdIX11ML4--A2e34uAIzDGUed9l5JghQPGMtAJMY2qM0q9QToBDku2Eq7w4KQNHDq_OZYfwTvGKXRUrsFpLeLRtCxlQbU89SowhQk4SiDHEkN5ECnarOummfyHjySoUKnU0to8IVq5FvQ-PRZIH5mmN8ZdBVwMtxZ-f9XrGVvgoTHKjG0yop7ClYDDe948Yu1DEiAVIfIQvF8UaweA7rMZfvwqjfXTfx7RAgObVkY0OPhz1VvgBrK93WtenznlJm6O7Lqdte9RKSXII1ODDyS4g7UduZQzw1IicTu0XxP0zMRbVzS6l33WbRu3Eb6ZjjqlyI4LsMta5M2ik936iGqQ3S5RW_1BTX9DVVFHskvPdJqQVcNV4b_p0p-4x-fssQpntBmVZ_DxqSK9ulsxiv8c9OKA73J6aYiTDlvGIduWaGZk3U49_nQtgwAIujntjSzT-ol-T3nvuXfrGEbritHKPdGK-dG8rQIaCF4_xkficrNbszEJ6Wdsm3hk35Nna9BxIvRdrZx6cPNvrNfNq5T0aFe1L6_z89Yua2gB6I0inJtbTv1sX22QBKX1B87jOz7Y45Nt960AMQb504xCm2UOw_p6xbgPDFW_kMPSmhLzQ-AjAi1P98ylUa6LWITO8R1fK_li1X2ZxATKh3pajb6ucTNJu_cL7Hp5nZxxQCxXKnyjmL1dRwndbmVmyp8IuYLSPcz_2Uy9qG3VQ4zPsd48QeTpBVXB7Bw_BsMuJgHHVzTca1QUGbnTrOXqwaZ-7h5Ea4iQPHa2Wr_4vdSczcPZGtnUavaeXtCZUDhF9jVmUT-SazrNWwTnztG4BMeRqJYOdPEb85xRsPL_5KSMiLG2IyMqC6haQ7idcQ2CYrL6HuSgT5pE1OF7LbVcn2RKYbM491THEVH5owCetqMijpKmj2LSKa8YQusgTM45PxalyqTt5t5m58Lz251u_1dn_kaxCHBSQ3cIA_7vuCjCdzrp2VG7Exmx8Ih-zlePpQrbz1pYvT200Z_evCfZbd1k6SY9NRG0Zc04h59NEVqvF_2GTF4oz25phE9u0BaE3dx2dyu8vdOgDBJgucbo5Yc_mn4db8tj7bypC9m74_Qsjs71y_v7Pf8VQ4UC9GlwTneSQF1XwRj1Z_pMPnQn-PhU88DVpdTgoqs9_GuwjwK_Ta_gjBjcgE9RZ-EBg2juse_QGGd3DBjeFU1i4dUBwKsPGoP6cST8z-3fpAyKGa72YfyqExtxT6rYzof3A0OQQJ99eVPmJmSfD3zp81Cwq4Dz-THJDymeZ7wYiAngQjiZo3UPGAO6Rr232eGc5H4kRlO-wfRWWfpbI9tp0_i-_F_STbQLKdI-Y1AuzFtVHM6kE_AIDFLV9YzeFb-7zS5V2JK4WFxcDQlaTAWsyw92JN9JJ5oaBpwvN7J-NwEoI6RSEH0UAMRjvfhl6bLK2tcvE8uFEZa7FFcJA4UtQcBeLfdPfkJaAMtFCQFU9LhrFvMTDc5LRg03RkooaGKjUn7WHUoRN4U35o3IYGWkJDFbdC6OIqFiMLYGVmi75LgipvJ8lvStEG3J2XYVl9uSq7ymDp2p5PE80y7XyuoncGr0ZA0lTQ3sss0wBt5La9QNEtMvHKOzuAayorBiGE9no6dTbKRXe-6gAA0TCmRibRn36f1kn-2rTW5HSma6U9bLqCI1xpG8UATc804s_8Q_psvZOA983rVX0kfSoO8KdLS2bWtDzaCcMO6kuLvqiNeM-8SNhCD9bCRN-0ULYfnN3DrLb43lE8-JQSHnq99RVUSwFBZvkLGNIHuUoN7KT0Z3bIiEFvfTHsQiq9p908fcZzU3BfEqZnMmVlr2G6CrUO5YkkzlZYLB7Jbbfo2a7Eav-nwvVhKb0DYuiEcOhPiEi-LR93-WkV4FHp7YBqSgDfGp3KzNDJ_ALXlwURE1pLra-T71n9ymC5Li_XPP3w1YUeRFIlVSA87mqfsOVb1cxo1JSavlstHiBKBtyocYPC3wE_KDnfEq3G7VDWZFXWgwHxhgJw1dLm5xjAtzND64hRQ_qPbR-gJ7VfD9Lqa8dTck-Lvk0Rdujv6g_OQwlVfA9qG5w7kfTgdEFQbVCl8LbqOB6X_zjQYIdkp9-MlMqWaJZ1LuKfaRCe7weNmuri4fLNpqoSbJTCcxHIglK-wg77BcifKyIVxn07yg1UZ2kKEGRH2d0N8CKGOq_-IkFSvqBlDf0oNeOLgpdGExnbIEMp-toCgKp2QOsfrI-F6xuyIPGZXMGSIlGOle1CFXAnY1s2Fsjyv30JcmElKq_B6OD9S745R6y4H-v_WjWMFh0P5w9z7h899qHUu9Pcc2krhJ9Af6z013vD7pT2gVh6oEp0ebG4ovBglJGZZyqHN-DhKHCpLk5qvr-wOmJO3FqSVtOZ_7pK79u7ufsmXsPFYy0PLJPWu5JRT1ypuQlWMq45DwQJpgkd450whLnDqLPZx6SBsrxdGSVlOb5XdQZw-gFpTl9BT8na6ooKOcZtX1eEBA-Oz938Dhc3s7GhcsemFg6lYRSdPc4_iFRgUdReMdHd8_Gsl0FMoV1GuERvcmz4364QiCdKD_JeSkcXbrVvYTArSvzb2hLZdpPWGV8I1djgXZcxxIHVgQXeFH6W45cnmWXk-BBN_YSjdh4FVJ1rdbKsXtO51O114eKeCfak8KKOkXHvju4Fxj8UPDAy-scKCNN3H0VxIQDtegihLik1sS8HdxhIGY4lZ6JuCrH_AhOxLmRynqEOoh6bq27x3jRA0GkBp_mDUde8DL_stdRXfjzroejZhjoijIGbNWK9aIvRtyh_VMWHk7IcigaNz2I65rcbJ4-Q_f6ohBOfHi_fpZiw0372SMQJeTal0AtfMINTY_zDFdi2R_RznGS487MIalKqLMu_sZcaDbJJGYV-iREKn-hXmge0dPxUW2owHusB0gtG-mErSzHd7aJ9ehuPvFN7jf1cjnZTzrbwGcasXTrLrVGC7jL3r4FOmfHPgWbxmf0FTDY-YZpYmC0dc0BSYW_0G6pzsR0anEk3aMoY3Pu6MHbGnln2khPazUs0f-V1BjSxeayB90Mawew8KMMWV9A2f8aJsAwWxTKHSvaSKkgKmjcmGBZBWjzwFRSdx8vrgcINCvFKe7WBv-mYGfCEo6PQMwGbql8l6JwBb6NWt1wV_J4eQW_2HUsUwyqTmr5FmbVe0r4z4rtGfCg3XVaon2lF9QY6d3PGA9IbzwpOkkLpRCLfUOFCzh-FBqBYQ8q7IfuZYKrrOc4ZHqoRcqAM0u7zE4I3b7emJHaICWPaAVdq1JZdJBxnEAFzWHoAp71VEa9SyCc7yc7FGZTrTbGN2INSEBjgoMOVtyud18ZnwN6MIFtfsZoxFRJwFQDEzRz_1ddXIBzbmFMFJXR2LbX6Pqht1MkIlz_wpwLUs5RP_euh8J1Pen2_Lr9RO6YxOsVbXtg3Hepvk45iIonVis_CvGLyOxPcwrns9QqSka7x40sUIThcMOnNi2VBHHmKQJZL5dqHqipFI6E2vmzSKV8oN8ERgzdIwlNIKclWNJ6ji56fTz0jRWr9ohn2PeChN-YiwuHQHgTMFceQD_uTh-VCeWDrBRvfEIhMTI6UyQYsKpdE8H-76-WjCytvIs8aSDBmbOmo4CPSAu9f7anWJeRBUIBll-UQoaYcqkykZX1mUrx3_rusUQaaBAmazp4BP_o7In80KpBq3VNAPN1pEOBbkUR1b1iWIgqGJdzAva6ruwa4oqGyAMyYDp_q9qc_l5WTKtsvWwTGkP5DkKR_BIFm6v9H_zay9QiJD4mhAlR-NnhA2OFQR9W1Z5_jASNXZZek8dgyavoQstuuLQvbGSHSZhgS_7PBiRdWqNhDkApIpYHfdKWBTQYNc5zgcgX4HOPFycEp8n1aDp_tUNPNVrAE3_SkA75hyz54624jmdU6qkLe2EeINiHrJAWtl28_lGjjxW3VPyjVffPqIhAMEozhxkWXW1hULJwNR7lxd5hmpd9G4Xz0m5-_W0vrrIqqACb9g7aAOnbHDGHyZPA6QkY4Ua9xMOg8e18hQ-aRvtQybrQEm60weBo4WaQIYXtj2nmdGDHwZP5MKxhA1Lf9Sj41CT0v6vFgy4WXbL3QqWMMK5F15oQMIKx4sn5OgfhWpJHIqwAHDo0fBleVtBujLgCDqox8EmSXnH7LOgHB333IydcQgtKLU91GRGH71qQ-MApsHSaRvBw_ywhpqcM5iWGWz4yipk8xNYViRojG7r3UnGqlZ7kTiDV8ifgJiNSgtA4zmyqdkocJcihSIO-RQK52vyAMsc83Xm8uOA9O8MfkiMjA4y914XVEIxFwa1iE1vioOeLw9GWMsV50dvHgOoHYdzk8snXw12QNwGr6byQWWJIIdA9ea4KMVO40Qa5WwDHvUnfnxW6lXLTCnQz8_Xt1JV0w-6RIY-zzKex45mqkYmQpzhJ98lFBJpVg_ZTgqUsEMYX_ZgF3ve2dsXjKSo3-xeh8bzYv3QEPo4-3B0sesGcBmx3xDH_NPE5o_sbXMEiRVlVk4l2Guln8CvvAznCHhr8Moib7cCxiFNEtvOWgUAzjN6U9uatia5hYYqc7vzflMq5SOeVD9WxV7RVG01S04n4Dp4jrZDyQew1F6eAk_W1FK1N2ifg1ysDL6ySmGmv6SvrVae2oYJ2QNZThjXJXaU998gUjFqeM9uS37sGJw4gETDiWOALWDC7IoQiGMvvUYpRAg3UdeafedKP8GwnhKI5_gHY-L5ktcZl_AbU69HyobZaJiD4hgFrRu8I5zuTzwbLoMtFoGidSjwqp0jqg1GHNXJElrGiVzf0MS1hZvA0iK7MRpklO1KlQxd6ZCJG1hDbBiNJWm3OIDaiPpXJSVIr_IcieVcBCWQJFEFj7Aea3-CZ6X75Jhj0ifmdfkwPRfNw0Miil0dS7wkTeCyNCHrJatu-ZiccbNt1T8NsEY3cgPu3z9bN-eLAhUh297-9bfKq8K4mfbFWKuOgg2ixyO1u9SrY1Br66W9SProrvLUkhcxwvYpZRiOmZ-mqPvCDs7DafiSEBqko81VZo0WEyz_ewUmig57kMSLma8t9uo4xtULEsQCnRodv4qS4vmkdM63MOogCztwui6RPqbP9Rx6Kh9RQZmZrY1Y41Qj5LRzFH0R-Z4FFbOhvumhNtM3a3u9Rcgn_DkjR9dVTjakOIVnABsHRk6SABk6wS1vBjl7b0MNh-NuAAjvSZ63jh_F4xt1wIVhk1QvV8AurLCv2TICTy23k7Vfhg3AJyWaPOqu3GdQVUtWJQ3vDoSUwJu1AjK2g9zmUoUgFpRJ1Glo71dWpb3wvradDyjOthlA9llVSx7MR8UT1w_unls__FjE_o33CuG_XIXKLxqv4bUFWcW7Ao6sCZZTW4nyNMhdWXlMM30_biXmPkr5PUPumHACtouK9FXEldgDsGGHACWu7ITRQiRwJ2sh2eC1Wgd4kdwqLi9vEM6sdf6bXepk_GzWUpL1EYV0oEcjwzSmBTY0TuctXcZQbnBIwqpwIJc_XZXC9hCSkZ0JA52H5ntfUVdNuFytN9FZvTks4SU0SAzh69FmIZ1PfIesM2iFkRBUm7aUslJWT3JDhiU-d2aR1HKlAwArhSbjJ2vRMrkWM9sa_S4L5v--vsAcXqTqQgizG2isGTczQG0Qr8XKcnlBDTlx0IkMxp0fZGuNL7xluytBuY8Lz6RScDTOQSc89dX-L9yglayyOVIJUZKr1fcRaZnqDNX2jb65IPkmY5n24on66m5xPWF3ucOywnRjTe1kDZP3FOBct2oUQ50mBbhhpHq7zQQwcLfOz5O0118KPBnQZwdpEjrTM07F-edtGJwpzNxRDGBK8-QHhvnCtkVY2FkPw8TqKp96-a4MywrncygwGZN0uWddUCyJ9EEP40FMlp1EdnL0Ds-4x9OdwgnBDjQ15KkyuGKUyvx4MygyRZRFoRPi0iKrLsL3ddgZbO7cX78jwMzNsVs2-PFU4r3kUo7qX_1PlTOdFAhcKvx4OsDMzVLxo6mL3DdvgyEa1uoQH4th90MEmaxHjFacUgCN95cduwgy73ifTg29qkBAkcj8I9Qy3YGHYymtTa2VJPApPucUHb2b9HUUDw7vKNSZBILpzLSGFocOlfAv2Xmg8AR9Sb66Kakl8W981pziQSzB1g1NBQ76NCCrFpKw4J0YfU-ic6UieJ1AQTpdiRzciS6Xxb6VTZCKx8oogOUlx81YN9UgE9NigfepAZ8smZe55NFZ67_VT3LFYTf5eLNyAon2lbs9vp5i_8iOrdJlS6ER0ovoBVeH7WsbkLAdsfvZ-AV-n-e7A3FfvbDflNaQDMF8LfmZBEuBFs0JkmN3paCcT71N0fwKy67WmbpqAPyZ86OP6ZWa4PQ4wHC_JfpjtrFKzAlKUg_xioPzrWdPrfgY3jj_b-UbBIv2mKv5IUQP5R_J3v3qw5q4SqE2ghMOLA5bAxL0uZ7zv8hEyGfMeTZnWXbcILyKOrN0Gi24nSjCCns3h9EQuWDRXikD9qlD0iixEUJ60-M6YLAqGYQPGGc-xV9mTWFbMF2NfxkSg2VHYf9qOfxgDeSq9iiQ9ZgOLByHHiVFyjPIINefl8FOQscsWJahMfxMC3tyCc_1zNx9VEB3wJjh90nz29XzJh03Rp4QhVORvL36nMV25E2DcAFPvK7-Prn1r0jRfnGU9oXNb37WBJy7qABVSUlJ0n8kcsu832HMSlzkiebIFvNqbhTmTaTarHzXuBShoe13_zy8YfEgZMeGEhjqcQa_gKmF5uaBavvD80MLV3TPu9sdvTU9TURGJPCdhtNoMXqv-D7DzbRQmHexZ1ztnRIEHOjt7RLZmTV12CEqFvzqvhMQ-aWiuKpNFCUD5iWDm_3LocRCEuXkreTqtsuzE1Zg26pBe6TsHzEASXfLvWNDQte1KYRYm1xQMi6yg_YMfPcHtTaYuc047cv09DO7R72KSApa3MYMUNPtoJrZMaJHCXBJ24ltC737zz30RH5hOEbsaanWZQnIR53cvES4AboREgRGBDDO4xNJB03HwrquaeNOav25nzSvpsuE-O-3-LlLo-r7ZPpIOVirB7qOPelJcvxpxK22HQla7Zut2iXtnh_zQOuI1U_Jx5ZM3f8hagK6pNsQeaBKZhp1dX3seANlYgxFJB6Me-BJ7_1hqKWxOrUtLmLwgoV6iPkeYUDphxOXbG-zXMfcAHtCUff50HnUPAF9eOLXXenjmYvuIK4KN42hohDQCMOn1fZ9tbizxN8I-WQ0BJcvFbJAYiXhDS_U90yP08VLmhTw7T37MUeS2uqIK85_UrxB_hvru_TXi9K9TohntwDw99qjxnfC36ChCos7-M9B9jJAZ9pn0d-xAQNt5nSU4bupHnb2VKvHlXfhzawbZP56K2aK22rXHigbz3KlKG5hbUVLewv0SDEgUXV8wF6DrpG14S7ssM5H9yt312Dq_QYV9dKOL3xDCkmGUlYg7a9-3J3bZtOxt2EbjEh06TAXvqX88mhmvsYGRN1lNMJsUlWgtQoYsI9CYbiSEkAd9dn0Pt9TPh6_oz2qkReZBPPiEYt1kepeKqBMV4RrefZcxOUHDiJ3CSQhbYPk5MAHR-7PZQP9cjYHyVawJcK1h4RzEIkobXGQCw70nNsEWFcK4O3_EisiP0tNHrDa30LRKOZAYo6SZPLE31VsL8zLol0w5vLB2lMd4N_xJut5UAl7DanhI_2h115OObsjFHOj_e-H5TcUUfPunczwCF-_s27Uh7FvIHVzILT7B3Oh6fmbVu2DZ2N-c-VfyCZs1f0HYQwkVgKndtq20qERSyRkrnXGsU2tWTRv6zB5SyFXitKrHwUoubeb5d2H4Ab83Fp2_OZ4VUqhi2X91hd4H7Zfsq5YFxiACRbRWBmNuXJSn7L0zQE9pvN4LpmDxtxE1aTd_vG744AEBvrb98nLogLpmpqB3o9MyHaQco8xZ_mqWMD8LSoNGXlZ8coE2yM-d_FfH3cQOX2zc-aAKeRR1-To8tRgIqr_JZACjYVM5tQ2x27U0gj3I0_YPorWIYyoKfuFuhsd8nv83f9nFCqQ23Q0eCBvG0FkfGePzhc71Ytth2POYADgUz_Vjl4TZEFbc9ae1A8SUwPc8Fv26cXeg2GWQH2dElOeiqUdPHyPB2Jb5qOUY3P9XIhDZMQgX7-eV7LULhz-4b2BbkKHz9MMqvqPOpA-i57e_MF1M-EuWGhbDVxeu_cQU8nICsEP1e7kAgH8MU2nFWKVKXohZgYq6aZXg_xIyMzuIRhc590tXJEfueqx5hYY-A44GI52wC2nWEbH1GDkcXB9sRyxjqV6sGiLR8Qw3h9tgWiM49EOTi-VpvT9k6ZuTYSNOvIxnWaLzs7v4cUEry__hXMWSHNFZ5b5T0Nbodah9XJ5VPUGP9JIxXa18wRNTBa2j392k0Z39-V044zj1O3ks5dwpb0mExPXWvHV_GnxciAq4qUcM0IMclXhR0_44s6YbHKHOcEYTI7U36Gvp1XTs1YoxpFKzdVNCJKYPrXttU2pmz6ixc2Xwt5A==",
+    "summary": []
+   },
+   {
+    "id": "msg_05d7a2cc14976d80016abda417770487d2aa4ae95e3d16c2b5",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [],
+      "logprobs": [],
+      "text": "{\"cards\":[{\"viewer\":\"Homeowners with a 7% mortgage quoted 6.5% and closing costs, unsure about refinancing.\",\"decision\":\"Refinance the 7% mortgage to 6.5%, or keep the loan?\",\"promise\":\"Using history, not a forecast, we'll model payments, closing costs, taxes, and moving patterns to test the refi choice.\",\"title\":\"Should You Refinance Now?\",\"thumbnail\":\"mortgage quote beside moving boxes / \\\"REFI OR KEEP?\\\"\"},{\"viewer\":\"People carrying a $7,500 credit card balance at 24% who received a 0% transfer offer.\",\"decision\":\"Take the 0% transfer with a 4% fee, or stay on the old card?\",\"promise\":\"We'll simulate payoff calendars, fees, missed deadlines, and payment rules to test when the offer changes total cost.\",\"title\":\"Is a Balance Transfer Worth It?\",\"thumbnail\":\"credit cards beside a payoff calendar / \\\"TRANSFER OR PAY?\\\"\"}]}"
+     }
+    ],
+    "phase": "final_answer",
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "json_schema",
+    "description": null,
+    "name": "cards",
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "cards"
+     ],
+     "properties": {
+      "cards": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "viewer",
+         "decision",
+         "promise",
+         "title",
+         "thumbnail"
+        ],
+        "properties": {
+         "viewer": {
+          "type": "string"
+         },
+         "decision": {
+          "type": "string"
+         },
+         "promise": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "thumbnail": {
+          "type": "string"
+         }
+        }
+       }
+      }
+     }
+    },
+    "strict": true
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 0
+   }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 669,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 1581,
+   "output_tokens_details": {
+    "reasoning_tokens": 1369
+   },
+   "total_tokens": 2250
+  },
+  "user": null,
+  "metadata": {}
+ },
+ "timedOut": false
+}

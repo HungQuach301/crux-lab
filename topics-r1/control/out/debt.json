@@ -1,0 +1,91 @@
+{
+ "pillar": "debt",
+ "quota": 2,
+ "model": "gpt-5.5",
+ "role": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+ "prompt": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets or rates; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Borrowing and debt (mortgages, refinancing, student loans, auto loans, credit cards, paying down debt)\n\nTask: propose 2 distinct episode topics in this pillar. Start from a decision that a specific group of viewers is facing, not from a statistic. A good topic is one where the answer could change what that viewer decides, or differs from what they would guess.\n\nWrite each topic as a card with exactly five fields:\n- viewer: who the episode is for, in terms the viewer would recognize as \"people like me\"; one sentence, at most 25 words.\n- decision: the yes/no or A-versus-B decision that viewer faces; one question ending with a question mark, at most 20 words.\n- promise: what the episode promises to answer, without giving away the answer; one sentence, at most 25 words.\n- title: the YouTube title, at most 60 characters including spaces.\n- thumbnail: one line: the main object in the image (at most 12 words), then \" / \", then the on-image text in double quotes (at most 4 words).\n\nCard rules (strict, checked by machine):\n- Numbers that identify the viewer are allowed only in viewer and decision: for example a year, the rate they pay or are offered, a loan term, an age, a loan or balance size, an income level.\n- promise, title and thumbnail may only repeat numbers that already appear in viewer or decision. No other numbers anywhere, in digits or in words (for example one, two, ten, half, double, twice, third, dozen, percent): no results such as savings, break-even points, shares of people or percentages of outcomes.\n- viewer and decision must not state a result (no \"saves\", \"loses\", \"break even\", \"comes out ahead\" next to a number).\n- No names of data sources, datasets, agencies, series codes, laws, acts, bills or code sections. Common account names are allowed: 401(k), 403(b), 457(b), IRA, Roth IRA, HSA, 529 plan.\n- The promise answers a question with data; it does not tell the viewer what to do and does not predict markets or rates.\n- One sentence per field.",
+ "kept": [
+  {
+   "card": {
+    "viewer": "Homeowners with a 7% mortgage quoted 6.5% and closing costs, unsure about refinancing.",
+    "decision": "Refinance the 7% mortgage to 6.5%, or keep the loan?",
+    "promise": "Using history, not a forecast, we'll model payments, closing costs, taxes, and moving patterns to test the refi choice.",
+    "title": "Should You Refinance Now?",
+    "thumbnail": "mortgage quote beside moving boxes / \"REFI OR KEEP?\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "viewer": "People carrying a $7,500 credit card balance at 24% who received a 0% transfer offer.",
+    "decision": "Take the 0% transfer with a 4% fee, or stay on the old card?",
+    "promise": "We'll simulate payoff calendars, fees, missed deadlines, and payment rules to test when the offer changes total cost.",
+    "title": "Is a Balance Transfer Worth It?",
+    "thumbnail": "credit cards beside a payoff calendar / \"TRANSFER OR PAY?\""
+   },
+   "call": 1
+  }
+ ],
+ "attempts": [
+  {
+   "call": 1,
+   "raw": "raw/debt-call1.json",
+   "seconds": 21.7,
+   "cards": [
+    {
+     "original": {
+      "viewer": "Homeowners with a 7% mortgage quoted 6.5% and closing costs, unsure about refinancing.",
+      "decision": "Refinance the 7% mortgage to 6.5%, or keep the loan?",
+      "promise": "Using history, not a forecast, we'll model payments, closing costs, taxes, and moving patterns to test the refi choice.",
+      "title": "Should You Refinance Now?",
+      "thumbnail": "mortgage quote beside moving boxes / \"REFI OR KEEP?\""
+     },
+     "normalized": {
+      "viewer": "Homeowners with a 7% mortgage quoted 6.5% and closing costs, unsure about refinancing.",
+      "decision": "Refinance the 7% mortgage to 6.5%, or keep the loan?",
+      "promise": "Using history, not a forecast, we'll model payments, closing costs, taxes, and moving patterns to test the refi choice.",
+      "title": "Should You Refinance Now?",
+      "thumbnail": "mortgage quote beside moving boxes / \"REFI OR KEEP?\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "viewer": "People carrying a $7,500 credit card balance at 24% who received a 0% transfer offer.",
+      "decision": "Take the 0% transfer with a 4% fee, or stay on the old card?",
+      "promise": "We'll simulate payoff calendars, fees, missed deadlines, and payment rules to test when the offer changes total cost.",
+      "title": "Is a Balance Transfer Worth It?",
+      "thumbnail": "credit cards beside a payoff calendar / \"TRANSFER OR PAY?\""
+     },
+     "normalized": {
+      "viewer": "People carrying a $7,500 credit card balance at 24% who received a 0% transfer offer.",
+      "decision": "Take the 0% transfer with a 4% fee, or stay on the old card?",
+      "promise": "We'll simulate payoff calendars, fees, missed deadlines, and payment rules to test when the offer changes total cost.",
+      "title": "Is a Balance Transfer Worth It?",
+      "thumbnail": "credit cards beside a payoff calendar / \"TRANSFER OR PAY?\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    }
+   ],
+   "model": "gpt-5.5-2026-04-23",
+   "usage": {
+    "input_tokens": 669,
+    "input_tokens_details": {
+     "cache_write_tokens": 0,
+     "cached_tokens": 0
+    },
+    "output_tokens": 1581,
+    "output_tokens_details": {
+     "reasoning_tokens": 1369
+    },
+    "total_tokens": 2250
+   },
+   "status": "completed"
+  }
+ ],
+ "complete": true
+}

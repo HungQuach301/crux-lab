@@ -1,0 +1,208 @@
+{
+ "request": {
+  "model": "gpt-5.5",
+  "instructions": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+  "input": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets or rates; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Retirement and long-term investing (saving for retirement, retirement accounts, Social Security timing, long-horizon investing through history)\n\nTask: propose 2 distinct episode topics in this pillar. Start from a decision that a specific group of viewers is facing, not from a statistic. A good topic is one where the answer could change what that viewer decides, or differs from what they would guess.\n\nWrite each topic as a card with exactly five fields:\n- viewer: who the episode is for, in terms the viewer would recognize as \"people like me\"; one sentence, at most 25 words.\n- decision: the yes/no or A-versus-B decision that viewer faces; one question ending with a question mark, at most 20 words.\n- promise: what the episode promises to answer, without giving away the answer; one sentence, at most 25 words.\n- title: the YouTube title, at most 60 characters including spaces.\n- thumbnail: one line: the main object in the image (at most 12 words), then \" / \", then the on-image text in double quotes (at most 4 words).\n\nCard rules (strict, checked by machine):\n- Numbers that identify the viewer are allowed only in viewer and decision: for example a year, the rate they pay or are offered, a loan term, an age, a loan or balance size, an income level.\n- promise, title and thumbnail may only repeat numbers that already appear in viewer or decision. No other numbers anywhere, in digits or in words (for example one, two, ten, half, double, twice, third, dozen, percent): no results such as savings, break-even points, shares of people or percentages of outcomes.\n- viewer and decision must not state a result (no \"saves\", \"loses\", \"break even\", \"comes out ahead\" next to a number).\n- No names of data sources, datasets, agencies, series codes, laws, acts, bills or code sections. Common account names are allowed: 401(k), 403(b), 457(b), IRA, Roth IRA, HSA, 529 plan.\n- The promise answers a question with data; it does not tell the viewer what to do and does not predict markets or rates.\n- One sentence per field.",
+  "reasoning": {
+   "effort": "medium"
+  },
+  "max_output_tokens": 6000,
+  "tools": [],
+  "store": false,
+  "text": {
+   "format": {
+    "type": "json_schema",
+    "name": "cards",
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "cards"
+     ],
+     "properties": {
+      "cards": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "viewer",
+         "decision",
+         "promise",
+         "title",
+         "thumbnail"
+        ],
+        "properties": {
+         "viewer": {
+          "type": "string"
+         },
+         "decision": {
+          "type": "string"
+         },
+         "promise": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "thumbnail": {
+          "type": "string"
+         }
+        }
+       }
+      }
+     }
+    },
+    "strict": true
+   }
+  }
+ },
+ "seconds": 8.2,
+ "status": 200,
+ "response": {
+  "id": "resp_05a523195952ac48016abda419299487d289aa8b65245b3fdd",
+  "object": "response",
+  "created_at": 1790813209,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790813217,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "model": "gpt-5.5-2026-04-23",
+  "moderation": null,
+  "output": [
+   {
+    "id": "rs_05a523195952ac48016abda419c29487d28aad0fe268ca785b",
+    "type": "reasoning",
+    "content": [],
+    "encrypted_content": "gAAAAABqvaQhCfUZn6kk3PQ6P-cUQpOcxEJOeb23M33Lw5Bqt8hBAPogu7nUsIhqO0cwRoT8mOGFOoMI7RDRGzOqyXAfkseSJpkuzBEmEz757I616b-SKqDbiIcEYi8Rt7iR24jFk5C5cg56sQ9l4yBTccq9GNUbpauWdigMJV5P_laWayfnC2IlyYmYnlqi9HBnBZdGA2aJ61jVl4Cqca5_VsvpilktxDNqTHqgrzNPNrrQs4GHn3N7hyDWtntJxXJIssoMqCfIhavGgaA5T03w3RZAE2FlFtwnnzVgdcGCyOTSizUjoG_VbAgCfHgAnCmYxgMOf70G01bR9bgddEemQtarQfLwQ-e52PwHbtWG6Hm9wrWi9VowieWvXWm9EEDkrt6DFdDGMVQ8pwSXV8uaWDbz0K9jxV9DSZNBoPFhJa2yFMoaWEI5s2qcV6xuOKatvc7nCY47hUQDmgYPoufk3544mrTRdAxnMyiIDAq1KUFIBqrEBKrl6lctWjwqQ4wzwTYqmqFZXTfCLaXJArdA4MNxmgLrS9Bkkjkb2N1Zg8bHnfeknMS32D4sNvx7IGtIz-rGiSv5oL_mfm8DRelnKhYTxZFV2IJ5s3P9YjK_XyrSF8Kn6QBNMm7G-KopplH-2fiMm2rrav8Xh6x6aE1PIlJaUVNQM2IO9xy4ZVPHurT0gWUMVjlEoNlXq7gFlXU3NuTadGvZQCwK9pwKo8X50YJipmiVdKNP6fe77t_Uw4OyKW5lM27w6AHSkEocdtkbTrs0E1LkCrReN5T6G3RLWotYG3IuvSpA-gMygzCkwvIKHOU4vcJO_b2VbV7md1XGn21sNNRrxksJsyvJ3ZJ6v_-eiISL_rBMd5v4SmTFDl60PfZccVpzRWYDnZQz-TyT5RnfKbTEmHu-ZYL7sp5erd-7kWkjxVlXimnhxgYgAXJNIs20J6Bb6B3vLExnSIqzOi0L67b2S1g-9mDgYnDdOpD13kHYD0xo6u147RyNNYKLfMXtd0h7xp-T-eWTghdlnR4aVce3wMG6oyvXht_65GYwsTsPDJ9wCBQLzXQR9uCpX7cdhJQNaS_OYyySpQYNQDlEYIfktzWbOM5lWTOo7fJABa8NoPOs1DXn1fNLS6NUdyB7pR16VlNjW6PsofvN8c-VWBo5RxY261rEqs3GcMxGBhIQPzuBbek1MVWYVm0pMs13hS8QKm4KPGmjH_8HM3wJX5KN0OFa_dfPtTreG7anSBJ56sJOJkEdpZTrO9hAUvG7e3lIaMg3fJuxv4AFJd4DjQCIhreiEV5sFEx1I2HtLN_Ru292qbrK1-wFR_DOWRwPYDrZRJS7b7XXd_oBHCoqpiBB5tBcaC5Try04-XEsJRadQIv3wWEUg1C1CPn35dc87YFpWcKc-bnknvoNxRrjQM8yiIgSuE5uFBOwRdZpRjZFoWwiFLGnyZMwibuvFsjduiCqKGRaPrrJBUnjvskSp4sfqWDVxo3sCzUzb-YZd8b1ryaVcc_I3j8p_Pg-nP98Q4Ed_HY-HI7Nn4GrxcJz727zUB79zdVSdeZUAbjqH3ipib2bCzTTCeG3ilQ1_O-dzFdXhBPIbru4yVpGIAaw7kGyXw0EGQB2Hs9uCY6DLP5uKOCqW5jdq0E2IR1P_XMg-qn7LSImKeqQlS0Cyntbk2hgoK7gri9PKmU7h76EeIErujqK6ulp8YF_17ZaLDLCaUC-fwIPmwR1Ft8WECd3RKKBPMu1k6ixtMER4uJTgtxoyo5F8KCguZ6O3-IyhXrbq2DL_aY9RYr5phyvwkrihK5eR8kALRDtzeAib20m-zVtfof3gOhz33S-erFQsu62YbokRWLuHE5L3sret-SwN_noLwrSvn3N2bHGNxxZ06i2a8fXT5ukT840kMU6H9Oq5jIDBsftxO1CcIWerUmUhSpvOCJhO-2hskB5L0PlpDxl5J6dw4k-ZZLB1AjZV2DlGL61z_BHbAEnxqCEtegVQim2QxkFmmFvmWpjfYzHpDOIvBxUMGPmnj9ky-sUDk8vpeaaFQ7x8SQCKdpgJraeD1SgL3BbFG3xps1WC8u8BXndpukJZShaYnmA_uInZodBKdxtOG83nMhfrB4_iHg4hWI3q5fHjRG8_UvRM6amr508S37_n-5shlOOY8unBqHgwJp8TcTq-uFD4UPL37NDStK9UDZ7rLbdGvLr0ymopnhqhW8rzKoQO0Xz4oInnAW48xJVIPvVQr-r9zh46CNDxuYoAsoNeKQ0LWI5o5CJB9MO_4E8vON8Cg9mXtmCFF-p2YlmAkc0-k2DiEOfQwJfwRk-66c9Z5JIWIaSoSVLyxzRl09-Zitf66-H57JYSxA9LHPC1OjbjeWiYq93pp-0dQ6-Q9rMbufGrmzh3r7wi7YEkhwJs3Ts8KuFgDgFp0PsLRALrtIYbehBKCrEd2LCWahhILHKahTXKzzSa59_yOPQ4lX7zkiCFok1ZvjdawlN-GdjlIxF8ntvG2wzvir2Sm37mg9vKNcfWOiPcZs0N7Aael_ziehLHWGCH1DGG1Kcf0rJhTJBAzp36UvOw8t9IZVBPIEevXqN7b1nBkf1wrcCkX3sFPA5wbovik9SvjSjYmyjyu840EUjdB6yV1eoUgvCOdAKbK9v1BiZsFAjnEkUmuTD4aOTgkLxiseX7hf2Ldz5_NOKzqdZmOi4L_Lus6CDIWWuoIBM9BP6b2OTpGlyKZv71kpPKzIUcIMxFraufBE2uD_knAjO4-zWmnqtJsYBtWqqUjVuj2xvXEq9mLQMvpkd1-Fb6PDfiKuvCD5mh5KlmtO9dbXuiMENmfNLyiMcL6nfXP4GenhaHA-2knuqy8QZ7RBOK6lDfpULjkTHNJMBy_R7nXLxS0xPuSaFDPH0XUcIpyPhjcVA0KZe3oJ4AREjqgPeK-fzBy1zNSDqlYGhl2TIcOwrf3SsVP_KHX9usdiVkywnsOFLeIjGIheRTzyf39uGfp9uKQzTeWrR2W5BZm5a95D3BRy2mI3-DLdYH-37WNFFqxJO_CBzuWujJkUsK8SzMs69e1nP2uMLCcI6nc1x0BvkusoJvinf9djWOGxQiZmpUCUaeHOQNnazQ88a-nD3UnSY40YJHpIbj-toBvPrvC-X-HhS-Wfp_JmGP0eFQBABzV_LHfvkm-AOQSuUsczrvEC5HjnsGmVb2ZziAEzRNIkSoL2MktIBaTlopidsyN4Xute5ZckwpznWXAUWGUU9NWTMXpOhs6uUZ8DIjIeUN9btnJSSjZdJsOtMZMuQZgbKpT64DZyxWhZg5HCHFAgg0m25geVJn5kQ8S2OEq6vwqGFdGLUgGEtXU7BpsmIKt5B4AMUsQQYzerSyjyuG277MYpYfNSj_LlgB2d-AMqSVGAuLqS3FdTYeKOuqyl_Zj3UTIN4iI50--q6qzrRhBXBCIT-_lyhZSXRVk2J0Gm71tCHEqIc-bHcWT-MEqtPiU88yZmvEPPmSJ81sgHVoxbe-EzU3O9s5iUfYypMA4bv9ZnLiaa8TOXNQ67Kt6gL6zSluzeO_mgAtVpmp_cpvJoL6msDrS803x9py2oO1a2MZtP5BKu6GOZbfro6-CoO0_xVultQ69f-ykXLlqX0VP-Wf0D7uhz2B0s26QzJpFHgjU2b_D12LeCY2CCRxBT4jB2aPveLdjXjyZEGVOOmD2kgYCm79b6-ui_UkZngE_c1iGA7gXI1X82e8jInplpsA076j1t3BuyqXmVpMYguH_v96GvTlCdQ31-PsofSi4f22PQP4w4Fq0X_XGEQFTkhXvH0mMd0kJyP0ZK94pdA4Vpwyuy0mf1AG0SCu7ecAB3zuUMu033KwEBeMBfezHX-P2goHEmRRSShuCjZFqhQKpciYf_OhJHtoRpU-4mAd2nJLynix8n9EdlH_mJFE2dxoRitVAhTk_MWe344CpgtA869NrwtEGMUg6-oHqmF-HO0wy2m8MPTdA2XsHRzStuwAIEdAVjQREOs69ffmjHHKHvpkC0AV0cs8uYP0XsW6jBDjSYV-oSf74_TXA6vCMDglBpJT5108sMyf_NccwH32pF5XSkgO9Pk_ZAyh_E9GDqe3__ygXVNsKuAQqCQZ6EVdmvSXTLTpWFFDoywGfrAXERvH8Br_vK3US71oTiSYgKHSFXYEJ2A7SfazPqyIG9DX2g74Jq7AZZ6CGNrSTx597MYC-bB4DJVRIglmNUmFqyvZg7jcHehi5t7UblEvbBHxP45Kh3DAGm1p6JJbVdTMHtxYUUfd5CgU7RgNLgZRph3bifZw5ZiG23yOEUeAoCDXkDpqPCYmYb32TwWqWPwwhgYDL6NAmZRsibZ9O0GKsLCn-5s3dyEC4rEtZgGRNeGhvowwuN4L-7228PG6fpaWjk92MniMdWBwH-yaPudMUyoDkuDML26azpqHpafGGjy7rPvJLkjxKiATaG84VAC98Y_hSXKdWfSBQeNpqiE5SuHUIMfg3QmGr1BritUAREza-EQ4LYHzOdUwJllRlaq9mH6Nq8XUTx5OdUd547R_oaSEZHi7ap7zMHR88YR",
+    "summary": []
+   },
+   {
+    "id": "msg_05a523195952ac48016abda41fe5b487d2bf03d1acf593a0c1",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [],
+      "logprobs": [],
+      "text": "{\"cards\":[{\"viewer\":\"Workers with a 401(k) match and high-interest credit card debt.\",\"decision\":\"Should you pause 401(k) contributions beyond the match to pay cards faster?\",\"promise\":\"We simulate the tradeoff using historical returns, payoff paths, and employer match rules.\",\"title\":\"Invest or Kill Debt First?\",\"thumbnail\":\"credit card beside retirement folder / \\\"DEBT OR INVEST?\\\"\"},{\"viewer\":\"People nearing retirement who can claim Social Security at 62, full retirement age, or 70.\",\"decision\":\"Should you claim Social Security early or wait?\",\"promise\":\"We compare lifetime spending paths under historical market returns and longevity assumptions.\",\"title\":\"Claim Social Security Early?\",\"thumbnail\":\"calendar and Social Security card / \\\"CLAIM OR WAIT?\\\"\"}]}"
+     }
+    ],
+    "phase": "final_answer",
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "json_schema",
+    "description": null,
+    "name": "cards",
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "cards"
+     ],
+     "properties": {
+      "cards": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "viewer",
+         "decision",
+         "promise",
+         "title",
+         "thumbnail"
+        ],
+        "properties": {
+         "viewer": {
+          "type": "string"
+         },
+         "decision": {
+          "type": "string"
+         },
+         "promise": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "thumbnail": {
+          "type": "string"
+         }
+        }
+       }
+      }
+     }
+    },
+    "strict": true
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 0
+   }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 670,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 683,
+   "output_tokens_details": {
+    "reasoning_tokens": 516
+   },
+   "total_tokens": 1353
+  },
+  "user": null,
+  "metadata": {}
+ },
+ "timedOut": false
+}

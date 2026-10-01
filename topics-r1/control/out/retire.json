@@ -1,0 +1,91 @@
+{
+ "pillar": "retire",
+ "quota": 2,
+ "model": "gpt-5.5",
+ "role": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+ "prompt": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets or rates; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Retirement and long-term investing (saving for retirement, retirement accounts, Social Security timing, long-horizon investing through history)\n\nTask: propose 2 distinct episode topics in this pillar. Start from a decision that a specific group of viewers is facing, not from a statistic. A good topic is one where the answer could change what that viewer decides, or differs from what they would guess.\n\nWrite each topic as a card with exactly five fields:\n- viewer: who the episode is for, in terms the viewer would recognize as \"people like me\"; one sentence, at most 25 words.\n- decision: the yes/no or A-versus-B decision that viewer faces; one question ending with a question mark, at most 20 words.\n- promise: what the episode promises to answer, without giving away the answer; one sentence, at most 25 words.\n- title: the YouTube title, at most 60 characters including spaces.\n- thumbnail: one line: the main object in the image (at most 12 words), then \" / \", then the on-image text in double quotes (at most 4 words).\n\nCard rules (strict, checked by machine):\n- Numbers that identify the viewer are allowed only in viewer and decision: for example a year, the rate they pay or are offered, a loan term, an age, a loan or balance size, an income level.\n- promise, title and thumbnail may only repeat numbers that already appear in viewer or decision. No other numbers anywhere, in digits or in words (for example one, two, ten, half, double, twice, third, dozen, percent): no results such as savings, break-even points, shares of people or percentages of outcomes.\n- viewer and decision must not state a result (no \"saves\", \"loses\", \"break even\", \"comes out ahead\" next to a number).\n- No names of data sources, datasets, agencies, series codes, laws, acts, bills or code sections. Common account names are allowed: 401(k), 403(b), 457(b), IRA, Roth IRA, HSA, 529 plan.\n- The promise answers a question with data; it does not tell the viewer what to do and does not predict markets or rates.\n- One sentence per field.",
+ "kept": [
+  {
+   "card": {
+    "viewer": "Workers with a 401(k) match and high-interest credit card debt.",
+    "decision": "Should you pause 401(k) contributions beyond the match to pay cards faster?",
+    "promise": "We simulate the tradeoff using historical returns, payoff paths, and employer match rules.",
+    "title": "Invest or Kill Debt First?",
+    "thumbnail": "credit card beside retirement folder / \"DEBT OR INVEST?\""
+   },
+   "call": 1
+  },
+  {
+   "card": {
+    "viewer": "People nearing retirement who can claim Social Security at 62, full retirement age, or 70.",
+    "decision": "Should you claim Social Security early or wait?",
+    "promise": "We compare lifetime spending paths under historical market returns and longevity assumptions.",
+    "title": "Claim Social Security Early?",
+    "thumbnail": "calendar and Social Security card / \"CLAIM OR WAIT?\""
+   },
+   "call": 1
+  }
+ ],
+ "attempts": [
+  {
+   "call": 1,
+   "raw": "raw/retire-call1.json",
+   "seconds": 8.2,
+   "cards": [
+    {
+     "original": {
+      "viewer": "Workers with a 401(k) match and high-interest credit card debt.",
+      "decision": "Should you pause 401(k) contributions beyond the match to pay cards faster?",
+      "promise": "We simulate the tradeoff using historical returns, payoff paths, and employer match rules.",
+      "title": "Invest or Kill Debt First?",
+      "thumbnail": "credit card beside retirement folder / \"DEBT OR INVEST?\""
+     },
+     "normalized": {
+      "viewer": "Workers with a 401(k) match and high-interest credit card debt.",
+      "decision": "Should you pause 401(k) contributions beyond the match to pay cards faster?",
+      "promise": "We simulate the tradeoff using historical returns, payoff paths, and employer match rules.",
+      "title": "Invest or Kill Debt First?",
+      "thumbnail": "credit card beside retirement folder / \"DEBT OR INVEST?\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    },
+    {
+     "original": {
+      "viewer": "People nearing retirement who can claim Social Security at 62, full retirement age, or 70.",
+      "decision": "Should you claim Social Security early or wait?",
+      "promise": "We compare lifetime spending paths under historical market returns and longevity assumptions.",
+      "title": "Claim Social Security Early?",
+      "thumbnail": "calendar and Social Security card / \"CLAIM OR WAIT?\""
+     },
+     "normalized": {
+      "viewer": "People nearing retirement who can claim Social Security at 62, full retirement age, or 70.",
+      "decision": "Should you claim Social Security early or wait?",
+      "promise": "We compare lifetime spending paths under historical market returns and longevity assumptions.",
+      "title": "Claim Social Security Early?",
+      "thumbnail": "calendar and Social Security card / \"CLAIM OR WAIT?\""
+     },
+     "violations": [],
+     "duplicate": false,
+     "kept": true
+    }
+   ],
+   "model": "gpt-5.5-2026-04-23",
+   "usage": {
+    "input_tokens": 670,
+    "input_tokens_details": {
+     "cache_write_tokens": 0,
+     "cached_tokens": 0
+    },
+    "output_tokens": 683,
+    "output_tokens_details": {
+     "reasoning_tokens": 516
+    },
+    "total_tokens": 1353
+   },
+   "status": "completed"
+  }
+ ],
+ "complete": true
+}
