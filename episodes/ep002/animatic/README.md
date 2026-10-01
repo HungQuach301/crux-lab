@@ -58,6 +58,6 @@ Màu `ink` (nhãn cột giữ `ink-muted`); không số; không câu khuyên/d�
 | KEY-6 (S08) | "Worst replay: variable vs fixed interest" | 64 | 6 | 2,0 | 60,3 | dòng dưới, cả S08 (giữ "Starting April 1977", "43% more") |
 | KEY-7 (S09.2–S10.3, S10.5–6, S12.1, S12.4) | "Share of starts that cost more" | 48 (note) | 6 | 2,0 | 47,9 (S09) + 25,5 + 28,4 (S10) + 13,2 + 8,2 (S12) | tiêu đề trên hai cột |
 | KEY-7 | "Bigger head start →" | 54 (label) | 3 | 1,0 | như trên | trái hai cột, mũi tên chỉ vào cột |
-| KEY-7 | nhãn nửa: "before 1981" / "1981 on" | 54, `ink-muted` | 2 / 2 | 0,7 | như trên | dưới từng cột (trước là "from 1981") |
+| KEY-7 | nhãn nửa: "1954–1980" / "1981 on" (CL `period_early_label` / `period_late`) | 54, `ink-muted` | 1 / 2 | 0,7 | như trên | dưới từng cột (trước là "before 1981" / "from 1981") |
 
-Ghi chú: (1) Nửa trái ghi "before 1981", không ghi "1954–1980": số 1980 không có trong `display` của claim nào (chỉ có trong formula của `n_early`), nên không thể qua CL(); cần một claim hiển thị "1954–1980" nếu muốn đúng chữ đề xuất. (2) Để nhãn có mặt suốt KEY-7, toàn bộ hình K7 nay vẽ bằng `lib.k7Clip`/`k7At`: chép mã `k7.js`, cùng lịch khe và độ mờ nhãn, cộng thêm các nhãn mới. Clip `k7.js` đã ký không đổi. (3) Lời nhắc KEY-5 ở S11 không có hình K5, nên không gắn nhãn ở đó.
+Ghi chú: (1) "1954–1980" qua claim phụ `period_early_label` (cha `n_early`), "1981 on" qua `period_late`. (2) Để nhãn có mặt suốt KEY-7, toàn bộ hình K7 nay vẽ bằng `lib.k7Clip`/`k7At`: chép mã `k7.js`, cùng lịch khe và độ mờ nhãn, cộng thêm các nhãn mới. Clip `k7.js` đã ký không đổi. (3) Lời nhắc KEY-5 ở S11 không có hình K5, nên không gắn nhãn ở đó.

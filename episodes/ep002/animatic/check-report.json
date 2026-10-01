@@ -10,7 +10,7 @@
   "badgeMissingFrames": 0,
   "anchorsUnused": 0,
   "keywordsMissing": 0,
-  "wallSeconds": 2562.0,
+  "wallSeconds": 2493.9,
   "filmSeconds": 585.6
  },
  "methodCard": {
@@ -348,6 +348,8 @@
     "gap_start",
     "n_early",
     "n_late",
+    "period_early_label",
+    "period_late",
     "spread2_share",
     "spread3_share"
    ],
@@ -356,6 +358,8 @@
     "0",
     "1.5",
     "10.5",
+    "1954",
+    "1980",
     "1981",
     "4.5",
     "8.8",
@@ -378,8 +382,8 @@
    "keywordsMissing": [],
    "frames": 1662,
    "checkFrames": 287,
-   "wallSeconds": 239.8,
-   "machineSecPerFilmSec": 4.33,
+   "wallSeconds": 229.2,
+   "machineSecPerFilmSec": 4.14,
    "hardTime": 31.2
   },
   "S10": {
@@ -392,6 +396,8 @@
     "min_gap_early",
     "n_early",
     "n_late",
+    "period_early_label",
+    "period_late",
     "spread0_share",
     "spread1_share",
     "spreadm1_share",
@@ -401,7 +407,9 @@
    "numberTokens": [
     "0",
     "10.5",
+    "1954",
     "1977",
+    "1980",
     "1981",
     "31.3",
     "57.9",
@@ -426,8 +434,8 @@
    "keywordsMissing": [],
    "frames": 2020,
    "checkFrames": 345,
-   "wallSeconds": 290.8,
-   "machineSecPerFilmSec": 4.32,
+   "wallSeconds": 273.6,
+   "machineSecPerFilmSec": 4.06,
    "hardTime": 0.8
   },
   "S11": {
@@ -481,12 +489,16 @@
     "gap30_early",
     "gap_start",
     "n_early",
-    "n_late"
+    "n_late",
+    "period_early_label",
+    "period_late"
    ],
    "strings": 17,
    "numberTokens": [
     "1.5",
     "10.5",
+    "1954",
+    "1980",
     "1981",
     "9"
    ],
@@ -507,8 +519,8 @@
    "keywordsMissing": [],
    "frames": 1187,
    "checkFrames": 204,
-   "wallSeconds": 208.9,
-   "machineSecPerFilmSec": 5.28,
+   "wallSeconds": 168.6,
+   "machineSecPerFilmSec": 4.26,
    "hardTime": 0
   },
   "S13": {

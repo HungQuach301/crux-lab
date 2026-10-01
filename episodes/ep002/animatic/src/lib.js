@@ -181,7 +181,7 @@ export function k7At(ctx, o) {
     H2.srect(ctx, x, CT, CWd, CHt, clear ? C.ink : C.grid, clear ? 6 : 4, a);
     H2.negArea(ctx, x + 6, CB - h, CWd - 12, h, a * (half === 'early' ? pul : 1), 26);
     H2.line(ctx, [[x - 20, CB], [x + CWd + 20, CB]], C.muted, 6, { cap: 'butt', alpha: a });
-    H2.USED.add(cid); H2.text(ctx, lab, x + CWd / 2, CB + 74, 'label', { align: 'center', color: C.muted, alpha: a });
+    H2.USED.add(cid); H2.text(ctx, CL(half === 'early' ? 'period_early_label' : 'period_late'), x + CWd / 2, CB + 74, 'label', { align: 'center', color: C.muted, alpha: a });
     if (o.ring && o.ring[0] === half && o.ring[1] > 0) H2.srect(ctx, x - 6, CB - h - 10, CWd + 12, h + 10, C.ink, 5, o.ring[1]);
   }
   // owner C4c (a): meaning labels (no numbers): what the columns count, and which way the knob goes

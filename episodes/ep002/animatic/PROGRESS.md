@@ -43,3 +43,7 @@
 - 01/10 14:22 S04 dựng xong: S04 wall 263 s x 5.25 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
 - 01/10 14:24 S08 dựng xong: S08 wall 320 s x 5.23 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":20.3,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
 - 01/10 14:25 C4c (a): nhãn nghĩa KEY-2/5/6/7 (README bảng nhãn); K7 vẽ qua k7Clip/k7At; dựng lại S03/S04/S08/S09/S10/S12, mọi dải, check ALL OK (0 số ngoài claim), phim 20,2/10,7 MB, độ dài không đổi 585,6 s.
+- 01/10 14:29 S12 dựng xong: S12 wall 169 s x 4.26 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 14:30 S09 dựng xong: S09 wall 229 s x 4.14 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 14:31 S10 dựng xong: S10 wall 274 s x 4.06 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 14:33 Nhãn cột KEY-7: CL('period_early_label') '1954–1980' / CL('period_late') '1981 on'; dựng lại S09/S10/S12, dải, phim; check ALL OK.

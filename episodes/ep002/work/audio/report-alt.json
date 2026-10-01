@@ -1,0 +1,92 @@
+{
+ "master": {
+  "I": -14.1,
+  "LRA": 3.1,
+  "TP": -1.5
+ },
+ "voiceOverMusicDb_A07": 19.96,
+ "limiterMinGainDb": -2.33,
+ "wordDips": [
+  {
+   "sentence": "S02.2",
+   "word": "leah",
+   "t": 39.797,
+   "end": 40.557,
+   "db": -8.0
+  }
+ ],
+ "silences": [
+  {
+   "t": 26.148,
+   "end": 26.999,
+   "dur": 0.851,
+   "after": "S01.3",
+   "before": "S02.1",
+   "why": "after the cold-open question (title card)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 176.002,
+   "end": 176.95,
+   "dur": 0.948,
+   "after": "S04.6",
+   "before": "S05.1",
+   "why": "after \"history, not a forecast\", before the first results",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 222.82,
+   "end": 224.526,
+   "dur": 1.707,
+   "after": "S05.5",
+   "before": "S06.1",
+   "why": "ad break (out/adbreaks.json)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 223.593
+  },
+  {
+   "t": 321.035,
+   "end": 322.204,
+   "dur": 1.169,
+   "after": "S07.7",
+   "before": "S08.1",
+   "why": "before the worst stretch",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 381.935,
+   "end": 383.369,
+   "dur": 1.435,
+   "after": "S08.8",
+   "before": "S09.1",
+   "why": "after the worst stretch, before the line",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 382.524
+  },
+  {
+   "t": 505.215,
+   "end": 506.171,
+   "dur": 0.956,
+   "after": "S10.7",
+   "before": "S11.1",
+   "why": "after the answer, before \"How we know this\"",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 565.911,
+   "end": 566.92,
+   "dur": 1.009,
+   "after": "S12.4",
+   "before": "S12.5",
+   "why": "before the last line, \"History, not a forecast\"",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  }
+ ]
+}
