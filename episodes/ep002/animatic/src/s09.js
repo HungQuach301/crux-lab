@@ -2,7 +2,7 @@
 // signed K7 r2 clip time-warped (no sweep back, ends on the widest gap). Unspoken S09.5/S09.6 shares (8.8%, 4.5%) are not
 // shown as overall shares ('of all starts') in the same K7 r2 layout (lib.k7At, the k7.js code with the gap given), one at a time.
 import { ease, inout, mix, warp, shots } from './film.js';
-import { k7At, overall } from './lib.js';
+import { k7At, k7Clip, overall } from './lib.js';
 import * as K2 from '../../design/c3/final/src/k2.js';
 import * as K7 from '../../design/c3/final/src/k7.js';
 export function build({ T }) {
@@ -16,5 +16,5 @@ export function build({ T }) {
     overall(ctx, 'spread2_share', inout(t, e20 + 0.3, e20 + 0.7, th - 0.6, th - 0.3));
     overall(ctx, 'spread3_share', inout(t, th + 1.1, th + 1.5, tf - 0.5, tf - 0.2));
   }
-  return { draw(ctx, t) { shots(ctx, t, [[0, (c) => K2.draw(c, 2.9)], [c, (c, t) => (t < e20 ? K7.draw(c, k7(t)) : held(c, t))]]); } };
+  return { draw(ctx, t) { shots(ctx, t, [[0, (c) => K2.draw(c, 2.9)], [c, (c, t) => (t < e20 ? k7Clip(c, k7(t)) : held(c, t))]]); } };
 }

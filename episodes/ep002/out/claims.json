@@ -203,7 +203,6 @@
     "S04",
     "S05",
     "S09",
-    "S10",
     "S12"
    ],
    "spoken": [
@@ -2895,6 +2894,28 @@
      "scene": "S10"
     }
    ],
+   "callbacks": []
+  },
+  {
+   "claimId": "period_early_label",
+   "value": "1954-01..1980-12",
+   "display": "1954–1980",
+   "parent": "n_early",
+   "formula": "screen label of period_early (C4c owner wording \"1954–1980\"): same start months 1954-01..1980-12 (n_early)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    1980
+   ],
+   "historical": true,
+   "illustrative": false,
+   "kind": "model",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [],
    "callbacks": []
   },
   {

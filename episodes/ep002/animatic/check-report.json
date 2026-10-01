@@ -10,7 +10,7 @@
   "badgeMissingFrames": 0,
   "anchorsUnused": 0,
   "keywordsMissing": 0,
-  "wallSeconds": 2304.6,
+  "wallSeconds": 2562.0,
   "filmSeconds": 585.6
  },
  "methodCard": {
@@ -114,7 +114,7 @@
     "var_first_payment",
     "var_start"
    ],
-   "strings": 10,
+   "strings": 12,
    "numberTokens": [
     "1.5",
     "10",
@@ -141,8 +141,8 @@
    "keywordsMissing": [],
    "frames": 1785,
    "checkFrames": 310,
-   "wallSeconds": 211.3,
-   "machineSecPerFilmSec": 3.55,
+   "wallSeconds": 256.1,
+   "machineSecPerFilmSec": 4.3,
    "hardTime": 14.875
   },
   "S04": {
@@ -153,7 +153,7 @@
     "fixed_rate",
     "gap_start"
    ],
-   "strings": 11,
+   "strings": 12,
    "numberTokens": [
     "1.5",
     "10",
@@ -178,8 +178,8 @@
    "keywordsMissing": [],
    "frames": 1504,
    "checkFrames": 262,
-   "wallSeconds": 220.1,
-   "machineSecPerFilmSec": 4.39,
+   "wallSeconds": 263.2,
+   "machineSecPerFilmSec": 5.25,
    "hardTime": 18.2
   },
   "S05": {
@@ -309,7 +309,7 @@
     "worst_share_of_fixed",
     "worst_start"
    ],
-   "strings": 10,
+   "strings": 11,
    "numberTokens": [
     "19.3",
     "1954",
@@ -326,7 +326,7 @@
    "lowContrast": [],
    "minTextToGraphicPx720": 8.3,
    "textCloserThan4px": [],
-   "minTextToTextPx720": 71.1,
+   "minTextToTextPx720": 20.3,
    "badgeMissingFrames": 0,
    "badgeMissingAt": [],
    "anchorsDeclared": 11,
@@ -335,8 +335,8 @@
    "keywordsMissing": [],
    "frames": 1837,
    "checkFrames": 319,
-   "wallSeconds": 216.8,
-   "machineSecPerFilmSec": 3.54,
+   "wallSeconds": 320,
+   "machineSecPerFilmSec": 5.23,
    "hardTime": 45.4
   },
   "S09": {
@@ -351,7 +351,7 @@
     "spread2_share",
     "spread3_share"
    ],
-   "strings": 12,
+   "strings": 14,
    "numberTokens": [
     "0",
     "1.5",
@@ -367,7 +367,7 @@
    "minCapPxAt25pct": 8.7,
    "minContrast": 7.5,
    "lowContrast": [],
-   "minTextToGraphicPx720": 12.3,
+   "minTextToGraphicPx720": 10,
    "textCloserThan4px": [],
    "minTextToTextPx720": 12.6,
    "badgeMissingFrames": 0,
@@ -378,8 +378,8 @@
    "keywordsMissing": [],
    "frames": 1662,
    "checkFrames": 287,
-   "wallSeconds": 237.9,
-   "machineSecPerFilmSec": 4.29,
+   "wallSeconds": 239.8,
+   "machineSecPerFilmSec": 4.33,
    "hardTime": 31.2
   },
   "S10": {
@@ -388,7 +388,6 @@
     "fixed_rate",
     "gap20_late",
     "gap30_early",
-    "gap_start",
     "gap_worst_start_all",
     "min_gap_early",
     "n_early",
@@ -398,7 +397,7 @@
     "spreadm1_share",
     "var_start"
    ],
-   "strings": 15,
+   "strings": 17,
    "numberTokens": [
     "0",
     "10.5",
@@ -427,8 +426,8 @@
    "keywordsMissing": [],
    "frames": 2020,
    "checkFrames": 345,
-   "wallSeconds": 284.2,
-   "machineSecPerFilmSec": 4.22,
+   "wallSeconds": 290.8,
+   "machineSecPerFilmSec": 4.32,
    "hardTime": 0.8
   },
   "S11": {
@@ -484,7 +483,7 @@
     "n_early",
     "n_late"
    ],
-   "strings": 15,
+   "strings": 17,
    "numberTokens": [
     "1.5",
     "10.5",
@@ -497,7 +496,7 @@
    "minCapPxAt25pct": 8.7,
    "minContrast": 7.5,
    "lowContrast": [],
-   "minTextToGraphicPx720": 99,
+   "minTextToGraphicPx720": 10,
    "textCloserThan4px": [],
    "minTextToTextPx720": 12.6,
    "badgeMissingFrames": 0,
@@ -508,8 +507,8 @@
    "keywordsMissing": [],
    "frames": 1187,
    "checkFrames": 204,
-   "wallSeconds": 151.1,
-   "machineSecPerFilmSec": 3.82,
+   "wallSeconds": 208.9,
+   "machineSecPerFilmSec": 5.28,
    "hardTime": 0
   },
   "S13": {

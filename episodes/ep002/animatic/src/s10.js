@@ -6,7 +6,7 @@
 import { H2, C, CL, ease, inout, mix, warp, shots } from './film.js';
 import * as K1 from '../../design/c3/final/src/k1.js';
 import * as K7 from '../../design/c3/final/src/k7.js';
-import { ridgeToday, k7At, overall } from './lib.js';
+import { ridgeToday, k7At, k7Clip, overall } from './lib.js';
 export function build({ T }) {
   const tQ = T.a('q'), t2 = T.a('two'), tL = T.a('late'), tT = T.a('today');
   const J = [[T.a('j1'), 1, 'spread1_share', ['gap10_early', 'gap10_late', 'gap10_worst']], [T.a('j0'), 0, 'spread0_share', ['gap00_early', 'gap00_late', 'gap00_worst']],
@@ -35,5 +35,5 @@ export function build({ T }) {
     }
   }
   return { draw(ctx, t) { shots(ctx, t, [[0, steps], [tQ, (c) => K1.draw(c, 8)], [t2, (c, t) => k7At(c, { g: 3, l105: 1, pulse: pulse(t) })],
-    [tL, (c, t) => K7.draw(c, k7(t))], [tT, (c, t) => ridgeToday(c, ease(t, tT, tT + 0.5))]]); } };
+    [tL, (c, t) => k7Clip(c, k7(t))], [tT, (c, t) => ridgeToday(c, ease(t, tT, tT + 0.5))]]); } };
 }

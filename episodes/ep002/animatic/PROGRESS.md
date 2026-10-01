@@ -36,3 +36,10 @@
 - 01/10 13:46 S09 dựng xong: S09 wall 238 s x 4.29 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
 - 01/10 13:47 S10 dựng xong: S10 wall 284 s x 4.22 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
 - 01/10 13:49 Script v5.2: take mới S04/S09/S10; timing lại (S04 50,13 · S09 55,40 · S10 67,33 · tổng 585,6 s), neo S04 k2b đổi từ khoá; dựng lại S04/S09/S10, dải (KEY-7 khung 6 ở 3 điểm), check ALL OK, phim 19,2/9,8 MB.
+- 01/10 14:17 S09 dựng xong: S09 wall 240 s x 4.33 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 14:18 S03 dựng xong: S03 wall 256 s x 4.3 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 14:18 S10 dựng xong: S10 wall 291 s x 4.32 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 14:21 S12 dựng xong: S12 wall 209 s x 5.28 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 14:22 S04 dựng xong: S04 wall 263 s x 5.25 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 14:24 S08 dựng xong: S08 wall 320 s x 5.23 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":20.3,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 14:25 C4c (a): nhãn nghĩa KEY-2/5/6/7 (README bảng nhãn); K7 vẽ qua k7Clip/k7At; dựng lại S03/S04/S08/S09/S10/S12, mọi dải, check ALL OK (0 số ngoài claim), phim 20,2/10,7 MB, độ dài không đổi 585,6 s.

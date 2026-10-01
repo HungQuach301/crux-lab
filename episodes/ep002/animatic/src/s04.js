@@ -11,7 +11,7 @@ export function build({ T }) {
   const tOnly = T.a('k5only'), cC = T.a('cutCoins'), tP = T.a('piles'), tW = T.a('worst'), c2 = T.a('cutK2'), cK = T.a('cutCard'), cR = T.a('cutRidge');
   const k2 = warp([[0, c2 + 0.05], [0.6, T.a('k2a')], [0.8, T.a('k2a') + 0.2], ...around(2.0, T.a('k2b')), ...around(3.6, T.a('k2c')), ...around(5.2, T.a('k2d')), [8.0, T.a('k2d') + 2.8]]);
   const FI = 26005.46, WD = 11218.65, SC = 380 / FI; // = claims fixed_int, worst_diff (values, not printed)
-  function replay(ctx, t) { K5.draw(ctx, k5(t)); H2.text(ctx, 'US only', 1824, 1000, 'label', { align: 'right', alpha: ease(t, tOnly, tOnly + 0.4) }); }
+  function replay(ctx, t) { K5.draw(ctx, k5(t)); H2.text(ctx, "Leah's loan, replayed from every start month", 96, 1000, 'caption', { alpha: ease(t, 0.4, 0.9) }); H2.text(ctx, 'US only', 1824, 1000, 'label', { align: 'right', alpha: ease(t, tOnly, tOnly + 0.4) }); }
   function piles(ctx, t) {
     const g = ease(t, tP, tP + 1.0), r = ease(t, tW, tW + 1.0), base = 840;
     coins(ctx, 760, base, 380 * g, C.muted, ease(t, tP, tP + 0.2), 200, 20);

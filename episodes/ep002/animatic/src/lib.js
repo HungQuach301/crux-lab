@@ -1,7 +1,7 @@
 // Shared drawing for the C4 animatic scenes that are NOT one of the seven signed key clips. No new style: every function
 // here is copied from the signed code (design/c3/final/src: k1.js/k2.js offer card + person, k4.js jar run; h3/scenes.js
 // ridge, 10-year frame, cell strip, split line, year labels, ring, jar) and draws with the signed engines' primitives.
-import { H2, H3, C, W, H, CL, mix, clamp, ease, lin } from './film.js';
+import { H2, H3, C, W, H, CL, mix, clamp, ease, lin, inout } from './film.js';
 
 // ---------- KEY-1/KEY-2 motif (k1.js / k2.js): offer card with folded corner, person with the diamond cut-out ----------
 export const CARD = { CW: 680, CH: 470, CY: 196, LX: 130, RX: 1920 - 130 - 680 };
@@ -153,7 +153,7 @@ export function cushionOf(i) {
 const GS7 = [-1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3];
 export const share7 = (g, half) => { const i = Math.max(0, Math.min(GS7.length - 2, Math.floor((g + 1) / 0.5 + 1e-9))), f = clamp((g - GS7[i]) / 0.5);
   return mix(H2.DATA.gap[String(GS7[i])][half], H2.DATA.gap[String(GS7[i + 1])][half], f); };
-export const K7G = { KX0: 760, KX1: 1400, FY: 132, BHt: 24, PP: 56, COLS: [['early', 690, 'n_early', 'before 1981'], ['late', 1130, 'n_late', 'from 1981']], CWd: 340, CT: 430, CB: 950 };
+export const K7G = { KX0: 760, KX1: 1400, FY: 132, BHt: 24, PP: 56, COLS: [['early', 690, 'n_early', 'before 1981'], ['late', 1130, 'n_late', '1981 on']], CWd: 340, CT: 430, CB: 950 };
 // o: g (gap drawn), gc (gap used for the columns, default g), sx (flip of the variable bar, 1 = flat), a, l15/l0/l105 (alphas of
 // the signed labels '1.5 points', '0%', '10.5%'), pulse (0..1 alpha dip of the red layers), ring: [half, alpha] ring on a red layer
 export function k7At(ctx, o) {
@@ -184,12 +184,22 @@ export function k7At(ctx, o) {
     H2.USED.add(cid); H2.text(ctx, lab, x + CWd / 2, CB + 74, 'label', { align: 'center', color: C.muted, alpha: a });
     if (o.ring && o.ring[0] === half && o.ring[1] > 0) H2.srect(ctx, x - 6, CB - h - 10, CWd + 12, h + 10, C.ink, 5, o.ring[1]);
   }
+  // owner C4c (a): meaning labels (no numbers): what the columns count, and which way the knob goes
+  const ta = (o.titles ?? 1) * a;
+  H2.text(ctx, 'Share of starts that cost more', (690 + 1470) / 2, 410, 'note', { align: 'center', alpha: ta });
+  H2.text(ctx, 'Bigger head start →', 96, 470, 'label', { alpha: ta });
   if (o.l0) H2.text(ctx, CL('gap20_late'), 1130 + CWd / 2, CT + CHt / 2, 'number', { align: 'center', alpha: o.l0 });
   if (o.l105) H2.text(ctx, CL('gap30_early'), 690 + CWd / 2, CB - CHt * 0.105 - 54, 'number', { align: 'center', alpha: o.l105 });
   H2.badge(ctx, a);
 }
 // an overall share (both periods together), left of the columns: number + 'of all starts'
-export function overall(ctx, id, al) { if (al <= 0.02) return; H2.text(ctx, CL(id), 96, 640, 'number', { alpha: al }); H2.text(ctx, 'of all starts', 96, 730, 'caption', { color: C.muted, alpha: al }); }
+export function overall(ctx, id, al) { if (al <= 0.02) return; H2.text(ctx, CL(id), 96, 760, 'number', { alpha: al }); H2.text(ctx, 'of all starts', 96, 850, 'caption', { color: C.muted, alpha: al }); }
+// the signed K7 r2 clip's own gap schedule and label alphas (k7.js), so the whole KEY-7 can be drawn by k7At with the labels
+const KEYS7 = [[0, 0], [1.0, 0], [2.0, 1], [2.8, 1], [3.4, 1.5], [4.4, 1.5], [5.0, 2], [5.9, 2], [6.4, 2.5], [7.0, 2.5], [7.6, 3], [10, 3]];
+export function k7Clip(ctx, c, o = {}) {
+  let g = 3; for (let i = 0; i < KEYS7.length - 1; i++) { const [p, va] = KEYS7[i], [q, vb] = KEYS7[i + 1]; if (c <= q) { g = mix(va, vb, ease(c, p, q)); break; } }
+  k7At(ctx, { g, a: ease(c, 0, 0.4), l15: inout(c, 3.4, 3.7, 4.3, 4.6), l0: inout(c, 5.0, 5.3, 6.1, 6.3), l105: ease(c, 7.7, 8.0), ...o });
+}
 // per-half figures + worst at one gap: early% left of the left column, late% right of the right column, worst under the early one
 export function halves(ctx, ide, idl, idw, al) {
   if (al <= 0.02) return;

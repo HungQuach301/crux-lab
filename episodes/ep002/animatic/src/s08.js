@@ -11,6 +11,8 @@ export function build({ T }) {
   const cC = T.a('cutCap'), tC = T.a('cap');
   const i = WORST, v = V({ m0: i - 22, m1: i + 126, Yt: 230, Yb: 860, X0: 96, X1: 1320 }), S = 330 / 26005.46;
   const W0 = 11218.65, W15 = val('cap15_worst'), W12 = val('cap12_worst');
+  // owner C4c (a): what this picture is (bottom line, under the zoomed frame)
+  function worstLabel(ctx, t) { H2.text(ctx, 'Worst replay: variable vs fixed interest', 96, 990, 'caption', { alpha: ease(t, 0.4, 0.9) }); }
   function cap(ctx, t) {
     ridge(ctx, v, { alpha: 0.2, to: i }); ridge(ctx, v, { from: i, to: i + 120, alpha: 1 });
     const f = frame(ctx, v, i, { ride: 120, tlw: 6, rlw: 7, br: 22 });
@@ -25,5 +27,5 @@ export function build({ T }) {
     H2.text(ctx, 'Starting ' + CL('worst_start'), 96, 140, 'caption');
     H2.badge(ctx, 1);
   }
-  return { draw(ctx, t) { shots(ctx, t, [[0, (c, t) => K6.draw(c, k6(t))], [cC, cap]]); } };
+  return { draw(ctx, t) { shots(ctx, t, [[0, (c, t) => { K6.draw(c, k6(t)); worstLabel(c, t); }], [cC, (c, t) => { cap(c, t); worstLabel(c, t); }]]); } };
 }

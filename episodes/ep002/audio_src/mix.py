@@ -306,6 +306,12 @@ def harmony(bars):
                 prev = seq[-1][1] if seq and seq[-1][0] == key else TONIC[key][0]
                 opts = MARKOV[key][prev]
                 c = opts[rng.integers(0, len(opts))]
+                if VARIANT == 'alt' and attempt < 100:
+                    # alt: among the Markov options, prefer the chord sharing the fewest tones with the last two (more harmonic contrast per bar)
+                    pcs_ = lambda n: {p % 12 for p in chord_pcs(*CHORDS[key][n])[1]}
+                    recent = set().union(*[pcs_(x[1]) for x in seq[-2:] if x[0] == key]) if seq else set()
+                    sc_ = {o: len(pcs_(o) & recent) + rng.random() * 1.2 for o in opts}
+                    c = min(opts, key=lambda o: sc_[o])
             cand = [s[1] for s in seq] + [c]
             if len(cand) >= 4:
                 w = cand[-4:]
@@ -429,6 +435,14 @@ OST16 = [[0, 2, 3, 6, 8, 10, 11, 14], [0, 3, 6, 8, 9, 11, 14, 15], [0, 2, 3, 6, 
          [0, 2, 3, 5, 6, 8, 11, 14]]
 ACC16 = {0, 3, 6, 8, 11, 14}
 SHAPES = ['up', 'down', 'updown', 'broken', 'pedal']
+# --music alt (owner C6: same style C, same instruments and tempo, less repetition): every bar draws its own thump, bass and ostinato rhythm
+# from wider sets (16th-step positions), never the same pair two bars running; the default arrangement is untouched (separate RNG).
+VARIANT = 'default'
+ALT_SEED = 29
+ALT_HALF = 0.0
+ALT_THUMP = [[0, 4, 8, 12], [0, 8], [0, 6, 8, 12], [0, 8, 10], [0, 3, 8, 14], [0, 4, 8, 11, 12]]
+ALT_BASS = [[0, 2, 4, 6, 8, 10, 12, 14], [0, 6, 8, 14], [0, 4, 8, 12], [0, 3, 6, 8, 11, 14], [0, 8, 10], [0, 2, 6, 8, 10, 14]]
+ALT_OST = OST16 + [[0, 4, 6, 10, 12], [0, 1, 2, 4, 8, 9, 10, 12], [2, 3, 6, 7, 10, 11, 14, 15], [0, 3, 6, 9, 12, 15], [0, 2, 4, 7, 8, 12, 13]]
 
 
 def _contour(shape, tones, k):
@@ -453,6 +467,9 @@ def render_music(tl, bars, seq, pauses, no_accent):
     motif_k = 0
     prev_voicing = None
     prev_fig = None
+    alt = VARIANT == 'alt'
+    ra = np.random.default_rng(ALT_SEED)
+    prev_alt = None
     v_lo, v_hi, v_top = 50, 61, 72
     for bi, (b, (key, cname)) in enumerate(zip(bars, seq)):
         sec = SECTION[b['scene']]
@@ -480,10 +497,36 @@ def render_music(tl, bars, seq, pauses, no_accent):
         bright = {'cold': 520, 'promise': 650, 'curious': 900, 'build1': 1000, 'build2': 1250, 'release': 1400, 'answer': 1000, 'thin': 600,
                   'resolve': 900}[sec] * 1.25
         pv = {'thin': 0.16, 'cold': 0.18}.get(sec, 0.2) * 0.8 * rng.uniform(0.92, 1.06)
-        add(dry, b['t0'], pad(hz(vo if sec != 'thin' else vo[:3]), dur + 0.7, pv, bright), 0.0)
+        half, drop = None, False
+        if alt:
+            for _ in range(20):
+                ch = (int(ra.integers(0, len(ALT_THUMP))), int(ra.integers(0, len(ALT_BASS))), int(ra.integers(0, len(ALT_OST))))
+                if prev_alt is None or (ch[0] != prev_alt[0] and ch[1] != prev_alt[1] and ch[2] != prev_alt[2]):
+                    break
+            prev_alt = ch
+            drop = sec not in ('cold', 'thin', 'resolve') and b['i'] % 4 == 3 and ra.random() < 0.5   # breath bar: no thump, no bass
+            half = None
+            if b['beats'] == 4 and ra.random() < ALT_HALF:      # a second chord on beat 3 (from the same key's Markov walk)
+                opts = MARKOV[key][cname]
+                hn = opts[int(ra.integers(0, len(opts)))]
+                hr, hp = chord_pcs(*CHORDS[key][hn])
+                half = (hr, [p % 12 for p in hp])
+        if alt and half and sec != 'thin':
+            hv = [min(range(v_lo, v_top + 1), key=lambda m_: abs(m_ - a) + (0 if m_ % 12 in half[1] else 99)) for a in vo]
+            add(dry, b['t0'], pad(hz(vo), 2 * beat + 0.5, pv, bright), 0.0)
+            add(dry, b['t0'] + 2 * beat, pad(hz(hv), dur - 2 * beat + 0.7, pv, bright), 0.0)
+        else:
+            add(dry, b['t0'], pad(hz(vo if sec != 'thin' else vo[:3]), dur + 0.7, pv, bright), 0.0)
         lift = {'cold': 0.8, 'thin': 0.6, 'resolve': 0.75, 'build1': 1.1, 'build2': 1.2, 'release': 1.05}.get(sec, 1.0)
         broot = 36 + (r % 12) + (12 if (r % 12) < 2 else 0)
-        if sec != 'thin':
+        if sec != 'thin' and alt and sec != 'resolve':
+            for e in ([] if drop else ALT_BASS[ch[1]]):
+                t = b['t0'] + e * beat / 4
+                if e >= 4 * b['beats'] or blocked(t):
+                    continue
+                br_ = 36 + (half[0] % 12) + (12 if (half[0] % 12) < 2 else 0) if (half and e >= 8) else broot
+                add(dry, t, bass_pluck(hz(br_ + (12 if e % 4 else 0)), 0.45 * beat, (0.2 if e % 8 == 0 else 0.13) * lift * rng.uniform(0.9, 1.05)), 0.0)
+        elif sec != 'thin':
             if sec != 'resolve':
                 for e in range(2 * b['beats']):
                     t = b['t0'] + e * beat / 2
@@ -496,7 +539,13 @@ def render_music(tl, bars, seq, pauses, no_accent):
         if b['i'] == 0 and b['t0'] not in no_accent:
             add(dry, b['t0'], felt(hz(48 + r % 12), 0.35), 0.0)
             add(dry, b['t0'], felt(hz(55 + r % 12), 0.18), 0.1)
-        if sec not in ('thin', 'resolve'):
+        if sec not in ('thin', 'resolve') and alt:
+            for e in ([] if drop else ALT_THUMP[ch[0] if sec != 'cold' else 1]):
+                t = b['t0'] + e * beat / 4
+                if e >= 4 * b['beats'] or blocked(t):
+                    continue
+                add(dry, t, thump((0.5 if e == 0 else 0.38) * lift * rng.uniform(0.9, 1.05)), 0.0)
+        elif sec not in ('thin', 'resolve'):
             for k in range(b['beats']):
                 t = b['t0'] + k * beat
                 if (sec == 'cold' and k % 2) or blocked(t):
@@ -504,20 +553,21 @@ def render_music(tl, bars, seq, pauses, no_accent):
                 add(dry, t, thump((0.5 if k == 0 else 0.38) * lift * rng.uniform(0.9, 1.05)), 0.0)
         if sec != 'thin':
             tones = [n_ for n_ in range(57, 57 + 17) if n_ % 12 in pcl]
+            tones2 = [n_ for n_ in range(57, 57 + 17) if n_ % 12 in half[1]] if (alt and half) else tones
             for _ in range(20):
                 shp = SHAPES[rng.integers(0, len(SHAPES))]
                 msk_i = int(rng.integers(0, len(OST16)))
                 if (shp, msk_i) != prev_fig:
                     break
             prev_fig = (shp, msk_i)
-            hits = [h for h in OST16[msk_i] if h < 4 * b['beats']]
+            hits = [h for h in (ALT_OST[ch[2]] if alt else OST16[msk_i]) if h < 4 * b['beats']]
             if sec in ('cold', 'resolve'):
                 hits = [h for h in hits if h % 2 == 0 or h in ACC16]
             for j, h in enumerate(hits):
                 t = b['t0'] + h * beat / 4
                 if blocked(t):
                     continue
-                f = hz(_contour(shp, tones, j))
+                f = hz(_contour(shp, tones2 if (alt and half and h >= 8) else tones, j))
                 v = (0.17 if h in ACC16 else 0.1) * lift * rng.uniform(0.88, 1.08)
                 add(dry, t, pluck(f, 0.2, v, lp=1700), 0.22 if j % 2 else -0.22)
         # Leah's motif (electric piano)
@@ -728,6 +778,10 @@ def build_voice(tl):
 # ================================================================== main
 def main():
     args = sys.argv[1:]
+    global VARIANT
+    VARIANT = args[args.index('--music') + 1] if '--music' in args else 'default'
+    assert VARIANT in ('default', 'alt'), VARIANT
+    ALT = VARIANT == 'alt'
     tm = json.load(open(EV.TIMING))
     total = float(args[args.index('--total') + 1]) if '--total' in args else float(tm['total_s'])
     tl = TL(total)
@@ -782,7 +836,7 @@ def main():
         m = dry + 0.24 * np.stack([wetL, wetR], 1)
         m *= music_dynamics(tl, swell, climax)[:, None]
         return m.astype(np.float32)
-    music = cached('music', _music).astype(np.float64)
+    music = cached('music' + ('-alt' if ALT else ''), _music).astype(np.float64)
 
     plan = J('work/audio/son-plan.json')['rows']
     notes = sonify_notes(plan, bars)
@@ -845,9 +899,38 @@ def main():
     m = ebur128(master)
     log('master', m)
 
+    files = {}
+    if ALT:   # alternative arrangement: its own full stem set (sum = master-alt); voice/sonify/room differ from the default only by the limiter
+        sd = os.path.join(EP, 'out', 'audio', 'stems-alt')
+        os.makedirs(sd, exist_ok=True)
+        for k, v in stems.items():
+            p = os.path.join(sd, k + ('-alt' if k == 'music' else '') + '.wav')
+            write_wav(p + '.tmp.wav', v)
+            os.replace(p + '.tmp.wav', p)
+            files[os.path.relpath(p, EP)] = p
+        mp = os.path.join(EP, 'out', 'audio', 'master-alt.wav')
+        write_wav(mp + '.tmp.wav', master)
+        os.replace(mp + '.tmp.wav', mp)
+        files['out/audio/master-alt.wav'] = mp
+        man = json.load(open(os.path.join(EP, 'out', 'audio', 'manifest.json')))
+        man['alt'] = {'_about': 'Alternative music arrangement (--music alt; owner C6: same style C, instruments and tempo, less repetition): per-bar thump, '
+                                'bass and ostinato rhythms from wider sets, a breath bar (no thump/bass) at some phrase ends, chords chosen for contrast. '
+                                'Everything else identical to the default mix (voice, data sounds, ducking, word dip, silences, master chain). '
+                                'Rebuild: python3 episodes/ep002/audio_src/mix.py --music alt (after the default run).',
+                      'timing': {'total_s': total, 'sha256': sha256(EV.TIMING)},
+                      'files': {rel: {'sha256': sha256(p), 'bytes': os.path.getsize(p)} for rel, p in files.items()},
+                      'master': {'integratedLUFS': m['I'], 'truePeakDbtp': m['TP'], 'LRA': m['LRA']},
+                      'chords': [c[1] for c in seq]}
+        json.dump(man, open(os.path.join(EP, 'out', 'audio', 'manifest.json'), 'w'), indent=1)
+        json.dump({'master': m, 'voiceOverMusicDb_A07': round(a07_gap(stems['voice'], stems['music']), 2),
+                   'limiterMinGainDb': round(float(20 * np.log10(gl.min() / g2)), 2), 'wordDips': word_dips, 'silences': silences},
+                  open(os.path.join(EP, 'work', 'audio', 'report-alt.json'), 'w'), indent=1)
+        if '--keep-cache' not in args:
+            shutil.rmtree(CACHE, ignore_errors=True)
+        log('done alt', json.dumps(m))
+        return
     sd = os.path.join(EP, 'out', 'audio', 'stems')
     os.makedirs(sd, exist_ok=True)
-    files = {}
     zeros = np.zeros((N, 2))
     for k, v in list(stems.items()) + [('sfx', zeros), ('whoosh', zeros)]:
         p = os.path.join(sd, k + '.wav')
@@ -901,7 +984,10 @@ def main():
            'generator': 'episodes/ep002/audio_src/mix.py', 'timing': {'path': os.path.relpath(EV.TIMING, EP), 'total_s': total, 'sha256': sha256(EV.TIMING)},
            'sampleRate': SR, 'files': {rel: {'sha256': sha256(p), 'bytes': os.path.getsize(p)} for rel, p in files.items()},
            'master': {'integratedLUFS': m['I'], 'truePeakDbtp': m['TP'], 'LRA': m['LRA']}}
-    json.dump(man, open(os.path.join(EP, 'out', 'audio', 'manifest.json'), 'w'), indent=1)
+    mpath = os.path.join(EP, 'out', 'audio', 'manifest.json')
+    if os.path.exists(mpath) and 'alt' in json.load(open(mpath)):
+        man['alt'] = dict(json.load(open(mpath))['alt'], stale='rebuild with --music alt after this default run' )
+    json.dump(man, open(mpath, 'w'), indent=1)
     if '--keep-cache' not in args:
         shutil.rmtree(CACHE, ignore_errors=True)
     log('done', json.dumps({k: rep[k] for k in ('master', 'limiterMinGainDb', 'voiceOverMusicDb_A07', 'sonBandShare', 'stemLevelsDbfs')}))
