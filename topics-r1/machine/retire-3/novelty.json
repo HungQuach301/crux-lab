@@ -1,0 +1,79 @@
+{
+ "decision": "When a 1-year CD pays more than a 5-year CD, keep rolling the 1-year or lock the 5-year?",
+ "queries": [
+  "lock 5-year CD or roll over 1-year CDs history which did better",
+  "when 1-year rate is higher than 5-year inverted yield curve should retirees lock long CD history",
+  "roll short-term Treasuries vs lock 5-year Treasury reinvestment risk historical backtest"
+ ],
+ "results": [
+  {
+   "query": "lock 5-year CD or roll over 1-year CDs history which did better",
+   "title": "Should You Get a 1-Year or 5-Year CD?",
+   "url": "https://www.fool.com/the-ascent/banks/articles/should-you-get-a-1-year-or-5-year-cd/"
+  },
+  {
+   "query": "lock 5-year CD or roll over 1-year CDs history which did better",
+   "title": "Historical CD Interest Rates 1984-2025",
+   "url": "https://www.bankrate.com/banking/cds/historical-cd-interest-rates/"
+  },
+  {
+   "query": "lock 5-year CD or roll over 1-year CDs history which did better",
+   "title": "Short-Term CD Vs. Long-Term CD: Which Is Best For You?",
+   "url": "https://www.bankrate.com/banking/cds/short-term-cd-vs-long-term-cd/"
+  },
+  {
+   "query": "lock 5-year CD or roll over 1-year CDs history which did better",
+   "title": "Historical CD Rates 1980-2026: Highs, Lows and the Stories Behind Them - NerdWallet",
+   "url": "https://www.nerdwallet.com/banking/learn/historical-cd-rates"
+  },
+  {
+   "query": "when 1-year rate is higher than 5-year inverted yield curve should retirees lock long CD history",
+   "title": "How to Invest When Short-Term CDs Are Higher Than Long-Term CDs",
+   "url": "https://www.usnews.com/banking/articles/how-to-invest-when-short-term-cds-are-higher-than-long-term-cds"
+  },
+  {
+   "query": "when 1-year rate is higher than 5-year inverted yield curve should retirees lock long CD history",
+   "title": "Why are short-term CD rates higher than long-term rates?",
+   "url": "https://www.moneyrates.com/cd/why-are-short-term-cd-rates-higher-than-long-term-rates.htm"
+  },
+  {
+   "query": "when 1-year rate is higher than 5-year inverted yield curve should retirees lock long CD history",
+   "title": "What Is An Inverted Yield Curve?",
+   "url": "https://www.greenbushfinancial.com/all-blogs/what-is-an-inverted-yield-curve"
+  },
+  {
+   "query": "roll short-term Treasuries vs lock 5-year Treasury reinvestment risk historical backtest",
+   "title": "Reinvestment Risk of Short-Term Bonds",
+   "url": "https://www.schwab.com/learn/story/reinvestment-risk-short-term-bonds"
+  },
+  {
+   "query": "roll short-term Treasuries vs lock 5-year Treasury reinvestment risk historical backtest",
+   "title": "U.S. Treasury Term Premiums & Rolling Returns - T-Bills, Treasury Notes, Treasury Bonds",
+   "url": "https://streetstats.finance/rates/term-premiums"
+  },
+  {
+   "query": "roll short-term Treasuries vs lock 5-year Treasury reinvestment risk historical backtest",
+   "title": "Timing for reinvesting in new T bills - Bogleheads.org",
+   "url": "https://www.bogleheads.org/forum/viewtopic.php?t=398530"
+  }
+ ],
+ "verdict": "answered-without-data",
+ "nearest": [
+  {
+   "title": "How to Invest When Short-Term CDs Are Higher Than Long-Term CDs",
+   "url": "https://www.usnews.com/banking/articles/how-to-invest-when-short-term-cds-are-higher-than-long-term-cds",
+   "why": "Same decision under an inverted curve, answered with reasoning about rate expectations, not a historical tally."
+  },
+  {
+   "title": "U.S. Treasury Term Premiums & Rolling Returns - T-Bills, Treasury Notes, Treasury Bonds",
+   "url": "https://streetstats.finance/rates/term-premiums",
+   "why": "Data site with rolling returns by tenor; from the title, general term-premium statistics rather than the roll-vs-lock outcome conditioned on an inverted start."
+  },
+  {
+   "title": "Should You Get a 1-Year or 5-Year CD?",
+   "url": "https://www.fool.com/the-ascent/banks/articles/should-you-get-a-1-year-or-5-year-cd/",
+   "why": "Same choice; snippet covers only the 2022-2025 period."
+  }
+ ],
+ "note": "Results discuss the choice with reasoning or recent rates; none found that scores every historical inverted start (1-year above 5-year) by which choice ended with more money. Titles and URLs only; pages not fetched."
+}

@@ -1,0 +1,87 @@
+{
+ "answer": "History, not a forecast. Across 715 overlapping 20-year stretches of US consumer prices starting each month from 1947 to 2006, an annuity check that rises 2% a year kept its starting buying power in only 2.4% of them (17 windows, all starting 1947-1949); over 25-year stretches it kept up in 0.0%. Median inflation over 20 years was 3.1% a year, so after 20 raises the 2% check typically bought 80.7% of what its first check bought (level check: 54.3%); in the worst stretch (starting 1966) it bought 43.1%. In the latest full stretch, Aug 2006 to Aug 2026, the 2% check ended at 90.4% of its starting buying power and a level check at 60.9%. A 2% raise slows the loss of buying power; historically it almost never stopped it.",
+ "guess": "A 2% raise matches the inflation target, so most buyers would guess the rising check roughly keeps its buying power over a 20-year retirement, and that the level check is the only one that falls behind.",
+ "changesDecision": "The buyer is trading a lower first check for 'inflation protection'. The data show the 2% raise was partial protection in essentially every period since the late 1940s, including the low-inflation 2000s and 2010s: it narrows the gap with a level check but does not keep purchasing power steady. That changes what the buyer is comparing (a slower decline vs a faster decline, not 'protected' vs 'unprotected') and may prompt them to price a CPI-linked option or to plan other income for late retirement. The episode reports the history; it does not say which option to choose.",
+ "numbers": [
+  {
+   "id": "windows_20y",
+   "value": 715,
+   "unit": "windows",
+   "definition": "Number of 20-year windows. 20-year window = a start month s from 1947-01-01 onward and end month e = s + 240 months, kept only when CPIAUCNS has a value for both s and e (last possible start 2006-08-01; start 2005-10-01 drops out because 2025-10-01 is blank). Price ratio P = CPIAUCNS(e) / CPIAUCNS(s). CPIAUCNS = CPI-U, all items, US city average, index 1982-84=100, not seasonally adjusted, monthly, pinned FRED CSV (coed=2026-08-01; the 2025-10-01 value is blank and months with blank values are skipped)."
+  },
+  {
+   "id": "share_2pct_kept_up_20y_pct",
+   "value": 2.4,
+   "unit": "percent",
+   "definition": "100 x (number of 20-year windows with 1.02^20 >= P) / windows_20y, rounded to 0.1. 1.02^20 = growth of a payment raised 2% once a year for 20 years. 20-year window = a start month s from 1947-01-01 onward and end month e = s + 240 months, kept only when CPIAUCNS has a value for both s and e (last possible start 2006-08-01; start 2005-10-01 drops out because 2025-10-01 is blank). Price ratio P = CPIAUCNS(e) / CPIAUCNS(s). "
+  },
+  {
+   "id": "windows_2pct_kept_up_20y",
+   "value": 17,
+   "unit": "windows",
+   "definition": "Count of 20-year windows with 1.02^20 >= P (all of them start between 1947-09-01 and 1949-01-01). 20-year window = a start month s from 1947-01-01 onward and end month e = s + 240 months, kept only when CPIAUCNS has a value for both s and e (last possible start 2006-08-01; start 2005-10-01 drops out because 2025-10-01 is blank). Price ratio P = CPIAUCNS(e) / CPIAUCNS(s). "
+  },
+  {
+   "id": "windows_25y",
+   "value": 655,
+   "unit": "windows",
+   "definition": "Number of 25-year windows: start s >= 1947-01-01, end e = s + 300 months, both CPIAUCNS values present (last start 2001-08-01)."
+  },
+  {
+   "id": "share_2pct_kept_up_25y_pct",
+   "value": 0.0,
+   "unit": "percent",
+   "definition": "100 x (number of 25-year windows with 1.02^25 >= CPIAUCNS(e)/CPIAUCNS(s)) / windows_25y, rounded to 0.1."
+  },
+  {
+   "id": "median_inflation_20y_pct_per_year",
+   "value": 3.1,
+   "unit": "percent per year",
+   "definition": "Median over the 20-year windows of 100 x (P^(1/20) - 1), rounded to 0.01. 20-year window = a start month s from 1947-01-01 onward and end month e = s + 240 months, kept only when CPIAUCNS has a value for both s and e (last possible start 2006-08-01; start 2005-10-01 drops out because 2025-10-01 is blank). Price ratio P = CPIAUCNS(e) / CPIAUCNS(s). "
+  },
+  {
+   "id": "median_real_value_2pct_payment_after_20y_pct",
+   "value": 80.7,
+   "unit": "percent of starting purchasing power",
+   "definition": "Median over 20-year windows of 100 x 1.02^20 / P, rounded to 0.1: buying power of the 2%-raise payment after 20 raises, relative to its own first payment."
+  },
+  {
+   "id": "median_real_value_level_payment_after_20y_pct",
+   "value": 54.3,
+   "unit": "percent of starting purchasing power",
+   "definition": "Median over 20-year windows of 100 / P, rounded to 0.1: buying power of a level payment after 20 years relative to its first payment."
+  },
+  {
+   "id": "worst_real_value_2pct_payment_after_20y_pct",
+   "value": 43.1,
+   "unit": "percent of starting purchasing power",
+   "definition": "Minimum over 20-year windows of 100 x 1.02^20 / P, rounded to 0.1."
+  },
+  {
+   "id": "worst_window_start_year",
+   "value": 1966,
+   "unit": "year",
+   "definition": "Calendar year of the start month s of the window that gives worst_real_value_2pct_payment_after_20y_pct."
+  },
+  {
+   "id": "latest_window_real_value_2pct_payment_pct",
+   "value": 90.4,
+   "unit": "percent of starting purchasing power",
+   "definition": "100 x 1.02^20 / (CPIAUCNS(2026-08-01)/CPIAUCNS(2006-08-01)), rounded to 0.1 (most recent complete 20-year window)."
+  },
+  {
+   "id": "latest_window_real_value_level_payment_pct",
+   "value": 60.9,
+   "unit": "percent of starting purchasing power",
+   "definition": "100 / (CPIAUCNS(2026-08-01)/CPIAUCNS(2006-08-01)), rounded to 0.1."
+  }
+ ],
+ "assumptions": [
+  "The payment rises by exactly 2% once a year (20 raises over 20 years); the first payment is taken as 100% of starting purchasing power.",
+  "Prices are measured by CPI-U all items, US city average, not seasonally adjusted (CPIAUCNS); a retiree's own basket can differ.",
+  "Overlapping monthly start dates are used; windows are not independent.",
+  "Annuity pricing (how much lower the starting 2% check is than the level check) is not modeled; it varies by insurer, age and rates.",
+  "Taxes and insurer credit risk are ignored."
+ ],
+ "limits": "History, not a forecast. Prices since 1947 include the high-inflation 1970s; future inflation could be higher or lower. Overlapping windows mean far fewer independent observations than the window count. The analysis says nothing about which annuity pays more in total dollars, which depends on the insurer's pricing and how long the buyer lives."
+}
