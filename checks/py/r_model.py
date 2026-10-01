@@ -580,12 +580,56 @@ def fvf_compare(ctx, params, out):
     return checked, bad, sorted(set(out) - covered - set(params.get('notModel', [])))
 
 
+class Month(int):
+    """A month (index y × 12 + m − 1) returned by value(): S05 compares it with a claim written "YYYY-MM" or "YYYY-MM-01" after normalisation (K3.6)."""
+
+
+def _run_cached(ctx, params, float_start=None):
+    """fvf_run memoised per check context (S05 asks for many keys of the same replay; K3.6 keys replay once per spread)."""
+    return ctx.memo(('fvf-run', id(params), float_start), lambda: (params, fvf_run(ctx, params, float_start)))[1]   # params kept: the id stays its own
+
+
+def _spread_run(ctx, params, arg):
+    """The replay with the variable loan starting `arg` points under the fixed rate (floatStartRate = fixedRate − spread; 0 and negative spreads too)."""
+    try:
+        sp = float(arg)
+    except ValueError:
+        raise Missing(f'contract.json: model.claims spread "{arg}" is not a number of points')
+    c = _fvf_params(params)
+    return _run_cached(ctx, params, c['fixed'] - sp)
+
+
+def _period(run, arg, key):
+    i = ym(arg)
+    for p in fvf_periods(run):
+        if i is not None and p['from'] == i:
+            return p
+    raise Missing(f'contract.json: model.claims key "{key}": "{arg}" is not the first month of a period (firstStart or a periodBreak)')
+
+
+def _worst(run):
+    return max(run['windows'], key=lambda w: (w['difference'], -w['start']))   # ties: the earliest start (as fvf_summary)
+
+
 def fvf_value(ctx, params, key):
     """Summary fields (FVF_FIELDS; a month field as "<field>Year" / "<field>Month", e.g. worstStartYear = 1977, worstStartMonth = 4: S05 compares
-    numbers), "nWindows:<period start>", "shareCostlier:<period start>" (period start = firstStart or a periodBreak, YYYY-MM),
-    "shareCostlierAtSpread:<points>". Tolerances: $0.50 money; 0.005 rates, shares (%) and payments; counts and months exactly."""
-    run = fvf_run(ctx, params)
+    numbers; K3.6: the month field itself, e.g. "worstStart", compared with a claim "YYYY-MM" / "YYYY-MM-01" after normalisation),
+    "nWindows:<period start>", "shareCostlier:<period start>" (period start = firstStart or a periodBreak, YYYY-MM),
+    "shareCostlierAtSpread:<points>". Tolerances: $0.50 money; 0.005 rates, shares (%) and payments; counts and months exactly.
+    K3.6 (spec: episodes/ep002/checks-notes.md "K3.6"; topics-r1/machine/debt-2/result.json definitions), every key explicit, none derived by S05:
+      "shareCostlierAtSpread:<points>:<period start>"  share (%) of the period's windows costlier when the variable loan starts <points> under fixedRate
+      "worstDifferenceAtSpread:<points>"                the largest Difference ($) of that replay
+      "worstStartAtSpread:<points>"                     its start month (ties: earliest); also "worstStartAtSpreadYear:<points>" / "worstStartAtSpreadMonth:<points>"
+      "minShareCostlierOverSpreads:<period start>"      the smallest period share (%) over every spread of params.spreads
+      "floatFirstPayment"                               month-0 payment of the variable loan: level payment of principal over termMonths at floatStartRate
+      "firstPaymentGap"                                 fixedPayment − floatFirstPayment
+      "worstWindowMaxRate"                              highest monthly variable rate in the worst window (worstStart)
+      "shareRateAboveFixed"                             % of windows with at least one month whose variable rate > fixedRate (strictly)
+      "worstShareOfFixed"                               100 × worstDifference / fixedTotalInterest (%)
+    A spread may be 0 or negative (the variable loan then starts at or above the fixed rate)."""
+    run = _run_cached(ctx, params)
     summ = fvf_summary(run)
+    c = run['c']
     name, _, arg = key.partition(':')
     tol = {MONEY: 0.5, RATE: 0.005, COUNT: 0}
     if not arg:
@@ -593,10 +637,38 @@ def fvf_value(ctx, params, key):
             if how == DATE and key in (f_ + 'Year', f_ + 'Month'):
                 i = summ[f_]
                 return float(i // 12 if key.endswith('Year') else i % 12 + 1), 0
-            if key == f_ and how != DATE:
-                return float(summ[f_]), tol[how]
+            if key == f_:
+                return (Month(summ[f_]), 0) if how == DATE else (float(summ[f_]), tol[how])
+        ffp = payment(c['P'], c['float'], c['n'])
+        if key == 'floatFirstPayment':
+            return ffp, 0.005
+        if key == 'firstPaymentGap':
+            return run['fixedPayment'] - ffp, 0.005
+        if key == 'worstWindowMaxRate':
+            return float(_worst(run)['maxRate']), 0.005
+        if key == 'shareRateAboveFixed':
+            ws = run['windows']
+            return 100.0 * sum(1 for w in ws if w['maxRate'] > c['fixed']) / len(ws), 0.005
+        if key == 'worstShareOfFixed':
+            return 100.0 * summ['worstDifference'] / run['fixedTotalInterest'], 0.005
     elif name == 'shareCostlierAtSpread':
-        return share_at_spread(ctx, params, float(arg)), 0.005
+        sp, _, per = arg.partition(':')
+        if not per:
+            return share_at_spread(ctx, params, float(sp)), 0.005
+        p = _period(_spread_run(ctx, params, sp), per, key)
+        return float(p['shareCostlier']), 0.005
+    elif name == 'worstDifferenceAtSpread':
+        return float(_worst(_spread_run(ctx, params, arg))['difference']), 0.5
+    elif name in ('worstStartAtSpread', 'worstStartAtSpreadYear', 'worstStartAtSpreadMonth'):
+        i = _worst(_spread_run(ctx, params, arg))['start']
+        if name == 'worstStartAtSpread':
+            return Month(i), 0
+        return float(i // 12 if name.endswith('Year') else i % 12 + 1), 0
+    elif name == 'minShareCostlierOverSpreads':
+        sps = params.get('spreads') or []
+        if not sps:
+            raise Missing('contract.json: model.params.spreads (minShareCostlierOverSpreads needs the spreads it takes the minimum over)')
+        return min(float(_period(_spread_run(ctx, params, sp), arg, key)['shareCostlier']) for sp in sps), 0.005
     elif name in ('nWindows', 'shareCostlier') and ym(arg) is not None:
         for p in fvf_periods(run):
             if p['from'] == ym(arg):
