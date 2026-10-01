@@ -1,0 +1,86 @@
+{
+  "answer": "Paying 1 point to go from 7% to 6.75% cuts the payment by $16.7 per $100,000 borrowed, so the point takes 59.9 months (about five years) to pay for itself. Across 2,635 start weeks of the weekly 30-year rate since April 1971, the market rate fell at least 1.25 points (enough to make a refinance from 6.75% worthwhile by the common one-point rule) before that break-even in 53.1% of weeks; when it did, the median wait was 18.9 months. Restricting to weeks that started between 6.5% and 7.5% (362 weeks) gives 52.2%. The latest weekly rate is 7.03%. History, not a forecast.",
+  "guess": "Buyers are usually told points pay off if you keep the loan past break-even, so they would picture a borrower who stays put five years and expect the point to pay off most of the time.",
+  "changesDecision": "In roughly half of history, a refinance-sized drop arrived before the point had paid for itself, usually within a couple of years, which would leave part of the point unrecovered. Whether to pay the point therefore depends on whether the buyer would refinance in that case, not only on how long they plan to live in the home.",
+  "numbers": [
+    {
+      "id": "monthly_saving_per_100k",
+      "value": 16.7,
+      "unit": "dollars per month",
+      "definition": "Level monthly payment for a 360-month loan: p*x/(1-(1+x)^-360), x = rate/1200. Payment at 7.00% minus payment at 6.75% on $100,000, rounded to cents."
+    },
+    {
+      "id": "breakeven_months",
+      "value": 59.9,
+      "unit": "months",
+      "definition": "Level monthly payment for a 360-month loan: p*x/(1-(1+x)^-360), x = rate/1200. Point cost (1% of the loan) divided by the monthly payment saving (scale-free: 1.0 / saving per $100), rounded to 0.1."
+    },
+    {
+      "id": "horizon_months",
+      "value": 60,
+      "unit": "months",
+      "definition": "breakeven_months rounded up to a whole month (ceil of the unrounded value)."
+    },
+    {
+      "id": "drop_needed_pts",
+      "value": 1.25,
+      "unit": "percentage points",
+      "definition": "(7.00 - 6.75) + 1.00 refinance trigger."
+    },
+    {
+      "id": "n_weeks",
+      "value": 2635,
+      "unit": "weeks",
+      "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Number of eligible start weeks."
+    },
+    {
+      "id": "first_week",
+      "value": "1971-04-02",
+      "unit": "date",
+      "definition": "First eligible start week (1971-04-02)."
+    },
+    {
+      "id": "last_week",
+      "value": "2021-09-23",
+      "unit": "date",
+      "definition": "Last eligible start week (horizon end on or before 2026-09-24)."
+    },
+    {
+      "id": "share_refi_before_breakeven",
+      "value": 53.1,
+      "unit": "percent of start weeks",
+      "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Hits / eligible weeks * 100, rounded to 0.1."
+    },
+    {
+      "id": "median_months_to_trigger",
+      "value": 18.9,
+      "unit": "months",
+      "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Among hit weeks, days from t to the first qualifying week w divided by 30.4375; median, rounded to 0.1."
+    },
+    {
+      "id": "n_weeks_6_5_to_7_5",
+      "value": 362,
+      "unit": "weeks",
+      "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Number of eligible start weeks with rate(t) between 6.50 and 7.50 inclusive."
+    },
+    {
+      "id": "share_refi_before_breakeven_6_5_to_7_5",
+      "value": 52.2,
+      "unit": "percent of start weeks",
+      "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Hit share among start weeks with rate(t) between 6.50 and 7.50 inclusive, times 100, rounded to 0.1."
+    },
+    {
+      "id": "latest_rate",
+      "value": 7.03,
+      "unit": "percent",
+      "definition": "MORTGAGE30US on 2026-09-24, the last observation."
+    }
+  ],
+  "assumptions": [
+    "One point costs 1% of the loan and lowers the rate by 0.25 (7.00% to 6.75%) on a 30-year fixed loan; simple (undiscounted) break-even.",
+    "Refinance trigger: the weekly average 30-year rate at least 1.00 point below the borrower's note rate; closing costs and the borrower's own rate spread vs the survey average are ignored.",
+    "The no-point rate equals the survey rate in the start week; history is applied as point changes from that week's rate.",
+    "A hit means the refinance opportunity appeared; it does not assume the borrower took it or quantify how much of the point was lost."
+  ],
+  "limits": "History, not a forecast. Overlapping weekly windows are not independent; weeks near 6.5-7.5% cluster in a few periods (1971-72, 1993-2002, 2006-08). The survey average is not any one borrower's rate. Moving or selling before break-even is not modeled."
+}

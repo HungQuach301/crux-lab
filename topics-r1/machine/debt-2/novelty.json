@@ -1,0 +1,24 @@
+{
+  "decision": "Grad student needing private loans in 2026: take a lower-starting variable rate or a higher fixed rate for a 10-year payoff?",
+  "queries": [
+    "private student loan fixed vs variable rate historical analysis how often variable cost more",
+    "grad school 2026 Grad PLUS ending private student loan variable or fixed rate which is cheaper",
+    "variable rate student loan backtest 10 year repayment treasury bill history"
+  ],
+  "results": [
+    {"query": "private student loan fixed vs variable rate historical analysis how often variable cost more", "title": "Choosing Between Variable And Fixed Rate Student Loans", "url": "https://www.sofi.com/learn/content/how-to-choose-between-variable-and-fixed-rate-student-loans/"},
+    {"query": "private student loan fixed vs variable rate historical analysis how often variable cost more", "title": "Fixed vs. Variable Rate Student Loans: How to Choose When Rates Are Moving - StudentChoice.org", "url": "https://www.studentchoice.org/fixed-vs-variable-student-loan-rates/"},
+    {"query": "private student loan fixed vs variable rate historical analysis how often variable cost more", "title": "Variable vs Fixed Rate Student Loans: Which is Better?", "url": "https://educationdata.org/fixed-vs-variable-student-loan-interest-rates"},
+    {"query": "grad school 2026 Grad PLUS ending private student loan variable or fixed rate which is cheaper", "title": "Grad PLUS vs Private Student Loans: 2026 Comparison Guide", "url": "https://www.savingforcollege.com/article/grad-plus-loan-vs-private-loan"},
+    {"query": "grad school 2026 Grad PLUS ending private student loan variable or fixed rate which is cheaper", "title": "What the end of Grad PLUS loans means for grad students (and what to do now)", "url": "https://www.earnest.com/blog/what-the-end-of-grad-plus-loans-means"},
+    {"query": "variable rate student loan backtest 10 year repayment treasury bill history", "title": "How Variable Rate Student Loans Work (Pros & Cons) - College Finance", "url": "https://collegefinance.com/student-loans/how-variable-rate-student-loans-work-pros-cons"},
+    {"query": "variable rate student loan backtest 10 year repayment treasury bill history", "title": "Historical Federal Student Loan Interest Rates", "url": "https://thecollegeinvestor.com/76356/historical-federal-student-loan-interest-rates/"}
+  ],
+  "verdict": "answered-without-data",
+  "nearest": [
+    {"title": "Fixed vs. Variable Rate Student Loans: How to Choose When Rates Are Moving - StudentChoice.org", "url": "https://www.studentchoice.org/fixed-vs-variable-student-loan-rates/", "why": "Same choice, anecdotal reference to the 2022-23 rate jump; no replay of 10-year windows."},
+    {"title": "Choosing Between Variable And Fixed Rate Student Loans", "url": "https://www.sofi.com/learn/content/how-to-choose-between-variable-and-fixed-rate-student-loans/", "why": "Lender explainer of the trade-off without historical simulation."},
+    {"title": "Grad PLUS vs Private Student Loans: 2026 Comparison Guide", "url": "https://www.savingforcollege.com/article/grad-plus-loan-vs-private-loan", "why": "Covers the 2026 grad-borrowing context, not the fixed-vs-variable outcome history."}
+  ],
+  "note": "Snippets say outcomes 'depend on rate trends' and state that no historical backtest was found. Mortgage ARM-vs-fixed backtests exist (see debt-discards), but none was found for a 10-year student-loan repayment. Titles and URLs only; pages not fetched."
+}

@@ -1,0 +1,24 @@
+{
+  "decision": "2026 buyer at about 7%: pay one discount point to get 6.75%, or skip it?",
+  "queries": [
+    "buying mortgage points then refinancing before break-even how often history",
+    "should I buy discount points at 7% mortgage rate if rates might drop",
+    "mortgage points break-even refinance risk historical mortgage rate drops analysis"
+  ],
+  "results": [
+    {"query": "buying mortgage points then refinancing before break-even how often history", "title": "Mortgage Points Explained: When Buying Points Actually Saves You Money (2026)", "url": "https://themortgagemath.com/blog/mortgage-points-explained/"},
+    {"query": "buying mortgage points then refinancing before break-even how often history", "title": "Should You Pay for Mortgage Points When You Refinance? - Refi.com", "url": "https://www.refi.com/learn/mortgage-refinancing-points/"},
+    {"query": "should I buy discount points at 7% mortgage rate if rates might drop", "title": "Are Mortgage Points Worth It When Rates Are Near 7%: Break-Even Math for Buyers", "url": "https://www.noradarealestate.com/blog/are-mortgage-points-worth-it-near-7-percent/"},
+    {"query": "should I buy discount points at 7% mortgage rate if rates might drop", "title": "The Hidden Risk of Discount Points: When Does Buying Down the Rate Stop Making Sense?", "url": "https://ratebeat.com/blog/the-hidden-risk-of-discount-points-when-does-buying-down-the-rate-stop-making-sense"},
+    {"query": "should I buy discount points at 7% mortgage rate if rates might drop", "title": "Is it better to pay points for a lower mortgage rate?", "url": "https://themortgagereports.com/78272/should-i-pay-points-for-lower-rate"},
+    {"query": "mortgage points break-even refinance risk historical mortgage rate drops analysis", "title": "7 Things Every Home Buyer Should Know About Mortgage Points in 2026", "url": "https://www.amerisave.com/learn/things-every-home-buyer-should-know-about-mortgage-points-in"},
+    {"query": "mortgage points break-even refinance risk historical mortgage rate drops analysis", "title": "Calculate Mortgage Discount Points Breakeven Date: Should I Pay Points on My Home Loan?", "url": "https://www.mortgagecalculator.org/calculators/should-i-pay-points-calculator.php"}
+  ],
+  "verdict": "answered-without-data",
+  "nearest": [
+    {"title": "Are Mortgage Points Worth It When Rates Are Near 7%: Break-Even Math for Buyers", "url": "https://www.noradarealestate.com/blog/are-mortgage-points-worth-it-near-7-percent/", "why": "Same decision and rate level; break-even arithmetic only, no historical frequency of refinance drops."},
+    {"title": "The Hidden Risk of Discount Points: When Does Buying Down the Rate Stop Making Sense?", "url": "https://ratebeat.com/blog/the-hidden-risk-of-discount-points-when-does-buying-down-the-rate-stop-making-sense", "why": "Names the refinance-before-break-even risk qualitatively; does not measure how often it happened."},
+    {"title": "Calculate Mortgage Discount Points Breakeven Date: Should I Pay Points on My Home Loan?", "url": "https://www.mortgagecalculator.org/calculators/should-i-pay-points-calculator.php", "why": "Calculator for break-even date; no rate history."}
+  ],
+  "note": "Snippets explicitly say no historical data on how often borrowers refinance before point break-even was found. A previous internal round (m3) used the same rate series for a refinance-window statistic, but not for the points decision. Titles and URLs only; pages not fetched."
+}
