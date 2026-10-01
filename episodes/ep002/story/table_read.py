@@ -4,7 +4,7 @@ thử lại khi lỗi mạng (2/4/8/16 s). Khoá API do proxy tiêm; không đ�
     python3 episodes/ep002/story/table_read.py --dry   # chữ gửi + số ký tự
     python3 episodes/ep002/story/table_read.py         # sinh, ASR, ghép review-c2/table-read.m4a
 """
-import base64, json, os, re, subprocess, sys, time
+import base64, hashlib, json, os, re, subprocess, sys, time
 import requests
 ROOT = '/home/user/crux-lab'; EP = f'{ROOT}/episodes/ep002'; OUT = f'{EP}/review-c2'; TAKES = f'{OUT}/takes'
 sys.path.insert(0, f'{ROOT}/checks/py')
@@ -85,7 +85,7 @@ def main():
         e = {'text': texts[sc], 'takes': []}
         keys = [k for r in rs if r['scene'] == sc for k in r['keys']]
         for seed in (1, 2):
-            p = f'{TAKES}/{sc}.seed{seed}'; m = synth(texts[sc], p, seed); w = asr(p + '.mp3')
+            p = f'{TAKES}/{sc}.{hashlib.sha1(texts[sc].encode()).hexdigest()[:8]}.seed{seed}'; m = synth(texts[sc], p, seed); w = asr(p + '.mp3')  # tên theo hash chữ
             e['takes'].append({'file': os.path.basename(p) + '.mp3', 'seed': seed, 'characterCost': m['characterCost'], 'len': m['len'],
                                'missing': match_keys(keys, w), 'asr': ' '.join(x['w'] for x in w)})
             if not e['takes'][-1]['missing']: break
@@ -94,12 +94,12 @@ def main():
         print(sc, [(t['seed'], t['characterCost'], len(t['missing'])) for t in e['takes']], flush=True)
     res['chars'] = sum(t['characterCost'] or t['len'] for e in res['scenes'].values() for t in e['takes'])
     json.dump(res, open(resf, 'w'), indent=1)
-    lst = f'{OUT}/concat.txt'; gap = f'{OUT}/gap.wav'
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', 'anullsrc=r=44100:cl=mono', '-t', '0.8', gap], check=True)
-    with open(lst, 'w') as f:
-        for sc in scenes: f.write(f"file 'takes/{res['scenes'][sc]['use']}'\nfile 'gap.wav'\n")
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lst, '-ac', '1', '-ar', '44100', '-c:a', 'aac', '-b:a', '128k',
-                    f'{OUT}/table-read.m4a'], check=True, cwd=OUT)
+    inp, flt = [], ''
+    for k, sc in enumerate(scenes):
+        inp += ['-i', f"{TAKES}/{res['scenes'][sc]['use']}"]
+        flt += f'[{k}:a]aresample=44100,aformat=channel_layouts=mono,apad=pad_dur=0.8[a{k}];'
+    flt += ''.join(f'[a{k}]' for k in range(len(scenes))) + f'concat=n={len(scenes)}:v=0:a=1[o]'
+    subprocess.run(['ffmpeg', '-y', '-v', 'error', *inp, '-filter_complex', flt, '-map', '[o]', '-c:a', 'aac', '-b:a', '128k', f'{OUT}/table-read.m4a'], check=True)
     print('chars total', res['chars'])
 
 
