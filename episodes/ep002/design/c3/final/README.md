@@ -101,3 +101,27 @@ Bản vòng 2 được giữ lại: `K7-r2.mp4`, `K7-r2-strip(-masked).png`, `sr
 - **Lưu ý về claim:** "0 points" và "3 points" không có claim nào có display đúng chuỗi đó; giá trị lấy từ formula "gap 0.0"/"gap 3.0". "1980" cũng không có trong display nào; nó lấy từ formula của `n_early` ("1954-01..1980-12").
 - **Dải 6 khung (t = 1.2, 2.6, 3.6, 5.0, 6.0, 8.8):** ô 1 → ô 1 → ô 1+2 → ô 1+2 → cả ba → cả ba. Bản che làm bằng cờ `mask`.
 - **Tự kiểm (px ở 720p):** chữ→đồ hoạ nhỏ nhất 8,6 (huy hiệu ↔ viền ô 3); các nhãn khác ≥ 14. Chữ→chữ ≥ 29,6. Tương phản nhỏ nhất 7,50:1 (nhãn thùng `ink-muted`); huy hiệu 10,25:1. Chữ nhỏ nhất 48 px @1080. Không có chữ ngoài vùng an toàn.
+
+## Vòng sửa K2 và K4 (sau `gates/C3-K245-blind.md`)
+Bản trước được giữ lại: `K2-v1.*`, `K4-v1.*`, `src/k2_v1.js`, `src/k4_v1.js`, `work/render-log-K2-v1.json`, `work/render-log-K4-v1.json`. `K2.*` và `K4.*` hiện là bản mới.
+
+**K2 (8 s), dựng trên hình KEY-1 r2:** một người cầm hai thẻ cùng độ cao, vạch 9% chạy liền qua cả hai thẻ. Trên thẻ thả nổi chỉ có **điểm bắt đầu** đổi chỗ, và đổi bằng **cú nhảy**: mỗi lần nhảy, thẻ lật trong 0,36 s như thay một lời mời khác. Thứ tự: dưới xa 3 điểm → dưới gần 1.5 điểm → nằm trên vạch 0 → **cao hơn vạch −1 điểm, giữ tới cuối clip**. Khe giữa vạch và điểm bắt đầu tô `cushion` khi điểm ở dưới vạch, tô `warn` khi ở trên. Sau điểm bắt đầu không vẽ đường nào. Dải 6 khung: dưới xa → đang lật → 1.5 → trên vạch → cao hơn vạch → cao hơn vạch.
+- Số trên hình: 9% (`fixed_rate`); 1.5 points (`gap_start`, chỉ hiện ở trạng thái 1.5). Huy hiệu ILLUSTRATIVE luôn bật.
+
+**K4 (10 s): một đường lãi, một cái hũ.** Đường là lần chạy thật của khoản vay Leah bắt đầu 4/1976. Hũ chạy đồng bộ với đường từng tháng:
+- Khi lãi dưới 9%, một dòng `cushion` chảy từ khe dưới vạch vào miệng hũ và hũ đầy dần.
+- Khi lãi trên 9%, mặt nước viền `warn` và một dòng `warn` chảy ra từ vòi.
+- Tháng 21–22 có một nhịp vượt 9% ngắn: hũ chỉ hụt khoảng $1 trên khoảng $1,036, tức gần như không đổi.
+- Từ tháng 25 lãi leo dài, hũ cạn ở tháng 40.
+- Từ lúc hũ cạn, một khối `costlier #C72323` có sọc hiện ra dưới hũ và lớn dần theo khoản trả thêm; cuối lần chạy là $7,577.
+- **Thang đo:** hũ dùng một thang đô la ($1,046 ↔ 380 px). Khối đỏ dùng **thang riêng** ($7,577 ↔ 150 px) để vừa khung; điều này phải ghi lại vì hai thang không giống nhau.
+- Số trên hình: chỉ có 9% (`fixed_rate`). Các con số $ ở trên chỉ ghi trong README, không hiện trên hình. Huy hiệu ILLUSTRATIVE luôn bật.
+
+**Tự kiểm (px ở 720p):**
+
+| Clip | chữ→đồ hoạ (≥ 4) | chữ→chữ | tương phản (≥ 4,5:1) | chữ nhỏ nhất (≥ 40 @1080) | ngoài vùng an toàn |
+|---|---|---|---|---|---|
+| K2 | 12,3 | 12,6* | 7,50:1 | 48 | 0 |
+| K4 | ≥ 14 | 12,6* | 7,50:1 | 48 | 0 |
+
+\* khoảng trắng giữa "9%" và "fixed" trong cùng một nhãn.

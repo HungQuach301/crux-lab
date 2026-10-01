@@ -1,39 +1,52 @@
-// Ep002 final (D2+E2), H2 base, copied from ../../H2/src/k2.js. Changes: E2 colours (cushion), rail ink-muted and
-// Leah's line ink (system.md roles).
-// KEY-2 (S03.5-S03.8): the bracket between rail and bead is what is measured: big, small, none, reversed.
-import { C, CL, text, numWord, badge, line, poly, rect, diamond, plane, ease, back, mix, clamp, FIXED } from './engine.js';
-export const duration = 9.0;
-export const stripTimes = [0.5, 2.0, 4.3, 5.8, 6.9, 8.6];
-const P = plane(560, 1720, 200, 940, 4.6, 12.0, 24);
-// variable start rate over time
-const KEYS = [[0, 7.5], [3.0, 7.5], [3.9, 6.0], [4.7, 6.0], [5.5, 8.4], [6.0, 8.4], [6.6, 9.0], [7.2, 9.0], [8.0, 10.1], [9, 10.1]];
-function vAt(t) { for (let i = 0; i < KEYS.length - 1; i++) { const [a, va] = KEYS[i], [b, vb] = KEYS[i + 1]; if (t <= b) return mix(va, vb, ease(t, a, b)); } return KEYS[KEYS.length - 1][1]; }
+// KEY-2 fix round (gates/C3-K245-blind.md): v1 (one bead sliding round a rail) read as "one balance over time"; kept
+// as k2_v1.js. Now on the KEY-1 r2 motif that passed: one person, two cards at the same height, the 9% line unbroken
+// across both. Only the variable card's START POINT changes, and it JUMPS between discrete offers: well below (3
+// points) -> just below (1.5, Leah's) -> on the line (0) -> above (-1). Each jump flips the variable card like a new
+// offer. Gap filled cushion when the start is below the line, warn when above. No path after the start point. Ends on
+// the "above" state.
+import { C, CL, text, numWord, badge, line, rect, diamond, ease, clamp } from './engine.js';
+export const duration = 8.0;
+export const stripTimes = [1.2, 1.92, 2.9, 4.5, 6.1, 7.85];
+const CW = 680, CH = 470, CY = 196, LX = 130, RX = 1920 - 130 - CW;
+const YR = CY + 236, PP = 64;                        // the 9% line; px per point (one scale)
+const GX0 = RX + 70, GX1 = RX + 330;                 // start block on the variable card
+const STATES = [[0.6, 3], [2.0, 1.5], [3.6, 0], [5.2, -1]]; // [jump time, head start in points]
+function card(ctx, x, y, sx = 1) {
+  ctx.save(); const cx = x + CW / 2; ctx.translate(cx, 0); ctx.scale(sx, 1); ctx.translate(-cx, 0); const f = 54;
+  ctx.beginPath(); ctx.moveTo(x + 22, y); ctx.lineTo(x + CW - f, y); ctx.lineTo(x + CW, y + f); ctx.lineTo(x + CW, y + CH - 22);
+  ctx.arcTo(x + CW, y + CH, x + CW - 22, y + CH, 22); ctx.lineTo(x + 22, y + CH); ctx.arcTo(x, y + CH, x, y + CH - 22, 22);
+  ctx.lineTo(x, y + 22); ctx.arcTo(x, y, x + 22, y, 22); ctx.closePath();
+  ctx.fillStyle = C.bg; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = C.muted; ctx.lineJoin = 'round'; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x + CW - f, y); ctx.lineTo(x + CW - f, y + f); ctx.lineTo(x + CW, y + f); ctx.stroke();
+  ctx.restore();
+}
+function person(ctx) {
+  ctx.save(); ctx.fillStyle = C.ink; ctx.strokeStyle = C.ink; ctx.lineCap = 'round'; ctx.lineWidth = 34;
+  for (const [sx, h] of [[858, [LX + CW - 18, CY + CH - 6]], [1062, [RX + 18, CY + CH - 6]]]) { ctx.beginPath(); ctx.moveTo(sx, 850); ctx.lineTo(h[0], h[1]); ctx.stroke(); ctx.beginPath(); ctx.arc(h[0], h[1], 26, 0, 7); ctx.fill(); }
+  ctx.beginPath(); ctx.moveTo(812, 1080); ctx.lineTo(812, 900); ctx.bezierCurveTo(812, 810, 870, 772, 960, 772); ctx.bezierCurveTo(1050, 772, 1108, 810, 1108, 900); ctx.lineTo(1108, 1080); ctx.closePath(); ctx.fill();
+  ctx.beginPath(); ctx.arc(974, 690, 66, 0, 7); ctx.fill();   // head turned toward the variable card
+  ctx.fillStyle = C.bg; const cx = 960, cy = 920, r = 46;
+  ctx.beginPath(); ctx.moveTo(cx, cy - r); ctx.lineTo(cx + r * 0.78, cy); ctx.lineTo(cx, cy + r); ctx.lineTo(cx - r * 0.78, cy); ctx.closePath(); ctx.fill();
+  ctx.restore();
+}
 export function draw(ctx, t) {
-  const v = vAt(t), yR = P.Y(FIXED), bx = P.X(0), by = P.Y(v);
-  // ruler (what is being measured): ticks every half point
-  const RX = 400, ra = ease(t, 0.6, 1.0);
-  line(ctx, [[RX, P.Y(5)], [RX, P.Y(11)]], C.muted, 4, { alpha: ra, cap: 'butt' });
-  for (let r = 5; r <= 11.001; r += 0.5) line(ctx, [[RX, P.Y(r)], [RX + (r % 1 ? 18 : 34), P.Y(r)]], C.muted, 4, { alpha: ra, cap: 'butt' });
-  // first months held level: the slab that the gap builds (positive below the rail, warn above)
-  const slabN = ease(t, 1.3, 2.3) * 9;
-  if (Math.abs(v - FIXED) > 0.02) poly(ctx, [[bx, yR], [bx, by], [P.X(slabN), by], [P.X(slabN), yR]], v < FIXED ? C.cushion : C.warn, v < FIXED ? 0.55 : 0.72);
-  line(ctx, [[bx, by], [P.X(slabN), by]], C.ink, 8, { alpha: slabN > 0.05 ? 1 : 0 });
-  // rail
-  line(ctx, [[P.x0 - 80, yR], [P.x1, yR]], C.muted, 10, { cap: 'butt' });
-  if (v > FIXED) line(ctx, [[bx, yR], [P.X(slabN), yR]], C.warn, 16, { cap: 'butt' });
-  // bracket: snaps in at 0.8 s
-  const s = clamp(back(t, 0.7, 1.15), 0, 1.3), BX = 486;
-  if (t > 0.7) {
-    const colr = v < FIXED - 0.02 ? C.cushion : v > FIXED + 0.02 ? C.warn : C.ink;
-    const yb = mix(yR, by, Math.min(1, s)), arm = 30 * s;
-    if (Math.abs(v - FIXED) > 0.06) {
-      line(ctx, [[BX + arm, yR], [BX, yR], [BX, yb], [BX + arm, yb]], colr, 10, { cap: 'butt' });
-    } else {
-      line(ctx, [[BX - 10, yR - 16], [BX + 30, yR - 16]], colr, 8, { cap: 'butt' }); line(ctx, [[BX - 10, yR + 16], [BX + 30, yR + 16]], colr, 8, { cap: 'butt' });
-    }
+  const a = ease(t, 0, 0.4);
+  // current offer and flip (squash to 0 and back over 0.36 s around each jump)
+  let si = 0; for (let i = 0; i < STATES.length; i++) if (t >= STATES[i][0]) si = i;
+  let sx = 1, shown = t >= STATES[0][0] ? si : -1;
+  for (let i = 1; i < STATES.length; i++) { const tj = STATES[i][0], d = t - tj; if (d > -0.18 && d < 0.18) { sx = Math.max(0.02, Math.abs(d) / 0.18); shown = d < 0 ? i - 1 : i; } }
+  ctx.save(); ctx.globalAlpha = a; person(ctx); card(ctx, LX, CY); card(ctx, RX, CY, sx); ctx.restore();
+  // the 9% line, unbroken across both cards
+  line(ctx, [[LX + 60, YR], [RX + CW - 50, YR]], C.muted, 14, { cap: 'butt', alpha: a });
+  numWord(ctx, CL('fixed_rate'), 'fixed', LX + 44, CY + 92, 'label', { alpha: a });
+  if (shown >= 0) {
+    const g = STATES[shown][1], ys = YR + g * PP, cx = RX + CW / 2;
+    const X = (x) => cx + (x - cx) * sx, pa = ease(t, STATES[0][0], STATES[0][0] + 0.2);
+    if (Math.abs(g) > 0.01) rect(ctx, X(GX0), Math.min(YR, ys) + (g > 0 ? 7 : 0), (GX1 - GX0) * sx, Math.abs(ys - YR) - 7, g > 0 ? C.cushion : C.warn, pa);
+    line(ctx, [[X(GX0), ys], [X(GX1), ys]], C.ink, 9, { cap: 'butt', alpha: pa });
+    if (sx > 0.5) diamond(ctx, X(GX0), ys, 28, pa);
+    text(ctx, 'variable', RX + 44, CY + 92, 'label', { color: C.muted, alpha: pa * (sx > 0.98 ? 1 : 0) });
+    if (shown === 1 && sx > 0.98) text(ctx, CL('gap_start'), GX1 + 30, (YR + ys) / 2 + 20, 'label', { alpha: 1 });
   }
-  diamond(ctx, bx, by, 38);
-  numWord(ctx, CL('gap_start'), '', bx + 60, by + 120, 'number', { alpha: Math.min(ease(t, 1.2, 1.6), 1 - ease(t, 3.0, 3.3)) });
-  numWord(ctx, CL('fixed_rate'), 'fixed', P.x1, yR - 34, 'label', { align: 'right' });
-  badge(ctx, 1);
+  badge(ctx, a);
 }
