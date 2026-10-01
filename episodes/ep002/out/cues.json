@@ -80,18 +80,18 @@
   },
   {
    "t": 320.467,
-   "end": 381.233,
+   "end": 381.7,
    "scene": "S08",
    "function": "the worst stretch (April 1977): fullest drive, crescendo to \"43% more\"",
    "key": "D dorian",
-   "tempo": 134.284,
+   "tempo": 133.261,
    "layer": "music",
    "section": "build2",
    "levelDb": 1.5
   },
   {
-   "t": 381.233,
-   "end": 442.5,
+   "t": 381.7,
+   "end": 442.967,
    "scene": "S09",
    "function": "the line: F major, the drive returns lighter as the head start widens",
    "key": "F major",
@@ -101,8 +101,8 @@
    "levelDb": 1.0
   },
   {
-   "t": 442.5,
-   "end": 509.6,
+   "t": 442.967,
+   "end": 510.067,
    "scene": "S10",
    "function": "the answer in two halves: F major, steady",
    "key": "F major",
@@ -112,8 +112,8 @@
    "levelDb": 0.0
   },
   {
-   "t": 509.6,
-   "end": 533.6,
+   "t": 510.067,
+   "end": 534.067,
    "scene": "S11",
    "function": "\"How we know this\" (method card): thin pad only",
    "key": "F major",
@@ -123,8 +123,8 @@
    "levelDb": -1.0
   },
   {
-   "t": 533.6,
-   "end": 573.167,
+   "t": 534.067,
+   "end": 573.633,
    "scene": "S12",
    "function": "warm close and end screen: sparse, Leah's motif, tail",
    "key": "F major",
@@ -134,8 +134,8 @@
    "levelDb": -1.0
   },
   {
-   "t": 573.167,
-   "end": 589.167,
+   "t": 573.633,
+   "end": 589.633,
    "scene": "S13",
    "function": "warm close and end screen: sparse, Leah's motif, tail",
    "key": "F major",
@@ -146,7 +146,7 @@
   },
   {
    "t": 0.0,
-   "end": 589.167,
+   "end": 589.633,
    "function": "data sonification, palette S2 \"minimal\" (sổ gu G-005 · chọn): soft low pulse MIDI 36-62 + filtered tick 4.5-7 kHz; bands 60-270 Hz + 4.5-7 kHz; events out/sonify-events.json",
    "key": "D minor pentatonic (= F major pentatonic)",
    "tempo": null,
@@ -154,7 +154,7 @@
   },
   {
    "t": 0.0,
-   "end": 589.167,
+   "end": 589.633,
    "function": "room tone floor (pink noise, one space); +8 dB inside the silences",
    "key": null,
    "tempo": null,
@@ -205,17 +205,18 @@
   },
   {
    "t": 380.335,
-   "end": 381.288,
-   "dur": 0.953,
+   "end": 381.755,
+   "dur": 1.42,
    "after": "S08.8",
    "before": "S09.1",
    "why": "after the worst stretch, before the line",
    "release": "exp tau 90 ms",
-   "return": "200 ms"
+   "return": "200 ms",
+   "adBreak": 380.923
   },
   {
-   "t": 508.595,
-   "end": 509.738,
+   "t": 509.061,
+   "end": 510.205,
    "dur": 1.143,
    "after": "S10.7",
    "before": "S11.1",
@@ -224,8 +225,8 @@
    "return": "200 ms"
   },
   {
-   "t": 569.478,
-   "end": 570.486,
+   "t": 569.944,
+   "end": 570.953,
    "dur": 1.009,
    "after": "S12.4",
    "before": "S12.5",

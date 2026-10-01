@@ -2,39 +2,39 @@
  "_about": "Audio files of the T\u1eadp 2 C5 mix; this manifest records them (SHA-256, size). Rebuild: python3 episodes/ep002/audio_src/events.py && python3 episodes/ep002/audio_src/mix.py (deterministic seeds). Stems: 48 kHz stereo PCM 24-bit, same time base as out/video.mp4 (animatic/timing.json), at mix level: their sum is the master.",
  "generator": "episodes/ep002/audio_src/mix.py",
  "timing": {
-  "path": "../../../../../tmp/claude-0/-home-user-crux-lab/ce118c19-8f87-59ac-a641-3486272a248d/scratchpad/A/tm/ep/animatic/timing.json",
-  "total_s": 589.1667,
-  "sha256": "6e0c5b6def9656ee9cf0ccfd9cee8c4c242bf9a2d265aa71d47aa808d49428cd"
+  "path": "animatic/timing.json",
+  "total_s": 589.6333,
+  "sha256": "41a9097241966be22ad0ead16423c8b7e998cf83ec8660df7644c5b45ed2416d"
  },
  "sampleRate": 48000,
  "files": {
   "out/audio/stems/voice.wav": {
-   "sha256": "ab8b64d5b1bdbc59bc31225f114b9fd5aefc9c3f05288cc287080dc0bbfa2b41",
-   "bytes": 169680056
+   "sha256": "9b3ec11a21ab99d80f767d878bb78dd9e8fa7bf429de4548fdd7b6d6684d9965",
+   "bytes": 169814432
   },
   "out/audio/stems/music.wav": {
-   "sha256": "d6a376f923130b381a0f731aee3c2307c28341c97df0e2ffb882e8b23a6f8e6f",
-   "bytes": 169680056
+   "sha256": "f8d8b2b410d5a70196fbeb6cfbc741c61f032947bfdc5459a0e316fa6a0a2e88",
+   "bytes": 169814432
   },
   "out/audio/stems/sonify.wav": {
-   "sha256": "e265765bea9cf89859c985fe7df629e8a96f37886f25e17516c5485de3c739b5",
-   "bytes": 169680056
+   "sha256": "5170151a795e9f090eb517f2018cb07d66a73a016cb6f1b00ad202785ca2e437",
+   "bytes": 169814432
   },
   "out/audio/stems/room.wav": {
-   "sha256": "d43ebc05d77c666df7f68768adbd9f9d06a0ee8b00b8d3a89b6841c2952b929c",
-   "bytes": 169680056
+   "sha256": "aa6d23ce111574fc8460e757abb6ee346f9f85e7cb89c2775e3622dfdc3a6dfb",
+   "bytes": 169814432
   },
   "out/audio/stems/sfx.wav": {
-   "sha256": "a71445aa6866f6a3acf0929d7bc03df7bf34b4deb5e4a54ec66eaa6b4920edf0",
-   "bytes": 169680056
+   "sha256": "7311d1cfea27fc1c3c5cc26c331e72ad2093d2d5f031e7750f9509b849b55e7b",
+   "bytes": 169814432
   },
   "out/audio/stems/whoosh.wav": {
-   "sha256": "a71445aa6866f6a3acf0929d7bc03df7bf34b4deb5e4a54ec66eaa6b4920edf0",
-   "bytes": 169680056
+   "sha256": "7311d1cfea27fc1c3c5cc26c331e72ad2093d2d5f031e7750f9509b849b55e7b",
+   "bytes": 169814432
   },
   "out/audio/master.wav": {
-   "sha256": "015a36a9fde59ba75cb0603efeb2d802c21059bfa1483a8df105e08cc62e9c45",
-   "bytes": 169680056
+   "sha256": "09428dbcb675f03d6eaab699e1144765767dd6b33f4eacbb34573b99bc6df39c",
+   "bytes": 169814432
   }
  },
  "master": {

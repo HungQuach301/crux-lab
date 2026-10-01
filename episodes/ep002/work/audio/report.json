@@ -1,6 +1,6 @@
 {
- "total_s": 589.1667,
- "samples": 28280002,
+ "total_s": 589.6333,
+ "samples": 28302398,
  "master": {
   "I": -14.1,
   "LRA": 3.2,
@@ -9,15 +9,15 @@
  "limiterMinGainDb": -2.22,
  "limiterGainBelow1dBShare": 0.00247,
  "preGainLUFS": -15.6,
- "voiceOverMusicDb_A07": 19.96,
+ "voiceOverMusicDb_A07": 19.97,
  "voiceOverMusicTargetDb": 20.0,
  "sonUnderVoiceDb": 16.0,
  "sonification": {
   "notes": 455,
-  "shiftedIntoGaps": 343,
-  "medianShiftMs": 55.7
+  "shiftedIntoGaps": 342,
+  "medianShiftMs": 57.75
  },
- "sonBandShare": 0.9739728776567785,
+ "sonBandShare": 0.9728243597617497,
  "silences": [
   {
    "t": 26.148,
@@ -62,17 +62,18 @@
   },
   {
    "t": 380.335,
-   "end": 381.288,
-   "dur": 0.953,
+   "end": 381.755,
+   "dur": 1.42,
    "after": "S08.8",
    "before": "S09.1",
    "why": "after the worst stretch, before the line",
    "release": "exp tau 90 ms",
-   "return": "200 ms"
+   "return": "200 ms",
+   "adBreak": 380.923
   },
   {
-   "t": 508.595,
-   "end": 509.738,
+   "t": 509.061,
+   "end": 510.205,
    "dur": 1.143,
    "after": "S10.7",
    "before": "S11.1",
@@ -81,8 +82,8 @@
    "return": "200 ms"
   },
   {
-   "t": 569.478,
-   "end": 570.486,
+   "t": 569.944,
+   "end": 570.953,
    "dur": 1.009,
    "after": "S12.4",
    "before": "S12.5",
@@ -95,9 +96,9 @@
   66.245,
   125.794,
   261.195,
-  441.505,
-  518.196,
-  572.35
+  441.972,
+  518.663,
+  572.817
  ],
  "bpmByScene": {
   "S01": 106.798,
@@ -107,7 +108,7 @@
   "S05": 123.789,
   "S06": 126.61,
   "S07": 127.616,
-  "S08": 134.284,
+  "S08": 133.261,
   "S09": 125.354,
   "S10": 118.033,
   "S11": 100.0,
@@ -175,14 +176,14 @@
   {
    "scene": "S09",
    "take": "S09.3b126a0d.seed1.mp3",
-   "at": 381.2333,
+   "at": 381.7,
    "takeS": 60.447,
    "inserted": []
   },
   {
    "scene": "S10",
    "take": "S10.4e2d2ecf.seed1.mp3",
-   "at": 442.5,
+   "at": 442.9667,
    "takeS": 66.287,
    "inserted": [
     {
@@ -195,21 +196,21 @@
   {
    "scene": "S11",
    "take": "S11.52483032.seed1.mp3",
-   "at": 509.6,
+   "at": 510.0667,
    "takeS": 8.829,
    "inserted": []
   },
   {
    "scene": "S12",
    "take": "S12.ea0b3724.seed1.mp3",
-   "at": 533.6,
+   "at": 534.0667,
    "takeS": 38.766,
    "inserted": []
   },
   {
    "scene": "S13",
    "take": "S13.seed1.mp3",
-   "at": 573.1667,
+   "at": 573.6333,
    "takeS": 7.158,
    "inserted": []
   }
@@ -218,7 +219,7 @@
   "voice": -17.78,
   "music": -36.45,
   "sonify": -46.31,
-  "room": -66.33
+  "room": -66.31
  },
  "sumMinusMasterMax": 0.0
 }

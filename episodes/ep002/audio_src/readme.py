@@ -1,0 +1,60 @@
+"""Writes out/audio/README.md from work/audio/report.json, out/audio/manifest.json, out/voice/takes.json and (optional) a checks report.
+    python3 episodes/ep002/audio_src/readme.py [<checks report.json>]
+"""
+import json
+import os
+import sys
+
+EP = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+J = lambda p: json.load(open(os.path.join(EP, p)))
+rep, man, tk = J('work/audio/report.json'), J('out/audio/manifest.json'), J('out/voice/takes.json')
+ck = json.load(open(sys.argv[1])) if len(sys.argv) > 1 else None
+m = rep['master']
+s08 = next(t for t in tk['takes'] if t['id'] == 'S08')
+sil = rep['silences']
+L = []
+L.append('# Tập 2 · C5 · tiếng (luồng A)\n')
+L.append(f"Bản mix cuối trên `animatic/timing.json` (tổng {man['timing']['total_s']:.4f} s, SHA-256 `{man['timing']['sha256'][:12]}…`). "
+         'File wav không commit (`.gitignore`); SHA-256 và kích thước trong `manifest.json`. Dựng lại: '
+         '`python3 episodes/ep002/audio_src/takes.py && python3 episodes/ep002/audio_src/events.py && python3 episodes/ep002/audio_src/mix.py` (seed cố định).\n')
+L.append('## Đo trên master (`master.wav`, trước AAC)\n')
+L.append(f"- Âm lượng tích hợp **{m['I']} LUFS** (đích −14, A01 ±1) · true peak **{m['TP']} dBTP** (trần −1,5; A02 ≤ −1,0) · LRA {m['LRA']} LU.")
+L.append(f"- Limiter true peak (4× oversample, look-ahead 5 ms): gain nhỏ nhất {rep['limiterMinGainDb']} dB, dưới −1 dB ở {rep['limiterGainBelow1dBShare'] * 100:.2f}% mẫu.")
+L.append(f"- Stem (dBFS RMS cả tập): " + ', '.join(f'{k} {v}' for k, v in rep['stemLevelsDbfs'].items()) + '; sfx/whoosh im (bảng S2 không có lớp sfx). '
+         f"Tổng stem = master (sai lệch lớn nhất {rep['sumMinusMasterMax']:.1e}).\n")
+L.append('## Lời ưu tiên (G-006): duck dưới lời\n')
+L.append(f"- Nhạc (kiểu C của Tập 1, G-016 · chọn) đặt **{rep['voiceOverMusicDb_A07']} dB dưới lời** trên các cửa sổ 100 ms có lời (cách đo A07; đích 20 dB như Tập 1); "
+         'dải 1–4 kHz của nhạc duck thêm 13 dB khi có lời (nhìn trước 80 ms, thả 350 ms).')
+L.append(f"- Tiếng dữ liệu (S2 \"minimal\", G-005 · chọn): −{rep['sonUnderVoiceDb']:.0f} dB dưới RMS lời trước side-chain; khi có lời thêm −8 dB và bỏ 95% dải 1–4 kHz; "
+         f"nốt rơi vào lời được dời vào khe âm tiết (−60…+120 ms): {rep['sonification']['shiftedIntoGaps']}/{rep['sonification']['notes']} nốt, trung vị {rep['sonification']['medianShiftMs']} ms. "
+         f"Không bao giờ nâng mức. Năng lượng stem sonify trong dải khai báo (60–270 Hz + 4,5–7 kHz) = {rep['sonBandShare'] * 100:.1f}%. "
+         'Nhạc nhường −10 dB trong hai dải đó khi tiếng dữ liệu kêu.')
+L.append(f"- Khoảng lặng (G-003): {len(sil)} khe lời ở các bước ngoặt (+ điểm quảng cáo): nền nhả τ 90 ms, room +8 dB, trở lại 200 ms — "
+         + '; '.join(f"{r['t']:.2f} s ({r['dur']:.2f} s{', quảng cáo' if 'adBreak' in r else ''})" for r in sil) + '. Các cú cắt cảnh khác: nhạc phồng +3 dB.\n')
+L.append('## Tiếng dữ liệu: chọn sự kiện (cách S2 của Tập 1)\n')
+L.append('63 hành động dữ liệu (`out/sonify-events.json`, `work/audio/son-plan.json`, lý do trong `audio_src/events.py`), neo vào hình (`animatic/src/anchors`) và giải lại trên timing.json hiện tại: '
+         'lãi suất vượt 9% (đường thả nổi cắt đường 9% = `line` dao động; các lần leo trên 9% ở S06, S07, S08 tới 19,3% = `line` đi lên); khởi đầu thấp hơn (mỗi lần lật điểm xuất phát = `dot`, cao độ theo độ cao); '
+         'đệm tiết kiệm (hũ đầy = `bar` mọc, hũ cạn = `line` đi xuống ở S06.3, S07.5, S08.4); ô kết quả đỏ (khung chạy thả ô = `roll` tăng tốc theo dáng lãi T-bill; ô đỏ cao và to hơn; tỉ lệ đỏ 28,4/3,5/20,4/10,5/31,3/57,9/72,9% = `bar` cao độ theo tỉ lệ); '
+         'chồng lãi và khối "đắt hơn" (S04, S08) = `bar`. Nhãn, số dạng chữ, thẻ, cú nhúng và thẻ phương pháp không có tiếng (S2 không có lớp sfx).\n')
+L.append('## Lời và ký tự ElevenLabs\n')
+L.append(f"- Eric `{tk['voice']['voiceId']}`, `{tk['voice']['model']}`, mặc định (không voice_settings, không speed, không thẻ ngắt), mỗi cảnh một lần gọi, thẻ cảm xúc thưa như kịch bản.")
+L.append(f"- 12 cảnh dùng lại take C2 (chữ trùng kịch bản, cùng giọng/mô hình/thiết lập). **S08 sinh lại ở C5** vì S08.6 đổi chữ (\"in dollars of the day\"): seed 1, "
+         f"**{tk['elCharsC5']} ký tự EL** (C5 tổng), ASR 0 từ khoá thiếu. Take mới {s08['raw'].split('/')[-1]} dài {s08['audioS']:.3f} s (cũ 55,171 s): "
+         'cảnh S08 dài hơn ~4,8 s; P đặt pad S08 = 1,25 s để khe S08.8→S09.1 (điểm quảng cáo 2) ≥ 1 s im.')
+L.append("- S09: ASR nghe \"1954 -1980\"; bộ đọc số của luật đọc dấu gạch thành dấu trừ, nên \"1980\" bị tính thiếu (giọng đọc đúng; seed 2 ở C2 cho cùng kết quả). "
+         'Không sinh lại: nguyên nhân là dạng chữ "1954-to-1980" (việc A14 của P-ep002).\n')
+if ck:
+    L.append('## Luật âm thanh (bản sao checks origin/main, LOCK `2fcc9fcc…`)\n')
+    L.append('| Luật | Kết quả | Số đo |\n|---|---|---|')
+    for r in ck['results']:
+        meas = '; '.join(f"{x['name']} {x['value']}" for x in r.get('metrics', []))
+        L.append(f"| {r['id']} ({r.get('tier')}) | {r['status']} | {meas[:180].replace('|', '/')} |")
+    L.append('')
+    L.append('Bản ghi: video tạm = nền màu + master (AAC 320k) chỉ để luật đọc tiếng chạy; P mux bản thật rồi chạy lại. '
+             'A14: "1980" ×3 (S09.5, S09.6, S10.3: ASR viết "1954 -1980", bộ đọc số hiểu là −1980), "1" ở S04.4 ("minus 1 point" → −1), '
+             '"$9,472" ở S09.5 (cả stem lời một mình cũng nghe 9,407: lỗi take/ASR, không phải mix), "Leah" ở S02.2 (chỉ trên master; stem lời đạt; L1: 0 từ mất vì tiếng dữ liệu). '
+             'T2 (tham khảo): nhạc kiểu C có ostinato cùng âm giai nên chroma 4 ô giống nhau ≥ 0,90 dù chuỗi hợp âm không lặp (Tập 1 kiểu C: 29%). '
+             'T3 (tham khảo): 4 lối vào ngoài 150–400 ms (pad tự tắt dần trước khoảng lặng vì không có nốt mới 1,3 s trước, như Tập 1). '
+             'A03 LRA 3,2 (tham khảo; lời ưu tiên, như Tập 1). A17/R02/R03 đo lời và nhịp kịch bản, không do mix.')
+open(os.path.join(EP, 'out', 'audio', 'README.md'), 'w').write('\n'.join(L) + '\n')
+print('README written')
