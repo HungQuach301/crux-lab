@@ -1,0 +1,101 @@
+{
+ "clip": "K7",
+ "frames": 300,
+ "filmSeconds": 10,
+ "wallSeconds": 48.1,
+ "machineSecPerFilmSec": 4.81,
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:05:54.236Z",
+ "stripTimes": [
+  0.5,
+  2.9,
+  4.9,
+  6.6,
+  7.6,
+  9.5
+ ],
+ "claimsUsed": [
+  "best_start_year",
+  "first_start",
+  "gap_start",
+  "spread2_share",
+  "spread3_share"
+ ],
+ "texts": [
+  {
+   "s": "1954",
+   "tier": "note",
+   "px": 48,
+   "n": 512
+  },
+  {
+   "s": "1981",
+   "tier": "note",
+   "px": 48,
+   "n": 512
+  },
+  {
+   "s": "1.5 points",
+   "tier": "label",
+   "px": 54,
+   "n": 512
+  },
+  {
+   "s": "Moving the head start",
+   "tier": "caption",
+   "px": 64,
+   "n": 512
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 48,
+   "n": 512
+  },
+  {
+   "s": "8.8%",
+   "tier": "number",
+   "px": 96,
+   "n": 51
+  },
+  {
+   "s": "4.5%",
+   "tier": "number",
+   "px": 96,
+   "n": 56
+  }
+ ],
+ "minPx1080": 48,
+ "checkSamples": 515,
+ "worstClear": {
+  "t": 2.8,
+  "s": "8.8%",
+  "px": 96,
+  "clear": 10,
+  "tclear": 115.8,
+  "contrast": 4.83,
+  "color": "#E5484D",
+  "plate": null
+ },
+ "worstTextClear": {
+  "t": 2.8,
+  "s": "1.5 points",
+  "px": 54,
+  "clear": 16,
+  "tclear": 115.8,
+  "contrast": 7.5,
+  "color": "#9AA4B2",
+  "plate": null
+ },
+ "worstContrast": {
+  "t": 2.8,
+  "s": "8.8%",
+  "px": 96,
+  "clear": 10,
+  "tclear": 115.8,
+  "contrast": 4.83,
+  "color": "#E5484D",
+  "plate": null
+ }
+}
