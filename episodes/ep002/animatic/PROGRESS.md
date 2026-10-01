@@ -68,3 +68,4 @@
 - 01/10 18:51 C5 S09 1080p xong (S09 done 488 s)
 - 01/10 18:51 C5 S07 1080p xong (S07 done 520 s)
 - 01/10 18:53 C5 S10 1080p xong (S10 done 597 s)
+- 01/10 18:58 C5 S05 1080p xong (S05 done 420 s)
