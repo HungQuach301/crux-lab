@@ -7,7 +7,7 @@ import { C, DATA, CL, numWord, badge, line, rect, diamond, roundRect, ease, mix,
 export const duration = 8.0;
 export const stripTimes = [0.55, 1.25, 2.5, 4.1, 5.75, 7.85];
 const PATH = DATA.k1.path, FIX = 9.0, VAR0 = 7.5;
-const CW = 660, CH = 460, CY = 180, LX = 140, RX = 1920 - 140 - CW;
+const CW = 660, CH = 460, CY = 196, LX = 140, RX = 1920 - 140 - CW;
 const HX = 960, HY = 668, HR = 66;           // head
 function card(ctx, x, y, a) {
   if (a <= 0.01) return;
