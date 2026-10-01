@@ -8,11 +8,16 @@ Phiên này KHÔNG sửa `checks/`. Đề xuất `rate-path-history` (bản trư
 - **Chạy thử bằng mã K3.5 trên bản sao (SHA khớp LOCK):** `fvf_compare` 3 060 phép so, 0 lệch, không trường lạ; 34 khoá S05 tính được; 3 bất biến đạt. (2026-10-01)
 - `out/claims.json`: tỉ lệ ghi chưa làm tròn (dung sai 0,005); tháng dùng claim số `worst_start_year`/`worst_start_month`.
 
-## Claim chưa có khoá K3.5 (ứng viên K3.6 — danh sách chốt SAU C2, chỉ những claim kịch bản thật sự dùng)
-Đánh dấu `k36` trong `out/claims.json`. Hiện có (trước C2):
-- tỉ lệ theo khoảng chênh **tách theo thời kỳ** (`gap*_early`, `gap*_late`);
-- xấu nhất / trung vị **theo khoảng chênh** (`gap*_worst`);
-- **nhiều mức trần** trong một mô hình (`cap12/15/18/25_*`);
-- khoản trả ngoài `maxPayment`: `var_first_payment`, `median_max_payment`, `share_payment_above_fixed`;
-- `share_rate_above_fixed` (tỉ lệ cửa sổ có lãi vượt `fixedRate`), `worst_peak_rate` (maxRate của cửa sổ xấu nhất).
-Gói C2 sẽ báo danh sách cuối để chủ dự án mở K3.6 một lần.
+## K3.6 — claim kịch bản v3 dùng mà K3.5 chưa có khoá (danh sách chốt sau C2, 26 claim)
+Sinh bằng máy từ `story/script.md` v3 × `out/claims.json` × `contract.json → model.claims`. Đề xuất khoá (chỉ đặc tả):
+
+| Nhóm | Claim | Khoá đề xuất |
+|---|---|---|
+| Tỉ lệ theo khoảng chênh **và** thời kỳ | `gap00/10/20/30/m10_early`, `gap00/10/20/30/m10_late` | `shareCostlierAtSpread:<điểm>:<tháng đầu thời kỳ>` |
+| Xấu nhất theo khoảng chênh | `gap00/10/20/30/m10_worst`, `gap_worst_start_all` (mọi khoảng chênh cùng 1977-04) | `worstDifferenceAtSpread:<điểm>`, `worstStartAtSpread:<điểm>` (Year/Month) |
+| Nhỏ nhất qua mọi khoảng chênh theo thời kỳ | `min_gap_early` (10,5% > 0) | `minShareCostlierOverSpreads:<thời kỳ>` |
+| Khoản trả ngoài `maxPayment` | `var_first_payment` ($593.51), `first_payment_gap` ($39.87) | `floatFirstPayment` (fixedPayment − floatFirstPayment suy ra) |
+| Thuộc tính cửa sổ | `worst_peak_rate` (19,26%: maxRate của cửa sổ xấu nhất), `share_rate_above_fixed` (76,2%: % cửa sổ có tháng lãi > fixedRate), `worst_share_of_fixed` (43% = worstDifference / fixedTotalInterest) | `worstWindowMaxRate`, `shareRateAboveFixed`, (tỉ số suy ra từ hai khoá có sẵn) |
+| Ngày dạng chuỗi | `first_start`, `last_start`, `worst_start`, `best_start` | đã có dạng số `…Year/…Month`; K3.6 chỉ cần chấp nhận claim ngày `YYYY-MM-01` so sau chuẩn hoá |
+
+Không dùng trong v3 (không cần khoá): lưới trần `cap*`, `median_max_payment`, `share_payment_above_fixed`, `gap*` ở 0,5/2,5.

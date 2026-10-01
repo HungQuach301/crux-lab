@@ -18,7 +18,6 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 | C6 Chấm cuối và chốt gói | chưa | — | — |
 
 ## Việc treo cần chủ dự án (không chặn cổng)
-- **Xác nhận tin nhắn "GIỌNG KỂ" (01/10/2026)**: nhắc kênh Last Lamplighters, M2.0/M2.1, đoạn 07, flite, khung sửa B3 — không có trong Tập 2 Crux; table read dừng tới khi xác nhận. Khoá ElevenLabs thiếu quyền `user_read` → không đọc được số dư.
 - K3.5 đang merge (LOCK bd1948d9) — C5 kiểm SHA trên main trước khi chạy.
 - K3.6 (sau C2): danh sách claim chưa có khoá — báo ở gói C2.
 
@@ -36,3 +35,4 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 - 2026-10-01 (5): kịch bản v2 (84 câu, 1 462 từ) đã kiểm máy. Đang: table read `python3 episodes/ep002/story/table_read.py` (nohup, log `review-c2/table-read.log`; chạy lại cùng lệnh để tiếp, cảnh xong không tốn ký tự lại). Sau đó: kiểm mù C2 → gói C2.
 - 2026-10-01 (6): kiểm mù C2 xong (5/5; `gates/C2-blind.md`). Table read lần 1 dừng (502 ở cảnh dài). WRITER v3 đang sửa theo kiểm mù + chia cảnh ≤ 900 ký tự. Tiếp: kiểm máy v3 → table read (xoá takes cũ, sinh lại cả tập) → gói C2.
 - 2026-10-01 (7): kiểm mù C2 hai vòng xong. Table read DỪNG (S01–S02 có, 398 ký tự) chờ chủ dự án xác nhận tin nhắn giọng Bill. Tiếp khi rõ: chạy lại `story/table_read.py` (bỏ qua cảnh đã có) → clip C2 → gói C2.
+- 2026-10-01 (8): chủ dự án: tin "GIỌNG KỂ" gửi nhầm (Cine Lab) — bỏ qua, giữ Eric v3. Table read chạy tiếp (S03 trở đi).
