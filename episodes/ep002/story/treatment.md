@@ -1,4 +1,4 @@
-# Episode 2 — Treatment v2 (C2, WRITER, 2026-10-01)
+# Episode 2 — Treatment v3 (C2, WRITER, 2026-10-01)
 
 Logline A (C1). Working title A1: *Need Private Grad Loans? Variable vs Fixed Through History*. Central question: **how much lower does a variable rate have to start than a fixed rate before the risk has been worth it, in history?** Loan numbers are ILLUSTRATIVE; the index is real US data. History, not a forecast.
 
@@ -20,8 +20,8 @@ A variable rate follows a market rate and nobody knows where it goes next. The f
 
 ## The journey
 
-1. **The replay.** The lender's index has too short a record, so the 3-month T-bill stands in. 7.5% = 3.72% (August 2026) + 3.78 points, and the rate moves month by month as the T-bill moved, with a zero floor. Frames run from January 1954 to September 2016: 753 overlapping stretches, the data US only. There is no cap, no grace period and no fees. Each token drops into the bin under its half of history.
-2. **Why both are true.** The cushion fills fastest when the balance is biggest. Months above 9% must drain it. Short jumps only dent it; falling stretches keep filling it.
+1. **Why both are true** (straight after the puzzle, v3). The cushion fills fastest when the balance is biggest. Months above 9% must drain it. Short jumps only dent it; falling stretches keep filling it.
+2. **The replay.** The lender's index has too short a record, so the 3-month T-bill stands in. 7.5% = 3.72% (August 2026) + 3.78 points, and the rate moves month by month as the T-bill moved, with a zero floor. Frames run from January 1954 to September 2016: 753 overlapping stretches, the data US only; index value, margin, 753 starts, zero floor and no cap/grace/fees sit on the method card (v3). Each token drops into the bin under its half of history.
 3. **Two kinds of history.** Rates climbed to 1980, peaked at 16.3% in May 1981, then drifted down. The best case (August 1981, $15,295 less) is always paired with both periods and the worst.
 4. **The worst stretch as Leah's loan.** April 1977: the rate reaches 19.3% and the payment $863.36. She pays $11,219 on top of the fixed loan's $26,005, which is 43% more.
 

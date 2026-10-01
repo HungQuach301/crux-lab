@@ -1,7 +1,7 @@
 """C2 kiểm mù: lời thuần ứng viên (script.md v2) + đối chứng yếu (M1b Tập 1). Một file hex / thư mục. Khoá review-c2/key.json."""
 import json, os, re, secrets, random
 ROOT = '/home/user/crux-lab'; EP = f'{ROOT}/episodes/ep002'
-DEST = '/tmp/claude-0/-home-user-crux-lab/ce118c19-8f87-59ac-a641-3486272a248d/scratchpad/blind/C2'
+DEST = '/tmp/claude-0/-home-user-crux-lab/ce118c19-8f87-59ac-a641-3486272a248d/scratchpad/blind/C2r2'
 def cand():
     out, cur = [], None
     for ln in open(f'{EP}/story/script.md', encoding='utf-8'):
@@ -29,7 +29,7 @@ def weak():
         if len(ln.split()) >= 3: lines.append(ln)
     return ' '.join(lines)
 os.makedirs(DEST, exist_ok=True)
-jobs = [('cand', 'T')] * 5 + [('cand', 'G')] + [('weak', 'T')] * 3
+jobs = [('cand', 'T')] * 5 + [('cand', 'G')] + [('weak', 'T')] * 2
 random.SystemRandom().shuffle(jobs)
 key = {'_': 'GIẢI MÃ — chỉ mở sau khi chấm.', 'items': {}}
 T = {'cand': cand(), 'weak': weak()}
