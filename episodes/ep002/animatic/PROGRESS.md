@@ -64,3 +64,7 @@
 - 01/10 15:57 C5 out/video.mp4 xong (17 568 khung, 24 Mb/s CBR + AAC 320k từ master mặc định); bắt đầu checks bản sao K3.6 --first.
 - 01/10 16:59 checks lần 1 (bản sao K3.6, --first): TRƯỢT — CHẶN: F11 (thumbnail C6), S02 (repay-now ngoài thẻ: nhãn S12 tách 2 dòng); CHÍNH: V03 (viên huy hiệu tới x 1842), V08/C14 (khung đỉnh nhúng nền), V09 (Leah chưa gắn char). Sửa: S12 nhãn một dòng, độ mờ ở khung nhúng, char/shape cho hình thoi; dựng lại S12, ghép lại, chạy lại.
 - 01/10 18:41 checks lần 2: 58 PASS/23 FAIL/1 MISSING, TRƯỢT chỉ F11 (thumbnail C6); CHÍNH còn V03 (viên huy hiệu tới x 1842). video SHA f8c2f3f4…
+- 01/10 18:43 V03: huy hiệu dời trái (H2 xr −18, H3 x −16) để viên kết thúc ở 1824; ở S10.1 bậc −1 thoi Leah chuyển về đầu trái thanh để không chạm viên. Dựng lại 1080p + 720p, chạy lại checks.
+- 01/10 18:51 C5 S09 1080p xong (S09 done 488 s)
+- 01/10 18:51 C5 S07 1080p xong (S07 done 520 s)
+- 01/10 18:53 C5 S10 1080p xong (S10 done 597 s)

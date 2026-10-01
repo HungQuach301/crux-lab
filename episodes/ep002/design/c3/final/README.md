@@ -134,3 +134,6 @@ Theo quyết định C3d (Câu 2a): hũ **bắt đầu rỗng** và **đầy lê
 
 ## K4 — nhãn "not to scale" (chủ dự án C4 Q3a)
 Bản trước giữ ở `K4-v3.mp4`, `K4-v3-strip(-masked).png`, `src/k4_v3.js`, `work/render-log-K4-v3.json`. Khi khối đỏ hiện, một nhãn nhỏ **"not to scale"** (`ink-muted`, bậc `note` 48 px @1080) đứng bên trái khối (canh phải cách khối 24 px thiết kế, đường chân 1000). Tự kiểm: chữ→đồ hoạ ≥ 14 px @720; tương phản 7,50:1; 0 ngoài vùng an toàn. Hình, màu, định thời không đổi.
+
+## C5 · V03 (vùng an toàn)
+Huy hiệu ILLUSTRATIVE dời trái 18 px (H2, `src/engine.js`) / 16 px (H3, `src/h3/engine.js`) để viên nền kết thúc ở x 1824 (trước: 1842 / 1840), cùng cỡ, cùng độ cao. Các clip K*.mp4 ở thư mục này chưa dựng lại (vẫn là bản ký); phim C5 và animatic dùng vị trí mới.

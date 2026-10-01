@@ -170,7 +170,8 @@ export function k7At(ctx, o) {
     H2.rect(ctx, Xs(KX0), vb, (KX1 - KX0) * sx, FY - vb, C.warn, a);
     H2.rect(ctx, KX0, FY, KX1 - KX0, BHt, C.muted, a);
     H2.rect(ctx, Xs(KX0), vb - BHt, (KX1 - KX0) * sx, BHt, C.ink, a);
-    if (sx > 0.5) H2.diamond(ctx, Xs(KX1 + 34), vb - BHt / 2, 26, a);
+    // reversed: the bar rises to the badge's height, so Leah's diamond sits at the bar's left end (as on the K2 card) to keep clear of it
+    if (sx > 0.5) H2.diamond(ctx, Xs(KX0 - 34), vb - BHt / 2, 26, a);
   }
   H2.numWord(ctx, CL('fixed_rate'), 'fixed', KX0 - 30, FY + BHt / 2 + 20, 'label', { align: 'right', alpha: a });
   if (g >= 0) H2.text(ctx, 'variable', KX0 - 30, FY + BHt + g * PP + BHt / 2 + 20, 'label', { align: 'right', color: C.muted, alpha: a * (g > 0.7 ? 1 : ease(g, 0.4, 0.7)) * (sx > 0.98 ? 1 : 0) });
