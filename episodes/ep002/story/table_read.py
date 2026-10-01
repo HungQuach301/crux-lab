@@ -10,7 +10,7 @@ ROOT = '/home/user/crux-lab'; EP = f'{ROOT}/episodes/ep002'; OUT = f'{EP}/review
 sys.path.insert(0, f'{ROOT}/checks/py')
 from r_audio import key_words, match_keys
 VOICE, MODEL = 'cjVigY5qzO86Huf0OWal', 'eleven_v3'
-URL = f'https://api.elevenlabs.io/v1/text-to-speech/{VOICE}/with-timestamps?output_format=mp3_44100_128'
+URL = f'https://api.elevenlabs.io/v1/text-to-speech/{VOICE}/stream/with-timestamps?output_format=mp3_44100_128'  # streaming: tránh 502 khi cảnh dài
 SRC = sys.argv[sys.argv.index('--script') + 1] if '--script' in sys.argv else f'{EP}/story/script.md'
 TAG = re.compile(r'^\[([a-z\- ]+)\]\s+')
 
@@ -45,8 +45,10 @@ def synth(text, path, seed):
     if os.path.exists(path + '.json'): return json.load(open(path + '.json'))
     for att in range(5):
         try:
-            r = requests.post(URL, json={'text': text, 'model_id': MODEL, 'seed': seed}, timeout=300)
-            if r.ok: break
+            r = requests.post(URL, json={'text': text, 'model_id': MODEL, 'seed': seed}, timeout=300, stream=True)
+            if r.ok:
+                chunks = [json.loads(l) for l in r.iter_lines() if l.strip()]
+                break
             print('HTTP', r.status_code, r.text[:200], file=sys.stderr)
             if r.status_code in (400, 401, 403, 422): raise SystemExit(f'EL {r.status_code}')
         except requests.exceptions.RequestException as e:
@@ -54,9 +56,9 @@ def synth(text, path, seed):
         time.sleep(2 ** (att + 1))
     else:
         raise SystemExit('EL failed after retries')
-    d = r.json(); open(path + '.mp3', 'wb').write(base64.b64decode(d['audio_base64']))
+    open(path + '.mp3', 'wb').write(b''.join(base64.b64decode(c['audio_base64']) for c in chunks if c.get('audio_base64')))
     meta = {'text': text, 'model': MODEL, 'voice': VOICE, 'seed': seed, 'voice_settings': None, 'speed': None,
-            'characterCost': int(r.headers.get('character-cost', 0) or 0), 'len': len(text), 'requestId': r.headers.get('request-id')}
+            'characterCost': int(r.headers.get('character-cost', 0) or 0), 'len': len(text), 'requestId': r.headers.get('request-id'), 'endpoint': 'stream/with-timestamps'}
     json.dump(meta, open(path + '.json', 'w'), indent=1); return meta
 
 
