@@ -57,3 +57,9 @@ Bản mix cuối trên `animatic/timing.json` (tổng 585.6000 s, SHA-256 `abd2e
 | L1 (MAJOR) | PASS | voice-active windows 4420; voice/data 1–4 kHz ratio, 10th percentile (dB) 27.690484; key words lost to the data sounds 0 |
 
 Video tạm = nền màu + master (AAC 320k), chỉ để các luật đọc tiếng từ video chạy được; khi P mux bản thật thì chạy lại các luật đó. Mọi luật CHẶN về tiếng đều đạt (A14: 0/151 từ khoá thiếu trên master). T2 (tham khảo): ostinato kiểu C dùng chung một âm giai nên chroma của các câu 4 ô giống nhau ≥ 0,90, dù chuỗi hợp âm không lặp; Tập 1 kiểu C đo 29%. Gu C đã khoá nên không đổi. T3 (tham khảo): lối vào khoảng lặng chậm vì pad tự tắt dần (1,3 s trước khoảng lặng không có nốt mới), giống Tập 1. A03 LRA (tham khảo): thấp vì lời được ưu tiên, giống Tập 1. A17/R02/R03 đo lời và nhịp kịch bản, không phụ thuộc mix.
+
+## Bản nhạc thay thế (`--music alt`, chủ dự án C6: cùng kiểu C, ít lặp hơn)
+
+Cùng nhạc cụ, cùng nhịp, cùng âm giai; mỗi ô tự chọn nhịp thump, bass, ostinato từ tập rộng hơn (không trùng ô trước), thỉnh thoảng có ô "thở" ở cuối câu nhạc (không thump/bass), hợp âm chọn theo độ tương phản. Lời, tiếng dữ liệu, duck, hạ nền "Leah", khoảng lặng và chuỗi master giữ nguyên. Master-alt: -14.1 LUFS, true peak -1.5 dBTP; nhạc 19.96 dB dưới lời. File: `stems-alt/{voice,music-alt,sonify,room}.wav` (tổng = `master-alt.wav`), SHA-256 ở `manifest.json` → `alt`. Mặc định vẫn là bản hiện tại.
+- **T2 (câu nhạc 4 ô lặp lại): mặc định 64,8%, thay thế 19,7%** (Tập 1 kiểu C: 29%). Luật của bản thay thế: A01 A02 A04 A05 A06 A14 L1 S14 A07 A09 A12 T1 đạt; T3 2 lối vào chậm; A08 (tham khảo) 4,4 dB < 6 (nhạc thưa hơn trước lời).
+- So sánh cho chủ dự án: `review-c6/music-ab.m4a` (57 s): hai đoạn, mỗi đoạn A = mặc định rồi B = thay thế; một tiếng bíp trước A, hai tiếng trước B. Đoạn 1 = S02.2 (có chữ "Leah" và chỗ hạ nền), đoạn 2 = S07.5 (hai lần chạy, tiếng dữ liệu, nhịp đầy). Chỉ mục: `review-c6/music-ab.json`.

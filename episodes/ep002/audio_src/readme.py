@@ -9,6 +9,7 @@ EP = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 J = lambda p: json.load(open(os.path.join(EP, p)))
 rep, man, tk = J('work/audio/report.json'), J('out/audio/manifest.json'), J('out/voice/takes.json')
 ck = json.load(open(sys.argv[1])) if len(sys.argv) > 1 else None
+T2_DEFAULT, T2_ALT, ALT_CHECKS = (sys.argv[2:5] + ['?', '?', '?'])[:3]
 m = rep['master']
 s08 = next(t for t in tk['takes'] if t['id'] == 'S08')
 sil = rep['silences']
@@ -62,5 +63,17 @@ if ck:
              'T2 (tham khảo): ostinato kiểu C dùng chung một âm giai nên chroma của các câu 4 ô giống nhau ≥ 0,90, dù chuỗi hợp âm không lặp; Tập 1 kiểu C đo 29%. Gu C đã khoá nên không đổi. '
              'T3 (tham khảo): lối vào khoảng lặng chậm vì pad tự tắt dần (1,3 s trước khoảng lặng không có nốt mới), giống Tập 1. '
              'A03 LRA (tham khảo): thấp vì lời được ưu tiên, giống Tập 1. A17/R02/R03 đo lời và nhịp kịch bản, không phụ thuộc mix.')
+alt = man.get('alt')
+if alt:
+    ra = json.load(open(os.path.join(EP, 'work', 'audio', 'report-alt.json')))
+    L.append('')
+    L.append('## Bản nhạc thay thế (`--music alt`, chủ dự án C6: cùng kiểu C, ít lặp hơn)\n')
+    L.append('Cùng nhạc cụ, cùng nhịp, cùng âm giai; mỗi ô tự chọn nhịp thump, bass, ostinato từ tập rộng hơn (không trùng ô trước), thỉnh thoảng có ô "thở" ở cuối câu nhạc (không thump/bass), '
+             'hợp âm chọn theo độ tương phản. Lời, tiếng dữ liệu, duck, hạ nền "Leah", khoảng lặng và chuỗi master giữ nguyên. '
+             f"Master-alt: {alt['master']['integratedLUFS']} LUFS, true peak {alt['master']['truePeakDbtp']} dBTP; nhạc {ra['voiceOverMusicDb_A07']} dB dưới lời. "
+             'File: `stems-alt/{voice,music-alt,sonify,room}.wav` (tổng = `master-alt.wav`), SHA-256 ở `manifest.json` → `alt`. Mặc định vẫn là bản hiện tại.')
+    L.append(f"- **T2 (câu nhạc 4 ô lặp lại): mặc định {T2_DEFAULT}, thay thế {T2_ALT}** (Tập 1 kiểu C: 29%). Luật của bản thay thế: {ALT_CHECKS}.")
+    L.append('- So sánh cho chủ dự án: `review-c6/music-ab.m4a` (57 s): hai đoạn, mỗi đoạn A = mặc định rồi B = thay thế; một tiếng bíp trước A, hai tiếng trước B. '
+             'Đoạn 1 = S02.2 (có chữ "Leah" và chỗ hạ nền), đoạn 2 = S07.5 (hai lần chạy, tiếng dữ liệu, nhịp đầy). Chỉ mục: `review-c6/music-ab.json`.')
 open(os.path.join(EP, 'out', 'audio', 'README.md'), 'w').write('\n'.join(L) + '\n')
 print('README written')

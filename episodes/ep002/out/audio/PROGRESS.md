@@ -10,3 +10,4 @@
 - 13:35 luật (bản sao K3.6): CHẶN A01 A02 A04 A05 A06 đạt, A14 trượt 6 từ (dạng chữ/ASR, xem README); CHÍNH A18, L1 đạt; tham khảo trượt A03 T2 T3 A17 R02 R03. README xong. Không commit.
 - 13:41 v5.2: sinh lại S04 (seed1, 316), S09 (seed1 trượt '1980', seed2 0 thiếu, 730), S10 (seed1, 379); EL C5 tổng 1 827 ký tự. Timing xem trước 585,6 s; chờ timing.json của P
 - 14:09 mix cuối trên timing 585,6 s (hạ nền −8 dB quanh 'Leah' S02.2): −14,1 LUFS, TP −1,5; luật: mọi CHẶN đạt (A14 0 thiếu), L1/A18 đạt; tham khảo trượt A03 T2 T3 A17 R02 R03. README/manifest cập nhật. Không commit.
+- 14:41 bản nhạc thay thế (--music alt): T2 19,7% (mặc định 64,8%); A01/A02/A14/L1/S14 đạt; review-c6/music-ab.m4a 57 s; README/manifest cập nhật. Chờ out/video.mp4 của P để chạy lại luật đọc video.
