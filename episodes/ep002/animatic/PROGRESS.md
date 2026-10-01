@@ -62,3 +62,5 @@
 - 01/10 15:15 C5 S12 1080p xong (S12 done 315 s)
 - 01/10 15:18 C5 S13 1080p xong (S13 done 130 s)
 - 01/10 15:57 C5 out/video.mp4 xong (17 568 khung, 24 Mb/s CBR + AAC 320k từ master mặc định); bắt đầu checks bản sao K3.6 --first.
+- 01/10 16:59 checks lần 1 (bản sao K3.6, --first): TRƯỢT — CHẶN: F11 (thumbnail C6), S02 (repay-now ngoài thẻ: nhãn S12 tách 2 dòng); CHÍNH: V03 (viên huy hiệu tới x 1842), V08/C14 (khung đỉnh nhúng nền), V09 (Leah chưa gắn char). Sửa: S12 nhãn một dòng, độ mờ ở khung nhúng, char/shape cho hình thoi; dựng lại S12, ghép lại, chạy lại.
+- 01/10 18:41 checks lần 2: 58 PASS/23 FAIL/1 MISSING, TRƯỢT chỉ F11 (thumbnail C6); CHÍNH còn V03 (viên huy hiệu tới x 1842). video SHA f8c2f3f4…

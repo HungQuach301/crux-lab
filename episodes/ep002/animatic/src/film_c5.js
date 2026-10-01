@@ -77,7 +77,7 @@ function drawAt(tg, keep, transparent) {
   REC.keep = null;
 }
 // ---- objects from the ops of the last full frame ----
-const BG = C.bg.toLowerCase();
+const BG = C.bg.toLowerCase(), INK = C.ink.toLowerCase();
 const full = (b) => b[0] <= 0.5 && b[1] <= 0.5 && b[2] >= W - 0.5 && b[3] >= H - 0.5;
 let lastObjs = [], kindOf = [];
 function buildObjects() {
@@ -85,7 +85,7 @@ function buildObjects() {
   kindOf = new Array(ops.length).fill('shape');
   // dips: a full-frame bg fill painted with alpha a dims everything drawn before it by (1 - a)
   const dim = new Array(ops.length).fill(1);
-  ops.forEach((o, j) => { if (o.op !== 'glyph' && full(o.box) && o.color === BG && o.alpha < 0.999) for (let k = 0; k < j; k++) dim[k] *= (1 - o.alpha); });
+  ops.forEach((o, j) => { if (o.op !== 'glyph' && full(o.box) && o.color === BG) for (let k = 0; k < j; k++) dim[k] *= (1 - o.alpha); });   // incl. the dip's peak frame (alpha 1)
   const pillOf = new Map();
   ops.forEach((o, j) => { if (o.op === 'glyph' && o.text === 'ILLUSTRATIVE' && j > 0) { const p = ops[j - 1]; if (p.op === 'fill' && p.box[0] <= o.box[0] && p.box[2] >= o.box[2] && p.box[1] <= o.box[1] && p.box[3] >= o.box[3]) { pillOf.set(j - 1, j); kindOf[j - 1] = 'pill'; } } });
   const keyOf = (base) => { const k = seen.get(base) || 0; seen.set(base, k + 1); return k ? base + '#' + k : base; };
@@ -103,12 +103,14 @@ function buildObjects() {
       return;
     }
     if (kindOf[j] === 'pill') return;
-    const role = j === 0 && full(o.box) ? 'bg' : full(o.box) && o.color === BG ? 'bg' : o.color === BG ? 'card' : 'mark';
+    const role = full(o.box) && o.color === BG ? 'bg' : o.color === BG ? 'card' : 'mark';
     const fillish = o.op === 'fill' || o.op === 'fillRect';
+    const bw = o.box[2] - o.box[0], bh = o.box[3] - o.box[1];
+    const leah = o.op === 'fill' && o.verts === 4 && o.color === INK && bh > 8 && Math.abs(bw / bh - 0.78) < 0.06;   // Leah = ink + diamond (system.md)
     const base = lastScene + ':' + role + ':' + o.op + ':' + o.color;
     const id = keyOf(base);
     objs.push({ id, kind: 'shape', key: id, sig: id + '|' + o.box.map((v) => v.toFixed(1)).join(','), tag: o.op === 'fillRect' || o.op === 'strokeRect' ? 'rect' : 'path', role,
-      panel: null, chart: null, label: null, series: null, value: null, full: null, orient: null, char: null, shape: null, year: null, case: o.meta?.case ?? null,
+      panel: null, chart: null, label: null, series: null, value: null, full: null, orient: null, char: leah ? 'leah' : null, shape: leah ? 'diamond' : null, year: null, case: o.meta?.case ?? null,
       stroke: fillish ? null : o.color, fill: fillish ? o.color : null, opacity: +(o.alpha * dim[j]).toFixed(3), box: o.box.map((v) => +v.toFixed(1)), curve: false, vertices: o.verts });
     kindOf[j] = role === 'bg' ? 'bg' : role === 'card' ? 'card' : 'shape';
   });

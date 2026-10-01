@@ -12,10 +12,9 @@ export function build({ T }) {
     const L = (k, s, x, y, al) => H2.text(ctx, s, x, y, 'label', { align: al, color: C.muted, alpha: ease(t, a[k], a[k] + 0.4) });
     L('index', "the lender's real index", 960, 240, 'center');
     L('cap', 'no rate cap', 1350, 470, 'left');
-    L('grace', 'repayment', 570, 470, 'right');
-    L('grace', 'starts at once', 570, 540, 'right');
+    L('grace', 'repayment starts at once', 960, 870, 'center');
     L('fees', 'fees', 1350, 640, 'left');
-    L('budget', 'your own budget', 960, 870, 'center');
+    L('budget', 'your own budget', 570, 470, 'right');
   }
   function hist(ctx, t) { ridgeToday(ctx, ease(t, a.hist, a.hist + 0.5)); H2.text(ctx, 'History, not a forecast', 960, 940, 'caption', { align: 'center', alpha: ease(t, a.hist + 0.2, a.hist + 0.7) }); }
   return { draw(ctx, t) { shots(ctx, t, [[0, (c, t) => k7At(c, { g: 1.5, l15: 1, pulse: 0.5 - 0.5 * Math.cos(2 * Math.PI * t / 2.2) })], [a.blank, blank], [a.line, (c, t) => k7At(c, { g: 3, l105: 1, pulse: 0.5 - 0.5 * Math.cos(2 * Math.PI * t / 2.2) })], [a.hist, hist]]); } };
