@@ -1,0 +1,164 @@
+{
+ "id": "retire-2",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "long-term care insurance 3% compound inflation rider vs actual nursing home cost growth history": 4,
+      "is a 3% inflation rider on long-term care insurance enough nursing home prices": 3,
+      "long term care policy without inflation protection daily benefit how much care will it cover in 20 years": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "PCU623110623110",
+    "file": "data/PCU623110623110.csv",
+    "sha256": "48158621352866735fd0053fe4835d50601f2ce9384089ad8a3b18ef2484638f",
+    "declared": "48158621352866735fd0053fe4835d50601f2ce9384089ad8a3b18ef2484638f",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "windows_20y",
+    "declared": 136,
+    "recomputed": 136,
+    "ok": true
+   },
+   {
+    "id": "price_growth_full_period_pct_per_year",
+    "declared": 3.52,
+    "recomputed": 3.52,
+    "ok": true
+   },
+   {
+    "id": "price_growth_20y_min_pct_per_year",
+    "declared": 2.78,
+    "recomputed": 2.78,
+    "ok": true
+   },
+   {
+    "id": "price_growth_20y_median_pct_per_year",
+    "declared": 3.1,
+    "recomputed": 3.1,
+    "ok": true
+   },
+   {
+    "id": "price_growth_20y_max_pct_per_year",
+    "declared": 3.61,
+    "recomputed": 3.61,
+    "ok": true
+   },
+   {
+    "id": "coverage_no_option_median_pct",
+    "declared": 54.3,
+    "recomputed": 54.3,
+    "ok": true
+   },
+   {
+    "id": "coverage_3pct_median_pct",
+    "declared": 98.1,
+    "recomputed": 98.1,
+    "ok": true
+   },
+   {
+    "id": "coverage_3pct_min_pct",
+    "declared": 88.9,
+    "recomputed": 88.9,
+    "ok": true
+   },
+   {
+    "id": "coverage_3pct_max_pct",
+    "declared": 104.4,
+    "recomputed": 104.4,
+    "ok": true
+   },
+   {
+    "id": "share_3pct_kept_up_pct",
+    "declared": 44.1,
+    "recomputed": 44.1,
+    "ok": true
+   },
+   {
+    "id": "coverage_5pct_median_pct",
+    "declared": 144.1,
+    "recomputed": 144.1,
+    "ok": true
+   },
+   {
+    "id": "coverage_5pct_min_pct",
+    "declared": 130.6,
+    "recomputed": 130.6,
+    "ok": true
+   },
+   {
+    "id": "share_5pct_kept_up_pct",
+    "declared": 100.0,
+    "recomputed": 100.0,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "PCU623110623110",
+    "page": "https://fred.stlouisfed.org/series/PCU623110623110",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/PCU623110623110",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}

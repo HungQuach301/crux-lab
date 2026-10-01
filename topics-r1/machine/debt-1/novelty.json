@@ -1,0 +1,24 @@
+{
+  "decision": "Homeowner with a 3% mortgage from 2021: send spare cash to extra principal or to Treasury bills?",
+  "queries": [
+    "pay down 3% mortgage or buy Treasury bills 2026",
+    "extra mortgage payments 3% rate vs T-bills since 2022 how much ahead",
+    "2021 low mortgage rate homeowners prepay or keep cash in high yield savings after tax comparison"
+  ],
+  "results": [
+    {"query": "pay down 3% mortgage or buy Treasury bills 2026", "title": "Pay off house or keep in T-Bills? - Bogleheads.org", "url": "https://www.bogleheads.org/forum/viewtopic.php?t=403086"},
+    {"query": "pay down 3% mortgage or buy Treasury bills 2026", "title": "Pay Off Mortgage Early in 2026? The Math for 3% vs. 7% Rates", "url": "https://growyourmoneysmart.com/pay-off-mortgage-early/"},
+    {"query": "pay down 3% mortgage or buy Treasury bills 2026", "title": "Pay Off Mortgage Early or Invest? Your 2026 Answer", "url": "https://www.monarch.com/blog/should-you-pay-off-your-mortgage-early-pros-cons-and-considerations"},
+    {"query": "extra mortgage payments 3% rate vs T-bills since 2022 how much ahead", "title": "Yes, You Should Pay Off That 3% Home Mortgage", "url": "https://financialsuccessmd.com/yes-you-should-pay-off-that-3-home-mortgage/"},
+    {"query": "extra mortgage payments 3% rate vs T-bills since 2022 how much ahead", "title": "Should You Pay Off Your Mortgage Early or Invest?", "url": "https://www.morningstar.com/personal-finance/pay-down-mortgage-or-invest-2024-edition"},
+    {"query": "2021 low mortgage rate homeowners prepay or keep cash in high yield savings after tax comparison", "title": "Should I Pay Off My Mortgage Early or Invest? - Knowledge at Wharton", "url": "https://knowledge.wharton.upenn.edu/article/should-i-pay-off-my-mortgage-early-in-this-economy/"},
+    {"query": "2021 low mortgage rate homeowners prepay or keep cash in high yield savings after tax comparison", "title": "Mortgage Prepayment Versus Investing: The Tradeoff", "url": "https://blog.asklinc.com/mortgage-prepayment-versus-investing/"}
+  ],
+  "verdict": "answered-without-data",
+  "nearest": [
+    {"title": "Pay off house or keep in T-Bills? - Bogleheads.org", "url": "https://www.bogleheads.org/forum/viewtopic.php?t=403086", "why": "Same decision, discussed as opinion and current-yield comparison, not a month-by-month after-tax replay since 2022."},
+    {"title": "Pay Off Mortgage Early in 2026? The Math for 3% vs. 7% Rates", "url": "https://growyourmoneysmart.com/pay-off-mortgage-early/", "why": "Hypothetical rate math for 3% borrowers; no realized T-bill history or tax-bracket breakdown."},
+    {"title": "Should You Pay Off Your Mortgage Early or Invest?", "url": "https://www.morningstar.com/personal-finance/pay-down-mortgage-or-invest-2024-edition", "why": "General framework comparing mortgage rate with safe yields; no replay of actual monthly yields."}
+  ],
+  "note": "Search snippets assert that T-bills 'easily out-earn' a 3% mortgage; none found replays realized monthly bill yields after federal tax since 2022. Titles and URLs only; pages not fetched."
+}

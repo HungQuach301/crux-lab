@@ -1,0 +1,551 @@
+{
+ "id": "tax-2",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "bought house in 2000 selling now gain over $500,000 exclusion which metros typical home price appreciation calculation": 4,
+      "$500,000 home sale exclusion 1997 adjusted for inflation today downsizing empty nesters sell or hold until death step-up": 4,
+      "home sale capital gains exclusion $500,000 not indexed inflation homeowners who bought in 2000 by metro how many exceed": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "ATNHPIUS31084Q",
+    "file": "data/ATNHPIUS31084Q.csv",
+    "sha256": "99b592fb0463290768c3f73d06a989ba2c55566bd605676de9e9ee1878eb963e",
+    "declared": "99b592fb0463290768c3f73d06a989ba2c55566bd605676de9e9ee1878eb963e",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS41740Q",
+    "file": "data/ATNHPIUS41740Q.csv",
+    "sha256": "ac9ae3136a28759ac0217be09886e9a85a346416e76c4870a0ee6840fb935883",
+    "declared": "ac9ae3136a28759ac0217be09886e9a85a346416e76c4870a0ee6840fb935883",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS41884Q",
+    "file": "data/ATNHPIUS41884Q.csv",
+    "sha256": "9e2c1d1f3d82af3c5beedbcee17beb9c25bb74c72652f8bcb92640df9da51bfb",
+    "declared": "9e2c1d1f3d82af3c5beedbcee17beb9c25bb74c72652f8bcb92640df9da51bfb",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS41940Q",
+    "file": "data/ATNHPIUS41940Q.csv",
+    "sha256": "6dbdb212c9b4014b3c4d31080e7292c3f7ad8e4b5150dc9ace88fcd69efd3408",
+    "declared": "6dbdb212c9b4014b3c4d31080e7292c3f7ad8e4b5150dc9ace88fcd69efd3408",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS42644Q",
+    "file": "data/ATNHPIUS42644Q.csv",
+    "sha256": "53340ca525651b4a631250fdfb5d89926706f2505635e8a74f7e61fe0f84d05f",
+    "declared": "53340ca525651b4a631250fdfb5d89926706f2505635e8a74f7e61fe0f84d05f",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS14454Q",
+    "file": "data/ATNHPIUS14454Q.csv",
+    "sha256": "f3dbdbbc216f95f93f27f8b6f992250e152d648b490feddf190a68aec3db1c87",
+    "declared": "f3dbdbbc216f95f93f27f8b6f992250e152d648b490feddf190a68aec3db1c87",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS35614Q",
+    "file": "data/ATNHPIUS35614Q.csv",
+    "sha256": "84dec2180e1678a89d07ef0fda47aa6ea375a92630f6a1f36dea7b6e461b0266",
+    "declared": "84dec2180e1678a89d07ef0fda47aa6ea375a92630f6a1f36dea7b6e461b0266",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS33124Q",
+    "file": "data/ATNHPIUS33124Q.csv",
+    "sha256": "b192dd7b7ce733b512bf0cfc845ab5e233b0424a1ad49e332ce1143864b31f40",
+    "declared": "b192dd7b7ce733b512bf0cfc845ab5e233b0424a1ad49e332ce1143864b31f40",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS19740Q",
+    "file": "data/ATNHPIUS19740Q.csv",
+    "sha256": "ef59c86a4cfb6f2a76b9ca1e93ca04c68ba7886c16503aadeebb3e84e0bdb889",
+    "declared": "ef59c86a4cfb6f2a76b9ca1e93ca04c68ba7886c16503aadeebb3e84e0bdb889",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS38060Q",
+    "file": "data/ATNHPIUS38060Q.csv",
+    "sha256": "f5a359f5345f785916e13617aac99e450a62a3bbe7b24161c05d98c00a431400",
+    "declared": "f5a359f5345f785916e13617aac99e450a62a3bbe7b24161c05d98c00a431400",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS19124Q",
+    "file": "data/ATNHPIUS19124Q.csv",
+    "sha256": "26505665d8d67922a1273ece1d2fbf9824c8bb245e017ac2a6f46d3f16d18132",
+    "declared": "26505665d8d67922a1273ece1d2fbf9824c8bb245e017ac2a6f46d3f16d18132",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS16984Q",
+    "file": "data/ATNHPIUS16984Q.csv",
+    "sha256": "e6800a7602a9e2bf96bda614f8546e75e805ae890fff03ad4e37868374672e1e",
+    "declared": "e6800a7602a9e2bf96bda614f8546e75e805ae890fff03ad4e37868374672e1e",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "USSTHPI",
+    "file": "data/USSTHPI.csv",
+    "sha256": "115687bc9e001708c0e543d7effc1e74a10d866e9c430de734d0fa553a0ede3f",
+    "declared": "115687bc9e001708c0e543d7effc1e74a10d866e9c430de734d0fa553a0ede3f",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCNS",
+    "file": "data/CPIAUCNS.csv",
+    "sha256": "44565cbca6478180a2f9423f2078b01a5a3b36d0ae0e5e5e6904bb2830a4b543",
+    "declared": "44565cbca6478180a2f9423f2078b01a5a3b36d0ae0e5e5e6904bb2830a4b543",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "growth_los_angeles",
+    "declared": 4.3004,
+    "recomputed": 4.3004,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_los_angeles_usd",
+    "declared": 151500.0,
+    "recomputed": 151500.0,
+    "ok": true
+   },
+   {
+    "id": "growth_san_diego",
+    "declared": 4.0404,
+    "recomputed": 4.0404,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_san_diego_usd",
+    "declared": 164500.0,
+    "recomputed": 164500.0,
+    "ok": true
+   },
+   {
+    "id": "growth_san_francisco",
+    "declared": 2.9305,
+    "recomputed": 2.9305,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_san_francisco_usd",
+    "declared": 259000.0,
+    "recomputed": 259000.0,
+    "ok": true
+   },
+   {
+    "id": "growth_san_jose",
+    "declared": 2.9652,
+    "recomputed": 2.9652,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_san_jose_usd",
+    "declared": 254400.0,
+    "recomputed": 254400.0,
+    "ok": true
+   },
+   {
+    "id": "growth_seattle",
+    "declared": 3.7779,
+    "recomputed": 3.7779,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_seattle_usd",
+    "declared": 180000.0,
+    "recomputed": 180000.0,
+    "ok": true
+   },
+   {
+    "id": "growth_boston",
+    "declared": 3.2089,
+    "recomputed": 3.2089,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_boston_usd",
+    "declared": 226400.0,
+    "recomputed": 226400.0,
+    "ok": true
+   },
+   {
+    "id": "growth_new_york",
+    "declared": 3.3558,
+    "recomputed": 3.3558,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_new_york_usd",
+    "declared": 212200.0,
+    "recomputed": 212200.0,
+    "ok": true
+   },
+   {
+    "id": "growth_miami",
+    "declared": 5.3601,
+    "recomputed": 5.3601,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_miami_usd",
+    "declared": 114700.0,
+    "recomputed": 114700.0,
+    "ok": true
+   },
+   {
+    "id": "growth_denver",
+    "declared": 3.1961,
+    "recomputed": 3.1961,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_denver_usd",
+    "declared": 227700.0,
+    "recomputed": 227700.0,
+    "ok": true
+   },
+   {
+    "id": "growth_phoenix",
+    "declared": 3.7903,
+    "recomputed": 3.7903,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_phoenix_usd",
+    "declared": 179200.0,
+    "recomputed": 179200.0,
+    "ok": true
+   },
+   {
+    "id": "growth_dallas",
+    "declared": 3.3189,
+    "recomputed": 3.3189,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_dallas_usd",
+    "declared": 215600.0,
+    "recomputed": 215600.0,
+    "ok": true
+   },
+   {
+    "id": "growth_chicago",
+    "declared": 2.3392,
+    "recomputed": 2.3392,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_chicago_usd",
+    "declared": 373400.0,
+    "recomputed": 373400.0,
+    "ok": true
+   },
+   {
+    "id": "growth_us",
+    "declared": 3.0536,
+    "recomputed": 3.0536,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_us_usd",
+    "declared": 243500.0,
+    "recomputed": 243500.0,
+    "ok": true
+   },
+   {
+    "id": "threshold_single_us_usd",
+    "declared": 121700.0,
+    "recomputed": 121700.0,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_min_usd",
+    "declared": 114700.0,
+    "recomputed": 114700.0,
+    "ok": true
+   },
+   {
+    "id": "threshold_joint_max_usd",
+    "declared": 373400.0,
+    "recomputed": 373400.0,
+    "ok": true
+   },
+   {
+    "id": "metros_threshold_under_200k",
+    "declared": 5,
+    "recomputed": 5,
+    "ok": true
+   },
+   {
+    "id": "metros_threshold_under_300k",
+    "declared": 11,
+    "recomputed": 11,
+    "ok": true
+   },
+   {
+    "id": "cpi_1997_05",
+    "declared": 160.1,
+    "recomputed": 160.1,
+    "ok": true
+   },
+   {
+    "id": "cpi_2026_08",
+    "declared": 334.98,
+    "recomputed": 334.98,
+    "ok": true
+   },
+   {
+    "id": "excl_joint_1997_in_2026_usd",
+    "declared": 1046000.0,
+    "recomputed": 1046000.0,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "ATNHPIUS31084Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS31084Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS31084Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS41740Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS41740Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS41740Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS41884Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS41884Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS41884Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS41940Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS41940Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS41940Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS42644Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS42644Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS42644Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS14454Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS14454Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS14454Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS35614Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS35614Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS35614Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS33124Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS33124Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS33124Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS19740Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS19740Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS19740Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS38060Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS38060Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS38060Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS19124Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS19124Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS19124Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "ATNHPIUS16984Q",
+    "page": "https://fred.stlouisfed.org/series/ATNHPIUS16984Q",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/ATNHPIUS16984Q",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "USSTHPI",
+    "page": "https://fred.stlouisfed.org/series/USSTHPI",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/USSTHPI",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCNS",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 121(a) (exclusion; 2-of-5-year ownership and use)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/121",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 121(b)(1) ($250,000 limit)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/121",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 121(b)(2)(A) ($500,000 for joint returns)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/121",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "Pub. L. 105-34 effective date note to 26 U.S.C. 121 (sales after May 6, 1997)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/121",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 1014(a)(1) (basis of inherited property = value at death)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/1014",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V01245": true
+}

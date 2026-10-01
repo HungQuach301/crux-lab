@@ -1,0 +1,83 @@
+{
+ "series": [
+  {
+   "id": "AHETPI",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics, Current Employment Statistics)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=AHETPI&cosd=2025-01-01&coed=2026-06-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/AHETPI",
+   "file": "data/AHETPI.csv",
+   "sha256": "de5ed1b8d52de33dccce1c135e56d9f4fa0d4c6476fd8834aa39fd6c263e0e1f",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-06-01",
+    "value": "32.38"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/AHETPI"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 225(a) (deduction for qualified overtime compensation)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "There shall be allowed as a deduction an amount equal to the qualified overtime compensation received during the taxable year"
+  },
+  {
+   "cite": "26 U.S.C. 225(b)(1) (cap $12,500 single)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "The amount allowed as a deduction under this section for any taxable year shall not exceed $12,500 ($25,000 in the case of a joint return)."
+  },
+  {
+   "cite": "26 U.S.C. 225(b)(2)(A) (phase-down above $150,000 MAGI)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "shall be reduced (but not below zero) by $100 for each $1,000 by which the taxpayer's modified adjusted gross income exceeds $150,000 ($300,000 in the case of a joint return)."
+  },
+  {
+   "cite": "26 U.S.C. 225(c)(1) (only the amount in excess of the regular rate)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "means overtime compensation paid to an individual required under section 7 of the Fair Labor Standards Act of 1938 that is in excess of the regular rate (as used in such section) at which such individual is employed."
+  },
+  {
+   "cite": "26 U.S.C. 225(g) (termination after 2028)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "No deduction shall be allowed under this section for any taxable year beginning after December 31, 2028"
+  },
+  {
+   "cite": "26 U.S.C. 63(b)(6) (deduction available to non-itemizers)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/63",
+   "quote": "(6) the deduction provided in section 225,"
+  },
+  {
+   "cite": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)",
+   "url": "https://www.law.cornell.edu/uscode/text/29/207",
+   "quote": "at a rate not less than one and one-half times the regular rate at which he is employed."
+  },
+  {
+   "cite": "26 U.S.C. 3101(a) (6.2% employee social security tax)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/3101",
+   "quote": "a tax equal to 6.2 percent of the wages"
+  },
+  {
+   "cite": "26 U.S.C. 3101(b)(1) (1.45% employee medicare tax)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/3101",
+   "quote": "a tax equal to 1.45 percent of the wages"
+  },
+  {
+   "cite": "IRS IR-2025-103 (2026 standard deduction, single)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "For single taxpayers and married individuals filing separately, the standard deduction rises to $16,100 for tax year 2026"
+  },
+  {
+   "cite": "IRS IR-2025-103 (2026 single brackets)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "35% for incomes over $256,225 ($512,450 for married couples filing jointly); 32% for incomes over $201,775 ($403,550 for married couples filing jointly); 24% for incomes over $105,700 ($211,400 for married couples filing jointly); 22% for incomes over $50,400 ($100,800 for married couples filing jointly); 12% for incomes over $12,400 ($24,800 for married couples filing jointly)."
+  },
+  {
+   "cite": "IRS IR-2025-103 (2026 top bracket)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "37% for individual single taxpayers with incomes greater than $640,600"
+  }
+ ]
+}

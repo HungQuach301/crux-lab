@@ -81,6 +81,16 @@ Nguồn 2–5: bốn luật CHÍNH không đạt ở C6 Tập 1 (K3.3), chủ d�
 | T1 | Chủ dự án cảm nhận các cặp gần ngang nhau, "nhiều lựa chọn là buộc phải chọn"; chỉ 1/20 cặp chấm hoà, A được chọn 15/19 (máy ở A 6–3, ở B 1–9). | Trang chấm phải **nói rõ "Không phân biệt được" là câu trả lời hợp lệ** (đặt ngang hàng, không phải nút phụ); cân nhắc **thang 5 mức** (A hơn rõ / A hơn chút / ngang / B hơn chút / B hơn rõ). Luôn báo cáo lệch vị trí (tỉ lệ chọn A, kết quả tách theo vị trí). |
 | T2 | Thẻ đối chứng thắng nhờ là **một quyết định cụ thể** người xem nhận ra ngay (trả góp hai tuần, vay xe kỳ hạn dài); thẻ máy thường là kết luận thống kê trừu tượng dù có dữ liệu. | Khớp bài học gói phát hành "người như tôi" (G-013): luận điểm phải được **diễn đạt thành quyết định của người xem**; dữ liệu là để bảo vệ luận điểm, không thay cho móc. Đây là điều kiện chạy lại Cổng Mốc 3 (D-003). |
 
+## M3v2. Máy đề xuất đề tài — vòng 1 (`topics-r1/`, 01/10/2026 — `decisions/D-004.md`)
+
+Kết quả: KHÔNG ĐẠT — máy 12/12 thẻ ≥ 4, đối chứng 6/6 thẻ ≥ 4 (chênh 0 điểm, ngưỡng +20); hồ sơ máy hợp lệ 12/12; bước 2 "Có" 12/12. Báo cáo: `topics-r1/REPORT.md`.
+
+| # | Chuyện đã xảy ra | Bài học |
+|---|---|---|
+| R1 | Thang tuyệt đối chạm trần: 18/18 thẻ ≥ 4 (16 thẻ 4, hai thẻ 5). Nhịp chấm nhanh dần: 3 thẻ đầu 21–43 s, phần còn lại phần lớn ≤ 13 s (trung vị 8 s, tổng 224 s); không chọn chip nào. | Khi mọi lựa chọn đều "muốn làm", thang tuyệt đối không phân biệt được hai bên. Cần **so sánh bắt buộc** (ngân sách, ví dụ chọn đúng 9/18). Nhịp nhanh dần và không chip là dấu hiệu người chấm đang lướt — ghi thời gian mỗi thẻ là đúng, giữ. |
+| R2 | Thẻ đối chứng được điểm 5 ("Should You Refinance Now?", 7% → 6.5%) gần trùng đề tài Tập 1. | Điểm có thể đến từ **quen thuộc** chứ không từ sức hút của đề tài. Lần sau loại thẻ trùng đề tài đã làm (Tập 1, `topics/queue.md`) khỏi cả hai bên trước khi trộn. |
+| R3 | Bảng AI 6 vai lệch chủ dự án: TB ~2,7 so với 4,1 (Spearman TB −0,17). Thẻ đối chứng bị gắn *seen it* / *vague promise*; thẻ máy bị *not me* / *too narrow*. | Bảng AI chỉ tham khảo, không dùng thay chủ dự án. Chip AI gợi ý hai điểm yếu khác nhau: đối chứng quen và mơ hồ; máy cụ thể nhưng hẹp. Với máy, lời hứa phải mở rộng ra nhóm người xem lớn hơn mà không vượt claim. |
+
 ## C. Vận hành
 
 - Chủ dự án không đọc tài liệu dài; chỉ trả lời gói quyết định (≤ 3 câu, < 1 phút đọc).

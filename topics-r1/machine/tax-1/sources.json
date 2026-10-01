@@ -1,0 +1,62 @@
+{
+ "series": [
+  {
+   "id": "TB3MS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15 Selected Interest Rates)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&cosd=1999-01-01&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+   "file": "data/TB3MS.csv",
+   "sha256": "7da480f9a0465a1c7f28d917907b998d69fa1e1815d91f4199c2d07c71f3db7a",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "3.72"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   }
+  },
+  {
+   "id": "TERMCBCCALLNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, G.19 Consumer Credit)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TERMCBCCALLNS&cosd=1999-01-01&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TERMCBCCALLNS",
+   "file": "data/TERMCBCCALLNS.csv",
+   "sha256": "65a3570f21c570ac06583a199950225952c655d359676cd9c2733b56e3f577d9",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-05-01",
+    "value": "20.94"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TERMCBCCALLNS"
+   }
+  },
+  {
+   "id": "SNDR",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Federal Deposit Insurance Corporation, National Rates and Rate Caps)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SNDR&cosd=2021-04-01&coed=2026-09-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/SNDR",
+   "file": "data/SNDR.csv",
+   "sha256": "bb6156ef8119e1386ecdee2a0949963077e4e0d6631089232c66798df1ef1fd6",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-09-01",
+    "value": "0.37000000000000000"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/SNDR"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 6611(e)(1) (no interest on refunds paid within 45 days)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/6611",
+   "quote": "If any overpayment of tax imposed by this title is refunded within 45 days after the last day prescribed for filing the return of such tax (determined without regard to any extension of time for filing the return) or, in the case of a return filed after such last date, is refunded within 45 days after the date the return is filed, no interest shall be allowed under subsection (a) on such overpayment."
+  }
+ ]
+}

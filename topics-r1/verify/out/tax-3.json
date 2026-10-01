@@ -1,0 +1,232 @@
+{
+ "id": "tax-3",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "sell stock before one year short-term vs wait for long-term capital gains historical risk of price drop data": 3,
+      "wait to sell until long-term capital gains one more month historical S&P 500 drop more than tax savings analysis": 3,
+      "held stock 11 months sell now or wait 30 days for long-term rate how often does the market fall enough to erase the tax savings": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "SP500",
+    "file": "data/SP500.csv",
+    "sha256": "67e7bafbac9e057f93625a36b7fa84e9f0725d44a884210a20d17fd90d815dc7",
+    "declared": "67e7bafbac9e057f93625a36b7fa84e9f0725d44a884210a20d17fd90d815dc7",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "tax_saving_if_flat_usd_24",
+    "declared": 900.0,
+    "recomputed": 900.0,
+    "ok": true
+   },
+   {
+    "id": "after_tax_sell_now_usd_24",
+    "declared": 47600.0,
+    "recomputed": 47600.0,
+    "ok": true
+   },
+   {
+    "id": "breakeven_drop_pct_24",
+    "declared": 2.118,
+    "recomputed": 2.118,
+    "ok": true
+   },
+   {
+    "id": "windows_n",
+    "declared": 2470,
+    "recomputed": 2470,
+    "ok": true
+   },
+   {
+    "id": "first_window_start",
+    "declared": "2016-11-01",
+    "recomputed": "2016-11-01",
+    "ok": true
+   },
+   {
+    "id": "last_window_start",
+    "declared": "2026-08-31",
+    "recomputed": "2026-08-31",
+    "ok": true
+   },
+   {
+    "id": "share_wait_worse_pct_24",
+    "declared": 17.81,
+    "recomputed": 17.81,
+    "ok": true
+   },
+   {
+    "id": "median_wait_minus_now_usd_24",
+    "declared": 1653.78,
+    "recomputed": 1653.78,
+    "ok": true
+   },
+   {
+    "id": "p05_wait_minus_now_usd_24",
+    "declared": -1825.31,
+    "recomputed": -1825.31,
+    "ok": true
+   },
+   {
+    "id": "worst_wait_minus_now_usd_24",
+    "declared": -14083.41,
+    "recomputed": -14083.41,
+    "ok": true
+   },
+   {
+    "id": "worst_window_start",
+    "declared": "2020-02-21",
+    "recomputed": "2020-02-21",
+    "ok": true
+   },
+   {
+    "id": "worst_window_index_change_pct",
+    "declared": -32.97,
+    "recomputed": -32.97,
+    "ok": true
+   },
+   {
+    "id": "breakeven_drop_pct_22",
+    "declared": 1.647,
+    "recomputed": 1.647,
+    "ok": true
+   },
+   {
+    "id": "share_wait_worse_pct_22",
+    "declared": 20.24,
+    "recomputed": 20.24,
+    "ok": true
+   },
+   {
+    "id": "share_index_down_pct",
+    "declared": 30.81,
+    "recomputed": 30.81,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "SP500",
+    "page": "https://fred.stlouisfed.org/series/SP500",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/SP500",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 1222(1) (short-term: held not more than 1 year)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/1222",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 1222(3) (long-term: held more than 1 year)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/1222",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 ordinary brackets (22% and 24%, single)",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103, 2026 32% bracket (top of 24% bracket, single)",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS Topic no. 409 (15% long-term rate band, 2025 thresholds)",
+    "url": "https://www.irs.gov/taxtopics/tc409",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 1(h)(1)(C) (15 percent rate on adjusted net capital gain)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/1",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 1411(a)(1) (3.8% net investment income tax above threshold)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/1411",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V01245": true
+}

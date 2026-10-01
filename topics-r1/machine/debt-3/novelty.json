@@ -1,0 +1,24 @@
+{
+  "decision": "New-car buyer financing about $35,000: 72-month loan for a lower payment or 60-month loan?",
+  "queries": [
+    "72-month car loan interest rate vs 60-month rate difference data",
+    "do longer auto loans have higher interest rates 72 vs 60 months bank average",
+    "60 or 72 month car loan 2026 which to choose total interest"
+  ],
+  "results": [
+    {"query": "72-month car loan interest rate vs 60-month rate difference data", "title": "60 Month vs 72 Month Auto Loans", "url": "https://www.sccu.com/articles/auto/60-month-vs-72-month-auto-loan-comparison"},
+    {"query": "72-month car loan interest rate vs 60-month rate difference data", "title": "Understanding APR and Loan Terms: What is a Good APR for a 72-Month Car Loan?", "url": "https://www.sunsethillssubaru.com/blogs/4580/understanding-apr-and-loan-terms-what-is-a-good-apr-for-a-72-month-car-loan/"},
+    {"query": "72-month car loan interest rate vs 60-month rate difference data", "title": "What’s the average car loan length?", "url": "https://www.creditkarma.com/auto/i/car-loan-term"},
+    {"query": "do longer auto loans have higher interest rates 72 vs 60 months bank average", "title": "60 vs. 72 vs. 84-Month Car Loans: Which Loan Term Should You Choose? - Nalley Automotive", "url": "https://www.nalleycars.com/blog/60-vs-72-vs-84-month-car-loans-which-loan-term-should-you-choose"},
+    {"query": "do longer auto loans have higher interest rates 72 vs 60 months bank average", "title": "60 vs 72 vs 84-Month Loan Calculator", "url": "https://calcbee.com/calculators/automotive/financing/60-vs-72-vs-84-month-loan-calculator/"},
+    {"query": "60 or 72 month car loan 2026 which to choose total interest", "title": "Best Car Loan Term: How to Choose Between 36, 48, 60, and 72 Months", "url": "https://rateroverauto.com/guides/best-car-loan-term-length"},
+    {"query": "60 or 72 month car loan 2026 which to choose total interest", "title": "long term car loan is a bad idea", "url": "https://www.bankrate.com/loans/auto-loans/long-term-car-loan-is-a-bad-idea"}
+  ],
+  "verdict": "answered-without-data",
+  "nearest": [
+    {"title": "60 Month vs 72 Month Auto Loans", "url": "https://www.sccu.com/articles/auto/60-month-vs-72-month-auto-loan-comparison", "why": "Same decision with hypothetical rates; asserts the 72-month rate is typically higher without measuring it."},
+    {"title": "Understanding APR and Loan Terms: What is a Good APR for a 72-Month Car Loan?", "url": "https://www.sunsethillssubaru.com/blogs/4580/understanding-apr-and-loan-terms-what-is-a-good-apr-for-a-72-month-car-loan/", "why": "States a 0.50-1.25 point premium for longer terms as a rule of thumb, no data series."},
+    {"title": "long term car loan is a bad idea", "url": "https://www.bankrate.com/loans/auto-loans/long-term-car-loan-is-a-bad-idea", "why": "Opinion on long loans; no measured term premium or rate-vs-time split."}
+  ],
+  "note": "Snippets repeat a 0.5-1+ point premium for longer terms and show single-lender quotes; none measured the premium over a decade of bank survey data or split the extra interest into rate and term. Titles and URLs only; pages not fetched."
+}

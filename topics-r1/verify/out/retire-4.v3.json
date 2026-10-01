@@ -1,0 +1,90 @@
+{
+ "id": "retire-4",
+ "items": [
+  {
+   "id": "starts",
+   "declared": 873,
+   "recomputed": 873,
+   "ok": true
+  },
+  {
+   "id": "first_start",
+   "declared": "1934-01-01",
+   "recomputed": "1934-01-01",
+   "ok": true
+  },
+  {
+   "id": "last_start",
+   "declared": "2006-09-01",
+   "recomputed": "2006-09-01",
+   "ok": true
+  },
+  {
+   "id": "share_tbills_above_double_pct",
+   "declared": 52.3,
+   "recomputed": 52.3,
+   "ok": true
+  },
+  {
+   "id": "median_tbill_multiple_20y",
+   "declared": 2.097,
+   "recomputed": 2.097,
+   "ok": true
+  },
+  {
+   "id": "min_tbill_multiple_20y",
+   "declared": 1.129,
+   "recomputed": 1.129,
+   "ok": true
+  },
+  {
+   "id": "max_tbill_multiple_20y",
+   "declared": 4.612,
+   "recomputed": 4.612,
+   "ok": true
+  },
+  {
+   "id": "share_tbills_above_double_starts_since_1990_pct",
+   "declared": 5.0,
+   "recomputed": 5.0,
+   "ok": true
+  },
+  {
+   "id": "latest_tbill_multiple_20y",
+   "declared": 1.378,
+   "recomputed": 1.378,
+   "ok": true
+  },
+  {
+   "id": "doubling_rate_pct_per_year",
+   "declared": 3.53,
+   "recomputed": 3.53,
+   "ok": true
+  },
+  {
+   "id": "real_windows",
+   "declared": 871,
+   "recomputed": 871,
+   "ok": true
+  },
+  {
+   "id": "share_double_beat_prices_pct",
+   "declared": 58.7,
+   "recomputed": 58.7,
+   "ok": true
+  },
+  {
+   "id": "median_real_value_double_pct",
+   "declared": 107.3,
+   "recomputed": 107.3,
+   "ok": true
+  },
+  {
+   "id": "tb3ms_latest_pct",
+   "declared": 3.72,
+   "recomputed": 3.72,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

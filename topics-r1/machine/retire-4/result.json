@@ -1,0 +1,99 @@
+{
+ "answer": "History, not a forecast. A savings bond held 20 years is guaranteed to reach at least double its price (about 3.53% a year). Rolling 3-month T-bills for 20 years, starting any month from 1934 to 2006 (873 starts), ended above double in 52.3% of starts (median multiple 2.097; range 1.129 to 4.612). It was a matter of era: starts from the 1950s through the 1980s mostly beat double, while starts from 1990 on beat it in only 5.0% of months, and the latest full stretch (Sep 2006 to Aug 2026) turned money into 1.378 times. Double itself is not inflation-proof: it kept up with consumer prices over 20 years in 58.7% of start months (median buying power 107.3% of the original). In Aug 2026 the 3-month bill rate was 3.72%.",
+ "guess": "With T-bills paying more than the bond's roughly 3.5% doubling rate, most savers would guess rolling T-bills easily beats a bond that 'only' doubles in 20 years.",
+ "changesDecision": "Today's T-bill rate is only the first of 80 quarterly rates the saver would get. Historically the roll beat double about half the time, and in nearly every start since 1990 it fell short, because rates fell over the following decades; in the 1950s-1980s it usually won. The guarantee also lost buying power in many high-inflation stretches. That reframes the choice as 'a known nominal result vs a bet on 20 years of short-term rates', which can change the decision for someone who assumed the current T-bill rate settles it. No forecast of rates is made.",
+ "numbers": [
+  {
+   "id": "starts",
+   "value": 873,
+   "unit": "start months",
+   "definition": "Number of 20-year start months. T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. TB3MS = 3-month Treasury bill secondary market rate, discount basis, percent, monthly average, pinned FRED CSV (coed=2026-08-01, first observation 1934-01-01). CPIAUCNS = CPI-U all items, US city average, not seasonally adjusted, pinned FRED CSV (coed=2026-08-01; 2025-10-01 is blank). "
+  },
+  {
+   "id": "first_start",
+   "value": "1934-01-01",
+   "unit": "date",
+   "definition": "First start month. T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. "
+  },
+  {
+   "id": "last_start",
+   "value": "2006-09-01",
+   "unit": "date",
+   "definition": "Last start month (its 240 months end with 2026-08-01). T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. "
+  },
+  {
+   "id": "share_tbills_above_double_pct",
+   "value": 52.3,
+   "unit": "percent of start months",
+   "definition": "100 x (start months with M(s) > 2.0) / starts, rounded to 0.1. T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. "
+  },
+  {
+   "id": "median_tbill_multiple_20y",
+   "value": 2.097,
+   "unit": "multiple of money invested",
+   "definition": "Median of M(s) over all start months, rounded to 0.001. T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. "
+  },
+  {
+   "id": "min_tbill_multiple_20y",
+   "value": 1.129,
+   "unit": "multiple of money invested",
+   "definition": "Minimum of M(s), rounded to 0.001."
+  },
+  {
+   "id": "max_tbill_multiple_20y",
+   "value": 4.612,
+   "unit": "multiple of money invested",
+   "definition": "Maximum of M(s), rounded to 0.001."
+  },
+  {
+   "id": "share_tbills_above_double_starts_since_1990_pct",
+   "value": 5.0,
+   "unit": "percent of start months",
+   "definition": "100 x (start months s >= 1990-01-01 with M(s) > 2.0) / (number of start months s >= 1990-01-01, i.e. 1990-01 .. 2006-09), rounded to 0.1."
+  },
+  {
+   "id": "latest_tbill_multiple_20y",
+   "value": 1.378,
+   "unit": "multiple of money invested",
+   "definition": "M(2006-09-01) (months 2006-09 .. 2026-08), rounded to 0.001."
+  },
+  {
+   "id": "doubling_rate_pct_per_year",
+   "value": 3.53,
+   "unit": "percent per year",
+   "definition": "100 x (2^(1/20) - 1), rounded to 0.01: annual rate that turns 1 into 2 in 20 years."
+  },
+  {
+   "id": "real_windows",
+   "value": 871,
+   "unit": "start months",
+   "definition": "Number of start months s (from the T-bill start months) for which CPIAUCNS has values at s and at s + 240 months."
+  },
+  {
+   "id": "share_double_beat_prices_pct",
+   "value": 58.7,
+   "unit": "percent of start months",
+   "definition": "100 x (real-window start months with 2.0 x CPIAUCNS(s)/CPIAUCNS(s+240) >= 1) / real_windows, rounded to 0.1: how often a doubled amount bought at least as much as the original amount 20 years earlier."
+  },
+  {
+   "id": "median_real_value_double_pct",
+   "value": 107.3,
+   "unit": "percent of starting purchasing power",
+   "definition": "Median over real windows of 100 x 2.0 x CPIAUCNS(s)/CPIAUCNS(s+240), rounded to 0.1."
+  },
+  {
+   "id": "tb3ms_latest_pct",
+   "value": 3.72,
+   "unit": "percent",
+   "definition": "TB3MS value for 2026-08-01 as published."
+  }
+ ],
+ "assumptions": [
+  "The doubling guarantee is applied to every historical start as if it had existed then (it applies to bonds issued from May 2005; before that, bonds had other terms). The comparison is hypothetical for earlier starts.",
+  "T-bill returns use the monthly average 3-month rate divided by 12 each month (discount-basis rate, not converted to investment yield), compounded monthly; transaction costs and gaps between rolls are ignored.",
+  "Taxes are ignored: T-bill interest is federally taxed each year, while savings bond interest is federally tax-deferred until redemption; both are exempt from state income tax.",
+  "Savings bonds cashed before 20 years earn only their stated fixed rate (and lose 3 months of interest before 5 years); the comparison assumes a full 20-year hold.",
+  "Annual purchase limits on savings bonds are ignored."
+ ],
+ "limits": "History, not a forecast. Results depend heavily on the path of rates (the 1940s low-rate era, the 1970s-80s high-rate era, the falling rates after 1990); overlapping 20-year windows give only about 4 independent periods since 1934. Ignoring taxes favors T-bills relative to tax-deferred bonds for most savers."
+}

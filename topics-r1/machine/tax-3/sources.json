@@ -1,0 +1,58 @@
+{
+ "series": [
+  {
+   "id": "SP500",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: S&P Dow Jones Indices LLC, S&P 500 price index)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500&cosd=2016-11-01&coed=2026-09-30",
+   "seriesPage": "https://fred.stlouisfed.org/series/SP500",
+   "file": "data/SP500.csv",
+   "sha256": "67e7bafbac9e057f93625a36b7fa84e9f0725d44a884210a20d17fd90d815dc7",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-09-30",
+    "value": "7651.54"
+   },
+   "terms": {
+    "quote": "Copyright © 2016, S&P Dow Jones Indices LLC. All rights reserved. Reproduction of S&P 500 in any form is prohibited except with the prior written permission of S&P Dow Jones Indices LLC (\"S&P\").",
+    "url": "https://fred.stlouisfed.org/series/SP500"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 1222(1) (short-term: held not more than 1 year)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/1222",
+   "quote": "means gain from the sale or exchange of a capital asset held for not more than 1 year, if and to the extent such gain is taken into account in computing gross income."
+  },
+  {
+   "cite": "26 U.S.C. 1222(3) (long-term: held more than 1 year)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/1222",
+   "quote": "means gain from the sale or exchange of a capital asset held for more than 1 year, if and to the extent such gain is taken into account in computing gross income."
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 ordinary brackets (22% and 24%, single)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "24% for incomes over $105,700 ($211,400 for married couples filing jointly); 22% for incomes over $50,400 ($100,800 for married couples filing jointly)"
+  },
+  {
+   "cite": "IRS IR-2025-103, 2026 32% bracket (top of 24% bracket, single)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "32% for incomes over $201,775 ($403,550 for married couples filing jointly)"
+  },
+  {
+   "cite": "IRS Topic no. 409 (15% long-term rate band, 2025 thresholds)",
+   "url": "https://www.irs.gov/taxtopics/tc409",
+   "quote": "A capital gains rate of 15% applies if your taxable income is: more than $48,350 but less than or equal to $533,400 for single"
+  },
+  {
+   "cite": "26 U.S.C. 1(h)(1)(C) (15 percent rate on adjusted net capital gain)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/1",
+   "quote": "(C) 15 percent of the lesser of-"
+  },
+  {
+   "cite": "26 U.S.C. 1411(a)(1) (3.8% net investment income tax above threshold)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/1411",
+   "quote": "a tax equal to 3.8 percent of the lesser of- (A) net investment income for such taxable year, or (B) the excess (if any) of- (i) the modified adjusted gross income for such taxable year, over (ii) the threshold amount"
+  }
+ ]
+}

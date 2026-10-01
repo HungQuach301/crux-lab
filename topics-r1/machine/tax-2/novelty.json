@@ -1,0 +1,84 @@
+{
+ "decision": "Sell the house we bought in 2000 now, or keep it, given the $500,000 tax-free limit on home-sale gains?",
+ "queries": [
+  "bought house in 2000 selling now gain over $500,000 exclusion which metros typical home price appreciation calculation",
+  "$500,000 home sale exclusion 1997 adjusted for inflation today downsizing empty nesters sell or hold until death step-up",
+  "home sale capital gains exclusion $500,000 not indexed inflation homeowners who bought in 2000 by metro how many exceed"
+ ],
+ "results": [
+  {
+   "query": "bought house in 2000 selling now gain over $500,000 exclusion which metros typical home price appreciation calculation",
+   "title": "The Exclusion of Capital Gains for Owner-Occupied Housing",
+   "url": "https://www.congress.gov/crs_external_products/RL/PDF/RL32978/RL32978.12.pdf"
+  },
+  {
+   "query": "bought house in 2000 selling now gain over $500,000 exclusion which metros typical home price appreciation calculation",
+   "title": "Home Equity Tax",
+   "url": "https://www.nar.realtor/capital-gains"
+  },
+  {
+   "query": "bought house in 2000 selling now gain over $500,000 exclusion which metros typical home price appreciation calculation",
+   "title": "who would benefit eliminating capital gains taxes home sales",
+   "url": "https://budgetlab.yale.edu/research/who-would-benefit-eliminating-capital-gains-taxes-home-sales"
+  },
+  {
+   "query": "bought house in 2000 selling now gain over $500,000 exclusion which metros typical home price appreciation calculation",
+   "title": "Charting 20 Years of Home Price Changes in Every U.S. City",
+   "url": "https://www.visualcapitalist.com/20-years-of-home-price-changes-in-every-u-s-city/"
+  },
+  {
+   "query": "$500,000 home sale exclusion 1997 adjusted for inflation today downsizing empty nesters sell or hold until death step-up",
+   "title": "Why the $250,000/$500,000 Home Sale Exclusion Threatens Your Gains",
+   "url": "https://www.cbiz.com/insights/article/why-the-250000-500000-home-sale-exclusion-threatens-your-gains"
+  },
+  {
+   "query": "$500,000 home sale exclusion 1997 adjusted for inflation today downsizing empty nesters sell or hold until death step-up",
+   "title": "The home sale gain exclusion in today's market",
+   "url": "https://www.journalofaccountancy.com/issues/2025/may/the-home-sale-gain-exclusion-in-todays-market/"
+  },
+  {
+   "query": "$500,000 home sale exclusion 1997 adjusted for inflation today downsizing empty nesters sell or hold until death step-up",
+   "title": "They Sold the Family Home for a $700,000 Gain. The IRS Only Ever Saw $200,000 of It - 24/7 Wall St.",
+   "url": "https://247wallst.com/personal-finance/2026/07/29/they-sold-the-family-home-for-a-700000-gain-the-irs-only-ever-saw-200000-of-it/"
+  },
+  {
+   "query": "$500,000 home sale exclusion 1997 adjusted for inflation today downsizing empty nesters sell or hold until death step-up",
+   "title": "1997 Tax Trap: Why St. Louis Homeowners Won't Sell",
+   "url": "https://www.housesoldeasy.com/blog/1997-tax-trap-why-st-louis-homeowners-won-t-sell"
+  },
+  {
+   "query": "home sale capital gains exclusion $500,000 not indexed inflation homeowners who bought in 2000 by metro how many exceed",
+   "title": "The Exclusion of Capital Gains for OwnerOccupied Housing",
+   "url": "https://www.congress.gov/crs-product/RL32978"
+  },
+  {
+   "query": "home sale capital gains exclusion $500,000 not indexed inflation homeowners who bought in 2000 by metro how many exceed",
+   "title": "Capital Gains Tax on Home Sales: How Taxes on Real Estate Work in 2026 - NerdWallet",
+   "url": "https://www.nerdwallet.com/article/taxes/selling-home-capital-gains-tax"
+  },
+  {
+   "query": "home sale capital gains exclusion $500,000 not indexed inflation homeowners who bought in 2000 by metro how many exceed",
+   "title": "Capital Gains & the Home Sale Exclusion: What Homeowners Need to Know \u2014 Cornerstone CPA",
+   "url": "https://www.rei.cpa/blog/2026811"
+  }
+ ],
+ "verdict": "answered-without-data",
+ "nearest": [
+  {
+   "title": "Home Equity Tax",
+   "url": "https://www.nar.realtor/capital-gains",
+   "why": "Aggregate estimates of how many homeowners nationally/by state have gains above the limits; a policy statistic, not a purchase-year, metro-level threshold a seller can check against their own price."
+  },
+  {
+   "title": "Charting 20 Years of Home Price Changes in Every U.S. City",
+   "url": "https://www.visualcapitalist.com/20-years-of-home-price-changes-in-every-u-s-city/",
+   "why": "Price growth by city, not tied to the exclusion or to the sell-vs-keep decision."
+  },
+  {
+   "title": "They Sold the Family Home for a $700,000 Gain. The IRS Only Ever Saw $200,000 of It - 24/7 Wall St.",
+   "url": "https://247wallst.com/personal-finance/2026/07/29/they-sold-the-family-home-for-a-700000-gain-the-irs-only-ever-saw-200000-of-it/",
+   "why": "Single illustrative household story, not a measured threshold across metros."
+  }
+ ],
+ "note": "The non-indexed limit is widely discussed, with aggregate counts (NAR, Yale Budget Lab, CRS) and anecdotes, and some snippets give the inflation-adjusted 1997 limit. None found turns house-price data into a 2000-purchase-price threshold by metro that a would-be seller can check. Titles and URLs only; pages not fetched."
+}

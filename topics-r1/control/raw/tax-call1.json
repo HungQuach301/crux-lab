@@ -1,0 +1,208 @@
+{
+ "request": {
+  "model": "gpt-5.5",
+  "instructions": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+  "input": "Channel: a US personal-finance YouTube channel in the data-explainer genre, 8-15 minute episodes, faceless. Positioning: \"a lab for financial decisions\" - each episode answers one concrete financial decision with a full simulation on real data, with sources and methods shown. US only. The channel never gives personal advice and never forecasts markets or rates; when it uses historical data it says \"history, not a forecast\".\n\nPillar for this request: Taxes and policy (federal tax rules, tax-advantaged accounts, credits and deductions, the measurable impact of policy on households)\n\nTask: propose 2 distinct episode topics in this pillar. Start from a decision that a specific group of viewers is facing, not from a statistic. A good topic is one where the answer could change what that viewer decides, or differs from what they would guess.\n\nWrite each topic as a card with exactly five fields:\n- viewer: who the episode is for, in terms the viewer would recognize as \"people like me\"; one sentence, at most 25 words.\n- decision: the yes/no or A-versus-B decision that viewer faces; one question ending with a question mark, at most 20 words.\n- promise: what the episode promises to answer, without giving away the answer; one sentence, at most 25 words.\n- title: the YouTube title, at most 60 characters including spaces.\n- thumbnail: one line: the main object in the image (at most 12 words), then \" / \", then the on-image text in double quotes (at most 4 words).\n\nCard rules (strict, checked by machine):\n- Numbers that identify the viewer are allowed only in viewer and decision: for example a year, the rate they pay or are offered, a loan term, an age, a loan or balance size, an income level.\n- promise, title and thumbnail may only repeat numbers that already appear in viewer or decision. No other numbers anywhere, in digits or in words (for example one, two, ten, half, double, twice, third, dozen, percent): no results such as savings, break-even points, shares of people or percentages of outcomes.\n- viewer and decision must not state a result (no \"saves\", \"loses\", \"break even\", \"comes out ahead\" next to a number).\n- No names of data sources, datasets, agencies, series codes, laws, acts, bills or code sections. Common account names are allowed: 401(k), 403(b), 457(b), IRA, Roth IRA, HSA, 529 plan.\n- The promise answers a question with data; it does not tell the viewer what to do and does not predict markets or rates.\n- One sentence per field.",
+  "reasoning": {
+   "effort": "medium"
+  },
+  "max_output_tokens": 6000,
+  "tools": [],
+  "store": false,
+  "text": {
+   "format": {
+    "type": "json_schema",
+    "name": "cards",
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "cards"
+     ],
+     "properties": {
+      "cards": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "viewer",
+         "decision",
+         "promise",
+         "title",
+         "thumbnail"
+        ],
+        "properties": {
+         "viewer": {
+          "type": "string"
+         },
+         "decision": {
+          "type": "string"
+         },
+         "promise": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "thumbnail": {
+          "type": "string"
+         }
+        }
+       }
+      }
+     }
+    },
+    "strict": true
+   }
+  }
+ },
+ "seconds": 14.9,
+ "status": 200,
+ "response": {
+  "id": "resp_0de8091a2fd91019016abda421630887d28122f3efc4b8537e",
+  "object": "response",
+  "created_at": 1790813217,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790813231,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": "You are a well-read American who follows US personal-finance news. You have about ten minutes to think. Do not look anything up; use only what you already know.",
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "model": "gpt-5.5-2026-04-23",
+  "moderation": null,
+  "output": [
+   {
+    "id": "rs_0de8091a2fd91019016abda422395087d2a4866c2a45278d8a",
+    "type": "reasoning",
+    "content": [],
+    "encrypted_content": "gAAAAABqvaQvhb8SdSKRqc3fJl54Wpae9KX-_BJ6Xz_mDG9FGVDy8iox6F2MI3uGCOGAISmb_md9de8HrFFhkiiw8O7_pDnwZ76uwi-BOibrHim0p45qpWwS1ZS8XTmOjQLZ-e8tuSFTayDDTEdn13huwxAwpK16GnDFq79-zo4HAuohWIrSr48yddEnJJdDG9ajHTlb9Bi9DFXfyqCJ8nuWW3Mctnt439LOYJX2PRZIUdevpGQjI7_umkHp4Aza2gfSPWDT8K8XN_kbCxMYNWBGi_qUb0QDPR22lfha_oKYFtjXFJEI7M2YZgjbA833TtB2ih-uhcsDa0j0LjpsDdD51t98Y8YCuiuQzNlJFgcjYMev4oY1rzxcs4LMM_TRRJxZXZVcTZ-y85_r6DacoQUkrDiSd42YSKUQMjIZaa9AVQTkO750V-3v5YugxrvHLV-aZp8oRMdkik0TjkFO8Wn0LLRZm5HrEObPUoUdd4EIo9A_DiTOwuNCyXdh_faTcF1PdNwGoguzc5m9EDSZ7sMuc10zT8lBpSpsUaJNvn3hcJbAnJMJzlpSsOmD8ajzw5CsEblc3qoOgWs7QSoQvxjfij2yvvesnBeWfmXOBGIXIbknI02-cA6qNSicU3sL_lAEA4OwbgcDUryWCRpCnZnMTgxxm2VKhU6JQCCCCxEm56f5ov_dZ8yRDIVViUu0s6DFiQli3FEsh2ED7rLmJwO6rESls9XWJpKZLchw8Z6QeB6oW_bM7Bzmk14njIQ8LoIo_yiUfEMrqbiiDvh6Ae0vNpefnpfybdm2CdsxrzimRttvXTBPMt1FzGBZfnacA7SB2Zz5D0_8sTAa7TUX6CFPcuvl9SOfQwN6jktgJksEhoHShzWW31JU2JbuDJNNzDNhJc2EErDIjfMNdQQcG1_QRI1-5CEPbOcXuSyiH2gt0qD-d0O1_xhtnvd-tIqK0dO4DsQmyq8FdKmaNpVm017eCr5y_ojEZV_LnVc4CsN92TQiJehmhe60dRf8AnPF9QtUTSGfqg9enit1Ikko57EJwkDYo4Gkv460UY1cjbRC5sX2R0ZYOK6ZJzCPRyB9cMAniEsfHWDfhXXQZam533STjGFwRz5CnQNI8P_jlzANL-pFqj_xqiAOXu9HlFRjDxGXPqKLHuRvyWSp6b4AK8yYQCsCLPbgIn5Pgg1KLy79nyt7xEi3LZMXuwwzC-sN4V-pZaz-EF3Xtp21Tcci-hWP3Ly2m3msjgc3poWEfplIIB65KGbWOmE68u9SEBRyrT3LuI81Chppz_gloDtZ4lU_69XRiFqGap0mD2UBdu_j6dHCFH9WfINsbOt3yZ2QbbVjnrj-f7IEZB6UlPsKGUL02aW8JsiPBtFZbUT2Wua9p5SublyWiWpqOd1L8dw_sFCianCu-un3BcwOVu7ZkISwxKqR2jg-QUwSb8CXYVcudSHfcwCG8Z9GRCmBUWHVx_j7DXIZUTvGmN8e64NcvToGhs6tIbVjeLZ3RMSV1G1-wWGXLLf1BenL41z_K3R-r0NQldKm14Ooqxdw7O04LdONFlfnAuzg6SjhajD6kFKzDD3kzJtwZAiOFhMzCn4SeTqr0M5tm4gVx_lPh1kf27fpkQkSx1d7Bs4yCFSsjjhbVObvBr_ayj40t7i31fDpsxwxJmgnu0JFBsDATByuZ4687BDfRBpI-3u9iivbdFkEeuwtifpTrWGokSMBpttDZABV5cmJDcNBVLsh61Vqnk_kNZdoq2n45vMEOPW0jcEPsBcYjvoY7OgHtnD4219d3b52MfWxRt-25KeKAAKBDec0GfjLu7HEFnYNhAdQjfkIVYtyZSfeB926YPaC6InhMSsLqRtsADVTr6DMOcDumMKC1KyRS8IfbN0nhuzkvD_sEbTL_kRyGst7zFVqOVdveyZWS6qjm27jR_V62p6Ajj6ykkltmrEyq3Ozi7mPcyHbEwO57GdhXS6jHkJi7niTf5jkMFztaQjVMgDjNSI9ZOKpDeACJqW6cpZqHEZEgvncyAHiLZnNHm4vjZYT3L6ZnxTiil-PqE4Lo5dRow5brJog6ulG-AaNR1jrN05OFw6_bUfIbTrKQx-bkzWjTgde2xeG_jZfBtJuxG3Wcwvzm5vlRO0z-ruRE0x-tZ-qLWYL8nLvwe5P3Sq_CQ-k7TJeeZedaxRfMlO-SqTfiTrRgveG-4oq66HHPzXWJJOwVNMaJBCKaDPcHy8GlW_zb0DFI02nbEn15q5sh2Seq1n5oxyqfaPIXnJGuGj9WWa034pqUFq5Y3IApoGqioFH18DE88LAQIb88UEmfmunvt8EQNYpvAVaO9y1eab89pffOHcx9klNippxtuLE_RIrqU-1udTdaWuBZB92bguM2MdgcNURS5evFio-dRzvLn19hF6MhXsMwKMEzhNgQdSjDCpIDXMw3aSVPKb4e5q7aoLB3neXdD4tlq5j8ZB0A--qye7Ef1x410CJyKZg8TrbS8WU7tku-gTXrd8xrUjiOw0srgWT5pG40gEOOdDd4s99TaQse1UQsqHH_Qp8Z8HCbMRrkpOst2iRCiije4Z2n6f0JHbuw3RMVtseZWRCDQkpnmhtT3PazQMyAs0tMuVHdGzsbiR_El6CgqFxP-64_rDggrA1-3qfw74B5MKw5Ni_7xI27qGE3LpcvblP7FJTYJVIRq2FE-yuX9o_2tHJfFgLlrUjdeSGqV1YDp8l-b1uexs_RAK5BULLJEUobaIG6ya93Y2bJQDvSB-M85IXxixevxANAIIZikcmTxc1HKrpBfo5rctG0CmuW9dXxFHIDfyjGojL1WOVwT_Rzf58NREzc6aDVUPN5-_YQNGSd_CjNvbdoZGYDGOUHmFl3jL2-NP9BFLotEcgL57gTHjjrIYh2kQHr1kr7Wg8k_jZY4XPXtjuoX-hbukGjF1B53OXo876Sav-uxZUixaO2CUbBNuuZu_Mz0FzNc0oyW3QIrkqw9Uls5953bZCfVfuKjeiqfaCMoIW3TysFisIp-iiu2FCHiW763b7R-6gBE9cE2HNdfjRUc3ckDb5ESy5IP3zaFNjwje_sUEiVGsyUcbBMrYuX24-SvnIpwL0kSpvRwvA5CnC6497JW132O-w43YN37_itnvdwqbAaBOowZh4AzxI3DjltdlEUpHckp5-jQCnvDaYDbQs8mEYPUoI09kfrkFdDNIMfrf4YzVs1wA-yddedWjyQAgmPNn0MAmF9hCRZx_9mRTyXRAffi3SzOBcryD681y8emRXMLNH5SGJN-9UledGNrg4R6yyhp1WzTSYSw5BV45hLS9nRckNjr1-13s4Mnl3V2f7pWI-zbDL2qzKf3Q7Qm3T8cXu_w4cWGYtcfDGQIgceGHD1ag2HmUX1CLDKpHBD3OPf-IxIeNsMZtWqqDb0LoZc2CCg6JQxk3WcJK9eJ4ZiWO3j7rQBg-SNn-KDW93onTmH-szwZ2PLBxJ7bW7yJyL_7w-oBIs5sguCK4kyAkCYIgwjDBX3NhHxS4oeuO18HLUYZ0OldC1C1MwT0As9si631jpY1iYgnK06hh1hR0UgFHdyvdBr6OBPGLliarM8d95-FAKI14SMCjB1Er5z62jZiojn90EUJWIKLeEQ3Y72jiixmad8vcTXOskdgFGaDUeQ7CRshhdio_UFxXaObmaDYelhl_ljHLkpyPIEu778c-msoFPhQH5u2IrOSBsJqBNfu9vxfMazO0KIL9kx6qLytaMp3n94nvJObeoW-QroGBtwifb9XOmpvbErOwdOXj2LDkT_uxfhk8hhib6hHuvRS0LPJb54RQRn-JuEx6rxtW1Sq3QoKhTg0D03ofcZF6N5RF2n2wSGDTLdT_DnigXriOzUxXuFpzqR3Yd16n4modbNjbFJgRBgEk4MlqeOM3iASMj291ytRsJ2-DGikG0oR-p-yeibu_XrCAIgrnegAAaX_T7c4x705t-h66nE0zIZvbuo9t8OXjjngbfGPJ0WvEL9UTzkxCfbtoqA56U2m8--8sENeah894NH-OHiEZZ_yRo78weljiItg2BdRGGLfEXDFHLqrNha6rmf5GJGz3M8JGo7em2LGX6MRDnwv7b5HGoSyedDCrdpd7tGbVhHpS8MuQUFL-0O2KZCXsGi2j3JnXqmZTUpa_jn-M-Zqj-w6SgKpT2811rLZ0lbHouRhS2-mglPGsXPkBM9p0wY0goigoM-4-rmYicYVpUVkqj95RUE5SwXhKPPagPuzrHWTAtqZhE09cxwYD1RloTBh2IgS4iZMWdMRp-kZbIQ7ixe1l5iBbMlsR7rOidxwLSEWafvIZnqqGEwHAn0afMXmfJHqrunQeEMf9IMhCeb5S1sQ0T7UWkL4UyXDJn9wgMhDWZctpvFiew8-b6PebALhQ1_HSa5eTG0JWMBTjeUuzhng-RlvBLPU5H_F7fyQp3hBPszKKyifhS3o_SWoVmqoyt9HiSZE_Y3SShJf8Bq7MNT_slURFeHhr30E6DWSOGyOgkhvt6_bxUlzCyRnOJuFnPgVXXmYYt1EoVFemciU4JG3TsCUdaT2BlOrNzJ0j2hWThg3_lG8NmgsHNoTIrSLkCJc785RprxnUdLmTrxhe65eV8Zbxz6VTPhOooLxQad5-xEmSaV_-LzJmrpJ6KfyMthHSYdxqOXUIdcZH9EyYCctxEkBQtTeeAGPUID2CVefqrCMWTDDS9m4j910w7cE67ASWjw8lKnWElV3qLha5O1j2Y4KnkTmZgfSQ4OeZCY8Y_s7_kmhLuFvYNPoCcpwEwCTD8iPp31vqfNhkQsDCJA3WK-DmSTrdp0dGCh_E5fUPGANuzZdSd5uB8ts7U_osFFm4tn9GGTZx99EE0uAF0jGTLl4KS-Cmjjx8h_aqDVlJnME3yetX257aHi9Vz1N76l__8wug73LoFkEbvWsmu6MjxwbVXziKgvI-ij4wyQ81YfJ6_DY9NwUUPdxV2-5FezUHJ1rJGaBD3cn0SdFO7zsNS-AlXFQUghjO2EtWkMKxt1cblrFt8q_YaGgOzsHbiNVtnOQP7gNS7KgepDHf_Z5qF3Ozaw2CyV8hO14lyqs-kgjykLcYHmpoQfC0EutA0kipCvpkUV6qfF5e-FUGFZdc6uVPl_IBEsp64EFtjwImq8EtYNBSCxUj7twiEuQa3SpZciwQ2LNoVcQAi_-VOTW6k0W5zrZm6gPUSS75lgLw_nx38UJA8nBLzWL_eSDgQMdUCZTIZaWWXHliqrwJRFvRzMPl2DCPqTGXZWQGsy-P_zrnUpTMFljDCoNeTWbYXvQ9iDAqdrtceWACPeJt6ya9YvrtYQ_wPPvJmGfCJwY2k9ZXxe1ZIl5ORldW1YVgLXGK_eFAQjSf34PSCINqQo1jCtKKv3xD2Sk8wObCDikyFffRz6OVRyWBLgt8pkceHiTAto_SpneRw2v5G7krMX0y0H7YIbQw-2mS8wYp5KbuYJqb7QsaW3WuiQTDbV7XVoqW0ZPjgyZDfD0bHG6iOWJispZ5QmCszkl0aDVbGD5WNf28EtHoqccvABgSSJg4kzA5EvlVjsvQYRt9KFT4yrkCPa0wgKqirYKro5P-Kk7xNOSGVeQB1Zc5PdXXOfmK3AasASjaSMJh0biMCa-286SVJ0Oc6GUYUWPmUw3ixpZhO7FNwthJdn0vpdDO-dK2QzQ21HK3ZxigwUpu2STP6Vg98VSge5MsmcTp9--GzeU_x3WsSs3gXmQzfRwEiBsqyQgkZJUR1fo8MpGaZiedIxSzXSIWZN-YiCyvNorrF0FbfXtnwfFcguDsRTPzEmkyfqL-zM5AKSU-Pac7BtGxytPSWAEyUnDcob9blld0Eta7cKjL7ItMueAgoBSb-rDTs_HD0bIF_xBwzJJI8XmHPYRwTTwaBIDn8MfsG6Cv_coEMVFNmwaUxqw-8eGVsIbWc93RLl4HTNsgU191SOrjSgzLeRSVKNxlNIieuC-hkFT_idC7JUhNF64lIZjU0gbDhNkDzlsTrbmBPAB2bGysOMtU91v-Iogf3rt_Z_kRsslDlwOGMDGBDuDRR49q0AdDCQKMsQ4k4r6RyyZbxcZBTdI3sJrSHWoNAXQxfyJa25156_Dv0LbhIRXm3_TtoPWy10cYRI_9Y-exu4F_q5_xNCq8RnrObGY_e_UmHy2bu0owuq2DSPZ9vGDAQb0zGREJDIW_z-XBz6aSUolCFbe9cP_ZTAqIsYycct1kWtJ0hauyFaaHDRE-BaK4NOu2F-JFSfny_XCzy08PBZRd9q6yDekKUbGBwvCPM9kz_xz1j0CN3wVi483n6hbqE3xaI5Z2YC1yfonO7WpA_Lq7k7TKVzkcjUZ9Ik0k_EY98MrwSSAxMvDD71LDm9ylPuPBBm0BZzTbm4FR3CrQSH16JTkgPgGz4Khqwfm2W42jUrx6hZY-kuOL1bXAzkC_aNJHiiucfzh08y-4nDrhU_oX4XaNZ7eXZefnGMNC-uXgFKDY0ksOf2gW0mNewNN0Sbu8TR_RcosoFT5kEeVT44r0I27xfzKbTwBJkYOfb6zh099WqLE4lWO45TkfeBbYBgK4QAR8MY6JKP8HIQpaih2z_ydiNIdITPysmFUgU82GeL_QjHQ5tK3ryQ6rNuPZQEdzdEFaGFzZVKrLYqnVm6Ju3dGXmiVdu--CZss2gfB0RHVjb2i6SYHFykMxuKj4GCBy3WHw6Kawb9ERqxyZO4x1pyXgJ_iCDeqAdZsRnunmNI25zj-oVqT0Ni4h3fZ51qQc5Rda9tJxOfE7bV3hCYoeyqxtQtt065I_SOYNps8APO9gtZEBoRTcF2EWX1aYZVUbTgeTZKYzocx7zyVB2PrPfUemXCVnyL3Yz4_oi7nv3uOfvvbkcLa7BAi3zNGYilTgBAXKLaIVFIAUSoPBpOmuijmEgdtymKAQAlZ3y-K5ub5GsIIX6IXtiJ87Cfd4xkUURr1U7sTbXud-EhIS21bjrvqAt4AbVCL_Oe4wzb9_Q4eEJ-a-eqqj01UdwPweuMOA_I7anGLZAbvV5FMYjSpiYA0J_UV7xtl_ivxxEFjBV2c_Y8LBfwlEzb62_q3ysPiRDHnFmPDD04xSbKJNztF67HfPel-PxMR7uPYVIhE4uEMxSL8H2oNK4hC-lAW4doCsGlv9FpG0YVfYbu8RAoCT8m-xYNNYvMzvP5K07AkMdj7TB8jo2tnQdujUV90RwgoS-v_vUpvPJp8VrIz5Pk9l7mD9_3A8nZOUYJJOrgL9pujyq0nq5QdKt6ubwLF-AGhIyNEBvmHUqJ_0AfD4Mlt_dsAscyi4vUatzuRzCTehP9uyzW5AlUmlTQeIRTEaoCJpcylPVDN36Olq5K4hM1luvHTm3r6H2jZmupdCrDOCFYZHkwOjeubZ7pJzzVSALyZeEyKk6Mqt-W6veAyQSHE1Y4QYNiYgK2WQwQ2sv-HStdNjFxdZY3-S4y-dG_M_msONYCv9Al1PsGN_JaL9uhuCqD_He5opUPbmefMtuB9rhQ73nHyom8DGeWYw8sgUhUS64NUdjIaTCjU0FH7AS7GM0pt6n1H_lYDuFarbYgEVY1vzy1m7EENle3GFRCryn0SFQ_mRLEPB-DBLuiH53q5-uN0FF0W5gb_5zT7oAwFJLNsvjucMyUu__5AFBR_7cMzZjxQZgEB-6WouBtexQyCwMqoMfQJj9ddaVlexjTc3bs97Wt9qhsSX5VmdmLZ2MrrfcUrxpPSvLL_H1-ziqldKHrb2UBAHqqzR1oBrm-ayRg8Q38L_foHqDGlvsT69DsLs36yn6oMmW_58ou0tKe4eAsKZzY9WA3blU-U3a8ZYT73rkZcZIfg==",
+    "summary": []
+   },
+   {
+    "id": "msg_0de8091a2fd91019016abda42e976087d2a8b9e4d2964ea753",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [],
+      "logprobs": [],
+      "text": "{\"cards\":[{\"viewer\":\"Parents with a child starting college and money in a 529 plan.\",\"decision\":\"Should you spend 529 money before claiming a college tax credit?\",\"promise\":\"We simulate qualified costs, credits, and account withdrawals to show how the ordering changes after-tax cash.\",\"title\":\"529 or Tax Credit?\",\"thumbnail\":\"Tuition bill and 529 card / \\\"ORDER MATTERS\\\"\"},{\"viewer\":\"Self-employed couples buying Marketplace health insurance and choosing Solo 401(k) contributions.\",\"decision\":\"Should you make pre-tax Solo 401(k) contributions instead of Roth contributions?\",\"promise\":\"We simulate taxes and health-credit changes to show which side of the tradeoff dominates.\",\"title\":\"Solo 401(k): Roth or Pre-Tax?\",\"thumbnail\":\"Health plan bill beside 401(k) form / \\\"ROTH OR PRE-TAX?\\\"\"}]}"
+     }
+    ],
+    "phase": "final_answer",
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "json_schema",
+    "description": null,
+    "name": "cards",
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "cards"
+     ],
+     "properties": {
+      "cards": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "viewer",
+         "decision",
+         "promise",
+         "title",
+         "thumbnail"
+        ],
+        "properties": {
+         "viewer": {
+          "type": "string"
+         },
+         "decision": {
+          "type": "string"
+         },
+         "promise": {
+          "type": "string"
+         },
+         "title": {
+          "type": "string"
+         },
+         "thumbnail": {
+          "type": "string"
+         }
+        }
+       }
+      }
+     }
+    },
+    "strict": true
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 0
+   }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 673,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 1218,
+   "output_tokens_details": {
+    "reasoning_tokens": 1034
+   },
+   "total_tokens": 1891
+  },
+  "user": null,
+  "metadata": {}
+ },
+ "timedOut": false
+}

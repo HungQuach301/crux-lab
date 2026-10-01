@@ -1,0 +1,142 @@
+{
+ "id": "debt-3",
+ "claim": "Across 44 quarterly readings of bank new-car loan rates from August 2015 to May 2026, the 72-month rate averaged only 0.1 point above the 60-month rate (median 0.115); it was at least half a point higher in just 1 reading and actually lower in 14. In May 2026 it was lower: 6.97% versus 7.14%. On $35,000 that means $596.21 a month instead of $695.36, and $1,206 more interest in total ($7,927 vs $6,721). Stretching the term at the same rate alone adds $1,412; at the average premium the rate itself adds only $118 of a $1,530 total. History, not a forecast.",
+ "numbers": [
+  {
+   "id": "n_months",
+   "unit": "observations",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv and data/RIFLPBCIANM72NM.csv (FRED; Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos 60 Month Loan and 72 Month Loan, percent, not seasonally adjusted; values reported once a quarter, blank months skipped). Paired observations: months where both series have a value, 2015-08-01 through 2026-05-01. Premium = 72-month rate - 60-month rate, rounded to 0.01 per month. Number of paired observations."
+  },
+  {
+   "id": "first_month",
+   "unit": "date",
+   "definition": "First paired observation (2015-08-01)."
+  },
+  {
+   "id": "last_month",
+   "unit": "date",
+   "definition": "Last paired observation (2026-05-01)."
+  },
+  {
+   "id": "mean_premium",
+   "unit": "percentage points",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv and data/RIFLPBCIANM72NM.csv (FRED; Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos 60 Month Loan and 72 Month Loan, percent, not seasonally adjusted; values reported once a quarter, blank months skipped). Paired observations: months where both series have a value, 2015-08-01 through 2026-05-01. Premium = 72-month rate - 60-month rate, rounded to 0.01 per month. Mean of the premiums, rounded to 0.01."
+  },
+  {
+   "id": "median_premium",
+   "unit": "percentage points",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv and data/RIFLPBCIANM72NM.csv (FRED; Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos 60 Month Loan and 72 Month Loan, percent, not seasonally adjusted; values reported once a quarter, blank months skipped). Paired observations: months where both series have a value, 2015-08-01 through 2026-05-01. Premium = 72-month rate - 60-month rate, rounded to 0.01 per month. Median of the premiums, rounded to 0.001."
+  },
+  {
+   "id": "max_premium",
+   "unit": "percentage points",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv and data/RIFLPBCIANM72NM.csv (FRED; Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos 60 Month Loan and 72 Month Loan, percent, not seasonally adjusted; values reported once a quarter, blank months skipped). Paired observations: months where both series have a value, 2015-08-01 through 2026-05-01. Premium = 72-month rate - 60-month rate, rounded to 0.01 per month. Largest premium."
+  },
+  {
+   "id": "min_premium",
+   "unit": "percentage points",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv and data/RIFLPBCIANM72NM.csv (FRED; Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos 60 Month Loan and 72 Month Loan, percent, not seasonally adjusted; values reported once a quarter, blank months skipped). Paired observations: months where both series have a value, 2015-08-01 through 2026-05-01. Premium = 72-month rate - 60-month rate, rounded to 0.01 per month. Smallest premium (negative = 72-month rate lower)."
+  },
+  {
+   "id": "months_72_cheaper",
+   "unit": "observations",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv and data/RIFLPBCIANM72NM.csv (FRED; Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos 60 Month Loan and 72 Month Loan, percent, not seasonally adjusted; values reported once a quarter, blank months skipped). Paired observations: months where both series have a value, 2015-08-01 through 2026-05-01. Premium = 72-month rate - 60-month rate, rounded to 0.01 per month. Number of paired observations with premium < 0."
+  },
+  {
+   "id": "months_72_not_higher",
+   "unit": "observations",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv and data/RIFLPBCIANM72NM.csv (FRED; Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos 60 Month Loan and 72 Month Loan, percent, not seasonally adjusted; values reported once a quarter, blank months skipped). Paired observations: months where both series have a value, 2015-08-01 through 2026-05-01. Premium = 72-month rate - 60-month rate, rounded to 0.01 per month. Number of paired observations with premium <= 0."
+  },
+  {
+   "id": "months_premium_ge_050",
+   "unit": "observations",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv and data/RIFLPBCIANM72NM.csv (FRED; Finance Rate on Consumer Installment Loans at Commercial Banks, New Autos 60 Month Loan and 72 Month Loan, percent, not seasonally adjusted; values reported once a quarter, blank months skipped). Paired observations: months where both series have a value, 2015-08-01 through 2026-05-01. Premium = 72-month rate - 60-month rate, rounded to 0.01 per month. Number of paired observations with premium >= 0.50."
+  },
+  {
+   "id": "rate60_latest",
+   "unit": "percent",
+   "definition": "60-month rate on 2026-05-01."
+  },
+  {
+   "id": "rate72_latest",
+   "unit": "percent",
+   "definition": "72-month rate on 2026-05-01."
+  },
+  {
+   "id": "pay60_latest",
+   "unit": "dollars per month",
+   "definition": "Loan math on $35,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200; total interest = payment*n - 35,000 (unrounded payment). Latest rates: 60-month 7.14 (2026-05-01), 72-month 6.97 (2026-05-01). Payment at 7.14% for 60 months, rounded to cents."
+  },
+  {
+   "id": "pay72_latest",
+   "unit": "dollars per month",
+   "definition": "Loan math on $35,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200; total interest = payment*n - 35,000 (unrounded payment). Latest rates: 60-month 7.14 (2026-05-01), 72-month 6.97 (2026-05-01). Payment at 6.97% for 72 months, rounded to cents."
+  },
+  {
+   "id": "int60_latest",
+   "unit": "dollars",
+   "definition": "Loan math on $35,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200; total interest = payment*n - 35,000 (unrounded payment). Latest rates: 60-month 7.14 (2026-05-01), 72-month 6.97 (2026-05-01). Total interest at 7.14% for 60 months, rounded to whole dollars."
+  },
+  {
+   "id": "int72_latest",
+   "unit": "dollars",
+   "definition": "Loan math on $35,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200; total interest = payment*n - 35,000 (unrounded payment). Latest rates: 60-month 7.14 (2026-05-01), 72-month 6.97 (2026-05-01). Total interest at 6.97% for 72 months, rounded to whole dollars."
+  },
+  {
+   "id": "extra_interest_72_latest",
+   "unit": "dollars",
+   "definition": "Loan math on $35,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200; total interest = payment*n - 35,000 (unrounded payment). Latest rates: 60-month 7.14 (2026-05-01), 72-month 6.97 (2026-05-01). Total interest (6.97%, 72 months) minus total interest (7.14%, 60 months), unrounded difference rounded to whole dollars."
+  },
+  {
+   "id": "term_effect",
+   "unit": "dollars",
+   "definition": "Loan math on $35,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200; total interest = payment*n - 35,000 (unrounded payment). Latest rates: 60-month 7.14 (2026-05-01), 72-month 6.97 (2026-05-01). Total interest (7.14%, 72 months) minus total interest (7.14%, 60 months): extra interest from the longer term alone at the same rate, rounded to whole dollars."
+  },
+  {
+   "id": "extra_interest_72_avgpremium",
+   "unit": "dollars",
+   "definition": "Loan math on $35,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200; total interest = payment*n - 35,000 (unrounded payment). Latest rates: 60-month 7.14 (2026-05-01), 72-month 6.97 (2026-05-01). Total interest at (7.14 + unrounded mean premium)% for 72 months minus total interest at 7.14% for 60 months, rounded to whole dollars."
+  },
+  {
+   "id": "rate_effect_avgpremium",
+   "unit": "dollars",
+   "definition": "Loan math on $35,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200; total interest = payment*n - 35,000 (unrounded payment). Latest rates: 60-month 7.14 (2026-05-01), 72-month 6.97 (2026-05-01). Total interest at (7.14 + unrounded mean premium)% for 72 months minus total interest at 7.14% for 72 months, rounded to whole dollars."
+  }
+ ],
+ "assumptions": [
+  "Loan amount $35,000, level monthly payments, no fees, no prepayment, no trade-in or negative equity rolled in.",
+  "Bank survey rates stand for what a typical borrower is offered; dealer/captive financing and credit-score tiers are not modeled.",
+  "Latest paired observation (May 2026) used for the dollar example; the average premium example adds the 2015-2026 mean premium to the latest 60-month rate."
+ ],
+ "series": [
+  {
+   "id": "RIFLPBCIANM60NM",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RIFLPBCIANM60NM&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+   "file": "data/RIFLPBCIANM60NM.csv",
+   "sha256": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-05-01",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM"
+   }
+  },
+  {
+   "id": "RIFLPBCIANM72NM",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RIFLPBCIANM72NM&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/RIFLPBCIANM72NM",
+   "file": "data/RIFLPBCIANM72NM.csv",
+   "sha256": "c7a55f78428a3054acf9400d6bbfa5ccc2b0b9bb26f5e96d65f0a14d29d0a7d7",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-05-01",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/RIFLPBCIANM72NM"
+   }
+  }
+ ],
+ "provisions": []
+}

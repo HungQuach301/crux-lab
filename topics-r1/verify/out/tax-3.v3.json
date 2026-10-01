@@ -1,0 +1,96 @@
+{
+ "id": "tax-3",
+ "items": [
+  {
+   "id": "tax_saving_if_flat_usd_24",
+   "declared": 900.0,
+   "recomputed": 900.0,
+   "ok": true
+  },
+  {
+   "id": "after_tax_sell_now_usd_24",
+   "declared": 47600.0,
+   "recomputed": 47600.0,
+   "ok": true
+  },
+  {
+   "id": "breakeven_drop_pct_24",
+   "declared": 2.118,
+   "recomputed": 2.118,
+   "ok": true
+  },
+  {
+   "id": "windows_n",
+   "declared": 2470,
+   "recomputed": 2470,
+   "ok": true
+  },
+  {
+   "id": "first_window_start",
+   "declared": "2016-11-01",
+   "recomputed": "2016-11-01",
+   "ok": true
+  },
+  {
+   "id": "last_window_start",
+   "declared": "2026-08-31",
+   "recomputed": "2026-08-31",
+   "ok": true
+  },
+  {
+   "id": "share_wait_worse_pct_24",
+   "declared": 17.81,
+   "recomputed": 17.81,
+   "ok": true
+  },
+  {
+   "id": "median_wait_minus_now_usd_24",
+   "declared": 1653.78,
+   "recomputed": 1653.78,
+   "ok": true
+  },
+  {
+   "id": "p05_wait_minus_now_usd_24",
+   "declared": -1825.31,
+   "recomputed": -1825.31,
+   "ok": true
+  },
+  {
+   "id": "worst_wait_minus_now_usd_24",
+   "declared": -14083.41,
+   "recomputed": -14083.41,
+   "ok": true
+  },
+  {
+   "id": "worst_window_start",
+   "declared": "2020-02-21",
+   "recomputed": "2020-02-21",
+   "ok": true
+  },
+  {
+   "id": "worst_window_index_change_pct",
+   "declared": -32.97,
+   "recomputed": -32.97,
+   "ok": true
+  },
+  {
+   "id": "breakeven_drop_pct_22",
+   "declared": 1.647,
+   "recomputed": 1.647,
+   "ok": true
+  },
+  {
+   "id": "share_wait_worse_pct_22",
+   "declared": 20.24,
+   "recomputed": 20.24,
+   "ok": true
+  },
+  {
+   "id": "share_index_down_pct",
+   "declared": 30.81,
+   "recomputed": 30.81,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

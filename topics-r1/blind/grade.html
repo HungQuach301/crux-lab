@@ -1,0 +1,187 @@
+<title>Crux Topic Grading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: one topic card per screen, a search-result style package on top (thumbnail sketch + title),
+   the viewer / decision / promise below, optional reason chips, then a five-step verdict ladder. */
+:root {
+  --bg: #eef2f1; --surface: #ffffff; --fg: #15211f; --muted: #566663; --line: #cfd9d6;
+  --accent: #1d5c4f; --accent-fg: #ffffff; --soft: #dfeae6; --thumb: #20302c; --thumb-fg: #f4f8f6;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1615; --surface: #17211f; --fg: #e3ece9; --muted: #98aaa5; --line: #2b3a37;
+  --accent: #7cc4b0; --accent-fg: #0c1714; --soft: #1f3530; --thumb: #0a100f; --thumb-fg: #eef5f2; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1615; --surface: #17211f; --fg: #e3ece9; --muted: #98aaa5; --line: #2b3a37;
+  --accent: #7cc4b0; --accent-fg: #0c1714; --soft: #1f3530; --thumb: #0a100f; --thumb-fg: #eef5f2; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 1rem; line-height: 1.45 }
+main { max-width: 36rem; margin: 0 auto; padding: 1rem 16px 2rem; display: grid; gap: 1rem }
+header { display: grid; gap: .4rem }
+.meta { display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap; font: 500 .75rem var(--mono);
+  color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-variant-numeric: tabular-nums }
+.bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden }
+.bar > i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s }
+.q { font-family: var(--display); font-size: 1.05rem; margin: 0; text-wrap: balance }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: grid; min-width: 0 }
+.thumb { background: var(--thumb); color: var(--thumb-fg); aspect-ratio: 16 / 9; max-width: 100%; display: grid;
+  grid-template-rows: 1fr auto; padding: .8rem .9rem; gap: .4rem }
+.thumb .txt { align-self: center; font: 600 clamp(1.4rem, 6vw, 2rem)/1.1 var(--sans); text-wrap: balance; margin: 0 }
+.thumb .obj { font-size: .78rem; opacity: .78; margin: 0 }
+.thumb .obj b { font: 500 .7rem var(--mono); text-transform: uppercase; letter-spacing: .06em; margin-right: .3rem }
+.body { padding: .9rem 1rem 1rem; display: grid; gap: .7rem }
+.title { font-family: var(--display); font-weight: 600; font-size: 1.28rem; line-height: 1.25; margin: 0; text-wrap: balance }
+dl { margin: 0; display: grid; gap: .55rem }
+dl div { display: grid; gap: .1rem }
+dt { font: 500 .7rem var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--muted) }
+dd { margin: 0 }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center }
+.chips span { font-size: .8rem; color: var(--muted); margin-right: .2rem }
+.chip { font: 400 .85rem var(--sans); border-radius: 999px; padding: .35rem .75rem; min-height: 2.2rem }
+.chip.on { background: var(--soft); border-color: var(--accent); color: var(--fg) }
+.ladder { display: grid; gap: .45rem }
+button { font: 600 1rem var(--sans); border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--fg); padding: .7rem .8rem; cursor: pointer; min-height: 3rem; text-align: left }
+.ladder button { display: grid; grid-template-columns: 1.6rem 1fr; gap: .5rem; align-items: center }
+.ladder button i { font: 500 1rem var(--mono); font-style: normal; color: var(--accent) }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px }
+button.on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent) }
+.ladder button.on i { color: var(--accent-fg) }
+.nav { display: flex; justify-content: space-between; gap: .5rem }
+.nav button { font-weight: 400; min-height: 2.6rem; padding: .5rem .9rem; text-align: center }
+.done { display: grid; gap: .75rem }
+.done h2 { font-family: var(--display); font-weight: 600; font-size: 1.3rem; margin: 0; text-wrap: balance }
+.code { font: 500 .85rem var(--mono); background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: .8rem; word-break: break-word; user-select: all }
+.hint { font-size: .85rem; color: var(--muted); margin: 0 }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem }
+.grid button { font: 500 .85rem var(--mono); min-height: 2.4rem; padding: .3rem; text-align: center }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none } }
+</style>
+
+<main>
+  <header>
+    <div class="meta"><span id="pos">Topic 01 of 18</span><span id="pillar"></span></div>
+    <div class="bar"><i id="prog"></i></div>
+    <p class="q" id="question"></p>
+  </header>
+
+  <section id="cardView" style="display:grid;gap:1rem" aria-live="polite">
+    <article class="card">
+      <div class="thumb"><p class="txt" id="tText"></p><p class="obj"><b>Image</b><span id="tObj"></span></p></div>
+      <div class="body">
+        <h1 class="title" id="title"></h1>
+        <dl>
+          <div><dt>For</dt><dd id="viewer"></dd></div>
+          <div><dt>Decision</dt><dd id="decision"></dd></div>
+          <div><dt>Promise</dt><dd id="promise"></dd></div>
+        </dl>
+      </div>
+    </article>
+    <div class="chips" id="chips"><span>Reasons, optional (tap before scoring):</span></div>
+    <div class="ladder" id="ladder"></div>
+    <div class="nav"><button id="prev">Back</button><button id="toEnd">Review all</button></div>
+  </section>
+
+  <section id="endView" class="done" hidden>
+    <h2 id="endTitle">Send this code in the chat</h2>
+    <div class="code" id="code"></div>
+    <button id="copy" style="text-align:center">Copy code</button>
+    <p class="hint" id="copyNote">Each item is topic:score:reasons:seconds. Tap a topic below to change it.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<script>
+const DATA = {"question": "Would you approve this as a future episode for this channel?", "cards": [{"no": "01", "pillar": "Retirement and investing", "viewer": "Workers with a 401(k) match and high-interest credit card debt.", "decision": "Should you pause 401(k) contributions beyond the match to pay cards faster?", "promise": "We simulate the tradeoff using historical returns, payoff paths, and employer match rules.", "title": "Invest or Kill Debt First?", "thumbObject": "credit card beside retirement folder", "thumbText": "DEBT OR INVEST?"}, {"no": "02", "pillar": "Taxes and policy", "viewer": "Single hourly workers earning $32 an hour full time who could add 8 extra hours of work a week.", "decision": "Work those 8 hours as overtime at $48 an hour, or at a second job paying $48 an hour?", "promise": "We run the full federal tax math on both paths, including the new overtime break, and find what a side job must pay to match.", "title": "Overtime or a Second Job at $48 an Hour: Which Pays More?", "thumbObject": "a time clock punch card beside a second work uniform", "thumbText": "Which Pays More?"}, {"no": "03", "pillar": "Retirement and investing", "viewer": "People nearing retirement who can claim Social Security at 62, full retirement age, or 70.", "decision": "Should you claim Social Security early or wait?", "promise": "We compare lifetime spending paths under historical market returns and longevity assumptions.", "title": "Claim Social Security Early?", "thumbObject": "calendar and Social Security card", "thumbText": "CLAIM OR WAIT?"}, {"no": "04", "pillar": "Taxes and policy", "viewer": "Married homeowners who bought their house in 2000 and are now weighing a sale to downsize.", "decision": "Sell the house we bought in 2000 now, or keep it, given the $500,000 tax-free limit on home-sale gains?", "promise": "We measure, metro by metro, how far typical home-price growth since 2000 has pushed sellers' gains against a limit that never moved with inflation.", "title": "Bought Your Home in 2000? The $500,000 Tax-Free Limit Test", "thumbObject": "a family house with a sold sign beside a capped glass jar", "thumbText": "Still Tax-Free?"}, {"no": "05", "pillar": "Borrowing and debt", "viewer": "Homeowners with a 7% mortgage quoted 6.5% and closing costs, unsure about refinancing.", "decision": "Refinance the 7% mortgage to 6.5%, or keep the loan?", "promise": "Using history, not a forecast, we'll model payments, closing costs, taxes, and moving patterns to test the refi choice.", "title": "Should You Refinance Now?", "thumbObject": "mortgage quote beside moving boxes", "thumbText": "REFI OR KEEP?"}, {"no": "06", "pillar": "Taxes and policy", "viewer": "Workers whose paycheck withholding produces a federal tax refund of about $3,000 every spring.", "decision": "Keep over-withholding for a $3,000 refund, or adjust withholding for bigger paychecks instead?", "promise": "We price what parking that money with the government actually cost in interest, year by year, for savers and for card borrowers.", "title": "Your $3,000 Tax Refund: What Is It Really Costing You?", "thumbObject": "a tax refund check chained to a ticking kitchen timer", "thumbText": "Free Loan?"}, {"no": "07", "pillar": "Borrowing and debt", "viewer": "New-car buyers in 2026 financing about $35,000 through a bank and torn between a 60-month and a 72-month loan.", "decision": "Take the 72-month loan for the lower payment, or stick with 60 months?", "promise": "Using years of real bank auto-loan rates, we measure how much the longer loan really adds and whether the rate or the time drives it.", "title": "60 vs 72 Months on a $35,000 Car Loan: The Real Cost", "thumbObject": "Car key resting between loan contracts marked 60 and 72", "thumbText": "60 or 72?"}, {"no": "08", "pillar": "Retirement and investing", "viewer": "People in their 50s buying long-term care insurance they may not use for 20 years, choosing between a 3% and a 5% compound inflation option.", "decision": "Is the 3% compound inflation option enough, or is the pricier 5% option worth paying for?", "promise": "We run the 3% and 5% options through every 20-year stretch of nursing home prices on record to see how each kept pace.", "title": "Long-Term Care Insurance: 3% or 5% Inflation Protection?", "thumbObject": "Nursing home room with a daily price tag climbing stairs", "thumbText": "3% or 5%?"}, {"no": "09", "pillar": "Retirement and investing", "viewer": "Savers in their 40s parking safe retirement money for 20 years, weighing savings bonds guaranteed to double against rolling T-bills.", "decision": "Should I lock money in savings bonds that double in 20 years, or keep rolling T-bills instead?", "promise": "We roll T-bills through every 20-year stretch since the Depression to see how often they managed to double your money.", "title": "Savings Bonds That Double in 20 Years vs T-Bills", "thumbObject": "Paper savings bond beside a stack of T-bills and a calendar", "thumbText": "Double or Roll?"}, {"no": "10", "pillar": "Taxes and policy", "viewer": "Investors in the 24% tax bracket holding a $50,000 index fund position with a $10,000 gain, bought 11 months ago.", "decision": "Sell now at the short-term tax rate, or wait a month for the lower long-term rate?", "promise": "We replay every month-long stretch of recent market history to see how often waiting for the lower rate left investors with less after tax.", "title": "Sell at 11 Months or Wait for the Lower Tax Rate?", "thumbObject": "a desk calendar with its last page curling over a stock chart", "thumbText": "Wait or Sell?"}, {"no": "11", "pillar": "Borrowing and debt", "viewer": "Home buyers in 2026 taking a 30-year mortgage at about 7%, whose lender offers one point to get 6.75%.", "decision": "Pay one point to cut my rate from 7% to 6.75%, or skip it?", "promise": "We replay the full weekly history of 30-year rates to see how often a refinance chance showed up before that point paid for itself.", "title": "Paying a Point to Get 6.75%? What History Says", "thumbObject": "Closing table with a calculator and a single gold coin", "thumbText": "Worth the point?"}, {"no": "12", "pillar": "Retirement and investing", "viewer": "Retirees keeping their next 5 years of spending in CDs or Treasuries at a time when 1-year rates top 5-year rates.", "decision": "When a 1-year CD pays more than a 5-year CD, should I keep rolling the 1-year or lock the 5-year?", "promise": "We replay every past stretch when 1-year yields topped 5-year yields and follow both choices to the end of the 5 years.", "title": "1-Year CD Pays More Than a 5-Year: Roll or Lock?", "thumbObject": "Short and long CD certificates on a tilting balance scale", "thumbText": "Roll or Lock?"}, {"no": "13", "pillar": "Taxes and policy", "viewer": "Self-employed couples buying Marketplace health insurance and choosing Solo 401(k) contributions.", "decision": "Should you make pre-tax Solo 401(k) contributions instead of Roth contributions?", "promise": "We simulate taxes and health-credit changes to show which side of the tradeoff dominates.", "title": "Solo 401(k): Roth or Pre-Tax?", "thumbObject": "Health plan bill beside 401(k) form", "thumbText": "ROTH OR PRE-TAX?"}, {"no": "14", "pillar": "Borrowing and debt", "viewer": "Homeowners who locked a 30-year mortgage at 3% in 2021 and have had about $500 a month to spare ever since.", "decision": "Should my spare $500 a month go toward the 3% mortgage or into T-bills?", "promise": "We replay every month since rates jumped to see which pile actually ended up bigger after federal income tax, and by how much.", "title": "3% Mortgage vs T-Bills: Where Should the $500 Have Gone?", "thumbObject": "House key and a stack of T-bills on a balance scale", "thumbText": "3% vs T-bills?"}, {"no": "15", "pillar": "Retirement and investing", "viewer": "Retirees around 65 buying an income annuity for 20 or more years of payments, choosing level checks or checks that rise 2% a year.", "decision": "At 65, should I take the bigger level annuity check or the smaller check that rises 2% a year?", "promise": "We test the 2% yearly raise against every 20-year stretch of US prices to see how its buying power actually held up.", "title": "Does a 2% Annuity Raise Really Keep Up With Prices?", "thumbObject": "Annuity check beside a grocery receipt with a small 2% arrow", "thumbText": "Is 2% Enough?"}, {"no": "16", "pillar": "Taxes and policy", "viewer": "Parents with a child starting college and money in a 529 plan.", "decision": "Should you spend 529 money before claiming a college tax credit?", "promise": "We simulate qualified costs, credits, and account withdrawals to show how the ordering changes after-tax cash.", "title": "529 or Tax Credit?", "thumbObject": "Tuition bill and 529 card", "thumbText": "ORDER MATTERS"}, {"no": "17", "pillar": "Borrowing and debt", "viewer": "Grad students starting school in fall 2026 who need about $50,000 in private loans now that federal borrowing is capped.", "decision": "Take a 7.5% variable rate or lock in 9% fixed for a 10-year payoff?", "promise": "We run the variable loan through every 10-year stretch of short-term rate history to see how often the cheaper start ended up costing more.", "title": "7.5% Variable or 9% Fixed? Grad Loans Through History", "thumbObject": "Graduation cap balanced on a seesaw between loan offers", "thumbText": "Variable or fixed?"}, {"no": "18", "pillar": "Borrowing and debt", "viewer": "People carrying a $7,500 credit card balance at 24% who received a 0% transfer offer.", "decision": "Take the 0% transfer with a 4% fee, or stay on the old card?", "promise": "We'll simulate payoff calendars, fees, missed deadlines, and payment rules to test when the offer changes total cost.", "title": "Is a Balance Transfer Worth It?", "thumbObject": "credit cards beside a payoff calendar", "thumbText": "TRANSFER OR PAY?"}]};
+const SHA = '4b3dcc15d65bd8ee1fe1b69145307097714252e3d8caf8b7f23fcf2adbc269bd';
+const KEY = 'crux-topics-r1-' + SHA;
+const SCALE = [[5, 'Make it the next episode'], [4, 'Want it, but later'], [3, 'Not sure'], [2, 'Not excited'], [1, 'Not for this channel']];
+const CHIPS = [['n', 'not me'], ['s', 'seen it'], ['v', 'vague promise'], ['h', 'hard to believe'], ['w', 'too narrow']];
+let st = { score: {}, chips: {}, secs: {} }, i = 0, shownAt = null;
+try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.score) st = s; } catch (e) {}
+const n = DATA.cards.length;
+const $ = id => document.getElementById(id);
+$('question').textContent = DATA.question;
+function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
+function tick() {
+  if (shownAt !== null) { const no = DATA.cards[i].no; st.secs[no] = (st.secs[no] || 0) + (Date.now() - shownAt) / 1000; shownAt = null; save(); }
+}
+function codeText() {
+  return 'R1-' + SHA.slice(0, 6) + ' ' + DATA.cards.map(c => c.no + ':' + (st.score[c.no] || '?') + ':' +
+    (st.chips[c.no] || []).join('') + ':' + Math.round(st.secs[c.no] || 0)).join(' ');
+}
+SCALE.forEach(([v, label]) => {
+  const b = document.createElement('button'); b.dataset.v = v; b.id = 'score' + v;
+  b.innerHTML = '<i>' + v + '</i><span></span>'; b.querySelector('span').textContent = label;
+  b.addEventListener('click', () => {
+    tick(); st.score[DATA.cards[i].no] = v; save();
+    const next = DATA.cards.findIndex((c, k) => k > i && !st.score[c.no]);
+    const any = DATA.cards.findIndex(c => !st.score[c.no]);
+    if (next >= 0) { i = next; show(); } else if (any >= 0) { i = any; show(); } else { showEnd(); }
+  });
+  $('ladder').appendChild(b);
+});
+CHIPS.forEach(([k, label]) => {
+  const b = document.createElement('button'); b.className = 'chip'; b.dataset.k = k; b.id = 'chip' + k; b.textContent = label;
+  b.addEventListener('click', () => {
+    const no = DATA.cards[i].no, cur = new Set(st.chips[no] || []);
+    cur.has(k) ? cur.delete(k) : cur.add(k);
+    st.chips[no] = CHIPS.map(c => c[0]).filter(c => cur.has(c)); save(); paint();
+  });
+  $('chips').appendChild(b);
+});
+function paint() {
+  const c = DATA.cards[i];
+  document.querySelectorAll('.ladder button').forEach(b => b.classList.toggle('on', +b.dataset.v === st.score[c.no]));
+  document.querySelectorAll('.chip').forEach(b => b.classList.toggle('on', (st.chips[c.no] || []).includes(b.dataset.k)));
+}
+function show() {
+  const c = DATA.cards[i];
+  $('endView').hidden = true; $('cardView').hidden = false;
+  $('pos').textContent = 'Topic ' + c.no + ' of ' + n;
+  $('pillar').textContent = c.pillar;
+  $('tText').textContent = c.thumbText; $('tObj').textContent = c.thumbObject;
+  $('title').textContent = c.title; $('viewer').textContent = c.viewer;
+  $('decision').textContent = c.decision; $('promise').textContent = c.promise;
+  $('prev').disabled = i === 0;
+  paint(); progress(); shownAt = Date.now(); window.scrollTo(0, 0);
+}
+function progress() { $('prog').style.width = (100 * Object.keys(st.score).length / n) + '%'; }
+function showEnd() {
+  tick();
+  $('cardView').hidden = true; $('endView').hidden = false;
+  const left = n - Object.keys(st.score).length;
+  $('pos').textContent = left ? left + ' topics left' : 'All ' + n + ' topics scored';
+  $('pillar').textContent = '';
+  $('endTitle').textContent = left ? 'Some topics are still open' : 'Send this code in the chat';
+  $('code').textContent = codeText();
+  const g = $('grid'); g.textContent = '';
+  DATA.cards.forEach((c, k) => {
+    const b = document.createElement('button');
+    b.textContent = c.no + ' · ' + (st.score[c.no] || '?');
+    if (!st.score[c.no]) b.classList.add('on');
+    b.addEventListener('click', () => { i = k; show(); });
+    g.appendChild(b);
+  });
+  progress();
+}
+$('prev').addEventListener('click', () => { if (i > 0) { tick(); i--; show(); } });
+$('toEnd').addEventListener('click', showEnd);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) tick(); else if (!$('cardView').hidden && shownAt === null) shownAt = Date.now();
+});
+$('copy').addEventListener('click', () => {
+  const t = codeText();
+  const ok = () => { $('copyNote').textContent = 'Copied. Paste it in the chat.'; };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents($('code'));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); $('copyNote').textContent = 'Code selected. Copy it and paste it in the chat.'; };
+  try { navigator.clipboard.writeText(t).then(ok, fallback); } catch (e) { fallback(); }
+});
+const first = DATA.cards.findIndex(c => !st.score[c.no]);
+if (first < 0) showEnd(); else { i = first; show(); }
+</script>

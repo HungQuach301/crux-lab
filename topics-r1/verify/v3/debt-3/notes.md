@@ -1,0 +1,22 @@
+# debt-3 V3 recalculation notes
+SHA-256: both downloads (RIFLPBCIANM60NM, RIFLPBCIANM72NM) match declared hashes. Premiums computed with Decimal, ROUND_HALF_UP to 0.01; loan math in float, final rounding half-up.
+- n_months = 44: count of dates in 2015-08-01..2026-05-01 where both CSVs have a non-blank value.
+- first_month = 2015-08-01: earliest paired date.
+- last_month = 2026-05-01: latest paired date.
+- mean_premium = 0.10: mean of 44 rounded premiums = 0.097273, rounded to 0.01.
+- median_premium = 0.115: median of 44 premiums (average of 0.11 and 0.12), to 0.001.
+- max_premium = 0.52 (2023-11-01).
+- min_premium = -0.51 (2023-02-01).
+- months_72_cheaper = 14: premium < 0.
+- months_72_not_higher = 15: premium <= 0 (includes 2026-02-01 at 0.00).
+- months_premium_ge_050 = 1: premium >= 0.50 (only 2023-11-01).
+- rate60_latest = 7.14: 60-month value on 2026-05-01.
+- rate72_latest = 6.97: 72-month value on 2026-05-01.
+- pay60_latest = 695.36: annuity payment, 35000 at 7.14%/1200, n=60.
+- pay72_latest = 596.21: 6.97%, n=72.
+- int60_latest = 6721: 6721.37 from unrounded payment*60 - 35000.
+- int72_latest = 7927: 7927.20.
+- extra_interest_72_latest = 1206: 7927.20 - 6721.37 = 1205.84.
+- term_effect = 1412: int(7.14%,72)=8133.11 minus 6721.37 = 1411.74.
+- extra_interest_72_avgpremium = 1530: rate 7.14 + 0.0972727 (unrounded mean of rounded premiums) for 72 months = 8251.19, minus 6721.37 = 1529.82. Ambiguity: "unrounded mean" read as mean of the 0.01-rounded monthly premiums (per definition); using raw unrounded diffs gives the same mean since inputs have 2 decimals.
+- rate_effect_avgpremium = 118: 8251.19 - 8133.11 = 118.08.

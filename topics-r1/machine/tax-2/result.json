@@ -1,0 +1,219 @@
+{
+ "answer": "The $500,000 joint limit on tax-free gain from selling a main home has not changed since it took effect in May 1997; in August 2026 prices that 1997 limit would be about $1,046,000. A couple who bought in 2000 crosses the limit when their gain (sale price minus purchase price and improvements) exceeds $500,000. If their home rose in value like its metro's price index from 2000 to 2026 Q2, that happens once the 2000 purchase price was above about $114,700 in Miami, $151,500 in Los Angeles, $164,500 in San Diego, $179,200 in Phoenix, $180,000 in Seattle, $212,200 in New York, $215,600 in Dallas, $226,400 in Boston, $227,700 in Denver, $254,400 in San Jose, $259,000 in San Francisco and $373,400 in Chicago (national index: $243,500; for a single seller with the $250,000 limit: $121,700). In 11 of these 12 metros the threshold is under $300,000 and in 5 it is under $200,000. Gain above the limit is taxed as a long-term capital gain on a sale, while heirs who inherit the home take a basis equal to its value at death.",
+ "guess": "Long-time owners widely assume a married couple's home sale is tax-free because '$500,000 is more than our profit', and that the limit is something only expensive coastal homes ever reach.",
+ "changesDecision": "In 11 of the 12 metros a 2000 purchase price under $300,000 is already enough for an index-typical gain to exceed the limit, including non-coastal metros such as Phoenix and Dallas, so the tax on the excess gain can become a real input in a sell-now-versus-keep decision that owners assume is tax-free. A viewer can check the threshold for their metro against their own purchase price plus improvements.",
+ "numbers": [
+  {
+   "id": "growth_los_angeles",
+   "value": 4.3004,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS31084Q (Los Angeles-Long Beach-Glendale, CA (metro division)): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_los_angeles_usd",
+   "value": 151500.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_los_angeles - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the Los Angeles-Long Beach-Glendale, CA (metro division) index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_san_diego",
+   "value": 4.0404,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS41740Q (San Diego-Chula Vista-Carlsbad, CA): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_san_diego_usd",
+   "value": 164500.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_san_diego - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the San Diego-Chula Vista-Carlsbad, CA index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_san_francisco",
+   "value": 2.9305,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS41884Q (San Francisco-San Mateo-Redwood City, CA (metro division)): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_san_francisco_usd",
+   "value": 259000.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_san_francisco - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the San Francisco-San Mateo-Redwood City, CA (metro division) index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_san_jose",
+   "value": 2.9652,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS41940Q (San Jose-Sunnyvale-Santa Clara, CA): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_san_jose_usd",
+   "value": 254400.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_san_jose - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the San Jose-Sunnyvale-Santa Clara, CA index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_seattle",
+   "value": 3.7779,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS42644Q (Seattle-Bellevue-Kent, WA (metro division)): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_seattle_usd",
+   "value": 180000.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_seattle - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the Seattle-Bellevue-Kent, WA (metro division) index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_boston",
+   "value": 3.2089,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS14454Q (Boston, MA (metro division)): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_boston_usd",
+   "value": 226400.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_boston - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the Boston, MA (metro division) index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_new_york",
+   "value": 3.3558,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS35614Q (New York-Jersey City-White Plains, NY-NJ (metro division)): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_new_york_usd",
+   "value": 212200.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_new_york - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the New York-Jersey City-White Plains, NY-NJ (metro division) index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_miami",
+   "value": 5.3601,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS33124Q (Miami-Miami Beach-Kendall, FL (metro division)): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_miami_usd",
+   "value": 114700.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_miami - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the Miami-Miami Beach-Kendall, FL (metro division) index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_denver",
+   "value": 3.1961,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS19740Q (Denver-Aurora-Lakewood, CO): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_denver_usd",
+   "value": 227700.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_denver - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the Denver-Aurora-Lakewood, CO index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_phoenix",
+   "value": 3.7903,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS38060Q (Phoenix-Mesa-Chandler, AZ): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_phoenix_usd",
+   "value": 179200.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_phoenix - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the Phoenix-Mesa-Chandler, AZ index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_dallas",
+   "value": 3.3189,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS19124Q (Dallas-Plano-Irving, TX (metro division)): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_dallas_usd",
+   "value": 215600.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_dallas - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the Dallas-Plano-Irving, TX (metro division) index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_chicago",
+   "value": 2.3392,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index ATNHPIUS16984Q (Chicago-Naperville-Evanston, IL (metro division)): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_chicago_usd",
+   "value": 373400.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_chicago - 1) using unrounded growth: the 2000 purchase price at which a home that appreciated exactly like the Chicago-Naperville-Evanston, IL (metro division) index has a 2026 Q2 gain (price x (g - 1), no improvements or selling costs) equal to the $500,000 joint exclusion. Rounded to the nearest $100."
+  },
+  {
+   "id": "growth_us",
+   "value": 3.0536,
+   "unit": "ratio",
+   "definition": "FHFA all-transactions house price index for the United States (USSTHPI): g = (index value for 2026-04-01, i.e. 2026 Q2) / (mean of the four quarterly index values dated 2000-01-01, 2000-04-01, 2000-07-01, 2000-10-01). Rounded to 4 decimals."
+  },
+  {
+   "id": "threshold_joint_us_usd",
+   "value": 243500.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "500000 / (growth_us - 1), unrounded growth, rounded to the nearest $100."
+  },
+  {
+   "id": "threshold_single_us_usd",
+   "value": 121700.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "250000 / (growth_us - 1): same for a single seller ($250,000 limit), rounded to the nearest $100."
+  },
+  {
+   "id": "threshold_joint_min_usd",
+   "value": 114700.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "Minimum of the 12 metro threshold_joint values (unrounded, then rounded to $100)."
+  },
+  {
+   "id": "threshold_joint_max_usd",
+   "value": 373400.0,
+   "unit": "USD (2000 purchase price)",
+   "definition": "Maximum of the 12 metro threshold_joint values (unrounded, then rounded to $100)."
+  },
+  {
+   "id": "metros_threshold_under_200k",
+   "value": 5,
+   "unit": "count of 12 metros",
+   "definition": "Number of the 12 metros whose unrounded threshold_joint is below $200,000."
+  },
+  {
+   "id": "metros_threshold_under_300k",
+   "value": 11,
+   "unit": "count of 12 metros",
+   "definition": "Number of the 12 metros whose unrounded threshold_joint is below $300,000."
+  },
+  {
+   "id": "cpi_1997_05",
+   "value": 160.1,
+   "unit": "index 1982-84=100",
+   "definition": "CPIAUCNS (CPI-U all items, U.S. city average, not seasonally adjusted) for May 1997, the month the current exclusion took effect (sales after May 6, 1997)."
+  },
+  {
+   "id": "cpi_2026_08",
+   "value": 334.98,
+   "unit": "index 1982-84=100",
+   "definition": "CPIAUCNS for August 2026 (latest month in file)."
+  },
+  {
+   "id": "excl_joint_1997_in_2026_usd",
+   "value": 1046000.0,
+   "unit": "USD",
+   "definition": "500000 x cpi_2026_08 / cpi_1997_05: the 1997 joint limit expressed in August 2026 prices. Rounded to the nearest $1,000."
+  }
+ ],
+ "assumptions": [
+  "Married couple filing jointly who meet the 2-out-of-5-year ownership and use tests; no prior exclusion used within 2 years.",
+  "Purchase during calendar year 2000 (average of the four 2000 quarters of the index); sale valued at 2026 Q2 index level.",
+  "The home's value moved exactly like its metro's FHFA all-transactions index; no capital improvements (which would raise basis and the threshold), no selling costs, no depreciation from business/rental use.",
+  "Metro = FHFA metropolitan division where one exists (e.g., Los Angeles-Long Beach-Glendale), otherwise the MSA.",
+  "Inflation comparison uses CPI-U (not seasonally adjusted) May 1997 to August 2026."
+ ],
+ "limits": "History, not a forecast: index growth to 2026 Q2 says nothing about future prices. Metro indexes are averages; individual homes and neighborhoods diverge widely, and FHFA revises the index each quarter. Thresholds ignore improvements and selling costs, which reduce the gain. The episode measures exposure to the limit; it does not compute any viewer's tax or recommend selling or holding. Not personal advice."
+}

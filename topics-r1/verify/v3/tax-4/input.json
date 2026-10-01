@@ -1,0 +1,175 @@
+{
+ "id": "tax-4",
+ "claim": "For a single worker paid $32 an hour (the typical production/nonsupervisory wage, $32.38 in June 2026, rounded) adding 400 hours a year, both paths pay $19,200 gross at $48 an hour. Only the half-time premium, $6,400 (33% of the overtime pay), is deductible, and only from federal income tax; payroll tax of $1,468.80 applies either way. Federal income tax on the extra pay is $2,816 as overtime versus $4,224 at a second job, so overtime keeps $14,915 versus $13,507: $1,408 more a year (total federal tax on the extra pay 22.3% vs 29.6%). A second job would have to pay about $53.00 an hour to leave the same take-home as overtime at $48.",
+ "numbers": [
+  {
+   "id": "ahe_latest",
+   "unit": "USD per hour",
+   "definition": "Latest value in the pinned AHETPI file (average hourly earnings of production and nonsupervisory employees, total private, seasonally adjusted), June 2026."
+  },
+  {
+   "id": "ahe_date",
+   "unit": "date",
+   "definition": "Observation date of ahe_latest."
+  },
+  {
+   "id": "regular_rate_usd",
+   "unit": "USD per hour",
+   "definition": "ahe_latest rounded to the nearest whole dollar: the viewer's regular hourly rate."
+  },
+  {
+   "id": "ot_rate_usd",
+   "unit": "USD per hour",
+   "definition": "1.5 x regular_rate_usd (time-and-a-half); the side job is assumed to pay this same hourly amount."
+  },
+  {
+   "id": "extra_pay_usd",
+   "unit": "USD per year",
+   "definition": "ot_rate_usd x 400 hours (8 extra hours a week x 50 weeks), same gross on both paths."
+  },
+  {
+   "id": "ot_premium_deduction_usd",
+   "unit": "USD per year",
+   "definition": "Qualified overtime compensation = the half-time premium only: 0.5 x regular_rate_usd x 400. Below the 12,500 single cap; MAGI below 150,000 so no phase-down."
+  },
+  {
+   "id": "deductible_share_of_ot_pay_pct",
+   "unit": "percent",
+   "definition": "100 x ot_premium_deduction_usd / extra_pay_usd. Rounded to 2 decimals."
+  },
+  {
+   "id": "ot_income_tax_on_extra_usd",
+   "unit": "USD per year",
+   "definition": "Income tax on extra, overtime path. Federal income tax T(x) on taxable income x with the 2026 single schedule: 10% up to 12,400; 12% 12,400-50,400; 22% 50,400-105,700; 24% 105,700-201,775; 32% 201,775-256,225; 35% 256,225-640,600; 37% above. Base wages B = regular_rate_usd x 2080. Extra pay E = ot_rate_usd x 400 (8 h x 50 weeks). Income tax on extra = T(B + E - 16100 - D) - T(B - 16100), where D = min(premium, 12500) for overtime and D = 0 for the side job. Payroll tax = 0.0765 x E. Take-home on extra = E - 0.0765 x E - income tax on extra. Rounded to cents."
+  },
+  {
+   "id": "side_income_tax_on_extra_usd",
+   "unit": "USD per year",
+   "definition": "Income tax on extra, side-job path (D = 0). Federal income tax T(x) on taxable income x with the 2026 single schedule: 10% up to 12,400; 12% 12,400-50,400; 22% 50,400-105,700; 24% 105,700-201,775; 32% 201,775-256,225; 35% 256,225-640,600; 37% above. Base wages B = regular_rate_usd x 2080. Extra pay E = ot_rate_usd x 400 (8 h x 50 weeks). Income tax on extra = T(B + E - 16100 - D) - T(B - 16100), where D = min(premium, 12500) for overtime and D = 0 for the side job. Payroll tax = 0.0765 x E. Take-home on extra = E - 0.0765 x E - income tax on extra. Rounded to cents."
+  },
+  {
+   "id": "payroll_tax_on_extra_usd",
+   "unit": "USD per year",
+   "definition": "0.0765 x extra_pay_usd (6.2% social security + 1.45% medicare, employee share; same on both paths)."
+  },
+  {
+   "id": "ot_extra_take_home_usd",
+   "unit": "USD per year",
+   "definition": "extra_pay_usd - payroll_tax_on_extra_usd - ot_income_tax_on_extra_usd."
+  },
+  {
+   "id": "side_extra_take_home_usd",
+   "unit": "USD per year",
+   "definition": "extra_pay_usd - payroll_tax_on_extra_usd - side_income_tax_on_extra_usd."
+  },
+  {
+   "id": "ot_advantage_usd",
+   "unit": "USD per year",
+   "definition": "ot_extra_take_home_usd - side_extra_take_home_usd."
+  },
+  {
+   "id": "ot_total_tax_rate_on_extra_pct",
+   "unit": "percent",
+   "definition": "100 x (1 - ot_extra_take_home_usd / extra_pay_usd): federal income + payroll tax as a share of the extra overtime pay. Rounded to 2 decimals."
+  },
+  {
+   "id": "side_total_tax_rate_on_extra_pct",
+   "unit": "percent",
+   "definition": "100 x (1 - side_extra_take_home_usd / extra_pay_usd). Rounded to 2 decimals."
+  },
+  {
+   "id": "side_breakeven_rate_usd",
+   "unit": "USD per hour",
+   "definition": "Side-job hourly rate R at which take-home on 400 side-job hours (E = R x 400, D = 0, formula above) equals ot_extra_take_home_usd; solved by bisection on [ot_rate, 3 x ot_rate]. Rounded to cents."
+  }
+ ],
+ "assumptions": [
+  "Tax year 2026, single filer, standard deduction ($16,100), no other income, no dependents or credits.",
+  "Regular job: 40 hours x 52 weeks at the regular rate; extra work: 8 hours a week for 50 weeks (400 hours).",
+  "Overtime is required by federal overtime law (over 40 hours in a workweek) at exactly 1.5 times the regular rate and reported by the employer as qualified overtime compensation; only the 0.5x premium is deductible.",
+  "The second job is W-2 employment paying the same hourly amount as the overtime rate (no self-employment tax); its hours are not overtime.",
+  "Modified AGI stays below $150,000, so the full deduction applies; social security wage base not reached.",
+  "Federal taxes only (income tax plus employee payroll tax); state and local taxes ignored."
+ ],
+ "series": [
+  {
+   "id": "AHETPI",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics, Current Employment Statistics)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=AHETPI&cosd=2025-01-01&coed=2026-06-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/AHETPI",
+   "file": "data/AHETPI.csv",
+   "sha256": "de5ed1b8d52de33dccce1c135e56d9f4fa0d4c6476fd8834aa39fd6c263e0e1f",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-06-01",
+    "value": "32.38"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/AHETPI"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 225(a) (deduction for qualified overtime compensation)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "There shall be allowed as a deduction an amount equal to the qualified overtime compensation received during the taxable year"
+  },
+  {
+   "cite": "26 U.S.C. 225(b)(1) (cap $12,500 single)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "The amount allowed as a deduction under this section for any taxable year shall not exceed $12,500 ($25,000 in the case of a joint return)."
+  },
+  {
+   "cite": "26 U.S.C. 225(b)(2)(A) (phase-down above $150,000 MAGI)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "shall be reduced (but not below zero) by $100 for each $1,000 by which the taxpayer's modified adjusted gross income exceeds $150,000 ($300,000 in the case of a joint return)."
+  },
+  {
+   "cite": "26 U.S.C. 225(c)(1) (only the amount in excess of the regular rate)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "means overtime compensation paid to an individual required under section 7 of the Fair Labor Standards Act of 1938 that is in excess of the regular rate (as used in such section) at which such individual is employed."
+  },
+  {
+   "cite": "26 U.S.C. 225(g) (termination after 2028)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/225",
+   "quote": "No deduction shall be allowed under this section for any taxable year beginning after December 31, 2028"
+  },
+  {
+   "cite": "26 U.S.C. 63(b)(6) (deduction available to non-itemizers)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/63",
+   "quote": "(6) the deduction provided in section 225,"
+  },
+  {
+   "cite": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)",
+   "url": "https://www.law.cornell.edu/uscode/text/29/207",
+   "quote": "at a rate not less than one and one-half times the regular rate at which he is employed."
+  },
+  {
+   "cite": "26 U.S.C. 3101(a) (6.2% employee social security tax)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/3101",
+   "quote": "a tax equal to 6.2 percent of the wages"
+  },
+  {
+   "cite": "26 U.S.C. 3101(b)(1) (1.45% employee medicare tax)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/3101",
+   "quote": "a tax equal to 1.45 percent of the wages"
+  },
+  {
+   "cite": "IRS IR-2025-103 (2026 standard deduction, single)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "For single taxpayers and married individuals filing separately, the standard deduction rises to $16,100 for tax year 2026"
+  },
+  {
+   "cite": "IRS IR-2025-103 (2026 single brackets)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "35% for incomes over $256,225 ($512,450 for married couples filing jointly); 32% for incomes over $201,775 ($403,550 for married couples filing jointly); 24% for incomes over $105,700 ($211,400 for married couples filing jointly); 22% for incomes over $50,400 ($100,800 for married couples filing jointly); 12% for incomes over $12,400 ($24,800 for married couples filing jointly)."
+  },
+  {
+   "cite": "IRS IR-2025-103 (2026 top bracket)",
+   "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+   "quote": "37% for individual single taxpayers with incomes greater than $640,600"
+  }
+ ]
+}

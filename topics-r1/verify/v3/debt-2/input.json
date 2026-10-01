@@ -1,0 +1,110 @@
+{
+ "id": "debt-2",
+ "claim": "Replaying a $50,000, 10-year private loan over every 120-month window of 3-month T-bill history since 1954 (753 start months), a variable rate that starts at 7.5% and moves one-for-one with the bill rate ended up costing more in total interest than a 9% fixed rate in 14.2% of windows. The median window had the variable loan $3,832 cheaper (fixed-rate interest: $26,005). But the losses were concentrated: 28.4% of windows starting 1954-1980 cost more versus 3.5% starting 1981 or later, and the worst window (starting 1977-04) cost $11,219 more, with the variable rate peaking at 20.6%. History, not a forecast.",
+ "numbers": [
+  {
+   "id": "n_starts",
+   "unit": "start months",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Number of start months."
+  },
+  {
+   "id": "first_start",
+   "unit": "date",
+   "definition": "First start month (1954-01-01)."
+  },
+  {
+   "id": "last_start",
+   "unit": "date",
+   "definition": "Last start month with a full 120-month window (2016-09-01)."
+  },
+  {
+   "id": "fixed_total_interest",
+   "unit": "dollars",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Total interest on the fixed loan, rounded to whole dollars."
+  },
+  {
+   "id": "share_variable_costlier",
+   "unit": "percent of start months",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Share of start months with Difference > 0, times 100, rounded to 0.1."
+  },
+  {
+   "id": "median_variable_minus_fixed",
+   "unit": "dollars",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Median of Difference across all start months, rounded to whole dollars (negative = variable cheaper)."
+  },
+  {
+   "id": "worst_variable_minus_fixed",
+   "unit": "dollars",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Maximum Difference across start months, rounded to whole dollars."
+  },
+  {
+   "id": "worst_start",
+   "unit": "date",
+   "definition": "Start month with the maximum Difference."
+  },
+  {
+   "id": "best_variable_minus_fixed",
+   "unit": "dollars",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Minimum Difference across start months, rounded to whole dollars."
+  },
+  {
+   "id": "max_variable_rate_any_window",
+   "unit": "percent",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Highest monthly variable rate reached in any window, rounded to 0.01."
+  },
+  {
+   "id": "n_starts_1954_1980",
+   "unit": "start months",
+   "definition": "Number of start months from 1954-01 through 1980-12."
+  },
+  {
+   "id": "share_costlier_1954_1980",
+   "unit": "percent of start months",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Share of start months 1954-01 through 1980-12 with Difference > 0, times 100, rounded to 0.1."
+  },
+  {
+   "id": "n_starts_1981_on",
+   "unit": "start months",
+   "definition": "Number of start months from 1981-01 through 2016-09."
+  },
+  {
+   "id": "share_costlier_1981_on",
+   "unit": "percent of start months",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Share of start months 1981-01 through 2016-09 with Difference > 0, times 100, rounded to 0.1."
+  },
+  {
+   "id": "index_today",
+   "unit": "percent",
+   "definition": "Last TB3MS observation (2026-08-01)."
+  },
+  {
+   "id": "margin",
+   "unit": "percentage points",
+   "definition": "7.50 - index_today, rounded to 0.01."
+  }
+ ],
+ "assumptions": [
+  "Offers taken as given: 9.00% fixed and 7.50% variable at origination; the variable loan reprices monthly as a fixed margin plus the 3-month T-bill rate (proxy for the SOFR or similar index lenders use).",
+  "Index path = today's T-bill level (3.72) plus the historical change since the start month, floored at zero; no rate cap.",
+  "Repayment starts immediately, 120 level payments re-amortized when the rate changes; no in-school deferment, fees, autopay discounts, prepayment or default.",
+  "Start months 1954-01 onward (after the 1951 Treasury-Fed accord ended the wartime yield peg).",
+  "Total interest is compared undiscounted."
+ ],
+ "series": [
+  {
+   "id": "TB3MS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+   "file": "data/TB3MS.csv",
+   "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   }
+  }
+ ],
+ "provisions": []
+}

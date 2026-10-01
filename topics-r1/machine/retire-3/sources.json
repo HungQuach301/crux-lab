@@ -1,0 +1,33 @@
+{
+ "series": [
+  {
+   "id": "GS1",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS1&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/GS1",
+   "file": "data/GS1.csv",
+   "sha256": "d6dc7506937e7ca953bedb0fe410aaf95263efa4c5d662ab35efb6d4e7973132",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
+    "url": "https://fred.stlouisfed.org/series/GS1"
+   }
+  },
+  {
+   "id": "GS5",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS5&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/GS5",
+   "file": "data/GS5.csv",
+   "sha256": "66e94ca2b7585b709ca026093cef881bbf12ed9ad9d19de91cd05f941ef390fe",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
+    "url": "https://fred.stlouisfed.org/series/GS5"
+   }
+  }
+ ],
+ "provisions": []
+}

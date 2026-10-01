@@ -1,0 +1,108 @@
+{
+ "id": "retire-3",
+ "claim": "History, not a forecast. Using Treasury yields as a stand-in for CD rates, we compared locking a 5-year rate with rolling a 1-year rate 5 times for every start month from 1953 to 2022 (833 starts). In the 132 start months when the 1-year yield was above the 5-year yield, locking the lower 5-year rate still ended with more money in 64.4% of them (median: 2.5% more money after 5 years; range -13.93% to +22.05%), about the same as across all start months (65.2%). Those inverted months fall into 23 separate episodes; locking came out ahead in most of the months of 14 of them. Rolling won when rates kept climbing after the inversion (mid-1960s, 1978-80, 2022); locking won big when rates fell (1980-82, 1989, 2000, 2006-07). On this record, a higher 1-year rate at the start did not mean rolling would end ahead. In Aug 2026 the 1-year Treasury yield was 4.03% and the 5-year 4.38%, so the Treasury curve itself was not inverted then; bank CD rate tables can differ from Treasury yields.",
+ "numbers": [
+  {
+   "id": "starts_all",
+   "unit": "start months",
+   "definition": "Number of start months. Start month s runs over every month with a GS5 value from 1953-04-01 on, kept only if GS1 has values at s, s+12, s+24, s+36 and s+48 months (last start 2022-08-01). Lock = (1 + GS5(s)/100)^5. Roll = product over k=0..4 of (1 + GS1(s+12k)/100). 'Lock ahead' means Lock > Roll. 'Inverted start' means GS1(s) > GS5(s) (strictly). GS1 / GS5 = market yield on US Treasury securities at 1-year / 5-year constant maturity, quoted on an investment basis, percent, monthly averages, pinned FRED CSVs (coed=2026-08-01). "
+  },
+  {
+   "id": "first_start_year",
+   "unit": "year",
+   "definition": "Year of the first start month (1953-04-01). Start month s runs over every month with a GS5 value from 1953-04-01 on, kept only if GS1 has values at s, s+12, s+24, s+36 and s+48 months (last start 2022-08-01). Lock = (1 + GS5(s)/100)^5. Roll = product over k=0..4 of (1 + GS1(s+12k)/100). 'Lock ahead' means Lock > Roll. 'Inverted start' means GS1(s) > GS5(s) (strictly). "
+  },
+  {
+   "id": "last_start_year",
+   "unit": "year",
+   "definition": "Year of the last start month (2022-08-01). Start month s runs over every month with a GS5 value from 1953-04-01 on, kept only if GS1 has values at s, s+12, s+24, s+36 and s+48 months (last start 2022-08-01). Lock = (1 + GS5(s)/100)^5. Roll = product over k=0..4 of (1 + GS1(s+12k)/100). 'Lock ahead' means Lock > Roll. 'Inverted start' means GS1(s) > GS5(s) (strictly). "
+  },
+  {
+   "id": "share_lock_ahead_all_pct",
+   "unit": "percent of start months",
+   "definition": "100 x (start months with Lock > Roll) / starts_all, rounded to 0.1. Start month s runs over every month with a GS5 value from 1953-04-01 on, kept only if GS1 has values at s, s+12, s+24, s+36 and s+48 months (last start 2022-08-01). Lock = (1 + GS5(s)/100)^5. Roll = product over k=0..4 of (1 + GS1(s+12k)/100). 'Lock ahead' means Lock > Roll. 'Inverted start' means GS1(s) > GS5(s) (strictly). "
+  },
+  {
+   "id": "starts_inverted",
+   "unit": "start months",
+   "definition": "Number of start months with GS1(s) > GS5(s). Start month s runs over every month with a GS5 value from 1953-04-01 on, kept only if GS1 has values at s, s+12, s+24, s+36 and s+48 months (last start 2022-08-01). Lock = (1 + GS5(s)/100)^5. Roll = product over k=0..4 of (1 + GS1(s+12k)/100). 'Lock ahead' means Lock > Roll. 'Inverted start' means GS1(s) > GS5(s) (strictly). "
+  },
+  {
+   "id": "share_lock_ahead_inverted_pct",
+   "unit": "percent of inverted start months",
+   "definition": "100 x (inverted start months with Lock > Roll) / starts_inverted, rounded to 0.1."
+  },
+  {
+   "id": "inversion_episodes",
+   "unit": "episodes",
+   "definition": "Number of runs of consecutive calendar months that are all inverted start months (a gap of one or more non-inverted months starts a new run)."
+  },
+  {
+   "id": "episodes_lock_ahead_majority",
+   "unit": "episodes",
+   "definition": "Number of inversion episodes in which more than half of the start months have Lock > Roll."
+  },
+  {
+   "id": "median_lock_vs_roll_inverted_pct",
+   "unit": "percent",
+   "definition": "Median over inverted start months of 100 x (Lock/Roll - 1), rounded to 0.01: how much more (positive) or less (negative) money the 5-year lock ended with after 5 years."
+  },
+  {
+   "id": "best_lock_vs_roll_inverted_pct",
+   "unit": "percent",
+   "definition": "Maximum over inverted start months of 100 x (Lock/Roll - 1), rounded to 0.01."
+  },
+  {
+   "id": "worst_lock_vs_roll_inverted_pct",
+   "unit": "percent",
+   "definition": "Minimum over inverted start months of 100 x (Lock/Roll - 1), rounded to 0.01."
+  },
+  {
+   "id": "gs1_latest_pct",
+   "unit": "percent",
+   "definition": "GS1 value for 2026-08-01 as published."
+  },
+  {
+   "id": "gs5_latest_pct",
+   "unit": "percent",
+   "definition": "GS5 value for 2026-08-01 as published."
+  }
+ ],
+ "assumptions": [
+  "Treasury constant-maturity yields (monthly averages) stand in for 1-year and 5-year CD rates; actual CD rates sit at different levels and the CD curve can be inverted when the Treasury curve is not.",
+  "Interest compounds once a year at the yield on the start date of each holding period; all money stays invested for exactly 5 years; no early withdrawal.",
+  "Taxes, fees and bank-specific rates are ignored.",
+  "Overlapping monthly start dates; inversion episodes defined as runs of consecutive inverted months."
+ ],
+ "series": [
+  {
+   "id": "GS1",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS1&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/GS1",
+   "file": "data/GS1.csv",
+   "sha256": "d6dc7506937e7ca953bedb0fe410aaf95263efa4c5d662ab35efb6d4e7973132",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
+    "url": "https://fred.stlouisfed.org/series/GS1"
+   }
+  },
+  {
+   "id": "GS5",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS5&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/GS5",
+   "file": "data/GS5.csv",
+   "sha256": "66e94ca2b7585b709ca026093cef881bbf12ed9ad9d19de91cd05f941ef390fe",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
+    "url": "https://fred.stlouisfed.org/series/GS5"
+   }
+  }
+ ],
+ "provisions": []
+}
