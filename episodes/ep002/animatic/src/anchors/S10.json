@@ -4,23 +4,23 @@
   "1",
   "start",
   0.2,
-  "the variable bar FLIPS (K2-style jump) to 1 point; both red layers jump up; '31.3%' of all starts, then '54.9%' / '13.5%' / '+$12,983' worst",
+  "the variable bar FLIPS (K2-style jump) to 1 point; both red columns jump up; ONE figure, held >= 3 s: '31.3%' of all starts (spread1_share), with both columns on screen",
   "smaller gap, more red in both halves"
  ],
  [
   "j0",
   "1",
-  "higher",
-  0,
-  "jump to 0 points; '57.9%', then '79%' / '42%' / '+$16,566'",
+  "more stretches",
+  -0.1,
+  "jump to 0 points; '57.9%' of all starts (spread0_share)",
   "no gap: more red"
  ],
  [
   "jm",
   "1",
-  "both",
-  -0.1,
-  "jump to −1 point (variable bar above the fixed bar, warn gap); '72.9%', then '92.9%' / '57.8%' / '+$20,217'",
+  "gets",
+  0,
+  "jump to −1 point (variable bar above the fixed bar, warn gap); '72.9%' of all starts (spreadm1_share); 2.0 s pause inserted after S10.1 (make_timing INSERT) so it holds >= 3 s",
   "reversed: most red"
  ],
  [

@@ -1,12 +1,12 @@
 // S10 · Other offers, and the answer. KEY-7 continues in the K7 r2 layout (lib.k7At = k7.js code with the gap given):
-// S10.1 the variable bar JUMPS (K2-style flip, no sweep) to 1, 0, -1 point; both red layers jump up; one figure at a time:
-// the overall share, then the two halves + the worst (script S10.1 note). S10.2: jump BACK to 3 points (the beat ends on the
+// S10.1 the variable bar JUMPS (K2-style flip, no sweep) to 1, 0, -1 point; both red layers jump up; ONE figure per step,
+// the overall share, held >= 3 s with both columns on screen (owner C4; per-half figures + worst go to the description). S10.2: jump BACK to 3 points (the beat ends on the
 // widest gap), ring + 'April 1977' (gap_worst_start_all) on the left red layer; S10.3: the left red that never clears pulses,
 // '10.5%' (min_gap_early). S10.4: KEY-1 final (the question). S10.5: K7 final, pulsing. S10.6: K7 2 -> 3 points. S10.7: ridge.
 import { H2, C, CL, ease, inout, mix, warp, shots } from './film.js';
 import * as K1 from '../../design/c3/final/src/k1.js';
 import * as K7 from '../../design/c3/final/src/k7.js';
-import { ridgeToday, k7At, overall, halves } from './lib.js';
+import { ridgeToday, k7At, overall } from './lib.js';
 export function build({ T }) {
   const tQ = T.a('q'), t2 = T.a('two'), tL = T.a('late'), tT = T.a('today');
   const J = [[T.a('j1'), 1, 'spread1_share', ['gap10_early', 'gap10_late', 'gap10_worst']], [T.a('j0'), 0, 'spread0_share', ['gap00_early', 'gap00_late', 'gap00_worst']],
@@ -25,8 +25,7 @@ export function build({ T }) {
       ring: ['early', back ? ease(t, tN, tN + 0.4) * (0.55 + 0.45 * pulse(t)) : 0] });
     for (let i = 0; i < 3; i++) {
       const a0 = J[i][0], a1 = J[i + 1][0], mid = (a0 + a1) / 2;
-      overall(ctx, J[i][2], inout(t, a0 + 0.2, a0 + 0.45, mid - 0.25, mid - 0.05));
-      halves(ctx, ...J[i][3], inout(t, mid, mid + 0.25, a1 - 0.3, a1 - 0.1));
+      overall(ctx, J[i][2], inout(t, a0 + 0.2, a0 + 0.45, a1 - 0.3, a1 - 0.1));   // owner C4: one figure per step, held >= 3 s
     }
     if (back) {   // the April 1977 marker on the left red layer (worst start at every gap), then the share that never clears
       const am = ease(t, tA, tA + 0.4), yR = 950 - 520 * 0.105;
