@@ -61,3 +61,4 @@
 - 01/10 15:11 C5 S01 1080p xong (S01 done 219 s)
 - 01/10 15:15 C5 S12 1080p xong (S12 done 315 s)
 - 01/10 15:18 C5 S13 1080p xong (S13 done 130 s)
+- 01/10 15:57 C5 out/video.mp4 xong (17 568 khung, 24 Mb/s CBR + AAC 320k từ master mặc định); bắt đầu checks bản sao K3.6 --first.
