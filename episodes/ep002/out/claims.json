@@ -262,7 +262,7 @@
   },
   {
    "claimId": "share_all",
-   "value": 14.2,
+   "value": 14.209827357237716,
    "display": "14.2%",
    "formula": "share of start months where variable total interest > fixed",
    "source": {
@@ -281,7 +281,7 @@
   },
   {
    "claimId": "share_early",
-   "value": 28.4,
+   "value": 28.395061728395063,
    "display": "28.4%",
    "formula": "share costlier, starts 1954-1980",
    "source": {
@@ -301,7 +301,7 @@
   },
   {
    "claimId": "share_late",
-   "value": 3.5,
+   "value": 3.4965034965034967,
    "display": "3.5%",
    "formula": "share costlier, starts 1981 on",
    "source": {
@@ -376,6 +376,40 @@
    "kind": "model"
   },
   {
+   "claimId": "worst_start_year",
+   "value": 1977,
+   "display": "1977",
+   "formula": "year of worst_start (S05 numeric)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "worst_start_month",
+   "value": 4,
+   "display": "April",
+   "formula": "month of worst_start (S05 numeric)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
    "claimId": "worst_peak_rate",
    "value": 19.26,
    "display": "19.3%",
@@ -432,6 +466,40 @@
    "value": "1981-08-01",
    "display": "August 1981",
    "formula": "start month of the min Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "best_start_year",
+   "value": 1981,
+   "display": "1981",
+   "formula": "year of best_start (S05 numeric)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "best_start_month",
+   "value": 8,
+   "display": "August",
+   "formula": "month of best_start (S05 numeric)",
    "source": {
     "id": "fred-tb3ms",
     "url": "https://fred.stlouisfed.org/series/TB3MS"
@@ -578,10 +646,262 @@
    "words": "more than half"
   },
   {
-   "claimId": "gapm10_share",
-   "value": 72.9,
+   "claimId": "spreadm1_share",
+   "value": 72.90836653386454,
    "display": "72.9%",
-   "formula": "share costlier, start gap -1.0 points",
+   "formula": "share costlier when the variable rate starts -1 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spreadm05_share",
+   "value": 64.6746347941567,
+   "display": "64.7%",
+   "formula": "share costlier when the variable rate starts -0.5 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread0_share",
+   "value": 57.90172642762284,
+   "display": "57.9%",
+   "formula": "share costlier when the variable rate starts 0 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread025_share",
+   "value": 50.99601593625498,
+   "display": "51.0%",
+   "formula": "share costlier when the variable rate starts 0.25 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread05_share",
+   "value": 42.49667994687915,
+   "display": "42.5%",
+   "formula": "share costlier when the variable rate starts 0.5 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread075_share",
+   "value": 35.98937583001328,
+   "display": "36.0%",
+   "formula": "share costlier when the variable rate starts 0.75 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread1_share",
+   "value": 31.341301460823374,
+   "display": "31.3%",
+   "formula": "share costlier when the variable rate starts 1 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread125_share",
+   "value": 24.701195219123505,
+   "display": "24.7%",
+   "formula": "share costlier when the variable rate starts 1.25 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread15_share",
+   "value": 14.209827357237716,
+   "display": "14.2%",
+   "formula": "share costlier when the variable rate starts 1.5 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread175_share",
+   "value": 9.428950863213812,
+   "display": "9.4%",
+   "formula": "share costlier when the variable rate starts 1.75 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread2_share",
+   "value": 8.764940239043824,
+   "display": "8.8%",
+   "formula": "share costlier when the variable rate starts 2 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread225_share",
+   "value": 7.171314741035856,
+   "display": "7.2%",
+   "formula": "share costlier when the variable rate starts 2.25 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread25_share",
+   "value": 5.9760956175298805,
+   "display": "6.0%",
+   "formula": "share costlier when the variable rate starts 2.5 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread275_share",
+   "value": 5.710491367861886,
+   "display": "5.7%",
+   "formula": "share costlier when the variable rate starts 2.75 points under 9% (K3.5 shareCostlierAtSpread)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "spread3_share",
+   "value": 4.51527224435591,
+   "display": "4.5%",
+   "formula": "share costlier when the variable rate starts 3 points under 9% (K3.5 shareCostlierAtSpread)",
    "source": {
     "id": "fred-tb3ms",
     "url": "https://fred.stlouisfed.org/series/TB3MS"
@@ -611,7 +931,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gapm10_late",
@@ -629,7 +950,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gapm10_worst",
@@ -648,25 +970,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
-  },
-  {
-   "claimId": "gapm05_share",
-   "value": 64.7,
-   "display": "64.7%",
-   "formula": "share costlier, start gap -0.5 points",
-   "source": {
-    "id": "fred-tb3ms",
-    "url": "https://fred.stlouisfed.org/series/TB3MS"
-   },
-   "dataYears": [
-    1954,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "gapm05_early",
@@ -684,7 +989,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gapm05_late",
@@ -702,7 +1008,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gapm05_worst",
@@ -721,25 +1028,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
-  },
-  {
-   "claimId": "gap00_share",
-   "value": 57.9,
-   "display": "57.9%",
-   "formula": "share costlier, start gap 0.0 points",
-   "source": {
-    "id": "fred-tb3ms",
-    "url": "https://fred.stlouisfed.org/series/TB3MS"
-   },
-   "dataYears": [
-    1954,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "gap00_early",
@@ -757,7 +1047,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap00_late",
@@ -775,7 +1066,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap00_worst",
@@ -794,25 +1086,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
-  },
-  {
-   "claimId": "gap05_share",
-   "value": 42.5,
-   "display": "42.5%",
-   "formula": "share costlier, start gap 0.5 points",
-   "source": {
-    "id": "fred-tb3ms",
-    "url": "https://fred.stlouisfed.org/series/TB3MS"
-   },
-   "dataYears": [
-    1954,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "gap05_early",
@@ -830,7 +1105,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap05_late",
@@ -848,7 +1124,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap05_worst",
@@ -867,25 +1144,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
-  },
-  {
-   "claimId": "gap10_share",
-   "value": 31.3,
-   "display": "31.3%",
-   "formula": "share costlier, start gap 1.0 points",
-   "source": {
-    "id": "fred-tb3ms",
-    "url": "https://fred.stlouisfed.org/series/TB3MS"
-   },
-   "dataYears": [
-    1954,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "gap10_early",
@@ -903,7 +1163,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap10_late",
@@ -921,7 +1182,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap10_worst",
@@ -940,25 +1202,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
-  },
-  {
-   "claimId": "gap15_share",
-   "value": 14.2,
-   "display": "14.2%",
-   "formula": "share costlier, start gap 1.5 points",
-   "source": {
-    "id": "fred-tb3ms",
-    "url": "https://fred.stlouisfed.org/series/TB3MS"
-   },
-   "dataYears": [
-    1954,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "gap15_early",
@@ -976,7 +1221,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap15_late",
@@ -994,7 +1240,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap15_worst",
@@ -1013,25 +1260,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
-  },
-  {
-   "claimId": "gap20_share",
-   "value": 8.8,
-   "display": "8.8%",
-   "formula": "share costlier, start gap 2.0 points",
-   "source": {
-    "id": "fred-tb3ms",
-    "url": "https://fred.stlouisfed.org/series/TB3MS"
-   },
-   "dataYears": [
-    1954,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "gap20_early",
@@ -1049,7 +1279,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap20_late",
@@ -1067,7 +1298,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap20_worst",
@@ -1086,25 +1318,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
-  },
-  {
-   "claimId": "gap25_share",
-   "value": 6.0,
-   "display": "6.0%",
-   "formula": "share costlier, start gap 2.5 points",
-   "source": {
-    "id": "fred-tb3ms",
-    "url": "https://fred.stlouisfed.org/series/TB3MS"
-   },
-   "dataYears": [
-    1954,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "gap25_early",
@@ -1122,7 +1337,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap25_late",
@@ -1140,7 +1356,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap25_worst",
@@ -1159,25 +1376,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
-  },
-  {
-   "claimId": "gap30_share",
-   "value": 4.5,
-   "display": "4.5%",
-   "formula": "share costlier, start gap 3.0 points",
-   "source": {
-    "id": "fred-tb3ms",
-    "url": "https://fred.stlouisfed.org/series/TB3MS"
-   },
-   "dataYears": [
-    1954,
-    2026
-   ],
-   "historical": true,
-   "illustrative": true,
-   "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "gap30_early",
@@ -1195,7 +1395,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap30_late",
@@ -1213,7 +1414,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
   },
   {
    "claimId": "gap30_worst",
@@ -1232,7 +1434,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "cap12_share",
@@ -1250,7 +1453,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap12_early",
@@ -1268,7 +1472,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap12_worst",
@@ -1287,7 +1492,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap15_share",
@@ -1305,7 +1511,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap15_early",
@@ -1323,7 +1530,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap15_worst",
@@ -1342,7 +1550,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap18_share",
@@ -1360,7 +1569,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap18_early",
@@ -1378,7 +1588,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap18_worst",
@@ -1397,7 +1608,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap25_share",
@@ -1415,7 +1627,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap25_early",
@@ -1433,7 +1646,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "cap25_worst",
@@ -1452,7 +1666,8 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
+   "scope": "b",
+   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
   },
   {
    "claimId": "ctx_plus_end",
@@ -1495,8 +1710,8 @@
    "display": "$20,500 a year",
    "formula": "Direct Unsubsidized annual limit, graduate (non-professional) student, periods of enrollment from 2026-07-01 (unchanged from before)",
    "source": {
-    "id": "fr-2026-08556",
-    "url": "https://www.federalregister.gov/documents/2026/05/01/2026-08556/reimagining-and-improving-student-education-federal-student-loan-program-final-regulations"
+    "id": "fr-2026-01912",
+    "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
    },
    "dataYears": [
     2026
@@ -1505,8 +1720,17 @@
    "illustrative": false,
    "kind": "policy",
    "basis": "nominal",
-   "verify": "V2/V3 (old $20,500 = V1)",
-   "needsOwnerVerification": true
+   "verify": "owner-verified 2026-10-01 (chat chi\u1ebfn l\u01b0\u1ee3c, ngu\u1ed3n li\u00ean bang FR 2026-01912 + FSA FAQ Loan Limits 05/2026); phi\u00ean P-ep002 \u0111\u1ecdc qua t\u00ecm ki\u1ebfm (proxy ch\u1eb7n, lessons A9)",
+   "sources": [
+    {
+     "id": "fr-2026-01912",
+     "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+    },
+    {
+     "id": "fsa-faq-loan-limits-2026-05",
+     "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
+    }
+   ]
   },
   {
    "claimId": "ctx_unsub_aggregate",
@@ -1514,8 +1738,8 @@
    "display": "$100,000 total",
    "formula": "Direct Unsubsidized aggregate limit, graduate (non-professional) student, from 2026-07-01 (was $138,500)",
    "source": {
-    "id": "fr-2026-08556",
-    "url": "https://www.federalregister.gov/documents/2026/05/01/2026-08556/reimagining-and-improving-student-education-federal-student-loan-program-final-regulations"
+    "id": "fr-2026-01912",
+    "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
    },
    "dataYears": [
     2026
@@ -1524,8 +1748,17 @@
    "illustrative": false,
    "kind": "policy",
    "basis": "nominal",
-   "verify": "V2/V3",
-   "needsOwnerVerification": true
+   "verify": "owner-verified 2026-10-01 (chat chi\u1ebfn l\u01b0\u1ee3c, ngu\u1ed3n li\u00ean bang FR 2026-01912 + FSA FAQ Loan Limits 05/2026); phi\u00ean P-ep002 \u0111\u1ecdc qua t\u00ecm ki\u1ebfm (proxy ch\u1eb7n, lessons A9)",
+   "sources": [
+    {
+     "id": "fr-2026-01912",
+     "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+    },
+    {
+     "id": "fsa-faq-loan-limits-2026-05",
+     "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
+    }
+   ]
   },
   {
    "claimId": "ctx_unsub_rate",
@@ -1543,6 +1776,62 @@
    "illustrative": false,
    "kind": "policy",
    "verify": "V2 (formula V1; 4.47 + 3.60 = 8.07)"
+  },
+  {
+   "claimId": "ctx_prof_annual",
+   "value": 50000,
+   "display": "$50,000 a year",
+   "formula": "Direct Unsubsidized annual limit, professional student, from 2026-07-01",
+   "source": {
+    "id": "fr-2026-01912",
+    "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+   },
+   "sources": [
+    {
+     "id": "fr-2026-01912",
+     "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+    },
+    {
+     "id": "fsa-faq-loan-limits-2026-05",
+     "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
+    }
+   ],
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "basis": "nominal",
+   "verify": "owner-verified 2026-10-01 (FR 2026-01912 + FSA FAQ 05/2026); \u0111\u1ecdc qua t\u00ecm ki\u1ebfm"
+  },
+  {
+   "claimId": "ctx_prof_aggregate",
+   "value": 200000,
+   "display": "$200,000 total",
+   "formula": "Direct Unsubsidized aggregate limit, professional student, from 2026-07-01",
+   "source": {
+    "id": "fr-2026-01912",
+    "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+   },
+   "sources": [
+    {
+     "id": "fr-2026-01912",
+     "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+    },
+    {
+     "id": "fsa-faq-loan-limits-2026-05",
+     "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
+    }
+   ],
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "basis": "nominal",
+   "verify": "owner-verified 2026-10-01 (FR 2026-01912 + FSA FAQ 05/2026); \u0111\u1ecdc qua t\u00ecm ki\u1ebfm"
   }
  ]
 }

@@ -1,4807 +1,5330 @@
 {
- "conventions": {
-  "loan": 50000.0,
-  "termMonths": 120,
-  "fixedRate": 9.0,
-  "variableStart": 7.5,
-  "index": "FRED TB3MS",
-  "firstStart": "1954-01-01",
-  "regimeSplit": "1981-01-01"
- },
- "base": {
-  "n_starts": 753,
-  "first_start": "1954-01-01",
-  "last_start": "2016-09-01",
-  "fixed_total_interest": 26005,
-  "share_variable_costlier": 14.2,
-  "median_variable_minus_fixed": -3832,
-  "worst_variable_minus_fixed": 11219,
-  "worst_start": "1977-04-01",
-  "best_variable_minus_fixed": -15295,
-  "max_variable_rate_any_window": 20.6,
-  "n_starts_1954_1980": 324,
-  "share_costlier_1954_1980": 28.4,
-  "n_starts_1981_on": 429,
-  "share_costlier_1981_on": 3.5,
-  "share_rate_above_fixed": 76.2,
-  "worst_peak_rate": 19.26,
-  "best_start": "1981-08-01",
-  "index_today": 3.72,
-  "index_date": "2026-08-01",
-  "margin": 3.78
- },
- "payments": {
-  "fixed_payment": 633.38,
-  "variable_first_payment": 593.51,
-  "max_variable_payment_any_window": 863.36,
-  "max_variable_payment_start": "1977-04-01",
-  "median_window_max_payment": 643.28,
-  "share_windows_max_payment_above_fixed": 58.4
- },
- "gaps": {
-  "-1.0": {
-   "share_costlier": 72.9,
-   "share_costlier_1954_1980": 92.9,
-   "share_costlier_1981_on": 57.8,
-   "median_diff": 4294,
-   "worst_diff": 20217,
-   "worst_start": "1977-04-01",
-   "best_diff": -7931
-  },
-  "-0.5": {
-   "share_costlier": 64.7,
-   "share_costlier_1954_1980": 88.0,
-   "share_costlier_1981_on": 47.1,
-   "median_diff": 2631,
-   "worst_diff": 18383,
-   "worst_start": "1977-04-01",
-   "best_diff": -9444
-  },
-  "0.0": {
-   "share_costlier": 57.9,
-   "share_costlier_1954_1980": 79.0,
-   "share_costlier_1981_on": 42.0,
-   "median_diff": 988,
-   "worst_diff": 16566,
-   "worst_start": "1977-04-01",
-   "best_diff": -10937
-  },
-  "0.5": {
-   "share_costlier": 42.5,
-   "share_costlier_1954_1980": 68.5,
-   "share_costlier_1981_on": 22.8,
-   "median_diff": -639,
-   "worst_diff": 14766,
-   "worst_start": "1977-04-01",
-   "best_diff": -12409
-  },
-  "1.0": {
-   "share_costlier": 31.3,
-   "share_costlier_1954_1980": 54.9,
-   "share_costlier_1981_on": 13.5,
-   "median_diff": -2245,
-   "worst_diff": 12983,
-   "worst_start": "1977-04-01",
-   "best_diff": -13862
-  },
-  "1.5": {
-   "share_costlier": 14.2,
-   "share_costlier_1954_1980": 28.4,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3832,
-   "worst_diff": 11219,
-   "worst_start": "1977-04-01",
-   "best_diff": -15295
-  },
-  "2.0": {
-   "share_costlier": 8.8,
-   "share_costlier_1954_1980": 20.4,
-   "share_costlier_1981_on": 0.0,
-   "median_diff": -5400,
-   "worst_diff": 9472,
-   "worst_start": "1977-04-01",
-   "best_diff": -16707
-  },
-  "2.5": {
-   "share_costlier": 6.0,
-   "share_costlier_1954_1980": 13.9,
-   "share_costlier_1981_on": 0.0,
-   "median_diff": -6950,
-   "worst_diff": 7743,
-   "worst_start": "1977-04-01",
-   "best_diff": -18099
-  },
-  "3.0": {
-   "share_costlier": 4.5,
-   "share_costlier_1954_1980": 10.5,
-   "share_costlier_1981_on": 0.0,
-   "median_diff": -8492,
-   "worst_diff": 6033,
-   "worst_start": "1977-04-01",
-   "best_diff": -19470
-  }
- },
- "caps": {
-  "12": {
-   "share_costlier": 13.3,
-   "share_costlier_1954_1980": 26.2,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3989,
-   "worst_diff": 6590,
-   "worst_start": "1977-04-01",
-   "best_diff": -15295
-  },
-  "15": {
-   "share_costlier": 13.9,
-   "share_costlier_1954_1980": 27.8,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3866,
-   "worst_diff": 9821,
-   "worst_start": "1977-04-01",
-   "best_diff": -15295
-  },
-  "18": {
-   "share_costlier": 14.2,
-   "share_costlier_1954_1980": 28.4,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3832,
-   "worst_diff": 11137,
-   "worst_start": "1977-04-01",
-   "best_diff": -15295
-  },
-  "25": {
-   "share_costlier": 14.2,
-   "share_costlier_1954_1980": 28.4,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3832,
-   "worst_diff": 11219,
-   "worst_start": "1977-04-01",
-   "best_diff": -15295
-  }
- },
+ "principal": 50000.0,
+ "termMonths": 120,
+ "fixedRate": 9.0,
+ "floatStartRate": 7.5,
+ "firstStart": "1954-01",
+ "indexFloor": 0.0,
+ "rateCap": null,
+ "periodBreaks": [
+  "1981-01"
+ ],
+ "nWindows": 753,
+ "lastStart": "2016-09",
+ "indexToday": 3.72,
+ "margin": 3.78,
+ "fixedPayment": 633.3788687512443,
+ "fixedTotalInterest": 26005.46425014991,
+ "shareCostlier": 14.209827357237716,
+ "medianDifference": -3832.201473006746,
+ "bestDifference": -15294.798091595787,
+ "bestStart": "1981-08",
+ "worstDifference": 11218.654332056227,
+ "worstStart": "1977-04",
+ "maxRate": 20.6,
+ "maxPayment": 863.3619643801245,
  "windows": [
   {
-   "start": "1954-01-01",
-   "diff": -1407.78,
+   "start": "1954-01",
+   "totalInterest": 24597.680328270188,
+   "difference": -1407.7839218797235,
    "maxRate": 10.81,
-   "maxPay": 649.66
+   "maxPayment": 649.6603875554632
   },
   {
-   "start": "1954-02-01",
-   "diff": -659.87,
+   "start": "1954-02",
+   "totalInterest": 25345.590920825347,
+   "difference": -659.8733293245641,
    "maxRate": 11.02,
-   "maxPay": 656.25
+   "maxPayment": 656.2539859736444
   },
   {
-   "start": "1954-03-01",
-   "diff": -774.47,
+   "start": "1954-03",
+   "totalInterest": 25230.9904762362,
+   "difference": -774.4737739137126,
    "maxRate": 10.96,
-   "maxPay": 655.35
+   "maxPayment": 655.3521054662219
   },
   {
-   "start": "1954-04-01",
-   "diff": -501.8,
+   "start": "1954-04",
+   "totalInterest": 25503.66031099138,
+   "difference": -501.80393915852983,
    "maxRate": 11.02,
-   "maxPay": 657.79
+   "maxPayment": 657.7932662927946
   },
   {
-   "start": "1954-05-01",
-   "diff": 264.17,
+   "start": "1954-05",
+   "totalInterest": 26269.631674242944,
+   "difference": 264.16742409303333,
    "maxRate": 11.23,
-   "maxPay": 664.46
+   "maxPayment": 664.4649706888885
   },
   {
-   "start": "1954-06-01",
-   "diff": 750.57,
+   "start": "1954-06",
+   "totalInterest": 26756.035217992092,
+   "difference": 750.5709678421808,
    "maxRate": 11.35,
-   "maxPay": 668.67
+   "maxPayment": 668.6676452721719
   },
   {
-   "start": "1954-07-01",
-   "diff": 589.79,
+   "start": "1954-07",
+   "totalInterest": 26595.25173218369,
+   "difference": 589.7874820337784,
    "maxRate": 11.27,
-   "maxPay": 667.25
+   "maxPayment": 667.2523381445915
   },
   {
-   "start": "1954-08-01",
-   "diff": 34.84,
+   "start": "1954-08",
+   "totalInterest": 26040.304647343328,
+   "difference": 34.84039719341672,
    "maxRate": 11.07,
-   "maxPay": 662.45
+   "maxPayment": 662.4461142498711
   },
   {
-   "start": "1954-09-01",
-   "diff": -169.32,
+   "start": "1954-09",
+   "totalInterest": 25836.14753281526,
+   "difference": -169.3167173346519,
    "maxRate": 10.98,
-   "maxPay": 660.7
+   "maxPayment": 660.6984412237877
   },
   {
-   "start": "1954-10-01",
-   "diff": 13.58,
+   "start": "1954-10",
+   "totalInterest": 26019.046331912992,
+   "difference": 13.582081763081078,
    "maxRate": 11.01,
-   "maxPay": 662.3
+   "maxPayment": 662.2975311847274
   },
   {
-   "start": "1954-11-01",
-   "diff": 264.37,
+   "start": "1954-11",
+   "totalInterest": 26269.83351451903,
+   "difference": 264.36926436911745,
    "maxRate": 11.06,
-   "maxPay": 664.46
+   "maxPayment": 664.464649758744
   },
   {
-   "start": "1954-12-01",
-   "diff": -360.16,
+   "start": "1954-12",
+   "totalInterest": 25645.305900992098,
+   "difference": -360.15834915781306,
    "maxRate": 10.84,
-   "maxPay": 659.07
+   "maxPayment": 659.0653159496652
   },
   {
-   "start": "1955-01-01",
-   "diff": -505.98,
+   "start": "1955-01",
+   "totalInterest": 25499.47939042883,
+   "difference": -505.9848597210803,
    "maxRate": 10.77,
-   "maxPay": 657.83
+   "maxPayment": 657.8301859817095
   },
   {
-   "start": "1955-02-01",
-   "diff": -264.92,
+   "start": "1955-02",
+   "totalInterest": 25740.544394332173,
+   "difference": -264.9198558177377,
    "maxRate": 10.82,
-   "maxPay": 659.93
+   "maxPayment": 659.9347207744801
   },
   {
-   "start": "1955-03-01",
-   "diff": -539.33,
+   "start": "1955-03",
+   "totalInterest": 25466.13359690474,
+   "difference": -539.3306532451716,
    "maxRate": 10.71,
-   "maxPay": 657.57
+   "maxPayment": 657.5745368484788
   },
   {
-   "start": "1955-04-01",
-   "diff": -1462.57,
+   "start": "1955-04",
+   "totalInterest": 24542.89764065837,
+   "difference": -1462.5666094915396,
    "maxRate": 10.4,
-   "maxPay": 649.64
+   "maxPayment": 649.6364506845346
   },
   {
-   "start": "1955-05-01",
-   "diff": -947.92,
+   "start": "1955-05",
+   "totalInterest": 25057.544805420588,
+   "difference": -947.919444729323,
    "maxRate": 10.54,
-   "maxPay": 654.15
+   "maxPayment": 654.1495481929363
   },
   {
-   "start": "1955-06-01",
-   "diff": -747.3,
+   "start": "1955-06",
+   "totalInterest": 25258.163400830497,
+   "difference": -747.3008493194138,
    "maxRate": 10.58,
-   "maxPay": 655.92
+   "maxPayment": 655.9150262368127
   },
   {
-   "start": "1955-07-01",
-   "diff": -1286.31,
+   "start": "1955-07",
+   "totalInterest": 24719.15224453312,
+   "difference": -1286.31200561679,
    "maxRate": 10.39,
-   "maxPay": 651.29
+   "maxPayment": 651.288892576401
   },
   {
-   "start": "1955-08-01",
-   "diff": -2183.81,
+   "start": "1955-08",
+   "totalInterest": 23821.657940612055,
+   "difference": -2183.8063095378566,
    "maxRate": 10.09,
-   "maxPay": 643.61
+   "maxPayment": 643.6065119616758
   },
   {
-   "start": "1955-09-01",
-   "diff": -2675.31,
+   "start": "1955-09",
+   "totalInterest": 23330.155058908058,
+   "difference": -2675.309191241853,
    "maxRate": 9.92,
-   "maxPay": 639.48
+   "maxPayment": 639.480585982362
   },
   {
-   "start": "1955-10-01",
-   "diff": -3140.68,
+   "start": "1955-10",
+   "totalInterest": 22864.78700909624,
+   "difference": -3140.6772410536723,
    "maxRate": 9.76,
-   "maxPay": 635.61
+   "maxPayment": 635.6091861405253
   },
   {
-   "start": "1955-11-01",
-   "diff": -3135.95,
+   "start": "1955-11",
+   "totalInterest": 22869.513803420727,
+   "difference": -3135.9504467291845,
    "maxRate": 9.75,
-   "maxPay": 635.82
+   "maxPayment": 635.8171638120523
   },
   {
-   "start": "1955-12-01",
-   "diff": -4048.45,
+   "start": "1955-12",
+   "totalInterest": 21957.01014148238,
+   "difference": -4048.454108667531,
    "maxRate": 9.45,
-   "maxPay": 628.11
+   "maxPayment": 628.1119791809055
   },
   {
-   "start": "1956-01-01",
-   "diff": -3615.02,
+   "start": "1956-01",
+   "totalInterest": 22390.439384183137,
+   "difference": -3615.024865966774,
    "maxRate": 9.58,
-   "maxPay": 632.07
+   "maxPayment": 632.0682233364925
   },
   {
-   "start": "1956-02-01",
-   "diff": -3299.7,
+   "start": "1956-02",
+   "totalInterest": 22705.763241215027,
+   "difference": -3299.701008934884,
    "maxRate": 9.77,
-   "maxPay": 634.97
+   "maxPayment": 634.9679531738395
   },
   {
-   "start": "1956-03-01",
-   "diff": -3041.73,
+   "start": "1956-03",
+   "totalInterest": 22963.72963204967,
+   "difference": -3041.7346181002395,
    "maxRate": 9.9,
-   "maxPay": 637.34
+   "maxPayment": 637.343109275551
   },
   {
-   "start": "1956-04-01",
-   "diff": -4109.16,
+   "start": "1956-04",
+   "totalInterest": 21896.30284520801,
+   "difference": -4109.1614049419,
    "maxRate": 9.55,
-   "maxPay": 628.27
+   "maxPayment": 628.2663074273506
   },
   {
-   "start": "1956-05-01",
-   "diff": -4116.78,
+   "start": "1956-05",
+   "totalInterest": 21888.68048494161,
+   "difference": -4116.7837652083,
    "maxRate": 9.54,
-   "maxPay": 628.39
+   "maxPayment": 628.3947994578092
   },
   {
-   "start": "1956-06-01",
-   "diff": -3713.66,
+   "start": "1956-06",
+   "totalInterest": 22291.800105146005,
+   "difference": -3713.664145003906,
    "maxRate": 9.66,
-   "maxPay": 632.06
+   "maxPayment": 632.0580619324803
   },
   {
-   "start": "1956-07-01",
-   "diff": -3112.08,
+   "start": "1956-07",
+   "totalInterest": 22893.38467713678,
+   "difference": -3112.079573013132,
    "maxRate": 9.84,
-   "maxPay": 637.4
+   "maxPayment": 637.3964552207556
   },
   {
-   "start": "1956-08-01",
-   "diff": -3988.96,
+   "start": "1956-08",
+   "totalInterest": 22016.50330691294,
+   "difference": -3988.9609432369725,
    "maxRate": 9.7,
-   "maxPay": 629.94
+   "maxPayment": 629.9391734975355
   },
   {
-   "start": "1956-09-01",
-   "diff": -4716.06,
+   "start": "1956-09",
+   "totalInterest": 21289.408495761698,
+   "difference": -4716.055754388213,
    "maxRate": 9.62,
-   "maxPay": 623.83
+   "maxPayment": 623.8262115710306
   },
   {
-   "start": "1956-10-01",
-   "diff": -4886.8,
+   "start": "1956-10",
+   "totalInterest": 21118.666622999022,
+   "difference": -4886.797627150889,
    "maxRate": 9.97,
-   "maxPay": 622.55
+   "maxPayment": 622.5517245630878
   },
   {
-   "start": "1956-11-01",
-   "diff": -5152.88,
+   "start": "1956-11",
+   "totalInterest": 20852.580079810694,
+   "difference": -5152.884170339217,
    "maxRate": 9.88,
-   "maxPay": 620.46
+   "maxPayment": 620.4574280918802
   },
   {
-   "start": "1956-12-01",
-   "diff": -5826.58,
+   "start": "1956-12",
+   "totalInterest": 20178.880982363622,
+   "difference": -5826.583267786289,
    "maxRate": 9.66,
-   "maxPay": 614.86
+   "maxPayment": 614.857115420415
   },
   {
-   "start": "1957-01-01",
-   "diff": -5512.69,
+   "start": "1957-01",
+   "totalInterest": 20492.778142481882,
+   "difference": -5512.686107668029,
    "maxRate": 9.76,
-   "maxPay": 617.81
+   "maxPayment": 617.8144780326168
   },
   {
-   "start": "1957-02-01",
-   "diff": -5473.38,
+   "start": "1957-02",
+   "totalInterest": 20532.086672676876,
+   "difference": -5473.377577473035,
    "maxRate": 9.77,
-   "maxPay": 618.37
+   "maxPayment": 618.374229457191
   },
   {
-   "start": "1957-03-01",
-   "diff": -5401.65,
+   "start": "1957-03",
+   "totalInterest": 20603.810114251122,
+   "difference": -5401.654135898789,
    "maxRate": 9.79,
-   "maxPay": 619.2
+   "maxPayment": 619.2046121883068
   },
   {
-   "start": "1957-04-01",
-   "diff": -5359.59,
+   "start": "1957-04",
+   "totalInterest": 20645.872619022357,
+   "difference": -5359.591631127554,
    "maxRate": 9.8,
-   "maxPay": 619.77
+   "maxPayment": 619.7693247203838
   },
   {
-   "start": "1957-05-01",
-   "diff": -5316.68,
+   "start": "1957-05",
+   "totalInterest": 20688.787368777215,
+   "difference": -5316.676881372696,
    "maxRate": 9.81,
-   "maxPay": 620.34
+   "maxPayment": 620.3354809225051
   },
   {
-   "start": "1957-06-01",
-   "diff": -6021.1,
+   "start": "1957-06",
+   "totalInterest": 19984.359845186264,
+   "difference": -6021.1044049636475,
    "maxRate": 9.58,
-   "maxPay": 614.45
+   "maxPayment": 614.4528004137183
   },
   {
-   "start": "1957-07-01",
-   "diff": -5615.05,
+   "start": "1957-07",
+   "totalInterest": 20390.416043856592,
+   "difference": -5615.048206293319,
    "maxRate": 9.71,
-   "maxPay": 618.19
+   "maxPayment": 618.1945994494663
   },
   {
-   "start": "1957-08-01",
-   "diff": -6260.18,
+   "start": "1957-08",
+   "totalInterest": 19745.286321536292,
+   "difference": -6260.177928613619,
    "maxRate": 9.5,
-   "maxPay": 612.84
+   "maxPayment": 612.838801588134
   },
   {
-   "start": "1957-09-01",
-   "diff": -6757.24,
+   "start": "1957-09",
+   "totalInterest": 19248.22099482921,
+   "difference": -6757.2432553207,
    "maxRate": 9.34,
-   "maxPay": 608.8
+   "maxPayment": 608.8009191499243
   },
   {
-   "start": "1957-10-01",
-   "diff": -6920.51,
+   "start": "1957-10",
+   "totalInterest": 19084.951901963184,
+   "difference": -6920.512348186727,
    "maxRate": 9.29,
-   "maxPay": 607.67
+   "maxPayment": 607.6722022560515
   },
   {
-   "start": "1957-11-01",
-   "diff": -6094.71,
+   "start": "1957-11",
+   "totalInterest": 19910.7492613713,
+   "difference": -6094.714988778611,
    "maxRate": 9.56,
-   "maxPay": 615.08
+   "maxPayment": 615.0792093966706
   },
   {
-   "start": "1957-12-01",
-   "diff": -5249.2,
+   "start": "1957-12",
+   "totalInterest": 20756.262774109004,
+   "difference": -5249.201476040907,
    "maxRate": 9.83,
-   "maxPay": 622.59
+   "maxPayment": 622.5872633349006
   },
   {
-   "start": "1958-01-01",
-   "diff": -3338.72,
+   "start": "1958-01",
+   "totalInterest": 22666.744630988487,
+   "difference": -3338.719619161424,
    "maxRate": 10.43,
-   "maxPay": 639.2
+   "maxPayment": 639.1963904413847
   },
   {
-   "start": "1958-02-01",
-   "diff": -364.1,
+   "start": "1958-02",
+   "totalInterest": 25641.362325887127,
+   "difference": -364.10192426278445,
    "maxRate": 11.34,
-   "maxPay": 664.8
+   "maxPayment": 664.7967054391122
   },
   {
-   "start": "1958-03-01",
-   "diff": 481.9,
+   "start": "1958-03",
+   "totalInterest": 26487.368363023197,
+   "difference": 481.90411287328607,
    "maxRate": 11.57,
-   "maxPay": 671.85
+   "maxPayment": 671.8505508611524
   },
   {
-   "start": "1958-04-01",
-   "diff": 1148.73,
+   "start": "1958-04",
+   "totalInterest": 27154.189712294865,
+   "difference": 1148.7254621449538,
    "maxRate": 11.74,
-   "maxPay": 677.29
+   "maxPayment": 677.2910994687127
   },
   {
-   "start": "1958-05-01",
-   "diff": 1994.02,
+   "start": "1958-05",
+   "totalInterest": 27999.483009814565,
+   "difference": 1994.0187596646538,
    "maxRate": 11.97,
-   "maxPay": 684.2
+   "maxPayment": 684.2015960911215
   },
   {
-   "start": "1958-06-01",
-   "diff": 2392.48,
+   "start": "1958-06",
+   "totalInterest": 28397.940150811548,
+   "difference": 2392.475900661637,
    "maxRate": 12.33,
-   "maxPay": 687.2
+   "maxPayment": 687.2049794691059
   },
   {
-   "start": "1958-07-01",
-   "diff": 2267.25,
+   "start": "1958-07",
+   "totalInterest": 28272.719028141983,
+   "difference": 2267.2547779920715,
    "maxRate": 12.25,
-   "maxPay": 685.68
+   "maxPayment": 685.6829615369837
   },
   {
-   "start": "1958-08-01",
-   "diff": -156.04,
+   "start": "1958-08",
+   "totalInterest": 25849.422626383406,
+   "difference": -156.04162376650493,
    "maxRate": 11.47,
-   "maxPay": 664.48
+   "maxPayment": 664.4825217783891
   },
   {
-   "start": "1958-09-01",
-   "diff": -2477.62,
+   "start": "1958-09",
+   "totalInterest": 23527.844076446007,
+   "difference": -2477.6201737039046,
    "maxRate": 10.72,
-   "maxPay": 644.32
+   "maxPayment": 644.3169302971926
   },
   {
-   "start": "1958-10-01",
-   "diff": -3022.94,
+   "start": "1958-10",
+   "totalInterest": 22982.527486811116,
+   "difference": -3022.9367633387956,
    "maxRate": 10.53,
-   "maxPay": 639.53
+   "maxPayment": 639.5293093530654
   },
   {
-   "start": "1958-11-01",
-   "diff": -3097.6,
+   "start": "1958-11",
+   "totalInterest": 22907.86923243121,
+   "difference": -3097.5950177187005,
    "maxRate": 10.49,
-   "maxPay": 638.81
+   "maxPayment": 638.8065923966235
   },
   {
-   "start": "1958-12-01",
-   "diff": -3363.65,
+   "start": "1958-12",
+   "totalInterest": 22641.813502888228,
+   "difference": -3363.650747261683,
    "maxRate": 10.39,
-   "maxPay": 636.44
+   "maxPayment": 636.4430777873532
   },
   {
-   "start": "1959-01-01",
-   "diff": -3474.04,
+   "start": "1959-01",
+   "totalInterest": 22531.426413121528,
+   "difference": -3474.0378370283834,
    "maxRate": 10.64,
-   "maxPay": 635.42
+   "maxPayment": 635.4223688185565
   },
   {
-   "start": "1959-02-01",
-   "diff": -3045.06,
+   "start": "1959-02",
+   "totalInterest": 22960.403635383533,
+   "difference": -3045.0606147663784,
    "maxRate": 10.94,
-   "maxPay": 639.01
+   "maxPayment": 639.0143080377011
   },
   {
-   "start": "1959-03-01",
-   "diff": -3308.26,
+   "start": "1959-03",
+   "totalInterest": 22697.207414919038,
+   "difference": -3308.2568352308735,
    "maxRate": 10.84,
-   "maxPay": 636.64
+   "maxPayment": 636.6439751566912
   },
   {
-   "start": "1959-04-01",
-   "diff": -3732.87,
+   "start": "1959-04",
+   "totalInterest": 22272.59493681712,
+   "difference": -3732.8693133327906,
    "maxRate": 10.69,
-   "maxPay": 632.9
+   "maxPayment": 632.904101411184
   },
   {
-   "start": "1959-05-01",
-   "diff": -3338.37,
+   "start": "1959-05",
+   "totalInterest": 22667.09840276097,
+   "difference": -3338.365847388941,
    "maxRate": 10.8,
-   "maxPay": 636.19
+   "maxPayment": 636.186507597214
   },
   {
-   "start": "1959-06-01",
-   "diff": -4457.07,
+   "start": "1959-06",
+   "totalInterest": 21548.390820389483,
+   "difference": -4457.073429760429,
    "maxRate": 10.43,
-   "maxPay": 626.5
+   "maxPayment": 626.5031342598525
   },
   {
-   "start": "1959-07-01",
-   "diff": -4390.14,
+   "start": "1959-07",
+   "totalInterest": 21615.321207957608,
+   "difference": -4390.143042192303,
    "maxRate": 10.74,
-   "maxPay": 627.02
+   "maxPayment": 627.0188622028179
   },
   {
-   "start": "1959-08-01",
-   "diff": -4918.91,
+   "start": "1959-08",
+   "totalInterest": 21086.557879628494,
+   "difference": -4918.906370521418,
    "maxRate": 11.12,
-   "maxPay": 622.43
+   "maxPayment": 622.4303142666276
   },
   {
-   "start": "1959-09-01",
-   "diff": -6944.42,
+   "start": "1959-09",
+   "totalInterest": 19061.047052931004,
+   "difference": -6944.417197218907,
    "maxRate": 10.46,
-   "maxPay": 605.09
+   "maxPayment": 605.0864507564138
   },
   {
-   "start": "1959-10-01",
-   "diff": -6975.65,
+   "start": "1959-10",
+   "totalInterest": 19029.81819098159,
+   "difference": -6975.646059168321,
    "maxRate": 10.54,
-   "maxPay": 604.91
+   "maxPayment": 604.9074769429134
   },
   {
-   "start": "1959-11-01",
-   "diff": -7283.61,
+   "start": "1959-11",
+   "totalInterest": 18721.856212393566,
+   "difference": -7283.608037756345,
    "maxRate": 10.44,
-   "maxPay": 602.36
+   "maxPayment": 602.3553486409304
   },
   {
-   "start": "1959-12-01",
-   "diff": -8329.87,
+   "start": "1959-12",
+   "totalInterest": 17675.59683070186,
+   "difference": -8329.867419448052,
    "maxRate": 10.25,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1960-01-01",
-   "diff": -7918.51,
+   "start": "1960-01",
+   "totalInterest": 18086.956670422696,
+   "difference": -7918.507579727215,
    "maxRate": 10.97,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1960-02-01",
-   "diff": -6724.39,
+   "start": "1960-02",
+   "totalInterest": 19281.071258309887,
+   "difference": -6724.3929918400245,
    "maxRate": 11.41,
-   "maxPay": 598.15
+   "maxPayment": 598.1519685071906
   },
   {
-   "start": "1960-03-01",
-   "diff": -4679.81,
+   "start": "1960-03",
+   "totalInterest": 21325.655509047698,
+   "difference": -4679.808741102213,
    "maxRate": 12.06,
-   "maxPay": 616.58
+   "maxPayment": 616.5753957406088
   },
   {
-   "start": "1960-04-01",
-   "diff": -4381.72,
+   "start": "1960-04",
+   "totalInterest": 21623.748923018426,
+   "difference": -4381.7153271314855,
    "maxRate": 12.14,
-   "maxPay": 619.85
+   "maxPayment": 619.8521964444049
   },
   {
-   "start": "1960-05-01",
-   "diff": -4520.47,
+   "start": "1960-05",
+   "totalInterest": 21484.99665165324,
+   "difference": -4520.467598496671,
    "maxRate": 12.08,
-   "maxPay": 619.34
+   "maxPayment": 619.3409656967251
   },
   {
-   "start": "1960-06-01",
-   "diff": -1819.9,
+   "start": "1960-06",
+   "totalInterest": 24185.568315194014,
+   "difference": -1819.8959349558972,
    "maxRate": 12.91,
-   "maxPay": 643.28
+   "maxPayment": 643.2792853121476
   },
   {
-   "start": "1960-07-01",
-   "diff": -1208.37,
+   "start": "1960-07",
+   "totalInterest": 24797.098615149887,
+   "difference": -1208.3656350000238,
    "maxRate": 13.07,
-   "maxPay": 649.04
+   "maxPayment": 649.0423134109163
   },
   {
-   "start": "1960-08-01",
-   "diff": -1104.39,
+   "start": "1960-08",
+   "totalInterest": 24901.075027275412,
+   "difference": -1104.389222874499,
    "maxRate": 13.07,
-   "maxPay": 650.38
+   "maxPayment": 650.382025960226
   },
   {
-   "start": "1960-09-01",
-   "diff": -1581.88,
+   "start": "1960-09",
+   "totalInterest": 24423.57987283775,
+   "difference": -1581.8843773121625,
    "maxRate": 12.89,
-   "maxPay": 646.69
+   "maxPayment": 646.6889761368858
   },
   {
-   "start": "1960-10-01",
-   "diff": -900.11,
+   "start": "1960-10",
+   "totalInterest": 25105.350076125847,
+   "difference": -900.1141740240637,
    "maxRate": 13.07,
-   "maxPay": 653.02
+   "maxPayment": 653.0205117993913
   },
   {
-   "start": "1960-11-01",
-   "diff": -1018.73,
+   "start": "1960-11",
+   "totalInterest": 24986.734252841055,
+   "difference": -1018.7299973088557,
    "maxRate": 13.0,
-   "maxPay": 652.39
+   "maxPayment": 652.391279852653
   },
   {
-   "start": "1960-12-01",
-   "diff": -521.71,
+   "start": "1960-12",
+   "totalInterest": 25483.75913362029,
+   "difference": -521.7051165296216,
    "maxRate": 13.12,
-   "maxPay": 657.08
+   "maxPayment": 657.0824988424772
   },
   {
-   "start": "1961-01-01",
-   "diff": -375.4,
+   "start": "1961-01",
+   "totalInterest": 25630.06211185384,
+   "difference": -375.4021382960709,
    "maxRate": 13.13,
-   "maxPay": 658.71
+   "maxPayment": 658.7089472443427
   },
   {
-   "start": "1961-02-01",
-   "diff": -847.12,
+   "start": "1961-02",
+   "totalInterest": 25158.344258734473,
+   "difference": -847.1199914154386,
    "maxRate": 12.95,
-   "maxPay": 654.98
+   "maxPayment": 654.9818585549243
   },
   {
-   "start": "1961-03-01",
-   "diff": -643.62,
+   "start": "1961-03",
+   "totalInterest": 25361.845602527308,
+   "difference": -643.618647622603,
    "maxRate": 12.98,
-   "maxPay": 657.13
+   "maxPayment": 657.1270703776386
   },
   {
-   "start": "1961-04-01",
-   "diff": -209.73,
+   "start": "1961-04",
+   "totalInterest": 25795.733582936115,
+   "difference": -209.73066721379655,
    "maxRate": 13.08,
-   "maxPay": 661.26
+   "maxPayment": 661.2574887265924
   },
   {
-   "start": "1961-05-01",
-   "diff": -96.59,
+   "start": "1961-05",
+   "totalInterest": 25908.876436071074,
+   "difference": -96.58781407883725,
    "maxRate": 13.08,
-   "maxPay": 662.59
+   "maxPayment": 662.5859788393868
   },
   {
-   "start": "1961-06-01",
-   "diff": -113.75,
+   "start": "1961-06",
+   "totalInterest": 25891.71828300308,
+   "difference": -113.74596714683139,
    "maxRate": 13.04,
-   "maxPay": 662.78
+   "maxPayment": 662.7794771000031
   },
   {
-   "start": "1961-07-01",
-   "diff": 293.58,
+   "start": "1961-07",
+   "totalInterest": 26299.04842251195,
+   "difference": 293.5841723620397,
    "maxRate": 13.13,
-   "maxPay": 666.65
+   "maxPayment": 666.6497028323644
   },
   {
-   "start": "1961-08-01",
-   "diff": -79.43,
+   "start": "1961-08",
+   "totalInterest": 25926.03296962767,
+   "difference": -79.43128052223983,
    "maxRate": 12.98,
-   "maxPay": 663.73
+   "maxPayment": 663.7256275085176
   },
   {
-   "start": "1961-09-01",
-   "diff": 392.63,
+   "start": "1961-09",
+   "totalInterest": 26398.09002981575,
+   "difference": 392.6257796658392,
    "maxRate": 13.09,
-   "maxPay": 668.15
+   "maxPayment": 668.149447504465
   },
   {
-   "start": "1961-10-01",
-   "diff": 445.1,
+   "start": "1961-10",
+   "totalInterest": 26450.561499907635,
+   "difference": 445.09724975772406,
    "maxRate": 13.07,
-   "maxPay": 668.9
+   "maxPayment": 668.9025219069825
   },
   {
-   "start": "1961-11-01",
-   "diff": -27.2,
+   "start": "1961-11",
+   "totalInterest": 25978.26388513582,
+   "difference": -27.200365014090494,
    "maxRate": 12.89,
-   "maxPay": 665.1
+   "maxPayment": 665.0984273563448
   },
   {
-   "start": "1961-12-01",
-   "diff": -310.59,
+   "start": "1961-12",
+   "totalInterest": 25694.879193154204,
+   "difference": -310.5850569957074,
    "maxRate": 12.77,
-   "maxPay": 662.96
+   "maxPayment": 662.9642776009485
   },
   {
-   "start": "1962-01-01",
-   "diff": -599.01,
+   "start": "1962-01",
+   "totalInterest": 25406.451098562527,
+   "difference": -599.0131515873836,
    "maxRate": 12.65,
-   "maxPay": 660.81
+   "maxPayment": 660.8056375581615
   },
   {
-   "start": "1962-02-01",
-   "diff": -534.83,
+   "start": "1962-02",
+   "totalInterest": 25470.637844914498,
+   "difference": -534.8264052354134,
    "maxRate": 12.64,
-   "maxPay": 661.73
+   "maxPayment": 661.7331852182642
   },
   {
-   "start": "1962-03-01",
-   "diff": -406.07,
+   "start": "1962-03",
+   "totalInterest": 25599.39060904899,
+   "difference": -406.0736411009202,
    "maxRate": 12.65,
-   "maxPay": 663.22
+   "maxPayment": 663.2233517121487
   },
   {
-   "start": "1962-04-01",
-   "diff": -341.89,
+   "start": "1962-04",
+   "totalInterest": 25663.57532072943,
+   "difference": -341.8889294204819,
    "maxRate": 12.64,
-   "maxPay": 664.15
+   "maxPayment": 664.1470137225675
   },
   {
-   "start": "1962-05-01",
-   "diff": -114.77,
+   "start": "1962-05",
+   "totalInterest": 25890.69036500185,
+   "difference": -114.7738851480608,
    "maxRate": 12.68,
-   "maxPay": 666.49
+   "maxPayment": 666.486963696259
   },
   {
-   "start": "1962-06-01",
-   "diff": -146.86,
+   "start": "1962-06",
+   "totalInterest": 25858.60764602836,
+   "difference": -146.85660412155266,
    "maxRate": 12.64,
-   "maxPay": 666.56
+   "maxPayment": 666.5604301353898
   },
   {
-   "start": "1962-07-01",
-   "diff": -669.73,
+   "start": "1962-07",
+   "totalInterest": 25335.72987574041,
+   "difference": -669.7343744095015,
    "maxRate": 12.45,
-   "maxPay": 662.37
+   "maxPayment": 662.3655377940383
   },
   {
-   "start": "1962-08-01",
-   "diff": -256.44,
+   "start": "1962-08",
+   "totalInterest": 25749.020547046333,
+   "difference": -256.4437031035777,
    "maxRate": 12.55,
-   "maxPay": 666.36
+   "maxPayment": 666.3582768224047
   },
   {
-   "start": "1962-09-01",
-   "diff": -33.05,
+   "start": "1962-09",
+   "totalInterest": 25972.41665409524,
+   "difference": -33.047596054671885,
    "maxRate": 12.59,
-   "maxPay": 668.67
+   "maxPayment": 668.6722532635113
   },
   {
-   "start": "1962-10-01",
-   "diff": 193.23,
+   "start": "1962-10",
+   "totalInterest": 26198.69859410703,
+   "difference": 193.23434395711956,
    "maxRate": 12.63,
-   "maxPay": 671.0
+   "maxPayment": 670.9960337713677
   },
   {
-   "start": "1962-11-01",
-   "diff": -3.13,
+   "start": "1962-11",
+   "totalInterest": 26002.335636593758,
+   "difference": -3.128613556153141,
    "maxRate": 12.54,
-   "maxPay": 669.62
+   "maxPayment": 669.6194310207861
   },
   {
-   "start": "1962-12-01",
-   "diff": -39.72,
+   "start": "1962-12",
+   "totalInterest": 25965.740001187365,
+   "difference": -39.72424896254597,
    "maxRate": 12.5,
-   "maxPay": 669.65
+   "maxPayment": 669.6469315781177
   },
   {
-   "start": "1963-01-01",
-   "diff": -77.52,
+   "start": "1963-01",
+   "totalInterest": 25927.94441043601,
+   "difference": -77.51983971390291,
    "maxRate": 12.46,
-   "maxPay": 669.66
+   "maxPayment": 669.6633736227895
   },
   {
-   "start": "1963-02-01",
-   "diff": -18.37,
+   "start": "1963-02",
+   "totalInterest": 25987.08992774254,
+   "difference": -18.37432240736962,
    "maxRate": 12.45,
-   "maxPay": 670.52
+   "maxPayment": 670.5238512346162
   },
   {
-   "start": "1963-03-01",
-   "diff": 172.09,
+   "start": "1963-03",
+   "totalInterest": 26177.55283372926,
+   "difference": 172.08858357934878,
    "maxRate": 12.48,
-   "maxPay": 672.52
+   "maxPayment": 672.5217575382957
   },
   {
-   "start": "1963-04-01",
-   "diff": 234.6,
+   "start": "1963-04",
+   "totalInterest": 26240.068681824534,
+   "difference": 234.6044316746229,
    "maxRate": 12.47,
-   "maxPay": 673.38
+   "maxPayment": 673.3828035958755
   },
   {
-   "start": "1963-05-01",
-   "diff": 232.56,
+   "start": "1963-05",
+   "totalInterest": 26238.02798432342,
+   "difference": 232.56373417350915,
    "maxRate": 12.44,
-   "maxPay": 673.67
+   "maxPayment": 673.6679471376337
   },
   {
-   "start": "1963-06-01",
-   "diff": 132.35,
+   "start": "1963-06",
+   "totalInterest": 26137.818083664893,
+   "difference": 132.3538335149824,
    "maxRate": 12.38,
-   "maxPay": 673.09
+   "maxPayment": 673.0872031818334
   },
   {
-   "start": "1963-07-01",
-   "diff": -392.79,
+   "start": "1963-07",
+   "totalInterest": 25612.675614589196,
+   "difference": -392.7886355607152,
    "maxRate": 12.19,
-   "maxPay": 668.79
+   "maxPayment": 668.787070649822
   },
   {
-   "start": "1963-08-01",
-   "diff": -760.77,
+   "start": "1963-08",
+   "totalInterest": 25244.695168356946,
+   "difference": -760.7690817929652,
    "maxRate": 12.19,
-   "maxPay": 665.88
+   "maxPayment": 665.8792170921553
   },
   {
-   "start": "1963-09-01",
-   "diff": -872.89,
+   "start": "1963-09",
+   "totalInterest": 25132.569317184254,
+   "difference": -872.8949329656571,
    "maxRate": 12.79,
-   "maxPay": 665.21
+   "maxPayment": 665.2145599491039
   },
   {
-   "start": "1963-10-01",
-   "diff": -1018.04,
+   "start": "1963-10",
+   "totalInterest": 24987.429132894948,
+   "difference": -1018.0351172549636,
    "maxRate": 12.72,
-   "maxPay": 664.25
+   "maxPayment": 664.2521681342403
   },
   {
-   "start": "1963-11-01",
-   "diff": -1164.81,
+   "start": "1963-11",
+   "totalInterest": 24840.655855709054,
+   "difference": -1164.8083944408572,
    "maxRate": 12.65,
-   "maxPay": 663.27
+   "maxPayment": 663.2739258485346
   },
   {
-   "start": "1963-12-01",
-   "diff": -1086.48,
+   "start": "1963-12",
+   "totalInterest": 24918.982393494367,
+   "difference": -1086.481856655544,
    "maxRate": 12.65,
-   "maxPay": 664.26
+   "maxPayment": 664.2617329357637
   },
   {
-   "start": "1964-01-01",
-   "diff": -1006.39,
+   "start": "1964-01",
+   "totalInterest": 24999.071043750257,
+   "difference": -1006.3932063996544,
    "maxRate": 12.65,
-   "maxPay": 665.25
+   "maxPayment": 665.247896533984
   },
   {
-   "start": "1964-02-01",
-   "diff": -956.78,
+   "start": "1964-02",
+   "totalInterest": 25048.67948512219,
+   "difference": -956.7847650277217,
    "maxRate": 12.64,
-   "maxPay": 665.95
+   "maxPayment": 665.9487106924541
   },
   {
-   "start": "1964-03-01",
-   "diff": -906.12,
+   "start": "1964-03",
+   "totalInterest": 25099.342371686973,
+   "difference": -906.1218784629382,
    "maxRate": 12.63,
-   "maxPay": 666.65
+   "maxPayment": 666.6454741870788
   },
   {
-   "start": "1964-04-01",
-   "diff": -594.34,
+   "start": "1964-04",
+   "totalInterest": 25411.12405084262,
+   "difference": -594.3401993072912,
    "maxRate": 12.7,
-   "maxPay": 669.61
+   "maxPayment": 669.6114816289844
   },
   {
-   "start": "1964-05-01",
-   "diff": -536.44,
+   "start": "1964-05",
+   "totalInterest": 25469.0231171541,
+   "difference": -536.4411329958093,
    "maxRate": 12.69,
-   "maxPay": 670.32
+   "maxPayment": 670.317765793851
   },
   {
-   "start": "1964-06-01",
-   "diff": -444.39,
+   "start": "1964-06",
+   "totalInterest": 25561.07687196054,
+   "difference": -444.3873781893708,
    "maxRate": 12.69,
-   "maxPay": 671.3
+   "maxPayment": 671.3046409842307
   },
   {
-   "start": "1964-07-01",
-   "diff": -285.26,
+   "start": "1964-07",
+   "totalInterest": 25720.205830037325,
+   "difference": -285.25842011258646,
    "maxRate": 12.71,
-   "maxPay": 672.86
+   "maxPayment": 672.8596820601366
   },
   {
-   "start": "1964-08-01",
-   "diff": -318.6,
+   "start": "1964-08",
+   "totalInterest": 25686.865005427266,
+   "difference": -318.5992447226454,
    "maxRate": 12.67,
-   "maxPay": 672.71
+   "maxPayment": 672.7075103981479
   },
   {
-   "start": "1964-09-01",
-   "diff": -318.89,
+   "start": "1964-09",
+   "totalInterest": 25686.57105356018,
+   "difference": -318.8931965897318,
    "maxRate": 12.93,
-   "maxPay": 672.83
+   "maxPayment": 672.8297866813032
   },
   {
-   "start": "1964-10-01",
-   "diff": -351.22,
+   "start": "1964-10",
+   "totalInterest": 25654.24349277656,
+   "difference": -351.22075737335035,
    "maxRate": 12.89,
-   "maxPay": 672.66
+   "maxPayment": 672.6588748074308
   },
   {
-   "start": "1964-11-01",
-   "diff": -481.39,
+   "start": "1964-11",
+   "totalInterest": 25524.07202857744,
+   "difference": -481.3922215724706,
    "maxRate": 12.82,
-   "maxPay": 671.62
+   "maxPayment": 671.6239730738641
   },
   {
-   "start": "1964-12-01",
-   "diff": -1034.61,
+   "start": "1964-12",
+   "totalInterest": 24970.856949891866,
+   "difference": -1034.6073002580451,
    "maxRate": 12.62,
-   "maxPay": 666.89
+   "maxPayment": 666.8852675712353
   },
   {
-   "start": "1965-01-01",
-   "diff": -850.77,
+   "start": "1965-01",
+   "totalInterest": 25154.696010348758,
+   "difference": -850.768239801153,
    "maxRate": 12.65,
-   "maxPay": 668.63
+   "maxPayment": 668.629883381946
   },
   {
-   "start": "1965-02-01",
-   "diff": -1150.12,
+   "start": "1965-02",
+   "totalInterest": 24855.344269043337,
+   "difference": -1150.1199811065744,
    "maxRate": 12.53,
-   "maxPay": 666.13
+   "maxPayment": 666.1281621131872
   },
   {
-   "start": "1965-03-01",
-   "diff": -1066.61,
+   "start": "1965-03",
+   "totalInterest": 24938.859031917025,
+   "difference": -1066.6052182328858,
    "maxRate": 12.53,
-   "maxPay": 667.0
+   "maxPayment": 666.9988368343217
   },
   {
-   "start": "1965-04-01",
-   "diff": -982.59,
+   "start": "1965-04",
+   "totalInterest": 25022.875745076206,
+   "difference": -982.5885050737052,
    "maxRate": 12.53,
-   "maxPay": 667.87
+   "maxPayment": 667.8679015649794
   },
   {
-   "start": "1965-05-01",
-   "diff": -768.41,
+   "start": "1965-05",
+   "totalInterest": 25237.059107530913,
+   "difference": -768.4051426189981,
    "maxRate": 12.57,
-   "maxPay": 669.87
+   "maxPayment": 669.8694894414615
   },
   {
-   "start": "1965-06-01",
-   "diff": -389.18,
+   "start": "1965-06",
+   "totalInterest": 25616.288484860615,
+   "difference": -389.17576528929567,
    "maxRate": 12.66,
-   "maxPay": 673.3
+   "maxPayment": 673.3009142220175
   },
   {
-   "start": "1965-07-01",
-   "diff": -427.12,
+   "start": "1965-07",
+   "totalInterest": 25578.34628384931,
+   "difference": -427.11796630060053,
    "maxRate": 12.62,
-   "maxPay": 673.06
+   "maxPayment": 673.0565188478822
   },
   {
-   "start": "1965-08-01",
-   "diff": -336.22,
+   "start": "1965-08",
+   "totalInterest": 25669.239516545687,
+   "difference": -336.22473360422373,
    "maxRate": 12.62,
-   "maxPay": 673.94
+   "maxPayment": 673.9389927649605
   },
   {
-   "start": "1965-09-01",
-   "diff": -504.29,
+   "start": "1965-09",
+   "totalInterest": 25501.172420727995,
+   "difference": -504.2918294219162,
    "maxRate": 12.54,
-   "maxPay": 672.55
+   "maxPayment": 672.5461512274936
   },
   {
-   "start": "1965-10-01",
-   "diff": -772.37,
+   "start": "1965-10",
+   "totalInterest": 25233.09038454413,
+   "difference": -772.3738656057794,
    "maxRate": 12.43,
-   "maxPay": 670.29
+   "maxPayment": 670.2868158410205
   },
   {
-   "start": "1965-11-01",
-   "diff": -882.89,
+   "start": "1965-11",
+   "totalInterest": 25122.56945637439,
+   "difference": -882.894793775522,
    "maxRate": 12.37,
-   "maxPay": 669.42
+   "maxPayment": 669.4227018378567
   },
   {
-   "start": "1965-12-01",
-   "diff": -1737.69,
+   "start": "1965-12",
+   "totalInterest": 24267.777734726675,
+   "difference": -1737.6865154232364,
    "maxRate": 12.08,
-   "maxPay": 662.06
+   "maxPayment": 662.0585389880167
   },
   {
-   "start": "1966-01-01",
-   "diff": -2344.96,
+   "start": "1966-01",
+   "totalInterest": 23660.506132937833,
+   "difference": -2344.958117212078,
    "maxRate": 11.87,
-   "maxPay": 656.92
+   "maxPayment": 656.9191403054508
   },
   {
-   "start": "1966-02-01",
-   "diff": -2480.9,
+   "start": "1966-02",
+   "totalInterest": 23524.568038295805,
+   "difference": -2480.896211854106,
    "maxRate": 11.81,
-   "maxPay": 655.95
+   "maxPayment": 655.9482633020966
   },
   {
-   "start": "1966-03-01",
-   "diff": -2235.81,
+   "start": "1966-03",
+   "totalInterest": 23769.6547698427,
+   "difference": -2235.8094803072127,
    "maxRate": 11.87,
-   "maxPay": 658.32
+   "maxPayment": 658.32297566775
   },
   {
-   "start": "1966-04-01",
-   "diff": -2275.93,
+   "start": "1966-04",
+   "totalInterest": 23729.53580782914,
+   "difference": -2275.928442320772,
    "maxRate": 11.84,
-   "maxPay": 658.19
+   "maxPayment": 658.1882636566806
   },
   {
-   "start": "1966-05-01",
-   "diff": -2285.58,
+   "start": "1966-05",
+   "totalInterest": 23719.88175342195,
+   "difference": -2285.5824967279623,
    "maxRate": 11.82,
-   "maxPay": 658.33
+   "maxPayment": 658.3260594910107
   },
   {
-   "start": "1966-06-01",
-   "diff": -1782.83,
+   "start": "1966-06",
+   "totalInterest": 24222.63475841571,
+   "difference": -1782.8294917342027,
    "maxRate": 11.96,
-   "maxPay": 662.95
+   "maxPayment": 662.9473958765213
   },
   {
-   "start": "1966-07-01",
-   "diff": -2683.27,
+   "start": "1966-07",
+   "totalInterest": 23322.195225093026,
+   "difference": -2683.269025056885,
    "maxRate": 11.66,
-   "maxPay": 655.26
+   "maxPayment": 655.262379280498
   },
   {
-   "start": "1966-08-01",
-   "diff": -3147.43,
+   "start": "1966-08",
+   "totalInterest": 22858.031784045557,
+   "difference": -3147.432466104354,
    "maxRate": 11.5,
-   "maxPay": 651.46
+   "maxPayment": 651.4569186172866
   },
   {
-   "start": "1966-09-01",
-   "diff": -4407.6,
+   "start": "1966-09",
+   "totalInterest": 21597.860415609885,
+   "difference": -4407.603834540027,
    "maxRate": 11.09,
-   "maxPay": 640.72
+   "maxPayment": 640.7186362714373
   },
   {
-   "start": "1966-10-01",
-   "diff": -4327.22,
+   "start": "1966-10",
+   "totalInterest": 21678.239505213256,
+   "difference": -4327.224744936655,
    "maxRate": 11.11,
-   "maxPay": 641.8
+   "maxPayment": 641.8029320189121
   },
   {
-   "start": "1966-11-01",
-   "diff": -4214.56,
+   "start": "1966-11",
+   "totalInterest": 21790.89964230597,
+   "difference": -4214.564607843942,
    "maxRate": 11.14,
-   "maxPay": 643.17
+   "maxPayment": 643.1668572669456
   },
   {
-   "start": "1966-12-01",
-   "diff": -3054.43,
+   "start": "1966-12",
+   "totalInterest": 22951.03114717311,
+   "difference": -3054.4331029768,
    "maxRate": 11.5,
-   "maxPay": 653.7
+   "maxPayment": 653.6950273437119
   },
   {
-   "start": "1967-01-01",
-   "diff": -2251.54,
+   "start": "1967-01",
+   "totalInterest": 23753.926674721235,
+   "difference": -2251.537575428676,
    "maxRate": 11.74,
-   "maxPay": 661.02
+   "maxPayment": 661.0168171093762
   },
   {
-   "start": "1967-02-01",
-   "diff": -1689.8,
+   "start": "1967-02",
+   "totalInterest": 24315.661311822736,
+   "difference": -1689.802938327175,
    "maxRate": 11.9,
-   "maxPay": 666.17
+   "maxPayment": 666.1744053121961
   },
   {
-   "start": "1967-03-01",
-   "diff": -665.21,
+   "start": "1967-03",
+   "totalInterest": 25340.25767149353,
+   "difference": -665.2065786563799,
    "maxRate": 12.2,
-   "maxPay": 675.34
+   "maxPayment": 675.3417090930353
   },
   {
-   "start": "1967-04-01",
-   "diff": 773.93,
+   "start": "1967-04",
+   "totalInterest": 26779.397090109407,
+   "difference": 773.932839959496,
    "maxRate": 12.62,
-   "maxPay": 688.06
+   "maxPayment": 688.058000835952
   },
   {
-   "start": "1967-05-01",
-   "diff": 1654.47,
+   "start": "1967-05",
+   "totalInterest": 27659.93580814594,
+   "difference": 1654.4715579960284,
    "maxRate": 12.86,
-   "maxPay": 695.79
+   "maxPayment": 695.7914080552254
   },
   {
-   "start": "1967-06-01",
-   "diff": 1957.3,
+   "start": "1967-06",
+   "totalInterest": 27962.76381866316,
+   "difference": 1957.2995685132482,
    "maxRate": 12.92,
-   "maxPay": 698.42
+   "maxPayment": 698.4199926784511
   },
   {
-   "start": "1967-07-01",
-   "diff": -128.51,
+   "start": "1967-07",
+   "totalInterest": 25876.957349762324,
+   "difference": -128.50690038758694,
    "maxRate": 12.25,
-   "maxPay": 680.18
+   "maxPayment": 680.1800479674553
   },
   {
-   "start": "1967-08-01",
-   "diff": -249.02,
+   "start": "1967-08",
+   "totalInterest": 25756.44800875058,
+   "difference": -249.0162413993312,
    "maxRate": 12.19,
-   "maxPay": 679.24
+   "maxPayment": 679.2431376679139
   },
   {
-   "start": "1967-09-01",
-   "diff": -663.49,
+   "start": "1967-09",
+   "totalInterest": 25341.978014435063,
+   "difference": -663.4862357148486,
    "maxRate": 12.04,
-   "maxPay": 675.75
+   "maxPayment": 675.7482962400488
   },
   {
-   "start": "1967-10-01",
-   "diff": -1051.21,
+   "start": "1967-10",
+   "totalInterest": 24954.254614839432,
+   "difference": -1051.209635310479,
    "maxRate": 11.9,
-   "maxPay": 672.51
+   "maxPayment": 672.5148266530022
   },
   {
-   "start": "1967-11-01",
-   "diff": -1540.4,
+   "start": "1967-11",
+   "totalInterest": 24465.06732768938,
+   "difference": -1540.3969224605316,
    "maxRate": 11.73,
-   "maxPay": 668.42
+   "maxPayment": 668.4194661241821
   },
   {
-   "start": "1967-12-01",
-   "diff": -2259.32,
+   "start": "1967-12",
+   "totalInterest": 23746.144216095006,
+   "difference": -2259.3200340549047,
    "maxRate": 11.49,
-   "maxPay": 662.35
+   "maxPayment": 662.3483878409995
   },
   {
-   "start": "1968-01-01",
-   "diff": -2316.51,
+   "start": "1968-01",
+   "totalInterest": 23688.950292334008,
+   "difference": -2316.5139578159033,
    "maxRate": 11.46,
-   "maxPay": 662.11
+   "maxPayment": 662.1061490945752
   },
   {
-   "start": "1968-02-01",
-   "diff": -2214.88,
+   "start": "1968-02",
+   "totalInterest": 23790.5841520486,
+   "difference": -2214.880098101312,
    "maxRate": 11.48,
-   "maxPay": 663.25
+   "maxPayment": 663.2518061791677
   },
   {
-   "start": "1968-03-01",
-   "diff": -2781.39,
+   "start": "1968-03",
+   "totalInterest": 23224.075226077304,
+   "difference": -2781.389024072607,
    "maxRate": 11.29,
-   "maxPay": 658.55
+   "maxPayment": 658.5489279115247
   },
   {
-   "start": "1968-04-01",
-   "diff": -3417.43,
+   "start": "1968-04",
+   "totalInterest": 22588.032936719814,
+   "difference": -3417.4313134300974,
    "maxRate": 11.08,
-   "maxPay": 653.27
+   "maxPayment": 653.2738547541329
   },
   {
-   "start": "1968-05-01",
-   "diff": -4280.29,
+   "start": "1968-05",
+   "totalInterest": 21725.178768191363,
+   "difference": -4280.285481958548,
    "maxRate": 10.8,
-   "maxPay": 646.06
+   "maxPayment": 646.0553548315107
   },
   {
-   "start": "1968-06-01",
-   "diff": -3832.2,
+   "start": "1968-06",
+   "totalInterest": 22173.262777143165,
+   "difference": -3832.201473006746,
    "maxRate": 10.94,
-   "maxPay": 650.36
+   "maxPayment": 650.3567780388937
   },
   {
-   "start": "1968-07-01",
-   "diff": -3153.43,
+   "start": "1968-07",
+   "totalInterest": 22852.02947702701,
+   "difference": -3153.4347731229027,
    "maxRate": 11.15,
-   "maxPay": 656.64
+   "maxPayment": 656.637381007562
   },
   {
-   "start": "1968-08-01",
-   "diff": -2428.29,
+   "start": "1968-08",
+   "totalInterest": 23577.174471226976,
+   "difference": -2428.2897789229355,
    "maxRate": 11.37,
-   "maxPay": 663.27
+   "maxPayment": 663.2669089752674
   },
   {
-   "start": "1968-09-01",
-   "diff": -2709.58,
+   "start": "1968-09",
+   "totalInterest": 23295.88081578731,
+   "difference": -2709.583434362601,
    "maxRate": 11.27,
-   "maxPay": 661.04
+   "maxPayment": 661.044178479507
   },
   {
-   "start": "1968-10-01",
-   "diff": -3184.18,
+   "start": "1968-10",
+   "totalInterest": 22821.286328495673,
+   "difference": -3184.177921654238,
    "maxRate": 11.11,
-   "maxPay": 657.14
+   "maxPayment": 657.1424794970454
   },
   {
-   "start": "1968-11-01",
-   "diff": -3473.92,
+   "start": "1968-11",
+   "totalInterest": 22531.546539352854,
+   "difference": -3473.917710797057,
    "maxRate": 11.01,
-   "maxPay": 654.88
+   "maxPayment": 654.8794106935026
   },
   {
-   "start": "1968-12-01",
-   "diff": -5053.21,
+   "start": "1968-12",
+   "totalInterest": 20952.254818189227,
+   "difference": -5053.209431960684,
    "maxRate": 10.5,
-   "maxPay": 641.35
+   "maxPayment": 641.3482896298841
   },
   {
-   "start": "1969-01-01",
-   "diff": -5613.85,
+   "start": "1969-01",
+   "totalInterest": 20391.6131780569,
+   "difference": -5613.85107209301,
    "maxRate": 10.44,
-   "maxPay": 636.82
+   "maxPayment": 636.8187050423603
   },
   {
-   "start": "1969-02-01",
-   "diff": -5558.51,
+   "start": "1969-02",
+   "totalInterest": 20446.953147316668,
+   "difference": -5558.511102833243,
    "maxRate": 10.73,
-   "maxPay": 637.7
+   "maxPayment": 637.7029442647663
   },
   {
-   "start": "1969-03-01",
-   "diff": -5251.38,
+   "start": "1969-03",
+   "totalInterest": 20754.088921371356,
+   "difference": -5251.375328778555,
    "maxRate": 10.83,
-   "maxPay": 640.77
+   "maxPayment": 640.7710040475258
   },
   {
-   "start": "1969-04-01",
-   "diff": -5529.53,
+   "start": "1969-04",
+   "totalInterest": 20475.929437613948,
+   "difference": -5529.534812535963,
    "maxRate": 10.87,
-   "maxPay": 638.68
+   "maxPayment": 638.6807898634678
   },
   {
-   "start": "1969-05-01",
-   "diff": -5312.0,
+   "start": "1969-05",
+   "totalInterest": 20693.460416259783,
+   "difference": -5312.003833890129,
    "maxRate": 10.94,
-   "maxPay": 640.93
+   "maxPayment": 640.9315714445175
   },
   {
-   "start": "1969-06-01",
-   "diff": -6548.21,
+   "start": "1969-06",
+   "totalInterest": 19457.257606732,
+   "difference": -6548.2066434179105,
    "maxRate": 10.67,
-   "maxPay": 630.43
+   "maxPayment": 630.4316046150926
   },
   {
-   "start": "1969-07-01",
-   "diff": -8274.6,
+   "start": "1969-07",
+   "totalInterest": 17730.867426749184,
+   "difference": -8274.596823400727,
    "maxRate": 10.11,
-   "maxPay": 615.68
+   "maxPayment": 615.6795791498191
   },
   {
-   "start": "1969-08-01",
-   "diff": -8253.08,
+   "start": "1969-08",
+   "totalInterest": 17752.385916566982,
+   "difference": -8253.07833358293,
    "maxRate": 10.13,
-   "maxPay": 616.38
+   "maxPayment": 616.3792730962352
   },
   {
-   "start": "1969-09-01",
-   "diff": -8619.56,
+   "start": "1969-09",
+   "totalInterest": 17385.90130947754,
+   "difference": -8619.562940672371,
    "maxRate": 10.02,
-   "maxPay": 613.62
+   "maxPayment": 613.6192671350577
   },
   {
-   "start": "1969-10-01",
-   "diff": -8389.34,
+   "start": "1969-10",
+   "totalInterest": 17616.124136551894,
+   "difference": -8389.340113598017,
    "maxRate": 10.76,
-   "maxPay": 616.16
+   "maxPayment": 616.1641442100214
   },
   {
-   "start": "1969-11-01",
-   "diff": -9129.87,
+   "start": "1969-11",
+   "totalInterest": 16875.594342218898,
+   "difference": -9129.869907931014,
    "maxRate": 11.96,
-   "maxPay": 609.95
+   "maxPayment": 609.9499271812134
   },
   {
-   "start": "1969-12-01",
-   "diff": -10754.96,
+   "start": "1969-12",
+   "totalInterest": 15250.501241164804,
+   "difference": -10754.963008985107,
    "maxRate": 11.47,
-   "maxPay": 594.81
+   "maxPayment": 594.8051551488375
   },
   {
-   "start": "1970-01-01",
-   "diff": -10945.55,
+   "start": "1970-01",
+   "totalInterest": 15059.910476557576,
+   "difference": -10945.553773592335,
    "maxRate": 11.67,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1970-02-01",
-   "diff": -8986.34,
+   "start": "1970-02",
+   "totalInterest": 17019.122986655617,
+   "difference": -8986.341263494294,
    "maxRate": 12.41,
-   "maxPay": 605.91
+   "maxPayment": 605.9102518266984
   },
   {
-   "start": "1970-03-01",
-   "diff": -7500.94,
+   "start": "1970-03",
+   "totalInterest": 18504.51975858967,
+   "difference": -7500.94449156024,
    "maxRate": 13.73,
-   "maxPay": 619.8
+   "maxPayment": 619.7979259888717
   },
   {
-   "start": "1970-04-01",
-   "diff": -7133.23,
+   "start": "1970-04",
+   "totalInterest": 18872.23065356762,
+   "difference": -7133.2335965822895,
    "maxRate": 16.19,
-   "maxPay": 623.59
+   "maxPayment": 623.5932797026799
   },
   {
-   "start": "1970-05-01",
-   "diff": -8139.1,
+   "start": "1970-05",
+   "totalInterest": 17866.366114410703,
+   "difference": -8139.098135739208,
    "maxRate": 15.86,
-   "maxPay": 615.15
+   "maxPayment": 615.1530814907807
   },
   {
-   "start": "1970-06-01",
-   "diff": -7656.33,
+   "start": "1970-06",
+   "totalInterest": 18349.139190225593,
+   "difference": -7656.325059924318,
    "maxRate": 16.02,
-   "maxPay": 619.98
+   "maxPayment": 619.9783639773576
   },
   {
-   "start": "1970-07-01",
-   "diff": -6947.15,
+   "start": "1970-07",
+   "totalInterest": 19058.318429522704,
+   "difference": -6947.145820627207,
    "maxRate": 16.25,
-   "maxPay": 626.77
+   "maxPayment": 626.7724584639283
   },
   {
-   "start": "1970-08-01",
-   "diff": -6811.07,
+   "start": "1970-08",
+   "totalInterest": 19194.394061928266,
+   "difference": -6811.070188221645,
    "maxRate": 16.29,
-   "maxPay": 628.42
+   "maxPayment": 628.4248684251479
   },
   {
-   "start": "1970-09-01",
-   "diff": -5893.85,
+   "start": "1970-09",
+   "totalInterest": 20111.617699411854,
+   "difference": -5893.846550738057,
    "maxRate": 16.58,
-   "maxPay": 636.98
+   "maxPayment": 636.9797827680192
   },
   {
-   "start": "1970-10-01",
-   "diff": -5204.45,
+   "start": "1970-10",
+   "totalInterest": 20801.01653625085,
+   "difference": -5204.447713899062,
    "maxRate": 16.79,
-   "maxPay": 643.43
+   "maxPayment": 643.4279680674977
   },
   {
-   "start": "1970-11-01",
-   "diff": -3164.41,
+   "start": "1970-11",
+   "totalInterest": 22841.051297047783,
+   "difference": -3164.412953102128,
    "maxRate": 17.42,
-   "maxPay": 661.75
+   "maxPayment": 661.7546302172594
   },
   {
-   "start": "1970-12-01",
-   "diff": -1766.93,
+   "start": "1970-12",
+   "totalInterest": 24238.53613208091,
+   "difference": -1766.9281180690014,
    "maxRate": 17.83,
-   "maxPay": 674.19
+   "maxPayment": 674.1945109347703
   },
   {
-   "start": "1971-01-01",
-   "diff": -263.18,
+   "start": "1971-01",
+   "totalInterest": 25742.279947804298,
+   "difference": -263.1843023456131,
    "maxRate": 18.55,
-   "maxPay": 687.41
+   "maxPayment": 687.4133293905065
   },
   {
-   "start": "1971-02-01",
-   "diff": 2311.17,
+   "start": "1971-02",
+   "totalInterest": 28316.63327057216,
+   "difference": 2311.1690204222505,
    "maxRate": 19.29,
-   "maxPay": 709.9
+   "maxPayment": 709.8995562727852
   },
   {
-   "start": "1971-03-01",
-   "diff": 3561.25,
+   "start": "1971-03",
+   "totalInterest": 29566.71061471666,
+   "difference": 3561.2463645667485,
    "maxRate": 19.61,
-   "maxPay": 720.46
+   "maxPayment": 720.4595755020486
   },
   {
-   "start": "1971-04-01",
-   "diff": 2162.26,
+   "start": "1971-04",
+   "totalInterest": 28167.722020755355,
+   "difference": 2162.2577706054435,
    "maxRate": 19.13,
-   "maxPay": 707.59
+   "maxPayment": 707.5924276551282
   },
   {
-   "start": "1971-05-01",
-   "diff": 1416.42,
+   "start": "1971-05",
+   "totalInterest": 27421.888681347762,
+   "difference": 1416.424431197851,
    "maxRate": 18.85,
-   "maxPay": 700.55
+   "maxPayment": 700.5478453093375
   },
   {
-   "start": "1971-06-01",
-   "diff": -413.86,
+   "start": "1971-06",
+   "totalInterest": 25591.60542384702,
+   "difference": -413.8588263028905,
    "maxRate": 19.05,
-   "maxPay": 683.99
+   "maxPayment": 683.9919619894655
   },
   {
-   "start": "1971-07-01",
-   "diff": -2374.27,
+   "start": "1971-07",
+   "totalInterest": 23631.197569058957,
+   "difference": -2374.266681090954,
    "maxRate": 18.4,
-   "maxPay": 666.4
+   "maxPayment": 666.3986880706424
   },
   {
-   "start": "1971-08-01",
-   "diff": -770.77,
+   "start": "1971-08",
+   "totalInterest": 25234.695146742673,
+   "difference": -770.7691034072377,
    "maxRate": 18.86,
-   "maxPay": 680.23
+   "maxPayment": 680.2272382601408
   },
   {
-   "start": "1971-09-01",
-   "diff": 191.03,
+   "start": "1971-09",
+   "totalInterest": 26196.490697365938,
+   "difference": 191.026447216027,
    "maxRate": 19.11,
-   "maxPay": 688.53
+   "maxPayment": 688.5294832019144
   },
   {
-   "start": "1971-10-01",
-   "diff": 1111.27,
+   "start": "1971-10",
+   "totalInterest": 27116.734326322952,
+   "difference": 1111.2700761730412,
    "maxRate": 19.34,
-   "maxPay": 697.97
+   "maxPayment": 697.9661983774482
   },
   {
-   "start": "1971-11-01",
-   "diff": 2086.92,
+   "start": "1971-11",
+   "totalInterest": 28092.38206963621,
+   "difference": 2086.917819486298,
    "maxRate": 19.58,
-   "maxPay": 707.82
+   "maxPayment": 707.8237538611245
   },
   {
-   "start": "1971-12-01",
-   "diff": 2984.07,
+   "start": "1971-12",
+   "totalInterest": 28989.53567101889,
+   "difference": 2984.0714208689787,
    "maxRate": 19.79,
-   "maxPay": 716.91
+   "maxPayment": 716.9096174428936
   },
   {
-   "start": "1972-01-01",
-   "diff": 5320.64,
+   "start": "1972-01",
+   "totalInterest": 31326.10213290158,
+   "difference": 5320.637882751667,
    "maxRate": 20.42,
-   "maxPay": 738.87
+   "maxPayment": 738.8693510492797
   },
   {
-   "start": "1972-02-01",
-   "diff": 6185.39,
+   "start": "1972-02",
+   "totalInterest": 32190.85521654913,
+   "difference": 6185.39096639922,
    "maxRate": 20.6,
-   "maxPay": 747.44
+   "maxPayment": 747.4380200671908
   },
   {
-   "start": "1972-03-01",
-   "diff": 4648.55,
+   "start": "1972-03",
+   "totalInterest": 30654.0143714966,
+   "difference": 4648.550121346689,
    "maxRate": 20.07,
-   "maxPay": 734.31
+   "maxPayment": 734.3093344702464
   },
   {
-   "start": "1972-04-01",
-   "diff": 4956.73,
+   "start": "1972-04",
+   "totalInterest": 30962.19622087065,
+   "difference": 4956.731970720739,
    "maxRate": 20.09,
-   "maxPay": 737.86
+   "maxPayment": 737.8603463652099
   },
   {
-   "start": "1972-05-01",
-   "diff": 5270.48,
+   "start": "1972-05",
+   "totalInterest": 31275.940779115623,
+   "difference": 5270.476528965712,
    "maxRate": 20.11,
-   "maxPay": 741.42
+   "maxPayment": 741.4184493839646
   },
   {
-   "start": "1972-06-01",
-   "diff": 4774.83,
+   "start": "1972-06",
+   "totalInterest": 30780.297220615612,
+   "difference": 4774.832970465701,
    "maxRate": 19.89,
-   "maxPay": 737.63
+   "maxPayment": 737.6322700323412
   },
   {
-   "start": "1972-07-01",
-   "diff": 4780.13,
+   "start": "1972-07",
+   "totalInterest": 30785.59825012972,
+   "difference": 4780.133999979807,
    "maxRate": 19.82,
-   "maxPay": 738.37
+   "maxPayment": 738.373948304949
   },
   {
-   "start": "1972-08-01",
-   "diff": 4886.39,
+   "start": "1972-08",
+   "totalInterest": 30891.850915031904,
+   "difference": 4886.386664881993,
    "maxRate": 19.78,
-   "maxPay": 740.01
+   "maxPayment": 740.0102109040016
   },
   {
-   "start": "1972-09-01",
-   "diff": 2971.73,
+   "start": "1972-09",
+   "totalInterest": 28977.19242278522,
+   "difference": 2971.7281726353103,
    "maxRate": 19.14,
-   "maxPay": 723.36
+   "maxPayment": 723.3566115904746
   },
   {
-   "start": "1972-10-01",
-   "diff": 2910.43,
+   "start": "1972-10",
+   "totalInterest": 28915.891131684446,
+   "difference": 2910.426881534535,
    "maxRate": 19.06,
-   "maxPay": 723.59
+   "maxPayment": 723.5900028512558
   },
   {
-   "start": "1972-11-01",
-   "diff": 2979.38,
+   "start": "1972-11",
+   "totalInterest": 28984.842791711777,
+   "difference": 2979.378541561866,
    "maxRate": 19.02,
-   "maxPay": 725.01
+   "maxPayment": 725.0096521963883
   },
   {
-   "start": "1972-12-01",
-   "diff": 2212.89,
+   "start": "1972-12",
+   "totalInterest": 28218.35865591318,
+   "difference": 2212.894405763269,
    "maxRate": 18.73,
-   "maxPay": 718.85
+   "maxPayment": 718.848687002463
   },
   {
-   "start": "1973-01-01",
-   "diff": 1271.09,
+   "start": "1973-01",
+   "totalInterest": 27276.552318551097,
+   "difference": 1271.0880684011863,
    "maxRate": 18.39,
-   "maxPay": 711.14
+   "maxPayment": 711.1387501257342
   },
   {
-   "start": "1973-02-01",
-   "diff": 812.27,
+   "start": "1973-02",
+   "totalInterest": 26817.729811258945,
+   "difference": 812.265561109034,
    "maxRate": 18.2,
-   "maxPay": 707.87
+   "maxPayment": 707.8711841642446
   },
   {
-   "start": "1973-03-01",
-   "diff": -635.79,
+   "start": "1973-03",
+   "totalInterest": 25369.678844817405,
+   "difference": -635.7854053325063,
    "maxRate": 17.71,
-   "maxPay": 695.63
+   "maxPayment": 695.6275777664832
   },
   {
-   "start": "1973-04-01",
-   "diff": -1056.12,
+   "start": "1973-04",
+   "totalInterest": 24949.347372299922,
+   "difference": -1056.1168778499887,
    "maxRate": 17.54,
-   "maxPay": 692.82
+   "maxPayment": 692.82212124502
   },
   {
-   "start": "1973-05-01",
-   "diff": -1256.17,
+   "start": "1973-05",
+   "totalInterest": 24749.295337532916,
+   "difference": -1256.168912616995,
    "maxRate": 17.44,
-   "maxPay": 692.05
+   "maxPayment": 692.0485436726791
   },
   {
-   "start": "1973-06-01",
-   "diff": -3806.28,
+   "start": "1973-06",
+   "totalInterest": 22199.185233727818,
+   "difference": -3806.2790164220933,
    "maxRate": 16.61,
-   "maxPay": 669.82
+   "maxPayment": 669.8233807201374
   },
   {
-   "start": "1973-07-01",
-   "diff": -6315.17,
+   "start": "1973-07",
+   "totalInterest": 19690.290159290635,
+   "difference": -6315.1740908592765,
    "maxRate": 15.79,
-   "maxPay": 648.09
+   "maxPayment": 648.0911629974862
   },
   {
-   "start": "1973-08-01",
-   "diff": -8240.29,
+   "start": "1973-08",
+   "totalInterest": 17765.171862929088,
+   "difference": -8240.292387220823,
    "maxRate": 15.13,
-   "maxPay": 631.66
+   "maxPayment": 631.6573477216135
   },
   {
-   "start": "1973-09-01",
-   "diff": -7136.79,
+   "start": "1973-09",
+   "totalInterest": 18868.673682361183,
+   "difference": -7136.790567788728,
    "maxRate": 15.51,
-   "maxPay": 643.44
+   "maxPayment": 643.4449873545913
   },
   {
-   "start": "1973-10-01",
-   "diff": -3754.12,
+   "start": "1973-10",
+   "totalInterest": 22251.342455791968,
+   "difference": -3754.121794357943,
    "maxRate": 16.58,
-   "maxPay": 675.97
+   "maxPayment": 675.9715999437681
   },
   {
-   "start": "1973-11-01",
-   "diff": -5609.95,
+   "start": "1973-11",
+   "totalInterest": 20395.51578012202,
+   "difference": -5609.948470027892,
    "maxRate": 15.97,
-   "maxPay": 660.11
+   "maxPayment": 660.1138347070029
   },
   {
-   "start": "1973-12-01",
-   "diff": -4361.46,
+   "start": "1973-12",
+   "totalInterest": 21644.003206887264,
+   "difference": -4361.461043262647,
    "maxRate": 16.35,
-   "maxPay": 672.94
+   "maxPayment": 672.9354775968595
   },
   {
-   "start": "1974-01-01",
-   "diff": -5308.52,
+   "start": "1974-01",
+   "totalInterest": 20696.94145703606,
+   "difference": -5308.522793113851,
    "maxRate": 16.03,
-   "maxPay": 665.45
+   "maxPayment": 665.4488439323835
   },
   {
-   "start": "1974-02-01",
-   "diff": -3188.67,
+   "start": "1974-02",
+   "totalInterest": 22816.794066817703,
+   "difference": -3188.6701833322077,
    "maxRate": 16.68,
-   "maxPay": 686.31
+   "maxPayment": 686.3059005833304
   },
   {
-   "start": "1974-03-01",
-   "diff": -5774.02,
+   "start": "1974-03",
+   "totalInterest": 20231.447039109593,
+   "difference": -5774.017211040318,
    "maxRate": 15.84,
-   "maxPay": 663.59
+   "maxPayment": 663.5911208377031
   },
   {
-   "start": "1974-04-01",
-   "diff": -6877.64,
+   "start": "1974-04",
+   "totalInterest": 19127.826203585213,
+   "difference": -6877.638046564698,
    "maxRate": 15.47,
-   "maxPay": 654.67
+   "maxPayment": 654.6719353110602
   },
   {
-   "start": "1974-05-01",
-   "diff": -6547.3,
+   "start": "1974-05",
+   "totalInterest": 19458.16120145811,
+   "difference": -6547.3030486918,
    "maxRate": 15.57,
-   "maxPay": 659.21
+   "maxPayment": 659.2096598981335
   },
   {
-   "start": "1974-06-01",
-   "diff": -5486.16,
+   "start": "1974-06",
+   "totalInterest": 20519.29949673481,
+   "difference": -5486.164753415102,
    "maxRate": 15.9,
-   "maxPay": 670.76
+   "maxPayment": 670.7553583209003
   },
   {
-   "start": "1974-07-01",
-   "diff": -4328.26,
+   "start": "1974-07",
+   "totalInterest": 21677.204016788826,
+   "difference": -4328.260233361085,
    "maxRate": 16.25,
-   "maxPay": 683.12
+   "maxPayment": 683.122316496901
   },
   {
-   "start": "1974-08-01",
-   "diff": -8428.33,
+   "start": "1974-08",
+   "totalInterest": 17577.132747701522,
+   "difference": -8428.331502448389,
    "maxRate": 14.84,
-   "maxPay": 645.6
+   "maxPayment": 645.599279169109
   },
   {
-   "start": "1974-09-01",
-   "diff": -5879.32,
+   "start": "1974-09",
+   "totalInterest": 20126.140691584962,
+   "difference": -5879.323558564949,
    "maxRate": 15.74,
-   "maxPay": 671.96
+   "maxPayment": 671.9606390257031
   },
   {
-   "start": "1974-10-01",
-   "diff": -3931.29,
+   "start": "1974-10",
+   "totalInterest": 22074.175628247212,
+   "difference": -3931.2886219026987,
    "maxRate": 16.34,
-   "maxPay": 691.76
+   "maxPayment": 691.764037048125
   },
   {
-   "start": "1974-11-01",
-   "diff": -3889.61,
+   "start": "1974-11",
+   "totalInterest": 22115.858680054258,
+   "difference": -3889.605570095653,
    "maxRate": 16.33,
-   "maxPay": 693.6
+   "maxPayment": 693.6039672008727
   },
   {
-   "start": "1974-12-01",
-   "diff": -2786.28,
+   "start": "1974-12",
+   "totalInterest": 23219.186552993833,
+   "difference": -2786.277697156078,
    "maxRate": 16.65,
-   "maxPay": 705.39
+   "maxPayment": 705.3883948776726
   },
   {
-   "start": "1975-01-01",
-   "diff": 214.08,
+   "start": "1975-01",
+   "totalInterest": 26219.544120681923,
+   "difference": 214.07987053201214,
    "maxRate": 17.54,
-   "maxPay": 734.88
+   "maxPayment": 734.878934494422
   },
   {
-   "start": "1975-02-01",
-   "diff": 2888.95,
+   "start": "1975-02",
+   "totalInterest": 28894.412157104452,
+   "difference": 2888.9479069545414,
    "maxRate": 18.3,
-   "maxPay": 761.11
+   "maxPayment": 761.1144789999993
   },
   {
-   "start": "1975-03-01",
-   "diff": 3101.47,
+   "start": "1975-03",
+   "totalInterest": 29106.934787888564,
+   "difference": 3101.4705377386526,
    "maxRate": 18.31,
-   "maxPay": 764.12
+   "maxPayment": 764.1213194238694
   },
   {
-   "start": "1975-04-01",
-   "diff": 2876.99,
+   "start": "1975-04",
+   "totalInterest": 28882.455495149912,
+   "difference": 2876.991245000001,
    "maxRate": 18.19,
-   "maxPay": 763.02
+   "maxPayment": 763.0212336835424
   },
   {
-   "start": "1975-05-01",
-   "diff": 4338.24,
+   "start": "1975-05",
+   "totalInterest": 30343.700712156187,
+   "difference": 4338.236462006276,
    "maxRate": 18.57,
-   "maxPay": 777.74
+   "maxPayment": 777.7362175499325
   },
   {
-   "start": "1975-06-01",
-   "diff": 4159.59,
+   "start": "1975-06",
+   "totalInterest": 30165.05489311031,
+   "difference": 4159.5906429604,
    "maxRate": 18.46,
-   "maxPay": 776.99
+   "maxPayment": 776.9928579640869
   },
   {
-   "start": "1975-07-01",
-   "diff": 1687.21,
+   "start": "1975-07",
+   "totalInterest": 27692.67705185682,
+   "difference": 1687.212801706908,
    "maxRate": 17.67,
-   "maxPay": 754.74
+   "maxPayment": 754.7385371572772
   },
   {
-   "start": "1975-08-01",
-   "diff": 801.86,
+   "start": "1975-08",
+   "totalInterest": 26807.326776277398,
+   "difference": 801.8625261274865,
    "maxRate": 17.36,
-   "maxPay": 747.53
+   "maxPayment": 747.5339715604832
   },
   {
-   "start": "1975-09-01",
-   "diff": 998.39,
+   "start": "1975-09",
+   "totalInterest": 27003.856667105993,
+   "difference": 998.3924169560814,
    "maxRate": 17.38,
-   "maxPay": 750.57
+   "maxPayment": 750.5672581964596
   },
   {
-   "start": "1975-10-01",
-   "diff": 2666.88,
+   "start": "1975-10",
+   "totalInterest": 28672.346977441124,
+   "difference": 2666.882727291213,
    "maxRate": 17.84,
-   "maxPay": 767.45
+   "maxPayment": 767.4499644731875
   },
   {
-   "start": "1975-11-01",
-   "diff": 4445.74,
+   "start": "1975-11",
+   "totalInterest": 30451.205113951622,
+   "difference": 4445.740863801711,
    "maxRate": 18.32,
-   "maxPay": 785.26
+   "maxPayment": 785.2625834356712
   },
   {
-   "start": "1975-12-01",
-   "diff": 4763.43,
+   "start": "1975-12",
+   "totalInterest": 30768.89365580151,
+   "difference": 4763.429405651597,
    "maxRate": 18.36,
-   "maxPay": 789.22
+   "maxPayment": 789.2185061796425
   },
   {
-   "start": "1976-01-01",
-   "diff": 6903.38,
+   "start": "1976-01",
+   "totalInterest": 32908.843015094884,
+   "difference": 6903.378764944973,
    "maxRate": 18.93,
-   "maxPay": 810.3
+   "maxPayment": 810.2972542979617
   },
   {
-   "start": "1976-02-01",
-   "diff": 7084.02,
+   "start": "1976-02",
+   "totalInterest": 33089.48219539718,
+   "difference": 7084.017945247266,
    "maxRate": 18.92,
-   "maxPay": 812.82
+   "maxPayment": 812.8177129124995
   },
   {
-   "start": "1976-03-01",
-   "diff": 6884.38,
+   "start": "1976-03",
+   "totalInterest": 32889.842970862686,
+   "difference": 6884.378720712775,
    "maxRate": 18.8,
-   "maxPay": 811.76
+   "maxPayment": 811.7587709353348
   },
   {
-   "start": "1976-04-01",
-   "diff": 7576.81,
+   "start": "1976-04",
+   "totalInterest": 33582.27563389966,
+   "difference": 7576.811383749751,
    "maxRate": 18.94,
-   "maxPay": 819.11
+   "maxPayment": 819.1138271594572
   },
   {
-   "start": "1976-05-01",
-   "diff": 6618.2,
+   "start": "1976-05",
+   "totalInterest": 32623.666709807283,
+   "difference": 6618.202459657372,
    "maxRate": 18.6,
-   "maxPay": 810.9
+   "maxPayment": 810.9038687046336
   },
   {
-   "start": "1976-06-01",
-   "diff": 6093.43,
+   "start": "1976-06",
+   "totalInterest": 32098.896290722045,
+   "difference": 6093.432040572134,
    "maxRate": 18.39,
-   "maxPay": 806.85
+   "maxPayment": 806.8471524428917
   },
   {
-   "start": "1976-07-01",
-   "diff": 6896.92,
+   "start": "1976-07",
+   "totalInterest": 32902.38176836888,
+   "difference": 6896.917518218972,
    "maxRate": 18.57,
-   "maxPay": 815.35
+   "maxPayment": 815.3487997221703
   },
   {
-   "start": "1976-08-01",
-   "diff": 7401.41,
+   "start": "1976-08",
+   "totalInterest": 33406.870218349504,
+   "difference": 7401.405968199593,
    "maxRate": 18.66,
-   "maxPay": 820.99
+   "maxPayment": 820.9949932572398
   },
   {
-   "start": "1976-09-01",
-   "diff": 7807.06,
+   "start": "1976-09",
+   "totalInterest": 33812.52486171558,
+   "difference": 7807.06061156567,
    "maxRate": 18.72,
-   "maxPay": 825.69
+   "maxPayment": 825.6931723666171
   },
   {
-   "start": "1976-10-01",
-   "diff": 8562.44,
+   "start": "1976-10",
+   "totalInterest": 34567.9046060719,
+   "difference": 8562.440355921986,
    "maxRate": 18.88,
-   "maxPay": 833.68
+   "maxPayment": 833.6764235823506
   },
   {
-   "start": "1976-11-01",
-   "diff": 9362.76,
+   "start": "1976-11",
+   "totalInterest": 35368.224055145714,
+   "difference": 9362.759804995803,
    "maxRate": 19.05,
-   "maxPay": 842.05
+   "maxPayment": 842.0494681066691
   },
   {
-   "start": "1976-12-01",
-   "diff": 10981.52,
+   "start": "1976-12",
+   "totalInterest": 36986.98597499097,
+   "difference": 10981.521724841055,
    "maxRate": 19.45,
-   "maxPay": 858.09
+   "maxPayment": 858.0852873788893
   },
   {
-   "start": "1977-01-01",
-   "diff": 10272.03,
+   "start": "1977-01",
+   "totalInterest": 36277.490140241214,
+   "difference": 10272.025890091303,
    "maxRate": 19.18,
-   "maxPay": 852.12
+   "maxPayment": 852.120182159825
   },
   {
-   "start": "1977-02-01",
-   "diff": 10320.02,
+   "start": "1977-02",
+   "totalInterest": 36325.482700806126,
+   "difference": 10320.018450656215,
    "maxRate": 19.13,
-   "maxPay": 853.35
+   "maxPayment": 853.345688222021
   },
   {
-   "start": "1977-03-01",
-   "diff": 10785.03,
+   "start": "1977-03",
+   "totalInterest": 36790.48968102869,
+   "difference": 10785.025430878777,
    "maxRate": 19.2,
-   "maxPay": 858.51
+   "maxPayment": 858.5093519498604
   },
   {
-   "start": "1977-04-01",
-   "diff": 11218.65,
+   "start": "1977-04",
+   "totalInterest": 37224.11858220614,
+   "difference": 11218.654332056227,
    "maxRate": 19.26,
-   "maxPay": 863.36
+   "maxPayment": 863.3619643801245
   },
   {
-   "start": "1977-05-01",
-   "diff": 9975.46,
+   "start": "1977-05",
+   "totalInterest": 35980.92052840366,
+   "difference": 9975.456278253747,
    "maxRate": 18.84,
-   "maxPay": 852.41
+   "maxPayment": 852.4106209148152
   },
   {
-   "start": "1977-06-01",
-   "diff": 9969.07,
+   "start": "1977-06",
+   "totalInterest": 35974.53243827058,
+   "difference": 9969.06818812067,
    "maxRate": 18.78,
-   "maxPay": 853.2
+   "maxPayment": 853.2027895570027
   },
   {
-   "start": "1977-07-01",
-   "diff": 9577.14,
+   "start": "1977-07",
+   "totalInterest": 35582.60791544421,
+   "difference": 9577.143665294301,
    "maxRate": 18.61,
-   "maxPay": 850.37
+   "maxPayment": 850.3743000751148
   },
   {
-   "start": "1977-08-01",
-   "diff": 8728.71,
+   "start": "1977-08",
+   "totalInterest": 34734.17291696429,
+   "difference": 8728.708666814382,
    "maxRate": 18.31,
-   "maxPay": 843.27
+   "maxPayment": 843.2744344394052
   },
   {
-   "start": "1977-09-01",
-   "diff": 7801.64,
+   "start": "1977-09",
+   "totalInterest": 33807.10805935152,
+   "difference": 7801.643809201611,
    "maxRate": 17.99,
-   "maxPay": 835.49
+   "maxPayment": 835.490164206946
   },
   {
-   "start": "1977-10-01",
-   "diff": 6762.63,
+   "start": "1977-10",
+   "totalInterest": 32768.091952483235,
+   "difference": 6762.627702333324,
    "maxRate": 17.64,
-   "maxPay": 826.71
+   "maxPayment": 826.7063792386763
   },
   {
-   "start": "1977-11-01",
-   "diff": 7102.94,
+   "start": "1977-11",
+   "totalInterest": 33108.402716327044,
+   "difference": 7102.938466177133,
    "maxRate": 17.7,
-   "maxPay": 831.05
+   "maxPayment": 831.0487092182199
   },
   {
-   "start": "1977-12-01",
-   "diff": 7343.51,
+   "start": "1977-12",
+   "totalInterest": 33348.97711498531,
+   "difference": 7343.5128648354,
    "maxRate": 17.73,
-   "maxPay": 834.44
+   "maxPayment": 834.4385797440389
   },
   {
-   "start": "1978-01-01",
-   "diff": 6227.58,
+   "start": "1978-01",
+   "totalInterest": 32233.04043597102,
+   "difference": 6227.576185821108,
    "maxRate": 17.36,
-   "maxPay": 824.98
+   "maxPayment": 824.9757472372131
   },
   {
-   "start": "1978-02-01",
-   "diff": 6312.93,
+   "start": "1978-02",
+   "totalInterest": 32318.39808027177,
+   "difference": 6312.9338301218595,
    "maxRate": 17.35,
-   "maxPay": 826.98
+   "maxPayment": 826.9795021263335
   },
   {
-   "start": "1978-03-01",
-   "diff": 6971.8,
+   "start": "1978-03",
+   "totalInterest": 32977.26104992182,
+   "difference": 6971.79679977191,
    "maxRate": 17.51,
-   "maxPay": 834.43
+   "maxPayment": 834.4299515406329
   },
   {
-   "start": "1978-04-01",
-   "diff": 7096.67,
+   "start": "1978-04",
+   "totalInterest": 33102.13655871232,
+   "difference": 7096.672308562411,
    "maxRate": 17.51,
-   "maxPay": 836.79
+   "maxPayment": 836.785899020738
   },
   {
-   "start": "1978-05-01",
-   "diff": 6814.76,
+   "start": "1978-05",
+   "totalInterest": 32820.22507628858,
+   "difference": 6814.76082613867,
    "maxRate": 17.39,
-   "maxPay": 835.29
+   "maxPayment": 835.2855611893671
   },
   {
-   "start": "1978-06-01",
-   "diff": 5854.73,
+   "start": "1978-06",
+   "totalInterest": 31860.197063765692,
+   "difference": 5854.732813615781,
    "maxRate": 17.07,
-   "maxPay": 827.37
+   "maxPayment": 827.3688510760327
   },
   {
-   "start": "1978-07-01",
-   "diff": 5018.77,
+   "start": "1978-07",
+   "totalInterest": 31024.229298712984,
+   "difference": 5018.765048563073,
    "maxRate": 16.79,
-   "maxPay": 820.69
+   "maxPayment": 820.6908786862417
   },
   {
-   "start": "1978-08-01",
-   "diff": 4871.31,
+   "start": "1978-08",
+   "totalInterest": 30876.777140120557,
+   "difference": 4871.312889970646,
    "maxRate": 16.72,
-   "maxPay": 820.62
+   "maxPayment": 820.622115484467
   },
   {
-   "start": "1978-09-01",
-   "diff": 2413.14,
+   "start": "1978-09",
+   "totalInterest": 28418.602624524257,
+   "difference": 2413.1383743743463,
    "maxRate": 15.95,
-   "maxPay": 798.52
+   "maxPayment": 798.5233032221134
   },
   {
-   "start": "1978-10-01",
-   "diff": 1999.34,
+   "start": "1978-10",
+   "totalInterest": 28004.80018706464,
+   "difference": 1999.3359369147292,
    "maxRate": 15.81,
-   "maxPay": 796.08
+   "maxPayment": 796.0828309120385
   },
   {
-   "start": "1978-11-01",
-   "diff": -66.47,
+   "start": "1978-11",
+   "totalInterest": 25938.991357392435,
+   "difference": -66.47289275747607,
    "maxRate": 15.16,
-   "maxPay": 777.84
+   "maxPayment": 777.8408046216797
   },
   {
-   "start": "1978-12-01",
-   "diff": -1462.23,
+   "start": "1978-12",
+   "totalInterest": 24543.2362987381,
+   "difference": -1462.2279514118127,
    "maxRate": 14.72,
-   "maxPay": 766.08
+   "maxPayment": 766.077757053294
   },
   {
-   "start": "1979-01-01",
-   "diff": -2317.31,
+   "start": "1979-01",
+   "totalInterest": 23688.15011115555,
+   "difference": -2317.3141389943594,
    "maxRate": 14.45,
-   "maxPay": 759.47
+   "maxPayment": 759.4699438419591
   },
   {
-   "start": "1979-02-01",
-   "diff": -2255.34,
+   "start": "1979-02",
+   "totalInterest": 23750.124714292917,
+   "difference": -2255.339535856994,
    "maxRate": 14.48,
-   "maxPay": 761.92
+   "maxPayment": 761.9234314815205
   },
   {
-   "start": "1979-03-01",
-   "diff": -2765.35,
+   "start": "1979-03",
+   "totalInterest": 23240.113770322485,
+   "difference": -2765.350479827426,
    "maxRate": 14.32,
-   "maxPay": 758.62
+   "maxPayment": 758.616020806922
   },
   {
-   "start": "1979-04-01",
-   "diff": -2741.45,
+   "start": "1979-04",
+   "totalInterest": 23264.016113329133,
+   "difference": -2741.448136820778,
    "maxRate": 14.34,
-   "maxPay": 760.73
+   "maxPayment": 760.7269819816735
   },
   {
-   "start": "1979-05-01",
-   "diff": -3217.26,
+   "start": "1979-05",
+   "totalInterest": 22788.20286726061,
+   "difference": -3217.261382889301,
    "maxRate": 14.19,
-   "maxPay": 757.69
+   "maxPayment": 757.6943773953213
   },
   {
-   "start": "1979-06-01",
-   "diff": -1597.41,
+   "start": "1979-06",
+   "totalInterest": 24408.05851410541,
+   "difference": -1597.4057360445004,
    "maxRate": 14.74,
-   "maxPay": 775.87
+   "maxPayment": 775.8737530967726
   },
   {
-   "start": "1979-07-01",
-   "diff": -2173.8,
+   "start": "1979-07",
+   "totalInterest": 23831.667320373544,
+   "difference": -2173.7969297763666,
    "maxRate": 14.56,
-   "maxPay": 771.98
+   "maxPayment": 771.9823188889679
   },
   {
-   "start": "1979-08-01",
-   "diff": -3036.92,
+   "start": "1979-08",
+   "totalInterest": 22968.540934441975,
+   "difference": -3036.923315707936,
    "maxRate": 14.28,
-   "maxPay": 765.03
+   "maxPayment": 765.0326969442689
   },
   {
-   "start": "1979-09-01",
-   "diff": -5154.5,
+   "start": "1979-09",
+   "totalInterest": 20850.96287123956,
+   "difference": -5154.5013789103505,
    "maxRate": 13.54,
-   "maxPay": 744.27
+   "maxPayment": 744.2716052546065
   },
   {
-   "start": "1979-10-01",
-   "diff": -8795.93,
+   "start": "1979-10",
+   "totalInterest": 17209.531047475,
+   "difference": -8795.93320267491,
    "maxRate": 12.1,
-   "maxPay": 703.48
+   "maxPayment": 703.4784406952708
   },
   {
-   "start": "1979-11-01",
-   "diff": -9097.79,
+   "start": "1979-11",
+   "totalInterest": 16907.671691806838,
+   "difference": -9097.792558343073,
    "maxRate": 12.01,
-   "maxPay": 701.87
+   "maxPayment": 701.8704428139323
   },
   {
-   "start": "1979-12-01",
-   "diff": -9693.6,
+   "start": "1979-12",
+   "totalInterest": 16311.86210343689,
+   "difference": -9693.602146713021,
    "maxRate": 11.76,
-   "maxPay": 695.74
+   "maxPayment": 695.7387056829775
   },
   {
-   "start": "1980-01-01",
-   "diff": -9739.85,
+   "start": "1980-01",
+   "totalInterest": 16265.611714424134,
+   "difference": -9739.852535725777,
    "maxRate": 11.8,
-   "maxPay": 697.76
+   "maxPayment": 697.7597807194684
   },
   {
-   "start": "1980-02-01",
-   "diff": -11239.09,
+   "start": "1980-02",
+   "totalInterest": 14766.374526505793,
+   "difference": -11239.089723644118,
    "maxRate": 10.94,
-   "maxPay": 674.71
+   "maxPayment": 674.705093725401
   },
   {
-   "start": "1980-03-01",
-   "diff": -13825.12,
+   "start": "1980-03",
+   "totalInterest": 12180.3484243137,
+   "difference": -13825.11582583621,
    "maxRate": 8.6,
-   "maxPay": 613.51
+   "maxPayment": 613.5127048743442
   },
   {
-   "start": "1980-04-01",
-   "diff": -12032.65,
+   "start": "1980-04",
+   "totalInterest": 13972.817310985689,
+   "difference": -12032.646939164222,
    "maxRate": 10.6,
-   "maxPay": 666.41
+   "maxPayment": 666.4120018220061
   },
   {
-   "start": "1980-05-01",
-   "diff": -1682.06,
+   "start": "1980-05",
+   "totalInterest": 24323.406250236058,
+   "difference": -1682.0579999138536,
    "maxRate": 15.22,
-   "maxPay": 801.86
+   "maxPayment": 801.8624794434792
   },
   {
-   "start": "1980-06-01",
-   "diff": 3148.43,
+   "start": "1980-06",
+   "totalInterest": 29153.89382586752,
+   "difference": 3148.429575717608,
    "maxRate": 16.73,
-   "maxPay": 850.7
+   "maxPayment": 850.7014059218503
   },
   {
-   "start": "1980-07-01",
-   "diff": 19.36,
+   "start": "1980-07",
+   "totalInterest": 26024.8237920876,
+   "difference": 19.359541937690665,
    "maxRate": 15.74,
-   "maxPay": 821.71
+   "maxPayment": 821.7143956261444
   },
   {
-   "start": "1980-08-01",
-   "diff": -3323.99,
+   "start": "1980-08",
+   "totalInterest": 22681.478177866054,
+   "difference": -3323.9860722838566,
    "maxRate": 14.67,
-   "maxPay": 790.59
+   "maxPayment": 790.5857798904763
   },
   {
-   "start": "1980-09-01",
-   "diff": -6491.94,
+   "start": "1980-09",
+   "totalInterest": 19513.522718299733,
+   "difference": -6491.941531850178,
    "maxRate": 13.53,
-   "maxPay": 757.76
+   "maxPayment": 757.7588995332233
   },
   {
-   "start": "1980-10-01",
-   "diff": -9687.77,
+   "start": "1980-10",
+   "totalInterest": 16317.690359440152,
+   "difference": -9687.77389070976,
    "maxRate": 12.18,
-   "maxPay": 719.31
+   "maxPayment": 719.3107879718731
   },
   {
-   "start": "1980-11-01",
-   "diff": -12679.08,
+   "start": "1980-11",
+   "totalInterest": 13326.38815710356,
+   "difference": -12679.076093046351,
    "maxRate": 10.07,
-   "maxPay": 660.39
+   "maxPayment": 660.38906927078
   },
   {
-   "start": "1980-12-01",
-   "diff": -14254.36,
+   "start": "1980-12",
+   "totalInterest": 11751.106839427059,
+   "difference": -14254.357410722852,
    "maxRate": 8.31,
-   "maxPay": 613.07
+   "maxPayment": 613.0671933281592
   },
   {
-   "start": "1981-01-01",
-   "diff": -14089.19,
+   "start": "1981-01",
+   "totalInterest": 11916.271990987922,
+   "difference": -14089.19225916199,
    "maxRate": 8.78,
-   "maxPay": 625.8
+   "maxPayment": 625.80450053542
   },
   {
-   "start": "1981-02-01",
-   "diff": -14088.97,
+   "start": "1981-02",
+   "totalInterest": 11916.496694401822,
+   "difference": -14088.96755574809,
    "maxRate": 9.01,
-   "maxPay": 632.26
+   "maxPayment": 632.260380369416
   },
   {
-   "start": "1981-03-01",
-   "diff": -13139.73,
+   "start": "1981-03",
+   "totalInterest": 12865.735676648535,
+   "difference": -13139.728573501376,
    "maxRate": 10.44,
-   "maxPay": 671.9
+   "maxPayment": 671.9006151026691
   },
   {
-   "start": "1981-04-01",
-   "diff": -13567.25,
+   "start": "1981-04",
+   "totalInterest": 12438.215870613518,
+   "difference": -13567.248379536393,
    "maxRate": 10.11,
-   "maxPay": 663.29
+   "maxPayment": 663.2900630607263
   },
   {
-   "start": "1981-05-01",
-   "diff": -15202.08,
+   "start": "1981-05",
+   "totalInterest": 10803.381632879376,
+   "difference": -15202.082617270535,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1981-06-01",
-   "diff": -14643.37,
+   "start": "1981-06",
+   "totalInterest": 11362.093722525293,
+   "difference": -14643.370527624618,
    "maxRate": 8.28,
-   "maxPay": 613.81
+   "maxPayment": 613.8076191866173
   },
   {
-   "start": "1981-07-01",
-   "diff": -14908.46,
+   "start": "1981-07",
+   "totalInterest": 11097.008772529198,
+   "difference": -14908.455477620713,
    "maxRate": 8.06,
-   "maxPay": 608.12
+   "maxPayment": 608.118930429748
   },
   {
-   "start": "1981-08-01",
-   "diff": -15294.8,
+   "start": "1981-08",
+   "totalInterest": 10710.666158554124,
+   "difference": -15294.798091595787,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1981-09-01",
-   "diff": -15161.82,
+   "start": "1981-09",
+   "totalInterest": 10843.647988337447,
+   "difference": -15161.816261812464,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1981-10-01",
-   "diff": -14776.65,
+   "start": "1981-10",
+   "totalInterest": 11228.814626315743,
+   "difference": -14776.649623834168,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1981-11-01",
-   "diff": -11688.52,
+   "start": "1981-11",
+   "totalInterest": 14316.94792828158,
+   "difference": -11688.516321868332,
    "maxRate": 10.12,
-   "maxPay": 662.82
+   "maxPayment": 662.8172546369738
   },
   {
-   "start": "1981-12-01",
-   "diff": -11799.75,
+   "start": "1981-12",
+   "totalInterest": 14205.715652677256,
+   "difference": -11799.748597472655,
    "maxRate": 10.13,
-   "maxPay": 663.61
+   "maxPayment": 663.611862433815
   },
   {
-   "start": "1982-01-01",
-   "diff": -14141.75,
+   "start": "1982-01",
+   "totalInterest": 11863.712011391275,
+   "difference": -14141.752238758636,
    "maxRate": 8.7,
-   "maxPay": 625.06
+   "maxPayment": 625.0604489817283
   },
   {
-   "start": "1982-02-01",
-   "diff": -15097.5,
+   "start": "1982-02",
+   "totalInterest": 10907.960748711801,
+   "difference": -15097.50350143811,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1982-03-01",
-   "diff": -14837.43,
+   "start": "1982-03",
+   "totalInterest": 11168.033179615704,
+   "difference": -14837.431070534207,
    "maxRate": 7.52,
-   "maxPay": 594.03
+   "maxPayment": 594.0271768575396
   },
   {
-   "start": "1982-04-01",
-   "diff": -15012.03,
+   "start": "1982-04",
+   "totalInterest": 10993.4351737169,
+   "difference": -15012.029076433011,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1982-05-01",
-   "diff": -14686.79,
+   "start": "1982-05",
+   "totalInterest": 11318.672076366058,
+   "difference": -14686.792173783853,
    "maxRate": 7.88,
-   "maxPay": 603.4
+   "maxPayment": 603.400976275139
   },
   {
-   "start": "1982-06-01",
-   "diff": -15166.79,
+   "start": "1982-06",
+   "totalInterest": 10838.676762054018,
+   "difference": -15166.787488095893,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1982-07-01",
-   "diff": -14105.31,
+   "start": "1982-07",
+   "totalInterest": 11900.154378463292,
+   "difference": -14105.309871686619,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1982-08-01",
-   "diff": -8131.55,
+   "start": "1982-08",
+   "totalInterest": 17873.91879772154,
+   "difference": -8131.5454524283705,
    "maxRate": 9.29,
-   "maxPay": 633.21
+   "maxPayment": 633.2076745952946
   },
   {
-   "start": "1982-09-01",
-   "diff": -5905.49,
+   "start": "1982-09",
+   "totalInterest": 20099.975452731964,
+   "difference": -5905.488797417947,
    "maxRate": 10.05,
-   "maxPay": 654.44
+   "maxPayment": 654.441756486805
   },
   {
-   "start": "1982-10-01",
-   "diff": -5310.18,
+   "start": "1982-10",
+   "totalInterest": 20695.281349376648,
+   "difference": -5310.182900773263,
    "maxRate": 10.26,
-   "maxPay": 660.79
+   "maxPayment": 660.7920794669996
   },
   {
-   "start": "1982-11-01",
-   "diff": -6451.74,
+   "start": "1982-11",
+   "totalInterest": 19553.72791465121,
+   "difference": -6451.736335498703,
    "maxRate": 9.9,
-   "maxPay": 651.37
+   "maxPayment": 651.3710958872305
   },
   {
-   "start": "1982-12-01",
-   "diff": -6115.12,
+   "start": "1982-12",
+   "totalInterest": 19890.3394612953,
+   "difference": -6115.1247888546095,
    "maxRate": 10.03,
-   "maxPay": 655.45
+   "maxPayment": 655.4512247261713
   },
   {
-   "start": "1983-01-01",
-   "diff": -5926.7,
+   "start": "1983-01",
+   "totalInterest": 20078.76621076185,
+   "difference": -5926.698039388062,
    "maxRate": 10.11,
-   "maxPay": 658.18
+   "maxPayment": 658.1797021655892
   },
   {
-   "start": "1983-02-01",
-   "diff": -6735.29,
+   "start": "1983-02",
+   "totalInterest": 19270.173698057846,
+   "difference": -6735.290552092065,
    "maxRate": 9.86,
-   "maxPay": 651.79
+   "maxPayment": 651.7874799185626
   },
   {
-   "start": "1983-03-01",
-   "diff": -7518.11,
+   "start": "1983-03",
+   "totalInterest": 18487.354158667044,
+   "difference": -7518.110091482868,
    "maxRate": 9.62,
-   "maxPay": 645.66
+   "maxPayment": 645.655994506174
   },
   {
-   "start": "1983-04-01",
-   "diff": -7176.09,
+   "start": "1983-04",
+   "totalInterest": 18829.373156186557,
+   "difference": -7176.091093963354,
    "maxRate": 9.76,
-   "maxPay": 649.93
+   "maxPayment": 649.9274772886798
   },
   {
-   "start": "1983-05-01",
-   "diff": -7187.74,
+   "start": "1983-05",
+   "totalInterest": 18817.7204706178,
+   "difference": -7187.743779532109,
    "maxRate": 9.78,
-   "maxPay": 650.93
+   "maxPayment": 650.928856078314
   },
   {
-   "start": "1983-06-01",
-   "diff": -9023.44,
+   "start": "1983-06",
+   "totalInterest": 16982.028876872624,
+   "difference": -9023.435373277287,
    "maxRate": 9.18,
-   "maxPay": 634.97
+   "maxPayment": 634.9674253441074
   },
   {
-   "start": "1983-07-01",
-   "diff": -9942.97,
+   "start": "1983-07",
+   "totalInterest": 16062.495261733813,
+   "difference": -9942.968988416098,
    "maxRate": 8.89,
-   "maxPay": 627.45
+   "maxPayment": 627.4465689942391
   },
   {
-   "start": "1983-08-01",
-   "diff": -10743.82,
+   "start": "1983-08",
+   "totalInterest": 15261.641953238874,
+   "difference": -10743.822296911037,
    "maxRate": 8.63,
-   "maxPay": 620.73
+   "maxPayment": 620.725140956883
   },
   {
-   "start": "1983-09-01",
-   "diff": -9948.18,
+   "start": "1983-09",
+   "totalInterest": 16057.28543277125,
+   "difference": -9948.17881737866,
    "maxRate": 8.97,
-   "maxPay": 630.1
+   "maxPayment": 630.1020729476286
   },
   {
-   "start": "1983-10-01",
-   "diff": -9031.91,
+   "start": "1983-10",
+   "totalInterest": 16973.55313290671,
+   "difference": -9031.911117243202,
    "maxRate": 9.33,
-   "maxPay": 640.16
+   "maxPayment": 640.1646213634448
   },
   {
-   "start": "1983-11-01",
-   "diff": -9470.87,
+   "start": "1983-11",
+   "totalInterest": 16534.591768658735,
+   "difference": -9470.872481491177,
    "maxRate": 9.21,
-   "maxPay": 637.26
+   "maxPayment": 637.2556799220139
   },
   {
-   "start": "1983-12-01",
-   "diff": -10243.88,
+   "start": "1983-12",
+   "totalInterest": 15761.588833356325,
+   "difference": -10243.875416793586,
    "maxRate": 8.97,
-   "maxPay": 631.08
+   "maxPayment": 631.0816003366522
   },
   {
-   "start": "1984-01-01",
-   "diff": -10080.28,
+   "start": "1984-01",
+   "totalInterest": 15925.181999616418,
+   "difference": -10080.282250533493,
    "maxRate": 9.07,
-   "maxPay": 634.07
+   "maxPayment": 634.0740400083861
   },
   {
-   "start": "1984-02-01",
-   "diff": -10703.37,
+   "start": "1984-02",
+   "totalInterest": 15302.098540114757,
+   "difference": -10703.365710035154,
    "maxRate": 8.88,
-   "maxPay": 629.24
+   "maxPayment": 629.2401161296294
   },
   {
-   "start": "1984-03-01",
-   "diff": -11857.78,
+   "start": "1984-03",
+   "totalInterest": 14147.68389476087,
+   "difference": -11857.78035538904,
    "maxRate": 8.45,
-   "maxPay": 617.96
+   "maxPayment": 617.9623023621772
   },
   {
-   "start": "1984-04-01",
-   "diff": -12330.44,
+   "start": "1984-04",
+   "totalInterest": 13675.025974124072,
+   "difference": -12330.43827602584,
    "maxRate": 8.28,
-   "maxPay": 613.61
+   "maxPayment": 613.6125601618194
   },
   {
-   "start": "1984-05-01",
-   "diff": -12731.84,
+   "start": "1984-05",
+   "totalInterest": 13273.619624110395,
+   "difference": -12731.844626039516,
    "maxRate": 8.14,
-   "maxPay": 610.04
+   "maxPayment": 610.0431610028058
   },
   {
-   "start": "1984-06-01",
-   "diff": -12942.47,
+   "start": "1984-06",
+   "totalInterest": 13062.996272586053,
+   "difference": -12942.467977563858,
    "maxRate": 8.1,
-   "maxPay": 609.1
+   "maxPayment": 609.1044074089044
   },
   {
-   "start": "1984-07-01",
-   "diff": -13503.25,
+   "start": "1984-07",
+   "totalInterest": 12502.211375740735,
+   "difference": -13503.252874409176,
    "maxRate": 7.85,
-   "maxPay": 602.62
+   "maxPayment": 602.6166597588598
   },
   {
-   "start": "1984-08-01",
-   "diff": -14188.26,
+   "start": "1984-08",
+   "totalInterest": 11817.2027909824,
+   "difference": -14188.261459167512,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1984-09-01",
-   "diff": -14191.94,
+   "start": "1984-09",
+   "totalInterest": 11813.520089194359,
+   "difference": -14191.944160955552,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1984-10-01",
-   "diff": -13341.64,
+   "start": "1984-10",
+   "totalInterest": 12663.821639359236,
+   "difference": -13341.642610790675,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1984-11-01",
-   "diff": -10860.09,
+   "start": "1984-11",
+   "totalInterest": 15145.372545132956,
+   "difference": -10860.091705016956,
    "maxRate": 7.71,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1984-12-01",
-   "diff": -9499.45,
+   "start": "1984-12",
+   "totalInterest": 16506.01005027607,
+   "difference": -9499.454199873842,
    "maxRate": 8.26,
-   "maxPay": 605.3
+   "maxPayment": 605.3043188668339
   },
   {
-   "start": "1985-01-01",
-   "diff": -8785.9,
+   "start": "1985-01",
+   "totalInterest": 17219.56653422659,
+   "difference": -8785.897715923322,
    "maxRate": 8.56,
-   "maxPay": 613.34
+   "maxPayment": 613.3384050180406
   },
   {
-   "start": "1985-02-01",
-   "diff": -10246.56,
+   "start": "1985-02",
+   "totalInterest": 15758.900679951483,
+   "difference": -10246.563570198428,
    "maxRate": 8.05,
-   "maxPay": 600.01
+   "maxPayment": 600.0064243313901
   },
   {
-   "start": "1985-03-01",
-   "diff": -11009.88,
+   "start": "1985-03",
+   "totalInterest": 14995.581865280532,
+   "difference": -11009.88238486938,
    "maxRate": 7.8,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1985-04-01",
-   "diff": -9627.35,
+   "start": "1985-04",
+   "totalInterest": 16378.113760132786,
+   "difference": -9627.350490017125,
    "maxRate": 8.37,
-   "maxPay": 593.71
+   "maxPayment": 593.7138433050915
   },
   {
-   "start": "1985-05-01",
-   "diff": -8461.94,
+   "start": "1985-05",
+   "totalInterest": 17543.522809870916,
+   "difference": -8461.941440278995,
    "maxRate": 8.84,
-   "maxPay": 606.41
+   "maxPayment": 606.41085428173
   },
   {
-   "start": "1985-06-01",
-   "diff": -7060.39,
+   "start": "1985-06",
+   "totalInterest": 18945.076440786503,
+   "difference": -7060.387809363408,
    "maxRate": 9.37,
-   "maxPay": 620.98
+   "maxPayment": 620.9760542569319
   },
   {
-   "start": "1985-07-01",
-   "diff": -7492.06,
+   "start": "1985-07",
+   "totalInterest": 18513.40035061171,
+   "difference": -7492.0638995382,
    "maxRate": 9.24,
-   "maxPay": 617.87
+   "maxPayment": 617.8671683860248
   },
   {
-   "start": "1985-08-01",
-   "diff": -7730.81,
+   "start": "1985-08",
+   "totalInterest": 18274.651964049397,
+   "difference": -7730.812286100514,
    "maxRate": 9.18,
-   "maxPay": 616.63
+   "maxPayment": 616.6280756052387
   },
   {
-   "start": "1985-09-01",
-   "diff": -7692.76,
+   "start": "1985-09",
+   "totalInterest": 18312.70387042131,
+   "difference": -7692.760379728603,
    "maxRate": 9.22,
-   "maxPay": 618.08
+   "maxPayment": 618.0761838500243
   },
   {
-   "start": "1985-10-01",
-   "diff": -7932.1,
+   "start": "1985-10",
+   "totalInterest": 18073.365857345023,
+   "difference": -7932.098392804888,
    "maxRate": 9.16,
-   "maxPay": 616.83
+   "maxPayment": 616.8312392902559
   },
   {
-   "start": "1985-11-01",
-   "diff": -8228.49,
+   "start": "1985-11",
+   "totalInterest": 17776.97037438306,
+   "difference": -8228.49387576685,
    "maxRate": 9.08,
-   "maxPay": 615.04
+   "maxPayment": 615.036343960625
   },
   {
-   "start": "1985-12-01",
-   "diff": -7921.99,
+   "start": "1985-12",
+   "totalInterest": 18083.47167565016,
+   "difference": -7921.992574499753,
    "maxRate": 9.22,
-   "maxPay": 619.16
+   "maxPayment": 619.1613219316282
   },
   {
-   "start": "1986-01-01",
-   "diff": -7914.03,
+   "start": "1986-01",
+   "totalInterest": 18091.43475575321,
+   "difference": -7914.029494396702,
    "maxRate": 9.25,
-   "maxPay": 620.35
+   "maxPayment": 620.346226187186
   },
   {
-   "start": "1986-02-01",
-   "diff": -7960.76,
+   "start": "1986-02",
+   "totalInterest": 18044.704595929725,
+   "difference": -7960.759654220186,
    "maxRate": 9.26,
-   "maxPay": 621.0
+   "maxPayment": 620.995430399999
   },
   {
-   "start": "1986-03-01",
-   "diff": -6603.11,
+   "start": "1986-03",
+   "totalInterest": 19402.35370414421,
+   "difference": -6603.110546005701,
    "maxRate": 9.76,
-   "maxPay": 635.0
+   "maxPayment": 635.0039625531695
   },
   {
-   "start": "1986-04-01",
-   "diff": -5113.39,
+   "start": "1986-04",
+   "totalInterest": 20892.076352912147,
+   "difference": -5113.387897237764,
    "maxRate": 10.26,
-   "maxPay": 649.28
+   "maxPayment": 649.2814271591686
   },
   {
-   "start": "1986-05-01",
-   "diff": -5424.81,
+   "start": "1986-05",
+   "totalInterest": 20580.653104849745,
+   "difference": -5424.811145300166,
    "maxRate": 10.17,
-   "maxPay": 647.37
+   "maxPayment": 647.3694819515615
   },
   {
-   "start": "1986-06-01",
-   "diff": -5647.33,
+   "start": "1986-06",
+   "totalInterest": 20358.134332711434,
+   "difference": -5647.329917438477,
    "maxRate": 10.11,
-   "maxPay": 646.27
+   "maxPayment": 646.2719271891282
   },
   {
-   "start": "1986-07-01",
-   "diff": -4506.4,
+   "start": "1986-07",
+   "totalInterest": 21499.06075441354,
+   "difference": -4506.403495736373,
    "maxRate": 10.49,
-   "maxPay": 657.39
+   "maxPayment": 657.3871627835516
   },
   {
-   "start": "1986-08-01",
-   "diff": -3589.06,
+   "start": "1986-08",
+   "totalInterest": 22416.40838284542,
+   "difference": -3589.0558673044907,
    "maxRate": 10.79,
-   "maxPay": 666.42
+   "maxPayment": 666.4244940138578
   },
   {
-   "start": "1986-09-01",
-   "diff": -2587.8,
+   "start": "1986-09",
+   "totalInterest": 23417.65957481654,
+   "difference": -2587.804675333373,
    "maxRate": 11.11,
-   "maxPay": 676.15
+   "maxPayment": 676.1500659175481
   },
   {
-   "start": "1986-10-01",
-   "diff": -2485.97,
+   "start": "1986-10",
+   "totalInterest": 23519.4970130927,
+   "difference": -2485.9672370572116,
    "maxRate": 11.14,
-   "maxPay": 677.76
+   "maxPayment": 677.7595389499727
   },
   {
-   "start": "1986-11-01",
-   "diff": -3015.35,
+   "start": "1986-11",
+   "totalInterest": 22990.118134718425,
+   "difference": -3015.3461154314864,
    "maxRate": 10.97,
-   "maxPay": 673.71
+   "maxPayment": 673.7111721399993
   },
   {
-   "start": "1986-12-01",
-   "diff": -3582.14,
+   "start": "1986-12",
+   "totalInterest": 22423.324180390475,
+   "difference": -3582.1400697594363,
    "maxRate": 10.79,
-   "maxPay": 669.36
+   "maxPayment": 669.3604905691288
   },
   {
-   "start": "1987-01-01",
-   "diff": -3276.94,
+   "start": "1987-01",
+   "totalInterest": 22728.528918637174,
+   "difference": -3276.9353315127373,
    "maxRate": 10.89,
-   "maxPay": 672.86
+   "maxPayment": 672.8640509747702
   },
   {
-   "start": "1987-02-01",
-   "diff": -3783.94,
+   "start": "1987-02",
+   "totalInterest": 22221.520146792205,
+   "difference": -3783.944103357706,
    "maxRate": 10.73,
-   "maxPay": 669.06
+   "maxPayment": 669.0629077123083
   },
   {
-   "start": "1987-03-01",
-   "diff": -3796.4,
+   "start": "1987-03",
+   "totalInterest": 22209.06358328845,
+   "difference": -3796.40066686146,
    "maxRate": 10.73,
-   "maxPay": 669.73
+   "maxPayment": 669.7326009783296
   },
   {
-   "start": "1987-04-01",
-   "diff": -3965.56,
+   "start": "1987-04",
+   "totalInterest": 22039.9038406984,
+   "difference": -3965.560409451511,
    "maxRate": 10.68,
-   "maxPay": 669.0
+   "maxPayment": 668.9954859216953
   },
   {
-   "start": "1987-05-01",
-   "diff": -4043.32,
+   "start": "1987-05",
+   "totalInterest": 21962.148301255012,
+   "difference": -4043.3159488948986,
    "maxRate": 10.66,
-   "maxPay": 669.09
+   "maxPayment": 669.0898647170493
   },
   {
-   "start": "1987-06-01",
-   "diff": -4090.99,
+   "start": "1987-06",
+   "totalInterest": 21914.470137908134,
+   "difference": -4090.9941122417767,
    "maxRate": 10.65,
-   "maxPay": 669.46
+   "maxPayment": 669.4595040706583
   },
   {
-   "start": "1987-07-01",
-   "diff": -4170.66,
+   "start": "1987-07",
+   "totalInterest": 21834.801666328425,
+   "difference": -4170.662583821486,
    "maxRate": 10.63,
-   "maxPay": 669.54
+   "maxPayment": 669.5449038114396
   },
   {
-   "start": "1987-08-01",
-   "diff": -5276.41,
+   "start": "1987-08",
+   "totalInterest": 20729.05352873775,
+   "difference": -5276.410721412161,
    "maxRate": 10.28,
-   "maxPay": 660.4
+   "maxPayment": 660.3997208702605
   },
   {
-   "start": "1987-09-01",
-   "diff": -6419.72,
+   "start": "1987-09",
+   "totalInterest": 19585.739454690225,
+   "difference": -6419.724795459686,
    "maxRate": 9.92,
-   "maxPay": 650.98
+   "maxPayment": 650.9797136039588
   },
   {
-   "start": "1987-10-01",
-   "diff": -5642.46,
+   "start": "1987-10",
+   "totalInterest": 20363.00925012709,
+   "difference": -5642.455000022823,
    "maxRate": 10.19,
-   "maxPay": 658.95
+   "maxPayment": 658.9525487894394
   },
   {
-   "start": "1987-11-01",
-   "diff": -4319.39,
+   "start": "1987-11",
+   "totalInterest": 21686.072147646377,
+   "difference": -4319.392102503534,
    "maxRate": 10.63,
-   "maxPay": 671.79
+   "maxPayment": 671.7908660282542
   },
   {
-   "start": "1987-12-01",
-   "diff": -4588.26,
+   "start": "1987-12",
+   "totalInterest": 21417.20703768251,
+   "difference": -4588.257212467401,
    "maxRate": 10.55,
-   "maxPay": 670.18
+   "maxPayment": 670.182630825468
   },
   {
-   "start": "1988-01-01",
-   "diff": -4736.44,
+   "start": "1988-01",
+   "totalInterest": 21269.019970984933,
+   "difference": -4736.444279164978,
    "maxRate": 10.51,
-   "maxPay": 669.68
+   "maxPayment": 669.6796758055297
   },
   {
-   "start": "1988-02-01",
-   "diff": -4296.32,
+   "start": "1988-02",
+   "totalInterest": 21709.14006792764,
+   "difference": -4296.32418222227,
    "maxRate": 10.66,
-   "maxPay": 674.5
+   "maxPayment": 674.4954783840057
   },
   {
-   "start": "1988-03-01",
-   "diff": -4440.1,
+   "start": "1988-03",
+   "totalInterest": 21565.367938236264,
+   "difference": -4440.096311913647,
    "maxRate": 10.62,
-   "maxPay": 674.01
+   "maxPayment": 674.0101374179097
   },
   {
-   "start": "1988-04-01",
-   "diff": -5112.74,
+   "start": "1988-04",
+   "totalInterest": 20892.72052025193,
+   "difference": -5112.743729897982,
    "maxRate": 10.41,
-   "maxPay": 668.76
+   "maxPayment": 668.7563041727865
   },
   {
-   "start": "1988-05-01",
-   "diff": -6221.82,
+   "start": "1988-05",
+   "totalInterest": 19783.648024929385,
+   "difference": -6221.816225220526,
    "maxRate": 10.06,
-   "maxPay": 659.6
+   "maxPayment": 659.5964607168283
   },
   {
-   "start": "1988-06-01",
-   "diff": -6881.37,
+   "start": "1988-06",
+   "totalInterest": 19124.095363984452,
+   "difference": -6881.368886165459,
    "maxRate": 9.86,
-   "maxPay": 654.57
+   "maxPayment": 654.5722140750413
   },
   {
-   "start": "1988-07-01",
-   "diff": -7740.38,
+   "start": "1988-07",
+   "totalInterest": 18265.083447437533,
+   "difference": -7740.380802712378,
    "maxRate": 9.59,
-   "maxPay": 647.61
+   "maxPayment": 647.6088900434607
   },
   {
-   "start": "1988-08-01",
-   "diff": -8658.59,
+   "start": "1988-08",
+   "totalInterest": 17346.878194801262,
+   "difference": -8658.58605534865,
    "maxRate": 9.26,
-   "maxPay": 639.0
+   "maxPayment": 639.0007089588199
   },
   {
-   "start": "1988-09-01",
-   "diff": -9183.73,
+   "start": "1988-09",
+   "totalInterest": 16821.731880366366,
+   "difference": -9183.732369783545,
    "maxRate": 9.08,
-   "maxPay": 634.45
+   "maxPayment": 634.453340081959
   },
   {
-   "start": "1988-10-01",
-   "diff": -9540.99,
+   "start": "1988-10",
+   "totalInterest": 16464.47861041793,
+   "difference": -9540.985639731982,
    "maxRate": 8.97,
-   "maxPay": 631.78
+   "maxPayment": 631.7810795743856
   },
   {
-   "start": "1988-11-01",
-   "diff": -10560.37,
+   "start": "1988-11",
+   "totalInterest": 15445.098554172371,
+   "difference": -10560.36569597754,
    "maxRate": 8.56,
-   "maxPay": 621.03
+   "maxPayment": 621.0313912800783
   },
   {
-   "start": "1988-12-01",
-   "diff": -11317.97,
+   "start": "1988-12",
+   "totalInterest": 14687.495783217004,
+   "difference": -11317.968466932907,
    "maxRate": 8.25,
-   "maxPay": 612.96
+   "maxPayment": 612.9630065552162
   },
   {
-   "start": "1989-01-01",
-   "diff": -11843.9,
+   "start": "1989-01",
+   "totalInterest": 14161.567351560523,
+   "difference": -11843.896898589388,
    "maxRate": 8.05,
-   "maxPay": 607.8
+   "maxPayment": 607.8018648120373
   },
   {
-   "start": "1989-02-01",
-   "diff": -12474.57,
+   "start": "1989-02",
+   "totalInterest": 13530.892324552016,
+   "difference": -12474.571925597895,
    "maxRate": 7.79,
-   "maxPay": 601.05
+   "maxPayment": 601.0497514271391
   },
   {
-   "start": "1989-03-01",
-   "diff": -13128.77,
+   "start": "1989-03",
+   "totalInterest": 12876.695948477603,
+   "difference": -13128.768301672308,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1989-04-01",
-   "diff": -12991.66,
+   "start": "1989-04",
+   "totalInterest": 13013.803575943224,
+   "difference": -12991.660674206687,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1989-05-01",
-   "diff": -12731.25,
+   "start": "1989-05",
+   "totalInterest": 13274.218747511215,
+   "difference": -12731.245502638696,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1989-06-01",
-   "diff": -12344.88,
+   "start": "1989-06",
+   "totalInterest": 13660.584500049068,
+   "difference": -12344.879750100843,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1989-07-01",
-   "diff": -11952.39,
+   "start": "1989-07",
+   "totalInterest": 14053.077311203628,
+   "difference": -11952.386938946283,
    "maxRate": 7.52,
-   "maxPay": 594.03
+   "maxPayment": 594.0271768575396
   },
   {
-   "start": "1989-08-01",
-   "diff": -12118.06,
+   "start": "1989-08",
+   "totalInterest": 13887.408323387408,
+   "difference": -12118.055926762503,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1989-09-01",
-   "diff": -11947.6,
+   "start": "1989-09",
+   "totalInterest": 14057.86061512986,
+   "difference": -11947.60363502005,
    "maxRate": 7.65,
-   "maxPay": 597.18
+   "maxPayment": 597.1842489026421
   },
   {
-   "start": "1989-10-01",
-   "diff": -11845.18,
+   "start": "1989-10",
+   "totalInterest": 14160.285624138223,
+   "difference": -11845.178626011688,
    "maxRate": 7.76,
-   "maxPay": 600.1
+   "maxPayment": 600.097934262705
   },
   {
-   "start": "1989-11-01",
-   "diff": -12069.12,
+   "start": "1989-11",
+   "totalInterest": 13936.339594514628,
+   "difference": -12069.124655635283,
    "maxRate": 7.71,
-   "maxPay": 598.83
+   "maxPayment": 598.8345659747642
   },
   {
-   "start": "1989-12-01",
-   "diff": -12070.46,
+   "start": "1989-12",
+   "totalInterest": 13935.00724501511,
+   "difference": -12070.457005134802,
    "maxRate": 7.77,
-   "maxPay": 600.45
+   "maxPayment": 600.4492149210892
   },
   {
-   "start": "1990-01-01",
-   "diff": -12213.18,
+   "start": "1990-01",
+   "totalInterest": 13792.286203515832,
+   "difference": -12213.178046634079,
    "maxRate": 7.76,
-   "maxPay": 600.24
+   "maxPayment": 600.2372306435932
   },
   {
-   "start": "1990-02-01",
-   "diff": -12537.92,
+   "start": "1990-02",
+   "totalInterest": 13467.540049193658,
+   "difference": -12537.924200956253,
    "maxRate": 7.66,
-   "maxPay": 597.66
+   "maxPayment": 597.6626816953828
   },
   {
-   "start": "1990-03-01",
-   "diff": -12972.48,
+   "start": "1990-03",
+   "totalInterest": 13032.983220589107,
+   "difference": -12972.481029560804,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1990-04-01",
-   "diff": -12859.58,
+   "start": "1990-04",
+   "totalInterest": 13145.881171744693,
+   "difference": -12859.583078405218,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1990-05-01",
-   "diff": -12930.15,
+   "start": "1990-05",
+   "totalInterest": 13075.317828627914,
+   "difference": -12930.146421521997,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1990-06-01",
-   "diff": -13039.31,
+   "start": "1990-06",
+   "totalInterest": 12966.151698757776,
+   "difference": -13039.312551392135,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1990-07-01",
-   "diff": -12952.88,
+   "start": "1990-07",
+   "totalInterest": 13052.581577799589,
+   "difference": -12952.882672350323,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1990-08-01",
-   "diff": -12737.77,
+   "start": "1990-08",
+   "totalInterest": 13267.689362027882,
+   "difference": -12737.774888122029,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1990-09-01",
-   "diff": -12669.02,
+   "start": "1990-09",
+   "totalInterest": 13336.44055183579,
+   "difference": -12669.02369831412,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1990-10-01",
-   "diff": -12370.56,
+   "start": "1990-10",
+   "totalInterest": 13634.907248849499,
+   "difference": -12370.557001300413,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1990-11-01",
-   "diff": -12237.28,
+   "start": "1990-11",
+   "totalInterest": 13768.186902477612,
+   "difference": -12237.2773476723,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1990-12-01",
-   "diff": -11597.01,
+   "start": "1990-12",
+   "totalInterest": 14408.454503980385,
+   "difference": -11597.009746169526,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1991-01-01",
-   "diff": -10172.37,
+   "start": "1991-01",
+   "totalInterest": 15833.0988456442,
+   "difference": -10172.365404505712,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1991-02-01",
-   "diff": -9400.72,
+   "start": "1991-02",
+   "totalInterest": 16604.74548098329,
+   "difference": -9400.718769166622,
    "maxRate": 7.73,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1991-03-01",
-   "diff": -9367.83,
+   "start": "1991-03",
+   "totalInterest": 16637.63446185875,
+   "difference": -9367.829788291161,
    "maxRate": 7.76,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1991-04-01",
-   "diff": -8636.83,
+   "start": "1991-04",
+   "totalInterest": 17368.63154196996,
+   "difference": -8636.83270817995,
    "maxRate": 8.02,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1991-05-01",
-   "diff": -8103.14,
+   "start": "1991-05",
+   "totalInterest": 17902.32191453732,
+   "difference": -8103.142335612592,
    "maxRate": 8.21,
-   "maxPay": 596.62
+   "maxPayment": 596.6208191763627
   },
   {
-   "start": "1991-06-01",
-   "diff": -8475.92,
+   "start": "1991-06",
+   "totalInterest": 17529.543847161316,
+   "difference": -8475.920402988595,
    "maxRate": 8.1,
-   "maxPay": 593.77
+   "maxPayment": 593.7679791600782
   },
   {
-   "start": "1991-07-01",
-   "diff": -8549.57,
+   "start": "1991-07",
+   "totalInterest": 17455.897185884758,
+   "difference": -8549.567064265153,
    "maxRate": 8.09,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1991-08-01",
-   "diff": -7830.3,
+   "start": "1991-08",
+   "totalInterest": 18175.162210845676,
+   "difference": -7830.302039304235,
    "maxRate": 8.34,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1991-09-01",
-   "diff": -7526.24,
+   "start": "1991-09",
+   "totalInterest": 18479.22757786141,
+   "difference": -7526.236672288502,
    "maxRate": 8.45,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1991-10-01",
-   "diff": -6846.68,
+   "start": "1991-10",
+   "totalInterest": 19158.787047904752,
+   "difference": -6846.677202245159,
    "maxRate": 8.68,
-   "maxPay": 597.26
+   "maxPayment": 597.258950107406
   },
   {
-   "start": "1991-11-01",
-   "diff": -5529.58,
+   "start": "1991-11",
+   "totalInterest": 20475.88126310035,
+   "difference": -5529.582987049562,
    "maxRate": 9.11,
-   "maxPay": 608.88
+   "maxPayment": 608.8762572585816
   },
   {
-   "start": "1991-12-01",
-   "diff": -3988.58,
+   "start": "1991-12",
+   "totalInterest": 22016.88206430925,
+   "difference": -3988.58218584066,
    "maxRate": 9.6,
-   "maxPay": 622.33
+   "maxPayment": 622.3256431968299
   },
   {
-   "start": "1992-01-01",
-   "diff": -3108.87,
+   "start": "1992-01",
+   "totalInterest": 22896.59814414843,
+   "difference": -3108.866106001482,
    "maxRate": 9.87,
-   "maxPay": 630.02
+   "maxPayment": 630.0223435953945
   },
   {
-   "start": "1992-02-01",
-   "diff": -3202.2,
+   "start": "1992-02",
+   "totalInterest": 22803.268721741475,
+   "difference": -3202.195528408436,
    "maxRate": 9.83,
-   "maxPay": 629.35
+   "maxPayment": 629.3493669684987
   },
   {
-   "start": "1992-03-01",
-   "diff": -3806.74,
+   "start": "1992-03",
+   "totalInterest": 22198.72006834544,
+   "difference": -3806.7441818044717,
    "maxRate": 9.63,
-   "maxPay": 624.32
+   "maxPayment": 624.3226776775742
   },
   {
-   "start": "1992-04-01",
-   "diff": -2864.21,
+   "start": "1992-04",
+   "totalInterest": 23141.2590033856,
+   "difference": -2864.2052467643116,
    "maxRate": 9.92,
-   "maxPay": 632.58
+   "maxPayment": 632.5794272786233
   },
   {
-   "start": "1992-05-01",
-   "diff": -2447.43,
+   "start": "1992-05",
+   "totalInterest": 23558.03880063673,
+   "difference": -2447.4254495131827,
    "maxRate": 10.04,
-   "maxPay": 636.29
+   "maxPayment": 636.285583433
   },
   {
-   "start": "1992-06-01",
-   "diff": -2505.66,
+   "start": "1992-06",
+   "totalInterest": 23499.80425691075,
+   "difference": -2505.659993239162,
    "maxRate": 10.01,
-   "maxPay": 635.91
+   "maxPayment": 635.9120989993021
   },
   {
-   "start": "1992-07-01",
-   "diff": -1021.93,
+   "start": "1992-07",
+   "totalInterest": 24983.533425946487,
+   "difference": -1021.930824203424,
    "maxRate": 10.46,
-   "maxPay": 648.74
+   "maxPayment": 648.7391141946524
   },
   {
-   "start": "1992-08-01",
-   "diff": -706.14,
+   "start": "1992-08",
+   "totalInterest": 25299.325337342507,
+   "difference": -706.1389128074043,
    "maxRate": 10.54,
-   "maxPay": 651.49
+   "maxPayment": 651.4879425265112
   },
   {
-   "start": "1992-09-01",
-   "diff": 68.95,
+   "start": "1992-09",
+   "totalInterest": 26074.41097852882,
+   "difference": 68.94672837890903,
    "maxRate": 10.76,
-   "maxPay": 658.15
+   "maxPayment": 658.1526298930839
   },
   {
-   "start": "1992-10-01",
-   "diff": 301.79,
+   "start": "1992-10",
+   "totalInterest": 26307.258149567515,
+   "difference": 301.7938994176038,
    "maxRate": 10.81,
-   "maxPay": 660.14
+   "maxPayment": 660.1404106556946
   },
   {
-   "start": "1992-11-01",
-   "diff": -506.01,
+   "start": "1992-11",
+   "totalInterest": 25499.454289141147,
+   "difference": -506.00996100876364,
    "maxRate": 10.54,
-   "maxPay": 653.23
+   "maxPayment": 653.2295501840014
   },
   {
-   "start": "1992-12-01",
-   "diff": -741.37,
+   "start": "1992-12",
+   "totalInterest": 25264.09309069747,
+   "difference": -741.3711594524393,
    "maxRate": 10.45,
-   "maxPay": 651.28
+   "maxPayment": 651.2796096431184
   },
   {
-   "start": "1993-01-01",
-   "diff": 23.78,
+   "start": "1993-01",
+   "totalInterest": 26029.246472479786,
+   "difference": 23.782222329875367,
    "maxRate": 10.67,
-   "maxPay": 657.91
+   "maxPayment": 657.9117354873517
   },
   {
-   "start": "1993-02-01",
-   "diff": 312.38,
+   "start": "1993-02",
+   "totalInterest": 26317.849060884542,
+   "difference": 312.3848107346312,
    "maxRate": 10.74,
-   "maxPay": 660.43
+   "maxPayment": 660.4310267696799
   },
   {
-   "start": "1993-03-01",
-   "diff": 309.96,
+   "start": "1993-03",
+   "totalInterest": 26315.421910082016,
+   "difference": 309.95765993210443,
    "maxRate": 10.72,
-   "maxPay": 660.46
+   "maxPayment": 660.4561759337471
   },
   {
-   "start": "1993-04-01",
-   "diff": 631.64,
+   "start": "1993-04",
+   "totalInterest": 26637.104661959682,
+   "difference": 631.6404118097707,
    "maxRate": 10.8,
-   "maxPay": 663.27
+   "maxPayment": 663.2652390473547
   },
   {
-   "start": "1993-05-01",
-   "diff": 401.34,
+   "start": "1993-05",
+   "totalInterest": 26406.807361382795,
+   "difference": 401.34311123288353,
    "maxRate": 10.71,
-   "maxPay": 661.35
+   "maxPayment": 661.3471087297702
   },
   {
-   "start": "1993-06-01",
-   "diff": 100.88,
+   "start": "1993-06",
+   "totalInterest": 26106.342383952615,
+   "difference": 100.87813380270381,
    "maxRate": 10.6,
-   "maxPay": 658.86
+   "maxPayment": 658.8575067727116
   },
   {
-   "start": "1993-07-01",
-   "diff": 249.33,
+   "start": "1993-07",
+   "totalInterest": 26254.797287642297,
+   "difference": 249.3330374923862,
    "maxRate": 10.63,
-   "maxPay": 660.24
+   "maxPayment": 660.2401849180131
   },
   {
-   "start": "1993-08-01",
-   "diff": 365.45,
+   "start": "1993-08",
+   "totalInterest": 26370.918110262995,
+   "difference": 365.4538601130844,
    "maxRate": 10.65,
-   "maxPay": 661.35
+   "maxPayment": 661.3500850321061
   },
   {
-   "start": "1993-09-01",
-   "diff": 644.22,
+   "start": "1993-09",
+   "totalInterest": 26649.67969452164,
+   "difference": 644.21544437173,
    "maxRate": 10.72,
-   "maxPay": 663.86
+   "maxPayment": 663.8566030772242
   },
   {
-   "start": "1993-10-01",
-   "diff": 469.13,
+   "start": "1993-10",
+   "totalInterest": 26474.594979009667,
+   "difference": 469.13072885975635,
    "maxRate": 10.65,
-   "maxPay": 662.48
+   "maxPayment": 662.4756687764673
   },
   {
-   "start": "1993-11-01",
-   "diff": 257.19,
+   "start": "1993-11",
+   "totalInterest": 26262.652930529974,
+   "difference": 257.1886803800626,
    "maxRate": 10.57,
-   "maxPay": 660.8
+   "maxPayment": 660.8038633823885
   },
   {
-   "start": "1993-12-01",
-   "diff": 430.05,
+   "start": "1993-12",
+   "totalInterest": 26435.51471018812,
+   "difference": 430.05046003820826,
    "maxRate": 10.61,
-   "maxPay": 662.45
+   "maxPayment": 662.451817924915
   },
   {
-   "start": "1994-01-01",
-   "diff": 733.85,
+   "start": "1994-01",
+   "totalInterest": 26739.31827967884,
+   "difference": 733.8540295289276,
    "maxRate": 10.69,
-   "maxPay": 665.22
+   "maxPayment": 665.2221553638647
   },
   {
-   "start": "1994-02-01",
-   "diff": -96.19,
+   "start": "1994-02",
+   "totalInterest": 25909.27841004523,
+   "difference": -96.18584010468112,
    "maxRate": 10.42,
-   "maxPay": 658.28
+   "maxPayment": 658.2782181606176
   },
   {
-   "start": "1994-03-01",
-   "diff": -870.8,
+   "start": "1994-03",
+   "totalInterest": 25134.6599145876,
+   "difference": -870.8043355623122,
    "maxRate": 10.17,
-   "maxPay": 651.87
+   "maxPayment": 651.873340278817
   },
   {
-   "start": "1994-04-01",
-   "diff": -1430.11,
+   "start": "1994-04",
+   "totalInterest": 24575.35047247653,
+   "difference": -1430.1137776733813,
    "maxRate": 9.99,
-   "maxPay": 647.37
+   "maxPayment": 647.3738615557854
   },
   {
-   "start": "1994-05-01",
-   "diff": -2885.94,
+   "start": "1994-05",
+   "totalInterest": 23119.52530362615,
+   "difference": -2885.938946523762,
    "maxRate": 9.53,
-   "maxPay": 635.23
+   "maxPayment": 635.2326674494658
   },
   {
-   "start": "1994-06-01",
-   "diff": -2901.42,
+   "start": "1994-06",
+   "totalInterest": 23104.045104717945,
+   "difference": -2901.419145431966,
    "maxRate": 9.53,
-   "maxPay": 635.55
+   "maxPayment": 635.5500663133677
   },
   {
-   "start": "1994-07-01",
-   "diff": -3517.57,
+   "start": "1994-07",
+   "totalInterest": 22487.898022749425,
+   "difference": -3517.5662274004862,
    "maxRate": 9.34,
-   "maxPay": 630.72
+   "maxPayment": 630.721179523051
   },
   {
-   "start": "1994-08-01",
-   "diff": -4015.65,
+   "start": "1994-08",
+   "totalInterest": 21989.814075269856,
+   "difference": -4015.6501748800547,
    "maxRate": 9.19,
-   "maxPay": 626.95
+   "maxPayment": 626.9533142572012
   },
   {
-   "start": "1994-09-01",
-   "diff": -4488.79,
+   "start": "1994-09",
+   "totalInterest": 21516.674228486623,
+   "difference": -4488.790021663288,
    "maxRate": 9.05,
-   "maxPay": 623.44
+   "maxPayment": 623.437898545618
   },
   {
-   "start": "1994-10-01",
-   "diff": -5535.01,
+   "start": "1994-10",
+   "totalInterest": 20470.457888700017,
+   "difference": -5535.006361449894,
    "maxRate": 8.72,
-   "maxPay": 614.84
+   "maxPayment": 614.8365106174056
   },
   {
-   "start": "1994-11-01",
-   "diff": -6594.48,
+   "start": "1994-11",
+   "totalInterest": 19410.987559771173,
+   "difference": -6594.476690378739,
    "maxRate": 8.38,
-   "maxPay": 605.98
+   "maxPayment": 605.9764620683962
   },
   {
-   "start": "1994-12-01",
-   "diff": -7537.87,
+   "start": "1994-12",
+   "totalInterest": 18467.589322109885,
+   "difference": -7537.874928040026,
    "maxRate": 8.07,
-   "maxPay": 597.91
+   "maxPayment": 597.9116427824049
   },
   {
-   "start": "1995-01-01",
-   "diff": -7918.57,
+   "start": "1995-01",
+   "totalInterest": 18086.889892048024,
+   "difference": -7918.574358101887,
    "maxRate": 7.96,
-   "maxPay": 595.06
+   "maxPayment": 595.0646096118215
   },
   {
-   "start": "1995-02-01",
-   "diff": -8166.98,
+   "start": "1995-02",
+   "totalInterest": 17838.487507935064,
+   "difference": -8166.976742214847,
    "maxRate": 7.9,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1995-03-01",
-   "diff": -8150.43,
+   "start": "1995-03",
+   "totalInterest": 17855.035659187197,
+   "difference": -8150.428590962714,
    "maxRate": 7.94,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1995-04-01",
-   "diff": -8028.22,
+   "start": "1995-04",
+   "totalInterest": 17977.244211669997,
+   "difference": -8028.220038479914,
    "maxRate": 8.02,
-   "maxPay": 594.03
+   "maxPayment": 594.0271768575396
   },
   {
-   "start": "1995-05-01",
-   "diff": -8169.69,
+   "start": "1995-05",
+   "totalInterest": 17835.770597103583,
+   "difference": -8169.693653046328,
    "maxRate": 8.0,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "1995-06-01",
-   "diff": -7732.16,
+   "start": "1995-06",
+   "totalInterest": 18273.30345329499,
+   "difference": -7732.1607968549215,
    "maxRate": 8.2,
-   "maxPay": 597.2
+   "maxPayment": 597.2022269421193
   },
   {
-   "start": "1995-07-01",
-   "diff": -7683.62,
+   "start": "1995-07",
+   "totalInterest": 18321.847609903416,
+   "difference": -7683.616640246495,
    "maxRate": 8.25,
-   "maxPay": 598.69
+   "maxPayment": 598.6852336816368
   },
   {
-   "start": "1995-08-01",
-   "diff": -7713.59,
+   "start": "1995-08",
+   "totalInterest": 18291.870277320035,
+   "difference": -7713.593972829876,
    "maxRate": 8.27,
-   "maxPay": 599.39
+   "maxPayment": 599.3872047110441
   },
   {
-   "start": "1995-09-01",
-   "diff": -7465.03,
+   "start": "1995-09",
+   "totalInterest": 18540.43496620289,
+   "difference": -7465.02928394702,
    "maxRate": 8.39,
-   "maxPay": 602.74
+   "maxPayment": 602.7383292979673
   },
   {
-   "start": "1995-10-01",
-   "diff": -7545.81,
+   "start": "1995-10",
+   "totalInterest": 18459.659119760494,
+   "difference": -7545.805130389417,
    "maxRate": 8.39,
-   "maxPay": 602.94
+   "maxPayment": 602.9388302278468
   },
   {
-   "start": "1995-11-01",
-   "diff": -7848.42,
+   "start": "1995-11",
+   "totalInterest": 18157.044877557026,
+   "difference": -7848.419372592885,
    "maxRate": 8.31,
-   "maxPay": 601.02
+   "maxPayment": 601.0212185586399
   },
   {
-   "start": "1995-12-01",
-   "diff": -7322.74,
+   "start": "1995-12",
+   "totalInterest": 18682.727486261185,
+   "difference": -7322.736763888726,
    "maxRate": 8.53,
-   "maxPay": 607.04
+   "maxPayment": 607.040445964862
   },
   {
-   "start": "1996-01-01",
-   "diff": -7009.36,
+   "start": "1996-01",
+   "totalInterest": 18996.104621799972,
+   "difference": -7009.359628349939,
    "maxRate": 8.67,
-   "maxPay": 611.0
+   "maxPayment": 610.9976273387615
   },
   {
-   "start": "1996-02-01",
-   "diff": -6599.26,
+   "start": "1996-02",
+   "totalInterest": 19406.207774846505,
+   "difference": -6599.256475303406,
    "maxRate": 8.84,
-   "maxPay": 615.8
+   "maxPayment": 615.7994393900004
   },
   {
-   "start": "1996-03-01",
-   "diff": -7033.8,
+   "start": "1996-03",
+   "totalInterest": 18971.66404079444,
+   "difference": -7033.800209355471,
    "maxRate": 8.71,
-   "maxPay": 612.61
+   "maxPayment": 612.6054448253622
   },
   {
-   "start": "1996-04-01",
-   "diff": -7076.46,
+   "start": "1996-04",
+   "totalInterest": 18929.00903716878,
+   "difference": -7076.455212981131,
    "maxRate": 8.72,
-   "maxPay": 613.13
+   "maxPayment": 613.1330836303132
   },
   {
-   "start": "1996-05-01",
-   "diff": -7339.8,
+   "start": "1996-05",
+   "totalInterest": 18665.662957659286,
+   "difference": -7339.801292490625,
    "maxRate": 8.65,
-   "maxPay": 611.52
+   "maxPayment": 611.5239565898319
   },
   {
-   "start": "1996-06-01",
-   "diff": -7603.82,
+   "start": "1996-06",
+   "totalInterest": 18401.6395209698,
+   "difference": -7603.824729180113,
    "maxRate": 8.58,
-   "maxPay": 609.9
+   "maxPayment": 609.9033312627259
   },
   {
-   "start": "1996-07-01",
-   "diff": -7841.82,
+   "start": "1996-07",
+   "totalInterest": 18163.64041976706,
+   "difference": -7841.823830382851,
    "maxRate": 8.52,
-   "maxPay": 608.54
+   "maxPayment": 608.5375366033348
   },
   {
-   "start": "1996-08-01",
-   "diff": -7648.12,
+   "start": "1996-08",
+   "totalInterest": 18357.346133153234,
+   "difference": -7648.118116996677,
    "maxRate": 8.62,
-   "maxPay": 611.42
+   "maxPayment": 611.4249108076592
   },
   {
-   "start": "1996-09-01",
-   "diff": -7829.22,
+   "start": "1996-09",
+   "totalInterest": 18176.243902294795,
+   "difference": -7829.220347855116,
    "maxRate": 8.58,
-   "maxPay": 610.6
+   "maxPayment": 610.5971976443687
   },
   {
-   "start": "1996-10-01",
-   "diff": -7634.09,
+   "start": "1996-10",
+   "totalInterest": 18371.369380748238,
+   "difference": -7634.094869401673,
    "maxRate": 8.68,
-   "maxPay": 613.5
+   "maxPayment": 613.5002167260336
   },
   {
-   "start": "1996-11-01",
-   "diff": -7812.45,
+   "start": "1996-11",
+   "totalInterest": 18193.01783079779,
+   "difference": -7812.44641935212,
    "maxRate": 8.64,
-   "maxPay": 612.68
+   "maxPayment": 612.6812870171138
   },
   {
-   "start": "1996-12-01",
-   "diff": -7560.26,
+   "start": "1996-12",
+   "totalInterest": 18445.206694720182,
+   "difference": -7560.257555429729,
    "maxRate": 8.76,
-   "maxPay": 616.14
+   "maxPayment": 616.1359322847871
   },
   {
-   "start": "1997-01-01",
-   "diff": -7950.46,
+   "start": "1997-01",
+   "totalInterest": 18055.00451497341,
+   "difference": -7950.4597351765005,
    "maxRate": 8.64,
-   "maxPay": 613.19
+   "maxPayment": 613.1882644433877
   },
   {
-   "start": "1997-02-01",
-   "diff": -7968.75,
+   "start": "1997-02",
+   "totalInterest": 18036.7102682043,
+   "difference": -7968.753981945611,
    "maxRate": 8.66,
-   "maxPay": 613.96
+   "maxPayment": 613.9643096116804
   },
   {
-   "start": "1997-03-01",
-   "diff": -8382.49,
+   "start": "1997-03",
+   "totalInterest": 17622.971945049427,
+   "difference": -8382.492305100484,
    "maxRate": 8.53,
-   "maxPay": 610.74
+   "maxPayment": 610.735863554693
   },
   {
-   "start": "1997-04-01",
-   "diff": -8510.13,
+   "start": "1997-04",
+   "totalInterest": 17495.33042809116,
+   "difference": -8510.13382205875,
    "maxRate": 8.51,
-   "maxPay": 610.42
+   "maxPayment": 610.420979130087
   },
   {
-   "start": "1997-05-01",
-   "diff": -8298.5,
+   "start": "1997-05",
+   "totalInterest": 17706.96861227957,
+   "difference": -8298.495637870343,
    "maxRate": 8.62,
-   "maxPay": 613.57
+   "maxPayment": 613.5725348465871
   },
   {
-   "start": "1997-06-01",
-   "diff": -8053.79,
+   "start": "1997-06",
+   "totalInterest": 17951.669802030487,
+   "difference": -8053.7944481194245,
    "maxRate": 8.74,
-   "maxPay": 617.02
+   "maxPayment": 617.0216440001107
   },
   {
-   "start": "1997-07-01",
-   "diff": -8436.16,
+   "start": "1997-07",
+   "totalInterest": 17569.3016044382,
+   "difference": -8436.162645711713,
    "maxRate": 8.62,
-   "maxPay": 614.07
+   "maxPayment": 614.0653765060194
   },
   {
-   "start": "1997-08-01",
-   "diff": -8740.22,
+   "start": "1997-08",
+   "totalInterest": 17265.247733658114,
+   "difference": -8740.216516491797,
    "maxRate": 8.53,
-   "maxPay": 611.89
+   "maxPayment": 611.8943976035526
   },
   {
-   "start": "1997-09-01",
-   "diff": -8323.35,
+   "start": "1997-09",
+   "totalInterest": 17682.113982213756,
+   "difference": -8323.350267936155,
    "maxRate": 8.72,
-   "maxPay": 617.19
+   "maxPayment": 617.194504888996
   },
   {
-   "start": "1997-10-01",
-   "diff": -8443.64,
+   "start": "1997-10",
+   "totalInterest": 17561.825376686593,
+   "difference": -8443.638873463318,
    "maxRate": 8.7,
-   "maxPay": 616.91
+   "maxPayment": 616.91078455221
   },
   {
-   "start": "1997-11-01",
-   "diff": -8949.18,
+   "start": "1997-11",
+   "totalInterest": 17056.280251415916,
+   "difference": -8949.183998733995,
    "maxRate": 8.53,
-   "maxPay": 612.61
+   "maxPayment": 612.6097781414907
   },
   {
-   "start": "1997-12-01",
-   "diff": -9076.19,
+   "start": "1997-12",
+   "totalInterest": 16929.272796230336,
+   "difference": -9076.191453919575,
    "maxRate": 8.51,
-   "maxPay": 612.29
+   "maxPayment": 612.2900672265181
   },
   {
-   "start": "1998-01-01",
-   "diff": -8849.53,
+   "start": "1998-01",
+   "totalInterest": 17155.938180418987,
+   "difference": -8849.526069730924,
    "maxRate": 8.63,
-   "maxPay": 615.71
+   "maxPayment": 615.7084630836252
   },
   {
-   "start": "1998-02-01",
-   "diff": -9050.04,
+   "start": "1998-02",
+   "totalInterest": 16955.427419959236,
+   "difference": -9050.036830190675,
    "maxRate": 8.58,
-   "maxPay": 614.6
+   "maxPayment": 614.6031716377345
   },
   {
-   "start": "1998-03-01",
-   "diff": -8975.61,
+   "start": "1998-03",
+   "totalInterest": 17029.8506942943,
+   "difference": -8975.613555855613,
    "maxRate": 8.64,
-   "maxPay": 616.43
+   "maxPayment": 616.4319278857098
   },
   {
-   "start": "1998-04-01",
-   "diff": -8848.62,
+   "start": "1998-04",
+   "totalInterest": 17156.842321225286,
+   "difference": -8848.621928924626,
    "maxRate": 8.72,
-   "maxPay": 618.81
+   "maxPayment": 618.8111871416611
   },
   {
-   "start": "1998-05-01",
-   "diff": -9050.13,
+   "start": "1998-05",
+   "totalInterest": 16955.332677131046,
+   "difference": -9050.131573018865,
    "maxRate": 8.67,
-   "maxPay": 617.72
+   "maxPayment": 617.7185601272953
   },
   {
-   "start": "1998-06-01",
-   "diff": -9077.49,
+   "start": "1998-06",
+   "totalInterest": 16927.977454751617,
+   "difference": -9077.486795398294,
    "maxRate": 8.69,
-   "maxPay": 618.49
+   "maxPayment": 618.4935959037379
   },
   {
-   "start": "1998-07-01",
-   "diff": -9105.19,
+   "start": "1998-07",
+   "totalInterest": 16900.27099211987,
+   "difference": -9105.193258030042,
    "maxRate": 8.71,
-   "maxPay": 619.27
+   "maxPayment": 619.2723141191251
   },
   {
-   "start": "1998-08-01",
-   "diff": -9031.1,
+   "start": "1998-08",
+   "totalInterest": 16974.36120227173,
+   "difference": -9031.10304787818,
    "maxRate": 8.77,
-   "maxPay": 621.13
+   "maxPayment": 621.1297126419663
   },
   {
-   "start": "1998-09-01",
-   "diff": -8315.09,
+   "start": "1998-09",
+   "totalInterest": 17690.370187254874,
+   "difference": -8315.094062895037,
    "maxRate": 9.06,
-   "maxPay": 629.21
+   "maxPayment": 629.211649440521
   },
   {
-   "start": "1998-10-01",
-   "diff": -6402.45,
+   "start": "1998-10",
+   "totalInterest": 19603.011045171064,
+   "difference": -6402.453204978847,
    "maxRate": 9.71,
-   "maxPay": 647.26
+   "maxPayment": 647.2622239398589
   },
   {
-   "start": "1998-11-01",
-   "diff": -7814.66,
+   "start": "1998-11",
+   "totalInterest": 18190.79926539225,
+   "difference": -7814.664984757663,
    "maxRate": 9.26,
-   "maxPay": 635.4
+   "maxPayment": 635.3964222028042
   },
   {
-   "start": "1998-12-01",
-   "diff": -7814.83,
+   "start": "1998-12",
+   "totalInterest": 18190.637778241577,
+   "difference": -7814.8264719083345,
    "maxRate": 9.28,
-   "maxPay": 636.29
+   "maxPayment": 636.2922885278205
   },
   {
-   "start": "1999-01-01",
-   "diff": -7724.56,
+   "start": "1999-01",
+   "totalInterest": 18280.90575018943,
+   "difference": -7724.55849996048,
    "maxRate": 9.33,
-   "maxPay": 638.01
+   "maxPayment": 638.0091178412224
   },
   {
-   "start": "1999-02-01",
-   "diff": -8088.21,
+   "start": "1999-02",
+   "totalInterest": 17917.256497216804,
+   "difference": -8088.207752933107,
    "maxRate": 9.23,
-   "maxPay": 635.65
+   "maxPayment": 635.6501245059286
   },
   {
-   "start": "1999-03-01",
-   "diff": -8154.89,
+   "start": "1999-03",
+   "totalInterest": 17850.57476294444,
+   "difference": -8154.88948720547,
    "maxRate": 9.23,
-   "maxPay": 635.99
+   "maxPayment": 635.9930957306028
   },
   {
-   "start": "1999-04-01",
-   "diff": -7769.53,
+   "start": "1999-04",
+   "totalInterest": 18235.938576333978,
+   "difference": -7769.525673815933,
    "maxRate": 9.38,
-   "maxPay": 640.42
+   "maxPayment": 640.4223679663762
   },
   {
-   "start": "1999-05-01",
-   "diff": -8466.18,
+   "start": "1999-05",
+   "totalInterest": 17539.288894128837,
+   "difference": -8466.175356021075,
    "maxRate": 9.17,
-   "maxPay": 635.08
+   "maxPayment": 635.0756252791047
   },
   {
-   "start": "1999-06-01",
-   "diff": -8749.73,
+   "start": "1999-06",
+   "totalInterest": 17255.732576632687,
+   "difference": -8749.731673517224,
    "maxRate": 9.1,
-   "maxPay": 633.5
+   "maxPayment": 633.5042164473979
   },
   {
-   "start": "1999-07-01",
-   "diff": -8767.94,
+   "start": "1999-07",
+   "totalInterest": 17237.527713935007,
+   "difference": -8767.936536214904,
    "maxRate": 9.12,
-   "maxPay": 634.36
+   "maxPayment": 634.3605059368693
   },
   {
-   "start": "1999-08-01",
-   "diff": -9328.34,
+   "start": "1999-08",
+   "totalInterest": 16677.123918773515,
+   "difference": -9328.340331376396,
    "maxRate": 8.95,
-   "maxPay": 630.07
+   "maxPayment": 630.0739885130816
   },
   {
-   "start": "1999-09-01",
-   "diff": -9309.21,
+   "start": "1999-09",
+   "totalInterest": 16696.257073375793,
+   "difference": -9309.207176774118,
    "maxRate": 8.99,
-   "maxPay": 631.44
+   "maxPayment": 631.4380498843992
   },
   {
-   "start": "1999-10-01",
-   "diff": -9862.88,
+   "start": "1999-10",
+   "totalInterest": 16142.582256762167,
+   "difference": -9862.881993387744,
    "maxRate": 8.81,
-   "maxPay": 626.87
+   "maxPayment": 626.868742364411
   },
   {
-   "start": "1999-11-01",
-   "diff": -10451.41,
+   "start": "1999-11",
+   "totalInterest": 15554.051184486749,
+   "difference": -10451.413065663162,
    "maxRate": 8.6,
-   "maxPay": 621.48
+   "maxPayment": 621.4794459535482
   },
   {
-   "start": "1999-12-01",
-   "diff": -10845.45,
+   "start": "1999-12",
+   "totalInterest": 15160.013869833492,
+   "difference": -10845.450380316419,
    "maxRate": 8.47,
-   "maxPay": 618.21
+   "maxPayment": 618.2122108014929
   },
   {
-   "start": "2000-01-01",
-   "diff": -11215.54,
+   "start": "2000-01",
+   "totalInterest": 14789.92415848446,
+   "difference": -11215.54009166545,
    "maxRate": 8.35,
-   "maxPay": 615.2
+   "maxPayment": 615.1964153048008
   },
   {
-   "start": "2000-02-01",
-   "diff": -11757.13,
+   "start": "2000-02",
+   "totalInterest": 14248.333891450817,
+   "difference": -11757.130358699094,
    "maxRate": 8.12,
-   "maxPay": 609.25
+   "maxPayment": 609.2477110206984
   },
   {
-   "start": "2000-03-01",
-   "diff": -12102.64,
+   "start": "2000-03",
+   "totalInterest": 13902.82345273205,
+   "difference": -12102.640797417862,
    "maxRate": 7.98,
-   "maxPay": 605.66
+   "maxPayment": 605.6625191575397
   },
   {
-   "start": "2000-04-01",
-   "diff": -12178.52,
+   "start": "2000-04",
+   "totalInterest": 13826.949208859307,
+   "difference": -12178.515041290604,
    "maxRate": 8.01,
-   "maxPay": 606.55
+   "maxPayment": 606.5461031957494
   },
   {
-   "start": "2000-05-01",
-   "diff": -12504.11,
+   "start": "2000-05",
+   "totalInterest": 13501.353882330246,
+   "difference": -12504.110367819665,
    "maxRate": 7.88,
-   "maxPay": 603.21
+   "maxPayment": 603.2127335097716
   },
   {
-   "start": "2000-06-01",
-   "diff": -12479.22,
+   "start": "2000-06",
+   "totalInterest": 13526.242123473909,
+   "difference": -12479.222126676003,
    "maxRate": 7.98,
-   "maxPay": 605.92
+   "maxPayment": 605.9219076411006
   },
   {
-   "start": "2000-07-01",
-   "diff": -12999.83,
+   "start": "2000-07",
+   "totalInterest": 13005.631268680116,
+   "difference": -12999.832981469795,
    "maxRate": 7.71,
-   "maxPay": 598.91
+   "maxPayment": 598.9060361579498
   },
   {
-   "start": "2000-08-01",
-   "diff": -13308.63,
+   "start": "2000-08",
+   "totalInterest": 12696.83417263395,
+   "difference": -13308.630077515962,
    "maxRate": 7.58,
-   "maxPay": 595.54
+   "maxPayment": 595.5406886711098
   },
   {
-   "start": "2000-09-01",
-   "diff": -13326.75,
+   "start": "2000-09",
+   "totalInterest": 12678.710037454357,
+   "difference": -13326.754212695554,
    "maxRate": 7.67,
-   "maxPay": 597.91
+   "maxPayment": 597.9116427824049
   },
   {
-   "start": "2000-10-01",
-   "diff": -13604.62,
+   "start": "2000-10",
+   "totalInterest": 12400.847492847268,
+   "difference": -13604.616757302643,
    "maxRate": 7.56,
-   "maxPay": 595.06
+   "maxPayment": 595.0646096118215
   },
   {
-   "start": "2000-11-01",
-   "diff": -13818.6,
+   "start": "2000-11",
+   "totalInterest": 12186.865742566773,
+   "difference": -13818.598507583138,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2000-12-01",
-   "diff": -13455.12,
+   "start": "2000-12",
+   "totalInterest": 12550.342083754662,
+   "difference": -13455.12216639525,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2001-01-01",
-   "diff": -12592.94,
+   "start": "2001-01",
+   "totalInterest": 13412.525137840832,
+   "difference": -12592.939112309079,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2001-02-01",
-   "diff": -12169.13,
+   "start": "2001-02",
+   "totalInterest": 13836.331119176764,
+   "difference": -12169.133130973147,
    "maxRate": 7.65,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2001-03-01",
-   "diff": -11119.92,
+   "start": "2001-03",
+   "totalInterest": 14885.540699278059,
+   "difference": -11119.923550871852,
    "maxRate": 8.11,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2001-04-01",
-   "diff": -9685.27,
+   "start": "2001-04",
+   "totalInterest": 16320.193436413929,
+   "difference": -9685.270813735982,
    "maxRate": 8.66,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2001-05-01",
-   "diff": -9027.41,
+   "start": "2001-05",
+   "totalInterest": 16978.053871550852,
+   "difference": -9027.41037859906,
    "maxRate": 8.91,
-   "maxPay": 594.16
+   "maxPayment": 594.1641049239022
   },
   {
-   "start": "2001-06-01",
-   "diff": -8714.64,
+   "start": "2001-06",
+   "totalInterest": 17290.82897177029,
+   "difference": -8714.635278379621,
    "maxRate": 9.04,
-   "maxPay": 597.96
+   "maxPayment": 597.9601133304449
   },
   {
-   "start": "2001-07-01",
-   "diff": -8851.81,
+   "start": "2001-07",
+   "totalInterest": 17153.656855232548,
+   "difference": -8851.807394917363,
    "maxRate": 9.02,
-   "maxPay": 597.79
+   "maxPayment": 597.7914748506955
   },
   {
-   "start": "2001-08-01",
-   "diff": -8475.19,
+   "start": "2001-08",
+   "totalInterest": 17530.26926728215,
+   "difference": -8475.19498286776,
    "maxRate": 9.17,
-   "maxPay": 602.16
+   "maxPayment": 602.1569692068671
   },
   {
-   "start": "2001-09-01",
-   "diff": -6338.87,
+   "start": "2001-09",
+   "totalInterest": 19666.599016551503,
+   "difference": -6338.865233598408,
    "maxRate": 9.89,
-   "maxPay": 622.0
+   "maxPayment": 621.9975746854096
   },
   {
-   "start": "2001-10-01",
-   "diff": -4884.78,
+   "start": "2001-10",
+   "totalInterest": 21120.685608149648,
+   "difference": -4884.778642000263,
    "maxRate": 10.37,
-   "maxPay": 635.7
+   "maxPayment": 635.7030336246369
   },
   {
-   "start": "2001-11-01",
-   "diff": -3992.48,
+   "start": "2001-11",
+   "totalInterest": 22012.98391366906,
+   "difference": -3992.4803364808504,
    "maxRate": 10.66,
-   "maxPay": 644.38
+   "maxPayment": 644.3750344208963
   },
   {
-   "start": "2001-12-01",
-   "diff": -3430.01,
+   "start": "2001-12",
+   "totalInterest": 22575.450727760588,
+   "difference": -3430.013522389323,
    "maxRate": 10.84,
-   "maxPay": 650.09
+   "maxPayment": 650.090981558547
   },
   {
-   "start": "2002-01-01",
-   "diff": -3302.18,
+   "start": "2002-01",
+   "totalInterest": 22703.287374487405,
+   "difference": -3302.176875662506,
    "maxRate": 10.88,
-   "maxPay": 651.95
+   "maxPayment": 651.9454444973351
   },
   {
-   "start": "2002-02-01",
-   "diff": -3521.85,
+   "start": "2002-02",
+   "totalInterest": 22483.610549399287,
+   "difference": -3521.853700750624,
    "maxRate": 10.81,
-   "maxPay": 650.73
+   "maxPayment": 650.7311653288589
   },
   {
-   "start": "2002-03-01",
-   "diff": -3745.28,
+   "start": "2002-03",
+   "totalInterest": 22260.184809438208,
+   "difference": -3745.2794407117035,
    "maxRate": 10.74,
-   "maxPay": 649.5
+   "maxPayment": 649.5026108521728
   },
   {
-   "start": "2002-04-01",
-   "diff": -3498.57,
+   "start": "2002-04",
+   "totalInterest": 22506.896367845828,
+   "difference": -3498.5678823040835,
    "maxRate": 10.82,
-   "maxPay": 652.45
+   "maxPayment": 652.4486874686672
   },
   {
-   "start": "2002-05-01",
-   "diff": -3565.07,
+   "start": "2002-05",
+   "totalInterest": 22440.391031871855,
+   "difference": -3565.0732182780557,
    "maxRate": 10.8,
-   "maxPay": 652.62
+   "maxPayment": 652.615212136974
   },
   {
-   "start": "2002-06-01",
-   "diff": -3475.18,
+   "start": "2002-06",
+   "totalInterest": 22530.28437957427,
+   "difference": -3475.179870575641,
    "maxRate": 10.83,
-   "maxPay": 654.18
+   "maxPayment": 654.1755163614719
   },
   {
-   "start": "2002-07-01",
-   "diff": -3416.26,
+   "start": "2002-07",
+   "totalInterest": 22589.203993224586,
+   "difference": -3416.260256925325,
    "maxRate": 10.85,
-   "maxPay": 655.46
+   "maxPayment": 655.4615244864308
   },
   {
-   "start": "2002-08-01",
-   "diff": -3230.46,
+   "start": "2002-08",
+   "totalInterest": 22775.00078049624,
+   "difference": -3230.4634696536705,
    "maxRate": 10.91,
-   "maxPay": 657.87
+   "maxPayment": 657.873686209893
   },
   {
-   "start": "2002-09-01",
-   "diff": -3264.23,
+   "start": "2002-09",
+   "totalInterest": 22741.23410596964,
+   "difference": -3264.23014418027,
    "maxRate": 10.9,
-   "maxPay": 658.33
+   "maxPayment": 658.3328181469844
   },
   {
-   "start": "2002-10-01",
-   "diff": -3109.15,
+   "start": "2002-10",
+   "totalInterest": 22896.318899906168,
+   "difference": -3109.1453502437435,
    "maxRate": 10.95,
-   "maxPay": 660.47
+   "maxPayment": 660.47489061487
   },
   {
-   "start": "2002-11-01",
-   "diff": -1996.85,
+   "start": "2002-11",
+   "totalInterest": 24008.617183516566,
+   "difference": -1996.847066633345,
    "maxRate": 11.3,
-   "maxPay": 671.11
+   "maxPayment": 671.1093565946826
   },
   {
-   "start": "2002-12-01",
-   "diff": -1854.46,
+   "start": "2002-12",
+   "totalInterest": 24151.009236953338,
+   "difference": -1854.4550131965734,
    "maxRate": 11.34,
-   "maxPay": 673.07
+   "maxPayment": 673.0656364411244
   },
   {
-   "start": "2003-01-01",
-   "diff": -1774.69,
+   "start": "2003-01",
+   "totalInterest": 24230.77792208284,
+   "difference": -1774.6863280670696,
    "maxRate": 11.36,
-   "maxPay": 674.46
+   "maxPayment": 674.461872342634
   },
   {
-   "start": "2003-02-01",
-   "diff": -1758.56,
+   "start": "2003-02",
+   "totalInterest": 24246.899762050387,
+   "difference": -1758.5644880995242,
    "maxRate": 11.36,
-   "maxPay": 675.29
+   "maxPayment": 675.2925074559876
   },
   {
-   "start": "2003-03-01",
-   "diff": -1615.09,
+   "start": "2003-03",
+   "totalInterest": 24390.37362979399,
+   "difference": -1615.0906203559207,
    "maxRate": 11.4,
-   "maxPay": 677.26
+   "maxPayment": 677.259659787625
   },
   {
-   "start": "2003-04-01",
-   "diff": -1598.27,
+   "start": "2003-04",
+   "totalInterest": 24407.19011902114,
+   "difference": -1598.2741311287718,
    "maxRate": 11.4,
-   "maxPay": 678.1
+   "maxPayment": 678.095766952733
   },
   {
-   "start": "2003-05-01",
-   "diff": -1389.99,
+   "start": "2003-05",
+   "totalInterest": 24615.474046182768,
+   "difference": -1389.9902039671433,
    "maxRate": 11.46,
-   "maxPay": 680.64
+   "maxPayment": 680.6403084681511
   },
   {
-   "start": "2003-06-01",
-   "diff": -890.21,
+   "start": "2003-06",
+   "totalInterest": 25115.25858607146,
+   "difference": -890.2056640784504,
    "maxRate": 11.61,
-   "maxPay": 685.77
+   "maxPayment": 685.7726121821855
   },
   {
-   "start": "2003-07-01",
-   "diff": -800.73,
+   "start": "2003-07",
+   "totalInterest": 25204.73308554592,
+   "difference": -800.7311646039925,
    "maxRate": 11.63,
-   "maxPay": 687.22
+   "maxPayment": 687.2226187721152
   },
   {
-   "start": "2003-08-01",
-   "diff": -935.76,
+   "start": "2003-08",
+   "totalInterest": 25069.70169794406,
+   "difference": -935.7625522058515,
    "maxRate": 11.58,
-   "maxPay": 686.67
+   "maxPayment": 686.6708785243329
   },
   {
-   "start": "2003-09-01",
-   "diff": -881.08,
+   "start": "2003-09",
+   "totalInterest": 25124.382481562774,
+   "difference": -881.081768587137,
    "maxRate": 11.59,
-   "maxPay": 687.82
+   "maxPayment": 687.8242078042566
   },
   {
-   "start": "2003-10-01",
-   "diff": -794.4,
+   "start": "2003-10",
+   "totalInterest": 25211.067824729253,
+   "difference": -794.3964254206585,
    "maxRate": 11.61,
-   "maxPay": 689.26
+   "maxPayment": 689.2645097939877
   },
   {
-   "start": "2003-11-01",
-   "diff": -803.61,
+   "start": "2003-11",
+   "totalInterest": 25201.85696509042,
+   "difference": -803.6072850594901,
    "maxRate": 11.6,
-   "maxPay": 689.85
+   "maxPayment": 689.8481097896248
   },
   {
-   "start": "2003-12-01",
-   "diff": -685.47,
+   "start": "2003-12",
+   "totalInterest": 25319.989382523487,
+   "difference": -685.4748676264244,
    "maxRate": 11.63,
-   "maxPay": 691.57
+   "maxPayment": 691.5739776420882
   },
   {
-   "start": "2004-01-01",
-   "diff": -598.51,
+   "start": "2004-01",
+   "totalInterest": 25406.955177135053,
+   "difference": -598.5090730148586,
    "maxRate": 11.65,
-   "maxPay": 693.02
+   "maxPayment": 693.0184316957257
   },
   {
-   "start": "2004-02-01",
-   "diff": -735.75,
+   "start": "2004-02",
+   "totalInterest": 25269.717987044754,
+   "difference": -735.7462631051567,
    "maxRate": 11.6,
-   "maxPay": 692.46
+   "maxPayment": 692.4581766103373
   },
   {
-   "start": "2004-03-01",
-   "diff": -747.6,
+   "start": "2004-03",
+   "totalInterest": 25257.861636302663,
+   "difference": -747.602613847248,
    "maxRate": 11.59,
-   "maxPay": 693.03
+   "maxPayment": 693.0321765318583
   },
   {
-   "start": "2004-04-01",
-   "diff": -728.45,
+   "start": "2004-04",
+   "totalInterest": 25277.010047351152,
+   "difference": -728.4542027987591,
    "maxRate": 11.59,
-   "maxPay": 693.89
+   "maxPayment": 693.8887304920515
   },
   {
-   "start": "2004-05-01",
-   "diff": -965.82,
+   "start": "2004-05",
+   "totalInterest": 25039.644797215442,
+   "difference": -965.8194529344692,
    "maxRate": 11.51,
-   "maxPay": 692.45
+   "maxPayment": 692.4525822901679
   },
   {
-   "start": "2004-06-01",
-   "diff": -1748.13,
+   "start": "2004-06",
+   "totalInterest": 24257.332271253967,
+   "difference": -1748.1319788959445,
    "maxRate": 11.26,
-   "maxPay": 686.15
+   "maxPayment": 686.1539900734078
   },
   {
-   "start": "2004-07-01",
-   "diff": -1937.02,
+   "start": "2004-07",
+   "totalInterest": 24068.4454962101,
+   "difference": -1937.0187539398103,
    "maxRate": 11.2,
-   "maxPay": 685.23
+   "maxPayment": 685.2266172910396
   },
   {
-   "start": "2004-08-01",
-   "diff": -2413.59,
+   "start": "2004-08",
+   "totalInterest": 23591.873502627255,
+   "difference": -2413.590747522656,
    "maxRate": 11.05,
-   "maxPay": 681.73
+   "maxPayment": 681.7342984664078
   },
   {
-   "start": "2004-09-01",
-   "diff": -2958.96,
+   "start": "2004-09",
+   "totalInterest": 23046.50166160293,
+   "difference": -2958.9625885469795,
    "maxRate": 10.88,
-   "maxPay": 677.66
+   "maxPayment": 677.6570234693855
   },
   {
-   "start": "2004-10-01",
-   "diff": -3322.79,
+   "start": "2004-10",
+   "totalInterest": 22682.6752388578,
+   "difference": -3322.7890112921123,
    "maxRate": 10.77,
-   "maxPay": 675.25
+   "maxPayment": 675.24797563388
   },
   {
-   "start": "2004-11-01",
-   "diff": -4314.64,
+   "start": "2004-11",
+   "totalInterest": 21690.825321749864,
+   "difference": -4314.638928400047,
    "maxRate": 10.46,
-   "maxPay": 667.22
+   "maxPayment": 667.215076883635
   },
   {
-   "start": "2004-12-01",
-   "diff": -4726.82,
+   "start": "2004-12",
+   "totalInterest": 21278.649038315474,
+   "difference": -4726.815211834437,
    "maxRate": 10.34,
-   "maxPay": 664.46
+   "maxPayment": 664.4636048582669
   },
   {
-   "start": "2005-01-01",
-   "diff": -5205.79,
+   "start": "2005-01",
+   "totalInterest": 20799.669649192114,
+   "difference": -5205.794600957797,
    "maxRate": 10.2,
-   "maxPay": 661.14
+   "maxPayment": 661.1381863136351
   },
   {
-   "start": "2005-02-01",
-   "diff": -5905.17,
+   "start": "2005-02",
+   "totalInterest": 20100.291048865063,
+   "difference": -5905.173201284848,
    "maxRate": 9.99,
-   "maxPay": 655.86
+   "maxPayment": 655.8554037876656
   },
   {
-   "start": "2005-03-01",
-   "diff": -6580.79,
+   "start": "2005-03",
+   "totalInterest": 19424.674557092803,
+   "difference": -6580.789693057108,
    "maxRate": 9.79,
-   "maxPay": 650.83
+   "maxPayment": 650.8308969810664
   },
   {
-   "start": "2005-04-01",
-   "diff": -6777.01,
+   "start": "2005-04",
+   "totalInterest": 19228.45902296126,
+   "difference": -6777.0052271886525,
    "maxRate": 9.75,
-   "maxPay": 650.19
+   "maxPayment": 650.1857142326255
   },
   {
-   "start": "2005-05-01",
-   "diff": -7036.57,
+   "start": "2005-05",
+   "totalInterest": 18968.896874825998,
+   "difference": -7036.567375323913,
    "maxRate": 9.69,
-   "maxPay": 648.98
+   "maxPayment": 648.9822932497569
   },
   {
-   "start": "2005-06-01",
-   "diff": -7511.27,
+   "start": "2005-06",
+   "totalInterest": 18494.197397190605,
+   "difference": -7511.266852959307,
    "maxRate": 9.56,
-   "maxPay": 645.85
+   "maxPayment": 645.8475044315685
   },
   {
-   "start": "2005-07-01",
-   "diff": -8351.95,
+   "start": "2005-07",
+   "totalInterest": 17653.513884097898,
+   "difference": -8351.950366052013,
    "maxRate": 9.31,
-   "maxPay": 639.42
+   "maxPayment": 639.4209092614393
   },
   {
-   "start": "2005-08-01",
-   "diff": -9109.92,
+   "start": "2005-08",
+   "totalInterest": 16895.54614974308,
+   "difference": -9109.91810040683,
    "maxRate": 9.09,
-   "maxPay": 633.8
+   "maxPayment": 633.7955615554937
   },
   {
-   "start": "2005-09-01",
-   "diff": -9161.29,
+   "start": "2005-09",
+   "totalInterest": 16844.178232188195,
+   "difference": -9161.286017961716,
    "maxRate": 9.11,
-   "maxPay": 634.65
+   "maxPayment": 634.6483936323212
   },
   {
-   "start": "2005-10-01",
-   "diff": -10132.65,
+   "start": "2005-10",
+   "totalInterest": 15872.814609994082,
+   "difference": -10132.649640155829,
    "maxRate": 8.82,
-   "maxPay": 627.12
+   "maxPayment": 627.1216029003791
   },
   {
-   "start": "2005-11-01",
-   "diff": -10663.62,
+   "start": "2005-11",
+   "totalInterest": 15341.845407346025,
+   "difference": -10663.618842803886,
    "maxRate": 8.65,
-   "maxPay": 622.81
+   "maxPayment": 622.8058991557388
   },
   {
-   "start": "2005-12-01",
-   "diff": -10810.95,
+   "start": "2005-12",
+   "totalInterest": 15194.51594876123,
+   "difference": -10810.94830138868,
    "maxRate": 8.64,
-   "maxPay": 622.76
+   "maxPayment": 622.7592162468167
   },
   {
-   "start": "2006-01-01",
-   "diff": -11434.4,
+   "start": "2006-01",
+   "totalInterest": 14571.063712209238,
+   "difference": -11434.400537940674,
    "maxRate": 8.29,
-   "maxPay": 613.63
+   "maxPayment": 613.6271754332478
   },
   {
-   "start": "2006-02-01",
-   "diff": -11825.29,
+   "start": "2006-02",
+   "totalInterest": 14180.173404668412,
+   "difference": -11825.290845481499,
    "maxRate": 8.1,
-   "maxPay": 608.73
+   "maxPayment": 608.7345986067713
   },
   {
-   "start": "2006-03-01",
-   "diff": -12066.96,
+   "start": "2006-03",
+   "totalInterest": 13938.506356958549,
+   "difference": -12066.957893191362,
    "maxRate": 8.02,
-   "maxPay": 606.73
+   "maxPayment": 606.7321362741324
   },
   {
-   "start": "2006-04-01",
-   "diff": -12319.83,
+   "start": "2006-04",
+   "totalInterest": 13685.635069006734,
+   "difference": -12319.829181143177,
    "maxRate": 7.93,
-   "maxPay": 604.45
+   "maxPayment": 604.4545160410346
   },
   {
-   "start": "2006-05-01",
-   "diff": -12607.06,
+   "start": "2006-05",
+   "totalInterest": 13398.402913911152,
+   "difference": -12607.06133623876,
    "maxRate": 7.81,
-   "maxPay": 601.38
+   "maxPayment": 601.3756299826555
   },
   {
-   "start": "2006-06-01",
-   "diff": -12834.06,
+   "start": "2006-06",
+   "totalInterest": 13171.404135286863,
+   "difference": -12834.060114863049,
    "maxRate": 7.74,
-   "maxPay": 599.59
+   "maxPayment": 599.5949785822975
   },
   {
-   "start": "2006-07-01",
-   "diff": -13156.98,
+   "start": "2006-07",
+   "totalInterest": 12848.485985431113,
+   "difference": -13156.978264718799,
    "maxRate": 7.58,
-   "maxPay": 595.45
+   "maxPayment": 595.4482914587842
   },
   {
-   "start": "2006-08-01",
-   "diff": -13317.51,
+   "start": "2006-08",
+   "totalInterest": 12687.951269160589,
+   "difference": -13317.512980989322,
    "maxRate": 7.57,
-   "maxPay": 595.2
+   "maxPayment": 595.2020907292813
   },
   {
-   "start": "2006-09-01",
-   "diff": -13316.72,
+   "start": "2006-09",
+   "totalInterest": 12688.747267741863,
+   "difference": -13316.716982408048,
    "maxRate": 7.72,
-   "maxPay": 599.14
+   "maxPayment": 599.1439288114634
   },
   {
-   "start": "2006-10-01",
-   "diff": -13575.75,
+   "start": "2006-10",
+   "totalInterest": 12429.714255234067,
+   "difference": -13575.749994915845,
    "maxRate": 7.61,
-   "maxPay": 596.3
+   "maxPayment": 596.3028971454594
   },
   {
-   "start": "2006-11-01",
-   "diff": -13747.46,
+   "start": "2006-11",
+   "totalInterest": 12258.004525074286,
+   "difference": -13747.459725075625,
    "maxRate": 7.59,
-   "maxPay": 595.8
+   "maxPayment": 595.8003302583476
   },
   {
-   "start": "2006-12-01",
-   "diff": -13822.08,
+   "start": "2006-12",
+   "totalInterest": 12183.38653096865,
+   "difference": -13822.077719181261,
    "maxRate": 7.68,
-   "maxPay": 598.17
+   "maxPayment": 598.1737347884493
   },
   {
-   "start": "2007-01-01",
-   "diff": -14087.15,
+   "start": "2007-01",
+   "totalInterest": 11918.317186302642,
+   "difference": -14087.14706384727,
    "maxRate": 7.55,
-   "maxPay": 594.81
+   "maxPayment": 594.8051551488375
   },
   {
-   "start": "2007-02-01",
-   "diff": -14281.4,
+   "start": "2007-02",
+   "totalInterest": 11724.063617458247,
+   "difference": -14281.400632691664,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2007-03-01",
-   "diff": -14373.41,
+   "start": "2007-03",
+   "totalInterest": 11632.05498506474,
+   "difference": -14373.40926508517,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2007-04-01",
-   "diff": -14481.28,
+   "start": "2007-04",
+   "totalInterest": 11524.179266980864,
+   "difference": -14481.284983169047,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2007-05-01",
-   "diff": -14539.85,
+   "start": "2007-05",
+   "totalInterest": 11465.618490450137,
+   "difference": -14539.845759699774,
    "maxRate": 7.59,
-   "maxPay": 595.8
+   "maxPayment": 595.804046287438
   },
   {
-   "start": "2007-06-01",
-   "diff": -14617.36,
+   "start": "2007-06",
+   "totalInterest": 11388.101073016633,
+   "difference": -14617.363177133278,
    "maxRate": 7.71,
-   "maxPay": 598.96
+   "maxPayment": 598.9641207769832
   },
   {
-   "start": "2007-07-01",
-   "diff": -14913.27,
+   "start": "2007-07",
+   "totalInterest": 11092.198983013699,
+   "difference": -14913.265267136212,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2007-08-01",
-   "diff": -14690.5,
+   "start": "2007-08",
+   "totalInterest": 11314.96473814629,
+   "difference": -14690.499512003622,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2007-09-01",
-   "diff": -14639.25,
+   "start": "2007-09",
+   "totalInterest": 11366.215704066315,
+   "difference": -14639.248546083596,
    "maxRate": 7.51,
-   "maxPay": 593.77
+   "maxPayment": 593.7679791600782
   },
   {
-   "start": "2007-10-01",
-   "diff": -14805.67,
+   "start": "2007-10",
+   "totalInterest": 11199.790460178043,
+   "difference": -14805.673789971868,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2007-11-01",
-   "diff": -13351.72,
+   "start": "2007-11",
+   "totalInterest": 12653.743999833912,
+   "difference": -13351.720250315999,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2007-12-01",
-   "diff": -12702.23,
+   "start": "2007-12",
+   "totalInterest": 13303.23293450896,
+   "difference": -12702.231315640951,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2008-01-01",
-   "diff": -12094.78,
+   "start": "2008-01",
+   "totalInterest": 13910.684753228305,
+   "difference": -12094.779496921607,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2008-02-01",
-   "diff": -10344.47,
+   "start": "2008-02",
+   "totalInterest": 15660.998645833124,
+   "difference": -10344.465604316787,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2008-03-01",
-   "diff": -7835.9,
+   "start": "2008-03",
+   "totalInterest": 18169.56537637985,
+   "difference": -7835.89887377006,
    "maxRate": 8.1,
-   "maxPay": 609.04
+   "maxPayment": 609.0382018421345
   },
   {
-   "start": "2008-04-01",
-   "diff": -7972.17,
+   "start": "2008-04",
+   "totalInterest": 18033.293449864563,
+   "difference": -7972.170800285348,
    "maxRate": 8.07,
-   "maxPay": 608.36
+   "maxPayment": 608.3573321442516
   },
   {
-   "start": "2008-05-01",
-   "diff": -9350.54,
+   "start": "2008-05",
+   "totalInterest": 16654.921728950507,
+   "difference": -9350.542521199404,
    "maxRate": 7.63,
-   "maxPay": 596.88
+   "maxPayment": 596.8825869326816
   },
   {
-   "start": "2008-06-01",
-   "diff": -9807.09,
+   "start": "2008-06",
+   "totalInterest": 16198.376134625338,
+   "difference": -9807.088115524573,
    "maxRate": 7.5,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2008-07-01",
-   "diff": -9186.86,
+   "start": "2008-07",
+   "totalInterest": 16818.603123727946,
+   "difference": -9186.861126421965,
    "maxRate": 7.77,
-   "maxPay": 595.84
+   "maxPayment": 595.8433579564411
   },
   {
-   "start": "2008-08-01",
-   "diff": -9518.68,
+   "start": "2008-08",
+   "totalInterest": 16486.779538165698,
+   "difference": -9518.684711984213,
    "maxRate": 7.74,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2008-09-01",
-   "diff": -7794.3,
+   "start": "2008-09",
+   "totalInterest": 18211.163080949445,
+   "difference": -7794.301169200466,
    "maxRate": 8.4,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2008-10-01",
-   "diff": -6416.99,
+   "start": "2008-10",
+   "totalInterest": 19588.47470119047,
+   "difference": -6416.989548959442,
    "maxRate": 8.96,
-   "maxPay": 593.51
+   "maxPayment": 593.5088456792654
   },
   {
-   "start": "2008-11-01",
-   "diff": -4937.73,
+   "start": "2008-11",
+   "totalInterest": 21067.73199351664,
+   "difference": -4937.73225663327,
    "maxRate": 9.56,
-   "maxPay": 598.59
+   "maxPayment": 598.5914043221185
   },
   {
-   "start": "2008-12-01",
-   "diff": -4425.55,
+   "start": "2008-12",
+   "totalInterest": 21579.914037230377,
+   "difference": -4425.550212919534,
    "maxRate": 9.8,
-   "maxPay": 603.36
+   "maxPayment": 603.3567940919952
   },
   {
-   "start": "2009-01-01",
-   "diff": -4720.14,
+   "start": "2009-01",
+   "totalInterest": 21285.322342639414,
+   "difference": -4720.141907510497,
    "maxRate": 9.74,
-   "maxPay": 601.28
+   "maxPayment": 601.282722941793
   },
   {
-   "start": "2009-02-01",
-   "diff": -5236.61,
+   "start": "2009-02",
+   "totalInterest": 20768.854443314092,
+   "difference": -5236.609806835819,
    "maxRate": 9.57,
-   "maxPay": 597.34
+   "maxPayment": 597.3363352729572
   },
   {
-   "start": "2009-03-01",
-   "diff": -4946.98,
+   "start": "2009-03",
+   "totalInterest": 21058.480175719655,
+   "difference": -4946.984074430256,
    "maxRate": 9.68,
-   "maxPay": 600.22
+   "maxPayment": 600.2243750058919
   },
   {
-   "start": "2009-04-01",
-   "diff": -4776.68,
+   "start": "2009-04",
+   "totalInterest": 21228.78119435784,
+   "difference": -4776.683055792069,
    "maxRate": 9.74,
-   "maxPay": 602.08
+   "maxPayment": 602.0783711085842
   },
   {
-   "start": "2009-05-01",
-   "diff": -4822.22,
+   "start": "2009-05",
+   "totalInterest": 21183.246394956957,
+   "difference": -4822.217855192954,
    "maxRate": 9.72,
-   "maxPay": 602.09
+   "maxPayment": 602.0872566036331
   },
   {
-   "start": "2009-06-01",
-   "diff": -4805.01,
+   "start": "2009-06",
+   "totalInterest": 21200.457192385096,
+   "difference": -4805.007057764815,
    "maxRate": 9.72,
-   "maxPay": 602.62
+   "maxPayment": 602.6207621885208
   },
   {
-   "start": "2009-07-01",
-   "diff": -4786.86,
+   "start": "2009-07",
+   "totalInterest": 21218.60579866113,
+   "difference": -4786.858451488781,
    "maxRate": 9.72,
-   "maxPay": 603.15
+   "maxPayment": 603.1534206590809
   },
   {
-   "start": "2009-08-01",
-   "diff": -4736.44,
+   "start": "2009-08",
+   "totalInterest": 21269.022067306174,
+   "difference": -4736.442182843737,
    "maxRate": 9.73,
-   "maxPay": 603.95
+   "maxPayment": 603.9506370885967
   },
   {
-   "start": "2009-09-01",
-   "diff": -4559.08,
+   "start": "2009-09",
+   "totalInterest": 21446.385196064977,
+   "difference": -4559.079054084934,
    "maxRate": 9.78,
-   "maxPay": 605.81
+   "maxPayment": 605.8127188714252
   },
   {
-   "start": "2009-10-01",
-   "diff": -4378.2,
+   "start": "2009-10",
+   "totalInterest": 21627.259350987097,
+   "difference": -4378.204899162814,
    "maxRate": 9.83,
-   "maxPay": 607.69
+   "maxPayment": 607.6870474055933
   },
   {
-   "start": "2009-11-01",
-   "diff": -4288.43,
+   "start": "2009-11",
+   "totalInterest": 21717.033994108522,
+   "difference": -4288.430256041389,
    "maxRate": 9.85,
-   "maxPay": 608.77
+   "maxPayment": 608.7728188619005
   },
   {
-   "start": "2009-12-01",
-   "diff": -4259.98,
+   "start": "2009-12",
+   "totalInterest": 21745.48176913424,
+   "difference": -4259.9824810156715,
    "maxRate": 9.85,
-   "maxPay": 609.33
+   "maxPayment": 609.3283533875934
   },
   {
-   "start": "2010-01-01",
-   "diff": -4262.39,
+   "start": "2010-01",
+   "totalInterest": 21743.074646786135,
+   "difference": -4262.389603363776,
    "maxRate": 9.84,
-   "maxPay": 609.62
+   "maxPayment": 609.6157883738022
   },
   {
-   "start": "2010-02-01",
-   "diff": -4390.62,
+   "start": "2010-02",
+   "totalInterest": 21614.84128268576,
+   "difference": -4390.622967464151,
    "maxRate": 9.79,
-   "maxPay": 608.83
+   "maxPayment": 608.8314909991202
   },
   {
-   "start": "2010-03-01",
-   "diff": -4489.11,
+   "start": "2010-03",
+   "totalInterest": 21516.355746114303,
+   "difference": -4489.108504035608,
    "maxRate": 9.75,
-   "maxPay": 608.3
+   "maxPayment": 608.3034220988577
   },
   {
-   "start": "2010-04-01",
-   "diff": -4495.16,
+   "start": "2010-04",
+   "totalInterest": 21510.30638683236,
+   "difference": -4495.157863317552,
    "maxRate": 9.74,
-   "maxPay": 608.57
+   "maxPayment": 608.5672914759937
   },
   {
-   "start": "2010-05-01",
-   "diff": -4470.33,
+   "start": "2010-05",
+   "totalInterest": 21535.13284752672,
+   "difference": -4470.331402623193,
    "maxRate": 9.74,
-   "maxPay": 609.1
+   "maxPayment": 609.095281303179
   },
   {
-   "start": "2010-06-01",
-   "diff": -4319.64,
+   "start": "2010-06",
+   "totalInterest": 21685.828313301346,
+   "difference": -4319.635936848565,
    "maxRate": 9.78,
-   "maxPay": 610.69
+   "maxPayment": 610.6926341768797
   },
   {
-   "start": "2010-07-01",
-   "diff": -4419.01,
+   "start": "2010-07",
+   "totalInterest": 21586.45426568436,
+   "difference": -4419.009984465552,
    "maxRate": 9.74,
-   "maxPay": 610.16
+   "maxPayment": 610.156231909408
   },
   {
-   "start": "2010-08-01",
-   "diff": -4394.45,
+   "start": "2010-08",
+   "totalInterest": 21611.01607191551,
+   "difference": -4394.448178234401,
    "maxRate": 9.74,
-   "maxPay": 610.68
+   "maxPayment": 610.681544086753
   },
   {
-   "start": "2010-09-01",
-   "diff": -4338.49,
+   "start": "2010-09",
+   "totalInterest": 21666.972537643243,
+   "difference": -4338.491712506668,
    "maxRate": 9.75,
-   "maxPay": 611.47
+   "maxPayment": 611.4739623292395
   },
   {
-   "start": "2010-10-01",
-   "diff": -4250.6,
+   "start": "2010-10",
+   "totalInterest": 21754.865389255323,
+   "difference": -4250.598860894588,
    "maxRate": 9.77,
-   "maxPay": 612.54
+   "maxPayment": 612.5361189047807
   },
   {
-   "start": "2010-11-01",
-   "diff": -4256.42,
+   "start": "2010-11",
+   "totalInterest": 21749.043905633345,
+   "difference": -4256.420344516566,
    "maxRate": 9.76,
-   "maxPay": 612.8
+   "maxPayment": 612.796518926976
   },
   {
-   "start": "2010-12-01",
-   "diff": -4231.31,
+   "start": "2010-12",
+   "totalInterest": 21774.159229314977,
+   "difference": -4231.305020834934,
    "maxRate": 9.76,
-   "maxPay": 613.32
+   "maxPayment": 613.3223993090277
   },
   {
-   "start": "2011-01-01",
-   "diff": -4237.85,
+   "start": "2011-01",
+   "totalInterest": 21767.613742491267,
+   "difference": -4237.850507658644,
    "maxRate": 9.75,
-   "maxPay": 613.58
+   "maxPayment": 613.5786146533743
   },
   {
-   "start": "2011-02-01",
-   "diff": -4150.33,
+   "start": "2011-02",
+   "totalInterest": 21855.129912970126,
+   "difference": -4150.3343371797855,
    "maxRate": 9.77,
-   "maxPay": 614.64
+   "maxPayment": 614.6384906880177
   },
   {
-   "start": "2011-03-01",
-   "diff": -4030.32,
+   "start": "2011-03",
+   "totalInterest": 21975.142455288093,
+   "difference": -4030.3217948618185,
    "maxRate": 9.8,
-   "maxPay": 615.97
+   "maxPayment": 615.9715696780697
   },
   {
-   "start": "2011-04-01",
-   "diff": -3877.23,
+   "start": "2011-04",
+   "totalInterest": 22128.235982783463,
+   "difference": -3877.2282673664486,
    "maxRate": 9.84,
-   "maxPay": 617.58
+   "maxPayment": 617.5808501687957
   },
   {
-   "start": "2011-05-01",
-   "diff": -3785.47,
+   "start": "2011-05",
+   "totalInterest": 22219.9938253204,
+   "difference": -3785.4704248295093,
    "maxRate": 9.86,
-   "maxPay": 618.66
+   "maxPayment": 618.6589141014673
   },
   {
-   "start": "2011-06-01",
-   "diff": -3756.15,
+   "start": "2011-06",
+   "totalInterest": 22249.30996393246,
+   "difference": -3756.15428621745,
    "maxRate": 9.86,
-   "maxPay": 619.2
+   "maxPayment": 619.200130258661
   },
   {
-   "start": "2011-07-01",
-   "diff": -3726.94,
+   "start": "2011-07",
+   "totalInterest": 22278.521522650273,
+   "difference": -3726.942727499638,
    "maxRate": 9.86,
-   "maxPay": 619.74
+   "maxPayment": 619.7403810793984
   },
   {
-   "start": "2011-08-01",
-   "diff": -3634.44,
+   "start": "2011-08",
+   "totalInterest": 22371.02682019823,
+   "difference": -3634.437429951682,
    "maxRate": 9.88,
-   "maxPay": 620.82
+   "maxPayment": 620.8209441746993
   },
   {
-   "start": "2011-09-01",
-   "diff": -3572.72,
+   "start": "2011-09",
+   "totalInterest": 22432.748661036883,
+   "difference": -3572.715589113028,
    "maxRate": 9.89,
-   "maxPay": 621.63
+   "maxPayment": 621.6343322316416
   },
   {
-   "start": "2011-10-01",
-   "diff": -3574.04,
+   "start": "2011-10",
+   "totalInterest": 22431.428822471684,
+   "difference": -3574.0354276782273,
    "maxRate": 9.88,
-   "maxPay": 621.91
+   "maxPayment": 621.9068990073459
   },
   {
-   "start": "2011-11-01",
-   "diff": -3512.49,
+   "start": "2011-11",
+   "totalInterest": 22492.977239229367,
+   "difference": -3512.487010920544,
    "maxRate": 9.89,
-   "maxPay": 622.72
+   "maxPayment": 622.7186165969022
   },
   {
-   "start": "2011-12-01",
-   "diff": -3482.27,
+   "start": "2011-12",
+   "totalInterest": 22523.197531589678,
+   "difference": -3482.266718560233,
    "maxRate": 9.89,
-   "maxPay": 623.26
+   "maxPayment": 623.2602503755551
   },
   {
-   "start": "2012-01-01",
-   "diff": -3515.62,
+   "start": "2012-01",
+   "totalInterest": 22489.848875016418,
+   "difference": -3515.615375133493,
    "maxRate": 9.87,
-   "maxPay": 623.26
+   "maxPayment": 623.2580006421506
   },
   {
-   "start": "2012-02-01",
-   "diff": -3676.82,
+   "start": "2012-02",
+   "totalInterest": 22328.647189632455,
+   "difference": -3676.8170605174564,
    "maxRate": 9.81,
-   "maxPay": 622.17
+   "maxPayment": 622.1655331995872
   },
   {
-   "start": "2012-03-01",
-   "diff": -3618.94,
+   "start": "2012-03",
+   "totalInterest": 22386.524032712117,
+   "difference": -3618.9402174377938,
    "maxRate": 9.82,
-   "maxPay": 622.96
+   "maxPayment": 622.9587832783764
   },
   {
-   "start": "2012-04-01",
-   "diff": -3592.19,
+   "start": "2012-04",
+   "totalInterest": 22413.272160362547,
+   "difference": -3592.1920897873642,
    "maxRate": 9.82,
-   "maxPay": 623.48
+   "maxPayment": 623.4818524887093
   },
   {
-   "start": "2012-05-01",
-   "diff": -3596.92,
+   "start": "2012-05",
+   "totalInterest": 22408.54736362517,
+   "difference": -3596.916886524741,
    "maxRate": 9.81,
-   "maxPay": 623.73
+   "maxPayment": 623.7323790255784
   },
   {
-   "start": "2012-06-01",
-   "diff": -3570.07,
+   "start": "2012-06",
+   "totalInterest": 22435.397249105423,
+   "difference": -3570.0670010444883,
    "maxRate": 9.81,
-   "maxPay": 624.25
+   "maxPayment": 624.251411732324
   },
   {
-   "start": "2012-07-01",
-   "diff": -3574.33,
+   "start": "2012-07",
+   "totalInterest": 22431.13104905692,
+   "difference": -3574.3332010929917,
    "maxRate": 9.8,
-   "maxPay": 624.5
+   "maxPayment": 624.4977041119395
   },
   {
-   "start": "2012-08-01",
-   "diff": -3546.4,
+   "start": "2012-08",
+   "totalInterest": 22459.066377917166,
+   "difference": -3546.3978722327447,
    "maxRate": 9.8,
-   "maxPay": 625.01
+   "maxPayment": 625.0127006443035
   },
   {
-   "start": "2012-09-01",
-   "diff": -3549.02,
+   "start": "2012-09",
+   "totalInterest": 22456.445694910275,
+   "difference": -3549.018555239636,
    "maxRate": 10.02,
-   "maxPay": 625.25
+   "maxPayment": 625.2547678542034
   },
   {
-   "start": "2012-10-01",
-   "diff": -3487.25,
+   "start": "2012-10",
+   "totalInterest": 22518.210316728924,
+   "difference": -3487.253933420987,
    "maxRate": 10.53,
-   "maxPay": 626.04
+   "maxPayment": 626.0378050583403
   },
   {
-   "start": "2012-11-01",
-   "diff": -3423.27,
+   "start": "2012-11",
+   "totalInterest": 22582.199132735386,
+   "difference": -3423.265117414525,
    "maxRate": 11.13,
-   "maxPay": 626.82
+   "maxPayment": 626.8221310425797
   },
   {
-   "start": "2012-12-01",
-   "diff": -3325.06,
+   "start": "2012-12",
+   "totalInterest": 22680.406486415453,
+   "difference": -3325.0577637344577,
    "maxRate": 11.58,
-   "maxPay": 627.88
+   "maxPayment": 627.8802533537679
   },
   {
-   "start": "2013-01-01",
-   "diff": -3287.41,
+   "start": "2013-01",
+   "totalInterest": 22718.05089385622,
+   "difference": -3287.4133562936913,
    "maxRate": 11.68,
-   "maxPay": 628.4
+   "maxPayment": 628.3965791578164
   },
   {
-   "start": "2013-02-01",
-   "diff": -3343.0,
+   "start": "2013-02",
+   "totalInterest": 22662.466585255333,
+   "difference": -3342.9976648945776,
    "maxRate": 11.94,
-   "maxPay": 628.09
+   "maxPayment": 628.0938561426142
   },
   {
-   "start": "2013-03-01",
-   "diff": -3270.75,
+   "start": "2013-03",
+   "totalInterest": 22734.71408396873,
+   "difference": -3270.7501661811802,
    "maxRate": 12.06,
-   "maxPay": 628.87
+   "maxPayment": 628.8746747700828
   },
   {
-   "start": "2013-04-01",
-   "diff": -3132.15,
+   "start": "2013-04",
+   "totalInterest": 22873.313953475226,
+   "difference": -3132.150296674685,
    "maxRate": 12.13,
-   "maxPay": 630.2
+   "maxPayment": 630.2027657342323
   },
   {
-   "start": "2013-05-01",
-   "diff": -3021.49,
+   "start": "2013-05",
+   "totalInterest": 22983.97673878373,
+   "difference": -3021.48751136618,
    "maxRate": 12.38,
-   "maxPay": 631.26
+   "maxPayment": 631.2636646947833
   },
   {
-   "start": "2013-06-01",
-   "diff": -3002.95,
+   "start": "2013-06",
+   "totalInterest": 23002.51080469799,
+   "difference": -3002.95344545192,
    "maxRate": 12.59,
-   "maxPay": 631.51
+   "maxPayment": 631.5078307284928
   },
   {
-   "start": "2013-07-01",
-   "diff": -2918.73,
+   "start": "2013-07",
+   "totalInterest": 23086.73117293019,
+   "difference": -2918.73307721972,
    "maxRate": 12.62,
-   "maxPay": 632.3
+   "maxPayment": 632.2957697114399
   },
   {
-   "start": "2013-08-01",
-   "diff": -2863.41,
+   "start": "2013-08",
+   "totalInterest": 23142.058588282478,
+   "difference": -2863.405661867433,
    "maxRate": 12.71,
-   "maxPay": 632.81
+   "maxPayment": 632.8112751659934
   },
   {
-   "start": "2013-09-01",
-   "diff": -2741.72,
+   "start": "2013-09",
+   "totalInterest": 23263.74290014315,
+   "difference": -2741.721350006763,
    "maxRate": 12.78,
-   "maxPay": 633.87
+   "maxPayment": 633.8733340597684
   },
   {
-   "start": "2013-10-01",
-   "diff": -2776.17,
+   "start": "2013-10",
+   "totalInterest": 23229.298839105548,
+   "difference": -2776.1654110443633,
    "maxRate": 12.77,
-   "maxPay": 633.57
+   "maxPayment": 633.5693705628299
   },
   {
-   "start": "2013-11-01",
-   "diff": -2777.67,
+   "start": "2013-11",
+   "totalInterest": 23227.797503521815,
+   "difference": -2777.666746628096,
    "maxRate": 12.77,
-   "maxPay": 633.53
+   "maxPayment": 633.5321259794541
   },
   {
-   "start": "2013-12-01",
-   "diff": -2713.84,
+   "start": "2013-12",
+   "totalInterest": 23291.624044247517,
+   "difference": -2713.840205902394,
    "maxRate": 12.77,
-   "maxPay": 634.04
+   "maxPayment": 634.0372768799507
   },
   {
-   "start": "2014-01-01",
-   "diff": -2551.63,
+   "start": "2014-01",
+   "totalInterest": 23453.829306712214,
+   "difference": -2551.634943437697,
    "maxRate": 12.8,
-   "maxPay": 635.36
+   "maxPayment": 635.363419200219
   },
   {
-   "start": "2014-02-01",
-   "diff": -2513.39,
+   "start": "2014-02",
+   "totalInterest": 23492.072259948163,
+   "difference": -2513.391990201748,
    "maxRate": 12.79,
-   "maxPay": 635.6
+   "maxPayment": 635.5985824713017
   },
   {
-   "start": "2014-03-01",
-   "diff": -2441.2,
+   "start": "2014-03",
+   "totalInterest": 23564.26035126406,
+   "difference": -2441.2038988858512,
    "maxRate": 12.79,
-   "maxPay": 636.1
+   "maxPayment": 636.1047905173574
   },
   {
-   "start": "2014-04-01",
-   "diff": -2302.47,
+   "start": "2014-04",
+   "totalInterest": 23702.99388526555,
+   "difference": -2302.4703648843606,
    "maxRate": 12.81,
-   "maxPay": 637.16
+   "maxPayment": 637.1586875559709
   },
   {
-   "start": "2014-05-01",
-   "diff": -2224.36,
+   "start": "2014-05",
+   "totalInterest": 23781.099840386447,
+   "difference": -2224.364409763464,
    "maxRate": 12.81,
-   "maxPay": 637.67
+   "maxPayment": 637.6669635736029
   },
   {
-   "start": "2014-06-01",
-   "diff": -2175.91,
+   "start": "2014-06",
+   "totalInterest": 23829.55864335077,
+   "difference": -2175.9056067991405,
    "maxRate": 12.8,
-   "maxPay": 637.9
+   "maxPayment": 637.8996298853705
   },
   {
-   "start": "2014-07-01",
-   "diff": -2061.3,
+   "start": "2014-07",
+   "totalInterest": 23944.162375891043,
+   "difference": -2061.3018742588683,
    "maxRate": 12.81,
-   "maxPay": 638.68
+   "maxPayment": 638.6783667211561
   },
   {
-   "start": "2014-08-01",
-   "diff": -1975.89,
+   "start": "2014-08",
+   "totalInterest": 24029.57443705208,
+   "difference": -1975.8898130978305,
    "maxRate": 12.81,
-   "maxPay": 639.18
+   "maxPayment": 639.183488136042
   },
   {
-   "start": "2014-09-01",
-   "diff": -1855.97,
+   "start": "2014-09",
+   "totalInterest": 24149.497478085865,
+   "difference": -1855.9667720640464,
    "maxRate": 12.82,
-   "maxPay": 640.52
+   "maxPayment": 640.5248927705487
   },
   {
-   "start": "2014-10-01",
-   "diff": -1765.55,
+   "start": "2014-10",
+   "totalInterest": 24239.915989019908,
+   "difference": -1765.548261130003,
    "maxRate": 12.82,
-   "maxPay": 641.8
+   "maxPayment": 641.8001186413021
   },
   {
-   "start": "2014-11-01",
-   "diff": -1673.09,
+   "start": "2014-11",
+   "totalInterest": 24332.376627208803,
+   "difference": -1673.0876229411078,
    "maxRate": 12.82,
-   "maxPay": 643.07
+   "maxPayment": 643.0739565309456
   },
   {
-   "start": "2014-12-01",
-   "diff": -1610.89,
+   "start": "2014-12",
+   "totalInterest": 24394.572073030336,
+   "difference": -1610.8921771195746,
    "maxRate": 12.81,
-   "maxPay": 644.07
+   "maxPayment": 644.0685556251918
   },
   {
-   "start": "2015-01-01",
-   "diff": -1515.06,
+   "start": "2015-01",
+   "totalInterest": 24490.405810299882,
+   "difference": -1515.0584398500287,
    "maxRate": 12.81,
-   "maxPay": 645.34
+   "maxPayment": 645.3371662432668
   },
   {
-   "start": "2015-02-01",
-   "diff": -1385.05,
+   "start": "2015-02",
+   "totalInterest": 24620.41187796636,
+   "difference": -1385.0523721835525,
    "maxRate": 12.82,
-   "maxPay": 646.88
+   "maxPayment": 646.8829420879572
   },
   {
-   "start": "2015-03-01",
-   "diff": -1317.3,
+   "start": "2015-03",
+   "totalInterest": 24688.163668464065,
+   "difference": -1317.3005816858458,
    "maxRate": 12.81,
-   "maxPay": 647.87
+   "maxPayment": 647.8720899457237
   },
   {
-   "start": "2015-04-01",
-   "diff": -1183.52,
+   "start": "2015-04",
+   "totalInterest": 24821.94220760832,
+   "difference": -1183.52204254159,
    "maxRate": 12.82,
-   "maxPay": 649.42
+   "maxPayment": 649.4156915275275
   },
   {
-   "start": "2015-05-01",
-   "diff": -1079.73,
+   "start": "2015-05",
+   "totalInterest": 24925.73332789678,
+   "difference": -1079.7309222531294,
    "maxRate": 12.82,
-   "maxPay": 650.68
+   "maxPayment": 650.6808603596332
   },
   {
-   "start": "2015-06-01",
-   "diff": -974.07,
+   "start": "2015-06",
+   "totalInterest": 25031.395279124932,
+   "difference": -974.068971024979,
    "maxRate": 12.82,
-   "maxPay": 651.94
+   "maxPayment": 651.944526798156
   },
   {
-   "start": "2015-07-01",
-   "diff": -899.0,
+   "start": "2015-07",
+   "totalInterest": 25106.466823707295,
+   "difference": -898.9974264426164,
    "maxRate": 12.81,
-   "maxPay": 652.93
+   "maxPayment": 652.9262469528859
   },
   {
-   "start": "2015-08-01",
-   "diff": -919.96,
+   "start": "2015-08",
+   "totalInterest": 25085.500716118037,
+   "difference": -919.9635340318746,
    "maxRate": 12.77,
-   "maxPay": 653.06
+   "maxPayment": 653.062016626736
   },
   {
-   "start": "2015-09-01",
-   "diff": -649.0,
+   "start": "2015-09",
+   "totalInterest": 25356.463107917192,
+   "difference": -649.0011422327188,
    "maxRate": 12.82,
-   "maxPay": 655.71
+   "maxPayment": 655.714078592932
   },
   {
-   "start": "2015-10-01",
-   "diff": -536.18,
+   "start": "2015-10",
+   "totalInterest": 25469.280255534664,
+   "difference": -536.1839946152468,
    "maxRate": 12.82,
-   "maxPay": 656.97
+   "maxPayment": 656.9715838050888
   },
   {
-   "start": "2015-11-01",
-   "diff": -747.0,
+   "start": "2015-11",
+   "totalInterest": 25258.4615181936,
+   "difference": -747.0027319563123,
    "maxRate": 12.72,
-   "maxPay": 655.41
+   "maxPayment": 655.4125052872183
   },
   {
-   "start": "2015-12-01",
-   "diff": -993.45,
+   "start": "2015-12",
+   "totalInterest": 25012.016482920382,
+   "difference": -993.4477672295288,
    "maxRate": 12.61,
-   "maxPay": 653.55
+   "maxPayment": 653.550501317332
   },
   {
-   "start": "2016-01-01",
-   "diff": -984.38,
+   "start": "2016-01",
+   "totalInterest": 25021.080380871357,
+   "difference": -984.3838692785539,
    "maxRate": 12.58,
-   "maxPay": 653.91
+   "maxPayment": 653.9102782472387
   },
   {
-   "start": "2016-02-01",
-   "diff": -1040.38,
+   "start": "2016-02",
+   "totalInterest": 24965.07950889306,
+   "difference": -1040.3847412568502,
    "maxRate": 12.53,
-   "maxPay": 653.7
+   "maxPayment": 653.6991192206168
   },
   {
-   "start": "2016-03-01",
-   "diff": -870.5,
+   "start": "2016-03",
+   "totalInterest": 25134.960002768872,
+   "difference": -870.504247381039,
    "maxRate": 12.55,
-   "maxPay": 655.44
+   "maxPayment": 655.4423450822397
   },
   {
-   "start": "2016-04-01",
-   "diff": -568.03,
+   "start": "2016-04",
+   "totalInterest": 25437.43863770916,
+   "difference": -568.0256124407497,
    "maxRate": 12.61,
-   "maxPay": 658.32
+   "maxPayment": 658.3172308477091
   },
   {
-   "start": "2016-05-01",
-   "diff": -586.32,
+   "start": "2016-05",
+   "totalInterest": 25419.140390699427,
+   "difference": -586.3238594504837,
    "maxRate": 12.57,
-   "maxPay": 658.38
+   "maxPayment": 658.3848028103001
   },
   {
-   "start": "2016-06-01",
-   "diff": -475.14,
+   "start": "2016-06",
+   "totalInterest": 25530.324143192916,
+   "difference": -475.1401069569947,
    "maxRate": 12.57,
-   "maxPay": 659.57
+   "maxPayment": 659.5701484532473
   },
   {
-   "start": "2016-07-01",
-   "diff": -460.3,
+   "start": "2016-07",
+   "totalInterest": 25545.161368353813,
+   "difference": -460.3028817960985,
    "maxRate": 12.54,
-   "maxPay": 659.91
+   "maxPayment": 659.9061355524641
   },
   {
-   "start": "2016-08-01",
-   "diff": -347.88,
+   "start": "2016-08",
+   "totalInterest": 25657.585815117098,
+   "difference": -347.8784350328133,
    "maxRate": 12.54,
-   "maxPay": 661.08
+   "maxPayment": 661.0811388519031
   },
   {
-   "start": "2016-09-01",
-   "diff": -201.42,
+   "start": "2016-09",
+   "totalInterest": 25804.04421504961,
+   "difference": -201.4200351003019,
    "maxRate": 12.55,
-   "maxPay": 662.54
+   "maxPayment": 662.5375810417613
   }
  ],
- "worstPath": {
-  "start": "1977-04-01",
-  "rates": [
-   7.5,
-   7.92,
-   7.98,
-   8.15,
-   8.45,
-   8.77,
-   9.12,
-   9.06,
-   9.03,
-   9.4,
-   9.41,
-   9.25,
-   9.25,
-   9.37,
-   9.69,
-   9.97,
-   10.04,
-   10.81,
-   10.95,
-   11.6,
-   12.04,
-   12.31,
-   12.28,
-   12.44,
-   12.42,
-   12.57,
-   12.02,
-   12.2,
-   12.48,
-   13.22,
-   14.66,
-   14.75,
-   15.0,
-   14.96,
-   15.82,
-   18.16,
-   16.16,
-   11.54,
-   10.03,
-   11.02,
-   12.09,
-   13.23,
-   14.58,
-   16.69,
-   18.45,
-   17.98,
-   17.75,
-   16.32,
-   16.65,
-   19.26,
-   17.69,
-   17.91,
-   18.47,
-   17.66,
-   16.5,
-   13.82,
-   13.81,
-   15.24,
-   16.44,
-   15.64,
-   15.66,
-   15.05,
-   15.43,
-   14.31,
-   11.64,
-   10.88,
-   10.67,
-   11.03,
-   10.9,
-   10.82,
-   11.07,
-   11.31,
-   11.17,
-   11.15,
-   11.75,
-   12.04,
-   12.3,
-   11.96,
-   11.6,
-   11.72,
-   11.96,
-   11.86,
-   12.05,
-   12.48,
-   12.65,
-   12.79,
-   12.83,
-   13.08,
-   13.43,
-   13.33,
-   12.7,
-   11.57,
-   11.02,
-   10.72,
-   11.23,
-   11.48,
-   10.91,
-   10.44,
-   9.91,
-   10.04,
-   10.1,
-   10.06,
-   10.12,
-   10.2,
-   10.06,
-   10.03,
-   10.02,
-   9.52,
-   9.02,
-   9.11,
-   9.17,
-   8.79,
-   8.49,
-   8.17,
-   8.14,
-   8.31,
-   8.49,
-   8.39,
-   8.55,
-   8.55
-  ]
+ "periods": [
+  {
+   "from": "1954-01",
+   "to": "1980-12",
+   "nWindows": 324,
+   "shareCostlier": 28.395061728395063
+  },
+  {
+   "from": "1981-01",
+   "to": "2016-09",
+   "nWindows": 429,
+   "shareCostlier": 3.4965034965034967
+  }
+ ],
+ "sensitivity": {
+  "-1": 72.90836653386454,
+  "-0.5": 64.6746347941567,
+  "0": 57.90172642762284,
+  "0.25": 50.99601593625498,
+  "0.5": 42.49667994687915,
+  "0.75": 35.98937583001328,
+  "1": 31.341301460823374,
+  "1.25": 24.701195219123505,
+  "1.5": 14.209827357237716,
+  "1.75": 9.428950863213812,
+  "2": 8.764940239043824,
+  "2.25": 7.171314741035856,
+  "2.5": 5.9760956175298805,
+  "2.75": 5.710491367861886,
+  "3": 4.51527224435591
  }
 }

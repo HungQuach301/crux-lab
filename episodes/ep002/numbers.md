@@ -27,10 +27,14 @@ Mọi số của tập phải trỏ về một claim ID ở đây. Kiểm độc
 | `median_diff` | −$3,832 | $3,832 less | median Difference (negative = variable cheaper) | model | có | a |
 | `worst_diff` | +$11,219 |  | max Difference | model | có | a |
 | `worst_start` | April 1977 |  | start month of the max Difference | model | có | a |
+| `worst_start_year` | 1977 |  | year of worst_start (S05 numeric) | model | có | a |
+| `worst_start_month` | April |  | month of worst_start (S05 numeric) | model | có | a |
 | `worst_peak_rate` | 19.3% |  | highest monthly variable rate in the worst window | model | có | a |
 | `worst_share_of_fixed` | 43% |  | worst_diff / fixed_int | model | có | a |
 | `best_diff` | −$15,295 |  | min Difference | model | có | a |
 | `best_start` | August 1981 |  | start month of the min Difference | model | có | a |
+| `best_start_year` | 1981 |  | year of best_start (S05 numeric) | model | có | a |
+| `best_start_month` | August |  | month of best_start (S05 numeric) | model | có | a |
 | `max_rate_any` | 20.6% | window starting February 1972 | highest monthly variable rate in any window | model | có | a |
 | `share_rate_above_fixed` | 76.2% | about 3 in 4 | share of windows whose variable rate exceeded 9% in some month | model | có | a |
 | `fixed_payment` | $633.38 |  | level payment, 9%, 120 months | model | có | b |
@@ -38,39 +42,45 @@ Mọi số của tập phải trỏ về một claim ID ở đây. Kiểm độc
 | `max_payment` | $863.36 |  | highest variable monthly payment, any window | model | có | b |
 | `median_max_payment` | $643.28 |  | median over windows of the highest monthly payment | model | có | b |
 | `share_payment_above_fixed` | 58.4% | more than half | share of windows where the variable payment exceeded the fixed payment in some month | model | có | b |
-| `gapm10_share` | 72.9% |  | share costlier, start gap -1.0 points | model | có | b |
+| `spreadm1_share` | 72.9% |  | share costlier when the variable rate starts -1 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spreadm05_share` | 64.7% |  | share costlier when the variable rate starts -0.5 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread0_share` | 57.9% |  | share costlier when the variable rate starts 0 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread025_share` | 51.0% |  | share costlier when the variable rate starts 0.25 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread05_share` | 42.5% |  | share costlier when the variable rate starts 0.5 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread075_share` | 36.0% |  | share costlier when the variable rate starts 0.75 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread1_share` | 31.3% |  | share costlier when the variable rate starts 1 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread125_share` | 24.7% |  | share costlier when the variable rate starts 1.25 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread15_share` | 14.2% |  | share costlier when the variable rate starts 1.5 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread175_share` | 9.4% |  | share costlier when the variable rate starts 1.75 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread2_share` | 8.8% |  | share costlier when the variable rate starts 2 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread225_share` | 7.2% |  | share costlier when the variable rate starts 2.25 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread25_share` | 6.0% |  | share costlier when the variable rate starts 2.5 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread275_share` | 5.7% |  | share costlier when the variable rate starts 2.75 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
+| `spread3_share` | 4.5% |  | share costlier when the variable rate starts 3 points under 9% (K3.5 shareCostlierAtSpread) | model | có | b |
 | `gapm10_early` | 92.9% |  | gap -1.0: 1954-1980 | model | có | b |
 | `gapm10_late` | 57.8% |  | gap -1.0: 1981 on | model | có | b |
 | `gapm10_worst` | +$20,217 |  | gap -1.0: worst Difference | model | có | b |
-| `gapm05_share` | 64.7% |  | share costlier, start gap -0.5 points | model | có | b |
 | `gapm05_early` | 88.0% |  | gap -0.5: 1954-1980 | model | có | b |
 | `gapm05_late` | 47.1% |  | gap -0.5: 1981 on | model | có | b |
 | `gapm05_worst` | +$18,383 |  | gap -0.5: worst Difference | model | có | b |
-| `gap00_share` | 57.9% |  | share costlier, start gap 0.0 points | model | có | b |
 | `gap00_early` | 79.0% |  | gap 0.0: 1954-1980 | model | có | b |
 | `gap00_late` | 42.0% |  | gap 0.0: 1981 on | model | có | b |
 | `gap00_worst` | +$16,566 |  | gap 0.0: worst Difference | model | có | b |
-| `gap05_share` | 42.5% |  | share costlier, start gap 0.5 points | model | có | b |
 | `gap05_early` | 68.5% |  | gap 0.5: 1954-1980 | model | có | b |
 | `gap05_late` | 22.8% |  | gap 0.5: 1981 on | model | có | b |
 | `gap05_worst` | +$14,766 |  | gap 0.5: worst Difference | model | có | b |
-| `gap10_share` | 31.3% |  | share costlier, start gap 1.0 points | model | có | b |
 | `gap10_early` | 54.9% |  | gap 1.0: 1954-1980 | model | có | b |
 | `gap10_late` | 13.5% |  | gap 1.0: 1981 on | model | có | b |
 | `gap10_worst` | +$12,983 |  | gap 1.0: worst Difference | model | có | b |
-| `gap15_share` | 14.2% |  | share costlier, start gap 1.5 points | model | có | b |
 | `gap15_early` | 28.4% |  | gap 1.5: 1954-1980 | model | có | b |
 | `gap15_late` | 3.5% |  | gap 1.5: 1981 on | model | có | b |
 | `gap15_worst` | +$11,219 |  | gap 1.5: worst Difference | model | có | b |
-| `gap20_share` | 8.8% |  | share costlier, start gap 2.0 points | model | có | b |
 | `gap20_early` | 20.4% |  | gap 2.0: 1954-1980 | model | có | b |
 | `gap20_late` | 0.0% |  | gap 2.0: 1981 on | model | có | b |
 | `gap20_worst` | +$9,472 |  | gap 2.0: worst Difference | model | có | b |
-| `gap25_share` | 6.0% |  | share costlier, start gap 2.5 points | model | có | b |
 | `gap25_early` | 13.9% |  | gap 2.5: 1954-1980 | model | có | b |
 | `gap25_late` | 0.0% |  | gap 2.5: 1981 on | model | có | b |
 | `gap25_worst` | +$7,743 |  | gap 2.5: worst Difference | model | có | b |
-| `gap30_share` | 4.5% |  | share costlier, start gap 3.0 points | model | có | b |
 | `gap30_early` | 10.5% |  | gap 3.0: 1954-1980 | model | có | b |
 | `gap30_late` | 0.0% |  | gap 3.0: 1981 on | model | có | b |
 | `gap30_worst` | +$6,033 |  | gap 3.0: worst Difference | model | có | b |
@@ -91,6 +101,8 @@ Mọi số của tập phải trỏ về một claim ID ở đây. Kiểm độc
 | `ctx_unsub_annual` | $20,500 a year |  | Direct Unsubsidized annual limit, graduate (non-professional) student, periods of enrollment from 2026-07-01 (unchanged from before) | policy | không | a |
 | `ctx_unsub_aggregate` | $100,000 total |  | Direct Unsubsidized aggregate limit, graduate (non-professional) student, from 2026-07-01 (was $138,500) | policy | không | a |
 | `ctx_unsub_rate` | 8.07% fixed |  | Direct Unsubsidized, graduate/professional, first disbursed 2026-07-01..2027-06-30 = 10-yr Treasury high yield 4.47% (May 12, 2026) + 3.6, cap 9.5 (34 CFR 685.202(a)(8)) | policy | không | a |
+| `ctx_prof_annual` | $50,000 a year |  | Direct Unsubsidized annual limit, professional student, from 2026-07-01 | policy | không | a |
+| `ctx_prof_aggregate` | $200,000 total |  | Direct Unsubsidized aggregate limit, professional student, from 2026-07-01 | policy | không | a |
 
 ## Ghi chú
 

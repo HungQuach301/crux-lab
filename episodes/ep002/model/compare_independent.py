@@ -1,7 +1,7 @@
 """So out/model.json (bên dựng) với model/independent/recompute.json (agent độc lập) theo dung sai gates/V0-defs.md."""
 import json, os
 EP = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-a = json.load(open(os.path.join(EP, 'out/model.json')))
+a = json.load(open(os.path.join(EP, 'out/model-extra.json')))
 b = json.load(open(os.path.join(EP, 'model/independent/recompute.json')))
 nd = lambda v: v + '-01' if isinstance(v, str) and len(v) == 7 else v
 def tol(k):

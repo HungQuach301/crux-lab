@@ -10,16 +10,16 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 | Cổng | Trạng thái | Gói | Quyết định của chủ dự án |
 |---|---|---|---|
 | Việc 0 Khung tập | XONG — dữ liệu không đổi; kiểm độc lập 116/116 + 753/753; bối cảnh chính sách; neo 7,5/9 | — | — |
-| C1 Ý tưởng và lời hứa | **GÓI ĐÃ GỬI — chờ chủ dự án** | `gates/C1.md`, `gates/C1-blind.md` | — |
-| C2 Kịch bản | chưa | — | — |
+| C1 Ý tưởng và lời hứa | XONG | `gates/C1.md`, `gates/C1-blind.md` | A + tiêu đề A1; phạm vi (b), câu hỏi trung tâm "thả nổi phải thấp hơn bao nhiêu"; ILLUSTRATIVE |
+| C2 Kịch bản | ĐANG LÀM — WRITER treatment | — | — |
 | C3 Thiết kế | chưa | — | — |
 | C4 Animatic có chuyển động | chưa | — | — |
-| C5 Render và L1 | **chờ K3.5 merge** (`model.kind` `rate-path-history`, đặc tả `checks-notes.md`) | — | — |
+| C5 Render và L1 | chờ K3.5 merge vào main (`float-vs-fixed-replay`, LOCK bd1948d9; chạy thử 0 lệch) | — | — |
 | C6 Chấm cuối và chốt gói | chưa | — | — |
 
 ## Việc treo cần chủ dự án (không chặn cổng)
-- Xác minh **$20,500/năm, $100,000 tổng** (Direct Unsub sau đại học từ 1/7/2026) trên FR PDF 91 FR 23883 trước khi lên hình — proxy chặn govinfo/studentaid (`story/policy-context.md` §2).
-- **K3.5** (chủ dự án mở phiên riêng): bản tính lại độc lập `rate-path-history` cho S01/S05 — đặc tả ở `checks-notes.md`. C5 chờ K3.5 merge (LOCK mới trên main, kiểm SHA).
+- K3.5 đang merge (LOCK bd1948d9) — C5 kiểm SHA trên main trước khi chạy.
+- K3.6 (sau C2): danh sách claim chưa có khoá — báo ở gói C2.
 
 ## Điểm dừng an toàn (cập nhật trước mỗi bước dài)
 - 2026-10-01 03:00 (1): Việc 0 bước 1–3 xong và đã commit. Nếu mất container: `python3 episodes/ep002/data/fetch.py --verify && python3 episodes/ep002/model/model.py && python3 episodes/ep002/model/compare_independent.py`. Đang: agent chính sách (`story/policy-context.md`) và agent neo 7,5/9 (`story/rate-anchor.md`) — nếu mất thì giao lại cùng đề bài (ledger 02:50).
@@ -30,3 +30,4 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 - Gu không tự quyết; kỹ thuật tự quyết, ghi lý do ở ledger.
 - Gen được bảo vệ của tập (`claim-risk.md`): không "your loan will…"; luôn hiện cả 1954–1980 và từ 1981 cùng trường hợp xấu nhất; không "variable is safe"/"wins X%" đứng riêng; kết quả chỉ đúng cho cặp lãi đang xét; "history, not a forecast"; lời và chữ trên hình ở dạng mô tả (S10: take/lock/choose).
 - 2026-10-01 03:50 (2): gói C1 gửi. Chờ 3 câu trả lời. Sau khi trả lời: ghi taste-ledger/AUTHORSHIP (main) + ledger; giao WRITER treatment (C2).
+- 2026-10-01 (3): C1 xong. Đang: WRITER treatment → beat sheet → kịch bản (C2). Nếu mất: đọc `gates/C1.md` + ledger dòng "Cổng C1", giao lại WRITER với đề bài ở `story/WRITER-brief.md`.

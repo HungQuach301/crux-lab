@@ -1,0 +1,179 @@
+{
+ "episode": "ep002",
+ "lock": "bd1948d9a3c90dbcc356fcfbd9db4c57a362d0c769f8c4deb180e5d52d377fef (K3.5)",
+ "question": "How much lower does a variable rate have to start than a fixed rate before the risk has been worth it in history?",
+ "targetDurationSec": [
+  480,
+  900
+ ],
+ "characters": {
+  "note": "TODO C2/C3: nhân vật (WRITER) + màu/hình (C3, qua mô phỏng protan/deutan)"
+ },
+ "claims": {
+  "file": "out/claims.json",
+  "core": [
+   "share_early",
+   "share_late",
+   "worst_diff"
+  ],
+  "decisive": [
+   "share_early",
+   "share_late",
+   "worst_diff"
+  ],
+  "illustrative": "TODO: sinh từ out/claims.json (illustrative:true) ở C2",
+  "assumptions": [
+   {
+    "id": "illustrative-offers",
+    "pattern": "illustrative",
+    "what": "7.5% variable / 9% fixed is an illustrative pair"
+   },
+   {
+    "id": "tbill-index",
+    "pattern": "treasury bill|t-bill",
+    "what": "3-month T-bill stands in for the lender index (SOFR-type)"
+   },
+   {
+    "id": "no-cap",
+    "pattern": "no cap|no rate cap|uncapped",
+    "what": "no rate cap in the main replay"
+   },
+   {
+    "id": "repay-now",
+    "pattern": "repayment starts|no deferment",
+    "what": "repayment starts at once; no deferment, fees, discounts"
+   }
+  ]
+ },
+ "model": {
+  "kind": "float-vs-fixed-replay",
+  "output": "out/model.json",
+  "code": "model/model.py",
+  "params": {
+   "index": {
+    "file": "data/normalized/tb3ms_monthly.csv",
+    "dateColumn": "month",
+    "valueColumn": "rate"
+   },
+   "principal": 50000,
+   "termMonths": 120,
+   "fixedRate": 9.0,
+   "floatStartRate": 7.5,
+   "firstStart": "1954-01",
+   "indexFloor": 0.0,
+   "periodBreaks": [
+    "1981-01"
+   ],
+   "spreads": [
+    -1.0,
+    -0.5,
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+    2.25,
+    2.5,
+    2.75,
+    3.0
+   ]
+  },
+  "claims": {
+   "n_starts": "nWindows",
+   "fixed_int": "fixedTotalInterest",
+   "share_all": "shareCostlier",
+   "median_diff": "medianDifference",
+   "worst_diff": "worstDifference",
+   "best_diff": "bestDifference",
+   "max_rate_any": "maxRate",
+   "max_payment": "maxPayment",
+   "fixed_payment": "fixedPayment",
+   "index_today": "indexToday",
+   "margin": "margin",
+   "worst_start_year": "worstStartYear",
+   "worst_start_month": "worstStartMonth",
+   "best_start_year": "bestStartYear",
+   "best_start_month": "bestStartMonth",
+   "n_early": "nWindows:1954-01",
+   "n_late": "nWindows:1981-01",
+   "share_early": "shareCostlier:1954-01",
+   "share_late": "shareCostlier:1981-01",
+   "spreadm1_share": "shareCostlierAtSpread:-1",
+   "spreadm05_share": "shareCostlierAtSpread:-0.5",
+   "spread0_share": "shareCostlierAtSpread:0",
+   "spread025_share": "shareCostlierAtSpread:0.25",
+   "spread05_share": "shareCostlierAtSpread:0.5",
+   "spread075_share": "shareCostlierAtSpread:0.75",
+   "spread1_share": "shareCostlierAtSpread:1",
+   "spread125_share": "shareCostlierAtSpread:1.25",
+   "spread15_share": "shareCostlierAtSpread:1.5",
+   "spread175_share": "shareCostlierAtSpread:1.75",
+   "spread2_share": "shareCostlierAtSpread:2",
+   "spread225_share": "shareCostlierAtSpread:2.25",
+   "spread25_share": "shareCostlierAtSpread:2.5",
+   "spread275_share": "shareCostlierAtSpread:2.75",
+   "spread3_share": "shareCostlierAtSpread:3"
+  }
+ },
+ "data": {
+  "sources": "data/sources.json",
+  "hosts": {
+   "primary": [
+    "fred.stlouisfed.org"
+   ],
+   "crosscheck": [
+    "fred.stlouisfed.org"
+   ]
+  },
+  "crosscheck": [
+   {
+    "series": "tb3ms",
+    "tolerance": 0.05,
+    "used": "crosscheck",
+    "primary": {
+     "file": "data/normalized/tb3ms_monthly.csv",
+     "key": "month",
+     "column": "rate"
+    },
+    "crosscheck": {
+     "file": "data/normalized/dtb3_monthly_mean.csv",
+     "key": "month",
+     "column": "rate"
+    },
+    "what": "TB3MS (monthly) vs mean of daily DTB3 (H.15), every month 1954-01..2026-08"
+   }
+  ],
+  "fetch": "python3 episodes/ep002/data/fetch.py --verify (FRED files are not committed: amendments.md E2-A1)"
+ },
+ "coverage": [
+  {
+   "attribute": "case",
+   "act": "TODO",
+   "values": [
+    "period-1954-1980",
+    "period-1981-on",
+    "worst-1977-04"
+   ],
+   "what": "gen của tập: luôn hiện cả hai thời kỳ cùng trường hợp xấu nhất"
+  }
+ ],
+ "sonification": {
+  "stem": "sonify",
+  "bandsHz": "TODO C3 (bảng âm S2 Tập 1, Q1=A)"
+ },
+ "artefacts": {
+  "M3": "TODO C5"
+ },
+ "todo": [
+  "characters (C2/C3)",
+  "coverage.act (C2)",
+  "claims.illustrative list (C2)",
+  "sonification.bandsHz (C3)",
+  "artefacts (C5)",
+  "claims chưa có khoá K3.5 → checks-notes.md (sau C2, K3.6)"
+ ]
+}

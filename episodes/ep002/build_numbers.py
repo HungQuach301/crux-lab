@@ -3,7 +3,8 @@ python3 episodes/ep002/build_numbers.py"""
 import csv, json, os
 
 EP = os.path.dirname(os.path.abspath(__file__))
-M = json.load(open(os.path.join(EP, 'out/model.json')))
+M = json.load(open(os.path.join(EP, 'out/model-extra.json')))
+F = json.load(open(os.path.join(EP, 'out/model.json')))  # dạng K3.5, chưa làm tròn
 B, PAY, W = M['base'], M['payments'], M['windows']
 SRC = {'id': 'fred-tb3ms', 'url': 'https://fred.stlouisfed.org/series/TB3MS'}
 MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
@@ -48,17 +49,19 @@ add('n_late', B['n_starts_1981_on'], str(B['n_starts_1981_on']), 'start months 1
 add('fixed_int', B['fixed_total_interest'], usd(B['fixed_total_interest']), 'total interest, 9% fixed, 120 months')
 n_cost = sum(w['diff'] > 0 for w in W)
 add('n_costlier', n_cost, str(n_cost), 'windows with Difference > 0')
-add('share_all', B['share_variable_costlier'], pct(B['share_variable_costlier']),
+add('share_all', F['shareCostlier'], pct(B['share_variable_costlier']),
     'share of start months where variable total interest > fixed', core=True, words='about 1 in 7')
-add('share_early', B['share_costlier_1954_1980'], pct(B['share_costlier_1954_1980']),
+add('share_early', F['periods'][0]['shareCostlier'], pct(B['share_costlier_1954_1980']),
     'share costlier, starts 1954-1980', core=True, decisive=True, words='more than 1 in 4')
-add('share_late', B['share_costlier_1981_on'], pct(B['share_costlier_1981_on']),
+add('share_late', F['periods'][1]['shareCostlier'], pct(B['share_costlier_1981_on']),
     'share costlier, starts 1981 on', core=True, decisive=True, words='about 1 in 30')
 add('median_diff', B['median_variable_minus_fixed'], usd(B['median_variable_minus_fixed']),
     'median Difference (negative = variable cheaper)', words=f"{usd(-B['median_variable_minus_fixed'])} less")
 add('worst_diff', B['worst_variable_minus_fixed'], '+' + usd(B['worst_variable_minus_fixed']),
     'max Difference', core=True, decisive=True)
 add('worst_start', B['worst_start'], mon(B['worst_start']), 'start month of the max Difference')
+add('worst_start_year', 1977 if B['worst_start'][:4]=='1977' else int(B['worst_start'][:4]), B['worst_start'][:4], 'year of worst_start (S05 numeric)')
+add('worst_start_month', int(B['worst_start'][5:7]), MON[int(B['worst_start'][5:7])-1], 'month of worst_start (S05 numeric)')
 ww = next(w for w in W if w['start'] == B['worst_start'])
 add('worst_peak_rate', round(ww['maxRate'], 2), f"{ww['maxRate']:.1f}%", 'highest monthly variable rate in the worst window')
 add('worst_share_of_fixed', round(100 * B['worst_variable_minus_fixed'] / B['fixed_total_interest']),
@@ -66,6 +69,8 @@ add('worst_share_of_fixed', round(100 * B['worst_variable_minus_fixed'] / B['fix
 bw = min(W, key=lambda w: w['diff'])
 add('best_diff', B['best_variable_minus_fixed'], usd(B['best_variable_minus_fixed']), 'min Difference')
 add('best_start', bw['start'], mon(bw['start']), 'start month of the min Difference')
+add('best_start_year', int(bw['start'][:4]), bw['start'][:4], 'year of best_start (S05 numeric)')
+add('best_start_month', int(bw['start'][5:7]), MON[int(bw['start'][5:7])-1], 'month of best_start (S05 numeric)')
 mr = max(W, key=lambda w: w['maxRate'])
 add('max_rate_any', B['max_variable_rate_any_window'], f"{B['max_variable_rate_any_window']:.1f}%",
     'highest monthly variable rate in any window', start=mr['start'], words=f"window starting {mon(mr['start'])}")
@@ -85,16 +90,18 @@ add('share_payment_above_fixed', PAY['share_windows_max_payment_above_fixed'],
     'share of windows where the variable payment exceeded the fixed payment in some month', scope='b',
     words='more than half')
 # ---- lưới khoảng chênh / trần (phạm vi b)
+for g, v in F['sensitivity'].items():
+    t = g.replace('-', 'm').replace('.', '')
+    add(f'spread{t}_share', v, pct(v), f'share costlier when the variable rate starts {g} points under 9% (K3.5 shareCostlierAtSpread)', scope='b')
 for g, d in M['gaps'].items():
     t = g.replace('-', 'm').replace('.', '')
-    add(f'gap{t}_share', d['share_costlier'], pct(d['share_costlier']), f'share costlier, start gap {g} points', scope='b')
-    add(f'gap{t}_early', d['share_costlier_1954_1980'], pct(d['share_costlier_1954_1980']), f'gap {g}: 1954-1980', scope='b')
-    add(f'gap{t}_late', d['share_costlier_1981_on'], pct(d['share_costlier_1981_on']), f'gap {g}: 1981 on', scope='b')
-    add(f'gap{t}_worst', d['worst_diff'], '+' + usd(d['worst_diff']), f'gap {g}: worst Difference', scope='b')
+    add(f'gap{t}_early', d['share_costlier_1954_1980'], pct(d['share_costlier_1954_1980']), f'gap {g}: 1954-1980', scope='b', k36='shareCostlierAtSpread theo thời kỳ')
+    add(f'gap{t}_late', d['share_costlier_1981_on'], pct(d['share_costlier_1981_on']), f'gap {g}: 1981 on', scope='b', k36='shareCostlierAtSpread theo thời kỳ')
+    add(f'gap{t}_worst', d['worst_diff'], '+' + usd(d['worst_diff']), f'gap {g}: worst Difference', scope='b', k36='worst theo khoảng chênh')
 for c, d in M['caps'].items():
-    add(f'cap{c}_share', d['share_costlier'], pct(d['share_costlier']), f'share costlier, rate capped at {c}%', scope='b')
-    add(f'cap{c}_early', d['share_costlier_1954_1980'], pct(d['share_costlier_1954_1980']), f'cap {c}: 1954-1980', scope='b')
-    add(f'cap{c}_worst', d['worst_diff'], '+' + usd(d['worst_diff']), f'cap {c}: worst Difference', scope='b')
+    add(f'cap{c}_share', d['share_costlier'], pct(d['share_costlier']), f'share costlier, rate capped at {c}%', scope='b', k36='nhiều mức trần')
+    add(f'cap{c}_early', d['share_costlier_1954_1980'], pct(d['share_costlier_1954_1980']), f'cap {c}: 1954-1980', scope='b', k36='nhiều mức trần')
+    add(f'cap{c}_worst', d['worst_diff'], '+' + usd(d['worst_diff']), f'cap {c}: worst Difference', scope='b', k36='nhiều mức trần')
 
 # ---- bối cảnh chính sách / neo lãi (data/context.json, khi đã xác minh)
 ctx = os.path.join(EP, 'data/context.json')

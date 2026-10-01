@@ -1,10 +1,169 @@
 {
- "_about": "Claim bối cảnh chính sách (story/policy-context.md). verify: V1 = văn bản quy định đọc trực tiếp (eCFR, 2026-09-29); V2 = đọc qua WebFetch (Federal Register); V3 = chỉ qua đoạn trích tìm kiếm → cần chủ dự án xác minh trước khi lên hình.",
+ "_about": "Claim b\u1ed1i c\u1ea3nh ch\u00ednh s\u00e1ch (story/policy-context.md). verify: V1 = v\u0103n b\u1ea3n quy \u0111\u1ecbnh \u0111\u1ecdc tr\u1ef1c ti\u1ebfp (eCFR, 2026-09-29); V2 = \u0111\u1ecdc qua WebFetch (Federal Register); V3 = ch\u1ec9 qua \u0111o\u1ea1n tr\u00edch t\u00ecm ki\u1ebfm \u2192 c\u1ea7n ch\u1ee7 d\u1ef1 \u00e1n x\u00e1c minh tr\u01b0\u1edbc khi l\u00ean h\u00ecnh.",
  "claims": [
-  {"claimId": "ctx_plus_end", "value": "2026-07-01", "display": "July 1, 2026", "formula": "34 CFR 685.200(b)(2)(i): \"Beginning on July 1, 2026, a graduate student or professional student may not borrow a Direct PLUS Loan.\"", "source": {"id": "ecfr-685.200", "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.200"}, "dataYears": [2026], "historical": false, "illustrative": false, "kind": "policy", "verify": "V1", "asOf": "2026-09-29"},
-  {"claimId": "ctx_plus_exception", "value": "enrolled 2026-06-30 + Direct Loan for the program before 2026-07-01; up to 3 academic years", "display": "already enrolled and borrowing before July 2026: up to 3 more years", "formula": "34 CFR 685.200(b)(2)(ii), 685.102 'expected time to credential'", "source": {"id": "ecfr-685.200", "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.200"}, "dataYears": [2026], "historical": false, "illustrative": false, "kind": "policy", "verify": "V1"},
-  {"claimId": "ctx_unsub_annual", "value": 20500, "display": "$20,500 a year", "formula": "Direct Unsubsidized annual limit, graduate (non-professional) student, periods of enrollment from 2026-07-01 (unchanged from before)", "source": {"id": "fr-2026-08556", "url": "https://www.federalregister.gov/documents/2026/05/01/2026-08556/reimagining-and-improving-student-education-federal-student-loan-program-final-regulations"}, "dataYears": [2026], "historical": false, "illustrative": false, "kind": "policy", "basis": "nominal", "verify": "V2/V3 (old $20,500 = V1)", "needsOwnerVerification": true},
-  {"claimId": "ctx_unsub_aggregate", "value": 100000, "display": "$100,000 total", "formula": "Direct Unsubsidized aggregate limit, graduate (non-professional) student, from 2026-07-01 (was $138,500)", "source": {"id": "fr-2026-08556", "url": "https://www.federalregister.gov/documents/2026/05/01/2026-08556/reimagining-and-improving-student-education-federal-student-loan-program-final-regulations"}, "dataYears": [2026], "historical": false, "illustrative": false, "kind": "policy", "basis": "nominal", "verify": "V2/V3", "needsOwnerVerification": true},
-  {"claimId": "ctx_unsub_rate", "value": 8.07, "display": "8.07% fixed", "formula": "Direct Unsubsidized, graduate/professional, first disbursed 2026-07-01..2027-06-30 = 10-yr Treasury high yield 4.47% (May 12, 2026) + 3.6, cap 9.5 (34 CFR 685.202(a)(8))", "source": {"id": "fr-2026-18493", "url": "https://www.federalregister.gov/documents/2026/09/10/2026-18493/annual-notice-of-interest-rates-for-fixed-rate-federal-student-loans-made-under-the-william-d-ford"}, "dataYears": [2026], "historical": false, "illustrative": false, "kind": "policy", "verify": "V2 (formula V1; 4.47 + 3.60 = 8.07)"}
+  {
+   "claimId": "ctx_plus_end",
+   "value": "2026-07-01",
+   "display": "July 1, 2026",
+   "formula": "34 CFR 685.200(b)(2)(i): \"Beginning on July 1, 2026, a graduate student or professional student may not borrow a Direct PLUS Loan.\"",
+   "source": {
+    "id": "ecfr-685.200",
+    "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.200"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "verify": "V1",
+   "asOf": "2026-09-29"
+  },
+  {
+   "claimId": "ctx_plus_exception",
+   "value": "enrolled 2026-06-30 + Direct Loan for the program before 2026-07-01; up to 3 academic years",
+   "display": "already enrolled and borrowing before July 2026: up to 3 more years",
+   "formula": "34 CFR 685.200(b)(2)(ii), 685.102 'expected time to credential'",
+   "source": {
+    "id": "ecfr-685.200",
+    "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-VI/part-685/subpart-B/section-685.200"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "verify": "V1"
+  },
+  {
+   "claimId": "ctx_unsub_annual",
+   "value": 20500,
+   "display": "$20,500 a year",
+   "formula": "Direct Unsubsidized annual limit, graduate (non-professional) student, periods of enrollment from 2026-07-01 (unchanged from before)",
+   "source": {
+    "id": "fr-2026-01912",
+    "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "basis": "nominal",
+   "verify": "owner-verified 2026-10-01 (chat chi\u1ebfn l\u01b0\u1ee3c, ngu\u1ed3n li\u00ean bang FR 2026-01912 + FSA FAQ Loan Limits 05/2026); phi\u00ean P-ep002 \u0111\u1ecdc qua t\u00ecm ki\u1ebfm (proxy ch\u1eb7n, lessons A9)",
+   "sources": [
+    {
+     "id": "fr-2026-01912",
+     "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+    },
+    {
+     "id": "fsa-faq-loan-limits-2026-05",
+     "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
+    }
+   ]
+  },
+  {
+   "claimId": "ctx_unsub_aggregate",
+   "value": 100000,
+   "display": "$100,000 total",
+   "formula": "Direct Unsubsidized aggregate limit, graduate (non-professional) student, from 2026-07-01 (was $138,500)",
+   "source": {
+    "id": "fr-2026-01912",
+    "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "basis": "nominal",
+   "verify": "owner-verified 2026-10-01 (chat chi\u1ebfn l\u01b0\u1ee3c, ngu\u1ed3n li\u00ean bang FR 2026-01912 + FSA FAQ Loan Limits 05/2026); phi\u00ean P-ep002 \u0111\u1ecdc qua t\u00ecm ki\u1ebfm (proxy ch\u1eb7n, lessons A9)",
+   "sources": [
+    {
+     "id": "fr-2026-01912",
+     "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+    },
+    {
+     "id": "fsa-faq-loan-limits-2026-05",
+     "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
+    }
+   ]
+  },
+  {
+   "claimId": "ctx_unsub_rate",
+   "value": 8.07,
+   "display": "8.07% fixed",
+   "formula": "Direct Unsubsidized, graduate/professional, first disbursed 2026-07-01..2027-06-30 = 10-yr Treasury high yield 4.47% (May 12, 2026) + 3.6, cap 9.5 (34 CFR 685.202(a)(8))",
+   "source": {
+    "id": "fr-2026-18493",
+    "url": "https://www.federalregister.gov/documents/2026/09/10/2026-18493/annual-notice-of-interest-rates-for-fixed-rate-federal-student-loans-made-under-the-william-d-ford"
+   },
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "verify": "V2 (formula V1; 4.47 + 3.60 = 8.07)"
+  },
+  {
+   "claimId": "ctx_prof_annual",
+   "value": 50000,
+   "display": "$50,000 a year",
+   "formula": "Direct Unsubsidized annual limit, professional student, from 2026-07-01",
+   "source": {
+    "id": "fr-2026-01912",
+    "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+   },
+   "sources": [
+    {
+     "id": "fr-2026-01912",
+     "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+    },
+    {
+     "id": "fsa-faq-loan-limits-2026-05",
+     "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
+    }
+   ],
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "basis": "nominal",
+   "verify": "owner-verified 2026-10-01 (FR 2026-01912 + FSA FAQ 05/2026); \u0111\u1ecdc qua t\u00ecm ki\u1ebfm"
+  },
+  {
+   "claimId": "ctx_prof_aggregate",
+   "value": 200000,
+   "display": "$200,000 total",
+   "formula": "Direct Unsubsidized aggregate limit, professional student, from 2026-07-01",
+   "source": {
+    "id": "fr-2026-01912",
+    "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+   },
+   "sources": [
+    {
+     "id": "fr-2026-01912",
+     "url": "https://www.federalregister.gov/documents/2026/01/30/2026-01912/reimagining-and-improving-student-education"
+    },
+    {
+     "id": "fsa-faq-loan-limits-2026-05",
+     "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
+    }
+   ],
+   "dataYears": [
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "policy",
+   "basis": "nominal",
+   "verify": "owner-verified 2026-10-01 (FR 2026-01912 + FSA FAQ 05/2026); \u0111\u1ecdc qua t\u00ecm ki\u1ebfm"
+  }
  ]
 }

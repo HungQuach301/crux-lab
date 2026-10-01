@@ -105,5 +105,36 @@ out = {
     'worstPath': {'start': worst_w['start'], 'rates': [round(r, 4) for r in worst_w['path']]},
 }
 os.makedirs(os.path.join(EP, 'out'), exist_ok=True)
-json.dump(out, open(os.path.join(EP, 'out/model.json'), 'w'), indent=1)
+json.dump(out, open(os.path.join(EP, 'out/model-extra.json'), 'w'), indent=1)
+
+# ---- out/model.json theo dạng K3.5 `float-vs-fixed-replay` (fvf_compare): số CHƯA làm tròn
+SPREADS = [-1.0, -0.5, 0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0]
+BREAKS = ['1981-01']
+ym = lambda d: d[:7]
+def raw_share(ws):
+    return 100 * sum(w['diff'] > 0 for w in ws) / len(ws)
+bestw = min(base, key=lambda w: w['diff'])
+edges = [FIRST_START[:7]] + BREAKS
+periods = []
+for i, lo in enumerate(edges):
+    hi = edges[i + 1] if i + 1 < len(edges) else None
+    sub = [w for w in base if ym(w['start']) >= lo and (hi is None or ym(w['start']) < hi)]
+    periods.append({'from': lo, 'to': ym(sub[-1]['start']), 'nWindows': len(sub), 'shareCostlier': raw_share(sub)})
+fvf = {
+    'principal': P, 'termMonths': N, 'fixedRate': FIXED, 'floatStartRate': VAR0, 'firstStart': FIRST_START[:7],
+    'indexFloor': 0.0, 'rateCap': None, 'periodBreaks': BREAKS,
+    'nWindows': len(base), 'firstStart_': None,
+    'lastStart': ym(base[-1]['start']), 'indexToday': IDX, 'margin': VAR0 - IDX,
+    'fixedPayment': FIX_PAYS[0], 'fixedTotalInterest': FIX_INT, 'shareCostlier': raw_share(base),
+    'medianDifference': statistics.median(w['diff'] for w in base),
+    'bestDifference': bestw['diff'], 'bestStart': ym(bestw['start']),
+    'worstDifference': worst_w['diff'], 'worstStart': ym(worst_w['start']),
+    'maxRate': max(w['maxRate'] for w in base), 'maxPayment': max(w['maxPay'] for w in base),
+    'windows': [{'start': ym(w['start']), 'totalInterest': w['diff'] + FIX_INT, 'difference': w['diff'],
+                 'maxRate': w['maxRate'], 'maxPayment': w['maxPay']} for w in base],
+    'periods': periods,
+    'sensitivity': {f'{g:g}': raw_share(windows(FIXED - g)) for g in SPREADS},
+}
+del fvf['firstStart_']
+json.dump(fvf, open(os.path.join(EP, 'out/model.json'), 'w'), indent=1)
 print(json.dumps({k: v for k, v in out.items() if k not in ('windows', 'worstPath')}, indent=1))
