@@ -1,4 +1,4 @@
-# checks/ — máy kiểm của crux-lab (Phiên K1, K2, K3, K3.1, K3.2, K3.3, K3.4; khoá SHA)
+# checks/ — máy kiểm của crux-lab (Phiên K1, K2, K3, K3.1, K3.2, K3.3, K3.4, K3.5; khoá SHA)
 
 Bộ luật này chấm mọi yêu cầu `[MÁY]` của [`genre-spec/data-explainer.md`](../genre-spec/data-explainer.md). Các yêu cầu `[NGƯỜI]` nằm trong [`RUBRIC.md`](RUBRIC.md) (H1–H8). Danh sách artefact bên dựng phải giao nằm trong [`CONTRACT.md`](CONTRACT.md).
 
@@ -6,7 +6,7 @@ Khoá: `checks/LOCK` là SHA-256 của toàn thư mục (cách tính ở cuối 
 - Bên dựng không sửa thư mục này (CHARTER §7.1, §8).
 - Cho rằng một luật sai thì ghi khiếu nại. Luật chỉ đổi qua vai kiểm, và cần chủ dự án duyệt.
 
-Gốc: `checks/` của bài D (`crux-spike-opus55`, nhánh `spike/opus55-cine`, LOCK `0478df73…`), đã sửa theo audit `audit/d-final` (`audit/REPORT.md` @ `afad899`). Các thay đổi ghi ở mục "Thay đổi so với bài D". Thay đổi của K2 (luật đọc từ hợp đồng tập; T1 định nghĩa lại; L1, S16, F11 mới) ghi ở mục "Thay đổi ở khoá K2". Thay đổi của K3 (mỗi luật một cấp CHẶN / CHÍNH / THAM KHẢO; F12, A16–A18 mới; S02, REG, F07 sửa) ghi ở mục "Thay đổi ở khoá K3"; cấp của từng luật ở mục "Cấp của luật". K3.1 (F12 phủ cả tài sản hình) ghi ở mục "Thay đổi ở khoá K3.1". K3.2 (S09: lời đọc nói mỗi gốc tính tiền ít nhất một lần cả tập) ghi ở mục "Thay đổi ở khoá K3.2". K3.3 (S09: nhãn gốc cấp khung cho khung một gốc) ghi ở mục "Thay đổi ở khoá K3.3". K3.4 (S10: bộ dò ADVICE không bắt nhầm từ chỉ thị đứng riêng) ghi ở mục "Thay đổi ở khoá K3.4".
+Gốc: `checks/` của bài D (`crux-spike-opus55`, nhánh `spike/opus55-cine`, LOCK `0478df73…`), đã sửa theo audit `audit/d-final` (`audit/REPORT.md` @ `afad899`). Các thay đổi ghi ở mục "Thay đổi so với bài D". Thay đổi của K2 (luật đọc từ hợp đồng tập; T1 định nghĩa lại; L1, S16, F11 mới) ghi ở mục "Thay đổi ở khoá K2". Thay đổi của K3 (mỗi luật một cấp CHẶN / CHÍNH / THAM KHẢO; F12, A16–A18 mới; S02, REG, F07 sửa) ghi ở mục "Thay đổi ở khoá K3"; cấp của từng luật ở mục "Cấp của luật". K3.1 (F12 phủ cả tài sản hình) ghi ở mục "Thay đổi ở khoá K3.1". K3.2 (S09: lời đọc nói mỗi gốc tính tiền ít nhất một lần cả tập) ghi ở mục "Thay đổi ở khoá K3.2". K3.3 (S09: nhãn gốc cấp khung cho khung một gốc) ghi ở mục "Thay đổi ở khoá K3.3". K3.4 (S10: bộ dò ADVICE không bắt nhầm từ chỉ thị đứng riêng) ghi ở mục "Thay đổi ở khoá K3.4". K3.5 (loại mô hình mới `float-vs-fixed-replay` cho Tập 2) ghi ở mục "Thay đổi ở khoá K3.5".
 
 ## Chạy
 
@@ -303,6 +303,20 @@ Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
 - Một luật so được, PASS ở phiên bản trước mà nay không PASS, là **hồi quy**. K3: chỉ hồi quy của luật **CHẶN** làm REG trượt; hồi quy của luật CHÍNH, THAM KHẢO được liệt kê kèm cấp (luật CHÍNH đó vẫn cần giải thích vì nó không PASS).
 - Báo cáo liệt kê các luật không so được và các luật đã cải thiện.
 
+## Thay đổi ở khoá K3.5 (chờ chủ dự án duyệt)
+
+Nguồn: việc giao cho phiên K3.5 (Tập 2: khoản vay lãi thả nổi so với lãi cố định, phát lại qua mọi cửa sổ của lịch sử chỉ số lãi ngắn hạn). **Không luật nào đổi cấp, ngưỡng hay định nghĩa.** Chỉ thêm một loại mô hình mà S01 và S05 đã đọc qua `model.kind`.
+
+| Mã | Thay đổi | Lý do |
+|---|---|---|
+| S01, S05 (`r_model.py`) | **Loại mô hình mới `float-vs-fixed-replay`** (bảng "Loại mô hình" của `CONTRACT.md`). Viết **từ đặc tả**: các trường `numbers[].definition` và `assumptions` của `topics-r1/machine/debt-2/result.json` (không phải `topics-r2/machine/debt-2`, đề tài khác trùng tên). Không đọc `calc.py` hay mã nào dưới `episodes/ep002/`; nhánh `ep002` chưa có `checks-notes.md` lúc khoá. Tham số: file chỉ số và cột, gốc vay, số kỳ, lãi cố định, lãi thả nổi khởi điểm, tháng bắt đầu đầu tiên, sàn chỉ số, trần lãi (tuỳ chọn, mặc định không có), các mốc chia thời kỳ, các khoảng chênh khởi điểm cho đường độ nhạy (tuỳ chọn). Đại lượng: số cửa sổ; tổng lãi khoản cố định; tỉ lệ cửa sổ thả nổi đắt hơn (cả kỳ, theo thời kỳ); chênh trung vị, tốt nhất, xấu nhất và tháng bắt đầu tốt nhất, xấu nhất; lãi cao nhất; khoản trả hàng tháng cao nhất; tỉ lệ đắt hơn theo khoảng chênh khởi điểm. Ba bất biến cho S05: lãi tháng đầu của khoản thả nổi = lãi khởi điểm; chỉ số không âm; tổng lãi khoản cố định khớp công thức trả đều | Tập 2 cần bản tính lại độc lập; thiếu thì S01 và S05 là MISSING |
+| Tháng | Mọi tháng (tham số, file chỉ số, file mô hình, khoá claim) được **chuẩn hoá trước khi so**: `YYYY-MM` ≡ `YYYY-MM-01`; ngày khác `01` không phải tháng và không khớp | Bài học topics-r2 V3: so chuỗi ngày làm `1977-04` ≠ `1977-04-01` |
+
+- Đối chiếu (không phải test, vì dữ liệu không nằm trong `checks/`): chạy bản tính lại trên FRED TB3MS (1934-01 … 2026-08, tải 2026-10-01) với tham số của đặc tả cho ra đúng mọi số trong `result.json`: 753 cửa sổ (1954-01 … 2016-09), lãi cố định $26,005, đắt hơn 14,2%, chênh trung vị −$3,832, tốt nhất −$15,295, xấu nhất +$11,219 (bắt đầu 1977-04), lãi cao nhất 20,60%, 324 cửa sổ 1954–1980 đắt hơn 28,4%, 429 cửa sổ từ 1981 đắt hơn 3,5%. Thêm: khoản trả cao nhất $863,36; đường độ nhạy (chênh khởi điểm 0,5 / 1,0 / 1,5 / 2,0 điểm) 42,5% / 31,3% / 14,2% / 8,8%.
+- Chữ mô tả của S01 và S05 (`r_content.py`) **không sửa** (vẫn chỉ nêu hai loại cũ làm ví dụ), để fingerprint của mọi luật giữ nguyên như khoá K3.4; REG so được mọi luật với báo cáo cũ. Danh sách loại đầy đủ ở `CONTRACT.md` và `KINDS` của `r_model.py`.
+- S05 so `float(claim.value)`: claim tháng (ví dụ "1977-04") không đưa thẳng vào S05 được, nên loại này cho khoá số `worstStartYear` / `worstStartMonth`; tháng dạng chuỗi được so ở S01.
+- Điểm mù (ghi để khoá sau): bất biến 3 (lãi cố định tính từng tháng = công thức) canh chính bản tính lại của máy kiểm, không có đầu vào nào của bên dựng làm nó trượt; đường độ nhạy giữ mọi tham số khác, chỉ dời lãi khởi điểm (và vì thế biên lãi).
+
 ## Test tự chứng minh
 
 `checks/selftest/run.sh` chạy hai phần. Mỗi luật có một fixture **phải trượt** và một fixture **phải đạt**.
@@ -329,6 +343,7 @@ Chuẩn là phán đoán của chủ dự án; ba điểm bắt buộc:
 - **K3.2** (Python, S09 lời đọc cả tập): `S09/said-once` (tập có số $ mà lời đọc không nói gốc nào → trượt; nói một lần, ở cảnh cuối, sau các số $ → đạt); `S09/every-basis` (tập dùng cả nominal và real mà chỉ nói "nominal" → trượt; nói cả hai → đạt); `S09/screen` (lời đọc nói gốc nhưng khung hình thiếu nhãn gốc → **vẫn trượt**); `S09/unknown-basis` (số $ đọc lên không khớp claim nào → trượt). Trang: `S09-no-basis` của `test_page.js` (khung có số $ không nhãn gốc → trượt) giữ nguyên; lời đọc của trang fixture nay có một câu nói gốc "real" (trước là rỗng), để trang sạch vẫn đạt S09 và ca trượt chỉ trượt vì nhãn trên hình.
 - **K3.3** (trang, S09 phần trên hình, `test_page.js` đầu-cuối qua bộ lấy mẫu thật): `S09-frame-label` (khung một gốc, số không có nhãn cạnh, có nhãn góc "All $ in real terms" xa số → đạt); `S09-no-basis` (khung một gốc, không nhãn nào → trượt); `S09-mixed-corner-only` (khung có $1,200 real và $900 nominal, chỉ có nhãn góc → trượt); `S09-mixed-labelled` (khung trộn, mỗi số có nhãn gốc cạnh nó → đạt). Fixture trang thêm claim `$900` nominal (chỉ hiện ở các ca S09 trộn); lời đọc của fixture nói cả hai gốc.
 - **K3.4** (Python, S10 ADVICE; lời đọc và chữ trên hình qua `textTrack` của `page.json`): `S10/never-label` (chữ trên hình "Never" đứng riêng và "Never / not before the old loan's last payment" → đạt; "Never refinance before the old loan's last payment." → trượt); `S10/never-narration` ("the fees never come back" → đạt; "Never refinance before the fees come back." → trượt); `S10/should` ("You should refinance." → trượt; "Maya could refinance." → đạt); `S10/old-advice` (ba dạng cũ "Don't sell in a crash.", "Always lock the rate.", "Consider the fees." phải bị bắt **cả ba** → trượt; cùng sự việc kể như lịch sử → đạt). Fixture `S10` cũ ("You should keep your withdrawals at 4%.") vẫn trượt.
+- **K3.5** (Python, loại mô hình `float-vs-fixed-replay`; chỉ số tổng hợp 5 tháng, khoản vay $1.200 trả 2 kỳ, mọi cửa sổ tính tay được và viết lại trong test, không gọi mã của luật): `S01/float-fixed` (mọi cửa sổ khớp, tháng viết lẫn `YYYY-MM` và `YYYY-MM-01` → đạt; chênh của một cửa sổ lệch $1 → trượt); `S01/float-fixed-dates` (`worstStart` "2000-01" → đạt; "2000-01-15" → trượt); `S05/float-fixed` (lãi cố định $13,5168, đắt hơn 25% cả kỳ, 50% / 0% theo hai thời kỳ, tháng xấu nhất 2000-01, lãi cao nhất 17%, độ nhạy 25% ở chênh 3 điểm và 50% ở chênh 0 → đạt; thời kỳ thứ hai khai 50% → trượt); `S05/float-fixed-first-rate` (trần 5% dưới lãi khởi điểm 6% → bất biến lãi tháng đầu trượt; trần 20% → đạt); `S05/float-fixed-index` (sàn chỉ số −5 để chỉ số âm → bất biến chỉ số không âm trượt; sàn 0 → đạt).
 
 ## Cấp của luật (K3)
 

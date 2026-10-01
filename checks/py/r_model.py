@@ -372,8 +372,252 @@ def refi_value(ctx, params, key):
     raise Missing(f'contract.json: model.claims key "{key}" is not a quantity of kind refinance-breakeven')
 
 
+# ---- kind "float-vs-fixed-replay" (Episode 2: a variable-rate loan against a fixed one, replayed over every window of a short-rate index) -----
+# Written by the checking session (K3.5) from the topic spec (topics-r1/machine/debt-2/result.json: numbers[].definition and assumptions),
+# never from the builder's code. Conventions the spec leaves open are parameters of the contract (model.params), each named below.
+#   Index path for start month s, month k = 0..n−1:  idx_k = max(indexFloor, today + X[s+k] − X[s])   (today = last value of the index file)
+#   Variable rate: rate_k = (floatStartRate − today) + idx_k, capped at rateCap when one is given   (so rate_0 = floatStartRate)
+#   Each month: interest = balance × rate_k / 1200; payment = level payment of the balance over the n − k months left at rate_k (re-amortised
+#   whenever the rate changes; at an unchanged rate the recomputed payment is the same); balance −= payment − interest.
+#   Fixed loan: fixedRate all n months; total interest = n × level payment − principal.  Difference = variable interest − fixed interest.
+#   Windows: every start month from firstStart through the last month with n months of data. "Costlier" = Difference > 0 (strictly).
+def ym(s):
+    """'YYYY-MM' ≡ 'YYYY-MM-01' (topics-r2 V3: dates are compared after normalisation, never as strings). Any other day is not a month: None."""
+    s = str(s).strip()
+    if len(s) == 7 and s[4] == '-' and s[:4].isdigit() and s[5:].isdigit():
+        y, m = int(s[:4]), int(s[5:])
+    elif len(s) == 10 and s[4] == '-' and s[7] == '-' and s[8:] == '01' and s[:4].isdigit() and s[5:7].isdigit():
+        y, m = int(s[:4]), int(s[5:7])
+    else:
+        return None
+    return y * 12 + m - 1 if 1 <= m <= 12 else None
+
+
+def ym_str(i):
+    return f'{i // 12:04d}-{i % 12 + 1:02d}'
+
+
+def _ym_need(s, field):
+    i = ym(s)
+    if i is None:
+        raise Missing(f'contract.json: model.params.{field} must be a month "YYYY-MM" or "YYYY-MM-01" (got {s!r})')
+    return i
+
+
+def index_series(ctx, spec):
+    """{file, dateColumn, valueColumn}: a monthly series, one row per month, no gaps. Returns (first month index, [values])."""
+    for k in ('file', 'dateColumn', 'valueColumn'):
+        if not spec.get(k):
+            raise Missing('contract.json: model.params.index.' + k)
+    by = {}
+    for r in csv.DictReader(open(ctx.need(spec['file']))):
+        v = (r.get(spec['valueColumn']) or '').strip()
+        if v in ('', '.'):
+            continue
+        i = ym(r[spec['dateColumn']])
+        if i is None or i in by:
+            raise Missing(f'{spec["file"]}: a monthly series (one row per month, dates YYYY-MM or YYYY-MM-01); bad row {r[spec["dateColumn"]]!r}')
+        by[i] = float(v)
+    if not by:
+        raise Missing(f'{spec["file"]}: column {spec["valueColumn"]}')
+    a, b = min(by), max(by)
+    gaps = [ym_str(i) for i in range(a, b + 1) if i not in by]
+    if gaps:
+        raise Missing(f'{spec["file"]}: months without a value {gaps[:5]}')
+    return a, [by[i] for i in range(a, b + 1)]
+
+
+def _fvf_params(params):
+    idx, P, n, fx, fl, first = _need(params, 'index', 'principal', 'termMonths', 'fixedRate', 'floatStartRate', 'firstStart')
+    floor = _need(params, 'indexFloor')[0]
+    cap = params.get('rateCap')
+    breaks = [_ym_need(b, 'periodBreaks[]') for b in params.get('periodBreaks', [])]
+    return {'index': idx, 'P': float(P), 'n': int(n), 'fixed': float(fx), 'float': float(fl), 'first': _ym_need(first, 'firstStart'),
+            'floor': float(floor), 'cap': None if cap is None else float(cap), 'breaks': sorted(breaks)}
+
+
+def float_window(P, n, rates):
+    """Level-payment loan re-amortised every month at rates[k]: (total interest, highest payment, payments)."""
+    B, tot, pays = P, 0.0, []
+    for k, r in enumerate(rates):
+        i = B * r / 1200.0
+        p = payment(B, r, n - k)
+        tot += i
+        B -= p - i
+        pays.append(p)
+    return tot, max(pays), pays
+
+
+def fvf_run(ctx, params, float_start=None):
+    """Every window: [{start, totalInterest, difference, maxRate, maxPayment, rates, minIndex}] and the shared quantities."""
+    c = _fvf_params(params)
+    a, xs = index_series(ctx, c['index'])
+    n, P = c['n'], c['P']
+    fl = c['float'] if float_start is None else float_start
+    today = xs[-1]
+    margin = fl - today
+    last = a + len(xs) - n
+    if c['first'] < a or c['first'] > last:
+        raise Missing(f'contract.json: model.params.firstStart {ym_str(c["first"])} outside {ym_str(a)}..{ym_str(last)} (the index file)')
+    fpay = payment(P, c['fixed'], n)
+    fint = n * fpay - P
+    wins = []
+    for s in range(c['first'], last + 1):
+        x0 = xs[s - a]
+        ids = [max(c['floor'], today + xs[s - a + k] - x0) for k in range(n)]
+        rates = [margin + v if c['cap'] is None else min(c['cap'], margin + v) for v in ids]
+        tot, mp, _ = float_window(P, n, rates)
+        wins.append({'start': s, 'totalInterest': tot, 'difference': tot - fint, 'maxRate': max(rates), 'maxPayment': mp, 'rate0': rates[0], 'minIndex': min(ids)})
+    return {'c': c, 'today': today, 'margin': margin, 'fixedPayment': fpay, 'fixedTotalInterest': fint, 'windows': wins, 'last': last}
+
+
+def _share(ws):
+    return 100.0 * sum(1 for w in ws if w['difference'] > 0) / len(ws) if ws else None
+
+
+def fvf_periods(run):
+    """Periods split at periodBreaks: [firstStart, b1 − 1], [b1, b2 − 1], …, [bk, last start]."""
+    c, ws = run['c'], run['windows']
+    edges = [c['first']] + [b for b in c['breaks'] if c['first'] < b <= run['last']] + [run['last'] + 1]
+    out = []
+    for lo, hi in zip(edges, edges[1:]):
+        sub = [w for w in ws if lo <= w['start'] < hi]
+        out.append({'from': lo, 'to': hi - 1, 'nWindows': len(sub), 'shareCostlier': _share(sub)})
+    return out
+
+
+def fvf_summary(run):
+    ws = run['windows']
+    d = [w['difference'] for w in ws]
+    worst = max(ws, key=lambda w: (w['difference'], -w['start']))   # ties: the earliest start
+    best = min(ws, key=lambda w: (w['difference'], w['start']))
+    return {'nWindows': len(ws), 'firstStart': ws[0]['start'], 'lastStart': ws[-1]['start'], 'indexToday': run['today'], 'margin': run['margin'],
+            'fixedPayment': run['fixedPayment'], 'fixedTotalInterest': run['fixedTotalInterest'], 'shareCostlier': _share(ws),
+            'medianDifference': float(np.median(d)), 'bestDifference': best['difference'], 'bestStart': best['start'],
+            'worstDifference': worst['difference'], 'worstStart': worst['start'], 'maxRate': max(w['maxRate'] for w in ws),
+            'maxPayment': max(w['maxPayment'] for w in ws)}
+
+
+def share_at_spread(ctx, params, spread):
+    """Sensitivity: share of costlier windows when the variable loan starts `spread` points under the fixed rate (floatStartRate = fixedRate − spread)."""
+    c = _fvf_params(params)
+    return _share(fvf_run(ctx, params, c['fixed'] - float(spread))['windows'])
+
+
+MONEY, RATE, COUNT, DATE = 'money', 'rate', 'count', 'date'
+FVF_FIELDS = {'nWindows': COUNT, 'firstStart': DATE, 'lastStart': DATE, 'indexToday': RATE, 'margin': RATE, 'fixedPayment': RATE,
+              'fixedTotalInterest': MONEY, 'shareCostlier': RATE, 'medianDifference': MONEY, 'bestDifference': MONEY, 'bestStart': DATE,
+              'worstDifference': MONEY, 'worstStart': DATE, 'maxRate': RATE, 'maxPayment': RATE}
+WINDOW_FIELDS = {'totalInterest': MONEY, 'difference': MONEY, 'maxRate': RATE, 'maxPayment': RATE}
+
+
+def _fvf_cmp(bad, where, theirs, mine, how):
+    """money: max($0.50, 1e-6 relative); rates, shares (%) and payments: 0.005; counts exactly; months after normalisation (YYYY-MM ≡ YYYY-MM-01)."""
+    if how == DATE:
+        ok = theirs is not None and ym(theirs) == mine
+        shown = ym_str(mine)
+    elif mine is None or theirs is None or isinstance(theirs, (bool, str)):
+        ok, shown = theirs is None and mine is None, mine
+    elif how == COUNT:
+        ok, shown = theirs == mine, mine
+    else:
+        ok = abs(float(theirs) - mine) <= (max(0.5, 1e-6 * abs(mine)) if how == MONEY else 0.005)
+        shown = round(mine, 4)
+    if not ok:
+        bad.append((where, theirs, shown))
+    return 1
+
+
+def fvf_compare(ctx, params, out):
+    """The model file: echo of the inputs (principal, termMonths, fixedRate, floatStartRate, firstStart, indexFloor, rateCap, periodBreaks), the summary
+    quantities (FVF_FIELDS), windows [{start, totalInterest, difference, maxRate, maxPayment}] (every window), periods [{from, to, nWindows,
+    shareCostlier}], sensitivity {<spread>: shareCostlier} (every spread of params.spreads; others given are re-computed too)."""
+    run = fvf_run(ctx, params)
+    c = run['c']
+    bad, checked = [], 0
+    for k, want, how in (('principal', c['P'], MONEY), ('termMonths', c['n'], COUNT), ('fixedRate', c['fixed'], RATE), ('floatStartRate', c['float'], RATE),
+                         ('firstStart', c['first'], DATE), ('indexFloor', c['floor'], RATE), ('rateCap', c['cap'], RATE)):
+        checked += _fvf_cmp(bad, k, out.get(k), want, how)
+    theirs_b = out.get('periodBreaks')
+    checked += 1
+    if not isinstance(theirs_b, list) or sorted(ym(b) for b in theirs_b) != c['breaks']:
+        bad.append(('periodBreaks', theirs_b, [ym_str(b) for b in c['breaks']]))
+    summ = fvf_summary(run)
+    for k, how in FVF_FIELDS.items():
+        checked += _fvf_cmp(bad, k, out.get(k), summ[k], how)
+    theirs = {}
+    for w in out.get('windows') or []:
+        theirs[ym(w.get('start'))] = w
+    checked += _fvf_cmp(bad, 'windows (count)', len(out.get('windows') or []), len(run['windows']), COUNT)
+    for w in run['windows']:
+        t = theirs.get(w['start'])
+        if t is None:
+            bad.append((f'windows.{ym_str(w["start"])}', 'missing', None))
+            continue
+        for k, how in WINDOW_FIELDS.items():
+            checked += _fvf_cmp(bad, f'windows.{ym_str(w["start"])}.{k}', t.get(k), w[k], how)
+    extra = sorted(ym_str(i) if i is not None else 'bad date' for i in set(theirs) - {w['start'] for w in run['windows']})
+    if extra:
+        bad.append(('windows not in the replay', extra[:10], None))
+    per = fvf_periods(run)
+    tp = out.get('periods') or []
+    checked += _fvf_cmp(bad, 'periods (count)', len(tp), len(per), COUNT)
+    for i, (p, t) in enumerate(zip(per, tp)):
+        for k, how in (('from', DATE), ('to', DATE), ('nWindows', COUNT), ('shareCostlier', RATE)):
+            checked += _fvf_cmp(bad, f'periods[{i}].{k}', t.get(k), p[k], how)
+    sens = out.get('sensitivity') or {}
+    want = [float(x) for x in params.get('spreads', [])]
+    got = {float(k): v for k, v in sens.items()}
+    for sp in sorted(set(want) | set(got)):
+        checked += _fvf_cmp(bad, f'sensitivity.{sp:g}', got.get(sp), share_at_spread(ctx, params, sp), RATE)
+    conv = params.get('conventions') or {}
+    for k, v in conv.items():
+        checked += 1
+        if out.get(k) != v:
+            bad.append((k, out.get(k), v))
+    covered = ({'principal', 'termMonths', 'fixedRate', 'floatStartRate', 'firstStart', 'indexFloor', 'rateCap', 'periodBreaks', 'windows', 'periods',
+                'sensitivity'} | set(FVF_FIELDS) | set(conv))
+    return checked, bad, sorted(set(out) - covered - set(params.get('notModel', [])))
+
+
+def fvf_value(ctx, params, key):
+    """Summary fields (FVF_FIELDS; a month field as "<field>Year" / "<field>Month", e.g. worstStartYear = 1977, worstStartMonth = 4: S05 compares
+    numbers), "nWindows:<period start>", "shareCostlier:<period start>" (period start = firstStart or a periodBreak, YYYY-MM),
+    "shareCostlierAtSpread:<points>". Tolerances: $0.50 money; 0.005 rates, shares (%) and payments; counts and months exactly."""
+    run = fvf_run(ctx, params)
+    summ = fvf_summary(run)
+    name, _, arg = key.partition(':')
+    tol = {MONEY: 0.5, RATE: 0.005, COUNT: 0}
+    if not arg:
+        for f_, how in FVF_FIELDS.items():
+            if how == DATE and key in (f_ + 'Year', f_ + 'Month'):
+                i = summ[f_]
+                return float(i // 12 if key.endswith('Year') else i % 12 + 1), 0
+            if key == f_ and how != DATE:
+                return float(summ[f_]), tol[how]
+    elif name == 'shareCostlierAtSpread':
+        return share_at_spread(ctx, params, float(arg)), 0.005
+    elif name in ('nWindows', 'shareCostlier') and ym(arg) is not None:
+        for p in fvf_periods(run):
+            if p['from'] == ym(arg):
+                return float(p[name]), 0 if name == 'nWindows' else 0.005
+    raise Missing(f'contract.json: model.claims key "{key}" is not a quantity of kind float-vs-fixed-replay')
+
+
+def fvf_invariants(ctx, params):
+    """(1) the variable loan's first-month rate equals floatStartRate in every window; (2) the index path is never negative; (3) the fixed loan's total
+    interest from the month-by-month amortisation equals the level-payment formula n × P·r/(1 − (1 + r)^−n) − P."""
+    run = fvf_run(ctx, params)
+    c, ws = run['c'], run['windows']
+    tot, _, _ = float_window(c['P'], c['n'], [c['fixed']] * c['n'])
+    return [metric('max |first-month variable rate − floatStartRate| pp', max(abs(w['rate0'] - c['float']) for w in ws), '<=', 1e-9, 'pp'),
+            metric('lowest index value on any window path', min(w['minIndex'] for w in ws), '>=', 0, 'pp'),
+            metric('|fixed interest amortised − level-payment formula| $', abs(tot - run['fixedTotalInterest']), '<=', 0.5, '$')]
+
+
 KINDS = {'retirement-6040': (ret_compare, ret_value, ret_invariants),
-         'refinance-breakeven': (refi_compare, refi_value, lambda ctx, p: [])}
+         'refinance-breakeven': (refi_compare, refi_value, lambda ctx, p: []),
+         'float-vs-fixed-replay': (fvf_compare, fvf_value, fvf_invariants)}
 
 
 def kind(ctx):
