@@ -1,0 +1,84 @@
+{
+ "id": "tax-1",
+ "items": [
+  {
+   "id": "balance_months_per_dollar",
+   "declared": 7.5,
+   "recomputed": 7.5,
+   "ok": true
+  },
+  {
+   "id": "tbill_2025_usd",
+   "declared": 72.25,
+   "recomputed": 72.25,
+   "ok": true
+  },
+  {
+   "id": "savings_avg_2025_usd",
+   "declared": 7.4,
+   "recomputed": 7.4,
+   "ok": true
+  },
+  {
+   "id": "card_2025_usd",
+   "declared": 396.46,
+   "recomputed": 396.46,
+   "ok": true
+  },
+  {
+   "id": "tbill_mean_2000_2025_usd",
+   "declared": 35.1,
+   "recomputed": 35.1,
+   "ok": true
+  },
+  {
+   "id": "tbill_max_usd",
+   "declared": 106.76,
+   "recomputed": 106.76,
+   "ok": true
+  },
+  {
+   "id": "tbill_max_year",
+   "declared": 2000,
+   "recomputed": 2000,
+   "ok": true
+  },
+  {
+   "id": "tbill_min_usd",
+   "declared": 0.5,
+   "recomputed": 0.5,
+   "ok": true
+  },
+  {
+   "id": "tbill_min_year",
+   "declared": 2014,
+   "recomputed": 2014,
+   "ok": true
+  },
+  {
+   "id": "tbill_years_under_10usd",
+   "declared": 10,
+   "recomputed": 10,
+   "ok": true
+  },
+  {
+   "id": "card_mean_2000_2025_usd",
+   "declared": 268.93,
+   "recomputed": 268.93,
+   "ok": true
+  },
+  {
+   "id": "card_min_usd",
+   "declared": 222.71,
+   "recomputed": 222.71,
+   "ok": true
+  },
+  {
+   "id": "card_max_usd",
+   "declared": 404.04,
+   "recomputed": 404.04,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

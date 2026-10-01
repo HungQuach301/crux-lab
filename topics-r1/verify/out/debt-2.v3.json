@@ -1,0 +1,102 @@
+{
+ "id": "debt-2",
+ "items": [
+  {
+   "id": "n_starts",
+   "declared": 753,
+   "recomputed": 753,
+   "ok": true
+  },
+  {
+   "id": "first_start",
+   "declared": "1954-01-01",
+   "recomputed": "1954-01-01",
+   "ok": true
+  },
+  {
+   "id": "last_start",
+   "declared": "2016-09-01",
+   "recomputed": "2016-09-01",
+   "ok": true
+  },
+  {
+   "id": "fixed_total_interest",
+   "declared": 26005,
+   "recomputed": 26005,
+   "ok": true
+  },
+  {
+   "id": "share_variable_costlier",
+   "declared": 14.2,
+   "recomputed": 14.2,
+   "ok": true
+  },
+  {
+   "id": "median_variable_minus_fixed",
+   "declared": -3832,
+   "recomputed": -3832,
+   "ok": true
+  },
+  {
+   "id": "worst_variable_minus_fixed",
+   "declared": 11219,
+   "recomputed": 11219,
+   "ok": true
+  },
+  {
+   "id": "worst_start",
+   "declared": "1977-04-01",
+   "recomputed": "1977-04-01",
+   "ok": true
+  },
+  {
+   "id": "best_variable_minus_fixed",
+   "declared": -15295,
+   "recomputed": -15295,
+   "ok": true
+  },
+  {
+   "id": "max_variable_rate_any_window",
+   "declared": 20.6,
+   "recomputed": 20.6,
+   "ok": true
+  },
+  {
+   "id": "n_starts_1954_1980",
+   "declared": 324,
+   "recomputed": 324,
+   "ok": true
+  },
+  {
+   "id": "share_costlier_1954_1980",
+   "declared": 28.4,
+   "recomputed": 28.4,
+   "ok": true
+  },
+  {
+   "id": "n_starts_1981_on",
+   "declared": 429,
+   "recomputed": 429,
+   "ok": true
+  },
+  {
+   "id": "share_costlier_1981_on",
+   "declared": 3.5,
+   "recomputed": 3.5,
+   "ok": true
+  },
+  {
+   "id": "index_today",
+   "declared": 3.72,
+   "recomputed": 3.72,
+   "ok": true
+  },
+  {
+   "id": "margin",
+   "declared": 3.78,
+   "recomputed": 3.78,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

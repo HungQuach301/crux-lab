@@ -1,0 +1,108 @@
+{
+ "id": "debt-1",
+ "items": [
+  {
+   "id": "n_months",
+   "declared": 56,
+   "recomputed": 56,
+   "ok": true
+  },
+  {
+   "id": "contributed",
+   "declared": 28000,
+   "recomputed": 28000,
+   "ok": true
+  },
+  {
+   "id": "prepay_value",
+   "declared": 30090,
+   "recomputed": 30090,
+   "ok": true
+  },
+  {
+   "id": "tbill_value_tax0",
+   "declared": 31091,
+   "recomputed": 31091,
+   "ok": true
+  },
+  {
+   "id": "gap_tax0",
+   "declared": 1002,
+   "recomputed": 1002,
+   "ok": true
+  },
+  {
+   "id": "tbill_value_tax22",
+   "declared": 30374,
+   "recomputed": 30374,
+   "ok": true
+  },
+  {
+   "id": "gap_tax22",
+   "declared": 285,
+   "recomputed": 285,
+   "ok": true
+  },
+  {
+   "id": "tbill_value_tax24",
+   "declared": 30310,
+   "recomputed": 30310,
+   "ok": true
+  },
+  {
+   "id": "gap_tax24",
+   "declared": 221,
+   "recomputed": 221,
+   "ok": true
+  },
+  {
+   "id": "tbill_value_tax32",
+   "declared": 30056,
+   "recomputed": 30056,
+   "ok": true
+  },
+  {
+   "id": "gap_tax32",
+   "declared": -34,
+   "recomputed": -34,
+   "ok": true
+  },
+  {
+   "id": "avg_bey",
+   "declared": 4.08,
+   "recomputed": 4.08,
+   "ok": true
+  },
+  {
+   "id": "months_aftertax22_above_rate",
+   "declared": 37,
+   "recomputed": 37,
+   "ok": true
+  },
+  {
+   "id": "recent_run_aftertax22_below_rate",
+   "declared": 9,
+   "recomputed": 9,
+   "ok": true
+  },
+  {
+   "id": "months_pretax_below_rate",
+   "declared": 8,
+   "recomputed": 8,
+   "ok": true
+  },
+  {
+   "id": "breakeven_tax_rate",
+   "declared": 30.9,
+   "recomputed": 30.9,
+   "ok": true
+  },
+  {
+   "id": "last_tb3ms",
+   "declared": 3.72,
+   "recomputed": 3.72,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

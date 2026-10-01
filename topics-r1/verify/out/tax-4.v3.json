@@ -1,0 +1,102 @@
+{
+ "id": "tax-4",
+ "items": [
+  {
+   "id": "ahe_latest",
+   "declared": 32.38,
+   "recomputed": 32.38,
+   "ok": true
+  },
+  {
+   "id": "ahe_date",
+   "declared": "2026-06-01",
+   "recomputed": "2026-06-01",
+   "ok": true
+  },
+  {
+   "id": "regular_rate_usd",
+   "declared": 32.0,
+   "recomputed": 32.0,
+   "ok": true
+  },
+  {
+   "id": "ot_rate_usd",
+   "declared": 48.0,
+   "recomputed": 48.0,
+   "ok": true
+  },
+  {
+   "id": "extra_pay_usd",
+   "declared": 19200.0,
+   "recomputed": 19200.0,
+   "ok": true
+  },
+  {
+   "id": "ot_premium_deduction_usd",
+   "declared": 6400.0,
+   "recomputed": 6400.0,
+   "ok": true
+  },
+  {
+   "id": "deductible_share_of_ot_pay_pct",
+   "declared": 33.33,
+   "recomputed": 33.33,
+   "ok": true
+  },
+  {
+   "id": "ot_income_tax_on_extra_usd",
+   "declared": 2816.0,
+   "recomputed": 2816.0,
+   "ok": true
+  },
+  {
+   "id": "side_income_tax_on_extra_usd",
+   "declared": 4224.0,
+   "recomputed": 4224.0,
+   "ok": true
+  },
+  {
+   "id": "payroll_tax_on_extra_usd",
+   "declared": 1468.8,
+   "recomputed": 1468.8,
+   "ok": true
+  },
+  {
+   "id": "ot_extra_take_home_usd",
+   "declared": 14915.2,
+   "recomputed": 14915.2,
+   "ok": true
+  },
+  {
+   "id": "side_extra_take_home_usd",
+   "declared": 13507.2,
+   "recomputed": 13507.2,
+   "ok": true
+  },
+  {
+   "id": "ot_advantage_usd",
+   "declared": 1408.0,
+   "recomputed": 1408.0,
+   "ok": true
+  },
+  {
+   "id": "ot_total_tax_rate_on_extra_pct",
+   "declared": 22.32,
+   "recomputed": 22.32,
+   "ok": true
+  },
+  {
+   "id": "side_total_tax_rate_on_extra_pct",
+   "declared": 29.65,
+   "recomputed": 29.65,
+   "ok": true
+  },
+  {
+   "id": "side_breakeven_rate_usd",
+   "declared": 53.0,
+   "recomputed": 53.0,
+   "ok": true
+  }
+ ],
+ "ok": true
+}
