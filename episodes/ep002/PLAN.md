@@ -12,7 +12,7 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 | Việc 0 Khung tập | XONG — dữ liệu không đổi; kiểm độc lập 116/116 + 753/753; bối cảnh chính sách; neo 7,5/9 | — | — |
 | C1 Ý tưởng và lời hứa | XONG | `gates/C1.md`, `gates/C1-blind.md` | A + tiêu đề A1; phạm vi (b), câu hỏi trung tâm "thả nổi phải thấp hơn bao nhiêu"; ILLUSTRATIVE |
 | C2 Kịch bản | XONG — v5 (C2b (a): phương pháp 1 câu + thẻ; head start định nghĩa một lần) | `gates/C2.md`, `C2-blind.md`, `C2-blind-r2.md` | — |
-| C3 Thiết kế | chưa | — | — |
+| C3 Thiết kế | **GÓI ĐÃ GỬI — chờ chủ dự án** | `gates/C3.md`, `C3-blind.md`, `design/c3/cvd.md` | — |
 | C4 Animatic có chuyển động | chưa | — | — |
 | C5 Render và L1 | khoá **K3.6 `2fcc9fcc`** trên main; S01/S05 chạy thử PASS 0 lệch | — | — |
 | C6 Chấm cuối và chốt gói | chưa | — | — |
@@ -38,3 +38,4 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 - 2026-10-01 (9): table read xong (10:10); gói C2 gửi. Chờ 3 câu. Sau đó: WRITER áp quyết định (v4 nếu có sửa) → C3 (3 hướng hình, style frame có chuyển động cho 7 KEY, concept thumbnail, đuôi end screen; clip giọng ~30 s xác nhận).
 - 2026-10-01 (10): v4 + kiểm mù vòng 3 xong; gói C2b (1 câu: đoạn phương pháp). C3 bắt đầu song song (brief `design/c3/BRIEF.md`).
 - 2026-10-01 (11): C2b duyệt → v5. K3.6 merge (2fcc9fcc), S01/S05 PASS. C3: đủ H1/H2/H3 + đối chứng Tập 1; tiếp: kiểm mù 28 mẫu (`gates/C3-intent.md`) → gói C3.
+- 2026-10-01 (12): gói C3 gửi (hướng, màu, giọng). Sau khi trả lời: style frame cuối + ký hợp đồng hình qua clip → animatic C4 (giọng v5 theo cảnh, sửa KEY-1/KEY-7).
