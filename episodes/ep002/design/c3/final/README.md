@@ -131,3 +131,6 @@ Theo quyết định C3d (Câu 2a): hũ **bắt đầu rỗng** và **đầy lê
 - Chỉ đổi định thời trong `src/k4.js`: lần chạy bắt đầu ở 0,9 s (trước đó hũ rỗng, hạt thoi ở điểm bắt đầu dưới vạch 9%); tháng 21 (≈ $1,036 trên đỉnh $1,046) ở 2,6 s; nhịp vượt ngắn 21–22; leo dài từ tháng 25 (3,3 s); hũ cạn ở tháng 40 (5,0 s); khối đỏ lớn tới cuối (8,8 s). Hình, màu, thang không đổi.
 - Dải 6 khung nay lấy **đều** (tâm của 6 khoảng bằng nhau: 0,83 / 2,5 / 4,17 / 5,83 / 7,5 / 9,17 s), cùng luật với dải animatic C4: khung 1 hũ rỗng, khung 2 hũ gần đầy, khung 3 đang cạn (vạch hổ phách), khung 4–6 hũ rỗng + khối đỏ lớn dần.
 - Tự kiểm: chữ→đồ hoạ ≥ 14; chữ→chữ 12,6*; tương phản 7,50:1; chữ nhỏ nhất 48 px @1080; 0 ngoài vùng an toàn. Khối đỏ vẫn **không cùng thang** với hũ ($7,577 ↔ 150 px so với $1,046 ↔ 380 px).
+
+## K4 — nhãn "not to scale" (chủ dự án C4 Q3a)
+Bản trước giữ ở `K4-v3.mp4`, `K4-v3-strip(-masked).png`, `src/k4_v3.js`, `work/render-log-K4-v3.json`. Khi khối đỏ hiện, một nhãn nhỏ **"not to scale"** (`ink-muted`, bậc `note` 48 px @1080) đứng bên trái khối (canh phải cách khối 24 px thiết kế, đường chân 1000). Tự kiểm: chữ→đồ hoạ ≥ 14 px @720; tương phản 7,50:1; 0 ngoài vùng an toàn. Hình, màu, định thời không đổi.

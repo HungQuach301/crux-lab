@@ -26,3 +26,7 @@
 - 01/10 11:24 S09 dựng xong: S09 wall 226 s x 3.69 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
 - 01/10 11:24 S10 dựng xong: S10 wall 241 s x 3.71 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
 - 01/10 11:26 Sửa KEY-7 (điều phối): 8.8%/4.5% S09; S10.1 nhảy 1/0/−1 + số; S10.2 về 3 + April 1977, S10.3 10.5% nhấp nháy; S12.1 nhấp nháy. Dựng lại S09/S10/S12, dải, check ALL OK (0 số ngoài claim), phim 19,1/9,6 MB.
+- 01/10 12:25 S06 dựng xong: S06 wall 157 s x 3.98 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 12:26 S09 dựng xong: S09 wall 236 s x 3.85 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 12:27 S10 dựng xong: S10 wall 257 s x 3.83 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 12:28 Chủ dự án C4 Q3a: S10.1 mỗi bậc một số (tỉ lệ chung) giữ ≥ 3 s, chèn 2,0 s nghỉ sau S10.1 (S10 = 67,1 s, phim 9:44,4); K4 thêm 'not to scale' (final: K4-v3.* giữ bản trước). Dựng lại S06/S09/S10, dải, check ALL OK (0 số ngoài claim), phim 19,1/9,6 MB.

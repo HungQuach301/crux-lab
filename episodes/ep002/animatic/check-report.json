@@ -10,8 +10,8 @@
   "badgeMissingFrames": 0,
   "anchorsUnused": 0,
   "keywordsMissing": 0,
-  "wallSeconds": 2185.5,
-  "filmSeconds": 582.4
+  "wallSeconds": 2215.0,
+  "filmSeconds": 584.4
  },
  "methodCard": {
   "words": 60,
@@ -231,7 +231,7 @@
    "claimsUsed": [
     "fixed_rate"
    ],
-   "strings": 3,
+   "strings": 4,
    "numberTokens": [
     "9"
    ],
@@ -252,9 +252,9 @@
    "keywordsMissing": [],
    "frames": 1180,
    "checkFrames": 209,
-   "wallSeconds": 152.2,
-   "machineSecPerFilmSec": 3.87,
-   "hardTime": 0
+   "wallSeconds": 156.5,
+   "machineSecPerFilmSec": 3.98,
+   "hardTime": 23.6
   },
   "S07": {
    "dur": 58.3,
@@ -378,27 +378,18 @@
    "keywordsMissing": [],
    "frames": 1838,
    "checkFrames": 317,
-   "wallSeconds": 226.3,
-   "machineSecPerFilmSec": 3.69,
+   "wallSeconds": 236,
+   "machineSecPerFilmSec": 3.85,
    "hardTime": 34
   },
   "S10": {
-   "dur": 65.1,
+   "dur": 67.1,
    "claimsUsed": [
     "fixed_rate",
-    "gap00_early",
-    "gap00_late",
-    "gap00_worst",
-    "gap10_early",
-    "gap10_late",
-    "gap10_worst",
     "gap20_late",
     "gap30_early",
     "gap_start",
     "gap_worst_start_all",
-    "gapm10_early",
-    "gapm10_late",
-    "gapm10_worst",
     "min_gap_early",
     "n_early",
     "n_late",
@@ -407,26 +398,17 @@
     "spreadm1_share",
     "var_start"
    ],
-   "strings": 25,
+   "strings": 15,
    "numberTokens": [
     "0",
     "10.5",
-    "12,983",
-    "13.5",
-    "16,566",
     "1977",
     "1981",
-    "20,217",
     "31.3",
-    "42",
-    "54.9",
-    "57.8",
     "57.9",
     "7.5",
     "72.9",
-    "79",
-    "9",
-    "92.9"
+    "9"
    ],
    "numbersNotInClaims": [],
    "outOfSafeArea": [],
@@ -443,11 +425,11 @@
    "anchorsUsed": 13,
    "anchorsUnused": [],
    "keywordsMissing": [],
-   "frames": 1953,
-   "checkFrames": 334,
-   "wallSeconds": 241.4,
-   "machineSecPerFilmSec": 3.71,
-   "hardTime": 2
+   "frames": 2013,
+   "checkFrames": 344,
+   "wallSeconds": 256.9,
+   "machineSecPerFilmSec": 3.83,
+   "hardTime": 0.8
   },
   "S11": {
    "dur": 24.0,
