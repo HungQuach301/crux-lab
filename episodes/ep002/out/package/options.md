@@ -16,17 +16,33 @@ Ghi chú chữ:
 - A2 dùng "Had to Start" (quá khứ, lịch sử), không dùng "Must/Should Start" (giọng khuyên).
 - Kiểm mù ghi lại ba cách đọc A2 (nguyên văn, `review-c6/pack-test/results.md`): một phụ huynh đọc thành "how much lower a variable rate must start to beat the federal Grad PLUS loan" (phim so với lãi cố định tư nhân 9%, không so với Grad PLUS); người refinance nói "doesn't apply to me"; người tò mò gọi "Grad PLUS" là "jargon". A1 không có ghi nhận đọc sai.
 
-## 2. Thumbnail (3 phương án cho Test & Compare, 1280×720)
+## 2. Thumbnail (1280×720; thumb-2/thumb-3 gốc không đạt claim-risk, xem 2b)
 
 Mỗi hình là **still của một cảnh đã ký** (`design/c3/final/src`, engine D2 + E2), vẽ bằng chính engine với cờ NOTEXT (bỏ chữ phim), rồi đặt chữ phẳng Inter 700 bậc `hero` (150 px @1080 = **100 px** @720), màu `ink`/`ink-muted` (D5), cùng huy hiệu ILLUSTRATIVE của engine (bậc `badge`, 32 px). Bố cục (cảnh nào, khung nào, dời bao nhiêu) là **phương án**, không phải quyết định. Concept C3 (H2/H3 "Fixed or variable?") dùng màu trước E2 và lặp chữ của tiêu đề A1, nên không dùng lại chữ đó.
 
 | File | Cảnh nguồn | Vật "anh hùng" (đọc được ở 10%) | Chữ (từ) | Claim | Cỡ chữ | Tương phản 10% (min) |
 |---|---|---|---|---|---|---|
 | `thumb-1.png` | KEY-1 `k1.js` t = 7,85 s | một người giơ hai thẻ lời mời, vạch 9% chạy qua cả hai, đường lãi của Leah trên thẻ phải | "9%" · "7.5%" (2) | `fixed_rate`, `var_start` | 100 px | 14,83 |
-| `thumb-2.png` | KEY-3 `h3/scenes.js` K3 t = 6,48 s | dải lịch sử T-bill (`accent`) + dải hổ phách + lưới 753 ô, ô đỏ dồn nửa trái | "14.2%" · "cost more" (3) | `share_all` | 100 px | 7,45 |
-| `thumb-3.png` | KEY-6 K6 t = 9,6 s | khung phóng 10 năm từ 4/1977 + hai chồng xu, khối đỏ chồng lên | "April 1977" · "43%" · "more" (4) | `worst_start`, `worst_share_of_fixed` | 100 px | 7,40 |
+| `thumb-2.png` **(không đạt claim-risk: chỉ là bằng chứng kiểm mù)** | KEY-3 `h3/scenes.js` K3 t = 6,48 s | dải lịch sử T-bill (`accent`) + dải hổ phách + lưới 753 ô, ô đỏ dồn nửa trái | "14.2%" · "cost more" (3) | `share_all` | 100 px | 7,45 |
+| `thumb-3.png` **(không đạt claim-risk: chỉ là bằng chứng kiểm mù)** | KEY-6 K6 t = 9,6 s | khung phóng 10 năm từ 4/1977 + hai chồng xu, khối đỏ chồng lên | "April 1977" · "43%" · "more" (4) | `worst_start`, `worst_share_of_fixed` | 100 px | 7,40 |
 
 Cả ba: số của Leah → **có huy hiệu ILLUSTRATIVE** (32 px, tương phản 10% 3,49–6,16 trên viên). Tỉ lệ màu token toàn ảnh 100,0% (hình 2D, chỉ token và pha trộn hai token). Ở 25% (320×180) đọc được mọi chữ kể cả huy hiệu (8 px); ở 10% (128×72) đọc được chữ chính (10 px), huy hiệu thành vệt vàng.
+
+### 2b. Biến thể đạt claim-risk (yêu cầu điều phối, sau kiểm mù)
+
+`story/WRITER-brief.md` "Gen được bảo vệ": câu/chữ **nêu một tỉ lệ hay kết quả** phải kèm cả hai thời kỳ (1954–1980, từ 1981) và trường hợp xấu nhất; không ngụ ý "thả nổi xấu/an toàn". thumb-2 nêu 14.2% đứng riêng; thumb-3 chỉ cho thấy giai đoạn tệ nhất (lý do nguyên văn: "alarmist"). Hai ảnh gốc **giữ lại làm bằng chứng**, không đưa vào Test & Compare. **2b, 3b, 3c CHƯA được so cặp mù.**
+
+| File | Cảnh nguồn | Chữ (từ) | Claim | Cỡ | Tương phản 10% (min) |
+|---|---|---|---|---|---|
+| `thumb-2b.png` | KEY-3 K3 t = 6,48 s (cùng hình thumb-2: nửa trái nhiều ô đỏ, nửa phải gần sạch) | "1954–1980" · "vs" · "1981 on" (4), đặt dưới lưới, nhãn trước dưới nửa trái | `period_early_label`, `period_late` | 100 px | 7,21 |
+| `thumb-3b.png` | KEY-6 K6 t = 9,6 s (thu 0,88) | "Worst case:" · "April 1977" (4); bỏ "43% more" | `worst_start` | 100 px | 7,49 |
+| `thumb-3c.png` (**đề xuất thay 3b**) | KEY-7 `k7.js` t = 9,8 s (khe khởi đầu rộng nhất; cột "trước 1981" còn đỏ, cột "từ 1981" sạch) | "How much" · "lower?" (3), không số | — | 100 px | 16,46 |
+
+Cả ba: huy hiệu ILLUSTRATIVE 32 px, đúng 1280×720, token 100%, mọi số khớp claim, S10 0 khớp (`selfcheck.json`, `legibility-25.png` có đủ 6 ảnh).
+
+Nhận định của người làm gói về 3b: **vẫn nghiêng về vi phạm.** "Worst case:" nói rõ đây là trường hợp xấu nhất, nhưng thumbnail vẫn chỉ cho thấy **một** kết quả (xấu nhất) mà không có hai thời kỳ. Hình khối đỏ chồng lên vẫn có thể đọc thành "thả nổi tệ". Vì vậy tôi đề xuất **3c** (KEY-7: khởi đầu thấp hơn so với hai nửa lịch sử). 3c cho thấy cả hai nửa bằng hình, không in số. Câu hỏi "How much lower?" hứa đúng đáp án của phim. Lưu ý: 3c lặp ý của tiêu đề A2 ("How Much Lower"), nên hợp với A1 hơn. 2b và 3c không mang số kết quả. Trường hợp xấu nhất vẫn nằm trong phim và trong mô tả.
+
+Khi chủ dự án chọn, các biến thể được chọn sẽ được chép đè lên `thumb-2.png`/`thumb-3.png` (tên mà hợp đồng M3, F11 và P01 đọc). Bản gốc chuyển sang `evidence/`. Việc này chưa làm.
 
 **Luật máy (đo bằng chính hàm trong `checks/py`, chỉ đọc):**
 - **F11 PASS** (40 artefact M3 đã khai, 0 thiếu; gồm `out/package/thumb-1..3.png/.json`).
@@ -50,5 +66,5 @@ Thẻ kết quả tìm kiếm cho chủ dự án xem (không đưa cho người 
 
 ## 5. Câu hỏi cho chủ dự án (C6, ≤ 3)
 1. **Tiêu đề:** A1 (tiêu đề nháp C1) hay A2?
-2. **Thumbnail mặc định** (tải lên đầu tiên trong Test & Compare): thumb-1, thumb-2 hay thumb-3? Đề xuất đưa **cả ba** vào Test & Compare để dữ liệu thật phân xử (bài học Tập 1 số 4).
+2. **Thumbnail:** Test & Compare chỉ gồm ảnh đạt claim-risk. Đề xuất **thumb-1, thumb-2b, thumb-3c**, hoặc thay 3c bằng 3b nếu chủ dự án cho rằng 3b đạt. Ảnh nào làm mặc định? (2b, 3b, 3c chưa so cặp mù; thumb-2/thumb-3 gốc chỉ là bằng chứng.)
 3. **Huy hiệu 32 px và P01:** giữ ngoại lệ như Tập 1 (đề xuất) hay bỏ số khỏi thumbnail?

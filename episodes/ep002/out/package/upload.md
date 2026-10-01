@@ -9,7 +9,7 @@ Phiếu điền cho YouTube Studio. Chỗ ghi **CHỦ DỰ ÁN CHỌN** là câu
 | Title | **CHỦ DỰ ÁN CHỌN**: **A1** "Need Private Grad Loans? Variable vs Fixed Through History" (58 ký tự) hoặc **A2** "No Grad PLUS? How Much Lower a Variable Rate Had to Start" (57). Test & Compare chỉ thử thumbnail; tiêu đề giữ cố định. |
 | Description | `out/package/description.md`, dán nguyên văn (bỏ dòng chú thích `<!-- … -->` đầu tệp). Số → claim: `description-claims.json`. Không sửa. |
 | Chapters | Đã có trong `description.md`, khớp `out/timeline.json` (`scenes[].start`, làm tròn xuống giây). Bảng đối chiếu ở §2. |
-| Thumbnail | **Test & Compare, 3 ảnh**: `thumb-1.png`, `thumb-2.png`, `thumb-3.png` (1280×720 PNG, mỗi ảnh < 2 MB). Ảnh mặc định (tải lên đầu tiên): **CHỦ DỰ ÁN CHỌN**. Cả ba mang huy hiệu ILLUSTRATIVE (số của Leah). |
+| Thumbnail | **Test & Compare, 3 ảnh, chỉ ảnh đạt claim-risk**: `thumb-1.png`, `thumb-2b.png`, `thumb-3c.png` (đề xuất; `thumb-3b.png` thay 3c nếu chủ dự án cho là đạt). 1280×720 PNG, < 2 MB. Ảnh mặc định: **CHỦ DỰ ÁN CHỌN**. Cả ba mang huy hiệu ILLUSTRATIVE. `thumb-2.png`/`thumb-3.png` gốc **không tải lên** (vi phạm "Gen được bảo vệ"; chỉ là bằng chứng kiểm mù). |
 | Playlist | ĐỀ XUẤT: playlist riêng cho chuỗi "replay" (Tập 1 refinance, Tập 2 vay sau đại học), ví dụ "Money Decisions, Replayed Through History". Chủ dự án đặt tên. |
 | Audience | Made for kids: **No**. |
 | Age restriction / Paid promotion | Không / Không. |
@@ -56,14 +56,14 @@ Tổng 15,6 s (YouTube cho 5–20 s). Xem trước trong Studio: phần tử kh�
 
 ## 4. Test & Compare
 
-- Ảnh: **thumb-1** (hai lời mời, "9%" · "7.5%"), **thumb-2** (lịch sử, "14.2% cost more"), **thumb-3** (giai đoạn tệ nhất, "April 1977" · "43% more").
-- Kiểm mù (THAM KHẢO, tiêu đề A1 cố định): thumb-3 19/24 · thumb-1 18/24 · thumb-2 9/24 (`review-c6/pack-test/results.md`). Nếu chủ dự án chọn A2, thứ hạng thumbnail dưới A2 chưa đo.
+- Ảnh (chỉ ảnh đạt claim-risk): **thumb-1** (hai lời mời, "9%" · "7.5%"), **thumb-2b** (hai nửa lịch sử, "1954–1980 vs 1981 on"), **thumb-3c** (khởi đầu thấp hơn so với hai nửa, "How much lower?"); hoặc **thumb-3b** ("Worst case: April 1977") nếu chủ dự án cho là đạt.
+- Kiểm mù (THAM KHẢO, tiêu đề A1 cố định) chỉ đo thumb-1 (18/24) và hai bản gốc không đạt (thumb-3 19/24, thumb-2 9/24). **2b, 3b, 3c chưa so cặp mù.** Nếu chủ dự án chọn A2, thứ hạng thumbnail dưới A2 cũng chưa đo.
 - **Việc sau khi đăng** (ghi vào `playbook/packaging.md` §6 khi tổng kết Tập 2): tỉ lệ thời gian xem của từng thumbnail theo Test & Compare; CTR của tiêu đề; so với kiểm mù và với gu.
 
 ## 5. Trước khi bấm Public
 - [ ] Tiêu đề (A1 hoặc A2, theo C6).
 - [ ] Dán `description.md` (bỏ dòng chú thích đầu); chapters hiện đúng.
-- [ ] Test & Compare: thumb-1, thumb-2, thumb-3; ảnh mặc định theo C6.
+- [ ] Test & Compare: thumb-1, thumb-2b, thumb-3c (hoặc 3b); ảnh mặc định theo C6. Không tải thumb-2/thumb-3 gốc.
 - [ ] Altered or synthetic = Yes; Made for kids = No; Education; English.
 - [ ] Phụ đề `captions.srt`.
 - [ ] End screen: video khớp khung + Subscribe, 9:30–9:45; xem trước.

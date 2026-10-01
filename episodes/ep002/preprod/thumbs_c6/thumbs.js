@@ -68,6 +68,28 @@ export async function boot(fam) {
       word('more', 1216, 306, { color: C.muted, align: 'right' });
       badge();
     },
+    // thumb-2b (claim-risk compliant): same KEY-3 picture, no share number; text names the two halves (period claims)
+    history_b() {
+      still('K3', 6.48, 1, 0, -50);   // text sits UNDER the grid: the early label under the left half, the late label under the right half
+      const a = word(CLD('period_early_label'), 64, 640, { claim: 'period_early_label' });
+      const v = word('vs', 64 + a.w + 32, 640, { color: C.muted });
+      word(CLD('period_late'), 64 + a.w + 32 + v.w + 32, 640, { claim: 'period_late' });
+      badge();
+    },
+    // thumb-3b: KEY-6 worst stretch framed explicitly as the worst case, no "43% more"
+    worst_b() {
+      still('K6', 9.6, 0.88, 90, 165);
+      word('Worst case:', 64, 130, { color: C.muted });
+      word(CLD('worst_start'), 64, 240, { claim: 'worst_start' });
+      badge();
+    },
+    // thumb-3c (proposal): KEY-7 final frame (head start widest; before-1981 column still red, from-1981 column clean), a question, no number
+    head_c() {
+      still('K7', 9.8, 1, 110, 30);
+      word('How much', 64, 160);
+      word('lower?', 64, 270);
+      badge();
+    },
     // neutral (title round only): the KEY-3 picture, no words, badge only
     neutral() { still('K3', 6.48, 1, 0, 70); badge(); },
     // weak control (thumbnail round only): a plain film frame, KEY-2 at 2.9 s, with the film's own small labels

@@ -40,7 +40,8 @@ def numbers_ok(text, ids):
     return out
 
 res = {'thumbnails': {}, 'titles': {}}
-for k in (1, 2, 3):
+KEYS = ('1', '2', '3', '2b', '3b', '3c')
+for k in KEYS:
     img = np.asarray(Image.open(PK / f'thumb-{k}.png').convert('RGB'))
     meta = json.loads((PK / f'thumb-{k}.json').read_text())
     h, w = img.shape[:2]
@@ -81,13 +82,15 @@ for tid, t in titles.items():
                           'numbers': numbers_ok(t['title'], t.get('claims', []))}
 (PK / 'selfcheck.json').write_text(json.dumps(res, indent=1, ensure_ascii=False))
 # legibility sheet: each thumbnail at 25% (320x180) and 10% (128x72), shown 1:1
-sheet = Image.new('RGB', (3 * 340 + 20, 180 + 72 + 70), (14, 17, 22))
+RH = 180 + 72 + 70
+sheet = Image.new('RGB', (3 * 340 + 20, 2 * RH), (14, 17, 22))
 d = ImageDraw.Draw(sheet)
-for i in range(3):
-    im = Image.open(PK / f'thumb-{i + 1}.png').convert('RGB')
-    sheet.paste(im.resize((320, 180), Image.BOX), (20 + i * 340, 30))
-    sheet.paste(im.resize((128, 72), Image.BOX), (20 + i * 340, 30 + 180 + 20))
-    d.text((20 + i * 340, 8), f'thumb-{i + 1}: 25% (320x180) and 10% (128x72), 1:1', fill=(154, 164, 178))
+for i, k in enumerate(KEYS):
+    im = Image.open(PK / f'thumb-{k}.png').convert('RGB')
+    x0, y0 = 20 + (i % 3) * 340, (i // 3) * RH
+    sheet.paste(im.resize((320, 180), Image.BOX), (x0, y0 + 30))
+    sheet.paste(im.resize((128, 72), Image.BOX), (x0, y0 + 30 + 180 + 20))
+    d.text((x0, y0 + 8), f'thumb-{k}: 25% (320x180) and 10% (128x72), 1:1', fill=(154, 164, 178))
 sheet.save(PK / 'legibility-25.png')
 for k, v in res['thumbnails'].items():
     print(k, {x: v[x] for x in ('sizeOk', 'tokenSharePct_wholeImage', 'words_excl_badge', 'minFontPx_excl_badge', 'badgeFontPx', 'minContrast10_excl_badge', 'badgeContrast10', 'badgeRuleOk', 'allNumbersHaveClaim', 's10Hits')})
