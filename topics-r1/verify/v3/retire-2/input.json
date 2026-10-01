@@ -1,0 +1,95 @@
+{
+ "id": "retire-2",
+ "claim": "History, not a forecast. Nursing care facility prices (producer price index, Dec 1994 to Mar 2026) rose 3.52% a year over the whole period; over the 136 overlapping 20-year stretches they rose between 2.78% and 3.61% a year (median 3.1%). A daily benefit that started out covering the full daily price would, 20 years later, cover a median 54.3% with no inflation option, 98.1% with 3% compound (range 88.9% to 104.4%; full coverage in 44.1% of stretches) and 144.1% with 5% compound (never below 130.6%). In this price record the 3% option came close to keeping pace and the 5% option ran well ahead of prices in every stretch.",
+ "numbers": [
+  {
+   "id": "windows_20y",
+   "unit": "windows",
+   "definition": "Number of 20-year windows. 20-year window = start month s (1994-12-01 .. 2006-03-01) and end month e = s + 240 months; price ratio P = PPI(e)/PPI(s). Coverage for a benefit growing at compound rate r = 100 x (1+r)^20 / P (a benefit that paid 100% of the daily price at s). PPI = PCU623110623110, Producer Price Index by Industry: Nursing Care Facilities, index Dec 1994=100, not seasonally adjusted, monthly, pinned FRED CSV with coed=2026-03-01 (observations 1994-12-01 .. 2026-03-01). "
+  },
+  {
+   "id": "price_growth_full_period_pct_per_year",
+   "unit": "percent per year",
+   "definition": "100 x ((PPI(2026-03-01)/PPI(1994-12-01))^(12/375) - 1), rounded to 0.01 (375 months between the two dates). PPI = PCU623110623110, Producer Price Index by Industry: Nursing Care Facilities, index Dec 1994=100, not seasonally adjusted, monthly, pinned FRED CSV with coed=2026-03-01 (observations 1994-12-01 .. 2026-03-01). "
+  },
+  {
+   "id": "price_growth_20y_min_pct_per_year",
+   "unit": "percent per year",
+   "definition": "Minimum over 20-year windows of 100 x (P^(1/20) - 1), rounded to 0.01. 20-year window = start month s (1994-12-01 .. 2006-03-01) and end month e = s + 240 months; price ratio P = PPI(e)/PPI(s). Coverage for a benefit growing at compound rate r = 100 x (1+r)^20 / P (a benefit that paid 100% of the daily price at s). "
+  },
+  {
+   "id": "price_growth_20y_median_pct_per_year",
+   "unit": "percent per year",
+   "definition": "Median over 20-year windows of 100 x (P^(1/20) - 1), rounded to 0.01. 20-year window = start month s (1994-12-01 .. 2006-03-01) and end month e = s + 240 months; price ratio P = PPI(e)/PPI(s). Coverage for a benefit growing at compound rate r = 100 x (1+r)^20 / P (a benefit that paid 100% of the daily price at s). "
+  },
+  {
+   "id": "price_growth_20y_max_pct_per_year",
+   "unit": "percent per year",
+   "definition": "Maximum over 20-year windows of 100 x (P^(1/20) - 1), rounded to 0.01. 20-year window = start month s (1994-12-01 .. 2006-03-01) and end month e = s + 240 months; price ratio P = PPI(e)/PPI(s). Coverage for a benefit growing at compound rate r = 100 x (1+r)^20 / P (a benefit that paid 100% of the daily price at s). "
+  },
+  {
+   "id": "coverage_no_option_median_pct",
+   "unit": "percent of daily price",
+   "definition": "Median over windows of coverage with r = 0 (100 / P), rounded to 0.1. 20-year window = start month s (1994-12-01 .. 2006-03-01) and end month e = s + 240 months; price ratio P = PPI(e)/PPI(s). Coverage for a benefit growing at compound rate r = 100 x (1+r)^20 / P (a benefit that paid 100% of the daily price at s). "
+  },
+  {
+   "id": "coverage_3pct_median_pct",
+   "unit": "percent of daily price",
+   "definition": "Median over windows of coverage with r = 0.03, rounded to 0.1. 20-year window = start month s (1994-12-01 .. 2006-03-01) and end month e = s + 240 months; price ratio P = PPI(e)/PPI(s). Coverage for a benefit growing at compound rate r = 100 x (1+r)^20 / P (a benefit that paid 100% of the daily price at s). "
+  },
+  {
+   "id": "coverage_3pct_min_pct",
+   "unit": "percent of daily price",
+   "definition": "Minimum over windows of coverage with r = 0.03, rounded to 0.1."
+  },
+  {
+   "id": "coverage_3pct_max_pct",
+   "unit": "percent of daily price",
+   "definition": "Maximum over windows of coverage with r = 0.03, rounded to 0.1."
+  },
+  {
+   "id": "share_3pct_kept_up_pct",
+   "unit": "percent of windows",
+   "definition": "100 x (windows with coverage at r = 0.03 >= 100) / windows_20y, rounded to 0.1."
+  },
+  {
+   "id": "coverage_5pct_median_pct",
+   "unit": "percent of daily price",
+   "definition": "Median over windows of coverage with r = 0.05, rounded to 0.1."
+  },
+  {
+   "id": "coverage_5pct_min_pct",
+   "unit": "percent of daily price",
+   "definition": "Minimum over windows of coverage with r = 0.05, rounded to 0.1."
+  },
+  {
+   "id": "share_5pct_kept_up_pct",
+   "unit": "percent of windows",
+   "definition": "100 x (windows with coverage at r = 0.05 >= 100) / windows_20y, rounded to 0.1."
+  }
+ ],
+ "assumptions": [
+  "The policy's daily benefit starts equal to the daily price of care at the start of the window and grows by r compounded annually (r = 0, 3% or 5%) for 20 years.",
+  "Nursing care prices are measured by the national producer price index for nursing care facilities (what facilities receive per unit of service, all payers), which is a stand-in for the private-pay daily rate a policyholder faces.",
+  "Overlapping monthly start dates; the index begins in Dec 1994, so only starts from Dec 1994 to Mar 2006 have a full 20 years.",
+  "Data pinned at Mar 2026 because the most recent PPI months are preliminary and revised for four months.",
+  "Premium differences between the options and premium increases on in-force policies are not modeled."
+ ],
+ "series": [
+  {
+   "id": "PCU623110623110",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics, Producer Price Index)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCU623110623110&coed=2026-03-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/PCU623110623110",
+   "file": "data/PCU623110623110.csv",
+   "sha256": "48158621352866735fd0053fe4835d50601f2ce9384089ad8a3b18ef2484638f",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-03-01",
+   "terms": {
+    "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
+    "url": "https://fred.stlouisfed.org/series/PCU623110623110"
+   }
+  }
+ ],
+ "provisions": []
+}

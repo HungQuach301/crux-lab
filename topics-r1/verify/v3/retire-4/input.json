@@ -1,0 +1,125 @@
+{
+ "id": "retire-4",
+ "claim": "History, not a forecast. A savings bond held 20 years is guaranteed to reach at least double its price (about 3.53% a year). Rolling 3-month T-bills for 20 years, starting any month from 1934 to 2006 (873 starts), ended above double in 52.3% of starts (median multiple 2.097; range 1.129 to 4.612). It was a matter of era: starts from the 1950s through the 1980s mostly beat double, while starts from 1990 on beat it in only 5.0% of months, and the latest full stretch (Sep 2006 to Aug 2026) turned money into 1.378 times. Double itself is not inflation-proof: it kept up with consumer prices over 20 years in 58.7% of start months (median buying power 107.3% of the original). In Aug 2026 the 3-month bill rate was 3.72%.",
+ "numbers": [
+  {
+   "id": "starts",
+   "unit": "start months",
+   "definition": "Number of 20-year start months. T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. TB3MS = 3-month Treasury bill secondary market rate, discount basis, percent, monthly average, pinned FRED CSV (coed=2026-08-01, first observation 1934-01-01). CPIAUCNS = CPI-U all items, US city average, not seasonally adjusted, pinned FRED CSV (coed=2026-08-01; 2025-10-01 is blank). "
+  },
+  {
+   "id": "first_start",
+   "unit": "date",
+   "definition": "First start month. T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. "
+  },
+  {
+   "id": "last_start",
+   "unit": "date",
+   "definition": "Last start month (its 240 months end with 2026-08-01). T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. "
+  },
+  {
+   "id": "share_tbills_above_double_pct",
+   "unit": "percent of start months",
+   "definition": "100 x (start months with M(s) > 2.0) / starts, rounded to 0.1. T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. "
+  },
+  {
+   "id": "median_tbill_multiple_20y",
+   "unit": "multiple of money invested",
+   "definition": "Median of M(s) over all start months, rounded to 0.001. T-bill roll: money invested at the start of month s earns TB3MS/12 percent in each of the 240 months s, s+1, ..., s+239 (simple monthly roll at the quoted rate, compounded monthly): multiple M(s) = product over those months of (1 + TB3MS/1200). Start months: every TB3MS month with 240 months of data from s onward, i.e. 1934-01-01 .. 2006-09-01. The savings bond's value at 20 years is taken as exactly 2.0 x purchase price. "
+  },
+  {
+   "id": "min_tbill_multiple_20y",
+   "unit": "multiple of money invested",
+   "definition": "Minimum of M(s), rounded to 0.001."
+  },
+  {
+   "id": "max_tbill_multiple_20y",
+   "unit": "multiple of money invested",
+   "definition": "Maximum of M(s), rounded to 0.001."
+  },
+  {
+   "id": "share_tbills_above_double_starts_since_1990_pct",
+   "unit": "percent of start months",
+   "definition": "100 x (start months s >= 1990-01-01 with M(s) > 2.0) / (number of start months s >= 1990-01-01, i.e. 1990-01 .. 2006-09), rounded to 0.1."
+  },
+  {
+   "id": "latest_tbill_multiple_20y",
+   "unit": "multiple of money invested",
+   "definition": "M(2006-09-01) (months 2006-09 .. 2026-08), rounded to 0.001."
+  },
+  {
+   "id": "doubling_rate_pct_per_year",
+   "unit": "percent per year",
+   "definition": "100 x (2^(1/20) - 1), rounded to 0.01: annual rate that turns 1 into 2 in 20 years."
+  },
+  {
+   "id": "real_windows",
+   "unit": "start months",
+   "definition": "Number of start months s (from the T-bill start months) for which CPIAUCNS has values at s and at s + 240 months."
+  },
+  {
+   "id": "share_double_beat_prices_pct",
+   "unit": "percent of start months",
+   "definition": "100 x (real-window start months with 2.0 x CPIAUCNS(s)/CPIAUCNS(s+240) >= 1) / real_windows, rounded to 0.1: how often a doubled amount bought at least as much as the original amount 20 years earlier."
+  },
+  {
+   "id": "median_real_value_double_pct",
+   "unit": "percent of starting purchasing power",
+   "definition": "Median over real windows of 100 x 2.0 x CPIAUCNS(s)/CPIAUCNS(s+240), rounded to 0.1."
+  },
+  {
+   "id": "tb3ms_latest_pct",
+   "unit": "percent",
+   "definition": "TB3MS value for 2026-08-01 as published."
+  }
+ ],
+ "assumptions": [
+  "The doubling guarantee is applied to every historical start as if it had existed then (it applies to bonds issued from May 2005; before that, bonds had other terms). The comparison is hypothetical for earlier starts.",
+  "T-bill returns use the monthly average 3-month rate divided by 12 each month (discount-basis rate, not converted to investment yield), compounded monthly; transaction costs and gaps between rolls are ignored.",
+  "Taxes are ignored: T-bill interest is federally taxed each year, while savings bond interest is federally tax-deferred until redemption; both are exempt from state income tax.",
+  "Savings bonds cashed before 20 years earn only their stated fixed rate (and lose 3 months of interest before 5 years); the comparison assumes a full 20-year hold.",
+  "Annual purchase limits on savings bonds are ignored."
+ ],
+ "series": [
+  {
+   "id": "TB3MS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+   "file": "data/TB3MS.csv",
+   "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   }
+  },
+  {
+   "id": "CPIAUCNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "file": "data/CPIAUCNS.csv",
+   "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCNS"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "31 CFR 351.34(a) (Series EE bonds issued May 1, 2005 or later: original maturity)",
+   "url": "https://www.law.cornell.edu/cfr/text/31/351.34",
+   "quote": "Bonds reach original maturity at 20 years after the issue date"
+  },
+  {
+   "cite": "31 CFR 351.35(f)(2) (redemption value of book-entry Series EE bonds at original maturity)",
+   "url": "https://www.law.cornell.edu/cfr/text/31/351.35",
+   "quote": "At original maturity, the redemption value of a book-entry bond shall not be less than double the purchase price of the bond."
+  }
+ ]
+}

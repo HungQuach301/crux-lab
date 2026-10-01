@@ -1,0 +1,139 @@
+{
+ "id": "tax-1",
+ "claim": "A $3,000 refund built up evenly through the year is, on average, money the government holds for the equivalent of 7.5 months, interest-free (refunds paid within 45 days of the filing deadline earn no interest). For tax year 2025 that cost a saver about $72.25 at Treasury-bill rates, and only about $7.40 at the national average savings-account rate. Across tax years 2000-2025 the T-bill cost averaged $35.10, from $0.50 (2014) to $106.76 (2000); in 10 of the 26 years it was under $10. For a household that carries credit-card debt while over-withholding, the same timing cost about $396.46 in card interest for 2025 (range $222.71-$404.04, mean $268.93 over 2000-2025). The size of the 'interest-free loan' depends far more on whether the household borrows on a card than on the rate environment.",
+ "numbers": [
+  {
+   "id": "balance_months_per_dollar",
+   "unit": "months",
+   "definition": "Sum of the outstanding-balance fractions min(k,12)/12 over the 13 months (k=1..13): (1+2+...+11)/12 + 2 = 7.5, i.e. the refund is on average 'lent' for the equivalent of 7.5 months. Over-withholding model: the refund R = $3,000 is over-withheld in 12 equal parts of $250 at the end of each month January-December of tax year Y and refunded on March 1 of Y+1. The balance outstanding during month m is R*min(k,12)/12 where k = 1 for February of Y, 2 for March, ..., 11 for December, 12 for January and February of Y+1 (13 months, Feb Y - Feb Y+1). Forgone interest = sum over those 13 months of balance * r_m / 100 / 12 (simple monthly interest, no compounding), where r_m is the series value (percent per year) for that month."
+  },
+  {
+   "id": "tbill_2025_usd",
+   "unit": "USD",
+   "definition": "Forgone interest for tax year 2025 (refund March 1, 2026) at r_m = TB3MS monthly value (3-month Treasury bill, secondary market) for Feb 2025-Feb 2026. Over-withholding model: the refund R = $3,000 is over-withheld in 12 equal parts of $250 at the end of each month January-December of tax year Y and refunded on March 1 of Y+1. The balance outstanding during month m is R*min(k,12)/12 where k = 1 for February of Y, 2 for March, ..., 11 for December, 12 for January and February of Y+1 (13 months, Feb Y - Feb Y+1). Forgone interest = sum over those 13 months of balance * r_m / 100 / 12 (simple monthly interest, no compounding), where r_m is the series value (percent per year) for that month. Rounded to cents."
+  },
+  {
+   "id": "savings_avg_2025_usd",
+   "unit": "USD",
+   "definition": "Same as tbill_2025_usd but r_m = SNDR monthly value (national average rate on savings deposits) for Feb 2025-Feb 2026. Rounded to cents."
+  },
+  {
+   "id": "card_2025_usd",
+   "unit": "USD",
+   "definition": "Extra credit-card interest for tax year 2025 if the household instead carries a card balance equal to the over-withheld balance: same formula with r_m = latest TERMCBCCALLNS (average APR, all credit card accounts; published for Feb/May/Aug/Nov) observation at or before month m (forward fill), Feb 2025-Feb 2026. Rounded to cents."
+  },
+  {
+   "id": "tbill_mean_2000_2025_usd",
+   "unit": "USD",
+   "definition": "Arithmetic mean over tax years 2000-2025 (26 years) of the T-bill forgone interest computed as in tbill_2025_usd for each year (unrounded per-year values). Rounded to cents."
+  },
+  {
+   "id": "tbill_max_usd",
+   "unit": "USD",
+   "definition": "Largest per-year T-bill forgone interest among tax years 2000-2025. Rounded to cents."
+  },
+  {
+   "id": "tbill_max_year",
+   "unit": "tax year",
+   "definition": "Tax year with the largest T-bill forgone interest (2000-2025)."
+  },
+  {
+   "id": "tbill_min_usd",
+   "unit": "USD",
+   "definition": "Smallest per-year T-bill forgone interest among tax years 2000-2025. Rounded to cents."
+  },
+  {
+   "id": "tbill_min_year",
+   "unit": "tax year",
+   "definition": "Tax year with the smallest T-bill forgone interest (2000-2025)."
+  },
+  {
+   "id": "tbill_years_under_10usd",
+   "unit": "count of tax years",
+   "definition": "Number of tax years 2000-2025 whose T-bill forgone interest (unrounded) is below $10."
+  },
+  {
+   "id": "card_mean_2000_2025_usd",
+   "unit": "USD",
+   "definition": "Mean over tax years 2000-2025 of the credit-card cost computed as in card_2025_usd for each year. Rounded to cents."
+  },
+  {
+   "id": "card_min_usd",
+   "unit": "USD",
+   "definition": "Smallest per-year credit-card cost among tax years 2000-2025. Rounded to cents."
+  },
+  {
+   "id": "card_max_usd",
+   "unit": "USD",
+   "definition": "Largest per-year credit-card cost among tax years 2000-2025. Rounded to cents."
+  }
+ ],
+ "assumptions": [
+  "Refund amount $3,000, entirely from federal income tax over-withholding spread evenly over 12 monthly installments (biweekly pay gives nearly the same average balance).",
+  "Refund received March 1 of the following year (early e-filer with direct deposit); a later refund raises the cost proportionally to the extra months.",
+  "No interest is paid on the refund (refund issued within 45 days of the filing deadline).",
+  "Saver alternative: the money would have earned the 3-month T-bill rate (a proxy for a high-yield account or money-market fund) or the national average savings rate (SNDR, available from April 2021, so only for tax year 2025). Interest earned is shown before tax on that interest.",
+  "Borrower alternative: each over-withheld dollar would instead have reduced a revolving card balance charged the average APR on all credit-card accounts; quarterly APR observations are carried forward to the following months.",
+  "Simple monthly interest, no compounding."
+ ],
+ "series": [
+  {
+   "id": "TB3MS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15 Selected Interest Rates)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&cosd=1999-01-01&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+   "file": "data/TB3MS.csv",
+   "sha256": "7da480f9a0465a1c7f28d917907b998d69fa1e1815d91f4199c2d07c71f3db7a",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "3.72"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   }
+  },
+  {
+   "id": "TERMCBCCALLNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, G.19 Consumer Credit)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TERMCBCCALLNS&cosd=1999-01-01&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TERMCBCCALLNS",
+   "file": "data/TERMCBCCALLNS.csv",
+   "sha256": "65a3570f21c570ac06583a199950225952c655d359676cd9c2733b56e3f577d9",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-05-01",
+    "value": "20.94"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TERMCBCCALLNS"
+   }
+  },
+  {
+   "id": "SNDR",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Federal Deposit Insurance Corporation, National Rates and Rate Caps)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SNDR&cosd=2021-04-01&coed=2026-09-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/SNDR",
+   "file": "data/SNDR.csv",
+   "sha256": "bb6156ef8119e1386ecdee2a0949963077e4e0d6631089232c66798df1ef1fd6",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-09-01",
+    "value": "0.37000000000000000"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/SNDR"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 6611(e)(1) (no interest on refunds paid within 45 days)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/6611",
+   "quote": "If any overpayment of tax imposed by this title is refunded within 45 days after the last day prescribed for filing the return of such tax (determined without regard to any extension of time for filing the return) or, in the case of a return filed after such last date, is refunded within 45 days after the date the return is filed, no interest shall be allowed under subsection (a) on such overpayment."
+  }
+ ]
+}

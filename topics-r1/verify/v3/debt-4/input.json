@@ -1,0 +1,89 @@
+{
+ "id": "debt-4",
+ "claim": "Paying 1 point to go from 7% to 6.75% cuts the payment by $16.7 per $100,000 borrowed, so the point takes 59.9 months (about five years) to pay for itself. Across 2,635 start weeks of the weekly 30-year rate since April 1971, the market rate fell at least 1.25 points (enough to make a refinance from 6.75% worthwhile by the common one-point rule) before that break-even in 53.1% of weeks; when it did, the median wait was 18.9 months. Restricting to weeks that started between 6.5% and 7.5% (362 weeks) gives 52.2%. The latest weekly rate is 7.03%. History, not a forecast.",
+ "numbers": [
+  {
+   "id": "monthly_saving_per_100k",
+   "unit": "dollars per month",
+   "definition": "Level monthly payment for a 360-month loan: p*x/(1-(1+x)^-360), x = rate/1200. Payment at 7.00% minus payment at 6.75% on $100,000, rounded to cents."
+  },
+  {
+   "id": "breakeven_months",
+   "unit": "months",
+   "definition": "Level monthly payment for a 360-month loan: p*x/(1-(1+x)^-360), x = rate/1200. Point cost (1% of the loan) divided by the monthly payment saving (scale-free: 1.0 / saving per $100), rounded to 0.1."
+  },
+  {
+   "id": "horizon_months",
+   "unit": "months",
+   "definition": "breakeven_months rounded up to a whole month (ceil of the unrounded value)."
+  },
+  {
+   "id": "drop_needed_pts",
+   "unit": "percentage points",
+   "definition": "(7.00 - 6.75) + 1.00 refinance trigger."
+  },
+  {
+   "id": "n_weeks",
+   "unit": "weeks",
+   "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Number of eligible start weeks."
+  },
+  {
+   "id": "first_week",
+   "unit": "date",
+   "definition": "First eligible start week (1971-04-02)."
+  },
+  {
+   "id": "last_week",
+   "unit": "date",
+   "definition": "Last eligible start week (horizon end on or before 2026-09-24)."
+  },
+  {
+   "id": "share_refi_before_breakeven",
+   "unit": "percent of start weeks",
+   "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Hits / eligible weeks * 100, rounded to 0.1."
+  },
+  {
+   "id": "median_months_to_trigger",
+   "unit": "months",
+   "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Among hit weeks, days from t to the first qualifying week w divided by 30.4375; median, rounded to 0.1."
+  },
+  {
+   "id": "n_weeks_6_5_to_7_5",
+   "unit": "weeks",
+   "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Number of eligible start weeks with rate(t) between 6.50 and 7.50 inclusive."
+  },
+  {
+   "id": "share_refi_before_breakeven_6_5_to_7_5",
+   "unit": "percent of start weeks",
+   "definition": "Data: data/MORTGAGE30US.csv (FRED MORTGAGE30US, 30-Year Fixed Rate Mortgage Average in the United States, weekly, percent), all weeks 1971-04-02 through 2026-09-24, rates converted to integer hundredths. For each week t, horizon end = same calendar day 60 months later (clipped to month end); weeks whose horizon end is after 2026-09-24 are excluded. A week counts as a hit if any later week w with t < w <= horizon end has rate(w) <= rate(t) - 1.25 points (i.e. the market fell 1.00 point below the 6.75% bought-down note rate, measured from a start rate 0.25 above it). Hit share among start weeks with rate(t) between 6.50 and 7.50 inclusive, times 100, rounded to 0.1."
+  },
+  {
+   "id": "latest_rate",
+   "unit": "percent",
+   "definition": "MORTGAGE30US on 2026-09-24, the last observation."
+  }
+ ],
+ "assumptions": [
+  "One point costs 1% of the loan and lowers the rate by 0.25 (7.00% to 6.75%) on a 30-year fixed loan; simple (undiscounted) break-even.",
+  "Refinance trigger: the weekly average 30-year rate at least 1.00 point below the borrower's note rate; closing costs and the borrower's own rate spread vs the survey average are ignored.",
+  "The no-point rate equals the survey rate in the start week; history is applied as point changes from that week's rate.",
+  "A hit means the refinance opportunity appeared; it does not assume the borrower took it or quantify how much of the point was lost."
+ ],
+ "series": [
+  {
+   "id": "MORTGAGE30US",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "file": "data/MORTGAGE30US.csv",
+   "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-09-24",
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   }
+  }
+ ],
+ "provisions": []
+}

@@ -1,0 +1,122 @@
+{
+ "id": "debt-1",
+ "claim": "A homeowner with a 3.00% mortgage who put $500 at the start of every month from January 2022 through August 2026 (56 months, $28,000) toward extra principal ended with $30,090 of balance reduction. The same $500 rolled in 3-month T-bills (bond-equivalent yield averaged 4.08%) grew to $31,091 before tax, a $1,002 lead. After federal income tax on the interest the lead shrinks to $285 in the 22% bracket and $221 in the 24% bracket, and turns into a $34 deficit in the 32% bracket; the tie point is a 30.9% tax rate. The T-bill yield was below 3% before tax in 8 of the 56 months (all in 2022), and above 3% after a 22% tax in 37 months; the after-tax (22%) yield has been back below 3% for the last 9 months in a row. History, not a forecast.",
+ "numbers": [
+  {
+   "id": "n_months",
+   "unit": "months",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent), the 56 monthly observations 2022-01-01 through 2026-08-01. Convert each month's discount rate d (TB3MS/100) to a bond-equivalent yield BEY = 100*365*d/(360-91*d) percent. Count of months 2022-01 through 2026-08 inclusive."
+  },
+  {
+   "id": "contributed",
+   "unit": "dollars",
+   "definition": "500 * n_months."
+  },
+  {
+   "id": "prepay_value",
+   "unit": "dollars",
+   "definition": "Prepayment value: for each of the same 56 months, B = (B + 500) * (1 + 3.00/1200), starting at 0. With a fixed scheduled payment, each extra principal dollar shrinks the balance and the saved interest is applied to principal, so the balance reduction grows at the note rate monthly. Rounded to whole dollars."
+  },
+  {
+   "id": "tbill_value_tax0",
+   "unit": "dollars",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent), the 56 monthly observations 2022-01-01 through 2026-08-01. Convert each month's discount rate d (TB3MS/100) to a bond-equivalent yield BEY = 100*365*d/(360-91*d) percent. T-bill account: start at 0; for each month in order, A = (A + 500) * (1 + BEY*(1-0.00)/1200), i.e. $500 deposited at the start of the month and that month's yield taxed at a flat 0% federal rate, compounded monthly. Value = A after 2026-08, rounded to whole dollars."
+  },
+  {
+   "id": "gap_tax0",
+   "unit": "dollars",
+   "definition": "tbill_value_tax0 minus prepay_value, both computed unrounded, then rounded to whole dollars (positive = T-bill account ahead)."
+  },
+  {
+   "id": "tbill_value_tax22",
+   "unit": "dollars",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent), the 56 monthly observations 2022-01-01 through 2026-08-01. Convert each month's discount rate d (TB3MS/100) to a bond-equivalent yield BEY = 100*365*d/(360-91*d) percent. T-bill account: start at 0; for each month in order, A = (A + 500) * (1 + BEY*(1-0.22)/1200), i.e. $500 deposited at the start of the month and that month's yield taxed at a flat 22% federal rate, compounded monthly. Value = A after 2026-08, rounded to whole dollars."
+  },
+  {
+   "id": "gap_tax22",
+   "unit": "dollars",
+   "definition": "tbill_value_tax22 minus prepay_value, both computed unrounded, then rounded to whole dollars (positive = T-bill account ahead)."
+  },
+  {
+   "id": "tbill_value_tax24",
+   "unit": "dollars",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent), the 56 monthly observations 2022-01-01 through 2026-08-01. Convert each month's discount rate d (TB3MS/100) to a bond-equivalent yield BEY = 100*365*d/(360-91*d) percent. T-bill account: start at 0; for each month in order, A = (A + 500) * (1 + BEY*(1-0.24)/1200), i.e. $500 deposited at the start of the month and that month's yield taxed at a flat 24% federal rate, compounded monthly. Value = A after 2026-08, rounded to whole dollars."
+  },
+  {
+   "id": "gap_tax24",
+   "unit": "dollars",
+   "definition": "tbill_value_tax24 minus prepay_value, both computed unrounded, then rounded to whole dollars (positive = T-bill account ahead)."
+  },
+  {
+   "id": "tbill_value_tax32",
+   "unit": "dollars",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent), the 56 monthly observations 2022-01-01 through 2026-08-01. Convert each month's discount rate d (TB3MS/100) to a bond-equivalent yield BEY = 100*365*d/(360-91*d) percent. T-bill account: start at 0; for each month in order, A = (A + 500) * (1 + BEY*(1-0.32)/1200), i.e. $500 deposited at the start of the month and that month's yield taxed at a flat 32% federal rate, compounded monthly. Value = A after 2026-08, rounded to whole dollars."
+  },
+  {
+   "id": "gap_tax32",
+   "unit": "dollars",
+   "definition": "tbill_value_tax32 minus prepay_value, both computed unrounded, then rounded to whole dollars (positive = T-bill account ahead)."
+  },
+  {
+   "id": "avg_bey",
+   "unit": "percent",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent), the 56 monthly observations 2022-01-01 through 2026-08-01. Convert each month's discount rate d (TB3MS/100) to a bond-equivalent yield BEY = 100*365*d/(360-91*d) percent. Simple average of the 56 monthly BEY values, rounded to 0.01."
+  },
+  {
+   "id": "months_aftertax22_above_rate",
+   "unit": "months",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent), the 56 monthly observations 2022-01-01 through 2026-08-01. Convert each month's discount rate d (TB3MS/100) to a bond-equivalent yield BEY = 100*365*d/(360-91*d) percent. Number of the 56 months in which BEY*0.78 > 3.00."
+  },
+  {
+   "id": "recent_run_aftertax22_below_rate",
+   "unit": "months",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent), the 56 monthly observations 2022-01-01 through 2026-08-01. Convert each month's discount rate d (TB3MS/100) to a bond-equivalent yield BEY = 100*365*d/(360-91*d) percent. Number of consecutive months, counting back from 2026-08, in which BEY*0.78 < 3.00 (stop at the first month where it is not)."
+  },
+  {
+   "id": "months_pretax_below_rate",
+   "unit": "months",
+   "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent), the 56 monthly observations 2022-01-01 through 2026-08-01. Convert each month's discount rate d (TB3MS/100) to a bond-equivalent yield BEY = 100*365*d/(360-91*d) percent. Number of the 56 months in which BEY (before tax) < 3.00."
+  },
+  {
+   "id": "breakeven_tax_rate",
+   "unit": "percent",
+   "definition": "Flat federal tax rate t at which the T-bill account value (as in tbill_value_tax*) equals prepay_value; found by bisection on [0, 0.9] for 60 iterations, reported as the lower bound times 100 rounded to 0.1."
+  },
+  {
+   "id": "last_tb3ms",
+   "unit": "percent",
+   "definition": "TB3MS value for 2026-08-01, the last observation (discount basis, not converted)."
+  }
+ ],
+ "assumptions": [
+  "Mortgage note rate exactly 3.00%, fixed scheduled payment; extra principal is never withdrawn; prepayment value equals the cumulative balance reduction including saved interest.",
+  "Borrower does not itemize deductions (no mortgage-interest deduction), so prepayment earns the full 3.00%.",
+  "$500 added on the first day of each month from January 2022 through August 2026; no fees.",
+  "T-bill account earns the month's bond-equivalent yield converted from the TB3MS monthly-average discount rate, compounded monthly; actual 91-day auction timing is ignored.",
+  "Interest taxed each month at a flat federal rate (0/22/24/32%); T-bill interest is exempt from state and local income tax, so no state tax is applied.",
+  "No early payoff, sale or refinance before August 2026."
+ ],
+ "series": [
+  {
+   "id": "TB3MS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+   "file": "data/TB3MS.csv",
+   "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "31 U.S.C. 3124(a)",
+   "url": "https://www.law.cornell.edu/uscode/text/31/3124",
+   "quote": "Stocks and obligations of the United States Government are exempt from taxation by a State or political subdivision of a State."
+  }
+ ]
+}

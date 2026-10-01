@@ -1,0 +1,185 @@
+{
+ "question": "Would you approve this as a future episode for this channel?",
+ "cards": [
+  {
+   "no": "01",
+   "pillar": "Retirement and investing",
+   "viewer": "Workers with a 401(k) match and high-interest credit card debt.",
+   "decision": "Should you pause 401(k) contributions beyond the match to pay cards faster?",
+   "promise": "We simulate the tradeoff using historical returns, payoff paths, and employer match rules.",
+   "title": "Invest or Kill Debt First?",
+   "thumbObject": "credit card beside retirement folder",
+   "thumbText": "DEBT OR INVEST?"
+  },
+  {
+   "no": "02",
+   "pillar": "Taxes and policy",
+   "viewer": "Single hourly workers earning $32 an hour full time who could add 8 extra hours of work a week.",
+   "decision": "Work those 8 hours as overtime at $48 an hour, or at a second job paying $48 an hour?",
+   "promise": "We run the full federal tax math on both paths, including the new overtime break, and find what a side job must pay to match.",
+   "title": "Overtime or a Second Job at $48 an Hour: Which Pays More?",
+   "thumbObject": "a time clock punch card beside a second work uniform",
+   "thumbText": "Which Pays More?"
+  },
+  {
+   "no": "03",
+   "pillar": "Retirement and investing",
+   "viewer": "People nearing retirement who can claim Social Security at 62, full retirement age, or 70.",
+   "decision": "Should you claim Social Security early or wait?",
+   "promise": "We compare lifetime spending paths under historical market returns and longevity assumptions.",
+   "title": "Claim Social Security Early?",
+   "thumbObject": "calendar and Social Security card",
+   "thumbText": "CLAIM OR WAIT?"
+  },
+  {
+   "no": "04",
+   "pillar": "Taxes and policy",
+   "viewer": "Married homeowners who bought their house in 2000 and are now weighing a sale to downsize.",
+   "decision": "Sell the house we bought in 2000 now, or keep it, given the $500,000 tax-free limit on home-sale gains?",
+   "promise": "We measure, metro by metro, how far typical home-price growth since 2000 has pushed sellers' gains against a limit that never moved with inflation.",
+   "title": "Bought Your Home in 2000? The $500,000 Tax-Free Limit Test",
+   "thumbObject": "a family house with a sold sign beside a capped glass jar",
+   "thumbText": "Still Tax-Free?"
+  },
+  {
+   "no": "05",
+   "pillar": "Borrowing and debt",
+   "viewer": "Homeowners with a 7% mortgage quoted 6.5% and closing costs, unsure about refinancing.",
+   "decision": "Refinance the 7% mortgage to 6.5%, or keep the loan?",
+   "promise": "Using history, not a forecast, we'll model payments, closing costs, taxes, and moving patterns to test the refi choice.",
+   "title": "Should You Refinance Now?",
+   "thumbObject": "mortgage quote beside moving boxes",
+   "thumbText": "REFI OR KEEP?"
+  },
+  {
+   "no": "06",
+   "pillar": "Taxes and policy",
+   "viewer": "Workers whose paycheck withholding produces a federal tax refund of about $3,000 every spring.",
+   "decision": "Keep over-withholding for a $3,000 refund, or adjust withholding for bigger paychecks instead?",
+   "promise": "We price what parking that money with the government actually cost in interest, year by year, for savers and for card borrowers.",
+   "title": "Your $3,000 Tax Refund: What Is It Really Costing You?",
+   "thumbObject": "a tax refund check chained to a ticking kitchen timer",
+   "thumbText": "Free Loan?"
+  },
+  {
+   "no": "07",
+   "pillar": "Borrowing and debt",
+   "viewer": "New-car buyers in 2026 financing about $35,000 through a bank and torn between a 60-month and a 72-month loan.",
+   "decision": "Take the 72-month loan for the lower payment, or stick with 60 months?",
+   "promise": "Using years of real bank auto-loan rates, we measure how much the longer loan really adds and whether the rate or the time drives it.",
+   "title": "60 vs 72 Months on a $35,000 Car Loan: The Real Cost",
+   "thumbObject": "Car key resting between loan contracts marked 60 and 72",
+   "thumbText": "60 or 72?"
+  },
+  {
+   "no": "08",
+   "pillar": "Retirement and investing",
+   "viewer": "People in their 50s buying long-term care insurance they may not use for 20 years, choosing between a 3% and a 5% compound inflation option.",
+   "decision": "Is the 3% compound inflation option enough, or is the pricier 5% option worth paying for?",
+   "promise": "We run the 3% and 5% options through every 20-year stretch of nursing home prices on record to see how each kept pace.",
+   "title": "Long-Term Care Insurance: 3% or 5% Inflation Protection?",
+   "thumbObject": "Nursing home room with a daily price tag climbing stairs",
+   "thumbText": "3% or 5%?"
+  },
+  {
+   "no": "09",
+   "pillar": "Retirement and investing",
+   "viewer": "Savers in their 40s parking safe retirement money for 20 years, weighing savings bonds guaranteed to double against rolling T-bills.",
+   "decision": "Should I lock money in savings bonds that double in 20 years, or keep rolling T-bills instead?",
+   "promise": "We roll T-bills through every 20-year stretch since the Depression to see how often they managed to double your money.",
+   "title": "Savings Bonds That Double in 20 Years vs T-Bills",
+   "thumbObject": "Paper savings bond beside a stack of T-bills and a calendar",
+   "thumbText": "Double or Roll?"
+  },
+  {
+   "no": "10",
+   "pillar": "Taxes and policy",
+   "viewer": "Investors in the 24% tax bracket holding a $50,000 index fund position with a $10,000 gain, bought 11 months ago.",
+   "decision": "Sell now at the short-term tax rate, or wait a month for the lower long-term rate?",
+   "promise": "We replay every month-long stretch of recent market history to see how often waiting for the lower rate left investors with less after tax.",
+   "title": "Sell at 11 Months or Wait for the Lower Tax Rate?",
+   "thumbObject": "a desk calendar with its last page curling over a stock chart",
+   "thumbText": "Wait or Sell?"
+  },
+  {
+   "no": "11",
+   "pillar": "Borrowing and debt",
+   "viewer": "Home buyers in 2026 taking a 30-year mortgage at about 7%, whose lender offers one point to get 6.75%.",
+   "decision": "Pay one point to cut my rate from 7% to 6.75%, or skip it?",
+   "promise": "We replay the full weekly history of 30-year rates to see how often a refinance chance showed up before that point paid for itself.",
+   "title": "Paying a Point to Get 6.75%? What History Says",
+   "thumbObject": "Closing table with a calculator and a single gold coin",
+   "thumbText": "Worth the point?"
+  },
+  {
+   "no": "12",
+   "pillar": "Retirement and investing",
+   "viewer": "Retirees keeping their next 5 years of spending in CDs or Treasuries at a time when 1-year rates top 5-year rates.",
+   "decision": "When a 1-year CD pays more than a 5-year CD, should I keep rolling the 1-year or lock the 5-year?",
+   "promise": "We replay every past stretch when 1-year yields topped 5-year yields and follow both choices to the end of the 5 years.",
+   "title": "1-Year CD Pays More Than a 5-Year: Roll or Lock?",
+   "thumbObject": "Short and long CD certificates on a tilting balance scale",
+   "thumbText": "Roll or Lock?"
+  },
+  {
+   "no": "13",
+   "pillar": "Taxes and policy",
+   "viewer": "Self-employed couples buying Marketplace health insurance and choosing Solo 401(k) contributions.",
+   "decision": "Should you make pre-tax Solo 401(k) contributions instead of Roth contributions?",
+   "promise": "We simulate taxes and health-credit changes to show which side of the tradeoff dominates.",
+   "title": "Solo 401(k): Roth or Pre-Tax?",
+   "thumbObject": "Health plan bill beside 401(k) form",
+   "thumbText": "ROTH OR PRE-TAX?"
+  },
+  {
+   "no": "14",
+   "pillar": "Borrowing and debt",
+   "viewer": "Homeowners who locked a 30-year mortgage at 3% in 2021 and have had about $500 a month to spare ever since.",
+   "decision": "Should my spare $500 a month go toward the 3% mortgage or into T-bills?",
+   "promise": "We replay every month since rates jumped to see which pile actually ended up bigger after federal income tax, and by how much.",
+   "title": "3% Mortgage vs T-Bills: Where Should the $500 Have Gone?",
+   "thumbObject": "House key and a stack of T-bills on a balance scale",
+   "thumbText": "3% vs T-bills?"
+  },
+  {
+   "no": "15",
+   "pillar": "Retirement and investing",
+   "viewer": "Retirees around 65 buying an income annuity for 20 or more years of payments, choosing level checks or checks that rise 2% a year.",
+   "decision": "At 65, should I take the bigger level annuity check or the smaller check that rises 2% a year?",
+   "promise": "We test the 2% yearly raise against every 20-year stretch of US prices to see how its buying power actually held up.",
+   "title": "Does a 2% Annuity Raise Really Keep Up With Prices?",
+   "thumbObject": "Annuity check beside a grocery receipt with a small 2% arrow",
+   "thumbText": "Is 2% Enough?"
+  },
+  {
+   "no": "16",
+   "pillar": "Taxes and policy",
+   "viewer": "Parents with a child starting college and money in a 529 plan.",
+   "decision": "Should you spend 529 money before claiming a college tax credit?",
+   "promise": "We simulate qualified costs, credits, and account withdrawals to show how the ordering changes after-tax cash.",
+   "title": "529 or Tax Credit?",
+   "thumbObject": "Tuition bill and 529 card",
+   "thumbText": "ORDER MATTERS"
+  },
+  {
+   "no": "17",
+   "pillar": "Borrowing and debt",
+   "viewer": "Grad students starting school in fall 2026 who need about $50,000 in private loans now that federal borrowing is capped.",
+   "decision": "Take a 7.5% variable rate or lock in 9% fixed for a 10-year payoff?",
+   "promise": "We run the variable loan through every 10-year stretch of short-term rate history to see how often the cheaper start ended up costing more.",
+   "title": "7.5% Variable or 9% Fixed? Grad Loans Through History",
+   "thumbObject": "Graduation cap balanced on a seesaw between loan offers",
+   "thumbText": "Variable or fixed?"
+  },
+  {
+   "no": "18",
+   "pillar": "Borrowing and debt",
+   "viewer": "People carrying a $7,500 credit card balance at 24% who received a 0% transfer offer.",
+   "decision": "Take the 0% transfer with a 4% fee, or stay on the old card?",
+   "promise": "We'll simulate payoff calendars, fees, missed deadlines, and payment rules to test when the offer changes total cost.",
+   "title": "Is a Balance Transfer Worth It?",
+   "thumbObject": "credit cards beside a payoff calendar",
+   "thumbText": "TRANSFER OR PAY?"
+  }
+ ]
+}
