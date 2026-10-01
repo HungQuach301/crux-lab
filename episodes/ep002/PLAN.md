@@ -9,8 +9,8 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 
 | Cổng | Trạng thái | Gói | Quyết định của chủ dự án |
 |---|---|---|---|
-| Việc 0 Khung tập | ĐANG LÀM — dữ liệu tải lại (không đổi), kiểm độc lập 85/85 + 753/753; chờ bối cảnh chính sách + neo 7,5/9 | — | — |
-| C1 Ý tưởng và lời hứa | chưa | `gates/C1.md` | — |
+| Việc 0 Khung tập | XONG — dữ liệu không đổi; kiểm độc lập 116/116 + 753/753; bối cảnh chính sách; neo 7,5/9 | — | — |
+| C1 Ý tưởng và lời hứa | **GÓI ĐÃ GỬI — chờ chủ dự án** | `gates/C1.md`, `gates/C1-blind.md` | — |
 | C2 Kịch bản | chưa | — | — |
 | C3 Thiết kế | chưa | — | — |
 | C4 Animatic có chuyển động | chưa | — | — |
@@ -18,6 +18,7 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 | C6 Chấm cuối và chốt gói | chưa | — | — |
 
 ## Việc treo cần chủ dự án (không chặn cổng)
+- Xác minh **$20,500/năm, $100,000 tổng** (Direct Unsub sau đại học từ 1/7/2026) trên FR PDF 91 FR 23883 trước khi lên hình — proxy chặn govinfo/studentaid (`story/policy-context.md` §2).
 - **K3.5** (chủ dự án mở phiên riêng): bản tính lại độc lập `rate-path-history` cho S01/S05 — đặc tả ở `checks-notes.md`. C5 chờ K3.5 merge (LOCK mới trên main, kiểm SHA).
 
 ## Điểm dừng an toàn (cập nhật trước mỗi bước dài)
@@ -28,3 +29,4 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 - Mỗi agent con, mỗi cổng: một dòng ở `ledger.md` (kèm ký tự ElevenLabs).
 - Gu không tự quyết; kỹ thuật tự quyết, ghi lý do ở ledger.
 - Gen được bảo vệ của tập (`claim-risk.md`): không "your loan will…"; luôn hiện cả 1954–1980 và từ 1981 cùng trường hợp xấu nhất; không "variable is safe"/"wins X%" đứng riêng; kết quả chỉ đúng cho cặp lãi đang xét; "history, not a forecast"; lời và chữ trên hình ở dạng mô tả (S10: take/lock/choose).
+- 2026-10-01 03:50 (2): gói C1 gửi. Chờ 3 câu trả lời. Sau khi trả lời: ghi taste-ledger/AUTHORSHIP (main) + ledger; giao WRITER treatment (C2).
