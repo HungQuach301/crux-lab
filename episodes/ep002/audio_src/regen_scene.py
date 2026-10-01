@@ -20,7 +20,7 @@ resf = os.path.join(EP, 'review-c2', 'table-read.json'); res = json.load(open(re
 old = res['scenes'][sc]
 assert old['text'] != text, 'text unchanged: nothing to regenerate'
 e = {'text': text, 'takes': [], 'previous': {k: old[k] for k in ('text', 'use', 'takes')}, 'regenerated': 'C5 stream A (script change)'}
-for seed in (1, 2, 3):
+for seed in (1, 2):
     p = os.path.join(tr.TAKES, f"{sc}.{hashlib.sha1(text.encode()).hexdigest()[:8]}.seed{seed}")
     m = tr.synth(text, p, seed); w = tr.asr(p + '.mp3')
     e['takes'].append({'file': os.path.basename(p) + '.mp3', 'seed': seed, 'characterCost': m['characterCost'], 'len': m['len'],
