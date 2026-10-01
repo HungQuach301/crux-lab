@@ -1,0 +1,94 @@
+{
+ "answer": "A $3,000 refund built up evenly through the year is, on average, money the government holds for the equivalent of 7.5 months, interest-free (refunds paid within 45 days of the filing deadline earn no interest). For tax year 2025 that cost a saver about $72.25 at Treasury-bill rates, and only about $7.40 at the national average savings-account rate. Across tax years 2000-2025 the T-bill cost averaged $35.10, from $0.50 (2014) to $106.76 (2000); in 10 of the 26 years it was under $10. For a household that carries credit-card debt while over-withholding, the same timing cost about $396.46 in card interest for 2025 (range $222.71-$404.04, mean $268.93 over 2000-2025). The size of the 'interest-free loan' depends far more on whether the household borrows on a card than on the rate environment.",
+ "guess": "Viewers tend to hear either that a big refund is a costly 'interest-free loan to the government' (implying hundreds of dollars lost) or that a refund is free money; most would guess a saver loses on the order of a hundred dollars or more a year.",
+ "changesDecision": "For a household with no card debt the measured cost of the refund habit is tens of dollars a year (single digits at a typical savings rate), which some will judge worth paying for forced saving; for a household revolving card debt it is roughly ten times larger. The episode lets each viewer place themselves on that split instead of relying on a slogan.",
+ "numbers": [
+  {
+   "id": "balance_months_per_dollar",
+   "value": 7.5,
+   "unit": "months",
+   "definition": "Sum of the outstanding-balance fractions min(k,12)/12 over the 13 months (k=1..13): (1+2+...+11)/12 + 2 = 7.5, i.e. the refund is on average 'lent' for the equivalent of 7.5 months. Over-withholding model: the refund R = $3,000 is over-withheld in 12 equal parts of $250 at the end of each month January-December of tax year Y and refunded on March 1 of Y+1. The balance outstanding during month m is R*min(k,12)/12 where k = 1 for February of Y, 2 for March, ..., 11 for December, 12 for January and February of Y+1 (13 months, Feb Y - Feb Y+1). Forgone interest = sum over those 13 months of balance * r_m / 100 / 12 (simple monthly interest, no compounding), where r_m is the series value (percent per year) for that month."
+  },
+  {
+   "id": "tbill_2025_usd",
+   "value": 72.25,
+   "unit": "USD",
+   "definition": "Forgone interest for tax year 2025 (refund March 1, 2026) at r_m = TB3MS monthly value (3-month Treasury bill, secondary market) for Feb 2025-Feb 2026. Over-withholding model: the refund R = $3,000 is over-withheld in 12 equal parts of $250 at the end of each month January-December of tax year Y and refunded on March 1 of Y+1. The balance outstanding during month m is R*min(k,12)/12 where k = 1 for February of Y, 2 for March, ..., 11 for December, 12 for January and February of Y+1 (13 months, Feb Y - Feb Y+1). Forgone interest = sum over those 13 months of balance * r_m / 100 / 12 (simple monthly interest, no compounding), where r_m is the series value (percent per year) for that month. Rounded to cents."
+  },
+  {
+   "id": "savings_avg_2025_usd",
+   "value": 7.4,
+   "unit": "USD",
+   "definition": "Same as tbill_2025_usd but r_m = SNDR monthly value (national average rate on savings deposits) for Feb 2025-Feb 2026. Rounded to cents."
+  },
+  {
+   "id": "card_2025_usd",
+   "value": 396.46,
+   "unit": "USD",
+   "definition": "Extra credit-card interest for tax year 2025 if the household instead carries a card balance equal to the over-withheld balance: same formula with r_m = latest TERMCBCCALLNS (average APR, all credit card accounts; published for Feb/May/Aug/Nov) observation at or before month m (forward fill), Feb 2025-Feb 2026. Rounded to cents."
+  },
+  {
+   "id": "tbill_mean_2000_2025_usd",
+   "value": 35.1,
+   "unit": "USD",
+   "definition": "Arithmetic mean over tax years 2000-2025 (26 years) of the T-bill forgone interest computed as in tbill_2025_usd for each year (unrounded per-year values). Rounded to cents."
+  },
+  {
+   "id": "tbill_max_usd",
+   "value": 106.76,
+   "unit": "USD",
+   "definition": "Largest per-year T-bill forgone interest among tax years 2000-2025. Rounded to cents."
+  },
+  {
+   "id": "tbill_max_year",
+   "value": 2000,
+   "unit": "tax year",
+   "definition": "Tax year with the largest T-bill forgone interest (2000-2025)."
+  },
+  {
+   "id": "tbill_min_usd",
+   "value": 0.5,
+   "unit": "USD",
+   "definition": "Smallest per-year T-bill forgone interest among tax years 2000-2025. Rounded to cents."
+  },
+  {
+   "id": "tbill_min_year",
+   "value": 2014,
+   "unit": "tax year",
+   "definition": "Tax year with the smallest T-bill forgone interest (2000-2025)."
+  },
+  {
+   "id": "tbill_years_under_10usd",
+   "value": 10,
+   "unit": "count of tax years",
+   "definition": "Number of tax years 2000-2025 whose T-bill forgone interest (unrounded) is below $10."
+  },
+  {
+   "id": "card_mean_2000_2025_usd",
+   "value": 268.93,
+   "unit": "USD",
+   "definition": "Mean over tax years 2000-2025 of the credit-card cost computed as in card_2025_usd for each year. Rounded to cents."
+  },
+  {
+   "id": "card_min_usd",
+   "value": 222.71,
+   "unit": "USD",
+   "definition": "Smallest per-year credit-card cost among tax years 2000-2025. Rounded to cents."
+  },
+  {
+   "id": "card_max_usd",
+   "value": 404.04,
+   "unit": "USD",
+   "definition": "Largest per-year credit-card cost among tax years 2000-2025. Rounded to cents."
+  }
+ ],
+ "assumptions": [
+  "Refund amount $3,000, entirely from federal income tax over-withholding spread evenly over 12 monthly installments (biweekly pay gives nearly the same average balance).",
+  "Refund received March 1 of the following year (early e-filer with direct deposit); a later refund raises the cost proportionally to the extra months.",
+  "No interest is paid on the refund (refund issued within 45 days of the filing deadline).",
+  "Saver alternative: the money would have earned the 3-month T-bill rate (a proxy for a high-yield account or money-market fund) or the national average savings rate (SNDR, available from April 2021, so only for tax year 2025). Interest earned is shown before tax on that interest.",
+  "Borrower alternative: each over-withheld dollar would instead have reduced a revolving card balance charged the average APR on all credit-card accounts; quarterly APR observations are carried forward to the following months.",
+  "Simple monthly interest, no compounding."
+ ],
+ "limits": "History, not a forecast: past T-bill, savings and card rates do not predict future ones. National averages; an individual's savings yield or card APR can differ widely. Ignores state income tax withholding, the tax on interest earned, behavioral value of forced saving, and penalties for under-withholding if a household overcorrects. Not personal advice."
+}
