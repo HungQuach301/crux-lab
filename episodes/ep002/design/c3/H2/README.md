@@ -117,6 +117,8 @@ Dựng lại: `python3 src/build_data.py && src/render_all.sh && python3 src/che
 
 ## Giới hạn
 
+- Lệch so với `intent.md` (không sửa ý đồ sau render): KEY-4 bỏ các "lát bay vào bể" — theo đúng thang đô la mỗi lát chỉ cao < 1 px nên trông như nhiễu; thay bằng bể dâng đồng bộ với diện tích và mép bể lóe hổ phách khi bể bị rút. KEY-4 dùng lần chạy 8/1981 (trôi xuống), 3/1986 (nhấp ngắn), 4/1976 (leo dài).
+
 - Đường thả nổi trên mặt phẳng nối tuyến tính giữa các tháng (lãi thật đổi theo bậc tháng); diện tích dưới/trên ray là hình **lãi suất**, còn bể là **đô la** (đã nhân dư nợ); hai thứ liên hệ bằng chuyển động đồng bộ và nêm nợ, không cùng một thang. Đây là chỗ H2 "đúng hình" kém nhất: diện tích hổ phách to không tỉ lệ thẳng với đô la mất (tháng cuối dư nợ nhỏ).
 - KEY-4: vết lõm thật của nhịp ngắn (~$40) quá nhỏ để thấy bằng chiều cao; hình dựa vào mép bể lóe hổ phách.
 - KEY-3: 753 ô ở 720p rộng ~1,2 px mỗi ô; đọc như dải mật độ, không đếm được từng ô.
