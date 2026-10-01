@@ -47,3 +47,17 @@
 - 01/10 14:30 S09 dựng xong: S09 wall 229 s x 4.14 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
 - 01/10 14:31 S10 dựng xong: S10 wall 274 s x 4.06 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
 - 01/10 14:33 Nhãn cột KEY-7: CL('period_early_label') '1954–1980' / CL('period_late') '1981 on'; dựng lại S09/S10/S12, dải, phim; check ALL OK.
+- 01/10 14:45 C5 P: trang film.html + build/film.js (esbuild; window.CHECKS seek/freeze/objects/layer qua rec.js), case S06, nhãn 'dollars of the day' (S02/S03/S07/S08), S02 giả định (thẻ 'Repayment starts at once', S07 'Treasury bill rate', S12 'no rate cap'/'repayment starts at once'). Bắt đầu render 1080p (3 hàng).
+- 01/10 14:53 C5 S09 1080p xong (S09 done 489 s)
+- 01/10 14:54 C5 S07 1080p xong (S07 done 520 s)
+- 01/10 14:55 C5 S10 1080p xong (S10 done 590 s)
+- 01/10 15:00 C5 S05 1080p xong (S05 done 400 s)
+- 01/10 15:02 C5 S08 1080p xong (S08 done 504 s)
+- 01/10 15:03 C5 S03 1080p xong (S03 done 482 s)
+- 01/10 15:05 C5 S02 1080p xong (S02 done 331 s)
+- 01/10 15:08 C5 S06 1080p xong (S06 done 335 s)
+- 01/10 15:09 C5 S11 1080p xong (S11 done 206 s)
+- 01/10 15:10 C5 S04 1080p xong (S04 done 426 s)
+- 01/10 15:11 C5 S01 1080p xong (S01 done 219 s)
+- 01/10 15:15 C5 S12 1080p xong (S12 done 315 s)
+- 01/10 15:18 C5 S13 1080p xong (S13 done 130 s)

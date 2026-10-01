@@ -22,6 +22,7 @@ export function build({ T }) {
       ridge(ctx, v, { from: SPLIT, alpha: aR * (1 - 0.7 * dimR) });
       split(ctx, v, v.Yt - 40, 640, aR);
       years(ctx, v, 1010, { alpha: aR });
+      H2.text(ctx, 'Treasury bill rate', 96, 420, 'note', { color: C.muted, alpha: aR });   // C5 S02: the stand-in index named on screen
       // the summit
       const pa = inout(t, a.peak, a.peak + 0.4, a.both - 0.6, a.both - 0.2);
       if (pa > 0) { H3.srect(ctx, X(v, pk) - 14, Y(v, SER[pk]) - 14, 28, 28, C.ink, 4, pa); H2.text(ctx, CL('tb_peak'), X(v, pk) + 40, Y(v, SER[pk]) + 30, 'number', { alpha: pa }); }
@@ -36,7 +37,9 @@ export function build({ T }) {
       const ja = 1 - cellA;
       if (t < a.best) { jarAt(ctx, IL, t < a.rideL ? -1 : rideL, fL * ja); jarAt(ctx, IR, t < a.rideR ? -1 : rideR, fa * ja); }
       else { jarAt(ctx, IL, rideL, fL * ja); const cx = jarAt(ctx, iRf, mv < 1 ? 0 : 119, fa * ja);
-        H2.text(ctx, CL('best_diff'), cx + JW / 2 + 30, JT + 120, 'number', { alpha: inout(t, a.bestD, a.bestD + 0.4, a.cells - 0.3, a.cells) }); }
+        const bd = inout(t, a.bestD, a.bestD + 0.4, a.cells - 0.3, a.cells);
+        H2.text(ctx, CL('best_diff'), cx + JW / 2 + 30, JT + 120, 'number', { alpha: bd });
+        H2.text(ctx, 'dollars of the day', cx + JW / 2 + 30, JT + 190, 'note', { color: C.muted, alpha: bd }); }   // C5 S09: money basis
       H2.text(ctx, CL('best_start'), 96, 140, 'caption', { alpha: inout(t, a.best, a.best + 0.4, a.bestD - 0.3, a.bestD) });
       // the 753 starts, coloured by result at Leah's 1.5 points; rings: best, then worst
       if (cellA > 0) {

@@ -11,8 +11,9 @@ export function build({ T }) {
     const u = ease(t, a.blank, a.blank + 1.0); card(ctx, 620, mix(330, 300, u), 1, u);
     const L = (k, s, x, y, al) => H2.text(ctx, s, x, y, 'label', { align: al, color: C.muted, alpha: ease(t, a[k], a[k] + 0.4) });
     L('index', "the lender's real index", 960, 240, 'center');
-    L('cap', 'a rate cap', 1350, 470, 'left');
-    L('grace', 'a grace period', 570, 470, 'right');
+    L('cap', 'no rate cap', 1350, 470, 'left');
+    L('grace', 'repayment', 570, 470, 'right');
+    L('grace', 'starts at once', 570, 540, 'right');
     L('fees', 'fees', 1350, 640, 'left');
     L('budget', 'your own budget', 960, 870, 'center');
   }

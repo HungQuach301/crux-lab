@@ -22,6 +22,7 @@ export function build({ T }) {
       const aA = inout(t, tA, tA + 0.4, tT - 0.2, tT), aT = ease(t, tT, tT + 0.4);
       H2.text(ctx, CL('ctx_unsub_annual'), 96, 530, 'number', { alpha: aA });
       H2.text(ctx, CL('ctx_unsub_aggregate'), 96, 530, 'number', { alpha: aT });
+      H2.text(ctx, 'dollars of the day', 96, 740, 'note', { color: C.muted, alpha: Math.max(aA, aT) });   // C5 S09: money basis on screen
       H2.text(ctx, 'higher in professional programs', 96, 640, 'label', { color: C.muted, alpha: ease(t, tP, tP + 0.5) });
       const r = ease(t, tR, tR + 0.5);
       if (r > 0) { H2.srect(ctx, BX + 8, BT + 8, BW - 16, BB - BT - fh - 16, C.ink, 5, r); H2.text(ctx, 'private lender', BX + BW / 2, BT - 30, 'label', { align: 'center', alpha: r }); }

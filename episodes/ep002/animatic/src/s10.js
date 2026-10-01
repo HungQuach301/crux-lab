@@ -3,7 +3,7 @@
 // the overall share, held >= 3 s with both columns on screen (owner C4; per-half figures + worst go to the description). S10.2: jump BACK to 3 points (the beat ends on the
 // widest gap), ring + 'April 1977' (gap_worst_start_all) on the left red layer; S10.3: the left red that never clears pulses,
 // '10.5%' (min_gap_early). S10.4: KEY-1 final (the question). S10.5: K7 final, pulsing. S10.6: K7 2 -> 3 points. S10.7: ridge.
-import { H2, C, CL, ease, inout, mix, warp, shots } from './film.js';
+import { H2, C, CL, ease, inout, mix, warp, shots, withMeta } from './film.js';
 import * as K1 from '../../design/c3/final/src/k1.js';
 import * as K7 from '../../design/c3/final/src/k7.js';
 import { ridgeToday, k7At, k7Clip, overall } from './lib.js';
@@ -27,12 +27,12 @@ export function build({ T }) {
       const a0 = J[i][0], a1 = J[i + 1][0], mid = (a0 + a1) / 2;
       overall(ctx, J[i][2], inout(t, a0 + 0.2, a0 + 0.45, a1 - 0.3, a1 - 0.1));   // owner C4: one figure per step, held >= 3 s
     }
-    if (back) {   // the April 1977 marker on the left red layer (worst start at every gap), then the share that never clears
+    if (back) withMeta({ case: 'worst-1977-04' }, () => {   // the April 1977 marker on the left red layer (worst start at every gap), then the share that never clears
       const am = ease(t, tA, tA + 0.4), yR = 950 - 520 * 0.105;
       H2.srect(ctx, 735, yR - 6, 50, 950 - yR + 6, C.ink, 5, am * (0.55 + 0.45 * pulse(t + 1.1)));
       H2.text(ctx, CL('gap_worst_start_all'), 660, 945, 'label', { align: 'right', alpha: inout(t, tA, tA + 0.4, tN - 0.3, tN) });
       H2.text(ctx, CL('min_gap_early'), 690 + 170, yR - 54, 'number', { align: 'center', alpha: ease(t, tN + 0.2, tN + 0.6) });
-    }
+    });
   }
   return { draw(ctx, t) { shots(ctx, t, [[0, steps], [tQ, (c) => K1.draw(c, 8)], [t2, (c, t) => k7At(c, { g: 3, l105: 1, pulse: pulse(t) })],
     [tL, (c, t) => k7Clip(c, k7(t))], [tT, (c, t) => ridgeToday(c, ease(t, tT, tT + 0.5))]]); } };

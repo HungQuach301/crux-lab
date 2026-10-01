@@ -140,3 +140,5 @@ export function boot(scene, T, claimsMeta) {
 }
 // keys that keep a signed clip's quick move (a card flip, a jump) at its signed speed around an anchored moment
 export const around = (c, s, h = 0.2) => [[c - h, s - h], [c, s], [c + h, s + h]];
+// C5: the recording proxy (film page only; REC.on stays false on the C4 animatic pages)
+export { REC, withMeta } from './rec.js';

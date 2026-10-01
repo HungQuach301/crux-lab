@@ -1,14 +1,135 @@
 {
  "_about": "S11 method card (G-014). Content = the model limits listed at the head of story/script.md and in the S11 picture note. Every number goes through its claim (parts: [text, claimId|null]); a claim part must be a substring of that claim's display. Words counted = whitespace tokens containing a letter or digit.",
- "title": [["How we know this", null]],
+ "title": [
+  [
+   "How we know this",
+   null
+  ]
+ ],
  "lines": [
-  {"text": "Treasury bill rate stands in for the lender's index", "parts": [["Treasury bill rate stands in for the lender's index", null]]},
-  {"text": "Index today 3.72% · margin 3.78 points", "parts": [["Index today ", null], ["3.72%", "index_today"], [" · margin ", null], ["3.78 points", "margin"]]},
-  {"text": "So Leah starts at 7.5% against 9% fixed", "parts": [["So Leah starts at ", null], ["7.5%", "var_start"], [" against ", null], ["9%", "fixed_rate"], [" fixed", null]]},
-  {"text": "753 start months that overlap, not independent", "parts": [["753", "n_starts"], [" start months that overlap, not independent", null]]},
-  {"text": "January 1954 to September 2016, 10 years each", "parts": [["January 1954", "first_start"], [" to ", null], ["September 2016", "last_start"], [", ", null], ["10 years", "term"], [" each", null]]},
-  {"text": "Index never below zero", "parts": [["Index never below zero", null]]},
-  {"text": "No grace period · no fees · no rate cap", "parts": [["No grace period · no fees · no rate cap", null]]},
-  {"text": "US only · history, not a forecast", "parts": [["US only · history, not a forecast", null]]}
+  {
+   "text": "Treasury bill rate stands in for the lender's index",
+   "parts": [
+    [
+     "Treasury bill rate stands in for the lender's index",
+     null
+    ]
+   ]
+  },
+  {
+   "text": "Index today 3.72% · margin 3.78 points",
+   "parts": [
+    [
+     "Index today ",
+     null
+    ],
+    [
+     "3.72%",
+     "index_today"
+    ],
+    [
+     " · margin ",
+     null
+    ],
+    [
+     "3.78 points",
+     "margin"
+    ]
+   ]
+  },
+  {
+   "text": "So Leah starts at 7.5% against 9% fixed",
+   "parts": [
+    [
+     "So Leah starts at ",
+     null
+    ],
+    [
+     "7.5%",
+     "var_start"
+    ],
+    [
+     " against ",
+     null
+    ],
+    [
+     "9%",
+     "fixed_rate"
+    ],
+    [
+     " fixed",
+     null
+    ]
+   ]
+  },
+  {
+   "text": "753 start months that overlap, not independent",
+   "parts": [
+    [
+     "753",
+     "n_starts"
+    ],
+    [
+     " start months that overlap, not independent",
+     null
+    ]
+   ]
+  },
+  {
+   "text": "January 1954 to September 2016, 10 years each",
+   "parts": [
+    [
+     "January 1954",
+     "first_start"
+    ],
+    [
+     " to ",
+     null
+    ],
+    [
+     "September 2016",
+     "last_start"
+    ],
+    [
+     ", ",
+     null
+    ],
+    [
+     "10 years",
+     "term"
+    ],
+    [
+     " each",
+     null
+    ]
+   ]
+  },
+  {
+   "text": "Index never below zero",
+   "parts": [
+    [
+     "Index never below zero",
+     null
+    ]
+   ]
+  },
+  {
+   "text": "Repayment starts at once · no fees · no rate cap",
+   "parts": [
+    [
+     "Repayment starts at once · no fees · no rate cap",
+     null
+    ]
+   ]
+  },
+  {
+   "text": "US only · history, not a forecast",
+   "parts": [
+    [
+     "US only · history, not a forecast",
+     null
+    ]
+   ]
+  }
  ]
 }

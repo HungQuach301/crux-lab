@@ -1,7 +1,7 @@
 // S08 · The worst stretch. S08.1-S08.7 = KEY-6: signed K6 (h3/scenes.js) time-warped. S08.8: the K6 end layout redrawn with
 // the same H3 pieces (zoomed frame, coin piles) plus a ceiling line (rail-like, dashed ink-muted: the system has no "cap"
 // object; listed in README) that lowers while the costlier block shrinks to the claimed worst case under a 15% then 12% cap.
-import { H2, H3, C, CL, ease, mix, warp, shots } from './film.js';
+import { H2, H3, C, CL, ease, inout, mix, warp, shots } from './film.js';
 import { K6 } from '../../design/c3/final/src/h3/scenes.js';
 import { V, X, Y, ridge, frame, coins, SER, NM, WORST } from './lib.js';
 const val = (id) => +CL(id).replace(/[^0-9.]/g, '');
@@ -27,5 +27,7 @@ export function build({ T }) {
     H2.text(ctx, 'Starting ' + CL('worst_start'), 96, 140, 'caption');
     H2.badge(ctx, 1);
   }
-  return { draw(ctx, t) { shots(ctx, t, [[0, (c, t) => { K6.draw(c, k6(t)); worstLabel(c, t); }], [cC, (c, t) => { cap(c, t); worstLabel(c, t); }]]); } };
+  // C5 S09: money basis next to the fixed loan's interest ($26,005), same timing as K6's own label (clip 7.0-8.2 s)
+  const basis = (c, t) => { const k = k6(t); H2.text(c, 'dollars of the day', 1824, 440, 'note', { align: 'right', color: C.muted, alpha: inout(k, 7.0, 7.3, 8.0, 8.2) }); };
+  return { draw(ctx, t) { shots(ctx, t, [[0, (c, t) => { K6.draw(c, k6(t)); worstLabel(c, t); basis(c, t); }], [cC, (c, t) => { cap(c, t); worstLabel(c, t); }]]); } };
 }

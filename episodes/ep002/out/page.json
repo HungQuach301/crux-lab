@@ -1,0 +1,5 @@
+{
+ "url": "animatic/film.html",
+ "ready": "new Promise((r) => { const f = () => (window.CHECKS ? window.CHECKS.ready.then(() => r(true)) : setTimeout(f, 50)); f(); })",
+ "about": "C5 film page: the same page draws every frame of out/video.mp4 (animatic/src/render_c5.js) and serves window.CHECKS (seek, freeze, objects, layer). Build: cd animatic && npm ci && node src/build_page.mjs; python3 src/build_c5_data.py (needs design/c3/final/work/data.js, h3data.js from the C3 build_data.py scripts)."
+}

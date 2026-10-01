@@ -1,7 +1,7 @@
 // Shared drawing for the C4 animatic scenes that are NOT one of the seven signed key clips. No new style: every function
 // here is copied from the signed code (design/c3/final/src: k1.js/k2.js offer card + person, k4.js jar run; h3/scenes.js
 // ridge, 10-year frame, cell strip, split line, year labels, ring, jar) and draws with the signed engines' primitives.
-import { H2, H3, C, W, H, CL, mix, clamp, ease, lin, inout } from './film.js';
+import { H2, H3, C, W, H, CL, mix, clamp, ease, lin, inout, withMeta } from './film.js';
 
 // ---------- KEY-1/KEY-2 motif (k1.js / k2.js): offer card with folded corner, person with the diamond cut-out ----------
 export const CARD = { CW: 680, CH: 470, CY: 196, LX: 130, RX: 1920 - 130 - 680 };
@@ -176,14 +176,14 @@ export function k7At(ctx, o) {
   if (g >= 0) H2.text(ctx, 'variable', KX0 - 30, FY + BHt + g * PP + BHt / 2 + 20, 'label', { align: 'right', color: C.muted, alpha: a * (g > 0.7 ? 1 : ease(g, 0.4, 0.7)) * (sx > 0.98 ? 1 : 0) });
   if (o.l15) H2.text(ctx, CL('gap_start'), KX1 + 84, FY + BHt + 1.5 * PP / 2 + 20, 'label', { alpha: o.l15 });
   const pul = 1 - 0.35 * (o.pulse || 0);
-  for (const [half, x, cid, lab] of COLS) {
+  for (const [half, x, cid, lab] of COLS) withMeta({ case: half === 'early' ? 'period-1954-1980' : 'period-1981-on' }, () => {   // S06 coverage (contract.json coverage[])
     const s = share7(gc, half), h = CHt * s / 100, clear = s < 0.05;
     H2.srect(ctx, x, CT, CWd, CHt, clear ? C.ink : C.grid, clear ? 6 : 4, a);
     H2.negArea(ctx, x + 6, CB - h, CWd - 12, h, a * (half === 'early' ? pul : 1), 26);
     H2.line(ctx, [[x - 20, CB], [x + CWd + 20, CB]], C.muted, 6, { cap: 'butt', alpha: a });
     H2.USED.add(cid); H2.text(ctx, CL(half === 'early' ? 'period_early_label' : 'period_late'), x + CWd / 2, CB + 74, 'label', { align: 'center', color: C.muted, alpha: a });
     if (o.ring && o.ring[0] === half && o.ring[1] > 0) H2.srect(ctx, x - 6, CB - h - 10, CWd + 12, h + 10, C.ink, 5, o.ring[1]);
-  }
+  });
   // owner C4c (a): meaning labels (no numbers): what the columns count, and which way the knob goes
   const ta = (o.titles ?? 1) * a;
   H2.text(ctx, 'Share of starts that cost more', (690 + 1470) / 2, 410, 'note', { align: 'center', alpha: ta });

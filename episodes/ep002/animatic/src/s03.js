@@ -19,6 +19,7 @@ export function build({ T }) {
     K2.draw(ctx, k2a(t));
     const a = ease(t, tL, tL + 0.5);
     H2.text(ctx, CL('loan') + ' over ' + CLS('term', '10 years'), 960, 150, 'caption', { align: 'center', alpha: a });
+    H2.text(ctx, 'dollars of the day', 130 + 44, 196 + 444, 'note', { color: C.muted, alpha: a });   // C5 S09: money basis on screen
     H2.numWord(ctx, CL('fixed_payment'), 'a month', 130 + 44, 196 + 380, 'label', { alpha: ease(t, tF, tF + 0.4) });
     H2.numWord(ctx, CL('var_first_payment'), 'a month', 1110 + 44, 196 + 380, 'label', { alpha: ease(t, tV, tV + 0.4) });
   }
