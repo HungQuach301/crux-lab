@@ -13,3 +13,5 @@ Thẩm quyền: `decisions/D-004.md`. Thiết kế khoá: `DESIGN.md`. Không ch
 
 ## Điểm dừng an toàn
 - 2026-10-01 00:20 UTC (1): D-004 (`b7aa720`); BRIEF, DESIGN, cardcheck v2, verify.py khoá. Tiếp: 3 agent máy + đối chứng song song.
+- 2026-10-01 00:50 UTC (2): đối chứng 6/6 (`c8cdf07`, khoá có thể thu hồi); 12 hồ sơ máy; ĐÓNG BĂNG `d16d1b4`; hợp lệ **12/12** (V0–V5 đạt; V3 12 agent độc lập); trộn + khoá key (SHA `150b040e…`, bản sao key ở scratchpad); bảng AI 6 vai niêm phong `0150049`; trang chấm https://claude.ai/artifact/WYaV717oBwoHh74ftzfBXA; issue #8. Tiếp: nhận mã → commit key.json → kiểm SHA → giải mã → bước 2 → REPORT.md.
+- Ghi chú hợp lệ (không đổi kết quả): tax-4 chữ trong `answer` ghi 29.6 % trong khi giá trị 29.65 (làm tròn nửa-lên 29.7) — trong dung sai; retire-3 đợt 2019 hoà 5/10 (luật "hơn một nửa" nghiêm); tax-3 dữ liệu chỉ số chứng khoán có điều khoản hạn chế tái bản (claim-risk ghi).
