@@ -1,0 +1,90 @@
+{
+  "id": "r2-retire-c1",
+  "decision": "Should you roll the old 401(k) into an IRA or the new 401(k)?",
+  "queries": [
+    "roll old 401(k) into IRA or new employer 401(k)",
+    "401(k) vs IRA rollover fees study data Pew",
+    "rollover IRA vs 401k cost comparison research expense ratios plans"
+  ],
+  "results": [
+    {
+      "query": "roll old 401(k) into IRA or new employer 401(k)",
+      "title": "Roll over to an IRA or New Employer's 401(k)",
+      "url": "https://www.pensionbee.com/us/blog/should-you-roll-over-your-old-401-k-into-an-ira-or-your-new-employers-401-k"
+    },
+    {
+      "query": "roll old 401(k) into IRA or new employer 401(k)",
+      "title": "How to roll over a 401(k): What to do with an old 401(k)",
+      "url": "https://www.fidelity.com/viewpoints/retirement/what-to-do-with-an-old-401k"
+    },
+    {
+      "query": "roll old 401(k) into IRA or new employer 401(k)",
+      "title": "Rollover IRAs: A way to combine old 401(k)s and other retirement accounts",
+      "url": "https://www.schwab.com/ira/rollover-ira/rollover-options"
+    },
+    {
+      "query": "roll old 401(k) into IRA or new employer 401(k)",
+      "title": "401(k) Rollovers: Pros, Cons, and How to Do It",
+      "url": "https://www.nerdwallet.com/retirement/learn/401k-rollover-ira-guide"
+    },
+    {
+      "query": "401(k) vs IRA rollover fees study data Pew",
+      "title": "Small Differences in Mutual Fund Fees Can Cut Billions From Americans' Retirement Savings",
+      "url": "https://www.pew.org/en/research-and-analysis/issue-briefs/2022/06/small-differences-in-mutual-fund-fees-can-cut-billions-from-americans-retirement-savings"
+    },
+    {
+      "query": "401(k) vs IRA rollover fees study data Pew",
+      "title": "IRA rollovers often come with higher investment fees, Pew finds",
+      "url": "https://www.cnbc.com/2022/06/30/rollover-iras-cost-consumers-45point5-billion-in-fees-earnings-study.html"
+    },
+    {
+      "query": "401(k) vs IRA rollover fees study data Pew",
+      "title": "IRA vs 401k: IRA Investors Face Higher Costs",
+      "url": "https://401kspecialistmag.com/rollover-rout-ira-investors-pay-significantly-more-than-401k-savers/"
+    },
+    {
+      "query": "401(k) vs IRA rollover fees study data Pew",
+      "title": "These Hidden 401(k) Rollover Fee Differences Could Cost You Thousands - SmartAsset",
+      "url": "https://smartasset.com/investing/hidden-401k-rollover-costs"
+    },
+    {
+      "query": "rollover IRA vs 401k cost comparison research expense ratios plans",
+      "title": "A 401(k) rollover is 'the single largest transaction' many investors make, expert says",
+      "url": "https://www.cnbc.com/2023/12/05/what-to-know-before-rolling-money-from-a-401k-to-ira.html"
+    },
+    {
+      "query": "rollover IRA vs 401k cost comparison research expense ratios plans",
+      "title": "Should My Money Stay or Go? Employer 401(k) vs. IRA Rollover",
+      "url": "https://www.kiplinger.com/retirement/retirement-plans/401ks/602918/should-my-money-stay-or-go-employer-401k-vs-ira-rollover"
+    },
+    {
+      "query": "rollover IRA vs 401k cost comparison research expense ratios plans",
+      "title": "Pew Finds Rolling a 401(k) to an IRA can be a Costly Mistake",
+      "url": "https://www.employeefiduciary.com/blog/401k-rollover-mistake"
+    },
+    {
+      "query": "rollover IRA vs 401k cost comparison research expense ratios plans",
+      "title": "401(k) Rollover Options: Compare IRA vs. Stay in Plan vs. New 401(k)",
+      "url": "https://investorsportfolioservices.com/401k-rollover-options"
+    }
+  ],
+  "verdict": "answered-with-data",
+  "nearest": [
+    {
+      "title": "Small Differences in Mutual Fund Fees Can Cut Billions From Americans' Retirement Savings (Pew)",
+      "url": "https://www.pew.org/en/research-and-analysis/issue-briefs/2022/06/small-differences-in-mutual-fund-fees-can-cut-billions-from-americans-retirement-savings",
+      "why": "Data-backed comparison of 401(k) vs IRA fund fees for rollovers with 25-year cost projections"
+    },
+    {
+      "title": "IRA rollovers often come with higher investment fees, Pew finds (CNBC)",
+      "url": "https://www.cnbc.com/2022/06/30/rollover-iras-cost-consumers-45point5-billion-in-fees-earnings-study.html",
+      "why": "Widely circulated coverage of the same data answer"
+    },
+    {
+      "title": "Should My Money Stay or Go? Employer 401(k) vs. IRA Rollover (Kiplinger)",
+      "url": "https://www.kiplinger.com/retirement/retirement-plans/401ks/602918/should-my-money-stay-or-go-employer-401k-vs-ira-rollover",
+      "why": "Cites institutional vs retail expense-ratio data for this choice"
+    }
+  ],
+  "note": "Pew (2022) plus ICI/BrightScope-style expense data already give a data-backed answer to the fee dimension of IRA vs 401(k) rollover; extensive mainstream guides cover the qualitative factors (fund menu, Rule of 55, backdoor Roth/pro-rata, loans, RMDs). A per-plan fund-menu comparison would be incremental at best."
+}

@@ -1,0 +1,95 @@
+{
+  "id": "r2-debt-c1",
+  "decision": "Should you ask the lender for a recast or just pay extra principal?",
+  "queries": [
+    "mortgage recast vs extra principal payment comparison",
+    "recast or prepay mortgage lump sum liquidity analysis calculator",
+    "mortgage recast vs prepayment data study moving early home sale"
+  ],
+  "results": [
+    {
+      "query": "mortgage recast vs extra principal payment comparison",
+      "title": "Extra Principal vs. Recast: Same Cash, Very Different Outcome - BankSouth Mortgage",
+      "url": "https://banksouthmortgage.com/articles/extra-principal-vs-recast/"
+    },
+    {
+      "query": "mortgage recast vs extra principal payment comparison",
+      "title": "I Got a Tax Windfall: Should I Recast My Mortgage or Make a Principal Payment?",
+      "url": "https://money.usnews.com/loans/mortgages/articles/i-got-a-tax-windfall-should-i-recast-my-mortgage-or-make-a-principal-payment"
+    },
+    {
+      "query": "mortgage recast vs extra principal payment comparison",
+      "title": "Recast vs Extra Payments Calculator - Which Saves More?",
+      "url": "https://homepaymentcalc.com/recast-vs-extra-payments-calculator/"
+    },
+    {
+      "query": "mortgage recast vs extra principal payment comparison",
+      "title": "Mortgage Recast vs Extra Principal Payments - RecastMyMortgage Guides",
+      "url": "https://www.recastmymortgage.com/blog/mortgage-recast-vs-extra-principal-payments/"
+    },
+    {
+      "query": "mortgage recast vs extra principal payment comparison",
+      "title": "What is mortgage recasting?",
+      "url": "https://www.bankrate.com/mortgages/what-is-mortgage-recasting-and-why-do-it"
+    },
+    {
+      "query": "recast or prepay mortgage lump sum liquidity analysis calculator",
+      "title": "Mortgage Recast Calculator - The Truth About Mortgage",
+      "url": "https://www.thetruthaboutmortgage.com/mortgage-recast-calculator/"
+    },
+    {
+      "query": "recast or prepay mortgage lump sum liquidity analysis calculator",
+      "title": "Mortgage Recast Calculator - New Monthly Payment After a Lump-Sum Principal Payoff",
+      "url": "https://miniwebtool.com/mortgage-recast-calculator/"
+    },
+    {
+      "query": "recast or prepay mortgage lump sum liquidity analysis calculator",
+      "title": "Mortgage Recast Calculator: New Payment & Savings",
+      "url": "https://realtytoolset.com/tools/mortgage-costs/mortgage-recast-calculator/"
+    },
+    {
+      "query": "recast or prepay mortgage lump sum liquidity analysis calculator",
+      "title": "Mortgage Recast Calculator",
+      "url": "https://downsmortgagegroup.com/mortgage-recast-calculator/"
+    },
+    {
+      "query": "mortgage recast vs prepayment data study moving early home sale",
+      "title": "A Clear Comparison: Prepayment vs. Recasting Your Mortgage",
+      "url": "https://medium.com/@taocao1/a-clear-comparison-prepayment-vs-recasting-your-mortgage-844ec8d106f9"
+    },
+    {
+      "query": "mortgage recast vs prepayment data study moving early home sale",
+      "title": "A Deeper View into Residential Mortgage Prepayments: Mobility, Sources of Payoff Funds, and Market Re-entry - Experian Insights",
+      "url": "https://www.experian.com/blogs/insights/a-deeper-view-into-residential-mortgage-prepayments/"
+    },
+    {
+      "query": "mortgage recast vs prepayment data study moving early home sale",
+      "title": "Mortgage Recast Calculator - Recast vs. Prepay, Side by Side",
+      "url": "https://wearecalculator.com/calculator/mortgage-and-housing/mortgage-recast-calculator"
+    },
+    {
+      "query": "mortgage recast vs prepayment data study moving early home sale",
+      "title": "Mortgage Recast: How It Works, Costs & Recast vs Extra Payments",
+      "url": "https://firsthomebuyers.net/mortgage-recast/"
+    }
+  ],
+  "verdict": "answered-without-data",
+  "nearest": [
+    {
+      "title": "Mortgage Recast Calculator - The Truth About Mortgage",
+      "url": "https://www.thetruthaboutmortgage.com/mortgage-recast-calculator/",
+      "why": "Side-by-side recast vs same lump sum without recast vs baseline; answers the arithmetic for user inputs"
+    },
+    {
+      "title": "Extra Principal vs. Recast: Same Cash, Very Different Outcome - BankSouth Mortgage",
+      "url": "https://banksouthmortgage.com/articles/extra-principal-vs-recast/",
+      "why": "Directly frames the same decision with a worked example"
+    },
+    {
+      "title": "A Deeper View into Residential Mortgage Prepayments (Experian)",
+      "url": "https://www.experian.com/blogs/insights/a-deeper-view-into-residential-mortgage-prepayments/",
+      "why": "Real data on mobility/payoff, but not tied to the recast-vs-prepay choice"
+    }
+  ],
+  "note": "Decision is heavily covered by articles and many free calculators (deterministic amortization math on user inputs, often with fee break-even). None found that grounds the liquidity/moving-risk angle in real home-sale/tenure histories; that is the only plausible novelty, and the core math is commoditized."
+}

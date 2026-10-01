@@ -67,7 +67,24 @@ V0, V1, V2, V4, V5: 12/12 đạt. V3: 9/12 theo luật khoá (debt-2, debt-3, de
 
 ## Chỉ báo cáo: mới lạ của 12 thẻ đối chứng (không tính vào ngưỡng)
 
-NOVELTY_PLACEHOLDER
+| Thẻ | Kết luận | Quyết định |
+|---|---|---|
+| r1-debt-c1 | answered-with-data | Refinance the 7% mortgage to 6.5%, or keep the loan? |
+| r1-debt-c2 | answered-without-data | Take the 0% transfer with a 4% fee, or stay on the old card? |
+| r1-retire-c1 | answered-without-data | Should you pause 401(k) contributions beyond the match to pay cards faster? |
+| r1-retire-c2 | answered-with-data | Should you claim Social Security early or wait? |
+| r1-tax-c1 | answered-with-data | Should you spend 529 money before claiming a college tax credit? |
+| r1-tax-c2 | answered-with-data | Should you make pre-tax Solo 401(k) contributions instead of Roth contributions? |
+| r2-debt-c1 | answered-without-data | Should you ask the lender for a recast or just pay extra principal? |
+| r2-debt-c2 | answered-with-data | Should you buy out the lease or turn it in and finance another car? |
+| r2-retire-c1 | answered-with-data | Should you roll the old 401(k) into an IRA or the new 401(k)? |
+| r2-retire-c2 | answered-with-data | Should you convert pre-tax IRA money to Roth IRA before retirement? |
+| r2-tax-c1 | answered-with-data | Use the dependent care FSA or skip it and claim the child care credit? |
+| r2-tax-c2 | answered-with-data | Bunch donations this tax year or spread gifts as usual? |
+
+- **answered-with-data: 9/12 = 75 %** (vòng 1: 4/6; vòng 2: 5/6). Hồ sơ máy giữ lại: 0/24 (máy tự loại các ý tưởng `answered-with-data` ngay lúc sinh — một phần trong 37 + 36 ứng viên bị loại ở hai vòng). Lưu ý: kiểm trên thẻ đối chứng do agent khác làm sau khi chấm; độ nghiêm có thể khác agent sinh.
+- Thẻ đối chứng chủ dự án ưa thích cũng có đáp án dữ liệu sẵn: vòng 1 thẻ 5 điểm (refinance, r1-debt-c1) và vòng 2 thẻ được chọn r2-debt-c2 (lease buyout); r2-debt-c1 (recast) là `answered-without-data`.
+- Đọc: đối chứng cho ý tưởng người xem nhận ra ngay, nhưng 3/4 đã có người trả lời bằng dữ liệu; máy lọc được điều này. Đây là bằng chứng cho giá trị máy ở khâu kiểm mới lạ (DESIGN §b).
 
 ## Sinh và chi phí
 
@@ -78,3 +95,7 @@ NOVELTY_PLACEHOLDER
 ## Bước 2
 
 7 thẻ máy được chọn → hồ sơ ≤ 5 dòng: https://claude.ai/artifact/QYcBDBJwSkbDhaeucsxr9a (`step2/`). *(Chờ chủ dự án.)*
+
+## Đề xuất MỘT biến cho vòng 3 (ghi trước; chưa chạy)
+
+**Sửa bộ đo V3: so ngày theo tháng/ngày đã chuẩn hoá** (`YYYY-MM` ≡ `YYYY-MM-01`), không đổi gì khác. Lý do: vòng 2 trượt CHẶN chỉ vì cách viết ngày, không vì số sai; bộ đo đổi qua chủ dự án duyệt (CHARTER §7.1). Nếu chủ dự án tính vòng 2 theo giá trị (12/12 → ĐẠT), vòng 3 là vòng xác nhận: đạt lần nữa thì qua (xác suất ngẫu nhiên cho cả hai vòng ≈ 9,6 %).
