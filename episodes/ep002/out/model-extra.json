@@ -13,17 +13,17 @@
   "first_start": "1954-01-01",
   "last_start": "2016-09-01",
   "fixed_total_interest": 26005,
-  "share_variable_costlier": 14.2,
-  "median_variable_minus_fixed": -3832,
-  "worst_variable_minus_fixed": 11219,
+  "share_variable_costlier": 14.209827357237716,
+  "median_variable_minus_fixed": -3832.201473006746,
+  "worst_variable_minus_fixed": 11218.654332056227,
   "worst_start": "1977-04-01",
-  "best_variable_minus_fixed": -15295,
+  "best_variable_minus_fixed": -15294.798091595787,
   "max_variable_rate_any_window": 20.6,
   "n_starts_1954_1980": 324,
-  "share_costlier_1954_1980": 28.4,
+  "share_costlier_1954_1980": 28.395061728395063,
   "n_starts_1981_on": 429,
-  "share_costlier_1981_on": 3.5,
-  "share_rate_above_fixed": 76.2,
+  "share_costlier_1981_on": 3.4965034965034967,
+  "share_rate_above_fixed": 76.22841965471447,
   "worst_peak_rate": 19.26,
   "best_start": "1981-08-01",
   "index_today": 3.72,
@@ -32,131 +32,131 @@
  },
  "payments": {
   "fixed_payment": 633.38,
-  "variable_first_payment": 593.51,
+  "variable_first_payment": 593.5088456792654,
   "max_variable_payment_any_window": 863.36,
   "max_variable_payment_start": "1977-04-01",
-  "median_window_max_payment": 643.28,
-  "share_windows_max_payment_above_fixed": 58.4
+  "median_window_max_payment": 643.2792853121476,
+  "share_windows_max_payment_above_fixed": 58.43293492695883
  },
  "gaps": {
   "-1.0": {
-   "share_costlier": 72.9,
-   "share_costlier_1954_1980": 92.9,
-   "share_costlier_1981_on": 57.8,
-   "median_diff": 4294,
-   "worst_diff": 20217,
+   "share_costlier": 72.90836653386454,
+   "share_costlier_1954_1980": 92.90123456790124,
+   "share_costlier_1981_on": 57.80885780885781,
+   "median_diff": 4294.114377280599,
+   "worst_diff": 20216.751917512338,
    "worst_start": "1977-04-01",
-   "best_diff": -7931
+   "best_diff": -7931.030268592553
   },
   "-0.5": {
-   "share_costlier": 64.7,
-   "share_costlier_1954_1980": 88.0,
-   "share_costlier_1981_on": 47.1,
-   "median_diff": 2631,
-   "worst_diff": 18383,
+   "share_costlier": 64.6746347941567,
+   "share_costlier_1954_1980": 87.96296296296296,
+   "share_costlier_1981_on": 47.086247086247084,
+   "median_diff": 2631.017294672951,
+   "worst_diff": 18382.69904424934,
    "worst_start": "1977-04-01",
-   "best_diff": -9444
+   "best_diff": -9443.728995245063
   },
   "0.0": {
-   "share_costlier": 57.9,
-   "share_costlier_1954_1980": 79.0,
-   "share_costlier_1981_on": 42.0,
-   "median_diff": 988,
-   "worst_diff": 16566,
+   "share_costlier": 57.90172642762284,
+   "share_costlier_1954_1980": 79.01234567901234,
+   "share_costlier_1981_on": 41.95804195804196,
+   "median_diff": 988.0433356463545,
+   "worst_diff": 16565.61717889845,
    "worst_start": "1977-04-01",
-   "best_diff": -10937
+   "best_diff": -10936.575271666637
   },
   "0.5": {
-   "share_costlier": 42.5,
-   "share_costlier_1954_1980": 68.5,
-   "share_costlier_1981_on": 22.8,
-   "median_diff": -639,
-   "worst_diff": 14766,
+   "share_costlier": 42.49667994687915,
+   "share_costlier_1954_1980": 68.51851851851852,
+   "share_costlier_1981_on": 22.843822843822842,
+   "median_diff": -638.7860897235587,
+   "worst_diff": 14765.754347470138,
    "worst_start": "1977-04-01",
-   "best_diff": -12409
+   "best_diff": -12409.444533361699
   },
   "1.0": {
-   "share_costlier": 31.3,
-   "share_costlier_1954_1980": 54.9,
-   "share_costlier_1981_on": 13.5,
-   "median_diff": -2245,
-   "worst_diff": 12983,
+   "share_costlier": 31.341301460823374,
+   "share_costlier_1954_1980": 54.93827160493827,
+   "share_costlier_1981_on": 13.51981351981352,
+   "median_diff": -2245.128706675958,
+   "worst_diff": 12983.353935364037,
    "worst_start": "1977-04-01",
-   "best_diff": -13862
+   "best_diff": -13862.221042153966
   },
   "1.5": {
-   "share_costlier": 14.2,
-   "share_costlier_1954_1980": 28.4,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3832,
-   "worst_diff": 11219,
+   "share_costlier": 14.209827357237716,
+   "share_costlier_1954_1980": 28.395061728395063,
+   "share_costlier_1981_on": 3.4965034965034967,
+   "median_diff": -3832.201473006746,
+   "worst_diff": 11218.654332056227,
    "worst_start": "1977-04-01",
-   "best_diff": -15295
+   "best_diff": -15294.798091595787
   },
   "2.0": {
-   "share_costlier": 8.8,
-   "share_costlier_1954_1980": 20.4,
+   "share_costlier": 8.764940239043824,
+   "share_costlier_1954_1980": 20.37037037037037,
    "share_costlier_1981_on": 0.0,
-   "median_diff": -5400,
-   "worst_diff": 9472,
+   "median_diff": -5399.840954597377,
+   "worst_diff": 9471.88857757274,
    "worst_start": "1977-04-01",
-   "best_diff": -16707
+   "best_diff": -16707.078198706276
   },
   "2.5": {
-   "share_costlier": 6.0,
-   "share_costlier_1954_1980": 13.9,
+   "share_costlier": 5.9760956175298805,
+   "share_costlier_1954_1980": 13.88888888888889,
    "share_costlier_1981_on": 0.0,
-   "median_diff": -6950,
-   "worst_diff": 7743,
+   "median_diff": -6950.343719417131,
+   "worst_diff": 7743.2840117085,
    "worst_start": "1977-04-01",
-   "best_diff": -18099
+   "best_diff": -18098.973281397986
   },
   "3.0": {
-   "share_costlier": 4.5,
-   "share_costlier_1954_1980": 10.5,
+   "share_costlier": 4.51527224435591,
+   "share_costlier_1954_1980": 10.493827160493828,
    "share_costlier_1981_on": 0.0,
-   "median_diff": -8492,
-   "worst_diff": 6033,
+   "median_diff": -8492.018147130875,
+   "worst_diff": 6033.061926960796,
    "worst_start": "1977-04-01",
-   "best_diff": -19470
+   "best_diff": -19470.404820975742
   }
  },
  "caps": {
   "12": {
-   "share_costlier": 13.3,
-   "share_costlier_1954_1980": 26.2,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3989,
-   "worst_diff": 6590,
+   "share_costlier": 13.280212483399735,
+   "share_costlier_1954_1980": 26.234567901234566,
+   "share_costlier_1981_on": 3.4965034965034967,
+   "median_diff": -3988.58218584066,
+   "worst_diff": 6589.530934180209,
    "worst_start": "1977-04-01",
-   "best_diff": -15295
+   "best_diff": -15294.798091595787
   },
   "15": {
-   "share_costlier": 13.9,
-   "share_costlier_1954_1980": 27.8,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3866,
-   "worst_diff": 9821,
+   "share_costlier": 13.944223107569721,
+   "share_costlier_1954_1980": 27.77777777777778,
+   "share_costlier_1981_on": 3.4965034965034967,
+   "median_diff": -3865.8389581593183,
+   "worst_diff": 9821.247582481177,
    "worst_start": "1977-04-01",
-   "best_diff": -15295
+   "best_diff": -15294.798091595787
   },
   "18": {
-   "share_costlier": 14.2,
-   "share_costlier_1954_1980": 28.4,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3832,
-   "worst_diff": 11137,
+   "share_costlier": 14.209827357237716,
+   "share_costlier_1954_1980": 28.395061728395063,
+   "share_costlier_1981_on": 3.4965034965034967,
+   "median_diff": -3832.201473006746,
+   "worst_diff": 11136.865200397275,
    "worst_start": "1977-04-01",
-   "best_diff": -15295
+   "best_diff": -15294.798091595787
   },
   "25": {
-   "share_costlier": 14.2,
-   "share_costlier_1954_1980": 28.4,
-   "share_costlier_1981_on": 3.5,
-   "median_diff": -3832,
-   "worst_diff": 11219,
+   "share_costlier": 14.209827357237716,
+   "share_costlier_1954_1980": 28.395061728395063,
+   "share_costlier_1981_on": 3.4965034965034967,
+   "median_diff": -3832.201473006746,
+   "worst_diff": 11218.654332056227,
    "worst_start": "1977-04-01",
-   "best_diff": -15295
+   "best_diff": -15294.798091595787
   }
  },
  "windows": [

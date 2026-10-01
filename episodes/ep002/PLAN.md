@@ -11,15 +11,14 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 |---|---|---|---|
 | Việc 0 Khung tập | XONG — dữ liệu không đổi; kiểm độc lập 116/116 + 753/753; bối cảnh chính sách; neo 7,5/9 | — | — |
 | C1 Ý tưởng và lời hứa | XONG | `gates/C1.md`, `gates/C1-blind.md` | A + tiêu đề A1; phạm vi (b), câu hỏi trung tâm "thả nổi phải thấp hơn bao nhiêu"; ILLUSTRATIVE |
-| C2 Kịch bản | duyệt v3 (CO-A, Leah); v4 kiểm mù vòng 3 chưa đạt ở đoạn phương pháp → **C2b chờ 1 câu** | `gates/C2.md`, `C2-blind.md`, `C2-blind-r2.md` | — |
+| C2 Kịch bản | XONG — v5 (C2b (a): phương pháp 1 câu + thẻ; head start định nghĩa một lần) | `gates/C2.md`, `C2-blind.md`, `C2-blind-r2.md` | — |
 | C3 Thiết kế | chưa | — | — |
 | C4 Animatic có chuyển động | chưa | — | — |
-| C5 Render và L1 | chờ K3.5 merge vào main (`float-vs-fixed-replay`, LOCK bd1948d9; chạy thử 0 lệch) | — | — |
+| C5 Render và L1 | khoá **K3.6 `2fcc9fcc`** trên main; S01/S05 chạy thử PASS 0 lệch | — | — |
 | C6 Chấm cuối và chốt gói | chưa | — | — |
 
 ## Việc treo cần chủ dự án (không chặn cổng)
 - K3.5 đang merge (LOCK bd1948d9) — C5 kiểm SHA trên main trước khi chạy.
-- **K3.6**: 26 claim kịch bản chưa có khoá K3.5 (`checks-notes.md`) — chủ dự án mở một lần.
 
 ## Điểm dừng an toàn (cập nhật trước mỗi bước dài)
 - 2026-10-01 03:00 (1): Việc 0 bước 1–3 xong và đã commit. Nếu mất container: `python3 episodes/ep002/data/fetch.py --verify && python3 episodes/ep002/model/model.py && python3 episodes/ep002/model/compare_independent.py`. Đang: agent chính sách (`story/policy-context.md`) và agent neo 7,5/9 (`story/rate-anchor.md`) — nếu mất thì giao lại cùng đề bài (ledger 02:50).
@@ -38,3 +37,4 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 - 2026-10-01 (8): chủ dự án: tin "GIỌNG KỂ" gửi nhầm (Cine Lab) — bỏ qua, giữ Eric v3. Table read chạy tiếp (S03 trở đi).
 - 2026-10-01 (9): table read xong (10:10); gói C2 gửi. Chờ 3 câu. Sau đó: WRITER áp quyết định (v4 nếu có sửa) → C3 (3 hướng hình, style frame có chuyển động cho 7 KEY, concept thumbnail, đuôi end screen; clip giọng ~30 s xác nhận).
 - 2026-10-01 (10): v4 + kiểm mù vòng 3 xong; gói C2b (1 câu: đoạn phương pháp). C3 bắt đầu song song (brief `design/c3/BRIEF.md`).
+- 2026-10-01 (11): C2b duyệt → v5. K3.6 merge (2fcc9fcc), S01/S05 PASS. C3: đủ H1/H2/H3 + đối chứng Tập 1; tiếp: kiểm mù 28 mẫu (`gates/C3-intent.md`) → gói C3.

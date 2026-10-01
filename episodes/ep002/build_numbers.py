@@ -35,7 +35,7 @@ add('gap_start', 1.5, '1.5 points', 'fixed_rate − var_start', kind='param')
 # ---- chỉ số
 add('index_today', B['index_today'], f"{B['index_today']:.2f}%", f"TB3MS, last observation {B['index_date'][:7]}",
     kind='data', illustrative=False, asOf=B['index_date'])
-add('margin', B['margin'], f"{B['margin']:.2f} points", 'var_start − index_today')
+add('margin', F['margin'], f"{B['margin']:.2f} points", 'var_start − index_today')
 tb = [(r[0], float(r[1])) for r in list(csv.reader(open(os.path.join(EP, 'data/raw/TB3MS.csv'))))[1:]]
 pk = max(tb, key=lambda t: t[1])
 add('tb_peak', pk[1], f"{pk[1]:.1f}%", 'max TB3MS 1934-01..2026-08', kind='data', illustrative=False,
@@ -46,7 +46,7 @@ add('first_start', B['first_start'], mon(B['first_start']), 'first start month')
 add('last_start', B['last_start'], mon(B['last_start']), 'last start month with 120 months of data')
 add('n_early', B['n_starts_1954_1980'], str(B['n_starts_1954_1980']), 'start months 1954-01..1980-12')
 add('n_late', B['n_starts_1981_on'], str(B['n_starts_1981_on']), 'start months 1981-01..2016-09')
-add('fixed_int', B['fixed_total_interest'], usd(B['fixed_total_interest']), 'total interest, 9% fixed, 120 months')
+add('fixed_int', F['fixedTotalInterest'], usd(B['fixed_total_interest']), 'total interest, 9% fixed, 120 months')
 n_cost = sum(w['diff'] > 0 for w in W)
 add('n_costlier', n_cost, str(n_cost), 'windows with Difference > 0')
 add('share_all', F['shareCostlier'], pct(B['share_variable_costlier']),
@@ -55,33 +55,33 @@ add('share_early', F['periods'][0]['shareCostlier'], pct(B['share_costlier_1954_
     'share costlier, starts 1954-1980', core=True, decisive=True, words='more than 1 in 4')
 add('share_late', F['periods'][1]['shareCostlier'], pct(B['share_costlier_1981_on']),
     'share costlier, starts 1981 on', core=True, decisive=True, words='about 1 in 30')
-add('median_diff', B['median_variable_minus_fixed'], usd(B['median_variable_minus_fixed']),
+add('median_diff', F['medianDifference'], usd(B['median_variable_minus_fixed']),
     'median Difference (negative = variable cheaper)', words=f"{usd(-B['median_variable_minus_fixed'])} less")
-add('worst_diff', B['worst_variable_minus_fixed'], '+' + usd(B['worst_variable_minus_fixed']),
+add('worst_diff', F['worstDifference'], '+' + usd(B['worst_variable_minus_fixed']),
     'max Difference', core=True, decisive=True)
 add('worst_start', B['worst_start'], mon(B['worst_start']), 'start month of the max Difference')
 add('worst_start_year', 1977 if B['worst_start'][:4]=='1977' else int(B['worst_start'][:4]), B['worst_start'][:4], 'year of worst_start (S05 numeric)')
 add('worst_start_month', int(B['worst_start'][5:7]), MON[int(B['worst_start'][5:7])-1], 'month of worst_start (S05 numeric)')
 ww = next(w for w in W if w['start'] == B['worst_start'])
-add('worst_peak_rate', round(ww['maxRate'], 2), f"{ww['maxRate']:.1f}%", 'highest monthly variable rate in the worst window')
-add('worst_share_of_fixed', round(100 * B['worst_variable_minus_fixed'] / B['fixed_total_interest']),
+add('worst_peak_rate', B['worst_peak_rate'], f"{ww['maxRate']:.1f}%", 'highest monthly variable rate in the worst window')
+add('worst_share_of_fixed', 100 * F['worstDifference'] / F['fixedTotalInterest'],
     f"{round(100 * B['worst_variable_minus_fixed'] / B['fixed_total_interest'])}%", 'worst_diff / fixed_int')
 bw = min(W, key=lambda w: w['diff'])
-add('best_diff', B['best_variable_minus_fixed'], usd(B['best_variable_minus_fixed']), 'min Difference', words=f"{usd(-B['best_variable_minus_fixed'])} less")
+add('best_diff', F['bestDifference'], usd(B['best_variable_minus_fixed']), 'min Difference', words=f"{usd(-B['best_variable_minus_fixed'])} less")
 add('best_start', bw['start'], mon(bw['start']), 'start month of the min Difference')
 add('best_start_year', int(bw['start'][:4]), bw['start'][:4], 'year of best_start (S05 numeric)')
 add('best_start_month', int(bw['start'][5:7]), MON[int(bw['start'][5:7])-1], 'month of best_start (S05 numeric)')
 mr = max(W, key=lambda w: w['maxRate'])
 add('max_rate_any', B['max_variable_rate_any_window'], f"{B['max_variable_rate_any_window']:.1f}%",
     'highest monthly variable rate in any window', start=mr['start'], words=f"window starting {mon(mr['start'])}")
-above9 = round(100 * sum(w['maxRate'] > 9.0 for w in W) / len(W), 1)
+above9 = B['share_rate_above_fixed']
 add('share_rate_above_fixed', above9, pct(above9), 'share of windows whose variable rate exceeded 9% in some month',
     words='about 3 in 4')
 # ---- khoản trả hàng tháng (phạm vi b)
-add('fixed_payment', PAY['fixed_payment'], usd2(PAY['fixed_payment']), 'level payment, 9%, 120 months', scope='b')
+add('fixed_payment', F['fixedPayment'], usd2(PAY['fixed_payment']), 'level payment, 9%, 120 months', scope='b')
 add('var_first_payment', PAY['variable_first_payment'], usd2(PAY['variable_first_payment']),
     'first payment at 7.5%', scope='b')
-add('max_payment', PAY['max_variable_payment_any_window'], usd2(PAY['max_variable_payment_any_window']),
+add('max_payment', F['maxPayment'], usd2(PAY['max_variable_payment_any_window']),
     'highest variable monthly payment, any window', start=PAY['max_variable_payment_start'], scope='b')
 add('median_max_payment', PAY['median_window_max_payment'], usd2(PAY['median_window_max_payment']),
     'median over windows of the highest monthly payment', scope='b')
@@ -111,7 +111,7 @@ ge = {g: d['share_costlier_1954_1980'] for g, d in M['gaps'].items()}
 gmin = min(ge, key=ge.get)
 add('min_gap_early', ge[gmin], pct(ge[gmin]), f'lowest 1954-1980 share costlier over every head start tested (-1..3); at {gmin} points; > 0', scope='b',
     words='never fell to zero', k36='min theo khoảng chênh, theo thời kỳ')
-add('first_payment_gap', round(PAY['fixed_payment'] - PAY['variable_first_payment'], 2), usd2(PAY['fixed_payment'] - PAY['variable_first_payment']),
+add('first_payment_gap', F['fixedPayment'] - PAY['variable_first_payment'], usd2(PAY['fixed_payment'] - PAY['variable_first_payment']),
     'fixed_payment − var_first_payment', scope='b', words='about $40 less a month')
 ws = {d['worst_start'] for d in M['gaps'].values()}
 add('gap_worst_start_all', sorted(ws)[0] if len(ws) == 1 else None, 'April 1977' if ws == {'1977-04-01'} else 'MIXED',

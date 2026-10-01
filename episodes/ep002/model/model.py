@@ -51,7 +51,7 @@ def windows(var0, cap=None):
 
 def share(ws, pred=lambda w: True):
     sel = [w for w in ws if pred(w)]
-    return round(100 * sum(w['diff'] > 0 for w in sel) / len(sel), 1), len(sel)
+    return 100 * sum(w['diff'] > 0 for w in sel) / len(sel), len(sel)   # chưa làm tròn (K3.6: dung sai 0,005)
 
 
 def summary(ws):
@@ -60,9 +60,9 @@ def summary(ws):
         'share_costlier': share(ws)[0],
         'share_costlier_1954_1980': share(ws, lambda w: w['start'] < SPLIT)[0],
         'share_costlier_1981_on': share(ws, lambda w: w['start'] >= SPLIT)[0],
-        'median_diff': round(statistics.median(w['diff'] for w in ws)),
-        'worst_diff': round(worst['diff']), 'worst_start': worst['start'],
-        'best_diff': round(min(w['diff'] for w in ws)),
+        'median_diff': statistics.median(w['diff'] for w in ws),
+        'worst_diff': worst['diff'], 'worst_start': worst['start'],
+        'best_diff': min(w['diff'] for w in ws),
     }
 
 
@@ -85,18 +85,18 @@ out = {
         'max_variable_rate_any_window': round(max(w['maxRate'] for w in base), 2),
         'n_starts_1954_1980': len(early), 'share_costlier_1954_1980': s['share_costlier_1954_1980'],
         'n_starts_1981_on': len(late), 'share_costlier_1981_on': s['share_costlier_1981_on'],
-        'share_rate_above_fixed': round(100 * sum(w['maxRate'] > FIXED for w in base) / len(base), 1),
-        'worst_peak_rate': round(worst_w['maxRate'], 2),
+        'share_rate_above_fixed': 100 * sum(w['maxRate'] > FIXED for w in base) / len(base),
+        'worst_peak_rate': worst_w['maxRate'],
         'best_start': min(base, key=lambda w: w['diff'])['start'],
         'index_today': IDX, 'index_date': dates[-1], 'margin': round(VAR0 - IDX, 2),
     },
     'payments': {
         'fixed_payment': round(FIX_PAYS[0], 2),
-        'variable_first_payment': round(run([VAR0] * N)[1][0], 2),
+        'variable_first_payment': run([VAR0] * N)[1][0],
         'max_variable_payment_any_window': round(maxpay_w['maxPay'], 2),
         'max_variable_payment_start': maxpay_w['start'],
-        'median_window_max_payment': round(statistics.median(w['maxPay'] for w in base), 2),
-        'share_windows_max_payment_above_fixed': round(100 * sum(w['maxPay'] > FIX_PAYS[0] for w in base) / len(base), 1),
+        'median_window_max_payment': statistics.median(w['maxPay'] for w in base),
+        'share_windows_max_payment_above_fixed': 100 * sum(w['maxPay'] > FIX_PAYS[0] for w in base) / len(base),
     },
     'gaps': {f'{g:.1f}': summary(windows(FIXED - g)) for g in GAPS},
     'caps': {f'{c:g}': summary(windows(VAR0, c)) for c in CAPS},

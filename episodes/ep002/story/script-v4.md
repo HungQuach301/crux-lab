@@ -31,17 +31,17 @@ S03.1 | Both are for $50,000 over 10 years, illustrative numbers, not a real len
 S03.2 | The variable loan's first payment is $593.51, about $40 less a month than the fixed $633.38. | var_first_payment, first_payment_gap, fixed_payment | Two envelopes; the variable one visibly thinner.
 S03.3 | A fixed rate never changes, so neither does the payment. | — | The level rail; a row of identical envelopes.
 S03.4 | A variable rate follows a market interest rate, so the rate and the payment rise and fall with it, and nobody knows where it goes next. | — | The bead rides its track up and down; envelopes thicken and thin; the track ahead fades out.
-S03.5 | The head start is the fixed rate minus the variable rate's starting rate; it is negative when the variable rate starts higher. | — | A coloured bracket snaps between rail and bead at the start line. (KEY-2)
+S03.5 | The distance between the two starting rates is what this video calls the head start. | — | A coloured bracket snaps between rail and bead at the start line. (KEY-2)
 S03.6 | Leah's fixed rate is 9% and her variable rate starts at 7.5%, so her head start is 1.5 points. | fixed_rate, var_start, gap_start | Bracket labelled "1.5 points".
 S03.7 | A point here means one percentage point of interest. | — | —
-S03.8 | Real offers differ, so a head start can be bigger, smaller, zero, or negative. | — | Bracket widens, narrows, closes, then flips with the bead starting above the rail.
+S03.8 | Real offers differ: a head start can be bigger, smaller, zero, or negative, with the variable rate starting higher. | — | Bracket widens, narrows, closes, then flips with the bead starting above the rail.
 
 ## S04 — The promise (120 words, 653 chars)
 
 S04.1 | This video replays Leah's illustrative loan through every 10-year stretch of US interest rates since January 1954. | first_start, term | The short track stretches left into a long ridge of rate history.
-S04.2 | Each replay moves her rate up and down exactly as much as the 3-month Treasury bill rate moved in that stretch of history, and the data is US only. | — | The bead's track takes the ridge's month-to-month steps inside a 10-year frame.
+S04.2 | Each replay moves her rate up and down exactly as much as the 3-month Treasury bill rate moved in that stretch of history. | — | The bead's track takes the ridge's month-to-month steps inside a 10-year frame.
 S04.3 | "Worth it" gets one plain meaning here: how often the variable loan cost more in total interest than the 9% fixed loan, and how much more at worst. | fixed_rate | Two coin piles (interest paid), fixed and variable, side by side.
-S04.4 | Then the replay moves the head start, from 3 points down to minus 1 point, to see where that history changes. | spread3_share, spreadm1_share | The bracket slides along a ruler.
+S04.4 | Then the replay moves the head start, from a variable rate 3 points under the fixed rate to one 1 point over it, to see where that history changes. | spread3_share, spreadm1_share | The bracket slides along a ruler.
 S04.5 | By the end there's a line that any real offer can be held up against, including yours. | — | A ruler across the screen; a blank offer card floats toward it.
 S04.6 | This is history, not a forecast. | — | The ridge ends at today; empty space to its right.
 
@@ -50,7 +50,7 @@ S04.6 | This is history, not a forecast. | — | The ridge ends at today; empty 
 S05.1 | [curious] And the first result looks like a contradiction. | — | —
 S05.2 | Leah's variable rate rose above 9% at some point in 76.2% of stretches, about 3 in 4. | share_rate_above_fixed, fixed_rate | Stretch after stretch: the rail lights amber wherever the bead is above it; amber nearly everywhere.
 S05.3 | Yet it cost more in total interest in 14.2%, about 1 in 7. | share_all | Tokens drop into the two bins under the ridge; only some turn red.
-S05.4 | That 1 in 7 is made of two very different parts: 28.4%, more than 1 in 4, for starts from 1954 to 1980, and 3.5%, about 1 in 30, from 1981 on; the worst stretch, from April 1977, cost $11,219 more. | share_early, share_late, n_early, n_late, worst_start, worst_diff | Left bin (under the climbing half) clearly redder than the right; one dark token in the left bin. (KEY-3)
+S05.4 | That's 28.4%, more than 1 in 4, for starts from 1954 to 1980, and 3.5%, about 1 in 30, from 1981 on, and the worst stretch, from April 1977, cost $11,219 more. | share_early, share_late, n_early, n_late, worst_start, worst_diff | Left bin (under the climbing half) clearly redder than the right; one dark token in the left bin. (KEY-3)
 S05.5 | The reason both are true is the head start. | — | Bracket returns.
 
 ## S06 — The cushion (102 words, 550 chars)
@@ -79,7 +79,7 @@ S08.3 | Then the Treasury bill rate climbs year after year, and her rate follows
 S08.4 | The cushion from her first months is soon gone, and every further month above 9% adds to what she owes in interest. | fixed_rate | Jar empty; coins keep adding to her pile.
 S08.5 | Her payment reaches $863.36 a month, against the fixed $633.38. | max_payment, fixed_payment | Her envelope swells well past the fixed one.
 S08.6 | Over 10 years, the fixed loan charges $26,005 in interest. | term, fixed_int | Fixed coin pile.
-S08.7 | Leah's variable loan charges 43% more interest than the fixed loan, the worst stretch in the whole replay. | worst_share_of_fixed | Variable pile = fixed pile + an extra block reaching a bit under half its height; on screen: "+$11,219" (`worst_diff`).
+S08.7 | Leah's variable loan charges 43% on top of that, the worst stretch in the whole replay. | worst_share_of_fixed | Variable pile = fixed pile + an extra block reaching a bit under half its height; on screen: "+$11,219" (`worst_diff`).
 S08.8 | This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller. | — | A ceiling line drawn over the bead, then lowered; the extra block trims.
 
 ## S09 — Moving the head start (101 words, 546 chars)
@@ -101,13 +101,18 @@ S10.5 | Measured as how often it cost more in total interest than the 9% fixed l
 S10.6 | From 1981 on, a 2-point head start was enough every time; from 1954 to 1980, even 3 points was not, and the worst still cost $6,033 more. | gap20_late, n_late, gap30_early, n_early, gap30_worst | Right bin clear at the 2-point mark; left bin with a thin red layer at the 3-point mark.
 S10.7 | Which kind of history comes next is something no replay can show. | — | The ridge ends at today; the space to its right stays empty.
 
-## S11 — How we know this (1 sentence; method card)
+## S11 — How we know this (119 words, 618 chars)
 
-S11.1 | The replay uses the 3-month Treasury bill rate as a stand-in for the lender's index; how it was built is on screen and in the description. | var_start, first_start, last_start, term, fixed_rate | METHOD CARD (C2b, chủ dự án): toàn bộ phần phương pháp cũ S11.2–S11.6 lên thẻ + mô tả — lender index + fixed margin; T-bill stand-in, margin set so Leah starts at 7.5% (`var_start`); first replay January 1954, then monthly to September 2016 (`first_start`, `last_start`), each 10 years (`term`) against 9% fixed (`fixed_rate`); neighbouring stretches overlap, not independent; US only. Giữ nguyên nội dung thẻ cũ: Workbench view of the ridge. METHOD CARD (on screen, and in the description): "3-month T-bill stands in for the lender's index · 3.72% in August 2026" (`index_today`) · "margin 3.78 points" (`margin`) · "753 start months" (`n_starts`) · "index never below 0" · "no grace period · no fees · no rate cap". · **Đọc được ở 25% (G-014, sàn 40 px @1080) và hiện đủ lâu để đọc: ≥ 1 s mỗi 3 từ của thẻ, kéo sang đầu S12 nếu cần (P đo ở C4).**
+S11.1 | Here's how the replay was built. | — | Workbench view of the ridge. METHOD CARD (on screen, and in the description): "3-month T-bill stands in for the lender's index · 3.72% in August 2026" (`index_today`) · "margin 3.78 points" (`margin`) · "753 start months" (`n_starts`) · "index never below 0" · "no grace period · no fees · no rate cap".
+S11.2 | A real variable rate is the lender's own index plus a fixed margin, and the replay needs a much longer record than that index has. | — | A short ribbon (the lender's index) beside the long ridge; a fixed block sits on top of the ribbon.
+S11.3 | So it uses the rate on 3-month Treasury bills, which has a long US record, as a stand-in, with the margin set so that Leah's rate starts at 7.5%. | var_start | The long ridge brightens; the bead's track sits a fixed distance above it, starting at 7.5%.
+S11.4 | The first replay starts in January 1954 and runs for 10 years, and the next starts one month later, and so on, up to September 2016. | first_start, term, last_start | A 10-year frame lands on the far left of the ridge and steps right notch by notch, speeding up; each stop drops a token straight down into the bin under it. (KEY-5)
+S11.5 | Each one is set against the 9% fixed loan over the same 10 years. | fixed_rate, term | Two coin piles grow inside the frame.
+S11.6 | Neighbouring stretches share most of their years, so they are not independent tries, and the data is US only. | — | Neighbouring frames overlap, shared months shaded; US outline stamped in the corner.
 
 ## S12 — Where an offer falls (94 words, 513 chars)
 
-S12.1 | [warm] Leah's illustrative offer sits at 1.5 points, short of that 2-point mark; at her point, starts from both halves of history still cost more, including her April 1977 worst. | gap_start, gap20_late, n_early, n_late, worst_start | Leah's card on the ruler, ILLUSTRATIVE badge, just left of the 2-point tick.
+S12.1 | [warm] Leah's illustrative offer sits at 1.5 points, short of that 2-point mark, where stretches from both halves of history still cost more, including her April 1977 worst. | gap_start, gap20_late, n_early, n_late, worst_start | Leah's card on the ruler, ILLUSTRATIVE badge, just left of the 2-point tick.
 S12.2 | A real offer has its own two rates, its own head start and its own place on the line. | — | Blank offer card hovers above the ruler, not placed.
 S12.3 | It also has what this replay leaves out: the lender's real index, a rate cap, a grace period, fees, and the borrower's own budget. | — | Five plain objects around the card (index ribbon, ceiling, hourglass, receipt, wallet).
 S12.4 | The line doesn't say which offer is better; it shows what each head start meant in each kind of history. | — | Ruler with both bins at every mark.

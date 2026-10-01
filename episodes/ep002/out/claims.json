@@ -227,7 +227,7 @@
   },
   {
    "claimId": "fixed_int",
-   "value": 26005,
+   "value": 26005.46425014991,
    "display": "$26,005",
    "formula": "total interest, 9% fixed, 120 months",
    "source": {
@@ -321,7 +321,7 @@
   },
   {
    "claimId": "median_diff",
-   "value": -3832,
+   "value": -3832.201473006746,
    "display": "\u2212$3,832",
    "formula": "median Difference (negative = variable cheaper)",
    "source": {
@@ -340,7 +340,7 @@
   },
   {
    "claimId": "worst_diff",
-   "value": 11219,
+   "value": 11218.654332056227,
    "display": "+$11,219",
    "formula": "max Difference",
    "source": {
@@ -428,7 +428,7 @@
   },
   {
    "claimId": "worst_share_of_fixed",
-   "value": 43,
+   "value": 43.13960413912455,
    "display": "43%",
    "formula": "worst_diff / fixed_int",
    "source": {
@@ -445,7 +445,7 @@
   },
   {
    "claimId": "best_diff",
-   "value": -15295,
+   "value": -15294.798091595787,
    "display": "\u2212$15,295",
    "formula": "min Difference",
    "source": {
@@ -534,7 +534,7 @@
   },
   {
    "claimId": "share_rate_above_fixed",
-   "value": 76.2,
+   "value": 76.22841965471447,
    "display": "76.2%",
    "formula": "share of windows whose variable rate exceeded 9% in some month",
    "source": {
@@ -552,7 +552,7 @@
   },
   {
    "claimId": "fixed_payment",
-   "value": 633.38,
+   "value": 633.3788687512443,
    "display": "$633.38",
    "formula": "level payment, 9%, 120 months",
    "source": {
@@ -571,7 +571,7 @@
   },
   {
    "claimId": "var_first_payment",
-   "value": 593.51,
+   "value": 593.5088456792654,
    "display": "$593.51",
    "formula": "first payment at 7.5%",
    "source": {
@@ -590,7 +590,7 @@
   },
   {
    "claimId": "max_payment",
-   "value": 863.36,
+   "value": 863.3619643801245,
    "display": "$863.36",
    "formula": "highest variable monthly payment, any window",
    "source": {
@@ -611,7 +611,7 @@
   },
   {
    "claimId": "median_max_payment",
-   "value": 643.28,
+   "value": 643.2792853121476,
    "display": "$643.28",
    "formula": "median over windows of the highest monthly payment",
    "source": {
@@ -630,7 +630,7 @@
   },
   {
    "claimId": "share_payment_above_fixed",
-   "value": 58.4,
+   "value": 58.43293492695883,
    "display": "58.4%",
    "formula": "share of windows where the variable payment exceeded the fixed payment in some month",
    "source": {
@@ -919,7 +919,7 @@
   },
   {
    "claimId": "gapm10_early",
-   "value": 92.9,
+   "value": 92.90123456790124,
    "display": "92.9%",
    "formula": "gap -1.0: 1954-1980",
    "source": {
@@ -938,7 +938,7 @@
   },
   {
    "claimId": "gapm10_late",
-   "value": 57.8,
+   "value": 57.80885780885781,
    "display": "57.8%",
    "formula": "gap -1.0: 1981 on",
    "source": {
@@ -957,7 +957,7 @@
   },
   {
    "claimId": "gapm10_worst",
-   "value": 20217,
+   "value": 20216.751917512338,
    "display": "+$20,217",
    "formula": "gap -1.0: worst Difference",
    "source": {
@@ -977,7 +977,7 @@
   },
   {
    "claimId": "gapm05_early",
-   "value": 88.0,
+   "value": 87.96296296296296,
    "display": "88%",
    "formula": "gap -0.5: 1954-1980",
    "source": {
@@ -996,7 +996,7 @@
   },
   {
    "claimId": "gapm05_late",
-   "value": 47.1,
+   "value": 47.086247086247084,
    "display": "47.1%",
    "formula": "gap -0.5: 1981 on",
    "source": {
@@ -1015,7 +1015,7 @@
   },
   {
    "claimId": "gapm05_worst",
-   "value": 18383,
+   "value": 18382.69904424934,
    "display": "+$18,383",
    "formula": "gap -0.5: worst Difference",
    "source": {
@@ -1035,7 +1035,7 @@
   },
   {
    "claimId": "gap00_early",
-   "value": 79.0,
+   "value": 79.01234567901234,
    "display": "79%",
    "formula": "gap 0.0: 1954-1980",
    "source": {
@@ -1054,7 +1054,7 @@
   },
   {
    "claimId": "gap00_late",
-   "value": 42.0,
+   "value": 41.95804195804196,
    "display": "42%",
    "formula": "gap 0.0: 1981 on",
    "source": {
@@ -1073,7 +1073,7 @@
   },
   {
    "claimId": "gap00_worst",
-   "value": 16566,
+   "value": 16565.61717889845,
    "display": "+$16,566",
    "formula": "gap 0.0: worst Difference",
    "source": {
@@ -1093,7 +1093,7 @@
   },
   {
    "claimId": "gap05_early",
-   "value": 68.5,
+   "value": 68.51851851851852,
    "display": "68.5%",
    "formula": "gap 0.5: 1954-1980",
    "source": {
@@ -1112,7 +1112,7 @@
   },
   {
    "claimId": "gap05_late",
-   "value": 22.8,
+   "value": 22.843822843822842,
    "display": "22.8%",
    "formula": "gap 0.5: 1981 on",
    "source": {
@@ -1131,7 +1131,7 @@
   },
   {
    "claimId": "gap05_worst",
-   "value": 14766,
+   "value": 14765.754347470138,
    "display": "+$14,766",
    "formula": "gap 0.5: worst Difference",
    "source": {
@@ -1151,7 +1151,7 @@
   },
   {
    "claimId": "gap10_early",
-   "value": 54.9,
+   "value": 54.93827160493827,
    "display": "54.9%",
    "formula": "gap 1.0: 1954-1980",
    "source": {
@@ -1170,7 +1170,7 @@
   },
   {
    "claimId": "gap10_late",
-   "value": 13.5,
+   "value": 13.51981351981352,
    "display": "13.5%",
    "formula": "gap 1.0: 1981 on",
    "source": {
@@ -1189,7 +1189,7 @@
   },
   {
    "claimId": "gap10_worst",
-   "value": 12983,
+   "value": 12983.353935364037,
    "display": "+$12,983",
    "formula": "gap 1.0: worst Difference",
    "source": {
@@ -1209,7 +1209,7 @@
   },
   {
    "claimId": "gap15_early",
-   "value": 28.4,
+   "value": 28.395061728395063,
    "display": "28.4%",
    "formula": "gap 1.5: 1954-1980",
    "source": {
@@ -1228,7 +1228,7 @@
   },
   {
    "claimId": "gap15_late",
-   "value": 3.5,
+   "value": 3.4965034965034967,
    "display": "3.5%",
    "formula": "gap 1.5: 1981 on",
    "source": {
@@ -1247,7 +1247,7 @@
   },
   {
    "claimId": "gap15_worst",
-   "value": 11219,
+   "value": 11218.654332056227,
    "display": "+$11,219",
    "formula": "gap 1.5: worst Difference",
    "source": {
@@ -1267,7 +1267,7 @@
   },
   {
    "claimId": "gap20_early",
-   "value": 20.4,
+   "value": 20.37037037037037,
    "display": "20.4%",
    "formula": "gap 2.0: 1954-1980",
    "source": {
@@ -1306,7 +1306,7 @@
   },
   {
    "claimId": "gap20_worst",
-   "value": 9472,
+   "value": 9471.88857757274,
    "display": "+$9,472",
    "formula": "gap 2.0: worst Difference",
    "source": {
@@ -1326,7 +1326,7 @@
   },
   {
    "claimId": "gap25_early",
-   "value": 13.9,
+   "value": 13.88888888888889,
    "display": "13.9%",
    "formula": "gap 2.5: 1954-1980",
    "source": {
@@ -1365,7 +1365,7 @@
   },
   {
    "claimId": "gap25_worst",
-   "value": 7743,
+   "value": 7743.2840117085,
    "display": "+$7,743",
    "formula": "gap 2.5: worst Difference",
    "source": {
@@ -1385,7 +1385,7 @@
   },
   {
    "claimId": "gap30_early",
-   "value": 10.5,
+   "value": 10.493827160493828,
    "display": "10.5%",
    "formula": "gap 3.0: 1954-1980",
    "source": {
@@ -1424,7 +1424,7 @@
   },
   {
    "claimId": "gap30_worst",
-   "value": 6033,
+   "value": 6033.061926960796,
    "display": "+$6,033",
    "formula": "gap 3.0: worst Difference",
    "source": {
@@ -1444,7 +1444,7 @@
   },
   {
    "claimId": "cap12_share",
-   "value": 13.3,
+   "value": 13.280212483399735,
    "display": "13.3%",
    "formula": "share costlier, rate capped at 12%",
    "source": {
@@ -1463,7 +1463,7 @@
   },
   {
    "claimId": "cap12_early",
-   "value": 26.2,
+   "value": 26.234567901234566,
    "display": "26.2%",
    "formula": "cap 12: 1954-1980",
    "source": {
@@ -1482,7 +1482,7 @@
   },
   {
    "claimId": "cap12_worst",
-   "value": 6590,
+   "value": 6589.530934180209,
    "display": "+$6,590",
    "formula": "cap 12: worst Difference",
    "source": {
@@ -1502,7 +1502,7 @@
   },
   {
    "claimId": "cap15_share",
-   "value": 13.9,
+   "value": 13.944223107569721,
    "display": "13.9%",
    "formula": "share costlier, rate capped at 15%",
    "source": {
@@ -1521,7 +1521,7 @@
   },
   {
    "claimId": "cap15_early",
-   "value": 27.8,
+   "value": 27.77777777777778,
    "display": "27.8%",
    "formula": "cap 15: 1954-1980",
    "source": {
@@ -1540,7 +1540,7 @@
   },
   {
    "claimId": "cap15_worst",
-   "value": 9821,
+   "value": 9821.247582481177,
    "display": "+$9,821",
    "formula": "cap 15: worst Difference",
    "source": {
@@ -1560,7 +1560,7 @@
   },
   {
    "claimId": "cap18_share",
-   "value": 14.2,
+   "value": 14.209827357237716,
    "display": "14.2%",
    "formula": "share costlier, rate capped at 18%",
    "source": {
@@ -1579,7 +1579,7 @@
   },
   {
    "claimId": "cap18_early",
-   "value": 28.4,
+   "value": 28.395061728395063,
    "display": "28.4%",
    "formula": "cap 18: 1954-1980",
    "source": {
@@ -1598,7 +1598,7 @@
   },
   {
    "claimId": "cap18_worst",
-   "value": 11137,
+   "value": 11136.865200397275,
    "display": "+$11,137",
    "formula": "cap 18: worst Difference",
    "source": {
@@ -1618,7 +1618,7 @@
   },
   {
    "claimId": "cap25_share",
-   "value": 14.2,
+   "value": 14.209827357237716,
    "display": "14.2%",
    "formula": "share costlier, rate capped at 25%",
    "source": {
@@ -1637,7 +1637,7 @@
   },
   {
    "claimId": "cap25_early",
-   "value": 28.4,
+   "value": 28.395061728395063,
    "display": "28.4%",
    "formula": "cap 25: 1954-1980",
    "source": {
@@ -1656,7 +1656,7 @@
   },
   {
    "claimId": "cap25_worst",
-   "value": 11219,
+   "value": 11218.654332056227,
    "display": "+$11,219",
    "formula": "cap 25: worst Difference",
    "source": {
@@ -1676,7 +1676,7 @@
   },
   {
    "claimId": "min_gap_early",
-   "value": 10.5,
+   "value": 10.493827160493828,
    "display": "10.5%",
    "formula": "lowest 1954-1980 share costlier over every head start tested (-1..3); at 3.0 points; > 0",
    "source": {
@@ -1696,7 +1696,7 @@
   },
   {
    "claimId": "first_payment_gap",
-   "value": 39.87,
+   "value": 39.87002307197895,
    "display": "$39.87",
    "formula": "fixed_payment \u2212 var_first_payment",
    "source": {

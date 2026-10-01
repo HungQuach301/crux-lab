@@ -34,4 +34,10 @@ for s in SC:
         os.remove(p)
         return [w for w in txt.split() if sum(ch.isalnum() for ch in w) >= 3]
     wm, wo = ocr(f'{G}/{s}-mask.png'), ocr(f'{ORIG}/{s}.png')
-    print(f"{s} | {' ; '.join(fid)} | text boxes {sum(len(f['texts']) for f in J['frames'])}, not flat: {bad} | OCR words original {len(wo)}, masked {len(wm)} {wm}")
+    # words the scene really shows = recorded text() strings; a masked-OCR word counts as a leak only if it is one of them
+    real = {w.lower().strip('.,:;?!()$%') for f in J['frames'] for t in f['texts'] for w in t['text'].split()}
+    real = {w for w in real if sum(ch.isalnum() for ch in w) >= 3}
+    norm = lambda w: w.lower().strip('.,:;?!()$%\'"')
+    hit_o = sorted({norm(w) for w in wo} & real); hit_m = sorted({norm(w) for w in wm} & real)
+    print(f"{s} | {' ; '.join(fid)} | text boxes {sum(len(f['texts']) for f in J['frames'])}, not flat: {bad} | "
+          f"OCR: original {len(hit_o)} on-screen words read, masked {len(hit_m)} {hit_m} (masked raw tokens {len(wm)}, e.g. {wm[:4]})", flush=True)

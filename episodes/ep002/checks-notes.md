@@ -21,3 +21,6 @@ Sinh bằng máy từ `story/script.md` v3 × `out/claims.json` × `contract.jso
 | Ngày dạng chuỗi | `first_start`, `last_start`, `worst_start`, `best_start` | đã có dạng số `…Year/…Month`; K3.6 chỉ cần chấp nhận claim ngày `YYYY-MM-01` so sau chuẩn hoá |
 
 Không dùng trong v3 (không cần khoá): lưới trần `cap*`, `median_max_payment`, `share_payment_above_fixed`, `gap*` ở 0,5/2,5.
+
+## K3.6 đã merge (LOCK `2fcc9fcc`, 01/10/2026)
+Đã áp: 72 khoá S05 (`contract_build.py`), claim chưa làm tròn, `claims.illustrative`. Chạy thử S01/S05 trên bản sao: PASS, 0 lệch. `gap_worst_start_all` dùng `worstStartAtSpread:1.5` (một khoảng chênh); K3.6 tự xác nhận 1977-04 ở cả 15.
