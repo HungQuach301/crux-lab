@@ -56,3 +56,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 - 01/10 C3c chủ dự án: KÝ hợp đồng hình (K1–K6 D2+E2, K7 r2). Cam kết C4 giữ: không hạ ngưỡng, trượt thì báo hai số. Trước animatic: kiểm mù nhanh K2/K4/K5 (ý đồ + khoá commit trước khi chạy).
 - 01/10 Kiểm mù nhanh K2/K4/K5: KEY-5 3/3 ĐẠT; KEY-2 0/3 (3 nửa: đọc thành một số dư theo thời gian); KEY-4 0/3 → sửa một vòng theo lệnh C3c.
 - 01/10 Vòng sửa K2 (hình KEY-1, điểm bắt đầu nhảy 3→1,5→0→−1) và K4 (một đường + một hũ, replay 1976-04). Lưu ý báo ở gói C4: khối đỏ K4 không cùng thang với hũ (đã ghi README). Mẫu + khoá r2 commit trước khi chạy.
+- 01/10 Vòng sửa K2/K4: KEY-2 0/3 (3 nửa), KEY-4 1/3 (2 nửa) → trượt sau vòng sửa → gói C3d hỏi chủ dự án. Dự báo C4 ≈ 0,74. EL ký tự: 0.
