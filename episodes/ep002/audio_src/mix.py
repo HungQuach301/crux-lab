@@ -154,7 +154,7 @@ def bandpass(x, lo, hi, order=4):
 # ================================================================== timeline
 class TL:
     def __init__(self, total):
-        t = J('animatic/timing.json')
+        t = json.load(open(EV.TIMING))
         self.timing = t
         self.total = total
         self.N = int(round(total * SR))
@@ -207,7 +207,8 @@ def key_of(sid):
 def picture_cuts(tl):
     """Cuts inside scenes (dips to another picture): out/transitions.json when present, else the anchors whose id starts with 'cut'."""
     if os.path.exists(os.path.join(EP, 'out', 'transitions.json')):
-        ts = [float(c['t']) for c in J('out/transitions.json')['cuts']]
+        # the dips of out/transitions.json ('Sxx/<anchor>'), re-resolved on the current timing through their anchors
+        ts = [EV.A[tuple(c['to'].split('/'))] for c in J('out/transitions.json')['cuts'] if '/' in c['to']]
     else:
         ts = [t for (sc, i), t in EV.A.items() if i.startswith('cut')]
     return sorted(t for t in ts if not any(abs(t - s['start']) < 0.05 for s in tl.scenes))
@@ -708,7 +709,7 @@ def build_voice(tl):
 # ================================================================== main
 def main():
     args = sys.argv[1:]
-    tm = J('animatic/timing.json')
+    tm = json.load(open(EV.TIMING))
     total = float(args[args.index('--total') + 1]) if '--total' in args else float(tm['total_s'])
     tl = TL(total)
     N = tl.N
@@ -729,7 +730,9 @@ def main():
         for br in J('out/adbreaks.json')['breaks']:
             t = br['t'] if isinstance(br, dict) else br
             g = [x for x in gaps if x['start'] - 0.05 <= t <= x['end'] + 0.05]
-            assert g, f'ad break {t} is not inside a voice gap'
+            if not g:
+                log(f'WARNING ad break {t} is not inside a voice gap of this timing: ignored (out/adbreaks.json not re-timed yet?)')
+                continue
             if not any(s['a'] == g[0]['a'] for s in sil):
                 ad.append(dict(g[0], adBreak=t, why='ad break (out/adbreaks.json)'))
             else:
@@ -872,7 +875,7 @@ def main():
     man = {'_about': 'Audio files of the Tập 2 C5 mix; this manifest records them (SHA-256, size). Rebuild: python3 episodes/ep002/audio_src/events.py && '
                      'python3 episodes/ep002/audio_src/mix.py (deterministic seeds). Stems: 48 kHz stereo PCM 24-bit, same time base as out/video.mp4 '
                      '(animatic/timing.json), at mix level: their sum is the master.',
-           'generator': 'episodes/ep002/audio_src/mix.py', 'timing': {'total_s': total, 'sha256': sha256(os.path.join(EP, 'animatic', 'timing.json'))},
+           'generator': 'episodes/ep002/audio_src/mix.py', 'timing': {'path': os.path.relpath(EV.TIMING, EP), 'total_s': total, 'sha256': sha256(EV.TIMING)},
            'sampleRate': SR, 'files': {rel: {'sha256': sha256(p), 'bytes': os.path.getsize(p)} for rel, p in files.items()},
            'master': {'integratedLUFS': m['I'], 'truePeakDbtp': m['TP'], 'LRA': m['LRA']}}
     json.dump(man, open(os.path.join(EP, 'out', 'audio', 'manifest.json'), 'w'), indent=1)

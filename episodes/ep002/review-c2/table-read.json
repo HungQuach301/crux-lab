@@ -99,18 +99,33 @@
    "use": "S07.40ce21fa.seed1.mp3"
   },
   "S08": {
-   "text": "[serious] Here is Leah's same loan, started in April nineteen seventy-seven. It begins at seven point five percent, like every replay, and for a while her cushion grows. Then the Treasury bill rate climbs year after year, and her rate follows it, to nineteen point three percent at its highest. The cushion from her first months is soon gone, and every further month above nine percent adds to what she owes in interest. Her payment reaches eight hundred sixty-three dollars and thirty-six cents a month, against the fixed six hundred thirty-three dollars and thirty-eight cents. Over ten years, the fixed loan charges twenty-six thousand five dollars in interest. Leah's variable loan charges forty-three percent more interest than the fixed loan, the worst stretch in the whole replay. This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller.",
+   "text": "[serious] Here is Leah's same loan, started in April nineteen seventy-seven. It begins at seven point five percent, like every replay, and for a while her cushion grows. Then the Treasury bill rate climbs year after year, and her rate follows it, to nineteen point three percent at its highest. The cushion from her first months is soon gone, and every further month above nine percent adds to what she owes in interest. Her payment reaches eight hundred sixty-three dollars and thirty-six cents a month, against the fixed six hundred thirty-three dollars and thirty-eight cents. Over ten years, the fixed loan charges twenty-six thousand five dollars in interest, in dollars of the day. Leah's variable loan charges forty-three percent more interest than the fixed loan, the worst stretch in the whole replay. This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller.",
    "takes": [
     {
-     "file": "S08.86081e12.seed1.mp3",
+     "file": "S08.d97e2064.seed1.mp3",
      "seed": 1,
-     "characterCost": 392,
-     "len": 891,
+     "characterCost": 402,
+     "len": 914,
      "missing": [],
-     "asr": "Here is Leah's same loan, started in April, 1977. It begins at 7 .5 percent like every replay, and for a while her cushion grows. Then the Treasury bill rate climbs year after year, and her rate follows it to 19 .3 percent at its highest. The cushion from her first months is soon gone, and every further month above 9 percent adds to what she owes in interest. interest. Her payment reaches $863 .36 a month, against the fixed $633 .38. Over 10 years, the fixed loan charges $26 ,005 in interest. Leah's variable loan charges 43 % more interest than the fixed loan, the worst stretch in the whole replay. This replay has no rate cap. A real loan's cap, if low enough, would have made this worst case smaller."
+     "asr": "Here is Leah's same loan, started in April 1977. It begins at 7 .5 percent, like every replay, and for a while her cushion grows. Then the Treasury bill rate climbs year after year, and her rate follows it to 19 .3 percent at its highest. The cushion from her first months is soon gone, and every further month above 9 percent adds to what she owes in interest. Her payment reaches $863 .36 a month against the fixed $633 .38. Over 10 years, the fixed loan charges $26 ,005 in interest, in dollars of the day. Leah's variable loan charges 43 % more interest than the fixed loan, the worst stretch in the whole replay. This replay has no rate cap. A real loans cap, if low enough, would have made this worst case smaller."
     }
    ],
-   "use": "S08.86081e12.seed1.mp3"
+   "previous": {
+    "text": "[serious] Here is Leah's same loan, started in April nineteen seventy-seven. It begins at seven point five percent, like every replay, and for a while her cushion grows. Then the Treasury bill rate climbs year after year, and her rate follows it, to nineteen point three percent at its highest. The cushion from her first months is soon gone, and every further month above nine percent adds to what she owes in interest. Her payment reaches eight hundred sixty-three dollars and thirty-six cents a month, against the fixed six hundred thirty-three dollars and thirty-eight cents. Over ten years, the fixed loan charges twenty-six thousand five dollars in interest. Leah's variable loan charges forty-three percent more interest than the fixed loan, the worst stretch in the whole replay. This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller.",
+    "use": "S08.86081e12.seed1.mp3",
+    "takes": [
+     {
+      "file": "S08.86081e12.seed1.mp3",
+      "seed": 1,
+      "characterCost": 392,
+      "len": 891,
+      "missing": [],
+      "asr": "Here is Leah's same loan, started in April, 1977. It begins at 7 .5 percent like every replay, and for a while her cushion grows. Then the Treasury bill rate climbs year after year, and her rate follows it to 19 .3 percent at its highest. The cushion from her first months is soon gone, and every further month above 9 percent adds to what she owes in interest. interest. Her payment reaches $863 .36 a month, against the fixed $633 .38. Over 10 years, the fixed loan charges $26 ,005 in interest. Leah's variable loan charges 43 % more interest than the fixed loan, the worst stretch in the whole replay. This replay has no rate cap. A real loan's cap, if low enough, would have made this worst case smaller."
+     }
+    ]
+   },
+   "regenerated": "C5 stream A (script change)",
+   "use": "S08.d97e2064.seed1.mp3"
   },
   "S09": {
    "text": "So far, every result has been for one pair of rates, seven point five percent against nine percent. So the replay ran again, holding the fixed rate at nine percent and moving only where the variable rate starts. Each starting point is a different offer someone could be holding. Leah's one point five points gives the split already heard, with her April nineteen seventy-seven worst. At two points, none of the starts from nineteen eighty-one on cost more, but twenty point four percent of the nineteen fifty-four-to-nineteen eighty starts still did, the worst by nine thousand four hundred seventy-two dollars. [thoughtful] At three points, still none from nineteen eighty-one on, but ten point five percent of the nineteen fifty-four-to-nineteen eighty starts cost more, the worst by six thousand thirty-three dollars.",
@@ -197,5 +212,5 @@
    "use": "S13.seed1.mp3"
   }
  },
- "chars": 3819
+ "chars": 4221
 }

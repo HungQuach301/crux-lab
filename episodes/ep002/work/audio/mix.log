@@ -1,15 +1,6 @@
-12:29:42 total 584.4 samples 28051200
-/home/user/crux-lab/episodes/ep002/audio_src/mix.py:169: RuntimeWarning: invalid value encountered in sqrt
-  e = 20 * np.log10(np.sqrt(uniform_filter1d(voice ** 2, w)) + 1e-12)
-12:29:48 silences [(np.float64(26.15), np.float64(0.85)), (np.float64(174.31), np.float64(1.04)), (np.float64(221.22), np.float64(1.71)), (np.float64(319.44), np.float64(1.2)), (np.float64(375.52), np.float64(1.0)), (np.float64(503.83), np.float64(1.14)), (np.float64(564.71), np.float64(1.01))]
-/home/user/crux-lab/episodes/ep002/audio_src/mix.py:724: RuntimeWarning: invalid value encountered in sqrt
-  e10 = 20 * np.log10(np.sqrt(uniform_filter1d(voice ** 2, int(0.01 * SR))) + 1e-9)
-12:29:57 music: arrangement 294 bars
-12:30:11 music: reverb
-12:30:21 sonify: 450 notes
-/home/user/crux-lab/episodes/ep002/audio_src/mix.py:572: RuntimeWarning: invalid value encountered in sqrt
-  env = 20 * np.log10(np.sqrt(uniform_filter1d(voice ** 2, int(0.01 * SR))) + 1e-9)
-12:31:41 mix
-12:32:18 limiter
-12:32:43 master {'I': -14.1, 'LRA': 3.1, 'TP': -1.5}
-12:33:54 done {"master": {"I": -14.1, "LRA": 3.1, "TP": -1.5}, "limiterMinGainDb": -2.19, "voiceOverMusicDb_A07": 19.95, "sonBandShare": 0.9711567341103552, "stemLevelsDbfs": {"voice": -17.76, "music": -36.45, "sonify": -46.39, "room": -66.33}}
+12:42:53 total 589.1667 samples 28280002
+12:42:59 WARNING ad break 375.897 is not inside a voice gap of this timing: ignored (out/adbreaks.json not re-timed yet?)
+12:42:59 silences [(np.float64(26.15), np.float64(0.85)), (np.float64(174.31), np.float64(1.04)), (np.float64(221.22), np.float64(1.71)), (np.float64(319.44), np.float64(1.17)), (np.float64(380.33), np.float64(0.95)), (np.float64(508.59), np.float64(1.14)), (np.float64(569.48), np.float64(1.01))]
+12:43:07 music: arrangement 299 bars
+12:43:18 music: reverb
+12:43:28 sonify: 455 notes

@@ -31,7 +31,8 @@ import re
 EP = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 AN = os.path.join(EP, 'animatic')
 FPS = 30
-TM = json.load(open(os.path.join(AN, 'timing.json')))
+TIMING = os.environ.get('EP2_TIMING') or os.path.join(AN, 'timing.json')   # EP2_TIMING: a preview timing (scratch) before the picture's own
+TM = json.load(open(TIMING))
 SENT = {s['id']: s for sc in TM['scenes'] for s in sc['sentences']}
 SCENE_END = {s['id']: s['end'] for s in TM['scenes']}
 norm = lambda s: [w for w in re.sub(r"[^a-z0-9']+", ' ', s.lower().replace('’', "'")).split() if w]
