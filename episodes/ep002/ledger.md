@@ -50,3 +50,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 - 01/10 C3(a) vòng 2: KEY-1 2/3 ĐẠT; KEY-7 0/3 (1 nửa) TRƯỢT lần 2 → gói C3b phương án lên chủ dự án. EL ký tự: 0.
 - 01/10 Pha 2: K2–K6 dựng ở hệ cuối D2+E2 (K2/K4 từ H2; K3/K5/K6 từ H3). Thay đổi người xem thấy (không phải gu, báo ở gói kế): số ở K3 đổi từ đỏ sang ink vì #C72323 chỉ đạt 3,3:1 trên nền, không mang được chữ. K6 ghi '43% more' (worst_share_of_fixed) thay '+$11,219' cho khớp lời S08.7. Ô K7 chờ chủ dự án (C3b, issue #17).
 - 01/10 C3b chủ dự án: KEY-7 = (A) 3 ô tĩnh + thùng token KEY-3 (không cột đỏ); 1 vòng mù, trượt → (B) không thêm vòng. Duyệt 2 thay đổi màn hình (số K3 màu ink; K6 '43% more', 'Starting April 1977'). Ý đồ r3 ghi trước.
+- 01/10 KEY-7 (A) dựng: 3 ô tĩnh, thùng 20 token (đỏ 16/8, 6/1, 2/0 làm tròn từ gap00/gap15/gap30). Nhãn '0 points'/'3 points' chưa có claim dạng chữ → thêm ở C5 (việc treo). Mẫu + khoá r3 commit trước khi chạy.

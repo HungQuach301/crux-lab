@@ -84,3 +84,20 @@ Dựng lại: `python3 src/build_data.py && python3 src/h3/build_data.py`, sau �
 \* khoảng trắng giữa số và chữ phụ trong cùng nhãn. D5: chữ phụ cạnh số ("fixed", "more", "went above the fixed rate", "cost more in total") dùng `ink-muted`. Số nhấn dùng `ink`; riêng 76.2% dùng `warn` (10,2:1).
 
 Giới hạn: dải 6 khung của các nhịp H3 giữ khuôn của H3 (số trong ô vàng phía trên khung), còn các nhịp H2 và K1/K7 đánh số dưới khung. Bể/hũ ở K6 gần như không đầy (đệm tối đa $218, theo đúng dữ liệu).
+
+## KEY-7 vòng 3 — phương án (A) của chủ dự án (ý đồ đã ghi trước ở `gates/C3-K7-intent-r3.md`)
+Bản vòng 2 được giữ lại: `K7-r2.mp4`, `K7-r2-strip(-masked).png`, `src/k7_r2.js`, `work/render-log-K7-r2.json`. `K7.*` hiện là bản (A): 9 s, 1280×720, 30 fps, H.264 High.
+- **Bố cục:** ba ô tĩnh cạnh nhau, hiện lần lượt từ trái sang phải ở 0,6 s / 3,0 s / 5,4 s. Mỗi ô hiện ra đã đầy đủ (mờ dần vào trong 0,25 s) rồi đứng yên tới cuối; không có gì lớn dần.
+- **Đầu mỗi ô:** hình KEY-1 r2, gồm vạch 9% (`ink-muted`) và điểm bắt đầu thả nổi (đường `ink` có thoi) nằm thấp hơn vạch đúng bằng khoảng chênh 0 / 1.5 / 3 điểm. Cả ba ô dùng chung một thang, 70 px thiết kế mỗi điểm. Khe giữa vạch và điểm bắt đầu tô `cushion #269783`.
+- **Dưới mỗi ô:** hai thùng token kiểu KEY-3, trái "1954–1980", phải "from 1981". Mỗi thùng có **20 token**, xếp 5×4. Token đỏ (`#C72323`) là đắt hơn và nằm dồn xuống đáy; token còn lại màu `grid`. Số token đỏ = tỉ lệ đắt hơn × 20, làm tròn:
+
+| Ô | khoảng chênh (claim) | 1954–1980 | from 1981 |
+|---|---|---|---|
+| 1 | "0 points" (`gap00_early`/`gap00_late`, formula "gap 0.0") | 79% → **16/20** (`gap00_early`) | 42% → **8/20** (`gap00_late`) |
+| 2 | "1.5 points" (`gap_start`) | 28.4% → **6/20** (`gap15_early`) | 3.5% → **1/20** (`gap15_late`) |
+| 3 | "3 points" (`gap30_early`/`gap30_late`, formula "gap 3.0") | 10.5% → **2/20** (`gap30_early`) | 0% → **0/20**, sạch hẳn (`gap30_late`) |
+
+- **Chữ:** trên hình chỉ có nhãn khoảng chênh, nhãn thùng (ghi theo `n_early`/`n_late`) và huy hiệu ILLUSTRATIVE. Không in tỉ lệ nào; các tỉ lệ chỉ thể hiện bằng số token đỏ.
+- **Lưu ý về claim:** "0 points" và "3 points" không có claim nào có display đúng chuỗi đó; giá trị lấy từ formula "gap 0.0"/"gap 3.0". "1980" cũng không có trong display nào; nó lấy từ formula của `n_early` ("1954-01..1980-12").
+- **Dải 6 khung (t = 1.2, 2.6, 3.6, 5.0, 6.0, 8.8):** ô 1 → ô 1 → ô 1+2 → ô 1+2 → cả ba → cả ba. Bản che làm bằng cờ `mask`.
+- **Tự kiểm (px ở 720p):** chữ→đồ hoạ nhỏ nhất 8,6 (huy hiệu ↔ viền ô 3); các nhãn khác ≥ 14. Chữ→chữ ≥ 29,6. Tương phản nhỏ nhất 7,50:1 (nhãn thùng `ink-muted`); huy hiệu 10,25:1. Chữ nhỏ nhất 48 px @1080. Không có chữ ngoài vùng an toàn.
