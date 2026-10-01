@@ -61,6 +61,6 @@ export function draw(ctx, t) {
   // one number per moment (claims): Leah's head start; right half none at 2 points; left half still 10.5% at 3 points
   text(ctx, CL('gap_start'), lx('early', 1.5), 1040, 'label', { align: 'center', alpha: inout(t, 3.5, 3.8, 4.4, 4.7) });
   text(ctx, CL('gap20_late'), lx('late', 2) - 20, 760, 'number', { alpha: inout(t, 5.3, 5.6, 6.6, 6.9) });
-  text(ctx, CL('gap30_early'), lx('early', 3) + BW / 2 + 6, 700, 'number', { align: 'right', alpha: ease(t, 7.5, 7.8) });
+  text(ctx, CL('gap30_early'), lx('early', 3) + BW / 2, 686, 'number', { align: 'right', alpha: ease(t, 7.5, 7.8) });
   badge(ctx, a);
 }
