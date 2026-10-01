@@ -9,3 +9,4 @@
 - 13:09 mix cuối xong: −14,1 LUFS, TP −1,5 dBTP, LRA 3,2, A07 19,97 dB; 7 khoảng lặng, 2 điểm quảng cáo (221,99 / 380,92) nằm trong khe im; đang chạy luật âm thanh (bản sao checks)
 - 13:35 luật (bản sao K3.6): CHẶN A01 A02 A04 A05 A06 đạt, A14 trượt 6 từ (dạng chữ/ASR, xem README); CHÍNH A18, L1 đạt; tham khảo trượt A03 T2 T3 A17 R02 R03. README xong. Không commit.
 - 13:41 v5.2: sinh lại S04 (seed1, 316), S09 (seed1 trượt '1980', seed2 0 thiếu, 730), S10 (seed1, 379); EL C5 tổng 1 827 ký tự. Timing xem trước 585,6 s; chờ timing.json của P
+- 14:09 mix cuối trên timing 585,6 s (hạ nền −8 dB quanh 'Leah' S02.2): −14,1 LUFS, TP −1,5; luật: mọi CHẶN đạt (A14 0 thiếu), L1/A18 đạt; tham khảo trượt A03 T2 T3 A17 R02 R03. README/manifest cập nhật. Không commit.

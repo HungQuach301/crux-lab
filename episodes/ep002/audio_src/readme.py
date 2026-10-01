@@ -57,11 +57,10 @@ if ck:
         meas = '; '.join(f"{x['name']} {x['value']}" for x in r.get('metrics', []))
         L.append(f"| {r['id']} ({r.get('tier')}) | {r['status']} | {meas[:180].replace('|', '/')} |")
     L.append('')
-    L.append('Bản ghi: video tạm = nền màu + master (AAC 320k) chỉ để luật đọc tiếng chạy; P mux bản thật rồi chạy lại. '
-             'A14: "1980" ×3 (S09.5, S09.6, S10.3: ASR viết "1954 -1980", bộ đọc số hiểu là −1980), "1" ở S04.4 ("minus 1 point" → −1), '
-             '"$9,472" ở S09.5 (cả stem lời một mình cũng nghe 9,407: lỗi take/ASR, không phải mix), "Leah" ở S02.2 (chỉ trên master; stem lời đạt; L1: 0 từ mất vì tiếng dữ liệu). '
-             'T2 (tham khảo): nhạc kiểu C có ostinato cùng âm giai nên chroma 4 ô giống nhau ≥ 0,90 dù chuỗi hợp âm không lặp (Tập 1 kiểu C: 29%). '
-             'T3 (tham khảo): 4 lối vào ngoài 150–400 ms (pad tự tắt dần trước khoảng lặng vì không có nốt mới 1,3 s trước, như Tập 1). '
-             'A03 LRA 3,2 (tham khảo; lời ưu tiên, như Tập 1). A17/R02/R03 đo lời và nhịp kịch bản, không do mix.')
+    L.append('Video tạm = nền màu + master (AAC 320k), chỉ để các luật đọc tiếng từ video chạy được; khi P mux bản thật thì chạy lại các luật đó. '
+             'Mọi luật CHẶN về tiếng đều đạt (A14: 0/151 từ khoá thiếu trên master). '
+             'T2 (tham khảo): ostinato kiểu C dùng chung một âm giai nên chroma của các câu 4 ô giống nhau ≥ 0,90, dù chuỗi hợp âm không lặp; Tập 1 kiểu C đo 29%. Gu C đã khoá nên không đổi. '
+             'T3 (tham khảo): lối vào khoảng lặng chậm vì pad tự tắt dần (1,3 s trước khoảng lặng không có nốt mới), giống Tập 1. '
+             'A03 LRA (tham khảo): thấp vì lời được ưu tiên, giống Tập 1. A17/R02/R03 đo lời và nhịp kịch bản, không phụ thuộc mix.')
 open(os.path.join(EP, 'out', 'audio', 'README.md'), 'w').write('\n'.join(L) + '\n')
 print('README written')
