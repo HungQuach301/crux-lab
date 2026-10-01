@@ -51,7 +51,7 @@ Mọi hồ sơ đạt V0 (đủ tệp, cardcheck, mới lạ hợp lệ), V1 (t�
 
 ## Bước 2
 
-Cả 12 thẻ máy ≥ 4 → 12 hồ sơ ≤ 5 dòng, trang https://claude.ai/artifact/FAia52SXAVv4BQroQrToYE (`step2/`). Kết quả "Có/Không" → `topics/queue.md`. *(Chờ chủ dự án.)*
+Cả 12 thẻ máy ≥ 4 → 12 hồ sơ ≤ 5 dòng, trang https://claude.ai/artifact/FAia52SXAVv4BQroQrToYE (`step2/`). Chủ dự án chọn **Có cho cả 12/12** (`step2/step2-code.txt`) → `topics/queue.md`. Bước 2 cũng không lọc: mọi hồ sơ máy hợp lệ được nhận.
 
 ## Chi phí
 
