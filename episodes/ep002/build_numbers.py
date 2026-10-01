@@ -12,7 +12,7 @@ MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
 mon = lambda d: f"{MON[int(d[5:7]) - 1]} {d[:4]}"
 usd = lambda v: ('−' if v < 0 else '') + f"${abs(v):,.0f}"
 usd2 = lambda v: f"${v:,.2f}"
-pct = lambda v: f"{v:.1f}%"
+pct = lambda v: (f"{v:.1f}%").replace(".0%", "%")
 
 claims = []
 
@@ -38,7 +38,7 @@ add('index_today', B['index_today'], f"{B['index_today']:.2f}%", f"TB3MS, last o
 add('margin', B['margin'], f"{B['margin']:.2f} points", 'var_start − index_today')
 tb = [(r[0], float(r[1])) for r in list(csv.reader(open(os.path.join(EP, 'data/raw/TB3MS.csv'))))[1:]]
 pk = max(tb, key=lambda t: t[1])
-add('tb_peak', pk[1], f"{pk[1]:.2f}%", 'max TB3MS 1934-01..2026-08', kind='data', illustrative=False,
+add('tb_peak', pk[1], f"{pk[1]:.1f}%", 'max TB3MS 1934-01..2026-08', kind='data', illustrative=False,
     date=pk[0], words=mon(pk[0]))
 # ---- lõi
 add('n_starts', B['n_starts'], f"{B['n_starts']}", 'start months with a full 120-month window, 1954-01..2016-09')
@@ -67,7 +67,7 @@ add('worst_peak_rate', round(ww['maxRate'], 2), f"{ww['maxRate']:.1f}%", 'highes
 add('worst_share_of_fixed', round(100 * B['worst_variable_minus_fixed'] / B['fixed_total_interest']),
     f"{round(100 * B['worst_variable_minus_fixed'] / B['fixed_total_interest'])}%", 'worst_diff / fixed_int')
 bw = min(W, key=lambda w: w['diff'])
-add('best_diff', B['best_variable_minus_fixed'], usd(B['best_variable_minus_fixed']), 'min Difference')
+add('best_diff', B['best_variable_minus_fixed'], usd(B['best_variable_minus_fixed']), 'min Difference', words=f"{usd(-B['best_variable_minus_fixed'])} less")
 add('best_start', bw['start'], mon(bw['start']), 'start month of the min Difference')
 add('best_start_year', int(bw['start'][:4]), bw['start'][:4], 'year of best_start (S05 numeric)')
 add('best_start_month', int(bw['start'][5:7]), MON[int(bw['start'][5:7])-1], 'month of best_start (S05 numeric)')
@@ -102,6 +102,23 @@ for c, d in M['caps'].items():
     add(f'cap{c}_share', d['share_costlier'], pct(d['share_costlier']), f'share costlier, rate capped at {c}%', scope='b', k36='nhiều mức trần')
     add(f'cap{c}_early', d['share_costlier_1954_1980'], pct(d['share_costlier_1954_1980']), f'cap {c}: 1954-1980', scope='b', k36='nhiều mức trần')
     add(f'cap{c}_worst', d['worst_diff'], '+' + usd(d['worst_diff']), f'cap {c}: worst Difference', scope='b', k36='nhiều mức trần')
+
+# ---- cách nói / đại lượng dẫn xuất từ claim đã kiểm (needs-claims.md mục A, B)
+for cc in claims:
+    if cc['claimId'].endswith('_late') and cc['value'] == 0:
+        cc['words'] = 'none'
+ge = {g: d['share_costlier_1954_1980'] for g, d in M['gaps'].items()}
+gmin = min(ge, key=ge.get)
+add('min_gap_early', ge[gmin], pct(ge[gmin]), f'lowest 1954-1980 share costlier over every head start tested (-1..3); at {gmin} points; > 0', scope='b',
+    words='never fell to zero', k36='min theo khoảng chênh, theo thời kỳ')
+add('first_payment_gap', round(PAY['fixed_payment'] - PAY['variable_first_payment'], 2), usd2(PAY['fixed_payment'] - PAY['variable_first_payment']),
+    'fixed_payment − var_first_payment', scope='b', words='about $40 less a month')
+ws = {d['worst_start'] for d in M['gaps'].values()}
+add('gap_worst_start_all', sorted(ws)[0] if len(ws) == 1 else None, 'April 1977' if ws == {'1977-04-01'} else 'MIXED',
+    'worst start month is the same for every head start tested (-1..3)', scope='b', k36='worst theo khoảng chênh')
+for cc in claims:
+    if cc['claimId'] == 'max_payment':
+        cc['words'] = f"{usd2(cc['value'])} a month, in the stretch starting {mon(PAY['max_variable_payment_start'])}"
 
 # ---- bối cảnh chính sách / neo lãi (data/context.json, khi đã xác minh)
 ctx = os.path.join(EP, 'data/context.json')

@@ -124,7 +124,7 @@
   {
    "claimId": "tb_peak",
    "value": 16.3,
-   "display": "16.30%",
+   "display": "16.3%",
    "formula": "max TB3MS 1934-01..2026-08",
    "source": {
     "id": "fred-tb3ms",
@@ -459,7 +459,8 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "basis": "nominal"
+   "basis": "nominal",
+   "words": "$15,295 less"
   },
   {
    "claimId": "best_start",
@@ -605,7 +606,8 @@
    "kind": "model",
    "basis": "nominal",
    "start": "1977-04-01",
-   "scope": "b"
+   "scope": "b",
+   "words": "$863.36 a month, in the stretch starting April 1977"
   },
   {
    "claimId": "median_max_payment",
@@ -702,7 +704,7 @@
   {
    "claimId": "spread025_share",
    "value": 50.99601593625498,
-   "display": "51.0%",
+   "display": "51%",
    "formula": "share costlier when the variable rate starts 0.25 points under 9% (K3.5 shareCostlierAtSpread)",
    "source": {
     "id": "fred-tb3ms",
@@ -738,7 +740,7 @@
   {
    "claimId": "spread075_share",
    "value": 35.98937583001328,
-   "display": "36.0%",
+   "display": "36%",
    "formula": "share costlier when the variable rate starts 0.75 points under 9% (K3.5 shareCostlierAtSpread)",
    "source": {
     "id": "fred-tb3ms",
@@ -864,7 +866,7 @@
   {
    "claimId": "spread25_share",
    "value": 5.9760956175298805,
-   "display": "6.0%",
+   "display": "6%",
    "formula": "share costlier when the variable rate starts 2.5 points under 9% (K3.5 shareCostlierAtSpread)",
    "source": {
     "id": "fred-tb3ms",
@@ -976,7 +978,7 @@
   {
    "claimId": "gapm05_early",
    "value": 88.0,
-   "display": "88.0%",
+   "display": "88%",
    "formula": "gap -0.5: 1954-1980",
    "source": {
     "id": "fred-tb3ms",
@@ -1034,7 +1036,7 @@
   {
    "claimId": "gap00_early",
    "value": 79.0,
-   "display": "79.0%",
+   "display": "79%",
    "formula": "gap 0.0: 1954-1980",
    "source": {
     "id": "fred-tb3ms",
@@ -1053,7 +1055,7 @@
   {
    "claimId": "gap00_late",
    "value": 42.0,
-   "display": "42.0%",
+   "display": "42%",
    "formula": "gap 0.0: 1981 on",
    "source": {
     "id": "fred-tb3ms",
@@ -1285,7 +1287,7 @@
   {
    "claimId": "gap20_late",
    "value": 0.0,
-   "display": "0.0%",
+   "display": "0%",
    "formula": "gap 2.0: 1981 on",
    "source": {
     "id": "fred-tb3ms",
@@ -1299,7 +1301,8 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3",
+   "words": "none"
   },
   {
    "claimId": "gap20_worst",
@@ -1343,7 +1346,7 @@
   {
    "claimId": "gap25_late",
    "value": 0.0,
-   "display": "0.0%",
+   "display": "0%",
    "formula": "gap 2.5: 1981 on",
    "source": {
     "id": "fred-tb3ms",
@@ -1357,7 +1360,8 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3",
+   "words": "none"
   },
   {
    "claimId": "gap25_worst",
@@ -1401,7 +1405,7 @@
   {
    "claimId": "gap30_late",
    "value": 0.0,
-   "display": "0.0%",
+   "display": "0%",
    "formula": "gap 3.0: 1981 on",
    "source": {
     "id": "fred-tb3ms",
@@ -1415,7 +1419,8 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3",
+   "words": "none"
   },
   {
    "claimId": "gap30_worst",
@@ -1668,6 +1673,65 @@
    "basis": "nominal",
    "scope": "b",
    "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+  },
+  {
+   "claimId": "min_gap_early",
+   "value": 10.5,
+   "display": "10.5%",
+   "formula": "lowest 1954-1980 share costlier over every head start tested (-1..3); at 3.0 points; > 0",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b",
+   "words": "never fell to zero",
+   "k36": "min theo kho\u1ea3ng ch\u00eanh, theo th\u1eddi k\u1ef3"
+  },
+  {
+   "claimId": "first_payment_gap",
+   "value": 39.87,
+   "display": "$39.87",
+   "formula": "fixed_payment \u2212 var_first_payment",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b",
+   "words": "about $40 less a month"
+  },
+  {
+   "claimId": "gap_worst_start_all",
+   "value": "1977-04-01",
+   "display": "April 1977",
+   "formula": "worst start month is the same for every head start tested (-1..3)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b",
+   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
   },
   {
    "claimId": "ctx_plus_end",
