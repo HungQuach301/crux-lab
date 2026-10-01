@@ -1,0 +1,74 @@
+{
+ "decision": "Sell now at the short-term tax rate, or wait a month for the lower long-term rate?",
+ "queries": [
+  "sell stock before one year short-term vs wait for long-term capital gains historical risk of price drop data",
+  "wait to sell until long-term capital gains one more month historical S&P 500 drop more than tax savings analysis",
+  "held stock 11 months sell now or wait 30 days for long-term rate how often does the market fall enough to erase the tax savings"
+ ],
+ "results": [
+  {
+   "query": "sell stock before one year short-term vs wait for long-term capital gains historical risk of price drop data",
+   "title": "Long-term vs. Short-term capital gains",
+   "url": "https://trendspider.com/learning-center/long-term-vs-short-term-capital-gains/"
+  },
+  {
+   "query": "sell stock before one year short-term vs wait for long-term capital gains historical risk of price drop data",
+   "title": "Short Term vs Long Term Capital Gains",
+   "url": "https://www.firstrade.com/resources/tax-center/long-vs-short-term"
+  },
+  {
+   "query": "sell stock before one year short-term vs wait for long-term capital gains historical risk of price drop data",
+   "title": "What Are Your Odds of Losing Money in the Stock Market?",
+   "url": "https://clark.com/personal-finance-credit/investing-retirement/what-are-your-odds-of-losing-money-in-the-stock-market/"
+  },
+  {
+   "query": "wait to sell until long-term capital gains one more month historical S&P 500 drop more than tax savings analysis",
+   "title": "A Guide to Capital Gains: Patience Pays Off",
+   "url": "https://fooletfs.com/insights/a-guide-to-capital-gains-patience-pays-off"
+  },
+  {
+   "query": "wait to sell until long-term capital gains one more month historical S&P 500 drop more than tax savings analysis",
+   "title": "Short-Term vs Long-Term Capital Gains Tax: 2026 Guide",
+   "url": "https://capitaltaxcalc.com/guides/short-term-capital-gains-tax"
+  },
+  {
+   "query": "wait to sell until long-term capital gains one more month historical S&P 500 drop more than tax savings analysis",
+   "title": "Duane Morris LLP - Tax-Planning Strategies for Stock Market Gains",
+   "url": "https://www.duanemorris.com/alerts/tax_planning_for_stock_market_gains_3478.html"
+  },
+  {
+   "query": "held stock 11 months sell now or wait 30 days for long-term rate how often does the market fall enough to erase the tax savings",
+   "title": "Holding Periods for Capital Assets - Henssler Financial",
+   "url": "https://www.henssler.com/holding-periods-for-capital-assets/"
+  },
+  {
+   "query": "held stock 11 months sell now or wait 30 days for long-term rate how often does the market fall enough to erase the tax savings",
+   "title": "Short Term Capital Gains Tax: What You Need to Know",
+   "url": "https://attracctadvisors.com/blog/post/short-term-capital-gains-tax-what-you-need-to-know-before-you-sell/"
+  },
+  {
+   "query": "held stock 11 months sell now or wait 30 days for long-term rate how often does the market fall enough to erase the tax savings",
+   "title": "Common questions about stock market volatility",
+   "url": "https://investor.vanguard.com/investor-resources-education/article/top-market-volatility-questions-answered"
+  }
+ ],
+ "verdict": "answered-without-data",
+ "nearest": [
+  {
+   "title": "Henssler Financial - Holding Periods for Capital Assets",
+   "url": "https://www.henssler.com/holding-periods-for-capital-assets/",
+   "why": "Discusses waiting the final month and the break-even drop as a percentage, but (per search snippet) uses general correction frequencies, not a count of month-long windows from index data."
+  },
+  {
+   "title": "A Guide to Capital Gains: Patience Pays Off",
+   "url": "https://fooletfs.com/insights/a-guide-to-capital-gains-patience-pays-off",
+   "why": "Tax-saving arithmetic for waiting; no measured frequency of drops larger than the break-even."
+  },
+  {
+   "title": "What Are Your Odds of Losing Money in the Stock Market?",
+   "url": "https://clark.com/personal-finance-credit/investing-retirement/what-are-your-odds-of-losing-money-in-the-stock-market/",
+   "why": "Loss odds over 1-year and longer horizons, not over the one-month wait tied to the tax break-even."
+  }
+ ],
+ "note": "The decision is widely explained with break-even arithmetic and rules of thumb ('almost always worth waiting'), plus annual correction statistics. None found measures, over actual daily index data, how often a one-month wait lost more than the tax saving. Titles and URLs only; pages not fetched."
+}
