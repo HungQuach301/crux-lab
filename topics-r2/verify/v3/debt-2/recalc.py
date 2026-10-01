@@ -42,7 +42,11 @@ res = {}
 latest = max(rate)
 res['rate_month_latest'] = latest
 rl = rate[latest]
-res['rate_latest'] = round(rl, 3)
+from decimal import Decimal, ROUND_HALF_UP
+# exact decimal mean of weekly values, rounded half-up (float round() gives 6.862 due to binary repr / half-even)
+rl_dec = sum(Decimal(str(v)) for v in wk[latest]) / len(wk[latest])
+res['rate_latest'] = float(rl_dec.quantize(Decimal('0.001'), rounding=ROUND_HALF_UP))
+res['_rate_latest_exact'] = str(rl_dec)
 res['sched80_months_latest'] = sched(rl, 0.80)
 res['sched78_months_latest'] = sched(rl, 0.78)
 
@@ -64,6 +68,6 @@ res['maxB_start'] = [m for m in B if fk[m] == mx][0]
 res['_maxB_ties'] = [m for m in B if fk[m] == mx]
 res['shareB_le_sched80'] = round(sum(fk[m] <= sched(rate[m], 0.80) for m in B)/len(B), 3)
 print(json.dumps(res, indent=1))
-res.pop('_maxB_ties')
+res.pop('_maxB_ties'); res.pop('_rate_latest_exact')
 json.dump(res, open('result.json', 'w'), indent=1)
 print('weeks', wk[latest], 'rate', rl)
