@@ -1,0 +1,161 @@
+{
+ "rules": "1 = nêu đủ phần ĐÚNG NGHĨA; 0,5 = nêu đúng một trong hai phần nghĩa; 0 = chỉ tả hình hoặc nghĩa khác.",
+ "rubrics": {
+  "R01": "ĐÚNG NGHĨA: Lãi vay mua nhà ở Mỹ rơi xuống đáy đầu 2026 rồi lên lại trên 7%; ở đáy, một người đang trả lãi cao đã có thể bớt một khoản mỗi tháng nhưng không làm. (ý bắt buộc: (a) đường lãi đi xuống tới một đáy (5.98%) rồi leo lại lên trên 7%; (b) một người vay ở lãi cao (7.62%) có thể trả bớt $459/tháng; (c) khoản đó không thành / bị bỏ lỡ.)  ||  CHỈ TẢ HÌNH (= 0): mô tả hình/số mà không nêu nghĩa trên",
+  "R02": "ĐÚNG NGHĨA (cần đủ): (i) khi lãi thả nổi **dưới** mức cố định thì **tích một khoản đệm/tiết kiệm**; khi **trên** thì khoản đệm **bị rút**; **và** (ii) chỉ **tốn hơn** khi khoản đệm **cạn**  ||  CHỈ TẢ HÌNH (= 0): \"hũ đầy rồi cạn, rồi khối đỏ\" không gắn với lãi trên/dưới mức cố định; \"lãi cộng dồn làm nợ phình\"",
+  "R03": "ĐÚNG NGHĨA (cần đủ): (i) một người cân nhắc **hai khoản vay / hai mức lãi**: một **cố định**, một **thả nổi**; **và** (ii) khoản thả nổi **bắt đầu thấp hơn** khoản cố định rồi lên xuống  ||  CHỈ TẢ HÌNH (= 0): \"hai tài liệu, một đường phẳng, một đường răng cưa\"; \"một số dư dao động\"",
+  "R04": "ĐÚNG NGHĨA (cần đủ): (i) **head start lớn hơn → ít lần tốn hơn** (gắn với khoảng chênh lúc đầu, không với thời gian/trả nợ); **và** (ii) **hai thời kỳ khác nhau**: **từ 1981** sạch ở khoảng chênh đủ lớn, **1954–1980** không bao giờ sạch hẳn  ||  CHỈ TẢ HÌNH (= 0): \"cột nợ đỏ được trả dần\"; \"trả ít thì nợ phình\"",
+  "R05": "ĐÚNG NGHĨA (cần đủ): (i) **cùng một khoản vay** được **chạy lại** bắt đầu ở **nhiều thời điểm** dọc lịch sử dài (từ 1954); **và** (ii) mỗi kết quả xếp theo **thời điểm bắt đầu**  ||  CHỈ TẢ HÌNH (= 0): \"cửa sổ trượt trên một biểu đồ thị trường\" mà không có khoản vay/chạy lại; \"lợi nhuận đầu tư theo thời điểm\"",
+  "R06": "ĐÚNG NGHĨA: \"Luật\" giảm một điểm được dùng làm phép thử; năm 2026 lãi đã thấp hơn lãi của Nora ít nhất 1 điểm trong 29 tuần (sâu nhất 1.64 điểm), rồi cửa sổ đóng sau 23/7/2026; đây là lịch sử, không dự báo. (ý bắt buộc: (a) một vạch \"1 điểm dưới lãi của Nora\" và lãi thị trường đã xuống dưới vạch đó (29 tuần, 1.64 điểm); (b) sau 23/7/2026 lãi lên lại, cửa sổ đóng; (c) không dự báo / chỉ nước Mỹ.)  ||  CHỈ TẢ HÌNH (= 0): mô tả hình/số mà không nêu nghĩa trên",
+  "R07": "ĐÚNG NGHĨA: Có hai câu trả lời nhanh trái nhau: vạch một điểm nói \"không\" (0.59 chưa tới 1), phép chia $5,124 ÷ $221 nói \"có, khoảng 24 tháng\"; cả hai đều chưa đúng. (ý bắt buộc: (a) \"đáng\" = phí được trả lại trước khi bán/chuyển nhà, thử với mốc 3 năm; (b) vạch 1 điểm → không; phép chia → 24 tháng; (c) cả hai câu trả lời đều bị nghi/chưa đủ.)  ||  CHỈ TẢ HÌNH (= 0): mô tả hình/số mà không nêu nghĩa trên",
+  "R08": "ĐÚNG NGHĨA (cần đủ): (i) khoảng **chênh giữa lãi cố định và lãi thả nổi lúc bắt đầu** (head start) là thứ được đo; **và** (ii) khoảng đó có thể **lớn, nhỏ, bằng 0 hoặc âm** (thả nổi bắt đầu cao hơn)  ||  CHỈ TẢ HÌNH (= 0): \"một số dư co lại rồi đổi dấu\"; \"trả nợ về 0 rồi dư\"",
+  "R09": "ĐÚNG NGHĨA: Nếu bán sau 3 năm, Walt lỗ $1,777; anh cần giảm 1.12 điểm — hơn vạch một điểm; đó là vì sao khoản nhỏ cần giảm nhiều hơn. (ý bắt buộc: (a) sau 3 năm Walt còn thiếu $1,777; (b) ngưỡng của Walt 1.12 điểm, vượt vạch 1 điểm; (c) khoản nhỏ cần giảm lãi nhiều hơn (phí gần như cố định, tiết kiệm co lại).)  ||  CHỈ TẢ HÌNH (= 0): mô tả hình/số mà không nêu nghĩa trên",
+  "R10": "ĐÚNG NGHĨA: Đáp án: lãi cần giảm tuỳ cỡ khoản vay — $115,000 cần hơn 1 điểm, $375,000 cần nửa điểm, $655,000 cần khoảng một phần ba; vạch một điểm không khớp ai; người xem đặt khoản của mình lên thước để so. (ý bắt buộc: (a) ba mốc: khoản càng nhỏ, cần giảm càng nhiều (1.12 / 0.5 / ~1/3); (b) vạch 1 điểm không khớp mốc nào; (c) chỗ \"your loan?\" để người xem tự đối chiếu (không có số cho khoản của họ).)  ||  CHỈ TẢ HÌNH (= 0): mô tả hình/số mà không nêu nghĩa trên",
+  "R11": "ĐÚNG NGHĨA: Vay lại khởi động lại đồng hồ 30 năm, khoản mới trả gốc chậm hơn khoản cũ; tới tháng 24 Nora còn nợ thêm $1,133 so với giữ khoản cũ, khoản đó cũng phải bù nên hoà vốn lùi từ tháng 24 sang tháng 30. (ý bắt buộc: (a) khoản vay mới trả gốc chậm hơn (đồng hồ 30 năm bắt đầu lại); (b) còn nợ thêm $1,133 ở tháng 24 phải tính vào; (c) hoà vốn thật = tháng 30, không phải 24.)  ||  CHỈ TẢ HÌNH (= 0): mô tả hình/số mà không nêu nghĩa trên",
+  "R12": "ĐÚNG NGHĨA: Đây là số trung bình và nhân vật minh hoạ; phí thật dao động rộng (một nửa từ $3,443 tới $8,270), số thật của người xem sẽ khác. (ý bắt buộc: (a) phí thật dao động rộng ($3,443–$8,270, $5,124 ở giữa); (b) số của người xem sẽ khác (không phải lời khuyên).)  ||  CHỈ TẢ HÌNH (= 0): mô tả hình/số mà không nêu nghĩa trên",
+  "R13": "ĐÚNG NGHĨA (cần đủ): (i) trường hợp **xấu nhất**: bắt đầu **April 1977**, lãi thả nổi **leo cao nhiều năm**; **và** (ii) khoản thả nổi tốn **thêm nhiều tiền lãi so với khoản cố định** (khoảng 43% hơn)  ||  CHỈ TẢ HÌNH (= 0): \"hai chồng, một chồng có phần đỏ trên\" = \"gốc và lãi\"; \"nợ phình\"",
+  "R14": "ĐÚNG NGHĨA (cần đủ): (i) lãi thả nổi **vượt mức cố định ở phần lớn** các lần chạy lại; **và** (ii) nhưng chỉ **một phần nhỏ** lần chạy **tốn hơn tổng cộng** (thêm, không bắt buộc: dồn về nửa đầu)  ||  CHỈ TẢ HÌNH (= 0): \"ô đỏ dồn quanh đỉnh\"; \"phần lớn ổn, vài giai đoạn xấu\" mà không nói thả nổi/cố định hay tổng tiền lãi"
+ },
+ "items": [
+  {
+   "id": "cd929759",
+   "rubric": "R10",
+   "answer": "This section shows how much a refinance must cut your interest rate to pay back its roughly $5,000 in fees within 3 years, and that the needed cut shrinks as the loan grows: about 1.12 points for a $115,000 loan, 0.5 point for $375,000, and about a third of a point for $655,000. So the common \"1-point rule of thumb\" doesn't fit any of these borrowers, and whether refinancing is worth it depends on your own loan size (the \"your loan?\" placeholder)."
+  },
+  {
+   "id": "458f16ec",
+   "rubric": "R02",
+   "answer": "This section shows a fixed 9% loan interest rate compared against a fluctuating benchmark (the variable rate): at first the variable rate dips below 9% and the borrower \"saves\" (the bucket fills), but then the variable rate climbs far above 9% (frame 5, \"not to scale\"), the savings are wiped out and a large loss appears, and a deep, long stretch below the fixed line is shown at the end (frame 6). The idea is that a fixed rate gives predictability and protection against big rate spikes, while a variable rate may save a little early on but exposes you to potentially much larger costs later."
+  },
+  {
+   "id": "caf0a5a3",
+   "rubric": "R08",
+   "answer": "This illustrative section compares a 9% fixed-rate loan with a variable-rate loan: the variable rate starts below the fixed rate, the gap shrinks (the labeled \"1.5 points\" gap, down to zero), and then the variable rate rises above the fixed rate (shown in orange). It means a variable-rate private loan can look cheaper at first but can end up costing more than a fixed rate if rates rise, so its savings are not guaranteed."
+  },
+  {
+   "id": "db1f5e90",
+   "rubric": "R13",
+   "answer": "An illustrative market-style line (starting April 1977) is traced forward in time, and its end point sits about 19.3% relative to the start, which then converts into dollar stacks ($26,005) where the later outcome shows 43% more than the other. It seems to show that the starting date and the path of returns over time (including ups and downs) can make one outcome end up substantially larger, about 43% more, than another, even when the endpoints look similar. I am not fully certain which two cases the stacks compare."
+  },
+  {
+   "id": "57b60cca",
+   "rubric": "R04",
+   "answer": "The section compares a 9% fixed-rate loan with a variable-rate loan that starts about 1.5 points cheaper, and shows how the variable rate moves over time: it stays below 9% for most of the period, so most historical loan starts (especially from 1981 on) come out cheaper than the fixed rate. In a few stretches, mostly before 1981, the variable rate rises above 9% (yellow bar), and the red bars show the share of starts where that happens, such as 8.8%, 4.5% and 10.5%. The point is that a variable rate usually saves money, but it carries the risk that rates spike and leave you paying more than the fixed rate. The 72.9% figure is hard to read, and the figures are labeled \"illustrative\"."
+  },
+  {
+   "id": "0c0a2911",
+   "rubric": "R03",
+   "answer": "The section compares two loan offers: a 9% fixed rate (a flat line that never changes) versus a 7.5% variable rate that starts lower, then drifts up and swings unpredictably over time, eventually rising above the fixed line. It means a variable-rate private loan looks cheaper at first, but its cost can climb past a fixed rate later, so you take on rate risk (the chart is labeled \"illustrative\")."
+  },
+  {
+   "id": "155b234e",
+   "rubric": "R02",
+   "answer": "This section illustrates how a fixed 9% loan rate compares with a fluctuating market or variable rate over time. Early on, the variable rate sits below the 9% line, which fills the \"bucket\" with savings. Later it spikes far above 9%, the savings are wiped out, and the bucket is drained and overflows into red \"not to scale\" losses. In the last frame the fixed rate is the baseline and the variable rate has stayed lower for good. The point is that variable-rate private loans can save money for a while but carry a risk of large, uncertain losses if rates rise, whereas a fixed rate is predictable."
+  },
+  {
+   "id": "dc460289",
+   "rubric": "R03",
+   "answer": "The section compares two loan offers: a 9% fixed rate (a flat, unchanging line) versus a 7.5% variable rate (a line that starts below the fixed line, then drifts upward and swings sharply, ending above the fixed line). It shows that a variable rate may look cheaper at first, but it can rise and fluctuate over time, so you might end up paying more than with the predictable fixed rate (the chart is labeled \"illustrative\")."
+  },
+  {
+   "id": "0ad7e801",
+   "rubric": "R14",
+   "answer": "The section overlays historical interest-rate history (1954 to today, peaking around 1981) with a grid of many past borrowing periods, and it tests each against a fixed rate: red cells mark periods where the variable rate went above the fixed rate, while the rest stayed below. The tally shifts from \"76.2% went above the fixed rate\" at the start to 28.4% and finally 3.5% as the cells are recolored, which suggests that, historically, a variable-rate loan only rarely ended up costing more than a fixed one, and only in a few high-rate eras such as the late 1970s to early 1980s (labeled \"illustrative\")."
+  },
+  {
+   "id": "6db1ea03",
+   "rubric": "R04",
+   "answer": "This section illustrates how loan interest rates were set before and after 1981: variable-rate loans (green band, adding a 1.5-point margin over a fixed 9% rate) were rarely an issue before 1981, but the red hatched bars show that the share of loan \"starts\" at rates above the fixed 9% (a few percent early on, then 10.5% and finally 72.9%) grows sharply once variable rates take over from 1981. The meaning is that variable rates can rise above a fixed rate, so borrowers face much more exposure to rate swings, which makes a fixed rate safer for planning a large private loan. (The figures are labeled \"illustrative,\" and I am not fully certain of the exact definition of the percentages.)"
+  },
+  {
+   "id": "64490a85",
+   "rubric": "R03",
+   "answer": "This section compares a 9% fixed-rate private loan (a flat line that never changes) with a 7.5% variable-rate loan whose rate starts lower (the green area below the line, meaning savings) but then wanders up and down over time, eventually rising above the fixed line and spiking well past 9%. It means a variable loan may look cheaper at first, but its rate is unpredictable and can end up costing more than the fixed rate. The frames are labeled \"illustrative\", so this shows the risk, not actual rates."
+  },
+  {
+   "id": "3d8cebca",
+   "rubric": "R14",
+   "answer": "This section tests every possible loan start date from 1954 to today against the historical interest-rate curve (peaking around 1981): 76.2% of the variable-rate loans saw their rate go above the fixed rate at some point, but the red squares (loans that actually ended up worse off) shrink to 28.4% and then just 3.5%, clustered around the 1970s-early 1980s rate spike. It means a variable rate often looks risky along the way, yet historically it rarely ended up costing more overall than fixed, apart from loans taken out just before the high-rate era. The frames are labeled \"illustrative\" and the exact criteria for each percentage aren't stated, so that reading is somewhat uncertain."
+  },
+  {
+   "id": "da20620d",
+   "rubric": "R05",
+   "answer": "The section steps a 10-year window across a long chart (apparently market or investment returns) starting in January 1954, building up every possible 10-year stretch from 1954 to today. The point seems to be that outcomes over a decade vary a lot depending on when you start, so the whole history is being summarized into a set of rolling 10-year periods, labeled \"illustrative\" (the frame 6 chart looks like a summary of these windows). It's an inference, since there are no axis values and the sound is off."
+  },
+  {
+   "id": "96e4a8b1",
+   "rubric": "R12",
+   "answer": "The section builds up a picture of what 2025 refinance bills actually cost: it starts from a single typical bill (about $3,443), then shows that half of all refinance bills fall between roughly $3,443 and $8,270 (with the example borrower Nora at $5,124), so there is a wide range. It then asks what your own rate, bill and balance would be, and adds that fees can be rolled into the loan and a shorter term changes the math, meaning your own cost depends on your situation and the national numbers are only illustrative."
+  },
+  {
+   "id": "69316bc6",
+   "rubric": "R09",
+   "answer": "The section shows that a borrower (Walt) who takes a small $115,000 loan and sells after 3 years saves only about $68 a month by refinancing at a lower rate. After 3 years that is still $1,777 short of the $3,667 in loan costs plus the balance still owed, so the rate would have to drop by about 1.12 points, more than the usual 1-point rule of thumb. It means a smaller loan needs a bigger rate cut to pay back refinancing costs (Nora's $375,000 loan needs only 0.5 point), because the bill barely shrinks while the savings shrink a lot."
+  },
+  {
+   "id": "1fbea1f5",
+   "rubric": "R01",
+   "answer": "Mortgage rates fell to 5.98% (Feb 2026), about 1.5 points below illustrative borrower Nora's 7.62% and a \"window\" in which refinancing would have saved her $459 a month. That window then closed: rates climbed back above 7% (7.03% by late September 2026), so the saving vanished. In other words, a rate drop is an opportunity that can disappear if you wait, so act while it's open."
+  },
+  {
+   "id": "ebed3e5c",
+   "rubric": "R07",
+   "answer": "The section asks whether refinancing is worth paying fees for: it shows a timeline where the fees must be paid back (through savings) before she sells or moves, tested over an assumed 3-year stay. It then gives two \"quick answers\" for Nora, an illustrative example: the 1-point rule of thumb says NO (her rate cut is only 0.59 points, short of the 1-point line), while simple division ($5,124 in fees / $221 monthly savings, about 24 months) says YES, so the break-even is well inside 3 years. The final frames flag that both shortcuts leave something out, such as the uncounted fee bill, so neither is the whole story."
+  },
+  {
+   "id": "41681772",
+   "rubric": "R13",
+   "answer": "Starting from April 1977, the section tracks a time series (an illustrative market/rate line) as it plays out over time, stepping through a period where it first rises, peaks, and then falls back to roughly where it started; this produces a 19.3% figure, and then two stacks compare a $26,005 amount against a bigger one that ends up 43% more (the extra shown in red). It seems to mean that the same starting point can lead to a much larger total cost or balance (about 43% more) after the timeline, for example due to compounding or rate changes, though without audio the exact quantity is unclear."
+  },
+  {
+   "id": "9dab83d6",
+   "rubric": "R04",
+   "answer": "This section illustrates how the gap between a 9% fixed rate and a variable rate (a 1.5-point spread) plays out over time. The red bars show the share of loan starts in which the fixed rate would have been cheaper or costlier. Before 1981, fixed beat variable in only a small share of starts (8.8%, then 4.5%, then 10.5%). When the variable rate is shifted above the fixed rate (frame 5), that share jumps to 72.9%, with large red bars both before and from 1981. In short, whether a fixed or variable rate comes out ahead depends heavily on the interest-rate era and the spread, so the variable-rate risk is real and cannot be judged from one period."
+  },
+  {
+   "id": "1974923d",
+   "rubric": "R08",
+   "answer": "This illustrative section compares a 9% fixed-rate loan with a variable-rate loan: the variable rate starts well below the fixed line, then its advantage shrinks to about 1.5 points, vanishes, and finally rises above the 9% fixed rate (orange bar). It means a variable-rate private loan may look cheaper at first, but its rate can climb over time and end up costing more than a fixed rate, so you carry the risk."
+  },
+  {
+   "id": "03a4a4c3",
+   "rubric": "R14",
+   "answer": "This section shows a long history of interest rates (1954 to today, peaking around 1981) with a grid of past borrowing periods, and it tests each one to see whether a variable rate ended up above a fixed rate. At first, 76.2% of periods went above the fixed rate, but the count shrinks as the red marks that remain are narrowed to the periods that were actually bad: 28.4%, then 3.5%. The point seems to be that a variable-rate loan usually costs more than a fixed one only in a minority of historical cases, mostly around the high-rate years of the late 1970s and early 1980s. The labels say \"illustrative\", so the exact figures are only an example."
+  },
+  {
+   "id": "8dc04f09",
+   "rubric": "R05",
+   "answer": "The section slides a fixed 10-year window across a long chart (labeled \"illustrative\") of a series from January 1954 to today, tracing the result of each 10-year stretch and stacking them up. The idea is that outcomes over any 10-year holding period vary widely depending on the start date, with some stretches roughly flat or negative and others strongly positive, so the time you start matters."
+  },
+  {
+   "id": "47f3286b",
+   "rubric": "R11",
+   "answer": "This section shows that refinancing a mortgage restarts the 30-year clock, so the new loan sends more of each early payment to interest and pays down less principal than the old loan did at payment 35. The $5,124 in loan costs is repaid by the $221 monthly saving only at about month 30, not month 24, so the savings take longer to pay off than they first appear."
+  },
+  {
+   "id": "614604a5",
+   "rubric": "R08",
+   "answer": "This section illustrates a fixed 9% loan rate versus a variable rate, where the variable rate starts below the fixed line, then narrows (the gap shrinks to \"1.5 points\", then to zero), and finally rises above the fixed line (orange). It means a variable-rate private loan can look cheaper at first, but its rate can drift up and end up costing more than the fixed rate, so the savings are not guaranteed."
+  },
+  {
+   "id": "6be16c08",
+   "rubric": "R06",
+   "answer": "This section shows the weekly US 30-year mortgage rate over Aug 2025 to about Aug 2026 compared with a hypothetical borrower's 7.62% rate (\"Nora\", illustrative), and it highlights the stretch when market rates sat at least 1 point below her rate: 29 weeks in 2026, with a peak gap of 1.64 points at the low (5.98%). Over time the market rate fell, bottomed around Feb 2026, then climbed back to about 1 point below Nora's rate by late July 2026, so that refinancing \"window\" has closed. It is only history for the US, not a forecast, and what comes next is unknown. For a grad student with private loans, the lesson is that a rate you lock in may later be refinanceable at a much lower rate, but the opportunity can come and go, so it's not something to count on."
+  },
+  {
+   "id": "c451a790",
+   "rubric": "R13",
+   "answer": "The section tracks a fluctuating line (apparently an interest rate or index, starting April 1977) as it moves forward in time, with a marker following it until it ends near its starting level, labeled 19.3%. The two stacks at the end show a baseline amount of $26,005 versus a second stack that is 43% larger, meaning that over this period the cost or balance (e.g., a loan with variable rates) ended up 43% higher than the baseline, so rate swings over time can make borrowing substantially more expensive, even when rates end up near where they began. (Illustrative, not real data.)"
+  },
+  {
+   "id": "5b26ba74",
+   "rubric": "R02",
+   "answer": "It compares a 9% fixed-rate loan with a variable-rate loan: the variable rate starts slightly below 9% (saving money, filling the tank), but over time it can spike far above 9% (the orange peak), wiping out the savings and leaving the tank empty with a large unbounded loss (\"not to scale\"). The idea is that variable rates offer small possible gains but expose you to big, open-ended downside risk, whereas the fixed rate is predictable."
+  },
+  {
+   "id": "9ce3af8b",
+   "rubric": "R05",
+   "answer": "The section slides a 10-year window across the whole history of a market or investment curve since January 1954, taking every possible 10-year stretch in turn and tracking how each one turned out, with the results stacked up as a grid by start date (1954 to today). It means that outcomes over a fixed 10-year holding period vary a lot depending on when you start, and the chart is illustrative of that range of results."
+  }
+ ]
+}
