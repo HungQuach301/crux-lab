@@ -23,3 +23,4 @@ Traceback (most recent call last):
     e['takes'].append({'file': os.path.basename(p) + '.mp3', 'seed': seed, 'characterCost': m['characterCost'], 'len': m['len'],
                                                                                             ^
 NameError: name 'm' is not defined. Did you mean: '_m'?
+S03 [(1, 389, 0)]
