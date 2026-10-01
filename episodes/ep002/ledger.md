@@ -48,3 +48,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 - 01/10 C3(a) kiểm mù K1/K7 vòng 1: KEY-1 0/3 (thiếu 'bắt đầu thấp hơn'), KEY-7 0/3 (đọc là trả nợ theo thời gian; hai nửa 1/3) → vòng 2 thiết kế lại theo gates/C3-K17-blind.md. EL ký tự: 0.
 - 01/10 C3(a) vòng 2: K1/K7 dựng lại theo chẩn đoán (r1 giữ K*-r1.*). Nhãn cột '1981' ở K7 = mốc chia thời kỳ của mô hình (periodBreaks, n_early/n_late), không phải số kết quả — tự quyết kỹ thuật. Mẫu + khoá r2 commit trước khi chạy.
 - 01/10 C3(a) vòng 2: KEY-1 2/3 ĐẠT; KEY-7 0/3 (1 nửa) TRƯỢT lần 2 → gói C3b phương án lên chủ dự án. EL ký tự: 0.
+- 01/10 Pha 2: K2–K6 dựng ở hệ cuối D2+E2 (K2/K4 từ H2; K3/K5/K6 từ H3). Thay đổi người xem thấy (không phải gu, báo ở gói kế): số ở K3 đổi từ đỏ sang ink vì #C72323 chỉ đạt 3,3:1 trên nền, không mang được chữ. K6 ghi '43% more' (worst_share_of_fixed) thay '+$11,219' cho khớp lời S08.7. Ô K7 chờ chủ dự án (C3b, issue #17).

@@ -47,3 +47,40 @@ Bản vòng 1 được giữ lại: `K1-r1.*`, `K7-r1.*`, `src/k1_r1.js`, `src/k
 | K7 | ≥ 14 | 12,6* | 7,50:1 | 48 px @1080 | 0 |
 
 \* khoảng trắng giữa "9%" và "fixed" trong cùng một nhãn.
+
+## Giai đoạn 2 — K2–K6 trong hệ D2+E2 (K1 r2 giữ nguyên; K7 chờ chủ dự án, không đụng)
+Mỗi nhịp bám sát clip H2/H3 mà chủ dự án đã xem. Chỉ đổi ba thứ cho khớp hệ: (a) màu E2: costlier `#C72323` thay `negative`, cushion `#269783` thay `positive`; (b) ray 9% dùng `ink-muted`, đường lãi của Leah dùng `ink` + thoi (`accent` chỉ dùng cho T-bill); (c) chữ không bao giờ tô màu costlier: các số K3 trước là đỏ nay là `ink`.
+
+| Nhịp | Nền | Mã | Thời lượng | Thay đổi so với clip gốc |
+|---|---|---|---|---|
+| K2 | H2 | `src/k2.js` + `src/engine.js` | 9 s | màu E2, ray/đường như (b) |
+| K4 | H2 | `src/k4.js` (dữ liệu `detail` trong `src/build_data.py`) | 10 s | màu E2 (bể cushion, sọc costlier), (b) |
+| K3 | H3 | `src/h3/scenes.js` (`K3`) | 10 s | màu E2; số đổi từ đỏ sang `ink` |
+| K5 | H3 | `src/h3/scenes.js` (`K5`) | 10 s | màu E2 (ô trung tính, không đổi hình) |
+| K6 | H3 | `src/h3/scenes.js` (`K6`) | 10 s | màu E2. Dòng chú thích "Starting April 1977" ghi tên giai đoạn tệ nhất (`worst_start`). Khối thêm cao đúng 43,1% chồng cố định ($11,218.65 / $26,005.46). Nhãn cuối là **"43% more"** (`worst_share_of_fixed`), thay cho "+$11,219" |
+
+Dựng lại: `python3 src/build_data.py && python3 src/h3/build_data.py`, sau đó chạy `node src/render.js K2|K4` và `node src/h3/render.js K3|K5|K6`, đều kèm `NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers`. Dữ liệu `work/h3data.js` được assert khớp 753/753 cửa sổ trong `out/model.json`. Dải che làm bằng cờ trong mã dựng: `FLAGS.mask` (H2) hoặc `FLAGS.MASK` (H3).
+
+**Số trên hình → claim ID** (mọi khung có khoản vay của Leah đều mang huy hiệu ILLUSTRATIVE):
+
+| Clip | Chuỗi | Claim |
+|---|---|---|
+| K2 | 9% · 1.5 points | `fixed_rate`, `gap_start` |
+| K3 | 76.2% · 14.2% · 28.4% · 3.5% · trục 1954 / 1981 | `share_rate_above_fixed`, `share_all`, `share_early`, `share_late`; `first_start`, `best_start_year` |
+| K4 | (không có số) | — |
+| K5 | "Every 10-year stretch since January 1954" · trục 1954 / 1981 | `term`, `first_start`; `best_start_year` |
+| K6 | April 1977 · 19.3% · $26,005 · 43% · trục 1954 / 1981 | `worst_start`, `worst_peak_rate`, `fixed_int`, `worst_share_of_fixed`; `first_start`, `best_start_year` |
+
+**Tự kiểm D2–D5.** Đo trên mọi khung thứ 3, chữ đã hiện đủ. Khoảng cách tính ra px ở 720p. Bộ đo H2 dừng tìm ở bán kính 14 px, bộ đo H3 ở 16 px thiết kế (= 10,7 px ở 720p); "≥" nghĩa là không có nét nào trong bán kính đó.
+
+| Clip | chữ→đồ hoạ (≥ 4) | chữ→chữ | tương phản (≥ 4,5:1) | chữ nhỏ nhất (≥ 40 @1080) |
+|---|---|---|---|---|
+| K2 | ≥ 14 | 12,6* | 7,50:1 | 48 |
+| K4 | ≥ 14 | ≥ 14 | 7,50:1 | 48 |
+| K3 | ≥ 10,7 | 40,4 | 7,50:1 | 48 |
+| K5 | ≥ 10,7 | 61 | 7,50:1 | 48 |
+| K6 | 8,9 ("43%" ↔ chồng xu) | 64,5 | 7,50:1 | 48 |
+
+\* khoảng trắng giữa số và chữ phụ trong cùng nhãn. D5: chữ phụ cạnh số ("fixed", "more", "went above the fixed rate", "cost more in total") dùng `ink-muted`. Số nhấn dùng `ink`; riêng 76.2% dùng `warn` (10,2:1).
+
+Giới hạn: dải 6 khung của các nhịp H3 giữ khuôn của H3 (số trong ô vàng phía trên khung), còn các nhịp H2 và K1/K7 đánh số dưới khung. Bể/hũ ở K6 gần như không đầy (đệm tối đa $218, theo đúng dữ liệu).

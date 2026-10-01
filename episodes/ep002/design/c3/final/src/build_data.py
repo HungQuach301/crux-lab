@@ -39,9 +39,24 @@ K1_START = '1962-12'
 s1 = dates.index(K1_START + '-01'); k1p = path_of(s1, VAR0)
 assert sum((k1p[k] - FIXED) * (k1p[k + 1] - FIXED) < 0 for k in range(N - 1)) >= 6 and max(k1p) <= 12.6 and k1p[0] == VAR0
 k1 = (None, K1_START, k1p)
+# KEY-4 (H2 base): month-by-month cushion for three replays (same as ../../H2/src/build_data.py detail())
+def run2(path):
+    bal, cur, pay, ints, bals = P, None, 0.0, [], []
+    for k, r in enumerate(path):
+        if r != cur:
+            x = r / 1200; pay = bal * x / (1 - (1 + x) ** -(N - k)); cur = r
+        i = bal * r / 1200; ints.append(i); bals.append(bal); bal -= pay - i
+    return ints, bals
+FIX_INTS, _ = run2([FIXED] * N)
+def detail(start):
+    s = dates.index(start + '-01'); p = path_of(s, VAR0); vi, vb = run2(p); cum, c = [], 0.0
+    for k in range(N): c += FIX_INTS[k] - vi[k]; cum.append(round(c, 2))
+    return {'start': start, 'path': p, 'bal': [round(b, 2) for b in vb], 'cushion': cum, 'diff': round(-cum[-1], 2)}
+DET = {k: detail(k) for k in ['1981-08', '1986-03', '1976-04']}
+assert round(DET['1981-08']['diff']) == -15295
 ridge = [{'m': dates[i][:7], 'r': tb[i]} for i in range(len(tb)) if dates[i] >= '1953-01-01']
 out = {'ridge': ridge, 'starts': [dates[s][:7] for s in starts], 'gap': gap, 'k1': {'start': k1[1], 'path': k1[2]},
-       'claims': {k: v['display'] for k, v in cl.items()}}
+       'detail': DET, 'claims': {k: v['display'] for k, v in cl.items()}}
 os.makedirs(os.path.join(FIN, 'work'), exist_ok=True)
 open(os.path.join(FIN, 'work/data.js'), 'w').write('window.DATA = ' + json.dumps(out) + ';\n')
 print('ok; gaps', {k: (v['early'], v['late']) for k, v in gap.items()}, 'K1 start', k1[1])

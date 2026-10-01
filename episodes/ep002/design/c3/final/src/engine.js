@@ -268,7 +268,7 @@ export function replay(ctx, P, path, n, o = {}) {
   ctx.save(); ctx.beginPath(); ctx.rect(P.x0 - 30, P.y0 - 30, P.x1 - P.x0 + 60, P.y1 - P.y0 + 60); ctx.clip();
   if (o.fill !== false) bandFill(ctx, P, path, n, { aPos: (o.aPos ?? 0.55) * a, aWarn: (o.aWarn ?? 0.72) * a });
   rail(ctx, P, o.railPath === false ? null : path, n, o.railAlpha ?? a, null, o.railW ?? 10);
-  line(ctx, pathPts(P, path, n), C.accent, o.lw ?? 6, { alpha: a });
+  line(ctx, pathPts(P, path, n), C.ink, o.lw ?? 6, { alpha: a }); // Leah's rate = ink (system.md)
   ctx.restore();
   if (o.bead !== false && n >= 0) diamond(ctx, P.X(Math.min(n, path.length - 1)), P.Y(rateAt(path, Math.min(n, path.length - 1))), o.beadR ?? 24, a);
 }
