@@ -63,3 +63,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 - 01/10 C4 kiểm mù: Tập 2 15,5/21 = 0,738 ĐẠT (không K7: 0,806); đối chứng Tập 1 0,476. Clip C4 review-c4/clip-c4.mp4 (1:55) → gói C4. EL ký tự: 0.
 - 01/10 C4 chủ dự án: (1) sang C5; song song chấm lại độc lập 42 câu trả lời, người chấm mù tập (khoá rubric 17c1d17). Nếu chấm lại < 0,70 → báo chủ dự án, không sửa ý đồ, không hạ ngưỡng. (2) giữ bốn ký hiệu thay thế. (3) S10.1: mỗi bậc chỉ một số chung ≥ 3 s, giữ hai thùng 1954–1980/từ 1981 cùng mỗi số, số chi tiết vào mô tả; K4 thêm 'not to scale'.
 - 01/10 Chấm lại độc lập C4 (mù tập): Tập 2 0,333, đối chứng 0,071 (phiên tự chấm: 0,738/0,476; trùng 15/42) → dưới ngưỡng → gói C4b hỏi chủ dự án. Luồng P C5 dừng; A, D chạy tiếp (không chạm gu).
+- 01/10 Sửa C4 xong: S10.1 mỗi bậc một số chung (31.3%/57.9%/72.9%, giữ ≥ 3,1 s, hai thùng vẫn hiện), thêm 2,0 s nghỉ sau S10.1 (lời không đổi); K4 'not to scale'. Animatic 9:44,4; kiểm máy OK.
