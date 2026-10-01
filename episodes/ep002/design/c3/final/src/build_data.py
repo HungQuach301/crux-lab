@@ -33,14 +33,12 @@ for g in GAPS:
 for g, k in [(-1, 'gapm10'), (-0.5, 'gapm05'), (0, 'gap00'), (0.5, 'gap05'), (1, 'gap10'), (1.5, 'gap15'), (2, 'gap20'), (2.5, 'gap25'), (3, 'gap30')]:
     for h in ('early', 'late', 'worst'): chk(f'{k}_{h}', gap[f'{g:g}'][h])
 assert gap['1.5']['early'] == 28.4 and gap['1.5']['late'] == 3.5
-# KEY-1: one real replay of Leah's loan (7.5% start) that wanders above and below 9% inside a 5.5-12.5 band
-cand = []
-for s in starts:
-    p = path_of(s, VAR0); cross = sum((p[k] - FIXED) * (p[k + 1] - FIXED) < 0 for k in range(N - 1))
-    if max(p) <= 12.3 and min(p) >= 5.8 and max(p) >= 10.8 and cross >= 2 and p[-1] < FIXED: cand.append((cross, dates[s][:7], p))
-cand.sort(key=lambda c: (-c[0], c[1]))
-k1 = cand[0] if cand else None
-print('K1 candidates', [(c[1], c[0], round(max(c[2]), 2), round(min(c[2]), 2)) for c in cand[:8]])
+# KEY-1: one real replay of Leah's loan (7.5% start) that goes above and below 9% several times (chosen by eye from
+# the windows with >= 6 crossings of 9% and max <= 12.5%): start December 1962. Not labelled on screen (no claim).
+K1_START = '1962-12'
+s1 = dates.index(K1_START + '-01'); k1p = path_of(s1, VAR0)
+assert sum((k1p[k] - FIXED) * (k1p[k + 1] - FIXED) < 0 for k in range(N - 1)) >= 6 and max(k1p) <= 12.6 and k1p[0] == VAR0
+k1 = (None, K1_START, k1p)
 ridge = [{'m': dates[i][:7], 'r': tb[i]} for i in range(len(tb)) if dates[i] >= '1953-01-01']
 out = {'ridge': ridge, 'starts': [dates[s][:7] for s in starts], 'gap': gap, 'k1': {'start': k1[1], 'path': k1[2]},
        'claims': {k: v['display'] for k, v in cl.items()}}
