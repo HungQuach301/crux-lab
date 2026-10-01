@@ -41,7 +41,7 @@ S03.8 | Real offers differ, so a head start can be bigger, smaller, zero, or neg
 S04.1 | This video replays Leah's illustrative loan through every 10-year stretch of US interest rates since January 1954. | first_start, term | The short track stretches left into a long ridge of rate history.
 S04.2 | Each replay moves her rate up and down exactly as much as the 3-month Treasury bill rate moved in that stretch of history, and the data is US only. | — | The bead's track takes the ridge's month-to-month steps inside a 10-year frame.
 S04.3 | "Worth it" gets one plain meaning here: how often the variable loan cost more in total interest than the 9% fixed loan, and how much more at worst. | fixed_rate | Two coin piles (interest paid), fixed and variable, side by side.
-S04.4 | Then the replay moves the head start, from 3 points down to minus 1 point, to see where that history changes. | spread3_share, spreadm1_share | The bracket slides along a ruler.
+S04.4 | Then the replay moves the head start, from 3 points down to a variable rate starting 1 point above the fixed one, to see where that history changes. | spread3_share, spreadm1_share | The bracket slides along a ruler.
 S04.5 | By the end there's a line that any real offer can be held up against, including yours. | — | A ruler across the screen; a blank offer card floats toward it.
 S04.6 | This is history, not a forecast. | — | The ridge ends at today; empty space to its right.
 
@@ -88,14 +88,14 @@ S09.1 | So far, every result has been for one pair of rates, 7.5% against 9%. | 
 S09.2 | So the replay ran again, holding the fixed rate at 9% and moving only where the variable rate starts. | fixed_rate | A slider under the bracket; the rail pinned. (KEY-7 begins)
 S09.3 | Each starting point is a different offer someone could be holding. | — | Offer cards line up along the slider.
 S09.4 | Leah's 1.5 points gives the split already heard, with her April 1977 worst. | gap_start, worst_start | Leah's card clicks onto the slider; her bins as before (no new figures).
-S09.5 | At 2 points, none of the starts from 1981 on cost more, but 20.4% of the 1954-to-1980 starts still did, the worst by $9,472. | gap20_late, gap20_early, n_early, n_late, gap20_worst | Right bin goes fully grey; left bin keeps a red layer. On screen only: "8.8%" (`spread2_share`).
-S09.6 | [thoughtful] At 3 points, still none from 1981 on, but 10.5% of the 1954-to-1980 starts cost more, the worst by $6,033. | gap30_late, gap30_early, n_early, n_late, gap30_worst | Slider at the far end; left bin still holds a thin red layer; small extra block remains. On screen only: "4.5%" (`spread3_share`).
+S09.5 | At 2 points, none of the starts from 1981 on cost more, but 20.4% of the starts from 1954 to 1980 still did, the worst by $9,472. | gap20_late, gap20_early, n_early, n_late, gap20_worst | Right bin goes fully grey; left bin keeps a red layer. On screen only: "8.8%" (`spread2_share`).
+S09.6 | [thoughtful] At 3 points, still none from 1981 on, but 10.5% of the starts from 1954 to 1980 cost more, the worst by $6,033. | gap30_late, gap30_early, n_early, n_late, gap30_worst | Slider at the far end; left bin still holds a thin red layer; small extra block remains. On screen only: "4.5%" (`spread3_share`).
 
 ## S10 — Other offers, and the answer (136 words, 728 chars)
 
 S10.1 | With a smaller head start, or a variable rate that starts higher, more stretches cost more in both halves, and the worst gets bigger. | — | Slider sweeps back through 1 point and 0 to −1; both bins fill red, extra block grows. On screen only, one figure per moment: 1 point "31.3%" (`spread1_share`), "54.9% / 13.5% / +$12,983" (`gap10_early`, `gap10_late`, `gap10_worst`); 0 points "57.9%" (`spread0_share`), "79% / 42% / +$16,566" (`gap00_early`, `gap00_late`, `gap00_worst`); −1 point "72.9%" (`spreadm1_share`), "92.9% / 57.8% / +$20,217" (`gapm10_early`, `gapm10_late`, `gapm10_worst`).
 S10.2 | At every head start tested, the worst stretch began in April 1977. | gap_worst_start_all | The dark token never leaves its spot in the left bin.
-S10.3 | And at every head start tested, some of the 1954-to-1980 starts still cost more. | min_gap_early, n_early | Left bin's red layer never clears.
+S10.3 | And at every head start tested, some of the starts from 1954 to 1980 still cost more. | min_gap_early, n_early | Left bin's red layer never clears.
 S10.4 | So, back to the question: how much lower does a variable rate have to start before the risk has been worth it? | — | The question from S01 over the ruler.
 S10.5 | Measured as how often it cost more in total interest than the 9% fixed loan, and how much more at worst, history gives two answers. | fixed_rate | Two bins under the two halves of the ridge.
 S10.6 | From 1981 on, a 2-point head start was enough every time; from 1954 to 1980, even 3 points was not, and the worst still cost $6,033 more. | gap20_late, n_late, gap30_early, n_early, gap30_worst | Right bin clear at the 2-point mark; left bin with a thin red layer at the 3-point mark.
