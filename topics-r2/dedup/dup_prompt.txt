@@ -1,0 +1,44 @@
+Judge duplicates. Below is an EXCLUDE list of decisions already used, then 18 new topic cards (C01-C18). A card is a DUPLICATE if its core decision (the choice the viewer makes) is the same as any EXCLUDE line, even if numbers or wording differ. Related-but-different decisions are NOT duplicates (e.g. 'pay a point' vs 'refinance' are different). Also flag pairs of new cards that duplicate each other.
+
+Already covered - do not propose a topic whose core decision is the same as any of these (all pillars):
+- Whether to refinance a mortgage taken at a high rate, and how big a rate cut makes refinancing pay back its costs.
+- Take a 7.5% variable rate or lock in 9% fixed for a 10-year payoff?
+- Work those 8 hours as overtime at $48 an hour, or at a second job paying $48 an hour?
+- Sell the house we bought in 2000 now, or keep it, given the $500,000 tax-free limit on home-sale gains?
+- Keep over-withholding for a $3,000 refund, or adjust withholding for bigger paychecks instead?
+- Take the 72-month loan for the lower payment, or stick with 60 months?
+- Is the 3% compound inflation option enough, or is the pricier 5% option worth paying for?
+- Should I lock money in savings bonds that double in 20 years, or keep rolling T-bills instead?
+- Sell now at the short-term tax rate, or wait a month for the lower long-term rate?
+- Pay one point to cut my rate from 7% to 6.75%, or skip it?
+- When a 1-year CD pays more than a 5-year CD, should I keep rolling the 1-year or lock the 5-year?
+- Should my spare $500 a month go toward the 3% mortgage or into T-bills?
+- At 65, should I take the bigger level annuity check or the smaller check that rises 2% a year?
+- Refinance the 7% mortgage to 6.5%, or keep the loan?
+- Take the 0% transfer with a 4% fee, or stay on the old card?
+- Should you pause 401(k) contributions beyond the match to pay cards faster?
+- Should you claim Social Security early or wait?
+- Should you spend 529 money before claiming a college tax credit?
+- Should you make pre-tax Solo 401(k) contributions instead of Roth contributions?
+
+NEW CARDS:
+C01 viewer: People with an old 401(k) from a former employer and a new workplace plan. | decision: Should you roll the old 401(k) into an IRA or the new 401(k)?
+C02 viewer: Drivers whose car lease is ending and who would need a loan to keep the car or replace it. | decision: Should you buy out the lease or turn it in and finance another car?
+C03 viewer: New retirees in their mid-60s with a travel fund parked in safe savings for the coming decade of trips. | decision: Take the big trips in the first years of retirement, or spread them out over the next 10 years?
+C04 viewer: Workers in their 20s in the 22% tax bracket keeping $7,500 of savings in cash, with no retirement account yet. | decision: Keep that $7,500 of cash in a Roth IRA, or in a regular savings account?
+C05 viewer: Homeowners with a fixed mortgage who have enough cash to lower the balance but do not want to refinance. | decision: Should you ask the lender for a recast or just pay extra principal?
+C06 viewer: Retirees in their 70s offered a funeral plan that locks today's prices if they pay the full amount now. | decision: Pay for my funeral now at today's price, or keep that money in safe savings until it is needed?
+C07 viewer: Parents in their 60s holding money aside to help an adult child with a first home down payment someday. | decision: Give the down payment money now, or keep it in safe savings and give it in 10 years?
+C08 viewer: First-time buyers in 2026 with a 10% down payment ready, weighing mortgage insurance against more years of renting. | decision: Buy now with 10% down and pay mortgage insurance, or keep renting until we have 20%?
+C09 viewer: Parents paying daycare through an employer that offers a dependent care FSA. | decision: Use the dependent care FSA or skip it and claim the child care credit?
+C10 viewer: Car shoppers in 2026 financing about $35,000 over 60 months who are holding off until loan rates come down. | decision: Buy the car now, or wait a year hoping for a lower loan rate?
+C11 viewer: Retirees and savers buying 5-year CDs through a brokerage account for money they will not need for years. | decision: Take the 5-year CD paying 4.5% that the bank can call early, or the 4% CD it cannot call?
+C12 viewer: Workers in the 12% tax bracket who have a 401(k) but no emergency savings and just got a surprise $1,000 bill. | decision: Take a $1,000 emergency withdrawal from my 401(k), or put the bill on a credit card?
+C13 viewer: Investors in the 24% federal tax bracket buying 10-year TIPS with money that sits outside their retirement accounts. | decision: Hold 10-year TIPS in a taxable brokerage account, or only inside an IRA?
+C14 viewer: Buyers in 2026 whose mortgage payment would take 35% of gross pay, counting on raises to make it comfortable. | decision: Stretch to the house at 35% of pay, or buy a cheaper one at 28%?
+C15 viewer: Households who give to charity but usually take the standard deduction. | decision: Bunch donations this tax year or spread gifts as usual?
+C16 viewer: Home buyers in 2026 borrowing about $320,000 who can afford the monthly payment on a 15-year mortgage. | decision: Lock in a 15-year mortgage, or take a 30-year and pay it off on a 15-year schedule?
+C17 viewer: Married couples earning about $130,000 combined from their jobs who are thinking about buying their first rental property. | decision: Buy a rental counting on its paper losses to lower our tax on $130,000 of wages?
+C18 viewer: People in their 50s with pre-tax IRA savings and lower-income years before retirement. | decision: Should you convert pre-tax IRA money to Roth IRA before retirement?
+
+Reply with JSON only: {"duplicates": [{"card": "Cxx", "matches": "<exclude line or Cyy>", "why": "..."}], "borderline": [{"card": "Cxx", "matches": "...", "why": "..."}]}. Use only this text; do not read files.

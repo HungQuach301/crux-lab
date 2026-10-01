@@ -1,0 +1,79 @@
+{
+ "decision": "Take a 5-year CD paying 4.5% that the bank can call, or a 4% CD it cannot call?",
+ "queries": [
+  "callable CD higher rate vs non-callable CD worth it history how often called when rates fall",
+  "brokered callable CDs retirees how often were callable CDs called 2008 2020 rate cuts reinvestment",
+  "callable vs non-callable CD extra yield worth call risk historical simulation Treasury yields"
+ ],
+ "results": [
+  {
+   "query": "callable CD higher rate vs non-callable CD worth it history how often called when rates fall",
+   "title": "Is a callable CD worth it? Here's what some experts think. - CBS News",
+   "url": "https://www.cbsnews.com/news/is-a-callable-cd-worth-it-heres-what-some-experts-think/"
+  },
+  {
+   "query": "callable CD higher rate vs non-callable CD worth it history how often called when rates fall",
+   "title": "Callable CDs: What Are They And How Do They Work?",
+   "url": "https://www.forbes.com/advisor/banking/cds/callable-cd/"
+  },
+  {
+   "query": "callable CD higher rate vs non-callable CD worth it history how often called when rates fall",
+   "title": "Callable CDs: Why the Higher Rate Comes With a Catch (2026)",
+   "url": "https://cdratecomparison.com/callable-cd-risk-explained"
+  },
+  {
+   "query": "callable CD higher rate vs non-callable CD worth it history how often called when rates fall",
+   "title": "Guide to Callable Certificates of Deposit (CDs)",
+   "url": "https://www.sofi.com/learn/content/what-is-a-callable-certificate-of-deposit/"
+  },
+  {
+   "query": "brokered callable CDs retirees how often were callable CDs called 2008 2020 rate cuts reinvestment",
+   "title": "Callable CDs",
+   "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/callable-cds"
+  },
+  {
+   "query": "brokered callable CDs retirees how often were callable CDs called 2008 2020 rate cuts reinvestment",
+   "title": "Callable CDs: What They Are & Hidden Dangers Explained",
+   "url": "https://cd-calculator.com/guides/callable-cds-hidden-danger"
+  },
+  {
+   "query": "brokered callable CDs retirees how often were callable CDs called 2008 2020 rate cuts reinvestment",
+   "title": "Historical CD Rates 1980-2026: Highs, Lows and the Stories Behind Them - NerdWallet",
+   "url": "https://www.nerdwallet.com/banking/learn/historical-cd-rates"
+  },
+  {
+   "query": "callable vs non-callable CD extra yield worth call risk historical simulation Treasury yields",
+   "title": "CDs callable v. non-callable - Bogleheads.org",
+   "url": "https://www.bogleheads.org/forum/viewtopic.php?t=413137"
+  },
+  {
+   "query": "callable vs non-callable CD extra yield worth call risk historical simulation Treasury yields",
+   "title": "What are the drawbacks of a callable CD beyond the obvious? - Bogleheads.org",
+   "url": "https://www.bogleheads.org/forum/viewtopic.php?t=416428"
+  },
+  {
+   "query": "callable vs non-callable CD extra yield worth call risk historical simulation Treasury yields",
+   "title": "What Are Callable CDs?",
+   "url": "https://www.raisin.com/en-us/banking/what-are-callable-cds/"
+  }
+ ],
+ "verdict": "answered-without-data",
+ "nearest": [
+  {
+   "title": "Is a callable CD worth it? Here's what some experts think. - CBS News",
+   "url": "https://www.cbsnews.com/news/is-a-callable-cd-worth-it-heres-what-some-experts-think/",
+   "why": "Same decision, answered with expert opinion; no history of how often calls happened or what savers earned."
+  },
+  {
+   "title": "Callable CDs: Why the Higher Rate Comes With a Catch (2026)",
+   "url": "https://cdratecomparison.com/callable-cd-risk-explained",
+   "why": "Explains the asymmetric payoff and a rule of thumb for the premium; no historical replay."
+  },
+  {
+   "title": "CDs callable v. non-callable - Bogleheads.org",
+   "url": "https://www.bogleheads.org/forum/viewtopic.php?t=413137",
+   "why": "Forum discussion of the same choice; arguments and anecdotes, no data series."
+  }
+ ],
+ "note": "Results explain call risk qualitatively; none found replays historical rates to measure how often a callable CD would have been called and how its return compared with a plain CD. Titles and URLs only; pages not fetched."
+}

@@ -1,0 +1,110 @@
+{
+ "answer": "History, not a forecast. Replaying every monthly start from Apr 1953 to Aug 2021 (821 starts) with Treasury yields as the rate proxy, a 5-year CD paying half a point extra but callable after a year would have been called in 73.2% of starts. Because the bank calls when rates have fallen, the saver reinvests at lower rates: the callable CD ended ahead of the plain CD in only 37.9% of starts (15.1% of the called ones). The median result was 0.22 points a year less than the plain CD (mean 0.34 less; worst 3.77 less; best the full 0.50 more, when never called). Since 2000 the CD would have been called in 80.8% of starts and come out ahead in 30.8%. With a stricter call rule (rates down at least half a point) it was called in 66.6% and ahead in 41.8%. The 5-year Treasury yield was 4.38% in Aug 2026.",
+ "guess": "Most savers would guess the extra half point is close to free: calls seem like an occasional nuisance, and if called they simply get their money back with the higher interest earned so far.",
+ "changesDecision": "Calls were the usual outcome, not the exception, and they come exactly when rates have fallen, so the money returns into a lower-rate market. Over history the callable CD earned less than the plain CD in most starts, and its upside was capped at the premium while its downside was several points a year. That reverses the 'free extra yield' intuition and can change which CD a saver picks; the outcome depends on the rate path, which is not forecast.",
+ "numbers": [
+  {
+   "id": "starts",
+   "value": 821,
+   "unit": "start months",
+   "definition": "Number of start months. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "first_start",
+   "value": "1953-04-01",
+   "unit": "date",
+   "definition": "First start month. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "last_start",
+   "value": "2021-08-01",
+   "unit": "date",
+   "definition": "Last start month (5 years later is 2026-08-01). Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "share_called_pct",
+   "value": 73.2,
+   "unit": "percent of start months",
+   "definition": "100 x (starts where the callable CD is called on some anniversary) / starts, rounded to 0.1. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "share_callable_ahead_pct",
+   "value": 37.9,
+   "unit": "percent of start months",
+   "definition": "100 x (starts with d > 0) / starts, rounded to 0.1. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "median_diff_pts_per_year",
+   "value": -0.22,
+   "unit": "percentage points per year",
+   "definition": "Median of d over all starts, rounded to 0.01. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "mean_diff_pts_per_year",
+   "value": -0.34,
+   "unit": "percentage points per year",
+   "definition": "Mean of d over all starts, rounded to 0.01. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "worst_diff_pts_per_year",
+   "value": -3.77,
+   "unit": "percentage points per year",
+   "definition": "Minimum of d, rounded to 0.01. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "best_diff_pts_per_year",
+   "value": 0.5,
+   "unit": "percentage points per year",
+   "definition": "Maximum of d, rounded to 0.01 (a never-called CD earns the full 0.50 premium). Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "share_ahead_when_called_pct",
+   "value": 15.1,
+   "unit": "percent of called starts",
+   "definition": "100 x (called starts with d > 0) / (called starts), rounded to 0.1. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "starts_since_2000",
+   "value": 260,
+   "unit": "start months",
+   "definition": "Number of start months with s >= 2000-01-01. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "share_called_since_2000_pct",
+   "value": 80.8,
+   "unit": "percent of start months",
+   "definition": "100 x (starts since 2000-01-01 that are called) / starts_since_2000, rounded to 0.1. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "share_callable_ahead_since_2000_pct",
+   "value": 30.8,
+   "unit": "percent of start months",
+   "definition": "100 x (starts since 2000-01-01 with d > 0) / starts_since_2000, rounded to 0.1. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "share_called_thresh050_pct",
+   "value": 66.6,
+   "unit": "percent of start months",
+   "definition": "Same as share_called_pct but the bank calls only when r - y >= 0.50. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "share_callable_ahead_thresh050_pct",
+   "value": 41.8,
+   "unit": "percent of start months",
+   "definition": "Same as share_callable_ahead_pct but with the 0.50 call threshold. Model: for each start month s (every month with GS5 data from 1953-04-01 such that s + 60 months <= 2026-08-01, i.e. 1953-04-01 .. 2021-08-01), r = GS5(s). Non-callable CD: value (1 + r/100)^5. Callable CD: coupon r + 0.50, interest compounded annually; at each anniversary k = 1, 2, 3, 4 (month t = s + 12k, after crediting that year's interest) the remaining term is m = 5 - k years and the current yield for it is y = (GS3(t)+GS5(t))/2 if m = 4, GS3(t) if m = 3, GS2(t) if m = 2 (or (GS1(t)+GS3(t))/2 when GS2 has no value, before 1976-06), GS1(t) if m = 1. The bank calls at the first anniversary where r - y >= 0.25; the money is then reinvested for the remaining m years at y, compounded annually: value = (1 + (r+0.50)/100)^k x (1 + y/100)^m. If never called: value = (1 + (r+0.50)/100)^5. Annualized difference d = 100 x (value_callable^(1/5) - value_noncallable^(1/5)) in percentage points per year. GS1, GS2, GS3, GS5 = market yield on U.S. Treasury securities at 1-, 2-, 3-, 5-year constant maturity, percent, monthly averages (pinned FRED CSVs coed=2026-08-01). "
+  },
+  {
+   "id": "gs5_latest_pct",
+   "value": 4.38,
+   "unit": "percent",
+   "definition": "GS5 value for 2026-08-01 as published."
+  }
+ ],
+ "assumptions": [
+  "CD rates are proxied by Treasury constant-maturity yields: the plain 5-year CD pays the 5-year yield, the callable CD pays 0.50 point more (the premium in the decision: 4.5% vs 4%), and reinvestment after a call earns the Treasury yield for the remaining term. Actual bank and brokered CD rates differ from Treasury yields.",
+  "Calls are possible only on anniversaries 1-4 (one-year call protection) and happen when the original 5-year rate exceeds the current yield for the remaining term by at least 0.25 point (0.50 as a check); real issuers decide on their own funding costs and may call on other dates.",
+  "Interest compounds annually; no taxes, fees, or secondary-market sales; called money is reinvested at once in a non-callable CD for the remaining term.",
+  "Before June 1976, when the 2-year yield has no data, the 2-year rate is the average of the 1- and 3-year yields."
+ ],
+ "limits": "History, not a forecast. The result depends on the path of rates; the long fall in rates from 1981 to 2021 dominates many starts. Overlapping 5-year windows give about 14 independent periods. The call rule is a simplified stand-in for an issuer's decision; a different premium or call schedule changes the numbers."
+}

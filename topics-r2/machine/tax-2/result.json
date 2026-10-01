@@ -1,0 +1,153 @@
+{
+ "answer": "The $1,000 emergency withdrawal carries no 10% additional tax, so in the 12% bracket its cost is $120 of federal income tax (recoverable if the money is repaid to the plan within three years). Putting the bill on a card and paying it off in equal monthly payments, at the latest average rate on accounts charged interest (22.15% in 2026-05), costs $65.59 over 6 months and $124.0 over 12; the card interest passes the $120 tax only after 12 months. Across 127 quarterly rates since 1994-11, that crossover ranged from 11 months (at 23.37%, 2024-08) to 23 months (at 11.96%, 2003-02), median 18. For a 22% bracket worker the tax is $220 and the crossover is 22 months at today's rate (history: 21 to 41, median 33). Lost investment growth on the withdrawn money is not included. History, not a forecast.",
+ "guess": "Most viewers have heard that taking money out of a 401(k) early is the costliest move (penalty plus tax), so they would guess the card is cheaper for a $1,000 bill unless it sits unpaid for years.",
+ "changesDecision": "With no penalty on this withdrawal, the comparison is the tax versus card interest: a worker who will need about a year or more to clear the card pays more in interest than the withdrawal costs in tax, and one who can clear it in a few months pays less. The episode gives the viewer the month count to compare with their own payoff plan.",
+ "numbers": [
+  {
+   "id": "observations",
+   "value": 127,
+   "unit": "quarterly observations",
+   "definition": "Number of TERMCBCCINTNS observations used (Nov 1994 - May 2026). Card cost: a $1,000 balance repaid in n equal monthly payments at monthly rate i = APR/100/12, payment = 1000*i/(1-(1+i)^-n), total interest = n*payment - 1000. APR = TERMCBCCINTNS (average interest rate on credit card accounts assessed interest, commercial banks; quarterly observations Feb/May/Aug/Nov, Nov 1994 - May 2026). Withdrawal cost: federal income tax on the $1,000 emergency withdrawal at the viewer's marginal rate, 12% = $120 (22% = $220 for comparison); no 10% additional tax. 'Months to exceed' = smallest whole n with total interest > tax."
+  },
+  {
+   "id": "first_obs",
+   "value": "1994-11",
+   "unit": "month",
+   "definition": "First observation."
+  },
+  {
+   "id": "last_obs",
+   "value": "2026-05",
+   "unit": "month",
+   "definition": "Latest observation."
+  },
+  {
+   "id": "apr_last_pct",
+   "value": 22.15,
+   "unit": "percent APR",
+   "definition": "TERMCBCCINTNS value for the latest observation (2026-05)."
+  },
+  {
+   "id": "tax_12_usd",
+   "value": 120.0,
+   "unit": "USD",
+   "definition": "0.12 * 1000: federal tax on the withdrawal in the 12% bracket."
+  },
+  {
+   "id": "tax_22_usd",
+   "value": 220.0,
+   "unit": "USD",
+   "definition": "0.22 * 1000: same in the 22% bracket."
+  },
+  {
+   "id": "months_12_last",
+   "value": 12,
+   "unit": "months",
+   "definition": "Smallest n with card interest > $120 at the latest APR. Card cost: a $1,000 balance repaid in n equal monthly payments at monthly rate i = APR/100/12, payment = 1000*i/(1-(1+i)^-n), total interest = n*payment - 1000. APR = TERMCBCCINTNS (average interest rate on credit card accounts assessed interest, commercial banks; quarterly observations Feb/May/Aug/Nov, Nov 1994 - May 2026). Withdrawal cost: federal income tax on the $1,000 emergency withdrawal at the viewer's marginal rate, 12% = $120 (22% = $220 for comparison); no 10% additional tax. 'Months to exceed' = smallest whole n with total interest > tax."
+  },
+  {
+   "id": "months_22_last",
+   "value": 22,
+   "unit": "months",
+   "definition": "Smallest n with card interest > $220 at the latest APR."
+  },
+  {
+   "id": "interest_12mo_last_usd",
+   "value": 124.0,
+   "unit": "USD",
+   "definition": "Total card interest, n = 12, latest APR, rounded to cents."
+  },
+  {
+   "id": "interest_24mo_last_usd",
+   "value": 246.85,
+   "unit": "USD",
+   "definition": "Total card interest, n = 24, latest APR, rounded to cents."
+  },
+  {
+   "id": "interest_6mo_last_usd",
+   "value": 65.59,
+   "unit": "USD",
+   "definition": "Total card interest, n = 6, latest APR, rounded to cents."
+  },
+  {
+   "id": "apr_min_pct",
+   "value": 11.96,
+   "unit": "percent APR",
+   "definition": "Lowest TERMCBCCINTNS observation 1994-2026."
+  },
+  {
+   "id": "apr_min_obs",
+   "value": "2003-02",
+   "unit": "month",
+   "definition": "Month of the lowest observation."
+  },
+  {
+   "id": "months_12_at_min",
+   "value": 23,
+   "unit": "months",
+   "definition": "Smallest n with card interest > $120 at the lowest APR."
+  },
+  {
+   "id": "apr_max_pct",
+   "value": 23.37,
+   "unit": "percent APR",
+   "definition": "Highest TERMCBCCINTNS observation 1994-2026."
+  },
+  {
+   "id": "apr_max_obs",
+   "value": "2024-08",
+   "unit": "month",
+   "definition": "Month of the highest observation."
+  },
+  {
+   "id": "months_12_at_max",
+   "value": 11,
+   "unit": "months",
+   "definition": "Smallest n with card interest > $120 at the highest APR."
+  },
+  {
+   "id": "months_12_median",
+   "value": 18,
+   "unit": "months",
+   "definition": "Median over all observations of the smallest n with card interest > $120."
+  },
+  {
+   "id": "months_22_median",
+   "value": 33,
+   "unit": "months",
+   "definition": "Median over all observations of the smallest n with card interest > $220."
+  },
+  {
+   "id": "months_12_min",
+   "value": 11,
+   "unit": "months",
+   "definition": "Minimum over observations of months to exceed $120."
+  },
+  {
+   "id": "months_12_max",
+   "value": 23,
+   "unit": "months",
+   "definition": "Maximum over observations of months to exceed $120."
+  },
+  {
+   "id": "months_22_min",
+   "value": 21,
+   "unit": "months",
+   "definition": "Minimum over observations of months to exceed $220."
+  },
+  {
+   "id": "months_22_max",
+   "value": 41,
+   "unit": "months",
+   "definition": "Maximum over observations of months to exceed $220."
+  }
+ ],
+ "assumptions": [
+  "The worker's plan offers the emergency personal expense distribution and the worker qualifies (self-certified need, at least $2,000 vested so $1,000 is available, none taken in the last 3 years without repayment).",
+  "The whole $1,000 is taxed at the worker's federal marginal rate (12%, or 22% for comparison); no state income tax; the withdrawal is not repaid (if repaid within three years the tax can be recovered).",
+  "Card balance of exactly $1,000, no new charges, no fees, equal monthly payments; APR equal to the national average on accounts assessed interest at that observation, held fixed for the payoff period.",
+  "Lost investment growth on the $1,000 while out of the 401(k) is not counted; it would add to the withdrawal's cost.",
+  "Withholding at the time of withdrawal affects cash flow, not the final tax, and is ignored."
+ ],
+ "limits": "History, not a forecast: past card rates do not predict a viewer's own APR, which may be far above or below the national average. Federal tax only. Not every plan offers this withdrawal. Not personal advice."
+}

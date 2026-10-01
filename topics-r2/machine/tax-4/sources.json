@@ -1,0 +1,50 @@
+{
+ "series": [
+  {
+   "id": "TB3MS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15; 3-Month Treasury Bill secondary market rate, discount basis, monthly)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&cosd=1934-01-01&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+   "file": "data/TB3MS.csv",
+   "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "3.72"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   }
+  },
+  {
+   "id": "CPIAUCNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics, CPI for All Urban Consumers: All Items in U.S. City Average, not seasonally adjusted)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&cosd=1933-01-01&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "file": "data/CPIAUCNS.csv",
+   "sha256": "2c258a8cdf5a4f22910354e7bacbf7cec94adef04203bfe6b1df8a95cc845439",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.980"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCNS"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "IRS, Retirement topics - IRA contribution limits (2026 limit)",
+   "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits",
+   "quote": "For 2026, the total contributions you make each year to all of your traditional IRAs and Roth IRAs can't be more than: $7,500 ($8,600 if you're age 50 or older), or if less, your taxable compensation for the year"
+  },
+  {
+   "cite": "IRS Publication 590-B, Are Distributions Taxable? (Roth IRA return of regular contributions)",
+   "url": "https://www.irs.gov/publications/p590b",
+   "quote": "You don't include in your gross income qualified distributions or distributions that are a return of your regular contributions from your Roth IRA(s)."
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+{
+  "series": [
+    {
+      "id": "HPIPONM226N",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HPIPONM226N&coed=2026-07-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/HPIPONM226N",
+      "file": "data/HPIPONM226N.csv",
+      "sha256": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+      "retrieved": "2026-10-01",
+      "lastObservation": "2026-07-01",
+      "terms": {
+        "quote": "Public Domain: Citation Requested",
+        "url": "https://fred.stlouisfed.org/series/HPIPONM226N"
+      }
+    },
+    {
+      "id": "MORTGAGE30US",
+      "provider": "FRED, Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+      "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+      "file": "data/MORTGAGE30US.csv",
+      "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+      "retrieved": "2026-10-01",
+      "lastObservation": "2026-09-24",
+      "terms": {
+        "quote": "Copyrighted: Citation Required",
+        "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+      }
+    }
+  ],
+  "provisions": [
+    {
+      "cite": "12 U.S.C. 4901(2)(A) (borrower cancellation date, fixed rate mortgage)",
+      "url": "https://www.law.cornell.edu/uscode/text/12/4901",
+      "quote": "based solely on the initial amortization schedule for that mortgage, and irrespective of the outstanding balance for that mortgage on that date, is first scheduled to reach 80 percent of the original value of the property securing the loan"
+    },
+    {
+      "cite": "12 U.S.C. 4901(18)(A) (termination date, fixed rate mortgage)",
+      "url": "https://www.law.cornell.edu/uscode/text/12/4901",
+      "quote": "the date on which the principal balance of the mortgage, based solely on the initial amortization schedule for that mortgage, and irrespective of the outstanding balance for that mortgage on that date, is first scheduled to reach 78 percent of the original value of the property securing the loan"
+    },
+    {
+      "cite": "12 U.S.C. 4902(b) (automatic termination)",
+      "url": "https://www.law.cornell.edu/uscode/text/12/4902",
+      "quote": "a requirement for private mortgage insurance in connection with a residential mortgage transaction shall terminate with respect to payments for that mortgage insurance made by the mortgagor"
+    }
+  ]
+}

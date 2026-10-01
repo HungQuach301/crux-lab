@@ -1,0 +1,97 @@
+{
+  "answer": "For a fixed mortgage payment to fall from 35% to 28% of pay, pay must rise 25%. Using average hourly pay since 1964, that took a median of 82 months (about 7 years) across 691 start months; the fastest was 34 months (starting December 1977, high inflation) and the slowest 120. For start months since 1990 the median was 86 months, it never took 48 months or less, and the fastest was 52. Five years in, the payment was still a median 30.0% of pay. History, not a forecast.",
+  "guess": "Buyers stretching to 35% often assume a few years of raises (three or four) will bring the payment back to a comfortable 28%.",
+  "changesDecision": "Average pay has not grown fast enough since 1990 to make a 35% payment a 28% payment in four years; the typical wait is about seven years and the payment is still near 30% after five. A buyer can compare that path with their own raise expectations before counting on raises to fix the stretch.",
+  "numbers": [
+    {
+      "id": "n_starts",
+      "value": 691,
+      "unit": "start months",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Number of start months with k(t) defined."
+    },
+    {
+      "id": "first_start",
+      "value": "1964-01-01",
+      "unit": "date",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. First such start month."
+    },
+    {
+      "id": "last_start",
+      "value": "2021-07-01",
+      "unit": "date",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Last such start month."
+    },
+    {
+      "id": "median_months",
+      "value": 82,
+      "unit": "months",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Median of k(t) over all start months."
+    },
+    {
+      "id": "min_months",
+      "value": 34,
+      "unit": "months",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Smallest k(t)."
+    },
+    {
+      "id": "min_start",
+      "value": "1977-12-01",
+      "unit": "date",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Start month with the smallest k(t) (first one if tied)."
+    },
+    {
+      "id": "max_months",
+      "value": 120,
+      "unit": "months",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Largest k(t)."
+    },
+    {
+      "id": "share_le48",
+      "value": 0.237,
+      "unit": "share",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Share of start months with k(t) <= 48, rounded to 0.001."
+    },
+    {
+      "id": "n_starts_1990",
+      "value": 379,
+      "unit": "start months",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Number of start months from 1990-01 on with k(t) defined."
+    },
+    {
+      "id": "median_months_1990",
+      "value": 86,
+      "unit": "months",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Median of k(t) over start months from 1990-01 on."
+    },
+    {
+      "id": "min_months_1990",
+      "value": 52,
+      "unit": "months",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Smallest k(t) over start months from 1990-01 on."
+    },
+    {
+      "id": "share_le48_1990",
+      "value": 0.0,
+      "unit": "share",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Share of start months from 1990-01 on with k(t) <= 48, rounded to 0.001."
+    },
+    {
+      "id": "median_share_after60_1990",
+      "value": 30.0,
+      "unit": "percent of pay",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. For each start month t from 1990-01 on with data 60 months later: 35 * W[t]/W[t+60] (payment share after five years). Median, rounded to 0.1."
+    },
+    {
+      "id": "n_share5_1990",
+      "value": 380,
+      "unit": "start months",
+      "definition": "Data: data/AHETPI.csv (FRED; average hourly earnings of production and nonsupervisory employees, total private, dollars, monthly, seasonally adjusted, 1964-01 to 2026-08). A fixed payment that is 35% of pay falls to 28% when pay has grown by the factor 35/28 = 1.25. For each start month t, k(t) = first k >= 0 with W[t+k] >= 1.25*W[t]; start months with no such month in the data are dropped. Number of start months used in median_share_after60_1990."
+    }
+  ],
+  "assumptions": [
+    "The mortgage payment is fixed (principal and interest); taxes and insurance, which usually rise, are not included.",
+    "The buyer's pay grows like the national average hourly earnings of production and nonsupervisory workers; promotions, job changes and career stage are not modeled.",
+    "Gross pay; no change in hours or household earners."
+  ],
+  "limits": "History, not a forecast. An average across workers is not an individual raise path: early-career workers and job changers often see faster growth, others slower or none. Rising property taxes and insurance make the true housing share fall more slowly than shown. Hourly earnings series covers production and nonsupervisory employees only."
+}
