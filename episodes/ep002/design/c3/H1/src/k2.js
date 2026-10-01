@@ -37,10 +37,10 @@ export function build({ scene, camera, renderer }) {
   }
   function overlay(ctx, t, proj) {
     const pb = proj(new THREE.Vector3(XS - 0.75, YR - 1.5 * KB / 2, ZR));
-    numWords(ctx, CL('gap_start'), 'head start', 40, 610, { alpha: Math.min(ease(t, 1.2, 1.6), 1 - ease(t, 2.8, 3.0)) });
+    numWords(ctx, CL('gap_start'), 'head start', 56, 610, { alpha: Math.min(ease(t, 1.2, 1.6), 1 - ease(t, 2.8, 3.0)) });
     for (let i = 1; i < KEYS.length; i++) {
       const a0 = KEYS[i][0] + MOVE, a1 = i + 1 < KEYS.length ? KEYS[i + 1][0] : DUR + 1;
-      text(ctx, WORDS[i], 40, 610, 'head', { alpha: Math.min(ease(t, a0 - 0.1, a0 + 0.15), 1 - ease(t, a1 - 0.15, a1)) });
+      text(ctx, WORDS[i], 56, 610, 'head', { alpha: Math.min(ease(t, a0 - 0.1, a0 + 0.15), 1 - ease(t, a1 - 0.15, a1)) });
     }
     badge(ctx, 1);
   }

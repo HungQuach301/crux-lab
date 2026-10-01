@@ -28,13 +28,13 @@ export function build({ scene, camera, renderer }) {
   }
   function overlay(ctx, t, proj) {
     numWords(ctx, CL('share_rate_above_fixed'), 'rate above 9% at some point', 60, 150, { alpha: Math.min(ease(t, 5.6, 6.0), 1 - ease(t, 8.3, 8.6)), numColor: C.ink });
-    numWords(ctx, CL('share_all'), 'cost more in total', 640, 640, { align: 'center', alpha: Math.min(ease(t, 7.0, 7.4), 1 - ease(t, 8.2, 8.5)) });
+    numWords(ctx, CL('share_all'), 'cost more in total', 640, 630, { align: 'center', alpha: Math.min(ease(t, 7.0, 7.4), 1 - ease(t, 8.2, 8.5)) });
     const pl = proj(new THREE.Vector3((xOf(0) + xOf(323)) / 2, 0, 0.12 + 12 * TILE.pitch + 0.2));
     const pr = proj(new THREE.Vector3((xOf(324) + xOf(752)) / 2, 0, 0.12 + 12 * TILE.pitch + 0.2));
-    numWords(ctx, CL('share_early'), 'starts 1954–1980', pl.x, 650, { align: 'center', alpha: ease(t, 8.5, 8.9) });
-    numWords(ctx, CL('share_late'), 'starts 1981 on', pr.x, 650, { align: 'center', alpha: ease(t, 8.5, 8.9) });
+    numWords(ctx, CL('share_early'), 'starts 1954–1980', Math.max(pl.x, 300), 640, { align: 'center', alpha: ease(t, 8.5, 8.9) });
+    numWords(ctx, CL('share_late'), 'starts 1981 on', pr.x, 640, { align: 'center', alpha: ease(t, 8.5, 8.9) });
     badge(ctx, 1);
-    source(ctx, 'br');
+    source(ctx, 'tl');
   }
   return { duration: DUR, stripTimes: [0.4, 2.0, 3.8, 5.8, 7.4, 9.6], update, overlay };
 }

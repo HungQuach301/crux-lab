@@ -25,7 +25,7 @@ export function build({ scene, camera, renderer }) {
     B.position.set(xOf(k + peakM), KY * RIDGE[k + peakM] + 0.17, Z.ridge1 + 0.08);
     B.rotation.y = 0.5;
     fixC.userData.set(XP, ZP, nf); varC.userData.set(XP + 0.75, ZP, nf); redC.userData.set(XP + 0.75, ZP, nv - nf, 0.042 * nf);
-    camera.fov = 34; camera.position.set(-0.75, 3.3, 7.4); camera.lookAt(-1.1, 1.65, -0.6); camera.updateProjectionMatrix();
+    camera.fov = 34; camera.position.set(-1.0, 3.3, 7.4); camera.lookAt(-1.4, 1.65, -0.6); camera.updateProjectionMatrix();
   }
   function overlay(ctx) {
     text(ctx, 'Variable', 52, 140, 'hero');

@@ -3,7 +3,7 @@
 // (PyAV libx264, H.264 High yuv420p). 1280x720, 30 fps, no audio.
 //   THREE_DIR=<tmp>/node_modules/three/build NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers \
 //   node src/render.js K1 [--still 1,4.5 [--mask]] [--strips-only]
-// Writes K1.mp4, K1-strip.png, K1-strip-masked.png, work/render-log-K1.json (timings, claims, strings, D2/D4/G-014 audit).
+// Writes K1.mp4, K1-strip.png, K1-strip-masked.png, logs/render-log-K1.json (timings, claims, strings, D2/D4/G-014 audit).
 //   node src/render.js THUMB  -> thumb-concept.png + thumb-concept.json (+ work/thumb-concept-masked.png)
 const fs = require('fs'), path = require('path'), http = require('http'), os = require('os'), { spawn } = require('child_process');
 const { chromium } = require('playwright');
@@ -66,7 +66,7 @@ const contrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y
   savePng(path.join(OUT, `${F}-strip.png`), await page.evaluate((ts) => APP.strip(ts, false), meta.strip));
   savePng(path.join(OUT, `${F}-strip-masked.png`), await page.evaluate((ts) => APP.strip(ts, true), meta.strip));
   const lg = await page.evaluate(() => APP.log());
-  const logf = path.join(OUT, 'work', `render-log-${F}.json`);
+  const logf = path.join(OUT, 'logs', `render-log-${F}.json`);
   const prev = fs.existsSync(logf) ? JSON.parse(fs.readFileSync(logf)) : {};
   const log = { frame: F, frames: meta.n, filmSeconds: meta.n / 30, wallSeconds: wall ? +wall.toFixed(1) : prev.wallSeconds,
     machineSecPerFilmSec: wall ? +(wall / (meta.n / 30)).toFixed(2) : prev.machineSecPerFilmSec, stripTimes: meta.strip,

@@ -31,7 +31,7 @@ export function build({ scene, camera, renderer }) {
   function overlay(ctx, t, proj) {
     const pa = proj(new THREE.Vector3(xOf(0), 3.9, Z.ridge1));
     text(ctx, CL('first_start'), Math.max(40, pa.x - 20), pa.y - 18, 'label', { alpha: Math.min(ease(t, 0.9, 1.3), 1 - ease(t, 4.6, 4.9)) });
-    text(ctx, CL('term'), 640, 690, 'label', { align: 'center', color: C.muted, alpha: Math.min(ease(t, 1.0, 1.4), 1 - ease(t, 4.6, 4.9)) });
+    text(ctx, CL('term'), 640, 668, 'label', { align: 'center', color: C.muted, alpha: Math.min(ease(t, 1.0, 1.4), 1 - ease(t, 4.6, 4.9)) });
     const pz = proj(new THREE.Vector3(xOf(NS - 1), 3.9, Z.ridge1));
     text(ctx, CL('last_start'), pz.x - 30, pz.y - 18, 'label', { align: 'right', alpha: ease(t, 8.6, 8.9) });
     badge(ctx, 1);

@@ -87,7 +87,7 @@ export function badge(ctx, alpha = 1) { // ILLUSTRATIVE pill, top right; warn pl
 // one source line (note tier, muted): the ridge is real data (TB3MS, FRED: "Public Domain: Citation Requested")
 export const SRC = '3-month Treasury bill rate, via FRED';
 export function source(ctx, where = 'br', alpha = 1) {
-  if (where === 'br') text(ctx, SRC, W - 40 - 12, H - 24, 'note', { align: 'right', color: C.muted, alpha });
+  if (where === 'br') text(ctx, SRC, W - 40 - 12, H - 36, 'note', { align: 'right', color: C.muted, alpha });
   else text(ctx, SRC, 40 + 12, 60, 'note', { color: C.muted, alpha });
 }
 // a number (ink, emphasised) followed by its secondary words (muted, D5) on one baseline, two plates 8 px apart
