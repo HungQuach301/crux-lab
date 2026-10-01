@@ -7,8 +7,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 EP = os.path.dirname(HERE)
 P, N, FIXED, VAR0 = 50000.0, 120, 9.00, 7.50
 FIRST_START, SPLIT = '1954-01-01', '1981-01-01'
-GAPS = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0]
-CAPS = [12.0, 15.0, 18.0]
+GAPS = [-1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0]
+CAPS = [12.0, 15.0, 18.0, 25.0]
 
 rows = [(r[0], float(r[1])) for r in list(csv.reader(open(os.path.join(EP, 'data/raw/TB3MS.csv'))))[1:]
         if r[1] not in ('', '.')]
@@ -85,6 +85,9 @@ out = {
         'max_variable_rate_any_window': round(max(w['maxRate'] for w in base), 2),
         'n_starts_1954_1980': len(early), 'share_costlier_1954_1980': s['share_costlier_1954_1980'],
         'n_starts_1981_on': len(late), 'share_costlier_1981_on': s['share_costlier_1981_on'],
+        'share_rate_above_fixed': round(100 * sum(w['maxRate'] > FIXED for w in base) / len(base), 1),
+        'worst_peak_rate': round(worst_w['maxRate'], 2),
+        'best_start': min(base, key=lambda w: w['diff'])['start'],
         'index_today': IDX, 'index_date': dates[-1], 'margin': round(VAR0 - IDX, 2),
     },
     'payments': {

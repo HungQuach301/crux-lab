@@ -1,0 +1,1458 @@
+{
+ "claims": [
+  {
+   "claimId": "loan",
+   "value": 50000,
+   "display": "$50,000",
+   "formula": "loan amount (model param)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": false,
+   "illustrative": true,
+   "kind": "param",
+   "basis": "nominal"
+  },
+  {
+   "claimId": "term",
+   "value": 120,
+   "display": "10 years (120 monthly payments)",
+   "formula": "term (model param)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": false,
+   "illustrative": true,
+   "kind": "param"
+  },
+  {
+   "claimId": "fixed_rate",
+   "value": 9.0,
+   "display": "9%",
+   "formula": "fixed rate offer (model param)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": false,
+   "illustrative": true,
+   "kind": "param"
+  },
+  {
+   "claimId": "var_start",
+   "value": 7.5,
+   "display": "7.5%",
+   "formula": "variable rate at origination (model param)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": false,
+   "illustrative": true,
+   "kind": "param"
+  },
+  {
+   "claimId": "gap_start",
+   "value": 1.5,
+   "display": "1.5 points",
+   "formula": "fixed_rate \u2212 var_start",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": false,
+   "illustrative": true,
+   "kind": "param"
+  },
+  {
+   "claimId": "index_today",
+   "value": 3.72,
+   "display": "3.72%",
+   "formula": "TB3MS, last observation 2026-08",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "data",
+   "asOf": "2026-08-01"
+  },
+  {
+   "claimId": "margin",
+   "value": 3.78,
+   "display": "3.78 points",
+   "formula": "var_start \u2212 index_today",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "tb_peak",
+   "value": 16.3,
+   "display": "16.30%",
+   "formula": "max TB3MS 1934-01..2026-08",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": false,
+   "illustrative": false,
+   "kind": "data",
+   "date": "1981-05-01",
+   "words": "May 1981"
+  },
+  {
+   "claimId": "n_starts",
+   "value": 753,
+   "display": "753",
+   "formula": "start months with a full 120-month window, 1954-01..2016-09",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "first_start",
+   "value": "1954-01-01",
+   "display": "January 1954",
+   "formula": "first start month",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "last_start",
+   "value": "2016-09-01",
+   "display": "September 2016",
+   "formula": "last start month with 120 months of data",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "n_early",
+   "value": 324,
+   "display": "324",
+   "formula": "start months 1954-01..1980-12",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "n_late",
+   "value": 429,
+   "display": "429",
+   "formula": "start months 1981-01..2016-09",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "fixed_int",
+   "value": 26005,
+   "display": "$26,005",
+   "formula": "total interest, 9% fixed, 120 months",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal"
+  },
+  {
+   "claimId": "n_costlier",
+   "value": 107,
+   "display": "107",
+   "formula": "windows with Difference > 0",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "share_all",
+   "value": 14.2,
+   "display": "14.2%",
+   "formula": "share of start months where variable total interest > fixed",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "core": true,
+   "words": "about 1 in 7"
+  },
+  {
+   "claimId": "share_early",
+   "value": 28.4,
+   "display": "28.4%",
+   "formula": "share costlier, starts 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "core": true,
+   "decisive": true,
+   "words": "more than 1 in 4"
+  },
+  {
+   "claimId": "share_late",
+   "value": 3.5,
+   "display": "3.5%",
+   "formula": "share costlier, starts 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "core": true,
+   "decisive": true,
+   "words": "about 1 in 30"
+  },
+  {
+   "claimId": "median_diff",
+   "value": -3832,
+   "display": "\u2212$3,832",
+   "formula": "median Difference (negative = variable cheaper)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "words": "$3,832 less"
+  },
+  {
+   "claimId": "worst_diff",
+   "value": 11219,
+   "display": "+$11,219",
+   "formula": "max Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "core": true,
+   "decisive": true
+  },
+  {
+   "claimId": "worst_start",
+   "value": "1977-04-01",
+   "display": "April 1977",
+   "formula": "start month of the max Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "worst_peak_rate",
+   "value": 19.26,
+   "display": "19.3%",
+   "formula": "highest monthly variable rate in the worst window",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "worst_share_of_fixed",
+   "value": 43,
+   "display": "43%",
+   "formula": "worst_diff / fixed_int",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "best_diff",
+   "value": -15295,
+   "display": "\u2212$15,295",
+   "formula": "min Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal"
+  },
+  {
+   "claimId": "best_start",
+   "value": "1981-08-01",
+   "display": "August 1981",
+   "formula": "start month of the min Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model"
+  },
+  {
+   "claimId": "max_rate_any",
+   "value": 20.6,
+   "display": "20.6%",
+   "formula": "highest monthly variable rate in any window",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "start": "1972-02-01",
+   "words": "window starting February 1972"
+  },
+  {
+   "claimId": "share_rate_above_fixed",
+   "value": 76.2,
+   "display": "76.2%",
+   "formula": "share of windows whose variable rate exceeded 9% in some month",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "words": "about 3 in 4"
+  },
+  {
+   "claimId": "fixed_payment",
+   "value": 633.38,
+   "display": "$633.38",
+   "formula": "level payment, 9%, 120 months",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "var_first_payment",
+   "value": 593.51,
+   "display": "$593.51",
+   "formula": "first payment at 7.5%",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "max_payment",
+   "value": 863.36,
+   "display": "$863.36",
+   "formula": "highest variable monthly payment, any window",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "start": "1977-04-01",
+   "scope": "b"
+  },
+  {
+   "claimId": "median_max_payment",
+   "value": 643.28,
+   "display": "$643.28",
+   "formula": "median over windows of the highest monthly payment",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "share_payment_above_fixed",
+   "value": 58.4,
+   "display": "58.4%",
+   "formula": "share of windows where the variable payment exceeded the fixed payment in some month",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b",
+   "words": "more than half"
+  },
+  {
+   "claimId": "gapm10_share",
+   "value": 72.9,
+   "display": "72.9%",
+   "formula": "share costlier, start gap -1.0 points",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gapm10_early",
+   "value": 92.9,
+   "display": "92.9%",
+   "formula": "gap -1.0: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gapm10_late",
+   "value": 57.8,
+   "display": "57.8%",
+   "formula": "gap -1.0: 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gapm10_worst",
+   "value": 20217,
+   "display": "+$20,217",
+   "formula": "gap -1.0: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "gapm05_share",
+   "value": 64.7,
+   "display": "64.7%",
+   "formula": "share costlier, start gap -0.5 points",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gapm05_early",
+   "value": 88.0,
+   "display": "88.0%",
+   "formula": "gap -0.5: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gapm05_late",
+   "value": 47.1,
+   "display": "47.1%",
+   "formula": "gap -0.5: 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gapm05_worst",
+   "value": 18383,
+   "display": "+$18,383",
+   "formula": "gap -0.5: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap00_share",
+   "value": 57.9,
+   "display": "57.9%",
+   "formula": "share costlier, start gap 0.0 points",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap00_early",
+   "value": 79.0,
+   "display": "79.0%",
+   "formula": "gap 0.0: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap00_late",
+   "value": 42.0,
+   "display": "42.0%",
+   "formula": "gap 0.0: 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap00_worst",
+   "value": 16566,
+   "display": "+$16,566",
+   "formula": "gap 0.0: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap05_share",
+   "value": 42.5,
+   "display": "42.5%",
+   "formula": "share costlier, start gap 0.5 points",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap05_early",
+   "value": 68.5,
+   "display": "68.5%",
+   "formula": "gap 0.5: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap05_late",
+   "value": 22.8,
+   "display": "22.8%",
+   "formula": "gap 0.5: 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap05_worst",
+   "value": 14766,
+   "display": "+$14,766",
+   "formula": "gap 0.5: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap10_share",
+   "value": 31.3,
+   "display": "31.3%",
+   "formula": "share costlier, start gap 1.0 points",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap10_early",
+   "value": 54.9,
+   "display": "54.9%",
+   "formula": "gap 1.0: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap10_late",
+   "value": 13.5,
+   "display": "13.5%",
+   "formula": "gap 1.0: 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap10_worst",
+   "value": 12983,
+   "display": "+$12,983",
+   "formula": "gap 1.0: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap15_share",
+   "value": 14.2,
+   "display": "14.2%",
+   "formula": "share costlier, start gap 1.5 points",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap15_early",
+   "value": 28.4,
+   "display": "28.4%",
+   "formula": "gap 1.5: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap15_late",
+   "value": 3.5,
+   "display": "3.5%",
+   "formula": "gap 1.5: 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap15_worst",
+   "value": 11219,
+   "display": "+$11,219",
+   "formula": "gap 1.5: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap20_share",
+   "value": 8.8,
+   "display": "8.8%",
+   "formula": "share costlier, start gap 2.0 points",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap20_early",
+   "value": 20.4,
+   "display": "20.4%",
+   "formula": "gap 2.0: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap20_late",
+   "value": 0.0,
+   "display": "0.0%",
+   "formula": "gap 2.0: 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap20_worst",
+   "value": 9472,
+   "display": "+$9,472",
+   "formula": "gap 2.0: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap25_share",
+   "value": 6.0,
+   "display": "6.0%",
+   "formula": "share costlier, start gap 2.5 points",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap25_early",
+   "value": 13.9,
+   "display": "13.9%",
+   "formula": "gap 2.5: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap25_late",
+   "value": 0.0,
+   "display": "0.0%",
+   "formula": "gap 2.5: 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap25_worst",
+   "value": 7743,
+   "display": "+$7,743",
+   "formula": "gap 2.5: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap30_share",
+   "value": 4.5,
+   "display": "4.5%",
+   "formula": "share costlier, start gap 3.0 points",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap30_early",
+   "value": 10.5,
+   "display": "10.5%",
+   "formula": "gap 3.0: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap30_late",
+   "value": 0.0,
+   "display": "0.0%",
+   "formula": "gap 3.0: 1981 on",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "gap30_worst",
+   "value": 6033,
+   "display": "+$6,033",
+   "formula": "gap 3.0: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap12_share",
+   "value": 13.3,
+   "display": "13.3%",
+   "formula": "share costlier, rate capped at 12%",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap12_early",
+   "value": 26.2,
+   "display": "26.2%",
+   "formula": "cap 12: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap12_worst",
+   "value": 6590,
+   "display": "+$6,590",
+   "formula": "cap 12: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap15_share",
+   "value": 13.9,
+   "display": "13.9%",
+   "formula": "share costlier, rate capped at 15%",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap15_early",
+   "value": 27.8,
+   "display": "27.8%",
+   "formula": "cap 15: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap15_worst",
+   "value": 9821,
+   "display": "+$9,821",
+   "formula": "cap 15: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap18_share",
+   "value": 14.2,
+   "display": "14.2%",
+   "formula": "share costlier, rate capped at 18%",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap18_early",
+   "value": 28.4,
+   "display": "28.4%",
+   "formula": "cap 18: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap18_worst",
+   "value": 11137,
+   "display": "+$11,137",
+   "formula": "cap 18: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap25_share",
+   "value": 14.2,
+   "display": "14.2%",
+   "formula": "share costlier, rate capped at 25%",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap25_early",
+   "value": 28.4,
+   "display": "28.4%",
+   "formula": "cap 25: 1954-1980",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "scope": "b"
+  },
+  {
+   "claimId": "cap25_worst",
+   "value": 11219,
+   "display": "+$11,219",
+   "formula": "cap 25: worst Difference",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": true,
+   "kind": "model",
+   "basis": "nominal",
+   "scope": "b"
+  }
+ ]
+}

@@ -22,3 +22,9 @@ Cùng khoản vay, cùng cửa sổ, cùng cách tính lại khoản trả.
 - **Gap grid.** For g in {0.5, 1.0, 1.5, 2.0, 2.5, 3.0}: variable start rate v0 = 9.00 − g, margin = v0 − 3.72, path rate_k = margin + max(0, 3.72 + TB3MS[s+k] − TB3MS[s]); fixed stays 9.00. Report share_costlier (all, 1954–1980, 1981 on), median Difference, worst Difference and its start, best Difference.
 - **Cap grid.** For cap c in {12, 15, 18} (percent): base path (v0 = 7.50) with rate_k = min(c, base rate_k). Same outputs as the gap grid.
 - **Windows series.** For each of the 753 start months: Difference (round to cents), max rate, maxPay.
+
+## Mở rộng V0.1 (ghi 2026-10-01 ~03:20, TRƯỚC khi tính; lý do: `story/rate-anchor.md` — bảng lãi 2026 có lãi cố định khởi điểm thấp hơn thả nổi)
+- **Gap grid mở rộng**: thêm g ∈ {−1.0, −0.5, 0.0} (v0 = 9.00 − g, tức thả nổi khởi điểm 10.0 / 9.5 / 9.0). Cùng đầu ra như gap grid. Dung sai như trên.
+- **Cap grid mở rộng**: thêm c = 25 (mức trần cao nhất thấy trong điều khoản bên cho vay, đọc qua đoạn trích). Cùng đầu ra.
+- **share_rate_above_fixed** (base): % cửa sổ có ít nhất một tháng lãi thả nổi > 9.00 (làm tròn 0,1).
+- **worst_peak_rate**: lãi tháng cao nhất trong cửa sổ có Difference lớn nhất (làm tròn 0,01); **best_start**: tháng bắt đầu của Difference nhỏ nhất.

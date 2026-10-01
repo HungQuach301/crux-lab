@@ -17,7 +17,9 @@
   "n_starts_1981_on": 429,
   "share_costlier_1981_on": 3.5,
   "index_today": 3.72,
-  "margin": 3.78
+  "margin": 3.78,
+  "share_rate_above_fixed": 76.2,
+  "worst_peak_rate": 19.26
  },
  "payments": {
   "fixed_payment": 633.38,
@@ -28,6 +30,36 @@
   "share_windows_max_payment_above_fixed": 58.4
  },
  "gaps": {
+  "-1.0": {
+   "share_costlier": 72.9,
+   "share_costlier_1954_1980": 92.9,
+   "share_costlier_1981_on": 57.8,
+   "median_diff": 4294,
+   "worst_diff": 20217,
+   "worst_start": "1977-04",
+   "best_diff": -7931,
+   "best_start": "1981-08"
+  },
+  "-0.5": {
+   "share_costlier": 64.7,
+   "share_costlier_1954_1980": 88.0,
+   "share_costlier_1981_on": 47.1,
+   "median_diff": 2631,
+   "worst_diff": 18383,
+   "worst_start": "1977-04",
+   "best_diff": -9444,
+   "best_start": "1981-08"
+  },
+  "0.0": {
+   "share_costlier": 57.9,
+   "share_costlier_1954_1980": 79.0,
+   "share_costlier_1981_on": 42.0,
+   "median_diff": 988,
+   "worst_diff": 16566,
+   "worst_start": "1977-04",
+   "best_diff": -10937,
+   "best_start": "1981-08"
+  },
   "0.5": {
    "share_costlier": 42.5,
    "share_costlier_1954_1980": 68.5,
@@ -116,6 +148,16 @@
    "share_costlier_1981_on": 3.5,
    "median_diff": -3832,
    "worst_diff": 11137,
+   "worst_start": "1977-04",
+   "best_diff": -15295,
+   "best_start": "1981-08"
+  },
+  "25": {
+   "share_costlier": 14.2,
+   "share_costlier_1954_1980": 28.4,
+   "share_costlier_1981_on": 3.5,
+   "median_diff": -3832,
+   "worst_diff": 11219,
    "worst_start": "1977-04",
    "best_diff": -15295,
    "best_start": "1981-08"
@@ -4657,6 +4699,9 @@
    "best_unrounded": -15294.798091595863
   },
   "fixed_total_interest": 26005.464250150006,
+  "share_rate_above_fixed": 76.22841965471447,
+  "count_rate_above_fixed": 574,
+  "worst_peak_rate": 19.26,
   "max_variable_rate_any_window": 20.6,
   "share_windows_max_payment_above_fixed": 58.43293492695883,
   "fixed_payment": 633.3788687512443,
@@ -4664,6 +4709,48 @@
   "max_variable_payment_any_window": 863.3619643801246,
   "median_window_max_payment": 643.2792853121475,
   "windows_maxPay_rounded_cents_above_rounded_fixed": 58.43293492695883,
+  "gap_-1.0": {
+   "share_all": 72.90836653386454,
+   "share_1954_1980": 92.90123456790124,
+   "share_1981_on": 57.80885780885781,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 549,
+   "count_early": 301,
+   "count_late": 248,
+   "median_unrounded": 4294.114377280501,
+   "worst_unrounded": 20216.751917512236,
+   "best_unrounded": -7931.030268592716
+  },
+  "gap_-0.5": {
+   "share_all": 64.6746347941567,
+   "share_1954_1980": 87.96296296296296,
+   "share_1981_on": 47.086247086247084,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 487,
+   "count_early": 285,
+   "count_late": 202,
+   "median_unrounded": 2631.0172946728635,
+   "worst_unrounded": 18382.69904424924,
+   "best_unrounded": -9443.728995245216
+  },
+  "gap_0.0": {
+   "share_all": 57.90172642762284,
+   "share_1954_1980": 79.01234567901234,
+   "share_1981_on": 41.95804195804196,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 436,
+   "count_early": 256,
+   "count_late": 180,
+   "median_unrounded": 988.0433356462636,
+   "worst_unrounded": 16565.617178898392,
+   "best_unrounded": -10936.575271666723
+  },
   "gap_0.5": {
    "share_all": 42.49667994687915,
    "share_1954_1980": 68.51851851851852,
@@ -4790,6 +4877,20 @@
    "worst_unrounded": 11136.865200397195,
    "best_unrounded": -15294.798091595863
   },
+  "cap_25": {
+   "share_all": 14.209827357237716,
+   "share_1954_1980": 28.395061728395063,
+   "share_1981_on": 3.4965034965034967,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 107,
+   "count_early": 92,
+   "count_late": 15,
+   "median_unrounded": -3832.201473006826,
+   "worst_unrounded": 11218.65433205614,
+   "best_unrounded": -15294.798091595863
+  },
   "max_abs_end_balance_base": 3.8841108107590117e-10,
   "fixed_end_balance": 7.057678885757923e-10
  },
@@ -4808,6 +4909,10 @@
   "Cap grid: rate_k = min(c, base rate_k) with base margin 3.78; payment recomputed when the capped rate changes.",
   "Rounding: decimal ROUND_HALF_UP applied to repr of the float (not Python banker's rounding).",
   "Period splits: 1954-1980 = starts 1954-01..1980-12; 1981 on = 1981-01..2016-09; shares are % of each subgroup's start count.",
-  "Windows series uses the base path (v0=7.50, no cap)."
+  "Windows series uses the base path (v0=7.50, no cap).",
+  "Gap grid keys formatted f'{g:.1f}' so g=-1.0,-0.5,0.0 -> '-1.0','-0.5','0.0'; margin = 9.00 - g - 3.72 (5.28/5.78/6.28 for v0=9.0/9.5/10.0).",
+  "share_rate_above_fixed: base path (v0=7.50, uncapped); % of 753 windows where max_k rate_k > 9.00 strictly (any month, k=0..119).",
+  "worst_peak_rate: max_k rate_k in the base window with largest Difference (worst_start); best_start: start of min Difference (already in core).",
+  "Cap 25 applies min(25, base rate_k) on the base path."
  ]
 }

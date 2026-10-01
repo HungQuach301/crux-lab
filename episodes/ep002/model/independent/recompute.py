@@ -79,6 +79,13 @@ core = dict(n_starts=len(starts), first_start=starts[0], last_start=starts[-1], 
     n_starts_1981_on=unr['base']['n_late'], share_costlier_1981_on=bs['share_costlier_1981_on'],
     index_today=INDEX, margin=r(MARGIN, 2))
 unr['fixed_total_interest'] = fixed_tot
+sra = 100.0*sum(1 for x in base if x['maxRate'] > FIX)/len(base)
+unr['share_rate_above_fixed'] = sra
+unr['count_rate_above_fixed'] = sum(1 for x in base if x['maxRate'] > FIX)
+wwin = max(base, key=lambda x: x['diff'])
+unr['worst_peak_rate'] = wwin['maxRate']
+core['share_rate_above_fixed'] = r(sra,1)
+core['worst_peak_rate'] = r(wwin['maxRate'],2)
 unr['max_variable_rate_any_window'] = max(x['maxRate'] for x in base)
 
 mpw = max(base, key=lambda x: x['maxPay'])
@@ -94,10 +101,10 @@ payments = dict(fixed_payment=r(fixed_pay,2), variable_first_payment=r(base[0]['
     share_windows_max_payment_above_fixed=r(sh,1))
 
 gaps = {}
-for g in [0.5,1.0,1.5,2.0,2.5,3.0]:
+for g in [-1.0,-0.5,0.0,0.5,1.0,1.5,2.0,2.5,3.0]:
     gaps[f'{g:.1f}'] = summ(run(FIX - g - INDEX), f'gap_{g:.1f}', unr)
 caps = {}
-for c in [12,15,18]:
+for c in [12,15,18,25]:
     caps[str(c)] = summ(run(MARGIN, float(c)), f'cap_{c}', unr)
 
 windows = [dict(start=x['start'], diff=r(x['diff'],2), maxRate=r(x['maxRate'],4), maxPay=r(x['maxPay'],2)) for x in base]
@@ -119,6 +126,10 @@ interp = [
  "Rounding: decimal ROUND_HALF_UP applied to repr of the float (not Python banker's rounding).",
  "Period splits: 1954-1980 = starts 1954-01..1980-12; 1981 on = 1981-01..2016-09; shares are % of each subgroup's start count.",
  "Windows series uses the base path (v0=7.50, no cap).",
+ "Gap grid keys formatted f'{g:.1f}' so g=-1.0,-0.5,0.0 -> '-1.0','-0.5','0.0'; margin = 9.00 - g - 3.72 (5.28/5.78/6.28 for v0=9.0/9.5/10.0).",
+ "share_rate_above_fixed: base path (v0=7.50, uncapped); % of 753 windows where max_k rate_k > 9.00 strictly (any month, k=0..119).",
+ "worst_peak_rate: max_k rate_k in the base window with largest Difference (worst_start); best_start: start of min Difference (already in core).",
+ "Cap 25 applies min(25, base rate_k) on the base path.",
 ]
 json.dump(dict(core=core, payments=payments, gaps=gaps, caps=caps, windows=windows, unrounded=unr, interpretations=interp),
           open('recompute.json','w'), indent=1)
