@@ -187,3 +187,21 @@ The section starts with a loan document, then shows three bars (a tall yellow on
 **Đối chứng Tập 1 · KEY-7 · 974172da** · điểm 1 — S18: thanh nhỏ dần khi nhà lớn dần + nhà nét đứt "giả định"
 
 The section starts with a loan document, then shows three bars (amber, green, red) paired with house icons of increasing size. A fourth, dashed "ghost" house appears between the green and red ones, and a dashed reference line is drawn across from the top of the amber bar. My reading is that it compares a loan balance or cost at successive stages. The amber bar is the largest, the green is smaller, and the red is smaller still, so the dashed line shows how far the amount has moved from the starting level. This probably means the amount owed or paid changes with the loan's stage or terms, and a missing or hypothetical option (the dashed house) would change the outcome. The numbers are hidden, so I can't be sure whether this is about interest growth, repayment, or comparing scenarios.
+
+## Chấm lại độc lập (lệnh chủ dự án C4, 01/10/2026)
+
+Người chấm: một agent mới, chỉ đọc `review-c4/rescore-packet.json` (42 câu trả lời + 14 rubric gán nhãn R01–R14 xáo trộn, không biết mẫu nào là Tập 2 hay đối chứng; khoá rubric `review-c4/rescore-rubric-key.json` commit 17c1d17 trước khi chấm). Điểm từng lượt: `review-c4/rescore-scores.json`.
+
+| Nhịp | Tập 2 · P chấm | Tập 2 · chấm lại | Đối chứng · P chấm | Đối chứng · chấm lại |
+|---|---|---|---|---|
+| KEY-1 | 1.5 | 1.5 | 1.5 | 0 |
+| KEY-2 | 1.5 | 0 | 2 | 1 |
+| KEY-3 | 3 | 1.5 | 0 | 0 |
+| KEY-4 | 2.5 | 0.5 | 3 | 0 |
+| KEY-5 | 3 | 3 | 1.5 | 0.5 |
+| KEY-6 | 3 | 0.5 | 0 | 0 |
+| KEY-7 | 1 | 0 | 2 | 0 |
+| **Trung bình /21** | **0.738** | **0.333** | 0.476 | 0.071 |
+
+Trùng điểm từng lượt giữa hai người chấm: 15/42. Chấm lại Tập 2 **0.333 < 0,70** (không có KEY-7: 0.389). Theo lệnh: báo chủ dự án quyết, **không sửa ý đồ, không hạ ngưỡng**.
+Khác biệt chính: người chấm lại đòi câu trả lời nêu đúng **nghĩa** của rubric (ví dụ KEY-3 phải nói "lãi thả nổi thường vượt mức cố định"; KEY-6 phải nói "lãi cao trong thời gian dài"), còn P chấm cả câu chỉ tả đúng hình (ví dụ "phần đỏ dồn quanh đỉnh"). Thứ tự giữa hai tập giữ nguyên ở cả hai cách chấm: Tập 2 hơn đối chứng (0,738 vs 0,476; 0,333 vs 0,071).
