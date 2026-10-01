@@ -30,3 +30,5 @@
 - 01/10 12:26 S09 dựng xong: S09 wall 236 s x 3.85 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
 - 01/10 12:27 S10 dựng xong: S10 wall 257 s x 3.83 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
 - 01/10 12:28 Chủ dự án C4 Q3a: S10.1 mỗi bậc một số (tỉ lệ chung) giữ ≥ 3 s, chèn 2,0 s nghỉ sau S10.1 (S10 = 67,1 s, phim 9:44,4); K4 thêm 'not to scale' (final: K4-v3.* giữ bản trước). Dựng lại S06/S09/S10, dải, check ALL OK (0 số ngoài claim), phim 19,1/9,6 MB.
+- 01/10 12:48 S08 dựng xong: S08 wall 217 s x 3.54 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":71.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 12:49 S08 take v5.1 (S08.d97e2064, 59,95 s, '…in dollars of the day'), nghỉ S08 1,25 s (khe S08.8→S09.1 = 1,38 s ở −40 dBFS); S08 = 61,23 s, phim 9:49,6; dựng lại S08, dải, check ALL OK, phim 19,3/9,7 MB.

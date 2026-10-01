@@ -65,3 +65,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 - 01/10 Chấm lại độc lập C4 (mù tập): Tập 2 0,333, đối chứng 0,071 (phiên tự chấm: 0,738/0,476; trùng 15/42) → dưới ngưỡng → gói C4b hỏi chủ dự án. Luồng P C5 dừng; A, D chạy tiếp (không chạm gu).
 - 01/10 Sửa C4 xong: S10.1 mỗi bậc một số chung (31.3%/57.9%/72.9%, giữ ≥ 3,1 s, hai thùng vẫn hiện), thêm 2,0 s nghỉ sau S10.1 (lời không đổi); K4 'not to scale'. Animatic 9:44,4; kiểm máy OK.
 - 01/10 C5 kỹ thuật: (1) data/sources.json đường dẫn tính từ gốc tập (data/raw/…) cho S03; fetch.py --verify ok. (2) Luật S09 (CHẶN) cần lời nói rõ cơ sở tiền: script v5.1 sửa S08.6 thêm 'in dollars of the day' (người xem thấy/nghe → báo gói C5); luồng A sinh lại riêng S08.
+- 01/10 S08 take mới 59,95 s (+4,78 s), pad S08 1,25 s → tổng 9:49,6; khe quảng cáo 2 = 1,38 s ≤ −40 dBFS (S14). Hồ sơ D chạy lại: breaks 221,99 / 380,92.

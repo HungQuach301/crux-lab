@@ -499,7 +499,7 @@
    "spoken": "Here is Leah's same loan, started in April nineteen seventy-seven.",
    "tag": "serious",
    "start": 320.467,
-   "end": 324.407,
+   "end": 323.747,
    "claims": [
     "worst_start"
    ]
@@ -511,8 +511,8 @@
    "text": "It begins at 7.5%, like every replay, and for a while her cushion grows.",
    "spoken": "It begins at seven point five percent, like every replay, and for a while her cushion grows.",
    "tag": null,
-   "start": 325.507,
-   "end": 330.547,
+   "start": 324.727,
+   "end": 329.967,
    "claims": [
     "var_start"
    ]
@@ -524,8 +524,8 @@
    "text": "Then the Treasury bill rate climbs year after year, and her rate follows it, to 19.3% at its highest.",
    "spoken": "Then the Treasury bill rate climbs year after year, and her rate follows it, to nineteen point three percent at its highest.",
    "tag": null,
-   "start": 331.287,
-   "end": 338.427,
+   "start": 330.967,
+   "end": 338.647,
    "claims": [
     "worst_peak_rate"
    ]
@@ -537,8 +537,8 @@
    "text": "The cushion from her first months is soon gone, and every further month above 9% adds to what she owes in interest.",
    "spoken": "The cushion from her first months is soon gone, and every further month above nine percent adds to what she owes in interest.",
    "tag": null,
-   "start": 339.087,
-   "end": 346.167,
+   "start": 339.607,
+   "end": 346.727,
    "claims": [
     "fixed_rate"
    ]
@@ -550,8 +550,8 @@
    "text": "Her payment reaches $863.36 a month, against the fixed $633.38.",
    "spoken": "Her payment reaches eight hundred sixty-three dollars and thirty-six cents a month, against the fixed six hundred thirty-three dollars and thirty-eight cents.",
    "tag": null,
-   "start": 346.827,
-   "end": 354.967,
+   "start": 346.727,
+   "end": 355.627,
    "claims": [
     "max_payment",
     "fixed_payment"
@@ -561,11 +561,11 @@
    "id": "S08.6",
    "n": 44,
    "scene": "S08",
-   "text": "Over 10 years, the fixed loan charges $26,005 in interest.",
-   "spoken": "Over ten years, the fixed loan charges twenty-six thousand five dollars in interest.",
+   "text": "Over 10 years, the fixed loan charges $26,005 in interest, in dollars of the day.",
+   "spoken": "Over ten years, the fixed loan charges twenty-six thousand five dollars in interest, in dollars of the day.",
    "tag": null,
-   "start": 355.747,
-   "end": 360.587,
+   "start": 356.487,
+   "end": 363.367,
    "claims": [
     "term",
     "fixed_int"
@@ -578,8 +578,8 @@
    "text": "Leah's variable loan charges 43% more interest than the fixed loan, the worst stretch in the whole replay.",
    "spoken": "Leah's variable loan charges forty-three percent more interest than the fixed loan, the worst stretch in the whole replay.",
    "tag": null,
-   "start": 361.467,
-   "end": 368.087,
+   "start": 364.487,
+   "end": 372.027,
    "claims": [
     "worst_share_of_fixed"
    ]
@@ -591,8 +591,8 @@
    "text": "This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller.",
    "spoken": "This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller.",
    "tag": null,
-   "start": 369.007,
-   "end": 375.327,
+   "start": 373.107,
+   "end": 380.147,
    "claims": []
   },
   {
@@ -602,8 +602,8 @@
    "text": "So far, every result has been for one pair of rates, 7.5% against 9%.",
    "spoken": "So far, every result has been for one pair of rates, seven point five percent against nine percent.",
    "tag": null,
-   "start": 376.467,
-   "end": 383.927,
+   "start": 381.7,
+   "end": 389.16,
    "claims": [
     "var_start",
     "fixed_rate"
@@ -616,8 +616,8 @@
    "text": "So the replay ran again, holding the fixed rate at 9% and moving only where the variable rate starts.",
    "spoken": "So the replay ran again, holding the fixed rate at nine percent and moving only where the variable rate starts.",
    "tag": null,
-   "start": 384.357,
-   "end": 391.267,
+   "start": 389.59,
+   "end": 396.5,
    "claims": [
     "fixed_rate"
    ]
@@ -629,8 +629,8 @@
    "text": "Each starting point is a different offer someone could be holding.",
    "spoken": "Each starting point is a different offer someone could be holding.",
    "tag": null,
-   "start": 392.247,
-   "end": 395.667,
+   "start": 397.48,
+   "end": 400.9,
    "claims": []
   },
   {
@@ -640,8 +640,8 @@
    "text": "Leah's 1.5 points gives the split already heard, with her April 1977 worst.",
    "spoken": "Leah's one point five points gives the split already heard, with her April nineteen seventy-seven worst.",
    "tag": null,
-   "start": 396.687,
-   "end": 402.507,
+   "start": 401.92,
+   "end": 407.74,
    "claims": [
     "gap_start",
     "worst_start"
@@ -654,8 +654,8 @@
    "text": "At 2 points, none of the starts from 1981 on cost more, but 20.4% of the 1954-to-1980 starts still did, the worst by $9,472.",
    "spoken": "At two points, none of the starts from nineteen eighty-one on cost more, but twenty point four percent of the nineteen fifty-four-to-nineteen eighty starts still did, the worst by nine thousand four hundred seventy-two dollars.",
    "tag": null,
-   "start": 402.507,
-   "end": 419.207,
+   "start": 407.74,
+   "end": 424.44,
    "claims": [
     "gap20_late",
     "gap20_early",
@@ -674,8 +674,8 @@
    "text": "At 3 points, still none from 1981 on, but 10.5% of the 1954-to-1980 starts cost more, the worst by $6,033.",
    "spoken": "At three points, still none from nineteen eighty-one on, but ten point five percent of the nineteen fifty-four-to-nineteen eighty starts cost more, the worst by six thousand thirty-three dollars.",
    "tag": "thoughtful",
-   "start": 420.387,
-   "end": 435.747,
+   "start": 425.62,
+   "end": 440.98,
    "claims": [
     "gap30_late",
     "gap30_early",
@@ -694,8 +694,8 @@
    "text": "With a smaller head start, or a variable rate that starts higher, more stretches cost more in both halves, and the worst gets bigger.",
    "spoken": "With a smaller head start, or a variable rate that starts higher, more stretches cost more in both halves, and the worst gets bigger.",
    "tag": null,
-   "start": 437.733,
-   "end": 446.733,
+   "start": 442.967,
+   "end": 451.967,
    "claims": []
   },
   {
@@ -705,8 +705,8 @@
    "text": "At every head start tested, the worst stretch began in April 1977.",
    "spoken": "At every head start tested, the worst stretch began in April nineteen seventy-seven.",
    "tag": null,
-   "start": 449.913,
-   "end": 454.653,
+   "start": 455.147,
+   "end": 459.887,
    "claims": [
     "gap_worst_start_all"
    ]
@@ -718,8 +718,8 @@
    "text": "And at every head start tested, some of the 1954-to-1980 starts still cost more.",
    "spoken": "And at every head start tested, some of the nineteen fifty-four-to-nineteen eighty starts still cost more.",
    "tag": null,
-   "start": 455.753,
-   "end": 462.413,
+   "start": 460.987,
+   "end": 467.647,
    "claims": [
     "min_gap_early",
     "n_early",
@@ -733,8 +733,8 @@
    "text": "So, back to the question: how much lower does a variable rate have to start before the risk has been worth it?",
    "spoken": "So, back to the question: how much lower does a variable rate have to start before the risk has been worth it?",
    "tag": null,
-   "start": 463.513,
-   "end": 470.833,
+   "start": 468.747,
+   "end": 476.067,
    "claims": []
   },
   {
@@ -744,8 +744,8 @@
    "text": "Measured as how often it cost more in total interest than the 9% fixed loan, and how much more at worst, history gives two answers.",
    "spoken": "Measured as how often it cost more in total interest than the nine percent fixed loan, and how much more at worst, history gives two answers.",
    "tag": null,
-   "start": 471.653,
-   "end": 481.493,
+   "start": 476.887,
+   "end": 486.727,
    "claims": [
     "fixed_rate"
    ]
@@ -757,8 +757,8 @@
    "text": "From 1981 on, a 2-point head start was enough every time; from 1954 to 1980, even 3 points was not, and the worst still cost $6,033 more.",
    "spoken": "From nineteen eighty-one on, a two point head start was enough every time; from nineteen fifty-four to nineteen eighty, even three points was not, and the worst still cost six thousand thirty-three dollars more.",
    "tag": null,
-   "start": 482.493,
-   "end": 497.953,
+   "start": 487.727,
+   "end": 503.187,
    "claims": [
     "gap20_late",
     "n_late",
@@ -778,8 +778,8 @@
    "text": "Which kind of history comes next is something no replay can show.",
    "spoken": "Which kind of history comes next is something no replay can show.",
    "tag": null,
-   "start": 499.233,
-   "end": 503.673,
+   "start": 504.467,
+   "end": 508.907,
    "claims": []
   },
   {
@@ -789,8 +789,8 @@
    "text": "The replay uses the 3-month Treasury bill rate as a stand-in for the lender's index; how it was built is on screen and in the description.",
    "spoken": "The replay uses the three-month Treasury bill rate as a stand-in for the lender's index; how it was built is on screen and in the description.",
    "tag": null,
-   "start": 504.833,
-   "end": 513.193,
+   "start": 510.067,
+   "end": 518.427,
    "claims": [
     "var_start",
     "first_start",
@@ -807,8 +807,8 @@
    "text": "Leah's illustrative offer sits at 1.5 points, short of that 2-point mark; at her point, starts from both halves of history still cost more, including her April 1977 worst.",
    "spoken": "Leah's illustrative offer sits at one point five points, short of that two-point mark; at her point, starts from both halves of history still cost more, including her April nineteen seventy-seven worst.",
    "tag": "warm",
-   "start": 528.833,
-   "end": 541.373,
+   "start": 534.067,
+   "end": 546.607,
    "claims": [
     "gap_start",
     "gap20_late",
@@ -825,8 +825,8 @@
    "text": "A real offer has its own two rates, its own head start and its own place on the line.",
    "spoken": "A real offer has its own two rates, its own head start and its own place on the line.",
    "tag": null,
-   "start": 542.373,
-   "end": 547.693,
+   "start": 547.607,
+   "end": 552.927,
    "claims": []
   },
   {
@@ -836,8 +836,8 @@
    "text": "It also has what this replay leaves out: the lender's real index, a rate cap, a grace period, fees, and the borrower's own budget.",
    "spoken": "It also has what this replay leaves out: the lender's real index, a rate cap, a grace period, fees, and the borrower's own budget.",
    "tag": null,
-   "start": 548.333,
-   "end": 557.833,
+   "start": 553.567,
+   "end": 563.067,
    "claims": []
   },
   {
@@ -847,8 +847,8 @@
    "text": "The line doesn't say which offer is better; it shows what each head start meant in each kind of history.",
    "spoken": "The line doesn't say which offer is better; it shows what each head start meant in each kind of history.",
    "tag": null,
-   "start": 557.833,
-   "end": 564.633,
+   "start": 563.067,
+   "end": 569.867,
    "claims": []
   },
   {
@@ -858,8 +858,8 @@
    "text": "History, not a forecast.",
    "spoken": "History, not a forecast.",
    "tag": "calm",
-   "start": 566.073,
-   "end": 567.233,
+   "start": 571.307,
+   "end": 572.467,
    "claims": []
   },
   {
@@ -869,8 +869,8 @@
    "text": "Every assumption behind this replay is listed in the description.",
    "spoken": "Every assumption behind this replay is listed in the description.",
    "tag": null,
-   "start": 568.4,
-   "end": 571.7,
+   "start": 573.633,
+   "end": 576.933,
    "claims": []
   },
   {
@@ -880,8 +880,8 @@
    "text": "Another replay from this channel is on screen now.",
    "spoken": "Another replay from this channel is on screen now.",
    "tag": null,
-   "start": 573.06,
-   "end": 575.38,
+   "start": 578.293,
+   "end": 580.613,
    "claims": []
   }
  ]

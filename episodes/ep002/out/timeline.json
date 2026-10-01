@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "total": 584.4,
+ "total": 589.633,
  "acts": [
   {
    "id": "cold-open",
@@ -16,24 +16,24 @@
   {
    "id": "act2",
    "start": 222.833,
-   "end": 376.467,
-   "climax": 361.467
+   "end": 381.7,
+   "climax": 364.487
   },
   {
    "id": "act3",
-   "start": 376.467,
-   "end": 504.833,
-   "climax": 482.493
+   "start": 381.7,
+   "end": 510.067,
+   "climax": 487.727
   },
   {
    "id": "method",
-   "start": 504.833,
-   "end": 528.833
+   "start": 510.067,
+   "end": 534.067
   },
   {
    "id": "outro",
-   "start": 528.833,
-   "end": 584.4
+   "start": 534.067,
+   "end": 589.633
   }
  ],
  "scenes": [
@@ -146,7 +146,7 @@
    "id": "S08",
    "act": "act2",
    "start": 320.467,
-   "dur": 56.0,
+   "dur": 61.233,
    "layout": "ridge/worst-window",
    "shot": "medium",
    "panels": [
@@ -160,8 +160,8 @@
   {
    "id": "S09",
    "act": "act3",
-   "start": 376.467,
-   "dur": 61.266,
+   "start": 381.7,
+   "dur": 61.267,
    "layout": "columns/head-start",
    "shot": "wide",
    "panels": [
@@ -175,7 +175,7 @@
   {
    "id": "S10",
    "act": "act3",
-   "start": 437.733,
+   "start": 442.967,
    "dur": 67.1,
    "layout": "columns/answer",
    "shot": "wide",
@@ -190,7 +190,7 @@
   {
    "id": "S11",
    "act": "method",
-   "start": 504.833,
+   "start": 510.067,
    "dur": 24.0,
    "layout": "card/method",
    "shot": "wide",
@@ -205,8 +205,8 @@
   {
    "id": "S12",
    "act": "outro",
-   "start": 528.833,
-   "dur": 39.567,
+   "start": 534.067,
+   "dur": 39.566,
    "layout": "columns/offer-line",
    "shot": "wide",
    "panels": [
@@ -220,7 +220,7 @@
   {
    "id": "S13",
    "act": "outro",
-   "start": 568.4,
+   "start": 573.633,
    "dur": 16.0,
    "layout": "card/end-screen",
    "shot": "wide",
@@ -271,36 +271,36 @@
    "what": "act 2 turn: the climbing half vs the falling half"
   },
   {
-   "t": 361.467,
+   "t": 364.487,
    "scene": "S08",
    "sentence": "S08.7",
    "what": "act 2 climax: the worst stretch charges 43% more interest"
   },
   {
-   "t": 402.507,
+   "t": 407.74,
    "scene": "S09",
    "sentence": "S09.5",
    "what": "at 2 points the later half clears; the earlier half does not"
   },
   {
-   "t": 455.753,
+   "t": 460.987,
    "scene": "S10",
    "sentence": "S10.3",
    "what": "at every head start tested, some 1954-to-1980 starts still cost more"
   },
   {
-   "t": 482.493,
+   "t": 487.727,
    "scene": "S10",
    "sentence": "S10.6",
    "what": "act 3 climax: the answer in two halves"
   },
   {
-   "t": 557.833,
+   "t": 563.067,
    "scene": "S12",
    "sentence": "S12.4",
    "what": "the line does not say which offer is better"
   }
  ],
- "source": "animatic/timing.json (sentence times, 584.4 s narration incl. the S13 end-screen tail) + preprod/dossier_c5.py; a scene starts at its first sentence",
+ "source": "animatic/timing.json (sentence times, 589.633 s narration incl. the S13 end-screen tail) + preprod/dossier_c5.py; a scene starts at its first sentence",
  "note": "no ident is rendered; move = 0 (2D H2/H3 frames, picture changes inside a scene are dips, see out/transitions.json); out/camera.json (P) overrides it. Acts: cold-open S01, act1 S02-S05, act2 S06-S08, act3 S09-S10, method S11 (method card), outro S12-S13"
 }

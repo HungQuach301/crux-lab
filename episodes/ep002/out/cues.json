@@ -18,7 +18,7 @@
    "scene": "S02",
    "function": "why private loans: light drive, first statement of Leah's motif",
    "key": "D dorian",
-   "tempo": 113.058,
+   "tempo": 114.546,
    "layer": "music",
    "section": "promise",
    "levelDb": -1.5
@@ -40,7 +40,7 @@
    "scene": "S04",
    "function": "Leah's loan, the head start and the promise of the replay: full drive, Leah's motif (electric piano)",
    "key": "D dorian",
-   "tempo": 118.681,
+   "tempo": 121.154,
    "layer": "music",
    "section": "curious",
    "levelDb": -0.5
@@ -51,7 +51,7 @@
    "scene": "S05",
    "function": "the contradiction, the cushion and the two kinds of history: drive, bass on eighths",
    "key": "D dorian",
-   "tempo": 126.316,
+   "tempo": 123.789,
    "layer": "music",
    "section": "build1",
    "levelDb": 0.5
@@ -62,7 +62,7 @@
    "scene": "S06",
    "function": "the contradiction, the cushion and the two kinds of history: drive, bass on eighths",
    "key": "D dorian",
-   "tempo": 128.135,
+   "tempo": 126.61,
    "layer": "music",
    "section": "build1",
    "levelDb": 0.5
@@ -80,18 +80,18 @@
   },
   {
    "t": 320.467,
-   "end": 376.467,
+   "end": 381.233,
    "scene": "S08",
    "function": "the worst stretch (April 1977): fullest drive, crescendo to \"43% more\"",
    "key": "D dorian",
-   "tempo": 132.857,
+   "tempo": 134.284,
    "layer": "music",
    "section": "build2",
    "levelDb": 1.5
   },
   {
-   "t": 376.467,
-   "end": 437.733,
+   "t": 381.233,
+   "end": 442.5,
    "scene": "S09",
    "function": "the line: F major, the drive returns lighter as the head start widens",
    "key": "F major",
@@ -101,19 +101,19 @@
    "levelDb": 1.0
   },
   {
-   "t": 437.733,
-   "end": 504.833,
+   "t": 442.5,
+   "end": 509.6,
    "scene": "S10",
    "function": "the answer in two halves: F major, steady",
    "key": "F major",
-   "tempo": 121.61,
+   "tempo": 118.033,
    "layer": "music",
    "section": "answer",
    "levelDb": 0.0
   },
   {
-   "t": 504.833,
-   "end": 528.833,
+   "t": 509.6,
+   "end": 533.6,
    "scene": "S11",
    "function": "\"How we know this\" (method card): thin pad only",
    "key": "F major",
@@ -123,19 +123,19 @@
    "levelDb": -1.0
   },
   {
-   "t": 528.833,
-   "end": 568.4,
+   "t": 533.6,
+   "end": 573.167,
    "scene": "S12",
    "function": "warm close and end screen: sparse, Leah's motif, tail",
    "key": "F major",
-   "tempo": 109.183,
+   "tempo": 110.699,
    "layer": "music",
    "section": "resolve",
    "levelDb": -1.0
   },
   {
-   "t": 568.4,
-   "end": 584.4,
+   "t": 573.167,
+   "end": 589.167,
    "scene": "S13",
    "function": "warm close and end screen: sparse, Leah's motif, tail",
    "key": "F major",
@@ -146,7 +146,7 @@
   },
   {
    "t": 0.0,
-   "end": 584.4,
+   "end": 589.167,
    "function": "data sonification, palette S2 \"minimal\" (sổ gu G-005 · chọn): soft low pulse MIDI 36-62 + filtered tick 4.5-7 kHz; bands 60-270 Hz + 4.5-7 kHz; events out/sonify-events.json",
    "key": "D minor pentatonic (= F major pentatonic)",
    "tempo": null,
@@ -154,7 +154,7 @@
   },
   {
    "t": 0.0,
-   "end": 584.4,
+   "end": 589.167,
    "function": "room tone floor (pink noise, one space); +8 dB inside the silences",
    "key": null,
    "tempo": null,
@@ -195,8 +195,8 @@
   },
   {
    "t": 319.435,
-   "end": 320.639,
-   "dur": 1.203,
+   "end": 320.604,
+   "dur": 1.169,
    "after": "S07.7",
    "before": "S08.1",
    "why": "before the worst stretch",
@@ -204,19 +204,18 @@
    "return": "200 ms"
   },
   {
-   "t": 375.52,
-   "end": 376.521,
-   "dur": 1.001,
+   "t": 380.335,
+   "end": 381.288,
+   "dur": 0.953,
    "after": "S08.8",
    "before": "S09.1",
    "why": "after the worst stretch, before the line",
    "release": "exp tau 90 ms",
-   "return": "200 ms",
-   "adBreak": 375.897
+   "return": "200 ms"
   },
   {
-   "t": 503.828,
-   "end": 504.971,
+   "t": 508.595,
+   "end": 509.738,
    "dur": 1.143,
    "after": "S10.7",
    "before": "S11.1",
@@ -225,8 +224,8 @@
    "return": "200 ms"
   },
   {
-   "t": 564.711,
-   "end": 565.72,
+   "t": 569.478,
+   "end": 570.486,
    "dur": 1.009,
    "after": "S12.4",
    "before": "S12.5",

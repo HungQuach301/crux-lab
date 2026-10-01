@@ -98,7 +98,7 @@ for sc in scenes:
             if st[k] >= cut: st[k] += P; en[k] += P
         d_ins = P
     else: d_ins = 0.0
-    pad = PAD
+    pad = {'S08': 1.25}.get(sc, PAD)   # S08: ad break 2 sits in the gap S08.8 -> S09.1 (check S14: >= 1.0 s at <= -40 dBFS)
     if sc == 'S11': pad = max(PAD, CARD_S - d)
     if sc == 'S13': pad = max(PAD, END_S - d)
     whole = math.ceil((d + d_ins + pad) * 30 - 1e-6) / 30

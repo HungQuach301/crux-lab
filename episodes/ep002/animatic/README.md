@@ -2,7 +2,7 @@
 
 ANIMATIC C4, 01/10/2026, theo `BRIEF.md`. Hệ hình đã ký `design/c3/final/` (D2 + E2), kịch bản v5 `story/script.md`, nhịp `story/beats.md`. Không commit/push.
 
-**Xem:** `out/animatic-720p.mp4` (9:44,4 · 1280×720 · 30 fps · H.264 + lời tạm AAC · 19,1 MB) · `out/silent-720p.mp4` (không tiếng, cho kiểm mù · 9,6 MB) · dải `strips/KEY-n.png` + `KEY-n-masked.png` (7 nhịp) và `strips/Sxx.png` (13 cảnh) · kiểm máy `check-report.json` · kiểm 25% `legibility.md`.
+**Xem:** `out/animatic-720p.mp4` (9:49,6 · 1280×720 · 30 fps · H.264 + lời tạm AAC · 19,1 MB) · `out/silent-720p.mp4` (không tiếng, cho kiểm mù · 9,6 MB) · dải `strips/KEY-n.png` + `KEY-n-masked.png` (7 nhịp) và `strips/Sxx.png` (13 cảnh) · kiểm máy `check-report.json` · kiểm 25% `legibility.md`.
 
 ## Cách dựng
 - **Không thêm gu.** `src/film.js` nạp nguyên hai engine đã ký (`design/c3/final/src/engine.js` = H2, `src/h3/engine.js` = H3) và nhập **nguyên văn** bảy clip đã ký: K1 r2 (`k1.js`), K2 vòng sửa (`k2.js`), K3/K5/K6 (`h3/scenes.js`), K4 bản hũ (`k4.js`, có sửa kỹ thuật việc 0), K7 r2 (`k7.js`). Mỗi clip chạy qua một **bẻ thời gian** (`warp`): mốc khung của clip được ghim vào neo câu + từ khoá, nên chuyển động đúng như bản ký, chỉ chậm/nhanh/giữ theo lời. Các cảnh không phải KEY dùng lại vật của hệ, mã chép từ mã ký vào `src/lib.js` (thẻ lời mời, người, sườn T-bill, cửa sổ 10 năm, dải 753 ô, vòng, hũ, chồng xu, `jarRun` = `k4.js` có tham số).
@@ -22,13 +22,13 @@ Giây máy: Chromium headless + canvas 2D, CPU 4 lõi, 3 cảnh song song (lần
 | S05 | 47,5 | KEY-3 S05.2–S05.4 (178,9–217,6) | 197 | sau "April 1977": vòng quanh ô tệ nhất (không thêm số); S05.5 hình K2 ở 1.5 points |
 | S06 | 39,3 | KEY-4 S06.1–S06.5 (222,8–261,1) | 152 | K4 bản sửa C3d + nhãn "not to scale" cạnh khối đỏ (C4 Q3a); S06.5 cùng hình K4 cho lần chạy giảm 8/1981 — **hũ thang riêng** ($15,295 = đầy) |
 | S07 | 58,3 | — | 212 | sườn hai nửa, đỉnh "16.3%", hai cửa sổ (4/1976, 11/2000) + hũ (thang $16,000, khối đỏ dưới hũ **cùng thang**), "August 1981", "−$15,295", 753 ô + vòng tệ nhất, "28.4%" (nhắc) |
-| S08 | 56,0 | KEY-6 S08.1–S08.7 (320,5–368,1) | 204 | K6 nguyên bản; S08.5 (khoản trả $863.36) chỉ có lời (K6 không có vật khoản trả); S08.8 dựng lại bố cục cuối K6 + đường trần đứt nét hạ dần, khối đỏ co theo `cap15_worst`, `cap12_worst` |
+| S08 | 61,2 (take v5.1 59,95 s + nghỉ 1,25 s: khe quảng cáo 2 ≥ 1,0 s ở ≤ −40 dBFS, đo 1,38 s) | KEY-6 S08.1–S08.7 (320,5–372,1) | 204 | K6 nguyên bản; S08.5 (khoản trả $863.36) chỉ có lời (K6 không có vật khoản trả); S08.8 dựng lại bố cục cuối K6 + đường trần đứt nét hạ dần, khối đỏ co theo `cap15_worst`, `cap12_worst` |
 | S09 | 61,3 | KEY-7 S09.4→S10.3 (396,7–460,4) | 235 | S09.1 hình K2 ở 1.5; KEY-7 = K7 r2 nguyên bản tới "20.4"; từ đó cùng bố cục K7 r2 vẽ bằng `lib.k7At` (mã k7.js, khe cho trực tiếp) để thêm "8.8%" (2 điểm) và "4.5%" (3 điểm) + "of all starts", mỗi lúc một số |
 | S10 | 67,1 (65,1 + 2,0 s nghỉ sau S10.1) | (tiếp KEY-7 tới S10.3; KEY-7 = 396,7–462,4) | 243 | S10.1: núm NHẢY (lật kiểu K2) 1 → 0 → −1 điểm (−1: thanh thả nổi trên thanh cố định, khe `warn`), cột đỏ nhảy lên; mỗi bậc **một số**: tỉ lệ chung "31.3% / 57.9% / 72.9% of all starts" (`spread1_share`, `spread0_share`, `spreadm1_share`), giữ đủ 3,17 / 3,23 / 3,13 s, hai cột "before 1981" / "from 1981" luôn trên hình (chủ dự án C4 Q3a; số từng nửa + tệ nhất chuyển vào mô tả). S10.2: nhảy VỀ 3 điểm, vòng + "April 1977" (`gap_worst_start_all`); S10.3: lớp đỏ trái nhấp nháy nhẹ + "10.5%" (`min_gap_early`). Khung 6 dải KEY-7 ở 3 điểm. S10.5 K7 cuối (nhấp nháy); S10.6 K7 2 → 3; S10.7 sườn |
 | S11 | 24,0 | — | 98 | thẻ phương pháp (việc 3) |
 | S12 | 39,6 | — | 138 | K7 ở 1.5 (đỏ nhấp nháy nhẹ); thẻ trống + 5 nhãn điều bị bỏ ngoài; K7 cuối; "History, not a forecast" |
 | S13 | 16,0 | — | 61 | sườn mờ + ô trống cho phần tử end screen, không chữ |
-| **Tổng** | **584,4** | | **2 182** | |
+| **Tổng** | **589,6** | | **2 182** | |
 
 Ghi rõ: **khối đỏ K4 không cùng thang với hũ** (trên hình có nhãn "not to scale", `ink-muted` 48 px) ($7,577 ↔ 150 px so với $1,046 ↔ 380 px), như bản ký; hũ S06.5 cũng thang riêng. Riêng S07 hũ và khối đỏ cùng một thang.
 
