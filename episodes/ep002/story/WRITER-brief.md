@@ -14,6 +14,7 @@ Viết bằng **tiếng Anh Mỹ** (lời phim). Ghi chú cho P bằng tiếng V
 - G-014: chữ trên hình ít, lớn (sàn 40 px) — kịch bản đừng dựa vào chữ nhỏ.
 
 ## Gen được bảo vệ (luật cứng — CHARTER §5 + `topics-r1/machine/debt-2/claim-risk.md`)
+- **Cách áp luật hai thời kỳ (chủ dự án, C2, 01/10/2026):** luật áp cho câu **NÊU một tỉ lệ / kết quả** — câu đó bắt buộc kèm cả hai thời kỳ (1954–1980, từ 1981) và trường hợp xấu nhất. Câu chỉ **NHẮC LẠI** cặp của Leah (đã nêu đầy đủ trước đó) thì **không nêu lại số**, chỉ gọi lại bằng lời ("Leah's pair", "her point on the line"). Không lặp một bộ số ở nhiều cảnh. Mỗi tỉ lệ **một dạng cố định** suốt tập (ví dụ "28.4%, more than 1 in 4"; "3.5%, about 1 in 30").
 - "we" chỉ người phân tích; không khuyên; không dự báo; "US only"; câu **"history, not a forecast"** phải có.
 - Không "your loan will…". Mỗi khi nói kết quả, **luôn có cả hai thời kỳ (1954–1980 và từ 1981) cùng trường hợp xấu nhất** (April 1977, +$11,219). Không "variable is safe", không "wins X%" đứng riêng. Kết quả chỉ đúng cho **cặp lãi đang xét** — vì thế mới có đường độ nhạy.
 - Lời và chữ trên hình viết **dạng mô tả**. Không dùng take/lock/choose/pick/consider/avoid như mệnh lệnh với người xem (máy S10 bắt); "people who took the variable rate" (mô tả) thì được.
