@@ -1,0 +1,158 @@
+{
+ "id": "retire-1",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "annuity 2% annual increase rider vs inflation history did it keep up": 4,
+      "level payment annuity or increasing 2% payment which is better inflation since 1950": 3,
+      "does a fixed 2% annual increase keep up with inflation over a 20 year retirement": 2
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "file": "data/CPIAUCNS.csv",
+    "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "declared": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "windows_20y",
+    "declared": 715,
+    "recomputed": 715,
+    "ok": true
+   },
+   {
+    "id": "share_2pct_kept_up_20y_pct",
+    "declared": 2.4,
+    "recomputed": 2.4,
+    "ok": true
+   },
+   {
+    "id": "windows_2pct_kept_up_20y",
+    "declared": 17,
+    "recomputed": 17,
+    "ok": true
+   },
+   {
+    "id": "windows_25y",
+    "declared": 655,
+    "recomputed": 655,
+    "ok": true
+   },
+   {
+    "id": "share_2pct_kept_up_25y_pct",
+    "declared": 0.0,
+    "recomputed": 0.0,
+    "ok": true
+   },
+   {
+    "id": "median_inflation_20y_pct_per_year",
+    "declared": 3.1,
+    "recomputed": 3.1,
+    "ok": true
+   },
+   {
+    "id": "median_real_value_2pct_payment_after_20y_pct",
+    "declared": 80.7,
+    "recomputed": 80.7,
+    "ok": true
+   },
+   {
+    "id": "median_real_value_level_payment_after_20y_pct",
+    "declared": 54.3,
+    "recomputed": 54.3,
+    "ok": true
+   },
+   {
+    "id": "worst_real_value_2pct_payment_after_20y_pct",
+    "declared": 43.1,
+    "recomputed": 43.1,
+    "ok": true
+   },
+   {
+    "id": "worst_window_start_year",
+    "declared": 1966,
+    "recomputed": 1966,
+    "ok": true
+   },
+   {
+    "id": "latest_window_real_value_2pct_payment_pct",
+    "declared": 90.4,
+    "recomputed": 90.4,
+    "ok": true
+   },
+   {
+    "id": "latest_window_real_value_level_payment_pct",
+    "declared": 60.9,
+    "recomputed": 60.9,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}

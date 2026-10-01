@@ -1,0 +1,206 @@
+{
+ "id": "tax-1",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "how much interest do you lose getting a big tax refund instead of adjusting withholding calculation": 4,
+      "tax refund lost interest calculation actual savings rate T-bill rate $3,000 refund what it costs": 3,
+      "big tax refund vs bigger paycheck if you carry credit card debt how much interest does over-withholding cost by year": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "TB3MS",
+    "file": "data/TB3MS.csv",
+    "sha256": "7da480f9a0465a1c7f28d917907b998d69fa1e1815d91f4199c2d07c71f3db7a",
+    "declared": "7da480f9a0465a1c7f28d917907b998d69fa1e1815d91f4199c2d07c71f3db7a",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "TERMCBCCALLNS",
+    "file": "data/TERMCBCCALLNS.csv",
+    "sha256": "65a3570f21c570ac06583a199950225952c655d359676cd9c2733b56e3f577d9",
+    "declared": "65a3570f21c570ac06583a199950225952c655d359676cd9c2733b56e3f577d9",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "SNDR",
+    "file": "data/SNDR.csv",
+    "sha256": "bb6156ef8119e1386ecdee2a0949963077e4e0d6631089232c66798df1ef1fd6",
+    "declared": "bb6156ef8119e1386ecdee2a0949963077e4e0d6631089232c66798df1ef1fd6",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "balance_months_per_dollar",
+    "declared": 7.5,
+    "recomputed": 7.5,
+    "ok": true
+   },
+   {
+    "id": "tbill_2025_usd",
+    "declared": 72.25,
+    "recomputed": 72.25,
+    "ok": true
+   },
+   {
+    "id": "savings_avg_2025_usd",
+    "declared": 7.4,
+    "recomputed": 7.4,
+    "ok": true
+   },
+   {
+    "id": "card_2025_usd",
+    "declared": 396.46,
+    "recomputed": 396.46,
+    "ok": true
+   },
+   {
+    "id": "tbill_mean_2000_2025_usd",
+    "declared": 35.1,
+    "recomputed": 35.1,
+    "ok": true
+   },
+   {
+    "id": "tbill_max_usd",
+    "declared": 106.76,
+    "recomputed": 106.76,
+    "ok": true
+   },
+   {
+    "id": "tbill_max_year",
+    "declared": 2000,
+    "recomputed": 2000,
+    "ok": true
+   },
+   {
+    "id": "tbill_min_usd",
+    "declared": 0.5,
+    "recomputed": 0.5,
+    "ok": true
+   },
+   {
+    "id": "tbill_min_year",
+    "declared": 2014,
+    "recomputed": 2014,
+    "ok": true
+   },
+   {
+    "id": "tbill_years_under_10usd",
+    "declared": 10,
+    "recomputed": 10,
+    "ok": true
+   },
+   {
+    "id": "card_mean_2000_2025_usd",
+    "declared": 268.93,
+    "recomputed": 268.93,
+    "ok": true
+   },
+   {
+    "id": "card_min_usd",
+    "declared": 222.71,
+    "recomputed": 222.71,
+    "ok": true
+   },
+   {
+    "id": "card_max_usd",
+    "declared": 404.04,
+    "recomputed": 404.04,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "TB3MS",
+    "page": "https://fred.stlouisfed.org/series/TB3MS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/TB3MS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "TERMCBCCALLNS",
+    "page": "https://fred.stlouisfed.org/series/TERMCBCCALLNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/TERMCBCCALLNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "SNDR",
+    "page": "https://fred.stlouisfed.org/series/SNDR",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/SNDR",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 6611(e)(1) (no interest on refunds paid within 45 days)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/6611",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V01245": true
+}

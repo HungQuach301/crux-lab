@@ -1,0 +1,223 @@
+{
+ "id": "debt-3",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "72-month car loan interest rate vs 60-month rate difference data": 3,
+      "do longer auto loans have higher interest rates 72 vs 60 months bank average": 2,
+      "60 or 72 month car loan 2026 which to choose total interest": 2
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "RIFLPBCIANM60NM",
+    "file": "data/RIFLPBCIANM60NM.csv",
+    "sha256": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+    "declared": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "RIFLPBCIANM72NM",
+    "file": "data/RIFLPBCIANM72NM.csv",
+    "sha256": "c7a55f78428a3054acf9400d6bbfa5ccc2b0b9bb26f5e96d65f0a14d29d0a7d7",
+    "declared": "c7a55f78428a3054acf9400d6bbfa5ccc2b0b9bb26f5e96d65f0a14d29d0a7d7",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "n_months",
+    "declared": 44,
+    "recomputed": 44,
+    "ok": true
+   },
+   {
+    "id": "first_month",
+    "declared": "2015-08-01",
+    "recomputed": "2015-08-01",
+    "ok": true
+   },
+   {
+    "id": "last_month",
+    "declared": "2026-05-01",
+    "recomputed": "2026-05-01",
+    "ok": true
+   },
+   {
+    "id": "mean_premium",
+    "declared": 0.1,
+    "recomputed": 0.1,
+    "ok": true
+   },
+   {
+    "id": "median_premium",
+    "declared": 0.115,
+    "recomputed": 0.115,
+    "ok": true
+   },
+   {
+    "id": "max_premium",
+    "declared": 0.52,
+    "recomputed": 0.52,
+    "ok": true
+   },
+   {
+    "id": "min_premium",
+    "declared": -0.51,
+    "recomputed": -0.51,
+    "ok": true
+   },
+   {
+    "id": "months_72_cheaper",
+    "declared": 14,
+    "recomputed": 14,
+    "ok": true
+   },
+   {
+    "id": "months_72_not_higher",
+    "declared": 15,
+    "recomputed": 15,
+    "ok": true
+   },
+   {
+    "id": "months_premium_ge_050",
+    "declared": 1,
+    "recomputed": 1,
+    "ok": true
+   },
+   {
+    "id": "rate60_latest",
+    "declared": 7.14,
+    "recomputed": 7.14,
+    "ok": true
+   },
+   {
+    "id": "rate72_latest",
+    "declared": 6.97,
+    "recomputed": 6.97,
+    "ok": true
+   },
+   {
+    "id": "pay60_latest",
+    "declared": 695.36,
+    "recomputed": 695.36,
+    "ok": true
+   },
+   {
+    "id": "pay72_latest",
+    "declared": 596.21,
+    "recomputed": 596.21,
+    "ok": true
+   },
+   {
+    "id": "int60_latest",
+    "declared": 6721,
+    "recomputed": 6721,
+    "ok": true
+   },
+   {
+    "id": "int72_latest",
+    "declared": 7927,
+    "recomputed": 7927,
+    "ok": true
+   },
+   {
+    "id": "extra_interest_72_latest",
+    "declared": 1206,
+    "recomputed": 1206,
+    "ok": true
+   },
+   {
+    "id": "term_effect",
+    "declared": 1412,
+    "recomputed": 1412,
+    "ok": true
+   },
+   {
+    "id": "extra_interest_72_avgpremium",
+    "declared": 1530,
+    "recomputed": 1530,
+    "ok": true
+   },
+   {
+    "id": "rate_effect_avgpremium",
+    "declared": 118,
+    "recomputed": 118,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "RIFLPBCIANM60NM",
+    "page": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "RIFLPBCIANM72NM",
+    "page": "https://fred.stlouisfed.org/series/RIFLPBCIANM72NM",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/RIFLPBCIANM72NM",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}

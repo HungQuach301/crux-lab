@@ -1,0 +1,158 @@
+{
+ "id": "debt-4",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "buying mortgage points then refinancing before break-even how often history": 2,
+      "should I buy discount points at 7% mortgage rate if rates might drop": 3,
+      "mortgage points break-even refinance risk historical mortgage rate drops analysis": 2
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MORTGAGE30US",
+    "file": "data/MORTGAGE30US.csv",
+    "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "declared": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "monthly_saving_per_100k",
+    "declared": 16.7,
+    "recomputed": 16.7,
+    "ok": true
+   },
+   {
+    "id": "breakeven_months",
+    "declared": 59.9,
+    "recomputed": 59.9,
+    "ok": true
+   },
+   {
+    "id": "horizon_months",
+    "declared": 60,
+    "recomputed": 60,
+    "ok": true
+   },
+   {
+    "id": "drop_needed_pts",
+    "declared": 1.25,
+    "recomputed": 1.25,
+    "ok": true
+   },
+   {
+    "id": "n_weeks",
+    "declared": 2635,
+    "recomputed": 2635,
+    "ok": true
+   },
+   {
+    "id": "first_week",
+    "declared": "1971-04-02",
+    "recomputed": "1971-04-02",
+    "ok": true
+   },
+   {
+    "id": "last_week",
+    "declared": "2021-09-23",
+    "recomputed": "2021-09-23",
+    "ok": true
+   },
+   {
+    "id": "share_refi_before_breakeven",
+    "declared": 53.1,
+    "recomputed": 53.1,
+    "ok": true
+   },
+   {
+    "id": "median_months_to_trigger",
+    "declared": 18.9,
+    "recomputed": 18.9,
+    "ok": true
+   },
+   {
+    "id": "n_weeks_6_5_to_7_5",
+    "declared": 362,
+    "recomputed": 362,
+    "ok": true
+   },
+   {
+    "id": "share_refi_before_breakeven_6_5_to_7_5",
+    "declared": 52.2,
+    "recomputed": 52.2,
+    "ok": true
+   },
+   {
+    "id": "latest_rate",
+    "declared": 7.03,
+    "recomputed": 7.03,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MORTGAGE30US",
+    "page": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}

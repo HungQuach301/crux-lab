@@ -1,0 +1,278 @@
+{
+ "id": "tax-4",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "overtime deduction vs second job same hourly pay which is taxed less 2026": 3,
+      "no tax on overtime only the half time premium deductible how much of overtime pay is actually tax free example $30 an hour": 3,
+      "pick up overtime or get a second job 2026 tax deduction which keeps more take-home pay hourly worker": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "AHETPI",
+    "file": "data/AHETPI.csv",
+    "sha256": "de5ed1b8d52de33dccce1c135e56d9f4fa0d4c6476fd8834aa39fd6c263e0e1f",
+    "declared": "de5ed1b8d52de33dccce1c135e56d9f4fa0d4c6476fd8834aa39fd6c263e0e1f",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "ahe_latest",
+    "declared": 32.38,
+    "recomputed": 32.38,
+    "ok": true
+   },
+   {
+    "id": "ahe_date",
+    "declared": "2026-06-01",
+    "recomputed": "2026-06-01",
+    "ok": true
+   },
+   {
+    "id": "regular_rate_usd",
+    "declared": 32.0,
+    "recomputed": 32.0,
+    "ok": true
+   },
+   {
+    "id": "ot_rate_usd",
+    "declared": 48.0,
+    "recomputed": 48.0,
+    "ok": true
+   },
+   {
+    "id": "extra_pay_usd",
+    "declared": 19200.0,
+    "recomputed": 19200.0,
+    "ok": true
+   },
+   {
+    "id": "ot_premium_deduction_usd",
+    "declared": 6400.0,
+    "recomputed": 6400.0,
+    "ok": true
+   },
+   {
+    "id": "deductible_share_of_ot_pay_pct",
+    "declared": 33.33,
+    "recomputed": 33.33,
+    "ok": true
+   },
+   {
+    "id": "ot_income_tax_on_extra_usd",
+    "declared": 2816.0,
+    "recomputed": 2816.0,
+    "ok": true
+   },
+   {
+    "id": "side_income_tax_on_extra_usd",
+    "declared": 4224.0,
+    "recomputed": 4224.0,
+    "ok": true
+   },
+   {
+    "id": "payroll_tax_on_extra_usd",
+    "declared": 1468.8,
+    "recomputed": 1468.8,
+    "ok": true
+   },
+   {
+    "id": "ot_extra_take_home_usd",
+    "declared": 14915.2,
+    "recomputed": 14915.2,
+    "ok": true
+   },
+   {
+    "id": "side_extra_take_home_usd",
+    "declared": 13507.2,
+    "recomputed": 13507.2,
+    "ok": true
+   },
+   {
+    "id": "ot_advantage_usd",
+    "declared": 1408.0,
+    "recomputed": 1408.0,
+    "ok": true
+   },
+   {
+    "id": "ot_total_tax_rate_on_extra_pct",
+    "declared": 22.32,
+    "recomputed": 22.32,
+    "ok": true
+   },
+   {
+    "id": "side_total_tax_rate_on_extra_pct",
+    "declared": 29.65,
+    "recomputed": 29.65,
+    "ok": true
+   },
+   {
+    "id": "side_breakeven_rate_usd",
+    "declared": 53.0,
+    "recomputed": 53.0,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "AHETPI",
+    "page": "https://fred.stlouisfed.org/series/AHETPI",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/AHETPI",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 225(a) (deduction for qualified overtime compensation)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/225",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 225(b)(1) (cap $12,500 single)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/225",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 225(b)(2)(A) (phase-down above $150,000 MAGI)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/225",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 225(c)(1) (only the amount in excess of the regular rate)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/225",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 225(g) (termination after 2028)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/225",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 63(b)(6) (deduction available to non-itemizers)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/63",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)",
+    "url": "https://www.law.cornell.edu/uscode/text/29/207",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 3101(a) (6.2% employee social security tax)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/3101",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 3101(b)(1) (1.45% employee medicare tax)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/3101",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103 (2026 standard deduction, single)",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103 (2026 single brackets)",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "IRS IR-2025-103 (2026 top bracket)",
+    "url": "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V01245": true
+}
