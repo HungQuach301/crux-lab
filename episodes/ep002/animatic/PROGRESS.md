@@ -69,3 +69,25 @@
 - 01/10 18:51 C5 S07 1080p xong (S07 done 520 s)
 - 01/10 18:53 C5 S10 1080p xong (S10 done 597 s)
 - 01/10 18:58 C5 S05 1080p xong (S05 done 420 s)
+- 01/10 19:00 C5 S08 1080p xong (S08 done 530 s)
+- 01/10 19:01 C5 S03 1080p xong (S03 done 507 s)
+- 01/10 19:04 C5 S02 1080p xong (S02 done 346 s)
+- 01/10 19:06 C5 S06 1080p xong (S06 done 342 s)
+- 01/10 19:07 C5 S11 1080p xong (S11 done 207 s)
+- 01/10 19:08 C5 S04 1080p xong (S04 done 430 s)
+- 01/10 19:10 C5 S01 1080p xong (S01 done 219 s)
+- 01/10 19:14 C5 S12 1080p xong (S12 done 314 s)
+- 01/10 19:16 C5 S13 1080p xong (S13 done 125 s)
+- 01/10 19:59 S09 dựng xong: S09 wall 242 s x 4.37 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 19:59 S07 dựng xong: S07 wall 260 s x 4.46 {"minDistTextToGraphicPx720":10.3,"minDistTextToTextPx720":9.3,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 20:00 S10 dựng xong: S10 wall 295 s x 4.38 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 20:02 S05 dựng xong: S05 wall 215 s x 4.52 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 20:04 S03 dựng xong: S03 wall 260 s x 4.38 {"minDistTextToGraphicPx720":8.7,"minDistTextToTextPx720":12.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 20:04 S08 dựng xong: S08 wall 271 s x 4.42 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":7.3,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:06 S02 dựng xong: S02 wall 177 s x 4.4 {"minDistTextToGraphicPx720":9.7,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:07 S04 dựng xong: S04 wall 220 s x 4.39 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 20:07 S06 dựng xong: S06 wall 172 s x 4.37 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:07 S11 dựng xong: S11 wall 105 s x 4.36 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":4,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMissing
+- 01/10 20:09 S01 dựng xong: S01 wall 110 s x 4.07 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:10 S12 dựng xong: S12 wall 156 s x 3.95 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:11 S13 dựng xong: S13 wall 58 s x 3.62 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":99,"minContrast":99,"minFontPx1080":null,"outOfSafe":[],"badgeMissing":0} kwMissin

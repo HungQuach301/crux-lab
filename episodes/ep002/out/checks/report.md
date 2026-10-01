@@ -2,18 +2,16 @@
 
 root: `/home/user/crux-lab/episodes/ep002`  
 lock: `2fcc9fcc9a94b73084c43ba59970d88f539cd29363334faf52b0640efc2cc801`  
-master SHA-256: `f8c2f3f4f2916c6aa919c71ed3ddbfb5df2c6ab3d1161b67b9eff7b8de4fe5c2`  
-{'PASS': 58, 'FAIL': 23, 'MISSING': 1, 'ERROR': 0}
+master SHA-256: `932a3ce313c27b6d154e94a4d1a3830f824adb2ea713cc78e496bd08065c0891`  
+{'PASS': 60, 'FAIL': 22, 'MISSING': 0, 'ERROR': 0}
 
-**Tập: TRƯỢT** (chỉ luật CHẶN làm trượt tập; luật CHÍNH không đạt cần bên dựng giải thích; luật THAM KHẢO chỉ báo số đo)
+**Tập: ĐẠT** (chỉ luật CHẶN làm trượt tập; luật CHÍNH không đạt cần bên dựng giải thích; luật THAM KHẢO chỉ báo số đo)
 
 | cấp | luật | đạt | không đạt |
 |---|---|---|---|
-| CHẶN | 29 | 28 | F11 FAIL |
-| CHÍNH | 11 | 10 | V03 FAIL |
-| THAM KHẢO | 42 | 20 | A03 FAIL, A10 FAIL, A11 FAIL, A15 FAIL, A16 FAIL, A17 FAIL, S11 FAIL, S12 FAIL, S15 FAIL, R02 FAIL, R03 FAIL, R05 FAIL, R06 FAIL, V02 FAIL, V05 FAIL, V10 FAIL, C10 FAIL, C12 FAIL, C13 FAIL, P01 MISSING, T2 FAIL, T3 FAIL |
-
-CHÍNH không đạt, chưa có giải thích trong `out/explanations.json`: V03
+| CHẶN | 29 | 29 | — |
+| CHÍNH | 11 | 11 | — |
+| THAM KHẢO | 42 | 20 | A03 FAIL, A10 FAIL, A11 FAIL, A15 FAIL, A16 FAIL, A17 FAIL, S11 FAIL, S12 FAIL, S15 FAIL, R02 FAIL, R03 FAIL, R05 FAIL, R06 FAIL, V02 FAIL, V05 FAIL, V10 FAIL, C10 FAIL, C12 FAIL, C13 FAIL, P01 FAIL, T2 FAIL, T3 FAIL |
 
 ## Chỉ số trong ±5% quanh ngưỡng
 
@@ -34,6 +32,9 @@ CHÍNH không đạt, chưa có giải thích trong `out/explanations.json`: V03
 - S16 (THAM KHẢO) · decisive sentences = 1 (ngưỡng >= 1, đạt)
 - R01 (THAM KHẢO) · acts with climax peak = 3 (ngưỡng >= 3, đạt)
 - V09 (CHÍNH) · declared characters seen on screen = 1 (ngưỡng >= 1, đạt)
+- P01 (THAM KHẢO) · thumb 1 token share (%) = 99.99924 (ngưỡng >= 97.0, đạt)
+- P01 (THAM KHẢO) · thumb 2 token share (%) = 99.99924 (ngưỡng >= 97.0, đạt)
+- P01 (THAM KHẢO) · thumb 3 token share (%) = 99.996962 (ngưỡng >= 97.0, đạt)
 - T1 (THAM KHẢO) · share of slots heard in a pause = 0.620253 (ngưỡng >= 0.6, đạt)
 
 | rule | tier | § | status | failing metrics |
@@ -48,7 +49,7 @@ CHÍNH không đạt, chưa có giải thích trong `out/explanations.json`: V03
 | F08 | CHẶN | DX-V5 | PASS |  |
 | F09 | CHẶN | DX-F5 | PASS |  |
 | F10 | CHẶN | DX-F6 | PASS |  |
-| F11 | CHẶN | CH §4 khâu 3 (hợp đồng tập, K2) | FAIL | declared artefacts not delivered = 6 (need <= 0) |
+| F11 | CHẶN | CH §4 khâu 3 (hợp đồng tập, K2) | PASS |  |
 | F12 | CHẶN | DX-A3 (sổ giấy phép), CH §5 (K3: quyền tài sản; K3.1: tài sản hình) | PASS |  |
 | A01 | CHẶN | DX-A10 | PASS |  |
 | A02 | CHẶN | DX-A10 | PASS |  |
@@ -92,7 +93,7 @@ CHÍNH không đạt, chưa có giải thích trong `out/explanations.json`: V03
 | R06 | THAM KHẢO | DX-V10 (picture check of cuts) | FAIL | cuts visible in picture (%) = 25.806452 (need >= 90.0) |
 | V01 | THAM KHẢO | DX-V12 | PASS |  |
 | V02 | THAM KHẢO | DX-V1 | FAIL | level-1 samples = 0 (need >= 1); level-1 placed (%) = None (need >= 90.0) |
-| V03 | CHÍNH | DX-V3 | FAIL | text outside safe area = 2394 (need <= 0) |
+| V03 | CHÍNH | DX-V3 | PASS |  |
 | V04 | THAM KHẢO | DX-V4, DX-X3 | PASS |  |
 | V05 | THAM KHẢO | DX-V8 | FAIL | camera moves = 0 (need >= 5); worst ease ratio = None (need <= 0.4); anticipation in moves ≥1 s (%) = None (need >= 30.0); overshoot in moves ≥1 s (%) = None (need >= 30.0); peak |a| fw/s² = None (need <= 8.0); camera~picture Spearman = nan (need >= 0.3) |
 | V08 | CHÍNH | DX-V6 | PASS |  |
@@ -114,7 +115,7 @@ CHÍNH không đạt, chưa có giải thích trong `out/explanations.json`: V03
 | C13 | THAM KHẢO | DX-V11 (number–voice sync ±250 ms) | FAIL | worst |offset| ms = 52860 (need <= 250.0); pairs > 250 ms = 38 (need <= 0) |
 | C14 | CHÍNH | DX-V11, DX-X4 (legible at 25%) | PASS |  |
 | C15 | THAM KHẢO | DX-V5 (C rule tokens only) | PASS |  |
-| P01 | THAM KHẢO | DX-P2 | MISSING | artifact missing: out/package/thumb-1.png |
+| P01 | THAM KHẢO | DX-P2 | FAIL | thumb texts below 90 px = 3 (need <= 0) |
 | T1 | THAM KHẢO | DX-A1 (sổ gu G-001, G-006) | PASS |  |
 | T2 | THAM KHẢO | DX-A2 (sổ gu G-002) | FAIL | repeated phrases (%) = 64.788732 (need <= 5.0); longest run of repeated phrases = 14 (need <= 1) |
 | T3 | THAM KHẢO | DX-R6 (sổ gu G-003) | FAIL | entries outside 150–400 ms = 3 (need <= 0) |
