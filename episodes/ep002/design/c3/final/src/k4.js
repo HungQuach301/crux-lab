@@ -8,7 +8,8 @@
 // of the beat). The run now starts at 0.9 s (frame 1 at 0.83 s = empty jar, start bead under the 9% line) and reaches
 // month 21 (jar ~$1,036 of the $1,046 peak) at 2.6 s (frame 2 at 2.5 s). Strip = 6 evenly spaced frames (centres of
 // six equal slices of the clip), the same rule as the C4 animatic strips. Previous version kept as k4_v2.js / K4-v2.*.
-import { C, DATA, CL, numWord, badge, line, rect, negArea, plane, replay, roundRect, ease, mix, clamp, FIXED } from './engine.js';
+// Owner C4 (Q3a): a small 'not to scale' label (ink-muted, note 48 px) left of the red block while it shows. Before: k4_v3.js / K4-v3.*.
+import { C, DATA, CL, text, numWord, badge, line, rect, negArea, plane, replay, roundRect, ease, mix, clamp, FIXED } from './engine.js';
 export const duration = 10.0;
 const D = DATA.detail['1976-04'];
 const SEG = [[0.9, 0], [2.6, 21], [3.3, 25], [5.0, 40], [8.8, 119]];
@@ -42,6 +43,10 @@ export function draw(ctx, t) {
   }
   ctx.save(); ctx.strokeStyle = C.muted; ctx.lineWidth = 6; roundRect(ctx, J.x, J.top, J.w, J.bot - J.top, 22); ctx.stroke(); ctx.restore();
   // jar empty -> costlier block appears under it and grows with the extra interest
-  if (v < 0) negArea(ctx, J.x, J.bot + 110, J.w, -v * KB, 1, 22);
+  if (v < 0) {
+    negArea(ctx, J.x, J.bot + 110, J.w, -v * KB, 1, 22);
+    // owner C4: the red block has its own scale (README) -> say so on screen, ink-muted, note tier (48 px @1080), left of the block
+    text(ctx, 'not to scale', J.x - 24, 1000, 'note', { align: 'right', color: C.muted, alpha: clamp(-v / 150) });
+  }
   badge(ctx, 1);
 }
