@@ -1,0 +1,64 @@
+{
+ "size": [
+  1280,
+  720
+ ],
+ "texts": [
+  {
+   "text": "Fixed or",
+   "box": [
+    70,
+    56,
+    382.7,
+    78.7
+   ],
+   "fontPx": 100,
+   "fontPx1080": 150
+  },
+  {
+   "text": "variable?",
+   "box": [
+    65.3,
+    157.3,
+    443.1,
+    78.7
+   ],
+   "fontPx": 100,
+   "fontPx1080": 150
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    991.6,
+    50.7,
+    223,
+    24.7
+   ],
+   "fontPx": 32,
+   "fontPx1080": 48
+  }
+ ],
+ "selfCheck": [
+  {
+   "s": "Fixed or",
+   "px": 150,
+   "dGraphic": 99,
+   "dText": 22.7,
+   "contrast": 17.16
+  },
+  {
+   "s": "variable?",
+   "px": 150,
+   "dGraphic": 99,
+   "dText": 22.7,
+   "contrast": 17.16
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "px": 48,
+   "dGraphic": 99,
+   "dText": 99,
+   "contrast": 10.25
+  }
+ ]
+}

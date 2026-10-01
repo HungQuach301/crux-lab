@@ -1,0 +1,131 @@
+{
+ "frame": "K3",
+ "frames": 300,
+ "filmSeconds": 10,
+ "wallSeconds": 79.1,
+ "machineSecPerFilmSec": 7.91,
+ "stripTimes": [
+  0.8,
+  2.6,
+  4.6,
+  6.2,
+  8.3,
+  9.8
+ ],
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:08:50.580Z",
+ "summary": {
+  "minDistTextToGraphicPx720": 6,
+  "minDistTextToTextPx720": 99,
+  "minContrast": 10.25,
+  "minFontPx1080": 48,
+  "outOfSafe": []
+ },
+ "claimsUsed": [
+  "share_all",
+  "share_early",
+  "share_late",
+  "share_rate_above_fixed"
+ ],
+ "texts": [
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "badge",
+   "px": 48,
+   "n": 412,
+   "out": 0,
+   "firstT": 0,
+   "color": "#0E1116"
+  },
+  {
+   "s": "76.2%",
+   "tier": "number",
+   "px": 96,
+   "n": 96,
+   "out": 0,
+   "firstT": 2.533333333333333,
+   "color": "#F2F4F7"
+  },
+  {
+   "s": "14.2%",
+   "tier": "number",
+   "px": 96,
+   "n": 94,
+   "out": 0,
+   "firstT": 5.133333333333334,
+   "color": "#F2F4F7"
+  },
+  {
+   "s": "28.4%",
+   "tier": "number",
+   "px": 96,
+   "n": 54,
+   "out": 0,
+   "firstT": 7.633333333333334,
+   "color": "#F2F4F7"
+  },
+  {
+   "s": "3.5%",
+   "tier": "number",
+   "px": 96,
+   "n": 38,
+   "out": 0,
+   "firstT": 9.1,
+   "color": "#F2F4F7"
+  }
+ ],
+ "selfCheck": [
+  {
+   "s": "ILLUSTRATIVE",
+   "px": 48,
+   "dGraphicMin": 99,
+   "dTextMin": 99,
+   "contrastMin": 10.25,
+   "at": {
+    "contrast": 0
+   }
+  },
+  {
+   "s": "76.2%",
+   "px": 96,
+   "dGraphicMin": 6,
+   "dTextMin": 99,
+   "contrastMin": 17.16,
+   "at": {
+    "dGraphic": 2.8,
+    "contrast": 2.8
+   }
+  },
+  {
+   "s": "14.2%",
+   "px": 96,
+   "dGraphicMin": 99,
+   "dTextMin": 99,
+   "contrastMin": 17.16,
+   "at": {
+    "contrast": 5.4
+   }
+  },
+  {
+   "s": "28.4%",
+   "px": 96,
+   "dGraphicMin": 99,
+   "dTextMin": 99,
+   "contrastMin": 17.16,
+   "at": {
+    "contrast": 7.9
+   }
+  },
+  {
+   "s": "3.5%",
+   "px": 96,
+   "dGraphicMin": 99,
+   "dTextMin": 99,
+   "contrastMin": 17.16,
+   "at": {
+    "contrast": 9.3
+   }
+  }
+ ]
+}

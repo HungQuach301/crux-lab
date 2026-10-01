@@ -1,0 +1,16 @@
+# C3 Tập 2 · H1 — quyền tài sản
+
+Mọi hình trong `K1.mp4`…`K7.mp4`, các dải `K*-strip*.png` và `thumb-concept.png` được **dựng bằng mã** trong `src/` (hình học three.js dựng sẵn: hộp, trụ, ống, bát diện, khối đùn; texture vẽ bằng Canvas 2D; chữ Inter). Không dùng ảnh, mô hình 3D, texture, biểu tượng, âm thanh hay đồ hoạ bên thứ ba; không có tài sản nhúng dạng `data:` (các PNG chỉ là đầu ra, không phải đầu vào). Không logo, không thương hiệu, không tên ngân hàng/người cho vay: hai thẻ đề nghị chỉ in một đường thẳng / một đường gợn và vài vạch xám, không chữ. Xu là đĩa kim loại trơn, không mô phỏng tiền xu Mỹ. Không xem lại, không tải, không chép thiết kế của Vox / 3Blue1Brown / WSJ (`playbook/references.md`).
+
+| Tài sản | Loại | Nguồn | Giấy phép (trích nguyên câu) | Phạm vi | Ghi công |
+|---|---|---|---|---|---|
+| three.js 0.186.1 | Thư viện JS (render) | npm `three` (https://github.com/mrdoob/three.js), cài vào thư mục tạm, **không** vendor trong repo | MIT: "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software…" ("Copyright © 2010-2026 three.js authors") | YT, DL (nếu vendor phải kèm LICENSE) | Không bắt buộc trên hình |
+| Inter 400/600/700 | Font | `toolkit/render/fonts/` (`RIGHTS.md` F-INTER) | SIL OFL 1.1: "Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the following conditions: 1) Neither the Font Software nor any of its individual components, in Original or Modified Versions, may be sold by itself." | YT, DL | — |
+| Token màu + bậc chữ | Hệ nhận diện kênh | `episodes/ep001/design/c3/final/tokens.json` (đọc trực tiếp khi render, không chép) | Tác phẩm của dự án | YT | — |
+| Mã engine | Mã | ý tưởng và một phần mã từ `episodes/ep001/design/c3/final/src/engine.js`, `render.js`, `encode.py` (chép `encode.py` nguyên văn) | Tác phẩm của dự án | — | — |
+| Chromium (Playwright build trong `/opt/pw-browsers`) + SwiftShader | Công cụ render | máy dựng | Công cụ, không nằm trong sản phẩm | — | — |
+| PyAV 18.1.0 / libx264 | Công cụ mã hoá | pip `av` | Công cụ, không nằm trong sản phẩm (libx264 GPL: chỉ dùng để mã hoá, không phân phối binary) | — | — |
+| Dãy núi (TB3MS tháng 1954-01 … 2026-08) | Dữ liệu | FRED `TB3MS` (Board of Governors H.15), đọc cục bộ từ `episodes/ep002/data/raw/TB3MS.csv` (tải bằng `data/fetch.py`, SHA-256 ở `data/sources.json`) | FRED trang series: "Public Domain: Citation Requested" | YT: hiển thị kèm dòng nguồn. Giá trị **không commit**: `src/data.js` nằm trong `.gitignore` của thư mục này (bài học A9) | Dòng nguồn trên hình K3–K7: "3-month Treasury bill rate, via FRED" |
+| Mọi số khác | Mô hình | `model/model.py` → `out/model.json`, `out/claims.json`; `src/build_data.py` chạy lại cùng lõi và assert khớp | Tác phẩm của dự án | YT | khoản vay ghi ILLUSTRATIVE |
+
+Không có tài sản nào chờ quyền trong thư mục này.

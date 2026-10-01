@@ -1,0 +1,132 @@
+{
+ "frame": "K1",
+ "frames": 240,
+ "filmSeconds": 8,
+ "wallSeconds": 32.3,
+ "machineSecPerFilmSec": 4.03,
+ "stripTimes": [
+  0.7,
+  1.7,
+  2.9,
+  4.3,
+  5.9,
+  7.7
+ ],
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:07:24.048Z",
+ "summary": {
+  "minDistTextToGraphicPx720": 99,
+  "minDistTextToTextPx720": 12.6,
+  "minContrast": 7.5,
+  "minFontPx1080": 48,
+  "outOfSafe": []
+ },
+ "claimsUsed": [
+  "fixed_rate",
+  "var_start"
+ ],
+ "texts": [
+  {
+   "s": "9%",
+   "tier": "label",
+   "px": 54,
+   "n": 284,
+   "out": 0,
+   "firstT": 1.1333333333333333,
+   "color": "#F2F4F7"
+  },
+  {
+   "s": "fixed",
+   "tier": "label",
+   "px": 54,
+   "n": 284,
+   "out": 0,
+   "firstT": 1.1333333333333333,
+   "color": "#9AA4B2"
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "badge",
+   "px": 48,
+   "n": 284,
+   "out": 0,
+   "firstT": 1.1333333333333333,
+   "color": "#0E1116"
+  },
+  {
+   "s": "7.5%",
+   "tier": "label",
+   "px": 54,
+   "n": 254,
+   "out": 0,
+   "firstT": 1.8333333333333333,
+   "color": "#F2F4F7"
+  },
+  {
+   "s": "variable",
+   "tier": "label",
+   "px": 54,
+   "n": 254,
+   "out": 0,
+   "firstT": 1.8333333333333333,
+   "color": "#9AA4B2"
+  }
+ ],
+ "selfCheck": [
+  {
+   "s": "9%",
+   "px": 54,
+   "dGraphicMin": 99,
+   "dTextMin": 12.6,
+   "contrastMin": 17.16,
+   "at": {
+    "dText": 1.4,
+    "contrast": 1.4
+   }
+  },
+  {
+   "s": "fixed",
+   "px": 54,
+   "dGraphicMin": 99,
+   "dTextMin": 12.6,
+   "contrastMin": 7.5,
+   "at": {
+    "dText": 1.4,
+    "contrast": 1.4
+   }
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "px": 48,
+   "dGraphicMin": 99,
+   "dTextMin": 99,
+   "contrastMin": 10.25,
+   "at": {
+    "contrast": 1.4
+   }
+  },
+  {
+   "s": "7.5%",
+   "px": 54,
+   "dGraphicMin": 99,
+   "dTextMin": 13.2,
+   "contrastMin": 17.16,
+   "at": {
+    "dText": 2.1,
+    "contrast": 2.1
+   }
+  },
+  {
+   "s": "variable",
+   "px": 54,
+   "dGraphicMin": 99,
+   "dTextMin": 13.2,
+   "contrastMin": 7.5,
+   "at": {
+    "dText": 2.1,
+    "contrast": 2.1
+   }
+  }
+ ]
+}
