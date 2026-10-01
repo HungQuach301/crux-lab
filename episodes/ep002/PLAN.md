@@ -32,3 +32,4 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 - 2026-10-01 03:50 (2): gói C1 gửi. Chờ 3 câu trả lời. Sau khi trả lời: ghi taste-ledger/AUTHORSHIP (main) + ledger; giao WRITER treatment (C2).
 - 2026-10-01 (3): C1 xong. Đang: WRITER treatment → beat sheet → kịch bản (C2). Nếu mất: đọc `gates/C1.md` + ledger dòng "Cổng C1", giao lại WRITER với đề bài ở `story/WRITER-brief.md`.
 - 2026-10-01 (4): K3.5 đã merge main `a93637a` (LOCK bd1948d9, SHA khớp). Sổ gu/AUTHORSHIP C1 trên main `59a726f`. WRITER đang chạy (đầu bài `story/WRITER-brief.md`). Tiếp: CRITIC 1 vòng (tham khảo) → table read Eric v3 theo cảnh (`story/table-read/`) → kiểm mù C2 (đối chứng yếu M1b) → gói C2 + danh sách K3.6.
+- 2026-10-01 (5): kịch bản v2 (84 câu, 1 462 từ) đã kiểm máy. Đang: table read `python3 episodes/ep002/story/table_read.py` (nohup, log `review-c2/table-read.log`; chạy lại cùng lệnh để tiếp, cảnh xong không tốn ký tự lại). Sau đó: kiểm mù C2 → gói C2.
