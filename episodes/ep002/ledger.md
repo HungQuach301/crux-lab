@@ -52,3 +52,4 @@ Mỗi agent con và mỗi cổng ghi một dòng. Thời gian UTC. "Ký tự EL"
 - 01/10 C3b chủ dự án: KEY-7 = (A) 3 ô tĩnh + thùng token KEY-3 (không cột đỏ); 1 vòng mù, trượt → (B) không thêm vòng. Duyệt 2 thay đổi màn hình (số K3 màu ink; K6 '43% more', 'Starting April 1977'). Ý đồ r3 ghi trước.
 - 01/10 KEY-7 (A) dựng: 3 ô tĩnh, thùng 20 token (đỏ 16/8, 6/1, 2/0 làm tròn từ gap00/gap15/gap30). Nhãn '0 points'/'3 points' chưa có claim dạng chữ → thêm ở C5 (việc treo). Mẫu + khoá r3 commit trước khi chạy.
 - 01/10 KEY-7 (A) vòng mù duy nhất 0/3 (đọc là trả nợ/lãi cộng dồn theo thời gian) → dùng (B) = r2 theo lệnh C3b; A giữ ở K7-A.*. Rủi ro C4: sáu nhịp còn lại cần TB ≥ 0,79.
+- 01/10 Clip hợp đồng hình review-c3/contract-clip.mp4 (1:11) → gói C3c. EL ký tự: 0.
