@@ -24,3 +24,6 @@ Không dùng trong v3 (không cần khoá): lưới trần `cap*`, `median_max_p
 
 ## K3.6 đã merge (LOCK `2fcc9fcc`, 01/10/2026)
 Đã áp: 72 khoá S05 (`contract_build.py`), claim chưa làm tròn, `claims.illustrative`. Chạy thử S01/S05 trên bản sao: PASS, 0 lệch. `gap_worst_start_all` dùng `worstStartAtSpread:1.5` (một khoảng chênh); K3.6 tự xác nhận 1977-04 ở cả 15.
+
+## Rủi ro cần đo ở C5
+- A14 (ASR từ khoá): cụm "1954-to-1980" — Whisper ghi "1954-1980"; bộ so của phiên này tách "-1980" nên báo thiếu (dương tính giả). Đo bằng A14 thật trên âm thanh cuối trước khi quyết.
