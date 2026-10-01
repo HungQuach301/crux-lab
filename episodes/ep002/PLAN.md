@@ -11,7 +11,7 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 |---|---|---|---|
 | Việc 0 Khung tập | XONG — dữ liệu không đổi; kiểm độc lập 116/116 + 753/753; bối cảnh chính sách; neo 7,5/9 | — | — |
 | C1 Ý tưởng và lời hứa | XONG | `gates/C1.md`, `gates/C1-blind.md` | A + tiêu đề A1; phạm vi (b), câu hỏi trung tâm "thả nổi phải thấp hơn bao nhiêu"; ILLUSTRATIVE |
-| C2 Kịch bản | **GÓI ĐÃ GỬI — chờ chủ dự án** | `gates/C2.md`, `C2-blind.md`, `C2-blind-r2.md` | — |
+| C2 Kịch bản | duyệt v3 (CO-A, Leah); v4 kiểm mù vòng 3 chưa đạt ở đoạn phương pháp → **C2b chờ 1 câu** | `gates/C2.md`, `C2-blind.md`, `C2-blind-r2.md` | — |
 | C3 Thiết kế | chưa | — | — |
 | C4 Animatic có chuyển động | chưa | — | — |
 | C5 Render và L1 | chờ K3.5 merge vào main (`float-vs-fixed-replay`, LOCK bd1948d9; chạy thử 0 lệch) | — | — |
@@ -37,3 +37,4 @@ Nhánh: `ep002` (từ `main` `e117c49`). Chỉ P-ep002 merge `ep002` vào `main`
 - 2026-10-01 (7): kiểm mù C2 hai vòng xong. Table read DỪNG (S01–S02 có, 398 ký tự) chờ chủ dự án xác nhận tin nhắn giọng Bill. Tiếp khi rõ: chạy lại `story/table_read.py` (bỏ qua cảnh đã có) → clip C2 → gói C2.
 - 2026-10-01 (8): chủ dự án: tin "GIỌNG KỂ" gửi nhầm (Cine Lab) — bỏ qua, giữ Eric v3. Table read chạy tiếp (S03 trở đi).
 - 2026-10-01 (9): table read xong (10:10); gói C2 gửi. Chờ 3 câu. Sau đó: WRITER áp quyết định (v4 nếu có sửa) → C3 (3 hướng hình, style frame có chuyển động cho 7 KEY, concept thumbnail, đuôi end screen; clip giọng ~30 s xác nhận).
+- 2026-10-01 (10): v4 + kiểm mù vòng 3 xong; gói C2b (1 câu: đoạn phương pháp). C3 bắt đầu song song (brief `design/c3/BRIEF.md`).
