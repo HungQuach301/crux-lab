@@ -2,26 +2,26 @@
  "_about": "Audio files of the T\u1eadp 2 C5 mix; this manifest records them (SHA-256, size). Rebuild: python3 episodes/ep002/audio_src/events.py && python3 episodes/ep002/audio_src/mix.py (deterministic seeds). Stems: 48 kHz stereo PCM 24-bit, same time base as out/video.mp4 (animatic/timing.json), at mix level: their sum is the master.",
  "generator": "episodes/ep002/audio_src/mix.py",
  "timing": {
-  "path": "../../../../../tmp/claude-0/-home-user-crux-lab/ce118c19-8f87-59ac-a641-3486272a248d/scratchpad/A/tm/ep/animatic/timing.json",
+  "path": "animatic/timing.json",
   "total_s": 585.6,
   "sha256": "abd2eda78e8f508e9774195f944a383ee772e7e26932e261db65438eb6c459da"
  },
  "sampleRate": 48000,
  "files": {
   "out/audio/stems/voice.wav": {
-   "sha256": "99687bc9a30be2d3439919abfa7216497ee54df6584f6646426c2fe83b5c6810",
+   "sha256": "d984f4192e976d4820a010023cfe80ef55ea3d9f1f6abbe68e1b65922589075d",
    "bytes": 168652844
   },
   "out/audio/stems/music.wav": {
-   "sha256": "e6d1d9fc5e69661cfe89f2f22c1c05790ae6f1eb72e39e3391ccb614d40bc66d",
+   "sha256": "3268466b5ee0441672788930483a540f0df71398d9ecd3a5f2b89d7299978a95",
    "bytes": 168652844
   },
   "out/audio/stems/sonify.wav": {
-   "sha256": "7961e12a49aa617aabacb57ce46c50ce37082395c7a522f8daabf761754d3a1d",
+   "sha256": "785395aaf74ac13105234d7bb56b37ce935477f4377bef7195d8b7e35ab80e60",
    "bytes": 168652844
   },
   "out/audio/stems/room.wav": {
-   "sha256": "66ddc886c83d1b6d59d897be0c4bd7acfdfb82cef43e871c6797bd4a6b176989",
+   "sha256": "1deb4f5e1f00ee6717abdb820b45702cef300bbc443e736172a8c6960db7e833",
    "bytes": 168652844
   },
   "out/audio/stems/sfx.wav": {
@@ -33,7 +33,7 @@
    "bytes": 168652844
   },
   "out/audio/master.wav": {
-   "sha256": "17d0b1219a200f967915e4c8cf3db025f9247f2ff78be483c33d5ad1a8d885b4",
+   "sha256": "0266dc8cffeba8ae4c71f3f8cff4d7bda1956ef90b1cb53a707286ec3e385976",
    "bytes": 168652844
   }
  },

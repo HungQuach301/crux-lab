@@ -38,11 +38,18 @@ L.append('63 hành động dữ liệu (`out/sonify-events.json`, `work/audio/so
          'chồng lãi và khối "đắt hơn" (S04, S08) = `bar`. Nhãn, số dạng chữ, thẻ, cú nhúng và thẻ phương pháp không có tiếng (S2 không có lớp sfx).\n')
 L.append('## Lời và ký tự ElevenLabs\n')
 L.append(f"- Eric `{tk['voice']['voiceId']}`, `{tk['voice']['model']}`, mặc định (không voice_settings, không speed, không thẻ ngắt), mỗi cảnh một lần gọi, thẻ cảm xúc thưa như kịch bản.")
-L.append(f"- 12 cảnh dùng lại take C2 (chữ trùng kịch bản, cùng giọng/mô hình/thiết lập). **S08 sinh lại ở C5** vì S08.6 đổi chữ (\"in dollars of the day\"): seed 1, "
-         f"**{tk['elCharsC5']} ký tự EL** (C5 tổng), ASR 0 từ khoá thiếu. Take mới {s08['raw'].split('/')[-1]} dài {s08['audioS']:.3f} s (cũ 55,171 s): "
-         'cảnh S08 dài hơn ~4,8 s; P đặt pad S08 = 1,25 s để khe S08.8→S09.1 (điểm quảng cáo 2) ≥ 1 s im.')
-L.append("- S09: ASR nghe \"1954 -1980\"; bộ đọc số của luật đọc dấu gạch thành dấu trừ, nên \"1980\" bị tính thiếu (giọng đọc đúng; seed 2 ở C2 cho cùng kết quả). "
-         'Không sinh lại: nguyên nhân là dạng chữ "1954-to-1980" (việc A14 của P-ep002).\n')
+regen = [t for t in tk['takes'] if t['elChars']['C5']]
+L.append(f"- {13 - len(regen)} cảnh dùng lại take C2 (chữ trùng kịch bản, cùng giọng/mô hình/thiết lập). Sinh lại ở C5 vì kịch bản đổi "
+         '(S08.6 "in dollars of the day"; v5.2: S04.4, S09.5, S09.6, S10.3 "from 1954 to 1980"), mỗi cảnh seed 1, seed 2 chỉ khi ASR thiếu từ khoá:')
+for t in regen:
+    calls = ', '.join(f"seed {c['seed']} {c['characterCost']} ký tự" for c in t['elChars']['calls'])
+    L.append(f"  - {t['id']}: {calls}; dùng {t['raw'].split('/')[-1]} ({t['audioS']:.2f} s), ASR thiếu {len(t['asr']['missing'])}.")
+L.append(f"- **Ký tự ElevenLabs dùng ở C5: {tk['elCharsC5']}.**")
+if rep.get('wordDips'):
+    L.append('- Hạ nền cục bộ dưới một từ (A14 trên master nghe "Lea" thay "Leah" ở S02.2, stem lời một mình nghe đúng): '
+             + '; '.join(f"{d['sentence']} \"{d['word']}\" {d['t']:.2f}–{d['end']:.2f} s nhạc + tiếng dữ liệu {d['db']:+.0f} dB" for d in rep['wordDips'])
+             + ' (dốc 80 ms; không nâng lời).')
+L.append('')
 if ck:
     L.append('## Luật âm thanh (bản sao checks origin/main, LOCK `2fcc9fcc…`)\n')
     L.append('| Luật | Kết quả | Số đo |\n|---|---|---|')

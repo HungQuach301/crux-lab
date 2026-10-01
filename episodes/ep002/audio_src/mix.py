@@ -82,6 +82,25 @@ BEAT_SILENCES = [
 ]
 
 
+# Local dips of the bed (music + data sounds) under one word the ASR check (A14) misses on the master but hears on the voice stem alone:
+# (sentence, word as in the timing's word list, dB). Narrow (word +-0.25 s, 80 ms ramps); never a voice boost.
+WORD_DIPS = [('S02.2', 'leah', -8.0)]
+
+
+def word_dip_gain(tl):
+    g = np.ones(tl.N)
+    rows = []
+    for sid, w, db in WORD_DIPS:
+        x = next(x for x in tl.sid[sid]['words'] if x['t'] == w)
+        a, b = x['start'] - 0.25, x['end'] + 0.25
+        t = np.arange(int(a * SR) - int(0.08 * SR), int(b * SR) + int(0.08 * SR)) / SR
+        k = np.clip(np.minimum(t - (a - 0.08), (b + 0.08) - t) / 0.08, 0, 1)
+        i0 = int(t[0] * SR)
+        g[i0:i0 + len(t)] = np.minimum(g[i0:i0 + len(t)], 10 ** (db * k / 20))
+        rows.append({'sentence': sid, 'word': w, 't': round(a, 3), 'end': round(b, 3), 'db': db})
+    return g, rows
+
+
 def log(*a):
     print(time.strftime('%H:%M:%S'), *a, flush=True)
 
@@ -790,9 +809,13 @@ def main():
     music *= bed_gate[:, None]
     son *= bed_gate[:, None]
     vt = act > 0
+    wd, word_dips = word_dip_gain(tl)
     pv = np.mean(voice[vt] ** 2)
     pm = np.mean(music[vt].mean(1) ** 2)
     music *= np.sqrt(pv / pm) * 10 ** (-VOICE_OVER_MUSIC_DB / 20)
+    music *= wd[:, None]          # after the level is set: the dips do not raise the bed elsewhere
+    son *= wd[:, None]
+    del wd
     wn = RNG.standard_normal(N)
     pink = signal.lfilter([0.049922035, -0.095993537, 0.050612699, -0.004408786], [1, -2.494956002, 2.017265875, -0.522189400], wn)
     del wn
@@ -868,7 +891,7 @@ def main():
            'limiterGainBelow1dBShare': round(float((gl / g2 < 10 ** (-1 / 20)).mean()), 5), 'preGainLUFS': I0,
            'voiceOverMusicDb_A07': round(a07_gap(stems['voice'], stems['music']), 2), 'voiceOverMusicTargetDb': VOICE_OVER_MUSIC_DB,
            'sonUnderVoiceDb': SON_UNDER_VOICE_DB, 'sonification': son_stats, 'sonBandShare': band_share(stems['sonify']),
-           'silences': silences, 'swellCuts': [round(g['start'], 3) for g in swell], 'bpmByScene': bpms, 'bars': len(bars), 'voice': vrows,
+           'silences': silences, 'wordDips': word_dips, 'swellCuts': [round(g['start'], 3) for g in swell], 'bpmByScene': bpms, 'bars': len(bars), 'voice': vrows,
            'stemLevelsDbfs': {k: round(float(10 * np.log10(np.mean(v ** 2) + 1e-20)), 2) for k, v in stems.items()},
            'sumMinusMasterMax': float(np.abs(sum(stems.values()) - master).max())}
     json.dump(rep, open(os.path.join(EP, 'work', 'audio', 'report.json'), 'w'), indent=1)

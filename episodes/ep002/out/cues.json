@@ -183,6 +183,17 @@
    "return": "200 ms"
   },
   {
+   "t": 222.82,
+   "end": 224.526,
+   "dur": 1.707,
+   "after": "S05.5",
+   "before": "S06.1",
+   "why": "ad break (out/adbreaks.json)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 223.593
+  },
+  {
    "t": 321.035,
    "end": 322.204,
    "dur": 1.169,
@@ -200,7 +211,8 @@
    "before": "S09.1",
    "why": "after the worst stretch, before the line",
    "release": "exp tau 90 ms",
-   "return": "200 ms"
+   "return": "200 ms",
+   "adBreak": 382.524
   },
   {
    "t": 505.215,

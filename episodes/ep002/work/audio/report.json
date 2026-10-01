@@ -6,8 +6,8 @@
   "LRA": 3.1,
   "TP": -1.5
  },
- "limiterMinGainDb": -2.41,
- "limiterGainBelow1dBShare": 0.00253,
+ "limiterMinGainDb": -2.42,
+ "limiterGainBelow1dBShare": 0.00261,
  "preGainLUFS": -15.6,
  "voiceOverMusicDb_A07": 19.95,
  "voiceOverMusicTargetDb": 20.0,
@@ -17,7 +17,7 @@
   "shiftedIntoGaps": 335,
   "medianShiftMs": 56.8
  },
- "sonBandShare": 0.9735730563790721,
+ "sonBandShare": 0.9735743482904037,
  "silences": [
   {
    "t": 26.148,
@@ -40,6 +40,17 @@
    "return": "200 ms"
   },
   {
+   "t": 222.82,
+   "end": 224.526,
+   "dur": 1.707,
+   "after": "S05.5",
+   "before": "S06.1",
+   "why": "ad break (out/adbreaks.json)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 223.593
+  },
+  {
    "t": 321.035,
    "end": 322.204,
    "dur": 1.169,
@@ -57,7 +68,8 @@
    "before": "S09.1",
    "why": "after the worst stretch, before the line",
    "release": "exp tau 90 ms",
-   "return": "200 ms"
+   "return": "200 ms",
+   "adBreak": 382.524
   },
   {
    "t": 505.215,
@@ -80,10 +92,18 @@
    "return": "200 ms"
   }
  ],
+ "wordDips": [
+  {
+   "sentence": "S02.2",
+   "word": "leah",
+   "t": 39.797,
+   "end": 40.557,
+   "db": -8.0
+  }
+ ],
  "swellCuts": [
   66.245,
   125.794,
-  222.82,
   262.795,
   437.765,
   514.63,
@@ -206,9 +226,9 @@
  ],
  "stemLevelsDbfs": {
   "voice": -17.74,
-  "music": -36.41,
+  "music": -36.46,
   "sonify": -46.31,
-  "room": -66.38
+  "room": -66.32
  },
  "sumMinusMasterMax": 0.0
 }
