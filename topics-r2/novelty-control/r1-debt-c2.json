@@ -1,0 +1,85 @@
+{
+  "id": "r1-debt-c2",
+  "decision": "Take the 0% transfer with a 4% fee, or stay on the old card?",
+  "queries": [
+    "balance transfer 0% 4% fee worth it $7,500 at 24% APR calculator",
+    "balance transfer data how many people pay off before promo ends CFPB study",
+    "balance transfer vs keep paying credit card total cost simulation missed deadline deferred"
+  ],
+  "results": [
+    {
+      "query": "balance transfer 0% 4% fee worth it $7,500 at 24% APR calculator",
+      "title": "Is a Balance Transfer Fee Worth It?",
+      "url": "https://www.cnbc.com/select/is-a-balance-transfer-fee-worth-it/"
+    },
+    {
+      "query": "balance transfer 0% 4% fee worth it $7,500 at 24% APR calculator",
+      "title": "2026 Balance Transfer Calculator: Calculate Balance Transfer Savings",
+      "url": "https://wallethub.com/balance-transfer-calculator"
+    },
+    {
+      "query": "balance transfer 0% 4% fee worth it $7,500 at 24% APR calculator",
+      "title": "Balance Transfer Calculator",
+      "url": "https://www.omnicalculator.com/finance/balance-transfer"
+    },
+    {
+      "query": "balance transfer 0% 4% fee worth it $7,500 at 24% APR calculator",
+      "title": "Is a Balance Transfer Worth It? \u2014 Terms, Fees & Payoff Math 2026",
+      "url": "https://www.financewonk.com/references/balance-transfer-terms"
+    },
+    {
+      "query": "balance transfer data how many people pay off before promo ends CFPB study",
+      "title": "Credit card firms slapped over balance transfer deals - CBS News",
+      "url": "https://www.cbsnews.com/news/cfpb-issues-warning-over-credit-card-balance-transfers/"
+    },
+    {
+      "query": "balance transfer data how many people pay off before promo ends CFPB study",
+      "title": "CFPB Warns Credit Card Companies Against Deceptively Marketing Promotional Offers",
+      "url": "https://www.consumerfinance.gov/archive/newsroom/cfpb-warns-credit-card-companies-against-deceptively-marketing-promotional-offers/"
+    },
+    {
+      "query": "balance transfer data how many people pay off before promo ends CFPB study",
+      "title": "You could still end up paying interest on a zero percent interest credit card offer",
+      "url": "https://www.consumerfinance.gov/archive/blog/you-could-still-end-up-paying-interest-on-a-zero-percent-interest-credit-card-offer/"
+    },
+    {
+      "query": "balance transfer vs keep paying credit card total cost simulation missed deadline deferred",
+      "title": "Balance Transfer Calculator: Compare Interest, Fees, and Payoff Time",
+      "url": "https://www.fool.com/money/credit-cards/guides-tools/balance-transfer-calculator/"
+    },
+    {
+      "query": "balance transfer vs keep paying credit card total cost simulation missed deadline deferred",
+      "title": "Balance Transfer Calculator: How Much Can You Save With A Balance Transfer?",
+      "url": "https://www.forbes.com/advisor/credit-cards/balance-transfer-calculator/"
+    },
+    {
+      "query": "balance transfer vs keep paying credit card total cost simulation missed deadline deferred",
+      "title": "Credit Card Balance Transfer Calculator",
+      "url": "https://money.usnews.com/credit-cards/articles/credit-card-balance-transfer-calculator"
+    },
+    {
+      "query": "balance transfer vs keep paying credit card total cost simulation missed deadline deferred",
+      "title": "Balance Transfer Fee vs. Interest: Which Costs More?",
+      "url": "https://www.aol.com/articles/balance-transfer-fee-vs-interest-132011511.html"
+    }
+  ],
+  "verdict": "answered-without-data",
+  "nearest": [
+    {
+      "title": "Is a Balance Transfer Fee Worth It? (CNBC Select)",
+      "url": "https://www.cnbc.com/select/is-a-balance-transfer-fee-worth-it/",
+      "why": "Directly addresses whether a 3-5% fee is worth it at ~22-24% APR with worked examples."
+    },
+    {
+      "title": "Balance Transfer Calculator (Motley Fool)",
+      "url": "https://www.fool.com/money/credit-cards/guides-tools/balance-transfer-calculator/",
+      "why": "Simulates both paths incl. post-promo APR on leftover balance for the user's own payment amount."
+    },
+    {
+      "title": "CFPB: You could still end up paying interest on a zero percent offer",
+      "url": "https://www.consumerfinance.gov/archive/blog/you-could-still-end-up-paying-interest-on-a-zero-percent-interest-credit-card-offer/",
+      "why": "Only data-backed piece found on missing promo deadlines, but concerns retail deferred-interest promos, not balance transfers."
+    }
+  ],
+  "note": "The deterministic fee-vs-interest math is thoroughly covered by many calculators and articles (fee breaks even in ~2 months), so the core answer is widely known; only arithmetic examples, no empirical data on how often transferers miss payoff or how realistic payment behavior changes outcomes. Novel angle is weak: only the behavioral/missed-deadline data piece is uncovered."
+}

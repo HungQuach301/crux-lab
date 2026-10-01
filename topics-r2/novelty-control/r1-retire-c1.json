@@ -1,0 +1,85 @@
+{
+  "id": "r1-retire-c1",
+  "decision": "Should you pause 401(k) contributions beyond the match to pay cards faster?",
+  "queries": [
+    "pay off credit card debt or contribute to 401k beyond match",
+    "401k vs paying off credit card debt historical returns backtest analysis",
+    "study households hold credit card debt while saving retirement puzzle data"
+  ],
+  "results": [
+    {
+      "query": "pay off credit card debt or contribute to 401k beyond match",
+      "title": "Keep maxing 401K contributions while paying off credit card debt? - Bogleheads.org",
+      "url": "https://www.bogleheads.org/forum/viewtopic.php?t=386722"
+    },
+    {
+      "query": "pay off credit card debt or contribute to 401k beyond match",
+      "title": "Should I Pay Off My Credit Cards or Max Out My 401k?",
+      "url": "https://www.ynab.com/blog/should-i-pay-off-my-credit-cards-or-max-out-my-401k"
+    },
+    {
+      "query": "pay off credit card debt or contribute to 401k beyond match",
+      "title": "Should I Contribute To My 401(k) or Pay Off My Credit Card Debt?",
+      "url": "https://www.gobankingrates.com/retirement/401k/should-contribute-401k-pay-off-credit-card-debt/"
+    },
+    {
+      "query": "pay off credit card debt or contribute to 401k beyond match",
+      "title": "Should I Contribute to My 401k or Pay Off My Credit Card Debt?",
+      "url": "https://finance.yahoo.com/news/contribute-401k-pay-off-credit-170000564.html"
+    },
+    {
+      "query": "401k vs paying off credit card debt historical returns backtest analysis",
+      "title": "Pay down debt vs. invest",
+      "url": "https://www.fidelity.com/learning-center/personal-finance/pay-down-debt-vs-invest"
+    },
+    {
+      "query": "401k vs paying off credit card debt historical returns backtest analysis",
+      "title": "Pay Off Debt or Contribute to a 401(k)? - 401k Maneuver",
+      "url": "https://www.401kmaneuver.com/pay-off-debt-or-contribute-to-a-401k/"
+    },
+    {
+      "query": "401k vs paying off credit card debt historical returns backtest analysis",
+      "title": "Stop Spending Money: 401k Breakdown",
+      "url": "https://seekingalpha.com/article/4147481-stop-spending-money-401k-breakdown"
+    },
+    {
+      "query": "study households hold credit card debt while saving retirement puzzle data",
+      "title": "Retirement puzzles: New evidence from personal finances",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0047272724000392"
+    },
+    {
+      "query": "study households hold credit card debt while saving retirement puzzle data",
+      "title": "Untangling the credit card debt puzzle (FDIC)",
+      "url": "https://www.fdic.gov/system/files/2024-09/2020-vihriala.pdf"
+    },
+    {
+      "query": "study households hold credit card debt while saving retirement puzzle data",
+      "title": "Does Saving Cause Borrowing? (Medina & Pagel)",
+      "url": "https://files.consumerfinance.gov/f/documents/cfpb_medina_does-saving-cause-borrowing.pdf"
+    },
+    {
+      "query": "study households hold credit card debt while saving retirement puzzle data",
+      "title": "Credit Card Debt Puzzle: Liquid Assets to Pay Bills (Boston Fed)",
+      "url": "https://www.bostonfed.org/-/media/Documents/Workingpapers/PDF/2022/wp2208.pdf"
+    }
+  ],
+  "verdict": "answered-without-data",
+  "nearest": [
+    {
+      "title": "Pay down debt vs. invest (Fidelity)",
+      "url": "https://www.fidelity.com/learning-center/personal-finance/pay-down-debt-vs-invest",
+      "why": "Explicit rule: get the match, then pay debt above ~6% before extra investing; rule of thumb, no backtest."
+    },
+    {
+      "title": "Should I Pay Off My Credit Cards or Max Out My 401k? (YNAB)",
+      "url": "https://www.ynab.com/blog/should-i-pay-off-my-credit-cards-or-max-out-my-401k",
+      "why": "Same decision framed directly, reasoning via rate comparison."
+    },
+    {
+      "title": "Retirement puzzles: New evidence from personal finances",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0047272724000392",
+      "why": "Data on households co-holding card debt and retirement assets and its cost, but does not answer the individual decision."
+    }
+  ],
+  "note": "Consensus answer (match first, then cards) is near-universal and given via rate comparison and single examples; academic co-holding literature quantifies costs at population level but no historical-returns backtest of pause-vs-continue was found. Novelty is limited because the answer is near-mechanical at 20%+ APR; a backtest would mostly confirm the consensus."
+}

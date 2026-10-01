@@ -1,0 +1,90 @@
+{
+ "id": "r1-tax-c1",
+ "decision": "Should you spend 529 money before claiming a college tax credit?",
+ "queries": [
+  "529 withdrawal and American Opportunity Tax Credit coordination order $4,000 expenses",
+  "should I use 529 or pay out of pocket to claim AOTC example calculation",
+  "529 plan American Opportunity Credit simulation after-tax analysis research"
+ ],
+ "results": [
+  {
+   "query": "529 withdrawal and American Opportunity Tax Credit coordination order $4,000 expenses",
+   "title": "Coordinating AOTC With Too-Large Sec. 529 Withdrawal - TMI Message Board",
+   "url": "https://forum.thetaxbook.com/forum/discussion-forums/main-forum-tax-discussion/296879-coordinating-aotc-with-too-large-sec-529-withdrawal"
+  },
+  {
+   "query": "529 withdrawal and American Opportunity Tax Credit coordination order $4,000 expenses",
+   "title": "529 Withdrawal Rules: How to Take Tax-Free Distributions & Avoid Penalties",
+   "url": "https://www.savingforcollege.com/article/how-to-withdraw-money-from-your-529-plan"
+  },
+  {
+   "query": "529 withdrawal and American Opportunity Tax Credit coordination order $4,000 expenses",
+   "title": "Helping Clients Maximize Education Tax Savings: 529 Plans and the AOTC - Resolute Wealth Advisor",
+   "url": "https://www.resoluteadvisor.com/blog/how-to-coordinate-your-529-plan-with-the-american-opportunity-tax-credit/"
+  },
+  {
+   "query": "529 withdrawal and American Opportunity Tax Credit coordination order $4,000 expenses",
+   "title": "Integrating American Opportunity Tax Credit and 529 Withdrawals - Bogleheads.org",
+   "url": "https://www.bogleheads.org/forum/viewtopic.php?t=208079"
+  },
+  {
+   "query": "529 withdrawal and American Opportunity Tax Credit coordination order $4,000 expenses",
+   "title": "IRS Rules for the American Opportunity Credit and Paying Expenses From a 529 Plan",
+   "url": "https://www.hrblock.com/tax-center/lifestyle/irs-american-opportunity-credit/"
+  },
+  {
+   "query": "should I use 529 or pay out of pocket to claim AOTC example calculation",
+   "title": "529 or Cash? How to Pay for College and Still Get the $2,500 AOTC",
+   "url": "https://529orcash.com/"
+  },
+  {
+   "query": "should I use 529 or pay out of pocket to claim AOTC example calculation",
+   "title": "How Do 529 Plans and Education Tax Credits Work Together?",
+   "url": "https://www.sifpgadvisors.com/blog/how-do-529-plans-and-education-tax-credits-work-together"
+  },
+  {
+   "query": "should I use 529 or pay out of pocket to claim AOTC example calculation",
+   "title": "American Opportunity Credit and 529 Coordination",
+   "url": "https://www.veritasfinancial.solutions/blog/american-opportunity-credit-529-plan-interaction/"
+  },
+  {
+   "query": "should I use 529 or pay out of pocket to claim AOTC example calculation",
+   "title": "combine 529 plan with other credits (Bankrate)",
+   "url": "https://www.bankrate.com/taxes/combine-529-plan-with-other-credits"
+  },
+  {
+   "query": "529 plan American Opportunity Credit simulation after-tax analysis research",
+   "title": "How the American Opportunity Tax Credit Helps Families Pay for College",
+   "url": "https://www.savingforcollege.com/article/american-opportunity-tax-credit-aotc"
+  },
+  {
+   "query": "529 plan American Opportunity Credit simulation after-tax analysis research",
+   "title": "The Best Way to Pay for College Using 529s, Tax Credits and Deductions - Arnold Mote Wealth Management",
+   "url": "https://arnoldmotewealthmanagement.com/the-best-way-to-pay-for-college-using-529-tax-credits-deductions/"
+  },
+  {
+   "query": "529 plan American Opportunity Credit simulation after-tax analysis research",
+   "title": "Solved: American Opportunity Tax Credit AOTC and 529 (TurboTax)",
+   "url": "https://ttlc.intuit.com/community/tax-credits-deductions/discussion/american-opportunity-tax-credit-aotc-and-529/00/1198407"
+  }
+ ],
+ "verdict": "answered-with-data",
+ "nearest": [
+  {
+   "title": "529 or Cash? How to Pay for College and Still Get the $2,500 AOTC",
+   "url": "https://529orcash.com/",
+   "why": "Dedicated tool/page answering exactly this ordering decision with worked numbers."
+  },
+  {
+   "title": "How the American Opportunity Tax Credit Helps Families Pay for College (Savingforcollege)",
+   "url": "https://www.savingforcollege.com/article/american-opportunity-tax-credit-aotc",
+   "why": "Worked dollar examples of the pay-$4,000-cash-first rule."
+  },
+  {
+   "title": "Helping Clients Maximize Education Tax Savings: 529 Plans and the AOTC",
+   "url": "https://www.resoluteadvisor.com/blog/how-to-coordinate-your-529-plan-with-the-american-opportunity-tax-credit/",
+   "why": "Advisor-level coordination walkthrough."
+  }
+ ],
+ "note": "Decision is deterministic tax arithmetic with a settled consensus answer (pay first $4,000 out of pocket, then 529); no empirical/historical data is needed, and a dedicated calculator plus many worked examples already resolve it. Strictly judged as answered; if the rubric requires empirical data rather than exact rule-based computation it would be 'answered-without-data', but in either case novelty is low."
+}
