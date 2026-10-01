@@ -1,0 +1,14 @@
+[
+ ["ridge", "1", "start", 0, "the whole ridge (T-bill history), dashed split at 1981, years 1954 / 1981 / today", "one long history in two halves"],
+ ["left", "2", "start", 0, "left half bright, right half dimmed", "first half: rates climbed"],
+ ["peak", "3", "peaked", 0, "diamond-free ring on the summit + '16.3%' (tb_peak) beside it", "the top, around 1981"],
+ ["right", "3", "drifted down", 0, "right half bright, left half dimmed; summit label fades", "second half: rates came down"],
+ ["both", "4", "start", 0, "both halves bright; two identical 10-year frames with Leah's bead at their start: one in the climbing half (April 1976), one in the falling half (November 2000)", "same loan, two places in history"],
+ ["rideL", "5", "climbing years", 0, "left frame rides: bead climbs, rail turns amber; its jar fills a little then drains, a costlier block grows under it", "early-half loan: rates rose and stayed high, cushion lost"],
+ ["rideR", "5", "after the peak", 0, "right frame rides: bead sinks under the rail; its jar fills high", "late-half loan: rates fell, cushion grew"],
+ ["best", "6", "august nineteen eighty one", -0.2, "left frame fades; right frame moves to August 1981 (best), its jar full; caption 'August 1981' (best_start)", "the best start, right at the top"],
+ ["bestD", "6", "fifteen thousand", -0.2, "'−$15,295' (best_diff) beside the full jar; caption fades", "it saved the most"],
+ ["cells", "7", "start", 0, "jars fade; the 753 start cells appear under the ridge (red = costlier at 1.5 points); ring on the best cell (right half)", "every start, coloured by result"],
+ ["worst", "7", "april nineteen seventy seven", -0.2, "ring moves to the worst cell (left half); frame on April 1977", "the worst start is in the early half"],
+ ["share", "7", "far more", 0, "'28.4%' under the left half (share_early, recall)", "far more red in the early half"]
+]

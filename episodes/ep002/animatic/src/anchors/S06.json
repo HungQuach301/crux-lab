@@ -1,0 +1,8 @@
+[
+ ["fill0", "1", "pays less", 0, "KEY-4 (signed K4, C3d fix): replay of Leah's loan from April 1976 starts; jar empty until here, then fills from the gap under the 9% line", "while the rate is under the line, savings pile up in the jar"],
+ ["full", "1", "end", 0, "K4 2.5 s: month 20, jar near full (held: inflow still running)", "the jar is full early"],
+ ["climb", "3", "later climbs", 0, "K4 2.6 -> 3.3 s: the short blip and the climb above 9% begin (amber)", "the rate goes above the line"],
+ ["dry", "3", "cost more overall", 0, "K4 5.0 s: month 40, the jar is empty (warn stream out)", "the savings are used up"],
+ ["years", "4", "stay high for years", 0.3, "K4 8.8 s: end of the replay; the costlier block under the jar has grown", "after that the variable costs more"],
+ ["cutFall", "5", "start", -0.3, "dip to the same picture for a falling stretch (August 1981): the bead stays under the line, the jar keeps filling (own jar scale)", "when rates fall, the jar only fills"]
+]

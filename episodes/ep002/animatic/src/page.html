@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Ep002 C4 animatic scene</title>
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(/fonts/inter-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0e1116}
+canvas{display:block}
+</style>
+<!-- H2 data first: the H2 engine captures window.DATA when it is imported; then the H3 data for the H3 engine -->
+<script src="/episodes/ep002/design/c3/final/work/data.js"></script>
+</head><body>
+<script type="module">
+const q = new URLSearchParams(location.search), sid = q.get('s');
+for (const w of [400, 600, 700]) await document.fonts.load(`${w} 48px Inter`);
+await document.fonts.ready;
+const A = '/episodes/ep002/animatic', FIN = '/episodes/ep002/design/c3/final';
+const timing = await (await fetch(A + '/timing.json')).json();
+const anchors = await (await fetch(A + '/anchors.json')).json();
+const claims = (await (await fetch('/episodes/ep002/out/claims.json')).json()).claims;
+await import(FIN + '/src/engine.js');
+await new Promise((res, rej) => { const s = document.createElement('script'); s.src = FIN + '/work/h3data.js'; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+await import(FIN + '/src/h3/engine.js');
+const F = await import(A + '/src/film.js');
+const NUM = /\d+(?:,\d{3})*(?:\.\d+)?/g, tok = (c) => c.display.match(NUM) || [];
+const nonIl = new Set(claims.filter((c) => !c.illustrative).flatMap(tok));
+const illusOnly = [...new Set(claims.filter((c) => c.illustrative).flatMap(tok))].filter((k) => !nonIl.has(k));
+const mod = await import(A + '/src/' + sid.toLowerCase() + '.js');
+const T = F.makeT(timing, anchors, sid);
+window.APP = F.boot(mod.build({ T }), T, { illusOnly });
+window.READY = true;
+</script>
+</body></html>

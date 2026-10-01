@@ -1,20 +1,17 @@
+// KEY-4 v2 (bản hũ trước sửa kỹ thuật C3d), giữ nguyên để so; bản hiện hành: k4.js.
 // KEY-4 fix round (gates/C3-K245-blind.md): v1 (three tracks + tanks) read as "three scenarios"; kept as k4_v1.js.
 // Now ONE replay around the 9% line and ONE visible jar beside it, in sync month by month: while the rate is below
 // 9% the jar fills (cushion stream in at the top); while above, it drains (warn stream out of the spout). Real replay
 // of Leah's loan starting April 1976 (DATA.detail): a 2-month blip above 9% at months 21-22 barely dents the jar
 // (~$1 of ~$1,036), then the long climb from month 25 drains it dry by month 40; from then on a costlier (#C72323,
 // hatched) block appears under the jar and grows (own scale, see README).
-// C3d technical fix (owner, 01/10): the jar STARTS EMPTY and visibly FILLS within the first two strip frames (first third
-// of the beat). The run now starts at 0.9 s (frame 1 at 0.83 s = empty jar, start bead under the 9% line) and reaches
-// month 21 (jar ~$1,036 of the $1,046 peak) at 2.6 s (frame 2 at 2.5 s). Strip = 6 evenly spaced frames (centres of
-// six equal slices of the clip), the same rule as the C4 animatic strips. Previous version kept as k4_v2.js / K4-v2.*.
 import { C, DATA, CL, numWord, badge, line, rect, negArea, plane, replay, roundRect, ease, mix, clamp, FIXED } from './engine.js';
 export const duration = 10.0;
 const D = DATA.detail['1976-04'];
-const SEG = [[0.9, 0], [2.6, 21], [3.3, 25], [5.0, 40], [8.8, 119]];
+const SEG = [[0.8, 0], [3.6, 30], [6.0, 60], [8.8, 119]];
 function nAt(t) { if (t <= SEG[0][0]) return 0; for (let i = 0; i < SEG.length - 1; i++) { const [a, ma] = SEG[i], [b, mb] = SEG[i + 1]; if (t <= b) return mix(ma, mb, (t - a) / (b - a)); } return 119; }
-export function tOf(m) { for (let i = 0; i < SEG.length - 1; i++) { const [a, ma] = SEG[i], [b, mb] = SEG[i + 1]; if (m <= mb) return a + (b - a) * (m - ma) / (mb - ma); } return 8.8; }
-export const stripTimes = [0, 1, 2, 3, 4, 5].map((i) => +((i + 0.5) * duration / 6).toFixed(2));
+function tOf(m) { for (let i = 0; i < SEG.length - 1; i++) { const [a, ma] = SEG[i], [b, mb] = SEG[i + 1]; if (m <= mb) return a + (b - a) * (m - ma) / (mb - ma); } return 8.8; }
+export const stripTimes = [tOf(12), tOf(21.6), tOf(33), tOf(44), tOf(85), 9.8].map((x) => +x.toFixed(2));
 const P = plane(400, 1340, 300, 920, 5.0, 19.5, 120);
 const J = { x: 1500, w: 210, top: 330, bot: 760 }, KJ = 380 / 1046, KB = 150 / 7577;
 export function draw(ctx, t) {

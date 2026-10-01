@@ -1,0 +1,98 @@
+[
+ [
+  "loan",
+  "1",
+  "fifty thousand",
+  -0.2,
+  "top line '$50,000 over 10 years' (loan, term) over the two offer cards",
+  "same amount, same length"
+ ],
+ [
+  "pVar",
+  "2",
+  "five hundred ninety three",
+  -0.2,
+  "'$593.51 a month' on the variable card (var_first_payment)",
+  "the variable bill starts lower"
+ ],
+ [
+  "pFix",
+  "2",
+  "six hundred thirty three",
+  -0.2,
+  "'$633.38 a month' on the fixed card (fixed_payment)",
+  "the fixed bill is higher"
+ ],
+ [
+  "cutK1",
+  "3",
+  "start",
+  -0.4,
+  "dip to the KEY-1 picture (signed K1 r2 at 1.7 s): the 9% line across both cards",
+  "fixed = a level line"
+ ],
+ [
+  "k1var",
+  "4",
+  "start",
+  0,
+  "K1 1.9 s: the variable card's start appears below the line",
+  "the variable one starts lower"
+ ],
+ [
+  "k1run",
+  "4",
+  "follows",
+  0,
+  "K1 2.3 s: the variable line starts to run (real replay)",
+  "it moves with a market rate"
+ ],
+ [
+  "k1end",
+  "4",
+  "nobody knows",
+  0,
+  "K1 5.4 s: the line has run to the end of the card",
+  "up and down, unknown ahead"
+ ],
+ [
+  "cutK2",
+  "5",
+  "start",
+  -0.4,
+  "dip to KEY-2 (signed K2 clip, fix round)",
+  "the start gap is the thing"
+ ],
+ [
+  "k2big",
+  "5",
+  "minus the variable",
+  0,
+  "K2 0.6 s: start point far below the line (3 points), cushion gap",
+  "a gap between the two starts"
+ ],
+ [
+  "k2leah",
+  "6",
+  "start",
+  0,
+  "K2 2.0 s: card flips, start point 1.5 points below; label '1.5 points' (gap_start) through S03.6-S03.7",
+  "Leah's gap"
+ ],
+ [
+  "k2zero",
+  "8",
+  "start",
+  -0.4,
+  "K2 3.6 s: flip, start point on the line (no gap): picture leads 'real offers differ'",
+  "a gap can be zero"
+ ],
+ [
+  "k2neg",
+  "8",
+  "bigger",
+  0,
+  "K2 5.2 s: flip, start point above the line (warn gap); held to the end of the scene",
+  "or reversed"
+ ]
+]

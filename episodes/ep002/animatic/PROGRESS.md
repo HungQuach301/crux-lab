@@ -1,0 +1,24 @@
+# C4 animatic — tiến độ (mỗi bước xong ghi một dòng)
+- 01/10 bắt đầu: đọc BRIEF, hệ ký, mã ep001/ep002; dựng khung thư mục, .gitignore (work/).
+- 01/10 Việc 0 xong: K4 sửa kỹ thuật (hũ rỗng ở khung 1, gần đầy ở khung 2), dựng lại K4.mp4/strip; bản trước = K4-v2.*.
+- 01/10 Việc 1 xong: timing.json (faster-whisper small.en, 13 cảnh, 582,4 s; S11 giữ 24 s cho thẻ; S13 đuôi 16 s), work/narration.m4a. Mã cảnh S01–S13 + anchors (107 neo, 0 từ khoá thiếu); thử khung tĩnh từng cảnh. Bắt đầu dựng toàn bộ.
+- 01/10 10:53 S07 dựng xong: S07 wall 228 s x 3.91 {"minDistTextToGraphicPx720":0,"minDistTextToTextPx720":62,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMissing
+- 01/10 10:53 S09 dựng xong: S09 wall 235 s x 3.83 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 10:53 S10 dựng xong: S10 wall 243 s x 3.73 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 10:56 S05 dựng xong: S05 wall 197 s x 4.14 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 10:57 S03 dựng xong: S03 wall 236 s x 3.97 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 10:57 S08 dựng xong: S08 wall 225 s x 4.01 {"minDistTextToGraphicPx720":0,"minDistTextToTextPx720":71.1,"minContrast":6.77,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 10:59 S02 dựng xong: S02 wall 152 s x 3.78 {"minDistTextToGraphicPx720":9.7,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 10:59 S06 dựng xong: S06 wall 152 s x 3.87 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:00 S04 dựng xong: S04 wall 191 s x 3.94 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 11:01 S11 dựng xong: S11 wall 98 s x 4.09 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":4,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMissing 
+- 01/10 11:01 S01 dựng xong: S01 wall 107 s x 3.96 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:03 S12 dựng xong: S12 wall 147 s x 3.71 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:04 S13 dựng xong: S13 wall 61 s x 3.81 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":99,"minContrast":99,"minFontPx1080":null,"outOfSafe":[],"badgeMissing":0} kwMissin
+- 01/10 11:07 S08 dựng xong: S08 wall 204 s x 3.64 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":71.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 11:07 S07 dựng xong: S07 wall 212 s x 3.63 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":46.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:10 S12 dựng xong: S12 wall 138 s x 3.48 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:14 S04 dựng xong: S04 wall 173 s x 3.56 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 11:15 S03 dựng xong: S03 wall 211 s x 3.55 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 11:16 Dựng lại S03/S04/S07/S08/S12 sau tự kiểm; dải KEY/Sxx ghép; check.py ALL OK (0 số ngoài claim); assemble: 9:42,4, 18,7 MB / 9,2 MB; legibility.md xong.
+- 01/10 11:17 README.md xong. Hoàn tất việc 0–7.
