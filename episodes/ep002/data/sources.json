@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "path": "raw/TB3MS.csv",
+      "path": "data/raw/TB3MS.csv",
       "role": "primary",
       "series": "TB3MS",
       "what": "3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent (Board of Governors, H.15, via FRED)",
@@ -15,7 +15,7 @@
       "terms": {"quote": "Public Domain: Citation Requested", "url": "https://fred.stlouisfed.org/series/TB3MS"}
     },
     {
-      "path": "raw/DTB3.csv",
+      "path": "data/raw/DTB3.csv",
       "role": "crosscheck",
       "series": "DTB3",
       "what": "3-Month Treasury Bill Secondary Market Rate, Discount Basis, daily (H.15, via FRED); monthly mean compared with TB3MS",

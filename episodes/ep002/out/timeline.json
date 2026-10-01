@@ -1,0 +1,306 @@
+{
+ "fps": 30,
+ "total": 584.4,
+ "acts": [
+  {
+   "id": "cold-open",
+   "start": 0.0,
+   "end": 26.967
+  },
+  {
+   "id": "act1",
+   "start": 26.967,
+   "end": 222.833,
+   "climax": 194.333
+  },
+  {
+   "id": "act2",
+   "start": 222.833,
+   "end": 376.467,
+   "climax": 361.467
+  },
+  {
+   "id": "act3",
+   "start": 376.467,
+   "end": 504.833,
+   "climax": 482.493
+  },
+  {
+   "id": "method",
+   "start": 504.833,
+   "end": 528.833
+  },
+  {
+   "id": "outro",
+   "start": 528.833,
+   "end": 584.4
+  }
+ ],
+ "scenes": [
+  {
+   "id": "S01",
+   "act": "cold-open",
+   "start": 0.0,
+   "dur": 26.967,
+   "layout": "offer/two-cards",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "card",
+   "move": 0.0,
+   "look": "H2",
+   "title": "Two offers"
+  },
+  {
+   "id": "S02",
+   "act": "act1",
+   "start": 26.967,
+   "dur": 40.333,
+   "layout": "cost/federal-limit",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "bar",
+   "move": 0.0,
+   "look": "H2",
+   "title": "Why private loans"
+  },
+  {
+   "id": "S03",
+   "act": "act1",
+   "start": 67.3,
+   "dur": 59.5,
+   "layout": "offer/head-start",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "card",
+   "move": 0.0,
+   "look": "H2",
+   "title": "Leah's loan and the head start"
+  },
+  {
+   "id": "S04",
+   "act": "act1",
+   "start": 126.8,
+   "dur": 48.533,
+   "layout": "ridge/replay",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 0.0,
+   "look": "H3",
+   "title": "Every stretch since January 1954"
+  },
+  {
+   "id": "S05",
+   "act": "act1",
+   "start": 175.333,
+   "dur": 47.5,
+   "layout": "ridge/bins",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "cells",
+   "move": 0.0,
+   "look": "H3",
+   "title": "The contradiction"
+  },
+  {
+   "id": "S06",
+   "act": "act2",
+   "start": 222.833,
+   "dur": 39.334,
+   "layout": "jar/cushion",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 0.0,
+   "look": "H2",
+   "title": "The cushion"
+  },
+  {
+   "id": "S07",
+   "act": "act2",
+   "start": 262.167,
+   "dur": 58.3,
+   "layout": "ridge/two-halves",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 0.0,
+   "look": "H3",
+   "title": "Two kinds of history"
+  },
+  {
+   "id": "S08",
+   "act": "act2",
+   "start": 320.467,
+   "dur": 56.0,
+   "layout": "ridge/worst-window",
+   "shot": "medium",
+   "panels": [
+    "*"
+   ],
+   "chart": "line",
+   "move": 0.0,
+   "look": "H3",
+   "title": "The worst stretch: April 1977"
+  },
+  {
+   "id": "S09",
+   "act": "act3",
+   "start": 376.467,
+   "dur": 61.266,
+   "layout": "columns/head-start",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "bar",
+   "move": 0.0,
+   "look": "H3",
+   "title": "Moving the head start"
+  },
+  {
+   "id": "S10",
+   "act": "act3",
+   "start": 437.733,
+   "dur": 67.1,
+   "layout": "columns/answer",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "bar",
+   "move": 0.0,
+   "look": "H3",
+   "title": "Other offers, and the answer"
+  },
+  {
+   "id": "S11",
+   "act": "method",
+   "start": 504.833,
+   "dur": 24.0,
+   "layout": "card/method",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "card",
+   "move": 0.0,
+   "look": "H3",
+   "title": "How we know this"
+  },
+  {
+   "id": "S12",
+   "act": "outro",
+   "start": 528.833,
+   "dur": 39.567,
+   "layout": "columns/offer-line",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "bar",
+   "move": 0.0,
+   "look": "H3",
+   "title": "Where an offer falls"
+  },
+  {
+   "id": "S13",
+   "act": "outro",
+   "start": 568.4,
+   "dur": 16.0,
+   "layout": "card/end-screen",
+   "shot": "wide",
+   "panels": [
+    "*"
+   ],
+   "chart": "card",
+   "move": 0.0,
+   "look": "H3",
+   "title": "End screen"
+  }
+ ],
+ "turns": [
+  {
+   "t": 22.12,
+   "scene": "S01",
+   "sentence": "S01.3",
+   "what": "the question: how much lower must a variable rate start"
+  },
+  {
+   "t": 172.3,
+   "scene": "S04",
+   "sentence": "S04.6",
+   "what": "history, not a forecast (US only, S04.2)"
+  },
+  {
+   "t": 175.333,
+   "scene": "S05",
+   "sentence": "S05.1",
+   "what": "act 1 turn: the first result looks like a contradiction"
+  },
+  {
+   "t": 194.333,
+   "scene": "S05",
+   "sentence": "S05.4",
+   "what": "act 1 climax: 1 in 7 is two very different halves, plus the worst stretch"
+  },
+  {
+   "t": 239.173,
+   "scene": "S06",
+   "sentence": "S06.3",
+   "what": "the cushion has to be used up before the variable loan costs more"
+  },
+  {
+   "t": 287.367,
+   "scene": "S07",
+   "sentence": "S07.5",
+   "what": "act 2 turn: the climbing half vs the falling half"
+  },
+  {
+   "t": 361.467,
+   "scene": "S08",
+   "sentence": "S08.7",
+   "what": "act 2 climax: the worst stretch charges 43% more interest"
+  },
+  {
+   "t": 402.507,
+   "scene": "S09",
+   "sentence": "S09.5",
+   "what": "at 2 points the later half clears; the earlier half does not"
+  },
+  {
+   "t": 455.753,
+   "scene": "S10",
+   "sentence": "S10.3",
+   "what": "at every head start tested, some 1954-to-1980 starts still cost more"
+  },
+  {
+   "t": 482.493,
+   "scene": "S10",
+   "sentence": "S10.6",
+   "what": "act 3 climax: the answer in two halves"
+  },
+  {
+   "t": 557.833,
+   "scene": "S12",
+   "sentence": "S12.4",
+   "what": "the line does not say which offer is better"
+  }
+ ],
+ "source": "animatic/timing.json (sentence times, 584.4 s narration incl. the S13 end-screen tail) + preprod/dossier_c5.py; a scene starts at its first sentence",
+ "note": "no ident is rendered; move = 0 (2D H2/H3 frames, picture changes inside a scene are dips, see out/transitions.json); out/camera.json (P) overrides it. Acts: cold-open S01, act1 S02-S05, act2 S06-S08, act3 S09-S10, method S11 (method card), outro S12-S13"
+}

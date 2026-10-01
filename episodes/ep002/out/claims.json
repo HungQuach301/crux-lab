@@ -16,7 +16,17 @@
    "historical": false,
    "illustrative": true,
    "kind": "param",
-   "basis": "nominal"
+   "basis": "nominal",
+   "shownIn": [
+    "S03"
+   ],
+   "spoken": [
+    {
+     "sentence": "S03.1",
+     "scene": "S03"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "term",
@@ -33,7 +43,26 @@
    ],
    "historical": false,
    "illustrative": true,
-   "kind": "param"
+   "kind": "param",
+   "shownIn": [
+    "S03",
+    "S11"
+   ],
+   "spoken": [
+    {
+     "sentence": "S03.1",
+     "scene": "S03"
+    },
+    {
+     "sentence": "S04.1",
+     "scene": "S04"
+    },
+    {
+     "sentence": "S08.6",
+     "scene": "S08"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "fixed_rate",
@@ -50,7 +79,66 @@
    ],
    "historical": false,
    "illustrative": true,
-   "kind": "param"
+   "kind": "param",
+   "shownIn": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S09",
+    "S10",
+    "S11",
+    "S12"
+   ],
+   "spoken": [
+    {
+     "sentence": "S01.2",
+     "scene": "S01"
+    },
+    {
+     "sentence": "S03.6",
+     "scene": "S03"
+    },
+    {
+     "sentence": "S04.3",
+     "scene": "S04"
+    },
+    {
+     "sentence": "S05.2",
+     "scene": "S05"
+    },
+    {
+     "sentence": "S06.1",
+     "scene": "S06"
+    },
+    {
+     "sentence": "S06.3",
+     "scene": "S06"
+    },
+    {
+     "sentence": "S06.4",
+     "scene": "S06"
+    },
+    {
+     "sentence": "S08.4",
+     "scene": "S08"
+    },
+    {
+     "sentence": "S09.1",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S09.2",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S10.5",
+     "scene": "S10"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "var_start",
@@ -67,13 +155,38 @@
    ],
    "historical": false,
    "illustrative": true,
-   "kind": "param"
+   "kind": "param",
+   "shownIn": [
+    "S01",
+    "S03",
+    "S10",
+    "S11"
+   ],
+   "spoken": [
+    {
+     "sentence": "S01.2",
+     "scene": "S01"
+    },
+    {
+     "sentence": "S03.6",
+     "scene": "S03"
+    },
+    {
+     "sentence": "S08.2",
+     "scene": "S08"
+    },
+    {
+     "sentence": "S09.1",
+     "scene": "S09"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "gap_start",
    "value": 1.5,
    "display": "1.5 points",
-   "formula": "fixed_rate \u2212 var_start",
+   "formula": "fixed_rate − var_start",
    "source": {
     "id": "fred-tb3ms",
     "url": "https://fred.stlouisfed.org/series/TB3MS"
@@ -84,7 +197,30 @@
    ],
    "historical": false,
    "illustrative": true,
-   "kind": "param"
+   "kind": "param",
+   "shownIn": [
+    "S03",
+    "S04",
+    "S05",
+    "S09",
+    "S10",
+    "S12"
+   ],
+   "spoken": [
+    {
+     "sentence": "S03.6",
+     "scene": "S03"
+    },
+    {
+     "sentence": "S09.4",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S12.1",
+     "scene": "S12"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "index_today",
@@ -102,13 +238,18 @@
    "historical": false,
    "illustrative": false,
    "kind": "data",
-   "asOf": "2026-08-01"
+   "asOf": "2026-08-01",
+   "shownIn": [
+    "S11"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "margin",
    "value": 3.78,
    "display": "3.78 points",
-   "formula": "var_start \u2212 index_today",
+   "formula": "var_start − index_today",
    "source": {
     "id": "fred-tb3ms",
     "url": "https://fred.stlouisfed.org/series/TB3MS"
@@ -119,7 +260,12 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S11"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "tb_peak",
@@ -138,7 +284,17 @@
    "illustrative": false,
    "kind": "data",
    "date": "1981-05-01",
-   "words": "May 1981"
+   "words": "May 1981",
+   "shownIn": [
+    "S07"
+   ],
+   "spoken": [
+    {
+     "sentence": "S07.3",
+     "scene": "S07"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "n_starts",
@@ -155,7 +311,12 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S11"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "first_start",
@@ -172,7 +333,21 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S04",
+    "S05",
+    "S07",
+    "S08",
+    "S11"
+   ],
+   "spoken": [
+    {
+     "sentence": "S04.1",
+     "scene": "S04"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "last_start",
@@ -189,7 +364,12 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S11"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "n_early",
@@ -206,7 +386,14 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S09",
+    "S10",
+    "S12"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "n_late",
@@ -223,7 +410,14 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S09",
+    "S10",
+    "S12"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "fixed_int",
@@ -241,7 +435,17 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "basis": "nominal"
+   "basis": "nominal",
+   "shownIn": [
+    "S08"
+   ],
+   "spoken": [
+    {
+     "sentence": "S08.6",
+     "scene": "S08"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "n_costlier",
@@ -258,7 +462,10 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "share_all",
@@ -277,7 +484,17 @@
    "illustrative": true,
    "kind": "model",
    "core": true,
-   "words": "about 1 in 7"
+   "words": "about 1 in 7",
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "sentence": "S05.3",
+     "scene": "S05"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "share_early",
@@ -297,7 +514,27 @@
    "kind": "model",
    "core": true,
    "decisive": true,
-   "words": "more than 1 in 4"
+   "words": "more than 1 in 4",
+   "shownIn": [
+    "S05",
+    "S07"
+   ],
+   "spoken": [
+    {
+     "sentence": "S05.4",
+     "scene": "S05"
+    }
+   ],
+   "callbacks": [
+    {
+     "scene": "S05",
+     "meaning": "stated once: the 1954-to-1980 share of the first result"
+    },
+    {
+     "scene": "S07",
+     "meaning": "recalled on screen under the climbing half of the history"
+    }
+   ]
   },
   {
    "claimId": "share_late",
@@ -317,12 +554,27 @@
    "kind": "model",
    "core": true,
    "decisive": true,
-   "words": "about 1 in 30"
+   "words": "about 1 in 30",
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "sentence": "S05.4",
+     "scene": "S05"
+    }
+   ],
+   "callbacks": [
+    {
+     "scene": "S05",
+     "meaning": "stated once: the from-1981 share of the first result"
+    }
+   ]
   },
   {
    "claimId": "median_diff",
    "value": -3832.201473006746,
-   "display": "\u2212$3,832",
+   "display": "−$3,832",
    "formula": "median Difference (negative = variable cheaper)",
    "source": {
     "id": "fred-tb3ms",
@@ -336,7 +588,10 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "words": "$3,832 less"
+   "words": "$3,832 less",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "worst_diff",
@@ -356,7 +611,20 @@
    "kind": "model",
    "basis": "nominal",
    "core": true,
-   "decisive": true
+   "decisive": true,
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S05.4",
+     "scene": "S05"
+    }
+   ],
+   "callbacks": [
+    {
+     "scene": "S05",
+     "meaning": "stated once: the worst stretch, from April 1977"
+    }
+   ]
   },
   {
    "claimId": "worst_start",
@@ -373,7 +641,34 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S07",
+    "S08"
+   ],
+   "spoken": [
+    {
+     "sentence": "S05.4",
+     "scene": "S05"
+    },
+    {
+     "sentence": "S07.7",
+     "scene": "S07"
+    },
+    {
+     "sentence": "S08.1",
+     "scene": "S08"
+    },
+    {
+     "sentence": "S09.4",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S12.1",
+     "scene": "S12"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "worst_start_year",
@@ -390,7 +685,10 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "worst_start_month",
@@ -407,7 +705,10 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "worst_peak_rate",
@@ -424,7 +725,17 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S08"
+   ],
+   "spoken": [
+    {
+     "sentence": "S08.3",
+     "scene": "S08"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "worst_share_of_fixed",
@@ -441,12 +752,22 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S08"
+   ],
+   "spoken": [
+    {
+     "sentence": "S08.7",
+     "scene": "S08"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "best_diff",
    "value": -15294.798091595787,
-   "display": "\u2212$15,295",
+   "display": "−$15,295",
    "formula": "min Difference",
    "source": {
     "id": "fred-tb3ms",
@@ -460,7 +781,12 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "words": "$15,295 less"
+   "words": "$15,295 less",
+   "shownIn": [
+    "S07"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "best_start",
@@ -477,7 +803,17 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S07"
+   ],
+   "spoken": [
+    {
+     "sentence": "S07.6",
+     "scene": "S07"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "best_start_year",
@@ -494,7 +830,15 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [
+    "S04",
+    "S05",
+    "S07",
+    "S08"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "best_start_month",
@@ -511,7 +855,10 @@
    ],
    "historical": true,
    "illustrative": true,
-   "kind": "model"
+   "kind": "model",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "max_rate_any",
@@ -530,7 +877,10 @@
    "illustrative": true,
    "kind": "model",
    "start": "1972-02-01",
-   "words": "window starting February 1972"
+   "words": "window starting February 1972",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "share_rate_above_fixed",
@@ -548,7 +898,17 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "words": "about 3 in 4"
+   "words": "about 3 in 4",
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "sentence": "S05.2",
+     "scene": "S05"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "fixed_payment",
@@ -567,7 +927,21 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [
+    "S03"
+   ],
+   "spoken": [
+    {
+     "sentence": "S03.2",
+     "scene": "S03"
+    },
+    {
+     "sentence": "S08.5",
+     "scene": "S08"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "var_first_payment",
@@ -586,7 +960,17 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [
+    "S03"
+   ],
+   "spoken": [
+    {
+     "sentence": "S03.2",
+     "scene": "S03"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "max_payment",
@@ -607,7 +991,15 @@
    "basis": "nominal",
    "start": "1977-04-01",
    "scope": "b",
-   "words": "$863.36 a month, in the stretch starting April 1977"
+   "words": "$863.36 a month, in the stretch starting April 1977",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S08.5",
+     "scene": "S08"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "median_max_payment",
@@ -626,7 +1018,10 @@
    "illustrative": true,
    "kind": "model",
    "basis": "nominal",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "share_payment_above_fixed",
@@ -645,7 +1040,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "words": "more than half"
+   "words": "more than half",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spreadm1_share",
@@ -663,7 +1061,12 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spreadm05_share",
@@ -681,7 +1084,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread0_share",
@@ -699,7 +1105,12 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread025_share",
@@ -717,7 +1128,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread05_share",
@@ -735,7 +1149,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread075_share",
@@ -753,7 +1170,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread1_share",
@@ -771,7 +1191,12 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread125_share",
@@ -789,7 +1214,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread15_share",
@@ -807,7 +1235,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread175_share",
@@ -825,7 +1256,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread2_share",
@@ -843,7 +1277,12 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread225_share",
@@ -861,7 +1300,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread25_share",
@@ -879,7 +1321,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread275_share",
@@ -897,7 +1342,10 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "spread3_share",
@@ -915,7 +1363,12 @@
    "historical": true,
    "illustrative": true,
    "kind": "model",
-   "scope": "b"
+   "scope": "b",
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gapm10_early",
@@ -934,7 +1387,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gapm10_late",
@@ -953,7 +1409,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gapm10_worst",
@@ -973,7 +1432,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gapm05_early",
@@ -992,7 +1454,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gapm05_late",
@@ -1011,7 +1476,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gapm05_worst",
@@ -1031,7 +1499,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap00_early",
@@ -1050,7 +1521,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap00_late",
@@ -1069,7 +1543,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap00_worst",
@@ -1089,7 +1566,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap05_early",
@@ -1108,7 +1588,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap05_late",
@@ -1127,7 +1610,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap05_worst",
@@ -1147,7 +1633,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap10_early",
@@ -1166,7 +1655,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap10_late",
@@ -1185,7 +1677,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap10_worst",
@@ -1205,7 +1700,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap15_early",
@@ -1224,7 +1722,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap15_late",
@@ -1243,7 +1744,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap15_worst",
@@ -1263,7 +1767,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap20_early",
@@ -1282,7 +1789,15 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S09.5",
+     "scene": "S09"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "gap20_late",
@@ -1301,8 +1816,14 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3",
-   "words": "none"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "words": "none",
+   "shownIn": [
+    "S09",
+    "S10"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap20_worst",
@@ -1322,7 +1843,15 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S09.5",
+     "scene": "S09"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "gap25_early",
@@ -1341,7 +1870,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap25_late",
@@ -1360,8 +1892,11 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3",
-   "words": "none"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "words": "none",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap25_worst",
@@ -1381,7 +1916,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap30_early",
@@ -1400,7 +1938,19 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "shownIn": [
+    "S09",
+    "S10",
+    "S12"
+   ],
+   "spoken": [
+    {
+     "sentence": "S09.6",
+     "scene": "S09"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "gap30_late",
@@ -1419,8 +1969,11 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "shareCostlierAtSpread theo th\u1eddi k\u1ef3",
-   "words": "none"
+   "k36": "shareCostlierAtSpread theo thời kỳ",
+   "words": "none",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap30_worst",
@@ -1440,7 +1993,19 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S09.6",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S10.6",
+     "scene": "S10"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "cap12_share",
@@ -1459,7 +2024,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap12_early",
@@ -1478,7 +2046,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap12_worst",
@@ -1498,7 +2069,12 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [
+    "S08"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap15_share",
@@ -1517,7 +2093,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap15_early",
@@ -1536,7 +2115,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap15_worst",
@@ -1556,7 +2138,12 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [
+    "S08"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap18_share",
@@ -1575,7 +2162,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap18_early",
@@ -1594,7 +2184,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap18_worst",
@@ -1614,7 +2207,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap25_share",
@@ -1633,7 +2229,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap25_early",
@@ -1652,7 +2251,10 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "cap25_worst",
@@ -1672,7 +2274,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "k36": "nhi\u1ec1u m\u1ee9c tr\u1ea7n"
+   "k36": "nhiều mức trần",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "min_gap_early",
@@ -1692,13 +2297,18 @@
    "kind": "model",
    "scope": "b",
    "words": "never fell to zero",
-   "k36": "min theo kho\u1ea3ng ch\u00eanh, theo th\u1eddi k\u1ef3"
+   "k36": "min theo khoảng chênh, theo thời kỳ",
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "first_payment_gap",
    "value": 39.87002307197895,
    "display": "$39.87",
-   "formula": "fixed_payment \u2212 var_first_payment",
+   "formula": "fixed_payment − var_first_payment",
    "source": {
     "id": "fred-tb3ms",
     "url": "https://fred.stlouisfed.org/series/TB3MS"
@@ -1712,7 +2322,10 @@
    "kind": "model",
    "basis": "nominal",
    "scope": "b",
-   "words": "about $40 less a month"
+   "words": "about $40 less a month",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "gap_worst_start_all",
@@ -1731,7 +2344,17 @@
    "illustrative": true,
    "kind": "model",
    "scope": "b",
-   "k36": "worst theo kho\u1ea3ng ch\u00eanh"
+   "k36": "worst theo khoảng chênh",
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": [
+    {
+     "sentence": "S10.2",
+     "scene": "S10"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "ctx_plus_end",
@@ -1749,7 +2372,17 @@
    "illustrative": false,
    "kind": "policy",
    "verify": "V1",
-   "asOf": "2026-09-29"
+   "asOf": "2026-09-29",
+   "shownIn": [
+    "S01"
+   ],
+   "spoken": [
+    {
+     "sentence": "S01.1",
+     "scene": "S01"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "ctx_plus_exception",
@@ -1766,7 +2399,17 @@
    "historical": false,
    "illustrative": false,
    "kind": "policy",
-   "verify": "V1"
+   "verify": "V1",
+   "shownIn": [
+    "S02"
+   ],
+   "spoken": [
+    {
+     "sentence": "S02.1",
+     "scene": "S02"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "ctx_unsub_annual",
@@ -1784,7 +2427,7 @@
    "illustrative": false,
    "kind": "policy",
    "basis": "nominal",
-   "verify": "owner-verified 2026-10-01 (chat chi\u1ebfn l\u01b0\u1ee3c, ngu\u1ed3n li\u00ean bang FR 2026-01912 + FSA FAQ Loan Limits 05/2026); phi\u00ean P-ep002 \u0111\u1ecdc qua t\u00ecm ki\u1ebfm (proxy ch\u1eb7n, lessons A9)",
+   "verify": "owner-verified 2026-10-01 (chat chiến lược, nguồn liên bang FR 2026-01912 + FSA FAQ Loan Limits 05/2026); phiên P-ep002 đọc qua tìm kiếm (proxy chặn, lessons A9)",
    "sources": [
     {
      "id": "fr-2026-01912",
@@ -1794,7 +2437,17 @@
      "id": "fsa-faq-loan-limits-2026-05",
      "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
     }
-   ]
+   ],
+   "shownIn": [
+    "S02"
+   ],
+   "spoken": [
+    {
+     "sentence": "S02.2",
+     "scene": "S02"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "ctx_unsub_aggregate",
@@ -1812,7 +2465,7 @@
    "illustrative": false,
    "kind": "policy",
    "basis": "nominal",
-   "verify": "owner-verified 2026-10-01 (chat chi\u1ebfn l\u01b0\u1ee3c, ngu\u1ed3n li\u00ean bang FR 2026-01912 + FSA FAQ Loan Limits 05/2026); phi\u00ean P-ep002 \u0111\u1ecdc qua t\u00ecm ki\u1ebfm (proxy ch\u1eb7n, lessons A9)",
+   "verify": "owner-verified 2026-10-01 (chat chiến lược, nguồn liên bang FR 2026-01912 + FSA FAQ Loan Limits 05/2026); phiên P-ep002 đọc qua tìm kiếm (proxy chặn, lessons A9)",
    "sources": [
     {
      "id": "fr-2026-01912",
@@ -1822,7 +2475,17 @@
      "id": "fsa-faq-loan-limits-2026-05",
      "url": "https://fsapartners.ed.gov/sites/default/files/2026-05/FrequentlyAskedQuestionsLoanLimits.pdf"
     }
-   ]
+   ],
+   "shownIn": [
+    "S02"
+   ],
+   "spoken": [
+    {
+     "sentence": "S02.2",
+     "scene": "S02"
+    }
+   ],
+   "callbacks": []
   },
   {
    "claimId": "ctx_unsub_rate",
@@ -1839,7 +2502,10 @@
    "historical": false,
    "illustrative": false,
    "kind": "policy",
-   "verify": "V2 (formula V1; 4.47 + 3.60 = 8.07)"
+   "verify": "V2 (formula V1; 4.47 + 3.60 = 8.07)",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "ctx_prof_annual",
@@ -1867,7 +2533,10 @@
    "illustrative": false,
    "kind": "policy",
    "basis": "nominal",
-   "verify": "owner-verified 2026-10-01 (FR 2026-01912 + FSA FAQ 05/2026); \u0111\u1ecdc qua t\u00ecm ki\u1ebfm"
+   "verify": "owner-verified 2026-10-01 (FR 2026-01912 + FSA FAQ 05/2026); đọc qua tìm kiếm",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
   },
   {
    "claimId": "ctx_prof_aggregate",
@@ -1895,7 +2564,378 @@
    "illustrative": false,
    "kind": "policy",
    "basis": "nominal",
-   "verify": "owner-verified 2026-10-01 (FR 2026-01912 + FSA FAQ 05/2026); \u0111\u1ecdc qua t\u00ecm ki\u1ebfm"
+   "verify": "owner-verified 2026-10-01 (FR 2026-01912 + FSA FAQ 05/2026); đọc qua tìm kiếm",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
+  },
+  {
+   "claimId": "share_all_words",
+   "value": 0.14285714285714285,
+   "display": "about 1 in 7",
+   "parent": "share_all",
+   "formula": "spoken form of share_all (14.2%): |share_all - 100/7| <= 0.5 point",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "words",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S05.3",
+     "scene": "S05"
+    },
+    {
+     "sentence": "S05.4",
+     "scene": "S05"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "share_early_words",
+   "value": 0.25,
+   "display": "more than 1 in 4",
+   "parent": "share_early",
+   "formula": "spoken form of share_early (28.4%): share_early > 25",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "words",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S05.4",
+     "scene": "S05"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "share_late_words",
+   "value": 0.03333333333333333,
+   "display": "about 1 in 30",
+   "parent": "share_late",
+   "formula": "spoken form of share_late (3.5%): |share_late - 100/30| <= 0.5 point",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "words",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S05.4",
+     "scene": "S05"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "share_rate_above_fixed_words",
+   "value": 0.75,
+   "display": "about 3 in 4",
+   "parent": "share_rate_above_fixed",
+   "formula": "spoken form of share_rate_above_fixed (76.2%): |x - 75| <= 2 points",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "words",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S05.2",
+     "scene": "S05"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "first_payment_gap_words",
+   "value": 40,
+   "display": "about $40",
+   "parent": "first_payment_gap",
+   "basis": "nominal",
+   "formula": "spoken form of first_payment_gap ($39.87) rounded to the nearest $10",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "words",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S03.2",
+     "scene": "S03"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "best_diff_words",
+   "value": 15294.798091595787,
+   "display": "$15,295 less",
+   "parent": "best_diff",
+   "basis": "nominal",
+   "formula": "spoken form of best_diff (−$15,295): the same amount said as \"less than the fixed loan\"",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "words",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S07.6",
+     "scene": "S07"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "hs_m1",
+   "value": -1.0,
+   "display": "minus 1 point",
+   "formula": "head start tested = fixed_rate - variable start rate = -1 point(s) (contract model.params.spreads; sensitivity key)",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "param",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S04.4",
+     "scene": "S04"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "hs_0",
+   "value": 0.0,
+   "display": "0 points",
+   "formula": "head start tested = fixed_rate - variable start rate = 0 point(s) (contract model.params.spreads; sensitivity key)",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "param",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
+  },
+  {
+   "claimId": "hs_1",
+   "value": 1.0,
+   "display": "1 point",
+   "formula": "head start tested = fixed_rate - variable start rate = 1 point(s) (contract model.params.spreads; sensitivity key)",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "param",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [],
+   "callbacks": []
+  },
+  {
+   "claimId": "hs_2",
+   "value": 2.0,
+   "display": "2 points",
+   "formula": "head start tested = fixed_rate - variable start rate = 2 point(s) (contract model.params.spreads; sensitivity key)",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "param",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S09.5",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S10.6",
+     "scene": "S10"
+    },
+    {
+     "sentence": "S12.1",
+     "scene": "S12"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "hs_3",
+   "value": 3.0,
+   "display": "3 points",
+   "formula": "head start tested = fixed_rate - variable start rate = 3 point(s) (contract model.params.spreads; sensitivity key)",
+   "source": null,
+   "historical": false,
+   "illustrative": true,
+   "kind": "param",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S04.4",
+     "scene": "S04"
+    },
+    {
+     "sentence": "S09.6",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S10.6",
+     "scene": "S10"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "tbill_3month",
+   "value": 3,
+   "display": "3-month",
+   "formula": "maturity of the index series: TB3MS = 3-Month Treasury Bill Secondary Market Rate (data/sources.json)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "kind": "data",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S04.2",
+     "scene": "S04"
+    },
+    {
+     "sentence": "S11.1",
+     "scene": "S11"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "tb_peak_date",
+   "value": "1981-05",
+   "display": "May 1981",
+   "parent": "tb_peak",
+   "formula": "month of tb_peak (max TB3MS 1934-01..2026-08)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYear": 1981,
+   "historical": true,
+   "illustrative": false,
+   "kind": "data",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S07.3",
+     "scene": "S07"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "period_early",
+   "value": "1954-01..1980-12",
+   "display": "1954 to 1980",
+   "parent": "n_early",
+   "formula": "start months of the first period: model.params firstStart 1954-01 to the month before periodBreaks[0] 1981-01 (n_early)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1954,
+    1980
+   ],
+   "historical": true,
+   "illustrative": false,
+   "kind": "model",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S05.4",
+     "scene": "S05"
+    },
+    {
+     "sentence": "S07.2",
+     "scene": "S07"
+    },
+    {
+     "sentence": "S09.5",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S09.6",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S10.3",
+     "scene": "S10"
+    },
+    {
+     "sentence": "S10.6",
+     "scene": "S10"
+    }
+   ],
+   "callbacks": []
+  },
+  {
+   "claimId": "period_late",
+   "value": "1981-01..2016-09",
+   "display": "1981 on",
+   "parent": "n_late",
+   "formula": "start months of the second period: periodBreaks[0] 1981-01 to the last start (n_late)",
+   "source": {
+    "id": "fred-tb3ms",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "dataYears": [
+    1981,
+    2016
+   ],
+   "historical": true,
+   "illustrative": false,
+   "kind": "model",
+   "helper": "stream D (preprod/dossier_c5.py)",
+   "shownIn": [],
+   "spoken": [
+    {
+     "sentence": "S05.4",
+     "scene": "S05"
+    },
+    {
+     "sentence": "S09.5",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S09.6",
+     "scene": "S09"
+    },
+    {
+     "sentence": "S10.6",
+     "scene": "S10"
+    }
+   ],
+   "callbacks": []
   }
- ]
+ ],
+ "_dossier": "stream D (preprod/dossier_c5.py, C5): shownIn = animatic/check-report.json claimsUsed (the page sampler re-measures on the final render); spoken = sentences of out/script.json whose text says the claim display; callbacks of core claims; helper claims (field helper) for numbers said in another form. No value of build_numbers.py changed (asserted)."
 }

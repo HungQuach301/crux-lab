@@ -1,0 +1,225 @@
+{
+ "total_s": 584.4,
+ "samples": 28051200,
+ "master": {
+  "I": -14.1,
+  "LRA": 3.1,
+  "TP": -1.5
+ },
+ "limiterMinGainDb": -2.19,
+ "limiterGainBelow1dBShare": 0.00266,
+ "preGainLUFS": -15.6,
+ "voiceOverMusicDb_A07": 19.95,
+ "voiceOverMusicTargetDb": 20.0,
+ "sonUnderVoiceDb": 16.0,
+ "sonification": {
+  "notes": 450,
+  "shiftedIntoGaps": 335,
+  "medianShiftMs": 58.9
+ },
+ "sonBandShare": 0.9711567341103552,
+ "silences": [
+  {
+   "t": 26.148,
+   "end": 26.999,
+   "dur": 0.851,
+   "after": "S01.3",
+   "before": "S02.1",
+   "why": "after the cold-open question (title card)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 174.312,
+   "end": 175.35,
+   "dur": 1.038,
+   "after": "S04.6",
+   "before": "S05.1",
+   "why": "after \"history, not a forecast\", before the first results",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 221.22,
+   "end": 222.926,
+   "dur": 1.706,
+   "after": "S05.5",
+   "before": "S06.1",
+   "why": "ad break (out/adbreaks.json)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 221.993
+  },
+  {
+   "t": 319.435,
+   "end": 320.639,
+   "dur": 1.203,
+   "after": "S07.7",
+   "before": "S08.1",
+   "why": "before the worst stretch",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 375.52,
+   "end": 376.521,
+   "dur": 1.001,
+   "after": "S08.8",
+   "before": "S09.1",
+   "why": "after the worst stretch, before the line",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 375.897
+  },
+  {
+   "t": 503.828,
+   "end": 504.971,
+   "dur": 1.143,
+   "after": "S10.7",
+   "before": "S11.1",
+   "why": "after the answer, before \"How we know this\"",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 564.711,
+   "end": 565.72,
+   "dur": 1.009,
+   "after": "S12.4",
+   "before": "S12.5",
+   "why": "before the last line, \"History, not a forecast\"",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  }
+ ],
+ "swellCuts": [
+  66.245,
+  125.794,
+  261.195,
+  436.738,
+  513.43,
+  567.583
+ ],
+ "bpmByScene": {
+  "S01": 106.798,
+  "S02": 113.058,
+  "S03": 121.008,
+  "S04": 118.681,
+  "S05": 126.316,
+  "S06": 128.135,
+  "S07": 127.616,
+  "S08": 132.857,
+  "S09": 125.354,
+  "S10": 121.61,
+  "S11": 100.0,
+  "S12": 109.183,
+  "S13": 105.0
+ },
+ "bars": 294,
+ "voice": [
+  {
+   "scene": "S01",
+   "take": "S01.seed1.mp3",
+   "at": 0.0,
+   "takeS": 26.16,
+   "inserted": []
+  },
+  {
+   "scene": "S02",
+   "take": "S02.seed1.mp3",
+   "at": 26.9667,
+   "takeS": 39.52,
+   "inserted": []
+  },
+  {
+   "scene": "S03",
+   "take": "S03.5cd01406.seed1.mp3",
+   "at": 67.3,
+   "takeS": 58.671,
+   "inserted": []
+  },
+  {
+   "scene": "S04",
+   "take": "S04.d56343a5.seed1.mp3",
+   "at": 126.8,
+   "takeS": 47.726,
+   "inserted": []
+  },
+  {
+   "scene": "S05",
+   "take": "S05.077baada.seed1.mp3",
+   "at": 175.3333,
+   "takeS": 46.681,
+   "inserted": []
+  },
+  {
+   "scene": "S06",
+   "take": "S06.seed1.mp3",
+   "at": 222.8333,
+   "takeS": 38.531,
+   "inserted": []
+  },
+  {
+   "scene": "S07",
+   "take": "S07.40ce21fa.seed1.mp3",
+   "at": 262.1667,
+   "takeS": 57.469,
+   "inserted": []
+  },
+  {
+   "scene": "S08",
+   "take": "S08.86081e12.seed1.mp3",
+   "at": 320.4667,
+   "takeS": 55.171,
+   "inserted": []
+  },
+  {
+   "scene": "S09",
+   "take": "S09.3b126a0d.seed1.mp3",
+   "at": 376.4667,
+   "takeS": 60.447,
+   "inserted": []
+  },
+  {
+   "scene": "S10",
+   "take": "S10.4e2d2ecf.seed1.mp3",
+   "at": 437.7333,
+   "takeS": 66.287,
+   "inserted": [
+    {
+     "after": "S10.1",
+     "at_take_s": 9.59,
+     "pause_s": 2.0
+    }
+   ]
+  },
+  {
+   "scene": "S11",
+   "take": "S11.52483032.seed1.mp3",
+   "at": 504.8333,
+   "takeS": 8.829,
+   "inserted": []
+  },
+  {
+   "scene": "S12",
+   "take": "S12.ea0b3724.seed1.mp3",
+   "at": 528.8333,
+   "takeS": 38.766,
+   "inserted": []
+  },
+  {
+   "scene": "S13",
+   "take": "S13.seed1.mp3",
+   "at": 568.4,
+   "takeS": 7.158,
+   "inserted": []
+  }
+ ],
+ "stemLevelsDbfs": {
+  "voice": -17.76,
+  "music": -36.45,
+  "sonify": -46.39,
+  "room": -66.33
+ },
+ "sumMinusMasterMax": 0.0
+}

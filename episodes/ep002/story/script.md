@@ -78,7 +78,7 @@ S08.2 | It begins at 7.5%, like every replay, and for a while her cushion grows.
 S08.3 | Then the Treasury bill rate climbs year after year, and her rate follows it, to 19.3% at its highest. | worst_peak_rate | Bead far above the rail; the rail glows amber for years.
 S08.4 | The cushion from her first months is soon gone, and every further month above 9% adds to what she owes in interest. | fixed_rate | Jar empty; coins keep adding to her pile.
 S08.5 | Her payment reaches $863.36 a month, against the fixed $633.38. | max_payment, fixed_payment | Her envelope swells well past the fixed one.
-S08.6 | Over 10 years, the fixed loan charges $26,005 in interest. | term, fixed_int | Fixed coin pile.
+S08.6 | Over 10 years, the fixed loan charges $26,005 in interest, in dollars of the day. | term, fixed_int | Fixed coin pile.
 S08.7 | Leah's variable loan charges 43% more interest than the fixed loan, the worst stretch in the whole replay. | worst_share_of_fixed | Variable pile = fixed pile + an extra block reaching a bit under half its height; on screen: "+$11,219" (`worst_diff`).
 S08.8 | This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller. | — | A ceiling line drawn over the bead, then lowered; the extra block trims.
 

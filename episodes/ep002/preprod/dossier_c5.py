@@ -34,11 +34,79 @@ REPO = os.path.normpath(os.path.join(EP, '..', '..'))
 P = lambda *p: os.path.join(EP, *p)
 J = lambda *p: json.load(open(P(*p), encoding='utf-8'))
 
-# captions(): the cue splitter of Episode 1 (same rules: <= 2 lines x <= 42 chars, 1.0-7.0 s, no overlap, text = script text). Reused, not copied.
+# fmt_t / lines_of rules of Episode 1 (preprod/dossier_c5.py, reused). The Episode 1 splitter breaks at punctuation and can leave a < 1 s cue
+# ("28.4%," in S05.4), so the cue split here is a balanced DP instead: same rules (<= 2 lines x <= 42 chars, 1.0-7.0 s, no overlap, text = script text).
 _spec = importlib.util.spec_from_file_location('ep1_dossier', os.path.join(REPO, 'episodes', 'ep001', 'preprod', 'dossier_c5.py'))
 _ep1 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_ep1)
-captions, fmt_t = _ep1.captions, _ep1.fmt_t
+fmt_t = _ep1.fmt_t
+
+
+def _lines_of(words):
+    """One line if it fits in 42 chars, else the two-line split with the shortest longer line (3 lines when nothing fits in 2)."""
+    one = ' '.join(words)
+    if len(one) <= 42:
+        return [one]
+    best = None
+    for i in range(1, len(words)):
+        a, b = ' '.join(words[:i]), ' '.join(words[i:])
+        if len(a) <= 42 and len(b) <= 42 and (best is None or max(len(a), len(b)) < max(map(len, best))):
+            best = [a, b]
+    return best or [one[:42], one[42:84], one[84:]]
+
+
+def captions(sents):
+    """Per sentence: the fewest cues (each <= 2 lines of <= 42 chars, 1.0-7.0 s at the sentence's char rate) with chunk lengths as even as
+    possible (DP over word breaks; a break after punctuation is slightly preferred). Cues of one sentence share its [start, end] by characters."""
+    cues = []
+    for s in sents:
+        words = s['text'].split()
+        dur = s['end'] - s['start']
+        n = len(s['text'])
+        L = lambda i, j: len(' '.join(words[i:j]))
+        ok = lambda i, j: len(_lines_of(words[i:j])) <= 2 and dur * L(i, j) / n <= 7.0 and (dur * L(i, j) / n >= 1.0 or (i == 0 and j == len(words)))
+        best = None
+        for k in range(1, len(words) + 1):
+            goal = n / k
+            INF = float('inf')
+            dp = [[INF] * (len(words) + 1) for _ in range(k + 1)]
+            bk = [[None] * (len(words) + 1) for _ in range(k + 1)]
+            dp[0][0] = 0.0
+            for c in range(1, k + 1):
+                for j in range(1, len(words) + 1):
+                    for i in range(c - 1, j):
+                        if dp[c - 1][i] == INF or not ok(i, j):
+                            continue
+                        pen = (L(i, j) - goal) ** 2 - (40 if j < len(words) and words[j - 1][-1] in ',;:' else 0)
+                        if dp[c - 1][i] + pen < dp[c][j]:
+                            dp[c][j], bk[c][j] = dp[c - 1][i] + pen, i
+            if dp[k][len(words)] < INF:
+                cuts, j = [], len(words)
+                for c in range(k, 0, -1):
+                    i = bk[c][j]
+                    cuts.append((i, j))
+                    j = i
+                best = cuts[::-1]
+                break
+        assert best, s['id']
+        t = s['start']
+        tot = sum(L(i, j) for i, j in best)
+        for i, j in best:
+            d = dur * L(i, j) / tot
+            cues.append({'start': t, 'end': t + d, 'lines': _lines_of(words[i:j]), 'sid': s['id']})
+            t += d
+    for i, c in enumerate(cues):     # a whole sentence shorter than 1 s: extend into the free time after it (then before it)
+        if c['end'] - c['start'] < 1.0:
+            nxt = cues[i + 1]['start'] if i + 1 < len(cues) else c['start'] + 10
+            c['end'] = min(c['start'] + 1.0, nxt)
+            if c['end'] - c['start'] < 1.0:
+                c['start'] = max(cues[i - 1]['end'] if i else 0.0, c['end'] - 1.0)
+    for a, b in zip(cues, cues[1:]):
+        assert b['start'] >= a['end'] - 1e-6, (a, b)
+    for c in cues:
+        assert 1.0 - 1e-6 <= c['end'] - c['start'] <= 7.0 + 1e-6, c
+        assert len(c['lines']) <= 2 and all(len(l) <= 42 for l in c['lines']), c
+    return cues
 
 
 def dump(obj, *p):
@@ -223,7 +291,7 @@ def build_claims(sents, C):
         for cid in s['claims']:
             c = by[cid]
             want = [x for x, _ in C.numbers_in_text(str(c['display']))]
-            if want and all(C.canon_matches(w, have) for w in want):
+            if want and C.canon_matches(want[0], have):
                 c['spoken'].append({'sentence': s['id'], 'scene': s['scene']})
     for cid, cbs in CALLBACKS.items():
         by[cid]['callbacks'] = [{'scene': s, 'meaning': m} for s, m in cbs]
@@ -253,20 +321,20 @@ def anchors_dips(T):
         f = P('animatic', 'src', 'anchors', f'{sc["id"]}.json')
         if not os.path.exists(f):
             continue
-        A = json.load(open(f, encoding='utf-8'))
-        for a in A.get('anchors', A if isinstance(A, list) else []):
-            if not str(a.get('action', '')).startswith('dip'):
+        for row in json.load(open(f, encoding='utf-8')):           # [id, sentence number, at, dt, action, meaning_muted]
+            aid, n, at, dt, action = row[:5]
+            if not str(action).startswith('dip'):
                 continue
-            s = st[a['sentence']]
-            if a.get('at') == 'start':
-                t = s['start'] + float(a.get('dt', 0))
-            elif a.get('at') == 'end':
-                t = s['end'] + float(a.get('dt', 0))
+            s = st[f'{sc["id"]}.{n}']
+            if at == 'start':
+                t = s['start'] + float(dt)
+            elif at == 'end':
+                t = s['end'] + float(dt)
             else:
-                ra = next((x for x in J('animatic', 'anchors.json')['anchors'] if x['scene'] == sc['id'] and x['id'] == a['id']), None)
+                ra = next((x for x in J('animatic', 'anchors.json')['anchors'] if x['scene'] == sc['id'] and x['id'] == aid), None)
                 t = ra['resolved_s'] if ra else None
             if t is not None and t - sc['start'] > 0.5:
-                out.append((sc['id'], round(t, 3), a['id'], a['action']))
+                out.append((sc['id'], round(t, 3), aid, action))
     return out
 
 
@@ -467,10 +535,11 @@ def description(rows, total, C):
     chap = '\n'.join(f'{s // 60}:{s % 60:02d} {t}' for s, t in ch)
     # S10.1 steps (owner, C4): per half and worst for 1 point, 0 and -1 point; and the head starts the narration states (3, 2, Leah's 1.5)
     step = lambda hs, k, sp: (f'- {d(hs)}: {d(sp)} of all starts cost more in total interest; {d(k + "_early")} of starts from {d("period_early")}, '
-                              f'{d(k + "_late")} of starts from {d("period_late")}; worst stretch {d(k + "_worst")} ({d("gap_worst_start_all")}).')
+                              f'{zero(d(k + "_late"))} of starts from {d("period_late")}; the worst stretch ({d("gap_worst_start_all")}) cost {d(k + "_worst").lstrip("+")} more.')
+    zero = lambda x: f'none ({x})' if x == '0%' else x
     text = f"""<!-- out/package/description.md · generated by preprod/dossier_c5.py (stream D, C5). Every number -> claim ID: out/package/description-claims.json. Title: C6. -->
 
-From {d('ctx_plus_end')}, new graduate students in the US can no longer borrow federal Grad PLUS loans, so more of them will compare private loans. Leah, an illustrative student, has two private offers: {d('fixed_rate')} fixed, or variable starting lower, at {d('var_start')}. This video replays her illustrative loan, {d('loan')} over {d('term')}, through every 10-year stretch of US interest rates since {d('first_start')}, to see how much lower a variable rate has had to start before the risk was worth it, in history.
+From {d('ctx_plus_end')}, new graduate students in the US can no longer borrow federal Grad PLUS loans; when a program costs more than the federal limits, the rest can come from a private lender. Leah, an illustrative student, has two private offers: {d('fixed_rate')} fixed, or variable starting lower, at {d('var_start')}. This video replays her illustrative loan, {d('loan')} over {d('term')}, through every 10-year stretch of US interest rates since {d('first_start')}, to see how much lower a variable rate has had to start before the risk was worth it, in history.
 
 "Worth it" has one plain meaning here: how often the variable loan cost more in total interest than the {d('fixed_rate')} fixed loan, and how much more at worst.
 
@@ -478,14 +547,14 @@ Chapters
 {chap}
 
 What the replay found (history, not a forecast; US only; ILLUSTRATIVE: Leah's pair of rates and her loan are not a real lender's offer)
-- Leah's head start is {d('gap_start')} ({d('fixed_rate')} fixed minus {d('var_start')} variable). At some point her variable rate rose above {d('fixed_rate')} in {d('share_rate_above_fixed')} of stretches, yet it cost more in total interest in {d('share_all')}: {d('share_early')} of starts from {d('period_early')} and {d('share_late')} of starts from {d('period_late')}. The worst stretch, from {d('worst_start')}, cost {d('worst_diff')} more, {d('worst_share_of_fixed')} more interest than the fixed loan's {d('fixed_int')}.
+- Leah's head start is {d('gap_start')} ({d('fixed_rate')} fixed minus {d('var_start')} variable). At some point her variable rate rose above {d('fixed_rate')} in {d('share_rate_above_fixed')} of stretches, yet it cost more in total interest in {d('share_all')}: {d('share_early')} of starts from {d('period_early')} and {d('share_late')} of starts from {d('period_late')}. The worst stretch, from {d('worst_start')}, cost {d('worst_diff').lstrip('+')} more, {d('worst_share_of_fixed')} more interest than the fixed loan's {d('fixed_int')}.
 - The best stretch began in {d('best_start')} and cost {d('best_diff_words')} than the fixed loan.
 The same replay with the fixed rate held at {d('fixed_rate')} and other variable starting rates:
 {step('hs_3', 'gap30', 'spread3_share')}
 {step('hs_2', 'gap20', 'spread2_share')}
 {step('hs_1', 'gap10', 'spread1_share')}
 {step('hs_0', 'gap00', 'spread0_share')}
-- {d('hs_m1').capitalize()} (the variable rate starts above the fixed rate): {d('spreadm1_share')} of all starts cost more in total interest; {d('gapm10_early')} of starts from {d('period_early')}, {d('gapm10_late')} of starts from {d('period_late')}; worst stretch {d('gapm10_worst')} ({d('gap_worst_start_all')}).
+- {d('hs_m1').capitalize()} (the variable rate starts above the fixed rate): {d('spreadm1_share')} of all starts cost more in total interest; {d('gapm10_early')} of starts from {d('period_early')}, {d('gapm10_late')} of starts from {d('period_late')}; the worst stretch ({d('gap_worst_start_all')}) cost {d('gapm10_worst').lstrip('+')} more.
 - At every head start tested, the worst stretch began in {d('gap_worst_start_all')}, and some of the starts from {d('period_early')} still cost more (at least {d('min_gap_early')}).
 
 How the replay was built (method card)

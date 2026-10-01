@@ -14,7 +14,7 @@ def get(url):
             time.sleep(2 ** (i + 1))
 
 for f in SRC['files']:
-    out = os.path.join(HERE, f['path'])
+    out = os.path.join(os.path.dirname(HERE), f['path'])  # path from episode root (S03)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     if os.path.exists(out) and '--verify' not in sys.argv:
         continue
