@@ -33,7 +33,7 @@ master SHA-256: `fdfa3d47d6ee1069a23b30d52a4044fa2f9209e1b9a0c02852e059170e2480a
 - V09 (CHÍNH) · declared characters seen on screen = 1 (ngưỡng >= 1, đạt)
 - P01 (THAM KHẢO) · thumb 1 token share (%) = 99.99924 (ngưỡng >= 97.0, đạt)
 - P01 (THAM KHẢO) · thumb 2 token share (%) = 99.99924 (ngưỡng >= 97.0, đạt)
-- P01 (THAM KHẢO) · thumb 3 token share (%) = 99.996962 (ngưỡng >= 97.0, đạt)
+- P01 (THAM KHẢO) · thumb 3 token share (%) = 99.99924 (ngưỡng >= 97.0, đạt)
 - T1 (THAM KHẢO) · share of slots heard in a pause = 0.613924 (ngưỡng >= 0.6, đạt)
 
 | rule | tier | § | status | failing metrics |
