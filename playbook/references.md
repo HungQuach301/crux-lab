@@ -1,6 +1,6 @@
 # Ba tham chiếu L3 (v1, 29/09/2026)
 
-Chủ dự án xem tập của Crux một lần, rồi đánh giá ngang ba video dưới đây (`playbook/quality-framework.md` §0, §7).
+Chủ dự án xem tập của Crux một lần, rồi đánh giá ngang ba video dưới đây (`playbook/quality-framework.md` §0, §8).
 
 **Luật:** chỉ xem công khai trên YouTube. **Không tải video, không trích khung, âm hay đoạn nào vào repo**; không sao chép thiết kế, đồ hoạ, nhạc, câu chữ. Ghi chú về tham chiếu chỉ được là mô tả bằng lời của chính mình, kèm mốc thời gian.
 

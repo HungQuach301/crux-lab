@@ -1,0 +1,38 @@
+# Thư viện hình của kênh (v1, 04/10/2026)
+
+Gom từ Tập 1–2 những ký hiệu **đã qua kiểm mù**. Từ Tập 3, C3 dựng **một hướng** từ thư viện này và chỉ thiết kế mới cho nhịp chưa có ký hiệu (`playbook/quality-framework.md` v2 §4). Chủ dự án có quyền yêu cầu thêm hướng ở C3.
+
+Mã ở đây là **mã tham chiếu** chép từ tập gốc (CHARTER §3.1: đồ dùng một lần). Tập mới chép sang thư mục của tập rồi sửa; không sửa tại chỗ. Số trên hình luôn qua `CL(claimId)`.
+
+## 1. Nền chung
+
+| Mục | File | Nghĩa / luật | Nguồn và bằng chứng |
+|---|---|---|---|
+| **Bảng màu E2** | `tokens.json` | `bg #0E1116` · `surface #171B22` · `grid #2A303B` · `ink #F2F4F7` (chữ chính, người xem minh hoạ) · `ink-muted #9AA4B2` (chữ phụ, **mức cố định**) · `accent #4C8DFF` (**chỉ số thị trường**) · `warn #F2B441` (**vượt mức cố định**, huy hiệu ILLUSTRATIVE) · `costlier #C72323` (**đắt hơn tổng**; không bao giờ là màu chữ, 3,3:1) · `cushion #269783` (**đệm / khởi đầu thấp hơn**). Một vai một màu, không thêm màu. | Chủ dự án chọn ở C3 Tập 2 (E2). Mọi cặp màu dữ liệu ΔE2000 ≥ 25,6 dưới mô phỏng protan/deutan, thang xám ≥ 1,5:1 (đo bằng `cvd_report` của V09, `episodes/ep002/design/c3/cvd.md`). |
+| **Phông** | `toolkit/render/fonts/` | Inter 400/600/700, số tabular. Bậc px @1080: hero 150 · number 96 · head 72 · caption 64 · label 54 · note 48 · badge 48. Sàn 40 px; đọc được ở 25% (G-014). | Hợp đồng hình Tập 1 (sàn 40 px) và Tập 2; kiểm 25% `episodes/ep002/animatic/legibility.md`. |
+| **Ngữ pháp chuyển động** | — | Vẽ trái → phải = thời gian · vạch đứng yên = cố định · hạt lên xuống = lãi thả nổi · ngoặc mở rộng = khởi đầu lớn hơn · ô đỏ tắt = ít lần đắt hơn. **Không quét ngược ở cuối nhịp**; nhịp kết ở trạng thái của kết luận, giữ yên ≥ 1 s. | `episodes/ep002/design/c3/final/system.md` §4 (bài học KEY-7). |
+| **Nhãn nghĩa** | — | Khi hình chưa tự mang ý: nhãn ≤ ~8 từ, ≥ 40 px, hiện ≥ 1 s cho mỗi 3 từ; hai ý thì hai dòng. Nhãn không thêm vật, không thêm số ngoài claim. | Lệnh C4c Tập 2; nâng KEY-2/5/6 từ trượt lên đạt "đúng nghĩa" ở cổng gốc vòng 2. |
+| **Mã chung** | `code/d2/engine.js` | Bậc chữ, `CL()`, easing, API khung, tự kiểm (chữ↔đồ hoạ ≥ 4 px, tương phản, vùng an toàn). Cờ `MASK` là di sản (phép che chữ/số đã bỏ, D-005 Q3). | Tập 2 C3 final. |
+
+## 2. Ký hiệu
+
+Kiểm mù "cổng gốc" = tắt tiếng, GIỮ chữ/số, dải 6 khung, người đọc vai khán giả đích, chấm độc lập mù tập (từ C4b Tập 2). Điểm = tổng 3 người đọc (1 / 0,5 / 0). "Khuyên" = số câu trả lời tự rút lời khuyên.
+
+| # | Ký hiệu | Mang nghĩa | Mã · xem trước | Kiểm mù đã qua | Dùng thế nào |
+|---|---|---|---|---|---|
+| **V1** | **Lưới ô chạy lại** (dải chỉ số trên, mỗi ô một lần chạy lại xếp theo tháng bắt đầu, vạch đứt chia thời kỳ) | "cùng một khoản vay chạy lại từ mọi tháng bắt đầu trong lịch sử; mỗi ô một kết quả" | `code/h3/scenes.js` (`K5`, `cells`, `ridge`, `split`) · `previews/ep002-KEY-5.png` | Tập 2 KEY-5: che chữ C3 3/3; cổng gốc v2 **3/3, khuyên 0** | **Mạnh nhất.** Dùng cho mọi phép "phát lại lịch sử". |
+| **V2** | **Thùng token / ô đỏ** trên lưới V1 (ô đổi `costlier` khi lần chạy đó đắt hơn tổng; dải `warn` = tháng vượt mức cố định) | "phần lớn lần chạy vượt mức cố định, nhưng chỉ một phần nhỏ đắt hơn tổng" | `code/h3/scenes.js` (`K3`, `tally`) · `previews/ep002-KEY-3.png` | Tập 2 KEY-3: cổng gốc v1 3/3; v2 **2/3, khuyên 0** | Dùng cho tỉ lệ "bao nhiêu lần tệ hơn". Luôn hiện hai thời kỳ cùng lúc. |
+| **V3** | **Đường lãi so vạch** (vạch cố định `ink-muted` đứng yên; đường thả nổi `ink` + hạt thoi; phần vượt vạch `warn`) | "lãi thả nổi lên xuống quanh một mức cố định" / "lãi thị trường xuống dưới ngưỡng" | `code/d2/k1.js`, `engine.js` · Tập 1: `episodes/ep001/animatic/src/` S05 · `previews/ep001-S05.png` | Tập 2 KEY-1 (dùng V3): cổng gốc v1 3/3. Tập 1 S05 (vạch một điểm): đối chứng cổng gốc 1/1; C4 Tập 1 20/20 (có chữ) | Ký hiệu nền cho mọi so sánh lãi. |
+| **V4** | **Một người, hai lời mời** (hình người `ink` không mặt, thoi ở ngực; hai thẻ cùng độ cao; một vạch mức cố định kéo liền qua hai thẻ; thẻ thả nổi bắt đầu dưới vạch) | "một người cân nhắc hai khoản vay: một cố định, một thả nổi bắt đầu thấp hơn" | `code/d2/k1.js` · `previews/ep002-KEY-1.png` | Tập 2 KEY-1: che chữ C3 vòng 2 2/3; cổng gốc v1 3/3; v2 3/3 nhưng **khuyên 1** | Dùng cho cold open / đặt vấn đề. Cần câu đối trọng trong lời (WRITER, `playbook/episode.md` §3). |
+| **V5** | **Phóng vào trường hợp xấu nhất** (khung phóng trên lưới V1 + hai chồng so sánh; khối thêm cao đúng tỉ lệ) | "lần chạy tệ nhất bắt đầu ở tháng X, lãi leo nhiều năm, tốn thêm Y% tiền lãi" | `code/h3/scenes.js` (`K6`) · `previews/ep002-KEY-6.png` | Tập 2 KEY-6: cổng gốc v1 0,5/3; sau nhãn nghĩa v2 3/3 nhưng **khuyên 1** | Dùng kèm nhãn nghĩa + câu đối trọng. |
+| **V6** | **Ngoặc khởi đầu** (ngoặc `cushion` giữa vạch cố định và điểm bắt đầu thả nổi; co lại, về 0, đổi dấu thành `warn`) | "khoảng chênh lúc bắt đầu là thứ được đo; có thể bằng 0 hoặc âm" | `code/d2/k2.js` · `previews/ep002-KEY-2.png` | Tập 2 KEY-2: trượt 4–5 vòng khi che chữ; chỉ đạt "đúng nghĩa" khi có nhãn hai dòng (v2 3/3, **khuyên 1**) | **Loại "hình minh hoạ lời"**: luôn kèm nhãn; không tính vào ngưỡng hình. |
+| **V7** | **Thẻ phương pháp** (tiêu đề "How we know this" + ≤ 6 dòng giới hạn mô hình; mỗi số qua claim) | Mẫu trình bày, không phải ký hiệu mang ý | `code/method_card.example.json` · `previews/ep002-S11-method-card.png` | Không kiểm mù hình. Qua kiểm 25% (`legibility.md`); chủ dự án duyệt dạng "1 câu lời + thẻ + mô tả" (C2b Tập 2) | Mặc định cho mọi đoạn phương pháp. |
+| **V8** | Tập 1: **thước ba mốc** (S18), **hai câu trả lời nhanh** (S08), **bán sau 3 năm** (S16), **lãi chạm đáy** (S01) | xem `episodes/ep001/animatic/intent.md` cột 1 | `episodes/ep001/animatic/src/` · `previews/ep001-S18.png`, `-S08`, `-S16`, `-S01` | Đối chứng cổng gốc Tập 2: mỗi cảnh **1/1** (1 người đọc); C4 Tập 1 20/20 (có chữ) | Bằng chứng mỏng (1 người đọc/cảnh). Dùng lại thì kiểm lại như ký hiệu mới. |
+
+## 3. Không đưa vào thư viện (đã trượt)
+- **Hũ đệm** (KEY-4 Tập 2): cổng gốc v2 1,5/3, **khuyên 2** — người đọc đọc thành "tiết kiệm/an toàn". Mã ở `episodes/ep002/design/c3/final/src/k4*.js`.
+- **Hai cột thời kỳ** (KEY-7 Tập 2): 7 lần kiểm, không lần nào đạt; người đọc gán chuyển động cho "trả nợ theo thời gian". Mã `k7*.js`.
+- **Vật thể thật 3D** (H1 Tập 2): che chữ C3 2/7; render 13,5–20 s máy/s phim. CHARTER §5: không dùng thế giới 3D.
+
+## 4. Thêm ký hiệu mới
+Một ký hiệu vào thư viện khi: (1) qua cổng gốc ở C3 hoặc C4 (≥ 2/3, khuyên 0) với người chấm độc lập mù tập; (2) có một câu "mang nghĩa" và luật màu/chuyển động không trùng nghĩa ký hiệu khác; (3) có mã tham chiếu và một ảnh xem trước. Phiên tổng kết của tập thêm dòng vào bảng §2, ghi tập và số đo.
