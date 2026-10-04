@@ -1,0 +1,17 @@
+{
+ "breaks": [
+  223.593,
+  382.524
+ ],
+ "voiceGaps": [
+  [
+   222.753,
+   224.433
+  ],
+  [
+   381.747,
+   383.3
+  ]
+ ],
+ "why": "act boundaries: end of act 1 (after S05.5 \"The reason both are true is the head start.\") and end of act 2 (after S08.8 \"... would have made this worst case smaller.\"); each break is the middle of the voice gap (>= 1.1 s) at the scene cut, within 1 s of the act start. The mix must keep >= 1 s under -40 dBFS around it (S14)"
+}

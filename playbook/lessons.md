@@ -1,6 +1,6 @@
 # Bài học — mọi phiên đọc khi khởi động
 
-Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; tỉa khi một bài học đã thành luật hoặc hết đúng.
+Cập nhật: 04/10/2026 (T2, tổng kết Tập 2 — mục E). Thêm bài học mới ở cuối mỗi tập; tỉa khi một bài học đã thành luật hoặc hết đúng. Dòng gạch ~~như thế này~~ là bài học đã lỗi thời; bài thay thế ghi ngay sau.
 
 ## A. Tập 1 bản cũ (dừng ở Cổng B, 29/09/2026; tag `ep001-v1-stopped`, lưu ở `archive/ep001-v1/`)
 
@@ -28,7 +28,7 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 | B5 | Một người chấm, không mù → thiên lệch người trong cuộc. | W5 | Kiểm mù ở mọi cổng, agent mới, một file tên ngẫu nhiên, câu hỏi cố định, ghi nguyên văn. |
 | B6 | Khoá cứng mà không có người phán quyết khiếu nại. | W6 | Khiếu nại luật đưa lên gói quyết định của cổng kế tiếp. |
 | B7 | Phiên kiểm và phiên dựng cùng model → điểm mù chung. | W7 | Khi có thể, kiểm chéo số liệu bằng mã độc lập hoặc nhà cung cấp khác. |
-| B8 | Kiểm mù mặt Ida: 2 vòng sửa cùng một trục vẫn 9/10 "búp bê" (đối chứng 0/10). Dừng sau 2 vòng, đưa 3 phương án kèm khuyến nghị. | `reports/m2/MAT-IDA-AI.md` | Tối đa 2 vòng sửa–kiểm; sau đó đưa phương án, kể cả phương án đổi hướng kỹ thuật. |
+| B8 | Kiểm mù mặt Ida: 2 vòng sửa cùng một trục vẫn 9/10 "búp bê" (đối chứng 0/10). Dừng sau 2 vòng, đưa 3 phương án kèm khuyến nghị. | `reports/m2/MAT-IDA-AI.md` (repo `cine-lab`) | Tối đa 2 vòng sửa–kiểm. **Thay bởi E3/E13:** sau 2 vòng, cổng TỰ ĐỘNG đi theo nhánh dự phòng ghi trước, không đưa phương án lên chủ dự án. |
 | B9 | Kiểm mù cần **đối chứng** (mẫu chuyên nghiệp) để biết câu hỏi phân biệt được. | MAT-IDA §1 | Mỗi đợt kiểm mù có ít nhất một mẫu đối chứng khi có mẫu hợp pháp để dùng. |
 | B10 | Ảnh tĩnh không đo được cảm xúc đến từ giọng và chuyển động (PA2 "khó đọc" ở ảnh tĩnh, chưa đo khi có tiếng). | MAT-IDA §2 | Duyệt hình bằng clip có chuyển động (G-011). |
 | B11 | Truyện phải chốt ở animatic, trước khi tốn công dựng. | KHUNG-CHAT-LUONG §3 | C4 trước C5. |
@@ -40,7 +40,7 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 |---|---|---|
 | M1 | Hỏi "muốn xem" từng bản riêng: người đọc vai khán giả đích nói "Yes" với mọi bản (kể cả đối chứng yếu 5/5). | Câu hỏi riêng lẻ bị trần: không phân biệt được. Dùng so cặp ép chọn. |
 | M2 | So cặp: đối chứng yếu thắng 19/19 ở cả hai vị trí. P2 ghi "không đạt → C"; chủ dự án sửa: bộ đo đã phân biệt được, chỉ là ứng viên thua. | Tiêu chí "không đạt" phải tách **"không phân biệt được"** với **"ứng viên thua"**. Một bộ đo cho kết quả trái ý đồ vẫn có thể là bộ đo tốt. |
-| M3 | Câu hỏi "hiểu" (tóm tắt + đáp án): kịch bản M1b bị chủ dự án chê vẫn được hiểu 3/3. | "Hiểu được" là điều kiện cần, không nói kịch bản hay. Tín hiệu phân biệt nằm ở "chỗ mất chú ý" và "chỗ khó hiểu". |
+| M3 | Câu hỏi "hiểu" (tóm tắt + đáp án): kịch bản M1b bị chủ dự án chê vẫn được hiểu 3/3. | "Hiểu được" là điều kiện cần, không nói kịch bản hay. Tín hiệu phân biệt nằm ở "chỗ mất chú ý" và "chỗ khó hiểu".  **Tập 2 xác nhận lại (E12).** |
 | M4 | Người đọc vai khán giả đích chọn bản nói với "người như tôi" và cho sẵn ngưỡng tự đối chiếu. | Khớp nhận xét M1 của chủ dự án (G-008) → G-013. |
 
 ## B3. Giọng (Tập 1, C3–C4)
@@ -54,7 +54,7 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 
 | # | Chuyện | Bài học |
 |---|---|---|
-| R1 | Phiên K3.1 ghi điểm mù: tài sản bên thứ ba có thể lọt qua máy kiểm nếu nhúng dạng `data:` hoặc ghép hậu kỳ ngoài đường khai báo. | Quy ước ở `quality-framework.md` §8; rà lại ở C5. |
+| R1 | Phiên K3.1 ghi điểm mù: tài sản bên thứ ba có thể lọt qua máy kiểm nếu nhúng dạng `data:` hoặc ghép hậu kỳ ngoài đường khai báo. | Quy ước ở `quality-framework.md` §9 (v2); rà lại ở C5. |
 
 ## B5. Vận hành tác vụ dài (Tập 1, C4)
 
@@ -65,7 +65,7 @@ Cập nhật: 29/09/2026 (P2). Thêm bài học mới ở cuối mỗi tập; t�
 
 ## D. Mục tiêu cải tiến cho Tập 2
 
-1. **Hình tự mang ý nghĩa** (chủ dự án, C4 Tập 1): kiểm mù tắt tiếng Tập 1 đạt 20/20 nhưng người đọc hiểu *"mostly from the words and numbers"*; hình mới mang cấu trúc. Tập 2 đặt mục tiêu: nhịp then chốt phải đọc được khi che chữ/số (đo bằng dải che nhãn, có đối chứng).
+1. ~~**Hình tự mang ý nghĩa** (chủ dự án, C4 Tập 1): kiểm mù tắt tiếng Tập 1 đạt 20/20 nhưng người đọc hiểu *"mostly from the words and numbers"*; hình mới mang cấu trúc. Tập 2 đặt mục tiêu: nhịp then chốt phải đọc được khi che chữ/số (đo bằng dải che nhãn, có đối chứng).~~ **Lỗi thời (E2, D-005 Q3):** phép che chữ/số không phân biệt được. Mục tiêu "hình tự mang ý" giữ, đo bằng cổng gốc và chỉ áp cho nhịp loại "hình tự mang ý" (E3).
 
 2. **Tấm nền cho nhãn trên vật liệu 3D** (V08, C6 Tập 1: 349 mẫu chữ < 4,5:1, tệ nhất 2,37:1 — nhãn muted trên gỗ/tường sáng). Mọi chữ đặt trên vật liệu 3D (không phải nền `bg` phẳng) có tấm nền token `bg` (như chữ thumbnail), đo tương phản trên chữ + tấm nền ngay khi dựng cảnh.
 3. **Chọn màu nhân vật qua mô phỏng protan/deutan ở C3** (V09: ba màu nhân vật ΔE2000 11,5–18,2 < 20 dưới mô phỏng đỏ-lục, Nora/Walt thang xám 1,27 < 1,5). Ở C3, mọi cặp màu nhân vật phải đạt ΔE2000 ≥ 20 dưới protan và deutan và tương phản thang xám ≥ 1,5:1 trước khi ký hệ hình; hình dạng (tròn/tam giác/vuông) vẫn giữ làm kênh thứ hai.
@@ -93,6 +93,26 @@ Kết quả: KHÔNG ĐẠT — máy 12/12 thẻ ≥ 4, đối chứng 6/6 thẻ 
 
 ## C. Vận hành
 
-- Chủ dự án không đọc tài liệu dài; chỉ trả lời gói quyết định (≤ 3 câu, < 1 phút đọc).
+- Chủ dự án không đọc tài liệu dài; chỉ trả lời gói quyết định (≤ 3 câu, < 1 phút đọc). **Từ D-005:** chỉ ở 3 cổng GU (C1, C3, C6); cổng TỰ ĐỘNG báo qua issue ≤ 5 dòng.
 - Gu (truyện, giọng, hình, âm sắc, nhạc) không bao giờ tự quyết.
 - ElevenLabs: tính ký tự mỗi bước vào ledger tập.
+
+## E. Tập 2 (01–04/10/2026; tổng kết T2 — `decisions/D-005.md`)
+
+Mỗi dòng: số đo · nguyên nhân gốc · luật bây giờ. Cột cuối ghi bài học cũ bị thay hoặc làm lỗi thời.
+
+| # | Chuyện đã xảy ra (số đo) | Nguyên nhân gốc | Luật bây giờ | Thay / lỗi thời |
+|---|---|---|---|---|
+| E1 | Kiểm mù C4 (che chữ/số): phiên dựng **tự chấm 0,738**, người chấm độc lập mù tập **0,333**; đối chứng Tập 1 tự chấm 0,476, độc lập 0,071. Hai cách chấm **trùng 15/42** câu. | Người chấm là phiên dựng, biết ý đồ. Phiên chấm "đúng" cả câu chỉ tả đúng hình ("phần đỏ dồn quanh đỉnh"). Rubric không tách nghĩa với tả hình. | Mọi kiểm mù do **agent độc lập, mù tập** chấm, theo gói nhãn ngẫu nhiên (`toolkit/blind/packets.py`). Rubric ghi trước, tách "đúng nghĩa" với "chỉ tả hình" (= 0). | Thay `quality-framework` v1 §5.4 ("người chấm là P2"). |
+| E2 | Phép che chữ/số **không phân biệt được**: Tập 2 0,333, đối chứng Tập 1 **0,071**, trong khi Tập 1 đạt cổng gốc 6,5/7 và được chủ dự án chấm 4/5 về hình. | Hình data-explainer mang nghĩa định lượng qua nhãn. Che nhãn đi thì mọi tập đều "trượt", kể cả tập tốt. Mục tiêu D.1 đặt thước đo trước khi hiệu chuẩn nó trên đối chứng. | **Bỏ che chữ/số** (D-005 Q3). Thước đo hình = cổng gốc (tắt tiếng, giữ chữ/số) ở C3 và C4. Mọi thước đo mới phải hiệu chuẩn trên đối chứng đã biết kết quả **trước** khi làm ngưỡng. | Làm lỗi thời D.1 và đầu vào Q3=A của Tập 2 ("≥ 70% khi che chữ/số"). |
+| E3 | Khoảng **8 vòng kiểm hình** từ C3 tới C4c (C3, K1/K7 ×2, K7-A, K2/K4/K5 ×2, C4 che, cổng gốc ×2). KEY-2 và KEY-7 **trượt 4–5 vòng liền**, KEY-7 chưa lần nào đạt. Chủ dự án quyết 5 lần chỉ riêng về hình (C3b, C3c, C3d, C4b, C4c). | Hai nhịp này là **hình minh hoạ lời** (khái niệm "khoảng chênh lúc đầu", "nhạy theo khoảng chênh"). Phiên cứ thiết kế lại vật trên cùng một trục. Không có nhánh dự phòng ghi trước (nhãn chữ), nên mỗi lần trượt lại về chủ dự án. | Ở C2 phiên phân loại từng nhịp "hình tự mang ý" / "hình minh hoạ lời" và báo qua issue **trước** mọi kiểm mù. Chỉ nhịp loại 1 tính vào ngưỡng hình. Dự phòng ghi trước: nhãn nghĩa → hạ loại. | Mở rộng B8. |
+| E4 | Cổng gốc vòng 2: **5/21 người đọc tự rút "fixed is safer/protection"**. Ba nhịp đủ điểm nghĩa nhưng trượt vì câu khuyên: 5/7 → 2/7. | Hình đỏ = rủi ro, đặt cạnh một lựa chọn A/B, nên người đọc tự suy ra lời khuyên. Kịch bản không có câu đối trọng. Câu hỏi kiểm mù chỉ hỏi "ý gì", không hỏi "rút ra lời khuyên gì". | Mọi kiểm mù hỏi thêm *"What advice, if any, would a viewer take from this?"*. Nhịp có câu khuyên thì chưa đạt. WRITER: mỗi kết luận có một câu đối trọng với suy diễn "X an toàn/tốt hơn". | Mới. |
+| E5 | Luật claim-risk ("mỗi khi nói kết quả: hai thời kỳ + xấu nhất") áp lên cả câu nhắc lại → **số dày S05–S10**. Kiểm mù C2: dãy số 5/6 mất chú ý, sau sửa 3/6. Tóm tắt AI ở C6 vẫn chỉ ra S09–S10 là chỗ yếu. | Luật viết theo "mỗi khi", không phân biệt câu nêu số với câu nhắc lại. WRITER làm đúng chữ của luật. | Claim-risk áp cho câu **NÊU** số. Câu nhắc lại gọi bằng lời, không nêu lại số. Mỗi tỉ lệ một dạng cố định. Mật độ số đọc liền nhau chỉ là chỉ số Tham khảo. Có trong đầu bài WRITER từ C2 (`playbook/episode.md` §3). | Mới (chủ dự án, C2 Tập 2). |
+| E6 | Ở C5, **4 cảnh sinh lại giọng** (S04, S09, S10 vì A14; S08 vì luật S09), tốn **1.827 ký tự** EL. ASR viết "1954-to-1980" thành "1954 -1980" (đọc như số âm), "minus 1" thành "-1"; $9,472 nghe thành 9,470. | Kịch bản dùng từ khó cho ASR: dải năm có gạch nối, "minus", ký hiệu. Bộ so ASR của bên dựng khác luật A14 nên lỗi chỉ lộ ở C5. | WRITER tránh từ khó cho ASR ngay từ C2 ("from 1954 to 1980", "1 point above"). Từ khoá A14 kiểm trên bản đọc thử ngay sau khi sinh giọng. Chỉ sinh lại cảnh đổi chữ. | Mới. |
+| E7 | Nhạc lặp **64,8%** câu (T2) phát hiện ở C5 (Tập 1: 29%). Bản phối lại 19,7% thêm một câu hỏi ở C6. | Phối nhạc chạy sau render. T2 không được đo lúc chọn phối. | Chuẩn bị phối nhạc **song song sau C2**, đo T2 (Tham khảo); chủ dự án chọn ở C3. | Mới. |
+| E8 | Lệch tên `model.kind`/params giữa phiên dựng và phiên K. Phiên dựng đề xuất `rate-path-history`, K viết `float-vs-fixed-replay`. 26 claim chốt sau C2 cần thêm một vòng khoá. Kết quả: **2 vòng khoá (K3.5, K3.6)** cho một tập. | Phiên dựng tự đặt tên trước khi K quyết. Danh sách claim chốt muộn hơn lần mở K đầu tiên. | Phiên K chạy **một lần mỗi tập**, ngay khi danh sách claim C2 chốt. Tên kind và params do K quyết; phiên dựng theo. | Mới. |
+| E9 | Câu tóm tắt trong hồ sơ debt-2 *"worst window… peaking at 20.6%"* **sai ghép**: cửa sổ 4/1977 đỉnh 19,26%; 20,6% là cửa sổ 2/1972. V3 (kiểm hồ sơ máy đề tài) **không bắt**. | V3 kiểm số trong `result.json`, không kiểm câu diễn giải ghép hai số. | Hồ sơ đề tài: mỗi câu diễn giải phải kiểm được với số (`playbook/topic-dossier.md`). | Mới. |
+| E10 | So cặp thumbnail (48 agent; cả gói phát hành 72): thumb-3 thắng nhiều nhất (19/24) và thumb-2 (9/24) đều **vi phạm claim-risk** (tỉ lệ đứng riêng; chỉ trường hợp xấu nhất). Phải dựng 2b/3c chưa kiểm. | Concept thumbnail không qua claim-risk trước khi so cặp. So cặp thưởng cho câu gây sốc. | Ở C6 chỉ đưa **3 thumbnail đã qua claim-risk**, so cặp một vòng (tham khảo). Số đo thật là Test & Compare trên YouTube. | Bổ sung `packaging.md` §6. |
+| E11 | Giao hàng: bản gốc **1,78 GB**; mã hoá CRF 18 vẫn **1,43 GB**. Chat từ chối phần 477 MiB, lỗi **502** ở phần 150 MiB. Tải được bằng **phần 90 MB** trên nhánh tạm. | Mã hoá theo chất lượng (CRF) không giới hạn dung lượng. Kênh chat không phải kênh giao file lớn. | Bản tải YouTube mã hoá theo bitrate khuyến nghị (1080p: 8 Mb/s ở 24–30 fps), audio copy, chia phần 90 MB trên nhánh tạm `epNNN-delivery`, kèm SHA-256 và lệnh ghép (`toolkit/deliver/deliver.py`). Không gửi qua chat. | Mới. |
+| E12 | Đối chứng M1b ở C2 **không phân biệt được** "có hiểu không": M1b (bị chủ dự án bác) vẫn được hiểu 3/3, ngang ứng viên 5/5. | "Hiểu" là điều kiện cần (M3 Tập 1), nhưng Tập 2 vẫn dùng nó làm thước C2 kèm đối chứng. | C2 đo: đúng câu hỏi/đáp án (cần), câu khuyên = 0, không đoạn nào bị ≥ 4/6 người đọc cùng chỉ là mất chú ý. Bỏ đối chứng M1b cho "hiểu". | Xác nhận M3. |
+| E13 | Chủ dự án quyết **11 lần** ở cổng (C1, C2, C2b, C3, C3b, C3c, C3d, C4, C4b, C4c, C6); kế hoạch là 6. Thêm một tin nhắn gửi nhầm phiên làm dừng table read. Khoảng **300 lượt agent** (cộng từ các file `gates/`: ≈ 287 người đọc và người chấm, cộng các agent dựng), 9.436 ký tự EL. | Mọi lần trượt hết 2 vòng đều đưa phương án lên chủ dự án vì không có dự phòng ghi trước. Không có danh sách việc được tự quyết. | 3 cổng GU, 3 cổng TỰ ĐỘNG (D-005 Q2). Có danh sách đóng việc tự quyết (`quality-framework.md` §6). Có vai REVIEWER soát gói trước khi gửi. | Thay "Cổng: mỗi cổng dừng với gói" (v1). |

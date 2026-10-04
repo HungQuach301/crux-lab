@@ -1,0 +1,9 @@
+13:51:05 total 585.6 samples 28108800
+13:51:10 silences [(np.float64(26.15), np.float64(0.85)), (np.float64(176.0), np.float64(0.95)), (np.float64(222.82), np.float64(1.71)), (np.float64(321.04), np.float64(1.17)), (np.float64(381.93), np.float64(1.43)), (np.float64(505.21), np.float64(0.96)), (np.float64(565.91), np.float64(1.01))]
+13:51:20 music: arrangement 298 bars
+13:51:31 music: reverb
+13:51:40 sonify: 453 notes
+13:53:00 mix
+13:53:45 limiter
+13:54:13 master {'I': -14.1, 'LRA': 3.1, 'TP': -1.5}
+13:55:29 done {"master": {"I": -14.1, "LRA": 3.1, "TP": -1.5}, "limiterMinGainDb": -2.42, "voiceOverMusicDb_A07": 19.95, "sonBandShare": 0.9735743482904037, "stemLevelsDbfs": {"voice": -17.74, "music": -36.46, "sonify": -46.31, "room": -66.32}}

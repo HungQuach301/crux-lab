@@ -1,0 +1,1227 @@
+{
+ "_about": "Sonification plan (renderer input), one row per data action; see audio_src/events.py",
+ "timingTotal": 585.6,
+ "rows": [
+  {
+   "id": "S01.k1fixed.line",
+   "scene": "S01",
+   "anchor": "k1fixed",
+   "kind": "line",
+   "t0": 15.68,
+   "t1": 16.48,
+   "what": "the 9% fixed line draws across both cards (level)",
+   "slope": 0.0,
+   "x0": 300,
+   "x1": 1600,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S01.k1var.dot",
+   "scene": "S01",
+   "anchor": "k1var",
+   "kind": "dot",
+   "t0": 16.96,
+   "t1": 16.96,
+   "what": "the variable start appears below the line (7.5%)",
+   "y": 640,
+   "x": 1100
+  },
+  {
+   "id": "S01.k1path.line",
+   "scene": "S01",
+   "anchor": "k1path",
+   "kind": "line",
+   "t0": 19.88,
+   "t1": 25.12,
+   "what": "variable path runs, crossing the 9% line many times",
+   "slope": 0.0,
+   "x0": 500,
+   "x1": 1500,
+   "wobble": true,
+   "step": null
+  },
+  {
+   "id": "S02.bar.bar",
+   "scene": "S02",
+   "anchor": "bar",
+   "kind": "bar",
+   "t0": 40.727,
+   "t1": 41.527,
+   "what": "program-cost outline with the federal block at its base",
+   "v": 0.6,
+   "x": 960
+  },
+  {
+   "id": "S02.rest.bar",
+   "scene": "S02",
+   "anchor": "rest",
+   "kind": "bar",
+   "t0": 57.307,
+   "t1": 58.007,
+   "what": "the part above the federal block lights: private lender",
+   "v": 0.4,
+   "x": 960
+  },
+  {
+   "id": "S03.k1var.dot",
+   "scene": "S03",
+   "anchor": "k1var",
+   "kind": "dot",
+   "t0": 90.0,
+   "t1": 90.0,
+   "what": "variable start below the line",
+   "y": 640,
+   "x": 1100
+  },
+  {
+   "id": "S03.k1run.line",
+   "scene": "S03",
+   "anchor": "k1run",
+   "kind": "line",
+   "t0": 90.94,
+   "t1": 95.26,
+   "what": "variable path runs (real replay)",
+   "slope": 0.0,
+   "x0": 500,
+   "x1": 1500,
+   "wobble": true,
+   "step": null
+  },
+  {
+   "id": "S03.k2big.dot",
+   "scene": "S03",
+   "anchor": "k2big",
+   "kind": "dot",
+   "t0": 99.94,
+   "t1": 99.94,
+   "what": "start 3 points below the line",
+   "y": 780,
+   "x": 1100
+  },
+  {
+   "id": "S03.k2leah.dot",
+   "scene": "S03",
+   "anchor": "k2leah",
+   "kind": "dot",
+   "t0": 106.4,
+   "t1": 106.4,
+   "what": "flip: Leah's 1.5 points below",
+   "y": 690,
+   "x": 1100
+  },
+  {
+   "id": "S03.k2zero.dot",
+   "scene": "S03",
+   "anchor": "k2zero",
+   "kind": "dot",
+   "t0": 118.46,
+   "t1": 118.46,
+   "what": "flip: start on the line (no head start)",
+   "y": 560,
+   "x": 1100
+  },
+  {
+   "id": "S03.k2neg.dot",
+   "scene": "S03",
+   "anchor": "k2neg",
+   "kind": "dot",
+   "t0": 122.38,
+   "t1": 122.38,
+   "what": "flip: start above the line (reversed)",
+   "y": 470,
+   "x": 1100
+  },
+  {
+   "id": "S04.k5ride.line",
+   "scene": "S04",
+   "anchor": "k5ride",
+   "kind": "line",
+   "t0": 135.14,
+   "t1": 140.12,
+   "what": "first 10-year frame: the bead copies the T-bill steps",
+   "slope": 0.3,
+   "x0": 260,
+   "x1": 520,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S04.k5tb.roll",
+   "scene": "S04",
+   "anchor": "k5tb",
+   "kind": "roll",
+   "t0": 140.12,
+   "t1": 144.58,
+   "what": "frames step right, faster and faster, each dropping a cell",
+   "n": 30,
+   "accel": true,
+   "items": [
+    {
+     "t": 140.934,
+     "v": 0.15,
+     "x": 300.0
+    },
+    {
+     "t": 141.272,
+     "v": 0.209,
+     "x": 345.5
+    },
+    {
+     "t": 141.53,
+     "v": 0.235,
+     "x": 391.0
+    },
+    {
+     "t": 141.749,
+     "v": 0.224,
+     "x": 436.6
+    },
+    {
+     "t": 141.941,
+     "v": 0.224,
+     "x": 482.1
+    },
+    {
+     "t": 142.115,
+     "v": 0.275,
+     "x": 527.6
+    },
+    {
+     "t": 142.274,
+     "v": 0.369,
+     "x": 573.1
+    },
+    {
+     "t": 142.423,
+     "v": 0.455,
+     "x": 618.6
+    },
+    {
+     "t": 142.563,
+     "v": 0.495,
+     "x": 664.1
+    },
+    {
+     "t": 142.695,
+     "v": 0.503,
+     "x": 709.7
+    },
+    {
+     "t": 142.821,
+     "v": 0.529,
+     "x": 755.2
+    },
+    {
+     "t": 142.941,
+     "v": 0.608,
+     "x": 800.7
+    },
+    {
+     "t": 143.056,
+     "v": 0.721,
+     "x": 846.2
+    },
+    {
+     "t": 143.167,
+     "v": 0.69,
+     "x": 891.7
+    },
+    {
+     "t": 143.274,
+     "v": 0.642,
+     "x": 937.2
+    },
+    {
+     "t": 143.377,
+     "v": 0.616,
+     "x": 982.8
+    },
+    {
+     "t": 143.477,
+     "v": 0.584,
+     "x": 1028.3
+    },
+    {
+     "t": 143.575,
+     "v": 0.531,
+     "x": 1073.8
+    },
+    {
+     "t": 143.669,
+     "v": 0.459,
+     "x": 1119.3
+    },
+    {
+     "t": 143.762,
+     "v": 0.387,
+     "x": 1164.8
+    },
+    {
+     "t": 143.852,
+     "v": 0.333,
+     "x": 1210.3
+    },
+    {
+     "t": 143.939,
+     "v": 0.305,
+     "x": 1255.9
+    },
+    {
+     "t": 144.025,
+     "v": 0.294,
+     "x": 1301.4
+    },
+    {
+     "t": 144.109,
+     "v": 0.279,
+     "x": 1346.9
+    },
+    {
+     "t": 144.191,
+     "v": 0.241,
+     "x": 1392.4
+    },
+    {
+     "t": 144.272,
+     "v": 0.181,
+     "x": 1437.9
+    },
+    {
+     "t": 144.351,
+     "v": 0.162,
+     "x": 1483.4
+    },
+    {
+     "t": 144.429,
+     "v": 0.162,
+     "x": 1529.0
+    },
+    {
+     "t": 144.505,
+     "v": 0.162,
+     "x": 1574.5
+    },
+    {
+     "t": 144.58,
+     "v": 0.162,
+     "x": 1620.0
+    }
+   ]
+  },
+  {
+   "id": "S04.piles.bar",
+   "scene": "S04",
+   "anchor": "piles",
+   "kind": "bar",
+   "t0": 151.72,
+   "t1": 152.72,
+   "what": "interest pile (fixed) rises",
+   "v": 0.5,
+   "x": 700
+  },
+  {
+   "id": "S04.piles.bar2",
+   "scene": "S04",
+   "anchor": "piles",
+   "kind": "bar",
+   "t0": 151.87,
+   "t1": 152.87,
+   "what": "interest pile (variable) rises to the same height",
+   "v": 0.5,
+   "x": 1200
+  },
+  {
+   "id": "S04.worst.bar",
+   "scene": "S04",
+   "anchor": "worst",
+   "kind": "bar",
+   "t0": 155.66,
+   "t1": 156.56,
+   "what": "a costlier (red) block grows on the variable pile",
+   "v": 0.72,
+   "x": 1200
+  },
+  {
+   "id": "S04.k2a.dot",
+   "scene": "S04",
+   "anchor": "k2a",
+   "kind": "dot",
+   "t0": 160.02,
+   "t1": 160.02,
+   "what": "start 3 points below",
+   "y": 780,
+   "x": 1100
+  },
+  {
+   "id": "S04.k2b.dot",
+   "scene": "S04",
+   "anchor": "k2b",
+   "kind": "dot",
+   "t0": 162.06,
+   "t1": 162.06,
+   "what": "flip: 1.5 points below",
+   "y": 690,
+   "x": 1100
+  },
+  {
+   "id": "S04.k2c.dot",
+   "scene": "S04",
+   "anchor": "k2c",
+   "kind": "dot",
+   "t0": 165.1,
+   "t1": 165.1,
+   "what": "flip: on the line",
+   "y": 560,
+   "x": 1100
+  },
+  {
+   "id": "S04.k2d.dot",
+   "scene": "S04",
+   "anchor": "k2d",
+   "kind": "dot",
+   "t0": 166.34,
+   "t1": 166.34,
+   "what": "flip: above the line",
+   "y": 470,
+   "x": 1100
+  },
+  {
+   "id": "S05.k3scan.roll",
+   "scene": "S05",
+   "anchor": "k3scan",
+   "kind": "roll",
+   "t0": 180.493,
+   "t1": 183.593,
+   "what": "a frame scans the ridge; the amber tally fills almost everywhere",
+   "n": 16,
+   "accel": false,
+   "items": [
+    {
+     "t": 180.687,
+     "v": 0.15,
+     "x": 300.0
+    },
+    {
+     "t": 180.88,
+     "v": 0.234,
+     "x": 388.0
+    },
+    {
+     "t": 181.074,
+     "v": 0.221,
+     "x": 476.0
+    },
+    {
+     "t": 181.268,
+     "v": 0.349,
+     "x": 564.0
+    },
+    {
+     "t": 181.462,
+     "v": 0.489,
+     "x": 652.0
+    },
+    {
+     "t": 181.656,
+     "v": 0.515,
+     "x": 740.0
+    },
+    {
+     "t": 181.849,
+     "v": 0.675,
+     "x": 828.0
+    },
+    {
+     "t": 182.043,
+     "v": 0.66,
+     "x": 916.0
+    },
+    {
+     "t": 182.237,
+     "v": 0.603,
+     "x": 1004.0
+    },
+    {
+     "t": 182.43,
+     "v": 0.504,
+     "x": 1092.0
+    },
+    {
+     "t": 182.624,
+     "v": 0.366,
+     "x": 1180.0
+    },
+    {
+     "t": 182.818,
+     "v": 0.302,
+     "x": 1268.0
+    },
+    {
+     "t": 183.012,
+     "v": 0.273,
+     "x": 1356.0
+    },
+    {
+     "t": 183.206,
+     "v": 0.172,
+     "x": 1444.0
+    },
+    {
+     "t": 183.399,
+     "v": 0.162,
+     "x": 1532.0
+    },
+    {
+     "t": 183.593,
+     "v": 0.162,
+     "x": 1620.0
+    }
+   ]
+  },
+  {
+   "id": "S05.k3cost.roll",
+   "scene": "S05",
+   "anchor": "k3cost",
+   "kind": "roll",
+   "t0": 188.953,
+   "t1": 192.033,
+   "what": "cells flip left to right: only some turn red (14.2%)",
+   "n": 22,
+   "accel": false,
+   "items": [
+    {
+     "t": 189.093,
+     "v": 0.09,
+     "x": 300.0
+    },
+    {
+     "t": 189.233,
+     "v": 0.135,
+     "x": 362.9
+    },
+    {
+     "t": 189.373,
+     "v": 0.137,
+     "x": 425.7
+    },
+    {
+     "t": 189.513,
+     "v": 0.486,
+     "x": 488.6
+    },
+    {
+     "t": 189.653,
+     "v": 0.193,
+     "x": 551.4
+    },
+    {
+     "t": 189.793,
+     "v": 0.269,
+     "x": 614.3
+    },
+    {
+     "t": 189.933,
+     "v": 0.299,
+     "x": 677.1
+    },
+    {
+     "t": 190.073,
+     "v": 0.659,
+     "x": 740.0
+    },
+    {
+     "t": 190.213,
+     "v": 0.368,
+     "x": 802.9
+    },
+    {
+     "t": 190.353,
+     "v": 0.45,
+     "x": 865.7
+    },
+    {
+     "t": 190.493,
+     "v": 0.389,
+     "x": 928.6
+    },
+    {
+     "t": 190.633,
+     "v": 0.367,
+     "x": 991.4
+    },
+    {
+     "t": 190.773,
+     "v": 0.334,
+     "x": 1054.3
+    },
+    {
+     "t": 190.913,
+     "v": 0.278,
+     "x": 1117.1
+    },
+    {
+     "t": 191.053,
+     "v": 0.22,
+     "x": 1180.0
+    },
+    {
+     "t": 191.193,
+     "v": 0.186,
+     "x": 1242.9
+    },
+    {
+     "t": 191.333,
+     "v": 0.176,
+     "x": 1305.7
+    },
+    {
+     "t": 191.473,
+     "v": 0.158,
+     "x": 1368.6
+    },
+    {
+     "t": 191.613,
+     "v": 0.114,
+     "x": 1431.4
+    },
+    {
+     "t": 191.753,
+     "v": 0.097,
+     "x": 1494.3
+    },
+    {
+     "t": 191.893,
+     "v": 0.097,
+     "x": 1557.1
+    },
+    {
+     "t": 192.033,
+     "v": 0.097,
+     "x": 1620.0
+    }
+   ]
+  },
+  {
+   "id": "S05.k3early.bar",
+   "scene": "S05",
+   "anchor": "k3early",
+   "kind": "bar",
+   "t0": 198.913,
+   "t1": 199.513,
+   "what": "left half (1954-1980): 28.4% red",
+   "v": 0.584,
+   "x": 560
+  },
+  {
+   "id": "S05.k3late.bar",
+   "scene": "S05",
+   "anchor": "k3late",
+   "kind": "bar",
+   "t0": 206.333,
+   "t1": 206.933,
+   "what": "right half (1981 on): 3.5% red",
+   "v": 0.335,
+   "x": 1360
+  },
+  {
+   "id": "S05.worst.dot",
+   "scene": "S05",
+   "anchor": "worst",
+   "kind": "dot",
+   "t0": 213.173,
+   "t1": 213.173,
+   "what": "ring on the worst cell (April 1977)",
+   "y": 720,
+   "x": 640
+  },
+  {
+   "id": "S05.cutHS.dot",
+   "scene": "S05",
+   "anchor": "cutHS",
+   "kind": "dot",
+   "t0": 219.953,
+   "t1": 219.953,
+   "what": "K2 at Leah's 1.5-point head start",
+   "y": 690,
+   "x": 1100
+  },
+  {
+   "id": "S06.fill0.bar",
+   "scene": "S06",
+   "anchor": "fill0",
+   "kind": "bar",
+   "t0": 227.753,
+   "t1": 232.253,
+   "what": "jar fills from the gap under the 9% line (fastest on the biggest balance)",
+   "v": 0.85,
+   "x": 1300
+  },
+  {
+   "id": "S06.climb.line",
+   "scene": "S06",
+   "anchor": "climb",
+   "kind": "line",
+   "t0": 241.293,
+   "t1": 243.093,
+   "what": "the rate climbs above 9% (amber)",
+   "slope": 0.7,
+   "x0": 900,
+   "x1": 1200,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S06.drain.line",
+   "scene": "S06",
+   "anchor": "climb",
+   "kind": "line",
+   "t0": 243.293,
+   "t1": 247.893,
+   "what": "the jar drains while the rate stays above 9%",
+   "slope": -0.8,
+   "x0": 1300,
+   "x1": 1300,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S06.years.bar",
+   "scene": "S06",
+   "anchor": "years",
+   "kind": "bar",
+   "t0": 256.633,
+   "t1": 257.433,
+   "what": "the costlier block under the jar grows",
+   "v": 0.55,
+   "x": 1300
+  },
+  {
+   "id": "S06.cutFall.line",
+   "scene": "S06",
+   "anchor": "cutFall",
+   "kind": "line",
+   "t0": 259.093,
+   "t1": 261.293,
+   "what": "falling stretch (Aug 1981): the bead stays under the line",
+   "slope": -0.4,
+   "x0": 700,
+   "x1": 1200,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S06.fall.jar",
+   "scene": "S06",
+   "anchor": "cutFall",
+   "kind": "bar",
+   "t0": 261.093,
+   "t1": 262.493,
+   "what": "the jar keeps filling",
+   "v": 0.9,
+   "x": 1300
+  },
+  {
+   "id": "S07.ridge.line",
+   "scene": "S07",
+   "anchor": "ridge",
+   "kind": "line",
+   "t0": 263.767,
+   "t1": 266.167,
+   "what": "the whole T-bill ridge (1954 to today)",
+   "slope": 0.4,
+   "x0": 200,
+   "x1": 1720,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S07.peak.dot",
+   "scene": "S07",
+   "anchor": "peak",
+   "kind": "dot",
+   "t0": 272.827,
+   "t1": 272.827,
+   "what": "the summit: 16.3%, May 1981",
+   "y": 240,
+   "x": 880
+  },
+  {
+   "id": "S07.rideL.line",
+   "scene": "S07",
+   "anchor": "rideL",
+   "kind": "line",
+   "t0": 289.787,
+   "t1": 292.387,
+   "what": "left frame: the bead climbs above the rail (amber)",
+   "slope": 0.7,
+   "x0": 400,
+   "x1": 800,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S07.drainL.line",
+   "scene": "S07",
+   "anchor": "rideL",
+   "kind": "line",
+   "t0": 292.587,
+   "t1": 294.187,
+   "what": "its jar drains",
+   "slope": -0.7,
+   "x0": 600,
+   "x1": 600,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S07.blockL.bar",
+   "scene": "S07",
+   "anchor": "rideL",
+   "kind": "bar",
+   "t0": 294.287,
+   "t1": 294.987,
+   "what": "a costlier block grows under it",
+   "v": 0.55,
+   "x": 600
+  },
+  {
+   "id": "S07.rideR.line",
+   "scene": "S07",
+   "anchor": "rideR",
+   "kind": "line",
+   "t0": 295.967,
+   "t1": 298.367,
+   "what": "right frame: the bead sinks under the rail",
+   "slope": -0.5,
+   "x0": 1150,
+   "x1": 1500,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S07.jarR.bar",
+   "scene": "S07",
+   "anchor": "rideR",
+   "kind": "bar",
+   "t0": 298.367,
+   "t1": 299.567,
+   "what": "its jar fills high",
+   "v": 0.85,
+   "x": 1350
+  },
+  {
+   "id": "S07.best.dot",
+   "scene": "S07",
+   "anchor": "best",
+   "kind": "dot",
+   "t0": 301.047,
+   "t1": 301.047,
+   "what": "August 1981 (best start): the jar full",
+   "y": 420,
+   "x": 1300
+  },
+  {
+   "id": "S07.cells.roll",
+   "scene": "S07",
+   "anchor": "cells",
+   "kind": "roll",
+   "t0": 310.107,
+   "t1": 312.307,
+   "what": "the 753 start cells appear under the ridge (red = costlier)",
+   "n": 24,
+   "accel": false,
+   "items": [
+    {
+     "t": 310.199,
+     "v": 0.09,
+     "x": 300.0
+    },
+    {
+     "t": 310.29,
+     "v": 0.132,
+     "x": 357.4
+    },
+    {
+     "t": 310.382,
+     "v": 0.139,
+     "x": 414.8
+    },
+    {
+     "t": 310.474,
+     "v": 0.482,
+     "x": 472.2
+    },
+    {
+     "t": 310.565,
+     "v": 0.167,
+     "x": 529.6
+    },
+    {
+     "t": 310.657,
+     "v": 0.239,
+     "x": 587.0
+    },
+    {
+     "t": 310.749,
+     "v": 0.29,
+     "x": 644.3
+    },
+    {
+     "t": 310.84,
+     "v": 0.651,
+     "x": 701.7
+    },
+    {
+     "t": 310.932,
+     "v": 0.32,
+     "x": 759.1
+    },
+    {
+     "t": 311.024,
+     "v": 0.388,
+     "x": 816.5
+    },
+    {
+     "t": 311.115,
+     "v": 0.8,
+     "x": 873.9
+    },
+    {
+     "t": 311.207,
+     "v": 0.388,
+     "x": 931.3
+    },
+    {
+     "t": 311.299,
+     "v": 0.368,
+     "x": 988.7
+    },
+    {
+     "t": 311.39,
+     "v": 0.34,
+     "x": 1046.1
+    },
+    {
+     "t": 311.482,
+     "v": 0.291,
+     "x": 1103.5
+    },
+    {
+     "t": 311.574,
+     "v": 0.236,
+     "x": 1160.9
+    },
+    {
+     "t": 311.665,
+     "v": 0.196,
+     "x": 1218.3
+    },
+    {
+     "t": 311.757,
+     "v": 0.18,
+     "x": 1275.7
+    },
+    {
+     "t": 311.849,
+     "v": 0.171,
+     "x": 1333.0
+    },
+    {
+     "t": 311.94,
+     "v": 0.146,
+     "x": 1390.4
+    },
+    {
+     "t": 312.032,
+     "v": 0.1,
+     "x": 1447.8
+    },
+    {
+     "t": 312.124,
+     "v": 0.097,
+     "x": 1505.2
+    },
+    {
+     "t": 312.215,
+     "v": 0.097,
+     "x": 1562.6
+    },
+    {
+     "t": 312.307,
+     "v": 0.097,
+     "x": 1620.0
+    }
+   ]
+  },
+  {
+   "id": "S07.worst.dot",
+   "scene": "S07",
+   "anchor": "worst",
+   "kind": "dot",
+   "t0": 313.507,
+   "t1": 313.507,
+   "what": "ring moves to the worst cell (left half)",
+   "y": 720,
+   "x": 640
+  },
+  {
+   "id": "S08.ride.line",
+   "scene": "S08",
+   "anchor": "ride",
+   "kind": "line",
+   "t0": 326.327,
+   "t1": 331.567,
+   "what": "the bead starts riding the steep climb; the jar fills a little",
+   "slope": 0.4,
+   "x0": 400,
+   "x1": 700,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S08.grows.line",
+   "scene": "S08",
+   "anchor": "grows",
+   "kind": "line",
+   "t0": 331.767,
+   "t1": 337.547,
+   "what": "the rate climbs to 19.3%, years above the rail",
+   "slope": 0.9,
+   "x0": 700,
+   "x1": 1300,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S08.peak.dot",
+   "scene": "S08",
+   "anchor": "peak",
+   "kind": "dot",
+   "t0": 337.547,
+   "t1": 337.547,
+   "what": "19.3% at the top",
+   "y": 160,
+   "x": 1300
+  },
+  {
+   "id": "S08.drain.line",
+   "scene": "S08",
+   "anchor": "peak",
+   "kind": "line",
+   "t0": 339.047,
+   "t1": 347.827,
+   "what": "the jar empties",
+   "slope": -0.75,
+   "x0": 1500,
+   "x1": 1500,
+   "wobble": false,
+   "step": 0.5
+  },
+  {
+   "id": "S08.coins.bar",
+   "scene": "S08",
+   "anchor": "coins",
+   "kind": "bar",
+   "t0": 358.087,
+   "t1": 359.087,
+   "what": "interest pile (fixed) rises: $26,005",
+   "v": 0.55,
+   "x": 700
+  },
+  {
+   "id": "S08.coins.bar2",
+   "scene": "S08",
+   "anchor": "coins",
+   "kind": "bar",
+   "t0": 358.287,
+   "t1": 359.287,
+   "what": "interest pile (variable) rises",
+   "v": 0.55,
+   "x": 1200
+  },
+  {
+   "id": "S08.extra.bar",
+   "scene": "S08",
+   "anchor": "extra",
+   "kind": "bar",
+   "t0": 366.087,
+   "t1": 366.987,
+   "what": "a red block grows on the variable pile: 43% of the fixed pile",
+   "v": 0.8,
+   "x": 1200
+  },
+  {
+   "id": "S08.cap.line",
+   "scene": "S08",
+   "anchor": "cap",
+   "kind": "line",
+   "t0": 378.927,
+   "t1": 380.927,
+   "what": "the rate cap lowers; the red block shrinks (15%, then 12% cap)",
+   "slope": -0.5,
+   "x0": 1200,
+   "x1": 1200,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S09.hold.line",
+   "scene": "S09",
+   "anchor": "hold",
+   "kind": "line",
+   "t0": 392.26,
+   "t1": 395.26,
+   "what": "the head-start gap opens 0 -> 1 point; red columns shorten",
+   "slope": -0.4,
+   "x0": 960,
+   "x1": 960,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S09.leah.line",
+   "scene": "S09",
+   "anchor": "leah",
+   "kind": "line",
+   "t0": 402.28,
+   "t1": 402.88,
+   "what": "gap opens to 1.5 points (Leah)",
+   "slope": -0.3,
+   "x0": 960,
+   "x1": 960,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S09.two.line",
+   "scene": "S09",
+   "anchor": "two",
+   "kind": "line",
+   "t0": 407.78,
+   "t1": 408.38,
+   "what": "gap 2 points: the right column empties",
+   "slope": -0.6,
+   "x0": 1100,
+   "x1": 1360,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S09.early20.bar",
+   "scene": "S09",
+   "anchor": "early20",
+   "kind": "bar",
+   "t0": 413.74,
+   "t1": 414.24,
+   "what": "left column (1954-1980) at 2 points: 20.4% red",
+   "v": 0.504,
+   "x": 560
+  },
+  {
+   "id": "S09.three.line",
+   "scene": "S09",
+   "anchor": "three",
+   "kind": "line",
+   "t0": 423.78,
+   "t1": 424.98,
+   "what": "gap 2 -> 3 points: left column shrinks",
+   "slope": -0.4,
+   "x0": 960,
+   "x1": 960,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S09.tenfive.bar",
+   "scene": "S09",
+   "anchor": "tenfive",
+   "kind": "bar",
+   "t0": 428.68,
+   "t1": 429.18,
+   "what": "left column at 3 points: 10.5% red",
+   "v": 0.405,
+   "x": 560
+  },
+  {
+   "id": "S10.j1.bar",
+   "scene": "S10",
+   "anchor": "j1",
+   "kind": "bar",
+   "t0": 438.9,
+   "t1": 439.25,
+   "what": "1 point: red columns jump up, 31.3% of all starts",
+   "v": 0.613,
+   "x": 960
+  },
+  {
+   "id": "S10.j0.bar",
+   "scene": "S10",
+   "anchor": "j0",
+   "kind": "bar",
+   "t0": 442.96,
+   "t1": 443.31,
+   "what": "0 points: 57.9% of all starts",
+   "v": 0.879,
+   "x": 960
+  },
+  {
+   "id": "S10.jm.bar",
+   "scene": "S10",
+   "anchor": "jm",
+   "kind": "bar",
+   "t0": 446.8,
+   "t1": 447.15,
+   "what": "-1 point (reversed): 72.9% of all starts",
+   "v": 1.0,
+   "x": 960
+  },
+  {
+   "id": "S10.back.bar",
+   "scene": "S10",
+   "anchor": "back",
+   "kind": "bar",
+   "t0": 450.68,
+   "t1": 451.03,
+   "what": "jump back to 3 points: red columns drop",
+   "v": 0.345,
+   "x": 960
+  },
+  {
+   "id": "S10.april.dot",
+   "scene": "S10",
+   "anchor": "april",
+   "kind": "dot",
+   "t0": 454.02,
+   "t1": 454.02,
+   "what": "ring on the left red layer: April 1977",
+   "y": 720,
+   "x": 560
+  },
+  {
+   "id": "S10.early.line",
+   "scene": "S10",
+   "anchor": "early",
+   "kind": "line",
+   "t0": 490.3,
+   "t1": 491.9,
+   "what": "2 -> 3 points: left column shrinks but keeps red",
+   "slope": -0.3,
+   "x0": 560,
+   "x1": 560,
+   "wobble": false,
+   "step": null
+  },
+  {
+   "id": "S12.leah.dot",
+   "scene": "S12",
+   "anchor": "leah",
+   "kind": "dot",
+   "t0": 530.333,
+   "t1": 530.333,
+   "what": "K7 at Leah's 1.5 points",
+   "y": 690,
+   "x": 960
+  }
+ ]
+}

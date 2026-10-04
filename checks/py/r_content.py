@@ -182,10 +182,12 @@ def _mapped_claims(ctx):
 
 
 @rule('S05', 'DX-H1, DX-H2', 'claims the episode contract maps to model quantities (contract.json model.claims) compared with the checker\'s own re-computation of that '
-      'quantity (r_model value(): e.g. "geomean:1966", "breakEven:0.5", "spreadFor:36"); the model kind\'s thesis invariants from model.params (test D: sameGeomean '
+      'quantity (r_model value(), one per model kind: e.g. "geomean:1966" retirement-6040, "maya.cut36" refinance-breakeven, "shareCostlierAtSpread:1.5:1954-01" '
+      'float-vs-fixed-replay; K3.6: a month quantity, e.g. "worstStart", is compared with a claim value written "YYYY-MM" or "YYYY-MM-01" after normalisation, '
+      'YYYY-MM ≡ YYYY-MM-01, any other day is not a month); the model kind\'s thesis invariants from model.params (test D: sameGeomean '
       '1966/mirror within 0.01 pp); ILLUSTRATIVE flags: every claim listed in contract claims.illustrative, and every claim of a character the contract marks illustrative, '
       'carries illustrative=true in out/claims.json',
-      '≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag')
+      '≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months after normalisation, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag')
 def s05_model_claims(ctx):
     import r_model
     _, value, inv = r_model.kind(ctx)
@@ -201,7 +203,11 @@ def s05_model_claims(ctx):
             absent.append(cid)
             continue
         mine, tol = value(ctx, params, key)
-        if abs(float(c['value']) - mine) > tol + 1e-9:
+        if isinstance(mine, r_model.Month):
+            # K3.6: months compared after normalisation (YYYY-MM ≡ YYYY-MM-01); a number or another day is not this month
+            if not isinstance(c['value'], str) or r_model.ym(c['value']) != int(mine):
+                off.append((cid, key, c['value'], r_model.ym_str(mine)))
+        elif abs(float(c['value']) - mine) > tol + 1e-9:
             off.append((cid, key, c['value'], round(mine, 4)))
     ill_chars = {k for k, v in chars.items() if isinstance(v, dict) and v.get('illustrative')}
     noflag = [cid for cid in ill if cid in by and not by[cid].get('illustrative')] + [c['claimId'] for c in cl if c.get('character') in ill_chars and not c.get('illustrative')]

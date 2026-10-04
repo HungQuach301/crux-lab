@@ -1,0 +1,86 @@
+{
+ "clip": "K5",
+ "frames": 300,
+ "filmSeconds": 10,
+ "wallSeconds": 72.6,
+ "machineSecPerFilmSec": 7.26,
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:08:45.446Z",
+ "stripTimes": [
+  0.2,
+  1.9,
+  2.9,
+  4,
+  6.4,
+  9.4
+ ],
+ "claimsUsed": [
+  "best_start_year",
+  "first_start"
+ ],
+ "texts": [
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 48,
+   "n": 512
+  },
+  {
+   "s": "Every 10-year stretch since January 1954",
+   "tier": "caption",
+   "px": 64,
+   "n": 486
+  },
+  {
+   "s": "1954",
+   "tier": "note",
+   "px": 48,
+   "n": 149
+  },
+  {
+   "s": "1981",
+   "tier": "note",
+   "px": 48,
+   "n": 149
+  },
+  {
+   "s": "today",
+   "tier": "note",
+   "px": 48,
+   "n": 149
+  }
+ ],
+ "minPx1080": 48,
+ "checkSamples": 264,
+ "worstClear": {
+  "t": 0,
+  "s": "ILLUSTRATIVE",
+  "px": 48,
+  "clear": 16,
+  "tclear": 999,
+  "contrast": 10.25,
+  "color": "#0E1116",
+  "plate": "#F2B441"
+ },
+ "worstTextClear": {
+  "t": 0.8,
+  "s": "Every 10-year stretch since January 1954",
+  "px": 64,
+  "clear": 16,
+  "tclear": 91.5,
+  "contrast": 17.16,
+  "color": "#F2F4F7",
+  "plate": null
+ },
+ "worstContrast": {
+  "t": 7.6,
+  "s": "1954",
+  "px": 48,
+  "clear": 16,
+  "tclear": 484,
+  "contrast": 7.5,
+  "color": "#9AA4B2",
+  "plate": null
+ }
+}

@@ -1,0 +1,33 @@
+{
+  "files": [
+    {
+      "path": "data/raw/TB3MS.csv",
+      "role": "primary",
+      "series": "TB3MS",
+      "what": "3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly average, percent (Board of Governors, H.15, via FRED)",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+      "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+      "downloaded": "2026-10-01",
+      "lastObservation": "2026-08-01",
+      "fredUpdated": "Sep 1, 2026 3:16 PM CDT (series page, read 2026-10-01 02:35 UTC); Next Release Date: Oct 1, 2026",
+      "frozenCompare": "identical to the d16d1b4 freeze (topics-r1/machine/debt-2/sources.json, same SHA-256): no revised values; the unpinned URL also returned the same bytes (no September 2026 observation yet at 02:35 UTC)",
+      "terms": {"quote": "Public Domain: Citation Requested", "url": "https://fred.stlouisfed.org/series/TB3MS"}
+    },
+    {
+      "path": "data/raw/DTB3.csv",
+      "role": "crosscheck",
+      "series": "DTB3",
+      "what": "3-Month Treasury Bill Secondary Market Rate, Discount Basis, daily (H.15, via FRED); monthly mean compared with TB3MS",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTB3&coed=2026-08-31",
+      "seriesPage": "https://fred.stlouisfed.org/series/DTB3",
+      "sha256": "b2681e0a9a26da1cf15c2d9c7b6803e1976fa9fb5aaa046a4993aa698e8d3b1b",
+      "downloaded": "2026-10-01",
+      "lastObservation": "2026-08-31",
+      "terms": {"quote": "Public Domain: Citation Requested", "url": "https://fred.stlouisfed.org/series/DTB3"}
+    }
+  ],
+  "mismatches": [],
+  "crosscheckResult": "1954-01..2026-08, 872 months: max |mean(DTB3) - TB3MS| = 0.005 points (rounding), mean 0.0025",
+  "notCommitted": "raw and normalized files are not committed (lessons A9); python3 episodes/ep002/data/fetch.py --verify"
+}

@@ -1,0 +1,56 @@
+{
+ "option": "thumb-3c",
+ "hook": "head start vs the two halves (KEY-7; proposed instead of a worst-only thumbnail)",
+ "size": [
+  1280,
+  720
+ ],
+ "illustrative": true,
+ "texts": [
+  {
+   "text": "How much",
+   "box": [
+    70,
+    87,
+    506.7,
+    75
+   ],
+   "fontPx": 100,
+   "fontPx1080": 150,
+   "claim": null,
+   "color": "#F2F4F7"
+  },
+  {
+   "text": "lower?",
+   "box": [
+    70,
+    196,
+    317,
+    76
+   ],
+   "fontPx": 100,
+   "fontPx1080": 150,
+   "claim": null,
+   "color": "#F2F4F7"
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    979.6,
+    50.7,
+    223,
+    24.7
+   ],
+   "plateBox": [
+    965.6,
+    41.7,
+    250.4,
+    48.7
+   ],
+   "fontPx": 32,
+   "fontPx1080": 48,
+   "role": "ILLUSTRATIVE badge (S08)"
+  }
+ ],
+ "source": "preprod/thumbs_c6/render.js + thumbs.js; picture = design/c3/final/src/k7.js t=9.8 s drawn graphics-only by the signed engine (NOTEXT flag); text = Inter 700, tier hero (150 px @1080 = 100 px @720), tokens ink / ink-muted; numbers = out/claims.json display"
+}

@@ -1,0 +1,92 @@
+{
+ "clip": "K1",
+ "frames": 240,
+ "filmSeconds": 8,
+ "wallSeconds": 29.4,
+ "machineSecPerFilmSec": 3.67,
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:03:11.827Z",
+ "stripTimes": [
+  0.4,
+  1.4,
+  2.6,
+  3.8,
+  5.6,
+  7.6
+ ],
+ "claimsUsed": [
+  "fixed_rate",
+  "var_start"
+ ],
+ "texts": [
+  {
+   "s": "Leah's two offers",
+   "tier": "caption",
+   "px": 64,
+   "n": 393
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 48,
+   "n": 393
+  },
+  {
+   "s": "9%",
+   "tier": "label",
+   "px": 54,
+   "n": 341
+  },
+  {
+   "s": " fixed",
+   "tier": "label",
+   "px": 54,
+   "n": 341
+  },
+  {
+   "s": "7.5%",
+   "tier": "label",
+   "px": 54,
+   "n": 309
+  },
+  {
+   "s": "variable",
+   "tier": "label",
+   "px": 54,
+   "n": 309
+  }
+ ],
+ "minPx1080": 48,
+ "checkSamples": 386,
+ "worstClear": {
+  "t": 0.7,
+  "s": "Leah's two offers",
+  "px": 64,
+  "clear": 16,
+  "tclear": 836.4,
+  "contrast": 17.16,
+  "color": "#F2F4F7",
+  "plate": null
+ },
+ "worstTextClear": {
+  "t": 2.3,
+  "s": " fixed",
+  "px": 54,
+  "clear": 16,
+  "tclear": 98.1,
+  "contrast": 7.5,
+  "color": "#9AA4B2",
+  "plate": null
+ },
+ "worstContrast": {
+  "t": 1.7,
+  "s": " fixed",
+  "px": 54,
+  "clear": 16,
+  "tclear": 263.9,
+  "contrast": 7.5,
+  "color": "#9AA4B2",
+  "plate": null
+ }
+}

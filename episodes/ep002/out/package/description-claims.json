@@ -1,0 +1,789 @@
+{
+ "about": "every number of out/package/description.md (outside chapter times and URLs) -> the claims whose display carries it (generated)",
+ "numbers": [
+  {
+   "number": "1",
+   "canon": "num:1",
+   "claims": [
+    "ctx_plus_end",
+    "share_all_words",
+    "share_early_words",
+    "share_late_words",
+    "hs_m1",
+    "hs_1"
+   ]
+  },
+  {
+   "number": "2026",
+   "canon": "num:2026",
+   "claims": [
+    "ctx_plus_end",
+    "ctx_plus_exception"
+   ]
+  },
+  {
+   "number": "9%",
+   "canon": "pct:9",
+   "claims": [
+    "fixed_rate"
+   ]
+  },
+  {
+   "number": "7.5%",
+   "canon": "pct:7.5",
+   "claims": [
+    "var_start"
+   ]
+  },
+  {
+   "number": "$50,000",
+   "canon": "usd:50000",
+   "claims": [
+    "loan",
+    "ctx_prof_annual"
+   ]
+  },
+  {
+   "number": "10",
+   "canon": "num:10",
+   "claims": [
+    "term"
+   ]
+  },
+  {
+   "number": "120",
+   "canon": "num:120",
+   "claims": [
+    "term"
+   ]
+  },
+  {
+   "number": "10",
+   "canon": "num:10",
+   "claims": [
+    "term"
+   ]
+  },
+  {
+   "number": "1954",
+   "canon": "num:1954",
+   "claims": [
+    "first_start",
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "9%",
+   "canon": "pct:9",
+   "claims": [
+    "fixed_rate"
+   ]
+  },
+  {
+   "number": "1.5",
+   "canon": "num:1.5",
+   "claims": [
+    "gap_start"
+   ]
+  },
+  {
+   "number": "9%",
+   "canon": "pct:9",
+   "claims": [
+    "fixed_rate"
+   ]
+  },
+  {
+   "number": "7.5%",
+   "canon": "pct:7.5",
+   "claims": [
+    "var_start"
+   ]
+  },
+  {
+   "number": "9%",
+   "canon": "pct:9",
+   "claims": [
+    "fixed_rate"
+   ]
+  },
+  {
+   "number": "76.2%",
+   "canon": "pct:76.2",
+   "claims": [
+    "share_rate_above_fixed"
+   ]
+  },
+  {
+   "number": "14.2%",
+   "canon": "pct:14.2",
+   "claims": [
+    "share_all",
+    "spread15_share",
+    "cap18_share",
+    "cap25_share"
+   ]
+  },
+  {
+   "number": "28.4%",
+   "canon": "pct:28.4",
+   "claims": [
+    "share_early",
+    "gap15_early",
+    "cap18_early",
+    "cap25_early"
+   ]
+  },
+  {
+   "number": "1954",
+   "canon": "num:1954",
+   "claims": [
+    "first_start",
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "1980",
+   "canon": "num:1980",
+   "claims": [
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "3.5%",
+   "canon": "pct:3.5",
+   "claims": [
+    "share_late",
+    "gap15_late"
+   ]
+  },
+  {
+   "number": "1981",
+   "canon": "num:1981",
+   "claims": [
+    "best_start",
+    "best_start_year",
+    "tb_peak_date",
+    "period_late"
+   ]
+  },
+  {
+   "number": "1977",
+   "canon": "num:1977",
+   "claims": [
+    "worst_start",
+    "worst_start_year",
+    "gap_worst_start_all"
+   ]
+  },
+  {
+   "number": "$11,219",
+   "canon": "usd:11219",
+   "claims": [
+    "worst_diff",
+    "gap15_worst",
+    "cap25_worst"
+   ]
+  },
+  {
+   "number": "43%",
+   "canon": "pct:43",
+   "claims": [
+    "worst_share_of_fixed"
+   ]
+  },
+  {
+   "number": "$26,005",
+   "canon": "usd:26005",
+   "claims": [
+    "fixed_int"
+   ]
+  },
+  {
+   "number": "1981",
+   "canon": "num:1981",
+   "claims": [
+    "best_start",
+    "best_start_year",
+    "tb_peak_date",
+    "period_late"
+   ]
+  },
+  {
+   "number": "$15,295",
+   "canon": "usd:15295",
+   "claims": [
+    "best_diff_words"
+   ]
+  },
+  {
+   "number": "9%",
+   "canon": "pct:9",
+   "claims": [
+    "fixed_rate"
+   ]
+  },
+  {
+   "number": "3",
+   "canon": "num:3",
+   "claims": [
+    "ctx_plus_exception",
+    "share_rate_above_fixed_words",
+    "hs_3",
+    "tbill_3month"
+   ]
+  },
+  {
+   "number": "4.5%",
+   "canon": "pct:4.5",
+   "claims": [
+    "spread3_share"
+   ]
+  },
+  {
+   "number": "10.5%",
+   "canon": "pct:10.5",
+   "claims": [
+    "gap30_early",
+    "min_gap_early"
+   ]
+  },
+  {
+   "number": "1954",
+   "canon": "num:1954",
+   "claims": [
+    "first_start",
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "1980",
+   "canon": "num:1980",
+   "claims": [
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "0%",
+   "canon": "pct:0",
+   "claims": [
+    "gap20_late",
+    "gap25_late",
+    "gap30_late"
+   ]
+  },
+  {
+   "number": "1981",
+   "canon": "num:1981",
+   "claims": [
+    "best_start",
+    "best_start_year",
+    "tb_peak_date",
+    "period_late"
+   ]
+  },
+  {
+   "number": "1977",
+   "canon": "num:1977",
+   "claims": [
+    "worst_start",
+    "worst_start_year",
+    "gap_worst_start_all"
+   ]
+  },
+  {
+   "number": "$6,033",
+   "canon": "usd:6033",
+   "claims": [
+    "gap30_worst"
+   ]
+  },
+  {
+   "number": "2",
+   "canon": "num:2",
+   "claims": [
+    "hs_2"
+   ]
+  },
+  {
+   "number": "8.8%",
+   "canon": "pct:8.8",
+   "claims": [
+    "spread2_share"
+   ]
+  },
+  {
+   "number": "20.4%",
+   "canon": "pct:20.4",
+   "claims": [
+    "gap20_early"
+   ]
+  },
+  {
+   "number": "1954",
+   "canon": "num:1954",
+   "claims": [
+    "first_start",
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "1980",
+   "canon": "num:1980",
+   "claims": [
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "0%",
+   "canon": "pct:0",
+   "claims": [
+    "gap20_late",
+    "gap25_late",
+    "gap30_late"
+   ]
+  },
+  {
+   "number": "1981",
+   "canon": "num:1981",
+   "claims": [
+    "best_start",
+    "best_start_year",
+    "tb_peak_date",
+    "period_late"
+   ]
+  },
+  {
+   "number": "1977",
+   "canon": "num:1977",
+   "claims": [
+    "worst_start",
+    "worst_start_year",
+    "gap_worst_start_all"
+   ]
+  },
+  {
+   "number": "$9,472",
+   "canon": "usd:9472",
+   "claims": [
+    "gap20_worst"
+   ]
+  },
+  {
+   "number": "1",
+   "canon": "num:1",
+   "claims": [
+    "ctx_plus_end",
+    "share_all_words",
+    "share_early_words",
+    "share_late_words",
+    "hs_m1",
+    "hs_1"
+   ]
+  },
+  {
+   "number": "31.3%",
+   "canon": "pct:31.3",
+   "claims": [
+    "spread1_share"
+   ]
+  },
+  {
+   "number": "54.9%",
+   "canon": "pct:54.9",
+   "claims": [
+    "gap10_early"
+   ]
+  },
+  {
+   "number": "1954",
+   "canon": "num:1954",
+   "claims": [
+    "first_start",
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "1980",
+   "canon": "num:1980",
+   "claims": [
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "13.5%",
+   "canon": "pct:13.5",
+   "claims": [
+    "gap10_late"
+   ]
+  },
+  {
+   "number": "1981",
+   "canon": "num:1981",
+   "claims": [
+    "best_start",
+    "best_start_year",
+    "tb_peak_date",
+    "period_late"
+   ]
+  },
+  {
+   "number": "1977",
+   "canon": "num:1977",
+   "claims": [
+    "worst_start",
+    "worst_start_year",
+    "gap_worst_start_all"
+   ]
+  },
+  {
+   "number": "$12,983",
+   "canon": "usd:12983",
+   "claims": [
+    "gap10_worst"
+   ]
+  },
+  {
+   "number": "0",
+   "canon": "num:0",
+   "claims": [
+    "hs_0"
+   ]
+  },
+  {
+   "number": "57.9%",
+   "canon": "pct:57.9",
+   "claims": [
+    "spread0_share"
+   ]
+  },
+  {
+   "number": "79%",
+   "canon": "pct:79",
+   "claims": [
+    "gap00_early"
+   ]
+  },
+  {
+   "number": "1954",
+   "canon": "num:1954",
+   "claims": [
+    "first_start",
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "1980",
+   "canon": "num:1980",
+   "claims": [
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "42%",
+   "canon": "pct:42",
+   "claims": [
+    "gap00_late"
+   ]
+  },
+  {
+   "number": "1981",
+   "canon": "num:1981",
+   "claims": [
+    "best_start",
+    "best_start_year",
+    "tb_peak_date",
+    "period_late"
+   ]
+  },
+  {
+   "number": "1977",
+   "canon": "num:1977",
+   "claims": [
+    "worst_start",
+    "worst_start_year",
+    "gap_worst_start_all"
+   ]
+  },
+  {
+   "number": "$16,566",
+   "canon": "usd:16566",
+   "claims": [
+    "gap00_worst"
+   ]
+  },
+  {
+   "number": "1",
+   "canon": "num:1",
+   "claims": [
+    "ctx_plus_end",
+    "share_all_words",
+    "share_early_words",
+    "share_late_words",
+    "hs_m1",
+    "hs_1"
+   ]
+  },
+  {
+   "number": "72.9%",
+   "canon": "pct:72.9",
+   "claims": [
+    "spreadm1_share"
+   ]
+  },
+  {
+   "number": "92.9%",
+   "canon": "pct:92.9",
+   "claims": [
+    "gapm10_early"
+   ]
+  },
+  {
+   "number": "1954",
+   "canon": "num:1954",
+   "claims": [
+    "first_start",
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "1980",
+   "canon": "num:1980",
+   "claims": [
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "57.8%",
+   "canon": "pct:57.8",
+   "claims": [
+    "gapm10_late"
+   ]
+  },
+  {
+   "number": "1981",
+   "canon": "num:1981",
+   "claims": [
+    "best_start",
+    "best_start_year",
+    "tb_peak_date",
+    "period_late"
+   ]
+  },
+  {
+   "number": "1977",
+   "canon": "num:1977",
+   "claims": [
+    "worst_start",
+    "worst_start_year",
+    "gap_worst_start_all"
+   ]
+  },
+  {
+   "number": "$20,217",
+   "canon": "usd:20217",
+   "claims": [
+    "gapm10_worst"
+   ]
+  },
+  {
+   "number": "1977",
+   "canon": "num:1977",
+   "claims": [
+    "worst_start",
+    "worst_start_year",
+    "gap_worst_start_all"
+   ]
+  },
+  {
+   "number": "1954",
+   "canon": "num:1954",
+   "claims": [
+    "first_start",
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "1980",
+   "canon": "num:1980",
+   "claims": [
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "10.5%",
+   "canon": "pct:10.5",
+   "claims": [
+    "gap30_early",
+    "min_gap_early"
+   ]
+  },
+  {
+   "number": "3",
+   "canon": "num:3",
+   "claims": [
+    "ctx_plus_exception",
+    "share_rate_above_fixed_words",
+    "hs_3",
+    "tbill_3month"
+   ]
+  },
+  {
+   "number": "3.72%",
+   "canon": "pct:3.72",
+   "claims": [
+    "index_today"
+   ]
+  },
+  {
+   "number": "2026",
+   "canon": "num:2026",
+   "claims": [
+    "ctx_plus_end",
+    "ctx_plus_exception"
+   ]
+  },
+  {
+   "number": "3.78",
+   "canon": "num:3.78",
+   "claims": [
+    "margin"
+   ]
+  },
+  {
+   "number": "7.5%",
+   "canon": "pct:7.5",
+   "claims": [
+    "var_start"
+   ]
+  },
+  {
+   "number": "753",
+   "canon": "num:753",
+   "claims": [
+    "n_starts"
+   ]
+  },
+  {
+   "number": "1954",
+   "canon": "num:1954",
+   "claims": [
+    "first_start",
+    "period_early",
+    "period_early_label"
+   ]
+  },
+  {
+   "number": "2016",
+   "canon": "num:2016",
+   "claims": [
+    "last_start"
+   ]
+  },
+  {
+   "number": "10",
+   "canon": "num:10",
+   "claims": [
+    "term"
+   ]
+  },
+  {
+   "number": "120",
+   "canon": "num:120",
+   "claims": [
+    "term"
+   ]
+  },
+  {
+   "number": "9%",
+   "canon": "pct:9",
+   "claims": [
+    "fixed_rate"
+   ]
+  },
+  {
+   "number": "753",
+   "canon": "num:753",
+   "claims": [
+    "n_starts"
+   ]
+  },
+  {
+   "number": "1",
+   "canon": "num:1",
+   "claims": [
+    "ctx_plus_end",
+    "share_all_words",
+    "share_early_words",
+    "share_late_words",
+    "hs_m1",
+    "hs_1"
+   ]
+  },
+  {
+   "number": "2026",
+   "canon": "num:2026",
+   "claims": [
+    "ctx_plus_end",
+    "ctx_plus_exception"
+   ]
+  },
+  {
+   "number": "2026",
+   "canon": "num:2026",
+   "claims": [
+    "ctx_plus_end",
+    "ctx_plus_exception"
+   ]
+  },
+  {
+   "number": "3",
+   "canon": "num:3",
+   "claims": [
+    "ctx_plus_exception",
+    "share_rate_above_fixed_words",
+    "hs_3",
+    "tbill_3month"
+   ]
+  },
+  {
+   "number": "$20,500",
+   "canon": "usd:20500",
+   "claims": [
+    "ctx_unsub_annual"
+   ]
+  },
+  {
+   "number": "$100,000",
+   "canon": "usd:100000",
+   "claims": [
+    "ctx_unsub_aggregate"
+   ]
+  },
+  {
+   "number": "3",
+   "canon": "num:3",
+   "claims": [
+    "ctx_plus_exception",
+    "share_rate_above_fixed_words",
+    "hs_3",
+    "tbill_3month"
+   ]
+  }
+ ]
+}

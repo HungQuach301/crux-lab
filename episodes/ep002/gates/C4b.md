@@ -1,0 +1,9 @@
+# [Cổng C4b] Tập 2 — chấm lại độc lập C4 dưới ngưỡng (01/10/2026)
+
+**Kết quả:** người chấm mới (mù tập) cho Tập 2 **0,333** (không có KEY-7: 0,389), đối chứng Tập 1 **0,071**. Phiên tự chấm trước đó: 0,738 / 0,476. Hai người chấm chỉ trùng điểm ở 15/42 lượt. Thứ tự giữ nguyên: Tập 2 hơn Tập 1 ở cả hai cách chấm. Theo lệnh: không sửa ý đồ, không hạ ngưỡng. Bảng đầy đủ: `gates/C4-blind.md` (mục "Chấm lại độc lập").
+**Vì sao lệch:** người chấm lại đòi câu trả lời nêu đúng **nghĩa** của rubric ("lãi thả nổi thường vượt mức cố định", "lãi cao trong thời gian dài"). Phiên tự chấm tính cả câu chỉ tả đúng hình ("phần đỏ dồn quanh đỉnh"). Theo người chấm lại, chỉ KEY-5 (3/3) đạt nghĩa khi tắt tiếng.
+Kiểm số độc lập: không đổi (S01 3060/0 lệch; S05 72/0 lệch). Luồng A (tiếng) và D (hồ sơ) của C5 đang chạy; không chạm hình, không có gu. Luồng P (render 1080p) đang **dừng** chờ quyết định này; hai sửa C4 đã duyệt (S10.1, "not to scale") vẫn đang làm.
+
+**Câu 1 — Điểm nào là kết quả C4?** (a) **Khuyến nghị:** điểm chấm lại độc lập (mù tập, phiên không tự chấm bài mình), nên **C4 trượt ở 0,333**. (b) Điểm phiên tự chấm (0,738). (c) Thêm người chấm thứ ba mù tập, lấy trung vị.
+**Câu 2 — Nếu C4 trượt, đi tiếp thế nào?** (a) **Khuyến nghị:** giữ hình đã ký, đi tiếp C5. Ghi rõ C4 trượt phép thử che chữ, còn lời mang nghĩa (bản đọc thử C2 đã qua kiểm mù nghe; riêng đoạn phương pháp trượt, nay thành thẻ). Bài học vào tổng kết (phân loại nhịp; người chấm độc lập). (b) Dừng, thiết kế lại các nhịp < 2/3 theo nghĩa (KEY-1, 2, 3, 4, 6, 7), rồi kiểm lại; nhiều vòng, không chắc đạt (KEY-2/7 đã trượt 4–5 vòng). (c) Áp ngay đề xuất phân loại nhịp cho Tập 2: chủ dự án chọn nhịp nào là "hình tự mang ý", chỉ chấm các nhịp đó.
+**Câu 3 — Từ nay mọi phép thử kiểm mù do một agent độc lập, mù tập chấm** (phiên không tự chấm)? (a) Có. (b) Không.

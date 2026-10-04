@@ -1,0 +1,93 @@
+# C4 animatic — tiến độ (mỗi bước xong ghi một dòng)
+- 01/10 bắt đầu: đọc BRIEF, hệ ký, mã ep001/ep002; dựng khung thư mục, .gitignore (work/).
+- 01/10 Việc 0 xong: K4 sửa kỹ thuật (hũ rỗng ở khung 1, gần đầy ở khung 2), dựng lại K4.mp4/strip; bản trước = K4-v2.*.
+- 01/10 Việc 1 xong: timing.json (faster-whisper small.en, 13 cảnh, 582,4 s; S11 giữ 24 s cho thẻ; S13 đuôi 16 s), work/narration.m4a. Mã cảnh S01–S13 + anchors (107 neo, 0 từ khoá thiếu); thử khung tĩnh từng cảnh. Bắt đầu dựng toàn bộ.
+- 01/10 10:53 S07 dựng xong: S07 wall 228 s x 3.91 {"minDistTextToGraphicPx720":0,"minDistTextToTextPx720":62,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMissing
+- 01/10 10:53 S09 dựng xong: S09 wall 235 s x 3.83 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 10:53 S10 dựng xong: S10 wall 243 s x 3.73 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 10:56 S05 dựng xong: S05 wall 197 s x 4.14 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 10:57 S03 dựng xong: S03 wall 236 s x 3.97 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 10:57 S08 dựng xong: S08 wall 225 s x 4.01 {"minDistTextToGraphicPx720":0,"minDistTextToTextPx720":71.1,"minContrast":6.77,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 10:59 S02 dựng xong: S02 wall 152 s x 3.78 {"minDistTextToGraphicPx720":9.7,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 10:59 S06 dựng xong: S06 wall 152 s x 3.87 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:00 S04 dựng xong: S04 wall 191 s x 3.94 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 11:01 S11 dựng xong: S11 wall 98 s x 4.09 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":4,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMissing 
+- 01/10 11:01 S01 dựng xong: S01 wall 107 s x 3.96 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:03 S12 dựng xong: S12 wall 147 s x 3.71 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:04 S13 dựng xong: S13 wall 61 s x 3.81 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":99,"minContrast":99,"minFontPx1080":null,"outOfSafe":[],"badgeMissing":0} kwMissin
+- 01/10 11:07 S08 dựng xong: S08 wall 204 s x 3.64 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":71.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 11:07 S07 dựng xong: S07 wall 212 s x 3.63 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":46.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:10 S12 dựng xong: S12 wall 138 s x 3.48 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:14 S04 dựng xong: S04 wall 173 s x 3.56 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 11:15 S03 dựng xong: S03 wall 211 s x 3.55 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 11:16 Dựng lại S03/S04/S07/S08/S12 sau tự kiểm; dải KEY/Sxx ghép; check.py ALL OK (0 số ngoài claim); assemble: 9:42,4, 18,7 MB / 9,2 MB; legibility.md xong.
+- 01/10 11:17 README.md xong. Hoàn tất việc 0–7.
+- 01/10 11:23 S12 dựng xong: S12 wall 151 s x 3.82 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 11:24 S09 dựng xong: S09 wall 226 s x 3.69 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 11:24 S10 dựng xong: S10 wall 241 s x 3.71 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 11:26 Sửa KEY-7 (điều phối): 8.8%/4.5% S09; S10.1 nhảy 1/0/−1 + số; S10.2 về 3 + April 1977, S10.3 10.5% nhấp nháy; S12.1 nhấp nháy. Dựng lại S09/S10/S12, dải, check ALL OK (0 số ngoài claim), phim 19,1/9,6 MB.
+- 01/10 12:25 S06 dựng xong: S06 wall 157 s x 3.98 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 12:26 S09 dựng xong: S09 wall 236 s x 3.85 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 12:27 S10 dựng xong: S10 wall 257 s x 3.83 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 12:28 Chủ dự án C4 Q3a: S10.1 mỗi bậc một số (tỉ lệ chung) giữ ≥ 3 s, chèn 2,0 s nghỉ sau S10.1 (S10 = 67,1 s, phim 9:44,4); K4 thêm 'not to scale' (final: K4-v3.* giữ bản trước). Dựng lại S06/S09/S10, dải, check ALL OK (0 số ngoài claim), phim 19,1/9,6 MB.
+- 01/10 12:48 S08 dựng xong: S08 wall 217 s x 3.54 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":71.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 12:49 S08 take v5.1 (S08.d97e2064, 59,95 s, '…in dollars of the day'), nghỉ S08 1,25 s (khe S08.8→S09.1 = 1,38 s ở −40 dBFS); S08 = 61,23 s, phim 9:49,6; dựng lại S08, dải, check ALL OK, phim 19,3/9,7 MB.
+- 01/10 13:46 S04 dựng xong: S04 wall 220 s x 4.39 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 13:46 S09 dựng xong: S09 wall 238 s x 4.29 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 13:47 S10 dựng xong: S10 wall 284 s x 4.22 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 13:49 Script v5.2: take mới S04/S09/S10; timing lại (S04 50,13 · S09 55,40 · S10 67,33 · tổng 585,6 s), neo S04 k2b đổi từ khoá; dựng lại S04/S09/S10, dải (KEY-7 khung 6 ở 3 điểm), check ALL OK, phim 19,2/9,8 MB.
+- 01/10 14:17 S09 dựng xong: S09 wall 240 s x 4.33 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 14:18 S03 dựng xong: S03 wall 256 s x 4.3 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 14:18 S10 dựng xong: S10 wall 291 s x 4.32 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 14:21 S12 dựng xong: S12 wall 209 s x 5.28 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 14:22 S04 dựng xong: S04 wall 263 s x 5.25 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 14:24 S08 dựng xong: S08 wall 320 s x 5.23 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":20.3,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 14:25 C4c (a): nhãn nghĩa KEY-2/5/6/7 (README bảng nhãn); K7 vẽ qua k7Clip/k7At; dựng lại S03/S04/S08/S09/S10/S12, mọi dải, check ALL OK (0 số ngoài claim), phim 20,2/10,7 MB, độ dài không đổi 585,6 s.
+- 01/10 14:29 S12 dựng xong: S12 wall 169 s x 4.26 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 14:30 S09 dựng xong: S09 wall 229 s x 4.14 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 14:31 S10 dựng xong: S10 wall 274 s x 4.06 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 14:33 Nhãn cột KEY-7: CL('period_early_label') '1954–1980' / CL('period_late') '1981 on'; dựng lại S09/S10/S12, dải, phim; check ALL OK.
+- 01/10 14:45 C5 P: trang film.html + build/film.js (esbuild; window.CHECKS seek/freeze/objects/layer qua rec.js), case S06, nhãn 'dollars of the day' (S02/S03/S07/S08), S02 giả định (thẻ 'Repayment starts at once', S07 'Treasury bill rate', S12 'no rate cap'/'repayment starts at once'). Bắt đầu render 1080p (3 hàng).
+- 01/10 14:53 C5 S09 1080p xong (S09 done 489 s)
+- 01/10 14:54 C5 S07 1080p xong (S07 done 520 s)
+- 01/10 14:55 C5 S10 1080p xong (S10 done 590 s)
+- 01/10 15:00 C5 S05 1080p xong (S05 done 400 s)
+- 01/10 15:02 C5 S08 1080p xong (S08 done 504 s)
+- 01/10 15:03 C5 S03 1080p xong (S03 done 482 s)
+- 01/10 15:05 C5 S02 1080p xong (S02 done 331 s)
+- 01/10 15:08 C5 S06 1080p xong (S06 done 335 s)
+- 01/10 15:09 C5 S11 1080p xong (S11 done 206 s)
+- 01/10 15:10 C5 S04 1080p xong (S04 done 426 s)
+- 01/10 15:11 C5 S01 1080p xong (S01 done 219 s)
+- 01/10 15:15 C5 S12 1080p xong (S12 done 315 s)
+- 01/10 15:18 C5 S13 1080p xong (S13 done 130 s)
+- 01/10 15:57 C5 out/video.mp4 xong (17 568 khung, 24 Mb/s CBR + AAC 320k từ master mặc định); bắt đầu checks bản sao K3.6 --first.
+- 01/10 16:59 checks lần 1 (bản sao K3.6, --first): TRƯỢT — CHẶN: F11 (thumbnail C6), S02 (repay-now ngoài thẻ: nhãn S12 tách 2 dòng); CHÍNH: V03 (viên huy hiệu tới x 1842), V08/C14 (khung đỉnh nhúng nền), V09 (Leah chưa gắn char). Sửa: S12 nhãn một dòng, độ mờ ở khung nhúng, char/shape cho hình thoi; dựng lại S12, ghép lại, chạy lại.
+- 01/10 18:41 checks lần 2: 58 PASS/23 FAIL/1 MISSING, TRƯỢT chỉ F11 (thumbnail C6); CHÍNH còn V03 (viên huy hiệu tới x 1842). video SHA f8c2f3f4…
+- 01/10 18:43 V03: huy hiệu dời trái (H2 xr −18, H3 x −16) để viên kết thúc ở 1824; ở S10.1 bậc −1 thoi Leah chuyển về đầu trái thanh để không chạm viên. Dựng lại 1080p + 720p, chạy lại checks.
+- 01/10 18:51 C5 S09 1080p xong (S09 done 488 s)
+- 01/10 18:51 C5 S07 1080p xong (S07 done 520 s)
+- 01/10 18:53 C5 S10 1080p xong (S10 done 597 s)
+- 01/10 18:58 C5 S05 1080p xong (S05 done 420 s)
+- 01/10 19:00 C5 S08 1080p xong (S08 done 530 s)
+- 01/10 19:01 C5 S03 1080p xong (S03 done 507 s)
+- 01/10 19:04 C5 S02 1080p xong (S02 done 346 s)
+- 01/10 19:06 C5 S06 1080p xong (S06 done 342 s)
+- 01/10 19:07 C5 S11 1080p xong (S11 done 207 s)
+- 01/10 19:08 C5 S04 1080p xong (S04 done 430 s)
+- 01/10 19:10 C5 S01 1080p xong (S01 done 219 s)
+- 01/10 19:14 C5 S12 1080p xong (S12 done 314 s)
+- 01/10 19:16 C5 S13 1080p xong (S13 done 125 s)
+- 01/10 19:59 S09 dựng xong: S09 wall 242 s x 4.37 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 19:59 S07 dựng xong: S07 wall 260 s x 4.46 {"minDistTextToGraphicPx720":10.3,"minDistTextToTextPx720":9.3,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 20:00 S10 dựng xong: S10 wall 295 s x 4.38 {"minDistTextToGraphicPx720":7.4,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 20:02 S05 dựng xong: S05 wall 215 s x 4.52 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 20:04 S03 dựng xong: S03 wall 260 s x 4.38 {"minDistTextToGraphicPx720":8.7,"minDistTextToTextPx720":12.1,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMis
+- 01/10 20:04 S08 dựng xong: S08 wall 271 s x 4.42 {"minDistTextToGraphicPx720":8.3,"minDistTextToTextPx720":7.3,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:06 S02 dựng xong: S02 wall 177 s x 4.4 {"minDistTextToGraphicPx720":9.7,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:07 S04 dựng xong: S04 wall 220 s x 4.39 {"minDistTextToGraphicPx720":12.3,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMi
+- 01/10 20:07 S06 dựng xong: S06 wall 172 s x 4.37 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:07 S11 dựng xong: S11 wall 105 s x 4.36 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":4,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMissing
+- 01/10 20:09 S01 dựng xong: S01 wall 110 s x 4.07 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:10 S12 dựng xong: S12 wall 156 s x 3.95 {"minDistTextToGraphicPx720":10,"minDistTextToTextPx720":12.6,"minContrast":7.5,"minFontPx1080":48,"outOfSafe":[],"badgeMissing":0} kwMiss
+- 01/10 20:11 S13 dựng xong: S13 wall 58 s x 3.62 {"minDistTextToGraphicPx720":99,"minDistTextToTextPx720":99,"minContrast":99,"minFontPx1080":null,"outOfSafe":[],"badgeMissing":0} kwMissin

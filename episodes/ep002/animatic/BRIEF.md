@@ -1,0 +1,21 @@
+# Tập 2 · C4 — Brief dựng animatic toàn tập (P-ep002, 01/10/2026)
+
+**Đã ký (C3c/C3d), không đổi gu:** hệ hình `episodes/ep002/design/c3/final/` (`system.md`, `tokens.json`, `README.md`, `src/`). D2: K2/K4 theo nét H2, K3/K5/K6 theo nét H3, K1 bản r2. Bộ màu E2: `#C72323` = đắt hơn (không mang chữ), `#269783` = đệm, `warn` = lãi vượt 9%. Bảy nhịp then chốt dùng đúng bản đã ký: K1 r2 · K2 vòng sửa (hai thẻ, điểm bắt đầu nhảy) · K3 · K4 bản hũ · K5 · K6 ("Starting April 1977", "43% more") · K7 bản r2.
+**Kịch bản:** `episodes/ep002/story/script.md` (v5, S01–S13; S11 = một câu + thẻ phương pháp). **Nhịp:** `story/beats.md` (KEY-1…7: khoảng câu + "idea a muted viewer must read"). **Số:** `out/claims.json` / `numbers.md`. Chỉ dùng số có claim, qua bảng claim; không in số nội suy.
+**Mẫu quy trình (dùng lại MÃ, không dùng cảnh):** `episodes/ep001/animatic/` (README, `src/make_timing.py`, `build_anchors.py`, `check.py`, `assemble.py`, `encode.py`, `render.js`): định thời theo neo từ khoá, kiểm máy 0 số ngoài claim, ghép.
+
+## Việc
+0. **Sửa kỹ thuật K4 (chủ dự án duyệt C3d):** hũ **bắt đầu rỗng** và **đầy lên thấy rõ** trong khoảng 2 khung đầu của dải (tức 1/3 đầu nhịp). Sửa `design/c3/final/src/k4.js`, dựng lại `K4.mp4`, `K4-strip.png`, `K4-strip-masked.png` (giữ bản trước thành `K4-v2.*`).
+1. **Lời tạm:** dùng các take đã có trong `review-c2/table-read.json` (trường `use` của mỗi cảnh; file ở `review-c2/takes/`). Không gọi ElevenLabs. Tạo timeline mức từ bằng faster-whisper `small.en` trên CPU (đã cài, xem `story/table_read.py`), map về câu `Sxx.n` của script v5, rồi ra `animatic/timing.json`. Ghép lời bằng ffmpeg filter (aresample, mono, apad 0,8 s giữa cảnh) giống table_read.py.
+2. **Dựng S01–S13** ở 1280×720, 30 fps, canvas 2D (không 3D), theo hệ đã ký. Mọi hành động mang nghĩa neo vào câu + từ khoá (`anchors.json`), không giây cứng. Nhịp KEY đặt đúng khoảng câu trong beats.md. Cảnh không phải KEY dùng lại vật/ký hiệu của hệ (thẻ Leah, vạch 9%, đường T-bill, cửa sổ 10 năm, thùng token, hũ, chồng tiền) — **không thêm vật/gu mới**. Nếu một câu cần hình ngoài hệ, dùng ký hiệu gần nhất và liệt kê trong README mục "Cần chủ dự án xem".
+3. **Thẻ phương pháp S11** (G-014): đọc được ở 25% (thu về 480×270 vẫn đọc được). Chữ ≥ 40 px quy về 1080p. Thời gian hiện ≥ 1 s cho mỗi 3 từ (kéo dài cảnh bằng nghỉ, không đổi lời). Nội dung là các giới hạn mô hình ghi ở đầu script.md (T-bill 3 tháng thay SOFR, chỉ số hôm nay, biên, 753 điểm bắt đầu chồng nhau, sàn 0, không ân hạn/phí/trần, chỉ Mỹ, lịch sử không phải dự báo). Chỉ dùng số có claim.
+4. **Huy hiệu ILLUSTRATIVE** mỗi khi có số/khoản vay của Leah. Câu "history, not a forecast" và "US only" xuất hiện cả bằng lời lẫn trên hình như script.
+5. **Kiểm máy** (`animatic/check-report.json`, theo `check.py` Tập 1): claim ID mỗi cảnh; **0 số ngoài claim**; 0 chuỗi ra ngoài vùng an toàn; cỡ chữ nhỏ nhất ≥ 40 px quy về 1080p; tương phản chữ ≥ 4,5:1; khoảng cách chữ–nét ≥ 4 px; neo khai báo/đã dùng; từ khoá không thấy.
+6. **Dải kiểm mù** (`animatic/strips/`): với mỗi KEY-1…7, `KEY-n.png` và `KEY-n-masked.png`, 6 khung chia đều trong khoảng câu của nhịp (lấy từ timing.json), lưới 3×2, đánh số 1–6. Che chữ/số bằng **cờ dựng** (khối `surface #171B22` đúng hộp chữ), không làm mờ sau. Thêm `Sxx.png` 6 khung mỗi cảnh (không che) cho chủ dự án xem.
+7. **Đầu ra:** `animatic/out/animatic-720p.mp4` (có lời tạm), `animatic/out/silent-720p.mp4`, `animatic/README.md` (bảng cảnh: thời lượng, nhịp KEY, giây máy, cái gì khác bản ký), `animatic/legibility.md` (kiểm 25% từng cảnh, thẻ phương pháp đo riêng). Ghi rõ: khối đỏ K4 **không cùng thang** với hũ.
+
+## Ranh giới
+- Không commit, không push (P commit). Không sửa `checks/`. Chỉ ghi vào `episodes/ep002/animatic/` và (việc 0) `episodes/ep002/design/c3/final/` (K4).
+- CPU, tối đa 3 tiến trình render song song. Chromium headless: `NODE_PATH=/opt/node22/lib/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers`. ffmpeg mất thì `apt-get install -y ffmpeg`. `src/work/`, khung tạm: không để trong git (thêm .gitignore). Video cuối < 50 MB mỗi file.
+- Lưu tiến độ thường xuyên (mỗi cảnh xong ghi một dòng vào `animatic/PROGRESS.md`) để làm tiếp được nếu container khởi động lại.
+- Tin nhắn cuối ≤ 12 dòng: thời lượng, kết quả kiểm máy, thẻ phương pháp (thời gian hiện, đọc ở 25%), mục "Cần chủ dự án xem", giới hạn.

@@ -1520,13 +1520,214 @@ def f07_long_case(bad):
         f.close()
 
 
+# ---- K3.5: kind float-vs-fixed-replay (Episode 2) ------------------------------------------------------------------------------------------
+# Synthetic monthly index of 5 months, 2-payment loan of $1,200: every window can be worked by hand. Written from the spec text in this file (not the
+# rule's code): today = last index value 2.0, margin = 6.0 − 2.0 = 4.0; window rates (month 0, month 1):
+#   2000-01: 6, 4 + (2 + 12 − 1) = 17     2000-02: 6, 4 + max(0, 2 + 0.5 − 12) = 4 (floored)     2000-03: 6, 4 + (2 + 4 − 0.5) = 9.5     2000-04: 6, 4 + (2 + 2 − 4) = 4
+FVF_INDEX = [('2000-01-01', 1.0), ('2000-02-01', 12.0), ('2000-03-01', 0.5), ('2000-04-01', 4.0), ('2000-05-01', 2.0)]
+FVF_RATES = {'2000-01': (6, 17), '2000-02': (6, 4), '2000-03': (6, 9.5), '2000-04': (6, 4)}
+FVF_PARAMS = {'index': {'file': 'data/normalized/index.csv', 'dateColumn': 'date', 'valueColumn': 'rate'}, 'principal': 1200, 'termMonths': 2,
+              'fixedRate': 9.0, 'floatStartRate': 6.0, 'firstStart': '2000-01', 'indexFloor': 0, 'periodBreaks': ['2000-03'], 'spreads': [3.0]}
+
+
+def fvf_two_months(P, r0, r1):
+    """Two-payment loan by hand: month 0 pays the level payment over 2 months at r0; month 1 pays off what is left at r1. Returns (interest, max payment)."""
+    i0 = P * r0 / 1200
+    p0 = P * (r0 / 1200) / (1 - (1 + r0 / 1200) ** -2)
+    B1 = P - (p0 - i0)
+    i1 = B1 * r1 / 1200
+    return i0 + i1, max(p0, B1 + i1)
+
+
+def fvf_fixture(f, params=FVF_PARAMS, rates=FVF_RATES):
+    with open(f.p('data/normalized/index.csv'), 'w') as fh:
+        fh.write('date,rate\n' + ''.join(f'{d},{v}\n' for d, v in FVF_INDEX))
+    P = params['principal']
+    fpay = P * 0.0075 / (1 - 1.0075 ** -2)
+    fint = 2 * fpay - P                          # 9%: payment 606.7584…, interest 9 + 4.5168… = 13.5168…
+    assert abs(fint - 13.5168) < 1e-3, fint
+    wins = []
+    for s, (r0, r1) in rates.items():
+        tot, mp = fvf_two_months(P, r0, r1)
+        wins.append({'start': s, 'totalInterest': tot, 'difference': tot - fint, 'maxRate': max(r0, r1), 'maxPayment': mp})
+    assert [w['difference'] > 0 for w in wins] == [True, False, False, False]   # only 2000-01 (17% in month 1) costs more than 9% fixed
+    d = sorted(w['difference'] for w in wins)
+    worst, best = max(wins, key=lambda w: w['difference']), min(wins, key=lambda w: w['difference'])
+    # spread 3.0: the variable loan starts at 6.0 (as given) → the same share; computed as its own replay below for any other spread
+    out = {'principal': P, 'termMonths': 2, 'fixedRate': 9.0, 'floatStartRate': 6.0, 'firstStart': '2000-01-01', 'indexFloor': 0, 'rateCap': None,
+           'periodBreaks': ['2000-03-01'], 'nWindows': 4, 'firstStart_': None, 'lastStart': '2000-04-01', 'indexToday': 2.0, 'margin': 4.0,
+           'fixedPayment': fpay, 'fixedTotalInterest': fint, 'shareCostlier': 25.0, 'medianDifference': (d[1] + d[2]) / 2,
+           'bestDifference': best['difference'], 'bestStart': best['start'], 'worstDifference': worst['difference'], 'worstStart': worst['start'] + '-01',
+           'maxRate': 17, 'maxPayment': max(w['maxPayment'] for w in wins), 'windows': wins,
+           'periods': [{'from': '2000-01', 'to': '2000-02-01', 'nWindows': 2, 'shareCostlier': 50.0}, {'from': '2000-03-01', 'to': '2000-04', 'nWindows': 2, 'shareCostlier': 0.0}],
+           'sensitivity': {'3': 25.0}}
+    del out['firstStart_']
+    assert best['start'] == '2000-02' and worst['start'] == '2000-01'           # 2000-02 and 2000-04 tie on rates; the earliest is best
+    return out
+
+
+def fvf_s01_case(bad):
+    """S01 kind float-vs-fixed-replay: hand-worked windows pass, with dates written both as YYYY-MM and YYYY-MM-01 (normalised, topics-r2 V3);
+    bad = one window's difference off by $1.00."""
+    f = F('S01-fvf')
+    try:
+        f.contract(model={'kind': 'float-vs-fixed-replay', 'output': 'out/model.json', 'params': FVF_PARAMS})
+        out = fvf_fixture(f)
+        if bad:
+            out['windows'][2]['difference'] += 1.0
+        f.json('out/model.json', out)
+        return f.run('S01')
+    finally:
+        f.close()
+
+
+def fvf_s01_dates_case(bad):
+    """S01 float-vs-fixed-replay, months: bad = worstStart "2000-01-15" (not a month: a day other than 01 is not normalised to its month) fails."""
+    f = F('S01-fvf-dates')
+    try:
+        f.contract(model={'kind': 'float-vs-fixed-replay', 'output': 'out/model.json', 'params': FVF_PARAMS})
+        out = fvf_fixture(f)
+        out['worstStart'] = '2000-01-15' if bad else '2000-01'
+        f.json('out/model.json', out)
+        return f.run('S01')
+    finally:
+        f.close()
+
+
+def fvf_s05_variant(name, params, claims):
+    f = F('S05-fvf-' + name)
+    try:
+        fvf_fixture(f)
+        mc = [{'where': {'claimId': cid}, 'key': key} for cid, key, _ in claims]
+        f.contract(model={'kind': 'float-vs-fixed-replay', 'output': 'out/model.json', 'params': params, 'claims': mc}, characters={},
+                   claims={'illustrative': [], 'core': [], 'decisive': []})
+        f.json('out/claims.json', {'claims': [{'claimId': cid, 'value': v, 'display': str(v)} for cid, _, v in claims]})
+        return f.run('S05')
+    finally:
+        f.close()
+
+
+def fvf_s05_case(bad):
+    """S05 float-vs-fixed-replay claims (hand values): share costlier 25% overall, 50% in 2000-01..02, 0% from 2000-03; worst start 2000-01;
+    highest rate 17; sensitivity at a 3.0-point spread = 25%; at 0 points (variable starts at 9%) = 50% (2000-01 and 2000-03 cost more:
+    rates 9/20 and 9/12.5 vs 9/7 and 9/7). bad = the 2000-03.. period claimed at 50%."""
+    claims = [('fixed', 'fixedTotalInterest', 13.5168), ('all', 'shareCostlier', 25.0), ('p1', 'shareCostlier:2000-01', 50.0),
+              ('p2', 'shareCostlier:2000-03-01', 50.0 if bad else 0.0), ('n2', 'nWindows:2000-03', 2), ('wy', 'worstStartYear', 2000),
+              ('wm', 'worstStartMonth', 1), ('top', 'maxRate', 17), ('s3', 'shareCostlierAtSpread:3', 25.0), ('s0', 'shareCostlierAtSpread:0', 50.0)]
+    return fvf_s05_variant('claims', FVF_PARAMS, claims)
+
+
+def fvf_invariant_first_case(bad):
+    """S05 float-vs-fixed-replay invariant (1): bad = rateCap 5 under the 6% start rate (month 0 is not the offered rate) fails; good = cap 20."""
+    return fvf_s05_variant('first', {**FVF_PARAMS, 'rateCap': 5.0 if bad else 20.0}, [('fixed', 'fixedTotalInterest', 13.5168)])
+
+
+def fvf_invariant_index_case(bad):
+    """S05 float-vs-fixed-replay invariant (2): bad = indexFloor −5 lets the 2000-02 path go to 2 + 0.5 − 12 = −9.5 → floored at −5 < 0, fails."""
+    return fvf_s05_variant('index', {**FVF_PARAMS, 'indexFloor': -5.0 if bad else 0.0}, [('fixed', 'fixedTotalInterest', 13.5168)])
+
+
+# ---- K3.6: S05 keys of kind float-vs-fixed-replay (spec: episodes/ep002/checks-notes.md "K3.6") ---------------------------------------
+# Same 5-month index and 2-payment loan as K3.5. With the variable loan starting `s` points under the 9% fixed rate (start rate 9 − s, margin 7 − s),
+# the window rates (month 0, month 1) are, by hand: 2000-01: 9 − s, 20 − s   2000-02: 9 − s, 7 − s   2000-03: 9 − s, 12.5 − s   2000-04: 9 − s, 7 − s.
+#   s = −1: (10, 21) (10, 8) (10, 13.5) (10, 8)   all four cost more than 9% fixed (month 0 at 10% already outweighs month 1 at 8%: 14.0166 > 13.5168)
+#   s =  0: (9, 20) (9, 7) (9, 12.5) (9, 7)       2000-01 and 2000-03 cost more        → 50% in 2000-01..02, 50% from 2000-03
+#   s =  1: (8, 19) (8, 6) (8, 11.5) (8, 6)       2000-01 and 2000-03 (13.7692 > 13.5168) → 50%, 50%
+#   s =  2: (7, 18) (7, 5) (7, 10.5) (7, 5)       2000-01 only (2000-03: 12.2653)        → 50%, 0%
+#   s =  3: the K3.5 case, 2000-01 only                                                    → 50%, 0%
+# The worst window is 2000-01 at every spread.
+FVF_FIX_INT = 2 * (1200 * 0.0075 / (1 - 1.0075 ** -2)) - 1200     # 13.5168…: 9% fixed, two payments
+
+
+def fvf_hand_rates(s):
+    return {'2000-01': (9 - s, 20 - s), '2000-02': (9 - s, 7 - s), '2000-03': (9 - s, 12.5 - s), '2000-04': (9 - s, 7 - s)}
+
+
+def fvf_hand_share(s, months):
+    r = fvf_hand_rates(s)
+    return 100.0 * sum(1 for m in months if fvf_two_months(1200, *r[m])[0] > FVF_FIX_INT) / len(months)
+
+
+P1, P2 = ('2000-01', '2000-02'), ('2000-03', '2000-04')
+assert [fvf_hand_share(s, P1) for s in (-1, 0, 1, 2, 3)] == [100, 50, 50, 50, 50]
+assert [fvf_hand_share(s, P2) for s in (-1, 0, 1, 2, 3)] == [100, 50, 50, 0, 0]
+
+
+def fvf_worst(s):
+    return fvf_two_months(1200, *fvf_hand_rates(s)['2000-01'])[0] - FVF_FIX_INT
+
+
+def fvf_spread_period_case(bad):
+    """S05 "shareCostlierAtSpread:<points>:<period start>" at spreads −1, 0, 1, 2, 3 (hand table above; negative and zero spreads included);
+    bad = spread 2 from 2000-03 claimed at 50% (the spread-1 value)."""
+    claims = [(f'g{s}{per}', f'shareCostlierAtSpread:{s}:{per}', fvf_hand_share(s, P1 if per == '2000-01' else P2)) for s in (-1, 0, 1, 2, 3) for per in ('2000-01', '2000-03-01')]
+    if bad:
+        claims = [(c, k, 50.0 if k == 'shareCostlierAtSpread:2:2000-03-01' else v) for c, k, v in claims]
+    return fvf_s05_variant('spread-period', FVF_PARAMS, claims)
+
+
+def fvf_spread_worst_case(bad):
+    """S05 "worstDifferenceAtSpread:<points>" (hand: 2000-01 window at each spread minus the fixed interest) and "worstStartAtSpread:<points>"
+    (month claim "2000-01-01"; Year/Month forms 2000 / 1); bad = the worst difference at spread 0 off by $1.00."""
+    claims = [(f'w{s}', f'worstDifferenceAtSpread:{s}', fvf_worst(s) + (1.0 if bad and s == 0 else 0)) for s in (-1, 0, 3)]
+    claims += [('ws0', 'worstStartAtSpread:0', '2000-01-01'), ('wsy', 'worstStartAtSpreadYear:-1', 2000), ('wsm', 'worstStartAtSpreadMonth:-1', 1)]
+    return fvf_s05_variant('spread-worst', FVF_PARAMS, claims)
+
+
+def fvf_spread_worst_start_case(bad):
+    """S05 "worstStartAtSpread:<points>": bad = the worst start at spread 2 claimed "2000-03" (the window that costs more only up to spread 1)."""
+    return fvf_s05_variant('spread-worst-start', FVF_PARAMS, [('ws2', 'worstStartAtSpread:2', '2000-03' if bad else '2000-01')])
+
+
+def fvf_min_spreads_case(bad):
+    """S05 "minShareCostlierOverSpreads:<period start>" over params.spreads −1, 0, 1, 2, 3: 50% in 2000-01..02 (100, 50, 50, 50, 50), 0% from 2000-03
+    (100, 50, 50, 0, 0); bad = 50% from 2000-03 (the minimum over −1, 0, 1 only, as if the spreads 2 and 3 were left out)."""
+    params = {**FVF_PARAMS, 'spreads': [-1, 0, 1, 2, 3]}
+    return fvf_s05_variant('min-spreads', params, [('m1', 'minShareCostlierOverSpreads:2000-01', 50.0), ('m2', 'minShareCostlierOverSpreads:2000-03', 50.0 if bad else 0.0)])
+
+
+def fvf_payments_case(bad):
+    """S05 "floatFirstPayment" (level payment of $1,200 over 2 months at 6%: 1200 × 1.005² / 2.005 = 604.5037) and "firstPaymentGap"
+    (fixed 606.7584 − 604.5037 = 2.2547); bad = the gap with its sign turned (floatFirstPayment − fixedPayment)."""
+    ffp = 1200 * 1.005 ** 2 / 2.005
+    fpay = 1200 * 0.0075 / (1 - 1.0075 ** -2)
+    assert abs(ffp - 604.5037) < 1e-3 and abs(fpay - ffp - 2.2547) < 1e-3
+    return fvf_s05_variant('payments', FVF_PARAMS, [('fp', 'floatFirstPayment', ffp), ('gap', 'firstPaymentGap', (ffp - fpay) if bad else (fpay - ffp))])
+
+
+def fvf_window_case(bad):
+    """S05 "worstWindowMaxRate" (worst window 2000-01: 17%), "shareRateAboveFixed" (2000-01 at 17% and 2000-03 at 9.5% top 9%: 50%, though only 2000-01
+    costs more), "worstShareOfFixed" (100 × worst difference / fixed interest); bad = shareRateAboveFixed claimed 25% (the share costlier)."""
+    claims = [('peak', 'worstWindowMaxRate', 17.0), ('above', 'shareRateAboveFixed', 25.0 if bad else 50.0), ('ofFixed', 'worstShareOfFixed', 100 * fvf_worst(3) / FVF_FIX_INT)]
+    return fvf_s05_variant('window', FVF_PARAMS, claims)
+
+
+def fvf_rate_above_strict_case(bad):
+    """S05 "shareRateAboveFixed" is strict (> fixedRate): floatStartRate 9 = fixedRate, so every window has month 0 at exactly 9%; only 2000-01 (20%) and
+    2000-03 (12.5%) go above → 50%. bad = 100% (counting the months at exactly 9%)."""
+    return fvf_s05_variant('above-strict', {**FVF_PARAMS, 'floatStartRate': 9.0}, [('above', 'shareRateAboveFixed', 100.0 if bad else 50.0)])
+
+
+def fvf_month_claims_case(bad):
+    """S05 month claims (issue #13, proposal 1): firstStart "2000-01", lastStart "2000-04-01", worstStart "2000-01-01", bestStart "2000-02" compared after
+    normalisation; bad = worstStart "2000-01-15" (a day other than 01 is not a month)."""
+    claims = [('first', 'firstStart', '2000-01'), ('last', 'lastStart', '2000-04-01'), ('worst', 'worstStart', '2000-01-15' if bad else '2000-01-01'), ('best', 'bestStart', '2000-02')]
+    return fvf_s05_variant('months', FVF_PARAMS, claims)
+
+
 EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case,
          'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case, 'F07/too-long': f07_long_case,
          'F12/photo': f12_photo_case, 'F12/font': f12_font_case, 'F12/public-domain': f12_pd_case, 'F12/quote-card': f12_quote_case,
          'F12/self-made': f12_selfmade_case, 'F12/no-manifest': f12_manifest_case,
          'F12/loaded': f12_loaded_case, 'F12/loaded-font': f12_loaded_font_case, 'F12/generated': f12_generated_case,
          'S09/said-once': s09_once_case, 'S09/every-basis': s09_both_case, 'S09/screen': s09_screen_case, 'S09/unknown-basis': s09_unknown_case,
-         'S10/never-label': s10_never_label_case, 'S10/never-narration': s10_never_narration_case, 'S10/should': s10_should_case, 'S10/old-advice': s10_old_advice_case}
+         'S10/never-label': s10_never_label_case, 'S10/never-narration': s10_never_narration_case, 'S10/should': s10_should_case, 'S10/old-advice': s10_old_advice_case,
+         'S01/float-fixed': fvf_s01_case, 'S01/float-fixed-dates': fvf_s01_dates_case, 'S05/float-fixed': fvf_s05_case,
+         'S05/float-fixed-first-rate': fvf_invariant_first_case, 'S05/float-fixed-index': fvf_invariant_index_case,
+         'S05/float-fixed-spread-period': fvf_spread_period_case, 'S05/float-fixed-spread-worst': fvf_spread_worst_case,
+         'S05/float-fixed-spread-worst-start': fvf_spread_worst_start_case, 'S05/float-fixed-min-spreads': fvf_min_spreads_case,
+         'S05/float-fixed-payments': fvf_payments_case, 'S05/float-fixed-window': fvf_window_case, 'S05/float-fixed-rate-above': fvf_rate_above_strict_case,
+         'S05/float-fixed-months': fvf_month_claims_case}
 
 
 def main():

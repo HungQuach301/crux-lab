@@ -20,3 +20,8 @@ episodes/*/data/normalized/mortgage30_weekly.csv
 episodes/*/data/normalized/crosscheck_weekly.csv
 episodes/*/work/retired-takes/
 episodes/*/*/render/data.js
+
+# Tập 2: dữ liệu FRED chuẩn hoá (tải lại bằng episodes/ep002/data/fetch.py)
+episodes/ep002/data/normalized/
+episodes/ep002/out/checks/cache/
+episodes/ep002/work/audio/cache/
