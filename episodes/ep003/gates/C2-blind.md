@@ -1,0 +1,175 @@
+# C2 — Kết quả kiểm mù lời, vòng 1 (nguyên văn)
+
+Ý đồ `gates/C2-intent.md` v2 (commit `5cebb13`, trước khi chạy). Mẫu: `story/script.md` SHA-256 `b5c1c403d933aac3…`, lời thuần `afe1ddebd996a755…` (1335 từ, 11 cảnh). Người đọc: 9 agent mới (sonnet). Người chấm: 1 agent độc lập mù tập (sonnet); khoá nhãn commit trước khi chấm. Gán cảnh mất chú ý: `review-c2/attention.py` (≥ 5 từ liên tiếp).
+
+| Mẫu | Đúng | Khuyên | hyp | Khó hiểu | Mất chú ý theo cảnh |
+|---|---|---|---|---|---|
+| Ứng viên (5 T + 1 G) | 6/6 | 0/6 | 1/6 | 6/6 | {'S05': 3, 'S06': 1, 'S10': 1, 'S04': 2, 'S09': 1} |
+| Đối chứng M1b (3 T) | 3/3 (tiêu chí riêng) | 0/3 | — | 3/3 | 3/3 nêu chỗ mất chú ý |
+
+### T1 · b8b55dfe · R02 — điểm 1 · khuyên False · hyp True · khó hiểu True · cảnh ['S05', 'S06', 'S10']
+*Q, A1, A2 present; notes doubling imagined before May 2005.*
+
+> 1. The video follows Dana, a woman in her forties with savings she won't touch for 20 years. The savings now sit in 3-month Treasury bills that she keeps rolling over. She is weighing a Series EE savings bond, which promises at least double the money after 20 years, against continuing to roll the bills. The video replays every 20-year bill roll since 1934 (873 starting months, with today's doubling promise imagined for the years before May 2005). It then reports how often the roll beat double, when it fell short, and where the bar sits. It also checks buying power and ends by saying history doesn't choose for her.
+> 
+> 2. The roll ended above double in 52.3 percent of all 873 starts, about half. That figure hides separate eras. Starts from 1950 to 1989 beat double 93.1 percent of the time. Starts from 1990 on did it only 5.0 percent of the time. Starts from 1934 to 1949 never did. In the 17 months when the promise was real (May 2005 to September 2006), none reached double; they ended at 1.378 to 1.388 times the money. The bar is that the bill rate has to average about 3.47 percent a year over all 20 years. That figure is the bond's 3.53 percent doubling rate re-expressed the way bill rates are quoted. The long-run average since 1934 was 3.42 percent, just under it.
+> 
+> 3. Nothing was seriously confusing. Two passages were slightly muddy. "bill rates are quoted on a scale where the doubling line sits a little lower" is vague about why 3.53 and 3.47 differ. "a rule that matched the result in every one of the 873 starts" is slightly abstract. Also, "Starts from 1934 to 1949 never got there at all" sits oddly beside the "about half" headline until the reader works out that it describes the eras.
+> 
+> 4. "Across all of them, the roll ended above double 52.3 percent of the time, about half. But for starts from 1950 to 1989 it was 93.1 percent, nearly always, and for starts from 1990 on, just 5.0 percent, almost never." My attention dipped most in the dense run of percentages and era splits in paragraphs 12 to 14. Paragraph 14's "average bill rate ... ended below the rate in the starting month 87.6 percent of the time" is the heaviest of these. The bond mechanics paragraph (6), with its May and November reset, the 3-month interest penalty, and electronic versus paper, was also a bit of a slog.
+> 
+> 5. No. The video says outright: "That is not a reason to pick either path." It also says "The line doesn't say which to pick" and "History doesn't choose for her." It does not predict rates either: "Nobody can say where that average will land, and today's rate can't either," and it repeats "history, not a forecast."
+> 
+> 6. A viewer would take away no instruction to pick one option, only a way of thinking. Don't judge the choice by today's 3-month bill rate, because it has been a poor guide to the following 20 years. What matters is whether the bill rate averages above about 3.47 percent a year across all 20 years, and nobody knows that in advance. The double is a promise about dollars, not about what they buy. Over 20 years prices can eat much of it; the worst start, January 1966, bought only 58.0 percent of what the original money had bought. The right choice also depends on personal factors the video leaves out, such as what the money is for, what else the viewer owns, taxes, and purchase limits.
+
+### T2 · 2b350e7b · R03 — điểm 1 · khuyên False · hyp False · khó hiểu True · cảnh ['S04']
+*Q, A1, A2 present; distinguishes real-promise months; no assumption note.*
+
+> 1. The video follows Dana, in her 40s, who has savings she won't touch for 20 years. They sit in rolling 3-month T-bills. She is weighing a Series EE savings bond, which promises at least double the money after 20 years. The video replays history: it starts a 20-year bill roll in each month from 1934 to 2006 (873 rolls) and checks whether each ended above double. It then breaks the results out by era, looks at inflation, and gives a rate line the roll has to clear. It ends by saying history doesn't choose for her.
+> 
+> 2. The main question is whether the roll or the doubling promise would have left her better off. The answer is that it depended on the era. The roll beat double in 52.3% of all starts, about half. It did so in 93.1% of starts from 1950 to 1989, in 5.0% of starts from 1990 on, and in none of the 1934 to 1949 starts. In the 17 starts where the promise really existed (May 2005 to September 2006), none reached double; they ended at 1.378 to 1.388 times the money. The line to clear is an average bill rate of about 3.47% a year over all 20 years. The long-run average was 3.42%, just under that line. The median roll ended at 2.097 times the money.
+> 
+> 3. "bill rates are quoted on a scale where the doubling line sits a little lower." and "which is the bond's doubling measured the way bill rates are quoted, so the long-run average sat just under the line." The 3.53% versus 3.47% conversion isn't explained, so the two numbers look inconsistent at first. Also, "a rule that matched the result in every one of the 873 starts" is a bit abstract. Otherwise nothing was seriously confusing.
+> 
+> 4. "Across all the start months there are 873 of these rolls. They overlap a lot, so together they amount to a few long stretches of history, not 873 separate tries." My attention dipped slightly in the dense run of statistics and caveats around the sample sizes and the 1934 to 1949, 1950 to 1989 and 1990-on percentages. The 87.6% passage and the inflation passage with the 58.0% figure were also number-heavy.
+> 
+> 5. No. The video says outright "The line doesn't say which to pick" and "History doesn't choose for her." It also repeats "US only, and history, not a forecast," and says "Nobody can say where that average will land." It makes no prediction about interest rates.
+> 
+> 6. A viewer would take away a framework, not a pick. The rate on the day you start has been a poor guide to the following 20 years. What decides the race is whether the 3-month bill rate averages above roughly 3.47% across all 20 years. The doubling guarantee is in dollars, not buying power. Which option suits you depends on your own needs and other holdings, and the replay leaves out taxes and purchase limits.
+
+### T3 · 57b92752 · R09 — điểm 1 · khuyên False · hyp False · khó hiểu True · cảnh ['S05']
+*Q, A1, A2 present; promise real only in 17 starts.*
+
+> 1. The video follows Dana, an American in her forties with savings she won't touch for 20 years. The money sits in 3-month T-bills that she keeps rolling over. She is weighing a Series EE savings bond, which promises at least double the money after 20 years. It replays history: it starts a 20-year bill roll in every month from January 1934 to September 2006 (873 starts) and asks whether each ended above double. It finds the result depended heavily on the era, explains the bill-rate line a roll has to clear, and ends by saying history doesn't choose for her.
+> 
+> 2. The main question is whether the promise or the roll would have left Dana better off. The video's answer is that it depends on the era, and overall it's about a coin flip. The roll ended above double in 52.3% of all starts. It did so in 93.1% of starts from 1950 to 1989, in 5.0% of starts from 1990 on, and in none from 1934 to 1949. For the 17 starts where the promise was real (May 2005 to September 2006), none reached double; they ended at 1.378 to 1.388 times the money. The line to clear is an average bill rate of about 3.47% a year over all 20 years. The all-history average was 3.42%, just under that line. That rule matched the outcome in all 873 starts.
+> 
+> 3. Mildly confusing: "bill rates are quoted on a scale where the doubling line sits a little lower." It's not explained why the bond's 3.53% becomes 3.47% on the bill-rate scale. I also wasn't sure what "the doubling line" means until later in the video. Otherwise nothing was seriously confusing.
+> 
+> 4. "Starts from 1934 to 1949 never got there at all, so about half is really separate eras stitched together." My attention dipped here. The video throws a lot of percentages and period splits at me in quick succession (52.3, 93.1, 5.0, 87.6, 58.7) and I had to hold them all. The stretch about the "17 months from May 2005 to September 2006" and its exact multiples (1.378 and 1.388) was also dense.
+> 
+> 5. No. The video says outright "The line doesn't say which to pick" and "That is not a reason to pick either path." It also says "history, not a forecast," and that nobody can say where the average bill rate will land. It does not predict interest rates. It only notes that, since 1990, rates tended to drift down from their starting level, which it frames as history rather than a forecast.
+> 
+> 6. A viewer would take away several things:
+> - Don't judge the choice by today's 3-month bill rate (3.72% in August 2026). The roll is decided by the average rate across all 20 years, which nobody knows.
+> - The benchmark is roughly 3.47% a year averaged over 20 years, and the bill roll has to beat that to beat the double.
+> - The era in which you start has mattered enormously.
+> - "Double" is a promise in dollars, not in buying power. Inflation could have left it worth as little as 58.0% of the original purchasing power in the worst case.
+> - The video gives no instruction to buy one or the other. The decision depends on Dana's needs and what else she owns, and the replay leaves out taxes and purchase limits.
+
+### T4 · 74c74a49 · R04 — điểm 1 · khuyên False · hyp False · khó hiểu True · cảnh ['S04']
+*Q, A1, A2 present; no false claim of pre-2005 guarantee.*
+
+> 1. The video follows Dana, a woman in her forties with savings she won't touch for 20 years, currently rolling 3-month Treasury bills. She is weighing a Series EE savings bond that promises at least double the money after 20 years against continuing the bill roll. The video replays history: a 20-year bill roll started in every month from January 1934 to September 2006 (873 rolls), and it asks how often each roll ended above double. It finishes by saying history doesn't choose for her, and it gives a break-even line of about 3.47 percent average bill rate.
+> 
+> 2. The main question is which path would have left Dana better off, the doubling promise or the roll. The answer is that it depends on the era. The roll beat double 52.3 percent of the time overall, 93.1 percent for starts from 1950 to 1989, and 5.0 percent for starts from 1990 on. Starts from 1934 to 1949 never beat it. None of the 17 starts where the promise was real (May 2005 to September 2006) reached double; they ended at 1.378 to 1.388 times. To beat double, the bill rate must average about 3.47 percent a year across all 20 years (the 80 bills). That rule matched the result in all 873 starts. The long-run average since 1934 was 3.42 percent, just under the line.
+> 
+> 3. Passage that confused me: "Doubling in 20 years works out to 3.53 percent a year... bill rates are quoted on a scale where the doubling line sits a little lower." Later it says the line is "about 3.47 percent." Having two similar numbers (3.53 and 3.47) takes effort to follow, though the explanation of different quoting conventions mostly resolves it. Another: "the bill rate has to average about 3.47 percent a year across all 20 years, which is the bond's doubling measured the way bill rates are quoted, so the long-run average sat just under the line." It is dense. Otherwise, nothing serious.
+> 
+> 4. Attention dropped most at: "Across all the start months there are 873 of these rolls. They overlap a lot, so together they amount to a few long stretches of history, not 873 separate tries." This is a statistical caveat, and the numbers pile up. A milder dip is in the inflation section: "The worst start, January 1966, ended with a double that bought only 58.0 percent of what the original money had bought."
+> 
+> 5. No. The video says outright: "That is not a reason to pick either path," "The line doesn't say which to pick," "History doesn't choose for her," and "US only, and history, not a forecast." It also says nobody can say where the average bill rate will land, and today's rate can't either.
+> 
+> 6. The viewer would not get a pick-this-one instruction. The takeaways are:
+> - Don't judge the roll by today's bill rate (3.72 percent in August 2026), because only the average over all 20 years matters.
+> - Know the benchmark: the roll beats double only if bill rates average above roughly 3.47 percent a year.
+> - Double is a promise about dollars, not buying power. The doubled amount kept its buying power in only 58.7 percent of starts.
+> - The result depended heavily on the starting era, and your own needs and other holdings are not in the replay.
+
+### T5 · d35053a0 · R06 — điểm 1 · khuyên False · hyp False · khó hiểu True · cảnh ['S09']
+*Q, A1, A2 present; distinguishes real-promise months; no advice.*
+
+> 1. The video is about Dana, a woman in her forties with savings she won't touch for 20 years. They sit in 3-month Treasury bills that get rolled over. She is weighing them against a Series EE savings bond, which promises at least double the money after 20 years. The video replays 873 historical 20-year bill rolls, starting each month from 1934 to 2006. It asks how often the roll beat double. It then shows the results by era, looks at inflation, and gives a rate line a roll must clear. It ends by saying history doesn't choose for her.
+> 
+> 2. The main question is whether the promise or the roll would have left her better off. The answer is that it depends on the era. Across all 873 starts the roll ended above double 52.3% of the time, about half. For starts from 1950 to 1989 it was 93.1%. For starts from 1990 on it was 5.0%. Starts from 1934 to 1949 never got there. For the 17 starts from May 2005 to September 2006, where the promise was real, none reached double (they ended at 1.378 to 1.388 times). To beat double, the bill rate must average about 3.47% a year over all 20 years. The all-history average was 3.42%, and the median roll ended at 2.097 times. The doubled amount kept its buying power in 58.7% of starts, and the worst case (January 1966) bought only 58.0% of what the original money had bought.
+> 
+> 3. Nothing was seriously confusing. Two passages were slightly muddled:
+> - "Doubling in 20 years works out to 3.53 percent a year" versus "the bill rate has to average about 3.47 percent." The video explains these as different quoting conventions ("bill rates are quoted on a scale where the doubling line sits a little lower"), but it is easy to stumble over two similar numbers.
+> - "a rule that matched the result in every one of the 873 starts" is vague about what the rule is.
+> 
+> 4. Nowhere dropped sharply. The mildest dip was the methods sentence "How the replay was built, and what it leaves out, like taxes and purchase limits, is on screen and in the description." This points to material I can't see and is a flat aside. The dense run of statistics in the middle was also a bit heavy, but it stayed clear.
+> 
+> 5. No. The video says outright "That is not a reason to pick either path" and "The line doesn't say which to pick." It also says "History doesn't choose for her" and "US only, and history, not a forecast." It stresses that nobody can know the future bill-rate path, and that today's rate is a poor guide to the next 20 years. The 87.6% figure only describes the 1990-onward period. So it neither recommends an option nor predicts rates.
+> 
+> 6. There is no direct advice. A viewer would take away a framework:
+> - The rate today (3.72% on a bill) says little about a 20-year roll. What matters is the average bill rate over all 20 years, against a line of about 3.47%.
+> - Which era you start in has mattered enormously.
+> - Double is a promise in dollars, not in buying power.
+> - The right choice depends on personal needs and other holdings, and the viewer must decide.
+
+### G6 · 1f155210 · R07 — điểm 1 · khuyên False · hyp False · khó hiểu True · cảnh ['S05']
+*Q, A1, A2 present; no pre-2005 guarantee claim.*
+
+> 1. The video follows Dana, a saver in her forties with money she won't touch for 20 years. It sits in rolling 3-month Treasury bills. She is weighing a Series EE savings bond that promises at least double the money after 20 years. The video replays actual bill rates for every 20-year start from January 1934 to September 2006 (873 overlapping starts). It asks how often the roll beat double. It also shows when the roll fell short, and it gives a rate line the bill rates would have to clear. It ends by saying history can't choose for her.
+> 
+> 2. The roll beat double in 52.3 percent of starts, about half. That figure hides separate eras. Starts from 1950 to 1989 beat double 93.1 percent of the time, starts from 1990 on only 5.0 percent, and starts from 1934 to 1949 never did. The 17 months where the promise was real (May 2005 to September 2006) all fell short, ending at 1.378 to 1.388 times the money. To beat double, the 3-month bill rate has to average about 3.47 percent a year across all 20 years. That rule matched the outcome in all 873 starts. The long-run average since 1934 was 3.42 percent, just under the line. The median roll ended at 2.097 times. Double kept its buying power in 58.7 percent of starts, and the worst start (January 1966) bought only 58.0 percent of what the original money had.
+> 
+> 3. "Doubling in 20 years works out to 3.53 percent a year, compounded once a year," followed later by "the bill rate has to average about 3.47 percent... which is the bond's doubling measured the way bill rates are quoted." These are two different numbers for the same doubling line. The explanation (different quoting scales) is brief, so I had to take it on trust. Also mildly confusing: "a rule that matched the result in every one of the 873 starts" is stated without showing how.
+> 
+> 4. "Starts from 1934 to 1949 never got there at all, so about half is really separate eras stitched together." My attention dipped around the stretch of statistics in paragraph 10 and the early part of paragraph 14: "They overlap a lot, so together they amount to a few long stretches of history, not 873 separate tries," and "the average bill rate over the following 20 years ended below the rate in the starting month 87.6 percent of the time." These are dense and number-heavy with little new insight. The quoted sentence is where the numbers stack up fastest.
+> 
+> 5. No. The video says it explicitly: "That is not a reason to pick either path," "The line doesn't say which to pick," and "History doesn't choose for her." It also repeats "history, not a forecast" and says "Nobody can say where that average will land, and today's rate can't either." So it does not predict rates.
+> 
+> 6. The advice is indirect. Don't judge the 20-year roll by today's bill rate, because the starting rate has been a poor guide to the following decades. The test is whether bill rates average above roughly 3.47 percent over all 20 years. The promise of double is about dollars, not buying power. The decision depends on your own needs and other assets, and past results are US-only and no guarantee. It gives no explicit recommendation.
+
+### ctrl7 · 63977c20 · R01 — điểm 1 · khuyên False · hyp False · khó hiểu True · cảnh —
+*States 0.5-point cut pays back in 36 months; small loan needs more.*
+
+> 1. The video follows Maya, a homeowner who borrowed $375,000 at 7.62% in October 2023 and is weighing a refinance at this week's 7.03% average. The closing bill is a median $5,124. The simple calculator answer is that she breaks even in 24 months. Counting the balance she still owes, because a refinance restarts a 30-year schedule on a loan that already has 35 payments behind it, break-even is 30 months. It then compares smaller and larger loans (Dan at $115k, Priya at $1.005M). It also checks 13 historical rate drops of at least 1 point since 1971 and finishes with the cut each loan size needs.
+> 
+> 2. The main question is how far rates must fall before a refinance pays for itself. For a loan like Maya's, counting what is still owed, a cut of 0.5 points pays back within 36 months. Dan, with a small loan, needs 1.12 points. Priya, with a large loan, needs 0.2. Today's cut is 0.59 points, so Maya is ahead after 30 months and behind if she sells before then. At 0.25 points, Maya never catches up before her old loan would have been paid off.
+> 
+> 3. Possibly confusing: "Below 0.5 points, the fresh start can swallow the savings entirely." It is a bit abstract until you connect it to the earlier balance explanation. Also "Counting the balance, Maya never catches up before her old loan would have been paid off." The video says that at a 0.25-point cut the division promises 38 months, which is itself under the 36-month threshold stated later, so the two figures read as slightly inconsistent. Otherwise nothing seriously confusing.
+> 
+> 4. Attention dropped most at: "Method. Rates are Freddie Mac's weekly survey via FRED, checked against the Optimal Blue index since 2017. A drop counts when the monthly average falls at least 1 point from a peak before rising 1 point from its low. Costs are HMDA loan-level data from 2018 to 2025: originated refinances, first lien, 30-year term." It is a dense run of data-source jargon with no personal relevance. The historical-drops section ("The biggest fall began after the peak of 18.63% in 1981...") is also dense, with many dates and figures.
+> 
+> 5. No. The video does not tell you which option to pick, and it does not predict rates. It says explicitly "The rates here are history, not a forecast" and "nothing here says where rates go next." It lays out the trade-off and leaves the choice to you.
+> 
+> 6. A viewer would take away three questions to ask: how big the rate cut is, how old the loan is, and how long they will stay in the house. A small cut needs a long stay. A small loan needs a bigger cut, because closing costs barely grow with loan size. A young loan loses less to the fresh 30-year start. The monthly saving is only half the answer, and what you still owe is the other half. Compare break-even, counted with the balance, to how long you expect to keep the house. If you sell before break-even, the refinance is a loss.
+
+### ctrl8 · eb4cdd9c · R08 — điểm 1 · khuyên False · hyp False · khó hiểu True · cảnh —
+*0.5-point cut pays back in 36 months; Dan needs 1.12.*
+
+> 1. The video follows Maya, a homeowner with a $375,000 mortgage taken in October 2023 at 7.62%, who is weighing a refinance at this week's 7.03% rate. The refinance costs $5,124 (the 2025 median closing cost). It compares the simple calculator answer (bill divided by monthly saving, 24 months) with a fuller count that includes the higher balance left after restarting a 30-year loan (30 months). Maya's two neighbors, Dan ($115k loan) and Priya ($1.005M loan), show how loan size changes the result. Then it looks at 13 historical rate drops of 1 point or more since 1971 and finishes with the rate cut needed to pay back within 36 months.
+> 
+> 2. The question is how far rates must fall before a refinance pays for itself. For a loan like Maya's, counting what is still owed, a cut of 0.5 points pays it back within 36 months. Dan would need 1.12 points and Priya 0.2. Today's cut is 0.59 points, so Maya breaks even at 30 months (not 24) and loses money if she sells before then. Small cuts need long stays, small loans need bigger cuts, and a young loan loses less to the fresh start.
+> 
+> 3. Nothing was seriously confusing. These are the mildly muddy spots:
+> - "Counting what she still owes, break-even is not 24 months. It is 30." The idea is clear, but the arithmetic is not shown. I also wondered why $1,133 more owed at 24 months still ends in break-even at 30.
+> - "Below 0.5 points, the fresh start can swallow the savings entirely." This is slightly abstract.
+> - "Today's cut is 0.59 points" sits oddly next to 7.62% to 7.03%, which is a 0.59 difference. That is fine, but the earlier 0.25 and 1 point examples make it easy to lose track.
+> 
+> 4. "Maya's old loan already has 35 payments behind it. A refinance starts a fresh 30 years, so the new loan pays the balance down more slowly than the old one would have. Early payments are mostly interest." The passage has several long strings of numbers, and the whole stretch of 13 historical drops is a dense run of statistics. My attention dropped most in the section starting "In the drop that began in July 1984, the refinance came in November 1984. It needed 19 months to pay back, and the next drop of 1 point came 7 months later." The rapid list of dates and months in the historical-drops section made it hard to follow. The Method paragraph near the end ("Rates are Freddie Mac's weekly survey via FRED, checked against the Optimal Blue index...") is also dry, a data-source list.
+> 
+> 5. No. It says outright that "The rates here are history, not a forecast" and "nothing here says where rates go next." It also gives no pick. It lays out how the break-even depends on cut size, loan size, loan age and how long you stay, and it leaves the choice to the viewer.
+> 
+> 6. A viewer would take these points:
+> - Do not trust the simple "closing costs divided by monthly saving" calculation. Count the balance you still owe on the new loan versus the old one.
+> - Check three things for your own loan: how big the rate cut is, how old your loan is, and how long you will keep the house.
+> - A small cut (under about 0.5 points) on a small loan needs a long stay, and may never pay back.
+> - A young loan loses less to the fresh start.
+> - If you sell before the break-even month, the refinance is a loss.
+> - Rates sometimes fell another point before the first refinance paid back, so expect that you might face the question twice.
+
+### ctrl9 · 20a4c880 · R05 — điểm 1 · khuyên False · hyp False · khó hiểu True · cảnh —
+*Gives 0.5 cut for Maya, Dan needs 1.12, Priya 0.2.*
+
+> 1. The video follows Maya, who borrowed $375,000 in October 2023 at 7.62%. The average rate is now 7.03%, and refinancing costs the median $5,124. It asks when a refinance pays for itself. The usual calculator divides cost by monthly savings and says 24 months for Maya. The video says that ignores the fresh 30-year clock, which leaves her owing more. Counting the balance, break-even is 30 months. It compares Maya with Dan (small loan) and Priya (large loan), then shows how all 13 rate drops of 1 point or more since 1971 played out.
+> 
+> 2. The question is how far rates must fall for a refinance to pay back within 36 months, counting what is still owed. For a loan like Maya's, a cut of 0.5 points does it. Dan needs 1.12 points and Priya needs 0.2. Today's cut of 0.59 points means Maya is ahead after 30 months and behind if she sells earlier. The answer depends on loan size, loan age and how long the house is kept. Small cuts (under 0.5 points) can be swallowed by the fresh start.
+> 
+> 3. Nothing really confused me. Two spots were slightly unclear:
+> - "In each, someone like Maya borrows at the peak and refinances in the first month the rate is 1 point lower." This is a little abstract. It is also at odds with the later point that Maya's loan is 35 payments old, not months old.
+> - "Priya saves $593 a month, and is even after 11 months." I wondered whether this is the simple division or the balance-adjusted count. It is probably the balance-adjusted one.
+> 
+> 4. Nowhere clearly. The closest was the long run of dollar figures: "If Dan sells after 3 years, the refinance leaves him $1,777 behind. After 7 years, he is only $386 ahead. Priya saves $593 a month, and is even after 11 months..." The numbers come in quick succession across three people. The method paragraph ("Rates are Freddie Mac's weekly survey via FRED, checked against the Optimal Blue index...") was also dry.
+> 
+> 5. No. It never tells me to refinance or to wait. It says "The rates here are history, not a forecast" and "nothing here says where rates go next." It gives break-even thresholds and leaves the decision to me.
+> 
+> 6. As a homeowner, I would take these points:
+> - Do not trust the simple "closing costs divided by monthly savings" figure. Also count the balance you still owe on a fresh 30-year loan.
+> - Check three things for my own loan: how big the rate cut is, how old the loan is, and how long I will stay.
+> - Small cuts (under about 0.5 points) and small loans need a longer stay or a bigger cut. Large loans and young loans break even faster.
+> - Selling before the break-even month turns the refinance into a loss.
+> - If the rate keeps falling, a second refinance starts a new clock with a new bill.
+> - Get my own actual closing-cost quote, since $5,124 is only a median.
