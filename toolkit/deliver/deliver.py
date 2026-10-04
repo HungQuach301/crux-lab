@@ -21,10 +21,14 @@ YT = [(2160, 35, 53), (1440, 16, 24), (1080, 8, 12), (720, 5, 7.5), (480, 2.5, 4
 
 def probe(video):
     r = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries',
-                        'stream=height,avg_frame_rate', '-of', 'json', video], capture_output=True, check=True, text=True)
+                        'stream=height,avg_frame_rate,r_frame_rate', '-of', 'json', video],
+                       capture_output=True, check=True, text=True)
     s = json.loads(r.stdout)['streams'][0]
-    n, d = s['avg_frame_rate'].split('/')
-    return int(s['height']), float(n) / float(d or 1)
+    for k in ('avg_frame_rate', 'r_frame_rate'):
+        n, _, d = s.get(k, '0/0').partition('/')
+        if float(n or 0) > 0 and float(d or 1) > 0:
+            return int(s['height']), float(n) / float(d or 1)
+    raise SystemExit(f'không đọc được fps của {video}')
 
 
 def youtube_bitrate(height, fps):
@@ -98,21 +102,28 @@ Mã in ra phải là `{digest}`. Tải xong thì báo để xoá nhánh giao hà
 """
 
 
+def branch_free(repo, branch, remote=True):
+    """Dừng sớm (trước khi mã hoá) nếu nhánh đã có ở local hoặc trên origin."""
+    git = lambda *a: subprocess.run(['git', '-C', repo, *a], capture_output=True, text=True)
+    if git('branch', '--list', branch).stdout.strip():
+        sys.exit(f'nhánh {branch} đã có ở local: xoá hoặc chọn tên khác')
+    if remote:
+        r = git('ls-remote', '--heads', 'origin', branch)
+        if r.returncode == 0 and r.stdout.strip():
+            sys.exit(f'nhánh {branch} đã có trên origin: chủ dự án tải xong thì xoá, hoặc chọn tên khác')
+
+
 def commit_branch(repo, branch, files, push=False, message=None):
     """Commit `files` lên nhánh mồ côi `branch` qua một worktree tạm; nhánh đang làm không đổi."""
     git = lambda *a, **k: subprocess.run(['git', '-C', repo, *a], check=True, capture_output=True, text=True, **k)
-    if git('branch', '--list', branch).stdout.strip():
-        sys.exit(f'nhánh {branch} đã có: xoá hoặc chọn tên khác')
+    branch_free(repo, branch, remote=False)
     wt = tempfile.mkdtemp(prefix='deliver-')
+    ok = False
     try:
-        git('worktree', 'add', '--detach', wt)
+        git('worktree', 'add', '--detach', '--no-checkout', wt)
         w = lambda *a: subprocess.run(['git', '-C', wt, *a], check=True, capture_output=True, text=True)
         w('checkout', '--orphan', branch)
-        w('rm', '-rf', '--cached', '--quiet', '.')
-        for e in os.listdir(wt):
-            if e != '.git':
-                p = os.path.join(wt, e)
-                shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
+        w('rm', '-rf', '--cached', '--quiet', '--ignore-unmatch', '.')
         for f in files:
             shutil.copyfile(f, os.path.join(wt, os.path.basename(f)))
         w('add', '--', *[os.path.basename(f) for f in files])
@@ -127,10 +138,13 @@ def commit_branch(repo, branch, files, push=False, message=None):
                     break
             else:
                 sys.exit(f'push thất bại: {r.stderr.strip()}')
+        ok = True
         return sha
     finally:
         subprocess.run(['git', '-C', repo, 'worktree', 'remove', '--force', wt], capture_output=True)
         shutil.rmtree(wt, ignore_errors=True)
+        if not ok:  # không để lại nhánh local chặn lần chạy sau
+            subprocess.run(['git', '-C', repo, 'branch', '-D', branch], capture_output=True)
 
 
 def main(argv=None):
@@ -143,6 +157,8 @@ def main(argv=None):
     ap.add_argument('--skip-encode', action='store_true', help='video đã là bản tải YouTube; chỉ chia phần')
     ap.add_argument('--branch'); ap.add_argument('--repo', default='.'); ap.add_argument('--push', action='store_true')
     a = ap.parse_args(argv)
+    if a.branch:
+        branch_free(os.path.abspath(a.repo), a.branch, remote=a.push)
     os.makedirs(a.out, exist_ok=True)
     name = f'{a.name}-youtube.mp4'
     up = os.path.join(a.out, name)

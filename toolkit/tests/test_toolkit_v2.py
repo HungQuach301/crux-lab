@@ -104,8 +104,30 @@ class Packets(unittest.TestCase):
         plan[('ep003', 'KEY-2', 3)] = (1, False)
         res, _, _ = self._score(plan)
         self.assertEqual({r['id']: r['status'] for r in res['rows']}['KEY-2'], 'PASS')
-        self.assertEqual((res['gate_pass'], res['gate_beats'], res['verdict']), (2, 2, 'PASS'))
-        self.assertIn('2/2', packets.markdown(res))
+        # 2/2 nhịp loại 1 đạt, nhưng KEY-3 (loại 2) có câu khuyên → cổng trượt
+        self.assertEqual((res['gate_pass'], res['gate_beats'], res['verdict']), (2, 2, 'FAIL'))
+        self.assertEqual(res['advice_beats'], ['KEY-3'])
+        self.assertIn('câu khuyên ở KEY-3', packets.markdown(res))
+        plan[('ep003', 'KEY-3', 1)] = (1, False)
+        res, rk, sp = self._score(plan)
+        self.assertEqual(res['verdict'], 'PASS')
+
+    def test_classes_guard(self):
+        packets.deal(self.man, self.out, self.key, [1, 2])
+        plan = {(s, i, k): (1, False) for s, i in (('ep003', 'KEY-1'), ('ep003', 'KEY-2'), ('ep003', 'KEY-3'),
+                                                    ('ep001', 'S05')) for k in (1, 2)}
+        res, rk, sp = self._score(plan)
+        cls = os.path.join(self.d, 'classes.json')
+        json.dump({'KEY-1': 'image', 'KEY-2': 'image', 'KEY-3': 'illustration'}, open(cls, 'w'))
+        ok = packets.tally(self.key, rk, sp, classesfile=cls)
+        self.assertEqual(ok['classes']['image_share'], 0.667)
+        json.dump({'KEY-1': 'image', 'KEY-2': 'illustration', 'KEY-3': 'illustration'}, open(cls, 'w'))
+        with self.assertRaises(SystemExit):  # manifest lệch bảng đã báo
+            packets.tally(self.key, rk, sp, classesfile=cls)
+        json.dump({'KEY-1': 'image', 'KEY-2': 'image', 'KEY-3': 'illustration', 'KEY-4': 'illustration',
+                   'KEY-5': 'illustration'}, open(cls, 'w'))
+        with self.assertRaises(SystemExit):  # loại 1 = 40% < 60%
+            packets.tally(self.key, rk, sp, classesfile=cls)
 
     def test_beat_status_table(self):
         B = packets.beat_status
@@ -162,6 +184,10 @@ class Deliver(unittest.TestCase):
             self.assertEqual(sorted(ls), sorted(rec['parts'] + ['SHA256SUMS', 'JOIN.md']))
             self.assertEqual(g('rev-parse', '--abbrev-ref', 'HEAD').stdout.strip(), head)
             self.assertEqual(g('status', '--porcelain').stdout.strip(), '')
+            # nhánh đã có trên origin → dừng trước khi mã hoá
+            g('branch', '-D', 'ep999-delivery')
+            with self.assertRaises(SystemExit):
+                deliver.branch_free(repo, 'ep999-delivery', remote=True)
 
 
 if __name__ == '__main__':

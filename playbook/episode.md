@@ -1,15 +1,16 @@
 # Sổ tay chạy một tập (playbook v2, 04/10/2026)
 
-Áp từ Tập 3 (`decisions/D-005.md`). Khung: `playbook/quality-framework.md` v2. Prompt mẫu: `playbook/prompts/`. Một tập chạy bằng một dòng: **"Chạy Tập N, đề tài #k, phiên P1"** (rồi P2, P3).
+Áp từ Tập 3 (`decisions/D-005.md`). Khung: `playbook/quality-framework.md` v2. Prompt mẫu: `playbook/prompts/`. Một tập chạy bằng một dòng: **"Chạy Tập N, phiên P1"** (máy đề xuất đề tài ở C1) hoặc **"Chạy Tập N, đề tài #k, phiên P1"** (rồi P2, P3).
 
 ## 1. Ba phiên ngắn
 
 | Phiên | Cổng | Bắt đầu khi | Kết thúc khi | Chủ dự án |
 |---|---|---|---|---|
-| **P1** | C1 (GU) → C2 (TỰ ĐỘNG) → giao phiên K | Đề tài #k có trong `topics/queue.md` với hồ sơ theo `topic-dossier.md` | C2 qua (hoặc qua bằng dự phòng); issue C2 + issue phân loại nhịp đã mở; danh sách claim gửi phiên K | 1 lần (C1) |
-| **P2** | C3 (GU) → C4 (TỰ ĐỘNG) | PLAN ghi "P1 xong"; khoá K của tập đã merge `main` | Animatic qua C4 (hoặc ngoại lệ); checks đủ bộ lần 1 | 1 lần (C3) |
+| **P1** | C1 (GU) → C2 (TỰ ĐỘNG) → giao phiên K | Có đề tài #k do chủ dự án chỉ, **hoặc** `topics/queue.md` có ≥ 1 đề tài với hồ sơ đạt `topic-dossier.md` | C2 qua (hoặc qua bằng dự phòng); issue C2 + issue phân loại nhịp đã mở; danh sách claim gửi phiên K | 1 lần (C1) |
+| **P2** | C3 (GU) → C4 (TỰ ĐỘNG) | PLAN ghi "P1 xong". C3 không cần khoá K; **C4 cần khoá K** của tập đã merge `main` | Animatic qua C4 (hoặc ngoại lệ); checks đủ bộ lần 1 | 1 lần (C3) |
 | **P3** | C5 (TỰ ĐỘNG) → C6 (GU) → giao hàng | PLAN ghi "P2 xong" | Chủ dự án tải xong bản giao; nhánh `epNNN-delivery` xoá; tập merge `main` | 1 lần (C6) + xác nhận tải |
 
+- **Chọn đề tài nằm trong C1** (D-005 bổ sung), không thêm lượt tham gia. Khi prompt không nêu #k, P1 lấy tối đa 3 ứng viên từ `topics/queue.md` có hồ sơ đạt chuẩn. Thứ tự ưu tiên: (1) trụ nội dung ít tập nhất trước (đếm tập đã merge `main`: tới Tập 2 là vay nợ 2, hưu trí 0, thuế 0); (2) `model.kind` có sẵn trong `checks/`. Mỗi ứng viên dựng một logline. Câu hỏi đề tài và câu hỏi logline gộp làm một câu trong gói C1, kèm khuyến nghị và lý do. Chủ dự án được chọn đề tài ngoài danh sách. Máy không tự chọn (D-004); xét lại khi có số đo trễ YouTube của ≥ 3 tập từ đề tài máy.
 - Mỗi tập một nhánh `epNNN` (từ `main`). Chỉ P3 merge `epNNN` vào `main` (fetch trước; trong file dùng chung chỉ sửa phần của tập).
 - **Bàn giao qua `episodes/epNNN/PLAN.md`.** Cuối mỗi phiên, PLAN có đủ năm mục: (1) bảng cổng và quyết định; (2) **"Phiên sau đọc"**: danh sách file có tên, tối đa ~8 file; (3) việc treo; (4) điểm dừng an toàn và lệnh chạy tiếp; (5) KPI tạm (§8).
 - **Phiên sau chỉ đọc** `CHARTER.md`, `quality-framework.md`, file này, `PLAN.md`, `ledger.md` và các file trong mục (2). Không đọc nguyên văn kiểm mù (`gates/*-blind.md`). Không đọc tập cũ, trừ file thư viện hình được nêu tên.
@@ -40,7 +41,7 @@
 
 Khi C2 qua, chạy song song với C3:
 - **Phiên K** (§7).
-- **Chốt phối nhạc:** phong cách theo G-016. Đo độ lặp T2 (`toolkit/audio/d_music_selfsim.py`, Tham khảo; Tập 1 29%, Tập 2 sau sửa 19,7%). Nhạc và cách phối là gu: phiên chuẩn bị, **chủ dự án chọn ở C3** (clip ≤ 60 s).
+- **Chuẩn bị phối nhạc:** phong cách theo G-016. Đo độ lặp T2 (`toolkit/audio/d_music_selfsim.py`, Tham khảo; Tập 1 29%, Tập 2 sau sửa 19,7%). Nhạc và cách phối là gu: phiên chuẩn bị, **chủ dự án chọn ở C3** (clip ≤ 60 s).
 - **Lời theo cảnh:** sinh giọng theo cảnh (G-015), tên take theo hash chữ. Kiểm từ khoá ASR ngay khi sinh. Khi kịch bản đổi, **chỉ sinh lại cảnh đổi chữ**.
 
 ## 5. Gói phát hành
@@ -72,7 +73,7 @@ python3 toolkit/deliver/deliver.py episodes/epNNN/out/video.mp4 --out episodes/e
 |---|---|---|
 | Số lần chủ dự án tham gia | Mỗi lần dừng chờ chủ dự án (cổng, câu hỏi ngoài cổng, xác nhận) | 11 cổng (C1, C2, C2b, C3, C3b, C3c, C3d, C4, C4b, C4c, C6) + 1 tin gửi nhầm + giao hàng |
 | Số vòng mỗi cổng | Vòng kiểm/sửa tới khi qua | C1 1 · C2 3 (+C2b) · C3 ~6 vòng hình · C4 3 · C5 1 (+4 cảnh sinh lại) · C6 1 (+phối lại nhạc) |
-| Số lượt agent | Mỗi agent con một lượt | ≈ 300 (kiểm mù ≈ 285, trong đó so cặp gói phát hành 72) |
+| Số lượt agent | Mỗi agent con một lượt | ≈ 300 (cộng từ `gates/`: kiểm mù ≈ 287 người đọc + chấm, trong đó so cặp gói phát hành 72) |
 | Ký tự ElevenLabs | Header `character-cost` | 9.436 |
 | Thời gian | Từ khởi động P1 tới C6 duyệt; từ C6 tới tải xong | 01/10 02:35 → C5 xong trong ngày 01/10; C6 duyệt 04/10; giao hàng 04/10 |
 | Điểm L3 | Phiếu §8 của quality-framework | chưa ghi số (phát hành CÓ) |
@@ -87,6 +88,6 @@ Mục tiêu Tập 3 (playbook v2): chủ dự án tham gia **3 lần + xác nh�
 | Cắt dải kiểm mù | `python3 toolkit/blind/strips.py VIDEO SPANS.json OUTDIR` |
 | Chia mẫu cho người đọc | `python3 toolkit/blind/packets.py deal manifest.json --out <scratch>/blind/Cx --key episodes/epNNN/review-cx/key.json --slots 1,2` |
 | Gói người chấm | `… packets.py packet --key … --answers … --rubric … --packet … --rubric-key …` |
-| Gộp điểm, dừng sớm | `… packets.py tally --key … --rubric-key … --scores … --md gates/Cx-tally.md`; người thứ 3: `packets.py next …` rồi `deal --slots 3 --only <set/id,…>` |
+| Gộp điểm, dừng sớm (**chỉ C3, C4**: ≤ 3 người đọc mỗi nhịp; C1, C2 đếm theo ý đồ) | `… packets.py tally --key … --rubric-key … --scores … --classes beats-class.json --md gates/Cx-tally.md` (C3: `--threshold 1`; C4: mặc định 0.8); người thứ 3: `packets.py next …` rồi `deal --slots 3 --only <set/id,…>` |
 | Giao hàng | `python3 toolkit/deliver/deliver.py …` (§6) |
 | Test công cụ | `python3 -m unittest discover -s toolkit/tests` |

@@ -135,9 +135,29 @@ def beat_status(readers):
     return ('PASS' if n_ok >= 2 else 'FAIL'), n_ok, adv
 
 
-def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8):
+MIN_IMAGE_SHARE = 0.6  # nhịp loại 1 ≥ 60% số nhịp then chốt (quality-framework v2 §5.8)
+
+
+def check_classes(key, classesfile):
+    """Bảng phân loại đã báo qua issue ({id: "image"|"illustration"}): manifest phải khớp, loại 1 ≥ 60%."""
+    cl = _load(classesfile)
+    cand = key['candidate_set']
+    bad = sorted({v['id'] for v in key['items'].values() if v['set'] == cand and cl.get(v['id']) != v.get('kind')})
+    if bad:
+        sys.exit(f'loại nhịp trong manifest lệch bảng phân loại đã báo: {", ".join(bad)}')
+    share = sum(k == 'image' for k in cl.values()) / len(cl)
+    if share < MIN_IMAGE_SHARE:
+        sys.exit(f'nhịp loại 1 chỉ {share:.0%} < {MIN_IMAGE_SHARE:.0%} số nhịp then chốt')
+    return {'file': os.path.basename(classesfile), 'sha256': _sha(classesfile), 'image_share': round(share, 3)}
+
+
+def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None):
+    """Chỉ cho kiểm theo nhịp ở C3, C4 (≤ 3 người đọc mỗi mẫu). C1, C2 đếm theo ý đồ của cổng."""
     key, rk, sc = _load(keyfile), _load(rubrickeyfile), _load(scoresfile)
     cand = key['candidate_set']
+    if any(v['slot'] > 3 for v in key['items'].values()):
+        sys.exit('tally chỉ dùng cho kiểm theo nhịp (≤ 3 người đọc); C1/C2 đếm theo ý đồ của cổng')
+    classes = check_classes(key, classesfile) if classesfile else None
     per = {}
     for lab, h in rk.items():
         if lab not in sc:
@@ -155,14 +175,16 @@ def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8):
         rows.append({'set': st, 'id': sid, 'kind': d['kind'], 'scores': [s for _, s, _, _ in rs], 'readers': len(rs),
                      'correct': n_ok, 'advice': adv, 'status': status, 'why': [w for *_, w in rs]})
     gate = [r for r in rows if r['set'] == cand and r['kind'] == 'image']
+    # câu khuyên ở BẤT KỲ nhịp nào của bộ ứng viên (kể cả loại 2) làm cổng trượt
+    advice_beats = [r['id'] for r in rows if r['set'] == cand and r['advice']]
     pending = [r['id'] for r in gate if r['status'] not in ('PASS', 'FAIL')]
     n_pass = sum(r['status'] == 'PASS' for r in gate)
     res = {'candidate_set': cand, 'threshold': threshold, 'rows': rows, 'gate_beats': len(gate), 'gate_pass': n_pass,
-           'pending': pending}
+           'pending': pending, 'advice_beats': advice_beats, 'classes': classes}
     if gate and not pending:
         share = n_pass / len(gate)
         res['share'] = round(share, 3)
-        res['verdict'] = 'PASS' if share >= threshold else 'FAIL'
+        res['verdict'] = 'PASS' if share >= threshold and not advice_beats else 'FAIL'
         res['near_threshold'] = abs(share - threshold) <= 0.05  # chống Goodhart: ±5% quanh ngưỡng phải nêu tên
     else:
         res['verdict'] = 'PENDING'
@@ -178,8 +200,12 @@ def markdown(res):
         L.append(f"\n**Chưa xong:** cần người đọc thêm cho {', '.join(res['pending']) or '—'}.")
     else:
         near = ' — **trong ±5% quanh ngưỡng**' if res['near_threshold'] else ''
+        adv = f"; câu khuyên ở {', '.join(res['advice_beats'])}" if res['advice_beats'] else ''
         L.append(f"\n**Cổng ({res['candidate_set']}, nhịp loại image): {res['gate_pass']}/{res['gate_beats']} = "
-                 f"{res['share']:.0%}; ngưỡng {res['threshold']:.0%} → {res['verdict']}{near}.**")
+                 f"{res['share']:.0%}; ngưỡng {res['threshold']:.0%}{adv} → {res['verdict']}{near}.**")
+    if res.get('classes'):
+        c = res['classes']
+        L.append(f"Bảng phân loại `{c['file']}` SHA-256 `{c['sha256'][:12]}…`, loại 1 = {c['image_share']:.0%}.")
     return '\n'.join(L)
 
 
@@ -196,7 +222,7 @@ def main(argv=None):
     t = sub.add_parser('tally')
     t.add_argument('--key', required=True); t.add_argument('--rubric-key', required=True)
     t.add_argument('--scores', required=True); t.add_argument('--threshold', type=float, default=0.8)
-    t.add_argument('--json'); t.add_argument('--md')
+    t.add_argument('--json'); t.add_argument('--md'); t.add_argument('--classes', help='bảng phân loại nhịp đã báo')
     n = sub.add_parser('next')
     n.add_argument('--key', required=True); n.add_argument('--rubric-key', required=True)
     n.add_argument('--scores', required=True)
@@ -208,7 +234,7 @@ def main(argv=None):
     elif a.cmd == 'packet':
         print('nhãn:', ' '.join(packet(a.key, a.answers, a.rubric, a.packet, a.rubric_key)))
     elif a.cmd == 'tally':
-        res = tally(a.key, a.rubric_key, a.scores, a.threshold)
+        res = tally(a.key, a.rubric_key, a.scores, a.threshold, a.classes)
         if a.json:
             _dump(res, a.json)
         md = markdown(res)

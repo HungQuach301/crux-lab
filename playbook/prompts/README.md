@@ -1,6 +1,6 @@
 # Prompt mẫu cho một tập (playbook v2)
 
-Chủ dự án mở một phiên mới và gõ một dòng: **"Chạy Tập N, đề tài #k, phiên P1"** (rồi P2, P3). Phiên đọc file prompt tương ứng, thay `{N}` (số tập, ví dụ 3 → nhánh `ep003`), `{NNN}` (ba chữ số), `{k}` (số thứ tự trong `topics/queue.md`) và `{đề tài}` (tiêu đề nháp ở dòng #k), rồi làm theo.
+Chủ dự án mở một phiên mới và gõ một dòng: **"Chạy Tập N, phiên P1"** (máy đề xuất ≤ 3 đề tài ở C1) hoặc **"Chạy Tập N, đề tài #k, phiên P1"**; rồi "Chạy Tập N, phiên P2", "… P3". Phiên đọc file prompt tương ứng và thay các chỗ điền: `{N}` (số tập, ví dụ 3 → nhánh `ep003`); `{NNN}` (ba chữ số); `{k}` và `{đề tài}` (số thứ tự và tiêu đề nháp trong `topics/queue.md`). Nếu không có #k, P1 để trống hai chỗ đó cho tới khi chủ dự án chọn ở C1; P2 và P3 lấy đề tài từ `PLAN.md`. Rồi phiên làm theo prompt.
 
 | Phiên | File | Model điều phối | Effort |
 |---|---|---|---|
