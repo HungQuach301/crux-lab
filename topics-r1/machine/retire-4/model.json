@@ -1,0 +1,431 @@
+{
+ "kind": null,
+ "kindStatus": "new",
+ "workingLabel": "lock-vs-roll-replay (project owner's working label for this spec; the kind name is decided by phiên K, topic-dossier §2)",
+ "params": {
+  "_note": "Instance of the newKindNeeds spec below for this topic. Names are proposals for phiên K, not final.",
+  "roll": {
+   "file": "data/TB3MS.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "TB3MS",
+   "periodMonths": 1
+  },
+  "lock": {
+   "multiple": 2.0
+  },
+  "horizonMonths": 240,
+  "firstStart": "1934-01",
+  "lastStart": null,
+  "subsets": {
+   "1934-1949": [
+    "1934-01",
+    "1949-12"
+   ],
+   "1950-1989": [
+    "1950-01",
+    "1989-12"
+   ],
+   "since-1990": [
+    "1990-01",
+    null
+   ],
+   "guarantee": [
+    "2005-05",
+    null
+   ]
+  },
+  "deflator": {
+   "file": "data/CPIAUCNS.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "CPIAUCNS"
+  },
+  "nearBandPct": 0.5,
+  "conventions": {
+   "rollRate": "TB3MS monthly average, discount basis, used as-is",
+   "ahead": "strict (> ); ties counted in neither share"
+  }
+ },
+ "quantities": [
+  {
+   "name": "starts",
+   "meaning": "number of 20-year start months (T-bill roll windows)",
+   "unit": "start months",
+   "value": 873,
+   "from": "result.json → numbers[starts]"
+  },
+  {
+   "name": "first_start",
+   "meaning": "first start month",
+   "unit": "month",
+   "value": "1934-01-01",
+   "from": "result.json → numbers[first_start]"
+  },
+  {
+   "name": "last_start",
+   "meaning": "last start month (its 240 months end with the latest data month)",
+   "unit": "month",
+   "value": "2006-09-01",
+   "from": "result.json → numbers[last_start]"
+  },
+  {
+   "name": "share_tbills_above_double_pct",
+   "meaning": "share of start months where the 20-year T-bill roll ended above 2.0 times the money (strict)",
+   "unit": "% of start months",
+   "value": 52.3,
+   "from": "result.json → numbers[share_tbills_above_double_pct]"
+  },
+  {
+   "name": "median_tbill_multiple_20y",
+   "meaning": "median 20-year T-bill roll multiple over all start months",
+   "unit": "multiple",
+   "value": 2.097,
+   "from": "result.json → numbers[median_tbill_multiple_20y]"
+  },
+  {
+   "name": "min_tbill_multiple_20y",
+   "meaning": "smallest 20-year roll multiple (start month = min_start)",
+   "unit": "multiple",
+   "value": 1.129,
+   "from": "result.json → numbers[min_tbill_multiple_20y]"
+  },
+  {
+   "name": "max_tbill_multiple_20y",
+   "meaning": "largest 20-year roll multiple (start month = max_start)",
+   "unit": "multiple",
+   "value": 4.612,
+   "from": "result.json → numbers[max_tbill_multiple_20y]"
+  },
+  {
+   "name": "share_tbills_above_double_starts_since_1990_pct",
+   "meaning": "share of start months from 1990-01 on with roll above double",
+   "unit": "% of start months",
+   "value": 5.0,
+   "from": "result.json → numbers[share_tbills_above_double_starts_since_1990_pct]"
+  },
+  {
+   "name": "latest_tbill_multiple_20y",
+   "meaning": "roll multiple of the last start month (window last_start .. latest_window_end)",
+   "unit": "multiple",
+   "value": 1.378,
+   "from": "result.json → numbers[latest_tbill_multiple_20y]"
+  },
+  {
+   "name": "doubling_rate_pct_per_year",
+   "meaning": "annual rate that turns 1 into 2 in 20 years: 100(2^(1/20) − 1)",
+   "unit": "% a year",
+   "value": 3.53,
+   "from": "result.json → numbers[doubling_rate_pct_per_year]"
+  },
+  {
+   "name": "real_windows",
+   "meaning": "start months with CPI at both ends of the 20 years",
+   "unit": "start months",
+   "value": 871,
+   "from": "result.json → numbers[real_windows]"
+  },
+  {
+   "name": "share_double_beat_prices_pct",
+   "meaning": "share of real windows where 2.0 × CPI(s)/CPI(s+240) ≥ 1 (double kept its buying power)",
+   "unit": "% of start months",
+   "value": 58.7,
+   "from": "result.json → numbers[share_double_beat_prices_pct]"
+  },
+  {
+   "name": "median_real_value_double_pct",
+   "meaning": "median buying power of the doubled amount, % of the original money",
+   "unit": "%",
+   "value": 107.3,
+   "from": "result.json → numbers[median_real_value_double_pct]"
+  },
+  {
+   "name": "tb3ms_latest_pct",
+   "meaning": "TB3MS in the latest data month (August 2026)",
+   "unit": "% a year",
+   "value": 3.72,
+   "from": "result.json → numbers[tb3ms_latest_pct]"
+  },
+  {
+   "name": "viewer_age_decade",
+   "meaning": "card audience (savers in their 40s): audience definition, not a data claim",
+   "unit": "years",
+   "value": 40,
+   "from": "calc.py --quantities → viewer_age_decade"
+  },
+  {
+   "name": "horizon_years",
+   "meaning": "holding period of the comparison",
+   "unit": "years",
+   "value": 20,
+   "from": "calc.py --quantities → horizon_years"
+  },
+  {
+   "name": "horizon_months",
+   "meaning": "holding period of the comparison",
+   "unit": "months",
+   "value": 240,
+   "from": "calc.py --quantities → horizon_months"
+  },
+  {
+   "name": "bill_term_months",
+   "meaning": "maturity of the rolled bill",
+   "unit": "months",
+   "value": 3,
+   "from": "calc.py --quantities → bill_term_months"
+  },
+  {
+   "name": "bills_per_horizon",
+   "meaning": "number of 3-month bills rolled in 20 years = 240/3",
+   "unit": "bills",
+   "value": 80,
+   "from": "calc.py --quantities → bills_per_horizon"
+  },
+  {
+   "name": "latest_window_end",
+   "meaning": "last month of the latest full window = latest data month",
+   "unit": "month",
+   "value": "2026-08-01",
+   "from": "calc.py --quantities → latest_window_end"
+  },
+  {
+   "name": "tb3ms_latest_month",
+   "meaning": "month of tb3ms_latest_pct",
+   "unit": "month",
+   "value": "2026-08-01",
+   "from": "calc.py --quantities → tb3ms_latest_month"
+  },
+  {
+   "name": "since_1990_from",
+   "meaning": "first start month of the \"from 1990 on\" group",
+   "unit": "month",
+   "value": "1990-01-01",
+   "from": "calc.py --quantities → since_1990_from"
+  },
+  {
+   "name": "min_start",
+   "meaning": "start month of min_tbill_multiple_20y",
+   "unit": "month",
+   "value": "1934-01-01",
+   "from": "calc.py --quantities → min_start"
+  },
+  {
+   "name": "max_start",
+   "meaning": "start month of max_tbill_multiple_20y",
+   "unit": "month",
+   "value": "1972-05-01",
+   "from": "calc.py --quantities → max_start"
+  },
+  {
+   "name": "guarantee_from",
+   "meaning": "first issue month of bonds with today's 20-year doubling terms (31 CFR 351.34(a), 351.35(f)(2))",
+   "unit": "month",
+   "value": "2005-05-01",
+   "from": "calc.py --quantities → guarantee_from"
+  },
+  {
+   "name": "starts_with_guarantee",
+   "meaning": "start months on or after guarantee_from (guarantee real, not hypothetical)",
+   "unit": "start months",
+   "value": 17,
+   "from": "calc.py --quantities → starts_with_guarantee"
+  },
+  {
+   "name": "starts_hypothetical",
+   "meaning": "start months before guarantee_from (guarantee applied as if it had existed)",
+   "unit": "start months",
+   "value": 856,
+   "from": "calc.py --quantities → starts_hypothetical"
+  },
+  {
+   "name": "share_hypothetical_pct",
+   "meaning": "starts_hypothetical as a share of all start months",
+   "unit": "% of start months",
+   "value": 98.1,
+   "from": "calc.py --quantities → share_hypothetical_pct"
+  },
+  {
+   "name": "share_above_double_guarantee_starts_pct",
+   "meaning": "share of the starts_with_guarantee months with roll above double",
+   "unit": "% of start months",
+   "value": 0.0,
+   "from": "calc.py --quantities → share_above_double_guarantee_starts_pct"
+  },
+  {
+   "name": "min_multiple_guarantee_starts",
+   "meaning": "smallest roll multiple among starts_with_guarantee",
+   "unit": "multiple",
+   "value": 1.378,
+   "from": "calc.py --quantities → min_multiple_guarantee_starts"
+  },
+  {
+   "name": "max_multiple_guarantee_starts",
+   "meaning": "largest roll multiple among starts_with_guarantee",
+   "unit": "multiple",
+   "value": 1.388,
+   "from": "calc.py --quantities → max_multiple_guarantee_starts"
+  },
+  {
+   "name": "starts_1934_1949",
+   "meaning": "start months 1934-01 .. 1949-12",
+   "unit": "start months",
+   "value": 192,
+   "from": "calc.py --quantities → starts_1934_1949"
+  },
+  {
+   "name": "share_above_double_1934_1949_pct",
+   "meaning": "share of 1934-01 .. 1949-12 starts with roll above double",
+   "unit": "% of start months",
+   "value": 0.0,
+   "from": "calc.py --quantities → share_above_double_1934_1949_pct"
+  },
+  {
+   "name": "early_from",
+   "meaning": "first month of the 1934–1949 group",
+   "unit": "month",
+   "value": "1934-01-01",
+   "from": "calc.py --quantities → early_from"
+  },
+  {
+   "name": "early_to",
+   "meaning": "last month of the 1934–1949 group",
+   "unit": "month",
+   "value": "1949-12-01",
+   "from": "calc.py --quantities → early_to"
+  },
+  {
+   "name": "starts_1950_1989",
+   "meaning": "start months 1950-01 .. 1989-12",
+   "unit": "start months",
+   "value": 480,
+   "from": "calc.py --quantities → starts_1950_1989"
+  },
+  {
+   "name": "share_above_double_1950_1989_pct",
+   "meaning": "share of 1950-01 .. 1989-12 starts with roll above double",
+   "unit": "% of start months",
+   "value": 93.1,
+   "from": "calc.py --quantities → share_above_double_1950_1989_pct"
+  },
+  {
+   "name": "mid_from",
+   "meaning": "first month of the 1950–1989 group",
+   "unit": "month",
+   "value": "1950-01-01",
+   "from": "calc.py --quantities → mid_from"
+  },
+  {
+   "name": "mid_to",
+   "meaning": "last month of the 1950–1989 group",
+   "unit": "month",
+   "value": "1989-12-01",
+   "from": "calc.py --quantities → mid_to"
+  },
+  {
+   "name": "starts_since_1990",
+   "meaning": "start months 1990-01 .. last_start",
+   "unit": "start months",
+   "value": 201,
+   "from": "calc.py --quantities → starts_since_1990"
+  },
+  {
+   "name": "share_double_lost_buying_power_pct",
+   "meaning": "share of real windows where the doubled amount bought less than the original (2.0 × CPI(s)/CPI(s+240) < 1)",
+   "unit": "% of start months",
+   "value": 41.3,
+   "from": "calc.py --quantities → share_double_lost_buying_power_pct"
+  },
+  {
+   "name": "last_lost_start",
+   "meaning": "latest start month in which double lost buying power",
+   "unit": "month",
+   "value": "1981-01-01",
+   "from": "calc.py --quantities → last_lost_start"
+  },
+  {
+   "name": "worst_real_value_double_pct",
+   "meaning": "lowest buying power of the doubled amount, % of the original (start = worst_real_start)",
+   "unit": "%",
+   "value": 58.0,
+   "from": "calc.py --quantities → worst_real_value_double_pct"
+  },
+  {
+   "name": "worst_real_start",
+   "meaning": "start month of worst_real_value_double_pct",
+   "unit": "month",
+   "value": "1966-01-01",
+   "from": "calc.py --quantities → worst_real_start"
+  },
+  {
+   "name": "share_since_1990_avg_below_start_pct",
+   "meaning": "share of starts from 1990 on whose average TB3MS over the 240 months is below TB3MS in the start month",
+   "unit": "% of start months",
+   "value": 87.6,
+   "from": "calc.py --quantities → share_since_1990_avg_below_start_pct"
+  },
+  {
+   "name": "mean_tb3ms_all_pct",
+   "meaning": "mean of every TB3MS month 1934-01 .. 2026-08",
+   "unit": "% a year",
+   "value": 3.42,
+   "from": "calc.py --quantities → mean_tb3ms_all_pct"
+  },
+  {
+   "name": "nonoverlap_periods",
+   "meaning": "whole non-overlapping 20-year periods in the data = floor(1112/240)",
+   "unit": "periods",
+   "value": 4,
+   "from": "calc.py --quantities → nonoverlap_periods"
+  },
+  {
+   "name": "near_double_band_pct",
+   "meaning": "band used for near_double_starts",
+   "unit": "%",
+   "value": 0.5,
+   "from": "calc.py --quantities → near_double_band_pct"
+  },
+  {
+   "name": "near_double_starts",
+   "meaning": "start months with |roll/2 − 1| < 0.5%",
+   "unit": "start months",
+   "value": 6,
+   "from": "calc.py --quantities → near_double_starts"
+  }
+ ],
+ "newKindNeeds": {
+  "summary": "Lock a known multiple for H months versus rolling a short-term rate every p months for the same H months, replayed from every start month in history. One spec serves retire-4 (savings bond doubling vs 3-month T-bills, H=240, p=1) and retire-3 (5-year yield locked vs 1-year yield rolled, H=60, p=12).",
+  "inputs": {
+   "roll": "monthly CSV (date column YYYY-MM-01, value column = annual rate in percent): the rate earned by each roll period. Params: file, dateColumn, valueColumn, periodMonths p (1 = monthly roll of a 3-month bill as in retire-4; 12 = yearly roll of a 1-year yield as in retire-3). H must be a multiple of p.",
+   "lock": "EITHER a constant multiple m reached at H months (retire-4: m = 2.0, the savings bond guarantee) OR a monthly CSV of the locked annual rate L with its own periodMonths q (retire-3: GS5, q = 12).",
+   "horizonMonths": "H (240 or 60).",
+   "optional": "firstStart / lastStart (months; default = every month whose inputs all exist); subsets {name: [from, to|null]} of start months (may overlap); startFilter {type: 'rollRateAboveLockRate'} (retire-3: GS1(s) > GS5(s)) with runs of consecutive filtered months; deflator CSV (CPI) for buying power; nearBandPct; conventions; notModel.",
+   "dates": "months written YYYY-MM or YYYY-MM-01 compare equal after normalising (lessons from K3.5/K3.6)."
+  },
+  "calculation": "For each start month s with all inputs present: Roll(s) = product over k = 0 .. H/p − 1 of (1 + R(s + k·p) · p/1200); Lock(s) = m if constant, else (1 + L(s) · q/1200)^(H/q). A window is 'roll ahead' if Roll > Lock and 'lock ahead' if Lock > Roll (strict; ties in neither). With a deflator P: real value of each leg = leg × P(s)/P(s + H); windows where P is missing at either end are skipped and counted. Shares are 100 × count / windows in the set (all, each subset, the filtered starts). Runs = maximal sequences of consecutive calendar months inside the filtered starts; a run is 'lock-majority' if more than half its starts are lock ahead.",
+  "outputs": "echo of params; nWindows, firstStart, lastStart; shareRollAhead, shareLockAhead; median/min/max of Roll and of Lock/Roll − 1 (in %), with the start month of min and max (ties: earliest); latest window {start, end, roll, lock}; equivalentLockRate = 100(m^(12/H) − 1) for a constant lock; per subset {from, to, nWindows, shareRollAhead, shareLockAhead, minRoll, maxRoll}; filtered set {nWindows, shareLockAhead, median/min/max Lock/Roll − 1, runs, lockMajorityRuns}; deflator {nRealWindows, skippedStarts, shareLockRealAtLeastOne, medianLockReal, minLockReal + start, lastStartLockRealBelowOne}; nearCount; rollRateLatest {month, value}; windows: [{start, end, roll, lock, real?}] for every window. Values unrounded in the model file.",
+  "invariants": [
+   "Constant rate check: replacing R by a constant r gives Roll = (1 + r·p/1200)^(H/p) in every window (±1e-12 relative).",
+   "With p = 1, Roll(s) equals G(s+H)/G(s) for the running index G (cumulative product), i.e. the product and index methods agree.",
+   "shareRollAhead + shareLockAhead + shareTie = 100 for every set; nWindows of the subsets that partition the range add up to nWindows.",
+   "Each window uses exactly H/p roll observations and ends at s + H − 1 ≤ the last data month.",
+   "Raising every roll rate by δ > 0 never lowers shareRollAhead (monotonic).",
+   "Constant lock m = 2, H = 240 → equivalentLockRate = 3.526 % a year; real value = m × P(s)/P(s+H)."
+  ],
+  "retire3Instance": {
+   "roll": {
+    "file": "data/GS1.csv",
+    "valueColumn": "GS1",
+    "periodMonths": 12
+   },
+   "lock": {
+    "file": "data/GS5.csv",
+    "valueColumn": "GS5",
+    "periodMonths": 12
+   },
+   "horizonMonths": 60,
+   "firstStart": "1953-04",
+   "startFilter": {
+    "type": "rollRateAboveLockRate"
+   },
+   "note": "retire-3's lock leg compounds once a year at GS5(s); its 'lock ahead' share (65.2% all, 64.4% inverted) is shareLockAhead. Checked against retire-3/result.json by episodes/ep003/model/model.py --retire3 (ledger ep003)."
+  }
+ }
+}
