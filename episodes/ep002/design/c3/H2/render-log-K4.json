@@ -1,0 +1,68 @@
+{
+ "frame": "K4",
+ "frames": 300,
+ "filmSeconds": 10,
+ "wallSeconds": 52.1,
+ "machineSecPerFilmSec": 5.21,
+ "stripTimes": [
+  0.6,
+  2,
+  3.6,
+  5.4,
+  7.4,
+  9.6
+ ],
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:09:38.369Z",
+ "summary": {
+  "minDistTextToGraphicPx720": 99,
+  "minDistTextToTextPx720": 99,
+  "minContrast": 7.5,
+  "minFontPx1080": 48,
+  "outOfSafe": []
+ },
+ "claimsUsed": [],
+ "texts": [
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "badge",
+   "px": 48,
+   "n": 412,
+   "out": 0,
+   "firstT": 0,
+   "color": "#0E1116"
+  },
+  {
+   "s": "still owed",
+   "tier": "note",
+   "px": 48,
+   "n": 114,
+   "out": 0,
+   "firstT": 0.5333333333333333,
+   "color": "#9AA4B2"
+  }
+ ],
+ "selfCheck": [
+  {
+   "s": "ILLUSTRATIVE",
+   "px": 48,
+   "dGraphicMin": 99,
+   "dTextMin": 99,
+   "contrastMin": 10.25,
+   "at": {
+    "contrast": 0
+   }
+  },
+  {
+   "s": "still owed",
+   "px": 48,
+   "dGraphicMin": 99,
+   "dTextMin": 99,
+   "contrastMin": 7.5,
+   "at": {
+    "contrast": 0.8
+   }
+  }
+ ]
+}

@@ -1,0 +1,108 @@
+{
+ "clip": "K6",
+ "frames": 300,
+ "filmSeconds": 10,
+ "wallSeconds": 40.2,
+ "machineSecPerFilmSec": 4.02,
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:06:56.433Z",
+ "stripTimes": [
+  0.4,
+  1.8,
+  3.4,
+  5,
+  7.2,
+  9.6
+ ],
+ "claimsUsed": [
+  "best_start_year",
+  "first_start",
+  "fixed_int",
+  "worst_diff",
+  "worst_peak_rate",
+  "worst_start"
+ ],
+ "texts": [
+  {
+   "s": "1954",
+   "tier": "note",
+   "px": 48,
+   "n": 61
+  },
+  {
+   "s": "1981",
+   "tier": "note",
+   "px": 48,
+   "n": 61
+  },
+  {
+   "s": "today",
+   "tier": "note",
+   "px": 48,
+   "n": 61
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 48,
+   "n": 512
+  },
+  {
+   "s": "Starting April 1977",
+   "tier": "caption",
+   "px": 64,
+   "n": 431
+  },
+  {
+   "s": "19.3%",
+   "tier": "number",
+   "px": 96,
+   "n": 87
+  },
+  {
+   "s": "$26,005",
+   "tier": "label",
+   "px": 54,
+   "n": 56
+  },
+  {
+   "s": "+$11,219",
+   "tier": "head",
+   "px": 72,
+   "n": 67
+  }
+ ],
+ "minPx1080": 48,
+ "checkSamples": 240,
+ "worstClear": {
+  "t": 8.9,
+  "s": "+$11,219",
+  "px": 72,
+  "clear": 14.6,
+  "tclear": 164.4,
+  "contrast": 17.16,
+  "color": "#F2F4F7",
+  "plate": null
+ },
+ "worstTextClear": {
+  "t": 5,
+  "s": "19.3%",
+  "px": 96,
+  "clear": 16,
+  "tclear": 96.7,
+  "contrast": 17.16,
+  "color": "#F2F4F7",
+  "plate": null
+ },
+ "worstContrast": {
+  "t": 0,
+  "s": "1954",
+  "px": 48,
+  "clear": 16,
+  "tclear": 484,
+  "contrast": 7.5,
+  "color": "#9AA4B2",
+  "plate": null
+ }
+}

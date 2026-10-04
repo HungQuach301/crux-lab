@@ -1,0 +1,72 @@
+{
+ "option": "control",
+ "hook": "pair test only: weak control (a plain KEY-2 film frame)",
+ "size": [
+  1280,
+  720
+ ],
+ "illustrative": true,
+ "texts": [
+  {
+   "text": "9%",
+   "box": [
+    117.3,
+    165.3,
+    54.4,
+    27.3
+   ],
+   "fontPx": 36,
+   "fontPx1080": 54,
+   "role": "film label"
+  },
+  {
+   "text": "fixed",
+   "box": [
+    184.3,
+    164,
+    85.3,
+    28.7
+   ],
+   "fontPx": 36,
+   "fontPx1080": 54,
+   "role": "film label"
+  },
+  {
+   "text": "variable",
+   "box": [
+    770,
+    164,
+    137.3,
+    28.7
+   ],
+   "fontPx": 36,
+   "fontPx1080": 54,
+   "role": "film label"
+  },
+  {
+   "text": "1.5 points",
+   "box": [
+    981.3,
+    305.3,
+    163.1,
+    36
+   ],
+   "fontPx": 36,
+   "fontPx1080": 54,
+   "role": "film label"
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    979.6,
+    50.7,
+    223,
+    24.7
+   ],
+   "fontPx": 32,
+   "fontPx1080": 48,
+   "role": "film label"
+  }
+ ],
+ "source": "preprod/thumbs_c6/render.js + thumbs.js; picture = design/c3/final/src/k2.js t=2.9 s (with its film labels) drawn graphics-only by the signed engine (NOTEXT flag); text = Inter 700, tier hero (150 px @1080 = 100 px @720), tokens ink / ink-muted; numbers = out/claims.json display"
+}

@@ -1,0 +1,95 @@
+{
+ "frame": "K4",
+ "frames": 300,
+ "filmSeconds": 10,
+ "wallSeconds": 199.5,
+ "machineSecPerFilmSec": 19.95,
+ "stripTimes": [
+  0.6,
+  2.4,
+  4,
+  5.6,
+  7.4,
+  9.6
+ ],
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:29:01.557Z",
+ "claimsUsed": [],
+ "texts": [
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "badge",
+   "px": 32,
+   "px1080": 48,
+   "color": "#0E1116",
+   "n": 372,
+   "out": 0,
+   "firstT": 0
+  },
+  {
+   "s": "3-month Treasury bill rate, via FRED",
+   "tier": "note",
+   "px": 27,
+   "px1080": 40.5,
+   "color": "#9AA4B2",
+   "n": 372,
+   "out": 0,
+   "firstT": 0
+  },
+  {
+   "s": "the cushion",
+   "tier": "label",
+   "px": 30,
+   "px1080": 45,
+   "color": "#F2F4F7",
+   "n": 92,
+   "out": 0,
+   "firstT": 2
+  }
+ ],
+ "audit": {
+  "samples": 135,
+  "minToGraphics": {
+   "t": 0,
+   "s": "3-month Treasury bill rate, via FRED",
+   "px": 27,
+   "color": "#9AA4B2",
+   "plate": "#0E1116",
+   "toGraphics": 7,
+   "toText": 596,
+   "contrast": 7.5
+  },
+  "minToText": {
+   "t": 2,
+   "s": "the cushion",
+   "px": 30,
+   "color": "#F2F4F7",
+   "plate": "#0E1116",
+   "toGraphics": 8,
+   "toText": 476.6,
+   "contrast": 17.16
+  },
+  "minContrast": {
+   "t": 0,
+   "s": "3-month Treasury bill rate, via FRED",
+   "px": 27,
+   "color": "#9AA4B2",
+   "plate": "#0E1116",
+   "toGraphics": 7,
+   "toText": 596,
+   "contrast": 7.5
+  },
+  "minPx": {
+   "t": 0,
+   "s": "3-month Treasury bill rate, via FRED",
+   "px": 27,
+   "color": "#9AA4B2",
+   "plate": "#0E1116",
+   "toGraphics": 7,
+   "toText": 596,
+   "contrast": 7.5
+  }
+ }
+}

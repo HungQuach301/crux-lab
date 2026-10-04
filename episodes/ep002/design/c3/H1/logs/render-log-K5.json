@@ -1,0 +1,119 @@
+{
+ "frame": "K5",
+ "frames": 300,
+ "filmSeconds": 10,
+ "wallSeconds": 195.3,
+ "machineSecPerFilmSec": 19.53,
+ "stripTimes": [
+  0.5,
+  1.9,
+  3.1,
+  4.6,
+  6.6,
+  9.8
+ ],
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:29:50.871Z",
+ "claimsUsed": [
+  "first_start",
+  "last_start",
+  "term"
+ ],
+ "texts": [
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "badge",
+   "px": 32,
+   "px1080": 48,
+   "color": "#0E1116",
+   "n": 372,
+   "out": 0,
+   "firstT": 0
+  },
+  {
+   "s": "3-month Treasury bill rate, via FRED",
+   "tier": "note",
+   "px": 27,
+   "px1080": 40.5,
+   "color": "#9AA4B2",
+   "n": 372,
+   "out": 0,
+   "firstT": 0
+  },
+  {
+   "s": "January 1954",
+   "tier": "label",
+   "px": 30,
+   "px1080": 45,
+   "color": "#F2F4F7",
+   "n": 126,
+   "out": 0,
+   "firstT": 1.3333333333333333
+  },
+  {
+   "s": "10 years (120 monthly payments)",
+   "tier": "label",
+   "px": 30,
+   "px1080": 45,
+   "color": "#9AA4B2",
+   "n": 122,
+   "out": 0,
+   "firstT": 1.5
+  },
+  {
+   "s": "September 2016",
+   "tier": "label",
+   "px": 30,
+   "px1080": 45,
+   "color": "#F2F4F7",
+   "n": 41,
+   "out": 0,
+   "firstT": 9.000000000000002
+  }
+ ],
+ "audit": {
+  "samples": 165,
+  "minToGraphics": {
+   "t": 1.5,
+   "s": "10 years (120 monthly payments)",
+   "px": 30,
+   "color": "#9AA4B2",
+   "plate": "#0E1116",
+   "toGraphics": 7,
+   "toText": 513.9,
+   "contrast": 7.5
+  },
+  "minToText": {
+   "t": 9,
+   "s": "September 2016",
+   "px": 30,
+   "color": "#F2F4F7",
+   "plate": "#0E1116",
+   "toGraphics": 8,
+   "toText": 30.6,
+   "contrast": 17.16
+  },
+  "minContrast": {
+   "t": 0,
+   "s": "3-month Treasury bill rate, via FRED",
+   "px": 27,
+   "color": "#9AA4B2",
+   "plate": "#0E1116",
+   "toGraphics": 8,
+   "toText": 480,
+   "contrast": 7.5
+  },
+  "minPx": {
+   "t": 0,
+   "s": "3-month Treasury bill rate, via FRED",
+   "px": 27,
+   "color": "#9AA4B2",
+   "plate": "#0E1116",
+   "toGraphics": 8,
+   "toText": 480,
+   "contrast": 7.5
+  }
+ }
+}

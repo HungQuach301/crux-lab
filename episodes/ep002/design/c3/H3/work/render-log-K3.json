@@ -1,0 +1,120 @@
+{
+ "clip": "K3",
+ "frames": 300,
+ "filmSeconds": 10,
+ "wallSeconds": 49.7,
+ "machineSecPerFilmSec": 4.97,
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:04:11.452Z",
+ "stripTimes": [
+  0.3,
+  1.8,
+  3.6,
+  5.6,
+  7.4,
+  9.4
+ ],
+ "claimsUsed": [
+  "best_start_year",
+  "first_start",
+  "share_all",
+  "share_early",
+  "share_late",
+  "share_rate_above_fixed"
+ ],
+ "texts": [
+  {
+   "s": "1954",
+   "tier": "note",
+   "px": 48,
+   "n": 512
+  },
+  {
+   "s": "1981",
+   "tier": "note",
+   "px": 48,
+   "n": 512
+  },
+  {
+   "s": "today",
+   "tier": "note",
+   "px": 48,
+   "n": 512
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 48,
+   "n": 512
+  },
+  {
+   "s": "76.2%",
+   "tier": "number",
+   "px": 96,
+   "n": 82
+  },
+  {
+   "s": "went above the fixed rate",
+   "tier": "caption",
+   "px": 64,
+   "n": 82
+  },
+  {
+   "s": "14.2%",
+   "tier": "number",
+   "px": 96,
+   "n": 92
+  },
+  {
+   "s": "cost more in total",
+   "tier": "caption",
+   "px": 64,
+   "n": 92
+  },
+  {
+   "s": "28.4%",
+   "tier": "number",
+   "px": 96,
+   "n": 87
+  },
+  {
+   "s": "3.5%",
+   "tier": "number",
+   "px": 96,
+   "n": 69
+  }
+ ],
+ "minPx1080": 48,
+ "checkSamples": 476,
+ "worstClear": {
+  "t": 0,
+  "s": "1954",
+  "px": 48,
+  "clear": 16,
+  "tclear": 484,
+  "contrast": 7.5,
+  "color": "#9AA4B2",
+  "plate": null
+ },
+ "worstTextClear": {
+  "t": 7,
+  "s": "1954",
+  "px": 48,
+  "clear": 16,
+  "tclear": 60.6,
+  "contrast": 7.5,
+  "color": "#9AA4B2",
+  "plate": null
+ },
+ "worstContrast": {
+  "t": 4.9,
+  "s": "14.2%",
+  "px": 96,
+  "clear": 16,
+  "tclear": 692.4,
+  "contrast": 4.83,
+  "color": "#E5484D",
+  "plate": null
+ }
+}

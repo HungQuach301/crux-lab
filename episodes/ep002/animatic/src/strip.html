@@ -1,0 +1,17 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>strip</title>
+<style>@font-face{font-family:Inter;font-weight:700;src:url(/fonts/inter-latin-700-normal.woff2) format('woff2')}</style></head><body>
+<script type="module">
+await document.fonts.load('700 34px Inter');
+// 3x2 grid, 1920 x 1128: six 624x351 frames, numbered 1-6 under each in reading order, no captions (same layout as the
+// signed H2 strips, design/c3/final/src/engine.js strip())
+window.compose = async (urls) => {
+  const ims = await Promise.all(urls.map((u) => new Promise((r) => { const i = new Image(); i.onload = () => r(i); i.src = u; })));
+  const tw = 624, th = 351, g = 12, lab = 50, c = document.createElement('canvas'); c.width = 3 * tw + 4 * g; c.height = 2 * (th + lab) + 3 * g;
+  const q = c.getContext('2d'); q.fillStyle = '#06080B'; q.fillRect(0, 0, c.width, c.height);
+  ims.forEach((im, i) => { const x = g + (i % 3) * (tw + g), y = g + Math.floor(i / 3) * (th + lab + g); q.imageSmoothingQuality = 'high'; q.drawImage(im, x, y, tw, th);
+    q.fillStyle = '#F2F4F7'; q.font = '700 34px Inter'; q.textAlign = 'center'; q.fillText(String(i + 1), x + tw / 2, y + th + 40); });
+  return c.toDataURL('image/png');
+};
+window.READY = true;
+</script></body></html>

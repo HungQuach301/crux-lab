@@ -1,0 +1,284 @@
+{
+ "cuts": [
+  {
+   "t": 8.96,
+   "from": "S01",
+   "to": "S01/cut",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cut\": dip to the KEY-1 picture (signed K1 r2 clip starts))"
+  },
+  {
+   "t": 26.967,
+   "from": "S01",
+   "to": "S02",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "the question -> why the two offers are private ones"
+  },
+  {
+   "t": 62.607,
+   "from": "S02",
+   "to": "S02/cut",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cut\": dip to the KEY-1/KEY-2 picture: one person holding two offer cards, the 9% line across bot)"
+  },
+  {
+   "t": 67.3,
+   "from": "S02",
+   "to": "S03",
+   "type": "dip",
+   "match": "geometric",
+   "audio": null,
+   "reason": "same two offer cards; the loan and the head start are put on them"
+  },
+  {
+   "t": 84.92,
+   "from": "S03",
+   "to": "S03/cutK1",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cutK1\": dip to the KEY-1 picture (signed K1 r2 at 1.7 s): the 9% line across both cards)"
+  },
+  {
+   "t": 97.76,
+   "from": "S03",
+   "to": "S03/cutK2",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cutK2\": dip to KEY-2 (signed K2 clip, fix round))"
+  },
+  {
+   "t": 126.8,
+   "from": "S03",
+   "to": "S04",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "the head start can be anything -> the promise: replay it through history"
+  },
+  {
+   "t": 146.08,
+   "from": "S04",
+   "to": "S04/cutCoins",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cutCoins\": dip to two coin piles (H3 K6 coin piles): interest paid, fixed vs variable)"
+  },
+  {
+   "t": 157.86,
+   "from": "S04",
+   "to": "S04/cutK2",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cutK2\": dip to the signed K2 picture: start point jumps 3 -> 1.5 -> 0 -> above the line)"
+  },
+  {
+   "t": 167.5,
+   "from": "S04",
+   "to": "S04/cutCard",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cutCard\": dip: one blank offer card floats up, empty)"
+  },
+  {
+   "t": 173.48,
+   "from": "S04",
+   "to": "S04/cutRidge",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cutRidge\": dip: the ridge (T-bill history) ends at today, empty space to its right; caption 'History,)"
+  },
+  {
+   "t": 176.933,
+   "from": "S04",
+   "to": "S05",
+   "type": "dip",
+   "match": "geometric",
+   "audio": null,
+   "reason": "same ridge; the replays drop their results into the two halves"
+  },
+  {
+   "t": 219.653,
+   "from": "S05",
+   "to": "S05/cutHS",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cutHS\": dip to the signed K2 picture at Leah's 1.5-point head start (label '1.5 points'))"
+  },
+  {
+   "t": 224.433,
+   "from": "S05",
+   "to": "S06",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "act boundary (ad break): \"the head start\" explains it -> the cushion it builds"
+  },
+  {
+   "t": 258.693,
+   "from": "S06",
+   "to": "S06/cutFall",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cutFall\": dip to the same picture for a falling stretch (August 1981): the bead stays under the line)"
+  },
+  {
+   "t": 263.767,
+   "from": "S06",
+   "to": "S07",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "a falling stretch keeps the cushion -> the two kinds of history"
+  },
+  {
+   "t": 322.067,
+   "from": "S07",
+   "to": "S08",
+   "type": "dip",
+   "match": "geometric",
+   "audio": null,
+   "reason": "same ridge; the frame lands on the worst start, April 1977"
+  },
+  {
+   "t": 374.407,
+   "from": "S08",
+   "to": "S08/cutCap",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"cutCap\": dip to the same layout (K6 end state, redrawn): a dashed ceiling over the April 1977 track)"
+  },
+  {
+   "t": 383.3,
+   "from": "S08",
+   "to": "S09",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "act boundary (ad break): the worst case of one pair of rates -> other pairs"
+  },
+  {
+   "t": 390.44,
+   "from": "S09",
+   "to": "S09/k7in",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"k7in\": dip to KEY-7 (signed K7 r2): the knob (fixed bar, variable-start bar, cushion gap) over tw)"
+  },
+  {
+   "t": 438.7,
+   "from": "S09",
+   "to": "S10",
+   "type": "dip",
+   "match": "geometric",
+   "audio": null,
+   "reason": "same two columns; the head start keeps moving"
+  },
+  {
+   "t": 464.16,
+   "from": "S10",
+   "to": "S10/q",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"q\": dip to the KEY-1 picture, final state (one person, two offers))"
+  },
+  {
+   "t": 472.4,
+   "from": "S10",
+   "to": "S10/two",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"two\": dip to KEY-7 final state: gap 3 points; right column clear, left column still red)"
+  },
+  {
+   "t": 484.14,
+   "from": "S10",
+   "to": "S10/late",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"late\": dip to KEY-7 at 2 points: right column empty, '0%')"
+  },
+  {
+   "t": 500.84,
+   "from": "S10",
+   "to": "S10/today",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"today\": dip: the ridge ends at today, empty space to its right)"
+  },
+  {
+   "t": 506.033,
+   "from": "S10",
+   "to": "S11",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "the answer -> how it was built (method card)"
+  },
+  {
+   "t": 530.033,
+   "from": "S11",
+   "to": "S12",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "the method -> where an offer falls on the line"
+  },
+  {
+   "t": 543.273,
+   "from": "S12",
+   "to": "S12/blank",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"blank\": dip: one blank offer card, not placed)"
+  },
+  {
+   "t": 558.733,
+   "from": "S12",
+   "to": "S12/line",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"line\": dip to KEY-7 final state (3 points))"
+  },
+  {
+   "t": 566.973,
+   "from": "S12",
+   "to": "S12/hist",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "picture change inside the scene (animatic anchor \"hist\": dip: the ridge ends at today, empty space to its right; caption 'History, not a forecast')"
+  },
+  {
+   "t": 569.6,
+   "from": "S12",
+   "to": "S13",
+   "type": "dip",
+   "match": "semantic",
+   "audio": null,
+   "reason": "history, not a forecast -> end screen"
+  }
+ ],
+ "source": "scene cuts from animatic/timing.json; in-scene picture changes from the \"dip\" anchors of animatic/src/anchors/Sxx.json. type \"dip\" = the animatic's 0.44 s dip through the background (animatic/README.md \"Giới hạn\"); P re-declares if the render uses hard cuts. audio = null: J/L cuts belong to the mix (stream A) and are not claimed here"
+}

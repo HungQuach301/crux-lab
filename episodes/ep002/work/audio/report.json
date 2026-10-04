@@ -1,0 +1,234 @@
+{
+ "total_s": 585.6,
+ "samples": 28108800,
+ "master": {
+  "I": -14.1,
+  "LRA": 3.1,
+  "TP": -1.5
+ },
+ "limiterMinGainDb": -2.42,
+ "limiterGainBelow1dBShare": 0.00261,
+ "preGainLUFS": -15.6,
+ "voiceOverMusicDb_A07": 19.95,
+ "voiceOverMusicTargetDb": 20.0,
+ "sonUnderVoiceDb": 16.0,
+ "sonification": {
+  "notes": 453,
+  "shiftedIntoGaps": 335,
+  "medianShiftMs": 56.8
+ },
+ "sonBandShare": 0.9735743482904037,
+ "silences": [
+  {
+   "t": 26.148,
+   "end": 26.999,
+   "dur": 0.851,
+   "after": "S01.3",
+   "before": "S02.1",
+   "why": "after the cold-open question (title card)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 176.002,
+   "end": 176.95,
+   "dur": 0.948,
+   "after": "S04.6",
+   "before": "S05.1",
+   "why": "after \"history, not a forecast\", before the first results",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 222.82,
+   "end": 224.526,
+   "dur": 1.707,
+   "after": "S05.5",
+   "before": "S06.1",
+   "why": "ad break (out/adbreaks.json)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 223.593
+  },
+  {
+   "t": 321.035,
+   "end": 322.204,
+   "dur": 1.169,
+   "after": "S07.7",
+   "before": "S08.1",
+   "why": "before the worst stretch",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 381.935,
+   "end": 383.369,
+   "dur": 1.435,
+   "after": "S08.8",
+   "before": "S09.1",
+   "why": "after the worst stretch, before the line",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 382.524
+  },
+  {
+   "t": 505.215,
+   "end": 506.171,
+   "dur": 0.956,
+   "after": "S10.7",
+   "before": "S11.1",
+   "why": "after the answer, before \"How we know this\"",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 565.911,
+   "end": 566.92,
+   "dur": 1.009,
+   "after": "S12.4",
+   "before": "S12.5",
+   "why": "before the last line, \"History, not a forecast\"",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  }
+ ],
+ "wordDips": [
+  {
+   "sentence": "S02.2",
+   "word": "leah",
+   "t": 39.797,
+   "end": 40.557,
+   "db": -8.0
+  }
+ ],
+ "swellCuts": [
+  66.245,
+  125.794,
+  262.795,
+  437.765,
+  514.63,
+  568.783
+ ],
+ "bpmByScene": {
+  "S01": 106.798,
+  "S02": 114.546,
+  "S03": 121.008,
+  "S04": 123.271,
+  "S05": 123.789,
+  "S06": 126.61,
+  "S07": 127.616,
+  "S08": 133.261,
+  "S09": 125.632,
+  "S10": 119.406,
+  "S11": 100.0,
+  "S12": 110.699,
+  "S13": 105.0
+ },
+ "bars": 298,
+ "voice": [
+  {
+   "scene": "S01",
+   "take": "S01.seed1.mp3",
+   "at": 0.0,
+   "takeS": 26.16,
+   "inserted": []
+  },
+  {
+   "scene": "S02",
+   "take": "S02.seed1.mp3",
+   "at": 26.9667,
+   "takeS": 39.52,
+   "inserted": []
+  },
+  {
+   "scene": "S03",
+   "take": "S03.5cd01406.seed1.mp3",
+   "at": 67.3,
+   "takeS": 58.671,
+   "inserted": []
+  },
+  {
+   "scene": "S04",
+   "take": "S04.9519444f.seed1.mp3",
+   "at": 126.8,
+   "takeS": 49.319,
+   "inserted": []
+  },
+  {
+   "scene": "S05",
+   "take": "S05.077baada.seed1.mp3",
+   "at": 176.9333,
+   "takeS": 46.681,
+   "inserted": []
+  },
+  {
+   "scene": "S06",
+   "take": "S06.seed1.mp3",
+   "at": 224.4333,
+   "takeS": 38.531,
+   "inserted": []
+  },
+  {
+   "scene": "S07",
+   "take": "S07.40ce21fa.seed1.mp3",
+   "at": 263.7667,
+   "takeS": 57.469,
+   "inserted": []
+  },
+  {
+   "scene": "S08",
+   "take": "S08.d97e2064.seed1.mp3",
+   "at": 322.0667,
+   "takeS": 59.951,
+   "inserted": []
+  },
+  {
+   "scene": "S09",
+   "take": "S09.f5608718.seed2.mp3",
+   "at": 383.3,
+   "takeS": 54.596,
+   "inserted": []
+  },
+  {
+   "scene": "S10",
+   "take": "S10.f5caf058.seed1.mp3",
+   "at": 438.7,
+   "takeS": 66.522,
+   "inserted": [
+    {
+     "after": "S10.1",
+     "at_take_s": 9.59,
+     "pause_s": 2.0
+    }
+   ]
+  },
+  {
+   "scene": "S11",
+   "take": "S11.52483032.seed1.mp3",
+   "at": 506.0333,
+   "takeS": 8.829,
+   "inserted": []
+  },
+  {
+   "scene": "S12",
+   "take": "S12.ea0b3724.seed1.mp3",
+   "at": 530.0333,
+   "takeS": 38.766,
+   "inserted": []
+  },
+  {
+   "scene": "S13",
+   "take": "S13.seed1.mp3",
+   "at": 569.6,
+   "takeS": 7.158,
+   "inserted": []
+  }
+ ],
+ "stemLevelsDbfs": {
+  "voice": -17.74,
+  "music": -36.46,
+  "sonify": -46.31,
+  "room": -66.32
+ },
+ "sumMinusMasterMax": 0.0
+}

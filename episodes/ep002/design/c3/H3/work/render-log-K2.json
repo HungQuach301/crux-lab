@@ -1,0 +1,86 @@
+{
+ "clip": "K2",
+ "frames": 270,
+ "filmSeconds": 9,
+ "wallSeconds": 42.6,
+ "machineSecPerFilmSec": 4.73,
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:04:03.512Z",
+ "stripTimes": [
+  0.3,
+  1.2,
+  3.4,
+  5,
+  6.6,
+  8.6
+ ],
+ "claimsUsed": [
+  "fixed_rate",
+  "gap_start"
+ ],
+ "texts": [
+  {
+   "s": "9%",
+   "tier": "label",
+   "px": 54,
+   "n": 462
+  },
+  {
+   "s": " fixed",
+   "tier": "label",
+   "px": 54,
+   "n": 462
+  },
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "note",
+   "px": 48,
+   "n": 462
+  },
+  {
+   "s": "The head start",
+   "tier": "caption",
+   "px": 64,
+   "n": 454
+  },
+  {
+   "s": "1.5 points",
+   "tier": "label",
+   "px": 54,
+   "n": 102
+  }
+ ],
+ "minPx1080": 48,
+ "checkSamples": 370,
+ "worstClear": {
+  "t": 0.4,
+  "s": " fixed",
+  "px": 54,
+  "clear": 10.6,
+  "tclear": 263.9,
+  "contrast": 7.5,
+  "color": "#9AA4B2",
+  "plate": null
+ },
+ "worstTextClear": {
+  "t": 1.2,
+  "s": "9%",
+  "px": 54,
+  "clear": 16,
+  "tclear": 23.1,
+  "contrast": 17.16,
+  "color": "#F2F4F7",
+  "plate": null
+ },
+ "worstContrast": {
+  "t": 0,
+  "s": " fixed",
+  "px": 54,
+  "clear": 16,
+  "tclear": 999,
+  "contrast": 7.5,
+  "color": "#9AA4B2",
+  "plate": null
+ }
+}

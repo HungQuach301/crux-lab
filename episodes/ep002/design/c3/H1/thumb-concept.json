@@ -1,0 +1,102 @@
+{
+ "size": [
+  1280,
+  720
+ ],
+ "texts": [
+  {
+   "text": "Variable",
+   "box": [
+    53,
+    78,
+    319,
+    63
+   ],
+   "plate": [
+    41,
+    70,
+    343,
+    96
+   ],
+   "fontPx": 80,
+   "color": "#F2F4F7"
+  },
+  {
+   "text": "or fixed?",
+   "box": [
+    55,
+    190,
+    336,
+    63
+   ],
+   "plate": [
+    43,
+    182,
+    360,
+    96
+   ],
+   "fontPx": 80,
+   "color": "#F2F4F7"
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    1001,
+    42,
+    224,
+    25
+   ],
+   "plate": [
+    989,
+    34,
+    248,
+    47
+   ],
+   "fontPx": 32,
+   "color": "#0E1116"
+  }
+ ],
+ "audit": {
+  "samples": 3,
+  "minToGraphics": {
+   "t": 0,
+   "s": "ILLUSTRATIVE",
+   "px": 32,
+   "color": "#0E1116",
+   "plate": "#F2B441",
+   "toGraphics": 8,
+   "toText": 622.3,
+   "contrast": 10.25
+  },
+  "minToText": {
+   "t": 0,
+   "s": "Variable",
+   "px": 80,
+   "color": "#F2F4F7",
+   "plate": "#0E1116",
+   "toGraphics": 99,
+   "toText": 49,
+   "contrast": 17.16
+  },
+  "minContrast": {
+   "t": 0,
+   "s": "ILLUSTRATIVE",
+   "px": 32,
+   "color": "#0E1116",
+   "plate": "#F2B441",
+   "toGraphics": 8,
+   "toText": 622.3,
+   "contrast": 10.25
+  },
+  "minPx": {
+   "t": 0,
+   "s": "ILLUSTRATIVE",
+   "px": 32,
+   "color": "#0E1116",
+   "plate": "#F2B441",
+   "toGraphics": 8,
+   "toText": 622.3,
+   "contrast": 10.25
+  }
+ }
+}

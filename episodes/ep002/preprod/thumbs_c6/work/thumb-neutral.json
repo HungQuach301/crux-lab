@@ -1,0 +1,30 @@
+{
+ "option": "neutral",
+ "hook": "pair test only: fixed neutral thumbnail for the title round",
+ "size": [
+  1280,
+  720
+ ],
+ "illustrative": true,
+ "texts": [
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    978.9,
+    54.3,
+    226.4,
+    31.4
+   ],
+   "plateBox": [
+    968.3,
+    47.7,
+    247.7,
+    44.7
+   ],
+   "fontPx": 32,
+   "fontPx1080": 48,
+   "role": "ILLUSTRATIVE badge (S08)"
+  }
+ ],
+ "source": "preprod/thumbs_c6/render.js + thumbs.js; picture = design/c3/final/src/h3/scenes.js K3 t=6.48 s drawn graphics-only by the signed engine (NOTEXT flag); text = Inter 700, tier hero (150 px @1080 = 100 px @720), tokens ink / ink-muted; numbers = out/claims.json display"
+}

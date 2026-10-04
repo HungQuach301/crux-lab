@@ -1,0 +1,11 @@
+[
+ ["keep", "1", "keep grad plus", -0.3, "caption 'Grad PLUS stays for students' + claim line 'already enrolled and borrowing before July 2026'", "some students keep the old loan"],
+ ["years", "1", "up to three more", -0.2, "number 'up to 3 more years' (ctx_plus_exception)", "for a limited time"],
+ ["out1", "1", "end", 0.3, "S02.1 text fades", "—"],
+ ["bar", "2", "basic federal loan", -0.3, "a tall program-cost outline (ink-muted) with a federal block (grid) at its base; label 'Direct Unsubsidized loan'", "the federal loan covers only part of the cost"],
+ ["annual", "2", "twenty thousand", -0.2, "number '$20,500 a year' (ctx_unsub_annual)", "a yearly limit"],
+ ["total", "2", "one hundred thousand", -0.2, "number '$100,000 total' replaces it (ctx_unsub_aggregate)", "a total limit"],
+ ["prof", "2", "professional programs", 0, "muted line 'higher in professional programs'", "some programs allow more"],
+ ["rest", "3", "the rest", -0.2, "the part of the cost bar above the federal block lights (ink outline) + label 'private lender'", "the gap is filled privately"],
+ ["cut", "4", "start", -0.3, "dip to the KEY-1/KEY-2 picture: one person holding two offer cards, the 9% line across both (signed K2 clip at 0.55 s, before any start point)", "same lender, two offers"]
+]

@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Ep002 C6 thumbnail</title>
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(/fonts/inter-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0e1116}
+canvas{display:block}
+</style>
+<script>
+// both signed engines read window.DATA; the H2 engine (data.js) and the H3 engine (h3data.js) never share a page
+const fam = new URLSearchParams(location.search).get('fam');
+document.write(`<script src="${fam === 'h3' ? '/work/h3data.js' : '/work/data.js'}"><\/script>`);
+</script>
+</head><body>
+<script type="module">
+for (const w of [400, 600, 700]) await document.fonts.load(`${w} 48px Inter`);
+await document.fonts.ready;
+const T = await import('/thumbs/thumbs.js');
+window.APP = await T.boot(new URLSearchParams(location.search).get('fam'));
+window.READY = true;
+</script>
+</body></html>

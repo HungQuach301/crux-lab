@@ -1,0 +1,4918 @@
+{
+ "core": {
+  "n_starts": 753,
+  "first_start": "1954-01",
+  "last_start": "2016-09",
+  "fixed_total_interest": 26005,
+  "share_variable_costlier": 14.2,
+  "median_variable_minus_fixed": -3832,
+  "worst_variable_minus_fixed": 11219,
+  "worst_start": "1977-04",
+  "best_variable_minus_fixed": -15295,
+  "best_start": "1981-08",
+  "max_variable_rate_any_window": 20.6,
+  "max_variable_rate_start": "1972-02",
+  "n_starts_1954_1980": 324,
+  "share_costlier_1954_1980": 28.4,
+  "n_starts_1981_on": 429,
+  "share_costlier_1981_on": 3.5,
+  "index_today": 3.72,
+  "margin": 3.78,
+  "share_rate_above_fixed": 76.2,
+  "worst_peak_rate": 19.26
+ },
+ "payments": {
+  "fixed_payment": 633.38,
+  "variable_first_payment": 593.51,
+  "max_variable_payment_any_window": 863.36,
+  "max_variable_payment_start": "1977-04",
+  "median_window_max_payment": 643.28,
+  "share_windows_max_payment_above_fixed": 58.4
+ },
+ "gaps": {
+  "-1.0": {
+   "share_costlier": 72.9,
+   "share_costlier_1954_1980": 92.9,
+   "share_costlier_1981_on": 57.8,
+   "median_diff": 4294,
+   "worst_diff": 20217,
+   "worst_start": "1977-04",
+   "best_diff": -7931,
+   "best_start": "1981-08"
+  },
+  "-0.5": {
+   "share_costlier": 64.7,
+   "share_costlier_1954_1980": 88.0,
+   "share_costlier_1981_on": 47.1,
+   "median_diff": 2631,
+   "worst_diff": 18383,
+   "worst_start": "1977-04",
+   "best_diff": -9444,
+   "best_start": "1981-08"
+  },
+  "0.0": {
+   "share_costlier": 57.9,
+   "share_costlier_1954_1980": 79.0,
+   "share_costlier_1981_on": 42.0,
+   "median_diff": 988,
+   "worst_diff": 16566,
+   "worst_start": "1977-04",
+   "best_diff": -10937,
+   "best_start": "1981-08"
+  },
+  "0.5": {
+   "share_costlier": 42.5,
+   "share_costlier_1954_1980": 68.5,
+   "share_costlier_1981_on": 22.8,
+   "median_diff": -639,
+   "worst_diff": 14766,
+   "worst_start": "1977-04",
+   "best_diff": -12409,
+   "best_start": "1981-08"
+  },
+  "1.0": {
+   "share_costlier": 31.3,
+   "share_costlier_1954_1980": 54.9,
+   "share_costlier_1981_on": 13.5,
+   "median_diff": -2245,
+   "worst_diff": 12983,
+   "worst_start": "1977-04",
+   "best_diff": -13862,
+   "best_start": "1981-08"
+  },
+  "1.5": {
+   "share_costlier": 14.2,
+   "share_costlier_1954_1980": 28.4,
+   "share_costlier_1981_on": 3.5,
+   "median_diff": -3832,
+   "worst_diff": 11219,
+   "worst_start": "1977-04",
+   "best_diff": -15295,
+   "best_start": "1981-08"
+  },
+  "2.0": {
+   "share_costlier": 8.8,
+   "share_costlier_1954_1980": 20.4,
+   "share_costlier_1981_on": 0.0,
+   "median_diff": -5400,
+   "worst_diff": 9472,
+   "worst_start": "1977-04",
+   "best_diff": -16707,
+   "best_start": "1981-08"
+  },
+  "2.5": {
+   "share_costlier": 6.0,
+   "share_costlier_1954_1980": 13.9,
+   "share_costlier_1981_on": 0.0,
+   "median_diff": -6950,
+   "worst_diff": 7743,
+   "worst_start": "1977-04",
+   "best_diff": -18099,
+   "best_start": "1981-08"
+  },
+  "3.0": {
+   "share_costlier": 4.5,
+   "share_costlier_1954_1980": 10.5,
+   "share_costlier_1981_on": 0.0,
+   "median_diff": -8492,
+   "worst_diff": 6033,
+   "worst_start": "1977-04",
+   "best_diff": -19470,
+   "best_start": "1981-08"
+  }
+ },
+ "caps": {
+  "12": {
+   "share_costlier": 13.3,
+   "share_costlier_1954_1980": 26.2,
+   "share_costlier_1981_on": 3.5,
+   "median_diff": -3989,
+   "worst_diff": 6590,
+   "worst_start": "1977-04",
+   "best_diff": -15295,
+   "best_start": "1981-08"
+  },
+  "15": {
+   "share_costlier": 13.9,
+   "share_costlier_1954_1980": 27.8,
+   "share_costlier_1981_on": 3.5,
+   "median_diff": -3866,
+   "worst_diff": 9821,
+   "worst_start": "1977-04",
+   "best_diff": -15295,
+   "best_start": "1981-08"
+  },
+  "18": {
+   "share_costlier": 14.2,
+   "share_costlier_1954_1980": 28.4,
+   "share_costlier_1981_on": 3.5,
+   "median_diff": -3832,
+   "worst_diff": 11137,
+   "worst_start": "1977-04",
+   "best_diff": -15295,
+   "best_start": "1981-08"
+  },
+  "25": {
+   "share_costlier": 14.2,
+   "share_costlier_1954_1980": 28.4,
+   "share_costlier_1981_on": 3.5,
+   "median_diff": -3832,
+   "worst_diff": 11219,
+   "worst_start": "1977-04",
+   "best_diff": -15295,
+   "best_start": "1981-08"
+  }
+ },
+ "windows": [
+  {
+   "start": "1954-01",
+   "diff": -1407.78,
+   "maxRate": 10.81,
+   "maxPay": 649.66
+  },
+  {
+   "start": "1954-02",
+   "diff": -659.87,
+   "maxRate": 11.02,
+   "maxPay": 656.25
+  },
+  {
+   "start": "1954-03",
+   "diff": -774.47,
+   "maxRate": 10.96,
+   "maxPay": 655.35
+  },
+  {
+   "start": "1954-04",
+   "diff": -501.8,
+   "maxRate": 11.02,
+   "maxPay": 657.79
+  },
+  {
+   "start": "1954-05",
+   "diff": 264.17,
+   "maxRate": 11.23,
+   "maxPay": 664.46
+  },
+  {
+   "start": "1954-06",
+   "diff": 750.57,
+   "maxRate": 11.35,
+   "maxPay": 668.67
+  },
+  {
+   "start": "1954-07",
+   "diff": 589.79,
+   "maxRate": 11.27,
+   "maxPay": 667.25
+  },
+  {
+   "start": "1954-08",
+   "diff": 34.84,
+   "maxRate": 11.07,
+   "maxPay": 662.45
+  },
+  {
+   "start": "1954-09",
+   "diff": -169.32,
+   "maxRate": 10.98,
+   "maxPay": 660.7
+  },
+  {
+   "start": "1954-10",
+   "diff": 13.58,
+   "maxRate": 11.01,
+   "maxPay": 662.3
+  },
+  {
+   "start": "1954-11",
+   "diff": 264.37,
+   "maxRate": 11.06,
+   "maxPay": 664.46
+  },
+  {
+   "start": "1954-12",
+   "diff": -360.16,
+   "maxRate": 10.84,
+   "maxPay": 659.07
+  },
+  {
+   "start": "1955-01",
+   "diff": -505.98,
+   "maxRate": 10.77,
+   "maxPay": 657.83
+  },
+  {
+   "start": "1955-02",
+   "diff": -264.92,
+   "maxRate": 10.82,
+   "maxPay": 659.93
+  },
+  {
+   "start": "1955-03",
+   "diff": -539.33,
+   "maxRate": 10.71,
+   "maxPay": 657.57
+  },
+  {
+   "start": "1955-04",
+   "diff": -1462.57,
+   "maxRate": 10.4,
+   "maxPay": 649.64
+  },
+  {
+   "start": "1955-05",
+   "diff": -947.92,
+   "maxRate": 10.54,
+   "maxPay": 654.15
+  },
+  {
+   "start": "1955-06",
+   "diff": -747.3,
+   "maxRate": 10.58,
+   "maxPay": 655.92
+  },
+  {
+   "start": "1955-07",
+   "diff": -1286.31,
+   "maxRate": 10.39,
+   "maxPay": 651.29
+  },
+  {
+   "start": "1955-08",
+   "diff": -2183.81,
+   "maxRate": 10.09,
+   "maxPay": 643.61
+  },
+  {
+   "start": "1955-09",
+   "diff": -2675.31,
+   "maxRate": 9.92,
+   "maxPay": 639.48
+  },
+  {
+   "start": "1955-10",
+   "diff": -3140.68,
+   "maxRate": 9.76,
+   "maxPay": 635.61
+  },
+  {
+   "start": "1955-11",
+   "diff": -3135.95,
+   "maxRate": 9.75,
+   "maxPay": 635.82
+  },
+  {
+   "start": "1955-12",
+   "diff": -4048.45,
+   "maxRate": 9.45,
+   "maxPay": 628.11
+  },
+  {
+   "start": "1956-01",
+   "diff": -3615.02,
+   "maxRate": 9.58,
+   "maxPay": 632.07
+  },
+  {
+   "start": "1956-02",
+   "diff": -3299.7,
+   "maxRate": 9.77,
+   "maxPay": 634.97
+  },
+  {
+   "start": "1956-03",
+   "diff": -3041.73,
+   "maxRate": 9.9,
+   "maxPay": 637.34
+  },
+  {
+   "start": "1956-04",
+   "diff": -4109.16,
+   "maxRate": 9.55,
+   "maxPay": 628.27
+  },
+  {
+   "start": "1956-05",
+   "diff": -4116.78,
+   "maxRate": 9.54,
+   "maxPay": 628.39
+  },
+  {
+   "start": "1956-06",
+   "diff": -3713.66,
+   "maxRate": 9.66,
+   "maxPay": 632.06
+  },
+  {
+   "start": "1956-07",
+   "diff": -3112.08,
+   "maxRate": 9.84,
+   "maxPay": 637.4
+  },
+  {
+   "start": "1956-08",
+   "diff": -3988.96,
+   "maxRate": 9.7,
+   "maxPay": 629.94
+  },
+  {
+   "start": "1956-09",
+   "diff": -4716.06,
+   "maxRate": 9.62,
+   "maxPay": 623.83
+  },
+  {
+   "start": "1956-10",
+   "diff": -4886.8,
+   "maxRate": 9.97,
+   "maxPay": 622.55
+  },
+  {
+   "start": "1956-11",
+   "diff": -5152.88,
+   "maxRate": 9.88,
+   "maxPay": 620.46
+  },
+  {
+   "start": "1956-12",
+   "diff": -5826.58,
+   "maxRate": 9.66,
+   "maxPay": 614.86
+  },
+  {
+   "start": "1957-01",
+   "diff": -5512.69,
+   "maxRate": 9.76,
+   "maxPay": 617.81
+  },
+  {
+   "start": "1957-02",
+   "diff": -5473.38,
+   "maxRate": 9.77,
+   "maxPay": 618.37
+  },
+  {
+   "start": "1957-03",
+   "diff": -5401.65,
+   "maxRate": 9.79,
+   "maxPay": 619.2
+  },
+  {
+   "start": "1957-04",
+   "diff": -5359.59,
+   "maxRate": 9.8,
+   "maxPay": 619.77
+  },
+  {
+   "start": "1957-05",
+   "diff": -5316.68,
+   "maxRate": 9.81,
+   "maxPay": 620.34
+  },
+  {
+   "start": "1957-06",
+   "diff": -6021.1,
+   "maxRate": 9.58,
+   "maxPay": 614.45
+  },
+  {
+   "start": "1957-07",
+   "diff": -5615.05,
+   "maxRate": 9.71,
+   "maxPay": 618.19
+  },
+  {
+   "start": "1957-08",
+   "diff": -6260.18,
+   "maxRate": 9.5,
+   "maxPay": 612.84
+  },
+  {
+   "start": "1957-09",
+   "diff": -6757.24,
+   "maxRate": 9.34,
+   "maxPay": 608.8
+  },
+  {
+   "start": "1957-10",
+   "diff": -6920.51,
+   "maxRate": 9.29,
+   "maxPay": 607.67
+  },
+  {
+   "start": "1957-11",
+   "diff": -6094.71,
+   "maxRate": 9.56,
+   "maxPay": 615.08
+  },
+  {
+   "start": "1957-12",
+   "diff": -5249.2,
+   "maxRate": 9.83,
+   "maxPay": 622.59
+  },
+  {
+   "start": "1958-01",
+   "diff": -3338.72,
+   "maxRate": 10.43,
+   "maxPay": 639.2
+  },
+  {
+   "start": "1958-02",
+   "diff": -364.1,
+   "maxRate": 11.34,
+   "maxPay": 664.8
+  },
+  {
+   "start": "1958-03",
+   "diff": 481.9,
+   "maxRate": 11.57,
+   "maxPay": 671.85
+  },
+  {
+   "start": "1958-04",
+   "diff": 1148.73,
+   "maxRate": 11.74,
+   "maxPay": 677.29
+  },
+  {
+   "start": "1958-05",
+   "diff": 1994.02,
+   "maxRate": 11.97,
+   "maxPay": 684.2
+  },
+  {
+   "start": "1958-06",
+   "diff": 2392.48,
+   "maxRate": 12.33,
+   "maxPay": 687.2
+  },
+  {
+   "start": "1958-07",
+   "diff": 2267.25,
+   "maxRate": 12.25,
+   "maxPay": 685.68
+  },
+  {
+   "start": "1958-08",
+   "diff": -156.04,
+   "maxRate": 11.47,
+   "maxPay": 664.48
+  },
+  {
+   "start": "1958-09",
+   "diff": -2477.62,
+   "maxRate": 10.72,
+   "maxPay": 644.32
+  },
+  {
+   "start": "1958-10",
+   "diff": -3022.94,
+   "maxRate": 10.53,
+   "maxPay": 639.53
+  },
+  {
+   "start": "1958-11",
+   "diff": -3097.6,
+   "maxRate": 10.49,
+   "maxPay": 638.81
+  },
+  {
+   "start": "1958-12",
+   "diff": -3363.65,
+   "maxRate": 10.39,
+   "maxPay": 636.44
+  },
+  {
+   "start": "1959-01",
+   "diff": -3474.04,
+   "maxRate": 10.64,
+   "maxPay": 635.42
+  },
+  {
+   "start": "1959-02",
+   "diff": -3045.06,
+   "maxRate": 10.94,
+   "maxPay": 639.01
+  },
+  {
+   "start": "1959-03",
+   "diff": -3308.26,
+   "maxRate": 10.84,
+   "maxPay": 636.64
+  },
+  {
+   "start": "1959-04",
+   "diff": -3732.87,
+   "maxRate": 10.69,
+   "maxPay": 632.9
+  },
+  {
+   "start": "1959-05",
+   "diff": -3338.37,
+   "maxRate": 10.8,
+   "maxPay": 636.19
+  },
+  {
+   "start": "1959-06",
+   "diff": -4457.07,
+   "maxRate": 10.43,
+   "maxPay": 626.5
+  },
+  {
+   "start": "1959-07",
+   "diff": -4390.14,
+   "maxRate": 10.74,
+   "maxPay": 627.02
+  },
+  {
+   "start": "1959-08",
+   "diff": -4918.91,
+   "maxRate": 11.12,
+   "maxPay": 622.43
+  },
+  {
+   "start": "1959-09",
+   "diff": -6944.42,
+   "maxRate": 10.46,
+   "maxPay": 605.09
+  },
+  {
+   "start": "1959-10",
+   "diff": -6975.65,
+   "maxRate": 10.54,
+   "maxPay": 604.91
+  },
+  {
+   "start": "1959-11",
+   "diff": -7283.61,
+   "maxRate": 10.44,
+   "maxPay": 602.36
+  },
+  {
+   "start": "1959-12",
+   "diff": -8329.87,
+   "maxRate": 10.25,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1960-01",
+   "diff": -7918.51,
+   "maxRate": 10.97,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1960-02",
+   "diff": -6724.39,
+   "maxRate": 11.41,
+   "maxPay": 598.15
+  },
+  {
+   "start": "1960-03",
+   "diff": -4679.81,
+   "maxRate": 12.06,
+   "maxPay": 616.58
+  },
+  {
+   "start": "1960-04",
+   "diff": -4381.72,
+   "maxRate": 12.14,
+   "maxPay": 619.85
+  },
+  {
+   "start": "1960-05",
+   "diff": -4520.47,
+   "maxRate": 12.08,
+   "maxPay": 619.34
+  },
+  {
+   "start": "1960-06",
+   "diff": -1819.9,
+   "maxRate": 12.91,
+   "maxPay": 643.28
+  },
+  {
+   "start": "1960-07",
+   "diff": -1208.37,
+   "maxRate": 13.07,
+   "maxPay": 649.04
+  },
+  {
+   "start": "1960-08",
+   "diff": -1104.39,
+   "maxRate": 13.07,
+   "maxPay": 650.38
+  },
+  {
+   "start": "1960-09",
+   "diff": -1581.88,
+   "maxRate": 12.89,
+   "maxPay": 646.69
+  },
+  {
+   "start": "1960-10",
+   "diff": -900.11,
+   "maxRate": 13.07,
+   "maxPay": 653.02
+  },
+  {
+   "start": "1960-11",
+   "diff": -1018.73,
+   "maxRate": 13.0,
+   "maxPay": 652.39
+  },
+  {
+   "start": "1960-12",
+   "diff": -521.71,
+   "maxRate": 13.12,
+   "maxPay": 657.08
+  },
+  {
+   "start": "1961-01",
+   "diff": -375.4,
+   "maxRate": 13.13,
+   "maxPay": 658.71
+  },
+  {
+   "start": "1961-02",
+   "diff": -847.12,
+   "maxRate": 12.95,
+   "maxPay": 654.98
+  },
+  {
+   "start": "1961-03",
+   "diff": -643.62,
+   "maxRate": 12.98,
+   "maxPay": 657.13
+  },
+  {
+   "start": "1961-04",
+   "diff": -209.73,
+   "maxRate": 13.08,
+   "maxPay": 661.26
+  },
+  {
+   "start": "1961-05",
+   "diff": -96.59,
+   "maxRate": 13.08,
+   "maxPay": 662.59
+  },
+  {
+   "start": "1961-06",
+   "diff": -113.75,
+   "maxRate": 13.04,
+   "maxPay": 662.78
+  },
+  {
+   "start": "1961-07",
+   "diff": 293.58,
+   "maxRate": 13.13,
+   "maxPay": 666.65
+  },
+  {
+   "start": "1961-08",
+   "diff": -79.43,
+   "maxRate": 12.98,
+   "maxPay": 663.73
+  },
+  {
+   "start": "1961-09",
+   "diff": 392.63,
+   "maxRate": 13.09,
+   "maxPay": 668.15
+  },
+  {
+   "start": "1961-10",
+   "diff": 445.1,
+   "maxRate": 13.07,
+   "maxPay": 668.9
+  },
+  {
+   "start": "1961-11",
+   "diff": -27.2,
+   "maxRate": 12.89,
+   "maxPay": 665.1
+  },
+  {
+   "start": "1961-12",
+   "diff": -310.59,
+   "maxRate": 12.77,
+   "maxPay": 662.96
+  },
+  {
+   "start": "1962-01",
+   "diff": -599.01,
+   "maxRate": 12.65,
+   "maxPay": 660.81
+  },
+  {
+   "start": "1962-02",
+   "diff": -534.83,
+   "maxRate": 12.64,
+   "maxPay": 661.73
+  },
+  {
+   "start": "1962-03",
+   "diff": -406.07,
+   "maxRate": 12.65,
+   "maxPay": 663.22
+  },
+  {
+   "start": "1962-04",
+   "diff": -341.89,
+   "maxRate": 12.64,
+   "maxPay": 664.15
+  },
+  {
+   "start": "1962-05",
+   "diff": -114.77,
+   "maxRate": 12.68,
+   "maxPay": 666.49
+  },
+  {
+   "start": "1962-06",
+   "diff": -146.86,
+   "maxRate": 12.64,
+   "maxPay": 666.56
+  },
+  {
+   "start": "1962-07",
+   "diff": -669.73,
+   "maxRate": 12.45,
+   "maxPay": 662.37
+  },
+  {
+   "start": "1962-08",
+   "diff": -256.44,
+   "maxRate": 12.55,
+   "maxPay": 666.36
+  },
+  {
+   "start": "1962-09",
+   "diff": -33.05,
+   "maxRate": 12.59,
+   "maxPay": 668.67
+  },
+  {
+   "start": "1962-10",
+   "diff": 193.23,
+   "maxRate": 12.63,
+   "maxPay": 671.0
+  },
+  {
+   "start": "1962-11",
+   "diff": -3.13,
+   "maxRate": 12.54,
+   "maxPay": 669.62
+  },
+  {
+   "start": "1962-12",
+   "diff": -39.72,
+   "maxRate": 12.5,
+   "maxPay": 669.65
+  },
+  {
+   "start": "1963-01",
+   "diff": -77.52,
+   "maxRate": 12.46,
+   "maxPay": 669.66
+  },
+  {
+   "start": "1963-02",
+   "diff": -18.37,
+   "maxRate": 12.45,
+   "maxPay": 670.52
+  },
+  {
+   "start": "1963-03",
+   "diff": 172.09,
+   "maxRate": 12.48,
+   "maxPay": 672.52
+  },
+  {
+   "start": "1963-04",
+   "diff": 234.6,
+   "maxRate": 12.47,
+   "maxPay": 673.38
+  },
+  {
+   "start": "1963-05",
+   "diff": 232.56,
+   "maxRate": 12.44,
+   "maxPay": 673.67
+  },
+  {
+   "start": "1963-06",
+   "diff": 132.35,
+   "maxRate": 12.38,
+   "maxPay": 673.09
+  },
+  {
+   "start": "1963-07",
+   "diff": -392.79,
+   "maxRate": 12.19,
+   "maxPay": 668.79
+  },
+  {
+   "start": "1963-08",
+   "diff": -760.77,
+   "maxRate": 12.19,
+   "maxPay": 665.88
+  },
+  {
+   "start": "1963-09",
+   "diff": -872.89,
+   "maxRate": 12.79,
+   "maxPay": 665.21
+  },
+  {
+   "start": "1963-10",
+   "diff": -1018.04,
+   "maxRate": 12.72,
+   "maxPay": 664.25
+  },
+  {
+   "start": "1963-11",
+   "diff": -1164.81,
+   "maxRate": 12.65,
+   "maxPay": 663.27
+  },
+  {
+   "start": "1963-12",
+   "diff": -1086.48,
+   "maxRate": 12.65,
+   "maxPay": 664.26
+  },
+  {
+   "start": "1964-01",
+   "diff": -1006.39,
+   "maxRate": 12.65,
+   "maxPay": 665.25
+  },
+  {
+   "start": "1964-02",
+   "diff": -956.78,
+   "maxRate": 12.64,
+   "maxPay": 665.95
+  },
+  {
+   "start": "1964-03",
+   "diff": -906.12,
+   "maxRate": 12.63,
+   "maxPay": 666.65
+  },
+  {
+   "start": "1964-04",
+   "diff": -594.34,
+   "maxRate": 12.7,
+   "maxPay": 669.61
+  },
+  {
+   "start": "1964-05",
+   "diff": -536.44,
+   "maxRate": 12.69,
+   "maxPay": 670.32
+  },
+  {
+   "start": "1964-06",
+   "diff": -444.39,
+   "maxRate": 12.69,
+   "maxPay": 671.3
+  },
+  {
+   "start": "1964-07",
+   "diff": -285.26,
+   "maxRate": 12.71,
+   "maxPay": 672.86
+  },
+  {
+   "start": "1964-08",
+   "diff": -318.6,
+   "maxRate": 12.67,
+   "maxPay": 672.71
+  },
+  {
+   "start": "1964-09",
+   "diff": -318.89,
+   "maxRate": 12.93,
+   "maxPay": 672.83
+  },
+  {
+   "start": "1964-10",
+   "diff": -351.22,
+   "maxRate": 12.89,
+   "maxPay": 672.66
+  },
+  {
+   "start": "1964-11",
+   "diff": -481.39,
+   "maxRate": 12.82,
+   "maxPay": 671.62
+  },
+  {
+   "start": "1964-12",
+   "diff": -1034.61,
+   "maxRate": 12.62,
+   "maxPay": 666.89
+  },
+  {
+   "start": "1965-01",
+   "diff": -850.77,
+   "maxRate": 12.65,
+   "maxPay": 668.63
+  },
+  {
+   "start": "1965-02",
+   "diff": -1150.12,
+   "maxRate": 12.53,
+   "maxPay": 666.13
+  },
+  {
+   "start": "1965-03",
+   "diff": -1066.61,
+   "maxRate": 12.53,
+   "maxPay": 667.0
+  },
+  {
+   "start": "1965-04",
+   "diff": -982.59,
+   "maxRate": 12.53,
+   "maxPay": 667.87
+  },
+  {
+   "start": "1965-05",
+   "diff": -768.41,
+   "maxRate": 12.57,
+   "maxPay": 669.87
+  },
+  {
+   "start": "1965-06",
+   "diff": -389.18,
+   "maxRate": 12.66,
+   "maxPay": 673.3
+  },
+  {
+   "start": "1965-07",
+   "diff": -427.12,
+   "maxRate": 12.62,
+   "maxPay": 673.06
+  },
+  {
+   "start": "1965-08",
+   "diff": -336.22,
+   "maxRate": 12.62,
+   "maxPay": 673.94
+  },
+  {
+   "start": "1965-09",
+   "diff": -504.29,
+   "maxRate": 12.54,
+   "maxPay": 672.55
+  },
+  {
+   "start": "1965-10",
+   "diff": -772.37,
+   "maxRate": 12.43,
+   "maxPay": 670.29
+  },
+  {
+   "start": "1965-11",
+   "diff": -882.89,
+   "maxRate": 12.37,
+   "maxPay": 669.42
+  },
+  {
+   "start": "1965-12",
+   "diff": -1737.69,
+   "maxRate": 12.08,
+   "maxPay": 662.06
+  },
+  {
+   "start": "1966-01",
+   "diff": -2344.96,
+   "maxRate": 11.87,
+   "maxPay": 656.92
+  },
+  {
+   "start": "1966-02",
+   "diff": -2480.9,
+   "maxRate": 11.81,
+   "maxPay": 655.95
+  },
+  {
+   "start": "1966-03",
+   "diff": -2235.81,
+   "maxRate": 11.87,
+   "maxPay": 658.32
+  },
+  {
+   "start": "1966-04",
+   "diff": -2275.93,
+   "maxRate": 11.84,
+   "maxPay": 658.19
+  },
+  {
+   "start": "1966-05",
+   "diff": -2285.58,
+   "maxRate": 11.82,
+   "maxPay": 658.33
+  },
+  {
+   "start": "1966-06",
+   "diff": -1782.83,
+   "maxRate": 11.96,
+   "maxPay": 662.95
+  },
+  {
+   "start": "1966-07",
+   "diff": -2683.27,
+   "maxRate": 11.66,
+   "maxPay": 655.26
+  },
+  {
+   "start": "1966-08",
+   "diff": -3147.43,
+   "maxRate": 11.5,
+   "maxPay": 651.46
+  },
+  {
+   "start": "1966-09",
+   "diff": -4407.6,
+   "maxRate": 11.09,
+   "maxPay": 640.72
+  },
+  {
+   "start": "1966-10",
+   "diff": -4327.22,
+   "maxRate": 11.11,
+   "maxPay": 641.8
+  },
+  {
+   "start": "1966-11",
+   "diff": -4214.56,
+   "maxRate": 11.14,
+   "maxPay": 643.17
+  },
+  {
+   "start": "1966-12",
+   "diff": -3054.43,
+   "maxRate": 11.5,
+   "maxPay": 653.7
+  },
+  {
+   "start": "1967-01",
+   "diff": -2251.54,
+   "maxRate": 11.74,
+   "maxPay": 661.02
+  },
+  {
+   "start": "1967-02",
+   "diff": -1689.8,
+   "maxRate": 11.9,
+   "maxPay": 666.17
+  },
+  {
+   "start": "1967-03",
+   "diff": -665.21,
+   "maxRate": 12.2,
+   "maxPay": 675.34
+  },
+  {
+   "start": "1967-04",
+   "diff": 773.93,
+   "maxRate": 12.62,
+   "maxPay": 688.06
+  },
+  {
+   "start": "1967-05",
+   "diff": 1654.47,
+   "maxRate": 12.86,
+   "maxPay": 695.79
+  },
+  {
+   "start": "1967-06",
+   "diff": 1957.3,
+   "maxRate": 12.92,
+   "maxPay": 698.42
+  },
+  {
+   "start": "1967-07",
+   "diff": -128.51,
+   "maxRate": 12.25,
+   "maxPay": 680.18
+  },
+  {
+   "start": "1967-08",
+   "diff": -249.02,
+   "maxRate": 12.19,
+   "maxPay": 679.24
+  },
+  {
+   "start": "1967-09",
+   "diff": -663.49,
+   "maxRate": 12.04,
+   "maxPay": 675.75
+  },
+  {
+   "start": "1967-10",
+   "diff": -1051.21,
+   "maxRate": 11.9,
+   "maxPay": 672.51
+  },
+  {
+   "start": "1967-11",
+   "diff": -1540.4,
+   "maxRate": 11.73,
+   "maxPay": 668.42
+  },
+  {
+   "start": "1967-12",
+   "diff": -2259.32,
+   "maxRate": 11.49,
+   "maxPay": 662.35
+  },
+  {
+   "start": "1968-01",
+   "diff": -2316.51,
+   "maxRate": 11.46,
+   "maxPay": 662.11
+  },
+  {
+   "start": "1968-02",
+   "diff": -2214.88,
+   "maxRate": 11.48,
+   "maxPay": 663.25
+  },
+  {
+   "start": "1968-03",
+   "diff": -2781.39,
+   "maxRate": 11.29,
+   "maxPay": 658.55
+  },
+  {
+   "start": "1968-04",
+   "diff": -3417.43,
+   "maxRate": 11.08,
+   "maxPay": 653.27
+  },
+  {
+   "start": "1968-05",
+   "diff": -4280.29,
+   "maxRate": 10.8,
+   "maxPay": 646.06
+  },
+  {
+   "start": "1968-06",
+   "diff": -3832.2,
+   "maxRate": 10.94,
+   "maxPay": 650.36
+  },
+  {
+   "start": "1968-07",
+   "diff": -3153.43,
+   "maxRate": 11.15,
+   "maxPay": 656.64
+  },
+  {
+   "start": "1968-08",
+   "diff": -2428.29,
+   "maxRate": 11.37,
+   "maxPay": 663.27
+  },
+  {
+   "start": "1968-09",
+   "diff": -2709.58,
+   "maxRate": 11.27,
+   "maxPay": 661.04
+  },
+  {
+   "start": "1968-10",
+   "diff": -3184.18,
+   "maxRate": 11.11,
+   "maxPay": 657.14
+  },
+  {
+   "start": "1968-11",
+   "diff": -3473.92,
+   "maxRate": 11.01,
+   "maxPay": 654.88
+  },
+  {
+   "start": "1968-12",
+   "diff": -5053.21,
+   "maxRate": 10.5,
+   "maxPay": 641.35
+  },
+  {
+   "start": "1969-01",
+   "diff": -5613.85,
+   "maxRate": 10.44,
+   "maxPay": 636.82
+  },
+  {
+   "start": "1969-02",
+   "diff": -5558.51,
+   "maxRate": 10.73,
+   "maxPay": 637.7
+  },
+  {
+   "start": "1969-03",
+   "diff": -5251.38,
+   "maxRate": 10.83,
+   "maxPay": 640.77
+  },
+  {
+   "start": "1969-04",
+   "diff": -5529.53,
+   "maxRate": 10.87,
+   "maxPay": 638.68
+  },
+  {
+   "start": "1969-05",
+   "diff": -5312.0,
+   "maxRate": 10.94,
+   "maxPay": 640.93
+  },
+  {
+   "start": "1969-06",
+   "diff": -6548.21,
+   "maxRate": 10.67,
+   "maxPay": 630.43
+  },
+  {
+   "start": "1969-07",
+   "diff": -8274.6,
+   "maxRate": 10.11,
+   "maxPay": 615.68
+  },
+  {
+   "start": "1969-08",
+   "diff": -8253.08,
+   "maxRate": 10.13,
+   "maxPay": 616.38
+  },
+  {
+   "start": "1969-09",
+   "diff": -8619.56,
+   "maxRate": 10.02,
+   "maxPay": 613.62
+  },
+  {
+   "start": "1969-10",
+   "diff": -8389.34,
+   "maxRate": 10.76,
+   "maxPay": 616.16
+  },
+  {
+   "start": "1969-11",
+   "diff": -9129.87,
+   "maxRate": 11.96,
+   "maxPay": 609.95
+  },
+  {
+   "start": "1969-12",
+   "diff": -10754.96,
+   "maxRate": 11.47,
+   "maxPay": 594.81
+  },
+  {
+   "start": "1970-01",
+   "diff": -10945.55,
+   "maxRate": 11.67,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1970-02",
+   "diff": -8986.34,
+   "maxRate": 12.41,
+   "maxPay": 605.91
+  },
+  {
+   "start": "1970-03",
+   "diff": -7500.94,
+   "maxRate": 13.73,
+   "maxPay": 619.8
+  },
+  {
+   "start": "1970-04",
+   "diff": -7133.23,
+   "maxRate": 16.19,
+   "maxPay": 623.59
+  },
+  {
+   "start": "1970-05",
+   "diff": -8139.1,
+   "maxRate": 15.86,
+   "maxPay": 615.15
+  },
+  {
+   "start": "1970-06",
+   "diff": -7656.33,
+   "maxRate": 16.02,
+   "maxPay": 619.98
+  },
+  {
+   "start": "1970-07",
+   "diff": -6947.15,
+   "maxRate": 16.25,
+   "maxPay": 626.77
+  },
+  {
+   "start": "1970-08",
+   "diff": -6811.07,
+   "maxRate": 16.29,
+   "maxPay": 628.42
+  },
+  {
+   "start": "1970-09",
+   "diff": -5893.85,
+   "maxRate": 16.58,
+   "maxPay": 636.98
+  },
+  {
+   "start": "1970-10",
+   "diff": -5204.45,
+   "maxRate": 16.79,
+   "maxPay": 643.43
+  },
+  {
+   "start": "1970-11",
+   "diff": -3164.41,
+   "maxRate": 17.42,
+   "maxPay": 661.75
+  },
+  {
+   "start": "1970-12",
+   "diff": -1766.93,
+   "maxRate": 17.83,
+   "maxPay": 674.19
+  },
+  {
+   "start": "1971-01",
+   "diff": -263.18,
+   "maxRate": 18.55,
+   "maxPay": 687.41
+  },
+  {
+   "start": "1971-02",
+   "diff": 2311.17,
+   "maxRate": 19.29,
+   "maxPay": 709.9
+  },
+  {
+   "start": "1971-03",
+   "diff": 3561.25,
+   "maxRate": 19.61,
+   "maxPay": 720.46
+  },
+  {
+   "start": "1971-04",
+   "diff": 2162.26,
+   "maxRate": 19.13,
+   "maxPay": 707.59
+  },
+  {
+   "start": "1971-05",
+   "diff": 1416.42,
+   "maxRate": 18.85,
+   "maxPay": 700.55
+  },
+  {
+   "start": "1971-06",
+   "diff": -413.86,
+   "maxRate": 19.05,
+   "maxPay": 683.99
+  },
+  {
+   "start": "1971-07",
+   "diff": -2374.27,
+   "maxRate": 18.4,
+   "maxPay": 666.4
+  },
+  {
+   "start": "1971-08",
+   "diff": -770.77,
+   "maxRate": 18.86,
+   "maxPay": 680.23
+  },
+  {
+   "start": "1971-09",
+   "diff": 191.03,
+   "maxRate": 19.11,
+   "maxPay": 688.53
+  },
+  {
+   "start": "1971-10",
+   "diff": 1111.27,
+   "maxRate": 19.34,
+   "maxPay": 697.97
+  },
+  {
+   "start": "1971-11",
+   "diff": 2086.92,
+   "maxRate": 19.58,
+   "maxPay": 707.82
+  },
+  {
+   "start": "1971-12",
+   "diff": 2984.07,
+   "maxRate": 19.79,
+   "maxPay": 716.91
+  },
+  {
+   "start": "1972-01",
+   "diff": 5320.64,
+   "maxRate": 20.42,
+   "maxPay": 738.87
+  },
+  {
+   "start": "1972-02",
+   "diff": 6185.39,
+   "maxRate": 20.6,
+   "maxPay": 747.44
+  },
+  {
+   "start": "1972-03",
+   "diff": 4648.55,
+   "maxRate": 20.07,
+   "maxPay": 734.31
+  },
+  {
+   "start": "1972-04",
+   "diff": 4956.73,
+   "maxRate": 20.09,
+   "maxPay": 737.86
+  },
+  {
+   "start": "1972-05",
+   "diff": 5270.48,
+   "maxRate": 20.11,
+   "maxPay": 741.42
+  },
+  {
+   "start": "1972-06",
+   "diff": 4774.83,
+   "maxRate": 19.89,
+   "maxPay": 737.63
+  },
+  {
+   "start": "1972-07",
+   "diff": 4780.13,
+   "maxRate": 19.82,
+   "maxPay": 738.37
+  },
+  {
+   "start": "1972-08",
+   "diff": 4886.39,
+   "maxRate": 19.78,
+   "maxPay": 740.01
+  },
+  {
+   "start": "1972-09",
+   "diff": 2971.73,
+   "maxRate": 19.14,
+   "maxPay": 723.36
+  },
+  {
+   "start": "1972-10",
+   "diff": 2910.43,
+   "maxRate": 19.06,
+   "maxPay": 723.59
+  },
+  {
+   "start": "1972-11",
+   "diff": 2979.38,
+   "maxRate": 19.02,
+   "maxPay": 725.01
+  },
+  {
+   "start": "1972-12",
+   "diff": 2212.89,
+   "maxRate": 18.73,
+   "maxPay": 718.85
+  },
+  {
+   "start": "1973-01",
+   "diff": 1271.09,
+   "maxRate": 18.39,
+   "maxPay": 711.14
+  },
+  {
+   "start": "1973-02",
+   "diff": 812.27,
+   "maxRate": 18.2,
+   "maxPay": 707.87
+  },
+  {
+   "start": "1973-03",
+   "diff": -635.79,
+   "maxRate": 17.71,
+   "maxPay": 695.63
+  },
+  {
+   "start": "1973-04",
+   "diff": -1056.12,
+   "maxRate": 17.54,
+   "maxPay": 692.82
+  },
+  {
+   "start": "1973-05",
+   "diff": -1256.17,
+   "maxRate": 17.44,
+   "maxPay": 692.05
+  },
+  {
+   "start": "1973-06",
+   "diff": -3806.28,
+   "maxRate": 16.61,
+   "maxPay": 669.82
+  },
+  {
+   "start": "1973-07",
+   "diff": -6315.17,
+   "maxRate": 15.79,
+   "maxPay": 648.09
+  },
+  {
+   "start": "1973-08",
+   "diff": -8240.29,
+   "maxRate": 15.13,
+   "maxPay": 631.66
+  },
+  {
+   "start": "1973-09",
+   "diff": -7136.79,
+   "maxRate": 15.51,
+   "maxPay": 643.44
+  },
+  {
+   "start": "1973-10",
+   "diff": -3754.12,
+   "maxRate": 16.58,
+   "maxPay": 675.97
+  },
+  {
+   "start": "1973-11",
+   "diff": -5609.95,
+   "maxRate": 15.97,
+   "maxPay": 660.11
+  },
+  {
+   "start": "1973-12",
+   "diff": -4361.46,
+   "maxRate": 16.35,
+   "maxPay": 672.94
+  },
+  {
+   "start": "1974-01",
+   "diff": -5308.52,
+   "maxRate": 16.03,
+   "maxPay": 665.45
+  },
+  {
+   "start": "1974-02",
+   "diff": -3188.67,
+   "maxRate": 16.68,
+   "maxPay": 686.31
+  },
+  {
+   "start": "1974-03",
+   "diff": -5774.02,
+   "maxRate": 15.84,
+   "maxPay": 663.59
+  },
+  {
+   "start": "1974-04",
+   "diff": -6877.64,
+   "maxRate": 15.47,
+   "maxPay": 654.67
+  },
+  {
+   "start": "1974-05",
+   "diff": -6547.3,
+   "maxRate": 15.57,
+   "maxPay": 659.21
+  },
+  {
+   "start": "1974-06",
+   "diff": -5486.16,
+   "maxRate": 15.9,
+   "maxPay": 670.76
+  },
+  {
+   "start": "1974-07",
+   "diff": -4328.26,
+   "maxRate": 16.25,
+   "maxPay": 683.12
+  },
+  {
+   "start": "1974-08",
+   "diff": -8428.33,
+   "maxRate": 14.84,
+   "maxPay": 645.6
+  },
+  {
+   "start": "1974-09",
+   "diff": -5879.32,
+   "maxRate": 15.74,
+   "maxPay": 671.96
+  },
+  {
+   "start": "1974-10",
+   "diff": -3931.29,
+   "maxRate": 16.34,
+   "maxPay": 691.76
+  },
+  {
+   "start": "1974-11",
+   "diff": -3889.61,
+   "maxRate": 16.33,
+   "maxPay": 693.6
+  },
+  {
+   "start": "1974-12",
+   "diff": -2786.28,
+   "maxRate": 16.65,
+   "maxPay": 705.39
+  },
+  {
+   "start": "1975-01",
+   "diff": 214.08,
+   "maxRate": 17.54,
+   "maxPay": 734.88
+  },
+  {
+   "start": "1975-02",
+   "diff": 2888.95,
+   "maxRate": 18.3,
+   "maxPay": 761.11
+  },
+  {
+   "start": "1975-03",
+   "diff": 3101.47,
+   "maxRate": 18.31,
+   "maxPay": 764.12
+  },
+  {
+   "start": "1975-04",
+   "diff": 2876.99,
+   "maxRate": 18.19,
+   "maxPay": 763.02
+  },
+  {
+   "start": "1975-05",
+   "diff": 4338.24,
+   "maxRate": 18.57,
+   "maxPay": 777.74
+  },
+  {
+   "start": "1975-06",
+   "diff": 4159.59,
+   "maxRate": 18.46,
+   "maxPay": 776.99
+  },
+  {
+   "start": "1975-07",
+   "diff": 1687.21,
+   "maxRate": 17.67,
+   "maxPay": 754.74
+  },
+  {
+   "start": "1975-08",
+   "diff": 801.86,
+   "maxRate": 17.36,
+   "maxPay": 747.53
+  },
+  {
+   "start": "1975-09",
+   "diff": 998.39,
+   "maxRate": 17.38,
+   "maxPay": 750.57
+  },
+  {
+   "start": "1975-10",
+   "diff": 2666.88,
+   "maxRate": 17.84,
+   "maxPay": 767.45
+  },
+  {
+   "start": "1975-11",
+   "diff": 4445.74,
+   "maxRate": 18.32,
+   "maxPay": 785.26
+  },
+  {
+   "start": "1975-12",
+   "diff": 4763.43,
+   "maxRate": 18.36,
+   "maxPay": 789.22
+  },
+  {
+   "start": "1976-01",
+   "diff": 6903.38,
+   "maxRate": 18.93,
+   "maxPay": 810.3
+  },
+  {
+   "start": "1976-02",
+   "diff": 7084.02,
+   "maxRate": 18.92,
+   "maxPay": 812.82
+  },
+  {
+   "start": "1976-03",
+   "diff": 6884.38,
+   "maxRate": 18.8,
+   "maxPay": 811.76
+  },
+  {
+   "start": "1976-04",
+   "diff": 7576.81,
+   "maxRate": 18.94,
+   "maxPay": 819.11
+  },
+  {
+   "start": "1976-05",
+   "diff": 6618.2,
+   "maxRate": 18.6,
+   "maxPay": 810.9
+  },
+  {
+   "start": "1976-06",
+   "diff": 6093.43,
+   "maxRate": 18.39,
+   "maxPay": 806.85
+  },
+  {
+   "start": "1976-07",
+   "diff": 6896.92,
+   "maxRate": 18.57,
+   "maxPay": 815.35
+  },
+  {
+   "start": "1976-08",
+   "diff": 7401.41,
+   "maxRate": 18.66,
+   "maxPay": 820.99
+  },
+  {
+   "start": "1976-09",
+   "diff": 7807.06,
+   "maxRate": 18.72,
+   "maxPay": 825.69
+  },
+  {
+   "start": "1976-10",
+   "diff": 8562.44,
+   "maxRate": 18.88,
+   "maxPay": 833.68
+  },
+  {
+   "start": "1976-11",
+   "diff": 9362.76,
+   "maxRate": 19.05,
+   "maxPay": 842.05
+  },
+  {
+   "start": "1976-12",
+   "diff": 10981.52,
+   "maxRate": 19.45,
+   "maxPay": 858.09
+  },
+  {
+   "start": "1977-01",
+   "diff": 10272.03,
+   "maxRate": 19.18,
+   "maxPay": 852.12
+  },
+  {
+   "start": "1977-02",
+   "diff": 10320.02,
+   "maxRate": 19.13,
+   "maxPay": 853.35
+  },
+  {
+   "start": "1977-03",
+   "diff": 10785.03,
+   "maxRate": 19.2,
+   "maxPay": 858.51
+  },
+  {
+   "start": "1977-04",
+   "diff": 11218.65,
+   "maxRate": 19.26,
+   "maxPay": 863.36
+  },
+  {
+   "start": "1977-05",
+   "diff": 9975.46,
+   "maxRate": 18.84,
+   "maxPay": 852.41
+  },
+  {
+   "start": "1977-06",
+   "diff": 9969.07,
+   "maxRate": 18.78,
+   "maxPay": 853.2
+  },
+  {
+   "start": "1977-07",
+   "diff": 9577.14,
+   "maxRate": 18.61,
+   "maxPay": 850.37
+  },
+  {
+   "start": "1977-08",
+   "diff": 8728.71,
+   "maxRate": 18.31,
+   "maxPay": 843.27
+  },
+  {
+   "start": "1977-09",
+   "diff": 7801.64,
+   "maxRate": 17.99,
+   "maxPay": 835.49
+  },
+  {
+   "start": "1977-10",
+   "diff": 6762.63,
+   "maxRate": 17.64,
+   "maxPay": 826.71
+  },
+  {
+   "start": "1977-11",
+   "diff": 7102.94,
+   "maxRate": 17.7,
+   "maxPay": 831.05
+  },
+  {
+   "start": "1977-12",
+   "diff": 7343.51,
+   "maxRate": 17.73,
+   "maxPay": 834.44
+  },
+  {
+   "start": "1978-01",
+   "diff": 6227.58,
+   "maxRate": 17.36,
+   "maxPay": 824.98
+  },
+  {
+   "start": "1978-02",
+   "diff": 6312.93,
+   "maxRate": 17.35,
+   "maxPay": 826.98
+  },
+  {
+   "start": "1978-03",
+   "diff": 6971.8,
+   "maxRate": 17.51,
+   "maxPay": 834.43
+  },
+  {
+   "start": "1978-04",
+   "diff": 7096.67,
+   "maxRate": 17.51,
+   "maxPay": 836.79
+  },
+  {
+   "start": "1978-05",
+   "diff": 6814.76,
+   "maxRate": 17.39,
+   "maxPay": 835.29
+  },
+  {
+   "start": "1978-06",
+   "diff": 5854.73,
+   "maxRate": 17.07,
+   "maxPay": 827.37
+  },
+  {
+   "start": "1978-07",
+   "diff": 5018.77,
+   "maxRate": 16.79,
+   "maxPay": 820.69
+  },
+  {
+   "start": "1978-08",
+   "diff": 4871.31,
+   "maxRate": 16.72,
+   "maxPay": 820.62
+  },
+  {
+   "start": "1978-09",
+   "diff": 2413.14,
+   "maxRate": 15.95,
+   "maxPay": 798.52
+  },
+  {
+   "start": "1978-10",
+   "diff": 1999.34,
+   "maxRate": 15.81,
+   "maxPay": 796.08
+  },
+  {
+   "start": "1978-11",
+   "diff": -66.47,
+   "maxRate": 15.16,
+   "maxPay": 777.84
+  },
+  {
+   "start": "1978-12",
+   "diff": -1462.23,
+   "maxRate": 14.72,
+   "maxPay": 766.08
+  },
+  {
+   "start": "1979-01",
+   "diff": -2317.31,
+   "maxRate": 14.45,
+   "maxPay": 759.47
+  },
+  {
+   "start": "1979-02",
+   "diff": -2255.34,
+   "maxRate": 14.48,
+   "maxPay": 761.92
+  },
+  {
+   "start": "1979-03",
+   "diff": -2765.35,
+   "maxRate": 14.32,
+   "maxPay": 758.62
+  },
+  {
+   "start": "1979-04",
+   "diff": -2741.45,
+   "maxRate": 14.34,
+   "maxPay": 760.73
+  },
+  {
+   "start": "1979-05",
+   "diff": -3217.26,
+   "maxRate": 14.19,
+   "maxPay": 757.69
+  },
+  {
+   "start": "1979-06",
+   "diff": -1597.41,
+   "maxRate": 14.74,
+   "maxPay": 775.87
+  },
+  {
+   "start": "1979-07",
+   "diff": -2173.8,
+   "maxRate": 14.56,
+   "maxPay": 771.98
+  },
+  {
+   "start": "1979-08",
+   "diff": -3036.92,
+   "maxRate": 14.28,
+   "maxPay": 765.03
+  },
+  {
+   "start": "1979-09",
+   "diff": -5154.5,
+   "maxRate": 13.54,
+   "maxPay": 744.27
+  },
+  {
+   "start": "1979-10",
+   "diff": -8795.93,
+   "maxRate": 12.1,
+   "maxPay": 703.48
+  },
+  {
+   "start": "1979-11",
+   "diff": -9097.79,
+   "maxRate": 12.01,
+   "maxPay": 701.87
+  },
+  {
+   "start": "1979-12",
+   "diff": -9693.6,
+   "maxRate": 11.76,
+   "maxPay": 695.74
+  },
+  {
+   "start": "1980-01",
+   "diff": -9739.85,
+   "maxRate": 11.8,
+   "maxPay": 697.76
+  },
+  {
+   "start": "1980-02",
+   "diff": -11239.09,
+   "maxRate": 10.94,
+   "maxPay": 674.71
+  },
+  {
+   "start": "1980-03",
+   "diff": -13825.12,
+   "maxRate": 8.6,
+   "maxPay": 613.51
+  },
+  {
+   "start": "1980-04",
+   "diff": -12032.65,
+   "maxRate": 10.6,
+   "maxPay": 666.41
+  },
+  {
+   "start": "1980-05",
+   "diff": -1682.06,
+   "maxRate": 15.22,
+   "maxPay": 801.86
+  },
+  {
+   "start": "1980-06",
+   "diff": 3148.43,
+   "maxRate": 16.73,
+   "maxPay": 850.7
+  },
+  {
+   "start": "1980-07",
+   "diff": 19.36,
+   "maxRate": 15.74,
+   "maxPay": 821.71
+  },
+  {
+   "start": "1980-08",
+   "diff": -3323.99,
+   "maxRate": 14.67,
+   "maxPay": 790.59
+  },
+  {
+   "start": "1980-09",
+   "diff": -6491.94,
+   "maxRate": 13.53,
+   "maxPay": 757.76
+  },
+  {
+   "start": "1980-10",
+   "diff": -9687.77,
+   "maxRate": 12.18,
+   "maxPay": 719.31
+  },
+  {
+   "start": "1980-11",
+   "diff": -12679.08,
+   "maxRate": 10.07,
+   "maxPay": 660.39
+  },
+  {
+   "start": "1980-12",
+   "diff": -14254.36,
+   "maxRate": 8.31,
+   "maxPay": 613.07
+  },
+  {
+   "start": "1981-01",
+   "diff": -14089.19,
+   "maxRate": 8.78,
+   "maxPay": 625.8
+  },
+  {
+   "start": "1981-02",
+   "diff": -14088.97,
+   "maxRate": 9.01,
+   "maxPay": 632.26
+  },
+  {
+   "start": "1981-03",
+   "diff": -13139.73,
+   "maxRate": 10.44,
+   "maxPay": 671.9
+  },
+  {
+   "start": "1981-04",
+   "diff": -13567.25,
+   "maxRate": 10.11,
+   "maxPay": 663.29
+  },
+  {
+   "start": "1981-05",
+   "diff": -15202.08,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1981-06",
+   "diff": -14643.37,
+   "maxRate": 8.28,
+   "maxPay": 613.81
+  },
+  {
+   "start": "1981-07",
+   "diff": -14908.46,
+   "maxRate": 8.06,
+   "maxPay": 608.12
+  },
+  {
+   "start": "1981-08",
+   "diff": -15294.8,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1981-09",
+   "diff": -15161.82,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1981-10",
+   "diff": -14776.65,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1981-11",
+   "diff": -11688.52,
+   "maxRate": 10.12,
+   "maxPay": 662.82
+  },
+  {
+   "start": "1981-12",
+   "diff": -11799.75,
+   "maxRate": 10.13,
+   "maxPay": 663.61
+  },
+  {
+   "start": "1982-01",
+   "diff": -14141.75,
+   "maxRate": 8.7,
+   "maxPay": 625.06
+  },
+  {
+   "start": "1982-02",
+   "diff": -15097.5,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1982-03",
+   "diff": -14837.43,
+   "maxRate": 7.52,
+   "maxPay": 594.03
+  },
+  {
+   "start": "1982-04",
+   "diff": -15012.03,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1982-05",
+   "diff": -14686.79,
+   "maxRate": 7.88,
+   "maxPay": 603.4
+  },
+  {
+   "start": "1982-06",
+   "diff": -15166.79,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1982-07",
+   "diff": -14105.31,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1982-08",
+   "diff": -8131.55,
+   "maxRate": 9.29,
+   "maxPay": 633.21
+  },
+  {
+   "start": "1982-09",
+   "diff": -5905.49,
+   "maxRate": 10.05,
+   "maxPay": 654.44
+  },
+  {
+   "start": "1982-10",
+   "diff": -5310.18,
+   "maxRate": 10.26,
+   "maxPay": 660.79
+  },
+  {
+   "start": "1982-11",
+   "diff": -6451.74,
+   "maxRate": 9.9,
+   "maxPay": 651.37
+  },
+  {
+   "start": "1982-12",
+   "diff": -6115.12,
+   "maxRate": 10.03,
+   "maxPay": 655.45
+  },
+  {
+   "start": "1983-01",
+   "diff": -5926.7,
+   "maxRate": 10.11,
+   "maxPay": 658.18
+  },
+  {
+   "start": "1983-02",
+   "diff": -6735.29,
+   "maxRate": 9.86,
+   "maxPay": 651.79
+  },
+  {
+   "start": "1983-03",
+   "diff": -7518.11,
+   "maxRate": 9.62,
+   "maxPay": 645.66
+  },
+  {
+   "start": "1983-04",
+   "diff": -7176.09,
+   "maxRate": 9.76,
+   "maxPay": 649.93
+  },
+  {
+   "start": "1983-05",
+   "diff": -7187.74,
+   "maxRate": 9.78,
+   "maxPay": 650.93
+  },
+  {
+   "start": "1983-06",
+   "diff": -9023.44,
+   "maxRate": 9.18,
+   "maxPay": 634.97
+  },
+  {
+   "start": "1983-07",
+   "diff": -9942.97,
+   "maxRate": 8.89,
+   "maxPay": 627.45
+  },
+  {
+   "start": "1983-08",
+   "diff": -10743.82,
+   "maxRate": 8.63,
+   "maxPay": 620.73
+  },
+  {
+   "start": "1983-09",
+   "diff": -9948.18,
+   "maxRate": 8.97,
+   "maxPay": 630.1
+  },
+  {
+   "start": "1983-10",
+   "diff": -9031.91,
+   "maxRate": 9.33,
+   "maxPay": 640.16
+  },
+  {
+   "start": "1983-11",
+   "diff": -9470.87,
+   "maxRate": 9.21,
+   "maxPay": 637.26
+  },
+  {
+   "start": "1983-12",
+   "diff": -10243.88,
+   "maxRate": 8.97,
+   "maxPay": 631.08
+  },
+  {
+   "start": "1984-01",
+   "diff": -10080.28,
+   "maxRate": 9.07,
+   "maxPay": 634.07
+  },
+  {
+   "start": "1984-02",
+   "diff": -10703.37,
+   "maxRate": 8.88,
+   "maxPay": 629.24
+  },
+  {
+   "start": "1984-03",
+   "diff": -11857.78,
+   "maxRate": 8.45,
+   "maxPay": 617.96
+  },
+  {
+   "start": "1984-04",
+   "diff": -12330.44,
+   "maxRate": 8.28,
+   "maxPay": 613.61
+  },
+  {
+   "start": "1984-05",
+   "diff": -12731.84,
+   "maxRate": 8.14,
+   "maxPay": 610.04
+  },
+  {
+   "start": "1984-06",
+   "diff": -12942.47,
+   "maxRate": 8.1,
+   "maxPay": 609.1
+  },
+  {
+   "start": "1984-07",
+   "diff": -13503.25,
+   "maxRate": 7.85,
+   "maxPay": 602.62
+  },
+  {
+   "start": "1984-08",
+   "diff": -14188.26,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1984-09",
+   "diff": -14191.94,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1984-10",
+   "diff": -13341.64,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1984-11",
+   "diff": -10860.09,
+   "maxRate": 7.71,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1984-12",
+   "diff": -9499.45,
+   "maxRate": 8.26,
+   "maxPay": 605.3
+  },
+  {
+   "start": "1985-01",
+   "diff": -8785.9,
+   "maxRate": 8.56,
+   "maxPay": 613.34
+  },
+  {
+   "start": "1985-02",
+   "diff": -10246.56,
+   "maxRate": 8.05,
+   "maxPay": 600.01
+  },
+  {
+   "start": "1985-03",
+   "diff": -11009.88,
+   "maxRate": 7.8,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1985-04",
+   "diff": -9627.35,
+   "maxRate": 8.37,
+   "maxPay": 593.71
+  },
+  {
+   "start": "1985-05",
+   "diff": -8461.94,
+   "maxRate": 8.84,
+   "maxPay": 606.41
+  },
+  {
+   "start": "1985-06",
+   "diff": -7060.39,
+   "maxRate": 9.37,
+   "maxPay": 620.98
+  },
+  {
+   "start": "1985-07",
+   "diff": -7492.06,
+   "maxRate": 9.24,
+   "maxPay": 617.87
+  },
+  {
+   "start": "1985-08",
+   "diff": -7730.81,
+   "maxRate": 9.18,
+   "maxPay": 616.63
+  },
+  {
+   "start": "1985-09",
+   "diff": -7692.76,
+   "maxRate": 9.22,
+   "maxPay": 618.08
+  },
+  {
+   "start": "1985-10",
+   "diff": -7932.1,
+   "maxRate": 9.16,
+   "maxPay": 616.83
+  },
+  {
+   "start": "1985-11",
+   "diff": -8228.49,
+   "maxRate": 9.08,
+   "maxPay": 615.04
+  },
+  {
+   "start": "1985-12",
+   "diff": -7921.99,
+   "maxRate": 9.22,
+   "maxPay": 619.16
+  },
+  {
+   "start": "1986-01",
+   "diff": -7914.03,
+   "maxRate": 9.25,
+   "maxPay": 620.35
+  },
+  {
+   "start": "1986-02",
+   "diff": -7960.76,
+   "maxRate": 9.26,
+   "maxPay": 621.0
+  },
+  {
+   "start": "1986-03",
+   "diff": -6603.11,
+   "maxRate": 9.76,
+   "maxPay": 635.0
+  },
+  {
+   "start": "1986-04",
+   "diff": -5113.39,
+   "maxRate": 10.26,
+   "maxPay": 649.28
+  },
+  {
+   "start": "1986-05",
+   "diff": -5424.81,
+   "maxRate": 10.17,
+   "maxPay": 647.37
+  },
+  {
+   "start": "1986-06",
+   "diff": -5647.33,
+   "maxRate": 10.11,
+   "maxPay": 646.27
+  },
+  {
+   "start": "1986-07",
+   "diff": -4506.4,
+   "maxRate": 10.49,
+   "maxPay": 657.39
+  },
+  {
+   "start": "1986-08",
+   "diff": -3589.06,
+   "maxRate": 10.79,
+   "maxPay": 666.42
+  },
+  {
+   "start": "1986-09",
+   "diff": -2587.8,
+   "maxRate": 11.11,
+   "maxPay": 676.15
+  },
+  {
+   "start": "1986-10",
+   "diff": -2485.97,
+   "maxRate": 11.14,
+   "maxPay": 677.76
+  },
+  {
+   "start": "1986-11",
+   "diff": -3015.35,
+   "maxRate": 10.97,
+   "maxPay": 673.71
+  },
+  {
+   "start": "1986-12",
+   "diff": -3582.14,
+   "maxRate": 10.79,
+   "maxPay": 669.36
+  },
+  {
+   "start": "1987-01",
+   "diff": -3276.94,
+   "maxRate": 10.89,
+   "maxPay": 672.86
+  },
+  {
+   "start": "1987-02",
+   "diff": -3783.94,
+   "maxRate": 10.73,
+   "maxPay": 669.06
+  },
+  {
+   "start": "1987-03",
+   "diff": -3796.4,
+   "maxRate": 10.73,
+   "maxPay": 669.73
+  },
+  {
+   "start": "1987-04",
+   "diff": -3965.56,
+   "maxRate": 10.68,
+   "maxPay": 669.0
+  },
+  {
+   "start": "1987-05",
+   "diff": -4043.32,
+   "maxRate": 10.66,
+   "maxPay": 669.09
+  },
+  {
+   "start": "1987-06",
+   "diff": -4090.99,
+   "maxRate": 10.65,
+   "maxPay": 669.46
+  },
+  {
+   "start": "1987-07",
+   "diff": -4170.66,
+   "maxRate": 10.63,
+   "maxPay": 669.54
+  },
+  {
+   "start": "1987-08",
+   "diff": -5276.41,
+   "maxRate": 10.28,
+   "maxPay": 660.4
+  },
+  {
+   "start": "1987-09",
+   "diff": -6419.72,
+   "maxRate": 9.92,
+   "maxPay": 650.98
+  },
+  {
+   "start": "1987-10",
+   "diff": -5642.46,
+   "maxRate": 10.19,
+   "maxPay": 658.95
+  },
+  {
+   "start": "1987-11",
+   "diff": -4319.39,
+   "maxRate": 10.63,
+   "maxPay": 671.79
+  },
+  {
+   "start": "1987-12",
+   "diff": -4588.26,
+   "maxRate": 10.55,
+   "maxPay": 670.18
+  },
+  {
+   "start": "1988-01",
+   "diff": -4736.44,
+   "maxRate": 10.51,
+   "maxPay": 669.68
+  },
+  {
+   "start": "1988-02",
+   "diff": -4296.32,
+   "maxRate": 10.66,
+   "maxPay": 674.5
+  },
+  {
+   "start": "1988-03",
+   "diff": -4440.1,
+   "maxRate": 10.62,
+   "maxPay": 674.01
+  },
+  {
+   "start": "1988-04",
+   "diff": -5112.74,
+   "maxRate": 10.41,
+   "maxPay": 668.76
+  },
+  {
+   "start": "1988-05",
+   "diff": -6221.82,
+   "maxRate": 10.06,
+   "maxPay": 659.6
+  },
+  {
+   "start": "1988-06",
+   "diff": -6881.37,
+   "maxRate": 9.86,
+   "maxPay": 654.57
+  },
+  {
+   "start": "1988-07",
+   "diff": -7740.38,
+   "maxRate": 9.59,
+   "maxPay": 647.61
+  },
+  {
+   "start": "1988-08",
+   "diff": -8658.59,
+   "maxRate": 9.26,
+   "maxPay": 639.0
+  },
+  {
+   "start": "1988-09",
+   "diff": -9183.73,
+   "maxRate": 9.08,
+   "maxPay": 634.45
+  },
+  {
+   "start": "1988-10",
+   "diff": -9540.99,
+   "maxRate": 8.97,
+   "maxPay": 631.78
+  },
+  {
+   "start": "1988-11",
+   "diff": -10560.37,
+   "maxRate": 8.56,
+   "maxPay": 621.03
+  },
+  {
+   "start": "1988-12",
+   "diff": -11317.97,
+   "maxRate": 8.25,
+   "maxPay": 612.96
+  },
+  {
+   "start": "1989-01",
+   "diff": -11843.9,
+   "maxRate": 8.05,
+   "maxPay": 607.8
+  },
+  {
+   "start": "1989-02",
+   "diff": -12474.57,
+   "maxRate": 7.79,
+   "maxPay": 601.05
+  },
+  {
+   "start": "1989-03",
+   "diff": -13128.77,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1989-04",
+   "diff": -12991.66,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1989-05",
+   "diff": -12731.25,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1989-06",
+   "diff": -12344.88,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1989-07",
+   "diff": -11952.39,
+   "maxRate": 7.52,
+   "maxPay": 594.03
+  },
+  {
+   "start": "1989-08",
+   "diff": -12118.06,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1989-09",
+   "diff": -11947.6,
+   "maxRate": 7.65,
+   "maxPay": 597.18
+  },
+  {
+   "start": "1989-10",
+   "diff": -11845.18,
+   "maxRate": 7.76,
+   "maxPay": 600.1
+  },
+  {
+   "start": "1989-11",
+   "diff": -12069.12,
+   "maxRate": 7.71,
+   "maxPay": 598.83
+  },
+  {
+   "start": "1989-12",
+   "diff": -12070.46,
+   "maxRate": 7.77,
+   "maxPay": 600.45
+  },
+  {
+   "start": "1990-01",
+   "diff": -12213.18,
+   "maxRate": 7.76,
+   "maxPay": 600.24
+  },
+  {
+   "start": "1990-02",
+   "diff": -12537.92,
+   "maxRate": 7.66,
+   "maxPay": 597.66
+  },
+  {
+   "start": "1990-03",
+   "diff": -12972.48,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1990-04",
+   "diff": -12859.58,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1990-05",
+   "diff": -12930.15,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1990-06",
+   "diff": -13039.31,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1990-07",
+   "diff": -12952.88,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1990-08",
+   "diff": -12737.77,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1990-09",
+   "diff": -12669.02,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1990-10",
+   "diff": -12370.56,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1990-11",
+   "diff": -12237.28,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1990-12",
+   "diff": -11597.01,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1991-01",
+   "diff": -10172.37,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1991-02",
+   "diff": -9400.72,
+   "maxRate": 7.73,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1991-03",
+   "diff": -9367.83,
+   "maxRate": 7.76,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1991-04",
+   "diff": -8636.83,
+   "maxRate": 8.02,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1991-05",
+   "diff": -8103.14,
+   "maxRate": 8.21,
+   "maxPay": 596.62
+  },
+  {
+   "start": "1991-06",
+   "diff": -8475.92,
+   "maxRate": 8.1,
+   "maxPay": 593.77
+  },
+  {
+   "start": "1991-07",
+   "diff": -8549.57,
+   "maxRate": 8.09,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1991-08",
+   "diff": -7830.3,
+   "maxRate": 8.34,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1991-09",
+   "diff": -7526.24,
+   "maxRate": 8.45,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1991-10",
+   "diff": -6846.68,
+   "maxRate": 8.68,
+   "maxPay": 597.26
+  },
+  {
+   "start": "1991-11",
+   "diff": -5529.58,
+   "maxRate": 9.11,
+   "maxPay": 608.88
+  },
+  {
+   "start": "1991-12",
+   "diff": -3988.58,
+   "maxRate": 9.6,
+   "maxPay": 622.33
+  },
+  {
+   "start": "1992-01",
+   "diff": -3108.87,
+   "maxRate": 9.87,
+   "maxPay": 630.02
+  },
+  {
+   "start": "1992-02",
+   "diff": -3202.2,
+   "maxRate": 9.83,
+   "maxPay": 629.35
+  },
+  {
+   "start": "1992-03",
+   "diff": -3806.74,
+   "maxRate": 9.63,
+   "maxPay": 624.32
+  },
+  {
+   "start": "1992-04",
+   "diff": -2864.21,
+   "maxRate": 9.92,
+   "maxPay": 632.58
+  },
+  {
+   "start": "1992-05",
+   "diff": -2447.43,
+   "maxRate": 10.04,
+   "maxPay": 636.29
+  },
+  {
+   "start": "1992-06",
+   "diff": -2505.66,
+   "maxRate": 10.01,
+   "maxPay": 635.91
+  },
+  {
+   "start": "1992-07",
+   "diff": -1021.93,
+   "maxRate": 10.46,
+   "maxPay": 648.74
+  },
+  {
+   "start": "1992-08",
+   "diff": -706.14,
+   "maxRate": 10.54,
+   "maxPay": 651.49
+  },
+  {
+   "start": "1992-09",
+   "diff": 68.95,
+   "maxRate": 10.76,
+   "maxPay": 658.15
+  },
+  {
+   "start": "1992-10",
+   "diff": 301.79,
+   "maxRate": 10.81,
+   "maxPay": 660.14
+  },
+  {
+   "start": "1992-11",
+   "diff": -506.01,
+   "maxRate": 10.54,
+   "maxPay": 653.23
+  },
+  {
+   "start": "1992-12",
+   "diff": -741.37,
+   "maxRate": 10.45,
+   "maxPay": 651.28
+  },
+  {
+   "start": "1993-01",
+   "diff": 23.78,
+   "maxRate": 10.67,
+   "maxPay": 657.91
+  },
+  {
+   "start": "1993-02",
+   "diff": 312.38,
+   "maxRate": 10.74,
+   "maxPay": 660.43
+  },
+  {
+   "start": "1993-03",
+   "diff": 309.96,
+   "maxRate": 10.72,
+   "maxPay": 660.46
+  },
+  {
+   "start": "1993-04",
+   "diff": 631.64,
+   "maxRate": 10.8,
+   "maxPay": 663.27
+  },
+  {
+   "start": "1993-05",
+   "diff": 401.34,
+   "maxRate": 10.71,
+   "maxPay": 661.35
+  },
+  {
+   "start": "1993-06",
+   "diff": 100.88,
+   "maxRate": 10.6,
+   "maxPay": 658.86
+  },
+  {
+   "start": "1993-07",
+   "diff": 249.33,
+   "maxRate": 10.63,
+   "maxPay": 660.24
+  },
+  {
+   "start": "1993-08",
+   "diff": 365.45,
+   "maxRate": 10.65,
+   "maxPay": 661.35
+  },
+  {
+   "start": "1993-09",
+   "diff": 644.22,
+   "maxRate": 10.72,
+   "maxPay": 663.86
+  },
+  {
+   "start": "1993-10",
+   "diff": 469.13,
+   "maxRate": 10.65,
+   "maxPay": 662.48
+  },
+  {
+   "start": "1993-11",
+   "diff": 257.19,
+   "maxRate": 10.57,
+   "maxPay": 660.8
+  },
+  {
+   "start": "1993-12",
+   "diff": 430.05,
+   "maxRate": 10.61,
+   "maxPay": 662.45
+  },
+  {
+   "start": "1994-01",
+   "diff": 733.85,
+   "maxRate": 10.69,
+   "maxPay": 665.22
+  },
+  {
+   "start": "1994-02",
+   "diff": -96.19,
+   "maxRate": 10.42,
+   "maxPay": 658.28
+  },
+  {
+   "start": "1994-03",
+   "diff": -870.8,
+   "maxRate": 10.17,
+   "maxPay": 651.87
+  },
+  {
+   "start": "1994-04",
+   "diff": -1430.11,
+   "maxRate": 9.99,
+   "maxPay": 647.37
+  },
+  {
+   "start": "1994-05",
+   "diff": -2885.94,
+   "maxRate": 9.53,
+   "maxPay": 635.23
+  },
+  {
+   "start": "1994-06",
+   "diff": -2901.42,
+   "maxRate": 9.53,
+   "maxPay": 635.55
+  },
+  {
+   "start": "1994-07",
+   "diff": -3517.57,
+   "maxRate": 9.34,
+   "maxPay": 630.72
+  },
+  {
+   "start": "1994-08",
+   "diff": -4015.65,
+   "maxRate": 9.19,
+   "maxPay": 626.95
+  },
+  {
+   "start": "1994-09",
+   "diff": -4488.79,
+   "maxRate": 9.05,
+   "maxPay": 623.44
+  },
+  {
+   "start": "1994-10",
+   "diff": -5535.01,
+   "maxRate": 8.72,
+   "maxPay": 614.84
+  },
+  {
+   "start": "1994-11",
+   "diff": -6594.48,
+   "maxRate": 8.38,
+   "maxPay": 605.98
+  },
+  {
+   "start": "1994-12",
+   "diff": -7537.87,
+   "maxRate": 8.07,
+   "maxPay": 597.91
+  },
+  {
+   "start": "1995-01",
+   "diff": -7918.57,
+   "maxRate": 7.96,
+   "maxPay": 595.06
+  },
+  {
+   "start": "1995-02",
+   "diff": -8166.98,
+   "maxRate": 7.9,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1995-03",
+   "diff": -8150.43,
+   "maxRate": 7.94,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1995-04",
+   "diff": -8028.22,
+   "maxRate": 8.02,
+   "maxPay": 594.03
+  },
+  {
+   "start": "1995-05",
+   "diff": -8169.69,
+   "maxRate": 8.0,
+   "maxPay": 593.51
+  },
+  {
+   "start": "1995-06",
+   "diff": -7732.16,
+   "maxRate": 8.2,
+   "maxPay": 597.2
+  },
+  {
+   "start": "1995-07",
+   "diff": -7683.62,
+   "maxRate": 8.25,
+   "maxPay": 598.69
+  },
+  {
+   "start": "1995-08",
+   "diff": -7713.59,
+   "maxRate": 8.27,
+   "maxPay": 599.39
+  },
+  {
+   "start": "1995-09",
+   "diff": -7465.03,
+   "maxRate": 8.39,
+   "maxPay": 602.74
+  },
+  {
+   "start": "1995-10",
+   "diff": -7545.81,
+   "maxRate": 8.39,
+   "maxPay": 602.94
+  },
+  {
+   "start": "1995-11",
+   "diff": -7848.42,
+   "maxRate": 8.31,
+   "maxPay": 601.02
+  },
+  {
+   "start": "1995-12",
+   "diff": -7322.74,
+   "maxRate": 8.53,
+   "maxPay": 607.04
+  },
+  {
+   "start": "1996-01",
+   "diff": -7009.36,
+   "maxRate": 8.67,
+   "maxPay": 611.0
+  },
+  {
+   "start": "1996-02",
+   "diff": -6599.26,
+   "maxRate": 8.84,
+   "maxPay": 615.8
+  },
+  {
+   "start": "1996-03",
+   "diff": -7033.8,
+   "maxRate": 8.71,
+   "maxPay": 612.61
+  },
+  {
+   "start": "1996-04",
+   "diff": -7076.46,
+   "maxRate": 8.72,
+   "maxPay": 613.13
+  },
+  {
+   "start": "1996-05",
+   "diff": -7339.8,
+   "maxRate": 8.65,
+   "maxPay": 611.52
+  },
+  {
+   "start": "1996-06",
+   "diff": -7603.82,
+   "maxRate": 8.58,
+   "maxPay": 609.9
+  },
+  {
+   "start": "1996-07",
+   "diff": -7841.82,
+   "maxRate": 8.52,
+   "maxPay": 608.54
+  },
+  {
+   "start": "1996-08",
+   "diff": -7648.12,
+   "maxRate": 8.62,
+   "maxPay": 611.42
+  },
+  {
+   "start": "1996-09",
+   "diff": -7829.22,
+   "maxRate": 8.58,
+   "maxPay": 610.6
+  },
+  {
+   "start": "1996-10",
+   "diff": -7634.09,
+   "maxRate": 8.68,
+   "maxPay": 613.5
+  },
+  {
+   "start": "1996-11",
+   "diff": -7812.45,
+   "maxRate": 8.64,
+   "maxPay": 612.68
+  },
+  {
+   "start": "1996-12",
+   "diff": -7560.26,
+   "maxRate": 8.76,
+   "maxPay": 616.14
+  },
+  {
+   "start": "1997-01",
+   "diff": -7950.46,
+   "maxRate": 8.64,
+   "maxPay": 613.19
+  },
+  {
+   "start": "1997-02",
+   "diff": -7968.75,
+   "maxRate": 8.66,
+   "maxPay": 613.96
+  },
+  {
+   "start": "1997-03",
+   "diff": -8382.49,
+   "maxRate": 8.53,
+   "maxPay": 610.74
+  },
+  {
+   "start": "1997-04",
+   "diff": -8510.13,
+   "maxRate": 8.51,
+   "maxPay": 610.42
+  },
+  {
+   "start": "1997-05",
+   "diff": -8298.5,
+   "maxRate": 8.62,
+   "maxPay": 613.57
+  },
+  {
+   "start": "1997-06",
+   "diff": -8053.79,
+   "maxRate": 8.74,
+   "maxPay": 617.02
+  },
+  {
+   "start": "1997-07",
+   "diff": -8436.16,
+   "maxRate": 8.62,
+   "maxPay": 614.07
+  },
+  {
+   "start": "1997-08",
+   "diff": -8740.22,
+   "maxRate": 8.53,
+   "maxPay": 611.89
+  },
+  {
+   "start": "1997-09",
+   "diff": -8323.35,
+   "maxRate": 8.72,
+   "maxPay": 617.19
+  },
+  {
+   "start": "1997-10",
+   "diff": -8443.64,
+   "maxRate": 8.7,
+   "maxPay": 616.91
+  },
+  {
+   "start": "1997-11",
+   "diff": -8949.18,
+   "maxRate": 8.53,
+   "maxPay": 612.61
+  },
+  {
+   "start": "1997-12",
+   "diff": -9076.19,
+   "maxRate": 8.51,
+   "maxPay": 612.29
+  },
+  {
+   "start": "1998-01",
+   "diff": -8849.53,
+   "maxRate": 8.63,
+   "maxPay": 615.71
+  },
+  {
+   "start": "1998-02",
+   "diff": -9050.04,
+   "maxRate": 8.58,
+   "maxPay": 614.6
+  },
+  {
+   "start": "1998-03",
+   "diff": -8975.61,
+   "maxRate": 8.64,
+   "maxPay": 616.43
+  },
+  {
+   "start": "1998-04",
+   "diff": -8848.62,
+   "maxRate": 8.72,
+   "maxPay": 618.81
+  },
+  {
+   "start": "1998-05",
+   "diff": -9050.13,
+   "maxRate": 8.67,
+   "maxPay": 617.72
+  },
+  {
+   "start": "1998-06",
+   "diff": -9077.49,
+   "maxRate": 8.69,
+   "maxPay": 618.49
+  },
+  {
+   "start": "1998-07",
+   "diff": -9105.19,
+   "maxRate": 8.71,
+   "maxPay": 619.27
+  },
+  {
+   "start": "1998-08",
+   "diff": -9031.1,
+   "maxRate": 8.77,
+   "maxPay": 621.13
+  },
+  {
+   "start": "1998-09",
+   "diff": -8315.09,
+   "maxRate": 9.06,
+   "maxPay": 629.21
+  },
+  {
+   "start": "1998-10",
+   "diff": -6402.45,
+   "maxRate": 9.71,
+   "maxPay": 647.26
+  },
+  {
+   "start": "1998-11",
+   "diff": -7814.66,
+   "maxRate": 9.26,
+   "maxPay": 635.4
+  },
+  {
+   "start": "1998-12",
+   "diff": -7814.83,
+   "maxRate": 9.28,
+   "maxPay": 636.29
+  },
+  {
+   "start": "1999-01",
+   "diff": -7724.56,
+   "maxRate": 9.33,
+   "maxPay": 638.01
+  },
+  {
+   "start": "1999-02",
+   "diff": -8088.21,
+   "maxRate": 9.23,
+   "maxPay": 635.65
+  },
+  {
+   "start": "1999-03",
+   "diff": -8154.89,
+   "maxRate": 9.23,
+   "maxPay": 635.99
+  },
+  {
+   "start": "1999-04",
+   "diff": -7769.53,
+   "maxRate": 9.38,
+   "maxPay": 640.42
+  },
+  {
+   "start": "1999-05",
+   "diff": -8466.18,
+   "maxRate": 9.17,
+   "maxPay": 635.08
+  },
+  {
+   "start": "1999-06",
+   "diff": -8749.73,
+   "maxRate": 9.1,
+   "maxPay": 633.5
+  },
+  {
+   "start": "1999-07",
+   "diff": -8767.94,
+   "maxRate": 9.12,
+   "maxPay": 634.36
+  },
+  {
+   "start": "1999-08",
+   "diff": -9328.34,
+   "maxRate": 8.95,
+   "maxPay": 630.07
+  },
+  {
+   "start": "1999-09",
+   "diff": -9309.21,
+   "maxRate": 8.99,
+   "maxPay": 631.44
+  },
+  {
+   "start": "1999-10",
+   "diff": -9862.88,
+   "maxRate": 8.81,
+   "maxPay": 626.87
+  },
+  {
+   "start": "1999-11",
+   "diff": -10451.41,
+   "maxRate": 8.6,
+   "maxPay": 621.48
+  },
+  {
+   "start": "1999-12",
+   "diff": -10845.45,
+   "maxRate": 8.47,
+   "maxPay": 618.21
+  },
+  {
+   "start": "2000-01",
+   "diff": -11215.54,
+   "maxRate": 8.35,
+   "maxPay": 615.2
+  },
+  {
+   "start": "2000-02",
+   "diff": -11757.13,
+   "maxRate": 8.12,
+   "maxPay": 609.25
+  },
+  {
+   "start": "2000-03",
+   "diff": -12102.64,
+   "maxRate": 7.98,
+   "maxPay": 605.66
+  },
+  {
+   "start": "2000-04",
+   "diff": -12178.52,
+   "maxRate": 8.01,
+   "maxPay": 606.55
+  },
+  {
+   "start": "2000-05",
+   "diff": -12504.11,
+   "maxRate": 7.88,
+   "maxPay": 603.21
+  },
+  {
+   "start": "2000-06",
+   "diff": -12479.22,
+   "maxRate": 7.98,
+   "maxPay": 605.92
+  },
+  {
+   "start": "2000-07",
+   "diff": -12999.83,
+   "maxRate": 7.71,
+   "maxPay": 598.91
+  },
+  {
+   "start": "2000-08",
+   "diff": -13308.63,
+   "maxRate": 7.58,
+   "maxPay": 595.54
+  },
+  {
+   "start": "2000-09",
+   "diff": -13326.75,
+   "maxRate": 7.67,
+   "maxPay": 597.91
+  },
+  {
+   "start": "2000-10",
+   "diff": -13604.62,
+   "maxRate": 7.56,
+   "maxPay": 595.06
+  },
+  {
+   "start": "2000-11",
+   "diff": -13818.6,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2000-12",
+   "diff": -13455.12,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2001-01",
+   "diff": -12592.94,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2001-02",
+   "diff": -12169.13,
+   "maxRate": 7.65,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2001-03",
+   "diff": -11119.92,
+   "maxRate": 8.11,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2001-04",
+   "diff": -9685.27,
+   "maxRate": 8.66,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2001-05",
+   "diff": -9027.41,
+   "maxRate": 8.91,
+   "maxPay": 594.16
+  },
+  {
+   "start": "2001-06",
+   "diff": -8714.64,
+   "maxRate": 9.04,
+   "maxPay": 597.96
+  },
+  {
+   "start": "2001-07",
+   "diff": -8851.81,
+   "maxRate": 9.02,
+   "maxPay": 597.79
+  },
+  {
+   "start": "2001-08",
+   "diff": -8475.19,
+   "maxRate": 9.17,
+   "maxPay": 602.16
+  },
+  {
+   "start": "2001-09",
+   "diff": -6338.87,
+   "maxRate": 9.89,
+   "maxPay": 622.0
+  },
+  {
+   "start": "2001-10",
+   "diff": -4884.78,
+   "maxRate": 10.37,
+   "maxPay": 635.7
+  },
+  {
+   "start": "2001-11",
+   "diff": -3992.48,
+   "maxRate": 10.66,
+   "maxPay": 644.38
+  },
+  {
+   "start": "2001-12",
+   "diff": -3430.01,
+   "maxRate": 10.84,
+   "maxPay": 650.09
+  },
+  {
+   "start": "2002-01",
+   "diff": -3302.18,
+   "maxRate": 10.88,
+   "maxPay": 651.95
+  },
+  {
+   "start": "2002-02",
+   "diff": -3521.85,
+   "maxRate": 10.81,
+   "maxPay": 650.73
+  },
+  {
+   "start": "2002-03",
+   "diff": -3745.28,
+   "maxRate": 10.74,
+   "maxPay": 649.5
+  },
+  {
+   "start": "2002-04",
+   "diff": -3498.57,
+   "maxRate": 10.82,
+   "maxPay": 652.45
+  },
+  {
+   "start": "2002-05",
+   "diff": -3565.07,
+   "maxRate": 10.8,
+   "maxPay": 652.62
+  },
+  {
+   "start": "2002-06",
+   "diff": -3475.18,
+   "maxRate": 10.83,
+   "maxPay": 654.18
+  },
+  {
+   "start": "2002-07",
+   "diff": -3416.26,
+   "maxRate": 10.85,
+   "maxPay": 655.46
+  },
+  {
+   "start": "2002-08",
+   "diff": -3230.46,
+   "maxRate": 10.91,
+   "maxPay": 657.87
+  },
+  {
+   "start": "2002-09",
+   "diff": -3264.23,
+   "maxRate": 10.9,
+   "maxPay": 658.33
+  },
+  {
+   "start": "2002-10",
+   "diff": -3109.15,
+   "maxRate": 10.95,
+   "maxPay": 660.47
+  },
+  {
+   "start": "2002-11",
+   "diff": -1996.85,
+   "maxRate": 11.3,
+   "maxPay": 671.11
+  },
+  {
+   "start": "2002-12",
+   "diff": -1854.46,
+   "maxRate": 11.34,
+   "maxPay": 673.07
+  },
+  {
+   "start": "2003-01",
+   "diff": -1774.69,
+   "maxRate": 11.36,
+   "maxPay": 674.46
+  },
+  {
+   "start": "2003-02",
+   "diff": -1758.56,
+   "maxRate": 11.36,
+   "maxPay": 675.29
+  },
+  {
+   "start": "2003-03",
+   "diff": -1615.09,
+   "maxRate": 11.4,
+   "maxPay": 677.26
+  },
+  {
+   "start": "2003-04",
+   "diff": -1598.27,
+   "maxRate": 11.4,
+   "maxPay": 678.1
+  },
+  {
+   "start": "2003-05",
+   "diff": -1389.99,
+   "maxRate": 11.46,
+   "maxPay": 680.64
+  },
+  {
+   "start": "2003-06",
+   "diff": -890.21,
+   "maxRate": 11.61,
+   "maxPay": 685.77
+  },
+  {
+   "start": "2003-07",
+   "diff": -800.73,
+   "maxRate": 11.63,
+   "maxPay": 687.22
+  },
+  {
+   "start": "2003-08",
+   "diff": -935.76,
+   "maxRate": 11.58,
+   "maxPay": 686.67
+  },
+  {
+   "start": "2003-09",
+   "diff": -881.08,
+   "maxRate": 11.59,
+   "maxPay": 687.82
+  },
+  {
+   "start": "2003-10",
+   "diff": -794.4,
+   "maxRate": 11.61,
+   "maxPay": 689.26
+  },
+  {
+   "start": "2003-11",
+   "diff": -803.61,
+   "maxRate": 11.6,
+   "maxPay": 689.85
+  },
+  {
+   "start": "2003-12",
+   "diff": -685.47,
+   "maxRate": 11.63,
+   "maxPay": 691.57
+  },
+  {
+   "start": "2004-01",
+   "diff": -598.51,
+   "maxRate": 11.65,
+   "maxPay": 693.02
+  },
+  {
+   "start": "2004-02",
+   "diff": -735.75,
+   "maxRate": 11.6,
+   "maxPay": 692.46
+  },
+  {
+   "start": "2004-03",
+   "diff": -747.6,
+   "maxRate": 11.59,
+   "maxPay": 693.03
+  },
+  {
+   "start": "2004-04",
+   "diff": -728.45,
+   "maxRate": 11.59,
+   "maxPay": 693.89
+  },
+  {
+   "start": "2004-05",
+   "diff": -965.82,
+   "maxRate": 11.51,
+   "maxPay": 692.45
+  },
+  {
+   "start": "2004-06",
+   "diff": -1748.13,
+   "maxRate": 11.26,
+   "maxPay": 686.15
+  },
+  {
+   "start": "2004-07",
+   "diff": -1937.02,
+   "maxRate": 11.2,
+   "maxPay": 685.23
+  },
+  {
+   "start": "2004-08",
+   "diff": -2413.59,
+   "maxRate": 11.05,
+   "maxPay": 681.73
+  },
+  {
+   "start": "2004-09",
+   "diff": -2958.96,
+   "maxRate": 10.88,
+   "maxPay": 677.66
+  },
+  {
+   "start": "2004-10",
+   "diff": -3322.79,
+   "maxRate": 10.77,
+   "maxPay": 675.25
+  },
+  {
+   "start": "2004-11",
+   "diff": -4314.64,
+   "maxRate": 10.46,
+   "maxPay": 667.22
+  },
+  {
+   "start": "2004-12",
+   "diff": -4726.82,
+   "maxRate": 10.34,
+   "maxPay": 664.46
+  },
+  {
+   "start": "2005-01",
+   "diff": -5205.79,
+   "maxRate": 10.2,
+   "maxPay": 661.14
+  },
+  {
+   "start": "2005-02",
+   "diff": -5905.17,
+   "maxRate": 9.99,
+   "maxPay": 655.86
+  },
+  {
+   "start": "2005-03",
+   "diff": -6580.79,
+   "maxRate": 9.79,
+   "maxPay": 650.83
+  },
+  {
+   "start": "2005-04",
+   "diff": -6777.01,
+   "maxRate": 9.75,
+   "maxPay": 650.19
+  },
+  {
+   "start": "2005-05",
+   "diff": -7036.57,
+   "maxRate": 9.69,
+   "maxPay": 648.98
+  },
+  {
+   "start": "2005-06",
+   "diff": -7511.27,
+   "maxRate": 9.56,
+   "maxPay": 645.85
+  },
+  {
+   "start": "2005-07",
+   "diff": -8351.95,
+   "maxRate": 9.31,
+   "maxPay": 639.42
+  },
+  {
+   "start": "2005-08",
+   "diff": -9109.92,
+   "maxRate": 9.09,
+   "maxPay": 633.8
+  },
+  {
+   "start": "2005-09",
+   "diff": -9161.29,
+   "maxRate": 9.11,
+   "maxPay": 634.65
+  },
+  {
+   "start": "2005-10",
+   "diff": -10132.65,
+   "maxRate": 8.82,
+   "maxPay": 627.12
+  },
+  {
+   "start": "2005-11",
+   "diff": -10663.62,
+   "maxRate": 8.65,
+   "maxPay": 622.81
+  },
+  {
+   "start": "2005-12",
+   "diff": -10810.95,
+   "maxRate": 8.64,
+   "maxPay": 622.76
+  },
+  {
+   "start": "2006-01",
+   "diff": -11434.4,
+   "maxRate": 8.29,
+   "maxPay": 613.63
+  },
+  {
+   "start": "2006-02",
+   "diff": -11825.29,
+   "maxRate": 8.1,
+   "maxPay": 608.73
+  },
+  {
+   "start": "2006-03",
+   "diff": -12066.96,
+   "maxRate": 8.02,
+   "maxPay": 606.73
+  },
+  {
+   "start": "2006-04",
+   "diff": -12319.83,
+   "maxRate": 7.93,
+   "maxPay": 604.45
+  },
+  {
+   "start": "2006-05",
+   "diff": -12607.06,
+   "maxRate": 7.81,
+   "maxPay": 601.38
+  },
+  {
+   "start": "2006-06",
+   "diff": -12834.06,
+   "maxRate": 7.74,
+   "maxPay": 599.59
+  },
+  {
+   "start": "2006-07",
+   "diff": -13156.98,
+   "maxRate": 7.58,
+   "maxPay": 595.45
+  },
+  {
+   "start": "2006-08",
+   "diff": -13317.51,
+   "maxRate": 7.57,
+   "maxPay": 595.2
+  },
+  {
+   "start": "2006-09",
+   "diff": -13316.72,
+   "maxRate": 7.72,
+   "maxPay": 599.14
+  },
+  {
+   "start": "2006-10",
+   "diff": -13575.75,
+   "maxRate": 7.61,
+   "maxPay": 596.3
+  },
+  {
+   "start": "2006-11",
+   "diff": -13747.46,
+   "maxRate": 7.59,
+   "maxPay": 595.8
+  },
+  {
+   "start": "2006-12",
+   "diff": -13822.08,
+   "maxRate": 7.68,
+   "maxPay": 598.17
+  },
+  {
+   "start": "2007-01",
+   "diff": -14087.15,
+   "maxRate": 7.55,
+   "maxPay": 594.81
+  },
+  {
+   "start": "2007-02",
+   "diff": -14281.4,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2007-03",
+   "diff": -14373.41,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2007-04",
+   "diff": -14481.28,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2007-05",
+   "diff": -14539.85,
+   "maxRate": 7.59,
+   "maxPay": 595.8
+  },
+  {
+   "start": "2007-06",
+   "diff": -14617.36,
+   "maxRate": 7.71,
+   "maxPay": 598.96
+  },
+  {
+   "start": "2007-07",
+   "diff": -14913.27,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2007-08",
+   "diff": -14690.5,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2007-09",
+   "diff": -14639.25,
+   "maxRate": 7.51,
+   "maxPay": 593.77
+  },
+  {
+   "start": "2007-10",
+   "diff": -14805.67,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2007-11",
+   "diff": -13351.72,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2007-12",
+   "diff": -12702.23,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2008-01",
+   "diff": -12094.78,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2008-02",
+   "diff": -10344.47,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2008-03",
+   "diff": -7835.9,
+   "maxRate": 8.1,
+   "maxPay": 609.04
+  },
+  {
+   "start": "2008-04",
+   "diff": -7972.17,
+   "maxRate": 8.07,
+   "maxPay": 608.36
+  },
+  {
+   "start": "2008-05",
+   "diff": -9350.54,
+   "maxRate": 7.63,
+   "maxPay": 596.88
+  },
+  {
+   "start": "2008-06",
+   "diff": -9807.09,
+   "maxRate": 7.5,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2008-07",
+   "diff": -9186.86,
+   "maxRate": 7.77,
+   "maxPay": 595.84
+  },
+  {
+   "start": "2008-08",
+   "diff": -9518.68,
+   "maxRate": 7.74,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2008-09",
+   "diff": -7794.3,
+   "maxRate": 8.4,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2008-10",
+   "diff": -6416.99,
+   "maxRate": 8.96,
+   "maxPay": 593.51
+  },
+  {
+   "start": "2008-11",
+   "diff": -4937.73,
+   "maxRate": 9.56,
+   "maxPay": 598.59
+  },
+  {
+   "start": "2008-12",
+   "diff": -4425.55,
+   "maxRate": 9.8,
+   "maxPay": 603.36
+  },
+  {
+   "start": "2009-01",
+   "diff": -4720.14,
+   "maxRate": 9.74,
+   "maxPay": 601.28
+  },
+  {
+   "start": "2009-02",
+   "diff": -5236.61,
+   "maxRate": 9.57,
+   "maxPay": 597.34
+  },
+  {
+   "start": "2009-03",
+   "diff": -4946.98,
+   "maxRate": 9.68,
+   "maxPay": 600.22
+  },
+  {
+   "start": "2009-04",
+   "diff": -4776.68,
+   "maxRate": 9.74,
+   "maxPay": 602.08
+  },
+  {
+   "start": "2009-05",
+   "diff": -4822.22,
+   "maxRate": 9.72,
+   "maxPay": 602.09
+  },
+  {
+   "start": "2009-06",
+   "diff": -4805.01,
+   "maxRate": 9.72,
+   "maxPay": 602.62
+  },
+  {
+   "start": "2009-07",
+   "diff": -4786.86,
+   "maxRate": 9.72,
+   "maxPay": 603.15
+  },
+  {
+   "start": "2009-08",
+   "diff": -4736.44,
+   "maxRate": 9.73,
+   "maxPay": 603.95
+  },
+  {
+   "start": "2009-09",
+   "diff": -4559.08,
+   "maxRate": 9.78,
+   "maxPay": 605.81
+  },
+  {
+   "start": "2009-10",
+   "diff": -4378.2,
+   "maxRate": 9.83,
+   "maxPay": 607.69
+  },
+  {
+   "start": "2009-11",
+   "diff": -4288.43,
+   "maxRate": 9.85,
+   "maxPay": 608.77
+  },
+  {
+   "start": "2009-12",
+   "diff": -4259.98,
+   "maxRate": 9.85,
+   "maxPay": 609.33
+  },
+  {
+   "start": "2010-01",
+   "diff": -4262.39,
+   "maxRate": 9.84,
+   "maxPay": 609.62
+  },
+  {
+   "start": "2010-02",
+   "diff": -4390.62,
+   "maxRate": 9.79,
+   "maxPay": 608.83
+  },
+  {
+   "start": "2010-03",
+   "diff": -4489.11,
+   "maxRate": 9.75,
+   "maxPay": 608.3
+  },
+  {
+   "start": "2010-04",
+   "diff": -4495.16,
+   "maxRate": 9.74,
+   "maxPay": 608.57
+  },
+  {
+   "start": "2010-05",
+   "diff": -4470.33,
+   "maxRate": 9.74,
+   "maxPay": 609.1
+  },
+  {
+   "start": "2010-06",
+   "diff": -4319.64,
+   "maxRate": 9.78,
+   "maxPay": 610.69
+  },
+  {
+   "start": "2010-07",
+   "diff": -4419.01,
+   "maxRate": 9.74,
+   "maxPay": 610.16
+  },
+  {
+   "start": "2010-08",
+   "diff": -4394.45,
+   "maxRate": 9.74,
+   "maxPay": 610.68
+  },
+  {
+   "start": "2010-09",
+   "diff": -4338.49,
+   "maxRate": 9.75,
+   "maxPay": 611.47
+  },
+  {
+   "start": "2010-10",
+   "diff": -4250.6,
+   "maxRate": 9.77,
+   "maxPay": 612.54
+  },
+  {
+   "start": "2010-11",
+   "diff": -4256.42,
+   "maxRate": 9.76,
+   "maxPay": 612.8
+  },
+  {
+   "start": "2010-12",
+   "diff": -4231.31,
+   "maxRate": 9.76,
+   "maxPay": 613.32
+  },
+  {
+   "start": "2011-01",
+   "diff": -4237.85,
+   "maxRate": 9.75,
+   "maxPay": 613.58
+  },
+  {
+   "start": "2011-02",
+   "diff": -4150.33,
+   "maxRate": 9.77,
+   "maxPay": 614.64
+  },
+  {
+   "start": "2011-03",
+   "diff": -4030.32,
+   "maxRate": 9.8,
+   "maxPay": 615.97
+  },
+  {
+   "start": "2011-04",
+   "diff": -3877.23,
+   "maxRate": 9.84,
+   "maxPay": 617.58
+  },
+  {
+   "start": "2011-05",
+   "diff": -3785.47,
+   "maxRate": 9.86,
+   "maxPay": 618.66
+  },
+  {
+   "start": "2011-06",
+   "diff": -3756.15,
+   "maxRate": 9.86,
+   "maxPay": 619.2
+  },
+  {
+   "start": "2011-07",
+   "diff": -3726.94,
+   "maxRate": 9.86,
+   "maxPay": 619.74
+  },
+  {
+   "start": "2011-08",
+   "diff": -3634.44,
+   "maxRate": 9.88,
+   "maxPay": 620.82
+  },
+  {
+   "start": "2011-09",
+   "diff": -3572.72,
+   "maxRate": 9.89,
+   "maxPay": 621.63
+  },
+  {
+   "start": "2011-10",
+   "diff": -3574.04,
+   "maxRate": 9.88,
+   "maxPay": 621.91
+  },
+  {
+   "start": "2011-11",
+   "diff": -3512.49,
+   "maxRate": 9.89,
+   "maxPay": 622.72
+  },
+  {
+   "start": "2011-12",
+   "diff": -3482.27,
+   "maxRate": 9.89,
+   "maxPay": 623.26
+  },
+  {
+   "start": "2012-01",
+   "diff": -3515.62,
+   "maxRate": 9.87,
+   "maxPay": 623.26
+  },
+  {
+   "start": "2012-02",
+   "diff": -3676.82,
+   "maxRate": 9.81,
+   "maxPay": 622.17
+  },
+  {
+   "start": "2012-03",
+   "diff": -3618.94,
+   "maxRate": 9.82,
+   "maxPay": 622.96
+  },
+  {
+   "start": "2012-04",
+   "diff": -3592.19,
+   "maxRate": 9.82,
+   "maxPay": 623.48
+  },
+  {
+   "start": "2012-05",
+   "diff": -3596.92,
+   "maxRate": 9.81,
+   "maxPay": 623.73
+  },
+  {
+   "start": "2012-06",
+   "diff": -3570.07,
+   "maxRate": 9.81,
+   "maxPay": 624.25
+  },
+  {
+   "start": "2012-07",
+   "diff": -3574.33,
+   "maxRate": 9.8,
+   "maxPay": 624.5
+  },
+  {
+   "start": "2012-08",
+   "diff": -3546.4,
+   "maxRate": 9.8,
+   "maxPay": 625.01
+  },
+  {
+   "start": "2012-09",
+   "diff": -3549.02,
+   "maxRate": 10.02,
+   "maxPay": 625.25
+  },
+  {
+   "start": "2012-10",
+   "diff": -3487.25,
+   "maxRate": 10.53,
+   "maxPay": 626.04
+  },
+  {
+   "start": "2012-11",
+   "diff": -3423.27,
+   "maxRate": 11.13,
+   "maxPay": 626.82
+  },
+  {
+   "start": "2012-12",
+   "diff": -3325.06,
+   "maxRate": 11.58,
+   "maxPay": 627.88
+  },
+  {
+   "start": "2013-01",
+   "diff": -3287.41,
+   "maxRate": 11.68,
+   "maxPay": 628.4
+  },
+  {
+   "start": "2013-02",
+   "diff": -3343.0,
+   "maxRate": 11.94,
+   "maxPay": 628.09
+  },
+  {
+   "start": "2013-03",
+   "diff": -3270.75,
+   "maxRate": 12.06,
+   "maxPay": 628.87
+  },
+  {
+   "start": "2013-04",
+   "diff": -3132.15,
+   "maxRate": 12.13,
+   "maxPay": 630.2
+  },
+  {
+   "start": "2013-05",
+   "diff": -3021.49,
+   "maxRate": 12.38,
+   "maxPay": 631.26
+  },
+  {
+   "start": "2013-06",
+   "diff": -3002.95,
+   "maxRate": 12.59,
+   "maxPay": 631.51
+  },
+  {
+   "start": "2013-07",
+   "diff": -2918.73,
+   "maxRate": 12.62,
+   "maxPay": 632.3
+  },
+  {
+   "start": "2013-08",
+   "diff": -2863.41,
+   "maxRate": 12.71,
+   "maxPay": 632.81
+  },
+  {
+   "start": "2013-09",
+   "diff": -2741.72,
+   "maxRate": 12.78,
+   "maxPay": 633.87
+  },
+  {
+   "start": "2013-10",
+   "diff": -2776.17,
+   "maxRate": 12.77,
+   "maxPay": 633.57
+  },
+  {
+   "start": "2013-11",
+   "diff": -2777.67,
+   "maxRate": 12.77,
+   "maxPay": 633.53
+  },
+  {
+   "start": "2013-12",
+   "diff": -2713.84,
+   "maxRate": 12.77,
+   "maxPay": 634.04
+  },
+  {
+   "start": "2014-01",
+   "diff": -2551.63,
+   "maxRate": 12.8,
+   "maxPay": 635.36
+  },
+  {
+   "start": "2014-02",
+   "diff": -2513.39,
+   "maxRate": 12.79,
+   "maxPay": 635.6
+  },
+  {
+   "start": "2014-03",
+   "diff": -2441.2,
+   "maxRate": 12.79,
+   "maxPay": 636.1
+  },
+  {
+   "start": "2014-04",
+   "diff": -2302.47,
+   "maxRate": 12.81,
+   "maxPay": 637.16
+  },
+  {
+   "start": "2014-05",
+   "diff": -2224.36,
+   "maxRate": 12.81,
+   "maxPay": 637.67
+  },
+  {
+   "start": "2014-06",
+   "diff": -2175.91,
+   "maxRate": 12.8,
+   "maxPay": 637.9
+  },
+  {
+   "start": "2014-07",
+   "diff": -2061.3,
+   "maxRate": 12.81,
+   "maxPay": 638.68
+  },
+  {
+   "start": "2014-08",
+   "diff": -1975.89,
+   "maxRate": 12.81,
+   "maxPay": 639.18
+  },
+  {
+   "start": "2014-09",
+   "diff": -1855.97,
+   "maxRate": 12.82,
+   "maxPay": 640.52
+  },
+  {
+   "start": "2014-10",
+   "diff": -1765.55,
+   "maxRate": 12.82,
+   "maxPay": 641.8
+  },
+  {
+   "start": "2014-11",
+   "diff": -1673.09,
+   "maxRate": 12.82,
+   "maxPay": 643.07
+  },
+  {
+   "start": "2014-12",
+   "diff": -1610.89,
+   "maxRate": 12.81,
+   "maxPay": 644.07
+  },
+  {
+   "start": "2015-01",
+   "diff": -1515.06,
+   "maxRate": 12.81,
+   "maxPay": 645.34
+  },
+  {
+   "start": "2015-02",
+   "diff": -1385.05,
+   "maxRate": 12.82,
+   "maxPay": 646.88
+  },
+  {
+   "start": "2015-03",
+   "diff": -1317.3,
+   "maxRate": 12.81,
+   "maxPay": 647.87
+  },
+  {
+   "start": "2015-04",
+   "diff": -1183.52,
+   "maxRate": 12.82,
+   "maxPay": 649.42
+  },
+  {
+   "start": "2015-05",
+   "diff": -1079.73,
+   "maxRate": 12.82,
+   "maxPay": 650.68
+  },
+  {
+   "start": "2015-06",
+   "diff": -974.07,
+   "maxRate": 12.82,
+   "maxPay": 651.94
+  },
+  {
+   "start": "2015-07",
+   "diff": -899.0,
+   "maxRate": 12.81,
+   "maxPay": 652.93
+  },
+  {
+   "start": "2015-08",
+   "diff": -919.96,
+   "maxRate": 12.77,
+   "maxPay": 653.06
+  },
+  {
+   "start": "2015-09",
+   "diff": -649.0,
+   "maxRate": 12.82,
+   "maxPay": 655.71
+  },
+  {
+   "start": "2015-10",
+   "diff": -536.18,
+   "maxRate": 12.82,
+   "maxPay": 656.97
+  },
+  {
+   "start": "2015-11",
+   "diff": -747.0,
+   "maxRate": 12.72,
+   "maxPay": 655.41
+  },
+  {
+   "start": "2015-12",
+   "diff": -993.45,
+   "maxRate": 12.61,
+   "maxPay": 653.55
+  },
+  {
+   "start": "2016-01",
+   "diff": -984.38,
+   "maxRate": 12.58,
+   "maxPay": 653.91
+  },
+  {
+   "start": "2016-02",
+   "diff": -1040.38,
+   "maxRate": 12.53,
+   "maxPay": 653.7
+  },
+  {
+   "start": "2016-03",
+   "diff": -870.5,
+   "maxRate": 12.55,
+   "maxPay": 655.44
+  },
+  {
+   "start": "2016-04",
+   "diff": -568.03,
+   "maxRate": 12.61,
+   "maxPay": 658.32
+  },
+  {
+   "start": "2016-05",
+   "diff": -586.32,
+   "maxRate": 12.57,
+   "maxPay": 658.38
+  },
+  {
+   "start": "2016-06",
+   "diff": -475.14,
+   "maxRate": 12.57,
+   "maxPay": 659.57
+  },
+  {
+   "start": "2016-07",
+   "diff": -460.3,
+   "maxRate": 12.54,
+   "maxPay": 659.91
+  },
+  {
+   "start": "2016-08",
+   "diff": -347.88,
+   "maxRate": 12.54,
+   "maxPay": 661.08
+  },
+  {
+   "start": "2016-09",
+   "diff": -201.42,
+   "maxRate": 12.55,
+   "maxPay": 662.54
+  }
+ ],
+ "unrounded": {
+  "base": {
+   "share_all": 14.209827357237716,
+   "share_1954_1980": 28.395061728395063,
+   "share_1981_on": 3.4965034965034967,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 107,
+   "count_early": 92,
+   "count_late": 15,
+   "median_unrounded": -3832.201473006826,
+   "worst_unrounded": 11218.65433205614,
+   "best_unrounded": -15294.798091595863
+  },
+  "fixed_total_interest": 26005.464250150006,
+  "share_rate_above_fixed": 76.22841965471447,
+  "count_rate_above_fixed": 574,
+  "worst_peak_rate": 19.26,
+  "max_variable_rate_any_window": 20.6,
+  "share_windows_max_payment_above_fixed": 58.43293492695883,
+  "fixed_payment": 633.3788687512443,
+  "variable_first_payment": 593.5088456792654,
+  "max_variable_payment_any_window": 863.3619643801246,
+  "median_window_max_payment": 643.2792853121475,
+  "windows_maxPay_rounded_cents_above_rounded_fixed": 58.43293492695883,
+  "gap_-1.0": {
+   "share_all": 72.90836653386454,
+   "share_1954_1980": 92.90123456790124,
+   "share_1981_on": 57.80885780885781,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 549,
+   "count_early": 301,
+   "count_late": 248,
+   "median_unrounded": 4294.114377280501,
+   "worst_unrounded": 20216.751917512236,
+   "best_unrounded": -7931.030268592716
+  },
+  "gap_-0.5": {
+   "share_all": 64.6746347941567,
+   "share_1954_1980": 87.96296296296296,
+   "share_1981_on": 47.086247086247084,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 487,
+   "count_early": 285,
+   "count_late": 202,
+   "median_unrounded": 2631.0172946728635,
+   "worst_unrounded": 18382.69904424924,
+   "best_unrounded": -9443.728995245216
+  },
+  "gap_0.0": {
+   "share_all": 57.90172642762284,
+   "share_1954_1980": 79.01234567901234,
+   "share_1981_on": 41.95804195804196,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 436,
+   "count_early": 256,
+   "count_late": 180,
+   "median_unrounded": 988.0433356462636,
+   "worst_unrounded": 16565.617178898392,
+   "best_unrounded": -10936.575271666723
+  },
+  "gap_0.5": {
+   "share_all": 42.49667994687915,
+   "share_1954_1980": 68.51851851851852,
+   "share_1981_on": 22.843822843822842,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 320,
+   "count_early": 222,
+   "count_late": 98,
+   "median_unrounded": -638.7860897236533,
+   "worst_unrounded": 14765.754347470043,
+   "best_unrounded": -12409.444533361813
+  },
+  "gap_1.0": {
+   "share_all": 31.341301460823374,
+   "share_1954_1980": 54.93827160493827,
+   "share_1981_on": 13.51981351981352,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 236,
+   "count_early": 178,
+   "count_late": 58,
+   "median_unrounded": -2245.1287066760524,
+   "worst_unrounded": 12983.353935363957,
+   "best_unrounded": -13862.22104215407
+  },
+  "gap_1.5": {
+   "share_all": 14.209827357237716,
+   "share_1954_1980": 28.395061728395063,
+   "share_1981_on": 3.4965034965034967,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 107,
+   "count_early": 92,
+   "count_late": 15,
+   "median_unrounded": -3832.201473006826,
+   "worst_unrounded": 11218.65433205614,
+   "best_unrounded": -15294.798091595863
+  },
+  "gap_2.0": {
+   "share_all": 8.764940239043824,
+   "share_1954_1980": 20.37037037037037,
+   "share_1981_on": 0.0,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 66,
+   "count_early": 66,
+   "count_late": 0,
+   "median_unrounded": -5399.840954597468,
+   "worst_unrounded": 9471.888577572652,
+   "best_unrounded": -16707.078198706346
+  },
+  "gap_2.5": {
+   "share_all": 5.9760956175298805,
+   "share_1954_1980": 13.88888888888889,
+   "share_1981_on": 0.0,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 45,
+   "count_early": 45,
+   "count_late": 0,
+   "median_unrounded": -6950.343719417211,
+   "worst_unrounded": 7743.284011708405,
+   "best_unrounded": -18098.973281398106
+  },
+  "gap_3.0": {
+   "share_all": 4.51527224435591,
+   "share_1954_1980": 10.493827160493828,
+   "share_1981_on": 0.0,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 34,
+   "count_early": 34,
+   "count_late": 0,
+   "median_unrounded": -8492.018147130973,
+   "worst_unrounded": 6033.061926960672,
+   "best_unrounded": -19470.404820975833
+  },
+  "cap_12": {
+   "share_all": 13.280212483399735,
+   "share_1954_1980": 26.234567901234566,
+   "share_1981_on": 3.4965034965034967,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 100,
+   "count_early": 85,
+   "count_late": 15,
+   "median_unrounded": -3988.5821858407908,
+   "worst_unrounded": 6589.530934180137,
+   "best_unrounded": -15294.798091595863
+  },
+  "cap_15": {
+   "share_all": 13.944223107569721,
+   "share_1954_1980": 27.77777777777778,
+   "share_1981_on": 3.4965034965034967,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 105,
+   "count_early": 90,
+   "count_late": 15,
+   "median_unrounded": -3865.838958159413,
+   "worst_unrounded": 9821.247582481075,
+   "best_unrounded": -15294.798091595863
+  },
+  "cap_18": {
+   "share_all": 14.209827357237716,
+   "share_1954_1980": 28.395061728395063,
+   "share_1981_on": 3.4965034965034967,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 107,
+   "count_early": 92,
+   "count_late": 15,
+   "median_unrounded": -3832.201473006826,
+   "worst_unrounded": 11136.865200397195,
+   "best_unrounded": -15294.798091595863
+  },
+  "cap_25": {
+   "share_all": 14.209827357237716,
+   "share_1954_1980": 28.395061728395063,
+   "share_1981_on": 3.4965034965034967,
+   "n_all": 753,
+   "n_early": 324,
+   "n_late": 429,
+   "count_all": 107,
+   "count_early": 92,
+   "count_late": 15,
+   "median_unrounded": -3832.201473006826,
+   "worst_unrounded": 11218.65433205614,
+   "best_unrounded": -15294.798091595863
+  },
+  "max_abs_end_balance_base": 3.8841108107590117e-10,
+  "fixed_end_balance": 7.057678885757923e-10
+ },
+ "interpretations": [
+  "Months indexed k=0..119; month k uses rate_k with TB3MS[s+k]; s = start month row in CSV. Window for 2016-09 ends at 2026-08 (last row).",
+  "Each month: interest = balance*rate_k/1200 (unrounded, no cent rounding of interest, payment or balance); balance <- balance + interest - payment.",
+  "Payment: level annuity payment on current (start-of-month) balance at rate_k over remaining 120-k months; computed at k=0 and recomputed only when rate_k != rate_{k-1} (exact float compare). Mathematically identical to recomputing every month.",
+  "Fixed loan uses the same engine at 9.00% constant (single level payment). Total interest = sum of monthly interest; no final-payment adjustment (end balance ~1e-9).",
+  "index_today = last TB3MS value (2026-08) = 3.72; margin = 7.50 - 3.72 = 3.78; variable rate formula unrounded, using float arithmetic.",
+  "Difference = total variable interest - total fixed interest; 'costlier' means Difference > 0 strictly.",
+  "Median over 753 windows is the single middle value (odd count). Worst = max Difference, best = min Difference; ties: first (earliest) start month.",
+  "max_variable_rate_any_window = max over all windows and all k of rate_k (base path).",
+  "maxPay = max over k of the (unrounded) scheduled payment; share above fixed compares unrounded maxPay > unrounded fixed_payment (also reported with both rounded to cents in unrounded block).",
+  "variable_first_payment = level payment of 50,000 at the window's rate_0 over 120 months (identical for all windows; reported from the first window).",
+  "Gap grid: margin = 9.00 - g - 3.72; rate_k = margin + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]); fixed unchanged.",
+  "Cap grid: rate_k = min(c, base rate_k) with base margin 3.78; payment recomputed when the capped rate changes.",
+  "Rounding: decimal ROUND_HALF_UP applied to repr of the float (not Python banker's rounding).",
+  "Period splits: 1954-1980 = starts 1954-01..1980-12; 1981 on = 1981-01..2016-09; shares are % of each subgroup's start count.",
+  "Windows series uses the base path (v0=7.50, no cap).",
+  "Gap grid keys formatted f'{g:.1f}' so g=-1.0,-0.5,0.0 -> '-1.0','-0.5','0.0'; margin = 9.00 - g - 3.72 (5.28/5.78/6.28 for v0=9.0/9.5/10.0).",
+  "share_rate_above_fixed: base path (v0=7.50, uncapped); % of 753 windows where max_k rate_k > 9.00 strictly (any month, k=0..119).",
+  "worst_peak_rate: max_k rate_k in the base window with largest Difference (worst_start); best_start: start of min Difference (already in core).",
+  "Cap 25 applies min(25, base rate_k) on the base path."
+ ]
+}

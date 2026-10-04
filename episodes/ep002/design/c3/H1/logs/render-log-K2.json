@@ -1,0 +1,137 @@
+{
+ "frame": "K2",
+ "frames": 300,
+ "filmSeconds": 10,
+ "wallSeconds": 163.2,
+ "machineSecPerFilmSec": 16.32,
+ "stripTimes": [
+  0.4,
+  2,
+  4.2,
+  5.8,
+  7.4,
+  9.6
+ ],
+ "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+ "cpus": 4,
+ "cpuModel": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "date": "2026-10-01T06:25:02.956Z",
+ "claimsUsed": [
+  "gap_start"
+ ],
+ "texts": [
+  {
+   "s": "ILLUSTRATIVE",
+   "tier": "badge",
+   "px": 32,
+   "px1080": 48,
+   "color": "#0E1116",
+   "n": 372,
+   "out": 0,
+   "firstT": 0
+  },
+  {
+   "s": "1.5 points",
+   "tier": "number",
+   "px": 52,
+   "px1080": 78,
+   "color": "#F2F4F7",
+   "n": 46,
+   "out": 0,
+   "firstT": 1.6666666666666667
+  },
+  {
+   "s": "head start",
+   "tier": "label",
+   "px": 30,
+   "px1080": 45,
+   "color": "#9AA4B2",
+   "n": 46,
+   "out": 0,
+   "firstT": 1.6666666666666667
+  },
+  {
+   "s": "bigger",
+   "tier": "head",
+   "px": 40,
+   "px1080": 60,
+   "color": "#F2F4F7",
+   "n": 36,
+   "out": 0,
+   "firstT": 3.8333333333333317
+  },
+  {
+   "s": "smaller",
+   "tier": "head",
+   "px": 40,
+   "px1080": 60,
+   "color": "#F2F4F7",
+   "n": 30,
+   "out": 0,
+   "firstT": 5.500000000000001
+  },
+  {
+   "s": "zero",
+   "tier": "head",
+   "px": 40,
+   "px1080": 60,
+   "color": "#F2F4F7",
+   "n": 30,
+   "out": 0,
+   "firstT": 7.1666666666666705
+  },
+  {
+   "s": "negative",
+   "tier": "head",
+   "px": 40,
+   "px1080": 60,
+   "color": "#F2F4F7",
+   "n": 48,
+   "out": 0,
+   "firstT": 8.833333333333336
+  }
+ ],
+ "audit": {
+  "samples": 96,
+  "minToGraphics": {
+   "t": 1.67,
+   "s": "1.5 points",
+   "px": 52,
+   "color": "#F2F4F7",
+   "plate": "#0E1116",
+   "toGraphics": 7,
+   "toText": 37,
+   "contrast": 17.16
+  },
+  "minToText": {
+   "t": 1.67,
+   "s": "1.5 points",
+   "px": 52,
+   "color": "#F2F4F7",
+   "plate": "#0E1116",
+   "toGraphics": 7,
+   "toText": 37,
+   "contrast": 17.16
+  },
+  "minContrast": {
+   "t": 1.67,
+   "s": "head start",
+   "px": 30,
+   "color": "#9AA4B2",
+   "plate": "#0E1116",
+   "toGraphics": 8,
+   "toText": 37,
+   "contrast": 7.5
+  },
+  "minPx": {
+   "t": 1.67,
+   "s": "head start",
+   "px": 30,
+   "color": "#9AA4B2",
+   "plate": "#0E1116",
+   "toGraphics": 8,
+   "toText": 37,
+   "contrast": 7.5
+  }
+ }
+}

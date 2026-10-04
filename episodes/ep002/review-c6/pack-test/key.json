@@ -1,0 +1,117 @@
+{
+ "_": "GIẢI MÃ — không mở trước khi đủ câu trả lời.",
+ "about": "Pair images: card \"1\" on top, card \"2\" below. round T = titles on one fixed neutral thumbnail; round M = thumbnails under one fixed title.",
+ "roundT": {
+  "thumbnail": "preprod/thumbs_c6/work/thumb-neutral.png",
+  "titles": {
+   "A1": "Need Private Grad Loans? Variable vs Fixed Through History",
+   "A2": "No Grad PLUS? How Much Lower a Variable Rate Had to Start",
+   "WT": "Indexed Rate Paths vs Level Rates: A Backtest"
+  }
+ },
+ "roundM": {
+  "title": "Need Private Grad Loans? Variable vs Fixed Through History",
+  "thumbs": {
+   "thumb-1": "out/package/thumb-1.png",
+   "thumb-2": "out/package/thumb-2.png",
+   "thumb-3": "out/package/thumb-3.png",
+   "WM": "preprod/thumbs_c6/work/thumb-control.png"
+  }
+ },
+ "pairs": {
+  "901000b8c2": {
+   "1": "WM",
+   "2": "thumb-2",
+   "round": "M"
+  },
+  "38b5c23622": {
+   "1": "WM",
+   "2": "thumb-1",
+   "round": "M"
+  },
+  "ef95722ad4": {
+   "1": "WT",
+   "2": "A1",
+   "round": "T"
+  },
+  "b6fa403805": {
+   "1": "thumb-2",
+   "2": "thumb-1",
+   "round": "M"
+  },
+  "c5b6faaff7": {
+   "1": "thumb-2",
+   "2": "thumb-3",
+   "round": "M"
+  },
+  "699674e6b0": {
+   "1": "thumb-3",
+   "2": "thumb-2",
+   "round": "M"
+  },
+  "68adc7d029": {
+   "1": "A1",
+   "2": "WT",
+   "round": "T"
+  },
+  "d44f72bd06": {
+   "1": "thumb-3",
+   "2": "thumb-1",
+   "round": "M"
+  },
+  "e314e11e8c": {
+   "1": "thumb-1",
+   "2": "thumb-3",
+   "round": "M"
+  },
+  "8e5aeb7915": {
+   "1": "thumb-1",
+   "2": "WM",
+   "round": "M"
+  },
+  "8e50d295e6": {
+   "1": "thumb-1",
+   "2": "thumb-2",
+   "round": "M"
+  },
+  "9a5af8d7fc": {
+   "1": "A2",
+   "2": "A1",
+   "round": "T"
+  },
+  "bae491c4f1": {
+   "1": "thumb-3",
+   "2": "WM",
+   "round": "M"
+  },
+  "3b3ca58bf0": {
+   "1": "A1",
+   "2": "A2",
+   "round": "T"
+  },
+  "bede1bb6da": {
+   "1": "thumb-2",
+   "2": "WM",
+   "round": "M"
+  },
+  "c0caa59125": {
+   "1": "A2",
+   "2": "WT",
+   "round": "T"
+  },
+  "2cd73f2348": {
+   "1": "WM",
+   "2": "thumb-3",
+   "round": "M"
+  },
+  "ebb38276ea": {
+   "1": "WT",
+   "2": "A2",
+   "round": "T"
+  }
+ },
+ "counts": {
+  "T": 6,
+  "M": 12
+ }
+}

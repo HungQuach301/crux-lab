@@ -1,0 +1,238 @@
+{
+ "_about": "Cue sheet of the Tập 2 C5 mix (audio_src/mix.py). Music = Tập 1 style C (G-016 · chọn) on the 13 scenes of script v5. Silences = chosen voice gaps at the turns of the story (sổ gu G-003; the script has no [beat] marks) + ad-break gaps (adBreak).",
+ "cues": [
+  {
+   "t": 0.0,
+   "end": 26.967,
+   "scene": "S01",
+   "function": "cold open: the dated change and the open question; drive held back (thump on 1 and 3), no melody",
+   "key": "D dorian",
+   "tempo": 106.798,
+   "layer": "music",
+   "section": "cold",
+   "levelDb": -2.0
+  },
+  {
+   "t": 26.967,
+   "end": 67.3,
+   "scene": "S02",
+   "function": "why private loans: light drive, first statement of Leah's motif",
+   "key": "D dorian",
+   "tempo": 114.546,
+   "layer": "music",
+   "section": "promise",
+   "levelDb": -1.5
+  },
+  {
+   "t": 67.3,
+   "end": 126.8,
+   "scene": "S03",
+   "function": "Leah's loan, the head start and the promise of the replay: full drive, Leah's motif (electric piano)",
+   "key": "D dorian",
+   "tempo": 121.008,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 126.8,
+   "end": 176.933,
+   "scene": "S04",
+   "function": "Leah's loan, the head start and the promise of the replay: full drive, Leah's motif (electric piano)",
+   "key": "D dorian",
+   "tempo": 123.271,
+   "layer": "music",
+   "section": "curious",
+   "levelDb": -0.5
+  },
+  {
+   "t": 176.933,
+   "end": 224.433,
+   "scene": "S05",
+   "function": "the contradiction, the cushion and the two kinds of history: drive, bass on eighths",
+   "key": "D dorian",
+   "tempo": 123.789,
+   "layer": "music",
+   "section": "build1",
+   "levelDb": 0.5
+  },
+  {
+   "t": 224.433,
+   "end": 263.767,
+   "scene": "S06",
+   "function": "the contradiction, the cushion and the two kinds of history: drive, bass on eighths",
+   "key": "D dorian",
+   "tempo": 126.61,
+   "layer": "music",
+   "section": "build1",
+   "levelDb": 0.5
+  },
+  {
+   "t": 263.767,
+   "end": 322.067,
+   "scene": "S07",
+   "function": "the contradiction, the cushion and the two kinds of history: drive, bass on eighths",
+   "key": "D dorian",
+   "tempo": 127.616,
+   "layer": "music",
+   "section": "build1",
+   "levelDb": 0.5
+  },
+  {
+   "t": 322.067,
+   "end": 383.3,
+   "scene": "S08",
+   "function": "the worst stretch (April 1977): fullest drive, crescendo to \"43% more\"",
+   "key": "D dorian",
+   "tempo": 133.261,
+   "layer": "music",
+   "section": "build2",
+   "levelDb": 1.5
+  },
+  {
+   "t": 383.3,
+   "end": 438.7,
+   "scene": "S09",
+   "function": "the line: F major, the drive returns lighter as the head start widens",
+   "key": "F major",
+   "tempo": 125.632,
+   "layer": "music",
+   "section": "release",
+   "levelDb": 1.0
+  },
+  {
+   "t": 438.7,
+   "end": 506.033,
+   "scene": "S10",
+   "function": "the answer in two halves: F major, steady",
+   "key": "F major",
+   "tempo": 119.406,
+   "layer": "music",
+   "section": "answer",
+   "levelDb": 0.0
+  },
+  {
+   "t": 506.033,
+   "end": 530.033,
+   "scene": "S11",
+   "function": "\"How we know this\" (method card): thin pad only",
+   "key": "F major",
+   "tempo": 100.0,
+   "layer": "music",
+   "section": "thin",
+   "levelDb": -1.0
+  },
+  {
+   "t": 530.033,
+   "end": 569.6,
+   "scene": "S12",
+   "function": "warm close and end screen: sparse, Leah's motif, tail",
+   "key": "F major",
+   "tempo": 110.699,
+   "layer": "music",
+   "section": "resolve",
+   "levelDb": -1.0
+  },
+  {
+   "t": 569.6,
+   "end": 585.6,
+   "scene": "S13",
+   "function": "warm close and end screen: sparse, Leah's motif, tail",
+   "key": "F major",
+   "tempo": 105.0,
+   "layer": "music",
+   "section": "resolve",
+   "levelDb": -1.0
+  },
+  {
+   "t": 0.0,
+   "end": 585.6,
+   "function": "data sonification, palette S2 \"minimal\" (sổ gu G-005 · chọn): soft low pulse MIDI 36-62 + filtered tick 4.5-7 kHz; bands 60-270 Hz + 4.5-7 kHz; events out/sonify-events.json",
+   "key": "D minor pentatonic (= F major pentatonic)",
+   "tempo": null,
+   "layer": "sonify"
+  },
+  {
+   "t": 0.0,
+   "end": 585.6,
+   "function": "room tone floor (pink noise, one space); +8 dB inside the silences",
+   "key": null,
+   "tempo": null,
+   "layer": "room"
+  }
+ ],
+ "silences": [
+  {
+   "t": 26.148,
+   "end": 26.999,
+   "dur": 0.851,
+   "after": "S01.3",
+   "before": "S02.1",
+   "why": "after the cold-open question (title card)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 176.002,
+   "end": 176.95,
+   "dur": 0.948,
+   "after": "S04.6",
+   "before": "S05.1",
+   "why": "after \"history, not a forecast\", before the first results",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 222.82,
+   "end": 224.526,
+   "dur": 1.707,
+   "after": "S05.5",
+   "before": "S06.1",
+   "why": "ad break (out/adbreaks.json)",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 223.593
+  },
+  {
+   "t": 321.035,
+   "end": 322.204,
+   "dur": 1.169,
+   "after": "S07.7",
+   "before": "S08.1",
+   "why": "before the worst stretch",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 381.935,
+   "end": 383.369,
+   "dur": 1.435,
+   "after": "S08.8",
+   "before": "S09.1",
+   "why": "after the worst stretch, before the line",
+   "release": "exp tau 90 ms",
+   "return": "200 ms",
+   "adBreak": 382.524
+  },
+  {
+   "t": 505.215,
+   "end": 506.171,
+   "dur": 0.956,
+   "after": "S10.7",
+   "before": "S11.1",
+   "why": "after the answer, before \"How we know this\"",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  },
+  {
+   "t": 565.911,
+   "end": 566.92,
+   "dur": 1.009,
+   "after": "S12.4",
+   "before": "S12.5",
+   "why": "before the last line, \"History, not a forecast\"",
+   "release": "exp tau 90 ms",
+   "return": "200 ms"
+  }
+ ]
+}

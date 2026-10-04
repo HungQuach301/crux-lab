@@ -1,0 +1,431 @@
+{
+ "episode": "ep002",
+ "lock": "2fcc9fcc9a94b73084c43ba59970d88f539cd29363334faf52b0640efc2cc801 (K3.6)",
+ "question": "How much lower does a variable rate have to start than a fixed rate before the risk has been worth it in history?",
+ "targetDurationSec": [
+  480,
+  900
+ ],
+ "characters": {
+  "leah": {
+   "color": "ink",
+   "shape": "diamond",
+   "side": "centre",
+   "illustrative": true,
+   "words": [
+    "Leah"
+   ],
+   "what": "ILLUSTRATIVE: a graduate student with two private offers, 9% fixed or variable starting at 7.5%, $50,000 over 10 years (not a real lender's offer); the only character",
+   "wordsFrom": "story/script.md v5 (out/script.json): \"Leah\" in S01-S12",
+   "designFrom": "design/c3/final/system.md + tokens.json roles.leah: ink + DIAMOND (bead at the head of her rate path; diamond cut-out on the person figure)"
+  }
+ },
+ "claims": {
+  "file": "out/claims.json",
+  "core": [
+   "share_early",
+   "share_late",
+   "worst_diff"
+  ],
+  "decisive": [
+   "share_early",
+   "share_late",
+   "worst_diff"
+  ],
+  "illustrative": [
+   "loan",
+   "term",
+   "fixed_rate",
+   "var_start",
+   "gap_start",
+   "margin",
+   "n_starts",
+   "first_start",
+   "last_start",
+   "n_early",
+   "n_late",
+   "fixed_int",
+   "n_costlier",
+   "share_all",
+   "share_early",
+   "share_late",
+   "median_diff",
+   "worst_diff",
+   "worst_start",
+   "worst_start_year",
+   "worst_start_month",
+   "worst_peak_rate",
+   "worst_share_of_fixed",
+   "best_diff",
+   "best_start",
+   "best_start_year",
+   "best_start_month",
+   "max_rate_any",
+   "share_rate_above_fixed",
+   "fixed_payment",
+   "var_first_payment",
+   "max_payment",
+   "median_max_payment",
+   "share_payment_above_fixed",
+   "spreadm1_share",
+   "spreadm05_share",
+   "spread0_share",
+   "spread025_share",
+   "spread05_share",
+   "spread075_share",
+   "spread1_share",
+   "spread125_share",
+   "spread15_share",
+   "spread175_share",
+   "spread2_share",
+   "spread225_share",
+   "spread25_share",
+   "spread275_share",
+   "spread3_share",
+   "gapm10_early",
+   "gapm10_late",
+   "gapm10_worst",
+   "gapm05_early",
+   "gapm05_late",
+   "gapm05_worst",
+   "gap00_early",
+   "gap00_late",
+   "gap00_worst",
+   "gap05_early",
+   "gap05_late",
+   "gap05_worst",
+   "gap10_early",
+   "gap10_late",
+   "gap10_worst",
+   "gap15_early",
+   "gap15_late",
+   "gap15_worst",
+   "gap20_early",
+   "gap20_late",
+   "gap20_worst",
+   "gap25_early",
+   "gap25_late",
+   "gap25_worst",
+   "gap30_early",
+   "gap30_late",
+   "gap30_worst",
+   "cap12_share",
+   "cap12_early",
+   "cap12_worst",
+   "cap15_share",
+   "cap15_early",
+   "cap15_worst",
+   "cap18_share",
+   "cap18_early",
+   "cap18_worst",
+   "cap25_share",
+   "cap25_early",
+   "cap25_worst",
+   "min_gap_early",
+   "first_payment_gap",
+   "gap_worst_start_all",
+   "share_all_words",
+   "share_early_words",
+   "share_late_words",
+   "share_rate_above_fixed_words",
+   "first_payment_gap_words",
+   "best_diff_words",
+   "hs_m1",
+   "hs_0",
+   "hs_1",
+   "hs_2",
+   "hs_3"
+  ],
+  "assumptions": [
+   {
+    "id": "illustrative-offers",
+    "pattern": "illustrative",
+    "what": "7.5% variable / 9% fixed is an illustrative pair"
+   },
+   {
+    "id": "tbill-index",
+    "pattern": "treasury bill|t-bill",
+    "what": "3-month T-bill stands in for the lender index (SOFR-type)"
+   },
+   {
+    "id": "no-cap",
+    "pattern": "no cap|no rate cap|uncapped",
+    "what": "no rate cap in the main replay"
+   },
+   {
+    "id": "repay-now",
+    "pattern": "repayment starts|no deferment",
+    "what": "repayment starts at once; no deferment, fees, discounts"
+   }
+  ]
+ },
+ "model": {
+  "kind": "float-vs-fixed-replay",
+  "output": "out/model.json",
+  "code": "model/model.py",
+  "params": {
+   "index": {
+    "file": "data/normalized/tb3ms_monthly.csv",
+    "dateColumn": "month",
+    "valueColumn": "rate"
+   },
+   "principal": 50000,
+   "termMonths": 120,
+   "fixedRate": 9.0,
+   "floatStartRate": 7.5,
+   "firstStart": "1954-01",
+   "indexFloor": 0.0,
+   "periodBreaks": [
+    "1981-01"
+   ],
+   "spreads": [
+    -1.0,
+    -0.5,
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+    2.25,
+    2.5,
+    2.75,
+    3.0
+   ]
+  },
+  "claims": {
+   "n_starts": "nWindows",
+   "fixed_int": "fixedTotalInterest",
+   "share_all": "shareCostlier",
+   "median_diff": "medianDifference",
+   "worst_diff": "worstDifference",
+   "best_diff": "bestDifference",
+   "max_rate_any": "maxRate",
+   "max_payment": "maxPayment",
+   "fixed_payment": "fixedPayment",
+   "index_today": "indexToday",
+   "margin": "margin",
+   "worst_start_year": "worstStartYear",
+   "worst_start_month": "worstStartMonth",
+   "best_start_year": "bestStartYear",
+   "best_start_month": "bestStartMonth",
+   "n_early": "nWindows:1954-01",
+   "n_late": "nWindows:1981-01",
+   "share_early": "shareCostlier:1954-01",
+   "share_late": "shareCostlier:1981-01",
+   "first_start": "firstStart",
+   "last_start": "lastStart",
+   "worst_start": "worstStart",
+   "best_start": "bestStart",
+   "var_first_payment": "floatFirstPayment",
+   "first_payment_gap": "firstPaymentGap",
+   "worst_peak_rate": "worstWindowMaxRate",
+   "share_rate_above_fixed": "shareRateAboveFixed",
+   "worst_share_of_fixed": "worstShareOfFixed",
+   "min_gap_early": "minShareCostlierOverSpreads:1954-01",
+   "gap_worst_start_all": "worstStartAtSpread:1.5",
+   "gapm10_early": "shareCostlierAtSpread:-1:1954-01",
+   "gapm10_late": "shareCostlierAtSpread:-1:1981-01",
+   "gapm10_worst": "worstDifferenceAtSpread:-1",
+   "gapm05_early": "shareCostlierAtSpread:-0.5:1954-01",
+   "gapm05_late": "shareCostlierAtSpread:-0.5:1981-01",
+   "gapm05_worst": "worstDifferenceAtSpread:-0.5",
+   "gap00_early": "shareCostlierAtSpread:0:1954-01",
+   "gap00_late": "shareCostlierAtSpread:0:1981-01",
+   "gap00_worst": "worstDifferenceAtSpread:0",
+   "gap05_early": "shareCostlierAtSpread:0.5:1954-01",
+   "gap05_late": "shareCostlierAtSpread:0.5:1981-01",
+   "gap05_worst": "worstDifferenceAtSpread:0.5",
+   "gap10_early": "shareCostlierAtSpread:1:1954-01",
+   "gap10_late": "shareCostlierAtSpread:1:1981-01",
+   "gap10_worst": "worstDifferenceAtSpread:1",
+   "gap15_early": "shareCostlierAtSpread:1.5:1954-01",
+   "gap15_late": "shareCostlierAtSpread:1.5:1981-01",
+   "gap15_worst": "worstDifferenceAtSpread:1.5",
+   "gap20_early": "shareCostlierAtSpread:2:1954-01",
+   "gap20_late": "shareCostlierAtSpread:2:1981-01",
+   "gap20_worst": "worstDifferenceAtSpread:2",
+   "gap25_early": "shareCostlierAtSpread:2.5:1954-01",
+   "gap25_late": "shareCostlierAtSpread:2.5:1981-01",
+   "gap25_worst": "worstDifferenceAtSpread:2.5",
+   "gap30_early": "shareCostlierAtSpread:3:1954-01",
+   "gap30_late": "shareCostlierAtSpread:3:1981-01",
+   "gap30_worst": "worstDifferenceAtSpread:3",
+   "spreadm1_share": "shareCostlierAtSpread:-1",
+   "spreadm05_share": "shareCostlierAtSpread:-0.5",
+   "spread0_share": "shareCostlierAtSpread:0",
+   "spread025_share": "shareCostlierAtSpread:0.25",
+   "spread05_share": "shareCostlierAtSpread:0.5",
+   "spread075_share": "shareCostlierAtSpread:0.75",
+   "spread1_share": "shareCostlierAtSpread:1",
+   "spread125_share": "shareCostlierAtSpread:1.25",
+   "spread15_share": "shareCostlierAtSpread:1.5",
+   "spread175_share": "shareCostlierAtSpread:1.75",
+   "spread2_share": "shareCostlierAtSpread:2",
+   "spread225_share": "shareCostlierAtSpread:2.25",
+   "spread25_share": "shareCostlierAtSpread:2.5",
+   "spread275_share": "shareCostlierAtSpread:2.75",
+   "spread3_share": "shareCostlierAtSpread:3"
+  }
+ },
+ "data": {
+  "sources": "data/sources.json",
+  "hosts": {
+   "primary": [
+    "fred.stlouisfed.org"
+   ],
+   "crosscheck": [
+    "fred.stlouisfed.org"
+   ]
+  },
+  "crosscheck": [
+   {
+    "series": "tb3ms",
+    "tolerance": 0.05,
+    "used": "crosscheck",
+    "primary": {
+     "file": "data/normalized/tb3ms_monthly.csv",
+     "key": "month",
+     "column": "rate"
+    },
+    "crosscheck": {
+     "file": "data/normalized/dtb3_monthly_mean.csv",
+     "key": "month",
+     "column": "rate"
+    },
+    "what": "TB3MS (monthly) vs mean of daily DTB3 (H.15), every month 1954-01..2026-08"
+   }
+  ],
+  "fetch": "python3 episodes/ep002/data/fetch.py --verify (FRED files are not committed: amendments.md E2-A1)"
+ },
+ "coverage": [
+  {
+   "attribute": "case",
+   "act": "act3",
+   "values": [
+    "period-1954-1980",
+    "period-1981-on",
+    "worst-1977-04"
+   ],
+   "what": "gen của tập: luôn hiện cả hai thời kỳ cùng trường hợp xấu nhất",
+   "where": "act3 = S09-S10 (out/timeline.json): the two columns of KEY-7 (before 1981 / from 1981) at every head start, and the April 1977 marker (S10.2 \"April 1977\", gap_worst_start_all); page objects of each column carry case = period-1954-1980 / period-1981-on, the worst marker case = worst-1977-04 (window.CHECKS objects, stream P)"
+  }
+ ],
+ "sonification": {
+  "stem": "sonify",
+  "bandsHz": [
+   [
+    60,
+    270
+   ],
+   [
+    4500,
+    7000
+   ]
+  ],
+  "from": "palette S2 of Tập 1 (Q1=A; sổ gu G-005): low pulse MIDI 36-60 (65-262 Hz) + filtered tick 4.5-7 kHz; stream A C5: out/sonify-events.json \"_about\" (values -> MIDI 36..60, palette S2 as Tập 1) = SON_BANDS of episodes/ep001/work/audio/src/mix.py",
+  "todo": "T1 measures that these bands hold >= 50% of the sonify stem energy once stream A renders the stem"
+ },
+ "artefacts": {
+  "M1": [
+   "out/claims.json",
+   "out/model.json",
+   "story/script.md",
+   "story/beats.md",
+   "numbers.md",
+   "contract.json",
+   "data/sources.json",
+   "design/c3/final/tokens.json",
+   "animatic/timing.json"
+  ],
+  "M2": [
+   "out/script.json",
+   "out/timeline.json",
+   "out/voice/takes.json",
+   "out/page.json",
+   "out/camera.json",
+   "out/cues.json",
+   "out/tempo-map.json",
+   "out/transitions.json",
+   "out/sonify-events.json",
+   "out/sfx-events.json"
+  ],
+  "M3": [
+   "out/video.mp4",
+   "out/captions.srt",
+   "out/package/description.md",
+   "out/timeline.json",
+   "out/script.json",
+   "out/claims.json",
+   "out/audio/stems/voice.*",
+   "out/audio/stems/music.*",
+   "out/audio/stems/sfx.*",
+   "out/audio/stems/whoosh.*",
+   "out/audio/stems/room.*",
+   "out/audio/stems/sonify.*",
+   "out/voice/takes.json",
+   "out/camera.json",
+   "out/sfx-events.json",
+   "out/sonify-events.json",
+   "out/tempo-map.json",
+   "out/transitions.json",
+   "out/cues.json",
+   "out/tension-map.json",
+   "out/tension-map.png",
+   "out/adbreaks.json",
+   "preprod/shotlist.json",
+   "preprod/storyboard.*",
+   "preprod/color-script.*",
+   "design/tokens.json",
+   "out/package/thumb-1.png",
+   "out/package/thumb-2.png",
+   "out/package/thumb-3.png",
+   "out/package/thumb-1.json",
+   "out/package/thumb-2.json",
+   "out/package/thumb-3.json",
+   "out/page.json",
+   "out/model.json",
+   "data/sources.json",
+   "data/normalized/tb3ms_monthly.csv",
+   "data/normalized/dtb3_monthly_mean.csv",
+   "contract.json",
+   "out/rights.json",
+   "out/visual-assets.json"
+  ],
+  "note": "thumbnails are C6 (Q2=A): F11 reports them not delivered until then; data/normalized/*.csv are not committed (fetch.py --verify)"
+ },
+ "rights": {
+  "visual": [
+   {
+    "name": "Inter",
+    "kind": "font",
+    "family": "Inter",
+    "paths": [
+     "fonts/inter-latin-*-normal.woff2",
+     "../../toolkit/render/fonts/inter-latin-*-normal.woff2"
+    ]
+   }
+  ],
+  "generated": [],
+  "note": "the render page (animatic/src/page.html, P) loads no image, PDF, 3D model or texture: every picture is canvas 2D from project code; fonts by @font-face from toolkit/render/fonts (served at /fonts/). Ledger: out/rights.json (preprod/rights_c5.py); manifest: out/visual-assets.json"
+ },
+ "timeline": {
+  "source": "out/timeline.json (preprod/dossier_c5.py; sentence times animatic/timing.json)",
+  "acts": "cold-open S01 · act1 S02-S05 · act2 S06-S08 · act3 S09-S10 · method S11 · outro S12-S13",
+  "climax": {
+   "act1": "S05.4",
+   "act2": "S08.7",
+   "act3": "S10.6"
+  },
+  "adBreaks": "out/adbreaks.json (act2 and act3 starts)"
+ },
+ "todo": [
+  "coverage: KEY-7 columns and the April 1977 marker must carry case = period-1954-1980 / period-1981-on / worst-1977-04 on the page (P)",
+  "sonification.bandsHz: T1 checks the >= 50% energy share on the rendered sonify stem (A)",
+  "artefacts.M3: thumbnails at C6",
+  "claims chưa dùng trong kịch bản (cap*, median_max_payment, share_payment_above_fixed) không có khoá — không cần"
+ ]
+}

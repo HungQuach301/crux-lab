@@ -1,0 +1,197 @@
+{
+ "scenes": {
+  "S01": {
+   "text": "From July first, twenty twenty-six, new graduate students in the U.S. can no longer borrow federal Grad PLUS loans. Leah, an illustrative student weeks from her first spring term, has two private offers on her laptop: nine percent fixed, or variable starting lower, at seven point five percent. [curious] How much lower does a variable rate have to start before that risk has been worth it?",
+   "takes": [
+    {
+     "file": "S01.seed1.mp3",
+     "seed": 1,
+     "characterCost": 156,
+     "len": 390,
+     "missing": [],
+     "asr": "From July 1, 2026, new graduate students in the U .S. can no longer borrow federal grad plus loans. Leah, an illustrative student weeks from her first spring term, has two private offers on her laptop, 9 percent fixed or variable starting lower at 7 .5 percent. How much lower does a variable rate have to start before that risk has been worth it?"
+    }
+   ],
+   "use": "S01.seed1.mp3"
+  },
+  "S02": {
+   "text": "Students already enrolled and borrowing before July twenty twenty-six keep Grad PLUS for up to three more academic years, or for the time left in their program if that is shorter. New students like Leah still have the basic federal loan, a Direct Unsubsidized loan, up to twenty thousand five hundred dollars a year and one hundred thousand dollars total, with higher limits in professional programs like medicine or law. When a program costs more than that after other aid, the rest can come from a private lender, and that's where Leah's two offers come from. Same lender, same amount, two kinds of rate.",
+   "takes": [
+    {
+     "file": "S02.seed1.mp3",
+     "seed": 1,
+     "characterCost": 242,
+     "len": 606,
+     "missing": [],
+     "asr": "Students already enrolled and borrowing before July 2026 keep grad plus for up to three more academic years or for the time left in their program if that is shorter. New students like Leah still have the basic federal loan, a direct unsubsidized loan up to $20 ,500 a year and $100 ,000 total with higher limits in professional programs like medicine or law. When a program costs more than that after other aid, the rest can come from a private lender, and that's where Leah's two offers come from. Same lender, same amount, two kinds of rate."
+    }
+   ],
+   "use": "S02.seed1.mp3"
+  },
+  "S03": {
+   "text": "Both are for fifty thousand dollars over ten years, illustrative numbers, not a real lender's offer. The variable loan's first payment is five hundred ninety-three dollars and fifty-one cents, about forty dollars less a month than the fixed six hundred thirty-three dollars and thirty-eight cents. A fixed rate never changes, so neither does the payment. A variable rate follows a market interest rate, so the rate and the payment rise and fall with it, and nobody knows where it goes next. The distance between the two starting rates is what this video calls the head start. Leah's fixed rate is nine percent and her variable rate starts at seven point five percent, so her head start is one point five points. A point here means one percentage point of interest. Real offers differ: a head start can be bigger, smaller, zero, or negative, with the variable rate starting higher.",
+   "takes": [
+    {
+     "file": "S03.seed1.mp3",
+     "seed": 1,
+     "characterCost": 352,
+     "len": 880,
+     "missing": [
+      "illustrative"
+     ],
+     "asr": "Both are for $50 ,000 over 10 years\u2014illustrative numbers, not a real lender's offer. The variable loan's first payment is $593 .51\u2014about $40 less a month than the fixed $633 .38. A fixed rate never changes, so neither does the payment. A variable rate follows a market interest rate, so the rate and the payment rise and with it and nobody knows where it goes next. The distance between the two starting rates is what this video calls the head start. Leah's fixed rate is 9 % and her variable rate starts at 7 .5 % so her head start is 1 .5 points. A point here means one percentage point of interest. Real offers differ. A with the variable rate starting higher."
+    },
+    {
+     "file": "S03.seed2.mp3",
+     "seed": 2,
+     "characterCost": 352,
+     "len": 880,
+     "missing": [],
+     "asr": "Both are for $50 ,000 over 10 years, illustrative numbers, not a real lender's offer. The variable loan's first payment is $593 .51, about $40 less a month than the fixed $633 .38. A fixed rate never changes, so neither does the payment. A variable rate follows a market interest rate, so the rate and the payment rise and fall with it, nobody knows where it goes next. The distance between the two starting rates is what this video calls the head start. Leah's fixed rate is 9 % and her variable rate starts at 7 .5%, so her head start is 1 .5 points. A point here means one percentage point of interest. Real offers differ. A head start can be bigger, smaller, zero, or negative, with the variable rate starting higher."
+    }
+   ],
+   "use": "S03.seed2.mp3"
+  },
+  "S04": {
+   "text": "This video replays Leah's illustrative loan through every ten-year stretch of U.S. interest rates since January nineteen fifty-four. \"Worth it\" gets one plain meaning here: how often the variable loan cost more in total interest than the nine percent fixed loan, and how much more at worst. Then the replay moves the head start, from a variable rate three points under the fixed rate to one one point over it, to see where that history changes. By the end there's a line that any real offer can be held up against, including yours. This is history, not a forecast.",
+   "takes": [
+    {
+     "file": "S04.seed1.mp3",
+     "seed": 1,
+     "characterCost": 226,
+     "len": 564,
+     "missing": [],
+     "asr": "This video replays Leah's illustrative loan through every 10 -year stretch of U .S. interest rates since January 1954. Worth it gets one plain meaning here. How often the variable loan cost more in total interest than the 9 % fixed loan, and how much more at worst? Then the replay moves the head start. From a variable rate 3 points under the fixed rate to 1, 1 point over it, to see where that history changes. By the end there's a line that any real offer can be held up against, including yours. This is history, not a forecast."
+    }
+   ],
+   "use": "S04.seed1.mp3"
+  },
+  "S05": {
+   "text": "[curious] And the first result looks like a contradiction. Leah's variable rate rose above nine percent at some point in about three in four stretches. Yet it cost more in total interest in about one in seven. That's more than one in four for starts from nineteen fifty-four to nineteen eighty and about one in thirty from nineteen eighty-one on, and the worst stretch cost eleven thousand two hundred nineteen dollars more. The reason both are true is the head start.",
+   "takes": [
+    {
+     "file": "S05.seed1.mp3",
+     "seed": 1,
+     "characterCost": 187,
+     "len": 468,
+     "missing": [],
+     "asr": "And the first result looks like a contradiction. Leah's variable rate rose above 9 % at some point in about 3 in 4 stretches. Yet it costs more in total interest in about 1 in 7. That's more than 1 in 4 for starts from 1954 to 1980 and about 1 in 30 from 1981 on. And the worst stretch cost $11 ,219 more. The reason both are true is the head start."
+    }
+   ],
+   "use": "S05.seed1.mp3"
+  },
+  "S06": {
+   "text": "Every month the variable rate sits below nine percent, Leah pays less interest than on the fixed loan, and that saving builds a cushion. The cushion grows fastest at the start, when she owes the most, so every point of rate is charged on the biggest balance. When the rate later climbs above nine percent, the extra interest has to use up that cushion before the variable loan has cost more overall. A short jump above nine percent only dents it; emptying it needs rates that rise early and stay high for years. In a stretch where rates drift down, the cushion just keeps growing.",
+   "takes": [
+    {
+     "file": "S06.seed1.mp3",
+     "seed": 1,
+     "characterCost": 232,
+     "len": 580,
+     "missing": [],
+     "asr": "Every month the variable rate sits below 9%, Leah pays less interest than on the fixed loan, and that saving builds a cushion. The cushion grows fastest at the start, when she owes the most, so every point of rate is charged on the biggest balance. When the rate later climbs above 9%, the extra interest has to use up that cushion before the variable loan has cost more overall. A short jump above 9 % only dents it. Emptying it needs rates that rise early and stay high for years. In a stretch where rates drift down, the cushion just keeps growing."
+    }
+   ],
+   "use": "S06.seed1.mp3"
+  },
+  "S07": {
+   "text": "Here's how the replay works. A real variable rate is the lender's own index plus a fixed margin, and the replay needs a much longer record than that index has. So it uses a stand-in with a long U.S. record, the rate on three-month Treasury bills, and sets the margin so that Leah's rate starts at seven point five percent. From then on, her rate rises and falls exactly as much as the Treasury bill rate did. The first replay starts in January nineteen fifty-four and runs for ten years, and the next starts one month later, and so on, up to September twenty sixteen. Each one is set against the nine percent fixed loan over the same ten years. Neighbouring stretches share most of their years, so they are not independent tries, and the data is U.S. only.",
+   "takes": [
+    {
+     "file": "S07.seed1.mp3",
+     "seed": 1,
+     "characterCost": 302,
+     "len": 756,
+     "missing": [],
+     "asr": "Here's how the replay works. A real variable rate is the lender's own index plus a fixed margin, and the replay needs a much longer record than that index has. So, it uses a stand -in with a long U .S. record, the rate on three -month Treasury bills, and sets the margin so that Leah's rate starts at 7 .5 percent. From then on, her rate rises and falls exactly as much as the Treasury bill rate did. The first replay starts in January 1954 and runs for 10 years and the next starts one month later and so on up to September 2016. Each one is set against the 9 % fixed loan over the same 10 years. Neighboring stretches share most of their years so they are not independent and tries, and the data is U .S. only."
+    }
+   ],
+   "use": "S07.seed1.mp3"
+  },
+  "S08": {
+   "text": "And the two halves of the record are very different. From nineteen fifty-four to nineteen eighty, the Treasury bill rate mostly climbed, in waves. It peaked at sixteen point three percent in May nineteen eighty-one, then mostly drifted down over the following decades, with big swings. Same loan, same head start; the only difference is where in history it began. Loans started in the climbing years often met rates that rose early and stayed high, and loans started after the peak mostly rode rates down. The best stretch began in August nineteen eighty-one, near that peak, and cost fifteen thousand two hundred ninety-five dollars less than the fixed loan. But across the nineteen fifty-four-to-nineteen eighty starts more than one in four cost more, against about one in thirty from nineteen eighty-one on, and the worst, from April nineteen seventy-seven, cost eleven thousand two hundred nineteen dollars more.",
+   "takes": [
+    {
+     "file": "S08.seed1.mp3",
+     "seed": 1,
+     "characterCost": 366,
+     "len": 916,
+     "missing": [],
+     "asr": "and the two halves of the record are very different. From 1954 to 1980, the Treasury bill rate mostly climbed in waves. It peaked at 16 .3 % in May 1981, then mostly drifted down over the following decades with big swings. Same loan, same head start. The only difference is where in history it began. Loans started in the climbing years often met rates that rose early and stayed high. And loans started after the peak, mostly road rates down. The best stretch began in August 1981, near that peak, and cost $15 ,295 less than the fixed loan. But across the 1954 -1980 starts, more than 1 in 4 cost more, against about 1 in 30 from 1981 on, and the worst, from April 1977, cost $11 ,219 more."
+    }
+   ],
+   "use": "S08.seed1.mp3"
+  },
+  "S09": {
+   "text": "[serious] Here is Leah's same loan, started in April nineteen seventy-seven. It begins at seven point five percent, like every replay, and for a while her cushion grows. Then the Treasury bill rate climbs year after year, and her rate follows it, to nineteen point three percent at its highest. The cushion from her first months is soon gone, and every further month above nine percent adds to what she owes in interest. Her payment reaches eight hundred sixty-three dollars and thirty-six cents a month, against the fixed six hundred thirty-three dollars and thirty-eight cents. Over ten years, the fixed loan charges twenty-six thousand five dollars in interest. Leah's variable loan charges eleven thousand two hundred nineteen dollars more than that, forty-three percent on top. This replay has no rate cap; a real loan's cap, if low enough, would have made this worst case smaller.",
+   "takes": [
+    {
+     "file": "S09.seed1.mp3",
+     "seed": 1,
+     "characterCost": 354,
+     "len": 886,
+     "missing": [],
+     "asr": "Here is Leah's same loan started in April 1977. It begins at 7 .5 percent like every replay, and for a while her cushion grows. Then the Treasury bill rate climbs year after year and her rate follows it to 19 .3 percent at its highest. The cushion from her first month is soon gone, and every further month above 9 percent adds to what she owes in interest. interest. Her payment reaches $863 .36 a month against the fixed $633 .38. Over 10 years, the fixed loan charges $26 ,005 in interest. Leah's variable loan charges $11 ,219 more than that\u201443 % on top. This replay has no rate cap. A real loan's cap, if low enough, would have made this worst case smaller."
+    }
+   ],
+   "use": "S09.seed1.mp3"
+  },
+  "S10": {
+   "text": "So far, every result has been for one pair of rates, seven point five percent against nine percent. So the replay ran again, holding the fixed rate at nine percent and moving only where the variable rate starts. Each starting point is a different offer someone could be holding. At Leah's one point five points, twenty-eight point four percent of the nineteen fifty-four-to-nineteen eighty starts and three point five percent of the later ones cost more, the worst by eleven thousand two hundred nineteen dollars. At two points, none of the starts from nineteen eighty-one on cost more, but twenty point four percent of the nineteen fifty-four-to-nineteen eighty starts still did, the worst by nine thousand four hundred seventy-two dollars. [thoughtful] At three points, still none from nineteen eighty-one on, but ten point five percent of the nineteen fifty-four-to-nineteen eighty starts cost more, the worst by six thousand thirty-three dollars.",
+   "takes": [
+    {
+     "file": "S10.seed1.mp3",
+     "seed": 1,
+     "characterCost": 380,
+     "len": 950,
+     "missing": [],
+     "asr": "So far, every result has been for one pair of rates, 7 .5 % against 9%. So the replay ran again, holding the fixed rate at 9 % and moving only where the variable rate starts. Each starting point is a different offer someone could be holding. At Leah's 1 .5 points, 28 .4 % of the 1954 to 1980 starts and 3 .5 % of the later ones cost more. The worst by $11 ,219. At two points, none of the starts from 1981 on cost more. But 20 .4 % of the 1954 to 1980 starts still did. The worst by $9 ,472. At three points, still none from 1981 on. But 10 .5 % of the 1954 to 1980 starts cost more, the worst by $6 ,033."
+    }
+   ],
+   "use": "S10.seed1.mp3"
+  },
+  "S11": {
+   "text": "With a smaller head start, or a variable rate that starts higher, more stretches cost more in both halves, and the worst gets bigger. At every head start tested, the worst stretch began in April nineteen seventy-seven. And at every head start tested, some of the nineteen fifty-four-to-nineteen eighty starts still cost more. So, back to the question: how much lower does a variable rate have to start before the risk has been worth it? Measured as how often it cost more in total interest than the nine percent fixed loan, and how much more at worst, history gives two answers. From nineteen eighty-one on, a two point head start was enough every time; from nineteen fifty-four to nineteen eighty, even three points was not, and the worst still cost six thousand thirty-three dollars more. Which kind of history comes next is something no replay can show.",
+   "takes": [
+    {
+     "file": "S11.seed1.mp3",
+     "seed": 1,
+     "characterCost": 342,
+     "len": 856,
+     "missing": [],
+     "asr": "With a smaller head start or a variable rate that starts higher, more stretches cost more in both halves, and the worst gets bigger. At every head start tested, the worst stretch began in April 1977. And at every head start tested, some of the 1954 to 1980 starts still cost more. So, back to the question. How much lower does a variable rate have to start before the risk has been worth it? Measured as how often it costs more in total interest than the 9 % fixed loan, and how much more at worst, history gives two answers. From 1981 on, a two -point head start was enough every time. From 1954 to 1980, even three points was not. And the worst still cost $6 ,033 more. Which kind of history comes next is something no replay can show."
+    }
+   ],
+   "use": "S11.seed1.mp3"
+  },
+  "S12": {
+   "text": "[warm] Leah's illustrative offer sits at one point five points, short of that two-point mark, where stretches from both halves of history still cost more and the worst was eleven thousand two hundred nineteen dollars. A real offer has its own two rates, its own head start and its own place on the line. It also has what this replay leaves out: the lender's real index, a rate cap, a grace period, fees, and the borrower's own budget. The line doesn't say which offer is better; it shows what each head start meant in each kind of history. [calm] History, not a forecast.",
+   "takes": [
+    {
+     "file": "S12.seed1.mp3",
+     "seed": 1,
+     "characterCost": 228,
+     "len": 571,
+     "missing": [],
+     "asr": "Leah's illustrative offer sits at 1 .5 points, short of that two -point mark, where stretches from both halves of history still cost more, and the worst was $11 ,219. A real offer has its own two rates, its own head start, and its own place on the line. It also has what this replay leaves out. The lender's real index, a rate cap, a grace period, fees, and the borrower's own budget. The line doesn't say which offer is better. It shows what each head start meant in each kind of history. History, not a forecast."
+    }
+   ],
+   "use": "S12.seed1.mp3"
+  },
+  "S13": {
+   "text": "Every assumption behind this replay is listed in the description. Another replay from this channel is on screen now.",
+   "takes": [
+    {
+     "file": "S13.seed1.mp3",
+     "seed": 1,
+     "characterCost": 46,
+     "len": 116,
+     "missing": [],
+     "asr": "Every assumption behind this replay is listed in the description. Another replay from this channel is on screen now."
+    }
+   ],
+   "use": "S13.seed1.mp3"
+  }
+ },
+ "chars": 3765
+}
