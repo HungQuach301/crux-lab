@@ -1,0 +1,17 @@
+{
+ "rules": "Each item is a reader's answer to five questions about a short description of a YouTube video. Score whether the retelling (answers 1–2) carries the meaning below. Set advice=true if answer 4 says 'yes' because the reader believes the video will tell viewers which option to pick or forecast interest rates, OR answer 5 states advice to pick one option (e.g. 'buy savings bonds', 'T-bills are better'). Also return \"hyp\": true if anywhere the reader notes that the doubling guarantee did not exist for older periods / is applied to the past as an assumption. Also return \"confused\": true if answer 3 quotes anything confusing.",
+ "items": {
+  "A": {
+   "meaning": "The retelling has BOTH (b) a choice between a US savings bond guaranteed to double in 20 years and rolling/renewing Treasury bills, AND (c) the answer comes from replaying past 20-year periods in history; PLUS at least one of (a) a person with money set aside for about 20 years, (d) the answer is about how often rolling T-bills ended above double / when they fell short / whether double kept up with prices. Missing (b) or (c): 0.5. Missing both: 0.",
+   "description_only": "Only repeats surface words (numbers, 'backtest', series names) without the decision or how it is answered."
+  },
+  "B": {
+   "meaning": "The retelling has BOTH (b) a choice between a US savings bond guaranteed to double in 20 years and rolling/renewing Treasury bills, AND (c) the answer comes from replaying past 20-year periods in history; PLUS at least one of (a) a person with money set aside for about 20 years, (d) the answer is about how often rolling T-bills ended above double / when they fell short / whether double kept up with prices. Missing (b) or (c): 0.5. Missing both: 0.",
+   "description_only": "Only repeats surface words (numbers, 'backtest', series names) without the decision or how it is answered."
+  },
+  "ctrl:W": {
+   "meaning": "The retelling has BOTH (b) a choice between a US savings bond guaranteed to double in 20 years and rolling/renewing Treasury bills, AND (c) the answer comes from replaying past 20-year periods in history; PLUS at least one of (a) a person with money set aside for about 20 years, (d) the answer is about how often rolling T-bills ended above double / when they fell short / whether double kept up with prices. Missing (b) or (c): 0.5. Missing both: 0.",
+   "description_only": "Only repeats surface words (numbers, 'backtest', series names) without the decision or how it is answered."
+  }
+ }
+}

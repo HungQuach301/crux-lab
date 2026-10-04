@@ -1,0 +1,13 @@
+[
+ "Rounding: Decimal(repr(float)) quantized ROUND_HALF_UP (half away from zero)",
+ "Blank/'.' cells treated as missing; a start requires 240 consecutive calendar months all present",
+ "Starts only from 1934-01-01 onward; last start is last month with full 240 months ahead present",
+ "Ties for min/max M: earliest start; M compared to 2.0 strictly in float",
+ "V needs CPI at s and s+240 (calendar months); V>=1 and V<1 shares use real_windows as denominator",
+ "Median of even count = mean of middle two; median V computed then x100",
+ "Group shares use starts within group only; guarantee group 2005-05..last start",
+ "Average-TB3MS test: mean of 240 months s..s+239 (includes start month) strictly < TB3MS at s",
+ "Mean of all TB3MS = over all non-missing months in file (incl. pre-1934 if any)",
+ "Last data month = latest non-missing TB3MS month",
+ "|M/2-1|<0.005 strict"
+]

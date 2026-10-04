@@ -1,0 +1,24 @@
+{
+ "question": "Read the short description of an upcoming YouTube video in the file below (if the file gives you a role, answer as that person), then answer in English:\n1. In 2–3 sentences, retell what this video will be about: who it is for, what decision it looks at, and how it will answer it.\n2. What do you expect to know by the end? (one sentence)\n3. Was anything confusing or hard to follow? Quote the exact words, or say \"nothing\".\n4. Does it sound like the video will tell you which option to pick, or predict what interest rates will do? Answer yes or no, then why.\n5. What advice, if any, would a viewer take from this?\nAnswer only from the file. Do not open any other file.",
+ "candidate_set": "ep003",
+ "samples": [
+  {
+   "id": "A",
+   "set": "ep003",
+   "kind": "logline",
+   "file": "samples/A-T.txt"
+  },
+  {
+   "id": "B",
+   "set": "ep003",
+   "kind": "logline",
+   "file": "samples/B-T.txt"
+  },
+  {
+   "id": "W",
+   "set": "ctrl",
+   "kind": "logline",
+   "file": "samples/W-T.txt"
+  }
+ ]
+}
