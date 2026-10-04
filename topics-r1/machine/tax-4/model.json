@@ -1,0 +1,413 @@
+{
+ "kind": null,
+ "kindStatus": "new",
+ "params": {
+  "wageSeries": {
+   "file": "data/AHETPI.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "AHETPI",
+   "use": "last non-missing row",
+   "rounding": "nearest whole dollar"
+  },
+  "filingStatus": "single",
+  "taxYear": 2026,
+  "regularHoursPerWeek": 40,
+  "regularWeeks": 52,
+  "extraHoursPerWeek": 8,
+  "extraWeeks": 50,
+  "otMultiplier": 1.5,
+  "premiumMultiplier": 0.5,
+  "sideJobRate": "= otMultiplier x regular rate (W-2, not overtime)",
+  "standardDeduction": 16100,
+  "brackets": [
+   [
+    0,
+    0.1
+   ],
+   [
+    12400,
+    0.12
+   ],
+   [
+    50400,
+    0.22
+   ],
+   [
+    105700,
+    0.24
+   ],
+   [
+    201775,
+    0.32
+   ],
+   [
+    256225,
+    0.35
+   ],
+   [
+    640600,
+    0.37
+   ]
+  ],
+  "otDeductionCap": 12500,
+  "otPhaseDownStartMagi": 150000,
+  "employeePayrollRate": 0.0765,
+  "breakevenSearch": {
+   "method": "bisection",
+   "bracket": [
+    "ot_rate",
+    "3 x ot_rate"
+   ],
+   "iterations": 200,
+   "rounding": "cents"
+  }
+ },
+ "quantities": [
+  {
+   "name": "ahe_latest",
+   "meaning": "Last observation in data/AHETPI.csv: national AVERAGE hourly earnings of production and nonsupervisory employees, total private, seasonally adjusted, for the single month June 2026 (not a median, not an annual figure).",
+   "unit": "USD per hour",
+   "from": "result.json → numbers.ahe_latest"
+  },
+  {
+   "name": "ahe_date",
+   "meaning": "Observation month of ahe_latest (2026-06-01, rendered \"June 2026\"); the data's \"current\" date.",
+   "unit": "date",
+   "from": "result.json → numbers.ahe_date"
+  },
+  {
+   "name": "regular_rate_usd",
+   "meaning": "ahe_latest rounded to whole dollars; the regular hourly rate of the single modeled worker only.",
+   "unit": "USD per hour",
+   "from": "result.json → numbers.regular_rate_usd"
+  },
+  {
+   "name": "ot_rate_usd",
+   "meaning": "1.5 x regular_rate_usd for the modeled worker; also the hourly pay assumed for that worker's second job.",
+   "unit": "USD per hour",
+   "from": "result.json → numbers.ot_rate_usd"
+  },
+  {
+   "name": "extra_pay_usd",
+   "meaning": "Gross pay for the modeled worker's 400 extra hours in tax year 2026 at ot_rate_usd; identical on both paths.",
+   "unit": "USD per year",
+   "from": "result.json → numbers.extra_pay_usd"
+  },
+  {
+   "name": "ot_premium_deduction_usd",
+   "meaning": "Half-time premium on the modeled worker's 400 overtime hours in 2026 (0.5 x regular_rate_usd x 400), deductible from federal income tax; overtime path only.",
+   "unit": "USD per year",
+   "from": "result.json → numbers.ot_premium_deduction_usd"
+  },
+  {
+   "name": "deductible_share_of_ot_pay_pct",
+   "meaning": "ot_premium_deduction_usd as a share of extra_pay_usd for the modeled worker (equals 1/3 for any rate at 1.5x), 2 decimals.",
+   "unit": "percent",
+   "from": "result.json → numbers.deductible_share_of_ot_pay_pct"
+  },
+  {
+   "name": "ot_income_tax_on_extra_usd",
+   "meaning": "Added 2026 federal income tax caused by the 400 extra hours on the OVERTIME path for the modeled worker ($32 regular rate, single, 2026 rules, 400 extra hours).",
+   "unit": "USD per year",
+   "from": "result.json → numbers.ot_income_tax_on_extra_usd"
+  },
+  {
+   "name": "side_income_tax_on_extra_usd",
+   "meaning": "Added 2026 federal income tax caused by the 400 extra hours on the SECOND-JOB path for the modeled worker ($32 regular rate, single, 2026 rules, 400 extra hours).",
+   "unit": "USD per year",
+   "from": "result.json → numbers.side_income_tax_on_extra_usd"
+  },
+  {
+   "name": "payroll_tax_on_extra_usd",
+   "meaning": "Employee social security + medicare (7.65%) on extra_pay_usd for the modeled worker in 2026; same on both paths.",
+   "unit": "USD per year",
+   "from": "result.json → numbers.payroll_tax_on_extra_usd"
+  },
+  {
+   "name": "ot_extra_take_home_usd",
+   "meaning": "2026 take-home from the 400 extra hours on the OVERTIME path for the modeled worker ($32 regular rate, single, 2026 rules, 400 extra hours).",
+   "unit": "USD per year",
+   "from": "result.json → numbers.ot_extra_take_home_usd"
+  },
+  {
+   "name": "side_extra_take_home_usd",
+   "meaning": "2026 take-home from the 400 extra hours on the SECOND-JOB path for the modeled worker ($32 regular rate, single, 2026 rules, 400 extra hours).",
+   "unit": "USD per year",
+   "from": "result.json → numbers.side_extra_take_home_usd"
+  },
+  {
+   "name": "ot_advantage_usd",
+   "meaning": "Overtime take-home minus second-job take-home for the modeled worker ($32 regular rate, single, 2026 rules, 400 extra hours), per year.",
+   "unit": "USD per year",
+   "from": "result.json → numbers.ot_advantage_usd"
+  },
+  {
+   "name": "ot_total_tax_rate_on_extra_pct",
+   "meaning": "Federal income + payroll tax as % of the extra pay, OVERTIME path, modeled worker only, 2 decimals.",
+   "unit": "percent",
+   "from": "result.json → numbers.ot_total_tax_rate_on_extra_pct"
+  },
+  {
+   "name": "side_total_tax_rate_on_extra_pct",
+   "meaning": "Federal income + payroll tax as % of the extra pay, SECOND-JOB path, modeled worker only, 2 decimals.",
+   "unit": "percent",
+   "from": "result.json → numbers.side_total_tax_rate_on_extra_pct"
+  },
+  {
+   "name": "side_breakeven_rate_usd",
+   "meaning": "Second-job hourly rate giving the modeled worker the same 2026 take-home on 400 hours as overtime at ot_rate_usd; this example only, 2 decimals.",
+   "unit": "USD per hour",
+   "from": "result.json → numbers.side_breakeven_rate_usd"
+  },
+  {
+   "name": "premium_per_hour_usd",
+   "meaning": "Deductible premium in each overtime hour of the modeled worker (0.5 x regular_rate_usd = $16 of each $48 hour).",
+   "unit": "USD per hour",
+   "from": "calc.py --statement"
+  },
+  {
+   "name": "marginal_bracket_pct",
+   "meaning": "Single 2026 bracket rate that applies to ALL of the modeled worker's extra taxable pay on both paths (computed; None if the extra pay straddles a bracket).",
+   "unit": "percent",
+   "from": "calc.py --statement"
+  },
+  {
+   "name": "breakeven_markup_usd",
+   "meaning": "side_breakeven_rate_usd minus ot_rate_usd for the modeled worker only ($32 regular rate); scales with the regular rate, not a general constant.",
+   "unit": "USD per hour",
+   "from": "calc.py --statement"
+  },
+  {
+   "name": "ot_advantage_per_hour_usd",
+   "meaning": "ot_advantage_usd / 400 for the modeled worker (= premium_per_hour_usd x marginal_bracket_pct).",
+   "unit": "USD per hour",
+   "from": "calc.py --statement"
+  },
+  {
+   "name": "EXTRA_HOURS_PER_WEEK",
+   "value": 8,
+   "meaning": "Extra hours a week in the viewer scenario (viewer identity number).",
+   "unit": "hours per week",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "viewer scenario, card.json viewer; result.json assumptions[1]"
+  },
+  {
+   "name": "EXTRA_WEEKS",
+   "value": 50,
+   "meaning": "Weeks a year the extra hours are worked.",
+   "unit": "weeks",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "model parameter, result.json assumptions[1]"
+  },
+  {
+   "name": "EXTRA_HOURS_YEAR",
+   "value": 400,
+   "meaning": "EXTRA_HOURS_PER_WEEK x EXTRA_WEEKS: extra hours a year, both paths.",
+   "unit": "hours per year",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "model parameter, result.json assumptions[1]"
+  },
+  {
+   "name": "REGULAR_HOURS_PER_WEEK",
+   "value": 40,
+   "meaning": "Regular weekly hours; also the FLSA threshold above which overtime is required.",
+   "unit": "hours per week",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)"
+  },
+  {
+   "name": "REGULAR_WEEKS",
+   "value": 52,
+   "meaning": "Weeks a year of regular work (base wages = rate x 40 x 52).",
+   "unit": "weeks",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "model parameter, result.json assumptions[1]"
+  },
+  {
+   "name": "OT_MULTIPLIER",
+   "value": 1.5,
+   "meaning": "Overtime pay multiple of the regular rate.",
+   "unit": "multiple",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)"
+  },
+  {
+   "name": "PREMIUM_MULTIPLIER",
+   "value": 0.5,
+   "meaning": "Part of each overtime hour above the regular rate (qualified overtime compensation).",
+   "unit": "multiple",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "26 U.S.C. 225(c)(1) (only the amount in excess of the regular rate)"
+  },
+  {
+   "name": "OT_CAP_SINGLE_USD",
+   "value": 12500,
+   "meaning": "Annual cap on the overtime deduction, single filer.",
+   "unit": "USD per year",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "26 U.S.C. 225(b)(1) (cap $12,500 single)"
+  },
+  {
+   "name": "OT_PHASE_START_MAGI_USD",
+   "value": 150000,
+   "meaning": "MAGI above which the overtime deduction phases down, single filer.",
+   "unit": "USD per year",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "26 U.S.C. 225(b)(2)(A) (phase-down above $150,000 MAGI)"
+  },
+  {
+   "name": "STD_DEDUCTION_SINGLE_USD",
+   "value": 16100,
+   "meaning": "2026 standard deduction, single.",
+   "unit": "USD per year",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "IRS IR-2025-103 (2026 standard deduction, single)"
+  },
+  {
+   "name": "BRACKET_RATE_12_PCT",
+   "value": 12,
+   "meaning": "2026 single bracket rate on taxable income $12,400-$50,400.",
+   "unit": "percent",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "IRS IR-2025-103 (2026 single brackets)"
+  },
+  {
+   "name": "BRACKET_RATE_22_PCT",
+   "value": 22,
+   "meaning": "2026 single bracket rate on taxable income $50,400-$105,700.",
+   "unit": "percent",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "IRS IR-2025-103 (2026 single brackets)"
+  },
+  {
+   "name": "TAX_YEAR",
+   "value": 2026,
+   "meaning": "Tax year modeled.",
+   "unit": "year",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "IRS IR-2025-103 (2026 standard deduction, single)"
+  },
+  {
+   "name": "OT_DEDUCTION_FIRST_YEAR",
+   "value": 2025,
+   "meaning": "First tax year of the overtime deduction (year; V6a exemption).",
+   "unit": "year",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "not quoted in sources.json provisions (OBBBA effective date); advisory"
+  },
+  {
+   "name": "OT_DEDUCTION_LAST_YEAR",
+   "value": 2028,
+   "meaning": "Last tax year of the overtime deduction under current law.",
+   "unit": "year",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "26 U.S.C. 225(g) (termination after 2028)"
+  }
+ ],
+ "newKindNeeds": {
+  "inputs": {
+   "data": [
+    {
+     "file": "data/AHETPI.csv",
+     "columns": [
+      "observation_date",
+      "AHETPI"
+     ],
+     "role": "regular hourly rate = last non-missing value rounded to whole dollars; lastObservation 2026-06-01"
+    }
+   ],
+   "ruleConstants": [
+    {
+     "name": "standardDeduction",
+     "value": 16100,
+     "cite": "IRS IR-2025-103 (2026 standard deduction, single)"
+    },
+    {
+     "name": "brackets (single 2026)",
+     "value": "10/12/22/24/32/35/37% at 0/12,400/50,400/105,700/201,775/256,225/640,600",
+     "cite": "IRS IR-2025-103 (2026 single brackets); IRS IR-2025-103 (2026 top bracket)"
+    },
+    {
+     "name": "otDeductionCap",
+     "value": 12500,
+     "cite": "26 U.S.C. 225(b)(1) (cap $12,500 single)"
+    },
+    {
+     "name": "otPhaseDownStartMagi",
+     "value": 150000,
+     "cite": "26 U.S.C. 225(b)(2)(A) (phase-down above $150,000 MAGI)"
+    },
+    {
+     "name": "qualified overtime = premium over regular rate",
+     "value": 0.5,
+     "cite": "26 U.S.C. 225(c)(1) (only the amount in excess of the regular rate)"
+    },
+    {
+     "name": "deduction allowed to non-itemizers",
+     "value": true,
+     "cite": "26 U.S.C. 63(b)(6) (deduction available to non-itemizers)"
+    },
+    {
+     "name": "deduction ends after",
+     "value": 2028,
+     "cite": "26 U.S.C. 225(g) (termination after 2028)"
+    },
+    {
+     "name": "otMultiplier / threshold",
+     "value": "1.5 x over 40 h a week",
+     "cite": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)"
+    },
+    {
+     "name": "employeePayrollRate",
+     "value": "6.2% + 1.45%",
+     "cite": "26 U.S.C. 3101(a) (6.2% employee social security tax); 26 U.S.C. 3101(b)(1) (1.45% employee medicare tax)"
+    }
+   ]
+  },
+  "params": [
+   "regular rate (or wage file + rounding)",
+   "filingStatus",
+   "taxYear",
+   "regularHoursPerWeek",
+   "regularWeeks",
+   "extraHoursPerWeek",
+   "extraWeeks",
+   "otMultiplier",
+   "premiumMultiplier",
+   "standardDeduction",
+   "brackets",
+   "otDeductionCap",
+   "otPhaseDownStartMagi",
+   "employeePayrollRate",
+   "sideJobRate (default = overtime rate)"
+  ],
+  "computation": "Regular rate W = round(last AHETPI value); base wages B = W x 40 x 52; extra pay E = 1.5W x 400 on both paths; premium P = 0.5W x 400. Federal income tax T(x) on the single 2026 schedule; incremental income tax on the extra = T(B + E - 16,100 - D) - T(B - 16,100) with D = min(P, 12,500) on the overtime path (MAGI < 150,000 asserted, so no phase-down) and D = 0 on the second-job path; payroll tax = 7.65% x E on both paths; take-home = E - payroll - incremental income tax; advantage = overtime take-home - second-job take-home; total tax rate = 100 x (1 - take-home / E); break-even second-job rate R solves take-home(R x 400, D = 0) = overtime take-home, by bisection on [1.5W, 4.5W].",
+  "outputs": [
+   "ahe_latest",
+   "ahe_date",
+   "regular_rate_usd",
+   "ot_rate_usd",
+   "extra_pay_usd",
+   "ot_premium_deduction_usd",
+   "deductible_share_of_ot_pay_pct",
+   "ot_income_tax_on_extra_usd",
+   "side_income_tax_on_extra_usd",
+   "payroll_tax_on_extra_usd",
+   "ot_extra_take_home_usd",
+   "side_extra_take_home_usd",
+   "ot_advantage_usd",
+   "ot_total_tax_rate_on_extra_pct",
+   "side_total_tax_rate_on_extra_pct",
+   "side_breakeven_rate_usd"
+  ],
+  "invariants": [
+   "extra_pay_usd identical on both paths; payroll_tax_on_extra_usd = 0.0765 x extra_pay_usd on both paths (±$0.005).",
+   "deductible_share_of_ot_pay_pct = 33.33 (premium / overtime pay = 0.5/1.5) whenever premium <= cap.",
+   "take-home = extra_pay - payroll - income tax on each path (±$0.01).",
+   "When all extra taxable pay on both paths lies in one bracket of rate r: ot_advantage_usd = min(premium, cap) x r (±$0.01); here r = 22%, so 1,408 = 6,400 x 0.22.",
+   "side_breakeven_rate_usd >= ot_rate_usd, and second-job take-home at the break-even rate equals ot_extra_take_home_usd (±$0.01).",
+   "max AGI (second-job path) < otPhaseDownStartMagi, and premium <= otDeductionCap, so the full deduction applies.",
+   "ot_total_tax_rate_on_extra_pct < side_total_tax_rate_on_extra_pct; with UNROUNDED rates, (side rate - overtime rate) x extra_pay / 100 = ot_advantage_usd (±$0.01) (the 2-decimal rates give 1,407.36, not 1,408)."
+  ]
+ }
+}

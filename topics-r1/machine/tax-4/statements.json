@@ -1,0 +1,565 @@
+[
+ {
+  "source": "card.json:title",
+  "text": "Overtime or a Second Job at $48 an Hour: Which Pays More?",
+  "uses": [
+   "ot_rate_usd"
+  ],
+  "render": [
+   "usd0"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 1 → True"
+ },
+ {
+  "source": "card.json:viewer",
+  "text": "Single hourly workers earning $32 an hour full time who could add 8 extra hours of work a week.",
+  "uses": [
+   "regular_rate_usd",
+   "EXTRA_HOURS_PER_WEEK"
+  ],
+  "render": [
+   "usd0",
+   "num0"
+  ],
+  "cites": {
+   "EXTRA_HOURS_PER_WEEK": "viewer scenario (card.json viewer), model parameter"
+  },
+  "expected": true,
+  "check": "calc.py --statement 2 → True"
+ },
+ {
+  "source": "card.json:decision",
+  "text": "Work those 8 hours as overtime at $48 an hour, or at a second job paying $48 an hour?",
+  "uses": [
+   "EXTRA_HOURS_PER_WEEK",
+   "ot_rate_usd"
+  ],
+  "render": [
+   "num0",
+   "usd0"
+  ],
+  "claims": [
+   "same_gross_both_paths"
+  ],
+  "cites": {
+   "EXTRA_HOURS_PER_WEEK": "viewer scenario (card.json viewer), model parameter"
+  },
+  "expected": true,
+  "check": "calc.py --statement 3 → True"
+ },
+ {
+  "source": "card.json:promise",
+  "text": "We run the full federal tax math on both paths, including the new overtime break, and find what a side job must pay to match.",
+  "uses": [],
+  "render": [],
+  "claims": [
+   "breakeven_exists"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 4 → True"
+ },
+ {
+  "source": "result.json:answer",
+  "text": "For a single worker paid $32 an hour (the typical production/nonsupervisory wage, $32.38 in June 2026, rounded) adding 400 hours a year, both paths pay $19,200 gross at $48 an hour.",
+  "uses": [
+   "regular_rate_usd",
+   "ahe_latest",
+   "ahe_date",
+   "EXTRA_HOURS_YEAR",
+   "extra_pay_usd",
+   "ot_rate_usd"
+  ],
+  "render": [
+   "usd0",
+   "usd2",
+   "month",
+   "num0",
+   "usd0",
+   "usd0"
+  ],
+  "claims": [
+   "wage_rounded_to_dollar",
+   "same_gross_both_paths"
+  ],
+  "cites": {
+   "EXTRA_HOURS_YEAR": "model parameter = 8 x 50 (result.json assumptions[1])"
+  },
+  "expected": true,
+  "check": "calc.py --statement 5 → True"
+ },
+ {
+  "source": "result.json:answer",
+  "text": "Only the half-time premium, $6,400 (33.33% of the overtime pay), is deductible, and only from federal income tax; payroll tax of $1,468.80 applies either way.",
+  "uses": [
+   "ot_premium_deduction_usd",
+   "deductible_share_of_ot_pay_pct",
+   "payroll_tax_on_extra_usd"
+  ],
+  "render": [
+   "usd0",
+   "pct2",
+   "usd2"
+  ],
+  "claims": [
+   "deduction_only_income_tax",
+   "payroll_full_both_paths"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 6 → True"
+ },
+ {
+  "source": "result.json:answer",
+  "text": "Federal income tax on the extra pay is $2,816 as overtime versus $4,224 at a second job, so overtime keeps $14,915 versus $13,507: $1,408 more a year (total federal tax on the extra pay 22.32% vs 29.65%).",
+  "uses": [
+   "ot_income_tax_on_extra_usd",
+   "side_income_tax_on_extra_usd",
+   "ot_extra_take_home_usd",
+   "side_extra_take_home_usd",
+   "ot_advantage_usd",
+   "ot_total_tax_rate_on_extra_pct",
+   "side_total_tax_rate_on_extra_pct"
+  ],
+  "render": [
+   "usd0",
+   "usd0",
+   "usd0",
+   "usd0",
+   "usd0",
+   "pct2",
+   "pct2"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 7 → True"
+ },
+ {
+  "source": "result.json:answer",
+  "text": "A second job would have to pay about $53.00 an hour to leave the same take-home as overtime at $48.",
+  "uses": [
+   "side_breakeven_rate_usd",
+   "ot_rate_usd"
+  ],
+  "render": [
+   "usd2",
+   "usd0"
+  ],
+  "claims": [
+   "breakeven_exists"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 8 → True"
+ },
+ {
+  "source": "result.json:guess",
+  "text": "Hearing 'no tax on overtime', many hourly workers assume overtime pay is now tax-free (so a side job would have to pay far more to compete); others assume the tax treatment of the two is the same.",
+  "uses": [],
+  "render": [],
+  "claims": [
+   "guess_contradicted"
+  ],
+  "note": "States beliefs, not results; the check confirms the result contradicts them (overtime still taxed, treatments differ, break-even is not far above the overtime rate).",
+  "expected": true,
+  "check": "calc.py --statement 9 → True"
+ },
+ {
+  "source": "result.json:changesDecision",
+  "text": "Overtime does keep more, but the gap is a fixed, modest amount per hour (the premium times the bracket rate), not the whole overtime check: a side job paying a few dollars an hour more than the overtime rate leaves the same take-home.",
+  "uses": [],
+  "render": [],
+  "claims": [
+   "gap_is_premium_times_bracket",
+   "markup_few_dollars",
+   "breakeven_exists"
+  ],
+  "note": "\"fixed, modest amount per hour\" = ot_advantage_per_hour_usd = premium_per_hour_usd x marginal_bracket_pct; \"a few dollars an hour more\" = breakeven_markup_usd.",
+  "expected": true,
+  "check": "calc.py --statement 10 → True"
+ },
+ {
+  "source": "result.json:changesDecision",
+  "text": "A viewer comparing a real overtime offer with a real side-job offer can use that threshold.",
+  "uses": [],
+  "render": [],
+  "claims": [
+   "breakeven_exists"
+  ],
+  "note": "\"that threshold\" = side_breakeven_rate_usd.",
+  "expected": true,
+  "check": "calc.py --statement 11 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "\"Overtime is tax-free.\"",
+  "uses": [],
+  "render": [],
+  "claims": [
+   "overtime_not_tax_free"
+  ],
+  "role": "overstated phrasing (quoted to forbid); check confirms it is false in the model",
+  "expected": true,
+  "check": "calc.py --statement 12 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "Only the half-time premium ($16 of each $48 hour) is deductible, only from federal income tax, and only up to $12,500.",
+  "uses": [
+   "premium_per_hour_usd",
+   "ot_rate_usd",
+   "OT_CAP_SINGLE_USD"
+  ],
+  "render": [
+   "usd0",
+   "usd0",
+   "usd0"
+  ],
+  "claims": [
+   "deduction_only_income_tax"
+  ],
+  "cites": {
+   "OT_CAP_SINGLE_USD": "26 U.S.C. 225(b)(1) (cap $12,500 single)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 13 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "Payroll tax applies in full.",
+  "uses": [],
+  "render": [],
+  "claims": [
+   "payroll_full_both_paths"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 14 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "\"Overtime pays $1,408 more.\"",
+  "uses": [
+   "ot_advantage_usd"
+  ],
+  "render": [
+   "usd0"
+  ],
+  "role": "overstated phrasing (quoted to forbid without scope); number checked",
+  "expected": true,
+  "check": "calc.py --statement 15 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "That holds only for the modeled worker: single, $32 regular rate, 400 extra hours, standard deduction, 22% bracket, no state tax.",
+  "uses": [
+   "regular_rate_usd",
+   "EXTRA_HOURS_YEAR",
+   "marginal_bracket_pct"
+  ],
+  "render": [
+   "usd0",
+   "num0",
+   "pct0"
+  ],
+  "cites": {
+   "EXTRA_HOURS_YEAR": "model parameter = 8 x 50 (result.json assumptions[1])"
+  },
+  "expected": true,
+  "check": "calc.py --statement 16 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "A 12% bracket worker gains less, and a married worker's bracket differs.",
+  "uses": [
+   "BRACKET_RATE_12_PCT"
+  ],
+  "render": [
+   "pct0"
+  ],
+  "claims": [
+   "twelve_pct_bracket_gains_less",
+   "married_bracket_differs"
+  ],
+  "cites": {
+   "BRACKET_RATE_12_PCT": "IRS IR-2025-103 (2026 single brackets)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 17 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "Present it as the worked example and show the rule (premium x bracket rate).",
+  "uses": [],
+  "render": [],
+  "claims": [
+   "gap_is_premium_times_bracket"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 18 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "\"A side job must pay $53.\"",
+  "uses": [
+   "side_breakeven_rate_usd"
+  ],
+  "render": [
+   "usd0"
+  ],
+  "role": "overstated phrasing (quoted to require \"about\"); number checked",
+  "expected": true,
+  "check": "calc.py --statement 19 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "This is the break-even for this example only.",
+  "uses": [],
+  "render": [],
+  "claims": [
+   "breakeven_depends_on_example"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 20 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "The general rule is an extra 5 dollars an hour at the 22% bracket with a 1.5x overtime rate.",
+  "uses": [
+   "breakeven_markup_usd",
+   "BRACKET_RATE_22_PCT",
+   "OT_MULTIPLIER"
+  ],
+  "render": [
+   "num0",
+   "pct0",
+   "mult"
+  ],
+  "claims": [
+   "markup_is_general_at_22pct"
+  ],
+  "cites": {
+   "BRACKET_RATE_22_PCT": "IRS IR-2025-103 (2026 single brackets)",
+   "OT_MULTIPLIER": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)"
+  },
+  "note": "ERRATA E1: breakeven_markup_usd (5.00) is scoped to the $32 example only; the markup scales with the regular rate.",
+  "expected": false,
+  "check": "calc.py --statement 21 → False (ERRATA E1)"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "Under current law it ends after tax year 2028.",
+  "uses": [
+   "OT_DEDUCTION_LAST_YEAR"
+  ],
+  "render": [
+   "year"
+  ],
+  "cites": {
+   "OT_DEDUCTION_LAST_YEAR": "26 U.S.C. 225(g) (termination after 2028)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 22 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "The wage is the national average hourly earnings of production and nonsupervisory employees for June 2026 (AHETPI via FRED), rounded to $32.",
+  "uses": [
+   "ahe_date",
+   "regular_rate_usd"
+  ],
+  "render": [
+   "month",
+   "usd0"
+  ],
+  "claims": [
+   "wage_rounded_to_dollar"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 23 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "Only overtime required by federal law (over 40 hours a week) counts.",
+  "uses": [
+   "REGULAR_HOURS_PER_WEEK"
+  ],
+  "render": [
+   "num0"
+  ],
+  "cites": {
+   "REGULAR_HOURS_PER_WEEK": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 24 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "State-only daily overtime, double time beyond 1.5x, and union or employer premiums above the federal requirement do not qualify.",
+  "uses": [
+   "OT_MULTIPLIER"
+  ],
+  "render": [
+   "mult"
+  ],
+  "cites": {
+   "OT_MULTIPLIER": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 25 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "The side job is assumed to be W-2 work.",
+  "uses": [],
+  "render": [],
+  "labels": [
+   "W-2"
+  ],
+  "note": "W-2 is a form name, not a quantity.",
+  "expected": true,
+  "check": "calc.py --statement 26 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "Self-employment (1099) work would add employer-side payroll tax and could qualify for other deductions, and the model does not cover it.",
+  "uses": [],
+  "render": [],
+  "labels": [
+   "1099"
+  ],
+  "note": "1099 is a form name, not a quantity.",
+  "expected": true,
+  "check": "calc.py --statement 27 → True"
+ },
+ {
+  "source": "result.json:assumptions[0]",
+  "text": "Tax year 2026, single filer, standard deduction ($16,100), no other income, no dependents or credits.",
+  "uses": [
+   "TAX_YEAR",
+   "STD_DEDUCTION_SINGLE_USD"
+  ],
+  "render": [
+   "year",
+   "usd0"
+  ],
+  "cites": {
+   "TAX_YEAR": "IRS IR-2025-103 (2026 standard deduction, single)",
+   "STD_DEDUCTION_SINGLE_USD": "IRS IR-2025-103 (2026 standard deduction, single)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 28 → True"
+ },
+ {
+  "source": "result.json:assumptions[1]",
+  "text": "Regular job: 40 hours x 52 weeks at the regular rate; extra work: 8 hours a week for 50 weeks (400 hours).",
+  "uses": [
+   "REGULAR_HOURS_PER_WEEK",
+   "REGULAR_WEEKS",
+   "EXTRA_HOURS_PER_WEEK",
+   "EXTRA_WEEKS",
+   "EXTRA_HOURS_YEAR"
+  ],
+  "render": [
+   "num0",
+   "num0",
+   "num0",
+   "num0",
+   "num0"
+  ],
+  "cites": {
+   "REGULAR_HOURS_PER_WEEK": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)",
+   "REGULAR_WEEKS": "model parameter (result.json assumptions[1])",
+   "EXTRA_HOURS_PER_WEEK": "viewer scenario (card.json viewer), model parameter",
+   "EXTRA_WEEKS": "model parameter (result.json assumptions[1])",
+   "EXTRA_HOURS_YEAR": "model parameter = 8 x 50 (result.json assumptions[1])"
+  },
+  "expected": true,
+  "check": "calc.py --statement 29 → True"
+ },
+ {
+  "source": "result.json:assumptions[2]",
+  "text": "Overtime is required by federal overtime law (over 40 hours in a workweek) at exactly 1.5 times the regular rate and reported by the employer as qualified overtime compensation; only the 0.5x premium is deductible.",
+  "uses": [
+   "REGULAR_HOURS_PER_WEEK",
+   "OT_MULTIPLIER",
+   "PREMIUM_MULTIPLIER"
+  ],
+  "render": [
+   "num0",
+   "num",
+   "mult"
+  ],
+  "cites": {
+   "REGULAR_HOURS_PER_WEEK": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)",
+   "OT_MULTIPLIER": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)",
+   "PREMIUM_MULTIPLIER": "26 U.S.C. 225(c)(1) (only the amount in excess of the regular rate)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 30 → True"
+ },
+ {
+  "source": "result.json:assumptions[3]",
+  "text": "The second job is W-2 employment paying the same hourly amount as the overtime rate (no self-employment tax); its hours are not overtime.",
+  "uses": [],
+  "render": [],
+  "labels": [
+   "W-2"
+  ],
+  "expected": true,
+  "check": "calc.py --statement 31 → True"
+ },
+ {
+  "source": "result.json:assumptions[4]",
+  "text": "Modified AGI stays below $150,000, so the full deduction applies; social security wage base not reached.",
+  "uses": [
+   "OT_PHASE_START_MAGI_USD"
+  ],
+  "render": [
+   "usd0"
+  ],
+  "claims": [
+   "magi_below_phase_down"
+  ],
+  "cites": {
+   "OT_PHASE_START_MAGI_USD": "26 U.S.C. 225(b)(2)(A) (phase-down above $150,000 MAGI)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 32 → True"
+ },
+ {
+  "source": "result.json:limits",
+  "text": "Rule-based calculation for 2026; the overtime deduction applies only to tax years 2025-2028 under current law.",
+  "uses": [
+   "TAX_YEAR",
+   "OT_DEDUCTION_FIRST_YEAR",
+   "OT_DEDUCTION_LAST_YEAR"
+  ],
+  "render": [
+   "year",
+   "year",
+   "year"
+  ],
+  "cites": {
+   "TAX_YEAR": "IRS IR-2025-103 (2026 standard deduction, single)",
+   "OT_DEDUCTION_FIRST_YEAR": "year (V6a exemption); first year not quoted in sources.json provisions",
+   "OT_DEDUCTION_LAST_YEAR": "26 U.S.C. 225(g) (termination after 2028)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 33 → True"
+ },
+ {
+  "source": "result.json:limits",
+  "text": "Uses a national average wage as the example rate; results scale with the worker's own rate and bracket (a worker in the 12% bracket gains less).",
+  "uses": [
+   "BRACKET_RATE_12_PCT"
+  ],
+  "render": [
+   "pct0"
+  ],
+  "claims": [
+   "twelve_pct_bracket_gains_less"
+  ],
+  "cites": {
+   "BRACKET_RATE_12_PCT": "IRS IR-2025-103 (2026 single brackets)"
+  },
+  "expected": true,
+  "check": "calc.py --statement 34 → True"
+ }
+]

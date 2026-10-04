@@ -1,0 +1,398 @@
+{
+ "kind": null,
+ "kindStatus": "new",
+ "params": {
+  "indexSeries": {
+   "Los Angeles": "data/ATNHPIUS31084Q.csv",
+   "San Diego": "data/ATNHPIUS41740Q.csv",
+   "San Francisco": "data/ATNHPIUS41884Q.csv",
+   "San Jose": "data/ATNHPIUS41940Q.csv",
+   "Seattle": "data/ATNHPIUS42644Q.csv",
+   "Boston": "data/ATNHPIUS14454Q.csv",
+   "New York": "data/ATNHPIUS35614Q.csv",
+   "Miami": "data/ATNHPIUS33124Q.csv",
+   "Denver": "data/ATNHPIUS19740Q.csv",
+   "Phoenix": "data/ATNHPIUS38060Q.csv",
+   "Dallas": "data/ATNHPIUS19124Q.csv",
+   "Chicago": "data/ATNHPIUS16984Q.csv",
+   "United States": "data/USSTHPI.csv"
+  },
+  "cpi": "data/CPIAUCNS.csv",
+  "buyYear": 2000,
+  "saleQuarter": "2026-04-01",
+  "exclusionJoint": 500000,
+  "exclusionSingle": 250000,
+  "cpiBaseMonth": "1997-05-01",
+  "cpiNowMonth": "2026-08-01",
+  "countCutoffs": [
+   200000,
+   300000
+  ]
+ },
+ "quantities": [
+  {
+   "name": "growth_los_angeles",
+   "meaning": "Los Angeles only (FHFA series ATNHPIUS31084Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_los_angeles"
+  },
+  {
+   "name": "threshold_joint_los_angeles_usd",
+   "meaning": "Los Angeles only: the 2000 purchase price at which a home that rose exactly like the Los Angeles index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_los_angeles_usd"
+  },
+  {
+   "name": "growth_san_diego",
+   "meaning": "San Diego only (FHFA series ATNHPIUS41740Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_san_diego"
+  },
+  {
+   "name": "threshold_joint_san_diego_usd",
+   "meaning": "San Diego only: the 2000 purchase price at which a home that rose exactly like the San Diego index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_san_diego_usd"
+  },
+  {
+   "name": "growth_san_francisco",
+   "meaning": "San Francisco only (FHFA series ATNHPIUS41884Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_san_francisco"
+  },
+  {
+   "name": "threshold_joint_san_francisco_usd",
+   "meaning": "San Francisco only: the 2000 purchase price at which a home that rose exactly like the San Francisco index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_san_francisco_usd"
+  },
+  {
+   "name": "growth_san_jose",
+   "meaning": "San Jose only (FHFA series ATNHPIUS41940Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_san_jose"
+  },
+  {
+   "name": "threshold_joint_san_jose_usd",
+   "meaning": "San Jose only: the 2000 purchase price at which a home that rose exactly like the San Jose index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_san_jose_usd"
+  },
+  {
+   "name": "growth_seattle",
+   "meaning": "Seattle only (FHFA series ATNHPIUS42644Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_seattle"
+  },
+  {
+   "name": "threshold_joint_seattle_usd",
+   "meaning": "Seattle only: the 2000 purchase price at which a home that rose exactly like the Seattle index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_seattle_usd"
+  },
+  {
+   "name": "growth_boston",
+   "meaning": "Boston only (FHFA series ATNHPIUS14454Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_boston"
+  },
+  {
+   "name": "threshold_joint_boston_usd",
+   "meaning": "Boston only: the 2000 purchase price at which a home that rose exactly like the Boston index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_boston_usd"
+  },
+  {
+   "name": "growth_new_york",
+   "meaning": "New York only (FHFA series ATNHPIUS35614Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_new_york"
+  },
+  {
+   "name": "threshold_joint_new_york_usd",
+   "meaning": "New York only: the 2000 purchase price at which a home that rose exactly like the New York index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_new_york_usd"
+  },
+  {
+   "name": "growth_miami",
+   "meaning": "Miami only (FHFA series ATNHPIUS33124Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_miami"
+  },
+  {
+   "name": "threshold_joint_miami_usd",
+   "meaning": "Miami only: the 2000 purchase price at which a home that rose exactly like the Miami index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_miami_usd"
+  },
+  {
+   "name": "growth_denver",
+   "meaning": "Denver only (FHFA series ATNHPIUS19740Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_denver"
+  },
+  {
+   "name": "threshold_joint_denver_usd",
+   "meaning": "Denver only: the 2000 purchase price at which a home that rose exactly like the Denver index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_denver_usd"
+  },
+  {
+   "name": "growth_phoenix",
+   "meaning": "Phoenix only (FHFA series ATNHPIUS38060Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_phoenix"
+  },
+  {
+   "name": "threshold_joint_phoenix_usd",
+   "meaning": "Phoenix only: the 2000 purchase price at which a home that rose exactly like the Phoenix index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_phoenix_usd"
+  },
+  {
+   "name": "growth_dallas",
+   "meaning": "Dallas only (FHFA series ATNHPIUS19124Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_dallas"
+  },
+  {
+   "name": "threshold_joint_dallas_usd",
+   "meaning": "Dallas only: the 2000 purchase price at which a home that rose exactly like the Dallas index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_dallas_usd"
+  },
+  {
+   "name": "growth_chicago",
+   "meaning": "Chicago only (FHFA series ATNHPIUS16984Q): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_chicago"
+  },
+  {
+   "name": "threshold_joint_chicago_usd",
+   "meaning": "Chicago only: the 2000 purchase price at which a home that rose exactly like the Chicago index has a 2026 Q2 gain equal to the $500,000 joint limit (no improvements, no selling costs); rounded to the nearest $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_chicago_usd"
+  },
+  {
+   "name": "growth_us",
+   "meaning": "United States as a whole (FHFA USSTHPI): ratio of the 2026 Q2 index value to the mean of the four 2000 quarterly values; rounded to 4 decimals.",
+   "unit": "ratio",
+   "from": "result.json → numbers.growth_us"
+  },
+  {
+   "name": "threshold_joint_us_usd",
+   "meaning": "National index only, married couple ($500,000 limit): 2000 purchase price at which a home that rose like the U.S. index has a 2026 Q2 gain of $500,000; rounded to $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_us_usd"
+  },
+  {
+   "name": "threshold_single_us_usd",
+   "meaning": "National index only, single seller ($250,000 limit): 2000 purchase price at which a home that rose like the U.S. index has a 2026 Q2 gain of $250,000; rounded to $100. No metro single thresholds exist.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_single_us_usd"
+  },
+  {
+   "name": "threshold_joint_min_usd",
+   "meaning": "Lowest of the 12 metro joint thresholds (it is Miami's), 2000 purchase to 2026 Q2; rounded to $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_min_usd"
+  },
+  {
+   "name": "threshold_joint_max_usd",
+   "meaning": "Highest of the 12 metro joint thresholds (it is Chicago's), 2000 purchase to 2026 Q2; rounded to $100.",
+   "unit": "USD (2000 purchase price)",
+   "from": "result.json → numbers.threshold_joint_max_usd"
+  },
+  {
+   "name": "metros_threshold_under_200k",
+   "meaning": "Count, over the 12 metros only (not the national index), of joint thresholds (unrounded) below $200,000.",
+   "unit": "count of 12 metros",
+   "from": "result.json → numbers.metros_threshold_under_200k"
+  },
+  {
+   "name": "metros_threshold_under_300k",
+   "meaning": "Count, over the 12 metros only (not the national index), of joint thresholds (unrounded) below $300,000.",
+   "unit": "count of 12 metros",
+   "from": "result.json → numbers.metros_threshold_under_300k"
+  },
+  {
+   "name": "cpi_1997_05",
+   "meaning": "CPI-U (CPIAUCNS, not seasonally adjusted) for the single month May 1997, the month the current exclusion took effect.",
+   "unit": "index 1982-84=100",
+   "from": "result.json → numbers.cpi_1997_05"
+  },
+  {
+   "name": "cpi_2026_08",
+   "meaning": "CPI-U (CPIAUCNS) for the single month August 2026, the latest month in the data file; its month is the \"August 2026 prices\" of every sentence.",
+   "unit": "index 1982-84=100",
+   "from": "result.json → numbers.cpi_2026_08"
+  },
+  {
+   "name": "excl_joint_1997_in_2026_usd",
+   "meaning": "The $500,000 joint limit of May 1997 restated in August 2026 consumer prices (CPI-U ratio August 2026 / May 1997), not house prices; rounded to $1,000 (to $0.01 million in claim-risk.md).",
+   "unit": "USD",
+   "from": "result.json → numbers.excl_joint_1997_in_2026_usd"
+  },
+  {
+   "name": "excl_joint_limit_usd",
+   "meaning": "Statutory exclusion limit for a married couple filing jointly; one fixed nominal amount for every year since sales after May 6, 1997.",
+   "unit": "USD",
+   "from": "calc.py constant EXCL_JOINT",
+   "provision": "26 U.S.C. 121(b)(2)(A) ($500,000 for joint returns)",
+   "kindOf": "rule constant"
+  },
+  {
+   "name": "excl_single_limit_usd",
+   "meaning": "Statutory exclusion limit for a single seller; used only with the national index.",
+   "unit": "USD",
+   "from": "calc.py constant EXCL_SINGLE",
+   "provision": "26 U.S.C. 121(b)(1) ($250,000 limit)",
+   "kindOf": "rule constant"
+  },
+  {
+   "name": "exclusion_effective_month",
+   "meaning": "Month the current $500,000/$250,000 exclusion took effect (sales after May 6, 1997): May 1997; also the base month of the CPI comparison.",
+   "unit": "month (YYYY-MM)",
+   "from": "calc.py: CPI key 1997-05-01",
+   "provision": "Pub. L. 105-34 effective date note to 26 U.S.C. 121 (sales after May 6, 1997)",
+   "kindOf": "rule constant"
+  },
+  {
+   "name": "basis_at_death_rule",
+   "meaning": "Rule (not a number): heirs take a basis equal to fair market value at the date of death.",
+   "unit": "rule",
+   "from": "sources.json → provisions[26 U.S.C. 1014(a)(1)]",
+   "provision": "26 U.S.C. 1014(a)(1) (basis of inherited property = value at death)",
+   "kindOf": "rule constant"
+  },
+  {
+   "name": "buy_year",
+   "meaning": "Viewer identity: purchase during calendar year 2000 (base = mean of the four 2000 quarters of each index).",
+   "unit": "year",
+   "from": "calc.py constant BUY_YEAR; card.json → viewer",
+   "kindOf": "viewer identity number"
+  },
+  {
+   "name": "sale_quarter",
+   "meaning": "Valuation quarter for every growth and threshold: 2026 Q2 (index date 2026-04-01), the last observation of every house price series.",
+   "unit": "quarter",
+   "from": "calc.py constant NOW; sources.json → series[*].lastObservation",
+   "kindOf": "data date"
+  },
+  {
+   "name": "threshold_cutoff_200k_usd",
+   "meaning": "Cutoff in the definition of metros_threshold_under_200k (strictly below $200,000).",
+   "unit": "USD",
+   "from": "result.json → numbers.metros_threshold_under_200k (definition)",
+   "kindOf": "definition constant"
+  },
+  {
+   "name": "threshold_cutoff_300k_usd",
+   "meaning": "Cutoff in the definition of metros_threshold_under_300k (strictly below $300,000).",
+   "unit": "USD",
+   "from": "result.json → numbers.metros_threshold_under_300k (definition)",
+   "kindOf": "definition constant"
+  },
+  {
+   "name": "n_metros",
+   "meaning": "Number of metro indexes in the study (12; the national index is not counted).",
+   "unit": "count",
+   "from": "calc.py --statement"
+  },
+  {
+   "name": "metros_under_300k_names",
+   "meaning": "Set of the 12 metros whose unrounded joint threshold is below $300,000 (all but Chicago); scope check for named examples such as Phoenix and Dallas.",
+   "unit": "set of metro names",
+   "from": "calc.py --statement"
+  },
+  {
+   "name": "surviving_spouse_window_years",
+   "meaning": "Window after a spouse's death within which a surviving spouse keeps the $500,000 limit (2 years). Mentioned only in claim-risk.md; NOT sourced: no provision in sources.json (ERRATA.md E1).",
+   "unit": "years",
+   "from": null,
+   "provision": null,
+   "kindOf": "rule constant (unsourced)",
+   "status": "unsourced — see ERRATA.md E1"
+  }
+ ],
+ "newKindNeeds": {
+  "inputs": {
+   "data": [
+    {
+     "files": "data/ATNHPIUS<code>Q.csv (12 FHFA all-transactions metro indexes: 31084, 41740, 41884, 41940, 42644, 14454, 35614, 33124, 19740, 38060, 19124, 16984) and data/USSTHPI.csv (U.S.)",
+     "columns": [
+      "observation_date (quarter start YYYY-MM-01)",
+      "<series id> (index level)"
+     ],
+     "frequency": "quarterly"
+    },
+    {
+     "files": "data/CPIAUCNS.csv",
+     "columns": [
+      "observation_date (month YYYY-MM-01)",
+      "CPIAUCNS"
+     ],
+     "frequency": "monthly"
+    }
+   ],
+   "ruleConstants": [
+    {
+     "name": "exclusionJoint",
+     "value": 500000,
+     "cite": "26 U.S.C. 121(b)(2)(A)"
+    },
+    {
+     "name": "exclusionSingle",
+     "value": 250000,
+     "cite": "26 U.S.C. 121(b)(1)"
+    },
+    {
+     "name": "effectiveDate",
+     "value": "sales after 1997-05-06 (CPI base month 1997-05)",
+     "cite": "Pub. L. 105-34 effective date note to 26 U.S.C. 121"
+    },
+    {
+     "name": "ownershipUseTest",
+     "value": "2 of the 5 years before sale (assumed met)",
+     "cite": "26 U.S.C. 121(a)"
+    },
+    {
+     "name": "basisAtDeath",
+     "value": "fair market value at death (stated rule, not computed)",
+     "cite": "26 U.S.C. 1014(a)(1)"
+    }
+   ]
+  },
+  "params": {
+   "series": "{metro name: index file} plus a national file",
+   "buyYear": "year whose 4 quarterly values are averaged as the purchase base",
+   "saleQuarter": "quarter-start date of the sale value (must be the last observation of every index file)",
+   "exclusionJoint": "USD",
+   "exclusionSingle": "USD (national index only)",
+   "cpiBaseMonth": "YYYY-MM-01",
+   "cpiNowMonth": "YYYY-MM-01 (latest month in the CPI file)",
+   "countCutoffs": "[USD, ...] thresholds for the \"metros under $X\" counts (strict <)"
+  },
+  "computation": "For each index series s, growth g_s = index(saleQuarter) / mean(index of the four quarters of buyYear) (exactly four values required). The break-even 2000 purchase price is T_s = exclusion / (g_s - 1): a home bought at P that rose like the index has gain P(g_s - 1) at saleQuarter, which exceeds the exclusion exactly when P > T_s (no improvements, selling costs or depreciation). Joint thresholds are computed for every metro and the national index, the single threshold for the national index only. Counts are the number of metros (national index excluded) with unrounded T_s below each cutoff; min and max are over metros. The limit in today's prices is exclusionJoint x CPI(cpiNowMonth) / CPI(cpiBaseMonth). Rounding only at output: g to 4 decimals, T to $100, the CPI restatement to $1,000.",
+  "outputs": [
+   "growth_<metro>, growth_us (ratio)",
+   "threshold_joint_<metro>_usd, threshold_joint_us_usd, threshold_single_us_usd (USD)",
+   "threshold_joint_min_usd, threshold_joint_max_usd (USD)",
+   "metros_threshold_under_<cutoff> (count)",
+   "cpi_<base>, cpi_<now> (index)",
+   "excl_joint_1997_in_2026_usd (USD)"
+  ],
+  "invariants": [
+   "T_s x (g_s - 1) = exclusionJoint for every series (unrounded, |error| < 1e-6)",
+   "threshold_single_us_usd = threshold_joint_us_usd x exclusionSingle / exclusionJoint (unrounded)",
+   "g_s > 1 for every series (else no threshold exists)",
+   "threshold_joint_min_usd and threshold_joint_max_usd equal one of the metro thresholds; min <= every metro threshold <= max",
+   "metros_threshold_under_200k <= metros_threshold_under_300k <= number of metros (12)",
+   "saleQuarter is the last observation of every index file and equals sources.json lastObservation.date; cpiNowMonth is the last CPI observation",
+   "buyYear has exactly 4 quarterly observations in every index file",
+   "excl_joint_1997_in_2026_usd > exclusionJoint iff CPI(cpiNowMonth) > CPI(cpiBaseMonth)"
+  ]
+ },
+ "note": "No row of the \"Loại mô hình\" table in checks/CONTRACT.md (retirement-6040, refinance-breakeven, float-vs-fixed-replay) fits a fixed-nominal-limit vs index-growth break-even; the kind name is left to the K session."
+}
