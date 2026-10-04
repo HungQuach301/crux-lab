@@ -13,16 +13,17 @@ const OUT = path.join(__dirname, 'work');
   page.on('console', (m) => { if (m.type() === 'error') console.error('page:', m.text()); });
   page.on('pageerror', (e) => console.error('pageerror:', e.message));
   for (const k of keys) {
-    await page.goto(`http://127.0.0.1:8765/episodes/ep003/design/c3/page.html?k=${k}`);
+    await page.goto(k === 'CTRL' ? 'http://127.0.0.1:8765/episodes/ep003/design/c3/ctrl/page.html' : `http://127.0.0.1:8765/episodes/ep003/design/c3/page.html?k=${k}`);
     await page.waitForFunction('window.READY === true', null, { timeout: 30000 });
     const info = await page.evaluate(() => ({ d: APP.duration, n: APP.frames, st: APP.stripTimes }));
     if (stills) {
       for (const t of stills) { const u = await page.evaluate((t) => APP.png(t), t); fs.writeFileSync(path.join(OUT, `${k}-t${t.toFixed(2)}.png`), Buffer.from(u.split(',')[1], 'base64')); }
       continue;
     }
-    if (args.includes('--check')) {
-      const res = []; for (let i = 0; i < 6; i++) { const t = info.st[i]; const c = await page.evaluate((t) => APP.check(t), t); for (const b of c) if (b.clear < 4 / (2 / 3) * 0 + 4 || b.contrast < 4.5 || b.tclear < 4) res.push({ t, ...b }); }
-      fs.writeFileSync(path.join(OUT, `${k}-check.json`), JSON.stringify(res, null, 1)); console.log(k, 'check issues', res.length);
+    if (args.includes('--check') && k !== 'CTRL') { // REVIEWER C3-intent #6: check at the frames strips.py will cut (centres of 6 equal slices of [0, duration])
+      const res = []; const ts = [0, 1, 2, 3, 4, 5].map((i) => +((i + 0.5) * info.d / 6).toFixed(3));
+      for (const t of ts) { const c = await page.evaluate((t) => APP.check(t), t); for (const b of c) if (b.clear < 4 || b.contrast < 4.5 || b.tclear < 4) res.push({ t, ...b }); }
+      fs.writeFileSync(path.join(OUT, `${k}-check.json`), JSON.stringify({ times: ts, issues: res }, null, 1)); console.log(k, 'check at strip times', ts.join(','), 'issues', res.length);
     }
     const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', '1280x720', '-r', '30', '-i', '-',
       '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'medium', path.join(OUT, `${k}.mp4`)], { stdio: ['pipe', 'inherit', 'inherit'] });

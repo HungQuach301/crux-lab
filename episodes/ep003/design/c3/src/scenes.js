@@ -199,6 +199,7 @@ export const KEY4 = {
     // the overall share, then three era rows each with its own number
     const a1 = inout(t, 5.0, 5.5, 6.4, 6.8);
     if (a1 > 0) { const w = text(ctx, CL('share_tbills_above_double_pct'), 900, 380, 'hero', { color: C.warn, alpha: a1, group: 'all' }).x1; text(ctx, 'beat ' + CLD('ctx_guarantee').display, w + 30, 370, 'caption', { alpha: a1, group: 'all' }); }
+    text(ctx, CL('share_tbills_above_double_pct') + ' overall', 1824, 122, 'label', { align: 'right', color: C.warn, alpha: ease(t, 6.4, 6.9) });
     const aR = ease(t, 8.0, 8.6);
     const shares = ['share_above_double_1934_1949_pct', 'share_above_double_1950_1989_pct', 'share_tbills_above_double_starts_since_1990_pct'];
     for (let e = 0; e < 3; e++) {
@@ -217,13 +218,13 @@ export const KEY5 = {
     ifLabel(ctx, 1 - ease(t, 2.0, 2.6) * 0.0);
     gateV(ctx, GX, 250, ROWY[2] + 20, 1, 10);
     text(ctx, CLD('ctx_guarantee').display + ' (the bond)', GX, 230, 'label', { align: 'center', weight: 700 });
-    for (let e = 0; e < 3; e++) line(ctx, [[SW.x0, ROWY[e]], [SW.x1, ROWY[e]]], C.grid, 3, { alpha: e === 2 ? 1 : mix(1, 0.08, ease(t, 0.8, 2.0)) });
+    for (let e = 0; e < 3; e++) line(ctx, [[SW.x0, ROWY[e]], [SW.x1, ROWY[e]]], C.grid, 3, { alpha: e === 2 ? 1 : mix(1, 0.04, ease(t, 0.8, 2.0)) });
     const fo = ease(t, 0.8, 2.0); // other rows fade back
     const rl = ease(t, 2.0, 3.2); // real ones light up
     for (let i = 0; i < NW; i++) {
       const [x, y] = rowXY(i), e = ERA(WIN[i].s), real = i >= gIdx;
       if (real) continue;
-      dot(ctx, x, y, 3.4, WIN[i].roll > 2 ? C.warn : C.accent, e === 2 ? mix(0.9, 0.6, fo) : mix(0.9, 0.08, fo));
+      dot(ctx, x, y, 3.4, WIN[i].roll > 2 ? C.warn : C.accent, e === 2 ? mix(0.9, 0.6, fo) : mix(0.9, 0.0, fo));
     }
     for (let i = gIdx; i < NW; i++) { // 17 real-guarantee starts: solid ink + ring, pulled up into one tight cluster
       const [x, y] = rowXY(i), k = i - gIdx;
@@ -233,12 +234,12 @@ export const KEY5 = {
     }
     for (let e = 0; e < 3; e++) text(ctx, eraText(ctx, e), SW.x1 + 40, ROWY[e] - 140, 'note', { color: C.muted, alpha: e === 2 ? 1 : mix(1, 0.35, fo), group: 'era' + e });
     const aR = ease(t, 3.0, 3.5);
-    text(ctx, 'REAL guarantee', 460, 600, 'caption', { weight: 700, alpha: aR });
-    text(ctx, CLD('share_above_double_guarantee_starts_pct') && ('0 of ' + CL('starts_with_guarantee') + ' beat ' + CLD('ctx_guarantee').display), 460, 670, 'label', { alpha: ease(t, 4.8, 5.3) });
-    text(ctx, CL('min_multiple_guarantee_starts') + ' to ' + CL('max_multiple_guarantee_starts'), 460, 730, 'note', { color: C.ink, alpha: ease(t, 5.4, 5.9) });
+    text(ctx, 'REAL guarantee', 620, 600, 'caption', { weight: 700, alpha: aR });
+    text(ctx, 'none of ' + CL('starts_with_guarantee') + ' beat ' + CLD('ctx_guarantee').display, 620, 670, 'label', { alpha: ease(t, 4.8, 5.3) });
+    text(ctx, CL('min_multiple_guarantee_starts') + ' to ' + CL('max_multiple_guarantee_starts'), 620, 730, 'note', { color: C.ink, alpha: ease(t, 5.4, 5.9) });
     // tag on the cluster + overall share stays in the corner
     const aS = ease(t, 6.4, 6.9);
-    text(ctx, 'small sample · one era', 460, 500, 'label', { color: C.bg, weight: 700, plate: C.ink, alpha: aS });
+    text(ctx, 'small sample · one era', 620, 500, 'label', { color: C.bg, weight: 700, plate: C.ink, alpha: aS });
     const aO = ease(t, 0.2, 0.6);
     text(ctx, CL('share_tbills_above_double_pct') + ' overall', 1824, 122, 'label', { align: 'right', color: C.warn, alpha: aO });
   },
@@ -270,7 +271,7 @@ export const KEY6 = {
     text(ctx, 'money bought', BX + 40 + BW + 22, B - shadow * U + 90, 'note', { color: C.ink, alpha: ease(t, 1.2, 1.7), group: 'sh' });
     text(ctx, 'start ' + CLD('worst_real_start').display, BX - 20, B + 64, 'note', { color: C.muted, alpha: aL });
     const aW = ease(t, 5.0, 5.6);
-    text(ctx, '×2 bought ' + CL('worst_real_value_double_pct'), 96, 200, 'caption', { weight: 700, alpha: aW, group: 'w' });
+    text(ctx, CLD('ctx_guarantee').display + ' bought ' + CL('worst_real_value_double_pct'), 96, 200, 'caption', { weight: 700, alpha: aW, group: 'w' });
     text(ctx, 'of what the original bought', 96, 262, 'note', { alpha: aW, group: 'w' });
     // right: every start, buying power of the double vs the original (line = kept up)
     const RX0 = 960, RX1 = 1800, RB = 640, RU = 300, nr = ease(t, 6.0, 9.0);
@@ -324,9 +325,9 @@ export const KEY7 = {
     }
     if (t > 3.0 && t < 8.8) { const i = ORDER[cur]; const x = AV[i][0]; line(ctx, [[x, 520], [x, RS.base - 4]], C.ink, 4, { alpha: 0.9 }); dot(ctx, x, 520, 14, C.ink, 1); }
     const aS = ease(t, 4.0, 4.6);
-    text(ctx, 'roll beat ' + CLD('ctx_guarantee').display, RS.x1, 270, 'caption', { align: 'right', color: C.warn, alpha: aS });
-    text(ctx, 'roll fell short', RS.x0, 270, 'caption', { color: C.accent, alpha: aS });
-    text(ctx, 'each dot: one start, the average of its ' + CL('bills_per_horizon') + ' bills', RS.x0, 210, 'note', { color: C.muted, alpha: ease(t, 3.0, 3.5) });
+    text(ctx, 'roll beat ' + CLD('ctx_guarantee').display, RS.x1, 290, 'caption', { align: 'right', color: C.warn, alpha: aS });
+    text(ctx, 'roll fell short', RS.x0, 290, 'caption', { color: C.accent, alpha: aS });
+    text(ctx, 'each dot: one start, the average of its ' + CL('bills_per_horizon') + ' bills', RS.x0, 190, 'note', { color: C.muted, alpha: ease(t, 3.0, 3.5) });
     // today's single month, fading: it is not the 20-year average
     const aT = inout(t, 9.0, 9.5, 10.6, 11.4) * 0.9 + ease(t, 10.6, 11.4) * 0.35;
     const TX = rxs(DATA.claims.tb3ms_latest_pct.value);
@@ -341,7 +342,7 @@ export const KEY3 = {
   duration: 8, stripTimes: [0.5, 1.8, 3.1, 4.4, 5.8, 7.4],
   draw(ctx, t) {
     chain(ctx, 80, 1);
-    text(ctx, CL('tb3ms_latest_pct') + ' · ' + CLD('tb3ms_latest_month').display, P.x0, P.yBill + 100, 'label', { alpha: 1 });
+    text(ctx, CL('tb3ms_latest_pct') + ' · ' + CLD('tb3ms_latest_month').display, P.x0, P.yBill - 56, 'label', { alpha: 1 });
     bondBar(ctx, 1, 0.6, { fillA: 0.5 }); gateAt(ctx, P.x1, P.yBond, 1, true);
     const sl = ease(t, 1.0, 2.4);
     // the first link slides up toward the gate, stops halfway, and a "≠" appears
