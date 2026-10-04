@@ -65,4 +65,4 @@ Dữ liệu ghim: TB3MS, CPIAUCNS (FRED, coed=2026-08-01, SHA khớp hồ sơ). 
 | `ctx_penalty` | Cashed before 5 years: lose 3 months of interest | 31 CFR 351.35(e) | V1 |
 | `ctx_ee_rate` | EE bonds issued May–Oct 2026 earn a fixed 2.40% a year; the 20-year doubling tops this up | TreasuryDirect release 2026-05-01 (đoạn trích tìm kiếm; treasurydirect.gov bị proxy chặn) | **V2 — cần chủ dự án xác minh**; lãi mới công bố 1/11/2026 |
 | `ctx_tb_sep` | TB3MS September 2026 = 3.94% (công bố 2026-10-01; ngoài bản ghim) | FRED TB3MS (không ghim) | dữ liệu; thêm vào không đổi tỉ lệ 52.3% / 5.0% (median 2.093, 18 tháng có bảo đảm, latest 1.377) |
-| `ctx_cpi_rights` | TB3MS và CPIAUCNS: FRED gắn thẻ "Public Domain: Citation Requested" | trang series FRED, 2026-10-04 | V1 (dòng nguồn trên hình) |
+| `ctx_cpi_rights` | TB3MS và CPIAUCNS: FRED gắn thẻ "Public Domain: Citation Requested" | trang series FRED, 2026-10-04 (bls.gov: proxy 403, chưa đọc trang BLS) | V1 theo thẻ FRED; dòng nguồn "U.S. Bureau of Labor Statistics via FRED" |

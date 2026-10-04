@@ -4,7 +4,7 @@ Every sentence with a number below has an entry in `statements.json` (`calc.py -
 
 Analyst's guess before running the data: rolling T-bills would beat double in most 20-year windows, because the average bill rate since 1934 (3.42%) sits near the 3.53% doubling rate. Actual: 52.3% overall, but only 5.0% of starts from 1990 on.
 
-## The guarantee is hypothetical before May 2005 (must be said in words and on screen from the first result)
+## The guarantee is hypothetical before May 2005 (must be said in words and on screen from the start, before any historical number)
 - Today's doubling-in-20-years terms apply to bonds issued from May 2005 on; earlier bonds had other terms, so every earlier start is hypothetical ('if this guarantee had existed then').
 - Do not say "there was no guarantee before 2005" (earlier EE bonds had other guaranteed terms) or "savings bonds have beaten T-bills since 1990" (most of those starts are hypothetical).
 - The only real (non-hypothetical) starts are May 2005 to Sep 2006 (`ans-6`): a small, single-era sample, not a separate proof.
