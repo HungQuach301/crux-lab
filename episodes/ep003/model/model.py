@@ -174,6 +174,16 @@ def summary4(m):
     }
 
 
+def extra4(m):
+    """Đại lượng thêm ở C2 (needs-claims NC-1, NC-2)."""
+    import csv
+    tb = load(RETIRE4['roll'])
+    D = sorted(tb); ix = {d: i for i, d in enumerate(D)}
+    be = 1200 * (2 ** (1 / 240) - 1)
+    agree = sum((statistics.mean(tb[d] for d in D[ix[w['start']]:ix[w['start']] + 240]) > be) == (w['roll'] > 2) for w in m['windows'])
+    return {'steady_breakeven_tb3ms_pct': round(be, 2), 'share_avg_rule_agrees_pct': round(100 * agree / len(m['windows']), 1)}
+
+
 def summary3(m):
     f = m['filtered']
     return {'starts_all': m['nWindows'], 'first_start_year': int(m['firstStart'][:4]),
@@ -201,4 +211,5 @@ if __name__ == '__main__':
     json.dump(m, open(os.path.join(EP, 'out', 'model.json'), 'w'), indent=1)
     ref = json.loads(os.popen(f'cd {root}/topics-r1/machine/retire-4 && python3 calc.py --quantities').read())
     ok = compare(summary4(m), ref)
+    print('C2:', extra4(m))
     sys.exit(0 if ok else 1)

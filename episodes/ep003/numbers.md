@@ -66,3 +66,11 @@ Dữ liệu ghim: TB3MS, CPIAUCNS (FRED, coed=2026-08-01, SHA khớp hồ sơ). 
 | `ctx_ee_rate` | EE bonds issued May–October 2026 earn a fixed 2.40% a year; the 20-year doubling tops this up. Lời và hình: "for bonds issued May–October 2026" | TreasuryDirect release 2026-05-01 + trang EE bonds | **V1** — chủ dự án (chat chiến lược) đọc trực tiếp, 2026-10-04. Lãi đặt lại mỗi 1/5 và 1/11 → **P3/C6 cập nhật lãi công bố 1/11/2026** (một claim; kết quả lịch sử không đổi) |
 | `ctx_tb_sep` | TB3MS September 2026 = 3.94% (công bố 2026-10-01; ngoài bản ghim) | FRED TB3MS (không ghim) | dữ liệu; thêm vào không đổi tỉ lệ 52.3% / 5.0% (median 2.093, 18 tháng có bảo đảm, latest 1.377) |
 | `ctx_cpi_rights` | TB3MS và CPIAUCNS: FRED gắn thẻ "Public Domain: Citation Requested" | trang series FRED, 2026-10-04 (bls.gov: proxy 403, chưa đọc trang BLS) | V1 theo thẻ FRED; dòng nguồn "U.S. Bureau of Labor Statistics via FRED" |
+
+## C. Thêm ở C2 (needs-claims WRITER; `model/model.py` → `extra4`, kiểm độc lập)
+
+| Claim ID | Giá trị | Đơn vị | Nghĩa |
+|---|---|---|---|
+| `steady_breakeven_tb3ms_pct` | 3.47 | % a year | lãi T-bill (cùng quy ước TB3MS/12, kép tháng) giữ nguyên 240 tháng thì vừa đúng gấp đôi: 1200(2^(1/240) − 1) = 3.4707 |
+| `share_avg_rule_agrees_pct` | 100.0 | % of start months | tỉ lệ tháng bắt đầu mà "trung bình cộng TB3MS 240 tháng > 3.47" cho cùng kết luận với "lăn T-bill vượt gấp đôi" (873/873) |
+

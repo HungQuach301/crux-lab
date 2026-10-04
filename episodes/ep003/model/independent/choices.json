@@ -9,5 +9,6 @@
  "Average-TB3MS test: mean of 240 months s..s+239 (includes start month) strictly < TB3MS at s",
  "Mean of all TB3MS = over all non-missing months in file (incl. pre-1934 if any)",
  "Last data month = latest non-missing TB3MS month",
- "|M/2-1|<0.005 strict"
+ "|M/2-1|<0.005 strict",
+ "Breakeven r=1200*(2^(1/240)-1); agreement compares strict > on both sides"
 ]

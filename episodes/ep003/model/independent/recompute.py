@@ -64,6 +64,15 @@ q['n_starts_M_within_0.5pct_of_2']=sum(1 for s in starts if abs(M[s]/2-1)<0.005)
 lm=max(T); q['last_TB3MS_month']=key(lm); q['last_TB3MS_value']=T[lm]
 q['n_TB3MS_months']=len(T)
 q['floor_months_div_240']=len(T)//240
+
+r=1200*(2**(1/240)-1)
+q['steady_breakeven_rate']=Q(r,2)
+dis=[]
+for s_ in starts:
+    a=sum(T[s_+j] for j in range(240))/240
+    if (a>r)!=(M[s_]>2.0): dis.append(key(s_))
+q['avg_rule_agreement']=Q(100*(len(starts)-len(dis))/len(starts),1)
+q['avg_rule_disagreements']=dis
 json.dump({"quantities":q,"windows":[{"start":key(s),"M":M[s]} for s in starts],
  "choices":["Rounding: Decimal(repr(float)) quantized ROUND_HALF_UP (half away from zero)",
  "Blank/'.' cells treated as missing; a start requires 240 consecutive calendar months all present",
@@ -75,5 +84,5 @@ json.dump({"quantities":q,"windows":[{"start":key(s),"M":M[s]} for s in starts],
  "Average-TB3MS test: mean of 240 months s..s+239 (includes start month) strictly < TB3MS at s",
  "Mean of all TB3MS = over all non-missing months in file (incl. pre-1934 if any)",
  "Last data month = latest non-missing TB3MS month",
- "|M/2-1|<0.005 strict"]},open('results.json','w'),indent=1)
+ "|M/2-1|<0.005 strict","Breakeven r=1200*(2^(1/240)-1); agreement compares strict > on both sides"]},open('results.json','w'),indent=1)
 print(json.dumps(q,indent=1))
