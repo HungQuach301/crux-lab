@@ -1,0 +1,144 @@
+{
+ "id": "debt-2",
+ "claim": "With 10% down at the September 2026 average 30-year rate (6.862%), the original schedule brings the loan to 80% of the purchase price after 99 payments and to 78% after 114: about 8 to 9.5 years of mortgage insurance if home values are ignored. Measured against the national home-price index instead, buyers who put 10% down in 307 purchase months from January 1991 to July 2016 reached a loan of 80% of the index value after a median of 23 months; 14.7% needed more than 60 months, and October 2005 buyers needed 112. At the two-year mark, 58.6% of 403 purchase months (1991-2024) were at or below 80% of index value, but only 15.6% were at or below 75%. History, not a forecast.",
+ "numbers": [
+  {
+   "id": "rate_month_latest",
+   "unit": "month",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Latest month with a monthly rate (2026-09, weeks 2026-09-04 to 2026-09-24)."
+  },
+  {
+   "id": "rate_latest",
+   "unit": "percent",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Monthly average rate for 2026-09, rounded to 0.001."
+  },
+  {
+   "id": "sched80_months_latest",
+   "unit": "months",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). At the 2026-09 rate: first k (0..360) with B_k <= 0.80, i.e. the scheduled month the balance reaches 80% of original value."
+  },
+  {
+   "id": "sched78_months_latest",
+   "unit": "months",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). At the 2026-09 rate: first k with B_k <= 0.78 (scheduled 78% of original value)."
+  },
+  {
+   "id": "nA",
+   "unit": "purchase months",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Set A: purchase months 1991-01 to 2024-07 (each has 24 later months of index data). Count."
+  },
+  {
+   "id": "firstA",
+   "unit": "date",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). First purchase month in set A."
+  },
+  {
+   "id": "lastA",
+   "unit": "date",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Last purchase month in set A."
+  },
+  {
+   "id": "shareA_ltv24_le75",
+   "unit": "share",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Set A: share of purchase months whose index loan-to-value at k=24 is <= 0.75, rounded to 0.001."
+  },
+  {
+   "id": "shareA_ltv24_le80",
+   "unit": "share",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Set A: share of purchase months whose index loan-to-value at k=24 is <= 0.80, rounded to 0.001."
+  },
+  {
+   "id": "nB",
+   "unit": "purchase months",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Set B: purchase months 1991-01 to 2016-07 (each has more than 120 later months of index data). Count."
+  },
+  {
+   "id": "firstB",
+   "unit": "date",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). First purchase month in set B."
+  },
+  {
+   "id": "lastB",
+   "unit": "date",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Last purchase month in set B."
+  },
+  {
+   "id": "medianB_months_to80",
+   "unit": "months",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Set B: for each purchase month, first k >= 0 with index loan-to-value <= 0.80; median over set B."
+  },
+  {
+   "id": "shareB_over60",
+   "unit": "share",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Set B: share of purchase months where that first k is greater than 60, rounded to 0.001."
+  },
+  {
+   "id": "maxB_months_to80",
+   "unit": "months",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Set B: largest first k."
+  },
+  {
+   "id": "maxB_start",
+   "unit": "date",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Set B: purchase month with the largest first k."
+  },
+  {
+   "id": "shareB_le_sched80",
+   "unit": "share",
+   "definition": "Data: data/HPIPONM226N.csv (FRED; purchase-only house price index for the United States, monthly, not seasonally adjusted, 1991-01 to 2026-07) and data/MORTGAGE30US.csv (FRED; weekly 30-year fixed mortgage rate, percent). Monthly rate = mean of the weekly values dated in that calendar month. Buyer puts 10% down: loan = 0.90 of price, 30-year level payment at the purchase month's rate; balance after k payments B_k = 0.9(1+x)^k - p((1+x)^k-1)/x with x=rate/1200 and p=0.9x/(1-(1+x)^-360) (fractions of price). Index loan-to-value at month k = B_k / (HPI[purchase month + k] / HPI[purchase month]). Set B: share of purchase months where the first k with index loan-to-value <= 0.80 is <= the scheduled month that B_k <= 0.80 at that purchase month's rate, rounded to 0.001."
+  }
+ ],
+ "assumptions": [
+  "Loan = 90% of price, 30-year fixed at the monthly average survey rate of the purchase month, level payments, no extra principal.",
+  "Home value moves with the national purchase-only index from the purchase month; no individual-home or local variation.",
+  "Ignores closing costs, appraisal fees, insurance premium size, and lender seasoning or loan-to-value rules for removing insurance based on current value.",
+  "Index loan-to-value is a measure of equity on paper, not a statement that insurance would have been removed."
+ ],
+ "series": [
+  {
+   "id": "HPIPONM226N",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HPIPONM226N&coed=2026-07-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/HPIPONM226N",
+   "file": "data/HPIPONM226N.csv",
+   "sha256": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-07-01",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/HPIPONM226N"
+   }
+  },
+  {
+   "id": "MORTGAGE30US",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "file": "data/MORTGAGE30US.csv",
+   "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-09-24",
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "12 U.S.C. 4901(2)(A) (borrower cancellation date, fixed rate mortgage)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/4901",
+   "quote": "based solely on the initial amortization schedule for that mortgage, and irrespective of the outstanding balance for that mortgage on that date, is first scheduled to reach 80 percent of the original value of the property securing the loan"
+  },
+  {
+   "cite": "12 U.S.C. 4901(18)(A) (termination date, fixed rate mortgage)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/4901",
+   "quote": "the date on which the principal balance of the mortgage, based solely on the initial amortization schedule for that mortgage, and irrespective of the outstanding balance for that mortgage on that date, is first scheduled to reach 78 percent of the original value of the property securing the loan"
+  },
+  {
+   "cite": "12 U.S.C. 4902(b) (automatic termination)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/4902",
+   "quote": "a requirement for private mortgage insurance in connection with a residential mortgage transaction shall terminate with respect to payments for that mortgage insurance made by the mortgagor"
+  }
+ ]
+}

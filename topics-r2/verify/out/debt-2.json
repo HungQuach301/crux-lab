@@ -1,0 +1,229 @@
+{
+ "id": "debt-2",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "put 10% down and pay PMI or wait until 20% down": 3,
+      "how long does PMI last historically home price appreciation remove PMI data": 3,
+      "10 percent down PMI how many years until 20 percent equity home appreciation history analysis": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "HPIPONM226N",
+    "file": "data/HPIPONM226N.csv",
+    "sha256": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+    "declared": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "MORTGAGE30US",
+    "file": "data/MORTGAGE30US.csv",
+    "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "declared": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "rate_month_latest",
+    "declared": "2026-09-01",
+    "recomputed": "2026-09-01",
+    "ok": true
+   },
+   {
+    "id": "rate_latest",
+    "declared": 6.862,
+    "recomputed": 6.862,
+    "ok": true
+   },
+   {
+    "id": "sched80_months_latest",
+    "declared": 99,
+    "recomputed": 99,
+    "ok": true
+   },
+   {
+    "id": "sched78_months_latest",
+    "declared": 114,
+    "recomputed": 114,
+    "ok": true
+   },
+   {
+    "id": "nA",
+    "declared": 403,
+    "recomputed": 403,
+    "ok": true
+   },
+   {
+    "id": "firstA",
+    "declared": "1991-01-01",
+    "recomputed": "1991-01-01",
+    "ok": true
+   },
+   {
+    "id": "lastA",
+    "declared": "2024-07-01",
+    "recomputed": "2024-07-01",
+    "ok": true
+   },
+   {
+    "id": "shareA_ltv24_le75",
+    "declared": 0.156,
+    "recomputed": 0.156,
+    "ok": true
+   },
+   {
+    "id": "shareA_ltv24_le80",
+    "declared": 0.586,
+    "recomputed": 0.586,
+    "ok": true
+   },
+   {
+    "id": "nB",
+    "declared": 307,
+    "recomputed": 307,
+    "ok": true
+   },
+   {
+    "id": "firstB",
+    "declared": "1991-01-01",
+    "recomputed": "1991-01-01",
+    "ok": true
+   },
+   {
+    "id": "lastB",
+    "declared": "2016-07-01",
+    "recomputed": "2016-07-01",
+    "ok": true
+   },
+   {
+    "id": "medianB_months_to80",
+    "declared": 23,
+    "recomputed": 23,
+    "ok": true
+   },
+   {
+    "id": "shareB_over60",
+    "declared": 0.147,
+    "recomputed": 0.147,
+    "ok": true
+   },
+   {
+    "id": "maxB_months_to80",
+    "declared": 112,
+    "recomputed": 112,
+    "ok": true
+   },
+   {
+    "id": "maxB_start",
+    "declared": "2005-10-01",
+    "recomputed": "2005-10-01",
+    "ok": true
+   },
+   {
+    "id": "shareB_le_sched80",
+    "declared": 0.906,
+    "recomputed": 0.906,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "HPIPONM226N",
+    "page": "https://fred.stlouisfed.org/series/HPIPONM226N",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/HPIPONM226N",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "MORTGAGE30US",
+    "page": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "12 U.S.C. 4901(2)(A) (borrower cancellation date, fixed rate mortgage)",
+    "url": "https://www.law.cornell.edu/uscode/text/12/4901",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "12 U.S.C. 4901(18)(A) (termination date, fixed rate mortgage)",
+    "url": "https://www.law.cornell.edu/uscode/text/12/4901",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "12 U.S.C. 4902(b) (automatic termination)",
+    "url": "https://www.law.cornell.edu/uscode/text/12/4902",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V01245": true
+}

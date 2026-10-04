@@ -5,8 +5,8 @@
 | # | Đề tài (tiêu đề nháp) | Trụ | Điểm bước 1 | Hồ sơ | Rủi ro cần xử lý trước khi làm |
 |---|---|---|---|---|---|
 | 1 | 7.5% Variable or 9% Fixed? Grad Loans Through History | vay nợ | 5 | `topics-r1/machine/debt-2/` | khoản vay thật dùng chỉ số kiểu SOFR, có trần lãi và biên theo tín dụng — tập không được nói 'khoản vay của bạn sẽ…'. |
-| 2 | Overtime or a Second Job at $48 an Hour: Which Pays More? | thuế | 4 | `topics-r1/machine/tax-4/` | báo chí đã nói 'chỉ phần trả thêm được trừ'; cái mới là so với việc thứ hai. Câu kết quả ghi 29,6 %, giá trị đúng 29,65 %. |
-| 3 | Bought Your Home in 2000? The $500,000 Tax-Free Limit Test | thuế | 4 | `topics-r1/machine/tax-2/` | chỉ số vùng ≠ căn nhà cụ thể; chưa tính chi phí cải tạo; số liệu chỉ số được sửa hằng quý. |
+| 2 | Overtime or a Second Job at $48 an Hour: Which Pays More? | thuế | 4 | `topics-r1/machine/tax-4/` | báo chí đã nói 'chỉ phần trả thêm được trừ'; cái mới là so với việc thứ hai. Câu kết quả đã sửa thành 29,65 % (errata 2026-10-04); có `model.json` + `statements.json`. |
+| 3 | Bought Your Home in 2000? The $500,000 Tax-Free Limit Test | thuế | 4 | `topics-r1/machine/tax-2/` | chỉ số vùng ≠ căn nhà cụ thể; chưa tính chi phí cải tạo; số liệu chỉ số được sửa hằng quý. Có `model.json` + `statements.json` (2026-10-04). |
 | 4 | Your $3,000 Tax Refund: What Is It Really Costing You? | thuế | 4 | `topics-r1/machine/tax-1/` | tiêu đề nói 'Your' — tập chỉ chứng minh cho hộ minh hoạ; không khuyên đổi khấu trừ lương. |
 | 5 | 60 vs 72 Months on a $35,000 Car Loan: The Real Cost | vay nợ | 4 | `topics-r1/machine/debt-3/` | chỉ là lãi ngân hàng (không phải đại lý/công ty tài chính); không đo mất giá xe hay nợ âm. |
 | 6 | Long-Term Care Insurance: 3% or 5% Inflation Protection? | hưu trí | 4 | `topics-r1/machine/retire-2/` | chỉ số giá sản xuất ≠ giá gia đình trả; không nói được gói 5 % 'không đáng tiền'. |

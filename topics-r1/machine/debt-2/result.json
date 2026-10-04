@@ -1,5 +1,5 @@
 {
-  "answer": "Replaying a $50,000, 10-year private loan over every 120-month window of 3-month T-bill history since 1954 (753 start months), a variable rate that starts at 7.5% and moves one-for-one with the bill rate ended up costing more in total interest than a 9% fixed rate in 14.2% of windows. The median window had the variable loan $3,832 cheaper (fixed-rate interest: $26,005). But the losses were concentrated: 28.4% of windows starting 1954-1980 cost more versus 3.5% starting 1981 or later, and the worst window (starting 1977-04) cost $11,219 more, with the variable rate peaking at 20.6%. History, not a forecast.",
+  "answer": "Replaying a $50,000, 10-year private loan over every 120-month window of 3-month T-bill history since 1954 (753 start months), a variable rate that starts at 7.5% and moves one-for-one with the bill rate ended up costing more in total interest than a 9% fixed rate in 14.2% of windows. The median window had the variable loan $3,832 cheaper (fixed-rate interest: $26,005). But the losses were concentrated: 28.4% of windows starting 1954-1980 cost more versus 3.5% starting 1981 or later, and the worst window (starting 1977-04) cost $11,219 more, with the variable rate in that window peaking at 19.26%. The highest variable rate in any window was 20.6% (window starting 1972-02). History, not a forecast.",
   "guess": "A grad student would likely guess a variable loan is a coin flip or worse over 10 years, since rates can rise, and that a 1.5-point head start is easily wiped out.",
   "changesDecision": "The head start was overturned in a small minority of windows overall, but far more often in windows in the rising-rate decades before 1981, and the downside was large (up to $11,219 extra on $50,000). The decision becomes a question of which kind of history the borrower wants to be protected against, not a rule of thumb.",
   "numbers": [
@@ -58,10 +58,22 @@
       "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Minimum Difference across start months, rounded to whole dollars."
     },
     {
+      "id": "worst_peak_rate",
+      "value": 19.26,
+      "unit": "percent",
+      "definition": "Scope: ONLY the window starting at worst_start (1977-04). Maximum of that window's 120 monthly variable rates (margin + max(0, index_today + TB3MS[s+k] - TB3MS[s])), rounded to 0.01. Same rate path as max_variable_rate_any_window, restricted to the worst window. Added 2026-10-04 (errata)."
+    },
+    {
       "id": "max_variable_rate_any_window",
       "value": 20.6,
       "unit": "percent",
-      "definition": "Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Highest monthly variable rate reached in any window, rounded to 0.01."
+      "definition": "Scope: ALL 753 windows (not the worst window). Data: data/TB3MS.csv (FRED TB3MS, 3-Month Treasury Bill Secondary Market Rate, Discount Basis, monthly, percent), 1934-01 through 2026-08 (last value 3.72). Loan: $50,000, 120 monthly payments, interest = balance*rate/1200 each month; the payment is recomputed as the level payment over the remaining months whenever the rate changes (month k=0..119, remaining = 120-k). Fixed loan: 9.00% all 120 months. Variable loan for a start month s: rate_k = 3.78 + max(0, 3.72 + TB3MS[s+k] - TB3MS[s]) (3.72 = latest TB3MS, 3.78 = 7.50 - 3.72, so rate_0 = 7.50 and the index cannot go below zero), unrounded. Start months s: every month from 1954-01 through 2016-09 (last start with 120 months of data). Difference = total variable interest - total fixed interest over the 120 months. Highest monthly variable rate reached in any window, rounded to 0.01."
+    },
+    {
+      "id": "max_rate_window_start",
+      "value": "1972-02-01",
+      "unit": "date",
+      "definition": "Scope: ALL windows. Start month of the window whose variable-rate path reaches max_variable_rate_any_window (first such window). Added 2026-10-04 (errata)."
     },
     {
       "id": "n_starts_1954_1980",

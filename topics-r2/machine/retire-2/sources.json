@@ -1,0 +1,33 @@
+{
+ "series": [
+  {
+   "id": "USSTHPI",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Federal Housing Finance Agency)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USSTHPI&coed=2026-04-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/USSTHPI",
+   "file": "data/USSTHPI.csv",
+   "sha256": "c02d4187c8c9836d4049fe2005ab34129326e7538d2cd923173c2839ca25df16",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-04-01",
+   "terms": {
+    "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
+    "url": "https://fred.stlouisfed.org/series/USSTHPI"
+   }
+  },
+  {
+   "id": "TB3MS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+   "file": "data/TB3MS.csv",
+   "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   }
+  }
+ ],
+ "provisions": []
+}

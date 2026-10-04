@@ -1,0 +1,95 @@
+{
+ "id": "r1-retire-c2",
+ "decision": "Should you claim Social Security early or wait?",
+ "queries": [
+  "claim Social Security at 62 vs 70 historical market returns backtest analysis",
+  "Social Security claiming age break-even analysis Monte Carlo study",
+  "delay Social Security vs invest early benefits historical returns lifetime income research"
+ ],
+ "results": [
+  {
+   "query": "claim Social Security at 62 vs 70 historical market returns backtest analysis",
+   "title": "Social Security at 62 vs. 70: When Taking the Smaller Check Can Actually Make Sense - 24/7 Wall St.",
+   "url": "https://247wallst.com/investing/2026/09/22/social-security-at-62-vs-70-when-taking-the-smaller-check-can-actually-make-sense/"
+  },
+  {
+   "query": "claim Social Security at 62 vs 70 historical market returns backtest analysis",
+   "title": "Social Security claims at 62 get social media buzz — experts say proceed with caution",
+   "url": "https://www.cnbc.com/2026/05/11/social-security-break-even-analysis.html"
+  },
+  {
+   "query": "claim Social Security at 62 vs 70 historical market returns backtest analysis",
+   "title": "Social Security Claiming Calculator (2026): 62 vs 67 vs 70",
+   "url": "https://myannuitystore.com/annuity-calculators/social-security-claiming-calculator/"
+  },
+  {
+   "query": "claim Social Security at 62 vs 70 historical market returns backtest analysis",
+   "title": "When to Claim Social Security: The Real Math Behind 62 vs. 67 vs. 70",
+   "url": "https://www.retirementforge.com/learn/social-security/when-to-claim-social-security-62-vs-67-vs-70"
+  },
+  {
+   "query": "Social Security claiming age break-even analysis Monte Carlo study",
+   "title": "Claiming Social Security early: A spectrum of breakeven and ...",
+   "url": "https://corporate.vanguard.com/content/dam/corp/research/pdf/claiming_social_security_early_spectrum_breakeven_longevity_risks.pdf"
+  },
+  {
+   "query": "Social Security claiming age break-even analysis Monte Carlo study",
+   "title": "When to Start Collecting Social Security Benefits: A Break-Even Analysis",
+   "url": "https://www.financialplanningassociation.org/article/journal/JAN12-when-start-collecting-social-security-benefits-break-even-analysis"
+  },
+  {
+   "query": "Social Security claiming age break-even analysis Monte Carlo study",
+   "title": "What Is the Value of a “Lookback” Strategy for Claiming Social Security?",
+   "url": "https://www.financialplanningassociation.org/article/journal/MAY19-what-value-lookback-strategy-claiming-social-security"
+  },
+  {
+   "query": "Social Security claiming age break-even analysis Monte Carlo study",
+   "title": "Optimal social security timing",
+   "url": "https://arxiv.org/pdf/2301.04052"
+  },
+  {
+   "query": "delay Social Security vs invest early benefits historical returns lifetime income research",
+   "title": "The Long-Term Benefits Of Delaying Social Security",
+   "url": "https://www.kitces.com/blog/how-delaying-social-security-can-be-the-best-long-term-investment-or-annuity-money-can-buy/"
+  },
+  {
+   "query": "delay Social Security vs invest early benefits historical returns lifetime income research",
+   "title": "Why Delaying Social Security Benefits Isn't Always The Best",
+   "url": "https://www.kitces.com/blog/discount-rate-delaying-social-security-benefits-retirement-planning/"
+  },
+  {
+   "query": "delay Social Security vs invest early benefits historical returns lifetime income research",
+   "title": "The Financial Value of Delaying Social Security (Protectedincome.org)",
+   "url": "https://www.protectedincome.org/research/the-financial-value-of-delaying-social-security/"
+  },
+  {
+   "query": "delay Social Security vs invest early benefits historical returns lifetime income research",
+   "title": "The Return on Investment for Delaying Social Security Beyond Age 62",
+   "url": "https://www.financialplanningassociation.org/article/journal/APR15-return-investment-delaying-social-security-beyond-age-62"
+  },
+  {
+   "query": "delay Social Security vs invest early benefits historical returns lifetime income research",
+   "title": "It May Be a Mistake to Delay Social Security Retirement Benefits",
+   "url": "https://www.financialplanningassociation.org/learning/publications/journal/FEB24-it-may-be-mistake-delay-social-security-retirement-benefits-OPEN"
+  }
+ ],
+ "verdict": "answered-with-data",
+ "nearest": [
+  {
+   "title": "Claiming Social Security early: A spectrum of breakeven and longevity risks (Vanguard)",
+   "url": "https://corporate.vanguard.com/content/dam/corp/research/pdf/claiming_social_security_early_spectrum_breakeven_longevity_risks.pdf",
+   "why": "Simulates claim-at-62 vs 70 with market-return distributions and longevity; reports breakeven distributions."
+  },
+  {
+   "title": "The Return on Investment for Delaying Social Security Beyond Age 62 (FPA Journal)",
+   "url": "https://www.financialplanningassociation.org/article/journal/APR15-return-investment-delaying-social-security-beyond-age-62",
+   "why": "Compares implied return of delaying vs historical investment returns."
+  },
+  {
+   "title": "Optimal social security timing (arXiv)",
+   "url": "https://arxiv.org/pdf/2301.04052",
+   "why": "Formal model of claiming age under market and mortality uncertainty."
+  }
+ ],
+ "note": "Heavily covered with peer-reviewed/industry quantitative work (Vanguard, FPA Journal, Kitces, arXiv) using market-return and longevity assumptions, plus many calculators. Card's promise largely duplicates existing work."
+}

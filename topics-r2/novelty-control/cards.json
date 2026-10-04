@@ -1,0 +1,122 @@
+[
+ {
+  "id": "r1-debt-c1",
+  "card": {
+   "viewer": "Homeowners with a 7% mortgage quoted 6.5% and closing costs, unsure about refinancing.",
+   "decision": "Refinance the 7% mortgage to 6.5%, or keep the loan?",
+   "promise": "Using history, not a forecast, we'll model payments, closing costs, taxes, and moving patterns to test the refi choice.",
+   "title": "Should You Refinance Now?",
+   "thumbnail": "mortgage quote beside moving boxes / \"REFI OR KEEP?\""
+  }
+ },
+ {
+  "id": "r1-debt-c2",
+  "card": {
+   "viewer": "People carrying a $7,500 credit card balance at 24% who received a 0% transfer offer.",
+   "decision": "Take the 0% transfer with a 4% fee, or stay on the old card?",
+   "promise": "We'll simulate payoff calendars, fees, missed deadlines, and payment rules to test when the offer changes total cost.",
+   "title": "Is a Balance Transfer Worth It?",
+   "thumbnail": "credit cards beside a payoff calendar / \"TRANSFER OR PAY?\""
+  }
+ },
+ {
+  "id": "r1-retire-c1",
+  "card": {
+   "viewer": "Workers with a 401(k) match and high-interest credit card debt.",
+   "decision": "Should you pause 401(k) contributions beyond the match to pay cards faster?",
+   "promise": "We simulate the tradeoff using historical returns, payoff paths, and employer match rules.",
+   "title": "Invest or Kill Debt First?",
+   "thumbnail": "credit card beside retirement folder / \"DEBT OR INVEST?\""
+  }
+ },
+ {
+  "id": "r1-retire-c2",
+  "card": {
+   "viewer": "People nearing retirement who can claim Social Security at 62, full retirement age, or 70.",
+   "decision": "Should you claim Social Security early or wait?",
+   "promise": "We compare lifetime spending paths under historical market returns and longevity assumptions.",
+   "title": "Claim Social Security Early?",
+   "thumbnail": "calendar and Social Security card / \"CLAIM OR WAIT?\""
+  }
+ },
+ {
+  "id": "r1-tax-c1",
+  "card": {
+   "viewer": "Parents with a child starting college and money in a 529 plan.",
+   "decision": "Should you spend 529 money before claiming a college tax credit?",
+   "promise": "We simulate qualified costs, credits, and account withdrawals to show how the ordering changes after-tax cash.",
+   "title": "529 or Tax Credit?",
+   "thumbnail": "Tuition bill and 529 card / \"ORDER MATTERS\""
+  }
+ },
+ {
+  "id": "r1-tax-c2",
+  "card": {
+   "viewer": "Self-employed couples buying Marketplace health insurance and choosing Solo 401(k) contributions.",
+   "decision": "Should you make pre-tax Solo 401(k) contributions instead of Roth contributions?",
+   "promise": "We simulate taxes and health-credit changes to show which side of the tradeoff dominates.",
+   "title": "Solo 401(k): Roth or Pre-Tax?",
+   "thumbnail": "Health plan bill beside 401(k) form / \"ROTH OR PRE-TAX?\""
+  }
+ },
+ {
+  "id": "r2-debt-c1",
+  "card": {
+   "viewer": "Homeowners with a fixed mortgage who have enough cash to lower the balance but do not want to refinance.",
+   "decision": "Should you ask the lender for a recast or just pay extra principal?",
+   "promise": "We model payments, interest, liquidity, and moving risk using real mortgage terms and home-sale histories.",
+   "title": "Mortgage Recast vs Extra Principal",
+   "thumbnail": "Mortgage statement and lump-sum check / \"RECAST OR PREPAY\""
+  }
+ },
+ {
+  "id": "r2-debt-c2",
+  "card": {
+   "viewer": "Drivers whose car lease is ending and who would need a loan to keep the car or replace it.",
+   "decision": "Should you buy out the lease or turn it in and finance another car?",
+   "promise": "We compare the paths using real used-car prices, loan terms, fees, taxes, and depreciation history.",
+   "title": "Lease Buyout or Finance the Next Car?",
+   "thumbnail": "Car keys on lease paperwork / \"BUY OR RETURN\""
+  }
+ },
+ {
+  "id": "r2-retire-c1",
+  "card": {
+   "viewer": "People with an old 401(k) from a former employer and a new workplace plan.",
+   "decision": "Should you roll the old 401(k) into an IRA or the new 401(k)?",
+   "promise": "We compare fees, fund menus, and taxes across real plans to show how the rollover changes outcomes.",
+   "title": "Old 401(k): IRA or New 401(k)?",
+   "thumbnail": "forked road with retirement folders / \"IRA OR 401(k)?\""
+  }
+ },
+ {
+  "id": "r2-retire-c2",
+  "card": {
+   "viewer": "People in their 50s with pre-tax IRA savings and lower-income years before retirement.",
+   "decision": "Should you convert pre-tax IRA money to Roth IRA before retirement?",
+   "promise": "We simulate tax paths to see when conversions help, hurt, or mainly move taxes around.",
+   "title": "Roth Conversion Window: Real or Mirage?",
+   "thumbnail": "open window over tax forms / \"CONVERT NOW?\""
+  }
+ },
+ {
+  "id": "r2-tax-c1",
+  "card": {
+   "viewer": "Parents paying daycare through an employer that offers a dependent care FSA.",
+   "decision": "Use the dependent care FSA or skip it and claim the child care credit?",
+   "promise": "We compare real household tax bills to show when each route changes out-of-pocket child care cost.",
+   "title": "Dependent Care FSA or Child Care Credit?",
+   "thumbnail": "Daycare bill and paycheck / \"FSA OR CREDIT?\""
+  }
+ },
+ {
+  "id": "r2-tax-c2",
+  "card": {
+   "viewer": "Households who give to charity but usually take the standard deduction.",
+   "decision": "Bunch donations this tax year or spread gifts as usual?",
+   "promise": "We model tax bills from real households to show when gift timing changes the after-tax cost of giving.",
+   "title": "Should You Bunch Charitable Giving?",
+   "thumbnail": "Donation receipt pile / \"BUNCH GIFTS?\""
+  }
+ }
+]

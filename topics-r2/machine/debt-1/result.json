@@ -1,0 +1,122 @@
+{
+  "answer": "At the rates of the week of 2026-09-24 (30-year 7.03%, 15-year 6.42%), a $320,000 15-year loan costs $2,773.49 a month. Paying the 30-year loan off in the same 15 years takes $2,881.62 a month: $108.13 more each month and $19,464 more over 15 years. Paying only the 15-year payment on the 30-year loan finishes in 192.9 months, about a year late. The 30-year loan's required payment is $2,135.42, so that $19,464 is the price of being allowed to drop to the lower payment. Across 1,831 weeks since August 1991 the 30-year rate was 0.2 to 1.0 point above the 15-year (mean 0.57; at least half a point in 62.9% of weeks), and the same extra cost ranged from $6,097 to $29,502 (median $16,594). History, not a forecast.",
+  "guess": "People who plan to prepay usually assume a 30-year paid like a 15-year is 'basically the same' as a 15-year mortgage, costing at most a few thousand dollars more.",
+  "changesDecision": "The flexibility is not free: at today's spread it is about $108 a month and close to $19,500 over 15 years on $320,000, and it has never cost less than about $6,100 since 1991. A buyer can weigh that dollar figure against how much they value the right to fall back to the required 30-year payment, about $640 below the 15-year payment, instead of treating the two plans as equal.",
+  "numbers": [
+    {
+      "id": "n_weeks",
+      "value": 1831,
+      "unit": "weeks",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Number of paired weeks."
+    },
+    {
+      "id": "first_week",
+      "value": "1991-08-30",
+      "unit": "date",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. First paired week."
+    },
+    {
+      "id": "last_week",
+      "value": "2026-09-24",
+      "unit": "date",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Last paired week."
+    },
+    {
+      "id": "rate30_latest",
+      "value": 7.03,
+      "unit": "percent",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. 30-year rate in the last paired week."
+    },
+    {
+      "id": "rate15_latest",
+      "value": 6.42,
+      "unit": "percent",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. 15-year rate in the last paired week."
+    },
+    {
+      "id": "pay15_latest",
+      "value": 2773.49,
+      "unit": "dollars per month",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. Payment on a 15-year loan (n=180) at the 15-year rate, rounded to cents."
+    },
+    {
+      "id": "pay30on15_latest",
+      "value": 2881.62,
+      "unit": "dollars per month",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. Payment that retires the 30-year loan in 15 years: level payment with n=180 at the 30-year rate, rounded to cents."
+    },
+    {
+      "id": "pay30_latest",
+      "value": 2135.42,
+      "unit": "dollars per month",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. Required payment on the 30-year loan (n=360) at the 30-year rate, rounded to cents."
+    },
+    {
+      "id": "extra_month_latest",
+      "value": 108.13,
+      "unit": "dollars per month",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. pay30on15 minus pay15 (unrounded), rounded to cents."
+    },
+    {
+      "id": "extra_total_latest",
+      "value": 19464,
+      "unit": "dollars",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. (pay30on15 - pay15) * 180 using unrounded payments, rounded to whole dollars: extra paid over 15 years for paying the 30-year loan on a 15-year schedule."
+    },
+    {
+      "id": "months_payoff_at_pay15",
+      "value": 192.9,
+      "unit": "months",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. Months to pay off the 30-year loan at the 30-year rate if the borrower pays exactly the 15-year payment (unrounded): n = -ln(1 - P*x/pay15)/ln(1+x), rounded to 0.1."
+    },
+    {
+      "id": "spread_mean",
+      "value": 0.57,
+      "unit": "percentage points",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Spread = 30-year rate - 15-year rate per paired week; mean of spreads, rounded to 0.01."
+    },
+    {
+      "id": "spread_min",
+      "value": 0.2,
+      "unit": "percentage points",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Smallest weekly spread (30-year minus 15-year), rounded to 0.01."
+    },
+    {
+      "id": "spread_max",
+      "value": 1.0,
+      "unit": "percentage points",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Largest weekly spread (30-year minus 15-year), rounded to 0.01."
+    },
+    {
+      "id": "share_spread_ge_050",
+      "value": 0.629,
+      "unit": "share of weeks",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Share of paired weeks with spread >= 0.50 point, rounded to 0.001."
+    },
+    {
+      "id": "extra_total_median",
+      "value": 16594,
+      "unit": "dollars",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. For every paired week: (payment at the 30-year rate with n=180 - payment at the 15-year rate with n=180) * 180. Median over weeks, rounded to whole dollars."
+    },
+    {
+      "id": "extra_total_min",
+      "value": 6097,
+      "unit": "dollars",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Same weekly quantity as extra_total_median; minimum over weeks, rounded to whole dollars."
+    },
+    {
+      "id": "extra_total_max",
+      "value": 29502,
+      "unit": "dollars",
+      "definition": "Data: data/MORTGAGE30US.csv and data/MORTGAGE15US.csv (FRED; weekly average 30-year and 15-year fixed mortgage rates, percent, Freddie Mac survey). Paired weeks: dates where both series have a value, 1991-08-30 through 2026-09-24. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n) with x = rate/1200. Same weekly quantity as extra_total_median; maximum over weeks, rounded to whole dollars."
+    }
+  ],
+  "assumptions": [
+    "Loan $320,000, fixed rate, level monthly payments, no points, fees, taxes, insurance or escrow.",
+    "The weekly survey averages stand for the rates a typical borrower would be offered on each term in the same week.",
+    "Paying the 30-year loan 'on a 15-year schedule' means a level payment that retires it in exactly 180 months at the 30-year rate.",
+    "No discounting, no investment of payment differences, no tax effects."
+  ],
+  "limits": "History, not a forecast. Survey averages for prime borrowers with about 20% down; individual offers vary with credit, points and lender. The cost of flexibility depends on the spread at the time of borrowing. Does not value the option itself (job loss, emergencies) and does not model investing the difference."
+}

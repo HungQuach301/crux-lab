@@ -1,0 +1,138 @@
+{
+ "id": "tax-1",
+ "items": [
+  {
+   "id": "windows",
+   "declared": 166,
+   "recomputed": 166,
+   "ok": true
+  },
+  {
+   "id": "windows_skipped_missing_cpi",
+   "declared": 1,
+   "recomputed": 1,
+   "ok": true
+  },
+  {
+   "id": "first_purchase",
+   "declared": "2003-01",
+   "recomputed": "2003-01",
+   "ok": true
+  },
+  {
+   "id": "last_purchase",
+   "declared": "2016-11",
+   "recomputed": "2016-11",
+   "ok": true
+  },
+  {
+   "id": "taxable_negative_real_count",
+   "declared": 64,
+   "recomputed": 64,
+   "ok": true
+  },
+  {
+   "id": "taxable_negative_real_share_pct",
+   "declared": 38.6,
+   "recomputed": 38.6,
+   "ok": true
+  },
+  {
+   "id": "ira_negative_real_count",
+   "declared": 18,
+   "recomputed": 18,
+   "ok": true
+  },
+  {
+   "id": "median_gap_pctpts",
+   "declared": 0.8,
+   "recomputed": 0.8,
+   "ok": true
+  },
+  {
+   "id": "max_gap_pctpts",
+   "declared": 1.13,
+   "recomputed": 1.13,
+   "ok": true
+  },
+  {
+   "id": "min_gap_pctpts",
+   "declared": 0.39,
+   "recomputed": 0.39,
+   "ok": true
+  },
+  {
+   "id": "worst_taxable_real_pct",
+   "declared": -1.18,
+   "recomputed": -1.18,
+   "ok": true
+  },
+  {
+   "id": "worst_purchase_month",
+   "declared": "2012-11",
+   "recomputed": "2012-11",
+   "ok": true
+  },
+  {
+   "id": "worst_ira_real_pct",
+   "declared": -0.77,
+   "recomputed": -0.77,
+   "ok": true
+  },
+  {
+   "id": "best_taxable_real_pct",
+   "declared": 1.86,
+   "recomputed": 1.86,
+   "ok": true
+  },
+  {
+   "id": "best_purchase_month",
+   "declared": "2008-11",
+   "recomputed": "2008-11",
+   "ok": true
+  },
+  {
+   "id": "median_end_real_usd_taxable",
+   "declared": 10658.0,
+   "recomputed": 10658,
+   "ok": true
+  },
+  {
+   "id": "median_end_real_usd_ira",
+   "declared": 11480.0,
+   "recomputed": 11480,
+   "ok": true
+  },
+  {
+   "id": "inflation_accrual_2022_pct",
+   "declared": 7.75,
+   "recomputed": 7.75,
+   "ok": true
+  },
+  {
+   "id": "tax_2022_usd",
+   "declared": 188.89,
+   "recomputed": 188.89,
+   "ok": true
+  },
+  {
+   "id": "coupon_cash_2022_usd",
+   "declared": 12.5,
+   "recomputed": 12.5,
+   "ok": true
+  },
+  {
+   "id": "phantom_years",
+   "declared": 8,
+   "recomputed": 8,
+   "ok": true
+  },
+  {
+   "id": "phantom_years_total",
+   "declared": 22,
+   "recomputed": 22,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

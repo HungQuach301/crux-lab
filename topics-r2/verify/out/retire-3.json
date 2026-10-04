@@ -1,0 +1,233 @@
+{
+ "id": "retire-3",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "callable CD higher rate vs non-callable CD worth it history how often called when rates fall": 4,
+      "brokered callable CDs retirees how often were callable CDs called 2008 2020 rate cuts reinvestment": 3,
+      "callable vs non-callable CD extra yield worth call risk historical simulation Treasury yields": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "GS1",
+    "file": "data/GS1.csv",
+    "sha256": "d6dc7506937e7ca953bedb0fe410aaf95263efa4c5d662ab35efb6d4e7973132",
+    "declared": "d6dc7506937e7ca953bedb0fe410aaf95263efa4c5d662ab35efb6d4e7973132",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "GS2",
+    "file": "data/GS2.csv",
+    "sha256": "2495616772a7ca896ad2bc5a540660c1a10345962dc129db34065308e5f9117e",
+    "declared": "2495616772a7ca896ad2bc5a540660c1a10345962dc129db34065308e5f9117e",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "GS3",
+    "file": "data/GS3.csv",
+    "sha256": "2d6fbe9d9ae1a5f8ae39cc7bd7a0c73483810265eb5ccc81b3c12e10611f4422",
+    "declared": "2d6fbe9d9ae1a5f8ae39cc7bd7a0c73483810265eb5ccc81b3c12e10611f4422",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "GS5",
+    "file": "data/GS5.csv",
+    "sha256": "66e94ca2b7585b709ca026093cef881bbf12ed9ad9d19de91cd05f941ef390fe",
+    "declared": "66e94ca2b7585b709ca026093cef881bbf12ed9ad9d19de91cd05f941ef390fe",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "starts",
+    "declared": 821,
+    "recomputed": 821,
+    "ok": true
+   },
+   {
+    "id": "first_start",
+    "declared": "1953-04-01",
+    "recomputed": "1953-04-01",
+    "ok": true
+   },
+   {
+    "id": "last_start",
+    "declared": "2021-08-01",
+    "recomputed": "2021-08-01",
+    "ok": true
+   },
+   {
+    "id": "share_called_pct",
+    "declared": 73.2,
+    "recomputed": 73.2,
+    "ok": true
+   },
+   {
+    "id": "share_callable_ahead_pct",
+    "declared": 37.9,
+    "recomputed": 37.9,
+    "ok": true
+   },
+   {
+    "id": "median_diff_pts_per_year",
+    "declared": -0.22,
+    "recomputed": -0.22,
+    "ok": true
+   },
+   {
+    "id": "mean_diff_pts_per_year",
+    "declared": -0.34,
+    "recomputed": -0.34,
+    "ok": true
+   },
+   {
+    "id": "worst_diff_pts_per_year",
+    "declared": -3.77,
+    "recomputed": -3.77,
+    "ok": true
+   },
+   {
+    "id": "best_diff_pts_per_year",
+    "declared": 0.5,
+    "recomputed": 0.5,
+    "ok": true
+   },
+   {
+    "id": "share_ahead_when_called_pct",
+    "declared": 15.1,
+    "recomputed": 15.1,
+    "ok": true
+   },
+   {
+    "id": "starts_since_2000",
+    "declared": 260,
+    "recomputed": 260,
+    "ok": true
+   },
+   {
+    "id": "share_called_since_2000_pct",
+    "declared": 80.8,
+    "recomputed": 80.8,
+    "ok": true
+   },
+   {
+    "id": "share_callable_ahead_since_2000_pct",
+    "declared": 30.8,
+    "recomputed": 30.8,
+    "ok": true
+   },
+   {
+    "id": "share_called_thresh050_pct",
+    "declared": 66.6,
+    "recomputed": 66.6,
+    "ok": true
+   },
+   {
+    "id": "share_callable_ahead_thresh050_pct",
+    "declared": 41.8,
+    "recomputed": 41.8,
+    "ok": true
+   },
+   {
+    "id": "gs5_latest_pct",
+    "declared": 4.38,
+    "recomputed": 4.38,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "GS1",
+    "page": "https://fred.stlouisfed.org/series/GS1",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/GS1",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "GS2",
+    "page": "https://fred.stlouisfed.org/series/GS2",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/GS2",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "GS3",
+    "page": "https://fred.stlouisfed.org/series/GS3",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/GS3",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "GS5",
+    "page": "https://fred.stlouisfed.org/series/GS5",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/GS5",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}

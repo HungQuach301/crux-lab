@@ -1,0 +1,111 @@
+{
+ "answer": "History, not a forecast. From late 1997 to Aug 2026 funeral prices rose 3.31% a year, faster than prices overall (2.58%) and faster than rolling 3-month T-bills paid (2.15%). Money set aside in T-bills instead of prepaying fell short of the same funeral 10 years later in 91.5% of start months (224 starts, Dec 1997 to Aug 2016); the median 10-year saver could pay 83.9% of the funeral (range 75.2% to 108.4%), and the latest 10-year saver (Aug 2016 to Aug 2026) 80.3%. Over 5 years the savings fell short in 88.7% of starts, over 15 years in 100%. T-bills paid 3.72% in Aug 2026.",
+ "guess": "Common advice treats a prepaid funeral as a poor deal: most retirees would guess that keeping the money in safe interest-bearing savings keeps up with funeral prices, so locking today's price buys nothing but convenience.",
+ "changesDecision": "Over the whole period with a funeral price index, safe savings almost never kept pace with funeral prices; a fully price-guaranteed plan would have locked in a real advantage in roughly nine of ten starts. That reframes the choice: the price question has historically favored locking, so the decision turns on the contract risks (what is guaranteed, cancellation, portability, provider failure) rather than on returns. No forecast of prices or rates is made.",
+ "numbers": [
+  {
+   "id": "starts_10y",
+   "value": 224,
+   "unit": "start months",
+   "definition": "Number of 10-year windows (n = 120). Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "first_start_10y",
+   "value": "1997-12-01",
+   "unit": "date",
+   "definition": "First start month of the 10-year windows. Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "last_start_10y",
+   "value": "2016-08-01",
+   "unit": "date",
+   "definition": "Last start month of the 10-year windows (ends 2026-08-01). Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "share_savings_fell_short_10y_pct",
+   "value": 91.5,
+   "unit": "percent of start months",
+   "definition": "100 x (10-year windows with C < 1) / starts_10y, rounded to 0.1: how often the T-bill money did not cover the same funeral 10 years later. Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "median_coverage_10y_pct",
+   "value": 83.9,
+   "unit": "percent of the funeral price",
+   "definition": "Median of 100 x C over the 10-year windows, rounded to 0.1. Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "min_coverage_10y_pct",
+   "value": 75.2,
+   "unit": "percent of the funeral price",
+   "definition": "Minimum of 100 x C over the 10-year windows, rounded to 0.1. Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "max_coverage_10y_pct",
+   "value": 108.4,
+   "unit": "percent of the funeral price",
+   "definition": "Maximum of 100 x C over the 10-year windows, rounded to 0.1. Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "latest_coverage_10y_pct",
+   "value": 80.3,
+   "unit": "percent of the funeral price",
+   "definition": "100 x C for the window starting 2016-08-01 (T-bill months 2016-08 .. 2026-07; funeral prices 2016-08-01 vs 2026-08-01), rounded to 0.1. Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "starts_5y",
+   "value": 284,
+   "unit": "start months",
+   "definition": "Number of 5-year windows (n = 60). Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "share_savings_fell_short_5y_pct",
+   "value": 88.7,
+   "unit": "percent of start months",
+   "definition": "100 x (5-year windows with C < 1) / starts_5y, rounded to 0.1. Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "starts_15y",
+   "value": 164,
+   "unit": "start months",
+   "definition": "Number of 15-year windows (n = 180). Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "share_savings_fell_short_15y_pct",
+   "value": 100.0,
+   "unit": "percent of start months",
+   "definition": "100 x (15-year windows with C < 1) / starts_15y, rounded to 0.1. Funeral price index F = CUUR0000SEGD03 (CPI-U, funeral expenses, U.S. city average, not seasonally adjusted, index Dec 1997=100, monthly from 1997-12-01; pinned FRED CSV coed=2026-08-01). T-bill growth over a window starting month s and lasting n months: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), where TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Funeral price growth P = F(s+n)/F(s). Coverage C(s) = G/P: the share of the same funeral (priced at month s+n) that the money set aside at month s pays for. Start months s: every month in F for which F(s+n) exists (horizon 5, 10 or 15 years, n = 60, 120, 180). "
+  },
+  {
+   "id": "funeral_price_growth_annual_pct",
+   "value": 3.31,
+   "unit": "percent per year",
+   "definition": "100 x ((F(2026-08-01)/F(1997-12-01))^(12/344) - 1), rounded to 0.01."
+  },
+  {
+   "id": "all_items_price_growth_annual_pct",
+   "value": 2.58,
+   "unit": "percent per year",
+   "definition": "100 x ((CPIAUCNS(2026-08-01)/CPIAUCNS(1997-12-01))^(12/344) - 1), rounded to 0.01; CPIAUCNS = CPI-U all items, U.S. city average, not seasonally adjusted (pinned FRED CSV coed=2026-08-01)."
+  },
+  {
+   "id": "tbill_growth_annual_pct",
+   "value": 2.15,
+   "unit": "percent per year",
+   "definition": "100 x (G^(12/344) - 1), rounded to 0.01, where G = product over the 344 months 1997-12 .. 2026-07 of (1 + TB3MS/1200)."
+  },
+  {
+   "id": "tb3ms_latest_pct",
+   "value": 3.72,
+   "unit": "percent",
+   "definition": "TB3MS value for 2026-08-01 as published."
+  }
+ ],
+ "assumptions": [
+  "The prepaid plan is fully price-guaranteed for the covered goods and services: the family pays nothing more at the time of need, whatever prices have done.",
+  "The national funeral expenses index stands in for the price of one specific funeral; local prices and individual choices differ.",
+  "The alternative keeps exactly the prepaid amount in 3-month T-bills, rolled monthly at the monthly average rate divided by 12; the bill rate is the discount-basis quote, not converted to an investment yield.",
+  "Taxes on T-bill interest, trust or insurance fees inside prepaid plans, installment-plan finance charges, cancellation refunds and provider failure are all ignored.",
+  "Cash-advance items that funeral homes pass through (cemetery fees, death certificates, obituaries) are usually not guaranteed and are not separated in the index."
+ ],
+ "limits": "History, not a forecast. The funeral price index starts in Dec 1997, so every window sits in a period of mostly low short-term rates; overlapping windows give only about three independent 10-year periods. Ignoring taxes favors the T-bill side. The result says nothing about whether a particular contract is guaranteed, portable or refundable."
+}

@@ -1,0 +1,102 @@
+{
+ "id": "tax-4",
+ "items": [
+  {
+   "id": "windows",
+   "declared": 83,
+   "recomputed": 83,
+   "ok": true
+  },
+  {
+   "id": "roth_real_loss_windows",
+   "declared": 39,
+   "recomputed": 39,
+   "ok": true
+  },
+  {
+   "id": "taxable_real_loss_windows",
+   "declared": 47,
+   "recomputed": 47,
+   "ok": true
+  },
+  {
+   "id": "roth_real_loss_share_pct",
+   "declared": 47.0,
+   "recomputed": 47.0,
+   "ok": true
+  },
+  {
+   "id": "taxable_real_loss_share_pct",
+   "declared": 56.6,
+   "recomputed": 56.6,
+   "ok": true
+  },
+  {
+   "id": "median_real_end_roth_usd",
+   "declared": 7644.89,
+   "recomputed": 7644.89,
+   "ok": true
+  },
+  {
+   "id": "median_real_end_taxable_usd",
+   "declared": 7098.09,
+   "recomputed": 7098.09,
+   "ok": true
+  },
+  {
+   "id": "median_diff_usd",
+   "declared": 578.37,
+   "recomputed": 578.37,
+   "ok": true
+  },
+  {
+   "id": "max_diff_usd",
+   "declared": 1874.21,
+   "recomputed": 1874.21,
+   "ok": true
+  },
+  {
+   "id": "max_diff_start",
+   "declared": 1980,
+   "recomputed": 1980,
+   "ok": true
+  },
+  {
+   "id": "latest_start",
+   "declared": 2016,
+   "recomputed": 2016,
+   "ok": true
+  },
+  {
+   "id": "latest_real_end_roth_usd",
+   "declared": 6790.14,
+   "recomputed": 6790.14,
+   "ok": true
+  },
+  {
+   "id": "latest_real_end_taxable_usd",
+   "declared": 6477.33,
+   "recomputed": 6477.33,
+   "ok": true
+  },
+  {
+   "id": "calendar_years",
+   "declared": 92,
+   "recomputed": 92,
+   "ok": true
+  },
+  {
+   "id": "years_beat_inflation_untaxed",
+   "declared": 52,
+   "recomputed": 52,
+   "ok": true
+  },
+  {
+   "id": "years_beat_inflation_after_tax",
+   "declared": 40,
+   "recomputed": 40,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

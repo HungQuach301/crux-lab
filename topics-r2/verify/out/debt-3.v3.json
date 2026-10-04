@@ -1,0 +1,90 @@
+{
+ "id": "debt-3",
+ "items": [
+  {
+   "id": "n_starts",
+   "declared": 691,
+   "recomputed": 691,
+   "ok": true
+  },
+  {
+   "id": "first_start",
+   "declared": "1964-01-01",
+   "recomputed": "1964-01",
+   "ok": false
+  },
+  {
+   "id": "last_start",
+   "declared": "2021-07-01",
+   "recomputed": "2021-07",
+   "ok": false
+  },
+  {
+   "id": "median_months",
+   "declared": 82,
+   "recomputed": 82,
+   "ok": true
+  },
+  {
+   "id": "min_months",
+   "declared": 34,
+   "recomputed": 34,
+   "ok": true
+  },
+  {
+   "id": "min_start",
+   "declared": "1977-12-01",
+   "recomputed": "1977-12",
+   "ok": false
+  },
+  {
+   "id": "max_months",
+   "declared": 120,
+   "recomputed": 120,
+   "ok": true
+  },
+  {
+   "id": "share_le48",
+   "declared": 0.237,
+   "recomputed": 0.237,
+   "ok": true
+  },
+  {
+   "id": "n_starts_1990",
+   "declared": 379,
+   "recomputed": 379,
+   "ok": true
+  },
+  {
+   "id": "median_months_1990",
+   "declared": 86,
+   "recomputed": 86,
+   "ok": true
+  },
+  {
+   "id": "min_months_1990",
+   "declared": 52,
+   "recomputed": 52,
+   "ok": true
+  },
+  {
+   "id": "share_le48_1990",
+   "declared": 0.0,
+   "recomputed": 0.0,
+   "ok": true
+  },
+  {
+   "id": "median_share_after60_1990",
+   "declared": 30.0,
+   "recomputed": 30.0,
+   "ok": true
+  },
+  {
+   "id": "n_share5_1990",
+   "declared": 380,
+   "recomputed": 380,
+   "ok": true
+  }
+ ],
+ "ok": false
+}

@@ -1,0 +1,104 @@
+<title>Crux Topic Queue R2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: one topic card per screen, a search-result style package on top (thumbnail sketch + title),
+   the viewer / decision / promise below, optional reason chips, then a five-step verdict ladder. */
+:root {
+  --bg: #eef2f1; --surface: #ffffff; --fg: #15211f; --muted: #566663; --line: #cfd9d6;
+  --accent: #1d5c4f; --accent-fg: #ffffff; --soft: #dfeae6; --thumb: #20302c; --thumb-fg: #f4f8f6;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1615; --surface: #17211f; --fg: #e3ece9; --muted: #98aaa5; --line: #2b3a37;
+  --accent: #7cc4b0; --accent-fg: #0c1714; --soft: #1f3530; --thumb: #0a100f; --thumb-fg: #eef5f2; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1615; --surface: #17211f; --fg: #e3ece9; --muted: #98aaa5; --line: #2b3a37;
+  --accent: #7cc4b0; --accent-fg: #0c1714; --soft: #1f3530; --thumb: #0a100f; --thumb-fg: #eef5f2; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 1rem; line-height: 1.45 }
+main { max-width: 36rem; margin: 0 auto; padding: 1rem 16px 2rem; display: grid; gap: 1rem }
+header { display: grid; gap: .4rem }
+.meta { display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap; font: 500 .75rem var(--mono);
+  color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-variant-numeric: tabular-nums }
+.bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden }
+.bar > i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s }
+.q { font-family: var(--display); font-size: 1.05rem; margin: 0; text-wrap: balance }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: grid; min-width: 0 }
+.thumb { background: var(--thumb); color: var(--thumb-fg); aspect-ratio: 16 / 9; max-width: 100%; display: grid;
+  grid-template-rows: 1fr auto; padding: .8rem .9rem; gap: .4rem }
+.thumb .txt { align-self: center; font: 600 clamp(1.4rem, 6vw, 2rem)/1.1 var(--sans); text-wrap: balance; margin: 0 }
+.thumb .obj { font-size: .78rem; opacity: .78; margin: 0 }
+.thumb .obj b { font: 500 .7rem var(--mono); text-transform: uppercase; letter-spacing: .06em; margin-right: .3rem }
+.body { padding: .9rem 1rem 1rem; display: grid; gap: .7rem }
+.title { font-family: var(--display); font-weight: 600; font-size: 1.28rem; line-height: 1.25; margin: 0; text-wrap: balance }
+dl { margin: 0; display: grid; gap: .55rem }
+dl div { display: grid; gap: .1rem }
+dt { font: 500 .7rem var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--muted) }
+dd { margin: 0 }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center }
+.chips span { font-size: .8rem; color: var(--muted); margin-right: .2rem }
+.chip { font: 400 .85rem var(--sans); border-radius: 999px; padding: .35rem .75rem; min-height: 2.2rem }
+.chip.on { background: var(--soft); border-color: var(--accent); color: var(--fg) }
+.ladder { display: grid; gap: .45rem }
+button { font: 600 1rem var(--sans); border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--fg); padding: .7rem .8rem; cursor: pointer; min-height: 3rem; text-align: left }
+.ladder button { display: grid; grid-template-columns: 1.6rem 1fr; gap: .5rem; align-items: center }
+.ladder button i { font: 500 1rem var(--mono); font-style: normal; color: var(--accent) }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px }
+button.on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent) }
+.ladder button.on i { color: var(--accent-fg) }
+.nav { display: flex; justify-content: space-between; gap: .5rem }
+.nav button { font-weight: 400; min-height: 2.6rem; padding: .5rem .9rem; text-align: center }
+.done { display: grid; gap: .75rem }
+.done h2 { font-family: var(--display); font-weight: 600; font-size: 1.3rem; margin: 0; text-wrap: balance }
+.code { font: 500 .85rem var(--mono); background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: .8rem; word-break: break-word; user-select: all }
+.hint { font-size: .85rem; color: var(--muted); margin: 0 }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem }
+.grid button { font: 500 .85rem var(--mono); min-height: 2.4rem; padding: .3rem; text-align: center }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none } }
+</style>
+<style>
+.item { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1rem; display: grid; gap: .55rem; min-width: 0 }
+.item h2 { font-family: var(--display); font-weight: 600; font-size: 1.12rem; line-height: 1.25; margin: 0; text-wrap: balance }
+.item ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .3rem; font-size: .93rem }
+.yn { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem }
+.yn button { text-align: center }
+.tag { font: 500 .72rem var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .06em }
+</style>
+<main>
+  <header><div class="meta"><span>Bước 2 · hàng đợi đề tài</span><span id="left"></span></div>
+  <p class="q">Đề tài nào vào hàng đợi? Có = vào <code>topics/queue.md</code> (chưa phải chọn làm tập). Không = bỏ.</p></header>
+  <div id="list" style="display:grid;gap:.9rem"></div>
+  <section class="done"><h2>Dán mã này vào phiên</h2><div class="code" id="code"></div><button id="copy" style="text-align:center">Copy code</button><p class="hint" id="note"></p></section>
+</main>
+<script>
+const D = [{"id": "debt-1", "no": "02", "score": "chọn", "title": "15-Year Mortgage or a 30-Year Paid in 15? The Real Price", "lines": ["Kết quả: trên $320.000 (lãi tuần 24/9/2026: 7,03 % vs 6,42 %), trả khoản 30 năm hết trong 15 năm tốn thêm $108/tháng, $19.464 sau 15 năm; từ 1991 khoản này từ $6.097 đến $29.502 (trung vị $16.594).", "Vì sao đổi quyết định: sự linh hoạt 'được trả ít hơn khi cần' có giá bằng đô cụ thể, chưa bao giờ dưới ~$6.100.", "Dữ liệu: lãi vay nhà 30 năm và 15 năm hằng tuần (FRED); V0–V5 đạt.", "Rủi ro: không nói giá trị của sự linh hoạt; 'history, not a forecast'."]}, {"id": "debt-3", "no": "03", "score": "chọn", "title": "Stretching to 35% of Your Pay: How Long Until It's 28%?", "lines": ["Kết quả: để khoản trả từ 35 % xuống 28 % thu nhập, lương phải tăng 25 %: trung vị 82 tháng (từ 1964), 86 tháng (từ 1990), chưa lần nào ≤ 48 tháng kể từ 1990; sau 5 năm vẫn ~30 %.", "Vì sao đổi quyết định: người mua trông vào tăng lương để 'dễ thở' trong vài năm.", "Dữ liệu: lương giờ bình quân (FRED). V3 khớp số; trượt V3 theo luật khoá chỉ vì cách viết ngày.", "Rủi ro: lương bình quân ≠ lương của từng người; không tính thuế, bảo hiểm, chi phí nhà tăng."]}, {"id": "tax-2", "no": "08", "score": "chọn", "title": "$1,000 Emergency: Tap the 401(k) or Use the Card?", "lines": ["Kết quả: rút khẩn cấp $1.000 không bị phạt 10 %, tốn $120 thuế (bậc 12 %); lãi thẻ 22,15 % chỉ vượt $120 sau 12 tháng trả góp; từ 1994: 11–23 tháng (trung vị 18).", "Vì sao đổi quyết định: người xem tưởng rút 401(k) luôn đắt hơn dùng thẻ.", "Dữ liệu: lãi thẻ tín dụng (FRED) + luật thuế; V0–V5 đạt.", "Rủi ro: quy định rút khẩn cấp mới, cần kiểm lại điều kiện; không khuyên rút tiền hưu."]}, {"id": "tax-3", "no": "09", "score": "chọn", "title": "Rental Losses on $130,000 of Wages: Still Deductible?", "lines": ["Kết quả: vợ chồng thu nhập $130.000 chỉ trừ tối đa $10.000/năm lỗ cho thuê; ngưỡng $100.000 không đổi từ 1987 (theo giá nay ≈ $283.300), từ 3,84 lần xuống 1,14 lần thu nhập hộ trung vị.", "Vì sao đổi quyết định: người mua căn cho thuê đầu tiên tính lỗ giấy tờ sẽ giảm thuế lương.", "Dữ liệu: CPI + thu nhập hộ trung vị (FRED) + luật thuế; V0–V5 đạt.", "Rủi ro: không bàn các ngoại lệ (chuyên gia bất động sản, cho thuê ngắn ngày)."]}, {"id": "debt-2", "no": "11", "score": "chọn", "title": "10% Down and Mortgage Insurance: How Long Did It Last?", "lines": ["Kết quả: theo lịch trả, 10 % trả trước cần 99 tháng mới tới 80 %; theo chỉ số giá nhà toàn quốc, trung vị chỉ 23 tháng, nhưng 14,7 % số tháng mua phải hơn 5 năm (mua 10/2005: 112 tháng).", "Vì sao đổi quyết định: người mua lần đầu tính 8+ năm bảo hiểm khi so với đi thuê tiếp.", "Dữ liệu: chỉ số giá nhà + lãi vay 30 năm (FRED). V3 khớp số; trượt V3 theo luật khoá chỉ vì cách viết ngày.", "Rủi ro: bỏ bảo hiểm theo giá trị hiện tại do ngân hàng quyết và thường chặt hơn; chỉ số toàn quốc ≠ căn nhà."]}, {"id": "retire-4", "no": "14", "score": "chọn", "title": "Travel Early in Retirement or Wait? The Price Test", "lines": ["Kết quả: chuyến đi nửa vé máy bay nửa khách sạn, để tiền trong tín phiếu chờ 10 năm thì đắt hơn ở 52,2 % điểm bắt đầu; trung vị vẫn trả được 99,1 % chuyến.", "Vì sao đổi quyết định: bỏ lý lẽ 'giá sẽ đắt hơn' khỏi quyết định; còn lại là sức khoẻ.", "Dữ liệu: CPI vé máy bay, khách sạn + tín phiếu (FRED); V0–V5 đạt.", "Rủi ro: chuỗi khách sạn chỉ từ 1997 (~3 giai đoạn 10 năm độc lập); dữ liệu không đo sức khoẻ."]}, {"id": "debt-4", "no": "16", "score": "chọn", "title": "Waiting a Year for a Lower Car Loan Rate: Does It Pay Off?", "lines": ["Kết quả: $35.000/60 tháng, giảm 1 điểm lãi chỉ bớt $16,43/tháng; trong 76 lần chờ 1 năm (2006–2025) khoản trả giảm chỉ 38,2 %, trung vị tăng $1,17 vì giá xe tăng.", "Vì sao đổi quyết định: người mua hoãn để chờ lãi giảm.", "Dữ liệu: lãi vay xe ngân hàng + chỉ số giá xe mới (FRED). V3 khớp số; trượt V3 theo luật khoá chỉ vì cách viết ngày.", "Rủi ro: lãi ngân hàng, không phải đại lý; không tính khuyến mãi của hãng."]}];
+const KEY='crux-topics-r2-step2'; let st={};
+try { st = JSON.parse(localStorage.getItem(KEY)||'{}')||{}; } catch(e) {}
+const $=id=>document.getElementById(id);
+function code(){ return 'S2R2 '+D.map(d=>d.id+':'+(st[d.id]||'?')).join(' '); }
+function render(){
+  $('list').textContent='';
+  D.forEach(d=>{
+    const a=document.createElement('article'); a.className='item';
+    const t=document.createElement('span'); t.className='tag'; t.textContent='Thẻ '+d.no+' · đã chọn'; a.appendChild(t);
+    const h=document.createElement('h2'); h.textContent=d.title; a.appendChild(h);
+    const u=document.createElement('ul'); d.lines.forEach(l=>{const li=document.createElement('li'); li.textContent=l; u.appendChild(li);}); a.appendChild(u);
+    const yn=document.createElement('div'); yn.className='yn';
+    [['C','Có — vào hàng đợi'],['K','Không']].forEach(([v,l])=>{const b=document.createElement('button'); b.id=d.id+'-'+v; b.textContent=l; if(st[d.id]===v) b.classList.add('on');
+      b.addEventListener('click',()=>{st[d.id]=v; try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){} render();}); yn.appendChild(b);});
+    a.appendChild(yn); $('list').appendChild(a);
+  });
+  const left=D.filter(d=>!st[d.id]).length; $('left').textContent=left?left+' còn lại':'đủ '+D.length;
+  $('code').textContent=code();
+}
+$('copy').addEventListener('click',()=>{const t=code(); const ok=()=>{$('note').textContent='Đã copy.';};
+  const fb=()=>{const r=document.createRange(); r.selectNodeContents($('code')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); $('note').textContent='Đã chọn mã, hãy copy.';};
+  try{navigator.clipboard.writeText(t).then(ok,fb);}catch(e){fb();}});
+render();
+</script>

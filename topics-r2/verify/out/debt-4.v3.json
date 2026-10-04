@@ -1,0 +1,96 @@
+{
+ "id": "debt-4",
+ "items": [
+  {
+   "id": "n_pairs",
+   "declared": 76,
+   "recomputed": 76,
+   "ok": true
+  },
+  {
+   "id": "first_pair",
+   "declared": "2006-08-01",
+   "recomputed": "2006-08",
+   "ok": false
+  },
+  {
+   "id": "last_pair",
+   "declared": "2025-05-01",
+   "recomputed": "2025-05",
+   "ok": false
+  },
+  {
+   "id": "share_payment_lower",
+   "declared": 0.382,
+   "recomputed": 0.382,
+   "ok": true
+  },
+  {
+   "id": "median_payment_change",
+   "declared": 1.17,
+   "recomputed": 1.17,
+   "ok": true
+  },
+  {
+   "id": "n_rate_fell",
+   "declared": 50,
+   "recomputed": 50,
+   "ok": true
+  },
+  {
+   "id": "share_lower_when_rate_fell",
+   "declared": 0.52,
+   "recomputed": 0.52,
+   "ok": true
+  },
+  {
+   "id": "largest_rate_drop",
+   "declared": -1.08,
+   "recomputed": -1.08,
+   "ok": true
+  },
+  {
+   "id": "largest_rate_rise",
+   "declared": 2.96,
+   "recomputed": 2.96,
+   "ok": true
+  },
+  {
+   "id": "best_payment_change",
+   "declared": -27.82,
+   "recomputed": -27.82,
+   "ok": true
+  },
+  {
+   "id": "median_price_change",
+   "declared": 0.54,
+   "recomputed": 0.54,
+   "ok": true
+  },
+  {
+   "id": "rate_latest_month",
+   "declared": "2026-05-01",
+   "recomputed": "2026-05",
+   "ok": false
+  },
+  {
+   "id": "rate_latest",
+   "declared": 7.14,
+   "recomputed": 7.14,
+   "ok": true
+  },
+  {
+   "id": "pay_latest",
+   "declared": 695.36,
+   "recomputed": 695.36,
+   "ok": true
+  },
+  {
+   "id": "one_point_effect",
+   "declared": 16.43,
+   "recomputed": 16.43,
+   "ok": true
+  }
+ ],
+ "ok": false
+}

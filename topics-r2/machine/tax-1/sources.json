@@ -1,0 +1,50 @@
+{
+ "series": [
+  {
+   "id": "FII10",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15 Selected Interest Rates; market yield on U.S. Treasury securities at 10-year constant maturity, inflation-indexed, monthly)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FII10&cosd=2003-01-01&coed=2026-09-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/FII10",
+   "file": "data/FII10.csv",
+   "sha256": "5c396a034bbb62cf128de2b8a5495e82d3444bb80e7d4dc88b1a9b805dfa35e0",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "2.40"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/FII10"
+   }
+  },
+  {
+   "id": "CPIAUCNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics, CPI for All Urban Consumers: All Items in U.S. City Average, not seasonally adjusted)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&cosd=2002-01-01&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "file": "data/CPIAUCNS.csv",
+   "sha256": "234aefc86dbee6e9165188b5515b2aa133152a47d7c2c5190d4abd468b6e9163",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.980"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCNS"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "IRS Publication 550, Inflation-Indexed Debt Instruments (inflation adjustments to TIPS principal are taxable each year as OID; 26 CFR 1.1275-7)",
+   "url": "https://www.irs.gov/publications/p550",
+   "quote": "If you hold an inflation-indexed debt instrument (other than a series I U.S. savings bond), you must report as OID any increase in the inflation-adjusted principal amount of the instrument that occurs while you held the instrument during the year."
+  },
+  {
+   "cite": "IRS Publication 550, Treasury inflation-protected securities (TIPS)",
+   "url": "https://www.irs.gov/publications/p550",
+   "quote": "These securities pay interest twice a year at a fixed rate, based on a principal amount adjusted to take into account inflation and deflation."
+  }
+ ]
+}
