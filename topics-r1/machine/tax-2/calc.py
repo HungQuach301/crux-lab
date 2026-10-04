@@ -129,7 +129,8 @@ def _statement(n):
             (E, 'metros_threshold_under_200k', f'in {len(under200)} it is under'),
             (E, 'threshold_cutoff_200k_usd', 'under $200,000')],
         5: [(A, 'basis_at_death_rule', "fair market value of the property at the date of the decedent's death"
-             in prov['26 U.S.C. 1014(a)(1)'])],
+             in prov['26 U.S.C. 1014(a)(1)']),
+            (A, 'long_term_gain_rule', 'capital asset held for more than 1 year' in prov['26 U.S.C. 1222(3)'])],
         6: [(E, 'excl_joint_limit_usd', f"'{_usd(EXCL_JOINT)} is more than our profit'")],
         7: [(E, 'metros_threshold_under_300k', f'In {len(under300)} of the'),
             (E, 'n_metros', f'the {len(METROS)} metros'),
@@ -154,9 +155,10 @@ def _statement(n):
               'Los Angeles-Long Beach-Glendale, CA (metro division)'
               in next(s['provider'] for s in srcs['series'] if s['id'] == 'ATNHPIUS31084Q'))],
         18: [(A, 'excl_joint_limit_usd', statute_joint)],
-        # E1: '2-year' (surviving spouse, 26 U.S.C. 121(b)(4)) has no provision in sources.json -> not sourced.
+        # E1 (applied 2026-10-04): '2-year' (surviving spouse) is read from the 26 U.S.C. 121(b)(4) quote.
         19: [(E, 'surviving_spouse_window_years', '(2-year window)'),
-             (A, 'surviving_spouse_window_years', any(c.startswith('26 U.S.C. 121(b)(4)') for c in prov))],
+             (A, 'surviving_spouse_window_years',
+              'not later than 2 years after the date of death of such spouse' in prov.get('26 U.S.C. 121(b)(4)', ''))],
         20: [(A, 'threshold_single_us_usd',
               [k for k in out if k.startswith('threshold_single')] == ['threshold_single_us_usd'])],
         21: [(E, 'buy_year', f'Home in {yr}?'), (E, 'excl_joint_limit_usd', f'The {_usd(EXCL_JOINT)} Tax-Free')],
@@ -189,8 +191,19 @@ def _statement(n):
 
 
 if len(sys.argv) > 1:
-    if sys.argv[1] != '--statement' or len(sys.argv) != 3:
-        sys.exit('usage: calc.py [--statement N]')
-    print(_statement(int(sys.argv[2])))
+    args = sys.argv[1:]
+    verbose = '-v' in args
+    args = [a for a in args if a != '-v']
+    if len(args) != 2 or args[0] != '--statement' or not (args[1] == 'all' or args[1].isdigit()):
+        sys.exit('usage: calc.py [--statement N|all [-v]]')
+    if args[1] == 'all':
+        n_all = len(json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'statements.json'))))
+        results = [(n, _statement(n)) for n in range(1, n_all + 1)]
+        for n, r in results:
+            print(f'{n}: {r}' if verbose else r)
+        if verbose:
+            print(f'{sum(r for _, r in results)}/{len(results)} True')
+    else:
+        print(_statement(int(args[1])))
 else:
     print(json.dumps(out))

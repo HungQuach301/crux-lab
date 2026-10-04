@@ -65,9 +65,10 @@
   "source": "result.json:answer",
   "text": "Gain above the limit is taxed as a long-term capital gain on a sale, while heirs who inherit the home take a basis equal to its value at death.",
   "uses": [
-   "basis_at_death_rule"
+   "basis_at_death_rule",
+   "long_term_gain_rule"
   ],
-  "check": "calc.py --statement 5 → True"
+  "check": "calc.py --statement 5 → True (ERRATA.md N1 applied 2026-10-04: \"long-term capital gain\" sourced to 26 U.S.C. 1222(3))"
  },
  {
   "n": 6,
@@ -223,7 +224,7 @@
   "uses": [
    "surviving_spouse_window_years"
   ],
-  "check": "calc.py --statement 19 → False (ERRATA.md E1: \"2-year\" has no provision in sources.json)"
+  "check": "calc.py --statement 19 → True (ERRATA.md E1 applied 2026-10-04: \"2-year\" sourced to 26 U.S.C. 121(b)(4))"
  },
  {
   "n": 20,

@@ -61,7 +61,7 @@
  },
  {
   "source": "result.json:answer",
-  "text": "For a single worker paid $32 an hour (the typical production/nonsupervisory wage, $32.38 in June 2026, rounded) adding 400 hours a year, both paths pay $19,200 gross at $48 an hour.",
+  "text": "For a single worker paid $32 an hour (the average production/nonsupervisory wage, $32.38 in June 2026, rounded) adding 400 hours a year, both paths pay $19,200 gross at $48 an hour.",
   "uses": [
    "regular_rate_usd",
    "ahe_latest",
@@ -86,7 +86,8 @@
    "EXTRA_HOURS_YEAR": "model parameter = 8 x 50 (result.json assumptions[1])"
   },
   "expected": true,
-  "check": "calc.py --statement 5 → True"
+  "check": "calc.py --statement 5 → True",
+  "note": "ERRATA A1 applied 2026-10-04: \"typical\" -> \"average\" (ahe_latest is average hourly earnings, not a median)."
  },
  {
   "source": "result.json:answer",
@@ -320,27 +321,47 @@
  },
  {
   "source": "claim-risk.md",
-  "text": "The general rule is an extra 5 dollars an hour at the 22% bracket with a 1.5x overtime rate.",
+  "text": "For this example the side job must pay about $5 an hour more than the overtime rate.",
   "uses": [
-   "breakeven_markup_usd",
-   "BRACKET_RATE_22_PCT",
-   "OT_MULTIPLIER"
+   "breakeven_markup_usd"
   ],
   "render": [
-   "num0",
-   "pct0",
-   "mult"
+   "usd0"
   ],
   "claims": [
-   "markup_is_general_at_22pct"
+   "breakeven_exists"
+  ],
+  "note": "ERRATA E1 applied 2026-10-04 (owner order): the $5 (breakeven_markup_usd = side_breakeven_rate_usd - ot_rate_usd = 53.00 - 48) is scoped to the $32 example.",
+  "expected": true,
+  "check": "calc.py --statement 21 → True"
+ },
+ {
+  "source": "claim-risk.md",
+  "text": "The general rule at the 22% bracket with a 1.5x overtime rate is about a tenth more than the overtime rate (premium x 22% / (1 - 7.65% - 22%) per hour).",
+  "uses": [
+   "BRACKET_RATE_22_PCT",
+   "OT_MULTIPLIER",
+   "EMPLOYEE_PAYROLL_PCT"
+  ],
+  "render": [
+   "pct0",
+   "mult",
+   "pct2"
+  ],
+  "labels": [
+   "(1 - "
+  ],
+  "claims": [
+   "markup_tenth_of_ot_rate_at_22pct"
   ],
   "cites": {
    "BRACKET_RATE_22_PCT": "IRS IR-2025-103 (2026 single brackets)",
-   "OT_MULTIPLIER": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)"
+   "OT_MULTIPLIER": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)",
+   "EMPLOYEE_PAYROLL_PCT": "26 U.S.C. 3101(a) (6.2% employee social security tax); 26 U.S.C. 3101(b)(1) (1.45% employee medicare tax)"
   },
-  "note": "ERRATA E1: breakeven_markup_usd (5.00) is scoped to the $32 example only; the markup scales with the regular rate.",
-  "expected": false,
-  "check": "calc.py --statement 21 → False (ERRATA E1)"
+  "note": "ERRATA E1 applied 2026-10-04 (owner order). \"about a tenth\" = breakeven_markup_share_of_ot_rate_pct (10.42 for the example; rounds to 10 for every 22%-bracket regular rate checked, incl. $40) via claim markup_tenth_of_ot_rate_at_22pct, which also checks markup = premium x 22% / (1 - 7.65% - 22%) per hour. The label \"(1 - \" is the whole of each extra dollar in the formula, not a quantity; \"premium\" = premium_per_hour_usd of the worker in question.",
+  "expected": true,
+  "check": "calc.py --statement 22 → True"
  },
  {
   "source": "claim-risk.md",
@@ -355,7 +376,7 @@
    "OT_DEDUCTION_LAST_YEAR": "26 U.S.C. 225(g) (termination after 2028)"
   },
   "expected": true,
-  "check": "calc.py --statement 22 → True"
+  "check": "calc.py --statement 23 → True"
  },
  {
   "source": "claim-risk.md",
@@ -372,7 +393,7 @@
    "wage_rounded_to_dollar"
   ],
   "expected": true,
-  "check": "calc.py --statement 23 → True"
+  "check": "calc.py --statement 24 → True"
  },
  {
   "source": "claim-risk.md",
@@ -387,7 +408,7 @@
    "REGULAR_HOURS_PER_WEEK": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)"
   },
   "expected": true,
-  "check": "calc.py --statement 24 → True"
+  "check": "calc.py --statement 25 → True"
  },
  {
   "source": "claim-risk.md",
@@ -402,7 +423,7 @@
    "OT_MULTIPLIER": "29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)"
   },
   "expected": true,
-  "check": "calc.py --statement 25 → True"
+  "check": "calc.py --statement 26 → True"
  },
  {
   "source": "claim-risk.md",
@@ -414,7 +435,7 @@
   ],
   "note": "W-2 is a form name, not a quantity.",
   "expected": true,
-  "check": "calc.py --statement 26 → True"
+  "check": "calc.py --statement 27 → True"
  },
  {
   "source": "claim-risk.md",
@@ -426,7 +447,7 @@
   ],
   "note": "1099 is a form name, not a quantity.",
   "expected": true,
-  "check": "calc.py --statement 27 → True"
+  "check": "calc.py --statement 28 → True"
  },
  {
   "source": "result.json:assumptions[0]",
@@ -444,7 +465,7 @@
    "STD_DEDUCTION_SINGLE_USD": "IRS IR-2025-103 (2026 standard deduction, single)"
   },
   "expected": true,
-  "check": "calc.py --statement 28 → True"
+  "check": "calc.py --statement 29 → True"
  },
  {
   "source": "result.json:assumptions[1]",
@@ -471,7 +492,7 @@
    "EXTRA_HOURS_YEAR": "model parameter = 8 x 50 (result.json assumptions[1])"
   },
   "expected": true,
-  "check": "calc.py --statement 29 → True"
+  "check": "calc.py --statement 30 → True"
  },
  {
   "source": "result.json:assumptions[2]",
@@ -492,7 +513,7 @@
    "PREMIUM_MULTIPLIER": "26 U.S.C. 225(c)(1) (only the amount in excess of the regular rate)"
   },
   "expected": true,
-  "check": "calc.py --statement 30 → True"
+  "check": "calc.py --statement 31 → True"
  },
  {
   "source": "result.json:assumptions[3]",
@@ -503,7 +524,7 @@
    "W-2"
   ],
   "expected": true,
-  "check": "calc.py --statement 31 → True"
+  "check": "calc.py --statement 32 → True"
  },
  {
   "source": "result.json:assumptions[4]",
@@ -521,7 +542,7 @@
    "OT_PHASE_START_MAGI_USD": "26 U.S.C. 225(b)(2)(A) (phase-down above $150,000 MAGI)"
   },
   "expected": true,
-  "check": "calc.py --statement 32 → True"
+  "check": "calc.py --statement 33 → True"
  },
  {
   "source": "result.json:limits",
@@ -542,7 +563,7 @@
    "OT_DEDUCTION_LAST_YEAR": "26 U.S.C. 225(g) (termination after 2028)"
   },
   "expected": true,
-  "check": "calc.py --statement 33 → True"
+  "check": "calc.py --statement 34 → True"
  },
  {
   "source": "result.json:limits",
@@ -560,6 +581,6 @@
    "BRACKET_RATE_12_PCT": "IRS IR-2025-103 (2026 single brackets)"
   },
   "expected": true,
-  "check": "calc.py --statement 34 → True"
+  "check": "calc.py --statement 35 → True"
  }
 ]

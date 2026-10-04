@@ -1,4 +1,4 @@
-"""tax-4: a single hourly worker paid the typical production/nonsupervisory wage (rounded to whole dollars) can add
+"""tax-4: a single hourly worker paid the average production/nonsupervisory wage (rounded to whole dollars) can add
 8 hours a week for 50 weeks either as overtime at time-and-a-half or at a second W-2 job paying the same hourly
 amount. Federal income tax (2026 single brackets, standard deduction, overtime-premium deduction) plus employee
 payroll tax on each path; break-even side-job rate. Reads data/ only; prints one JSON object {id: value}.
@@ -115,6 +115,8 @@ def quantities():
         'marginal_bracket_pct': None if sc['marg'] is None else 100 * sc['marg'],
         'breakeven_markup_usd': round(hi, 2) - ot_rate,
         'ot_advantage_per_hour_usd': (ot_net - side_net) / EXTRA_H,
+        'breakeven_markup_share_of_ot_rate_pct': 100 * (round(hi, 2) - ot_rate) / ot_rate,
+        'EMPLOYEE_PAYROLL_PCT': 100 * FICA,
         'EXTRA_HOURS_PER_WEEK': EXTRA_H_WEEK, 'EXTRA_WEEKS': EXTRA_WEEKS, 'EXTRA_HOURS_YEAR': EXTRA_H,
         'REGULAR_HOURS_PER_WEEK': REG_H_WEEK, 'REGULAR_WEEKS': REG_WEEKS,
         'OT_MULTIPLIER': OT_MULT, 'PREMIUM_MULTIPLIER': PREMIUM_MULT, 'OT_CAP_SINGLE_USD': OT_CAP,
@@ -177,10 +179,29 @@ def claim_checks(q, sc):
         'breakeven_depends_on_example': lambda: round(s40['breakeven'], 2) != round(sc['breakeven'], 2),
         'markup_is_general_at_22pct': lambda: s40['marg'] == sc['marg']
             and render(s40['markup'], 'num0') == render(sc['markup'], 'num0'),
+        'markup_tenth_of_ot_rate_at_22pct': lambda: markup_rule_holds(q, sc),
         'wage_rounded_to_dollar': lambda: W == round(ahe) and abs(W - ahe) <= 0.5,
         'magi_below_phase_down': lambda: sc['max_agi'] < OT_PHASE_START and sc['prem'] <= OT_CAP,
     }
     return checks
+
+
+def markup_rule_holds(q, sc):
+    """ERRATA E1: at the 22% bracket with a 1.5x overtime rate the break-even markup is
+    premium x 22% / (1 - payroll - 22%) per hour, about a tenth (10%) of the overtime rate, for every regular
+    rate whose extra pay and break-even side pay stay inside the 22% bracket (the example and the $40 worker included)."""
+    r22 = BRACKETS[2][1]
+    ws = [w for w in range(10, 81) if scenario(float(w))['marg'] == r22]
+    ok = []
+    for w in ws:
+        s = scenario(float(w))
+        if s['base'] + s['breakeven'] * EXTRA_H - STD > BRACKETS[3][0]:
+            continue
+        rule = PREMIUM_MULT * w * r22 / (1 - FICA - r22)
+        ok.append(abs(s['markup'] - rule) < 0.005 and render(100 * s['markup'] / s['ot_rate'], 'num0') == '10')
+    return (32 in ws and 40 in ws and len(ok) >= 2 and all(ok) and sc['marg'] == r22
+            and render(q['breakeven_markup_share_of_ot_rate_pct'], 'num0') == '10'
+            and abs(q['EMPLOYEE_PAYROLL_PCT'] - 100 * FICA) < 1e-9)
 
 
 # constant -> provision cite (sources.json) whose cite or quote must contain the constant as rendered
@@ -196,6 +217,9 @@ CONST_CITES = {
     'OT_MULTIPLIER': ('29 U.S.C. 207(a)(1) (time-and-a-half over 40 hours)', 'one and one-half times'),
     'PREMIUM_MULTIPLIER': ('26 U.S.C. 225(c)(1) (only the amount in excess of the regular rate)',
                            'in excess of the regular rate'),
+    # employee payroll rate = 6.2% + 1.45%: both provisions must state their part
+    'EMPLOYEE_PAYROLL_PCT': [('26 U.S.C. 3101(a) (6.2% employee social security tax)', '6.2 percent'),
+                             ('26 U.S.C. 3101(b)(1) (1.45% employee medicare tax)', '1.45 percent')],
 }
 
 
@@ -230,9 +254,12 @@ def check_statement(st, q, sc, verbose=False):
         if name in rnums and rnums[name] != q[name]:
             problems.append('%s recomputed %r != result.json %r' % (name, q[name], rnums[name]))
         if name in CONST_CITES:
-            cite, needle = CONST_CITES[name]
-            if needle not in prov.get(cite, ''):
-                problems.append('%s not supported by provision %s' % (name, cite))
+            pairs = CONST_CITES[name] if isinstance(CONST_CITES[name], list) else [CONST_CITES[name]]
+            for cite, needle in pairs:
+                if needle not in prov.get(cite, ''):
+                    problems.append('%s not supported by provision %s' % (name, cite))
+            if name == 'EMPLOYEE_PAYROLL_PCT' and abs(q[name] - (6.2 + 1.45)) > 1e-9:
+                problems.append('EMPLOYEE_PAYROLL_PCT != 6.2 + 1.45')
         tokens.append((render(q[name], fmt), name))
     for tok, name in sorted(tokens, key=lambda t: -len(t[0])):
         pat = (r'(?<![\d.,])' if tok[0].isdigit() else '') + re.escape(tok) + r'(?![\d]|[.,]\d)'

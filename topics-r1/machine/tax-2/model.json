@@ -267,6 +267,14 @@
    "kindOf": "rule constant"
   },
   {
+   "name": "long_term_gain_rule",
+   "meaning": "Rule (not a number): gain from the sale of a capital asset held more than 1 year is long-term capital gain; a home bought in 2000 and sold in 2026 is held more than 1 year.",
+   "unit": "rule",
+   "from": "sources.json → provisions[26 U.S.C. 1222(3)]",
+   "provision": "26 U.S.C. 1222(3) (long-term capital gain: capital asset held more than 1 year)",
+   "kindOf": "rule constant"
+  },
+  {
    "name": "buy_year",
    "meaning": "Viewer identity: purchase during calendar year 2000 (base = mean of the four 2000 quarters of each index).",
    "unit": "year",
@@ -308,12 +316,11 @@
   },
   {
    "name": "surviving_spouse_window_years",
-   "meaning": "Window after a spouse's death within which a surviving spouse keeps the $500,000 limit (2 years). Mentioned only in claim-risk.md; NOT sourced: no provision in sources.json (ERRATA.md E1).",
+   "meaning": "Window after a spouse's death within which an unmarried surviving spouse keeps the $500,000 limit (sale not later than 2 years after the date of death, joint-return requirements met immediately before the death). Mentioned only in claim-risk.md; not used in any computation.",
    "unit": "years",
-   "from": null,
-   "provision": null,
-   "kindOf": "rule constant (unsourced)",
-   "status": "unsourced — see ERRATA.md E1"
+   "from": "sources.json → provisions[26 U.S.C. 121(b)(4)]",
+   "provision": "26 U.S.C. 121(b)(4)",
+   "kindOf": "rule constant"
   }
  ],
  "newKindNeeds": {
@@ -361,6 +368,16 @@
      "name": "basisAtDeath",
      "value": "fair market value at death (stated rule, not computed)",
      "cite": "26 U.S.C. 1014(a)(1)"
+    },
+    {
+     "name": "survivingSpouseWindow",
+     "value": "2 years after the spouse's death (stated rule, not computed)",
+     "cite": "26 U.S.C. 121(b)(4)"
+    },
+    {
+     "name": "longTermHolding",
+     "value": "held more than 1 year → long-term capital gain (stated rule, not computed)",
+     "cite": "26 U.S.C. 1222(3)"
     }
    ]
   },

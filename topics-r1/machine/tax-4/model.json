@@ -184,6 +184,12 @@
    "from": "calc.py --statement"
   },
   {
+   "name": "breakeven_markup_share_of_ot_rate_pct",
+   "meaning": "100 x breakeven_markup_usd / ot_rate_usd for the modeled worker (10.42); at the 22% bracket with a 1.5x overtime rate it equals 100 x 0.5 x 22% / (1 - 7.65% - 22%) / 1.5 for any regular rate whose extra and break-even pay stay in that bracket, so it supports \"about a tenth\" as the general rule (ERRATA E1).",
+   "unit": "percent",
+   "from": "calc.py --statement"
+  },
+  {
    "name": "EXTRA_HOURS_PER_WEEK",
    "value": 8,
    "meaning": "Extra hours a week in the viewer scenario (viewer identity number).",
@@ -278,6 +284,14 @@
    "unit": "percent",
    "from": "calc.py constant (rule/model parameter); --statement",
    "cite": "IRS IR-2025-103 (2026 single brackets)"
+  },
+  {
+   "name": "EMPLOYEE_PAYROLL_PCT",
+   "value": 7.65,
+   "meaning": "Employee payroll tax rate on wages (6.2% social security + 1.45% medicare; wage base not reached); = model constant FICA / params.employeePayrollRate.",
+   "unit": "percent",
+   "from": "calc.py constant (rule/model parameter); --statement",
+   "cite": "26 U.S.C. 3101(a) (6.2% employee social security tax); 26 U.S.C. 3101(b)(1) (1.45% employee medicare tax)"
   },
   {
    "name": "TAX_YEAR",
