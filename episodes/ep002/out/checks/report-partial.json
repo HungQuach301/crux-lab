@@ -7,153 +7,93 @@
  "tiers": {
   "BLOCK": {
    "label": "CHẶN",
-   "rules": 6,
-   "pass": 6,
+   "rules": 1,
+   "pass": 1,
    "notPass": []
   },
   "MAJOR": {
    "label": "CHÍNH",
-   "rules": 2,
-   "pass": 2,
+   "rules": 0,
+   "pass": 0,
    "notPass": [],
    "explained": {},
    "unexplained": []
   },
   "REFERENCE": {
    "label": "THAM KHẢO",
-   "rules": 9,
-   "pass": 5,
+   "rules": 1,
+   "pass": 0,
    "notPass": [
-    "A03 FAIL",
-    "A08 FAIL",
-    "T2 FAIL",
-    "T3 FAIL"
+    "P01 FAIL"
    ]
   }
  },
  "counts": {
-  "PASS": 13,
-  "FAIL": 4,
+  "PASS": 1,
+  "FAIL": 1,
   "MISSING": 0,
   "ERROR": 0
  },
  "near": [
   {
-   "rule": "A12",
+   "rule": "P01",
    "tier": "REFERENCE",
-   "name": "accents on a cut (%)",
-   "value": 100.0,
+   "name": "thumb 1 token share (%)",
+   "value": 99.99924,
    "op": ">=",
-   "threshold": 100.0,
+   "threshold": 97.0,
    "unit": "%",
    "pass": true,
    "near": true
   },
   {
-   "rule": "A18",
-   "tier": "MAJOR",
-   "name": "distinct voices (provider, voiceId, model)",
-   "value": 1,
-   "op": "<=",
-   "threshold": 1,
-   "unit": "",
+   "rule": "P01",
+   "tier": "REFERENCE",
+   "name": "thumb 2 token share (%)",
+   "value": 99.99924,
+   "op": ">=",
+   "threshold": 97.0,
+   "unit": "%",
    "pass": true,
    "near": true
   },
   {
-   "rule": "S14",
+   "rule": "P01",
    "tier": "REFERENCE",
-   "name": "ad breaks",
-   "value": 2,
-   "op": "in",
-   "threshold": [
-    2,
-    3
-   ],
-   "unit": "",
+   "name": "thumb 3 token share (%)",
+   "value": 99.99924,
+   "op": ">=",
+   "threshold": 97.0,
+   "unit": "%",
    "pass": true,
    "near": true
   }
  ],
  "results": [
   {
-   "id": "A01",
+   "id": "F11",
    "status": "PASS",
    "metrics": [
     {
-     "name": "integrated LUFS",
-     "value": -14.1,
-     "op": "in",
-     "threshold": [
-      -15.0,
-      -13.0
-     ],
-     "unit": "LUFS",
+     "name": "declared M3 artefacts",
+     "value": 40,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
      "pass": true,
      "near": false
-    }
-   ],
-   "details": [],
-   "note": null,
-   "section": "DX-A10",
-   "threshold": "−14 LUFS ± 1 (−15 … −13)",
-   "fingerprint": "90bd42d7584ea83c",
-   "tier": "BLOCK",
-   "seconds": 7.5
-  },
-  {
-   "id": "A02",
-   "status": "PASS",
-   "metrics": [
+    },
     {
-     "name": "true peak dBTP",
-     "value": -1.4,
+     "name": "declared artefacts not delivered",
+     "value": 0,
      "op": "<=",
-     "threshold": -1.0,
-     "unit": "dBTP",
+     "threshold": 0,
+     "unit": "",
      "pass": true,
      "near": false
-    }
-   ],
-   "details": [],
-   "note": null,
-   "section": "DX-A10",
-   "threshold": "≤ −1.0 dBTP",
-   "fingerprint": "cf2bfca832a8ec3b",
-   "tier": "BLOCK",
-   "seconds": 0.0
-  },
-  {
-   "id": "A03",
-   "status": "FAIL",
-   "metrics": [
+    },
     {
-     "name": "LRA LU",
-     "value": 3.1,
-     "op": "in",
-     "threshold": [
-      6.0,
-      10.0
-     ],
-     "unit": "LU",
-     "pass": false,
-     "near": false
-    }
-   ],
-   "details": [],
-   "note": null,
-   "section": "DX-A10",
-   "threshold": "6 … 10 LU",
-   "fingerprint": "9b1767b2c0981b51",
-   "tier": "REFERENCE",
-   "seconds": 0.0
-  },
-  {
-   "id": "A04",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "samples at full scale",
+     "name": "release files not declared",
      "value": 0,
      "op": "<=",
      "threshold": 0,
@@ -162,757 +102,137 @@
      "near": false
     }
    ],
-   "details": [],
-   "note": null,
-   "section": "DX-A10",
-   "threshold": "0 samples",
-   "fingerprint": "0c3453bc2aeb3f35",
-   "tier": "BLOCK",
-   "seconds": 4.5
-  },
-  {
-   "id": "A05",
-   "status": "PASS",
-   "metrics": [
+   "details": [
     {
-     "name": "mean phase correlation",
-     "value": 0.980479,
-     "op": ">",
-     "threshold": 0.3,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "windows r<0 (%)",
-     "value": 0.0,
-     "op": "<=",
-     "threshold": 5.0,
-     "unit": "%",
-     "pass": true,
-     "near": false
+     "notDelivered": [],
+     "notDeclared": []
     }
    ],
-   "details": [],
    "note": null,
-   "section": "DX-A10",
-   "threshold": "mean r > 0.3; windows with r < 0 ≤ 5%",
-   "fingerprint": "661ced8cbd2e7840",
+   "section": "CH §4 khâu 3 (hợp đồng tập, K2)",
+   "threshold": "every declared M3 artefact delivered; every checks/CONTRACT.md release file declared",
+   "fingerprint": "eb72b164041573de",
    "tier": "BLOCK",
-   "seconds": 0.4
+   "seconds": 0.0
   },
   {
-   "id": "A06",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "mono − stereo LU",
-     "value": 0.0,
-     "op": ">=",
-     "threshold": -3.0,
-     "unit": "LU",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "voice-band loss dB",
-     "value": 0.002475,
-     "op": "<=",
-     "threshold": 3.0,
-     "unit": "dB",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [],
-   "note": null,
-   "section": "DX-A10, DX-X5",
-   "threshold": "mono loudness ≥ stereo − 3 LU; voice-band loss ≤ 3 dB",
-   "fingerprint": "e8219cc7bd471b59",
-   "tier": "BLOCK",
-   "seconds": 12.0
-  },
-  {
-   "id": "A07",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "voice − music dB",
-     "value": 19.962866,
-     "op": "in",
-     "threshold": [
-      18.0,
-      22.0
-     ],
-     "unit": "dB",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [],
-   "note": null,
-   "section": "DX-A9",
-   "threshold": "18 … 22 dB",
-   "fingerprint": "3d0ed9ae39f81476",
-   "tier": "REFERENCE",
-   "seconds": 9.4
-  },
-  {
-   "id": "A08",
+   "id": "P01",
    "status": "FAIL",
    "metrics": [
     {
-     "name": "onsets measured",
-     "value": 77,
-     "op": ">=",
-     "threshold": 3,
+     "name": "thumb 1 size",
+     "value": "1280x720",
+     "op": "==",
+     "threshold": "1280x720",
      "unit": "",
      "pass": true,
      "near": false
     },
     {
-     "name": "median 1-4 kHz drop dB",
-     "value": 4.366425,
+     "name": "thumb 1 token share (%)",
+     "value": 99.99924,
      "op": ">=",
-     "threshold": 6.0,
-     "unit": "dB",
-     "pass": false,
-     "near": false
+     "threshold": 97.0,
+     "unit": "%",
+     "pass": true,
+     "near": true
     },
     {
-     "name": "median band-limited excess dB",
-     "value": 3.431538,
+     "name": "thumb 1 min contrast at 10%",
+     "value": 3.670111,
      "op": ">=",
      "threshold": 3.0,
-     "unit": "dB",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [],
-   "note": null,
-   "section": "DX-A9",
-   "threshold": "median presence drop ≥ 6 dB AND median (presence drop − low drop) ≥ 3 dB (the dip is band-limited, not broadband); ≥ 3 onsets measured",
-   "fingerprint": "ce5a60fda71b568f",
-   "tier": "REFERENCE",
-   "seconds": 3.0
-  },
-  {
-   "id": "A09",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "silences 0.8-1.5 s",
-     "value": 8,
-     "op": ">=",
-     "threshold": 3,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "spans": [
-      [
-       26.13,
-       0.84
-      ],
-      [
-       175.93,
-       1.0
-      ],
-      [
-       321.02,
-       1.21
-      ],
-      [
-       381.92,
-       1.46
-      ],
-      [
-       505.21,
-       0.98
-      ],
-      [
-       565.85,
-       1.09
-      ],
-      [
-       573.07,
-       1.19
-      ],
-      [
-       577.69,
-       1.15
-      ]
-     ],
-     "otherSpans": [
-      [
-       2.35,
-       0.09
-      ],
-      [
-       2.43,
-       0.25
-      ],
-      [
-       2.73,
-       0.08
-      ],
-      [
-       4.67,
-       0.12
-      ],
-      [
-       4.78,
-       0.23
-      ],
-      [
-       6.29,
-       0.14
-      ],
-      [
-       8.34,
-       0.36
-      ],
-      [
-       8.72,
-       0.24
-      ],
-      [
-       9.57,
-       0.21
-      ],
-      [
-       10.78,
-       0.05
-      ]
-     ]
-    }
-   ],
-   "note": null,
-   "section": "DX-R6",
-   "threshold": "≥ 3 spans of 0.8–1.5 s",
-   "fingerprint": "75ebd0a342734fc4",
-   "tier": "REFERENCE",
-   "seconds": 5.8
-  },
-  {
-   "id": "A12",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "accents",
-     "value": 6,
-     "op": ">=",
-     "threshold": 5,
      "unit": "",
      "pass": true,
      "near": false
     },
     {
-     "name": "accents on a cut (%)",
-     "value": 100.0,
+     "name": "thumb 2 size",
+     "value": "1280x720",
+     "op": "==",
+     "threshold": "1280x720",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "thumb 2 token share (%)",
+     "value": 99.99924,
      "op": ">=",
-     "threshold": 100.0,
+     "threshold": 97.0,
      "unit": "%",
      "pass": true,
      "near": true
     },
     {
-     "name": "accents confirmed by onset (%)",
-     "value": 100.0,
+     "name": "thumb 2 min contrast at 10%",
+     "value": 3.768719,
      "op": ">=",
-     "threshold": 90.0,
+     "threshold": 3.0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "thumb 3 size",
+     "value": "1280x720",
+     "op": "==",
+     "threshold": "1280x720",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "thumb 3 token share (%)",
+     "value": 99.99924,
+     "op": ">=",
+     "threshold": 97.0,
      "unit": "%",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "beats confirmed by onset (%)",
-     "value": 92.985612,
-     "op": ">=",
-     "threshold": 70.0,
-     "unit": "%",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "missedAccents": []
-    }
-   ],
-   "note": null,
-   "section": "DX-A3",
-   "threshold": "≥ 5 accents; 100% of accents land on a cut; ≥ 90% of accents are real; ≥ 70% of beats while music is audible have an onset within ±50 ms",
-   "fingerprint": "e1e4b52c36ecb215",
-   "tier": "REFERENCE",
-   "seconds": 21.5
-  },
-  {
-   "id": "A13",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "takes",
-     "value": 13,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "max |stretch-1|",
-     "value": 0.0,
-     "op": "<=",
-     "threshold": 0.1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "over": []
-    }
-   ],
-   "note": null,
-   "section": "DX-A7",
-   "threshold": "every |stretch − 1| ≤ 0.10",
-   "fingerprint": "d9a3e6fde6d2f573",
-   "tier": "REFERENCE",
-   "seconds": 3.7
-  },
-  {
-   "id": "A14",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "key words",
-     "value": 151,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "key words missing",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [],
-   "note": null,
-   "section": "DX-A7",
-   "threshold": "0 key words missing (no percentage threshold)",
-   "fingerprint": "01110949f33e3fce",
-   "tier": "BLOCK",
-   "seconds": 2.3
-  },
-  {
-   "id": "A18",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "takes",
-     "value": 13,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "distinct voices (provider, voiceId, model)",
-     "value": 1,
-     "op": "<=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": true
-    }
-   ],
-   "details": [
-    {
-     "main": "elevenlabs / cjVigY5qzO86Huf0OWal / eleven_v3",
-     "mainTakes": 13,
-     "others": {}
-    },
-    {
-     "measured": []
-    }
-   ],
-   "note": null,
-   "section": "DX-A8 (K3, cảnh báo)",
-   "threshold": "PROVISIONAL: 1 voice (provider, voiceId, model) for the whole episode (REFERENCE: reported, never fails the episode)",
-   "fingerprint": "dafa2829e3315835",
-   "tier": "MAJOR",
-   "seconds": 0.0
-  },
-  {
-   "id": "S14",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "ad breaks",
-     "value": 2,
-     "op": "in",
-     "threshold": [
-      2,
-      3
-     ],
-     "unit": "",
      "pass": true,
      "near": true
     },
     {
-     "name": "breaks off an act boundary",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "breaks without ≥1 s silence",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "breaks": [
-      223.593,
-      382.524
-     ],
-     "boundaries": [
-      224.433,
-      383.3,
-      506.033,
-      530.033
-     ]
-    }
-   ],
-   "note": null,
-   "section": "DX-S10",
-   "threshold": "2 … 3 breaks; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s",
-   "fingerprint": "130b08063ddb2a97",
-   "tier": "REFERENCE",
-   "seconds": 1.5
-  },
-  {
-   "id": "T2",
-   "status": "FAIL",
-   "metrics": [
-    {
-     "name": "phrases measured",
-     "value": 71,
+     "name": "thumb 3 min contrast at 10%",
+     "value": 3.670111,
      "op": ">=",
-     "threshold": 8,
+     "threshold": 3.0,
      "unit": "",
      "pass": true,
      "near": false
     },
     {
-     "name": "repeated phrases (%)",
-     "value": 19.71831,
-     "op": "<=",
-     "threshold": 5.0,
-     "unit": "%",
-     "pass": false,
-     "near": false
-    },
-    {
-     "name": "longest run of repeated phrases",
+     "name": "thumb texts below 90 px",
      "value": 3,
      "op": "<=",
-     "threshold": 1,
-     "unit": "",
-     "pass": false,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "medianSimilarity": 0.8738,
-     "maxSimilarity": 0.9476,
-     "repeats": [
-      [
-       26.97,
-       3,
-       0.9072
-      ],
-      [
-       101.15,
-       2,
-       0.9084
-      ],
-      [
-       108.89,
-       3,
-       0.9038
-      ],
-      [
-       116.64,
-       2,
-       0.9121
-      ],
-      [
-       163.16,
-       3,
-       0.9035
-      ],
-      [
-       300.91,
-       3,
-       0.9476
-      ],
-      [
-       308.43,
-       4,
-       0.9042
-      ],
-      [
-       330.64,
-       1,
-       0.9151
-      ],
-      [
-       337.86,
-       1,
-       0.9087
-      ],
-      [
-       359.52,
-       4,
-       0.9048
-      ],
-      [
-       403.47,
-       1,
-       0.901
-      ],
-      [
-       411.19,
-       2,
-       0.9162
-      ],
-      [
-       434.36,
-       4,
-       0.9039
-      ],
-      [
-       442.13,
-       2,
-       0.9043
-      ]
-     ]
-    }
-   ],
-   "note": null,
-   "section": "DX-A2 (sổ gu G-002)",
-   "threshold": "≥ 8 phrases measured; repeats ≤ 5% of phrases; never 2 repeated phrases in a row",
-   "fingerprint": "2ef4ab7a79e5208a",
-   "tier": "REFERENCE",
-   "seconds": 4.2
-  },
-  {
-   "id": "T3",
-   "status": "FAIL",
-   "metrics": [
-    {
-     "name": "silences measured",
-     "value": 8,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "entries outside 150–400 ms",
-     "value": 2,
-     "op": "<=",
      "threshold": 0,
      "unit": "",
      "pass": false,
      "near": false
-    },
-    {
-     "name": "silences without a room-tone floor",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
     }
    ],
    "details": [
-    {
-     "start": 26.13,
-     "dur": 0.84,
-     "bedRef": -53.9,
-     "bedInside": -92.0,
-     "entry": 0.11,
-     "masterMin": -62.8,
-     "room": -60.7,
-     "judged": true,
-     "entryOk": false,
-     "floorOk": true
-    },
-    {
-     "start": 175.93,
-     "dur": 1.0,
-     "bedRef": -49.1,
-     "bedInside": -86.5,
-     "entry": 0.205,
-     "masterMin": -62.1,
-     "room": -61.1,
-     "judged": true,
-     "entryOk": true,
-     "floorOk": true
-    },
-    {
-     "start": 321.02,
-     "dur": 1.21,
-     "bedRef": -44.9,
-     "bedInside": -94.2,
-     "entry": 0.25,
-     "masterMin": -63.0,
-     "room": -60.6,
-     "judged": true,
-     "entryOk": true,
-     "floorOk": true
-    },
-    {
-     "start": 381.92,
-     "dur": 1.46,
-     "bedRef": -47.2,
-     "bedInside": -109.6,
-     "entry": 0.16,
-     "masterMin": -63.2,
-     "room": -61.1,
-     "judged": true,
-     "entryOk": true,
-     "floorOk": true
-    },
-    {
-     "start": 505.21,
-     "dur": 0.98,
-     "bedRef": -48.5,
-     "bedInside": -86.7,
-     "entry": 0.15,
-     "masterMin": -63.2,
-     "room": -61.8,
-     "judged": true,
-     "entryOk": true,
-     "floorOk": true
-    },
-    {
-     "start": 565.85,
-     "dur": 1.09,
-     "bedRef": -41.5,
-     "bedInside": -86.2,
-     "entry": 0.7,
-     "masterMin": -63.6,
-     "room": -61.6,
-     "judged": true,
-     "entryOk": false,
-     "floorOk": true
-    },
-    {
-     "start": 573.07,
-     "dur": 1.19,
-     "bedRef": -40.4,
-     "bedInside": -47.2,
-     "entry": null,
-     "masterMin": -49.8,
-     "room": -68.8,
-     "judged": false,
-     "entryOk": true,
-     "floorOk": true
-    },
-    {
-     "start": 577.69,
-     "dur": 1.15,
-     "bedRef": -38.1,
-     "bedInside": -43.8,
-     "entry": null,
-     "masterMin": -51.4,
-     "room": -69.3,
-     "judged": false,
-     "entryOk": true,
-     "floorOk": true
-    }
+    [
+     1,
+     "ILLUSTRATIVE",
+     "fontPx < 90"
+    ],
+    [
+     2,
+     "ILLUSTRATIVE",
+     "fontPx < 90"
+    ],
+    [
+     3,
+     "ILLUSTRATIVE",
+     "fontPx < 90"
+    ]
    ],
    "note": null,
-   "section": "DX-R6 (sổ gu G-003)",
-   "threshold": "every entry 150–400 ms; master ≥ −80 dBFS and room stem ≥ −75 dBFS through every silence; ≥ 1 silence",
-   "fingerprint": "aae85b30becf5024",
+   "section": "DX-P2",
+   "threshold": "3 thumbnails, each 1280×720; token share ≥ 97%; every text fontPx ≥ 90 (≥ 9 px at 10%) and contrast at 10% ≥ 3:1",
+   "fingerprint": "00d0de16695f1943",
    "tier": "REFERENCE",
-   "seconds": 32.4
-  },
-  {
-   "id": "L1",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "voice-active windows",
-     "value": 4420,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "voice/data 1–4 kHz ratio, 10th percentile (dB)",
-     "value": 27.690484,
-     "op": ">=",
-     "threshold": 20.0,
-     "unit": "dB",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "key words lost to the data sounds",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "windowsWithDataSound": 116,
-     "medianRatioDb": 43.2,
-     "minRatioDb": 2.8,
-     "keyWords": 151
-    }
-   ],
-   "note": null,
-   "section": "DX-A1, DX-A9 (sổ gu G-006)",
-   "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
-   "fingerprint": "01832a4e805c145e",
-   "tier": "MAJOR",
-   "seconds": 350.8
+   "seconds": 2.5
   }
  ]
 }

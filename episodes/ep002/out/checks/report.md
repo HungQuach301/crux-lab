@@ -3,7 +3,7 @@
 root: `/home/user/crux-lab/episodes/ep002`  
 lock: `2fcc9fcc9a94b73084c43ba59970d88f539cd29363334faf52b0640efc2cc801`  
 master SHA-256: `fdfa3d47d6ee1069a23b30d52a4044fa2f9209e1b9a0c02852e059170e2480a4`  
-{'PASS': 60, 'FAIL': 22, 'MISSING': 0, 'ERROR': 0}
+{'PASS': 59, 'FAIL': 23, 'MISSING': 0, 'ERROR': 0}
 
 **Tập: ĐẠT** (chỉ luật CHẶN làm trượt tập; luật CHÍNH không đạt cần bên dựng giải thích; luật THAM KHẢO chỉ báo số đo)
 
@@ -11,11 +11,10 @@ master SHA-256: `fdfa3d47d6ee1069a23b30d52a4044fa2f9209e1b9a0c02852e059170e2480a
 |---|---|---|---|
 | CHẶN | 29 | 29 | — |
 | CHÍNH | 11 | 11 | — |
-| THAM KHẢO | 42 | 20 | A03 FAIL, A10 FAIL, A11 FAIL, A15 FAIL, A16 FAIL, A17 FAIL, S11 FAIL, S12 FAIL, S15 FAIL, R02 FAIL, R03 FAIL, R05 FAIL, R06 FAIL, V02 FAIL, V05 FAIL, V10 FAIL, C10 FAIL, C12 FAIL, C13 FAIL, P01 FAIL, T2 FAIL, T3 FAIL |
+| THAM KHẢO | 42 | 19 | A03 FAIL, A08 FAIL, A10 FAIL, A11 FAIL, A15 FAIL, A16 FAIL, A17 FAIL, S11 FAIL, S12 FAIL, S15 FAIL, R02 FAIL, R03 FAIL, R05 FAIL, R06 FAIL, V02 FAIL, V05 FAIL, V10 FAIL, C10 FAIL, C12 FAIL, C13 FAIL, P01 FAIL, T2 FAIL, T3 FAIL |
 
 ## Chỉ số trong ±5% quanh ngưỡng
 
-- A08 (THAM KHẢO) · median 1-4 kHz drop dB = 6.18919 (ngưỡng >= 6.0, đạt)
 - A12 (THAM KHẢO) · accents on a cut (%) = 100.0 (ngưỡng >= 100.0, đạt)
 - A15 (THAM KHẢO) · wpm act cold-open = 158.878885 (ngưỡng in [150.0, 160.0], đạt)
 - A15 (THAM KHẢO) · wpm act act1 = 163.16604 (ngưỡng in [150.0, 160.0], không đạt)
@@ -35,7 +34,7 @@ master SHA-256: `fdfa3d47d6ee1069a23b30d52a4044fa2f9209e1b9a0c02852e059170e2480a
 - P01 (THAM KHẢO) · thumb 1 token share (%) = 99.99924 (ngưỡng >= 97.0, đạt)
 - P01 (THAM KHẢO) · thumb 2 token share (%) = 99.99924 (ngưỡng >= 97.0, đạt)
 - P01 (THAM KHẢO) · thumb 3 token share (%) = 99.996962 (ngưỡng >= 97.0, đạt)
-- T1 (THAM KHẢO) · share of slots heard in a pause = 0.620253 (ngưỡng >= 0.6, đạt)
+- T1 (THAM KHẢO) · share of slots heard in a pause = 0.613924 (ngưỡng >= 0.6, đạt)
 
 | rule | tier | § | status | failing metrics |
 |---|---|---|---|---|
@@ -58,7 +57,7 @@ master SHA-256: `fdfa3d47d6ee1069a23b30d52a4044fa2f9209e1b9a0c02852e059170e2480a
 | A05 | CHẶN | DX-A10 | PASS |  |
 | A06 | CHẶN | DX-A10, DX-X5 | PASS |  |
 | A07 | THAM KHẢO | DX-A9 | PASS |  |
-| A08 | THAM KHẢO | DX-A9 | PASS |  |
+| A08 | THAM KHẢO | DX-A9 | FAIL | median 1-4 kHz drop dB = 4.366425 (need >= 6.0) |
 | A09 | THAM KHẢO | DX-R6 | PASS |  |
 | A10 | THAM KHẢO | DX-A5 | FAIL | camera moves = 0 (need >= 5) |
 | A11 | THAM KHẢO | DX-A5 | FAIL | events measured = 0 (need >= 8); Pearson pan~x = None (need >= 0.7) |
@@ -117,7 +116,7 @@ master SHA-256: `fdfa3d47d6ee1069a23b30d52a4044fa2f9209e1b9a0c02852e059170e2480a
 | C15 | THAM KHẢO | DX-V5 (C rule tokens only) | PASS |  |
 | P01 | THAM KHẢO | DX-P2 | FAIL | thumb texts below 90 px = 3 (need <= 0) |
 | T1 | THAM KHẢO | DX-A1 (sổ gu G-001, G-006) | PASS |  |
-| T2 | THAM KHẢO | DX-A2 (sổ gu G-002) | FAIL | repeated phrases (%) = 64.788732 (need <= 5.0); longest run of repeated phrases = 14 (need <= 1) |
-| T3 | THAM KHẢO | DX-R6 (sổ gu G-003) | FAIL | entries outside 150–400 ms = 3 (need <= 0) |
+| T2 | THAM KHẢO | DX-A2 (sổ gu G-002) | FAIL | repeated phrases (%) = 19.71831 (need <= 5.0); longest run of repeated phrases = 3 (need <= 1) |
+| T3 | THAM KHẢO | DX-R6 (sổ gu G-003) | FAIL | entries outside 150–400 ms = 2 (need <= 0) |
 | L1 | CHÍNH | DX-A1, DX-A9 (sổ gu G-006) | PASS |  |
 | REG | CHẶN | CH §5, §4 khâu 3 (cổng hồi quy) | PASS | first version: nothing to compare |

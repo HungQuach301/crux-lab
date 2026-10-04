@@ -22,9 +22,10 @@
   "REFERENCE": {
    "label": "THAM KHẢO",
    "rules": 42,
-   "pass": 20,
+   "pass": 19,
    "notPass": [
     "A03 FAIL",
+    "A08 FAIL",
     "A10 FAIL",
     "A11 FAIL",
     "A15 FAIL",
@@ -50,23 +51,12 @@
   }
  },
  "counts": {
-  "PASS": 60,
-  "FAIL": 22,
+  "PASS": 59,
+  "FAIL": 23,
   "MISSING": 0,
   "ERROR": 0
  },
  "near": [
-  {
-   "rule": "A08",
-   "tier": "REFERENCE",
-   "name": "median 1-4 kHz drop dB",
-   "value": 6.18919,
-   "op": ">=",
-   "threshold": 6.0,
-   "unit": "dB",
-   "pass": true,
-   "near": true
-  },
   {
    "rule": "A12",
    "tier": "REFERENCE",
@@ -295,7 +285,7 @@
    "rule": "T1",
    "tier": "REFERENCE",
    "name": "share of slots heard in a pause",
-   "value": 0.620253,
+   "value": 0.613924,
    "op": ">=",
    "threshold": 0.6,
    "unit": "",
@@ -406,7 +396,7 @@
    "threshold": "both rates exactly 30/1 and every PTS step = 1/30 s (constant frame rate)",
    "fingerprint": "2e2f77485e6446dd",
    "tier": "BLOCK",
-   "seconds": 0.8
+   "seconds": 1.0
   },
   {
    "id": "F03",
@@ -535,7 +525,7 @@
    "threshold": "all tags bt709, range tv (limited); Y outside 16–235 ≤ 0.1% of samples",
    "fingerprint": "fb5a8e04e2527aaf",
    "tier": "BLOCK",
-   "seconds": 98.6
+   "seconds": 104.1
   },
   {
    "id": "F06",
@@ -636,7 +626,7 @@
    "threshold": "worst frame ≤ 5% (frames with < 1% dark-gradient area are skipped)",
    "fingerprint": "07ff4ebdb7cec464",
    "tier": "BLOCK",
-   "seconds": 94.9
+   "seconds": 99.5
   },
   {
    "id": "F09",
@@ -951,7 +941,7 @@
    "threshold": "0 sounding stems without a rights entry; visual list declared; 0 listed visuals without a rights entry; 0 visuals of an unknown kind; 0 loaded picture files or font families not declared; 0 generated rules without an existing generator; 0 assets with a missing field; 0 third-party assets without terms (or public-domain source and basis) or not cleared for commercial use; ≥ 1 asset",
    "fingerprint": "0ac72b3fbd4b4eb9",
    "tier": "BLOCK",
-   "seconds": 64.7
+   "seconds": 27.2
   },
   {
    "id": "A01",
@@ -976,7 +966,7 @@
    "threshold": "−14 LUFS ± 1 (−15 … −13)",
    "fingerprint": "90bd42d7584ea83c",
    "tier": "BLOCK",
-   "seconds": 5.4
+   "seconds": 5.7
   },
   {
    "id": "A02",
@@ -1045,7 +1035,7 @@
    "threshold": "0 samples",
    "fingerprint": "0c3453bc2aeb3f35",
    "tier": "BLOCK",
-   "seconds": 3.9
+   "seconds": 3.4
   },
   {
    "id": "A05",
@@ -1076,7 +1066,7 @@
    "threshold": "mean r > 0.3; windows with r < 0 ≤ 5%",
    "fingerprint": "661ced8cbd2e7840",
    "tier": "BLOCK",
-   "seconds": 0.3
+   "seconds": 0.4
   },
   {
    "id": "A06",
@@ -1107,7 +1097,7 @@
    "threshold": "mono loudness ≥ stereo − 3 LU; voice-band loss ≤ 3 dB",
    "fingerprint": "e8219cc7bd471b59",
    "tier": "BLOCK",
-   "seconds": 10.4
+   "seconds": 11.8
   },
   {
    "id": "A07",
@@ -1115,7 +1105,7 @@
    "metrics": [
     {
      "name": "voice − music dB",
-     "value": 19.954178,
+     "value": 19.962866,
      "op": "in",
      "threshold": [
       18.0,
@@ -1136,11 +1126,11 @@
   },
   {
    "id": "A08",
-   "status": "PASS",
+   "status": "FAIL",
    "metrics": [
     {
      "name": "onsets measured",
-     "value": 76,
+     "value": 77,
      "op": ">=",
      "threshold": 3,
      "unit": "",
@@ -1149,16 +1139,16 @@
     },
     {
      "name": "median 1-4 kHz drop dB",
-     "value": 6.18919,
+     "value": 4.366425,
      "op": ">=",
      "threshold": 6.0,
      "unit": "dB",
-     "pass": true,
-     "near": true
+     "pass": false,
+     "near": false
     },
     {
      "name": "median band-limited excess dB",
-     "value": 6.173895,
+     "value": 3.431538,
      "op": ">=",
      "threshold": 3.0,
      "unit": "dB",
@@ -1172,7 +1162,7 @@
    "threshold": "median presence drop ≥ 6 dB AND median (presence drop − low drop) ≥ 3 dB (the dip is band-limited, not broadband); ≥ 3 onsets measured",
    "fingerprint": "ce5a60fda71b568f",
    "tier": "REFERENCE",
-   "seconds": 2.3
+   "seconds": 2.5
   },
   {
    "id": "A09",
@@ -1273,7 +1263,7 @@
    "threshold": "≥ 3 spans of 0.8–1.5 s",
    "fingerprint": "75ebd0a342734fc4",
    "tier": "REFERENCE",
-   "seconds": 6.5
+   "seconds": 6.6
   },
   {
    "id": "A10",
@@ -1295,7 +1285,7 @@
    "threshold": "Spearman ρ(peak speed, whoosh dB) ≥ 0.6 over ≥ 5 moves; every move with peak ≥ 0.3 fw/s has a whoosh ≥ −45 dBFS",
    "fingerprint": "ab5f84cfaa6d1084",
    "tier": "REFERENCE",
-   "seconds": 2.7
+   "seconds": 1.4
   },
   {
    "id": "A11",
@@ -1361,7 +1351,7 @@
     },
     {
      "name": "beats confirmed by onset (%)",
-     "value": 97.217235,
+     "value": 92.985612,
      "op": ">=",
      "threshold": 70.0,
      "unit": "%",
@@ -1379,7 +1369,7 @@
    "threshold": "≥ 5 accents; 100% of accents land on a cut; ≥ 90% of accents are real; ≥ 70% of beats while music is audible have an onset within ±50 ms",
    "fingerprint": "e1e4b52c36ecb215",
    "tier": "REFERENCE",
-   "seconds": 21.2
+   "seconds": 23.1
   },
   {
    "id": "A13",
@@ -1414,7 +1404,7 @@
    "threshold": "every |stretch − 1| ≤ 0.10",
    "fingerprint": "d9a3e6fde6d2f573",
    "tier": "REFERENCE",
-   "seconds": 4.8
+   "seconds": 4.2
   },
   {
    "id": "A14",
@@ -1445,7 +1435,7 @@
    "threshold": "0 key words missing (no percentage threshold)",
    "fingerprint": "01110949f33e3fce",
    "tier": "BLOCK",
-   "seconds": 204.1
+   "seconds": 1.8
   },
   {
    "id": "A15",
@@ -1893,7 +1883,7 @@
    "threshold": "PROVISIONAL: abnormal sentences ≤ 10%; abnormal gaps ≤ 10%; ≥ 1 sentence voiced (REFERENCE: reported, never fails the episode)",
    "fingerprint": "483f26350bc28c42",
    "tier": "REFERENCE",
-   "seconds": 2.9
+   "seconds": 1.6
   },
   {
    "id": "A18",
@@ -1978,7 +1968,7 @@
    "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
    "fingerprint": "bd6d0ee85cf6c7c1",
    "tier": "BLOCK",
-   "seconds": 0.9
+   "seconds": 0.7
   },
   {
    "id": "S02",
@@ -2282,7 +2272,7 @@
    "threshold": "≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months after normalisation, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag",
    "fingerprint": "a2a1bebe727f2cd1",
    "tier": "BLOCK",
-   "seconds": 1.5
+   "seconds": 1.6
   },
   {
    "id": "S06",
@@ -2963,7 +2953,7 @@
    "threshold": "2 … 3 breaks; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s",
    "fingerprint": "130b08063ddb2a97",
    "tier": "REFERENCE",
-   "seconds": 6.1
+   "seconds": 1.9
   },
   {
    "id": "S15",
@@ -3118,7 +3108,7 @@
     },
     {
      "name": "r music level",
-     "value": 0.97296,
+     "value": 0.934477,
      "op": ">=",
      "threshold": 0.7,
      "unit": "",
@@ -3127,7 +3117,7 @@
     },
     {
      "name": "r audio density",
-     "value": 0.965784,
+     "value": 0.959973,
      "op": ">=",
      "threshold": 0.6,
      "unit": "",
@@ -3299,7 +3289,7 @@
    "threshold": "≥ 1 decisive claim; every pause ≥ 1.0 s; 0 decisive numbers not found in ASR",
    "fingerprint": "254f84761c7ec3ea",
    "tier": "REFERENCE",
-   "seconds": 0.8
+   "seconds": 1.4
   },
   {
    "id": "R04",
@@ -3539,7 +3529,7 @@
    "threshold": "≥ 90% of cuts show a spike ≥ 3 × the surrounding median and ≥ 2 codes",
    "fingerprint": "cb2475bae25dd531",
    "tier": "REFERENCE",
-   "seconds": 91.2
+   "seconds": 91.0
   },
   {
    "id": "V01",
@@ -3839,7 +3829,7 @@
    "threshold": "≥ 5 moves; every move eased (≤ 0.4) and none linear; anticipation in ≥ 30% and overshoot in ≥ 30% of moves ≥ 1 s; no overshoot > 8%; peak |a| ≤ 8 fw/s²; ρ ≥ 0.3",
    "fingerprint": "07aff0cb938aedb9",
    "tier": "REFERENCE",
-   "seconds": 93.4
+   "seconds": 93.8
   },
   {
    "id": "V08",
@@ -3967,7 +3957,7 @@
    "threshold": "≥ 5 verified match cuts; ≥ 4 verified J/L-cuts; every declared dissolve has a reason ≥ 5 words and not \"default\"; 0 undeclared dissolves detected",
    "fingerprint": "c54c79edfeb2aeca",
    "tier": "REFERENCE",
-   "seconds": 90.7
+   "seconds": 92.8
   },
   {
    "id": "V11",
@@ -4690,7 +4680,7 @@
    "threshold": "3 thumbnails, each 1280×720; token share ≥ 97%; every text fontPx ≥ 90 (≥ 9 px at 10%) and contrast at 10% ≥ 3:1",
    "fingerprint": "00d0de16695f1943",
    "tier": "REFERENCE",
-   "seconds": 2.5
+   "seconds": 2.4
   },
   {
    "id": "T1",
@@ -4707,7 +4697,7 @@
     },
     {
      "name": "share of slots heard in a pause",
-     "value": 0.620253,
+     "value": 0.613924,
      "op": ">=",
      "threshold": 0.6,
      "unit": "",
@@ -4716,7 +4706,7 @@
     },
     {
      "name": "declared bands share of data-stem energy",
-     "value": 0.984698,
+     "value": 0.984697,
      "op": ">=",
      "threshold": 0.5,
      "unit": "",
@@ -4725,7 +4715,7 @@
     },
     {
      "name": "stems ~ master in band r",
-     "value": 0.99389,
+     "value": 0.999992,
      "op": ">=",
      "threshold": 0.9,
      "unit": "",
@@ -4760,7 +4750,7 @@
       ]
      ],
      "slots": 316,
-     "heard": 196,
+     "heard": 194,
      "slotsWithoutPause": 14
     },
     {
@@ -4778,7 +4768,7 @@
     {
      "t": 16.17,
      "pauseFrames": 29,
-     "bestLiftInPause": 2.46,
+     "bestLiftInPause": 2.44,
      "heard": false
     },
     {
@@ -4796,7 +4786,7 @@
     {
      "t": 23.37,
      "pauseFrames": 6,
-     "bestLiftInPause": 0.08,
+     "bestLiftInPause": 0.07,
      "heard": false
     },
     {
@@ -4836,20 +4826,20 @@
      "heard": false
     },
     {
-     "t": 93.93,
-     "pauseFrames": 18,
-     "bestLiftInPause": 2.27,
-     "heard": false
-    },
-    {
      "t": 94.43,
      "pauseFrames": 16,
-     "bestLiftInPause": 2.94,
+     "bestLiftInPause": 2.78,
      "heard": false
     },
     {
      "t": 96.5,
      "pauseFrames": 14,
+     "bestLiftInPause": 0.0,
+     "heard": false
+    },
+    {
+     "t": 98.5,
+     "pauseFrames": 42,
      "bestLiftInPause": 0.0,
      "heard": false
     }
@@ -4859,7 +4849,7 @@
    "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
    "fingerprint": "e7a5925e1b04aae3",
    "tier": "REFERENCE",
-   "seconds": 39.8
+   "seconds": 40.0
   },
   {
    "id": "T2",
@@ -4876,7 +4866,7 @@
     },
     {
      "name": "repeated phrases (%)",
-     "value": 64.788732,
+     "value": 19.71831,
      "op": "<=",
      "threshold": 5.0,
      "unit": "%",
@@ -4885,7 +4875,7 @@
     },
     {
      "name": "longest run of repeated phrases",
-     "value": 14,
+     "value": 3,
      "op": "<=",
      "threshold": 1,
      "unit": "",
@@ -4895,83 +4885,78 @@
    ],
    "details": [
     {
-     "medianSimilarity": 0.9152,
-     "maxSimilarity": 0.9591,
+     "medianSimilarity": 0.8738,
+     "maxSimilarity": 0.9476,
      "repeats": [
       [
-       43.74,
-       1,
-       0.9068
-      ],
-      [
-       68.77,
+       26.97,
        3,
-       0.9188
-      ],
-      [
-       76.6,
-       1,
-       0.931
-      ],
-      [
-       84.43,
-       2,
-       0.9216
-      ],
-      [
-       92.94,
-       3,
-       0.9241
+       0.9072
       ],
       [
        101.15,
-       3,
-       0.9397
+       2,
+       0.9084
       ],
       [
        108.89,
-       4,
-       0.9344
+       3,
+       0.9038
       ],
       [
        116.64,
        2,
-       0.9152
-      ],
-      [
-       124.38,
-       3,
-       0.9383
-      ],
-      [
-       132.1,
-       3,
-       0.907
-      ],
-      [
-       139.81,
-       4,
-       0.9083
-      ],
-      [
-       147.55,
-       1,
-       0.9411
-      ],
-      [
-       155.41,
-       1,
-       0.9499
+       0.9121
       ],
       [
        163.16,
-       1,
-       0.919
+       3,
+       0.9035
       ],
       [
-       225.38,
+       300.91,
+       3,
+       0.9476
+      ],
+      [
+       308.43,
+       4,
+       0.9042
+      ],
+      [
+       330.64,
+       1,
+       0.9151
+      ],
+      [
+       337.86,
+       1,
+       0.9087
+      ],
+      [
+       359.52,
+       4,
+       0.9048
+      ],
+      [
+       403.47,
+       1,
+       0.901
+      ],
+      [
+       411.19,
        2,
-       0.9311
+       0.9162
+      ],
+      [
+       434.36,
+       4,
+       0.9039
+      ],
+      [
+       442.13,
+       2,
+       0.9043
       ]
      ]
     }
@@ -4981,7 +4966,7 @@
    "threshold": "≥ 8 phrases measured; repeats ≤ 5% of phrases; never 2 repeated phrases in a row",
    "fingerprint": "2ef4ab7a79e5208a",
    "tier": "REFERENCE",
-   "seconds": 4.9
+   "seconds": 5.7
   },
   {
    "id": "T3",
@@ -4998,7 +4983,7 @@
     },
     {
      "name": "entries outside 150–400 ms",
-     "value": 3,
+     "value": 2,
      "op": "<=",
      "threshold": 0,
      "unit": "",
@@ -5019,9 +5004,9 @@
     {
      "start": 26.13,
      "dur": 0.84,
-     "bedRef": -54.2,
-     "bedInside": -89.5,
-     "entry": 0.14,
+     "bedRef": -53.9,
+     "bedInside": -92.0,
+     "entry": 0.11,
      "masterMin": -62.8,
      "room": -60.7,
      "judged": true,
@@ -5031,9 +5016,9 @@
     {
      "start": 175.93,
      "dur": 1.0,
-     "bedRef": -48.5,
-     "bedInside": -87.2,
-     "entry": 0.315,
+     "bedRef": -49.1,
+     "bedInside": -86.5,
+     "entry": 0.205,
      "masterMin": -62.1,
      "room": -61.1,
      "judged": true,
@@ -5043,21 +5028,21 @@
     {
      "start": 321.02,
      "dur": 1.21,
-     "bedRef": -44.8,
-     "bedInside": -97.4,
-     "entry": 0.64,
+     "bedRef": -44.9,
+     "bedInside": -94.2,
+     "entry": 0.25,
      "masterMin": -63.0,
      "room": -60.6,
      "judged": true,
-     "entryOk": false,
+     "entryOk": true,
      "floorOk": true
     },
     {
      "start": 381.92,
      "dur": 1.46,
-     "bedRef": -48.3,
-     "bedInside": -108.8,
-     "entry": 0.17,
+     "bedRef": -47.2,
+     "bedInside": -109.6,
+     "entry": 0.16,
      "masterMin": -63.2,
      "room": -61.1,
      "judged": true,
@@ -5067,9 +5052,9 @@
     {
      "start": 505.21,
      "dur": 0.98,
-     "bedRef": -47.4,
-     "bedInside": -87.8,
-     "entry": 0.19,
+     "bedRef": -48.5,
+     "bedInside": -86.7,
+     "entry": 0.15,
      "masterMin": -63.2,
      "room": -61.8,
      "judged": true,
@@ -5079,9 +5064,9 @@
     {
      "start": 565.85,
      "dur": 1.09,
-     "bedRef": -42.1,
-     "bedInside": -85.2,
-     "entry": 0.44,
+     "bedRef": -41.5,
+     "bedInside": -86.2,
+     "entry": 0.7,
      "masterMin": -63.6,
      "room": -61.6,
      "judged": true,
@@ -5091,8 +5076,8 @@
     {
      "start": 573.07,
      "dur": 1.19,
-     "bedRef": -40.6,
-     "bedInside": -47.7,
+     "bedRef": -40.4,
+     "bedInside": -47.2,
      "entry": null,
      "masterMin": -49.8,
      "room": -68.8,
@@ -5103,8 +5088,8 @@
     {
      "start": 577.69,
      "dur": 1.15,
-     "bedRef": -39.3,
-     "bedInside": -43.3,
+     "bedRef": -38.1,
+     "bedInside": -43.8,
      "entry": null,
      "masterMin": -51.4,
      "room": -69.3,
@@ -5118,7 +5103,7 @@
    "threshold": "every entry 150–400 ms; master ≥ −80 dBFS and room stem ≥ −75 dBFS through every silence; ≥ 1 silence",
    "fingerprint": "aae85b30becf5024",
    "tier": "REFERENCE",
-   "seconds": 13.4
+   "seconds": 12.5
   },
   {
    "id": "L1",
@@ -5165,7 +5150,7 @@
    "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
    "fingerprint": "01832a4e805c145e",
    "tier": "MAJOR",
-   "seconds": 22.7
+   "seconds": 199.0
   },
   {
    "id": "REG",
