@@ -97,7 +97,7 @@ V0, V1, V2, V4, V5: 12/12 đạt. V3: 9/12 theo luật khoá (debt-2, debt-3, de
 
 ## Bước 2
 
-7 thẻ máy được chọn → hồ sơ ≤ 5 dòng: https://claude.ai/artifact/QYcBDBJwSkbDhaeucsxr9a (`step2/`). Chủ dự án trả lời riêng trên trang bước 2; `topics/queue.md` cập nhật khi nhận mã `S2R2 …`.
+7 thẻ máy được chọn → hồ sơ ≤ 5 dòng: https://claude.ai/artifact/QYcBDBJwSkbDhaeucsxr9a (`step2/`). Chủ dự án chọn **Có 7/7** (`step2/step2-code.txt`) → `topics/queue.md` dòng 13–19 (cột "Vòng" = 2, đường dẫn đầy đủ `topics-r2/…`).
 
 ## Đề xuất MỘT biến cho vòng 3 (ghi trước; chưa chạy)
 
