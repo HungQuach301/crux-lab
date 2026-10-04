@@ -13,4 +13,6 @@
 **Data limits**
 - 3-month T-bill (monthly average, discount basis) stands in for the index. Pre-2018 SOFR does not exist.
 - Overlapping windows: 753 start months are not 753 independent trials.
-- Repayment starts immediately. In-school deferment, fees, autopay discounts and prepayment are ignored. The variable rate is uncapped (it peaks at 20.6% in the worst path).
+- Repayment starts immediately. In-school deferment, fees, autopay discounts and prepayment are ignored. The variable rate is uncapped (in the costliest window, starting 1977-04, it peaks at 19.26%; the highest rate in any window is 20.6%, in the window starting 1972-02).
+
+- Do not join numbers from different windows in one sentence: the costliest window (1977-04, +$11,219, peak 19.26%) is not the window with the highest rate (1972-02, 20.6%). Errata 2026-10-04.

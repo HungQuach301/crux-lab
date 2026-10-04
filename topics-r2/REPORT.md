@@ -4,7 +4,10 @@ Thẩm quyền: `decisions/D-004.md`. Thiết kế ghi trước: `DESIGN.md`. Đ
 
 **Biến đổi so với vòng 1 (đúng một):** chủ dự án chọn đúng 9/18 thẻ thay cho thang 5.
 
-## Kết luận
+## Kết luận — chủ dự án chốt (2026-10-04): **ĐẠT theo giá trị** (D-004 sửa đổi 1)
+
+Chủ dự án đọc CHẶN theo giá trị: V3 12/12 (ba hồ sơ chỉ lệch định dạng ngày, có bằng chứng). Vòng 2 là **vòng đạt 1/2**; vòng 3 là vòng xác nhận, biến duy nhất: V3 so ngày đã chuẩn hoá; thêm V6 ở mức THAM KHẢO; chuẩn hồ sơ gắn sau đóng băng. Bảng dưới giữ nguyên số liệu lúc gửi gói.
+
 
 | Cấp | Chỉ số | Ngưỡng | Kết quả | |
 |---|---|---|---|---|
@@ -94,7 +97,7 @@ V0, V1, V2, V4, V5: 12/12 đạt. V3: 9/12 theo luật khoá (debt-2, debt-3, de
 
 ## Bước 2
 
-7 thẻ máy được chọn → hồ sơ ≤ 5 dòng: https://claude.ai/artifact/QYcBDBJwSkbDhaeucsxr9a (`step2/`). *(Chờ chủ dự án.)*
+7 thẻ máy được chọn → hồ sơ ≤ 5 dòng: https://claude.ai/artifact/QYcBDBJwSkbDhaeucsxr9a (`step2/`). Chủ dự án trả lời riêng trên trang bước 2; `topics/queue.md` cập nhật khi nhận mã `S2R2 …`.
 
 ## Đề xuất MỘT biến cho vòng 3 (ghi trước; chưa chạy)
 
