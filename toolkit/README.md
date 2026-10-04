@@ -88,3 +88,29 @@ Mọi file khác giữ nguyên văn. Tất cả qua `node --check` và `python3 
   - Python 3 với `numpy`, `scipy`, `requests`, `faster-whisper`;
   - `ffmpeg` (bài D tự cài bằng `apt-get`).
   Chưa có `package.json` ở repo này. Dùng `playwright` cài toàn cục: `export NODE_PATH=$(npm root -g)`.
+
+## Playbook v2 (04/10/2026, Phiên T2): script hoá ba bước đã làm tay ≥ 3 lần
+
+Ngoại lệ được chủ dự án duyệt (D-005). Test: `python3 -m unittest discover -s toolkit/tests -v` (cần `ffmpeg`, `ffprobe`, `git`; không cần mạng).
+
+| Thư mục | File | Việc | Đã làm tay |
+|---|---|---|---|
+| `blind/` | `strips.py` | Cắt dải kiểm mù: 6 khung tâm 6 lát bằng nhau trong [t0, t1], lưới 3×2 đánh số, cùng bố cục Tập 2; ghi thời điểm khung và SHA-256 | Tập 1 C4; Tập 2 C3, K1/K7 ×3, K2/K4/K5 ×2, C4 ×3 |
+| `blind/` | `packets.py` | `deal` chia mẫu (thư mục hex, một file, khoá ngoài thư mục người đọc); `packet` gói người chấm mù tập (nhãn ngẫu nhiên, rubric nghĩa / tả hình); `tally` gộp điểm, luật câu khuyên, **dừng sớm**, cổng chỉ tính nhịp loại 1; `next` liệt kê nhịp cần người đọc thứ 3 | Tập 1 C1–C4; Tập 2 ≈ 15 lượt kiểm mù |
+| `deliver/` | `deliver.py` | Mã hoá bản tải YouTube (bitrate khuyến nghị theo độ phân giải và fps, audio copy, +faststart); chia phần 90 MB; `SHA256SUMS`; `JOIN.md` lệnh ghép Windows/Mac; tuỳ chọn commit lên nhánh mồ côi `epNNN-delivery` qua worktree tạm và đẩy (thử lại 2/4/8/16 s) | Tập 2: bản gốc, CRF 18, phần 477 MiB, phần 150 MiB, phần 90 MB |
+
+### Ứng viên tự động hoá khác — chỉ liệt kê, CHƯA viết mã
+| Ứng viên | Số lần đã làm tay |
+|---|---|
+| Kiểm máy kịch bản: claim ID có thật, S10, "US only", "history, not a forecast" | Tập 2: 5 lần (v1–v5) |
+| Chạy checks trên bản sao khoá (`git archive` + so SHA LOCK) | Tập 2: 5 lần (K3.4, K3.5 thử, K3.6, C5, C6) |
+| Ghép clip gói cổng xem trên điện thoại | Tập 2: 6 lần (C2, C3, C3c, C4, C6 nổi bật, nhạc A/B) |
+| Ghi quyết định cổng vào `taste-ledger.md`, `AUTHORSHIP.md`, `ledger.md` | Tập 2: 11 lần |
+| Sinh giọng theo cảnh, chỉ cảnh đổi chữ (`episodes/ep002/story/table_read.py`) → chuyển vào `toolkit/voice/` | Tập 1: 1 (v3.2); Tập 2: 4 (table read v3, v5, C5 S08, C5 S04/S09/S10) |
+| Mix + kiểm tiếng lại trên video thật | Tập 2: 3 lần |
+| So cặp gói phát hành (tiêu đề, thumbnail) | Tập 1: 1; Tập 2: 2 |
+| Kiểm 25% đọc được | Tập 1: 1; Tập 2: 2 (animatic, thẻ phương pháp) |
+| Mô phỏng mù màu cặp màu | Tập 1: 1; Tập 2: 1 — chưa đủ 3 lần |
+
+### Thư viện hình
+`visual-library/`: ký hiệu đã qua kiểm mù ở Tập 1–2, bảng màu E2, phông, mã tham chiếu, ảnh xem trước. Xem `visual-library/README.md`.
