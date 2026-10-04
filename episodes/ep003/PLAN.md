@@ -11,7 +11,7 @@ Nhánh: `ep003` (từ `main` `c0376d1`). Chỉ P3 merge `ep003` vào `main`. Khu
 | Hồ sơ đạt `topic-dossier.md` | XONG — `retire-4/dossier-check.md` 4/4; commit `43350f3` | — | — |
 | Việc 0 | XONG — SHA trùng; kiểm độc lập 873/873 cửa sổ, 36/36 đại lượng; retire-3 11/11 qua cùng mô hình | `numbers.md` | — |
 | C1 (GU) | XONG (vòng 1) | `gates/C1.md`, `gates/C1-blind.md`, issue #26 | A + A1; giả định (a) trong cold open + nhãn hình; ghim 8/2026; lãi EE 2.40% V1 "for bonds issued May–October 2026" |
-| C2 (TỰ ĐỘNG) | ĐANG LÀM — WRITER | `gates/C2-intent.md` | — |
+| C2 (TỰ ĐỘNG) | QUA vòng 1 (6/6, khuyên 0) — issue chờ REVIEWER | `gates/C2.md`, `gates/C2-blind.md` | cấu trúc + cold open bản tạm → C3 |
 | Giao phiên K | chưa | — | — |
 
 ## 2. Phiên sau đọc
