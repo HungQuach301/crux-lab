@@ -2,7 +2,7 @@
 
 root: `/home/user/crux-lab/episodes/ep002`  
 lock: `2fcc9fcc9a94b73084c43ba59970d88f539cd29363334faf52b0640efc2cc801`  
-master SHA-256: `932a3ce313c27b6d154e94a4d1a3830f824adb2ea713cc78e496bd08065c0891`  
+master SHA-256: `fdfa3d47d6ee1069a23b30d52a4044fa2f9209e1b9a0c02852e059170e2480a4`  
 {'PASS': 60, 'FAIL': 22, 'MISSING': 0, 'ERROR': 0}
 
 **Tập: ĐẠT** (chỉ luật CHẶN làm trượt tập; luật CHÍNH không đạt cần bên dựng giải thích; luật THAM KHẢO chỉ báo số đo)
@@ -18,9 +18,9 @@ master SHA-256: `932a3ce313c27b6d154e94a4d1a3830f824adb2ea713cc78e496bd08065c089
 - A08 (THAM KHẢO) · median 1-4 kHz drop dB = 6.18919 (ngưỡng >= 6.0, đạt)
 - A12 (THAM KHẢO) · accents on a cut (%) = 100.0 (ngưỡng >= 100.0, đạt)
 - A15 (THAM KHẢO) · wpm act cold-open = 158.878885 (ngưỡng in [150.0, 160.0], đạt)
-- A15 (THAM KHẢO) · wpm act act1 = 162.492431 (ngưỡng in [150.0, 160.0], không đạt)
-- A15 (THAM KHẢO) · wpm act act2 = 165.93391 (ngưỡng in [150.0, 160.0], không đạt)
-- A15 (THAM KHẢO) · wpm act act3 = 160.32252 (ngưỡng in [150.0, 160.0], không đạt)
+- A15 (THAM KHẢO) · wpm act act1 = 163.16604 (ngưỡng in [150.0, 160.0], không đạt)
+- A15 (THAM KHẢO) · wpm act act2 = 166.880616 (ngưỡng in [150.0, 160.0], không đạt)
+- A15 (THAM KHẢO) · wpm act act3 = 161.534102 (ngưỡng in [150.0, 160.0], không đạt)
 - A18 (CHÍNH) · distinct voices (provider, voiceId, model) = 1 (ngưỡng <= 1, đạt)
 - S03 (CHẶN) · files = 2 (ngưỡng >= 2, đạt)
 - S04 (CHẶN) · series pairs = 1 (ngưỡng >= 1, đạt)
@@ -65,7 +65,7 @@ master SHA-256: `932a3ce313c27b6d154e94a4d1a3830f824adb2ea713cc78e496bd08065c089
 | A12 | THAM KHẢO | DX-A3 | PASS |  |
 | A13 | THAM KHẢO | DX-A7 | PASS |  |
 | A14 | CHẶN | DX-A7 | PASS |  |
-| A15 | THAM KHẢO | DX-A7 | FAIL | wpm act act1 = 162.492431 (need in [150.0, 160.0]); wpm act act2 = 165.93391 (need in [150.0, 160.0]); wpm act act3 = 160.32252 (need in [150.0, 160.0]); wpm act method = 190.709046 (need in [150.0, 160.0]); wpm act outro = 182.286303 (need in [150.0, 160.0]); sentences > 175 wpm = 26 (need <= 0) |
+| A15 | THAM KHẢO | DX-A7 | FAIL | wpm act act1 = 163.16604 (need in [150.0, 160.0]); wpm act act2 = 166.880616 (need in [150.0, 160.0]); wpm act act3 = 161.534102 (need in [150.0, 160.0]); wpm act method = 190.709046 (need in [150.0, 160.0]); wpm act outro = 182.380216 (need in [150.0, 160.0]); sentences > 175 wpm = 27 (need <= 0) |
 | A16 | THAM KHẢO | DX-A7 (K3, cảnh báo) | FAIL | fake break marks = 15 (need <= 0); sentences with a fake break = 15 (need <= 0) |
 | A17 | THAM KHẢO | DX-A7, DX-R6 (K3, cảnh báo) | FAIL | abnormal gaps share = 0.111111 (need <= 0.1) |
 | A18 | CHÍNH | DX-A8 (K3, cảnh báo) | PASS |  |
@@ -87,7 +87,7 @@ master SHA-256: `932a3ce313c27b6d154e94a4d1a3830f824adb2ea713cc78e496bd08065c089
 | S16 | THAM KHẢO | DX-S3, RUBRIC H4 (sổ gu G-008) | PASS |  |
 | R01 | THAM KHẢO | DX-R1 | PASS |  |
 | R02 | THAM KHẢO | DX-R2 | FAIL | longest stretch without a break s = 67.333 (need <= 60.0) |
-| R03 | THAM KHẢO | DX-R3 | FAIL | shortest pause s = 0.24 (need >= 1.0); pauses < 1.0 s = 3 (need <= 0) |
+| R03 | THAM KHẢO | DX-R3 | FAIL | shortest pause s = 0.0 (need >= 1.0); pauses < 1.0 s = 3 (need <= 0) |
 | R04 | THAM KHẢO | DX-R4 | PASS |  |
 | R05 | THAM KHẢO | DX-R5 | FAIL | shots > 12 s = 11 (need <= 0); shot length CV = 0.336149 (need >= 0.4); act-2 scenes before climax = 3 (need >= 6) |
 | R06 | THAM KHẢO | DX-V10 (picture check of cuts) | FAIL | cuts visible in picture (%) = 25.806452 (need >= 90.0) |
@@ -112,7 +112,7 @@ master SHA-256: `932a3ce313c27b6d154e94a4d1a3830f824adb2ea713cc78e496bd08065c089
 | C10 | THAM KHẢO | DX-V1 (C rule level1) | FAIL | scenes failing = 13 (need <= 0) |
 | C11 | THAM KHẢO | DX-V11 (C rule layout-repeat) | PASS |  |
 | C12 | THAM KHẢO | DX-V11 (C rule split-view) | FAIL | split-view runs = 18 (need <= 0) |
-| C13 | THAM KHẢO | DX-V11 (number–voice sync ±250 ms) | FAIL | worst |offset| ms = 52860 (need <= 250.0); pairs > 250 ms = 38 (need <= 0) |
+| C13 | THAM KHẢO | DX-V11 (number–voice sync ±250 ms) | FAIL | worst |offset| ms = 52860 (need <= 250.0); pairs > 250 ms = 37 (need <= 0) |
 | C14 | CHÍNH | DX-V11, DX-X4 (legible at 25%) | PASS |  |
 | C15 | THAM KHẢO | DX-V5 (C rule tokens only) | PASS |  |
 | P01 | THAM KHẢO | DX-P2 | FAIL | thumb texts below 90 px = 3 (need <= 0) |
