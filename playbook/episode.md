@@ -64,7 +64,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 - WRITER viết **3 phương án 30 s đầu**, mỗi phương án một kiểu móc khác nhau (`packaging.md` §2). Cả ba đều theo story §1: 5 s đầu là được–mất hoặc câu hỏi trên sự thật hiện tại; lời hứa trước 0:30.
 - **Tới khi có hiệu chuẩn chính thức:** chọn bằng WRITER + REVIEWER (REVIEWER chấm theo story §1, ghi lý do một dòng).
 - **Ứng viên bộ đo: so cặp móc** (hiệu chuẩn Mốc B: chọn đúng bản gốc 6/6; điểm 1–5 và điểm bỏ xem KHÔNG ĐẠT, lessons F3). Chỉ dùng sau **hiệu chuẩn chính thức ở P1 Tập 4**:
-  - ý đồ + ngưỡng ghi trước (ví dụ: so cặp chọn bản gốc ≥ 5/6 trên hai tập, bản làm kém = bỏ móc 5 s, cùng kịch bản);
+  - ý đồ + ngưỡng ghi trước (ví dụ: so cặp chọn bản gốc ≥ 5/6 trên hai tập, bản làm kém = bỏ móc 5 s, cùng kịch bản); **dùng mẫu mới, không dùng lại dữ liệu Tập 2/3 của Mốc B** (tránh tự xác nhận);
   - đạt → so cặp vòng tròn 3 phương án, 3 người đọc mỗi cặp, chọn phương án thắng nhiều nhất;
   - trượt → giữ cách WRITER + REVIEWER.
 - G1 hiện móc đã chọn dạng chữ trong kịch bản + 2 phương án còn lại, mỗi phương án một dòng. Chủ dự án chỉ đổi khi muốn. **Không sinh giọng cho phương án không chọn.**
@@ -105,7 +105,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 | Số agent | ≈ 300 | 141 | **≤ 60** |
 | Ký tự ElevenLabs | 9.436 | 5.551 | ≤ 6.000 (gồm Shorts: dùng lại lời tập) |
 | Thời gian P1 → G2 | 3 ngày | ~1,5 ngày | ≤ 1 ngày làm máy |
-| Token | không đọc được | ≈ 6 triệu (ước theo 141 × 44 nghìn) | **trần 3 triệu** |
+| Token | không đọc được | ≈ 6 triệu (ước theo 141 × 44 nghìn) | **trần 3 triệu** (3,5 khi có P2) |
 
 **Trần token đề xuất (Tập 4)** = agent × 44 nghìn + ngữ cảnh điều phối:
 - **P1 ≤ 1,4 triệu** (≈ 25 agent + 0,3 triệu điều phối);
