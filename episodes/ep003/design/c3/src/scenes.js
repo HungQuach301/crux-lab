@@ -218,7 +218,11 @@ export const KEY4 = {
     text(ctx, CL('share_tbills_above_double_pct') + ' overall', 1824, 122, 'label', { align: 'right', color: C.warn, alpha: ease(t, 6.4, 6.9) });
     const aR = ease(t, 8.0, 8.6);
     const shares = ['share_above_double_1934_1949_pct', 'share_above_double_1950_1989_pct', 'share_tbills_above_double_starts_since_1990_pct'];
-    r2label(ctx, CW_HIST, 200, 1000, t, 6.7); // C5 V03/V11: inside the safe area, after the axis labels have gone (was 4.8 at y 1046)
+    // C5 (V03/V11, REVIEWER #3): the counterweight keeps its C4 timing (from 4.8) — in the free band under the hero number while the axis
+    // labels are up, then in the bottom band once they have gone (6.6), crossfading; never off screen while results are shown
+    if (R2) { const a0 = ease(t, 4.8, 5.2), sw = ease(t, 6.4, 6.7);
+      text(ctx, CW_HIST, 560, 470, 'note', { weight: 700, color: C.ink, plate: C.surface, alpha: a0 * (1 - sw), group: 'r2top' });
+      text(ctx, CW_HIST, 600, 1004, 'note', { weight: 700, color: C.ink, plate: C.surface, alpha: a0 * sw, group: 'r2bot' }); } // right of the gate line, left of the era labels
     for (let e = 0; e < 3; e++) {
       line(ctx, [[SW.x0, ROWY[e]], [SW.x1, ROWY[e]]], C.grid, 3, { alpha: aR }); text(ctx, eraText(ctx, e), SW.x1 + 40, ROWY[e] - 140, 'note', { color: C.muted, alpha: aR, group: 'era' + e });
       const ae = ease(t, 8.6 + 0.5 * e, 9.0 + 0.5 * e);
@@ -256,7 +260,7 @@ export const KEY5 = {
     text(ctx, CL('min_multiple_guarantee_starts') + ' to ' + CL('max_multiple_guarantee_starts'), 620, 730, 'note', { color: C.ink, alpha: ease(t, 5.4, 5.9) });
     // tag on the cluster + overall share stays in the corner
     const aS = ease(t, 6.4, 6.9);
-    text(ctx, 'small sample · one era', 620, 500, 'label', { color: C.bg, weight: 700, plate: C.ink, alpha: aS });
+    text(ctx, 'small sample · one era', 620, 500, 'label', { color: C.bg, weight: 700, plate: C.ink, alpha: aS, role: 'badge' }); // reversed-out pill: contrast is read inside it
     const aO = ease(t, 0.2, 0.6);
     text(ctx, CL('share_tbills_above_double_pct') + (R2 ? ' of all rolls beat ' + CLD('ctx_guarantee').display : ' overall'), 1824, 122, 'label', { align: 'right', color: C.warn, alpha: aO });
     r2label(ctx, CW_HIST, 200, 1000, t, 4.0);
@@ -457,13 +461,13 @@ const METHOD = { duration: 10, draw(ctx, t) {
   shape({ tag: 'rect', role: 'card', fill: C.surface, stroke: null, opacity: a, box: [150, 120, 1770, 980] });
   roundRect(ctx, 150, 120, 1620, 860, 24); ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = C.surface; ctx.fill(); ctx.restore();
   text(ctx, 'How we know this', 210, 220, 'head', { alpha: a });
-  const L = ['Monthly average ' + CL('bill_term_months') + '-month bill rate (discount basis), compounded', // C5 S07: "÷ 12" had no claim; same meaning
+  const L = ['Monthly average ' + CL('bill_term_months') + '-month bill rate (discount basis),', '   compounded monthly', // C5 S07: "÷ 12" had no claim; same meaning
     'Taxes ignored: bills taxed federally each year, EE tax-deferred,', '   both exempt from state tax',
     'Full ' + CL('horizon_years') + '-year hold; purchase limits ignored',
     'Overlapping windows ≈ ' + CL('nonoverlap_periods') + ' separate ' + CL('horizon_years') + '-year periods',
     CL('near_double_starts') + ' start months end within ' + CL('near_double_band_pct') + ' of double',
     'Before ' + CLD('guarantee_from').display + ': IF today\'s guarantee had existed'];
-  L.forEach((s, i) => text(ctx, s, 210, 330 + i * 84, 'note', { alpha: ease(t, 0.3 + 0.2 * i, 0.7 + 0.2 * i) }));
+  L.forEach((s, i) => text(ctx, s, 210, 320 + i * 76, 'note', { alpha: ease(t, 0.3 + 0.2 * i, 0.7 + 0.2 * i) }));
   text(ctx, 'Data: Federal Reserve H.15 and BLS CPI, both via FRED', 210, 930, 'note', { color: C.muted, alpha: a });
 } };
 
@@ -488,7 +492,7 @@ const PLAN = {
   S10: [['S10.1', 'KEY1', 10, 10]],
   S11: [['S11.1', 'END', 0, 20]],
 };
-const US_AT = { 'S04.7': 200, 'S10.7': 270 };
+const US_AT = { 'S04.7': 200, 'S10.7': 262 };
 
 export const ANIM = {
   duration: Math.ceil(TM.total + 15) , stripTimes: [1, 2, 3, 4, 5, 6],

@@ -1490,7 +1490,7 @@
    "value": null,
    "display": "Series EE bonds issued May 1, 2005 or later reach original maturity at 20 years; at original maturity a book-entry bond is worth not less than double its purchase price",
    "kind": "context",
-   "formula": "stated fact, quoted from its source (31 CFR 351.34(a), 351.35(f)(2) (70 FR 17288–17289))",
+   "formula": "rule quoted from 31 CFR 351.34(a) and 351.35(f)(2): EE bonds issued from 2005-05 reach original maturity at 20 years, worth at least double the price (book-entry)",
    "source": {
     "id": "31 CFR 351.34(a), 351.35(f)(2) (70 FR 17288–17289)",
     "url": null
@@ -1551,7 +1551,7 @@
    "value": null,
    "display": "For start months before May 2005 the episode applies today's guarantee **as if it had existed**; earlier EE bonds had other terms",
    "kind": "context",
-   "formula": "stated fact, quoted from its source (`model.json` `starts_hypothetical` = 856 (98.1%))",
+   "formula": "episode assumption: today's guarantee applied to every start before 2005-05; count = model.json windows before subsetFrom:guarantee (856 of 873)",
    "source": {
     "id": "`model.json` `starts_hypothetical` = 856 (98.1%)",
     "url": null
@@ -1618,7 +1618,7 @@
    "value": null,
    "display": "Cashed before 5 years: lose 3 months of interest",
    "kind": "context",
-   "formula": "stated fact, quoted from its source (31 CFR 351.35(e))",
+   "formula": "rule quoted from 31 CFR 351.35(e): a bond redeemed before 5 years forfeits the last 3 months of interest",
    "source": {
     "id": "31 CFR 351.35(e)",
     "url": null
@@ -1640,7 +1640,7 @@
    "value": null,
    "display": "EE bonds issued May–October 2026 earn a fixed 2.40% a year; the 20-year doubling tops this up. Lời và hình: \"for bonds issued May–October 2026\"",
    "kind": "context",
-   "formula": "stated fact, quoted from its source (TreasuryDirect release 2026-05-01 + trang EE bonds)",
+   "formula": "rate quoted from the TreasuryDirect release of 2026-05-01: fixed 2.40% for EE bonds issued May to October 2026 (re-check the November 2026 rate before publishing)",
    "source": {
     "id": "TreasuryDirect release 2026-05-01 + trang EE bonds",
     "url": null
@@ -1666,7 +1666,7 @@
    "value": null,
    "display": "TB3MS September 2026 = 3.94% (công bố 2026-10-01; ngoài bản ghim)",
    "kind": "context",
-   "formula": "stated fact, quoted from its source (FRED TB3MS (không ghim))",
+   "formula": "FRED TB3MS value for 2026-09 (published 2026-10-01), outside the pinned data; not used on screen or in the narration",
    "source": {
     "id": "FRED TB3MS (không ghim)",
     "url": null
@@ -1681,7 +1681,7 @@
    "value": null,
    "display": "TB3MS và CPIAUCNS: FRED gắn thẻ \"Public Domain: Citation Requested\"",
    "kind": "context",
-   "formula": "stated fact, quoted from its source (trang series FRED, 2026-10-04 (bls.gov: proxy 403, chưa đọc trang BLS))",
+   "formula": "terms label quoted from the FRED series pages of TB3MS and CPIAUCNS (2026-10-04): \"Public Domain: Citation Requested\"",
    "source": {
     "id": "trang series FRED, 2026-10-04 (bls.gov: proxy 403, chưa đọc trang BLS)",
     "url": null
