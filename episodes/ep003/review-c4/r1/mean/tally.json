@@ -1,0 +1,120 @@
+{
+ "candidate_set": "ep003",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep003",
+   "id": "KEY-1",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "status": "PASS",
+   "why": [
+    "Two ways to hold money 20 years: T-bill chain versus guaranteed x2 bond.",
+    "Choice between rolling 3-month bills and bond guaranteed x2 at year 20."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-2",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "status": "PASS",
+   "why": [
+    "Almost all what-if; real guarantee only since May 2005.",
+    "Nearly all hypothetical; real guarantee only from May 2005, 17 months."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-4",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "status": "PASS",
+   "why": [
+    "States ~half overall, 1950-89 nearly always, 1990+ rarely, earliest never.",
+    "Half overall; 1950-89 almost always, 1990-2006 almost never, earliest 0%."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-5",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "status": "PASS",
+   "why": [
+    "Real guarantee 17 starts, none beat x2, small sample; 52.3% overall.",
+    "Real-guarantee starts few, none beat x2, small sample one era; 52.3% overall."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-6",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "status": "PASS",
+   "why": [
+    "Doubled money bought only 58% of original; about 41% fell behind.",
+    "Doubled dollars bought 58% of original; only 58.7% kept up."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-7",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "status": "PASS",
+   "why": [
+    "3.47% hurdle just above 3.42% average; starts fall either side.",
+    "3.47% threshold just above 3.42% average; starts land either side."
+   ]
+  }
+ ],
+ "gate_beats": 6,
+ "gate_pass": 6,
+ "pending": [],
+ "advice_beats": [],
+ "classes": {
+  "file": "beats-class.json",
+  "sha256": "2299ddf57793ae1285ba8eeec1b1e0bff8d65b500d7aeee248e6e461c05b25a0",
+  "image_share": 0.857
+ },
+ "share": 1.0,
+ "verdict": "PASS",
+ "near_threshold": false
+}

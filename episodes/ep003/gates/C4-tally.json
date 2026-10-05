@@ -1,0 +1,101 @@
+{
+ "rows": {
+  "KEY-1": {
+   "mean": {
+    "scores": [
+     1,
+     1
+    ],
+    "status": "PASS"
+   },
+   "adv": {
+    "flags": 0,
+    "readers": 2
+   }
+  },
+  "KEY-2": {
+   "mean": {
+    "scores": [
+     1,
+     1
+    ],
+    "status": "PASS"
+   },
+   "adv": {
+    "flags": 0,
+    "readers": 2
+   }
+  },
+  "KEY-4": {
+   "mean": {
+    "scores": [
+     1,
+     1
+    ],
+    "status": "PASS"
+   },
+   "adv": {
+    "flags": 0,
+    "readers": 2
+   }
+  },
+  "KEY-5": {
+   "mean": {
+    "scores": [
+     1,
+     1
+    ],
+    "status": "PASS"
+   },
+   "adv": {
+    "flags": 0,
+    "readers": 2
+   }
+  },
+  "KEY-6": {
+   "mean": {
+    "scores": [
+     1,
+     1
+    ],
+    "status": "PASS"
+   },
+   "adv": {
+    "flags": 0,
+    "readers": 2
+   }
+  },
+  "KEY-7": {
+   "mean": {
+    "scores": [
+     1,
+     1
+    ],
+    "status": "PASS"
+   },
+   "adv": {
+    "flags": 0,
+    "readers": 2
+   }
+  },
+  "KEY-3": {
+   "adv": {
+    "flags": 0,
+    "readers": 2
+   }
+  }
+ },
+ "pass": [
+  "KEY-1",
+  "KEY-2",
+  "KEY-4",
+  "KEY-5",
+  "KEY-6",
+  "KEY-7"
+ ],
+ "adviceBeats": [],
+ "pending": [],
+ "share": 1.0,
+ "verdict": "PASS",
+ "near": false
+}
