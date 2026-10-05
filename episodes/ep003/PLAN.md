@@ -15,19 +15,23 @@ Nhánh: `ep003` (từ `main` `c0376d1`). Chỉ P3 merge `ep003` vào `main`. Khu
 | Giao phiên K | **XONG — khoá K3.7 có** (LOCK `a20c6878…`, kind `lock-vs-roll-replay`, `main` `ab7879e`, merge vào nhánh tập `d806f75`); S01/S05 trên bản sao khoá 0 lệch | `contract.json`, `review-k37/` | chủ dự án duyệt K3.7 (05/10) |
 | C3 (GU) | **XONG** (issue [#31](https://github.com/HungQuach301/crux-lab/issues/31)) | `gates/C3.md`, `C3-tally*.md`, `C3-blind.md` | (a) cấu trúc C2 + Dana; lời chỉ 3.47; ký hợp đồng hình (A); bộ đo câu khuyên mới + hiệu chuẩn âm/dương trước C4; Eric + style C |
 | C4 (TỰ ĐỘNG) | **XONG — QUA vòng 1** (issue [#32](https://github.com/HungQuach301/crux-lab/issues/32)): hiệu chuẩn bộ đo khuyên đạt (âm 0/3, dương 3/3); nghĩa 6/6 nhịp loại 1, khuyên 0/14; checks đủ bộ lần 1: 19 PASS / 21 FAIL / 42 MISSING (TRƯỢT, dự kiến ở animatic) | `gates/C4.md`, `C4-tally.md`, `C4-cal-tally.md`, `review-c4/checks-run1/` | — |
+| C5 (TỰ ĐỘNG) | **XONG — QUA bằng dự phòng §6 sau 2 vòng** (issue C5): CHẶN 29/29, CHÍNH V11 + C05 có giải thích, REG 0; kiểm xác nhận lần 5 trên bản cuối `103ff99e…` | `gates/C5.md`, `review-c5/checks-run5/`, `out/explanations.json` | — |
+| C6 (GU) | **SOẠN — chờ REVIEWER, rồi gửi** (3 câu: L3 + phát hành; tiêu đề + thumbnail; trước khi đăng: lãi EE + CHÍNH giải thích) | `gates/C6.md`, `gates/C6-ai-summary.md`, clip nổi bật, nhánh `ep003-delivery` | — |
 
-## 2. Phiên sau đọc (P3: C5 → C6 → giao hàng)
-1. `episodes/ep003/gates/C4.md` (kết quả C4 + danh sách CHẶN/MISSING phải xử lý ở C5)
-2. `episodes/ep003/review-c4/checks-run1/report.md` (checks đủ bộ lần 1)
-3. `episodes/ep003/animatic/timing.json` + `animatic/voice.py` (lời theo cảnh; chỉ sinh lại cảnh đổi chữ)
-4. `episodes/ep003/design/c3/src/scenes.js` (`ANIM` + shot; trang `page.html?k=ANIM&r=anim`) + `design/c3/render.js` (`--from/--to`)
-5. `episodes/ep003/audio_src/mix_full.py` + `animatic/mix-report.json` (nhạc style C đã duyệt)
-6. `episodes/ep003/contract.json` + `checks/CONTRACT.md` (mục artefact, hợp đồng trang `window.CHECKS`)
-7. `episodes/ep003/story/script.md` (S03.1 "T-bill" — A14)
-8. `episodes/ep003/gates/C3.md` (chữ đã đổi, cho gói C6)
+## 2. Phiên sau đọc (P3 tiếp: sau trả lời C6 → ghi quyết định → merge `main`)
+1. `episodes/ep003/gates/C6.md` (3 câu + danh sách chữ đã đổi)
+2. `episodes/ep003/gates/C5.md` (kết quả L1, giải thích CHÍNH)
+3. `episodes/ep003/README.md` (lệnh dựng lại, SHA bản gốc, nhánh giao hàng)
+4. `episodes/ep003/out/package/description.md` + `out/package/thumb-1..3.png`
+5. `episodes/ep003/gates/C6-ai-summary.md`
+6. `episodes/ep003/out/explanations.json`
 
 ## 3. Việc treo
-- **C5 (P3) — việc CHẶN từ checks lần 1** (`gates/C4.md` §C): A14 "T-bill" S03.1; trang dựng thêm hợp đồng `window.CHECKS` + `design/tokens.json` (mọi luật trang, S02/S07–S09/C07); render 1080p (F01/F04/F05/F06); phụ đề chia dòng/cue (F09); `out/package/description.md`, `artefacts.M3`, `out/rights.json` (F10–F12); `data.crosscheck` TB3MS vs DTB3 (S03/S04); `coverage` (S06). Sửa chỉ trong danh sách §6; chữ/lời người xem thấy đổi → gói C6.
+- **Chờ chủ dự án — C6** (gói `gates/C6.md`, issue C6): L3 + phát hành, tiêu đề + thumbnail mặc định + bộ T&C, quyết định trước khi đăng. Sau trả lời: ghi `taste-ledger.md`, `AUTHORSHIP.md`, ledger; **xác nhận tải xong → xoá nhánh `ep003-delivery`** (phiên xoá nếu proxy cho phép; không thì ghi việc treo); merge `ep003` → `main` (fetch trước; trong file dùng chung chỉ sửa phần của tập).
+- **Lãi EE (`ctx_ee_rate`):** ngày P3 = 2026-10-05 < 2026-11-01 → giữ "2.40% … for bonds issued May to October 2026". **Kiểm lại ngay trước khi đăng**: nếu đăng từ 1/11/2026, cập nhật claim theo thông báo TreasuryDirect (mô tả thêm dòng lãi mới; lời/hình đúng vì ghi kỳ phát hành).
+- **Ứng viên sửa (CHÍNH đã giải thích, chờ C6):** V11 KEY-5 nhãn đối trọng chạm đầu vạch ×2 (~30 px, 124 mẫu); C05 số 52.3% màu warn.
+- **Tổng kết tập (thêm):** checks trên bản sao phải có server riêng sạch (2 lần chạy hỏng vì server cũ — `design/c5/checks.sh` nay chặn); render phải cùng cờ phông với máy kiểm (V12); bộ dò khuyên đọc nhãn "start …" là mệnh lệnh; điểm AI: hook 2/5.
+- ~~**C5 (P3) — việc CHẶN từ checks lần 1**~~ (xong ở P3, `gates/C5.md`) (`gates/C4.md` §C): A14 "T-bill" S03.1; trang dựng thêm hợp đồng `window.CHECKS` + `design/tokens.json` (mọi luật trang, S02/S07–S09/C07); render 1080p (F01/F04/F05/F06); phụ đề chia dòng/cue (F09); `out/package/description.md`, `artefacts.M3`, `out/rights.json` (F10–F12); `data.crosscheck` TB3MS vs DTB3 (S03/S04); `coverage` (S06). Sửa chỉ trong danh sách §6; chữ/lời người xem thấy đổi → gói C6.
 - **C6:** lãi EE công bố 1/11/2026 (claim `ctx_ee_rate`); 3 thumbnail qua claim-risk; chữ đã đổi ở C3/C4.
 - **Tổng kết tập:** đề xuất playbook — tách câu hỏi nghĩa (tắt tiếng) / khuyên (có lời), câu khuyên không dẫn dắt, hiệu lực bộ đo bằng đối chứng âm/dương (chủ dự án C3).
 - **C4 áp ngay khi có quyết định:** đổi nhãn "Not a pick. What history did." → "Not a pick. Real rates, what-if bond." (claim-risk, REVIEWER C3); lời S06.6 không dùng nguyên câu "what history did".
@@ -41,6 +45,7 @@ Nhánh: `ep003` (từ `main` `c0376d1`). Chỉ P3 merge `ep003` vào `main`. Khu
 - Ghim dữ liệu August 2026 (chủ dự án C1); TB3MS 9/2026 = 3.94% không dùng.
 
 ## 4. Điểm dừng an toàn
+- 2026-10-05 (P3): **C5 QUA; gói C6 gửi (sau REVIEWER), DỪNG chờ chủ dự án.** Bản cuối `work/c5/video.mp4` `103ff99e…` (không commit; dựng lại theo `README.md`), bản giao trên nhánh `ep003-delivery` @ `a9a0506`. Sau trả lời C6: ghi quyết định → xác nhận tải → xoá nhánh giao → merge `main`. Nếu mất container trước khi merge: mọi file dựng đã trên `ep003`; bản gốc tái lập theo `README.md` (hình/số chính xác, take EL S02/S03 khác chút ít).
 - 2026-10-05 (P2): **P2 XONG.** C3 (#31) và C4 (qua vòng 1, issue C4) xong; checks lần 1 lưu `review-c4/checks-run1/`. **Dừng.** P3 bắt đầu khi PLAN ghi "P2 xong" (đã ghi). Tái lập animatic: `fetch.py --verify` → `model.py` → `claims.py` → `animatic/voice.py` (S02 sinh lại nếu mất take: ~0,8 k ký tự EL) → `design/c3/build_data.py` → server `python3 -m http.server 8765` ở gốc repo → `node design/c3/render.js ANIM --from a --to b` (4 đoạn) → `audio_src/mix_full.py` → ghép (lệnh ở ledger 02:20) → `animatic/artefacts.py`.
 - 2026-10-05 (P2, C4): C3 xong; ý đồ C4 v2 commit. Đang: hiệu chuẩn (`review-c4/cal/`, 3 + 3 người đọc) → animatic (`animatic/voice.py` → `timing.json`; chỉ S02 sinh lại). Nếu mất container: `fetch.py --verify` → `model.py` → `claims.py` → `design/c3/build_data.py` → `design/c4/ctrl/build_ctrl.py` → `animatic/voice.py` (take S02 không commit; sinh lại tốn ~0,4 k ký tự EL).
 - 2026-10-05 (P2): **gói C3 gửi (sau REVIEWER), DỪNG chờ chủ dự án** (3 câu). Nhánh làm việc `ccr-806b9e1b-ju4ok5` (= `ep003` + P2; `ep003` trên remote chưa cập nhật — đẩy/merge khi chủ dự án cho phép). Tái lập: `python3 episodes/ep003/data/fetch.py --verify && python3 episodes/ep003/model/model.py && python3 episodes/ep003/model/claims.py && python3 episodes/ep003/design/c3/build_data.py`; style frame: `python3 -m http.server 8765` ở gốc repo + `NODE_PATH=$(npm root -g) node episodes/ep003/design/c3/render.js KEY1 … [--r2] [--check]`; dải/mẫu: `python3 episodes/ep003/review-c3/make_c3.py [--round 2]`; checks: bản sao `git archive` + `python3 checks/py/run.py episodes/ep003 --only S01,S05 --first`.
@@ -49,10 +54,10 @@ Nhánh: `ep003` (từ `main` `c0376d1`). Chỉ P3 merge `ep003` vào `main`. Khu
 - 2026-10-04 17:50 (2): **gói C1 gửi (sau REVIEWER), issue [#26](https://github.com/HungQuach301/crux-lab/issues/26). DỪNG chờ chủ dự án** (3 câu). Sau khi trả lời: ghi `taste-ledger.md`, `AUTHORSHIP.md` (trên `ep003`) + ledger; giao WRITER (đầu bài `episode.md` §3 + luật tập: giả định trước 5/2005 nói bằng lời thường **trong cold open, trước mọi số lịch sử** (theo quyết định câu 2) + nhãn hình; không đặt 3.72% cạnh 3.53% mà không chú giải; mốc 17 tháng luôn kèm "mẫu ngắn" + tỉ lệ toàn kỳ) → C2.
 - 2026-10-04 17:10 (1): hồ sơ + Việc 0 xong. Đang: REVIEWER soát ý đồ C1 → kiểm mù C1 (`review-c1/`, manifest T/G/titles). Nếu mất container: `python3 episodes/ep003/data/fetch.py --verify --retire3 && python3 episodes/ep003/model/model.py && python3 episodes/ep003/model/model.py --retire3`.
 
-## 5. KPI tạm (cuối P2)
-- Chủ dự án tham gia: **2** (C1, C3) + 1 chỉ dẫn ngoài cổng (lệnh K3.7 khi phiên đang chạy, không dừng chờ). Mục tiêu Tập 3: 3 + xác nhận tải.
-- Vòng: C1 **1** · C2 **1** · C3 cổng gốc **2** (trượt vì câu khuyên → quyết định chủ dự án) · hiệu chuẩn **1** · C4 **1** (qua, không dự phòng).
-- Lượt agent: **131** = P1 55 + P2 76 (nhạc 2: clip C3 + âm tạm toàn tập; REVIEWER 4: ý đồ C3, gói C3, ý đồ C4, báo cáo/issue C4; WRITER 1; người đọc mù C3 32 + hiệu chuẩn 6 + C4 26 = 64; người chấm độc lập C3 2 + hiệu chuẩn 1 + C4 2 = 5; render/checks chạy lệnh trực tiếp).
-- Ký tự ElevenLabs: **4 733** = 3 911 (P1) + 822 (P2: S02 hai seed).
-- Thời gian: P2 2026-10-04 23:40 UTC → gói C3 2026-10-05 ~00:55 → C3 trả lời → C4 qua ~02:45 → P2 xong.
+## 5. KPI tạm (cuối P3, trước trả lời C6)
+- Chủ dự án tham gia: **2** cổng (C1, C3) + lệnh khởi động P3 (3 lưu ý) + C6 đang chờ + xác nhận tải. Mục tiêu Tập 3: 3 + xác nhận tải.
+- Vòng: C1 1 · C2 1 · C3 2 · hiệu chuẩn 1 · C4 1 · **C5 2 + dự phòng §6** (+ 1 kiểm xác nhận sau REVIEWER) · C6 chờ.
+- Lượt agent: **134** = P1 55 + P2 76 + P3 3 (tóm tắt AI mù tập 1 sonnet; REVIEWER C5 1; REVIEWER C6 1). Render/checks/mã hoá chạy lệnh trực tiếp.
+- Ký tự ElevenLabs: **5 551** = 4 733 + 818 (P3: S03 sinh lại 407 vì A14; S02 tái lập 411 vì mất take).
+- Thời gian: P3 2026-10-05 01:25 → C5 qua ~08:50 (giờ container) → gói C6 gửi. Phần lớn là máy: render 1080p ×3 (~25–30 phút mỗi lần), checks đủ bộ ~60–75 phút mỗi lần (5 lần, 2 hỏng/1 nửa hợp lệ).
 - Token: không đọc được.
