@@ -1,0 +1,41 @@
+{
+ "files": [
+  {
+   "path": "data/TB3MS.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-08-01",
+   "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+   "downloaded": "2026-10-04",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "series": "3-Month Treasury Bill Secondary Market Rate, Discount Basis (Board of Governors of the Federal Reserve System, H.15)"
+  },
+  {
+   "path": "data/CPIAUCNS.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+   "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+   "downloaded": "2026-10-04",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCNS"
+   },
+   "series": "CPI-U, All Items, U.S. City Average, Not Seasonally Adjusted (U.S. Bureau of Labor Statistics)"
+  },
+  {
+   "path": "data/DTB3.csv",
+   "role": "crosscheck",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTB3&coed=2026-08-31",
+   "sha256": "b2681e0a9a26da1cf15c2d9c7b6803e1976fa9fb5aaa046a4993aa698e8d3b1b",
+   "downloaded": "2026-10-05",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/DTB3"
+   },
+   "series": "3-Month Treasury Bill Secondary Market Rate, Discount Basis, daily (Board of Governors of the Federal Reserve System, H.15); monthly mean in data/DTB3_monthly.csv (data/fetch.py)"
+  }
+ ],
+ "mismatches": []
+}

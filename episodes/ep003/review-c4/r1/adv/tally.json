@@ -1,0 +1,133 @@
+{
+ "candidate_set": "ep003",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep003",
+   "id": "KEY-1",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "status": "FAIL",
+   "why": [
+    "Comparison setup, no instruction to buy or switch.",
+    "Explicitly not a pick; only poses a comparison question."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-2",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "status": "FAIL",
+   "why": [
+    "No action stated.",
+    "Methodology caveat; tells viewer nothing to do."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-3",
+   "kind": "illustration",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "status": "FAIL",
+   "why": [
+    "No action stated.",
+    "Cautions about comparing rates; no action directed at viewer."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-4",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "status": "FAIL",
+   "why": [
+    "Describes historical results only; not a pick.",
+    "Describes era-dependent history; no recommendation to move money."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-5",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "status": "FAIL",
+   "why": [
+    "No action stated.",
+    "No action stated."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-6",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "status": "FAIL",
+   "why": [
+    "No action stated.",
+    "Informational on real purchasing power; no recommendation."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-7",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "status": "FAIL",
+   "why": [
+    "Benchmark only; explicitly not a pick.",
+    "Gives benchmark only; says it doesn't pick."
+   ]
+  }
+ ],
+ "gate_beats": 6,
+ "gate_pass": 0,
+ "pending": [],
+ "advice_beats": [],
+ "classes": null,
+ "share": 0.0,
+ "verdict": "FAIL",
+ "near_threshold": false
+}

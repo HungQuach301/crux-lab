@@ -1,0 +1,29 @@
+{
+ "rules": "Score each answer against the item's meaning sentence: 1 = states that meaning (any wording; every part present); 0.5 = partly (right objects, one part of the meaning missing or wrong); 0 = only describes the picture, or a different meaning. advice: always false, not judged here (advice is measured separately).",
+ "items": {
+  "KEY-1": {
+   "meaning": "A person is choosing between two ways to park money for 20 years: a chain of short bills, or a bond that is guaranteed to reach ×2 at year 20.",
+   "description_only": "The answer only lists what is visible (dots, bars, lines, labels, numbers) or restates labels, without saying what they mean in the sense of the meaning sentence."
+  },
+  "KEY-2": {
+   "meaning": "Almost the whole history shown is a what-if (hatched, 'IF today's guarantee had existed'); only a short stretch from May 2005 is real.",
+   "description_only": "The answer only lists what is visible (dots, bars, lines, labels, numbers) or restates labels, without saying what they mean in the sense of the meaning sentence."
+  },
+  "KEY-4": {
+   "meaning": "Overall about half of the rolls beat double, but the middle era (1950–1989) nearly always beat it and the starts from 1990 almost never did; the earliest era never did.",
+   "description_only": "The answer only lists what is visible (dots, bars, lines, labels, numbers) or restates labels, without saying what they mean in the sense of the meaning sentence."
+  },
+  "KEY-5": {
+   "meaning": "The only starts where the guarantee was real are a small cluster at the very end, all short of ×2 — tagged 'small sample · one era'; overall about half still beat ×2.",
+   "description_only": "The answer only lists what is visible (dots, bars, lines, labels, numbers) or restates labels, without saying what they mean in the sense of the meaning sentence."
+  },
+  "KEY-6": {
+   "meaning": "Doubling the dollars did not always keep up with prices: often the doubled stack is smaller than the 'price shadow' of what the original money bought; worst case barely over half.",
+   "description_only": "The answer only lists what is visible (dots, bars, lines, labels, numbers) or restates labels, without saying what they mean in the sense of the meaning sentence."
+  },
+  "KEY-7": {
+   "meaning": "There is a threshold on the bill-rate scale just above the long-run average; to beat ×2 the 20-year average rate must land above it, and the marker can land on either side.",
+   "description_only": "The answer only lists what is visible (dots, bars, lines, labels, numbers) or restates labels, without saying what they mean in the sense of the meaning sentence."
+  }
+ }
+}

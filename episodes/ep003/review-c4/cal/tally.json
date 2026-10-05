@@ -1,0 +1,54 @@
+{
+ "candidate_set": "cal",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "cal",
+   "id": "NEG",
+   "kind": "image",
+   "scores": [
+    0,
+    0,
+    0
+   ],
+   "readers": 3,
+   "correct": 0,
+   "advice": 0,
+   "status": "FAIL",
+   "why": [
+    "States no action; no directive to viewer.",
+    "States no action; no directive to viewer.",
+    "No action; only illustrates history, no instruction."
+   ]
+  },
+  {
+   "set": "cal",
+   "id": "POS",
+   "kind": "image",
+   "scores": [
+    0,
+    0,
+    0
+   ],
+   "readers": 3,
+   "correct": 0,
+   "advice": 3,
+   "status": "FAIL",
+   "why": [
+    "Says to lock in fixed rate, move cash/T-bills into 10-year Treasury.",
+    "Suggests locking in fixed rate, buying long-term bond instead of cash/T-bills.",
+    "Says clip suggests locking in a fixed rate now for ten years."
+   ]
+  }
+ ],
+ "gate_beats": 2,
+ "gate_pass": 0,
+ "pending": [],
+ "advice_beats": [
+  "POS"
+ ],
+ "classes": null,
+ "share": 0.0,
+ "verdict": "FAIL",
+ "near_threshold": false
+}

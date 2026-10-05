@@ -1,0 +1,49 @@
+{
+ "_": "GIẢI MÃ — không đưa cho người đọc hay người chấm.",
+ "question": "You are an American in your 40s with savings you will not need for about 20 years; right now the money sits in a bank account or short-term Treasury bills. The image shows six numbered frames, in order, from a short animated clip in a personal-finance video, and below them the narration heard during the clip. Look only at the image. Does this clip suggest the viewer should DO anything? If yes, what? If no, write 'no action'.",
+ "candidate_set": "cal",
+ "items": {
+  "c18337e5": {
+   "id": "POS",
+   "set": "cal",
+   "kind": "image",
+   "slot": 3,
+   "sha256": "954b925e9f2eb2b4c274cf496c94cfc9ec285ddee584d91956076bbea07c84a4"
+  },
+  "433bf994": {
+   "id": "NEG",
+   "set": "cal",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "fa11ec81bf4229429059ad545422f9eceed393a5630b246b24295d0a85c29196"
+  },
+  "ec7f69fe": {
+   "id": "NEG",
+   "set": "cal",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "fa11ec81bf4229429059ad545422f9eceed393a5630b246b24295d0a85c29196"
+  },
+  "71c5f727": {
+   "id": "NEG",
+   "set": "cal",
+   "kind": "image",
+   "slot": 3,
+   "sha256": "fa11ec81bf4229429059ad545422f9eceed393a5630b246b24295d0a85c29196"
+  },
+  "55828189": {
+   "id": "POS",
+   "set": "cal",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "954b925e9f2eb2b4c274cf496c94cfc9ec285ddee584d91956076bbea07c84a4"
+  },
+  "4b440cc1": {
+   "id": "POS",
+   "set": "cal",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "954b925e9f2eb2b4c274cf496c94cfc9ec285ddee584d91956076bbea07c84a4"
+  }
+ }
+}

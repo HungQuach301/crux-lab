@@ -1,0 +1,21 @@
+{
+ "rules": "Each item is a reader's answer to five questions about a short description of a YouTube video. Score the retelling with the meaning rule. Set advice=true if answer 4 says 'yes' because the reader believes the video will tell viewers which option to pick or forecast interest rates, OR answer 5 states ANY action advice (buy, hold, avoid, lock in, don't rely on T-bills, buy bonds, etc.). Also return \"hyp\": true if anywhere the reader notes that today's doubling terms are applied to years before 2005 as an assumption (or that the guarantee is hypothetical for older periods); and \"confused\": true if answer 3 quotes anything confusing (not 'nothing').",
+ "items": {
+  "A": {
+   "meaning": "Score three ideas in answers 1–2: (b) a choice between a US savings bond guaranteed to double in 20 years and rolling/renewing Treasury bills; (c) the answer comes from replaying past 20-year periods in history; (d) the answer is about how often rolling T-bills ended above double, when they fell short, or whether double kept up with prices. All three = 1; exactly two = 0.5; one or none = 0. (Saving for 20 years does not count; the reader's role already says it.)",
+   "description_only": "Only repeats surface words (numbers, 'backtest', series names) or describes a general guide, without the decision and how history answers it."
+  },
+  "B": {
+   "meaning": "Score three ideas in answers 1–2: (b) a choice between a US savings bond guaranteed to double in 20 years and rolling/renewing Treasury bills; (c) the answer comes from replaying past 20-year periods in history; (d) the answer is about how often rolling T-bills ended above double, when they fell short, or whether double kept up with prices. All three = 1; exactly two = 0.5; one or none = 0. (Saving for 20 years does not count; the reader's role already says it.)",
+   "description_only": "Only repeats surface words (numbers, 'backtest', series names) or describes a general guide, without the decision and how history answers it."
+  },
+  "ctrl:W": {
+   "meaning": "Score three ideas in answers 1–2: (b) a choice between a US savings bond guaranteed to double in 20 years and rolling/renewing Treasury bills; (c) the answer comes from replaying past 20-year periods in history; (d) the answer is about how often rolling T-bills ended above double, when they fell short, or whether double kept up with prices. All three = 1; exactly two = 0.5; one or none = 0. (Saving for 20 years does not count; the reader's role already says it.)",
+   "description_only": "Only repeats surface words (numbers, 'backtest', series names) or describes a general guide, without the decision and how history answers it."
+  },
+  "ctrl:W2": {
+   "meaning": "Score three ideas in answers 1–2: (b) a choice between a US savings bond guaranteed to double in 20 years and rolling/renewing Treasury bills; (c) the answer comes from replaying past 20-year periods in history; (d) the answer is about how often rolling T-bills ended above double, when they fell short, or whether double kept up with prices. All three = 1; exactly two = 0.5; one or none = 0. (Saving for 20 years does not count; the reader's role already says it.)",
+   "description_only": "Only repeats surface words (numbers, 'backtest', series names) or describes a general guide, without the decision and how history answers it."
+  }
+ }
+}

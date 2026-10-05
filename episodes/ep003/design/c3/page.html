@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Ep003 C3 style frame</title>
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(/toolkit/render/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(/toolkit/render/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(/toolkit/render/fonts/inter-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0e1116}
+canvas{display:block}
+</style>
+<script src="/episodes/ep003/design/c3/work/data.js"></script>
+</head><body>
+<script type="module">
+const q = new URLSearchParams(location.search);
+for (const w of [400, 600, 700]) await document.fonts.load(`${w} 48px Inter`);
+await document.fonts.ready;
+const { boot } = await import('/episodes/ep003/design/c3/src/engine.js');
+const S = await import('/episodes/ep003/design/c3/src/scenes.js');
+window.APP = boot(S[q.get('k')]);
+window.READY = true;
+</script>
+</body></html>

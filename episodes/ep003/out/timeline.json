@@ -1,0 +1,223 @@
+{
+ "fps": 30,
+ "total": 572.0,
+ "acts": [
+  {
+   "id": "cold-open",
+   "start": 0.0,
+   "end": 64.457
+  },
+  {
+   "id": "act1",
+   "start": 64.457,
+   "end": 191.497
+  },
+  {
+   "id": "act2",
+   "start": 191.497,
+   "end": 370.285
+  },
+  {
+   "id": "act3",
+   "start": 370.285,
+   "end": 487.77
+  },
+  {
+   "id": "method",
+   "start": 487.77,
+   "end": 496.647
+  },
+  {
+   "id": "outro",
+   "start": 496.647,
+   "end": 572.0
+  }
+ ],
+ "scenes": [
+  {
+   "id": "S01",
+   "act": "cold-open",
+   "start": 0.0,
+   "dur": 64.457,
+   "layout": "paths/dana",
+   "shot": "wide",
+   "panels": [
+    "S01"
+   ],
+   "chart": "paths",
+   "move": 0
+  },
+  {
+   "id": "S02",
+   "act": "act1",
+   "start": 64.457,
+   "dur": 65.792,
+   "layout": "card/bond",
+   "shot": "wide",
+   "panels": [
+    "S02"
+   ],
+   "chart": "card",
+   "move": 0
+  },
+  {
+   "id": "S03",
+   "act": "act1",
+   "start": 130.249,
+   "dur": 61.248,
+   "layout": "paths/chain",
+   "shot": "wide",
+   "panels": [
+    "S03"
+   ],
+   "chart": "paths",
+   "move": 0
+  },
+  {
+   "id": "S04",
+   "act": "act2",
+   "start": 191.497,
+   "dur": 71.851,
+   "layout": "swarm/full",
+   "shot": "wide",
+   "panels": [
+    "S04"
+   ],
+   "chart": "swarm",
+   "move": 0
+  },
+  {
+   "id": "S05",
+   "act": "act2",
+   "start": 263.348,
+   "dur": 68.28,
+   "layout": "swarm/eras",
+   "shot": "wide",
+   "panels": [
+    "S05"
+   ],
+   "chart": "swarm",
+   "move": 0
+  },
+  {
+   "id": "S06",
+   "act": "act2",
+   "start": 331.628,
+   "dur": 38.657,
+   "layout": "dumbbell/eras",
+   "shot": "wide",
+   "panels": [
+    "S06"
+   ],
+   "chart": "dumbbell",
+   "move": 0
+  },
+  {
+   "id": "S07",
+   "act": "act3",
+   "start": 370.285,
+   "dur": 50.142,
+   "layout": "shadow/bars",
+   "shot": "wide",
+   "panels": [
+    "S07"
+   ],
+   "chart": "shadow",
+   "move": 0
+  },
+  {
+   "id": "S08",
+   "act": "act3",
+   "start": 420.427,
+   "dur": 67.343,
+   "layout": "swarm/rate-scale",
+   "shot": "wide",
+   "panels": [
+    "S08"
+   ],
+   "chart": "swarm",
+   "move": 0
+  },
+  {
+   "id": "S09",
+   "act": "method",
+   "start": 487.77,
+   "dur": 8.877,
+   "layout": "card/method",
+   "shot": "wide",
+   "panels": [
+    "S09"
+   ],
+   "chart": "card",
+   "move": 0
+  },
+  {
+   "id": "S10",
+   "act": "outro",
+   "start": 496.647,
+   "dur": 52.268,
+   "layout": "paths/dana",
+   "shot": "wide",
+   "panels": [
+    "S10"
+   ],
+   "chart": "paths",
+   "move": 0
+  },
+  {
+   "id": "S11",
+   "act": "outro",
+   "start": 548.915,
+   "dur": 23.085,
+   "layout": "card/end",
+   "shot": "wide",
+   "panels": [
+    "S11"
+   ],
+   "chart": "card",
+   "move": 0
+  }
+ ],
+ "turns": [
+  {
+   "t": 64.457,
+   "what": "S02"
+  },
+  {
+   "t": 130.249,
+   "what": "S03"
+  },
+  {
+   "t": 191.497,
+   "what": "S04"
+  },
+  {
+   "t": 263.348,
+   "what": "S05"
+  },
+  {
+   "t": 331.628,
+   "what": "S06"
+  },
+  {
+   "t": 370.285,
+   "what": "S07"
+  },
+  {
+   "t": 420.427,
+   "what": "S08"
+  },
+  {
+   "t": 487.77,
+   "what": "S09"
+  },
+  {
+   "t": 496.647,
+   "what": "S10"
+  },
+  {
+   "t": 548.915,
+   "what": "S11"
+  }
+ ]
+}

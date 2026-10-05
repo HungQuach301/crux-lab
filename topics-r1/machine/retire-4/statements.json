@@ -1,0 +1,322 @@
+[
+ {
+  "id": "ans-1",
+  "where": "answer",
+  "text": "History, not a forecast. A savings bond held 20 years is guaranteed to reach at least double its price, about 3.53% a year.",
+  "uses": [
+   "horizon_years",
+   "doubling_rate_pct_per_year"
+  ],
+  "check": "calc.py --statement 1 → True"
+ },
+ {
+  "id": "ans-2",
+  "where": "answer",
+  "text": "Rolling 3-month T-bills for 20 years, starting any month from 1934 to 2006 (873 starts), ended above double in 52.3% of starts (median multiple 2.097; range 1.129 to 4.612).",
+  "uses": [
+   "bill_term_months",
+   "horizon_years",
+   "first_start",
+   "last_start",
+   "starts",
+   "share_tbills_above_double_pct",
+   "median_tbill_multiple_20y",
+   "min_tbill_multiple_20y",
+   "max_tbill_multiple_20y"
+  ],
+  "check": "calc.py --statement 2 → True"
+ },
+ {
+  "id": "ans-3",
+  "where": "answer",
+  "text": "Today's doubling terms apply to bonds issued from May 2005; for the 856 earlier start months (98.1% of all starts) we apply them as if they had existed then.",
+  "uses": [
+   "guarantee_from",
+   "starts_hypothetical",
+   "share_hypothetical_pct"
+  ],
+  "check": "calc.py --statement 3 → True"
+ },
+ {
+  "id": "ans-4",
+  "where": "answer",
+  "text": "It was a matter of era: starts from 1950 to 1989 ended above double in 93.1% of months, starts from 1990 on in only 5.0%.",
+  "uses": [
+   "mid_from",
+   "mid_to",
+   "share_above_double_1950_1989_pct",
+   "since_1990_from",
+   "share_tbills_above_double_starts_since_1990_pct"
+  ],
+  "check": "calc.py --statement 4 → True"
+ },
+ {
+  "id": "ans-5",
+  "where": "answer",
+  "text": "The latest full stretch, Sep 2006 to Aug 2026, turned money into 1.378 times.",
+  "uses": [
+   "last_start",
+   "latest_window_end",
+   "latest_tbill_multiple_20y"
+  ],
+  "check": "calc.py --statement 5 → True"
+ },
+ {
+  "id": "ans-6",
+  "where": "answer",
+  "text": "In the 17 start months when the guarantee really existed (May 2005 to Sep 2006), rolled T-bills ended at 1.378 to 1.388 times the money; none reached double.",
+  "uses": [
+   "starts_with_guarantee",
+   "guarantee_from",
+   "last_start",
+   "min_multiple_guarantee_starts",
+   "max_multiple_guarantee_starts",
+   "share_above_double_guarantee_starts_pct"
+  ],
+  "check": "calc.py --statement 6 → True"
+ },
+ {
+  "id": "ans-7",
+  "where": "answer",
+  "text": "Double itself is not inflation-proof: it kept up with consumer prices over 20 years in 58.7% of start months (median buying power 107.3% of the original).",
+  "uses": [
+   "horizon_years",
+   "share_double_beat_prices_pct",
+   "median_real_value_double_pct"
+  ],
+  "check": "calc.py --statement 7 → True"
+ },
+ {
+  "id": "ans-8",
+  "where": "answer",
+  "text": "In Aug 2026 the 3-month bill rate was 3.72%.",
+  "uses": [
+   "tb3ms_latest_month",
+   "bill_term_months",
+   "tb3ms_latest_pct"
+  ],
+  "check": "calc.py --statement 8 → True"
+ },
+ {
+  "id": "guess-1",
+  "where": "guess",
+  "text": "With T-bills paying 3.72% against the bond's 3.53% doubling rate, most savers would guess rolling T-bills easily beats a bond that 'only' doubles in 20 years.",
+  "uses": [
+   "tb3ms_latest_pct",
+   "doubling_rate_pct_per_year",
+   "horizon_years"
+  ],
+  "check": "calc.py --statement 9 → True"
+ },
+ {
+  "id": "chg-1",
+  "where": "changesDecision",
+  "text": "Today's T-bill rate is only the first of 80 three-month rates the saver would get over 20 years: the roll beat double in nearly every start from 1950 to 1989 and fell short in nearly every start from 1990 on.",
+  "uses": [
+   "bills_per_horizon",
+   "horizon_years",
+   "mid_from",
+   "mid_to",
+   "since_1990_from"
+  ],
+  "check": "calc.py --statement 10 → True"
+ },
+ {
+  "id": "chg-2",
+  "where": "changesDecision",
+  "text": "For 87.6% of the starts from 1990 on, the average bill rate over the next 20 years was below the rate in the start month.",
+  "uses": [
+   "share_since_1990_avg_below_start_pct",
+   "since_1990_from",
+   "horizon_years"
+  ],
+  "check": "calc.py --statement 11 → True"
+ },
+ {
+  "id": "chg-3",
+  "where": "changesDecision",
+  "text": "Double bought less than the original money in 41.3% of start months; the worst, starting in January 1966, bought 58.0% of what the money bought at the start.",
+  "uses": [
+   "share_double_lost_buying_power_pct",
+   "worst_real_start",
+   "worst_real_value_double_pct"
+  ],
+  "check": "calc.py --statement 12 → True"
+ },
+ {
+  "id": "lim-1",
+  "where": "limits",
+  "text": "Starts from 1934 to 1949 never ended above double.",
+  "uses": [
+   "early_from",
+   "early_to",
+   "share_above_double_1934_1949_pct"
+  ],
+  "check": "calc.py --statement 13 → True"
+ },
+ {
+  "id": "lim-2",
+  "where": "limits",
+  "text": "The data from 1934 to 2026 hold only 4 separate 20-year periods; the 873 overlapping windows are not 873 independent results.",
+  "uses": [
+   "first_start",
+   "latest_window_end",
+   "nonoverlap_periods",
+   "horizon_years",
+   "starts"
+  ],
+  "check": "calc.py --statement 14 → True"
+ },
+ {
+  "id": "risk-1",
+  "where": "claim-risk",
+  "text": "Analyst's guess before running the data: rolling T-bills would beat double in most 20-year windows, because the average bill rate since 1934 (3.42%) sits near the 3.53% doubling rate.",
+  "uses": [
+   "horizon_years",
+   "first_start",
+   "mean_tb3ms_all_pct",
+   "doubling_rate_pct_per_year"
+  ],
+  "check": "calc.py --statement 15 → True"
+ },
+ {
+  "id": "risk-2",
+  "where": "claim-risk",
+  "text": "Actual: 52.3% overall, but only 5.0% of starts from 1990 on.",
+  "uses": [
+   "share_tbills_above_double_pct",
+   "share_tbills_above_double_starts_since_1990_pct",
+   "since_1990_from"
+  ],
+  "check": "calc.py --statement 16 → True"
+ },
+ {
+  "id": "risk-3",
+  "where": "claim-risk",
+  "text": "Today's doubling-in-20-years terms apply to bonds issued from May 2005 on; earlier bonds had other terms, so every earlier start is hypothetical ('if this guarantee had existed then').",
+  "uses": [
+   "horizon_years",
+   "guarantee_from"
+  ],
+  "check": "calc.py --statement 17 → True"
+ },
+ {
+  "id": "risk-4",
+  "where": "claim-risk",
+  "text": "Double kept up with consumer prices in only 58.7% of starts.",
+  "uses": [
+   "share_double_beat_prices_pct"
+  ],
+  "check": "calc.py --statement 18 → True"
+ },
+ {
+  "id": "risk-5",
+  "where": "claim-risk",
+  "text": "Comparing today's 3.72% T-bill rate directly with the 3.53% doubling rate as if it settles the question.",
+  "uses": [
+   "tb3ms_latest_pct",
+   "doubling_rate_pct_per_year"
+  ],
+  "check": "calc.py --statement 19 → True"
+ },
+ {
+  "id": "card-1",
+  "where": "card.promise",
+  "text": "We roll T-bills through every 20-year stretch since the Depression to see how often they managed to double your money.",
+  "uses": [
+   "horizon_years",
+   "first_start"
+  ],
+  "check": "calc.py --statement 20 → True"
+ },
+ {
+  "id": "card-2",
+  "where": "card.title",
+  "text": "Savings Bonds That Double in 20 Years vs T-Bills",
+  "uses": [
+   "horizon_years"
+  ],
+  "check": "calc.py --statement 21 → True"
+ },
+ {
+  "id": "card-3",
+  "where": "card.decision",
+  "text": "Should I lock money in savings bonds that double in 20 years, or keep rolling T-bills instead?",
+  "uses": [
+   "horizon_years"
+  ],
+  "check": "calc.py --statement 22 → True"
+ },
+ {
+  "id": "card-4",
+  "where": "card.viewer",
+  "text": "Savers in their 40s parking safe retirement money for 20 years, weighing savings bonds guaranteed to double against rolling T-bills.",
+  "uses": [
+   "viewer_age_decade",
+   "horizon_years"
+  ],
+  "check": "calc.py --statement 23 → True"
+ },
+ {
+  "id": "chg-4",
+  "where": "changesDecision",
+  "text": "That reframes the choice as a known result in dollars versus a bet on 20 years of short-term rates; no forecast of rates is made.",
+  "uses": [
+   "horizon_years"
+  ],
+  "check": "calc.py --statement 24 → True"
+ },
+ {
+  "id": "lim-0",
+  "where": "limits",
+  "text": "History, not a forecast.",
+  "uses": [],
+  "check": "calc.py --statement 25 → True"
+ },
+ {
+  "id": "lim-3",
+  "where": "limits",
+  "text": "Ignoring taxes favors T-bills relative to tax-deferred savings bonds for most savers.",
+  "uses": [],
+  "check": "calc.py --statement 26 → True"
+ },
+ {
+  "id": "risk-6",
+  "where": "claim-risk",
+  "text": "6 start months end within 0.5% of double, so the shares can shift by a start or two under another bill-rate convention.",
+  "uses": [
+   "near_double_starts",
+   "near_double_band_pct"
+  ],
+  "check": "calc.py --statement 27 → True"
+ },
+ {
+  "id": "asm-1",
+  "where": "assumptions",
+  "text": "The doubling guarantee is applied to every historical start as if it had existed then; it applies to bonds issued from May 2005, and earlier bonds had other terms.",
+  "uses": [
+   "guarantee_from"
+  ],
+  "check": "calc.py --statement 28 → True"
+ },
+ {
+  "id": "risk-7",
+  "where": "claim-risk",
+  "text": "The only real (non-hypothetical) starts are May 2005 to Sep 2006: a small, single-era sample, not a separate proof.",
+  "uses": [
+   "guarantee_from",
+   "last_start"
+  ],
+  "check": "calc.py --statement 29 → True"
+ },
+ {
+  "id": "risk-8",
+  "where": "claim-risk",
+  "text": "Do not say \"there was no guarantee before 2005\" (earlier EE bonds had other guaranteed terms) or \"savings bonds have beaten T-bills since 1990\" (most of those starts are hypothetical).",
+  "uses": [
+   "guarantee_from",
+   "since_1990_from"
+  ],
+  "check": "calc.py --statement 30 → True"
+ }
+]

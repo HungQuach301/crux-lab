@@ -1,0 +1,618 @@
+{
+ "gap": 0.8,
+ "scenes": [
+  {
+   "id": "S01",
+   "start": 0.0,
+   "dur": 63.657,
+   "file": "work/voice/S01.wav"
+  },
+  {
+   "id": "S02",
+   "start": 64.457,
+   "dur": 64.993,
+   "file": "work/voice/S02.wav"
+  },
+  {
+   "id": "S03",
+   "start": 130.249,
+   "dur": 60.447,
+   "file": "work/voice/S03.wav"
+  },
+  {
+   "id": "S04",
+   "start": 191.497,
+   "dur": 71.051,
+   "file": "work/voice/S04.wav"
+  },
+  {
+   "id": "S05",
+   "start": 263.348,
+   "dur": 67.48,
+   "file": "work/voice/S05.wav"
+  },
+  {
+   "id": "S06",
+   "start": 331.628,
+   "dur": 37.858,
+   "file": "work/voice/S06.wav"
+  },
+  {
+   "id": "S07",
+   "start": 370.285,
+   "dur": 49.342,
+   "file": "work/voice/S07.wav"
+  },
+  {
+   "id": "S08",
+   "start": 420.427,
+   "dur": 66.543,
+   "file": "work/voice/S08.wav"
+  },
+  {
+   "id": "S09",
+   "start": 487.77,
+   "dur": 8.078,
+   "file": "work/voice/S09.wav"
+  },
+  {
+   "id": "S10",
+   "start": 496.647,
+   "dur": 51.468,
+   "file": "work/voice/S10.wav"
+  },
+  {
+   "id": "S11",
+   "start": 548.915,
+   "dur": 7.041,
+   "file": "work/voice/S11.wav"
+  }
+ ],
+ "sentences": [
+  {
+   "id": "S01.1",
+   "text": "Dana is in her forties, and she has a chunk of savings she has promised herself she won't touch for 20 years.",
+   "start": 0.0,
+   "end": 6.9,
+   "matched": "21/22",
+   "scene": "S01"
+  },
+  {
+   "id": "S01.2",
+   "text": "Right now it sits in 3-month Treasury bills, and every time one comes due, the money rolls into the next.",
+   "start": 7.76,
+   "end": 13.82,
+   "matched": "20/21",
+   "scene": "S01"
+  },
+  {
+   "id": "S01.3",
+   "text": "Lots of people have money like this, set aside for much later and parked where it earns whatever short-term rates pay.",
+   "start": 14.84,
+   "end": 21.78,
+   "matched": "22/22",
+   "scene": "S01"
+  },
+  {
+   "id": "S01.4",
+   "text": "Tonight she has a different tab open: a US savings bond with a much simpler promise, that a bond held for 20 years is worth at least double what was paid.",
+   "start": 22.64,
+   "end": 35.58,
+   "matched": "28/31",
+   "scene": "S01"
+  },
+  {
+   "id": "S01.5",
+   "text": "So which path would have left her better off, the promise or the roll?",
+   "start": 37.12,
+   "end": 41.2,
+   "matched": "13/14",
+   "scene": "S01"
+  },
+  {
+   "id": "S01.6",
+   "text": "One catch before we look back: the doubling promise in its current form only began with bonds issued in May 2005, and earlier bonds came with different terms.",
+   "start": 42.22,
+   "end": 53.64,
+   "matched": "28/28",
+   "scene": "S01"
+  },
+  {
+   "id": "S01.7",
+   "text": "So for every year before that, we simply pretend today's promise already existed, and you'll see that marked each time it applies.",
+   "start": 54.58,
+   "end": 63.28,
+   "matched": "22/22",
+   "scene": "S01"
+  },
+  {
+   "id": "S02.1",
+   "text": "By the end, you'll know how often history let the roll beat double, when it fell short, and roughly where the line sits that your own 20 years would have to clear.",
+   "start": 64.457,
+   "end": 74.957,
+   "matched": "32/32",
+   "scene": "S02"
+  },
+  {
+   "id": "S02.2",
+   "text": "First, the bond.",
+   "start": 76.237,
+   "end": 77.477,
+   "matched": "3/3",
+   "scene": "S02"
+  },
+  {
+   "id": "S02.3",
+   "text": "It's a Series EE savings bond, sold by the US Treasury itself.",
+   "start": 78.277,
+   "end": 82.037,
+   "matched": "11/12",
+   "scene": "S02"
+  },
+  {
+   "id": "S02.4",
+   "text": "For bonds issued May to October 2026, it earns a fixed 2.40 percent a year, and the rate for new bonds is reset every May and November.",
+   "start": 82.877,
+   "end": 92.957,
+   "matched": "27/28",
+   "scene": "S02"
+  },
+  {
+   "id": "S02.5",
+   "text": "That rate alone would not double the money in 20 years, so at the 20-year mark the Treasury tops the bond up to at least double.",
+   "start": 92.957,
+   "end": 101.537,
+   "matched": "27/27",
+   "scene": "S02"
+  },
+  {
+   "id": "S02.6",
+   "text": "The promise, as written, covers bonds held electronically, which is how the Treasury sells them now.",
+   "start": 102.297,
+   "end": 108.617,
+   "matched": "16/16",
+   "scene": "S02"
+  },
+  {
+   "id": "S02.7",
+   "text": "Spread over those 20 years, that doubling can also be written as one steady yearly rate, shown here on the gate.",
+   "start": 109.257,
+   "end": 116.737,
+   "matched": "21/21",
+   "scene": "S02"
+  },
+  {
+   "id": "S02.8",
+   "text": "And the double only arrives at 20 years: a bond cashed earlier earns just its fixed rate, and one cashed before five years also gives up 3 months of interest.",
+   "start": 116.737,
+   "end": 129.097,
+   "matched": "29/30",
+   "scene": "S02"
+  },
+  {
+   "id": "S03.1",
+   "text": "The Treasury bill path works the other way around: it makes no promise past three months.",
+   "start": 130.249,
+   "end": 135.529,
+   "matched": "16/16",
+   "scene": "S03"
+  },
+  {
+   "id": "S03.2",
+   "text": "A bill is a short loan to the government: the buyer pays a bit less than the face amount and gets the full amount back when it comes due.",
+   "start": 136.529,
+   "end": 143.449,
+   "matched": "29/29",
+   "scene": "S03"
+  },
+  {
+   "id": "S03.3",
+   "text": "Over 20 years the money rolls through 80 bills, each paying whatever rate the market sets at the time.",
+   "start": 144.409,
+   "end": 150.609,
+   "matched": "19/19",
+   "scene": "S03"
+  },
+  {
+   "id": "S03.4",
+   "text": "In August 2026, the 3-month bill paid 3.72 percent.",
+   "start": 151.589,
+   "end": 156.949,
+   "matched": "9/11",
+   "scene": "S03"
+  },
+  {
+   "id": "S03.5",
+   "text": "It's tempting to set that next to the bond's doubling rate and call it settled.",
+   "start": 156.949,
+   "end": 161.729,
+   "matched": "15/15",
+   "scene": "S03"
+  },
+  {
+   "id": "S03.6",
+   "text": "But these rates aren't measured the same way, and bill rates are quoted on a scale where the doubling line sits a little lower.",
+   "start": 162.589,
+   "end": 169.089,
+   "matched": "24/24",
+   "scene": "S03"
+  },
+  {
+   "id": "S03.7",
+   "text": "The bigger problem is time: that rate covers one bill, and the roll lives on 80 of them.",
+   "start": 169.929,
+   "end": 176.149,
+   "matched": "17/18",
+   "scene": "S03"
+  },
+  {
+   "id": "S03.8",
+   "text": "What decides the race is the bill rate across all 20 years, and that is exactly what nobody knows in advance, us included.",
+   "start": 177.029,
+   "end": 186.469,
+   "matched": "23/23",
+   "scene": "S03"
+  },
+  {
+   "id": "S03.9",
+   "text": "So instead of guessing, we went back and replayed history.",
+   "start": 187.329,
+   "end": 190.349,
+   "matched": "10/10",
+   "scene": "S03"
+  },
+  {
+   "id": "S04.1",
+   "text": "We took the actual 3-month bill rate for every month since 1934 and started a 20-year roll in each month from January 1934 to September 2006, the last start whose 20 years are complete.",
+   "start": 191.497,
+   "end": 208.537,
+   "matched": "35/36",
+   "scene": "S04"
+  },
+  {
+   "id": "S04.2",
+   "text": "Each time a bill comes due, the money, interest and all, goes into the next bill at that month's rate.",
+   "start": 209.877,
+   "end": 216.097,
+   "matched": "20/20",
+   "scene": "S04"
+  },
+  {
+   "id": "S04.3",
+   "text": "Each start is a saver like Dana putting money in and leaving it alone, and the results swing hard.",
+   "start": 216.937,
+   "end": 223.877,
+   "matched": "19/19",
+   "scene": "S04"
+  },
+  {
+   "id": "S04.4",
+   "text": "A saver who started in May 1972 ended with 4.612 times the money; one who started in January 1934 ended with just 1.129 times.",
+   "start": 224.877,
+   "end": 238.817,
+   "matched": "26/26",
+   "scene": "S04"
+  },
+  {
+   "id": "S04.5",
+   "text": "Across all the start months there are 873 of these rolls.",
+   "start": 239.857,
+   "end": 244.177,
+   "matched": "10/11",
+   "scene": "S04"
+  },
+  {
+   "id": "S04.6",
+   "text": "They overlap a lot, so together they amount to a few long stretches of history, not 873 separate tries.",
+   "start": 244.497,
+   "end": 252.637,
+   "matched": "19/19",
+   "scene": "S04"
+  },
+  {
+   "id": "S04.7",
+   "text": "For each one there's a single question: did the roll end above double? US only, and history, not a forecast.",
+   "start": 253.777,
+   "end": 262.057,
+   "matched": "19/20",
+   "scene": "S04"
+  },
+  {
+   "id": "S05.1",
+   "text": "Across all of them, the roll ended above double 52.3 percent of the time, about half.",
+   "start": 263.348,
+   "end": 268.848,
+   "matched": "16/17",
+   "scene": "S05"
+  },
+  {
+   "id": "S05.2",
+   "text": "But for starts from 1950 to 1989 it was 93.1 percent, nearly always, and for starts from 1990 on, just 5.0 percent, almost never.",
+   "start": 269.828,
+   "end": 284.428,
+   "matched": "24/26",
+   "scene": "S05"
+  },
+  {
+   "id": "S05.3",
+   "text": "Starts from 1934 to 1949 never got there at all, so about half is really separate eras stitched together.",
+   "start": 285.548,
+   "end": 294.508,
+   "matched": "19/19",
+   "scene": "S05"
+  },
+  {
+   "id": "S05.4",
+   "text": "For a saver in Dana's chair, the decade they happened to start in made almost all the difference.",
+   "start": 295.988,
+   "end": 301.508,
+   "matched": "18/18",
+   "scene": "S05"
+  },
+  {
+   "id": "S05.5",
+   "text": "Now, the only starts where the promise was real rather than pretend: the 17 months from May 2005 to September 2006.",
+   "start": 302.628,
+   "end": 311.868,
+   "matched": "21/21",
+   "scene": "S05"
+  },
+  {
+   "id": "S05.6",
+   "text": "Not one of those 17 rolls reached double; they ended between 1.378 and 1.388 times the money.",
+   "start": 313.108,
+   "end": 322.188,
+   "matched": "19/19",
+   "scene": "S05"
+  },
+  {
+   "id": "S05.7",
+   "text": "But that is a small sample from a single era, so it shows what happened once, not what a guarantee does in general.",
+   "start": 323.068,
+   "end": 329.768,
+   "matched": "23/23",
+   "scene": "S05"
+  },
+  {
+   "id": "S06.1",
+   "text": "What separated those eras was the path bill rates took after each start.",
+   "start": 331.628,
+   "end": 335.188,
+   "matched": "12/13",
+   "scene": "S06"
+  },
+  {
+   "id": "S06.2",
+   "text": "For starts from 1990 on, the average bill rate over the following 20 years ended below the rate in the starting month 87.6 percent of the time.",
+   "start": 336.028,
+   "end": 345.688,
+   "matched": "27/28",
+   "scene": "S06"
+  },
+  {
+   "id": "S06.3",
+   "text": "When the rate starts high and drifts down, the average sinks below where it began, and the roll ends up earning less than its first bill suggested.",
+   "start": 346.548,
+   "end": 354.008,
+   "matched": "27/27",
+   "scene": "S06"
+  },
+  {
+   "id": "S06.4",
+   "text": "In other words, the rate on the day a roll begins has been a poor guide to the decades that follow.",
+   "start": 355.048,
+   "end": 359.588,
+   "matched": "21/21",
+   "scene": "S06"
+  },
+  {
+   "id": "S06.5",
+   "text": "The early eras just ran the other way more often.",
+   "start": 360.228,
+   "end": 363.188,
+   "matched": "10/10",
+   "scene": "S06"
+  },
+  {
+   "id": "S06.6",
+   "text": "That is not a reason to pick either path; it is what history did with this pair of rules.",
+   "start": 363.988,
+   "end": 369.068,
+   "matched": "19/19",
+   "scene": "S06"
+  },
+  {
+   "id": "S07.1",
+   "text": "There's something else double never promised: what the money will buy.",
+   "start": 370.285,
+   "end": 374.385,
+   "matched": "11/11",
+   "scene": "S07"
+  },
+  {
+   "id": "S07.2",
+   "text": "Over 20 years prices rise, sometimes slowly and sometimes fast.",
+   "start": 375.685,
+   "end": 379.765,
+   "matched": "10/10",
+   "scene": "S07"
+  },
+  {
+   "id": "S07.3",
+   "text": "To check it, we compared each doubled amount with how far consumer prices rose over the same 20 years.",
+   "start": 380.465,
+   "end": 386.405,
+   "matched": "19/19",
+   "scene": "S07"
+  },
+  {
+   "id": "S07.4",
+   "text": "The doubled amount kept its buying power in 58.7 percent of starts.",
+   "start": 387.325,
+   "end": 391.785,
+   "matched": "12/13",
+   "scene": "S07"
+  },
+  {
+   "id": "S07.5",
+   "text": "The worst start, January 1966, ended with a double that bought only 58.0 percent of what the original money had bought.",
+   "start": 392.665,
+   "end": 401.385,
+   "matched": "21/22",
+   "scene": "S07"
+  },
+  {
+   "id": "S07.6",
+   "text": "For Dana's savings, a start like that would mean twice the dollars buying only a little more than half of what the original sum did.",
+   "start": 402.505,
+   "end": 409.785,
+   "matched": "25/25",
+   "scene": "S07"
+  },
+  {
+   "id": "S07.7",
+   "text": "So double is a promise about dollars, not about groceries, and the bill roll lives with the same prices, which this replay doesn't score.",
+   "start": 410.925,
+   "end": 419.365,
+   "matched": "24/24",
+   "scene": "S07"
+  },
+  {
+   "id": "S08.1",
+   "text": "So where would your own 20 years fall?",
+   "start": 420.427,
+   "end": 422.587,
+   "matched": "8/8",
+   "scene": "S08"
+  },
+  {
+   "id": "S08.2",
+   "text": "Here is a line to measure them against.",
+   "start": 423.627,
+   "end": 425.507,
+   "matched": "8/8",
+   "scene": "S08"
+  },
+  {
+   "id": "S08.3",
+   "text": "Averaged over every month since 1934, the 3-month bill paid 3.42 percent.",
+   "start": 426.447,
+   "end": 432.807,
+   "matched": "12/14",
+   "scene": "S08"
+  },
+  {
+   "id": "S08.4",
+   "text": "For a roll to end above double, the bill rate has to average about 3.47 percent a year across all 20 years, which is the bond's doubling measured the way bill rates are quoted, so the long-run average sat just under the line.",
+   "start": 432.807,
+   "end": 448.627,
+   "matched": "43/45",
+   "scene": "S08"
+  },
+  {
+   "id": "S08.5",
+   "text": "The middle roll of all 873 ended at 2.097 times the money, barely over the line.",
+   "start": 449.187,
+   "end": 458.527,
+   "matched": "17/17",
+   "scene": "S08"
+  },
+  {
+   "id": "S08.6",
+   "text": "For money like Dana's, the question isn't the rate on the day it starts; it's whether the bill rate averages above that line over all 80 bills, a rule that matched the result in every one of the 873 starts.",
+   "start": 459.687,
+   "end": 474.087,
+   "matched": "40/40",
+   "scene": "S08"
+  },
+  {
+   "id": "S08.7",
+   "text": "Nobody can say where that average will land, and today's rate can't either.",
+   "start": 475.247,
+   "end": 479.807,
+   "matched": "13/13",
+   "scene": "S08"
+  },
+  {
+   "id": "S08.8",
+   "text": "The line doesn't say which to pick; it says what the roll has to do to beat the promise.",
+   "start": 480.427,
+   "end": 486.467,
+   "matched": "19/19",
+   "scene": "S08"
+  },
+  {
+   "id": "S09.1",
+   "text": "How the replay was built, and what it leaves out, like taxes and purchase limits, is on screen and in the description.",
+   "start": 487.77,
+   "end": 495.45,
+   "matched": "22/22",
+   "scene": "S09"
+  },
+  {
+   "id": "S10.1",
+   "text": "Back at Dana's table, the two paths look the same as they did at the start: a promise of double, or a roll with no promise past three months.",
+   "start": 496.647,
+   "end": 504.967,
+   "matched": "28/29",
+   "scene": "S10"
+  },
+  {
+   "id": "S10.2",
+   "text": "History doesn't choose for her.",
+   "start": 506.167,
+   "end": 507.647,
+   "matched": "5/5",
+   "scene": "S10"
+  },
+  {
+   "id": "S10.3",
+   "text": "It doesn't know what she needs the money for, or what else she owns, and it can't see the 20 years ahead of her.",
+   "start": 508.147,
+   "end": 514.847,
+   "matched": "24/24",
+   "scene": "S10"
+  },
+  {
+   "id": "S10.4",
+   "text": "What it shows is a roll that beat double about half the time, nearly always for starts from 1950 to 1989 and almost never for starts since 1990, with today's promise imagined for every start before May 2005.",
+   "start": 515.407,
+   "end": 532.527,
+   "matched": "37/38",
+   "scene": "S10"
+  },
+  {
+   "id": "S10.5",
+   "text": "It shows that double was a promise about dollars, not about what they buy.",
+   "start": 533.987,
+   "end": 538.367,
+   "matched": "13/14",
+   "scene": "S10"
+  },
+  {
+   "id": "S10.6",
+   "text": "And it shows a line that depends on a path of rates nobody can see yet.",
+   "start": 539.007,
+   "end": 543.427,
+   "matched": "16/16",
+   "scene": "S10"
+  },
+  {
+   "id": "S10.7",
+   "text": "US only, and history, not a forecast.",
+   "start": 544.947,
+   "end": 547.667,
+   "matched": "6/7",
+   "scene": "S10"
+  },
+  {
+   "id": "S11.1",
+   "text": "That's the replay. The next episode, another question about money and time, is on screen now.",
+   "start": 548.915,
+   "end": 555.755,
+   "matched": "15/16",
+   "scene": "S11"
+  }
+ ],
+ "total": 556.756
+}

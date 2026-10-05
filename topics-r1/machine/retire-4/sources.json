@@ -11,8 +11,11 @@
    "lastObservation": "2026-08-01",
    "terms": {
     "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
-    "url": "https://fred.stlouisfed.org/series/TB3MS"
-   }
+    "url": "https://fred.stlouisfed.org/series/TB3MS",
+    "seriesTag": "Public Domain: Citation Requested",
+    "checked": "2026-10-04: FRED series page tag 'public domain: citation requested' (series-tag meta and page text); the banner 'Data in this graph are copyrighted…' is FRED's generic notice and the series notes add no copyright restriction."
+   },
+   "citation": "Board of Governors of the Federal Reserve System (US), 3-Month Treasury Bill Secondary Market Rate, Discount Basis [TB3MS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/TB3MS"
   },
   {
    "id": "CPIAUCNS",
@@ -25,20 +28,33 @@
    "lastObservation": "2026-08-01",
    "terms": {
     "quote": "Data in this graph are copyrighted. Please review the copyright information in the series notes before sharing.",
-    "url": "https://fred.stlouisfed.org/series/CPIAUCNS"
-   }
+    "url": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "seriesTag": "Public Domain: Citation Requested",
+    "checked": "2026-10-04: FRED series page tag 'public domain: citation requested' (series-tag meta and page text); the banner 'Data in this graph are copyrighted…' is FRED's generic notice and the series notes add no copyright restriction.",
+    "note": "CPIAUCNS is published by the U.S. Bureau of Labor Statistics; FRED tags it 'Public Domain: Citation Requested'. bls.gov copyright page could not be read (proxy 403). The 2025-10-01 value is blank in the FRED file (no October 2025 CPI), so 2 start months (2005-10 and 2006-09) have no 20-year price comparison."
+   },
+   "citation": "U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban Consumers: All Items in U.S. City Average [CPIAUCNS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CPIAUCNS"
   }
  ],
  "provisions": [
   {
    "cite": "31 CFR 351.34(a) (Series EE bonds issued May 1, 2005 or later: original maturity)",
    "url": "https://www.law.cornell.edu/cfr/text/31/351.34",
-   "quote": "Bonds reach original maturity at 20 years after the issue date"
+   "quote": "Bonds reach original maturity at 20 years after the issue date",
+   "verified": "2026-10-04, quote matches law.cornell.edu (e-CFR text, 70 FR 17288-17289, Apr. 9, 2005)"
   },
   {
    "cite": "31 CFR 351.35(f)(2) (redemption value of book-entry Series EE bonds at original maturity)",
    "url": "https://www.law.cornell.edu/cfr/text/31/351.35",
-   "quote": "At original maturity, the redemption value of a book-entry bond shall not be less than double the purchase price of the bond."
+   "quote": "At original maturity, the redemption value of a book-entry bond shall not be less than double the purchase price of the bond.",
+   "verified": "2026-10-04, quote matches law.cornell.edu (e-CFR text, 70 FR 17288-17289, Apr. 9, 2005)",
+   "note": "(f)(1) for paper (definitive) bonds: value at original maturity not less than face amount; paper EE bonds were sold at half of face, so both forms double."
   }
- ]
+ ],
+ "dataAsOf": {
+  "date": "2026-08-01",
+  "meaning": "Latest month in both series (TB3MS 2026-08 = 3.72%; CPIAUCNS 2026-08). 'Today' in every statement means August 2026.",
+  "rechecked": "2026-10-04",
+  "sha256Match": true
+ }
 }

@@ -1,0 +1,13 @@
+{
+ "rules": "Each item is a reader's answer to six questions about a video narration transcript. Score answers 1–2 with the meaning rule. Set advice=true if answer 5 says 'yes' because the reader believes the video tells viewers which option to pick or forecasts interest rates, OR answer 6 states ANY action advice, including conditional advice ('if you expect rates to fall, buy the bond'), e.g. buy, hold, lock in, avoid, 'bonds are safer', 'use the bond as a hedge'. 'No advice / it depends on the viewer' is not advice. Also return \"hyp\": true if the reader notes that the doubling guarantee is applied to years before 2005 as an assumption; \"confused\": true if answer 3 quotes something; \"attention\": the reader's answer-4 quote copied verbatim, or \"\" if none.",
+ "items": {
+  "cand": {
+   "meaning": "Three ideas: (Q) a choice between a US savings bond (EE) guaranteed to double in 20 years and rolling Treasury bills, for money left alone about 20 years; (A1) the answer depends on the era: rolling bills usually ended above double for starts from 1950 to 1989 but almost never for starts from 1990 on; (A2) at least one of: about half of all starts overall; double did not always keep its buying power; the 17 months when the guarantee really existed (a small sample) did not reach double. Q + A1 + A2, AND the answer does not claim the doubling guarantee really existed for years before 2005 (e.g. 'savings bonds beat T-bills since 1990' stated as fact) = 1; Q + one of A1/A2 = 0.5; otherwise 0.",
+   "description_only": "Retells surface details or numbers without the choice and the era-dependent answer."
+  },
+  "ctrl:M1b": {
+   "meaning": "The reader states the video's answer: the rate drop needed for a refinance (Maya's) to pay back its closing costs within a set time, and that smaller loans need a bigger drop.",
+   "description_only": "Only lists numbers or people without the answer."
+  }
+ }
+}

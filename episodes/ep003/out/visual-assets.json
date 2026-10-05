@@ -1,0 +1,18 @@
+{
+ "assets": [
+  {
+   "name": "Inter",
+   "kind": "font",
+   "family": "Inter",
+   "paths": [
+    "../../toolkit/render/fonts/inter-latin-*.woff2"
+   ]
+  }
+ ],
+ "generated": [
+  {
+   "glob": "design/c3/work/data.js",
+   "generator": "design/c3/build_data.py"
+  }
+ ]
+}

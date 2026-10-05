@@ -1,0 +1,92 @@
+{
+ "_about": "Episode 3 music-mix demo clip for the design gate (voice + music), same style-C engine as Episode 2.",
+ "engine": {
+  "source": "episodes/ep002/audio_src/mix.py (copied, adapted)",
+  "path": "episodes/ep003/audio_src/mix_c3clip.py",
+  "sha256": "bca0b883dc8d18976161794f80a75a855a68524973bd25f982bba76b23ac260a",
+  "removed": [
+   "data sonification",
+   "Leah motif",
+   "ad-break logic",
+   "scene silences/room lift",
+   "word dips",
+   "climax ramp",
+   "timing.json/events.py anchors",
+   "F major section",
+   "alt variant"
+  ],
+  "stubbed": "none needed; scene structure replaced by one constant-tempo 'curious' section (full drive, gain 0 dB); cold-open restrained 'cold' style not used so the mix demo shows the full bed"
+ },
+ "voice": {
+  "file": "episodes/ep003/review-c2/table-read.m4a",
+  "voice": "Eric",
+  "window_s": [
+   0.0,
+   58.0
+  ],
+  "fadeOut_s": 0.5,
+  "processing": "gain only (master gain), mono on both channels, no stretch or shift"
+ },
+ "clip": {
+  "window_s": [
+   0.0,
+   58.0
+  ],
+  "durationS": 58.0,
+  "swell": {
+   "at_s": 42.2,
+   "db": 3.0,
+   "shape": "ramp 0.3 s from 41.9 s, hold to 44.2 s, ramp down 0.3 s"
+  }
+ },
+ "music": {
+  "bpm": 114.0,
+  "tempoNote": "constant, 28 bars of 4 beats, continuous",
+  "key": "D dorian throughout (single section)",
+  "sections": [
+   "D dorian 0-58 s"
+  ],
+  "seeds": {
+   "RNG(pad,noise)": 20261001,
+   "harmony": 7,
+   "arrangement": 11,
+   "reverb_ir": 7
+  },
+  "level": "20 dB under voice over voice-active windows; 1-4 kHz ducked 13 dB (80 ms look-ahead)"
+ },
+ "measure": {
+  "integratedLUFS_mix_m4a": -14.0,
+  "truePeakDbtp_mix": -1.5,
+  "LRA": 3.2,
+  "measuredWith": "ffmpeg ebur128=peak=true on the decoded music-clip.m4a (and on the pre-encode master); true-peak limiter ceiling -1.5",
+  "musicUnderVoiceDb": 19.95,
+  "musicUnderVoiceHow": "A07 method (a07_gap): mean power of voice stem minus music stem over 100 ms windows where voice > -45 dBFS, on the pre-encode stems",
+  "T2_musicSelfSimilarity": {
+   "toolkit": "toolkit/audio/d_music_selfsim.py",
+   "input": "music-only-clip.m4a with a tempo map of constant 114 BPM beats from 0 (scratchpad tempo-map.json, same fixed grid the engine used)",
+   "phrases": 6,
+   "pairs": 5,
+   "meanSimilarity": 0.8729,
+   "medianSimilarity": 0.8838,
+   "shareAtLeast0.90": 0.4,
+   "shareAtLeast0.95": 0.0,
+   "longestRunOfRepeats": 1,
+   "caveat": "58 s gives only 6 four-bar phrases / 5 pairs, so the share is very coarse; the tool prints no single percentage, 0.40 is the share of pairs >= 0.90 (Ep1 29%, Ep2 19.7% are on full-length edits). Mean similarity 0.873."
+  }
+ },
+ "files": {
+  "mix": {
+   "path": "episodes/ep003/review-c3/music-clip.m4a",
+   "sha256": "c78e75fdaa63f6c00728be7e9eda6e2ac7cafc9d755bdb497b7166c9518ead98",
+   "codec": "AAC 192k 48 kHz stereo",
+   "durationS": 58.0
+  },
+  "musicOnly": {
+   "path": "episodes/ep003/review-c3/music-only-clip.m4a",
+   "sha256": "8ff826e62327cff3d0256f3e744b86b9b6adc27264fee0b2b251ac54fa885b41",
+   "codec": "AAC 192k 48 kHz stereo",
+   "durationS": 58.0,
+   "note": "music stem at its in-mix gain (room tone excluded)"
+  }
+ }
+}

@@ -1,0 +1,148 @@
+{
+ "bill_term_months": [
+  "S01",
+  "S09",
+  "S10"
+ ],
+ "horizon_years": [
+  "S01",
+  "S02",
+  "S03",
+  "S04",
+  "S05",
+  "S06",
+  "S07",
+  "S08",
+  "S09",
+  "S10"
+ ],
+ "bills_per_horizon": [
+  "S01",
+  "S08",
+  "S10"
+ ],
+ "ctx_guarantee": [
+  "S01",
+  "S02",
+  "S03",
+  "S04",
+  "S05",
+  "S07",
+  "S08",
+  "S10"
+ ],
+ "first_start": [
+  "S01",
+  "S07",
+  "S08"
+ ],
+ "last_start": [
+  "S01",
+  "S05",
+  "S07"
+ ],
+ "ctx_hypothetical": [
+  "S01",
+  "S04",
+  "S05",
+  "S06",
+  "S07",
+  "S08"
+ ],
+ "starts_hypothetical": [
+  "S01"
+ ],
+ "starts_with_guarantee": [
+  "S01",
+  "S05"
+ ],
+ "guarantee_from": [
+  "S01",
+  "S09"
+ ],
+ "ctx_ee_rate": [
+  "S02"
+ ],
+ "doubling_rate_pct_per_year": [
+  "S02"
+ ],
+ "ctx_penalty": [
+  "S02"
+ ],
+ "tb3ms_latest_pct": [
+  "S03",
+  "S08"
+ ],
+ "tb3ms_latest_month": [
+  "S03"
+ ],
+ "min_tbill_multiple_20y": [
+  "S04",
+  "S05"
+ ],
+ "max_tbill_multiple_20y": [
+  "S04",
+  "S05"
+ ],
+ "share_tbills_above_double_pct": [
+  "S05"
+ ],
+ "early_from": [
+  "S05"
+ ],
+ "early_to": [
+  "S05"
+ ],
+ "mid_from": [
+  "S05"
+ ],
+ "mid_to": [
+  "S05"
+ ],
+ "since_1990_from": [
+  "S05",
+  "S06"
+ ],
+ "share_above_double_1934_1949_pct": [
+  "S05"
+ ],
+ "share_above_double_1950_1989_pct": [
+  "S05"
+ ],
+ "share_tbills_above_double_starts_since_1990_pct": [
+  "S05"
+ ],
+ "min_multiple_guarantee_starts": [
+  "S05"
+ ],
+ "max_multiple_guarantee_starts": [
+  "S05"
+ ],
+ "share_since_1990_avg_below_start_pct": [
+  "S06"
+ ],
+ "worst_real_start": [
+  "S07"
+ ],
+ "worst_real_value_double_pct": [
+  "S07"
+ ],
+ "share_double_beat_prices_pct": [
+  "S07"
+ ],
+ "steady_breakeven_tb3ms_pct": [
+  "S08"
+ ],
+ "mean_tb3ms_all_pct": [
+  "S08"
+ ],
+ "nonoverlap_periods": [
+  "S09"
+ ],
+ "near_double_starts": [
+  "S09"
+ ],
+ "near_double_band_pct": [
+  "S09"
+ ]
+}

@@ -1,0 +1,162 @@
+{
+ "candidate_set": "ep003",
+ "threshold": 1.0,
+ "rows": [
+  {
+   "set": "ep003",
+   "id": "KEY-1",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Choice between rolled bills and guaranteed x2 bond; says consider whether bond fits.",
+    "Chain of bills versus guaranteed x2 bond at year 20; implies locking in."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-2",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Nearly all what-if, only 17 months from May 2005 real; advises checking before moving savings.",
+    "Nearly all what-if, only 17 months from May 2005 real; advises not shifting."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-3",
+   "kind": "illustration",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Not scored for meaning; implied advice to think about horizon, consider whether cash suits.",
+    "Not scored for meaning; implied advice to weigh holding period, not rely on one rate."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-4",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "About half overall, 1950-89 93%, 1990 on 5%, earliest 0; suggests locking in floor.",
+    "Half beat overall; 1950-89 mostly, 1990 on rarely, earliest never; suggests locked-in or growth assets."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-5",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Real guarantee cases all short of x2, small sample; misreads 52.3% as unclear; advises skepticism, cash may lose.",
+    "Real cluster 17 all short, small sample, 52% overall; says avoid assuming safe wins."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-6",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Doubling lagged prices, 58% of original bought; advises assets that outgrow prices.",
+    "Doubled dollars fell short of prices, 58% worst; recommends stocks or TIPS."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-7",
+   "kind": "image",
+   "scores": [
+    0.5,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Threshold 3.47 near 3.42 average, coin flip noted; but suggests locking in.",
+    "Threshold just above 3.42 average, either side; but advises locked-in rate."
+   ]
+  },
+  {
+   "set": "ctrl",
+   "id": "V4",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 1,
+   "status": "FAIL",
+   "why": [
+    "Treats as returns, not loans; suggests holding only cash gives up growth.",
+    "Treats as investment returns, not fixed versus variable loans; no advice given."
+   ]
+  }
+ ],
+ "gate_beats": 6,
+ "gate_pass": 0,
+ "pending": [],
+ "advice_beats": [
+  "KEY-1",
+  "KEY-2",
+  "KEY-3",
+  "KEY-4",
+  "KEY-5",
+  "KEY-6",
+  "KEY-7"
+ ],
+ "classes": {
+  "file": "beats-class.json",
+  "sha256": "2299ddf57793ae1285ba8eeec1b1e0bff8d65b500d7aeee248e6e461c05b25a0",
+  "image_share": 0.857
+ },
+ "share": 0.0,
+ "verdict": "FAIL",
+ "near_threshold": false
+}

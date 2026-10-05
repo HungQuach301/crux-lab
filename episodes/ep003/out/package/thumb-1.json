@@ -1,0 +1,37 @@
+{
+ "texts": [
+  {
+   "text": "Bond ×2",
+   "box": [
+    436.3,
+    77.3,
+    407.3,
+    98
+   ],
+   "fontPx": 100,
+   "claims": [
+    "ctx_guarantee"
+   ]
+  },
+  {
+   "text": "or T-bills?",
+   "box": [
+    394.8,
+    190.7,
+    490.3,
+    98
+   ],
+   "fontPx": 100,
+   "claims": []
+  }
+ ],
+ "graphics": {
+  "claims": [
+   "ctx_guarantee",
+   "bills_per_horizon",
+   "tb3ms_latest_pct",
+   "tb3ms_latest_month"
+  ],
+  "what": "bond bar to the x2 gate (20 years) above the chain of 80 three-month bills; the first link (Aug 2026 rate) slid toward the gate"
+ }
+}
