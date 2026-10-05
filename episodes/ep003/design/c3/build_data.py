@@ -29,6 +29,8 @@ def claims():
     # bối cảnh (bảng B): chữ cố định, không số mới
     out['ctx_guarantee'] = {'display': '×2'}
     out['ctx_hypothetical'] = {'display': 'IF today\'s guarantee had existed'}
+    out['ctx_ee_rate'] = {'display': '2.40%', 'issued': 'for bonds issued May to October 2026'}
+    out['ctx_penalty'] = {'display': 'cashed before 5 years: 3 months of interest lost', 'years': '5', 'months': '3'}
     return out
 
 
@@ -52,7 +54,9 @@ def main():
     assert f'{mean:.2f}' == f"{C['mean_tb3ms_all_pct']['value']:.2f}", mean
     rule = sum((w['avg'] > 1200 * (2 ** (1 / 240) - 1)) == (w['roll'] > 2) for w in W)
     assert rule == 873, rule
-    data = {'series': tb, 'cpi': [c for c in cpi if c[0] >= '1934-01'], 'windows': W, 'claims': C,
+    tf = os.path.join(EP, 'animatic/timing.json')
+    timing = json.load(open(tf)) if os.path.exists(tf) else None
+    data = {'timing': timing, 'series': tb, 'cpi': [c for c in cpi if c[0] >= '1934-01'], 'windows': W, 'claims': C,
             'breakeven': 1200 * (2 ** (1 / 240) - 1)}
     os.makedirs(os.path.join(EP, 'design/c3/work'), exist_ok=True)
     open(os.path.join(EP, 'design/c3/work/data.js'), 'w').write('window.DATA = ' + json.dumps(data) + ';\n')

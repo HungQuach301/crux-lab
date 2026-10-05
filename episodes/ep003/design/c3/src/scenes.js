@@ -24,7 +24,10 @@ function ifLabel(ctx, a = 1, x = 96, y = 122) {
   text(ctx, CLD('ctx_hypothetical').display, x + 68, y, 'note', { color: C.ink, alpha: a, group: 'iflab' });
 }
 // ---------- C3 vòng 2 (ý đồ v2, §6.6): nhãn đối trọng / nhãn nghĩa — chỉ chữ, không thêm vật, không thêm số ngoài claim ----------
-export const R2 = new URLSearchParams(location.search).get('r') === '2';
+export const R2 = ['2', 'anim'].includes(new URLSearchParams(location.search).get('r'));
+// C3 câu 1 (chủ dự án, claim-risk): ở animatic nhãn "What history did" đổi thành "Real rates, what-if bond"; style frame vòng 2 giữ bản đã kiểm
+const ANIMQ = new URLSearchParams(location.search).get('r') === 'anim';
+const CW_HIST = ANIMQ ? 'Not a pick. Real rates, what-if bond.' : 'Not a pick. What history did.';
 function r2label(ctx, s, x, y, t, t0, o = {}) { // ≥ 1 s cho mỗi 3 từ: hiện từ t0 tới hết nhịp
   if (!R2) return;
   text(ctx, s, x, y, o.tier || 'label', { weight: 700, color: o.color || C.ink, plate: o.plate === undefined ? C.surface : o.plate, alpha: ease(t, t0, t0 + 0.4), align: o.align, group: 'r2' + y });
@@ -152,7 +155,7 @@ export const KEY2 = {
     text(ctx, 'from ' + CLD('guarantee_from').display, TL.x1, 250, 'note', { align: 'right', color: C.muted, alpha: ease(t, 6.0, 6.5) });
     // the label moves to its fixed corner and stays (as it will on every pre-2005 result)
     ifLabel(ctx, ease(t, 7.6, 8.2));
-    r2label(ctx, 'Not a pick. What history did.', 160, 1000, t, 4.0);
+    r2label(ctx, CW_HIST, 160, 1000, t, 4.0);
   },
 };
 
@@ -210,7 +213,7 @@ export const KEY4 = {
     text(ctx, CL('share_tbills_above_double_pct') + ' overall', 1824, 122, 'label', { align: 'right', color: C.warn, alpha: ease(t, 6.4, 6.9) });
     const aR = ease(t, 8.0, 8.6);
     const shares = ['share_above_double_1934_1949_pct', 'share_above_double_1950_1989_pct', 'share_tbills_above_double_starts_since_1990_pct'];
-    r2label(ctx, 'Not a pick. What history did.', 200, 1046, t, 4.8);
+    r2label(ctx, CW_HIST, 200, 1046, t, 4.8);
     for (let e = 0; e < 3; e++) {
       line(ctx, [[SW.x0, ROWY[e]], [SW.x1, ROWY[e]]], C.grid, 3, { alpha: aR }); text(ctx, eraText(ctx, e), SW.x1 + 40, ROWY[e] - 140, 'note', { color: C.muted, alpha: aR, group: 'era' + e });
       const ae = ease(t, 8.6 + 0.5 * e, 9.0 + 0.5 * e);
@@ -251,7 +254,7 @@ export const KEY5 = {
     text(ctx, 'small sample · one era', 620, 500, 'label', { color: C.bg, weight: 700, plate: C.ink, alpha: aS });
     const aO = ease(t, 0.2, 0.6);
     text(ctx, CL('share_tbills_above_double_pct') + (R2 ? ' of all rolls beat ' + CLD('ctx_guarantee').display : ' overall'), 1824, 122, 'label', { align: 'right', color: C.warn, alpha: aO });
-    r2label(ctx, 'Not a pick. What history did.', 200, 1046, t, 4.0);
+    r2label(ctx, CW_HIST, 200, 1046, t, 4.0);
   },
 };
 
@@ -301,7 +304,7 @@ export const KEY6 = {
     const w = text(ctx, CL('share_double_beat_prices_pct'), RX0, 190, 'number', { alpha: aN, group: 'n' }).x1;
     text(ctx, 'of starts kept up', w + 24, 186, 'label', { alpha: aN, group: 'n' });
     if (R2) ifLabel(ctx, 1); else ifLabel(ctx, 1, 960, 1040);
-    r2label(ctx, 'Not a pick. What history did.', 960, 1046, t, 5.0);
+    r2label(ctx, CW_HIST, 960, 1046, t, 5.0);
   },
 };
 
@@ -367,5 +370,130 @@ export const KEY3 = {
     text(ctx, 'one month, not ' + CL('horizon_years') + ' years', 1300, 666, 'label', { alpha: ease(t, 4.4, 4.9) });
     text(ctx, '?', (P.x0 + P.x1) / 2, P.yBill + 150, 'number', { align: 'center', color: C.muted, alpha: ease(t, 5.4, 6.0) });
     r2label(ctx, 'Not a pick. Not a forecast.', P.x0, 1046, t, 3.2);
+  },
+};
+
+// =====================================================================================================================
+// C4 ANIMATIC (toàn tập, 720p): mỗi cảnh = các shot đặt theo mốc câu của lời (`animatic/timing.json` → DATA.timing).
+// Shot style frame (KEY1…KEY7, hợp đồng hình C3 đã ký) chạy thời gian nội bộ [k0, k1] từ mốc câu, rồi đứng ở k1 tới shot sau
+// (nhịp kết ở trạng thái kết luận, không quét ngược). Shot mới cho nhịp loại 2: TITLE, BOND, ERAS, METHOD, END; nhãn "US only".
+// Trang mở với ?k=ANIM&r=anim (nhãn đối trọng vòng 2, nhãn claim-risk mới).
+// =====================================================================================================================
+const TM = DATA.timing || { scenes: [], sentences: [], total: 1 };
+const SENT = Object.fromEntries((TM.sentences || []).map((s) => [s.id, s]));
+const cue = (id) => (SENT[id] ? SENT[id].start : 0);
+
+function usOnly(ctx, a, y = 200) { text(ctx, 'US only · history, not a forecast', 1824, y, 'note', { align: 'right', weight: 700, plate: C.surface, alpha: a }); }
+
+const TITLE = { duration: 6, draw(ctx, t) {
+  const a = ease(t, 0, 0.6);
+  text(ctx, 'Money You Won\'t Touch for ' + CL('horizon_years') + ' Years:', 960, 470, 'head', { align: 'center', alpha: a });
+  text(ctx, 'Savings Bond or T-Bills?', 960, 570, 'head', { align: 'center', alpha: a });
+  text(ctx, 'US only', 960, 700, 'label', { align: 'center', color: C.muted, alpha: ease(t, 0.8, 1.2) });
+} };
+
+// the bond's rule: fixed rate alone stops short, the Treasury tops it up to ×2 at year 20; early exits are side doors
+const BOND = { duration: 40, draw(ctx, t, cues) {
+  const c = (k) => cues[k] ?? 0, x0 = 300, x1 = 1300, y = 520, h = 90;
+  const a0 = ease(t, 0, 0.5);
+  text(ctx, 'Series EE savings bond', x0, 300, 'head', { alpha: a0 });
+  text(ctx, 'sold by the US Treasury', x0, 370, 'label', { color: C.muted, alpha: ease(t, c(1) - 0.2, c(1) + 0.3) });
+  // fixed rate and its issue window (two lines, ≥ 40 px)
+  const aR = ease(t, c(2), c(2) + 0.5);
+  text(ctx, CLD('ctx_ee_rate').display + ' fixed', x0, 900, 'number', { alpha: aR, group: 'rate' });
+  text(ctx, CLD('ctx_ee_rate').issued, x0, 970, 'label', { color: C.muted, alpha: aR, group: 'rate' });
+  // the bar: grows at the fixed rate for 20 years (1.024^20 of the money), stops short of ×2, then the top-up snaps it to ×2
+  const g = ease(t, c(3), c(3) + 4.0), fixedEnd = Math.pow(1.024, 20) - 1, top = ease(t, c(3) + 4.6, c(3) + 5.4);
+  srect(ctx, x0, y - h / 2, x1 - x0, h, C.muted, 3, a0 * 0.6, [10, 10]);
+  const w = (x1 - x0) * (fixedEnd * g + (1 - fixedEnd) * top);
+  rect(ctx, x0, y - h / 2, (x1 - x0) * fixedEnd * g, h, C.ink, a0 * 0.85);
+  if (top > 0) rect(ctx, x0 + (x1 - x0) * fixedEnd, y - h / 2, (x1 - x0) * (1 - fixedEnd) * top, h, C.warn, 0.9);
+  gateAt(ctx, x1, y, a0);
+  text(ctx, 'top-up at year ' + CL('horizon_years'), x1 - 24, y - h / 2 - 24, 'note', { align: 'right', color: C.warn, alpha: top });
+  text(ctx, 'electronic bonds', x1, 300, 'note', { align: 'right', color: C.muted, alpha: ease(t, c(4), c(4) + 0.5) });
+  // screen-only annotation (C3 1.2): the same ×2 as a yearly rate
+  const aA = ease(t, c(5), c(5) + 0.5);
+  text(ctx, '= ' + CL('doubling_rate_pct_per_year') + ' a year,', x1 + 28, y + 100, 'note', { alpha: aA, group: 'ann' });
+  text(ctx, 'compounded yearly', x1 + 28, y + 156, 'note', { alpha: aA, group: 'ann' });
+  // early exits: a side door before year 20
+  const aD = ease(t, c(6), c(6) + 0.5);
+  if (aD > 0) {
+    line(ctx, [[x0 + 300, y + h / 2], [x0 + 300, y + 200]], C.muted, 5, { alpha: aD });
+    text(ctx, CLD('ctx_penalty').display, x0 + 330, y + 190, 'note', { color: C.ink, alpha: aD });
+  }
+} };
+
+// why eras differ: for starts from 1990 on, the first month's rate vs the 20-year average (dumbbells), share below
+const S90 = WIN.map((w, i) => ({ w, i })).filter((o) => o.w.s >= '1990-01');
+const ERAS = { duration: 30, draw(ctx, t, cues) {
+  const c = (k) => cues[k] ?? 0, X0 = 200, X1 = 1500, R0 = 0, R1 = 9, yr = (r) => 900 - (r - R0) / (R1 - R0) * 560;
+  const a = ease(t, 0, 0.5), n = S90.length * ease(t, c(1), c(1) + 4);
+  line(ctx, [[X0, 900], [X1, 900]], C.grid, 4, { alpha: a });
+  text(ctx, 'Starts from ' + year('since_1990_from') + ' on', X0, 300, 'caption', { alpha: a });
+  for (let k = 0; k < n; k++) {
+    const { w } = S90[k], x = X0 + (X1 - X0) * k / S90.length;
+    line(ctx, [[x, yr(w.r0)], [x, yr(w.avg)]], C.grid, 2, { alpha: 0.9 });
+    dot(ctx, x, yr(w.r0), 4, C.accent, 1); dot(ctx, x, yr(w.avg), 4, C.ink, 1);
+  }
+  const aL = ease(t, c(1) + 0.5, c(1) + 1.0);
+  dot(ctx, X0 + 10, 970, 7, C.accent, aL); text(ctx, 'rate in the first month', X0 + 34, 986, 'note', { color: C.accent, alpha: aL, group: 'lg1' });
+  dot(ctx, X0 + 760, 970, 7, C.ink, aL); text(ctx, 'average over the next ' + CL('horizon_years') + ' years', X0 + 784, 986, 'note', { color: C.ink, alpha: aL, group: 'lg2' });
+  const aN = ease(t, c(1) + 4.2, c(1) + 4.8);
+  const ww = text(ctx, CL('share_since_1990_avg_below_start_pct'), X0, 220, 'number', { alpha: aN, group: 'n' }).x1;
+  text(ctx, 'average ended below the first month', ww + 24, 216, 'label', { alpha: aN, group: 'n' });
+  r2label(ctx, CW_HIST, 1824, 1046, t, c(5), { align: 'right' });
+  ifLabel(ctx, a);
+} };
+
+const METHOD = { duration: 10, draw(ctx, t) {
+  const a = ease(t, 0, 0.5);
+  roundRect(ctx, 150, 120, 1620, 860, 24); ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = C.surface; ctx.fill(); ctx.restore();
+  text(ctx, 'How we know this', 210, 220, 'head', { alpha: a });
+  const L = ['Monthly average 3-month bill rate (discount basis) ÷ 12, compounded monthly',
+    'Taxes ignored: bills taxed federally each year; EE tax-deferred; both state-tax exempt',
+    'Full ' + CL('horizon_years') + '-year hold; purchase limits ignored',
+    'Overlapping windows ≈ ' + CL('nonoverlap_periods') + ' separate ' + CL('horizon_years') + '-year periods',
+    CL('near_double_starts') + ' start months end within ' + CL('near_double_band_pct') + ' of double',
+    'Before ' + CLD('guarantee_from').display + ': IF today\'s guarantee had existed'];
+  L.forEach((s, i) => text(ctx, s, 210, 330 + i * 92, 'note', { alpha: ease(t, 0.3 + 0.2 * i, 0.7 + 0.2 * i) }));
+  text(ctx, 'Federal Reserve Board (H.15) via FRED · U.S. Bureau of Labor Statistics via FRED', 210, 930, 'note', { color: C.muted, alpha: a });
+} };
+
+const END = { duration: 20, draw(ctx, t) {
+  const a = ease(t, 0, 0.6);
+  srect(ctx, 200, 260, 900, 506, C.muted, 4, a); text(ctx, 'Next episode', 650, 530, 'caption', { align: 'center', color: C.muted, alpha: a });
+  srect(ctx, 1260, 330, 360, 360, C.muted, 4, a); text(ctx, 'Channel', 1440, 530, 'caption', { align: 'center', color: C.muted, alpha: a });
+} };
+
+const SH = { KEY1, KEY2, KEY3, KEY4, KEY5, KEY6, KEY7, TITLE, BOND, ERAS, METHOD, END };
+// [sentence, shot, k0, k1, extra cues (sentence ids passed to the shot as local times)]
+const PLAN = {
+  S01: [['S01.1', 'KEY1', 0, 10], ['S01.6', 'KEY2', 0, 10]],
+  S02: [['S02.1', 'TITLE', 0, 6], ['S02.2', 'BOND', 0, 40, ['S02.2', 'S02.3', 'S02.4', 'S02.5', 'S02.6', 'S02.7', 'S02.8']]],
+  S03: [['S03.1', 'KEY3', 0, 0.9], ['S03.5', 'KEY3', 0.9, 8]],
+  S04: [['S04.1', 'KEY4', 0, 4.2], ['S04.4', 'KEY4', 4.2, 4.9], ['S04.7', 'KEY4', 4.9, 4.9]],
+  S05: [['S05.1', 'KEY4', 4.9, 7.0], ['S05.2', 'KEY4', 7.0, 12], ['S05.5', 'KEY5', 0, 10]],
+  S06: [['S06.1', 'ERAS', 0, 30, ['S06.1', 'S06.2', 'S06.3', 'S06.4', 'S06.5', 'S06.6']]],
+  S07: [['S07.1', 'KEY6', 0, 12]],
+  S08: [['S08.1', 'KEY7', 0, 12]],
+  S09: [['S09.1', 'METHOD', 0, 10]],
+  S10: [['S10.1', 'KEY1', 10, 10]],
+  S11: [['S11.1', 'END', 0, 20]],
+};
+const US_AT = { 'S04.7': 200, 'S10.7': 270 };
+
+export const ANIM = {
+  duration: Math.ceil(TM.total + 15) , stripTimes: [1, 2, 3, 4, 5, 6],
+  draw(ctx, T) {
+    const sc = [...TM.scenes].reverse().find((s) => T >= s.start) || TM.scenes[0];
+    if (!sc) return;
+    const plan = PLAN[sc.id] || [];
+    let seg = null;
+    for (const p of plan) if (T >= cue(p[0]) - 0.001 || p === plan[0]) seg = p;
+    const [sid, name, k0, k1, cl] = seg, t0 = cue(sid), kt = Math.min(k1, k0 + Math.max(0, T - t0));
+    const cues = cl ? cl.map((id) => k0 + cue(id) - t0) : undefined;
+    // the shot sees its own time; extra cues are local times of later sentences (for shots that follow the narration)
+    SH[name].draw(ctx, cl ? Math.max(0, T - t0) : kt, cues);
+    for (const [u, y] of Object.entries(US_AT)) if (SENT[u] && T >= SENT[u].start - 0.2 && sc.id === SENT[u].scene) usOnly(ctx, ease(T, SENT[u].start - 0.2, SENT[u].start + 0.3), y);
   },
 };
