@@ -1,0 +1,104 @@
+Error: ENOENT: no such file or directory, open '/tmp/claude-0/-home-user-crux-lab/7feba40e-1932-5b7d-90df-5c7e79c0113c/scratchpad/lc1/episodes/ep003/design/tokens.json'
+    at Object.readFileSync (node:fs:440:20)
+    at J (/tmp/claude-0/-home-user-crux-lab/7feba40e-1932-5b7d-90df-5c7e79c0113c/scratchpad/lc1/checks/page/sampler.js:23:34)
+    at run (/tmp/claude-0/-home-user-crux-lab/7feba40e-1932-5b7d-90df-5c7e79c0113c/scratchpad/lc1/checks/page/sampler.js:80:18)
+    at Object.<anonymous> (/tmp/claude-0/-home-user-crux-lab/7feba40e-1932-5b7d-90df-5c7e79c0113c/scratchpad/lc1/checks/page/sampler.js:402:30)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/tmp/claude-0/-home-user-crux-lab/7feba40e-1932-5b7d-90df-5c7e79c0113c/scratchpad/lc1/episodes/ep003/design/tokens.json'
+}
+page sampler failed: page rules will be MISSING
+F01  FAIL       0.0s  size=1280x720
+F02  PASS       0.2s  
+F03  PASS       0.0s  
+F04  FAIL       0.0s  video Mbps=0.097165
+F05  FAIL       5.4s  color_primaries=None; color_transfer=None; color_space=None; color_range=None
+F06  FAIL       0.3s  audio kbps=195.369207
+F07  PASS       0.0s  
+F08  PASS       7.2s  
+F09  FAIL       0.0s  lines > 42 chars=63; cues outside 1-7 s=28
+F10  MISSING    0.0s    artifact missing: out/package/description.md
+F11  MISSING    0.0s    artifact missing: contract.json: artefacts.M3
+F12  MISSING    0.0s    artifact missing: out/rights.json
+A01  PASS       6.1s  
+A02  PASS       0.0s  
+A03  FAIL       0.0s  LRA LU=3.4
+A04  PASS       4.7s  
+A05  PASS       0.3s  
+A06  PASS      10.3s  
+A07  PASS       9.0s  
+A08  FAIL       2.5s  median 1-4 kHz drop dB=5.735748
+A09  FAIL       4.8s  silences 0.8-1.5 s=0
+A10  MISSING    0.0s    artifact missing: out/camera.json
+A11  MISSING    0.0s    artifact missing: out/sfx-events.json
+A12  FAIL      18.1s  accents on a cut (%)=0.0
+A13  MISSING    0.0s    artifact missing: S01.0e27330e.seed1.mp3
+A14  FAIL     137.3s  key words missing=1
+A15  FAIL       0.0s  wpm act cold-open=169.731259; wpm act act1=177.306208; wpm act act2=170.055923; wpm act act3=174.627732; wpm act method=180.327869; wpm act outro=176.875957; sentences > 175 wpm=34
+A16  FAIL       0.0s  fake break marks=11; sentences with a fake break=11
+A17  FAIL       2.7s  abnormal sentences share=0.147059
+A18  PASS       0.0s  
+S01  PASS       0.1s  
+S02  MISSING    0.0s    artifact missing: out/checks/page.json
+S03  FAIL       0.0s  cross-check on a declared host=False
+S04  FAIL       0.0s  series pairs=0
+S05  PASS       0.2s  
+S06  MISSING    0.0s    artifact missing: contract.json: coverage
+S07  MISSING    0.0s    artifact missing: out/checks/page.json
+S08  MISSING    0.0s    artifact missing: out/checks/page.json
+S09  MISSING    0.0s    artifact missing: out/checks/page.json
+S10  PASS       0.0s  
+S11  MISSING    0.0s    artifact missing: out/checks/page.json
+S12  MISSING    0.0s    artifact missing: out/checks/page.json
+S13  PASS       0.0s  
+S14  MISSING    0.0s    artifact missing: out/adbreaks.json
+S15  FAIL       0.0s  act order=['cold-open', 'act1', 'act2', 'act3', 'method', 'outro']; cold open s=64.457; ident s=None; total s=570.0
+S16  FAIL       0.0s  share tied to a character or scenario=0.0
+R01  MISSING    0.0s    artifact missing: out/tension-map.json
+R02  MISSING    0.0s    artifact missing: out/cues.json
+R03  FAIL       0.7s  decisive claims=0; shortest pause s=None
+R04  MISSING    0.0s    artifact missing: out/transitions.json
+R05  FAIL       0.0s  shots > 12 s=8; shot length CV=0.374802; act-2 scenes before climax=0
+R06  MISSING    0.0s    artifact missing: out/transitions.json
+V01  MISSING    0.0s    artifact missing: preprod/shotlist.json
+V02  MISSING    0.0s    artifact missing: out/checks/page.json
+V03  MISSING    0.0s    artifact missing: out/checks/page.json
+V04  MISSING    0.0s    artifact missing: design/tokens.json colour token "ink" (contract characters.dana.color)
+V05  MISSING    0.0s    artifact missing: out/camera.json
+V08  MISSING    0.0s    artifact missing: out/checks/page.json
+V09  MISSING    0.0s    artifact missing: design/tokens.json colour token "ink" (contract characters.dana.color)
+V10  MISSING    0.0s    artifact missing: out/transitions.json
+V11  MISSING    0.0s    artifact missing: out/checks/page.json
+V12  MISSING    0.0s    artifact missing: out/checks/page.json
+V13  PASS       0.0s  
+C01  MISSING    0.0s    artifact missing: out/checks/page.json
+C02  MISSING    0.0s    artifact missing: out/checks/page.json
+C03  MISSING    0.0s    artifact missing: out/checks/page.json
+C04  MISSING    0.0s    artifact missing: out/checks/page.json
+C05  MISSING    0.0s    artifact missing: out/checks/page.json
+C06  MISSING    0.0s    artifact missing: out/checks/page.json
+C07  MISSING    0.0s    artifact missing: out/checks/page.json
+C10  MISSING    0.0s    artifact missing: out/checks/page.json
+C11  PASS       0.0s  
+C12  MISSING    0.0s    artifact missing: out/checks/page.json
+C13  MISSING    0.0s    artifact missing: out/checks/page.json
+C14  MISSING    0.0s    artifact missing: out/checks/page.json
+C15  MISSING    0.0s    artifact missing: out/checks/page.json
+P01  MISSING    0.0s    artifact missing: design/tokens.json
+T1   MISSING    0.0s    artifact missing: contract.json: sonification.bandsHz
+T2   FAIL       4.2s  repeated phrases (%)=57.575758; longest run of repeated phrases=6
+T3   FAIL      23.0s  silences measured=0
+L1   PASS     278.0s  
+REG  PASS       first version: nothing to compare
+near A08 (THAM KHẢO) median 1-4 kHz drop dB = 5.735748 (threshold >= 6.0)
+near A18 (CHÍNH) distinct voices (provider, voiceId, model) = 1 (threshold <= 1)
+near S03 (CHẶN) files = 2 (threshold >= 2)
+near S15 (THAM KHẢO) total s = 570.0 (threshold >= 600.0)
+{"PASS": 19, "FAIL": 21, "MISSING": 42, "ERROR": 0} episode: TRƯỢT
