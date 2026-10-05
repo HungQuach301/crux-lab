@@ -58,3 +58,8 @@ Mã viết mới, chỉ lấy ý tưởng từ engine Tập 2–3 (`episodes/ep0
 
 ## 3. Điểm dừng an toàn
 Sau mỗi việc ở §2: commit lên nhánh của phiên. Lệnh tái lập dữ liệu Tập 3 ở `episodes/ep003/PLAN.md` mục 4.
+
+## 4. Kết quả phiên nhà máy (05/10/2026, nhánh `factory`)
+- Xong §2.1–2.7, §2.9: `page.html`, `render.js`, `spec.py`, `voice.py`, `build.py`, `qc.py`, `excerpt_checks.py`, `toolkit/build.sh`, `episodes/ep003/episode.yaml`. Báo cáo demo: `episodes/ep003/out/factory/` (qc.md, checks-excerpt.json, build-report.json, ảnh so bản phát hành, Short mẫu). Tốc độ: `moc-b/SPEED.md`.
+- §2.8 Git LFS: API LFS qua proxy trả 200 (đọc được); **hạn mức không đọc được** (không có API billing trong phiên); đẩy nhánh thử `release-ep003` bị chặn quyền trong phiên → **giữ cách phần 90 MB**; thử LFS là việc treo cho chủ dự án.
+- Chưa: nhạc nền qua nhà máy (đường trộn có, chưa chạy thử); `window.CHECKS` cho trang nhà máy (appeal A8); luật đứng hình cần hiệu chuẩn (appeal A7).
