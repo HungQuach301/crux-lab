@@ -1,0 +1,161 @@
+{
+ "candidate_set": "ep003",
+ "threshold": 1.0,
+ "rows": [
+  {
+   "set": "ep003",
+   "id": "KEY-1",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Bills chain versus guaranteed doubling bond; says compare with locked-in before choosing.",
+    "Two ways to park money: rolling bills or guaranteed x2 bond; says guaranteed worth considering."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-2",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Nearly all hypothetical, real only 17 months from May 2005; consider guaranteed product.",
+    "Nearly all what-if, only 17 real months from May 2005; implies compare alternatives."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-3",
+   "kind": "illustration",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "status": "FAIL",
+   "why": [
+    "Not scored; says no specific advice given.",
+    "Not scored; explicitly gives no recommendation."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-4",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "About half overall, eras 0%, 93.1%, 5.0%; says locked-in return worth comparing.",
+    "52.3% overall; 1950-89 93%, 1990+ 5%, earliest 0%; suggests locking in part."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-5",
+   "kind": "image",
+   "scores": [
+    0.5,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Real cluster none of 17 beat x2, small sample, 52.3% overall; implies risky assets beat.",
+    "Real cases none of 17 reached 2x, small sample, ~half beat; weigh guaranteed versus stocks."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-6",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Doubling lost buying power, 58% worst case; suggests inflation-beating assets instead of cash.",
+    "States doubled money fell short of prices, ~58% worst; advises TIPS/stocks."
+   ]
+  },
+  {
+   "set": "ep003",
+   "id": "KEY-7",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Threshold just above 3.42% average, outcome either side; suggests locking in guarantee.",
+    "Line with both-side outcomes, but misses threshold just above long-run average; suggests locking in."
+   ]
+  },
+  {
+   "set": "ctrl",
+   "id": "V4",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "status": "FAIL",
+   "why": [
+    "Fixed vs variable lower start noted, not loans; advises assessing risk, checking guarantee.",
+    "Fixed vs variable compared, but as returns not loans; implies lock in fixed."
+   ]
+  }
+ ],
+ "gate_beats": 6,
+ "gate_pass": 0,
+ "pending": [],
+ "advice_beats": [
+  "KEY-1",
+  "KEY-2",
+  "KEY-4",
+  "KEY-5",
+  "KEY-6",
+  "KEY-7"
+ ],
+ "classes": {
+  "file": "beats-class.json",
+  "sha256": "2299ddf57793ae1285ba8eeec1b1e0bff8d65b500d7aeee248e6e461c05b25a0",
+  "image_share": 0.857
+ },
+ "share": 0.0,
+ "verdict": "FAIL",
+ "near_threshold": false
+}
