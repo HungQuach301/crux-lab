@@ -1,0 +1,94 @@
+{
+ "episode": "ep003",
+ "yaml": "episodes/ep003/episode.yaml",
+ "steps": {
+  "spec": {
+   "seconds": 0.0,
+   "problems": 0
+  },
+  "voice": {
+   "seconds": 0.1,
+   "scenes": 1,
+   "cache_hits": 1,
+   "el_chars_spent": 0
+  },
+  "resolve": {
+   "seconds": 0.26,
+   "total": 74.9667,
+   "shots": 3,
+   "anchors": 12
+  },
+  "render": {
+   "seconds": 43.7,
+   "segments": 16,
+   "rendered": 16,
+   "cache_hits": 0,
+   "frames": 2249,
+   "fps": 51.46,
+   "workers": 4,
+   "fmt": "jpeg"
+  },
+  "mix": {
+   "seconds": 11.91,
+   "video": "episodes/ep003/work/factory/video.mp4",
+   "sha256": "88c52e0f70cf954fc5b66e148c0b317af642a06d3a1e9dd5a54d3fd8f5efa3d7",
+   "mb": 158.29
+  },
+  "parts": {
+   "seconds": 15.25,
+   "parts": [
+    {
+     "file": "episodes/ep003/work/factory/ep003-part1-720p.mp4",
+     "from": 0.0,
+     "to": 24.8333,
+     "mb": 6.23
+    },
+    {
+     "file": "episodes/ep003/work/factory/ep003-part2-720p.mp4",
+     "from": 24.8333,
+     "to": 33.5333,
+     "mb": 0.89
+    },
+    {
+     "file": "episodes/ep003/work/factory/ep003-part3-720p.mp4",
+     "from": 33.5333,
+     "to": 74.9667,
+     "mb": 16.91
+    }
+   ]
+  },
+  "shorts": {
+   "seconds": 27.54,
+   "shorts": [
+    {
+     "id": "S04-short",
+     "file": "episodes/ep003/work/factory/S04-short.mp4",
+     "from": 33.5333,
+     "to": 74.1667,
+     "duration": 42.133,
+     "segments": 10,
+     "rendered": 10,
+     "cache_hits": 0,
+     "frames": 1264,
+     "seconds": 23.65,
+     "fps": 53.44,
+     "workers": 4,
+     "fmt": "jpeg"
+    }
+   ]
+  },
+  "qc": {
+   "seconds": 8.44,
+   "pass": false,
+   "failed": [
+    "freezedetect d=3 ∩ lời"
+   ],
+   "near": [
+    "S04-short sàn chữ"
+   ]
+  }
+ },
+ "started": "2026-10-05T23:26:07Z",
+ "spec": [],
+ "total_seconds": 108.26
+}

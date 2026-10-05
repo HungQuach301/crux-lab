@@ -52,27 +52,32 @@ export function makeEngine(canvas, cfg) {
     s = String(s).replace(/\{([a-z0-9_]+)\}/gi, (_, id) => E.CL(id));
     let px = TIERS[tier] || tier; const w8 = o.weight || W8[tier] || 600;
     if (px * zoom < FLOOR) { log.raised.push({ s, from: px, to: FLOOR / zoom }); px = FLOOR / zoom; }
-    ctx.save(); ctx.font = `${w8} ${px}px Inter`; ctx.fontVariantNumeric = 'tabular-nums'; const w = ctx.measureText(s).width; ctx.restore();
+    const mw = (z) => { ctx.save(); ctx.font = `${w8} ${z}px Inter`; ctx.fontVariantNumeric = 'tabular-nums'; const v = ctx.measureText(s).width; ctx.restore(); return v; };
+    let w = mw(px); const pad = o.plate ? 14 : 0, room = (SAFE.x1 - SAFE.x0) / zoom - 2 * pad;
+    if (w > room) { const fit = Math.max(FLOOR / zoom, px * room / w); log.fitted.push({ s, from: px, to: +fit.toFixed(1) }); px = fit; w = mw(px); } // too wide: shrink, never below the floor
     let x0 = o.align === 'center' ? x - w / 2 : o.align === 'right' ? x - w : x;
-    let y0 = y - px * 0.8; const pad = o.plate ? 14 : 0, h = px * 1.05;
+    let y0 = y - px * 0.8; const h = px * 1.05;
     // safe area (after camera zoom the box must still sit inside: zoom is about the centre)
     const sx = (v, c) => c + (v - c) * zoom;
-    const inSafe = () => { const bx0 = sx(x0 - pad, W / 2), bx1 = sx(x0 + w + pad, W / 2), by0 = sx(y0 - pad, H / 2), by1 = sx(y0 + h + pad, H / 2);
+    const outOf = (bx0, by0, bx1, by1) => { bx0 = sx(bx0, W / 2); bx1 = sx(bx1, W / 2); by0 = sx(by0, H / 2); by1 = sx(by1, H / 2);
       let dx = 0, dy = 0; if (bx0 < SAFE.x0) dx = (SAFE.x0 - bx0) / zoom; else if (bx1 > SAFE.x1) dx = (SAFE.x1 - bx1) / zoom;
       if (by0 < SAFE.y0) dy = (SAFE.y0 - by0) / zoom; else if (by1 > SAFE.y1) dy = (SAFE.y1 - by1) / zoom; return [dx, dy]; };
-    let [dx, dy] = inSafe(); if (dx || dy) { log.shifted.push({ s, dx: Math.round(dx), dy: Math.round(dy) }); x0 += dx; y0 += dy; }
+    let [dx, dy] = outOf(x0 - pad, y0 - pad, x0 + w + pad, y0 + h + pad); if (dx || dy) { log.shifted.push({ s, dx: Math.round(dx), dy: Math.round(dy) }); x0 += dx; y0 += dy; }
     let box = { x0: x0 - pad, y0: y0 - pad, x1: x0 + w + pad, y1: y0 + h + pad, g: o.group || s };
+    // overlap: nudge below, else above, the box it hits; a nudge that leaves the safe area is not taken
     for (let k = 0; k < 4; k++) {
       const other = boxes.find((b) => b.g !== box.g && hit(b, box)); if (!other) break;
-      const step = k % 2 === 0 ? other.y1 - box.y0 + 8 : other.y0 - box.y1 - 8;
-      if (k === 3) { log.collisions.push({ s, with: other.s }); break; }
-      box = { ...box, y0: box.y0 + step, y1: box.y1 + step }; y0 += step;
+      const opts = [other.y1 - box.y0 + 8, other.y0 - box.y1 - 8].map((st) => ({ ...box, y0: box.y0 + st, y1: box.y1 + st, st }))
+        .filter((b) => { const [ex, ey] = outOf(b.x0, b.y0, b.x1, b.y1); return !ex && !ey; });
+      const pick = opts.find((b) => !boxes.some((o2) => o2.g !== box.g && hit(o2, b))) || opts[0];
+      if (!pick || k === 3) { log.collisions.push({ s, with: other.s }); break; }
+      y0 += pick.st; box = { x0: pick.x0, y0: pick.y0, x1: pick.x1, y1: pick.y1, g: box.g };
     }
     box.s = s; boxes.push(box);
     // contrast against what is behind: plate colour, else the frame background
     const behind = o.plate || C.bg; let color = o.color || C.ink, plate = o.plate;
     if (contrast(color, behind) < 4.5) { log.recoloured.push({ s, color }); color = C.ink; if (contrast(color, behind) < 4.5) plate = C.surface; }
-    log.texts.push({ s, px: px * zoom, contrast: +contrast(color, plate || C.bg).toFixed(2), box: [box.x0, box.y0, box.x1, box.y1].map(Math.round) });
+    log.texts.push({ s, px: +(px * zoom).toFixed(2), z: +zoom.toFixed(4), contrast: +contrast(color, plate || C.bg).toFixed(2), box: [box.x0, box.y0, box.x1, box.y1].map(Math.round) });
     ctx.save(); ctx.globalAlpha = a;
     if (plate) { ctx.fillStyle = plate; E.round(box.x0, box.y0, box.x1 - box.x0, box.y1 - box.y0, 10); ctx.fill(); }
     ctx.font = `${w8} ${px}px Inter`; ctx.fontVariantNumeric = 'tabular-nums'; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
@@ -92,20 +97,22 @@ export function makeEngine(canvas, cfg) {
     ctx.beginPath(); ctx.arc(cx, base - 320 * s, 60 * s, 0, 7); ctx.fill(); ctx.restore();
   };
 
-  // one frame: shots = [{template, t0, t1, p}] already resolved; T = time; extra = {hook} for Shorts
+  // one frame: shots = [{template, t0, t1, p, lead?, dur?}] already resolved; T = time; extra = {hook} for Shorts
   E.frame = (templates, shots, T, extra = {}) => {
     boxes = []; frameFlags = { claims: new Set(), hist: false, illus: false };
-    log = { t: +T.toFixed(3), raised: [], shifted: [], collisions: [], recoloured: [], texts: [], tags: [], shots: [] };
+    log = { t: +T.toFixed(3), raised: [], fitted: [], shifted: [], collisions: [], recoloured: [], texts: [], tags: [], shots: [] };
     ctx.setTransform(SC, 0, 0, SC, 0, 0); ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
-    const live = shots.filter((s) => T >= s.t0 - 1e-6 && T < s.t1 + 1e-6);
-    for (const s of live) {
-      const tl = T - s.t0, d = s.t1 - s.t0; zoom = 1 + 0.015 * clamp(tl / Math.max(d, 1));
+    const live = shots.filter((s) => T >= s.t0 - 1e-6 && T < s.t1 - 1e-6);
+    for (const s of live) { // lead/dur: a Short that enters a shot mid-way keeps the shot's clock and length
+      const tl = T - s.t0 + (s.lead || 0), d = s.dur ?? s.t1 - s.t0; zoom = 1 + 0.015 * clamp(tl / Math.max(d, 1));
       ctx.save(); ctx.translate(W / 2, H / 2); ctx.scale(zoom, zoom); ctx.translate(-W / 2, -H / 2);
       const tpl = templates[s.template]; if (!tpl) throw new Error('unknown template ' + s.template);
       tpl.draw(E, tl, s.p, d, s); ctx.restore(); log.shots.push(s.id);
       if (s.p.illustrative) frameFlags.illus = true; if (s.p.historical) frameFlags.hist = true;
     }
     zoom = 1;
+    // Shorts (playbook §5): every frame that shows a number carries both ILLUSTRATIVE and the history tag
+    if (V && (frameFlags.claims.size || frameFlags.hist)) { frameFlags.illus = true; frameFlags.hist = true; }
     if (extra.hook) E.text(extra.hook, W / 2, SAFE.y0 + 70, 'head', { align: 'center', group: 'hook' });
     if (frameFlags.illus) { E.text('ILLUSTRATIVE', SAFE.x1, SAFE.y0 + (V ? 170 : 44), 'badge', { align: 'right', color: C.bg, plate: C.warn, group: 'tag-ill' }); log.tags.push('ILLUSTRATIVE'); }
     if (frameFlags.hist) { E.text('US only · history, not a forecast', V ? W / 2 : SAFE.x1, SAFE.y1 - 6, 'note', { align: V ? 'center' : 'right', color: C.muted, group: 'tag-hist' }); log.tags.push('HISTORY'); }
