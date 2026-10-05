@@ -1,9 +1,9 @@
 # C2 — Ý đồ kiểm máy + kiểm mù lời (ghi TRƯỚC khi có kịch bản; không sửa sau khi thấy kết quả)
 
-Ngày 2026-10-05. Cổng **TỰ ĐỘNG** (`quality-framework.md` §4 C2, §5). Số agent: **6 người đọc + 1 người chấm = 7** mỗi vòng.
+Ngày 2026-10-05. **Bản 2 — sửa theo REVIEWER trước khi có kịch bản** (`REVIEW-intents.md` §3). Cổng **TỰ ĐỘNG** (`quality-framework.md` §4 C2, §5). Số agent: **6 người đọc + 1 người chấm = 7** mỗi vòng.
 
 ## (a) Kiểm máy — `story/check_script.py` (viết trước kịch bản)
-CHẶN: claim có trong `numbers.md`; câu có số (chữ số hay từ chỉ số) phải có claim; S10 = 0 (regex `checks/py/r_content.py`) trên lời và chữ trích trên hình; có "US only" và "history, not a forecast"; luật ASR (`episode.md` §3.1); **móc** (`story.md` §1): 5 s đầu có câu hỏi hoặc câu được–mất mang claim, lời hứa trước 0:30, không câu ràng buộc chen giữa câu hỏi và lời hứa — áp cho S01 của script **và** cho cả 3 phương án ở `hooks.md`. CẢNH BÁO (không chặn): mật độ số, câu ngưỡng thiếu "like/average", khuôn tỉ lệ ±5 điểm % (WRITER báo, P đối chiếu).
+CHẶN: claim có trong `numbers.md`; câu có số (chữ số hay từ chỉ số) phải có claim; S10 = 0 (regex `checks/py/r_content.py`) trên lời và chữ trích trên hình; có "US only" và "history, not a forecast"; luật ASR (`episode.md` §3.1); **móc** (`story.md` §1): 5 s đầu có câu hỏi hoặc câu được–mất mang claim, lời hứa trước 0:30, không câu ràng buộc chen giữa câu hỏi và lời hứa — áp cho S01 của script **và** cho cả 3 phương án ở `hooks.md`. Thêm (v2): số chữ số trong lời khớp giá trị claim gắn câu; câu móc trước 5 s mang dấu `[stake]`/`[question]` (điều kiện cần); `hooks.md` đúng 3 phương án; câu nêu ngưỡng/lãi/quý vượt/số metro phải có "like … average" (**CHẶN**); ràng buộc không đứng trước móc. CẢNH BÁO (không chặn): mật độ số theo cảnh, ràng buộc chưa ở sau lời hứa/trước số lịch sử đầu, viết tắt gạch nối, thiếu ILLUSTRATIVE, khuôn tỉ lệ ±5 điểm %.
 
 ## (b) Kiểm mù lời
 **Mẫu:** lời thuần của `story/script.md` (S01 = móc đã chọn), bỏ ID, claim, ghi chú hình, thẻ cảm xúc; ranh giới cảnh = dòng trống. Không đối chứng (lessons E12: đối chứng "hiểu" không phân biệt; F4: đối chứng phải cùng chủ đề — chỉ có ở hiệu chuẩn móc).
@@ -21,8 +21,9 @@ CHẶN: claim có trong `numbers.md`; câu có số (chữ số hay từ chỉ s
 
 **Chấm (người chấm độc lập, mù tập):**
 - (Q) câu hỏi: lãi khi bán căn nhà mua năm 2000 có vượt giới hạn miễn thuế $500,000 (cặp vợ chồng), một giới hạn không đổi từ 1997, không.
-- (A1) đáp án: có một **mức giá mua năm 2000 theo vùng** mà trên đó lãi của căn nhà tăng như trung bình vùng vượt giới hạn, và mức đó **thấp hơn người ta nghĩ / dưới $300,000 ở hầu hết các vùng được xét** (hoặc nêu đúng ít nhất hai ngưỡng vùng).
+- (A1) đáp án: có một **mức giá mua năm 2000 theo vùng** mà trên đó lãi của căn nhà tăng như trung bình vùng vượt giới hạn, và mức đó **dưới $300,000 ở hầu hết các vùng được xét** (hoặc nêu đúng ít nhất hai ngưỡng vùng).
 - (A2) ít nhất một: giới hạn 1997 theo giá hôm nay ≈ $1.05 triệu (không tăng theo lạm phát); ngưỡng chỉ là của căn nhà tăng như trung bình vùng (cải tạo, chi phí bán, căn nhà cụ thể khác); một căn nhà cụ thể ($200k/$300k minh hoạ) vượt giới hạn ở một thời điểm cụ thể.
+- A2 cố ý chặt hơn §4 (đáp án phải kèm giới hạn hoặc ví dụ, vì claim-risk của đề tài nằm ở đó).
 - Đủ Q + A1 + A2 → 1; thiếu một → 0,5; ≤ một ý → 0. Khẳng định sai nghĩa (ví dụ "họ sẽ nợ thuế $X", "mọi người mua năm 2000 đều vượt") → 0.
 - `advice: true` khi câu 5 "yes" vì tin video bảo bán/giữ hay dự báo, **hoặc** câu 6 nêu lời khuyên hành động, kể cả có điều kiện ("sell before…", "hold until death for the step-up", "keep receipts to avoid tax" nói như chỉ thị). Câu 6 "kiểm con số của chính mình / không có lời khuyên" → không tính.
 - Người đọc **đúng** = điểm 1 và không câu khuyên.
