@@ -136,6 +136,9 @@ Dữ liệu ghim: 12 chỉ số FHFA all-transactions metro + USSTHPI (quý, t�
 | `long_term_gain_rule` | held > 1 year → long-term gain | 26 U.S.C. 1222(3) |
 | `surviving_spouse_window_years` | 2 | 26 U.S.C. 121(b)(4) |
 | `buy_year` | 2000 | viewer identity (card) |
+| `illustrative_price_200k_usd` | 200000 | ILLUSTRATIVE 2000 purchase price (model param `prices`) |
+| `illustrative_price_300k_usd` | 300000 | ILLUSTRATIVE 2000 purchase price (model param `prices`) |
+| `metro_count` | 12 | metros (metro divisions/MSAs) in the comparison — n_metros of hồ sơ |
 | `sale_quarter` | 2026 Q2 | latest quarter in every index file |
 | `ctx_us_only` | US federal tax rule only; state tax not modeled | phạm vi |
 | `ctx_history` | history, not a forecast | gen bảo vệ |

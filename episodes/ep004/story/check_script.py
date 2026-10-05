@@ -5,7 +5,7 @@ móc story.md §1: trong 5 s đầu có câu hỏi (?) hoặc câu được–m�
 không câu ràng buộc (US only / history / assumptions) nằm giữa câu hỏi đầu và lời hứa.
 v2 sau REVIEWER (trước khi có kịch bản): CHẶN thêm — số chữ số trong lời phải khớp giá trị claim gắn câu (hoặc hằng số luật);
 câu móc trước 5 s phải mang dấu [stake]/[question] ở ghi chú (điều kiện cần; REVIEWER vẫn chấm §1); hooks.md phải có đúng 3 phương án;
-câu nêu ngưỡng/lãi/quý vượt/số metro phải có "like … average" (claim-risk "Always say"); câu ràng buộc không đứng trước câu móc.
+cảnh (Sxx / phương án Hn) nêu ngưỡng/lãi/quý vượt/số metro phải có "like … average" ở ≥ 1 câu (v3: theo cảnh, không theo câu — nới sau lần chạy đầu, REVIEWER soát); câu ràng buộc không đứng trước câu móc.
 CẢNH BÁO: mật độ số (> 2 số mới mỗi cảnh Sxx; ≥ 3 số mới / 8 s), ràng buộc chưa đứng sau lời hứa và trước số lịch sử đầu tiên,
 viết tắt có gạch nối (W-2, T-bill), giá minh hoạ thiếu ILLUSTRATIVE trong ghi chú. Số đọc bằng chữ không so được với claim (báo).
 Thời gian ước = 140 từ/phút + 0,4 s mỗi câu.
@@ -70,7 +70,7 @@ SUBJECT = re.compile(r'^(threshold_|gain_at_|cross_quarter|stay_quarter|metros_)
 
 
 def sentence_rules(lines, fail, warn):
-    t, seen, events, scene_new = 0.0, set(), [], {}
+    t, seen, events, scene_new, subj_scene, like_scene = 0.0, set(), [], {}, {}, set()
     for sid, text, cl, note in lines:
         sp = spoken(text)
         ids = [c.strip(' `') for c in re.split(r'[,;]', cl) if c.strip(' `—-')]
@@ -107,9 +107,15 @@ def sentence_rules(lines, fail, warn):
         sc = sid.split('.')[0]
         scene_new[sc] = scene_new.get(sc, 0) + len(new)
         events += [(t, x) for x in new]
-        if any(SUBJECT.match(c) for c in ids) and not re.search(r'\blike\b.*\baverage\b', sp, re.I):
-            fail.append(f'{sid}: câu nêu ngưỡng/lãi/quý/số metro thiếu "like … average" (claim-risk "Always say")')
+        if any(SUBJECT.match(c) for c in ids):
+            subj_scene.setdefault(sc, False)
+        if re.search(r'\blike\b.*\baverage\b', sp, re.I):
+            like_scene.add(sc)
         t += len(sp.split()) / WPM * 60 + 0.4
+    # v3 (sau lần chạy đầu, nới): "like … average" CHẶN theo cảnh, không theo câu — luật theo câu ép lặp cụm từ ở mọi câu
+    for sc in subj_scene:
+        if sc not in like_scene:
+            fail.append(f'{sc}: cảnh nêu ngưỡng/lãi/quý/số metro mà không câu nào có "like … average" (claim-risk "Always say")')
     for sc, n in scene_new.items():
         if n > 2:
             warn.append(f'{sc}: {n} số mới trong cảnh (story §3: ≤ 2)')
