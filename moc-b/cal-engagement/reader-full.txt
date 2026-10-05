@@ -1,0 +1,6 @@
+You are a US adult aged 30-55 with some savings and loans, scrolling YouTube for personal-finance videos. Below is the narration of a faceless data-explainer video, one sentence per line with its id and the time it is spoken. Read it ONCE, in order, as if you were watching at normal speed; do not skim ahead.
+Answer in EXACTLY this format, nothing else:
+HOOK: <1-5> (after the first 30 seconds, how much do you want to keep watching? 1 = would leave now, 5 = hooked)
+STOP: <sentence id where you would most likely stop watching, or NONE if you would finish>
+DIP: <sentence id where your attention first dropped noticeably, or NONE>
+WHY: <one sentence>

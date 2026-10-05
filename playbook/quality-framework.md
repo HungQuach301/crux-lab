@@ -2,6 +2,8 @@
 
 v1 (29/09/2026) rút từ khung Cine Lab. v2 áp `decisions/D-005.md`: 3 cổng GU, 3 cổng TỰ ĐỘNG; bỏ phép che chữ/số; mọi kiểm mù do agent độc lập, mù tập chấm. Tài liệu này đứng ngay sau `CHARTER.md`. Cách chạy một tập: `playbook/episode.md`.
 
+> **Mốc B (D-006, áp từ Tập 4) — cổng chủ dự án đổi thành G1/G2/G3:** **G1** sau C2 (đề tài + logline + kịch bản gồm cấu trúc, cold open, móc + tiêu đề nháp; C1 thành bước máy của P1). **C3** chỉ mở khi tập cần ký hiệu ngoài thư viện (≤ 2 ký hiệu mới/tập). **G2 = C6**, kèm Shorts. **G3** = phát hành. Bảng §4 giữ thước đo và ngưỡng của từng bước; cột "Loại"/"Ai quyết" đọc theo `episode.md` §1. Nguyên tắc tốc độ: chỉ mở vòng sửa khi CHẶN, hoặc lỗi sai nghĩa / claim / pháp lý; CHÍNH không đổi nghĩa → hàng chờ trong gói G2. Biên kịch: `playbook/story.md`.
+
 ## 0. Định nghĩa chất lượng
 
 > **Người xem, xem một lần ở tốc độ thường, đánh giá tập của Crux ngang với ba tham chiếu** (`playbook/references.md`): Vox về truyện, 3Blue1Brown về hình mang nghĩa, WSJ "three charts" về thể loại.
@@ -27,7 +29,7 @@ Thứ tự khi xung đột (Murch, mở rộng): **cảm xúc > truyện > nhị
 5. Không duyệt hình bằng ảnh tĩnh (G-011). Kiểm mù hình dùng dải 6 khung cắt từ clip có chuyển động, đúng thời gian.
 6. Phê bình AI không thay khán giả. Điểm CRITIC là L2 tham khảo.
 7. Bên dựng không sửa bộ đo đang chấm mình (CHARTER §7.1). **Bên dựng không chấm kiểm mù của mình** (lessons E1).
-8. Thước đo mới phải **hiệu chuẩn trên đối chứng đã biết kết quả** trước khi thành ngưỡng (lessons E2).
+8. Thước đo mới phải **hiệu chuẩn trên đối chứng đã biết kết quả** trước khi thành ngưỡng (lessons E2). Đối chứng âm phải **cùng chủ đề, cùng dữ kiện** (bản làm kém có kiểm soát của chính kịch bản; lessons F4). Bộ đo hấp dẫn của agent (điểm móc 1–5, bỏ xem ở đâu) đã trượt hiệu chuẩn — không dùng (lessons F3).
 
 ## 3. Phân cấp luật máy
 
@@ -47,7 +49,7 @@ Gán cấp là việc của Phiên K, chủ dự án duyệt. **Checks khi dựn
 |---|---|---|---|---|---|---|---|
 | **C1 Đề tài, ý tưởng và lời hứa** | **GU** | ≤ 3 đề tài ứng viên từ `topics/queue.md` có hồ sơ đạt `topic-dossier.md` (trụ ít tập nhất trước, kind có sẵn), hoặc đề tài #k chủ dự án đã chỉ; bối cảnh có claim, mốc ngày "hiện tại"; 2 logline; 2–3 tiêu đề nháp | Kiểm mù kể lại logline (5 vai đích + 1 phổ thông, chấm độc lập); so cặp tiêu đề **một vòng** (tham khảo) | Logline đưa lên: kể đúng ≥ 4/5 vai đích | 2 (sửa logline) | Đưa logline tốt nhất kèm điểm, ghi rõ chưa đạt | Chủ dự án: đề tài (gộp một câu với logline; được chọn ngoài danh sách), tiêu đề nháp, phạm vi. Máy không tự chọn đề tài (D-004) |
 | **C2 Kịch bản** | **TỰ ĐỘNG** | Kịch bản WRITER (đầu bài v2, `episode.md` §3); bảng nhịp + **phân loại nhịp**; danh sách claim. Cấu trúc truyện và cold open ở C2 là **bản TẠM**: chủ dự án duyệt ở C3 | (a) Máy: claim 100%, S10 = 0, có "US only" và "history, not a forecast". (b) Kiểm mù lời: 5 vai đích + 1 phổ thông, chấm độc lập: đúng câu hỏi + đáp án; câu khuyên; đoạn mất chú ý | (a) đạt hết. (b) đúng ≥ 5/6; câu khuyên 0/6; không đoạn nào bị ≥ 4/6 cùng chỉ là mất chú ý | 2 | Đoạn mất chú ý → rút còn **1 câu lời + thẻ + mô tả** (mẫu đoạn phương pháp). Vẫn trượt → giữ bản điểm cao nhất, ghi rủi ro vào gói C3 | Phiên; issue báo |
-| **C3 Thiết kế và giọng** | **GU** | **Một hướng** từ `toolkit/visual-library/` + thiết kế mới cho nhịp chưa có ký hiệu; style frame **có chuyển động** cho mọi nhịp loại 1; **bảng nhịp + clip lời cold open (cấu trúc truyện, bắt buộc)**; clip giọng ~30 s; clip phối nhạc ≤ 60 s (độ lặp T2, tham khảo) | Cổng gốc trên style frame (§5) | Mỗi nhịp loại 1: ≥ 2/3 đúng nghĩa, câu khuyên 0 | 2 mỗi nhịp, trước khi gửi gói | Vòng 2 = nhãn nghĩa (≤ ~8 từ, ≥ 40 px, ≥ 1 s/3 từ). Vẫn trượt → hạ nhịp xuống loại 2, báo trong gói | Chủ dự án, 3 câu cố định: (1) cấu trúc truyện + cold open; (2) ký hợp đồng hình (gồm màu); (3) âm thanh: giọng + phối nhạc. Có quyền đòi thêm hướng |
+| **C3 Thiết kế và giọng** | **GU** | **Một hướng** từ `toolkit/visual-library/` + thiết kế mới cho nhịp chưa có ký hiệu; style frame **có chuyển động** cho mọi nhịp loại 1; **bảng nhịp + clip lời cold open (cấu trúc truyện, bắt buộc; từ Mốc B duyệt ở G1, xem banner)**; clip giọng ~30 s; clip phối nhạc ≤ 60 s (độ lặp T2, tham khảo) | Cổng gốc trên style frame (§5) | Mỗi nhịp loại 1: ≥ 2/3 đúng nghĩa, câu khuyên 0 | 2 mỗi nhịp, trước khi gửi gói | Vòng 2 = nhãn nghĩa (≤ ~8 từ, ≥ 40 px, ≥ 1 s/3 từ). Vẫn trượt → hạ nhịp xuống loại 2, báo trong gói | Chủ dự án, 3 câu cố định: (1) cấu trúc truyện + cold open; (2) ký hợp đồng hình (gồm màu); (3) âm thanh: giọng + phối nhạc. Có quyền đòi thêm hướng |
 | **C4 Animatic có chuyển động** | **TỰ ĐỘNG** | Animatic toàn tập 720p, giọng đã chọn, âm tạm | Cổng gốc trên dải nhịp loại 1 (§5); checks đủ bộ lần 1 | ≥ 80% nhịp loại 1 đạt (≥ 2/3, câu khuyên 0) | 2 | Nhãn nghĩa cho nhịp trượt. Vẫn trượt → **ngoại lệ**: render, ghi điểm hai vòng vào ledger và gói C6 | Phiên; issue báo |
 | **C5 Render và L1** | **TỰ ĐỘNG** | Bản cuối 1080p; phối nhạc chủ dự án chọn ở C3 | Checks khoá K đủ bộ lần 2 | Chặn = 0; Chính có giải thích | 2 | Sửa trong danh sách §6. Lỗi Chặn không sửa được trong danh sách → **không phát hành**, đưa vào gói C6 kèm khiếu nại luật | Phiên; issue báo |
 | **C6 Chấm cuối (L3)** | **GU** | Clip nổi bật ≤ 3 phút + bản đầy đủ 720p; 3 thumbnail đã qua claim-risk; tóm tắt AI (chấm độc lập) | Phiếu L3 (§8); so cặp thumbnail một vòng (tham khảo) | Chủ dự án duyệt | 1 | — | Chủ dự án: L3, phát hành, tiêu đề, thumbnail |
@@ -86,7 +88,7 @@ Phiên **chỉ** tự quyết những việc sau, mỗi việc ghi một dòng l
 - cấu trúc truyện, cold open, logline, tiêu đề, thumbnail;
 - phát hành.
 
-Cùng các việc ở CHARTER §7.5.
+**Ngoại lệ (D-006 Q4):** móc 30 s đầu do máy chọn trong 3 phương án (`episode.md` §3); chủ dự án đổi ở G1 khi muốn. Cùng các việc ở CHARTER §6 ("Chỉ chủ dự án quyết").
 
 ## 7. Gói gửi chủ dự án
 
