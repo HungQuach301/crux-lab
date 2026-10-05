@@ -136,7 +136,8 @@ function objectsOf() {
   const T = BOXES.map((b, i) => {
     const k = (b.group ? b.group + ':' : '') + b.s; const n = seen.get(k) || 0; seen.set(k, n + 1);
     const plated = !!b.plate, box = plated ? [b.x0, b.y0, b.x1, b.y1] : [b.gx0, b.gy0, b.gx1, b.gy1];
-    const role = b.role || (b.tier === 'head' ? 'title' : 'label');
+    // a reversed-out pill (text in bg colour on an ink/warn plate) is a badge for the contract (its contrast is read inside the pill)
+    const role = b.role || (b.plate && b.plate !== C.surface && b.plate !== C.bg ? 'badge' : b.tier === 'head' ? 'title' : 'label');
     return { seq: b.seq, o: { id: 't' + i, kind: 'text', tid: k + '#' + n, role, text: b.s, box: box.map(r1), opacity: r1(b.alpha), level: b.tier === 'hero' ? 1 : null, emph: b.tier === 'hero',
       color: lc(b.color), fontPx: b.px, runs: [{ color: lc(b.color), size: b.px }], background: lc(b.plate), parent: null, key: k + '#' + n,
       claims: b.claims.map((c) => ({ id: c.id, text: c.text, box: c.box.map(r1), opacity: r1(b.alpha), color: lc(b.color) })), sig: k + '|' + box.map(Math.round).join(',') } };

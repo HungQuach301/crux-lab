@@ -5,7 +5,7 @@ const fs = require('fs'), path = require('path');
 const OUT = path.join(__dirname, '..', '..', 'out', 'package');
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
-  const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1280, height: 720 } });
+  const b = await chromium.launch({ args: ['--font-render-hinting=none', '--disable-lcd-text'] }); const p = await b.newPage({ viewport: { width: 1280, height: 720 } });
   p.on('pageerror', (e) => console.error('pageerror', e.message));
   for (const n of [1, 2, 3]) {
     await p.goto(`http://127.0.0.1:8765/episodes/ep003/design/c3/page.html?k=THUMB${n}`);

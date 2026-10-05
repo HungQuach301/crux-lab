@@ -124,7 +124,7 @@ export const KEY1 = {
     text(ctx, CL('horizon_years') + ' years', P.x1, 950, 'note', { color: C.muted, align: 'right', alpha: aT });
     // the question, held at the end (no path highlighted)
     text(ctx, 'Which path ends with more?', P.x0, 210, 'head', { alpha: ease(t, 7.8, 8.4) });
-    r2label(ctx, 'Not a pick. Two rules, side by side.', P.x0, 1046, t, 4.0);
+    r2label(ctx, 'Not a pick. Two rules, side by side.', 420, 112, t, 4.0); // C5 V03/V11: top band (bottom band holds the time axis)
   },
 };
 
@@ -218,7 +218,7 @@ export const KEY4 = {
     text(ctx, CL('share_tbills_above_double_pct') + ' overall', 1824, 122, 'label', { align: 'right', color: C.warn, alpha: ease(t, 6.4, 6.9) });
     const aR = ease(t, 8.0, 8.6);
     const shares = ['share_above_double_1934_1949_pct', 'share_above_double_1950_1989_pct', 'share_tbills_above_double_starts_since_1990_pct'];
-    r2label(ctx, CW_HIST, 200, 1046, t, 4.8);
+    r2label(ctx, CW_HIST, 200, 1000, t, 6.7); // C5 V03/V11: inside the safe area, after the axis labels have gone (was 4.8 at y 1046)
     for (let e = 0; e < 3; e++) {
       line(ctx, [[SW.x0, ROWY[e]], [SW.x1, ROWY[e]]], C.grid, 3, { alpha: aR }); text(ctx, eraText(ctx, e), SW.x1 + 40, ROWY[e] - 140, 'note', { color: C.muted, alpha: aR, group: 'era' + e });
       const ae = ease(t, 8.6 + 0.5 * e, 9.0 + 0.5 * e);
@@ -259,7 +259,7 @@ export const KEY5 = {
     text(ctx, 'small sample · one era', 620, 500, 'label', { color: C.bg, weight: 700, plate: C.ink, alpha: aS });
     const aO = ease(t, 0.2, 0.6);
     text(ctx, CL('share_tbills_above_double_pct') + (R2 ? ' of all rolls beat ' + CLD('ctx_guarantee').display : ' overall'), 1824, 122, 'label', { align: 'right', color: C.warn, alpha: aO });
-    r2label(ctx, CW_HIST, 200, 1046, t, 4.0);
+    r2label(ctx, CW_HIST, 200, 1000, t, 4.0);
   },
 };
 
@@ -284,10 +284,11 @@ export const KEY6 = {
     // the shortfall: the part of the shadow the doubled stack can't reach
     const aG = ease(t, 4.8, 5.4);
     if (shadow > dollars) rect(ctx, BX + 40 + BW - 26, B - shadow * U, 26, (shadow - dollars) * U, C.costlier, aG);
-    text(ctx, CLD('ctx_guarantee').display + ' dollars', BX - 44, B - dollars * U + 44, 'label', { align: 'right', alpha: ease(t, 1.0, 1.5), group: 'bar' });
+    text(ctx, CLD('ctx_guarantee').display, BX - 44, B - dollars * U + 44, 'label', { align: 'right', alpha: ease(t, 1.0, 1.5), group: 'bar' });
+    text(ctx, 'dollars', BX - 44, B - dollars * U + 104, 'label', { align: 'right', alpha: ease(t, 1.0, 1.5), group: 'bar' });
     text(ctx, 'what the original', BX + 40 + BW + 22, B - shadow * U + 36, 'note', { color: C.ink, alpha: ease(t, 1.2, 1.7), group: 'sh' });
     text(ctx, 'money bought', BX + 40 + BW + 22, B - shadow * U + 90, 'note', { color: C.ink, alpha: ease(t, 1.2, 1.7), group: 'sh' });
-    text(ctx, 'start ' + CLD('worst_real_start').display, BX - 20, B + 64, 'note', { color: C.muted, alpha: aL });
+    text(ctx, CLD('worst_real_start').display + ' start', BX - 20, B + 64, 'note', { color: C.muted, alpha: aL });
     const aW = ease(t, 5.0, 5.6);
     text(ctx, CLD('ctx_guarantee').display + ' bought ' + CL('worst_real_value_double_pct'), 96, 200, 'caption', { weight: 700, alpha: aW, group: 'w' });
     text(ctx, 'of what the original bought', 96, 262, 'note', { alpha: aW, group: 'w' });
@@ -309,7 +310,7 @@ export const KEY6 = {
     const w = text(ctx, CL('share_double_beat_prices_pct'), RX0, 190, 'number', { alpha: aN, group: 'n' }).x1;
     text(ctx, 'of starts kept up', w + 24, 186, 'label', { alpha: aN, group: 'n' });
     if (R2) ifLabel(ctx, 1); else ifLabel(ctx, 1, 960, 1040);
-    r2label(ctx, CW_HIST, 960, 1046, t, 5.0);
+    r2label(ctx, CW_HIST, 840, 1000, t, 5.0);
   },
 };
 
@@ -353,8 +354,8 @@ export const KEY7 = {
     dot(ctx, TX, RS.base + 40, 10, C.accent, aT, C.ink);
     text(ctx, 'one month: ' + CL('tb3ms_latest_pct'), TX + 30, RS.base + 56, 'note', { alpha: aT });
     ifLabel(ctx, 1);
-    r2label(ctx, 'Beat ' + CLD('ctx_guarantee').display + ' = average right of the line', 1824, 122, t, 3.4, { align: 'right', tier: 'note', plate: C.bg });
-    r2label(ctx, 'What the roll must do. Not a pick.', 200, 1046, t, 4.6);
+    r2label(ctx, 'Beat ' + CLD('ctx_guarantee').display + ' = average right of the line', 1808, 122, t, 3.4, { align: 'right', tier: 'note', plate: C.bg });
+    r2label(ctx, 'What the roll must do. Not a pick.', 200, 1000, t, 4.6);
   },
 };
 
@@ -367,14 +368,14 @@ export const KEY3 = {
     bondBar(ctx, 1, 0.6, { fillA: 0.5 }); gateAt(ctx, P.x1, P.yBond, 1, true);
     const sl = ease(t, 1.0, 2.4);
     // the first link slides up toward the gate, stops halfway, and a "≠" appears
-    const lx = mix(P.x0, 1080, sl), ly = mix(P.yBill, 620, sl);
+    const lx = mix(P.x0, 1030, sl), ly = mix(P.yBill, 620, sl); // C5 V03: stops 40 px earlier so the note fits the safe area
     rect(ctx, lx, ly - P.linkH / 2, (P.x1 - P.x0) / 80 * 3, P.linkH, C.accent, sl > 0 ? 1 : 0);
     const aN = ease(t, 2.8, 3.3);
-    text(ctx, '≠', 1220, 650, 'hero', { align: 'center', alpha: aN });
-    text(ctx, 'measured differently', 1300, 600, 'label', { alpha: ease(t, 3.4, 3.9) });
-    text(ctx, 'one month, not ' + CL('horizon_years') + ' years', 1300, 666, 'label', { alpha: ease(t, 4.4, 4.9) });
+    text(ctx, '≠', 1118, 650, 'hero', { align: 'center', alpha: aN });
+    text(ctx, 'measured differently', 1176, 600, 'label', { alpha: ease(t, 3.4, 3.9) });
+    text(ctx, 'one month, not ' + CL('horizon_years') + ' years', 1176, 666, 'label', { alpha: ease(t, 4.4, 4.9) });
     text(ctx, '?', (P.x0 + P.x1) / 2, P.yBill + 150, 'number', { align: 'center', color: C.muted, alpha: ease(t, 5.4, 6.0) });
-    r2label(ctx, 'Not a pick. Not a forecast.', P.x0, 1046, t, 3.2);
+    r2label(ctx, 'Not a pick. Not a forecast.', P.x0, 1000, t, 3.2);
   },
 };
 
@@ -388,7 +389,8 @@ const TM = DATA.timing || { scenes: [], sentences: [], total: 1 };
 const SENT = Object.fromEntries((TM.sentences || []).map((s) => [s.id, s]));
 const cue = (id) => (SENT[id] ? SENT[id].start : 0);
 
-function usOnly(ctx, a, y = 200) { text(ctx, 'US only · history, not a forecast · taxes ignored', 1824, y, 'note', { align: 'right', weight: 700, plate: C.surface, alpha: a }); }
+function usOnly(ctx, a, y = 200, tax = false) { text(ctx, 'US only · history, not a forecast', 1808, y, 'note', { align: 'right', weight: 700, plate: C.surface, alpha: a, group: 'us' });
+  if (tax) text(ctx, 'taxes ignored', 1808, y + 72, 'note', { align: 'right', weight: 700, plate: C.surface, alpha: a, group: 'us' }); } // C5 S02: no-tax assumption outside the method card
 
 const TITLE = { duration: 6, draw(ctx, t) {
   const a = ease(t, 0, 0.6);
@@ -415,7 +417,7 @@ const BOND = { duration: 40, draw(ctx, t, cues) {
   if (top > 0) rect(ctx, x0 + (x1 - x0) * fixedEnd, y - h / 2, (x1 - x0) * (1 - fixedEnd) * top, h, C.warn, 0.9);
   gateAt(ctx, x1, y, a0);
   text(ctx, 'top-up at year ' + CL('horizon_years'), x1 - 24, y - h / 2 - 24, 'note', { align: 'right', color: C.warn, alpha: top });
-  text(ctx, 'electronic bonds', x1, 300, 'note', { align: 'right', color: C.muted, alpha: ease(t, c(4), c(4) + 0.5) });
+  text(ctx, 'electronic bonds', x1, y + h / 2 + 115, 'note', { align: 'right', color: C.muted, alpha: ease(t, c(4), c(4) + 0.5) });
   // screen-only annotation (C3 1.2): the same ×2 as a yearly rate
   const aA = ease(t, c(5), c(5) + 0.5);
   text(ctx, '= ' + CL('doubling_rate_pct_per_year') + ' a year,', x1 + 28, y + 100, 'note', { alpha: aA, group: 'ann' });
@@ -423,8 +425,8 @@ const BOND = { duration: 40, draw(ctx, t, cues) {
   // early exits: a side door before year 20
   const aD = ease(t, c(6), c(6) + 0.5);
   if (aD > 0) {
-    line(ctx, [[x0 + 300, y + h / 2], [x0 + 300, y + 200]], C.muted, 5, { alpha: aD });
-    text(ctx, CLD('ctx_penalty').display, x0 + 330, y + 190, 'note', { color: C.ink, alpha: aD });
+    line(ctx, [[x0 + 300, y + h / 2], [x0 + 300, y + 260]], C.muted, 5, { alpha: aD });
+    text(ctx, CLD('ctx_penalty').display, x0 + 330, y + 250, 'note', { color: C.ink, alpha: aD });
   }
 } };
 
@@ -441,12 +443,12 @@ const ERAS = { duration: 30, draw(ctx, t, cues) {
     dot(ctx, x, yr(w.r0), 4, C.accent, 1); dot(ctx, x, yr(w.avg), 4, C.ink, 1);
   }
   const aL = ease(t, c(1) + 0.5, c(1) + 1.0);
-  dot(ctx, X0 + 10, 970, 7, C.accent, aL); text(ctx, 'rate in the first month', X0 + 34, 986, 'note', { color: C.accent, alpha: aL, group: 'lg1' });
-  dot(ctx, X0 + 760, 970, 7, C.ink, aL); text(ctx, 'average over the next ' + CL('horizon_years') + ' years', X0 + 784, 986, 'note', { color: C.ink, alpha: aL, group: 'lg2' });
+  dot(ctx, X0 + 700, 340, 7, C.accent, aL); text(ctx, 'rate in the first month', X0 + 724, 356, 'note', { color: C.accent, alpha: aL, group: 'lg1' });
+  dot(ctx, X0 + 700, 404, 7, C.ink, aL); text(ctx, 'average over the next ' + CL('horizon_years') + ' years', X0 + 724, 420, 'note', { color: C.ink, alpha: aL, group: 'lg2' });
   const aN = ease(t, c(1) + 4.2, c(1) + 4.8);
   const ww = text(ctx, CL('share_since_1990_avg_below_start_pct'), X0, 220, 'number', { alpha: aN, group: 'n' }).x1;
   text(ctx, 'average ended below the first month', ww + 24, 216, 'label', { alpha: aN, group: 'n' });
-  r2label(ctx, CW_HIST, 1824, 1046, t, c(5), { align: 'right' });
+  r2label(ctx, CW_HIST, 1808, 1000, t, c(5), { align: 'right' });
   ifLabel(ctx, a);
 } };
 
@@ -455,14 +457,14 @@ const METHOD = { duration: 10, draw(ctx, t) {
   shape({ tag: 'rect', role: 'card', fill: C.surface, stroke: null, opacity: a, box: [150, 120, 1770, 980] });
   roundRect(ctx, 150, 120, 1620, 860, 24); ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = C.surface; ctx.fill(); ctx.restore();
   text(ctx, 'How we know this', 210, 220, 'head', { alpha: a });
-  const L = ['Monthly average ' + CL('bill_term_months') + '-month bill rate (discount basis), compounded monthly', // C5 S07: "÷ 12" had no claim; same meaning
-    'Taxes ignored: bills taxed federally each year; EE tax-deferred; both state-tax exempt',
+  const L = ['Monthly average ' + CL('bill_term_months') + '-month bill rate (discount basis), compounded', // C5 S07: "÷ 12" had no claim; same meaning
+    'Taxes ignored: bills taxed federally each year, EE tax-deferred,', '   both exempt from state tax',
     'Full ' + CL('horizon_years') + '-year hold; purchase limits ignored',
     'Overlapping windows ≈ ' + CL('nonoverlap_periods') + ' separate ' + CL('horizon_years') + '-year periods',
     CL('near_double_starts') + ' start months end within ' + CL('near_double_band_pct') + ' of double',
     'Before ' + CLD('guarantee_from').display + ': IF today\'s guarantee had existed'];
-  L.forEach((s, i) => text(ctx, s, 210, 330 + i * 92, 'note', { alpha: ease(t, 0.3 + 0.2 * i, 0.7 + 0.2 * i) }));
-  text(ctx, 'Federal Reserve Board (H.15) via FRED · U.S. Bureau of Labor Statistics via FRED', 210, 930, 'note', { color: C.muted, alpha: a });
+  L.forEach((s, i) => text(ctx, s, 210, 330 + i * 84, 'note', { alpha: ease(t, 0.3 + 0.2 * i, 0.7 + 0.2 * i) }));
+  text(ctx, 'Data: Federal Reserve H.15 and BLS CPI, both via FRED', 210, 930, 'note', { color: C.muted, alpha: a });
 } };
 
 const END = { duration: 20, draw(ctx, t) {
@@ -500,7 +502,7 @@ export const ANIM = {
     const cues = cl ? cl.map((id) => k0 + cue(id) - t0) : undefined;
     // the shot sees its own time; extra cues are local times of later sentences (for shots that follow the narration)
     SH[name].draw(ctx, cl ? Math.max(0, T - t0) : kt, cues);
-    for (const [u, y] of Object.entries(US_AT)) if (SENT[u] && T >= SENT[u].start - 0.2 && sc.id === SENT[u].scene) usOnly(ctx, ease(T, SENT[u].start - 0.2, SENT[u].start + 0.3), y);
+    for (const [u, y] of Object.entries(US_AT)) if (SENT[u] && T >= SENT[u].start - 0.2 && sc.id === SENT[u].scene) usOnly(ctx, ease(T, SENT[u].start - 0.2, SENT[u].start + 0.3), y, u === 'S04.7');
   },
 };
 

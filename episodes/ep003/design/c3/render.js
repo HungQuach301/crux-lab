@@ -14,8 +14,8 @@ const SUF = (R2 ? '-r2' : '') + (HD ? '-1080' : '') + (FROM !== null ? `-${Strin
 (async () => {
   const args = process.argv.slice(2), keys = args.filter((a) => !a.startsWith('--') && !/^[\d.,]+$/.test(a));
   const si = args.indexOf('--stills'), stills = si >= 0 ? args[si + 1].split(',').map(Number) : null;
-  const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: VW, height: VH } });
+  const browser = await chromium.launch({ args: ['--font-render-hinting=none', '--disable-lcd-text'] }); // C5 V12: same text rasterisation as the checks' page sampler
+  const page = await browser.newPage({ viewport: { width: VW, height: VH }, deviceScaleFactor: 1 });
   page.on('console', (m) => { if (m.type() === 'error') console.error('page:', m.text()); });
   page.on('pageerror', (e) => console.error('pageerror:', e.message));
   for (const k of keys) {

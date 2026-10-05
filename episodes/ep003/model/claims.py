@@ -33,6 +33,22 @@ for cid, r in rows.items():
 for cid, r in ctx.items():
     claims.append({'claimId': cid, 'value': None, 'display': r['what'], 'kind': 'context', 'formula': None,
                    'source': {'id': r['source'], 'url': None}, 'historical': False, 'illustrative': False, 'shownIn': [], 'spoken': None})
+# C5: where each claim is said (claim column of story/script.md) and shown (design/c5/shown.json: the page's own claim spans by scene,
+# written by design/c5/probe.js); context claims carry how they are established as their formula
+import os
+spoken = {}
+for ln in open(f'{EP}/story/script.md', encoding='utf-8'):
+    m = re.match(r'^(S\d\d)\.(\d+) \| .+? \| (.*?) \| ', ln)
+    if m:
+        for c in re.split(r'[,\s]+', m.group(3).strip()):
+            if c and c != '—':
+                spoken.setdefault(c, []).append({'scene': m.group(1), 'sentence': f'{m.group(1)}.{m.group(2)}'})
+shown = json.load(open(f'{EP}/design/c5/shown.json')) if os.path.exists(f'{EP}/design/c5/shown.json') else {}
+for c in claims:
+    c['spoken'] = spoken.get(c['claimId'], [])
+    c['shownIn'] = shown.get(c['claimId'], [])
+    if c.get('formula') is None:
+        c['formula'] = f"stated fact, quoted from its source ({c['source']['id']})"
 json.dump({'claims': claims}, open(f'{EP}/out/claims.json', 'w'), indent=1, ensure_ascii=False)
 print(len(claims), 'claims;', len(rows), 'model/definition rows;', 'rounding self-check mismatches:', bad)
 raise SystemExit(1 if bad else 0)

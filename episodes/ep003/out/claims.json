@@ -17,7 +17,32 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.3"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.5"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.6"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.5"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.6"
+    }
+   ]
   },
   {
    "claimId": "first_start",
@@ -35,8 +60,21 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01",
+    "S07",
+    "S08"
+   ],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.1"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    }
+   ]
   },
   {
    "claimId": "last_start",
@@ -54,8 +92,21 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01",
+    "S05",
+    "S07"
+   ],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.1"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.5"
+    }
+   ]
   },
   {
    "claimId": "share_tbills_above_double_pct",
@@ -73,8 +124,27 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.3"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.7"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.4"
+    }
+   ]
   },
   {
    "claimId": "median_tbill_multiple_20y",
@@ -93,7 +163,12 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.5"
+    }
+   ]
   },
   {
    "claimId": "min_tbill_multiple_20y",
@@ -111,8 +186,16 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S04",
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.4"
+    }
+   ]
   },
   {
    "claimId": "max_tbill_multiple_20y",
@@ -130,8 +213,16 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S04",
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.4"
+    }
+   ]
   },
   {
    "claimId": "share_tbills_above_double_starts_since_1990_pct",
@@ -149,8 +240,23 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.4"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.4"
+    }
+   ]
   },
   {
    "claimId": "latest_tbill_multiple_20y",
@@ -169,7 +275,7 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   },
   {
    "claimId": "doubling_rate_pct_per_year",
@@ -187,8 +293,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S02"
+   ],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.4"
+    }
+   ]
   },
   {
    "claimId": "real_windows",
@@ -207,7 +320,16 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S07",
+     "sentence": "S07.3"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.4"
+    }
+   ]
   },
   {
    "claimId": "share_double_beat_prices_pct",
@@ -225,8 +347,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S07"
+   ],
+   "spoken": [
+    {
+     "scene": "S07",
+     "sentence": "S07.4"
+    }
+   ]
   },
   {
    "claimId": "median_real_value_double_pct",
@@ -245,7 +374,7 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   },
   {
    "claimId": "tb3ms_latest_pct",
@@ -263,8 +392,20 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S03",
+    "S08"
+   ],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.5"
+    }
+   ]
   },
   {
    "claimId": "viewer_age_decade",
@@ -280,7 +421,12 @@
    "historical": false,
    "illustrative": true,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    }
+   ]
   },
   {
    "claimId": "horizon_years",
@@ -298,8 +444,84 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S01",
+     "sentence": "S01.4"
+    },
+    {
+     "scene": "S02",
+     "sentence": "S02.1"
+    },
+    {
+     "scene": "S02",
+     "sentence": "S02.5"
+    },
+    {
+     "scene": "S02",
+     "sentence": "S02.7"
+    },
+    {
+     "scene": "S02",
+     "sentence": "S02.8"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.3"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.8"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.1"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.2"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.2"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.3"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.1"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.4"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    }
+   ]
   },
   {
    "claimId": "horizon_months",
@@ -318,7 +540,12 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.3"
+    }
+   ]
   },
   {
    "claimId": "bill_term_months",
@@ -336,8 +563,41 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01",
+    "S09",
+    "S10"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.1"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.2"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.1"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    }
+   ]
   },
   {
    "claimId": "bills_per_horizon",
@@ -355,8 +615,25 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01",
+    "S08",
+    "S10"
+   ],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.3"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.7"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.6"
+    }
+   ]
   },
   {
    "claimId": "latest_window_end",
@@ -375,7 +652,12 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.1"
+    }
+   ]
   },
   {
    "claimId": "tb3ms_latest_month",
@@ -393,8 +675,19 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S03"
+   ],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    }
+   ]
   },
   {
    "claimId": "since_1990_from",
@@ -412,8 +705,20 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05",
+    "S06"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.2"
+    }
+   ]
   },
   {
    "claimId": "min_start",
@@ -432,7 +737,12 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.4"
+    }
+   ]
   },
   {
    "claimId": "max_start",
@@ -451,7 +761,12 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.4"
+    }
+   ]
   },
   {
    "claimId": "guarantee_from",
@@ -469,8 +784,28 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01",
+    "S09"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.6"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.5"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.4"
+    }
+   ]
   },
   {
    "claimId": "starts_with_guarantee",
@@ -488,8 +823,24 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01",
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.5"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.6"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.7"
+    }
+   ]
   },
   {
    "claimId": "starts_hypothetical",
@@ -507,8 +858,10 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01"
+   ],
+   "spoken": []
   },
   {
    "claimId": "share_hypothetical_pct",
@@ -527,7 +880,7 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   },
   {
    "claimId": "share_above_double_guarantee_starts_pct",
@@ -546,7 +899,12 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.6"
+    }
+   ]
   },
   {
    "claimId": "min_multiple_guarantee_starts",
@@ -564,8 +922,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.6"
+    }
+   ]
   },
   {
    "claimId": "max_multiple_guarantee_starts",
@@ -583,8 +948,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.6"
+    }
+   ]
   },
   {
    "claimId": "starts_1934_1949",
@@ -603,7 +975,7 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   },
   {
    "claimId": "share_above_double_1934_1949_pct",
@@ -621,8 +993,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.3"
+    }
+   ]
   },
   {
    "claimId": "early_from",
@@ -640,8 +1019,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.3"
+    }
+   ]
   },
   {
    "claimId": "early_to",
@@ -659,8 +1045,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.3"
+    }
+   ]
   },
   {
    "claimId": "starts_1950_1989",
@@ -679,7 +1072,7 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   },
   {
    "claimId": "share_above_double_1950_1989_pct",
@@ -697,8 +1090,23 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.4"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.4"
+    }
+   ]
   },
   {
    "claimId": "mid_from",
@@ -716,8 +1124,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    }
+   ]
   },
   {
    "claimId": "mid_to",
@@ -735,8 +1150,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S05"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    }
+   ]
   },
   {
    "claimId": "starts_since_1990",
@@ -755,7 +1177,7 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   },
   {
    "claimId": "share_double_lost_buying_power_pct",
@@ -774,7 +1196,7 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   },
   {
    "claimId": "last_lost_start",
@@ -793,7 +1215,7 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   },
   {
    "claimId": "worst_real_value_double_pct",
@@ -811,8 +1233,19 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S07"
+   ],
+   "spoken": [
+    {
+     "scene": "S07",
+     "sentence": "S07.5"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.6"
+    }
+   ]
   },
   {
    "claimId": "worst_real_start",
@@ -830,8 +1263,19 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S07"
+   ],
+   "spoken": [
+    {
+     "scene": "S07",
+     "sentence": "S07.5"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.6"
+    }
+   ]
   },
   {
    "claimId": "share_since_1990_avg_below_start_pct",
@@ -849,8 +1293,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S06"
+   ],
+   "spoken": [
+    {
+     "scene": "S06",
+     "sentence": "S06.2"
+    }
+   ]
   },
   {
    "claimId": "mean_tb3ms_all_pct",
@@ -868,8 +1319,19 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S08"
+   ],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.4"
+    }
+   ]
   },
   {
    "claimId": "nonoverlap_periods",
@@ -887,8 +1349,19 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.6"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    }
+   ]
   },
   {
    "claimId": "near_double_band_pct",
@@ -906,8 +1379,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    }
+   ]
   },
   {
    "claimId": "near_double_starts",
@@ -925,8 +1405,15 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    }
+   ]
   },
   {
    "claimId": "steady_breakeven_tb3ms_pct",
@@ -944,8 +1431,19 @@
    ],
    "historical": true,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S08"
+   ],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.4"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.6"
+    }
+   ]
   },
   {
    "claimId": "share_avg_rule_agrees_pct",
@@ -964,74 +1462,195 @@
    "historical": true,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.6"
+    }
+   ]
   },
   {
    "claimId": "ctx_guarantee",
    "value": null,
    "display": "Series EE bonds issued May 1, 2005 or later reach original maturity at 20 years; at original maturity a book-entry bond is worth not less than double its purchase price",
    "kind": "context",
-   "formula": null,
+   "formula": "stated fact, quoted from its source (31 CFR 351.34(a), 351.35(f)(2) (70 FR 17288–17289))",
    "source": {
     "id": "31 CFR 351.34(a), 351.35(f)(2) (70 FR 17288–17289)",
     "url": null
    },
    "historical": false,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S07",
+    "S08",
+    "S10"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.4"
+    },
+    {
+     "scene": "S01",
+     "sentence": "S01.6"
+    },
+    {
+     "scene": "S02",
+     "sentence": "S02.5"
+    },
+    {
+     "scene": "S02",
+     "sentence": "S02.6"
+    },
+    {
+     "scene": "S02",
+     "sentence": "S02.8"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.1"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.6"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.5"
+    }
+   ]
   },
   {
    "claimId": "ctx_hypothetical",
    "value": null,
    "display": "For start months before May 2005 the episode applies today's guarantee **as if it had existed**; earlier EE bonds had other terms",
    "kind": "context",
-   "formula": null,
+   "formula": "stated fact, quoted from its source (`model.json` `starts_hypothetical` = 856 (98.1%))",
    "source": {
     "id": "`model.json` `starts_hypothetical` = 856 (98.1%)",
     "url": null
    },
    "historical": false,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S01",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.6"
+    },
+    {
+     "scene": "S01",
+     "sentence": "S01.7"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.4"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.7"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.4"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.5"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.5"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.6"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.4"
+    }
+   ]
   },
   {
    "claimId": "ctx_penalty",
    "value": null,
    "display": "Cashed before 5 years: lose 3 months of interest",
    "kind": "context",
-   "formula": null,
+   "formula": "stated fact, quoted from its source (31 CFR 351.35(e))",
    "source": {
     "id": "31 CFR 351.35(e)",
     "url": null
    },
    "historical": false,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S02"
+   ],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.8"
+    }
+   ]
   },
   {
    "claimId": "ctx_ee_rate",
    "value": null,
    "display": "EE bonds issued May–October 2026 earn a fixed 2.40% a year; the 20-year doubling tops this up. Lời và hình: \"for bonds issued May–October 2026\"",
    "kind": "context",
-   "formula": null,
+   "formula": "stated fact, quoted from its source (TreasuryDirect release 2026-05-01 + trang EE bonds)",
    "source": {
     "id": "TreasuryDirect release 2026-05-01 + trang EE bonds",
     "url": null
    },
    "historical": false,
    "illustrative": false,
-   "shownIn": [],
-   "spoken": null
+   "shownIn": [
+    "S02"
+   ],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.4"
+    },
+    {
+     "scene": "S02",
+     "sentence": "S02.5"
+    }
+   ]
   },
   {
    "claimId": "ctx_tb_sep",
    "value": null,
    "display": "TB3MS September 2026 = 3.94% (công bố 2026-10-01; ngoài bản ghim)",
    "kind": "context",
-   "formula": null,
+   "formula": "stated fact, quoted from its source (FRED TB3MS (không ghim))",
    "source": {
     "id": "FRED TB3MS (không ghim)",
     "url": null
@@ -1039,14 +1658,14 @@
    "historical": false,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   },
   {
    "claimId": "ctx_cpi_rights",
    "value": null,
    "display": "TB3MS và CPIAUCNS: FRED gắn thẻ \"Public Domain: Citation Requested\"",
    "kind": "context",
-   "formula": null,
+   "formula": "stated fact, quoted from its source (trang series FRED, 2026-10-04 (bls.gov: proxy 403, chưa đọc trang BLS))",
    "source": {
     "id": "trang series FRED, 2026-10-04 (bls.gov: proxy 403, chưa đọc trang BLS)",
     "url": null
@@ -1054,7 +1673,7 @@
    "historical": false,
    "illustrative": false,
    "shownIn": [],
-   "spoken": null
+   "spoken": []
   }
  ]
 }
