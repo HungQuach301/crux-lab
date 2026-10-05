@@ -28,11 +28,11 @@ def rows():
     return out
 
 
-def synth(text, path):
+def synth(text, path, seed=1):
     if os.path.exists(path + '.json'): return json.load(open(path + '.json'))
     for att in range(5):
         try:
-            r = requests.post(URL, json={'text': text, 'model_id': MODEL, 'seed': 1}, timeout=300, stream=True)
+            r = requests.post(URL, json={'text': text, 'model_id': MODEL, 'seed': seed}, timeout=300, stream=True)
             if r.ok:
                 chunks = [json.loads(l) for l in r.iter_lines() if l.strip()]; break
             print('HTTP', r.status_code, r.text[:200], file=sys.stderr)
@@ -43,7 +43,7 @@ def synth(text, path):
     else:
         raise SystemExit('EL failed')
     open(path + '.mp3', 'wb').write(b''.join(base64.b64decode(c['audio_base64']) for c in chunks if c.get('audio_base64')))
-    meta = {'text': text, 'model': MODEL, 'voice': VOICE, 'seed': 1, 'characterCost': int(r.headers.get('character-cost', 0) or 0), 'len': len(text)}
+    meta = {'text': text, 'model': MODEL, 'voice': VOICE, 'seed': seed, 'characterCost': int(r.headers.get('character-cost', 0) or 0), 'len': len(text)}
     json.dump(meta, open(path + '.json', 'w'), indent=1); return meta
 
 
@@ -57,12 +57,14 @@ def main():
     from faster_whisper import WhisperModel
     wm = WhisperModel('small.en', device='cpu', compute_type='int8'); files = []; rep = {}
     for sc in SCENES:
-        p = f"{TAKES}/{sc}-{hashlib.sha256(texts[sc].encode()).hexdigest()[:10]}"
-        meta = synth(texts[sc], p)
-        segs, _ = wm.transcribe(p + '.mp3', word_timestamps=True, language='en', beam_size=5, condition_on_previous_text=False)
-        words = [{'w': w.word.strip(), 'start': w.start, 'end': w.end} for g in segs for w in g.words]
         keys = [k for r in rs if r['scene'] == sc for k in r['keys']]
-        miss = match_keys(keys, words) if keys else []
+        for seed in (1, 2):  # sinh lại tối đa 1 lần (seed 2) chỉ khi ASR mất từ khoá
+            p = f"{TAKES}/{sc}-{hashlib.sha256(texts[sc].encode()).hexdigest()[:10]}" + ('' if seed == 1 else '-s2')
+            meta = synth(texts[sc], p, seed)
+            segs, _ = wm.transcribe(p + '.mp3', word_timestamps=True, language='en', beam_size=5, condition_on_previous_text=False)
+            words = [{'w': w.word.strip(), 'start': w.start, 'end': w.end} for g in segs for w in g.words]
+            miss = match_keys(keys, words) if keys else []
+            if not miss: break
         rep[sc] = {'take': os.path.basename(p), 'chars': meta['characterCost'] or meta['len'], 'missingKeys': miss}
         files.append(p + '.mp3')
     lst = f'{TAKES}/list.txt'; open(lst, 'w').write(''.join(f"file '{f}'\n" for f in files))

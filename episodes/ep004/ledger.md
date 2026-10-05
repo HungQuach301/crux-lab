@@ -13,3 +13,13 @@ Mỗi agent con, mỗi cổng: một dòng. Token = số harness của agent con
 | 2026-10-05 | hiệu chuẩn móc | 8 người đọc (Explore) | sonnet | 8 × ~31.6k = 252.934 | **ĐẠT** 7/8 (A 3/4, B 4/4; gốc ở X 4/4, ở Y 3/4) — sát ngưỡng, nêu tên |
 | 2026-10-05 | C1 | 6 người đọc (Explore) | sonnet | 6 × ~31.9k = 191.137 | — |
 | 2026-10-05 | C1 | người chấm độc lập | sonnet | (≈32k) | T đúng 1/5 → CHƯA ĐẠT (5/6 cờ khuyên "hỏi chuyên gia thuế"); hiểu 5/6; không vòng 2 (lý do `gates/C1-blind.md`) |
+| 2026-10-05 | ý đồ | REVIEWER #1 (gọi lại: C2-intent + bản 2) | opus | 110.076 | bản 2 cal-hook + C1 ĐẠT; C2 máy TRƯỢT 6 dòng → check_script v2 |
+| 2026-10-05 | C2 | WRITER bản 1 | opus | 179.048 | 1.231 từ; 3 móc; 2 ký hiệu mới |
+| 2026-10-05 | §6.5 tự quyết | sửa giữ nghĩa để qua CHẶN | — | — | "minus"→"less" (S03.1, S06.2); "two of them"→"both" (S04.3); S08.1 thành câu hỏi (S10 ADVICE); S02.2 thêm "US only"; gắn claim còn thiếu; thêm claim `illustrative_price_*`, `metro_count` |
+| 2026-10-05 | kiểm máy | check_script v3 | — | — | nới "like … average" từ theo câu sang theo cảnh SAU lần chạy đầu (luật theo câu ép lặp cụm từ; 5/6 người đọc C2 vòng 1 thấy nặng) — nêu trong G1/REVIEWER |
+| 2026-10-05 | chọn móc | 9 người đọc so cặp vòng tròn | sonnet | 286.509 | H2 5/6, H1 3/6, H3 1/6; tiêu đề T1 6/6 (tham khảo) |
+| 2026-10-05 | C2 v1 | 6 người đọc + người chấm | sonnet | 209.601 + 40.712 | đúng 5/6, khuyên 1/6 → trượt |
+| 2026-10-05 | C2 v2 | WRITER gọi lại ×2 (sửa + beats) | opus | 189.715 + 194.859 | S01 = H2; đối trọng; bớt lặp |
+| 2026-10-05 | C2 v2 | 6 người đọc + người chấm | sonnet | 207.976 + 39.579 | đúng 6/6, khuyên 0/6, S18 5/6 → dự phòng V7 (§6.7) |
+| 2026-10-05 | G1 | clip cold open | lệnh | — | 45,2 s; 481 ký tự EL; ASR thiếu "Glen" |
+| 2026-10-05 | tổng P1 (trước REVIEWER G1) | 41 agent | — | **2.071.861** | + ngữ cảnh điều phối ≈ 0,4 triệu |

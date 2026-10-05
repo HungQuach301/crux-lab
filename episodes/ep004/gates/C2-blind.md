@@ -16,3 +16,18 @@ Câu khuyên duy nhất: "Talk to a tax professional before deciding" (mệnh l�
 Tín hiệu sửa (câu 3–4, không làm cổng): cụm "like the average" lặp quá nhiều (5/6 nhắc; hệ quả luật kiểm máy theo câu của bản v2, đã nới ở v3); thang giá S14 dày số; đoạn giá 1997 theo lạm phát (S08) và luật thừa kế/vợ chồng (S17–S18) xa mạch chính.
 
 **Vòng 2** (người đọc mới): WRITER siết câu đối trọng đúng chỗ + S01 = móc H2 đã chọn (so cặp vòng tròn) + bớt lặp cụm từ.
+
+# C2 — vòng 2 (người đọc mới; mẫu `c2/r2/sample.txt`, SHA-256 đầu 4c3b159c04024aef)
+
+| nhãn | file | vai | điểm | khuyên | cảnh mất chú ý | đúng | lý do người chấm |
+|---|---|---|---|---|---|---|---|
+| R1 | f341a7f0 | T | 1 | False | S18 | đúng | Gives the question, the regional break-even prices (every city except Chicago under $300k), and the Rosa/Glen $558k example. Q6 is only a self-check against your own numbers. |
+| R2 | fb359082 | T | 1 | False | S18 | đúng | Gives the question, the break-evens (all but Chicago under $300k), the Rosa/Glen example, and the average-home caveat. Q6 says there is no direct advice. |
+| R3 | a9de2054 | T | 1 | False | S18 | đúng | Gives the question, the regional and national break-evens (all but Chicago under $300k), and the Rosa/Glen $558k example. Q6 says there is no advice to sell or keep and lists only self-check steps. |
+| R4 | e8e415c0 | T | 1 | False | S06 | đúng | Gives the question, the thresholds (all but Chicago under $300k), the Rosa/Glen gain, and the average-home caveat. Q6 is a self-check with no directive. |
+| R5 | 9936f0bd | G | 1 | False | S18 | đúng | Gives the question, the thresholds (all but Chicago under $300k), the $558k example, and the not-a-tax-bill caveat. Q5 and Q6 say there is no advice. |
+| R6 | d1652ce2 | T | 1 | False | S18 | đúng | Gives the question, the thresholds (all but Chicago under $300k), the Rosa/Glen example, and the not-a-tax-bill caveat. Q5 says no sell or keep advice, and Q6 is a self-check. |
+
+**Đúng 6/6** · **câu khuyên 0/6** · mất chú ý: **S18 5/6** (câu S18.3 "Two rules sit outside this test…", luật vợ chồng còn lại/thừa kế) → điều kiện thứ ba **TRƯỢT** sau 2 vòng.
+**Dự phòng ghi trước đã áp (danh sách đóng §6.7):** cảnh mất chú ý → 1 câu lời + thẻ V7 + mô tả: S18.3 rút khỏi lời, hai luật chuyển lên thẻ phương pháp S18.1 và mô tả video (claim giữ). Bản sau dự phòng **chưa kiểm mù lại** (hết 2 vòng); kiểm máy ĐẠT. Rủi ro ghi vào G1.
+Tín hiệu khác: câu "Miami at the bottom… Chicago at the top" cần một nhịp để hiểu (4/6) → việc của hình (thang N2) ở C3/C4; đọc từng quý (S06, S11) khó theo bằng tai → hình mang (V3).

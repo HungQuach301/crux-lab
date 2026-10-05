@@ -170,9 +170,9 @@ S17.4 | The line is a measurement, not a next step; this video doesn't weigh sel
 
 ## S18 — Limits and method card · 383 chars, 72 words
 
-S18.1 | How we built this is on screen and in the description. | — | V7 method card "How we know this": FHFA all-transactions indexes via FRED (metro divisions where they exist) · 2000 = average of its four quarters; sale at 2nd quarter 2026 · gain = price × index growth − price; no improvements, no selling costs · married, joint, use test assumed met · CPI-U May 1997 → Aug 2026 · indexes revised every quarter. Card held ≥ 1 s per 3 words of its longest line.
+S18.1 | How we built this is on screen and in the description. | surviving_spouse_window_years, basis_at_death_rule | V7 method card "How we know this" (+ line "Not covered: surviving spouse · heirs (value at death)"): FHFA all-transactions indexes via FRED (metro divisions where they exist) · 2000 = average of its four quarters; sale at 2nd quarter 2026 · gain = price × index growth − price; no improvements, no selling costs · married, joint, use test assumed met · CPI-U May 1997 → Aug 2026 · indexes revised every quarter. Card held ≥ 1 s per 3 words of its longest line.
 S18.2 | The price indexes are revised every quarter, so these lines can move a little with the next release. | — | Card line "revised every quarter" highlighted.
-S18.3 | Two rules sit outside this test: a surviving spouse keeps the joint cap for a limited time, and heirs measure gain from the home's value at death. | surviving_spouse_window_years, basis_at_death_rule | Two plain chips: "Surviving spouse: joint cap for a limited window" · "Heirs: starting point = value at death". No arrows toward either chip.
+<!-- S18.3 rút khỏi lời (dự phòng C2 ghi trước: cảnh mất chú ý 5/6 → 1 câu lời + thẻ V7 + mô tả; phiên P1 áp, 2026-10-05). Nội dung chuyển lên thẻ phương pháp S18.1 và mô tả video: "Not covered: surviving spouse (joint cap for a limited window after a death; 26 U.S.C. 121(b)(4)) · heirs (basis = value at death; 26 U.S.C. 1014(a)(1))". Lời gốc: "Two rules sit outside this test: a surviving spouse keeps the joint cap for a limited time, and heirs measure gain from the home's value at death." -->
 
 ## S19 — Outro: the flat line, the house under it · 219 chars, 44 words
 
