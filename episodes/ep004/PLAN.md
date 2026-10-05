@@ -10,7 +10,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 | C1 | CHƯA ĐẠT (cờ khuyên), không vòng 2 | `gates/C1-*.md`, `c1/` | đưa L1 + L1b vào G1 |
 | C2 | Kiểm máy ĐẠT; mù v2 6/6, khuyên 0/6; S18 → dự phòng V7 (chưa kiểm lại) | `story/`, `gates/C2-*.md`, `c2/`, `hook-rr/` | móc H2 (so cặp vòng tròn 5/6) |
 | Giao phiên K | ĐÃ SOẠN, chạy khi G1 duyệt | `K-brief.md` | kind mới |
-| **G1** | **CHỜ CHỦ DỰ ÁN** (issue `[G1] Tập 4`) | `gates/G1.md` | + ngoại lệ token |
+| **G1** | **CHỜ CHỦ DỰ ÁN** (issue #37; C2 tự động #36) | `gates/G1.md` | + ngoại lệ token |
 | C3 (P2) | cần (2 ký hiệu mới N1, N2) nếu G1 duyệt | `story/beats.md` | |
 
 ## 2. Phiên sau đọc (P2 nếu G1 ghi "cần C3"; không thì P3)
