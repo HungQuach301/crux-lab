@@ -5,7 +5,7 @@
 import os, subprocess, sys, tempfile, textwrap
 
 FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
-PX, LH, MARGIN, WRAP = 30, 42, 24, 118
+PX, LH, MARGIN, WRAP = 30, 42, 24, 100   # 100 ký tự DejaVu 30 px ≈ 1 700 px < 1 920 px bề rộng dải (REVIEWER C4 #11)
 
 
 def main(strip, narr, out):
