@@ -31,9 +31,9 @@ S02.6 | The promise, as written, covers bonds held electronically, which is how 
 S02.7 | Spread over those 20 years, that doubling can also be written as one steady yearly rate, shown here on the gate. | horizon_years | Label on the gate, screen only and never spoken: "= 3.53% a year, compounded yearly" (screen claim: doubling_rate_pct_per_year).
 S02.8 | And the double only arrives at 20 years: a bond cashed earlier earns just its fixed rate, and one cashed before five years also gives up 3 months of interest. | ctx_penalty, ctx_guarantee, horizon_years | The gate opens only at the end; earlier exits are side doors with a smaller bar.
 
-## S03 — The bill roll, and why today's rate doesn't settle it · 854 chars, 162 words
+## S03 — The bill roll, and why today's rate doesn't settle it · 861 chars, 163 words
 
-S03.1 | The T-bill path works the other way around: it makes no promise past three months. | bill_term_months | The chain of bills: links of different heights; only the first link is visible.
+S03.1 | The Treasury bill path works the other way around: it makes no promise past three months. | bill_term_months | The chain of bills: links of different heights; only the first link is visible.
 S03.2 | A bill is a short loan to the government: the buyer pays a bit less than the face amount and gets the full amount back when it comes due. | bill_term_months | One link drawn as a coin going in slightly smaller and coming out full size.
 S03.3 | Over 20 years the money rolls through 80 bills, each paying whatever rate the market sets at the time. | bills_per_horizon, horizon_months, horizon_years | The chain extends to 80 links; links after the first are grey with "?".
 S03.4 | In August 2026, the 3-month bill paid 3.72 percent. | tb3ms_latest_pct, tb3ms_latest_month | Link 1 gets a height: "3.72% · Aug 2026".

@@ -5,15 +5,16 @@
 //   warn    = vượt ×2 (chấm nằm phải cổng) + huy hiệu ILLUSTRATIVE  costlier  = phần sức mua bị mất (chỉ là vật, không là chữ)
 //   ink     = Dana, cột "gấp đôi", 17 tháng bảo đảm THẬT (đặc + viền)  sọc chéo ink-muted = giả định "IF today's guarantee had existed"
 // Mọi số trên hình đi qua CL(claimId). Không quét ngược ở cuối nhịp; nhịp kết ở trạng thái kết luận, giữ yên ≥ 1 s.
-import { C, W, H, CL, DATA, text, badge, line, rect, srect, roundRect, clamp, lin, ease, easeIn, easeOut, back, mix, inout, rgba, measureText } from './engine.js';
+import { C, W, H, CL, DATA, FLAGS, text, badge, line, rect, srect, roundRect, clamp, lin, ease, easeIn, easeOut, back, mix, inout, rgba, measureText, mark, shape } from './engine.js';
 
 const WIN = DATA.windows, NW = WIN.length;
-const CLD = (id) => { const c = DATA.claims[id]; CL(id); return c; };
+const CLD = (id) => { const c = DATA.claims[id]; CL(id); const m = (v) => (v == null ? v : mark(id, String(v))); return { ...c, display: m(c.display), issued: m(c.issued), year: m(c.year), long: m(c.long) }; };
 const year = (id) => CLD(id).year;
 
 // ---------- shared marks ----------
 function hatch(ctx, x, y, w, h, a = 1, gap = 18, color = C.muted, lw = 3) {
   if (a <= 0 || w <= 0 || h <= 0) return;
+  shape({ tag: 'rect', role: 'mark', shape: 'hatch', fill: null, stroke: color, opacity: a, box: [x, y, x + w, y + h] });
   ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip(); ctx.globalAlpha = a; ctx.strokeStyle = color; ctx.lineWidth = lw;
   ctx.beginPath(); for (let k = -h; k < w + h; k += gap) { ctx.moveTo(x + k, y + h); ctx.lineTo(x + k + h, y); } ctx.stroke(); ctx.restore();
 }
@@ -33,8 +34,9 @@ function r2label(ctx, s, x, y, t, t0, o = {}) { // ≥ 1 s cho mỗi 3 từ: hi�
   text(ctx, s, x, y, o.tier || 'label', { weight: 700, color: o.color || C.ink, plate: o.plate === undefined ? C.surface : o.plate, alpha: ease(t, t0, t0 + 0.4), align: o.align, group: 'r2' + y });
 }
 function gateV(ctx, x, y0, y1, a = 1, lw = 10) { if (a > 0) line(ctx, [[x, y0], [x, y1]], C.muted, lw, { alpha: a, cap: 'butt' }); }
-function dot(ctx, x, y, r, fill, a = 1, ringC = null) {
-  if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fillStyle = fill; ctx.fill();
+function dot(ctx, x, y, r, fill, a = 1, ringC = null, meta = null) {
+  if (a <= 0) return; shape({ tag: 'circle', role: 'mark', ...(meta || {}), fill, stroke: ringC, opacity: a, box: [x - r - (ringC ? 5.5 : 0), y - r - (ringC ? 5.5 : 0), x + r + (ringC ? 5.5 : 0), y + r + (ringC ? 5.5 : 0)] });
+  ctx.save(); ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fillStyle = fill; ctx.fill();
   if (ringC) { ctx.lineWidth = 3; ctx.strokeStyle = ringC; ctx.beginPath(); ctx.arc(x, y, r + 4, 0, 7); ctx.stroke(); }
   ctx.restore();
 }
@@ -46,6 +48,7 @@ function arrowR(ctx, x0, x1, y, color, a = 1, lw = 5) {
 // ---------- Dana (ILLUSTRATIVE): faceless ink figure, envelope "Later" ----------
 function dana(ctx, cx, base, s = 1, a = 1, look = 0) {
   if (a <= 0) return;
+  shape({ tag: 'path', role: 'mark', char: 'dana', shape: 'person', fill: C.ink, stroke: null, opacity: a, box: [cx - 120 * s, base - 409 * s, cx + 120 * s + Math.abs(look) * 14 * s, base] });
   ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = C.ink;
   ctx.beginPath(); ctx.moveTo(cx - 120 * s, base); ctx.lineTo(cx - 120 * s, base - 140 * s);
   ctx.bezierCurveTo(cx - 120 * s, base - 230 * s, cx - 70 * s, base - 262 * s, cx, base - 262 * s);
@@ -56,6 +59,7 @@ function dana(ctx, cx, base, s = 1, a = 1, look = 0) {
 }
 function envelope(ctx, x, y, a = 1) {
   if (a <= 0) return;
+  shape({ tag: 'rect', role: 'card', shape: 'envelope', fill: C.surface, stroke: C.ink, opacity: a, box: [x - 2, y - 2, x + 212, y + 130] });
   ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = C.surface; ctx.strokeStyle = C.ink; ctx.lineWidth = 4;
   roundRect(ctx, x, y, 210, 128, 10); ctx.fill(); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(x + 4, y + 6); ctx.lineTo(x + 105, y + 66); ctx.lineTo(x + 206, y + 6); ctx.stroke(); ctx.restore();
@@ -71,6 +75,7 @@ function chain(ctx, n, a = 1, o = {}) { // n links visible (0..80); link o.cur (
   for (let k = 0; k < Math.min(80, Math.ceil(n)); k++) {
     const f = clamp(n - k), x = linkX(k), y = P.yBill - P.linkH / 2;
     const lit = k === (o.cur ?? 0);
+    shape({ tag: 'rect', role: 'mark', shape: 'link', fill: lit ? C.accent : null, stroke: lit ? null : C.muted, opacity: a * f, box: [x + 0.5, y - 1, x + lw - 0.5, y + P.linkH + 1] });
     ctx.save(); ctx.globalAlpha = a * f;
     roundRect(ctx, x + 1.5, y, lw - 3, P.linkH, 4);
     if (lit) { ctx.fillStyle = C.accent; ctx.fill(); } else { ctx.strokeStyle = C.muted; ctx.lineWidth = 2; ctx.stroke(); }
@@ -200,7 +205,7 @@ export const KEY4 = {
       const [fx, fy] = fullXY(i), [rx, ry] = rowXY(i);
       const x = mix(fx, rx, sp), y = mix(mix(150, fy, f), ry, sp);
       const right = WIN[i].roll > 2, colr = ease(t, 4.6, 5.2);
-      dot(ctx, x, y, mix(FULL.r, 3.4, sp), right && colr > 0.5 ? C.warn : C.accent, f * (right ? 1 : 0.9));
+      dot(ctx, x, y, mix(FULL.r, 3.4, sp), right && colr > 0.5 ? C.warn : C.accent, f * (right ? 1 : 0.9), null, { case: WIN[i].s.slice(0, 7) }); // C5 S06: every start month carries its case
     }
     // extremes labelled
     const aE = inout(t, 4.3, 4.7, 6.3, 6.6);
@@ -383,7 +388,7 @@ const TM = DATA.timing || { scenes: [], sentences: [], total: 1 };
 const SENT = Object.fromEntries((TM.sentences || []).map((s) => [s.id, s]));
 const cue = (id) => (SENT[id] ? SENT[id].start : 0);
 
-function usOnly(ctx, a, y = 200) { text(ctx, 'US only · history, not a forecast', 1824, y, 'note', { align: 'right', weight: 700, plate: C.surface, alpha: a }); }
+function usOnly(ctx, a, y = 200) { text(ctx, 'US only · history, not a forecast · taxes ignored', 1824, y, 'note', { align: 'right', weight: 700, plate: C.surface, alpha: a }); }
 
 const TITLE = { duration: 6, draw(ctx, t) {
   const a = ease(t, 0, 0.6);
@@ -447,9 +452,10 @@ const ERAS = { duration: 30, draw(ctx, t, cues) {
 
 const METHOD = { duration: 10, draw(ctx, t) {
   const a = ease(t, 0, 0.5);
+  shape({ tag: 'rect', role: 'card', fill: C.surface, stroke: null, opacity: a, box: [150, 120, 1770, 980] });
   roundRect(ctx, 150, 120, 1620, 860, 24); ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = C.surface; ctx.fill(); ctx.restore();
   text(ctx, 'How we know this', 210, 220, 'head', { alpha: a });
-  const L = ['Monthly average 3-month bill rate (discount basis) ÷ 12, compounded monthly',
+  const L = ['Monthly average ' + CL('bill_term_months') + '-month bill rate (discount basis), compounded monthly', // C5 S07: "÷ 12" had no claim; same meaning
     'Taxes ignored: bills taxed federally each year; EE tax-deferred; both state-tax exempt',
     'Full ' + CL('horizon_years') + '-year hold; purchase limits ignored',
     'Overlapping windows ≈ ' + CL('nonoverlap_periods') + ' separate ' + CL('horizon_years') + '-year periods',
@@ -497,3 +503,17 @@ export const ANIM = {
     for (const [u, y] of Object.entries(US_AT)) if (SENT[u] && T >= SENT[u].start - 0.2 && sc.id === SENT[u].scene) usOnly(ctx, ease(T, SENT[u].start - 0.2, SENT[u].start + 0.3), y);
   },
 };
+
+// =====================================================================================================================
+// C6 thumbnails (3 candidates for the owner; gu): graphics of a signed shot at its end state, the shot's own labels off, one hero question
+// in two lines (≥ 90 px at 1280x720). Only claim on them: ×2 (ctx_guarantee). Rendered by design/c5/thumbs.js → out/package/thumb-N.png + .json.
+// =====================================================================================================================
+function thumb(shot, at, dy, lines, y0, o = {}) {
+  return { duration: 1, draw(ctx) {
+    FLAGS.NOTEXT = true; ctx.save(); if (o.clip) { ctx.beginPath(); ctx.rect(...o.clip); ctx.clip(); } ctx.translate(o.dx || 0, dy); shot.draw(ctx, at, o.cues); ctx.restore(); FLAGS.NOTEXT = false;
+    lines.forEach((s, i) => text(ctx, s, o.x ?? 960, y0 + i * 170, 'hero', { align: o.align || 'center', color: i === (o.warnLine ?? -1) ? C.warn : C.ink }));
+  } };
+}
+export const THUMB1 = thumb(KEY3, 7.9, 300, ['Bond ' + CLD('ctx_guarantee').display, 'or T-bills?'], 230);
+export const THUMB2 = thumb(KEY6, 11.9, 120, [CLD('ctx_guarantee').display + ' dollars ≠', CLD('ctx_guarantee').display + ' groceries'], 230, { x: 96, align: 'left' });
+export const THUMB3 = thumb(KEY2, 9.9, 330, ['If ' + CLD('ctx_guarantee').display + ' had', 'always existed…'], 230, { clip: [0, 700, 1920, 380] });

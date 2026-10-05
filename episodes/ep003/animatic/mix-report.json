@@ -3,22 +3,22 @@
   "path": "episodes/ep003/audio_src/mix_full.py",
   "sha256": "315559978d766e27f32842eedb2d76eb20f9bcff61ba5b35f8ff23d536b6d866"
  },
- "durationS": 570.0,
+ "durationS": 572.0,
  "sections": [
-  "D dorian 0-418.275 s (S01-S07)",
-  "F major 418.275-570.0 s (S08-end)"
+  "D dorian 0-420.427 s (S01-S07)",
+  "F major 420.427-572.0 s (S08-end)"
  ],
  "swellsAt_s": [
   64.457,
-  129.204,
-  189.344,
-  261.175,
-  329.475,
-  368.133,
-  418.275,
-  485.637,
-  494.515,
-  546.803
+  130.249,
+  191.497,
+  263.348,
+  331.628,
+  370.285,
+  420.427,
+  487.77,
+  496.647,
+  548.915
  ],
  "seeds": {
   "RNG(pad,noise)": 20261001,
@@ -27,47 +27,47 @@
   "reverb_ir": 7
  },
  "bpm": 114.0,
- "bars": 271,
+ "bars": 272,
  "master_py": {
-  "I": -14.1,
-  "LRA": 3.4,
+  "I": -14.0,
+  "LRA": 3.5,
   "TP": -1.5
  },
  "master_wav_roundtrip": {
-  "I": -14.1,
-  "LRA": 3.4,
+  "I": -14.0,
+  "LRA": 3.5,
   "TP": -1.5
  },
  "preGainLUFS": -15.7,
- "voiceOverMusicDb_A07": 19.95,
- "limiterMinGainDb": -2.72,
+ "voiceOverMusicDb_A07": 19.96,
+ "limiterMinGainDb": -2.55,
  "T2_selfsim_exit": 0,
- "T2_selfsim_stdout": "{\"label\": \"ep003-full-music\", \"phrases\": 67, \"pairs\": 66, \"meanSimilarity\": 0.8694, \"medianSimilarity\": 0.8712, \"shareAtLeast0.90\": 0.2273, \"shareAtLeast0.95\": 0.0, \"longestRunOfRepeats(>=0.90)\": 2, \"longestRunStarts\": 353.68, \"mostRepetitive30s\": [[143.16, 0.9053], [42.11, 0.9019], [463.16, 0.8993]]}\n",
+ "T2_selfsim_stdout": "{\"label\": \"ep003-full-music\", \"phrases\": 67, \"pairs\": 66, \"meanSimilarity\": 0.8696, \"medianSimilarity\": 0.8706, \"shareAtLeast0.90\": 0.2424, \"shareAtLeast0.95\": 0.0, \"longestRunOfRepeats(>=0.90)\": 2, \"longestRunStarts\": 353.68, \"mostRepetitive30s\": [[143.16, 0.9052], [42.11, 0.9018], [463.16, 0.8972]]}\n",
  "T2_selfsim_stderr": "",
  "files": {
   "mix.wav": {
-   "sha256": "e0aa99a9cd5c69a6690a2c8f84e689824b242f9d8831152c3cb778f27647b664"
+   "sha256": "41b713074bf80d93497c65953897faa120081148267c6e39f009841b53253058"
   },
   "voice.wav": {
-   "sha256": "8daa23e8699c1ca9e6506596a1d940b1057cfa3063cfb84e40b794000f92b910"
+   "sha256": "689d95f9f70ced1e34659f0491c5ec1a80138bcf8e0590486cd49b9626f6eefd"
   },
   "music.wav": {
-   "sha256": "24d5742037a051faffa6a03b560d60c5a1b6673d742210f638fa66e9cff7e8d6"
+   "sha256": "73472e3e0ae7aa876e902bc733b6fd1bbad12385f0eb156fde5689646ee986fe"
   },
   "sonify.wav": {
-   "sha256": "25712627e8bd58a8022f378e7cc59c8003465c4fc7b069a7f2603ca1022f4b4f"
+   "sha256": "800b85405e232a43ca0fb86c442f8f77df8ff46a4509f9128be8066383f70ef2"
   },
   "sfx.wav": {
-   "sha256": "25712627e8bd58a8022f378e7cc59c8003465c4fc7b069a7f2603ca1022f4b4f"
+   "sha256": "800b85405e232a43ca0fb86c442f8f77df8ff46a4509f9128be8066383f70ef2"
   },
   "whoosh.wav": {
-   "sha256": "25712627e8bd58a8022f378e7cc59c8003465c4fc7b069a7f2603ca1022f4b4f"
+   "sha256": "800b85405e232a43ca0fb86c442f8f77df8ff46a4509f9128be8066383f70ef2"
   },
   "room.wav": {
-   "sha256": "d3b89204b8fc19fbf3f93165f642b459ea06a33002f0e8e3cd8f07ccbcb15910"
+   "sha256": "7e7005d47341679c5c10eb98d0463ebe30652c903c0c7ad09f28128a883966fe"
   },
   "tempo-map.json": {
-   "sha256": "75b5d23e1ee18e759530051625d53244f726431732dbf01bdc1e20188d586304"
+   "sha256": "ee5a51bb8a1833580366af9876111d5a9b213365e3458802f67a05e74e37de45"
   }
  },
  "stubbed": "sonify/sfx/whoosh stems silent (unused)",
@@ -272,39 +272,39 @@
   "i7",
   "ii",
   "IV",
+  "ii",
+  "IV",
+  "ii",
+  "V",
+  "IV",
+  "ii",
+  "IV",
+  "Iadd9",
+  "IV",
+  "I",
+  "ii",
+  "V",
+  "IV",
+  "vi",
+  "ii",
+  "IV",
+  "ii",
+  "I",
+  "iii",
+  "ii",
+  "IV",
+  "vi",
+  "IV",
+  "ii",
+  "IV",
+  "V",
+  "I",
+  "ii",
+  "IV",
   "Iadd9",
   "ii",
   "I",
   "IV",
-  "ii",
-  "I",
-  "IVmaj7",
-  "iii",
-  "IV",
-  "I",
-  "ii",
-  "V",
-  "IV",
-  "vi",
-  "ii",
-  "IV",
-  "ii",
-  "I",
-  "iii",
-  "ii",
-  "IV",
-  "vi",
-  "IV",
-  "ii",
-  "IV",
-  "V",
-  "I",
-  "ii",
-  "IV",
-  "Iadd9",
-  "ii",
-  "I",
-  "IV",
   "vi",
   "ii",
   "V",
@@ -319,18 +319,18 @@
   "vi",
   "IV",
   "I",
-  "vi",
-  "IVmaj7",
-  "I",
-  "IV",
-  "I",
-  "V",
-  "vi",
-  "ii",
-  "IV",
   "vi",
   "IVmaj7",
   "I",
+  "IV",
+  "I",
+  "V",
+  "vi",
+  "ii",
+  "IV",
+  "vi",
+  "IVmaj7",
+  "I",
   "vi",
   "IV",
   "vi",
@@ -342,6 +342,7 @@
   "V",
   "Iadd9",
   "IV",
-  "vi"
+  "vi",
+  "IVmaj7"
  ]
 }

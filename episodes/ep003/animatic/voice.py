@@ -61,6 +61,8 @@ def main():
     allw = asr_words(src) if any(tr[sc]['text'] == texts[sc] for sc in scenes) else []
     c2_sent = [{'id': sc, 'text': re.sub(r'\[[a-z ]+\]\s*', '', tr[sc]['text'])} for sc in scenes]
     c2_al = align(c2_sent, allw)
+    rpf = f'{A}/voice-report.json'
+    prev = json.load(open(rpf))['scenes'] if os.path.exists(rpf) else {}
     report, sc_files = {'elChars': 0, 'scenes': {}}, {}
     for k, sc in enumerate(scenes):
         f = f'{WK}/voice/{sc}.wav'
@@ -74,7 +76,10 @@ def main():
         else:
             keys = [kk for r in rs if r['scene'] == sc for kk in r['keys']]
             takes = []
-            for seed in (1, 2):
+            # tái lập: chữ trùng lần sinh trước mà take mất (không commit) → sinh lại đúng seed đã chọn, không lặp seed hỏng
+            pv = prev.get(sc, {})
+            seeds = (int(re.search(r'seed(\d)', pv['use']).group(1)),) if pv.get('text') == texts[sc] and pv.get('use') else (1, 2)
+            for seed in seeds:
                 p = f'{TR.TAKES}/{sc}.{hashlib.sha1(texts[sc].encode()).hexdigest()[:8]}.seed{seed}'
                 m = TR.synth(texts[sc], p, seed); w = TR.asr(p + '.mp3')
                 takes.append({'file': os.path.basename(p) + '.mp3', 'seed': seed, 'characterCost': m['characterCost'], 'missing': TR.match_keys(keys, w)})
@@ -84,6 +89,8 @@ def main():
             use = min(takes, key=lambda t: len(t['missing']))
             subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', f"{TR.TAKES}/{use['file']}", '-af', f'aresample={SR}', '-ac', '1', f], check=True)
             report['scenes'][sc] = {'source': 'ElevenLabs (sinh lại, chữ đổi)', 'text': texts[sc], 'takes': takes, 'use': use['file'], 'elChars': sum(t['characterCost'] or 0 for t in takes)}
+            if seeds != (1, 2):
+                report['scenes'][sc].update(reproduced=True, previousTakes=pv.get('takes'))
         sc_files[sc] = f
     # time base: cảnh nối tiếp, GAP lặng sau mỗi cảnh; mốc câu bằng ASR trên chính file cảnh
     t, tl = 0.0, {'gap': GAP, 'scenes': [], 'sentences': []}

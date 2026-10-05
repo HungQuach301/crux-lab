@@ -23,6 +23,18 @@
     "url": "https://fred.stlouisfed.org/series/CPIAUCNS"
    },
    "series": "CPI-U, All Items, U.S. City Average, Not Seasonally Adjusted (U.S. Bureau of Labor Statistics)"
+  },
+  {
+   "path": "data/DTB3.csv",
+   "role": "crosscheck",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTB3&coed=2026-08-31",
+   "sha256": "b2681e0a9a26da1cf15c2d9c7b6803e1976fa9fb5aaa046a4993aa698e8d3b1b",
+   "downloaded": "2026-10-05",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/DTB3"
+   },
+   "series": "3-Month Treasury Bill Secondary Market Rate, Discount Basis, daily (Board of Governors of the Federal Reserve System, H.15); monthly mean in data/DTB3_monthly.csv (data/fetch.py)"
   }
  ],
  "mismatches": []

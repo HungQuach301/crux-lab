@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "total": 570.0,
+ "total": 572.0,
  "acts": [
   {
    "id": "cold-open",
@@ -10,27 +10,27 @@
   {
    "id": "act1",
    "start": 64.457,
-   "end": 189.344
+   "end": 191.497
   },
   {
    "id": "act2",
-   "start": 189.344,
-   "end": 368.133
+   "start": 191.497,
+   "end": 370.285
   },
   {
    "id": "act3",
-   "start": 368.133,
-   "end": 485.637
+   "start": 370.285,
+   "end": 487.77
   },
   {
    "id": "method",
-   "start": 485.637,
-   "end": 494.515
+   "start": 487.77,
+   "end": 496.647
   },
   {
    "id": "outro",
-   "start": 494.515,
-   "end": 570.0
+   "start": 496.647,
+   "end": 572.0
   }
  ],
  "scenes": [
@@ -51,7 +51,7 @@
    "id": "S02",
    "act": "act1",
    "start": 64.457,
-   "dur": 64.747,
+   "dur": 65.792,
    "layout": "card/bond",
    "shot": "wide",
    "panels": [
@@ -63,8 +63,8 @@
   {
    "id": "S03",
    "act": "act1",
-   "start": 129.204,
-   "dur": 60.14,
+   "start": 130.249,
+   "dur": 61.248,
    "layout": "paths/chain",
    "shot": "wide",
    "panels": [
@@ -76,8 +76,8 @@
   {
    "id": "S04",
    "act": "act2",
-   "start": 189.344,
-   "dur": 71.831,
+   "start": 191.497,
+   "dur": 71.851,
    "layout": "swarm/full",
    "shot": "wide",
    "panels": [
@@ -89,8 +89,8 @@
   {
    "id": "S05",
    "act": "act2",
-   "start": 261.175,
-   "dur": 68.3,
+   "start": 263.348,
+   "dur": 68.28,
    "layout": "swarm/eras",
    "shot": "wide",
    "panels": [
@@ -102,8 +102,8 @@
   {
    "id": "S06",
    "act": "act2",
-   "start": 329.475,
-   "dur": 38.658,
+   "start": 331.628,
+   "dur": 38.657,
    "layout": "dumbbell/eras",
    "shot": "wide",
    "panels": [
@@ -115,7 +115,7 @@
   {
    "id": "S07",
    "act": "act3",
-   "start": 368.133,
+   "start": 370.285,
    "dur": 50.142,
    "layout": "shadow/bars",
    "shot": "wide",
@@ -128,8 +128,8 @@
   {
    "id": "S08",
    "act": "act3",
-   "start": 418.275,
-   "dur": 67.362,
+   "start": 420.427,
+   "dur": 67.343,
    "layout": "swarm/rate-scale",
    "shot": "wide",
    "panels": [
@@ -141,8 +141,8 @@
   {
    "id": "S09",
    "act": "method",
-   "start": 485.637,
-   "dur": 8.878,
+   "start": 487.77,
+   "dur": 8.877,
    "layout": "card/method",
    "shot": "wide",
    "panels": [
@@ -154,8 +154,8 @@
   {
    "id": "S10",
    "act": "outro",
-   "start": 494.515,
-   "dur": 52.288,
+   "start": 496.647,
+   "dur": 52.268,
    "layout": "paths/dana",
    "shot": "wide",
    "panels": [
@@ -167,8 +167,8 @@
   {
    "id": "S11",
    "act": "outro",
-   "start": 546.803,
-   "dur": 23.197,
+   "start": 548.915,
+   "dur": 23.085,
    "layout": "card/end",
    "shot": "wide",
    "panels": [
@@ -184,39 +184,39 @@
    "what": "S02"
   },
   {
-   "t": 129.204,
+   "t": 130.249,
    "what": "S03"
   },
   {
-   "t": 189.344,
+   "t": 191.497,
    "what": "S04"
   },
   {
-   "t": 261.175,
+   "t": 263.348,
    "what": "S05"
   },
   {
-   "t": 329.475,
+   "t": 331.628,
    "what": "S06"
   },
   {
-   "t": 368.133,
+   "t": 370.285,
    "what": "S07"
   },
   {
-   "t": 418.275,
+   "t": 420.427,
    "what": "S08"
   },
   {
-   "t": 485.637,
+   "t": 487.77,
    "what": "S09"
   },
   {
-   "t": 494.515,
+   "t": 496.647,
    "what": "S10"
   },
   {
-   "t": 546.803,
+   "t": 548.915,
    "what": "S11"
   }
  ]

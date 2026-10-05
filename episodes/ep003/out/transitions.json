@@ -1,0 +1,112 @@
+{
+ "cuts": [
+  {
+   "t": 42.22,
+   "from": "KEY1",
+   "to": "KEY2",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "the what-if rule needs its own timeline before any historical number"
+  },
+  {
+   "t": 64.457,
+   "from": "KEY2",
+   "to": "TITLE",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "title card opens the promise of the episode"
+  },
+  {
+   "t": 76.237,
+   "from": "TITLE",
+   "to": "BOND",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "the bond's rule is explained on its own bar and gate"
+  },
+  {
+   "t": 130.249,
+   "from": "BOND",
+   "to": "KEY3",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "the bill chain answers the bond's single promise"
+  },
+  {
+   "t": 191.497,
+   "from": "KEY3",
+   "to": "KEY4",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "the replay starts: every start month drops in as one dot"
+  },
+  {
+   "t": 263.348,
+   "from": "KEY4",
+   "to": "KEY5",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "the 17 real-guarantee months are shown apart from the what-ifs"
+  },
+  {
+   "t": 331.628,
+   "from": "KEY5",
+   "to": "ERAS",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "why eras differ: first-month rate against the 20-year average"
+  },
+  {
+   "t": 370.285,
+   "from": "ERAS",
+   "to": "KEY6",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "buying power: the doubled dollars against prices"
+  },
+  {
+   "t": 420.427,
+   "from": "KEY6",
+   "to": "KEY7",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "the steady-rate line the roll must clear"
+  },
+  {
+   "t": 487.77,
+   "from": "KEY7",
+   "to": "METHOD",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "method card: what the replay leaves out"
+  },
+  {
+   "t": 496.647,
+   "from": "METHOD",
+   "to": "KEY1",
+   "type": "cut",
+   "match": "semantic",
+   "audio": null,
+   "reason": "back to Dana's two paths: the opening question returns for its answer"
+  },
+  {
+   "t": 548.915,
+   "from": "KEY1",
+   "to": "END",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "end screen after the last line"
+  }
+ ]
+}
