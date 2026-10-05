@@ -1,4 +1,4 @@
-# Script — Episode 4 (C2 draft v1, WRITER, 2026-10-05)
+# Script — Episode 4 (C2 round 2 (+ V7 fallback S18.3, P1), WRITER, 2026-10-05)
 
 Working title: *Bought Your Home in 2000? The $500,000 Tax-Free Limit May Not Cover It*
 
@@ -21,7 +21,7 @@ S01 is hook **H2** ("Cú sốc con số", `[stake]`), chosen by the round-robin 
 
 **Claim not yet in `numbers.md`:** `metro_count` = 12 (said in S09.1, S10.2, S14.1; marked `metro_count` in the claim column). Everything else maps to an existing claim ID.
 
-**Counts (round 2, WRITER counter):** narration **1,149 words** (≈ 1,262 read out), 75 lines, 19 scenes. Speech ≈ 9:00 + holds 22.4 s → **runtime ≈ 9:23** before the end screen (≈ 9:40 with it). `check_script.py`: ĐẠT (its own estimate ~8.7 min uses no holds).
+**Counts:** after the P1 V7 fallback (S18.3 removed) narration **1,121 words**, runtime ≈ 9:13 est. (round-2 WRITER counter before fallback: 1,149 words (≈ 1,262 read out), 75 lines, 19 scenes. Speech ≈ 9:00 + holds 22.4 s → **runtime ≈ 9:23** before the end screen (≈ 9:40 with it). `check_script.py`: ĐẠT (its own estimate ~8.7 min uses no holds).
 
 **Mid-rolls (for `episode.yaml` → `midrolls`, est.):**
 - **MR1 ≈ 3:29**, end of Act 1, inside the 1.5 s hold after S07.6 (question "Is Phoenix unusual?" left open).
@@ -50,7 +50,7 @@ No part off by more than ±5 points.
 
 ## S01 — Hook H2: a paper gain bigger than the tax-free cap · 335 chars, 60 words
 
-S01.1 | [serious] About $558,100 in profit, more than a couple can take tax-free. | gain_at_200k_phoenix, excl_joint_limit_usd, illustrative_price_200k_usd | `[stake]` KEY-1. Black screen; the number "≈ $558,100 gain (on paper)" builds digit by digit, ILLUSTRATIVE badge beside it; then a flat line slides in just under it, label "tax-free cap". Purchase price ILLUSTRATIVE ($200,000, shown small under the number).
+S01.1 | [serious] About $558,100 in paper profit, more than a couple can take tax-free. | gain_at_200k_phoenix, excl_joint_limit_usd, illustrative_price_200k_usd | `[stake]` KEY-1. Black screen; the number "≈ $558,100 gain (on paper)" builds digit by digit, ILLUSTRATIVE badge beside it; then a flat line slides in just under it, label "tax-free cap". Purchase price ILLUSTRATIVE ($200,000, shown small under the number).
 S01.2 | That's Rosa and Glen, an illustrative Phoenix couple who bought in 2000, if their home rose like the average. | buy_year, gain_at_200k_phoenix, growth_phoenix, illustrative_price_200k_usd | Pull back: the number sits at the end of a gain line rising from "2000"; the couple and house appear (ILLUSTRATIVE badge; tag "$200,000 · 2000", ILLUSTRATIVE).
 S01.3 | You'll know, city by city, the 2000 price where a home that rose like its metro area's average passes that cap, to check yours against. | buy_year, threshold_joint_min, threshold_joint_max | Title card. Behind it, a ghost of the ladder (KEY-6) with 12 unlabeled rungs and an empty slot marked "your 2000 price". Small tag "US only".
 
@@ -168,7 +168,7 @@ S17.2 | Gain above the cap is taxed as a long-term capital gain, since the home 
 S17.3 | And the average is not your home: your street, your remodel and your purchase month can put you far from your rung. | — | Around one rung, a spread of faint dots (individual homes, schematic, no values) scatters above and below.
 S17.4 | The line is a measurement, not a next step; this video doesn't weigh selling, keeping or waiting. | — | Card "This video measures the line. It doesn't say whether to sell." *(hold 0.8 s)*
 
-## S18 — Limits and method card · 383 chars, 72 words
+## S18 — Limits and method card (S18.3 moved to the V7 card, P1 fallback)
 
 S18.1 | How we built this is on screen and in the description. | surviving_spouse_window_years, basis_at_death_rule | V7 method card "How we know this" (+ line "Not covered: surviving spouse · heirs (value at death)"): FHFA all-transactions indexes via FRED (metro divisions where they exist) · 2000 = average of its four quarters; sale at 2nd quarter 2026 · gain = price × index growth − price; no improvements, no selling costs · married, joint, use test assumed met · CPI-U May 1997 → Aug 2026 · indexes revised every quarter. Card held ≥ 1 s per 3 words of its longest line.
 S18.2 | The price indexes are revised every quarter, so these lines can move a little with the next release. | — | Card line "revised every quarter" highlighted.

@@ -17,7 +17,7 @@ H1.4 | You'll know, city by city, the 2000 price where a home that rose like its
 
 ## H2 — "Cú sốc con số" (CHOSEN, round-robin pair test 5/6, `hook-rr/RESULT.md`; = S01 in `script.md`)
 
-H2.1 | [serious] About $558,100 in profit, more than a couple can take tax-free. | gain_at_200k_phoenix, excl_joint_limit_usd, illustrative_price_200k_usd | `[stake]` Black screen; the number "≈ $558,100 gain (on paper)" builds digit by digit, ILLUSTRATIVE badge beside it; then a flat line slides in just under it, label "tax-free cap". Purchase price ILLUSTRATIVE ($200,000, shown small under the number).
+H2.1 | [serious] About $558,100 in paper profit, more than a couple can take tax-free. | gain_at_200k_phoenix, excl_joint_limit_usd, illustrative_price_200k_usd | `[stake]` Black screen; the number "≈ $558,100 gain (on paper)" builds digit by digit, ILLUSTRATIVE badge beside it; then a flat line slides in just under it, label "tax-free cap". Purchase price ILLUSTRATIVE ($200,000, shown small under the number).
 H2.2 | That's Rosa and Glen, an illustrative Phoenix couple who bought in 2000, if their home rose like the average. | buy_year, gain_at_200k_phoenix, growth_phoenix, illustrative_price_200k_usd | Pull back: the number sits at the end of a gain line rising from "2000"; the couple and house appear (ILLUSTRATIVE badge; tag "$200,000 · 2000", ILLUSTRATIVE).
 H2.3 | You'll know, city by city, the 2000 price where a home that rose like its metro area's average passes that cap, to check yours against. | buy_year, threshold_joint_min, threshold_joint_max | Same title card and ghost ladder as H1.4.
 

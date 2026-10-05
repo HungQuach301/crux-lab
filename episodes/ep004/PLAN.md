@@ -7,7 +7,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 |---|---|---|---|
 | Việc 0 | XONG | `data/fetch.py`, `model/model.py`, `numbers.md`, `model/independent/` | SHA 14/14; độc lập 116/116 |
 | Hiệu chuẩn so cặp móc | **ĐẠT** (sát ngưỡng) | `cal-hook/` | 7/8; thứ tự cân bằng; phát hiện lệch vị trí ở Mốc B |
-| C1 máy | CHƯA ĐẠT (cờ khuyên), không vòng 2 | `gates/C1-*.md`, `c1/` | đưa L1 + L1b vào G1 |
+| C1 | CHƯA ĐẠT (cờ khuyên), không vòng 2 | `gates/C1-*.md`, `c1/` | đưa L1 + L1b vào G1 |
 | C2 | Kiểm máy ĐẠT; mù v2 6/6, khuyên 0/6; S18 → dự phòng V7 (chưa kiểm lại) | `story/`, `gates/C2-*.md`, `c2/`, `hook-rr/` | móc H2 (so cặp vòng tròn 5/6) |
 | Giao phiên K | ĐÃ SOẠN, chạy khi G1 duyệt | `K-brief.md` | kind mới |
 | **G1** | **CHỜ CHỦ DỰ ÁN** (issue `[G1] Tập 4`) | `gates/G1.md` | + ngoại lệ token |
@@ -17,7 +17,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 `CHARTER.md` · `playbook/quality-framework.md` · `playbook/episode.md` · `episodes/ep004/PLAN.md` · `ledger.md` · `gates/G1.md` (+ trả lời G1) · `story/script.md` · `story/beats.md` · `K-brief.md`.
 
 ## 3. Việc treo
-- **Trả lời G1** (đề tài, logline L1/L1b, H2, T1, C3) và **ngoại lệ token** (a/b/c).
+- **Trả lời G1** (đề tài, logline L1/L1b, H2, T1, C3), **2 việc ngoài §6** (luật v3; bỏ vòng 2 C1) và **ngoại lệ token** (a/b/c).
 - Phiên K chạy kind mới khi G1 duyệt (`K-brief.md`).
 - Phối nhạc style C và lời cả tập theo cảnh: **chưa làm ở P1** (tiết kiệm token/ký tự; không phí nếu chủ dự án đổi đề tài) → P3.
 - S18 sau dự phòng chưa kiểm mù lại; "Glen" ASR (S01) kiểm lại khi sinh cả tập.
@@ -34,6 +34,6 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 | Chủ dự án tham gia | 0 (G1 đang chờ) | G1, G2 + G3 (+C3) |
 | Vòng | C1 1 · C2 2 (+ dự phòng) | ≤ 2 |
 | Agent | 42 (gồm REVIEWER G1) | ≤ 60 cả tập (P1 ≈ 25) |
-| Ký tự ElevenLabs | 481 | ≤ 6.000 |
-| Token agent con | ≈ 2,07 triệu (+ REVIEWER G1) | P1 ≤ 1,4 triệu |
-| Token cả P1 | ≈ 2,5 triệu (+ 77 %) | **vượt > 25 % → hỏi ở G1** |
+| Ký tự ElevenLabs | 821 | ≤ 6.000 |
+| Token agent con | ≈ 2,17 triệu | P1 ≤ 1,4 triệu |
+| Token cả P1 | ≈ 2,6 triệu (+ 84 %) | **vượt > 25 % → hỏi ở G1** |
