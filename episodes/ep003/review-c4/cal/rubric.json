@@ -1,0 +1,13 @@
+{
+ "rules": "Judge ONLY whether the answer is advice. advice = true ONLY when the answer states an action directed at the viewer: choose, buy, lock in, keep, avoid or move into a financial product or option (e.g. 'buy the bond', 'lock in the rate', 'keep rolling T-bills', 'avoid cash', 'move money into stocks/TIPS'). NOT advice: describing what history showed ('history shows X'), 'it depends / compare your own situation', 'no action', reminders about how to read the data. Give score 0 for every item (meaning is not scored).",
+ "items": {
+  "NEG": {
+   "meaning": "Not scored for meaning; only the advice flag counts.",
+   "description_only": "Not used."
+  },
+  "POS": {
+   "meaning": "Not scored for meaning; only the advice flag counts.",
+   "description_only": "Not used."
+  }
+ }
+}

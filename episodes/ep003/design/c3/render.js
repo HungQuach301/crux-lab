@@ -14,14 +14,14 @@ const R2 = process.argv.includes('--r2'), SUF = R2 ? '-r2' : '';
   page.on('console', (m) => { if (m.type() === 'error') console.error('page:', m.text()); });
   page.on('pageerror', (e) => console.error('pageerror:', e.message));
   for (const k of keys) {
-    await page.goto(k === 'CTRL' ? 'http://127.0.0.1:8765/episodes/ep003/design/c3/ctrl/page.html' : `http://127.0.0.1:8765/episodes/ep003/design/c3/page.html?k=${k}${R2 ? '&r=2' : ''}`);
+    await page.goto(k.startsWith('C4') ? `http://127.0.0.1:8765/episodes/ep003/design/c4/ctrl/page.html?k=${k === 'C4POS' ? 'K5POS' : 'K5'}` : k === 'CTRL' ? 'http://127.0.0.1:8765/episodes/ep003/design/c3/ctrl/page.html' : `http://127.0.0.1:8765/episodes/ep003/design/c3/page.html?k=${k}${R2 ? '&r=2' : ''}`);
     await page.waitForFunction('window.READY === true', null, { timeout: 30000 });
     const info = await page.evaluate(() => ({ d: APP.duration, n: APP.frames, st: APP.stripTimes }));
     if (stills) {
       for (const t of stills) { const u = await page.evaluate((t) => APP.png(t), t); fs.writeFileSync(path.join(OUT, `${k}${SUF}-t${t.toFixed(2)}.png`), Buffer.from(u.split(',')[1], 'base64')); }
       continue;
     }
-    if (args.includes('--check') && k !== 'CTRL') { // REVIEWER C3-intent #6: check at the frames strips.py will cut (centres of 6 equal slices of [0, duration])
+    if (args.includes('--check') && k !== 'CTRL' && !k.startsWith('C4')) { // REVIEWER C3-intent #6: check at the frames strips.py will cut (centres of 6 equal slices of [0, duration])
       const res = []; const ts = [0, 1, 2, 3, 4, 5].map((i) => +((i + 0.5) * info.d / 6).toFixed(3));
       for (const t of ts) { const c = await page.evaluate((t) => APP.check(t), t); for (const b of c) if (b.clear < 4 || b.contrast < 4.5 || b.tclear < 4) res.push({ t, ...b }); }
       fs.writeFileSync(path.join(OUT, `${k}${SUF}-check.json`), JSON.stringify({ times: ts, issues: res }, null, 1)); console.log(k, 'check at strip times', ts.join(','), 'issues', res.length);
