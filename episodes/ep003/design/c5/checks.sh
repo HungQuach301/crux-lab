@@ -15,7 +15,7 @@ echo "LOCK $L ok"
 sed -i "s#http://127.0.0.1:8765/#http://127.0.0.1:8766/#" "$OUT/$E/out/page.json"
 # the port must be free: a server left from another run would serve another copy (run 3 sampled a stale page that way)
 if curl -s -o /dev/null "http://127.0.0.1:8766/"; then echo "port 8766 busy: stop the other server first"; exit 3; fi
-(cd "$OUT" && python3 -m http.server 8766 >/dev/null 2>&1 & echo $! > "$OUT/.srv")
+(cd "$OUT" && exec python3 -m http.server 8766 >/dev/null 2>&1) & echo $! > "$OUT/.srv"  # exec: the recorded pid is the server itself
 sleep 1
 curl -sf "http://127.0.0.1:8766/checks/LOCK" | grep -q "$L" || { echo "copy server not serving this copy"; exit 4; }
 bash "$OUT/checks/run.sh" "$OUT/$E" "$@" || true
