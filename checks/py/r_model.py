@@ -687,9 +687,404 @@ def fvf_invariants(ctx, params):
             metric('|fixed interest amortised − level-payment formula| $', abs(tot - run['fixedTotalInterest']), '<=', 0.5, '$')]
 
 
+# ---- kind "lock-vs-roll-replay" (Episode 3, K3.7: lock a known multiple, or a locked rate, for H months against rolling a short rate every p months) -----
+# Written by the checking session (K3.7) from the topic spec (topics-r1/machine/retire-4/model.json newKindNeeds, quantities[].meaning; episodes/ep003/
+# numbers.md, checks-notes.md), never from the builder's code. One kind for retire-4 (savings bond doubling vs rolled 3-month T-bills: p = 1, constant
+# multiple m = 2, H = 240) and retire-3 (5-year yield locked vs 1-year yield rolled: p = 12, locked series q = 12, H = 60, startFilter).
+#   Window from start month s: Roll(s) = Π_{k=0}^{H/p−1} (1 + R(s + k·p)·p/1200);  Lock(s) = m (constant) or (1 + L(s)·q/1200)^(H/q) (locked series).
+#   Windows: every s from firstStart (default: the first month with inputs) to lastStart (default: the last s with s + H − 1 ≤ the last roll month) whose
+#   inputs all exist (R at every s + k·p; L(s) for a locked series). Roll ahead = Roll > Lock, lock ahead = Lock > Roll (strict; ties in neither).
+#   Deflator P: real factor = P(s)/P(s + H); a window without P at either end is skipped from the real quantities (counted). Real lock = Lock × factor.
+#   Sets: all windows; each subset {name: [from, to | null]} (start months, inclusive, null = lastStart; subsets may overlap); "filtered" = the starts kept
+#   by startFilter (rollRateAboveLockRate: R(s) > L(s)). Runs: maximal sequences of consecutive calendar months inside the filtered starts; a run is
+#   lock-majority when more than half of its starts are lock ahead.
+#   Constant lock only: equivalentLockRate = 100(m^(12/H) − 1) (% a year, compounded yearly); steadyBreakevenRate = 1200/p · (m^(p/H) − 1) (the roll rate
+#   that, held for H months, gives exactly m); mean rule = "mean of the window's roll rates > steadyBreakevenRate".
+def monthly_values(ctx, spec, field):
+    """{file, dateColumn, valueColumn}: {month index: value}. A blank or "." value is a gap (a missing input, never a zero); dates YYYY-MM or YYYY-MM-01."""
+    if not isinstance(spec, dict):
+        raise Missing(f'contract.json: model.params.{field}')
+    for k in ('file', 'dateColumn', 'valueColumn'):
+        if not spec.get(k):
+            raise Missing(f'contract.json: model.params.{field}.{k}')
+    by = {}
+    for r in csv.DictReader(open(ctx.need(spec['file']))):
+        i = ym(r.get(spec['dateColumn'], ''))
+        if i is None or i in by:
+            raise Missing(f'{spec["file"]}: a monthly series (one row per month, dates YYYY-MM or YYYY-MM-01); bad row {r.get(spec["dateColumn"])!r}')
+        v = (r.get(spec['valueColumn']) or '').strip()
+        if v not in ('', '.'):
+            by[i] = float(v)
+    if not by:
+        raise Missing(f'{spec["file"]}: column {spec["valueColumn"]}')
+    return by
+
+
+def _lvr_params(params):
+    roll, lock, H = _need(params, 'roll', 'lock', 'horizonMonths')
+    H = int(H)
+    p = int((roll or {}).get('periodMonths') or 0)
+    if p < 1 or H % p:
+        raise Missing('contract.json: model.params.roll.periodMonths (≥ 1, horizonMonths a multiple of it)')
+    if not isinstance(lock, dict):
+        raise Missing('contract.json: model.params.lock')
+    if lock.get('multiple') is not None:
+        m, q = float(lock['multiple']), None
+    else:
+        q = int(lock.get('periodMonths') or 0)
+        if q < 1 or H % q:
+            raise Missing('contract.json: model.params.lock.multiple, or lock.{file, dateColumn, valueColumn, periodMonths} (horizonMonths a multiple of it)')
+        m = None
+    subsets = {}
+    for name, ab in (params.get('subsets') or {}).items():
+        if name in ('all', 'filtered') or not isinstance(ab, (list, tuple)) or len(ab) != 2:
+            raise Missing(f'contract.json: model.params.subsets.{name} = [from, to | null] (names "all" and "filtered" are taken)')
+        subsets[name] = (_ym_need(ab[0], f'subsets.{name}[0]'), None if ab[1] is None else _ym_need(ab[1], f'subsets.{name}[1]'))
+    flt = params.get('startFilter')
+    if flt is not None and (not isinstance(flt, dict) or flt.get('type') != 'rollRateAboveLockRate' or m is not None):
+        raise Missing('contract.json: model.params.startFilter = {"type": "rollRateAboveLockRate"} (needs a locked series)')
+    term = roll.get('termMonths')
+    band = params.get('nearBandPct')
+    return {'roll': roll, 'lock': lock, 'H': H, 'p': p, 'm': m, 'q': q, 'subsets': subsets, 'filter': flt is not None,
+            'first': None if params.get('firstStart') is None else _ym_need(params['firstStart'], 'firstStart'),
+            'last': None if params.get('lastStart') is None else _ym_need(params['lastStart'], 'lastStart'),
+            'deflator': params.get('deflator'), 'term': None if term is None else int(term), 'band': None if band is None else float(band)}
+
+
+def lvr_run(ctx, params, bump=0.0, const_roll=None):
+    """Every window [{start, end, roll, lock, nObs, meanRate, rate0, lockRate0?, real?}]. bump / const_roll: every roll rate raised by `bump` points, or
+    replaced by a constant (the invariants' replays)."""
+    c = _lvr_params(params)
+    R0 = monthly_values(ctx, c['roll'], 'roll')
+    R = R0 if not bump and const_roll is None else {i: (const_roll if const_roll is not None else v + bump) for i, v in R0.items()}
+    L = None if c['m'] is not None else monthly_values(ctx, c['lock'], 'lock')
+    P = monthly_values(ctx, c['deflator'], 'deflator') if c['deflator'] else None
+    H, p = c['H'], c['p']
+    z = max(R)
+    first = c['first'] if c['first'] is not None else (min(R) if L is None else max(min(R), min(L)))
+    last = c['last'] if c['last'] is not None else z - H + 1
+    if last > z - H + 1:
+        raise Missing(f'contract.json: model.params.lastStart {ym_str(last)} after {ym_str(z - H + 1)} (its {H} months run past the roll file)')
+    wins = []
+    for s in range(first, last + 1):
+        obs = range(s, s + H, p)
+        if any(o not in R for o in obs) or (L is not None and s not in L):
+            continue
+        roll = 1.0
+        for o in obs:
+            roll *= 1 + R[o] * p / 1200.0
+        lock = c['m'] if L is None else (1 + L[s] * c['q'] / 1200.0) ** (H // c['q'])
+        w = {'start': s, 'end': s + H - 1, 'roll': roll, 'lock': lock, 'nObs': len(obs), 'meanRate': sum(R[o] for o in obs) / len(obs), 'rate0': R[s]}
+        if L is not None:
+            w['lockRate0'] = L[s]
+        if P is not None and s in P and s + H in P:
+            w['real'] = P[s] / P[s + H]
+        wins.append(w)
+    if not wins:
+        raise Missing(f'no window: firstStart {ym_str(first)} .. lastStart {ym_str(last)} has no start month with every input')
+    return {'c': c, 'R': R, 'R0': R0, 'P': P, 'windows': wins, 'dataLast': z}
+
+
+def lvr_sets(run):
+    """{"all": windows, <subset>: its windows, "filtered": the filtered starts (with a startFilter)}."""
+    ws, c = run['windows'], run['c']
+    last = ws[-1]['start']
+    sets = {'all': ws}
+    for name, (a, b) in c['subsets'].items():
+        hi = last if b is None else min(b, last)
+        sets[name] = [w for w in ws if a <= w['start'] <= hi]
+    if c['filter']:
+        sets['filtered'] = [w for w in ws if w['rate0'] > w['lockRate0']]
+    return sets
+
+
+def _pick(ws, f, top):
+    """Smallest (top=False) or largest (top=True) f(w); ties: the earliest start."""
+    return (max if top else min)(ws, key=lambda w: (f(w), -w['start'] if top else w['start']))
+
+
+def _pct(k, n):
+    return 100.0 * k / n if n else None
+
+
+def lvr_runs(ws):
+    """Maximal sequences of consecutive calendar months: [{from, to, nWindows, nLockAhead}]."""
+    out = []
+    for w in ws:
+        if out and out[-1]['to'] == w['start'] - 1:
+            out[-1]['to'] = w['start']
+        else:
+            out.append({'from': w['start'], 'to': w['start'], 'nWindows': 0, 'nLockAhead': 0})
+        out[-1]['nWindows'] += 1
+        out[-1]['nLockAhead'] += w['lock'] > w['roll']
+    return out
+
+
+def lvr_stats(run, ws):
+    """Quantities of one set of windows (None where the set is empty or the input absent)."""
+    c, n = run['c'], len(ws)
+    st = {'nWindows': n}
+    if not n:
+        return st
+    gap = lambda w: 100.0 * (w['lock'] / w['roll'] - 1)
+    mn, mx = _pick(ws, lambda w: w['roll'], False), _pick(ws, lambda w: w['roll'], True)
+    gmn, gmx = _pick(ws, gap, False), _pick(ws, gap, True)
+    ra, la = sum(w['roll'] > w['lock'] for w in ws), sum(w['lock'] > w['roll'] for w in ws)
+    st.update({'firstStart': ws[0]['start'], 'lastStart': ws[-1]['start'], 'shareRollAhead': _pct(ra, n), 'shareLockAhead': _pct(la, n),
+               'shareTie': _pct(n - ra - la, n), 'medianRoll': float(np.median([w['roll'] for w in ws])), 'minRoll': mn['roll'], 'minRollStart': mn['start'],
+               'maxRoll': mx['roll'], 'maxRollStart': mx['start'], 'medianLockVsRollPct': float(np.median([gap(w) for w in ws])),
+               'minLockVsRollPct': gap(gmn), 'minLockVsRollStart': gmn['start'], 'maxLockVsRollPct': gap(gmx), 'maxLockVsRollStart': gmx['start'],
+               'shareMeanRateBelowStart': _pct(sum(w['meanRate'] < w['rate0'] for w in ws), n)})
+    if c['m'] is not None:
+        r_star = 1200.0 / c['p'] * (c['m'] ** (c['p'] / c['H']) - 1)
+        st['shareMeanRuleAgrees'] = _pct(sum((w['meanRate'] > r_star) == (w['roll'] > w['lock']) for w in ws), n)
+    if c['band'] is not None:
+        st['nearCount'] = sum(abs(w['roll'] / w['lock'] - 1) < c['band'] / 100.0 for w in ws)
+    if run['P'] is not None:
+        real = [w for w in ws if 'real' in w]
+        lr = [w['lock'] * w['real'] for w in real]
+        st.update({'nRealWindows': len(real), 'skippedRealStarts': n - len(real)})
+        if real:
+            lo = _pick(real, lambda w: w['lock'] * w['real'], False)
+            below = [w['start'] for w in real if w['lock'] * w['real'] < 1]
+            st.update({'shareLockRealAtLeastOne': _pct(sum(x >= 1 for x in lr), len(real)), 'shareLockRealBelowOne': _pct(sum(x < 1 for x in lr), len(real)),
+                       'medianLockRealPct': 100.0 * float(np.median(lr)), 'minLockRealPct': 100.0 * lo['lock'] * lo['real'], 'minLockRealStart': lo['start'],
+                       'lastStartLockRealBelowOne': max(below) if below else None,
+                       'shareRollRealAtLeastOne': _pct(sum(w['roll'] * w['real'] >= 1 for w in real), len(real)),
+                       'medianRollRealPct': 100.0 * float(np.median([w['roll'] * w['real'] for w in real]))})
+    if run['c']['filter']:
+        runs = lvr_runs(ws)
+        st.update({'runs': len(runs), 'lockMajorityRuns': sum(2 * r['nLockAhead'] > r['nWindows'] for r in runs)})
+    return st
+
+
+def lvr_summary(run):
+    """The quantities of the whole replay: the "all" set and the run-wide numbers."""
+    c, ws, R0 = run['c'], run['windows'], run['R0']
+    st = lvr_stats(run, ws)
+    z, f0 = max(R0), ws[0]['start']
+    st.update({'horizonMonths': c['H'], 'horizonYears': c['H'] / 12.0, 'rollPeriodMonths': c['p'], 'latestStart': ws[-1]['start'], 'latestEnd': ws[-1]['end'],
+               'latestRoll': ws[-1]['roll'], 'latestLock': ws[-1]['lock'], 'rollRateLatest': R0[z], 'rollRateLatestMonth': z,
+               'meanRollRateAll': float(np.mean([R0[i] for i in range(f0, z + 1) if i in R0])), 'nonOverlapPeriods': (z - f0 + 1) // c['H']})
+    if c['m'] is not None:
+        st['equivalentLockRate'] = 100.0 * (c['m'] ** (12.0 / c['H']) - 1)
+        st['steadyBreakevenRate'] = 1200.0 / c['p'] * (c['m'] ** (c['p'] / c['H']) - 1)
+    if c['term']:
+        st.update({'rollTermMonths': c['term'], 'rollsPerHorizon': c['H'] / c['term']})
+    if c['band'] is not None:
+        st['nearBandPct'] = c['band']
+    return st
+
+
+MULT, PCT, CNT, MON = 'multiple', 'pct', 'count', 'month'
+LVR_FIELDS = {'nWindows': CNT, 'firstStart': MON, 'lastStart': MON, 'shareRollAhead': PCT, 'shareLockAhead': PCT, 'shareTie': PCT, 'medianRoll': MULT,
+              'minRoll': MULT, 'minRollStart': MON, 'maxRoll': MULT, 'maxRollStart': MON, 'medianLockVsRollPct': PCT, 'minLockVsRollPct': PCT,
+              'minLockVsRollStart': MON, 'maxLockVsRollPct': PCT, 'maxLockVsRollStart': MON, 'shareMeanRateBelowStart': PCT, 'shareMeanRuleAgrees': PCT,
+              'nearCount': CNT, 'nRealWindows': CNT, 'skippedRealStarts': CNT, 'shareLockRealAtLeastOne': PCT, 'shareLockRealBelowOne': PCT,
+              'medianLockRealPct': PCT, 'minLockRealPct': PCT, 'minLockRealStart': MON, 'lastStartLockRealBelowOne': MON, 'shareRollRealAtLeastOne': PCT,
+              'medianRollRealPct': PCT, 'runs': CNT, 'lockMajorityRuns': CNT,
+              # run-wide (no set)
+              'horizonMonths': CNT, 'horizonYears': PCT, 'rollPeriodMonths': CNT, 'latestStart': MON, 'latestEnd': MON, 'latestRoll': MULT, 'latestLock': MULT,
+              'rollRateLatest': PCT, 'rollRateLatestMonth': MON, 'meanRollRateAll': PCT, 'nonOverlapPeriods': CNT, 'equivalentLockRate': PCT,
+              'steadyBreakevenRate': PCT, 'rollTermMonths': CNT, 'rollsPerHorizon': PCT, 'nearBandPct': PCT}
+LVR_SET_ONLY = {'runs', 'lockMajorityRuns'}   # the filtered set's runs; on any other set they are the runs of that set's start months
+LVR_TOL = {MULT: 0.0005, PCT: 0.005, CNT: 0}  # S05: multiples 0.0005, rates / shares / % 0.005, counts and months exactly
+
+
+def _lvr_cached(ctx, params, bump=0.0, const_roll=None):
+    return ctx.memo(('lvr-run', id(params), bump, const_roll), lambda: (params, lvr_run(ctx, params, bump, const_roll)))[1]
+
+
+def _lvr_out(name, v, how):
+    if v is None:
+        raise Missing(f'model.claims key "{name}": no value (empty set, or the input it needs is not in model.params)')
+    return (Month(v), 0) if how == MON else (float(v), LVR_TOL[how])
+
+
+def lvr_value(ctx, params, key):
+    """Keys (S05). "<quantity>" = the whole replay; "<quantity>:<set>" = one set (a subset name of params.subsets, or "filtered"). Quantities: LVR_FIELDS
+    (a month quantity also as "<field>Year" / "<field>Month", numbers). Set bounds: "subsetFrom:<name>", "subsetTo:<name>" (to = lastStart when null or
+    later). Starts before a subset: "nWindowsBefore:<name>" (windows with start < its from), "shareWindowsBefore:<name>" (% of all windows).
+    Tolerances: multiples 0.0005; rates, shares and % 0.005; counts and months exactly."""
+    run = _lvr_cached(ctx, params)
+    name, _, arg = key.partition(':')
+    sets = lvr_sets(run)
+    if name in ('subsetFrom', 'subsetTo', 'nWindowsBefore', 'shareWindowsBefore'):
+        if arg not in run['c']['subsets']:
+            raise Missing(f'contract.json: model.claims key "{key}": "{arg}" is not a subset of model.params.subsets')
+        a, b = run['c']['subsets'][arg]
+        last = run['windows'][-1]['start']
+        if name == 'subsetFrom':
+            return Month(a), 0
+        if name == 'subsetTo':
+            return Month(last if b is None else min(b, last)), 0
+        k = sum(1 for w in run['windows'] if w['start'] < a)
+        return (float(k), 0) if name == 'nWindowsBefore' else (_pct(k, len(run['windows'])), 0.005)
+    if arg and arg not in sets:
+        raise Missing(f'contract.json: model.claims key "{key}": "{arg}" is not a set (subsets: {sorted(run["c"]["subsets"])}, or "filtered" with a startFilter)')
+    st = lvr_summary(run) if not arg else lvr_stats(run, sets[arg])
+    for f_, how in LVR_FIELDS.items():
+        if how == MON and name in (f_ + 'Year', f_ + 'Month') and f_ in st:
+            v = st[f_]
+            if v is None:
+                break
+            return float(v // 12 if name.endswith('Year') else v % 12 + 1), 0
+        if name == f_ and f_ in st:
+            return _lvr_out(key, st[f_], how)
+    raise Missing(f'contract.json: model.claims key "{key}" is not a quantity of kind lock-vs-roll-replay')
+
+
+def _lvr_cmp(bad, where, theirs, mine, how):
+    """S01: multiples 1e-6 relative (the model file is unrounded); rates, shares, % 0.005; counts exactly; months after normalisation."""
+    if mine is None or theirs is None:
+        ok, shown = theirs is None and mine is None, ym_str(mine) if how == MON and mine is not None else mine
+    elif how == MON:
+        ok, shown = ym(theirs) == mine, ym_str(mine)
+    elif isinstance(theirs, bool) or not isinstance(theirs, (int, float)):
+        ok, shown = False, mine                     # a string, list or object where a number is due
+    elif how == CNT:
+        ok, shown = theirs == mine, mine
+    else:
+        ok = abs(float(theirs) - mine) <= (1e-6 * max(1.0, abs(mine)) if how == MULT else 0.005)
+        shown = round(mine, 6)
+    if not ok:
+        bad.append((where, theirs, shown))
+    return 1
+
+
+LVR_TOP = ('nWindows', 'firstStart', 'lastStart', 'shareRollAhead', 'shareLockAhead', 'shareTie', 'medianRoll', 'minRoll', 'minRollStart', 'maxRoll',
+           'maxRollStart', 'medianLockVsRollPct', 'minLockVsRollPct', 'minLockVsRollStart', 'maxLockVsRollPct', 'maxLockVsRollStart', 'rollRateLatest',
+           'rollRateLatestMonth', 'meanRollRateAll', 'nonOverlapPeriods')
+LVR_SUBSET = ('from', 'to', 'nWindows', 'shareRollAhead', 'shareLockAhead', 'minRoll', 'maxRoll')
+LVR_FILTERED = ('nWindows', 'shareLockAhead', 'medianLockVsRollPct', 'minLockVsRollPct', 'maxLockVsRollPct', 'lockMajorityRuns')
+LVR_DEFLATOR = {'nRealWindows': CNT, 'skippedStarts': CNT, 'shareLockRealAtLeastOne': PCT, 'medianLockReal': MULT, 'minLockReal': MULT,
+                'minLockRealStart': MON, 'lastStartLockRealBelowOne': MON}
+
+
+def lvr_compare(ctx, params, out):
+    """The model file (unrounded): echo of the inputs (horizonMonths, rollPeriodMonths, lockMultiple, lockPeriodMonths, nearBandPct); LVR_TOP;
+    equivalentLockRate and steadyBreakevenRate (constant lock), nearCount (with nearBandPct); latest {start, end, roll, lock};
+    subsets {<name>: {from, to, nWindows, shareRollAhead, shareLockAhead, minRoll, maxRoll}} (every subset); filtered {LVR_FILTERED, runs: [{from, to,
+    nWindows, nLockAhead}]} (with a startFilter); deflator {nRealWindows, skippedStarts, shareLockRealAtLeastOne, medianLockReal, minLockReal,
+    minLockRealStart, lastStartLockRealBelowOne} (with a deflator; ratios, not %); windows [{start, end, roll, lock, lockReal?}] (every window)."""
+    run = _lvr_cached(ctx, params)
+    c = run['c']
+    summ = lvr_summary(run)
+    bad, checked = [], 0
+    for k, want, how in (('horizonMonths', c['H'], CNT), ('rollPeriodMonths', c['p'], CNT), ('lockMultiple', c['m'], MULT),
+                         ('lockPeriodMonths', c['q'], CNT), ('nearBandPct', c['band'], PCT)):
+        checked += _lvr_cmp(bad, k, out.get(k), want, how)
+    for k in LVR_TOP:
+        checked += _lvr_cmp(bad, k, out.get(k), summ[k], LVR_FIELDS[k])
+    extra = set()
+    if c['m'] is not None:
+        extra |= {'equivalentLockRate', 'steadyBreakevenRate'}
+    if c['band'] is not None:
+        extra.add('nearCount')
+    for k in sorted(extra):
+        checked += _lvr_cmp(bad, k, out.get(k), summ[k], LVR_FIELDS[k])
+    lt = out.get('latest') or {}
+    for k, mine, how in (('start', summ['latestStart'], MON), ('end', summ['latestEnd'], MON), ('roll', summ['latestRoll'], MULT), ('lock', summ['latestLock'], MULT)):
+        checked += _lvr_cmp(bad, f'latest.{k}', lt.get(k), mine, how)
+    sets = lvr_sets(run)
+    tsub = out.get('subsets') or {}
+    for name in c['subsets']:
+        st, t = lvr_stats(run, sets[name]), tsub.get(name) or {}
+        if not sets[name]:
+            checked += _lvr_cmp(bad, f'subsets.{name}.nWindows', t.get('nWindows'), 0, CNT)
+            continue
+        st['from'], st['to'] = st['firstStart'], st['lastStart']
+        for k in LVR_SUBSET:
+            checked += _lvr_cmp(bad, f'subsets.{name}.{k}', t.get(k), st[k], MON if k in ('from', 'to') else LVR_FIELDS[k])
+    for name in sorted(set(tsub) - set(c['subsets'])):
+        bad.append((f'subsets.{name}', 'not in model.params.subsets', None))
+    if c['filter']:
+        st, t = lvr_stats(run, sets['filtered']), out.get('filtered') or {}
+        for k in LVR_FILTERED:
+            checked += _lvr_cmp(bad, f'filtered.{k}', t.get(k), st.get(k), LVR_FIELDS[k])
+        mine, theirs = lvr_runs(sets['filtered']), t.get('runs') or []
+        checked += _lvr_cmp(bad, 'filtered.runs (count)', len(theirs), len(mine), CNT)
+        for i, (r, tr) in enumerate(zip(mine, theirs)):
+            for k in ('from', 'to', 'nWindows', 'nLockAhead'):
+                checked += _lvr_cmp(bad, f'filtered.runs[{i}].{k}', tr.get(k), r[k], MON if k in ('from', 'to') else CNT)
+    if run['P'] is not None:
+        t = out.get('deflator') or {}
+        mine = {'nRealWindows': summ['nRealWindows'], 'skippedStarts': summ['skippedRealStarts']}
+        if summ['nRealWindows']:
+            mine.update({'shareLockRealAtLeastOne': summ['shareLockRealAtLeastOne'], 'medianLockReal': summ['medianLockRealPct'] / 100,
+                         'minLockReal': summ['minLockRealPct'] / 100, 'minLockRealStart': summ['minLockRealStart'],
+                         'lastStartLockRealBelowOne': summ['lastStartLockRealBelowOne']})
+        for k, v in mine.items():
+            checked += _lvr_cmp(bad, f'deflator.{k}', t.get(k), v, LVR_DEFLATOR[k])
+    theirs = {}
+    for w in out.get('windows') or []:
+        theirs[ym(w.get('start'))] = w
+    checked += _lvr_cmp(bad, 'windows (count)', len(out.get('windows') or []), len(run['windows']), CNT)
+    for w in run['windows']:
+        t = theirs.get(w['start'])
+        if t is None:
+            bad.append((f'windows.{ym_str(w["start"])}', 'missing', None))
+            continue
+        fields = [('end', w['end'], MON), ('roll', w['roll'], MULT), ('lock', w['lock'], MULT)]
+        if run['P'] is not None:
+            fields.append(('lockReal', w['lock'] * w['real'] if 'real' in w else None, MULT))
+        for k, mine, how in fields:
+            checked += _lvr_cmp(bad, f'windows.{ym_str(w["start"])}.{k}', t.get(k), mine, how)
+    stray = sorted(ym_str(i) if i is not None else 'bad date' for i in set(theirs) - {w['start'] for w in run['windows']})
+    if stray:
+        bad.append(('windows not in the replay', stray[:10], None))
+    conv = params.get('conventions') or {}
+    for k, v in conv.items():
+        checked += 1
+        if out.get(k) != v:
+            bad.append((k, out.get(k), v))
+    covered = ({'horizonMonths', 'rollPeriodMonths', 'lockMultiple', 'lockPeriodMonths', 'nearBandPct', 'latest', 'subsets', 'windows'} | set(LVR_TOP) | extra
+               | ({'filtered'} if c['filter'] else set()) | ({'deflator'} if run['P'] is not None else set()) | set(conv))
+    return checked, bad, sorted(set(out) - covered - set(params.get('notModel', [])))
+
+
+def lvr_invariants(ctx, params):
+    """The spec's invariants (newKindNeeds.invariants), on the contract's own inputs:
+    (1) constant roll rate r (5% a year) → Roll = (1 + r·p/1200)^(H/p) in every window (1e-12 relative);
+    (2) Roll(s) = G(s + H)/G(s) for the running index G along each p-month chain (G(i + p) = G(i)·(1 + R(i)·p/1200)): product and index agree (1e-9 relative);
+    (3) shareRollAhead + shareLockAhead + shareTie = 100 for every set; every window uses exactly H/p roll rates and ends ≤ the last roll month;
+    (4) every roll rate raised by 0.25 point never lowers shareRollAhead;
+    (5) constant lock: (1 + equivalentLockRate/100)^(H/12) = m, and the steady roll rate gives Roll = m in every window."""
+    run = _lvr_cached(ctx, params)
+    c, ws, R = run['c'], run['windows'], run['R0']
+    H, p = c['H'], c['p']
+    r = 5.0
+    want = (1 + r * p / 1200.0) ** (H // p)
+    cst = _lvr_cached(ctx, params, const_roll=r)['windows']
+    G = {}
+    for i in sorted(R):
+        G[i] = G[i - p] * (1 + R[i - p] * p / 1200.0) if i - p in R else 1.0
+    for i in sorted(R):            # one step past each chain's last rate, for windows that end on the last roll month
+        if i + p not in G:
+            G[i + p] = G[i] * (1 + R[i] * p / 1200.0)
+    idx_err = max(abs(G[w['start'] + H] / G[w['start']] - w['roll']) / w['roll'] for w in ws)
+    sums = max(abs(sum(lvr_stats(run, s_)[k] for k in ('shareRollAhead', 'shareLockAhead', 'shareTie')) - 100) for s_ in lvr_sets(run).values() if s_)
+    shape = sum(1 for w in ws if w['nObs'] != H // p or w['end'] > run['dataLast'])
+    base = lvr_stats(run, ws)['shareRollAhead']
+    up = lvr_stats(_lvr_cached(ctx, params, bump=0.25), _lvr_cached(ctx, params, bump=0.25)['windows'])['shareRollAhead']
+    ms = [metric('max relative |Roll − closed form| at a constant 5% roll rate', max(abs(w['roll'] - want) / want for w in cst), '<=', 1e-12, ''),
+          metric('max relative |Roll − G(s+H)/G(s)| (product vs running index)', idx_err, '<=', 1e-9, ''),
+          metric('max |shareRollAhead + shareLockAhead + shareTie − 100| over the sets', sums, '<=', 1e-9, 'pp'),
+          metric('windows not using exactly H/p roll rates or ending after the last roll month', shape, '<=', 0),
+          metric('shareRollAhead change when every roll rate rises 0.25 point', up - base, '>=', 0, 'pp')]
+    if c['m'] is not None:
+        eq = 100.0 * (c['m'] ** (12.0 / H) - 1)
+        rs = 1200.0 / p * (c['m'] ** (p / H) - 1)
+        st = _lvr_cached(ctx, params, const_roll=rs)['windows']
+        ms += [metric('|(1 + equivalentLockRate/100)^(H/12) − m|', abs((1 + eq / 100) ** (H / 12.0) - c['m']), '<=', 1e-12, ''),
+               metric('max |Roll − m| at the steady break-even roll rate', max(abs(w['roll'] - c['m']) for w in st), '<=', 1e-9, '')]
+    return ms
+
+
 KINDS = {'retirement-6040': (ret_compare, ret_value, ret_invariants),
          'refinance-breakeven': (refi_compare, refi_value, lambda ctx, p: []),
-         'float-vs-fixed-replay': (fvf_compare, fvf_value, fvf_invariants)}
+         'float-vs-fixed-replay': (fvf_compare, fvf_value, fvf_invariants),
+         'lock-vs-roll-replay': (lvr_compare, lvr_value, lvr_invariants)}
 
 
 def kind(ctx):
