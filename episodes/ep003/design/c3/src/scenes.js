@@ -23,6 +23,12 @@ function ifLabel(ctx, a = 1, x = 96, y = 122) {
   hatch(ctx, x, y - 40, 48, 48, a, 12, C.muted, 3); srect(ctx, x, y - 40, 48, 48, C.muted, 2, a);
   text(ctx, CLD('ctx_hypothetical').display, x + 68, y, 'note', { color: C.ink, alpha: a, group: 'iflab' });
 }
+// ---------- C3 vòng 2 (ý đồ v2, §6.6): nhãn đối trọng / nhãn nghĩa — chỉ chữ, không thêm vật, không thêm số ngoài claim ----------
+export const R2 = new URLSearchParams(location.search).get('r') === '2';
+function r2label(ctx, s, x, y, t, t0, o = {}) { // ≥ 1 s cho mỗi 3 từ: hiện từ t0 tới hết nhịp
+  if (!R2) return;
+  text(ctx, s, x, y, o.tier || 'label', { weight: 700, color: o.color || C.ink, plate: o.plate === undefined ? C.surface : o.plate, alpha: ease(t, t0, t0 + 0.4), align: o.align, group: 'r2' + y });
+}
 function gateV(ctx, x, y0, y1, a = 1, lw = 10) { if (a > 0) line(ctx, [[x, y0], [x, y1]], C.muted, lw, { alpha: a, cap: 'butt' }); }
 function dot(ctx, x, y, r, fill, a = 1, ringC = null) {
   if (a <= 0) return; ctx.save(); ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fillStyle = fill; ctx.fill();
@@ -110,6 +116,7 @@ export const KEY1 = {
     text(ctx, CL('horizon_years') + ' years', P.x1, 950, 'note', { color: C.muted, align: 'right', alpha: aT });
     // the question, held at the end (no path highlighted)
     text(ctx, 'Which path ends with more?', P.x0, 210, 'head', { alpha: ease(t, 7.8, 8.4) });
+    r2label(ctx, 'Not a pick. Two rules, side by side.', P.x0, 1046, t, 4.0);
   },
 };
 
@@ -145,6 +152,7 @@ export const KEY2 = {
     text(ctx, 'from ' + CLD('guarantee_from').display, TL.x1, 250, 'note', { align: 'right', color: C.muted, alpha: ease(t, 6.0, 6.5) });
     // the label moves to its fixed corner and stays (as it will on every pre-2005 result)
     ifLabel(ctx, ease(t, 7.6, 8.2));
+    r2label(ctx, 'Not a pick. What history did.', 160, 1000, t, 4.0);
   },
 };
 
@@ -202,6 +210,7 @@ export const KEY4 = {
     text(ctx, CL('share_tbills_above_double_pct') + ' overall', 1824, 122, 'label', { align: 'right', color: C.warn, alpha: ease(t, 6.4, 6.9) });
     const aR = ease(t, 8.0, 8.6);
     const shares = ['share_above_double_1934_1949_pct', 'share_above_double_1950_1989_pct', 'share_tbills_above_double_starts_since_1990_pct'];
+    r2label(ctx, 'Not a pick. What history did.', 200, 1046, t, 4.8);
     for (let e = 0; e < 3; e++) {
       line(ctx, [[SW.x0, ROWY[e]], [SW.x1, ROWY[e]]], C.grid, 3, { alpha: aR }); text(ctx, eraText(ctx, e), SW.x1 + 40, ROWY[e] - 140, 'note', { color: C.muted, alpha: aR, group: 'era' + e });
       const ae = ease(t, 8.6 + 0.5 * e, 9.0 + 0.5 * e);
@@ -241,7 +250,8 @@ export const KEY5 = {
     const aS = ease(t, 6.4, 6.9);
     text(ctx, 'small sample · one era', 620, 500, 'label', { color: C.bg, weight: 700, plate: C.ink, alpha: aS });
     const aO = ease(t, 0.2, 0.6);
-    text(ctx, CL('share_tbills_above_double_pct') + ' overall', 1824, 122, 'label', { align: 'right', color: C.warn, alpha: aO });
+    text(ctx, CL('share_tbills_above_double_pct') + (R2 ? ' of all rolls beat ' + CLD('ctx_guarantee').display : ' overall'), 1824, 122, 'label', { align: 'right', color: C.warn, alpha: aO });
+    r2label(ctx, 'Not a pick. What history did.', 200, 1046, t, 4.0);
   },
 };
 
@@ -290,7 +300,8 @@ export const KEY6 = {
     const aN = ease(t, 9.4, 10.0);
     const w = text(ctx, CL('share_double_beat_prices_pct'), RX0, 190, 'number', { alpha: aN, group: 'n' }).x1;
     text(ctx, 'of starts kept up', w + 24, 186, 'label', { alpha: aN, group: 'n' });
-    ifLabel(ctx, 1, 960, 1040);
+    if (R2) ifLabel(ctx, 1); else ifLabel(ctx, 1, 960, 1040);
+    r2label(ctx, 'Not a pick. What history did.', 960, 1046, t, 5.0);
   },
 };
 
@@ -334,6 +345,8 @@ export const KEY7 = {
     dot(ctx, TX, RS.base + 40, 10, C.accent, aT, C.ink);
     text(ctx, 'one month: ' + CL('tb3ms_latest_pct'), TX + 30, RS.base + 56, 'note', { alpha: aT });
     ifLabel(ctx, 1);
+    r2label(ctx, 'Beat ' + CLD('ctx_guarantee').display + ' = average right of the line', 1824, 122, t, 3.4, { align: 'right', tier: 'note', plate: C.bg });
+    r2label(ctx, 'What the roll must do. Not a pick.', 200, 1046, t, 4.6);
   },
 };
 
@@ -353,5 +366,6 @@ export const KEY3 = {
     text(ctx, 'measured differently', 1300, 600, 'label', { alpha: ease(t, 3.4, 3.9) });
     text(ctx, 'one month, not ' + CL('horizon_years') + ' years', 1300, 666, 'label', { alpha: ease(t, 4.4, 4.9) });
     text(ctx, '?', (P.x0 + P.x1) / 2, P.yBill + 150, 'number', { align: 'center', color: C.muted, alpha: ease(t, 5.4, 6.0) });
+    r2label(ctx, 'Not a pick. Not a forecast.', P.x0, 1046, t, 3.2);
   },
 };

@@ -1,9 +1,12 @@
 """Tập 3 · C3 r1: cuộn style frame tắt tiếng → dải 6 khung (strips.py) → manifest, rubric, khoá đầu vào (ý đồ `gates/C3-intent.md` v2).
-    python3 episodes/ep003/review-c3/make_c3.py
+    python3 episodes/ep003/review-c3/make_c3.py [--round 2]   (vòng 2: clip KEYn-r2.mp4 có nhãn vòng 2; đối chứng CTRL giữ nguyên)
 Rubric "đúng nghĩa" chép nguyên văn cột muted read của story/beats.md (đọc thẳng từ file, không gõ lại)."""
 import hashlib, json, os, re, subprocess
 
-ROOT = '/home/user/crux-lab'; EP = f'{ROOT}/episodes/ep003'; WORK = f'{EP}/design/c3/work'; R1 = f'{EP}/review-c3/r1'
+import sys
+RND = sys.argv[sys.argv.index('--round') + 1] if '--round' in sys.argv else '1'
+SUF = '' if RND == '1' else f'-r{RND}'
+ROOT = '/home/user/crux-lab'; EP = f'{ROOT}/episodes/ep003'; WORK = f'{EP}/design/c3/work'; R1 = f'{EP}/review-c3/r{RND}'
 ORDER = [('KEY-1', 'KEY1'), ('KEY-2', 'KEY2'), ('KEY-3', 'KEY3'), ('KEY-4', 'KEY4'), ('KEY-5', 'KEY5'), ('KEY-6', 'KEY6'), ('KEY-7', 'KEY7'), ('ctrl:V4', 'CTRL')]
 ROLE = ('You are an American in your 40s with savings you will not need for about 20 years; right now the money sits in a bank account '
         'or short-term Treasury bills. ')
@@ -41,11 +44,11 @@ def muted():
 
 def main():
     os.makedirs(R1, exist_ok=True)
-    lst = f'{WORK}/reel.txt'; spans, t = {}, 0.0
+    lst = f'{WORK}/reel{SUF}.txt'; spans, t = {}, 0.0
     with open(lst, 'w') as f:
         for sid, k in ORDER:
-            p = f'{WORK}/{k}.mp4'; d = dur(p); f.write(f"file '{p}'\n"); spans[sid.replace(':', '-')] = [round(t, 3), round(t + d, 3)]; t += d
-    reel = f'{WORK}/stylereel.mp4'
+            p = f'{WORK}/{k}{SUF if k != "CTRL" else ""}.mp4'; d = dur(p); f.write(f"file '{p}'\n"); spans[sid.replace(':', '-')] = [round(t, 3), round(t + d, 3)]; t += d
+    reel = f'{WORK}/stylereel{SUF}.mp4'
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lst, '-c', 'copy', '-an', reel], check=True)
     # spans: shrink 1 frame at both ends so no frame from a neighbouring clip is cut
     spans = {k: [a + 1 / 30, b - 1 / 30] for k, (a, b) in spans.items()}
@@ -65,10 +68,10 @@ def main():
     items['ctrl:V4'] = {'meaning': CTRL, 'description_only': DESC}
     json.dump({'rules': RULES, 'items': items}, open(f'{R1}/rubric.json', 'w'), indent=1, ensure_ascii=False)
     inp = {p: sha(f'{EP}/{p}') for p in ['design/c3/src/scenes.js', 'design/c3/ctrl/k1.js', 'story/beats-class.json',
-                                          'review-c3/r1/spans.json', 'review-c3/r1/manifest.json', 'review-c3/r1/rubric.json']}
-    inp['design/c3/work/stylereel.mp4 (không commit)'] = sha(reel)
+                                          f'review-c3/r{RND}/spans.json', f'review-c3/r{RND}/manifest.json', f'review-c3/r{RND}/rubric.json']}
+    inp[f'design/c3/work/stylereel{SUF}.mp4 (không commit)'] = sha(reel)
     for s in samples:
-        inp['review-c3/r1/' + s['file']] = sha(f"{R1}/{s['file']}")
+        inp[f'review-c3/r{RND}/' + s['file']] = sha(f"{R1}/{s['file']}")
     json.dump(inp, open(f'{R1}/inputs.json', 'w'), indent=1)
     print('reel', round(t, 2), 's;', len(samples), 'samples; KEY-3 rubric =', KEY3[:30])
 
