@@ -1,0 +1,201 @@
+{
+ "root": "/tmp/claude-0/-home-user-crux-lab/7feba40e-1932-5b7d-90df-5c7e79c0113c/scratchpad/lockcopy/episodes/ep003",
+ "contract": "/tmp/claude-0/-home-user-crux-lab/7feba40e-1932-5b7d-90df-5c7e79c0113c/scratchpad/lockcopy/episodes/ep003/contract.json",
+ "lock": "a20c6878c0dc1c1e9320db4553c92144ed4a9c46cd69ad4c20c9899696483791",
+ "video_sha256": null,
+ "episode": "ĐẠT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 2,
+   "pass": 2,
+   "notPass": []
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "explained": {},
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 0,
+   "pass": 0,
+   "notPass": []
+  }
+ },
+ "counts": {
+  "PASS": 2,
+  "FAIL": 0,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "S01",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "values compared",
+     "value": 3560,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mismatches",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "model parts not re-computed",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "kind": "lock-vs-roll-replay",
+     "notRecomputed": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1",
+   "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
+   "fingerprint": "bd6d0ee85cf6c7c1",
+   "tier": "BLOCK",
+   "seconds": 0.1
+  },
+  {
+   "id": "S05",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "mapped claims",
+     "value": 50,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mapped claims absent",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims off their re-computation",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "max relative |Roll − closed form| at a constant 5% roll rate",
+     "value": 0.0,
+     "op": "<=",
+     "threshold": 1e-12,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "max relative |Roll − G(s+H)/G(s)| (product vs running index)",
+     "value": 0.0,
+     "op": "<=",
+     "threshold": 1e-09,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "max |shareRollAhead + shareLockAhead + shareTie − 100| over the sets",
+     "value": 0.0,
+     "op": "<=",
+     "threshold": 1e-09,
+     "unit": "pp",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "windows not using exactly H/p roll rates or ending after the last roll month",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "shareRollAhead change when every roll rate rises 0.25 point",
+     "value": 3.665521,
+     "op": ">=",
+     "threshold": 0,
+     "unit": "pp",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "|(1 + equivalentLockRate/100)^(H/12) − m|",
+     "value": 0.0,
+     "op": "<=",
+     "threshold": 1e-12,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "max |Roll − m| at the steady break-even roll rate",
+     "value": 0.0,
+     "op": "<=",
+     "threshold": 1e-09,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims missing their ILLUSTRATIVE flag",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "off": [],
+     "absent": [],
+     "missingIllustrative": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1, DX-H2",
+   "threshold": "≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months after normalisation, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag",
+   "fingerprint": "a2a1bebe727f2cd1",
+   "tier": "BLOCK",
+   "seconds": 0.2
+  }
+ ]
+}
