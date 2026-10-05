@@ -4,7 +4,7 @@ Three options for the first ~30 s, each a different hook type from `playbook/pac
 
 Timing: ~140 spoken words/min with dollar amounts and years read out in full (same counter as `script.md`). The marker `[stake]` / `[question]` sits in the visual note of the line that carries the first 5 s.
 
-## H1 — "Người như tôi" (recommended; = S01 in `script.md`)
+## H1 — "Người như tôi" (WRITER's first pick; not chosen)
 
 H1.1 | [curious] Married, and bought your home in 2000? Selling it may not be fully tax-free. | buy_year, excl_joint_limit_usd | `[stake]` Night street, one house lit; door plate "since 2000". A "For sale" sign is lifted, then hesitates halfway.
 H1.2 | Couples can take $500,000 of profit on a main home tax-free. | excl_joint_limit_usd | Flat line (`ink-muted`, V3 fixed line) above the roof: "$500,000 tax-free cap". It does not move.
@@ -15,10 +15,10 @@ H1.4 | You'll know, city by city, the 2000 price where a home that rose like its
 - Promise: **0:17.6–0:28.7** (measurable part "the 2000 price where … passes that cap" done by ≈ 0:26).
 - New numbers: 2000, $500,000 (2, ≈ 7 s apart).
 
-## H2 — "Cú sốc con số"
+## H2 — "Cú sốc con số" (CHOSEN, round-robin pair test 5/6, `hook-rr/RESULT.md`; = S01 in `script.md`)
 
-H2.1 | [serious] About $558,100 in profit, more than a couple can take tax-free. | gain_at_200k_phoenix, excl_joint_limit_usd | `[stake]` Black screen; the number "≈ $558,100 gain (on paper)" builds digit by digit, ILLUSTRATIVE badge beside it; then a flat line slides in just under it, label "tax-free cap". Purchase price ILLUSTRATIVE ($200,000, shown small under the number).
-H2.2 | That's Rosa and Glen, an illustrative Phoenix couple who bought in 2000, if their home rose like the average. | buy_year, gain_at_200k_phoenix, growth_phoenix | Pull back: the number sits at the end of a gain line rising from "2000"; the couple and house appear (ILLUSTRATIVE badge; tag "$200,000 · 2000", ILLUSTRATIVE).
+H2.1 | [serious] About $558,100 in profit, more than a couple can take tax-free. | gain_at_200k_phoenix, excl_joint_limit_usd, illustrative_price_200k_usd | `[stake]` Black screen; the number "≈ $558,100 gain (on paper)" builds digit by digit, ILLUSTRATIVE badge beside it; then a flat line slides in just under it, label "tax-free cap". Purchase price ILLUSTRATIVE ($200,000, shown small under the number).
+H2.2 | That's Rosa and Glen, an illustrative Phoenix couple who bought in 2000, if their home rose like the average. | buy_year, gain_at_200k_phoenix, growth_phoenix, illustrative_price_200k_usd | Pull back: the number sits at the end of a gain line rising from "2000"; the couple and house appear (ILLUSTRATIVE badge; tag "$200,000 · 2000", ILLUSTRATIVE).
 H2.3 | You'll know, city by city, the 2000 price where a home that rose like its metro area's average passes that cap, to check yours against. | buy_year, threshold_joint_min, threshold_joint_max | Same title card and ghost ladder as H1.4.
 
 - Stake (a gain larger than the tax-free amount): **0:00–0:08** (number lands by ≈ 0:04; "more than a couple can take tax-free" ends ≈ 0:08, counter splits hyphenated words, so likely ≈ 0:07).
@@ -36,6 +36,6 @@ H3.4 | You'll know, city by city, the 2000 price where a home that rose like its
 - Promise: **0:15.4–0:26.5**.
 - New numbers: 2000, $500,000 (2, ≈ 7 s apart). "Bị thử" is not "bị bác bỏ": the episode shows where the rule's cap is passed for an average-like home, not that the rule is wrong.
 
-## Why H1
+## Why H1 (WRITER round 1; superseded by the pair test, which chose H2)
 
 H1 recommended: it names the viewer's group in the first 3 s and states the stake with "may" (packaging §2 risk rule), it is the shape that won Episode 1's blind pair test ("người như tôi" + promised answer, packaging §6.1), it needs only two numbers before the promise, and its promise is the self-check threshold of G-013.
