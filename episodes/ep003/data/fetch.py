@@ -26,6 +26,10 @@ def main():
         good = PIN.get(s, h) == h
         ok &= good
         print(s, h, 'OK' if good else 'SHA KHÁC BẢN ĐÓNG BĂNG')
+    # K3.7 contract paths (model.params.roll/deflator.file = data/<series>.csv): same bytes as raw/, not committed
+    import shutil
+    for k in PIN:
+        shutil.copyfile(os.path.join(RAW, f'{k}.csv'), os.path.join(HERE, f'{k}.csv'))
     sys.exit(0 if ok else 1)
 
 

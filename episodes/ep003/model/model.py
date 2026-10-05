@@ -3,7 +3,7 @@
 Viết theo đặc tả `topics-r1/machine/retire-4/model.json` → newKindNeeds (tên kind do phiên K quyết; nhãn làm việc
 "lock-vs-roll-replay"). Một hàm `replay(params)` dùng cho cả retire-4 (Tập 3) và retire-3 (kiểm đặc tả dùng lại).
 
-  python3 episodes/ep003/model/model.py            → out/model.json (unrounded) + in tóm tắt
+  python3 episodes/ep003/model/model.py            → out/model.json (dạng `lock-vs-roll-replay`, K3.7, chưa làm tròn) + out/claims.json + in tóm tắt
   python3 episodes/ep003/model/model.py --retire3  → so với topics-r1/machine/retire-3/result.json
 """
 import csv, json, math, os, statistics, sys
@@ -130,7 +130,7 @@ def replay(P):
 
 
 RETIRE4 = {
-    'roll': {'file': 'data/TB3MS.csv', 'dateColumn': 'observation_date', 'valueColumn': 'TB3MS', 'periodMonths': 1},
+    'roll': {'file': 'data/TB3MS.csv', 'dateColumn': 'observation_date', 'valueColumn': 'TB3MS', 'periodMonths': 1, 'termMonths': 3},
     'lock': {'multiple': 2.0}, 'horizonMonths': 240, 'firstStart': '1934-01', 'lastStart': None,
     'subsets': {'1934-1949': ['1934-01', '1949-12'], '1950-1989': ['1950-01', '1989-12'], 'since-1990': ['1990-01', None],
                 'guarantee': ['2005-05', None]},
@@ -184,6 +184,77 @@ def extra4(m):
     return {'steady_breakeven_tb3ms_pct': round(be, 2), 'share_avg_rule_agrees_pct': round(100 * agree / len(m['windows']), 1)}
 
 
+# ---------- K3.7 (issue #29): file mô hình và claim theo checks/CONTRACT.md, kind "lock-vs-roll-replay" ----------
+def contract_model(m, P=RETIRE4):
+    """out/model.json đúng dạng K3.7: tham số nhắc lại, đại lượng cả kỳ, latest, subsets, deflator (tỉ số), windows. Chưa làm tròn."""
+    ws, H, p = m['windows'], P['horizonMonths'], P['roll']['periodMonths']
+    R = load(P['roll']); z = max(R); first = ws[0]['start']
+    gap = lambda w: w['lockVsRollPct']
+    gmn = min(ws, key=gap); gmx = max(ws, key=lambda w: (gap(w), -ws.index(w)))   # hoà → tháng sớm nhất
+    n = len(ws); ra = sum(w['roll'] > w['lock'] for w in ws); la = sum(w['lock'] > w['roll'] for w in ws)
+    rmonths = [R[d] for d in sorted(R) if first <= d <= z]
+    mult = P['lock'].get('multiple')
+    out = {'horizonMonths': H, 'rollPeriodMonths': p, 'lockMultiple': mult, 'lockPeriodMonths': P['lock'].get('periodMonths'),
+           'nearBandPct': P.get('nearBandPct'),
+           'nWindows': n, 'firstStart': first, 'lastStart': ws[-1]['start'],
+           'shareRollAhead': share(ra, n), 'shareLockAhead': share(la, n), 'shareTie': share(n - ra - la, n),
+           'medianRoll': m['medianRoll'], 'minRoll': m['minRoll'], 'minRollStart': m['minRollStart'],
+           'maxRoll': m['maxRoll'], 'maxRollStart': m['maxRollStart'],
+           'medianLockVsRollPct': m['medianLockVsRollPct'], 'minLockVsRollPct': gap(gmn), 'minLockVsRollStart': gmn['start'],
+           'maxLockVsRollPct': gap(gmx), 'maxLockVsRollStart': gmx['start'],
+           'rollRateLatest': R[z], 'rollRateLatestMonth': z, 'meanRollRateAll': statistics.mean(rmonths),
+           'nonOverlapPeriods': len(rmonths) // H}
+    if mult is not None:
+        out['equivalentLockRate'] = 100 * (mult ** (12 / H) - 1)
+        out['steadyBreakevenRate'] = 1200 / p * (mult ** (p / H) - 1)
+    if P.get('nearBandPct') is not None:
+        out['nearCount'] = m['nearCount']
+    out['latest'] = m['latest']
+    out['subsets'] = {k: {f: v[f] for f in ('from', 'to', 'nWindows', 'shareRollAhead', 'shareLockAhead', 'minRoll', 'maxRoll')}
+                      for k, v in m['subsets'].items()}
+    d = m['deflator']
+    out['deflator'] = {'nRealWindows': d['nRealWindows'], 'skippedStarts': len(d['skippedStarts']),
+                       'shareLockRealAtLeastOne': d['shareLockRealAtLeastOne'], 'medianLockReal': d['medianLockReal'],
+                       'minLockReal': d['minLockReal'], 'minLockRealStart': d['minLockRealStart'],
+                       'lastStartLockRealBelowOne': d['lastStartLockRealBelowOne']}
+    out['windows'] = [{k: w[k] for k in ('start', 'end', 'roll', 'lock', 'lockReal') if k in w} for w in ws]
+    return out
+
+
+def claim_values(m, P=RETIRE4):
+    """Giá trị CHƯA làm tròn của mọi claim mô hình (theo nghĩa trong numbers.md; tự tính, không đọc mã máy kiểm)."""
+    cm = contract_model(m, P); s, d = m['subsets'], m['deflator']
+    R = load(P['roll']); D = sorted(R); ix = {x: i for i, x in enumerate(D)}; H = P['horizonMonths']
+    mean_w = {w['start']: statistics.mean(R[x] for x in D[ix[w['start']]:ix[w['start']] + H]) for w in m['windows']}
+    since = [w for w in m['windows'] if w['start'] >= '1990-01-01']
+    be = cm['steadyBreakevenRate']; n = len(m['windows'])
+    before = sum(w['start'] < '2005-05-01' for w in m['windows'])
+    return {
+        'starts': n, 'first_start': cm['firstStart'], 'last_start': cm['lastStart'],
+        'share_tbills_above_double_pct': cm['shareRollAhead'], 'median_tbill_multiple_20y': cm['medianRoll'],
+        'min_tbill_multiple_20y': cm['minRoll'], 'min_start': cm['minRollStart'], 'max_tbill_multiple_20y': cm['maxRoll'],
+        'max_start': cm['maxRollStart'],
+        'share_above_double_1934_1949_pct': s['1934-1949']['shareRollAhead'], 'early_from': s['1934-1949']['from'], 'early_to': s['1934-1949']['to'],
+        'share_above_double_1950_1989_pct': s['1950-1989']['shareRollAhead'], 'mid_from': s['1950-1989']['from'], 'mid_to': s['1950-1989']['to'],
+        'share_tbills_above_double_starts_since_1990_pct': s['since-1990']['shareRollAhead'], 'since_1990_from': s['since-1990']['from'],
+        'starts_with_guarantee': s['guarantee']['nWindows'], 'guarantee_from': s['guarantee']['from'],
+        'min_multiple_guarantee_starts': s['guarantee']['minRoll'], 'max_multiple_guarantee_starts': s['guarantee']['maxRoll'],
+        'share_above_double_guarantee_starts_pct': s['guarantee']['shareRollAhead'], 'latest_window_end': cm['latest']['end'],
+        'real_windows': d['nRealWindows'], 'share_double_beat_prices_pct': d['shareLockRealAtLeastOne'],
+        'worst_real_value_double_pct': 100 * d['minLockReal'], 'worst_real_start': d['minLockRealStart'],
+        'share_since_1990_avg_below_start_pct': share(sum(mean_w[w['start']] < R[w['start']] for w in since), len(since)),
+        'mean_tb3ms_all_pct': cm['meanRollRateAll'], 'steady_breakeven_tb3ms_pct': be,
+        'share_avg_rule_agrees_pct': share(sum((mean_w[w['start']] > be) == (w['roll'] > w['lock']) for w in m['windows']), n),
+        'near_double_starts': cm['nearCount'], 'near_double_band_pct': cm['nearBandPct'], 'nonoverlap_periods': cm['nonOverlapPeriods'],
+        'doubling_rate_pct_per_year': cm['equivalentLockRate'], 'tb3ms_latest_pct': cm['rollRateLatest'], 'tb3ms_latest_month': cm['rollRateLatestMonth'],
+        'horizon_years': H / 12, 'horizon_months': H, 'bill_term_months': P['roll']['termMonths'], 'bills_per_horizon': H / P['roll']['termMonths'],
+        'latest_tbill_multiple_20y': cm['latest']['roll'], 'median_real_value_double_pct': 100 * d['medianLockReal'],
+        'starts_hypothetical': before, 'share_hypothetical_pct': share(before, n),
+        'starts_1934_1949': s['1934-1949']['nWindows'], 'starts_1950_1989': s['1950-1989']['nWindows'], 'starts_since_1990': s['since-1990']['nWindows'],
+        'share_double_lost_buying_power_pct': d['shareLockRealBelowOne'], 'last_lost_start': d['lastStartLockRealBelowOne'],
+    }
+
+
 def summary3(m):
     f = m['filtered']
     return {'starts_all': m['nWindows'], 'first_start_year': int(m['firstStart'][:4]),
@@ -208,7 +279,8 @@ if __name__ == '__main__':
         sys.exit(0 if compare(summary3(replay(RETIRE3)), ref) else 1)
     m = replay(RETIRE4)
     os.makedirs(os.path.join(EP, 'out'), exist_ok=True)
-    json.dump(m, open(os.path.join(EP, 'out', 'model.json'), 'w'), indent=1)
+    json.dump(contract_model(m), open(os.path.join(EP, 'out', 'model.json'), 'w'), indent=1)
+    json.dump(claim_values(m), open(os.path.join(EP, 'out', 'claim-values.json'), 'w'), indent=1)
     ref = json.loads(os.popen(f'cd {root}/topics-r1/machine/retire-4 && python3 calc.py --quantities').read())
     ok = compare(summary4(m), ref)
     print('C2:', extra4(m))

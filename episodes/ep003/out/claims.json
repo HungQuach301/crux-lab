@@ -1,0 +1,1060 @@
+{
+ "claims": [
+  {
+   "claimId": "starts",
+   "value": 873,
+   "display": "873",
+   "unit": "start months",
+   "formula": "number of 20-year start months (T-bill roll windows)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "first_start",
+   "value": "1934-01-01",
+   "display": "Jan 1934",
+   "unit": "month",
+   "formula": "first start month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "last_start",
+   "value": "2006-09-01",
+   "display": "Sep 2006",
+   "unit": "month",
+   "formula": "last start month (its 240 months end with the latest data month)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_tbills_above_double_pct",
+   "value": 52.348224513172966,
+   "display": "52.3%",
+   "unit": "% of start months",
+   "formula": "share of start months where the 20-year T-bill roll ended above 2.0 times the money (strict)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "median_tbill_multiple_20y",
+   "value": 2.096684834800636,
+   "display": "×2.097",
+   "unit": "multiple",
+   "formula": "median 20-year T-bill roll multiple over all start months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "min_tbill_multiple_20y",
+   "value": 1.1288687822630699,
+   "display": "×1.129",
+   "unit": "multiple",
+   "formula": "smallest 20-year roll multiple (start month = min_start)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "max_tbill_multiple_20y",
+   "value": 4.61215675596144,
+   "display": "×4.612",
+   "unit": "multiple",
+   "formula": "largest 20-year roll multiple (start month = max_start)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_tbills_above_double_starts_since_1990_pct",
+   "value": 4.975124378109452,
+   "display": "5.0%",
+   "unit": "% of start months",
+   "formula": "share of start months from 1990-01 on with roll above double",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "latest_tbill_multiple_20y",
+   "value": 1.3780726449083065,
+   "display": "×1.378",
+   "unit": "multiple",
+   "formula": "roll multiple of the last start month (window last_start .. latest_window_end)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "doubling_rate_pct_per_year",
+   "value": 3.5264923841377582,
+   "display": "3.53%",
+   "unit": "% a year",
+   "formula": "annual rate that turns 1 into 2 in 20 years: 100(2^(1/20) − 1)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "real_windows",
+   "value": 871,
+   "display": "871",
+   "unit": "start months",
+   "formula": "start months with CPI at both ends of the 20 years",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_double_beat_prices_pct",
+   "value": 58.66819747416762,
+   "display": "58.7%",
+   "unit": "% of start months",
+   "formula": "share of real windows where 2.0 × CPI(s)/CPI(s+240) ≥ 1 (double kept its buying power)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "median_real_value_double_pct",
+   "value": 107.29053318824808,
+   "display": "107.3%",
+   "unit": "%",
+   "formula": "median buying power of the doubled amount, % of the original money",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "tb3ms_latest_pct",
+   "value": 3.72,
+   "display": "3.72%",
+   "unit": "% a year",
+   "formula": "TB3MS in the latest data month (August 2026)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "viewer_age_decade",
+   "value": 40,
+   "display": "40",
+   "unit": "years",
+   "formula": "card audience (savers in their 40s): audience definition, not a data claim",
+   "source": null,
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": false,
+   "illustrative": true,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "horizon_years",
+   "value": 20.0,
+   "display": "20",
+   "unit": "years",
+   "formula": "holding period of the comparison",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "horizon_months",
+   "value": 240,
+   "display": "240",
+   "unit": "months",
+   "formula": "holding period of the comparison",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "bill_term_months",
+   "value": 3,
+   "display": "3",
+   "unit": "months",
+   "formula": "maturity of the rolled bill",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "bills_per_horizon",
+   "value": 80.0,
+   "display": "80",
+   "unit": "bills",
+   "formula": "number of 3-month bills rolled in 20 years = 240/3",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "latest_window_end",
+   "value": "2026-08-01",
+   "display": "Aug 2026",
+   "unit": "month",
+   "formula": "last month of the latest full window = latest data month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "tb3ms_latest_month",
+   "value": "2026-08-01",
+   "display": "Aug 2026",
+   "unit": "month",
+   "formula": "month of tb3ms_latest_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "since_1990_from",
+   "value": "1990-01-01",
+   "display": "Jan 1990",
+   "unit": "month",
+   "formula": "first start month of the \"from 1990 on\" group",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "min_start",
+   "value": "1934-01-01",
+   "display": "Jan 1934",
+   "unit": "month",
+   "formula": "start month of min_tbill_multiple_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "max_start",
+   "value": "1972-05-01",
+   "display": "May 1972",
+   "unit": "month",
+   "formula": "start month of max_tbill_multiple_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "guarantee_from",
+   "value": "2005-05-01",
+   "display": "May 2005",
+   "unit": "month",
+   "formula": "first issue month of bonds with today's 20-year doubling terms (31 CFR 351.34(a), 351.35(f)(2))",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "starts_with_guarantee",
+   "value": 17,
+   "display": "17",
+   "unit": "start months",
+   "formula": "start months on or after guarantee_from (guarantee real, not hypothetical)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "starts_hypothetical",
+   "value": 856,
+   "display": "856",
+   "unit": "start months",
+   "formula": "start months before guarantee_from (guarantee applied as if it had existed)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_hypothetical_pct",
+   "value": 98.05269186712486,
+   "display": "98.1%",
+   "unit": "% of start months",
+   "formula": "starts_hypothetical as a share of all start months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_above_double_guarantee_starts_pct",
+   "value": 0.0,
+   "display": "0.0%",
+   "unit": "% of start months",
+   "formula": "share of the starts_with_guarantee months with roll above double",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "min_multiple_guarantee_starts",
+   "value": 1.3780726449083065,
+   "display": "×1.378",
+   "unit": "multiple",
+   "formula": "smallest roll multiple among starts_with_guarantee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "max_multiple_guarantee_starts",
+   "value": 1.3878347601093075,
+   "display": "×1.388",
+   "unit": "multiple",
+   "formula": "largest roll multiple among starts_with_guarantee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "starts_1934_1949",
+   "value": 192,
+   "display": "192",
+   "unit": "start months",
+   "formula": "start months 1934-01 .. 1949-12",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_above_double_1934_1949_pct",
+   "value": 0.0,
+   "display": "0.0%",
+   "unit": "% of start months",
+   "formula": "share of 1934-01 .. 1949-12 starts with roll above double",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "early_from",
+   "value": "1934-01-01",
+   "display": "Jan 1934",
+   "unit": "month",
+   "formula": "first month of the 1934–1949 group",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "early_to",
+   "value": "1949-12-01",
+   "display": "Dec 1949",
+   "unit": "month",
+   "formula": "last month of the 1934–1949 group",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "starts_1950_1989",
+   "value": 480,
+   "display": "480",
+   "unit": "start months",
+   "formula": "start months 1950-01 .. 1989-12",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_above_double_1950_1989_pct",
+   "value": 93.125,
+   "display": "93.1%",
+   "unit": "% of start months",
+   "formula": "share of 1950-01 .. 1989-12 starts with roll above double",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "mid_from",
+   "value": "1950-01-01",
+   "display": "Jan 1950",
+   "unit": "month",
+   "formula": "first month of the 1950–1989 group",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "mid_to",
+   "value": "1989-12-01",
+   "display": "Dec 1989",
+   "unit": "month",
+   "formula": "last month of the 1950–1989 group",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "starts_since_1990",
+   "value": 201,
+   "display": "201",
+   "unit": "start months",
+   "formula": "start months 1990-01 .. last_start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_double_lost_buying_power_pct",
+   "value": 41.33180252583238,
+   "display": "41.3%",
+   "unit": "% of start months",
+   "formula": "share of real windows where the doubled amount bought less than the original (2.0 × CPI(s)/CPI(s+240) < 1)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "last_lost_start",
+   "value": "1981-01-01",
+   "display": "Jan 1981",
+   "unit": "month",
+   "formula": "latest start month in which double lost buying power",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "worst_real_value_double_pct",
+   "value": 58.02919708029197,
+   "display": "58.0%",
+   "unit": "%",
+   "formula": "lowest buying power of the doubled amount, % of the original (start = worst_real_start)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "worst_real_start",
+   "value": "1966-01-01",
+   "display": "Jan 1966",
+   "unit": "month",
+   "formula": "start month of worst_real_value_double_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_since_1990_avg_below_start_pct",
+   "value": 87.56218905472637,
+   "display": "87.6%",
+   "unit": "% of start months",
+   "formula": "share of starts from 1990 on whose average TB3MS over the 240 months is below TB3MS in the start month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "mean_tb3ms_all_pct",
+   "value": 3.4193974820143884,
+   "display": "3.42%",
+   "unit": "% a year",
+   "formula": "mean of every TB3MS month 1934-01 .. 2026-08",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "nonoverlap_periods",
+   "value": 4,
+   "display": "4",
+   "unit": "periods",
+   "formula": "whole non-overlapping 20-year periods in the data = floor(1112/240)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "near_double_band_pct",
+   "value": 0.5,
+   "display": "0.5%",
+   "unit": "%",
+   "formula": "band used for near_double_starts",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "near_double_starts",
+   "value": 6,
+   "display": "6",
+   "unit": "start months",
+   "formula": "start months with",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "steady_breakeven_tb3ms_pct",
+   "value": 3.4707454432405527,
+   "display": "3.47%",
+   "unit": "% a year",
+   "formula": "lãi T-bill (cùng quy ước TB3MS/12, kép tháng) giữ nguyên 240 tháng thì vừa đúng gấp đôi: 1200(2^(1/240) − 1) = 3.4707",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "share_avg_rule_agrees_pct",
+   "value": 100.0,
+   "display": "100.0%",
+   "unit": "% of start months",
+   "formula": "tỉ lệ tháng bắt đầu mà \"trung bình cộng TB3MS 240 tháng > 3.47\" cho cùng kết luận với \"lăn T-bill vượt gấp đôi\" (873/873)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "dataYears": [
+    1934,
+    2026
+   ],
+   "historical": true,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "ctx_guarantee",
+   "value": null,
+   "display": "Series EE bonds issued May 1, 2005 or later reach original maturity at 20 years; at original maturity a book-entry bond is worth not less than double its purchase price",
+   "kind": "context",
+   "formula": null,
+   "source": {
+    "id": "31 CFR 351.34(a), 351.35(f)(2) (70 FR 17288–17289)",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "ctx_hypothetical",
+   "value": null,
+   "display": "For start months before May 2005 the episode applies today's guarantee **as if it had existed**; earlier EE bonds had other terms",
+   "kind": "context",
+   "formula": null,
+   "source": {
+    "id": "`model.json` `starts_hypothetical` = 856 (98.1%)",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "ctx_penalty",
+   "value": null,
+   "display": "Cashed before 5 years: lose 3 months of interest",
+   "kind": "context",
+   "formula": null,
+   "source": {
+    "id": "31 CFR 351.35(e)",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "ctx_ee_rate",
+   "value": null,
+   "display": "EE bonds issued May–October 2026 earn a fixed 2.40% a year; the 20-year doubling tops this up. Lời và hình: \"for bonds issued May–October 2026\"",
+   "kind": "context",
+   "formula": null,
+   "source": {
+    "id": "TreasuryDirect release 2026-05-01 + trang EE bonds",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "ctx_tb_sep",
+   "value": null,
+   "display": "TB3MS September 2026 = 3.94% (công bố 2026-10-01; ngoài bản ghim)",
+   "kind": "context",
+   "formula": null,
+   "source": {
+    "id": "FRED TB3MS (không ghim)",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  },
+  {
+   "claimId": "ctx_cpi_rights",
+   "value": null,
+   "display": "TB3MS và CPIAUCNS: FRED gắn thẻ \"Public Domain: Citation Requested\"",
+   "kind": "context",
+   "formula": null,
+   "source": {
+    "id": "trang series FRED, 2026-10-04 (bls.gov: proxy 403, chưa đọc trang BLS)",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "shownIn": [],
+   "spoken": null
+  }
+ ]
+}

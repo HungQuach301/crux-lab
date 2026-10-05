@@ -1,0 +1,157 @@
+{
+ "episode": "ep003",
+ "lock": "a20c6878",
+ "question": "Money you won't touch for 20 years: a Series EE bond guaranteed to double at 20 years, or rolling 3-month T-bills? (history 1934-2026, US only)",
+ "characters": {
+  "dana": {
+   "color": "ink",
+   "shape": "person",
+   "side": "left",
+   "illustrative": true,
+   "words": [
+    "Dana"
+   ]
+  },
+  "note": "Dana is ILLUSTRATIVE (badge on every frame she appears in); the bill roll and the bond are not characters."
+ },
+ "claims": {
+  "core": [
+   "share_tbills_above_double_pct",
+   "share_above_double_1950_1989_pct",
+   "share_tbills_above_double_starts_since_1990_pct",
+   "share_double_beat_prices_pct",
+   "steady_breakeven_tb3ms_pct"
+  ],
+  "decisive": [
+   "share_tbills_above_double_pct",
+   "share_above_double_1950_1989_pct",
+   "share_tbills_above_double_starts_since_1990_pct"
+  ],
+  "illustrative": [
+   "viewer_age_decade"
+  ],
+  "assumptions": [
+   {
+    "id": "what-if-before-2005",
+    "pattern": "IF today'?s guarantee had existed"
+   },
+   {
+    "id": "no-tax",
+    "pattern": "tax"
+   }
+  ]
+ },
+ "model": {
+  "kind": "lock-vs-roll-replay",
+  "output": "out/model.json",
+  "params": {
+   "roll": {
+    "file": "data/TB3MS.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "TB3MS",
+    "periodMonths": 1,
+    "termMonths": 3
+   },
+   "lock": {
+    "multiple": 2.0
+   },
+   "horizonMonths": 240,
+   "firstStart": "1934-01",
+   "lastStart": null,
+   "subsets": {
+    "1934-1949": [
+     "1934-01",
+     "1949-12"
+    ],
+    "1950-1989": [
+     "1950-01",
+     "1989-12"
+    ],
+    "since-1990": [
+     "1990-01",
+     null
+    ],
+    "guarantee": [
+     "2005-05",
+     null
+    ]
+   },
+   "deflator": {
+    "file": "data/CPIAUCNS.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "CPIAUCNS"
+   },
+   "nearBandPct": 0.5
+  },
+  "claims": {
+   "starts": "nWindows",
+   "first_start": "firstStart",
+   "last_start": "lastStart",
+   "share_tbills_above_double_pct": "shareRollAhead",
+   "median_tbill_multiple_20y": "medianRoll",
+   "min_tbill_multiple_20y": "minRoll",
+   "min_start": "minRollStart",
+   "max_tbill_multiple_20y": "maxRoll",
+   "max_start": "maxRollStart",
+   "share_above_double_1934_1949_pct": "shareRollAhead:1934-1949",
+   "early_from": "subsetFrom:1934-1949",
+   "early_to": "subsetTo:1934-1949",
+   "share_above_double_1950_1989_pct": "shareRollAhead:1950-1989",
+   "mid_from": "subsetFrom:1950-1989",
+   "mid_to": "subsetTo:1950-1989",
+   "share_tbills_above_double_starts_since_1990_pct": "shareRollAhead:since-1990",
+   "since_1990_from": "subsetFrom:since-1990",
+   "starts_with_guarantee": "nWindows:guarantee",
+   "guarantee_from": "subsetFrom:guarantee",
+   "min_multiple_guarantee_starts": "minRoll:guarantee",
+   "max_multiple_guarantee_starts": "maxRoll:guarantee",
+   "share_above_double_guarantee_starts_pct": "shareRollAhead:guarantee",
+   "latest_window_end": "latestEnd",
+   "real_windows": "nRealWindows",
+   "share_double_beat_prices_pct": "shareLockRealAtLeastOne",
+   "worst_real_value_double_pct": "minLockRealPct",
+   "worst_real_start": "minLockRealStart",
+   "share_since_1990_avg_below_start_pct": "shareMeanRateBelowStart:since-1990",
+   "mean_tb3ms_all_pct": "meanRollRateAll",
+   "steady_breakeven_tb3ms_pct": "steadyBreakevenRate",
+   "share_avg_rule_agrees_pct": "shareMeanRuleAgrees",
+   "near_double_starts": "nearCount",
+   "near_double_band_pct": "nearBandPct",
+   "nonoverlap_periods": "nonOverlapPeriods",
+   "doubling_rate_pct_per_year": "equivalentLockRate",
+   "tb3ms_latest_pct": "rollRateLatest",
+   "tb3ms_latest_month": "rollRateLatestMonth",
+   "horizon_years": "horizonYears",
+   "horizon_months": "horizonMonths",
+   "bill_term_months": "rollTermMonths",
+   "bills_per_horizon": "rollsPerHorizon",
+   "latest_tbill_multiple_20y": "latestRoll",
+   "median_real_value_double_pct": "medianLockRealPct",
+   "starts_hypothetical": "nWindowsBefore:guarantee",
+   "share_hypothetical_pct": "shareWindowsBefore:guarantee",
+   "starts_1934_1949": "nWindows:1934-1949",
+   "starts_1950_1989": "nWindows:1950-1989",
+   "starts_since_1990": "nWindows:since-1990",
+   "share_double_lost_buying_power_pct": "shareLockRealBelowOne",
+   "last_lost_start": "lastStartLockRealBelowOne"
+  },
+  "code": "model/model.py"
+ },
+ "data": {
+  "sources": "data/sources.json",
+  "hosts": {
+   "primary": [
+    "fred.stlouisfed.org"
+   ],
+   "crosscheck": [
+    "fred.stlouisfed.org"
+   ]
+  },
+  "crosscheck": [],
+  "fetch": "python3 episodes/ep003/data/fetch.py --verify (FRED files are not committed; copies at data/*.csv for the contract paths)"
+ },
+ "todo": [
+  "data.crosscheck: TB3MS vs mean of daily DTB3 (H.15) — add before C5 (S04)",
+  "coverage, sonification, artefacts, rights: C4/C5 (animatic and render)"
+ ]
+}
