@@ -1715,6 +1715,177 @@ def fvf_month_claims_case(bad):
     return fvf_s05_variant('months', FVF_PARAMS, claims)
 
 
+# ---- K3.7: kind lock-vs-roll-replay (Episode 3; spec topics-r1/machine/retire-4/model.json newKindNeeds) ------------------------------------
+# Every value below is worked by hand from the spec text (not from the rule's code).
+# Constant lock (retire-4 shape): roll rate R (6 months), p = 1, H = 2, m = 1.02. Monthly factor 1 + R/1200:
+#   2000-01 12 → 1.01   2000-02 24 → 1.02   2000-03 0 → 1.00   2000-04 12 → 1.01   2000-05 6 → 1.005   2000-06 12 → 1.01
+#   windows (s, s + 1), s = 2000-01 .. 2000-05:  Roll = 1.0302, 1.02 (tie with m), 1.01, 1.01505, 1.01505
+#   roll ahead: 2000-01 only (20%); tie: 2000-02 (20%); lock ahead: 60%. median 1.01505; min 1.01 (2000-03); max 1.0302 (2000-01)
+#   CPI P: 100, 100, 101, 98, 100, 100, blank (2000-07). Real factor P(s)/P(s + 2): 100/101, 100/98, 101/100, 98/100, 2000-05 skipped (no P at 2000-07)
+#   real lock 1.02 × factor = 1.00990, 1.04082, 1.0302, 0.9996 → ≥ 1 in 75%, < 1 in 25% (2000-04, also the lowest: 99.96%)
+#   mean roll rate per window: 18, 12, 6, 9, 9 vs the start-month rate 12, 24, 0, 12, 6 → below it: 2000-02, 2000-04 (40%)
+#   steady break-even rate 1200(1.02^(1/2) − 1) = 11.9406: mean rule (mean > 11.94) agrees with "roll ahead" except 2000-02 (mean 12, a tie) → 80%
+LVR_ROLL = [('2000-01-01', 12), ('2000-02-01', 24), ('2000-03-01', 0), ('2000-04-01', 12), ('2000-05-01', 6), ('2000-06-01', 12)]
+LVR_CPI = [('2000-01-01', '100'), ('2000-02-01', '100'), ('2000-03-01', '101'), ('2000-04-01', '98'), ('2000-05-01', '100'), ('2000-06-01', '100'), ('2000-07-01', '.')]
+LVR_PARAMS = {'roll': {'file': 'data/roll.csv', 'dateColumn': 'date', 'valueColumn': 'rate', 'periodMonths': 1, 'termMonths': 1}, 'lock': {'multiple': 1.02},
+              'horizonMonths': 2, 'firstStart': '2000-01', 'lastStart': None, 'subsets': {'early': ['2000-01', '2000-02-01'], 'late': ['2000-03', None]},
+              'deflator': {'file': 'data/cpi.csv', 'dateColumn': 'date', 'valueColumn': 'cpi'}, 'nearBandPct': 0.5}
+LVR_WIN = {'2000-01': 1.01 * 1.02, '2000-02': 1.02 * 1.0, '2000-03': 1.0 * 1.01, '2000-04': 1.01 * 1.005, '2000-05': 1.005 * 1.01}
+LVR_REAL = {'2000-01': 1.02 * 100 / 101, '2000-02': 1.02 * 100 / 98, '2000-03': 1.02 * 101 / 100, '2000-04': 1.02 * 98 / 100}
+# Locked series with a start filter (retire-3 shape): p = 2, H = 4, q = 4. R: 6, 12, 6, 0, 0, 0 (2000-01 .. 06); factor 1 + R·2/1200 = 1.01, 1.02, 1.01, 1, 1, 1
+#   windows s = 2000-01 .. 03 (s + 3 ≤ 2000-06): Roll = f(s)·f(s + 2) = 1.01 × 1.01 = 1.0201, 1.02 × 1 = 1.02, 1.01 × 1 = 1.01
+#   L: 3, 13, 5 → Lock = 1 + L·4/1200 = 1.01, 1.043333, 1.016667 → roll ahead 2000-01; lock ahead 2000-02, 2000-03 (66.667%)
+#   filter R(s) > L(s): 6 > 3 yes, 12 > 13 no, 6 > 5 yes → filtered 2000-01, 2000-03: two runs (not consecutive), lock ahead 50%;
+#   lock-majority runs: [2000-03] only (1 of 1) → 1.  Lock vs roll (%): 100(1.01/1.0201 − 1) = −0.990099, 100(1.043333/1.02 − 1) = 2.287582,
+#   100(1.016667/1.01 − 1) = 0.660066
+LVR_ROLL2 = [('2000-01', 6), ('2000-02', 12), ('2000-03', 6), ('2000-04', 0), ('2000-05', 0), ('2000-06', 0)]
+LVR_LOCK2 = [('2000-01', 3), ('2000-02', 13), ('2000-03', 5)]
+LVR_PARAMS2 = {'roll': {'file': 'data/roll.csv', 'dateColumn': 'date', 'valueColumn': 'rate', 'periodMonths': 2},
+               'lock': {'file': 'data/lock.csv', 'dateColumn': 'date', 'valueColumn': 'rate', 'periodMonths': 4}, 'horizonMonths': 4,
+               'startFilter': {'type': 'rollRateAboveLockRate'}}
+
+
+def lvr_files(f, roll=LVR_ROLL, cpi=LVR_CPI, lock=None):
+    with open(f.p('data/roll.csv'), 'w') as fh:
+        fh.write('date,rate\n' + ''.join(f'{d},{v}\n' for d, v in roll))
+    if cpi:
+        with open(f.p('data/cpi.csv'), 'w') as fh:
+            fh.write('date,cpi\n' + ''.join(f'{d},{v}\n' for d, v in cpi))
+    if lock:
+        with open(f.p('data/lock.csv'), 'w') as fh:
+            fh.write('date,rate\n' + ''.join(f'{d},{v}\n' for d, v in lock))
+
+
+def lvr_model_file():
+    """The model file of the constant-lock fixture, from the hand values above (months written both YYYY-MM and YYYY-MM-01)."""
+    w = LVR_WIN
+    gaps = {s: 100 * (1.02 / r - 1) for s, r in w.items()}
+    real = sorted(LVR_REAL.values())
+    return {'horizonMonths': 2, 'rollPeriodMonths': 1, 'lockMultiple': 1.02, 'lockPeriodMonths': None, 'nearBandPct': 0.5,
+            'nWindows': 5, 'firstStart': '2000-01-01', 'lastStart': '2000-05', 'shareRollAhead': 20.0, 'shareLockAhead': 60.0, 'shareTie': 20.0,
+            'medianRoll': 1.01505, 'minRoll': 1.01, 'minRollStart': '2000-03', 'maxRoll': 1.0302, 'maxRollStart': '2000-01-01',
+            'medianLockVsRollPct': gaps['2000-04'], 'minLockVsRollPct': gaps['2000-01'], 'minLockVsRollStart': '2000-01', 'maxLockVsRollPct': gaps['2000-03'],
+            'maxLockVsRollStart': '2000-03-01', 'rollRateLatest': 12, 'rollRateLatestMonth': '2000-06', 'meanRollRateAll': 11.0, 'nonOverlapPeriods': 3,
+            'equivalentLockRate': 100 * (1.02 ** 6 - 1), 'steadyBreakevenRate': 1200 * (1.02 ** 0.5 - 1), 'nearCount': 3,
+            'latest': {'start': '2000-05', 'end': '2000-06-01', 'roll': 1.01505, 'lock': 1.02},
+            'subsets': {'early': {'from': '2000-01', 'to': '2000-02', 'nWindows': 2, 'shareRollAhead': 50.0, 'shareLockAhead': 0.0, 'minRoll': 1.02, 'maxRoll': 1.0302},
+                        'late': {'from': '2000-03', 'to': '2000-05-01', 'nWindows': 3, 'shareRollAhead': 0.0, 'shareLockAhead': 100.0, 'minRoll': 1.01, 'maxRoll': 1.01505}},
+            'deflator': {'nRealWindows': 4, 'skippedStarts': 1, 'shareLockRealAtLeastOne': 75.0, 'medianLockReal': (real[1] + real[2]) / 2,
+                         'minLockReal': 1.02 * 0.98, 'minLockRealStart': '2000-04', 'lastStartLockRealBelowOne': '2000-04-01'},
+            'windows': [{'start': s, 'end': f'2000-{int(s[5:]) + 1:02d}-01', 'roll': r, 'lock': 1.02, 'lockReal': LVR_REAL.get(s)} for s, r in w.items()]}
+
+
+def lvr_s01_case(bad):
+    """S01 kind lock-vs-roll-replay, constant lock (hand table above); bad = the 2000-03 window's roll off by 0.001."""
+    f = F('S01-lvr')
+    try:
+        lvr_files(f)
+        f.contract(model={'kind': 'lock-vs-roll-replay', 'output': 'out/model.json', 'params': LVR_PARAMS})
+        out = lvr_model_file()
+        assert abs(out['equivalentLockRate'] - 12.6162) < 1e-4 and abs(out['steadyBreakevenRate'] - 11.9406) < 1e-4
+        if bad:
+            out['windows'][2]['roll'] += 0.001
+        f.json('out/model.json', out)
+        return f.run('S01')
+    finally:
+        f.close()
+
+
+def lvr_s01_series_case(bad):
+    """S01 lock-vs-roll-replay, locked series with startFilter (retire-3 shape, hand table above); bad = the filtered starts 2000-01 and 2000-03 given as one
+    run (they are not consecutive months)."""
+    f = F('S01-lvr-series')
+    try:
+        lvr_files(f, roll=LVR_ROLL2, cpi=None, lock=LVR_LOCK2)
+        f.contract(model={'kind': 'lock-vs-roll-replay', 'output': 'out/model.json', 'params': LVR_PARAMS2})
+        rolls, locks = [1.0201, 1.02, 1.01], [1.01, 1 + 13 * 4 / 1200, 1 + 5 * 4 / 1200]
+        g = [100 * (lk / r - 1) for r, lk in zip(rolls, locks)]
+        runs = [{'from': '2000-01', 'to': '2000-03', 'nWindows': 2, 'nLockAhead': 1}] if bad else \
+               [{'from': '2000-01', 'to': '2000-01', 'nWindows': 1, 'nLockAhead': 0}, {'from': '2000-03', 'to': '2000-03', 'nWindows': 1, 'nLockAhead': 1}]
+        out = {'horizonMonths': 4, 'rollPeriodMonths': 2, 'lockMultiple': None, 'lockPeriodMonths': 4, 'nearBandPct': None,
+               'nWindows': 3, 'firstStart': '2000-01', 'lastStart': '2000-03', 'shareRollAhead': 100 / 3, 'shareLockAhead': 200 / 3, 'shareTie': 0.0,
+               'medianRoll': 1.02, 'minRoll': 1.01, 'minRollStart': '2000-03', 'maxRoll': 1.0201, 'maxRollStart': '2000-01',
+               'medianLockVsRollPct': g[2], 'minLockVsRollPct': g[0], 'minLockVsRollStart': '2000-01', 'maxLockVsRollPct': g[1], 'maxLockVsRollStart': '2000-02',
+               'rollRateLatest': 0, 'rollRateLatestMonth': '2000-06', 'meanRollRateAll': 4.0, 'nonOverlapPeriods': 1,
+               'latest': {'start': '2000-03', 'end': '2000-06', 'roll': 1.01, 'lock': locks[2]}, 'subsets': {},
+               'filtered': {'nWindows': 2, 'shareLockAhead': 50.0, 'medianLockVsRollPct': (g[0] + g[2]) / 2, 'minLockVsRollPct': g[0], 'maxLockVsRollPct': g[2],
+                            'lockMajorityRuns': 1, 'runs': runs},
+               'windows': [{'start': f'2000-0{i + 1}', 'end': f'2000-0{i + 4}', 'roll': r, 'lock': lk} for i, (r, lk) in enumerate(zip(rolls, locks))]}
+        assert abs(g[0] + 0.990099) < 1e-6 and abs(g[1] - 2.287582) < 1e-6 and abs(g[2] - 0.660066) < 1e-6
+        f.json('out/model.json', out)
+        return f.run('S01')
+    finally:
+        f.close()
+
+
+def lvr_s05_variant(name, claims, params=LVR_PARAMS, files=None):
+    f = F('S05-lvr-' + name)
+    try:
+        (files or lvr_files)(f)
+        mc = [{'where': {'claimId': cid}, 'key': key} for cid, key, _ in claims]
+        f.contract(model={'kind': 'lock-vs-roll-replay', 'output': 'out/model.json', 'params': params, 'claims': mc}, characters={},
+                   claims={'illustrative': [], 'core': [], 'decisive': []})
+        f.json('out/claims.json', {'claims': [{'claimId': cid, 'value': v, 'display': str(v)} for cid, _, v in claims]})
+        return f.run('S05')
+    finally:
+        f.close()
+
+
+def lvr_shares_case(bad):
+    """S05 shares, strict both ways: roll ahead 20%, lock ahead 60%, tie 20% (2000-02: 1.02 × 1.00 = m); subsets early 50% / late 0% roll ahead; multiples.
+    bad = the tie counted as roll ahead (shareRollAhead 40%)."""
+    return lvr_s05_variant('shares', [('ra', 'shareRollAhead', 40.0 if bad else 20.0), ('la', 'shareLockAhead', 60.0), ('tie', 'shareTie', 20.0),
+                                      ('e', 'shareRollAhead:early', 50.0), ('l', 'shareRollAhead:late', 0.0), ('n', 'nWindows', 5), ('nl', 'nWindows:late', 3),
+                                      ('med', 'medianRoll', 1.01505), ('min', 'minRoll', 1.01), ('max', 'maxRoll', 1.0302), ('lmax', 'maxRoll:late', 1.01505),
+                                      ('emin', 'minRoll:early', 1.02), ('latest', 'latestRoll', 1.01505)])
+
+
+def lvr_real_case(bad):
+    """S05 deflator: 4 real windows (2000-05 skipped: no CPI at 2000-07), real lock ≥ 1 in 75%, < 1 in 25%, lowest 99.96% at 2000-04, which is also the last
+    start below 1; median (1.00990 + 1.0302)/2; real roll ≥ 1 in 75%. bad = the skipped start counted in the real windows (5)."""
+    real = sorted(LVR_REAL.values())
+    return lvr_s05_variant('real', [('n', 'nRealWindows', 5 if bad else 4), ('sk', 'skippedRealStarts', 0 if bad else 1), ('ok', 'shareLockRealAtLeastOne', 75.0),
+                                    ('lost', 'shareLockRealBelowOne', 25.0), ('worst', 'minLockRealPct', 99.96), ('ws', 'minLockRealStart', '2000-04-01'),
+                                    ('last', 'lastStartLockRealBelowOne', '2000-04'), ('med', 'medianLockRealPct', 100 * (real[1] + real[2]) / 2),
+                                    ('rr', 'shareRollRealAtLeastOne', 75.0)])   # real roll: 1.0302·100/101, 1.02·100/98, 1.01·1.01 ≥ 1; 1.01505·0.98 < 1
+
+
+def lvr_mean_rule_case(bad):
+    """S05 the mean-rate quantities: steady break-even 11.9406% (1200(1.02^(1/2) − 1)), mean rule agrees 80% (the tie window 2000-02 disagrees), mean below
+    the start rate 40% (late: 1 of 3), equivalent lock rate 12.6162% (100(1.02^6 − 1)), mean roll rate 11 over 2000-01 .. 06. bad = agreement 100%."""
+    return lvr_s05_variant('mean-rule', [('sb', 'steadyBreakevenRate', 1200 * (1.02 ** 0.5 - 1)), ('agree', 'shareMeanRuleAgrees', 100.0 if bad else 80.0),
+                                         ('below', 'shareMeanRateBelowStart', 40.0), ('belowL', 'shareMeanRateBelowStart:late', 100 / 3),
+                                         ('eq', 'equivalentLockRate', 100 * (1.02 ** 6 - 1)), ('mean', 'meanRollRateAll', 11.0)])
+
+
+def lvr_sets_case(bad):
+    """S05 set bounds and counts: early 2000-01 .. 2000-02, late 2000-03 .. last start 2000-05 (to = null); 2 windows before late (40%); near-double count 3
+    (|Roll/1.02 − 1| < 0.5%: 2000-02, 04, 05); latest end 2000-06; roll rate latest 12% (2000-06); 3 non-overlapping 2-month periods; horizon 2 months = 1/6
+    year; 2 rolls of a 1-month bill. bad = subsetTo:late "2000-06" (the data end, not the last start)."""
+    return lvr_s05_variant('sets', [('ef', 'subsetFrom:early', '2000-01'), ('et', 'subsetTo:early', '2000-02-01'), ('lf', 'subsetFrom:late', '2000-03-01'),
+                                    ('lt', 'subsetTo:late', '2000-06' if bad else '2000-05'), ('nb', 'nWindowsBefore:late', 2), ('sb', 'shareWindowsBefore:late', 40.0),
+                                    ('near', 'nearCount', 3), ('band', 'nearBandPct', 0.5), ('end', 'latestEnd', '2000-06-01'), ('rl', 'rollRateLatest', 12),
+                                    ('rlm', 'rollRateLatestMonth', '2000-06'), ('no', 'nonOverlapPeriods', 3), ('hm', 'horizonMonths', 2),
+                                    ('hy', 'horizonYears', 2 / 12), ('term', 'rollTermMonths', 1), ('rolls', 'rollsPerHorizon', 2)])
+
+
+def lvr_months_case(bad):
+    """S05 month claims after normalisation: firstStart "2000-01-01", lastStart "2000-05", minRollStart "2000-03-01", maxRollStart "2000-01" and its numeric
+    forms 2000 / 1. bad = minRollStart "2000-03-15" (a day other than 01 is not a month)."""
+    return lvr_s05_variant('months', [('f', 'firstStart', '2000-01-01'), ('l', 'lastStart', '2000-05'), ('mn', 'minRollStart', '2000-03-15' if bad else '2000-03-01'),
+                                      ('mx', 'maxRollStart', '2000-01'), ('my', 'maxRollStartYear', 2000), ('mm', 'maxRollStartMonth', 1)])
+
+
+def lvr_filter_case(bad):
+    """S05 locked series and startFilter (hand table above): lock ahead 66.667% of all, 50% of the filtered starts; 2 runs; 1 lock-majority run; lock vs roll
+    max 2.287582% (2000-02). bad = runs:filtered 1 (2000-01 and 2000-03 taken as one run)."""
+    files = lambda f: lvr_files(f, roll=LVR_ROLL2, cpi=None, lock=LVR_LOCK2)
+    return lvr_s05_variant('filter', [('la', 'shareLockAhead', 200 / 3), ('fla', 'shareLockAhead:filtered', 50.0), ('nf', 'nWindows:filtered', 2),
+                                      ('runs', 'runs:filtered', 1 if bad else 2), ('maj', 'lockMajorityRuns:filtered', 1),
+                                      ('gmax', 'maxLockVsRollPct', 100 * ((1 + 13 * 4 / 1200) / 1.02 - 1)), ('gs', 'maxLockVsRollStart', '2000-02')],
+                           params=LVR_PARAMS2, files=files)
+
+
 EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case,
          'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case, 'F07/too-long': f07_long_case,
          'F12/photo': f12_photo_case, 'F12/font': f12_font_case, 'F12/public-domain': f12_pd_case, 'F12/quote-card': f12_quote_case,
@@ -1727,7 +1898,10 @@ EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_cas
          'S05/float-fixed-spread-period': fvf_spread_period_case, 'S05/float-fixed-spread-worst': fvf_spread_worst_case,
          'S05/float-fixed-spread-worst-start': fvf_spread_worst_start_case, 'S05/float-fixed-min-spreads': fvf_min_spreads_case,
          'S05/float-fixed-payments': fvf_payments_case, 'S05/float-fixed-window': fvf_window_case, 'S05/float-fixed-rate-above': fvf_rate_above_strict_case,
-         'S05/float-fixed-months': fvf_month_claims_case}
+         'S05/float-fixed-months': fvf_month_claims_case,
+         'S01/lock-roll': lvr_s01_case, 'S01/lock-roll-series': lvr_s01_series_case, 'S05/lock-roll-shares': lvr_shares_case,
+         'S05/lock-roll-real': lvr_real_case, 'S05/lock-roll-mean-rule': lvr_mean_rule_case, 'S05/lock-roll-sets': lvr_sets_case,
+         'S05/lock-roll-months': lvr_months_case, 'S05/lock-roll-filter': lvr_filter_case}
 
 
 def main():

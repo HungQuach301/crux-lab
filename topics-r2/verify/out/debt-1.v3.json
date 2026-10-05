@@ -1,0 +1,114 @@
+{
+ "id": "debt-1",
+ "items": [
+  {
+   "id": "n_weeks",
+   "declared": 1831,
+   "recomputed": 1831,
+   "ok": true
+  },
+  {
+   "id": "first_week",
+   "declared": "1991-08-30",
+   "recomputed": "1991-08-30",
+   "ok": true
+  },
+  {
+   "id": "last_week",
+   "declared": "2026-09-24",
+   "recomputed": "2026-09-24",
+   "ok": true
+  },
+  {
+   "id": "rate30_latest",
+   "declared": 7.03,
+   "recomputed": 7.03,
+   "ok": true
+  },
+  {
+   "id": "rate15_latest",
+   "declared": 6.42,
+   "recomputed": 6.42,
+   "ok": true
+  },
+  {
+   "id": "pay15_latest",
+   "declared": 2773.49,
+   "recomputed": 2773.49,
+   "ok": true
+  },
+  {
+   "id": "pay30on15_latest",
+   "declared": 2881.62,
+   "recomputed": 2881.62,
+   "ok": true
+  },
+  {
+   "id": "pay30_latest",
+   "declared": 2135.42,
+   "recomputed": 2135.42,
+   "ok": true
+  },
+  {
+   "id": "extra_month_latest",
+   "declared": 108.13,
+   "recomputed": 108.13,
+   "ok": true
+  },
+  {
+   "id": "extra_total_latest",
+   "declared": 19464,
+   "recomputed": 19464,
+   "ok": true
+  },
+  {
+   "id": "months_payoff_at_pay15",
+   "declared": 192.9,
+   "recomputed": 192.9,
+   "ok": true
+  },
+  {
+   "id": "spread_mean",
+   "declared": 0.57,
+   "recomputed": 0.57,
+   "ok": true
+  },
+  {
+   "id": "spread_min",
+   "declared": 0.2,
+   "recomputed": 0.2,
+   "ok": true
+  },
+  {
+   "id": "spread_max",
+   "declared": 1.0,
+   "recomputed": 1.0,
+   "ok": true
+  },
+  {
+   "id": "share_spread_ge_050",
+   "declared": 0.629,
+   "recomputed": 0.629,
+   "ok": true
+  },
+  {
+   "id": "extra_total_median",
+   "declared": 16594,
+   "recomputed": 16594,
+   "ok": true
+  },
+  {
+   "id": "extra_total_min",
+   "declared": 6097,
+   "recomputed": 6097,
+   "ok": true
+  },
+  {
+   "id": "extra_total_max",
+   "declared": 29502,
+   "recomputed": 29502,
+   "ok": true
+  }
+ ],
+ "ok": true
+}

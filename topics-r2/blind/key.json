@@ -1,0 +1,113 @@
+{
+ "salt": "3f1042873c5b83f6961a0e1a82c28a78",
+ "cards": [
+  {
+   "no": "01",
+   "pillar": "retire",
+   "origin": "machine",
+   "ref": "machine/retire-2"
+  },
+  {
+   "no": "02",
+   "pillar": "debt",
+   "origin": "machine",
+   "ref": "machine/debt-1"
+  },
+  {
+   "no": "03",
+   "pillar": "debt",
+   "origin": "machine",
+   "ref": "machine/debt-3"
+  },
+  {
+   "no": "04",
+   "pillar": "retire",
+   "origin": "control",
+   "ref": "control/out/retire.json#kept[1]"
+  },
+  {
+   "no": "05",
+   "pillar": "retire",
+   "origin": "control",
+   "ref": "control/out/retire.json#kept[0]"
+  },
+  {
+   "no": "06",
+   "pillar": "tax",
+   "origin": "machine",
+   "ref": "machine/tax-4"
+  },
+  {
+   "no": "07",
+   "pillar": "tax",
+   "origin": "machine",
+   "ref": "machine/tax-1"
+  },
+  {
+   "no": "08",
+   "pillar": "tax",
+   "origin": "machine",
+   "ref": "machine/tax-2"
+  },
+  {
+   "no": "09",
+   "pillar": "tax",
+   "origin": "machine",
+   "ref": "machine/tax-3"
+  },
+  {
+   "no": "10",
+   "pillar": "debt",
+   "origin": "control",
+   "ref": "control/out/debt.json#kept[0]"
+  },
+  {
+   "no": "11",
+   "pillar": "debt",
+   "origin": "machine",
+   "ref": "machine/debt-2"
+  },
+  {
+   "no": "12",
+   "pillar": "tax",
+   "origin": "control",
+   "ref": "control/out/tax.json#kept[1]"
+  },
+  {
+   "no": "13",
+   "pillar": "retire",
+   "origin": "machine",
+   "ref": "machine/retire-3"
+  },
+  {
+   "no": "14",
+   "pillar": "retire",
+   "origin": "machine",
+   "ref": "machine/retire-4"
+  },
+  {
+   "no": "15",
+   "pillar": "tax",
+   "origin": "control",
+   "ref": "control/out/tax.json#kept[0]"
+  },
+  {
+   "no": "16",
+   "pillar": "debt",
+   "origin": "machine",
+   "ref": "machine/debt-4"
+  },
+  {
+   "no": "17",
+   "pillar": "retire",
+   "origin": "machine",
+   "ref": "machine/retire-1"
+  },
+  {
+   "no": "18",
+   "pillar": "debt",
+   "origin": "control",
+   "ref": "control/out/debt.json#kept[1]"
+  }
+ ]
+}

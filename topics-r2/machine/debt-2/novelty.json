@@ -1,0 +1,69 @@
+{
+  "decision": "First-time buyer with 10% down: buy now and pay mortgage insurance, or keep renting until 20% is saved?",
+  "queries": [
+    "put 10% down and pay PMI or wait until 20% down",
+    "how long does PMI last historically home price appreciation remove PMI data",
+    "10 percent down PMI how many years until 20 percent equity home appreciation history analysis"
+  ],
+  "results": [
+    {
+      "query": "put 10% down and pay PMI or wait until 20% down",
+      "title": "Down payments & PMI - My Home by Freddie Mac",
+      "url": "https://myhome.freddiemac.com/buying/down-payments-and-pmi"
+    },
+    {
+      "query": "put 10% down and pay PMI or wait until 20% down",
+      "title": "10% Down Payment on a Mortgage: A 2026 Guide to Costs, PMI, and When It Makes Sense",
+      "url": "https://www.amerisave.com/learn/down-payment-on-a-mortgage-a-guide-to-costs-pmi-and-when-it-makes-sense"
+    },
+    {
+      "query": "put 10% down and pay PMI or wait until 20% down",
+      "title": "Is it better to pay PMI or put 20% down?",
+      "url": "https://financeband.com/is-it-better-to-pay-pmi-or-put-20-down"
+    },
+    {
+      "query": "how long does PMI last historically home price appreciation remove PMI data",
+      "title": "Can I Cancel PMI If My Home Value Increases? How to Get Rid of It",
+      "url": "https://www.homelight.com/blog/can-i-cancel-pmi-if-my-home-value-increases/"
+    },
+    {
+      "query": "how long does PMI last historically home price appreciation remove PMI data",
+      "title": "How to Remove PMI From Your Mortgage",
+      "url": "https://www.redfin.com/blog/how-to-remove-pmi-from-mortgage/"
+    },
+    {
+      "query": "how long does PMI last historically home price appreciation remove PMI data",
+      "title": "removing private mortgage insurance",
+      "url": "https://bankrate.com/mortgages/removing-private-mortgage-insurance"
+    },
+    {
+      "query": "10 percent down PMI how many years until 20 percent equity home appreciation history analysis",
+      "title": "10% vs 20% Down: A Full Cost Comparison",
+      "url": "https://loanpal.io/blog/10-vs-20-percent-down"
+    },
+    {
+      "query": "10 percent down PMI how many years until 20 percent equity home appreciation history analysis",
+      "title": "10% vs 20% Down Payment Calculator - Is It Worth Waiting?",
+      "url": "https://nestcalcs.com/10-percent-vs-20-percent-down-payment/"
+    },
+    {
+      "query": "10 percent down PMI how many years until 20 percent equity home appreciation history analysis",
+      "title": "10% Down vs 20% Down: Which Costs More Over Time - Finluxy",
+      "url": "https://www.finluxy.com/life-money/first-home/10-percent-vs-20-percent-down/"
+    }
+  ],
+  "verdict": "answered-without-data",
+  "nearest": [
+    {
+      "title": "10% vs 20% Down: A Full Cost Comparison",
+      "url": "https://loanpal.io/blog/10-vs-20-percent-down",
+      "why": "Same decision; snippets give the amortization-only 7-9 year timeline, no price history."
+    },
+    {
+      "title": "Can I Cancel PMI If My Home Value Increases? How to Get Rid of It",
+      "url": "https://www.homelight.com/blog/can-i-cancel-pmi-if-my-home-value-increases/",
+      "why": "Says appreciation can speed removal; does not measure how often or how fast it did."
+    }
+  ],
+  "note": "Results give the schedule-based timeline (about 7-10 years) and say appreciation may help. None measured, across decades of purchase months, how long a 10%-down loan took to reach 80% of index value, or how often it did not. Titles and URLs only; pages not fetched."
+}

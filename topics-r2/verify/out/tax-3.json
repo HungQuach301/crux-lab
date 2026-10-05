@@ -1,0 +1,221 @@
+{
+ "id": "tax-3",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "rental property losses $25,000 allowance $100,000 phase-out never indexed for inflation": 3,
+      "$100,000 passive loss threshold 1986 adjusted for inflation today median household income rental owners locked out": 3,
+      "rental property tax losses couple earning $130,000 can they deduct passive loss allowance phase-out median income comparison": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "file": "data/CPIAUCNS.csv",
+    "sha256": "226a78125aee00125dca04a52fbf1850b0df3211654be0c3b57256678fc93633",
+    "declared": "226a78125aee00125dca04a52fbf1850b0df3211654be0c3b57256678fc93633",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "MEHOINUSA646N",
+    "file": "data/MEHOINUSA646N.csv",
+    "sha256": "2052185cf05506b963bfe3aaee5dbbc1783e1518b144b74ecd85058b43de4bfc",
+    "declared": "2052185cf05506b963bfe3aaee5dbbc1783e1518b144b74ecd85058b43de4bfc",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "cpi_1987_avg",
+    "declared": 113.625,
+    "recomputed": 113.625,
+    "ok": true
+   },
+   {
+    "id": "cpi_2025_avg",
+    "declared": 321.943,
+    "recomputed": 321.943,
+    "ok": true
+   },
+   {
+    "id": "cpi_2025_months",
+    "declared": 11,
+    "recomputed": 11,
+    "ok": true
+   },
+   {
+    "id": "price_factor_1987_2025",
+    "declared": 2.8334,
+    "recomputed": 2.8334,
+    "ok": true
+   },
+   {
+    "id": "start_in_2025_dollars",
+    "declared": 283300.0,
+    "recomputed": 283300.0,
+    "ok": true
+   },
+   {
+    "id": "end_in_2025_dollars",
+    "declared": 425000.0,
+    "recomputed": 425000.0,
+    "ok": true
+   },
+   {
+    "id": "cap_in_2025_dollars",
+    "declared": 70800.0,
+    "recomputed": 70800.0,
+    "ok": true
+   },
+   {
+    "id": "start_real_value_pct_of_1987",
+    "declared": 35.3,
+    "recomputed": 35.3,
+    "ok": true
+   },
+   {
+    "id": "median_1987",
+    "declared": 26060.0,
+    "recomputed": 26060.0,
+    "ok": true
+   },
+   {
+    "id": "median_2025",
+    "declared": 87460.0,
+    "recomputed": 87460.0,
+    "ok": true
+   },
+   {
+    "id": "start_over_median_1987",
+    "declared": 3.84,
+    "recomputed": 3.84,
+    "ok": true
+   },
+   {
+    "id": "start_over_median_2025",
+    "declared": 1.14,
+    "recomputed": 1.14,
+    "ok": true
+   },
+   {
+    "id": "end_over_median_2025",
+    "declared": 1.72,
+    "recomputed": 1.72,
+    "ok": true
+   },
+   {
+    "id": "start_if_tracked_median_2025",
+    "declared": 335600.0,
+    "recomputed": 335600.0,
+    "ok": true
+   },
+   {
+    "id": "income_in_1987_dollars",
+    "declared": 45900.0,
+    "recomputed": 45900.0,
+    "ok": true
+   },
+   {
+    "id": "allowance_at_income",
+    "declared": 10000.0,
+    "recomputed": 10000.0,
+    "ok": true
+   },
+   {
+    "id": "allowance_at_income_if_cpi_indexed",
+    "declared": 70800.0,
+    "recomputed": 70800.0,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CPIAUCNS",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "MEHOINUSA646N",
+    "page": "https://fred.stlouisfed.org/series/MEHOINUSA646N",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/MEHOINUSA646N",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 469(i)(2) (dollar limitation)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/469",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 469(i)(3)(A) (phase-out)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/469",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V01245": true
+}

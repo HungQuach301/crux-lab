@@ -1,0 +1,50 @@
+{
+ "series": [
+  {
+   "id": "CPIAUCNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics, CPI for All Urban Consumers: All Items in U.S. City Average, not seasonally adjusted)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&cosd=1986-01-01&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "file": "data/CPIAUCNS.csv",
+   "sha256": "226a78125aee00125dca04a52fbf1850b0df3211654be0c3b57256678fc93633",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.980"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCNS"
+   }
+  },
+  {
+   "id": "MEHOINUSA646N",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Census Bureau, Median Household Income in the United States, current dollars, annual)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MEHOINUSA646N&cosd=1984-01-01&coed=2025-01-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/MEHOINUSA646N",
+   "file": "data/MEHOINUSA646N.csv",
+   "sha256": "2052185cf05506b963bfe3aaee5dbbc1783e1518b144b74ecd85058b43de4bfc",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2025-01-01",
+    "value": "87460"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/MEHOINUSA646N"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 469(i)(2) (dollar limitation)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/469",
+   "quote": "the aggregate amount to which paragraph (1) applies for any taxable year shall not exceed $25,000."
+  },
+  {
+   "cite": "26 U.S.C. 469(i)(3)(A) (phase-out)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/469",
+   "quote": "the $25,000 amount under paragraph (2) shall be reduced (but not below zero) by 50 percent of the amount by which the adjusted gross income of the taxpayer for the taxable year exceeds $100,000."
+  }
+ ]
+}

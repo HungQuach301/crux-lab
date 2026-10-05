@@ -1,0 +1,290 @@
+[
+ {
+  "n": 1,
+  "source": "result.json:answer",
+  "text": "The $500,000 joint limit on tax-free gain from selling a main home has not changed since it took effect in May 1997; in August 2026 prices that 1997 limit would be about $1,046,000.",
+  "uses": [
+   "excl_joint_limit_usd",
+   "exclusion_effective_month",
+   "cpi_1997_05",
+   "cpi_2026_08",
+   "excl_joint_1997_in_2026_usd"
+  ],
+  "check": "calc.py --statement 1 → True"
+ },
+ {
+  "n": 2,
+  "source": "result.json:answer",
+  "text": "A couple who bought in 2000 crosses the limit when their gain (sale price minus purchase price and improvements) exceeds $500,000.",
+  "uses": [
+   "buy_year",
+   "excl_joint_limit_usd"
+  ],
+  "check": "calc.py --statement 2 → True"
+ },
+ {
+  "n": 3,
+  "source": "result.json:answer",
+  "text": "If their home rose in value like its metro's price index from 2000 to 2026 Q2, that happens once the 2000 purchase price was above about $114,700 in Miami, $151,500 in Los Angeles, $164,500 in San Diego, $179,200 in Phoenix, $180,000 in Seattle, $212,200 in New York, $215,600 in Dallas, $226,400 in Boston, $227,700 in Denver, $254,400 in San Jose, $259,000 in San Francisco and $373,400 in Chicago (national index: $243,500; for a single seller with the $250,000 limit: $121,700).",
+  "uses": [
+   "buy_year",
+   "sale_quarter",
+   "threshold_joint_miami_usd",
+   "threshold_joint_los_angeles_usd",
+   "threshold_joint_san_diego_usd",
+   "threshold_joint_phoenix_usd",
+   "threshold_joint_seattle_usd",
+   "threshold_joint_new_york_usd",
+   "threshold_joint_dallas_usd",
+   "threshold_joint_boston_usd",
+   "threshold_joint_denver_usd",
+   "threshold_joint_san_jose_usd",
+   "threshold_joint_san_francisco_usd",
+   "threshold_joint_chicago_usd",
+   "threshold_joint_us_usd",
+   "excl_single_limit_usd",
+   "threshold_single_us_usd"
+  ],
+  "check": "calc.py --statement 3 → True"
+ },
+ {
+  "n": 4,
+  "source": "result.json:answer",
+  "text": "In 11 of these 12 metros the threshold is under $300,000 and in 5 it is under $200,000.",
+  "uses": [
+   "metros_threshold_under_300k",
+   "n_metros",
+   "threshold_cutoff_300k_usd",
+   "metros_threshold_under_200k",
+   "threshold_cutoff_200k_usd"
+  ],
+  "check": "calc.py --statement 4 → True"
+ },
+ {
+  "n": 5,
+  "source": "result.json:answer",
+  "text": "Gain above the limit is taxed as a long-term capital gain on a sale, while heirs who inherit the home take a basis equal to its value at death.",
+  "uses": [
+   "basis_at_death_rule",
+   "long_term_gain_rule"
+  ],
+  "check": "calc.py --statement 5 → True (ERRATA.md N1 applied 2026-10-04: \"long-term capital gain\" sourced to 26 U.S.C. 1222(3))"
+ },
+ {
+  "n": 6,
+  "source": "result.json:guess",
+  "text": "Long-time owners widely assume a married couple's home sale is tax-free because '$500,000 is more than our profit', and that the limit is something only expensive coastal homes ever reach.",
+  "uses": [
+   "excl_joint_limit_usd"
+  ],
+  "check": "calc.py --statement 6 → True"
+ },
+ {
+  "n": 7,
+  "source": "result.json:changesDecision",
+  "text": "In 11 of the 12 metros a 2000 purchase price under $300,000 is already enough for an index-typical gain to exceed the limit, including non-coastal metros such as Phoenix and Dallas, so the tax on the excess gain can become a real input in a sell-now-versus-keep decision that owners assume is tax-free.",
+  "uses": [
+   "metros_threshold_under_300k",
+   "n_metros",
+   "buy_year",
+   "threshold_cutoff_300k_usd",
+   "metros_under_300k_names",
+   "threshold_joint_phoenix_usd",
+   "threshold_joint_dallas_usd"
+  ],
+  "check": "calc.py --statement 7 → True"
+ },
+ {
+  "n": 8,
+  "source": "result.json:changesDecision",
+  "text": "A viewer can check the threshold for their metro against their own purchase price plus improvements.",
+  "uses": [
+   "threshold_joint_miami_usd",
+   "threshold_joint_los_angeles_usd",
+   "threshold_joint_san_diego_usd",
+   "threshold_joint_phoenix_usd",
+   "threshold_joint_seattle_usd",
+   "threshold_joint_new_york_usd",
+   "threshold_joint_dallas_usd",
+   "threshold_joint_boston_usd",
+   "threshold_joint_denver_usd",
+   "threshold_joint_san_jose_usd",
+   "threshold_joint_san_francisco_usd",
+   "threshold_joint_chicago_usd"
+  ],
+  "check": "calc.py --statement 8 → True"
+ },
+ {
+  "n": 9,
+  "source": "claim-risk.md",
+  "text": "tax-2 claim risk: the $500,000 home-sale limit for 2000 buyers",
+  "uses": [
+   "excl_joint_limit_usd",
+   "buy_year"
+  ],
+  "check": "calc.py --statement 9 → True"
+ },
+ {
+  "n": 10,
+  "source": "claim-risk.md",
+  "text": "\"If you bought in Los Angeles in 2000, you'll owe tax.\"",
+  "uses": [
+   "buy_year"
+  ],
+  "check": "calc.py --statement 10 → True"
+ },
+ {
+  "n": 11,
+  "source": "claim-risk.md",
+  "text": "The threshold describes a home that tracked its metro's average index.",
+  "uses": [
+   "threshold_joint_miami_usd",
+   "threshold_joint_los_angeles_usd",
+   "threshold_joint_san_diego_usd",
+   "threshold_joint_phoenix_usd",
+   "threshold_joint_seattle_usd",
+   "threshold_joint_new_york_usd",
+   "threshold_joint_dallas_usd",
+   "threshold_joint_boston_usd",
+   "threshold_joint_denver_usd",
+   "threshold_joint_san_jose_usd",
+   "threshold_joint_san_francisco_usd",
+   "threshold_joint_chicago_usd"
+  ],
+  "check": "calc.py --statement 11 → True"
+ },
+ {
+  "n": 12,
+  "source": "claim-risk.md",
+  "text": "\"Most 2000 buyers now exceed the limit.\"",
+  "uses": [
+   "buy_year"
+  ],
+  "check": "calc.py --statement 12 → True"
+ },
+ {
+  "n": 13,
+  "source": "claim-risk.md",
+  "text": "Unsupported: we do not have the distribution of 2000 purchase prices by metro.",
+  "uses": [
+   "buy_year"
+  ],
+  "check": "calc.py --statement 13 → True"
+ },
+ {
+  "n": 14,
+  "source": "claim-risk.md",
+  "text": "Say \"the limit is crossed at a 2000 price above about $X\".",
+  "uses": [
+   "buy_year"
+  ],
+  "check": "calc.py --statement 14 → True"
+ },
+ {
+  "n": 15,
+  "source": "claim-risk.md",
+  "text": "Use the measured CPI figure (about $1.05 million in August 2026 prices) and say it is consumer inflation, not house prices.",
+  "uses": [
+   "excl_joint_1997_in_2026_usd",
+   "cpi_2026_08"
+  ],
+  "check": "calc.py --statement 15 → True"
+ },
+ {
+  "n": 16,
+  "source": "claim-risk.md",
+  "text": "FHFA all-transactions indexes (via FRED) are revised every quarter, so values to 2026 Q2 can change slightly at the next release.",
+  "uses": [
+   "sale_quarter"
+  ],
+  "check": "calc.py --statement 16 → True"
+ },
+ {
+  "n": 17,
+  "source": "claim-risk.md",
+  "text": "Metro divisions are used where they exist (e.g., Los Angeles-Long Beach-Glendale, not the whole LA MSA).",
+  "uses": [
+   "threshold_joint_los_angeles_usd"
+  ],
+  "check": "calc.py --statement 17 → True"
+ },
+ {
+  "n": 18,
+  "source": "claim-risk.md",
+  "text": "The rule set is the joint return with both spouses meeting the use test.",
+  "uses": [
+   "excl_joint_limit_usd"
+  ],
+  "check": "calc.py --statement 18 → True"
+ },
+ {
+  "n": 19,
+  "source": "claim-risk.md",
+  "text": "Single, surviving-spouse (2-year window) and partial-exclusion cases differ.",
+  "uses": [
+   "surviving_spouse_window_years"
+  ],
+  "check": "calc.py --statement 19 → True (ERRATA.md E1 applied 2026-10-04: \"2-year\" sourced to 26 U.S.C. 121(b)(4))"
+ },
+ {
+  "n": 20,
+  "source": "claim-risk.md",
+  "text": "A single seller's threshold (national index only) is given for reference.",
+  "uses": [
+   "threshold_single_us_usd"
+  ],
+  "check": "calc.py --statement 20 → True"
+ },
+ {
+  "n": 21,
+  "source": "card.json:title",
+  "text": "Bought Your Home in 2000? The $500,000 Tax-Free Limit Test",
+  "uses": [
+   "buy_year",
+   "excl_joint_limit_usd"
+  ],
+  "check": "calc.py --statement 21 → True"
+ },
+ {
+  "n": 22,
+  "source": "card.json:viewer",
+  "text": "Married homeowners who bought their house in 2000 and are now weighing a sale to downsize.",
+  "uses": [
+   "buy_year"
+  ],
+  "check": "calc.py --statement 22 → True"
+ },
+ {
+  "n": 23,
+  "source": "card.json:decision",
+  "text": "Sell the house we bought in 2000 now, or keep it, given the $500,000 tax-free limit on home-sale gains?",
+  "uses": [
+   "buy_year",
+   "excl_joint_limit_usd"
+  ],
+  "check": "calc.py --statement 23 → True"
+ },
+ {
+  "n": 24,
+  "source": "card.json:promise",
+  "text": "We measure, metro by metro, how far typical home-price growth since 2000 has pushed sellers' gains against a limit that never moved with inflation.",
+  "uses": [
+   "buy_year",
+   "growth_miami",
+   "growth_los_angeles",
+   "growth_san_diego",
+   "growth_phoenix",
+   "growth_seattle",
+   "growth_new_york",
+   "growth_dallas",
+   "growth_boston",
+   "growth_denver",
+   "growth_san_jose",
+   "growth_san_francisco",
+   "growth_chicago",
+   "excl_joint_limit_usd",
+   "excl_joint_1997_in_2026_usd"
+  ],
+  "check": "calc.py --statement 24 → True"
+ }
+]

@@ -1,0 +1,192 @@
+<title>Crux Topic Picks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: one topic card per screen, a search-result style package on top (thumbnail sketch + title),
+   the viewer / decision / promise below, optional reason chips, then a five-step verdict ladder. */
+:root {
+  --bg: #eef2f1; --surface: #ffffff; --fg: #15211f; --muted: #566663; --line: #cfd9d6;
+  --accent: #1d5c4f; --accent-fg: #ffffff; --soft: #dfeae6; --thumb: #20302c; --thumb-fg: #f4f8f6;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1615; --surface: #17211f; --fg: #e3ece9; --muted: #98aaa5; --line: #2b3a37;
+  --accent: #7cc4b0; --accent-fg: #0c1714; --soft: #1f3530; --thumb: #0a100f; --thumb-fg: #eef5f2; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1615; --surface: #17211f; --fg: #e3ece9; --muted: #98aaa5; --line: #2b3a37;
+  --accent: #7cc4b0; --accent-fg: #0c1714; --soft: #1f3530; --thumb: #0a100f; --thumb-fg: #eef5f2; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 1rem; line-height: 1.45 }
+main { max-width: 36rem; margin: 0 auto; padding: 1rem 16px 2rem; display: grid; gap: 1rem }
+header { display: grid; gap: .4rem }
+.meta { display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap; font: 500 .75rem var(--mono);
+  color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-variant-numeric: tabular-nums }
+.bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden }
+.bar > i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s }
+.q { font-family: var(--display); font-size: 1.05rem; margin: 0; text-wrap: balance }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: grid; min-width: 0 }
+.thumb { background: var(--thumb); color: var(--thumb-fg); aspect-ratio: 16 / 9; max-width: 100%; display: grid;
+  grid-template-rows: 1fr auto; padding: .8rem .9rem; gap: .4rem }
+.thumb .txt { align-self: center; font: 600 clamp(1.4rem, 6vw, 2rem)/1.1 var(--sans); text-wrap: balance; margin: 0 }
+.thumb .obj { font-size: .78rem; opacity: .78; margin: 0 }
+.thumb .obj b { font: 500 .7rem var(--mono); text-transform: uppercase; letter-spacing: .06em; margin-right: .3rem }
+.body { padding: .9rem 1rem 1rem; display: grid; gap: .7rem }
+.title { font-family: var(--display); font-weight: 600; font-size: 1.28rem; line-height: 1.25; margin: 0; text-wrap: balance }
+dl { margin: 0; display: grid; gap: .55rem }
+dl div { display: grid; gap: .1rem }
+dt { font: 500 .7rem var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--muted) }
+dd { margin: 0 }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center }
+.chips span { font-size: .8rem; color: var(--muted); margin-right: .2rem }
+.chip { font: 400 .85rem var(--sans); border-radius: 999px; padding: .35rem .75rem; min-height: 2.2rem }
+.chip.on { background: var(--soft); border-color: var(--accent); color: var(--fg) }
+.ladder { display: grid; gap: .45rem }
+button { font: 600 1rem var(--sans); border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--fg); padding: .7rem .8rem; cursor: pointer; min-height: 3rem; text-align: left }
+.ladder button { display: grid; grid-template-columns: 1.6rem 1fr; gap: .5rem; align-items: center }
+.ladder button.nextb { display: block; text-align: center; font-weight: 400 }
+.ladder button i { font: 500 1rem var(--mono); font-style: normal; color: var(--accent) }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px }
+button.on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent) }
+.ladder button.on i { color: var(--accent-fg) }
+.nav { display: flex; justify-content: space-between; gap: .5rem }
+.nav button { font-weight: 400; min-height: 2.6rem; padding: .5rem .9rem; text-align: center }
+.done { display: grid; gap: .75rem }
+.done h2 { font-family: var(--display); font-weight: 600; font-size: 1.3rem; margin: 0; text-wrap: balance }
+.code { font: 500 .85rem var(--mono); background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: .8rem; word-break: break-word; user-select: all }
+.hint { font-size: .85rem; color: var(--muted); margin: 0 }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem }
+.grid button { font: 500 .85rem var(--mono); min-height: 2.4rem; padding: .3rem; text-align: center }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none } }
+</style>
+
+<main>
+  <header>
+    <div class="meta"><span id="pos">Topic 01 of 18</span><span id="pillar"></span></div>
+    <div class="bar"><i id="prog"></i></div>
+    <p class="q" id="question"></p>
+  </header>
+
+  <section id="cardView" style="display:grid;gap:1rem" aria-live="polite">
+    <article class="card">
+      <div class="thumb"><p class="txt" id="tText"></p><p class="obj"><b>Image</b><span id="tObj"></span></p></div>
+      <div class="body">
+        <h1 class="title" id="title"></h1>
+        <dl>
+          <div><dt>For</dt><dd id="viewer"></dd></div>
+          <div><dt>Decision</dt><dd id="decision"></dd></div>
+          <div><dt>Promise</dt><dd id="promise"></dd></div>
+        </dl>
+      </div>
+    </article>
+    <div class="chips" id="chips"><span>Reasons, optional:</span></div>
+    <div class="ladder" id="ladder"></div>
+    <div class="nav"><button id="prev">Back</button><button id="toEnd">Review all</button></div>
+  </section>
+
+  <section id="endView" class="done" hidden>
+    <h2 id="endTitle">Send this code in the chat</h2>
+    <div class="code" id="code"></div>
+    <button id="copy" style="text-align:center">Copy code</button>
+    <p class="hint" id="copyNote">Each item is topic:picked:reasons:seconds. Tap a topic below to change it.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<script>
+const DATA = {"question": "Would you approve this as a future episode for this channel?", "cards": [{"no": "01", "pillar": "Retirement and investing", "viewer": "Parents in their 60s holding money aside to help an adult child with a first home down payment someday.", "decision": "Give the down payment money now, or keep it in safe savings and give it in 10 years?", "promise": "We measure how much of the same home the money still covers after 10 years in T-bills, across decades of home prices.", "title": "Help Your Kid Buy a Home Now or in 10 Years?", "thumbObject": "Parent handing house keys and a check to an adult child", "thumbText": "Now or Later?"}, {"no": "02", "pillar": "Borrowing and debt", "viewer": "Home buyers in 2026 borrowing about $320,000 who can afford the monthly payment on a 15-year mortgage.", "decision": "Lock in a 15-year mortgage, or take a 30-year and pay it off on a 15-year schedule?", "promise": "Using decades of weekly mortgage rates, we put a dollar price on the flexibility of a 30-year loan paid like a 15-year loan.", "title": "15-Year Mortgage or a 30-Year Paid in 15? The Real Price", "thumbObject": "House keys on tags marked 15 and 30", "thumbText": "15 or 30?"}, {"no": "03", "pillar": "Borrowing and debt", "viewer": "Buyers in 2026 whose mortgage payment would take 35% of gross pay, counting on raises to make it comfortable.", "decision": "Stretch to the house at 35% of pay, or buy a cheaper one at 28%?", "promise": "Using decades of pay history, we measure how long raises have actually taken to shrink a fixed payment from 35% to 28% of pay.", "title": "Stretching to 35% of Your Pay: How Long Until It's 28%?", "thumbObject": "Mortgage bill pinned under a paycheck with a stretched rubber band", "thumbText": "35% to 28%?"}, {"no": "04", "pillar": "Retirement and investing", "viewer": "People in their 50s with pre-tax IRA savings and lower-income years before retirement.", "decision": "Should you convert pre-tax IRA money to Roth IRA before retirement?", "promise": "We simulate tax paths to see when conversions help, hurt, or mainly move taxes around.", "title": "Roth Conversion Window: Real or Mirage?", "thumbObject": "open window over tax forms", "thumbText": "CONVERT NOW?"}, {"no": "05", "pillar": "Retirement and investing", "viewer": "People with an old 401(k) from a former employer and a new workplace plan.", "decision": "Should you roll the old 401(k) into an IRA or the new 401(k)?", "promise": "We compare fees, fund menus, and taxes across real plans to show how the rollover changes outcomes.", "title": "Old 401(k): IRA or New 401(k)?", "thumbObject": "forked road with retirement folders", "thumbText": "IRA OR 401(k)?"}, {"no": "06", "pillar": "Taxes and policy", "viewer": "Workers in their 20s in the 22% tax bracket keeping $7,500 of savings in cash, with no retirement account yet.", "decision": "Keep that $7,500 of cash in a Roth IRA, or in a regular savings account?", "promise": "We run decades of actual short-term interest rates and prices to measure what the tax on interest took from cash savers, and what sheltering kept.", "title": "Cash in a Roth IRA vs a Savings Account: Does Tax Matter?", "thumbObject": "a glass jar of cash with coins slipping through a crack", "thumbText": "Is It Shrinking?"}, {"no": "07", "pillar": "Taxes and policy", "viewer": "Investors in the 24% federal tax bracket buying 10-year TIPS with money that sits outside their retirement accounts.", "decision": "Hold 10-year TIPS in a taxable brokerage account, or only inside an IRA?", "promise": "We replay every past purchase month to measure what yearly tax on inflation adjustments left a 24% bracket holder in real, after-tax terms.", "title": "TIPS in a Taxable Account: Still Inflation-Proof?", "thumbObject": "an inflation-shield bond with a tax bill cutting through it", "thumbText": "Protected From What?"}, {"no": "08", "pillar": "Taxes and policy", "viewer": "Workers in the 12% tax bracket who have a 401(k) but no emergency savings and just got a surprise $1,000 bill.", "decision": "Take a $1,000 emergency withdrawal from my 401(k), or put the bill on a credit card?", "promise": "Using decades of actual card interest rates, we find how long a card balance can linger before its interest outweighs the tax on the withdrawal.", "title": "$1,000 Emergency: Tap the 401(k) or Use the Card?", "thumbObject": "a credit card and a retirement piggy bank on a balance scale", "thumbText": "Which Costs Less?"}, {"no": "09", "pillar": "Taxes and policy", "viewer": "Married couples earning about $130,000 combined from their jobs who are thinking about buying their first rental property.", "decision": "Buy a rental counting on its paper losses to lower our tax on $130,000 of wages?", "promise": "We trace the income line for deducting rental losses from the year it was set to today, measured against typical household incomes and prices.", "title": "Rental Losses on $130,000 of Wages: Still Deductible?", "thumbObject": "a small rental house beside a frozen income ruler", "thumbText": "Frozen Since When?"}, {"no": "10", "pillar": "Borrowing and debt", "viewer": "Homeowners with a fixed mortgage who have enough cash to lower the balance but do not want to refinance.", "decision": "Should you ask the lender for a recast or just pay extra principal?", "promise": "We model payments, interest, liquidity, and moving risk using real mortgage terms and home-sale histories.", "title": "Mortgage Recast vs Extra Principal", "thumbObject": "Mortgage statement and lump-sum check", "thumbText": "RECAST OR PREPAY"}, {"no": "11", "pillar": "Borrowing and debt", "viewer": "First-time buyers in 2026 with a 10% down payment ready, weighing mortgage insurance against more years of renting.", "decision": "Buy now with 10% down and pay mortgage insurance, or keep renting until we have 20%?", "promise": "Using decades of home prices and mortgage rates, we measure how long mortgage insurance actually had to stay for buyers who put 10% down.", "title": "10% Down and Mortgage Insurance: How Long Did It Last?", "thumbObject": "Small house with an insurance price tag hanging from the door", "thumbText": "How long?"}, {"no": "12", "pillar": "Taxes and policy", "viewer": "Households who give to charity but usually take the standard deduction.", "decision": "Bunch donations this tax year or spread gifts as usual?", "promise": "We model tax bills from real households to show when gift timing changes the after-tax cost of giving.", "title": "Should You Bunch Charitable Giving?", "thumbObject": "Donation receipt pile", "thumbText": "BUNCH GIFTS?"}, {"no": "13", "pillar": "Retirement and investing", "viewer": "Retirees and savers buying 5-year CDs through a brokerage account for money they will not need for years.", "decision": "Take the 5-year CD paying 4.5% that the bank can call early, or the 4% CD it cannot call?", "promise": "We replay decades of interest rates to see how often the bank would have called the CD and what the saver ended up earning.", "title": "Callable CD at 4.5% or a Locked 4%? We Replayed History", "thumbObject": "Bank vault door with a hook pulling back a CD certificate", "thumbText": "Called Early?"}, {"no": "14", "pillar": "Retirement and investing", "viewer": "New retirees in their mid-60s with a travel fund parked in safe savings for the coming decade of trips.", "decision": "Take the big trips in the first years of retirement, or spread them out over the next 10 years?", "promise": "We check whether airfares and hotel prices rose faster than the travel money earned while it waited in T-bills.", "title": "Travel Early in Retirement or Wait? The Price Test", "thumbObject": "Retired couple with suitcases under an airport departures board", "thumbText": "Go Now or Later?"}, {"no": "15", "pillar": "Taxes and policy", "viewer": "Parents paying daycare through an employer that offers a dependent care FSA.", "decision": "Use the dependent care FSA or skip it and claim the child care credit?", "promise": "We compare real household tax bills to show when each route changes out-of-pocket child care cost.", "title": "Dependent Care FSA or Child Care Credit?", "thumbObject": "Daycare bill and paycheck", "thumbText": "FSA OR CREDIT?"}, {"no": "16", "pillar": "Borrowing and debt", "viewer": "Car shoppers in 2026 financing about $35,000 over 60 months who are holding off until loan rates come down.", "decision": "Buy the car now, or wait a year hoping for a lower loan rate?", "promise": "Using years of bank car-loan rates and new-car prices, we test how often waiting a year actually lowered the monthly payment.", "title": "Waiting a Year for a Lower Car Loan Rate: Does It Pay Off?", "thumbObject": "Car key on a wall calendar beside a downward rate arrow", "thumbText": "Wait or buy?"}, {"no": "17", "pillar": "Retirement and investing", "viewer": "Retirees in their 70s offered a funeral plan that locks today's prices if they pay the full amount now.", "decision": "Pay for my funeral now at today's price, or keep that money in safe savings until it is needed?", "promise": "We check how often money kept in T-bills grew fast enough to pay for the very same funeral years later.", "title": "Prepay Your Funeral or Save the Money? What History Says", "thumbObject": "Funeral home price list beside a glass jar of savings", "thumbText": "Lock or Save?"}, {"no": "18", "pillar": "Borrowing and debt", "viewer": "Drivers whose car lease is ending and who would need a loan to keep the car or replace it.", "decision": "Should you buy out the lease or turn it in and finance another car?", "promise": "We compare the paths using real used-car prices, loan terms, fees, taxes, and depreciation history.", "title": "Lease Buyout or Finance the Next Car?", "thumbObject": "Car keys on lease paperwork", "thumbText": "BUY OR RETURN"}]};
+const SHA = '10f6fa64fd087f194c437a52b1ff78d558e698711992127423dabca23e6d3d9a';
+const KEY = 'crux-topics-r2-' + SHA;
+const BUDGET = 9;
+const CHIPS = [['n', 'not me'], ['s', 'seen it'], ['v', 'vague promise'], ['h', 'hard to believe'], ['w', 'too narrow']];
+let st = { pick: {}, seen: {}, chips: {}, secs: {} }, i = 0, shownAt = null;
+try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.pick) st = s; } catch (e) {}
+const n = DATA.cards.length;
+const $ = id => document.getElementById(id);
+$('question').textContent = DATA.question;
+function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
+function tick() {
+  if (shownAt !== null) { const no = DATA.cards[i].no; st.secs[no] = (st.secs[no] || 0) + (Date.now() - shownAt) / 1000; shownAt = null; save(); }
+}
+function codeText() {
+  return 'R2-' + SHA.slice(0, 6) + ' ' + DATA.cards.map(c => c.no + ':' + (st.pick[c.no] ? 'y' : 'n') + ':' +
+    (st.chips[c.no] || []).join('') + ':' + Math.round(st.secs[c.no] || 0)).join(' ');
+}
+const nPicked = () => Object.values(st.pick).filter(Boolean).length;
+{
+  const t = document.createElement('button'); t.id = 'want'; t.className = 'want';
+  t.addEventListener('click', () => {
+    const no = DATA.cards[i].no;
+    if (!st.pick[no] && nPicked() >= BUDGET) { $('budgetNote').textContent = 'You already have ' + BUDGET + '. Unpick one first (Review all).'; return; }
+    st.pick[no] = !st.pick[no]; st.seen[no] = true; save(); paint();
+  });
+  const nx = document.createElement('button'); nx.id = 'next'; nx.className = 'nextb'; nx.textContent = 'Next topic';
+  nx.addEventListener('click', () => { tick(); st.seen[DATA.cards[i].no] = true; save(); if (i < n - 1) { i++; show(); } else showEnd(); });
+  $('ladder').appendChild(t); $('ladder').appendChild(nx);
+  const note = document.createElement('p'); note.className = 'hint'; note.id = 'budgetNote'; $('ladder').appendChild(note);
+}
+CHIPS.forEach(([k, label]) => {
+  const b = document.createElement('button'); b.className = 'chip'; b.dataset.k = k; b.id = 'chip' + k; b.textContent = label;
+  b.addEventListener('click', () => {
+    const no = DATA.cards[i].no, cur = new Set(st.chips[no] || []);
+    cur.has(k) ? cur.delete(k) : cur.add(k);
+    st.chips[no] = CHIPS.map(c => c[0]).filter(c => cur.has(c)); save(); paint();
+  });
+  $('chips').appendChild(b);
+});
+function paint() {
+  const c = DATA.cards[i];
+  const on = !!st.pick[c.no]; $('want').classList.toggle('on', on);
+  $('want').innerHTML = '<i>' + (on ? '✓' : '+') + '</i><span>' + (on ? 'Picked: want to make it' : 'Want to make it') + '</span>';
+  $('budgetNote').textContent = 'Picked ' + nPicked() + ' of ' + BUDGET + '. Pick exactly ' + BUDGET + ' of ' + n + '.';
+  document.querySelectorAll('.chip').forEach(b => b.classList.toggle('on', (st.chips[c.no] || []).includes(b.dataset.k)));
+}
+function show() {
+  const c = DATA.cards[i];
+  $('endView').hidden = true; $('cardView').hidden = false;
+  $('pos').textContent = 'Topic ' + c.no + ' of ' + n;
+  $('pillar').textContent = c.pillar;
+  $('tText').textContent = c.thumbText; $('tObj').textContent = c.thumbObject;
+  $('title').textContent = c.title; $('viewer').textContent = c.viewer;
+  $('decision').textContent = c.decision; $('promise').textContent = c.promise;
+  $('prev').disabled = i === 0;
+  paint(); progress(); shownAt = Date.now(); window.scrollTo(0, 0);
+}
+function progress() { $('prog').style.width = (100 * Object.keys(st.seen).length / n) + '%'; }
+function showEnd() {
+  tick();
+  $('cardView').hidden = true; $('endView').hidden = false;
+  const k = nPicked(), unseen = n - Object.keys(st.seen).length;
+  $('pos').textContent = 'Picked ' + k + ' of ' + BUDGET; $('pillar').textContent = '';
+  const ready = k === BUDGET;
+  $('endTitle').textContent = ready ? (unseen ? 'You have 9, but ' + unseen + ' topics are unseen' : 'Send this code in the chat') : (k < BUDGET ? 'Pick ' + (BUDGET - k) + ' more' : 'Unpick ' + (k - BUDGET));
+  $('code').textContent = ready ? codeText() : 'The code appears when exactly ' + BUDGET + ' topics are picked.'; $('copy').disabled = !ready;
+  const g = $('grid'); g.textContent = '';
+  DATA.cards.forEach((c, k) => {
+    const b = document.createElement('button');
+    b.textContent = c.no + ' · ' + (st.pick[c.no] ? '✓' : (st.seen[c.no] ? '–' : '?'));
+    if (st.pick[c.no]) b.classList.add('on');
+    b.addEventListener('click', () => { i = k; show(); });
+    g.appendChild(b);
+  });
+  progress();
+}
+$('prev').addEventListener('click', () => { if (i > 0) { tick(); i--; show(); } });
+$('toEnd').addEventListener('click', showEnd);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) tick(); else if (!$('cardView').hidden && shownAt === null) shownAt = Date.now();
+});
+$('copy').addEventListener('click', () => {
+  const t = codeText();
+  const ok = () => { $('copyNote').textContent = 'Copied. Paste it in the chat.'; };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents($('code'));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); $('copyNote').textContent = 'Code selected. Copy it and paste it in the chat.'; };
+  try { navigator.clipboard.writeText(t).then(ok, fallback); } catch (e) { fallback(); }
+});
+const first = DATA.cards.findIndex(c => !st.seen[c.no]);
+if (first < 0) showEnd(); else { i = first; show(); }
+</script>

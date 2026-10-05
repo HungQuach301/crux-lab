@@ -1,0 +1,211 @@
+{
+ "id": "debt-1",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "30-year mortgage paid off in 15 years vs 15-year mortgage cost difference": 3,
+      "15-year vs 30-year mortgage rate spread history should you take 30 and prepay": 3,
+      "take a 30-year mortgage and pay it like a 15-year: how much more interest": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MORTGAGE30US",
+    "file": "data/MORTGAGE30US.csv",
+    "sha256": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "declared": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "MORTGAGE15US",
+    "file": "data/MORTGAGE15US.csv",
+    "sha256": "5533aa2ff7d0b088425e870ec8464e187b0bc81a090ffaf9af34cab6dd3fe403",
+    "declared": "5533aa2ff7d0b088425e870ec8464e187b0bc81a090ffaf9af34cab6dd3fe403",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "n_weeks",
+    "declared": 1831,
+    "recomputed": 1831,
+    "ok": true
+   },
+   {
+    "id": "first_week",
+    "declared": "1991-08-30",
+    "recomputed": "1991-08-30",
+    "ok": true
+   },
+   {
+    "id": "last_week",
+    "declared": "2026-09-24",
+    "recomputed": "2026-09-24",
+    "ok": true
+   },
+   {
+    "id": "rate30_latest",
+    "declared": 7.03,
+    "recomputed": 7.03,
+    "ok": true
+   },
+   {
+    "id": "rate15_latest",
+    "declared": 6.42,
+    "recomputed": 6.42,
+    "ok": true
+   },
+   {
+    "id": "pay15_latest",
+    "declared": 2773.49,
+    "recomputed": 2773.49,
+    "ok": true
+   },
+   {
+    "id": "pay30on15_latest",
+    "declared": 2881.62,
+    "recomputed": 2881.62,
+    "ok": true
+   },
+   {
+    "id": "pay30_latest",
+    "declared": 2135.42,
+    "recomputed": 2135.42,
+    "ok": true
+   },
+   {
+    "id": "extra_month_latest",
+    "declared": 108.13,
+    "recomputed": 108.13,
+    "ok": true
+   },
+   {
+    "id": "extra_total_latest",
+    "declared": 19464,
+    "recomputed": 19464,
+    "ok": true
+   },
+   {
+    "id": "months_payoff_at_pay15",
+    "declared": 192.9,
+    "recomputed": 192.9,
+    "ok": true
+   },
+   {
+    "id": "spread_mean",
+    "declared": 0.57,
+    "recomputed": 0.57,
+    "ok": true
+   },
+   {
+    "id": "spread_min",
+    "declared": 0.2,
+    "recomputed": 0.2,
+    "ok": true
+   },
+   {
+    "id": "spread_max",
+    "declared": 1.0,
+    "recomputed": 1.0,
+    "ok": true
+   },
+   {
+    "id": "share_spread_ge_050",
+    "declared": 0.629,
+    "recomputed": 0.629,
+    "ok": true
+   },
+   {
+    "id": "extra_total_median",
+    "declared": 16594,
+    "recomputed": 16594,
+    "ok": true
+   },
+   {
+    "id": "extra_total_min",
+    "declared": 6097,
+    "recomputed": 6097,
+    "ok": true
+   },
+   {
+    "id": "extra_total_max",
+    "declared": 29502,
+    "recomputed": 29502,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "MORTGAGE30US",
+    "page": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "MORTGAGE15US",
+    "page": "https://fred.stlouisfed.org/series/MORTGAGE15US",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/MORTGAGE15US",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}

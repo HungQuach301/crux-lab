@@ -1,0 +1,192 @@
+<title>Crux Topic Picks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: one topic card per screen, a search-result style package on top (thumbnail sketch + title),
+   the viewer / decision / promise below, optional reason chips, then a five-step verdict ladder. */
+:root {
+  --bg: #eef2f1; --surface: #ffffff; --fg: #15211f; --muted: #566663; --line: #cfd9d6;
+  --accent: #1d5c4f; --accent-fg: #ffffff; --soft: #dfeae6; --thumb: #20302c; --thumb-fg: #f4f8f6;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1615; --surface: #17211f; --fg: #e3ece9; --muted: #98aaa5; --line: #2b3a37;
+  --accent: #7cc4b0; --accent-fg: #0c1714; --soft: #1f3530; --thumb: #0a100f; --thumb-fg: #eef5f2; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1615; --surface: #17211f; --fg: #e3ece9; --muted: #98aaa5; --line: #2b3a37;
+  --accent: #7cc4b0; --accent-fg: #0c1714; --soft: #1f3530; --thumb: #0a100f; --thumb-fg: #eef5f2; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 1rem; line-height: 1.45 }
+main { max-width: 36rem; margin: 0 auto; padding: 1rem 16px 2rem; display: grid; gap: 1rem }
+header { display: grid; gap: .4rem }
+.meta { display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap; font: 500 .75rem var(--mono);
+  color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-variant-numeric: tabular-nums }
+.bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden }
+.bar > i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s }
+.q { font-family: var(--display); font-size: 1.05rem; margin: 0; text-wrap: balance }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: grid; min-width: 0 }
+.thumb { background: var(--thumb); color: var(--thumb-fg); aspect-ratio: 16 / 9; max-width: 100%; display: grid;
+  grid-template-rows: 1fr auto; padding: .8rem .9rem; gap: .4rem }
+.thumb .txt { align-self: center; font: 600 clamp(1.4rem, 6vw, 2rem)/1.1 var(--sans); text-wrap: balance; margin: 0 }
+.thumb .obj { font-size: .78rem; opacity: .78; margin: 0 }
+.thumb .obj b { font: 500 .7rem var(--mono); text-transform: uppercase; letter-spacing: .06em; margin-right: .3rem }
+.body { padding: .9rem 1rem 1rem; display: grid; gap: .7rem }
+.title { font-family: var(--display); font-weight: 600; font-size: 1.28rem; line-height: 1.25; margin: 0; text-wrap: balance }
+dl { margin: 0; display: grid; gap: .55rem }
+dl div { display: grid; gap: .1rem }
+dt { font: 500 .7rem var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--muted) }
+dd { margin: 0 }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center }
+.chips span { font-size: .8rem; color: var(--muted); margin-right: .2rem }
+.chip { font: 400 .85rem var(--sans); border-radius: 999px; padding: .35rem .75rem; min-height: 2.2rem }
+.chip.on { background: var(--soft); border-color: var(--accent); color: var(--fg) }
+.ladder { display: grid; gap: .45rem }
+button { font: 600 1rem var(--sans); border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--fg); padding: .7rem .8rem; cursor: pointer; min-height: 3rem; text-align: left }
+.ladder button { display: grid; grid-template-columns: 1.6rem 1fr; gap: .5rem; align-items: center }
+.ladder button.nextb { display: block; text-align: center; font-weight: 400 }
+.ladder button i { font: 500 1rem var(--mono); font-style: normal; color: var(--accent) }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px }
+button.on { background: var(--accent); color: var(--accent-fg); border-color: var(--accent) }
+.ladder button.on i { color: var(--accent-fg) }
+.nav { display: flex; justify-content: space-between; gap: .5rem }
+.nav button { font-weight: 400; min-height: 2.6rem; padding: .5rem .9rem; text-align: center }
+.done { display: grid; gap: .75rem }
+.done h2 { font-family: var(--display); font-weight: 600; font-size: 1.3rem; margin: 0; text-wrap: balance }
+.code { font: 500 .85rem var(--mono); background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: .8rem; word-break: break-word; user-select: all }
+.hint { font-size: .85rem; color: var(--muted); margin: 0 }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem }
+.grid button { font: 500 .85rem var(--mono); min-height: 2.4rem; padding: .3rem; text-align: center }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none } }
+</style>
+
+<main>
+  <header>
+    <div class="meta"><span id="pos">Topic 01 of 18</span><span id="pillar"></span></div>
+    <div class="bar"><i id="prog"></i></div>
+    <p class="q" id="question"></p>
+  </header>
+
+  <section id="cardView" style="display:grid;gap:1rem" aria-live="polite">
+    <article class="card">
+      <div class="thumb"><p class="txt" id="tText"></p><p class="obj"><b>Image</b><span id="tObj"></span></p></div>
+      <div class="body">
+        <h1 class="title" id="title"></h1>
+        <dl>
+          <div><dt>For</dt><dd id="viewer"></dd></div>
+          <div><dt>Decision</dt><dd id="decision"></dd></div>
+          <div><dt>Promise</dt><dd id="promise"></dd></div>
+        </dl>
+      </div>
+    </article>
+    <div class="chips" id="chips"><span>Reasons, optional:</span></div>
+    <div class="ladder" id="ladder"></div>
+    <div class="nav"><button id="prev">Back</button><button id="toEnd">Review all</button></div>
+  </section>
+
+  <section id="endView" class="done" hidden>
+    <h2 id="endTitle">Send this code in the chat</h2>
+    <div class="code" id="code"></div>
+    <button id="copy" style="text-align:center">Copy code</button>
+    <p class="hint" id="copyNote">Each item is topic:picked:reasons:seconds. Tap a topic below to change it.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<script>
+const DATA = /*CARDS_JSON*/null;
+const SHA = /*CARDS_SHA*/'';
+const KEY = 'crux-topics-r2-' + SHA;
+const BUDGET = 9;
+const CHIPS = [['n', 'not me'], ['s', 'seen it'], ['v', 'vague promise'], ['h', 'hard to believe'], ['w', 'too narrow']];
+let st = { pick: {}, seen: {}, chips: {}, secs: {} }, i = 0, shownAt = null;
+try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.pick) st = s; } catch (e) {}
+const n = DATA.cards.length;
+const $ = id => document.getElementById(id);
+$('question').textContent = DATA.question;
+function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
+function tick() {
+  if (shownAt !== null) { const no = DATA.cards[i].no; st.secs[no] = (st.secs[no] || 0) + (Date.now() - shownAt) / 1000; shownAt = null; save(); }
+}
+function codeText() {
+  return 'R2-' + SHA.slice(0, 6) + ' ' + DATA.cards.map(c => c.no + ':' + (st.pick[c.no] ? 'y' : 'n') + ':' +
+    (st.chips[c.no] || []).join('') + ':' + Math.round(st.secs[c.no] || 0)).join(' ');
+}
+const nPicked = () => Object.values(st.pick).filter(Boolean).length;
+{
+  const t = document.createElement('button'); t.id = 'want'; t.className = 'want';
+  t.addEventListener('click', () => {
+    const no = DATA.cards[i].no;
+    if (!st.pick[no] && nPicked() >= BUDGET) { $('budgetNote').textContent = 'You already have ' + BUDGET + '. Unpick one first (Review all).'; return; }
+    st.pick[no] = !st.pick[no]; st.seen[no] = true; save(); paint();
+  });
+  const nx = document.createElement('button'); nx.id = 'next'; nx.className = 'nextb'; nx.textContent = 'Next topic';
+  nx.addEventListener('click', () => { tick(); st.seen[DATA.cards[i].no] = true; save(); if (i < n - 1) { i++; show(); } else showEnd(); });
+  $('ladder').appendChild(t); $('ladder').appendChild(nx);
+  const note = document.createElement('p'); note.className = 'hint'; note.id = 'budgetNote'; $('ladder').appendChild(note);
+}
+CHIPS.forEach(([k, label]) => {
+  const b = document.createElement('button'); b.className = 'chip'; b.dataset.k = k; b.id = 'chip' + k; b.textContent = label;
+  b.addEventListener('click', () => {
+    const no = DATA.cards[i].no, cur = new Set(st.chips[no] || []);
+    cur.has(k) ? cur.delete(k) : cur.add(k);
+    st.chips[no] = CHIPS.map(c => c[0]).filter(c => cur.has(c)); save(); paint();
+  });
+  $('chips').appendChild(b);
+});
+function paint() {
+  const c = DATA.cards[i];
+  const on = !!st.pick[c.no]; $('want').classList.toggle('on', on);
+  $('want').innerHTML = '<i>' + (on ? '✓' : '+') + '</i><span>' + (on ? 'Picked: want to make it' : 'Want to make it') + '</span>';
+  $('budgetNote').textContent = 'Picked ' + nPicked() + ' of ' + BUDGET + '. Pick exactly ' + BUDGET + ' of ' + n + '.';
+  document.querySelectorAll('.chip').forEach(b => b.classList.toggle('on', (st.chips[c.no] || []).includes(b.dataset.k)));
+}
+function show() {
+  const c = DATA.cards[i];
+  $('endView').hidden = true; $('cardView').hidden = false;
+  $('pos').textContent = 'Topic ' + c.no + ' of ' + n;
+  $('pillar').textContent = c.pillar;
+  $('tText').textContent = c.thumbText; $('tObj').textContent = c.thumbObject;
+  $('title').textContent = c.title; $('viewer').textContent = c.viewer;
+  $('decision').textContent = c.decision; $('promise').textContent = c.promise;
+  $('prev').disabled = i === 0;
+  paint(); progress(); shownAt = Date.now(); window.scrollTo(0, 0);
+}
+function progress() { $('prog').style.width = (100 * Object.keys(st.seen).length / n) + '%'; }
+function showEnd() {
+  tick();
+  $('cardView').hidden = true; $('endView').hidden = false;
+  const k = nPicked(), unseen = n - Object.keys(st.seen).length;
+  $('pos').textContent = 'Picked ' + k + ' of ' + BUDGET; $('pillar').textContent = '';
+  const ready = k === BUDGET;
+  $('endTitle').textContent = ready ? (unseen ? 'You have 9, but ' + unseen + ' topics are unseen' : 'Send this code in the chat') : (k < BUDGET ? 'Pick ' + (BUDGET - k) + ' more' : 'Unpick ' + (k - BUDGET));
+  $('code').textContent = ready ? codeText() : 'The code appears when exactly ' + BUDGET + ' topics are picked.'; $('copy').disabled = !ready;
+  const g = $('grid'); g.textContent = '';
+  DATA.cards.forEach((c, k) => {
+    const b = document.createElement('button');
+    b.textContent = c.no + ' · ' + (st.pick[c.no] ? '✓' : (st.seen[c.no] ? '–' : '?'));
+    if (st.pick[c.no]) b.classList.add('on');
+    b.addEventListener('click', () => { i = k; show(); });
+    g.appendChild(b);
+  });
+  progress();
+}
+$('prev').addEventListener('click', () => { if (i > 0) { tick(); i--; show(); } });
+$('toEnd').addEventListener('click', showEnd);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) tick(); else if (!$('cardView').hidden && shownAt === null) shownAt = Date.now();
+});
+$('copy').addEventListener('click', () => {
+  const t = codeText();
+  const ok = () => { $('copyNote').textContent = 'Copied. Paste it in the chat.'; };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents($('code'));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); $('copyNote').textContent = 'Code selected. Copy it and paste it in the chat.'; };
+  try { navigator.clipboard.writeText(t).then(ok, fallback); } catch (e) { fallback(); }
+});
+const first = DATA.cards.findIndex(c => !st.seen[c.no]);
+if (first < 0) showEnd(); else { i = first; show(); }
+</script>

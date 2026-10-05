@@ -1,0 +1,118 @@
+{
+ "id": "debt-4",
+ "claim": "On $35,000 over 60 months at the May 2026 bank rate (7.14%) the payment is $695.36; a full point lower would cut it by only $16.43. In 76 one-year waits from August 2006 to May 2025 (bank rate now vs a year later, car price moved with the new-vehicle price index), waiting lowered the payment in 38.2% of cases; the median wait raised it by $1.17 a month. The rate fell in 50 of the 76 years, but the payment fell in only 52% of those, because prices rose (median +0.54%) and the largest one-year rate drop was 1.08 points. The best wait saved $27.82 a month. History, not a forecast.",
+ "numbers": [
+  {
+   "id": "n_pairs",
+   "unit": "pairs",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Number of pairs."
+  },
+  {
+   "id": "first_pair",
+   "unit": "date",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. First buy-now month a."
+  },
+  {
+   "id": "last_pair",
+   "unit": "date",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Last buy-now month a."
+  },
+  {
+   "id": "share_payment_lower",
+   "unit": "share",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Share of pairs with payment change < 0, rounded to 0.001."
+  },
+  {
+   "id": "median_payment_change",
+   "unit": "dollars per month",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Median payment change, rounded to cents."
+  },
+  {
+   "id": "n_rate_fell",
+   "unit": "pairs",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Number of pairs with rate[b] < rate[a]."
+  },
+  {
+   "id": "share_lower_when_rate_fell",
+   "unit": "share",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Among pairs with rate[b] < rate[a], share with payment change < 0, rounded to 0.001."
+  },
+  {
+   "id": "largest_rate_drop",
+   "unit": "percentage points",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Minimum of rate[b]-rate[a], rounded to 0.01."
+  },
+  {
+   "id": "largest_rate_rise",
+   "unit": "percentage points",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Maximum of rate[b]-rate[a], rounded to 0.01."
+  },
+  {
+   "id": "best_payment_change",
+   "unit": "dollars per month",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Minimum payment change (largest drop), rounded to cents."
+  },
+  {
+   "id": "median_price_change",
+   "unit": "percent",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Median of (CPI[b]/CPI[a]-1)*100, rounded to 0.01."
+  },
+  {
+   "id": "rate_latest_month",
+   "unit": "date",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Latest month with a rate (2026-05-01)."
+  },
+  {
+   "id": "rate_latest",
+   "unit": "percent",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Rate in 2026-05."
+  },
+  {
+   "id": "pay_latest",
+   "unit": "dollars per month",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Payment on $35,000 for 60 months at the 2026-05 rate (7.14%), rounded to cents."
+  },
+  {
+   "id": "one_point_effect",
+   "unit": "dollars per month",
+   "definition": "Data: data/RIFLPBCIANM60NM.csv (FRED; finance rate on consumer installment loans at commercial banks, new autos, 60-month loan, percent; reported once a quarter, blank months skipped) and data/CUUR0000SETA01.csv (FRED; consumer price index, new vehicles, U.S. city average, not seasonally adjusted). Pairs: a month a with a rate and the same month a year later b with a rate, CPI at both. Buy now: $35,000 at rate[a]; wait: price 35,000*CPI[b]/CPI[a] at rate[b]; 60-month level payment P*x/(1-(1+x)^-60), x=rate/1200. Payment change = wait payment - buy-now payment. Payment on $35,000 for 60 months at 7.14% minus the payment at 6.14%, rounded to cents."
+  }
+ ],
+ "assumptions": [
+  "Loan $35,000 now, 60 months, level payments, no down payment change, fees or trade-in.",
+  "The car price a year later moves with the new-vehicle consumer price index (quality-adjusted), not sticker prices or incentives.",
+  "Bank survey rates stand for the rate the shopper would get; dealer, captive and credit-union rates are not modeled.",
+  "Costs of keeping the old car (repairs, fuel) are not counted."
+ ],
+ "series": [
+  {
+   "id": "RIFLPBCIANM60NM",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RIFLPBCIANM60NM&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM",
+   "file": "data/RIFLPBCIANM60NM.csv",
+   "sha256": "9ad2b52516e6d3df52d0bebf7a7dd80dd88679c2e57d1837cfcc008454b050fa",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-05-01",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/RIFLPBCIANM60NM"
+   }
+  },
+  {
+   "id": "CUUR0000SETA01",
+   "provider": "FRED, Federal Reserve Bank of St. Louis",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUUR0000SETA01&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CUUR0000SETA01",
+   "file": "data/CUUR0000SETA01.csv",
+   "sha256": "abbc46cffdbfcd35e4d8b5f6c67cabd24c6391e589af544e558373c407902ef6",
+   "retrieved": "2026-10-01",
+   "lastObservation": "2026-08-01",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CUUR0000SETA01"
+   }
+  }
+ ],
+ "provisions": []
+}

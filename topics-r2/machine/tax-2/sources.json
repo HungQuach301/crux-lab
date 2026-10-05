@@ -1,0 +1,48 @@
+{
+ "series": [
+  {
+   "id": "TERMCBCCINTNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, G.19 Consumer Credit; commercial bank interest rate on credit card plans, accounts assessed interest)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TERMCBCCINTNS&cosd=1994-11-01&coed=2026-05-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/TERMCBCCINTNS",
+   "file": "data/TERMCBCCINTNS.csv",
+   "sha256": "bb3976b121fab9443ba38b23eecdfe524757c4b3159dbafdb8df6c603c81bf61",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-05-01",
+    "value": "22.15"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TERMCBCCINTNS"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "26 U.S.C. 72(t)(1) (10-percent additional tax on early distributions)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "shall be increased by an amount equal to 10 percent of the portion of such amount which is includible in gross income"
+  },
+  {
+   "cite": "26 U.S.C. 72(t)(2)(I)(ii) (one emergency personal expense distribution per calendar year)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "Not more than 1 distribution per calendar year may be treated as an emergency personal expense distribution by any individual."
+  },
+  {
+   "cite": "26 U.S.C. 72(t)(2)(I)(iii) (dollar limitation)",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "shall not exceed the lesser of $1,000 or an amount equal to the excess of"
+  },
+  {
+   "cite": "26 U.S.C. 72(t)(2)(I)(vi) (repayment, by reference to the 3-year rules of subparagraph (H)(v))",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "Rules similar to the rules of subparagraph (H)(v) shall apply with respect to an individual who receives a distribution to which clause (i) applies."
+  },
+  {
+   "cite": "26 U.S.C. 72(t)(2)(H)(v)(I) (3-year repayment window, applied to emergency distributions by 72(t)(2)(I)(vi))",
+   "url": "https://www.law.cornell.edu/uscode/text/26/72",
+   "quote": "at any time during the 3-year period beginning on the day after the date on which such distribution was received, make one or more contributions in an aggregate amount not to exceed the amount of such distribution"
+  }
+ ]
+}

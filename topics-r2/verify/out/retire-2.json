@@ -1,0 +1,193 @@
+{
+ "id": "retire-2",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "give children inheritance early for down payment vs leave inheritance later home prices rising analysis": 3,
+      "\"living inheritance\" help kids buy a house now or wait historical home price growth vs savings": 3,
+      "parents gift down payment now versus later how much less house will the money buy in 10 years": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "USSTHPI",
+    "file": "data/USSTHPI.csv",
+    "sha256": "c02d4187c8c9836d4049fe2005ab34129326e7538d2cd923173c2839ca25df16",
+    "declared": "c02d4187c8c9836d4049fe2005ab34129326e7538d2cd923173c2839ca25df16",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "TB3MS",
+    "file": "data/TB3MS.csv",
+    "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "declared": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "starts_10y",
+    "declared": 166,
+    "recomputed": 166,
+    "ok": true
+   },
+   {
+    "id": "first_start_10y",
+    "declared": "1975-01-01",
+    "recomputed": "1975-01-01",
+    "ok": true
+   },
+   {
+    "id": "last_start_10y",
+    "declared": "2016-04-01",
+    "recomputed": "2016-04-01",
+    "ok": true
+   },
+   {
+    "id": "share_gift_buys_less_10y_pct",
+    "declared": 44.6,
+    "recomputed": 44.6,
+    "ok": true
+   },
+   {
+    "id": "median_coverage_10y_pct",
+    "declared": 103.9,
+    "recomputed": 103.9,
+    "ok": true
+   },
+   {
+    "id": "min_coverage_10y_pct",
+    "declared": 53.3,
+    "recomputed": 53.3,
+    "ok": true
+   },
+   {
+    "id": "max_coverage_10y_pct",
+    "declared": 148.1,
+    "recomputed": 148.1,
+    "ok": true
+   },
+   {
+    "id": "starts_since_1990_10y",
+    "declared": 106,
+    "recomputed": 106,
+    "ok": true
+   },
+   {
+    "id": "share_gift_buys_less_10y_since_1990_pct",
+    "declared": 69.8,
+    "recomputed": 69.8,
+    "ok": true
+   },
+   {
+    "id": "latest_coverage_10y_pct",
+    "declared": 64.8,
+    "recomputed": 64.8,
+    "ok": true
+   },
+   {
+    "id": "starts_20y",
+    "declared": 126,
+    "recomputed": 126,
+    "ok": true
+   },
+   {
+    "id": "share_gift_buys_less_20y_pct",
+    "declared": 53.2,
+    "recomputed": 53.2,
+    "ok": true
+   },
+   {
+    "id": "latest_coverage_20y_pct",
+    "declared": 71.6,
+    "recomputed": 71.6,
+    "ok": true
+   },
+   {
+    "id": "home_price_growth_annual_pct",
+    "declared": 4.97,
+    "recomputed": 4.97,
+    "ok": true
+   },
+   {
+    "id": "tbill_growth_annual_pct",
+    "declared": 4.37,
+    "recomputed": 4.37,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "USSTHPI",
+    "page": "https://fred.stlouisfed.org/series/USSTHPI",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/USSTHPI",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "TB3MS",
+    "page": "https://fred.stlouisfed.org/series/TB3MS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/TB3MS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}

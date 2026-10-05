@@ -1,0 +1,264 @@
+{
+ "id": "tax-2",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "401(k) $1,000 emergency withdrawal vs credit card which costs more tax compared to interest": 3,
+      "emergency personal expense distribution $1,000 401(k) vs credit card interest how many months break even": 3,
+      "is the new $1,000 401(k) emergency withdrawal cheaper than putting the bill on a credit card": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "TERMCBCCINTNS",
+    "file": "data/TERMCBCCINTNS.csv",
+    "sha256": "bb3976b121fab9443ba38b23eecdfe524757c4b3159dbafdb8df6c603c81bf61",
+    "declared": "bb3976b121fab9443ba38b23eecdfe524757c4b3159dbafdb8df6c603c81bf61",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "observations",
+    "declared": 127,
+    "recomputed": 127,
+    "ok": true
+   },
+   {
+    "id": "first_obs",
+    "declared": "1994-11",
+    "recomputed": "1994-11",
+    "ok": true
+   },
+   {
+    "id": "last_obs",
+    "declared": "2026-05",
+    "recomputed": "2026-05",
+    "ok": true
+   },
+   {
+    "id": "apr_last_pct",
+    "declared": 22.15,
+    "recomputed": 22.15,
+    "ok": true
+   },
+   {
+    "id": "tax_12_usd",
+    "declared": 120.0,
+    "recomputed": 120.0,
+    "ok": true
+   },
+   {
+    "id": "tax_22_usd",
+    "declared": 220.0,
+    "recomputed": 220.0,
+    "ok": true
+   },
+   {
+    "id": "months_12_last",
+    "declared": 12,
+    "recomputed": 12,
+    "ok": true
+   },
+   {
+    "id": "months_22_last",
+    "declared": 22,
+    "recomputed": 22,
+    "ok": true
+   },
+   {
+    "id": "interest_12mo_last_usd",
+    "declared": 124.0,
+    "recomputed": 124.0,
+    "ok": true
+   },
+   {
+    "id": "interest_24mo_last_usd",
+    "declared": 246.85,
+    "recomputed": 246.85,
+    "ok": true
+   },
+   {
+    "id": "interest_6mo_last_usd",
+    "declared": 65.59,
+    "recomputed": 65.59,
+    "ok": true
+   },
+   {
+    "id": "apr_min_pct",
+    "declared": 11.96,
+    "recomputed": 11.96,
+    "ok": true
+   },
+   {
+    "id": "apr_min_obs",
+    "declared": "2003-02",
+    "recomputed": "2003-02",
+    "ok": true
+   },
+   {
+    "id": "months_12_at_min",
+    "declared": 23,
+    "recomputed": 23,
+    "ok": true
+   },
+   {
+    "id": "apr_max_pct",
+    "declared": 23.37,
+    "recomputed": 23.37,
+    "ok": true
+   },
+   {
+    "id": "apr_max_obs",
+    "declared": "2024-08",
+    "recomputed": "2024-08",
+    "ok": true
+   },
+   {
+    "id": "months_12_at_max",
+    "declared": 11,
+    "recomputed": 11,
+    "ok": true
+   },
+   {
+    "id": "months_12_median",
+    "declared": 18,
+    "recomputed": 18,
+    "ok": true
+   },
+   {
+    "id": "months_22_median",
+    "declared": 33,
+    "recomputed": 33,
+    "ok": true
+   },
+   {
+    "id": "months_12_min",
+    "declared": 11,
+    "recomputed": 11,
+    "ok": true
+   },
+   {
+    "id": "months_12_max",
+    "declared": 23,
+    "recomputed": 23,
+    "ok": true
+   },
+   {
+    "id": "months_22_min",
+    "declared": 21,
+    "recomputed": 21,
+    "ok": true
+   },
+   {
+    "id": "months_22_max",
+    "declared": 41,
+    "recomputed": 41,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "TERMCBCCINTNS",
+    "page": "https://fred.stlouisfed.org/series/TERMCBCCINTNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/TERMCBCCINTNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [
+   {
+    "cite": "26 U.S.C. 72(t)(1) (10-percent additional tax on early distributions)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/72",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 72(t)(2)(I)(ii) (one emergency personal expense distribution per calendar year)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/72",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 72(t)(2)(I)(iii) (dollar limitation)",
+    "url": "https://www.law.cornell.edu/uscode/text/26/72",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 72(t)(2)(I)(vi) (repayment, by reference to the 3-year rules of subparagraph (H)(v))",
+    "url": "https://www.law.cornell.edu/uscode/text/26/72",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "cite": "26 U.S.C. 72(t)(2)(H)(v)(I) (3-year repayment window, applied to emergency distributions by 72(t)(2)(I)(vi))",
+    "url": "https://www.law.cornell.edu/uscode/text/26/72",
+    "official": true,
+    "status": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "ok_V01245": true
+}

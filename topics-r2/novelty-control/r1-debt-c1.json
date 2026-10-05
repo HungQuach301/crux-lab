@@ -1,0 +1,85 @@
+{
+  "id": "r1-debt-c1",
+  "decision": "Refinance the 7% mortgage to 6.5%, or keep the loan?",
+  "queries": [
+    "refinance 7% mortgage to 6.5% worth it closing costs break-even",
+    "refinance break-even historical data how long homeowners stay moving rate study",
+    "optimal mortgage refinancing rate differential research Agarwal Driscoll Laibson"
+  ],
+  "results": [
+    {
+      "query": "refinance 7% mortgage to 6.5% worth it closing costs break-even",
+      "title": "My Mortgage Rate is 6.5%. Should I Refinance If Rates Fall By Half a Point",
+      "url": "https://www.kiplinger.com/real-estate/mortgages/when-to-refinance"
+    },
+    {
+      "query": "refinance 7% mortgage to 6.5% worth it closing costs break-even",
+      "title": "Is Refinancing Worth It? 7% to 6.5% Rate Drop Analysi",
+      "url": "https://www.gofincast.com/blog/is-refinancing-worth-it-7-to-6-5-analysis"
+    },
+    {
+      "query": "refinance 7% mortgage to 6.5% worth it closing costs break-even",
+      "title": "Refinance Break-Even Calculator 2026: Should You Refi? [Free Tool]",
+      "url": "https://mortgage-info.com/calculators/refinance-break-even-calculator"
+    },
+    {
+      "query": "refinance 7% mortgage to 6.5% worth it closing costs break-even",
+      "title": "When Is It Worth It to Refinance Your Mortgage?",
+      "url": "https://themortgagereports.com/51755/should-i-refinance-for-quarter-percent-lower-refinance-rates"
+    },
+    {
+      "query": "refinance break-even historical data how long homeowners stay moving rate study",
+      "title": "Do Homeowners Miss Out? A Study of Mortgage Refinancing Using Micro-Data - DSI",
+      "url": "https://datasciences.utoronto.ca/do-homeowners-miss-out-a-study-of-mortgage-refinancing-using-micro-data/"
+    },
+    {
+      "query": "refinance break-even historical data how long homeowners stay moving rate study",
+      "title": "Mortgage Refinance Breakeven Calculator: Should You Refi Your Home Loan?",
+      "url": "https://www.mortgagecalculator.org/calcs/refinance-breakeven.php"
+    },
+    {
+      "query": "refinance break-even historical data how long homeowners stay moving rate study",
+      "title": "Three Million Borrowers 'In The Money'",
+      "url": "https://nationalmortgageprofessional.com/news/three-million-borrowers-money"
+    },
+    {
+      "query": "optimal mortgage refinancing rate differential research Agarwal Driscoll Laibson",
+      "title": "Optimal Mortgage Refinancing: A Closed Form Solution - PMC",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4381666/"
+    },
+    {
+      "query": "optimal mortgage refinancing rate differential research Agarwal Driscoll Laibson",
+      "title": "Optimal Mortgage Refinancing: A Closed-Form Solution - Journal of Money, Credit and Banking",
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/jmcb.12017"
+    },
+    {
+      "query": "optimal mortgage refinancing rate differential research Agarwal Driscoll Laibson",
+      "title": "The Case of Mortgage Refinancing (Fed FEDS paper)",
+      "url": "https://www.federalreserve.gov/econres/feds/files/2017067pap.pdf"
+    },
+    {
+      "query": "optimal mortgage refinancing rate differential research Agarwal Driscoll Laibson",
+      "title": "Regional Variation in Transaction Costs, Mortgage Rate Heterogeneity and ... (FDIC)",
+      "url": "https://www.fdic.gov/center-financial-research/regional-variation-transaction-costs-mortgage-rate-heterogeneity-and"
+    }
+  ],
+  "verdict": "answered-with-data",
+  "nearest": [
+    {
+      "title": "Optimal Mortgage Refinancing: A Closed Form Solution (Agarwal, Driscoll, Laibson)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4381666/",
+      "why": "Calibrated rule using closing costs, taxes, rate volatility and moving/prepayment hazard; finds optimal differential ~100-200bp, directly implying a 50bp refi is usually not optimal."
+    },
+    {
+      "title": "Is Refinancing Worth It? 7% to 6.5% Rate Drop Analysi",
+      "url": "https://www.gofincast.com/blog/is-refinancing-worth-it-7-to-6-5-analysis",
+      "why": "Exact 7%->6.5% framing with break-even math (rule-of-thumb level)."
+    },
+    {
+      "title": "Refinance break-even calculators (mortgage-info.com, mortgagecalculator.org)",
+      "url": "https://www.mortgagecalculator.org/calcs/refinance-breakeven.php",
+      "why": "Tools that compute break-even for the viewer's own numbers."
+    }
+  ],
+  "note": "Popular content is break-even rule of thumb, but the academic literature (ADL closed-form rule, Fed/FDIC refinancing papers) already answers the 'how big a rate drop' question with calibrated data including moving probability, costs, and taxes. Strictly, an existing data-backed answer exists; a historical-path backtest for viewers would be a presentation upgrade, not novel."
+}

@@ -1,0 +1,95 @@
+{
+ "id": "r1-tax-c2",
+ "decision": "Should you make pre-tax Solo 401(k) contributions instead of Roth contributions?",
+ "queries": [
+  "Solo 401(k) pre-tax vs Roth ACA premium tax credit self-employed",
+  "traditional 401k contributions lower MAGI increase ACA subsidy effective marginal tax rate analysis",
+  "Roth vs traditional self-employed health insurance subsidy calculator ACA cliff"
+ ],
+ "results": [
+  {
+   "query": "Solo 401(k) pre-tax vs Roth ACA premium tax credit self-employed",
+   "title": "A guide to solo 401(k)s for self-employed individuals (Betterment)",
+   "url": "https://www.betterment.com/resources/solo-401k-guide-for-self-employed"
+  },
+  {
+   "query": "Solo 401(k) pre-tax vs Roth ACA premium tax credit self-employed",
+   "title": "Adjusted Gross Income: The Key to Lower Taxes and Smarter Financial Planning - Solo 401k",
+   "url": "https://www.solo401k.com/blog/adjusted-gross-income/"
+  },
+  {
+   "query": "Solo 401(k) pre-tax vs Roth ACA premium tax credit self-employed",
+   "title": "Solo 401(k) Roth 2026",
+   "url": "https://www.sdocpa.com/solo-401k-roth/"
+  },
+  {
+   "query": "Solo 401(k) pre-tax vs Roth ACA premium tax credit self-employed",
+   "title": "Solo 401k Pre-Tax Contributions Help Grow Your Retirement Wealth",
+   "url": "https://www.solo401k.com/blog/solo-401k-pre-tax-contributions-tax-deferred/"
+  },
+  {
+   "query": "traditional 401k contributions lower MAGI increase ACA subsidy effective marginal tax rate analysis",
+   "title": "Marginal tax rates under the ACA",
+   "url": "https://seattlecyclone.com/marginal-tax-rates-under-the-aca/"
+  },
+  {
+   "query": "traditional 401k contributions lower MAGI increase ACA subsidy effective marginal tax rate analysis",
+   "title": "How to Lower Your MAGI for a Bigger ACA Subsidy in 2026",
+   "url": "https://subsidycalc.com/blog/lower-magi-aca-subsidy.html"
+  },
+  {
+   "query": "traditional 401k contributions lower MAGI increase ACA subsidy effective marginal tax rate analysis",
+   "title": "MAGI Calculator for ACA Subsidies (2026) - SubsidyGuard",
+   "url": "https://subsidyguard.narrowcast.dev/blog/magi-calculator/"
+  },
+  {
+   "query": "traditional 401k contributions lower MAGI increase ACA subsidy effective marginal tax rate analysis",
+   "title": "Submerged state update: Obamacare's gift of the MAGI",
+   "url": "https://xpostfactoid.substack.com/p/submerged-state-update-obamacares-13-06-05"
+  },
+  {
+   "query": "Roth vs traditional self-employed health insurance subsidy calculator ACA cliff",
+   "title": "The ACA Premium Subsidy Cliff After the 2025 Trump Tax Law",
+   "url": "https://thefinancebuff.com/stay-under-obamacare-premium-subsidy-cliff.html"
+  },
+  {
+   "query": "Roth vs traditional self-employed health insurance subsidy calculator ACA cliff",
+   "title": "Self-Employed ACA Subsidy Calculator - The Finance Buff",
+   "url": "https://thefinancebuff.com/self-employed-aca-subsidy-calculator"
+  },
+  {
+   "query": "Roth vs traditional self-employed health insurance subsidy calculator ACA cliff",
+   "title": "Roth Conversion and Capital Gains on ACA Health Insurance",
+   "url": "https://thefinancebuff.com/tax-calculator-aca-obamacare-subsidy.html"
+  },
+  {
+   "query": "Roth vs traditional self-employed health insurance subsidy calculator ACA cliff",
+   "title": "The 2026 ACA Subsidy Cliff: A Planning Guide for Early Retirees and the Self-Employed",
+   "url": "https://www.healthyfp.com/our-blog-post/2026-aca-subsidy-cliff-early-retirees"
+  },
+  {
+   "query": "Roth vs traditional self-employed health insurance subsidy calculator ACA cliff",
+   "title": "ACA Subsidy Cliff Calculator 2026",
+   "url": "https://statecalc.com/health-insurance/aca-subsidy-cliff-calculator/"
+  }
+ ],
+ "verdict": "answered-with-data",
+ "nearest": [
+  {
+   "title": "Self-Employed ACA Subsidy Calculator - The Finance Buff",
+   "url": "https://thefinancebuff.com/self-employed-aca-subsidy-calculator",
+   "why": "Spreadsheet tool computing self-employed tax plus premium tax credit, used to compare pre-tax retirement contributions vs Roth."
+  },
+  {
+   "title": "Marginal tax rates under the ACA",
+   "url": "https://seattlecyclone.com/marginal-tax-rates-under-the-aca/",
+   "why": "Quantifies effective marginal rates from PTC phase-out, the core of the pre-tax vs Roth tradeoff."
+  },
+  {
+   "title": "The ACA Premium Subsidy Cliff After the 2025 Trump Tax Law",
+   "url": "https://thefinancebuff.com/stay-under-obamacare-premium-subsidy-cliff.html",
+   "why": "Discusses using pre-tax contributions to stay under the 2026 cliff with numbers."
+  }
+ ],
+ "note": "Mechanism (pre-tax lowers MAGI, raises PTC; Roth does not) is widely stated, and existing calculators (Finance Buff self-employed ACA calculator) let users compute the tradeoff. No found article specifically simulates Solo 401(k) Roth vs pre-tax for couples across income ranges, so a scenario sweep could add some value, but the decision is already answerable with existing tools; strictly judged answered-with-data."
+}

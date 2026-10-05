@@ -1,0 +1,104 @@
+{
+ "answer": "History, not a forecast. Money held 10 years in rolling 3-month T-bills instead of being given at once bought a smaller share of the same (national-average) home in 44.6% of start quarters from 1975 to 2016 (166 starts); the median delayed gift matched 103.9% of the original share, but the range ran from 53.3% to 148.1%. It was a matter of era: for starts since 1990 the delayed gift bought less in 69.8% of quarters, and the latest 10-year wait (Apr 2016 to Apr 2026) left it matching only 64.8% of what it would have covered at the start. Over 20 years the delayed gift bought less in 53.2% of starts; the latest 20-year wait matched 71.6%. Since 1975 national home prices rose 4.97% a year and T-bills paid 4.37%.",
+ "guess": "Parents holding the money in safe savings would guess it roughly keeps pace with home prices, so giving it in 10 years is about the same as giving it now (or, the opposite camp, that home prices always outrun savings).",
+ "changesDecision": "Neither guess holds across history: before 1990 high T-bill rates often let the waiting money keep up or pull ahead, while in most starts since 1990, and clearly in the latest decade, the same money covered a third less of the home after 10 years. For parents whose reason to wait is to keep the money growing safely, this shows the cost of waiting depends on the rate era and has been large recently; it does not say what the child should buy or when. No forecast of home prices or rates is made.",
+ "numbers": [
+  {
+   "id": "starts_10y",
+   "value": 166,
+   "unit": "start quarters",
+   "definition": "Number of 10-year windows. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "first_start_10y",
+   "value": "1975-01-01",
+   "unit": "date",
+   "definition": "First start quarter of the 10-year windows. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "last_start_10y",
+   "value": "2016-04-01",
+   "unit": "date",
+   "definition": "Last start quarter of the 10-year windows (ends 2026-04-01). Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "share_gift_buys_less_10y_pct",
+   "value": 44.6,
+   "unit": "percent of start quarters",
+   "definition": "100 x (10-year windows with C < 1) / starts_10y, rounded to 0.1. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "median_coverage_10y_pct",
+   "value": 103.9,
+   "unit": "percent of the home price share",
+   "definition": "Median of 100 x C over the 10-year windows, rounded to 0.1. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "min_coverage_10y_pct",
+   "value": 53.3,
+   "unit": "percent of the home price share",
+   "definition": "Minimum of 100 x C over the 10-year windows, rounded to 0.1. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "max_coverage_10y_pct",
+   "value": 148.1,
+   "unit": "percent of the home price share",
+   "definition": "Maximum of 100 x C over the 10-year windows, rounded to 0.1. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "starts_since_1990_10y",
+   "value": 106,
+   "unit": "start quarters",
+   "definition": "Number of 10-year windows with s >= 1990-01-01. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "share_gift_buys_less_10y_since_1990_pct",
+   "value": 69.8,
+   "unit": "percent of start quarters",
+   "definition": "100 x (10-year windows with s >= 1990-01-01 and C < 1) / starts_since_1990_10y, rounded to 0.1. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "latest_coverage_10y_pct",
+   "value": 64.8,
+   "unit": "percent of the home price share",
+   "definition": "100 x C for s = 2016-04-01 (T-bill months 2016-04 .. 2026-03; home prices 2016-04-01 vs 2026-04-01), rounded to 0.1. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "starts_20y",
+   "value": 126,
+   "unit": "start quarters",
+   "definition": "Number of 20-year windows (n = 240). Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "share_gift_buys_less_20y_pct",
+   "value": 53.2,
+   "unit": "percent of start quarters",
+   "definition": "100 x (20-year windows with C < 1) / starts_20y, rounded to 0.1. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "latest_coverage_20y_pct",
+   "value": 71.6,
+   "unit": "percent of the home price share",
+   "definition": "100 x C for the 20-year window starting 2006-04-01 (ends 2026-04-01), rounded to 0.1. Home price index H = USSTHPI (all-transactions house price index for the United States, quarterly, not seasonally adjusted, index 1980 Q1=100, observations dated the first day of each quarter, 1975-01-01 .. 2026-04-01; pinned FRED CSV coed=2026-04-01). T-bill growth over n months from month s: G = product over months s, s+1, ..., s+n-1 of (1 + TB3MS/1200), TB3MS = 3-month Treasury bill secondary market rate, percent, monthly average (pinned FRED CSV coed=2026-08-01). Home price growth P = H(s+n)/H(s). Coverage C(s) = G/P: the share of the same home's price that money kept in T-bills from s to s+n matches, relative to giving it at s. Start dates s: every quarter date in H for which H(s+n) exists (n = 120 months for 10 years, 240 for 20 years). "
+  },
+  {
+   "id": "home_price_growth_annual_pct",
+   "value": 4.97,
+   "unit": "percent per year",
+   "definition": "100 x ((H(2026-04-01)/H(1975-01-01))^(4/205) - 1), rounded to 0.01 (205 quarters)."
+  },
+  {
+   "id": "tbill_growth_annual_pct",
+   "value": 4.37,
+   "unit": "percent per year",
+   "definition": "100 x (G^(4/205) - 1), rounded to 0.01, where G = product over the 615 months 1975-01 .. 2026-03 of (1 + TB3MS/1200)."
+  }
+ ],
+ "assumptions": [
+  "The gift is measured against the price of the same home (national all-transactions index), so coverage = what the delayed gift buys as a share of what the immediate gift would have bought.",
+  "The parents' alternative is 3-month T-bills rolled monthly at the monthly average rate divided by 12 (discount-basis quote, not converted to an investment yield); stocks and other investments are not modeled.",
+  "Taxes on T-bill interest, gift-tax reporting, the child's mortgage rate, rent paid while waiting, and the child's own savings are ignored.",
+  "The index measures repeat sales of single-family homes nationally; one city or one home can differ widely."
+ ],
+ "limits": "History, not a forecast. 10-year windows since 1975 overlap heavily (about five independent periods). National index, not local markets. Ignoring taxes favors the T-bill side. The comparison is purely about purchasing power in housing, not about the family's other reasons for timing a gift."
+}

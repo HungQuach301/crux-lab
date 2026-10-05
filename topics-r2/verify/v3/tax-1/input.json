@@ -1,0 +1,172 @@
+{
+ "id": "tax-1",
+ "claim": "Across 166 purchase months (2003-01 to 2016-11), a 10-year TIPS held to maturity inside an IRA returned exactly its real yield, which was negative only when the yield itself was negative (18 months). The same bond in a taxable account, with 24% federal tax each year on both the coupon and the inflation adjustment, ended with a negative real after-tax return in 64 of 166 months (38.6%). The yearly tax drag ran from 0.39 to 1.13 percentage points (median 0.8); $10,000 grew to a median $11,480 in real terms inside the IRA versus $10,658 in the taxable account. Worst taxable case: bought 2012-11, -1.18% a year after tax and inflation (IRA: -0.77%). In 2022 a $10,000 holding with the minimum coupon owed $188.89 of federal tax on a 7.75% inflation adjustment while paying $12.5 in cash; the tax exceeded the cash coupon in 8 of 22 years. History, not a forecast.",
+ "numbers": [
+  {
+   "id": "windows",
+   "unit": "purchase months",
+   "definition": "Number of purchase months 2003-01..2016-11 simulated (one skipped). Model: for each purchase month m from 2003-01 to 2016-11, an idealized 10-year TIPS bought at par whose real value grows at the real yield y = FII10 value for month m (percent/100) each year, compounded annually, and whose principal is indexed by the reference CPI ref(x) = CPIAUCNS value three months before month x. Year k (k = 0..9) inflation factor f_k = ref(m+12(k+1)) / ref(m+12k); nominal growth factor g_k = (1+y) * f_k. Taxable account: W_{k+1} = W_k * (1 + 0.76*(g_k - 1)) (24% tax on the whole year's nominal increase, coupon plus inflation accrual, paid from the holding; negative increases reduce tax symmetrically). IRA (no yearly tax, Roth-equivalent): W_{k+1} = W_k * g_k. Real ending value = W_10 / product(f_k); annualized real return = (real ending value)^(1/10) - 1. Purchase months whose annual checkpoints need the unpublished October 2025 CPI are skipped (only 2016-01)."
+  },
+  {
+   "id": "windows_skipped_missing_cpi",
+   "unit": "purchase months",
+   "definition": "Purchase months skipped because a yearly checkpoint needs the October 2025 CPI, which was never published (2016-01)."
+  },
+  {
+   "id": "first_purchase",
+   "unit": "month",
+   "definition": "First purchase month simulated."
+  },
+  {
+   "id": "last_purchase",
+   "unit": "month",
+   "definition": "Last purchase month whose 10-year hold ends within published CPI (reference CPI at m+120 = CPI of m+117 <= 2026-08)."
+  },
+  {
+   "id": "taxable_negative_real_count",
+   "unit": "purchase months",
+   "definition": "Count of purchase months whose taxable-account annualized real after-tax return is below zero. Model: for each purchase month m from 2003-01 to 2016-11, an idealized 10-year TIPS bought at par whose real value grows at the real yield y = FII10 value for month m (percent/100) each year, compounded annually, and whose principal is indexed by the reference CPI ref(x) = CPIAUCNS value three months before month x. Year k (k = 0..9) inflation factor f_k = ref(m+12(k+1)) / ref(m+12k); nominal growth factor g_k = (1+y) * f_k. Taxable account: W_{k+1} = W_k * (1 + 0.76*(g_k - 1)) (24% tax on the whole year's nominal increase, coupon plus inflation accrual, paid from the holding; negative increases reduce tax symmetrically). IRA (no yearly tax, Roth-equivalent): W_{k+1} = W_k * g_k. Real ending value = W_10 / product(f_k); annualized real return = (real ending value)^(1/10) - 1. Purchase months whose annual checkpoints need the unpublished October 2025 CPI are skipped (only 2016-01)."
+  },
+  {
+   "id": "taxable_negative_real_share_pct",
+   "unit": "percent",
+   "definition": "taxable_negative_real_count / windows * 100, rounded to 0.1."
+  },
+  {
+   "id": "ira_negative_real_count",
+   "unit": "purchase months",
+   "definition": "Count of purchase months whose IRA annualized real return (equal to the real yield y) is below zero, i.e. months when the 10-year real yield itself was negative."
+  },
+  {
+   "id": "median_gap_pctpts",
+   "unit": "percentage points per year",
+   "definition": "Median over purchase months of (IRA annualized real return - taxable annualized real after-tax return) * 100, rounded to 0.01."
+  },
+  {
+   "id": "max_gap_pctpts",
+   "unit": "percentage points per year",
+   "definition": "Largest such gap, rounded to 0.01."
+  },
+  {
+   "id": "min_gap_pctpts",
+   "unit": "percentage points per year",
+   "definition": "Smallest such gap, rounded to 0.01."
+  },
+  {
+   "id": "worst_taxable_real_pct",
+   "unit": "percent per year",
+   "definition": "Lowest taxable annualized real after-tax return across purchase months, *100, rounded to 0.01."
+  },
+  {
+   "id": "worst_purchase_month",
+   "unit": "month",
+   "definition": "Purchase month with the lowest taxable annualized real after-tax return."
+  },
+  {
+   "id": "worst_ira_real_pct",
+   "unit": "percent per year",
+   "definition": "IRA annualized real return for that same worst month, *100, rounded to 0.01."
+  },
+  {
+   "id": "best_taxable_real_pct",
+   "unit": "percent per year",
+   "definition": "Highest taxable annualized real after-tax return across purchase months, *100, rounded to 0.01."
+  },
+  {
+   "id": "best_purchase_month",
+   "unit": "month",
+   "definition": "Purchase month with the highest taxable annualized real after-tax return."
+  },
+  {
+   "id": "median_end_real_usd_taxable",
+   "unit": "USD (purchase-month dollars)",
+   "definition": "10000 * median over purchase months of the taxable real ending value, rounded to the dollar."
+  },
+  {
+   "id": "median_end_real_usd_ira",
+   "unit": "USD (purchase-month dollars)",
+   "definition": "10000 * median over purchase months of the IRA real ending value, rounded to the dollar."
+  },
+  {
+   "id": "inflation_accrual_2022_pct",
+   "unit": "percent",
+   "definition": "Inflation accrual on TIPS principal during calendar 2022 = CPIAUCNS(2022-10) / CPIAUCNS(2021-10) - 1 (reference CPI for Jan 1 of each year = CPI of the prior October), *100, rounded to 0.01."
+  },
+  {
+   "id": "tax_2022_usd",
+   "unit": "USD",
+   "definition": "Federal tax for 2022 on $10,000 of inflation-adjusted principal with coupon c = max(FII10 for 2022-01, 0.125)/100 (0.125% is the minimum TIPS coupon): 0.24 * 10000 * (c + inflation accrual 2022). Coupon on the adjusted principal ignored. Rounded to cents."
+  },
+  {
+   "id": "coupon_cash_2022_usd",
+   "unit": "USD",
+   "definition": "Cash coupon received in 2022 on the same holding: 10000 * c. Rounded to cents."
+  },
+  {
+   "id": "phantom_years",
+   "unit": "calendar years",
+   "definition": "Count of calendar years Y in 2003-2024 for which 0.24*10000*(c_Y + a_Y) > 10000*c_Y, where c_Y = max(FII10 for Y-01, 0.125)/100 and a_Y = CPIAUCNS(Y-10)/CPIAUCNS((Y-1)-10) - 1 (October to October). 2025 is excluded because October 2025 CPI was never published."
+  },
+  {
+   "id": "phantom_years_total",
+   "unit": "calendar years",
+   "definition": "Number of calendar years checked (2003-2024)."
+  }
+ ],
+ "assumptions": [
+  "Federal marginal rate 24% in every year, applied to the full nominal increase (coupon plus inflation accrual) in the year it accrues; tax paid out of the holding. No state tax (TIPS interest is exempt from state income tax).",
+  "Idealized bond bought at par at the monthly-average 10-year real yield (FII10); real return compounding annually; no premium or discount, no bid-ask cost; negative real yields treated as negative real growth.",
+  "Inflation indexation uses CPI-U NSA with a three-month lag (monthly, not daily interpolation). The unpublished October 2025 CPI is not filled in; affected cases are skipped.",
+  "Negative annual accruals (deflation) reduce taxable income one-for-one (simplification of the OID/deflation rules).",
+  "IRA case is untaxed growth (Roth-equivalent); a traditional IRA gives the same result if the tax rate at withdrawal equals the rate at contribution.",
+  "Held to maturity, ten annual steps."
+ ],
+ "series": [
+  {
+   "id": "FII10",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System, H.15 Selected Interest Rates; market yield on U.S. Treasury securities at 10-year constant maturity, inflation-indexed, monthly)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FII10&cosd=2003-01-01&coed=2026-09-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/FII10",
+   "file": "data/FII10.csv",
+   "sha256": "5c396a034bbb62cf128de2b8a5495e82d3444bb80e7d4dc88b1a9b805dfa35e0",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "2.40"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/FII10"
+   }
+  },
+  {
+   "id": "CPIAUCNS",
+   "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics, CPI for All Urban Consumers: All Items in U.S. City Average, not seasonally adjusted)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&cosd=2002-01-01&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "file": "data/CPIAUCNS.csv",
+   "sha256": "234aefc86dbee6e9165188b5515b2aa133152a47d7c2c5190d4abd468b6e9163",
+   "retrieved": "2026-10-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": "334.980"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCNS"
+   }
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "IRS Publication 550, Inflation-Indexed Debt Instruments (inflation adjustments to TIPS principal are taxable each year as OID; 26 CFR 1.1275-7)",
+   "url": "https://www.irs.gov/publications/p550",
+   "quote": "If you hold an inflation-indexed debt instrument (other than a series I U.S. savings bond), you must report as OID any increase in the inflation-adjusted principal amount of the instrument that occurs while you held the instrument during the year."
+  },
+  {
+   "cite": "IRS Publication 550, Treasury inflation-protected securities (TIPS)",
+   "url": "https://www.irs.gov/publications/p550",
+   "quote": "These securities pay interest twice a year at a fixed rate, based on a principal amount adjusted to take into account inflation and deflation."
+  }
+ ]
+}

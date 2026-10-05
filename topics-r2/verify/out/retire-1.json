@@ -1,0 +1,216 @@
+{
+ "id": "retire-1",
+ "V0": {
+  "ok": true,
+  "items": [
+   {
+    "file": "card.json",
+    "ok": true
+   },
+   {
+    "file": "calc.py",
+    "ok": true
+   },
+   {
+    "file": "result.json",
+    "ok": true
+   },
+   {
+    "file": "sources.json",
+    "ok": true
+   },
+   {
+    "file": "novelty.json",
+    "ok": true
+   },
+   {
+    "file": "claim-risk.md",
+    "ok": true
+   },
+   {
+    "cardcheck": [],
+    "ok": true
+   },
+   {
+    "novelty": {
+     "queries": 3,
+     "resultsPerQuery": {
+      "is a prepaid funeral plan worth it funeral price inflation vs saving the money": 4,
+      "prepaid funeral guaranteed price vs investing in Treasury bills historical funeral costs CPI": 3,
+      "pre-need funeral contract lock in today's prices funeral costs rose faster than inflation analysis": 3
+     },
+     "verdict": "answered-without-data"
+    },
+    "ok": true
+   }
+  ]
+ },
+ "V1": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CUUR0000SEGD03",
+    "file": "data/CUUR0000SEGD03.csv",
+    "sha256": "55f534580d1ec294005073b6db2479b4b8c5203c15e6ab6e96a3c318bfb514e9",
+    "declared": "55f534580d1ec294005073b6db2479b4b8c5203c15e6ab6e96a3c318bfb514e9",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "TB3MS",
+    "file": "data/TB3MS.csv",
+    "sha256": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "declared": "ebf04b1ae5bc5729ba3bb2b35dbb0e0c5e22dace36bea0c02632782d625ae6ab",
+    "shaMatch": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCNS",
+    "file": "data/CPIAUCNS.csv",
+    "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "declared": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+    "shaMatch": true,
+    "ok": true
+   }
+  ]
+ },
+ "V2": {
+  "ok": true,
+  "items": [
+   {
+    "id": "starts_10y",
+    "declared": 224,
+    "recomputed": 224,
+    "ok": true
+   },
+   {
+    "id": "first_start_10y",
+    "declared": "1997-12-01",
+    "recomputed": "1997-12-01",
+    "ok": true
+   },
+   {
+    "id": "last_start_10y",
+    "declared": "2016-08-01",
+    "recomputed": "2016-08-01",
+    "ok": true
+   },
+   {
+    "id": "share_savings_fell_short_10y_pct",
+    "declared": 91.5,
+    "recomputed": 91.5,
+    "ok": true
+   },
+   {
+    "id": "median_coverage_10y_pct",
+    "declared": 83.9,
+    "recomputed": 83.9,
+    "ok": true
+   },
+   {
+    "id": "min_coverage_10y_pct",
+    "declared": 75.2,
+    "recomputed": 75.2,
+    "ok": true
+   },
+   {
+    "id": "max_coverage_10y_pct",
+    "declared": 108.4,
+    "recomputed": 108.4,
+    "ok": true
+   },
+   {
+    "id": "latest_coverage_10y_pct",
+    "declared": 80.3,
+    "recomputed": 80.3,
+    "ok": true
+   },
+   {
+    "id": "starts_5y",
+    "declared": 284,
+    "recomputed": 284,
+    "ok": true
+   },
+   {
+    "id": "share_savings_fell_short_5y_pct",
+    "declared": 88.7,
+    "recomputed": 88.7,
+    "ok": true
+   },
+   {
+    "id": "starts_15y",
+    "declared": 164,
+    "recomputed": 164,
+    "ok": true
+   },
+   {
+    "id": "share_savings_fell_short_15y_pct",
+    "declared": 100.0,
+    "recomputed": 100.0,
+    "ok": true
+   },
+   {
+    "id": "funeral_price_growth_annual_pct",
+    "declared": 3.31,
+    "recomputed": 3.31,
+    "ok": true
+   },
+   {
+    "id": "all_items_price_growth_annual_pct",
+    "declared": 2.58,
+    "recomputed": 2.58,
+    "ok": true
+   },
+   {
+    "id": "tbill_growth_annual_pct",
+    "declared": 2.15,
+    "recomputed": 2.15,
+    "ok": true
+   },
+   {
+    "id": "tb3ms_latest_pct",
+    "declared": 3.72,
+    "recomputed": 3.72,
+    "ok": true
+   }
+  ]
+ },
+ "V4": {
+  "ok": true,
+  "items": [
+   {
+    "id": "CUUR0000SEGD03",
+    "page": "https://fred.stlouisfed.org/series/CUUR0000SEGD03",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CUUR0000SEGD03",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "TB3MS",
+    "page": "https://fred.stlouisfed.org/series/TB3MS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/TB3MS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   },
+   {
+    "id": "CPIAUCNS",
+    "page": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "pageStatus": 200,
+    "termsUrl": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "termsStatus": 200,
+    "quoteFound": true,
+    "ok": true
+   }
+  ]
+ },
+ "V5": {
+  "ok": true,
+  "items": [],
+  "note": "không viện điều luật: không áp dụng"
+ },
+ "ok_V01245": true
+}

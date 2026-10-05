@@ -1,0 +1,111 @@
+{
+ "answer": "Over every 10-year stretch starting in a January from 1934 to 2016 (83 windows), $7,500 of cash earning the 3-month T-bill rate lost purchasing power in 39 windows (47.0%) even with no tax, as inside a Roth IRA, and in 47 (56.6%) in a taxable account at a 22% federal rate. The tax shelter was worth a median $578.37 of purchasing power per decade (largest $1,874.21, for the window starting 1980): the median real end value was $7,644.89 sheltered versus $7,098.09 taxed. In the latest full window (2016-2026) both lost: $6,790.14 sheltered, $6,477.33 taxed. Year by year since 1934, T-bills beat inflation in 52 of 92 years before tax and 40 after a 22% tax. Cash parked in a Roth keeps its tax but not its purchasing power; the larger stake is the contribution room itself, which the data cannot price. History, not a forecast.",
+ "guess": "Young savers have heard the 'Roth IRA as an emergency fund' idea and would guess the tax-free interest makes a big difference, and that cash in a savings account at least keeps up with prices.",
+ "changesDecision": "The data show the tax on cash interest costs a few hundred dollars per decade on $7,500, while the cash itself trailed inflation in roughly half of all decades whether taxed or not. A viewer choosing where to park savings sees that the shelter on cash is small and the real question is whether the money stays as cash at all, which the episode leaves to them.",
+ "numbers": [
+  {
+   "id": "windows",
+   "value": 83,
+   "unit": "10-year windows",
+   "definition": "Number of start years 1934..2016. Window model: $7,500 placed in January of start year Y earns, each month, TB3MS/100/12 (3-month T-bill rate, percent per year, monthly compounding), for 120 months (Jan Y .. Dec Y+9). Roth: no tax. Taxable: at the end of each calendar year, 22% of that year's interest is paid from the balance, i.e. balance *= 1 + 0.78*(G-1) where G is the product of the 12 monthly growth factors. Real end value = nominal end * CPIAUCNS(Jan Y) / CPIAUCNS(Jan Y+10). Start years 1934..2016 (83 windows)."
+  },
+  {
+   "id": "roth_real_loss_windows",
+   "value": 39,
+   "unit": "windows",
+   "definition": "Windows whose Roth real end value < $7,500. Window model: $7,500 placed in January of start year Y earns, each month, TB3MS/100/12 (3-month T-bill rate, percent per year, monthly compounding), for 120 months (Jan Y .. Dec Y+9). Roth: no tax. Taxable: at the end of each calendar year, 22% of that year's interest is paid from the balance, i.e. balance *= 1 + 0.78*(G-1) where G is the product of the 12 monthly growth factors. Real end value = nominal end * CPIAUCNS(Jan Y) / CPIAUCNS(Jan Y+10). Start years 1934..2016 (83 windows)."
+  },
+  {
+   "id": "taxable_real_loss_windows",
+   "value": 47,
+   "unit": "windows",
+   "definition": "Windows whose taxable real end value < $7,500."
+  },
+  {
+   "id": "roth_real_loss_share_pct",
+   "value": 47.0,
+   "unit": "percent",
+   "definition": "roth_real_loss_windows / windows * 100, rounded to 0.1."
+  },
+  {
+   "id": "taxable_real_loss_share_pct",
+   "value": 56.6,
+   "unit": "percent",
+   "definition": "taxable_real_loss_windows / windows * 100, rounded to 0.1."
+  },
+  {
+   "id": "median_real_end_roth_usd",
+   "value": 7644.89,
+   "unit": "USD (start-year dollars)",
+   "definition": "Median over windows of the Roth real end value, rounded to cents."
+  },
+  {
+   "id": "median_real_end_taxable_usd",
+   "value": 7098.09,
+   "unit": "USD (start-year dollars)",
+   "definition": "Median over windows of the taxable real end value, rounded to cents."
+  },
+  {
+   "id": "median_diff_usd",
+   "value": 578.37,
+   "unit": "USD (start-year dollars)",
+   "definition": "Median over windows of (Roth real end - taxable real end), rounded to cents."
+  },
+  {
+   "id": "max_diff_usd",
+   "value": 1874.21,
+   "unit": "USD (start-year dollars)",
+   "definition": "Largest (Roth real end - taxable real end) over windows, rounded to cents."
+  },
+  {
+   "id": "max_diff_start",
+   "value": 1980,
+   "unit": "year",
+   "definition": "Start year of that largest gap."
+  },
+  {
+   "id": "latest_start",
+   "value": 2016,
+   "unit": "year",
+   "definition": "Latest start year with a complete window (2016: Jan 2016 - Jan 2026)."
+  },
+  {
+   "id": "latest_real_end_roth_usd",
+   "value": 6790.14,
+   "unit": "USD (2016 dollars)",
+   "definition": "Roth real end value for the 2016 window, rounded to cents."
+  },
+  {
+   "id": "latest_real_end_taxable_usd",
+   "value": 6477.33,
+   "unit": "USD (2016 dollars)",
+   "definition": "Taxable real end value for the 2016 window, rounded to cents."
+  },
+  {
+   "id": "calendar_years",
+   "value": 92,
+   "unit": "years",
+   "definition": "Calendar years 1934..2025 checked one by one."
+  },
+  {
+   "id": "years_beat_inflation_untaxed",
+   "value": 52,
+   "unit": "years",
+   "definition": "Years where the T-bill growth G-1 (12 monthly factors TB3MS/100/12) exceeded inflation CPIAUCNS(Dec Y)/CPIAUCNS(Dec Y-1) - 1."
+  },
+  {
+   "id": "years_beat_inflation_after_tax",
+   "value": 40,
+   "unit": "years",
+   "definition": "Years where 0.78*(G-1) exceeded that inflation."
+  }
+ ],
+ "assumptions": [
+  "Cash earns the 3-month T-bill rate (a proxy for a high-yield savings account or money-market fund) in both places; typical bank savings rates have often been lower.",
+  "Federal marginal rate fixed at 22% for every year (today's bracket applied to history), tax paid each year from the balance; no state tax.",
+  "Roth case: the cash sits in a money-market or T-bill holding inside the Roth with no tax and no withdrawals; contributions (not earnings) can be withdrawn tax- and penalty-free at any time.",
+  "The 2026 Roth contribution limit is $7,500, so the whole amount fits in one year's contribution for an eligible worker.",
+  "Monthly compounding of the monthly-average T-bill rate (discount basis); real values deflated by CPI-U NSA January to January."
+ ],
+ "limits": "History, not a forecast. Does not model investing the Roth in stocks, the lost contribution room if the money is withdrawn, or income limits on Roth eligibility. Not personal advice."
+}

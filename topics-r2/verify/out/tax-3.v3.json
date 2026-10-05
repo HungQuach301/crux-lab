@@ -1,0 +1,108 @@
+{
+ "id": "tax-3",
+ "items": [
+  {
+   "id": "cpi_1987_avg",
+   "declared": 113.625,
+   "recomputed": 113.625,
+   "ok": true
+  },
+  {
+   "id": "cpi_2025_avg",
+   "declared": 321.943,
+   "recomputed": 321.943,
+   "ok": true
+  },
+  {
+   "id": "cpi_2025_months",
+   "declared": 11,
+   "recomputed": 11,
+   "ok": true
+  },
+  {
+   "id": "price_factor_1987_2025",
+   "declared": 2.8334,
+   "recomputed": 2.8334,
+   "ok": true
+  },
+  {
+   "id": "start_in_2025_dollars",
+   "declared": 283300.0,
+   "recomputed": 283300,
+   "ok": true
+  },
+  {
+   "id": "end_in_2025_dollars",
+   "declared": 425000.0,
+   "recomputed": 425000,
+   "ok": true
+  },
+  {
+   "id": "cap_in_2025_dollars",
+   "declared": 70800.0,
+   "recomputed": 70800,
+   "ok": true
+  },
+  {
+   "id": "start_real_value_pct_of_1987",
+   "declared": 35.3,
+   "recomputed": 35.3,
+   "ok": true
+  },
+  {
+   "id": "median_1987",
+   "declared": 26060.0,
+   "recomputed": 26060,
+   "ok": true
+  },
+  {
+   "id": "median_2025",
+   "declared": 87460.0,
+   "recomputed": 87460,
+   "ok": true
+  },
+  {
+   "id": "start_over_median_1987",
+   "declared": 3.84,
+   "recomputed": 3.84,
+   "ok": true
+  },
+  {
+   "id": "start_over_median_2025",
+   "declared": 1.14,
+   "recomputed": 1.14,
+   "ok": true
+  },
+  {
+   "id": "end_over_median_2025",
+   "declared": 1.72,
+   "recomputed": 1.72,
+   "ok": true
+  },
+  {
+   "id": "start_if_tracked_median_2025",
+   "declared": 335600.0,
+   "recomputed": 335600,
+   "ok": true
+  },
+  {
+   "id": "income_in_1987_dollars",
+   "declared": 45900.0,
+   "recomputed": 45900,
+   "ok": true
+  },
+  {
+   "id": "allowance_at_income",
+   "declared": 10000.0,
+   "recomputed": 10000.0,
+   "ok": true
+  },
+  {
+   "id": "allowance_at_income_if_cpi_indexed",
+   "declared": 70800.0,
+   "recomputed": 70800,
+   "ok": true
+  }
+ ],
+ "ok": true
+}
