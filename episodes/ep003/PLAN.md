@@ -52,7 +52,7 @@ Nhánh: `ep003` (từ `main` `c0376d1`). Chỉ P3 merge `ep003` vào `main`. Khu
 ## 5. KPI tạm (cuối P2)
 - Chủ dự án tham gia: **2** (C1, C3) + 1 chỉ dẫn ngoài cổng (lệnh K3.7 khi phiên đang chạy, không dừng chờ). Mục tiêu Tập 3: 3 + xác nhận tải.
 - Vòng: C1 **1** · C2 **1** · C3 cổng gốc **2** (trượt vì câu khuyên → quyết định chủ dự án) · hiệu chuẩn **1** · C4 **1** (qua, không dự phòng).
-- Lượt agent: **134** = P1 55 + P2 79 (nhạc 2; REVIEWER 4: ý đồ C3, gói C3, ý đồ C4, issue C4; WRITER 1; người đọc mù C3 32 + hiệu chuẩn 6 + C4 26 = 64; người chấm độc lập C3 2 + hiệu chuẩn 1 + C4 2 = 5; render/checks chạy lệnh trực tiếp). *(REVIEWER issue C4 tính trước khi chạy.)*
+- Lượt agent: **131** = P1 55 + P2 76 (nhạc 2: clip C3 + âm tạm toàn tập; REVIEWER 4: ý đồ C3, gói C3, ý đồ C4, báo cáo/issue C4; WRITER 1; người đọc mù C3 32 + hiệu chuẩn 6 + C4 26 = 64; người chấm độc lập C3 2 + hiệu chuẩn 1 + C4 2 = 5; render/checks chạy lệnh trực tiếp).
 - Ký tự ElevenLabs: **4 733** = 3 911 (P1) + 822 (P2: S02 hai seed).
 - Thời gian: P2 2026-10-04 23:40 UTC → gói C3 2026-10-05 ~00:55 → C3 trả lời → C4 qua ~02:45 → P2 xong.
 - Token: không đọc được.
