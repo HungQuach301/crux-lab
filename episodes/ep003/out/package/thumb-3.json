@@ -8,7 +8,11 @@
     429.4,
     98
    ],
-   "fontPx": 100
+   "fontPx": 100,
+   "claims": [
+    "ctx_guarantee",
+    "ctx_hypothetical"
+   ]
   },
   {
    "text": "always existed…",
@@ -18,7 +22,19 @@
     823.3,
     98
    ],
-   "fontPx": 100
+   "fontPx": 100,
+   "claims": [
+    "ctx_hypothetical"
+   ]
   }
- ]
+ ],
+ "graphics": {
+  "claims": [
+   "ctx_hypothetical",
+   "guarantee_from",
+   "starts_hypothetical",
+   "starts_with_guarantee"
+  ],
+  "what": "timeline of start months: hatched = IF today's guarantee had existed (856 starts before May 2005), outlined = the 17 real-guarantee months"
+ }
 }

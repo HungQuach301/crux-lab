@@ -14,7 +14,14 @@ const OUT = path.join(__dirname, '..', '..', 'out', 'package');
     fs.writeFileSync(path.join(OUT, `thumb-${n}.png`), Buffer.from(png.split(',')[1], 'base64'));
     const S = 1280 / 1920; // the shot's own labels are off (FLAGS.NOTEXT) but still logged: only the last two boxes (the hero lines) are drawn
     const texts = bx.slice(-2).map((t) => ({ text: t.s, box: t.glyph.map((v) => Math.round(v * S * 10) / 10), fontPx: Math.round(t.px * S * 10) / 10 }));
-    fs.writeFileSync(path.join(OUT, `thumb-${n}.json`), JSON.stringify({ texts }, null, 1));
+    const C = { 1: { texts: [['ctx_guarantee'], []], graphics: ['ctx_guarantee', 'bills_per_horizon', 'tb3ms_latest_pct', 'tb3ms_latest_month'],
+                     what: 'bond bar to the x2 gate (20 years) above the chain of 80 three-month bills; the first link (Aug 2026 rate) slid toward the gate' },
+                 2: { texts: [['ctx_guarantee', 'worst_real_value_double_pct', 'worst_real_start'], ['ctx_guarantee']], graphics: ['worst_real_value_double_pct', 'worst_real_start', 'share_double_beat_prices_pct', 'share_double_lost_buying_power_pct', 'ctx_hypothetical'],
+                     what: 'left: the Jan 1966 start, doubled dollars against what the original money bought (the worst start, 58.0%); right: every start, kept up with prices or fell behind (58.7% / 41.3%); pre-2005 starts are what-ifs' },
+                 3: { texts: [['ctx_guarantee', 'ctx_hypothetical'], ['ctx_hypothetical']], graphics: ['ctx_hypothetical', 'guarantee_from', 'starts_hypothetical', 'starts_with_guarantee'],
+                     what: 'timeline of start months: hatched = IF today\'s guarantee had existed (856 starts before May 2005), outlined = the 17 real-guarantee months' } }[n];
+    texts.forEach((t, i) => { t.claims = C.texts[i]; });
+    fs.writeFileSync(path.join(OUT, `thumb-${n}.json`), JSON.stringify({ texts, graphics: { claims: C.graphics, what: C.what } }, null, 1));
     console.log(n, texts.map((t) => t.text + ' @' + t.fontPx).join(' | '));
   }
   await b.close();

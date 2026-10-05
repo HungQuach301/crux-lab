@@ -8,7 +8,12 @@
     566.5,
     98
    ],
-   "fontPx": 100
+   "fontPx": 100,
+   "claims": [
+    "ctx_guarantee",
+    "worst_real_value_double_pct",
+    "worst_real_start"
+   ]
   },
   {
    "text": "×2 groceries",
@@ -18,7 +23,20 @@
     619.6,
     98
    ],
-   "fontPx": 100
+   "fontPx": 100,
+   "claims": [
+    "ctx_guarantee"
+   ]
   }
- ]
+ ],
+ "graphics": {
+  "claims": [
+   "worst_real_value_double_pct",
+   "worst_real_start",
+   "share_double_beat_prices_pct",
+   "share_double_lost_buying_power_pct",
+   "ctx_hypothetical"
+  ],
+  "what": "left: the Jan 1966 start, doubled dollars against what the original money bought (the worst start, 58.0%); right: every start, kept up with prices or fell behind (58.7% / 41.3%); pre-2005 starts are what-ifs"
+ }
 }

@@ -37,7 +37,7 @@ CTX_FORMULA = {  # how each context claim is established (REVIEWER C5 #5: one ho
     'ctx_guarantee': 'rule quoted from 31 CFR 351.34(a) and 351.35(f)(2): EE bonds issued from 2005-05 reach original maturity at 20 years, worth at least double the price (book-entry)',
     'ctx_hypothetical': 'episode assumption: today\'s guarantee applied to every start before 2005-05; count = model.json windows before subsetFrom:guarantee (856 of 873)',
     'ctx_penalty': 'rule quoted from 31 CFR 351.35(e): a bond redeemed before 5 years forfeits the last 3 months of interest',
-    'ctx_ee_rate': 'rate quoted from the TreasuryDirect release of 2026-05-01: fixed 2.40% for EE bonds issued May to October 2026 (re-check the November 2026 rate before publishing)',
+    'ctx_ee_rate': 'rate quoted from the TreasuryDirect release of 2026-05-01: fixed 2.40% for EE bonds issued May to October 2026; the rate for new bonds is reset every May and November (re-check the rate announced 2026-11-01 right before publishing)',
     'ctx_tb_sep': 'FRED TB3MS value for 2026-09 (published 2026-10-01), outside the pinned data; not used on screen or in the narration',
     'ctx_cpi_rights': 'terms label quoted from the FRED series pages of TB3MS and CPIAUCNS (2026-10-04): "Public Domain: Citation Requested"',
 }
