@@ -65,10 +65,11 @@ def main():
     for k, sc in enumerate(scenes):
         f = f'{WK}/voice/{sc}.wav'
         if tr[sc]['text'] == texts[sc]:
+            # chỉ bỏ lặng ĐUÔI (0,8 s đệm của table read); không đụng khoảng lặng trong take
             a = max(0.0, c2_al[k]['start'] - 0.12)
             b = (c2_al[k + 1]['start'] - 0.12) if k + 1 < len(scenes) else dur(src)
             subprocess.run(['ffmpeg', '-y', '-v', 'error', '-ss', f'{a:.3f}', '-to', f'{b:.3f}', '-i', src, '-af',
-                            f'silenceremove=stop_periods=-1:stop_duration=0.5:stop_threshold=-45dB,afade=t=in:d=0.02,aresample={SR}', '-ac', '1', f], check=True)
+                            f'areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.15,areverse,afade=t=in:d=0.02,aresample={SR}', '-ac', '1', f], check=True)
             report['scenes'][sc] = {'source': 'table-read C2 (cắt)', 'span': [round(a, 3), round(b, 3)], 'take': tr[sc]['use'], 'elChars': 0}
         else:
             keys = [kk for r in rs if r['scene'] == sc for kk in r['keys']]
