@@ -14,7 +14,7 @@ Nhánh: `ep003` (từ `main` `c0376d1`). Chỉ P3 merge `ep003` vào `main`. Khu
 | C2 (TỰ ĐỘNG) | **XONG — QUA vòng 1** (máy ĐẠT; 6/6, khuyên 0); issue #28; phân loại nhịp #27 | `gates/C2.md`, `gates/C2-blind.md` | cấu trúc + cold open bản tạm → C3 |
 | Giao phiên K | **XONG — khoá K3.7 có** (LOCK `a20c6878…`, kind `lock-vs-roll-replay`, `main` `ab7879e`, merge vào nhánh tập `d806f75`); S01/S05 trên bản sao khoá 0 lệch | `contract.json`, `review-k37/` | chủ dự án duyệt K3.7 (05/10) |
 | C3 (GU) | **XONG** (issue [#31](https://github.com/HungQuach301/crux-lab/issues/31)) | `gates/C3.md`, `C3-tally*.md`, `C3-blind.md` | (a) cấu trúc C2 + Dana; lời chỉ 3.47; ký hợp đồng hình (A); bộ đo câu khuyên mới + hiệu chuẩn âm/dương trước C4; Eric + style C |
-| C4 (TỰ ĐỘNG) | **XONG — QUA vòng 1**: hiệu chuẩn bộ đo khuyên đạt (âm 0/3, dương 3/3); nghĩa 6/6 nhịp loại 1, khuyên 0/14; checks đủ bộ lần 1: 19 PASS / 21 FAIL / 42 MISSING (TRƯỢT, dự kiến ở animatic) | `gates/C4.md`, `C4-tally.md`, `C4-cal-tally.md`, `review-c4/checks-run1/` | — |
+| C4 (TỰ ĐỘNG) | **XONG — QUA vòng 1** (issue [#32](https://github.com/HungQuach301/crux-lab/issues/32)): hiệu chuẩn bộ đo khuyên đạt (âm 0/3, dương 3/3); nghĩa 6/6 nhịp loại 1, khuyên 0/14; checks đủ bộ lần 1: 19 PASS / 21 FAIL / 42 MISSING (TRƯỢT, dự kiến ở animatic) | `gates/C4.md`, `C4-tally.md`, `C4-cal-tally.md`, `review-c4/checks-run1/` | — |
 
 ## 2. Phiên sau đọc (P3: C5 → C6 → giao hàng)
 1. `episodes/ep003/gates/C4.md` (kết quả C4 + danh sách CHẶN/MISSING phải xử lý ở C5)
