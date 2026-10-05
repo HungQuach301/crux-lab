@@ -23,3 +23,26 @@ Dòng TRƯỢT:
 1. **Cụm từ claim-risk bị đổi.** Hồ sơ claim-risk ghi "Always say *a home that rose like the metro average*", còn L1 viết "the local average". → Sửa thành "a home that rose like its metro area's average".
 2. **§4 C1 yêu cầu 2 logline, ý đồ chỉ có L1.** → Thêm L2 vào cùng lượt chạy, người đọc mới cho L2 (thêm 6 agent). Nếu không làm, ghi trong ý đồ lý do chỉ có một logline (đề tài máy chọn, tiết kiệm agent) và nêu điều này trong gói G1.
 3. **Rubric (d) chưa bắt lỗi nói quá claim.** Nếu người đọc kể lại "giá mua trên X thì bạn sẽ phải đóng thuế / video tính thuế của tôi", hiện vẫn được điểm. → Thêm vào (d) điều kiện "ngưỡng của căn nhà tăng như trung bình metro". Thêm cờ báo riêng "căn nhà cụ thể / hoá đơn thuế": không tính vào ngưỡng, nhưng nêu tên trong gói và dùng để sửa logline ở vòng 2.
+
+## Soát lại chỗ sửa (bản 2): ĐẠT
+- cal-hook bản 2 đúng với các dòng TRƯỢT. A-degr = S03.1 + S03.2 + S04.2 (66 từ). B là kịch bản 8 câu: gốc là b1–b5, làm kém là b5–b8, nên trong 30 s đầu bản làm kém không còn móc. Khoá mới cân bằng 2X/2Y mỗi mẫu. Prompt đã bỏ câu tiêu đề. Còn hai lỗi nhỏ: B-orig thực tế 68 từ (INTENT ghi 66), và `deal.py` còn sót biến `pairs`/`T` không dùng. Không chặn.
+- C1 bản 2: đã đổi sang "metro area's average", đã thêm điều kiện vào (d) và cờ `overclaim`, đã ghi lý do chỉ có một logline. Đạt.
+
+## 3. `gates/C2-intent.md` + `story/check_script.py`: TRƯỢT (phần máy), phần mù đạt
+
+Phần đạt (b): 5 T + 1 G, đủ 6 người; câu hỏi cố định có câu lời khuyên; người chấm mù. Ngưỡng ≥ 5/6, câu khuyên 0/6, không cảnh nào bị ≥ 4/6 cùng chỉ là chỗ mất chú ý: khớp §4 C2. Dự phòng V7 cũng khớp. A1 khớp `numbers.md` (11/12 vùng dưới $300.000). Bỏ đối chứng có lý do (E12, F4).
+
+Đã thử bộ kiểm trên một kịch bản giả. Dòng TRƯỢT:
+1. **"Claim 100 %" chưa được kiểm.** Bộ kiểm chỉ xem claim ID có trong `numbers.md`, không so số nói ra với giá trị claim. Câu thử "the line is $999,999" gắn `threshold_joint_los_angeles` vẫn qua. → Thêm bước CHẶN: số chữ số trong lời phải khớp giá trị claim của câu (sau khi làm tròn theo một dạng cố định cho mỗi tỉ lệ, E5). Số đọc bằng chữ thì phải có ghi chú quy đổi.
+2. **Móc 5 s gần như không chặn được gì.** `first5` coi bất kỳ claim nào là "được–mất", và chỉ xét lúc câu bắt đầu, nên câu đầu luôn ở t = 0. Câu thử "In 2000, home prices were lower." (mở bằng lịch sử, trái §1.1) vẫn qua. → Bắt WRITER đánh dấu `[stake]` hoặc `[question]` ở cột ghi chú câu móc; bộ kiểm đòi dấu đó ở câu bắt đầu trước 5 s. Ghi rõ đây là điều kiện cần, REVIEWER vẫn chấm được–mất theo §1.
+3. **Thiếu `hooks.md` thì bỏ qua lặng lẽ** mà vẫn có thể ĐẠT. Ý đồ đòi kiểm cả 3 phương án. → CHẶN khi thiếu file hoặc khi số phương án khác 3.
+4. **Câu ngưỡng thiếu "like/average" mới chỉ là CẢNH BÁO**, trong khi claim-risk ghi "Always say". Đây là lỗi sai claim, mà theo D-006 thì phải mở vòng sửa. Câu thử "…$999,999, for anyone" chỉ bị cảnh báo. → Nâng lên CHẶN. Mở rộng cho các câu nêu `gain_at_*`, `cross_/stay_quarter_*` và `metros_threshold_*`. Thêm vào ý đồ (a) cho khớp.
+5. **"Câu có số phải có claim" báo sai.** NUMWORD bắt cả "one", "half", "quarter", "double", nên câu "each one of them" bị CHẶN. Báo sai kiểu này đẩy WRITER gắn claim cho có để qua cửa (Goodhart). → Bỏ "one" và "quarter" khỏi NUMWORD trừ khi đi kèm danh từ đơn vị (one in, one-third…), hoặc cho phép cột claim ghi `—text` kèm lý do.
+6. **Story §1.3 chỉ được kiểm một nửa.** Bộ kiểm chỉ chặn ràng buộc nằm giữa câu hỏi và lời hứa. Nó không kiểm ràng buộc đặt trước móc, cũng không kiểm "US only / history" phải ở sau lời hứa và trước số lịch sử đầu tiên. → Thêm cả hai: cái đầu là CHẶN, cái sau là CẢNH BÁO.
+
+Ghi chú, không chặn:
+- Story §3 tính "> 2 số mới" theo **cảnh**, bộ kiểm lại tính theo câu. Nên gộp theo tiền tố Sxx.
+- Bộ kiểm chưa xét viết tắt có gạch nối (§3.1, F7: "W-2", "T-bill"). Nên thêm một CẢNH BÁO.
+- Các con số $200k/$300k phải gắn nhãn "ILLUSTRATIVE" trên hình. Nên thêm một CẢNH BÁO khi `gain_at_*` không có chữ "illustrat" trong ghi chú.
+- Thời lượng mới là ước 140 từ/phút. Mốc 5 s và 0:30 cần đo lại trên giọng thật ở C3/C4 (§2.4).
+- A2 chặt hơn §4, vốn chỉ đòi câu hỏi + đáp án. Ghi rõ là cố ý chặt hơn, hoặc hạ A2 thành cờ tham khảo. Trong A1, bỏ cụm "thấp hơn người ta nghĩ" (chủ quan) khỏi điều kiện đủ.
