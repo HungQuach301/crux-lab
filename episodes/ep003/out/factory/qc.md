@@ -11,7 +11,7 @@
 | freezedetect d=3 ∩ lời | TRƯỢT | 3.3 | 0 s | 1 đoạn đứng yên ≥ 3 s cả phim: [[39.4, 42.7]] |
 | mốc hình ≥ mốc từ | ĐẠT | 0 | 0 | 12 mốc |
 | loudness | ĐẠT | -14.1 LUFS / -4.0 dBTP | -14 ± 1 LUFS, ≤ -1.0 dBTP |  |
-| kích thước phần | ĐẠT | 16.91 | ≤ 90 MB mỗi phần | 3 phần 720p |
+| kích thước phần | ĐẠT | 16.93 | ≤ 90 MB mỗi phần | 3 phần 720p |
 | S04-short thời lượng | ĐẠT | 42.133 | ≤ 60 s |  |
 | S04-short sàn chữ | ĐẠT | 56 | ≥ 56 px | 1287 lần engine nâng cỡ |
 | S04-short tương phản | ĐẠT | 7.5 | ≥ 4.5:1 | 0 lần đổi màu |

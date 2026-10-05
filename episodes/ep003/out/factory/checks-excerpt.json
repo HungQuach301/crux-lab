@@ -1,0 +1,102 @@
+{
+ "lock": "a20c6878c0dc1c1e9320db4553c92144ed4a9c46cd69ad4c20c9899696483791",
+ "rules": "F01,F02,F03,F04,F05,F06,F08,F09,A01,A02,A04,A05,A06,A14,A16,A18",
+ "results": [
+  {
+   "id": "F01",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "F02",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "F03",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "F04",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "F05",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "F06",
+   "status": "FAIL",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "F08",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "F09",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "A01",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "A02",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "A04",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "A05",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "A06",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "A14",
+   "status": "PASS",
+   "tier": "BLOCK",
+   "note": ""
+  },
+  {
+   "id": "A16",
+   "status": "FAIL",
+   "tier": "REFERENCE",
+   "note": ""
+  },
+  {
+   "id": "A18",
+   "status": "PASS",
+   "tier": "MAJOR",
+   "note": ""
+  }
+ ]
+}

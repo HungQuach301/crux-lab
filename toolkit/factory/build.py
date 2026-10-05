@@ -96,6 +96,44 @@ def srt_time(t):
     return f'{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}'
 
 
+def wrap(text, width=42):
+    lines, cur = [], ''
+    for w in text.split():
+        if cur and len(cur) + 1 + len(w) > width:
+            lines.append(cur); cur = w
+        else:
+            cur = f'{cur} {w}'.strip()
+    return lines + [cur] if cur else lines
+
+
+def caption_cues(sents, words):
+    """Captions from the written text (DX-F5): cues of ≤ 2 lines × 42 chars and 1–7 s, split at word boundaries (commas first);
+    each written chunk is timed by the spoken words it becomes (toSpoken of the chunk, consumed in order)."""
+    cues = []
+    for s in sents:
+        ws = [w for w in words if w['sid'] == s['id']]
+        toks, chunks, cur = s['text'].split(), [], []
+        for tkn in toks:
+            if cur and (len(wrap(' '.join(cur + [tkn]))) > 2):
+                chunks.append(cur); cur = []
+            cur.append(tkn)
+            if len(' '.join(cur)) >= 44 and re.search(r'[,;:]$', tkn):
+                chunks.append(cur); cur = []
+        if cur:
+            chunks.append(cur)
+        spoken = VOICE.to_spoken([' '.join(c) for c in chunks])
+        k = 0
+        for c, sp in zip(chunks, spoken):
+            n = len(sp.split()); seg = ws[k:k + n] or ws[-1:]; k += n
+            cues.append({'s': seg[0]['s'], 'e': seg[-1]['e'], 'lines': wrap(' '.join(c))})
+    for i, c in enumerate(cues):  # 1–7 s, no overlap: stretch short cues into the gap, split nothing further (long ones are rare at 2×42)
+        nxt = cues[i + 1]['s'] if i + 1 < len(cues) else c['e'] + 2
+        if c['e'] - c['s'] < 1.0:
+            c['e'] = min(c['s'] + 1.0, nxt - 0.001)
+        c['e'] = min(c['e'], c['s'] + 7.0, nxt - 0.001) if i + 1 < len(cues) else min(c['e'], c['s'] + 7.0)
+    return cues
+
+
 class Build:
     def __init__(self, yml, argv):
         self.yml = os.path.abspath(yml)
@@ -180,9 +218,10 @@ class Build:
         self.total = round(t, 4)
         self.tl = {'fps': fps, 'total': self.total, 'scenes': scenes, 'shots': shots, 'sentences': sents, 'words': words, 'anchors': anchors}
         json.dump(self.tl, open(os.path.join(self.out, 'timeline.json'), 'w'), indent=1, ensure_ascii=False)
+        cues = caption_cues(sents, words)
         with open(os.path.join(self.out, 'captions.srt'), 'w') as f:
-            for i, s in enumerate(sents, 1):
-                f.write(f"{i}\n{srt_time(s['start'])} --> {srt_time(s['end'])}\n{s['text']}\n\n")
+            for i, c in enumerate(cues, 1):
+                f.write(f"{i}\n{srt_time(c['s'])} --> {srt_time(c['e'])}\n" + '\n'.join(c['lines']) + '\n\n')
         return {'total': self.total, 'shots': len(shots), 'anchors': len(anchors)}
 
     # ---- render (shared by master and Shorts)
