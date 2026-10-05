@@ -24,3 +24,6 @@ Mỗi agent con, mỗi cổng: một dòng. Token = số harness của agent con
 | 2026-10-05 | tổng P1 (trước REVIEWER G1) | 41 agent | — | **2.071.861** | + ngữ cảnh điều phối ≈ 0,4 triệu |
 | 2026-10-05 | G1 | REVIEWER #2 | opus | 103.126 | TRƯỢT 7 dòng → sửa cả 7; §6.5 thêm S01.1 "paper profit" |
 | 2026-10-05 | **tổng P1** | **42 agent** | — | **2.174.987** | + ngữ cảnh điều phối ≈ 0,4 triệu ⇒ ≈ 2,6 triệu (+ 84 % trần P1) |
+| 2026-10-05 | G1 | **chủ dự án duyệt** | — | — | #3, L1b, H2, T1, C3; 2 việc ngoài §6 duyệt; trần tập 4,5 triệu (P2, P3 ≤ 1 triệu); `gates/G1-answer.md` |
+| 2026-10-05 | sau G1 | thử tên ASR (4 tên × 2 seed) | lệnh | — | đều đạt → **Frank**; 936 ký tự EL |
+| 2026-10-05 | sau G1 | §6.5 + lệnh G1: "Glen" → "Frank" (script, hooks, beats); clip cold open sinh lại | lệnh | — | 0 từ khoá mất; 170 ký tự EL; **tổng EL P1 1.927** |

@@ -8,7 +8,7 @@ Timing: ~140 spoken words/min with dollar amounts and years read out in full (sa
 
 H1.1 | [curious] Married, and bought your home in 2000? Selling it may not be fully tax-free. | buy_year, excl_joint_limit_usd | `[stake]` Night street, one house lit; door plate "since 2000". A "For sale" sign is lifted, then hesitates halfway.
 H1.2 | Couples can take $500,000 of profit on a main home tax-free. | excl_joint_limit_usd | Flat line (`ink-muted`, V3 fixed line) above the roof: "$500,000 tax-free cap". It does not move.
-H1.3 | Rosa and Glen, an illustrative Phoenix couple, count on that. | — | Two faceless figures, ILLUSTRATIVE badge; caption "Phoenix".
+H1.3 | Rosa and Frank, an illustrative Phoenix couple, count on that. | — | Two faceless figures, ILLUSTRATIVE badge; caption "Phoenix".
 H1.4 | You'll know, city by city, the 2000 price where a home that rose like its metro area's average passes that cap, to check yours against. | buy_year, threshold_joint_min, threshold_joint_max | Title card over a ghost ladder (12 unlabeled rungs) with an empty slot "your 2000 price". Tag "US only".
 
 - Stake ("may not be fully tax-free" for the viewer's own group): **0:00–0:06**.
@@ -18,7 +18,7 @@ H1.4 | You'll know, city by city, the 2000 price where a home that rose like its
 ## H2 — "Cú sốc con số" (CHOSEN, round-robin pair test 5/6, `hook-rr/RESULT.md`; = S01 in `script.md`)
 
 H2.1 | [serious] About $558,100 in paper profit, more than a couple can take tax-free. | gain_at_200k_phoenix, excl_joint_limit_usd, illustrative_price_200k_usd | `[stake]` Black screen; the number "≈ $558,100 gain (on paper)" builds digit by digit, ILLUSTRATIVE badge beside it; then a flat line slides in just under it, label "tax-free cap". Purchase price ILLUSTRATIVE ($200,000, shown small under the number).
-H2.2 | That's Rosa and Glen, an illustrative Phoenix couple who bought in 2000, if their home rose like the average. | buy_year, gain_at_200k_phoenix, growth_phoenix, illustrative_price_200k_usd | Pull back: the number sits at the end of a gain line rising from "2000"; the couple and house appear (ILLUSTRATIVE badge; tag "$200,000 · 2000", ILLUSTRATIVE).
+H2.2 | That's Rosa and Frank, an illustrative Phoenix couple who bought in 2000, if their home rose like the average. | buy_year, gain_at_200k_phoenix, growth_phoenix, illustrative_price_200k_usd | Pull back: the number sits at the end of a gain line rising from "2000"; the couple and house appear (ILLUSTRATIVE badge; tag "$200,000 · 2000", ILLUSTRATIVE).
 H2.3 | You'll know, city by city, the 2000 price where a home that rose like its metro area's average passes that cap, to check yours against. | buy_year, threshold_joint_min, threshold_joint_max | Same title card and ghost ladder as H1.4.
 
 - Stake (a gain larger than the tax-free amount): **0:00–0:08** (number lands by ≈ 0:04; "more than a couple can take tax-free" ends ≈ 0:08, counter splits hyphenated words, so likely ≈ 0:07).
@@ -29,7 +29,7 @@ H2.3 | You'll know, city by city, the 2000 price where a home that rose like its
 
 H3.1 | [curious] Can a married couple still sell a home bought in 2000 tax-free? | buy_year, excl_joint_limit_usd | `[question]` Same night street; the "For sale" sign; the question appears as on-screen text, word by word.
 H3.2 | The familiar rule says yes, up to $500,000 of profit. | excl_joint_limit_usd | The rule as a card, "$500,000 tax-free", then the card turns into a flat line above the roof (V3 fixed line). A small "?" waits at its end.
-H3.3 | Rosa and Glen, an illustrative Phoenix couple, count on it. | — | Couple, ILLUSTRATIVE badge.
+H3.3 | Rosa and Frank, an illustrative Phoenix couple, count on it. | — | Couple, ILLUSTRATIVE badge.
 H3.4 | You'll know, city by city, the 2000 price where a home that rose like its metro area's average passes that cap, to check yours against. | buy_year, threshold_joint_min, threshold_joint_max | Same title card and ghost ladder as H1.4; the "?" from H3.2 moves into the empty slot "your 2000 price".
 
 - Question (the viewer's own question, on today's rule): **0:00–0:05**.

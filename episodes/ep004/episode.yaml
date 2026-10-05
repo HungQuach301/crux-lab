@@ -1,6 +1,10 @@
 episode: ep004
 format: lab            # 9–11 phút, 2 mid-roll ở ranh giới hồi (episode.md §9)
-topic: "queue #3 — topics-r1/machine/tax-2 (khuyến nghị P1; chủ dự án chọn ở G1)"
+topic: "queue #3 — topics-r1/machine/tax-2 (G1 duyệt 2026-10-05)"
+title: "Bought Your Home in 2000? The $500,000 Tax-Free Limit Test"
+characters: "Rosa & Frank (ILLUSTRATIVE, Phoenix)"
+hook: H2
+tokenCeiling: {episode: 4500000, P2: 1000000, P3: 1000000}
 pillar: thuế
 midrolls: []           # ghi ở C2 khi có bảng nhịp
 voice: {provider: elevenlabs, voice: Eric, model: eleven_v3}

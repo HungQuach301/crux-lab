@@ -59,14 +59,14 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 5. Đoạn phương pháp = 1 câu + thẻ V7 + mô tả.
 6. **Bảng nhịp** có cột loại nhịp (1 "hình tự mang ý" + câu "ý người xem phải đọc ra" / 2 "minh hoạ lời"). Hình lấy từ thư viện; ký hiệu mới phải ghi lý do.
 7. Gen được bảo vệ và gu đã chốt (CHARTER §4, `taste-ledger.md`). Không chép kịch bản tập cũ.
+8. **Mỗi lần sửa kịch bản giao một agent WRITER MỚI với đầu bài ngắn** (file cần sửa + danh sách dòng cần đổi + lý do), **không gọi lại agent cũ**: gọi lại tốn bằng toàn bộ ngữ cảnh của agent đó (Tập 4: 3 lượt WRITER ≈ 0,56 triệu token; lessons G2).
 
 **Móc do máy chọn (D-006 Q4):**
 - WRITER viết **3 phương án 30 s đầu**, mỗi phương án một kiểu móc khác nhau (`packaging.md` §2). Cả ba đều theo story §1: 5 s đầu là được–mất hoặc câu hỏi trên sự thật hiện tại; lời hứa trước 0:30.
-- **Tới khi có hiệu chuẩn chính thức:** chọn bằng WRITER + REVIEWER (REVIEWER chấm theo story §1, ghi lý do một dòng).
-- **Ứng viên bộ đo: so cặp móc** (hiệu chuẩn Mốc B: chọn đúng bản gốc 6/6; điểm 1–5 và điểm bỏ xem KHÔNG ĐẠT, lessons F3). Chỉ dùng sau **hiệu chuẩn chính thức ở P1 Tập 4**:
-  - ý đồ + ngưỡng ghi trước (ví dụ: so cặp chọn bản gốc ≥ 5/6 trên hai tập, bản làm kém = bỏ móc 5 s, cùng kịch bản); **dùng mẫu mới, không dùng lại dữ liệu Tập 2/3 của Mốc B** (tránh tự xác nhận);
-  - đạt → so cặp vòng tròn 3 phương án, 3 người đọc mỗi cặp, chọn phương án thắng nhiều nhất;
-  - trượt → giữ cách WRITER + REVIEWER.
+- **So cặp móc — ỨNG VIÊN, đã hiệu chuẩn chính thức (P1 Tập 4, `episodes/ep004/cal-hook/`, lessons G1):** chọn bản gốc 7/8, mỗi mẫu ≥ 3/4, mỗi vị trí ≥ 3/4 — **đạt đúng bằng ngưỡng** ở cả ba điều kiện; mẫu mới (Tập 1 + kịch bản mới), thứ tự X/Y cân bằng. **Mới chứng minh phân biệt "có móc / bỏ móc"**, chưa chứng minh chọn đúng giữa ba móc đều tốt (Tập 4: người đọc chọn vị trí Y 7/9 ở vòng tròn). Cách dùng (chủ dự án, G1 Tập 4):
+  - so cặp vòng tròn 3 phương án × 3 người đọc mới mỗi cặp, vai đích, thứ tự xoay; báo lượt thắng **và** lệch vị trí;
+  - **kèm WRITER + REVIEWER**: REVIEWER chấm 3 phương án theo story §1 (lý do một dòng); khi so cặp và REVIEWER lệch nhau, hoặc khi thắng thua chỉ do bản đứng cùng một vị trí, G1 nêu cả hai;
+  - mỗi lần dùng ghi kết quả + lệch vị trí vào ledger; hiệu chuẩn lại khi đổi model người đọc. Thước đo thật vẫn là giữ chân YouTube.
 - G1 hiện móc đã chọn dạng chữ trong kịch bản + 2 phương án còn lại, mỗi phương án một dòng. Chủ dự án chỉ đổi khi muốn. **Không sinh giọng cho phương án không chọn.**
 
 ## 4. Song song sau C2

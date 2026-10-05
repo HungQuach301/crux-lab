@@ -1,6 +1,6 @@
 # Giao phiên K — Tập 4 (`episode.md` §7) · 2026-10-05, P1
 
-**Một lần chạy cho Tập 4, khi chủ dự án duyệt G1** (đề tài có thể đổi ở G1; nếu đổi, brief này huỷ). Tên kind và params do K quyết; bên dựng theo (lessons E8).
+**G1 đã duyệt đề tài #3 (2026-10-05) — brief có hiệu lực; chủ dự án mở phiên K.** Một lần chạy cho Tập 4. Tên kind và params do K quyết; bên dựng theo (lessons E8).
 
 ## Cần kind MỚI
 Không dòng nào trong bảng "Loại mô hình" (`checks/CONTRACT.md`) phủ "giới hạn danh nghĩa cố định so với tăng trưởng chỉ số giá nhà theo vùng".
@@ -13,6 +13,6 @@ Không dòng nào trong bảng "Loại mô hình" (`checks/CONTRACT.md`) phủ "
 `episodes/ep004/numbers.md` (claim ID = khoá `rounded`, cộng hằng số luật và `illustrative_price_*`, `metro_count`). Claim thật sự dùng trong lời: cột claim của `episodes/ep004/story/script.md`.
 
 ## Luật tập đề xuất (K xét)
-1. Mọi khung có ngưỡng/lãi/quý vượt phải có nhãn "a home that rose like its metro area's average" hoặc dạng rút gọn đã khoá (claim-risk hồ sơ "Always say").
+1. (Kịch bản: luật của tập theo cảnh, chủ dự án duyệt ở G1, không vào `checks/`.) Trên hình: mọi khung có ngưỡng/lãi/quý vượt phải có nhãn "a home that rose like its metro area's average" hoặc dạng rút gọn đã khoá (claim-risk hồ sơ "Always say").
 2. Giá $200,000/$300,000 mang nhãn ILLUSTRATIVE trên mọi khung (như claim nhân vật minh hoạ).
 3. Không khung nào đổi ngưỡng thành số thuế phải nộp.

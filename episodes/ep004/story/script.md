@@ -5,7 +5,7 @@ Working title: *Bought Your Home in 2000? The $500,000 Tax-Free Limit May Not Co
 Format: `Sxx.n | narration | claim IDs (or —) | visual note`. Narration is US English for Eric (`eleven_v3`), generated **per scene** (each scene ≤ ~900 narration characters). Emotion tags sit at the start of the line (**6** in the episode, key beats only). No break tags, no "...", no speed. Holds written as *(hold n s)* in the visual note are silence in the edit, not narration.
 S01 is hook **H2** ("Cú sốc con số", `[stake]`), chosen by the round-robin pair test (5/6, `hook-rr/RESULT.md`); H1/H3 stay in `hooks.md`. Round 2 (C2-blind): anti-advice counterweight tightened in S15.5/S17.4; "like … average" once per scene; S14 numbers moved to screen; S08 gets a why-it-matters line; S18 rules merged.
 
-**Characters.** Rosa and Glen are an **ILLUSTRATIVE** couple (badge on screen whenever they or their numbers appear; names are taste, C3). The $200,000 and $300,000 purchase prices are ILLUSTRATIVE (claim-risk); every visual note that carries them says so. Every gain, crossing quarter, threshold or metro count is said for a home rising **"like … average"** (round 2: once per scene that states a threshold, gain, crossing quarter or metro count; other sentences drop the phrase), never for a specific house, and never turned into a tax bill.
+**Characters.** Rosa and Frank are an **ILLUSTRATIVE** couple (badge on screen whenever they or their numbers appear; names are taste, C3). The $200,000 and $300,000 purchase prices are ILLUSTRATIVE (claim-risk); every visual note that carries them says so. Every gain, crossing quarter, threshold or metro count is said for a home rising **"like … average"** (round 2: once per scene that states a threshold, gain, crossing quarter or metro count; other sentences drop the phrase), never for a specific house, and never turned into a tax bill.
 
 **Counterweight against advice (C1 blind signal, 5/6 readers drew "check your taxes / see a tax pro before selling"):** said right after the promise (S02.1), after the Act 1 result (S07.4), at the answer (S15.5: "The video measures one line; it says nothing about what anyone does next.") and in the limits (S17.1, S17.4): a line for an average-like home, not anyone's tax bill, not a reason to sell or keep; the video does not say what anyone should do. No imperative, no "professional" as a next step anywhere.
 
@@ -41,7 +41,7 @@ Both at act boundaries, in a hold ≥ 1 s, after 2:00 and before the last two mi
 No part off by more than ±5 points.
 
 **Act questions / turns:**
-- Act 1 (S01–S07): *Has Rosa and Glen's gain passed the cap?* Turn: the flat line stands still while their gain line climbs over it (KEY-2).
+- Act 1 (S01–S07): *Has Rosa and Frank's gain passed the cap?* Turn: the flat line stands still while their gain line climbs over it (KEY-2).
 - Act 2 (S08–S14): *Is Phoenix unusual, and what 2000 price does it take elsewhere?* Turn: flip from "when" to "what price" — the ladder (KEY-6).
 - Act 3 (S15–S19): answers the cold-open question with the same words ("fully tax-free") and the same street and flat line, then the limits.
 - Core number (the $500,000 cap) returns with new meaning: fact (S01/S03) → comparison, flat vs consumer prices (S08) → a 2000 price the viewer can look up (S14.6), recalled in words only.
@@ -51,7 +51,7 @@ No part off by more than ±5 points.
 ## S01 — Hook H2: a paper gain bigger than the tax-free cap · 335 chars, 60 words
 
 S01.1 | [serious] About $558,100 in paper profit, more than a couple can take tax-free. | gain_at_200k_phoenix, excl_joint_limit_usd, illustrative_price_200k_usd | `[stake]` KEY-1. Black screen; the number "≈ $558,100 gain (on paper)" builds digit by digit, ILLUSTRATIVE badge beside it; then a flat line slides in just under it, label "tax-free cap". Purchase price ILLUSTRATIVE ($200,000, shown small under the number).
-S01.2 | That's Rosa and Glen, an illustrative Phoenix couple who bought in 2000, if their home rose like the average. | buy_year, gain_at_200k_phoenix, growth_phoenix, illustrative_price_200k_usd | Pull back: the number sits at the end of a gain line rising from "2000"; the couple and house appear (ILLUSTRATIVE badge; tag "$200,000 · 2000", ILLUSTRATIVE).
+S01.2 | That's Rosa and Frank, an illustrative Phoenix couple who bought in 2000, if their home rose like the average. | buy_year, gain_at_200k_phoenix, growth_phoenix, illustrative_price_200k_usd | Pull back: the number sits at the end of a gain line rising from "2000"; the couple and house appear (ILLUSTRATIVE badge; tag "$200,000 · 2000", ILLUSTRATIVE).
 S01.3 | You'll know, city by city, the 2000 price where a home that rose like its metro area's average passes that cap, to check yours against. | buy_year, threshold_joint_min, threshold_joint_max | Title card. Behind it, a ghost of the ladder (KEY-6) with 12 unlabeled rungs and an empty slot marked "your 2000 price". Small tag "US only".
 
 ## S02 — Constraints, right after the promise · 332 chars, 64 words
@@ -68,12 +68,12 @@ S03.2 | A married couple filing jointly can leave up to $500,000 of that gain of
 S03.3 | Those caps took effect in May 1997. | exclusion_effective_month | Time axis appears under the line, starting "May 1997". *(hold 1 s)*
 S03.4 | They are plain dollar amounts, and they haven't changed since. | excl_joint_limit_usd, exclusion_effective_month | The line draws left to right along the axis, perfectly flat, to the right edge. No end label yet.
 
-## S04 — Rosa and Glen, and the sentence Glen always says · 279 chars, 54 words
+## S04 — Rosa and Frank, and the sentence Frank always says · 279 chars, 54 words
 
-S04.1 | Back to Rosa and Glen. | — | The couple returns (ILLUSTRATIVE badge).
+S04.1 | Back to Rosa and Frank. | — | The couple returns (ILLUSTRATIVE badge).
 S04.2 | In 2000, they paid $200,000 for a house in Phoenix. | buy_year, illustrative_price_200k_usd | Price tag on the door: "$200,000 · 2000" with ILLUSTRATIVE badge.
 S04.3 | The kids have moved out, and on weekends they both look at smaller places. |  | Phone in Rosa's hand scrolling small-home listings (no prices visible).
-S04.4 | Whenever selling comes up, Glen says the same thing: at least the profit is tax-free. | — | Speech bubble from Glen: "At least it's tax-free."
+S04.4 | Whenever selling comes up, Frank says the same thing: at least the profit is tax-free. | — | Speech bubble from Frank: "At least it's tax-free."
 S04.5 | [thoughtful] Is it? Has their gain passed the cap? | excl_joint_limit_usd | The bubble gets a question mark. Flat cap line above the house again. *(hold 1 s)*
 
 ## S05 — How the house is replayed (one mechanism sentence) · 255 chars, 46 words
@@ -135,7 +135,7 @@ S12.3 | What 2000 purchase price would put a home that rose like its metro area'
 ## S13 — Phoenix's line · 271 chars, 50 words
 
 S13.1 | In Phoenix, for a home that rose like the average, that price is about $179,200. | threshold_joint_phoenix | The slider stops: the gain line ends exactly on the cap; label "2000 price ≈ $179,200". *(hold 1.2 s)*
-S13.2 | Rosa and Glen paid more than that, and that's why their line crossed. | gain_at_200k_phoenix, threshold_joint_phoenix | A dot "Rosa & Glen · $200,000" (ILLUSTRATIVE) appears just above the threshold mark on a vertical price ruler.
+S13.2 | Rosa and Frank paid more than that, and that's why their line crossed. | gain_at_200k_phoenix, threshold_joint_phoenix | A dot "Rosa & Frank · $200,000" (ILLUSTRATIVE) appears just above the threshold mark on a vertical price ruler.
 S13.3 | Below that price, a Phoenix home is still under the cap; above it, it's over. | threshold_joint_phoenix | The ruler splits: below the mark tinted neutral "under the cap", above it `warn` "over the cap".
 
 ## S14 — The ladder: twelve cities, one price each · 525 chars, 102 words
@@ -149,7 +149,7 @@ S14.5 | That's the cap, read a third way: not as a flat line, but as a 2000 pric
 ## S15 — Act 3: the answer, in the cold open's words · 527 chars, 102 words
 
 S15.1 | So, back to the opening question: is selling a home bought in 2000 still fully tax-free? | buy_year | KEY-7. Same night street and lit house as S01; the "For sale" sign half-raised.
-S15.2 | [serious] For Rosa and Glen, if their house rose like its metro area's average, not fully: part of their gain sits above the cap. | gain_at_200k_phoenix, excl_joint_limit_usd | The Phoenix V3 chart returns behind the house: flat line, `warn` tail. ILLUSTRATIVE badge.
+S15.2 | [serious] For Rosa and Frank, if their house rose like its metro area's average, not fully: part of their gain sits above the cap. | gain_at_200k_phoenix, excl_joint_limit_usd | The Phoenix V3 chart returns behind the house: flat line, `warn` tail. ILLUSTRATIVE badge.
 S15.3 | For you, it may come down to one comparison: your 2000 price against your city's rung. | threshold_joint_min, threshold_joint_max, buy_year | Ladder slides in; the empty slot "your 2000 price" from S01 reappears beside it.
 S15.4 | Above that rung, a home like that has already passed the cap. Below it, it hasn't. | — | The slot moves above a rung (tail `warn`), then below (neutral).
 S15.5 | Below the rung isn't proof of no tax, and above it isn't proof of a large one. The video measures one line; it says nothing about what anyone does next. | — | The slot fades to an outline. No number.

@@ -5,3 +5,6 @@
 Claim: `excl_joint_limit_usd`, `exclusion_effective_month`, `buy_year`, `growth_*` (> 3 ở 9/12 metro: LA, SD, Seattle, Boston, NY, Miami, Denver, Phoenix, Dallas — "more than tripled in many cities"; chỉ số FHFA, không phải căn nhà), `threshold_joint_*`, `sale_quarter`.
 
 Chỉ một logline (không L2): đề tài do máy khuyến nghị, chủ dự án chọn đề tài + logline ở G1; tiết kiệm 6 agent (trần 60 agent cả tập). Nêu trong gói G1 (REVIEWER `REVIEW-intents.md` §2.2).
+
+## Duyệt G1 (2026-10-05, chủ dự án): **L1b**
+A married couple bought their home in 2000 and assume a sale would be tax-free, because the $500,000 limit on home-sale profits sounds like more than they could ever make. But that limit has not changed since 1997, and home prices have more than tripled in many cities. We replay 26 years of home prices in 12 metro areas to find, for each one, the 2000 purchase price above which a home that rose like its metro area's average now has a profit over the limit: a number you can check against your own. It will not tell you what you owe or what to do: improvements and selling costs lower a real profit, and no home is exactly average.
