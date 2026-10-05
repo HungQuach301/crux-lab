@@ -1,5 +1,5 @@
-"""Chia mẫu hiệu chuẩn so cặp móc (INTENT.md): 2 mẫu × 4 người đọc, gốc ở X 2 lần / Y 2 lần; câu 2 = so cặp tiêu đề
-(tham khảo), 8 lượt chia T1–T2 ×3, T1–T3 ×3, T2–T3 ×2, thứ tự xoay. Mỗi người đọc một file tên hex trong OUT; khoá key.json."""
+"""Chia mẫu hiệu chuẩn so cặp móc (INTENT.md): 2 mẫu × 4 người đọc, gốc ở X 2 lần / Y 2 lần.
+(v2 sau REVIEWER: bỏ câu tiêu đề.) Mỗi người đọc một file tên hex trong OUT; khoá key.json."""
 import json, os, re, secrets, sys, random
 R = os.path.dirname(os.path.abspath(__file__)); OUT = sys.argv[1]; os.makedirs(OUT, exist_ok=True)
 txt = open(f'{R}/samples.md').read()
@@ -15,10 +15,8 @@ for (s, o), tp in zip(slots, pairs):
     h = secrets.token_hex(4)
     body = (f"{ROLE[s]}, scrolling YouTube for personal-finance videos. Below are the first ~30 seconds of narration of two versions "
             f"(X and Y) of the same faceless data-explainer video. Read both once.\n\n=== OPENING X ===\n{sec(X)}\n\n=== OPENING Y ===\n{sec(Y)}\n\n"
-            f"Separately, two other videos appear in your YouTube search results, same neutral thumbnail, channel \"Crux\", 10:30 long:\n"
-            f"1. {T[tp[0]]}\n2. {T[tp[1]]}\n\n"
             "Answer in EXACTLY this format, nothing else:\nKEEP: <X or Y> (which opening would make you keep watching?)\n"
-            "STRENGTH: <1-3> (1 = slight, 3 = clear)\nWHY: <one sentence>\nCLICK: <1 or 2> (which search result would you click?)\nCLICKWHY: <one sentence>\n")
+            "STRENGTH: <1-3> (1 = slight, 3 = clear)\nWHY: <one sentence>\n")
     open(f'{OUT}/{h}.txt', 'w').write(body)
-    key.append({'file': h, 'sample': s, 'X': X, 'Y': Y, 'title1': tp[0], 'title2': tp[1]})
+    key.append({'file': h, 'sample': s, 'X': X, 'Y': Y})
 rng.shuffle(key); json.dump(key, open(f'{R}/key.json', 'w'), indent=1); print(len(key), 'mẫu')
