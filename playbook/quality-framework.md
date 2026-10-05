@@ -2,6 +2,8 @@
 
 v1 (29/09/2026) rút từ khung Cine Lab. v2 áp `decisions/D-005.md`: 3 cổng GU, 3 cổng TỰ ĐỘNG; bỏ phép che chữ/số; mọi kiểm mù do agent độc lập, mù tập chấm. Tài liệu này đứng ngay sau `CHARTER.md`. Cách chạy một tập: `playbook/episode.md`.
 
+> **Mốc B (D-006, áp từ Tập 4) — cổng chủ dự án đổi thành G1/G2/G3:** **G1** sau C2 (đề tài + logline + kịch bản gồm cấu trúc, cold open, móc + tiêu đề nháp; C1 thành bước máy của P1). **C3** chỉ mở khi tập cần ký hiệu ngoài thư viện (≤ 2 ký hiệu mới/tập). **G2 = C6**, kèm Shorts. **G3** = phát hành. Bảng §4 giữ thước đo và ngưỡng của từng bước; cột "Loại"/"Ai quyết" đọc theo `episode.md` §1. Nguyên tắc tốc độ: chỉ mở vòng sửa khi CHẶN, hoặc lỗi sai nghĩa / claim / pháp lý; CHÍNH không đổi nghĩa → hàng chờ trong gói G2. Biên kịch: `playbook/story.md`.
+
 ## 0. Định nghĩa chất lượng
 
 > **Người xem, xem một lần ở tốc độ thường, đánh giá tập của Crux ngang với ba tham chiếu** (`playbook/references.md`): Vox về truyện, 3Blue1Brown về hình mang nghĩa, WSJ "three charts" về thể loại.
@@ -27,7 +29,7 @@ Thứ tự khi xung đột (Murch, mở rộng): **cảm xúc > truyện > nhị
 5. Không duyệt hình bằng ảnh tĩnh (G-011). Kiểm mù hình dùng dải 6 khung cắt từ clip có chuyển động, đúng thời gian.
 6. Phê bình AI không thay khán giả. Điểm CRITIC là L2 tham khảo.
 7. Bên dựng không sửa bộ đo đang chấm mình (CHARTER §7.1). **Bên dựng không chấm kiểm mù của mình** (lessons E1).
-8. Thước đo mới phải **hiệu chuẩn trên đối chứng đã biết kết quả** trước khi thành ngưỡng (lessons E2).
+8. Thước đo mới phải **hiệu chuẩn trên đối chứng đã biết kết quả** trước khi thành ngưỡng (lessons E2). Đối chứng âm phải **cùng chủ đề, cùng dữ kiện** (bản làm kém có kiểm soát của chính kịch bản; lessons F4). Bộ đo hấp dẫn của agent (điểm móc 1–5, bỏ xem ở đâu) đã trượt hiệu chuẩn — không dùng (lessons F3).
 
 ## 3. Phân cấp luật máy
 
