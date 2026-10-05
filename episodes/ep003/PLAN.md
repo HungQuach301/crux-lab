@@ -57,7 +57,7 @@ Nhánh: `ep003` (từ `main` `c0376d1`). Chỉ P3 merge `ep003` vào `main`. Khu
 ## 5. KPI tạm (cuối P3, trước trả lời C6)
 - Chủ dự án tham gia: **2** cổng (C1, C3) + lệnh khởi động P3 (3 lưu ý) + C6 đang chờ + xác nhận tải. Mục tiêu Tập 3: 3 + xác nhận tải.
 - Vòng: C1 1 · C2 1 · C3 2 · hiệu chuẩn 1 · C4 1 · **C5 2 + dự phòng §6** (+ 1 kiểm xác nhận sau REVIEWER) · C6 chờ.
-- Lượt agent: **134** = P1 55 + P2 76 + P3 3 (tóm tắt AI mù tập 1 sonnet; REVIEWER C5 1; REVIEWER C6 1). Render/checks/mã hoá chạy lệnh trực tiếp.
+- Lượt agent: **140** = P1 55 + P2 76 + P3 9 (tóm tắt AI mù tập 1; so cặp thumbnail 6; REVIEWER C5 1; REVIEWER C6 1). Render/checks/mã hoá chạy lệnh trực tiếp.
 - Ký tự ElevenLabs: **5 551** = 4 733 + 818 (P3: S03 sinh lại 407 vì A14; S02 tái lập 411 vì mất take).
 - Thời gian: P3 2026-10-05 01:25 → C5 qua ~08:50 (giờ container) → gói C6 gửi. Phần lớn là máy: render 1080p ×3 (~25–30 phút mỗi lần), checks đủ bộ ~60–75 phút mỗi lần (5 lần, 2 hỏng/1 nửa hợp lệ).
 - Token: không đọc được.
