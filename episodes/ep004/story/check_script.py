@@ -24,7 +24,7 @@ NUM_MD = open(os.path.join(os.path.dirname(HERE), 'numbers.md')).read()
 CVAL = dict(re.findall(r'^\| `([a-z0-9_]+)` \| ([^|]*?) \|', NUM_MD, re.M))
 claims = set(CVAL)
 NUMWORD = re.compile(r'\b(zero|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|'
-                     r'nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion|halves|percent|double|triple|tripled|doubled)\b|\bhalf\b(?! of)|\bone (in|of|out)\b', re.I)
+                     r'nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion|halves|percent|double|triple|tripled|doubled)\b|\bhalf\b(?! of)|\bone in \w+\b|\bone out of\b', re.I)
 NUMTOK = re.compile(r'\$?\d[\d,]*(\.\d+)?%?|\b(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|hundred|thousand|million|half|tripled|doubled)\b', re.I)
 ASR_SYM = re.compile(r'[%±→×~≈<>/]|\b\d+(\.\d+)?x\b')
 PROMISE = re.compile(r"\bby the end\b|\byou'll (know|see|have)\b|\byou will (know|see)\b", re.I)
