@@ -20,7 +20,7 @@ S01.5 | So which path would have left her better off, the promise or the roll? |
 S01.6 | One catch before we look back: the doubling promise in its current form only began with bonds issued in May 2005, and earlier bonds came with different terms. | ctx_guarantee, guarantee_from, ctx_hypothetical | KEY-2. A long timeline from the 1930s to today slides in under the paths; a short solid segment starting "May 2005" lights up.
 S01.7 | So for every year before that, we simply pretend today's promise already existed, and you'll see that marked each time it applies. | ctx_hypothetical | Everything left of May 2005 gets a hatched wash + the fixed label "IF today's guarantee had existed". This label stays on every pre-2005 result for the whole episode.
 
-## S02 — The promise of the episode, and the bond's rule · 847 chars, 161 words
+## S02 — The promise of the episode, and the bond's rule · 881 chars, 167 words
 
 S02.1 | By the end, you'll know how often history let the roll beat double, when it fell short, and roughly where the line sits that your own 20 years would have to clear. | horizon_years | Title card (A1). Small tag "US only".
 S02.2 | First, the bond. | — | The gate path comes forward.
@@ -28,7 +28,7 @@ S02.3 | It's a Series EE savings bond, sold by the US Treasury itself. | — | P
 S02.4 | For bonds issued May to October 2026, it earns a fixed 2.40 percent a year, and the rate for new bonds is reset every May and November. | ctx_ee_rate | On screen: "2.40% fixed" / "for bonds issued May to October 2026" (two lines, ≥ 40 px). Calendar ticks May · Nov.
 S02.5 | That rate alone would not double the money in 20 years, so at the 20-year mark the Treasury tops the bond up to at least double. | ctx_ee_rate, ctx_guarantee, horizon_years | The bar grows slowly, stops short of the gate, then a top-up block snaps it to "×2".
 S02.6 | The promise, as written, covers bonds held electronically, which is how the Treasury sells them now. | ctx_guarantee | Small tag "electronic bonds".
-S02.7 | Doubling in 20 years works out to 3.53 percent a year, compounded once a year. | doubling_rate_pct_per_year, horizon_years | Label on the gate: "= 3.53% a year, compounded yearly".
+S02.7 | Spread over those 20 years, that doubling can also be written as one steady yearly rate, shown here on the gate. | horizon_years | Label on the gate, screen only and never spoken: "= 3.53% a year, compounded yearly" (screen claim: doubling_rate_pct_per_year).
 S02.8 | And the double only arrives at 20 years: a bond cashed earlier earns just its fixed rate, and one cashed before five years also gives up 3 months of interest. | ctx_penalty, ctx_guarantee, horizon_years | The gate opens only at the end; earlier exits are side doors with a smaller bar.
 
 ## S03 — The bill roll, and why today's rate doesn't settle it · 854 chars, 162 words
@@ -70,7 +70,7 @@ S06.2 | For starts from 1990 on, the average bill rate over the following 20 yea
 S06.3 | When the rate starts high and drifts down, the average sinks below where it began, and the roll ends up earning less than its first bill suggested. | — | The chain's link heights step down over time; the average marker sinks below link 1.
 S06.4 | In other words, the rate on the day a roll begins has been a poor guide to the decades that follow. | — | Link 1 of the chain next to the average of all 80 links: they don't match.
 S06.5 | The early eras just ran the other way more often. | — | Middle row of the swarm pulses once.
-S06.6 | That is not a reason to pick either path; it is what history did with this pair of rules. | — | Counterweight on screen: "Not a pick. What history did." Hold ≥ 1 s at the end state.
+S06.6 | That is not a reason to pick either path; it is what history did with this pair of rules. | — | Counterweight on screen: "Not a pick. Real rates, what-if bond." Hold ≥ 1 s at the end state.
 
 ## S07 — Double is a promise about dollars · 696 chars, 122 words
 
