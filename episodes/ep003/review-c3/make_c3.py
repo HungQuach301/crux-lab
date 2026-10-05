@@ -57,7 +57,7 @@ def main():
         png = f'strips/{sid.replace(":", "-")}.png'
         if not os.path.exists(f'{R1}/{png}'):
             raise SystemExit('thiếu ' + png)
-        samples.append({'id': sid, 'set': 'ctrl' if sid.startswith('ctrl') else 'ep003', 'kind': cls.get(sid, 'image'), 'file': png})
+        samples.append({'id': 'V4' if sid.startswith('ctrl') else sid, 'set': 'ctrl' if sid.startswith('ctrl') else 'ep003', 'kind': cls.get(sid, 'image'), 'file': png})
     json.dump({'question': Q, 'candidate_set': 'ep003', 'samples': samples}, open(f'{R1}/manifest.json', 'w'), indent=1, ensure_ascii=False)
     mr = muted(); assert len(mr) == 7, mr
     items = {k: {'meaning': v, 'description_only': DESC} for k, v in mr.items() if k != 'KEY-3'}
