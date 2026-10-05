@@ -1,0 +1,38 @@
+{
+ "R1": {
+  "score": 1,
+  "advice": true,
+  "overclaim": false,
+  "why": "Has all three ideas (1997 limit noted in Q4, historical metro data, 2000 price threshold); Q5 suggests a tax professional if above the number."
+ },
+ "R2": {
+  "score": 1,
+  "advice": true,
+  "overclaim": false,
+  "why": "Has all three ideas; Q5 recommends talking to a tax professional if near or over the threshold."
+ },
+ "R3": {
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Has all three ideas; Q5 only says check your own price against the threshold and look into it, with no sell/keep or professional advice."
+ },
+ "R4": {
+  "score": 0.5,
+  "advice": true,
+  "overclaim": false,
+  "why": "Gets the historical data and the threshold but never mentions the limit being unchanged since 1997; Q5 suggests a tax professional."
+ },
+ "R5": {
+  "score": 1,
+  "advice": true,
+  "overclaim": false,
+  "why": "Has all three ideas; Q5 mentions perhaps talking to a tax professional."
+ },
+ "R6": {
+  "score": 1,
+  "advice": true,
+  "overclaim": false,
+  "why": "Has all three ideas; Q5 suggests looking into the tax, perhaps with a tax professional, before deciding to sell."
+ }
+}
