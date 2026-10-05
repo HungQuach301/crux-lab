@@ -10,3 +10,10 @@ Trần phiên ≈ 0,8 triệu; vượt > 25 % (> 1,0 triệu) → dừng hỏi c
 | **Cộng tới 2026-10-05 ~13:55 UTC** | **≈ 0,22 triệu** | **≈ 0,89 triệu** | **≈ 1,1 triệu = 138 % trần** → DỪNG HỎI |
 
 Bài học: một agent con tốn ≈ 44 nghìn token cố định. Bộ đo cần 18 người đọc = 0,8 triệu token, cả phiên Mốc B trần 0,8 triệu. Trần token mỗi tập phải tính phần cố định này (≈ 44 nghìn × số agent).
+
+## Sau khi chủ dự án chọn B (thêm ≈ 0,2 triệu)
+| Bước | Ngữ cảnh phiên chính | Agent con |
+|---|---|---|
+| Tài liệu và quy trình, số đo checks | ≈ 85 nghìn | REVIEWER 81 nghìn |
+| **Phần B** | **≈ 0,17 triệu = 83 % phần thêm 0,2 triệu** | |
+| **Cả phiên** | **≈ 0,31 triệu** | **≈ 0,97 triệu** → **≈ 1,28 triệu** |
