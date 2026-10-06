@@ -1,0 +1,87 @@
+You grade answers from viewers who saw 6 muted frames of a short video. For EACH answer give: score (1, 0.5 or 0) per the rubric of its beat, and advice flag yes/no. Advice flag (count=yes) only if the answer recommends a concrete financial action: buy, sell, keep/hold, time a sale, wait to sell, choose a product. General caution such as 'check your own numbers', 'talk to a tax professional', 'be aware' does NOT count (count=no).
+Rubrics:
+K1: Correct meaning (score 1) requires ALL of: the line/quantity is a GAIN or PROFIT on paper (not just the home's price or value); it rises over the years toward a fixed flat $500,000 cap/limit; it passes the cap around Q2 2022; it dips back below briefly; it has stayed above the cap since Q2 2023. Score 0.5: right direction but one element wrong or missing (e.g. reads it as home value, misses the dip or the dates). Score 0: otherwise.
+K2: Correct meaning (score 1) requires BOTH: their gain on paper (about $558,100) is above / past the $500,000 cap; and Phoenix-area prices are about 3.8 times their 2000 level. Score 0.5: only one of the two. Score 0: otherwise.
+Return ONLY a JSON list: [{"id":..., "score":..., "advice":"yes"|"no", "why":"<12 words"}].
+
+--- id b3ec8a81 · beat K1 ---
+1. **The idea:** Home prices can rise so much that a long-time owner's paper gain passes the $500,000 limit. That is the amount a married couple can exclude from capital gains tax when they sell a primary home. The video uses a made-up couple, Rosa & Frank, whose home rose like the Phoenix average. It uses FHFA price data from FRED and labels it as illustrative history, not a forecast.
+
+2. **What changes:**
+   - Frame 1 shows an empty chart, 2000 to 2025, with a $500,000 cap line.
+   - Frame 2 introduces the couple and a house on a stack of money. Their gain is still unknown.
+   - Frames 3 and 4 show the stack growing tall. It is split into "what they paid" and the growth above it. The house is then shown small against the cap line.
+   - Frames 5 and 6 zoom in on the 2021 to 2026 gain. It went over the cap in Q2 2022, dipped back under, then went over again and stayed there since Q2 2023.
+
+3. **What it means for me:** I bought in 2000, so I'm in the same position as Rosa & Frank. My home has probably gained a lot on paper. If I'm married and sell, any gain above $500,000 could be taxed. Prices in many areas have risen enough that this could affect me. The cap isn't indexed to inflation, so it doesn't rise as prices do. I can't tell from the video whether my own gain is over the line. That depends on my purchase price, my improvements and my local market.
+
+4. **Advice a viewer might take:**
+   - Work out my own number: the expected sale price, minus what I paid, minus improvements and selling costs.
+   - Keep records of renovations, because they raise my cost basis and lower my gain.
+   - Talk to a tax professional before selling or making big decisions.
+   - Don't treat the chart as a prediction. It is a measurement of the past, not a next step, so it doesn't tell me to sell or to wait.
+
+--- id 24e6fb27 · beat K2 ---
+1. **The idea:** Home prices have risen a lot, and a lot of the gain is only "on paper." The video uses Phoenix-area data (FHFA via FRED) to show that prices rose well past a $500,000 cap line and stayed above it since Q2 2023. It also shows that prices are now about 3.8 times their 2000 level. It labels itself as illustrative, a measurement, US-only, history and not a forecast. It also says it is not a tax bill and not a next step.
+
+2. **What changes:** In frames 1–3, a price line climbs above the $500,000 cap. A stack of bars grows beside it, and a label appears: "their gain on paper ≈ $558,100." In frame 4, the cap fades and the stack stands alone. In frames 5–6, the view zooms out to the whole 2000–2026 Q2 history. It shows the bubble, the crash, the long recovery and the surge. A "×1" marker sits at 2000 and a "×3.8" marker at 2026.
+
+3. **What it means for me:** I bought in 2000, so I'm at the ×1 start of that chart. My home would be worth roughly 3.8 times what I paid, if I lived in that area and tracked its index. That is a large paper gain. It would be wealth I can see but haven't collected, because I'd only realize it by selling or borrowing against the house. Local prices vary, so my own number could differ. The $500,000 line makes me wonder about the tax exclusion on home-sale gains. The video says it is not a tax bill, though, so it doesn't say what I'd owe.
+
+4. **Advice a viewer might take:** The video gives little direct advice, and it says it is not a next step or a forecast. A reasonable viewer would take these points from it:
+   - Check what the home is worth now and what the gain would be.
+   - Remember the chart shows a crash as well as a boom, so past gains aren't guaranteed to continue.
+   - Before selling, ask a tax professional how the gain would be taxed.
+   - Don't treat paper wealth as money in hand.
+
+--- id dec800d3 · beat K2 ---
+1. **The idea:** The video shows how much a home's value has grown on paper. It uses FHFA price-index data from FRED. The first half looks at a recent stretch, 2021 to 2026, where a home's value stayed above a $500,000 line from Q2 2023 on. The second half zooms out to Phoenix-area prices since 2000. The labels say it is only a measurement, US only, and history rather than a forecast. They also say it is not a tax bill or a next step.
+
+2. **What changes:**
+   - Frames 1–3: a gold price line climbs above the $500,000 cap line, and a stack of bars shows the value. Frame 3 adds a label for the paper gain, about $558,100.
+   - Frame 4: the cap line fades out and the gold line is left alone.
+   - Frames 5–6: the view shifts to the full 2000–2026 Q2 history. A blue line shows the dip around 2008–2011 and the sharp climb after 2020. The ×1 marker for 2000 and the ×3.8 marker for 2026 show that prices are about 3.8 times what they were.
+
+3. **What it means for me:** I bought in 2000, so on paper my house is worth roughly 3.8 times what I paid, and I've lived through the crash and the recovery. That is a lot of equity. But it is paper wealth. I only get it if I sell or borrow against it. The $500,000 line probably refers to a threshold that matters for taxes, such as the capital-gains exclusion, but the video says outright that it isn't a tax bill. I'd treat it as a reason to look at my own numbers, not as a conclusion.
+
+4. **Advice a viewer would take:** The video gives no direct advice, and it deliberately avoids predicting anything. A sensible viewer would:
+   - Check what their own home is worth now.
+   - Work out their actual gain from what they paid.
+   - Ask a tax professional how any gain would be treated before deciding to sell or borrow.
+   - Remember that a past 3.8× gain doesn't guarantee future growth, and that prices can drop, as they did around 2008.
+
+--- id f69018bf · beat K1 ---
+1. **The idea:** The video shows how much a long-time homeowner's paper gain has grown compared with a $500,000 cap. That cap looks like the $500,000 home-sale gain exclusion for a married couple. The example couple, Rosa & Frank, own a home that rose like the Phoenix average, using FHFA price data from FRED. The captions say it's illustrative, US only, history and not a forecast.
+
+2. **What changes:**
+   - Frame 1 shows a blank timeline from 2000 to 2025 with the $500,000 line.
+   - Frame 2 introduces Rosa & Frank and their house, with the question "their gain on paper = ?"
+   - Frame 3 shows the house on a tall stack. The small bottom part is "what they paid" and the tall part above it is the gain.
+   - Frame 4 zooms out and the stack sits near the cap line.
+   - Frame 5 adds a rising price line against the cap.
+   - Frame 6 shows the gain over 2021 to 2026. It went over the cap in Q2 2022, dipped back under, then stayed over since Q2 2023.
+
+3. **What it means for me:** I bought in 2000, so my gain is probably large, and in a fast-rising market like Phoenix it could be well past $500,000. If I sold, the part of the gain above the exclusion could be taxable. The exclusion is $250,000 for a single filer and $500,000 for a married couple filing jointly. It isn't indexed to inflation, so more people each year drift over it. I'd want to work out my own number: sale price minus what I paid, minus improvements, minus selling costs.
+
+4. **Advice a viewer might take:** The video doesn't tell anyone what to do. It calls itself "a measurement, not a next step." A sensible takeaway is to figure out your own gain and keep records of what you paid and what you spent on improvements. If you're near or over the cap, talk to a tax professional before deciding to sell. Don't treat the chart as a prediction, because it's history only.
+
+--- id 0be5c7c7 · beat K2 ---
+1. **The idea.** The sequence shows how much home prices have risen on paper. A typical home bought in 2021 gained about $558,100 by 2026, and prices stayed above a $500,000 line from Q2 2023 on. It then zooms out to Phoenix-area prices since 2000, which are about 3.8 times higher. The captions stress that this is a measurement. It is not a tax bill, a next step, or a forecast, it covers the US only, and it is labeled "illustrative." The source is FHFA data via FRED.
+
+2. **What changes.** Frames 1–3 show a yellow price line climbing above a $500,000 cap line. A stack of money blocks grows next to it, and the "≈ $558,100 gain on paper" label appears. In frame 4 the cap line fades and the stack stays. Frames 5–6 switch to a long blue line from 2000 to 2026 Q2, with a small house icon. It shows the 2000s boom, the crash and a slow recovery, then a steep climb, ending at "×3.8" compared with "×1" in 2000. The caption also adds "not a tax bill" partway through.
+
+3. **What it means for me.** I bought in 2000, so the ×1 to ×3.8 picture is my situation. My house is probably worth several times what I paid. That is wealth on paper only. I haven't sold, so I haven't realized it, and the video doesn't say what I would owe or keep if I did. It also shows I rode out the crash around 2009–2012 and that my gain is much bigger than the one for someone who bought in 2021. The $500,000 cap is probably a reference to the federal home-sale tax exclusion for married couples, but the video doesn't say that, and it explicitly disclaims being tax advice.
+
+4. **Advice a viewer would take.** The video gives little direct advice. A viewer would learn that long-term owners have large unrealized equity, and that this is history and not a prediction of future prices. The sensible next step is to check the rules that apply to my own case before acting. That means my actual purchase price and improvements, any sale-gain exclusion, and local property tax. I'd talk to a tax professional before deciding anything. The video itself doesn't tell me to sell, hold, or borrow.
+
+--- id 621edbc2 · beat K1 ---
+1. **The idea:** The video uses a made-up couple, Rosa & Frank, to show how far home prices have risen. A home that gained like the Phoenix average would have a paper gain above $500,000. That is the amount of gain a married couple can exclude from tax when they sell their main home. The labels say it is illustrative, uses US data from FHFA via FRED, and is history rather than a forecast.
+
+2. **What changes:** Frame 1 shows an empty chart with a $500,000 line, with years from 2000 to 2025 below it. Frames 2 and 3 introduce Rosa & Frank and a house on a stack of money. The stack grows far taller than "what they paid." Frame 4 zooms out to the $500,000 line. Frames 5 and 6 add a line tracking the gain from 2021 to 2026. It went over the cap in Q2 2022, dipped back under, and has stayed over since Q2 2023.
+
+3. **What it means for me:** I bought in 2000, so my gain on paper could be well past $500,000, depending on where I live. If I sell, I could owe capital gains tax on the part above the exclusion. A sale price is only a paper number until I actually sell.
+
+4. **Advice a viewer would take:**
+   - Work out my own numbers. That means my purchase price plus improvements, compared with what the house would sell for now.
+   - Don't treat the video as a prediction. It says it is a measurement and not a next step, so prices could move either way.
+   - If my gain is near or over the cap, talk to a tax professional before selling or timing a move. The video doesn't give tax advice or say what to do.

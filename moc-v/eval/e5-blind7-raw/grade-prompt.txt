@@ -1,0 +1,97 @@
+You grade answers from viewers who saw 6 muted frames of a short video. For EACH answer give: score (1, 0.5 or 0) per the rubric of its beat, and advice flag yes/no. Advice flag (count=yes) only if the answer recommends a concrete financial action: buy, sell, keep/hold, time a sale, wait to sell, choose a product. General caution such as 'check your own numbers', 'talk to a tax professional', 'be aware' does NOT count (count=no).
+Rubrics:
+E1: Correct meaning (score 1) requires ALL of: on the loan's repayment schedule alone it takes about 8 years for the loan to fall to 80% of the price; when real history is replayed (many purchase months), the typical buyer reaches 80% on paper much sooner; slow cases take longer. Score 0.5: right direction but one element wrong or missing. Score 0: otherwise.
+E2: Correct meaning (score 1) requires BOTH: 'on paper' means the loan compared with the home's value by a (national) price index, reaching 80%; and reaching 80% on paper is NOT the same as the mortgage insurance being removed (it is still on). Score 0.5: only one of the two. Score 0: otherwise.
+Return ONLY a JSON list: [{"id":..., "score":..., "advice":"yes"|"no", "why":"<12 words"}].
+
+--- id fbd14a2d · beat E2 ---
+1. **The idea:** A buyer who puts down 10% starts with a loan of about 90% of the home's value. If home prices rise, the loan drops to about 80% of the home's value on paper. At that point the buyer may be able to get rid of mortgage insurance, which is why frame 6 says "insurance still on." The labels say the data come from FHFA, Freddie Mac and FRED, and the video is "illustrative." It describes past US buyers, and it says it is "not a reason to buy, rent or wait" and "not a forecast."
+
+2. **What changes:**
+   - Frames 1–3: The loan bar starts at 87% of the home's value. It then settles at "80% on paper." The home-value bar is labeled "by a national price index," meaning the value rise comes from an index and not from an actual appraisal.
+   - Frames 4–6: The scene turns into a 3D view. A house with a stack of money under it stands next to a person, and an apartment building sits nearby. More stacks appear, and the building gets larger. The last frame adds the text "insurance still on."
+   - Overall, the home's value grows and the loan share shrinks. The insurance has not come off yet.
+
+3. **What it means for me:** With 10% down, I'd probably pay mortgage insurance. Rising prices could get my loan to 80% of the home's value on paper, but that doesn't end the insurance automatically. The lender may need to confirm the 80% figure, and that may take an appraisal or a request from me. The video also shows this as something that happened to past buyers. My own result depends on my local market and my loan terms.
+
+4. **Advice a viewer would take:** The video gives no buy, rent or wait advice. A viewer might take away these points:
+   - Don't assume rising prices cancel the insurance on their own.
+   - Ask the lender how and when mortgage insurance can be removed, and whether it needs an appraisal.
+   - Don't count on price gains, because the video says it is history and not a forecast.
+
+--- id 4529f02e · beat E2 ---
+1. **Idea:** With a small down payment (about 10%), a buyer's loan starts out near 90% of the home's value. As home prices rise, the loan shrinks relative to the home's value. A national price index can show it as 80% "on paper," which is the level where mortgage insurance can come off. The sequence says this is history for past US buyers, not a forecast and not a reason to buy, rent or wait.
+
+2. **Changes:**
+   - Frames 1–3: the loan bar goes from 87% of the home's value to "80% on paper." The label "home value by a national price index" appears in frame 3.
+   - Frames 4–6: the scene becomes a 3D house with a stack of cash, a small person and an apartment building. The house sits on a taller pile, and a second stack appears beside it.
+   - Frame 6: the label "insurance still on" appears. Even when the loan looks like 80% on paper, the insurance may still be charged.
+
+3. **For me:** I've saved 10%, so I'd start with a loan near 90% of the price and pay mortgage insurance. Rising prices might get me to 80% sooner, but that figure comes from a national index. My own home's value and my lender's rules decide when the insurance actually ends. So I can't count on it ending on schedule.
+
+4. **Advice:** There's no advice to buy, rent or wait, and the video says so. A viewer would take away a few cautions:
+   - Don't assume price gains will cancel mortgage insurance.
+   - Ask the lender how and when insurance can be removed. That usually means a set loan-to-value target, possibly an appraisal, and the actual terms of my loan.
+   - Treat the figures as illustrative history, not a prediction.
+
+--- id c1721af4 · beat E1 ---
+1. **The idea:** With 10% down, your loan starts at about 90% of the home's price. The usual goal is to get it down to 80%, which is where you'd typically stop paying mortgage insurance. On the regular payment schedule that takes about 8 years. The video then checks that against what actually happened to US buyers from 1991 to 2016. It's labeled as a measurement of the past, not a forecast or a reason to buy, rent or wait.
+
+2. **What changes:**
+   - Frames 1–2 show one illustrative line sliding down from 90% toward the 80% mark.
+   - Frame 3 labels the crossing at "about 8 years" and switches to real data.
+   - Frames 4–5 add one thin line for each purchase month. The lines fan out. Many rise toward 100% or higher when home values fell, then come back down.
+   - Frame 6 highlights two cases. A typical buyer reached 80% in about 2 years, because rising home values shrank the loan share quickly. A "slow case" climbed well above 90% before it eventually fell to 80% at roughly 8 to 10 years.
+
+3. **For someone like me (32, saved 10%):** My starting point is 90% loan-to-value. How fast I get to 80% depends on two things: my payments, and what home prices do after I buy. The schedule alone says about 8 years. In the past, many buyers got there much sooner because prices rose. Some buyers who bought at a bad time spent years above 90%, with little equity cushion. So the timeline is uncertain, and it depends a lot on when I buy.
+
+4. **Advice a viewer might take:**
+   - Don't count on a quick drop to 80%. Plan for the roughly 8-year schedule as the baseline, and treat anything faster as a bonus.
+   - Make sure I could cover the payments, including mortgage insurance, for many years, and could ride out a stretch of falling prices without having to sell.
+   - Keep an emergency fund so I'm not forced to sell during a slow case.
+   - The video says outright that it doesn't tell me whether to buy, rent or wait. It only shows the range of outcomes. It's US-only, and past results don't predict the future.
+
+--- id 9a8523f9 · beat E2 ---
+1. **Idea:** The video shows how a buyer's loan-to-value ratio changes over time. A buyer who puts down 10% starts with a loan of about 90% of the home's price. The first frames show a loan near 87% falling to "80% on paper" as the home's value rises, using a national price index (FHFA/Freddie Mac data via FRED). That 80% line matters because it is where mortgage insurance would normally be dropped. The later frames add that "insurance still on": reaching 80% on paper doesn't automatically remove the insurance. The footer says this is illustrative, based on past US buyers, and is "not a reason to buy, rent or wait."
+
+2. **What changes:** In frames 1–3, the loan bar shrinks relative to the home-value bar. The label moves from 87% to "80% on paper," and frame 3 adds that home value is measured by a national price index. In frames 4–6 the view switches to a 3D scene. A house sits on a stack of money, with a small person and an apartment building beside it. Extra stacks of cash appear, which suggests equity building up. The final frame labels the house "insurance still on," meaning the cost continues even though the loan looks like 80% on paper.
+
+3. **What it means for me:** I've saved 10% down, so I'd start with a loan around 90% of the price and pay mortgage insurance. Rising home prices and loan paydown could bring me to 80% sooner than I expect. But the insurance may not come off just because a national index says I'm there. The lender may rely on my own home's value, an appraisal, or a required waiting period. So my actual date for dropping insurance could be later than the "on paper" date.
+
+4. **Advice a viewer would take:** There is no direct buy, rent or wait advice, and the video says so. A viewer would reasonably take these points:
+   - Ask the lender how and when mortgage insurance can be removed. Ask whether they require an appraisal and how they measure the home's value.
+   - Budget for insurance as a real cost that may last longer than the national-index math suggests.
+   - Don't treat the historical numbers as a forecast, since prices could be flat or fall.
+
+--- id 54988dda · beat E1 ---
+1. **The idea:** With a 10% down payment, you start with a loan of about 90% of the home's price. The video asks how long it takes for that loan to fall to 80% of the home's value, which is the usual 20% equity mark. On a plain payment schedule, that takes about 8 years. Real past buyers' paths vary a lot around that figure.
+
+2. **What changes:**
+   - Frames 1–2 draw an illustrative, scheduled line sloping down from 90% toward 80%.
+   - Frame 3 labels the crossing "about 8 years" and switches to real FHFA/Freddie Mac data.
+   - Frames 4–5 add one line for every purchase month from 1991 to 2016. The lines spread out. Some drop below 80% fast, and others rise above 100% when prices fell.
+   - Frame 6 highlights two cases. The typical one reaches 80% in about 2 years. The slow one, in yellow, climbs above 100% and takes nearly 10 years.
+
+3. **For you:** You're putting down 10%, so you start at 90% and sit above the 80% line. Paying down the loan alone gets you there in about 8 years. In practice, home price changes decide it more than the payment schedule. In many past cases, price growth got buyers there much sooner, around 2 years. In bad cases, prices fell and it took close to 10 years. Your timeline is uncertain, and it could be much shorter or longer than 8 years.
+
+4. **Advice:** There isn't any, and the video says so itself. Its captions read "a measurement, not a next step" and "not a reason to buy, rent or wait." It also says "history, not a forecast" and "US only." A viewer should take away a range, not a promise:
+   - Plan for the slow case, not the typical one. Keep cash reserves, and don't count on equity arriving quickly.
+   - Expect to carry mortgage insurance for a variable length of time, since the 80% mark is usually when it can be dropped.
+   - Don't treat this as a signal to buy or to wait. Make that decision from your own finances.
+
+--- id 194ac2c4 · beat E1 ---
+1. **The idea:** It shows how long it takes a buyer who puts down 10% to get their loan down to 80% of the home's value, which is the point where private mortgage insurance (PMI) can usually be dropped. On paper, paying down the loan on schedule gets there in about 8 years. The video then checks that against real US buyers from 1991–2016, using FHFA and Freddie Mac data.
+
+2. **What changes:**
+   - Frames 1–2: An illustrative line slides from 90% toward the 80% line. This is the schedule alone, labeled "a measurement, not a next step."
+   - Frame 3: The line reaches 80% at about 8 years.
+   - Frames 4–5: Many lines are drawn, one for each purchase month. Loan-to-value rises above 100% for some buyers when prices fall, and the lines spread widely.
+   - Frame 6: Two cases are highlighted. A typical buyer gets there in about 2 years, because rising home values do most of the work. A "slow case" climbs above 100% and takes about 8 years or more.
+
+3. **What it means for someone like me:** I've saved 10%, so I'd start at about 90% loan-to-value. How fast I reach 80% depends mostly on what home prices do, not just on my payments. It could take around 2 years if prices rise, or 8 or more if they fall. I should expect real uncertainty in my PMI costs and my equity.
+
+4. **Advice a viewer might take:** The video says outright that this isn't a reason to buy, rent or wait. It's past data for the US only, and not a forecast. A viewer could reasonably:
+   - Not count on a quick exit from PMI.
+   - Keep a cushion in case prices drop.
+   - Plan to stay long enough to ride out a slow case.
+   - Ask a lender how PMI removal works, including whether it allows a new appraisal.
