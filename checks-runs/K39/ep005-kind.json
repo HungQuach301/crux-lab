@@ -1,0 +1,936 @@
+{
+ "note": "K3.9: kind ltv-first-passage on Episode 5 real data (origin/ep005 @ 2f27027; FRED HPIPONM226N, MORTGAGE30US, MSPUS, CSUSHPINSA re-downloaded 2026-10-06, SHA-256 4/4 equal to data/sources.json). ep005 has no contract.json yet: the model section below is a draft written by K for this run only (the builder writes contract.json). S01 compares out/model.json (origin/ep005) value by value. \"stated\" checks every numbers.md claim at the value it is written with (tolerance = the kind's S05 tolerance or half a unit of the last written digit, whichever is larger); S05 is the rule itself, with claims.json values = the unrounded out/model.json raw values (as CONTRACT asks the builder to write them).",
+ "contractModel": {
+  "kind": "ltv-first-passage",
+  "output": "out/model.json",
+  "params": {
+   "index": {
+    "file": "data/raw/HPIPONM226N.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "HPIPONM226N"
+   },
+   "rate": {
+    "file": "data/raw/MORTGAGE30US.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "MORTGAGE30US",
+    "frequency": "weekly"
+   },
+   "downShare": 0.1,
+   "termMonths": 360,
+   "requestLtv": 0.8,
+   "autoLtv": 0.78,
+   "lenderLtvEarly": 0.75,
+   "lookMonthsA": 24,
+   "minFollowB": 120,
+   "slowCutMonths": 60,
+   "illustrativePrice": 400000,
+   "buyers": {
+    "fast": {
+     "month": "2004-01",
+     "is": "min",
+     "tie": "latestYearEarliestMonth"
+    },
+    "typical": {
+     "month": "2014-06",
+     "is": "median",
+     "tie": "latest"
+    },
+    "slow": {
+     "month": "2005-10",
+     "is": "max",
+     "tie": "earliest"
+    }
+   },
+   "slump": {
+    "peakBefore": "2012-01",
+    "troughBefore": "2015-01"
+   },
+   "priceRef": {
+    "name": "mspus",
+    "file": "data/raw/MSPUS.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "MSPUS"
+   },
+   "robust": {
+    "cs": {
+     "file": "data/raw/CSUSHPINSA.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "CSUSHPINSA"
+    }
+   },
+   "conventions": {
+    "value_removal_ltv_early": 0.75,
+    "value_removal_seasoning_years": 2,
+    "gse_charter_ltv_max_uninsured": 0.8
+   },
+   "notModel": [
+    "buyers",
+    "data"
+   ]
+  },
+  "claims": {
+   "rate_month_latest": "rate_month_latest",
+   "rate_latest": "rate_latest",
+   "rate_partial": "rate_partial",
+   "sched80_months_latest": "sched80_months_latest",
+   "sched78_months_latest": "sched78_months_latest",
+   "midpoint_months": "midpoint_months",
+   "midpoint_end_month": "midpoint_end_month",
+   "midpoint_binding_rate_min": "midpoint_binding_rate_min",
+   "midpoint_binding_last_month": "midpoint_binding_last_month",
+   "sched80_min_A": "sched80_min_A",
+   "sched80_max_A": "sched80_max_A",
+   "rate_min_A": "rate_min_A",
+   "rate_max_A": "rate_max_A",
+   "nA": "nA",
+   "firstA": "firstA",
+   "lastA": "lastA",
+   "shareA_ltv24_le80": "shareA_ltv24_le80",
+   "shareA_ltv24_le75": "shareA_ltv24_le75",
+   "nB": "nB",
+   "firstB": "firstB",
+   "lastB": "lastB",
+   "medianB_months_to80": "medianB_months_to80",
+   "minB_months_to80": "minB_months_to80",
+   "shareB_over60": "shareB_over60",
+   "maxB_months_to80": "maxB_months_to80",
+   "maxB_start": "maxB_start",
+   "shareB_le_sched80": "shareB_le_sched80",
+   "buyer_fast_purchaseMonth": "buyer_fast_purchaseMonth",
+   "buyer_fast_rate": "buyer_fast_rate",
+   "buyer_fast_monthsTo80Index": "buyer_fast_monthsTo80Index",
+   "buyer_fast_sched80Months": "buyer_fast_sched80Months",
+   "buyer_fast_sched78Months": "buyer_fast_sched78Months",
+   "buyer_fast_hpiChangeTo80Pct": "buyer_fast_hpiChangeTo80Pct",
+   "buyer_fast_ltvIndexAt24": "buyer_fast_ltvIndexAt24",
+   "buyer_typical_purchaseMonth": "buyer_typical_purchaseMonth",
+   "buyer_typical_rate": "buyer_typical_rate",
+   "buyer_typical_monthsTo80Index": "buyer_typical_monthsTo80Index",
+   "buyer_typical_sched80Months": "buyer_typical_sched80Months",
+   "buyer_typical_sched78Months": "buyer_typical_sched78Months",
+   "buyer_typical_hpiChangeTo80Pct": "buyer_typical_hpiChangeTo80Pct",
+   "buyer_typical_ltvIndexAt24": "buyer_typical_ltvIndexAt24",
+   "buyer_slow_purchaseMonth": "buyer_slow_purchaseMonth",
+   "buyer_slow_rate": "buyer_slow_rate",
+   "buyer_slow_monthsTo80Index": "buyer_slow_monthsTo80Index",
+   "buyer_slow_sched80Months": "buyer_slow_sched80Months",
+   "buyer_slow_sched78Months": "buyer_slow_sched78Months",
+   "buyer_slow_hpiChangeTo80Pct": "buyer_slow_hpiChangeTo80Pct",
+   "buyer_slow_ltvIndexAt24": "buyer_slow_ltvIndexAt24",
+   "mspus_latest": "mspus_latest",
+   "mspus_quarter": "mspus_quarter",
+   "ex_price": "illustrativePrice",
+   "ex_loan": "ex_loan",
+   "ex_down": "ex_down",
+   "ex_payment_pi": "ex_payment_pi",
+   "ex_target80": "ex_target80",
+   "ex_target78": "ex_target78",
+   "ex_extra_down_for_20": "ex_extra_down_for_20",
+   "value_removal_ltv_early": "lenderLtvEarly",
+   "pmi_required_below20": "requestLtv",
+   "slowB_n": "slowB_n",
+   "slowB_years": "slowB_years",
+   "slowB_first": "slowB_first",
+   "slowB_last": "slowB_last",
+   "hpi_peak_month": "hpi_peak_month",
+   "hpi_peak": "hpi_peak",
+   "hpi_trough_month": "hpi_trough_month",
+   "hpi_trough": "hpi_trough",
+   "hpi_peak_to_trough_pct": "hpi_peak_to_trough_pct",
+   "buyer_slow_index_peak": "fraction:buyer_slow_indexPeakPct",
+   "buyer_slow_index_peak_month": "buyer_slow_indexPeakMonth",
+   "buyer_slow_index_trough": "fraction:buyer_slow_indexTroughPct",
+   "buyer_slow_index_trough_month": "buyer_slow_indexTroughMonth",
+   "robust_cs_medianB": "robust_cs_medianB_months_to80",
+   "robust_cs_maxB": "robust_cs_maxB_months_to80",
+   "robust_cs_maxB_start": "robust_cs_maxB_start",
+   "robust_cs_shareB_over60": "robust_cs_shareB_over60",
+   "robust_cs_shareA_le80": "robust_cs_shareA_ltv24_le80",
+   "robust_cs_shareA_le75": "robust_cs_shareA_ltv24_le75"
+  }
+ },
+ "S01": {
+  "status": "PASS",
+  "valuesCompared": 104,
+  "mismatches": 0,
+  "notRecomputed": 0
+ },
+ "stated": [
+  {
+   "claimId": "rate_month_latest",
+   "key": "rate_month_latest",
+   "numbersMd": "2026-09-01",
+   "recomputed": "2026-09",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "rate_latest",
+   "key": "rate_latest",
+   "numbersMd": 6.862,
+   "recomputed": 6.8625,
+   "ok": true,
+   "tolerance": "tol 0.005"
+  },
+  {
+   "claimId": "rate_partial",
+   "key": "rate_partial",
+   "numbersMd": 7.28,
+   "recomputed": 7.28,
+   "ok": true,
+   "tolerance": "tol 0.005"
+  },
+  {
+   "claimId": "sched80_months_latest",
+   "key": "sched80_months_latest",
+   "numbersMd": 99,
+   "recomputed": 99.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "sched78_months_latest",
+   "key": "sched78_months_latest",
+   "numbersMd": 114,
+   "recomputed": 114.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "midpoint_months",
+   "key": "midpoint_months",
+   "numbersMd": 180,
+   "recomputed": 180.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "midpoint_end_month",
+   "key": "midpoint_end_month",
+   "numbersMd": 181,
+   "recomputed": 181.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "midpoint_binding_rate_min",
+   "key": "midpoint_binding_rate_min",
+   "numbersMd": 12.56,
+   "recomputed": 12.559999999999999,
+   "ok": true,
+   "tolerance": "tol 0.005"
+  },
+  {
+   "claimId": "midpoint_binding_last_month",
+   "key": "midpoint_binding_last_month",
+   "numbersMd": "1985-05-01",
+   "recomputed": "1985-05",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "sched80_min_A",
+   "key": "sched80_min_A",
+   "numbersMd": 58,
+   "recomputed": 58.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "sched80_max_A",
+   "key": "sched80_max_A",
+   "numbersMd": 132,
+   "recomputed": 132.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "rate_min_A",
+   "key": "rate_min_A",
+   "numbersMd": 2.68,
+   "recomputed": 2.684,
+   "ok": true,
+   "tolerance": "tol 0.005"
+  },
+  {
+   "claimId": "rate_max_A",
+   "key": "rate_max_A",
+   "numbersMd": 9.64,
+   "recomputed": 9.6375,
+   "ok": true,
+   "tolerance": "tol 0.005"
+  },
+  {
+   "claimId": "nA",
+   "key": "nA",
+   "numbersMd": 403,
+   "recomputed": 403.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "firstA",
+   "key": "firstA",
+   "numbersMd": "1991-01",
+   "recomputed": "1991-01",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "lastA",
+   "key": "lastA",
+   "numbersMd": "2024-07",
+   "recomputed": "2024-07",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "shareA_ltv24_le80",
+   "key": "shareA_ltv24_le80",
+   "numbersMd": 0.586,
+   "recomputed": 0.5856079404466501,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  },
+  {
+   "claimId": "shareA_ltv24_le75",
+   "key": "shareA_ltv24_le75",
+   "numbersMd": 0.156,
+   "recomputed": 0.15632754342431762,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  },
+  {
+   "claimId": "nB",
+   "key": "nB",
+   "numbersMd": 307,
+   "recomputed": 307.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "firstB",
+   "key": "firstB",
+   "numbersMd": "1991-01",
+   "recomputed": "1991-01",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "lastB",
+   "key": "lastB",
+   "numbersMd": "2016-07",
+   "recomputed": "2016-07",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "medianB_months_to80",
+   "key": "medianB_months_to80",
+   "numbersMd": 23,
+   "recomputed": 23.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "minB_months_to80",
+   "key": "minB_months_to80",
+   "numbersMd": 13,
+   "recomputed": 13.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "shareB_over60",
+   "key": "shareB_over60",
+   "numbersMd": 0.147,
+   "recomputed": 0.1465798045602606,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  },
+  {
+   "claimId": "maxB_months_to80",
+   "key": "maxB_months_to80",
+   "numbersMd": 112,
+   "recomputed": 112.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "maxB_start",
+   "key": "maxB_start",
+   "numbersMd": "2005-10-01",
+   "recomputed": "2005-10",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "shareB_le_sched80",
+   "key": "shareB_le_sched80",
+   "numbersMd": 0.906,
+   "recomputed": 0.9055374592833876,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  },
+  {
+   "claimId": "buyer_fast_purchaseMonth",
+   "key": "buyer_fast_purchaseMonth",
+   "numbersMd": "2004-01-01",
+   "recomputed": "2004-01",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "buyer_fast_rate",
+   "key": "buyer_fast_rate",
+   "numbersMd": 5.71,
+   "recomputed": 5.7125,
+   "ok": true,
+   "tolerance": "tol 0.005"
+  },
+  {
+   "claimId": "buyer_fast_monthsTo80Index",
+   "key": "buyer_fast_monthsTo80Index",
+   "numbersMd": 13,
+   "recomputed": 13.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_fast_sched80Months",
+   "key": "buyer_fast_sched80Months",
+   "numbersMd": 86,
+   "recomputed": 86.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_fast_sched78Months",
+   "key": "buyer_fast_sched78Months",
+   "numbersMd": 100,
+   "recomputed": 100.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_fast_hpiChangeTo80Pct",
+   "key": "buyer_fast_hpiChangeTo80Pct",
+   "numbersMd": 11.2,
+   "recomputed": 11.168413464204496,
+   "ok": true,
+   "tolerance": "tol 0.05"
+  },
+  {
+   "claimId": "buyer_fast_ltvIndexAt24",
+   "key": "buyer_fast_ltvIndexAt24",
+   "numbersMd": 0.725,
+   "recomputed": 0.7246948318033396,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  },
+  {
+   "claimId": "buyer_typical_purchaseMonth",
+   "key": "buyer_typical_purchaseMonth",
+   "numbersMd": "2014-06-01",
+   "recomputed": "2014-06",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "buyer_typical_rate",
+   "key": "buyer_typical_rate",
+   "numbersMd": 4.16,
+   "recomputed": 4.1625,
+   "ok": true,
+   "tolerance": "tol 0.005"
+  },
+  {
+   "claimId": "buyer_typical_monthsTo80Index",
+   "key": "buyer_typical_monthsTo80Index",
+   "numbersMd": 23,
+   "recomputed": 23.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_typical_sched80Months",
+   "key": "buyer_typical_sched80Months",
+   "numbersMd": 71,
+   "recomputed": 71.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_typical_sched78Months",
+   "key": "buyer_typical_sched78Months",
+   "numbersMd": 83,
+   "recomputed": 83.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_typical_hpiChangeTo80Pct",
+   "key": "buyer_typical_hpiChangeTo80Pct",
+   "numbersMd": 9.8,
+   "recomputed": 9.773249138920793,
+   "ok": true,
+   "tolerance": "tol 0.05"
+  },
+  {
+   "claimId": "buyer_typical_ltvIndexAt24",
+   "key": "buyer_typical_ltvIndexAt24",
+   "numbersMd": 0.784,
+   "recomputed": 0.7835232367178443,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  },
+  {
+   "claimId": "buyer_slow_purchaseMonth",
+   "key": "buyer_slow_purchaseMonth",
+   "numbersMd": "2005-10-01",
+   "recomputed": "2005-10",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "buyer_slow_rate",
+   "key": "buyer_slow_rate",
+   "numbersMd": 6.07,
+   "recomputed": 6.065,
+   "ok": true,
+   "tolerance": "tol 0.005"
+  },
+  {
+   "claimId": "buyer_slow_monthsTo80Index",
+   "key": "buyer_slow_monthsTo80Index",
+   "numbersMd": 112,
+   "recomputed": 112.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_slow_sched80Months",
+   "key": "buyer_slow_sched80Months",
+   "numbersMd": 90,
+   "recomputed": 90.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_slow_sched78Months",
+   "key": "buyer_slow_sched78Months",
+   "numbersMd": 104,
+   "recomputed": 104.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_slow_hpiChangeTo80Pct",
+   "key": "buyer_slow_hpiChangeTo80Pct",
+   "numbersMd": -3.3,
+   "recomputed": -3.282093892812621,
+   "ok": true,
+   "tolerance": "tol 0.05"
+  },
+  {
+   "claimId": "buyer_slow_ltvIndexAt24",
+   "key": "buyer_slow_ltvIndexAt24",
+   "numbersMd": 0.867,
+   "recomputed": 0.8669564107820742,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  },
+  {
+   "claimId": "mspus_latest",
+   "key": "mspus_latest",
+   "numbersMd": 410700.0,
+   "recomputed": 410700.0,
+   "ok": true,
+   "tolerance": "tol 0.5"
+  },
+  {
+   "claimId": "mspus_quarter",
+   "key": "mspus_quarter",
+   "numbersMd": "2026-04-01",
+   "recomputed": "2026-04",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "ex_price",
+   "key": "illustrativePrice",
+   "numbersMd": 400000,
+   "recomputed": 400000.0,
+   "ok": true,
+   "tolerance": "tol 0.5"
+  },
+  {
+   "claimId": "ex_loan",
+   "key": "ex_loan",
+   "numbersMd": 360000.0,
+   "recomputed": 360000.0,
+   "ok": true,
+   "tolerance": "tol 0.5"
+  },
+  {
+   "claimId": "ex_down",
+   "key": "ex_down",
+   "numbersMd": 40000,
+   "recomputed": 40000.0,
+   "ok": true,
+   "tolerance": "tol 0.5"
+  },
+  {
+   "claimId": "ex_payment_pi",
+   "key": "ex_payment_pi",
+   "numbersMd": 2361.94,
+   "recomputed": 2361.937674158231,
+   "ok": true,
+   "tolerance": "tol 0.5"
+  },
+  {
+   "claimId": "ex_target80",
+   "key": "ex_target80",
+   "numbersMd": 320000,
+   "recomputed": 320000.0,
+   "ok": true,
+   "tolerance": "tol 0.5"
+  },
+  {
+   "claimId": "ex_target78",
+   "key": "ex_target78",
+   "numbersMd": 312000,
+   "recomputed": 312000.0,
+   "ok": true,
+   "tolerance": "tol 0.5"
+  },
+  {
+   "claimId": "ex_extra_down_for_20",
+   "key": "ex_extra_down_for_20",
+   "numbersMd": 40000,
+   "recomputed": 39999.99999999998,
+   "ok": true,
+   "tolerance": "tol 0.5"
+  },
+  {
+   "claimId": "value_removal_ltv_early",
+   "key": "lenderLtvEarly",
+   "numbersMd": 0.75,
+   "recomputed": 0.75,
+   "ok": true,
+   "tolerance": "tol 0.005"
+  },
+  {
+   "claimId": "pmi_required_below20",
+   "key": "requestLtv",
+   "numbersMd": 0.8,
+   "recomputed": 0.8,
+   "ok": true,
+   "tolerance": "tol 0.05"
+  },
+  {
+   "claimId": "slowB_n",
+   "key": "slowB_n",
+   "numbersMd": 45,
+   "recomputed": 45.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "slowB_years",
+   "key": "slowB_years",
+   "numbersMd": [
+    2005,
+    2006,
+    2007,
+    2008,
+    2009
+   ],
+   "recomputed": [
+    2005,
+    2006,
+    2007,
+    2008,
+    2009
+   ],
+   "ok": true,
+   "tolerance": "exact"
+  },
+  {
+   "claimId": "slowB_first",
+   "key": "slowB_first",
+   "numbersMd": "2005-05-01",
+   "recomputed": "2005-05",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "slowB_last",
+   "key": "slowB_last",
+   "numbersMd": "2009-02-01",
+   "recomputed": "2009-02",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "hpi_peak_month",
+   "key": "hpi_peak_month",
+   "numbersMd": "2007-06-01",
+   "recomputed": "2007-06",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "hpi_peak",
+   "key": "hpi_peak",
+   "numbersMd": 226.0,
+   "recomputed": 226.0,
+   "ok": true,
+   "tolerance": "tol 0.05"
+  },
+  {
+   "claimId": "hpi_trough_month",
+   "key": "hpi_trough_month",
+   "numbersMd": "2012-01-01",
+   "recomputed": "2012-01",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "hpi_trough",
+   "key": "hpi_trough",
+   "numbersMd": 175.8,
+   "recomputed": 175.8,
+   "ok": true,
+   "tolerance": "tol 0.05"
+  },
+  {
+   "claimId": "hpi_peak_to_trough_pct",
+   "key": "hpi_peak_to_trough_pct",
+   "numbersMd": -22.2,
+   "recomputed": -22.212389380530972,
+   "ok": true,
+   "tolerance": "tol 0.05"
+  },
+  {
+   "claimId": "buyer_slow_index_peak",
+   "key": "fraction:buyer_slow_indexPeakPct",
+   "numbersMd": 0.0433,
+   "recomputed": 0.043253473664774056,
+   "ok": true,
+   "tolerance": "tol 5e-05"
+  },
+  {
+   "claimId": "buyer_slow_index_peak_month",
+   "key": "buyer_slow_indexPeakMonth",
+   "numbersMd": 20,
+   "recomputed": 20.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "buyer_slow_index_trough",
+   "key": "fraction:buyer_slow_indexTroughPct",
+   "numbersMd": -0.1885,
+   "recomputed": -0.18847805013156063,
+   "ok": true,
+   "tolerance": "tol 5e-05"
+  },
+  {
+   "claimId": "buyer_slow_index_trough_month",
+   "key": "buyer_slow_indexTroughMonth",
+   "numbersMd": 75,
+   "recomputed": 75.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "robust_cs_medianB",
+   "key": "robust_cs_medianB_months_to80",
+   "numbersMd": 23,
+   "recomputed": 23.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "robust_cs_maxB",
+   "key": "robust_cs_maxB_months_to80",
+   "numbersMd": 119,
+   "recomputed": 119.0,
+   "ok": true,
+   "tolerance": "tol 0"
+  },
+  {
+   "claimId": "robust_cs_maxB_start",
+   "key": "robust_cs_maxB_start",
+   "numbersMd": "2006-04-01",
+   "recomputed": "2006-04",
+   "ok": true,
+   "tolerance": "month"
+  },
+  {
+   "claimId": "robust_cs_shareB_over60",
+   "key": "robust_cs_shareB_over60",
+   "numbersMd": 0.147,
+   "recomputed": 0.1465798045602606,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  },
+  {
+   "claimId": "robust_cs_shareA_le80",
+   "key": "robust_cs_shareA_ltv24_le80",
+   "numbersMd": 0.561,
+   "recomputed": 0.5607940446650124,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  },
+  {
+   "claimId": "robust_cs_shareA_le75",
+   "key": "robust_cs_shareA_ltv24_le75",
+   "numbersMd": 0.233,
+   "recomputed": 0.23325062034739455,
+   "ok": true,
+   "tolerance": "tol 0.0005"
+  }
+ ],
+ "S05": {
+  "id": "S05",
+  "status": "PASS",
+  "metrics": [
+   {
+    "name": "mapped claims",
+    "value": 78,
+    "op": ">=",
+    "threshold": 1,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "mapped claims absent",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "claims off their re-computation",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "schedules with B_0 ≠ L0, B_n ≠ 0 or a balance not strictly decreasing (every monthly rate)",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "rates where sched(requestLtv) < sched(autoLtv) ≤ n fails, or a schedule decreasing in the rate",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "set-B months with T < 1",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "set-B months with the index never below purchase yet T later than the schedule",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "share at ≤ 75 minus share at ≤ 80 (set A)",
+    "value": -0.42928,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "set-B months whose first passage is not observed (censored)",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "shares outside [0, 1], nA < nB, or lastB ≥ lastA",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "latest rate month incomplete, or a partial month not after it",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "buyers not in set B, not at their min / median / max, or not picked by their tie rule",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "quantities changed when the index is multiplied by 2.5 (index levels aside)",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   },
+   {
+    "name": "claims missing their ILLUSTRATIVE flag",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   }
+  ],
+  "details": [
+   {
+    "off": [],
+    "absent": [],
+    "missingIllustrative": []
+   }
+  ],
+  "note": null
+ }
+}

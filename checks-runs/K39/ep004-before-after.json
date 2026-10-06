@@ -1,0 +1,208 @@
+{
+ "note": "K3.9 behaviour check on Episode 4 (origin/ep004 contract.json, out/model.json, out/claims.json; FRED 14/14 SHA-256 equal to data/sources.json): S01 and S05 run with checks/ of main @ b1d3e79 (LOCK 250ab298\u2026) and of checks-k39. Reports are byte-identical.",
+ "main": {
+  "S01": {
+   "details": [
+    {
+     "kind": "fixed-cap-vs-index-growth",
+     "notRecomputed": []
+    }
+   ],
+   "fingerprint": "bd6d0ee85cf6c7c1",
+   "metrics": [
+    [
+     "values compared",
+     118,
+     true
+    ],
+    [
+     "mismatches",
+     0,
+     true
+    ],
+    [
+     "model parts not re-computed",
+     0,
+     true
+    ]
+   ],
+   "status": "PASS"
+  },
+  "S05": {
+   "details": [
+    {
+     "absent": [],
+     "missingIllustrative": [],
+     "off": []
+    }
+   ],
+   "fingerprint": "e57ec71dadeccbb2",
+   "metrics": [
+    [
+     "mapped claims",
+     124,
+     true
+    ],
+    [
+     "mapped claims absent",
+     0,
+     true
+    ],
+    [
+     "claims off their re-computation",
+     0,
+     true
+    ],
+    [
+     "max |threshold \u00d7 (g \u2212 1) \u2212 cap| over series and caps",
+     0.0,
+     true
+    ],
+    [
+     "max |thresholdA / thresholdB \u2212 capA / capB| (two caps, one series)",
+     0.0,
+     true
+    ],
+    [
+     "series with growth \u2264 1 (no threshold)",
+     0,
+     true
+    ],
+    [
+     "min / max not a metro threshold, or a metro threshold outside [min, max]",
+     0,
+     true
+    ],
+    [
+     "metro counts decreasing in the cutoff, or above the number of metros",
+     0,
+     true
+    ],
+    [
+     "restated cap > cap iff CPI now > CPI base (violations)",
+     0,
+     true
+    ],
+    [
+     "price claims inconsistent (stay quarter \u21d4 P > threshold; cross \u2264 stay)",
+     0,
+     true
+    ],
+    [
+     "quantities of \"los_angeles\" changed when its index is doubled",
+     0,
+     true
+    ],
+    [
+     "claims missing their ILLUSTRATIVE flag",
+     0,
+     true
+    ]
+   ],
+   "status": "PASS"
+  }
+ },
+ "checks-k39": {
+  "S01": {
+   "details": [
+    {
+     "kind": "fixed-cap-vs-index-growth",
+     "notRecomputed": []
+    }
+   ],
+   "fingerprint": "bd6d0ee85cf6c7c1",
+   "metrics": [
+    [
+     "values compared",
+     118,
+     true
+    ],
+    [
+     "mismatches",
+     0,
+     true
+    ],
+    [
+     "model parts not re-computed",
+     0,
+     true
+    ]
+   ],
+   "status": "PASS"
+  },
+  "S05": {
+   "details": [
+    {
+     "absent": [],
+     "missingIllustrative": [],
+     "off": []
+    }
+   ],
+   "fingerprint": "e57ec71dadeccbb2",
+   "metrics": [
+    [
+     "mapped claims",
+     124,
+     true
+    ],
+    [
+     "mapped claims absent",
+     0,
+     true
+    ],
+    [
+     "claims off their re-computation",
+     0,
+     true
+    ],
+    [
+     "max |threshold \u00d7 (g \u2212 1) \u2212 cap| over series and caps",
+     0.0,
+     true
+    ],
+    [
+     "max |thresholdA / thresholdB \u2212 capA / capB| (two caps, one series)",
+     0.0,
+     true
+    ],
+    [
+     "series with growth \u2264 1 (no threshold)",
+     0,
+     true
+    ],
+    [
+     "min / max not a metro threshold, or a metro threshold outside [min, max]",
+     0,
+     true
+    ],
+    [
+     "metro counts decreasing in the cutoff, or above the number of metros",
+     0,
+     true
+    ],
+    [
+     "restated cap > cap iff CPI now > CPI base (violations)",
+     0,
+     true
+    ],
+    [
+     "price claims inconsistent (stay quarter \u21d4 P > threshold; cross \u2264 stay)",
+     0,
+     true
+    ],
+    [
+     "quantities of \"los_angeles\" changed when its index is doubled",
+     0,
+     true
+    ],
+    [
+     "claims missing their ILLUSTRATIVE flag",
+     0,
+     true
+    ]
+   ],
+   "status": "PASS"
+  }
+ },
+ "identical": true
+}
