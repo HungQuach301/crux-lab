@@ -22,7 +22,7 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
 - **Định nghĩa:** người xem xem một lần, đánh giá tập ngang ba tham chiếu (`playbook/references.md`): Vox (truyện), 3Blue1Brown (hình mang nghĩa), WSJ (thể loại).
 - **Ba lớp:**
   - **L1 Kỹ thuật:** máy, luật khoá SHA, cấp CHẶN.
-  - **L2 Nghề:** kiểm mù độc lập; máy chỉ cảnh báo.
+  - **L2 Nghề:** kiểm mù độc lập (headless, chỉ giữ vòng từng đổi quyết định; móc đo bằng mốc giây ở C2); máy chỉ cảnh báo.
   - **L3 Khán giả:** chủ dự án ở G2; sau phát hành là số liệu YouTube, thước đo cuối.
 - **Ưu tiên:** cảm xúc > truyện > nhịp > đường mắt > bố cục.
 - **Chống Goodhart:** không chỉ tiêu số lượng cho nghệ thuật; chỉ số trong ±5 % quanh ngưỡng phải nêu tên. Thước đo mới phải hiệu chuẩn trên đối chứng cùng chủ đề trước khi dùng.

@@ -13,7 +13,8 @@ Một lệnh: `bash toolkit/build.sh episodes/epNNN/episode.yaml [--workers 4] [
 | `qc.py` | Luật làm việc của bên dựng (không thay `checks/`) → `out/factory/qc.md` |
 | `excerpt_checks.py` | Chạy các luật `checks/` không cần trang trên đoạn trích (kiểm LOCK trước) |
 
-File nặng (video, cache đoạn, giọng) ở `episodes/epNNN/work/factory/` (không commit); báo cáo ở `episodes/epNNN/out/factory/`.
+File nặng (video, cache đoạn, wav) ở `episodes/epNNN/work/factory/` (không commit); báo cáo ở `episodes/epNNN/out/factory/`.
+**Take giọng được commit** ở `episodes/epNNN/voice-takes/` (`<băm16>.mp3` + `<băm16>.json`: băm SHA-256 của lời nói + voice + model + seed + settings, văn bản, alignment). Đổi container không sinh lại giọng (Tập 4 mất cache → 8.148 ký tự EL sinh lại). Dung lượng ≈ 16 KB/s lời (mp3 128 kbps) ≈ 8 MB/tập 8 phút kể cả take thử.
 Đoạn render được cache theo băm (đặc tả shot + mốc đã giải + mã engine/mẫu/trang/render + claims/tokens/dữ liệu + khoảng khung).
 **Đối trọng (bắt buộc):** `counterweights:` trong `episode.yaml`, mỗi dòng `{id, text, claims: [...] | when: historical|numbers, attach?: history}`. `spec.py` gom mọi dòng hồ sơ đòi (nhãn "Counterweight on screen" trong `story/script.md` của cảnh được dựng, `Always say "…"` trong claim-risk, giả định `contract.json`); thiếu trường hoặc thiếu dòng → `build.sh` dừng. Engine hiện dòng trên mọi khung có claim kích hoạt; qc kiểm mỗi dòng ≥ 1 s.
 **Nhạc nền:** `audio.music` (+ `music_cmd` để sinh lại) → `music.py`: nhạc dưới lời 20 dB (cách đo A07), dải 1–4 kHz né lời 13 dB, như Tập 1–3; rồi loudnorm 2 lượt. Đã chạy trên S04 Tập 3: A07 19,99 dB, A08 né 7,9 dB, −14,0 LUFS, −1,5 dBTP.

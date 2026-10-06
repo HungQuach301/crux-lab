@@ -41,10 +41,17 @@
 | Việc | Model | Effort |
 |---|---|---|
 | Điều phối, WRITER, REVIEWER, tổng kết | Opus | Medium |
-| Người đọc kiểm mù, người chấm, so cặp | Sonnet | mặc định |
+| Người đọc kiểm mù, người chấm, so cặp | Sonnet **headless** (`toolkit/blind/headless.sh`, không agent con) | mặc định |
 | Render, checks, mã hoá, sinh giọng | lệnh trực tiếp (không agent) | — |
 
-Mỗi agent con tốn **≈ 44 nghìn token cố định** (đo ở Mốc B). Ý đồ mỗi cổng ghi trước số agent dự kiến. Dùng lệnh trực tiếp thay agent khi không cần độc lập.
+Mỗi agent con tốn **≈ 32–49 nghìn token cố định** (Mốc B, Tập 4). Một lượt đọc mù headless tốn **≈ 9–10 nghìn** (chữ) và **≈ 11 nghìn** (ảnh, `--read`) — `tongket-t4/REPORT.md` §2a. Ý đồ mỗi cổng ghi trước số lượt dự kiến. Dùng lệnh trực tiếp thay agent khi không cần độc lập.
+
+**Kiểm mù (Tập 5, lessons H2–H3):**
+- **C1:** 3 người đọc mỗi logline (2 T + 1 G), không đối chứng, không so cặp tiêu đề; dừng khi 2 sai.
+- **C2:** 6 người đọc + 1 người chấm, ≤ 2 vòng; dừng khi gặp khuyên_tính đầu tiên (A9) hoặc 2 sai; không dừng sớm khi đạt.
+- **Cổng gốc (C3/C4):** chỉ nhịp loại 1; 2 người đọc mỗi nhịp, người thứ 3 chỉ khi chia; người chấm độc lập.
+- **Không chạy:** tóm tắt AI ở G2, so cặp thumbnail, đối chứng trong tập thường (chỉ khi rubric mới, việc lô K), hiệu chuẩn so cặp móc (đã xong).
+- Tập 5 chạy song song headless và `Explore` trên C2 một lần (3 + 3). Giữ headless nếu cùng kết luận đạt/trượt và cùng cảnh mất chú ý nhiều nhất.
 
 ## 3. Đầu bài WRITER (C2)
 
@@ -60,11 +67,18 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 6. **Bảng nhịp** có cột loại nhịp (1 "hình tự mang ý" + câu "ý người xem phải đọc ra" / 2 "minh hoạ lời"). Hình lấy từ thư viện; ký hiệu mới phải ghi lý do.
 7. Gen được bảo vệ và gu đã chốt (CHARTER §4, `taste-ledger.md`). Không chép kịch bản tập cũ.
 8. **Mỗi lần sửa kịch bản giao một agent WRITER MỚI với đầu bài ngắn** (file cần sửa + danh sách dòng cần đổi + lý do), **không gọi lại agent cũ**: gọi lại tốn bằng toàn bộ ngữ cảnh của agent đó (Tập 4: 3 lượt WRITER ≈ 0,56 triệu token; lessons G2).
+9. **Điều kiện móc — TỰ ĐỘNG ở C2, đo trước G1** (lessons H4; Tập 4: móc kết thúc 8,1 s, câu hỏi người xem 1:34, AI hook 2/5). WRITER gắn vai mỗi câu trong 60 s đầu (`hook`/`promise`/`question`/`constraint`/`define`). Mốc thời gian lấy từ timeline nhà máy hoặc ASR table read của **bản đọc thử trước G1**:
+   - **M1** câu móc kết thúc ≤ 5,0 s;
+   - **M2** lời hứa kết thúc ≤ 30 s;
+   - **M3** câu hỏi của người xem ≤ 30 s (được trùng M1);
+   - **M4** 0:00–1:00 không khối `constraint`/`define` liền > 10 s (phần thừa lên nhãn hình, thẻ V7, mô tả);
+   - **M5** nhân vật hoặc cái được–mất quay lại ≤ 0:45.
+   Trượt → WRITER mới sửa (≤ 2 vòng), vẫn trượt → nêu ở G1. G1 báo 5 mốc thành một dòng.
 
 **Móc do máy chọn (D-006 Q4):**
 - WRITER viết **3 phương án 30 s đầu**, mỗi phương án một kiểu móc khác nhau (`packaging.md` §2). Cả ba đều theo story §1: 5 s đầu là được–mất hoặc câu hỏi trên sự thật hiện tại; lời hứa trước 0:30.
 - **So cặp móc — ỨNG VIÊN, đã hiệu chuẩn chính thức (P1 Tập 4, `episodes/ep004/cal-hook/`, lessons G1):** chọn bản gốc 7/8, mỗi mẫu ≥ 3/4, mỗi vị trí ≥ 3/4 — **đạt đúng bằng ngưỡng** ở cả ba điều kiện; mẫu mới (Tập 1 + kịch bản mới), thứ tự X/Y cân bằng. **Mới chứng minh phân biệt "có móc / bỏ móc"**, chưa chứng minh chọn đúng giữa ba móc đều tốt (Tập 4: người đọc chọn vị trí Y 7/9 ở vòng tròn). Cách dùng (chủ dự án, G1 Tập 4):
-  - so cặp vòng tròn 3 phương án × 3 người đọc mới mỗi cặp, vai đích, thứ tự xoay; báo lượt thắng **và** lệch vị trí;
+  - **từ Tập 5:** REVIEWER chấm 3 phương án theo story §1 + điều kiện M1–M5 (§3.9); so cặp vòng tròn (headless, 3 lượt mỗi cặp, thứ tự xoay, báo lệch vị trí) **chỉ khi REVIEWER không tách được** (Tập 4: 9 người đọc, 0,29 triệu, H1/H2 không phân biệt);
   - **kèm WRITER + REVIEWER**: REVIEWER chấm 3 phương án theo story §1 (lý do một dòng); khi so cặp và REVIEWER lệch nhau, hoặc khi thắng thua chỉ do bản đứng cùng một vị trí, G1 nêu cả hai;
   - mỗi lần dùng ghi kết quả + lệch vị trí vào ledger; hiệu chuẩn lại khi đổi model người đọc. Thước đo thật vẫn là giữ chân YouTube.
 - G1 hiện móc đã chọn dạng chữ trong kịch bản + 2 phương án còn lại, mỗi phương án một dòng. Chủ dự án chỉ đổi khi muốn. **Không sinh giọng cho phương án không chọn.**
@@ -76,7 +90,8 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 
 ## 5. Gói phát hành và Shorts (G2)
 - **Tiêu đề:** nháp ở G1 (so cặp một vòng, Tham khảo).
-- **Thumbnail:** ở G2 chỉ đưa 3 thumbnail đã qua claim-risk, so cặp một vòng; chủ dự án chọn mặc định + bộ Test & Compare.
+- **Thumbnail:** ở G2 chỉ đưa 3 thumbnail đã qua claim-risk; **không so cặp** (Tập 3–4: người đọc chọn trùng chủ dự án 2/2, lessons H2). Chủ dự án chọn mặc định + thứ tự Test & Compare; T&C là số đo thật.
+- **Không tóm tắt AI ở G2** (0/3 lần đổi quyết định); sức kéo của móc đo ở C2 (§3.9).
 - **Shorts 2–3 cái 9:16 mỗi tập**, cắt từ nhịp then chốt đã qua checks:
   - ≤ 60 s;
   - chữ ≥ sàn dọc 56 px ở 1080×1920;
@@ -107,11 +122,21 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 | Thời gian P1 → G2 | 3 ngày | ~1,5 ngày | ≤ 1 ngày làm máy |
 | Token | không đọc được | ≈ 6 triệu (ước theo 141 × 44 nghìn) | **trần 3 triệu** (3,5 khi có P2) |
 
-**Trần token đề xuất (Tập 4)** = agent × 44 nghìn + ngữ cảnh điều phối:
-- **P1 ≤ 1,4 triệu** (≈ 25 agent + 0,3 triệu điều phối);
-- **P3 ≤ 1,4 triệu** (≈ 25 agent + 0,3 triệu);
-- **P2 ≤ 0,5 triệu** khi có;
-- dự trữ 0,2 triệu.
+**Thực Tập 4:** ≈ 6,3 triệu, 102 agent, EL 11.702, chủ dự án 5 lượt (+G3); kiểm mù 49 % (lessons H1).
+
+**Trần Tập 5 = 3,0 triệu token, phân bổ theo loại việc** (`tongket-t4/REPORT.md` §7):
+
+| Loại việc | Trần | Ghi chú |
+|---|---|---|
+| Kiểm mù (headless) | 0,6 triệu | ≤ 120 lượt |
+| Dựng (nhà máy) | 0,75 triệu | ≤ 4 lượt agent; take giọng commit |
+| WRITER | 0,4 triệu | 1 + ≤ 2 agent mới |
+| REVIEWER | 0,45 triệu | ≤ 4, không cắt (D-008) |
+| Checks, kiểm độc lập | 0,15 triệu | |
+| Điều phối | 0,5 triệu | ≤ 2 phiên |
+| Dự phòng | 0,15 triệu | |
+
+≤ 40 agent con. EL ≤ 6.000 ký tự. Ledger ghi cột **loại việc** cho mỗi dòng. Một loại việc vượt trần của nó > 25 % → dừng hỏi.
 
 Mỗi phiên ghi token thực (số harness của agent con + ngữ cảnh phiên) vào PLAN mục 5. Vượt > 25 % → dừng hỏi.
 
