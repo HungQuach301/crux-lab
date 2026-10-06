@@ -25,7 +25,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 - `episode.yaml` `midrolls` ghi khi định thời giọng thật (≈ 3:29, ≈ 6:41 ước).
 - Không đụng `toolkit/`, `toolkit/factory/` (phiên nhà máy).
 ## 4. Điểm dừng an toàn + lệnh chạy tiếp
-2026-10-06 (P2): main a291ef7 đã merge vào ep004; C3 N1/N2 dựng bằng nhà máy, 2 vòng kiểm mù, gói `gates/C3.md` gửi (issue). **Dừng chờ: (1) trả lời C3; (2) `checks-k38` merge `main`.** Rồi P3: C4. Dựng lại đoạn trích: dữ liệu như dưới → `python3 episodes/ep004/design/c3/build_inputs.py` → `bash toolkit/build.sh episodes/ep004/episode.yaml` (giọng cache theo băm; cài ffmpeg nếu thiếu).
+2026-10-06 (P2): main a291ef7 đã merge vào ep004; C3 N1/N2 dựng bằng nhà máy, 2 vòng kiểm mù, gói `gates/C3.md` gửi (issue #39). **Dừng chờ: (1) trả lời C3; (2) `checks-k38` merge `main`.** Rồi P3: C4. Dựng lại đoạn trích: dữ liệu như dưới → `python3 episodes/ep004/design/c3/build_inputs.py` → `bash toolkit/build.sh episodes/ep004/episode.yaml` (giọng cache theo băm; cài ffmpeg nếu thiếu).
 2026-10-05: G1 xong; dừng chờ phiên K (chủ dự án mở), rồi P2. Dữ liệu không commit: `python3 episodes/ep004/data/fetch.py` (kiểm SHA) → `python3 episodes/ep004/model/model.py` → `python3 episodes/ep004/story/check_script.py`. Clip: `python3 episodes/ep004/story/cold_open.py` (take theo hash chữ, không sinh lại nếu chữ không đổi).
 
 ## 5. KPI + token so trần
