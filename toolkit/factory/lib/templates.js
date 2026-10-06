@@ -21,7 +21,7 @@ const fade = (t, a0) => ease(t, a0, a0 + 0.4);
 const role = (E, r) => ({ accent: E.C.accent, muted: E.C.muted, warn: E.C.warn, ink: E.C.ink })[r] || E.C.accent;
 const num = (E, id) => { const c = E.claims[id]; const v = typeof c.value === 'number' ? c.value : parseFloat(String(c.value).replace(/[^\d.-]/g, '')); if (!isFinite(v)) throw new Error('claim ' + id + ' is not numeric'); return v; };
 const series = (E, key) => { const v = typeof key === 'string' ? key.split('.').reduce((o, k) => o?.[k], E.data) : key; if (!Array.isArray(v)) throw new Error('no data ' + key); return v; };
-const box = (E) => ({ x0: E.SAFE.x0 + 24, x1: E.SAFE.x1 - 24, y0: E.SAFE.y0 + (E.V ? 260 : 150), y1: E.SAFE.y1 - (E.V ? 120 : 110) });
+const box = (E) => ({ x0: E.SAFE.x0 + 24, x1: E.SAFE.x1 - 24, y0: E.SAFE.y0 + (E.V ? 580 : 150), y1: E.SAFE.y1 - (E.V ? 120 : 110) });
 
 export const title = { draw(E, t, p) {
   const b = box(E), lines = p.lines || [], ats = p.ats || [];
@@ -58,7 +58,7 @@ export const bars = { draw(E, t, p) { // same scale, axis from 0 (no parameter t
 } };
 
 export const line = { draw(E, t, p) {
-  const b = box(E), S = series(E, p.series), xk = p.x || 'x', yk = p.y || 'y', ys = S.map((r) => +r[yk]);
+  const b = box(E), S = series(E, p.series), xk = p.x ?? 'x', yk = p.y ?? 'y', ys = S.map((r) => +r[yk]);
   const lvl = p.level ? num(E, p.level) : null, ymax = Math.max(...ys, lvl ?? 0) * 1.1, ymin = 0; // from 0
   const X = (i) => mix(b.x0 + 60, b.x1, i / (S.length - 1)), Y = (v) => mix(b.y1, b.y0, (v - ymin) / (ymax - ymin));
   const a0 = at(p, 'at0'), a1 = at(p, 'at1', a0 + 4), k = lin(t, a0, a1), nv = Math.max(2, Math.ceil(k * S.length));
@@ -75,22 +75,30 @@ export const line = { draw(E, t, p) {
 
 export const swarm = { draw(E, t, p) {
   const b = box(E), S = series(E, p.series), vk = p.value || 'v', vals = S.map((r) => +r[vk]);
-  const gate = num(E, p.gate), lo = p.min ?? 0, hi = p.max ?? Math.max(...vals) * 1.05;
-  const X = (v) => mix(b.x0 + 40, b.x1 - 40, (v - lo) / (hi - lo)), base = b.y1 - 60;
+  // gate: a claim id, or a definitional constant (the bond's ×2) that must name the claim defining it (gateDef)
+  const gate = typeof p.gate === 'number' ? (p.gateDef ? (E.CL(p.gateDef), p.gate) : (() => { throw new Error('swarm: numeric gate needs gateDef'); })()) : num(E, p.gate), lo = p.min ?? 0, hi = p.max ?? Math.max(...vals) * 1.05;
+  const X = (v) => mix(b.x0 + 40, b.x1 - 40, (v - lo) / (hi - lo)), base = b.y1 - (E.V ? 300 : 90);
   const a0 = at(p, 'at0'), a1 = at(p, 'at1', a0 + 6), r = E.V ? 7 : 6, bins = new Map();
   E.line([[b.x0 + 40, base + 24], [b.x1 - 40, base + 24]], E.C.grid, 4, fade(t, a0));
   const ga = at(p, 'gateAt', a0); E.line([[X(gate), b.y0 + 40], [X(gate), base + 40]], E.C.muted, 10, fade(t, ga));
   E.text(p.gateLabel || `{${p.gate}}`, X(gate) + 24, b.y0 + 60, 'number', { color: E.C.ink, alpha: fade(t, ga), group: 'gate' });
-  if (p.axisLabel) E.text(p.axisLabel, b.x1 - 40, base + 90, 'note', { align: 'right', color: E.C.muted, alpha: fade(t, a0), group: 'axl' });
+  if (p.axisLabel) E.text(p.axisLabel, E.V ? E.W / 2 : b.x1 - 40, E.V ? base + 68 : b.y0 + 40, 'note', { align: E.V ? 'center' : 'right', color: E.C.muted, alpha: fade(t, a0), group: 'axl' });
+  // legend above the plot (what a dot is; the what-if mark of the hypothetical starts): hatch swatch + muted lines
+  (p.legend || []).forEach((s, i) => { const la = at(p, 'legendAt', ga), y = E.SAFE.y0 + (E.V ? 250 + i * 72 : 50 + i * 58); // Shorts: below the hook line and the ILLUSTRATIVE badge
+    if (i === 0 && p.legendHatch) E.hatch(b.x0, y - 34, 34, 34, fade(t, la), E.C.muted, 9);
+    E.text(s, b.x0 + (i === 0 && p.legendHatch ? 48 : 0), y, 'note', { color: i ? E.C.muted : E.C.ink, alpha: fade(t, la), group: 'lg' + i }); });
   const order = vals.map((v, i) => i); // chronological: the data order
   const shown = Math.floor(lin(t, a0, a1) * order.length); let above = 0;
-  for (let j = 0; j < shown; j++) { const i = order[j], v = vals[i], bx = Math.round((X(v) - b.x0) / (2 * r + 1)), h = bins.get(bx) || 0; bins.set(bx, h + 1);
-    const y = base - h * (2 * r + 1); if (y < b.y0 + 120) continue; if (v > gate) above++;
+  // every dot stays visible: when the tallest stack would leave the plot, the rows tighten (dots overlap vertically) instead of dropping
+  const binOf = (v) => Math.round((X(v) - b.x0) / (2 * r + 1)), full = new Map(); vals.forEach((v) => full.set(binOf(v), (full.get(binOf(v)) || 0) + 1));
+  const dy = Math.min(2 * r + 1, (base - b.y0 - (E.V ? 200 : 120)) / Math.max(...full.values()));
+  for (let j = 0; j < shown; j++) { const i = order[j], v = vals[i], bx = binOf(v), h = bins.get(bx) || 0; bins.set(bx, h + 1);
+    const y = base - h * dy; if (v > gate) above++;
     E.dot(b.x0 + bx * (2 * r + 1) + r, y, r, v > gate ? E.C.warn : E.C.accent, Math.min(1, (shown - j) / 8 + 0.4)); }
   (p.marks || []).forEach((m, k) => { const i = S.findIndex((r2) => String(r2[p.key || 's']) === String(m.match)); if (i < 0) return; const ma = m.at ?? a1;
-    E.dot(X(vals[i]), base - 40, r + 6, E.C.ink, fade(t, ma), E.C.ink);
-    E.text(m.label, X(vals[i]), base - 90 - 70 * (k % 2), 'label', { align: 'center', plate: E.C.surface, alpha: fade(t, ma), group: 'm' + k }); });
-  if (p.tally) { const ta = at(p, 'tallyAt', a1); E.text(p.tally, b.x0 + 40, b.y0 + 40, 'caption', { alpha: fade(t, ta), group: 'tally' }); }
+    E.dot(X(vals[i]), base + 24, r + 6, E.C.ink, fade(t, ma), E.C.ink); // on the axis, under the stack
+    E.text(m.label, X(vals[i]), base + (E.V ? 150 + 92 * (k % 2) : 100), 'label', { align: 'center', plate: E.C.surface, alpha: fade(t, ma), group: 'm' + k }); });
+  if (p.tally) { const ta = at(p, 'tallyAt', a1); E.text(p.tally, b.x1 - 40, b.y0 + (E.V ? 140 : 120), 'caption', { align: 'right', alpha: fade(t, ta), group: 'tally' }); }
   E.historical();
 } };
 
@@ -132,8 +140,9 @@ export const person = { draw(E, t, p) {
 
 export const endcard = { draw(E, t, p) {
   const a0 = at(p, 'at');
-  E.text(p.channel || 'Crux', E.W / 2, E.SAFE.y0 + 120, 'head', { align: 'center', alpha: fade(t, a0) });
-  if (p.next) E.text(p.next, E.W / 2, E.SAFE.y0 + 220, 'caption', { align: 'center', color: E.C.muted, alpha: fade(t, a0 + 0.3) });
+  const y = E.V ? E.H * 0.45 : E.SAFE.y0 + 120;
+  E.text(p.channel || 'Crux', E.W / 2, y, 'head', { align: 'center', alpha: fade(t, a0) });
+  if (p.next) E.text(p.next, E.W / 2, y + 100, 'caption', { align: 'center', color: E.C.muted, alpha: fade(t, a0 + 0.3) });
 } };
 
 export const TEMPLATES = { title, bignum, bars, line, swarm, paths, timeline, method, person, endcard };

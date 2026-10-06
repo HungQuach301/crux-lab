@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Crux factory page</title>
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(/toolkit/render/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(/toolkit/render/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(/toolkit/render/fonts/inter-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0e1116}
+canvas{display:block}
+</style>
+</head><body>
+<canvas id="c"></canvas>
+<script type="module">
+// Loaded by render.js (files served from the repo through page.route, no server). The job is fetched from ?job=<repo path>.
+// APP.frame(t, fmt, q, wantLog, shotId) → { img: base64 (JPEG at q, or raw RGBA), log: engine log or null }.
+const q = new URLSearchParams(location.search);
+for (const w of [400, 600, 700]) await document.fonts.load(`${w} 48px Inter`);
+await document.fonts.ready;
+const { makeEngine } = await import('/toolkit/factory/lib/engine.js');
+const { TEMPLATES } = await import('/toolkit/factory/lib/templates.js');
+const job = await (await fetch('/' + q.get('job'))).json();
+const canvas = document.getElementById('c');
+const E = makeEngine(canvas, { orient: job.orient, res: job.res, tokens: job.tokens, claims: job.claims, data: job.data, floor: job.floor, counterweights: job.counterweights });
+const b64 = (u8) => { let s = ''; const n = 0x8000; for (let i = 0; i < u8.length; i += n) s += String.fromCharCode.apply(null, u8.subarray(i, i + n)); return btoa(s); };
+window.APP = {
+  size: [canvas.width, canvas.height],
+  frame(t, fmt, quality, wantLog, shot) { // shot: draw only that shot (segments are cut per shot, times local to the job)
+    const log = E.frame(TEMPLATES, shot ? job.shots.filter((s) => s.id === shot) : job.shots, t, { hook: job.hook });
+    const img = fmt === 'rgba' ? b64(new Uint8Array(E.ctx.getImageData(0, 0, canvas.width, canvas.height).data.buffer))
+      : canvas.toDataURL('image/jpeg', quality).split(',')[1];
+    return { img, log: wantLog ? log : null };
+  },
+  png(t) { E.frame(TEMPLATES, job.shots, t, { hook: job.hook }); return canvas.toDataURL('image/png').split(',')[1]; },
+};
+window.READY = true;
+</script>
+</body></html>

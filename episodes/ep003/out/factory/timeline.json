@@ -1,0 +1,1237 @@
+{
+ "fps": 30,
+ "total": 74.9667,
+ "scenes": [
+  {
+   "id": "S04",
+   "start": 0.0,
+   "dur": 74.9667
+  }
+ ],
+ "shots": [
+  {
+   "id": "S04-rate",
+   "scene": "S04",
+   "template": "line",
+   "t0": 0.0,
+   "t1": 24.8333,
+   "p": {
+    "series": "series",
+    "x": 0,
+    "y": 1,
+    "title": "{bill_term_months}-month T-bill rate, every month",
+    "at0": 0.56,
+    "at1": 24.64,
+    "historical": true
+   }
+  },
+  {
+   "id": "S04-saver",
+   "scene": "S04",
+   "template": "person",
+   "t0": 24.8333,
+   "t1": 33.5333,
+   "p": {
+    "caption": [
+     "Each start month = one saver",
+     "money in, left alone"
+    ],
+    "at": 1.9537,
+    "ats": [
+     1.9537,
+     2.9967
+    ]
+   }
+  },
+  {
+   "id": "S04-swarm",
+   "scene": "S04",
+   "template": "swarm",
+   "t0": 33.5333,
+   "t1": 74.9667,
+   "p": {
+    "series": "windows",
+    "value": "roll",
+    "key": "s",
+    "gate": 2,
+    "gateDef": "ctx_guarantee",
+    "gateLabel": "×2",
+    "gateAt": 0.0067,
+    "axisLabel": "money multiple after {horizon_years} years",
+    "legend": [
+     "IF today's guarantee had existed",
+     "Each dot: one {horizon_years}-year roll of T-bills"
+    ],
+    "legendHatch": true,
+    "legendAt": 0.0067,
+    "min": 1,
+    "max": 4.9,
+    "marks": [
+     {
+      "match": "1972-05",
+      "label": "{max_start} · {max_tbill_multiple_20y}",
+      "at": 1.4267
+     },
+     {
+      "match": "1934-01",
+      "label": "{min_start} · {min_tbill_multiple_20y}",
+      "at": 9.5967
+     }
+    ],
+    "at0": 16.3067,
+    "at1": 31.0267,
+    "tally": "{starts} start months",
+    "tallyAt": 19.1737,
+    "historical": true
+   }
+  }
+ ],
+ "sentences": [
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "text": "We took the actual 3-month bill rate for every month since 1934 and started a 20-year roll in each month from January 1934 to September 2006, the last start whose 20 years are complete.",
+   "spoken": "We took the actual three-month bill rate for every month since nineteen thirty-four and started a twenty-year roll in each month from January nineteen thirty-four to September two thousand six, the last start whose twenty years are complete.",
+   "start": 0.0,
+   "end": 16.96
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "text": "Each time a bill comes due, the money, interest and all, goes into the next bill at that month's rate.",
+   "spoken": "Each time a bill comes due, the money, interest and all, goes into the next bill at that month's rate.",
+   "start": 17.248,
+   "end": 24.64
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "text": "Each start is a saver like Dana putting money in and leaving it alone, and the results swing hard.",
+   "spoken": "Each start is a saver like Dana putting money in and leaving it alone, and the results swing hard.",
+   "start": 24.848,
+   "end": 33.32
+  },
+  {
+   "id": "S04.4",
+   "scene": "S04",
+   "text": "A saver who started in May 1972 ended with 4.612 times the money; one who started in January 1934 ended with just 1.129 times.",
+   "spoken": "A saver who started in May nineteen seventy-two ended with four point six one two times the money; one who started in January nineteen thirty-four ended with just one point one two nine times.",
+   "start": 33.54,
+   "end": 49.68
+  },
+  {
+   "id": "S04.5",
+   "scene": "S04",
+   "text": "Across all the start months there are 873 of these rolls.",
+   "spoken": "Across all the start months there are eight hundred seventy-three of these rolls.",
+   "start": 49.84,
+   "end": 55.76
+  },
+  {
+   "id": "S04.6",
+   "scene": "S04",
+   "text": "They overlap a lot, so together they amount to a few long stretches of history, not 873 separate tries.",
+   "spoken": "They overlap a lot, so together they amount to a few long stretches of history, not eight hundred seventy-three separate tries.",
+   "start": 55.856,
+   "end": 64.56
+  },
+  {
+   "id": "S04.7",
+   "scene": "S04",
+   "text": "For each one there's a single question: did the roll end above double? US only, and history, not a forecast.",
+   "spoken": "For each one there's a single question: did the roll end above double? U.S. only, and history, not a forecast.",
+   "start": 64.68,
+   "end": 73.76
+  }
+ ],
+ "words": [
+  {
+   "w": "We",
+   "s": 0.0,
+   "e": 0.16,
+   "sid": "S04.1"
+  },
+  {
+   "w": "took",
+   "s": 0.192,
+   "e": 0.32,
+   "sid": "S04.1"
+  },
+  {
+   "w": "the",
+   "s": 0.36,
+   "e": 0.48,
+   "sid": "S04.1"
+  },
+  {
+   "w": "actual",
+   "s": 0.56,
+   "e": 1.04,
+   "sid": "S04.1"
+  },
+  {
+   "w": "three-month",
+   "s": 1.107,
+   "e": 1.76,
+   "sid": "S04.1"
+  },
+  {
+   "w": "bill",
+   "s": 1.824,
+   "e": 2.08,
+   "sid": "S04.1"
+  },
+  {
+   "w": "rate",
+   "s": 2.16,
+   "e": 2.48,
+   "sid": "S04.1"
+  },
+  {
+   "w": "for",
+   "s": 2.52,
+   "e": 2.64,
+   "sid": "S04.1"
+  },
+  {
+   "w": "every",
+   "s": 2.68,
+   "e": 2.88,
+   "sid": "S04.1"
+  },
+  {
+   "w": "month",
+   "s": 2.933,
+   "e": 3.2,
+   "sid": "S04.1"
+  },
+  {
+   "w": "since",
+   "s": 3.24,
+   "e": 3.44,
+   "sid": "S04.1"
+  },
+  {
+   "w": "nineteen",
+   "s": 3.476,
+   "e": 3.76,
+   "sid": "S04.1"
+  },
+  {
+   "w": "thirty-four",
+   "s": 3.806,
+   "e": 4.72,
+   "sid": "S04.1"
+  },
+  {
+   "w": "and",
+   "s": 4.8,
+   "e": 5.04,
+   "sid": "S04.1"
+  },
+  {
+   "w": "started",
+   "s": 5.1,
+   "e": 5.52,
+   "sid": "S04.1"
+  },
+  {
+   "w": "a",
+   "s": 5.6,
+   "e": 5.68,
+   "sid": "S04.1"
+  },
+  {
+   "w": "twenty-year",
+   "s": 5.737,
+   "e": 6.48,
+   "sid": "S04.1"
+  },
+  {
+   "w": "roll",
+   "s": 6.56,
+   "e": 6.88,
+   "sid": "S04.1"
+  },
+  {
+   "w": "in",
+   "s": 6.987,
+   "e": 7.2,
+   "sid": "S04.1"
+  },
+  {
+   "w": "each",
+   "s": 7.248,
+   "e": 7.44,
+   "sid": "S04.1"
+  },
+  {
+   "w": "month",
+   "s": 7.547,
+   "e": 8.08,
+   "sid": "S04.1"
+  },
+  {
+   "w": "from",
+   "s": 8.192,
+   "e": 8.64,
+   "sid": "S04.1"
+  },
+  {
+   "w": "January",
+   "s": 8.72,
+   "e": 9.28,
+   "sid": "S04.1"
+  },
+  {
+   "w": "nineteen",
+   "s": 9.324,
+   "e": 9.68,
+   "sid": "S04.1"
+  },
+  {
+   "w": "thirty-four",
+   "s": 9.737,
+   "e": 10.4,
+   "sid": "S04.1"
+  },
+  {
+   "w": "to",
+   "s": 10.613,
+   "e": 11.04,
+   "sid": "S04.1"
+  },
+  {
+   "w": "September",
+   "s": 11.104,
+   "e": 11.68,
+   "sid": "S04.1"
+  },
+  {
+   "w": "two",
+   "s": 11.78,
+   "e": 12.08,
+   "sid": "S04.1"
+  },
+  {
+   "w": "thousand",
+   "s": 12.124,
+   "e": 12.48,
+   "sid": "S04.1"
+  },
+  {
+   "w": "six,",
+   "s": 12.6,
+   "e": 13.76,
+   "sid": "S04.1"
+  },
+  {
+   "w": "the",
+   "s": 13.78,
+   "e": 13.84,
+   "sid": "S04.1"
+  },
+  {
+   "w": "last",
+   "s": 13.952,
+   "e": 14.4,
+   "sid": "S04.1"
+  },
+  {
+   "w": "start",
+   "s": 14.493,
+   "e": 14.96,
+   "sid": "S04.1"
+  },
+  {
+   "w": "whose",
+   "s": 15.04,
+   "e": 15.44,
+   "sid": "S04.1"
+  },
+  {
+   "w": "twenty",
+   "s": 15.474,
+   "e": 15.68,
+   "sid": "S04.1"
+  },
+  {
+   "w": "years",
+   "s": 15.76,
+   "e": 16.16,
+   "sid": "S04.1"
+  },
+  {
+   "w": "are",
+   "s": 16.22,
+   "e": 16.4,
+   "sid": "S04.1"
+  },
+  {
+   "w": "complete.",
+   "s": 16.453,
+   "e": 16.96,
+   "sid": "S04.1"
+  },
+  {
+   "w": "Each",
+   "s": 17.248,
+   "e": 18.4,
+   "sid": "S04.2"
+  },
+  {
+   "w": "time",
+   "s": 18.448,
+   "e": 18.64,
+   "sid": "S04.2"
+  },
+  {
+   "w": "a",
+   "s": 18.72,
+   "e": 18.8,
+   "sid": "S04.2"
+  },
+  {
+   "w": "bill",
+   "s": 18.832,
+   "e": 18.96,
+   "sid": "S04.2"
+  },
+  {
+   "w": "comes",
+   "s": 19.027,
+   "e": 19.36,
+   "sid": "S04.2"
+  },
+  {
+   "w": "due,",
+   "s": 19.44,
+   "e": 19.76,
+   "sid": "S04.2"
+  },
+  {
+   "w": "the",
+   "s": 19.8,
+   "e": 19.92,
+   "sid": "S04.2"
+  },
+  {
+   "w": "money,",
+   "s": 19.973,
+   "e": 20.48,
+   "sid": "S04.2"
+  },
+  {
+   "w": "interest",
+   "s": 20.524,
+   "e": 20.88,
+   "sid": "S04.2"
+  },
+  {
+   "w": "and",
+   "s": 20.9,
+   "e": 20.96,
+   "sid": "S04.2"
+  },
+  {
+   "w": "all,",
+   "s": 21.04,
+   "e": 21.68,
+   "sid": "S04.2"
+  },
+  {
+   "w": "goes",
+   "s": 21.728,
+   "e": 21.92,
+   "sid": "S04.2"
+  },
+  {
+   "w": "into",
+   "s": 21.984,
+   "e": 22.24,
+   "sid": "S04.2"
+  },
+  {
+   "w": "the",
+   "s": 22.26,
+   "e": 22.32,
+   "sid": "S04.2"
+  },
+  {
+   "w": "next",
+   "s": 22.384,
+   "e": 22.64,
+   "sid": "S04.2"
+  },
+  {
+   "w": "bill",
+   "s": 22.704,
+   "e": 22.96,
+   "sid": "S04.2"
+  },
+  {
+   "w": "at",
+   "s": 23.12,
+   "e": 23.44,
+   "sid": "S04.2"
+  },
+  {
+   "w": "that",
+   "s": 23.488,
+   "e": 23.68,
+   "sid": "S04.2"
+  },
+  {
+   "w": "month's",
+   "s": 23.733,
+   "e": 24.08,
+   "sid": "S04.2"
+  },
+  {
+   "w": "rate.",
+   "s": 24.144,
+   "e": 24.64,
+   "sid": "S04.2"
+  },
+  {
+   "w": "Each",
+   "s": 24.848,
+   "e": 25.68,
+   "sid": "S04.3"
+  },
+  {
+   "w": "start",
+   "s": 25.773,
+   "e": 26.24,
+   "sid": "S04.3"
+  },
+  {
+   "w": "is",
+   "s": 26.373,
+   "e": 26.64,
+   "sid": "S04.3"
+  },
+  {
+   "w": "a",
+   "s": 26.68,
+   "e": 26.72,
+   "sid": "S04.3"
+  },
+  {
+   "w": "saver",
+   "s": 26.787,
+   "e": 27.12,
+   "sid": "S04.3"
+  },
+  {
+   "w": "like",
+   "s": 27.168,
+   "e": 27.36,
+   "sid": "S04.3"
+  },
+  {
+   "w": "Dana",
+   "s": 27.44,
+   "e": 27.76,
+   "sid": "S04.3"
+  },
+  {
+   "w": "putting",
+   "s": 27.83,
+   "e": 28.32,
+   "sid": "S04.3"
+  },
+  {
+   "w": "money",
+   "s": 28.36,
+   "e": 28.56,
+   "sid": "S04.3"
+  },
+  {
+   "w": "in",
+   "s": 28.667,
+   "e": 28.88,
+   "sid": "S04.3"
+  },
+  {
+   "w": "and",
+   "s": 28.94,
+   "e": 29.12,
+   "sid": "S04.3"
+  },
+  {
+   "w": "leaving",
+   "s": 29.16,
+   "e": 29.44,
+   "sid": "S04.3"
+  },
+  {
+   "w": "it",
+   "s": 29.467,
+   "e": 29.52,
+   "sid": "S04.3"
+  },
+  {
+   "w": "alone,",
+   "s": 29.6,
+   "e": 30.56,
+   "sid": "S04.3"
+  },
+  {
+   "w": "and",
+   "s": 30.58,
+   "e": 30.64,
+   "sid": "S04.3"
+  },
+  {
+   "w": "the",
+   "s": 30.66,
+   "e": 30.72,
+   "sid": "S04.3"
+  },
+  {
+   "w": "results",
+   "s": 30.8,
+   "e": 31.36,
+   "sid": "S04.3"
+  },
+  {
+   "w": "swing",
+   "s": 31.493,
+   "e": 32.16,
+   "sid": "S04.3"
+  },
+  {
+   "w": "hard.",
+   "s": 32.304,
+   "e": 33.32,
+   "sid": "S04.3"
+  },
+  {
+   "w": "A",
+   "s": 33.54,
+   "e": 33.76,
+   "sid": "S04.4"
+  },
+  {
+   "w": "saver",
+   "s": 33.827,
+   "e": 34.16,
+   "sid": "S04.4"
+  },
+  {
+   "w": "who",
+   "s": 34.2,
+   "e": 34.32,
+   "sid": "S04.4"
+  },
+  {
+   "w": "started",
+   "s": 34.38,
+   "e": 34.8,
+   "sid": "S04.4"
+  },
+  {
+   "w": "in",
+   "s": 34.827,
+   "e": 34.88,
+   "sid": "S04.4"
+  },
+  {
+   "w": "May",
+   "s": 34.96,
+   "e": 35.2,
+   "sid": "S04.4"
+  },
+  {
+   "w": "nineteen",
+   "s": 35.244,
+   "e": 35.6,
+   "sid": "S04.4"
+  },
+  {
+   "w": "seventy-two",
+   "s": 35.67,
+   "e": 36.88,
+   "sid": "S04.4"
+  },
+  {
+   "w": "ended",
+   "s": 36.973,
+   "e": 37.44,
+   "sid": "S04.4"
+  },
+  {
+   "w": "with",
+   "s": 37.504,
+   "e": 37.76,
+   "sid": "S04.4"
+  },
+  {
+   "w": "four",
+   "s": 37.824,
+   "e": 38.08,
+   "sid": "S04.4"
+  },
+  {
+   "w": "point",
+   "s": 38.147,
+   "e": 38.48,
+   "sid": "S04.4"
+  },
+  {
+   "w": "six",
+   "s": 38.6,
+   "e": 38.96,
+   "sid": "S04.4"
+  },
+  {
+   "w": "one",
+   "s": 39.1,
+   "e": 39.52,
+   "sid": "S04.4"
+  },
+  {
+   "w": "two",
+   "s": 39.56,
+   "e": 39.68,
+   "sid": "S04.4"
+  },
+  {
+   "w": "times",
+   "s": 39.827,
+   "e": 40.56,
+   "sid": "S04.4"
+  },
+  {
+   "w": "the",
+   "s": 40.64,
+   "e": 40.88,
+   "sid": "S04.4"
+  },
+  {
+   "w": "money;",
+   "s": 40.933,
+   "e": 42.16,
+   "sid": "S04.4"
+  },
+  {
+   "w": "one",
+   "s": 42.22,
+   "e": 42.4,
+   "sid": "S04.4"
+  },
+  {
+   "w": "who",
+   "s": 42.42,
+   "e": 42.48,
+   "sid": "S04.4"
+  },
+  {
+   "w": "started",
+   "s": 42.54,
+   "e": 42.96,
+   "sid": "S04.4"
+  },
+  {
+   "w": "in",
+   "s": 42.987,
+   "e": 43.04,
+   "sid": "S04.4"
+  },
+  {
+   "w": "January",
+   "s": 43.13,
+   "e": 43.76,
+   "sid": "S04.4"
+  },
+  {
+   "w": "nineteen",
+   "s": 43.813,
+   "e": 44.24,
+   "sid": "S04.4"
+  },
+  {
+   "w": "thirty-four",
+   "s": 44.274,
+   "e": 45.36,
+   "sid": "S04.4"
+  },
+  {
+   "w": "ended",
+   "s": 45.44,
+   "e": 45.84,
+   "sid": "S04.4"
+  },
+  {
+   "w": "with",
+   "s": 45.872,
+   "e": 46.0,
+   "sid": "S04.4"
+  },
+  {
+   "w": "just",
+   "s": 46.08,
+   "e": 46.4,
+   "sid": "S04.4"
+  },
+  {
+   "w": "one",
+   "s": 46.56,
+   "e": 47.04,
+   "sid": "S04.4"
+  },
+  {
+   "w": "point",
+   "s": 47.107,
+   "e": 47.44,
+   "sid": "S04.4"
+  },
+  {
+   "w": "one",
+   "s": 47.52,
+   "e": 47.76,
+   "sid": "S04.4"
+  },
+  {
+   "w": "two",
+   "s": 47.9,
+   "e": 48.32,
+   "sid": "S04.4"
+  },
+  {
+   "w": "nine",
+   "s": 48.384,
+   "e": 48.64,
+   "sid": "S04.4"
+  },
+  {
+   "w": "times.",
+   "s": 48.76,
+   "e": 49.68,
+   "sid": "S04.4"
+  },
+  {
+   "w": "Across",
+   "s": 49.84,
+   "e": 50.8,
+   "sid": "S04.5"
+  },
+  {
+   "w": "all",
+   "s": 50.88,
+   "e": 51.12,
+   "sid": "S04.5"
+  },
+  {
+   "w": "the",
+   "s": 51.16,
+   "e": 51.28,
+   "sid": "S04.5"
+  },
+  {
+   "w": "start",
+   "s": 51.347,
+   "e": 51.68,
+   "sid": "S04.5"
+  },
+  {
+   "w": "months",
+   "s": 51.737,
+   "e": 52.08,
+   "sid": "S04.5"
+  },
+  {
+   "w": "there",
+   "s": 52.147,
+   "e": 52.48,
+   "sid": "S04.5"
+  },
+  {
+   "w": "are",
+   "s": 52.52,
+   "e": 52.64,
+   "sid": "S04.5"
+  },
+  {
+   "w": "eight",
+   "s": 52.707,
+   "e": 53.04,
+   "sid": "S04.5"
+  },
+  {
+   "w": "hundred",
+   "s": 53.08,
+   "e": 53.36,
+   "sid": "S04.5"
+  },
+  {
+   "w": "seventy-three",
+   "s": 53.44,
+   "e": 54.32,
+   "sid": "S04.5"
+  },
+  {
+   "w": "of",
+   "s": 54.427,
+   "e": 54.64,
+   "sid": "S04.5"
+  },
+  {
+   "w": "these",
+   "s": 54.68,
+   "e": 54.88,
+   "sid": "S04.5"
+  },
+  {
+   "w": "rolls.",
+   "s": 54.973,
+   "e": 55.76,
+   "sid": "S04.5"
+  },
+  {
+   "w": "They",
+   "s": 55.856,
+   "e": 56.24,
+   "sid": "S04.6"
+  },
+  {
+   "w": "overlap",
+   "s": 56.29,
+   "e": 56.64,
+   "sid": "S04.6"
+  },
+  {
+   "w": "a",
+   "s": 56.68,
+   "e": 56.72,
+   "sid": "S04.6"
+  },
+  {
+   "w": "lot,",
+   "s": 56.82,
+   "e": 57.44,
+   "sid": "S04.6"
+  },
+  {
+   "w": "so",
+   "s": 57.493,
+   "e": 57.6,
+   "sid": "S04.6"
+  },
+  {
+   "w": "together",
+   "s": 57.653,
+   "e": 58.08,
+   "sid": "S04.6"
+  },
+  {
+   "w": "they",
+   "s": 58.128,
+   "e": 58.32,
+   "sid": "S04.6"
+  },
+  {
+   "w": "amount",
+   "s": 58.366,
+   "e": 58.64,
+   "sid": "S04.6"
+  },
+  {
+   "w": "to",
+   "s": 58.693,
+   "e": 58.8,
+   "sid": "S04.6"
+  },
+  {
+   "w": "a",
+   "s": 58.88,
+   "e": 58.96,
+   "sid": "S04.6"
+  },
+  {
+   "w": "few",
+   "s": 59.02,
+   "e": 59.2,
+   "sid": "S04.6"
+  },
+  {
+   "w": "long",
+   "s": 59.28,
+   "e": 59.6,
+   "sid": "S04.6"
+  },
+  {
+   "w": "stretches",
+   "s": 59.656,
+   "e": 60.16,
+   "sid": "S04.6"
+  },
+  {
+   "w": "of",
+   "s": 60.187,
+   "e": 60.24,
+   "sid": "S04.6"
+  },
+  {
+   "w": "history,",
+   "s": 60.3,
+   "e": 61.36,
+   "sid": "S04.6"
+  },
+  {
+   "w": "not",
+   "s": 61.44,
+   "e": 61.68,
+   "sid": "S04.6"
+  },
+  {
+   "w": "eight",
+   "s": 61.72,
+   "e": 61.92,
+   "sid": "S04.6"
+  },
+  {
+   "w": "hundred",
+   "s": 61.96,
+   "e": 62.24,
+   "sid": "S04.6"
+  },
+  {
+   "w": "seventy-three",
+   "s": 62.31,
+   "e": 63.04,
+   "sid": "S04.6"
+  },
+  {
+   "w": "separate",
+   "s": 63.102,
+   "e": 63.6,
+   "sid": "S04.6"
+  },
+  {
+   "w": "tries.",
+   "s": 63.693,
+   "e": 64.56,
+   "sid": "S04.6"
+  },
+  {
+   "w": "For",
+   "s": 64.68,
+   "e": 65.04,
+   "sid": "S04.7"
+  },
+  {
+   "w": "each",
+   "s": 65.088,
+   "e": 65.28,
+   "sid": "S04.7"
+  },
+  {
+   "w": "one",
+   "s": 65.38,
+   "e": 65.68,
+   "sid": "S04.7"
+  },
+  {
+   "w": "there's",
+   "s": 65.733,
+   "e": 66.08,
+   "sid": "S04.7"
+  },
+  {
+   "w": "a",
+   "s": 66.12,
+   "e": 66.16,
+   "sid": "S04.7"
+  },
+  {
+   "w": "single",
+   "s": 66.206,
+   "e": 66.48,
+   "sid": "S04.7"
+  },
+  {
+   "w": "question:",
+   "s": 66.542,
+   "e": 67.76,
+   "sid": "S04.7"
+  },
+  {
+   "w": "did",
+   "s": 67.8,
+   "e": 67.92,
+   "sid": "S04.7"
+  },
+  {
+   "w": "the",
+   "s": 67.94,
+   "e": 68.0,
+   "sid": "S04.7"
+  },
+  {
+   "w": "roll",
+   "s": 68.096,
+   "e": 68.48,
+   "sid": "S04.7"
+  },
+  {
+   "w": "end",
+   "s": 68.6,
+   "e": 68.96,
+   "sid": "S04.7"
+  },
+  {
+   "w": "above",
+   "s": 69.067,
+   "e": 69.6,
+   "sid": "S04.7"
+  },
+  {
+   "w": "double?",
+   "s": 69.657,
+   "e": 70.32,
+   "sid": "S04.7"
+  },
+  {
+   "w": "U.S.",
+   "s": 70.64,
+   "e": 71.2,
+   "sid": "S04.7"
+  },
+  {
+   "w": "only,",
+   "s": 71.28,
+   "e": 71.76,
+   "sid": "S04.7"
+  },
+  {
+   "w": "and",
+   "s": 71.8,
+   "e": 71.92,
+   "sid": "S04.7"
+  },
+  {
+   "w": "history,",
+   "s": 71.98,
+   "e": 72.48,
+   "sid": "S04.7"
+  },
+  {
+   "w": "not",
+   "s": 72.56,
+   "e": 72.8,
+   "sid": "S04.7"
+  },
+  {
+   "w": "a",
+   "s": 73.0,
+   "e": 73.2,
+   "sid": "S04.7"
+  },
+  {
+   "w": "forecast.",
+   "s": 73.244,
+   "e": 73.76,
+   "sid": "S04.7"
+  }
+ ],
+ "anchors": [
+  {
+   "shot": "S04-rate",
+   "param": "at0",
+   "anchor": "@S04.1:actual",
+   "word_t": 0.56,
+   "visual_t": 0.56,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-rate",
+   "param": "at1",
+   "anchor": "@S04.2$",
+   "word_t": 24.64,
+   "visual_t": 24.64,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-saver",
+   "param": "at",
+   "anchor": "@S04.3:saver",
+   "word_t": 26.787,
+   "visual_t": 26.787,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-saver",
+   "param": "ats[0]",
+   "anchor": "@S04.3:saver",
+   "word_t": 26.787,
+   "visual_t": 26.787,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-saver",
+   "param": "ats[1]",
+   "anchor": "@S04.3:putting",
+   "word_t": 27.83,
+   "visual_t": 27.83,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-swarm",
+   "param": "gateAt",
+   "anchor": "@S04.4",
+   "word_t": 33.54,
+   "visual_t": 33.54,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-swarm",
+   "param": "legendAt",
+   "anchor": "@S04.4",
+   "word_t": 33.54,
+   "visual_t": 33.54,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-swarm",
+   "param": "marks[0].at",
+   "anchor": "@S04.4:May 1972",
+   "word_t": 34.96,
+   "visual_t": 34.96,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-swarm",
+   "param": "marks[1].at",
+   "anchor": "@S04.4:January 1934",
+   "word_t": 43.13,
+   "visual_t": 43.13,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-swarm",
+   "param": "at0",
+   "anchor": "@S04.5",
+   "word_t": 49.84,
+   "visual_t": 49.84,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-swarm",
+   "param": "at1",
+   "anchor": "@S04.6$",
+   "word_t": 64.56,
+   "visual_t": 64.56,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-swarm",
+   "param": "tallyAt",
+   "anchor": "@S04.5:873",
+   "word_t": 52.707,
+   "visual_t": 52.707,
+   "scene": "S04"
+  }
+ ]
+}

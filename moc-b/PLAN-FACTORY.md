@@ -58,3 +58,9 @@ Mã viết mới, chỉ lấy ý tưởng từ engine Tập 2–3 (`episodes/ep0
 
 ## 3. Điểm dừng an toàn
 Sau mỗi việc ở §2: commit lên nhánh của phiên. Lệnh tái lập dữ liệu Tập 3 ở `episodes/ep003/PLAN.md` mục 4.
+
+## 4. Kết quả phiên nhà máy (05/10/2026, nhánh `factory`)
+- Xong §2.1–2.7, §2.9: `page.html`, `render.js`, `spec.py`, `voice.py`, `build.py`, `qc.py`, `excerpt_checks.py`, `toolkit/build.sh`, `episodes/ep003/episode.yaml`. Báo cáo demo: `episodes/ep003/out/factory/` (qc.md, checks-excerpt.json, build-report.json, ảnh so bản phát hành, Short mẫu). Tốc độ: `moc-b/SPEED.md`.
+- §2.8 Git LFS: API LFS qua proxy trả 200 (đọc được); **hạn mức không đọc được** (không có API billing trong phiên); đẩy nhánh thử `release-ep003` bị chặn quyền trong phiên → **giữ cách phần 90 MB**; thử LFS là việc treo cho chủ dự án.
+- Sau duyệt (06/10, issue #38): (1) `counterweights` thành trường bắt buộc (spec.py dừng build khi thiếu); S04 dựng lại có "Not a pick. Real rates, what-if bond." và "taxes ignored" trên bản ngang và Short. (2) Nhạc nền qua nhà máy (`music.py` + `episodes/ep003/audio_src/factory_bed.py`, engine nhạc Tập 3): A07 19,99 dB, A08 7,9 dB, −14,0 LUFS, −1,5 dBTP; checks đoạn trích 17/18 ĐẠT (F06 đạt 278 kb/s nhờ có nhạc; A16 tham khảo trượt như bản phát hành). LFS không thử: giữ phần 90 MB.
+- Chưa: `window.CHECKS` cho trang nhà máy (appeal A8); luật đứng hình cần hiệu chuẩn (appeal A7).
