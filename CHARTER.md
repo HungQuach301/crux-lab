@@ -1,6 +1,6 @@
-# CRUX — HIẾN CHƯƠNG v3
+# CRUX — HIẾN CHƯƠNG v4
 
-Chủ dự án: Hung Quach. v3 (05/10/2026, D-006): 3 cổng G1/G2/G3, nguyên tắc tốc độ, rút gọn. Đây là nguồn thẩm quyền số một. Chi tiết nằm ở playbook; mọi file khác phải khớp với hiến chương.
+Chủ dự án: Hung Quach. v3 (05/10/2026, D-006): 3 cổng G1/G2/G3, rút gọn. v4 (06/10/2026, D-009, D-010): chất lượng là ưu tiên tuyệt đối; thế giới 3D tối giản. Đây là nguồn thẩm quyền số một. Chi tiết nằm ở playbook; mọi file khác phải khớp với hiến chương.
 
 ## 1. Định vị
 - **Kênh:** `us-personal-finance`, tiếng Anh Mỹ, không lộ mặt, data-explainer. Hai định dạng: `lab` (9–11 phút), `101` (8–9 phút), kèm 2–3 Shorts mỗi tập.
@@ -12,7 +12,7 @@ Chủ dự án: Hung Quach. v3 (05/10/2026, D-006): 3 cổng G1/G2/G3, nguyên t
 1. Không có tập thì không có nền tảng. Chỉ tự động hoá bước đã làm tay ≥ 3 lần và đo được tốn công chủ dự án.
 2. Nhịp đo bằng tập. Không mở chu kỳ mới khi tập trước chưa xong hoặc chưa huỷ có lý do.
 3. Việc không phải tập ≤ 20 % công sức; mỗi hạng mục trả lời "giúp tập kế tiếp thế nào?".
-4. Mọi thay đổi chấm theo **5 tiêu chí**: tốc độ phát hành, chất lượng, ít công chủ dự án, chi phí, khả năng mở rộng. Làm xấu một tiêu chí thì nêu đánh đổi.
+4. Mọi thay đổi chấm theo **5 tiêu chí**: tốc độ phát hành, chất lượng, ít công chủ dự án, chi phí, khả năng mở rộng. Làm xấu một tiêu chí thì nêu đánh đổi. **Chất lượng là ràng buộc, không phải tiêu chí để đổi chác** (D-009): nội dung, hình, âm và sự liền mạch giữa chúng không bao giờ bị hy sinh; tốc độ, chi phí, công chủ dự án chỉ tối ưu khi số đo trên sản phẩm cuối (có đối chứng) chứng minh chất lượng không giảm.
 5. Hiến chương < 2 trang.
 
 ## 3. Nguyên tắc thiết kế
@@ -22,8 +22,8 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
 - **Định nghĩa:** người xem xem một lần, đánh giá tập ngang ba tham chiếu (`playbook/references.md`): Vox (truyện), 3Blue1Brown (hình mang nghĩa), WSJ (thể loại).
 - **Ba lớp:**
   - **L1 Kỹ thuật:** máy, luật khoá SHA, cấp CHẶN.
-  - **L2 Nghề:** kiểm mù độc lập (headless, chỉ giữ vòng từng đổi quyết định; móc đo bằng mốc giây ở C2); máy chỉ cảnh báo.
-  - **L3 Khán giả:** chủ dự án ở G2; sau phát hành là số liệu YouTube, thước đo cuối.
+  - **L2 Nghề:** kiểm mù độc lập (headless, chỉ giữ vòng từng đổi quyết định; móc đo bằng mốc giây ở C2); máy chỉ cảnh báo; lượt đạo diễn máy là công cụ chẩn đoán, không phải ngưỡng (D-010 §6).
+  - **L3 Khán giả:** phiếu L3 của chủ dự án ở G2 là **thước đo cuối trước phát hành**; sau phát hành là số liệu YouTube.
 - **Ưu tiên:** cảm xúc > truyện > nhịp > đường mắt > bố cục.
 - **Chống Goodhart:** không chỉ tiêu số lượng cho nghệ thuật; chỉ số trong ±5 % quanh ngưỡng phải nêu tên. Thước đo mới phải hiệu chuẩn trên đối chứng cùng chủ đề trước khi dùng.
 - **Biên kịch:** `playbook/story.md`.
@@ -34,25 +34,24 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
   - "US only";
   - "history, not a forecast" với dữ liệu lịch sử;
   - nhân vật minh hoạ mang nhãn ILLUSTRATIVE;
-  - không thế giới 3D.
+  - thế giới 3D tối giản: low-poly, màu kênh, không chân thực ảnh, nhân vật không mặt, không chi tiết trang trí không mang nghĩa (D-010).
 
 ## 5. Ba cổng (`playbook/episode.md`)
 | Cổng | Khi | Chủ dự án quyết |
 |---|---|---|
 | **G1** | Sau C2 | Đề tài, logline, kịch bản (cấu trúc, cold open, móc), tiêu đề nháp. Được duyệt theo lô cả mùa (đề tài + logline) |
-| (C3) | Chỉ khi cần ký hiệu ngoài thư viện hình | Ký hiệu mới |
+| (C3) | Khi tập có hình mới (ký hiệu, vật thể, hero object, mẫu chuyển cảnh) | Hình mới — xem clip có chuyển động và âm |
 | **G2** | = C6 | Bản cuối, tiêu đề/thumbnail, Shorts |
 | **G3** | Phát hành | Đăng |
 
 - **Các cổng còn lại là TỰ ĐỘNG:** ngưỡng ghi trước, tối đa 2 vòng, nhánh dự phòng đặt sẵn, báo qua issue, không chờ.
-- **Nguyên tắc tốc độ:** chỉ mở vòng sửa khi lỗi CHẶN hoặc sai nghĩa / claim / pháp lý. Lỗi CHÍNH không đổi nghĩa vào hàng chờ, ghi trong gói.
+- **Chất lượng trước (D-009):** lỗi CHÍNH phải sửa trước phát hành. Ngoại lệ duy nhất: sửa làm hỏng một yếu tố chất lượng khác — gói nêu yếu tố đó, kèm số đo hoặc bản trước/sau, chủ dự án chọn.
+- **Token:** trần chỉ để cảnh báo; vượt thì báo số thực trong gói; không cắt bước chất lượng (kiểm mù, lượt đạo diễn, REVIEWER) vì token.
 - **Ngoại lệ phải hỏi:**
-  - vượt trần token > 25 %;
   - đổi kịch bản đã duyệt;
   - số không xác minh được nguồn;
   - rủi ro pháp lý/bản quyền;
-  - cần ký hiệu mới (mỗi tập tối đa 2 ký hiệu viết mới).
-- **Đạt phát hành:** không lỗi CHẶN, không hồi quy, chủ dự án duyệt G2.
+- **Đạt phát hành:** không lỗi CHẶN, không lỗi CHÍNH chưa sửa, không hồi quy, phiếu L3 của chủ dự án **≥ 4 ở mọi dòng** (dòng < 4 → sửa rồi chấm lại; ngoại lệ chủ dự án ghi lý do ở `gates/G2.md` và sổ gu).
 
 ## 6. Tiến hoá và miễn dịch
 - **Ba vòng học:**
@@ -77,7 +76,7 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
 ## 8. Chỉ số
 - **Chất lượng:** phiếu L3, luật đạt, lỗi số = 0.
 - **Khán giả:** CTR, giữ chân giây 30, thời lượng xem, điểm rời (`audience.md`).
-- **Hiệu quả:** số lần chủ dự án tham gia/tập, vòng/cổng, số agent, ký tự giọng, thời gian, token so với trần.
+- **Hiệu quả:** số lần chủ dự án tham gia/tập, vòng/cổng, số agent, ký tự giọng, thời gian, token thực (trần = mức cảnh báo), giờ render.
 - **Cảnh báo:** việc không phải tập > 20 %, chu kỳ không ra tập, máy móc phình, hồi quy.
 
 ## 9. Thẩm quyền

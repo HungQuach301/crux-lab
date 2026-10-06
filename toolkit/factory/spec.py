@@ -4,7 +4,7 @@
 
 check(spec, root, duration=None) -> [{'level': 'BLOCK'|'ASK'|'WARN', 'rule', 'msg'}]
   BLOCK  the build stops (missing claim, unknown template, format maximum, bad mid-roll …)
-  ASK    an exception the owner must decide (custom_symbols > 2): build stops and the reason goes to the issue
+  ASK    an exception the owner must decide: build stops and the reason goes to the issue (none at present)
   WARN   reported in qc (101 below its soft minimum: "không độn", so never padded)
 """
 import json
@@ -160,8 +160,8 @@ def check(spec, root, duration=None):
             add('BLOCK', 'world', f"{w.get('id')}: scenes {bad or '[]'} — must list scenes of this episode")
     P += counterweights(spec, root, claims)
     n_sym = len(spec.get('custom_symbols') or [])
-    if n_sym > 2:
-        add('ASK', 'custom_symbols', f'{n_sym} new symbols (> 2 per episode, CHARTER §5): owner must approve the exception')
+    if n_sym > 2:   # D-009 (b): không còn trần số ký hiệu mới; hình mới đi qua C3 (clip có chuyển động + âm)
+        add('WARN', 'custom_symbols', f'{n_sym} new symbols: each must pass C3 (clip with motion and sound), D-009 (b)')
     for c in spec.get('custom_symbols') or []:
         if not os.path.isfile(os.path.join(root, c.get('file', ''))):
             add('BLOCK', 'custom_symbols', f"{c.get('id')}: symbol file {c.get('file')!r} not found")
