@@ -157,7 +157,7 @@ export async function boot(res) {
     for (const o of [dSlab, dRosa, dFrank]) setOpacity(o, dSide * dChart);
     // b11: chồng giá 2000 = cái họ trả (teal), mọc cùng lúc khối teal về đáy chồng 2026
     const a11 = ease(t, M.wide.t0, M.wide.t1);
-    const h2H = h2000.userData.height * 0.55, h0 = s2000.set({ usd: Math.max(0, 200000 * r11 - h2H * U), tintBelowUsd: 200000 * r11 + 1, tintA: 1 });
+    const h0 = s2000.set({ usd: 200000 * r11,   /* v3k-B: không trừ chiều cao nhà (đồ thị không có nhà) — chồng 2000 đúng $200,000 */ tintBelowUsd: 200000 * r11 + 1, tintA: 1 });
     h2000.position.set(X(0), h0, 0);   // đỉnh mái = $200,000 (cùng quy tắc với nhà 2026)
     setOpacity(s2000, a11); setOpacity(h2000, 0);   // đồ thị: không nhà
     // loé ở điểm cắt
