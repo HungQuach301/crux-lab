@@ -5,7 +5,7 @@
 Builds <episode>/work/factory/checkroot/ (video, script with the new sentence times, captions, takes, voice stem, claims, contract)
 and calls checks/py/run.py --only <rules> --first. checks/ is not modified; its LOCK is verified first.
 Rules by default: file (F01–F06, F08), captions (F09), loudness/peak/clip/phase/mono (A01, A02, A04–A06), ASR key words (A14),
-spoken vs text (A16), one voice (A18). Length (F07) and page rules need a full episode.
+spoken vs text (A16), one voice (A18); with a music bed also A07 (voice over music) and A08 (music under voice onsets). Length (F07) and page rules need a full episode.
 """
 import hashlib
 import json
@@ -44,7 +44,10 @@ def main():
     shutil.copy(os.path.join(W, 'video.mp4'), os.path.join(R, 'out/video.mp4'))
     shutil.copy(os.path.join(ep, 'out/factory/captions.srt'), os.path.join(R, 'out/captions.srt'))
     shutil.copy(os.path.join(ep, S['claims']), os.path.join(R, 'out/claims.json'))
-    shutil.copy(os.path.join(W, 'stems/voice.flac'), os.path.join(R, 'out/audio/stems/voice.flac'))
+    for st in os.listdir(os.path.join(W, 'stems')):  # voice.flac, and music.flac when the build had a bed
+        shutil.copy(os.path.join(W, 'stems', st), os.path.join(R, 'out/audio/stems', st))
+    if os.path.exists(os.path.join(W, 'stems/music.flac')) and '--rules' not in sys.argv:
+        rules += ',A07,A08'
     if os.path.exists(os.path.join(ep, 'contract.json')):
         shutil.copy(os.path.join(ep, 'contract.json'), os.path.join(R, 'contract.json'))
     json.dump({'sentences': [{k: s[k] for k in ('id', 'scene', 'text', 'spoken', 'start', 'end')} for s in tl['sentences']]},

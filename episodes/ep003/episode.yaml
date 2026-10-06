@@ -11,7 +11,17 @@ data: {file: design/c3/work/data.js, var: DATA}
 fps: 30
 res: 1080
 voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1001, settings: {stability: 0.5, speed: 0.9}}
-audio: {lufs: -14, true_peak: -1.0, music: null}
+audio:
+  lufs: -14
+  true_peak: -1.5                         # trần Tập 3 (mix_full.py TP_CEIL_DB)
+  music: work/factory/music/S04-bed.wav      # nhạc Tập 3 (style C, 114 BPM), sinh lại nếu thiếu; mức dưới lời: toolkit/factory/music.py
+  music_cmd: "python3 episodes/ep003/audio_src/factory_bed.py {total} {out}"
+dossier: {script_md: story/script.md, claim_risk: ../../topics-r1/machine/retire-4/claim-risk.md, contract: contract.json}
+# BẮT BUỘC (spec.py): mọi đối trọng hồ sơ đòi (nhãn counterweight trong script, claim-risk "Always say", giả định trong contract.json)
+# phải khai ở đây; engine hiện dòng trên mọi khung có claim kích hoạt. Thiếu trường hoặc thiếu dòng → build.sh dừng.
+counterweights:
+  - {id: cw-hist, text: "Not a pick. Real rates, what-if bond.", claims: [ctx_guarantee]}   # script S06.6; bản phát hành hiện cả ở S04
+  - {id: no-tax, text: "taxes ignored", when: historical, attach: history}                 # contract.json assumption no-tax
 custom_symbols: []          # ≤ 2 ký hiệu viết mới mỗi tập; vượt → hỏi chủ dự án
 midrolls: []                # lab: 2, ở ranh giới hồi (scope: excerpt → không xét)
 

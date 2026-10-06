@@ -180,7 +180,8 @@ class Build:
         self.data = json.loads(txt[txt.index('=') + 1:].strip().rstrip(';')) if d['file'].endswith('.js') else json.loads(txt)
         self.script = {s['id']: s for s in json.load(open(os.path.join(self.root, S['script'])))['sentences']}
         self.code_hash = sha(b''.join(open(os.path.join(HERE, f), 'rb').read() for f in CODE))
-        self.inputs_hash = sha({'claims': self.claims, 'tokens': self.tokens, 'data': sha(txt.encode())})
+        self.counterweights = [{k: c[k] for k in ('id', 'text', 'claims', 'when', 'attach') if k in c} for c in S.get('counterweights') or []]
+        self.inputs_hash = sha({'claims': self.claims, 'tokens': self.tokens, 'data': sha(txt.encode()), 'cw': self.counterweights})
 
     # ---- voice
     def do_voice(self):
@@ -251,7 +252,7 @@ class Build:
             for g in todo:
                 shots_local[g['shot']] = g['local']
             job = {'name': name, **base, 'size': size, 'tokens': self.tokens, 'claims': self.claims, 'data': self.data,
-                   'floor': {'h': 40, 'v': 56}, 'shots': list(shots_local.values()),
+                   'floor': {'h': 40, 'v': 56}, 'counterweights': self.counterweights, 'shots': list(shots_local.values()),
                    'segments': [{k: g[k] for k in ('id', 'shot', 'f0', 'f1', 'out')} for g in todo]}
             jp = os.path.join(self.work, 'jobs', f'{name}.json')
             json.dump(job, open(jp, 'w'))
@@ -306,27 +307,29 @@ class Build:
             flt.append(f"[{i}:a]adelay={int(sc['start'] * 1000)}:all=1[v{i}]")
         n = len(self.tl['scenes'])
         flt.append(''.join(f'[v{i}]' for i in range(n)) + f'amix=inputs={n}:normalize=0,apad=whole_dur={self.total}[voice]')
-        if A.get('music'):  # optional bed, ducked under the voice (sidechain), −18 dB under speech
-            ins += ['-stream_loop', '-1', '-i', os.path.join(self.root, A['music'])]
-            flt.append('[voice]asplit[vo][sc]')
-            flt.append(f'[{n}:a]volume=-8dB,atrim=0:{self.total}[m]')
-            flt.append('[m][sc]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=400[md]')
-            flt.append('[vo][md]amix=inputs=2:normalize=0[mix]')
-            out_lbl = '[mix]'
+        voice_raw = os.path.join(self.work, 'voice-raw.wav')
+        sh(['ffmpeg', '-y', '-loglevel', 'error', *ins, '-filter_complex', ';'.join(flt), '-map', '[voice]', '-t', str(self.total),
+            '-ar', '48000', '-ac', '2', '-c:a', 'pcm_s24le', voice_raw])
+        raw, stems, info = os.path.join(self.work, 'mix-raw.wav'), os.path.join(self.work, 'stems'), {}
+        os.makedirs(stems, exist_ok=True)
+        for f in os.listdir(stems):
+            os.remove(os.path.join(stems, f))
+        if A.get('music'):  # bed under the voice at the Tập 1–3 level (music.py: 20 dB under voice, 1–4 kHz ducked 13 dB)
+            bed = os.path.join(self.root, A['music'])
+            if not os.path.exists(bed) and A.get('music_cmd'):
+                sh(A['music_cmd'].format(total=self.total, out=bed), shell=True, cwd=ROOT)
+            import music as MUSIC
+            info = MUSIC.mix(voice_raw, bed, self.total, raw, stems)
         else:
-            out_lbl = '[voice]'
-        raw = os.path.join(self.work, 'mix-raw.wav')
-        sh(['ffmpeg', '-y', '-loglevel', 'error', *ins, '-filter_complex', ';'.join(flt), '-map', out_lbl, '-t', str(self.total),
-            '-ar', '48000', '-c:a', 'pcm_s24le', raw])
+            shutil.copy(voice_raw, raw)
+            sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', raw, os.path.join(stems, 'voice.flac')])
         self.master_wav = os.path.join(self.work, 'master.wav')
         self.loudnorm(raw, self.master_wav, lufs, tp)
-        stems = os.path.join(self.work, 'stems')
-        os.makedirs(stems, exist_ok=True)
-        sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', raw, '-ac', '2', '-ar', '48000', os.path.join(stems, 'voice.flac')])
         self.video = os.path.join(self.work, 'video.mp4')
         sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', self.picture, '-i', self.master_wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
             '-c:a', 'aac', '-b:a', '384k', '-ar', '48000', '-ac', '2', '-movflags', '+faststart', '-shortest', self.video])
-        return {'video': os.path.relpath(self.video, ROOT), 'sha256': sha(open(self.video, 'rb').read()), 'mb': round(os.path.getsize(self.video) / 1e6, 2)}
+        self.report['music'] = info
+        return {**info, 'video': os.path.relpath(self.video, ROOT), 'sha256': sha(open(self.video, 'rb').read()), 'mb': round(os.path.getsize(self.video) / 1e6, 2)}
 
     # ---- parts
     def do_parts(self):

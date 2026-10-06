@@ -36,6 +36,20 @@
    "note": "377 khung log (mỗi 6 khung)"
   },
   {
+   "item": "master đối trọng \"Not a pick. Real rates, what-if bond.\"",
+   "result": "ĐẠT",
+   "value": 1248,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"taxes ignored\"",
+   "result": "ĐẠT",
+   "value": 1998,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
    "item": "trục từ 0",
    "result": "ĐẠT",
    "value": 0,
@@ -59,14 +73,14 @@
   {
    "item": "loudness",
    "result": "ĐẠT",
-   "value": "-14.1 LUFS / -4.0 dBTP",
-   "threshold": "-14 ± 1 LUFS, ≤ -1.0 dBTP",
+   "value": "-14.0 LUFS / -1.5 dBTP",
+   "threshold": "-14 ± 1 LUFS, ≤ -1.5 dBTP",
    "note": ""
   },
   {
    "item": "kích thước phần",
    "result": "ĐẠT",
-   "value": 16.93,
+   "value": 17.27,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
   },
@@ -82,7 +96,7 @@
    "result": "ĐẠT",
    "value": 56,
    "threshold": "≥ 56 px",
-   "note": "1287 lần engine nâng cỡ"
+   "note": "1899 lần engine nâng cỡ"
   },
   {
    "item": "S04-short tương phản",
@@ -113,9 +127,23 @@
    "note": "212 khung log (mỗi 6 khung)"
   },
   {
+   "item": "S04-short đối trọng \"Not a pick. Real rates, what-if bond.\"",
+   "result": "ĐẠT",
+   "value": 1224,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "S04-short đối trọng \"taxes ignored\"",
+   "result": "ĐẠT",
+   "value": 1224,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
    "item": "S04-short loudness",
    "result": "ĐẠT",
-   "value": "-14.0 LUFS / -3.9 dBTP",
+   "value": "-13.8 LUFS / -1.5 dBTP",
    "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
    "note": ""
   },
@@ -128,6 +156,11 @@
   }
  ],
  "near": [
+  {
+   "item": "loudness TP",
+   "value": -1.5,
+   "threshold": -1.5
+  },
   {
    "item": "S04-short sàn chữ",
    "value": 56,

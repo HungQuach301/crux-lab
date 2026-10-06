@@ -115,7 +115,22 @@ export function makeEngine(canvas, cfg) {
     if (V && (frameFlags.claims.size || frameFlags.hist)) { frameFlags.illus = true; frameFlags.hist = true; }
     if (extra.hook) E.text(extra.hook, W / 2, SAFE.y0 + 70, 'head', { align: 'center', group: 'hook' });
     if (frameFlags.illus) { E.text('ILLUSTRATIVE', SAFE.x1, SAFE.y0 + (V ? 170 : 44), 'badge', { align: 'right', color: C.bg, plate: C.warn, group: 'tag-ill' }); log.tags.push('ILLUSTRATIVE'); }
-    if (frameFlags.hist) { E.text('US only · history, not a forecast', V ? W / 2 : SAFE.x1, SAFE.y1 - 6, 'note', { align: V ? 'center' : 'right', color: C.muted, group: 'tag-hist' }); log.tags.push('HISTORY'); }
+    // counterweights (episode.yaml, required by spec.py): a line shown on every frame whose claims trigger it; attach:'history' joins the history tag
+    let hist = 'US only · history, not a forecast', k = 0;
+    for (const cw of cfg.counterweights || []) {
+      const on = (cw.claims || []).some((id) => frameFlags.claims.has(id)) || (cw.when === 'historical' && frameFlags.hist)
+        || (cw.when === 'numbers' && (frameFlags.claims.size > 0 || frameFlags.hist));
+      if (!on) continue; log.tags.push('CW:' + cw.id);
+      if (cw.attach === 'history' && frameFlags.hist) { // joins the history tag; Shorts: too narrow to join, so its own muted line just above it
+        if (!V) hist += ' · ' + cw.text; else E.text(cw.text, W / 2, SAFE.y1 - 76, 'note', { align: 'center', color: C.muted, group: 'tag-hist-' + cw.id });
+        continue; }
+      let lines = [cw.text];
+      if (V && E.measure(cw.text, 'note', 700) * FLOOR / TIERS.note > SAFE.x1 - SAFE.x0 - 28) { // Shorts: split at the sentence break nearest the middle
+        const cut = [...cw.text.matchAll(/[.,;] /g)].map((m) => m.index + 1).sort((a, b) => Math.abs(a - cw.text.length / 2) - Math.abs(b - cw.text.length / 2))[0] ?? cw.text.lastIndexOf(' ', cw.text.length / 2);
+        lines = [cw.text.slice(0, cut).trim(), cw.text.slice(cut).trim()]; }
+      for (const ln of lines) { E.text(ln, V ? W / 2 : SAFE.x1, V ? SAFE.y0 + 400 + 76 * k : SAFE.y0 + 112 + 62 * k, 'note', { align: V ? 'center' : 'right', weight: 700, color: C.ink, plate: C.surface, group: 'cw-' + cw.id }); k++; }
+    }
+    if (frameFlags.hist) { E.text(hist, V ? W / 2 : SAFE.x1, SAFE.y1 - 6, 'note', { align: V ? 'center' : 'right', color: C.muted, group: 'tag-hist' }); log.tags.push('HISTORY'); }
     log.claims = [...frameFlags.claims]; log.hist = frameFlags.hist; log.illus = frameFlags.illus;
     return log;
   };

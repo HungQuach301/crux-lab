@@ -30,7 +30,7 @@ class Q:
             self.near.append({'item': name, 'value': value, 'threshold': thr})
 
 
-def frame_rules(q, logs, orient, tag):
+def frame_rules(q, logs, orient, tag, cws=None):
     W, H = DIM[orient]
     sx0, sy0, sx1, sy1 = SAFE[orient]
     texts = [(L['t'] if 't' in L else L['f'], x) for L in logs for x in L['texts']]
@@ -65,6 +65,9 @@ def frame_rules(q, logs, orient, tag):
         if need - set(L['tags']):
             miss.append(L.get('t', L['f']))
     q.item(f'{tag} nhãn ILLUSTRATIVE / history', not miss, len(miss), '0 khung thiếu nhãn', f'{len(logs)} khung log (mỗi 6 khung)')
+    for c in cws or []:  # each declared counterweight must actually be on screen ≥ 1 s (log every 6 frames)
+        n = sum(('CW:' + c['id']) in L['tags'] for L in logs) * 6
+        q.item(f"{tag} đối trọng \"{c['text']}\"", n >= 30, n, '≥ 30 khung (1 s)')
 
 
 def speech_spans(words, gap=0.3):
@@ -96,7 +99,7 @@ def run(B):
     q = Q()
     tl = B.tl
     logs = json.load(open(os.path.join(B.work, 'frame-log.json')))
-    frame_rules(q, logs, 'h', 'master')
+    frame_rules(q, logs, 'h', 'master', B.counterweights)
     # axis from 0: bars/line draw length from 0 by construction; a min > 0 on them is a breach (swarm/timeline are positions, exempt)
     bad = [s['id'] for s in tl['shots'] if s['template'] in ('bars', 'line') and s['p'].get('min', 0) not in (0, None)]
     q.item('trục từ 0', not bad, len(bad), '0 shot bars/line có min > 0', 'swarm: vị trí chấm, không phải độ dài')
@@ -116,7 +119,7 @@ def run(B):
     for S in B.shorts:
         q.item(f"{S['id']} thời lượng", S['duration'] <= 60, S['duration'], '≤ 60 s')
         q.close(f"{S['id']} thời lượng", S['duration'], 60)
-        frame_rules(q, json.load(open(os.path.join(B.work, f"{S['id']}-frame-log.json"))), 'v', S['id'])
+        frame_rules(q, json.load(open(os.path.join(B.work, f"{S['id']}-frame-log.json"))), 'v', S['id'], B.counterweights)
         Is, tps = loud(os.path.join(ROOT, S['file']))
         q.item(f"{S['id']} loudness", tps <= -1.0 and abs(Is + 14) <= 2.0, f'{Is} LUFS / {tps} dBTP', '−14 ± 2 LUFS, ≤ −1 dBTP')
     P = SPEC.check(B.S, B.root, duration=B.total)

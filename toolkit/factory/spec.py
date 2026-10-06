@@ -46,6 +46,68 @@ def anchors_in(v):
     return []
 
 
+def required_counterweights(spec, root):
+    """What the dossier says must be on screen: script counterweight labels (scenes built here), claim-risk "Always say", contract
+    assumptions (regex). Returns [{'src', 'text' | 'pattern'}]."""
+    D, built, req = spec.get('dossier') or {}, {sc['id'] for sc in spec.get('scenes', [])}, []
+    sm = os.path.join(root, D.get('script_md', 'story/script.md'))
+    if os.path.exists(sm):
+        for ln in open(sm, encoding='utf-8'):
+            m = re.match(r'^(S\d+)\.\d+\s*\|', ln)
+            for t in re.findall(r'[Cc]ounterweight[^"]*"([^"]+)"', ln):
+                if m and m[1] in built:
+                    req.append({'src': f'{os.path.basename(sm)} {ln.split("|")[0].strip()}', 'text': t})
+    if D.get('claim_risk'):
+        cr = os.path.join(root, D['claim_risk'])
+        for t in re.findall(r'Always say "([^"]+)"', open(cr, encoding='utf-8').read()):
+            req.append({'src': os.path.relpath(cr, root), 'text': t})
+    ct = os.path.join(root, D.get('contract', 'contract.json'))
+    if os.path.exists(ct):
+        for a in json.load(open(ct)).get('claims', {}).get('assumptions', []):
+            req.append({'src': f"contract.json assumption {a['id']}", 'pattern': a['pattern']})
+    return req
+
+
+def strings_in(v):
+    if isinstance(v, str):
+        return [v]
+    if isinstance(v, list):
+        return [s for x in v for s in strings_in(x)]
+    if isinstance(v, dict):
+        return [s for x in v.values() for s in strings_in(x)]
+    return []
+
+
+def counterweights(spec, root, claims):
+    """counterweights: REQUIRED field. Every line the dossier demands must be declared (a contract assumption may instead be met by a
+    visible shot string, e.g. the what-if legend); every declared line needs a trigger the engine can test on each frame."""
+    P, add = [], None
+    add = lambda level, msg: P.append({'level': level, 'rule': 'counterweights', 'msg': msg})
+    if 'counterweights' not in spec:
+        add('BLOCK', 'missing required field `counterweights` (list of {id, text, claims | when}); see playbook §5 / factory README')
+        return P
+    cws = spec.get('counterweights') or []
+    norm = lambda t: re.sub(r'\s+', ' ', t.strip().lower())
+    texts = [norm(c.get('text', '')) for c in cws]
+    shown = texts + [norm(x) for sc in spec.get('scenes', []) for sh in sc.get('shots', []) for x in strings_in(sh.get('p', {}))]
+    for r in required_counterweights(spec, root):
+        if 'text' in r and norm(r['text']) not in texts:
+            add('BLOCK', f"{r['src']} requires counterweight \"{r['text']}\" on screen; not declared in `counterweights`")
+        if 'pattern' in r and not any(re.search(r['pattern'], t, re.I) for t in shown):
+            add('BLOCK', f"{r['src']} (/{r['pattern']}/) is not on screen: no counterweight or shot text matches")
+    for c in cws:
+        if not c.get('id') or not c.get('text'):
+            add('BLOCK', f'counterweight {c!r} needs id and text')
+        if not c.get('claims') and c.get('when') not in ('historical', 'numbers'):
+            add('BLOCK', f"counterweight {c.get('id')}: needs a trigger (claims: [...] or when: historical|numbers)")
+        for cid in c.get('claims') or []:
+            if cid not in claims:
+                add('BLOCK', f"counterweight {c.get('id')}: claim {cid!r} is not in {spec['claims']}")
+        if re.search(r'\d', c.get('text', '')) and not re.search(r'\{[a-z0-9_]+\}', c.get('text', '')):
+            add('BLOCK', f"counterweight {c.get('id')}: a number on screen must be a claim ({{claimId}})")
+    return P
+
+
 def check(spec, root, duration=None):
     P = []
     add = lambda level, rule, msg: P.append({'level': level, 'rule': rule, 'msg': msg})
@@ -72,6 +134,7 @@ def check(spec, root, duration=None):
         for cid in sorted(claim_ids_in({'h': sh.get('hook', ''), 'e': sh.get('end', '')})):
             if cid not in claims:
                 add('BLOCK', 'claim', f"{sh['id']}: claim {cid!r} is not in {spec['claims']}")
+    P += counterweights(spec, root, claims)
     n_sym = len(spec.get('custom_symbols') or [])
     if n_sym > 2:
         add('ASK', 'custom_symbols', f'{n_sym} new symbols (> 2 per episode, CHARTER §5): owner must approve the exception')
