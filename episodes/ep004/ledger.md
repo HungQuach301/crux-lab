@@ -54,3 +54,17 @@ Mỗi agent con, mỗi cổng: một dòng. Token = số harness của agent con
 | 2026-10-06 | C4 vòng 2 | 9 người đọc + 2 lượt người chấm | sonnet | 9 × ≈ 47k + 55.894 + 51.699 | **cổng gốc 6/7 = 86 % ĐẠT** (B11 trượt, B10 2/3) |
 | 2026-10-06 | giao hàng | `deliver.py` → `ep004-delivery` @ f01ff9b | lệnh | — | 3 phần 90 MB; `ep004-youtube.mp4` 30090de0…; HUONG-DAN-DANG.md |
 | 2026-10-06 | **tổng phiên cuối** | **39 agent** | — | **≈ 2,39 triệu agent con** | + điều phối ≈ 0,35 triệu; trần 2,0 + 0,6 |
+
+## KPI cuối tập (2026-10-06, trước G3)
+| KPI | Thực Tập 4 | Đích / trần |
+|---|---|---|
+| Token P1 | ≈ 2,6 triệu (agent con 2,17 + điều phối ≈ 0,4); 42 agent | 1,4 triệu (+ 84 %) |
+| Token phiên K (khoá K3.8) | không ghi ở ledger tập (phiên riêng, issue #40) | — |
+| Token P2 (C3) | ≈ 1,0 triệu (agent con 0,80 + điều phối 0,2); 21 agent | ≤ 1 triệu |
+| Token phiên cuối (C4 → C5 → G2 → giao hàng, D-008) | ≈ 2,7 triệu (agent con ≈ 2,39 + điều phối ≈ 0,35); 39 agent | 1,5 → nâng 2,0 → + 0,6 = 2,6 triệu (vượt ≈ 4 %) |
+| **Token cả tập** (P1 + P2 + phiên cuối, chưa tính K) | **≈ 6,3 triệu**; **102 agent** | trần tập 4,5 triệu (+ 40 %); ≤ 60 agent |
+| Ký tự ElevenLabs | P1 1.927 + P2 1.627 + phiên cuối 8.148 = **11.702** (cache giọng mất khi đổi container) | ≤ 6.000 |
+| Chủ dự án tham gia | **5 lượt**: G1 · C3 · C4 (ngoại lệ + trần) · G2 · nới trần agent vòng 2; + G3 chờ (tải/đăng) | G1, G2 + G3 (+C3) |
+| Vòng | C1 1 · C2 2 (+ dự phòng) · C3 2 · cổng gốc C4 2 | ≤ 2 |
+| Kết quả cổng | C2 6/6 · C3 nghĩa 6/6 (A9 khuyên 0/12) · cổng gốc 6/7 = 86 % · checks CHẶN 24/35 + 11 ngoại lệ duyệt | — |
+| Thời lượng | 8:01,6 (2 mid-roll) | lab 9–11 phút (mềm), ≥ 8:00 |
