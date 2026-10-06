@@ -6,11 +6,11 @@
 | B08 KEY-3 (N1) | C3 vòng 2: 1 · 1, khuyên_tính 0/2 theo A9 | **ĐẠT** (C3) |
 | B09 KEY-4a | 1 · không — 1 · không | **ĐẠT** 2/2 |
 | B10 KEY-4b | 0,5 · không — 1 · có yếu ("time the sale") | **TRƯỢT** 0/2 — thanh là GIÁ TRỊ nhà, trần là trên LÃI: người đọc 1 thấy SF/SJ "dưới trần" mà vẫn đếm 11/12 |
-| B11 KEY-5 | 1 · có biên — 1 · không — 1 · không (người 3) | **ĐẠT** 2/3 (nêu tên) |
+| B11 KEY-5 | 1 · có biên — 1 · không — 1 · không (người 3) | **TRƯỢT** (cờ khuyên biên ở người 1; người 3 do điều phối chấm) |
 | B14 KEY-6 (N2) | C3 vòng 2: 1 · 1, khuyên_tính 0/2 theo A9 | **ĐẠT** (C3) |
 | B15 KEY-7 | 0,5 · không — 0,5 · không | **TRƯỢT** 0/2 — thiếu "ô giá 2000 của bạn" (N2 không vẽ ô này); một người đọc ngược chiều thang |
 
-**Cổng: 4/7 = 57 % < 80 % → TRƯỢT.** Không vòng 2 (ý đồ ghi trước; trần phiên). Người thứ 3 của B11 do điều phối chấm theo cùng rubric và tiền lệ của người chấm (nhãn b0f02085: nghĩa 1 khi đủ đường đi, thiếu mốc năm; "talk to a tax adviser before choosing when to sell" = thận trọng chung) — ghi rõ vì không phải người chấm độc lập.
+**Cổng: 3/7 = 43 % < 80 % → TRƯỢT** (sửa sau REVIEWER: B11 có một cờ khuyên biên → theo §5.6 nhịp trượt; bản trước ghi nhầm 4/7). Cờ khuyên tính theo A9: B06 chắc, B10 yếu, B11 biên — đều dạng chờ/canh thời điểm bán. Không vòng 2 (ý đồ ghi trước; trần phiên). Người thứ 3 của B11 do điều phối chấm theo cùng rubric và tiền lệ của người chấm (nhãn b0f02085: nghĩa 1 khi đủ đường đi, thiếu mốc năm; "talk to a tax adviser before choosing when to sell" = thận trọng chung) — ghi rõ vì không phải người chấm độc lập.
 Thận trọng chung: 11/11 (như C1–C3 và 1/2 ở đối chứng âm).
 
 ## Hướng sửa đề xuất cho G2 (chỉ nhãn, danh sách đóng §6.6; cần dựng lại 3 cảnh + checks lại)

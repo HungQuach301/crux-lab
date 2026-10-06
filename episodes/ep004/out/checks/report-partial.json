@@ -1,0 +1,292 @@
+{
+ "root": "/home/user/crux-lab/episodes/ep004",
+ "contract": "/home/user/crux-lab/episodes/ep004/contract.json",
+ "lock": "250ab298de4f912d34fdd02474aaa1af843ea9115e36fd0675630fcdcd1641de",
+ "video_sha256": "839a96671e8fc3ca0a3565eb07e126780d2adcc6406d84d1c2660b8243b78b06",
+ "episode": "TRƯỢT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 1,
+   "pass": 0,
+   "notPass": [
+    "F11 FAIL"
+   ]
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "explained": {},
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 1,
+   "pass": 0,
+   "notPass": [
+    "P01 FAIL"
+   ]
+  }
+ },
+ "counts": {
+  "PASS": 0,
+  "FAIL": 2,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [
+  {
+   "rule": "P01",
+   "tier": "REFERENCE",
+   "name": "thumb 1 token share (%)",
+   "value": 100.0,
+   "op": ">=",
+   "threshold": 97.0,
+   "unit": "%",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "P01",
+   "tier": "REFERENCE",
+   "name": "thumb 2 token share (%)",
+   "value": 99.986328,
+   "op": ">=",
+   "threshold": 97.0,
+   "unit": "%",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "P01",
+   "tier": "REFERENCE",
+   "name": "thumb 3 token share (%)",
+   "value": 99.99924,
+   "op": ">=",
+   "threshold": 97.0,
+   "unit": "%",
+   "pass": true,
+   "near": true
+  }
+ ],
+ "results": [
+  {
+   "id": "F11",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "declared M3 artefacts",
+     "value": 18,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "declared artefacts not delivered",
+     "value": 1,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "release files not declared",
+     "value": 14,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "notDelivered": [
+      "out/page.json"
+     ],
+     "notDeclared": [
+      "out/audio/stems/sfx.*",
+      "out/audio/stems/whoosh.*",
+      "out/audio/stems/room.*",
+      "out/audio/stems/sonify.*",
+      "out/camera.json",
+      "out/sfx-events.json",
+      "out/sonify-events.json",
+      "out/tempo-map.json",
+      "out/transitions.json",
+      "out/cues.json",
+      "out/tension-map.json",
+      "out/tension-map.png",
+      "preprod/shotlist.json",
+      "design/tokens.json"
+     ]
+    }
+   ],
+   "note": null,
+   "section": "CH §4 khâu 3 (hợp đồng tập, K2)",
+   "threshold": "every declared M3 artefact delivered; every checks/CONTRACT.md release file declared",
+   "fingerprint": "eb72b164041573de",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "P01",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "thumb 1 size",
+     "value": "1280x720",
+     "op": "==",
+     "threshold": "1280x720",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "thumb 1 token share (%)",
+     "value": 100.0,
+     "op": ">=",
+     "threshold": 97.0,
+     "unit": "%",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "thumb 1 min contrast at 10%",
+     "value": 2.241864,
+     "op": ">=",
+     "threshold": 3.0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "thumb 2 size",
+     "value": "1280x720",
+     "op": "==",
+     "threshold": "1280x720",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "thumb 2 token share (%)",
+     "value": 99.986328,
+     "op": ">=",
+     "threshold": 97.0,
+     "unit": "%",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "thumb 2 min contrast at 10%",
+     "value": 2.241864,
+     "op": ">=",
+     "threshold": 3.0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "thumb 3 size",
+     "value": "1280x720",
+     "op": "==",
+     "threshold": "1280x720",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "thumb 3 token share (%)",
+     "value": 99.99924,
+     "op": ">=",
+     "threshold": 97.0,
+     "unit": "%",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "thumb 3 min contrast at 10%",
+     "value": 2.230069,
+     "op": ">=",
+     "threshold": 3.0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "thumb texts below 90 px",
+     "value": 18,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    [
+     1,
+     "metros past the cap",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "$300,000 home bought in 2000",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "that rose like its metro average",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "$500,000 cap",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "US only · history, not a forecast",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "ILLUSTRATIVE",
+     "fontPx < 90"
+    ],
+    [
+     2,
+     "US average, 2000 → 2026 Q2",
+     "fontPx < 90"
+    ],
+    [
+     2,
+     "cap since May 1997",
+     "fontPx < 90"
+    ],
+    [
+     2,
+     "$500,000 cap",
+     "fontPx < 90"
+    ],
+    [
+     2,
+     "gain: $300,000 home that rose like the US average",
+     "fontPx < 90"
+    ]
+   ],
+   "note": null,
+   "section": "DX-P2",
+   "threshold": "3 thumbnails, each 1280×720; token share ≥ 97%; every text fontPx ≥ 90 (≥ 9 px at 10%) and contrast at 10% ≥ 3:1",
+   "fingerprint": "00d0de16695f1943",
+   "tier": "REFERENCE",
+   "seconds": 2.9
+  }
+ ]
+}

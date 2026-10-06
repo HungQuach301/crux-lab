@@ -37,3 +37,14 @@ Mỗi agent con, mỗi cổng: một dòng. Token = số harness của agent con
 | 2026-10-06 | sau C3 | S14.5 "a 2000 price" → "a price paid in 2000"; dựng lại (chỉ S14 sinh giọng) + ASR | lệnh | — | 470 ký tự EL; check_script ĐẠT; qc 0 TRƯỢT; ASR 8/8 từ khoá; **tổng EL P2 1.627, tập 3.554** |
 | 2026-10-06 | C4 (P3) | animatic cả tập bằng nhà máy (19 cảnh, 37 shot) + contract.json + checks lần 1 | lệnh | — | 477,6 s; MR 180,05 / 349,30 s; EL 8.148 ký tự (tập 11.702, vượt đích 6.000; hạn mức không đọc được: khoá thiếu `user_read`); checks CHẶN 22 ĐẠT/13, CHÍNH 1/10, THAM KHẢO 5/38 (S01, S05, A14, S14, S18 ĐẠT); sửa: model `_names` mọi mốc, value `sale_quarter`, 5 câu giữ nghĩa (A14), cắt tiếng F03, phụ đề F09, nhãn điều kiện S09/S10/S01/S07/S15; cổng gốc chưa chạy (dải `review-c4/strips/`); `gates/C4.md` |
 | 2026-10-06 | C5 (P3) | nhạc style C + render 1080p + checks lần 2 + Shorts + mô tả/rights/visual-assets + highlight | lệnh | — | 0 ký tự EL; −14,2 LUFS / −1,6 dBTP (§6.2: −0,2 dB lúc mã hoá vì AAC −1,4); CHẶN 24/35 (còn F11, F12, S03/S04 + trang ngoại lệ); Shorts SH01–SH05 ĐẠT sau sửa nhánh dọc engine/templates (§6.6: xuống dòng, đối trọng dọc, bars dọc, nhãn cap) — toolkit chưa commit, bản vá `design/c5/factory-shorts.patch`; ASR S14.1 "rose" đúng; fhfa.gov vẫn 403; `gates/C5.md` |
+| 2026-10-06 | phiên cuối mở | LOCK 250ab298 khớp; merge `main`; D-008 + `RUN.md` | lệnh | — | — |
+| 2026-10-06 | móc | selftest `test_symbol_hook.py` | sonnet | 66.810 | 5/5; (d) spec chưa BLOCK file thiếu (sửa spec bị chặn quyền → G2) |
+| 2026-10-06 | C4 | dựng cả tập + checks lần 1 | opus | 287.520 | 7:58; CHẶN 22/35; EL 8.148 ký tự (tập 11.702) |
+| 2026-10-06 | C4 | kiểm mù gộp: đối chứng âm 2 + S18 4 + người chấm | sonnet | 6 × ≈ 35k + 69.036 | dương ĐẠT; âm có hạn chế; C3 theo A9 0/12; S18 2/4 |
+| 2026-10-06 | C4 | **chủ dự án trả lời** | — | — | ngoại lệ luật trang; mở fhfa.gov; giữ 7:58; trần 2,0 tr / 30 agent |
+| 2026-10-06 | C4 | cổng gốc: 10 + 1 người đọc + người chấm | sonnet | 11 × ≈ 35k + 59.918 | **3/7 TRƯỢT** (sửa từ 4/7 sau REVIEWER) |
+| 2026-10-06 | C5 | nhạc, checks lần 2, Shorts | opus | 198.222 | CHẶN 24/35; Shorts 3/3; 0 EL; sửa toolkit không commit (bản vá) |
+| 2026-10-06 | G2 | gói + thumbnail + xem trước | opus | 118.767 | T1/T2/T3; 720p 84,6 MB |
+| 2026-10-06 | G2 | tóm tắt AI + so cặp thumbnail | sonnet | 41.363 + 38.198 | không lấy ra lời khuyên; T1 3/4 |
+| 2026-10-06 | G2 | REVIEWER (gói G2 + soát bù C3) | opus | 136.854 | TRƯỢT 1 CHẶN + 7 CHÍNH → sửa hết trong gói; thumb-1 "metros"; F11 thumbnail khai |
+| 2026-10-06 | **tổng phiên cuối** | **27 agent** | — | **≈ 1,61 triệu** | + điều phối ≈ 0,3 triệu ⇒ ≈ 1,9 triệu (trần 2,0) |

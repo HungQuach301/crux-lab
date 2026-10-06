@@ -24,7 +24,7 @@ function thumb1() { // 11 of 12 past the cap — bars of gains, $300,000 bought 
   let g1 = METROS.map((m, i) => { const v = num('gain_at_300k_' + m), y = y0 + i * (bh + g); return `<rect x="${x0}" y="${y}" width="${sc(v) - x0}" height="${bh}" fill="${v > cap ? WARN : INK}"/>`; }).join('');
   g1 += `<line x1="${sc(cap)}" y1="${y0 - 14}" x2="${sc(cap)}" y2="${y0 + 12 * (bh + g)}" stroke="${INK}" stroke-width="5" stroke-dasharray="12 8"/>`;
   const texts = [T('h1', 48, 250, 150, `${d('metros_crossed_at_300k')} of ${d('metro_count')}`, ['metros_crossed_at_300k', 'metro_count']),
-    T('h2', 52, 350, 88, 'past the cap', ['excl_joint_limit_usd']),
+    T('h2', 52, 345, 60, 'metros past the cap', ['excl_joint_limit_usd']),
     T('s1', 52, 440, 34, `${d('illustrative_price_300k_usd')} home bought in ${d('buy_year')}`, ['illustrative_price_300k_usd', 'buy_year'], { w: 600 }),
     T('s2', 52, 484, 34, 'that rose like its metro average', [], { w: 600 }),
     T('s3', sc(cap), y0 - 24, 30, `${d('excl_joint_limit_usd')} cap`, ['excl_joint_limit_usd'], { w: 600, anchor: 'middle' }), foot];
