@@ -1,0 +1,96 @@
+{
+ "items": [
+  {
+   "item": "master sàn chữ",
+   "result": "ĐẠT",
+   "value": 42.01,
+   "threshold": "≥ 40 px",
+   "note": "0 lần engine nâng cỡ"
+  },
+  {
+   "item": "master tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "master vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "master va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "master nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "396 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "master đối trọng \"A home that rose like the metro average\"",
+   "result": "ĐẠT",
+   "value": 1398,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "trục từ 0",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 shot bars/line có min > 0",
+   "note": "swarm: vị trí chấm, không phải độ dài"
+  },
+  {
+   "item": "freezedetect d=3 ∩ lời",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 s",
+   "note": "0 đoạn đứng yên ≥ 3 s cả phim: []"
+  },
+  {
+   "item": "mốc hình ≥ mốc từ",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": "24 mốc"
+  },
+  {
+   "item": "loudness",
+   "result": "ĐẠT",
+   "value": "-14.0 LUFS / -1.5 dBTP",
+   "threshold": "-14 ± 1 LUFS, ≤ -1.5 dBTP",
+   "note": ""
+  },
+  {
+   "item": "kích thước phần",
+   "result": "ĐẠT",
+   "value": 5.89,
+   "threshold": "≤ 90 MB mỗi phần",
+   "note": "3 phần 720p"
+  },
+  {
+   "item": "luật format",
+   "result": "ĐẠT",
+   "value": "lab",
+   "threshold": "scope excerpt",
+   "note": "đoạn trích: bỏ qua thời lượng/mid-roll"
+  }
+ ],
+ "near": [
+  {
+   "item": "loudness TP",
+   "value": -1.5,
+   "threshold": -1.5
+  }
+ ],
+ "pass": true
+}

@@ -179,7 +179,10 @@ class Build:
         txt = open(os.path.join(self.root, d['file'])).read()
         self.data = json.loads(txt[txt.index('=') + 1:].strip().rstrip(';')) if d['file'].endswith('.js') else json.loads(txt)
         self.script = {s['id']: s for s in json.load(open(os.path.join(self.root, S['script'])))['sentences']}
-        self.code_hash = sha(b''.join(open(os.path.join(HERE, f), 'rb').read() for f in CODE))
+        # custom_symbols: [{id, file}] (file relative to the episode) → imported by page.html into TEMPLATES[id]; code is part of the cache hash
+        self.symbols = [{'id': c['id'], 'url': '/' + os.path.relpath(os.path.join(self.root, c['file']), ROOT)} for c in S.get('custom_symbols') or []]
+        self.code_hash = sha(b''.join(open(os.path.join(HERE, f), 'rb').read() for f in CODE)
+                             + b''.join(open(ROOT + c['url'], 'rb').read() for c in self.symbols))
         self.counterweights = [{k: c[k] for k in ('id', 'text', 'claims', 'when', 'attach') if k in c} for c in S.get('counterweights') or []]
         self.inputs_hash = sha({'claims': self.claims, 'tokens': self.tokens, 'data': sha(txt.encode()), 'cw': self.counterweights})
 
@@ -252,7 +255,7 @@ class Build:
             for g in todo:
                 shots_local[g['shot']] = g['local']
             job = {'name': name, **base, 'size': size, 'tokens': self.tokens, 'claims': self.claims, 'data': self.data,
-                   'floor': {'h': 40, 'v': 56}, 'counterweights': self.counterweights, 'shots': list(shots_local.values()),
+                   'floor': {'h': 40, 'v': 56}, 'counterweights': self.counterweights, 'symbols': self.symbols, 'shots': list(shots_local.values()),
                    'segments': [{k: g[k] for k in ('id', 'shot', 'f0', 'f1', 'out')} for g in todo]}
             jp = os.path.join(self.work, 'jobs', f'{name}.json')
             json.dump(job, open(jp, 'w'))

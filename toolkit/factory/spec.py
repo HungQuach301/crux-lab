@@ -119,7 +119,7 @@ def check(spec, root, duration=None):
     sents = {s['id']: s for s in json.load(open(os.path.join(root, spec['script'])))['sentences']}
     for sc in spec.get('scenes', []):
         for sh in sc.get('shots', []):
-            if sh.get('template') not in TEMPLATES:
+            if sh.get('template') not in TEMPLATES | {c['id'] for c in spec.get('custom_symbols') or []}:
                 add('BLOCK', 'template', f"{sh.get('id')}: unknown template {sh.get('template')!r}")
             for cid in sorted(claim_ids_in(sh.get('p', {}))):
                 if cid not in claims:
