@@ -47,7 +47,7 @@ B = [
  ('b7', 'S06.5', 'chart', 'Tụt lại dưới một thời gian.', 'trong khung phóng: đường tụt dưới xà (đoạn dưới đổi về ink); nhãn "Back under".',
   {'slips': '@S06.5:slips'}, ['âm dữ liệu đi xuống'], 0.65, 'lưỡng lự', 'lên lại'),
  ('b8', 'S06.6', 'chart', 'Từ Q2 2023 ở trên luôn.', 'đường lên lại; đoạn trên xà warn tới 2026; nhãn "Stayed over since Q2 2023"; ba nhãn giữ tới khi số bay (trạng thái kết luận).',
-  {'stay': '@S06.6:From', 'lbl': '@S06.6:second', 'above': '@S06.6:above'}, ['nốt sáng giữ'], 0.85, 'chắc dần', 'Rosa & Frank đến cạnh nhà'),
+  {'stay': '@S06.6:From', 'lbl': '@S06.6:twenty', 'above': '@S06.6:above'}, ['nốt sáng giữ'], 0.85, 'chắc dần', 'Rosa & Frank đến cạnh nhà'),
  ('b9', 'S07.1', 'chart', 'Con số của câu mở đầu là lãi của họ.', 'Rosa & Frank đứng cạnh nhà ở đầu đường; số "≈ $558,100" hiện ở đỉnh chồng và bay lên biển trên mái (lúc "this" → "opening").',
   {'rose': '@S07.1:rose', 'fly': '@S07.1:this', 'land': '@S07.1:opening'}, ['swish theo đường bay', 'tick khi chạm biển'], 0.95, 'nhận ra', 'nhà nảy qua xà'),
  ('b10', 'S07.2', 'chart', 'Qua trần.', 'nhà nảy lên qua xà; ngoặc warn từ xà tới đỉnh chồng: "past the cap"; khoảng lặng ngắn sau "cap".',
@@ -63,11 +63,11 @@ cue = {b['id']: b['cues'] for b in beats}
 CUES = sorted((t, f"{b['id']}.{k}") for b in beats for k, t in b['cues'].items())
 
 
-def window(after, before, dur):
-    """cửa sổ động tác giữa hai từ khoá: bắt đầu sau 'after'+PAD, kết thúc trước 'before'−PAD, dài tối đa dur."""
+def window(after, before, dur, late=False):
+    """cửa sổ động tác giữa hai từ khoá: bắt đầu sau 'after'+PAD, kết thúc trước 'before'−PAD, dài tối đa dur (late: sát từ khoá sau)."""
     a, b = after + PAD, before - PAD
     if b - a < 0.6: raise SystemExit(f'cửa sổ quá ngắn giữa {after} và {before}')
-    t0 = max(a, (a + b) / 2 - dur / 2); return [round(t0, 3), round(min(b, t0 + dur), 3)]
+    t0 = max(a, b - dur) if late else max(a, (a + b) / 2 - dur / 2); return [round(t0, 3), round(min(b, t0 + dur), 3)]
 
 
 # ---- động tác máy quay hữu hạn (quy tắc 2) — mỗi lần có LÝ DO (câu lời / sự kiện dữ liệu) và ÂM (quy tắc 3)
@@ -77,12 +77,13 @@ MOVES = [
  ('toDemo', 'mode', 'cFull', 'wDemoNear', cue['b3']['same'], cue['b4']['gain'], 1.0, 'lời "And here\'s THEIR gain": về người và nhà của họ → chế độ thế giới', 'whoosh_mode'),
  ('demoPull', 'pull', 'wDemoNear', 'wDemo', cue['b4']['two'], cue['b4']['grow'], 0.9, 'lời "grown with the index": chồng sắp cao gấp bốn → lùi máy để thấy trọn', 'whoosh_soft'),
  ('backChart', 'mode', 'wDemo', 'cFull', cue['b4']['paid'], cue['b5']['under'], 1.0, 'sự kiện dữ liệu: lãi vừa tách ra → phát lại theo năm so với trần → chế độ đồ thị', 'whoosh_mode'),
- ('zoom', 'push', 'cFull', 'cZoom', cue['b6']['cross'], cue['b7']['slips'], 0.85, 'lời "slips back under for a while": đoạn 2022–23 quá nhỏ ở thang 26 năm → đẩy máy', 'whoosh_push'),
- ('wide', 'pull', 'cZoom', 'cFull', cue['b10']['cap'], cue['b11']['x'], 1.0, 'lời "Phoenix area prices … their 2000 level": cần cả hai đầu 2000 và 2026 → lùi máy', 'whoosh_soft'),
+ ('zoom', 'push', 'cFull', 'cZoom', cue['b6']['q2022'], cue['b6']['cross'], 1.2, 'lời "Then, in the second quarter of 2022": sắp tới điểm cắt và nhịp tụt — đoạn 2021–26 quá nhỏ ở thang 26 năm → đẩy máy TRƯỚC khi cắt', 'whoosh_push'),
+ ('tip', 'push', 'cZoom', 'cTip', cue['b8']['above'], cue['b9']['rose'], 2.2, 'lời "So, on paper, … THEIR home": con số sắp nói là của Rosa & Frank → đẩy chậm vào nhà ở đầu đường', 'whoosh_soft'),
+ ('wide', 'pull', 'cTip', 'cFull', cue['b10']['cap'], cue['b11']['x'], 1.0, 'lời "Phoenix area prices … their 2000 level": cần cả hai đầu 2000 và 2026 → lùi máy', 'whoosh_soft'),
 ]
 moves = []
 for mid, verb, a, b, after, before, dur, reason, snd in MOVES:
-    t0, t1 = window(after, before, dur)
+    t0, t1 = window(after, before, dur, late=(mid == 'wide'))   # 'wide': giữ trạng thái "past the cap" lâu nhất có thể
     moves.append({'id': mid, 'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
 
 # ---- lịch dữ liệu dùng chung cho hình VÀ âm (q = quý, 0 = 2000 Q1 … 105 = 2026 Q2)
@@ -119,22 +120,23 @@ EV += [{'t': cue['b0']['has'], 'kind': 'riser', 'to': cue['b0']['q']},
        {'t': cue['b1']['blur'], 'kind': 'whoosh_soft'},
        *[{'t': p, 'kind': 'tick', 'pop': k, 'v': 0.3 + 0.05 * (k % 5)} for k, p in enumerate(pops)],
        {'t': cue['b1']['avg'], 'kind': 'gather'},
-       {'t': cue['b3']['cap'] + 0.5, 'kind': 'thud'},
+       {'t': cue['b3']['cap'] + 0.6, 'kind': 'thud'},
        {'t': cue['b4']['two'], 'kind': 'tick', 'v': 0.6},
        {'t': cue['b4']['grow'], 'kind': 'rise', 'dur': 0.9},
        {'t': cue['b4']['less'], 'kind': 'slide_down', 'dur': 1.6},
        {'t': cue['b6']['cross'] - 1.6, 'kind': 'riser', 'to': cue['b6']['cross']}, {'t': cue['b6']['cross'], 'kind': 'chime'},
        {'t': cue['b9']['fly'], 'kind': 'swish', 'to': cue['b9']['land']}, {'t': cue['b9']['land'], 'kind': 'tick', 'v': 0.7},
-       {'t': cue['b10']['cap'] + 0.32, 'kind': 'impact'},
+       {'t': cue['b10']['past'] + 0.2, 'kind': 'land', 'mode': False},   # chạm mềm khi nhà nảy qua xà (không impact to: giữ lặng sau "cap")
        {'t': cue['b9']['rose'], 'kind': 'rise', 'dur': round(cue['b9']['fly'] - 0.25 - cue['b9']['rose'], 3)},
        {'t': cue['b11']['x'] - 1.4, 'kind': 'rise', 'dur': 1.4}]
 for m in moves:                                # quy tắc 3: mọi động tác có âm (whoosh + chạm khi tới)
-    EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3)})
-    EV.append({'t': m['t1'], 'kind': 'land', 'mode': m['verb'] == 'mode'})
+    quiet = m['id'] == 'wide'                    # trong khoảng lặng sau "cap": chỉ gió rất nhẹ, không chạm
+    EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': 0.35 if quiet else 1.0})
+    if not quiet: EV.append({'t': m['t1'], 'kind': 'land', 'mode': m['verb'] == 'mode'})
 EV.sort(key=lambda e: e['t'])
 
 # ---- bản đồ căng (biên độ rộng: chủ dự án, Gói A §5)
-tension = [[0, 0.12]] + [[b['t0'], b['music']] for b in beats] + [[cue['b10']['cap'] + 0.3, 1.0], [TOTAL - 2.0, 0.2], [TOTAL, 0.1]]
+tension = sorted([[0, 0.12]] + [[b['t0'], b['music']] for b in beats if b['id'] != 'b11'] + [[cue['b10']['cap'] + 0.3, 1.0], [cue['b11']['x'], 0.30], [TOTAL - 2.0, 0.2], [TOTAL, 0.1]])
 # ---- cảnh render (cache theo cảnh, quy tắc 8): ranh giới = giữa các động tác máy quay
 cuts = [0] + [m['t0'] for m in moves] + [TOTAL]
 shots = [{'id': f's{i}', 't0': round(a, 3), 't1': round(b, 3)} for i, (a, b) in enumerate(zip(cuts, cuts[1:]))]
@@ -153,7 +155,7 @@ spine = {'segment': 'ep004 S04.5 → S07.3 (bản phát hành 93,44–163,60 s)'
          'label_cues': {'b2.quarter': '2000 Q1', 'b0.q': '?', 'b1.many': 'many sales → one average', 'b3.five': '$500,000 cap', 'b4.gain': 'their gain on paper = ?', 'b4.two': 'what they paid',
                         'b5.under': 'well under', 'b6.cross': 'Over: Q2 2022', 'b7.slips': 'Back under', 'b8.lbl': 'Stayed over since Q2 2023', 'b9.fly': '≈ $558,100',
                         'b10.past': 'past the cap', 'b11.x': '×3.8'},
-         'visual_cues': ['b3.flat', 'b9.rose', 'b0.q', 'b1.blur', 'b1.rise', 'b1.pop0', 'b1.many', 'b2.quarter', 'b3.cap', 'b3.five', 'b3.same', 'b4.gain', 'b4.two', 'b4.grow', 'b4.less', 'b5.under', 'b6.cross', 'b7.slips', 'b8.lbl', 'b9.fly', 'b10.past', 'b11.x'], 'shots': shots, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
+         'visual_cues': ['b3.flat', 'b8.above', 'b9.rose', 'b0.q', 'b1.blur', 'b1.rise', 'b1.pop0', 'b1.many', 'b2.quarter', 'b3.cap', 'b3.five', 'b3.same', 'b4.gain', 'b4.two', 'b4.grow', 'b4.less', 'b5.under', 'b6.cross', 'b7.slips', 'b8.lbl', 'b9.fly', 'b10.past', 'b11.x'], 'shots': shots, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
 json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)
 world = sum(m['t1'] - m['t0'] for m in moves if m['verb'] == 'mode')
 print('moves:', [(m['verb'], m['t0'], m['t1']) for m in moves]); print('shots:', [(s['t0'], s['t1']) for s in shots])

@@ -4,10 +4,11 @@
  "asr_words_ref": 179,
  "voice_offset_s": {
   "median": 0.02,
-  "p90_abs": 0.152
+  "p90_abs": 0.15
  },
  "visual_peak_vs_keyword_s": {
   "b3.flat": -0.017,
+  "b8.above": 0.006,
   "b9.rose": 0.009,
   "b0.q": 0.02,
   "b1.blur": 0.073,
@@ -25,13 +26,14 @@
   "b5.under": 0.073,
   "b6.cross": 0.12,
   "b7.slips": 0.12,
-  "b8.lbl": 0.074,
+  "b8.lbl": 0.086,
   "b9.fly": 0.048,
   "b10.past": 0.092,
   "b11.x": 0.127
  },
  "method": {
   "b3.flat": "motion-roi",
+  "b8.above": "motion",
   "b9.rose": "motion-roi",
   "b0.q": "label",
   "b1.blur": "motion",
@@ -54,6 +56,6 @@
   "b10.past": "label",
   "b11.x": "label"
  },
- "visual_within_0.2s": "22/22",
+ "visual_within_0.2s": "23/23",
  "visual_not_detected": []
 }

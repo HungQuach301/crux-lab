@@ -1306,7 +1306,7 @@
    "t1": 55.0,
    "cues": {
     "stay": 50.952,
-    "lbl": 51.526,
+    "lbl": 52.314,
     "above": 54.427
    }
   },
@@ -1430,18 +1430,28 @@
    "verb": "push",
    "from": "cFull",
    "to": "cZoom",
-   "t0": 48.155,
-   "t1": 49.005,
-   "reason": "lời \"slips back under for a while\": đoạn 2022–23 quá nhỏ ở thang 26 năm → đẩy máy",
+   "t0": 46.063,
+   "t1": 47.263,
+   "reason": "lời \"Then, in the second quarter of 2022\": sắp tới điểm cắt và nhịp tụt — đoạn 2021–26 quá nhỏ ở thang 26 năm → đẩy máy TRƯỚC khi cắt",
    "sound": "whoosh_push"
+  },
+  {
+   "id": "tip",
+   "verb": "push",
+   "from": "cZoom",
+   "to": "cTip",
+   "t0": 55.125,
+   "t1": 57.325,
+   "reason": "lời \"So, on paper, … THEIR home\": con số sắp nói là của Rosa & Frank → đẩy chậm vào nhà ở đầu đường",
+   "sound": "whoosh_soft"
   },
   {
    "id": "wide",
    "verb": "pull",
-   "from": "cZoom",
+   "from": "cTip",
    "to": "cFull",
-   "t0": 63.407,
-   "t1": 64.406,
+   "t0": 64.123,
+   "t1": 65.123,
    "reason": "lời \"Phoenix area prices … their 2000 level\": cần cả hai đầu 2000 và 2026 → lùi máy",
    "sound": "whoosh_soft"
   }
@@ -1490,7 +1500,7 @@
    92
   ],
   [
-   51.526,
+   52.314,
    93
   ],
   [
@@ -1512,7 +1522,8 @@
   {
    "t": 7.528,
    "kind": "whoosh_soft",
-   "dur": 1.1
+   "dur": 1.1,
+   "gain": 1.0
   },
   {
    "t": 8.628,
@@ -1598,7 +1609,8 @@
   {
    "t": 14.821,
    "kind": "whoosh_mode",
-   "dur": 1.05
+   "dur": 1.05,
+   "gain": 1.0
   },
   {
    "t": 15.871,
@@ -1780,13 +1792,14 @@
    "src": "value"
   },
   {
-   "t": 23.86,
+   "t": 23.96,
    "kind": "thud"
   },
   {
    "t": 28.092,
    "kind": "whoosh_mode",
-   "dur": 1.0
+   "dur": 1.0,
+   "gain": 1.0
   },
   {
    "t": 29.092,
@@ -1801,7 +1814,8 @@
   {
    "t": 34.346,
    "kind": "whoosh_soft",
-   "dur": 0.9
+   "dur": 0.9,
+   "gain": 1.0
   },
   {
    "t": 35.246,
@@ -1821,7 +1835,8 @@
   {
    "t": 40.901,
    "kind": "whoosh_mode",
-   "dur": 1.0
+   "dur": 1.0,
+   "gain": 1.0
   },
   {
    "t": 41.901,
@@ -1955,6 +1970,12 @@
    "over": false
   },
   {
+   "t": 46.063,
+   "kind": "whoosh_push",
+   "dur": 1.2,
+   "gain": 1.0
+  },
+  {
    "t": 46.084,
    "kind": "data",
    "v": 0.2423680208161545,
@@ -2009,13 +2030,13 @@
    "over": false
   },
   {
-   "t": 47.88,
-   "kind": "chime"
+   "t": 47.263,
+   "kind": "land",
+   "mode": false
   },
   {
-   "t": 48.155,
-   "kind": "whoosh_push",
-   "dur": 0.85
+   "t": 47.88,
+   "kind": "chime"
   },
   {
    "t": 48.162,
@@ -2032,11 +2053,6 @@
    "over": true
   },
   {
-   "t": 49.005,
-   "kind": "land",
-   "mode": false
-  },
-  {
    "t": 49.38,
    "kind": "data",
    "v": 0.6227759148296776,
@@ -2051,84 +2067,84 @@
    "over": false
   },
   {
-   "t": 51.526,
+   "t": 52.314,
    "kind": "data",
    "v": 0.6275768237040295,
    "src": "gain",
    "over": true
   },
   {
-   "t": 51.768,
+   "t": 52.49,
    "kind": "data",
    "v": 0.6482830337346307,
    "src": "gain",
    "over": true
   },
   {
-   "t": 52.01,
+   "t": 52.666,
    "kind": "data",
    "v": 0.6542750077877338,
    "src": "gain",
    "over": true
   },
   {
-   "t": 52.251,
+   "t": 52.842,
    "kind": "data",
    "v": 0.6625025195609551,
    "src": "gain",
    "over": true
   },
   {
-   "t": 52.493,
+   "t": 53.018,
    "kind": "data",
    "v": 0.672342550345409,
    "src": "gain",
    "over": true
   },
   {
-   "t": 52.735,
+   "t": 53.194,
    "kind": "data",
    "v": 0.6787193300716471,
    "src": "gain",
    "over": true
   },
   {
-   "t": 52.977,
+   "t": 53.37,
    "kind": "data",
    "v": 0.6814129697835926,
    "src": "gain",
    "over": true
   },
   {
-   "t": 53.218,
+   "t": 53.547,
    "kind": "data",
    "v": 0.6790858116651091,
    "src": "gain",
    "over": true
   },
   {
-   "t": 53.46,
+   "t": 53.723,
    "kind": "data",
    "v": 0.6896038333974676,
    "src": "gain",
    "over": true
   },
   {
-   "t": 53.702,
+   "t": 53.899,
    "kind": "data",
    "v": 0.685957341542521,
    "src": "gain",
    "over": true
   },
   {
-   "t": 53.944,
+   "t": 54.075,
    "kind": "data",
    "v": 0.6936901031645686,
    "src": "gain",
    "over": true
   },
   {
-   "t": 54.185,
+   "t": 54.251,
    "kind": "data",
    "v": 0.7009647627947887,
    "src": "gain",
@@ -2140,6 +2156,17 @@
    "v": 0.6975748080552655,
    "src": "gain",
    "over": true
+  },
+  {
+   "t": 55.125,
+   "kind": "whoosh_soft",
+   "dur": 2.2,
+   "gain": 1.0
+  },
+  {
+   "t": 57.325,
+   "kind": "land",
+   "mode": false
   },
   {
    "t": 58.024,
@@ -2157,13 +2184,9 @@
    "v": 0.7
   },
   {
-   "t": 62.76,
-   "kind": "impact"
-  },
-  {
-   "t": 63.407,
-   "kind": "whoosh_soft",
-   "dur": 0.999
+   "t": 62.208000000000006,
+   "kind": "land",
+   "mode": false
   },
   {
    "t": 63.973000000000006,
@@ -2171,9 +2194,10 @@
    "dur": 1.4
   },
   {
-   "t": 64.406,
-   "kind": "land",
-   "mode": false
+   "t": 64.123,
+   "kind": "whoosh_soft",
+   "dur": 1.0,
+   "gain": 0.35
   }
  ],
  "tension": [
@@ -2226,12 +2250,12 @@
    1.0
   ],
   [
-   62.89,
-   0.3
-  ],
-  [
    62.739999999999995,
    1.0
+  ],
+  [
+   65.373,
+   0.3
   ],
   [
    67.6,
@@ -2267,6 +2291,7 @@
  },
  "visual_cues": [
   "b3.flat",
+  "b8.above",
   "b9.rose",
   "b0.q",
   "b1.blur",
@@ -2318,16 +2343,21 @@
   {
    "id": "s5",
    "t0": 40.901,
-   "t1": 48.155
+   "t1": 46.063
   },
   {
    "id": "s6",
-   "t0": 48.155,
-   "t1": 63.407
+   "t0": 46.063,
+   "t1": 55.125
   },
   {
    "id": "s7",
-   "t0": 63.407,
+   "t0": 55.125,
+   "t1": 64.123
+  },
+  {
+   "id": "s8",
+   "t0": 64.123,
    "t1": 69.6
   }
  ],

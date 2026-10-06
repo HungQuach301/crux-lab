@@ -699,6 +699,15 @@
  ],
  "moves": [
   {
+   "verb": "pull",
+   "from": "wYou",
+   "to": "wFork",
+   "t0": 2.17,
+   "t1": 3.17,
+   "reason": "lời \"Do you buy now … or keep renting\": cần thấy cả hai lối (nhà và căn hộ) → lùi máy",
+   "sound": "whoosh_soft"
+  },
+  {
    "verb": "mode",
    "from": "wFork",
    "to": "cSched",
@@ -751,6 +760,16 @@
    "t": 1.12,
    "kind": "tick",
    "v": 0.6
+  },
+  {
+   "t": 2.17,
+   "kind": "whoosh_soft",
+   "dur": 1.0
+  },
+  {
+   "t": 3.17,
+   "kind": "land",
+   "mode": false
   },
   {
    "t": 5.656,
@@ -957,20 +976,25 @@
   {
    "id": "s0",
    "t0": 0,
-   "t1": 9.0
+   "t1": 2.17
   },
   {
    "id": "s1",
+   "t0": 2.17,
+   "t1": 9.0
+  },
+  {
+   "id": "s2",
    "t0": 9.0,
    "t1": 22.866
   },
   {
-   "id": "s2",
+   "id": "s3",
    "t0": 22.866,
    "t1": 29.142
   },
   {
-   "id": "s3",
+   "id": "s4",
    "t0": 29.142,
    "t1": 34.0
   }

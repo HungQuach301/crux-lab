@@ -205,7 +205,7 @@ def music_code(spine):
     wet = reverb(dry)
     # G-003: sau 'stop' chỉ còn đuôi reverb (τ 90 ms cho phần khô) — đã cắt nốt khô ở stop; đuôi reverb tự nhả
     tt = np.arange(N) / SR
-    g = np.where(tt < stop, 1.0, np.exp(-(tt - stop) / 0.09) * 0 + 1.0)
+    g = np.where(tt < stop, 1.0, np.where(tt < rel0 + 0.6, np.exp(-(tt - stop) / 0.25), 1.0))   # G-003: sau 'stop' cả đuôi reverb nhả nhanh → lặng thật
     fade = np.clip(tt / 0.8, 0, 1) * np.clip((T - tt) / 1.5, 0, 1)
     return (wet * (g * fade)[:, None])[:int(T * SR)], {'stop': stop, 'release': rel0 + 1.0}
 
@@ -264,7 +264,7 @@ def sfx_layer(spine, N):
         if k == 'riser':
             d = e['to'] - t; add(out, t, mixs(noise_sweep(d, 400, 3500, 0.10, att=d * 0.8), glide(57, 62, d, 0.05)))
         elif k == 'whoosh_soft':
-            add(out, t, noise_sweep(0.9, 2500, 500, 0.10, 0.2))
+            add(out, t, e.get('gain', 1.0) * noise_sweep(e.get('dur', 0.9), 2500, 500, 0.10, 0.2))
         elif k == 'tick':
             add(out, t, mixs(s2_tick(e['v']), 0.4 * s2_pulse(hz(qpenta(62 + 8 * e['v'])), e['v'] * 0.6)), rng.uniform(-0.6, 0.6))
         elif k == 'gather':
@@ -286,8 +286,8 @@ def sfx_layer(spine, N):
         elif k == 'rise':
             add(out, t, glide(57, 69, e['dur'], 0.10))
         elif k in ('whoosh_mode', 'whoosh_push'):   # chuyển chế độ / đẩy máy (quy tắc 3): gió có cao độ, cùng khoá
-            d = e['dur']; lo, hi = (500, 4200) if k == 'whoosh_mode' else (700, 2600)
-            add(out, t, mixs(noise_sweep(d, lo, hi, 0.13 if k == 'whoosh_mode' else 0.09, att=d * 0.6), glide(62, 69, d, 0.05)))
+            d = e['dur']; lo, hi = (500, 4200) if k == 'whoosh_mode' else (700, 2600); gn = e.get('gain', 1.0)
+            add(out, t, gn * mixs(noise_sweep(d, lo, hi, 0.13 if k == 'whoosh_mode' else 0.09, att=d * 0.6), glide(62, 69, d, 0.05)))
         elif k == 'land':                            # chạm khi tới tư thế mới (S2: tick + nhịp trầm)
             add(out, t, mixs(s2_tick(0.5), 0.6 * s2_pulse(hz(50), 0.6 if e.get('mode') else 0.35)))
     return out

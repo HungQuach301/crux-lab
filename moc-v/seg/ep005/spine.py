@@ -65,6 +65,7 @@ def window(after, before, dur):
 
 
 MOVES = [
+ ('pull', 'wYou', 'wFork', cue['c0']['ten'], cue['c1']['buy'], 1.0, 'lời "Do you buy now … or keep renting": cần thấy cả hai lối (nhà và căn hộ) → lùi máy', 'whoosh_soft'),
  ('mode', 'wFork', 'cSched', cue['c1']['twenty'], cue['c2']['schedule'], 1.1, 'lời "On the schedule alone": lịch trả nợ là một đường theo thời gian → chế độ đồ thị', 'whoosh_mode'),
  ('pan', 'cSched', 'cDef', cue['c3']['slow'], cue['c4']['paper'], 1.0, 'lời "On paper means…": định nghĩa cần hai chồng đặt cạnh nhau → lia máy trong đồ thị', 'whoosh_push'),
  ('mode', 'cDef', 'wHouse', cue['c4']['index'], cue['c5']['same'], 0.9, 'lời "…getting the insurance removed": bảo hiểm gắn với căn nhà → chế độ thế giới', 'whoosh_mode'),
@@ -98,7 +99,7 @@ errs = []
 for m in moves:
     for t, name in CUES:
         if m['t0'] - PAD < t < m['t1'] + PAD: errs.append(f'quy tắc 2: từ khoá {name} @{t} trong cửa sổ {m["verb"]} {m["t0"]}–{m["t1"]}')
-if moves[0]['t0'] < 5.0: errs.append('quy tắc 7: 5 s đầu phải ở chế độ thế giới')
+if next(m for m in moves if m['verb'] == 'mode')['t0'] < 5.0: errs.append('quy tắc 7: 5 s đầu phải ở chế độ thế giới')
 spine = {'segment': 'ep005 S01.1 → S03.2 (cold open, table read G1)', 'version': 3, 'total': TOTAL, 'fps': 30, 'pad': PAD, 'takes': takes, 'words': words,
          'beats': beats, 'moves': moves, 'sched_kf': SCHED, 'fan_kf': FAN, 'events': EV, 'tension': tension, 'shots': shots,
          'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical', 'c3.slow': 'slow cases', 'c4.eighty': '80% on paper', 'c5.removed': 'insurance still on', 'c0.ten': 'You'},

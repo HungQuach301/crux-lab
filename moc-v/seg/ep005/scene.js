@@ -13,7 +13,7 @@ export async function boot(res) {
   const [S, D, CLm] = await Promise.all([loadJSON('/moc-v/seg/ep005/spine.json'), loadJSON('/moc-v/work/ep005-data/derived.json'), loadJSON('/moc-v/seg/ep005/claims.json')]);
   await fonts();
   const cue = {}; for (const b of S.beats) cue[b.id] = { ...b.cues, t0: b.t0, t1: b.t1 };
-  const mv = S.moves;
+  const mv = S.moves.filter((m) => m.verb !== 'pull' || m.from !== 'wYou'), all = S.moves;   // mv[0] = đồ thị, mv[1] = lia, mv[2] = về thế giới
   const interp = (kf, t) => { if (t <= kf[0][0]) return kf[0][1]; for (let i = 1; i < kf.length; i++) if (t <= kf[i][0]) { const [a, x] = kf[i - 1], [b, y] = kf[i]; return x + (y - x) * (t - a) / (b - a); } return kf[kf.length - 1][1]; };
   const st = Stage(res), { renderer, O } = st;
   const scene = new THREE.Scene(); const { floor } = Studio(scene, { shadowBox: 22 });
@@ -25,7 +25,7 @@ export async function boot(res) {
     wHouse: { pos: [WX + 3.6, 3.0, 8.4], tgt: [WX - 0.6, 1.9, 0], fov: 35, chart: 0 },
   };
   // động tác thêm ở thế giới c0 → c1 (lùi máy): giữa "ten" và "buy" — lấy từ spine (cửa sổ tính như spine.window)
-  const CAM = Camera(poses, [{ verb: 'pull', from: 'wYou', to: 'wFork', t0: S.world_moves?.[0]?.t0 ?? 99, t1: S.world_moves?.[0]?.t1 ?? 99 }, ...mv]);
+  const CAM = Camera(poses, all);
   // ---- vật thể
   const house = House({ w: 1.5 }); house.position.set(WX - 0.6, 0, 0); scene.add(house);
   const ghost = Stack({ unitUsd: U, w: 0.9, d: 0.6 }); ghost.position.set(WX + 0.8, 0, 0); ghost.set({ usd: 400000 }); scene.add(ghost);

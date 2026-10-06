@@ -30,6 +30,7 @@ export async function boot(res) {
     wDemo: { pos: [15.6, 5.4, 26.0], tgt: [13.6, 4.3, 6], fov: 35, chart: 0 },
     wDemoNear: { pos: [15.2, 2.9, 15.0], tgt: [13.4, 2.0, 6], fov: 35, chart: 0 },
     cZoom: { pos: [7.0, 5.4, 20.9], tgt: [7.0, 5.4, 0], fov: 12, chart: 1 },
+    cTip: { pos: [8.4, 5.85, 14.3], tgt: [8.4, 5.85, 0], fov: 12, chart: 1 },
   };
   const CAM = Camera(poses, mv);
 
@@ -44,7 +45,7 @@ export async function boot(res) {
   const demo = new THREE.Group(); demo.position.set(14, 0, 6); scene.add(demo);   // cảnh minh hoạ luôn có mặt trong cùng thế giới (ngoài khung đồ thị)
   const dHouse = House({ w: 1.5 }), dTop = Stack({ unitUsd: U, w: 1.0, d: 0.7 }), dSlab = Stack({ unitUsd: U, w: 1.0, d: 0.7 });
   const dRosa = Person({ h: 1.05, color: PALETTE.person1 }), dFrank = Person({ h: 1.12, color: PALETTE.person2 });
-  demo.add(dHouse, dTop, dSlab, dRosa, dFrank); dRosa.position.set(-2.9, 0, 0.7); dFrank.position.set(-2.35, 0, 0.9); dRosa.rotation.y = dFrank.rotation.y = 0.5;
+  demo.add(dHouse, dTop, dSlab, dRosa, dFrank); dRosa.position.set(-2.5, 0, 0.7); dFrank.position.set(-1.95, 0, 0.9); dRosa.rotation.y = dFrank.rotation.y = 0.5;
   // b11: hai chồng GIÁ TRỊ ở 2000 và 2026 Q2
   const s2000 = Stack({ unitUsd: U, w: 0.9, d: 0.6 }), s2026 = Stack({ unitUsd: U, w: 0.9, d: 0.6 }); s2000.position.set(X(0), 0, 0); s2026.position.set(X(105), 0, 0); scene.add(s2000, s2026);
   const h2000 = House({ w: 1.0 }), h2026 = House({ w: 1.0 }); scene.add(h2000, h2026);
@@ -98,8 +99,8 @@ export async function boot(res) {
     // xà trần: bóng mờ b0; xà thật từ b3 (rơi + khoá); chỉ ở chế độ đồ thị (thế giới b4 ẩn để không so giá trị với trần)
     const gA = ease(t, b.b0.has, b.b0.has + FADE) * (1 - ease(t, b.b1.blur, b.b1.blur + FADE));
     setOpacity(ghostBeam, 0.5 * gA);
-    const drop = easeOut(t, b.b3.cap, b.b3.cap + 0.5), ext = easeOut(t, b.b3.flat - 0.05, b.b3.flat + 0.8);
-    beam.position.set(mix(X(0) + 1.9, 0, ext), mix(8.5, 5, drop), 0); beam.scale.x = mix(0.2, 1, ext);
+    const drop = easeOut(t, b.b3.cap, b.b3.cap + 0.6), ext = easeOut(t, b.b3.flat - 0.05, b.b3.flat + 0.8);
+    beam.position.set(mix(X(0) + 1.9, 0, ext), mix(10.5, 5, drop), 0); beam.scale.x = mix(0.2, 1, ext);
     const end11 = 1 - ease(t, M.wide.t0, M.wide.t1);
     setOpacity(beam, t >= b.b3.cap ? cw * end11 : 0);
     const overNow = riding && at(qRide) > 500000;
@@ -116,7 +117,9 @@ export async function boot(res) {
       const pts = []; let pg = null; for (let q = 0; q <= qRide + 1e-6; q += 0.25) { const qq = Math.min(q, qRide), g = at(qq);
         if (pg !== null && (pg - 500000) * (g - 500000) < 0) { const xq = qq - 0.25 * (g - 500000) / (g - pg); pts.push([X(xq), 5, pg > 500000 ? C.warn : C.ink], [X(xq) + 1e-4, 5, g > 500000 ? C.warn : C.ink]); }
         pts.push([X(qq), Math.max(0, g) / U, g > 500000 ? C.warn : C.ink]); pg = g; }
-      gRib.set(pts, cam.fov < 20 && CAM.poseAt(t).pos[2] < 30 ? 0.06 : 0.09); gRib.material.opacity = cw * out11;
+      const v3 = new THREE.Vector3(), ys = pts.map((p) => { v3.set(p[0], p[1], 0.45).project(cam); return (1 - v3.y) * 540; }); let cut0 = 0; for (let i = 0; i < ys.length; i++) if (ys[i] > 840) cut0 = i + 1; const vis = pts.slice(Math.min(cut0, Math.max(0, pts.length - 2)));   // bỏ phần ĐẦU đường nằm dưới dải chân trang (không nối tắt qua khoảng trống)
+      const ab = t >= b.b8.above ? 1 - lin(t, b.b8.above, b.b8.above + 0.7) : 0;     // "has stayed above": đường phình sáng
+      gRib.set(vis, (CAM.poseAt(t).pos[2] < 30 ? 0.06 : 0.09) * (1 + 0.9 * ab)); gRib.material.opacity = cw * out11;
     } else gRib.material.opacity = 0;
     // cảnh minh hoạ b4
     const dA = 1;   // cùng một thế giới: cảnh minh hoạ không mờ ra/vào — máy quay đi tới nó
@@ -135,7 +138,7 @@ export async function boot(res) {
     for (const o of [s2000, s2026, h2000, h2026]) setOpacity(o, a11);
     // b9 "rose like the Phoenix average": một đốm sáng chạy dọc đường lãi 2000 → 2026
     const sw9 = lin(t, b.b9.rose, b.b9.fly - 0.25);
-    if (sw9 > 0 && sw9 < 1) { const qs = 86 + 19 * sw9; spark.position.set(X(qs), Math.max(0, at(qs)) / U, 0.7); spark.material.opacity = 1; spark.scale.setScalar(1.3); } else spark.material.opacity = 0;   // phần đường thấy được trong khung phóng (2021 → 2026)
+    if (sw9 > 0 && sw9 < 1) { const qs = 89 + 16 * sw9; spark.position.set(X(qs), Math.max(0, at(qs)) / U, 0.7); spark.material.opacity = 1; spark.scale.setScalar(1.3); } else spark.material.opacity = 0;   // phần đường thấy được trong khung phóng (Q2 2022 → 2026, khung đầu nhà)
     // loé ở điểm cắt
     const fl = t >= b.b6.cross ? 1 - lin(t, b.b6.cross, b.b6.cross + 0.7) : 0;
     burst.position.set(X(S.crossQ), 5, 0.6); burst.scale.setScalar(0.5 + 2.5 * (1 - fl)); burst.material.opacity = fl;
@@ -146,7 +149,7 @@ export async function boot(res) {
     // =============================== lớp phủ 2D (chữ sắc; số/so sánh chỉ khi chartW ≥ 0,95)
     const log = O.begin(t, cw, cam); log.roi = {};
     { const [ax0, ay0] = O.toScreen(-9.7, 5, 0), [ax1] = O.toScreen(9.7, 5, 0); log.roi['b3.flat'] = [Math.max(0, ax0), ay0 - 40, Math.min(1920, ax1), ay0 + 40]; }
-    { const [sx9, sy9] = O.toScreen(X(86), at(86) / U, 0.7); log.roi['b9.rose'] = [sx9 - 90, sy9 - 90, sx9 + 90, sy9 + 90]; }
+    { const [sx9, sy9] = O.toScreen(X(89), at(89) / U, 0.7); log.roi['b9.rose'] = [sx9 - 90, sy9 - 90, sx9 + 90, sy9 + 90]; }
     const S2 = (x, y) => O.toScreen(x, y, 0.5);
     // trục năm (đồ thị)
     if (cw > 0.02) {
@@ -184,18 +187,26 @@ export async function boot(res) {
     if (t >= b.b3.cap) {
       const [lx, ly] = S2(X(0), 5); const la = ease(t, b.b3.five - 0.05, b.b3.five + POP) * ok * out11;
       if (lx >= 110) O.text(`${CL('excl_joint_limit_usd')} cap`, lx, ly - 26, 56, { kind: 'number', color: C.ink, alpha: la });
-      else O.text(`${CL('excl_joint_limit_usd')} cap`, 1824, ly + 76, 56, { kind: 'number', color: C.ink, align: 'right', alpha: la });
+      else O.text(`${CL('excl_joint_limit_usd')} cap`, 1824, ly + 76 > 840 ? ly - 26 : ly + 76, 56, { kind: 'number', color: C.ink, align: 'right', alpha: la });
       const sw = lin(t, b.b3.same, b.b3.same + 1.4);
       if (sw > 0 && sw < 1) { const [sx, sy] = S2(mix(X(0), X(105), sw), 5); O.ctx.fillStyle = rgba(C.ink, 0.9 * ok); O.ctx.fillRect(sx - 40, sy - 9, 80, 18); }
     }
     // b4 (thế giới): không số; nhãn tên
     const dV = ease(t, M.toDemo.t0 + 0.3, M.toDemo.t1) * (1 - ease(t, M.backChart.t0, M.backChart.t0 + 0.5));   // nhãn cảnh minh hoạ chỉ khi máy quay đang nhìn nó
     if (dV > 0.05) { const dA = dV;
-      const [rx, ry] = O.toScreen(11.1, 0.6, 6.8); O.text('Rosa & Frank', rx - 20, ry, 52, { align: 'right', alpha: dA, plate: '#0B0E13', plateA: 0.6 });
+      const [rx, ry] = O.toScreen(11.5, 0.6, 6.8); O.text('Rosa & Frank', rx - 20, ry, 52, { align: 'right', alpha: dA, plate: '#0B0E13', plateA: 0.6 });
       const [gx, gy] = O.toScreen(14.9, 2 + (vTop - 200000) / U * 0.5, 6);
-      O.text(t < b.b4.less + 1.6 ? 'their gain on paper = ?' : 'their gain on paper', gx + 40, gy, 52, { color: C.ink, alpha: dA * ease(t, b.b4.gain - 0.05, b.b4.gain + POP) * (1 - ease(t, b.b4.less + 1.6, b.b4.less + 2.0)) + dA * ease(t, b.b4.less + 1.6, b.b4.less + 2.0), plate: '#0B0E13', plateA: 0.6 });
+      O.text(t < b.b4.paid ? 'their gain on paper = ?' : 'their gain on paper', gx + 40, gy, 52, { color: C.ink, alpha: dA * ease(t, b.b4.gain - 0.05, b.b4.gain + POP) * (1 - ease(t, b.b4.less + 1.6, b.b4.less + 2.0)) + dA * ease(t, b.b4.less + 1.6, b.b4.less + 2.0), plate: '#0B0E13', plateA: 0.6 });
       const [sx2, sy2] = slide < 0.02 ? O.toScreen(14.6, 1.0, 6.35) : O.toScreen(14 - 1.5 * slide, 2.3, 6.35 + 0.9 * slide);
       O.text('what they paid', sx2 + (slide < 0.02 ? 20 : 0), sy2 - 10, 52, { align: slide < 0.02 ? 'left' : 'center', color: C.cushion, alpha: dA * slabTint, plate: '#0B0E13', plateA: 0.6 });
+    }
+    // tên đường LÃI khi phát lại (cổng gốc: tránh đọc thành "giá nhà")
+    if (riding) {
+      const nA = ease(t, S.ride[0][0], S.ride[0][0] + POP) * (1 - ease(t, M.zoom.t0, M.zoom.t0 + 0.3)) * ok;
+      const zA = ease(t, M.zoom.t1 - 0.2, M.zoom.t1 + POP) * (1 - ease(t, b.b9.fly - 0.4, b.b9.fly)) * ok;   // khung phóng: tiêu đề đường
+      O.text('their gain on paper, 2021 → 2026', 960, 230, 52, { color: C.ink, align: 'center', alpha: zA });
+      const qn = Math.max(0, qRide - 10), [nx, ny] = S2(X(qn), Math.max(0, at(qn)) / U);
+      O.text('their gain on paper', nx - 20, Math.min(820, ny + 60), 52, { color: C.ink, align: 'right', alpha: nA, plate: '#0B0E13', plateA: 0.7 });
     }
     // b5: ngoặc "well under"
     const brA = ease(t, b.b5.under - 0.05, b.b5.under + POP) * (1 - ease(t, b.b6.t0, b.b6.t0 + FADE)) * ok;
