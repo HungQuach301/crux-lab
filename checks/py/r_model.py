@@ -1357,11 +1357,407 @@ def fci_invariants(ctx, params):
     return ms
 
 
+# ---- kind "ltv-first-passage" (Episode 5, K3.9) -------------------------------------------------------------------------------------------
+#   Written from the spec topics-r2/machine/debt-2/model.json → newKindNeeds (+ quantities[].meaning) and episodes/ep005/numbers.md (rules for the
+#   latest rate month, the illustrative buyers, the slump); never from calc.py or the builder's model code.
+#   Monthly rate R(m) = mean of the rate observations dated in calendar month m (weekly series: a month is complete when the next weekly date, last
+#   observation + 7 days, falls in a later month; the latest rate month is the latest complete one). For rate R: x = R/1200, loan L0 = 1 − downShare
+#   (share of the price), level payment p = L0·x/(1 − (1 + x)^−n), scheduled balance B_k = L0(1 + x)^k − p((1 + x)^k − 1)/x (share of the price).
+#   sched(R, t) = first k in 0..n with B_k ≤ t. Index loan-to-value LTV(s, k) = B_k / (H[s + k]/H[s]). Purchase months: index months with a monthly
+#   rate. Set A: s + lookMonthsA ≤ last index month; set B: last index month − s ≥ minFollowB (the spec's "more than 120" read as numbers.md does:
+#   2016-07, exactly 120 later months, is in B). T(s) = first k in 0..min(n, months left) with LTV(s, k) ≤ requestLtv. Every comparison ≤ with 1e-12 slack.
+#   Key labels come from the parameters: 100 × LTV ("80", "77p5"), months ("24", "60").
+LFP_MONTH, LFP_DAY, LFP_CNT, LFP_RATE, LFP_RATIO, LFP_MONEY, LFP_EXACT = 'month', 'day', 'count', 'rate', 'ratio', 'money', 'exact'
+LFP_TOL = {LFP_RATE: 0.005, LFP_RATIO: 0.0005, LFP_MONEY: 0.5, LFP_CNT: 0}   # S05: rates and % 0.005, shares / LTV / years / index levels 0.0005, money $0.50
+LFP_EPS = 1e-12
+
+
+def _lfp_lab(x):
+    return f'{100 * float(x):g}'.replace('.', 'p')
+
+
+def _lfp_day(s):
+    import datetime
+    try:
+        return datetime.date.fromisoformat(str(s).strip()[:10])
+    except ValueError:
+        return None
+
+
+def _lfp_series(ctx, spec, field):
+    """{file, dateColumn, valueColumn}: a monthly series, one row per month, no gaps (blank / "." = no value). Returns (first month, [values])."""
+    by = monthly_values(ctx, spec, field)
+    a, b = min(by), max(by)
+    gaps = [ym_str(i) for i in range(a, b + 1) if i not in by]
+    if gaps:
+        raise Missing(f'{spec["file"]}: months without a value {gaps[:5]}')
+    return a, [by[i] for i in range(a, b + 1)]
+
+
+def _lfp_rates(ctx, spec):
+    """{file, dateColumn, valueColumn, frequency: "weekly" | "monthly"} → dict with monthly means, latest complete month and the partial month."""
+    if not isinstance(spec, dict):
+        raise Missing('contract.json: model.params.rate')
+    for k in ('file', 'dateColumn', 'valueColumn'):
+        if not spec.get(k):
+            raise Missing('contract.json: model.params.rate.' + k)
+    freq = spec.get('frequency', 'weekly')
+    if freq not in ('weekly', 'monthly'):
+        raise Missing('contract.json: model.params.rate.frequency ("weekly" or "monthly")')
+    obs = []
+    for r in csv.DictReader(open(ctx.need(spec['file']))):
+        v = (r.get(spec['valueColumn']) or '').strip()
+        if v in ('', '.'):
+            continue
+        d = _lfp_day(r.get(spec['dateColumn'], ''))
+        if d is None:
+            raise Missing(f'{spec["file"]}: dates YYYY-MM-DD; bad row {r.get(spec["dateColumn"])!r}')
+        obs.append((d, float(v)))
+    if not obs:
+        raise Missing(f'{spec["file"]}: column {spec["valueColumn"]}')
+    obs.sort()
+    by = {}
+    for d, v in obs:
+        by.setdefault(d.year * 12 + d.month - 1, []).append((d, v))
+    last_d, last_v = obs[-1]
+    last_m = last_d.year * 12 + last_d.month - 1
+    if freq == 'weekly':
+        import datetime
+        nxt = last_d + datetime.timedelta(days=7)
+        latest = last_m if nxt.year * 12 + nxt.month - 1 > last_m else last_m - 1
+    else:
+        latest = last_m
+    while latest not in by:
+        latest -= 1
+        if latest < min(by):
+            raise Missing(f'{spec["file"]}: no complete month')
+    monthly = {m: sum(v for _, v in ws) / len(ws) for m, ws in by.items() if m <= latest}
+
+    def expected(m):   # weekly dates of month m on the series' weekday grid
+        if freq != 'weekly':
+            return 1
+        import datetime
+        d0 = datetime.date(m // 12, m % 12 + 1, 1)
+        return sum(1 for k in range(31) if (d0 + datetime.timedelta(days=k)).month == d0.month and ((d0 + datetime.timedelta(days=k)) - last_d).days % 7 == 0)
+    part = last_m if latest < last_m else None
+    return {'freq': freq, 'monthly': monthly, 'latest': latest, 'weeks': len(by[latest]), 'expected': expected(latest), 'last_d': last_d, 'last_v': last_v,
+            'partial': part, 'partial_mean': None if part is None else sum(v for _, v in by[part]) / len(by[part]), 'partial_weeks': 0 if part is None else len(by[part])}
+
+
+class _Sched:
+    """Scheduled balance B_k (share of the price) of a level-payment loan, cached by rate."""
+    def __init__(self, L0, n):
+        self.L0, self.n, self._c = L0, n, {}
+
+    def balances(self, R):
+        if R not in self._c:
+            k = np.arange(self.n + 1, dtype=float)
+            if R == 0:
+                b = self.L0 * (1 - k / self.n)
+            else:
+                x = R / 1200.0
+                g = (1 + x) ** k
+                p = self.L0 * x / (1 - (1 + x) ** -self.n)
+                b = self.L0 * g - p * (g - 1) / x
+            self._c[R] = b
+        return self._c[R]
+
+    def payment(self, R):
+        x = R / 1200.0
+        return self.L0 / self.n if R == 0 else self.L0 * x / (1 - (1 + x) ** -self.n)
+
+    def months(self, R, t):
+        b = self.balances(R)
+        hit = np.nonzero(b <= t + LFP_EPS)[0]
+        return int(hit[0]) if len(hit) else None
+
+
+def _lfp_params(params):
+    idx, rate, down, n, rq, au, early, look, follow, cut = _need(params, 'index', 'rate', 'downShare', 'termMonths', 'requestLtv', 'autoLtv', 'lenderLtvEarly',
+                                                                  'lookMonthsA', 'minFollowB', 'slowCutMonths')
+    down, rq, au, early = float(down), float(rq), float(au), float(early)
+    n, look, follow, cut = int(n), int(look), int(follow), int(cut)
+    if not 0 < down < 1 or not (0 < au < rq < 1 - down) or not 0 < early <= rq:
+        raise Missing('contract.json: model.params: 0 < downShare < 1 and 0 < autoLtv < requestLtv < 1 − downShare, 0 < lenderLtvEarly ≤ requestLtv')
+    if n < 2 or n % 2 or look < 1 or follow < 1 or cut < 0:
+        raise Missing('contract.json: model.params: termMonths even ≥ 2, lookMonthsA ≥ 1, minFollowB ≥ 1, slowCutMonths ≥ 0')
+    buyers = params.get('buyers') or {}
+    for name, b in buyers.items():
+        if not isinstance(b, dict) or ym(b.get('month', '')) is None or b.get('is') not in ('min', 'median', 'max') \
+                or b.get('tie', 'earliest') not in ('earliest', 'latest', 'latestYearEarliestMonth'):
+            raise Missing(f'contract.json: model.params.buyers.{name} = {{month, is: "min"|"median"|"max", tie?: "earliest"|"latest"|"latestYearEarliestMonth"}}')
+    slump = params.get('slump')
+    if slump is not None and (ym(slump.get('peakBefore', '')) is None or ym(slump.get('troughBefore', '')) is None):
+        raise Missing('contract.json: model.params.slump = {peakBefore, troughBefore} (months)')
+    ref = params.get('priceRef')
+    if ref is not None and not ref.get('name'):
+        raise Missing('contract.json: model.params.priceRef.name')
+    return {'index': idx, 'rate': rate, 'down': down, 'L0': 1 - down, 'n': n, 'rq': rq, 'au': au, 'early': early, 'look': look, 'follow': follow, 'cut': cut,
+            'price': None if params.get('illustrativePrice') is None else float(params['illustrativePrice']), 'buyers': buyers, 'slump': slump,
+            'priceRef': ref, 'robust': params.get('robust') or {}}
+
+
+def _lfp_replay(c, sch, R, i0, H, scale=1.0):
+    """Sets A and B for index H (first month i0) and monthly rates R. Returns per-purchase-month rows and the set quantities."""
+    H = np.asarray(H, float) * scale
+    last = i0 + len(H) - 1
+    rows = {}
+    for s in range(i0, last + 1):
+        if s not in R:
+            continue
+        b = sch.balances(R[s])
+        left = last - s
+        kk = min(c['n'], left)
+        ltv = b[:kk + 1] / (H[s - i0:s - i0 + kk + 1] / H[s - i0])
+        hit = np.nonzero(ltv <= c['rq'] + LFP_EPS)[0]
+        rows[s] = {'left': left, 'T': int(hit[0]) if len(hit) else None,
+                   'ltvA': float(b[c['look']] / (H[s - i0 + c['look']] / H[s - i0])) if left >= c['look'] else None}
+    A = sorted(s for s, r in rows.items() if r['left'] >= c['look'])
+    B = sorted(s for s, r in rows.items() if r['left'] >= c['follow'])
+    rq, la, le, cut = _lfp_lab(c['rq']), str(c['look']), _lfp_lab(c['early']), str(c['cut'])
+    o = {'nA': (len(A), LFP_CNT), 'nB': (len(B), LFP_CNT)}
+    if A:
+        o.update({'firstA': (Month(A[0]), LFP_MONTH), 'lastA': (Month(A[-1]), LFP_MONTH),
+                  f'shareA_ltv{la}_le{rq}': (sum(rows[s]['ltvA'] <= c['rq'] + LFP_EPS for s in A) / len(A), LFP_RATIO),
+                  f'shareA_ltv{la}_le{le}': (sum(rows[s]['ltvA'] <= c['early'] + LFP_EPS for s in A) / len(A), LFP_RATIO)})
+    Ts = [rows[s]['T'] for s in B if rows[s]['T'] is not None]
+    if B and len(Ts) == len(B):
+        mx = max(Ts)
+        o.update({'firstB': (Month(B[0]), LFP_MONTH), 'lastB': (Month(B[-1]), LFP_MONTH),
+                  f'medianB_months_to{rq}': (float(np.median(Ts)), LFP_CNT), f'minB_months_to{rq}': (min(Ts), LFP_CNT),
+                  f'maxB_months_to{rq}': (mx, LFP_CNT), 'maxB_start': (Month(next(s for s in B if rows[s]['T'] == mx)), LFP_MONTH),
+                  f'shareB_over{cut}': (sum(t > c['cut'] for t in Ts) / len(B), LFP_RATIO),
+                  f'shareB_le_sched{rq}': (sum(rows[s]['T'] <= sch.months(R[s], c['rq']) for s in B) / len(B), LFP_RATIO)})
+    return rows, A, B, o
+
+
+def lfp_run(ctx, params, scale=1.0):
+    """Every quantity of the kind (unrounded) as {key: (value, type)}, plus the working tables. scale multiplies the index (invariant replay)."""
+    c = _lfp_params(params)
+    i0, H = _lfp_series(ctx, c['index'], 'index')
+    rt = _lfp_rates(ctx, c['rate'])
+    R = rt['monthly']
+    sch = _Sched(c['L0'], c['n'])
+    rq, au, la = _lfp_lab(c['rq']), _lfp_lab(c['au']), str(c['look'])
+    last = i0 + len(H) - 1
+    Rl = R[rt['latest']]
+    o = {'hpi_first': (Month(i0), LFP_MONTH), 'hpi_last': (Month(last), LFP_MONTH),
+         'rate_month_latest': (Month(rt['latest']), LFP_MONTH), 'rate_latest': (Rl, LFP_RATE),
+         f'sched{rq}_months_latest': (sch.months(Rl, c['rq']), LFP_CNT), f'sched{au}_months_latest': (sch.months(Rl, c['au']), LFP_CNT)}
+    if rt['freq'] == 'weekly':
+        o.update({'rate_last_week': (rt['last_d'].isoformat(), LFP_DAY), 'rate_last_week_value': (rt['last_v'], LFP_RATE),
+                  'rate_weeks_latest': (rt['weeks'], LFP_CNT),
+                  'rate_month_partial': (None if rt['partial'] is None else Month(rt['partial']), LFP_MONTH),
+                  'rate_partial': (rt['partial_mean'], LFP_RATE), 'rate_weeks_partial': (rt['partial_weeks'], LFP_CNT)})
+    mid = c['n'] // 2
+    o.update({'midpoint_months': (mid, LFP_CNT), 'midpoint_end_month': (mid + 1, LFP_CNT),
+              f'sched{au}_before_midpoint': (sch.months(Rl, c['au']) <= mid, LFP_EXACT)})
+    late = sorted(m for m in R if sch.months(R[m], c['au']) > mid)
+    o.update({f'n_months_sched{au}_after_midpoint': (len(late), LFP_CNT),
+              'midpoint_binding_rate_min': (min(R[m] for m in late) if late else None, LFP_RATE),
+              'midpoint_binding_last_month': (Month(late[-1]) if late else None, LFP_MONTH)})
+    rows, A, B, so = _lfp_replay(c, sch, R, i0, H, scale)
+    o.update(so)
+    if A:
+        sA = [sch.months(R[s], c['rq']) for s in A]
+        o.update({f'sched{rq}_min_A': (min(sA), LFP_CNT), f'sched{rq}_max_A': (max(sA), LFP_CNT),
+                  'rate_min_A': (min(R[s] for s in A), LFP_RATE), 'rate_max_A': (max(R[s] for s in A), LFP_RATE)})
+    slow = [s for s in B if rows[s]['T'] is not None and rows[s]['T'] > c['cut']]
+    o.update({'slowB_n': (len(slow), LFP_CNT), 'slowB_first': (Month(slow[0]) if slow else None, LFP_MONTH),
+              'slowB_last': (Month(slow[-1]) if slow else None, LFP_MONTH), 'slowB_years': (sorted({s // 12 for s in slow}), LFP_EXACT)})
+    Hs = [h * scale for h in H]
+    if c['slump']:
+        pb, tb = ym(c['slump']['peakBefore']), ym(c['slump']['troughBefore'])
+        pk = [(Hs[i - i0], i) for i in range(i0, min(pb, last + 1))]
+        if pk:
+            pv, pm = max(pk, key=lambda t: (t[0], -t[1]))
+            tr = [(Hs[i - i0], i) for i in range(pm + 1, min(tb, last + 1))]
+            o.update({'hpi_peak_month': (Month(pm), LFP_MONTH), 'hpi_peak': (pv, LFP_RATIO)})
+            if tr:
+                tv, tm = min(tr)
+                o.update({'hpi_trough_month': (Month(tm), LFP_MONTH), 'hpi_trough': (tv, LFP_RATIO), 'hpi_peak_to_trough_pct': (100 * (tv / pv - 1), LFP_RATE)})
+    for name, b in c['buyers'].items():
+        s = ym(b['month'])
+        if s not in rows or rows[s]['T'] is None:
+            raise Missing(f'contract.json: model.params.buyers.{name}.month {ym_str(s)}: a purchase month with a rate and an observed first passage')
+        T, Rs, bal = rows[s]['T'], R[s], sch.balances(R[s])
+        ch = [Hs[s + k - i0] / Hs[s - i0] - 1 for k in range(1, T + 1)]
+        p = f'buyer_{name}_'
+        o.update({p + 'purchaseMonth': (Month(s), LFP_MONTH), p + 'rate': (Rs, LFP_RATE), p + f'monthsTo{rq}Index': (T, LFP_CNT),
+                  p + f'sched{rq}Months': (sch.months(Rs, c['rq']), LFP_CNT), p + f'sched{au}Months': (sch.months(Rs, c['au']), LFP_CNT),
+                  p + f'ltvIndexAt{la}': (rows[s]['ltvA'], LFP_RATIO), p + f'hpiChangeTo{rq}Pct': (100 * (Hs[s + T - i0] / Hs[s - i0] - 1), LFP_RATE),
+                  p + f'balanceAt{rq}Share': (float(bal[T]), LFP_RATIO)})
+        if ch:
+            kp = max(range(len(ch)), key=lambda k: (ch[k], -k))
+            kt = min(range(len(ch)), key=lambda k: (ch[k], k))
+            o.update({p + 'indexPeakPct': (100 * ch[kp], LFP_RATE), p + 'indexPeakMonth': (kp + 1, LFP_CNT),
+                      p + 'indexTroughPct': (100 * ch[kt], LFP_RATE), p + 'indexTroughMonth': (kt + 1, LFP_CNT)})
+    if c['price'] is not None:
+        P, s80, s78 = c['price'], sch.months(Rl, c['rq']), sch.months(Rl, c['au'])
+        o.update({'ex_price': (P, LFP_MONEY), 'ex_down': (P * c['down'], LFP_MONEY), 'ex_loan': (P * c['L0'], LFP_MONEY),
+                  'ex_payment_pi': (P * sch.payment(Rl), LFP_MONEY), f'ex_balance_at_sched{rq}': (P * float(sch.balances(Rl)[s80]), LFP_MONEY),
+                  f'ex_target{rq}': (P * c['rq'], LFP_MONEY), f'ex_target{au}': (P * c['au'], LFP_MONEY),
+                  f'ex_extra_down_for_{_lfp_lab(1 - c["rq"])}': (P * (1 - c['rq'] - c['down']), LFP_MONEY),
+                  f'ex_sched{rq}_years': (s80 / 12, LFP_RATIO), f'ex_sched{au}_years': (s78 / 12, LFP_RATIO)})
+    if c['priceRef']:
+        ref = c['priceRef']
+        by = monthly_values(ctx, ref, 'priceRef')
+        m = max(by)
+        per = 'quarter' if all(i % 3 == 0 for i in by) else 'month'
+        o.update({f'{ref["name"]}_{per}': (Month(m), LFP_MONTH), f'{ref["name"]}_latest': (by[m], LFP_MONEY)})
+    for key, spec in c['robust'].items():
+        j0, G = _lfp_series(ctx, spec, f'robust.{key}')
+        lo, hi = max(i0, j0), min(last, j0 + len(G) - 1)
+        _, _, _, ro = _lfp_replay(c, sch, R, lo, G[lo - j0:hi - j0 + 1], scale)
+        for k in ('nA', 'nB', f'shareA_ltv{la}_le{rq}', f'shareA_ltv{la}_le{_lfp_lab(c["early"])}', f'medianB_months_to{rq}', f'shareB_over{c["cut"]}',
+                  f'maxB_months_to{rq}', 'maxB_start'):
+            if k in ro:
+                o[f'robust_{key}_{k}'] = ro[k]
+    return {'c': c, 'i0': i0, 'H': H, 'R': R, 'rt': rt, 'sch': sch, 'rows': rows, 'A': A, 'B': B, 'out': o}
+
+
+def _lfp_cached(ctx, params, scale=1.0):
+    return ctx.memo(('lfp-run', id(params), scale), lambda: (params, lfp_run(ctx, params, scale)))[1]
+
+
+LFP_INPUTS = {'downShare': ('down', LFP_RATIO), 'termMonths': ('n', LFP_CNT), 'requestLtv': ('rq', LFP_RATIO), 'autoLtv': ('au', LFP_RATIO),
+              'lenderLtvEarly': ('early', LFP_RATIO), 'lookMonthsA': ('look', LFP_CNT), 'minFollowB': ('follow', LFP_CNT), 'slowCutMonths': ('cut', LFP_CNT),
+              'illustrativePrice': ('price', LFP_MONEY)}
+
+
+def lfp_value(ctx, params, key):
+    """Keys (S05): every key of the model file the kind computes (e.g. "sched80_months_latest", "shareA_ltv24_le75", "medianB_months_to80", "maxB_start",
+    "buyer_slow_monthsTo80Index", "ex_payment_pi", "robust_cs_maxB_months_to80"); the inputs "downShare", "termMonths", "requestLtv", "autoLtv",
+    "lenderLtvEarly", "lookMonthsA", "minFollowB", "slowCutMonths", "illustrativePrice"; and "fraction:<key>" = a % key / 100 (a claim written as a share).
+    Tolerances: rates and % 0.005; shares, LTV, years, index levels 0.0005; money $0.50; counts and months exactly (YYYY-MM ≡ YYYY-MM-01); names, lists,
+    booleans and null by equality."""
+    run = _lfp_cached(ctx, params)
+    o = run['out']
+    if key in LFP_INPUTS and run['c'][LFP_INPUTS[key][0]] is not None:
+        f, how = LFP_INPUTS[key]
+        return float(run['c'][f]), LFP_TOL[how]
+    frac = key.startswith('fraction:')
+    k = key.partition(':')[2] if frac else key
+    if k not in o or frac and o[k][1] != LFP_RATE:
+        raise Missing(f'contract.json: model.claims key "{key}" is not a quantity of kind ltv-first-passage')
+    v, how = o[k]
+    if v is None or how in (LFP_EXACT, LFP_DAY):
+        return Exact(v), 0
+    if how == LFP_MONTH:
+        return v, 0
+    return (float(v) / 100, LFP_TOL[how] / 100) if frac else (float(v), LFP_TOL[how])
+
+
+def lfp_compare(ctx, params, out):
+    """The model file: {params (echo, not compared), raw: {key: unrounded value}, rounded?: {...} (display, not compared)}; a flat file without "raw" is
+    read as raw. S01: money max($0.50, 1e-6 relative); rates, shares, LTV, index levels 1e-9 relative; counts exactly; months exactly after
+    normalisation; the last weekly date, booleans, lists and null by equality. Every key the kind computes must be present; a raw key it does not compute
+    (and not in conventions / notModel) is listed."""
+    o = _lfp_cached(ctx, params)['out']
+    raw = out.get('raw') if isinstance(out.get('raw'), dict) else out
+    bad, checked = [], 0
+    for k, (v, how) in o.items():
+        checked += 1
+        t = raw.get(k, '<absent>')
+        shown = ym_str(v) if how == LFP_MONTH and v is not None else v
+        if t == '<absent>':
+            bad.append((k, 'absent', shown))
+            continue
+        if v is None or how in (LFP_EXACT, LFP_DAY):
+            ok = Exact(v).same(t) and (type(t) is bool) == (type(v) is bool)
+        elif how == LFP_MONTH:
+            ok = isinstance(t, str) and ym(t) == int(v)
+        elif isinstance(t, bool) or not isinstance(t, (int, float)):
+            ok = False
+        elif how == LFP_CNT:
+            ok = t == v
+        elif how == LFP_MONEY:
+            ok = close(t, v)
+        else:
+            ok = abs(t - v) <= 1e-9 * max(1.0, abs(v))
+        if not ok:
+            bad.append((k, t, shown))
+    for k, v in (params.get('conventions') or {}).items():
+        checked += 1
+        if raw.get(k) != v:
+            bad.append((k, raw.get(k), v))
+    covered = set(o) | set(params.get('conventions') or {}) | set(params.get('notModel', []))
+    unrec = sorted(set(raw) - covered)
+    if raw is not out:
+        unrec += sorted(set(out) - {'params', 'raw', 'rounded'} - covered)
+    return checked, bad, unrec
+
+
+def lfp_invariants(ctx, params):
+    """The spec's invariants (newKindNeeds.invariants) and numbers.md's rules, on the contract's own inputs:
+    (1) B_0 = L0 and B_n = 0 (±1e-9), B_k strictly decreasing, at every monthly rate; (2) sched(R, requestLtv) < sched(R, autoLtv) ≤ n and both
+    non-decreasing in R; (3) T(s) ≥ 1 in set B (LTV(s, 0) = L0 > requestLtv); (4) T(s) ≤ sched(R(s), requestLtv) whenever the index never fell below
+    the purchase month's level up to that schedule month; (5) share at ≤ lenderLtvEarly ≤ share at ≤ requestLtv; (6) every T(s) in set B observed (not
+    censored); (7) shares in [0, 1], nA ≥ nB, lastB < lastA; (8) the latest rate month is complete (every weekly date of the month) and any partial
+    month is later; (9) each buyer's month is in set B, its T is the set's min / median / max, and its tie rule picks that month; (10) multiplying the
+    index by 2.5 changes no quantity but the index levels."""
+    run = _lfp_cached(ctx, params)
+    c, sch, R, rows, A, B, o, rt = run['c'], run['sch'], run['R'], run['rows'], run['A'], run['B'], run['out'], run['rt']
+    H, i0 = run['H'], run['i0']
+    rates = sorted(set(R.values()))
+    e1 = 0
+    for r in rates:
+        b = sch.balances(r)
+        e1 += int(abs(b[0] - c['L0']) > 1e-9 or abs(b[-1]) > 1e-9 or not np.all(np.diff(b) < 0))
+    s_rq = [sch.months(r, c['rq']) for r in rates]
+    s_au = [sch.months(r, c['au']) for r in rates]
+    e2 = sum(1 for a, b in zip(s_rq, s_au) if a is None or b is None or not a < b <= c['n'])
+    e2 += sum(1 for x, y in zip(s_rq, s_rq[1:]) if y < x) + sum(1 for x, y in zip(s_au, s_au[1:]) if y < x)
+    Ts = {s: rows[s]['T'] for s in B}
+    e3 = sum(1 for t in Ts.values() if t is not None and t < 1)
+    e4 = 0
+    for s in B:
+        k80 = sch.months(R[s], c['rq'])
+        if Ts[s] is not None and s + k80 - i0 < len(H) and min(H[s - i0:s - i0 + k80 + 1]) >= H[s - i0] and Ts[s] > k80:
+            e4 += 1
+    rq, la, le = _lfp_lab(c['rq']), str(c['look']), _lfp_lab(c['early'])
+    sh_rq, sh_le = o.get(f'shareA_ltv{la}_le{rq}', (0, 0))[0], o.get(f'shareA_ltv{la}_le{le}', (0, 0))[0]
+    cens = sum(1 for t in Ts.values() if t is None)
+    shares = [v for k, (v, how) in o.items() if k.startswith(('shareA_', 'shareB_')) or '_share' in k]
+    e7 = sum(1 for v in shares if not 0 <= v <= 1) + int(len(A) < len(B)) + int(bool(A and B) and B[-1] >= A[-1])
+    e8 = int(rt['weeks'] != rt['expected']) + int(rt['partial'] is not None and rt['partial'] <= rt['latest'])
+    e9 = 0
+    vals = sorted(t for t in Ts.values() if t is not None)
+    for name, b in c['buyers'].items():
+        s = ym(b['month'])
+        if s not in Ts or Ts[s] is None:
+            e9 += 1
+            continue
+        want = {'min': vals[0], 'max': vals[-1], 'median': float(np.median(vals))}[b['is']]
+        if Ts[s] != want:
+            e9 += 1
+            continue
+        same = [m for m in B if Ts[m] == want]
+        tie = b.get('tie', 'earliest')
+        pick = same[0] if tie == 'earliest' else same[-1] if tie == 'latest' else min(m for m in same if m // 12 == max(x // 12 for x in same))
+        e9 += int(pick != s)
+    o2 = _lfp_cached(ctx, params, 2.5)['out']
+    levels = {'hpi_peak', 'hpi_trough'}
+    drift = sum(1 for k, (v, how) in o.items() if k not in levels and not (
+        o2[k][0] == v if not isinstance(v, float) or isinstance(v, bool) else abs(o2[k][0] - v) <= 1e-9 * max(1.0, abs(v))))
+    return [metric('schedules with B_0 ≠ L0, B_n ≠ 0 or a balance not strictly decreasing (every monthly rate)', e1, '<=', 0),
+            metric('rates where sched(requestLtv) < sched(autoLtv) ≤ n fails, or a schedule decreasing in the rate', e2, '<=', 0),
+            metric('set-B months with T < 1', e3, '<=', 0),
+            metric('set-B months with the index never below purchase yet T later than the schedule', e4, '<=', 0),
+            metric(f'share at ≤ {le} minus share at ≤ {rq} (set A)', sh_le - sh_rq, '<=', 0),
+            metric('set-B months whose first passage is not observed (censored)', cens, '<=', 0),
+            metric('shares outside [0, 1], nA < nB, or lastB ≥ lastA', e7, '<=', 0),
+            metric('latest rate month incomplete, or a partial month not after it', e8, '<=', 0),
+            metric('buyers not in set B, not at their min / median / max, or not picked by their tie rule', e9, '<=', 0),
+            metric('quantities changed when the index is multiplied by 2.5 (index levels aside)', drift, '<=', 0)]
+
+
 KINDS = {'retirement-6040': (ret_compare, ret_value, ret_invariants),
          'refinance-breakeven': (refi_compare, refi_value, lambda ctx, p: []),
          'float-vs-fixed-replay': (fvf_compare, fvf_value, fvf_invariants),
          'lock-vs-roll-replay': (lvr_compare, lvr_value, lvr_invariants),
-         'fixed-cap-vs-index-growth': (fci_compare, fci_value, fci_invariants)}
+         'fixed-cap-vs-index-growth': (fci_compare, fci_value, fci_invariants),
+         'ltv-first-passage': (lfp_compare, lfp_value, lfp_invariants)}
 
 
 def kind(ctx):
