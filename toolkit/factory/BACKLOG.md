@@ -1,0 +1,8 @@
+# Hàng chờ nhà máy (backlog) — không chặn mốc đang chạy
+
+| # | Việc | Nguồn | Trạng thái |
+|---|---|---|---|
+| F-1 | Chuyển chế độ bằng máy quay di chuyển thật thay cho hoà tan (vật thế giới không mờ; máy đi qua chúng) | D-010 §6 bổ sung 06/10 | chờ |
+| F-2 | Kiểm tự động: mật độ hiệu ứng âm (sự kiện sfx/phút, sfx đè lời) và nhãn đè nhau (hộp chữ giao nhau / chữ bị đường cắt) trên nhật ký trang | D-010 §6 bổ sung 06/10 | chờ |
+| F-3 | Nhạc Tập 5 theo bản đồ căng (biên độ nghe được; dâng ở phần phát lại, chốt ở "removed") | D-010 §6 bổ sung 06/10 | chờ |
+| F-4 | Lint "chú thích nuốt mã" chạy trong build (đã có `moc-v/world/lint_comments.py`) | Mốc V, lỗi thật tìm thấy 06/10 | chờ đưa vào build |

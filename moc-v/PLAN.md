@@ -25,3 +25,7 @@ Hướng B + C "một thế giới, hai chế độ máy quay"; 8 quy tắc; gen
 - V5. Đoạn (b) mở đầu Tập 5 30–45 s (chỉ đọc `ep005`, bản sao trong `moc-v/`): cùng chuẩn.
 - V6. REVIEWER → clip cho chủ dự án chấm L3 → DỪNG.
 - Sau duyệt clip: B+1, B+2, B+3, áp nhà máy, CHARTER/playbook, hỏi "Duyệt Mốc V?".
+
+## Trả lời clip chứng minh (06/10)
+L3: Tập 4 v3k 4·4·4·4·4·4 · Tập 5 E5g 4·4·4·4·4·4 → ĐẠT; L3 là thước đo cuối, đạo diễn máy = chẩn đoán (D-010 §6 bổ sung). Dừng sửa thẩm mỹ.
+Việc còn lại theo thứ tự: (a) Tập 4 nhà ở đồ thị theo V3i, cổng gốc 6/6 · 0 khuyên; (b) sửa bằng hình chỗ gây lời khuyên (V3k, E5g), 0/6; backlog nhà máy → `toolkit/factory/BACKLOG.md`; rồi B+1, B+2, áp vào nhà máy, CHARTER/playbook, REVIEWER, B+3, hỏi "Duyệt Mốc V?".
