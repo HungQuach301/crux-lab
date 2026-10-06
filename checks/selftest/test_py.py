@@ -1967,6 +1967,121 @@ def fci_quarters_case(bad):
                                         ('gb', 'gain_at_80k_b', 80000)])
 
 
+# ---- K3.9: kind ltv-first-passage (Episode 5; spec topics-r2/machine/debt-2/model.json newKindNeeds + episodes/ep005/numbers.md) --------------------
+# Every value below is worked by hand from the spec text (not from the rule's code). downShare 0.1 (L0 0.9), termMonths 4, requestLtv 0.8, autoLtv 0.5,
+# lenderLtvEarly 0.7, lookMonthsA 2, minFollowB 4, slowCutMonths 1. Two rates only:
+#   R = 0:    B = 0.9, 0.675, 0.45, 0.225, 0                       → sched80 = 1, sched50 = 2
+#   R = 1200: x = 1, p = 0.9 / (1 − 1/16) = 0.96; B = 0.9, 0.84, 0.72, 0.48, 0 → sched80 = 2, sched50 = 3
+# Weekly rates (Thursdays): monthly means Jan 0, Feb 1200 (weeks 0, 2400, 1200, 1200), Mar 0, Apr 1200, May 0, Jun 1200, Jul 0, Aug 1200 (5 weeks);
+#   one week 2000-09-07 = 0: September is partial (next weekly date 09-14 is in September), so the latest rate month is 2000-08 (not max(month)).
+# Index 2000-01..08: 100, 100, 120, 90, 100, 125, 100, 150 (last 2000-08).
+#   T (first k with B_k / (H[s+k]/H[s]) ≤ 0.8): Jan 1 (0.675), Feb 1 (0.84/1.2 = 0.7), Mar 2 (k1 0.675/0.75 = 0.9; k2 0.45/(100/120) = 0.54), Apr 1 (0.84/(100/90) = 0.756),
+#      May 1, Jun 2 (k1 0.84/0.8 = 1.05; k2 0.72/1.2 = 0.6)
+#   Set A (2 later months): Jan..Jun, n 6; LTV at 2: 0.375, 0.8 (= 0.72/0.9: reached, ≤), 0.54, 0.5184, 0.45, 0.6 → ≤ 0.8: 6/6 = 1; ≤ 0.7: 5/6
+#   Set B (4 later months): Jan..Apr, n 4; T 1, 1, 2, 1 → median 1, min 1, max 2 (2000-03), > 1: 1/4; T ≤ sched80(R(s)): Jan 1≤1, Feb 1≤2, Mar 2≤1 no, Apr 1≤2 → 3/4
+#   sched80 over A: 1..2; rates over A 0..1200. Midpoint 2 (ends month 3): months with sched50 > 2 are the 1200 months: 4, lowest 1200, last 2000-08.
+#   slowB (T > 1): Mar only. Buyers: fast = min (ties Jan, Feb, Apr; earliest → Jan); typical = median 1 (latest → Apr); slow = max → Mar:
+#      slow: rate 0, T 2, sched80 1, sched50 2, LTV at 2 0.54, index change 100/120 − 1 = −16.667 %, balance B_2 0.45; months 1..2: −25 % (trough, 1), −16.667 % (peak, 2)
+#   Slump (peak before 2000-07, trough after it before 2000-09): peak 125 (2000-06), trough 100 (2000-07), −20 %.
+#   Price 1000 at the latest rate 1200: down 100, loan 900, payment 960, balance at payment 2 720, targets 800 / 500, extra down for 20 % 100, 2/12 and 3/12 years.
+#   Robust index "g" = the same values from 2000-02: A Feb..Jun (5; ≤ 0.8 5/5, ≤ 0.7 4/5), B Feb..Apr (3; T 1, 2, 1: median 1, max 2 at 2000-03, > 1: 1/3).
+LFP_H = [100, 100, 120, 90, 100, 125, 100, 150]
+LFP_WEEKS = [('2000-01-06', 0), ('2000-01-13', 0), ('2000-01-20', 0), ('2000-01-27', 0), ('2000-02-03', 0), ('2000-02-10', 2400), ('2000-02-17', 1200),
+             ('2000-02-24', 1200), ('2000-03-02', 0), ('2000-03-09', 0), ('2000-03-16', 0), ('2000-03-23', 0), ('2000-03-30', 0), ('2000-04-06', 1200),
+             ('2000-04-13', 1200), ('2000-04-20', 1200), ('2000-04-27', 1200), ('2000-05-04', 0), ('2000-05-11', 0), ('2000-05-18', 0), ('2000-05-25', 0),
+             ('2000-06-01', 1200), ('2000-06-08', 1200), ('2000-06-15', 1200), ('2000-06-22', 1200), ('2000-06-29', 1200), ('2000-07-06', 0), ('2000-07-13', 0),
+             ('2000-07-20', 0), ('2000-07-27', 0), ('2000-08-03', 1200), ('2000-08-10', 1200), ('2000-08-17', 1200), ('2000-08-24', 1200), ('2000-08-31', 1200),
+             ('2000-09-07', 0)]
+LFP_PARAMS = {'index': {'file': 'data/hpi.csv', 'dateColumn': 'observation_date', 'valueColumn': 'HPI'},
+              'rate': {'file': 'data/rate.csv', 'dateColumn': 'observation_date', 'valueColumn': 'RATE', 'frequency': 'weekly'},
+              'downShare': 0.1, 'termMonths': 4, 'requestLtv': 0.8, 'autoLtv': 0.5, 'lenderLtvEarly': 0.7, 'lookMonthsA': 2, 'minFollowB': 4, 'slowCutMonths': 1,
+              'illustrativePrice': 1000, 'buyers': {'fast': {'month': '2000-01', 'is': 'min', 'tie': 'earliest'},
+                                                    'typical': {'month': '2000-04-01', 'is': 'median', 'tie': 'latest'}, 'slow': {'month': '2000-03', 'is': 'max'}},
+              'slump': {'peakBefore': '2000-07', 'troughBefore': '2000-09'},
+              'priceRef': {'name': 'ref', 'file': 'data/ref.csv', 'dateColumn': 'observation_date', 'valueColumn': 'REF'},
+              'robust': {'g': {'file': 'data/g.csv', 'dateColumn': 'observation_date', 'valueColumn': 'G'}}, 'conventions': {'note_ltv': 0.75}}
+LFP_RAW = {'hpi_first': '2000-01-01', 'hpi_last': '2000-08', 'rate_month_latest': '2000-08-01', 'rate_latest': 1200.0, 'sched80_months_latest': 2,
+           'sched50_months_latest': 3, 'rate_last_week': '2000-09-07', 'rate_last_week_value': 0.0, 'rate_weeks_latest': 5, 'rate_month_partial': '2000-09-01',
+           'rate_partial': 0.0, 'rate_weeks_partial': 1, 'midpoint_months': 2, 'midpoint_end_month': 3, 'sched50_before_midpoint': False,
+           'n_months_sched50_after_midpoint': 4, 'midpoint_binding_rate_min': 1200.0, 'midpoint_binding_last_month': '2000-08-01', 'nA': 6, 'nB': 4,
+           'firstA': '2000-01-01', 'lastA': '2000-06-01', 'shareA_ltv2_le80': 1.0, 'shareA_ltv2_le70': 5 / 6, 'firstB': '2000-01-01', 'lastB': '2000-04-01',
+           'medianB_months_to80': 1, 'minB_months_to80': 1, 'maxB_months_to80': 2, 'maxB_start': '2000-03-01', 'shareB_over1': 0.25, 'shareB_le_sched80': 0.75,
+           'sched80_min_A': 1, 'sched80_max_A': 2, 'rate_min_A': 0.0, 'rate_max_A': 1200.0, 'slowB_n': 1, 'slowB_first': '2000-03-01', 'slowB_last': '2000-03-01',
+           'slowB_years': [2000], 'hpi_peak_month': '2000-06-01', 'hpi_peak': 125.0, 'hpi_trough_month': '2000-07-01', 'hpi_trough': 100.0,
+           'hpi_peak_to_trough_pct': -20.0, 'note_ltv': 0.75,
+           'ex_price': 1000.0, 'ex_down': 100.0, 'ex_loan': 900.0, 'ex_payment_pi': 960.0, 'ex_balance_at_sched80': 720.0, 'ex_target80': 800.0,
+           'ex_target50': 500.0, 'ex_extra_down_for_20': 100.0, 'ex_sched80_years': 2 / 12, 'ex_sched50_years': 0.25, 'ref_quarter': '2000-04-01', 'ref_latest': 200.0,
+           'robust_g_nA': 5, 'robust_g_nB': 3, 'robust_g_shareA_ltv2_le80': 1.0, 'robust_g_shareA_ltv2_le70': 0.8, 'robust_g_medianB_months_to80': 1,
+           'robust_g_shareB_over1': 1 / 3, 'robust_g_maxB_months_to80': 2, 'robust_g_maxB_start': '2000-03'}
+for _n, _v in {'fast': ('2000-01-01', 0.0, 1, 1, 2, 0.375, 0.0, 0.675, 0.0, 1, 0.0, 1), 'typical': ('2000-04-01', 1200.0, 1, 2, 3, 0.5184, 100 / 9, 0.84, 100 / 9, 1, 100 / 9, 1),
+               'slow': ('2000-03-01', 0.0, 2, 1, 2, 0.54, -50 / 3, 0.45, -50 / 3, 2, -25.0, 1)}.items():
+    LFP_RAW.update(zip([f'buyer_{_n}_{k}' for k in ('purchaseMonth', 'rate', 'monthsTo80Index', 'sched80Months', 'sched50Months', 'ltvIndexAt2', 'hpiChangeTo80Pct',
+                                                     'balanceAt80Share', 'indexPeakPct', 'indexPeakMonth', 'indexTroughPct', 'indexTroughMonth')], _v))
+
+
+def lfp_files(f):
+    with open(f.p('data/hpi.csv'), 'w') as fh:
+        fh.write('observation_date,HPI\n' + ''.join(f'2000-{m + 1:02d}-01,{v}\n' for m, v in enumerate(LFP_H)))
+    with open(f.p('data/g.csv'), 'w') as fh:
+        fh.write('observation_date,G\n' + ''.join(f'2000-{m + 1:02d}-01,{v}\n' for m, v in enumerate(LFP_H) if m >= 1))
+    with open(f.p('data/rate.csv'), 'w') as fh:
+        fh.write('observation_date,RATE\n' + ''.join(f'{d},{v}\n' for d, v in LFP_WEEKS))
+    with open(f.p('data/ref.csv'), 'w') as fh:
+        fh.write('observation_date,REF\n2000-01-01,100\n2000-04-01,200\n')
+
+
+def lfp_s01_case(bad):
+    """S01 kind ltv-first-passage (hand table above), model file {params, raw, rounded}; bad = the share of set A at ≤ 80% after 2 payments counted with a
+    strict < (5/6: February's LTV is exactly 0.8, which reaches 80%)."""
+    f = F('S01-lfp')
+    try:
+        lfp_files(f)
+        f.contract(model={'kind': 'ltv-first-passage', 'output': 'out/model.json', 'params': LFP_PARAMS})
+        f.json('out/model.json', {'params': {'termMonths': 4}, 'raw': dict(LFP_RAW, shareA_ltv2_le80=5 / 6 if bad else 1.0), 'rounded': {}})
+        return f.run('S01')
+    finally:
+        f.close()
+
+
+def lfp_s05_variant(name, claims, params=LFP_PARAMS):
+    f = F('S05-lfp-' + name)
+    try:
+        lfp_files(f)
+        f.contract(model={'kind': 'ltv-first-passage', 'output': 'out/model.json', 'params': params, 'claims': {cid: key for cid, key, _ in claims}},
+                   characters={}, claims={'illustrative': [], 'core': [], 'decisive': []})
+        f.json('out/claims.json', {'claims': [{'claimId': cid, 'value': v, 'display': str(v)} for cid, _, v in claims]})
+        return f.run('S05')
+    finally:
+        f.close()
+
+
+def lfp_latest_case(bad):
+    """S05 latest rate month = the latest complete calendar month (2000-08, 5 weekly dates), not max(month) (2000-09: one week, 0%); schedule months at
+    that rate; sets A / B. bad = the latest rate month and rate taken from the partial month."""
+    return lfp_s05_variant('latest', [('m', 'rate_month_latest', '2000-09-01' if bad else '2000-08'), ('r', 'rate_latest', 0.0 if bad else 1200.0),
+                                      ('s80', 'sched80_months_latest', 2), ('s50', 'sched50_months_latest', 3), ('w', 'rate_weeks_latest', 5),
+                                      ('pm', 'rate_month_partial', '2000-09-01'), ('nA', 'nA', 6), ('nB', 'nB', 4), ('med', 'medianB_months_to80', 1),
+                                      ('mx', 'maxB_months_to80', 2), ('ms', 'maxB_start', '2000-03-01'), ('o', 'shareB_over1', 0.25),
+                                      ('le', 'shareB_le_sched80', 0.75), ('mid', 'n_months_sched50_after_midpoint', 4), ('bm', 'midpoint_binding_last_month', '2000-08')])
+
+
+def lfp_shares_case(bad):
+    """S05 set A shares at ≤ 80% and ≤ 70% after 2 payments (February exactly 0.8 counts), inputs, a % claim written as a share. bad = ≤ 80% given as 5/6."""
+    return lfp_s05_variant('shares', [('a80', 'shareA_ltv2_le80', 5 / 6 if bad else 1.0), ('a70', 'shareA_ltv2_le70', 0.8333), ('d', 'downShare', 0.1),
+                                      ('t', 'termMonths', 4), ('rq', 'requestLtv', 0.8), ('p', 'illustrativePrice', 1000), ('pay', 'ex_payment_pi', 960),
+                                      ('ext', 'ex_extra_down_for_20', 100), ('pk', 'fraction:hpi_peak_to_trough_pct', -0.2), ('yrs', 'slowB_years', [2000]),
+                                      ('rg', 'robust_g_shareB_over1', 0.3333), ('rgs', 'robust_g_maxB_start', '2000-03-01')])
+
+
+def lfp_buyers_case(bad):
+    """S05 illustrative buyers: each contract month is in set B at its min / median / max and is the one its tie rule picks (fast: earliest of Jan, Feb, Apr;
+    typical: latest; slow: Mar). bad = the typical buyer given as January (also at the median, but the tie rule "latest" picks April)."""
+    buyers = dict(LFP_PARAMS['buyers'], typical={'month': '2000-01' if bad else '2000-04', 'is': 'median', 'tie': 'latest'})
+    return lfp_s05_variant('buyers', [('sm', 'buyer_slow_purchaseMonth', '2000-03'), ('st', 'buyer_slow_monthsTo80Index', 2), ('ss', 'buyer_slow_sched80Months', 1),
+                                      ('sl', 'buyer_slow_ltvIndexAt2', 0.54), ('sc', 'buyer_slow_hpiChangeTo80Pct', -16.667), ('sp', 'buyer_slow_indexPeakMonth', 2),
+                                      ('stp', 'buyer_slow_indexTroughPct', -25.0), ('ft', 'buyer_fast_monthsTo80Index', 1)], dict(LFP_PARAMS, buyers=buyers))
+
+
 # ---- K3.8: S17 condition label (A1), S18 hook / promise (A2), Shorts SH01–SH05 (A5) ------------------------------------------------------------
 def s17_case(bad):
     """S17: claim c1 is conditional on "guarantee" (flag in claims.json, listed in the contract); the page sampler found 3 frames showing it without the label
@@ -2082,7 +2197,9 @@ EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_cas
          'SH02': sh_case('SH02', {'size': '1080x1920', 'dur': 181}, {'size': '1080x1920', 'dur': 2}),
          'SH03': sh_case('SH03', {'size': '1080x1920', 'dur': 4, 'lufs': -18.0}, {'size': '1080x1920', 'dur': 4, 'lufs': -14.0}),
          'SH04': sh_case('SH04', {'size': '1080x1920', 'dur': 4, 'lufs': -16.0, 'spike': True}, {'size': '1080x1920', 'dur': 4, 'lufs': -16.0}),
-         'S01/cap-index': fci_s01_case, 'S05/cap-index-counts': fci_counts_case, 'S05/cap-index-quarters': fci_quarters_case}
+         'S01/cap-index': fci_s01_case, 'S05/cap-index-counts': fci_counts_case, 'S05/cap-index-quarters': fci_quarters_case,
+         'S01/ltv-passage': lfp_s01_case, 'S05/ltv-passage-latest': lfp_latest_case, 'S05/ltv-passage-shares': lfp_shares_case,
+         'S05/ltv-passage-buyers': lfp_buyers_case}
 
 
 def main():
