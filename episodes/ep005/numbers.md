@@ -52,4 +52,4 @@ Tính: `model/model.py` (viết lại từ đặc tả, không gọi calc.py). M
 | `buyer_slow_index_trough` | −0.1885 | −18.8% at month 75 (January 2012) | slow buyer (2005-10): min of H[t+k]/H[t]−1 over k = 1..112; at month 112 still −3.3% | data/raw/HPIPONM226N.csv | history, ILLUSTRATIVE |
 | `robust_cs_medianB / maxB` | 23 / 119 (2006-04-01) | not for screen | same method on Case-Shiller national NSA (crosscheck); shareB_over60 0.147, shareA ≤80 0.561, ≤75 0.233 | data/raw/CSUSHPINSA.csv | robustness |
 
-Tên người mua (Nora / Ben / Carla) là gợi ý, chọn cuối ở C1 (kiểm ASR). Cả ba thuộc tập B. Nora (1/2004) và Carla (10/2005) mua cách nhau 21 tháng: điểm "thời điểm mua" của tập.
+Tên người mua chốt ở C2: Owen (nhanh) / Grace (điển hình) / Victor (chậm) (gợi ý Việc 0 cũ: Nora/Ben/Carla, bỏ vì Nora trùng Tập 1). Cả ba thuộc tập B. Owen (1/2004) và Victor (10/2005) mua cách nhau 21 tháng: điểm "thời điểm mua" của tập.
