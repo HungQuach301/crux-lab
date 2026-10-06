@@ -1,0 +1,491 @@
+{
+ "files": [
+  {
+   "path": "data/raw/HPIPONM226N.csv",
+   "role": "primary",
+   "series": "HPIPONM226N",
+   "what": "FHFA purchase-only house price index, United States, monthly, NSA (Jan 1991=100)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HPIPONM226N",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HPIPONM226N&coed=2026-07-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/HPIPONM226N",
+   "sha256": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+   "downloaded": "2026-10-06",
+   "bytes": 7715,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep005/data/fetch.py --verify",
+   "lastObservation": {
+    "date": "2026-07-01",
+    "value": 451.6,
+    "updatedQuote": "Updated: Sep 29, 2026 9:06 AM CDT",
+    "unitsQuote": "Index Jan 1991=100 , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/HPIPONM226N",
+    "retrieved": "2026-10-06"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/HPIPONM226N",
+    "citation": "HPIPONM226N, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/HPIPONM226N"
+   }
+  },
+  {
+   "path": "data/raw/MORTGAGE30US.csv",
+   "role": "primary",
+   "series": "MORTGAGE30US",
+   "what": "Freddie Mac PMMS 30-year fixed rate, weekly (Thursday), percent",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-10-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "sha256": "3ffacebbee5e0acd5f2f7b7effddb2bfbc54b89dd85405475e37545cd3be98db",
+   "downloaded": "2026-10-06",
+   "bytes": 46947,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep005/data/fetch.py --verify",
+   "lastObservation": {
+    "date": "2026-10-01",
+    "value": 7.28,
+    "updatedQuote": "Updated: Oct 1, 2026 11:09 AM CDT",
+    "unitsQuote": "Percent , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "retrieved": "2026-10-06"
+   },
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "citation": "MORTGAGE30US, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MORTGAGE30US"
+   }
+  },
+  {
+   "path": "data/raw/MSPUS.csv",
+   "role": "primary",
+   "series": "MSPUS",
+   "what": "Census/HUD median sales price of houses sold, United States, quarterly, USD (illustrative price only)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MSPUS",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MSPUS&coed=2026-04-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/MSPUS",
+   "sha256": "d1a49477d3f6e7c10b1145583ee4e6ef551ba660406ddd19d317784e6c51aa71",
+   "downloaded": "2026-10-06",
+   "bytes": 4498,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep005/data/fetch.py --verify",
+   "lastObservation": {
+    "date": "2026-04-01",
+    "value": 410700.0,
+    "updatedQuote": "Updated: Jul 24, 2026 9:03 AM CDT",
+    "unitsQuote": "Dollars , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/MSPUS",
+    "retrieved": "2026-10-06"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/MSPUS",
+    "citation": "MSPUS, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MSPUS"
+   }
+  },
+  {
+   "path": "data/raw/CSUSHPINSA.csv",
+   "role": "crosscheck",
+   "series": "CSUSHPINSA",
+   "what": "S&P Cotality Case-Shiller U.S. National Home Price Index, monthly, NSA (crosscheck for HPIPONM226N)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CSUSHPINSA",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CSUSHPINSA&coed=2026-07-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CSUSHPINSA",
+   "sha256": "aed884ab39f01db872c42870bbe9d1847fea02c8699aac9e7150806a0f0586c8",
+   "downloaded": "2026-10-06",
+   "bytes": 8897,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep005/data/fetch.py --verify",
+   "lastObservation": {
+    "date": "2026-07-01",
+    "value": 337.306,
+    "updatedQuote": "Updated: Sep 30, 2026 4:00 PM CDT",
+    "unitsQuote": "Index Jan 2000=100 , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/CSUSHPINSA",
+    "retrieved": "2026-10-06"
+   },
+   "terms": {
+    "quote": "Copyrighted: Pre-Approval Required",
+    "url": "https://fred.stlouisfed.org/series/CSUSHPINSA",
+    "citation": "CSUSHPINSA, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CSUSHPINSA"
+   }
+  },
+  {
+   "path": "data/raw/OBMMIC30YF.csv",
+   "role": "crosscheck",
+   "series": "OBMMIC30YF",
+   "what": "Optimal Blue 30-year fixed conforming rate, daily, percent (crosscheck for MORTGAGE30US)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YF",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YF&coed=2026-10-05",
+   "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YF",
+   "sha256": "9f233356cce4d1b86d26379fa2e523f6ac1f34fa7968ef968d8639064f785d90",
+   "downloaded": "2026-10-06",
+   "bytes": 42758,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep005/data/fetch.py --verify",
+   "lastObservation": {
+    "date": "2026-10-05",
+    "value": 7.458,
+    "updatedQuote": "Updated: Oct 6, 2026 7:02 AM CDT",
+    "unitsQuote": "Percent , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/OBMMIC30YF",
+    "retrieved": "2026-10-06"
+   },
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/OBMMIC30YF",
+    "citation": "OBMMIC30YF, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/OBMMIC30YF"
+   }
+  }
+ ],
+ "mismatches": [
+  {
+   "key": "1991-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.37% vs CSUSHPINSA -0.38% m/m (+0.75 pp)"
+  },
+  {
+   "key": "1991-10-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.22% vs CSUSHPINSA -0.38% m/m (+0.59 pp)"
+  },
+  {
+   "key": "1991-11-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.42% vs CSUSHPINSA -0.34% m/m (+0.76 pp)"
+  },
+  {
+   "key": "1992-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.69% vs CSUSHPINSA -0.06% m/m (+0.74 pp)"
+  },
+  {
+   "key": "1992-08-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.54% vs CSUSHPINSA +0.03% m/m (+0.51 pp)"
+  },
+  {
+   "key": "1995-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.49% vs CSUSHPINSA -0.04% m/m (+0.53 pp)"
+  },
+  {
+   "key": "2000-01-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.98% vs CSUSHPINSA +0.46% m/m (+0.52 pp)"
+  },
+  {
+   "key": "2000-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.16% vs CSUSHPINSA +0.57% m/m (-0.73 pp)"
+  },
+  {
+   "key": "2005-01-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.32% vs CSUSHPINSA +0.92% m/m (-0.60 pp)"
+  },
+  {
+   "key": "2007-03-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.77% vs CSUSHPINSA -0.15% m/m (+0.92 pp)"
+  },
+  {
+   "key": "2007-04-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.54% vs CSUSHPINSA -0.03% m/m (+0.58 pp)"
+  },
+  {
+   "key": "2008-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.39% vs CSUSHPINSA -1.10% m/m (+0.71 pp)"
+  },
+  {
+   "key": "2008-10-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -1.11% vs CSUSHPINSA -1.70% m/m (+0.59 pp)"
+  },
+  {
+   "key": "2008-12-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.91% vs CSUSHPINSA -2.26% m/m (+1.35 pp)"
+  },
+  {
+   "key": "2009-01-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.32% vs CSUSHPINSA -2.09% m/m (+2.41 pp)"
+  },
+  {
+   "key": "2009-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.33% vs CSUSHPINSA -1.17% m/m (+1.50 pp)"
+  },
+  {
+   "key": "2009-06-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.48% vs CSUSHPINSA +1.10% m/m (-0.62 pp)"
+  },
+  {
+   "key": "2009-07-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.34% vs CSUSHPINSA +0.64% m/m (-0.98 pp)"
+  },
+  {
+   "key": "2009-10-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.09% vs CSUSHPINSA -0.70% m/m (+0.60 pp)"
+  },
+  {
+   "key": "2009-12-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -1.65% vs CSUSHPINSA -0.86% m/m (-0.78 pp)"
+  },
+  {
+   "key": "2010-01-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.53% vs CSUSHPINSA -1.13% m/m (+0.61 pp)"
+  },
+  {
+   "key": "2010-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.28% vs CSUSHPINSA -1.34% m/m (+1.07 pp)"
+  },
+  {
+   "key": "2010-06-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.48% vs CSUSHPINSA +0.45% m/m (-0.94 pp)"
+  },
+  {
+   "key": "2010-07-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.63% vs CSUSHPINSA -0.09% m/m (-0.53 pp)"
+  },
+  {
+   "key": "2010-10-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.22% vs CSUSHPINSA -1.02% m/m (+0.80 pp)"
+  },
+  {
+   "key": "2010-12-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -1.51% vs CSUSHPINSA -0.84% m/m (-0.67 pp)"
+  },
+  {
+   "key": "2011-03-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.52% vs CSUSHPINSA +0.04% m/m (-0.56 pp)"
+  },
+  {
+   "key": "2011-09-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.07% vs CSUSHPINSA -1.14% m/m (+1.21 pp)"
+  },
+  {
+   "key": "2011-11-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.02% vs CSUSHPINSA -1.26% m/m (+1.24 pp)"
+  },
+  {
+   "key": "2012-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.39% vs CSUSHPINSA -0.13% m/m (+0.52 pp)"
+  },
+  {
+   "key": "2012-04-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.39% vs CSUSHPINSA +1.92% m/m (-0.53 pp)"
+  },
+  {
+   "key": "2012-07-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.18% vs CSUSHPINSA +0.78% m/m (-0.60 pp)"
+  },
+  {
+   "key": "2013-04-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.29% vs CSUSHPINSA +2.03% m/m (-0.74 pp)"
+  },
+  {
+   "key": "2013-07-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.48% vs CSUSHPINSA +1.19% m/m (-0.70 pp)"
+  },
+  {
+   "key": "2013-08-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.25% vs CSUSHPINSA +0.70% m/m (-0.95 pp)"
+  },
+  {
+   "key": "2015-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.88% vs CSUSHPINSA +0.23% m/m (+0.65 pp)"
+  },
+  {
+   "key": "2015-08-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.31% vs CSUSHPINSA +0.25% m/m (-0.56 pp)"
+  },
+  {
+   "key": "2016-03-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.70% vs CSUSHPINSA +0.75% m/m (+0.95 pp)"
+  },
+  {
+   "key": "2017-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.87% vs CSUSHPINSA +0.20% m/m (+0.67 pp)"
+  },
+  {
+   "key": "2017-03-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.53% vs CSUSHPINSA +0.82% m/m (+0.71 pp)"
+  },
+  {
+   "key": "2018-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.08% vs CSUSHPINSA +0.40% m/m (+0.68 pp)"
+  },
+  {
+   "key": "2019-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.73% vs CSUSHPINSA +0.11% m/m (+0.62 pp)"
+  },
+  {
+   "key": "2019-03-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.19% vs CSUSHPINSA +0.66% m/m (+0.53 pp)"
+  },
+  {
+   "key": "2020-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.27% vs CSUSHPINSA +0.39% m/m (+0.89 pp)"
+  },
+  {
+   "key": "2020-06-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.27% vs CSUSHPINSA +0.61% m/m (+0.66 pp)"
+  },
+  {
+   "key": "2021-08-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.66% vs CSUSHPINSA +1.23% m/m (-0.57 pp)"
+  },
+  {
+   "key": "2022-03-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +2.07% vs CSUSHPINSA +2.71% m/m (-0.64 pp)"
+  },
+  {
+   "key": "2022-09-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N -0.14% vs CSUSHPINSA -1.04% m/m (+0.90 pp)"
+  },
+  {
+   "key": "2023-01-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.08% vs CSUSHPINSA -0.51% m/m (+0.59 pp)"
+  },
+  {
+   "key": "2023-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.40% vs CSUSHPINSA +0.27% m/m (+1.13 pp)"
+  },
+  {
+   "key": "2024-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +1.89% vs CSUSHPINSA +0.62% m/m (+1.28 pp)"
+  },
+  {
+   "key": "2026-02-01",
+   "series": "hpi_mom",
+   "note": "HPIPONM226N +0.87% vs CSUSHPINSA +0.32% m/m (+0.54 pp)"
+  }
+ ],
+ "derived": [
+  {
+   "path": "data/normalized/hpipo_mom.csv",
+   "sha256": "646b05cb03ff01d3bce5c887bc32774cef57b433aaf8c5bc788237b0397b91f0",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  },
+  {
+   "path": "data/normalized/csushpinsa_mom.csv",
+   "sha256": "5b2a5e87af05a79b24a5cbb4ec44749d5514dfa42fe7eb064e0f53f804efc71d",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  },
+  {
+   "path": "data/normalized/mortgage30_weekly.csv",
+   "sha256": "7cff78092ac5062987c13aeeb9ca38386e2b5e8a62c2804b6325debcdaa5b99a",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  },
+  {
+   "path": "data/normalized/crosscheck_weekly.csv",
+   "sha256": "34d41397071c216d08030810fec9776f3df9ac2284563c0a6e9b7d58eec85e16",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  }
+ ],
+ "crosscheckSummary": {
+  "hpi_mom": {
+   "months": 426,
+   "within": 374,
+   "maxGapPp": 2.409,
+   "from": "1991-02-01",
+   "to": "2026-07-01",
+   "yoyInfo": {
+    "months": 415,
+    "withinHalfPp": 100,
+    "medianGapPp": 1.032,
+    "maxGapPp": 4.373
+   },
+   "note": "Case-Shiller is a 3-month moving average of repeat sales (all transactions), FHFA purchase-only covers GSE loans; month-to-month timing differs. Robustness of the headline on Case-Shiller is in out/model.json raw.robust_cs_*."
+  },
+  "mortgage30": {
+   "weeks": 508,
+   "within": 508,
+   "maxGapPp": 0.384,
+   "meanGapPp": 0.145,
+   "from": "2017-01-12",
+   "to": "2026-10-01"
+  }
+ },
+ "dossierPins": [
+  {
+   "series": "HPIPONM226N",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HPIPONM226N&coed=2026-07-01",
+   "sha256Dossier": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+   "sha256Now": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+   "matchesDossier": true,
+   "freshPrefixIdentical": true,
+   "freshAddsObservations": 0
+  },
+  {
+   "series": "MORTGAGE30US",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "sha256Dossier": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+   "sha256Now": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+   "matchesDossier": true,
+   "freshPrefixIdentical": true,
+   "freshAddsObservations": 1
+  }
+ ],
+ "provisions": [
+  {
+   "cite": "12 U.S.C. 4901(2)(A) (borrower cancellation date, fixed rate mortgage)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/4901",
+   "quote": "based solely on the initial amortization schedule for that mortgage, and irrespective of the outstanding balance for that mortgage on that date, is first scheduled to reach 80 percent of the original value of the property securing the loan"
+  },
+  {
+   "cite": "12 U.S.C. 4901(18)(A) (termination date, fixed rate mortgage)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/4901",
+   "quote": "the date on which the principal balance of the mortgage, based solely on the initial amortization schedule for that mortgage, and irrespective of the outstanding balance for that mortgage on that date, is first scheduled to reach 78 percent of the original value of the property securing the loan"
+  },
+  {
+   "cite": "12 U.S.C. 4902(b) (automatic termination)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/4902",
+   "quote": "a requirement for private mortgage insurance in connection with a residential mortgage transaction shall terminate with respect to payments for that mortgage insurance made by the mortgagor"
+  },
+  {
+   "cite": "12 U.S.C. 4902(c) (final termination, midpoint of amortization)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/4902",
+   "quote": "in no case may such a requirement be imposed on residential mortgage transactions beyond the first day of the month immediately following the date that is the midpoint of the amortization period of the loan if the mortgagor is current on the payments required by the terms of the mortgage",
+   "retrieved": "2026-10-06"
+  }
+ ],
+ "_about": "FRED copies, not committed (python3 episodes/ep005/data/fetch.py --verify re-downloads from pinnedUrl and checks SHA-256). \"Now\" of the data: HPI and Case-Shiller to 2026-07-01, PMMS to 2026-10-01. CSUSHPINSA is \"Copyrighted: Pre-Approval Required\": used only as an internal crosscheck, never shown on screen."
+}
