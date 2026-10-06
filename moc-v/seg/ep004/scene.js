@@ -27,7 +27,7 @@ export async function boot(res) {
     wHome: { pos: [-6.0, 3.4, 10.5], tgt: [-9, 2.7, 0], fov: 35, chart: 0 },
     wHood: { pos: [-6.4, 3.4, 12.0], tgt: [-8.6, 1.8, -1.6], fov: 35, chart: 0 },
     cFull: { pos: [0, 3.3, 64.2], tgt: [0, 3.3, 0], fov: 13.5, chart: 1 },        // v3d: trục năm nằm TRÊN hai dòng chú đáy
-    wDemo: { pos: [15.6, 4.2, 26.0], tgt: [13.6, 3.1, 6], fov: 35, chart: 0 },
+    wDemo: { pos: [15.8, 4.6, 29.0], tgt: [13.6, 3.4, 6], fov: 35, chart: 0 },   // v3g: thấy trọn chồng ×4 + mái
     wDemoNear: { pos: [15.3, 3.0, 16.6], tgt: [13.3, 1.75, 6], fov: 35, chart: 0 },
     wDemoClose: { pos: [14.85, 2.75, 14.6], tgt: [13.4, 1.6, 6], fov: 35, chart: 0 },   // v3f: đẩy vào nhà + chồng đủ thấy
     cZoom: { pos: [7.0, 5.4, 20.9], tgt: [7.0, 5.4, 0], fov: 12, chart: 1 },
@@ -52,7 +52,7 @@ export async function boot(res) {
   const s2000 = Stack({ unitUsd: U, w: 1.0, d: 0.7 }); s2000.position.set(X(0), 0, 0); s2000.scale.set(0.55, 1, 0.55); scene.add(s2000);
   const h2000 = House({ w: 1.5 }); h2000.scale.setScalar(0.55); scene.add(h2000);
   const burst = Burst(); scene.add(burst);
-  const ghostBeam = Beam({ length: 5 }); ghostBeam.position.set(X(0), 5, 0); scene.add(ghostBeam);
+  const ghostBeam = Beam({ length: 5 }); ghostBeam.position.set(X(0), 5, 0); ghostBeam.rotation.y = Math.atan2(3, 10.5); scene.add(ghostBeam);   // v3g: vuông góc hướng nhìn của wHome → PHẲNG trên màn
 
   // ---- âm ↔ hình: nhịp sáng ở mỗi nốt dữ liệu
   const pulseAt = (t) => { let p = 0; for (const e of dataEv) if (t >= e.t && t < e.t + 0.18) p = Math.max(p, 1 - (t - e.t) / 0.18); return p; };
@@ -86,7 +86,7 @@ export async function boot(res) {
       : heroStack.set({ usd: usd + 200000 * r11, tintBelowUsd: 200000 * r11 + 1, tintA: 1, warnAboveUsd: off11 > 0.5 ? 500000 + 200000 * r11 : Infinity });   // b11: lãi + cái đã trả = giá 2026
     // v3e (lượt đạo diễn v3d): ở chế độ ĐỒ THỊ điểm dữ liệu là ĐỈNH CHỒNG — nhà đứng cạnh, mái không vượt điểm dữ liệu (không "vượt trần" sớm)
     const houseH = hero.userData.height * hScale, hOff = cw * (0.5 * hScale + 0.75 * hScale + 0.06);
-    hero.scale.setScalar(hScale); hero.position.set(hOff, mix(sh, Math.max(0, sh - houseH - 0.05), cw), 0);
+    hero.scale.setScalar(hScale); hero.position.set(hOff, mix(sh, Math.max(0, Math.min(sh, t < M.wide.t0 ? 4.95 : 99) - houseH - 0.05), cw), 0);   // v3g: ở đồ thị mái nhà cũng KHÔNG vượt xà (đạo diễn v3f: gợi "giá nhà vượt trần")
     const roofY = hero.position.y + houseH;
     heroG.position.set(hx, 0, 0);
     // khu phố (b1) bật biển đúng tick, gom về nhà chính lúc "sales"
@@ -110,8 +110,8 @@ export async function boot(res) {
     // xà trần: bóng mờ b0; xà thật từ b3 (rơi + khoá); chỉ ở chế độ đồ thị (thế giới b4 ẩn để không so giá trị với trần)
     const gA = ease(t, b.b0.has, b.b0.has + FADE) * (1 - ease(t, b.b1.blur, b.b1.blur + FADE));
     setOpacity(ghostBeam, 0.5 * gA);
-    const drop = easeOut(t, b.b3.cap, b.b3.cap + 0.6), ext = easeOut(t, b.b3.flat - 0.05, b.b3.flat + 0.8);
-    beam.position.set(mix(X(0) + 1.9, 0, ext), mix(10.5, 5, drop), 0); beam.scale.x = mix(0.2, 1, ext);
+    const drop = easeOut(t, b.b3.cap, b.b3.cap + 0.55), ext = easeOut(t, b.b3.flat, b.b3.flat + 0.8);   // rơi thấy được, khoá đúng tiếng trầm
+    beam.position.set(mix(X(0) + 1.9, 0, ext), mix(10.5, 5, drop), 0); beam.scale.x = mix(0.45, 1, ext);
     const end11 = 1 - ease(t, M.wide.t0, M.wide.t1);
     setOpacity(beam, t >= b.b3.cap ? cw * off11 : 0);
     { const d = Math.hypot(pose.pos[0] - pose.tgt[0], pose.pos[1] - pose.tgt[1], pose.pos[2] - pose.tgt[2]), ppu = 540 / (d * Math.tan(pose.fov * Math.PI / 360));
@@ -123,16 +123,18 @@ export async function boot(res) {
     // đường GIÁ TRỊ (b2) — vệt đỉnh chồng tiền; tắt ở b3
     if (t >= b.b2.quarter && !riding) {
       const pts = []; for (let q = 0; q <= Math.min(105, qDraw) + 1e-6; q += 0.25) pts.push([X(Math.min(q, qDraw)), valueAt(Math.min(q, qDraw)) / U]);
-      vRib.set(pts, 0.12, C.accent); vRib.material.opacity = cw * (1 - valueOff);
+      vRib.set(pts, 0.12, C.accent); vRib.material.opacity = cw * (1 - 0.82 * valueOff) * (1 - ease(t, M.toDemo.t0, M.toDemo.t0 + 0.5));   // v3g: giá trị còn mờ làm nền ở b3 (không khung trống)
     } else vRib.material.opacity = 0;
     // đường LÃI (b5–b11) — vệt đỉnh chồng tiền khi phát lại; đoạn trên trần = warn
     if (riding) {
-      const pts = []; let pg = null; for (let q = 0; q <= qRide + 1e-6; q += 0.25) { const qq = Math.min(q, qRide), g = at(qq);
+      const pts = []; let pg = null; const lift = t >= M.wide.t0 ? 200000 * r11 : 0;   // v3g CẦU NỐI lãi → giá: cả đường LÃI nâng lên đúng $200,000 (cái đã trả) thành đường GIÁ (xanh)
+      for (let q = 0; q <= qRide + 1e-6; q += 0.25) { const qq = Math.min(q, qRide), g = at(qq);
+        if (t >= M.wide.t0) { pts.push([X(qq), (Math.max(0, g) + lift) / U, r11 > 0.5 ? C.accent : g > 500000 ? C.warn : C.ink]); continue; }
         if (pg !== null && (pg - 500000) * (g - 500000) < 0) { const xq = qq - 0.25 * (g - 500000) / (g - pg); pts.push([X(xq), 5, pg > 500000 ? C.warn : C.ink], [X(xq) + 1e-4, 5, g > 500000 ? C.warn : C.ink]); }
         pts.push([X(qq), Math.max(0, g) / U, g > 500000 ? C.warn : C.ink]); pg = g; }
       const v3 = new THREE.Vector3(), ys = pts.map((p) => { v3.set(p[0], p[1], 0.45).project(cam); return (1 - v3.y) * 540; }); let cut0 = 0; for (let i = 0; i < ys.length; i++) if (ys[i] > 840) cut0 = i + 1; const vis = pts.slice(Math.min(cut0, Math.max(0, pts.length - 2)));   // bỏ phần ĐẦU đường nằm dưới dải chân trang (không nối tắt qua khoảng trống)
       const ab = t >= b.b8.above ? 1 - lin(t, b.b8.above, b.b8.above + 0.7) : 0;     // "has stayed above": đường phình sáng
-      gRib.set(vis, (CAM.poseAt(t).pos[2] < 30 ? 0.06 : 0.12) * (1 + 0.9 * ab)); gRib.material.opacity = cw * off11;
+      gRib.set(vis, (CAM.poseAt(t).pos[2] < 30 ? 0.06 : 0.12) * (1 + 0.9 * ab)); gRib.material.opacity = cw;
     } else gRib.material.opacity = 0;
     // cảnh minh hoạ b4
     // cùng một thế giới: cảnh minh hoạ không mờ ra/vào — máy quay đi tới nó; lúc đổi về đồ thị, NHÀ + phần lãi tua về 2000 (lãi 0)

@@ -275,7 +275,7 @@ def sfx_layer(spine, N):
         elif k == 'gather':
             add(out, t, pad([hz(62), hz(69), hz(74)], 1.6, 0.25, 1800))
         elif k == 'thud':
-            add(out, t, felt(hz(31), 0.2))   # v3e: chỉ còn nốt trầm mềm (lượt đạo diễn v3d: thud gắt)   # lượt đạo diễn v3c: thud vẫn ngang lời → thêm −6 dB
+            add(out, t, felt(hz(31), 0.12))   # v3e: chỉ còn nốt trầm mềm (lượt đạo diễn v3d: thud gắt)   # lượt đạo diễn v3c: thud vẫn ngang lời → thêm −6 dB
         elif k == 'drone_on':
             d = e['until'] - t; n = int(d * SR); tt = np.arange(n) / SR
             x = (np.sin(2 * np.pi * 73.4 * tt) + 0.3 * np.sin(2 * np.pi * 146.8 * tt)) * (1 + 0.15 * np.sin(2 * np.pi * 0.3 * tt))

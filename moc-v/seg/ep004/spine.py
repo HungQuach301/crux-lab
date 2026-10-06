@@ -127,7 +127,7 @@ EV += [{'t': cue['b0']['has'], 'kind': 'riser', 'to': cue['b0']['q']},
        {'t': cue['b1']['blur'], 'kind': 'whoosh_soft'},
        *[{'t': p, 'kind': 'tick', 'pop': k, 'v': 0.3 + 0.05 * (k % 5)} for k, p in enumerate(pops) if k % 2 == 0],   # v3e: tick nửa số biển (bớt 12 tick đều)
        {'t': cue['b1']['avg'], 'kind': 'gather'},
-       {'t': cue['b3']['cap'] + 0.6, 'kind': 'thud'},
+       {'t': cue['b3']['cap'] + 0.5, 'kind': 'thud'},   # xà khoá (rơi 0,55 s, kết trước chữ "flat")
        {'t': cue['b4']['two'], 'kind': 'tick', 'v': 0.6},
        {'t': cue['b4']['grow'], 'kind': 'rise', 'dur': 0.9},
        {'t': cue['b4']['less'], 'kind': 'slide_down', 'dur': 1.6},
