@@ -7,10 +7,7 @@ Không mạng, không render video (node/npm bị thay bằng bản giả ở b�
 (b) job do Build.render() ghi ra mang `symbols` [{id, url}] trỏ tới file ký hiệu, và page.html có dòng nạp
     job.symbols vào TEMPLATES. Việc import JS thật trong trình duyệt KHÔNG chạy ở đây (cần chromium/render).
 (c) đổi mã file ký hiệu -> code_hash đổi -> băm của từng đoạn render (tên file cache) đổi; không đổi thì giữ nguyên.
-(d) KHÔNG KIỂM ĐƯỢC mà không sửa toolkit: spec.check() không kiểm file ký hiệu có tồn tại hay không, nên spec KHÔNG BLOCK
-    khi file thiếu (test_d_* ghi lại hành vi thực: spec im lặng, Build.load_inputs() nổ FileNotFoundError ngay sau spec,
-    dừng build trước khi tốn API/render, nhưng đó không phải một BLOCK của spec). Muốn đúng "spec BLOCK" cần thêm
-    kiểm os.path.exists vào spec.py — việc đó nằm ngoài phạm vi (không được sửa toolkit).
+(d) file ký hiệu thiếu -> spec.check() BLOCK (rule custom_symbols; thêm vào spec.py sau G2 Tập 4, chủ dự án duyệt).
 """
 import json, os, subprocess, sys, tempfile, unittest
 from types import SimpleNamespace
@@ -130,15 +127,10 @@ class SymbolHook(unittest.TestCase):
         self.assertNotEqual(h1, h2)
         self.assertTrue(set(s1).isdisjoint(s2))  # mọi đoạn đều đổi băm
 
-    # (d) xem docstring đầu file: ghi lại hành vi thực, không khẳng định "spec BLOCK"
-    def test_d_missing_file_not_flagged_by_spec_but_stops_load_inputs(self):
+    def test_d_missing_file_blocks_spec(self):
         path = make_episode(self.d, write_js=False)
         P = SPEC.check(load_spec(path), self.d)
-        self.assertEqual(blocks(P), [], P)  # spec hiện không kiểm file ký hiệu
-        B = BUILD.Build(path, [])
-        with self.assertRaises(FileNotFoundError):
-            B.load_inputs()
-
+        self.assertTrue(any(p['rule'] == 'custom_symbols' for p in blocks(P)), P)
 
 if __name__ == '__main__':
     unittest.main()

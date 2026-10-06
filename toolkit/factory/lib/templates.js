@@ -21,7 +21,8 @@ const fade = (t, a0) => ease(t, a0, a0 + 0.4);
 const role = (E, r) => ({ accent: E.C.accent, muted: E.C.muted, warn: E.C.warn, ink: E.C.ink })[r] || E.C.accent;
 const num = (E, id) => { const c = E.claims[id]; const v = typeof c.value === 'number' ? c.value : parseFloat(String(c.value).replace(/[^\d.-]/g, '')); if (!isFinite(v)) throw new Error('claim ' + id + ' is not numeric'); return v; };
 const series = (E, key) => { const v = typeof key === 'string' ? key.split('.').reduce((o, k) => o?.[k], E.data) : key; if (!Array.isArray(v)) throw new Error('no data ' + key); return v; };
-const box = (E) => ({ x0: E.SAFE.x0 + 24, x1: E.SAFE.x1 - 24, y0: E.SAFE.y0 + (E.V ? 580 : 150), y1: E.SAFE.y1 - (E.V ? 120 : 110) });
+// Shorts: the plot sits between the hook/badge/title block (top) and the counterweight + history lines (bottom, engine)
+const box = (E) => ({ x0: E.SAFE.x0 + 24, x1: E.SAFE.x1 - 24, y0: E.SAFE.y0 + (E.V ? 440 : 150), y1: E.SAFE.y1 - (E.V ? 340 : 110) });
 
 export const title = { draw(E, t, p) {
   const b = box(E), lines = p.lines || [], ats = p.ats || [];
@@ -43,7 +44,8 @@ export const bars = { draw(E, t, p) { // same scale, axis from 0 (no parameter t
   const b = box(E), items = p.items || [], n = items.length; if (!n) return;
   const vals = items.map((it) => num(E, it.claim)); if (vals.some((v) => v < 0)) throw new Error('bars: negative values need a signed template');
   const vmax = Math.max(...vals) * 1.08, labW = E.V ? 0 : 420, x0 = b.x0 + labW, x1 = b.x1 - 220;
-  const rowH = Math.min(E.V ? 260 : 170, (b.y1 - b.y0) / n), bh = Math.min(64, rowH * 0.45);
+  if (E.V) return barsV(E, t, p, b, items, vals, vmax);
+  const rowH = Math.min(170, (b.y1 - b.y0) / n), bh = Math.min(64, rowH * 0.45);
   if (p.title) E.text(p.title, b.x0, b.y0 - 30, 'caption', { alpha: fade(t, at(p, 'at')) });
   E.line([[x0, b.y0], [x0, b.y0 + rowH * n]], E.C.grid, 4, fade(t, at(p, 'at')));
   E.text('0', x0, b.y0 + rowH * n + 60, 'note', { align: 'center', color: E.C.muted, alpha: fade(t, at(p, 'at')), group: 'axis0' });
@@ -57,17 +59,40 @@ export const bars = { draw(E, t, p) { // same scale, axis from 0 (no parameter t
   });
 } };
 
+// Shorts: one row per item = label (left) and value (right) on one line, the same-scale bar from 0 as a strip under it,
+// so 12 rows fit between the title and the counterweight line without labels overlapping
+function barsV(E, t, p, b, items, vals, vmax) {
+  const top = E.SAFE.y0 + 410, bottom = E.SAFE.y1 - 195, n = items.length, rowH = Math.min(120, (bottom - top) / n);
+  const bh = Math.max(5, Math.min(36, rowH - 61)), x0 = b.x0, x1 = b.x1;
+  if (p.title) E.text(p.title, b.x0, top - 30, 'caption', { alpha: fade(t, at(p, 'at')), wrapUp: true });
+  items.forEach((it, i) => {
+    const a0 = it.at ?? at(p, 'at') + 0.3 * i, g = easeOut(t, a0, a0 + 0.8), yb = top + rowH * i + 45;
+    E.text(it.label, x0, yb, 'label', { alpha: fade(t, a0), group: 'bl' + i });
+    E.text(`{${it.claim}}`, x1, yb, 'label', { align: 'right', alpha: fade(t, a0 + 0.6), group: 'bv' + i });
+    E.rect(x0, yb + 15, (x1 - x0) * vals[i] / vmax * g, bh, role(E, it.role), fade(t, a0));
+  });
+}
+
 export const line = { draw(E, t, p) {
   const b = box(E), S = series(E, p.series), xk = p.x ?? 'x', yk = p.y ?? 'y', ys = S.map((r) => +r[yk]);
   const lvl = p.level ? num(E, p.level) : null, ymax = Math.max(...ys, lvl ?? 0) * 1.1, ymin = 0; // from 0
   const X = (i) => mix(b.x0 + 60, b.x1, i / (S.length - 1)), Y = (v) => mix(b.y1, b.y0, (v - ymin) / (ymax - ymin));
   const a0 = at(p, 'at0'), a1 = at(p, 'at1', a0 + 4), k = lin(t, a0, a1), nv = Math.max(2, Math.ceil(k * S.length));
-  if (p.title) E.text(p.title, b.x0, b.y0 - 40, 'caption', { alpha: fade(t, a0) });
+  if (p.title) E.text(p.title, b.x0, b.y0 - 40, 'caption', { alpha: fade(t, a0), wrapUp: true });
   E.line([[b.x0 + 60, b.y1], [b.x1, b.y1]], E.C.grid, 4, fade(t, a0));
   E.text(String(S[0][xk]).slice(0, 4), b.x0 + 60, b.y1 + 64, 'note', { color: E.C.muted, alpha: fade(t, a0), group: 'x0' });
   E.text(String(S[S.length - 1][xk]).slice(0, 4), b.x1, b.y1 + 64, 'note', { align: 'right', color: E.C.muted, alpha: fade(t, a0), group: 'x1' });
   if (lvl != null) { const la = at(p, 'levelAt', a0); E.line([[b.x0 + 60, Y(lvl)], [b.x1, Y(lvl)]], E.C.muted, 6, fade(t, la));
-    E.text(p.levelLabel || `{${p.level}}`, b.x1, Y(lvl) - 18, 'label', { align: 'right', color: E.C.ink, plate: E.C.surface, alpha: fade(t, la), group: 'lvl' }); }
+    // Shorts: the plot is narrow, so the label goes where its plate covers the fewest points of the whole series (left/right/centre,
+    // above/below the level); the plate never hides where the gain crosses
+    let lx = b.x1, ly = Y(lvl) - 18, al = 'right';
+    if (E.V) {
+      const lw = E.measure(p.levelLabel || `{${p.level}}`, E.FLOOR, 600) + 28, pts = S.map((r, i) => [X(i), Y(ys[i])]);
+      const cands = [['left', b.x0 + 60, -18], ['right', b.x1, -18], ['center', (b.x0 + 60 + b.x1) / 2, -18], ['left', b.x0 + 60, 78], ['right', b.x1, 78], ['center', (b.x0 + 60 + b.x1) / 2, 78]]
+        .map(([a, x, dy]) => { const x0 = a === 'left' ? x : a === 'right' ? x - lw : x - lw / 2, y0 = Y(lvl) + dy - 0.8 * E.FLOOR - 20, y1 = y0 + 1.05 * E.FLOOR + 40;
+          return { a, x, dy, n: pts.filter(([px, py]) => px >= x0 - 8 && px <= x0 + lw + 8 && py >= y0 && py <= y1).length }; });
+      const best = cands.reduce((m, c) => (c.n < m.n ? c : m)); lx = best.x; ly = Y(lvl) + best.dy; al = best.a; }
+    E.text(p.levelLabel || `{${p.level}}`, lx, ly, 'label', { align: al, color: E.C.ink, plate: E.C.surface, alpha: fade(t, la), group: 'lvl' }); }
   if (t < a0) return;
   for (let i = 1; i < nv; i++) { const hi = lvl != null && ys[i] > lvl;
     E.line([[X(i - 1), Y(ys[i - 1])], [X(i), Y(ys[i])]], hi ? E.C.warn : E.C.accent, 4, 1); }

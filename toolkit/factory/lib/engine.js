@@ -55,6 +55,15 @@ export function makeEngine(canvas, cfg) {
     const mw = (z) => { ctx.save(); ctx.font = `${w8} ${z}px Inter`; ctx.fontVariantNumeric = 'tabular-nums'; const v = ctx.measureText(s).width; ctx.restore(); return v; };
     let w = mw(px); const pad = o.plate ? 14 : 0, room = (SAFE.x1 - SAFE.x0) / zoom - 2 * pad;
     if (w > room) { const fit = Math.max(FLOOR / zoom, px * room / w); log.fitted.push({ s, from: px, to: +fit.toFixed(1) }); px = fit; w = mw(px); } // too wide: shrink, never below the floor
+    if (V && !o.noWrap && w > room + 0.5 && s.includes(' ')) { // Shorts: still too wide at the floor → wrap at word breaks (wrapUp: the last line sits on y)
+      const words = s.split(' '), lines = []; let cur = '';
+      const mws = (str) => { ctx.save(); ctx.font = `${w8} ${px}px Inter`; const v = ctx.measureText(str).width; ctx.restore(); return v; };
+      for (const wd of words) { const tryS = cur ? cur + ' ' + wd : wd; if (cur && mws(tryS) > room) { lines.push(cur); cur = wd; } else cur = tryS; }
+      if (cur) lines.push(cur);
+      const lh = px * 1.18, y1st = o.wrapUp ? y - lh * (lines.length - 1) : y; let ub = null;
+      lines.forEach((ln, i) => { const bx = E.text(ln, x, y1st + lh * i, px, { ...o, noWrap: true, weight: w8, group: (o.group || s) }); if (bx) ub = ub ? { ...ub, x0: Math.min(ub.x0, bx.x0), y0: Math.min(ub.y0, bx.y0), x1: Math.max(ub.x1, bx.x1), y1: Math.max(ub.y1, bx.y1) } : bx; });
+      return ub;
+    }
     let x0 = o.align === 'center' ? x - w / 2 : o.align === 'right' ? x - w : x;
     let y0 = y - px * 0.8; const h = px * 1.05;
     // safe area (after camera zoom the box must still sit inside: zoom is about the centre)
@@ -120,6 +129,7 @@ export function makeEngine(canvas, cfg) {
     for (const cw of cfg.counterweights || []) {
       const on = (cw.claims || []).some((id) => frameFlags.claims.has(id)) || (cw.when === 'historical' && frameFlags.hist)
         || (cw.when === 'numbers' && (frameFlags.claims.size > 0 || frameFlags.hist));
+      if (V) continue; // Shorts: drawn below, one at a time
       if (!on) continue; log.tags.push('CW:' + cw.id);
       if (cw.attach === 'history' && frameFlags.hist) { // joins the history tag; Shorts: too narrow to join, so its own muted line just above it
         if (!V) hist += ' · ' + cw.text; else E.text(cw.text, W / 2, SAFE.y1 - 76, 'note', { align: 'center', color: C.muted, group: 'tag-hist-' + cw.id });
@@ -129,6 +139,17 @@ export function makeEngine(canvas, cfg) {
         const cut = [...cw.text.matchAll(/[.,;] /g)].map((m) => m.index + 1).sort((a, b) => Math.abs(a - cw.text.length / 2) - Math.abs(b - cw.text.length / 2))[0] ?? cw.text.lastIndexOf(' ', cw.text.length / 2);
         lines = [cw.text.slice(0, cut).trim(), cw.text.slice(cut).trim()]; }
       for (const ln of lines) { E.text(ln, V ? W / 2 : SAFE.x1, V ? SAFE.y0 + 400 + 76 * k : SAFE.y0 + 112 + 62 * k, 'note', { align: V ? 'center' : 'right', weight: 700, color: C.ink, plate: C.surface, group: 'cw-' + cw.id }); k++; }
+    }
+    // Shorts (playbook §5): a cut lacks the episode's context, so every frame with a number carries a counterweight line; the lines take
+    // turns every 3 s (one at a time fits above the history tag), stacked bottom-up just above it
+    const cwsV = V && (frameFlags.claims.size || frameFlags.hist) ? (cfg.counterweights || []) : [];
+    if (cwsV.length) {
+      const cw = cwsV[Math.floor(T / 3) % cwsV.length]; log.tags.push('CW:' + cw.id);
+      const n = E.measure(cw.text, 'note', 700) * FLOOR / TIERS.note > SAFE.x1 - SAFE.x0 ? 2 : 1;
+      let lines = [cw.text];
+      if (n === 2) { const cut = [...cw.text.matchAll(/[.,;] /g)].map((m) => m.index + 1).sort((a, b) => Math.abs(a - cw.text.length / 2) - Math.abs(b - cw.text.length / 2))[0] ?? cw.text.lastIndexOf(' ', cw.text.length / 2);
+        lines = [cw.text.slice(0, cut).trim(), cw.text.slice(cut).trim()]; }
+      lines.forEach((ln, j) => E.text(ln, W / 2, SAFE.y1 - 6 - 68 * (lines.length - j), 'note', { align: 'center', weight: 700, color: C.ink, group: 'cw-' + cw.id, noWrap: true }));
     }
     if (frameFlags.hist) { E.text(hist, V ? W / 2 : SAFE.x1, SAFE.y1 - 6, 'note', { align: V ? 'center' : 'right', color: C.muted, group: 'tag-hist' }); log.tags.push('HISTORY'); }
     log.claims = [...frameFlags.claims]; log.hist = frameFlags.hist; log.illus = frameFlags.illus;

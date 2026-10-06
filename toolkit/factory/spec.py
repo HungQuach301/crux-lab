@@ -138,6 +138,9 @@ def check(spec, root, duration=None):
     n_sym = len(spec.get('custom_symbols') or [])
     if n_sym > 2:
         add('ASK', 'custom_symbols', f'{n_sym} new symbols (> 2 per episode, CHARTER §5): owner must approve the exception')
+    for c in spec.get('custom_symbols') or []:
+        if not os.path.isfile(os.path.join(root, c.get('file', ''))):
+            add('BLOCK', 'custom_symbols', f"{c.get('id')}: symbol file {c.get('file')!r} not found")
     n_short = len(spec.get('shorts') or [])
     if scope == 'full' and not 2 <= n_short <= 3:
         add('BLOCK', 'shorts', f'{n_short} shorts; a full episode has 2–3 (playbook §5)')
