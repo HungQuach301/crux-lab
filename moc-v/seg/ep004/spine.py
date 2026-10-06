@@ -4,8 +4,11 @@ Một nguồn duy nhất cho mọi lớp: lời (take), hình (chế độ, tư 
 Mốc giờ: CHỈ từ alignment của take ("@câu:từ"); cửa sổ động tác máy quay tính từ hai từ khoá kề nhau (± ĐỆM).
 """
 import json, os, re, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'world'))
+from onset import refine          # mốc đầu từ = lúc NGHE được (TTS hay gộp khoảng nghỉ vào đầu từ)
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
+HOP = 0.14                                    # nhà nảy qua xà: chạm lại ngay sau đầu chữ "cap"
 PAD = 0.25                                    # quy tắc 2: máy quay đứng yên trong ± PAD quanh mọi từ khoá
 OFFSET = {'S04': 0.6, 'S05': 4.6, 'S06': 23.0, 'S07': 56.2}   # đầu mỗi take (khoảng nghỉ như bản phát hành)
 TOTAL = 69.6
@@ -13,7 +16,7 @@ voice = json.load(open(os.path.join(ROOT, 'moc-v/proto/voice.json')))
 words = []
 for tk in voice:
     off = OFFSET[tk['sentences'][0]['id'][:3]]
-    words += [{'w': w['w'], 's': round(w['s'] + off, 3), 'e': round(w['e'] + off, 3), 'sid': w['sid']} for w in tk['words']]
+    words += [{'w': w['w'], 's': round(w['s'] + off, 3), 'e': round(w['e'] + off, 3), 'sid': w['sid'], 's_tts': round(w['s_tts'] + off, 3)} for w in refine(tk['words'], tk['mp3'])]
 takes = [{'mp3': os.path.relpath(t['mp3'], ROOT), 't': OFFSET[t['sentences'][0]['id'][:3]], 'dur': t['duration']} for t in voice]
 lines = {s['id']: s['spoken'] for t in voice for s in t['sentences']}
 
@@ -31,7 +34,7 @@ B = [
  ('b0', 'S04.5', 'world', 'Câu hỏi: lãi của Rosa & Frank đã qua trần chưa?', 'Rosa & Frank cạnh NHÀ trên chồng tiền $200,000 (2000); xà trần mờ hiện phía trên; dấu hỏi giữa mái và xà.',
   {'has': '@S04.5:Has', 'q': '@S04.5:cap'}, ['riser tới "cap?"'], 0.30, 'tò mò', 'nhà mờ đi'),
  ('b1', 'S05.1', 'world', 'Không thấy nhà thật → cho giá trị đi như chỉ số Phoenix (trung bình nhiều giao dịch).', 'nhà mờ trong sương + mũi tên giá lên; lùi máy thấy khu phố; mỗi nhà bật biển SOLD đúng một tick; các nhà bay vào chồng tiền của nhà chính (= trung bình).',
-  {'blur': '@S05.1:see', 'rise': '@S05.1:rise', 'pop0': '@S05.1:Phoenix', 'src': '@S05.1:Federal', 'many': '@S05.1:average', 'avg': '@S05.1:sales'},
+  {'blur': '@S05.1:see', 'rise': '@S05.1:rise', 'pop0': '@S05.1:Phoenix', 'src': '@S05.1:Federal', 'many': '@S05.1:many', 'avg': '@S05.1:sales'},
   ['whoosh mềm khi sương', 'tick mỗi nhà SOLD', 'hợp âm gom'], 0.35, 'rõ ràng, tin cậy', 'CHUYỂN CHẾ ĐỘ → đồ thị: "average of many sales" thành MỘT đường'),
  ('b2', 'S05.2', 'chart', 'Đi từng quý từ 2000 đến Q2 2026.', 'đồ thị chính diện: 3 quý đầu nhảy từng bước ("quarter by quarter"), rồi đường GIÁ TRỊ (vệt đỉnh chồng tiền) chạy tới 2026; nhãn năm theo đầu đường.',
   {'quarter': '@S05.2:quarter', 'y2000': '@S05.2:two', 'y2026': '@S05.2:twenty'}, ['âm dữ liệu: nốt theo giá trị'], 0.50, 'đà đi lên', 'đường giá trị tắt khi trần vào'),
@@ -63,11 +66,13 @@ cue = {b['id']: b['cues'] for b in beats}
 CUES = sorted((t, f"{b['id']}.{k}") for b in beats for k, t in b['cues'].items())
 
 
-def window(after, before, dur, late=False):
+def window(after, before, dur, late=False, start=None):
     """cửa sổ động tác giữa hai từ khoá: bắt đầu sau 'after'+PAD, kết thúc trước 'before'−PAD, dài tối đa dur (late: sát từ khoá sau)."""
     a, b = after + PAD, before - PAD
     if b - a < 0.6: raise SystemExit(f'cửa sổ quá ngắn giữa {after} và {before}')
-    t0 = max(a, b - dur) if late else max(a, (a + b) / 2 - dur / 2); return [round(t0, 3), round(min(b, t0 + dur), 3)]
+    t0 = max(a, b - dur) if late else max(a, (a + b) / 2 - dur / 2)
+    if start is not None: t0 = min(max(a, start), b - 0.6)
+    return [round(t0, 3), round(min(b, t0 + dur), 3)]
 
 
 # ---- động tác máy quay hữu hạn (quy tắc 2) — mỗi lần có LÝ DO (câu lời / sự kiện dữ liệu) và ÂM (quy tắc 3)
@@ -75,15 +80,17 @@ MOVES = [
  ('hood', 'pull', 'wHome', 'wHood', cue['b1']['rise'], cue['b1']['pop0'], 1.1, 'lời "rise exactly like the … index" → lùi máy thấy khu phố (nhiều giao dịch)', 'whoosh_soft'),
  ('toChart', 'mode', 'wHood', 'cFull', cue['b1']['avg'], cue['b2']['quarter'], 1.05, 'lời "an average of many sales": nhiều nhà gom thành MỘT đường → chế độ đồ thị', 'whoosh_mode'),
  ('toDemo', 'mode', 'cFull', 'wDemoNear', cue['b3']['same'], cue['b4']['gain'], 1.0, 'lời "And here\'s THEIR gain": về người và nhà của họ → chế độ thế giới', 'whoosh_mode'),
- ('demoPull', 'pull', 'wDemoNear', 'wDemo', cue['b4']['two'], cue['b4']['grow'], 0.9, 'lời "grown with the index": chồng sắp cao gấp bốn → lùi máy để thấy trọn', 'whoosh_soft'),
- ('backChart', 'mode', 'wDemo', 'cFull', cue['b4']['paid'], cue['b5']['under'], 1.0, 'sự kiện dữ liệu: lãi vừa tách ra → phát lại theo năm so với trần → chế độ đồ thị', 'whoosh_mode'),
+ ('demoPush', 'push', 'wDemoNear', 'wDemoClose', cue['b4']['gain'], cue['b4']['two'], 2.6, 'lời "for a home that rose like the average": đẩy chậm vào nhà + chồng tiền của họ (ẩn dụ sắp được đo)', 'whoosh_air'),
+ ('demoPull', 'pull', 'wDemoClose', 'wDemo', cue['b4']['two'], cue['b4']['grow'], 0.9, 'lời "grown with the index": chồng sắp cao gấp bốn → lùi máy để thấy trọn', 'whoosh_soft'),
+ ('backChart', 'mode', 'wDemo', 'cFull', cue['b4']['paid'], cue['b5']['under'], 1.0, 'lời "For most of these years" (lãi vừa tách ra): tua NHÀ về 2000 rồi phát lại theo năm so với trần → chế độ đồ thị', 'whoosh_mode'),
  ('zoom', 'push', 'cFull', 'cZoom', cue['b6']['q2022'], cue['b6']['cross'], 1.2, 'lời "Then, in the second quarter of 2022": sắp tới điểm cắt và nhịp tụt — đoạn 2021–26 quá nhỏ ở thang 26 năm → đẩy máy TRƯỚC khi cắt', 'whoosh_push'),
  ('tip', 'push', 'cZoom', 'cTip', cue['b8']['above'], cue['b9']['rose'], 2.2, 'lời "So, on paper, … THEIR home": con số sắp nói là của Rosa & Frank → đẩy chậm vào nhà ở đầu đường', 'whoosh_soft'),
  ('wide', 'pull', 'cTip', 'cFull', cue['b10']['cap'], cue['b11']['x'], 1.0, 'lời "Phoenix area prices … their 2000 level": cần cả hai đầu 2000 và 2026 → lùi máy', 'whoosh_soft'),
 ]
 moves = []
 for mid, verb, a, b, after, before, dur, reason, snd in MOVES:
-    t0, t1 = window(after, before, dur, late=(mid == 'wide'))   # 'wide': giữ trạng thái "past the cap" lâu nhất có thể
+    t0, t1 = window(after, before, dur, late=(mid in ('wide', 'toDemo')),     # 'wide': giữ "past the cap" lâu nhất; 'toDemo': sát "And here's"
+                    start=at('@S06.3') if mid == 'backChart' else None)            # 'backChart': neo vào chữ "For most of these years"
     moves.append({'id': mid, 'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
 
 # ---- lịch dữ liệu dùng chung cho hình VÀ âm (q = quý, 0 = 2000 Q1 … 105 = 2026 Q2)
@@ -126,13 +133,12 @@ EV += [{'t': cue['b0']['has'], 'kind': 'riser', 'to': cue['b0']['q']},
        {'t': cue['b4']['less'], 'kind': 'slide_down', 'dur': 1.6},
        {'t': cue['b6']['cross'] - 1.6, 'kind': 'riser', 'to': cue['b6']['cross']}, {'t': cue['b6']['cross'], 'kind': 'chime'},
        {'t': cue['b9']['fly'], 'kind': 'swish', 'to': cue['b9']['land']}, {'t': cue['b9']['land'], 'kind': 'tick', 'v': 0.7},
-       {'t': cue['b10']['past'] + 0.2, 'kind': 'land', 'mode': False},   # chạm mềm khi nhà nảy qua xà (không impact to: giữ lặng sau "cap")
-       {'t': cue['b9']['rose'], 'kind': 'rise', 'dur': round(cue['b9']['fly'] - 0.25 - cue['b9']['rose'], 3)},
-       {'t': cue['b11']['x'] - 1.4, 'kind': 'rise', 'dur': 1.4}]
-for m in moves:                                # quy tắc 3: mọi động tác có âm (whoosh + chạm khi tới)
-    quiet = m['id'] == 'wide'                    # trong khoảng lặng sau "cap": chỉ gió rất nhẹ, không chạm
-    EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': 0.35 if quiet else 1.0})
-    if not quiet: EV.append({'t': m['t1'], 'kind': 'land', 'mode': m['verb'] == 'mode'})
+       {'t': cue['b10']['cap'] + HOP, 'kind': 'land', 'mode': False},   # nhà nảy qua xà, CHẠM ĐẤT ngay sau chữ "cap" (lượt đạo diễn v3c); sau đó lặng
+       {'t': cue['b9']['rose'], 'kind': 'rise', 'dur': 0.9}]                  # mũi tên "rose" (cùng từ vựng hình với b1)
+GAIN = {'wide': 0.35, 'tip': 0.5, 'backChart': 0.5, 'toChart': 0.6, 'toDemo': 0.6}   # lượt đạo diễn v3c: whoosh_mode/whoosh dài quá to
+for m in moves:                                # quy tắc 3: mọi động tác có âm; mỗi LOẠI động tác một âm riêng, chỉ đổi chế độ mới có tiếng chạm
+    EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': GAIN.get(m['id'], 1.0)})
+    if m['verb'] == 'mode': EV.append({'t': m['t1'], 'kind': 'land', 'mode': True})
 EV.sort(key=lambda e: e['t'])
 
 # ---- bản đồ căng (biên độ rộng: chủ dự án, Gói A §5)
@@ -151,7 +157,8 @@ if beats[0]['mode'] != 'world' or moves[0]['t0'] < 5.0 and moves[0]['verb'] == '
 spine = {'segment': 'ep004 S04.5 → S07.3 (bản phát hành 93,44–163,60 s)', 'version': 3, 'total': TOTAL, 'fps': 30, 'pad': PAD,
          'takes': takes, 'words': words, 'beats': beats, 'moves': moves, 'draw': DRAW, 'ride': RIDE, 'crossQ': crossQ,
          'events': EV, 'tension': tension,
-         'music_plan': {'stop': cue['b10']['cap'] + 0.32, 'release': cue['b11']['x'], 'accents': [cue['b3']['cap'] + 0.5, cue['b6']['cross']]},
+         'music_plan': {'stop': cue['b10']['cap'], 'tau': 0.08, 'release': cue['b11']['x'], 'accents': [cue['b3']['cap'] + 0.5, cue['b6']['cross']]},
+         'marks': {'cw_home': at('@S06.2:home'), 'hop_land': round(cue['b10']['cap'] + HOP, 3)},   # mốc phụ (không phải từ khoá; không ràng buộc quy tắc 2)
          'label_cues': {'b2.quarter': '2000 Q1', 'b0.q': '?', 'b1.many': 'many sales → one average', 'b3.five': '$500,000 cap', 'b4.gain': 'their gain on paper = ?', 'b4.two': 'what they paid',
                         'b5.under': 'well under', 'b6.cross': 'Over: Q2 2022', 'b7.slips': 'Back under', 'b8.lbl': 'Stayed over since Q2 2023', 'b9.fly': '≈ $558,100',
                         'b10.past': 'past the cap', 'b11.x': '×3.8'},

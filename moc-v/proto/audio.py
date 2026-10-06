@@ -154,11 +154,11 @@ def music_code(spine):
     cue = {b['id']: b['cues'] for b in spine['beats']}
     mp = spine.get('music_plan')
     if mp:                                          # spine v3: nhạc đọc kế hoạch từ đặc tả nhịp
-        stop, rel0, ACC = mp['stop'], mp['release'] - 1.0, mp['accents']
+        stop, rel0, ACC = mp['stop'], mp['release'] - 1.0, mp['accents']; TAU = mp.get('tau', 0.25)
     else:
         stop = cue['b10']['cap'] + 0.32
         rel0 = cue['b11']['x'] - 2.2
-        ACC = [cue['b3']['cap'] + 0.35, cue['b6']['cross'], cue['b10']['past'] - 0.05]
+        ACC = [cue['b3']['cap'] + 0.35, cue['b6']['cross'], cue['b10']['past'] - 0.05]; TAU = 0.25
     bar = 4 * BEAT
     prog = ['i7', 'IV', 'i7', 'VII', 'i7', 'IV', 'v7', 'III']
     k = 0; t0 = 0.0
@@ -205,7 +205,7 @@ def music_code(spine):
     wet = reverb(dry)
     # G-003: sau 'stop' chỉ còn đuôi reverb (τ 90 ms cho phần khô) — đã cắt nốt khô ở stop; đuôi reverb tự nhả
     tt = np.arange(N) / SR
-    g = np.where(tt < stop, 1.0, np.where(tt < rel0 + 0.6, np.exp(-(tt - stop) / 0.25), 1.0))   # G-003: sau 'stop' cả đuôi reverb nhả nhanh → lặng thật
+    g = np.where(tt < stop, 1.0, np.where(tt < rel0 + 0.6, np.exp(-(tt - stop) / TAU), 1.0))   # G-003: sau 'stop' cả đuôi reverb nhả nhanh → lặng thật
     fade = np.clip(tt / 0.8, 0, 1) * np.clip((T - tt) / 1.5, 0, 1)
     return (wet * (g * fade)[:, None])[:int(T * SR)], {'stop': stop, 'release': rel0 + 1.0}
 
@@ -257,12 +257,17 @@ def data_layer(spine, N, venv):
     return out, shifts
 
 
+SFX_REF = 0.838
+
+
 def sfx_layer(spine, N):
     out = np.zeros((N, 2))
     for e in spine['events']:
         k, t = e['kind'], e['t']
         if k == 'riser':
             d = e['to'] - t; add(out, t, mixs(noise_sweep(d, 400, 3500, 0.10, att=d * 0.8), glide(57, 62, d, 0.05)))
+        elif k == 'whoosh_air':                      # đẩy chậm (máy quay "thở"): gió rất nhẹ, dải hẹp, không cao độ
+            d = e.get('dur', 2.0); add(out, t, e.get('gain', 1.0) * noise_sweep(d, 900, 1400, 0.035, att=d * 0.5))
         elif k == 'whoosh_soft':
             add(out, t, e.get('gain', 1.0) * noise_sweep(e.get('dur', 0.9), 2500, 500, 0.10, 0.2))
         elif k == 'tick':
@@ -270,7 +275,7 @@ def sfx_layer(spine, N):
         elif k == 'gather':
             add(out, t, pad([hz(62), hz(69), hz(74)], 1.6, 0.25, 1800))
         elif k == 'thud':
-            add(out, t, mixs(felt(hz(31), 0.45), thump(0.4)))   # lượt đạo diễn: thud ngang lời → −6 dB
+            add(out, t, mixs(felt(hz(31), 0.22), thump(0.2)))   # lượt đạo diễn v3c: thud vẫn ngang lời → thêm −6 dB
         elif k == 'drone_on':
             d = e['until'] - t; n = int(d * SR); tt = np.arange(n) / SR
             x = (np.sin(2 * np.pi * 73.4 * tt) + 0.3 * np.sin(2 * np.pi * 146.8 * tt)) * (1 + 0.15 * np.sin(2 * np.pi * 0.3 * tt))
@@ -366,9 +371,11 @@ def main():
             r = np.sqrt(np.mean(x ** 2) + 1e-12)
         return x * (vr * 10 ** (-db / 20) / r)
     mus_d = duck(level(mus, 20.0), venv, 4.0, carve=True)
-    data_d = duck(level(data, 18.0), venv, 8.0) if np.any(data) else data
+    data_d = duck(level(data, 21.0), venv, 8.0) if np.any(data) else data   # lượt đạo diễn v3c: −3 dB (chạm thân giọng ở 44–46, 52–54 s)
     # sfx: chuẩn theo ĐỈNH (đỉnh sfx = đỉnh lời − 12 dB), không theo RMS cả lớp — để hạ một tiếng không kéo tiếng khác lên (lượt đạo diễn v2)
-    sfx_d = duck(sfx * (np.abs(voice).max() * 10 ** (-12 / 20) / (np.abs(sfx).max() + 1e-12)), venv, 6.0) if np.any(sfx) else sfx
+    # v3d: thang CỐ ĐỊNH (SFX_REF = đỉnh lớp sfx bản v3c) — hạ một tiếng không kéo các tiếng khác lên; trần an toàn = đỉnh lời − 12 dB
+    sc = np.abs(voice).max() * 10 ** (-12 / 20) / max(SFX_REF, np.abs(sfx).max())
+    sfx_d = duck(sfx * sc, venv, 6.0) if np.any(sfx) else sfx
     room = room_tone(N, venv, env200(mus_d))
     v2 = np.stack([voice, voice], 1)
     mix = v2 + mus_d + data_d + sfx_d + room
