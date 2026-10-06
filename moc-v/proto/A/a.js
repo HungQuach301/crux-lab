@@ -173,9 +173,9 @@ function frame(t) {
   }
 
   // b6/b8 mốc
-  const tag = (q, s, a) => { const [sx, sy] = W2S(qx(q), Y(500000)); text(s, sx, sy - 120, 48, { w: 700, color: '#1B1F26', plate: C.warn, align: 'center', alpha: a }); };
-  if (t >= b.b6.cross - 0.05) tag(89, `Over: ${CL('cross_quarter_at_200k_phoenix')}`, ease(t, b.b6.cross - 0.05, b.b6.cross + 0.25) * (1 - ease(t, b.b8.lbl - 0.2, b.b8.lbl + 0.2)));
-  if (t >= b.b8.lbl - 0.1) tag(93, `Stayed over since ${CL('stay_quarter_at_200k_phoenix')}`, ease(t, b.b8.lbl - 0.1, b.b8.lbl + 0.3) * (1 - ease(t, b.b9.fly - 0.4, b.b9.fly)));
+  const keep = 1 - ease(t, b.b9.fly - 0.4, b.b9.fly);   // mốc giữ đến hết nhịp kết luận
+  if (t >= b.b6.cross - 0.05) { const [sx, sy] = W2S(qx(88.8), Y(500000)); text(`Over: ${CL('cross_quarter_at_200k_phoenix')}`, sx - 70, sy - 40, 48, { w: 700, color: '#1B1F26', plate: C.warn, align: 'right', alpha: ease(t, b.b6.cross - 0.05, b.b6.cross + 0.25) * keep }); }
+  if (t >= b.b8.lbl - 0.1) { const [, sy] = W2S(0, Y(500000)); text(`Stayed over since ${CL('stay_quarter_at_200k_phoenix')}`, 1810, sy - 200, 48, { w: 700, color: '#1B1F26', plate: C.warn, align: 'right', alpha: ease(t, b.b8.lbl - 0.1, b.b8.lbl + 0.3) * keep }); }
 
   // b9: thẻ giá bay lên thành số hero
   if (t >= b.b9.fly - 0.05) {

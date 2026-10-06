@@ -269,7 +269,7 @@ def sfx_layer(spine, N):
         elif k == 'drone_on':
             d = e['until'] - t; n = int(d * SR); tt = np.arange(n) / SR
             x = (np.sin(2 * np.pi * 73.4 * tt) + 0.3 * np.sin(2 * np.pi * 146.8 * tt)) * (1 + 0.15 * np.sin(2 * np.pi * 0.3 * tt))
-            add(out, t, x * np.minimum(1, tt / 0.8) * np.minimum(1, (d - tt) / 0.8) * 0.06)
+            add(out, t, x * np.minimum(1, tt / 0.8) * np.minimum(1, (d - tt) / 0.8) * 0.024)
         elif k == 'slide_down':
             add(out, t, mixs(glide(74, 62, e['dur'], 0.12), noise_sweep(e['dur'], 3000, 700, 0.05, 0.4)))
         elif k == 'chime':

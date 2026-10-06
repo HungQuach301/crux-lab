@@ -168,15 +168,23 @@ function frame(t) {
   }
 
   // ---- b6/b8: mốc vượt
-  const mark = (q, s, a, dy) => { const [sx, sy] = W2S(qx(q), Y(500000)); world(); ctx.fillStyle = rgba(C.warn, a); ctx.beginPath(); ctx.arc(qx(q), Y(500000), 9, 0, 7); ctx.fill(); screen(); text(s, sx, sy + dy, 48, { w: 700, color: C.warn, align: 'center', alpha: a }); };
+  // mốc giữ đến hết nhịp kết luận (luật thư viện: nhịp kết ở trạng thái kết luận): "Over" trái điểm cắt, "Stayed over" phải trên đoạn vượt
   const crossQ = 88 + (500000 - gain[88]) / (gain[89] - gain[88]);
+  const keep = 1 - ease(t, b.b9.fly - 0.4, b.b9.fly);
   if (t >= b.b6.cross - 0.05) {
-    const a = ease(t, b.b6.cross - 0.05, b.b6.cross + 0.25) * (1 - ease(t, 63.2, 64));
+    const a = ease(t, b.b6.cross - 0.05, b.b6.cross + 0.25) * keep;
     const fl = 1 - lin(t, b.b6.cross, b.b6.cross + 0.6);
-    if (fl > 0) { world(); ctx.strokeStyle = rgba(C.warn, fl); ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(qx(crossQ), Y(500000), 20 + 70 * (1 - fl), 0, 7); ctx.stroke(); screen(); }
-    mark(crossQ, `Over: ${CL('cross_quarter_at_200k_phoenix')}`, a * (1 - ease(t, b.b8.lbl - 0.2, b.b8.lbl + 0.2)), -96);
+    world();
+    if (fl > 0) { ctx.strokeStyle = rgba(C.warn, fl); ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(qx(crossQ), Y(500000), 20 + 70 * (1 - fl), 0, 7); ctx.stroke(); }
+    ctx.fillStyle = rgba(C.warn, a); ctx.beginPath(); ctx.arc(qx(crossQ), Y(500000), 9, 0, 7); ctx.fill(); screen();
+    const [sx, sy] = W2S(qx(crossQ), Y(500000));
+    text(`Over: ${CL('cross_quarter_at_200k_phoenix')}`, sx - 26, sy - 26, 48, { w: 700, color: C.warn, align: 'right', alpha: a });
   }
-  if (t >= b.b8.lbl - 0.1) mark(93, `Stayed over since ${CL('stay_quarter_at_200k_phoenix')}`, ease(t, b.b8.lbl - 0.1, b.b8.lbl + 0.3) * (1 - ease(t, b.b9.fly - 0.4, b.b9.fly)), -110);
+  if (t >= b.b8.lbl - 0.1) {
+    const a = ease(t, b.b8.lbl - 0.1, b.b8.lbl + 0.3) * keep, [sx, sy] = W2S(qx(93), Y(500000));
+    world(); ctx.fillStyle = rgba(C.warn, a); ctx.beginPath(); ctx.arc(qx(93), Y(500000), 9, 0, 7); ctx.fill(); screen();
+    text(`Stayed over since ${CL('stay_quarter_at_200k_phoenix')}`, 1824, sy - 140, 48, { w: 700, color: C.warn, align: 'right', alpha: a });
+  }
 
   // ---- b9: số bay từ đầu đường lên làm số hero (gọi lại câu mở đầu)
   if (t >= b.b9.fly - 0.05) {
