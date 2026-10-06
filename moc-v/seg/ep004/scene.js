@@ -31,7 +31,7 @@ export async function boot(res) {
     wDemoNear: { pos: [15.3, 3.0, 16.6], tgt: [13.3, 1.75, 6], fov: 35, chart: 0 },
     wDemoClose: { pos: [14.85, 2.75, 14.6], tgt: [13.4, 1.6, 6], fov: 35, chart: 0 },   // v3f: đẩy vào nhà + chồng đủ thấy
     cZoom: { pos: [7.0, 5.4, 20.9], tgt: [7.0, 5.4, 0], fov: 12, chart: 1 },
-    cTip: { pos: [8.9, 5.45, 16.0], tgt: [8.9, 5.45, 0], fov: 12, chart: 1 },          // v3d: chừa chỗ cho hộp số dưới huy hiệu ILLUSTRATIVE
+    cTip: { pos: [9.15, 5.25, 16.0], tgt: [9.15, 5.25, 0], fov: 12, chart: 1 },   // v3h: "past the cap" trong vùng an toàn; vật lên cao khỏi dòng chú          // v3d: chừa chỗ cho hộp số dưới huy hiệu ILLUSTRATIVE
   };
   const CAM = Camera(poses, mv);
 
@@ -78,15 +78,15 @@ export async function boot(res) {
     const bump = 0;                                                    // v3e: nhà không còn ở trên đỉnh chồng ở chế độ đồ thị → không nảy
     const flashCap = t >= S.marks.hop_land ? 1 - lin(t, S.marks.hop_land, S.marks.hop_land + 0.6) : 0;   // chớp ở chỗ chồng xuyên xà, đúng tiếng chạm sau "cap"
     const out11 = 1 - ease(t, M.wide.t0, M.wide.t1);                  // b11: đại lượng đổi lãi → GIÁ: đường lãi, xà, nhãn trần tắt hẳn (logic b3)
-    const off11 = 1 - ease(t, M.wide.t0, M.wide.t0 + 0.5);            // v3f: đại lượng LÃI (xà, đường, nhãn trần) rời ngay đầu cú lùi — không cross-fade với khung giá
-    const r11 = ease(t, M.wide.t0 + 0.1, b.b11.x + 0.3);               // cùng lúc: khối "what they paid" về đáy chồng 2026 — chồng lớn lên = GIÁ (khung luôn có chồng + nhà)
+    const off11 = 1 - ease(t, b.b11.t0, M.wide.t0 + 0.3);           // v3h: bắt đầu ở chữ "Phoenix" (rải dài hơn)            // v3f: đại lượng LÃI (xà, đường, nhãn trần) rời ngay đầu cú lùi — không cross-fade với khung giá
+    const r11 = ease(t, b.b11.t0, b.b11.x + 0.3);                      // đường lãi NÂNG $200,000 từ chữ "Phoenix" (thấy ngay trong khung đầu nhà)               // cùng lúc: khối "what they paid" về đáy chồng 2026 — chồng lớn lên = GIÁ (khung luôn có chồng + nhà)
     const gone11 = 1 - ease(t, M.wide.t0, M.wide.t1);                  // b11: nhà lãi + người rời cảnh (nhường hai chồng giá trị)
     heroStack.scale.set(hScale, 1, hScale);
-    const sh = t < M.wide.t0 ? heroStack.set({ usd, warnAboveUsd: riding ? 500000 : Infinity })
+    const sh = t < b.b11.t0 ? heroStack.set({ usd, warnAboveUsd: riding ? 500000 : Infinity })
       : heroStack.set({ usd: usd + 200000 * r11, tintBelowUsd: 200000 * r11 + 1, tintA: 1, warnAboveUsd: off11 > 0.5 ? 500000 + 200000 * r11 : Infinity });   // b11: lãi + cái đã trả = giá 2026
     // v3e (lượt đạo diễn v3d): ở chế độ ĐỒ THỊ điểm dữ liệu là ĐỈNH CHỒNG — nhà đứng cạnh, mái không vượt điểm dữ liệu (không "vượt trần" sớm)
     const houseH = hero.userData.height * hScale, hOff = cw * (0.5 * hScale + 0.75 * hScale + 0.06);
-    hero.scale.setScalar(hScale); hero.position.set(hOff, mix(sh, Math.max(0, Math.min(sh, t < M.wide.t0 ? 4.95 : 99) - houseH - 0.05), cw), 0);   // v3g: ở đồ thị mái nhà cũng KHÔNG vượt xà (đạo diễn v3f: gợi "giá nhà vượt trần")
+    hero.scale.setScalar(hScale); hero.position.set(hOff, mix(sh, Math.max(0, Math.min(sh, mix(4.95, sh, ease(t, M.wide.t1 - 0.3, M.wide.t1 + 0.3))) - houseH - 0.05), cw), 0);   // v3g: ở đồ thị mái nhà cũng KHÔNG vượt xà (đạo diễn v3f: gợi "giá nhà vượt trần")
     const roofY = hero.position.y + houseH;
     heroG.position.set(hx, 0, 0);
     // khu phố (b1) bật biển đúng tick, gom về nhà chính lúc "sales"
@@ -111,7 +111,7 @@ export async function boot(res) {
     const gA = ease(t, b.b0.has, b.b0.has + FADE) * (1 - ease(t, b.b1.blur, b.b1.blur + FADE));
     setOpacity(ghostBeam, 0.5 * gA);
     const drop = easeOut(t, b.b3.cap, b.b3.cap + 0.55), ext = easeOut(t, b.b3.flat, b.b3.flat + 0.8);   // rơi thấy được, khoá đúng tiếng trầm
-    beam.position.set(mix(X(0) + 1.9, 0, ext), mix(10.5, 5, drop), 0); beam.scale.x = mix(0.45, 1, ext);
+    beam.position.set(0, mix(10.5, 5, drop), 0); beam.scale.x = 1;   // v3h: xà ĐỦ dài ngay khi rơi; khoá đúng tiếng trầm; "flat" = vệt sáng quét dọc xà
     const end11 = 1 - ease(t, M.wide.t0, M.wide.t1);
     setOpacity(beam, t >= b.b3.cap ? cw * off11 : 0);
     { const d = Math.hypot(pose.pos[0] - pose.tgt[0], pose.pos[1] - pose.tgt[1], pose.pos[2] - pose.tgt[2]), ppu = 540 / (d * Math.tan(pose.fov * Math.PI / 360));
@@ -123,13 +123,13 @@ export async function boot(res) {
     // đường GIÁ TRỊ (b2) — vệt đỉnh chồng tiền; tắt ở b3
     if (t >= b.b2.quarter && !riding) {
       const pts = []; for (let q = 0; q <= Math.min(105, qDraw) + 1e-6; q += 0.25) pts.push([X(Math.min(q, qDraw)), valueAt(Math.min(q, qDraw)) / U]);
-      vRib.set(pts, 0.12, C.accent); vRib.material.opacity = cw * (1 - 0.82 * valueOff) * (1 - ease(t, M.toDemo.t0, M.toDemo.t0 + 0.5));   // v3g: giá trị còn mờ làm nền ở b3 (không khung trống)
+      vRib.set(pts, 0.12, C.accent); vRib.material.opacity = cw * (1 - valueOff);   // v3h: TẮT hẳn ở "cap" (đạo diễn v3g: đường mờ vẫn cắt trần ~2019 → đọc nhầm)
     } else vRib.material.opacity = 0;
     // đường LÃI (b5–b11) — vệt đỉnh chồng tiền khi phát lại; đoạn trên trần = warn
     if (riding) {
-      const pts = []; let pg = null; const lift = t >= M.wide.t0 ? 200000 * r11 : 0;   // v3g CẦU NỐI lãi → giá: cả đường LÃI nâng lên đúng $200,000 (cái đã trả) thành đường GIÁ (xanh)
+      const pts = []; let pg = null; const lift = t >= b.b11.t0 ? 200000 * r11 : 0;   // v3g CẦU NỐI lãi → giá: cả đường LÃI nâng lên đúng $200,000 (cái đã trả) thành đường GIÁ (xanh)
       for (let q = 0; q <= qRide + 1e-6; q += 0.25) { const qq = Math.min(q, qRide), g = at(qq);
-        if (t >= M.wide.t0) { pts.push([X(qq), (Math.max(0, g) + lift) / U, r11 > 0.5 ? C.accent : g > 500000 ? C.warn : C.ink]); continue; }
+        if (t >= b.b11.t0) { pts.push([X(qq), (Math.max(0, g) + lift) / U, r11 > 0.5 ? C.accent : g > 500000 ? C.warn : C.ink]); continue; }
         if (pg !== null && (pg - 500000) * (g - 500000) < 0) { const xq = qq - 0.25 * (g - 500000) / (g - pg); pts.push([X(xq), 5, pg > 500000 ? C.warn : C.ink], [X(xq) + 1e-4, 5, g > 500000 ? C.warn : C.ink]); }
         pts.push([X(qq), Math.max(0, g) / U, g > 500000 ? C.warn : C.ink]); pg = g; }
       const v3 = new THREE.Vector3(), ys = pts.map((p) => { v3.set(p[0], p[1], 0.45).project(cam); return (1 - v3.y) * 540; }); let cut0 = 0; for (let i = 0; i < ys.length; i++) if (ys[i] > 840) cut0 = i + 1; const vis = pts.slice(Math.min(cut0, Math.max(0, pts.length - 2)));   // bỏ phần ĐẦU đường nằm dưới dải chân trang (không nối tắt qua khoảng trống)
@@ -214,6 +214,8 @@ export async function boot(res) {
       // khung đầu nhà (b9–b10): trần vẫn có TÊN + SỐ ngay trên xà, chỗ đường lãi đã ở hẳn phía trên (2024–2025) — "past the cap" đọc được là "qua $500,000"
       const [tx_, ty_] = S2(X(96), 5); O.text(capS, tx_, ty_ - 22, 48, { kind: 'number', color: C.ink, alpha: la * ease(t, M.tip.t0, M.tip.t0 + 0.4) });   // tên xà không đứt trong cú đẩy
       // "the same in every quarter": cột mốc cao BẰNG NHAU ở mỗi năm, sáng lần lượt theo nhịp chạy dọc xà
+      const fw = lin(t, b.b3.flat, b.b3.flat + 0.6);   // "a flat line": vệt sáng quét dọc xà
+      if (fw > 0 && fw < 1) { const [fx, fy] = S2(mix(X(0) - 0.6, X(105) + 0.6, fw), 5); O.ctx.fillStyle = rgba(C.ink, 0.85 * ok); O.ctx.fillRect(fx - 90, fy - 7, 180, 14); }
       const sw = lin(t, b.b3.same, b.b3.same + 1.4), postA = (1 - ease(t, M.toDemo.t0, M.toDemo.t0 + 0.4)) * ok;
       if (t >= b.b3.same && postA > 0) for (let yr = 0; yr <= 26; yr++) { const q = Math.min(105, yr * 4), [px0, py0] = S2(X(q), 0), [, py1] = S2(X(q), 5), on = lin(sw, yr / 27, yr / 27 + 0.04);
         if (on > 0) { O.ctx.save(); O.ctx.globalAlpha = postA * on * (0.35 + 0.5 * (1 - lin(sw, yr / 27, yr / 27 + 0.25))); O.ctx.strokeStyle = C.ink; O.ctx.lineWidth = 4; O.ctx.beginPath(); O.ctx.moveTo(px0, py0); O.ctx.lineTo(px0, py1); O.ctx.stroke(); O.ctx.restore(); } }
@@ -256,14 +258,14 @@ export async function boot(res) {
       ease(t, b.b8.lbl, b.b8.lbl + POP) * keep * ok, 40, -150, 'left');
     // b9: số bay từ đỉnh chồng lên biển trên mái
     if (t >= b.b9.fly) {
-      const [tx, ty] = S2(hx, Math.max(0, at(qRide)) / U), [rx, ry0] = O.toScreen(hx + hOff, roofY, 0), ry = ry0 - 110;   // v3f: số BAY rõ (từ đỉnh chồng lên cao trên mái)
-      const f = ease(t, b.b9.fly, b.b9.land), o = out11 > 0.5 ? 1 - ease(t, M.wide.t0, M.wide.t0 + FADE) : 0;
+      const [tx, ty] = S2(hx, Math.max(0, at(qRide)) / U), [rx, ry] = O.toScreen(hx + 0.3, 6.15, 0);   // v3h: số bay từ đầu đường LÊN thành bảng trên đỉnh chồng   // v3f: số BAY rõ (từ đỉnh chồng lên cao trên mái)
+      const f = ease(t, b.b9.fly, b.b9.land), o = 1 - ease(t, b.b11.t0, b.b11.t0 + FADE);
       O.text(CL('gain_at_200k_phoenix'), mix(tx + 60, rx, f), mix(ty, ry, f), mix(60, 80, f), { kind: 'number', color: '#1B1F26', plate: '#E9E3D3', plateA: 0.95, align: 'center', alpha: o * ok * ease(t, b.b9.fly, b.b9.fly + POP) });
       O.text('their gain on paper', rx - 300, ry + 16, 48, { color: C.ink, align: 'right', alpha: ease(t, b.b9.land, b.b9.land + POP) * o * ok * gone11 });
     }
     // b10: ngoặc "past the cap"
     if (t >= b.b10.past - 0.05) {
-      const a = ease(t, b.b10.past, b.b10.past + POP) * (1 - ease(t, M.wide.t0, M.wide.t0 + FADE)) * ok;
+      const a = ease(t, b.b10.past, b.b10.past + POP) * (1 - ease(t, b.b11.t0, b.b11.t0 + FADE)) * ok;
       const [x0, y0] = S2(X(105) + hOff + 0.55, 5), [, y1f] = S2(0, at(105) / U), y1 = mix(y0, y1f, easeOut(t, b.b10.past, S.marks.hop_land));   // ngoặc MỌC từ xà lên đỉnh, chạm đỉnh đúng tiếng chạm sau "cap"
       O.bracket(x0, y0, y1, C.warn, a, 18, 6 + 4 * flashCap); O.text('past the cap', x0 + 50, (y0 + y1f) / 2 + 22, 60, { kind: 'compare', color: C.warn, alpha: a, plate: '#0B0E13', plateA: 0.75 });   // bên PHẢI chồng: không đè lên đường lãi
     }

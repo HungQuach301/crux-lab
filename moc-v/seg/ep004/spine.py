@@ -38,7 +38,7 @@ B = [
   ['whoosh mềm khi sương', 'tick mỗi nhà SOLD', 'hợp âm gom'], 0.35, 'rõ ràng, tin cậy', 'CHUYỂN CHẾ ĐỘ → đồ thị: "average of many sales" thành MỘT đường'),
  ('b2', 'S05.2', 'chart', 'Đi từng quý từ 2000 đến Q2 2026.', 'đồ thị chính diện: 3 quý đầu nhảy từng bước ("quarter by quarter"), rồi đường GIÁ TRỊ (vệt đỉnh chồng tiền) chạy tới 2026; nhãn năm theo đầu đường.',
   {'quarter': '@S05.2:quarter', 'y2000': '@S05.2:two', 'y2026': '@S05.2:twenty'}, ['âm dữ liệu: nốt theo giá trị'], 0.50, 'đà đi lên', 'đường giá trị tắt khi trần vào'),
- ('b3', 'S06.1', 'chart', 'Trần là đường phẳng $500,000, mọi quý như nhau.', 'đường giá trị + nhà TẮT (tránh đọc nhầm "giá nhà vượt trần"); xà trần rơi và khoá; nhãn "$500,000 cap"; nhịp sáng chạy dọc xà.',
+ ('b3', 'S06.1', 'chart', 'Trần là đường phẳng $500,000, mọi quý như nhau.', 'đường giá trị + nhà TẮT (tránh đọc nhầm "giá nhà vượt trần"); xà trần đủ dài rơi và khoá (tiếng trầm); "flat": vệt sáng quét dọc xà; nhãn "$500,000 cap"; "same in every quarter": cột mốc bằng nhau ở mỗi năm.',
   {'cap': '@S06.1:cap', 'flat': '@S06.1:flat', 'five': '@S06.1:five', 'same': '@S06.1:same'}, ['thud khi xà khoá', 'nhịp chạy dọc xà'], 0.45, 'chắc, cố định', 'CHUYỂN CHẾ ĐỘ → thế giới: "their gain" (về người)'),
  ('b4', 'S06.2', 'world', 'Lãi trên giấy = $200,000 lớn theo chỉ số − $200,000 đã trả.', 'cảnh minh hoạ trước mặt: nhà + Rosa & Frank, máy đẩy chậm vào nhà ("a home that rose like the average"); khối $200,000 dưới đáy chồng đổi màu teal (lúc "$200,000"); chồng lớn lên (lúc "grown"); khối đáy trượt sang phải, chồng hạ xuống (lúc "less"); lúc "paid" ngoặc đo phần còn lại = "their gain on paper".',
   {'gain': '@S06.2:gain', 'two': '@S06.2:two', 'grow': '@S06.2:grown', 'less': '@S06.2:less', 'paid': '@S06.2:paid'},
@@ -51,11 +51,11 @@ B = [
   {'slips': '@S06.5:slips'}, ['âm dữ liệu đi xuống'], 0.65, 'lưỡng lự', 'lên lại'),
  ('b8', 'S06.6', 'chart', 'Từ Q2 2023 ở trên luôn.', 'đường lên lại; đoạn trên xà warn tới 2026; nhãn "Stayed over since Q2 2023"; ba nhãn giữ tới khi số bay (trạng thái kết luận).',
   {'stay': '@S06.6:From', 'lbl': '@S06.6:second', 'above': '@S06.6:above'}, ['nốt sáng giữ'], 0.85, 'chắc dần', 'Rosa & Frank đến cạnh nhà'),
- ('b9', 'S07.1', 'chart', 'Con số của câu mở đầu là lãi của họ.', 'Rosa & Frank đứng cạnh nhà ở đầu đường; lúc "rose" mũi tên đi lên cạnh nhà (cùng mũi tên của b1); số "≈ $558,100" hiện ở đỉnh chồng và bay lên biển trên mái (lúc "this" → "opening"); nhãn "$500,000 cap" trên xà.',
+ ('b9', 'S07.1', 'chart', 'Con số của câu mở đầu là lãi của họ.', 'đẩy máy vào đầu đường (nhãn lịch sử rời khung); lúc "rose" mũi tên đi lên cạnh nhà (cùng mũi tên của b1); số "≈ $558,100" hiện ở đầu đường và bay LÊN thành bảng trên đỉnh chồng (lúc "this" → "opening"); nhãn "$500,000 cap" trên xà. Ở chế độ đồ thị không có người (người là vật của chế độ thế giới).',
   {'rose': '@S07.1:rose', 'fly': '@S07.1:this', 'land': '@S07.1:opening'}, ['swish theo đường bay', 'tick khi chạm biển'], 0.95, 'nhận ra', 'nhà nảy qua xà'),
- ('b10', 'S07.2', 'chart', 'Qua trần.', 'nhà nảy lên qua xà, chạm lại ngay sau chữ "cap" (tiếng chạm mềm); ngoặc warn bên phải chồng, từ xà tới đỉnh: "past the cap"; nhạc tắt ở "cap" → lặng tới "Phoenix".',
+ ('b10', 'S07.2', 'chart', 'Qua trần.', 'ngoặc warn bên phải chồng MỌC từ xà lên đỉnh, chạm đỉnh ngay sau chữ "cap" (tiếng chạm mềm + loé ở chỗ chồng xuyên xà): "past the cap"; nhạc tắt ở "cap" → lặng tới "Phoenix".',
   {'past': '@S07.2:past', 'cap': '@S07.2:cap'}, ['chạm mềm ngay sau "cap"', 'nhạc tắt ở "cap" → lặng ~1 s'], 1.00, 'đỉnh căng', 'LÙI MÁY: cả 26 năm'),
- ('b11', 'S07.3', 'chart', 'Giá vùng Phoenix gần ×3,8 so với 2000.', 'đổi đại lượng lãi → GIÁ: đường lãi, xà, nhãn trần tắt ngay khi lùi máy; khối teal "what they paid" về lại đáy chồng của họ ở 2026 (lãi + đã trả = giá), chồng giá 2000 (= cái họ trả, teal) mọc ở 2000; ngoặc "×1" và "×3.8" lúc "three"; tiêu đề "Phoenix-area prices since 2000".',
+ ('b11', 'S07.3', 'chart', 'Giá vùng Phoenix gần ×3,8 so với 2000.', 'đổi đại lượng lãi → GIÁ từ chữ "Phoenix": cả đường lãi NÂNG đúng $200,000 (cái đã trả) thành đường giá (xanh), khối teal "what they paid" về đáy chồng 2026; xà, nhãn trần tắt; máy lùi ra toàn cảnh; chồng giá 2000 (teal) ở 2000; ngoặc "×1" và "×3.8" lúc "three"; tiêu đề "Phoenix-area prices since 2000".',
   {'x': '@S07.3:three', 'lvl': '@S07.3:level'}, ['âm dữ liệu lên một quãng'], 0.30, 'thả, hiểu', '(hết) giữ trạng thái kết luận ≥ 1 s'),
 ]
 beats = []
@@ -135,7 +135,7 @@ EV += [{'t': cue['b0']['has'], 'kind': 'riser', 'to': cue['b0']['q']},
        {'t': cue['b9']['fly'], 'kind': 'swish', 'to': cue['b9']['land']}, {'t': cue['b9']['land'], 'kind': 'tick', 'v': 0.7},
        {'t': cue['b10']['cap'] + HOP, 'kind': 'land', 'mode': False},   # nhà nảy qua xà, CHẠM ĐẤT ngay sau chữ "cap" (lượt đạo diễn v3c); sau đó lặng
        {'t': cue['b9']['rose'], 'kind': 'rise', 'dur': 0.9}]                  # mũi tên "rose" (cùng từ vựng hình với b1)
-GAIN = {'wide': 0.35, 'tip': 0.5, 'backChart': 0.5, 'toChart': 0.6, 'toDemo': 0.6}   # lượt đạo diễn v3c: whoosh_mode/whoosh dài quá to
+GAIN = {'demoPush': 2.0, 'wide': 0.35, 'tip': 0.5, 'backChart': 0.5, 'toChart': 0.6, 'toDemo': 0.6}   # lượt đạo diễn v3c: whoosh_mode/whoosh dài quá to
 for m in moves:                                # quy tắc 3: mọi động tác có âm; mỗi LOẠI động tác một âm riêng, chỉ đổi chế độ mới có tiếng chạm
     EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': GAIN.get(m['id'], 1.0)})
     if m['verb'] == 'mode': EV.append({'t': m['t1'], 'kind': 'land', 'mode': True})

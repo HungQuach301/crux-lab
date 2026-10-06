@@ -1368,7 +1368,7 @@
    "sid": "S06.1",
    "mode": "chart",
    "idea": "Trần là đường phẳng $500,000, mọi quý như nhau.",
-   "visual": "đường giá trị + nhà TẮT (tránh đọc nhầm \"giá nhà vượt trần\"); xà trần rơi và khoá; nhãn \"$500,000 cap\"; nhịp sáng chạy dọc xà.",
+   "visual": "đường giá trị + nhà TẮT (tránh đọc nhầm \"giá nhà vượt trần\"); xà trần đủ dài rơi và khoá (tiếng trầm); \"flat\": vệt sáng quét dọc xà; nhãn \"$500,000 cap\"; \"same in every quarter\": cột mốc bằng nhau ở mỗi năm.",
    "line": "Here's the cap: a flat line at five hundred thousand dollars, the same in every quarter.",
    "sound": [
     "thud khi xà khoá",
@@ -1496,7 +1496,7 @@
    "sid": "S07.1",
    "mode": "chart",
    "idea": "Con số của câu mở đầu là lãi của họ.",
-   "visual": "Rosa & Frank đứng cạnh nhà ở đầu đường; lúc \"rose\" mũi tên đi lên cạnh nhà (cùng mũi tên của b1); số \"≈ $558,100\" hiện ở đỉnh chồng và bay lên biển trên mái (lúc \"this\" → \"opening\"); nhãn \"$500,000 cap\" trên xà.",
+   "visual": "đẩy máy vào đầu đường (nhãn lịch sử rời khung); lúc \"rose\" mũi tên đi lên cạnh nhà (cùng mũi tên của b1); số \"≈ $558,100\" hiện ở đầu đường và bay LÊN thành bảng trên đỉnh chồng (lúc \"this\" → \"opening\"); nhãn \"$500,000 cap\" trên xà. Ở chế độ đồ thị không có người (người là vật của chế độ thế giới).",
    "line": "[serious] So, on paper, if their home rose like the Phoenix average, this is the gain from the opening.",
    "sound": [
     "swish theo đường bay",
@@ -1518,7 +1518,7 @@
    "sid": "S07.2",
    "mode": "chart",
    "idea": "Qua trần.",
-   "visual": "nhà nảy lên qua xà, chạm lại ngay sau chữ \"cap\" (tiếng chạm mềm); ngoặc warn bên phải chồng, từ xà tới đỉnh: \"past the cap\"; nhạc tắt ở \"cap\" → lặng tới \"Phoenix\".",
+   "visual": "ngoặc warn bên phải chồng MỌC từ xà lên đỉnh, chạm đỉnh ngay sau chữ \"cap\" (tiếng chạm mềm + loé ở chỗ chồng xuyên xà): \"past the cap\"; nhạc tắt ở \"cap\" → lặng tới \"Phoenix\".",
    "line": "That's past the cap.",
    "sound": [
     "chạm mềm ngay sau \"cap\"",
@@ -1539,7 +1539,7 @@
    "sid": "S07.3",
    "mode": "chart",
    "idea": "Giá vùng Phoenix gần ×3,8 so với 2000.",
-   "visual": "đổi đại lượng lãi → GIÁ: đường lãi, xà, nhãn trần tắt ngay khi lùi máy; khối teal \"what they paid\" về lại đáy chồng của họ ở 2026 (lãi + đã trả = giá), chồng giá 2000 (= cái họ trả, teal) mọc ở 2000; ngoặc \"×1\" và \"×3.8\" lúc \"three\"; tiêu đề \"Phoenix-area prices since 2000\".",
+   "visual": "đổi đại lượng lãi → GIÁ từ chữ \"Phoenix\": cả đường lãi NÂNG đúng $200,000 (cái đã trả) thành đường giá (xanh), khối teal \"what they paid\" về đáy chồng 2026; xà, nhãn trần tắt; máy lùi ra toàn cảnh; chồng giá 2000 (teal) ở 2000; ngoặc \"×1\" và \"×3.8\" lúc \"three\"; tiêu đề \"Phoenix-area prices since 2000\".",
    "line": "Phoenix area prices are now almost three point eight times their two thousand level.",
    "sound": [
     "âm dữ liệu lên một quãng"
@@ -1960,7 +1960,7 @@
    "t": 30.674,
    "kind": "whoosh_air",
    "dur": 2.6,
-   "gain": 1.0
+   "gain": 2.0
   },
   {
    "t": 33.94,

@@ -19,7 +19,7 @@ export async function boot(res) {
   const st = Stage(res), { renderer, O } = st;
   const scene = new THREE.Scene(); const { floor } = Studio(scene, { shadowBox: 22 });
   const poses = {
-    wYou: { pos: [WX + 2.7, 2.2, 8.2], tgt: [WX + 1.0, 1.6, 0.4], fov: 35, chart: 0 },
+    wYou: { pos: [WX + 2.0, 2.3, 7.8], tgt: [WX + 0.85, 1.75, 0.3], fov: 35, chart: 0 },   // E5d: chặt vào nhà + bạn; lùi máy mới mở ra căn hộ (lý do của cú pull)
     wFork: { pos: [WX + 2.6, 3.0, 11.8], tgt: [WX + 2.1, 1.6, 0], fov: 35, chart: 0 },
     cSched: { pos: [0, 2.0, 35.2], tgt: [0, 2.0, 0], fov: 12, chart: 1 },
     cDef: { pos: [16.8, 2.6, 40.0], tgt: [16.8, 2.6, 0], fov: 12, chart: 1 },
@@ -29,7 +29,9 @@ export async function boot(res) {
   const CAM = Camera(poses, all);
   // ---- vật thể
   // nhà ĐỨNG TRÊN chồng giá của nó (cùng từ vựng hình Tập 4); chồng của người xem = 10 % chồng giá, đặt cạnh để so bằng mắt
-  const price = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); price.position.set(WX, 0, 0); const priceH = price.set({ usd: 400000 }); scene.add(price);   // E5c: 10 % đáy chồng giá sáng lên trong khoảng nghỉ sau câu 1 (= chồng của bạn)
+  const price = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); price.position.set(WX, 40000 / UW, 0); const priceH = price.set({ usd: 400000, fromUsd: 40000, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 }) + 40000 / UW; scene.add(price);   // E5d: chồng GIÁ = khung mờ …
+  const priceBase = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); priceBase.position.set(WX, 0, 0); priceBase.set({ usd: 40000, tintBelowUsd: 40001, tint: C.cushion, tintA: 1 }); scene.add(priceBase);   // … với 10 % đáy ĐẶC (= số bạn đã để dành)
+  const loanW = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); loanW.position.set(WX - 1.2, 0, 0.2); scene.add(loanW);   // c5: khoản vay (xám) đã xuống 80 % giá   // E5c: 10 % đáy chồng giá sáng lên trong khoảng nghỉ sau câu 1 (= chồng của bạn)
   const house = House({ w: 1.5 }); house.position.set(WX, priceH, 0); scene.add(house);
   const mine = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); mine.position.set(WX + 1.15, 0, 0); scene.add(mine);   // sát chồng giá, cùng đáy: 10 % so bằng mắt
   const you = Person({ h: 1.15, color: PALETTE.person2 }); you.position.set(WX + 2.1, 0, 0.6); you.rotation.y = -0.4; scene.add(you);
@@ -56,11 +58,12 @@ export async function boot(res) {
     scene.fog.near = mix(30, 150, cw); scene.fog.far = mix(80, 300, cw);   // sương thế giới không phủ đồ thị (bài học Tập 4 v3d)
     // ---------- thế giới: c0–c1, c5
     const worldA = 1;   // E5b: vật thế giới KHÔNG mờ đi — máy quay đi khỏi chúng (đạo diễn E5a: đổi chế độ thành fade)
-    for (const o of [house, apt, you, price]) setOpacity(o, worldA);
+    for (const o of [house, apt, you, priceBase]) setOpacity(o, worldA);
+    setOpacity(price, 1.0);   // đặc, xám nhạt (bản mờ không hiện được với InstancedMesh trong suốt)   // khung mờ: giá của căn nhà, không phải tiền của bạn
+    const lw = ease(t, b.c5.t0, b.c5.same); loanW.set({ usd: 320000 * lw, tintBelowUsd: 1e9, tint: C.muted, tintA: 0.85 }); setOpacity(loanW, lw > 0.01 ? 1 : 0);
     const myUsd = t < b.c0.ten ? 0 : 40000 * easeOut(t, b.c0.ten - 0.05, b.c0.ten + 0.2) + 40000 * easeOut(t, b.c1.twenty - 0.05, b.c1.twenty + 0.9);
-    mine.set({ usd: myUsd }); setOpacity(mine, worldA);
+    mine.set({ usd: myUsd, tintBelowUsd: 1e9, tint: C.cushion, tintA: 1 });   // cùng màu dải 10 % đáy chồng giá setOpacity(mine, worldA);
     tick20.material.opacity = worldA * ease(t, b.c1.renting, b.c1.renting + POP);
-    price.set({ usd: 400000, tintBelowUsd: 40001, tint: C.cushion, tintA: ease(t, S.marks.ten_lit, S.marks.ten_lit + 0.4) * (1 - ease(t, b.c1.buy, b.c1.buy + 0.5)) });
     target.set({ usd: 80000 }); setOpacity(target, 0.28 * ease(t, b.c1.renting, b.c1.renting + POP) * (1 - ease(t, mv[0].t0, mv[0].t0 + 0.3)));   // đích 20 %: khung mờ
     // khiên rơi lên mái lúc "insurance", ở lại (c5 rung nhẹ lúc "same" rồi đứng yên lúc "removed")
     const sd = easeOut(t, b.c1.insurance - 0.05, b.c1.insurance + 0.25), wob = t >= b.c5.same && t < b.c5.removed + 0.3 ? Math.sin((t - b.c5.same) * 18) * 0.12 * (1 - lin(t, b.c5.removed - 0.2, b.c5.removed + 0.3)) : 0;
@@ -114,9 +117,8 @@ export async function boot(res) {
       for (let yr = 0; yr <= 10; yr += 2) { const [x, y] = S2(XM(yr * 12), 0); O.text(yr === 10 ? '10 years' : String(yr), x, y + 48, 44, { kind: 'number', w: 600, color: C.muted, align: 'center', alpha: aA }); }
       for (const l of [1.0, 0.9, 0.8]) { const [x, y] = S2(XM(0), YL(l)); O.text(`${Math.round(l * 100)}%`, x - 24, y + 16, 48, { kind: 'number', color: l === 0.8 ? C.ink : C.muted, align: 'right', alpha: aA * (l === 1.0 ? ease(t, b.c3.replayed - 0.05, b.c3.replayed + POP) : 1) }); }
       O.text('loan as a share of the price · on the schedule', 960, 230, 52, { kind: 'compare', align: 'center', color: C.muted, alpha: aA * (1 - ease(t, b.c3.replayed - 0.3, b.c3.replayed - 0.05)) });
-      O.text('What happened to past buyers · not a plan for yours', 960, 290, 48, { color: C.chrome, w: 600, align: 'center', alpha: aA * ease(t, b.c3.month, b.c3.month + POP) });   // vòng mù Tập 5 #3: E1 vẫn ra lời khuyên → đối trọng ngay trên bó đường
-      O.text('loan ÷ home value by a national index · one line per purchase month, 1991–2016', 960, 230, 44, { kind: 'compare', align: 'center', color: C.ink, alpha: aA * ease(t, b.c3.replayed, b.c3.replayed + POP) });
-      const eA = ease(t, b.c2.eight - 0.05, b.c2.eight + POP) * aA;
+      O.text('Loan ÷ home value · one line per purchase month, 1991–2016', 960, 230, 48, { kind: 'compare', align: 'center', color: C.ink, alpha: aA * ease(t, b.c3.replayed, b.c3.replayed + POP) });
+      const eA = ease(t, b.c2.eight, b.c2.eight + POP) * aA;
       if (eA > 0) { const [x, y] = S2(XM(D.sched80), YL(0.8)); O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath(); O.ctx.moveTo(x, y); O.ctx.lineTo(x, S2(0, 0)[1]); O.ctx.stroke(); O.ctx.restore();
         O.text('about 8 years', x - 16, y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
       if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text('typical', x + 20, y + 60, 52, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
@@ -139,8 +141,8 @@ export async function boot(res) {
     if (kA > 0) { const [x, y] = O.toScreen(WX, roofY + 0.75, 0.2); O.text('insurance still on', x, y - 20, 56, { align: 'center', alpha: kA, plate: '#0B0E13', plateA: 0.7 }); }
     O.chrome({ illus: t >= b.c2.schedule, illusA: ease(t, b.c2.schedule, b.c2.schedule + POP), src: t >= b.c2.schedule ? 'Source: FHFA · Freddie Mac via FRED' : null, srcA: ease(t, b.c2.schedule, b.c2.schedule + POP),
       hist: t >= b.c3.replayed, histA: ease(t, b.c3.replayed, b.c3.replayed + POP),
-      cw: t >= b.c2.schedule ? 'Past buyers, measured · not a reason to buy, rent or wait' : null,
-      cwA: ease(t, b.c2.schedule, b.c2.schedule + POP) });   // đối trọng kênh; vòng mù Tập 5 #2: E1 vẫn khuyên "ở đủ lâu mới mua" → câu rõ hơn (vòng mù #1: E1 có câu khuyên "chỉ mua nếu…")
+      cw: t >= b.c3.replayed ? 'Past buyers, measured · not a reason to buy, rent or wait' : t >= b.c2.schedule ? 'A measurement, not a next step' : null,
+      cwA: t >= b.c3.replayed ? ease(t, b.c3.replayed, b.c3.replayed + POP) : ease(t, b.c2.schedule, b.c2.schedule + POP) });   // đối trọng kênh; vòng mù Tập 5 #2: E1 vẫn khuyên "ở đủ lâu mới mua" → câu rõ hơn (vòng mù #1: E1 có câu khuyên "chỉ mua nếu…")
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }
   return { canvas: st.out, frame };

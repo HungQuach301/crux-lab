@@ -78,8 +78,8 @@ for verb, a, b, after, before, dur, reason, snd in MOVES:
     t0, t1 = window(after, before, dur, late=(verb == 'pan')); moves.append({'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
 
 D = json.load(open(os.path.join(ROOT, 'moc-v/work/ep005-data/derived.json')))
-KT = next(k for k, l in enumerate(D['sched']) if l < 0.8 + 0.003)                # tháng đường CHẠM vạch về mặt hình (bề dày dải ≈ 0,01)
-SCHED = [[cue['c2']['schedule'], 0], [cue['c2']['eight'], KT], [cue['c2']['eight'] + 0.5, D['sched80']]]   # chạm vạch ĐÚNG chữ "eight" (E5a: hình sớm hơn chime)
+KT = next(k for k, l in enumerate(D['sched']) if l < 0.8 + 0.015)                # tháng đường còn RÕ trên vạch (bề dày dải ≈ 0,007)
+SCHED = [[cue['c2']['schedule'], 0], [cue['c2']['eight'] - 0.5, KT], [cue['c2']['eight'], D['sched80']]]   # E5d: lơ lửng rồi CHẠM vạch đúng chữ "eight"   # chạm vạch ĐÚNG chữ "eight" (E5a: hình sớm hơn chime)
 FAN = [[cue['c3']['replayed'], 0], [cue['c3']['paper'], 1]]                        # tỉ lệ bó đã hiện (theo tháng mua)
 EV = []
 for k in range(0, D['sched80'] + 1, 12):
@@ -89,7 +89,6 @@ EV += [{'t': cue['c0']['ten'], 'kind': 'tick', 'v': 0.6},
        {'t': cue['c1']['insurance'], 'kind': 'land', 'mode': False},
        {'t': cue['c1']['twenty'], 'kind': 'rise', 'dur': 0.9},
        {'t': cue['c2']['eight'], 'kind': 'chime'},
-       *[{'t': round(FAN[0][0] + (FAN[1][0] - FAN[0][0]) * k / 10, 3), 'kind': 'tick', 'v': 0.25 + 0.03 * k} for k in range(0, 11, 2)],
        {'t': cue['c3']['typically'], 'kind': 'data', 'v': 0.8},
        {'t': cue['c3']['slow'], 'kind': 'data', 'v': 0.2},
        {'t': cue['c4']['eighty'], 'kind': 'chime'},
