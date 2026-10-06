@@ -12,7 +12,7 @@ P = dict(downShare=0.10, termMonths=360, requestLtv=0.80, autoLtv=0.78, lenderLt
          slowCutMonths=60, illustrativePrice=400000, rateMonthRule='latest calendar month whose weeks are complete '
          '(the next weekly date falls in a later month); monthly rate = mean of the weekly values dated in that month')
 EPS = 1e-12
-NAMES = {'fast': 'Nora', 'typical': 'Ben', 'slow': 'Carla'}  # gợi ý; tên cuối chọn sau (ASR)
+NAMES = {'owen': 'Owen', 'grace': 'Grace', 'victor': 'Victor'}  # tên chốt ở C2 (numbers.md); khoá = buyers của contract.json
 
 
 def load(sid):
@@ -117,11 +117,11 @@ def main():
                 'gse_charter_ltv_max_uninsured': P['requestLtv']})
     # người mua minh hoạ (ILLUSTRATIVE), đều trong tập B (đủ >120 tháng theo dõi)
     med = raw['medianB_months_to80']
-    fast = min(B, key=lambda m: (hit[m], -int(m[:4]), m))           # nhanh nhất; hoà → năm muộn nhất
-    typ = max((m for m in B if hit[m] == med), key=lambda m: m)       # đúng trung vị, tháng muộn nhất
-    slow = raw['maxB_start']
+    owen = min(B, key=lambda m: (hit[m], -int(m[:4]), m))           # nhanh nhất (min); hoà → năm muộn nhất, rồi tháng sớm nhất
+    grace = max((m for m in B if hit[m] == med), key=lambda m: m)     # đúng trung vị, tháng muộn nhất
+    victor = raw['maxB_start']                                        # chậm nhất (max); hoà → sớm nhất
     buyers = {}
-    for key, m in (('fast', fast), ('typical', typ), ('slow', slow)):
+    for key, m in (('owen', owen), ('grace', grace), ('victor', victor)):
         buyers[key] = {'name': NAMES[key], 'purchaseMonth': m, 'rate': rate[m], 'monthsTo80Index': hit[m],
                        'sched80Months': sched(rate[m], P['requestLtv']), 'sched78Months': sched(rate[m], P['autoLtv']),
                        'ltvIndexAt24': l24.get(m), 'hpiChangeTo80Pct': 100 * (hpi[sorted(hpi)[sorted(hpi).index(m) + hit[m]]] / hpi[m] - 1),

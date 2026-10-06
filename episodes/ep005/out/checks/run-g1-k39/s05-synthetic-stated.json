@@ -1,0 +1,255 @@
+{
+ "root": "/tmp/claude-0/-home-user-crux-lab/df7acaf1-1be7-5520-a20c-d80d630f692a/scratchpad/root-stated",
+ "contract": "/tmp/claude-0/-home-user-crux-lab/df7acaf1-1be7-5520-a20c-d80d630f692a/scratchpad/root-stated/contract.json",
+ "lock": "d93276a491dd366c08ea0464d8de23bca80d82082a0c7be66ea2d555fd366b4a",
+ "video_sha256": null,
+ "episode": "TRƯỢT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 2,
+   "pass": 1,
+   "notPass": [
+    "S05 FAIL"
+   ]
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "explained": {},
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 0,
+   "pass": 0,
+   "notPass": []
+  }
+ },
+ "counts": {
+  "PASS": 1,
+  "FAIL": 1,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "S01",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "values compared",
+     "value": 104,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mismatches",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "model parts not re-computed",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "kind": "ltv-first-passage",
+     "notRecomputed": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1",
+   "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
+   "fingerprint": "bd6d0ee85cf6c7c1",
+   "tier": "BLOCK",
+   "seconds": 0.1
+  },
+  {
+   "id": "S05",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "mapped claims",
+     "value": 78,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mapped claims absent",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims off their re-computation",
+     "value": 4,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "schedules with B_0 ≠ L0, B_n ≠ 0 or a balance not strictly decreasing (every monthly rate)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "rates where sched(requestLtv) < sched(autoLtv) ≤ n fails, or a schedule decreasing in the rate",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "set-B months with T < 1",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "set-B months with the index never below purchase yet T later than the schedule",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "share at ≤ 75 minus share at ≤ 80 (set A)",
+     "value": -0.42928,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "set-B months whose first passage is not observed (censored)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "shares outside [0, 1], nA < nB, or lastB ≥ lastA",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "latest rate month incomplete, or a partial month not after it",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "buyers not in set B, not at their min / median / max, or not picked by their tie rule",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "quantities changed when the index is multiplied by 2.5 (index levels aside)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims missing their ILLUSTRATIVE flag",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "off": [
+      [
+       "buyer_owen_hpiChangeTo80Pct",
+       "buyer_owen_hpiChangeTo80Pct",
+       11.2,
+       11.1684
+      ],
+      [
+       "buyer_grace_hpiChangeTo80Pct",
+       "buyer_grace_hpiChangeTo80Pct",
+       9.8,
+       9.7732
+      ],
+      [
+       "buyer_victor_hpiChangeTo80Pct",
+       "buyer_victor_hpiChangeTo80Pct",
+       -3.3,
+       -3.2821
+      ],
+      [
+       "hpi_peak_to_trough_pct",
+       "hpi_peak_to_trough_pct",
+       -22.2,
+       -22.2124
+      ]
+     ],
+     "absent": [],
+     "missingIllustrative": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1, DX-H2",
+   "threshold": "≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months after normalisation, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag",
+   "fingerprint": "e57ec71dadeccbb2",
+   "tier": "BLOCK",
+   "seconds": 0.1
+  }
+ ]
+}
