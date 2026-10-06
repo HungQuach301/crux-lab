@@ -10,6 +10,7 @@ const X = (yr) => 420 + (yr - 2000) / 26.5 * 1300;
 const Y = (v) => 900 - v / 800000 * 640;
 const qx = (q) => X(S.qYear(q));
 const dataEv = spine.events.filter((e) => e.kind === 'data');
+const popT = spine.events.filter((e) => e.kind === 'tick' && e.pop !== undefined).map((e) => e.t);   // mỗi nhà SOLD bật = một tick âm
 const BILL = '#5E8C6A', BILL2 = '#4C7558', STRAP = '#E9E3D3';
 
 function camAt(t) {
@@ -63,14 +64,14 @@ function frame(t) {
   world(); ctx.fillStyle = '#161B24'; ctx.fillRect(-400, Y(0), 3000, 400); ctx.fillStyle = C.grid; ctx.fillRect(-400, Y(0), 3000, 3); screen();
 
   // b1: khu phố — nhiều nhà, biển SOLD bật lên (nhiều giao dịch), giá gom về một (trung bình)
-  const manyA = lin(t, b.b1.many - 4.6, b.b1.many - 1.0), gather = ease(t, b.b1.avg - 0.2, b.b1.avg + 0.8);
+  const manyA = t >= popT[0] - 0.1 ? 1 : 0, gather = ease(t, b.b1.avg - 0.2, b.b1.avg + 0.8);
   if (manyA > 0 && gather < 1) {
     world();
-    for (let k = 0; k < 10; k++) {
-      const hx = k < 4 ? 80 + k * 66 : 520 + (k - 4) * 70, s = 44 + (k % 3) * 8, ap = lin(manyA, k / 12, k / 12 + 0.12);
+    for (let k = 0; k < popT.length; k++) {
+      const hx = k < 4 ? 80 + k * 66 : 520 + (k - 4) * 60, s = 44 + (k % 3) * 8, ap = lin(t, popT[k] - 0.05, popT[k] + 0.1);
       if (ap <= 0) continue;
       house(ctx, hx, Y(0), s, { alpha: ap * (1 - gather), wall: '#B8BFCA', roof: '#5F6B7A', win: '#C9D2DD' });
-      const sold = lin(manyA, k / 12 + 0.1, k / 12 + 0.2);
+      const sold = lin(t, popT[k], popT[k] + 0.12);
       if (sold > 0) { // biển SOLD; khi gom: thẻ giá bay về nhà của Rosa & Frank
         const fx = mix(hx + s * 0.5, X(2000), gather), fy = mix(Y(0) - s * 1.25, Y(200000) - 40, gather);
         ctx.globalAlpha = sold * (1 - gather * 0.9); ctx.fillStyle = C.costlier; ctx.fillRect(fx - 26, fy - 14, 52, 24);
@@ -83,7 +84,8 @@ function frame(t) {
 
   // lịch xé (thời gian): từ b2
   const qDraw = interp(spine.draw, t), qRide = t >= b.b5.t0 ? interp(spine.ride, t) : -1;
-  const qNow = qRide >= 0 ? qRide : Math.min(105, qDraw);
+  const rw = ease(t, b.b5.t0 - 0.75, b.b5.t0 + 0.15);   // tua về 2000 dọc đường lãi (lượt đạo diễn: không mờ-nhảy)
+  const qNow = qRide >= 0 ? qRide : Math.min(105, qDraw) * (1 - rw);
   const calA = ease(t, b.b2.draw0 - 0.6, b.b2.draw0) * (1 - ease(t, b.b9.fly - 0.6, b.b9.fly));
   if (calA > 0) {
     const yrF = S.qYear(qNow) - 0.125, yr = Math.floor(yrF), flip = qNow >= 105 ? 0 : clamp((yrF - yr) * 4 - 3, 0, 1) * 0;
@@ -110,7 +112,8 @@ function frame(t) {
   if (t >= b.b2.draw0) {
     world(); ctx.lineJoin = 'round'; const isGain = slide > 0.5, qEnd = Math.min(105, qDraw);
     ctx.beginPath(); for (let q = 0; q <= qEnd; q += 0.25) { const x = qx(q), y = Y(at(gain, q) + off); q === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }
-    ctx.strokeStyle = rgba(isGain ? C.ink : C.accent, (qRide >= 0 ? 0.3 : 0.75) * trailA); ctx.lineWidth = 4; ctx.stroke();
+    const dimV = t < b.b3.cap || isGain ? 1 : t < b.b4.grow - 0.2 ? mix(1, 0.25, ease(t, b.b3.cap + 0.3, b.b3.cap + 0.9)) : mix(0.25, 1, ease(t, b.b4.grow - 0.2, b.b4.grow + 0.4));
+    ctx.strokeStyle = rgba(isGain ? C.ink : C.accent, (qRide >= 0 ? 0.3 : 0.75) * trailA * dimV); ctx.lineWidth = 4; ctx.stroke();
     if (qRide >= 0) for (let q = 0; q < qRide; q += 0.25) {
       const q2 = Math.min(qRide, q + 0.25), g1 = at(gain, q), g2 = at(gain, q2);
       ctx.beginPath(); ctx.moveTo(qx(q), Y(g1)); ctx.lineTo(qx(q2), Y(g2)); ctx.strokeStyle = rgba((g1 + g2) / 2 > 500000 ? C.warn : C.ink, trailA); ctx.lineWidth = 5; ctx.stroke();
@@ -124,26 +127,31 @@ function frame(t) {
 
   // nhân vật chính: NHÀ trên CHỒNG TIỀN
   const heroA = 1 - ease(t, 62.9, 63.5);
-  const swapA = t >= b.b5.t0 - 0.5 && t < b.b5.t0 + 0.6 ? Math.abs(lin(t, b.b5.t0 - 0.5, b.b5.t0 + 0.6) * 2 - 1) : 1; // nhà về đầu 2000 (mờ ra, hiện lại)
+  const swapA = 1;
   {
     let hx, top, lo, w, hw;
     if (t < b.b2.draw0) { hx = X(2000); lo = 0; top = 200000; w = 70; hw = 130; }
     else { const q = qNow; hx = qx(q); top = (qRide >= 0 ? at(gain, q) : at(gain, q) + off); lo = qRide >= 0 ? 0 : -200000 * slide; w = 58; hw = mix(130, 84, ease(t, b.b2.draw0, b.b2.draw0 + 0.8)); }
     const fog = ease(t, b.b1.blur, b.b1.blur + 0.6) * (1 - ease(t, b.b1.avg + 0.3, b.b1.avg + 1.0));
     world(); ctx.globalAlpha = heroA * swapA;
-    const paidHi = ease(t, b.b4.grow - 0.3, b.b4.grow + 0.3);
+    const paidHi = ease(t, b.b4.two - 0.1, b.b4.two + 0.3);
     // b4: phần $200,000 đã trả trượt ra trái rồi chồng hạ xuống
     if (t < b.b2.draw0) stack(hx, 0, 200000, w);
     else if (qRide < 0) {
       const val = at(gain, qNow) + 200000;
-      ctx.save(); ctx.translate(-260 * slide, 0); ctx.globalAlpha = heroA * swapA * (1 - 0.8 * slide); stack(hx, 0, 200000, w, { paid: paidHi > 0, paidA: paidHi }); ctx.restore();
+      ctx.save(); ctx.translate(-260 * slide, 0); ctx.globalAlpha = heroA * swapA * (1 - slide); stack(hx, 0, 200000, w, { paid: paidHi > 0, paidA: paidHi }); ctx.restore();
       ctx.save(); ctx.translate(0, (Y(0) - Y(200000)) * slide); stack(hx, 200000, val, w); ctx.restore();
       ctx.globalAlpha = heroA * swapA;
     } else stack(hx, 0, Math.max(0, top), w, { over: true });
     let pulse = 0; for (const e of dataEv) if (t >= e.t && t < e.t + 0.18) pulse = Math.max(pulse, 1 - (t - e.t) / 0.18);
     const roofY = t < b.b2.draw0 ? Y(200000) : Y(Math.max(0, top));
     if (pulse > 0 && t > b.b2.draw0) { ctx.fillStyle = rgba(qRide >= 0 && top > 500000 ? C.warn : C.ink, 0.25 * pulse); ctx.beginPath(); ctx.arc(hx, roofY - hw * 0.4, hw * 0.6 + 10 * pulse, 0, 7); ctx.fill(); }
-    house(ctx, hx, roofY, hw);
+    const bump = t >= b.b10.past ? Math.sin(Math.PI * lin(t, b.b10.past, b.b10.past + 0.35)) * 18 : 0;
+    house(ctx, hx, roofY - bump, hw);
+    const back = ease(t, b.b9.t0, b.b9.t0 + 0.8);   // Rosa & Frank trở lại trên mái khi lời nói về lãi của họ
+    if (back > 0 && qRide >= 0) { ctx.globalAlpha = back * heroA; person(ctx, hx - hw * 0.75, roofY - bump, 0.3, '#E9C9A8', { hair: true }); person(ctx, hx + hw * 0.75, roofY - bump, 0.32, '#C9D6E8'); ctx.globalAlpha = 1; }
+    const upA = ease(t, b.b1.rise - 0.1, b.b1.rise + 0.3) * (1 - ease(t, b.b1.many - 0.5, b.b1.many));   // 'let its value rise'
+    if (upA > 0) { ctx.fillStyle = rgba(C.accent, upA); const ux = hx + hw * 0.85, uy = roofY - hw * 0.3 - 30 * ease(t, b.b1.rise, b.b1.rise + 1.2); ctx.beginPath(); ctx.moveTo(ux, uy - 34); ctx.lineTo(ux - 18, uy - 8); ctx.lineTo(ux + 18, uy - 8); ctx.closePath(); ctx.fill(); ctx.fillRect(ux - 6, uy - 10, 12, 34); }
     if (fog > 0) { for (let k = 0; k < 7; k++) { ctx.fillStyle = rgba('#AEB6C2', 0.22 * fog); ctx.beginPath(); ctx.arc(hx - 70 + k * 24, roofY - 50 - (k % 3) * 18, 46, 0, 7); ctx.fill(); }
       ctx.font = '700 64px Inter'; ctx.fillStyle = rgba(C.ink, fog); ctx.textAlign = 'center'; ctx.fillText('?', hx, roofY - 34); ctx.textAlign = 'left'; }
     ctx.globalAlpha = 1;
@@ -164,13 +172,26 @@ function frame(t) {
   }
 
   // b4: nhãn phần đã trả + phép trừ
-  const paidA = ease(t, b.b4.grow - 0.3, b.b4.grow + 0.3) * (1 - ease(t, b.b4.less + 1.6, b.b4.less + 2.3));
+  const paidA = ease(t, b.b4.two - 0.1, b.b4.two + 0.3) * (1 - ease(t, b.b4.less + 1.6, b.b4.less + 2.3));
   if (paidA > 0) {
     const [sx, sy] = W2S(qx(105) - 260 * slide - 40, Y(100000));
-    text(`${slide > 0.02 ? '− ' : ''}${CL('illustrative_price_200k_usd')} paid`, sx, sy + 16, 48, { w: 700, color: C.cushion, align: 'right', alpha: paidA });
+    text(slide > 0.02 ? `− ${CL('illustrative_price_200k_usd')} paid` : CL('illustrative_price_200k_usd'), sx, sy + 16, 48, { w: 700, color: C.cushion, align: 'right', alpha: paidA });
     const arA = ease(t, b.b4.less, b.b4.less + 0.3) * (1 - ease(t, b.b4.less + 1.8, b.b4.less + 2.3));
     if (false) { const [ax, ay] = W2S(qx(105) - 60, Y(330000)); text(`− ${CL('illustrative_price_200k_usd')}`, ax, ay, 56, { w: 700, color: C.cushion, align: 'right', alpha: arA }); }
   }
+
+  const qA2 = ease(t, b.b4.gain - 0.1, b.b4.gain + 0.3) * (1 - ease(t, b.b4.less, b.b4.less + 0.4));
+  if (qA2 > 0) { const [sx, sy] = W2S(X(2013), Y(60000)); text('their gain on paper = ?', sx, sy, 56, { w: 700, align: 'center', alpha: qA2 }); }
+  const grA = ease(t, b.b4.grow - 0.1, b.b4.grow + 0.3) * (1 - ease(t, b.b4.less, b.b4.less + 0.4));
+  if (grA > 0) { const [sx, sy] = W2S(qx(105) - 60, Y(gain[105] + 200000) - 110); text(`${CL('illustrative_price_200k_usd')}, grown with the index`, sx, sy, 48, { w: 700, color: C.accent, align: 'right', alpha: grA }); }
+  const brA = ease(t, b.b5.under - 0.1, b.b5.under + 0.3) * (1 - ease(t, b.b6.t0, b.b6.t0 + 0.5));
+  if (brA > 0 && qRide >= 0) {
+    const [x0, y0] = W2S(qx(qRide) + 48, Y(500000) + 12), [, y1] = W2S(0, Y(Math.max(0, at(gain, qRide))) - 90);
+    ctx.strokeStyle = rgba(C.cushion, brA); ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0 + 16, y0); ctx.lineTo(x0 + 16, y1); ctx.lineTo(x0, y1); ctx.stroke();
+    text('well under', x0 + 30, (y0 + y1) / 2 + 16, 48, { w: 700, color: C.cushion, alpha: brA });
+  }
+  if (t >= b.b6.cross && t < b.b6.cross + 0.7) { const fl = 1 - lin(t, b.b6.cross, b.b6.cross + 0.7), [cx0, cy0] = W2S(qx(88.8), Y(500000));
+    ctx.strokeStyle = rgba(C.warn, fl); ctx.lineWidth = 4; for (let k = 0; k < 10; k++) { const an = k * Math.PI / 5, r0 = 30 + 60 * (1 - fl); ctx.beginPath(); ctx.moveTo(cx0 + r0 * Math.cos(an), cy0 + r0 * Math.sin(an)); ctx.lineTo(cx0 + (r0 + 40) * Math.cos(an), cy0 + (r0 + 40) * Math.sin(an)); ctx.stroke(); } }
 
   // b6/b8 mốc
   const keep = 1 - ease(t, b.b9.fly - 0.4, b.b9.fly);   // mốc giữ đến hết nhịp kết luận
@@ -192,8 +213,8 @@ function frame(t) {
 
   // b11: hai nhà trên hai chồng tiền, cao ∝ chỉ số giá (×3,8)
   if (t >= 63.0) {
-    const a = ease(t, 63.2, 64.0), gr = S.data.claims.growth_phoenix.value, grow = ease(t, b.b11.x - 0.3, b.b11.x + 0.9);
-    ctx.fillStyle = rgba(C.bg, 0.88 * a); ctx.fillRect(0, 0, 1920, 1080);
+    const a = ease(t, 63.2, 64.0), gr = S.data.claims.growth_phoenix.value, grow = ease(t, 63.8, b.b11.x + 0.05);
+    ctx.fillStyle = rgba(C.bg, a); ctx.fillRect(0, 0, 1920, 1080);
     const base = 900, h0 = 120, h1 = mix(h0, h0 * gr, grow);
     for (const [x, h] of [[700, h0], [1220, h1]]) {
       ctx.globalAlpha = a; const n = Math.max(1, Math.round(h / 30));
@@ -204,7 +225,7 @@ function frame(t) {
     text(String(CL('buy_year')), 700, base + 56, 48, { color: C.muted, align: 'center', alpha: a });
     text(CL('sale_quarter'), 1220, base + 56, 48, { color: C.muted, align: 'center', alpha: a });
     text(CL('growth_phoenix'), 1360, base - h1 + 60, 120, { w: 700, color: C.accent, alpha: ease(t, b.b11.x, b.b11.x + 0.4) });
-    text('Phoenix-area prices since 2000', 960, 150, 56, { align: 'center', alpha: ease(t, b.b11.x - 0.2, b.b11.x + 0.4) });
+    text('Phoenix-area prices since 2000', 960, 190, 56, { align: 'center', alpha: ease(t, 63.2, 63.8) });
   }
 
   screen();

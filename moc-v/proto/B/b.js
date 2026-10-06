@@ -162,8 +162,9 @@ export async function boot(variant) {
     const g = new THREE.Group(), m = new THREE.MeshStandardMaterial({ color, roughness: 0.7, transparent: true });
     const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.2, hgt * 0.45, 6, 14), m); body.position.y = hgt * 0.42; body.castShadow = true; g.add(body);
     const head = new THREE.Mesh(new THREE.SphereGeometry(0.15, 20, 14), m); head.position.y = hgt * 0.42 + hgt * 0.225 + 0.32; head.castShadow = true; g.add(head);
-    g.position.set(x, 0, 0.9); figs.add(g); return m;
+    g.position.set(x, 0, 0.9); g.userData.x0 = x; figs.add(g); figG.push(g); return m;
   };
+  const figG = [];
   const figMats = [mkFig('#E7B9A0', 1.05, -5.55), mkFig('#AFC3DA', 1.15, -4.95)];
 
   // chồng tiền (instanced): xấp + đai giấy
@@ -202,7 +203,27 @@ export async function boot(variant) {
   trailGeo.setAttribute('position', new THREE.BufferAttribute(tPos, 3)); trailGeo.setAttribute('color', new THREE.BufferAttribute(tCol, 3)); trailGeo.setIndex(idx);
   const trailMat = new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, side: THREE.DoubleSide, toneMapped: false });
   const trail = new THREE.Mesh(trailGeo, trailMat); trail.frustumCulled = false; scene.add(trail);
+  // bóng của đường giá trị ở chỗ cũ trong lúc trừ $200,000 (b4): thấy được khoảng rơi
+  const gPos = new Float32Array(MAXP * 6), gCol = new Float32Array(MAXP * 6), ghostGeo = new THREE.BufferGeometry();
+  ghostGeo.setAttribute('position', new THREE.BufferAttribute(gPos, 3)); ghostGeo.setAttribute('color', new THREE.BufferAttribute(gCol, 3)); ghostGeo.setIndex(idx);
+  const ghostMat = new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, side: THREE.DoubleSide, toneMapped: false });
+  const ghostTrail = new THREE.Mesh(ghostGeo, ghostMat); ghostTrail.frustumCulled = false; scene.add(ghostTrail);
+  function ribbon(geo, pos, col, pts) {
+    let n = 0;
+    for (const [x, y, c] of pts) {
+      if (n >= MAXP) break;
+      const prev = pts[Math.max(0, n - 1)], next = pts[Math.min(pts.length - 1, n + 1)];
+      let dx = next[0] - prev[0], dy = next[1] - prev[1]; const L = Math.hypot(dx, dy) || 1; dx /= L; dy /= L;
+      const w = 0.045;
+      pos.set([x + dy * w, y - dx * w, TZ, x - dy * w, y + dx * w, TZ], n * 6);
+      col.set([c.r, c.g, c.b, c.r, c.g, c.b], n * 6);
+      n++;
+    }
+    geo.setDrawRange(0, Math.max(0, (n - 1) * 6)); geo.attributes.position.needsUpdate = geo.attributes.color.needsUpdate = true;
+    return n;
+  }
   const TZ = -0.7;
+  const XT = (q) => X(q) - 0.68;   // vệt đi sát mép trái chồng tiền → đầu vệt luôn thấy được
 
   // điểm sáng (chỉ số trung bình / đầu vệt / tia ở điểm cắt)
   const gt = glowTex();
@@ -238,18 +259,18 @@ export async function boot(variant) {
   const W4 = { p: [0.8, 6.2, 20.6], l: [0.8, 4.46, 0] };
   const Rd = { p: [0, 5.0, 18.6], l: [0, 3.7, 0] };
   const R2 = { p: [0.8, 5.0, 18.4], l: [0.8, 3.8, 0] };
-  const Nn = { p: [3.4, 6.2, 10.4], l: [5.4, 5.3, 0] };
-  const Pp = { p: [4.4, 5.8, 7.6], l: [5.6, 5.2, 0] };
+  const Nn = { p: [3.4, 5.9, 10.4], l: [5.4, 5.4, 0] };
+  const Pp = { p: [4.4, 5.6, 7.8], l: [5.6, 5.3, 0] };
   const T1 = { p: [5.6, 2.9, 11.5], l: [5.6, 1.9, 0] };
   const T2 = { p: [5.6, 4.7, 18.0], l: [5.6, 3.65, 0] };
-  const shots = [[0, A0], [4.7, A1], [5.1, A1], [7.6, Bn], [14.6, Bn], [16.9, Wd], [28.9, Wd], [32.5, W4], [38.9, W4], [40.5, Rd], [46.5, Rd], [50.0, R2], [55.2, R2], [59.4, Nn], [61.25, Nn], [62.3, Pp], [62.95, Pp], [64.3, T1], [65.4, T1], [67.6, T2]];
+  const shots = [[0, A0], [4.7, A1], [5.1, A1], [7.6, Bn], [14.6, Bn], [16.9, Wd], [28.9, Wd], [32.5, W4], [38.9, W4], [40.5, Rd], [46.5, Rd], [50.0, R2], [55.2, R2], [59.4, Nn], [61.25, Nn], [62.3, Pp], [62.9, Pp], [64.1, T2]];
   function setCam(t) {
     let a = shots[0], b = shots[0];
     for (let i = 0; i < shots.length; i++) { if (shots[i][0] <= t) { a = shots[i]; b = shots[Math.min(i + 1, shots.length - 1)]; } }
     const x = a === b ? 0 : ease(t, a[0], b[0]);
     const p = a[1].p.map((v, i) => mix(v, b[1].p[i], x)), l = a[1].l.map((v, i) => mix(v, b[1].l[i], x));
     // rung nhẹ khi vạch khoá (23.71) và va chạm (61.958)
-    let sh = 0; for (const [ti, amp] of [[cue.b3.cap + 0.35, 0.09], [61.958, 0.05]]) { const k = t - ti; if (k > 0 && k < 0.45) sh += amp * Math.sin(k * 55) * (1 - k / 0.45); }
+    let sh = 0; for (const [ti, amp] of [[cue.b3.cap + 0.35, 0.09], [cue.b10.past, 0.05]]) { const k = t - ti; if (k > 0 && k < 0.45) sh += amp * Math.sin(k * 55) * (1 - k / 0.45); }
     camera.position.set(p[0], p[1] + sh, p[2]); camera.lookAt(l[0], l[1] + sh * 0.6, l[2]);
     camera.updateMatrixWorld(); camera.updateProjectionMatrix();
   }
@@ -259,9 +280,11 @@ export async function boot(variant) {
   // ------------------------------------------------------------ trạng thái theo t
   const DRAW0 = D.spine.draw[0][0], DRAW1 = D.spine.draw[1][0];
   const RIDE0 = D.spine.ride[0][0], RIDE1 = D.spine.ride[D.spine.ride.length - 1][0];
-  const LESS = cue.b4.less, SLIDE0 = LESS, SLIDE1 = SLIDE0 + 0.7, DROP1 = SLIDE0 + 1.6;   // rút $200,000 bắt đầu đúng cue less
-  const REW0 = 39.3, REW1 = 40.5;
   const CROSS = cue.b6.cross, B11 = cue.b11.t0, RISE = cue.b11.x;
+  const LESS = cue.b4.less, SLIDE0 = LESS, SLIDE1 = SLIDE0 + 0.7, DROP1 = SLIDE0 + 1.6;   // rút $200,000 bắt đầu đúng cue less
+  const REW0 = cue.b5.t0 - 0.75, REW1 = cue.b5.t0 + 0.15;   // trượt ngược theo đường lãi, không nhảy
+  const GROW0 = 63.8, HIDE0 = B11, HIDE1 = B11 + 0.4;
+  
   function state(t) {
     const s = {};
     // q hiện tại (lịch + vị trí nhà)
@@ -280,8 +303,10 @@ export async function boot(variant) {
       if (t >= 46.98 && t < CROSS) s.H = mix(g88, BEAM_Y, ease(t, 46.98, CROSS));
       else if (t >= CROSS && t < CROSS + 0.35) s.H = mix(BEAM_Y, gainAt(s.q) / U, easeOut(t, CROSS, CROSS + 0.35));
     }
+    // b10: chồng tiền nảy lên xuyên vạch đúng "past"
+    if (t >= cue.b10.past && t < cue.b10.past + 0.6) s.H += 0.28 * Math.sin(Math.PI * lin(t, cue.b10.past, cue.b10.past + 0.6));
     // b11: chồng tiền chìm xuống sàn
-    s.sink = ease(t, B11 + 0.05, B11 + 1.3);
+    s.sink = ease(t, B11, B11 + 0.7);
     s.H *= 1 - s.sink;
     s.x = X(s.q);
     s.over = s.phase === 'gain' && s.H > BEAM_Y + 0.001;
@@ -292,7 +317,7 @@ export async function boot(variant) {
     const s = state(t);
     setCam(t);
     // ---- chồng tiền
-    const slabDx = -2.1 * easeOut(t, SLIDE0, SLIDE1), slabZ = 0.0, slabGone = ease(t, 39.0, 39.6);
+    const slabDx = -2.1 * easeOut(t, SLIDE0, SLIDE1), slabZ = 0.0, slabGone = ease(t, 40.0, 40.5);
     let k = 0;
     const put = (y0, hgt, x, col, scl = 1) => {
       if (k >= NB || hgt <= 0.01 || scl <= 0.01) return;
@@ -316,20 +341,25 @@ export async function boot(variant) {
     bundle.count = strap.count = k;
     bundle.instanceMatrix.needsUpdate = strap.instanceMatrix.needsUpdate = true;
     if (bundle.instanceColor) bundle.instanceColor.needsUpdate = true; if (strap.instanceColor) strap.instanceColor.needsUpdate = true;
-    const ghost = ease(t, cue.b1.blur, cue.b1.blur + 0.8) * (1 - ease(t, 15.0, 15.6));
+    const ghost = ease(t, cue.b1.blur, cue.b1.blur + 0.8) * (1 - ease(t, DRAW0, cue.b2.y2000));
     bundle.material.opacity = 1 - 0.6 * ghost; bundle.material.depthWrite = ghost < 0.001; strap.material.opacity = bundle.material.opacity; strap.material.depthWrite = bundle.material.depthWrite;
 
     // ---- nhà chính
-    const rise = t >= RISE ? easeOut(t, RISE, RISE + 2.2) : 0;   // b11: cao ×3.79
+    const rise = easeOut(t, GROW0, RISE);   // b11: cao ×3.79, xong đúng cue x
     const growth = D.data.claims.growth_phoenix.value;
     hero.position.set(t >= B11 ? mix(s.x, X(105), 1) : s.x, s.H, 0);
     hero.scale.set(1, 1 + (growth - 1) * rise, 1);
     setOpacity(hero, 1 - 0.78 * ghost);
     // nhà 2000 (b11)
-    const tw = easeBack(t, B11 + 0.7, B11 + 1.4);
-    twin.visible = t > B11 + 0.7; twin.position.set(4.0, 0, 0); twin.scale.setScalar(Math.max(0.001, tw));
+    const tw = easeBack(t, 63.75, 64.15);
+    twin.visible = t > 63.75; twin.position.set(4.0, 0, 0); twin.scale.setScalar(Math.max(0.001, tw));
     // ---- Rosa & Frank
-    const fa = 1 - ease(t, cue.b1.blur, cue.b1.blur + 0.6); figs.visible = fa > 0.01; for (const m of figMats) m.opacity = fa;
+    // b0 ở sàn; từ b9 đứng trên vạch cạnh chồng tiền (con số là của họ); b11 đứng cạnh nhà hôm nay
+    let fa = 1 - ease(t, cue.b1.blur, cue.b1.blur + 0.6), fy = 0, fsc = 1, fx = (g) => g.userData.x0, fz = 0.9;
+    if (t >= cue.b9.t0 && t < B11 + 0.3) { fa = ease(t, cue.b9.t0, cue.b9.t0 + 0.5) * (1 - ease(t, B11, B11 + 0.3)); fy = BEAM_Y + 0.08; fsc = 0.62; fx = (g) => X(105) - 1.05 - (g.userData.x0 + 4.95) * -0.75 - 0.45; fz = 0.25; }
+    else if (t >= B11 + 0.3) { fa = ease(t, 63.6, 64.0); fy = 0; fsc = 1; fx = (g) => X(105) + 1.55 + (g.userData.x0 + 5.55) * 1.0; fz = 0.6; }
+    figs.visible = fa > 0.01; for (const m of figMats) m.opacity = fa;
+    for (const g of figG) { g.position.set(fx(g), fy, fz); g.scale.setScalar(fsc); }
     // ---- khu phố
     for (const h of hood) {
       const pop = easeBack(t, h.t - 0.05, h.t + 0.3), gat = ease(t, cue.b1.avg, cue.b1.avg + 0.55);
@@ -345,10 +375,10 @@ export async function boot(variant) {
     if (t >= cue.b1.avg) {
       orbA = ease(t, cue.b1.avg + 0.1, cue.b1.avg + 0.5); orbS = 0.9 + 0.4 * ease(t, cue.b1.avg + 0.3, cue.b1.avg + 0.6);
       const fly = ease(t, 14.95, 15.6);
-      orbPos = gAt.clone().lerp(new THREE.Vector3(s.x, s.H, TZ), fly);
-      if (t > 15.6) orbPos = new THREE.Vector3(s.x, s.H + (s.phase === 'drop' ? 0 : 0), TZ);
+      orbPos = gAt.clone().lerp(new THREE.Vector3(s.x - 0.68, s.H, TZ), fly);
+      if (t > 15.6) orbPos = new THREE.Vector3(s.x - 0.68, s.H, TZ);
       if (t > 15.6) orbS = 0.75;
-      orbA *= 1 - ease(t, B11, B11 + 0.6);
+      orbA *= 1 - ease(t, HIDE0, HIDE1);
     }
     orb.position.copy(orbPos); orb.scale.setScalar(orbS * 1.4); orb.material.opacity = orbA * 0.9;
     orbCore.position.copy(orbPos); orbCore.material.opacity = orbA; orbCore.visible = orbA > 0.01;
@@ -360,7 +390,7 @@ export async function boot(variant) {
     let by = BEAM_Y, ba = 0;
     if (t < cue.b3.cap) { by = BEAM_Y; ba = hint * 0.45; }
     else { by = mix(13, BEAM_Y, dropB) + (t > cue.b3.cap + 0.35 ? 0.06 * Math.sin((t - cue.b3.cap - 0.35) * 30) * Math.max(0, 1 - (t - cue.b3.cap - 0.35) / 0.3) : 0); ba = 1; }
-    ba *= 1 - ease(t, B11, B11 + 0.9);
+    ba *= 1 - ease(t, HIDE0, HIDE1);
     beam.position.y = by; beam.visible = ba > 0.01;
     glassMat.opacity = 0.32 * ba; capMat.opacity = ba; capMat.transparent = ba < 0.999; core.material.opacity = ba;
     // lõi: xung chạy dọc (mọi quý như nhau) + màu warn khi lãi ở trên
@@ -376,27 +406,21 @@ export async function boot(variant) {
     }
     core.instanceColor.needsUpdate = true;
     // tia ở điểm cắt
-    const sp = Math.max(t >= CROSS ? Math.exp(-(t - CROSS) * 2.2) : 0, t >= 61.958 ? Math.exp(-(t - 61.958) * 2.5) * (t < B11 ? 1 : 0) : 0, t >= 51.41 && t < 53 ? Math.exp(-(t - 51.41) * 3) * 0.6 : 0);
+    const sp = Math.max(t >= CROSS ? Math.exp(-(t - CROSS) * 2.2) : 0, t >= cue.b10.past ? Math.exp(-(t - cue.b10.past) * 2.5) * (t < B11 ? 1 : 0) : 0, t >= 51.41 && t < 53 ? Math.exp(-(t - 51.41) * 3) * 0.6 : 0);
     spark.visible = sp > 0.02; spark.position.set(s.x, BEAM_Y, 0.5); spark.scale.setScalar(1.2 + 2.4 * sp); spark.material.opacity = sp;
     // tấm dưới vạch, cột mốc
     underMat.opacity = 0.09 * ease(t, cue.b5.under - 0.3, cue.b5.under + 0.3) * (1 - ease(t, 55, 56.5));
     markMat.opacity = 0.7 * ease(t, cue.b6.q, cue.b6.q + 0.4) * (1 - ease(t, 49.5, 50.5));
     // ---- trục năm
-    const axA = ease(t, 15.4, 16.6) * (1 - ease(t, B11, B11 + 0.8)); axis.visible = axA > 0.01; axisMat.opacity = axA;
+    const axA = ease(t, 15.4, 16.6) * (1 - ease(t, 55.0, 55.6)); axis.visible = axA > 0.01; axisMat.opacity = axA;
     // ---- vệt
     const pts = trailPoints(t, s);
-    let n = 0;
-    for (const [x, y, col] of pts) {
-      if (n >= MAXP) break;
-      const prev = pts[Math.max(0, n - 1)], next = pts[Math.min(pts.length - 1, n + 1)];
-      let dx = next[0] - prev[0], dy = next[1] - prev[1]; const L = Math.hypot(dx, dy) || 1; dx /= L; dy /= L;
-      const w = 0.045;
-      tPos.set([x + dy * w, y - dx * w, TZ, x - dy * w, y + dx * w, TZ], n * 6);
-      tCol.set([col.r, col.g, col.b, col.r, col.g, col.b], n * 6);
-      n++;
-    }
-    trailGeo.setDrawRange(0, Math.max(0, (n - 1) * 6)); trailGeo.attributes.position.needsUpdate = trailGeo.attributes.color.needsUpdate = true;
-    trailMat.opacity = 1 - ease(t, B11, B11 + 0.8); trail.visible = n > 1 && trailMat.opacity > 0.01;
+    const n = ribbon(trailGeo, tPos, tCol, pts);
+    // bóng đường giá trị ở chỗ cũ trong lúc trừ (less → hết b4)
+    const gA = ease(t, LESS, LESS + 0.3) * (1 - ease(t, 40.0, 40.5));
+    ghostTrail.visible = gA > 0.01; ghostMat.opacity = gA;
+    if (ghostTrail.visible) { const gp = []; for (let q = 0; q <= 105; q++) gp.push([XT(q), value[q] / U, cGhost]); ribbon(ghostGeo, gPos, gCol, gp); }
+    trailMat.opacity = 1 - ease(t, HIDE0, HIDE1); trail.visible = n > 1 && trailMat.opacity > 0.01;
     // ---- lịch
     const year = 2000 + Math.floor(s.q / 4 + 1e-6), fr = s.q / 4 - Math.floor(s.q / 4 + 1e-6);
     const keyNow = s.q >= 104.5 ? '2026 Q2' : String(Math.min(2026, year));
@@ -404,29 +428,33 @@ export async function boot(variant) {
     const flip = year > 2000 ? clamp(fr / 0.2) : 1;
     pageB.visible = flip < 1 && t > DRAW0; pageB.material.map = pageTex(String(year - 1)); pageB.material.needsUpdate = true;
     pageB.rotation.x = -Math.PI * 0.49 * ease(flip, 0, 1);
-    const ca = ease(t, 15.2, 16.4) * (1 - ease(t, B11, B11 + 0.7)); cal.visible = ca > 0.01;
+    const ca = ease(t, 15.2, 16.4) * (1 - ease(t, 55.0, 55.6)) * (1 - ease(t, cue.b4.gain - 0.3, cue.b4.gain) * (1 - ease(t, REW0, REW0 + 0.3))); cal.visible = ca > 0.01;
     return s;
   }
 
-  const cVal = new THREE.Color(C.accent), cDim = new THREE.Color('#38414F'), cHead = new THREE.Color(C.accent);
+  const cVal = new THREE.Color(C.accent), cDim = new THREE.Color('#38414F'), cBg = new THREE.Color(C.bg), cGhost = new THREE.Color(C.accent).lerp(new THREE.Color(C.bg), 0.7);
   function trailPoints(t, s) {
     const pts = [];
     if (t < DRAW0) return pts;
     if (t < REW0) {
       // giá trị nhà (b2–b4), rơi đúng $200,000 ở b4
+      // từ lúc vạch khoá tới "grown": đường giá trị mờ còn ~25 % (đừng đọc thành "giá trị nhà vượt trần");
+      // ở "grown" độ sáng quét từ 2000 sang phải
       const qe = s.q, off = s.phase === 'drop' ? s.drop : 0;
-      for (let q = 0; q < qe; q++) pts.push([X(q), value[q] / U - off, cVal]);
-      pts.push([X(qe), valueAt(qe) / U - off, cVal]);
+      const vd = 0.75 * ease(t, cue.b3.cap + 0.35, cue.b3.cap + 0.8), sw = lin(t, cue.b4.grow, cue.b4.grow + 1.2) * 1.1 - 0.05;
+      const cq = (q) => (vd > 0 && q / 105 > sw ? cVal.clone().lerp(cBg, vd) : cVal);
+      for (let q = 0; q < qe; q++) pts.push([XT(q), value[q] / U - off, cq(q)]);
+      pts.push([XT(qe), valueAt(qe) / U - off, cq(qe)]);
       return pts;
     }
     // đường lãi: phần đã đi sáng, phần chưa đi mờ; trên vạch = warn
-    const qe = s.q, dimOld = 0.85 * ease(t, 55.5, 57.0);
+    const qe = s.q, dimOld = 0.85 * ease(t, 55.5, 57.0), ahead = ease(t, RIDE0, RIDE0 + 0.6);
     for (let q = 0; q <= 105; q++) {
-      if (q > qe && q - 1 < qe) pts.push([X(qe), s.H, colFor(s.H, true)]);
+      if (q > qe && q - 1 < qe) pts.push([XT(qe), s.H, colFor(s.H, true)]);
       const y = Math.max(0, gain[q] / U), lit = q <= qe;
-      let c = lit ? colFor(y, true) : cDim;
+      let c = lit ? colFor(y, true) : cVal.clone().lerp(cDim, ahead);
       if (q < 88 && dimOld > 0) c = c.clone().lerp(cDim, dimOld);   // b9–b10: phần cũ lùi lại, không cắt qua chân trang
-      pts.push([X(q), y, c]);
+      pts.push([XT(q), y, c]);
     }
     return pts;
   }
@@ -446,51 +474,74 @@ export async function boot(variant) {
     { const p = P(-5.25, 1.75, 0.9); label('Rosa & Frank', p.x, p.y - 24, 44, { align: 'center', alpha: fa, w: 600 }); }
     const qa = easeBack(t, cue.b0.q, cue.b0.q + 0.4) * (1 - ease(t, cue.b1.blur, cue.b1.blur + 0.4));
     if (qa > 0.01) { const p = P(X(0), (s.H + 2.1 + BEAM_Y) / 2 + 0.45, 0); K.text('?', p.x, p.y + 40, 140 * Math.max(0.3, qa), { w: 700, color: C.warn, align: 'center', alpha: clamp(qa) }); }
+    // b1 "rise": mũi tên giá trị đi lên cạnh chồng tiền mờ
+    const ra = ease(t, cue.b1.rise, cue.b1.rise + 0.25) * (1 - ease(t, 12.6, 13.1));
+    if (ra > 0.01) {
+      const g = easeOut(t, cue.b1.rise, cue.b1.rise + 1.2), b0 = P(X(0) + 1.0, 0.3, 0.6), b1 = P(X(0) + 1.0, mix(0.3, 3.4, g), 0.6);
+      ctx.save(); ctx.globalAlpha = ra; ctx.strokeStyle = C.accent; ctx.fillStyle = C.accent; ctx.lineWidth = 8; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(b0.x, b0.y); ctx.lineTo(b1.x, b1.y + 10); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(b1.x, b1.y - 14); ctx.lineTo(b1.x - 20, b1.y + 16); ctx.lineTo(b1.x + 20, b1.y + 16); ctx.closePath(); ctx.fill(); ctx.restore();
+      label('value rises with the index', b1.x + 30, b1.y + 20, 44, { color: C.accent, alpha: ra * ease(t, cue.b1.rise + 0.2, cue.b1.rise + 0.5) });
+    }
     // b1: Phoenix area, many sales, average
     const hoodLbl = P(-6.0, 2.2, -9.5);
     label('Phoenix area', hoodLbl.x, hoodLbl.y - 10, 44, { align: 'center', color: C.muted, alpha: ease(t, 8.98, 9.4) * (1 - ease(t, 13.0, 13.45)) });
     label('many sales', hoodLbl.x, hoodLbl.y - 10, 44, { align: 'center', alpha: ease(t, cue.b1.many, cue.b1.many + 0.3) * (1 - ease(t, cue.b1.avg + 0.2, cue.b1.avg + 0.5)) });
     { const p = P(-5.6, 3.6, -6.4); label('Phoenix-area average', p.x, p.y - 60, 44, { align: 'center', color: C.accent, alpha: ease(t, cue.b1.avg + 0.3, cue.b1.avg + 0.6) * (1 - ease(t, 15.0, 15.4)) }); }
     // trục năm
-    const axA = ease(t, 16.0, 16.8) * (1 - ease(t, B11, B11 + 0.6));
+    const axA = ease(t, 16.0, 16.8) * (1 - ease(t, 55.0, 55.5));
     if (axA > 0.01) for (const [q, s2] of [[0, '2000'], [40, '2010'], [80, '2020'], [105, '2026 Q2']]) { const p = P(X(q), 0, 1.4); K.text(s2, p.x, p.y + 46, 40, { align: 'center', color: C.muted, w: 400, alpha: axA }); }
     // vệt: "home value" → "gain on paper"
     const lq = 4;
     if (t > DRAW0 && t < B11) {
       const isGain = t > DROP1 - 0.2;
       const y = isGain ? Math.max(0, gain[lq] / U) : value[lq] / U - (s.phase === 'drop' ? s.drop : 0);
-      const p = P(X(lq), y, TZ);
-      const a1 = ease(t, DRAW0 + 0.6, DRAW0 + 1.0) * (1 - ease(t, DROP1 - 0.5, DROP1 - 0.2));
+      const p = P(XT(lq), y, TZ);
+      const a1 = ease(t, cue.b2.y2000 + 0.3, cue.b2.y2000 + 0.7) * (1 - ease(t, DROP1 - 0.5, DROP1 - 0.2)) * (1 - 0.6 * ease(t, cue.b3.cap + 0.35, cue.b3.cap + 0.8) * (1 - ease(t, cue.b4.grow, cue.b4.grow + 0.4)));
       const a2 = ease(t, DROP1 - 0.2, DROP1 + 0.3) * (1 - ease(t, 55.2, 55.8));
       label('home value', p.x, p.y - 50, 44, { align: 'center', color: C.accent, alpha: a1 });
       label('gain on paper', p.x + 40, p.y - 46, 44, { align: 'center', color: C.accent, alpha: a2 });
     }
     // b3: nhãn trần
-    const capA = ease(t, cue.b3.lbl, cue.b3.lbl + 0.3) * (1 - ease(t, 55.2, 55.8));
-    { const p = P(-8.3, BEAM_Y, 0.45); label(CL('excl_joint_limit_usd') + ' cap', p.x + 4, p.y - 34, 48, { color: C.ink, alpha: capA, w: 700 }); }
+    // nhãn trần ở lại suốt cảnh đẩy máy (55–63): neo dịch dần về đoạn vạch còn trong khung, xuống dưới vạch
+    const capA = ease(t, cue.b3.lbl, cue.b3.lbl + 0.3) * (1 - ease(t, HIDE0, HIDE1)), cm = ease(t, 55.2, 57.5);
+    { const p = P(mix(-8.3, 1.6, cm), BEAM_Y, 0.45); label(CL('excl_joint_limit_usd') + ' cap', p.x + 4, p.y + mix(-34, 72, cm), 48, { color: C.ink, alpha: capA, w: 700 }); }
     // "same in every quarter"
     { const p = P(-1.0, BEAM_Y, 0.45); label('same in every quarter', p.x, p.y - 34, 44, { align: 'center', color: C.muted, alpha: ease(t, cue.b3.flat, cue.b3.flat + 0.3) * (1 - ease(t, 29.2, 29.8)), w: 400 }); }
-    // b4: $200,000 → $200,000 paid
-    const slabA = ease(t, 33.94, 34.3) * (1 - ease(t, 39.0, 39.5));
+    // b4: "their gain on paper = ?" → "$200,000" → "$200,000, grown with the index" → trừ → "$200,000 paid"
+    const P200 = CL('illustrative_price_200k_usd');
+    { const p = P(-0.5, BEAM_Y + 1.5, 0); label('their gain on paper = ?', p.x, p.y, 52, { align: 'center', w: 700, alpha: ease(t, cue.b4.gain, cue.b4.gain + 0.3) * (1 - ease(t, cue.b4.two - 0.3, cue.b4.two)) }); }
+    const slabA = ease(t, cue.b4.two, cue.b4.two + 0.3) * (1 - ease(t, 40.0, 40.4));
     if (slabA > 0.01) {
       const p = P(X(105) - 2.1 * easeOut(t, SLIDE0, SLIDE1) - 0.62, 1.0, 0.4);
-      const s2 = t >= LESS ? CL('illustrative_price_200k_usd') + ' paid' : CL('illustrative_price_200k_usd');
-      label(s2, p.x - 24, p.y + 16, 48, { align: 'right', alpha: slabA, w: 700, color: t >= LESS ? C.ink : C.accent });
+      const s2 = t >= cue.b4.paid ? P200 + ' paid' : P200;
+      label(s2, p.x - 24, p.y + 16, 48, { align: 'right', alpha: slabA * (1 - 0.6 * ease(t, cue.b4.grow, cue.b4.grow + 0.3) * (1 - ease(t, LESS, LESS + 0.2))), w: 700, color: t >= LESS ? C.ink : C.accent });
     }
+    { const p = P(X(105) - 0.9, valueAt(105) / U, 0.4);
+      label(P200 + ', grown with the index', p.x - 20, p.y + 60, 48, { align: 'right', w: 700, color: C.accent, alpha: ease(t, cue.b4.grow, cue.b4.grow + 0.3) * (1 - ease(t, LESS - 0.1, LESS + 0.2)) }); }
+    // trừ: ngoặc giữa bóng đường giá trị và đường đã rơi (ở 2003)
+    const da2 = ease(t, LESS + 0.3, LESS + 0.6) * (1 - ease(t, 40.0, 40.4));
+    if (da2 > 0.01) { const a = P(XT(30), value[30] / U, TZ), b = P(XT(30), value[30] / U - s.drop, TZ); bracket(a.x - 14, a.y, b.y, C.ink, da2, 1, 4); }
     // b5: ngoặc khoảng cách tới vạch
     const ua = ease(t, cue.b5.under - 0.2, cue.b5.under + 0.2) * (1 - ease(t, 44.5, 45.0));
-    if (ua > 0.01 && s.H < BEAM_Y - 0.3) { const a = P(s.x + 0.95, s.H, 0.4), b = P(s.x + 0.95, BEAM_Y, 0.4); bracket(a.x, a.y, b.y, C.cushion, ua, -1); }
+    if (ua > 0.01 && s.H < BEAM_Y - 0.3) { const a = P(s.x + 0.95, s.H, 0.4), b = P(s.x + 0.95, BEAM_Y, 0.4); bracket(a.x, a.y, b.y, C.cushion, ua, -1, 8); label('well under', a.x + 22, (a.y + b.y) / 2 + 16, 48, { color: C.cushion, w: 700, alpha: ua }); }
+    // b6: chớp sáng vòng tròn ở điểm cắt
+    if (t >= CROSS && t < CROSS + 0.7) { const c = P(X(89), BEAM_Y, 0.45), k = lin(t, CROSS, CROSS + 0.7);
+      ctx.save(); ctx.globalAlpha = 1 - k; ctx.strokeStyle = C.warn; ctx.lineWidth = 10 * (1 - k) + 2;
+      for (const r0 of [0, 0.25]) { const kk = clamp(k - r0); if (kk > 0) { ctx.beginPath(); ctx.arc(c.x, c.y, 20 + 200 * kk, 0, Math.PI * 2); ctx.stroke(); } }
+      ctx.restore(); }
     // b6: Over: Q2 2022 ; b8: Stayed over since Q2 2023
-    { const p = P(X(89), BEAM_Y, 0.45); label('Over: ' + CL('cross_quarter_at_200k_phoenix'), p.x - 110, p.y - 40, 48, { align: 'right', color: C.warn, w: 700, alpha: ease(t, CROSS, CROSS + 0.25) * (1 - ease(t, 49.4, 50.0)) }); }
-    { const p = P(X(93), BEAM_Y, 0.45); label('Stayed over since ' + CL('stay_quarter_at_200k_phoenix'), p.x - 110, p.y - 40, 48, { align: 'right', color: C.warn, w: 700, alpha: ease(t, cue.b8.lbl, cue.b8.lbl + 0.3) * (1 - ease(t, 56.0, 56.8)) }); }
+    { const p = P(X(89), BEAM_Y, 0.45); label('Over: ' + CL('cross_quarter_at_200k_phoenix'), p.x - 110, p.y - 40, 48, { align: 'right', color: C.warn, w: 700, alpha: ease(t, CROSS, CROSS + 0.25) * (1 - 0.35 * ease(t, cue.b7.slip, cue.b7.slip + 0.4) * (1 - ease(t, cue.b8.lbl, cue.b8.lbl + 0.3))) * (1 - ease(t, cue.b9.fly - 0.3, cue.b9.fly)) }); }
+    { const p = P(X(93), BEAM_Y, 0.45); label('Stayed over since ' + CL('stay_quarter_at_200k_phoenix'), p.x - 110, p.y - 104, 48, { align: 'right', color: C.warn, w: 700, alpha: ease(t, cue.b8.lbl, cue.b8.lbl + 0.3) * (1 - ease(t, cue.b9.fly - 0.3, cue.b9.fly)) }); }
     // b9: thẻ giá ≈ $558,100 → bay lên thành số lớn
     const G = CL('gain_at_200k_phoenix');
-    const tagA = ease(t, 56.84, 57.3) * (1 - ease(t, B11, B11 + 0.5));
+    const tagA = ease(t, cue.b9.fly - 0.05, cue.b9.fly + 0.08) * (1 - ease(t, B11, B11 + 0.4));
     if (tagA > 0.01) {
-      const src = P(X(105) + 1.15, BEAM_Y + 0.29, 0.4), dst = { x: 620, y: 226 };
+      const src = P(X(105) + 1.15, BEAM_Y + 0.29, 0.4), dst = { x: 620, y: 250 };
       const f = easeOut(t, cue.b9.fly, cue.b9.land), arc = Math.sin(f * Math.PI) * -90;   // bay ngay ở cue fly, chậm dần tới land
       const x = mix(src.x + 20, dst.x, f), y = mix(src.y + 18, dst.y, f) + arc, px = mix(48, 112, f);
       label(G, x, y, px, { align: f > 0.5 ? 'center' : 'left', w: 700, alpha: tagA, plateA: 0.6 });
+      label('gain on paper', dst.x, dst.y - 100, 44, { align: 'center', color: C.muted, w: 600, alpha: tagA * ease(t, cue.b9.land - 0.2, cue.b9.land + 0.2) });
       if (t > cue.b9.land) { // tick khi chạm: gạch chân warn ngắn
         const k = easeOut(t, cue.b9.land, cue.b9.land + 0.35);
         ctx.save(); ctx.globalAlpha = tagA; ctx.fillStyle = C.warn; ctx.fillRect(dst.x - 230 * k, dst.y + 26, 460 * k, 6); ctx.restore();
@@ -504,13 +555,13 @@ export async function boot(variant) {
       label('past the cap', a.x + 26, (a.y + b.y) / 2 + 16, 48, { color: C.warn, w: 700, alpha: pa });
     }
     // b11: 2000 / 2026 Q2, ×3.8, chú thích
-    const ta = ease(t, B11 + 1.0, B11 + 1.5);
+    const ta = ease(t, 64.2, 64.5);
     if (ta > 0.01) {
       const l = P(4.0, 0, 0.9), r = P(X(105), 0, 0.9);
       K.text(CL('buy_year'), l.x, l.y + 56, 44, { align: 'center', color: C.muted, alpha: ta });
       K.text(CL('sale_quarter'), r.x, r.y + 56, 44, { align: 'center', color: C.muted, alpha: ta });
       // ngoặc chiều cao: nhà 2000 vs nhà hôm nay
-      const xa = ease(t, RISE, RISE + 0.4);
+      const xa = ease(t, GROW0, GROW0 + 0.3);
       const hh = 1.0 + 0.72 + 0.0; // chiều cao xấp xỉ nhà code (dùng hộp bao thực bên dưới)
       const top = heroTop(), topL = twinTop();
       const pL = P(4.0 - 1.15, topL, 0.6), pR = P(X(105) + 1.1, top, 0.6), pR0 = P(X(105) + 1.1, 0, 0.6);
@@ -518,8 +569,9 @@ export async function boot(variant) {
       ctx.save(); ctx.globalAlpha = xa * 0.6; ctx.setLineDash([10, 10]); ctx.strokeStyle = C.muted; ctx.lineWidth = 3;
       ctx.beginPath(); ctx.moveTo(pL.x, pL.y); ctx.lineTo(pR.x - 30, pL.y); ctx.stroke(); ctx.restore();
       K.text(CL('growth_phoenix'), pR.x + 26, (pR.y + pR0.y) / 2 + 30, 96, { w: 700, color: C.ink, alpha: ease(t, RISE, RISE + 0.3) });
-      label('Phoenix-area prices since 2000', 960, 210, 56, { align: 'center', w: 600, alpha: ease(t, cue.b11.lvl, cue.b11.lvl + 0.4) });
+      
     }
+    label('Phoenix-area prices since 2000', 960, 210, 56, { align: 'center', w: 600, alpha: ease(t, 63.2, 63.5) });
     // chrome bắt buộc
     const cw = t >= cue.b10.t1 ? 'A measurement, not a tax bill or a next step' : t >= cue.b4.t0 ? 'A home that rose like the Phoenix average' : null;
     const cwA = t >= cue.b10.t1 ? ease(t, cue.b10.t1, cue.b10.t1 + 0.4) : ease(t, cue.b4.t0, cue.b4.t0 + 0.4) * (1 - ease(t, cue.b10.t1 - 0.3, cue.b10.t1));

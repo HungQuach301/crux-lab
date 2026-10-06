@@ -12,10 +12,11 @@ const X = (yr) => 300 + (yr - 2000) / 26.5 * 1400;
 const Y = (v) => 880 - v / 800000 * 640;
 const qx = (q) => X(S.qYear(q));
 const dataEv = spine.events.filter((e) => e.kind === 'data');
+const popT = spine.events.filter((e) => e.kind === 'tick' && e.pop !== undefined).map((e) => e.t);   // mỗi nhà SOLD bật = một tick âm
 
 function camAt(t) {
-  const keys = [[0, 330, 650, 2.2], [11.8, 330, 650, 2.2], [15.3, 1000, 560, 1], [56.4, 1000, 560, 1], [59.4, 1380, 560, 1.3],
-    [62.9, 1380, 560, 1.3], [64.6, 1000, 560, 1], [99, 1000, 560, 1]];
+  const keys = [[0, 330, 650, 2.2], [11.8, 330, 650, 2.2], [15.3, 1000, 560, 1], [56.4, 1000, 560, 1], [59.4, 1340, 560, 1.15],
+    [62.9, 1340, 560, 1.15], [64.6, 1000, 560, 1], [99, 1000, 560, 1]];
   let i = 1; while (i < keys.length - 1 && t > keys[i][0]) i++;
   const [a, ...p] = keys[i - 1], [b, ...q] = keys[i], x = ease(t, a, b);
   return { cx: mix(p[0], q[0], x), cy: mix(p[1], q[1], x), z: mix(p[2], q[2], x) };
@@ -39,12 +40,12 @@ function frame(t) {
   }
 
   // ---- b1: nhiều nhà nhỏ = nhiều giao dịch → gom về một điểm (trung bình)
-  const manyA = lin(t, b.b1.many - 4.4, b.b1.many - 1.2), gather = ease(t, b.b1.avg - 0.2, b.b1.avg + 0.7);
+  const manyA = t >= popT[0] - 0.1 ? 1 : 0, gather = ease(t, b.b1.avg - 0.2, b.b1.avg + 0.7);
   if (manyA > 0 && gather < 1) {
     world();
-    for (let k = 0; k < 26; k++) {
+    for (let k = 0; k < popT.length; k++) {
       const r = Math.sin(k * 12.9898) * 43758.5453, fr = r - Math.floor(r), r2 = Math.sin(k * 78.233) * 12345.678, fr2 = r2 - Math.floor(r2);
-      const hx = 140 + fr * 600, hy = 600 + fr2 * 240, appear = lin(manyA, k / 30, k / 30 + 0.15);
+      const hx = 140 + fr * 600, hy = 600 + fr2 * 240, appear = lin(t, popT[k] - 0.05, popT[k] + 0.12);
       if (appear <= 0) continue;
       const x = mix(hx, X(2000), gather), y = mix(hy, Y(200000), gather);
       house(ctx, x, y, 34 * (1 - 0.6 * gather), { alpha: appear * (1 - gather), wall: C.muted, roof: '#5F6B7A', win: '#C9D2DD' });
@@ -72,7 +73,7 @@ function frame(t) {
     const capOn = t >= b.b3.cap;
     const isGain = slide > 0.5;
     const col = isGain ? C.ink : C.accent;
-    const dim = capOn && !isGain ? 0.55 : 1;
+    const dim = !capOn || isGain ? 1 : t < b.b4.grow - 0.2 ? mix(1, 0.22, ease(t, b.b3.cap + 0.3, b.b3.cap + 0.9)) : mix(0.22, 1, ease(t, b.b4.grow - 0.2, b.b4.grow + 0.4));   // lượt đạo diễn: đường GIÁ TRỊ mờ khi đặt cạnh trần (tránh đọc nhầm 'giá nhà vượt trần')
     ctx.lineJoin = 'round'; ctx.lineCap = 'round';
     // nét chính
     ctx.beginPath();
@@ -121,7 +122,7 @@ function frame(t) {
     let hx, hy, w;
     if (t < b.b2.draw0) {                                            // b0–b1: nhà của Rosa & Frank (lớn), về điểm đầu
       hx = X(2000); hy = Y(200000); w = 120;
-    } else if (qRide < 0) { const q = Math.min(105, qDraw); hx = qx(q); hy = Y(at(gain, q) + off); w = mix(120, 56, ease(t, b.b2.draw0, b.b2.draw0 + 0.8)); }
+    } else if (qRide < 0) { const rw = ease(t, b.b5.t0 - 0.75, b.b5.t0 + 0.15), q = Math.min(105, qDraw) * (1 - rw); /* tua về 2000 dọc đường lãi */ hx = qx(q); hy = Y(at(gain, q) + off); w = mix(120, 56, ease(t, b.b2.draw0, b.b2.draw0 + 0.8)); }
     else { hx = qx(qRide); hy = Y(at(gain, qRide)); w = 56; }
     const unknown = ease(t, b.b1.blur, b.b1.blur + 0.6) * (1 - ease(t, b.b1.avg + 0.4, b.b1.avg + 1.0));
     world();
@@ -133,7 +134,12 @@ function frame(t) {
       ctx.lineTo(hx + w * 0.6, hy - h); ctx.lineTo(hx + w / 2, hy - h); ctx.lineTo(hx + w / 2, hy); ctx.closePath(); ctx.globalAlpha = heroA * unknown; ctx.stroke(); ctx.restore();
       ctx.globalAlpha = heroA * unknown; ctx.font = '700 60px Inter'; ctx.fillStyle = C.muted; ctx.textAlign = 'center'; ctx.fillText('?', hx, hy - 18); ctx.globalAlpha = 1; ctx.textAlign = 'left';
     }
-    house(ctx, hx, hy, w, { alpha: heroA * (1 - unknown) });
+    const bump = t >= b.b10.past ? Math.sin(Math.PI * lin(t, b.b10.past, b.b10.past + 0.35)) * 14 : 0;
+    house(ctx, hx, hy - bump, w, { alpha: heroA * (1 - unknown) });
+    const back = ease(t, b.b9.t0, b.b9.t0 + 0.8) * heroA;   // Rosa & Frank trở lại cạnh nhà khi lời nói về lãi của họ
+    if (back > 0 && qRide >= 0) { ctx.globalAlpha = back; person(ctx, hx - 62, hy, 0.2, C.ink, { hair: true }); person(ctx, hx - 44, hy, 0.22, C.ink); ctx.globalAlpha = 1; }
+    const upA = ease(t, b.b1.rise - 0.1, b.b1.rise + 0.3) * (1 - ease(t, b.b1.many - 0.5, b.b1.many));
+    if (upA > 0) { ctx.fillStyle = rgba(C.accent, upA); const ux = hx + w * 0.8, uy = hy - w * 0.4 - 30 * ease(t, b.b1.rise, b.b1.rise + 1.2); ctx.beginPath(); ctx.moveTo(ux, uy - 34); ctx.lineTo(ux - 18, uy - 8); ctx.lineTo(ux + 18, uy - 8); ctx.closePath(); ctx.fill(); ctx.fillRect(ux - 6, uy - 10, 12, 34); }
     // b0: Rosa & Frank
     const pA = 1 - ease(t, b.b1.blur - 0.2, b.b1.blur + 0.6);
     if (pA > 0) { ctx.globalAlpha = pA; person(ctx, X(2000) - 120, Y(200000), 0.42, C.ink, { hair: true }); person(ctx, X(2000) - 82, Y(200000), 0.46, C.ink); ctx.globalAlpha = 1; }
@@ -156,15 +162,24 @@ function frame(t) {
     text(q >= 105 ? CL('sale_quarter') : String(yr), sx + 40, sy - 40, 54, { w: 700, color: C.accent, alpha: a });
   }
 
-  // ---- b4: $200,000 trả lúc mua
-  const paidA = ease(t, b.b4.grow - 0.3, b.b4.grow + 0.3) * (1 - ease(t, b.b4.less + 1.6, b.b4.less + 2.4));
+  // ---- b4: "gain on paper = ?" (lời 'gain') → khối $200,000 (lời 'two hundred thousand') → lớn theo chỉ số ('grown') → trừ ('less')
+  const qA2 = ease(t, b.b4.gain - 0.1, b.b4.gain + 0.3) * (1 - ease(t, b.b4.less, b.b4.less + 0.4));
+  if (qA2 > 0) { const [sx, sy] = W2S(X(2016), Y(70000)); text('their gain on paper = ?', sx, sy, 56, { w: 700, color: C.ink, align: 'center', alpha: qA2 }); }
+  const paidA = ease(t, b.b4.two - 0.1, b.b4.two + 0.3) * (1 - ease(t, b.b4.less + 1.6, b.b4.less + 2.4));
   if (paidA > 0) {
     world(); ctx.fillStyle = rgba(C.cushion, 0.9 * paidA); ctx.fillRect(X(2000) - 34, Y(200000 * (1 - slide)), 22, Y(0) - Y(200000 * (1 - slide))); screen();
     const [sx, sy] = W2S(X(2000) + 10, Y(200000 * (1 - slide)));
-    text(`${CL('illustrative_price_200k_usd')} paid`, sx + 10, sy - 18, 48, { w: 700, color: C.cushion, alpha: paidA });
-    // mũi tên trừ khi trượt
-    const arA = ease(t, b.b4.less, b.b4.less + 0.3) * (1 - ease(t, b.b4.less + 1.8, b.b4.less + 2.3));
-    if (arA > 0) { const [ax, ay] = W2S(X(2016), Y(at(gain, 64) + off) - 30); text(`− ${CL('illustrative_price_200k_usd')}`, ax, ay, 56, { w: 700, color: C.cushion, align: 'center', alpha: arA }); }
+    text(t < b.b4.less ? CL('illustrative_price_200k_usd') : `− ${CL('illustrative_price_200k_usd')} paid`, sx + 10, sy - 18, 48, { w: 700, color: C.cushion, alpha: paidA });
+  }
+  const grA = ease(t, b.b4.grow - 0.1, b.b4.grow + 0.3) * (1 - ease(t, b.b4.less, b.b4.less + 0.4));
+  if (grA > 0) { const [sx, sy] = W2S(qx(105), Y(gain[105] + 200000)); text(`${CL('illustrative_price_200k_usd')}, grown with the index`, sx - 30, sy - 40, 48, { w: 700, color: C.accent, align: 'right', alpha: grA }); }
+
+  // ---- b5: ngoặc "well under the line"
+  const brA = ease(t, b.b5.under - 0.1, b.b5.under + 0.3) * (1 - ease(t, b.b6.t0, b.b6.t0 + 0.5));
+  if (brA > 0 && qRide >= 0) {
+    const [x0, y0] = W2S(qx(qRide) + 34, Y(500000)), [, y1] = W2S(0, Y(Math.max(0, at(gain, qRide))));
+    ctx.strokeStyle = rgba(C.cushion, brA); ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0 + 16, y0); ctx.lineTo(x0 + 16, y1); ctx.lineTo(x0, y1); ctx.stroke();
+    text('well under', x0 + 30, (y0 + y1) / 2 + 16, 48, { w: 700, color: C.cushion, alpha: brA });
   }
 
   // ---- b6/b8: mốc vượt
@@ -175,7 +190,8 @@ function frame(t) {
     const a = ease(t, b.b6.cross - 0.05, b.b6.cross + 0.25) * keep;
     const fl = 1 - lin(t, b.b6.cross, b.b6.cross + 0.6);
     world();
-    if (fl > 0) { ctx.strokeStyle = rgba(C.warn, fl); ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(qx(crossQ), Y(500000), 20 + 70 * (1 - fl), 0, 7); ctx.stroke(); }
+    if (fl > 0) { ctx.strokeStyle = rgba(C.warn, fl); ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(qx(crossQ), Y(500000), 20 + 70 * (1 - fl), 0, 7); ctx.stroke();
+      for (let k = 0; k < 10; k++) { const an = k * Math.PI / 5, r0 = 26 + 50 * (1 - fl), r1 = r0 + 34; ctx.beginPath(); ctx.moveTo(qx(crossQ) + r0 * Math.cos(an), Y(500000) + r0 * Math.sin(an)); ctx.lineTo(qx(crossQ) + r1 * Math.cos(an), Y(500000) + r1 * Math.sin(an)); ctx.stroke(); } }
     ctx.fillStyle = rgba(C.warn, a); ctx.beginPath(); ctx.arc(qx(crossQ), Y(500000), 9, 0, 7); ctx.fill(); screen();
     const [sx, sy] = W2S(qx(crossQ), Y(500000));
     text(`Over: ${CL('cross_quarter_at_200k_phoenix')}`, sx - 26, sy - 26, 48, { w: 700, color: C.warn, align: 'right', alpha: a });
@@ -204,16 +220,16 @@ function frame(t) {
 
   // ---- b11: giá ×3,8 — hai cột giá (chiều cao ∝ chỉ số), nhà ở đỉnh
   if (t >= 63.0) {
-    const a = ease(t, 63.2, 64.0), g = S.data.claims.growth_phoenix.value, grow = ease(t, b.b11.x - 0.3, b.b11.x + 0.9);
+    const a = ease(t, 63.2, 64.0), g = S.data.claims.growth_phoenix.value, grow = ease(t, 63.8, b.b11.x + 0.05);
     const base = 900, h0 = 120, x0 = 700, x1 = 1220, cw = 150;
-    ctx.globalAlpha = a; ctx.fillStyle = rgba(C.bg, 0.88 * a); ctx.fillRect(0, 0, 1920, 1080); ctx.globalAlpha = 1;
+    ctx.globalAlpha = a; ctx.fillStyle = rgba(C.bg, a); ctx.fillRect(0, 0, 1920, 1080); ctx.globalAlpha = 1;
     ctx.fillStyle = rgba(C.accent, 0.85 * a); ctx.fillRect(x0 - cw / 2, base - h0, cw, h0);
     const h1 = mix(h0, h0 * g, grow); ctx.fillRect(x1 - cw / 2, base - h1, cw, h1);
     ctx.globalAlpha = a; house(ctx, x0, base - h0, 110); house(ctx, x1, base - h1, 110); ctx.globalAlpha = 1;
     text(String(CL('buy_year')), x0, base + 56, 48, { color: C.muted, align: 'center', alpha: a });
     text(CL('sale_quarter'), x1, base + 56, 48, { color: C.muted, align: 'center', alpha: a });
     text(CL('growth_phoenix'), x1 + 130, base - h1 + 40, 120, { w: 700, color: C.accent, alpha: ease(t, b.b11.x, b.b11.x + 0.4) });
-    text('Phoenix-area prices since 2000', 960, 150, 56, { w: 600, align: 'center', alpha: ease(t, b.b11.x - 0.2, b.b11.x + 0.4) });
+    text('Phoenix-area prices since 2000', 960, 190, 56, { w: 600, align: 'center', alpha: ease(t, 63.2, 63.8) });
   }
 
   // ---- lớp bắt buộc: huy hiệu nhỏ

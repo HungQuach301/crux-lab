@@ -50,9 +50,9 @@ export function chrome(K, flags, a = 1) {
     ctx.strokeStyle = C.warn; ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
     text('ILLUSTRATIVE', 1824 - 14, 99, 40, { w: 700, color: C.warn, align: 'right', alpha: a });
   }
-  if (flags.hist) text('US only · history, not a forecast', 96, 1040, 40, { w: 400, color: C.muted, alpha: a });
-  if (flags.src) text('Source: FHFA via FRED', 96, 99, 40, { w: 400, color: C.muted, alpha: a * (flags.srcA ?? 1) });
-  if (flags.cw) text(flags.cw, 1824, 1040, 40, { w: 400, color: C.muted, align: 'right', alpha: a * (flags.cwA ?? 1) });
+  if (flags.hist) text('US only · history, not a forecast', 96, 1040, 40, { w: 600, color: '#B9C2CE', alpha: a });
+  if (flags.src) text('Source: FHFA via FRED', 96, 99, 40, { w: 600, color: '#B9C2CE', alpha: a * (flags.srcA ?? 1) });
+  if (flags.cw) text(flags.cw, 1824, 1040, 40, { w: 600, color: '#B9C2CE', align: 'right', alpha: a * (flags.cwA ?? 1) });
 }
 
 export function money(v) { return '$' + Math.round(v).toLocaleString('en-US'); }

@@ -38,12 +38,12 @@ B = [
       next='nhà mờ đi (không thấy nhà thật) → nhiều nhà nhỏ'),
  dict(id='b1', sid='S05.1', idea='Không thấy nhà thật → cho giá trị đi đúng như chỉ số giá nhà Phoenix (trung bình nhiều giao dịch).',
       visual='nhà mờ thành bóng; nhiều nhà nhỏ bật lên (nhiều giao dịch) rồi gom về một ĐƯỜNG chỉ số; thẻ nguồn FHFA via FRED.',
-      cues={'blur': '@S05.1:see', 'many': '@S05.1:average', 'avg': '@S05.1:sales', 'src': '@S05.1:Federal'},
+      cues={'blur': '@S05.1:see', 'rise': '@S05.1:rise', 'pop0': '@S05.1:Phoenix', 'many': '@S05.1:average', 'avg': '@S05.1:sales', 'src': '@S05.1:Federal'},
       sound=['tick mềm mỗi nhà nhỏ (âm dữ liệu)', 'hợp âm gom khi về một đường'], music=0.4, emotion='rõ ràng, tin cậy',
       next='đường chỉ số bắt đầu vẽ từ 2000'),
  dict(id='b2', sid='S05.2', idea='Đi từng quý từ 2000 đến Q2 2026.',
       visual='nhà nhỏ cưỡi đầu đường, vẽ quý theo quý; trục năm lật như lịch; giá trên nhà tăng.',
-      cues={'draw0': '@S05.2:follow', 'draw1': '@S05.2:latest'}, sound=['âm dữ liệu: mỗi quý một nốt, cao độ theo giá trị (bảng S2)'],
+      cues={'draw0': '@S05.2:follow', 'y2000': '@S05.2:two', 'y2026': '@S05.2:twenty', 'draw1': '@S05.2:latest'}, sound=['âm dữ liệu: mỗi quý một nốt, cao độ theo giá trị (bảng S2)'],
       music=0.5, emotion='đà đi lên', next='vạch trần đập xuống cắt ngang khung'),
  dict(id='b3', sid='S06.1', idea='Trần là một đường phẳng $500,000, mọi quý như nhau.',
       visual='vạch trần rơi xuống và khoá ngang (đứng yên suốt đoạn); nhãn "$500,000 cap" đúng lúc "five hundred thousand".',
@@ -51,7 +51,7 @@ B = [
       music=0.45, emotion='chắc, cố định', next='đường giá trị trượt xuống thành đường lãi'),
  dict(id='b4', sid='S06.2', idea='Lãi trên giấy = $200,000 lớn theo chỉ số − $200,000 đã trả.',
       visual='thẻ giá $200,000 lớn theo đường; rồi CẢ ĐƯỜNG trượt xuống đúng $200,000 (phép trừ thấy được) → thành đường LÃI.',
-      cues={'gain': '@S06.2:gain', 'grow': '@S06.2:grown', 'less': '@S06.2:less', 'paid': '@S06.2:paid'},
+      cues={'gain': '@S06.2:gain', 'two': '@S06.2:two', 'grow': '@S06.2:grown', 'less': '@S06.2:less', 'paid': '@S06.2:paid'},
       sound=['whoosh xuống có cao độ khi đường trượt (trừ)'], music=0.5, emotion='hiểu ra cơ chế', next='camera lùi xem cả đường dưới vạch'),
  dict(id='b5', sid='S06.3', idea='Phần lớn các năm, lãi nằm dưới vạch xa.',
       visual='vùng dưới vạch tô nhạt; khoảng cách tới vạch hiện thành ngoặc lớn.', cues={'under': '@S06.3:under'},
@@ -81,7 +81,7 @@ for b in B:
     b['cues'] = {k: at(v) for k, v in b['cues'].items()}
 # Lịch dữ liệu dùng chung cho hình VÀ âm (đồng bộ do cấu trúc, không căn tay): chỉ số quý q (0 = 2000 Q1 … 105 = 2026 Q2) theo thời gian.
 cue = {b['id']: b['cues'] for b in B}
-DRAW = [[cue['b2']['draw0'], 0], [cue['b2']['draw1'], 105]]                      # b2: đường GIÁ TRỊ vẽ quý theo quý
+DRAW = [[cue['b2']['draw0'], 0], [cue['b2']['y2000'], 2], [cue['b2']['y2026'], 105]]   # b2: đường GIÁ TRỊ vẽ quý theo quý; năm khoá theo lời (lượt đạo diễn v1)
 RIDE = [[B[5]['t0'] + 0.15, 0], [cue['b6']['cross'] - 0.9, 88], [cue['b6']['cross'], 89], [cue['b7']['slip'] + 0.1, 91],
         [cue['b8']['stay'] - 0.2, 92], [cue['b8']['lbl'], 93], [cue['b8']['above'], 105]]   # b5–b8: con trỏ cưỡi đường LÃI
 data = json.load(open(os.path.join(HERE, 'data.json')))
@@ -108,13 +108,13 @@ for q in range(0, 106):                                                         
         EV.append({'t': round(when(RIDE, q), 3), 'kind': 'data', 'v': max(0, gain[q]) / 800000, 'src': 'gain', 'over': gain[q] > 500000})
 EV += [{'t': cue['b0']['cap_hint'], 'kind': 'riser', 'to': cue['b0']['q']},
        {'t': cue['b1']['blur'], 'kind': 'whoosh_soft'},
-       *[{'t': round(cue['b1']['many'] - 1.6 + 0.12 * k, 3), 'kind': 'tick', 'v': 0.3 + 0.05 * (k % 5)} for k in range(14)],
+       *[{'t': round(cue['b1']['pop0'] + k * (cue['b1']['many'] - 0.3 - cue['b1']['pop0']) / 11, 3), 'kind': 'tick', 'pop': k, 'v': 0.3 + 0.05 * (k % 5)} for k in range(12)],   # mỗi nhà SOLD bật = một tick
        {'t': cue['b1']['avg'], 'kind': 'gather'},
        {'t': cue['b3']['cap'] + 0.35, 'kind': 'thud'}, {'t': cue['b3']['cap'] + 0.35, 'kind': 'drone_on', 'until': cue['b4']['less']},
        {'t': cue['b4']['less'], 'kind': 'slide_down', 'dur': 1.6},
-       {'t': cue['b6']['cross'], 'kind': 'chime'},
+       {'t': cue['b6']['cross'] - 1.6, 'kind': 'riser', 'to': cue['b6']['cross']}, {'t': cue['b6']['cross'], 'kind': 'chime'},
        {'t': cue['b9']['fly'], 'kind': 'swish', 'to': cue['b9']['land']}, {'t': cue['b9']['land'], 'kind': 'tick', 'v': 0.7},
-       {'t': cue['b10']['past'] - 0.05, 'kind': 'impact'},
+       {'t': cue['b10']['cap'] + 0.32, 'kind': 'impact'},   # sau chữ 'cap' (lượt đạo diễn: impact đè lời)
        {'t': cue['b11']['x'], 'kind': 'rise', 'dur': 2.2}]
 EV.sort(key=lambda e: e['t'])
 spine = {'segment': 'ep004 S04.5 → S07.3 (bản phát hành 93,8–163,5 s)', 'total': TOTAL, 'fps': 30, 'takes': takes, 'words': words, 'beats': B,

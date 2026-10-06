@@ -162,7 +162,7 @@ def music_code(spine):
         name = prog[k % len(prog)]; root, iv = DOR[name]
         fr = [hz(root + i) for i in iv]
         d = min(bar, stop - t0)
-        add(dry, t0, pad(fr, d + 0.6, 0.16 + 0.08 * ten, 900 + 900 * ten))
+        add(dry, t0, pad(fr, d + 0.6, 0.08 + 0.2 * ten, 700 + 1400 * ten))   # tương phản căng–chùng rõ hơn (lượt đạo diễn)
         for e in range(8):
             t = t0 + e * BEAT / 2
             if t >= stop: break
@@ -265,7 +265,7 @@ def sfx_layer(spine, N):
         elif k == 'gather':
             add(out, t, pad([hz(62), hz(69), hz(74)], 1.6, 0.25, 1800))
         elif k == 'thud':
-            add(out, t, mixs(felt(hz(31), 0.9), thump(0.8)))
+            add(out, t, mixs(felt(hz(31), 0.45), thump(0.4)))   # lượt đạo diễn: thud ngang lời → −6 dB
         elif k == 'drone_on':
             d = e['until'] - t; n = int(d * SR); tt = np.arange(n) / SR
             x = (np.sin(2 * np.pi * 73.4 * tt) + 0.3 * np.sin(2 * np.pi * 146.8 * tt)) * (1 + 0.15 * np.sin(2 * np.pi * 0.3 * tt))
@@ -277,7 +277,7 @@ def sfx_layer(spine, N):
         elif k == 'swish':
             d = e['to'] - t; add(out, t, mixs(noise_sweep(d, 900, 5000, 0.12, att=d * 0.7), glide(62, 74, d, 0.06)))
         elif k == 'impact':
-            add(out, t, mixs(felt(hz(26), 1.0, 1.6), thump(1.0))); add(out, t, bell(hz(74), 0.18), 0.0)
+            add(out, t, mixs(felt(hz(26), 0.32, 1.6), thump(0.32))); add(out, t, bell(hz(74), 0.06), 0.0)   # −10 dB, sau chữ 'cap'
         elif k == 'rise':
             add(out, t, glide(57, 69, e['dur'], 0.10))
     return out
@@ -330,7 +330,7 @@ def lufs(path):
 def main():
     out = sys.argv[1]; os.makedirs(os.path.join(out, 'stems'), exist_ok=True)
     music_src = sys.argv[sys.argv.index('--music') + 1] if '--music' in sys.argv else 'code'
-    spine = json.load(open(os.path.join(HERE, 'spine.json')))
+    spine = json.load(open(sys.argv[sys.argv.index('--spine') + 1] if '--spine' in sys.argv else os.path.join(HERE, 'spine.json')))
     T = spine['total']; N = int(T * SR)
     voice = np.zeros(N)
     for tk in spine['takes']:
@@ -341,6 +341,10 @@ def main():
         mus, info = music_code(spine); rep.update(info)
     else:
         mus = load(music_src, 2)[:N]; mus = np.pad(mus, ((0, N - len(mus)), (0, 0)))
+        # nhạc từ file (thư viện/AI): cũng khoảng lặng ngắn sau 'cap' (G-003): nhả τ 90 ms, lặng ~1,1 s, trở lại trong 200 ms
+        cue = {bb['id']: bb['cues'] for bb in spine['beats']}; t_ = np.arange(N) / SR; c0 = cue['b10']['cap'] + 0.32
+        g_ = np.where(t_ < c0, 1.0, np.where(t_ < c0 + 1.1, np.exp(-(t_ - c0) / 0.09), np.clip((t_ - c0 - 1.1) / 0.2, 0, 1)))
+        mus = mus * g_[:, None]
     mus = mus[:N]
     data, shifts = data_layer(spine, N, venv) if '--no-data' not in sys.argv else (np.zeros((N, 2)), [])
     sfx = sfx_layer(spine, N) if '--no-sfx' not in sys.argv else np.zeros((N, 2))
@@ -352,7 +356,7 @@ def main():
             r = np.sqrt(np.mean(x ** 2) + 1e-12)
         return x * (vr * 10 ** (-db / 20) / r)
     mus_d = duck(level(mus, 20.0), venv, 4.0, carve=True)
-    data_d = duck(level(data, 16.0), venv, 8.0) if np.any(data) else data
+    data_d = duck(level(data, 18.0), venv, 8.0) if np.any(data) else data
     sfx_d = duck(level(sfx, 13.0), venv, 6.0) if np.any(sfx) else sfx
     room = room_tone(N, venv, env200(mus_d))
     v2 = np.stack([voice, voice], 1)

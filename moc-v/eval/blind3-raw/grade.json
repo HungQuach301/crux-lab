@@ -1,0 +1,10 @@
+{
+ "answer": "[\n{\"id\":\"b07057ee\",\"score\":0.5,\"advice\":\"no\",\"why\":\"Reads line as home value, not gain; misses the dip; cap crossing dated roughly right.\"},\n{\"id\":\"d9779971\",\"score\":0.5,\"advice\":\"no\",\"why\":\"Has 3.8x correct, but treats $558,100 as home value and never mentions the cap.\"},\n{\"id\":\"1ceda292\",\"score\":0.5,\"advice\":\"no\",\"why\":\"Reads gain on paper correctly, but misses the brief dip below the cap and the Q2 2022 crossing.\"},\n{\"id\":\"a72540b2\",\"score\":0.5,\"advice\":\"no\",\"why\":\"Has 3.8x correct, but treats $558,100 as home value and omits the cap.\"}\n]",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "in": 5478,
+   "out": 687
+  }
+ },
+ "turns": 1
+}
