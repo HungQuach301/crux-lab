@@ -1,0 +1,10 @@
+{
+ "answer": "[\n{\"id\":\"efe02327\",\"score\":1,\"advice\":\"yes\",\"why\":\"All K1 elements correct; 'don't rush to sell' is sale-timing advice.\"},\n{\"id\":\"da3c9952\",\"score\":1,\"advice\":\"no\",\"why\":\"Both gain over cap and 3.8x stated; only general caution.\"},\n{\"id\":\"b052ec91\",\"score\":0.5,\"advice\":\"no\",\"why\":\"Dates right, but frame 6 read as value, not gain, crossing cap.\"},\n{\"id\":\"bd6e6c4a\",\"score\":1,\"advice\":\"no\",\"why\":\"Both $558,100 past cap and 3.8x correct; only general caution.\"},\n{\"id\":\"49fd3b09\",\"score\":1,\"advice\":\"no\",\"why\":\"Both elements correct; advice is general caution only.\"},\n{\"id\":\"40f44eba\",\"score\":1,\"advice\":\"no\",\"why\":\"Gain, Q2 2022 cross, dip, Q2 2023 onward correct; generic caution.\"}\n]",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "in": 6886,
+   "out": 1005
+  }
+ },
+ "turns": 1
+}

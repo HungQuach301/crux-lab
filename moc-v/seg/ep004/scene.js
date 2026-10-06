@@ -205,6 +205,9 @@ export async function boot(res) {
       const nA = ease(t, S.ride[0][0], S.ride[0][0] + POP) * (1 - ease(t, M.zoom.t0, M.zoom.t0 + 0.3)) * ok;
       const zA = ease(t, M.zoom.t1 - 0.2, M.zoom.t1 + POP) * (1 - ease(t, b.b9.fly - 0.4, b.b9.fly)) * ok;   // khung phóng: tiêu đề đường
       O.text('their gain on paper, 2021 → 2026', 960, 230, 52, { color: C.ink, align: 'center', alpha: zA });
+      // đối trọng đứng suốt phần phát lại (bản phát hành G2: chặn câu khuyên "chờ/canh thời điểm bán")
+      const mA = ease(t, S.ride[0][0], S.ride[0][0] + POP) * (1 - ease(t, b.b10.past, b.b10.past + POP)) * ok;
+      O.text('A measurement, not a next step', 960, 292, 48, { color: C.chrome, w: 600, align: 'center', alpha: mA });
       const qn = Math.max(0, qRide - 10), [nx, ny] = S2(X(qn), Math.max(0, at(qn)) / U);
       O.text('their gain on paper', nx - 20, Math.min(820, ny + 60), 52, { color: C.ink, align: 'right', alpha: nA, plate: '#0B0E13', plateA: 0.7 });
     }

@@ -47,7 +47,7 @@ B = [
  ('b7', 'S06.5', 'chart', 'Tụt lại dưới một thời gian.', 'trong khung phóng: đường tụt dưới xà (đoạn dưới đổi về ink); nhãn "Back under".',
   {'slips': '@S06.5:slips'}, ['âm dữ liệu đi xuống'], 0.65, 'lưỡng lự', 'lên lại'),
  ('b8', 'S06.6', 'chart', 'Từ Q2 2023 ở trên luôn.', 'đường lên lại; đoạn trên xà warn tới 2026; nhãn "Stayed over since Q2 2023"; ba nhãn giữ tới khi số bay (trạng thái kết luận).',
-  {'stay': '@S06.6:From', 'lbl': '@S06.6:twenty', 'above': '@S06.6:above'}, ['nốt sáng giữ'], 0.85, 'chắc dần', 'Rosa & Frank đến cạnh nhà'),
+  {'stay': '@S06.6:From', 'lbl': '@S06.6:second', 'above': '@S06.6:above'}, ['nốt sáng giữ'], 0.85, 'chắc dần', 'Rosa & Frank đến cạnh nhà'),
  ('b9', 'S07.1', 'chart', 'Con số của câu mở đầu là lãi của họ.', 'Rosa & Frank đứng cạnh nhà ở đầu đường; số "≈ $558,100" hiện ở đỉnh chồng và bay lên biển trên mái (lúc "this" → "opening").',
   {'rose': '@S07.1:rose', 'fly': '@S07.1:this', 'land': '@S07.1:opening'}, ['swish theo đường bay', 'tick khi chạm biển'], 0.95, 'nhận ra', 'nhà nảy qua xà'),
  ('b10', 'S07.2', 'chart', 'Qua trần.', 'nhà nảy lên qua xà; ngoặc warn từ xà tới đỉnh chồng: "past the cap"; khoảng lặng ngắn sau "cap".',
