@@ -9,7 +9,7 @@ Nhánh `ccr-a4da2518-3guqrl` (lệnh phiên) từ `main` @ `b1d3e79`. Format **`
 | C1 | ĐẠT | `gates/C1-*.md`, `c1/` | L1 2/2, L2 2/2, cờ 0 → L2 |
 | C2 | ĐẠT (vòng 2) | `story/`, `gates/C2-*.md`, `gates/REVIEW-C2.md`, `c2/` | H-A; M1–M5 thật ĐẠT (M4 9,41 s); mù v2 6/6, khuyên 0, S18 3/6 |
 | Giao phiên K | SẴN SÀNG khi G1 duyệt | `K-brief.md` | kind mới + lô A10–A12, A5, A7, A9 |
-| **G1** | **CHỜ CHỦ DỰ ÁN** | `gates/G1.md`, `gates/REVIEW-G1.md` | ngoại lệ: nguồn mốc 75 % |
+| **G1** | **CHỜ CHỦ DỰ ÁN** (issue #43) | `gates/G1.md`, `gates/REVIEW-G1.md` | ngoại lệ: nguồn mốc 75 % |
 | C4 → C5 → Shorts → G2 | chưa | | sau G1 + K merge |
 
 ## 2. Phiên sau đọc (sau G1)
