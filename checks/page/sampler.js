@@ -1,6 +1,10 @@
 'use strict';
 // Page sampler: drives the render page through the contract (window.CHECKS), evaluates the frame rules and writes <root>/out/checks/page.json.
-//   node checks/page/sampler.js <root> [--step 3] [--pixel-step 6] [--scenes a,b]
+//   node checks/page/sampler.js <root> [--step 3] [--pixel-step 6] [--scenes a,b] [--jobs N] [--no-cache]
+// K3.8 (A3): --jobs N samples scene by scene on N browsers (default: K_JOBS or 1). Each scene job first restores the state a sequential run carries
+// into it from the previous samples (text boxes, visible claims, persistent moving collisions), so the merged result equals the sequential one number for
+// number; jobs are cached per scene under out/checks/cache/page-scenes (key: sampler code, page files, episode inputs, the scene and the decoded video
+// frames of its range).
 // Object rules every `step` frames (0.1 s); pixel rules every `pixel-step` frames (0.2 s) on the page's layer masks and on the decoded video frame.
 const fs = require('fs');
 const path = require('path');
@@ -20,12 +24,16 @@ const opt = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i
 const ROOT = path.resolve(args[0] || '.');
 const STEP = +opt('step', 3), PSTEP = +opt('pixel-step', 6);
 const ONLY = opt('scenes', null) ? new Set(opt('scenes').split(',')) : null;
+const JOBS = Math.max(1, +opt('jobs', process.env.K_JOBS || 1));
+const NO_CACHE = args.includes('--no-cache');
 const J = (rel) => JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 
 // video frames (rgb24) every PSTEP frames, read sequentially from ffmpeg
-function videoReader(file, every, pix = 'rgb24') {
+function videoReader(file, every, pix = 'rgb24', start = 0) {
+  // start (a multiple of every): accurate input seek half a frame before it, so the first decoded frame is frame `start`
   const w = 1920, h = 1080, size = w * h * (pix === 'gray' ? 1 : 3);
-  const ff = spawn('ffmpeg', ['-v', 'error', '-i', file, '-vf', `select='not(mod(n\\,${every}))'`, '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', pix, '-'], { stdio: ['ignore', 'pipe', 'inherit'] });
+  const ss = start > 0 ? ['-ss', ((start - 0.5) / FPS).toFixed(6)] : [];
+  const ff = spawn('ffmpeg', ['-v', 'error', ...ss, '-i', file, '-vf', `select='not(mod(n\\,${every}))'`, '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', pix, '-'], { stdio: ['ignore', 'pipe', 'inherit'] });
   let chunks = [], have = 0, done = false, waiters = [], idx = -1;
   ff.stdout.on('data', (c) => { chunks.push(c); have += c.length; ff.stdout.pause(); flush(); });
   ff.stdout.on('end', () => { done = true; flush(); });
@@ -42,7 +50,7 @@ function videoReader(file, every, pix = 'rgb24') {
     // frame number n (multiple of every)
     async get(n) {
       let f = null;
-      while (idx < n / every) { f = await new Promise((res) => { waiters.push(res); flush(); }); idx++; if (!f) return null; }
+      while (idx < (n - start) / every) { f = await new Promise((res) => { waiters.push(res); flush(); }); idx++; if (!f) return null; }
       return f;
     },
     close() { try { ff.kill(); } catch (e) { /* ignore */ } },
@@ -72,14 +80,18 @@ function cameraSpeed(cam) {
 
 function sceneWindow(scenes) { return (t) => scenes.find((s) => t >= s.start && t < s.start + s.dur) || scenes[scenes.length - 1]; }
 
-async function run() {
-  const t0 = Date.now();
+async function openEnv() {
   const tl = J('out/timeline.json');
   const claimsArr = J('out/claims.json').claims;
   const claims = Object.fromEntries(claimsArr.map((c) => [c.claimId, c]));
   const tokens = J('design/tokens.json');
   const pageCfg = J('out/page.json');
   const illustrative = claimsArr.filter((c) => c.illustrative).map((c) => c.claimId);
+  // K3.8 S17: conditional claims (out/claims.json `conditional`) and each condition's label pattern (contract.json claims.conditions)
+  const cpath = process.env.K_CONTRACT ? path.resolve(process.env.K_CONTRACT) : path.join(ROOT, 'contract.json');
+  const contract = fs.existsSync(cpath) ? JSON.parse(fs.readFileSync(cpath, 'utf8')) : {};
+  const condPat = Object.fromEntries(((contract.claims || {}).conditions || []).map((c) => [c.id, new RegExp(c.pattern, 'i')]));
+  const conditional = Object.fromEntries(claimsArr.filter((c) => c.conditional).map((c) => [c.claimId, c.conditional]));
   const scenes = tl.scenes.map((s) => ({ ...s, move: s.move || 0, allowed: s.panels || ['*'] }));
   const sceneAt = sceneWindow(scenes);
   const browser = await chromium.launch({ args: ['--font-render-hinting=none', '--disable-lcd-text'] });
@@ -100,22 +112,65 @@ async function run() {
   const objects = () => page.evaluate(() => window.CHECKS.objects());
   const layer = (n, ids) => page.evaluate(([n, ids]) => window.CHECKS.layer(n, ids), [n, ids || []]);
   const shotMask = async (n, ids) => { await layer(n, ids); const buf = await page.screenshot({ omitBackground: true, type: 'png' }); await layer('all'); return P.alphaMask(P.decodePNG(buf)); };
-  const video = videoReader(path.join(ROOT, 'out/video.mp4'), PSTEP);
-  const videoY = videoReader(path.join(ROOT, 'out/video.mp4'), PSTEP, 'gray'); // the coded luma plane (full resolution; no chroma subsampling in it)
   // moving frames: measured from out/camera.json when delivered (the declared scenes[].move is then ignored), else the declared move at scene start
   const hasCam = fs.existsSync(path.join(ROOT, 'out/camera.json'));
   const camAt = hasCam ? cameraSpeed(J('out/camera.json')) : null;
   const shotRGB = async () => { const img = P.decodePNG(await page.screenshot({ type: 'png' })); return img; };
+  // V11 collisions of one pixel sample, in the order the sequential sampler judged them: [text, other, pixels, moving?] (glyph/badge ink vs graphic ink
+  // with 2 px clearance; text vs text for pairs whose boxes touch, nested badge/parent pairs excluded). Returns the text mask too (V03, V08, C14).
+  async function collide(T, isMoving) {
+    const tm = await shotMask('text'), gm = await shotMask('graphics');
+    const td = P.dilate(tm, 2);
+    const list = [];
+    for (const o of T) {
+      const box = [o.box[0] - 3, o.box[1] - 3, o.box[2] + 3, o.box[3] + 3];
+      const n = P.overlapIn(td, gm, box);
+      if (n >= 4) list.push([o, 'graphics', n, isMoving(o)]);
+    }
+    for (let i = 0; i < T.length; i++) for (let j = i + 1; j < T.length; j++) {
+      const a = T[i], b = T[j];
+      if (a.parent === b.id || b.parent === a.id) continue;
+      if (R.gapBetween(R.inflate(R.B(a), 3), R.B(b)) > 0) continue;
+      const ma = P.dilate(await shotMask('only', [a.id]), 2), mb2 = await shotMask('only', [b.id]);
+      const n = P.overlapIn(ma, mb2, [Math.min(a.box[0], b.box[0]) - 3, Math.min(a.box[1], b.box[1]) - 3, Math.max(a.box[2], b.box[2]) + 3, Math.max(a.box[3], b.box[3]) + 3]);
+      if (n >= 4) list.push([a, 'text:' + b.tid, n, isMoving(a) || isMoving(b)]);
+    }
+    return { tm, list };
+  }
+  return { tl, claimsArr, claims, tokens, pageCfg, illustrative, condPat, conditional, scenes, sceneAt, browser, page, url, resources, seek, objects, layer, shotMask, hasCam, camAt, shotRGB, collide };
+}
 
-  const total = tl.total, frames = Math.round(total * FPS);
+async function closeEnv(env) {
+  const { page, resources } = env;
+  resources.entries = await page.evaluate(() => performance.getEntriesByType('resource').map((e) => ({ url: e.name, initiator: e.initiatorType })));
+  resources.fonts = await page.evaluate(() => [...document.fonts].map((f) => ({ family: f.family, status: f.status, style: f.style, weight: f.weight })));
+  await env.browser.close();
+}
+
+// One sampling job: the object and pixel rules on the given sample frames (consecutive samples of one scene, or every sample). warm: restore what a
+// sequential run carries into the first frame from earlier samples: the previous sample's text boxes and visible claims, and the moving collisions of the
+// last pixel sample that had text (V11 persistence).
+async function sampleJob(env, frameList, warm) {
+  const { claims, tokens, illustrative, condPat, conditional, scenes, sceneAt, page, seek, objects, layer, shotMask, hasCam, camAt, shotRGB, collide } = env;
+  const t0 = Date.now();
   const per = Object.fromEntries(scenes.map((s) => [s.id, { samples: 0, l1: [], issues: {}, examples: {} }]));
   const add = (sid, rid, ex) => { const P_ = per[sid]; P_.issues[rid] = (P_.issues[rid] || 0) + 1; ((P_.examples[rid] ||= []).length < 3) && P_.examples[rid].push(ex); };
-  const textTrack = [], yearsTrack = [];
+  const textTrack = [], yearsTrack = [], motionTrack = [];
+  let lastMotion = '';
   let lastTextSig = '';
   const claimScenes = {}, claimFirst = {}, claimRoles = {}, claimFinal = {};
   const orphan = [], charObs = {}, charSides = {}, casesTrack = [], posRows = [], timeBad = [];
   let s08Without = 0, s08Lag = 0; const s08Ex = []; const s09Ex = []; let s09Missing = 0;
   const badgeFirst = {}, illFirst = {};
+  let s17Without = 0; const s17Ex = [];
+  // S17 at one frame: a visible conditional claim span without a visible text matching its condition's label
+  function s17(objs, t, s) {
+    const vis = visibleClaims(objs).filter((x) => conditional[x.sp.id]);
+    if (!vis.length) return;
+    const texts = objs.filter((o) => o.kind === 'text' && o.opacity > 0.5 && R.onFrame(R.B(o))).map((o) => o.text || '');
+    const miss = [...new Set(vis.map((x) => x.sp.id).filter((id) => { const re = condPat[conditional[id]]; return !re || !texts.some((tx) => re.test(tx)); }))];
+    if (miss.length) { s17Without++; if (s17Ex.length < 10) s17Ex.push({ t: +t.toFixed(3), scene: s.id, claims: miss }); }
+  }
   const px = { collisions: [], movingCollisions: 0, safe: [], safeTravelling: 0, contrast: [], small: [], worstContrast: null, samples: 0,
     ncc: [], nccStatic: [], nccMoving: [], nccSkipped: 0 };
   let prevBoxes = new Map(), prevMovingHits = new Set(), prevVisibleShapes = new Map();
@@ -147,7 +202,32 @@ async function run() {
     if (st.shown.length && !st.badge) { s08Without++; if (s08Ex.length < 10) s08Ex.push({ t: +t.toFixed(3), scene: s.id, claims: st.shown }); }
   }
 
-  for (let f = 0; f < frames; f += STEP) {
+  const pf0 = frameList.length ? Math.ceil(frameList[0] / PSTEP) * PSTEP : 0;
+  const video = videoReader(path.join(ROOT, 'out/video.mp4'), PSTEP, 'rgb24', pf0);
+  const videoY = videoReader(path.join(ROOT, 'out/video.mp4'), PSTEP, 'gray', pf0); // the coded luma plane (full resolution; no chroma subsampling in it)
+  if (warm && frameList.length && frameList[0] > 0) {
+    const f0 = frameList[0];
+    const boxesAt = (os) => new Map(os.filter((o) => o.kind === 'text').map((o) => [o.tid, o.box]));
+    await seek((f0 - STEP) / FPS);
+    const op = await objects();
+    prevBoxes = boxesAt(op);
+    visibleClaims(op).forEach((x) => prevVisible.add(x.sp.id + '|' + x.sp.text));
+    for (let g = Math.floor((f0 - 1) / PSTEP) * PSTEP; g >= 0; g -= PSTEP) {
+      await seek(g / FPS);
+      let og = await objects();
+      const T = og.filter((o) => o.kind === 'text' && o.opacity > 0.5 && R.onFrame(R.B(o)));
+      if (!T.length) continue;
+      let pb = new Map();
+      if (g > 0) { await seek((g - STEP) / FPS); pb = boxesAt(await objects()); await seek(g / FPS); og = await objects(); }
+      const mv = new Map();
+      for (const o of og) if (o.kind === 'text') { const p = pb.get(o.tid); mv.set(o.id, p ? Math.max(...o.box.map((v, i) => Math.abs(v - p[i]))) : 0); }
+      const T2 = og.filter((o) => o.kind === 'text' && o.opacity > 0.5 && R.onFrame(R.B(o)));
+      const { list } = await collide(T2, (o) => (mv.get(o.id) || 0) >= TEXT_MOVING);
+      prevMovingHits = new Set(list.map(([o, other]) => o.tid + '|' + other));
+      break;
+    }
+  }
+  for (const f of frameList) {
     const t = f / FPS, s = sceneAt(t), PS = per[s.id];
     if (ONLY && !ONLY.has(s.id)) continue;
     if (process.env.K_PROGRESS && (f / STEP) % 50 === 0) console.error(`t=${t.toFixed(1)} ${((Date.now() - t0) / 1000).toFixed(0)}s`);
@@ -164,7 +244,7 @@ async function run() {
         const tg = g / FPS, sg = sceneAt(tg);
         await seek(tg);
         const og = await objects();
-        recordClaims(og, tg, sg); s08(og, tg, sg);
+        recordClaims(og, tg, sg); s08(og, tg, sg); s17(og, tg, sg);
       }
       await seek(t);
       objs = await objects();
@@ -183,9 +263,10 @@ async function run() {
     if (!inTransition) for (const r of R.level1Position(objs, ctx)) posRows.push({ t: +t.toFixed(2), scene: s.id, ...r });
     recordClaims(objs, t, s);
     s08(objs, t, s);
+    s17(objs, t, s);
     const mb = R.moneyBasis(objs, ctx);
     if (mb.length) { s09Missing++; if (s09Ex.length < 10) s09Ex.push({ t: +t.toFixed(2), scene: s.id, ...mb[0] }); }
-    for (const o of R.orphanNumbers(objs)) if (orphan.length < 200 && !orphan.some((x) => x.text === o.text)) orphan.push({ t: +t.toFixed(2), scene: s.id, ...o });
+    for (const o of R.orphanNumbers(objs)) if (!orphan.some((x) => x.text === o.text)) orphan.push({ t: +t.toFixed(2), scene: s.id, ...o });
     const ch = R.characters(objs);
     for (const [k, v] of Object.entries(ch)) { const c = charObs[k] ||= { xs: [], colours: {}, shapes: {} }; v.colours.forEach((x) => { c.colours[x] = (c.colours[x] || 0) + 1; }); v.shapes.forEach((x) => { c.shapes[x] = (c.shapes[x] || 0) + 1; }); }
     // K2: every pair of characters seen together (names come from the page's `char`; the episode contract says which are characters and on which side)
@@ -202,6 +283,10 @@ async function run() {
     const items = objs.filter((o) => o.kind === 'text' && o.opacity > 0.5 && R.onFrame(R.B(o))).map((o) => ({ tid: o.tid, role: o.role, text: o.text }));
     const sig = JSON.stringify(items);
     if (sig !== lastTextSig) { textTrack.push({ t: +t.toFixed(2), scene: s.id, items }); lastTextSig = sig; }
+    // K3.8 (A7, calibration only): a change of any visible object's box or opacity (1 px, 0.01) since the previous sample
+    const mh = require('crypto').createHash('sha1').update(JSON.stringify(objs.filter((o) => !(o.kind === 'shape' && o.role === 'bg') && o.opacity > 0.05 && R.onFrame(R.B(o), 1))
+      .map((o) => [o.kind === 'text' ? o.tid : o.key, o.box.map(Math.round), +o.opacity.toFixed(2)]))).digest('hex').slice(0, 12);
+    if (mh !== lastMotion) { motionTrack.push({ t: +t.toFixed(2), h: mh }); lastMotion = mh; }
 
     // ---- pixel rules (every frame, no camera-move exemption; K1) ---------------------------------------------------
     // Texts moving on screen get their own criteria: V12 (the video frame shows the same sharp text as the clean render) holds for
@@ -214,8 +299,7 @@ async function run() {
       if (T.length) {
         px.samples++;
         const isMoving = (o) => (moved.get(o.id) || 0) >= TEXT_MOVING;
-        const tm = await shotMask('text'), gm = await shotMask('graphics');
-        const td = P.dilate(tm, 2);
+        const { tm, list } = await collide(T, isMoving);
         const hits = new Set();
         const hit = (o, other, n, moving = isMoving(o)) => {
           const k = o.tid + '|' + other;
@@ -224,21 +308,7 @@ async function run() {
           else if (prevMovingHits.has(k)) px.collisions.push({ t: +t.toFixed(2), scene: s.id, tid: o.tid, role: o.role, with: other, pixels: n, moving: true });
           else px.movingCollisions++;
         };
-        // V11 glyph/badge ink vs graphic ink (2 px clearance)
-        for (const o of T) {
-          const box = [o.box[0] - 3, o.box[1] - 3, o.box[2] + 3, o.box[3] + 3];
-          const n = P.overlapIn(td, gm, box);
-          if (n >= 4) hit(o, 'graphics', n);
-        }
-        // V11 text vs text (pairs whose boxes touch; nested badge/parent pairs excluded)
-        for (let i = 0; i < T.length; i++) for (let j = i + 1; j < T.length; j++) {
-          const a = T[i], b = T[j];
-          if (a.parent === b.id || b.parent === a.id) continue;
-          if (R.gapBetween(R.inflate(R.B(a), 3), R.B(b)) > 0) continue;
-          const ma = P.dilate(await shotMask('only', [a.id]), 2), mb2 = await shotMask('only', [b.id]);
-          const n = P.overlapIn(ma, mb2, [Math.min(a.box[0], b.box[0]) - 3, Math.min(a.box[1], b.box[1]) - 3, Math.max(a.box[2], b.box[2]) + 3, Math.max(a.box[3], b.box[3]) + 3]);
-          if (n >= 4) hit(a, 'text:' + b.tid, n, isMoving(a) || isMoving(b)); // a pair with a moving text: the persistence criterion
-        }
+        for (const [o, other, n, mv] of list) hit(o, other, n, mv);
         prevMovingHits = hits;
         // V03 safe area: text ink outside the 90% rectangle, unless the text is travelling (in or out of frame)
         for (const o of T) {
@@ -348,10 +418,52 @@ async function run() {
   if (splitRun.length) splitRuns.push(splitRun);
   video.close();
   videoY.close();
-  resources.entries = await page.evaluate(() => performance.getEntriesByType('resource').map((e) => ({ url: e.name, initiator: e.initiatorType })));
-  resources.fonts = await page.evaluate(() => [...document.fonts].map((f) => ({ family: f.family, status: f.status, style: f.style, weight: f.weight })));
-  await browser.close();
+  return { per, textTrack, motionTrack, yearsTrack, casesTrack, posRows, chartEvents, splitRuns, claimScenes: Object.fromEntries(Object.entries(claimScenes).map(([k, v]) => [k, [...v]])),
+    claimRoles: Object.fromEntries(Object.entries(claimRoles).map(([k, v]) => [k, [...v]])), claimFirst, claimFinal, badgeFirst, illFirst, orphan, charObs, charSides,
+    timeBad, s08Without, s08Ex, s09Missing, s09Ex, s17Without, s17Ex, movingSamples, px };
+}
 
+// Merge scene jobs (in time order) into the state one sequential job would have built.
+function mergeStates(states) {
+  const M = { per: {}, textTrack: [], motionTrack: [], yearsTrack: [], casesTrack: [], posRows: [], chartEvents: [], splitRuns: [], claimScenes: {}, claimRoles: {}, claimFirst: {},
+    claimFinal: {}, badgeFirst: {}, illFirst: {}, orphan: [], charObs: {}, charSides: {}, timeBad: [], s08Without: 0, s08Ex: [], s09Missing: 0, s09Ex: [], s17Without: 0, s17Ex: [], movingSamples: 0,
+    px: { collisions: [], movingCollisions: 0, safe: [], safeTravelling: 0, contrast: [], small: [], worstContrast: null, samples: 0, ncc: [], nccStatic: [], nccMoving: [], nccSkipped: 0 } };
+  const minInto = (dst, src) => { for (const [k, v] of Object.entries(src)) if (dst[k] === undefined || v < dst[k]) dst[k] = v; };
+  const unionInto = (dst, src) => { for (const [k, v] of Object.entries(src)) { const u = dst[k] ||= []; for (const x of v) if (!u.includes(x)) u.push(x); } };
+  for (const S of states) {
+    for (const [k, v] of Object.entries(S.per)) {
+      const d = M.per[k] ||= { samples: 0, l1: [], issues: {}, examples: {} };
+      d.samples += v.samples; d.l1.push(...v.l1);
+      for (const [r, n] of Object.entries(v.issues)) d.issues[r] = (d.issues[r] || 0) + n;
+      for (const [r, xs] of Object.entries(v.examples)) { const e = d.examples[r] ||= []; for (const x of xs) if (e.length < 3) e.push(x); }
+    }
+    for (const e of S.textTrack) { const last = M.textTrack[M.textTrack.length - 1]; if (!last || JSON.stringify(last.items) !== JSON.stringify(e.items)) M.textTrack.push(e); }
+    for (const e of S.motionTrack) { const last = M.motionTrack[M.motionTrack.length - 1]; if (!last || last.h !== e.h) M.motionTrack.push(e); }
+    for (const k of ['yearsTrack', 'casesTrack', 'posRows', 'chartEvents', 'splitRuns']) M[k].push(...S[k]);
+    unionInto(M.claimScenes, S.claimScenes); unionInto(M.claimRoles, S.claimRoles);
+    minInto(M.claimFirst, S.claimFirst); minInto(M.claimFinal, S.claimFinal); minInto(M.badgeFirst, S.badgeFirst); minInto(M.illFirst, S.illFirst);
+    for (const o of S.orphan) if (!M.orphan.some((x) => x.text === o.text)) M.orphan.push(o);
+    for (const [k, v] of Object.entries(S.charObs)) {
+      const c = M.charObs[k] ||= { xs: [], colours: {}, shapes: {} };
+      for (const [x, n] of Object.entries(v.colours)) c.colours[x] = (c.colours[x] || 0) + n;
+      for (const [x, n] of Object.entries(v.shapes)) c.shapes[x] = (c.shapes[x] || 0) + n;
+    }
+    for (const [k, v] of Object.entries(S.charSides)) { const d = M.charSides[k] ||= { samples: 0, signs: {} }; d.samples += v.samples; for (const [x, n] of Object.entries(v.signs)) d.signs[x] = (d.signs[x] || 0) + n; }
+    for (const k of ['timeBad', 's08Ex', 's09Ex', 's17Ex']) for (const x of S[k]) if (M[k].length < 10) M[k].push(x);
+    for (const k of ['s08Without', 's09Missing', 's17Without', 'movingSamples']) M[k] += S[k];
+    const a = M.px, b = S.px;
+    for (const k of ['collisions', 'safe', 'contrast', 'small', 'ncc', 'nccStatic', 'nccMoving']) a[k].push(...b[k]);
+    for (const k of ['movingCollisions', 'safeTravelling', 'samples', 'nccSkipped']) a[k] += b[k];
+    if (b.worstContrast && (a.worstContrast === null || b.worstContrast.cr < a.worstContrast.cr)) a.worstContrast = b.worstContrast;
+    if (b.nccWorst && (!a.nccWorst || b.nccWorst.ncc < a.nccWorst.ncc)) a.nccWorst = b.nccWorst;
+  }
+  return M;
+}
+
+function aggregate(env, S, seconds) {
+  const { scenes, hasCam, resources, url } = env;
+  const { per, splitRuns, illFirst, badgeFirst, s08Without, s08Ex, s09Missing, s09Ex, s17Without, s17Ex, posRows, px, charObs, charSides, timeBad, chartEvents, movingSamples, textTrack, motionTrack,
+    yearsTrack, casesTrack, claimScenes, claimFirst, claimRoles, claimFinal } = S;
   // ---- aggregate --------------------------------------------------------------------------------
   const rules = {};
   const sum = (rid) => { const sc = Object.entries(per).filter(([, P_]) => P_.issues[rid]); return { framesFlagged: sc.reduce((a, [, P_]) => a + P_.issues[rid], 0), scenes: sc.map(([id, P_]) => `${id} (${P_.issues[rid]})`), examples: sc.flatMap(([, P_]) => P_.examples[rid]).slice(0, 5) }; };
@@ -363,6 +475,7 @@ async function run() {
   for (const [k, ti] of Object.entries(illFirst)) { const sid = k.split('|')[0]; const tb_ = badgeFirst[sid]; const lag = tb_ === undefined ? 999 : Math.round((tb_ - ti) * FPS); if (lag > maxLag) maxLag = lag; if (lag > 0 && lagEx.length < 10) lagEx.push({ key: k, claimFirst: ti, badgeFirst: tb_ ?? null, lagFrames: lag }); }
   rules.S08 = { framesWithout: s08Without, maxLagFrames: maxLag, examples: [...s08Ex, ...lagEx] };
   rules.S09 = { framesMissing: s09Missing, examples: s09Ex };
+  rules.S17 = { framesWithout: s17Without, examples: s17Ex };
   rules.V02 = { samples: posRows.length, ok: posRows.filter((r) => r.ok).length, examples: posRows.filter((r) => !r.ok).slice(0, 8) };
   // one example per distinct (scene, text, other) — first time seen — so the report names every offender
   const distinct = (xs, key, n = 40) => { const seen = new Map(); for (const x of xs) { const k = key(x); if (!seen.has(k)) seen.set(k, { ...x, samples: 0 }); seen.get(k).samples++; } return [...seen.values()].slice(0, n); };
@@ -379,17 +492,120 @@ async function run() {
   for (const k of Object.keys(charObs)) { const mc = mode(charObs[k].colours), ms = mode(charObs[k].shapes); const n = Object.values(charObs[k].colours).reduce((a, b) => a + b, 0); const ns = Object.values(charObs[k].shapes).reduce((a, b) => a + b, 0);
     characters[k] = { mainColour: mc && mc[0], colourShare: mc ? mc[1] / n : 0, mainShape: ms && ms[0], shapeShare: ms ? ms[1] / ns : 0 }; }
   rules.V04 = { characters, pairs: charSides, timeOrderViolations: timeBad };
+  const orphan = S.orphan.slice(0, 200);
   const out = {
-    root: ROOT, step: STEP, pixelStep: PSTEP, samples: Object.values(per).reduce((a, p) => a + p.samples, 0), pixelSamples: px.samples, seconds: +((Date.now() - t0) / 1000).toFixed(1),
+    root: ROOT, step: STEP, pixelStep: PSTEP, samples: Object.values(per).reduce((a, p) => a + p.samples, 0), pixelSamples: px.samples, seconds,
     rules, characters, chartEvents, movingSamples, cameraFromFile: hasCam, resources, pageUrl: url,
-    textTrack, yearsTrack, casesTrack, orphanNumbers: orphan,
+    textTrack, motionTrack, yearsTrack, casesTrack, orphanNumbers: orphan,
     claimScenes: Object.fromEntries(Object.entries(claimScenes).map(([k, v]) => [k, [...v]])), claimFirst, claimRoles: Object.fromEntries(Object.entries(claimRoles).map(([k, v]) => [k, [...v]])), claimFinal,
     scenes: Object.fromEntries(Object.entries(per).map(([k, v]) => [k, { samples: v.samples, issues: v.issues }])),
   };
+
+  return out;
+}
+
+// Sample frames of each scene (contiguous in time); sequential when one job.
+function sceneFrames(env, frames) {
+  const groups = [];
+  for (let f = 0; f < frames; f += STEP) {
+    const s = env.sceneAt(f / FPS);
+    if (ONLY && !ONLY.has(s.id)) continue;
+    const g = groups[groups.length - 1];
+    if (g && g.id === s.id) g.frames.push(f);
+    else { if (groups.some((x) => x.id === s.id)) throw new Error(`scene ${s.id} is not contiguous in time: parallel sampling needs contiguous scenes`); groups.push({ id: s.id, frames: [f] }); }
+  }
+  return groups;
+}
+
+const sha = (x) => require('crypto').createHash('sha256').update(x).digest('hex');
+// per-scene cache key: sampler code, steps, episode inputs the sampler reads, the scene, and the video packets (MD5) from the key frame at or before the
+// scene's first sample to the key frame after its last one (closed GOPs: every sampled frame decodes from these packets alone). Page files are checked on
+// read: the job records every local file the page served (sha256), and a changed file is a miss.
+function videoPackets() {
+  const r = require('child_process').spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_data_hash', 'MD5', '-show_entries', 'packet=pts_time,flags,data_hash',
+    '-of', 'csv=p=0', path.join(ROOT, 'out/video.mp4')], { maxBuffer: 1 << 28 });
+  return String(r.stdout).trim().split('\n').map((l) => { const [t, h, fl] = l.split(','); return { t: +t, key: (fl || '').includes('K'), h }; });
+}
+function sceneKey(base, pk, frames) {
+  const a = frames[0] / FPS, b = frames[frames.length - 1] / FPS;
+  let i0 = 0;
+  for (let i = 0; i < pk.length; i++) if (pk[i].key && pk[i].t <= a + 1e-6) i0 = i;
+  let i1 = pk.length;
+  for (let i = i0 + 1; i < pk.length; i++) if (pk[i].key && pk[i].t > b + 1e-6) { i1 = i; break; }
+  return sha(base + '|' + frames.join(',') + '|' + pk.slice(i0, i1).map((p) => p.h).join(''));
+}
+function localFiles(env) {
+  const out = {};
+  const u0 = new URL(env.url);
+  for (const r of env.resources.requests) {
+    try {
+      const u = new URL(r.url);
+      if (u.origin !== u0.origin && u.protocol !== 'file:') continue;
+      const rel = decodeURIComponent(u.pathname).replace(/^\//, '');
+      const candidates = u.protocol === 'file:' ? [decodeURIComponent(u.pathname)] : [path.join(ROOT, rel), path.join(ROOT, '..', '..', rel)];
+      const p_ = candidates.find((c) => fs.existsSync(c) && fs.statSync(c).isFile());
+      out[r.url] = p_ ? sha(fs.readFileSync(p_)) : null;
+    } catch (e) { /* not a URL */ }
+  }
+  return out;
+}
+const filesStillSame = (files) => Object.entries(files || {}).every(([u, h]) => { try { const x = localFiles({ url: u, resources: { requests: [{ url: u }] } }); return x[u] === h; } catch (e) { return false; } });
+
+async function run() {
+  const t0 = Date.now();
+  const tl = J('out/timeline.json');
+  const frames = Math.round(tl.total * FPS);
+  if (JOBS === 1) {
+    const env = await openEnv();
+    const fl = [];
+    for (let f = 0; f < frames; f += STEP) if (!ONLY || ONLY.has(env.sceneAt(f / FPS).id)) fl.push(f);
+    const S = await sampleJob(env, fl, false);
+    await closeEnv(env);
+    return write(aggregate(env, S, +((Date.now() - t0) / 1000).toFixed(1)));
+  }
+  const envs = [];
+  for (let i = 0; i < JOBS; i++) envs.push(await openEnv());
+  const groups = sceneFrames(envs[0], frames);
+  const cdir = path.join(ROOT, 'out', 'checks', 'cache', 'page-scenes');
+  fs.mkdirSync(cdir, { recursive: true });
+  const code = ['sampler.js', 'objrules.js', 'pixels.js'].map((f) => fs.readFileSync(path.join(__dirname, f), 'utf8')).join('');
+  const inputs = ['out/timeline.json', 'out/claims.json', 'design/tokens.json', 'out/page.json', 'out/camera.json'].map((f) => fs.existsSync(path.join(ROOT, f)) ? fs.readFileSync(path.join(ROOT, f), 'utf8') : '-').join('|');
+  const base = sha(code + '|' + STEP + '|' + PSTEP + '|' + inputs);
+  const pk = NO_CACHE ? [] : videoPackets();
+  const states = new Array(groups.length);
+  // longest scenes first (better balance); merged in time order
+  const order = groups.map((g, i) => i).sort((x, y) => groups[y].frames.length - groups[x].frames.length || x - y);
+  let next = 0, hits = 0;
+  await Promise.all(envs.map(async (env) => {
+    while (next < order.length) {
+      const k = order[next++], g = groups[k];
+      const key = NO_CACHE ? null : sceneKey(base, pk, g.frames), cf = key && path.join(cdir, key + '.json');
+      if (cf && fs.existsSync(cf)) {
+        const c = JSON.parse(fs.readFileSync(cf, 'utf8'));
+        if (filesStillSame(c.files)) { states[k] = c.state; hits++; continue; }
+      }
+      const n0 = env.resources.requests.length;
+      states[k] = await sampleJob(env, g.frames, true);
+      if (process.env.K_PROGRESS) console.error(`scene ${g.id} done ${((Date.now() - t0) / 1000).toFixed(0)}s`);
+      if (cf) fs.writeFileSync(cf, JSON.stringify({ state: states[k], files: localFiles({ url: env.url, resources: { requests: env.resources.requests } }) }));
+    }
+  }));
+  for (const env of envs) await closeEnv(env);
+  // resources: the union of what every browser loaded (F12 compares the set of loaded files and font families)
+  const res = { requests: [], entries: [], fonts: [] };
+  for (const k of Object.keys(res)) { const seen = new Set(); for (const env of envs) for (const x of env.resources[k]) { const j = JSON.stringify(x); if (!seen.has(j)) { seen.add(j); res[k].push(x); } } }
+  const env = { ...envs[0], resources: res };
+  const out = aggregate(env, mergeStates(states), +((Date.now() - t0) / 1000).toFixed(1));
+  out.jobs = JOBS; out.sceneCacheHits = hits; out.sceneJobs = groups.length;
+  return write(out);
+}
+
+function write(out) {
   fs.mkdirSync(path.join(ROOT, 'out', 'checks'), { recursive: true });
   fs.writeFileSync(path.join(ROOT, 'out', 'checks', ONLY ? 'page-partial.json' : 'page.json'), JSON.stringify(out));
-  console.log(JSON.stringify({ seconds: out.seconds, samples: out.samples, pixelSamples: out.pixelSamples, summary: Object.fromEntries(Object.entries(rules).map(([k, v]) => [k, v.framesFlagged ?? v.violations ?? v.framesWithout ?? v.failing?.length ?? ''])) }));
+  console.log(JSON.stringify({ seconds: out.seconds, samples: out.samples, pixelSamples: out.pixelSamples, summary: Object.fromEntries(Object.entries(out.rules).map(([k, v]) => [k, v.framesFlagged ?? v.violations ?? v.framesWithout ?? v.failing?.length ?? ''])) }));
 }
+
 
 function diffBox(a, b) {
   const same = (i) => Math.abs(a[i] - b[i]) < 0.5;

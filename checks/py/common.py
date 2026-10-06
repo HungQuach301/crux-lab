@@ -208,6 +208,18 @@ def ebur128(path):
     return {'I': g('I'), 'LRA': g('LRA'), 'TP': g('Peak')}
 
 
+_WHISPER = []
+
+
+def whisper():
+    """faster-whisper small.en (CPU, int8), loaded once per run and shared by every rule family that listens (A14, the stem ASR of r_sound, SH05):
+    K3.8, checks-appeal A3."""
+    if not _WHISPER:
+        from faster_whisper import WhisperModel
+        _WHISPER.append(WhisperModel('small.en', device='cpu', compute_type='int8'))
+    return _WHISPER[0]
+
+
 def write_wav_tmp(x, sr=SR):
     import soundfile as sf
     fd, p = tempfile.mkstemp(suffix='.wav')

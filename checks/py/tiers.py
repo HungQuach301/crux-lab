@@ -42,7 +42,13 @@ TIERS = {
     'S09': (BLOCK, 'claim: thực/danh nghĩa'), 'S10': (BLOCK, 'claim: không khuyên, không dự báo (gen được bảo vệ, CHARTER §5)'),
     'S11': (REFERENCE, 'số lần dùng kỹ thuật (callback ≥ 3)'), 'S12': (REFERENCE, 'chỉ tiêu mật độ số'),
     'S13': (REFERENCE, 'chỉ tiêu độ dài câu'), 'S14': (REFERENCE, 'tay nghề: điểm chèn quảng cáo'),
-    'S15': (REFERENCE, 'tay nghề: cấu trúc hồi, trần cold open'), 'S16': (REFERENCE, 'chỉ tiêu gắn số với nhân vật'),
+    'S15': (REFERENCE, 'tay nghề: cấu trúc hồi, sàn tổng theo format (K3.8: bỏ trần cold open)'), 'S16': (REFERENCE, 'chỉ tiêu gắn số với nhân vật'),
+    'S17': (BLOCK, 'claim: nhãn điều kiện trên mọi khung có claim conditional (K3.8, A1)'),
+    'S18': (REFERENCE, 'giữ chân: mốc hook ≤ 5 s, promise ≤ 30 s (K3.8, A2)'),
+    # Shorts 9:16 (K3.8, A5)
+    'SH01': (BLOCK, 'kỹ thuật file: Short 1080×1920'), 'SH02': (BLOCK, 'kỹ thuật file: Short ≤ 180 s'),
+    'SH03': (BLOCK, 'âm lượng: Short'), 'SH04': (BLOCK, 'true peak: Short'),
+    'SH05': (BLOCK, 'claim: Short không khuyên, không dự báo (gen được bảo vệ)'),
     # rhythm
     'R01': (REFERENCE, 'luật nhịp'), 'R02': (REFERENCE, 'luật nhịp'), 'R03': (REFERENCE, 'luật nhịp'),
     'R04': (REFERENCE, 'luật nhịp'), 'R05': (REFERENCE, 'luật nhịp'), 'R06': (REFERENCE, 'luật nhịp'),
