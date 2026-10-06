@@ -134,6 +134,14 @@ def check(spec, root, duration=None):
         for cid in sorted(claim_ids_in({'h': sh.get('hook', ''), 'e': sh.get('end', '')})):
             if cid not in claims:
                 add('BLOCK', 'claim', f"{sh['id']}: claim {cid!r} is not in {spec['claims']}")
+    # B+2 (Mốc V): ≤ 2 số MỚI được NÓI mỗi cảnh; số thứ ba trở đi thành nhãn trên hình (toolkit/factory/numbers_said.py)
+    import numbers_said as NS
+    import voice as VOICE
+    order = list(sents.values())
+    if order:
+        _, NP = NS.check_scenes(order, VOICE.to_spoken([re.sub(r'^\[[a-z ]+\]\s+', '', s['text']) for s in order]), spec.get('spoken_numbers_max', 2))
+        legacy = spec.get('episode') in NS.LEGACY   # tập đã phát hành trước luật: chỉ báo, không chặn dựng lại
+        P += [{**p, 'level': 'WARN'} if legacy else p for p in NP]
     scene_ids = {sc.get('id') for sc in spec.get('scenes', [])}
     for sid, o in (spec.get('voice_overrides') or {}).items():   # B+1 (Mốc V)
         if sid not in scene_ids:

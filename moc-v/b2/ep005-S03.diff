@@ -1,0 +1,4 @@
+52c52
+< S03.3 {define} Removal on today's value, when you ask, is the loan owner's rule; for Fannie Mae loans, that's two years and a 75 percent bar. <!-- claims: value_removal_rule, value_removal_ltv_early, value_removal_seasoning_years -->
+---
+> S03.3 {define} Removal on today's value, when you ask, is the loan owner's rule; for Fannie Mae loans, that's a waiting period and a 75 percent bar. <!-- claims: value_removal_rule, value_removal_ltv_early, value_removal_seasoning_years; label: "Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}" (B+2) -->
