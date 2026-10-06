@@ -1,0 +1,28 @@
+{
+ "video": "moc-v/work/A-full.mp4",
+ "asr_words_matched": 153,
+ "asr_words_ref": 179,
+ "voice_offset_s": {
+  "median": 0.02,
+  "p90_abs": 0.15
+ },
+ "visual_peak_vs_keyword_s": {
+  "b0.q": null,
+  "b1.blur": 0.073,
+  "b2.draw0": 0.021,
+  "b3.cap": 0.04,
+  "b3.lbl": -0.001,
+  "b4.grow": null,
+  "b4.less": 0.403,
+  "b6.cross": 0.02,
+  "b8.lbl": -0.093,
+  "b9.fly": 0.348,
+  "b10.past": 0.025,
+  "b11.x": 0.094
+ },
+ "visual_within_0.2s": "8/12",
+ "visual_not_detected": [
+  "b0.q",
+  "b4.grow"
+ ]
+}
