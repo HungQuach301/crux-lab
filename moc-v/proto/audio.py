@@ -249,7 +249,7 @@ def data_layer(spine, N, venv):
         if e['kind'] != 'data': continue
         t = gap_shift(e['t'], venv); shifts.append(round(t - e['t'], 3))
         m = qpenta(45 + 19 * e['v'])                         # cao độ theo giá trị: thấp → cao, khoá D (ngũ cung)
-        v = 0.9 if e.get('over') else 0.65
+        v = 0.9 if e.get('over') else (0.45 if e.get('src') == 'value' else 0.65)   # v3i: nốt giá trị (16–21 s) nhỏ hơn
         add(out, t, s2_pulse(hz(m), v), -0.2 + 0.4 * e['v'])
         add(out, t, s2_tick(0.55 * v), 0.3)
         if e.get('over'):                                   # vượt trần: thêm một bội âm sáng (cùng khoá) — nghe được phần "trên vạch"

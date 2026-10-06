@@ -125,17 +125,17 @@ for q in range(0, 106):
 pops = [round(cue['b1']['pop0'] + k * (cue['b1']['many'] - 0.3 - cue['b1']['pop0']) / 11, 3) for k in range(12)]
 EV += [{'t': cue['b0']['has'], 'kind': 'riser', 'to': cue['b0']['q']},
        {'t': cue['b1']['blur'], 'kind': 'whoosh_soft'},
-       *[{'t': p, 'kind': 'tick', 'pop': k, 'v': 0.3 + 0.05 * (k % 5)} for k, p in enumerate(pops) if k % 2 == 0],   # v3e: tick nửa số biển (bớt 12 tick đều)
+       *[{'t': p, 'kind': 'tick', 'pop': k, 'v': 0.3 + 0.05 * (k % 5)} for k, p in enumerate(pops) if k % 4 == 0],   # v3i: 3 tick (đạo diễn: đè tên cơ quan)
        {'t': cue['b1']['avg'], 'kind': 'gather'},
-       {'t': cue['b3']['cap'] + 0.5, 'kind': 'thud'},   # xà khoá (rơi 0,55 s, kết trước chữ "flat")
+       {'t': cue['b3']['cap'] + 0.3, 'kind': 'thud'},   # xà khoá (rơi 0,32 s)
        {'t': cue['b4']['two'], 'kind': 'tick', 'v': 0.6},
        {'t': cue['b4']['grow'], 'kind': 'rise', 'dur': 0.9},
        {'t': cue['b4']['less'], 'kind': 'slide_down', 'dur': 1.6},
-       {'t': cue['b6']['cross'] - 1.6, 'kind': 'riser', 'to': cue['b6']['cross']}, {'t': cue['b6']['cross'], 'kind': 'chime'},
+       {'t': cue['b6']['cross'], 'kind': 'chime'},   # v3i: bỏ riser (chồng whoosh đẩy máy)
        {'t': cue['b9']['fly'], 'kind': 'swish', 'to': cue['b9']['land']}, {'t': cue['b9']['land'], 'kind': 'tick', 'v': 0.7},
        {'t': cue['b10']['cap'] + HOP, 'kind': 'land', 'mode': False},   # nhà nảy qua xà, CHẠM ĐẤT ngay sau chữ "cap" (lượt đạo diễn v3c); sau đó lặng
        {'t': cue['b9']['rose'], 'kind': 'rise', 'dur': 0.9}]                  # mũi tên "rose" (cùng từ vựng hình với b1)
-GAIN = {'demoPush': 2.0, 'wide': 0.35, 'tip': 0.5, 'backChart': 0.5, 'toChart': 0.6, 'toDemo': 0.6}   # lượt đạo diễn v3c: whoosh_mode/whoosh dài quá to
+GAIN = {'demoPush': 2.0, 'wide': 0.2, 'tip': 0.5, 'backChart': 0.5, 'toChart': 0.6, 'toDemo': 0.6}   # lượt đạo diễn v3c: whoosh_mode/whoosh dài quá to
 for m in moves:                                # quy tắc 3: mọi động tác có âm; mỗi LOẠI động tác một âm riêng, chỉ đổi chế độ mới có tiếng chạm
     EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': GAIN.get(m['id'], 1.0)})
     if m['verb'] == 'mode': EV.append({'t': m['t1'], 'kind': 'land', 'mode': True})
@@ -161,7 +161,7 @@ spine = {'segment': 'ep004 S04.5 → S07.3 (bản phát hành 93,44–163,60 s)'
          'marks': {'cw_home': at('@S06.2:home'), 'hop_land': round(cue['b10']['cap'] + HOP, 3)},   # mốc phụ (không phải từ khoá; không ràng buộc quy tắc 2)
          'label_cues': {'b2.quarter': '2000 Q1', 'b0.q': '?', 'b1.many': 'many sales → one average', 'b3.five': '$500,000 cap', 'b4.gain': 'their gain on paper = ?', 'b4.two': 'what they paid',
                         'b5.under': 'well under', 'b6.cross': 'Over: Q2 2022', 'b7.slips': 'Back under', 'b8.lbl': 'Stayed over since Q2 2023', 'b9.fly': '≈ $558,100',
-                        'b10.past': 'past the cap', 'b11.x': '×3.8'},
+                        'b11.x': '×3.8'},
          'visual_cues': ['b3.flat', 'b8.above', 'b9.rose', 'b0.q', 'b1.blur', 'b1.rise', 'b1.pop0', 'b1.many', 'b2.quarter', 'b3.cap', 'b3.five', 'b3.same', 'b4.gain', 'b4.two', 'b4.grow', 'b4.less', 'b5.under', 'b6.cross', 'b7.slips', 'b8.lbl', 'b9.fly', 'b10.past', 'b11.x'], 'shots': shots, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
 json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)
 world = sum(m['t1'] - m['t0'] for m in moves if m['verb'] == 'mode')

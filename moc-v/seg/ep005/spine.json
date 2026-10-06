@@ -671,7 +671,8 @@
    "t1": 3.2,
    "cues": {
     "saved": 0.707,
-    "ten": 1.13
+    "ten": 1.13,
+    "price": 2.55
    }
   },
   {
@@ -792,8 +793,8 @@
    "verb": "pull",
    "from": "wYou",
    "to": "wFork",
-   "t0": 2.175,
-   "t1": 3.175,
+   "t0": 2.96,
+   "t1": 3.96,
    "reason": "lời \"Do you buy now … or keep renting\": cần thấy cả hai lối (nhà và căn hộ) → lùi máy",
    "sound": "whoosh_soft"
   },
@@ -801,8 +802,8 @@
    "verb": "mode",
    "from": "wFork",
    "to": "cSched",
-   "t0": 9.0,
-   "t1": 10.1,
+   "t0": 8.996,
+   "t1": 10.096,
    "reason": "lời \"On the schedule alone\": lịch trả nợ là một đường theo thời gian → chế độ đồ thị",
    "sound": "whoosh_mode"
   },
@@ -810,8 +811,8 @@
    "verb": "pan",
    "from": "cSched",
    "to": "cDef",
-   "t0": 23.137,
-   "t1": 24.137,
+   "t0": 23.127,
+   "t1": 24.127,
    "reason": "lời \"On paper means…\": định nghĩa cần hai chồng đặt cạnh nhau → lia máy trong đồ thị",
    "sound": "whoosh_push"
   },
@@ -819,8 +820,8 @@
    "verb": "mode",
    "from": "cDef",
    "to": "wHouse",
-   "t0": 29.142,
-   "t1": 30.042,
+   "t0": 29.137,
+   "t1": 30.037,
    "reason": "lời \"…getting the insurance removed\": bảo hiểm gắn với căn nhà → chế độ thế giới",
    "sound": "whoosh_mode"
   }
@@ -831,7 +832,8 @@
   "release": 32.82,
   "accents": [
    13.753,
-   26.046
+   26.046,
+   31.87
   ]
  },
  "marks": {
@@ -843,8 +845,8 @@
    0
   ],
   [
-   13.253,
-   87
+   13.603,
+   75
   ],
   [
    13.753,
@@ -868,7 +870,7 @@
    "v": 0.6
   },
   {
-   "t": 2.175,
+   "t": 2.96,
    "kind": "whoosh_soft",
    "dur": 1.0,
    "gain": 1.0
@@ -884,13 +886,13 @@
    "dur": 0.9
   },
   {
-   "t": 9.0,
+   "t": 8.996,
    "kind": "whoosh_mode",
    "dur": 1.1,
    "gain": 0.6
   },
   {
-   "t": 10.1,
+   "t": 10.096,
    "kind": "land",
    "mode": true
   },
@@ -900,42 +902,42 @@
    "v": 0.8000000000000003
   },
   {
-   "t": 11.004,
+   "t": 11.117,
    "kind": "data",
    "v": 0.7624
   },
   {
-   "t": 11.364,
+   "t": 11.591,
    "kind": "data",
    "v": 0.7224000000000004
   },
   {
-   "t": 11.724,
+   "t": 12.064,
    "kind": "data",
    "v": 0.6792000000000002
   },
   {
-   "t": 12.083,
+   "t": 12.538,
    "kind": "data",
    "v": 0.6332
   },
   {
-   "t": 12.443,
+   "t": 13.011,
    "kind": "data",
    "v": 0.5836000000000001
   },
   {
-   "t": 12.803,
+   "t": 13.485,
    "kind": "data",
    "v": 0.5308000000000002
   },
   {
-   "t": 13.163,
+   "t": 13.659,
    "kind": "data",
    "v": 0.47440000000000015
   },
   {
-   "t": 13.628,
+   "t": 13.734,
    "kind": "data",
    "v": 0.4136000000000002
   },
@@ -954,7 +956,7 @@
    "v": 0.2
   },
   {
-   "t": 23.137,
+   "t": 23.127,
    "kind": "whoosh_push",
    "dur": 1.0,
    "gain": 0.8
@@ -964,19 +966,19 @@
    "kind": "chime"
   },
   {
-   "t": 29.142,
+   "t": 29.137,
    "kind": "whoosh_mode",
    "dur": 0.9,
    "gain": 0.6
   },
   {
-   "t": 30.042,
+   "t": 30.037,
    "kind": "land",
    "mode": true
   },
   {
    "t": 31.82,
-   "kind": "thud"
+   "kind": "impact"
   }
  ],
  "tension": [
@@ -1021,32 +1023,32 @@
   {
    "id": "s0",
    "t0": 0,
-   "t1": 2.175
+   "t1": 2.96
   },
   {
    "id": "s1",
-   "t0": 2.175,
-   "t1": 9.0
+   "t0": 2.96,
+   "t1": 8.996
   },
   {
    "id": "s2",
-   "t0": 9.0,
-   "t1": 23.137
+   "t0": 8.996,
+   "t1": 23.127
   },
   {
    "id": "s3",
-   "t0": 23.137,
-   "t1": 29.142
+   "t0": 23.127,
+   "t1": 29.137
   },
   {
    "id": "s4",
-   "t0": 29.142,
+   "t0": 29.137,
    "t1": 34.0
   }
  ],
  "label_cues": {
   "c2.eight": "about 8 years",
-  "c3.typically": "typical",
+  "c3.typically": "typical · about 2 years",
   "c3.slow": "slow cases",
   "c4.eighty": "80% on paper",
   "c4.paper": "90%",

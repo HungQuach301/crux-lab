@@ -38,7 +38,7 @@ def at(ref):
 
 B = [
  ('c0', 'S01.1', 'world', 'Bạn đã để dành 10 % giá một căn nhà.', 'người xem (không mặt) cạnh căn nhà đứng trên chồng tiền MỜ = giá nhà; trong tay người xem một chồng nhỏ thật = 10 % chồng mờ.',
-  {'saved': '@S01.1:saved', 'ten': '@S01.1:ten'}, ['tick khi chồng nhỏ đặt xuống'], 0.30, 'tò mò, gần', 'ngã rẽ'),
+  {'saved': '@S01.1:saved', 'ten': '@S01.1:ten', 'price': '@S01.1:price'}, ['tick khi chồng nhỏ đặt xuống'], 0.30, 'tò mò, gần', 'ngã rẽ'),
  ('c1', 'S01.2', 'world', 'Mua ngay và trả bảo hiểm, hay thuê tiếp tới 20 %?', 'hai lối: khiên bảo hiểm rơi lên mái nhà (lúc "insurance"); bên kia căn hộ thuê, chồng của người xem lớn dần tới vạch 20 % mờ (lúc "twenty").',
   {'buy': '@S01.2:buy', 'insurance': '@S01.2:insurance', 'renting': '@S01.2:renting', 'twenty': '@S01.2:twenty'}, ['chạm khi khiên gắn', 'nốt đi lên khi chồng lớn'], 0.40, 'phân vân',
   'CHUYỂN CHẾ ĐỘ → đồ thị: "the schedule" là một đường theo thời gian'),
@@ -64,22 +64,23 @@ CUES = sorted((t, f"{b['id']}.{k}") for b in beats for k, t in b['cues'].items()
 def window(after, before, dur, late=False):
     a, b = after + PAD, before - PAD
     if b - a < 0.6: raise SystemExit(f'cửa sổ quá ngắn giữa {after} và {before}')
-    t0 = max(a, b - dur) if late else max(a, (a + b) / 2 - dur / 2); return [round(t0, 3), round(min(b, t0 + dur), 3)]   # late: 'pan' giữ "slow cases" lâu hơn
+    b -= 0.01; t0 = max(a, b - dur) if late else max(a, (a + b) / 2 - dur / 2); return [round(t0, 3), round(min(b, t0 + dur), 3)]   # late: 'pan' giữ "slow cases" lâu hơn
 
 
 MOVES = [
- ('pull', 'wYou', 'wFork', cue['c0']['ten'], cue['c1']['buy'], 1.0, 'lời "Do you buy now … or keep renting": cần thấy cả hai lối (nhà và căn hộ) → lùi máy', 'whoosh_soft'),
+ ('pull', 'wYou', 'wFork', cue['c0']['price'], cue['c1']['buy'], 1.0, 'lời "Do you buy now … or keep renting": cần thấy cả hai lối (nhà và căn hộ) → lùi máy', 'whoosh_soft'),
  ('mode', 'wFork', 'cSched', cue['c1']['twenty'], cue['c2']['schedule'], 1.1, 'lời "On the schedule alone": lịch trả nợ là một đường theo thời gian → chế độ đồ thị', 'whoosh_mode'),
  ('pan', 'cSched', 'cDef', cue['c3']['slow'], cue['c4']['paper'], 1.0, 'lời "On paper means…": định nghĩa cần hai chồng đặt cạnh nhau → lia máy trong đồ thị', 'whoosh_push'),
  ('mode', 'cDef', 'wHouse', cue['c4']['index'], cue['c5']['same'], 0.9, 'lời "…getting the insurance removed": bảo hiểm gắn với căn nhà → chế độ thế giới', 'whoosh_mode'),
 ]
 moves = []
 for verb, a, b, after, before, dur, reason, snd in MOVES:
-    t0, t1 = window(after, before, dur, late=(verb == 'pan')); moves.append({'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
+    t0, t1 = window(after, before, dur, late=(verb in ('pan', 'pull')))   # pull: trong khoảng nghỉ, sát câu hỏi
+    moves.append({'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
 
 D = json.load(open(os.path.join(ROOT, 'moc-v/work/ep005-data/derived.json')))
-KT = next(k for k, l in enumerate(D['sched']) if l < 0.8 + 0.015)                # tháng đường còn RÕ trên vạch (bề dày dải ≈ 0,007)
-SCHED = [[cue['c2']['schedule'], 0], [cue['c2']['eight'] - 0.5, KT], [cue['c2']['eight'], D['sched80']]]   # E5d: lơ lửng rồi CHẠM vạch đúng chữ "eight"   # chạm vạch ĐÚNG chữ "eight" (E5a: hình sớm hơn chime)
+KT = next(k for k, l in enumerate(D['sched']) if l < 0.8 + 0.03)                # tháng đường còn RÕ trên vạch (bề dày dải ≈ 0,007)
+SCHED = [[cue['c2']['schedule'], 0], [cue['c2']['eight'] - 0.15, KT], [cue['c2']['eight'], D['sched80']]]   # E5d: lơ lửng rồi CHẠM vạch đúng chữ "eight"   # chạm vạch ĐÚNG chữ "eight" (E5a: hình sớm hơn chime)
 FAN = [[cue['c3']['replayed'], 0], [cue['c3']['paper'], 1]]                        # tỉ lệ bó đã hiện (theo tháng mua)
 EV = []
 for k in range(0, D['sched80'] + 1, 12):
@@ -92,7 +93,7 @@ EV += [{'t': cue['c0']['ten'], 'kind': 'tick', 'v': 0.6},
        {'t': cue['c3']['typically'], 'kind': 'data', 'v': 0.8},
        {'t': cue['c3']['slow'], 'kind': 'data', 'v': 0.2},
        {'t': cue['c4']['eighty'], 'kind': 'chime'},
-       {'t': cue['c5']['removed'], 'kind': 'thud'}]
+       {'t': cue['c5']['removed'], 'kind': 'impact'}]   # E5e: chốt rõ hơn
 GAIN = {'mode': 0.6, 'pan': 0.8, 'pull': 1.0}                 # bài học Tập 4 v3d: whoosh_mode quá to; chỉ đổi chế độ mới có tiếng chạm
 for m in moves:
     EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': GAIN[m['verb']]})
@@ -109,10 +110,10 @@ for m in moves:
 if next(m for m in moves if m['verb'] == 'mode')['t0'] < 5.0: errs.append('quy tắc 7: 5 s đầu phải ở chế độ thế giới')
 spine = {'segment': 'ep005 S01.1 → S03.2 (cold open, table read G1)', 'version': 3, 'total': TOTAL, 'fps': 30, 'pad': PAD, 'takes': takes, 'words': words,
          'beats': beats, 'moves': moves,
-         'music_plan': {'stop': cue['c5']['removed'], 'tau': 0.15, 'release': cue['c5']['removed'] + 1.0, 'accents': [cue['c2']['eight'], cue['c4']['eighty']]},
+         'music_plan': {'stop': cue['c5']['removed'], 'tau': 0.15, 'release': cue['c5']['removed'] + 1.0, 'accents': [cue['c2']['eight'], cue['c4']['eighty'], cue['c5']['removed'] + 0.05]},
          'marks': {'ten_lit': round(at('@S01.1$') + 0.25, 3)},   # 10 % đáy chồng giá sáng trong khoảng nghỉ (móc 5 s đầu)
          'sched_kf': SCHED, 'fan_kf': FAN, 'events': EV, 'tension': tension, 'shots': shots,   # nhạc tắt ở "removed": kết bằng lặng + tiếng trầm
-         'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical', 'c3.slow': 'slow cases', 'c4.eighty': '80% on paper', 'c4.paper': '90%', 'c5.removed': 'insurance still on'},
+         'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical · about 2 years', 'c3.slow': 'slow cases', 'c4.eighty': '80% on paper', 'c4.paper': '90%', 'c5.removed': 'insurance still on'},
          'visual_cues': ['c0.ten', 'c1.insurance', 'c1.twenty', 'c2.schedule', 'c2.eight', 'c3.replayed', 'c3.typically', 'c3.slow', 'c4.paper', 'c4.eighty', 'c5.removed'],
          'checks': {'rule2_rule3_rule7': errs or 'OK'}}
 json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)

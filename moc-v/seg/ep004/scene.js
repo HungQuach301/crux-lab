@@ -86,7 +86,7 @@ export async function boot(res) {
       : heroStack.set({ usd: usd + 200000 * r11, tintBelowUsd: 200000 * r11 + 1, tintA: 1, warnAboveUsd: off11 > 0.5 ? 500000 + 200000 * r11 : Infinity });   // b11: lãi + cái đã trả = giá 2026
     // v3e (lượt đạo diễn v3d): ở chế độ ĐỒ THỊ điểm dữ liệu là ĐỈNH CHỒNG — nhà đứng cạnh, mái không vượt điểm dữ liệu (không "vượt trần" sớm)
     const houseH = hero.userData.height * hScale, hOff = cw * (0.5 * hScale + 0.75 * hScale + 0.06);
-    hero.scale.setScalar(hScale); hero.position.set(hOff, mix(sh, Math.max(0, Math.min(sh, mix(4.95, sh, ease(t, M.wide.t1 - 0.3, M.wide.t1 + 0.3))) - houseH - 0.05), cw), 0);   // v3g: ở đồ thị mái nhà cũng KHÔNG vượt xà (đạo diễn v3f: gợi "giá nhà vượt trần")
+    hero.scale.setScalar(hScale); hero.position.set(hOff, mix(sh, 0, cw), 0);   // v3i: ở đồ thị nhà ĐỨNG TRÊN MẶT ĐẤT cạnh chồng (không lơ lửng, không vượt điểm dữ liệu)
     const roofY = hero.position.y + houseH;
     heroG.position.set(hx, 0, 0);
     // khu phố (b1) bật biển đúng tick, gom về nhà chính lúc "sales"
@@ -99,9 +99,9 @@ export async function boot(res) {
     });
     // sương "can't see their house" (b1) → nhà mờ
     const fog = ease(t, b.b1.blur, b.b1.blur + FADE) * (1 - ease(t, b.b1.avg, b.b1.avg + 0.8));
-    setOpacity(hero, heroA * (1 - 0.7 * fog)); setOpacity(heroStack, heroA);
+    setOpacity(hero, heroA); setOpacity(heroStack, heroA);   // v3i: vật 3D không trong suốt (trong suốt làm mất tường → "mái ma"); "can't see" = màn che 2D bên dưới
     // người (b0) và (b9–b10) cạnh nhà ở đầu đường
-    const pA0 = 1 - ease(t, b.b1.blur - 0.1, b.b1.blur + FADE);
+    const pA0 = 1 - cw;   // v3i: người ở lại cạnh nhà suốt b0–b1 (không tắt ở 5 s); rời khi máy sang đồ thị
     const pA9 = 0;   // v3e: ở chế độ đồ thị người không đứng lơ lửng cạnh điểm dữ liệu (nhãn "their gain on paper" mang "của họ")
     const pA = Math.max(pA0, pA9);
     const on9 = pA9 > pA0, ps = on9 ? 0.5 : 1, px = on9 ? hx - 0.5 : X(0) - 1.6, py = on9 ? Math.max(0, sh - 0.62) : 0;   // b9: đứng sau đường, đầu thấp hơn điểm dữ liệu
@@ -110,7 +110,7 @@ export async function boot(res) {
     // xà trần: bóng mờ b0; xà thật từ b3 (rơi + khoá); chỉ ở chế độ đồ thị (thế giới b4 ẩn để không so giá trị với trần)
     const gA = ease(t, b.b0.has, b.b0.has + FADE) * (1 - ease(t, b.b1.blur, b.b1.blur + FADE));
     setOpacity(ghostBeam, 0.5 * gA);
-    const drop = easeOut(t, b.b3.cap, b.b3.cap + 0.55), ext = easeOut(t, b.b3.flat, b.b3.flat + 0.8);   // rơi thấy được, khoá đúng tiếng trầm
+    const drop = easeOut(t, b.b3.cap, b.b3.cap + 0.32), ext = easeOut(t, b.b3.flat, b.b3.flat + 0.8);   // rơi thấy được, khoá đúng tiếng trầm
     beam.position.set(0, mix(10.5, 5, drop), 0); beam.scale.x = 1;   // v3h: xà ĐỦ dài ngay khi rơi; khoá đúng tiếng trầm; "flat" = vệt sáng quét dọc xà
     const end11 = 1 - ease(t, M.wide.t0, M.wide.t1);
     setOpacity(beam, t >= b.b3.cap ? cw * off11 : 0);
@@ -146,14 +146,14 @@ export async function boot(res) {
     dSlab.set({ usd: 200000, tintBelowUsd: 200000, tintA: slabTint }); dSlab.position.set(1.6 * slide, 0, 0.9 * slide);   // khối "what they paid" trượt ra phía PHẢI (bên trái là người + nhãn lãi)
     dTop.set({ usd: vTop, fromUsd: 200000 }); dTop.position.y = mix(2, 0, slide);
     dHouse.position.y = dTop.position.y + gainH;
-    const dGone = t >= ride0 ? 0 : 1, dSide = (1 - ease(t, M.backChart.t0, M.backChart.t0 + 0.5)) * dGone;
+    const dGone = t >= ride0 ? 0 : 1, dSide = (1 - ease(t, M.backChart.t0, M.backChart.t1)) * dGone;   // v3i: rời dần suốt cú máy (đạo diễn: tắt trong một khung)
     const dChart = t >= M.backChart.t0 ? 1 : 1 - cw;               // ở chế độ đồ thị (trước khi tua) cảnh minh hoạ không lấn vào khung
     for (const o of [dHouse, dTop]) setOpacity(o, dGone * dChart);
     for (const o of [dSlab, dRosa, dFrank]) setOpacity(o, dSide * dChart);
     // b11: chồng giá 2000 = cái họ trả (teal), mọc cùng lúc khối teal về đáy chồng 2026
     const a11 = ease(t, M.wide.t0, M.wide.t1);
     const h0 = s2000.set({ usd: 200000 * r11, tintBelowUsd: 200000 * r11 + 1, tintA: 1 });
-    h2000.position.set(X(0) + 0.75, Math.max(0, h0 - h2000.userData.height * 0.55 - 0.05), 0);   // cạnh chồng, mái không vượt đỉnh (tỉ lệ ×1 : ×3,8 đọc bằng CHỒNG)
+    h2000.position.set(X(0) + 0.75, 0, 0);   // v3i: nhà ĐỨNG TRÊN MẶT ĐẤT cạnh chồng (không lơ lửng)   // cạnh chồng, mái không vượt đỉnh (tỉ lệ ×1 : ×3,8 đọc bằng CHỒNG)
     for (const o of [s2000, h2000]) setOpacity(o, a11);
     // loé ở điểm cắt
     const fl = t >= b.b6.cross ? 1 - lin(t, b.b6.cross, b.b6.cross + 0.7) : 0;
@@ -167,6 +167,8 @@ export async function boot(res) {
     const log = O.begin(t, cw, cam); log.roi = {};
     { const [ax0, ay0] = O.toScreen(-9.7, 5, 0), [ax1] = O.toScreen(9.7, 5, 0); log.roi['b3.flat'] = [Math.max(0, ax0), ay0 - 40, Math.min(1920, ax1), ay0 + 40]; }
     { const h0 = hood.userData.items[0].home, [px, py] = O.toScreen(h0.x, h0.y + 0.4, h0.z); log.roi['b1.pop0'] = [px - 80, py - 90, px + 80, py + 60]; }   // nhà đầu tiên bật SOLD
+    if (fog > 0.01) { const [fx, fy] = O.toScreen(X(0), 2.2, 0), c = O.ctx, g = c.createRadialGradient(fx, fy, 30, fx, fy, 330);   // "We can't see their house": màn sương 2D che CẢ nhà + chồng
+      g.addColorStop(0, rgba(C.bg, 0.82 * fog)); g.addColorStop(0.7, rgba(C.bg, 0.6 * fog)); g.addColorStop(1, rgba(C.bg, 0)); c.fillStyle = g; c.fillRect(fx - 340, fy - 340, 680, 680); }
     const S2 = (x, y) => O.toScreen(x, y, 0.5);
     // trục năm (đồ thị)
     if (cw > 0.02) {
@@ -212,7 +214,7 @@ export async function boot(res) {
       const [lx, ly] = S2(X(0), 5); O.text(capS, lx, ly - 26, 56, { kind: 'number', color: C.ink, alpha: la * clamp((lx - 70) / 120) * (1 - ease(t, M.zoom.t0, M.zoom.t0 + 0.5)) });
       const [zx, zy] = S2(X(76), 5); O.text(capS, zx, zy + 76, 56, { kind: 'number', color: C.ink, alpha: la * ease(t, M.zoom.t1 - 0.2, M.zoom.t1 + POP) * (1 - ease(t, M.tip.t0, M.tip.t0 + 0.4)) * clamp((zx - 70) / 120) });
       // khung đầu nhà (b9–b10): trần vẫn có TÊN + SỐ ngay trên xà, chỗ đường lãi đã ở hẳn phía trên (2024–2025) — "past the cap" đọc được là "qua $500,000"
-      const [tx_, ty_] = S2(X(96), 5); O.text(capS, tx_, ty_ - 22, 48, { kind: 'number', color: C.ink, alpha: la * ease(t, M.tip.t0, M.tip.t0 + 0.4) });   // tên xà không đứt trong cú đẩy
+      const [tx_, ty_] = S2(X(96), 5); O.text(capS, tx_, ty_ - 22, 48, { kind: 'number', color: C.ink, alpha: la * ease(t, M.tip.t0 + 0.45, M.tip.t0 + 0.85) });   // sau khi nhãn kia rời (không hai nhãn cùng lúc)   // tên xà không đứt trong cú đẩy
       // "the same in every quarter": cột mốc cao BẰNG NHAU ở mỗi năm, sáng lần lượt theo nhịp chạy dọc xà
       const fw = lin(t, b.b3.flat, b.b3.flat + 0.6);   // "a flat line": vệt sáng quét dọc xà
       if (fw > 0 && fw < 1) { const [fx, fy] = S2(mix(X(0) - 0.6, X(105) + 0.6, fw), 5); O.ctx.fillStyle = rgba(C.ink, 0.85 * ok); O.ctx.fillRect(fx - 90, fy - 7, 180, 14); }
@@ -266,8 +268,9 @@ export async function boot(res) {
     // b10: ngoặc "past the cap"
     if (t >= b.b10.past - 0.05) {
       const a = ease(t, b.b10.past, b.b10.past + POP) * (1 - ease(t, b.b11.t0, b.b11.t0 + FADE)) * ok;
+      { const [rx0, ry0] = S2(X(105) + hOff + 0.55, 5), [, ry1] = S2(0, at(105) / U); log.roi['b10.past'] = [rx0 - 30, ry1 - 20, rx0 + 60, ry0 + 20]; }   // ngoặc mọc
       const [x0, y0] = S2(X(105) + hOff + 0.55, 5), [, y1f] = S2(0, at(105) / U), y1 = mix(y0, y1f, easeOut(t, b.b10.past, S.marks.hop_land));   // ngoặc MỌC từ xà lên đỉnh, chạm đỉnh đúng tiếng chạm sau "cap"
-      O.bracket(x0, y0, y1, C.warn, a, 18, 6 + 4 * flashCap); O.text('past the cap', x0 + 50, (y0 + y1f) / 2 + 22, 60, { kind: 'compare', color: C.warn, alpha: a, plate: '#0B0E13', plateA: 0.75 });   // bên PHẢI chồng: không đè lên đường lãi
+      O.bracket(x0, y0, y1, C.warn, a, 18, 6 + 4 * flashCap); O.text('past the cap', x0 + 50, (y0 + y1f) / 2 + 22, 60, { kind: 'compare', color: C.warn, alpha: a * ease(t, S.marks.hop_land - 0.25, S.marks.hop_land), plate: '#0B0E13', plateA: 0.75 });   // bên PHẢI chồng: không đè lên đường lãi
     }
     // b11: ×3,8 + tiêu đề
     if (t >= M.wide.t0 + 0.3) {
@@ -277,7 +280,8 @@ export async function boot(res) {
       const [x0, y0] = S2(X(105) - 0.75, 0), [, y1] = S2(0, valueAt(105) / U); O.bracket(x0, y0, y1, C.accent, ax, -18);
       O.text(CL('growth_phoenix'), x0 - 40, (y0 + y1) / 2 + 30, 96, { kind: 'compare', color: C.accent, align: 'right', alpha: ax });
       const [z0x, z0y] = S2(X(0) - 0.75, 0), [, z1y] = S2(0, 2); O.bracket(z0x, z0y, z1y, C.accent, ax, -18);
-      O.text('×1', z0x - 30, (z0y + z1y) / 2 + 30, 84, { kind: 'compare', color: C.accent, align: 'right', alpha: ax });
+      const lv = t >= b.b11.lvl ? Math.sin(Math.PI * lin(t, b.b11.lvl, b.b11.lvl + 0.5)) : 0;   // "their 2000 LEVEL": ×1 nảy sáng
+      O.text('×1', z0x - 30, (z0y + z1y) / 2 + 30, 84 * (1 + 0.25 * lv), { kind: 'compare', color: C.accent, align: 'right', alpha: ax });
       const [ex, ey] = S2(X(0), 0), [fx] = S2(X(105), 0);
       O.text(String(CL('buy_year')), ex, ey + 48, 44, { kind: 'number', color: C.ink, align: 'center', alpha: a });
       O.text(CL('sale_quarter'), fx, ey + 48, 44, { kind: 'number', color: C.ink, align: 'center', alpha: a });

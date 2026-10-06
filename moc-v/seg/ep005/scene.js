@@ -32,12 +32,12 @@ export async function boot(res) {
   const price = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); price.position.set(WX, 40000 / UW, 0); const priceH = price.set({ usd: 400000, fromUsd: 40000, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 }) + 40000 / UW; scene.add(price);   // E5d: chồng GIÁ = khung mờ …
   const priceBase = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); priceBase.position.set(WX, 0, 0); priceBase.set({ usd: 40000, tintBelowUsd: 40001, tint: C.cushion, tintA: 1 }); scene.add(priceBase);   // … với 10 % đáy ĐẶC (= số bạn đã để dành)
   const loanW = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); loanW.position.set(WX - 1.2, 0, 0.2); scene.add(loanW);   // c5: khoản vay (xám) đã xuống 80 % giá   // E5c: 10 % đáy chồng giá sáng lên trong khoảng nghỉ sau câu 1 (= chồng của bạn)
-  const house = House({ w: 1.5 }); house.position.set(WX, priceH, 0); scene.add(house);
+  const house = House({ w: 1.5 }); house.position.set(WX, priceH, 0); scene.add(house);   // c0: nhà bị NÂNG lên khi tháp giá mọc (chữ "price")
   const mine = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); mine.position.set(WX + 1.15, 0, 0); scene.add(mine);   // sát chồng giá, cùng đáy: 10 % so bằng mắt
   const you = Person({ h: 1.15, color: PALETTE.person2 }); you.position.set(WX + 2.1, 0, 0.6); you.rotation.y = -0.4; scene.add(you);
   const apt = Apartment({ w: 1.6 }); apt.position.set(WX + 4.4, 0, -0.6); scene.add(apt);
   const shield = Shield({ size: 0.95 }); scene.add(shield);
-  const roofY = priceH + house.userData.height * 0.86;
+  let roofY = priceH + house.userData.height * 0.86;
   const target = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); target.position.set(WX + 1.15, 0, 0); scene.add(target);
   const tick20 = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.06, 0.06), new THREE.MeshBasicMaterial({ color: C.warn, transparent: true })); tick20.position.set(WX + 1.15, 80000 / UW, 0); scene.add(tick20);
   // đồ thị
@@ -59,11 +59,16 @@ export async function boot(res) {
     // ---------- thế giới: c0–c1, c5
     const worldA = 1;   // E5b: vật thế giới KHÔNG mờ đi — máy quay đi khỏi chúng (đạo diễn E5a: đổi chế độ thành fade)
     for (const o of [house, apt, you, priceBase]) setOpacity(o, worldA);
+    // E5e móc 0–5 s: dải 10 % (teal) hiện ở "ten"; tháp GIÁ (xám) mọc ở "price" và nâng ngôi nhà lên — tiền của bạn nhỏ thế nào so với giá
+    const bA = easeOut(t, b.c0.ten, b.c0.ten + 0.3), pG = easeOut(t, b.c0.price, b.c0.price + 0.9);
+    const bH = priceBase.set({ usd: 40000 * bA, tintBelowUsd: 40001, tint: C.cushion, tintA: 1 });
+    price.position.y = bH; const pH = price.set({ usd: 40000 + 360000 * pG, fromUsd: 40000, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 });
+    house.position.y = bH + pH; roofY = house.position.y + house.userData.height * 0.86;
     setOpacity(price, 1.0);   // đặc, xám nhạt (bản mờ không hiện được với InstancedMesh trong suốt)   // khung mờ: giá của căn nhà, không phải tiền của bạn
     const lw = ease(t, b.c5.t0, b.c5.same); loanW.set({ usd: 320000 * lw, tintBelowUsd: 1e9, tint: C.muted, tintA: 0.85 }); setOpacity(loanW, lw > 0.01 ? 1 : 0);
-    const myUsd = t < b.c0.ten ? 0 : 40000 * easeOut(t, b.c0.ten - 0.05, b.c0.ten + 0.2) + 40000 * easeOut(t, b.c1.twenty - 0.05, b.c1.twenty + 0.9);
+    const myUsd = t < b.c0.saved ? 0 : 40000 * easeOut(t, b.c0.saved, b.c0.saved + 0.25) + 40000 * easeOut(t, b.c1.twenty - 0.05, b.c1.twenty + 0.9);
     mine.set({ usd: myUsd, tintBelowUsd: 1e9, tint: C.cushion, tintA: 1 });   // cùng màu dải 10 % đáy chồng giá setOpacity(mine, worldA);
-    tick20.material.opacity = worldA * ease(t, b.c1.renting, b.c1.renting + POP);
+    tick20.material.opacity = worldA * ease(t, b.c1.renting, b.c1.renting + POP) * (1 - ease(t, mv[0].t0, mv[0].t0 + 0.3));
     target.set({ usd: 80000 }); setOpacity(target, 0.28 * ease(t, b.c1.renting, b.c1.renting + POP) * (1 - ease(t, mv[0].t0, mv[0].t0 + 0.3)));   // đích 20 %: khung mờ
     // khiên rơi lên mái lúc "insurance", ở lại (c5 rung nhẹ lúc "same" rồi đứng yên lúc "removed")
     const sd = easeOut(t, b.c1.insurance - 0.05, b.c1.insurance + 0.25), wob = t >= b.c5.same && t < b.c5.removed + 0.3 ? Math.sin((t - b.c5.same) * 18) * 0.12 * (1 - lin(t, b.c5.removed - 0.2, b.c5.removed + 0.3)) : 0;
@@ -91,7 +96,7 @@ export async function boot(res) {
     const dA = ease(t, mv[1].t0, mv[1].t1) * (1 - ease(t, mv[2].t0, mv[2].t1));
     const r = lin(t, b.c4.paper, b.c4.eighty);              // tỉ lệ đi từ 90 % xuống 80 %, CHẠM 80 đúng chữ "eighty" (E5a: sớm 0,55 s)
     const vUsd = mix(400000, 440000, r), lUsd = mix(360000, 352000, r);
-    const vh = vStack.set({ usd: vUsd }), lh = lStack.set({ usd: lUsd, tintBelowUsd: 1e9, tint: C.muted, tintA: 0.85 });
+    const vh = vStack.set({ usd: vUsd, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 }), lh = lStack.set({ usd: lUsd, tintBelowUsd: 1e9, tint: '#5B6573', tintA: 0.9 });   // E5e: cùng mã màu với thế giới (giá = xám nhạt, vay = xám đậm)
     vHouse.scale.setScalar(0.85); vHouse.position.set(15.2 - 1.25, Math.max(0, vh - vHouse.userData.height * 0.85 - 0.05), 0);   // đồ thị: đỉnh chồng là điểm dữ liệu — nhà đứng cạnh, mái thấp hơn
     bar80b.position.y = 0.8 * vUsd / U;
     for (const o of [vStack, lStack, vHouse]) setOpacity(o, dA); setOpacity(bar80b, dA * ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP));
@@ -99,7 +104,7 @@ export async function boot(res) {
     renderer.render(scene, cam);
     // ======================= lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0, S2 = (x, y) => O.toScreen(x, y, 0.5); log.roi = {};
-    { const [x0, y0] = O.toScreen(WX + 1.15, 0.15, 0); log.roi['c0.ten'] = [x0 - 90, y0 - 70, x0 + 90, y0 + 50]; }   // chồng 10 % đặt xuống
+    { const [x0, y0] = O.toScreen(WX, 0.1, 0); log.roi['c0.ten'] = [x0 - 90, y0 - 70, x0 + 90, y0 + 50]; }   // chồng 10 % đặt xuống
     { const [x0, y0] = O.toScreen(WX + 1.15, 0.3, 0); log.roi['c1.twenty'] = [x0 - 70, y0 - 60, x0 + 70, y0 + 50]; }          // chồng của người xem lớn tới 20 %
     { const [lx0, ly0] = O.toScreen(18.4, 3.0, 0); log.roi['c4.paper'] = [lx0 - 90, ly0 - 80, lx0 + 260, ly0 + 80]; }   // đỉnh chồng vay + bộ đếm %
     { const [x0, y0] = O.toScreen(XM(0), YL(0.9), 0.5), [x1, y1] = O.toScreen(XM(30), YL(0.85), 0.5); log.roi['c2.schedule'] = [x0 - 20, y0 - 40, x1 + 20, y1 + 40]; }   // đầu đường lịch trả nợ
@@ -121,16 +126,17 @@ export async function boot(res) {
       const eA = ease(t, b.c2.eight, b.c2.eight + POP) * aA;
       if (eA > 0) { const [x, y] = S2(XM(D.sched80), YL(0.8)); O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath(); O.ctx.moveTo(x, y); O.ctx.lineTo(x, S2(0, 0)[1]); O.ctx.stroke(); O.ctx.restore();
         O.text('about 8 years', x - 16, y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
-      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text('typical', x + 20, y + 60, 52, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
+      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical · about ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 60, 52, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
       if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text('slow cases', x, y - 40, 52, { kind: 'compare', color: C.warn, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
     }
     // c4 (đồ thị: định nghĩa)
     if (dA > 0.02) {
       const a = dA * ok;
       const [vx, vy] = S2(15.2, (vUsd / U) + 0.45), [lx, ly] = S2(18.4, lUsd / U);
-      O.text('home value', vx, vy - 74, 52, { color: C.ink, align: 'center', alpha: a });
-      O.text('by a national price index', vx, vy - 16, 48, { color: C.ink, w: 600, align: 'center', alpha: a });   // vòng mù Tập 5 #1: E2 hụt "theo chỉ số giá" → nhãn đứng cùng "home value"
-      O.text('loan', lx, ly - 30, 52, { color: C.ink, align: 'center', alpha: a });
+      const vA = a * ease(t, b.c4.value - 0.3, b.c4.value);   // E5e: chữ theo lời ("the home's value by a national price index")
+      O.text('home value', vx, vy - 74, 52, { color: C.ink, align: 'center', alpha: vA });
+      O.text('by a national price index', vx, vy - 16, 48, { color: C.ink, w: 600, align: 'center', alpha: vA });   // vòng mù Tập 5 #1: E2 hụt "theo chỉ số giá" → nhãn đứng cùng "home value"
+      O.text('loan', lx, ly - 30, 52, { color: C.ink, align: 'center', alpha: a * ease(t, b.c4.paper, b.c4.paper + POP) });
       const pct = t < b.c4.paper + POP ? 90 : t < b.c4.eighty ? Math.max(81, Math.round(100 * lUsd / vUsd)) : 80;
       O.text(`${pct}%`, lx + 120, ly + 16, 60, { kind: 'compare', color: pct <= 80 ? C.ink : C.muted, alpha: a * ease(t, b.c4.paper, b.c4.paper + POP) * (1 - ease(t, b.c4.eighty, b.c4.eighty + POP)) });   // bộ đếm bật ĐÚNG "on paper" rồi chạy tới 80
       const [bx, by] = S2(18.4 + 0.9, 0.8 * vUsd / U);
@@ -139,10 +145,12 @@ export async function boot(res) {
     // c5 (thế giới)
     const kA = ease(t, b.c5.removed - 0.05, b.c5.removed + POP) * worldA;
     if (kA > 0) { const [x, y] = O.toScreen(WX, roofY + 0.75, 0.2); O.text('insurance still on', x, y - 20, 56, { align: 'center', alpha: kA, plate: '#0B0E13', plateA: 0.7 }); }
-    O.chrome({ illus: t >= b.c2.schedule, illusA: ease(t, b.c2.schedule, b.c2.schedule + POP), src: t >= b.c2.schedule ? 'Source: FHFA · Freddie Mac via FRED' : null, srcA: ease(t, b.c2.schedule, b.c2.schedule + POP),
-      hist: t >= b.c3.replayed, histA: ease(t, b.c3.replayed, b.c3.replayed + POP),
+    const chOut = 1 - ease(t, mv[2].t0, mv[2].t0 + 0.4);   // E5e: lớp chữ của đồ thị rời khi về cảnh thế giới
+    const illA = Math.max(ease(t, b.c2.schedule, b.c2.schedule + POP) * (1 - ease(t, b.c3.replayed - 0.3, b.c3.replayed)), ease(t, mv[1].t1, mv[1].t1 + POP)) * chOut;   // minh hoạ: lịch giả định (c2), hai chồng (c4); KHÔNG trên dữ liệu thật (c3)
+    O.chrome({ illus: illA > 0.01, illusA: illA, src: t >= b.c2.schedule ? 'Source: FHFA · Freddie Mac via FRED' : null, srcA: ease(t, b.c2.schedule, b.c2.schedule + POP) * chOut,
+      hist: t >= b.c3.replayed, histA: ease(t, b.c3.replayed, b.c3.replayed + POP) * chOut,
       cw: t >= b.c3.replayed ? 'Past buyers, measured · not a reason to buy, rent or wait' : t >= b.c2.schedule ? 'A measurement, not a next step' : null,
-      cwA: t >= b.c3.replayed ? ease(t, b.c3.replayed, b.c3.replayed + POP) : ease(t, b.c2.schedule, b.c2.schedule + POP) });   // đối trọng kênh; vòng mù Tập 5 #2: E1 vẫn khuyên "ở đủ lâu mới mua" → câu rõ hơn (vòng mù #1: E1 có câu khuyên "chỉ mua nếu…")
+      cwA: (t >= b.c3.replayed ? ease(t, b.c3.replayed, b.c3.replayed + POP) : ease(t, b.c2.schedule, b.c2.schedule + POP)) * chOut });   // đối trọng kênh; vòng mù Tập 5 #2: E1 vẫn khuyên "ở đủ lâu mới mua" → câu rõ hơn (vòng mù #1: E1 có câu khuyên "chỉ mua nếu…")
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }
   return { canvas: st.out, frame };
