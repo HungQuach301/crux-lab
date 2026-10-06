@@ -17,3 +17,4 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc: kiểm m�
 | 2026-10-06 | C2 | kiểm mù | 3 agent `Explore` (so) | cùng mẫu | ≈ 108.054 | 3/3, khuyên 0; mất chú ý S10 3/3 |
 | 2026-10-06 | C2 | WRITER | agent general-purpose (mới) | vòng 2: S19 → 1 câu + V7 + mô tả; S07.2, S09.3, S12.2–3, S17.3, S18.2 | 74.724 | check ĐẠT, ≈ 8:19 |
 | 2026-10-06 | C2 | kiểm mù | headless 6 mới + 1 người chấm | vòng 2 | 56.363 + 17.586 | 6/6, khuyên 0, S18 3/6 → ĐẠT |
+| 2026-10-06 | G1 | REVIEWER | agent general-purpose | soát gói G1 (`REVIEW-G1.md`) | 98.909 | ĐẠT có sửa, 8 sửa chữ đã áp |
