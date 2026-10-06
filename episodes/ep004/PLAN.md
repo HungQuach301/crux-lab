@@ -14,7 +14,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 | C3 (P2) | **XONG** — chủ dự án duyệt (issue #39, `gates/C3-answer.md`): N1, N2 ký hợp đồng bản vòng 2; ngoại lệ cờ khuyên Tập 4 | `gates/C3.md`, `gates/C3-tally.md`, `design/c3/`, `review-c3/` | dựng bằng nhà máy; móc nạp ký hiệu +7/−3 |
 | C4 (phiên cuối, D-008) | XONG — checks lần 1; kiểm mù gộp (đối chứng dương ĐẠT, âm có hạn chế; C3 theo A9 khuyên_tính 0/12; S18 2/4); **cổng gốc 3/7 TRƯỢT** (B06, B10, B11, B15); chủ dự án trả lời ngoại lệ (`gates/C4-answer.md`) | `gates/C4*.md` | trần nâng 2,0 tr / 30 agent |
 | C5 | XONG — nhạc style C, −14,2 LUFS / −1,6 dBTP; checks lần 2 CHẶN 24/35 (còn F11, F12, S03, S04 + luật trang ngoại lệ); Shorts 3/3 SH01–SH05 ĐẠT; ASR "rose" | `gates/C5.md` | bản vá Shorts toolkit chưa commit (`design/c5/factory-shorts.patch`) |
-| **G2** | **CHỜ chủ dự án** — gói sau REVIEWER (1 CHẶN + 7 CHÍNH đã sửa) | `gates/G2.md`, `gates/REVIEW-G2.md`, `gates/G2-*.md`, `review-g2/` | khuyến nghị (b): sửa nhãn + vòng 2 cổng gốc với trần mới |
+| **G2** | **XONG** — chủ dự án duyệt (b) một vòng (`gates/G2-answer.md`); dựng lại (`gates/C6.md`); cổng gốc vòng 2 6/7 ĐẠT (`gates/C4-root-r2.md`); giao hàng `ep004-delivery` @ f01ff9b. **CHỜ G3** (chủ dự án tải) → merge `main`, xoá nhánh giao | `gates/G2.md`, `gates/REVIEW-G2.md`, `gates/G2-*.md`, `review-g2/` | khuyến nghị (b): sửa nhãn + vòng 2 cổng gốc với trần mới |
 
 ## 2. Phiên sau đọc (phiên C4 + P3)
 `CHARTER.md` · `playbook/quality-framework.md` · `playbook/episode.md` · `playbook/prompts/P3.md` · `episodes/ep004/PLAN.md` · `ledger.md` · `gates/G1-answer.md` · **`gates/C3-answer.md`** · `gates/C3.md` · `story/script.md` · `story/beats.md` · `episode.yaml` · `design/c3/NOTES.md` · `toolkit/factory/README.md` · `checks-appeal.md` A9.
@@ -22,6 +22,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 **Điều kiện mở C4:** `checks-k38` đã merge `main` (`checks/LOCK` khác `a20c6878`); merge `main` vào `ep004` trước; `bash toolkit/verify.sh ep004`.
 
 ## 3. Việc treo (P3)
+- **Lô K/nhà máy:** xuất `page.json` + file phát hành F11 cho nhà máy (ngoại lệ Tập 4). Đưa N1/N2 (đã duyệt G2) vào `toolkit/visual-library/`.
 - **Lô K sau:** `checks/README.md` mục K3.8 còn chữ "chờ chủ dự án duyệt" — sửa ở lô K sau (D-008).
 - **REVIEWER bị bỏ ở gói C3 (trần token P2) → bắt buộc chạy REVIEWER cho gói kế tiếp** (gói C4/G2), soát cả phần C3 đã gửi.
 - **Lượt C4 gộp:** (a) đối chứng câu khuyên (A9): một hình thư viện không liên quan thuế, cùng câu hỏi vai T, ≈ 2 người đọc; chấm cờ khuyên theo rubric tách hai loại (thận trọng chung không tính; khuyên sản phẩm/hành động tài chính tính), cùng một đối chứng dương ("Sell before prices drop"); (b) kiểm mù S18 sau dự phòng V7 (G1).

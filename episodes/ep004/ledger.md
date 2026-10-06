@@ -49,3 +49,8 @@ Mỗi agent con, mỗi cổng: một dòng. Token = số harness của agent con
 | 2026-10-06 | G2 | REVIEWER (gói G2 + soát bù C3) | opus | 136.854 | TRƯỢT 1 CHẶN + 7 CHÍNH → sửa hết trong gói; thumb-1 "metros"; F11 thumbnail khai |
 | 2026-10-06 | C6 | dựng lại sau G2 (b): nhãn S06/S09–S11/S15 (N2 `design/c4/n2-g2.js`), đuôi S19 6 s, nhạc 0 quanh MR, checks lần 3, Shorts, dải r2 | opus | ≈ 0,25 triệu | 8:01,6; −14,2 LUFS/−1,5 dBTP; CHẶN 24/35 (0 mới); F07, S14 → ĐẠT; 0 EL; S09/S10 "Gain today" (không "Value": thanh là lãi) |
 | 2026-10-06 | **tổng phiên cuối** | **27 agent** | — | **≈ 1,61 triệu** | + điều phối ≈ 0,3 triệu ⇒ ≈ 1,9 triệu (trần 2,0) |
+| 2026-10-06 | G2 | **chủ dự án trả lời** | — | — | (b) một vòng; T1; ngoại lệ F11/F12/S03/S04; merge bản vá Shorts + spec.py; trần +0,6 tr / 40 agent; `gates/G2-answer.md` |
+| 2026-10-06 | sau G2 | dựng lại (nhãn S06/S09–S11/S15, đuôi S19, nhạc 0 quanh MR) | opus | 241.462 | 8:01,6; outro 23,6 s; checks lần 3 không CHẶN mới; 0 EL; Shorts 3/3 |
+| 2026-10-06 | C4 vòng 2 | 9 người đọc + 2 lượt người chấm | sonnet | 9 × ≈ 47k + 55.894 + 51.699 | **cổng gốc 6/7 = 86 % ĐẠT** (B11 trượt, B10 2/3) |
+| 2026-10-06 | giao hàng | `deliver.py` → `ep004-delivery` @ f01ff9b | lệnh | — | 3 phần 90 MB; `ep004-youtube.mp4` 30090de0…; HUONG-DAN-DANG.md |
+| 2026-10-06 | **tổng phiên cuối** | **39 agent** | — | **≈ 2,39 triệu agent con** | + điều phối ≈ 0,35 triệu; trần 2,0 + 0,6 |
