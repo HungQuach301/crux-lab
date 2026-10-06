@@ -29,3 +29,7 @@ Hướng B + C "một thế giới, hai chế độ máy quay"; 8 quy tắc; gen
 ## Trả lời clip chứng minh (06/10)
 L3: Tập 4 v3k 4·4·4·4·4·4 · Tập 5 E5g 4·4·4·4·4·4 → ĐẠT; L3 là thước đo cuối, đạo diễn máy = chẩn đoán (D-010 §6 bổ sung). Dừng sửa thẩm mỹ.
 Việc còn lại theo thứ tự: (a) Tập 4 nhà ở đồ thị theo V3i, cổng gốc 6/6 · 0 khuyên; (b) sửa bằng hình chỗ gây lời khuyên (V3k, E5g), 0/6; backlog nhà máy → `toolkit/factory/BACKLOG.md`; rồi B+1, B+2, áp vào nhà máy, CHARTER/playbook, REVIEWER, B+3, hỏi "Duyệt Mốc V?".
+
+### Kết quả hai sửa khách quan (06/10)
+- (a) Tập 4 v3l — nhà đứng mặt đất cạnh chồng ở đồ thị, khung phóng chừa dải mặt đất, tên đường gắn trên đường: cổng gốc **K1 3/3 · K2 3/3 · 0 khuyên** (`eval/v3-blind22-raw`). Không còn "don't rush to sell".
+- (b) Tập 5 E5h — đường "slow cases" màu trung tính + nhãn thời lượng "≈ 9 years", bỏ nhãn 100 %, tách nhãn "typical"/"schedule": cổng gốc **E1 3/3 · E2 3/3 · 0 khuyên** (`eval/e5-blind10-raw`). Không còn "buy only if able to stay 8+ years".

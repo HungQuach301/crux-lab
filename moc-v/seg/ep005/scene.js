@@ -95,7 +95,7 @@ export async function boot(res) {
     } else fan.material.opacity = 0;
     const tA = ease(t, b.c3.typically - 0.05, b.c3.typically + POP) * chartA, sA = ease(t, b.c3.slow - 0.05, b.c3.slow + POP) * chartA;
     typ.set(typP.p.map((l, k) => [XM(k), YL(l)]), 0.12, C.ink); typ.material.opacity = tA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));
-    slow.set(slowP.p.map((l, k) => [XM(k), YL(l)]), 0.12, C.warn); slow.material.opacity = sA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));
+    slow.set(slowP.p.map((l, k) => [XM(k), YL(l)]), 0.12, C.accent);   // (b) màu trung tính (vàng cảnh báo gợi "rủi ro → lời khuyên") slow.material.opacity = sA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));
     const fl = t >= b.c2.eight ? 1 - lin(t, b.c2.eight, b.c2.eight + 0.7) : 0;
     burst.position.set(XM(D.sched80), YL(0.8), 0.7); burst.scale.setScalar(0.5 + 2 * (1 - fl)); burst.material.opacity = fl * chartA;
     // c4: định nghĩa "on paper"
@@ -126,14 +126,15 @@ export async function boot(res) {
     if (cw > 0.02 && t < mv[1].t1) {
       const aA = ok * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE));
       for (let yr = 0; yr <= 10; yr += 2) { const [x, y] = S2(XM(yr * 12), 0); O.text(yr === 10 ? '10 years' : String(yr), x, y + 48, 44, { kind: 'number', w: 600, color: C.muted, align: 'center', alpha: aA }); }
-      for (const l of [1.0, 0.9, 0.8]) { const [x, y] = S2(XM(0), YL(l)); O.text(`${Math.round(l * 100)}%`, x - 24, y + 16, 48, { kind: 'number', color: l === 0.8 ? C.ink : C.muted, align: 'right', alpha: aA * (l === 1.0 ? ease(t, b.c3.replayed - 0.05, b.c3.replayed + POP) : 1) }); }
+      for (const l of [0.9, 0.8]) {   // (b) bỏ nhãn 100 % (gợi "nợ nhiều hơn giá nhà")
+        const [x, y] = S2(XM(0), YL(l)); O.text(`${Math.round(l * 100)}%`, x - 24, y + 16, 48, { kind: 'number', color: l === 0.8 ? C.ink : C.muted, align: 'right', alpha: aA * (l === 1.0 ? ease(t, b.c3.replayed - 0.05, b.c3.replayed + POP) : 1) }); }
       O.text('loan as a share of the price · on the schedule', 960, 230, 52, { kind: 'compare', align: 'center', color: C.muted, alpha: aA * (1 - ease(t, b.c3.replayed - 0.3, b.c3.replayed - 0.05)) });
       O.text('Loan as % of home value · one line per purchase month, 1991–2016', 960, 230, 48, { kind: 'compare', align: 'center', color: C.ink, alpha: aA * ease(t, b.c3.replayed, b.c3.replayed + POP) });
       const eA = ease(t, b.c2.eight, b.c2.eight + POP) * aA;
       if (eA > 0) { const [x, y] = S2(XM(D.sched80), YL(0.8)); O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath(); O.ctx.moveTo(x, y); O.ctx.lineTo(x, S2(0, 0)[1]); O.ctx.stroke(); O.ctx.restore();
-        O.text(t < b.c3.replayed ? 'about 8 years' : 'schedule ≈ 8 years', x - 16, y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
+        O.text(t < b.c3.replayed ? 'about 8 years' : 'schedule ≈ 8 years', t < b.c3.replayed ? x - 16 : S2(XM(120), 0)[0], y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
       if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 60, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
-      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text('slow cases', x, y - 40, 52, { kind: 'compare', color: C.warn, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
+      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text(`slow cases ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, x, y - 40, 52, { kind: 'compare', color: C.accent, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
     }
     // c4 (đồ thị: định nghĩa)
     if (dA > 0.02) {
