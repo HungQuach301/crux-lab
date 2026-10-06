@@ -43,3 +43,12 @@ Outputs: `moc-v/work/B-code.mp4`, `moc-v/work/B-cc.mp4`, stills in `moc-v/work/B
 
 ## Render times
 (see `moc-v/work/B-code.mp4.render.json`, `moc-v/work/B-cc.mp4.render.json`)
+Measured on the shared 4-vCPU box (SwiftShader, 1920×1080, 4 Chromium workers; other agents were rendering at the same time, so wall numbers are noisy):
+
+| Render | wall s | wall s / film s |
+|---|---|---|
+| B-code v1 | 890.1 | 12.79 |
+| B-cc v1 (final B-cc.mp4) | 727.3 | 10.45 |
+| B-code v2 (final B-code.mp4) | 604.4 | 8.68 |
+
+Geometry cost is about the same for both houses (cc: ~1 k tris low-poly voxel export; code: ~20 boxes). The difference between runs comes from CPU contention, not from the house.

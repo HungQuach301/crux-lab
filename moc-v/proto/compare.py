@@ -14,14 +14,15 @@ for i, (lab, v) in enumerate(items):
     d.text((640, 640), f'{i + 1}/{len(items)} · Mốc V · cùng đoạn Tập 4 (S04.5 → S07.3), 69,6 s', font=ImageFont.truetype(F2, 24), fill=(154, 164, 178), anchor='mm')
     png = os.path.join(tmp, f'c{i}.png'); im.save(png)
     card = os.path.join(tmp, f'c{i}.mp4')
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-loop', '1', '-t', '2.5', '-i', png, '-f', 'lavfi', '-t', '2.5', '-i', 'anullsrc=r=48000:cl=stereo',
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-loop', '1', '-t', '2.5', '-i', png, '-f', 'lavfi', '-t', '2.5', '-i', 'anullsrc=r=48000:cl=stereo', '-ar', '48000',
                     '-vf', 'fps=30,format=yuv420p', '-c:v', 'libx264', '-crf', '20', '-c:a', 'aac', '-b:a', '160k', '-shortest', card], check=True)
     seg = os.path.join(tmp, f'v{i}.mp4')
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', v, '-t', '69.6', '-vf', 'scale=1280:720:flags=lanczos,fps=30,format=yuv420p',
-                    '-af', 'aresample=48000,loudnorm=I=-14:TP=-1.5:LRA=11', '-c:v', 'libx264', '-preset', 'medium', '-b:v', '1600k', '-maxrate', '2400k',
+                    '-af', 'aresample=48000,loudnorm=I=-14:TP=-1.5:LRA=11', '-c:v', 'libx264', '-preset', 'medium', '-b:v', '1300k', '-maxrate', '2000k',
                     '-bufsize', '4800k', '-c:a', 'aac', '-b:a', '160k', '-ac', '2', seg], check=True)
     parts += [card, seg]
-lst = os.path.join(tmp, 'l.txt'); open(lst, 'w').write(''.join(f"file '{p}'\n" for p in parts))
-subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-c:v', 'libx264', '-preset', 'medium', '-b:v', '1600k',
-                '-maxrate', '2400k', '-bufsize', '4800k', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', out], check=True)
+inp = sum([['-i', p_] for p_ in parts], [])
+fc = ''.join(f'[{i}:v][{i}:a]' for i in range(len(parts))) + f'concat=n={len(parts)}:v=1:a=1[v][a]'
+subprocess.run(['ffmpeg', '-v', 'error', '-y', *inp, '-filter_complex', fc, '-map', '[v]', '-map', '[a]', '-c:v', 'libx264', '-preset', 'medium',
+                '-b:v', '1300k', '-maxrate', '2000k', '-bufsize', '4000k', '-r', '30', '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-movflags', '+faststart', out], check=True)
 print(out, os.path.getsize(out) // 1_000_000, 'MB')

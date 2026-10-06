@@ -16,9 +16,9 @@
 
 | | R | A v2 | B | C v2 |
 |---|---|---|---|---|
-| % thời lượng chỉ có chữ | **28,6 %** | **0 %** | 0 % (đạo diễn) | **0 %** |
-| Từ mới trên màn hình / phút | 80 | 65 | — | 69 |
-| % có đồ hoạ/vật thể chuyển động | 4,3 % | **54 %** | (đạo diễn: chuyển động gần như liên tục) | 41 % |
+| % thời lượng chỉ có chữ | **28,6 %** | **0 %** | **0 %** | **0 %** |
+| Từ mới trên màn hình / phút | 80 | 65 | 74 | 69 |
+| % có đồ hoạ/vật thể chuyển động | 4,3 % | 54 % | **73 %** | 41 % |
 | Nhân vật khi lời nói về họ (4 câu): hình người · vật của họ | 1/4 · 0/4 | 2/4 · 4/4 | 2/4 · 4/4 | 2/4 · 4/4 |
 | Cắt cứng giữa mẫu không liên quan | 4 (đạo diễn: 3 cắt về màn hình trống, ≈ 9 s trống) | 0 (1 chỗ tua về 2000 bị gọi "gãy") | 0 (tua về 2000) | 0 (tua về 2000) |
 | Âm dữ liệu (bảng S2) | không | có: 90 nốt; đỉnh trong khe lời −3,5 dB so với RMS lời; nốt dời vào khe ≤ 120 ms | có (cùng lớp) | có |
@@ -29,8 +29,8 @@
 | Lời trên nhạc (A07) | — | 24,0 dB | 24,0 dB | 24,0 dB |
 | Mức cuối | — | −14,0 LUFS · −1,5 dBTP | như A | như A |
 | Đồng bộ lời (ASR vs alignment) | — | lệch trung vị 0,02 s, P90 0,135 s | như A | như A |
-| **Đồng bộ hình–từ khoá ±0,2 s** (đo khởi động chuyển động trên video cuối, `sync_audit.py`) | đạo diễn: lệch 0,7–3 s ở 8 chỗ | **11/12** (1 nhãn nhỏ không đo được) | (đạo diễn v2) | **9/12 đạt, 3 không đo được; mọi sự kiện đo được ≤ 0,1 s** |
-| Thời gian render CPU (4 vCPU) | — | 0,93–1,08 s máy / 1 s phim (2–3 luồng) → tập 8 phút ≈ 8–9 phút | **12,8 s / s** (nhà mã), **10,5 s / s** (nhà CC-BY), 4 luồng → tập 8 phút ≈ 1 giờ 40 | 0,78–1,04 s / s |
+| **Đồng bộ hình–từ khoá ±0,2 s** (đo khởi động chuyển động trên video cuối, `sync_audit.py`) | đạo diễn: lệch 0,7–3 s ở 8 chỗ | **11/12** (1 nhãn nhỏ không đo được) | 8/12 (lệch: vạch trần +0,37, nhà mờ +0,24, bắt đầu vẽ −0,21; máy quay 3D làm nhiễu phép đo) | **9/12 đạt, 3 không đo được; mọi sự kiện đo được ≤ 0,1 s** |
+| Thời gian render CPU (4 vCPU) | — | 0,93–1,08 s máy / 1 s phim (2–3 luồng) → tập 8 phút ≈ 8–9 phút | **8,7–12,8 s / s** (nhà mã), 10,5 s / s (nhà CC-BY), 4 luồng, CPU dùng chung → tập 8 phút ≈ 70–100 phút | 0,78–1,04 s / s |
 
 ## Cổng gốc + kiểm mù tắt tiếng (ý đồ ghi trước `eval/ROOT-intent.md`; người đọc headless mù, người chấm độc lập)
 
@@ -38,7 +38,7 @@
 |---|---|---|---|
 | R | **ĐẠT** 2/2 (điểm 1, 1) | **ĐẠT** 2/2 | 0 |
 | A v1 → v1b | 0,5 · 0,5 → 0,5 · 0,5 **TRƯỢT** | **ĐẠT** 2/2 | 0 |
-| B v1 | 0,5 · 0,5 **TRƯỢT** | 0,5 · 0,5 **TRƯỢT** (đọc $558,100 thành giá nhà) | 0 |
+| B v1 → v2 | 0,5 · 0,5 → 0,5 · 0,5 **TRƯỢT** (v2: đã hiểu đúng là LÃI, chỉ thiếu nhịp tụt) | 0,5 · 0,5 → **ĐẠT** 2/2 | 0 |
 | C v1 → v1b | 0,5 · 0,5 → 0,5 · 0,5 **TRƯỢT** | **ĐẠT** 2/2 | 0 |
 | *Tham khảo sau lượt đạo diễn (A v2, C v2)* | *0,5 · 0,5* | *2/2* | *0* |
 
@@ -50,11 +50,11 @@
 |---|---|---|
 | R | 3 · 2 · 2 · 2 | — |
 | A | 3 · 2 · 3 · 3 | **3 · 3 · 3 · 3** |
-| B | 3 · 2 · 2 · 3 | (B v2: xem cuối file) |
+| B | 3 · 2 · 2 · 3 | **3,5 · 3 · 2,5 · 3** |
 | C | 3 · 3 · 2 · 3 | 3 · 3 · 2,5 · 3 |
 
 Đã sửa sau v1 (cả A, C; B qua agent): năm khoá theo lời; mỗi nhà SOLD bật = một tick; "let its value rise" có mũi tên; lấp đoạn 25–35 s ("their gain on paper = ?", khối $200,000 lúc nói "$200,000", "grown with the index" lúc nói "grown", chỉ ghi "paid" lúc "less"); ngoặc "well under"; nhà lướt về 2000 thay vì nhảy; tia sáng ở điểm cắt; Rosa & Frank trở lại ở b9–b10; nhà nảy qua trần lúc "past"; cảnh ×3,8 che hẳn biểu đồ; impact dời sau "cap" và hạ (sfx giờ chuẩn theo đỉnh: impact −23 dB, thud −16 dB dưới đỉnh lời).
-**Còn lại (đạo diễn v2, việc Phần B):** đặt trần lên đường lãi (như trên); chỗ tua về 2000 cần báo hiệu (lời/âm) hoặc bỏ; nhạc cần biên độ căng–chùng rộng hơn (cao trào ở 61 s chưa nghe ra); lớp bắt buộc 40 px **đọc khó ở 25 %** theo cả bốn đạo diễn → đề xuất 48 px + chữ sáng hơn (G-014); cắt mép khi máy quay đẩy 58–63 s; "$558,100" nên bay VÀO biển trên nhà (ý đồ) chứ không lên tít.
+**Còn lại (đạo diễn v2, việc Phần B):** B: khoá năm theo lời làm 2 s đầu đứng yên rồi vẽ 26 năm trong 2 s (cần vẽ đều 15,9→21,2 và để nhãn năm chạy theo); phối cảnh 56–62,5 s cắt đáy tháp làm phần vượt trông lớn (cần góc nhìn trực giao khi đọc số);  đặt trần lên đường lãi (như trên); chỗ tua về 2000 cần báo hiệu (lời/âm) hoặc bỏ; nhạc cần biên độ căng–chùng rộng hơn (cao trào ở 61 s chưa nghe ra); lớp bắt buộc 40 px **đọc khó ở 25 %** theo cả bốn đạo diễn → đề xuất 48 px + chữ sáng hơn (G-014); cắt mép khi máy quay đẩy 58–63 s; "$558,100" nên bay VÀO biển trên nhà (ý đồ) chứ không lên tít.
 
 ## So nguồn tài sản (`assets/SOURCES.md`, đọc 06/10/2026; KHÔNG mua, không đăng ký)
 
