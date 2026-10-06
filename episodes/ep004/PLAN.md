@@ -11,7 +11,8 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 | C2 | Kiểm máy ĐẠT; mù v2 6/6, khuyên 0/6; S18 → dự phòng V7 (chưa kiểm lại) | `story/`, `gates/C2-*.md`, `c2/`, `hook-rr/` | móc H2 (so cặp vòng tròn 5/6) |
 | Giao phiên K | **SẴN SÀNG — chủ dự án mở phiên K** | `K-brief.md` | kind mới; một lần cho tập |
 | **G1** | **XONG** — chủ dự án duyệt (issue #37; C2 tự động #36) | `gates/G1.md`, `gates/G1-answer.md` | trần 4,5 triệu |
-| C3 (P2) | **MỞ** — 2 ký hiệu mới N1, N2; trần P2 ≤ 1 triệu | `story/beats.md` | |
+| C3 (P2) | **GÓI GỬI — chờ chủ dự án** (cổng gốc: nghĩa 6/6 vòng 2, câu khuyên 12/12 → trượt theo luật) | `gates/C3.md`, `gates/C3-tally.md`, `design/c3/`, `review-c3/` | dựng bằng nhà máy; móc nạp ký hiệu +7/−3 |
+| C4 (P3) | **CHỜ** khoá `checks-k38` merge `main` (LOCK hiện `a20c6878`) | — | |
 
 ## 2. Phiên sau đọc (phiên K trước; rồi P2 — C3)
 `CHARTER.md` · `playbook/quality-framework.md` · `playbook/episode.md` · `episodes/ep004/PLAN.md` · `ledger.md` · `gates/G1.md` · `gates/G1-answer.md` · `story/script.md` · `story/beats.md` · `K-brief.md`.
@@ -24,6 +25,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 - `episode.yaml` `midrolls` ghi khi định thời giọng thật (≈ 3:29, ≈ 6:41 ước).
 - Không đụng `toolkit/`, `toolkit/factory/` (phiên nhà máy).
 ## 4. Điểm dừng an toàn + lệnh chạy tiếp
+2026-10-06 (P2): main a291ef7 đã merge vào ep004; C3 N1/N2 dựng bằng nhà máy, 2 vòng kiểm mù, gói `gates/C3.md` gửi (issue). **Dừng chờ: (1) trả lời C3; (2) `checks-k38` merge `main`.** Rồi P3: C4. Dựng lại đoạn trích: dữ liệu như dưới → `python3 episodes/ep004/design/c3/build_inputs.py` → `bash toolkit/build.sh episodes/ep004/episode.yaml` (giọng cache theo băm; cài ffmpeg nếu thiếu).
 2026-10-05: G1 xong; dừng chờ phiên K (chủ dự án mở), rồi P2. Dữ liệu không commit: `python3 episodes/ep004/data/fetch.py` (kiểm SHA) → `python3 episodes/ep004/model/model.py` → `python3 episodes/ep004/story/check_script.py`. Clip: `python3 episodes/ep004/story/cold_open.py` (take theo hash chữ, không sinh lại nếu chữ không đổi).
 
 ## 5. KPI + token so trần
@@ -31,7 +33,8 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 |---|---|---|
 | Chủ dự án tham gia | 1 (G1) | G1, G2 + G3 (+C3) |
 | Vòng | C1 1 · C2 2 (+ dự phòng) | ≤ 2 |
-| Agent | 42 (gồm REVIEWER G1) | ≤ 60 cả tập (P1 ≈ 25) |
-| Ký tự ElevenLabs | 1.927 (gồm thử 4 tên ASR) | ≤ 6.000 |
+| Agent | 42 (gồm REVIEWER G1) + P2 21 = 63 | ≤ 60 cả tập (P1 ≈ 25) |
+| Ký tự ElevenLabs | 1.927 (P1) + 1.157 (P2) = 3.084 | ≤ 6.000 |
 | Token agent con | ≈ 2,17 triệu | P1 ≤ 1,4 triệu |
+| Token P2 | ≈ 0,80 triệu agent con (21 agent) + ≈ 0,2 triệu điều phối ⇒ ≈ 1,0 triệu (chạm trần; REVIEWER gói C3 bỏ) | P2 ≤ 1 triệu |
 | Token cả P1 | ≈ 2,6 triệu (+ 84 %) | đã hỏi ở G1 → trần tập 4,5 triệu; còn ≈ 1,9 triệu cho K/P2/P3 (P2, P3 ≤ 1 triệu mỗi phiên) |

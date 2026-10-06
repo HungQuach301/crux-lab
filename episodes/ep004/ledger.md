@@ -27,3 +27,9 @@ Mỗi agent con, mỗi cổng: một dòng. Token = số harness của agent con
 | 2026-10-05 | G1 | **chủ dự án duyệt** | — | — | #3, L1b, H2, T1, C3; 2 việc ngoài §6 duyệt; trần tập 4,5 triệu (P2, P3 ≤ 1 triệu); `gates/G1-answer.md` |
 | 2026-10-05 | sau G1 | thử tên ASR (4 tên × 2 seed) | lệnh | — | đều đạt → **Frank**; 936 ký tự EL |
 | 2026-10-05 | sau G1 | §6.5 + lệnh G1: "Glen" → "Frank" (script, hooks, beats); clip cold open sinh lại | lệnh | — | 0 từ khoá mất; 170 ký tự EL; **tổng EL P1 1.927** |
+| 2026-10-06 | P2 mở | merge `main` a291ef7 (nhà máy) vào ep004 | lệnh | — | `7c24f94`; `checks-k38` chưa có trên remote → C4 chờ |
+| 2026-10-06 | C3 | dựng N1/N2 bằng nhà máy (agent mới) | opus | 177.913 | qc 12/12, 0 CHẶN; EL 1.157 ký tự; móc nạp ký hiệu +7/−3 |
+| 2026-10-06 | C3 v1 | 6 người đọc (Explore) + người chấm | sonnet | 211.263 + ≈ 30k | nghĩa B08 2/2, B13 1/2, B14 0/2; khuyên 6/6 → trượt cả 3 |
+| 2026-10-06 | C3 v2 | thêm nhãn (agent mới) | opus | 104.782 | qc 12/12; 0 EL |
+| 2026-10-06 | C3 v2 | 7 người đọc (1 thay do sai đường dẫn) + người chấm | sonnet | 244.385 + ≈ 30k | nghĩa 6/6; khuyên 6/6 → cổng trượt theo luật; gói C3 → chủ dự án |
+| 2026-10-06 | **tổng P2** | **21 agent** | — | **≈ 0,80 triệu** | + điều phối ≈ 0,2 triệu ⇒ ≈ 1,0 triệu (trần P2); REVIEWER gói C3 bỏ vì trần |
