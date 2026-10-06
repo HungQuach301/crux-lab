@@ -41,11 +41,14 @@ def main():
     M = {'M1 hook ends ≤ 5.0': first('hook')['end'], 'M2 promise ends ≤ 30': first('promise')['end'],
          'M3 question ≤ 30': (first('question') or first('hook'))['end']}
     blk, longest = None, 0.0
-    for x in timeline:
+    prev_end = None
+    for x in timeline:  # khối = câu constraint/define liền nhau; khoảng lặng > 1,5 s (ident, đổi cảnh dài) cắt khối
         if x['start'] >= 60: break
         if x['role'] in ('constraint', 'define'):
-            blk = blk if blk is not None else x['start']; longest = max(longest, min(x['end'], 60) - blk)
+            if blk is None or (prev_end is not None and x['start'] - prev_end > 1.5): blk = x['start']
+            longest = max(longest, min(x['end'], 60) - blk)
         else: blk = None
+        prev_end = x['end']
     M['M4 longest constraint/define block 0–60 s ≤ 10'] = round(longest, 2)
     stake = re.compile(r'\b(Grace|Owen|Victor|8 years|insurance|you)\b', re.I)
     M['M5 character/stake returns ≤ 45'] = next((x['start'] for x in timeline if x['start'] > first('promise')['end'] and stake.search(x['text'])), None)

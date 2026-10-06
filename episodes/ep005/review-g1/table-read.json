@@ -1,0 +1,142 @@
+{
+ "el_chars_spent": 0,
+ "clip": "episodes/ep005/review-g1/cold-open.m4a",
+ "clip_s": 55.1,
+ "M": {
+  "M1 hook ends ≤ 5.0": {
+   "value": 2.8,
+   "pass": true
+  },
+  "M2 promise ends ≤ 30": {
+   "value": 22.84,
+   "pass": true
+  },
+  "M3 question ≤ 30": {
+   "value": 8.96,
+   "pass": true
+  },
+  "M4 longest constraint/define block 0–60 s ≤ 10": {
+   "value": 11.52,
+   "pass": false
+  },
+  "M5 character/stake returns ≤ 45": {
+   "value": 29.55,
+   "pass": true
+  }
+ },
+ "timeline": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "role": "hook",
+   "text": "You've saved 10 percent of a home's price.",
+   "start": 0.0,
+   "end": 2.8
+  },
+  {
+   "id": "S01.2",
+   "scene": "S01",
+   "role": "question",
+   "text": "[curious] Do you buy now and pay mortgage insurance, or keep renting until you reach 20 percent?",
+   "start": 3.2,
+   "end": 8.96
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "role": "hook",
+   "text": "On the schedule alone, you can't even ask to cancel it for about 8 years.",
+   "start": 9.96,
+   "end": 14.44
+  },
+  {
+   "id": "S02.2",
+   "scene": "S02",
+   "role": "promise",
+   "text": "We replayed real US prices and rates month by month, so you'll see how long it took on paper, typically and in slow cases.",
+   "start": 14.71,
+   "end": 22.84
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "role": "define",
+   "text": "On paper means the loan is 80 percent of the home's value by a national price index.",
+   "start": 23.84,
+   "end": 29.36
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "role": "hook",
+   "text": "That's not the same as getting the insurance removed.",
+   "start": 29.55,
+   "end": 32.72
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "role": "define",
+   "text": "Removal on value is the lender's rule: a request, an appraisal, often a minimum wait, and early on, often a 75 percent bar.",
+   "start": 32.88,
+   "end": 42.96
+  },
+  {
+   "id": "S03.4",
+   "scene": "S03",
+   "role": "promise",
+   "text": "You'll also meet three illustrative buyers who got very different answers.",
+   "start": 43.16,
+   "end": 48.32
+  },
+  {
+   "id": "S03.5",
+   "scene": "S03",
+   "role": "constraint",
+   "text": "It's US only, history, not a forecast, and it won't say whether to buy or wait.",
+   "start": 48.48,
+   "end": 55.12
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "role": "define",
+   "text": "Private mortgage insurance, or PMI, is a policy lenders usually require on a conventional loan with less than 20 percent down.",
+   "start": 59.12,
+   "end": 67.56
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "role": null,
+   "text": "It protects the lender if the loan goes bad, but the borrower pays for it, month after month, on top of the mortgage.",
+   "start": 67.68,
+   "end": 75.6
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "role": null,
+   "text": "What it costs depends on the loan and the borrower, so this video puts no dollar figure on it.",
+   "start": 75.68,
+   "end": 80.88
+  },
+  {
+   "id": "S04.4",
+   "scene": "S04",
+   "role": null,
+   "text": "What we can measure is how long it lasts.",
+   "start": 80.92,
+   "end": 83.95
+  },
+  {
+   "id": "S04.5",
+   "scene": "S04",
+   "role": null,
+   "text": "So when does it end?",
+   "start": 83.97,
+   "end": 84.64
+  }
+ ],
+ "asr": "You've saved 10% of a home's price. Do you buy now and pay mortgage insurance or keep renting until you reach 20%? On the schedule alone, you can't even ask to cancel it for about eight years. We replayed real US prices and rates month by month, so you'll see how long it took on paper, typically and in slow cases. On paper means the loan is 80% of the home's value by a national price index. That's not the same as getting the insurance removed. Removal on value is the lender's rule, a request, an appraisal, often a minimum weight and early on, often a 75% bar. You'll also meet three illustrative buyers who got very different answers. It's US only, history, not a forecast, and it won't say whether to buy or wait."
+}

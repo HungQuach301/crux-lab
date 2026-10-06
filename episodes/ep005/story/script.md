@@ -42,14 +42,14 @@ S01.2 {question} [curious] Do you buy now and pay mortgage insurance, or keep re
 
 ## S02 — The stake and the promise
 
-S02.1 {hook} On the payment schedule alone, that's about 8 years of insurance, until the loan falls to 80 percent of the price. <!-- claims: sched80_months_latest, rate_latest -->
+S02.1 {hook} On the schedule alone, you can't even ask to cancel it for about 8 years. <!-- claims: sched80_months_latest, rate_latest; hold: 1 -->
 S02.2 {promise} We replayed real US prices and rates month by month, so you'll see how long it took on paper, typically and in slow cases. <!-- claims: nB, medianB_months_to80, maxB_months_to80 -->
 
 ## S03 — What "on paper" means, right away
 
 S03.1 {define} On paper means the loan is 80 percent of the home's value by a national price index. <!-- claims: medianB_months_to80 -->
 S03.2 {hook} That's not the same as getting the insurance removed. <!-- claims: — -->
-S03.3 {define} Removal on value is the lender's rule: a request, an appraisal, often a minimum wait, and early on, often a 75 percent bar. <!-- claims: shareA_ltv24_le75 -->
+S03.3 {define} Removal on value is lender policy: request, appraisal, time, and early on, a 75 percent bar. <!-- claims: shareA_ltv24_le75 -->
 S03.4 {promise} You'll also meet three illustrative buyers who got very different answers. <!-- claims: buyer_fast_*, buyer_typical_*, buyer_slow_* -->
 S03.5 {constraint} It's US only, history, not a forecast, and it won't say whether to buy or wait. <!-- claims: —; hold: 0.8 -->
 
@@ -67,7 +67,7 @@ S04.5 So when does it end? <!-- claims: —; hold: 0.8 -->
 
 ## S05 — One illustrative loan
 
-S05.1 Here's an illustrative example: a $400,000 home, a little under the national median price of new homes sold this spring. <!-- claims: ex_price, mspus_latest -->
+S05.1 Here's an illustrative example: a $400,000 home, a little under the national median price of new homes sold from April through June. <!-- claims: ex_price, mspus_latest -->
 S05.2 With 10 percent down, that leaves a $360,000 loan. <!-- claims: ex_loan, ex_extra_down_for_20; hold: 1 -->
 
 ## S06 — The rate and the payment
@@ -101,11 +101,11 @@ S09.4 So how fast did rising prices actually get 10 percent down buyers there? <
 
 ## S10 — Setting up the replay
 
-S10.1 We took every purchase month from 1991 through 2016. <!-- claims: nB -->
+S10.1 We took every purchase month from January 1991 to July 2016. <!-- claims: nB -->
 S10.2 For each one, we set up the same 10 percent down loan at that month's average rate. <!-- claims: nB, ex_extra_down_for_20 -->
 S10.3 And we let the home's value move exactly like the Federal Housing Finance Agency's national index of home purchase prices. <!-- claims: nB -->
 S10.4 Every month after that, we compare the balance with the value, and stop the clock the first time the loan is 80 percent or less. <!-- claims: medianB_months_to80 -->
-S10.5 Each square here is one purchase month, and its color shows how long that took. <!-- claims: — -->
+S10.5 Each bar here is one purchase month, and its height shows how long that took. <!-- claims: — -->
 
 ## S11 — The typical answer
 
