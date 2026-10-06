@@ -357,7 +357,8 @@ def main():
         return x * (vr * 10 ** (-db / 20) / r)
     mus_d = duck(level(mus, 20.0), venv, 4.0, carve=True)
     data_d = duck(level(data, 18.0), venv, 8.0) if np.any(data) else data
-    sfx_d = duck(level(sfx, 13.0), venv, 6.0) if np.any(sfx) else sfx
+    # sfx: chuẩn theo ĐỈNH (đỉnh sfx = đỉnh lời − 12 dB), không theo RMS cả lớp — để hạ một tiếng không kéo tiếng khác lên (lượt đạo diễn v2)
+    sfx_d = duck(sfx * (np.abs(voice).max() * 10 ** (-12 / 20) / (np.abs(sfx).max() + 1e-12)), venv, 6.0) if np.any(sfx) else sfx
     room = room_tone(N, venv, env200(mus_d))
     v2 = np.stack([voice, voice], 1)
     mix = v2 + mus_d + data_d + sfx_d + room
