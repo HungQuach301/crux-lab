@@ -728,7 +728,7 @@
    "visual": "bó 307 đường mảnh (mỗi tháng mua một đường) hiện dần trái → phải (lúc \"replayed\"/\"month\"); đường điển hình sáng lúc \"typically\", đường chậm nhất warn lúc \"slow\".",
    "line": "We replayed real U.S. prices and rates month by month, so you'll see how long it took on paper, typically and in slow cases.",
    "sound": [
-    "nhiều tick mềm khi bó hiện",
+    "nốt dữ liệu mỗi 2 năm khi bó quét (cao độ = tỉ lệ trung vị)",
     "nốt sáng (điển hình), nốt trầm (chậm)"
    ],
    "music": 0.65,
@@ -774,8 +774,8 @@
    "visual": "về căn nhà: khiên bảo hiểm VẪN ở trên mái dù chồng vay đã thấp; khiên rung nhẹ rồi đứng yên lúc \"removed\"; nhãn \"insurance still on\".",
    "line": "That's not the same as getting the insurance removed.",
    "sound": [
-    "tick trầm \"chưa\"",
-    "nhạc nhả"
+    "tiếng trầm có thân ở \"removed\" + nốt chốt",
+    "nhạc tắt ở \"removed\", hợp âm cuối"
    ],
    "music": 0.35,
    "emotion": "tỉnh táo",
@@ -838,6 +838,10 @@
  },
  "marks": {
   "ten_lit": 3.45
+ },
+ "mix": {
+  "music_db": 17.0,
+  "data_db": 25.0
  },
  "sched_kf": [
   [

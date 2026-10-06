@@ -373,8 +373,9 @@ def main():
         if r < 1e-9:
             r = np.sqrt(np.mean(x ** 2) + 1e-12)
         return x * (vr * 10 ** (-db / 20) / r)
-    mus_d = duck(level(mus, 20.0), venv, 4.0, carve=True)
-    data_d = duck(level(data, 21.0), venv, 8.0) if np.any(data) else data   # lượt đạo diễn v3c: −3 dB (chạm thân giọng ở 44–46, 52–54 s)
+    MX = spine.get('mix', {})
+    mus_d = duck(level(mus, MX.get('music_db', 20.0)), venv, 4.0, carve=True)
+    data_d = duck(level(data, MX.get('data_db', 21.0)), venv, 8.0) if np.any(data) else data   # lượt đạo diễn v3c: −3 dB (chạm thân giọng ở 44–46, 52–54 s)
     # sfx: chuẩn theo ĐỈNH (đỉnh sfx = đỉnh lời − 12 dB), không theo RMS cả lớp — để hạ một tiếng không kéo tiếng khác lên (lượt đạo diễn v2)
     # v3d: thang CỐ ĐỊNH (SFX_REF = đỉnh lớp sfx bản v3c) — hạ một tiếng không kéo các tiếng khác lên; trần an toàn = đỉnh lời − 12 dB
     sc = np.abs(voice).max() * 10 ** (-12 / 20) / max(SFX_REF, np.abs(sfx).max())

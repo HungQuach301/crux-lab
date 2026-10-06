@@ -85,12 +85,12 @@ MOVES = [
  ('backChart', 'mode', 'wDemo', 'cFull', cue['b4']['paid'], cue['b5']['under'], 1.0, 'lời "For most of these years" (lãi vừa tách ra): tua NHÀ về 2000 rồi phát lại theo năm so với trần → chế độ đồ thị', 'whoosh_mode'),
  ('zoom', 'push', 'cFull', 'cZoom', cue['b6']['q2022'], cue['b6']['cross'], 1.2, 'lời "Then, in the second quarter of 2022": sắp tới điểm cắt và nhịp tụt — đoạn 2021–26 quá nhỏ ở thang 26 năm → đẩy máy TRƯỚC khi cắt', 'whoosh_push'),
  ('tip', 'push', 'cZoom', 'cTip', cue['b8']['above'], cue['b9']['rose'], 2.2, 'lời "So, on paper, … THEIR home": con số sắp nói là của Rosa & Frank → đẩy chậm vào nhà ở đầu đường', 'whoosh_air'),
- ('wide', 'pull', 'cTip', 'cFull', cue['b10']['cap'], cue['b11']['x'], 1.0, 'lời "Phoenix area prices … their 2000 level": cần cả hai đầu 2000 và 2026 → lùi máy', 'whoosh_air'),
+ ('wide', 'pull', 'cTip', 'cFull', cue['b10']['cap'], cue['b11']['x'], 1.45, 'lời "Phoenix area prices … their 2000 level": cần cả hai đầu 2000 và 2026 → lùi máy', 'whoosh_air'),
 ]
 moves = []
 for mid, verb, a, b, after, before, dur, reason, snd in MOVES:
     t0, t1 = window(after, before, dur, late=(mid in ('wide', 'toDemo')),     # 'wide': giữ "past the cap" lâu nhất; 'toDemo': sát "And here's"
-                    start=at('@S06.3') if mid == 'backChart' else None)            # 'backChart': neo vào chữ "For most of these years"
+                    start=at('@S06.3') if mid == 'backChart' else at('@S07.3') if mid == 'wide' else None)            # 'backChart': neo vào chữ "For most of these years"
     moves.append({'id': mid, 'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
 
 # ---- lịch dữ liệu dùng chung cho hình VÀ âm (q = quý, 0 = 2000 Q1 … 105 = 2026 Q2)
@@ -120,7 +120,7 @@ EV = []
 for q in [0, 1, 2] + list(range(4, 106, 4)):
     EV.append({'t': round(when(DRAW, q), 3), 'kind': 'data', 'v': (gain[q] + 200000) / 800000, 'src': 'value'})
 for q in range(0, 106):
-    if q % 8 == 0 or q >= 86:                  # b5 thưa hơn (lượt đạo diễn v3d: dày ở 41–47 s)
+    if q % 8 == 0 or (q >= 86 and q % 2 == 0):                  # b5 thưa hơn (lượt đạo diễn v3d: dày ở 41–47 s)
         EV.append({'t': round(when(RIDE, min(q, 105)), 3), 'kind': 'data', 'v': max(0, gain[q]) / 800000, 'src': 'gain', 'over': gain[q] > 500000})
 pops = [round(cue['b1']['pop0'] + k * (cue['b1']['many'] - 0.3 - cue['b1']['pop0']) / 11, 3) for k in range(12)]
 EV += [{'t': cue['b0']['has'], 'kind': 'riser', 'to': cue['b0']['q']},

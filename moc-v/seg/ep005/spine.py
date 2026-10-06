@@ -45,13 +45,13 @@ B = [
  ('c2', 'S02.1', 'chart', 'Theo lịch trả nợ, khoảng 8 năm mới được xin huỷ.', 'đồ thị: dư nợ ÷ giá từ 90 % đi xuống chậm, vạch 80 % cố định; đường chạm vạch ở ~8 năm (lúc "eight") + nhãn "about 8 years".',
   {'schedule': '@S02.1:schedule', 'cancel': '@S02.1:cancel', 'eight': '@S02.1:eight'}, ['âm dữ liệu: nốt theo năm', 'chạm ở 80 %'], 0.55, 'nặng, xa', 'phát lại thật'),
  ('c3', 'S02.2', 'chart', 'Phát lại giá và lãi thật từng tháng: bao lâu trên giấy, điển hình và chậm.', 'bó 307 đường mảnh (mỗi tháng mua một đường) hiện dần trái → phải (lúc "replayed"/"month"); đường điển hình sáng lúc "typically", đường chậm nhất warn lúc "slow".',
-  {'replayed': '@S02.2:replayed', 'month': '@S02.2:month', 'paper': '@S02.2:paper', 'typically': '@S02.2:typically', 'slow': '@S02.2:slow'}, ['nhiều tick mềm khi bó hiện', 'nốt sáng (điển hình), nốt trầm (chậm)'], 0.65, 'hé lộ',
+  {'replayed': '@S02.2:replayed', 'month': '@S02.2:month', 'paper': '@S02.2:paper', 'typically': '@S02.2:typically', 'slow': '@S02.2:slow'}, ['nốt dữ liệu mỗi 2 năm khi bó quét (cao độ = tỉ lệ trung vị)', 'nốt sáng (điển hình), nốt trầm (chậm)'], 0.65, 'hé lộ',
   'LIA MÁY sang định nghĩa "on paper"'),
  ('c4', 'S03.1', 'chart', '"Trên giấy" = khoản vay bằng 80 % giá trị nhà theo chỉ số giá quốc gia.', 'hai chồng chính diện: GIÁ TRỊ nhà (lớn theo chỉ số) và KHOẢN VAY (nhỏ dần); vạch 80 % của giá trị; khi chồng vay chạm vạch (lúc "eighty") → "80% on paper".',
   {'paper': '@S03.1:paper', 'eighty': '@S03.1:eighty', 'value': '@S03.1:value', 'index': '@S03.1:index'}, ['chạm khi hai chồng gặp vạch'], 0.55, 'hiểu định nghĩa',
   'CHUYỂN CHẾ ĐỘ → thế giới: "insurance removed" là chuyện của căn nhà'),
  ('c5', 'S03.2', 'world', 'Chạm 80 % trên giấy chưa phải là được gỡ bảo hiểm.', 'về căn nhà: khiên bảo hiểm VẪN ở trên mái dù chồng vay đã thấp; khiên rung nhẹ rồi đứng yên lúc "removed"; nhãn "insurance still on".',
-  {'same': '@S03.2:same', 'removed': '@S03.2:removed'}, ['tick trầm "chưa"', 'nhạc nhả'], 0.35, 'tỉnh táo', '(hết) giữ trạng thái kết luận ≥ 1 s'),
+  {'same': '@S03.2:same', 'removed': '@S03.2:removed'}, ['tiếng trầm có thân ở "removed" + nốt chốt', 'nhạc tắt ở "removed", hợp âm cuối'], 0.35, 'tỉnh táo', '(hết) giữ trạng thái kết luận ≥ 1 s'),
 ]
 beats = []
 for bid, sid, mode, idea, visual, cues, sound, ten, emo, nxt in B:
@@ -94,7 +94,7 @@ EV += [{'t': cue['c0']['saved'], 'kind': 'tick', 'v': 0.5}, {'t': cue['c0']['ten
        {'t': cue['c3']['typically'], 'kind': 'data', 'v': 0.8},
        {'t': cue['c3']['slow'], 'kind': 'data', 'v': 0.2},
        {'t': cue['c4']['eighty'], 'kind': 'chime'},
-       {'t': cue['c5']['removed'], 'kind': 'impact'}]   # E5e: chốt rõ hơn
+       {'t': cue['c5']['removed'], 'kind': 'impact'}]   # E5e: chốt rõ hơn (tiếng trầm có thân)
 GAIN = {'mode': 0.6, 'pan': 0.8, 'pull': 1.0}                 # bài học Tập 4 v3d: whoosh_mode quá to; chỉ đổi chế độ mới có tiếng chạm
 for m in moves:
     EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': GAIN[m['verb']]})
@@ -113,6 +113,7 @@ spine = {'segment': 'ep005 S01.1 → S03.2 (cold open, table read G1)', 'version
          'beats': beats, 'moves': moves,
          'music_plan': {'stop': cue['c5']['removed'], 'tau': 0.15, 'release': cue['c5']['removed'] + 1.0, 'accents': [cue['c2']['eight'], cue['c4']['eighty'], cue['c5']['removed'] + 0.05]},
          'marks': {'ten_lit': round(at('@S01.1$') + 0.25, 3)},   # 10 % đáy chồng giá sáng trong khoảng nghỉ (móc 5 s đầu)
+         'mix': {'music_db': 17.0, 'data_db': 25.0},   # E5g: nhạc nghe được hơn, nốt dữ liệu không đè lời
          'sched_kf': SCHED, 'fan_kf': FAN, 'events': EV, 'tension': tension, 'shots': shots,   # nhạc tắt ở "removed": kết bằng lặng + tiếng trầm
          'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical ≈ 2 years', 'c3.slow': 'slow cases', 'c4.eighty': '80% on paper', 'c4.paper': '90%', 'c5.removed': 'insurance still on'},
          'visual_cues': ['c0.ten', 'c1.insurance', 'c1.twenty', 'c2.schedule', 'c2.eight', 'c3.replayed', 'c3.typically', 'c3.slow', 'c4.paper', 'c4.eighty', 'c5.removed'],

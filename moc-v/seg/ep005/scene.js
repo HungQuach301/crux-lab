@@ -66,7 +66,8 @@ export async function boot(res) {
     price.position.y = bH; const pH = price.set({ usd: 40000 + 360000 * pG, fromUsd: 40000, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 });
     house.position.y = bH + pH; roofY = house.position.y + house.userData.height * 0.86;
     setOpacity(price, 1.0);   // đặc, xám nhạt (bản mờ không hiện được với InstancedMesh trong suốt)   // khung mờ: giá của căn nhà, không phải tiền của bạn
-    const lw = ease(t, b.c5.t0, b.c5.same); loanW.set({ usd: 320000 * lw, tintBelowUsd: 1e9, tint: '#5B6573', tintA: 0.9 });   // cùng màu chồng vay ở đồ thị setOpacity(loanW, lw > 0.01 ? 1 : 0);
+    const lw = ease(t, b.c5.t0, b.c5.same); loanW.set({ usd: 320000 * lw, tintBelowUsd: 1e9, tint: '#5B6573', tintA: 0.9 });   // cùng màu chồng vay ở đồ thị
+    setOpacity(loanW, lw > 0.01 ? 1 : 0);
     mine.set({ usd: 40000 * easeOut(t, b.c0.saved, b.c0.saved + 0.25), tintBelowUsd: 1e9, tint: C.cushion, tintA: 1 }); setOpacity(mine, t >= b.c0.saved ? worldA : 0);
     mine.position.set(mix(WX + 1.15, WX, bA), 0, 0);   // "ten percent of a home's price": tiền của bạn = đáy chồng giá
     // lối THUÊ (c1): ở căn hộ, khoản để dành mới lớn từ 10 % tới 20 % (chữ "twenty")
@@ -83,13 +84,14 @@ export async function boot(res) {
       const pts = []; for (let k = 0; k <= Math.min(120, kS) + 1e-6; k += 1) pts.push([XM(Math.min(k, kS)), YL(D.sched[Math.min(120, Math.round(Math.min(k, kS)))])]);
       sched.set(pts, 0.08, C.muted); sched.material.opacity = chartA * (1 - ease(t, b.c3.replayed, b.c3.replayed + 0.6));   // E5f: đường minh hoạ RỜI khi dữ liệu thật vào (vạch gióng + nhãn 8 năm ở lại)
     } else sched.material.opacity = 0;
-    setOpacity(bar80, chartA * (t >= mv[0].t0 ? 1 : 0) * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1)));   // vạch 80 % có mặt khi máy tới (không khung trống), rời sau cú lia bar80.glow(t >= b.c2.eight ? Math.max(0, 1 - lin(t, b.c2.eight, b.c2.eight + 0.8)) : 0);
+    setOpacity(bar80, (t >= mv[0].t0 && t < mv[2].t1) ? 1 : 0);   // vạch 80 % có mặt khi máy tới (không khung trống), rời sau cú lia
+    bar80.glow(t >= b.c2.eight ? Math.max(0, 1 - lin(t, b.c2.eight, b.c2.eight + 0.8)) : 0);
     // c3: bó phát lại
     const f = interp(S.fan_kf, t);
-    if (t >= b.c3.replayed - 0.05 && t < mv[1].t1 + 0.5) {
+    if (t >= b.c3.replayed - 0.05 && t < mv[2].t1) {
       const lines = [], kk = Math.round(f * 120);   // E5b: PHÁT LẠI = mọi tháng mua cùng chạy theo thời gian sau khi mua (quét trái → phải, khớp tick mỗi năm)
       for (let i = 0; i < nP; i += 2) { const pp = paths[i].p.slice(0, kk + 1); if (pp.length > 1) lines.push({ color: fanCol, pts: pp.map((l, k) => [XM(k), YL(l)]) }); }
-      fan.set(lines); fan.material.opacity = chartA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));
+      fan.set(lines); fan.material.opacity = Math.max(0.35, 1 - ease(t, mv[1].t1 - 0.4, mv[1].t1)) * (t < mv[2].t1 ? 1 : 0);   // E5g: bó còn mờ trong khung khi máy lướt về (không khung đen)
     } else fan.material.opacity = 0;
     const tA = ease(t, b.c3.typically - 0.05, b.c3.typically + POP) * chartA, sA = ease(t, b.c3.slow - 0.05, b.c3.slow + POP) * chartA;
     typ.set(typP.p.map((l, k) => [XM(k), YL(l)]), 0.12, C.ink); typ.material.opacity = tA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));
@@ -97,13 +99,13 @@ export async function boot(res) {
     const fl = t >= b.c2.eight ? 1 - lin(t, b.c2.eight, b.c2.eight + 0.7) : 0;
     burst.position.set(XM(D.sched80), YL(0.8), 0.7); burst.scale.setScalar(0.5 + 2 * (1 - fl)); burst.material.opacity = fl * chartA;
     // c4: định nghĩa "on paper"
-    const dA = ease(t, mv[1].t0, mv[1].t1) * (1 - ease(t, mv[2].t0, mv[2].t1));
+    const dA = ease(t, mv[1].t0, mv[1].t1) * (1 - ease(t, mv[2].t1 - 0.2, mv[2].t1));   // chữ của định nghĩa rời khi máy đã về
     const r = lin(t, b.c4.paper, b.c4.eighty);              // tỉ lệ đi từ 90 % xuống 80 %, CHẠM 80 đúng chữ "eighty" (E5a: sớm 0,55 s)
     const vUsd = mix(400000, 440000, r), lUsd = mix(360000, 352000, r);
     const vh = vStack.set({ usd: vUsd, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 }), lh = lStack.set({ usd: lUsd, tintBelowUsd: 1e9, tint: '#5B6573', tintA: 0.9 });   // E5e: cùng mã màu với thế giới (giá = xám nhạt, vay = xám đậm)
-    vHouse.scale.setScalar(0.85); vHouse.position.set(15.2 - 1.25, Math.max(0, vh - vHouse.userData.height * 0.85 - 0.05), 0);   // đồ thị: đỉnh chồng là điểm dữ liệu — nhà đứng cạnh, mái thấp hơn
+    vHouse.scale.setScalar(0.001); setOpacity(vHouse, 0);   // E5g: đồ thị chỉ có chồng (nhà là vật thế giới — cùng quy tắc Tập 4)   // đồ thị: đỉnh chồng là điểm dữ liệu — nhà đứng cạnh, mái thấp hơn
     bar80b.position.y = 0.8 * vUsd / U;
-    for (const o of [vStack, lStack, vHouse]) setOpacity(o, dA); setOpacity(bar80b, dA * ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP));
+    for (const o of [vStack, lStack]) setOpacity(o, dA > 0.01 ? 1 : 0); setOpacity(bar80b, dA * ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP));
 
     renderer.render(scene, cam);
     // ======================= lớp phủ
@@ -129,15 +131,15 @@ export async function boot(res) {
       O.text('Loan as % of home value · one line per purchase month, 1991–2016', 960, 230, 48, { kind: 'compare', align: 'center', color: C.ink, alpha: aA * ease(t, b.c3.replayed, b.c3.replayed + POP) });
       const eA = ease(t, b.c2.eight, b.c2.eight + POP) * aA;
       if (eA > 0) { const [x, y] = S2(XM(D.sched80), YL(0.8)); O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath(); O.ctx.moveTo(x, y); O.ctx.lineTo(x, S2(0, 0)[1]); O.ctx.stroke(); O.ctx.restore();
-        O.text('about 8 years', x - 16, y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
-      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 60, 52, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
+        O.text(t < b.c3.replayed ? 'about 8 years' : 'schedule ≈ 8 years', x - 16, y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
+      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 60, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
       if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text('slow cases', x, y - 40, 52, { kind: 'compare', color: C.warn, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
     }
     // c4 (đồ thị: định nghĩa)
     if (dA > 0.02) {
       const a = dA * ok;
       const [vx, vy] = S2(15.2, (vUsd / U) + 0.45), [lx, ly] = S2(18.4, lUsd / U);
-      const vA = a * ease(t, b.c4.value - 0.3, b.c4.value);   // E5e: chữ theo lời ("the home's value by a national price index")
+      const vA = a * ease(t, b.c4.value, b.c4.value + POP);   // E5e: chữ theo lời ("the home's value by a national price index")
       O.text('home value', vx, vy - 74, 52, { color: C.ink, align: 'center', alpha: vA });
       O.text('by a national price index', vx, vy - 16, 48, { color: C.ink, w: 600, align: 'center', alpha: vA });   // vòng mù Tập 5 #1: E2 hụt "theo chỉ số giá" → nhãn đứng cùng "home value"
       O.text('loan', lx, ly - 30, 52, { color: C.ink, align: 'center', alpha: a * ease(t, b.c4.paper, b.c4.paper + POP) });
@@ -146,6 +148,10 @@ export async function boot(res) {
       const [bx, by] = S2(18.4 + 0.9, 0.8 * vUsd / U);
       O.text('80% on paper', bx + 10, by + 16, 60, { kind: 'compare', color: C.ink, alpha: a * ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP), plate: '#0B0E13', plateA: 0.7 });
     }
+    // E5g: lối thuê lớn tới 20 % — mũi tên đi lên trên chồng ở căn hộ (cùng từ vựng hình "rise" của Tập 4)
+    { const ua = ease(t, b.c1.twenty, b.c1.twenty + POP) * (1 - ease(t, mv[0].t0, mv[0].t0 + 0.3));
+      if (ua > 0.01) { const [ux, uy] = O.toScreen(WX + 3.1, 0.55 + 0.35 * easeOut(t, b.c1.twenty, b.c1.twenty + 0.9), 0.4), c = O.ctx; c.save(); c.globalAlpha = ua; c.fillStyle = C.accent;
+        c.beginPath(); c.moveTo(ux, uy - 54); c.lineTo(ux - 28, uy - 12); c.lineTo(ux + 28, uy - 12); c.closePath(); c.fill(); c.fillRect(ux - 10, uy - 14, 20, 60); c.restore(); } }
     // c5 (thế giới)
     const kA = ease(t, b.c5.removed - 0.05, b.c5.removed + POP) * worldA;
     if (kA > 0) { const [x, y] = O.toScreen(WX, roofY + 0.75, 0.2); O.text('insurance still on', x, y - 20, 56, { align: 'center', alpha: kA, plate: '#0B0E13', plateA: 0.7 }); }
