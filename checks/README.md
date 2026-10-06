@@ -348,6 +348,25 @@ Nguồn: việc giao cho phiên K của Tập 3 (issue #29). Viết **từ đặ
 - Đối chiếu (không phải test, vì dữ liệu không nằm trong `checks/`): FRED TB3MS và CPIAUCNS (coed 2026-08-01, SHA-256 `ebf04b1a…`, `f79e3a78…` như `retire-4/sources.json`), tham số của `retire-4/model.json` (`roll.termMonths` 3). Cả **50** claim mô hình của `numbers.md` (46 claim kịch bản trừ 5 claim bối cảnh/người xem = 41, cộng 9 ID khác của `numbers.md`) gắn được khoá và tính lại được: **41 khớp**, **9 lệch chỉ vì `numbers.md` ghi tỉ lệ đã làm tròn 0,1** (số tính lại làm tròn ra đúng giá trị ghi; ví dụ 52,3482 → 52,3), **0 lệch thật**. Bảy bất biến đạt. S01 trên `out/model.json` hiện có của `ep003` (dựng trước khi có tên kind): 3.560 giá trị so, **mọi cửa sổ khớp**; 16 lệch và 4 phần không tính lại đều do tên trường / dạng (thiếu tham số nhắc lại, `…LockVsRollPct` đặt tên khác, `rollRateLatest` là object, `skippedStarts` là danh sách) — bên dựng đổi theo `CONTRACT.md`.
 - Điểm mù (ghi để khoá sau): (1) năm bất biến canh chính bản tính lại của máy kiểm; không đầu vào nào của bên dựng làm chúng trượt (như K3.5). (2) Đề xuất của `checks-notes.md` §3 — "mọi khung hiện cửa sổ trước 2005-05 có nhãn giả định" — chưa phải luật: cần thuộc tính tháng trên đối tượng trang (như đề xuất `monthsTrack` của K3.6); đến khi có, S02 (`claims.assumptions`) chỉ canh nhãn có trên màn hình, không canh từng khung. (3) `startFilter` chỉ có một loại (`rollRateAboveLockRate`); retire-3 chưa chạy trên dữ liệu thật ở khoá này (chưa có GS1/GS5 ghim).
 
+## Thay đổi ở khoá K3.8 (chờ chủ dự án duyệt)
+
+Nguồn: giao phiên K Tập 4 (`episodes/ep004/K-brief.md`, nhánh `ep004`) và lô `checks-appeal.md` A1–A7. Kind viết **từ đặc tả** (`topics-r1/machine/tax-2/model.json → newKindNeeds`, `episodes/ep004/gates/V0-defs.md` §4, `numbers.md`); không đọc `calc.py`, `episodes/ep004/model/` hay mã dựng. Cấp theo khung: sai nghĩa/claim/pháp lý = CHẶN; tay nghề/giữ chân = THAM KHẢO.
+
+| Mã | Thay đổi | Lý do |
+|---|---|---|
+| S01, S05 (`r_model.py`) | **Loại mô hình mới `fixed-cap-vs-index-growth`** (bảng "Loại mô hình" của `CONTRACT.md`): mọi bộ chỉ số quý, mọi giới hạn cố định (`caps`, mỗi cái phủ mọi chuỗi hoặc vài chuỗi), giá minh hoạ và mốc đếm dạng danh sách, CPI tuỳ chọn. Ngưỡng, min/max vùng, đếm nghiêm ngặt, lãi, quý vượt / quý ở lại, số vùng đã vượt, giới hạn quy đổi giá nay. Chín bất biến cho S05. S05 so thêm **tên, danh sách tên, null** bằng nhau (`Exact`) | Tập 4 cần bản tính lại độc lập |
+| S17 **mới, CHẶN** | A1: claim `conditional` → nhãn điều kiện (`contract.json claims.conditions`) trên mọi khung hiện số đó (bộ lấy mẫu: mỗi 0,1 s + mọi khung quanh lần hiện đầu) | Claim mất điều kiện là sai nghĩa |
+| S18 **mới, THAM KHẢO** | A2: hook ≤ 5 s, promise ≤ 30 s trên ASR master (`script.json role`) | Giữ chân, tay nghề |
+| S15 sửa | A2: bỏ trần cold open ≤ 15 s; A4: sàn tổng theo `format` (lab 540 s, 101 không sàn) | D-006, story.md §1 |
+| S14 sửa | A4: lab 2 điểm chèn, 101 1 điểm; mỗi điểm ≥ 120 s từ đầu và trước cuối | D-006 bổ sung |
+| SH01–SH05 **mới, CHẶN** | A5: Short 1080×1920 H.264 + AAC, ≤ 180 s, −14 ± 1 LUFS, ≤ −1 dBTP, ASR qua danh sách S10. Cỡ chữ / vùng giao diện / nhãn trên khung chờ trang dọc có `window.CHECKS` (A8) | D-006 Q3 |
+| Bộ lấy mẫu trang | A3: `--jobs N` theo cảnh (khôi phục trạng thái tuần tự ở đầu mỗi cảnh), cache theo cảnh, `motionTrack` (A7, chỉ đo), S17; `run.sh` chuyển `--contract`; một model whisper chung (`common.whisper()`) | Tốc độ; trùng từng số với bản tuần tự |
+
+- **Chạy Tập 3** (`checks-runs/K38/ep003-compare.md`): `page.json` trùng từng số; 82 luật cũ trùng số và fingerprint trừ S05, S14, S15 (đổi có chủ ý, kết quả PASS/FAIL/FAIL như cũ); TRƯỢT → TRƯỢT cùng lý do (13 luật thiếu stem). Thời gian 63,6 → 46,3 phút; chạy lại bộ lấy mẫu ≈ 2 s.
+- **Kind trên dữ liệu thật Tập 4** (`checks-runs/K38/ep004-kind.json`, hợp đồng nháp phần `model` do K viết): S05 **124/124 claim khớp** (131 ID của `numbers.md` trừ 7 điều luật / bối cảnh), 9/9 bất biến; kịch bản dùng 49 claim, 42 kiểm được qua kind. S01: 118 giá trị so, **1 lệch** — file mô hình thiếu khoá `metros_threshold_under_200k_names` (có `_300k_names`); bên dựng thêm.
+- **Short mẫu S04 của nhà máy** (`checks-runs/K38/short-S04.json`): SH01–SH05 5/5 ĐẠT.
+- Điểm mù: (1) S17 chỉ canh claim có span trên trang; nhãn trên hình không phải claim (cửa sổ biểu đồ) cần thuộc tính trên đối tượng. (2) Cache cảnh giả định GOP đóng (x264 mặc định). (3) A7: hộp đối tượng chưa tính chuyển động máy.
+
 ## Test tự chứng minh
 
 `checks/selftest/run.sh` chạy hai phần. Mỗi luật có một fixture **phải trượt** và một fixture **phải đạt**.
