@@ -777,11 +777,14 @@ def _(f, bad):
 
 @case('S14')
 def _(f, bad):
-    x = programme(40, levels=(-20,)) * 0.5
-    x[int(20 * SR):int(21.3 * SR)] = 0
+    # K3.8 (A4): lab = 2 breaks, none in the first or last 120 s. bad = a break at the 100.5 s act boundary, in silence, but inside the first 120 s
+    x = programme(400, levels=(-20,)) * 0.5
+    x[int(100 * SR):int(101.3 * SR)] = 0
+    x[int(200 * SR):int(201.3 * SR)] = 0
     master_fixture(f, x)
-    f.json('out/timeline.json', {'total': 40, 'acts': [{'id': 'act1', 'start': 0, 'end': 20.5}, {'id': 'act2', 'start': 20.5, 'end': 30}, {'id': 'act3', 'start': 30, 'end': 40}], 'scenes': []})
-    f.json('out/adbreaks.json', {'breaks': [20.6, 30.0] if bad else [20.6, 21.0]})
+    f.json('out/timeline.json', {'total': 400, 'acts': [{'id': 'act1', 'start': 0, 'end': 100.5}, {'id': 'act2', 'start': 100.5, 'end': 200.5}, {'id': 'act3', 'start': 200.5, 'end': 400}], 'scenes': []})
+    f.contract(format='lab')
+    f.json('out/adbreaks.json', {'breaks': [100.6, 200.6] if bad else [200.6, 201.0]})
 
 
 ORDER_ACTS = [('cold-open', 14), ('ident', 3), ('act1', 150), ('act2', 200), ('act3', 180), ('method', 40), ('outro', 25)]
@@ -791,7 +794,7 @@ ORDER_ACTS = [('cold-open', 14), ('ident', 3), ('act1', 150), ('act2', 200), ('a
 def _(f, bad):
     acts, t = [], 0.0
     for a, d in ORDER_ACTS:
-        d = 20 if bad and a == 'cold-open' else d
+        d = 20 if a == 'cold-open' else 100 if bad and a == 'act2' else d   # K3.8: a 20 s cold open passes (no cap); bad: total 512 s < 540 (lab)
         acts.append({'id': a, 'start': t, 'end': t + d})
         t += d
     f.json('out/timeline.json', {'total': t, 'acts': acts, 'scenes': [{'id': a['id'], 'act': a['id'], 'start': a['start'], 'dur': a['end'] - a['start']} for a in acts]})
@@ -1886,6 +1889,178 @@ def lvr_filter_case(bad):
                            params=LVR_PARAMS2, files=files)
 
 
+# ---- K3.8: kind fixed-cap-vs-index-growth (Episode 4; spec topics-r1/machine/tax-2/model.json newKindNeeds + episodes/ep004/gates/V0-defs.md §4) ----------
+# Every value below is worked by hand from the spec text (not from the rule's code). buyYear 2000, sale 2001-10, caps joint 100000 (all), single 50000 (n only).
+#   a (metro): 100 ×4 → base 100; 2001: 150, 250, 200, 300 → g 3, T_joint = 100000/2 = 50000
+#   b (metro): 100 ×4 → base 100; 2001: 120, 140, 160, 200 → g 2, T_joint = 100000
+#   n (national): 50 ×4 → base 50; 2001: 60, 80, 100, 125 → g 2.5, T_joint = 66666.67, T_single = 33333.33
+#   P = 80000 ("80k"): a gains 40000, 120000, 80000, 160000 → cross 2001-04 (strictly > 100000), dips, stay 2001-10; gain 160000
+#                      b gains 16000, 32000, 48000, 80000 → never: null, null; gain 80000.   n: 16000, 48000, 80000, 120000 → cross = stay = 2001-10
+#   metros a, b: min 50000 (a), max 100000 (b); under 60k: 1 [a]; under 100k (strict): 1 [a] (b = 100000 is not under); crossed at 80k: 1
+#   CPI 2000-01 100, 2000-02 105, 2000-03 110 (last): restated joint cap 100000 × 110/100 = 110000 ("excl_joint_2000_in_now")
+FCI_Q = ['2000-01-01', '2000-04-01', '2000-07-01', '2000-10-01', '2001-01-01', '2001-04-01', '2001-07-01', '2001-10-01']
+FCI_VAL = {'a': [100, 100, 100, 100, 150, 250, 200, 300], 'b': [100, 100, 100, 100, 120, 140, 160, 200], 'n': [50, 50, 50, 50, 60, 80, 100, 125]}
+FCI_PARAMS = {'series': {k: {'file': f'data/{k}.csv', 'dateColumn': 'observation_date', 'valueColumn': k.upper()} for k in FCI_VAL}, 'national': 'n',
+              'buyYear': 2000, 'saleQuarter': '2001-10-01', 'caps': {'joint': {'value': 100000, 'series': 'all'}, 'single': {'value': 50000, 'series': ['n']}},
+              'primaryCap': 'joint', 'prices': [80000], 'countCutoffs': [60000, 100000],
+              'deflator': {'file': 'data/cpi.csv', 'dateColumn': 'observation_date', 'valueColumn': 'CPI', 'baseMonth': '2000-01', 'nowMonth': '2000-03-01'}}
+FCI_RAW = {'growth_a': 3.0, 'growth_b': 2.0, 'growth_n': 2.5, 'threshold_joint_a': 50000.0, 'threshold_joint_b': 100000.0, 'threshold_joint_n': 100000 / 1.5,
+           'threshold_single_n': 50000 / 1.5, 'threshold_joint_min': 50000.0, 'threshold_joint_min_metro': 'a', 'threshold_joint_max': 100000.0,
+           'threshold_joint_max_metro': 'b', 'metros_threshold_under_60k': 1, 'metros_threshold_under_60k_names': ['a'], 'metros_threshold_under_100k': 1,
+           'metros_threshold_under_100k_names': ['a'], 'gain_at_80k_a': 160000.0, 'cross_quarter_at_80k_a': '2001-04-01', 'stay_quarter_at_80k_a': '2001-10-01',
+           'gain_at_80k_b': 80000.0, 'cross_quarter_at_80k_b': None, 'stay_quarter_at_80k_b': None, 'gain_at_80k_n': 120000.0,
+           'cross_quarter_at_80k_n': '2001-10', 'stay_quarter_at_80k_n': '2001-10-01', 'metros_crossed_at_80k': 1, 'cpi_base': 100.0, 'cpi_now': 110.0,
+           'excl_joint_2000_in_now': 110000.0}
+
+
+def fci_files(f):
+    for k, vs in FCI_VAL.items():
+        with open(f.p(f'data/{k}.csv'), 'w') as fh:
+            fh.write(f'observation_date,{k.upper()}\n' + ''.join(f'{d},{v}\n' for d, v in zip(FCI_Q, vs)))
+    with open(f.p('data/cpi.csv'), 'w') as fh:
+        fh.write('observation_date,CPI\n2000-01-01,100\n2000-02-01,105\n2000-03-01,110\n')
+
+
+def fci_s01_case(bad):
+    """S01 kind fixed-cap-vs-index-growth (hand table above), model file {params, raw, rounded}; bad = a's stay quarter given as its first crossing 2001-04
+    (the gain dips under the cap in 2001-07, so it only stays from 2001-10)."""
+    f = F('S01-fci')
+    try:
+        fci_files(f)
+        f.contract(model={'kind': 'fixed-cap-vs-index-growth', 'output': 'out/model.json', 'params': FCI_PARAMS})
+        raw = dict(FCI_RAW, stay_quarter_at_80k_a='2001-04-01' if bad else '2001-10-01')
+        f.json('out/model.json', {'params': {'buyYear': 2000}, 'raw': raw, 'rounded': {}})
+        return f.run('S01')
+    finally:
+        f.close()
+
+
+def fci_s05_variant(name, claims):
+    f = F('S05-fci-' + name)
+    try:
+        fci_files(f)
+        mc = {cid: key for cid, key, _ in claims}
+        f.contract(model={'kind': 'fixed-cap-vs-index-growth', 'output': 'out/model.json', 'params': FCI_PARAMS, 'claims': mc}, characters={},
+                   claims={'illustrative': [], 'core': [], 'decisive': []})
+        f.json('out/claims.json', {'claims': [{'claimId': cid, 'value': v, 'display': str(v)} for cid, _, v in claims]})
+        return f.run('S05')
+    finally:
+        f.close()
+
+
+def fci_counts_case(bad):
+    """S05 thresholds, counts strict below the cutoff, min/max metro, restated cap, inputs. bad = metros under $100k counted 2 (b's threshold is exactly
+    100000: not under)."""
+    return fci_s05_variant('counts', [('u100', 'metros_threshold_under_100k', 2 if bad else 1), ('u60', 'metros_threshold_under_60k', 1),
+                                      ('names', 'metros_threshold_under_100k_names', ['a']), ('ta', 'threshold_joint_a', 50000), ('ts', 'threshold_single_n', 33333.33),
+                                      ('min', 'threshold_joint_min_metro', 'a'), ('max', 'threshold_joint_max', 100000), ('g', 'growth_n', 2.5),
+                                      ('cpi', 'excl_joint_2000_in_now', 110000), ('cap', 'cap:joint', 100000), ('p', 'price:80k', 80000), ('n', 'metroCount', 2),
+                                      ('by', 'buyYear', 2000), ('sq', 'saleQuarter', '2001-10'), ('bm', 'cpiBaseMonth', '2000-01-01')])
+
+
+def fci_quarters_case(bad):
+    """S05 crossing quarters: a crosses 2001-04 and stays from 2001-10; b never crosses (null); n crosses at the sale quarter; 1 metro crossed; gains.
+    bad = b's cross quarter given as the sale quarter (its gain 80000 never exceeds the cap: null)."""
+    return fci_s05_variant('quarters', [('ca', 'cross_quarter_at_80k_a', '2001-04-01'), ('sa', 'stay_quarter_at_80k_a', '2001-10'),
+                                        ('cb', 'cross_quarter_at_80k_b', '2001-10-01' if bad else None), ('sb', 'stay_quarter_at_80k_b', None),
+                                        ('cn', 'cross_quarter_at_80k_n', '2001-10'), ('mc', 'metros_crossed_at_80k', 1), ('ga', 'gain_at_80k_a', 160000),
+                                        ('gb', 'gain_at_80k_b', 80000)])
+
+
+# ---- K3.8: S17 condition label (A1), S18 hook / promise (A2), Shorts SH01–SH05 (A5) ------------------------------------------------------------
+def s17_case(bad):
+    """S17: claim c1 is conditional on "guarantee" (flag in claims.json, listed in the contract); the page sampler found 3 frames showing it without the label
+    (bad) or none (good). The page part (frames) is proved on real pages in checks-runs/K38; this fixes the python judgement."""
+    f = F('S17')
+    try:
+        f.contract(claims={'conditions': [{'id': 'guarantee', 'pattern': r"IF today'?s guarantee", 'claims': ['c1']}]})
+        f.json('out/claims.json', {'claims': [{'claimId': 'c1', 'value': 1, 'display': '1', 'conditional': 'guarantee'}, {'claimId': 'c2', 'value': 2, 'display': '2'}]})
+        f.json('out/checks/page.json', {'rules': {'S17': {'framesWithout': 3 if bad else 0, 'examples': [{'t': 1.0, 'claims': ['c1']}] if bad else []}}})
+        return f.run('S17')
+    finally:
+        f.close()
+
+
+def s17_flag_case(bad):
+    """S17: a claim listed under a condition in the contract must carry the flag in claims.json; bad = listed but not flagged."""
+    f = F('S17-flag')
+    try:
+        f.contract(claims={'conditions': [{'id': 'avg', 'pattern': 'rose like', 'claims': ['c1']}]})
+        f.json('out/claims.json', {'claims': [{'claimId': 'c1', 'value': 1, 'display': '1', **({} if bad else {'conditional': 'avg'})}]})
+        f.json('out/checks/page.json', {'rules': {'S17': {'framesWithout': 0, 'examples': []}}})
+        return f.run('S17')
+    finally:
+        f.close()
+
+
+@case('S18')
+def _(f, bad):
+    # hook sentence heard from 1.0 s, promise heard until 24.x s (good); bad: the hook is first heard at 6.0 s (> 5 s)
+    f.video(size='64x36', dur=30, src='color')
+    sents = [{'id': 'h', 'scene': 'a', 'text': 'Your house made you rich on paper.', 'start': 6.0 if bad else 1.0, 'end': 9.0 if bad else 4.0, 'role': 'hook'},
+             {'id': 'x', 'scene': 'a', 'text': 'Here is the rule.', 'start': 10.0, 'end': 12.0},
+             {'id': 'p', 'scene': 'a', 'text': 'By the end you will know where the line is.', 'start': 20.0, 'end': 24.0, 'role': 'promise'}]
+    f.json('out/script.json', {'sentences': sents})
+    ws = [dict(w, sentence='h') for w in asr_words(sents[0]['text'], sents[0]['start'])] + [dict(w, sentence='x') for w in asr_words(sents[1]['text'], 10.0)] \
+        + [dict(w, sentence='p') for w in asr_words(sents[2]['text'], 20.0)]
+    f.asr(ws)
+
+
+def sh_fixture(f, size, dur, lufs=-14.0, spike=False):
+    """A Short: H.264 video of the given size, AAC audio at an integrated loudness target (programme of A01/A02); spike = a full-scale burst (A02's)."""
+    x = to_lufs(f, programme(max(dur, 3)), lufs)[: int(dur * SR)]
+    if spike:
+        x[SR:SR + 400] = 0.99 * np.sin(np.linspace(0, 40 * np.pi, 400))[:, None]
+    sf.write(f.p('tmp/sh.wav'), np.clip(x, -0.99, 0.99), SR)
+    f.ff('-f', 'lavfi', '-i', f'color=size={size}:rate=30:duration={dur}', '-i', f.p('tmp/sh.wav'), '-shortest', *V_HIGH, '-c:a', 'aac', '-b:a', '192k', f.p('out/short1.mp4'))
+    f.contract(format='lab', shorts=[{'file': 'out/short1.mp4'}])
+
+
+def sh_case(rid, bad_kw, good_kw):
+    def fn(bad):
+        f = F(rid)
+        try:
+            sh_fixture(f, **(bad_kw if bad else good_kw))
+            return f.run(rid)
+        finally:
+            f.close()
+    return fn
+
+
+def sh_none_case(bad):
+    """SH01: a contract before D-006 (no format) without shorts has nothing to check (pass); bad = a D-006 contract (format) without shorts is MISSING
+    (counted as not passing: the fixture expects FAIL, so MISSING is mapped to FAIL here)."""
+    f = F('SH01-none')
+    try:
+        f.contract(**({'format': 'lab'} if bad else {}))
+        r = f.run('SH01')
+        return dict(r, status='FAIL') if r['status'] == 'MISSING' else r
+    finally:
+        f.close()
+
+
+def sh05_case(bad):
+    """SH05: the Short's own ASR is judged with the S10 lists; the transcript is fixed through a stub model (bad: "You should sell before prices fall.")."""
+    import common as cm
+    f = F('SH05')
+    try:
+        sh_fixture(f, '1080x1920', 2)
+        text = 'You should sell before prices fall.' if bad else 'This is history, not a forecast.'
+        class Seg:  # noqa: E306
+            def __init__(self, t):
+                self.text = t
+        class Stub:  # noqa: E306
+            def transcribe(self, *a, **k):
+                return [Seg(text)], None
+        cm._WHISPER[:] = [Stub()]
+        try:
+            return f.run('SH05')
+        finally:
+            cm._WHISPER[:] = []
+    finally:
+        f.close()
+
+
 EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case,
          'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case, 'F07/too-long': f07_long_case,
          'F12/photo': f12_photo_case, 'F12/font': f12_font_case, 'F12/public-domain': f12_pd_case, 'F12/quote-card': f12_quote_case,
@@ -1901,7 +2076,13 @@ EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_cas
          'S05/float-fixed-months': fvf_month_claims_case,
          'S01/lock-roll': lvr_s01_case, 'S01/lock-roll-series': lvr_s01_series_case, 'S05/lock-roll-shares': lvr_shares_case,
          'S05/lock-roll-real': lvr_real_case, 'S05/lock-roll-mean-rule': lvr_mean_rule_case, 'S05/lock-roll-sets': lvr_sets_case,
-         'S05/lock-roll-months': lvr_months_case, 'S05/lock-roll-filter': lvr_filter_case}
+         'S05/lock-roll-months': lvr_months_case, 'S05/lock-roll-filter': lvr_filter_case,
+         'S17': s17_case, 'S17/flag': s17_flag_case, 'SH01/none': sh_none_case, 'SH05': sh05_case,
+         'SH01': sh_case('SH01', {'size': '1920x1080', 'dur': 2}, {'size': '1080x1920', 'dur': 2}),
+         'SH02': sh_case('SH02', {'size': '1080x1920', 'dur': 181}, {'size': '1080x1920', 'dur': 2}),
+         'SH03': sh_case('SH03', {'size': '1080x1920', 'dur': 4, 'lufs': -18.0}, {'size': '1080x1920', 'dur': 4, 'lufs': -14.0}),
+         'SH04': sh_case('SH04', {'size': '1080x1920', 'dur': 4, 'lufs': -16.0, 'spike': True}, {'size': '1080x1920', 'dur': 4, 'lufs': -16.0}),
+         'S01/cap-index': fci_s01_case, 'S05/cap-index-counts': fci_counts_case, 'S05/cap-index-quarters': fci_quarters_case}
 
 
 def main():

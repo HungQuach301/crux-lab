@@ -1,0 +1,407 @@
+{
+ "note": "K3.8: kind fixed-cap-vs-index-growth on Episode 4 real data (origin/ep004 @ 22ad075, FRED 14/14 SHA OK). Draft contract model section written by K for this run only (the builder writes contract.json). claims = numbers.md IDs with values from out/model.json raw (unrounded).",
+ "contractModel": {
+  "kind": "fixed-cap-vs-index-growth",
+  "output": "out/model.json",
+  "params": {
+   "series": {
+    "los_angeles": {
+     "file": "data/ATNHPIUS31084Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS31084Q"
+    },
+    "san_diego": {
+     "file": "data/ATNHPIUS41740Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS41740Q"
+    },
+    "san_francisco": {
+     "file": "data/ATNHPIUS41884Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS41884Q"
+    },
+    "san_jose": {
+     "file": "data/ATNHPIUS41940Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS41940Q"
+    },
+    "seattle": {
+     "file": "data/ATNHPIUS42644Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS42644Q"
+    },
+    "boston": {
+     "file": "data/ATNHPIUS14454Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS14454Q"
+    },
+    "new_york": {
+     "file": "data/ATNHPIUS35614Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS35614Q"
+    },
+    "miami": {
+     "file": "data/ATNHPIUS33124Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS33124Q"
+    },
+    "denver": {
+     "file": "data/ATNHPIUS19740Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS19740Q"
+    },
+    "phoenix": {
+     "file": "data/ATNHPIUS38060Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS38060Q"
+    },
+    "dallas": {
+     "file": "data/ATNHPIUS19124Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS19124Q"
+    },
+    "chicago": {
+     "file": "data/ATNHPIUS16984Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS16984Q"
+    },
+    "us": {
+     "file": "data/USSTHPI.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "USSTHPI"
+    }
+   },
+   "national": "us",
+   "buyYear": 2000,
+   "saleQuarter": "2026-04-01",
+   "caps": {
+    "joint": {
+     "value": 500000,
+     "series": "all"
+    },
+    "single": {
+     "value": 250000,
+     "series": [
+      "us"
+     ]
+    }
+   },
+   "primaryCap": "joint",
+   "prices": [
+    200000,
+    300000
+   ],
+   "countCutoffs": [
+    200000,
+    300000
+   ],
+   "crossFrom": "2001-01-01",
+   "deflator": {
+    "file": "data/CPIAUCNS.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "CPIAUCNS",
+    "baseMonth": "1997-05-01",
+    "nowMonth": "2026-08-01"
+   }
+  },
+  "claims": {
+   "growth_los_angeles": "growth_los_angeles",
+   "threshold_joint_los_angeles": "threshold_joint_los_angeles",
+   "gain_at_200k_los_angeles": "gain_at_200k_los_angeles",
+   "cross_quarter_at_200k_los_angeles": "cross_quarter_at_200k_los_angeles",
+   "stay_quarter_at_200k_los_angeles": "stay_quarter_at_200k_los_angeles",
+   "gain_at_300k_los_angeles": "gain_at_300k_los_angeles",
+   "cross_quarter_at_300k_los_angeles": "cross_quarter_at_300k_los_angeles",
+   "stay_quarter_at_300k_los_angeles": "stay_quarter_at_300k_los_angeles",
+   "growth_san_diego": "growth_san_diego",
+   "threshold_joint_san_diego": "threshold_joint_san_diego",
+   "gain_at_200k_san_diego": "gain_at_200k_san_diego",
+   "cross_quarter_at_200k_san_diego": "cross_quarter_at_200k_san_diego",
+   "stay_quarter_at_200k_san_diego": "stay_quarter_at_200k_san_diego",
+   "gain_at_300k_san_diego": "gain_at_300k_san_diego",
+   "cross_quarter_at_300k_san_diego": "cross_quarter_at_300k_san_diego",
+   "stay_quarter_at_300k_san_diego": "stay_quarter_at_300k_san_diego",
+   "growth_san_francisco": "growth_san_francisco",
+   "threshold_joint_san_francisco": "threshold_joint_san_francisco",
+   "gain_at_200k_san_francisco": "gain_at_200k_san_francisco",
+   "cross_quarter_at_200k_san_francisco": "cross_quarter_at_200k_san_francisco",
+   "stay_quarter_at_200k_san_francisco": "stay_quarter_at_200k_san_francisco",
+   "gain_at_300k_san_francisco": "gain_at_300k_san_francisco",
+   "cross_quarter_at_300k_san_francisco": "cross_quarter_at_300k_san_francisco",
+   "stay_quarter_at_300k_san_francisco": "stay_quarter_at_300k_san_francisco",
+   "growth_san_jose": "growth_san_jose",
+   "threshold_joint_san_jose": "threshold_joint_san_jose",
+   "gain_at_200k_san_jose": "gain_at_200k_san_jose",
+   "cross_quarter_at_200k_san_jose": "cross_quarter_at_200k_san_jose",
+   "stay_quarter_at_200k_san_jose": "stay_quarter_at_200k_san_jose",
+   "gain_at_300k_san_jose": "gain_at_300k_san_jose",
+   "cross_quarter_at_300k_san_jose": "cross_quarter_at_300k_san_jose",
+   "stay_quarter_at_300k_san_jose": "stay_quarter_at_300k_san_jose",
+   "growth_seattle": "growth_seattle",
+   "threshold_joint_seattle": "threshold_joint_seattle",
+   "gain_at_200k_seattle": "gain_at_200k_seattle",
+   "cross_quarter_at_200k_seattle": "cross_quarter_at_200k_seattle",
+   "stay_quarter_at_200k_seattle": "stay_quarter_at_200k_seattle",
+   "gain_at_300k_seattle": "gain_at_300k_seattle",
+   "cross_quarter_at_300k_seattle": "cross_quarter_at_300k_seattle",
+   "stay_quarter_at_300k_seattle": "stay_quarter_at_300k_seattle",
+   "growth_boston": "growth_boston",
+   "threshold_joint_boston": "threshold_joint_boston",
+   "gain_at_200k_boston": "gain_at_200k_boston",
+   "cross_quarter_at_200k_boston": "cross_quarter_at_200k_boston",
+   "stay_quarter_at_200k_boston": "stay_quarter_at_200k_boston",
+   "gain_at_300k_boston": "gain_at_300k_boston",
+   "cross_quarter_at_300k_boston": "cross_quarter_at_300k_boston",
+   "stay_quarter_at_300k_boston": "stay_quarter_at_300k_boston",
+   "growth_new_york": "growth_new_york",
+   "threshold_joint_new_york": "threshold_joint_new_york",
+   "gain_at_200k_new_york": "gain_at_200k_new_york",
+   "cross_quarter_at_200k_new_york": "cross_quarter_at_200k_new_york",
+   "stay_quarter_at_200k_new_york": "stay_quarter_at_200k_new_york",
+   "gain_at_300k_new_york": "gain_at_300k_new_york",
+   "cross_quarter_at_300k_new_york": "cross_quarter_at_300k_new_york",
+   "stay_quarter_at_300k_new_york": "stay_quarter_at_300k_new_york",
+   "growth_miami": "growth_miami",
+   "threshold_joint_miami": "threshold_joint_miami",
+   "gain_at_200k_miami": "gain_at_200k_miami",
+   "cross_quarter_at_200k_miami": "cross_quarter_at_200k_miami",
+   "stay_quarter_at_200k_miami": "stay_quarter_at_200k_miami",
+   "gain_at_300k_miami": "gain_at_300k_miami",
+   "cross_quarter_at_300k_miami": "cross_quarter_at_300k_miami",
+   "stay_quarter_at_300k_miami": "stay_quarter_at_300k_miami",
+   "growth_denver": "growth_denver",
+   "threshold_joint_denver": "threshold_joint_denver",
+   "gain_at_200k_denver": "gain_at_200k_denver",
+   "cross_quarter_at_200k_denver": "cross_quarter_at_200k_denver",
+   "stay_quarter_at_200k_denver": "stay_quarter_at_200k_denver",
+   "gain_at_300k_denver": "gain_at_300k_denver",
+   "cross_quarter_at_300k_denver": "cross_quarter_at_300k_denver",
+   "stay_quarter_at_300k_denver": "stay_quarter_at_300k_denver",
+   "growth_phoenix": "growth_phoenix",
+   "threshold_joint_phoenix": "threshold_joint_phoenix",
+   "gain_at_200k_phoenix": "gain_at_200k_phoenix",
+   "cross_quarter_at_200k_phoenix": "cross_quarter_at_200k_phoenix",
+   "stay_quarter_at_200k_phoenix": "stay_quarter_at_200k_phoenix",
+   "gain_at_300k_phoenix": "gain_at_300k_phoenix",
+   "cross_quarter_at_300k_phoenix": "cross_quarter_at_300k_phoenix",
+   "stay_quarter_at_300k_phoenix": "stay_quarter_at_300k_phoenix",
+   "growth_dallas": "growth_dallas",
+   "threshold_joint_dallas": "threshold_joint_dallas",
+   "gain_at_200k_dallas": "gain_at_200k_dallas",
+   "cross_quarter_at_200k_dallas": "cross_quarter_at_200k_dallas",
+   "stay_quarter_at_200k_dallas": "stay_quarter_at_200k_dallas",
+   "gain_at_300k_dallas": "gain_at_300k_dallas",
+   "cross_quarter_at_300k_dallas": "cross_quarter_at_300k_dallas",
+   "stay_quarter_at_300k_dallas": "stay_quarter_at_300k_dallas",
+   "growth_chicago": "growth_chicago",
+   "threshold_joint_chicago": "threshold_joint_chicago",
+   "gain_at_200k_chicago": "gain_at_200k_chicago",
+   "cross_quarter_at_200k_chicago": "cross_quarter_at_200k_chicago",
+   "stay_quarter_at_200k_chicago": "stay_quarter_at_200k_chicago",
+   "gain_at_300k_chicago": "gain_at_300k_chicago",
+   "cross_quarter_at_300k_chicago": "cross_quarter_at_300k_chicago",
+   "stay_quarter_at_300k_chicago": "stay_quarter_at_300k_chicago",
+   "growth_us": "growth_us",
+   "threshold_joint_us": "threshold_joint_us",
+   "gain_at_200k_us": "gain_at_200k_us",
+   "cross_quarter_at_200k_us": "cross_quarter_at_200k_us",
+   "stay_quarter_at_200k_us": "stay_quarter_at_200k_us",
+   "gain_at_300k_us": "gain_at_300k_us",
+   "cross_quarter_at_300k_us": "cross_quarter_at_300k_us",
+   "stay_quarter_at_300k_us": "stay_quarter_at_300k_us",
+   "threshold_single_us": "threshold_single_us",
+   "threshold_joint_min": "threshold_joint_min",
+   "threshold_joint_max": "threshold_joint_max",
+   "threshold_joint_min_metro": "threshold_joint_min_metro",
+   "threshold_joint_max_metro": "threshold_joint_max_metro",
+   "metros_threshold_under_200k": "metros_threshold_under_200k",
+   "metros_threshold_under_300k": "metros_threshold_under_300k",
+   "metros_threshold_under_300k_names": "metros_threshold_under_300k_names",
+   "metros_crossed_at_200k": "metros_crossed_at_200k",
+   "metros_crossed_at_300k": "metros_crossed_at_300k",
+   "cpi_base": "cpi_base",
+   "cpi_now": "cpi_now",
+   "excl_joint_1997_in_now": "excl_joint_1997_in_now",
+   "excl_joint_limit_usd": "cap:joint",
+   "excl_single_limit_usd": "cap:single",
+   "buy_year": "buyYear",
+   "illustrative_price_200k_usd": "price:200k",
+   "illustrative_price_300k_usd": "price:300k",
+   "metro_count": "metroCount",
+   "sale_quarter": "saleQuarter"
+  }
+ },
+ "rules": [
+  {
+   "id": "S01",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "values compared",
+     "value": 118,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mismatches",
+     "value": 1,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "model parts not re-computed",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "kind": "fixed-cap-vs-index-growth",
+     "notRecomputed": []
+    },
+    [
+     "metros_threshold_under_200k_names",
+     "absent",
+     [
+      "los_angeles",
+      "miami",
+      "phoenix",
+      "san_diego",
+      "seattle"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "S05",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "mapped claims",
+     "value": 124,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mapped claims absent",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims off their re-computation",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "max |threshold × (g − 1) − cap| over series and caps",
+     "value": 0.0,
+     "op": "<=",
+     "threshold": 1e-06,
+     "unit": "USD",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "max |thresholdA / thresholdB − capA / capB| (two caps, one series)",
+     "value": 0.0,
+     "op": "<=",
+     "threshold": 1e-09,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "series with growth ≤ 1 (no threshold)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "min / max not a metro threshold, or a metro threshold outside [min, max]",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "metro counts decreasing in the cutoff, or above the number of metros",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "restated cap > cap iff CPI now > CPI base (violations)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "price claims inconsistent (stay quarter ⇔ P > threshold; cross ≤ stay)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "quantities of \"los_angeles\" changed when its index is doubled",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims missing their ILLUSTRATIVE flag",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "off": [],
+     "absent": [],
+     "missingIllustrative": []
+    }
+   ]
+  }
+ ]
+}

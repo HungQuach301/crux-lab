@@ -184,7 +184,7 @@ def _mapped_claims(ctx):
 @rule('S05', 'DX-H1, DX-H2', 'claims the episode contract maps to model quantities (contract.json model.claims) compared with the checker\'s own re-computation of that '
       'quantity (r_model value(), one per model kind: e.g. "geomean:1966" retirement-6040, "maya.cut36" refinance-breakeven, "shareCostlierAtSpread:1.5:1954-01" '
       'float-vs-fixed-replay; K3.6: a month quantity, e.g. "worstStart", is compared with a claim value written "YYYY-MM" or "YYYY-MM-01" after normalisation, '
-      'YYYY-MM ≡ YYYY-MM-01, any other day is not a month); the model kind\'s thesis invariants from model.params (test D: sameGeomean '
+      'YYYY-MM ≡ YYYY-MM-01, any other day is not a month; K3.8: a name, a list of names or null, e.g. a crossing quarter that never came, compared by equality); the model kind\'s thesis invariants from model.params (test D: sameGeomean '
       '1966/mirror within 0.01 pp); ILLUSTRATIVE flags: every claim listed in contract claims.illustrative, and every claim of a character the contract marks illustrative, '
       'carries illustrative=true in out/claims.json',
       '≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months after normalisation, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag')
@@ -203,7 +203,11 @@ def s05_model_claims(ctx):
             absent.append(cid)
             continue
         mine, tol = value(ctx, params, key)
-        if isinstance(mine, r_model.Month):
+        if isinstance(mine, r_model.Exact):
+            # K3.8: a name, a list of names or null (e.g. a quarter that never came) is compared by equality
+            if not mine.same(c['value']):
+                off.append((cid, key, c['value'], mine.v))
+        elif isinstance(mine, r_model.Month):
             # K3.6: months compared after normalisation (YYYY-MM ≡ YYYY-MM-01); a number or another day is not this month
             if not isinstance(c['value'], str) or r_model.ym(c['value']) != int(mine):
                 off.append((cid, key, c['value'], r_model.ym_str(mine)))
@@ -455,25 +459,48 @@ def s13_sentence_flow(ctx):
                             *[{'from': r[0].get('id'), 'texts': [x['text'] for x in r]} for r in runs[:10]]])
 
 
-@rule('S14', 'DX-S10', 'out/adbreaks.json times; act boundaries from out/timeline.json acts; natural silence = span where the master RMS (50 ms/10 ms) stays ≤ −40 dBFS',
-      '2 … 3 breaks; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s')
+FORMATS = {'lab': {'breaks': 2, 'minTotal': 540.0}, '101': {'breaks': 1, 'minTotal': None}}   # D-006 bổ sung, checks-appeal A4 (K3.8)
+
+
+def episode_format(ctx):
+    """contract.json `format` (D-006: "lab" | "101"). A contract written before D-006 has none: read as "lab" (Episodes 1–3 are lab), noted in details."""
+    try:
+        f = ctx.contract().get('format')
+    except Missing:
+        return 'lab', 'no contract.json: read as lab'
+    if f is None:
+        return 'lab', 'contract.json has no format (before D-006): read as lab'
+    if f not in FORMATS:
+        raise Missing(f'contract.json: format must be one of {sorted(FORMATS)} (got {f!r})')
+    return f, None
+
+
+@rule('S14', 'DX-S10', 'out/adbreaks.json times; act boundaries from out/timeline.json acts; natural silence = span where the master RMS (50 ms/10 ms) stays ≤ −40 dBFS; '
+      'K3.8 (A4): number of breaks by contract.json format (lab 2, 101 1; no format = lab)',
+      'lab: 2 breaks, 101: 1 break; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s; '
+      'each ≥ 120 s after the start and ≥ 120 s before the end')
 def s14_adbreaks(ctx):
     br = ctx.json('out/adbreaks.json')['breaks']
     br = [b['t'] if isinstance(b, dict) else b for b in br]
+    fmt, note = episode_format(ctx)
     acts = ctx.acts()
     bounds = [a['start'] for a in acts if a['id'] not in ('cold-open', 'ident', 'act1')]
     sp = silent_spans(master(ctx))
     bad_b = [b for b in br if not bounds or min(abs(b - x) for x in bounds) > 1.0]
     bad_s = [b for b in br if not any(a <= b <= e and e - a >= 1.0 for a, e in sp)]
-    return verdict('S14', [metric('ad breaks', len(br), 'in', [2, 3]), metric('breaks off an act boundary', len(bad_b), '<=', 0),
-                           metric('breaks without ≥1 s silence', len(bad_s), '<=', 0)], details=[{'breaks': br, 'boundaries': bounds}])
+    total = ctx.total()
+    edge = [b for b in br if b < 120.0 or b > total - 120.0]
+    return verdict('S14', [metric('ad breaks', len(br), '==', FORMATS[fmt]['breaks']), metric('breaks off an act boundary', len(bad_b), '<=', 0),
+                           metric('breaks without ≥1 s silence', len(bad_s), '<=', 0), metric('breaks in the first or last 120 s', len(edge), '<=', 0)],
+                   details=[{'format': fmt, 'note': note, 'breaks': br, 'boundaries': bounds}])
 
 
 ORDER = ['cold-open', 'ident', 'act1', 'act2', 'act3', 'method', 'outro']
 
 
-@rule('S15', 'DX-S1', 'out/timeline.json acts[] (id, start, end) and scenes[].act; acts contiguous and in the brief\'s order',
-      'order cold-open, ident, act1, act2, act3, method, outro; cold open ≤ 15 s; ident ≤ 3 s; outro ≥ 20 s; timeline total ≥ 600 s; every scene inside its act')
+@rule('S15', 'DX-S1', 'out/timeline.json acts[] (id, start, end) and scenes[].act; acts contiguous and in the brief\'s order; K3.8 (A2, A4): no cold-open cap (S18 '
+      'times the hook and the promise instead); total floor by contract.json format (lab 540 s; 101 none: no padding; no format = lab)',
+      'order cold-open, ident, act1, act2, act3, method, outro; ident ≤ 3 s; outro ≥ 20 s; timeline total ≥ 540 s (lab); every scene inside its act')
 def s15_structure(ctx):
     acts = ctx.acts()
     ids = [a['id'] for a in acts]
@@ -481,10 +508,66 @@ def s15_structure(ctx):
     gaps = [(a['id'], b['id']) for a, b in zip(acts, acts[1:]) if abs(a['end'] - b['start']) > 1e-3]
     by = {a['id']: a for a in acts}
     outside = [s['id'] for s in ctx.scenes() if s.get('act') not in by or s['start'] < by[s['act']]['start'] - 1e-3 or s['start'] + s['dur'] > by[s['act']]['end'] + 1e-3]
-    ms = [metric('act order', ids, '==', ORDER), metric('cold open s', d.get('cold-open'), '<=', 15.0, 's'), metric('ident s', d.get('ident'), '<=', 3.0, 's'),
-          metric('outro s', d.get('outro'), '>=', 20.0, 's'), metric('total s', ctx.total(), '>=', 600.0, 's'), metric('act gaps', len(gaps), '<=', 0),
-          metric('scenes outside their act', len(outside), '<=', 0)]
-    return verdict('S15', ms, details=[{'gaps': gaps, 'outside': outside[:10]}])
+    fmt, note = episode_format(ctx)
+    floor = FORMATS[fmt]['minTotal']
+    ms = [metric('act order', ids, '==', ORDER), metric('ident s', d.get('ident'), '<=', 3.0, 's'),
+          metric('outro s', d.get('outro'), '>=', 20.0, 's'), *([metric('total s', ctx.total(), '>=', floor, 's')] if floor else []),
+          metric('act gaps', len(gaps), '<=', 0), metric('scenes outside their act', len(outside), '<=', 0)]
+    return verdict('S15', ms, details=[{'format': fmt, 'note': note, 'coldOpenS': d.get('cold-open'), 'gaps': gaps, 'outside': outside[:10]}])
+
+
+# ---- S17 (K3.8, checks-appeal A1): the condition label on every frame of a conditional claim ------------------------------------------
+@rule('S17', 'DX-H2 (claim), checks-appeal A1', 'a claim is conditional when out/claims.json gives it `conditional: "<condition id>"`; contract.json claims.conditions '
+      '[{id, pattern, claims?}] gives each condition its on-screen label (regex, case-insensitive) and may list claims that must carry it. Page sampler, every 0.1 s '
+      'and every frame around a first appearance (as S08): frames where a conditional claim span is visible (opacity > 0.5, on frame) and no visible text matches '
+      'its condition\'s pattern. No conditional claim = nothing to check (0 frames)',
+      '0 frames without the label; every claim listed under a condition flagged with it; every flag names a declared condition')
+def s17_condition_label(ctx):
+    cl = ctx.claims()
+    flagged = {c['claimId']: c['conditional'] for c in cl if c.get('conditional')}
+    conds = (ctx.contract().get('claims') or {}).get('conditions')
+    if conds is None:
+        if flagged:
+            raise Missing('contract.json: claims.conditions (claims flagged conditional: ' + ', '.join(sorted(flagged)[:5]) + ')')
+        conds = []
+    ids = {c.get('id') for c in conds}
+    unknown = sorted(k for k, v in flagged.items() if v not in ids)
+    by = {c['claimId']: c for c in cl}
+    noflag = [f'{cid} ({c["id"]})' for c in conds for cid in c.get('claims') or [] if by.get(cid, {}).get('conditional') != c['id']]
+    frames, ex = 0, []
+    if flagged:
+        r = page(ctx)['rules'].get('S17')
+        if r is None:
+            raise Missing('page rule S17 in out/checks/page.json')
+        frames, ex = r['framesWithout'], r.get('examples', [])
+    return verdict('S17', [metric('conditional claims', len(flagged), '>=', 0), metric('frames without the condition label', frames, '<=', 0),
+                           metric('listed claims not flagged', len(noflag), '<=', 0), metric('flags naming no declared condition', len(unknown), '<=', 0)],
+                   details=[{'noFlag': noflag[:10], 'unknown': unknown[:10]}, *ex[:10]])
+
+
+# ---- S18 (K3.8, checks-appeal A2, story.md §1): the hook and the promise, timed on what the viewer hears ---------------------------------
+S18_HOOK_S, S18_PROMISE_S = 5.0, 30.0
+
+
+@rule('S18', 'DX-S3, DX-S4 (story.md §1), checks-appeal A2', 'out/script.json sentences carry role "hook" / "promise"; times from the own ASR of the master (asr_master, '
+      'as A14): the hook starts when the first ASR word of the first hook sentence starts, the promise ends when the last ASR word of the first promise sentence '
+      'ends. A role sentence with no ASR word is not heard (fails). No sentence with the role = MISSING',
+      'hook heard from ≤ 5.0 s; promise heard by ≤ 30.0 s')
+def s18_hook_promise(ctx):
+    from r_audio import asr_master
+    sents = sorted(ctx.sentences(), key=lambda s: s['start'])
+    first = {r: next((s for s in sents if s.get('role') == r), None) for r in ('hook', 'promise')}
+    for r, s in first.items():
+        if s is None:
+            raise Missing(f'out/script.json: a sentence with role "{r}"')
+    ws = asr_master(ctx)
+    heard = {r: [w for w in ws if w.get('sentence') == s.get('id')] for r, s in first.items()}
+    hook = heard['hook'][0]['start'] if heard['hook'] else None
+    prom = heard['promise'][-1]['end'] if heard['promise'] else None
+    return verdict('S18', [metric('hook starts s', hook if hook is not None else float('inf'), '<=', S18_HOOK_S, 's'),
+                           metric('promise ends s', prom if prom is not None else float('inf'), '<=', S18_PROMISE_S, 's')],
+                   details=[{'hook': first['hook'].get('id'), 'hookDeclared': first['hook']['start'], 'promise': first['promise'].get('id'),
+                             'promiseDeclared': first['promise']['end'], 'heardWords': {r: len(v) for r, v in heard.items()}}])
 
 
 # ---- S16 (K2, sổ gu G-008, PROVISIONAL): decisive numbers tied to the viewer's situation ---------------------------------
