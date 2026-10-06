@@ -7,3 +7,11 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc: kiểm m�
 | 2026-10-06 | Việc 0 | dựng | agent general-purpose | fetch FRED (SHA khớp hồ sơ), model.py, statements 17/17, numbers.md, debt-2 model.json/statements.json | 131.754 | XONG; rủi ro tháng lãi mới nhất (2026-09 đủ tuần, không phải 2026-10 một tuần) |
 | 2026-10-06 | C1 | kiểm mù | headless 6 người đọc + 1 người chấm | L1, L2 × (2 T + 1 G) | 40.294 | L1 2/2, L2 2/2, cờ 0 → L2 |
 | 2026-10-06 | Việc 0 | checks | agent general-purpose (độc lập, không đọc model.py) | tính lại từ định nghĩa numbers.md | 72.315 | 55/55 khớp; làm rõ 3 định nghĩa (luật hoà người mua nhanh, tập B ≥ 120, ngưỡng điểm giữa) |
+| 2026-10-06 | C2 | WRITER | agent general-purpose | kịch bản v1, hooks H-A/B/C, beats, check_script | 183.104 | 20 cảnh ≈ 8:22, check ĐẠT |
+| 2026-10-06 | C2 | REVIEWER | agent general-purpose | chọn móc + soát kịch bản (`REVIEW-C2.md`) | 120.880 | H-A; ĐẠT có sửa (5 CHẶN → 4 sửa lời + nguồn) |
+| 2026-10-06 | C2 | điều phối | phiên chính | áp nguyên văn 4 sửa lời REVIEWER (S02.1, S05.1, S10.1, S10.5) | — | check ĐẠT |
+| 2026-10-06 | C2 | checks | agent general-purpose | nguồn luật PMI (4902(a), CFPB, điều lệ Fannie/Freddie), claim mới (tháng chậm, đường chỉ số Victor) | 117.169 | ĐẠT; nguồn gốc mốc 75 %/2 năm **CHỜ** (fanniemae/freddiemac bị proxy chặn) |
+| 2026-10-06 | C2 | dựng | `story/table_read.py` (lệnh) | đọc thử S01–S04, EL Eric eleven_v3 | — | EL 1.234 + 410 ký tự; v1 M4 10,08 s TRƯỢT |
+| 2026-10-06 | C2 | WRITER | agent general-purpose (mới) | sửa S03.3 (M4, "wait"→ASR) | 53.012 | v2 M1 2,8 · M2 22,8 · M3 9,0 · M4 9,41 · M5 29,3 s ĐẠT |
+| 2026-10-06 | C2 | kiểm mù | headless 6 + 1 người chấm (9 nhãn) | vòng 1 | 53.369 + 24.744 | 6/6, khuyên 0; S19 4/6 mất chú ý → TRƯỢT, dự phòng |
+| 2026-10-06 | C2 | kiểm mù | 3 agent `Explore` (so) | cùng mẫu | ≈ 108.054 | 3/3, khuyên 0; mất chú ý S10 3/3 |

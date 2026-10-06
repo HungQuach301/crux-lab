@@ -1,0 +1,14 @@
+{
+ "answer": "{\"R1\":{\"score\":1,\"advice\":false,\"attention_quote\":\"Not modeled here: what the insurance costs, appraisal fees, rent, local prices,\",\"why\":\"Gives the ~8-year schedule and the 23-month median, and says 'on paper' is not removal, 1 in 7 took over 5 years, and the 112-month slow case; Q6 is cautions only.\"},\"R2\":{\"score\":1,\"advice\":false,\"attention_quote\":\"Not modeled here: what the insurance costs, appraisal fees, rent, local prices,\",\"why\":\"Has the ~8-year schedule, the 23-month median, 'on paper' not equal to removal, and the 1-in-7 and 112-month figures; Q6 gives no buy or wait directive.\"},\"R3\":{\"score\":1,\"advice\":false,\"attention_quote\":\"Here, that's about 9.5 years in.\",\"why\":\"Covers both clocks (~8 years, 23 months) and the 'on paper' not removed point plus the slow cases; Q6 is understanding and no buy or wait directive.\"},\"R4\":{\"score\":1,\"advice\":false,\"attention_quote\":\"We took every purchase month from January 1991 to July 2016. For\",\"why\":\"Has the schedule, the 23-month median, the lender caveat and the slow cases; Q6 says to plan for the schedule and check lender rules, not to buy or wait.\"},\"R5\":{\"score\":1,\"advice\":false,\"attention_quote\":\"We took every purchase month from January 1991 to July 2016. For\",\"why\":\"Complete Q, A1 and A2; Q6 is planning and lender-check guidance with no buy or wait directive.\"},\"R6\":{\"score\":1,\"advice\":false,\"attention_quote\":\"Whether a lender would have dropped his insurance at that point, this\",\"why\":\"Gives the ~8-year schedule, the 23-month median, 1 in 7 over 5 years and 'on paper' not removed; Q6 is cautions only.\"},\"R7\":{\"score\":1,\"advice\":false,\"attention_quote\":\"Not modeled here: what the insurance costs, appraisal fees, rent, local prices,\",\"why\":\"Covers the schedule, the 23-month median, the 112-month slow case and the lender caveat; Q6 says it gives no direct advice.\"},\"R8\":{\"score\":1,\"advice\":false,\"attention_quote\":\"How we know this: public data from FRED, one loan replayed from every\",\"why\":\"Has the ~8-year schedule, the 23-month median, 1 in 7 over 5 years and 'on paper' not removed; Q6 is cautions with no buy or wait directive.\"},\"R9\":{\"score\":1,\"advice\":false,\"attention_quote\":\"We took every purchase month from January 1991 to July 2016. For\",\"why\":\"Has both clocks, the lender-rules caveat and the slow cases; Q6 is budgeting and lender-check guidance, not a buy or wait directive.\"}}",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 9216,
+   "out": 15
+  },
+  "claude-sonnet-5-5": {
+   "in": 12988,
+   "out": 2525
+  }
+ },
+ "turns": 1
+}
