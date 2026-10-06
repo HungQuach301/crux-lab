@@ -191,7 +191,8 @@ class Build:
         self.voices, chars, hits = {}, 0, 0
         for sc in self.S['scenes']:
             sents = [s for s in self.script.values() if s['scene'] == sc['id']]
-            v = VOICE.voice_scene(self.S['voice'], sents, os.path.join(self.root, 'voice-takes'), os.path.join(self.work, 'voice'))
+            cfg = VOICE.scene_cfg(self.S['voice'], self.S.get('voice_overrides'), sc['id'])   # B+1: seed/take per scene
+            v = VOICE.voice_scene(cfg, sents, os.path.join(self.root, 'voice-takes'), os.path.join(self.work, 'voice'))
             self.voices[sc['id']] = v
             hits += v['cached']
             chars += 0 if v['cached'] else v['chars']

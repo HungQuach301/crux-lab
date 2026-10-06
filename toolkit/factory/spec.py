@@ -134,6 +134,14 @@ def check(spec, root, duration=None):
         for cid in sorted(claim_ids_in({'h': sh.get('hook', ''), 'e': sh.get('end', '')})):
             if cid not in claims:
                 add('BLOCK', 'claim', f"{sh['id']}: claim {cid!r} is not in {spec['claims']}")
+    scene_ids = {sc.get('id') for sc in spec.get('scenes', [])}
+    for sid, o in (spec.get('voice_overrides') or {}).items():   # B+1 (Mốc V)
+        if sid not in scene_ids:
+            add('BLOCK', 'voice_overrides', f'{sid}: not a scene of this episode')
+        elif not isinstance(o, dict) or not o or set(o) - {'seed', 'settings', 'voice', 'model', 'take'}:
+            add('BLOCK', 'voice_overrides', f'{sid}: {o!r} — allowed keys: seed, settings, voice, model, take')
+        elif 'take' in o and not os.path.isfile(os.path.join(root, 'voice-takes', str(o['take']) + '.mp3')):
+            add('BLOCK', 'voice_overrides', f"{sid}: take {o['take']!r} not in voice-takes/")
     P += counterweights(spec, root, claims)
     n_sym = len(spec.get('custom_symbols') or [])
     if n_sym > 2:
