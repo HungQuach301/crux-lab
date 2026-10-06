@@ -64,7 +64,7 @@ export async function boot(res) {
     shield.position.set(WX, mix(roofY + 2.2, roofY, sd), 0.25); shield.rotation.z = wob; setOpacity(shield, worldA * (t >= b.c1.insurance - 0.05 ? 1 : 0));
     // ---------- đồ thị c2: lịch trả nợ
     const kS = interp(S.sched_kf, t), chartA = cw;
-    if (t >= b.c2.schedule - 0.05) {
+    if (t >= b.c2.schedule) {
       const pts = []; for (let k = 0; k <= Math.min(120, kS) + 1e-6; k += 1) pts.push([XM(Math.min(k, kS)), YL(D.sched[Math.min(120, Math.round(Math.min(k, kS)))])]);
       sched.set(pts, 0.11, C.muted); sched.material.opacity = chartA * (1 - 0.55 * ease(t, b.c3.replayed - 0.05, b.c3.replayed + 0.6));
     } else sched.material.opacity = 0;
@@ -86,13 +86,15 @@ export async function boot(res) {
     const r = easeOut(t, b.c4.paper, b.c4.eighty);           // tỉ lệ đi từ 90 % xuống 80 % đúng chữ "eighty"
     const vUsd = mix(400000, 440000, r), lUsd = mix(360000, 352000, r);
     const vh = vStack.set({ usd: vUsd }), lh = lStack.set({ usd: lUsd, tintBelowUsd: 1e9, tint: C.muted, tintA: 0.85 });
-    vHouse.position.set(15.2, vh, 0); vHouse.scale.setScalar(0.85);
+    vHouse.scale.setScalar(0.85); vHouse.position.set(15.2 - 1.25, Math.max(0, vh - vHouse.userData.height * 0.85 - 0.05), 0);   // đồ thị: đỉnh chồng là điểm dữ liệu — nhà đứng cạnh, mái thấp hơn
     bar80b.position.y = 0.8 * vUsd / U;
     for (const o of [vStack, lStack, vHouse]) setOpacity(o, dA); setOpacity(bar80b, dA * ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP));
 
     renderer.render(scene, cam);
     // ======================= lớp phủ
-    const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0, S2 = (x, y) => O.toScreen(x, y, 0.5);
+    const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0, S2 = (x, y) => O.toScreen(x, y, 0.5); log.roi = {};
+    { const [x0, y0] = O.toScreen(WX + 1.5, 0.5, 0.9); log.roi['c1.twenty'] = [x0 - 70, y0 - 60, x0 + 70, y0 + 50]; }          // chồng của người xem lớn tới 20 %
+    { const [x0, y0] = O.toScreen(XM(0), YL(0.9), 0.5), [x1, y1] = O.toScreen(XM(30), YL(0.85), 0.5); log.roi['c2.schedule'] = [x0 - 20, y0 - 40, x1 + 20, y1 + 40]; }   // đầu đường lịch trả nợ
     // c0–c1 (thế giới, không số)
     const youA = ease(t, b.c0.ten - 0.05, b.c0.ten + POP) * (1 - ease(t, mv[0].t0, mv[0].t0 + FADE));
     if (youA > 0) { const [x, y] = O.toScreen(WX + 2.4, 1.45, 1.1); O.text('You', x, y - 20, 56, { align: 'center', alpha: youA, plate: '#0B0E13', plateA: 0.6 }); }
@@ -117,9 +119,9 @@ export async function boot(res) {
     // c4 (đồ thị: định nghĩa)
     if (dA > 0.02) {
       const a = dA * ok;
-      const [vx, vy] = S2(15.2, (vUsd / U) + 1.1), [lx, ly] = S2(18.4, lUsd / U);
-      O.text('home value', vx, vy - 20, 52, { color: C.ink, align: 'center', alpha: a });
-      O.text('by a national price index', vx, vy + 34, 40, { color: C.muted, align: 'center', alpha: a * ease(t, b.c4.index - 0.05, b.c4.index + POP) });
+      const [vx, vy] = S2(15.2, (vUsd / U) + 0.45), [lx, ly] = S2(18.4, lUsd / U);
+      O.text('home value', vx, vy - 74, 52, { color: C.ink, align: 'center', alpha: a });
+      O.text('by a national price index', vx, vy - 16, 48, { color: C.ink, w: 600, align: 'center', alpha: a });   // vòng mù Tập 5 #1: E2 hụt "theo chỉ số giá" → nhãn đứng cùng "home value"
       O.text('loan', lx, ly - 30, 52, { color: C.ink, align: 'center', alpha: a });
       const pct = Math.round(100 * lUsd / vUsd);
       O.text(`${pct}%`, lx + 120, ly + 16, 60, { kind: 'compare', color: pct <= 80 ? C.ink : C.muted, alpha: a * (1 - ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP)) });
@@ -130,7 +132,8 @@ export async function boot(res) {
     const kA = ease(t, b.c5.removed - 0.05, b.c5.removed + POP) * worldA;
     if (kA > 0) { const [x, y] = O.toScreen(WX, roofY + 0.75, 0.2); O.text('insurance still on', x, y - 20, 56, { align: 'center', alpha: kA, plate: '#0B0E13', plateA: 0.7 }); }
     O.chrome({ src: t >= b.c2.schedule ? 'Source: FHFA · Freddie Mac via FRED' : null, srcA: ease(t, b.c2.schedule, b.c2.schedule + POP),
-      hist: t >= b.c3.replayed, histA: ease(t, b.c3.replayed, b.c3.replayed + POP) });
+      hist: t >= b.c3.replayed, histA: ease(t, b.c3.replayed, b.c3.replayed + POP),
+      cw: t >= b.c2.schedule ? 'A measurement, not a next step' : null, cwA: ease(t, b.c2.schedule, b.c2.schedule + POP) });   // đối trọng kênh (vòng mù #1: E1 có câu khuyên "chỉ mua nếu…")
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }
   return { canvas: st.out, frame };

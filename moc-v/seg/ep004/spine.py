@@ -160,7 +160,7 @@ spine = {'segment': 'ep004 S04.5 → S07.3 (bản phát hành 93,44–163,60 s)'
          'music_plan': {'stop': cue['b10']['cap'], 'tau': 0.08, 'release': cue['b11']['x'], 'accents': [cue['b3']['cap'] + 0.5, cue['b6']['cross']]},
          'marks': {'cw_home': at('@S06.2:home'), 'hop_land': round(cue['b10']['cap'] + HOP, 3)},   # mốc phụ (không phải từ khoá; không ràng buộc quy tắc 2)
          'label_cues': {'b2.quarter': '2000 Q1', 'b0.q': '?', 'b1.many': 'many sales → one average', 'b3.five': '$500,000 cap', 'b4.gain': 'their gain on paper = ?', 'b4.two': 'what they paid',
-                        'b5.under': 'well under', 'b6.cross': 'Over: Q2 2022', 'b7.slips': 'Back under', 'b8.lbl': 'since Q2 2023', 'b9.fly': '≈ $558,100',
+                        'b5.under': 'well under', 'b6.cross': 'Over: Q2 2022', 'b7.slips': 'Back under', 'b8.lbl': 'Stayed over since Q2 2023', 'b9.fly': '≈ $558,100',
                         'b10.past': 'past the cap', 'b11.x': '×3.8'},
          'visual_cues': ['b3.flat', 'b8.above', 'b9.rose', 'b0.q', 'b1.blur', 'b1.rise', 'b1.pop0', 'b1.many', 'b2.quarter', 'b3.cap', 'b3.five', 'b3.same', 'b4.gain', 'b4.two', 'b4.grow', 'b4.less', 'b5.under', 'b6.cross', 'b7.slips', 'b8.lbl', 'b9.fly', 'b10.past', 'b11.x'], 'shots': shots, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
 json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)

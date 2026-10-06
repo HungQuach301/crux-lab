@@ -1,0 +1,10 @@
+{
+ "answer": "1. **The idea:** With a small down payment, a loan that looks like 80% of the home's value \"on paper\" still carries extra protection for the lender. Mortgage insurance stays on. The sequence seems to be about how home value and loan size relate (loan-to-value) and how that sets when insurance applies. The source is FHFA and Freddie Mac data via FRED, and the caption says it's US only and history, not a forecast.\n\n2. **What changes:**\n   - Frames 1–3: a green stack for home value sits beside a gray stack for the loan. The loan label starts at 84%, then reads \"80% on paper\" with a line linking it to the home-value stack.\n   - Frames 4–6: the view shifts to a 3D scene with a house, a person, a cash bundle and an apartment-style building. A shield or badge appears on the house roof. The scene fades in and sharpens. The text \"insurance still on\" appears in frame 6, overlapping the source caption.\n\n3. **What it means for me (10% saved):** With 10% down, my loan starts around 90% of the home's value. That is above the 80% line, so I'd probably pay private mortgage insurance (PMI). Hitting 80% \"on paper\", through paydown or price gains, doesn't automatically end it. The insurance can stay \"still on\" until the lender removes it. That could be on a set schedule, on my request, or after a new appraisal. I'm reading some of this from the visuals, so I'm inferring the exact removal rules.\n\n4. **Advice a viewer might take:**\n   - Don't assume PMI disappears the moment the loan reaches 80%. Ask the lender how and when it ends.\n   - Find out whether I must request removal, and whether it needs an appraisal.\n   - Budget for PMI in the monthly payment.\n   - Remember the video shows history, not a forecast. Home prices may not rise to help me.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "in": 9902,
+   "out": 734
+  }
+ },
+ "turns": 2
+}

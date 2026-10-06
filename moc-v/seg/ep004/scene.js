@@ -250,8 +250,7 @@ export async function boot(res) {
     const mark = (q, s, a, dx, dy, align) => { if (a <= 0) return; const [sx, sy] = S2(X(q), at(q) / U); O.ctx.fillStyle = rgba(C.warn, a); O.ctx.beginPath(); O.ctx.arc(sx, sy, 11, 0, 7); O.ctx.fill(); O.text(s, sx + dx, sy + dy, 52, { kind: 'number', color: '#1B1F26', plate: C.warn, plateA: 0.95, align, alpha: a }); };
     if (t >= b.b6.cross - 0.05) mark(S.crossQ, `Over: ${CL('cross_quarter_at_200k_phoenix')}`, ease(t, b.b6.cross - 0.05, b.b6.cross + POP) * keepOB * ok, -40, -60, 'right');
     if (t >= b.b7.slips - 0.05) { const [, yy] = S2(X(91.6), at(91.6) / U); mark(91.6, 'Back under', ease(t, b.b7.slips - 0.05, b.b7.slips + POP) * keepOB * ok, -40, Math.min(120, 820 - yy), 'right'); }
-    if (t >= b.b8.lbl - 0.05) mark(93, t < b.b8.above - 0.05 ? `since ${CL('stay_quarter_at_200k_phoenix')}` : `Stayed over since ${CL('stay_quarter_at_200k_phoenix')}`,   // ngày lúc nói ngày, "Stayed over" lúc "stayed above"
-  ease(t, b.b8.lbl - 0.05, b.b8.lbl + POP) * keep * ok, 40, -150, 'left');
+    if (t >= b.b8.lbl - 0.05) mark(93, `Stayed over since ${CL('stay_quarter_at_200k_phoenix')}`,   // cả nhãn hiện lúc NÓI NGÀY (vòng mù 14: tách hai bước → K1 hụt "stayed above") ease(t, b.b8.lbl - 0.05, b.b8.lbl + POP) * keep * ok, 40, -150, 'left');
     // b9: số bay từ đỉnh chồng lên biển trên mái
     if (t >= b.b9.fly - 0.05) {
       const [tx, ty] = S2(hx, Math.max(0, at(qRide)) / U), [rx, ry0] = O.toScreen(hx + hOff, roofY, 0), ry = ry0 - 30;
