@@ -1,0 +1,123 @@
+{
+ "texts": [
+  {
+   "text": "Cap: $500,000",
+   "box": [
+    48,
+    107,
+    714.8,
+    116
+   ],
+   "fontPx": 96,
+   "claims": [
+    "excl_joint_limit_usd"
+   ]
+  },
+  {
+   "text": "Prices: ×3.1",
+   "box": [
+    48,
+    227,
+    539.9,
+    116
+   ],
+   "fontPx": 96,
+   "claims": [
+    "growth_us"
+   ]
+  },
+  {
+   "text": "US average, 2000 → 2026 Q2",
+   "box": [
+    52,
+    365,
+    517.8,
+    44
+   ],
+   "fontPx": 36,
+   "claims": [
+    "buy_year",
+    "sale_quarter",
+    "growth_us"
+   ]
+  },
+  {
+   "text": "cap since May 1997",
+   "box": [
+    52,
+    411,
+    340.9,
+    44
+   ],
+   "fontPx": 36,
+   "claims": [
+    "exclusion_effective_month"
+   ]
+  },
+  {
+   "text": "$500,000 cap",
+   "box": [
+    660,
+    233.6,
+    206,
+    36
+   ],
+   "fontPx": 30,
+   "claims": [
+    "excl_joint_limit_usd"
+   ]
+  },
+  {
+   "text": "gain: $300,000 home that rose like the US average",
+   "box": [
+    605.7,
+    615,
+    624.3,
+    31
+   ],
+   "fontPx": 26,
+   "claims": [
+    "illustrative_price_300k_usd",
+    "gain_at_300k_us"
+   ]
+  },
+  {
+   "text": "US only · history, not a forecast",
+   "box": [
+    855.3,
+    669,
+    384.7,
+    31
+   ],
+   "fontPx": 26,
+   "claims": [
+    "ctx_us_only",
+    "ctx_history"
+   ]
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    1040,
+    526,
+    184,
+    31
+   ],
+   "fontPx": 26,
+   "claims": [
+    "illustrative_price_300k_usd"
+   ]
+  }
+ ],
+ "graphics": {
+  "claims": [
+   "gain_at_300k_us",
+   "cross_quarter_at_300k_us",
+   "excl_joint_limit_usd",
+   "illustrative_price_300k_usd",
+   "buy_year",
+   "sale_quarter"
+  ],
+  "what": "gain path 2000 → 2026 Q2 of a $300,000 2000 purchase that rose like the US (FHFA USSTHPI) index; flat $500,000 cap line; amber from the first quarter over (2023 Q2). No axis numbers. ILLUSTRATIVE badge."
+ }
+}
