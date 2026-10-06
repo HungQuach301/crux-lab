@@ -8,3 +8,4 @@
 - 81822ceb: "The gain line crossed the fixed line once in 2006, fell back below it, and only stayed above from 2019."
 - a66e3272: "At the higher purchase price, every city but one is over the line. (Bars are gains, not home values: "past the cap" = gain over $500,000.)"
 - 2d45c6ce: "The gain line crossed the fixed line once in 2006, fell back below it, and only stayed above from 2019."
+- 4445670b: "At the higher purchase price, every city but one is over the line. (Bars are gains, not home values: "past the cap" = gain over $500,000.)"
