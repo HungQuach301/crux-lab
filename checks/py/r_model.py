@@ -1081,10 +1081,287 @@ def lvr_invariants(ctx, params):
     return ms
 
 
+# ---- kind "fixed-cap-vs-index-growth" (Episode 4, K3.8: a fixed nominal limit against regional price-index growth) ------------------------
+# Spec: topics-r1/machine/tax-2/model.json → newKindNeeds, extended by episodes/ep004/gates/V0-defs.md §4 (purchase prices). Written from the spec text,
+# never from the builder's code. Parameterised for reuse: any set of quarterly price indexes (FRED CSV), any number of fixed nominal caps, each over all
+# series or a named few; purchase prices and count cutoffs are lists.
+#   base_s = mean of the four quarterly values of buyYear (exactly four); g_s = value(saleQuarter) / base_s (saleQuarter = last row of every index file).
+#   threshold_<cap>_<s> = cap / (g_s − 1) (g_s > 1, else no threshold). Metros = every series except `national`.
+#   min / max (+ _metro key) over the metros, for every cap that covers all of them; metros_threshold_under_<label> = metros with the unrounded threshold of
+#   `primaryCap` strictly below the cutoff.
+#   For a purchase price P (label: P/1000 + "k"): gain_at_<label>_<s> = P(g_s − 1);
+#   cross_quarter_at_<label>_<s> = first quarter d ≥ crossFrom (default buyYear + 1, Q1) with P(value_d/base_s − 1) > primary cap (strict), else null;
+#   stay_quarter_at_<label>_<s> = first quarter d ≥ crossFrom from which the strict inequality holds at d and every later quarter through saleQuarter;
+#   metros_crossed_at_<label> = metros whose cross quarter is not null.
+#   Deflator (optional): cpi_base = CPI(baseMonth), cpi_now = CPI(nowMonth) (= last CPI row); excl_<primaryCap>_<base year>_in_now = cap × cpi_now / cpi_base.
+FCI_MONEY, FCI_RATIO, FCI_CNT, FCI_DATE, FCI_EXACT = 'money', 'ratio', 'count', 'date', 'exact'
+
+
+class Exact:
+    """A value returned by value() that S05 compares by equality: a name, a list of names (order ignored) or null (e.g. a quarter that never came)."""
+    def __init__(self, v):
+        self.v = sorted(v) if isinstance(v, list) else v
+
+    def same(self, theirs):
+        return (sorted(theirs) if isinstance(theirs, list) else theirs) == self.v
+
+
+def _fci_label(P):
+    P = float(P)
+    if P <= 0 or P % 1000:
+        raise Missing(f'contract.json: model.params prices / countCutoffs must be positive multiples of 1000 USD (got {P})')
+    return f'{int(P // 1000)}k'
+
+
+def quarterly_values(ctx, spec, field):
+    """{file, dateColumn, valueColumn}: a quarterly series, quarter-start dates (YYYY-01/04/07/10, -01), consecutive, no gaps. Returns {month index: value}."""
+    by = monthly_values(ctx, spec, field)
+    ks = sorted(by)
+    if any(i % 3 for i in ks):
+        raise Missing(f'{spec["file"]}: quarter-start dates only (months 01, 04, 07, 10); got {[ym_str(i) for i in ks if i % 3][:3]}')
+    gaps = [ym_str(i) for i in range(ks[0], ks[-1] + 1, 3) if i not in by]
+    if gaps:
+        raise Missing(f'{spec["file"]}: quarters without a value {gaps[:5]}')
+    return by
+
+
+def _fci_params(params):
+    series, buy, sale, caps, primary = _need(params, 'series', 'buyYear', 'saleQuarter', 'caps', 'primaryCap')
+    if not isinstance(series, dict) or not series:
+        raise Missing('contract.json: model.params.series = {<key>: {file, dateColumn, valueColumn}}')
+    nat = params.get('national')
+    if nat is not None and nat not in series:
+        raise Missing(f'contract.json: model.params.national "{nat}" is not a key of model.params.series')
+    if not isinstance(caps, dict) or primary not in caps:
+        raise Missing('contract.json: model.params.caps = {<name>: {value, series: "all" | [keys]}} with model.params.primaryCap one of them')
+    cv = {}
+    for name, c in caps.items():
+        if not isinstance(c, dict) or c.get('value') is None:
+            raise Missing(f'contract.json: model.params.caps.{name}.value')
+        cov = c.get('series', 'all')
+        keys = list(series) if cov == 'all' else list(cov or [])
+        if not keys or any(k not in series for k in keys):
+            raise Missing(f'contract.json: model.params.caps.{name}.series ("all" or keys of model.params.series)')
+        cv[name] = (float(c['value']), keys)
+    if cv[primary][1] != list(series):
+        raise Missing(f'contract.json: model.params.caps.{primary} (the primary cap) must cover every series')
+    sale_i = _ym_need(sale, 'saleQuarter')
+    cf = params.get('crossFrom')
+    defl = params.get('deflator')
+    if defl is not None:
+        for k in ('file', 'dateColumn', 'valueColumn', 'baseMonth', 'nowMonth'):
+            if not defl.get(k):
+                raise Missing('contract.json: model.params.deflator.' + k)
+    return {'series': series, 'national': nat, 'metros': [k for k in series if k != nat], 'buy': int(buy), 'sale': sale_i, 'caps': cv, 'primary': primary,
+            'prices': [float(x) for x in params.get('prices') or []], 'cutoffs': [float(x) for x in params.get('countCutoffs') or []],
+            'crossFrom': (int(buy) + 1) * 12 if cf is None else _ym_need(cf, 'crossFrom'), 'deflator': defl}
+
+
+def fci_run(ctx, params, scale=None):
+    """Every quantity of the kind (unrounded), as the flat key → value map of the model file. scale: {series key: factor} multiplies that index (the
+    invariants' replays: a scaled index leaves every ratio, threshold and quarter unchanged)."""
+    c = _fci_params(params)
+    out, ser = {}, {}
+    for k, spec in c['series'].items():
+        by = quarterly_values(ctx, spec, f'series.{k}')
+        if scale and k in scale:
+            by = {i: v * scale[k] for i, v in by.items()}
+        if max(by) != c['sale']:
+            raise Missing(f'{spec["file"]}: saleQuarter {ym_str(c["sale"])} must be the last observation (last is {ym_str(max(by))})')
+        q = [c['buy'] * 12 + m for m in (0, 3, 6, 9)]
+        if any(i not in by for i in q):
+            raise Missing(f'{spec["file"]}: the four quarters of buyYear {c["buy"]}')
+        base = sum(by[i] for i in q) / 4.0
+        g = by[c['sale']] / base
+        ser[k] = (by, base, g)
+        out[f'growth_{k}'] = g
+    cap0 = c['caps'][c['primary']][0]
+    for name, (v, keys) in c['caps'].items():
+        for k in keys:
+            g = ser[k][2]
+            out[f'threshold_{name}_{k}'] = v / (g - 1) if g > 1 else None
+        if all(m in keys for m in c['metros']) and c['metros']:
+            vals = [(out[f'threshold_{name}_{m}'], m) for m in c['metros'] if out[f'threshold_{name}_{m}'] is not None]
+            if vals:
+                lo, hi = min(vals), max(vals)
+                out.update({f'threshold_{name}_min': lo[0], f'threshold_{name}_min_metro': lo[1], f'threshold_{name}_max': hi[0], f'threshold_{name}_max_metro': hi[1]})
+    for cut in c['cutoffs']:
+        lab = _fci_label(cut)
+        under = sorted(m for m in c['metros'] if out[f'threshold_{c["primary"]}_{m}'] is not None and out[f'threshold_{c["primary"]}_{m}'] < cut)
+        out[f'metros_threshold_under_{lab}'] = len(under)
+        out[f'metros_threshold_under_{lab}_names'] = under
+    for P in c['prices']:
+        lab = _fci_label(P)
+        for k, (by, base, g) in ser.items():
+            out[f'gain_at_{lab}_{k}'] = P * (g - 1)
+            qs = [i for i in sorted(by) if c['crossFrom'] <= i <= c['sale']]
+            above = [P * (by[i] / base - 1) > cap0 for i in qs]
+            out[f'cross_quarter_at_{lab}_{k}'] = next((Month(i) for i, a in zip(qs, above) if a), None)
+            stay = None
+            for i, a in zip(reversed(qs), reversed(above)):
+                if not a:
+                    break
+                stay = Month(i)
+            out[f'stay_quarter_at_{lab}_{k}'] = stay
+        out[f'metros_crossed_at_{lab}'] = sum(1 for m in c['metros'] if out[f'cross_quarter_at_{lab}_{m}'] is not None)
+    d = c['deflator']
+    if d is not None:
+        cpi = monthly_values(ctx, d, 'deflator')
+        b, n = _ym_need(d['baseMonth'], 'deflator.baseMonth'), _ym_need(d['nowMonth'], 'deflator.nowMonth')
+        if n != max(cpi):
+            raise Missing(f'{d["file"]}: deflator.nowMonth {ym_str(n)} must be the last observation (last is {ym_str(max(cpi))})')
+        if b not in cpi:
+            raise Missing(f'{d["file"]}: deflator.baseMonth {ym_str(b)}')
+        out['cpi_base'], out['cpi_now'] = cpi[b], cpi[n]
+        out[f'excl_{c["primary"]}_{b // 12}_in_now'] = cap0 * cpi[n] / cpi[b]
+    return c, ser, out
+
+
+def _fci_how(key):
+    if key.startswith(('cross_quarter_', 'stay_quarter_')):
+        return FCI_DATE
+    if key.startswith(('metros_threshold_under_', 'metros_crossed_')):
+        return FCI_EXACT if key.endswith('_names') else FCI_CNT
+    if key.endswith('_metro'):
+        return FCI_EXACT
+    if key.startswith('growth_') or key.startswith('cpi_'):
+        return FCI_RATIO
+    return FCI_MONEY
+
+
+FCI_TOL = {FCI_MONEY: 0.5, FCI_RATIO: 0.0005, FCI_CNT: 0}
+
+
+def _fci_cached(ctx, params, scale=None):
+    key = None if scale is None else tuple(sorted(scale.items()))
+    return ctx.memo(('fci-run', id(params), key), lambda: (params, fci_run(ctx, params, scale)))[1]
+
+
+def fci_value(ctx, params, key):
+    """Keys (S05): every key of the model file (FCI quantities above, e.g. "threshold_joint_miami", "cross_quarter_at_300k_us", "metros_crossed_at_200k",
+    "excl_joint_1997_in_now"), plus the inputs a claim may quote: "cap:<name>" (USD), "price:<label>" (USD), "metroCount", "buyYear", "saleQuarter" (month), "cpiBaseMonth" (month, with a deflator).
+    Tolerances: money $0.50, ratios and CPI 0.0005, counts exactly, quarters exactly (YYYY-MM ≡ YYYY-MM-01), names and null by equality."""
+    c, _, out = _fci_cached(ctx, params)
+    name, _, arg = key.partition(':')
+    if name == 'cap' and arg in c['caps']:
+        return c['caps'][arg][0], 0.5
+    if name == 'price' and arg in {_fci_label(P): P for P in c['prices']}:
+        return {_fci_label(P): P for P in c['prices']}[arg], 0.5
+    if key == 'metroCount':
+        return float(len(c['metros'])), 0
+    if key == 'buyYear':
+        return float(c['buy']), 0
+    if key == 'saleQuarter':
+        return Month(c['sale']), 0
+    if key == 'cpiBaseMonth' and c['deflator'] is not None:
+        return Month(_ym_need(c['deflator']['baseMonth'], 'deflator.baseMonth')), 0
+    if key not in out:
+        raise Missing(f'contract.json: model.claims key "{key}" is not a quantity of kind fixed-cap-vs-index-growth')
+    v, how = out[key], _fci_how(key)
+    if v is None or how == FCI_EXACT:
+        return Exact(v), 0
+    if how == FCI_DATE:
+        return v, 0
+    return float(v), FCI_TOL[how]
+
+
+def fci_compare(ctx, params, out):
+    """The model file: {params (echo, not compared), raw: {every FCI key: unrounded value}, rounded?: {...} (display values, not compared)}; a flat file
+    without "raw" is read as raw. S01: money max($0.50, 1e-6 relative), ratios and CPI 1e-9 relative, counts exactly, quarters exactly after normalisation,
+    names (and null) by equality; every key the kind computes must be present; a raw key the kind does not compute is listed."""
+    _, _, mine = _fci_cached(ctx, params)
+    raw = out.get('raw') if isinstance(out.get('raw'), dict) else out
+    bad, checked = [], 0
+    for k, v in mine.items():
+        checked += 1
+        t, how = raw.get(k, '<absent>'), _fci_how(k)
+        if t == '<absent>':
+            bad.append((k, 'absent', v if how != FCI_DATE or v is None else ym_str(v)))
+            continue
+        if v is None or how == FCI_EXACT:
+            ok = Exact(v).same(t)
+        elif how == FCI_DATE:
+            ok = isinstance(t, str) and ym(t) == int(v)
+        elif isinstance(t, bool) or not isinstance(t, (int, float)):
+            ok = False
+        elif how == FCI_CNT:
+            ok = t == v
+        elif how == FCI_RATIO:
+            ok = abs(t - v) <= 1e-9 * max(1.0, abs(v))
+        else:
+            ok = close(t, v)
+        if not ok:
+            bad.append((k, t, ym_str(v) if how == FCI_DATE and v is not None else v))
+    for k, v in (params.get('conventions') or {}).items():
+        checked += 1
+        if raw.get(k) != v:
+            bad.append((k, raw.get(k), v))
+    covered = set(mine) | set(params.get('conventions') or {}) | set(params.get('notModel', []))
+    unrec = sorted(set(raw) - covered)
+    if raw is not out:
+        unrec += sorted(set(out) - {'params', 'raw', 'rounded'} - covered)
+    return checked, bad, unrec
+
+
+def fci_invariants(ctx, params):
+    """The spec's invariants (newKindNeeds.invariants + V0-defs §4), on the contract's own inputs:
+    (1) threshold × (g − 1) = cap for every series and cap (|error| < 1e-6); (2) two caps on one series: thresholds in the ratio of the caps (1e-9);
+    (3) g > 1 for every series; (4) min / max equal one metro threshold and bound every metro threshold; (5) metro counts non-decreasing in the cutoff and
+    ≤ the number of metros; (6) restated cap > cap iff CPI now > CPI base; (7) price P: stay quarter not null iff P > the primary threshold, and
+    the cross quarter ≤ the stay quarter; (8) scaling an index by 2 leaves growth, thresholds and quarters unchanged (1e-12)."""
+    c, ser, out = _fci_cached(ctx, params)
+    err1 = 0.0
+    for name, (v, keys) in c['caps'].items():
+        for k in keys:
+            t = out[f'threshold_{name}_{k}']
+            if t is not None:
+                err1 = max(err1, abs(t * (ser[k][2] - 1) - v))
+    err2 = 0.0
+    names = list(c['caps'])
+    for a in names:
+        for b in names:
+            if a < b:
+                for k in set(c['caps'][a][1]) & set(c['caps'][b][1]):
+                    ta, tb = out[f'threshold_{a}_{k}'], out[f'threshold_{b}_{k}']
+                    if ta is not None and tb is not None:
+                        err2 = max(err2, abs(ta / tb - c['caps'][a][0] / c['caps'][b][0]))
+    notup = sum(1 for k in ser if ser[k][2] <= 1)
+    mm = 0
+    for name, (v, keys) in c['caps'].items():
+        if f'threshold_{name}_min' in out:
+            ts = [out[f'threshold_{name}_{m}'] for m in c['metros'] if out[f'threshold_{name}_{m}'] is not None]
+            lo, hi = out[f'threshold_{name}_min'], out[f'threshold_{name}_max']
+            mm += (lo not in ts) + (hi not in ts) + sum(1 for t in ts if not lo <= t <= hi)
+    counts = [out[f'metros_threshold_under_{_fci_label(x)}'] for x in sorted(c['cutoffs'])]
+    mono = sum(1 for a, b in zip(counts, counts[1:]) if b < a) + sum(1 for n in counts if n > len(c['metros']))
+    ms = [metric('max |threshold × (g − 1) − cap| over series and caps', err1, '<=', 1e-6, 'USD'),
+          metric('max |thresholdA / thresholdB − capA / capB| (two caps, one series)', err2, '<=', 1e-9, ''),
+          metric('series with growth ≤ 1 (no threshold)', notup, '<=', 0),
+          metric('min / max not a metro threshold, or a metro threshold outside [min, max]', mm, '<=', 0),
+          metric('metro counts decreasing in the cutoff, or above the number of metros', mono, '<=', 0)]
+    if c['deflator'] is not None:
+        r = out[f'excl_{c["primary"]}_{_ym_need(c["deflator"]["baseMonth"], "deflator.baseMonth") // 12}_in_now']
+        ms.append(metric('restated cap > cap iff CPI now > CPI base (violations)', int((r > c['caps'][c['primary']][0]) != (out['cpi_now'] > out['cpi_base'])), '<=', 0))
+    if c['prices']:
+        badq = 0
+        for P in c['prices']:
+            lab = _fci_label(P)
+            for k in ser:
+                t, st, cr = out[f'threshold_{c["primary"]}_{k}'], out[f'stay_quarter_at_{lab}_{k}'], out[f'cross_quarter_at_{lab}_{k}']
+                badq += int((st is not None) != (t is not None and P > t)) + int(st is not None and (cr is None or cr > st))
+        ms.append(metric('price claims inconsistent (stay quarter ⇔ P > threshold; cross ≤ stay)', badq, '<=', 0))
+    k0 = next(iter(ser))
+    _, _, o2 = _fci_cached(ctx, params, scale={k0: 2.0})
+    drift = sum(1 for k, v in out.items() if k0 in k and (isinstance(v, float) and abs(o2[k] - v) > 1e-12 * max(1.0, abs(v)) or not isinstance(v, float) and o2[k] != v))
+    ms.append(metric(f'quantities of "{k0}" changed when its index is doubled', drift, '<=', 0))
+    return ms
+
+
 KINDS = {'retirement-6040': (ret_compare, ret_value, ret_invariants),
          'refinance-breakeven': (refi_compare, refi_value, lambda ctx, p: []),
          'float-vs-fixed-replay': (fvf_compare, fvf_value, fvf_invariants),
-         'lock-vs-roll-replay': (lvr_compare, lvr_value, lvr_invariants)}
+         'lock-vs-roll-replay': (lvr_compare, lvr_value, lvr_invariants),
+         'fixed-cap-vs-index-growth': (fci_compare, fci_value, fci_invariants)}
 
 
 def kind(ctx):

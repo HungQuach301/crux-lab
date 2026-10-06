@@ -196,8 +196,8 @@ def _asr_audio(ctx, x, tag):
     cp = os.path.join(ctx.cache_dir, f'asr-{tag}-{h}-{asr_key(sents)}.json')
     if os.path.exists(cp):
         return json.load(open(cp))
-    from faster_whisper import WhisperModel
-    mdl = WhisperModel('small.en', device='cpu', compute_type='int8')
+    from common import whisper
+    mdl = whisper()
     dur = len(mono) / SR
     ws = []
     for s, (a, b, lo, hi) in zip(sents, sentence_clips(sents, dur)):

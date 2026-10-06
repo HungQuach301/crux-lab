@@ -20,7 +20,7 @@ import time
 
 sys.path.insert(0, os.path.dirname(__file__))
 import common  # noqa: E402
-import r_file, r_audio, r_content, r_rhythm, r_visual, r_page, r_sound, r_voice  # noqa: E402,F401
+import r_file, r_audio, r_content, r_rhythm, r_visual, r_page, r_sound, r_voice, r_short  # noqa: E402,F401
 import tiers  # noqa: E402
 
 ORDER = ['F', 'A', 'S', 'R', 'V', 'C', 'P', 'T', 'L']
@@ -41,7 +41,8 @@ REG_META['fingerprint'] = common.fingerprint(REG_META['measure'], REG_META['thre
 
 def key(fn):
     rid = fn.rid
-    return (ORDER.index(rid[0]), int(rid[1:]))
+    head = rid.rstrip('0123456789')
+    return (ORDER.index(rid[0]), head, int(rid[len(head):]))   # K3.8: SH01… (Shorts) after the S rules
 
 
 def regression(res, baseline, first=False):

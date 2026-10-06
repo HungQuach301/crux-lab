@@ -1,0 +1,104 @@
+{
+ "note": "K3.8 A5: Shorts rules on the factory sample Short (episodes/ep003/out/factory/S04-short.mp4, main @ a291ef7); contract = ep003 contract + format lab + shorts [S04-short] (run only).",
+ "rules": [
+  {
+   "id": "SH01",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "Shorts not 1080×1920 H.264 + AAC",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "shorts": 1
+    }
+   ]
+  },
+  {
+   "id": "SH02",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "longest Short s",
+     "value": 42.133333,
+     "op": "<=",
+     "threshold": 180.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "durations": {
+      "S04-short.mp4": 42.133333
+     },
+     "over60": []
+    }
+   ]
+  },
+  {
+   "id": "SH03",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "Shorts outside −15 … −13 LUFS",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "S04-short.mp4": -13.8
+    }
+   ]
+  },
+  {
+   "id": "SH04",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "highest true peak dBTP",
+     "value": -1.5,
+     "op": "<=",
+     "threshold": -1.0,
+     "unit": "dBTP",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "S04-short.mp4": -1.5
+    }
+   ]
+  },
+  {
+   "id": "SH05",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "advice / forecast / 4% / \"we\" sentences",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": []
+  }
+ ]
+}

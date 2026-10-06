@@ -370,10 +370,10 @@ def asr_master(ctx):
         cp = os.path.join(ctx.cache_dir, f'asr-{h}-{asr_key(sents)}.json')  # (sentence cut, two-pass decode)
         if os.path.exists(cp):
             return json.load(open(cp))
-        from faster_whisper import WhisperModel
         x = master(ctx).mean(1)
         dur = len(x) / SR
-        mdl = WhisperModel('small.en', device='cpu', compute_type='int8')
+        from common import whisper
+        mdl = whisper()
         ws = []
         for s, (a, b, lo, hi) in zip(sents, sentence_clips(sents, dur)):
             if b - a < 0.2:
