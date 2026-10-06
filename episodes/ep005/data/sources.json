@@ -541,16 +541,13 @@
    ]
   },
   {
-   "cite": "PENDING — Fannie Mae Servicing Guide B-8.1-04, Termination of Conventional Mortgage Insurance (current-value termination: seasoning, 75%/80% LTV, appraisal/BPO, payment history); Freddie Mac Guide 8203.2",
+   "cite": "Fannie Mae Servicing Guide B-8.1-04, Termination of Conventional Mortgage Insurance (borrower-initiated termination based on current value; one-unit principal residence or second home)",
    "url": "https://servicing-guide.fanniemae.com/svc/b-8.1-04/termination-conventional-mortgage-insurance",
-   "altUrl": "https://guide.freddiemac.com/app/guide/section/8203.2",
-   "quote": null,
-   "status": "NOT RETRIEVED: hosts servicing-guide.fanniemae.com, singlefamily.fanniemae.com, guide.freddiemac.com (and all fanniemae.com / freddiemac.com hosts, files.consumerfinance.gov, fhfa.gov, federalregister.gov) blocked by the session egress proxy (403) on 2026-10-06. The 75% / 2-year figures are NOT verified verbatim; a quote must be added before lock.",
-   "retrieved": null,
-   "claims": [
-    "value_removal_ltv_early",
-    "value_removal_seasoning_years"
-   ]
+   "retrieved": "2026-10-06",
+   "retrievedBy": "chủ dự án (chat chiến lược đọc trực tiếp; proxy phiên chặn fanniemae.com), dán nguyên văn ở trả lời G1",
+   "quote": "the LTV ratio must be 75% or less, if the seasoning of the mortgage loan is between two and five years. 80% or less, if the seasoning of the mortgage loan is greater than five years.",
+   "quotePaymentRecord": "no payment 30 or more days past due in the last 12 months; and has no payment 60 or more days past due in the last 24 months.",
+   "scope": "Fannie Mae rule for loans Fannie Mae owns/guarantees, not every loan; Freddie Mac Guide 8203.2 not verified (host blocked)"
   }
  ],
  "_about": "FRED copies, not committed (python3 episodes/ep005/data/fetch.py --verify re-downloads from pinnedUrl and checks SHA-256). \"Now\" of the data: HPI and Case-Shiller to 2026-07-01, PMMS to 2026-10-01. CSUSHPINSA is \"Copyrighted: Pre-Approval Required\": used only as an internal crosscheck, never shown on screen."
