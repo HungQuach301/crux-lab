@@ -15,3 +15,8 @@ Nguyên văn: *"G1: 1 #17 L2 · 2 OK · 3 T1 · 75 %: (a) — nguyên văn Fanni
 ## Áp dụng
 - Sources/claim: xong (check_script ĐẠT, statements 17/17).
 - **Hỏi lại (đổi câu đã duyệt):** lời S03.3 ("lender policy … a 75 percent bar") và S12.3 ("the 75 percent bar that lenders often use early on") nói rộng hơn nguồn (một nhà đầu tư, không phải mọi bên cho vay). Đề xuất trong `PLAN.md` §3; S03 (đã sinh ở bản đọc thử) và S12 **chưa sinh lại** cho tới khi chủ dự án chọn.
+
+## Trả lời bổ sung (2026-10-06)
+1. Câu 75 %: **(i) sửa lời ngay** — S03.3 và S12.3 nói rõ ngưỡng theo giá trị hiện tại khi chủ vay tự yêu cầu (2–5 năm), quy định của Fannie Mae cho khoản vay của họ, khác lịch 80/78 % theo luật. Sinh lại S03, S12; ASR; đo lại M1–M5 → ĐẠT (M4 9,71 s).
+2. S18.5: sinh lại tối đa 2 seed cùng chữ → seed 1006 nghe đúng "illustrative"; không đổi chữ.
+3. Phiên K: chủ dự án mở song song (`checks-k39`).

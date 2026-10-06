@@ -8,9 +8,9 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | Việc 0 | XONG | `data/fetch.py`, `model/model.py`, `model/statements.py`, `numbers.md`, `model/independent/` | SHA khớp hồ sơ; 17/17 câu; độc lập 55/55; tháng lãi mới nhất = tháng đủ tuần (2026-09) |
 | C1 | ĐẠT | `gates/C1-*.md`, `c1/` | L1 2/2, L2 2/2, cờ 0 → L2 |
 | C2 | ĐẠT (vòng 2) | `story/`, `gates/C2-*.md`, `gates/REVIEW-C2.md`, `c2/` | H-A; M1–M5 thật ĐẠT (M4 9,41 s); mù v2 6/6, khuyên 0, S18 3/6 |
-| Giao phiên K | SẴN SÀNG (G1 duyệt) — chủ dự án mở khi muốn; cần trước C4 | `K-brief.md` | kind mới + lô A10–A12, A5, A7, A9 |
+| Giao phiên K | ĐANG CHẠY — chủ dự án mở `checks-k39`; cần merge trước C4 | `K-brief.md` | kind mới + lô A10–A12, A5, A7, A9 |
 | **G1** | **XONG** (issue #43; `gates/G1-answer.md`) | `gates/G1.md`, `gates/REVIEW-G1.md` | #17 · L2 · H-A · T1 · 75 % (a): nguyên văn B-8.1-04, phạm vi Fannie Mae |
-| Lời theo cảnh | XONG trừ S03, S12 (chờ câu 75 %) | `story/voice_scenes.py`, `voice-takes/`, `review-g1/voice-scenes.json` | ASR từ khoá theo cảnh |
+| Lời theo cảnh | **XONG 20/20** (S18 seed 1006) | `story/voice_scenes.py`, `voice-takes/`, `review-g1/voice-scenes.json` | ASR từ khoá theo cảnh |
 | **Mốc V** | **CHỜ — chủ dự án mở** | — | Tập 5 dừng ở đây |
 | Chuyển kịch bản sang đặc tả nhịp Mốc V → C4 → C5 → Shorts → G2 | chưa | | sau Mốc V merge + K merge |
 
@@ -18,11 +18,9 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 `decisions/D-009.md` · đặc tả nhịp Mốc V (README/playbook do Mốc V ghi) · `CHARTER.md` · `playbook/episode.md` · `playbook/prompts/P3.md` · `episodes/ep005/PLAN.md` · `ledger.md` · `gates/G1.md` + trả lời G1 · `story/script.md` · `story/beats.md` · `episode.yaml` · `toolkit/factory/README.md`.
 
 ## 3. Việc treo
-- **Câu 75 % (hỏi chủ dự án, đổi câu đã duyệt):** nguồn đã có (B-8.1-04, chỉ khoản vay Fannie Mae) nhưng lời S03.3 "Removal on value is lender policy: request, appraisal, minimum time, and early on, a 75 percent bar." và S12.3 "…the 75 percent bar that lenders often use early on." nói như quy định chung của bên cho vay. Đề xuất:
-  - **(i) khuyến nghị — sửa lời:** S03.3 → "Removal on value is the loan owner's rule; for Fannie Mae loans, that's two years and a 75 percent bar." (≈ 18 từ đọc; đo lại M4 ≤ 10 s) · S12.3 → "…at or below the 75 percent bar Fannie Mae sets for its loans in the early years." Sinh lại S03, S12 (≈ 0,8 nghìn ký tự), đo lại M1–M5.
-  - (ii) giữ lời, nhãn hình cạnh mọi khung có 75 %: "Fannie Mae rule, its loans only".
-  Có thể gộp vào lượt chuyển kịch bản sang đặc tả Mốc V.
-- **S18.5 giọng:** ASR (small.en và medium.en) nghe "illustrative" thành "illustrated" (p 0,49) — khả năng giọng đọc chưa rõ; cùng chữ + cùng seed thì cache trả lại đúng take cũ, nên xử lý ở lượt chuyển kịch bản Mốc V (đổi chữ hoặc nghe lại bằng tai). Từ được bảo vệ (ILLUSTRATIVE) → không bỏ qua.
+- **Câu 75 % — XONG (chủ dự án chọn (i), 2026-10-06):** S03.3 "Removal on today's value, when you ask, is the loan owner's rule; for Fannie Mae loans, that's two years and a 75 percent bar." · S12.3 "…the 75 percent bar Fannie Mae sets for its loans when a borrower asks to cancel on today's value, a separate route from the law's schedule." · S12.4 "that early bar". Sinh lại S03, S12; ASR 0 mất; móc thật M1 2,8 · M2 22,8 · M3 9,0 · **M4 9,71 s (±5 % quanh 10, nêu tên)** · M5 29,2 → ĐẠT; clip `review-g1/cold-open.m4a` cập nhật. **Ngoại lệ có tên:** S03 có 3 số mới (80 %, hai năm, 75 %) > 2 của story §3 — chữ do chủ dự án chỉ định; xem lại khi chuyển sang đặc tả Mốc V (ví dụ đưa "two years" lên nhãn hình).
+- **S18.5 "illustrative" — XONG:** seed 1005 ASR "illustrated" (0,42/0,49); sinh lại cùng chữ seed **1006** "illustrative" 0,78/0,82 (chọn), 1007 0,62/0,65 (`review-g1/s18-seeds.json`). Không đổi chữ. **Việc cho Mốc V/nhà máy:** `build.py` dùng một seed cho cả tập → cần đọc `episode.yaml` `voice_overrides` (S18 seed 1006), nếu không nhà máy lấy lại take seed 1005.
+- **Phiên K:** chủ dự án mở song song (`checks-k39`); merge trước C4.
 - Freddie Mac Guide 8203.2 chưa kiểm (proxy chặn); claim chỉ dựa B-8.1-04.
 - Phiên K (kind mới) phải merge `main` trước C4; `contract.json` theo kind K đặt.
 - Hàng chờ G2 (CHÍNH không đổi nghĩa): `REVIEW-C2.md` K-3…K-14; câu 3 vòng 2 C2.
@@ -30,7 +28,7 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 - So headless ↔ `Explore`: cảnh mất chú ý khác nhau → câu hỏi mở cho tổng kết Tập 5.
 
 ## 4. Điểm dừng an toàn + lệnh chạy tiếp
-2026-10-06 (sau G1): **DỪNG chờ Mốc V.** Nhánh `ep005`. Lời theo cảnh: `python3 episodes/ep005/story/voice_scenes.py --skip S03,S12` (cache theo băm chữ; chỉ sinh cảnh đổi chữ; báo cáo `review-g1/voice-scenes.json`). Khi chủ dự án chọn câu 75 %: sửa S03.3/S12.3 (WRITER mới) → `voice_scenes.py --only S03,S12` → `story/table_read.py` (M1–M5).
+2026-10-06 (sau G1): **DỪNG chờ Mốc V.** Nhánh `ep005`. Lời theo cảnh: `python3 episodes/ep005/story/voice_scenes.py --skip S03,S12` (cache theo băm chữ; chỉ sinh cảnh đổi chữ; báo cáo `review-g1/voice-scenes.json`). Câu 75 % và S18 đã xong; đổi chữ cảnh nào thì `voice_scenes.py --only Sxx` (S18: `s18_seeds.py`, seed 1006), cảnh S01–S04 đổi thì chạy lại `table_read.py`.
 2026-10-06: **DỪNG ở G1.** Tái tạo: `python3 episodes/ep005/data/fetch.py --verify && python3 episodes/ep005/model/model.py && python3 episodes/ep005/model/statements.py --all && python3 episodes/ep005/story/check_script.py`. Đọc thử: `python3 episodes/ep005/story/table_read.py` (take ở `voice-takes/`, không sinh lại khi chữ không đổi; cần `pip install av==14.2.0` cho faster-whisper). Kiểm mù: `python3 episodes/ep005/blind.py read|grade …`.
 
 ## 5. KPI + token so trần (tới G1)
@@ -44,4 +42,4 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | Điều phối | ≈ 0,3 tr | 0,5 | |
 | **Cộng** | **≈ 1,45 tr** | 3,0 | agent 12/40; EL 1.644/6.000; chủ dự án: G1 |
 
-**Sau G1 (2026-10-06):** lời theo cảnh 18/20 cảnh trong `voice-takes/` (≈ 6:07 lời); EL cả tập **6.531/6.000 (+9 %)** — D-009: không cắt chất lượng vì trần; nêu tên. Agent 12/40 (không thêm agent sau G1).
+**Sau G1 (2026-10-06):** lời theo cảnh **20/20** trong `voice-takes/` (≈ 7:12 lời); EL cả tập **8.735/6.000 (+46 %)** (S03/S12 sinh lại 938, S18 hai seed 1.266) — D-009: không cắt chất lượng vì trần; nêu tên. Agent 12/40 (không thêm agent sau G1).

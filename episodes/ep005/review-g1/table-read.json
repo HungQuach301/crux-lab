@@ -1,7 +1,7 @@
 {
- "el_chars_spent": 410,
+ "el_chars_spent": 0,
  "clip": "episodes/ep005/review-g1/cold-open.m4a",
- "clip_s": 52.6,
+ "clip_s": 53.6,
  "M": {
   "M1 hook ends ≤ 5.0": {
    "value": 2.8,
@@ -16,11 +16,11 @@
    "pass": true
   },
   "M4 longest constraint/define block 0–60 s ≤ 10": {
-   "value": 9.41,
+   "value": 9.71,
    "pass": true
   },
   "M5 character/stake returns ≤ 45": {
-   "value": 29.25,
+   "value": 29.17,
    "pass": true
   }
  },
@@ -63,80 +63,80 @@
    "role": "define",
    "text": "On paper means the loan is 80 percent of the home's value by a national price index.",
    "start": 23.84,
-   "end": 29.12
+   "end": 29.04
   },
   {
    "id": "S03.2",
    "scene": "S03",
    "role": "hook",
    "text": "That's not the same as getting the insurance removed.",
-   "start": 29.25,
-   "end": 32.16
+   "start": 29.17,
+   "end": 32.0
   },
   {
    "id": "S03.3",
    "scene": "S03",
    "role": "define",
-   "text": "Removal on value is lender policy: request, appraisal, minimum time, and early on, a 75 percent bar.",
-   "start": 32.27,
-   "end": 41.68
+   "text": "Removal on today's value, when you ask, is the loan owner's rule; for Fannie Mae loans, that's two years and a 75 percent bar.",
+   "start": 32.13,
+   "end": 41.84
   },
   {
    "id": "S03.4",
    "scene": "S03",
    "role": "promise",
    "text": "You'll also meet three illustrative buyers who got very different answers.",
-   "start": 41.78,
-   "end": 46.16
+   "start": 42.04,
+   "end": 47.2
   },
   {
    "id": "S03.5",
    "scene": "S03",
    "role": "constraint",
    "text": "It's US only, history, not a forecast, and it won't say whether to buy or wait.",
-   "start": 46.4,
-   "end": 52.8
+   "start": 47.25,
+   "end": 53.6
   },
   {
    "id": "S04.1",
    "scene": "S04",
    "role": "define",
    "text": "Private mortgage insurance, or PMI, is a policy lenders usually require on a conventional loan with less than 20 percent down.",
-   "start": 56.64,
-   "end": 65.08
+   "start": 57.6,
+   "end": 66.04
   },
   {
    "id": "S04.2",
    "scene": "S04",
    "role": null,
    "text": "It protects the lender if the loan goes bad, but the borrower pays for it, month after month, on top of the mortgage.",
-   "start": 65.2,
-   "end": 73.12
+   "start": 66.16,
+   "end": 74.08
   },
   {
    "id": "S04.3",
    "scene": "S04",
    "role": null,
    "text": "What it costs depends on the loan and the borrower, so this video puts no dollar figure on it.",
-   "start": 73.2,
-   "end": 78.4
+   "start": 74.16,
+   "end": 79.36
   },
   {
    "id": "S04.4",
    "scene": "S04",
    "role": null,
    "text": "What we can measure is how long it lasts.",
-   "start": 78.44,
-   "end": 81.47
+   "start": 79.4,
+   "end": 82.43
   },
   {
    "id": "S04.5",
    "scene": "S04",
    "role": null,
    "text": "So when does it end?",
-   "start": 81.49,
-   "end": 82.16
+   "start": 82.45,
+   "end": 83.12
   }
  ],
- "asr": "You've saved 10% of a home's price. Do you buy now and pay mortgage insurance or keep renting until you reach 20%? On the schedule alone, you can't even ask to cancel it for about eight years. We replayed real US prices and rates month by month, so you'll see how long it took on paper, typically and in slow cases. On paper means the loan is 80% of the home's value by a national price index. That's not the same as getting the insurance removed. Removal on value is lender policy, request, appraisal, minimum time, and early on, a 75% bar. You'll also meet three illustrative buyers who got very different answers. It's US only, history, not a forecast, and it won't say whether to buy or wait."
+ "asr": "You've saved 10% of a home's price. Do you buy now and pay mortgage insurance or keep renting until you reach 20%? On the schedule alone, you can't even ask to cancel it for about eight years. We replayed real US prices and rates month by month, so you'll see how long it took on paper, typically and in slow cases. On paper means the loan is 80% of the home's value by a national price index. That's not the same as getting the insurance removed. Removal on today's value, when you ask, is the loan owner's rule. For Fannie Mae loans, that's two years and a 75% bar. You'll also meet three illustrative buyers who got very different answers. It's US only. History, not a forecast. And it won't say whether to buy or wait."
 }

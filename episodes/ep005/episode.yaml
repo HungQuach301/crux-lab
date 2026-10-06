@@ -6,3 +6,7 @@ pillar: vay nợ
 tokenCeiling: {episode: 3000000}
 voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1005, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
 music: {style: C}      # G-016
+# Seed giọng riêng theo cảnh (chủ dự án 2026-10-06: S18.5 "illustrative" — seed 1005 ASR nghe "illustrated"; 1006 rõ).
+# NHÀ MÁY CHƯA ĐỌC KHOÁ NÀY (build.py dùng một seed cho cả tập) → việc của Mốc V/nhà máy; không có thì nhà máy lấy lại take seed 1005.
+voice_overrides:
+  S18: {seed: 1006}   # take voice-takes/5b3b914301ef48ab.mp3

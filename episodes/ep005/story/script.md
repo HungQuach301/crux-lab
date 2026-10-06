@@ -49,7 +49,7 @@ S02.2 {promise} We replayed real US prices and rates month by month, so you'll s
 
 S03.1 {define} On paper means the loan is 80 percent of the home's value by a national price index. <!-- claims: medianB_months_to80 -->
 S03.2 {hook} That's not the same as getting the insurance removed. <!-- claims: — -->
-S03.3 {define} Removal on value is lender policy: request, appraisal, minimum time, and early on, a 75 percent bar. <!-- claims: value_removal_rule, value_removal_ltv_early, value_removal_seasoning_years -->
+S03.3 {define} Removal on today's value, when you ask, is the loan owner's rule; for Fannie Mae loans, that's two years and a 75 percent bar. <!-- claims: value_removal_rule, value_removal_ltv_early, value_removal_seasoning_years -->
 S03.4 {promise} You'll also meet three illustrative buyers who got very different answers. <!-- claims: buyer_fast_*, buyer_typical_*, buyer_slow_* -->
 S03.5 {constraint} It's US only, history, not a forecast, and it won't say whether to buy or wait. <!-- claims: —; hold: 0.8 -->
 
@@ -118,8 +118,8 @@ S11.4 That's the gap between the schedule's long road and the replay's typical o
 
 S12.1 But that's on paper. <!-- claims: — -->
 S12.2 We also checked a larger set: every purchase month since January 1991 with two years of prices after it. <!-- claims: nA -->
-S12.3 Two years after purchase, only 15.6 percent of them were at or below the 75 percent bar that lenders often use early on. <!-- claims: shareA_ltv24_le75, nA, value_removal_ltv_early; hold: 1 -->
-S12.4 So reaching 80 percent on paper in about two years was common in this history, while clearing a lender's early bar by then was not. <!-- claims: medianB_months_to80, shareA_ltv24_le75 -->
+S12.3 Two years after purchase, only 15.6 percent of them were at or below the 75 percent bar Fannie Mae sets for its loans when a borrower asks to cancel on today's value, a separate route from the law's schedule. <!-- claims: shareA_ltv24_le75, nA, value_removal_ltv_early, value_removal_rule; hold: 1 -->
+S12.4 So reaching 80 percent on paper in about two years was common in this history, while clearing that early bar by then was not. <!-- claims: medianB_months_to80, shareA_ltv24_le75 -->
 
 ## S13 — The slow tail
 

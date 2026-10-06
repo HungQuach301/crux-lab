@@ -120,14 +120,14 @@
   "asr": "Victor bought the year after Owen in October 2005, the slowest month in the replay. Prices rose a little, then fell for years, and even when he finally reached 80 % on paper, the index was still below where it started. He got there by paying the loan down, and his own schedule, at his lower rate of 6 .07%, reached 80 % of the original price first, at payment 90. Whether a lender would have dropped his insurance at that point, this data can't show."
  },
  "S18": {
-  "take": "e81f3c6c6994bce4.mp3",
+  "take": "5b3b914301ef48ab.mp3",
   "duration": 45.12,
   "charsSpent": 633,
   "keys": 6,
-  "missingKeys": [
-   "illustrative"
-  ],
-  "asr": "Same rule, same national index. What differed was the month they started and what prices did next. So a plan can be measured against two benchmarks from this history. One is the schedule the law uses, which on the example loan runs most of a decade. The other is history on paper. A plan that counts on about two years matched the typical month, math, not the slow ones, and not the lender's step. On the illustrated $400 ,000 home, the other path, 20 % down, means $40 ,000 more upfront. This video doesn't weigh that against renting or waiting. It measures how long the insurance math took."
+  "missingKeys": [],
+  "asr": "Same rule, same national index. What differed was the month they started and what prices did next. So a plan can be measured against two benchmarks from this history. One is the schedule the law uses, which on the example loan runs most of a decade. The other is history on paper. A plan that counts on about two years matched the typical month, math, not the slow ones, and not the lender's step. On the illustrated $400 ,000 home, the other path, 20 % down, means $40 ,000 more upfront. This video doesn't weigh that against renting or waiting. It measures how long the insurance math took.",
+  "seed": 1006,
+  "note": "seed 1005 (e81f3c6c…) ASR \"illustrated\" p 0,42/0,49 → chọn 1006 (\"illustrative\" 0,78/0,82); 1007 0,62/0,65. review-g1/s18-seeds.json"
  },
  "S19": {
   "take": "ad1275a15657bc26.mp3",
@@ -144,5 +144,21 @@
   "keys": 5,
   "missingKeys": [],
   "asr": "So, how long does the insurance last? On the schedule, the answer is set the day the loan starts. On paper, history gave answers from about a year to more than nine years. And on paper is never the same as removed. This is U .S. only, and it's history, not a forecast."
+ },
+ "S03": {
+  "take": "5495659e1977c1e8.mp3",
+  "duration": 29.76,
+  "charsSpent": 436,
+  "keys": 8,
+  "missingKeys": [],
+  "asr": "On paper means the loan is 80 % of the home's value by a national price index. That's not the same as getting the insurance removed. Removal on today's value, when you ask, is the loan owner's rule. For Fannie Mae loans, that's two years and a 75 % bar. You'll also meet three illustrative buyers who got very different answers. It's US only. History, not a forecast. And it won't say whether to buy or wait."
+ },
+ "S12": {
+  "take": "2bf6581f596db6de.mp3",
+  "duration": 35.36,
+  "charsSpent": 502,
+  "keys": 8,
+  "missingKeys": [],
+  "asr": "But that's on paper. We also checked a larger set, every purchase month since January 1991, with two years of prices after it. Two years after purchase, only 15 .6 % of them were at or below the 75 % bar Fannie Mae sets for its loans, when a borrower asks to cancel on today's value, a separate route from the law's schedule. So, reaching 80 % on paper in about two years was common in this history, while clearing that early bar by then was not."
  }
 }

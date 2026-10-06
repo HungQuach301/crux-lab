@@ -19,3 +19,5 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc: kiểm m�
 | 2026-10-06 | C2 | kiểm mù | headless 6 mới + 1 người chấm | vòng 2 | 56.363 + 17.586 | 6/6, khuyên 0, S18 3/6 → ĐẠT |
 | 2026-10-06 | G1 | REVIEWER | agent general-purpose | soát gói G1 (`REVIEW-G1.md`) | 98.909 | ĐẠT có sửa, 8 sửa chữ đã áp |
 | 2026-10-06 | sau G1 | dựng | `story/voice_scenes.py` (lệnh) | lời theo cảnh S05–S11, S13–S20 (S01/S02/S04 từ cache; S03, S12 giữ chờ câu 75 %) | — | EL **4.887** ký tự (cả tập 6.531/6.000, +9 %, nêu tên); 18 cảnh 367 s; ASR từ khoá 17/18 — S18.5 "illustrative" nghe "illustrated" (medium.en p 0,49) |
+| 2026-10-06 | sau G1 | điều phối | phiên chính | áp lời chủ dự án S03.3, S12.3 (75 % = quy định Fannie Mae, theo giá trị hiện tại khi chủ vay yêu cầu, khác lịch luật) + S12.4 "that early bar" | — | check: S03 3 số mới (ngoại lệ, chữ chủ dự án) |
+| 2026-10-06 | sau G1 | dựng | `voice_scenes.py --only S03,S12`, `table_read.py`, `s18_seeds.py` | sinh lại S03, S12; S18 seed 1006/1007 | — | EL 938 + 1.266; ASR 0 mất; M1 2,8 · M2 22,8 · M3 9,0 · **M4 9,71** · M5 29,2 s ĐẠT; S18 chọn seed 1006 |
