@@ -263,7 +263,7 @@ export async function boot(variant) {
   const Pp = { p: [4.4, 5.6, 7.8], l: [5.6, 5.3, 0] };
   const T1 = { p: [5.6, 2.9, 11.5], l: [5.6, 1.9, 0] };
   const T2 = { p: [5.6, 4.7, 18.0], l: [5.6, 3.65, 0] };
-  const shots = [[0, A0], [4.7, A1], [5.1, A1], [7.6, Bn], [14.6, Bn], [16.9, Wd], [28.9, Wd], [32.5, W4], [38.9, W4], [40.5, Rd], [46.5, Rd], [50.0, R2], [55.2, R2], [59.4, Nn], [61.25, Nn], [62.3, Pp], [62.9, Pp], [64.1, T2]];
+  const shots = [[0, A0], [4.7, A1], [5.1, A1], [7.6, Bn], [14.6, Bn], [16.9, Wd], [28.9, Wd], [32.5, W4], [38.9, W4], [40.5, Rd], [46.5, Rd], [50.0, R2], [55.2, R2], [59.4, Nn], [61.25, Nn], [62.3, Pp], [62.8, Pp], [63.75, T2]];
   function setCam(t) {
     let a = shots[0], b = shots[0];
     for (let i = 0; i < shots.length; i++) { if (shots[i][0] <= t) { a = shots[i]; b = shots[Math.min(i + 1, shots.length - 1)]; } }

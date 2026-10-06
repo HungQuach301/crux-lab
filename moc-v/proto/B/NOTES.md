@@ -30,5 +30,16 @@ Outputs: `moc-v/work/B-code.mp4`, `moc-v/work/B-cc.mp4`, stills in `moc-v/work/B
 - CC model (obj_house1) is a flat-roofed voxel bungalow: reads as "a building" more than "a home" at small size; texture is a tiny palette PNG (nearest filtering). Collada Z-up warning is harmless.
 - No randomness except a seeded LCG for neighbourhood layout; frame(t) is pure in t (camera, objects, labels).
 
+## v2 (director pass `moc-v/eval/director-B.md`, code variant only; B-cc.mp4 stays v1)
+- Year sweep follows new `draw` keys (2000 @ 17.70, 2026 @ 19.69); 12 SOLD houses pop exactly on the 12 `tick` events (8.98–13.23); ghost house re-solidifies only during the sweep (15.85 → 17.70).
+- b1.rise 7.18: accent arrow grows up beside the ghost stack + "value rises with the index".
+- Trail now runs along the stack's left edge (x − 0.68) so the index orb visibly becomes the line head.
+- Value trail dimmed to ~25 % from beam lock (23.71) until b4.grow; at grow it re-brightens left→right ("$200,000, grown with the index" at the value top). b4.gain 30.0: "their gain on paper = ?". b4.two 33.94: bottom 8 bundles + "$200,000". less: slab slides out (ease-out from cue), stack + line fall exactly 2 units over 1.6 s; a 30 % ghost of the value line stays at the old height with a bracket showing the $200,000 gap. paid 39.58: "$200,000 paid". Calendar hidden 29.7–39.7 (it is static there).
+- No rewind jump: house glides back along the full, bright gain line over [39.69, 40.59]; the not-yet-ridden part dims only after the ride starts.
+- b5.under: thick cushion bracket + "well under". b6.cross: double warn ring burst + spark. "Over: Q2 2022" (dimmed slightly at slip) and "Stayed over since Q2 2023" both stay until b9.fly.
+- b9: Rosa & Frank stand on the beam next to their stack from b9.t0; number appears only at fly (ease-out), lands with "gain on paper" above it. Calendar/axis fade at 55.0; "$500,000 cap" label re-anchors to the visible beam segment during the push-in.
+- b10.past: stack bumps up through the beam (+0.28 u, 0.6 s) with spark + shake.
+- b11: whole chart hidden by 63.29; title at 63.2; today's house grows 63.8 → cue x (ease-out); 2000 twin pops 63.75; labels from 64.2; Rosa & Frank beside today's house.
+
 ## Render times
 (see `moc-v/work/B-code.mp4.render.json`, `moc-v/work/B-cc.mp4.render.json`)
