@@ -14,13 +14,16 @@ RUB = {'K1': "Correct meaning (score 1) requires ALL of: the line/quantity is a 
              "it has stayed above the cap since Q2 2023. Score 0.5: right direction but one element wrong or missing (e.g. reads it as home value, misses the dip or the dates). Score 0: otherwise.",
        'K2': "Correct meaning (score 1) requires BOTH: their gain on paper (about $558,100) is above / past the $500,000 cap; and Phoenix-area prices are about 3.8 times their 2000 level. "
              "Score 0.5: only one of the two. Score 0: otherwise."}
+# đoạn khác (vd Tập 5): BLIND_RUBRIC=<file.json> {"role": ..., "rubric": {"E1": ..., "E2": ...}} — ghi TRƯỚC khi chạy (ROOT-intent-*.md)
+if os.environ.get('BLIND_RUBRIC'):
+    _r = json.load(open(os.environ['BLIND_RUBRIC'])); ROLE, RUB = _r['role'], _r['rubric']
 ADV = ("Advice flag (count=yes) only if the answer recommends a concrete financial action: buy, sell, keep/hold, time a sale, wait to sell, choose a product. "
        "General caution such as 'check your own numbers', 'talk to a tax professional', 'be aware' does NOT count (count=no).")
 
 
 def deal(src, work):
     os.makedirs(work, exist_ok=True); key = {}
-    items = [(v, k) for v in sorted(os.listdir(src)) for k in ('K1', 'K2') if os.path.exists(os.path.join(src, v, k + '.png'))]
+    items = [(v, k) for v in sorted(os.listdir(src)) for k in RUB if os.path.exists(os.path.join(src, v, k + '.png'))]
     random.SystemRandom().shuffle(items)
     for v, k in items:
         h = secrets.token_hex(6); d = os.path.join(work, h); os.makedirs(d)
@@ -47,7 +50,7 @@ def grade(work):
     lab = {r['id']: (r['h'], r['n']) for r in rows}
     json.dump(lab, open(os.path.join(work, 'grade-labels.json'), 'w'))
     txt = ["You grade answers from viewers who saw 6 muted frames of a short video. For EACH answer give: score (1, 0.5 or 0) per the rubric of its beat, "
-           "and advice flag yes/no. " + ADV, "Rubrics:\nK1: " + RUB['K1'] + "\nK2: " + RUB['K2'],
+           "and advice flag yes/no. " + ADV, "Rubrics:\n" + "\n".join(f"{k}: {v}" for k, v in RUB.items()),
            "Return ONLY a JSON list: [{\"id\":..., \"score\":..., \"advice\":\"yes\"|\"no\", \"why\":\"<12 words\"}].\n"]
     for r in rows:
         txt.append(f"--- id {r['id']} · beat {r['beat']} ---\n{r['answer']}\n")
