@@ -3,8 +3,9 @@
 Lời: take đã duyệt của nhánh ep005 (chép vào moc-v/seg/ep005/voice/, không sinh lại); S03 cắt sau S03.2. Vị trí take theo table read G1.
 """
 import json, os, re, sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'world'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'toolkit', 'factory', 'world'))
 from onset import refine          # mốc đầu từ = lúc NGHE được (bài học Tập 4 v3d)
+import spine as SV                # spine v2 của nhà máy (toolkit/factory/world/spine.py)
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 PAD = 0.25
@@ -28,12 +29,7 @@ for scene, h, off, sids in TK:
 TOTAL = round(max(w['e'] for w in words) + 1.6, 2)
 
 
-def at(ref):
-    m = re.match(r'@(S\d\d\.\d)(?::([^$]+))?(\$)?$', ref)
-    sid, wd, e = m.groups(); ws = [w for w in words if w['sid'] == sid]
-    if e: return ws[-1]['e']
-    if wd: return next(w['s'] for w in ws if re.sub(r'[^\w-]', '', w['w']).lower().startswith(wd.lower()))
-    return next(w['s'] for w in ws if not w['w'].startswith('['))
+at = SV.Anchors(words).at
 
 
 B = [
@@ -53,18 +49,11 @@ B = [
  ('c5', 'S03.2', 'world', 'Chạm 80 % trên giấy chưa phải là được gỡ bảo hiểm.', 'về căn nhà: khiên bảo hiểm VẪN ở trên mái dù chồng vay đã thấp; khiên rung nhẹ rồi đứng yên lúc "removed"; nhãn "insurance still on".',
   {'same': '@S03.2:same', 'removed': '@S03.2:removed'}, ['tiếng trầm có thân ở "removed" + nốt chốt', 'nhạc tắt ở "removed", hợp âm cuối'], 0.35, 'tỉnh táo', '(hết) giữ trạng thái kết luận ≥ 1 s'),
 ]
-beats = []
-for bid, sid, mode, idea, visual, cues, sound, ten, emo, nxt in B:
-    beats.append({'id': bid, 'sid': sid, 'mode': mode, 'idea': idea, 'visual': visual, 'line': lines[sid], 'sound': sound, 'music': ten, 'emotion': emo,
-                  'next': nxt, 't0': at('@' + sid), 't1': at('@' + sid + '$'), 'cues': {k: at(v) for k, v in cues.items()}})
+beats = SV.beats_from(B, SV.Anchors(words), lines)
 cue = {b['id']: b['cues'] for b in beats}
-CUES = sorted((t, f"{b['id']}.{k}") for b in beats for k, t in b['cues'].items())
 
 
-def window(after, before, dur, late=False):
-    a, b = after + PAD, before - PAD
-    if b - a < 0.6: raise SystemExit(f'cửa sổ quá ngắn giữa {after} và {before}')
-    b -= 0.01; t0 = max(a, b - dur) if late else max(a, (a + b) / 2 - dur / 2); return [round(t0, 3), round(min(b, t0 + dur), 3)]   # late: 'pan' giữ "slow cases" lâu hơn
+window = lambda after, before, dur, late=False: SV.window(after, before, dur, PAD, late, eps=0.01)   # late: 'pan' giữ "slow cases" lâu hơn
 
 
 MOVES = [
@@ -96,19 +85,12 @@ EV += [{'t': cue['c0']['saved'], 'kind': 'tick', 'v': 0.5}, {'t': cue['c0']['ten
        {'t': cue['c4']['eighty'], 'kind': 'chime'},
        {'t': cue['c5']['removed'], 'kind': 'impact'}]   # E5e: chốt rõ hơn (tiếng trầm có thân)
 GAIN = {'mode': 0.6, 'pan': 0.8, 'pull': 1.0}                 # bài học Tập 4 v3d: whoosh_mode quá to; chỉ đổi chế độ mới có tiếng chạm
-for m in moves:
-    EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': GAIN[m['verb']]})
-    if m['verb'] == 'mode': EV.append({'t': m['t1'], 'kind': 'land', 'mode': True})
+EV += SV.move_sounds(moves, lambda m: GAIN[m['verb']])
 EV.sort(key=lambda e: e['t'])
 TEN = {'c0': 0.3, 'c1': 0.45, 'c2': 0.6, 'c3': 0.8, 'c4': 0.65, 'c5': 0.4}   # E5c: biên độ rộng hơn (đạo diễn: nhạc phẳng)
 tension = [[0, 0.15]] + [[b['t0'], TEN[b['id']]] for b in beats] + [[TOTAL - 1.5, 0.25], [TOTAL, 0.1]]
-cuts = [0] + [m['t0'] for m in moves] + [TOTAL]
-shots = [{'id': f's{i}', 't0': round(a, 3), 't1': round(b, 3)} for i, (a, b) in enumerate(zip(cuts, cuts[1:]))]
-errs = []
-for m in moves:
-    for t, name in CUES:
-        if m['t0'] - PAD < t < m['t1'] + PAD: errs.append(f'quy tắc 2: từ khoá {name} @{t} trong cửa sổ {m["verb"]} {m["t0"]}–{m["t1"]}')
-if next(m for m in moves if m['verb'] == 'mode')['t0'] < 5.0: errs.append('quy tắc 7: 5 s đầu phải ở chế độ thế giới')
+shots = SV.shots_for(moves, TOTAL)
+errs = SV.check_rules(beats, moves, PAD)
 spine = {'segment': 'ep005 S01.1 → S03.2 (cold open, table read G1)', 'version': 3, 'total': TOTAL, 'fps': 30, 'pad': PAD, 'takes': takes, 'words': words,
          'beats': beats, 'moves': moves,
          'music_plan': {'stop': cue['c5']['removed'], 'tau': 0.15, 'release': cue['c5']['removed'] + 1.0, 'accents': [cue['c2']['eight'], cue['c4']['eighty'], cue['c5']['removed'] + 0.05]},

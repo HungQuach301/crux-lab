@@ -34,7 +34,31 @@ Kiểm mù "cổng gốc" = tắt tiếng, GIỮ chữ/số, dải 6 khung, ngư
 ## 3. Không đưa vào thư viện (đã trượt)
 - **Hũ đệm** (KEY-4 Tập 2): cổng gốc v2 1,5/3, **khuyên 2** — người đọc đọc thành "tiết kiệm/an toàn". Mã ở `episodes/ep002/design/c3/final/src/k4*.js`.
 - **Hai cột thời kỳ** (KEY-7 Tập 2): 7 lần kiểm, không lần nào đạt; người đọc gán chuyển động cho "trả nợ theo thời gian". Mã `k7*.js`.
-- **Vật thể thật 3D** (H1 Tập 2): che chữ C3 2/7; render 13,5–20 s máy/s phim. CHARTER §5: không dùng thế giới 3D.
+- **Vật thể thật 3D** (H1 Tập 2): che chữ C3 2/7; render 13,5–20 s máy/s phim. *(Lịch sử: D-010 thay luật "không thế giới 3D" bằng thế giới 3D tối giản — xem §5; H1 vẫn trượt vì vật chân thực, không có chế độ đồ thị.)*
 
 ## 4. Thêm ký hiệu mới
 Một ký hiệu vào thư viện khi: (1) qua cổng gốc ở C3 hoặc C4 (≥ 2/3, khuyên 0) với người chấm độc lập mù tập; (2) có một câu "mang nghĩa" và luật màu/chuyển động không trùng nghĩa ký hiệu khác; (3) có mã tham chiếu và một ảnh xem trước. Phiên tổng kết của tập thêm dòng vào bảng §2, ghi tập và số đo.
+
+## 5. Thế giới 3D tối giản (D-010, Mốc V, 06/10/2026)
+
+Gen kênh: **low-poly, màu kênh, không chân thực ảnh, nhân vật không mặt, không chi tiết trang trí không mang nghĩa.** Một thế giới, hai chế độ máy quay:
+THẾ GIỚI (phối cảnh: người, nhà, khu phố) ↔ ĐỒ THỊ (máy khoá chính diện vào chính vệt đỉnh chồng tiền). Số và nhãn so sánh chỉ ở chế độ đồ thị.
+
+**Mã dùng chung, không chép** (khác §2): `toolkit/factory/world/lib3d.js` (vật thể có tham số), `core.js` (máy quay theo spine, lớp phủ 2D, nhật ký quy tắc 1),
+`spine.py` (spine v2), `render_shots.js` (render theo cảnh có cache), `audio.py` (tiếng theo spine), `build_seg.py` (một lệnh dựng + kiểm một đoạn).
+Mỗi đoạn chỉ viết `spine.py` + `scene.js` của nó. Mẫu: `moc-v/seg/ep004/`, `moc-v/seg/ep005/`. Vật thể mới mỗi tập: qua C3 bằng clip có chuyển động và âm (E4, D-010 quy tắc 4).
+
+| # | Vật thể (`lib3d.js`) | Tham số chính | Mang nghĩa | Xem trước | Bằng chứng |
+|---|---|---|---|---|---|
+| **W1** | `House` | `w, wall, roof, lit` | căn nhà của nhân vật; ở chế độ đồ thị **đứng trên mặt đất cạnh chồng**, không phải dữ liệu | `previews/world-ep004-house-stack.png` | Tập 4 đoạn (a): cổng gốc K1 3/3 · K2 3/3 · 0 khuyên (`moc-v/eval/v3-blind22-raw`); L3 4·4·4·4·4·4 |
+| **W2** | `Stack` | `unitUsd, bundleUsd` (mệnh giá bó **cố định**), `.set({usd, fromUsd, warnAboveUsd, tintBelowUsd})` | số tiền = chiều cao (số bó × độ dày bó); đỉnh chồng vẽ ra đường dữ liệu | như trên · `previews/world-ep004-chart.png` | như W1; Tập 5 đoạn (b) E2 3/3 · 0 khuyên (`moc-v/eval/e5-blind10-raw`) |
+| **W3** | `Beam` | `length, color` | mức cố định (trần, ngưỡng) — đứng yên, `ink-muted` | `previews/world-ep004-chart.png` | Tập 4 K1/K2 như W1 |
+| **W4** | `Person` | `h, color` | nhân vật minh hoạ không mặt (luôn ILLUSTRATIVE) | `previews/world-ep004-house-stack.png` | Tập 4 K1 như W1 |
+| **W5** | `Ribbon` | `maxPts, width, color, z` | vệt đỉnh chồng theo thời gian = đường của đồ thị | `previews/world-ep004-chart.png` | Tập 4 K2 như W1 |
+| **W6** | `Fan` | `maxSeg` | bó đường phát lại (mỗi tháng mua một đường) | — | Tập 5 E1 3/3 · 0 khuyên (`e5-blind10-raw`) |
+| **W7** | `Shield` | `size, color` | bảo hiểm khoản vay gắn trên mái | `previews/world-ep005-shield.png` | Tập 5 E2 3/3 · 0 khuyên |
+| **W8** | `Neighborhood` | `n, seed, spanX, z, size` | "nhiều giao dịch" → một chỉ số | `previews/world-ep004-hood.png` | trong clip L3 đã duyệt; **chưa** nằm trong khoảng cổng gốc → dùng lại thì kiểm |
+| **W9** | `Apartment` | `w, floors, color` | lối "thuê tiếp" | `previews/world-ep005-fork.png` | như W8 |
+| — | `Studio`, `Burst`, `setOpacity`, `PALETTE` | — | ánh sáng/sàn, loé khi chạm, mờ dần, màu vật liệu (màu dữ liệu vẫn là E2) | — | hạ tầng |
+
+Bằng chứng tái lập: dựng lại hai đoạn bằng `build_seg.py` cho hình và tiếng **trùng MD5** (giải mã) với clip chủ dự án đã duyệt (`moc-v/b3/factory-proof.md`).

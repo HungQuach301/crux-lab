@@ -1,8 +1,8 @@
 // Mốc V · đoạn (a) Tập 4 — cảnh "một thế giới, hai chế độ máy quay". Mọi mốc từ spine.json (cues/moves/draw/ride/events);
 // hằng số trong file chỉ là HÌNH HỌC (toạ độ, kích thước) và độ dài hiệu ứng chung (FADE…), không phải mốc giờ.
 import * as THREE from 'three';
-import { House, Stack, Beam, Person, Neighborhood, Ribbon, Studio, Burst, PALETTE, setOpacity } from '../../world/lib3d.js';
-import { Camera, Stage, loadJSON, fonts, C, clamp, lin, ease, easeOut, mix, rgba } from '../../world/core.js';
+import { House, Stack, Beam, Person, Neighborhood, Ribbon, Studio, Burst, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
+import { Camera, Stage, loadJSON, fonts, C, clamp, lin, ease, easeOut, mix, rgba } from '/toolkit/factory/world/core.js';
 
 const FADE = 0.4, POP = 0.15;                       // độ dài hiệu ứng chung (giây)
 const U = 1e5;                                      // $ / đơn vị thế giới (trục y)

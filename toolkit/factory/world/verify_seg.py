@@ -1,5 +1,5 @@
 """Mốc V · kiểm một đoạn trên SẢN PHẨM CUỐI (không sửa checks/; tiêu chí C14 chép đúng checks/page/sampler.js).
-  python3 moc-v/world/verify_seg.py <seg> <video.mp4> <out.json>
+  python3 toolkit/factory/world/verify_seg.py <thư mục đoạn> <video.mp4> <out.json>
 Đọc <video>.log.json (nhật ký trang mỗi 0,1 s từ render_shots.js) + spine.json.
   rule1   : chữ loại number/compare chỉ khi chartW ≥ 0,95 (vi phạm do trang ghi)
   rule2   : máy quay đứng yên ± pad quanh mọi từ khoá (log.camMoving tại mẫu gần nhất)
@@ -12,8 +12,8 @@
 import json, os, subprocess, sys
 import numpy as np
 seg, video, out = sys.argv[1:4]
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-S = json.load(open(os.path.join(ROOT, f'moc-v/seg/{seg}/spine.json')))
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+S = json.load(open(os.path.join(seg if os.path.isdir(seg) else os.path.join(ROOT, 'moc-v/seg', seg), 'spine.json')))
 logs = json.load(open(video.replace('.mp4', '.log.json')))
 logs.sort(key=lambda l: l['t'])
 res = {'video': video}

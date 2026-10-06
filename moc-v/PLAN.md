@@ -33,3 +33,7 @@ Việc còn lại theo thứ tự: (a) Tập 4 nhà ở đồ thị theo V3i, c�
 ### Kết quả hai sửa khách quan (06/10)
 - (a) Tập 4 v3l — nhà đứng mặt đất cạnh chồng ở đồ thị, khung phóng chừa dải mặt đất, tên đường gắn trên đường: cổng gốc **K1 3/3 · K2 3/3 · 0 khuyên** (`eval/v3-blind22-raw`). Không còn "don't rush to sell".
 - (b) Tập 5 E5h — đường "slow cases" màu trung tính + nhãn thời lượng "≈ 9 years", bỏ nhãn 100 %, tách nhãn "typical"/"schedule": cổng gốc **E1 3/3 · E2 3/3 · 0 khuyên** (`eval/e5-blind10-raw`). Không còn "buy only if able to stay 8+ years".
+
+## Áp thiết kế vào nhà máy (06/10)
+Thư viện vật thể, spine v2, render theo cảnh có cache, âm theo spine, kiểm đoạn → `toolkit/factory/world/` (README nhà máy, `visual-library` §5 W1–W9).
+Dựng lại hai đoạn chứng minh qua nhà máy: hình + tiếng trùng MD5 với clip đã duyệt (`moc-v/b3/factory-proof.md`). Ghép vào master: BACKLOG F-5.

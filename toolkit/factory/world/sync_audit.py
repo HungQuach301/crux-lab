@@ -1,5 +1,5 @@
 """Mốc V: kiểm đồng bộ trên SẢN PHẨM CUỐI.
-  python3 moc-v/proto/sync_audit.py <video.mp4> <out.json>
+  python3 toolkit/factory/world/sync_audit.py <video.mp4> <out.json> --spine <spine.json>   (từ moc-v/proto, Mốc V)
 (1) Lời: ASR (faster-whisper small.en, word timestamps) trên bản trộn cuối → lệch so với alignment của take (spine.words).
 (2) Hình: mỗi cue hình của spine (từ khoá) → khung đầu tiên trong [−0,4; +0,8] s có thay đổi điểm ảnh ≥ 35 % đỉnh cửa sổ; lệch = khung đó − từ khoá.
 (3) Âm dữ liệu/sfx: mỗi sự kiện spine → đỉnh onset của bản trộn trong [−0,1; +0,2] s (nốt có thể dời vào khe lời ≤ 120 ms)."""
@@ -7,7 +7,7 @@ import json, os, re, subprocess, sys
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 video, out = sys.argv[1:3]
-spine = json.load(open(sys.argv[sys.argv.index('--spine') + 1] if '--spine' in sys.argv else os.path.join(HERE, 'spine.json')))
+spine = json.load(open(sys.argv[sys.argv.index('--spine') + 1]))
 from faster_whisper import WhisperModel
 m = WhisperModel('small.en', device='cpu', compute_type='int8')
 pcm = np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', video, '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], capture_output=True).stdout, np.float32)

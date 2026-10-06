@@ -30,3 +30,6 @@ episodes/*/work/factory/
 # Mốc V: thư viện tải về (three, mmmm-models) và file nặng của đoạn thử
 moc-v/proto/vendor/
 moc-v/work/
+
+# three.js của thế giới 3D (npm ci trong toolkit/factory/world/vendor)
+toolkit/factory/world/vendor/node_modules/

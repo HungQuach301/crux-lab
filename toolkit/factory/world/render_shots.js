@@ -1,5 +1,8 @@
-// Mốc V · RENDER THEO CẢNH có bộ nhớ đệm + resume (D-010 quy tắc 8).
-//   NODE_PATH=$(npm root -g) node moc-v/world/render_shots.js <seg> <res 540|1080> <out.mp4> [--workers 3] [--only s3,s4] [--stills t1,t2 --stills-dir D]
+// Nhà máy · RENDER THEO CẢNH có bộ nhớ đệm + resume (D-010 quy tắc 8). Chuyển từ moc-v/world (Mốc V).
+//   NODE_PATH=$(npm root -g) node toolkit/factory/world/render_shots.js <thư mục đoạn> <res 540|1080> <out.mp4> [--workers 3] [--only s3,s4]
+//        [--stills t1,t2 --stills-dir D] [--cache <thư mục>]
+//   <thư mục đoạn> (tính từ gốc repo) chứa scene.js + spine.json [+ inputs.json]; vd moc-v/seg/ep004, episodes/ep006/world/s04.
+//   Cache mặc định: <thư mục đoạn>/../../work/cache/<tên đoạn>/<res> (moc-v/seg/ep004 → moc-v/work/cache/ep004/540).
 // - Cảnh = spine.shots (ranh giới giữa các động tác máy quay). Khoá cache = SHA-256(mã thư viện + cảnh + spine + dữ liệu + khoảng + độ phân giải).
 //   Cảnh đã có trong cache (work/cache/<seg>/<res>/) thì bỏ qua → chỉ render lại cảnh đã sửa; chạy lại sau khi container khởi động lại = resume.
 // - Mỗi khung thứ 3 (0,1 s) ghi nhật ký trang (chữ: hộp, cỡ, độ mờ, loại; chartW; camMoving; vi phạm quy tắc 1) → <cảnh>.log.json.
@@ -7,19 +10,20 @@
 const { chromium } = require('playwright');
 const { spawn, execFileSync } = require('child_process');
 const fs = require('fs'), path = require('path'), crypto = require('crypto'), os = require('os');
-const ROOT = path.resolve(__dirname, '../..');
+const ROOT = path.resolve(__dirname, '../../..');
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.woff2': 'font/woff2', '.png': 'image/png' };
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 
 (async () => {
-  const [seg, resS, outRel] = process.argv.slice(2); const res = +resS, out = path.resolve(outRel);
+  const [segArg, resS, outRel] = process.argv.slice(2); const segDir = path.relative(ROOT, path.resolve(segArg)), seg = path.basename(segDir); const res = +resS, out = path.resolve(outRel);
   const W = Math.round(1920 * res / 1080), H = res, FPS = 30;
-  const spine = JSON.parse(fs.readFileSync(path.join(ROOT, `moc-v/seg/${seg}/spine.json`), 'utf8'));
-  const files = ['moc-v/world/lib3d.js', 'moc-v/world/core.js', 'moc-v/world/page.html', 'moc-v/world/render_shots.js', `moc-v/seg/${seg}/scene.js`,
-    `moc-v/seg/${seg}/spine.json`, ...(fs.existsSync(path.join(ROOT, `moc-v/seg/${seg}/inputs.json`)) ? JSON.parse(fs.readFileSync(path.join(ROOT, `moc-v/seg/${seg}/inputs.json`))) : ['moc-v/proto/data.json'])];
+  const spine = JSON.parse(fs.readFileSync(path.join(ROOT, segDir, 'spine.json'), 'utf8'));
+  const LIB = 'toolkit/factory/world/', inputs = path.join(ROOT, segDir, 'inputs.json');
+  const files = [LIB + 'lib3d.js', LIB + 'core.js', LIB + 'page.html', LIB + 'render_shots.js', LIB + 'vendor/package.json', `${segDir}/scene.js`,
+    `${segDir}/spine.json`, ...(fs.existsSync(inputs) ? JSON.parse(fs.readFileSync(inputs)) : [])];
   const codeHash = crypto.createHash('sha256'); for (const f of files) codeHash.update(f + '\0' + fs.readFileSync(path.join(ROOT, f)));
   const codeKey = codeHash.digest('hex');
-  const cacheDir = path.join(ROOT, `moc-v/work/cache/${seg}/${res}`); fs.mkdirSync(cacheDir, { recursive: true });
+  const cacheDir = arg('--cache') ? path.resolve(arg('--cache')) : path.join(ROOT, segDir, '..', '..', 'work', 'cache', seg, String(res)); fs.mkdirSync(cacheDir, { recursive: true });
   const only = arg('--only') ? new Set(arg('--only').split(',')) : null;
   const browser = await chromium.launch({ args: ['--font-render-hinting=none', '--disable-lcd-text', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const open = async () => {
@@ -32,7 +36,7 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
     const page = await ctx.newPage();
     page.on('pageerror', (e) => { console.error('pageerror:', e.message); process.exitCode = 1; process.exit(1); });   // lỗi trang = dừng ngay (không để video cũ bị dùng lại)
     page.on('console', (m) => { if (m.type() === 'error') console.error('page:', m.text()); });
-    await page.goto(`http://mocv.local/moc-v/world/page.html?seg=${seg}&res=${res}`);
+    await page.goto(`http://mocv.local/toolkit/factory/world/page.html?seg=${encodeURIComponent(segDir)}&res=${res}`);
     await page.waitForFunction('window.READY === true', null, { timeout: 180000 });
     return page;
   };

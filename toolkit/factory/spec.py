@@ -150,6 +150,14 @@ def check(spec, root, duration=None):
             add('BLOCK', 'voice_overrides', f'{sid}: {o!r} — allowed keys: seed, settings, voice, model, take')
         elif 'take' in o and not os.path.isfile(os.path.join(root, 'voice-takes', str(o['take']) + '.mp3')):
             add('BLOCK', 'voice_overrides', f"{sid}: take {o['take']!r} not in voice-takes/")
+    for w in spec.get('world') or []:   # D-010 (Mốc V): đoạn thế giới 3D, dựng bằng toolkit/factory/world/build_seg.py
+        d = os.path.join(root, str(w.get('dir', '')))
+        miss = [f for f in ('spine.py', 'scene.js') if not os.path.isfile(os.path.join(d, f))]
+        if not w.get('id') or not w.get('dir') or miss:
+            add('BLOCK', 'world', f"{w.get('id')}: needs id, dir with spine.py + scene.js (missing: {miss or 'id/dir'})")
+        bad = [s for s in w.get('scenes') or [] if s not in scene_ids]
+        if not w.get('scenes') or bad:
+            add('BLOCK', 'world', f"{w.get('id')}: scenes {bad or '[]'} — must list scenes of this episode")
     P += counterweights(spec, root, claims)
     n_sym = len(spec.get('custom_symbols') or [])
     if n_sym > 2:

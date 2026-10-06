@@ -1,5 +1,5 @@
 """Mốc V · đoạn thử: tiếng ĐỦ LỚP từ trục xương sống (spine.json) — lời, nhạc theo căng–chùng, âm dữ liệu (bảng S2), hiệu ứng, room tone.
-  python3 moc-v/proto/audio.py <out_dir> [--music code|<file.wav>] [--no-data] [--no-sfx]
+  python3 toolkit/factory/world/audio.py <out_dir> --spine <spine.json> [--music code|<file.wav>] [--no-data] [--no-sfx]   (từ moc-v/proto, Mốc V)
 Ra: <out_dir>/mix.wav (−14 LUFS, ≤ −1,5 dBTP) + stems/{voice,music,data,sfx,room}.wav + audio-report.json.
 
 Luật áp (sổ gu):
@@ -17,7 +17,7 @@ from scipy.io import wavfile
 from scipy.ndimage import maximum_filter1d, uniform_filter1d
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
+ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 sys.dont_write_bytecode = True
 SR = 48000
 rng = np.random.default_rng(20261006)
@@ -345,7 +345,7 @@ def lufs(path):
 def main():
     out = sys.argv[1]; os.makedirs(os.path.join(out, 'stems'), exist_ok=True)
     music_src = sys.argv[sys.argv.index('--music') + 1] if '--music' in sys.argv else 'code'
-    spine = json.load(open(sys.argv[sys.argv.index('--spine') + 1] if '--spine' in sys.argv else os.path.join(HERE, 'spine.json')))
+    spine = json.load(open(sys.argv[sys.argv.index('--spine') + 1]))
     T = spine['total']; N = int(T * SR)
     voice = np.zeros(N)
     for tk in spine['takes']:
@@ -360,7 +360,7 @@ def main():
     else:
         mus = load(music_src, 2)[:N]; mus = np.pad(mus, ((0, N - len(mus)), (0, 0)))
         # nhạc từ file (thư viện/AI): cũng khoảng lặng ngắn sau 'cap' (G-003): nhả τ 90 ms, lặng ~1,1 s, trở lại trong 200 ms
-        cue = {bb['id']: bb['cues'] for bb in spine['beats']}; t_ = np.arange(N) / SR; c0 = cue['b10']['cap'] + 0.32
+        t_ = np.arange(N) / SR; c0 = spine['music_plan']['stop'] + 0.32   # mốc nhạc tắt của đặc tả nhịp (Tập 4: 'cap')
         g_ = np.where(t_ < c0, 1.0, np.where(t_ < c0 + 1.1, np.exp(-(t_ - c0) / 0.09), np.clip((t_ - c0 - 1.1) / 0.2, 0, 1)))
         mus = mus * g_[:, None]
     mus = mus[:N]

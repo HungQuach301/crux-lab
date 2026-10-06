@@ -1,7 +1,7 @@
 // Mốc V · đoạn (b) Tập 5 mở đầu — "một thế giới, hai chế độ máy quay". Mốc giờ chỉ từ spine.json; hằng số = hình học + độ dài hiệu ứng chung.
 import * as THREE from 'three';
-import { House, Stack, Beam, Person, Ribbon, Studio, Burst, Apartment, Shield, Fan, PALETTE, setOpacity } from '../../world/lib3d.js';
-import { Camera, Stage, loadJSON, fonts, C, clamp, lin, ease, easeOut, mix, rgba } from '../../world/core.js';
+import { House, Stack, Beam, Person, Ribbon, Studio, Burst, Apartment, Shield, Fan, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
+import { Camera, Stage, loadJSON, fonts, C, clamp, lin, ease, easeOut, mix, rgba } from '/toolkit/factory/world/core.js';
 
 const FADE = 0.4, POP = 0.15;
 const U = 1.25e5;                                     // $ / đơn vị — chồng tiền ở định nghĩa (c4)

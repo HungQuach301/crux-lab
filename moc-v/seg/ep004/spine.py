@@ -4,8 +4,9 @@ Một nguồn duy nhất cho mọi lớp: lời (take), hình (chế độ, tư 
 Mốc giờ: CHỈ từ alignment của take ("@câu:từ"); cửa sổ động tác máy quay tính từ hai từ khoá kề nhau (± ĐỆM).
 """
 import json, os, re, sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'world'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'toolkit', 'factory', 'world'))
 from onset import refine          # mốc đầu từ = lúc NGHE được (TTS hay gộp khoảng nghỉ vào đầu từ)
+import spine as SV                # spine v2 của nhà máy (toolkit/factory/world/spine.py)
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 HOP = 0.14                                    # nhà nảy qua xà: chạm lại ngay sau đầu chữ "cap"
@@ -21,12 +22,7 @@ takes = [{'mp3': os.path.relpath(t['mp3'], ROOT), 't': OFFSET[t['sentences'][0][
 lines = {s['id']: s['spoken'] for t in voice for s in t['sentences']}
 
 
-def at(ref, end=False):
-    m = re.match(r'@(S\d\d\.\d)(?::([^$]+))?(\$)?$', ref)
-    sid, wd, e = m.groups(); ws = [w for w in words if w['sid'] == sid]
-    if e: return ws[-1]['e']
-    if wd: return next(w['s'] for w in ws if re.sub(r'[^\w-]', '', w['w']).lower().startswith(wd.lower()))
-    return next(w['s'] for w in ws if not w['w'].startswith('['))
+at = SV.Anchors(words).at
 
 
 # ---- nhịp: ý · lời · chế độ · hành động hình · âm · căng · cảm xúc · chuyển (cues = TỪ KHOÁ: máy quay đứng yên quanh chúng)
@@ -58,21 +54,11 @@ B = [
  ('b11', 'S07.3', 'chart', 'Giá vùng Phoenix gần ×3,8 so với 2000.', 'đổi đại lượng lãi → GIÁ từ chữ "Phoenix": cả đường lãi NÂNG đúng $200,000 (cái đã trả) thành đường giá (xanh), khối teal "what they paid" về đáy chồng 2026; xà, nhãn trần tắt; máy lùi ra toàn cảnh; chồng giá 2000 (teal) ở 2000; ngoặc "×1" và "×3.8" lúc "three"; tiêu đề "Phoenix-area prices since 2000".',
   {'x': '@S07.3:three', 'lvl': '@S07.3:level'}, ['âm dữ liệu lên một quãng'], 0.30, 'thả, hiểu', '(hết) giữ trạng thái kết luận ≥ 1 s'),
 ]
-beats = []
-for bid, sid, mode, idea, visual, cues, sound, ten, emo, nxt in B:
-    beats.append({'id': bid, 'sid': sid, 'mode': mode, 'idea': idea, 'visual': visual, 'line': lines[sid], 'sound': sound, 'music': ten,
-                  'emotion': emo, 'next': nxt, 't0': at('@' + sid), 't1': at('@' + sid + '$'), 'cues': {k: at(v) for k, v in cues.items()}})
+beats = SV.beats_from(B, SV.Anchors(words), lines)
 cue = {b['id']: b['cues'] for b in beats}
-CUES = sorted((t, f"{b['id']}.{k}") for b in beats for k, t in b['cues'].items())
 
 
-def window(after, before, dur, late=False, start=None):
-    """cửa sổ động tác giữa hai từ khoá: bắt đầu sau 'after'+PAD, kết thúc trước 'before'−PAD, dài tối đa dur (late: sát từ khoá sau)."""
-    a, b = after + PAD, before - PAD
-    if b - a < 0.6: raise SystemExit(f'cửa sổ quá ngắn giữa {after} và {before}')
-    t0 = max(a, b - dur) if late else max(a, (a + b) / 2 - dur / 2)
-    if start is not None: t0 = min(max(a, start), b - 0.6)
-    return [round(t0, 3), round(min(b, t0 + dur), 3)]
+window = lambda after, before, dur, late=False, start=None: SV.window(after, before, dur, PAD, late, start)
 
 
 # ---- động tác máy quay hữu hạn (quy tắc 2) — mỗi lần có LÝ DO (câu lời / sự kiện dữ liệu) và ÂM (quy tắc 3)
@@ -137,24 +123,16 @@ EV += [{'t': cue['b0']['has'], 'kind': 'riser', 'to': cue['b0']['q']},
        {'t': cue['b10']['cap'] + HOP, 'kind': 'land', 'mode': False},   # nhà nảy qua xà, CHẠM ĐẤT ngay sau chữ "cap" (lượt đạo diễn v3c); sau đó lặng
        {'t': cue['b9']['rose'], 'kind': 'rise', 'dur': 0.9}]                  # mũi tên "rose" (cùng từ vựng hình với b1)
 GAIN = {'demoPush': 2.0, 'wide': 0.2, 'tip': 0.5, 'backChart': 0.5, 'toChart': 0.6, 'toDemo': 0.6}   # lượt đạo diễn v3c: whoosh_mode/whoosh dài quá to
-for m in moves:                                # quy tắc 3: mọi động tác có âm; mỗi LOẠI động tác một âm riêng, chỉ đổi chế độ mới có tiếng chạm
-    EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': GAIN.get(m['id'], 1.0)})
-    if m['verb'] == 'mode': EV.append({'t': m['t1'], 'kind': 'land', 'mode': True})
+EV += SV.move_sounds(moves, lambda m: GAIN.get(m['id'], 1.0))   # quy tắc 3: mỗi LOẠI động tác một âm riêng, chỉ đổi chế độ mới có tiếng chạm
 EV.sort(key=lambda e: e['t'])
 
 # ---- bản đồ căng (biên độ rộng: chủ dự án, Gói A §5)
 tension = sorted([[0, 0.12]] + [[b['t0'], b['music']] for b in beats if b['id'] != 'b11'] + [[cue['b10']['cap'] + 0.3, 1.0], [cue['b11']['x'], 0.30], [TOTAL - 2.0, 0.2], [TOTAL, 0.1]])
 # ---- cảnh render (cache theo cảnh, quy tắc 8): ranh giới = giữa các động tác máy quay
-cuts = [0] + [m['t0'] for m in moves] + [TOTAL]
-shots = [{'id': f's{i}', 't0': round(a, 3), 't1': round(b, 3)} for i, (a, b) in enumerate(zip(cuts, cuts[1:]))]
+shots = SV.shots_for(moves, TOTAL)
 
 # ---- tự kiểm
-errs = []
-for m in moves:                                # quy tắc 2
-    for t, name in CUES:
-        if m['t0'] - PAD < t < m['t1'] + PAD: errs.append(f'quy tắc 2: từ khoá {name} @{t} trong cửa sổ máy quay {m["verb"]} {m["t0"]}–{m["t1"]}')
-    if not m['reason'] or not m['sound']: errs.append(f'quy tắc 3: động tác {m} thiếu lý do/âm')
-if beats[0]['mode'] != 'world' or moves[0]['t0'] < 5.0 and moves[0]['verb'] == 'mode': errs.append('quy tắc 7: 5 s đầu phải ở chế độ thế giới')
+errs = SV.check_rules(beats, moves, PAD)
 spine = {'segment': 'ep004 S04.5 → S07.3 (bản phát hành 93,44–163,60 s)', 'version': 3, 'total': TOTAL, 'fps': 30, 'pad': PAD,
          'takes': takes, 'words': words, 'beats': beats, 'moves': moves, 'draw': DRAW, 'ride': RIDE, 'crossQ': crossQ,
          'events': EV, 'tension': tension, 'pops': pops,
@@ -165,6 +143,7 @@ spine = {'segment': 'ep004 S04.5 → S07.3 (bản phát hành 93,44–163,60 s)'
                         'b11.x': '×3.8'},
          'visual_cues': ['b3.flat', 'b8.above', 'b9.rose', 'b0.q', 'b1.blur', 'b1.rise', 'b1.pop0', 'b1.many', 'b2.quarter', 'b3.cap', 'b3.five', 'b3.same', 'b4.gain', 'b4.two', 'b4.grow', 'b4.less', 'b5.under', 'b6.cross', 'b7.slips', 'b8.lbl', 'b9.fly', 'b10.past', 'b11.x'], 'shots': shots, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
 json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)
+json.dump(['moc-v/proto/data.json'], open(os.path.join(HERE, 'inputs.json'), 'w'))   # dữ liệu cảnh đọc → vào khoá cache (render_shots.js)
 world = sum(m['t1'] - m['t0'] for m in moves if m['verb'] == 'mode')
 print('moves:', [(m['verb'], m['t0'], m['t1']) for m in moves]); print('shots:', [(s['t0'], s['t1']) for s in shots])
 print('checks:', errs or 'OK')
