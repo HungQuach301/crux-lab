@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "total": 477.5999,
+ "total": 481.5999,
  "scenes": [
   {
    "id": "S01",
@@ -95,7 +95,7 @@
   {
    "id": "S19",
    "start": 457.9999,
-   "dur": 19.6
+   "dur": 23.6
   }
  ],
  "shots": [
@@ -258,10 +258,27 @@
   {
    "id": "S06-cross",
    "scene": "S06",
-   "template": "line",
+   "template": "N2",
    "t0": 116.8666,
    "t1": 151.0666,
    "p": {
+    "mode": "line",
+    "levelSide": "left",
+    "note": {
+     "text": "A measurement, not a next step",
+     "x": 180,
+     "y": 430
+    },
+    "marks": [
+     {
+      "claim": "cross_quarter_at_200k_phoenix",
+      "text": "Over: {cross_quarter_at_200k_phoenix}"
+     },
+     {
+      "claim": "stay_quarter_at_200k_phoenix",
+      "text": "Stayed over since {stay_quarter_at_200k_phoenix}"
+     }
+    ],
     "series": "gain200.phoenix",
     "level": "excl_joint_limit_usd",
     "levelLabel": "{excl_joint_limit_usd} cap",
@@ -374,10 +391,13 @@
   {
    "id": "S09-bars",
    "scene": "S09",
-   "template": "bars",
+   "template": "N2",
    "t0": 210.5666,
    "t1": 221.6666,
    "p": {
+    "mode": "bars",
+    "unit": "Gain today · past the cap = gain over {excl_joint_limit_usd}",
+    "titleV": "Gain today, {illustrative_price_200k_usd} in {buy_year} · past the cap = over {excl_joint_limit_usd}",
     "at": 3.57,
     "title": "{illustrative_price_200k_usd} in {buy_year}, homes that rose like their metro average",
     "items": [
@@ -459,10 +479,13 @@
   {
    "id": "S09-count",
    "scene": "S09",
-   "template": "bars",
+   "template": "N2",
    "t0": 221.6666,
    "t1": 232.3666,
    "p": {
+    "mode": "bars",
+    "unit": "Gain today · past the cap = gain over {excl_joint_limit_usd}",
+    "titleV": "{metros_crossed_at_200k} of {metro_count} past the cap = gain over {excl_joint_limit_usd}",
     "at": 0,
     "title": "{metros_crossed_at_200k} of {metro_count} past the cap · homes that rose like their metro average",
     "items": [
@@ -544,10 +567,13 @@
   {
    "id": "S10-bars",
    "scene": "S10",
-   "template": "bars",
+   "template": "N2",
    "t0": 232.3666,
    "t1": 235.4333,
    "p": {
+    "mode": "bars",
+    "unit": "Gain today · past the cap = gain over {excl_joint_limit_usd}",
+    "titleV": "Gain today, {illustrative_price_300k_usd} in {buy_year} · past the cap = over {excl_joint_limit_usd}",
     "at": 1.0,
     "title": "{illustrative_price_300k_usd} in {buy_year}, homes that rose like their metro average",
     "items": [
@@ -629,10 +655,13 @@
   {
    "id": "S10-count",
    "scene": "S10",
-   "template": "bars",
+   "template": "N2",
    "t0": 235.4333,
    "t1": 253.5999,
    "p": {
+    "mode": "bars",
+    "unit": "Gain today · past the cap = gain over {excl_joint_limit_usd}",
+    "titleV": "{metros_crossed_at_300k} of {metro_count} past the cap = gain over {excl_joint_limit_usd}",
     "at": 0,
     "title": "{metros_crossed_at_300k} of {metro_count} past the cap · homes that rose like their metro average",
     "items": [
@@ -714,10 +743,16 @@
   {
    "id": "S11-miami",
    "scene": "S11",
-   "template": "line",
+   "template": "N2",
    "t0": 253.5999,
    "t1": 278.4332,
    "p": {
+    "mode": "line",
+    "note": {
+     "text": "A measurement, not a next step",
+     "x": 180,
+     "y": 320
+    },
     "series": "gain300.miami",
     "level": "excl_joint_limit_usd",
     "levelLabel": "{excl_joint_limit_usd} cap",
@@ -909,25 +944,28 @@
       "size": 40
      },
      {
-      "text": "Above the rung:",
+      "text": "Your {buy_year} price above",
       "at": 6.3003,
-      "x": 1470,
+      "x": 815,
       "y": 560,
-      "size": 40
+      "size": 40,
+      "align": "right"
      },
      {
-      "text": "past the cap.",
+      "text": "your city's rung → past the cap",
       "at": 6.3003,
-      "x": 1470,
+      "x": 815,
       "y": 608,
-      "size": 40
+      "size": 40,
+      "align": "right"
      },
      {
       "text": "Below it: not.",
       "at": 10.6203,
-      "x": 1470,
+      "x": 815,
       "y": 656,
-      "size": 40
+      "size": 40,
+      "align": "right"
      },
      {
       "text": "Not proof of tax, or of none",
@@ -1115,7 +1153,7 @@
    "scene": "S19",
    "template": "endcard",
    "t0": 475.5999,
-   "t1": 477.5999,
+   "t1": 481.5999,
    "p": {
     "at": 0,
     "next": "Next: one more rule, tested on real data"

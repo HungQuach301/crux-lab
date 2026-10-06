@@ -3,64 +3,64 @@
  "yaml": "episodes/ep004/episode.yaml",
  "steps": {
   "spec": {
-   "seconds": 0.0,
+   "seconds": 0.01,
    "problems": 0
   },
   "voice": {
-   "seconds": 2.15,
+   "seconds": 2.53,
    "scenes": 19,
    "cache_hits": 19,
    "el_chars_spent": 0
   },
   "resolve": {
-   "seconds": 5.97,
-   "total": 477.5999,
+   "seconds": 6.92,
+   "total": 481.5999,
    "shots": 37,
    "anchors": 146
   },
   "render": {
-   "seconds": 359.74,
-   "segments": 111,
-   "rendered": 111,
+   "seconds": 410.73,
+   "segments": 112,
+   "rendered": 112,
    "cache_hits": 0,
-   "frames": 14328,
-   "fps": 39.83,
+   "frames": 14448,
+   "fps": 35.18,
    "workers": 4,
    "fmt": "jpeg"
   },
   "mix": {
-   "seconds": 143.96,
+   "seconds": 176.11,
    "a07_gap_db": 19.99,
    "mid_duck_db": 13.0,
    "video": "episodes/ep004/work/factory/video.mp4",
-   "sha256": "f944ce9f011597cd79496cfcac690708425cb2f09fee74cbd9c7f211ed600054",
-   "mb": 1008.48
+   "sha256": "2a2918afed96d3693d085a6785c176bb6439fc799d9c6870c933ceba18df859d",
+   "mb": 1016.95
   },
   "parts": {
-   "seconds": 138.8,
+   "seconds": 153.83,
    "parts": [
     {
      "file": "episodes/ep004/work/factory/ep004-part1-720p.mp4",
      "from": 0.0,
      "to": 158.7999,
-     "mb": 22.08
+     "mb": 22.89
     },
     {
      "file": "episodes/ep004/work/factory/ep004-part2-720p.mp4",
      "from": 158.7999,
      "to": 315.9332,
-     "mb": 45.22
+     "mb": 46.85
     },
     {
      "file": "episodes/ep004/work/factory/ep004-part3-720p.mp4",
      "from": 315.9332,
-     "to": 477.5999,
-     "mb": 32.17
+     "to": 481.5999,
+     "mb": 32.51
     }
    ]
   },
   "shorts": {
-   "seconds": 81.67,
+   "seconds": 88.72,
    "shorts": [
     {
      "id": "SH1",
@@ -72,8 +72,8 @@
      "rendered": 8,
      "cache_hits": 0,
      "frames": 1053,
-     "seconds": 27.95,
-     "fps": 37.68,
+     "seconds": 31.02,
+     "fps": 33.94,
      "workers": 4,
      "fmt": "jpeg"
     },
@@ -87,8 +87,8 @@
      "rendered": 6,
      "cache_hits": 0,
      "frames": 676,
-     "seconds": 21.38,
-     "fps": 31.62,
+     "seconds": 23.02,
+     "fps": 29.36,
      "workers": 4,
      "fmt": "jpeg"
     },
@@ -102,15 +102,15 @@
      "rendered": 6,
      "cache_hits": 0,
      "frames": 772,
-     "seconds": 20.94,
-     "fps": 36.87,
+     "seconds": 22.94,
+     "fps": 33.66,
      "workers": 4,
      "fmt": "jpeg"
     }
    ]
   },
   "qc": {
-   "seconds": 60.68,
+   "seconds": 69.91,
    "pass": false,
    "failed": [
     "freezedetect d=3 ∩ lời",
@@ -124,11 +124,11 @@
    ]
   }
  },
- "started": "2026-10-06T08:23:53Z",
+ "started": "2026-10-06T09:59:15Z",
  "spec": [],
  "music": {
   "a07_gap_db": 19.99,
   "mid_duck_db": 13.0
  },
- "total_seconds": 797.1
+ "total_seconds": 913.5
 }

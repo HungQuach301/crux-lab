@@ -10,6 +10,7 @@ What the replay shows (history, not a forecast; US federal only; illustrative co
 This is a measurement, not a tax bill or a next step: it says nothing about selling, keeping or waiting. Your own home is not the average: your street, improvements, selling costs and purchase month can put you far from your city's line. Gain above the cap is taxed as a long-term capital gain at a rate that depends on income and state.
 
 How we built it:
+- Source: FHFA House Price Index via FRED (https://fred.stlouisfed.org).
 - House prices: FHFA all-transactions house price indexes (Federal Housing Finance Agency) via FRED, metro divisions where they exist: Los Angeles ATNHPIUS31084Q, San Diego ATNHPIUS41740Q, San Francisco ATNHPIUS41884Q, San Jose ATNHPIUS41940Q, Seattle ATNHPIUS42644Q, Boston ATNHPIUS14454Q, New York ATNHPIUS35614Q, Miami ATNHPIUS33124Q, Denver ATNHPIUS19740Q, Phoenix ATNHPIUS38060Q, Dallas ATNHPIUS19124Q, Chicago ATNHPIUS16984Q; national USSTHPI. https://fred.stlouisfed.org
 - 2000 = average of its four quarters; sale at the second quarter of 2026 (latest data). Gain = price × index growth − price; no improvements, no selling costs.
 - Married, filing jointly; the use test (owned and lived in the home 2 of the 5 years before selling) assumed met. State taxes not modeled.

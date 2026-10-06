@@ -22,8 +22,8 @@ res: 1080
 audio:
   lufs: -14
   true_peak: -1.5
-  music: work/factory/music/bed.wav          # C5: nhạc style C (engine Tập 3: 114 BPM, D dorian), sinh lại nếu thiếu; mức dưới lời: toolkit/factory/music.py
-  music_cmd: "python3 episodes/ep003/audio_src/factory_bed.py {total} {out}"
+  music: work/factory/music/bed-mr.wav       # C5: nhạc style C (engine Tập 3: 114 BPM, D dorian), sinh lại nếu thiếu; mức dưới lời: toolkit/factory/music.py
+  music_cmd: "python3 episodes/ep004/design/c4/bed_mr.py {total} {out}"   # G2 (b): như C5 + nhạc về 0 quanh MR1/MR2 (lặng ≥ 1 s)
 dossier: {script_md: story/script.md, claim_risk: ../../topics-r1/machine/tax-2/claim-risk.md, contract: contract.json}
 # mid-roll: trong khoảng giữ 1,5 s cuối S07 (hết Hồi 1) và cuối S14 (hết Hồi 2), theo giọng thật (out/factory/timeline.json)
 midrolls:
@@ -51,7 +51,7 @@ counterweights:
     claims: [exclusion_effective_month, excl_joint_1997_in_now]
 custom_symbols:             # 2 ký hiệu mới đã duyệt ở G1 (CHARTER §5: ≤ 2)
   - {id: N1, file: design/c3/n1.js}
-  - {id: N2, file: design/c3/n2.js}
+  - {id: N2, file: design/c4/n2-g2.js}   # G2 (b): N2 của C3 (không đổi) + chế độ 'line'/'bars' = mẫu thư viện + nhãn nghĩa (§6.6)
 
 scenes:
   - id: S01                 # móc H2 (KEY-1, loại 2)
@@ -113,9 +113,12 @@ scenes:
     tail: 1.0
     shots:
       - id: S06-cross
-        template: line
+        template: N2          # G2 (b): mẫu line + nhãn trần trái, mốc quý, đối trọng đứng
         from: "@S06.1"
-        p: {series: gain200.phoenix, level: excl_joint_limit_usd, levelLabel: "{excl_joint_limit_usd} cap", levelAt: "@S06.1",
+        p: {mode: line, levelSide: left, note: {text: "A measurement, not a next step", x: 180, y: 430},
+            marks: [{claim: cross_quarter_at_200k_phoenix, text: "Over: {cross_quarter_at_200k_phoenix}"},
+                    {claim: stay_quarter_at_200k_phoenix, text: "Stayed over since {stay_quarter_at_200k_phoenix}"}],
+            series: gain200.phoenix, level: excl_joint_limit_usd, levelLabel: "{excl_joint_limit_usd} cap", levelAt: "@S06.1",
             title: "Gain on paper: {illustrative_price_200k_usd} home that rose like the Phoenix average",
             at0: "@S06.2", at1: "@S06.5+3", illustrative: true, historical: true}
   - id: S07
@@ -160,31 +163,32 @@ scenes:
     tail: 0.6
     shots:
       - id: S09-bars
-        template: bars
+        template: N2          # G2 (b): mẫu bars + dòng đơn vị
         from: "@S09.1"
-        p: {at: "@S09.1:illustrative", title: "{illustrative_price_200k_usd} in {buy_year}, homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_200k_chicago, role: ink, at: "@S09.1+0.00"}, {label: "San Francisco", claim: gain_at_200k_san_francisco, role: ink, at: "@S09.1+0.15"}, {label: "San Jose", claim: gain_at_200k_san_jose, role: ink, at: "@S09.1+0.30"}, {label: "Denver", claim: gain_at_200k_denver, role: ink, at: "@S09.1+0.45"}, {label: "Boston", claim: gain_at_200k_boston, role: ink, at: "@S09.1+0.60"}, {label: "Dallas", claim: gain_at_200k_dallas, role: ink, at: "@S09.1+0.75"}, {label: "New York", claim: gain_at_200k_new_york, role: ink, at: "@S09.1+0.90"}, {label: "Seattle", claim: gain_at_200k_seattle, role: warn, at: "@S09.1+1.05"}, {label: "Phoenix", claim: gain_at_200k_phoenix, role: warn, at: "@S09.1+1.20"}, {label: "San Diego", claim: gain_at_200k_san_diego, role: warn, at: "@S09.1+1.35"}, {label: "Los Angeles", claim: gain_at_200k_los_angeles, role: warn, at: "@S09.1+1.50"}, {label: "Miami", claim: gain_at_200k_miami, role: warn, at: "@S09.1+1.65"}]}
+        p: {mode: bars, unit: "Gain today · past the cap = gain over {excl_joint_limit_usd}", titleV: "Gain today, {illustrative_price_200k_usd} in {buy_year} · past the cap = over {excl_joint_limit_usd}", at: "@S09.1:illustrative", title: "{illustrative_price_200k_usd} in {buy_year}, homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_200k_chicago, role: ink, at: "@S09.1+0.00"}, {label: "San Francisco", claim: gain_at_200k_san_francisco, role: ink, at: "@S09.1+0.15"}, {label: "San Jose", claim: gain_at_200k_san_jose, role: ink, at: "@S09.1+0.30"}, {label: "Denver", claim: gain_at_200k_denver, role: ink, at: "@S09.1+0.45"}, {label: "Boston", claim: gain_at_200k_boston, role: ink, at: "@S09.1+0.60"}, {label: "Dallas", claim: gain_at_200k_dallas, role: ink, at: "@S09.1+0.75"}, {label: "New York", claim: gain_at_200k_new_york, role: ink, at: "@S09.1+0.90"}, {label: "Seattle", claim: gain_at_200k_seattle, role: warn, at: "@S09.1+1.05"}, {label: "Phoenix", claim: gain_at_200k_phoenix, role: warn, at: "@S09.1+1.20"}, {label: "San Diego", claim: gain_at_200k_san_diego, role: warn, at: "@S09.1+1.35"}, {label: "Los Angeles", claim: gain_at_200k_los_angeles, role: warn, at: "@S09.1+1.50"}, {label: "Miami", claim: gain_at_200k_miami, role: warn, at: "@S09.1+1.65"}]}
       - id: S09-count
-        template: bars
+        template: N2          # G2 (b): mẫu bars + dòng đơn vị
         from: "@S09.2"
-        p: {at: 0, title: "{metros_crossed_at_200k} of {metro_count} past the cap · homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_200k_chicago, role: ink, at: 0}, {label: "San Francisco", claim: gain_at_200k_san_francisco, role: ink, at: 0}, {label: "San Jose", claim: gain_at_200k_san_jose, role: ink, at: 0}, {label: "Denver", claim: gain_at_200k_denver, role: ink, at: 0}, {label: "Boston", claim: gain_at_200k_boston, role: ink, at: 0}, {label: "Dallas", claim: gain_at_200k_dallas, role: ink, at: 0}, {label: "New York", claim: gain_at_200k_new_york, role: ink, at: 0}, {label: "Seattle", claim: gain_at_200k_seattle, role: warn, at: 0}, {label: "Phoenix", claim: gain_at_200k_phoenix, role: warn, at: 0}, {label: "San Diego", claim: gain_at_200k_san_diego, role: warn, at: 0}, {label: "Los Angeles", claim: gain_at_200k_los_angeles, role: warn, at: 0}, {label: "Miami", claim: gain_at_200k_miami, role: warn, at: 0}]}
+        p: {mode: bars, unit: "Gain today · past the cap = gain over {excl_joint_limit_usd}", titleV: "{metros_crossed_at_200k} of {metro_count} past the cap = gain over {excl_joint_limit_usd}", at: 0, title: "{metros_crossed_at_200k} of {metro_count} past the cap · homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_200k_chicago, role: ink, at: 0}, {label: "San Francisco", claim: gain_at_200k_san_francisco, role: ink, at: 0}, {label: "San Jose", claim: gain_at_200k_san_jose, role: ink, at: 0}, {label: "Denver", claim: gain_at_200k_denver, role: ink, at: 0}, {label: "Boston", claim: gain_at_200k_boston, role: ink, at: 0}, {label: "Dallas", claim: gain_at_200k_dallas, role: ink, at: 0}, {label: "New York", claim: gain_at_200k_new_york, role: ink, at: 0}, {label: "Seattle", claim: gain_at_200k_seattle, role: warn, at: 0}, {label: "Phoenix", claim: gain_at_200k_phoenix, role: warn, at: 0}, {label: "San Diego", claim: gain_at_200k_san_diego, role: warn, at: 0}, {label: "Los Angeles", claim: gain_at_200k_los_angeles, role: warn, at: 0}, {label: "Miami", claim: gain_at_200k_miami, role: warn, at: 0}]}
   - id: S10                 # KEY-4b (loại 1)
     tail: 0.6
     shots:
       - id: S10-bars
-        template: bars
+        template: N2          # G2 (b): mẫu bars + dòng đơn vị
         from: "@S10.1"
-        p: {at: "@S10.1:300,000", title: "{illustrative_price_300k_usd} in {buy_year}, homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_300k_chicago, role: ink, at: "@S10.1+0.00"}, {label: "San Francisco", claim: gain_at_300k_san_francisco, role: warn, at: "@S10.1+0.15"}, {label: "San Jose", claim: gain_at_300k_san_jose, role: warn, at: "@S10.1+0.30"}, {label: "Denver", claim: gain_at_300k_denver, role: warn, at: "@S10.1+0.45"}, {label: "Boston", claim: gain_at_300k_boston, role: warn, at: "@S10.1+0.60"}, {label: "Dallas", claim: gain_at_300k_dallas, role: warn, at: "@S10.1+0.75"}, {label: "New York", claim: gain_at_300k_new_york, role: warn, at: "@S10.1+0.90"}, {label: "Seattle", claim: gain_at_300k_seattle, role: warn, at: "@S10.1+1.05"}, {label: "Phoenix", claim: gain_at_300k_phoenix, role: warn, at: "@S10.1+1.20"}, {label: "San Diego", claim: gain_at_300k_san_diego, role: warn, at: "@S10.1+1.35"}, {label: "Los Angeles", claim: gain_at_300k_los_angeles, role: warn, at: "@S10.1+1.50"}, {label: "Miami", claim: gain_at_300k_miami, role: warn, at: "@S10.1+1.65"}]}
+        p: {mode: bars, unit: "Gain today · past the cap = gain over {excl_joint_limit_usd}", titleV: "Gain today, {illustrative_price_300k_usd} in {buy_year} · past the cap = over {excl_joint_limit_usd}", at: "@S10.1:300,000", title: "{illustrative_price_300k_usd} in {buy_year}, homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_300k_chicago, role: ink, at: "@S10.1+0.00"}, {label: "San Francisco", claim: gain_at_300k_san_francisco, role: warn, at: "@S10.1+0.15"}, {label: "San Jose", claim: gain_at_300k_san_jose, role: warn, at: "@S10.1+0.30"}, {label: "Denver", claim: gain_at_300k_denver, role: warn, at: "@S10.1+0.45"}, {label: "Boston", claim: gain_at_300k_boston, role: warn, at: "@S10.1+0.60"}, {label: "Dallas", claim: gain_at_300k_dallas, role: warn, at: "@S10.1+0.75"}, {label: "New York", claim: gain_at_300k_new_york, role: warn, at: "@S10.1+0.90"}, {label: "Seattle", claim: gain_at_300k_seattle, role: warn, at: "@S10.1+1.05"}, {label: "Phoenix", claim: gain_at_300k_phoenix, role: warn, at: "@S10.1+1.20"}, {label: "San Diego", claim: gain_at_300k_san_diego, role: warn, at: "@S10.1+1.35"}, {label: "Los Angeles", claim: gain_at_300k_los_angeles, role: warn, at: "@S10.1+1.50"}, {label: "Miami", claim: gain_at_300k_miami, role: warn, at: "@S10.1+1.65"}]}
       - id: S10-count
-        template: bars
+        template: N2          # G2 (b): mẫu bars + dòng đơn vị
         from: "@S10.2"
-        p: {at: 0, title: "{metros_crossed_at_300k} of {metro_count} past the cap · homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_300k_chicago, role: ink, at: 0}, {label: "San Francisco", claim: gain_at_300k_san_francisco, role: warn, at: 0}, {label: "San Jose", claim: gain_at_300k_san_jose, role: warn, at: 0}, {label: "Denver", claim: gain_at_300k_denver, role: warn, at: 0}, {label: "Boston", claim: gain_at_300k_boston, role: warn, at: 0}, {label: "Dallas", claim: gain_at_300k_dallas, role: warn, at: 0}, {label: "New York", claim: gain_at_300k_new_york, role: warn, at: 0}, {label: "Seattle", claim: gain_at_300k_seattle, role: warn, at: 0}, {label: "Phoenix", claim: gain_at_300k_phoenix, role: warn, at: 0}, {label: "San Diego", claim: gain_at_300k_san_diego, role: warn, at: 0}, {label: "Los Angeles", claim: gain_at_300k_los_angeles, role: warn, at: 0}, {label: "Miami", claim: gain_at_300k_miami, role: warn, at: 0}]}
+        p: {mode: bars, unit: "Gain today · past the cap = gain over {excl_joint_limit_usd}", titleV: "{metros_crossed_at_300k} of {metro_count} past the cap = gain over {excl_joint_limit_usd}", at: 0, title: "{metros_crossed_at_300k} of {metro_count} past the cap · homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_300k_chicago, role: ink, at: 0}, {label: "San Francisco", claim: gain_at_300k_san_francisco, role: warn, at: 0}, {label: "San Jose", claim: gain_at_300k_san_jose, role: warn, at: 0}, {label: "Denver", claim: gain_at_300k_denver, role: warn, at: 0}, {label: "Boston", claim: gain_at_300k_boston, role: warn, at: 0}, {label: "Dallas", claim: gain_at_300k_dallas, role: warn, at: 0}, {label: "New York", claim: gain_at_300k_new_york, role: warn, at: 0}, {label: "Seattle", claim: gain_at_300k_seattle, role: warn, at: 0}, {label: "Phoenix", claim: gain_at_300k_phoenix, role: warn, at: 0}, {label: "San Diego", claim: gain_at_300k_san_diego, role: warn, at: 0}, {label: "Los Angeles", claim: gain_at_300k_los_angeles, role: warn, at: 0}, {label: "Miami", claim: gain_at_300k_miami, role: warn, at: 0}]}
   - id: S11                 # KEY-5 (loại 1)
     tail: 1.0
     shots:
       - id: S11-miami
-        template: line
+        template: N2          # G2 (b): mẫu line + đối trọng đứng
         from: "@S11.1"
-        p: {series: gain300.miami, level: excl_joint_limit_usd, levelLabel: "{excl_joint_limit_usd} cap", levelAt: "@S11.1",
+        p: {mode: line, note: {text: "A measurement, not a next step", x: 180, y: 320},
+            series: gain300.miami, level: excl_joint_limit_usd, levelLabel: "{excl_joint_limit_usd} cap", levelAt: "@S11.1",
             title: "Miami: {illustrative_price_300k_usd} home that rose like the Miami average",
             at0: "@S11.2+2.5", at1: "@S11.3$+1.8", illustrative: true, historical: true}
   - id: S12
@@ -267,9 +271,9 @@ scenes:
           rungsAt1: "@S15.3+0.8"
           labels:
             - {text: "Your {buy_year} price vs your city's rung", at: "@S15.3", x: 96, y: 100, size: 40}
-            - {text: "Above the rung:", at: "@S15.4", x: 1470, y: 560, size: 40}
-            - {text: "past the cap.", at: "@S15.4", x: 1470, y: 608, size: 40}
-            - {text: "Below it: not.", at: "@S15.4:Below", x: 1470, y: 656, size: 40}
+            - {text: "Your {buy_year} price above", at: "@S15.4", x: 815, y: 560, size: 40, align: right}   # G2 (b): cạnh thang
+            - {text: "your city's rung → past the cap", at: "@S15.4", x: 815, y: 608, size: 40, align: right}
+            - {text: "Below it: not.", at: "@S15.4:Below", x: 815, y: 656, size: 40, align: right}
             - {text: "Not proof of tax, or of none", at: "@S15.5", x: 96, y: 1016, size: 40}
       - id: S15-measure
         template: title
@@ -321,7 +325,7 @@ scenes:
             - "Indexes are revised every quarter · CPI-U from {exclusion_effective_month}"
             - "Not covered: surviving spouse · heirs (value at death)"
   - id: S19
-    tail: 2.0
+    tail: 6.0                 # G2 (b): đuôi end screen ≥ 20 s outro (S15), tổng ≥ 8:00
     shots:
       - id: S19-hist
         template: line

@@ -47,4 +47,5 @@ Mỗi agent con, mỗi cổng: một dòng. Token = số harness của agent con
 | 2026-10-06 | G2 | gói + thumbnail + xem trước | opus | 118.767 | T1/T2/T3; 720p 84,6 MB |
 | 2026-10-06 | G2 | tóm tắt AI + so cặp thumbnail | sonnet | 41.363 + 38.198 | không lấy ra lời khuyên; T1 3/4 |
 | 2026-10-06 | G2 | REVIEWER (gói G2 + soát bù C3) | opus | 136.854 | TRƯỢT 1 CHẶN + 7 CHÍNH → sửa hết trong gói; thumb-1 "metros"; F11 thumbnail khai |
+| 2026-10-06 | C6 | dựng lại sau G2 (b): nhãn S06/S09–S11/S15 (N2 `design/c4/n2-g2.js`), đuôi S19 6 s, nhạc 0 quanh MR, checks lần 3, Shorts, dải r2 | opus | ≈ 0,25 triệu | 8:01,6; −14,2 LUFS/−1,5 dBTP; CHẶN 24/35 (0 mới); F07, S14 → ĐẠT; 0 EL; S09/S10 "Gain today" (không "Value": thanh là lãi) |
 | 2026-10-06 | **tổng phiên cuối** | **27 agent** | — | **≈ 1,61 triệu** | + điều phối ≈ 0,3 triệu ⇒ ≈ 1,9 triệu (trần 2,0) |

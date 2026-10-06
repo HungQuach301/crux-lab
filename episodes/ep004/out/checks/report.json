@@ -2,7 +2,7 @@
  "root": "/home/user/crux-lab/episodes/ep004",
  "contract": "/home/user/crux-lab/episodes/ep004/contract.json",
  "lock": "250ab298de4f912d34fdd02474aaa1af843ea9115e36fd0675630fcdcd1641de",
- "video_sha256": "839a96671e8fc3ca0a3565eb07e126780d2adcc6406d84d1c2660b8243b78b06",
+ "video_sha256": "82120cfc52fc2f1a9ee3885a0fbe6be795333444e340e06900e7aa6f5e0c9d09",
  "episode": "TRƯỢT",
  "tiers": {
   "BLOCK": {
@@ -26,9 +26,8 @@
   "MAJOR": {
    "label": "CHÍNH",
    "rules": 11,
-   "pass": 1,
+   "pass": 2,
    "notPass": [
-    "F07 FAIL",
     "V03 MISSING",
     "V08 MISSING",
     "V09 MISSING",
@@ -40,15 +39,14 @@
     "L1 MISSING"
    ],
    "explained": {
-    "F07": "Owner decision (gates/C4-answer.md item 3): the episode is 7:57.5 (477.5 s), just under the 8:00 floor; the real voice ran about 13% faster than the C2 estimate, and the playbook rule is never to pad, so the length is kept.",
-    "V03": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
-    "V08": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
-    "V09": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
-    "V11": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
-    "V12": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
-    "C02": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
-    "C05": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
-    "C14": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
+    "V03": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json. Page-rule exception re-confirmed for the Episode 4 release (gates/G2-answer.md).",
+    "V08": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json. Page-rule exception re-confirmed for the Episode 4 release (gates/G2-answer.md).",
+    "V09": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json. Page-rule exception re-confirmed for the Episode 4 release (gates/G2-answer.md).",
+    "V11": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json. Page-rule exception re-confirmed for the Episode 4 release (gates/G2-answer.md).",
+    "V12": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json. Page-rule exception re-confirmed for the Episode 4 release (gates/G2-answer.md).",
+    "C02": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json. Page-rule exception re-confirmed for the Episode 4 release (gates/G2-answer.md).",
+    "C05": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json. Page-rule exception re-confirmed for the Episode 4 release (gates/G2-answer.md).",
+    "C14": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json. Page-rule exception re-confirmed for the Episode 4 release (gates/G2-answer.md).",
     "L1": "The factory mix has two stems only (voice and the style C music bed at the Episode 3 level); no data sonification layer was designed for this episode, so there is no sonify stem to measure. Queued for G2 as a CHÍNH item; no change to meaning."
    },
    "unexplained": []
@@ -56,7 +54,7 @@
   "REFERENCE": {
    "label": "THAM KHẢO",
    "rules": 43,
-   "pass": 5,
+   "pass": 6,
    "notPass": [
     "A03 FAIL",
     "A09 FAIL",
@@ -69,7 +67,6 @@
     "A17 FAIL",
     "S11 MISSING",
     "S12 MISSING",
-    "S14 FAIL",
     "S15 FAIL",
     "S16 FAIL",
     "R01 MISSING",
@@ -92,7 +89,7 @@
     "C12 MISSING",
     "C13 MISSING",
     "C15 MISSING",
-    "P01 MISSING",
+    "P01 FAIL",
     "T1 MISSING",
     "T2 MISSING",
     "T3 MISSING"
@@ -100,9 +97,9 @@
   }
  },
  "counts": {
-  "PASS": 30,
-  "FAIL": 15,
-  "MISSING": 43,
+  "PASS": 32,
+  "FAIL": 14,
+  "MISSING": 42,
   "ERROR": 1
  },
  "near": [
@@ -110,7 +107,7 @@
    "rule": "F04",
    "tier": "BLOCK",
    "name": "video Mbps",
-   "value": 16.606816,
+   "value": 16.606623,
    "op": ">=",
    "threshold": 16.0,
    "unit": "Mbps",
@@ -121,7 +118,7 @@
    "rule": "F06",
    "tier": "BLOCK",
    "name": "audio kbps",
-   "value": 280.238725,
+   "value": 276.902821,
    "op": ">=",
    "threshold": 272.0,
    "unit": "kbps",
@@ -132,14 +129,25 @@
    "rule": "F07",
    "tier": "MAJOR",
    "name": "duration s",
-   "value": 477.504,
+   "value": 481.566667,
    "op": "in",
    "threshold": [
     480.0,
     900.0
    ],
    "unit": "s",
-   "pass": false,
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "A08",
+   "tier": "REFERENCE",
+   "name": "median 1-4 kHz drop dB",
+   "value": 6.098488,
+   "op": ">=",
+   "threshold": 6.0,
+   "unit": "dB",
+   "pass": true,
    "near": true
   },
   {
@@ -154,14 +162,36 @@
    "near": true
   },
   {
-   "rule": "S15",
+   "rule": "P01",
    "tier": "REFERENCE",
-   "name": "outro s",
-   "value": 19.6,
+   "name": "thumb 1 token share (%)",
+   "value": 100.0,
    "op": ">=",
-   "threshold": 20.0,
-   "unit": "s",
-   "pass": false,
+   "threshold": 97.0,
+   "unit": "%",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "P01",
+   "tier": "REFERENCE",
+   "name": "thumb 2 token share (%)",
+   "value": 99.986328,
+   "op": ">=",
+   "threshold": 97.0,
+   "unit": "%",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "P01",
+   "tier": "REFERENCE",
+   "name": "thumb 3 token share (%)",
+   "value": 99.99924,
+   "op": ">=",
+   "threshold": 97.0,
+   "unit": "%",
+   "pass": true,
    "near": true
   }
  ],
@@ -259,7 +289,7 @@
    "details": [
     {
      "stepsSeen": {
-      "512": 14324
+      "512": 14446
      }
     }
    ],
@@ -268,7 +298,7 @@
    "threshold": "both rates exactly 30/1 and every PTS step = 1/30 s (constant frame rate)",
    "fingerprint": "2e2f77485e6446dd",
    "tier": "BLOCK",
-   "seconds": 0.7
+   "seconds": 0.6
   },
   {
    "id": "F03",
@@ -303,7 +333,7 @@
     },
     {
      "name": "|frames - duration*30|",
-     "value": 0.12,
+     "value": 1e-05,
      "op": "<=",
      "threshold": 1,
      "unit": "",
@@ -325,7 +355,7 @@
    "metrics": [
     {
      "name": "video Mbps",
-     "value": 16.606816,
+     "value": 16.606623,
      "op": ">=",
      "threshold": 16.0,
      "unit": "Mbps",
@@ -397,7 +427,7 @@
    "threshold": "all tags bt709, range tv (limited); Y outside 16–235 ≤ 0.1% of samples",
    "fingerprint": "fb5a8e04e2527aaf",
    "tier": "BLOCK",
-   "seconds": 23.0
+   "seconds": 25.3
   },
   {
    "id": "F06",
@@ -432,7 +462,7 @@
     },
     {
      "name": "audio kbps",
-     "value": 280.238725,
+     "value": 276.902821,
      "op": ">=",
      "threshold": 272.0,
      "unit": "kbps",
@@ -446,22 +476,22 @@
    "threshold": "AAC (LC), 48 kHz, 2 channels, measured ≥ 272 kbps (= 85% of the 320 kbps nominal: ffmpeg's native AAC at -b:a 320k measured 276 kbps on test C's master, so the measure allows its ABR undershoot but not a 256k or lower setting)",
    "fingerprint": "f169c314873ab877",
    "tier": "BLOCK",
-   "seconds": 0.5
+   "seconds": 0.4
   },
   {
    "id": "F07",
-   "status": "FAIL",
+   "status": "PASS",
    "metrics": [
     {
      "name": "duration s",
-     "value": 477.504,
+     "value": 481.566667,
      "op": "in",
      "threshold": [
       480.0,
       900.0
      ],
      "unit": "s",
-     "pass": false,
+     "pass": true,
      "near": true
     }
    ],
@@ -498,7 +528,7 @@
    "threshold": "worst frame ≤ 5% (frames with < 1% dark-gradient area are skipped)",
    "fingerprint": "07ff4ebdb7cec464",
    "tier": "BLOCK",
-   "seconds": 24.5
+   "seconds": 27.6
   },
   {
    "id": "F09",
@@ -667,7 +697,7 @@
    "metrics": [
     {
      "name": "declared M3 artefacts",
-     "value": 15,
+     "value": 18,
      "op": ">=",
      "threshold": 1,
      "unit": "",
@@ -685,7 +715,7 @@
     },
     {
      "name": "release files not declared",
-     "value": 17,
+     "value": 14,
      "op": "<=",
      "threshold": 0,
      "unit": "",
@@ -712,10 +742,7 @@
       "out/tension-map.json",
       "out/tension-map.png",
       "preprod/shotlist.json",
-      "design/tokens.json",
-      "out/package/thumb-1.png",
-      "out/package/thumb-2.png",
-      "out/package/thumb-3.png"
+      "design/tokens.json"
      ]
     }
    ],
@@ -761,7 +788,7 @@
    "threshold": "−14 LUFS ± 1 (−15 … −13)",
    "fingerprint": "90bd42d7584ea83c",
    "tier": "BLOCK",
-   "seconds": 5.6
+   "seconds": 6.1
   },
   {
    "id": "A02",
@@ -769,7 +796,7 @@
    "metrics": [
     {
      "name": "true peak dBTP",
-     "value": -1.6,
+     "value": -1.5,
      "op": "<=",
      "threshold": -1.0,
      "unit": "dBTP",
@@ -791,7 +818,7 @@
    "metrics": [
     {
      "name": "LRA LU",
-     "value": 3.9,
+     "value": 4.0,
      "op": "in",
      "threshold": [
       6.0,
@@ -830,7 +857,7 @@
    "threshold": "0 samples",
    "fingerprint": "0c3453bc2aeb3f35",
    "tier": "BLOCK",
-   "seconds": 4.2
+   "seconds": 4.3
   },
   {
    "id": "A05",
@@ -838,7 +865,7 @@
    "metrics": [
     {
      "name": "mean phase correlation",
-     "value": 0.981474,
+     "value": 0.98134,
      "op": ">",
      "threshold": 0.3,
      "unit": "",
@@ -861,7 +888,7 @@
    "threshold": "mean r > 0.3; windows with r < 0 ≤ 5%",
    "fingerprint": "661ced8cbd2e7840",
    "tier": "BLOCK",
-   "seconds": 0.3
+   "seconds": 0.4
   },
   {
    "id": "A06",
@@ -878,7 +905,7 @@
     },
     {
      "name": "voice-band loss dB",
-     "value": 0.000914,
+     "value": 0.00093,
      "op": "<=",
      "threshold": 3.0,
      "unit": "dB",
@@ -892,7 +919,7 @@
    "threshold": "mono loudness ≥ stereo − 3 LU; voice-band loss ≤ 3 dB",
    "fingerprint": "e8219cc7bd471b59",
    "tier": "BLOCK",
-   "seconds": 10.6
+   "seconds": 12.2
   },
   {
    "id": "A07",
@@ -900,7 +927,7 @@
    "metrics": [
     {
      "name": "voice − music dB",
-     "value": 19.992218,
+     "value": 19.994064,
      "op": "in",
      "threshold": [
       18.0,
@@ -917,7 +944,7 @@
    "threshold": "18 … 22 dB",
    "fingerprint": "3d0ed9ae39f81476",
    "tier": "REFERENCE",
-   "seconds": 3.4
+   "seconds": 2.9
   },
   {
    "id": "A08",
@@ -925,7 +952,7 @@
    "metrics": [
     {
      "name": "onsets measured",
-     "value": 76,
+     "value": 74,
      "op": ">=",
      "threshold": 3,
      "unit": "",
@@ -934,16 +961,16 @@
     },
     {
      "name": "median 1-4 kHz drop dB",
-     "value": 6.659393,
+     "value": 6.098488,
      "op": ">=",
      "threshold": 6.0,
      "unit": "dB",
      "pass": true,
-     "near": false
+     "near": true
     },
     {
      "name": "median band-limited excess dB",
-     "value": 6.290949,
+     "value": 6.219002,
      "op": ">=",
      "threshold": 3.0,
      "unit": "dB",
@@ -957,7 +984,7 @@
    "threshold": "median presence drop ≥ 6 dB AND median (presence drop − low drop) ≥ 3 dB (the dip is band-limited, not broadband); ≥ 3 onsets measured",
    "fingerprint": "ce5a60fda71b568f",
    "tier": "REFERENCE",
-   "seconds": 3.2
+   "seconds": 4.0
   },
   {
    "id": "A09",
@@ -1025,7 +1052,7 @@
    "threshold": "≥ 3 spans of 0.8–1.5 s",
    "fingerprint": "75ebd0a342734fc4",
    "tier": "REFERENCE",
-   "seconds": 8.2
+   "seconds": 8.7
   },
   {
    "id": "A10",
@@ -1106,7 +1133,7 @@
    "threshold": "0 key words missing (no percentage threshold)",
    "fingerprint": "01110949f33e3fce",
    "tier": "BLOCK",
-   "seconds": 3.3
+   "seconds": 290.9
   },
   {
    "id": "A15",
@@ -1114,7 +1141,7 @@
    "metrics": [
     {
      "name": "wpm act cold-open",
-     "value": 171.364049,
+     "value": 172.202817,
      "op": "in",
      "threshold": [
       150.0,
@@ -1126,7 +1153,7 @@
     },
     {
      "name": "wpm act act1",
-     "value": 170.748752,
+     "value": 171.065617,
      "op": "in",
      "threshold": [
       150.0,
@@ -1150,7 +1177,7 @@
     },
     {
      "name": "wpm act act3",
-     "value": 170.001771,
+     "value": 171.292837,
      "op": "in",
      "threshold": [
       150.0,
@@ -1162,7 +1189,7 @@
     },
     {
      "name": "wpm act method",
-     "value": 235.135135,
+     "value": 233.243968,
      "op": "in",
      "threshold": [
       150.0,
@@ -1174,7 +1201,7 @@
     },
     {
      "name": "wpm act outro",
-     "value": 175.129219,
+     "value": 175.342466,
      "op": "in",
      "threshold": [
       150.0,
@@ -1199,7 +1226,7 @@
      "fast": [
       [
        "S01.2",
-       188
+       189
       ],
       [
        "S02.1",
@@ -1207,15 +1234,15 @@
       ],
       [
        "S02.3",
-       182
+       187
+      ],
+      [
+       "S03.2",
+       189
       ],
       [
        "S04.1",
        405
-      ],
-      [
-       "S04.2",
-       201
       ],
       [
        "S04.4",
@@ -1223,7 +1250,7 @@
       ],
       [
        "S06.3",
-       201
+       200
       ],
       [
        "S06.4",
@@ -1235,7 +1262,7 @@
       ],
       [
        "S06.6",
-       177
+       178
       ],
       [
        "S07.1",
@@ -1686,7 +1713,7 @@
    "threshold": "PROVISIONAL: abnormal sentences ≤ 10%; abnormal gaps ≤ 10%; ≥ 1 sentence voiced (REFERENCE: reported, never fails the episode)",
    "fingerprint": "483f26350bc28c42",
    "tier": "REFERENCE",
-   "seconds": 0.7
+   "seconds": 4.6
   },
   {
    "id": "A18",
@@ -2209,7 +2236,7 @@
   },
   {
    "id": "S14",
-   "status": "FAIL",
+   "status": "PASS",
    "metrics": [
     {
      "name": "ad breaks",
@@ -2231,11 +2258,11 @@
     },
     {
      "name": "breaks without ≥1 s silence",
-     "value": 2,
+     "value": 0,
      "op": "<=",
      "threshold": 0,
      "unit": "",
-     "pass": false,
+     "pass": true,
      "near": false
     },
     {
@@ -2269,7 +2296,7 @@
    "threshold": "lab: 2 breaks, 101: 1 break; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s; each ≥ 120 s after the start and ≥ 120 s before the end",
    "fingerprint": "4cd7b354b2465d8c",
    "tier": "REFERENCE",
-   "seconds": 4.0
+   "seconds": 7.2
   },
   {
    "id": "S15",
@@ -2310,16 +2337,16 @@
     },
     {
      "name": "outro s",
-     "value": 19.6,
+     "value": 23.6,
      "op": ">=",
      "threshold": 20.0,
      "unit": "s",
-     "pass": false,
-     "near": true
+     "pass": true,
+     "near": false
     },
     {
      "name": "total s",
-     "value": 477.5999,
+     "value": 481.5999,
      "op": ">=",
      "threshold": 540.0,
      "unit": "s",
@@ -2557,7 +2584,7 @@
    "threshold": "−14 LUFS ± 1 (−15 … −13) for every Short",
    "fingerprint": "1659e1c240fdba5d",
    "tier": "BLOCK",
-   "seconds": 1.3
+   "seconds": 1.5
   },
   {
    "id": "SH04",
@@ -2565,7 +2592,7 @@
    "metrics": [
     {
      "name": "highest true peak dBTP",
-     "value": -1.4,
+     "value": -1.5,
      "op": "<=",
      "threshold": -1.0,
      "unit": "dBTP",
@@ -2576,7 +2603,7 @@
    "details": [
     {
      "SH1.mp4": -1.5,
-     "SH2.mp4": -1.4,
+     "SH2.mp4": -1.5,
      "SH3.mp4": -1.5
     }
    ],
@@ -2607,7 +2634,7 @@
    "threshold": "0 matches in every Short",
    "fingerprint": "173baa4eed3c5d3b",
    "tier": "BLOCK",
-   "seconds": 26.0
+   "seconds": 26.3
   },
   {
    "id": "R01",
@@ -2686,7 +2713,7 @@
    "threshold": "≥ 1 decisive claim; every pause ≥ 1.0 s; 0 decisive numbers not found in ASR",
    "fingerprint": "254f84761c7ec3ea",
    "tier": "REFERENCE",
-   "seconds": 4.9
+   "seconds": 5.1
   },
   {
    "id": "R04",
@@ -2724,7 +2751,7 @@
     },
     {
      "name": "shot length CV",
-     "value": 0.268313,
+     "value": 0.261561,
      "op": ">=",
      "threshold": 0.4,
      "unit": "",
@@ -3254,15 +3281,157 @@
   },
   {
    "id": "P01",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/package/thumb-1.png",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "thumb 1 size",
+     "value": "1280x720",
+     "op": "==",
+     "threshold": "1280x720",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "thumb 1 token share (%)",
+     "value": 100.0,
+     "op": ">=",
+     "threshold": 97.0,
+     "unit": "%",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "thumb 1 min contrast at 10%",
+     "value": 2.241864,
+     "op": ">=",
+     "threshold": 3.0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "thumb 2 size",
+     "value": "1280x720",
+     "op": "==",
+     "threshold": "1280x720",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "thumb 2 token share (%)",
+     "value": 99.986328,
+     "op": ">=",
+     "threshold": 97.0,
+     "unit": "%",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "thumb 2 min contrast at 10%",
+     "value": 2.241864,
+     "op": ">=",
+     "threshold": 3.0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "thumb 3 size",
+     "value": "1280x720",
+     "op": "==",
+     "threshold": "1280x720",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "thumb 3 token share (%)",
+     "value": 99.99924,
+     "op": ">=",
+     "threshold": 97.0,
+     "unit": "%",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "thumb 3 min contrast at 10%",
+     "value": 2.230069,
+     "op": ">=",
+     "threshold": 3.0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "thumb texts below 90 px",
+     "value": 18,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    [
+     1,
+     "metros past the cap",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "$300,000 home bought in 2000",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "that rose like its metro average",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "$500,000 cap",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "US only · history, not a forecast",
+     "fontPx < 90"
+    ],
+    [
+     1,
+     "ILLUSTRATIVE",
+     "fontPx < 90"
+    ],
+    [
+     2,
+     "US average, 2000 → 2026 Q2",
+     "fontPx < 90"
+    ],
+    [
+     2,
+     "cap since May 1997",
+     "fontPx < 90"
+    ],
+    [
+     2,
+     "$500,000 cap",
+     "fontPx < 90"
+    ],
+    [
+     2,
+     "gain: $300,000 home that rose like the US average",
+     "fontPx < 90"
+    ]
+   ],
+   "note": null,
    "section": "DX-P2",
    "threshold": "3 thumbnails, each 1280×720; token share ≥ 97%; every text fontPx ≥ 90 (≥ 9 px at 10%) and contrast at 10% ≥ 3:1",
    "fingerprint": "00d0de16695f1943",
    "tier": "REFERENCE",
-   "seconds": 0.0
+   "seconds": 2.6
   },
   {
    "id": "T1",
@@ -3298,7 +3467,7 @@
    "threshold": "every entry 150–400 ms; master ≥ −80 dBFS and room stem ≥ −75 dBFS through every silence; ≥ 1 silence",
    "fingerprint": "aae85b30becf5024",
    "tier": "REFERENCE",
-   "seconds": 7.0
+   "seconds": 10.1
   },
   {
    "id": "L1",
@@ -3431,28 +3600,8 @@
      ],
      "notComparable": [],
      "improved": [
-      "F06",
-      "F10",
-      "A07",
-      "A08"
-     ]
-    },
-    {
-     "rule": "A09",
-     "tier": "REFERENCE",
-     "was": "PASS",
-     "now": "FAIL",
-     "failing": [
-      "silences 0.8-1.5 s = 0"
-     ]
-    },
-    {
-     "rule": "S14",
-     "tier": "REFERENCE",
-     "was": "PASS",
-     "now": "FAIL",
-     "failing": [
-      "breaks without ≥1 s silence = 2"
+      "F07",
+      "S14"
      ]
     }
    ],
@@ -3462,7 +3611,7 @@
    "fingerprint": "edef7b9f85c08547",
    "tier": "BLOCK",
    "seconds": 0.0,
-   "baseline": "/tmp/claude-0/-home-user-crux-lab/605af6a2-945d-52b2-870d-1cac1afade88/scratchpad/report-c4.json"
+   "baseline": "/tmp/claude-0/-home-user-crux-lab/605af6a2-945d-52b2-870d-1cac1afade88/scratchpad/baseline-C5.json"
   }
  ]
 }

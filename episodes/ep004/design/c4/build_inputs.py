@@ -54,7 +54,10 @@ def claims(model, shown):
                 pass
         if cid == 'sale_quarter':
             v = model['params']['saleQuarter']
-        x = {'claimId': cid, 'value': v, 'display': c['display'], 'unit': c['unit'], 'formula': c['unit'],
+        disp = c['display']
+        if cid.startswith(('cross_quarter_at_', 'stay_quarter_at_')) and isinstance(v, str) and len(v) == 10:
+            disp = f"Q{(int(v[5:7]) - 1) // 3 + 1} {v[:4]}"  # G2 (b): mốc quý trên hình B06 "Over: Q2 2022" (value giữ ngày đầu quý)
+        x = {'claimId': cid, 'value': v, 'display': disp, 'unit': c['unit'], 'formula': c['unit'],
              'source': {'id': 'model', 'url': None} if cid in raw else {'id': 'numbers.md', 'url': None},
              'historical': c['historical'], 'illustrative': c['illustrative']}
         if c['historical']:

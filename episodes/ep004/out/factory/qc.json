@@ -33,7 +33,7 @@
    "result": "ĐẠT",
    "value": 0,
    "threshold": "0 khung thiếu nhãn",
-   "note": "2403 khung log (mỗi 6 khung)"
+   "note": "2423 khung log (mỗi 6 khung)"
   },
   {
    "item": "master đối trọng \"A home that rose like the metro average\"",
@@ -59,9 +59,9 @@
   {
    "item": "freezedetect d=3 ∩ lời",
    "result": "TRƯỢT",
-   "value": 36.7,
+   "value": 32.44,
    "threshold": "0 s",
-   "note": "9 đoạn đứng yên ≥ 3 s cả phim: [[52.7333, 56.6], [82.7, 86.5667], [86.5667, 90.6333]]"
+   "note": "8 đoạn đứng yên ≥ 3 s cả phim: [[52.7333, 56.6], [82.7, 86.5667], [86.5667, 90.6333]]"
   },
   {
    "item": "mốc hình ≥ mốc từ",
@@ -80,7 +80,7 @@
   {
    "item": "kích thước phần",
    "result": "ĐẠT",
-   "value": 45.22,
+   "value": 46.85,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
   },
@@ -206,7 +206,7 @@
   {
    "item": "SH2 loudness",
    "result": "ĐẠT",
-   "value": "-13.9 LUFS / -1.4 dBTP",
+   "value": "-13.9 LUFS / -1.5 dBTP",
    "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
    "note": ""
   },
@@ -278,7 +278,7 @@
    "result": "ĐẠT",
    "value": "lab",
    "threshold": "scope full",
-   "note": "lab: 478 s < soft minimum 540 s (không độn: shorter is fine, never pad)"
+   "note": "lab: 482 s < soft minimum 540 s (không độn: shorter is fine, never pad)"
   }
  ],
  "near": [
