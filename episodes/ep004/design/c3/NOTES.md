@@ -53,3 +53,11 @@ Không sửa engine, templates, render, qc, voice.
 7. **Màu**: thanh tăng trưởng `accent` (= chỉ số thị trường, bảng E2); bậc thành phố `ink`; bậc quốc gia đứt `ink-muted`; vạch $300,000 `ink` 4 px; thước B13 dưới mốc `ink-muted` 75 % (trung tính), trên mốc `warn`.
 8. **Giọng**: normalize đọc "a 2000 price" (S14.5) thành "a two thousand price" — nghe lại ở C4.
 9. Không có Short (đoạn trích; spec WARN).
+
+## Vòng 2 kiểm mù (2026-10-06) — chỉ thêm nhãn
+
+- `n2.js` thêm tham số tối thiểu `p.labels: [{text, at, x, y, size?, align?}]`: chữ qua `E.text` (claim `{id}`, sàn/va chạm/vùng an toàn của engine), hiện từ `at` (mốc từ) tới hết shot. Không thêm vật, không đổi màu/bố cục.
+- Đối trọng "A measurement, not a tax bill or a next step": B08 = dòng `counterweights` id `measurement` (claims `exclusion_effective_month`, `excl_joint_1997_in_now` — chỉ có ở B08); B13/B14 = nhãn shot N2 đáy-trái (40 px). Lý do: dòng đối trọng thứ 2 trên-phải của engine đụng nhãn thước "2000 purchase price" của N2 → engine đẩy xuống giữa thước/cột tên (qc: 139 va chạm).
+- B13 (`S13-ruler`, từ "@S13.2:Rosa"): "Paid more in {buy_year} → bigger gain" / "→ over the cap" (2 dòng, phải thước).
+- B14 (`S14-ladder`): "Each rung: the {buy_year} price where the gain hits the cap" (trên-trái, từ "@S14.1:ladder"); từ "@S14.4:$300,000": "Every city but" / "Chicago is" / "under {illustrative_price_300k_usd}" (3 dòng, cột phải sau tên thành phố — chỉ chỗ đó trống; chỉ thấy ở 2 khung cuối vì vạch vào ở 68,3 s).
+- Dựng lại: 0 ký tự EL; qc 12/12 ĐẠT (sàn 40,0 px, 0 va chạm). Dải: `review-c3/r2/B08.png`, `B13.png`, `B14.png` (dải vòng 1 giữ nguyên).

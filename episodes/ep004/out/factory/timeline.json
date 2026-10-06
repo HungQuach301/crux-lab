@@ -61,7 +61,28 @@
     "dotAt": 0.004,
     "splitAt": 4.14,
     "underAt": 6.207,
-    "overAt": 8.004
+    "overAt": 8.004,
+    "labels": [
+     {
+      "text": "Paid more in {buy_year} → bigger gain",
+      "at": 0.004,
+      "x": 1000,
+      "y": 420
+     },
+     {
+      "text": "→ over the cap",
+      "at": 0.004,
+      "x": 1000,
+      "y": 476
+     },
+     {
+      "text": "A measurement, not a tax bill or a next step",
+      "at": 0.004,
+      "x": 96,
+      "y": 1016,
+      "size": 40
+     }
+    ]
    }
   },
   {
@@ -81,7 +102,44 @@
     "gMinAt": 16.64,
     "gMaxAt": 18.15,
     "refAt": 22.907,
-    "titleAt": 24.512
+    "titleAt": 24.512,
+    "labels": [
+     {
+      "text": "Each rung: the {buy_year} price where the gain hits the cap",
+      "at": 6.229,
+      "x": 96,
+      "y": 100,
+      "size": 40
+     },
+     {
+      "text": "A measurement, not a tax bill or a next step",
+      "at": 0.0,
+      "x": 96,
+      "y": 1016,
+      "size": 40
+     },
+     {
+      "text": "Every city but",
+      "at": 22.907,
+      "x": 1470,
+      "y": 560,
+      "size": 40
+     },
+     {
+      "text": "Chicago is",
+      "at": 22.907,
+      "x": 1470,
+      "y": 608,
+      "size": 40
+     },
+     {
+      "text": "under {illustrative_price_300k_usd}",
+      "at": 22.907,
+      "x": 1470,
+      "y": 656,
+      "size": 40
+     }
+    ]
    }
   }
  ],
@@ -1559,6 +1617,30 @@
    "scene": "S13"
   },
   {
+   "shot": "S13-ruler",
+   "param": "labels[0].at",
+   "anchor": "@S13.2:Rosa",
+   "word_t": 35.571,
+   "visual_t": 35.571,
+   "scene": "S13"
+  },
+  {
+   "shot": "S13-ruler",
+   "param": "labels[1].at",
+   "anchor": "@S13.2:Rosa",
+   "word_t": 35.571,
+   "visual_t": 35.571,
+   "scene": "S13"
+  },
+  {
+   "shot": "S13-ruler",
+   "param": "labels[2].at",
+   "anchor": "@S13.2",
+   "word_t": 35.571,
+   "visual_t": 35.571,
+   "scene": "S13"
+  },
+  {
    "shot": "S14-ladder",
    "param": "at",
    "anchor": "@S14.1",
@@ -1636,6 +1718,46 @@
    "anchor": "@S14.5",
    "word_t": 69.779,
    "visual_t": 69.779,
+   "scene": "S14"
+  },
+  {
+   "shot": "S14-ladder",
+   "param": "labels[0].at",
+   "anchor": "@S14.1:ladder",
+   "word_t": 51.496,
+   "visual_t": 51.496,
+   "scene": "S14"
+  },
+  {
+   "shot": "S14-ladder",
+   "param": "labels[1].at",
+   "anchor": "@S14.1",
+   "word_t": 45.267,
+   "visual_t": 45.267,
+   "scene": "S14"
+  },
+  {
+   "shot": "S14-ladder",
+   "param": "labels[2].at",
+   "anchor": "@S14.4:$300,000",
+   "word_t": 68.174,
+   "visual_t": 68.174,
+   "scene": "S14"
+  },
+  {
+   "shot": "S14-ladder",
+   "param": "labels[3].at",
+   "anchor": "@S14.4:$300,000",
+   "word_t": 68.174,
+   "visual_t": 68.174,
+   "scene": "S14"
+  },
+  {
+   "shot": "S14-ladder",
+   "param": "labels[4].at",
+   "anchor": "@S14.4:$300,000",
+   "word_t": 68.174,
+   "visual_t": 68.174,
    "scene": "S14"
   }
  ]

@@ -14,6 +14,9 @@ const fade = (t, a0) => ease(t, a0, a0 + 0.4);
 const RX = 900, RW = 22, LO = 100000, HI = 400000, YB = 900, YT = 290;   // thước: x, bề rộng, khoảng giá, y đáy/đỉnh
 const Y = (v) => mix(YB, YT, (v - LO) / (HI - LO));
 const LX = RX + RW / 2 + 120;                                               // cột tên thành phố
+// p.labels (vòng 2 kiểm mù): [{text, at, x, y, size?, align?}] — nhãn nghĩa đặt chữ tại chỗ trống, hiện từ `at` tới hết shot
+const labels = (E, t, p) => (p.labels || []).forEach((l, i) => E.text(l.text, l.x, l.y, l.size || 44,
+  { align: l.align, alpha: fade(t, at(l, 'at')), group: 'n2-lab' + i }));
 
 // nhãn tên không chồng nhau: nới đều từ vị trí mong muốn (khoảng ≥ gap), giữ trong [lo, hi]
 function spread(ys, gap, lo, hi) {
@@ -51,6 +54,7 @@ export const n2 = { draw(E, t, p) {
     E.text('Rosa & Frank · {illustrative_price_200k_usd}', RX - 60, cy - 30, 'label', { align: 'right', alpha: fade(t, da), group: 'n2-rf' });
     E.text('over the cap', RX - 60, Y(330000), 'label', { align: 'right', color: E.C.above || E.C.warn, alpha: fade(t, at(p, 'overAt', sa + 0.6)), group: 'n2-over' });
     E.text('under the cap', RX - 60, Y(125000), 'label', { align: 'right', alpha: fade(t, at(p, 'underAt', sa + 0.3)), group: 'n2-under' });
+    labels(E, t, p);
     E.historical();
     return;
   }
@@ -85,5 +89,6 @@ export const n2 = { draw(E, t, p) {
   const ta = at(p, 'titleAt', 1e9);
   E.text('{buy_year} price where the gain', E.SAFE.x0 + 24, 190, 'note', { alpha: fade(t, ta), group: 'n2-t1' });
   E.text('reaches the {excl_joint_limit_usd} cap', E.SAFE.x0 + 24, 246, 'note', { alpha: fade(t, ta), group: 'n2-t2' });
+  labels(E, t, p);
   E.historical();
 } };

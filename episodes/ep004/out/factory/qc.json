@@ -3,7 +3,7 @@
   {
    "item": "master sàn chữ",
    "result": "ĐẠT",
-   "value": 42.01,
+   "value": 40,
    "threshold": "≥ 40 px",
    "note": "0 lần engine nâng cỡ"
   },
@@ -43,6 +43,13 @@
    "note": ""
   },
   {
+   "item": "master đối trọng \"A measurement, not a tax bill or a next step\"",
+   "result": "ĐẠT",
+   "value": 840,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
    "item": "trục từ 0",
    "result": "ĐẠT",
    "value": 0,
@@ -61,7 +68,7 @@
    "result": "ĐẠT",
    "value": 0,
    "threshold": "0",
-   "note": "24 mốc"
+   "note": "32 mốc"
   },
   {
    "item": "loudness",
@@ -73,7 +80,7 @@
   {
    "item": "kích thước phần",
    "result": "ĐẠT",
-   "value": 5.89,
+   "value": 6.68,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
   },
@@ -86,6 +93,11 @@
   }
  ],
  "near": [
+  {
+   "item": "master sàn chữ",
+   "value": 40,
+   "threshold": 40
+  },
   {
    "item": "loudness TP",
    "value": -1.5,

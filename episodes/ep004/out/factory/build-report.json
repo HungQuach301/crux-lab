@@ -7,53 +7,53 @@
    "problems": 1
   },
   "voice": {
-   "seconds": 0.34,
+   "seconds": 0.38,
    "scenes": 3,
    "cache_hits": 3,
    "el_chars_spent": 0
   },
   "resolve": {
-   "seconds": 1.42,
+   "seconds": 1.78,
    "total": 78.7,
    "shots": 4,
-   "anchors": 24
+   "anchors": 32
   },
   "render": {
-   "seconds": 8.37,
+   "seconds": 63.4,
    "segments": 17,
-   "rendered": 2,
-   "cache_hits": 15,
-   "frames": 225,
-   "fps": 26.89,
+   "rendered": 17,
+   "cache_hits": 0,
+   "frames": 2361,
+   "fps": 37.24,
    "workers": 4,
    "fmt": "jpeg"
   },
   "mix": {
-   "seconds": 22.08,
+   "seconds": 23.43,
    "video": "episodes/ep004/work/factory/video.mp4",
-   "sha256": "6df1cf32410a817e9eb2735fa368c7d75d41a494e1f0aec0a2dc506ab1cad5ce",
+   "sha256": "6b403af638fc701d3c5d321bbd33863743ff053ca998b85224d57148afa35aeb",
    "mb": 166.07
   },
   "parts": {
-   "seconds": 22.68,
+   "seconds": 24.49,
    "parts": [
     {
      "file": "episodes/ep004/work/factory/ep004-part1-720p.mp4",
      "from": 0.0,
      "to": 28.0667,
-     "mb": 5.89
+     "mb": 6.12
     },
     {
      "file": "episodes/ep004/work/factory/ep004-part2-720p.mp4",
      "from": 28.0667,
      "to": 45.2667,
-     "mb": 2.73
+     "mb": 3.51
     },
     {
      "file": "episodes/ep004/work/factory/ep004-part3-720p.mp4",
      "from": 45.2667,
      "to": 78.7,
-     "mb": 5.16
+     "mb": 6.68
     }
    ]
   },
@@ -62,15 +62,16 @@
    "shorts": []
   },
   "qc": {
-   "seconds": 8.9,
+   "seconds": 9.29,
    "pass": true,
    "failed": [],
    "near": [
+    "master sàn chữ",
     "loudness TP"
    ]
   }
  },
- "started": "2026-10-06T00:45:10Z",
+ "started": "2026-10-06T00:55:52Z",
  "spec": [
   {
    "level": "WARN",
@@ -79,5 +80,5 @@
   }
  ],
  "music": {},
- "total_seconds": 65.02
+ "total_seconds": 124.32
 }

@@ -31,6 +31,9 @@ counterweights:
              threshold_joint_miami, threshold_joint_los_angeles, threshold_joint_san_diego, threshold_joint_seattle, threshold_joint_new_york,
              threshold_joint_dallas, threshold_joint_boston, threshold_joint_denver, threshold_joint_us, threshold_joint_san_jose,
              threshold_joint_san_francisco, threshold_joint_chicago, growth_miami, growth_chicago]
+  - id: measurement          # vòng 2 kiểm mù: đối trọng B08 (dòng engine trên-phải). B13/B14: nhãn shot N2 (p.labels, đáy-trái) —
+    text: "A measurement, not a tax bill or a next step"   # dòng engine thứ 2 trên-phải đụng nhãn thước N2 → engine đẩy xuống giữa thước
+    claims: [exclusion_effective_month, excl_joint_1997_in_now]
 custom_symbols:             # 2 ký hiệu mới đã duyệt ở G1 (CHARTER §5: ≤ 2)
   - {id: N1, file: design/c3/n1.js}
   - {id: N2, file: design/c3/n2.js}
@@ -72,6 +75,10 @@ scenes:
           splitAt: "@S13.3"
           underAt: "@S13.3:under"
           overAt: "@S13.3:over"
+          labels:               # vòng 2 kiểm mù: nhãn nghĩa B13 (2 dòng, khoảng trống phải thước)
+            - {text: "Paid more in {buy_year} → bigger gain", at: "@S13.2:Rosa", x: 1000, y: 420}
+            - {text: "→ over the cap", at: "@S13.2:Rosa", x: 1000, y: 476}
+            - {text: "A measurement, not a tax bill or a next step", at: "@S13.2", x: 96, y: 1016, size: 40}
   - id: S14
     tail: 1.5                 # giữ 1,5 s (chỗ MR2)
     shots:
@@ -90,4 +97,10 @@ scenes:
           gMaxAt: "@S14.3:Chicago's"
           refAt: "@S14.4:$300,000"
           titleAt: "@S14.5"
+          labels:               # vòng 2 kiểm mù: nhãn nghĩa B14 (dải trên-trái; đối trọng đáy-trái; cột phải khi vạch $300,000 vào)
+            - {text: "Each rung: the {buy_year} price where the gain hits the cap", at: "@S14.1:ladder", x: 96, y: 100, size: 40}
+            - {text: "A measurement, not a tax bill or a next step", at: "@S14.1", x: 96, y: 1016, size: 40}
+            - {text: "Every city but", at: "@S14.4:$300,000", x: 1470, y: 560, size: 40}
+            - {text: "Chicago is", at: "@S14.4:$300,000", x: 1470, y: 608, size: 40}
+            - {text: "under {illustrative_price_300k_usd}", at: "@S14.4:$300,000", x: 1470, y: 656, size: 40}
 shorts: []
