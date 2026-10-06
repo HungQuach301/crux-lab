@@ -1,4 +1,4 @@
-# Script — Episode 5 (format `101`, C2 draft v1, WRITER, 2026-10-06)
+# Script — Episode 5 (format `101`, C2 draft v2 (blind test C2 fixes), WRITER, 2026-10-06)
 
 Working title: *10% Down and Mortgage Insurance: How Long Did It Last?* · Logline **L2** (C1). Hook used: **H-A "Câu hỏi của người xem"** (`hooks.md`).
 
@@ -14,15 +14,15 @@ Working title: *10% Down and Mortgage Insurance: How Long Did It Last?* · Logli
 
 | Part (story §4, `101`) | Scenes | Words | Est. time | Share | Template | Δ pts |
 |---|---|---|---|---|---|---|
-| Hook + promise + constraints (cold open + ident) | S01–S03 | 145 | 0:00–1:04 | 12.8 % | 8 % | +4.8 |
-| Act 1 · concept (PMI, the 80/78 schedule) | S04–S09 | 315 | 1:04–3:27 | 28.5 % | 25 % | +3.5 |
-| Act 2 · small experiment on real data | S10–S14 | 284 | 3:27–5:35 | 25.5 % | 30 % | −4.5 |
-| Act 3 · three buyers + the viewer's comparison | S15–S18 | 269 | 5:35–7:35 | 23.8 % | 25 % | −1.2 |
-| Limits + method (V7, 5 s read) + outro | S19–S20 | 97 | 7:35–8:22 | 9.4 % | 12 % | −2.6 |
+| Hook + promise + constraints (cold open + ident) | S01–S03 | 133 | 0:00–1:00 | 12.0 % | 8 % | +4.0 |
+| Act 1 · concept (PMI, the 80/78 schedule) | S04–S09 | 318 | 1:00–3:24 | 28.9 % | 25 % | +3.9 |
+| Act 2 · small experiment on real data | S10–S14 | 301 | 3:24–5:40 | 27.2 % | 30 % | −2.8 |
+| Act 3 · three buyers + the viewer's comparison | S15–S18 | 274 | 5:40–7:43 | 24.6 % | 25 % | −0.4 |
+| Limits + method (V7, 5 s read) + outro | S19–S20 | 70 | 7:43–8:19 | 7.2 % | 12 % | −4.8 |
 
-Total narration **1,110 words** (≈ 1,146 read out), est. **≈ 8:22** incl. 22.5 s of holds and the 3 s ident; ≈ 8:40 with end screen. No part off by more than ±5 pts. Closest: cold open **+4.8** — the "on paper" gap (C1 blind, 6/6 readers) is explained inside the cold open by design; Act 2 −4.5 (one replay, four results; not padded, story §4).
+Total narration **1,096 words** (≈ 1,136 read out), est. **≈ 8:19** incl. 23.5 s of holds and the 3 s ident; ≈ 8:37 with end screen. No part off by more than ±5 pts. Closest: limits **−4.8** — blind test C2 pre-registered fallback: S19 is one spoken sentence, the "not modeled" list moved to the V7 card and the description (B19); hook **+4.0** — the "on paper" gap (C1 blind, 6/6 readers) is explained inside the cold open by design.
 
-**Statements without a numbers.md claim (qualitative, flagged for REVIEWER):** S04.1 "lenders usually require [PMI] on a conventional loan with less than 20 percent down" (general practice, no source in the dossier); S13.3 the slow months "sit together … just before and during the national price slump" (WRITER recomputed with `model/model.py`: all 45 set-B months over 60 months are purchases from 2005 through 2009; not in numbers.md, so no year is spoken); S17.2 Victor's index "rose a little, then fell for years" (same recomputation: peak ≈ +4 % at 18 months, low ≈ −17.5 % at 72 months; only "still below" is a claim).
+**Statements without a numbers.md claim (qualitative, flagged for REVIEWER):** S04.1 "lenders usually require [PMI] on a conventional loan with less than 20 percent down" (general practice, no source in the dossier); S13.3 the slow months "sit together … just before and during the national price slump" (WRITER recomputed with `model/model.py`: all 45 set-B months over 60 months are purchases from 2005 through 2009; not in numbers.md, so no year is spoken); S17.2 Victor's index "rose a little, then fell for years" (same recomputation: peak +4.3 % at month 20, low −18.8 % at month 75, claims `buyer_slow_index_peak` / `buyer_slow_index_trough`; on screen only "still below").
 
 **Mid-roll:** **MR1 ≈ 3:27**, end of Act 1, inside the 1.5 s hold after S09.4 (act-2 question left open). ≥ 120 s from start and 295 s from the end (last two minutes start ≈ 6:22).
 
@@ -79,7 +79,7 @@ S06.3 Each payment pays the balance down a little, slowly at first, and faster l
 ## S07 — The law's first date: you can ask
 
 S07.1 By federal law, the borrower can ask to cancel the insurance once the schedule says the loan is down to 80 percent of the original value, here $320,000. <!-- claims: ex_target80, sched80_months_latest, borrower_request_conditions; hold: 1 -->
-S07.2 On this loan, that's payment 99: the schedule's road from the opening. <!-- claims: sched80_months_latest -->
+S07.2 On this loan, that's payment 99, the date this video opened with. <!-- claims: sched80_months_latest -->
 S07.3 That request comes with conditions, such as being current on payments. <!-- claims: borrower_request_conditions -->
 
 ## S08 — The law's second date: it ends on its own
@@ -92,7 +92,7 @@ S08.3 Both dates come from the schedule alone, and both ignore what the house is
 
 S09.1 Lenders, and the investors who own loans, can also drop the insurance based on the home's current value. <!-- claims: value_removal_rule -->
 S09.2 If prices rise, the same balance becomes a smaller share of the home, and 80 percent can arrive sooner, on paper. <!-- claims: sched80_months_latest -->
-S09.3 That's the road behind the words on paper, with the lender's rules from the opening still in the way. <!-- claims: — -->
+S09.3 That's what on paper means in this video, and a lender's request, appraisal and minimum time still come after it. <!-- claims: value_removal_rule -->
 S09.4 So how fast did rising prices actually get 10 percent down buyers there? <!-- claims: medianB_months_to80; hold: 1.5 -->
 
 >>> MID-ROLL MR1 (≈ 3:27, in the 1.5 s hold after S09.4; act boundary) <<<
@@ -117,8 +117,9 @@ S11.4 That's the gap between the schedule's long road and the replay's typical o
 ## S12 — But "on paper" is not removal
 
 S12.1 But that's on paper. <!-- claims: — -->
-S12.2 In a wider set of months, two years after purchase, only 15.6 percent were at or below the 75 percent bar that lenders often use early on. <!-- claims: shareA_ltv24_le75, nA, value_removal_ltv_early; hold: 1 -->
-S12.3 So reaching 80 percent on paper in about two years was common in this history, while clearing a lender's early bar by then was not. <!-- claims: medianB_months_to80, shareA_ltv24_le75 -->
+S12.2 We also checked a larger set: every purchase month since January 1991 with two years of prices after it. <!-- claims: nA -->
+S12.3 Two years after purchase, only 15.6 percent of them were at or below the 75 percent bar that lenders often use early on. <!-- claims: shareA_ltv24_le75, nA, value_removal_ltv_early; hold: 1 -->
+S12.4 So reaching 80 percent on paper in about two years was common in this history, while clearing a lender's early bar by then was not. <!-- claims: medianB_months_to80, shareA_ltv24_le75 -->
 
 ## S13 — The slow tail
 
@@ -152,13 +153,13 @@ S16.3 Rising prices did most of that work, not his payments. <!-- claims: buyer_
 
 S17.1 [serious] Victor bought the year after Owen, in October 2005: the slowest month in the replay. <!-- claims: buyer_slow_*, buyer_fast_*, maxB_start -->
 S17.2 Prices rose a little, then fell for years, and even when he finally reached 80 percent on paper, the index was still below where it started. <!-- claims: buyer_slow_*, buyer_slow_index_peak, buyer_slow_index_trough -->
-S17.3 He got there by paying the loan down, and his own schedule reached 80 percent of the original price first, at payment 90. <!-- claims: buyer_slow_*; hold: 1 -->
+S17.3 He got there by paying the loan down, and his own schedule, at his lower rate of 6.07 percent, reached 80 percent of the original price first, at payment 90. <!-- claims: buyer_slow_*; hold: 1 -->
 S17.4 Whether a lender would have dropped his insurance at that point, this data can't show. <!-- claims: — -->
 
 ## S18 — What a viewer can hold a plan against
 
 S18.1 Same rule, same national index: what differed was the month they started, and what prices did next. <!-- claims: buyer_fast_*, buyer_slow_* -->
-S18.2 So a plan of your own has a pair of lines to sit against. <!-- claims: — -->
+S18.2 So a plan can be measured against two benchmarks from this history. <!-- claims: sched80_months_latest, medianB_months_to80 -->
 S18.3 One is the schedule the law uses, which on the example loan runs most of a decade. <!-- claims: sched80_months_latest, sched78_months_latest -->
 S18.4 The other is history on paper: a plan that counts on about two years matched the typical month, not the slow ones, and not the lender's step. <!-- claims: medianB_months_to80, shareB_over60 -->
 S18.5 On the illustrative $400,000 home, the other path, 20 percent down, means $40,000 more up front. <!-- claims: ex_price, ex_extra_down_for_20; hold: 1 -->
@@ -168,8 +169,7 @@ S18.6 This video doesn't weigh that against renting or waiting; it measures how 
 
 ## S19 — Limits and method
 
-S19.1 Not modeled here: what the insurance costs, appraisal fees, rent, local prices, or how fast savings grow. <!-- claims: pmi_premium -->
-S19.2 How we know this: public data from FRED, one loan replayed from every purchase month, and every rule and limit is on this card and in the description. <!-- claims: nB, rate_month_latest; hold: 5 -->
+S19.1 How we know this, and what this video leaves out, is on this card and in the description. <!-- claims: —; hold: 5 -->
 
 ## S20 — Outro: back to the opening question
 

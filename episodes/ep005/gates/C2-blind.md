@@ -17,3 +17,7 @@
 - Chỗ khó hiểu (câu 3): trùng ("road from the opening" ở 8/9).
 - Token: headless 53.369 / 6 = **8,9 nghìn/lượt**; `Explore` ≈ **36 nghìn/lượt** (harness: 35,9–36,1). Người chấm (9 nhãn): 24.744.
 - **Theo luật ghi trước: chưa đủ điều kiện "chuyển hẳn"** (cảnh mất chú ý không trùng). Khuyến nghị nêu ở G1: giữ headless cho Tập 5 (rẻ 4×, cùng kết luận cổng, cùng chỗ khó hiểu); điều kiện "cùng cảnh mất chú ý" là câu hỏi mở cho tổng kết Tập 5.
+
+## Vòng 2 (sau dự phòng S19 + sửa câu khó hiểu; 6 người đọc headless MỚI + người chấm)
+Dữ liệu `c2/r2/`, mẫu `c2/sample-r2.txt`. **6/6 đúng · khuyên 0/6 · cảnh mất chú ý nhiều nhất S18 3/6** (S12 2, S10 1) → **ĐẠT**. Token: 56.363 + 17.586.
+Câu 3 còn lại (CHÍNH, không đổi nghĩa → hàng chờ G2): người đọc phải tự nhớ "payment 99 ≈ 8 năm" (S07.2); "middle of the replay" của Grace (S15); Victor chậm hơn cả lịch của chính mình (S13/S17) gây bất ngờ — đúng claim, có thể thêm một nhãn hình.
