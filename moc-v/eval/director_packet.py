@@ -40,7 +40,7 @@ with open(os.path.join(out, 'transcript.txt'), 'w') as f:
     for s in segs:
         f.write(f"[{s.start:6.2f}–{s.end:6.2f}] " + ' '.join(f"{w.word.strip()}@{w.start:.2f}" for w in s.words) + '\n')
 if stems:
-    sp = json.load(open(os.path.join(ROOT, 'moc-v/proto/spine.json')))
+    sp = json.load(open(sys.argv[sys.argv.index('--spine') + 1] if '--spine' in sys.argv else os.path.join(ROOT, 'moc-v/proto/spine.json')))
     with open(os.path.join(out, 'events.txt'), 'w') as f:
         for e in sp['events']:
             if e['kind'] != 'data': f.write(f"{e['t']:6.2f}s {e['kind']}\n")

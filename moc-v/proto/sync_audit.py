@@ -36,16 +36,26 @@ for name in VIS:
     if name in LBL and plog:
         first = next((l['t'] for l in plog if l['t'] >= t - 1.0 and any(x['text'] == LBL[name] and x['opacity'] >= 0.5 for x in l['texts'])), None)
         vis[name] = round(first - t, 3) if first is not None else None; how[name] = 'label'; continue
+    roi = None
+    if plog:
+        near = min(plog, key=lambda l: abs(l['t'] - t))
+        roi = (near.get('roi') or {}).get(name)
+    if roi:                                    # đo trong vùng của vật thể (hộp từ trang, thiết kế 1920×1080) trên video thật
+        x0, y0, x1, y1 = [int(v * 320 / 1920) for v in roi[:1]] + [int(roi[1] * 180 / 1080)] + [int(roi[2] * 320 / 1920)] + [int(roi[3] * 180 / 1080)]
+        x0, y0 = max(0, x0), max(0, y0); x1, y1 = min(320, max(x1, x0 + 2)), min(180, max(y1, y0 + 2))
+        dl = np.r_[0, [np.abs(fr[i, y0:y1, x0:x1] - fr[i - 1, y0:y1, x0:x1]).mean() for i in range(1, len(fr))]]
+    else:
+        dl = diff
     end = t + 0.8
     for m in moves:                          # không để động tác máy quay kế tiếp lẫn vào cửa sổ đo
         if t < m['t0'] < end: end = m['t0']
-    base = float(np.median(diff[int((t - 0.7) * 30):int((t - 0.15) * 30)]))
+    base = float(np.median(dl[int((t - 0.7) * 30):int((t - 0.15) * 30)]))
     i0, i1 = int((t - 0.3) * 30), int(end * 30)
-    seg = diff[i0:i1]
+    seg = dl[i0:i1]
     if len(seg) == 0 or seg.max() - base < 0.08:
         vis[name] = None; how[name] = 'motion'; continue
     on = int(np.argmax(seg > base + 0.5 * (seg.max() - base)))
-    vis[name] = round(i0 / 30 + on / 30 - t, 3); how[name] = 'motion'
+    vis[name] = round(i0 / 30 + on / 30 - t, 3); how[name] = 'motion-roi' if roi else 'motion'
 res = {'video': video, 'asr_words_matched': int(len(d)), 'asr_words_ref': len(ref),
        'voice_offset_s': {'median': round(float(np.median(d)), 3), 'p90_abs': round(float(np.percentile(np.abs(d), 90)), 3)},
        'visual_peak_vs_keyword_s': vis, 'method': how,

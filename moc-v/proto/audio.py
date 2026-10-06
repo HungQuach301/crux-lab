@@ -152,8 +152,13 @@ def music_code(spine):
     rồi b11 thả: F trưởng, pad + pluck thưa (sáng, G-016). Điểm nhấn felt rơi đúng sự kiện (vạch trần khoá, cắt vạch, qua trần)."""
     T = spine['total']; N = int(T * SR) + SR; dry = np.zeros((N, 2))
     cue = {b['id']: b['cues'] for b in spine['beats']}
-    stop = cue['b10']['cap'] + 0.32
-    rel0 = cue['b11']['x'] - 2.2  # thả bắt đầu ngay sau khoảng lặng
+    mp = spine.get('music_plan')
+    if mp:                                          # spine v3: nhạc đọc kế hoạch từ đặc tả nhịp
+        stop, rel0, ACC = mp['stop'], mp['release'] - 1.0, mp['accents']
+    else:
+        stop = cue['b10']['cap'] + 0.32
+        rel0 = cue['b11']['x'] - 2.2
+        ACC = [cue['b3']['cap'] + 0.35, cue['b6']['cross'], cue['b10']['past'] - 0.05]
     bar = 4 * BEAT
     prog = ['i7', 'IV', 'i7', 'VII', 'i7', 'IV', 'v7', 'III']
     k = 0; t0 = 0.0
@@ -195,7 +200,7 @@ def music_code(spine):
             add(dry, t0 + h * BEAT / 4, pluck(hz(tones[(j + k) % len(tones)]), 0.08, 2600), 0.2 if j % 2 else -0.2)
         k += 1; t0 += bar
     # điểm nhấn đúng sự kiện
-    for key, m, v in ((cue['b3']['cap'] + 0.35, 38, 0.45), (cue['b6']['cross'], 50, 0.4), (cue['b10']['past'] - 0.05, 38, 0.55)):
+    for key, (m, v) in zip(ACC, [(38, 0.45), (50, 0.4), (38, 0.5), (45, 0.4)]):
         add(dry, key, felt(hz(m), v)); add(dry, key, felt(hz(m + 7), v * 0.5), 0.1)
     wet = reverb(dry)
     # G-003: sau 'stop' chỉ còn đuôi reverb (τ 90 ms cho phần khô) — đã cắt nốt khô ở stop; đuôi reverb tự nhả

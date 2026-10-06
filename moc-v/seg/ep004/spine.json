@@ -1200,6 +1200,7 @@
    "t1": 28.92,
    "cues": {
     "cap": 23.36,
+    "flat": 24.584,
     "five": 25.368,
     "same": 27.176
    }
@@ -1326,6 +1327,7 @@
    "t0": 56.467,
    "t1": 61.16,
    "cues": {
+    "rose": 58.024,
     "fly": 59.752,
     "land": 60.73
    }
@@ -1374,6 +1376,7 @@
  ],
  "moves": [
   {
+   "id": "hood",
    "verb": "pull",
    "from": "wHome",
    "to": "wHood",
@@ -1383,6 +1386,7 @@
    "sound": "whoosh_soft"
   },
   {
+   "id": "toChart",
    "verb": "mode",
    "from": "wHood",
    "to": "cFull",
@@ -1392,15 +1396,27 @@
    "sound": "whoosh_mode"
   },
   {
+   "id": "toDemo",
    "verb": "mode",
    "from": "cFull",
-   "to": "wDemo",
+   "to": "wDemoNear",
    "t0": 28.092,
    "t1": 29.092,
    "reason": "lời \"And here's THEIR gain\": về người và nhà của họ → chế độ thế giới",
    "sound": "whoosh_mode"
   },
   {
+   "id": "demoPull",
+   "verb": "pull",
+   "from": "wDemoNear",
+   "to": "wDemo",
+   "t0": 34.346,
+   "t1": 35.246,
+   "reason": "lời \"grown with the index\": chồng sắp cao gấp bốn → lùi máy để thấy trọn",
+   "sound": "whoosh_soft"
+  },
+  {
+   "id": "backChart",
    "verb": "mode",
    "from": "wDemo",
    "to": "cFull",
@@ -1410,6 +1426,7 @@
    "sound": "whoosh_mode"
   },
   {
+   "id": "zoom",
    "verb": "push",
    "from": "cFull",
    "to": "cZoom",
@@ -1419,6 +1436,7 @@
    "sound": "whoosh_push"
   },
   {
+   "id": "wide",
    "verb": "pull",
    "from": "cZoom",
    "to": "cFull",
@@ -1762,7 +1780,7 @@
    "src": "value"
   },
   {
-   "t": 23.71,
+   "t": 23.86,
    "kind": "thud"
   },
   {
@@ -1779,6 +1797,16 @@
    "t": 33.94,
    "kind": "tick",
    "v": 0.6
+  },
+  {
+   "t": 34.346,
+   "kind": "whoosh_soft",
+   "dur": 0.9
+  },
+  {
+   "t": 35.246,
+   "kind": "land",
+   "mode": false
   },
   {
    "t": 35.653,
@@ -1808,23 +1836,9 @@
    "over": false
   },
   {
-   "t": 42.163,
-   "kind": "data",
-   "v": 0.001479669433602726,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 42.275,
    "kind": "data",
    "v": 0.011026514943286936,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 42.387,
-   "kind": "data",
-   "v": 0.019162406318142644,
    "src": "gain",
    "over": false
   },
@@ -1836,23 +1850,9 @@
    "over": false
   },
   {
-   "t": 42.611,
-   "kind": "data",
-   "v": 0.03250233632015831,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 42.723,
    "kind": "data",
    "v": 0.03834771773587675,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 42.835,
-   "kind": "data",
-   "v": 0.044687849302768756,
    "src": "gain",
    "over": false
   },
@@ -1864,23 +1864,9 @@
    "over": false
   },
   {
-   "t": 43.059,
-   "kind": "data",
-   "v": 0.087364630861415,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 43.171,
    "kind": "data",
    "v": 0.12655983728217252,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 43.283,
-   "kind": "data",
-   "v": 0.2114552984076375,
    "src": "gain",
    "over": false
   },
@@ -1892,23 +1878,9 @@
    "over": false
   },
   {
-   "t": 43.507,
-   "kind": "data",
-   "v": 0.2823511626628552,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 43.619,
    "kind": "data",
    "v": 0.28198468106939323,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 43.731,
-   "kind": "data",
-   "v": 0.26558462976197017,
    "src": "gain",
    "over": false
   },
@@ -1920,23 +1892,9 @@
    "over": false
   },
   {
-   "t": 43.955,
-   "kind": "data",
-   "v": 0.1565746797867077,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 44.067,
    "kind": "data",
    "v": 0.13388946915141187,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 44.179,
-   "kind": "data",
-   "v": 0.07900885053048212,
    "src": "gain",
    "over": false
   },
@@ -1948,23 +1906,9 @@
    "over": false
   },
   {
-   "t": 44.403,
-   "kind": "data",
-   "v": 0.05177926813625782,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 44.516,
    "kind": "data",
    "v": 0.025539186044380935,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 44.628,
-   "kind": "data",
-   "v": 0.01612060909240831,
    "src": "gain",
    "over": false
   },
@@ -1976,23 +1920,9 @@
    "over": false
   },
   {
-   "t": 44.852,
-   "kind": "data",
-   "v": 0.04655690542942482,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 44.964,
    "kind": "data",
    "v": 0.0689855789492973,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 45.076,
-   "kind": "data",
-   "v": 0.10063126454473821,
    "src": "gain",
    "over": false
   },
@@ -2004,23 +1934,9 @@
    "over": false
   },
   {
-   "t": 45.3,
-   "kind": "data",
-   "v": 0.13117750535979333,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 45.412,
    "kind": "data",
    "v": 0.14066937863045825,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 45.524,
-   "kind": "data",
-   "v": 0.16031279204001975,
    "src": "gain",
    "over": false
   },
@@ -2032,13 +1948,6 @@
    "over": false
   },
   {
-   "t": 45.748,
-   "kind": "data",
-   "v": 0.18981456031370825,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 45.86,
    "kind": "data",
    "v": 0.20352097190918583,
@@ -2046,23 +1955,9 @@
    "over": false
   },
   {
-   "t": 45.972,
-   "kind": "data",
-   "v": 0.22527165448115366,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 46.084,
    "kind": "data",
    "v": 0.2423680208161545,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 46.196,
-   "kind": "data",
-   "v": 0.26563960200098946,
    "src": "gain",
    "over": false
   },
@@ -2079,23 +1974,9 @@
    "over": false
   },
   {
-   "t": 46.42,
-   "kind": "data",
-   "v": 0.2965523244095065,
-   "src": "gain",
-   "over": false
-  },
-  {
    "t": 46.532,
    "kind": "data",
    "v": 0.31868781265460944,
-   "src": "gain",
-   "over": false
-  },
-  {
-   "t": 46.644,
-   "kind": "data",
-   "v": 0.34360856101002324,
    "src": "gain",
    "over": false
   },
@@ -2261,6 +2142,11 @@
    "over": true
   },
   {
+   "t": 58.024,
+   "kind": "rise",
+   "dur": 1.478
+  },
+  {
    "t": 59.752,
    "kind": "swish",
    "to": 60.73
@@ -2356,6 +2242,14 @@
    0.1
   ]
  ],
+ "music_plan": {
+  "stop": 62.76,
+  "release": 65.373,
+  "accents": [
+   23.86,
+   47.88
+  ]
+ },
  "label_cues": {
   "b2.quarter": "2000 Q1",
   "b0.q": "?",
@@ -2372,6 +2266,8 @@
   "b11.x": "×3.8"
  },
  "visual_cues": [
+  "b3.flat",
+  "b9.rose",
   "b0.q",
   "b1.blur",
   "b1.rise",
@@ -2412,20 +2308,25 @@
   {
    "id": "s3",
    "t0": 28.092,
-   "t1": 40.901
+   "t1": 34.346
   },
   {
    "id": "s4",
+   "t0": 34.346,
+   "t1": 40.901
+  },
+  {
+   "id": "s5",
    "t0": 40.901,
    "t1": 48.155
   },
   {
-   "id": "s5",
+   "id": "s6",
    "t0": 48.155,
    "t1": 63.407
   },
   {
-   "id": "s6",
+   "id": "s7",
    "t0": 63.407,
    "t1": 69.6
   }

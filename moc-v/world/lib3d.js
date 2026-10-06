@@ -139,3 +139,35 @@ export function Burst({ color = PALETTE.warn } = {}) {
   const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, color, transparent: true, depthWrite: false })); s.renderOrder = 9;
   return s;
 }
+
+// ---------------------------------------------------------------- căn hộ thuê (khối nhiều tầng tối giản) — vật thể mới Tập 5 (E4: duyệt qua clip)
+export function Apartment({ w = 1.6, floors = 4, color = '#8E99A8' } = {}) {
+  const g = new THREE.Group(), fh = 0.5, d = w * 0.7;
+  const body = new THREE.Mesh(new THREE.BoxGeometry(w, fh * floors, d), mat(color)); body.position.y = fh * floors / 2; body.castShadow = body.receiveShadow = true; g.add(body);
+  const win = mat('#2B2F38', { emissive: new THREE.Color('#F6D58E'), emissiveIntensity: 0.6 });
+  for (let f = 0; f < floors; f++) for (const x of [-w * 0.3, 0, w * 0.3]) { const m = new THREE.Mesh(new THREE.BoxGeometry(w * 0.16, fh * 0.42, 0.03), win); m.position.set(x, fh * (f + 0.55), d / 2 + 0.02); g.add(m); }
+  g.userData.height = fh * floors; return g;
+}
+
+// ---------------------------------------------------------------- thẻ bảo hiểm (khiên phẳng) gắn lên mái — vật thể mới Tập 5 (E4)
+export function Shield({ size = 0.7, color = PALETTE.warn } = {}) {
+  const s = new THREE.Shape(), r = size / 2;
+  s.moveTo(0, r); s.lineTo(r * 0.9, r * 0.7); s.lineTo(r * 0.8, -r * 0.2); s.quadraticCurveTo(r * 0.5, -r * 0.8, 0, -r); s.quadraticCurveTo(-r * 0.5, -r * 0.8, -r * 0.8, -r * 0.2); s.lineTo(-r * 0.9, r * 0.7); s.closePath();
+  const m = new THREE.Mesh(new THREE.ExtrudeGeometry(s, { depth: 0.08, bevelEnabled: true, bevelSize: 0.02, bevelThickness: 0.02, bevelSegments: 1 }), mat(color, { emissive: new THREE.Color(color), emissiveIntensity: 0.25 }));
+  m.castShadow = true; const g = new THREE.Group(); g.add(m); return g;
+}
+
+// ---------------------------------------------------------------- bó đường mảnh (nhiều đường lịch sử, 1 px) — "phát lại" nhiều tháng mua
+export function Fan({ maxSeg = 60000 } = {}) {
+  const geo = new THREE.BufferGeometry(), pos = new Float32Array(maxSeg * 2 * 3), col = new Float32Array(maxSeg * 2 * 3);
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3)); geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const mesh = new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, depthWrite: false })); mesh.frustumCulled = false; mesh.renderOrder = 4;
+  const c = new THREE.Color();
+  mesh.set = (lines, z = 0.3) => {   // lines: [{pts:[[x,y],...], color}], vẽ hết những gì được đưa vào
+    let n = 0;
+    for (const L of lines) { c.set(L.color); for (let i = 1; i < L.pts.length && n < maxSeg; i++, n++) {
+      pos.set([L.pts[i - 1][0], L.pts[i - 1][1], z, L.pts[i][0], L.pts[i][1], z], 6 * n); col.set([c.r, c.g, c.b, c.r, c.g, c.b], 6 * n); } }
+    geo.setDrawRange(0, 2 * n); geo.attributes.position.needsUpdate = geo.attributes.color.needsUpdate = true;
+  };
+  return mesh;
+}

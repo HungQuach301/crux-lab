@@ -74,13 +74,13 @@ export function Overlay(canvas, res) {
     },
     // lớp bắt buộc: cố định, 48 px, nền mờ (quy tắc 5); flags: {illus, hist, src, cw}
     chrome(f, a = 1) {
-      const PX = 48, plate = '#0B0E13';
-      const band = (y0, y1, up) => { const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(up ? 1 : 0, rgba(plate, 0)); g.addColorStop(up ? 0 : 1, rgba(plate, 0.82 * a)); ctx.fillStyle = g; ctx.fillRect(0, y0, 1920, y1 - y0); };
+      const PX = 54, plate = '#0B0E13';
+      const band = (y0, y1, up) => { const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(up ? 1 : 0, rgba(plate, 0)); g.addColorStop(up ? 0 : 1, rgba(plate, 0.93 * a)); ctx.fillStyle = g; ctx.fillRect(0, y0, 1920, y1 - y0); };
       if (f.src || f.illus) band(0, 150, true);
-      if (f.hist || f.cw) band(f.cw && f.hist ? 860 : 930, 1080, false);
+      if (f.hist || f.cw) band(f.cw && f.hist ? 850 : 925, 1080, false);
       if (f.illus) O.text('ILLUSTRATIVE', 1824, 108, PX, { kind: 'chrome', color: '#1B1F26', plate: C.warn, plateA: 0.95, align: 'right', alpha: a * (f.illusA ?? 1) });
       if (f.src) O.text(f.src, 96, 108, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.srcA ?? 1) });
-      if (f.cw) O.text(f.cw, 96, f.hist ? 958 : 1022, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.cwA ?? 1) });
+      if (f.cw) O.text(f.cw, 96, f.hist ? 952 : 1022, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.cwA ?? 1) });
       if (f.hist) O.text('US only · history, not a forecast', 96, 1022, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.histA ?? 1) });
     },
   };
