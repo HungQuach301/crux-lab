@@ -3,6 +3,8 @@
 Lời: take đã duyệt của nhánh ep005 (chép vào moc-v/seg/ep005/voice/, không sinh lại); S03 cắt sau S03.2. Vị trí take theo table read G1.
 """
 import json, os, re, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'world'))
+from onset import refine          # mốc đầu từ = lúc NGHE được (bài học Tập 4 v3d)
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 PAD = 0.25
@@ -19,7 +21,8 @@ for scene, h, off, sids in TK:
         if w.endswith(('.', '?', '!')) and not w.startswith('[') and w not in ('U.S.',): sent.append(cur); cur = []
     for sid, sw in zip(sids, sent):
         lines[sid] = ' '.join(w for w, _, _ in sw if not w.startswith('['))
-        words += [{'w': w, 's': round(s + off + PRE, 3), 'e': round(e + off + PRE, 3), 'sid': sid} for w, s, e in sw]
+        rw = refine([{'w': w, 's': s, 'e': e, 'sid': sid} for w, s, e in sw], os.path.join(HERE, 'voice', h + '.mp3'))
+        words += [{'w': x['w'], 's': round(x['s'] + off + PRE, 3), 'e': round(x['e'] + off + PRE, 3), 'sid': sid, 's_tts': round(x['s_tts'] + off + PRE, 3)} for x in rw]
     cut = round(sent[len(sids) - 1][-1][2] + 0.25, 3) if len(sent) > len(sids) else None
     takes.append({'mp3': f'moc-v/seg/ep005/voice/{h}.mp3', 't': round(off + PRE, 3), 'cut': cut})
 TOTAL = round(max(w['e'] for w in words) + 1.6, 2)
@@ -89,8 +92,10 @@ EV += [{'t': cue['c0']['ten'], 'kind': 'tick', 'v': 0.6},
        {'t': cue['c3']['slow'], 'kind': 'data', 'v': 0.2},
        {'t': cue['c4']['eighty'], 'kind': 'chime'},
        {'t': cue['c5']['removed'], 'kind': 'thud'}]
+GAIN = {'mode': 0.6, 'pan': 0.8, 'pull': 1.0}                 # bài học Tập 4 v3d: whoosh_mode quá to; chỉ đổi chế độ mới có tiếng chạm
 for m in moves:
-    EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3)}); EV.append({'t': m['t1'], 'kind': 'land', 'mode': m['verb'] == 'mode'})
+    EV.append({'t': m['t0'], 'kind': m['sound'], 'dur': round(m['t1'] - m['t0'], 3), 'gain': GAIN[m['verb']]})
+    if m['verb'] == 'mode': EV.append({'t': m['t1'], 'kind': 'land', 'mode': True})
 EV.sort(key=lambda e: e['t'])
 tension = [[0, 0.15]] + [[b['t0'], b['music']] for b in beats] + [[TOTAL - 1.5, 0.25], [TOTAL, 0.1]]
 cuts = [0] + [m['t0'] for m in moves] + [TOTAL]
@@ -101,7 +106,9 @@ for m in moves:
         if m['t0'] - PAD < t < m['t1'] + PAD: errs.append(f'quy tắc 2: từ khoá {name} @{t} trong cửa sổ {m["verb"]} {m["t0"]}–{m["t1"]}')
 if next(m for m in moves if m['verb'] == 'mode')['t0'] < 5.0: errs.append('quy tắc 7: 5 s đầu phải ở chế độ thế giới')
 spine = {'segment': 'ep005 S01.1 → S03.2 (cold open, table read G1)', 'version': 3, 'total': TOTAL, 'fps': 30, 'pad': PAD, 'takes': takes, 'words': words,
-         'beats': beats, 'moves': moves, 'sched_kf': SCHED, 'fan_kf': FAN, 'events': EV, 'tension': tension, 'shots': shots,
+         'beats': beats, 'moves': moves,
+         'music_plan': {'stop': cue['c5']['removed'], 'tau': 0.15, 'release': TOTAL + 5, 'accents': [cue['c2']['eight'], cue['c4']['eighty']]},
+         'sched_kf': SCHED, 'fan_kf': FAN, 'events': EV, 'tension': tension, 'shots': shots,   # nhạc tắt ở "removed": kết bằng lặng + tiếng trầm
          'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical', 'c3.slow': 'slow cases', 'c4.eighty': '80% on paper', 'c5.removed': 'insurance still on', 'c0.ten': 'You'},
          'visual_cues': ['c0.ten', 'c1.insurance', 'c1.twenty', 'c2.schedule', 'c2.eight', 'c3.replayed', 'c3.typically', 'c3.slow', 'c4.paper', 'c4.eighty', 'c5.removed'],
          'checks': {'rule2_rule3_rule7': errs or 'OK'}}

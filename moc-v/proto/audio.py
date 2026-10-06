@@ -275,7 +275,7 @@ def sfx_layer(spine, N):
         elif k == 'gather':
             add(out, t, pad([hz(62), hz(69), hz(74)], 1.6, 0.25, 1800))
         elif k == 'thud':
-            add(out, t, mixs(felt(hz(31), 0.22), thump(0.2)))   # lượt đạo diễn v3c: thud vẫn ngang lời → thêm −6 dB
+            add(out, t, felt(hz(31), 0.2))   # v3e: chỉ còn nốt trầm mềm (lượt đạo diễn v3d: thud gắt)   # lượt đạo diễn v3c: thud vẫn ngang lời → thêm −6 dB
         elif k == 'drone_on':
             d = e['until'] - t; n = int(d * SR); tt = np.arange(n) / SR
             x = (np.sin(2 * np.pi * 73.4 * tt) + 0.3 * np.sin(2 * np.pi * 146.8 * tt)) * (1 + 0.15 * np.sin(2 * np.pi * 0.3 * tt))
@@ -349,7 +349,10 @@ def main():
     T = spine['total']; N = int(T * SR)
     voice = np.zeros(N)
     for tk in spine['takes']:
-        w = load(tk['wav'] if 'wav' in tk else os.path.join(ROOT, tk['mp3'])); i0 = int(tk['t'] * SR); n = min(len(w), N - i0); voice[i0:i0 + n] += w[:n]
+        w = load(tk['wav'] if 'wav' in tk else os.path.join(ROOT, tk['mp3']))
+        if tk.get('cut'):                            # take dài hơn đoạn: cắt sau câu cuối dùng (đuôi 30 ms)
+            w = w[:int(tk['cut'] * SR)].copy(); f = int(0.03 * SR); w[-f:] *= np.linspace(1, 0, f)
+        i0 = int(tk['t'] * SR); n = min(len(w), N - i0); voice[i0:i0 + n] += w[:n]
     venv = env200(voice)
     rep = {'music': music_src}
     if music_src == 'code':

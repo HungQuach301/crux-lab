@@ -18,7 +18,7 @@ export async function boot(res) {
   const interp = (kf, t) => { if (t <= kf[0][0]) return kf[0][1]; for (let i = 1; i < kf.length; i++) if (t <= kf[i][0]) { const [a, x] = kf[i - 1], [b, y] = kf[i]; return x + (y - x) * (t - a) / (b - a); } return kf[kf.length - 1][1]; };
   const CL = (k) => D.claims[k].display;
   const qYear = (q) => 2000 + q / 4;
-  const dataEv = S.events.filter((e) => e.kind === 'data'), pops = S.events.filter((e) => e.kind === 'tick' && e.pop !== undefined).map((e) => e.t);
+  const dataEv = S.events.filter((e) => e.kind === 'data'), pops = S.pops;
 
   const st = Stage(res), { renderer, O } = st;
   const scene = new THREE.Scene(); const { floor } = Studio(scene);
@@ -29,9 +29,9 @@ export async function boot(res) {
     cFull: { pos: [0, 3.3, 64.2], tgt: [0, 3.3, 0], fov: 13.5, chart: 1 },        // v3d: trục năm nằm TRÊN hai dòng chú đáy
     wDemo: { pos: [15.6, 4.2, 26.0], tgt: [13.6, 3.1, 6], fov: 35, chart: 0 },
     wDemoNear: { pos: [15.3, 3.0, 16.6], tgt: [13.3, 1.75, 6], fov: 35, chart: 0 },
-    wDemoClose: { pos: [15.1, 2.9, 15.5], tgt: [13.32, 1.78, 6], fov: 35, chart: 0 },
+    wDemoClose: { pos: [15.05, 2.82, 15.1], tgt: [13.33, 1.79, 6], fov: 35, chart: 0 },
     cZoom: { pos: [7.0, 5.4, 20.9], tgt: [7.0, 5.4, 0], fov: 12, chart: 1 },
-    cTip: { pos: [8.4, 5.75, 16.0], tgt: [8.4, 5.75, 0], fov: 12, chart: 1 },          // v3d: chừa chỗ cho hộp số dưới huy hiệu ILLUSTRATIVE
+    cTip: { pos: [8.9, 5.45, 16.0], tgt: [8.9, 5.45, 0], fov: 12, chart: 1 },          // v3d: chừa chỗ cho hộp số dưới huy hiệu ILLUSTRATIVE
   };
   const CAM = Camera(poses, mv);
 
@@ -67,7 +67,7 @@ export async function boot(res) {
     const qDraw = interp(S.draw, t), riding = t >= S.ride[0][0], qRide = riding ? interp(S.ride, t) : 0;
     const ride0 = S.ride[0][0], inDemo = t >= M.toDemo.t0 && t < ride0;
     const rb = ease(t, M.backChart.t0, ride0);                     // v3d: NHÀ của họ tua về 2000 trong lúc đổi chế độ (không nhảy ngang khung)
-    const valueOff = ease(t, b.b3.cap, b.b3.cap + FADE);          // b3: giá trị + nhà tắt khi trần vào
+    const valueOff = ease(t, b.b3.cap, b.b3.cap + 0.8);   // v3d: tắt dịu hơn (lượt đạo diễn: "tắt đột ngột")          // b3: giá trị + nhà tắt khi trần vào
     // nhà chính
     let heroA = 1, hx = X(0), usd = 200000, hScale = 1;
     if (t < b.b2.quarter) { hx = X(0); usd = 200000; }
@@ -75,15 +75,19 @@ export async function boot(res) {
     else { hx = X(qRide); usd = Math.max(0, at(qRide)); heroA = 1; }   // nhà minh hoạ đã tua về đúng chỗ này (2000, lãi 0) → thay nhau liền
     if (inDemo && !riding) heroA = 0;
     hScale = mix(1, 0.55, cw);
-    const bump = t >= b.b10.past ? Math.sin(Math.PI * lin(t, b.b10.past, S.marks.hop_land)) * 0.15 : 0;   // nảy qua xà, chạm lại ngay sau "cap" (= tiếng chạm)
+    const bump = 0;                                                    // v3e: nhà không còn ở trên đỉnh chồng ở chế độ đồ thị → không nảy
+    const flashCap = t >= S.marks.hop_land ? 1 - lin(t, S.marks.hop_land, S.marks.hop_land + 0.6) : 0;   // chớp ở chỗ chồng xuyên xà, đúng tiếng chạm sau "cap"
     const out11 = 1 - ease(t, M.wide.t0, M.wide.t1);                  // b11: đại lượng đổi lãi → GIÁ: đường lãi, xà, nhãn trần tắt hẳn (logic b3)
-    const off11 = 1 - ease(t, M.wide.t0, M.wide.t0 + 0.4);            // … và tắt NGAY đầu cú lùi (không lẫn vào khung giá)
-    const r11 = ease(t, M.wide.t0, b.b11.x);                           // khối "what they paid" trượt về đáy chồng
+    const off11 = 1 - ease(t, M.wide.t1 - 0.3, M.wide.t1 + 0.3);      // v3e: đường lãi + xà còn trong lúc lùi (không khung trống), tắt khi khối teal về đáy
+    const r11 = ease(t, M.wide.t1 - 0.2, b.b11.x + 0.4);               // khối "what they paid" trượt về đáy chồng (thấy trọn ở khung toàn cảnh)
     const gone11 = 1 - ease(t, M.wide.t0, M.wide.t1);                  // b11: nhà lãi + người rời cảnh (nhường hai chồng giá trị)
     heroStack.scale.set(hScale, 1, hScale);
     const sh = t < M.wide.t0 ? heroStack.set({ usd, warnAboveUsd: riding ? 500000 : Infinity })
-      : heroStack.set({ usd: usd + 200000 * r11, tintBelowUsd: 200000 * r11 + 1, tintA: 1 });   // b11: lãi + cái đã trả = giá 2026
-    hero.scale.setScalar(hScale); hero.position.y = sh + bump;
+      : heroStack.set({ usd: usd + 200000 * r11, tintBelowUsd: 200000 * r11 + 1, tintA: 1, warnAboveUsd: off11 > 0.5 ? 500000 + 200000 * r11 : Infinity });   // b11: lãi + cái đã trả = giá 2026
+    // v3e (lượt đạo diễn v3d): ở chế độ ĐỒ THỊ điểm dữ liệu là ĐỈNH CHỒNG — nhà đứng cạnh, mái không vượt điểm dữ liệu (không "vượt trần" sớm)
+    const houseH = hero.userData.height * hScale, hOff = cw * (0.5 * hScale + 0.75 * hScale + 0.06);
+    hero.scale.setScalar(hScale); hero.position.set(hOff, mix(sh, Math.max(0, sh - houseH - 0.05), cw), 0);
+    const roofY = hero.position.y + houseH;
     heroG.position.set(hx, 0, 0);
     // khu phố (b1) bật biển đúng tick, gom về nhà chính lúc "sales"
     const gather = ease(t, b.b1.avg - 0.1, b.b1.avg + 0.9);
@@ -91,17 +95,17 @@ export async function boot(res) {
       const ap = ease(t, M.hood.t0 + 0.06 * k, M.hood.t1 + 0.06 * k) * (1 + 0.25 * Math.sin(Math.PI * lin(t, pops[k], pops[k] + 0.3))), g = gather;   // v3d: khu phố có mặt khi lùi máy; biển SOLD bật đúng tick
       it.it.position.lerpVectors(it.home, new THREE.Vector3(X(0), 1.8, 0), g); it.it.position.y += Math.sin(Math.PI * g) * 1.6; it.it.scale.setScalar(Math.max(0.001, ap * (1 - 0.7 * g)));
       setOpacity(it.it, (1 - ease(g, 0.82, 1)) * (1 - cw));
-      it.sign.visible = it.it.visible && t >= pops[k]; it.sign.scale.setScalar(Math.max(0.001, 1.7 * easeOut(t, pops[k], pops[k] + 0.12)));   // biển to hơn (đọc được ở điện thoại), bật có nảy   // SAU setOpacity (nó bật visible cho mọi con) — biển SOLD bật đúng tick
+      it.sign.visible = it.it.visible && t >= pops[k]; it.sign.scale.setScalar(Math.max(0.001, 2.6 * easeOut(t, pops[k], pops[k] + 0.12)));   // biển to hơn (đọc được ở điện thoại), bật có nảy   // SAU setOpacity (nó bật visible cho mọi con) — biển SOLD bật đúng tick
     });
     // sương "can't see their house" (b1) → nhà mờ
     const fog = ease(t, b.b1.blur, b.b1.blur + FADE) * (1 - ease(t, b.b1.avg, b.b1.avg + 0.8));
     setOpacity(hero, heroA * (1 - 0.7 * fog)); setOpacity(heroStack, heroA);
     // người (b0) và (b9–b10) cạnh nhà ở đầu đường
     const pA0 = 1 - ease(t, b.b1.blur - 0.1, b.b1.blur + FADE);
-    const pA9 = ease(t, b.b9.t0, b.b9.t0 + 0.6) * gone11;
+    const pA9 = 0;   // v3e: ở chế độ đồ thị người không đứng lơ lửng cạnh điểm dữ liệu (nhãn "their gain on paper" mang "của họ")
     const pA = Math.max(pA0, pA9);
-    const on9 = pA9 > pA0, ps = on9 ? 0.5 : 1, px = on9 ? hx - 0.62 : X(0) - 1.6, py = on9 ? sh : 0;
-    rosa.position.set(px, py, 0.5); frank.position.set(px + (on9 ? -0.3 : 0.55), py, 0.7); rosa.scale.setScalar(ps); frank.scale.setScalar(ps);
+    const on9 = pA9 > pA0, ps = on9 ? 0.5 : 1, px = on9 ? hx - 0.5 : X(0) - 1.6, py = on9 ? Math.max(0, sh - 0.62) : 0;   // b9: đứng sau đường, đầu thấp hơn điểm dữ liệu
+    rosa.position.set(px, py, on9 ? -0.6 : 0.5); frank.position.set(px + (on9 ? -0.3 : 0.55), py, on9 ? -0.5 : 0.7); rosa.scale.setScalar(ps); frank.scale.setScalar(ps);
     rosa.rotation.y = frank.rotation.y = 0.35; setOpacity(rosa, pA); setOpacity(frank, pA);
     // xà trần: bóng mờ b0; xà thật từ b3 (rơi + khoá); chỉ ở chế độ đồ thị (thế giới b4 ẩn để không so giá trị với trần)
     const gA = ease(t, b.b0.has, b.b0.has + FADE) * (1 - ease(t, b.b1.blur, b.b1.blur + FADE));
@@ -113,7 +117,7 @@ export async function boot(res) {
     { const d = Math.hypot(pose.pos[0] - pose.tgt[0], pose.pos[1] - pose.tgt[1], pose.pos[2] - pose.tgt[2]), ppu = 540 / (d * Math.tan(pose.fov * Math.PI / 360));
       const k = clamp(9 / (0.07 * ppu), 1, 3); beam.userData.core.scale.set(1, k, k); }   // xà dày ~9 px ở mọi khung đồ thị (lượt đạo diễn v3c: "vạch xám mảnh")
     const overNow = riding && at(qRide) > 500000;
-    let glow = 0; if (t >= b.b6.cross) glow = Math.max(1 - lin(t, b.b6.cross, b.b6.cross + 0.8), overNow ? 0.3 : 0); if (t >= b.b10.past) glow = Math.max(glow, 0.6 * ease(t, b.b10.past, b.b10.past + 0.25) * out11);
+    let glow = 0; if (t >= b.b6.cross) glow = Math.max(1 - lin(t, b.b6.cross, b.b6.cross + 0.8), overNow ? 0.3 : 0); if (t >= b.b10.past) glow = Math.max(glow, (0.45 + 0.55 * flashCap) * ease(t, b.b10.past, b.b10.past + 0.25) * off11);
     beam.glow(glow);
     // nhịp sáng chạy dọc xà ("same in every quarter")
     // đường GIÁ TRỊ (b2) — vệt đỉnh chồng tiền; tắt ở b3
@@ -147,11 +151,12 @@ export async function boot(res) {
     // b11: chồng giá 2000 = cái họ trả (teal), mọc cùng lúc khối teal về đáy chồng 2026
     const a11 = ease(t, M.wide.t0, M.wide.t1);
     const h0 = s2000.set({ usd: 200000 * r11, tintBelowUsd: 200000 * r11 + 1, tintA: 1 });
-    h2000.position.set(X(0), h0, 0);
+    h2000.position.set(X(0) + 0.75, Math.max(0, h0 - h2000.userData.height * 0.55 - 0.05), 0);   // cạnh chồng, mái không vượt đỉnh (tỉ lệ ×1 : ×3,8 đọc bằng CHỒNG)
     for (const o of [s2000, h2000]) setOpacity(o, a11);
     // loé ở điểm cắt
     const fl = t >= b.b6.cross ? 1 - lin(t, b.b6.cross, b.b6.cross + 0.7) : 0;
-    burst.position.set(X(S.crossQ), 5, 0.6); burst.scale.setScalar(0.5 + 2.5 * (1 - fl)); burst.material.opacity = fl;
+    if (flashCap > 0) { burst.position.set(X(105), 5, 0.6); burst.scale.setScalar(0.3 + 1.2 * (1 - flashCap)); burst.material.opacity = flashCap * 0.8; }
+    else { burst.position.set(X(S.crossQ), 5, 0.6); burst.scale.setScalar(0.5 + 2.5 * (1 - fl)); burst.material.opacity = fl; }
     // nhịp âm dữ liệu ↔ đỉnh chồng loé nhẹ
     const pu = pulseAt(t); hero.children[0].material.emissive = new THREE.Color(overNow ? C.warn : '#000000'); hero.children[0].material.emissiveIntensity = 0.25 * pu;
 
@@ -180,9 +185,9 @@ export async function boot(res) {
       c.beginPath(); c.moveTo(ux, uy0 - 60 * k); c.lineTo(ux - 32 * k, uy0 - 14 * k); c.lineTo(ux + 32 * k, uy0 - 14 * k); c.closePath(); c.fill(); c.fillRect(ux - 11 * k, uy0 - 16 * k, 22 * k, 70 * k); c.restore(); };
     if (upA > 0) { const [ux, uy0] = O.toScreen(X(0) + 1.3, 2.4 + 0.8 * easeOut(t, b.b1.rise, b.b1.rise + 1.2), 0); upArrow(ux, uy0, upA); }
     // b9 "if their home ROSE like the Phoenix average": cùng mũi tên của b1, cạnh nhà ở đầu đường (từ vựng hình lặp lại = cùng ý)
-    { const [ax, ay] = O.toScreen(hx + 0.75, sh + 0.35, 0); log.roi['b9.rose'] = [ax - 70, ay - 170, ax + 70, ay + 90];
+    { const [ax, ay] = O.toScreen(hx + hOff + 0.6, sh - 0.2, 0); log.roi['b9.rose'] = [ax - 70, ay - 170, ax + 70, ay + 90];
       const a9 = easeOut(t, b.b9.rose - 0.05, b.b9.rose + 0.15) * (1 - ease(t, b.b9.fly - 0.3, b.b9.fly)) * ok;
-      if (a9 > 0) { const [, ay2] = O.toScreen(hx + 0.75, sh + 0.35 + 0.25 * easeOut(t, b.b9.rose, b.b9.rose + 0.9), 0); upArrow(ax, ay2, a9, 0.9); } }
+      if (a9 > 0) { const [, ay2] = O.toScreen(hx + hOff + 0.6, sh - 0.2 + 0.25 * easeOut(t, b.b9.rose, b.b9.rose + 0.9), 0); upArrow(ax, ay2, a9, 0.9); } }
     // b1: "many sales → one average" (chữ tên, không số)
     const mA = ease(t, b.b1.many - 0.1, b.b1.many + 0.3) * (1 - ease(t, b.b1.avg + 0.3, b.b1.avg + 0.8));
     if (mA > 0) O.text('many sales → one average', 960, 860, 56, { align: 'center', alpha: mA, plate: '#0B0E13', plateA: 0.6 });
@@ -232,23 +237,24 @@ export async function boot(res) {
       O.text('their gain on paper, 2021 → 2026', 960, 230, 52, { color: C.ink, align: 'center', alpha: zA });
       // đối trọng đứng suốt phần phát lại (bản phát hành G2: chặn câu khuyên "chờ/canh thời điểm bán")
       const mA = ease(t, S.ride[0][0], S.ride[0][0] + POP) * (1 - ease(t, b.b9.fly - 0.4, b.b9.fly)) * ok;   // → dòng chú đáy nhận lời đối trọng từ "this" (liên tục, không đổi giữa khoảnh khắc lặng)
-      O.text('A measurement, not a next step', 960, 292, 48, { color: C.chrome, w: 600, align: 'center', alpha: mA });
+      // v3e: lời đối trọng chuyển xuống dòng chú đáy (bớt một mảng chữ giữa khung)
       const qn = Math.max(0, qRide - 10), [nx, ny] = S2(X(qn), Math.max(0, at(qn)) / U);
       const [hdx, hdy] = S2(X(qRide), Math.max(0, at(qRide)) / U);   // tên đường đi PHÍA TRƯỚC đầu đường (vùng chưa vẽ), dưới ngoặc "well under"
-      O.text('their gain on paper', hdx + 44, Math.min(760, hdy + 70), 52, { color: C.ink, alpha: nA, plate: '#0B0E13', plateA: 0.7 });
+      O.text('their gain on paper', hdx + 100, Math.min(760, hdy + 60), 52, { color: C.ink, alpha: nA, plate: '#0B0E13', plateA: 0.7 });
     }
     // b5: ngoặc "well under"
     const brA = ease(t, b.b5.under - 0.05, b.b5.under + POP) * (1 - ease(t, b.b6.t0, b.b6.t0 + FADE)) * ok;
-    if (brA > 0) { const [x0, y0] = S2(X(qRide) + 0.75, 5), [, y1] = S2(0, Math.max(0, at(qRide)) / U); O.bracket(x0, y0, y1, C.cushion, brA); O.text('well under', x0 + 34, (y0 + y1) / 2 + 18, 52, { kind: 'compare', color: C.cushion, alpha: brA }); }
+    if (brA > 0) { const [x0, y0] = S2(X(qRide) - 0.45, 5), [, y1] = S2(0, Math.max(0, at(qRide)) / U); O.bracket(x0, y0, y1, C.cushion, brA, 18); O.text('well under', x0 - 16, (y0 + y1) / 2 + 18, 52, { kind: 'compare', color: C.cushion, align: 'right', alpha: brA }); }
     // b6–b8: ba mốc, giữ tới khi số bay (trạng thái kết luận)
     const keep = 1 - ease(t, b.b9.fly - 0.4, b.b9.fly), keepOB = keep * (1 - ease(t, M.tip.t0, M.tip.t0 + 0.4));   // hai nhãn lịch sử rời trước khi đẩy máy (không bị cắt mép)
     const mark = (q, s, a, dx, dy, align) => { if (a <= 0) return; const [sx, sy] = S2(X(q), at(q) / U); O.ctx.fillStyle = rgba(C.warn, a); O.ctx.beginPath(); O.ctx.arc(sx, sy, 11, 0, 7); O.ctx.fill(); O.text(s, sx + dx, sy + dy, 52, { kind: 'number', color: '#1B1F26', plate: C.warn, plateA: 0.95, align, alpha: a }); };
     if (t >= b.b6.cross - 0.05) mark(S.crossQ, `Over: ${CL('cross_quarter_at_200k_phoenix')}`, ease(t, b.b6.cross - 0.05, b.b6.cross + POP) * keepOB * ok, -40, -60, 'right');
     if (t >= b.b7.slips - 0.05) { const [, yy] = S2(X(91.6), at(91.6) / U); mark(91.6, 'Back under', ease(t, b.b7.slips - 0.05, b.b7.slips + POP) * keepOB * ok, -40, Math.min(120, 820 - yy), 'right'); }
-    if (t >= b.b8.lbl - 0.05) mark(93, `Stayed over since ${CL('stay_quarter_at_200k_phoenix')}`, ease(t, b.b8.lbl - 0.05, b.b8.lbl + POP) * keep * ok, 40, -150, 'left');
+    if (t >= b.b8.lbl - 0.05) mark(93, t < b.b8.above - 0.05 ? `since ${CL('stay_quarter_at_200k_phoenix')}` : `Stayed over since ${CL('stay_quarter_at_200k_phoenix')}`,   // ngày lúc nói ngày, "Stayed over" lúc "stayed above"
+  ease(t, b.b8.lbl - 0.05, b.b8.lbl + POP) * keep * ok, 40, -150, 'left');
     // b9: số bay từ đỉnh chồng lên biển trên mái
     if (t >= b.b9.fly - 0.05) {
-      const [tx, ty] = S2(hx, Math.max(0, at(qRide)) / U), [rx, ry0] = O.toScreen(hx, sh + hero.userData.height * hScale + bump, 0), ry = ry0 - 30;
+      const [tx, ty] = S2(hx, Math.max(0, at(qRide)) / U), [rx, ry0] = O.toScreen(hx + hOff, roofY, 0), ry = ry0 - 30;
       const f = ease(t, b.b9.fly, b.b9.land), o = out11 > 0.5 ? 1 - ease(t, M.wide.t0, M.wide.t0 + FADE) : 0;
       O.text(CL('gain_at_200k_phoenix'), mix(tx + 60, rx, f), mix(ty, ry, f), mix(60, 80, f), { kind: 'number', color: '#1B1F26', plate: '#E9E3D3', plateA: 0.95, align: 'center', alpha: o * ok });
       O.text('their gain on paper', rx - 300, ry + 16, 48, { color: C.ink, align: 'right', alpha: ease(t, b.b9.land, b.b9.land + POP) * o * ok * gone11 });
@@ -256,7 +262,7 @@ export async function boot(res) {
     // b10: ngoặc "past the cap"
     if (t >= b.b10.past - 0.05) {
       const a = ease(t, b.b10.past - 0.05, b.b10.past + POP) * (1 - ease(t, M.wide.t0, M.wide.t0 + FADE)) * ok;
-      const [x0, y0] = S2(X(105) + 0.5, 5), [, y1] = S2(0, at(105) / U); O.bracket(x0, y0, y1, C.warn, a, 18); O.text('past the cap', x0 + 50, (y0 + y1) / 2 + 18, 52, { kind: 'compare', color: C.warn, alpha: a, plate: '#0B0E13', plateA: 0.75 });   // bên PHẢI chồng: không đè lên đường lãi
+      const [x0, y0] = S2(X(105) + hOff + 0.55, 5), [, y1] = S2(0, at(105) / U); O.bracket(x0, y0, y1, C.warn, a, 18); O.text('past the cap', x0 + 50, (y0 + y1) / 2 + 18, 52, { kind: 'compare', color: C.warn, alpha: a, plate: '#0B0E13', plateA: 0.75 });   // bên PHẢI chồng: không đè lên đường lãi
     }
     // b11: ×3,8 + tiêu đề
     if (t >= M.wide.t1 - 0.1) {
@@ -274,8 +280,8 @@ export async function boot(res) {
     // lớp bắt buộc (quy tắc 5)
     O.chrome({ illus: true, src: t >= b.b1.src ? 'Source: FHFA via FRED' : null, srcA: ease(t, b.b1.src, b.b1.src + POP),
       hist: t >= b.b1.avg, histA: ease(t, b.b1.avg, b.b1.avg + POP),
-      cw: t >= b.b9.fly ? 'A measurement, not a tax bill or a next step' : t >= S.marks.cw_home ? 'A home that rose like the Phoenix average' : null,
-      cwA: t >= b.b9.fly ? ease(t, b.b9.fly, b.b9.fly + POP) : ease(t, S.marks.cw_home, S.marks.cw_home + POP) });
+      cw: t >= b.b9.fly ? 'A measurement, not a tax bill or a next step' : riding ? 'A measurement, not a next step' : t >= S.marks.cw_home ? 'A home that rose like the Phoenix average' : null,
+      cwA: t >= b.b9.fly ? ease(t, b.b9.fly, b.b9.fly + POP) : riding ? ease(t, S.ride[0][0], S.ride[0][0] + POP) : ease(t, S.marks.cw_home, S.marks.cw_home + POP) });
     st.compose();
     log.camMoving = CAM.moving(t);
     return log;
