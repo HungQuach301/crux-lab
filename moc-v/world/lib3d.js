@@ -32,6 +32,7 @@ export function Stack({ unitUsd = 1e5, bundleUsd = 25000, w = 1.1, d = 0.7, maxU
   const geo = new THREE.BoxGeometry(w, th * 0.92, d), m = new THREE.MeshStandardMaterial({ roughness: 0.8, transparent: true });
   const mesh = new THREE.InstancedMesh(geo, m, n); mesh.castShadow = mesh.receiveShadow = true;
   const strapG = new THREE.BoxGeometry(w * 0.16, th * 0.94, d * 1.02), strap = new THREE.InstancedMesh(strapG, mat(PALETTE.strap), n);
+  mesh.frustumCulled = strap.frustumCulled = false;   // vùng bao của InstancedMesh bị cache ở khung đầu (mọi bó ẩn) → chồng bị loại sai khi đáy ra ngoài khung
   const g = new THREE.Group(); g.add(mesh, strap);
   const M = new THREE.Matrix4(), col = new THREE.Color(), hide = new THREE.Matrix4().makeScale(0, 0, 0);
   g.userData = { bundleUsd, unitUsd, th, n };

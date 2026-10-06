@@ -31,7 +31,7 @@ export async function boot(res) {
     wDemoNear: { pos: [15.3, 3.0, 16.6], tgt: [13.3, 1.75, 6], fov: 35, chart: 0 },
     wDemoClose: { pos: [15.1, 2.9, 15.5], tgt: [13.32, 1.78, 6], fov: 35, chart: 0 },
     cZoom: { pos: [7.0, 5.4, 20.9], tgt: [7.0, 5.4, 0], fov: 12, chart: 1 },
-    cTip: { pos: [8.4, 6.0, 16.0], tgt: [8.4, 6.0, 0], fov: 12, chart: 1 },          // v3d: chừa chỗ cho hộp số dưới huy hiệu ILLUSTRATIVE
+    cTip: { pos: [8.4, 5.75, 16.0], tgt: [8.4, 5.75, 0], fov: 12, chart: 1 },          // v3d: chừa chỗ cho hộp số dưới huy hiệu ILLUSTRATIVE
   };
   const CAM = Camera(poses, mv);
 
@@ -75,7 +75,7 @@ export async function boot(res) {
     else { hx = X(qRide); usd = Math.max(0, at(qRide)); heroA = 1; }   // nhà minh hoạ đã tua về đúng chỗ này (2000, lãi 0) → thay nhau liền
     if (inDemo && !riding) heroA = 0;
     hScale = mix(1, 0.55, cw);
-    const bump = t >= b.b10.past ? Math.sin(Math.PI * lin(t, b.b10.past, S.marks.hop_land)) * 0.22 : 0;   // nảy qua xà, chạm lại ngay sau "cap" (= tiếng chạm)
+    const bump = t >= b.b10.past ? Math.sin(Math.PI * lin(t, b.b10.past, S.marks.hop_land)) * 0.15 : 0;   // nảy qua xà, chạm lại ngay sau "cap" (= tiếng chạm)
     const out11 = 1 - ease(t, M.wide.t0, M.wide.t1);                  // b11: đại lượng đổi lãi → GIÁ: đường lãi, xà, nhãn trần tắt hẳn (logic b3)
     const off11 = 1 - ease(t, M.wide.t0, M.wide.t0 + 0.4);            // … và tắt NGAY đầu cú lùi (không lẫn vào khung giá)
     const r11 = ease(t, M.wide.t0, b.b11.x);                           // khối "what they paid" trượt về đáy chồng
@@ -203,7 +203,9 @@ export async function boot(res) {
       // nhãn GẮN vào xà (toạ độ thế giới, trôi theo máy): bản trái ở 2000 (khung toàn cảnh), bản phải ở 2019 (khung phóng) — không nhảy
       const la = ease(t, b.b3.five - 0.05, b.b3.five + POP) * ok * off11, capS = `${CL('excl_joint_limit_usd')} cap`;
       const [lx, ly] = S2(X(0), 5); O.text(capS, lx, ly - 26, 56, { kind: 'number', color: C.ink, alpha: la * clamp((lx - 70) / 120) * (1 - ease(t, M.zoom.t0, M.zoom.t0 + 0.5)) });
-      const [zx, zy] = S2(X(76), 5); O.text(capS, zx, zy + 76, 56, { kind: 'number', color: C.ink, alpha: la * ease(t, M.zoom.t1 - 0.2, M.zoom.t1 + POP) * clamp((zx - 70) / 120) });
+      const [zx, zy] = S2(X(76), 5); O.text(capS, zx, zy + 76, 56, { kind: 'number', color: C.ink, alpha: la * ease(t, M.zoom.t1 - 0.2, M.zoom.t1 + POP) * (1 - ease(t, M.tip.t0, M.tip.t0 + 0.4)) * clamp((zx - 70) / 120) });
+      // khung đầu nhà (b9–b10): trần vẫn có TÊN + SỐ ngay trên xà, chỗ đường lãi đã ở hẳn phía trên (2024–2025) — "past the cap" đọc được là "qua $500,000"
+      const [tx_, ty_] = S2(X(96), 5); O.text(capS, tx_, ty_ - 22, 48, { kind: 'number', color: C.ink, alpha: la * ease(t, M.tip.t1, M.tip.t1 + 0.3) });
       // "the same in every quarter": cột mốc cao BẰNG NHAU ở mỗi năm, sáng lần lượt theo nhịp chạy dọc xà
       const sw = lin(t, b.b3.same, b.b3.same + 1.4), postA = (1 - ease(t, M.toDemo.t0, M.toDemo.t0 + 0.4)) * ok;
       if (t >= b.b3.same && postA > 0) for (let yr = 0; yr <= 26; yr++) { const q = Math.min(105, yr * 4), [px0, py0] = S2(X(q), 0), [, py1] = S2(X(q), 5), on = lin(sw, yr / 27, yr / 27 + 0.04);
@@ -246,9 +248,9 @@ export async function boot(res) {
     if (t >= b.b8.lbl - 0.05) mark(93, `Stayed over since ${CL('stay_quarter_at_200k_phoenix')}`, ease(t, b.b8.lbl - 0.05, b.b8.lbl + POP) * keep * ok, 40, -150, 'left');
     // b9: số bay từ đỉnh chồng lên biển trên mái
     if (t >= b.b9.fly - 0.05) {
-      const [tx, ty] = S2(hx, Math.max(0, at(qRide)) / U), [rx, ry0] = O.toScreen(hx, sh + hero.userData.height * hScale + bump, 0), ry = ry0 - 46;
+      const [tx, ty] = S2(hx, Math.max(0, at(qRide)) / U), [rx, ry0] = O.toScreen(hx, sh + hero.userData.height * hScale + bump, 0), ry = ry0 - 30;
       const f = ease(t, b.b9.fly, b.b9.land), o = out11 > 0.5 ? 1 - ease(t, M.wide.t0, M.wide.t0 + FADE) : 0;
-      O.text(CL('gain_at_200k_phoenix'), mix(tx + 60, rx, f), mix(ty, ry, f), mix(60, 92, f), { kind: 'number', color: '#1B1F26', plate: '#E9E3D3', plateA: 0.95, align: 'center', alpha: o * ok });
+      O.text(CL('gain_at_200k_phoenix'), mix(tx + 60, rx, f), mix(ty, ry, f), mix(60, 80, f), { kind: 'number', color: '#1B1F26', plate: '#E9E3D3', plateA: 0.95, align: 'center', alpha: o * ok });
       O.text('their gain on paper', rx - 300, ry + 16, 48, { color: C.ink, align: 'right', alpha: ease(t, b.b9.land, b.b9.land + POP) * o * ok * gone11 });
     }
     // b10: ngoặc "past the cap"
