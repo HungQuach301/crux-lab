@@ -1,0 +1,14 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Covers PMI until 80%, the ~8-year schedule baseline, the 25-year replay by purchase month, and how long it historically took on paper. Q4 says no, and Q5 gives no action advice.\"}, \"R2\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Has 80% PMI, a ~10-year schedule (close to a decade), the 1991-2016 replay, and typical and bad cases. Q4 says no, and Q5 gives no buy/wait advice.\"}, \"R3\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Covers PMI ending at 80% LTV, the ~8-year schedule figure, the 25-year replay, and the historical time on paper varying by purchase year. Q4 says no, and Q5 is not action advice.\"}, \"R4\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Covers 80%, the ~10-year schedule assumption, the monthly replay of real data, and typical and bad timelines. Q4 says no, and Q5 leaves the decision to the viewer.\"}, \"R5\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Covers 80% LTV, the ~10-year schedule expectation, the real-data replay, and typical and worst outcomes. Q4 says no, and Q5 only questions the assumption.\"}, \"R6\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Covers PMI until owing under 80%, the ~8-year schedule, the 25-year replay, and the real time on paper varying by year. Q4 says no, and Q5 only suggests asking a lender about removal.\"}}",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 3771,
+   "out": 18
+  },
+  "claude-sonnet-5-5": {
+   "in": 6334,
+   "out": 1403
+  }
+ },
+ "turns": 1
+}

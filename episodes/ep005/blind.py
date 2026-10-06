@@ -16,7 +16,7 @@ def run(prompt, out, read=False):
     return None
 
 def read(spec_path, outdir):
-    spec = json.load(open(spec_path)); o = Path(outdir); o.mkdir(parents=True, exist_ok=True)
+    spec = json.load(open(spec_path)); o = Path(outdir).resolve(); o.mkdir(parents=True, exist_ok=True)
     key = []
     for sample, role in spec['plan']:
         h = secrets.token_hex(4)
@@ -31,7 +31,7 @@ def read(spec_path, outdir):
     print(json.dumps({'runs': len(key), 'ok': sum(1 for r in res.values() if r), 'tokens': tok}))
 
 def grade(outdir, rubric, fields):
-    o = Path(outdir); key = json.load(open(o / 'key.json'))
+    o = Path(outdir).resolve(); key = json.load(open(o / 'key.json'))
     labels = {}
     parts = [f"# Grading packet (blind). You are an independent grader. Each label is one reader's answers to fixed questions about a text. Grade each label literally with the rubric. You know nothing else.\n\n## Rubric\n{Path(rubric).read_text()}\n\nOutput JSON only (no prose, no code fence): {{\"R1\": {fields}, ...}}\n"]
     for i, k in enumerate(sorted(key, key=lambda k: k['file'])):
