@@ -10,7 +10,9 @@ video, out = sys.argv[1:3]; os.makedirs(out, exist_ok=True)
 stems = sys.argv[sys.argv.index('--stems') + 1] if '--stems' in sys.argv else None
 font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 18)
 dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', video], capture_output=True, text=True).stdout)
-raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', video, '-vf', 'fps=2,scale=320:180', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
+# khung ĐÚNG mốc k·0,5 s: chọn theo chỉ số khung (30 fps → mỗi 15 khung). Bộ lọc fps=2 cũ lấy khung muộn ≈ 0,25 s
+# so với nhãn giờ → các lượt đạo diễn trước thấy hình "sớm" ≥ 0,25 s một cách hệ thống (phát hiện 06/10, Tập 5 "eight").
+raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', video, '-vf', "select='not(mod(n\\,15))',scale=320:180", '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
 fr = np.frombuffer(raw, np.uint8).reshape(-1, 180, 320, 3)
 half = (len(fr) + 1) // 2
 for k, part in enumerate((fr[:half], fr[half:])):

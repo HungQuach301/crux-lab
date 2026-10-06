@@ -86,10 +86,11 @@ EV = []
 for k in range(0, D['sched80'] + 1, 12):
     tk_ = next(ta + (tb - ta) * (k - xa) / (xb - xa) for (ta, xa), (tb, xb) in zip(SCHED, SCHED[1:]) if xa <= k <= xb)   # cùng lịch với hình
     EV.append({'t': round(tk_, 3), 'kind': 'data', 'v': (D['sched'][k] - 0.7) / 0.25})
-EV += [{'t': cue['c0']['ten'], 'kind': 'tick', 'v': 0.6},
+EV += [{'t': cue['c0']['saved'], 'kind': 'tick', 'v': 0.5}, {'t': cue['c0']['ten'], 'kind': 'land', 'mode': False}, {'t': cue['c0']['price'], 'kind': 'rise', 'dur': 0.9},   # E5f: âm cho chồng đặt xuống / trượt vào / tháp mọc
        {'t': cue['c1']['insurance'], 'kind': 'land', 'mode': False},
        {'t': cue['c1']['twenty'], 'kind': 'rise', 'dur': 0.9},
        {'t': cue['c2']['eight'], 'kind': 'chime'},
+       *[{'t': round(FAN[0][0] + (FAN[1][0] - FAN[0][0]) * y / 10, 3), 'kind': 'data', 'v': max(0.0, (sorted(p['p'][min(len(p['p']) - 1, 12 * y)] for p in D['paths'])[len(D['paths']) // 2] - 0.7) / 0.4)} for y in range(0, 11, 2)],   # E5f: phát lại có nốt (cao độ = tỉ lệ trung vị năm đó)
        {'t': cue['c3']['typically'], 'kind': 'data', 'v': 0.8},
        {'t': cue['c3']['slow'], 'kind': 'data', 'v': 0.2},
        {'t': cue['c4']['eighty'], 'kind': 'chime'},
@@ -113,7 +114,7 @@ spine = {'segment': 'ep005 S01.1 → S03.2 (cold open, table read G1)', 'version
          'music_plan': {'stop': cue['c5']['removed'], 'tau': 0.15, 'release': cue['c5']['removed'] + 1.0, 'accents': [cue['c2']['eight'], cue['c4']['eighty'], cue['c5']['removed'] + 0.05]},
          'marks': {'ten_lit': round(at('@S01.1$') + 0.25, 3)},   # 10 % đáy chồng giá sáng trong khoảng nghỉ (móc 5 s đầu)
          'sched_kf': SCHED, 'fan_kf': FAN, 'events': EV, 'tension': tension, 'shots': shots,   # nhạc tắt ở "removed": kết bằng lặng + tiếng trầm
-         'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical · about 2 years', 'c3.slow': 'slow cases', 'c4.eighty': '80% on paper', 'c4.paper': '90%', 'c5.removed': 'insurance still on'},
+         'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical ≈ 2 years', 'c3.slow': 'slow cases', 'c4.eighty': '80% on paper', 'c4.paper': '90%', 'c5.removed': 'insurance still on'},
          'visual_cues': ['c0.ten', 'c1.insurance', 'c1.twenty', 'c2.schedule', 'c2.eight', 'c3.replayed', 'c3.typically', 'c3.slow', 'c4.paper', 'c4.eighty', 'c5.removed'],
          'checks': {'rule2_rule3_rule7': errs or 'OK'}}
 json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)

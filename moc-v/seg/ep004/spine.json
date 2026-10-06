@@ -1564,7 +1564,7 @@
    "t0": 7.528,
    "t1": 8.628,
    "reason": "lời \"rise exactly like the … index\" → lùi máy thấy khu phố (nhiều giao dịch)",
-   "sound": "whoosh_soft"
+   "sound": "whoosh_air"
   },
   {
    "id": "toChart",
@@ -1604,7 +1604,7 @@
    "t0": 34.466,
    "t1": 35.366,
    "reason": "lời \"grown with the index\": chồng sắp cao gấp bốn → lùi máy để thấy trọn",
-   "sound": "whoosh_soft"
+   "sound": "whoosh_air"
   },
   {
    "id": "backChart",
@@ -1634,7 +1634,7 @@
    "t0": 55.125,
    "t1": 57.326,
    "reason": "lời \"So, on paper, … THEIR home\": con số sắp nói là của Rosa & Frank → đẩy chậm vào nhà ở đầu đường",
-   "sound": "whoosh_soft"
+   "sound": "whoosh_air"
   },
   {
    "id": "wide",
@@ -1644,7 +1644,7 @@
    "t0": 64.123,
    "t1": 65.123,
    "reason": "lời \"Phoenix area prices … their 2000 level\": cần cả hai đầu 2000 và 2026 → lùi máy",
-   "sound": "whoosh_soft"
+   "sound": "whoosh_air"
   }
  ],
  "draw": [
@@ -1712,7 +1712,7 @@
   },
   {
    "t": 7.528,
-   "kind": "whoosh_soft",
+   "kind": "whoosh_air",
    "dur": 1.1,
    "gain": 1.0
   },
@@ -1723,16 +1723,34 @@
    "v": 0.3
   },
   {
+   "t": 9.857,
+   "kind": "tick",
+   "pop": 2,
+   "v": 0.4
+  },
+  {
    "t": 10.734,
    "kind": "tick",
    "pop": 4,
    "v": 0.5
   },
   {
+   "t": 11.611,
+   "kind": "tick",
+   "pop": 6,
+   "v": 0.35
+  },
+  {
    "t": 12.488,
    "kind": "tick",
    "pop": 8,
    "v": 0.45
+  },
+  {
+   "t": 13.365,
+   "kind": "tick",
+   "pop": 10,
+   "v": 0.3
   },
   {
    "t": 14.453,
@@ -1951,7 +1969,7 @@
   },
   {
    "t": 34.466,
-   "kind": "whoosh_soft",
+   "kind": "whoosh_air",
    "dur": 0.9,
    "gain": 1.0
   },
@@ -2205,7 +2223,7 @@
   },
   {
    "t": 55.125,
-   "kind": "whoosh_soft",
+   "kind": "whoosh_air",
    "dur": 2.201,
    "gain": 0.5
   },
@@ -2231,9 +2249,15 @@
   },
   {
    "t": 64.123,
-   "kind": "whoosh_soft",
+   "kind": "whoosh_air",
    "dur": 1.0,
    "gain": 0.2
+  },
+  {
+   "t": 65.373,
+   "kind": "data",
+   "v": 0.95,
+   "src": "value"
   }
  ],
  "tension": [

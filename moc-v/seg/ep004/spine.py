@@ -77,15 +77,15 @@ def window(after, before, dur, late=False, start=None):
 
 # ---- động tác máy quay hữu hạn (quy tắc 2) — mỗi lần có LÝ DO (câu lời / sự kiện dữ liệu) và ÂM (quy tắc 3)
 MOVES = [
- ('hood', 'pull', 'wHome', 'wHood', cue['b1']['rise'], cue['b1']['pop0'], 1.1, 'lời "rise exactly like the … index" → lùi máy thấy khu phố (nhiều giao dịch)', 'whoosh_soft'),
+ ('hood', 'pull', 'wHome', 'wHood', cue['b1']['rise'], cue['b1']['pop0'], 1.1, 'lời "rise exactly like the … index" → lùi máy thấy khu phố (nhiều giao dịch)', 'whoosh_air'),
  ('toChart', 'mode', 'wHood', 'cFull', cue['b1']['avg'], cue['b2']['quarter'], 1.05, 'lời "an average of many sales": nhiều nhà gom thành MỘT đường → chế độ đồ thị', 'whoosh_mode'),
  ('toDemo', 'mode', 'cFull', 'wDemoNear', cue['b3']['same'], cue['b4']['gain'], 1.0, 'lời "And here\'s THEIR gain": về người và nhà của họ → chế độ thế giới', 'whoosh_mode'),
  ('demoPush', 'push', 'wDemoNear', 'wDemoClose', cue['b4']['gain'], cue['b4']['two'], 2.6, 'lời "for a home that rose like the average": đẩy chậm vào nhà + chồng tiền của họ (ẩn dụ sắp được đo)', 'whoosh_air'),
- ('demoPull', 'pull', 'wDemoClose', 'wDemo', cue['b4']['two'], cue['b4']['grow'], 0.9, 'lời "grown with the index": chồng sắp cao gấp bốn → lùi máy để thấy trọn', 'whoosh_soft'),
+ ('demoPull', 'pull', 'wDemoClose', 'wDemo', cue['b4']['two'], cue['b4']['grow'], 0.9, 'lời "grown with the index": chồng sắp cao gấp bốn → lùi máy để thấy trọn', 'whoosh_air'),
  ('backChart', 'mode', 'wDemo', 'cFull', cue['b4']['paid'], cue['b5']['under'], 1.0, 'lời "For most of these years" (lãi vừa tách ra): tua NHÀ về 2000 rồi phát lại theo năm so với trần → chế độ đồ thị', 'whoosh_mode'),
  ('zoom', 'push', 'cFull', 'cZoom', cue['b6']['q2022'], cue['b6']['cross'], 1.2, 'lời "Then, in the second quarter of 2022": sắp tới điểm cắt và nhịp tụt — đoạn 2021–26 quá nhỏ ở thang 26 năm → đẩy máy TRƯỚC khi cắt', 'whoosh_push'),
- ('tip', 'push', 'cZoom', 'cTip', cue['b8']['above'], cue['b9']['rose'], 2.2, 'lời "So, on paper, … THEIR home": con số sắp nói là của Rosa & Frank → đẩy chậm vào nhà ở đầu đường', 'whoosh_soft'),
- ('wide', 'pull', 'cTip', 'cFull', cue['b10']['cap'], cue['b11']['x'], 1.0, 'lời "Phoenix area prices … their 2000 level": cần cả hai đầu 2000 và 2026 → lùi máy', 'whoosh_soft'),
+ ('tip', 'push', 'cZoom', 'cTip', cue['b8']['above'], cue['b9']['rose'], 2.2, 'lời "So, on paper, … THEIR home": con số sắp nói là của Rosa & Frank → đẩy chậm vào nhà ở đầu đường', 'whoosh_air'),
+ ('wide', 'pull', 'cTip', 'cFull', cue['b10']['cap'], cue['b11']['x'], 1.0, 'lời "Phoenix area prices … their 2000 level": cần cả hai đầu 2000 và 2026 → lùi máy', 'whoosh_air'),
 ]
 moves = []
 for mid, verb, a, b, after, before, dur, reason, snd in MOVES:
@@ -125,13 +125,14 @@ for q in range(0, 106):
 pops = [round(cue['b1']['pop0'] + k * (cue['b1']['many'] - 0.3 - cue['b1']['pop0']) / 11, 3) for k in range(12)]
 EV += [{'t': cue['b0']['has'], 'kind': 'riser', 'to': cue['b0']['q']},
        {'t': cue['b1']['blur'], 'kind': 'whoosh_soft'},
-       *[{'t': p, 'kind': 'tick', 'pop': k, 'v': 0.3 + 0.05 * (k % 5)} for k, p in enumerate(pops) if k % 4 == 0],   # v3i: 3 tick (đạo diễn: đè tên cơ quan)
+       *[{'t': p, 'kind': 'tick', 'pop': k, 'v': 0.3 + 0.05 * (k % 5)} for k, p in enumerate(pops) if k % 2 == 0],   # v3j: 6 biển SOLD = 6 tick
        {'t': cue['b1']['avg'], 'kind': 'gather'},
        {'t': cue['b3']['cap'] + 0.3, 'kind': 'thud'},   # xà khoá (rơi 0,32 s)
        {'t': cue['b4']['two'], 'kind': 'tick', 'v': 0.6},
        {'t': cue['b4']['grow'], 'kind': 'rise', 'dur': 0.9},
        {'t': cue['b4']['less'], 'kind': 'slide_down', 'dur': 1.6},
-       {'t': cue['b6']['cross'], 'kind': 'chime'},   # v3i: bỏ riser (chồng whoosh đẩy máy)
+       {'t': cue['b6']['cross'], 'kind': 'chime'},
+       {'t': cue['b11']['x'], 'kind': 'data', 'v': 0.95, 'src': 'value'},   # v3j: "3.8 times" có nốt   # v3i: bỏ riser (chồng whoosh đẩy máy)
        {'t': cue['b9']['fly'], 'kind': 'swish', 'to': cue['b9']['land']}, {'t': cue['b9']['land'], 'kind': 'tick', 'v': 0.7},
        {'t': cue['b10']['cap'] + HOP, 'kind': 'land', 'mode': False},   # nhà nảy qua xà, CHẠM ĐẤT ngay sau chữ "cap" (lượt đạo diễn v3c); sau đó lặng
        {'t': cue['b9']['rose'], 'kind': 'rise', 'dur': 0.9}]                  # mũi tên "rose" (cùng từ vựng hình với b1)

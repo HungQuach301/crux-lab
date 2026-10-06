@@ -78,24 +78,27 @@ export async function boot(res) {
     const bump = 0;                                                    // v3e: nhà không còn ở trên đỉnh chồng ở chế độ đồ thị → không nảy
     const flashCap = t >= S.marks.hop_land ? 1 - lin(t, S.marks.hop_land, S.marks.hop_land + 0.6) : 0;   // chớp ở chỗ chồng xuyên xà, đúng tiếng chạm sau "cap"
     const out11 = 1 - ease(t, M.wide.t0, M.wide.t1);                  // b11: đại lượng đổi lãi → GIÁ: đường lãi, xà, nhãn trần tắt hẳn (logic b3)
-    const off11 = 1 - ease(t, b.b11.t0, M.wide.t0 + 0.3);           // v3h: bắt đầu ở chữ "Phoenix" (rải dài hơn)            // v3f: đại lượng LÃI (xà, đường, nhãn trần) rời ngay đầu cú lùi — không cross-fade với khung giá
-    const r11 = ease(t, b.b11.t0, b.b11.x + 0.3);                      // đường lãi NÂNG $200,000 từ chữ "Phoenix" (thấy ngay trong khung đầu nhà)               // cùng lúc: khối "what they paid" về đáy chồng 2026 — chồng lớn lên = GIÁ (khung luôn có chồng + nhà)
+    const off11 = 1 - ease(t, M.wide.t0, M.wide.t0 + 0.5);           // v3h: bắt đầu ở chữ "Phoenix" (rải dài hơn)            // v3f: đại lượng LÃI (xà, đường, nhãn trần) rời ngay đầu cú lùi — không cross-fade với khung giá
+    const r11 = ease(t, M.wide.t1 - 0.1, b.b11.x + 0.4);   // v3j: NHỊP 1 = lùi máy (xà, nhãn trần rời); NHỊP 2 = ở toàn cảnh, đường lãi NÂNG đúng $200,000 thành đường giá                      // đường lãi NÂNG $200,000 từ chữ "Phoenix" (thấy ngay trong khung đầu nhà)               // cùng lúc: khối "what they paid" về đáy chồng 2026 — chồng lớn lên = GIÁ (khung luôn có chồng + nhà)
     const gone11 = 1 - ease(t, M.wide.t0, M.wide.t1);                  // b11: nhà lãi + người rời cảnh (nhường hai chồng giá trị)
     heroStack.scale.set(hScale, 1, hScale);
-    const sh = t < b.b11.t0 ? heroStack.set({ usd, warnAboveUsd: riding ? 500000 : Infinity })
-      : heroStack.set({ usd: usd + 200000 * r11, tintBelowUsd: 200000 * r11 + 1, tintA: 1, warnAboveUsd: off11 > 0.5 ? 500000 + 200000 * r11 : Infinity });   // b11: lãi + cái đã trả = giá 2026
+    // v3j (đạo diễn v3i A+B): ở MỌI chế độ nhà nằm trên đỉnh chồng và ĐỈNH MÁI = điểm dữ liệu (chồng thấp hơn đúng chiều cao nhà):
+    // không nhảy giữa hai chế độ, không lơ lửng, không vượt dữ liệu, luôn trong khung đầu đường
+    const houseUsd = hero.userData.height * mix(1, 0.55, cw) * U;
+    const sh = t < M.wide.t0 ? heroStack.set({ usd: Math.max(0, usd - houseUsd), warnAboveUsd: riding ? 500000 : Infinity })
+      : heroStack.set({ usd: Math.max(0, usd + 200000 * r11 - houseUsd), tintBelowUsd: 200000 * r11 + 1, tintA: 1, warnAboveUsd: off11 > 0.5 ? 500000 + 200000 * r11 : Infinity });   // b11: lãi + cái đã trả = giá 2026
     // v3e (lượt đạo diễn v3d): ở chế độ ĐỒ THỊ điểm dữ liệu là ĐỈNH CHỒNG — nhà đứng cạnh, mái không vượt điểm dữ liệu (không "vượt trần" sớm)
-    const houseH = hero.userData.height * hScale, hOff = cw * (0.5 * hScale + 0.75 * hScale + 0.06);
-    hero.scale.setScalar(hScale); hero.position.set(hOff, mix(sh, 0, cw), 0);   // v3i: ở đồ thị nhà ĐỨNG TRÊN MẶT ĐẤT cạnh chồng (không lơ lửng, không vượt điểm dữ liệu)
+    const houseH = hero.userData.height * hScale, hOff = 0;
+    hero.scale.setScalar(hScale); hero.position.set(0, sh, 0);   // đỉnh mái = điểm dữ liệu
     const roofY = hero.position.y + houseH;
     heroG.position.set(hx, 0, 0);
     // khu phố (b1) bật biển đúng tick, gom về nhà chính lúc "sales"
     const gather = ease(t, b.b1.avg - 0.1, b.b1.avg + 0.9);
     hood.userData.items.forEach((it, k) => {
-      const ap = ease(t, M.hood.t0 + 0.06 * k, M.hood.t1 + 0.06 * k) * (1 + 0.25 * Math.sin(Math.PI * lin(t, pops[k], pops[k] + 0.3))), g = gather;   // v3d: khu phố có mặt khi lùi máy; biển SOLD bật đúng tick
-      it.it.position.lerpVectors(it.home, new THREE.Vector3(X(0), 1.8, 0), g); it.it.position.y += Math.sin(Math.PI * g) * 1.6; it.it.scale.setScalar(Math.max(0.001, ap * (1 - 0.7 * g)));
+      const ap = ease(t, M.hood.t0 + 0.06 * k, M.hood.t1 + 0.06 * k) * (1 + 0.45 * Math.sin(Math.PI * lin(t, pops[k], pops[k] + 0.3))), g = gather;   // v3d: khu phố có mặt khi lùi máy; biển SOLD bật đúng tick
+      it.it.position.lerpVectors(it.home, new THREE.Vector3(X(0), 1.8, 0), g); it.it.position.y += Math.sin(Math.PI * g) * 1.6; it.it.scale.setScalar(Math.max(0.001, (k % 2 === 0 ? ap : ease(t, M.hood.t0 + 0.06 * k, M.hood.t1 + 0.06 * k)) * (1 - 0.7 * g)));   // chỉ nhà có biển SOLD mới nảy
       setOpacity(it.it, (1 - ease(g, 0.82, 1)) * (1 - cw));
-      it.sign.visible = it.it.visible && t >= pops[k]; it.sign.scale.setScalar(Math.max(0.001, 2.6 * easeOut(t, pops[k], pops[k] + 0.12)));   // biển to hơn (đọc được ở điện thoại), bật có nảy   // SAU setOpacity (nó bật visible cho mọi con) — biển SOLD bật đúng tick
+      it.sign.visible = it.it.visible && k % 2 === 0 && t >= pops[k];   // v3j: biển SOLD = tiếng tick (6 biển, 6 tick) it.sign.scale.setScalar(Math.max(0.001, 2.6 * easeOut(t, pops[k], pops[k] + 0.12)));   // biển to hơn (đọc được ở điện thoại), bật có nảy   // SAU setOpacity (nó bật visible cho mọi con) — biển SOLD bật đúng tick
     });
     // sương "can't see their house" (b1) → nhà mờ
     const fog = ease(t, b.b1.blur, b.b1.blur + FADE) * (1 - ease(t, b.b1.avg, b.b1.avg + 0.8));
@@ -127,9 +130,9 @@ export async function boot(res) {
     } else vRib.material.opacity = 0;
     // đường LÃI (b5–b11) — vệt đỉnh chồng tiền khi phát lại; đoạn trên trần = warn
     if (riding) {
-      const pts = []; let pg = null; const lift = t >= b.b11.t0 ? 200000 * r11 : 0;   // v3g CẦU NỐI lãi → giá: cả đường LÃI nâng lên đúng $200,000 (cái đã trả) thành đường GIÁ (xanh)
+      const pts = []; let pg = null; const lift = t >= M.wide.t0 ? 200000 * r11 : 0;   // v3g CẦU NỐI lãi → giá: cả đường LÃI nâng lên đúng $200,000 (cái đã trả) thành đường GIÁ (xanh)
       for (let q = 0; q <= qRide + 1e-6; q += 0.25) { const qq = Math.min(q, qRide), g = at(qq);
-        if (t >= b.b11.t0) { pts.push([X(qq), (Math.max(0, g) + lift) / U, r11 > 0.5 ? C.accent : g > 500000 ? C.warn : C.ink]); continue; }
+        if (t >= M.wide.t0) { pts.push([X(qq), (Math.max(0, g) + lift) / U, r11 > 0.5 ? C.accent : g > 500000 ? C.warn : C.ink]); continue; }
         if (pg !== null && (pg - 500000) * (g - 500000) < 0) { const xq = qq - 0.25 * (g - 500000) / (g - pg); pts.push([X(xq), 5, pg > 500000 ? C.warn : C.ink], [X(xq) + 1e-4, 5, g > 500000 ? C.warn : C.ink]); }
         pts.push([X(qq), Math.max(0, g) / U, g > 500000 ? C.warn : C.ink]); pg = g; }
       const v3 = new THREE.Vector3(), ys = pts.map((p) => { v3.set(p[0], p[1], 0.45).project(cam); return (1 - v3.y) * 540; }); let cut0 = 0; for (let i = 0; i < ys.length; i++) if (ys[i] > 840) cut0 = i + 1; const vis = pts.slice(Math.min(cut0, Math.max(0, pts.length - 2)));   // bỏ phần ĐẦU đường nằm dưới dải chân trang (không nối tắt qua khoảng trống)
@@ -152,8 +155,8 @@ export async function boot(res) {
     for (const o of [dSlab, dRosa, dFrank]) setOpacity(o, dSide * dChart);
     // b11: chồng giá 2000 = cái họ trả (teal), mọc cùng lúc khối teal về đáy chồng 2026
     const a11 = ease(t, M.wide.t0, M.wide.t1);
-    const h0 = s2000.set({ usd: 200000 * r11, tintBelowUsd: 200000 * r11 + 1, tintA: 1 });
-    h2000.position.set(X(0) + 0.75, 0, 0);   // v3i: nhà ĐỨNG TRÊN MẶT ĐẤT cạnh chồng (không lơ lửng)   // cạnh chồng, mái không vượt đỉnh (tỉ lệ ×1 : ×3,8 đọc bằng CHỒNG)
+    const h2H = h2000.userData.height * 0.55, h0 = s2000.set({ usd: Math.max(0, 200000 * r11 - h2H * U), tintBelowUsd: 200000 * r11 + 1, tintA: 1 });
+    h2000.position.set(X(0), h0, 0);   // đỉnh mái = $200,000 (cùng quy tắc với nhà 2026)
     for (const o of [s2000, h2000]) setOpacity(o, a11);
     // loé ở điểm cắt
     const fl = t >= b.b6.cross ? 1 - lin(t, b.b6.cross, b.b6.cross + 0.7) : 0;
@@ -189,9 +192,9 @@ export async function boot(res) {
       c.beginPath(); c.moveTo(ux, uy0 - 60 * k); c.lineTo(ux - 32 * k, uy0 - 14 * k); c.lineTo(ux + 32 * k, uy0 - 14 * k); c.closePath(); c.fill(); c.fillRect(ux - 11 * k, uy0 - 16 * k, 22 * k, 70 * k); c.restore(); };
     if (upA > 0) { const [ux, uy0] = O.toScreen(X(0) + 1.3, 2.4 + 0.8 * easeOut(t, b.b1.rise, b.b1.rise + 1.2), 0); upArrow(ux, uy0, upA); }
     // b9 "if their home ROSE like the Phoenix average": cùng mũi tên của b1, cạnh nhà ở đầu đường (từ vựng hình lặp lại = cùng ý)
-    { const [ax, ay] = O.toScreen(hx + hOff + 0.6, sh - 0.2, 0); log.roi['b9.rose'] = [ax - 70, ay - 170, ax + 70, ay + 90];
+    { const [ax, ay] = O.toScreen(hx + 0.65, sh, 0); log.roi['b9.rose'] = [ax - 70, ay - 170, ax + 70, ay + 90];
       const a9 = easeOut(t, b.b9.rose - 0.05, b.b9.rose + 0.15) * (1 - ease(t, b.b9.fly - 0.3, b.b9.fly)) * ok;
-      if (a9 > 0) { const [, ay2] = O.toScreen(hx + hOff + 0.6, sh - 0.2 + 0.25 * easeOut(t, b.b9.rose, b.b9.rose + 0.9), 0); upArrow(ax, ay2, a9, 0.9); } }
+      if (a9 > 0) { const [, ay2] = O.toScreen(hx + 0.65, sh + 0.25 * easeOut(t, b.b9.rose, b.b9.rose + 0.9), 0); upArrow(ax, ay2, a9, 0.9); } }
     // b1: "many sales → one average" (chữ tên, không số)
     const mA = ease(t, b.b1.many - 0.1, b.b1.many + 0.3) * (1 - ease(t, b.b1.avg + 0.3, b.b1.avg + 0.8));
     if (mA > 0) O.text('many sales → one average', 960, 860, 56, { align: 'center', alpha: mA, plate: '#0B0E13', plateA: 0.6 });
@@ -260,7 +263,7 @@ export async function boot(res) {
       ease(t, b.b8.lbl, b.b8.lbl + POP) * keep * ok, 40, -150, 'left');
     // b9: số bay từ đỉnh chồng lên biển trên mái
     if (t >= b.b9.fly) {
-      const [tx, ty] = S2(hx, Math.max(0, at(qRide)) / U), [rx, ry] = O.toScreen(hx + 0.3, 6.15, 0);   // v3h: số bay từ đầu đường LÊN thành bảng trên đỉnh chồng   // v3f: số BAY rõ (từ đỉnh chồng lên cao trên mái)
+      const [tx, ty] = S2(hx, Math.max(0, at(qRide)) / U), [rx, ry] = O.toScreen(hx, sh + houseH + 0.5, 0);   // v3h: số bay từ đầu đường LÊN thành bảng trên đỉnh chồng   // v3f: số BAY rõ (từ đỉnh chồng lên cao trên mái)
       const f = ease(t, b.b9.fly, b.b9.land), o = 1 - ease(t, b.b11.t0, b.b11.t0 + FADE);
       O.text(CL('gain_at_200k_phoenix'), mix(tx + 60, rx, f), mix(ty, ry, f), mix(60, 80, f), { kind: 'number', color: '#1B1F26', plate: '#E9E3D3', plateA: 0.95, align: 'center', alpha: o * ok * ease(t, b.b9.fly, b.b9.fly + POP) });
       O.text('their gain on paper', rx - 300, ry + 16, 48, { color: C.ink, align: 'right', alpha: ease(t, b.b9.land, b.b9.land + POP) * o * ok * gone11 });
@@ -268,8 +271,8 @@ export async function boot(res) {
     // b10: ngoặc "past the cap"
     if (t >= b.b10.past - 0.05) {
       const a = ease(t, b.b10.past, b.b10.past + POP) * (1 - ease(t, b.b11.t0, b.b11.t0 + FADE)) * ok;
-      { const [rx0, ry0] = S2(X(105) + hOff + 0.55, 5), [, ry1] = S2(0, at(105) / U); log.roi['b10.past'] = [rx0 - 30, ry1 - 20, rx0 + 60, ry0 + 20]; }   // ngoặc mọc
-      const [x0, y0] = S2(X(105) + hOff + 0.55, 5), [, y1f] = S2(0, at(105) / U), y1 = mix(y0, y1f, easeOut(t, b.b10.past, S.marks.hop_land));   // ngoặc MỌC từ xà lên đỉnh, chạm đỉnh đúng tiếng chạm sau "cap"
+      { const [rx0, ry0] = S2(X(105) + 0.55, 5), [, ry1] = S2(0, at(105) / U); log.roi['b10.past'] = [rx0 - 30, ry1 - 20, rx0 + 60, ry0 + 20]; }   // ngoặc mọc
+      const [x0, y0] = S2(X(105) + 0.55, 5), [, y1f] = S2(0, at(105) / U), y1 = mix(y0, y1f, easeOut(t, b.b10.past, S.marks.hop_land));   // ngoặc MỌC từ xà lên đỉnh, chạm đỉnh đúng tiếng chạm sau "cap"
       O.bracket(x0, y0, y1, C.warn, a, 18, 6 + 4 * flashCap); O.text('past the cap', x0 + 50, (y0 + y1f) / 2 + 22, 60, { kind: 'compare', color: C.warn, alpha: a * ease(t, S.marks.hop_land - 0.25, S.marks.hop_land), plate: '#0B0E13', plateA: 0.75 });   // bên PHẢI chồng: không đè lên đường lãi
     }
     // b11: ×3,8 + tiêu đề
