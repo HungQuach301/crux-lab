@@ -485,6 +485,72 @@
    "url": "https://www.law.cornell.edu/uscode/text/12/4902",
    "quote": "in no case may such a requirement be imposed on residential mortgage transactions beyond the first day of the month immediately following the date that is the midpoint of the amortization period of the loan if the mortgagor is current on the payments required by the terms of the mortgage",
    "retrieved": "2026-10-06"
+  },
+  {
+   "cite": "12 U.S.C. 4902(a) (borrower cancellation: conditions)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/4902",
+   "quote": "A requirement for private mortgage insurance in connection with a residential mortgage transaction shall be canceled on the cancellation date or any later date that the mortgagor fulfills all of the requirements under paragraphs (1) through (4), if the mortgagor— (1) submits a request in writing to the servicer that cancellation be initiated; (2) has a good payment history with respect to the residential mortgage; (3) is current on the payments required by the terms of the residential mortgage transaction; and (4) has satisfied any requirement of the holder of the mortgage (as of the date of a request under paragraph (1)) for— (A) evidence (of a type established in advance and made known to the mortgagor by the servicer promptly upon receipt of a request under paragraph (1)) that the value of the property securing the mortgage has not declined below the original value of the property; and (B) certification that the equity of the mortgagor in the residence securing the mortgage is unencumbered by a subordinate lien.",
+   "retrieved": "2026-10-06",
+   "claims": [
+    "borrower_request_conditions"
+   ]
+  },
+  {
+   "cite": "CFPB, Ask CFPB: When can I remove private mortgage insurance (PMI) from my loan? (last reviewed Aug 28, 2026)",
+   "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/",
+   "quote": "Some lenders and servicers may allow removal of PMI under their own standards. [...] Can my PMI be canceled earlier if I have a loan backed by Freddie Mac or Fannie Mae? Yes. Loan investors, including Fannie Mae and Freddie Mac, often create their own PMI cancellation guidelines. But these guidelines cannot be less favorable to the borrower than the ones above.",
+   "retrieved": "2026-10-06",
+   "claims": [
+    "value_removal_rule"
+   ]
+  },
+  {
+   "cite": "CFPB, Ask CFPB: What is private mortgage insurance? (last reviewed Aug 28, 2023)",
+   "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-private-mortgage-insurance-en-122/",
+   "quote": "Private mortgage insurance (PMI) is a type of mortgage insurance you might be required to buy if you take out a conventional loan with a down payment of less than 20 percent of the purchase price.",
+   "retrieved": "2026-10-06",
+   "claims": [
+    "pmi_required_below20"
+   ]
+  },
+  {
+   "cite": "CFPB press release, CFPB Provides Guidance About Private Mortgage Insurance Cancellation and Termination (Aug 4, 2015)",
+   "url": "https://www.consumerfinance.gov/archive/newsroom/cfpb-provides-guidance-about-private-mortgage-insurance-cancellation-and-termination/",
+   "quote": "Lenders generally require consumers to purchase PMI if their down payment is less than 20 percent of the sales price or the appraised value of the home.",
+   "retrieved": "2026-10-06",
+   "claims": [
+    "pmi_required_below20"
+   ]
+  },
+  {
+   "cite": "12 U.S.C. 1717(b)(2) (Fannie Mae charter: conventional mortgages above 80% need credit enhancement)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/1717",
+   "quote": "No such purchase of a conventional mortgage secured by a property comprising one- to four-family dwelling units shall be made if the outstanding principal balance of the mortgage at the time of purchase exceeds 80 per centum of the value of the property securing the mortgage, unless (A) the seller retains a participation of not less than 10 per centum in the mortgage; (B) for such period and under such circumstances as the corporation may require, the seller agrees to repurchase or replace the mortgage upon demand of the corporation in the event that the mortgage is in default; or (C) that portion of the unpaid principal balance of the mortgage which is in excess of such 80 per centum is guaranteed or insured by a qualified insurer as determined by the corporation.",
+   "retrieved": "2026-10-06",
+   "claims": [
+    "pmi_required_below20"
+   ]
+  },
+  {
+   "cite": "12 U.S.C. 1454(a)(2) (Freddie Mac charter: same 80% rule)",
+   "url": "https://www.law.cornell.edu/uscode/text/12/1454",
+   "quote": "No conventional mortgage secured by a property comprising one- to four-family dwelling units shall be purchased under this section if the outstanding principal balance of the mortgage at the time of purchase exceeds 80 per centum of the value of the property securing the mortgage, unless (A) the seller retains a participation of not less than 10 per centum in the mortgage; (B) for such period and under such circumstances as the Corporation may require, the seller agrees to repurchase or replace the mortgage upon demand of the Corporation in the event that the mortgage is in default; or (C) that portion of the unpaid principal balance of the mortgage which is in excess of such 80 per centum is guaranteed or insured by a qualified insurer as determined by the Corporation.",
+   "retrieved": "2026-10-06",
+   "claims": [
+    "pmi_required_below20"
+   ]
+  },
+  {
+   "cite": "PENDING — Fannie Mae Servicing Guide B-8.1-04, Termination of Conventional Mortgage Insurance (current-value termination: seasoning, 75%/80% LTV, appraisal/BPO, payment history); Freddie Mac Guide 8203.2",
+   "url": "https://servicing-guide.fanniemae.com/svc/b-8.1-04/termination-conventional-mortgage-insurance",
+   "altUrl": "https://guide.freddiemac.com/app/guide/section/8203.2",
+   "quote": null,
+   "status": "NOT RETRIEVED: hosts servicing-guide.fanniemae.com, singlefamily.fanniemae.com, guide.freddiemac.com (and all fanniemae.com / freddiemac.com hosts, files.consumerfinance.gov, fhfa.gov, federalregister.gov) blocked by the session egress proxy (403) on 2026-10-06. The 75% / 2-year figures are NOT verified verbatim; a quote must be added before lock.",
+   "retrieved": null,
+   "claims": [
+    "value_removal_ltv_early",
+    "value_removal_seasoning_years"
+   ]
   }
  ],
  "_about": "FRED copies, not committed (python3 episodes/ep005/data/fetch.py --verify re-downloads from pinnedUrl and checks SHA-256). \"Now\" of the data: HPI and Case-Shiller to 2026-07-01, PMMS to 2026-10-01. CSUSHPINSA is \"Copyrighted: Pre-Approval Required\": used only as an internal crosscheck, never shown on screen."

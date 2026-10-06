@@ -103,6 +103,18 @@ def main():
     raw['n_months_sched78_after_midpoint'] = len(bind)   # mọi tháng có lãi PMMS (1971+), không chỉ tập A/B
     raw['midpoint_binding_rate_min'] = min(rate[m] for m in bind) if bind else None
     raw['midpoint_binding_last_month'] = max(bind) if bind else None
+    # C-5: các tháng tập B > 60 tháng (S13.3) và đỉnh/đáy chỉ số quốc gia quanh đợt giảm giá
+    months = sorted(hpi)
+    slowB = [m for m in B if hit[m] > P['slowCutMonths']]
+    raw.update({'slowB_n': len(slowB), 'slowB_first': slowB[0], 'slowB_last': slowB[-1],
+                'slowB_years': sorted({int(m[:4]) for m in slowB})})
+    pk = max((m for m in months if m < '2012-01-01'), key=lambda m: (hpi[m], m))       # đỉnh trước 2012
+    tr = min((m for m in months if pk < m < '2015-01-01'), key=lambda m: (hpi[m], m))  # đáy sau đỉnh
+    raw.update({'hpi_peak_month': pk, 'hpi_peak': hpi[pk], 'hpi_trough_month': tr, 'hpi_trough': hpi[tr],
+                'hpi_peak_to_trough_pct': 100 * (hpi[tr] / hpi[pk] - 1)})
+    # luật gỡ theo giá trị (bên cho vay/nhà đầu tư) và mốc 80% của điều lệ GSE: tham số luật, không tính
+    raw.update({'value_removal_ltv_early': P['lenderLtvEarly'], 'value_removal_seasoning_years': 2,
+                'gse_charter_ltv_max_uninsured': P['requestLtv']})
     # người mua minh hoạ (ILLUSTRATIVE), đều trong tập B (đủ >120 tháng theo dõi)
     med = raw['medianB_months_to80']
     fast = min(B, key=lambda m: (hit[m], -int(m[:4]), m))           # nhanh nhất; hoà → năm muộn nhất
@@ -114,6 +126,11 @@ def main():
                        'sched80Months': sched(rate[m], P['requestLtv']), 'sched78Months': sched(rate[m], P['autoLtv']),
                        'ltvIndexAt24': l24.get(m), 'hpiChangeTo80Pct': 100 * (hpi[sorted(hpi)[sorted(hpi).index(m) + hit[m]]] / hpi[m] - 1),
                        'balanceAt80Share': balance(rate[m], hit[m])}
+        i0 = months.index(m)
+        path = [(k, 100 * (hpi[months[i0 + k]] / hpi[m] - 1)) for k in range(1, hit[m] + 1)]  # tới tháng đạt 80%
+        kp, vp = max(path, key=lambda x: (x[1], -x[0]))
+        kt, vt = min(path, key=lambda x: (x[1], x[0]))
+        buyers[key].update({'indexPeakPct': vp, 'indexPeakMonth': kp, 'indexTroughPct': vt, 'indexTroughMonth': kt})
         for f, v in buyers[key].items():
             if f != 'name':
                 raw[f'buyer_{key}_{f}'] = v

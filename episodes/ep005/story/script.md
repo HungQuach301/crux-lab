@@ -49,7 +49,7 @@ S02.2 {promise} We replayed real US prices and rates month by month, so you'll s
 
 S03.1 {define} On paper means the loan is 80 percent of the home's value by a national price index. <!-- claims: medianB_months_to80 -->
 S03.2 {hook} That's not the same as getting the insurance removed. <!-- claims: — -->
-S03.3 {define} Removal on value is lender policy: request, appraisal, time, and early on, a 75 percent bar. <!-- claims: shareA_ltv24_le75 -->
+S03.3 {define} Removal on value is lender policy: request, appraisal, minimum time, and early on, a 75 percent bar. <!-- claims: value_removal_rule, value_removal_ltv_early, value_removal_seasoning_years -->
 S03.4 {promise} You'll also meet three illustrative buyers who got very different answers. <!-- claims: buyer_fast_*, buyer_typical_*, buyer_slow_* -->
 S03.5 {constraint} It's US only, history, not a forecast, and it won't say whether to buy or wait. <!-- claims: —; hold: 0.8 -->
 
@@ -59,7 +59,7 @@ S03.5 {constraint} It's US only, history, not a forecast, and it won't say wheth
 
 ## S04 — What the insurance is
 
-S04.1 {define} Private mortgage insurance, or PMI, is a policy lenders usually require on a conventional loan with less than 20 percent down. <!-- claims: ex_extra_down_for_20 -->
+S04.1 {define} Private mortgage insurance, or PMI, is a policy lenders usually require on a conventional loan with less than 20 percent down. <!-- claims: pmi_required_below20 -->
 S04.2 It protects the lender if the loan goes bad, but the borrower pays for it, month after month, on top of the mortgage. <!-- claims: — -->
 S04.3 What it costs depends on the loan and the borrower, so this video puts no dollar figure on it. <!-- claims: pmi_premium -->
 S04.4 What we can measure is how long it lasts. <!-- claims: — -->
@@ -78,9 +78,9 @@ S06.3 Each payment pays the balance down a little, slowly at first, and faster l
 
 ## S07 — The law's first date: you can ask
 
-S07.1 By federal law, the borrower can ask to cancel the insurance once the schedule says the loan is down to 80 percent of the original value, here $320,000. <!-- claims: ex_target80, sched80_months_latest; hold: 1 -->
+S07.1 By federal law, the borrower can ask to cancel the insurance once the schedule says the loan is down to 80 percent of the original value, here $320,000. <!-- claims: ex_target80, sched80_months_latest, borrower_request_conditions; hold: 1 -->
 S07.2 On this loan, that's payment 99: the schedule's road from the opening. <!-- claims: sched80_months_latest -->
-S07.3 That request comes with conditions, such as being current on payments. <!-- claims: — -->
+S07.3 That request comes with conditions, such as being current on payments. <!-- claims: borrower_request_conditions -->
 
 ## S08 — The law's second date: it ends on its own
 
@@ -90,7 +90,7 @@ S08.3 Both dates come from the schedule alone, and both ignore what the house is
 
 ## S09 — The other road: the home's value
 
-S09.1 Lenders, and the investors who own loans, can also drop the insurance based on the home's current value. <!-- claims: — -->
+S09.1 Lenders, and the investors who own loans, can also drop the insurance based on the home's current value. <!-- claims: value_removal_rule -->
 S09.2 If prices rise, the same balance becomes a smaller share of the home, and 80 percent can arrive sooner, on paper. <!-- claims: sched80_months_latest -->
 S09.3 That's the road behind the words on paper, with the lender's rules from the opening still in the way. <!-- claims: — -->
 S09.4 So how fast did rising prices actually get 10 percent down buyers there? <!-- claims: medianB_months_to80; hold: 1.5 -->
@@ -117,14 +117,14 @@ S11.4 That's the gap between the schedule's long road and the replay's typical o
 ## S12 — But "on paper" is not removal
 
 S12.1 But that's on paper. <!-- claims: — -->
-S12.2 In a wider set of months, two years after purchase, only 15.6 percent were at or below the 75 percent bar that lenders often use early on. <!-- claims: shareA_ltv24_le75, nA; hold: 1 -->
+S12.2 In a wider set of months, two years after purchase, only 15.6 percent were at or below the 75 percent bar that lenders often use early on. <!-- claims: shareA_ltv24_le75, nA, value_removal_ltv_early; hold: 1 -->
 S12.3 So reaching 80 percent on paper in about two years was common in this history, while clearing a lender's early bar by then was not. <!-- claims: medianB_months_to80, shareA_ltv24_le75 -->
 
 ## S13 — The slow tail
 
 S13.1 The typical case also hides a long tail. <!-- claims: — -->
 S13.2 About 1 in 7 purchase months took more than 5 years. <!-- claims: shareB_over60; hold: 1 -->
-S13.3 They sit together in one stretch of the grid, the months just before and during the national price slump. <!-- claims: shareB_over60 -->
+S13.3 They sit together in one stretch of the grid, the months just before and during the national price slump. <!-- claims: shareB_over60, slowB_n, slowB_years, hpi_peak_month, hpi_trough_month -->
 
 ## S14 — The slowest month
 
@@ -151,7 +151,7 @@ S16.3 Rising prices did most of that work, not his payments. <!-- claims: buyer_
 ## S17 — Victor, the slowest
 
 S17.1 [serious] Victor bought the year after Owen, in October 2005: the slowest month in the replay. <!-- claims: buyer_slow_*, buyer_fast_*, maxB_start -->
-S17.2 Prices rose a little, then fell for years, and even when he finally reached 80 percent on paper, the index was still below where it started. <!-- claims: buyer_slow_* -->
+S17.2 Prices rose a little, then fell for years, and even when he finally reached 80 percent on paper, the index was still below where it started. <!-- claims: buyer_slow_*, buyer_slow_index_peak, buyer_slow_index_trough -->
 S17.3 He got there by paying the loan down, and his own schedule reached 80 percent of the original price first, at payment 90. <!-- claims: buyer_slow_*; hold: 1 -->
 S17.4 Whether a lender would have dropped his insurance at that point, this data can't show. <!-- claims: — -->
 

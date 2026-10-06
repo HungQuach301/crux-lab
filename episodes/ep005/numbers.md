@@ -21,7 +21,7 @@ Tính: `model/model.py` (viết lại từ đặc tả, không gọi calc.py). M
 | `sched80_min_A / max_A` | 58 / 132 | 58–132 payments | 80% schedule over set A purchase-month rates (2.68%–9.64%) | data/raw/MORTGAGE30US.csv | history |
 | `nA` | 403 | 403 purchase months | set A: purchase months 1991-01..2024-07 with 24 later index months | data/raw/HPIPONM226N.csv + data/raw/MORTGAGE30US.csv |  |
 | `shareA_ltv24_le80` | 0.586 | 58.6% | set A share with B_24/(H[t+24]/H[t]) ≤ 0.80 | data/raw/HPIPONM226N.csv + data/raw/MORTGAGE30US.csv | history |
-| `shareA_ltv24_le75` | 0.156 | 15.6% | same, ≤ 0.75 (lender early-year rule) | data/raw/HPIPONM226N.csv + data/raw/MORTGAGE30US.csv | history |
+| `shareA_ltv24_le75` | 0.156 | 15.6% | same, ≤ 0.75 (lender early-year rule, see value_removal_ltv_early) | data/raw/HPIPONM226N.csv + data/raw/MORTGAGE30US.csv | history |
 | `nB` | 307 | 307 purchase months | set B: 1991-01..2016-07, ≥ 120 later index months (2016-07 has exactly 120) | data/raw/HPIPONM226N.csv + data/raw/MORTGAGE30US.csv |  |
 | `medianB_months_to80` | 23 | 23 months | median over set B of first k with index LTV ≤ 0.80 | data/raw/HPIPONM226N.csv + data/raw/MORTGAGE30US.csv | history |
 | `minB_months_to80` | 13 | 13 months | fastest in set B | data/raw/HPIPONM226N.csv + data/raw/MORTGAGE30US.csv | history |
@@ -39,6 +39,17 @@ Tính: `model/model.py` (viết lại từ đặc tả, không gọi calc.py). M
 | `ex_target80 / ex_target78` | 320000 / 312000 | $320,000 / $312,000 | 0.80 / 0.78 × ex_price; reached at payment 99 / 114 | param | ILLUSTRATIVE |
 | `ex_extra_down_for_20` | 40000 | $40,000 more | 20% − 10% of ex_price (what waiting for 20% means in cash) | param | ILLUSTRATIVE |
 | `pmi_premium` | none | — | No PMI premium amount: no cited source; the episode states none | — | not modeled |
+| `pmi_required_below20` | 0.80 | PMI usually required under 20% down | conventional loan with down payment < 20% (LTV > 80%) usually carries PMI: CFPB "Lenders generally require consumers to purchase PMI if their down payment is less than 20 percent"; GSE charters bar buying conventional 1–4 unit loans over 80% of value without credit enhancement (e.g. insurance) | sources.json provisions (CFPB en-122, CFPB 2015-08-04 release, 12 U.S.C. 1717(b)(2), 1454(a)(2)) | rule |
+| `borrower_request_conditions` | 4 conditions | written request, good history, current, value not below original (if holder asks) + no subordinate lien | 12 U.S.C. 4902(a)(1)–(4): conditions on borrower-requested cancellation at the 80% (original value, schedule) date | sources.json provisions (12 U.S.C. 4902(a)) | rule |
+| `value_removal_rule` | lender/investor rule | removal on current value = lender's/investor's own standard | not a federal right: CFPB "Some lenders and servicers may allow removal of PMI under their own standards" / "Loan investors, including Fannie Mae and Freddie Mac, often create their own PMI cancellation guidelines" | sources.json provisions (CFPB en-202) | rule |
+| `value_removal_ltv_early` | 0.75 | 75 percent (current value, early years) | investor current-value termination: LTV ≤ 75% of current value when seasoned 2–5 years (≤ 80% after 5 years); appraisal/BPO, payment history (Fannie Mae Servicing Guide B-8.1-04; Freddie Mac 8203.2) | **PENDING verbatim**: fanniemae.com / freddiemac.com blocked 2026-10-06 (sources.json provisions, status NOT RETRIEVED); = param lenderLtvEarly | rule; unverified quote |
+| `value_removal_seasoning_years` | 2 | at least 2 years (minimum wait) | minimum seasoning before current-value termination at ≤ 75%; ≤ 80% after 5 years (same guides) | **PENDING verbatim** (as above) | rule; unverified quote |
+| `slowB_n` | 45 | 45 purchase months (= shareB_over60 × nB) | set B months with first k > 60 | data/raw/HPIPONM226N.csv + data/raw/MORTGAGE30US.csv | history |
+| `slowB_years` | 2005–2009 | purchases from 2005 through 2009 | purchase years of all slowB months; first slowB_first 2005-05-01, last slowB_last 2009-02-01 (contiguous: none before 2005-05 or after 2009-02) | data/raw/HPIPONM226N.csv + data/raw/MORTGAGE30US.csv | history |
+| `hpi_peak_month` | 2007-06-01 | June 2007 (index 226.0) | max HPIPONM226N before 2012 (national pre-slump peak) | data/raw/HPIPONM226N.csv | history |
+| `hpi_trough_month` | 2012-01-01 | January 2012 (index 175.8, −22.2% from peak) | min HPIPONM226N after hpi_peak_month, before 2015 (slump low); slowB months run from 25 months before the peak into the decline | data/raw/HPIPONM226N.csv | history |
+| `buyer_slow_index_peak` | 0.0433 | +4.3% at month 20 (June 2007) | slow buyer (2005-10): max of H[t+k]/H[t]−1 over k = 1..112 (to month reaching 80% on paper) | data/raw/HPIPONM226N.csv | history, ILLUSTRATIVE |
+| `buyer_slow_index_trough` | −0.1885 | −18.8% at month 75 (January 2012) | slow buyer (2005-10): min of H[t+k]/H[t]−1 over k = 1..112; at month 112 still −3.3% | data/raw/HPIPONM226N.csv | history, ILLUSTRATIVE |
 | `robust_cs_medianB / maxB` | 23 / 119 (2006-04-01) | not for screen | same method on Case-Shiller national NSA (crosscheck); shareB_over60 0.147, shareA ≤80 0.561, ≤75 0.233 | data/raw/CSUSHPINSA.csv | robustness |
 
 Tên người mua (Nora / Ben / Carla) là gợi ý, chọn cuối ở C1 (kiểm ASR). Cả ba thuộc tập B. Nora (1/2004) và Carla (10/2005) mua cách nhau 21 tháng: điểm "thời điểm mua" của tập.
