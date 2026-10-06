@@ -12,7 +12,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 | Giao phiên K | **SẴN SÀNG — chủ dự án mở phiên K** | `K-brief.md` | kind mới; một lần cho tập |
 | **G1** | **XONG** — chủ dự án duyệt (issue #37; C2 tự động #36) | `gates/G1.md`, `gates/G1-answer.md` | trần 4,5 triệu |
 | C3 (P2) | **XONG** — chủ dự án duyệt (issue #39, `gates/C3-answer.md`): N1, N2 ký hợp đồng bản vòng 2; ngoại lệ cờ khuyên Tập 4 | `gates/C3.md`, `gates/C3-tally.md`, `design/c3/`, `review-c3/` | dựng bằng nhà máy; móc nạp ký hiệu +7/−3 |
-| C4 (P3, phiên mới) | **CHỜ** khoá `checks-k38` merge `main` (LOCK hiện `a20c6878`) | — | gộp: đối chứng câu khuyên (A9) + kiểm mù S18 |
+| C4 (phiên cuối, D-008) | **DỪNG HỎI chủ dự án** — animatic dựng (`61aa5e0`), checks lần 1 TRƯỢT 13 CHẶN (7 luật trang thiếu `page.json`, S03/S04 nguồn FHFA bị chặn, F06/F10–F12 việc C5); kiểm mù gộp xong; cổng gốc nhịp loại 1 chưa chạy | `gates/C4.md`, `gates/C4-blind.md`, `gates/C4-blind-intent.md` | đối chứng dương ĐẠT; C3 theo A9 khuyên_tính 0/12; S18 2/4 đạt sát |
 
 ## 2. Phiên sau đọc (phiên C4 + P3)
 `CHARTER.md` · `playbook/quality-framework.md` · `playbook/episode.md` · `playbook/prompts/P3.md` · `episodes/ep004/PLAN.md` · `ledger.md` · `gates/G1-answer.md` · **`gates/C3-answer.md`** · `gates/C3.md` · `story/script.md` · `story/beats.md` · `episode.yaml` · `design/c3/NOTES.md` · `toolkit/factory/README.md` · `checks-appeal.md` A9.
@@ -20,6 +20,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 **Điều kiện mở C4:** `checks-k38` đã merge `main` (`checks/LOCK` khác `a20c6878`); merge `main` vào `ep004` trước; `bash toolkit/verify.sh ep004`.
 
 ## 3. Việc treo (P3)
+- **Lô K sau:** `checks/README.md` mục K3.8 còn chữ "chờ chủ dự án duyệt" — sửa ở lô K sau (D-008).
 - **REVIEWER bị bỏ ở gói C3 (trần token P2) → bắt buộc chạy REVIEWER cho gói kế tiếp** (gói C4/G2), soát cả phần C3 đã gửi.
 - **Lượt C4 gộp:** (a) đối chứng câu khuyên (A9): một hình thư viện không liên quan thuế, cùng câu hỏi vai T, ≈ 2 người đọc; chấm cờ khuyên theo rubric tách hai loại (thận trọng chung không tính; khuyên sản phẩm/hành động tài chính tính), cùng một đối chứng dương ("Sell before prices drop"); (b) kiểm mù S18 sau dự phòng V7 (G1).
 - **Móc nạp ký hiệu nhà máy** (`build.py`, `page.html`, `spec.py`, +7/−3): viết **selftest** (`toolkit/tests/`: một ký hiệu giả trong thư mục tạm → spec không BLOCK id lạ đã khai; job có ký hiệu; đổi mã ký hiệu → băm cache đổi; thiếu file → spec BLOCK) rồi merge cùng tập ở P3. Ngoài móc, không đụng `toolkit/`.
@@ -28,6 +29,7 @@ Nhánh `ep004` từ `main` @ `b9710d2` (đẩy song song lên `claude/tap4-p1-di
 - Phối nhạc style C, lời cả tập theo cảnh (cold open có take S01/S02 theo hash chữ; S08, S13, S14 đã cache).
 - Luật nhãn "like … average" theo cảnh là **luật của tập** (`story/check_script.py`), không vào `checks/`.
 ## 4. Điểm dừng an toàn + lệnh chạy tiếp
+2026-10-06 (phiên cuối, D-008): LOCK `250ab298` khớp; merge `main` (`b528736`); D-008 + `playbook/prompts/RUN.md`; selftest móc `toolkit/tests/test_symbol_hook.py` 5/5 (điều (d): spec chưa BLOCK file ký hiệu thiếu — `load_inputs` dừng trước API; thêm kiểm vào `spec.py` bị chặn quyền → hàng chờ); C4 dựng + checks lần 1; kiểm mù gộp. **Dừng hỏi chủ dự án:** luật trang, S03/S04, thời lượng 7:58, EL 11.702 ký tự, trần token. Dựng lại: `python3 episodes/ep004/design/c4/build_inputs.py && bash toolkit/build.sh episodes/ep004/episode.yaml && python3 episodes/ep004/design/c4/build_inputs.py --out` (av 14.2.0 cho faster-whisper).
 2026-10-06 (P2, xong): C3 duyệt (issue #39); S14.5 sửa + sinh lại + ASR. **P2 DỪNG. C4 + P3 ở phiên mới, sau khi `checks-k38` merge `main`.** Dựng lại đoạn trích: dữ liệu như dưới → `python3 episodes/ep004/design/c3/build_inputs.py` → `bash toolkit/build.sh episodes/ep004/episode.yaml` (giọng cache theo băm; cài ffmpeg nếu thiếu).
 2026-10-05: G1 xong; dừng chờ phiên K (chủ dự án mở), rồi P2. Dữ liệu không commit: `python3 episodes/ep004/data/fetch.py` (kiểm SHA) → `python3 episodes/ep004/model/model.py` → `python3 episodes/ep004/story/check_script.py`. Clip: `python3 episodes/ep004/story/cold_open.py` (take theo hash chữ, không sinh lại nếu chữ không đổi).
 
