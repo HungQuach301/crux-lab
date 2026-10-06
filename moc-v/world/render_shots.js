@@ -30,7 +30,7 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
       r.fulfill({ status: 200, body: fs.readFileSync(p), contentType: MIME[path.extname(p)] || 'application/octet-stream' });
     });
     const page = await ctx.newPage();
-    page.on('pageerror', (e) => { console.error('pageerror:', e.message); process.exitCode = 1; });
+    page.on('pageerror', (e) => { console.error('pageerror:', e.message); process.exitCode = 1; process.exit(1); });   // lỗi trang = dừng ngay (không để video cũ bị dùng lại)
     page.on('console', (m) => { if (m.type() === 'error') console.error('page:', m.text()); });
     await page.goto(`http://mocv.local/moc-v/world/page.html?seg=${seg}&res=${res}`);
     await page.waitForFunction('window.READY === true', null, { timeout: 180000 });

@@ -50,7 +50,10 @@ for name in VIS:
     for m in moves:                          # không để động tác máy quay kế tiếp lẫn vào cửa sổ đo
         if t < m['t0'] < end: end = m['t0']
     base = float(np.median(dl[int((t - 0.7) * 30):int((t - 0.15) * 30)]))
-    i0, i1 = int((t - 0.3) * 30), int(end * 30)
+    st = t - 0.3
+    for m in moves:                          # … và không lấy đuôi động tác máy quay TRƯỚC đó làm "hình phản ứng"
+        if st < m['t1'] <= t: st = m['t1'] + 1 / 30
+    i0, i1 = int(st * 30), int(end * 30)
     seg = dl[i0:i1]
     if len(seg) == 0 or seg.max() - base < 0.08:
         vis[name] = None; how[name] = 'motion'; continue

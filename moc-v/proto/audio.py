@@ -167,7 +167,7 @@ def music_code(spine):
         name = prog[k % len(prog)]; root, iv = DOR[name]
         fr = [hz(root + i) for i in iv]
         d = min(bar, stop - t0)
-        add(dry, t0, pad(fr, d + 0.6, 0.04 + 0.30 * ten ** 1.5, 600 + 1800 * ten))   # biên độ căng–chùng rộng (chủ dự án, Gói A §5)
+        add(dry, t0, pad(fr, d + 0.6, 0.03 + 0.26 * ten, 600 + 1800 * ten))   # v3f: tầng thấp–giữa nghe được (đạo diễn v3e: nhạc phẳng −40 dB ở 4–40 s)   # biên độ căng–chùng rộng (chủ dự án, Gói A §5)
         for e in range(8):
             t = t0 + e * BEAT / 2
             if t >= stop: break
@@ -283,7 +283,7 @@ def sfx_layer(spine, N):
         elif k == 'slide_down':
             add(out, t, mixs(glide(74, 62, e['dur'], 0.12), noise_sweep(e['dur'], 3000, 700, 0.05, 0.4)))
         elif k == 'chime':
-            add(out, t, bell(hz(81), 0.32), 0.15); add(out, t + 0.09, bell(hz(88), 0.18), -0.15)
+            add(out, t, lp1(bell(hz(74), 0.28), 2500), 0.15); add(out, t + 0.09, lp1(bell(hz(81), 0.14), 2500), -0.15)   # v3f: chime dịu (bớt bội 4–7 kHz)
         elif k == 'swish':
             d = e['to'] - t; add(out, t, mixs(noise_sweep(d, 900, 5000, 0.12, att=d * 0.7), glide(62, 74, d, 0.06)))
         elif k == 'impact':
@@ -294,7 +294,7 @@ def sfx_layer(spine, N):
             d = e['dur']; lo, hi = (500, 4200) if k == 'whoosh_mode' else (700, 2600); gn = e.get('gain', 1.0)
             add(out, t, gn * mixs(noise_sweep(d, lo, hi, 0.13 if k == 'whoosh_mode' else 0.09, att=d * 0.6), glide(62, 69, d, 0.05)))
         elif k == 'land':                            # chạm khi tới tư thế mới (S2: tick + nhịp trầm)
-            add(out, t, mixs(s2_tick(0.5), 0.6 * s2_pulse(hz(50), 0.6 if e.get('mode') else 0.35)))
+            add(out, t, mixs(s2_tick(0.35), 0.6 * s2_pulse(hz(50), 0.38 if e.get('mode') else 0.3)))   # E5a: tiếng chạm đổi chế độ to nhất → hạ
     return out
 
 

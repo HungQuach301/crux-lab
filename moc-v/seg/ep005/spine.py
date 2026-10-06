@@ -61,10 +61,10 @@ cue = {b['id']: b['cues'] for b in beats}
 CUES = sorted((t, f"{b['id']}.{k}") for b in beats for k, t in b['cues'].items())
 
 
-def window(after, before, dur):
+def window(after, before, dur, late=False):
     a, b = after + PAD, before - PAD
     if b - a < 0.6: raise SystemExit(f'cửa sổ quá ngắn giữa {after} và {before}')
-    t0 = max(a, (a + b) / 2 - dur / 2); return [round(t0, 3), round(min(b, t0 + dur), 3)]
+    t0 = max(a, b - dur) if late else max(a, (a + b) / 2 - dur / 2); return [round(t0, 3), round(min(b, t0 + dur), 3)]   # late: 'pan' giữ "slow cases" lâu hơn
 
 
 MOVES = [
@@ -75,14 +75,16 @@ MOVES = [
 ]
 moves = []
 for verb, a, b, after, before, dur, reason, snd in MOVES:
-    t0, t1 = window(after, before, dur); moves.append({'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
+    t0, t1 = window(after, before, dur, late=(verb == 'pan')); moves.append({'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
 
 D = json.load(open(os.path.join(ROOT, 'moc-v/work/ep005-data/derived.json')))
-SCHED = [[cue['c2']['schedule'], 0], [cue['c2']['eight'], D['sched80']]]          # tháng trên lịch: 0 → 99 đúng chữ "eight"
+KT = next(k for k, l in enumerate(D['sched']) if l < 0.8 + 0.006)                # tháng đường CHẠM vạch về mặt hình (bề dày dải ≈ 0,01)
+SCHED = [[cue['c2']['schedule'], 0], [cue['c2']['eight'], KT], [cue['c2']['eight'] + 0.5, D['sched80']]]   # chạm vạch ĐÚNG chữ "eight" (E5a: hình sớm hơn chime)
 FAN = [[cue['c3']['replayed'], 0], [cue['c3']['paper'], 1]]                        # tỉ lệ bó đã hiện (theo tháng mua)
 EV = []
 for k in range(0, D['sched80'] + 1, 12):
-    EV.append({'t': round(SCHED[0][0] + (SCHED[1][0] - SCHED[0][0]) * k / D['sched80'], 3), 'kind': 'data', 'v': (D['sched'][k] - 0.7) / 0.25})
+    tk_ = next(ta + (tb - ta) * (k - xa) / (xb - xa) for (ta, xa), (tb, xb) in zip(SCHED, SCHED[1:]) if xa <= k <= xb)   # cùng lịch với hình
+    EV.append({'t': round(tk_, 3), 'kind': 'data', 'v': (D['sched'][k] - 0.7) / 0.25})
 EV += [{'t': cue['c0']['ten'], 'kind': 'tick', 'v': 0.6},
        {'t': cue['c1']['insurance'], 'kind': 'land', 'mode': False},
        {'t': cue['c1']['twenty'], 'kind': 'rise', 'dur': 0.9},
@@ -107,9 +109,9 @@ for m in moves:
 if next(m for m in moves if m['verb'] == 'mode')['t0'] < 5.0: errs.append('quy tắc 7: 5 s đầu phải ở chế độ thế giới')
 spine = {'segment': 'ep005 S01.1 → S03.2 (cold open, table read G1)', 'version': 3, 'total': TOTAL, 'fps': 30, 'pad': PAD, 'takes': takes, 'words': words,
          'beats': beats, 'moves': moves,
-         'music_plan': {'stop': cue['c5']['removed'], 'tau': 0.15, 'release': TOTAL + 5, 'accents': [cue['c2']['eight'], cue['c4']['eighty']]},
+         'music_plan': {'stop': cue['c5']['removed'], 'tau': 0.15, 'release': cue['c5']['removed'] + 1.0, 'accents': [cue['c2']['eight'], cue['c4']['eighty']]},
          'sched_kf': SCHED, 'fan_kf': FAN, 'events': EV, 'tension': tension, 'shots': shots,   # nhạc tắt ở "removed": kết bằng lặng + tiếng trầm
-         'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical', 'c3.slow': 'slow cases', 'c4.eighty': '80% on paper', 'c5.removed': 'insurance still on', 'c0.ten': 'You'},
+         'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical', 'c3.slow': 'slow cases', 'c4.eighty': '80% on paper', 'c4.paper': '90%', 'c5.removed': 'insurance still on', 'c0.ten': 'You'},
          'visual_cues': ['c0.ten', 'c1.insurance', 'c1.twenty', 'c2.schedule', 'c2.eight', 'c3.replayed', 'c3.typically', 'c3.slow', 'c4.paper', 'c4.eighty', 'c5.removed'],
          'checks': {'rule2_rule3_rule7': errs or 'OK'}}
 json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)

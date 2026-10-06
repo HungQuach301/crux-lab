@@ -75,7 +75,7 @@ export function Overlay(canvas, res) {
     // lớp bắt buộc: cố định, 48 px, nền mờ (quy tắc 5); flags: {illus, hist, src, cw}
     chrome(f, a = 1) {
       const PX = 54, plate = '#0B0E13';
-      const band = (y0, y1, up) => { const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(up ? 1 : 0, rgba(plate, 0)); g.addColorStop(up ? 0 : 1, rgba(plate, 0.93 * a)); ctx.fillStyle = g; ctx.fillRect(0, y0, 1920, y1 - y0); };
+      const band = (y0, y1, up) => { const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(up ? 1 : 0, rgba(plate, 0)); g.addColorStop(up ? 0.45 : 0.55, rgba(plate, 0.93 * a)); g.addColorStop(up ? 0 : 1, rgba(plate, 0.93 * a)); ctx.fillStyle = g; ctx.fillRect(0, y0, 1920, y1 - y0); };   // v3f: nửa trong của dải là nền ĐẶC sau chữ
       if (f.src || f.illus) band(0, 150, true);
       if (f.hist || f.cw) band(f.cw && f.hist ? 850 : 925, 1080, false);
       if (f.illus) O.text('ILLUSTRATIVE', 1824, 108, PX, { kind: 'chrome', color: '#1B1F26', plate: C.warn, plateA: 0.95, align: 'right', alpha: a * (f.illusA ?? 1) });
