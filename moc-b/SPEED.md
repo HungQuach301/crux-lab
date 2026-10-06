@@ -18,4 +18,16 @@
 
 ## Render 1080p
 - **Trước:** Tập 3 ≈ 25–30 phút mỗi lần render 1080p (ledger Tập 3). Khung truyền ra dạng RGBA thô qua base64 (`episodes/ep003/design/c3/render.js` → `APP.frame`), một tiến trình.
-- **Sau:** **chưa đo.** Tối ưu (khung trung gian JPEG q 0,95, render song song chỉ đoạn đổi) chuyển sang phiên nhà máy (`moc-b/PLAN-FACTORY.md` §2.1, §2.9).
+- **Sau (phiên nhà máy, đo 05/10/2026, máy 4 lõi, 15 GB):** cùng cảnh Tập 3 **S04 "The replay"** dựng bằng nhà máy (`toolkit/factory/render.js`), 1080p30, **2.249 khung (75,0 s)**, 16 đoạn × ≤ 5 s, mã hoá H.264 CBR 17 Mb/s giống nhau ở mọi lần; chỉ đổi khung trung gian và số worker:
+
+| Khung trung gian | Worker | Thời gian | Khung/s | So với RGBA 1 worker |
+|---|---|---|---|---|
+| RGBA thô base64 (cách Tập 2–3) | 1 | 481,1 s | 4,68 | 1× |
+| **JPEG q 0,95** | 1 | 68,7 s | 32,76 | **7,0×** |
+| RGBA thô base64 | 4 | 170,0 s | 13,23 | 2,8× |
+| **JPEG q 0,95** | 4 | **41,3 s** | **54,45** | **11,6×** |
+
+- **Chất lượng JPEG so với RGBA (cùng khung, sau H.264):** SSIM 0,99893, PSNR trung bình 48,0 dB (thấp nhất 46,2 dB). Không thấy khác bằng mắt; chữ vẫn qua F05/F08 của checks.
+- **Ước cho cả tập 572 s (17.160 khung), không cache:** RGBA 1 worker ≈ 61 phút → JPEG 4 worker ≈ 5,3 phút.
+- **Chỉ đoạn đổi (cache theo băm):** dựng lại S04 khi không đổi gì: render 0 s (16/16 đoạn trúng cache), cả lệnh `build.sh` 39 s (trộn tiếng, phần 720p, Short, qc). Lần đầu (voice đã cache): 108 s.
+- Lệnh: `node toolkit/factory/render.js <job> --workers 1|4 --fmt rgba|jpeg` trên job `ep003` do `build.py` viết.
