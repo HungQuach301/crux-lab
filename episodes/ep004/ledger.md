@@ -33,3 +33,5 @@ Mỗi agent con, mỗi cổng: một dòng. Token = số harness của agent con
 | 2026-10-06 | C3 v2 | thêm nhãn (agent mới) | opus | 104.782 | qc 12/12; 0 EL |
 | 2026-10-06 | C3 v2 | 7 người đọc (1 thay do sai đường dẫn) + người chấm | sonnet | 244.385 + ≈ 30k | nghĩa 6/6; khuyên 6/6 → cổng trượt theo luật; gói C3 → chủ dự án |
 | 2026-10-06 | **tổng P2** | **21 agent** | — | **≈ 0,80 triệu** | + điều phối ≈ 0,2 triệu ⇒ ≈ 1,0 triệu (trần P2); REVIEWER gói C3 bỏ vì trần |
+| 2026-10-06 | C3 | **chủ dự án duyệt** (issue #39) | — | — | N1, N2 ký hợp đồng bản vòng 2; ngoại lệ cờ khuyên; A9; móc merge P3 + selftest; `gates/C3-answer.md` |
+| 2026-10-06 | sau C3 | S14.5 "a 2000 price" → "a price paid in 2000"; dựng lại (chỉ S14 sinh giọng) + ASR | lệnh | — | 470 ký tự EL; check_script ĐẠT; qc 0 TRƯỢT; ASR 8/8 từ khoá; **tổng EL P2 1.627, tập 3.554** |

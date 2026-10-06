@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "total": 78.7,
+ "total": 81.2334,
  "scenes": [
   {
    "id": "S08",
@@ -15,7 +15,7 @@
   {
    "id": "S14",
    "start": 45.2667,
-   "dur": 33.4333
+   "dur": 35.9667
   }
  ],
  "shots": [
@@ -90,23 +90,23 @@
    "scene": "S14",
    "template": "N2",
    "t0": 45.2667,
-   "t1": 78.7,
+   "t1": 81.2334,
    "p": {
     "mode": "ladder",
     "at": 0.0,
     "rungsAt0": 0.54,
-    "rungsAt1": 6.229,
-    "minAt": 7.76,
-    "maxAt": 10.16,
-    "barsAt": 12.617,
-    "gMinAt": 16.64,
-    "gMaxAt": 18.15,
-    "refAt": 22.907,
-    "titleAt": 24.512,
+    "rungsAt1": 7.017,
+    "minAt": 8.64,
+    "maxAt": 11.52,
+    "barsAt": 13.897,
+    "gMinAt": 17.667,
+    "gMaxAt": 19.11,
+    "refAt": 23.093,
+    "titleAt": 25.088,
     "labels": [
      {
       "text": "Each rung: the {buy_year} price where the gain hits the cap",
-      "at": 6.229,
+      "at": 7.017,
       "x": 96,
       "y": 100,
       "size": 40
@@ -120,21 +120,21 @@
      },
      {
       "text": "Every city but",
-      "at": 22.907,
+      "at": 23.093,
       "x": 1470,
       "y": 560,
       "size": 40
      },
      {
       "text": "Chicago is",
-      "at": 22.907,
+      "at": 23.093,
       "x": 1470,
       "y": 608,
       "size": 40
      },
      {
       "text": "under {illustrative_price_300k_usd}",
-      "at": 22.907,
+      "at": 23.093,
       "x": 1470,
       "y": 656,
       "size": 40
@@ -206,39 +206,39 @@
    "text": "Do that for all 12 metro areas, each for a home that rose like its metro area's average, and you get a ladder of prices.",
    "spoken": "Do that for all twelve metro areas, each for a home that rose like its metro area's average, and you get a ladder of prices.",
    "start": 45.267,
-   "end": 52.867
+   "end": 53.667
   },
   {
    "id": "S14.2",
    "scene": "S14",
    "text": "Miami sits at the bottom of the ladder, and Chicago at the top.",
    "spoken": "Miami sits at the bottom of the ladder, and Chicago at the top.",
-   "start": 53.027,
-   "end": 57.027
+   "start": 53.907,
+   "end": 58.387
   },
   {
    "id": "S14.3",
    "scene": "S14",
    "text": "The faster an area's prices rose, the lower its rung: Miami's rose the most, Chicago's the least.",
    "spoken": "The faster an area's prices rose, the lower its rung: Miami's rose the most, Chicago's the least.",
-   "start": 57.227,
-   "end": 65.107
+   "start": 58.567,
+   "end": 65.667
   },
   {
    "id": "S14.4",
    "scene": "S14",
    "text": "Every city except Chicago sits under $300,000.",
    "spoken": "Every city except Chicago sits under three hundred thousand dollars.",
-   "start": 65.254,
-   "end": 69.667
+   "start": 65.787,
+   "end": 70.227
   },
   {
    "id": "S14.5",
    "scene": "S14",
-   "text": "That's the cap, read a third way: not as a flat line, but as a 2000 price anyone can look up.",
-   "spoken": "That's the cap, read a third way: not as a flat line, but as a two thousand price anyone can look up.",
-   "start": 69.779,
-   "end": 77.187
+   "text": "That's the cap, read a third way: not as a flat line, but as a price paid in 2000 that anyone can look up.",
+   "spoken": "That's the cap, read a third way: not as a flat line, but as a price paid in two thousand that anyone can look up.",
+   "start": 70.355,
+   "end": 79.747
   }
  ],
  "words": [
@@ -1019,487 +1019,505 @@
   {
    "w": "areas,",
    "s": 46.854,
-   "e": 47.267,
+   "e": 47.347,
    "sid": "S14.1"
   },
   {
    "w": "each",
-   "s": 47.331,
-   "e": 47.587,
-   "sid": "S14.1"
-  },
-  {
-   "w": "for",
-   "s": 47.627,
+   "s": 47.427,
    "e": 47.747,
    "sid": "S14.1"
   },
   {
-   "w": "a",
-   "s": 47.787,
-   "e": 47.827,
+   "w": "for",
+   "s": 47.827,
+   "e": 48.067,
    "sid": "S14.1"
   },
   {
-   "w": "home",
-   "s": 47.891,
+   "w": "a",
+   "s": 48.107,
    "e": 48.147,
    "sid": "S14.1"
   },
   {
-   "w": "that",
-   "s": 48.179,
-   "e": 48.307,
+   "w": "home",
+   "s": 48.227,
+   "e": 48.547,
    "sid": "S14.1"
   },
   {
-   "w": "rose",
-   "s": 48.387,
+   "w": "that",
+   "s": 48.579,
    "e": 48.707,
    "sid": "S14.1"
   },
   {
+   "w": "rose",
+   "s": 48.787,
+   "e": 49.107,
+   "sid": "S14.1"
+  },
+  {
    "w": "like",
-   "s": 48.755,
-   "e": 48.947,
+   "s": 49.139,
+   "e": 49.267,
    "sid": "S14.1"
   },
   {
    "w": "its",
-   "s": 48.967,
-   "e": 49.027,
-   "sid": "S14.1"
-  },
-  {
-   "w": "metro",
-   "s": 49.094,
+   "s": 49.307,
    "e": 49.427,
    "sid": "S14.1"
   },
   {
-   "w": "area's",
-   "s": 49.491,
+   "w": "metro",
+   "s": 49.494,
    "e": 49.827,
    "sid": "S14.1"
   },
   {
+   "w": "area's",
+   "s": 49.907,
+   "e": 50.307,
+   "sid": "S14.1"
+  },
+  {
    "w": "average,",
-   "s": 49.877,
-   "e": 50.867,
+   "s": 50.367,
+   "e": 51.107,
    "sid": "S14.1"
   },
   {
    "w": "and",
-   "s": 50.907,
-   "e": 51.027,
+   "s": 51.247,
+   "e": 51.667,
    "sid": "S14.1"
   },
   {
    "w": "you",
-   "s": 51.067,
-   "e": 51.187,
+   "s": 51.707,
+   "e": 51.827,
    "sid": "S14.1"
   },
   {
    "w": "get",
-   "s": 51.207,
-   "e": 51.267,
+   "s": 51.907,
+   "e": 52.147,
    "sid": "S14.1"
   },
   {
    "w": "a",
-   "s": 51.347,
-   "e": 51.427,
+   "s": 52.187,
+   "e": 52.227,
    "sid": "S14.1"
   },
   {
    "w": "ladder",
-   "s": 51.496,
-   "e": 51.907,
+   "s": 52.284,
+   "e": 52.627,
    "sid": "S14.1"
   },
   {
    "w": "of",
-   "s": 51.934,
-   "e": 51.987,
+   "s": 52.68,
+   "e": 52.787,
    "sid": "S14.1"
   },
   {
    "w": "prices.",
-   "s": 52.067,
-   "e": 52.867,
+   "s": 52.878,
+   "e": 53.667,
    "sid": "S14.1"
   },
   {
    "w": "Miami",
-   "s": 53.027,
-   "e": 53.827,
+   "s": 53.907,
+   "e": 55.107,
    "sid": "S14.2"
   },
   {
    "w": "sits",
-   "s": 53.875,
-   "e": 54.067,
-   "sid": "S14.2"
-  },
-  {
-   "w": "at",
-   "s": 54.094,
-   "e": 54.147,
-   "sid": "S14.2"
-  },
-  {
-   "w": "the",
-   "s": 54.167,
-   "e": 54.227,
-   "sid": "S14.2"
-  },
-  {
-   "w": "bottom",
-   "s": 54.273,
-   "e": 54.547,
-   "sid": "S14.2"
-  },
-  {
-   "w": "of",
-   "s": 54.574,
-   "e": 54.627,
-   "sid": "S14.2"
-  },
-  {
-   "w": "the",
-   "s": 54.647,
-   "e": 54.707,
-   "sid": "S14.2"
-  },
-  {
-   "w": "ladder,",
-   "s": 54.753,
-   "e": 55.267,
-   "sid": "S14.2"
-  },
-  {
-   "w": "and",
-   "s": 55.287,
+   "s": 55.155,
    "e": 55.347,
    "sid": "S14.2"
   },
   {
-   "w": "Chicago",
-   "s": 55.427,
+   "w": "at",
+   "s": 55.374,
+   "e": 55.427,
+   "sid": "S14.2"
+  },
+  {
+   "w": "the",
+   "s": 55.447,
+   "e": 55.507,
+   "sid": "S14.2"
+  },
+  {
+   "w": "bottom",
+   "s": 55.553,
+   "e": 55.827,
+   "sid": "S14.2"
+  },
+  {
+   "w": "of",
+   "s": 55.854,
+   "e": 55.907,
+   "sid": "S14.2"
+  },
+  {
+   "w": "the",
+   "s": 55.927,
    "e": 55.987,
    "sid": "S14.2"
   },
   {
+   "w": "ladder,",
+   "s": 56.033,
+   "e": 56.627,
+   "sid": "S14.2"
+  },
+  {
+   "w": "and",
+   "s": 56.647,
+   "e": 56.707,
+   "sid": "S14.2"
+  },
+  {
+   "w": "Chicago",
+   "s": 56.787,
+   "e": 57.347,
+   "sid": "S14.2"
+  },
+  {
    "w": "at",
-   "s": 56.094,
-   "e": 56.307,
+   "s": 57.454,
+   "e": 57.667,
    "sid": "S14.2"
   },
   {
    "w": "the",
-   "s": 56.327,
-   "e": 56.387,
+   "s": 57.687,
+   "e": 57.747,
    "sid": "S14.2"
   },
   {
    "w": "top.",
-   "s": 56.487,
-   "e": 57.027,
+   "s": 57.847,
+   "e": 58.387,
    "sid": "S14.2"
   },
   {
    "w": "The",
-   "s": 57.227,
-   "e": 57.827,
+   "s": 58.567,
+   "e": 59.107,
    "sid": "S14.3"
   },
   {
    "w": "faster",
-   "s": 57.884,
-   "e": 58.227,
+   "s": 59.164,
+   "e": 59.507,
    "sid": "S14.3"
   },
   {
    "w": "an",
-   "s": 58.254,
-   "e": 58.307,
+   "s": 59.534,
+   "e": 59.587,
    "sid": "S14.3"
   },
   {
    "w": "area's",
-   "s": 58.371,
-   "e": 58.707,
-   "sid": "S14.3"
-  },
-  {
-   "w": "prices",
-   "s": 58.776,
-   "e": 59.187,
-   "sid": "S14.3"
-  },
-  {
-   "w": "rose,",
-   "s": 59.267,
-   "e": 59.907,
-   "sid": "S14.3"
-  },
-  {
-   "w": "the",
-   "s": 59.947,
+   "s": 59.651,
    "e": 60.067,
    "sid": "S14.3"
   },
   {
-   "w": "lower",
-   "s": 60.134,
+   "w": "prices",
+   "s": 60.124,
    "e": 60.467,
    "sid": "S14.3"
   },
   {
+   "w": "rose,",
+   "s": 60.563,
+   "e": 61.267,
+   "sid": "S14.3"
+  },
+  {
+   "w": "the",
+   "s": 61.307,
+   "e": 61.427,
+   "sid": "S14.3"
+  },
+  {
+   "w": "lower",
+   "s": 61.48,
+   "e": 61.747,
+   "sid": "S14.3"
+  },
+  {
    "w": "its",
-   "s": 60.547,
-   "e": 60.787,
+   "s": 61.807,
+   "e": 61.987,
    "sid": "S14.3"
   },
   {
    "w": "rung:",
-   "s": 60.847,
-   "e": 61.827,
+   "s": 62.047,
+   "e": 62.867,
    "sid": "S14.3"
   },
   {
    "w": "Miami's",
-   "s": 61.907,
-   "e": 62.387,
-   "sid": "S14.3"
-  },
-  {
-   "w": "rose",
-   "s": 62.435,
-   "e": 62.627,
-   "sid": "S14.3"
-  },
-  {
-   "w": "the",
-   "s": 62.647,
-   "e": 62.707,
-   "sid": "S14.3"
-  },
-  {
-   "w": "most,",
-   "s": 62.787,
+   "s": 62.934,
    "e": 63.347,
    "sid": "S14.3"
   },
   {
-   "w": "Chicago's",
-   "s": 63.417,
-   "e": 64.067,
+   "w": "rose",
+   "s": 63.395,
+   "e": 63.587,
    "sid": "S14.3"
   },
   {
    "w": "the",
-   "s": 64.147,
-   "e": 64.387,
+   "s": 63.607,
+   "e": 63.667,
+   "sid": "S14.3"
+  },
+  {
+   "w": "most,",
+   "s": 63.747,
+   "e": 64.307,
+   "sid": "S14.3"
+  },
+  {
+   "w": "Chicago's",
+   "s": 64.377,
+   "e": 64.947,
+   "sid": "S14.3"
+  },
+  {
+   "w": "the",
+   "s": 64.967,
+   "e": 65.027,
    "sid": "S14.3"
   },
   {
    "w": "least.",
-   "s": 64.454,
-   "e": 65.107,
+   "s": 65.107,
+   "e": 65.667,
    "sid": "S14.3"
   },
   {
    "w": "Every",
-   "s": 65.254,
-   "e": 65.987,
-   "sid": "S14.4"
-  },
-  {
-   "w": "city",
-   "s": 66.067,
+   "s": 65.787,
    "e": 66.387,
    "sid": "S14.4"
   },
   {
-   "w": "except",
-   "s": 66.433,
+   "w": "city",
+   "s": 66.451,
    "e": 66.707,
    "sid": "S14.4"
   },
   {
+   "w": "except",
+   "s": 66.753,
+   "e": 67.027,
+   "sid": "S14.4"
+  },
+  {
    "w": "Chicago",
-   "s": 66.787,
-   "e": 67.347,
+   "s": 67.097,
+   "e": 67.587,
    "sid": "S14.4"
   },
   {
    "w": "sits",
-   "s": 67.411,
-   "e": 67.667,
+   "s": 67.667,
+   "e": 67.987,
    "sid": "S14.4"
   },
   {
    "w": "under",
-   "s": 67.747,
-   "e": 68.147,
-   "sid": "S14.4"
-  },
-  {
-   "w": "three",
-   "s": 68.174,
+   "s": 68.04,
    "e": 68.307,
    "sid": "S14.4"
   },
   {
-   "w": "hundred",
-   "s": 68.337,
-   "e": 68.547,
+   "w": "three",
+   "s": 68.36,
+   "e": 68.627,
    "sid": "S14.4"
   },
   {
-   "w": "thousand",
-   "s": 68.591,
+   "w": "hundred",
+   "s": 68.667,
    "e": 68.947,
    "sid": "S14.4"
   },
   {
+   "w": "thousand",
+   "s": 69.0,
+   "e": 69.427,
+   "sid": "S14.4"
+  },
+  {
    "w": "dollars.",
-   "s": 69.007,
-   "e": 69.667,
+   "s": 69.487,
+   "e": 70.227,
    "sid": "S14.4"
   },
   {
    "w": "That's",
-   "s": 69.779,
-   "e": 70.307,
+   "s": 70.355,
+   "e": 70.947,
    "sid": "S14.5"
   },
   {
    "w": "the",
-   "s": 70.327,
-   "e": 70.387,
-   "sid": "S14.5"
-  },
-  {
-   "w": "cap,",
-   "s": 70.487,
+   "s": 70.967,
    "e": 71.027,
    "sid": "S14.5"
   },
   {
+   "w": "cap,",
+   "s": 71.127,
+   "e": 71.747,
+   "sid": "S14.5"
+  },
+  {
    "w": "read",
-   "s": 71.075,
-   "e": 71.267,
+   "s": 71.811,
+   "e": 72.067,
    "sid": "S14.5"
   },
   {
    "w": "a",
-   "s": 71.307,
-   "e": 71.347,
+   "s": 72.107,
+   "e": 72.147,
    "sid": "S14.5"
   },
   {
    "w": "third",
-   "s": 71.4,
-   "e": 71.667,
+   "s": 72.214,
+   "e": 72.547,
    "sid": "S14.5"
   },
   {
    "w": "way:",
-   "s": 71.727,
-   "e": 72.627,
+   "s": 72.647,
+   "e": 73.187,
    "sid": "S14.5"
   },
   {
    "w": "not",
-   "s": 72.667,
-   "e": 72.787,
+   "s": 73.327,
+   "e": 73.747,
    "sid": "S14.5"
   },
   {
    "w": "as",
-   "s": 72.84,
-   "e": 72.947,
+   "s": 73.827,
+   "e": 73.987,
    "sid": "S14.5"
   },
   {
    "w": "a",
-   "s": 72.987,
-   "e": 73.027,
+   "s": 74.027,
+   "e": 74.067,
    "sid": "S14.5"
   },
   {
    "w": "flat",
-   "s": 73.107,
-   "e": 73.427,
+   "s": 74.131,
+   "e": 74.387,
    "sid": "S14.5"
   },
   {
    "w": "line,",
-   "s": 73.507,
-   "e": 73.907,
+   "s": 74.499,
+   "e": 75.027,
    "sid": "S14.5"
   },
   {
    "w": "but",
-   "s": 74.007,
-   "e": 74.307,
+   "s": 75.127,
+   "e": 75.427,
    "sid": "S14.5"
   },
   {
    "w": "as",
-   "s": 74.36,
-   "e": 74.467,
+   "s": 75.48,
+   "e": 75.587,
    "sid": "S14.5"
   },
   {
    "w": "a",
-   "s": 74.547,
-   "e": 74.627,
-   "sid": "S14.5"
-  },
-  {
-   "w": "two",
-   "s": 74.667,
-   "e": 74.787,
-   "sid": "S14.5"
-  },
-  {
-   "w": "thousand",
-   "s": 74.831,
-   "e": 75.187,
-   "sid": "S14.5"
-  },
-  {
-   "w": "price",
-   "s": 75.267,
+   "s": 75.627,
    "e": 75.667,
    "sid": "S14.5"
   },
   {
+   "w": "price",
+   "s": 75.734,
+   "e": 76.067,
+   "sid": "S14.5"
+  },
+  {
+   "w": "paid",
+   "s": 76.147,
+   "e": 76.467,
+   "sid": "S14.5"
+  },
+  {
+   "w": "in",
+   "s": 76.52,
+   "e": 76.627,
+   "sid": "S14.5"
+  },
+  {
+   "w": "two",
+   "s": 76.687,
+   "e": 76.867,
+   "sid": "S14.5"
+  },
+  {
+   "w": "thousand",
+   "s": 76.947,
+   "e": 77.587,
+   "sid": "S14.5"
+  },
+  {
+   "w": "that",
+   "s": 77.683,
+   "e": 78.067,
+   "sid": "S14.5"
+  },
+  {
    "w": "anyone",
-   "s": 75.758,
-   "e": 76.307,
+   "s": 78.158,
+   "e": 78.707,
    "sid": "S14.5"
   },
   {
    "w": "can",
-   "s": 76.367,
-   "e": 76.547,
+   "s": 78.787,
+   "e": 79.027,
    "sid": "S14.5"
   },
   {
    "w": "look",
-   "s": 76.595,
-   "e": 76.787,
+   "s": 79.075,
+   "e": 79.267,
    "sid": "S14.5"
   },
   {
    "w": "up.",
-   "s": 76.867,
-   "e": 77.187,
+   "s": 79.374,
+   "e": 79.747,
    "sid": "S14.5"
   }
  ],
@@ -1660,72 +1678,72 @@
    "shot": "S14-ladder",
    "param": "rungsAt1",
    "anchor": "@S14.1:ladder",
-   "word_t": 51.496,
-   "visual_t": 51.496,
+   "word_t": 52.284,
+   "visual_t": 52.284,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "minAt",
    "anchor": "@S14.2:Miami",
-   "word_t": 53.027,
-   "visual_t": 53.027,
+   "word_t": 53.907,
+   "visual_t": 53.907,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "maxAt",
    "anchor": "@S14.2:Chicago",
-   "word_t": 55.427,
-   "visual_t": 55.427,
+   "word_t": 56.787,
+   "visual_t": 56.787,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "barsAt",
    "anchor": "@S14.3:faster",
-   "word_t": 57.884,
-   "visual_t": 57.884,
+   "word_t": 59.164,
+   "visual_t": 59.164,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "gMinAt",
    "anchor": "@S14.3:Miami's",
-   "word_t": 61.907,
-   "visual_t": 61.907,
+   "word_t": 62.934,
+   "visual_t": 62.934,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "gMaxAt",
    "anchor": "@S14.3:Chicago's",
-   "word_t": 63.417,
-   "visual_t": 63.417,
+   "word_t": 64.377,
+   "visual_t": 64.377,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "refAt",
    "anchor": "@S14.4:$300,000",
-   "word_t": 68.174,
-   "visual_t": 68.174,
+   "word_t": 68.36,
+   "visual_t": 68.36,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "titleAt",
    "anchor": "@S14.5",
-   "word_t": 69.779,
-   "visual_t": 69.779,
+   "word_t": 70.355,
+   "visual_t": 70.355,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "labels[0].at",
    "anchor": "@S14.1:ladder",
-   "word_t": 51.496,
-   "visual_t": 51.496,
+   "word_t": 52.284,
+   "visual_t": 52.284,
    "scene": "S14"
   },
   {
@@ -1740,24 +1758,24 @@
    "shot": "S14-ladder",
    "param": "labels[2].at",
    "anchor": "@S14.4:$300,000",
-   "word_t": 68.174,
-   "visual_t": 68.174,
+   "word_t": 68.36,
+   "visual_t": 68.36,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "labels[3].at",
    "anchor": "@S14.4:$300,000",
-   "word_t": 68.174,
-   "visual_t": 68.174,
+   "word_t": 68.36,
+   "visual_t": 68.36,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "labels[4].at",
    "anchor": "@S14.4:$300,000",
-   "word_t": 68.174,
-   "visual_t": 68.174,
+   "word_t": 68.36,
+   "visual_t": 68.36,
    "scene": "S14"
   }
  ]

@@ -144,7 +144,7 @@ S14.1 | Do that for all 12 metro areas, each for a home that rose like its metro
 S14.2 | Miami sits at the bottom of the ladder, and Chicago at the top. | threshold_joint_min, threshold_joint_min_metro, threshold_joint_max, threshold_joint_max_metro | Bottom rung labelled "Miami ≈ $114,700", top rung "Chicago ≈ $373,400" (on screen only, not spoken). *(hold 1.2 s)*
 S14.3 | The faster an area's prices rose, the lower its rung: Miami's rose the most, Chicago's the least. | growth_miami, growth_chicago | Each rung carries a thin growth bar pointing left; the longest bars sit at the bottom. Screen labels only: "×5.4" Miami, "×2.3" Chicago (claims 5.3601, 2.3392).
 S14.4 | Every city except Chicago sits under $300,000. | metros_threshold_under_300k, metros_threshold_under_300k_names, illustrative_price_300k_usd | Reference line at the ILLUSTRATIVE $300,000 price. A horizontal line at "$300,000" crosses the ladder; 11 rungs sit below it, Chicago alone above. No count on screen.
-S14.5 | That's the cap, read a third way: not as a flat line, but as a 2000 price anyone can look up. | excl_joint_limit_usd, buy_year | The small Act 1 chart (flat line, climbing line) shrinks into the ladder's header; ladder title appears: "2000 price where gain reaches the $500,000 cap". End state held. *(hold 1.5 s — **MR2**)*
+S14.5 | That's the cap, read a third way: not as a flat line, but as a price paid in 2000 that anyone can look up. | excl_joint_limit_usd, buy_year | The small Act 1 chart (flat line, climbing line) shrinks into the ladder's header; ladder title appears: "2000 price where gain reaches the $500,000 cap". End state held. *(hold 1.5 s — **MR2**)*
 
 ## S15 — Act 3: the answer, in the cold open's words · 527 chars, 102 words
 
