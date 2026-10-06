@@ -2,7 +2,7 @@
 
 Nguồn video: Tập 1 `ep001-v2:episodes/ep001/review-c6/ep001-full-720p.mp4` · Tập 2 `episodes/ep002/review-c6/ep002-full-720p.mp4` · Tập 3 `episodes/ep003/review-c6/full-720p.mp4` · Tập 4 `ep004-delivery` (ghép 3 phần, SHA-256 `30090de0…` khớp `SHA256SUMS`).
 Công cụ: `moc-v/measure/frames.py` (1 khung/giây: OCR tesseract + vùng đồ hoạ ngoài chữ + chuyển động ngoài chữ trong 0,5 s), `summary.py`; số thô `moc-v/measure/raw/`, `baseline-frames.jsonl`.
-**Hiệu chuẩn bằng mắt:** 48 khung ngẫu nhiên (12/tập) — 46/48 xếp loại đúng; 2 sai ở Tập 4 (đường vừa bắt đầu vẽ, thang N2 mảnh → bị xếp "chỉ có chữ"). Sai lệch nghiêng về **đếm thừa** "chỉ có chữ" ở Tập 4 khoảng 2/12 khung → con số 40 % có thể là 30–40 %. Đối chiếu độc lập bằng timeline nhà máy Tập 4: mẫu `title` (thẻ chữ toàn màn hình) **131,6 s = 27 %**, `bignum` (số + chú thích, không hình) 28 s = 6 %, `method` + `endcard` 17,5 s = 4 % → **≈ 37 %** thời lượng là khung chữ/số không hình.
+**Hiệu chuẩn bằng mắt** (`measure/CALIBRATION.md`): 48 khung ngẫu nhiên (12/tập) — 46/48 xếp loại đúng; 2 sai ở Tập 4 (đường vừa bắt đầu vẽ, thang N2 mảnh → bị xếp "chỉ có chữ"). Sai lệch nghiêng về **đếm thừa** "chỉ có chữ" ở Tập 4 khoảng 2/12 khung → con số 40 % có thể là 30–40 %. Đối chiếu độc lập bằng timeline nhà máy Tập 4: mẫu `title` (thẻ chữ toàn màn hình) **131,6 s = 27 %**, `bignum` (số + chú thích, không hình) 28 s = 6 %, `method` + `endcard` 17,5 s = 4 % → **≈ 37 %** thời lượng là khung chữ/số không hình.
 
 ## Bảng
 

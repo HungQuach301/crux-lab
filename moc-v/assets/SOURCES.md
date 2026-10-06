@@ -1,6 +1,6 @@
 # Asset sources & licensing — faceless US personal-finance YouTube channel (monetized)
 
-Read on **2026-10-06**. No purchases, sign-ups, or content-generating API calls were made.
+Read on **2026-10-06**. No purchases or sign-ups. The research agent made no content-generating API calls. **Afterwards the coordinating session made ONE Eleven Music call** (`/v1/music`, composition plan `eleven-music/plan.json` → `eleven-music/music.mp3`, 69.6 s; estimated ≈ 1,050 credits at 900 credits/min, charged to the channel's existing ElevenLabs plan — the API key cannot read the plan tier, so commercial eligibility (Starter+) is unconfirmed).
 
 **Legend**
 - **READ** = I fetched the governing page from this machine; quotes are verbatim.
