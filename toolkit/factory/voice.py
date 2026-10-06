@@ -4,6 +4,8 @@
 
 - Text sent = the scene's sentences, each normalised by toolkit/voice/normalize.js toSpoken() (numbers, US, …), joined by one space.
 - Cache key = SHA-256 of (spoken text, voice id, model, seed, voice settings): the same key never calls the API twice.
+- Takes (mp3 + json with key and text) live in a committed folder (build.py: <episode>/voice-takes/), so the cache survives a new
+  container; the wav is derived from the mp3 and goes to wav_dir (work, not committed).
 - Key: injected by the environment proxy (xi-api-key); never read, sent or printed here.
 """
 import base64
@@ -34,13 +36,16 @@ def words_of(text, chars, starts, ends):
     return out
 
 
-def voice_scene(cfg, sentences, cache_dir):
+def voice_scene(cfg, sentences, cache_dir, wav_dir=None):
     spoken = to_spoken([s['text'] for s in sentences])
     text = ' '.join(spoken)
     settings = cfg.get('settings', {'stability': 0.5, 'speed': 0.9})
     key = hashlib.sha256(json.dumps([text, cfg['voice'], cfg['model'], cfg['seed'], settings], sort_keys=True).encode()).hexdigest()
-    os.makedirs(cache_dir, exist_ok=True)
-    mp3, meta_p, wav = (os.path.join(cache_dir, key[:16] + x) for x in ('.mp3', '.json', '.wav'))
+    wav_dir = wav_dir or cache_dir
+    for d in (cache_dir, wav_dir):
+        os.makedirs(d, exist_ok=True)
+    mp3, meta_p = (os.path.join(cache_dir, key[:16] + x) for x in ('.mp3', '.json'))
+    wav = os.path.join(wav_dir, key[:16] + '.wav')
     cached = os.path.exists(meta_p) and os.path.exists(mp3)
     if not cached:
         import requests

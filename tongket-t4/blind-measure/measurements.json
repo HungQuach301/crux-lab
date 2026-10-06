@@ -1,0 +1,78 @@
+[
+ {
+  "run": "headless-1 (vai T)",
+  "mode": "claude -p --tools \"\" sonnet",
+  "tokens": {
+   "claude-haiku-4-5-20251001": {
+    "in": 2713,
+    "out": 20
+   },
+   "claude-sonnet-5-5": {
+    "in": 5045,
+    "out": 2058
+   }
+  },
+  "total": 9836,
+  "answer": "**1. Summary**\nThe video follows Rosa and Glen, an illustrative Phoenix couple who paid $200,000 in 2000 and are thinking about downsizing. Glen assumes the profit will be tax-free. The video tracks a home that rose like the Phoenix average and shows its paper gain passing the flat $500,000 married-couple exclusion in 2022, and staying above it since mid-2023. It repeats the test in 12 metros, finding the cap passed in 5 at a $200,000 purchase price and 11 at $300,000. It then flips the question into a \"2000 purchase price rung\" for each city that you can compare against your own.\n\n**2. The video's answer**\nSelling a 2000-bought home is not necessarily fully tax-free anymore, if it rose like its metro average. For Rosa and Glen, about $558,100 of paper gain is above the $500,000 cap. The Phoenix rung is about $179,200, so they're over it. Every metro except Chicago has a rung under $300,000, with Miami lowest and Chicago highest. Nationally, the rung is about $243,500 for couples and about $121,700 for single sellers. A 2000 price above your city's rung means a home like the average has already passed the cap. Below it means it hasn't.\n\n**3. Confusing passages**\n- \"Your side of it is what you paid plus improvements, which count toward what the gain is measured from.\" It's clunky. It also muddies the earlier \"your 2000 price against your city's rung\" comparison, since I can't tell whether to compare price alone or price plus improvements.\n- \"Being past the line once, on paper, didn't mean staying past it.\" The Miami example before it explains this, so it's a minor snag.\n- \"Rung\" and \"ladder\" take a moment to parse as metaphors for a price threshold.\n\n**4. Where my attention dropped most**\n\"Two rules sit outside this test: a surviving spouse keeps the joint cap for a limited time, and heirs measure gain from the home's value at death.\"\n\nIt comes right after a run of caveats, and it's a pair of side rules that don't apply to my situation. I tuned out because it didn't help me compare my own numbers.\n\n**5. Does it tell you to sell or keep, or predict prices or tax law?**\nNo. It says repeatedly that the line is \"not a reason to sell or keep,\" and that \"this video doesn't weigh selling, keeping or waiting.\" It calls every price \"history, not a forecast.\" It also says the cap hasn't changed since 1997 but doesn't guess whether it will, so there are no tax-law predictions either.\n\n**6. Advice a viewer would take**\nThe video offers no advice, only a measurement. A viewer could still take away a few practical steps:\n- Compare your 2000 purchase price to your city's rung (or the national line of about $243,500).\n- If you're above it, find out your real gain by pulling together records of improvements and expected selling costs. Both reduce the gain.\n- Since the video says the average isn't my home, my own street, remodel and purchase month could put me far from the line. A tax professional would be the way to get an actual figure."
+ },
+ {
+  "run": "headless-2 (vai G)",
+  "mode": "claude -p --tools \"\" sonnet",
+  "tokens": {
+   "claude-haiku-4-5-20251001": {
+    "in": 2682,
+    "out": 16
+   },
+   "claude-sonnet-5-5": {
+    "in": 5018,
+    "out": 1017
+   }
+  },
+  "total": 8733,
+  "answer": "**1. Summary**\nThe video follows Rosa and Glen, an illustrative Phoenix couple who bought a $200,000 home in 2000 and wonder whether their sale profit would still be fully tax-free under the $500,000 joint cap. If their home rose like the Phoenix average, their paper gain crossed the cap in 2022 and has stayed above it since 2023. The video then repeats the test in 12 metros at $200,000 and $300,000, and flips the question to ask what 2000 price puts an average home exactly at the cap today. It ends by saying the cap never moved, while house prices did.\n\n**2. The answer**\nNot fully, if the home rose like its metro's average. Phoenix's cap-crossing price is about $179,200, and Rosa and Glen paid $200,000, so they're over. At $200,000, 5 of 12 metros are past the cap (LA, San Diego, Seattle, Miami, Phoenix). At $300,000, 11 of 12 are, with only Chicago under. Every city's threshold except Chicago's is under $300,000. Nationally the line is about $243,500 for couples and about $121,700 for single sellers.\n\n**3. Confusing passages**\n- \"Every city except Chicago sits under $300,000.\" Chicago is also described as \"at the top\" of the ladder, and the video says Chicago hasn't crossed at $300,000. That's consistent, but I had to pause to work out that it means Chicago's threshold is above $300,000.\n- \"Your side of it is what you paid plus improvements, which count toward what the gain is measured from.\" The wording is awkward, though the meaning (they raise your cost basis) is clear.\n- \"If $500,000 from May 1997 had kept up with consumer prices, it would be about $1,046,000 in August 2026 dollars.\" Today's date is October 2026, and August 2026 is a slightly odd choice, though it's plausibly the latest CPI reading.\n\n**4. Where attention dropped most**\n\"Two rules sit outside this test: a surviving spouse keeps the joint cap for a limited time, and heirs measure gain from the home's value at death.\"\nIt's a fast aside about situations most viewers aren't in, with no detail, right after the video has already wrapped up its main point.\n\n**5. Does it tell you to sell or keep, or predict prices or tax law?**\nNo. It says so repeatedly: \"not a reason to sell or keep,\" \"this video doesn't weigh selling, keeping or waiting,\" \"history, not a forecast,\" and it makes no claim about where the cap or prices go next. It also says it isn't anyone's tax bill.\n\n**6. Advice a viewer would take**\nNothing prescriptive, but a viewer would likely do this:\n- Compare their own 2000 purchase price to their city's threshold (or the national $243,500 or $121,700 line).\n- Remember that improvements and selling costs lower their gain.\n- Treat being over or under the line as a rough indicator only. It isn't proof of a tax bill or the lack of one.\n- Possibly look into their own numbers or talk to a tax professional, though the video doesn't say that."
+ },
+ {
+  "run": "headless-3 (vai G, qua headless.sh)",
+  "mode": "toolkit/blind/headless.sh",
+  "tokens": {
+   "claude-haiku-4-5-20251001": {
+    "in": 2682,
+    "out": 14
+   },
+   "claude-sonnet-5-5": {
+    "in": 4939,
+    "out": 2508
+   }
+  },
+  "total": 10143,
+  "answer": "**1. Summary**\nRosa and Glen are an illustrative Phoenix couple who bought a $200,000 house in 2000. Glen assumes any profit on a sale would be tax-free. The video tracks a home that rose like the Phoenix average and shows its gain passing the $500,000 joint exclusion in 2022, and staying past it since mid-2023. It then repeats the test across 12 metro areas and flips the question: what 2000 purchase price puts an average home exactly at the cap? That gives a \"ladder\" of prices from Miami (lowest) to Chicago (highest), so viewers can compare their own purchase price.\n\n**2. The answer**\nFor Rosa and Glen, a sale is not fully tax-free if their home rose like the Phoenix average. Their paper gain is about $558,100, and the cap is $500,000. The cap has stayed flat since 1997 while prices rose. The break-even 2000 price in Phoenix is about $179,200, and they paid $200,000. Across 12 metros, a $200,000 purchase is past the cap in 5 and a $300,000 purchase is past it in 11. Only Chicago stays under at both prices. The national break-even is about $243,500 for couples and $121,700 for single sellers.\n\n**3. Confusing passages**\n- \"Your side of it is what you paid plus improvements, which count toward what the gain is measured from.\" It's awkward. It took me a moment to see that it means improvements raise your cost basis and so lower your gain.\n- \"Below the rung isn't proof of no tax, and above it isn't proof of a large one. The video measures one line; it says nothing about what anyone does next.\" It's compressed and abstract after a clear explanation, so I had to reread it.\n- \"Boston, New York, Denver, Dallas and both Bay Area markets join the first five.\" I never learn which two Bay Area markets. It's minor, and I'm assuming the screen shows them.\n- Only Phoenix, Miami and Chicago get described in the ladder, so I can't look up a city like Denver from the narration alone.\n\n**4. Where attention dropped most**\n\"Two rules sit outside this test: a surviving spouse keeps the joint cap for a limited time, and heirs measure gain from the home's value at death.\"\n\nIt's an abrupt aside about edge cases after the story had already resolved. It adds new rules without examples, and it doesn't apply to most viewers. The stack of scope disclaimers near the start (\"This is US only… not modeled… every couple here is illustrative…\") also felt heavy, but this was the sharper drop.\n\n**5. Does it tell you to sell or keep, or predict prices or tax law?**\nNo. It says repeatedly that the line \"is not a reason to sell or keep,\" that \"this video doesn't weigh selling, keeping or waiting,\" and that \"this is history, not a forecast.\" It also says it does not predict where prices or the cap go next. It presents a measurement, not a recommendation.\n\n**6. Advice a viewer would take**\n- Compare your 2000 purchase price to your metro's break-even price (or the national $243,500 for couples, $121,700 for singles). If you're above it, an average home like yours has likely passed the cap.\n- Remember your real gain depends on your own improvements and selling costs, which reduce it, so your numbers could differ a lot from the average.\n- Don't treat it as a tax bill, since state taxes and your income affect the rate.\n- The video gives no advice beyond that. It doesn't suggest talking to a tax professional or say what to do after the comparison, and it only fits people who bought around 2000."
+ },
+ {
+  "run": "headless-ảnh (B08.png, câu nghĩa + khuyên)",
+  "mode": "claude -p --tools Read sonnet",
+  "tokens": {
+   "claude-haiku-4-5-20251001": {
+    "in": 1015,
+    "out": 14
+   },
+   "claude-sonnet-5-5": {
+    "in": 9884,
+    "out": 258
+   }
+  },
+  "total": 11171,
+  "answer": "1) The clip says that the $500,000 tax-free limit on a married couple's home-sale gain has never been adjusted since May 1997, while the same amount adjusted for consumer-price inflation would be about $1,046,000 in August 2026 dollars.\n\n2) No action. The clip only shows historical data, labeled \"history, not a forecast.\" It makes no call to act, and it notes the comparison uses consumer prices (CPI-U), not house prices."
+ },
+ {
+  "run": "agent con Explore (cách hiện tại, đọc file)",
+  "mode": "Agent Explore sonnet",
+  "total": null,
+  "note": "harness không trả số token cho lượt này; số ledger cùng loại: C2 v2 207.976/6 = 34.663; C1 31.856; C4 v2 ≈ 47.000"
+ },
+ {
+  "run": "agent con general-purpose, lời dán vào đầu bài, cấm công cụ",
+  "mode": "Agent general-purpose sonnet",
+  "total": 49260,
+  "note": "vẫn gọi 1 công cụ dù bị cấm; 10,9 s"
+ }
+]
