@@ -72,15 +72,15 @@
   },
   {
    "item": "loudness",
-   "result": "ĐẠT",
-   "value": "-14.0 LUFS / -1.5 dBTP",
+   "result": "TRƯỢT",
+   "value": "-14.0 LUFS / -1.4 dBTP",
    "threshold": "-14 ± 1 LUFS, ≤ -1.5 dBTP",
    "note": ""
   },
   {
    "item": "kích thước phần",
    "result": "ĐẠT",
-   "value": 45.15,
+   "value": 45.22,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
   },
@@ -96,7 +96,7 @@
    "result": "ĐẠT",
    "value": 56,
    "threshold": "≥ 56 px",
-   "note": "789 lần engine nâng cỡ"
+   "note": "1141 lần engine nâng cỡ"
   },
   {
    "item": "SH1 tương phản",
@@ -107,10 +107,10 @@
   },
   {
    "item": "SH1 vùng an toàn",
-   "result": "TRƯỢT",
-   "value": 137,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0 hộp chữ ra ngoài (> 1 px)",
-   "note": "[{\"t\": 6.2, \"s\": \"Gain on paper: $200,000 home that rose like the Phoenix average\", \"out_px\": 836.5}, {\"t\": 6.4, \"s\": \"Gain on paper: $200,000 home that rose like the Phoenix average\", \"out_px\": 836.6}, {\"t\": 6.6, \"s\": \"Gain on paper: $200,000 home that rose like the Phoenix average\", \"out_px\": 836.8}]"
+   "note": ""
   },
   {
    "item": "SH1 va chạm nhãn",
@@ -128,15 +128,15 @@
   },
   {
    "item": "SH1 đối trọng \"A home that rose like the metro average\"",
-   "result": "TRƯỢT",
-   "value": 0,
+   "result": "ĐẠT",
+   "value": 576,
    "threshold": "≥ 30 khung (1 s)",
    "note": ""
   },
   {
    "item": "SH1 đối trọng \"A measurement, not a tax bill or a next step\"",
-   "result": "TRƯỢT",
-   "value": 0,
+   "result": "ĐẠT",
+   "value": 468,
    "threshold": "≥ 30 khung (1 s)",
    "note": ""
   },
@@ -159,7 +159,7 @@
    "result": "ĐẠT",
    "value": 56,
    "threshold": "≥ 56 px",
-   "note": "2647 lần engine nâng cỡ"
+   "note": "2764 lần engine nâng cỡ"
   },
   {
    "item": "SH2 tương phản",
@@ -170,17 +170,17 @@
   },
   {
    "item": "SH2 vùng an toàn",
-   "result": "TRƯỢT",
-   "value": 99,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0 hộp chữ ra ngoài (> 1 px)",
-   "note": "[{\"t\": 1.2, \"s\": \"$300,000 in 2000, homes that rose like their metro average\", \"out_px\": 674.7}, {\"t\": 1.4, \"s\": \"$300,000 in 2000, homes that rose like their metro average\", \"out_px\": 674.7}, {\"t\": 1.6, \"s\": \"$300,000 in 2000, homes that rose like their metro average\", \"out_px\": 674.8}]"
+   "note": ""
   },
   {
    "item": "SH2 va chạm nhãn",
-   "result": "TRƯỢT",
-   "value": 284,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0",
-   "note": "[{\"s\": \"Miami\", \"with\": \"Los Angeles\"}, {\"s\": \"Miami\", \"with\": \"Los Angeles\"}, {\"s\": \"Miami\", \"with\": \"Los Angeles\"}]"
+   "note": ""
   },
   {
    "item": "SH2 nhãn ILLUSTRATIVE / history",
@@ -191,22 +191,22 @@
   },
   {
    "item": "SH2 đối trọng \"A home that rose like the metro average\"",
-   "result": "TRƯỢT",
-   "value": 0,
+   "result": "ĐẠT",
+   "value": 366,
    "threshold": "≥ 30 khung (1 s)",
    "note": ""
   },
   {
    "item": "SH2 đối trọng \"A measurement, not a tax bill or a next step\"",
-   "result": "TRƯỢT",
-   "value": 0,
+   "result": "ĐẠT",
+   "value": 276,
    "threshold": "≥ 30 khung (1 s)",
    "note": ""
   },
   {
    "item": "SH2 loudness",
    "result": "ĐẠT",
-   "value": "-13.9 LUFS / -1.5 dBTP",
+   "value": "-13.9 LUFS / -1.4 dBTP",
    "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
    "note": ""
   },
@@ -222,7 +222,7 @@
    "result": "ĐẠT",
    "value": 56,
    "threshold": "≥ 56 px",
-   "note": "565 lần engine nâng cỡ"
+   "note": "823 lần engine nâng cỡ"
   },
   {
    "item": "SH3 tương phản",
@@ -233,10 +233,10 @@
   },
   {
    "item": "SH3 vùng an toàn",
-   "result": "TRƯỢT",
-   "value": 94,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0 hộp chữ ra ngoài (> 1 px)",
-   "note": "[{\"t\": 5.6, \"s\": \"Miami: $300,000 home that rose like the Miami average\", \"out_px\": 568.5}, {\"t\": 5.8, \"s\": \"Miami: $300,000 home that rose like the Miami average\", \"out_px\": 568.6}, {\"t\": 6, \"s\": \"Miami: $300,000 home that rose like the Miami average\", \"out_px\": 568.7}]"
+   "note": ""
   },
   {
    "item": "SH3 va chạm nhãn",
@@ -254,15 +254,15 @@
   },
   {
    "item": "SH3 đối trọng \"A home that rose like the metro average\"",
-   "result": "TRƯỢT",
-   "value": 0,
+   "result": "ĐẠT",
+   "value": 408,
    "threshold": "≥ 30 khung (1 s)",
    "note": ""
   },
   {
    "item": "SH3 đối trọng \"A measurement, not a tax bill or a next step\"",
-   "result": "TRƯỢT",
-   "value": 0,
+   "result": "ĐẠT",
+   "value": 360,
    "threshold": "≥ 30 khung (1 s)",
    "note": ""
   },
@@ -286,11 +286,6 @@
    "item": "master sàn chữ",
    "value": 40,
    "threshold": 40
-  },
-  {
-   "item": "loudness TP",
-   "value": -1.5,
-   "threshold": -1.5
   },
   {
    "item": "SH1 sàn chữ",

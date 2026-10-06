@@ -2,16 +2,14 @@
  "root": "/home/user/crux-lab/episodes/ep004",
  "contract": "/home/user/crux-lab/episodes/ep004/contract.json",
  "lock": "250ab298de4f912d34fdd02474aaa1af843ea9115e36fd0675630fcdcd1641de",
- "video_sha256": "fe8bcb89fac32462c0930b908f118059d7aa0a824970665f7a3509b2d59b062b",
+ "video_sha256": "839a96671e8fc3ca0a3565eb07e126780d2adcc6406d84d1c2660b8243b78b06",
  "episode": "TRƯỢT",
  "tiers": {
   "BLOCK": {
    "label": "CHẶN",
    "rules": 35,
-   "pass": 22,
+   "pass": 24,
    "notPass": [
-    "F06 FAIL",
-    "F10 MISSING",
     "F11 FAIL",
     "F12 MISSING",
     "S02 MISSING",
@@ -41,19 +39,19 @@
     "C14 MISSING",
     "L1 MISSING"
    ],
-   "explained": {},
-   "unexplained": [
-    "F07",
-    "V03",
-    "V08",
-    "V09",
-    "V11",
-    "V12",
-    "C02",
-    "C05",
-    "C14",
-    "L1"
-   ]
+   "explained": {
+    "F07": "Owner decision (gates/C4-answer.md item 3): the episode is 7:57.5 (477.5 s), just under the 8:00 floor; the real voice ran about 13% faster than the C2 estimate, and the playbook rule is never to pad, so the length is kept.",
+    "V03": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
+    "V08": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
+    "V09": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
+    "V11": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
+    "V12": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
+    "C02": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
+    "C05": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
+    "C14": "Approved Episode 4 exception (owner, gates/C4-answer.md item 1): the factory does not export out/page.json yet, so the page sampler cannot run and this page rule is MISSING; the factory qc covers the same ground on every frame log (text floor 40 px / 56 px in Shorts, contrast 7.5:1, 0 boxes outside the safe area, 0 label collisions, 0 frames without ILLUSTRATIVE/history tags, counterweights shown; out/factory/qc.md). Pending: K batch / factory exports page.json.",
+    "L1": "The factory mix has two stems only (voice and the style C music bed at the Episode 3 level); no data sonification layer was designed for this episode, so there is no sonify stem to measure. Queued for G2 as a CHÍNH item; no change to meaning."
+   },
+   "unexplained": []
   },
   "REFERENCE": {
    "label": "THAM KHẢO",
@@ -61,8 +59,7 @@
    "pass": 5,
    "notPass": [
     "A03 FAIL",
-    "A07 MISSING",
-    "A08 MISSING",
+    "A09 FAIL",
     "A10 MISSING",
     "A11 MISSING",
     "A12 MISSING",
@@ -72,6 +69,7 @@
     "A17 FAIL",
     "S11 MISSING",
     "S12 MISSING",
+    "S14 FAIL",
     "S15 FAIL",
     "S16 FAIL",
     "R01 MISSING",
@@ -102,9 +100,9 @@
   }
  },
  "counts": {
-  "PASS": 28,
-  "FAIL": 14,
-  "MISSING": 46,
+  "PASS": 30,
+  "FAIL": 15,
+  "MISSING": 43,
   "ERROR": 1
  },
  "near": [
@@ -120,6 +118,17 @@
    "near": true
   },
   {
+   "rule": "F06",
+   "tier": "BLOCK",
+   "name": "audio kbps",
+   "value": 280.238725,
+   "op": ">=",
+   "threshold": 272.0,
+   "unit": "kbps",
+   "pass": true,
+   "near": true
+  },
+  {
    "rule": "F07",
    "tier": "MAJOR",
    "name": "duration s",
@@ -130,34 +139,6 @@
     900.0
    ],
    "unit": "s",
-   "pass": false,
-   "near": true
-  },
-  {
-   "rule": "A15",
-   "tier": "REFERENCE",
-   "name": "wpm act cold-open",
-   "value": 166.498161,
-   "op": "in",
-   "threshold": [
-    150.0,
-    160.0
-   ],
-   "unit": "wpm",
-   "pass": false,
-   "near": true
-  },
-  {
-   "rule": "A15",
-   "tier": "REFERENCE",
-   "name": "wpm act act1",
-   "value": 167.92945,
-   "op": "in",
-   "threshold": [
-    150.0,
-    160.0
-   ],
-   "unit": "wpm",
    "pass": false,
    "near": true
   },
@@ -287,7 +268,7 @@
    "threshold": "both rates exactly 30/1 and every PTS step = 1/30 s (constant frame rate)",
    "fingerprint": "2e2f77485e6446dd",
    "tier": "BLOCK",
-   "seconds": 0.6
+   "seconds": 0.7
   },
   {
    "id": "F03",
@@ -416,11 +397,11 @@
    "threshold": "all tags bt709, range tv (limited); Y outside 16–235 ≤ 0.1% of samples",
    "fingerprint": "fb5a8e04e2527aaf",
    "tier": "BLOCK",
-   "seconds": 21.5
+   "seconds": 23.0
   },
   {
    "id": "F06",
-   "status": "FAIL",
+   "status": "PASS",
    "metrics": [
     {
      "name": "codec",
@@ -451,12 +432,12 @@
     },
     {
      "name": "audio kbps",
-     "value": 239.129406,
+     "value": 280.238725,
      "op": ">=",
      "threshold": 272.0,
      "unit": "kbps",
-     "pass": false,
-     "near": false
+     "pass": true,
+     "near": true
     }
    ],
    "details": [],
@@ -517,7 +498,7 @@
    "threshold": "worst frame ≤ 5% (frames with < 1% dark-gradient area are skipped)",
    "fingerprint": "07ff4ebdb7cec464",
    "tier": "BLOCK",
-   "seconds": 23.8
+   "seconds": 24.5
   },
   {
    "id": "F09",
@@ -587,10 +568,93 @@
   },
   {
    "id": "F10",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/package/description.md",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "chapters",
+     "value": 10,
+     "op": ">=",
+     "threshold": 3,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "first chapter start s",
+     "value": 0,
+     "op": "==",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "shortest chapter s",
+     "value": 23,
+     "op": ">=",
+     "threshold": 10.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mp4 chapters agree",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "chapters": [
+      {
+       "start": 0,
+       "title": "The question"
+      },
+      {
+       "start": 49,
+       "title": "The $500,000 cap"
+      },
+      {
+       "start": 76,
+       "title": "Rosa and Frank"
+      },
+      {
+       "start": 99,
+       "title": "Replaying Phoenix"
+      },
+      {
+       "start": 180,
+       "title": "Why the line is flat"
+      },
+      {
+       "start": 210,
+       "title": "12 metro areas"
+      },
+      {
+       "start": 278,
+       "title": "Flip the question"
+      },
+      {
+       "start": 315,
+       "title": "A ladder of 2000 prices"
+      },
+      {
+       "start": 350,
+       "title": "What it means, and what it doesn't"
+      },
+      {
+       "start": 446,
+       "title": "How we built it"
+      }
+     ],
+     "mp4": []
+    }
+   ],
+   "note": null,
    "section": "DX-F6",
    "threshold": "≥ 3 chapters; first at 0:00; each ≥ 10 s; MP4 chapters (if any) equal the description's",
    "fingerprint": "a9005215f87e44e2",
@@ -603,7 +667,7 @@
    "metrics": [
     {
      "name": "declared M3 artefacts",
-     "value": 14,
+     "value": 15,
      "op": ">=",
      "threshold": 1,
      "unit": "",
@@ -612,7 +676,7 @@
     },
     {
      "name": "declared artefacts not delivered",
-     "value": 4,
+     "value": 1,
      "op": "<=",
      "threshold": 0,
      "unit": "",
@@ -621,7 +685,7 @@
     },
     {
      "name": "release files not declared",
-     "value": 18,
+     "value": 17,
      "op": "<=",
      "threshold": 0,
      "unit": "",
@@ -632,13 +696,9 @@
    "details": [
     {
      "notDelivered": [
-      "out/package/description.md",
-      "out/rights.json",
-      "out/visual-assets.json",
       "out/page.json"
      ],
      "notDeclared": [
-      "out/audio/stems/music.*",
       "out/audio/stems/sfx.*",
       "out/audio/stems/whoosh.*",
       "out/audio/stems/room.*",
@@ -671,7 +731,7 @@
    "status": "MISSING",
    "metrics": [],
    "details": [],
-   "note": "artifact missing: out/rights.json",
+   "note": "artifact missing: out/checks/page.json",
    "section": "DX-A3 (sổ giấy phép), CH §5 (K3: quyền tài sản; K3.1: tài sản hình)",
    "threshold": "0 sounding stems without a rights entry; visual list declared; 0 listed visuals without a rights entry; 0 visuals of an unknown kind; 0 loaded picture files or font families not declared; 0 generated rules without an existing generator; 0 assets with a missing field; 0 third-party assets without terms (or public-domain source and basis) or not cleared for commercial use; ≥ 1 asset",
    "fingerprint": "0ac72b3fbd4b4eb9",
@@ -684,7 +744,7 @@
    "metrics": [
     {
      "name": "integrated LUFS",
-     "value": -14.0,
+     "value": -14.2,
      "op": "in",
      "threshold": [
       -15.0,
@@ -709,7 +769,7 @@
    "metrics": [
     {
      "name": "true peak dBTP",
-     "value": -1.5,
+     "value": -1.6,
      "op": "<=",
      "threshold": -1.0,
      "unit": "dBTP",
@@ -770,7 +830,7 @@
    "threshold": "0 samples",
    "fingerprint": "0c3453bc2aeb3f35",
    "tier": "BLOCK",
-   "seconds": 4.0
+   "seconds": 4.2
   },
   {
    "id": "A05",
@@ -778,7 +838,7 @@
    "metrics": [
     {
      "name": "mean phase correlation",
-     "value": 1.0,
+     "value": 0.981474,
      "op": ">",
      "threshold": 0.3,
      "unit": "",
@@ -818,7 +878,7 @@
     },
     {
      "name": "voice-band loss dB",
-     "value": 0.0,
+     "value": 0.000914,
      "op": "<=",
      "threshold": 3.0,
      "unit": "dB",
@@ -832,130 +892,130 @@
    "threshold": "mono loudness ≥ stereo − 3 LU; voice-band loss ≤ 3 dB",
    "fingerprint": "e8219cc7bd471b59",
    "tier": "BLOCK",
-   "seconds": 12.8
+   "seconds": 10.6
   },
   {
    "id": "A07",
-   "status": "MISSING",
-   "metrics": [],
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "voice − music dB",
+     "value": 19.992218,
+     "op": "in",
+     "threshold": [
+      18.0,
+      22.0
+     ],
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    }
+   ],
    "details": [],
-   "note": "artifact missing: out/audio/stems/music.wav|flac",
+   "note": null,
    "section": "DX-A9",
    "threshold": "18 … 22 dB",
    "fingerprint": "3d0ed9ae39f81476",
    "tier": "REFERENCE",
-   "seconds": 1.2
+   "seconds": 3.4
   },
   {
    "id": "A08",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: out/audio/stems/music.wav|flac",
-   "section": "DX-A9",
-   "threshold": "median presence drop ≥ 6 dB AND median (presence drop − low drop) ≥ 3 dB (the dip is band-limited, not broadband); ≥ 3 onsets measured",
-   "fingerprint": "ce5a60fda71b568f",
-   "tier": "REFERENCE",
-   "seconds": 0.0
-  },
-  {
-   "id": "A09",
    "status": "PASS",
    "metrics": [
     {
-     "name": "silences 0.8-1.5 s",
-     "value": 51,
+     "name": "onsets measured",
+     "value": 76,
      "op": ">=",
      "threshold": 3,
      "unit": "",
      "pass": true,
      "near": false
+    },
+    {
+     "name": "median 1-4 kHz drop dB",
+     "value": 6.659393,
+     "op": ">=",
+     "threshold": 6.0,
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "median band-limited excess dB",
+     "value": 6.290949,
+     "op": ">=",
+     "threshold": 3.0,
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A9",
+   "threshold": "median presence drop ≥ 6 dB AND median (presence drop − low drop) ≥ 3 dB (the dip is band-limited, not broadband); ≥ 3 onsets measured",
+   "fingerprint": "ce5a60fda71b568f",
+   "tier": "REFERENCE",
+   "seconds": 3.2
+  },
+  {
+   "id": "A09",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "silences 0.8-1.5 s",
+     "value": 0,
+     "op": ">=",
+     "threshold": 3,
+     "unit": "",
+     "pass": false,
+     "near": false
     }
    ],
    "details": [
     {
-     "spans": [
-      [
-       4.47,
-       0.97
-      ],
-      [
-       15.12,
-       0.92
-      ],
-      [
-       30.97,
-       1.11
-      ],
-      [
-       48.58,
-       0.86
-      ],
-      [
-       67.19,
-       1.21
-      ],
-      [
-       71.6,
-       0.81
-      ],
-      [
-       75.8,
-       0.87
-      ],
-      [
-       77.68,
-       1.4
-      ],
-      [
-       87.34,
-       0.9
-      ],
-      [
-       90.83,
-       0.81
-      ]
-     ],
+     "spans": [],
      "otherSpans": [
       [
-       3.9,
-       0.05
+       4.49,
+       0.16
       ],
       [
-       4.05,
-       0.06
+       4.62,
+       0.11
       ],
       [
-       6.6,
+       4.85,
        0.07
       ],
       [
-       7.35,
-       1.51
+       4.93,
+       0.08
       ],
       [
-       9.98,
-       0.43
+       5.08,
+       0.18
       ],
       [
-       12.88,
-       0.54
-      ],
-      [
-       13.62,
+       6.61,
        0.06
       ],
       [
-       14.51,
-       0.05
+       7.66,
+       0.12
       ],
       [
-       14.94,
-       0.09
+       7.79,
+       0.1
       ],
       [
-       17.44,
-       0.35
+       8.0,
+       0.08
+      ],
+      [
+       8.1,
+       0.06
       ]
      ]
     }
@@ -965,7 +1025,7 @@
    "threshold": "≥ 3 spans of 0.8–1.5 s",
    "fingerprint": "75ebd0a342734fc4",
    "tier": "REFERENCE",
-   "seconds": 9.2
+   "seconds": 8.2
   },
   {
    "id": "A10",
@@ -1008,7 +1068,7 @@
    "status": "ERROR",
    "metrics": [],
    "details": [
-    "Traceback (most recent call last):\n  File \"/home/user/crux-lab/checks/py/common.py\", line 462, in safe\n    r = fn(ctx)\n  File \"/home/user/crux-lab/checks/py/r_audio.py\", line 321, in a13_stretch\n    r = active_span(load_audio(ctx, tk['raw'], channels=1))\n                                    ~~^^^^^^^\nKeyError: 'raw'\n"
+    "Traceback (most recent call last):\n  File \"/tmp/claude-0/-home-user-crux-lab/605af6a2-945d-52b2-870d-1cac1afade88/scratchpad/checks/py/common.py\", line 462, in safe\n    r = fn(ctx)\n  File \"/tmp/claude-0/-home-user-crux-lab/605af6a2-945d-52b2-870d-1cac1afade88/scratchpad/checks/py/r_audio.py\", line 321, in a13_stretch\n    r = active_span(load_audio(ctx, tk['raw'], channels=1))\n                                    ~~^^^^^^^\nKeyError: 'raw'\n"
    ],
    "note": "KeyError: 'raw'",
    "section": "DX-A7",
@@ -1046,7 +1106,7 @@
    "threshold": "0 key words missing (no percentage threshold)",
    "fingerprint": "01110949f33e3fce",
    "tier": "BLOCK",
-   "seconds": 265.4
+   "seconds": 3.3
   },
   {
    "id": "A15",
@@ -1054,7 +1114,7 @@
    "metrics": [
     {
      "name": "wpm act cold-open",
-     "value": 166.498161,
+     "value": 171.364049,
      "op": "in",
      "threshold": [
       150.0,
@@ -1062,11 +1122,11 @@
      ],
      "unit": "wpm",
      "pass": false,
-     "near": true
+     "near": false
     },
     {
      "name": "wpm act act1",
-     "value": 167.92945,
+     "value": 170.748752,
      "op": "in",
      "threshold": [
       150.0,
@@ -1074,11 +1134,11 @@
      ],
      "unit": "wpm",
      "pass": false,
-     "near": true
+     "near": false
     },
     {
      "name": "wpm act act2",
-     "value": 168.423556,
+     "value": 169.475755,
      "op": "in",
      "threshold": [
       150.0,
@@ -1090,7 +1150,7 @@
     },
     {
      "name": "wpm act act3",
-     "value": 169.588835,
+     "value": 170.001771,
      "op": "in",
      "threshold": [
       150.0,
@@ -1102,7 +1162,7 @@
     },
     {
      "name": "wpm act method",
-     "value": 233.243968,
+     "value": 235.135135,
      "op": "in",
      "threshold": [
       150.0,
@@ -1114,7 +1174,7 @@
     },
     {
      "name": "wpm act outro",
-     "value": 174.91649,
+     "value": 175.129219,
      "op": "in",
      "threshold": [
       150.0,
@@ -1126,7 +1186,7 @@
     },
     {
      "name": "sentences > 175 wpm",
-     "value": 27,
+     "value": 30,
      "op": "<=",
      "threshold": 0,
      "unit": "",
@@ -1138,28 +1198,40 @@
     {
      "fast": [
       [
+       "S01.2",
+       188
+      ],
+      [
        "S02.1",
        227
       ],
       [
        "S02.3",
-       181
-      ],
-      [
-       "S03.2",
-       189
-      ],
-      [
-       "S04.1",
-       395
-      ],
-      [
-       "S05.1",
        182
       ],
       [
+       "S04.1",
+       405
+      ],
+      [
+       "S04.2",
+       201
+      ],
+      [
+       "S04.4",
+       178
+      ],
+      [
+       "S06.3",
+       201
+      ],
+      [
+       "S06.4",
+       175
+      ],
+      [
        "S06.5",
-       253
+       219
       ],
       [
        "S06.6",
@@ -1167,11 +1239,11 @@
       ],
       [
        "S07.1",
-       243
+       221
       ],
       [
        "S07.3",
-       219
+       222
       ],
       [
        "S08.1",
@@ -1179,23 +1251,11 @@
       ],
       [
        "S08.2",
-       191
+       194
       ],
       [
        "S09.1",
-       182
-      ],
-      [
-       "S09.2",
-       190
-      ],
-      [
-       "S10.1",
-       179
-      ],
-      [
-       "S10.2",
-       207
+       181
       ]
      ]
     }
@@ -1626,7 +1686,7 @@
    "threshold": "PROVISIONAL: abnormal sentences ≤ 10%; abnormal gaps ≤ 10%; ≥ 1 sentence voiced (REFERENCE: reported, never fails the episode)",
    "fingerprint": "483f26350bc28c42",
    "tier": "REFERENCE",
-   "seconds": 4.4
+   "seconds": 0.7
   },
   {
    "id": "A18",
@@ -2149,7 +2209,7 @@
   },
   {
    "id": "S14",
-   "status": "PASS",
+   "status": "FAIL",
    "metrics": [
     {
      "name": "ad breaks",
@@ -2171,11 +2231,11 @@
     },
     {
      "name": "breaks without ≥1 s silence",
-     "value": 0,
+     "value": 2,
      "op": "<=",
      "threshold": 0,
      "unit": "",
-     "pass": true,
+     "pass": false,
      "near": false
     },
     {
@@ -2209,7 +2269,7 @@
    "threshold": "lab: 2 breaks, 101: 1 break; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s; each ≥ 120 s after the start and ≥ 120 s before the end",
    "fingerprint": "4cd7b354b2465d8c",
    "tier": "REFERENCE",
-   "seconds": 4.3
+   "seconds": 4.0
   },
   {
    "id": "S15",
@@ -2505,7 +2565,7 @@
    "metrics": [
     {
      "name": "highest true peak dBTP",
-     "value": -1.5,
+     "value": -1.4,
      "op": "<=",
      "threshold": -1.0,
      "unit": "dBTP",
@@ -2516,7 +2576,7 @@
    "details": [
     {
      "SH1.mp4": -1.5,
-     "SH2.mp4": -1.5,
+     "SH2.mp4": -1.4,
      "SH3.mp4": -1.5
     }
    ],
@@ -2547,7 +2607,7 @@
    "threshold": "0 matches in every Short",
    "fingerprint": "173baa4eed3c5d3b",
    "tier": "BLOCK",
-   "seconds": 23.7
+   "seconds": 26.0
   },
   {
    "id": "R01",
@@ -2626,7 +2686,7 @@
    "threshold": "≥ 1 decisive claim; every pause ≥ 1.0 s; 0 decisive numbers not found in ASR",
    "fingerprint": "254f84761c7ec3ea",
    "tier": "REFERENCE",
-   "seconds": 4.8
+   "seconds": 4.9
   },
   {
    "id": "R04",
@@ -3233,12 +3293,12 @@
    "status": "MISSING",
    "metrics": [],
    "details": [],
-   "note": "artifact missing: out/audio/stems/music.wav|flac",
+   "note": "artifact missing: out/audio/stems/sfx.wav|flac",
    "section": "DX-R6 (sổ gu G-003)",
    "threshold": "every entry 150–400 ms; master ≥ −80 dBFS and room stem ≥ −75 dBFS through every silence; ≥ 1 silence",
    "fingerprint": "aae85b30becf5024",
    "tier": "REFERENCE",
-   "seconds": 5.0
+   "seconds": 7.0
   },
   {
    "id": "L1",
@@ -3257,7 +3317,16 @@
    "status": "PASS",
    "metrics": [
     {
-     "name": "regressions",
+     "name": "comparable rules",
+     "value": 88,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "regressions of BLOCK rules",
      "value": 0,
      "op": "<=",
      "threshold": 0,
@@ -3266,13 +3335,134 @@
      "near": false
     }
    ],
-   "details": [],
-   "note": "first version: nothing to compare",
+   "details": [
+    {
+     "baselineLock": "250ab298de4f912d34fdd02474aaa1af843ea9115e36fd0675630fcdcd1641de",
+     "baselineRoot": "/home/user/crux-lab/episodes/ep004",
+     "comparable": [
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05",
+      "F06",
+      "F07",
+      "F08",
+      "F09",
+      "F10",
+      "F11",
+      "F12",
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09",
+      "A10",
+      "A11",
+      "A12",
+      "A13",
+      "A14",
+      "A15",
+      "A16",
+      "A17",
+      "A18",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S18",
+      "SH01",
+      "SH02",
+      "SH03",
+      "SH04",
+      "SH05",
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06",
+      "V01",
+      "V02",
+      "V03",
+      "V04",
+      "V05",
+      "V08",
+      "V09",
+      "V10",
+      "V11",
+      "V12",
+      "V13",
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C10",
+      "C11",
+      "C12",
+      "C13",
+      "C14",
+      "C15",
+      "P01",
+      "T1",
+      "T2",
+      "T3",
+      "L1"
+     ],
+     "notComparable": [],
+     "improved": [
+      "F06",
+      "F10",
+      "A07",
+      "A08"
+     ]
+    },
+    {
+     "rule": "A09",
+     "tier": "REFERENCE",
+     "was": "PASS",
+     "now": "FAIL",
+     "failing": [
+      "silences 0.8-1.5 s = 0"
+     ]
+    },
+    {
+     "rule": "S14",
+     "tier": "REFERENCE",
+     "was": "PASS",
+     "now": "FAIL",
+     "failing": [
+      "breaks without ≥1 s silence = 2"
+     ]
+    }
+   ],
+   "note": null,
    "section": "CH §5, §4 khâu 3 (cổng hồi quy)",
    "threshold": "0 regressions of BLOCK rules (a --first run has nothing to compare and passes; no baseline and no --first = MISSING)",
    "fingerprint": "edef7b9f85c08547",
    "tier": "BLOCK",
-   "seconds": 0.0
+   "seconds": 0.0,
+   "baseline": "/tmp/claude-0/-home-user-crux-lab/605af6a2-945d-52b2-870d-1cac1afade88/scratchpad/report-c4.json"
   }
  ]
 }

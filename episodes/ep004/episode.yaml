@@ -19,7 +19,11 @@ tokens: design/c3/gen/tokens.json
 data: {file: design/c4/work/data.js, var: DATA}
 fps: 30
 res: 1080
-audio: {lufs: -14, true_peak: -1.5}   # âm tạm C4: chỉ lời (nhạc style C phối ở C5)
+audio:
+  lufs: -14
+  true_peak: -1.5
+  music: work/factory/music/bed.wav          # C5: nhạc style C (engine Tập 3: 114 BPM, D dorian), sinh lại nếu thiếu; mức dưới lời: toolkit/factory/music.py
+  music_cmd: "python3 episodes/ep003/audio_src/factory_bed.py {total} {out}"
 dossier: {script_md: story/script.md, claim_risk: ../../topics-r1/machine/tax-2/claim-risk.md, contract: contract.json}
 # mid-roll: trong khoảng giữ 1,5 s cuối S07 (hết Hồi 1) và cuối S14 (hết Hồi 2), theo giọng thật (out/factory/timeline.json)
 midrolls:
