@@ -1,0 +1,8 @@
+episode: ep005
+format: "101"          # 8–9 phút, 1 mid-roll ở ranh giới hồi, không độn (episode.md §9; D-007 thí điểm 101 #1, trụ vay/mortgage)
+topic: "queue #17 — topics-r2/machine/debt-2 (KHUYẾN NGHỊ, chờ G1)"
+title: "10% Down and Mortgage Insurance: How Long Did It Last?"   # nháp hồ sơ, chờ C1/G1
+pillar: vay nợ
+tokenCeiling: {episode: 3000000}
+voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1005, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
+music: {style: C}      # G-016
