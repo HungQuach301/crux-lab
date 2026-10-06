@@ -22,6 +22,7 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
   - **(i) khuyến nghị — sửa lời:** S03.3 → "Removal on value is the loan owner's rule; for Fannie Mae loans, that's two years and a 75 percent bar." (≈ 18 từ đọc; đo lại M4 ≤ 10 s) · S12.3 → "…at or below the 75 percent bar Fannie Mae sets for its loans in the early years." Sinh lại S03, S12 (≈ 0,8 nghìn ký tự), đo lại M1–M5.
   - (ii) giữ lời, nhãn hình cạnh mọi khung có 75 %: "Fannie Mae rule, its loans only".
   Có thể gộp vào lượt chuyển kịch bản sang đặc tả Mốc V.
+- **S18.5 giọng:** ASR (small.en và medium.en) nghe "illustrative" thành "illustrated" (p 0,49) — khả năng giọng đọc chưa rõ; cùng chữ + cùng seed thì cache trả lại đúng take cũ, nên xử lý ở lượt chuyển kịch bản Mốc V (đổi chữ hoặc nghe lại bằng tai). Từ được bảo vệ (ILLUSTRATIVE) → không bỏ qua.
 - Freddie Mac Guide 8203.2 chưa kiểm (proxy chặn); claim chỉ dựa B-8.1-04.
 - Phiên K (kind mới) phải merge `main` trước C4; `contract.json` theo kind K đặt.
 - Hàng chờ G2 (CHÍNH không đổi nghĩa): `REVIEW-C2.md` K-3…K-14; câu 3 vòng 2 C2.
@@ -42,3 +43,5 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | Checks | ≈ 0,07 tr | 0,15 | kiểm độc lập |
 | Điều phối | ≈ 0,3 tr | 0,5 | |
 | **Cộng** | **≈ 1,45 tr** | 3,0 | agent 12/40; EL 1.644/6.000; chủ dự án: G1 |
+
+**Sau G1 (2026-10-06):** lời theo cảnh 18/20 cảnh trong `voice-takes/` (≈ 6:07 lời); EL cả tập **6.531/6.000 (+9 %)** — D-009: không cắt chất lượng vì trần; nêu tên. Agent 12/40 (không thêm agent sau G1).
