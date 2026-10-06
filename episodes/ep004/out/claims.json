@@ -1,0 +1,3356 @@
+{
+ "claims": [
+  {
+   "claimId": "growth_los_angeles",
+   "value": 4.3004397808811055,
+   "display": "×4.3",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — Los Angeles",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — Los Angeles",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_los_angeles",
+   "value": 151494.96224606677,
+   "display": "≈ $151,500",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Los Angeles",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Los Angeles",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_los_angeles",
+   "value": 660087.9561762211,
+   "display": "≈ $660,100",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Los Angeles",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Los Angeles",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_los_angeles",
+   "value": "2021-10-01",
+   "display": "2021-10-01",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Los Angeles",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Los Angeles",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_200k_los_angeles",
+   "value": "2021-10-01",
+   "display": "2021-10-01",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Los Angeles",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Los Angeles",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_los_angeles",
+   "value": 990131.9342643316,
+   "display": "≈ $990,100",
+   "unit": "same, $300,000 purchase — Los Angeles",
+   "formula": "same, $300,000 purchase — Los Angeles",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_los_angeles",
+   "value": "2018-01-01",
+   "display": "2018-01-01",
+   "unit": "same, $300,000 — Los Angeles",
+   "formula": "same, $300,000 — Los Angeles",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_300k_los_angeles",
+   "value": "2018-01-01",
+   "display": "2018-01-01",
+   "unit": "same, $300,000 — Los Angeles",
+   "formula": "same, $300,000 — Los Angeles",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_san_diego",
+   "value": 4.040421669924601,
+   "display": "×4.0",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — San Diego",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — San Diego",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_san_diego",
+   "value": 164450.87368831947,
+   "display": "≈ $164,500",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — San Diego",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — San Diego",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_san_diego",
+   "value": 608084.3339849203,
+   "display": "≈ $608,100",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — San Diego",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — San Diego",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_san_diego",
+   "value": "2022-04-01",
+   "display": "2022-04-01",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — San Diego",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — San Diego",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_200k_san_diego",
+   "value": "2023-04-01",
+   "display": "2023-04-01",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — San Diego",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — San Diego",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_san_diego",
+   "value": 912126.5009773804,
+   "display": "≈ $912,100",
+   "unit": "same, $300,000 purchase — San Diego",
+   "formula": "same, $300,000 purchase — San Diego",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_san_diego",
+   "value": "2021-01-01",
+   "display": "2021-01-01",
+   "unit": "same, $300,000 — San Diego",
+   "formula": "same, $300,000 — San Diego",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_300k_san_diego",
+   "value": "2021-01-01",
+   "display": "2021-01-01",
+   "unit": "same, $300,000 — San Diego",
+   "formula": "same, $300,000 — San Diego",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_san_francisco",
+   "value": 2.930544707686077,
+   "display": "×2.9",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — San Francisco",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — San Francisco",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_san_francisco",
+   "value": 258994.2610545874,
+   "display": "≈ $259,000",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — San Francisco",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — San Francisco",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_san_francisco",
+   "value": 386108.94153721543,
+   "display": "≈ $386,100",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — San Francisco",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — San Francisco",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_san_francisco",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — San Francisco",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — San Francisco",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_200k_san_francisco",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — San Francisco",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — San Francisco",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_san_francisco",
+   "value": 579163.4123058232,
+   "display": "≈ $579,200",
+   "unit": "same, $300,000 purchase — San Francisco",
+   "formula": "same, $300,000 purchase — San Francisco",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_san_francisco",
+   "value": "2022-01-01",
+   "display": "2022-01-01",
+   "unit": "same, $300,000 — San Francisco",
+   "formula": "same, $300,000 — San Francisco",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_300k_san_francisco",
+   "value": "2022-01-01",
+   "display": "2022-01-01",
+   "unit": "same, $300,000 — San Francisco",
+   "formula": "same, $300,000 — San Francisco",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_san_jose",
+   "value": 2.9651741293532337,
+   "display": "×3.0",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — San Jose",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — San Jose",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_san_jose",
+   "value": 254430.37974683548,
+   "display": "≈ $254,400",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — San Jose",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — San Jose",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_san_jose",
+   "value": 393034.82587064675,
+   "display": "≈ $393,000",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — San Jose",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — San Jose",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_san_jose",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — San Jose",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — San Jose",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_200k_san_jose",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — San Jose",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — San Jose",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_san_jose",
+   "value": 589552.2388059701,
+   "display": "≈ $589,600",
+   "unit": "same, $300,000 purchase — San Jose",
+   "formula": "same, $300,000 purchase — San Jose",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_san_jose",
+   "value": "2022-04-01",
+   "display": "2022-04-01",
+   "unit": "same, $300,000 — San Jose",
+   "formula": "same, $300,000 — San Jose",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_300k_san_jose",
+   "value": "2022-04-01",
+   "display": "2022-04-01",
+   "unit": "same, $300,000 — San Jose",
+   "formula": "same, $300,000 — San Jose",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_seattle",
+   "value": 3.777917723350297,
+   "display": "×3.8",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — Seattle",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — Seattle",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_seattle",
+   "value": 179990.9319837511,
+   "display": "≈ $180,000",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Seattle",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Seattle",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_seattle",
+   "value": 555583.5446700593,
+   "display": "≈ $555,600",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Seattle",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Seattle",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_seattle",
+   "value": "2022-04-01",
+   "display": "2022-04-01",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Seattle",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Seattle",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_200k_seattle",
+   "value": "2023-04-01",
+   "display": "2023-04-01",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Seattle",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Seattle",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_seattle",
+   "value": 833375.3170050891,
+   "display": "≈ $833,400",
+   "unit": "same, $300,000 purchase — Seattle",
+   "formula": "same, $300,000 purchase — Seattle",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_seattle",
+   "value": "2020-04-01",
+   "display": "2020-04-01",
+   "unit": "same, $300,000 — Seattle",
+   "formula": "same, $300,000 — Seattle",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_300k_seattle",
+   "value": "2020-04-01",
+   "display": "2020-04-01",
+   "unit": "same, $300,000 — Seattle",
+   "formula": "same, $300,000 — Seattle",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_boston",
+   "value": 3.2088572204559616,
+   "display": "×3.2",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — Boston",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — Boston",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_boston",
+   "value": 226361.39419495294,
+   "display": "≈ $226,400",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Boston",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Boston",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_boston",
+   "value": 441771.44409119233,
+   "display": "≈ $441,800",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Boston",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Boston",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_boston",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Boston",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Boston",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_200k_boston",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Boston",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Boston",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_boston",
+   "value": 662657.1661367884,
+   "display": "≈ $662,700",
+   "unit": "same, $300,000 purchase — Boston",
+   "formula": "same, $300,000 purchase — Boston",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_boston",
+   "value": "2022-04-01",
+   "display": "2022-04-01",
+   "unit": "same, $300,000 — Boston",
+   "formula": "same, $300,000 — Boston",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_300k_boston",
+   "value": "2023-01-01",
+   "display": "2023-01-01",
+   "unit": "same, $300,000 — Boston",
+   "formula": "same, $300,000 — Boston",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_new_york",
+   "value": 3.3558207411238783,
+   "display": "×3.4",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — New York",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — New York",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_new_york",
+   "value": 212240.2571943856,
+   "display": "≈ $212,200",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — New York",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — New York",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_new_york",
+   "value": 471164.1482247757,
+   "display": "≈ $471,200",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — New York",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — New York",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_new_york",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — New York",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — New York",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_200k_new_york",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — New York",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — New York",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_new_york",
+   "value": 706746.2223371635,
+   "display": "≈ $706,700",
+   "unit": "same, $300,000 purchase — New York",
+   "formula": "same, $300,000 purchase — New York",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_new_york",
+   "value": "2023-04-01",
+   "display": "2023-04-01",
+   "unit": "same, $300,000 — New York",
+   "formula": "same, $300,000 — New York",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_300k_new_york",
+   "value": "2023-04-01",
+   "display": "2023-04-01",
+   "unit": "same, $300,000 — New York",
+   "formula": "same, $300,000 — New York",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_miami",
+   "value": 5.360125512913348,
+   "display": "×5.4",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — Miami",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — Miami",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.3"
+    }
+   ]
+  },
+  {
+   "claimId": "threshold_joint_miami",
+   "value": 114675.59787422497,
+   "display": "≈ $114,700",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Miami",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Miami",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_miami",
+   "value": 872025.1025826697,
+   "display": "≈ $872,000",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Miami",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Miami",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_miami",
+   "value": "2021-10-01",
+   "display": "2021-10-01",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Miami",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Miami",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_200k_miami",
+   "value": "2021-10-01",
+   "display": "2021-10-01",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Miami",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Miami",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_miami",
+   "value": 1308037.6538740045,
+   "display": "≈ $1,308,000",
+   "unit": "same, $300,000 purchase — Miami",
+   "formula": "same, $300,000 purchase — Miami",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_miami",
+   "value": "2006-10-01",
+   "display": "2006-10-01",
+   "unit": "same, $300,000 — Miami",
+   "formula": "same, $300,000 — Miami",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S11",
+     "sentence": "S11.2"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_300k_miami",
+   "value": "2019-04-01",
+   "display": "2019-04-01",
+   "unit": "same, $300,000 — Miami",
+   "formula": "same, $300,000 — Miami",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S11",
+     "sentence": "S11.3"
+    }
+   ]
+  },
+  {
+   "claimId": "growth_denver",
+   "value": 3.1961321933254374,
+   "display": "×3.2",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — Denver",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — Denver",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_denver",
+   "value": 227672.99779112462,
+   "display": "≈ $227,700",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Denver",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Denver",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_denver",
+   "value": 439226.4386650875,
+   "display": "≈ $439,200",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Denver",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Denver",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_denver",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Denver",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Denver",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_200k_denver",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Denver",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Denver",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_denver",
+   "value": 658839.6579976312,
+   "display": "≈ $658,800",
+   "unit": "same, $300,000 purchase — Denver",
+   "formula": "same, $300,000 purchase — Denver",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_denver",
+   "value": "2021-07-01",
+   "display": "2021-07-01",
+   "unit": "same, $300,000 — Denver",
+   "formula": "same, $300,000 — Denver",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.1"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_300k_denver",
+   "value": "2021-07-01",
+   "display": "2021-07-01",
+   "unit": "same, $300,000 — Denver",
+   "formula": "same, $300,000 — Denver",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_phoenix",
+   "value": 3.7902992322210616,
+   "display": "×3.8",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — Phoenix",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — Phoenix",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [
+    "S07"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.3"
+    }
+   ]
+  },
+  {
+   "claimId": "threshold_joint_phoenix",
+   "value": 179192.25086192743,
+   "display": "≈ $179,200",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Phoenix",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Phoenix",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S13"
+   ],
+   "spoken": [
+    {
+     "scene": "S12",
+     "sentence": "S12.3"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.1"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.2"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.3"
+    }
+   ]
+  },
+  {
+   "claimId": "gain_at_200k_phoenix",
+   "value": 558059.8464442124,
+   "display": "≈ $558,100",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Phoenix",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Phoenix",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "character": "rosa_frank",
+   "callbacks": [],
+   "shownIn": [
+    "S01",
+    "S07",
+    "S09",
+    "S15"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.2"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.1"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.2"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    }
+   ]
+  },
+  {
+   "claimId": "cross_quarter_at_200k_phoenix",
+   "value": "2022-04-01",
+   "display": "2022-04-01",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Phoenix",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Phoenix",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "character": "rosa_frank",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S06",
+     "sentence": "S06.3"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.4"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_200k_phoenix",
+   "value": "2023-04-01",
+   "display": "2023-04-01",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Phoenix",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Phoenix",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "character": "rosa_frank",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S06",
+     "sentence": "S06.5"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.6"
+    }
+   ]
+  },
+  {
+   "claimId": "gain_at_300k_phoenix",
+   "value": 837089.7696663184,
+   "display": "≈ $837,100",
+   "unit": "same, $300,000 purchase — Phoenix",
+   "formula": "same, $300,000 purchase — Phoenix",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    }
+   ]
+  },
+  {
+   "claimId": "cross_quarter_at_300k_phoenix",
+   "value": "2021-04-01",
+   "display": "2021-04-01",
+   "unit": "same, $300,000 — Phoenix",
+   "formula": "same, $300,000 — Phoenix",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_300k_phoenix",
+   "value": "2021-04-01",
+   "display": "2021-04-01",
+   "unit": "same, $300,000 — Phoenix",
+   "formula": "same, $300,000 — Phoenix",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_dallas",
+   "value": 3.3189353257062804,
+   "display": "×3.3",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — Dallas",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — Dallas",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_dallas",
+   "value": 215616.1900926299,
+   "display": "≈ $215,600",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Dallas",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Dallas",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_dallas",
+   "value": 463787.0651412561,
+   "display": "≈ $463,800",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Dallas",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Dallas",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_dallas",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Dallas",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Dallas",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_200k_dallas",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Dallas",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Dallas",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_dallas",
+   "value": 695680.5977118841,
+   "display": "≈ $695,700",
+   "unit": "same, $300,000 purchase — Dallas",
+   "formula": "same, $300,000 purchase — Dallas",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_dallas",
+   "value": "2021-10-01",
+   "display": "2021-10-01",
+   "unit": "same, $300,000 — Dallas",
+   "formula": "same, $300,000 — Dallas",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.1"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_300k_dallas",
+   "value": "2021-10-01",
+   "display": "2021-10-01",
+   "unit": "same, $300,000 — Dallas",
+   "formula": "same, $300,000 — Dallas",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_chicago",
+   "value": 2.339177130221906,
+   "display": "×2.3",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — Chicago",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — Chicago",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.3"
+    }
+   ]
+  },
+  {
+   "claimId": "threshold_joint_chicago",
+   "value": 373363.60419860843,
+   "display": "≈ $373,400",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Chicago",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — Chicago",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_200k_chicago",
+   "value": 267835.4260443812,
+   "display": "≈ $267,800",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Chicago",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — Chicago",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_chicago",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Chicago",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — Chicago",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.4"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_200k_chicago",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Chicago",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — Chicago",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_chicago",
+   "value": 401753.1390665718,
+   "display": "≈ $401,800",
+   "unit": "same, $300,000 purchase — Chicago",
+   "formula": "same, $300,000 purchase — Chicago",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_chicago",
+   "value": null,
+   "display": "None",
+   "unit": "same, $300,000 — Chicago",
+   "formula": "same, $300,000 — Chicago",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.4"
+    }
+   ]
+  },
+  {
+   "claimId": "stay_quarter_at_300k_chicago",
+   "value": null,
+   "display": "None",
+   "unit": "same, $300,000 — Chicago",
+   "formula": "same, $300,000 — Chicago",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "growth_us",
+   "value": 3.0535960465757492,
+   "display": "×3.1",
+   "unit": "index growth 2000 avg → 2026 Q2 (ratio) — United States (national index)",
+   "formula": "index growth 2000 avg → 2026 Q2 (ratio) — United States (national index)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_joint_us",
+   "value": 243475.34211205784,
+   "display": "≈ $243,500",
+   "unit": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — United States (national index)",
+   "formula": "2000 purchase price above which an index-typical gain exceeds $500,000 (USD, to $100) — United States (national index)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S16"
+   ],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    }
+   ]
+  },
+  {
+   "claimId": "gain_at_200k_us",
+   "value": 410719.20931514987,
+   "display": "≈ $410,700",
+   "unit": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — United States (national index)",
+   "formula": "gain at 2026 Q2 of a $200,000 2000 purchase that rose like the index (USD, ILLUSTRATIVE) — United States (national index)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_200k_us",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — United States (national index)",
+   "formula": "first quarter the $200,000 purchase's gain exceeded $500,000 (null = not by 2026 Q2) — United States (national index)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_200k_us",
+   "value": null,
+   "display": "None",
+   "unit": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — United States (national index)",
+   "formula": "first quarter from which the $200,000 gain stayed above $500,000 through 2026 Q2 — United States (national index)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "gain_at_300k_us",
+   "value": 616078.8139727247,
+   "display": "≈ $616,100",
+   "unit": "same, $300,000 purchase — United States (national index)",
+   "formula": "same, $300,000 purchase — United States (national index)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "cross_quarter_at_300k_us",
+   "value": "2023-04-01",
+   "display": "2023-04-01",
+   "unit": "same, $300,000 — United States (national index)",
+   "formula": "same, $300,000 — United States (national index)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stay_quarter_at_300k_us",
+   "value": "2023-04-01",
+   "display": "2023-04-01",
+   "unit": "same, $300,000 — United States (national index)",
+   "formula": "same, $300,000 — United States (national index)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "threshold_single_us",
+   "value": 121737.67105602892,
+   "display": "≈ $121,700",
+   "unit": "national threshold for a single seller ($250,000 limit)",
+   "formula": "national threshold for a single seller ($250,000 limit)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S16"
+   ],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.4"
+    }
+   ]
+  },
+  {
+   "claimId": "threshold_joint_min",
+   "value": 114675.59787422497,
+   "display": "≈ $114,700",
+   "unit": "lowest metro threshold",
+   "formula": "lowest metro threshold",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.3"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.1"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    }
+   ]
+  },
+  {
+   "claimId": "threshold_joint_max",
+   "value": 373363.60419860843,
+   "display": "≈ $373,400",
+   "unit": "highest metro threshold",
+   "formula": "highest metro threshold",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.3"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.1"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    }
+   ]
+  },
+  {
+   "claimId": "threshold_joint_min_metro",
+   "value": "miami",
+   "display": "Miami",
+   "unit": "metro with lowest threshold",
+   "formula": "metro with lowest threshold",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    }
+   ]
+  },
+  {
+   "claimId": "threshold_joint_max_metro",
+   "value": "chicago",
+   "display": "Chicago",
+   "unit": "metro with highest threshold",
+   "formula": "metro with highest threshold",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "basis": "nominal",
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    }
+   ]
+  },
+  {
+   "claimId": "metros_threshold_under_200k",
+   "value": 5,
+   "display": "5",
+   "unit": "metros (of 12) with threshold < $200,000",
+   "formula": "metros (of 12) with threshold < $200,000",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "metros_threshold_under_300k",
+   "value": 11,
+   "display": "11",
+   "unit": "metros (of 12) with threshold < $300,000",
+   "formula": "metros (of 12) with threshold < $300,000",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.4"
+    }
+   ]
+  },
+  {
+   "claimId": "metros_threshold_under_300k_names",
+   "value": [
+    "boston",
+    "dallas",
+    "denver",
+    "los_angeles",
+    "miami",
+    "new_york",
+    "phoenix",
+    "san_diego",
+    "san_francisco",
+    "san_jose",
+    "seattle"
+   ],
+   "display": "Boston, Dallas, Denver, Los Angeles, Miami, New York, Phoenix, San Diego, San Francisco, San Jose, Seattle",
+   "unit": "those metros",
+   "formula": "those metros",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.4"
+    }
+   ]
+  },
+  {
+   "claimId": "metros_crossed_at_200k",
+   "value": 5,
+   "display": "5",
+   "unit": "metros where a $200,000 purchase's gain exceeds $500,000 by 2026 Q2",
+   "formula": "metros where a $200,000 purchase's gain exceeds $500,000 by 2026 Q2",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S09"
+   ],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.2"
+    }
+   ]
+  },
+  {
+   "claimId": "metros_crossed_at_300k",
+   "value": 11,
+   "display": "11",
+   "unit": "same, $300,000",
+   "formula": "same, $300,000",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    2000,
+    2026
+   ],
+   "conditional": "like-average",
+   "callbacks": [],
+   "shownIn": [
+    "S10"
+   ],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    }
+   ]
+  },
+  {
+   "claimId": "cpi_base",
+   "value": 160.1,
+   "display": "160.1",
+   "unit": "CPI-U May 1997",
+   "formula": "CPI-U May 1997",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1997,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.4"
+    }
+   ]
+  },
+  {
+   "claimId": "cpi_now",
+   "value": 334.98,
+   "display": "334.98",
+   "unit": "CPI-U August 2026",
+   "formula": "CPI-U August 2026",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1997,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.4"
+    }
+   ]
+  },
+  {
+   "claimId": "excl_joint_1997_in_now",
+   "value": 1046158.650843223,
+   "display": "≈ $1,046,000 (Aug 2026 dollars)",
+   "unit": "$500,000 of May 1997 in August 2026 prices (USD, to $1,000)",
+   "formula": "$500,000 of May 1997 in August 2026 prices (USD, to $1,000)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1997,
+    2026
+   ],
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    }
+   ]
+  },
+  {
+   "claimId": "excl_joint_limit_usd",
+   "value": 500000.0,
+   "display": "$500,000",
+   "unit": "26 U.S.C. 121(b)(2)(A)",
+   "formula": "26 U.S.C. 121(b)(2)(A)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "S01",
+    "S03",
+    "S06",
+    "S07",
+    "S11",
+    "S15",
+    "S19"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.2"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.5"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.1"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.2"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.5"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.2"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.5"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.2"
+    }
+   ]
+  },
+  {
+   "claimId": "excl_single_limit_usd",
+   "value": 250000.0,
+   "display": "$250,000",
+   "unit": "26 U.S.C. 121(b)(1)",
+   "formula": "26 U.S.C. 121(b)(1)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "S03"
+   ],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.4"
+    }
+   ]
+  },
+  {
+   "claimId": "exclusion_effective_month",
+   "value": "1997-05 (sales after 1997-05-06)",
+   "display": "May 1997",
+   "unit": "Pub. L. 105-34 note",
+   "formula": "Pub. L. 105-34 note",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "S03",
+    "S18",
+    "S19"
+   ],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.3"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.2"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.2"
+    }
+   ]
+  },
+  {
+   "claimId": "ownership_use_test",
+   "value": "2 of the 5 years before sale (assumed met)",
+   "display": "2 of the 5 years before sale (assumed met)",
+   "unit": "26 U.S.C. 121(a)",
+   "formula": "26 U.S.C. 121(a)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "S02"
+   ],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.3"
+    }
+   ]
+  },
+  {
+   "claimId": "basis_at_death_rule",
+   "value": "basis = value at death (stated, not computed)",
+   "display": "basis = value at death (stated, not computed)",
+   "unit": "26 U.S.C. 1014(a)(1)",
+   "formula": "26 U.S.C. 1014(a)(1)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "long_term_gain_rule",
+   "value": "held > 1 year → long-term gain",
+   "display": "held > 1 year → long-term gain",
+   "unit": "26 U.S.C. 1222(3)",
+   "formula": "26 U.S.C. 1222(3)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "S17"
+   ],
+   "spoken": [
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    }
+   ]
+  },
+  {
+   "claimId": "surviving_spouse_window_years",
+   "value": 2.0,
+   "display": "2",
+   "unit": "26 U.S.C. 121(b)(4)",
+   "formula": "26 U.S.C. 121(b)(4)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buy_year",
+   "value": 2000.0,
+   "display": "2000",
+   "unit": "viewer identity (card)",
+   "formula": "viewer identity (card)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "S01",
+    "S04",
+    "S07",
+    "S09",
+    "S10",
+    "S12",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S18",
+    "S19"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S01",
+     "sentence": "S01.3"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.3"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.3"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.5"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "illustrative_price_200k_usd",
+   "value": 200000.0,
+   "display": "$200,000",
+   "unit": "ILLUSTRATIVE 2000 purchase price (model param `prices`)",
+   "formula": "ILLUSTRATIVE 2000 purchase price (model param `prices`)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "S01",
+    "S04",
+    "S06",
+    "S07",
+    "S09"
+   ],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.2"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    }
+   ]
+  },
+  {
+   "claimId": "illustrative_price_300k_usd",
+   "value": 300000.0,
+   "display": "$300,000",
+   "unit": "ILLUSTRATIVE 2000 purchase price (model param `prices`)",
+   "formula": "ILLUSTRATIVE 2000 purchase price (model param `prices`)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [
+    "S10",
+    "S11",
+    "S14"
+   ],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    },
+    {
+     "scene": "S11",
+     "sentence": "S11.2"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.4"
+    }
+   ]
+  },
+  {
+   "claimId": "metro_count",
+   "value": 12.0,
+   "display": "12",
+   "unit": "metros (metro divisions/MSAs) in the comparison — n_metros of hồ sơ",
+   "formula": "metros (metro divisions/MSAs) in the comparison — n_metros of hồ sơ",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "S09",
+    "S10"
+   ],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.1"
+    }
+   ]
+  },
+  {
+   "claimId": "sale_quarter",
+   "value": "2026-04-01",
+   "display": "2026 Q2",
+   "unit": "latest quarter in every index file",
+   "formula": "latest quarter in every index file",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [
+    "S18",
+    "S19"
+   ],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.6"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.2"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "ctx_us_only",
+   "value": "US federal tax rule only; state tax not modeled",
+   "display": "US federal tax rule only; state tax not modeled",
+   "unit": "phạm vi",
+   "formula": "phạm vi",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    }
+   ]
+  },
+  {
+   "claimId": "ctx_history",
+   "value": "history, not a forecast",
+   "display": "history, not a forecast",
+   "unit": "gen bảo vệ",
+   "formula": "gen bảo vệ",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.4"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  }
+ ]
+}

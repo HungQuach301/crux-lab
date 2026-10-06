@@ -62,7 +62,7 @@ def main():
     raw['threshold_joint_min_metro'] = min(thr, key=thr.get); raw['threshold_joint_max_metro'] = max(thr, key=thr.get)
     for c in P['countCutoffs']:
         raw[f'metros_threshold_under_{c // 1000}k'] = sum(1 for v in thr.values() if v < c)
-    raw['metros_threshold_under_300k_names'] = sorted(n for n, v in thr.items() if v < 300000)
+        raw[f'metros_threshold_under_{c // 1000}k_names'] = sorted(n for n, v in thr.items() if v < c)   # K3.8: mọi mốc
     for price in PRICES:
         k = price // 1000
         raw[f'metros_crossed_at_{k}k'] = sum(1 for n in SERIES if raw[f'cross_quarter_at_{k}k_{n}'])

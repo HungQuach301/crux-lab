@@ -33,19 +33,19 @@
    "result": "ĐẠT",
    "value": 0,
    "threshold": "0 khung thiếu nhãn",
-   "note": "408 khung log (mỗi 6 khung)"
+   "note": "2403 khung log (mỗi 6 khung)"
   },
   {
    "item": "master đối trọng \"A home that rose like the metro average\"",
    "result": "ĐẠT",
-   "value": 1470,
+   "value": 2376,
    "threshold": "≥ 30 khung (1 s)",
    "note": ""
   },
   {
    "item": "master đối trọng \"A measurement, not a tax bill or a next step\"",
    "result": "ĐẠT",
-   "value": 840,
+   "value": 1980,
    "threshold": "≥ 30 khung (1 s)",
    "note": ""
   },
@@ -58,17 +58,17 @@
   },
   {
    "item": "freezedetect d=3 ∩ lời",
-   "result": "ĐẠT",
-   "value": 0,
+   "result": "TRƯỢT",
+   "value": 36.7,
    "threshold": "0 s",
-   "note": "0 đoạn đứng yên ≥ 3 s cả phim: []"
+   "note": "9 đoạn đứng yên ≥ 3 s cả phim: [[52.7333, 56.6], [82.7, 86.5667], [86.5667, 90.6333]]"
   },
   {
    "item": "mốc hình ≥ mốc từ",
    "result": "ĐẠT",
    "value": 0,
    "threshold": "0",
-   "note": "32 mốc"
+   "note": "146 mốc"
   },
   {
    "item": "loudness",
@@ -80,16 +80,205 @@
   {
    "item": "kích thước phần",
    "result": "ĐẠT",
-   "value": 7.2,
+   "value": 45.15,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
+  },
+  {
+   "item": "SH1 thời lượng",
+   "result": "ĐẠT",
+   "value": 35.1,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH1 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "789 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH1 tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH1 vùng an toàn",
+   "result": "TRƯỢT",
+   "value": 137,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": "[{\"t\": 6.2, \"s\": \"Gain on paper: $200,000 home that rose like the Phoenix average\", \"out_px\": 836.5}, {\"t\": 6.4, \"s\": \"Gain on paper: $200,000 home that rose like the Phoenix average\", \"out_px\": 836.6}, {\"t\": 6.6, \"s\": \"Gain on paper: $200,000 home that rose like the Phoenix average\", \"out_px\": 836.8}]"
+  },
+  {
+   "item": "SH1 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "176 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH1 đối trọng \"A home that rose like the metro average\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"A measurement, not a tax bill or a next step\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 loudness",
+   "result": "ĐẠT",
+   "value": "-14.3 LUFS / -1.5 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "SH2 thời lượng",
+   "result": "ĐẠT",
+   "value": 22.533,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH2 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "2647 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH2 tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH2 vùng an toàn",
+   "result": "TRƯỢT",
+   "value": 99,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": "[{\"t\": 1.2, \"s\": \"$300,000 in 2000, homes that rose like their metro average\", \"out_px\": 674.7}, {\"t\": 1.4, \"s\": \"$300,000 in 2000, homes that rose like their metro average\", \"out_px\": 674.7}, {\"t\": 1.6, \"s\": \"$300,000 in 2000, homes that rose like their metro average\", \"out_px\": 674.8}]"
+  },
+  {
+   "item": "SH2 va chạm nhãn",
+   "result": "TRƯỢT",
+   "value": 284,
+   "threshold": "0",
+   "note": "[{\"s\": \"Miami\", \"with\": \"Los Angeles\"}, {\"s\": \"Miami\", \"with\": \"Los Angeles\"}, {\"s\": \"Miami\", \"with\": \"Los Angeles\"}]"
+  },
+  {
+   "item": "SH2 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "114 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH2 đối trọng \"A home that rose like the metro average\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"A measurement, not a tax bill or a next step\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 loudness",
+   "result": "ĐẠT",
+   "value": "-13.9 LUFS / -1.5 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "SH3 thời lượng",
+   "result": "ĐẠT",
+   "value": 25.733,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH3 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "565 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH3 tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH3 vùng an toàn",
+   "result": "TRƯỢT",
+   "value": 94,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": "[{\"t\": 5.6, \"s\": \"Miami: $300,000 home that rose like the Miami average\", \"out_px\": 568.5}, {\"t\": 5.8, \"s\": \"Miami: $300,000 home that rose like the Miami average\", \"out_px\": 568.6}, {\"t\": 6, \"s\": \"Miami: $300,000 home that rose like the Miami average\", \"out_px\": 568.7}]"
+  },
+  {
+   "item": "SH3 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH3 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "130 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH3 đối trọng \"A home that rose like the metro average\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 đối trọng \"A measurement, not a tax bill or a next step\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 loudness",
+   "result": "ĐẠT",
+   "value": "-13.6 LUFS / -1.5 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
   },
   {
    "item": "luật format",
    "result": "ĐẠT",
    "value": "lab",
-   "threshold": "scope excerpt",
-   "note": "đoạn trích: bỏ qua thời lượng/mid-roll"
+   "threshold": "scope full",
+   "note": "lab: 478 s < soft minimum 540 s (không độn: shorter is fine, never pad)"
   }
  ],
  "near": [
@@ -102,7 +291,22 @@
    "item": "loudness TP",
    "value": -1.5,
    "threshold": -1.5
+  },
+  {
+   "item": "SH1 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  },
+  {
+   "item": "SH2 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  },
+  {
+   "item": "SH3 sàn chữ",
+   "value": 56,
+   "threshold": 56
   }
  ],
- "pass": true
+ "pass": false
 }

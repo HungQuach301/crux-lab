@@ -70,15 +70,15 @@ S03.4 | They are plain dollar amounts, and they haven't changed since. | excl_jo
 
 ## S04 — Rosa and Frank, and the sentence Frank always says · 279 chars, 54 words
 
-S04.1 | Back to Rosa and Frank. | — | The couple returns (ILLUSTRATIVE badge).
+S04.1 | Back to Frank and Rosa. | — | The couple returns (ILLUSTRATIVE badge).
 S04.2 | In 2000, they paid $200,000 for a house in Phoenix. | buy_year, illustrative_price_200k_usd | Price tag on the door: "$200,000 · 2000" with ILLUSTRATIVE badge.
-S04.3 | The kids have moved out, and on weekends they both look at smaller places. |  | Phone in Rosa's hand scrolling small-home listings (no prices visible).
+S04.3 | Their kids have moved out, and on weekends they both look at smaller places. |  | Phone in Rosa's hand scrolling small-home listings (no prices visible).
 S04.4 | Whenever selling comes up, Frank says the same thing: at least the profit is tax-free. | — | Speech bubble from Frank: "At least it's tax-free."
 S04.5 | [thoughtful] Is it? Has their gain passed the cap? | excl_joint_limit_usd | The bubble gets a question mark. Flat cap line above the house again. *(hold 1 s)*
 
 ## S05 — How the house is replayed (one mechanism sentence) · 255 chars, 46 words
 
-S05.1 | We can't see their house, so we let its value rise exactly like the Phoenix-area home price index from the Federal Housing Finance Agency, an average of many sales. | growth_phoenix | The house becomes a dot riding on a thin blue line (`accent` = market index), label "Phoenix-area home price index (FHFA)".
+S05.1 | We can't see their house, so we let its value rise exactly like the Phoenix area home price index from the Federal Housing Finance Agency, an average of many sales. | growth_phoenix | The house becomes a dot riding on a thin blue line (`accent` = market index), label "Phoenix-area home price index (FHFA)".
 S05.2 | We follow it quarter by quarter, from 2000 to the second quarter of 2026, the latest data. | buy_year, sale_quarter | Axis ticks one per quarter, labels only "2000" and "2nd quarter 2026". Small source line "FHFA via FRED".
 
 ## S06 — Act 1 journey: the flat line and the climbing line · 450 chars, 84 words
@@ -94,10 +94,10 @@ S06.6 | From the second quarter of 2023, it has stayed above. | stay_quarter_at_
 
 S07.1 | [serious] So, on paper, if their home rose like the Phoenix average, this is the gain from the opening. | gain_at_200k_phoenix | ILLUSTRATIVE $200,000 purchase. The end of the gain line gets the label from the opening, "≈ $558,100 gain" (ILLUSTRATIVE badge), sitting visibly above "$500,000 cap". *(hold 1.2 s)*
 S07.2 | That's past the cap. | gain_at_200k_phoenix, excl_joint_limit_usd | ILLUSTRATIVE $200,000 purchase. The sliver between the two labels glows `warn`. No number on it.
-S07.3 | Phoenix-area prices are now almost 3.8 times their 2000 level. | growth_phoenix, buy_year | Small ratio bar beside the chart: "×3.8 since 2000" (rounded label; claim 3.7903).
+S07.3 | Phoenix area prices are now almost 3.8 times their 2000 level. | growth_phoenix, buy_year | Small ratio bar beside the chart: "×3.8 since 2000" (rounded label; claim 3.7903).
 S07.4 | And it's a gain, not a tax bill: improvements and selling costs would both shrink it. | — | Two small blocks ("improvements", "selling costs") press down on the end of the gain line; it lowers a little; no new number.
 S07.5 | The cap stood still while their gain climbed past it. | excl_joint_limit_usd | Pull back to the full chart: flat line, climbing line, `warn` tail.
-S07.6 | Is Phoenix unusual, or would the same thing happen in other cities? | — | The chart shrinks to one tile among 12 blank tiles. *(hold 1.5 s — **MR1**)*
+S07.6 | So is Phoenix unusual, or would the same thing happen in other cities? | — | The chart shrinks to one tile among 12 blank tiles. *(hold 1.5 s — **MR1**)*
 
 ## S08 — Act 2 opens: why the line is flat · 306 chars, 58 words
 

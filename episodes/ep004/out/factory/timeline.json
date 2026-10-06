@@ -1,51 +1,765 @@
 {
  "fps": 30,
- "total": 81.2334,
+ "total": 477.5999,
  "scenes": [
   {
-   "id": "S08",
+   "id": "S01",
    "start": 0.0,
-   "dur": 28.0667
+   "dur": 25.1333
+  },
+  {
+   "id": "S02",
+   "start": 25.1333,
+   "dur": 24.2333
+  },
+  {
+   "id": "S03",
+   "start": 49.3666,
+   "dur": 27.2333
+  },
+  {
+   "id": "S04",
+   "start": 76.5999,
+   "dur": 22.6667
+  },
+  {
+   "id": "S05",
+   "start": 99.2666,
+   "dur": 17.6
+  },
+  {
+   "id": "S06",
+   "start": 116.8666,
+   "dur": 34.2
+  },
+  {
+   "id": "S07",
+   "start": 151.0666,
+   "dur": 29.7333
+  },
+  {
+   "id": "S08",
+   "start": 180.7999,
+   "dur": 29.7667
+  },
+  {
+   "id": "S09",
+   "start": 210.5666,
+   "dur": 21.8
+  },
+  {
+   "id": "S10",
+   "start": 232.3666,
+   "dur": 21.2333
+  },
+  {
+   "id": "S11",
+   "start": 253.5999,
+   "dur": 24.8333
+  },
+  {
+   "id": "S12",
+   "start": 278.4332,
+   "dur": 17.2667
   },
   {
    "id": "S13",
-   "start": 28.0667,
-   "dur": 17.2
+   "start": 295.6999,
+   "dur": 20.2333
   },
   {
    "id": "S14",
-   "start": 45.2667,
-   "dur": 35.9667
+   "start": 315.9332,
+   "dur": 34.1333
+  },
+  {
+   "id": "S15",
+   "start": 350.0665,
+   "dur": 40.6667
+  },
+  {
+   "id": "S16",
+   "start": 390.7332,
+   "dur": 29.3333
+  },
+  {
+   "id": "S17",
+   "start": 420.0665,
+   "dur": 26.4667
+  },
+  {
+   "id": "S18",
+   "start": 446.5332,
+   "dur": 11.4667
+  },
+  {
+   "id": "S19",
+   "start": 457.9999,
+   "dur": 19.6
   }
  ],
  "shots": [
   {
+   "id": "S01-gain",
+   "scene": "S01",
+   "template": "bignum",
+   "t0": 0.0,
+   "t1": 8.2333,
+   "p": {
+    "claim": "gain_at_200k_phoenix",
+    "at": 0.369,
+    "caption": "gain on paper · {illustrative_price_200k_usd} home that rose like the Phoenix average",
+    "captionAt": 3.587,
+    "sub": "more than the tax-free cap: {excl_joint_limit_usd}",
+    "subAt": 5.328,
+    "illustrative": true
+   }
+  },
+  {
+   "id": "S01-couple",
+   "scene": "S01",
+   "template": "person",
+   "t0": 8.2333,
+   "t1": 15.5333,
+   "p": {
+    "at": 0.0067,
+    "caption": [
+     "Rosa & Frank · Phoenix",
+     "bought in {buy_year} for {illustrative_price_200k_usd}",
+     "if their home rose like the Phoenix average"
+    ],
+    "ats": [
+     0.0067,
+     3.5607,
+     5.1267
+    ]
+   }
+  },
+  {
+   "id": "S01-promise",
+   "scene": "S01",
+   "template": "title",
+   "t0": 15.5333,
+   "t1": 25.1333,
+   "p": {
+    "at": 0.0,
+    "kicker": "US only",
+    "lines": [
+     "City by city: the {buy_year} price",
+     "where the gain passes the cap",
+     "your {buy_year} price → check it against your city"
+    ],
+    "ats": [
+     0.0,
+     6.1127,
+     7.9467
+    ]
+   }
+  },
+  {
+   "id": "S02-limits",
+   "scene": "S02",
+   "template": "title",
+   "t0": 25.1333,
+   "t1": 49.3666,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "A line, not a tax bill · not a reason to sell or keep",
+     "US federal tax only · state tax not modeled",
+     "Illustrative couples · use test: {ownership_use_test}",
+     "History, not a forecast"
+    ],
+    "ats": [
+     0.0,
+     6.256,
+     11.413,
+     19.44
+    ]
+   }
+  },
+  {
+   "id": "S03-gain",
+   "scene": "S03",
+   "template": "title",
+   "t0": 49.3666,
+   "t1": 56.5999,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "gain = sale price − what you paid − improvements"
+    ],
+    "ats": [
+     1.104
+    ]
+   }
+  },
+  {
+   "id": "S03-caps",
+   "scene": "S03",
+   "template": "bars",
+   "t0": 56.5999,
+   "t1": 76.5999,
+   "p": {
+    "at": 0.0067,
+    "title": "Tax-free cap on the gain · since {exclusion_effective_month}",
+    "items": [
+     {
+      "label": "married, joint",
+      "claim": "excl_joint_limit_usd",
+      "role": "muted",
+      "at": 0.3267
+     },
+     {
+      "label": "single",
+      "claim": "excl_single_limit_usd",
+      "role": "muted",
+      "at": 7.1327
+     }
+    ]
+   }
+  },
+  {
+   "id": "S04-couple",
+   "scene": "S04",
+   "template": "person",
+   "t0": 76.5999,
+   "t1": 99.2666,
+   "p": {
+    "at": 0.0,
+    "caption": [
+     "Rosa & Frank · Phoenix",
+     "paid {illustrative_price_200k_usd} in {buy_year}",
+     "“At least it’s tax-free.”",
+     "Is it?"
+    ],
+    "ats": [
+     0.0,
+     3.376,
+     14.933,
+     17.68
+    ]
+   }
+  },
+  {
+   "id": "S05-index",
+   "scene": "S05",
+   "template": "line",
+   "t0": 99.2666,
+   "t1": 116.8666,
+   "p": {
+    "series": "index.phoenix",
+    "title": "Phoenix-area home price index (FHFA via FRED)",
+    "at0": 3.81,
+    "at1": 17.2,
+    "historical": true
+   }
+  },
+  {
+   "id": "S06-cross",
+   "scene": "S06",
+   "template": "line",
+   "t0": 116.8666,
+   "t1": 151.0666,
+   "p": {
+    "series": "gain200.phoenix",
+    "level": "excl_joint_limit_usd",
+    "levelLabel": "{excl_joint_limit_usd} cap",
+    "levelAt": 0.0,
+    "title": "Gain on paper: {illustrative_price_200k_usd} home that rose like the Phoenix average",
+    "at0": 6.14,
+    "at1": 29.427,
+    "illustrative": true,
+    "historical": true
+   }
+  },
+  {
+   "id": "S07-gain",
+   "scene": "S07",
+   "template": "bignum",
+   "t0": 151.0666,
+   "t1": 158.7999,
+   "p": {
+    "claim": "gain_at_200k_phoenix",
+    "at": 4.144,
+    "caption": "past the {excl_joint_limit_usd} cap",
+    "captionAt": 5.376,
+    "sub": "a home that rose like the Phoenix average",
+    "subAt": 4.144,
+    "illustrative": true
+   }
+  },
+  {
+   "id": "S07-growth",
+   "scene": "S07",
+   "template": "bignum",
+   "t0": 158.7999,
+   "t1": 163.3999,
+   "p": {
+    "claim": "growth_phoenix",
+    "at": 1.5927,
+    "caption": "Phoenix-area prices since {buy_year}",
+    "captionAt": 3.3467
+   }
+  },
+  {
+   "id": "S07-not",
+   "scene": "S07",
+   "template": "title",
+   "t0": 163.3999,
+   "t1": 169.4999,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "A gain, not a tax bill",
+     "improvements and selling costs would shrink it"
+    ],
+    "ats": [
+     0.0,
+     2.9157
+    ]
+   }
+  },
+  {
+   "id": "S07-line",
+   "scene": "S07",
+   "template": "line",
+   "t0": 169.4999,
+   "t1": 174.1666,
+   "p": {
+    "series": "gain200.phoenix",
+    "level": "excl_joint_limit_usd",
+    "levelLabel": "{excl_joint_limit_usd} cap",
+    "at0": 0.0,
+    "at1": 1.1867,
+    "title": "Gain on paper: {illustrative_price_200k_usd} home that rose like the Phoenix average",
+    "illustrative": true,
+    "historical": true
+   }
+  },
+  {
+   "id": "S07-q",
+   "scene": "S07",
+   "template": "title",
+   "t0": 174.1666,
+   "t1": 180.7999,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "Is Phoenix unusual?",
+     "Would the same happen in other cities?"
+    ],
+    "ats": [
+     0.0,
+     2.78
+    ]
+   }
+  },
+  {
    "id": "S08-shadow",
    "scene": "S08",
    "template": "N1",
-   "t0": 0.0,
-   "t1": 28.0667,
+   "t0": 180.7999,
+   "t1": 210.5666,
    "p": {
     "at": 0.0,
-    "noteAt": 5.108,
-    "at0": 6.534,
-    "at1": 12.681,
-    "labelAt": 12.681,
-    "footAt": 6.534,
-    "bigAt": 17.788
+    "noteAt": 5.414,
+    "at0": 6.881,
+    "at1": 13.668,
+    "labelAt": 13.668,
+    "footAt": 6.881,
+    "bigAt": 19.334
+   }
+  },
+  {
+   "id": "S09-bars",
+   "scene": "S09",
+   "template": "bars",
+   "t0": 210.5666,
+   "t1": 221.6666,
+   "p": {
+    "at": 3.57,
+    "title": "{illustrative_price_200k_usd} in {buy_year}, homes that rose like their metro average",
+    "items": [
+     {
+      "label": "Chicago",
+      "claim": "gain_at_200k_chicago",
+      "role": "ink",
+      "at": 0.0
+     },
+     {
+      "label": "San Francisco",
+      "claim": "gain_at_200k_san_francisco",
+      "role": "ink",
+      "at": 0.15
+     },
+     {
+      "label": "San Jose",
+      "claim": "gain_at_200k_san_jose",
+      "role": "ink",
+      "at": 0.3
+     },
+     {
+      "label": "Denver",
+      "claim": "gain_at_200k_denver",
+      "role": "ink",
+      "at": 0.45
+     },
+     {
+      "label": "Boston",
+      "claim": "gain_at_200k_boston",
+      "role": "ink",
+      "at": 0.6
+     },
+     {
+      "label": "Dallas",
+      "claim": "gain_at_200k_dallas",
+      "role": "ink",
+      "at": 0.75
+     },
+     {
+      "label": "New York",
+      "claim": "gain_at_200k_new_york",
+      "role": "ink",
+      "at": 0.9
+     },
+     {
+      "label": "Seattle",
+      "claim": "gain_at_200k_seattle",
+      "role": "warn",
+      "at": 1.05
+     },
+     {
+      "label": "Phoenix",
+      "claim": "gain_at_200k_phoenix",
+      "role": "warn",
+      "at": 1.2
+     },
+     {
+      "label": "San Diego",
+      "claim": "gain_at_200k_san_diego",
+      "role": "warn",
+      "at": 1.35
+     },
+     {
+      "label": "Los Angeles",
+      "claim": "gain_at_200k_los_angeles",
+      "role": "warn",
+      "at": 1.5
+     },
+     {
+      "label": "Miami",
+      "claim": "gain_at_200k_miami",
+      "role": "warn",
+      "at": 1.65
+     }
+    ]
+   }
+  },
+  {
+   "id": "S09-count",
+   "scene": "S09",
+   "template": "bars",
+   "t0": 221.6666,
+   "t1": 232.3666,
+   "p": {
+    "at": 0,
+    "title": "{metros_crossed_at_200k} of {metro_count} past the cap · homes that rose like their metro average",
+    "items": [
+     {
+      "label": "Chicago",
+      "claim": "gain_at_200k_chicago",
+      "role": "ink",
+      "at": 0
+     },
+     {
+      "label": "San Francisco",
+      "claim": "gain_at_200k_san_francisco",
+      "role": "ink",
+      "at": 0
+     },
+     {
+      "label": "San Jose",
+      "claim": "gain_at_200k_san_jose",
+      "role": "ink",
+      "at": 0
+     },
+     {
+      "label": "Denver",
+      "claim": "gain_at_200k_denver",
+      "role": "ink",
+      "at": 0
+     },
+     {
+      "label": "Boston",
+      "claim": "gain_at_200k_boston",
+      "role": "ink",
+      "at": 0
+     },
+     {
+      "label": "Dallas",
+      "claim": "gain_at_200k_dallas",
+      "role": "ink",
+      "at": 0
+     },
+     {
+      "label": "New York",
+      "claim": "gain_at_200k_new_york",
+      "role": "ink",
+      "at": 0
+     },
+     {
+      "label": "Seattle",
+      "claim": "gain_at_200k_seattle",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Phoenix",
+      "claim": "gain_at_200k_phoenix",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "San Diego",
+      "claim": "gain_at_200k_san_diego",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Los Angeles",
+      "claim": "gain_at_200k_los_angeles",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Miami",
+      "claim": "gain_at_200k_miami",
+      "role": "warn",
+      "at": 0
+     }
+    ]
+   }
+  },
+  {
+   "id": "S10-bars",
+   "scene": "S10",
+   "template": "bars",
+   "t0": 232.3666,
+   "t1": 235.4333,
+   "p": {
+    "at": 1.0,
+    "title": "{illustrative_price_300k_usd} in {buy_year}, homes that rose like their metro average",
+    "items": [
+     {
+      "label": "Chicago",
+      "claim": "gain_at_300k_chicago",
+      "role": "ink",
+      "at": 0.0
+     },
+     {
+      "label": "San Francisco",
+      "claim": "gain_at_300k_san_francisco",
+      "role": "warn",
+      "at": 0.15
+     },
+     {
+      "label": "San Jose",
+      "claim": "gain_at_300k_san_jose",
+      "role": "warn",
+      "at": 0.3
+     },
+     {
+      "label": "Denver",
+      "claim": "gain_at_300k_denver",
+      "role": "warn",
+      "at": 0.45
+     },
+     {
+      "label": "Boston",
+      "claim": "gain_at_300k_boston",
+      "role": "warn",
+      "at": 0.6
+     },
+     {
+      "label": "Dallas",
+      "claim": "gain_at_300k_dallas",
+      "role": "warn",
+      "at": 0.75
+     },
+     {
+      "label": "New York",
+      "claim": "gain_at_300k_new_york",
+      "role": "warn",
+      "at": 0.9
+     },
+     {
+      "label": "Seattle",
+      "claim": "gain_at_300k_seattle",
+      "role": "warn",
+      "at": 1.05
+     },
+     {
+      "label": "Phoenix",
+      "claim": "gain_at_300k_phoenix",
+      "role": "warn",
+      "at": 1.2
+     },
+     {
+      "label": "San Diego",
+      "claim": "gain_at_300k_san_diego",
+      "role": "warn",
+      "at": 1.35
+     },
+     {
+      "label": "Los Angeles",
+      "claim": "gain_at_300k_los_angeles",
+      "role": "warn",
+      "at": 1.5
+     },
+     {
+      "label": "Miami",
+      "claim": "gain_at_300k_miami",
+      "role": "warn",
+      "at": 1.65
+     }
+    ]
+   }
+  },
+  {
+   "id": "S10-count",
+   "scene": "S10",
+   "template": "bars",
+   "t0": 235.4333,
+   "t1": 253.5999,
+   "p": {
+    "at": 0,
+    "title": "{metros_crossed_at_300k} of {metro_count} past the cap · homes that rose like their metro average",
+    "items": [
+     {
+      "label": "Chicago",
+      "claim": "gain_at_300k_chicago",
+      "role": "ink",
+      "at": 0
+     },
+     {
+      "label": "San Francisco",
+      "claim": "gain_at_300k_san_francisco",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "San Jose",
+      "claim": "gain_at_300k_san_jose",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Denver",
+      "claim": "gain_at_300k_denver",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Boston",
+      "claim": "gain_at_300k_boston",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Dallas",
+      "claim": "gain_at_300k_dallas",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "New York",
+      "claim": "gain_at_300k_new_york",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Seattle",
+      "claim": "gain_at_300k_seattle",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Phoenix",
+      "claim": "gain_at_300k_phoenix",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "San Diego",
+      "claim": "gain_at_300k_san_diego",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Los Angeles",
+      "claim": "gain_at_300k_los_angeles",
+      "role": "warn",
+      "at": 0
+     },
+     {
+      "label": "Miami",
+      "claim": "gain_at_300k_miami",
+      "role": "warn",
+      "at": 0
+     }
+    ]
+   }
+  },
+  {
+   "id": "S11-miami",
+   "scene": "S11",
+   "template": "line",
+   "t0": 253.5999,
+   "t1": 278.4332,
+   "p": {
+    "series": "gain300.miami",
+    "level": "excl_joint_limit_usd",
+    "levelLabel": "{excl_joint_limit_usd} cap",
+    "levelAt": 0.0,
+    "title": "Miami: {illustrative_price_300k_usd} home that rose like the Miami average",
+    "at0": 5.38,
+    "at1": 20.36,
+    "illustrative": true,
+    "historical": true
+   }
+  },
+  {
+   "id": "S12-flip",
+   "scene": "S12",
+   "template": "title",
+   "t0": 278.4332,
+   "t1": 295.6999,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "Not just the coasts: Dallas and Denver crossed too",
+     "So flip the question:",
+     "what {buy_year} price puts the gain exactly at the cap?"
+    ],
+    "ats": [
+     0.0,
+     6.853,
+     8.624
+    ]
    }
   },
   {
    "id": "S13-phoenix",
    "scene": "S13",
    "template": "bignum",
-   "t0": 28.0667,
-   "t1": 35.5667,
+   "t0": 295.6999,
+   "t1": 303.1666,
    "p": {
     "claim": "threshold_joint_phoenix",
-    "at": 3.413,
+    "at": 4.147,
     "caption": "Phoenix · {buy_year} price where the gain reaches the cap",
-    "captionAt": 0.13,
+    "captionAt": 0.16,
     "historical": true
    }
   },
@@ -53,31 +767,31 @@
    "id": "S13-ruler",
    "scene": "S13",
    "template": "N2",
-   "t0": 35.5667,
-   "t1": 45.2667,
+   "t0": 303.1666,
+   "t1": 315.9332,
    "p": {
     "mode": "phoenix",
-    "at": 0.004,
-    "dotAt": 0.004,
-    "splitAt": 4.14,
-    "underAt": 6.207,
-    "overAt": 8.004,
+    "at": 0.0053,
+    "dotAt": 0.0053,
+    "splitAt": 6.0933,
+    "underAt": 8.8933,
+    "overAt": 11.1573,
     "labels": [
      {
       "text": "Paid more in {buy_year} → bigger gain",
-      "at": 0.004,
+      "at": 0.0053,
       "x": 1000,
       "y": 420
      },
      {
       "text": "→ over the cap",
-      "at": 0.004,
+      "at": 0.0053,
       "x": 1000,
       "y": 476
      },
      {
       "text": "A measurement, not a tax bill or a next step",
-      "at": 0.004,
+      "at": 0.0053,
       "x": 96,
       "y": 1016,
       "size": 40
@@ -89,24 +803,24 @@
    "id": "S14-ladder",
    "scene": "S14",
    "template": "N2",
-   "t0": 45.2667,
-   "t1": 81.2334,
+   "t0": 315.9332,
+   "t1": 350.0665,
    "p": {
     "mode": "ladder",
     "at": 0.0,
     "rungsAt0": 0.54,
-    "rungsAt1": 7.017,
-    "minAt": 8.64,
-    "maxAt": 11.52,
-    "barsAt": 13.897,
-    "gMinAt": 17.667,
-    "gMaxAt": 19.11,
-    "refAt": 23.093,
-    "titleAt": 25.088,
+    "rungsAt1": 6.389,
+    "minAt": 7.707,
+    "maxAt": 10.41,
+    "barsAt": 12.857,
+    "gMinAt": 16.227,
+    "gMaxAt": 17.84,
+    "refAt": 22.787,
+    "titleAt": 24.72,
     "labels": [
      {
       "text": "Each rung: the {buy_year} price where the gain hits the cap",
-      "at": 7.017,
+      "at": 6.389,
       "x": 96,
       "y": 100,
       "size": 40
@@ -120,1663 +834,9408 @@
      },
      {
       "text": "Every city but",
-      "at": 23.093,
+      "at": 22.787,
       "x": 1470,
       "y": 560,
       "size": 40
      },
      {
       "text": "Chicago is",
-      "at": 23.093,
+      "at": 22.787,
       "x": 1470,
       "y": 608,
       "size": 40
      },
      {
       "text": "under {illustrative_price_300k_usd}",
-      "at": 23.093,
+      "at": 22.787,
       "x": 1470,
       "y": 656,
       "size": 40
      }
     ]
    }
+  },
+  {
+   "id": "S15-q",
+   "scene": "S15",
+   "template": "title",
+   "t0": 350.0665,
+   "t1": 357.4332,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "Bought in {buy_year}: still fully tax-free?"
+    ],
+    "ats": [
+     0.0
+    ]
+   }
+  },
+  {
+   "id": "S15-phx",
+   "scene": "S15",
+   "template": "line",
+   "t0": 357.4332,
+   "t1": 366.8332,
+   "p": {
+    "series": "gain200.phoenix",
+    "level": "excl_joint_limit_usd",
+    "levelLabel": "{excl_joint_limit_usd} cap",
+    "at0": 0.0,
+    "at1": 1.1933,
+    "title": "If their home rose like the Phoenix average: gain {gain_at_200k_phoenix}",
+    "illustrative": true,
+    "historical": true
+   }
+  },
+  {
+   "id": "S15-ladder",
+   "scene": "S15",
+   "template": "N2",
+   "t0": 366.8332,
+   "t1": 380.1998,
+   "p": {
+    "mode": "ladder",
+    "at": 0.0133,
+    "rungsAt0": 0.0133,
+    "rungsAt1": 0.8133,
+    "labels": [
+     {
+      "text": "Your {buy_year} price vs your city's rung",
+      "at": 0.0133,
+      "x": 96,
+      "y": 100,
+      "size": 40
+     },
+     {
+      "text": "Above the rung:",
+      "at": 6.3003,
+      "x": 1470,
+      "y": 560,
+      "size": 40
+     },
+     {
+      "text": "past the cap.",
+      "at": 6.3003,
+      "x": 1470,
+      "y": 608,
+      "size": 40
+     },
+     {
+      "text": "Below it: not.",
+      "at": 10.6203,
+      "x": 1470,
+      "y": 656,
+      "size": 40
+     },
+     {
+      "text": "Not proof of tax, or of none",
+      "at": 12.5133,
+      "x": 96,
+      "y": 1016,
+      "size": 40
+     }
+    ]
+   }
+  },
+  {
+   "id": "S15-measure",
+   "scene": "S15",
+   "template": "title",
+   "t0": 380.1998,
+   "t1": 390.7332,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "This video measures one line.",
+     "It says nothing about what anyone does next."
+    ],
+    "ats": [
+     0.0,
+     3.0397
+    ]
+   }
+  },
+  {
+   "id": "S16-side",
+   "scene": "S16",
+   "template": "title",
+   "t0": 390.7332,
+   "t1": 400.2999,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "Your side: what you paid + improvements",
+     "Selling costs come off the gain too"
+    ],
+    "ats": [
+     0.0,
+     5.31
+    ]
+   }
+  },
+  {
+   "id": "S16-us",
+   "scene": "S16",
+   "template": "bars",
+   "t0": 400.2999,
+   "t1": 420.0665,
+   "p": {
+    "at": 0.0,
+    "title": "National line · {buy_year} price",
+    "items": [
+     {
+      "label": "US, married joint",
+      "claim": "threshold_joint_us",
+      "role": "ink",
+      "at": 5.7803
+     },
+     {
+      "label": "US, single",
+      "claim": "threshold_single_us",
+      "role": "ink",
+      "at": 14.9003
+     }
+    ]
+   }
+  },
+  {
+   "id": "S17-bill",
+   "scene": "S17",
+   "template": "title",
+   "t0": 420.0665,
+   "t1": 431.4998,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "Not a tax bill",
+     "Above the cap: {long_term_gain_rule}",
+     "rate depends on income · state tax not modeled"
+    ],
+    "ats": [
+     0.0,
+     1.84,
+     8.693
+    ]
+   }
+  },
+  {
+   "id": "S17-avg",
+   "scene": "S17",
+   "template": "title",
+   "t0": 431.4998,
+   "t1": 439.4665,
+   "p": {
+    "at": 0.0067,
+    "lines": [
+     "The average is not your home",
+     "street, remodel, purchase month: far from your rung"
+    ],
+    "ats": [
+     0.0067,
+     1.6387
+    ]
+   }
+  },
+  {
+   "id": "S17-next",
+   "scene": "S17",
+   "template": "title",
+   "t0": 439.4665,
+   "t1": 446.5332,
+   "p": {
+    "at": 0.0,
+    "lines": [
+     "This video measures the line.",
+     "It doesn't say whether to sell."
+    ],
+    "ats": [
+     0.0,
+     3.272
+    ]
+   }
+  },
+  {
+   "id": "S18-method",
+   "scene": "S18",
+   "template": "method",
+   "t0": 446.5332,
+   "t1": 457.9999,
+   "p": {
+    "at": 0.0,
+    "title": "How we know this",
+    "lines": [
+     "FHFA all-transactions indexes via FRED (metro divisions)",
+     "{buy_year} = average of its four quarters · sale: {sale_quarter}",
+     "gain = price × index growth − price · no improvements, no fees",
+     "US federal only · married, joint · use test assumed met",
+     "Indexes are revised every quarter · CPI-U from {exclusion_effective_month}",
+     "Not covered: surviving spouse · heirs (value at death)"
+    ]
+   }
+  },
+  {
+   "id": "S19-hist",
+   "scene": "S19",
+   "template": "line",
+   "t0": 457.9999,
+   "t1": 469.0332,
+   "p": {
+    "series": "gain200.phoenix",
+    "level": "excl_joint_limit_usd",
+    "levelLabel": "{excl_joint_limit_usd} cap",
+    "at0": 0.0,
+    "at1": 1.5,
+    "title": "{buy_year} → {sale_quarter}: history, not a forecast",
+    "illustrative": true,
+    "historical": true
+   }
+  },
+  {
+   "id": "S19-flat",
+   "scene": "S19",
+   "template": "title",
+   "t0": 469.0332,
+   "t1": 475.5999,
+   "p": {
+    "at": 0.0067,
+    "lines": [
+     "The cap: the same flat line since {exclusion_effective_month}",
+     "What moved is the house under it"
+    ],
+    "ats": [
+     0.0067,
+     3.9317
+    ]
+   }
+  },
+  {
+   "id": "S19-end",
+   "scene": "S19",
+   "template": "endcard",
+   "t0": 475.5999,
+   "t1": 477.5999,
+   "p": {
+    "at": 0,
+    "next": "Next: one more rule, tested on real data"
+   }
   }
  ],
  "sentences": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "text": "[serious] About $558,100 in paper profit, more than a couple can take tax-free.",
+   "spoken": "[serious] About five hundred fifty-eight thousand one hundred dollars in paper profit, more than a couple can take tax-free.",
+   "start": 0.0,
+   "end": 8.08
+  },
+  {
+   "id": "S01.2",
+   "scene": "S01",
+   "text": "That's Rosa and Frank, an illustrative Phoenix couple who bought in 2000, if their home rose like the average.",
+   "spoken": "That's Rosa and Frank, an illustrative Phoenix couple who bought in two thousand, if their home rose like the average.",
+   "start": 8.24,
+   "end": 15.36
+  },
+  {
+   "id": "S01.3",
+   "scene": "S01",
+   "text": "You'll know, city by city, the 2000 price where a home that rose like its metro area's average passes that cap, to check yours against.",
+   "spoken": "You'll know, city by city, the two thousand price where a home that rose like its metro area's average passes that cap, to check yours against.",
+   "start": 15.52,
+   "end": 24.72
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "text": "It's a line for a home like the average: not anyone's tax bill, and not a reason to sell or keep.",
+   "spoken": "It's a line for a home like the average: not anyone's tax bill, and not a reason to sell or keep.",
+   "start": 25.133,
+   "end": 31.213
+  },
+  {
+   "id": "S02.2",
+   "scene": "S02",
+   "text": "This is US only: federal tax, with state taxes not modeled.",
+   "spoken": "This is U.S. only: federal tax, with state taxes not modeled.",
+   "start": 31.389,
+   "end": 36.413
+  },
+  {
+   "id": "S02.3",
+   "scene": "S02",
+   "text": "Every couple here is illustrative, and assumed to have owned and lived in the home two of the five years before selling.",
+   "spoken": "Every couple here is illustrative, and assumed to have owned and lived in the home two of the five years before selling.",
+   "start": 36.546,
+   "end": 44.413
+  },
+  {
+   "id": "S02.4",
+   "scene": "S02",
+   "text": "And every price you'll see is history, not a forecast.",
+   "spoken": "And every price you'll see is history, not a forecast.",
+   "start": 44.573,
+   "end": 48.573
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "text": "When you sell, your gain is the sale price, less what you paid, and less what you spent improving the place.",
+   "spoken": "When you sell, your gain is the sale price, less what you paid, and less what you spent improving the place.",
+   "start": 49.367,
+   "end": 56.327
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "text": "A married couple filing jointly can leave up to $500,000 of that gain off their taxes, and a single seller can leave out $250,000.",
+   "spoken": "A married couple filing jointly can leave up to five hundred thousand dollars of that gain off their taxes, and a single seller can leave out two hundred fifty thousand dollars.",
+   "start": 56.607,
+   "end": 67.367
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "text": "Those caps took effect in May 1997.",
+   "spoken": "Those caps took effect in May nineteen ninety-seven.",
+   "start": 67.554,
+   "end": 71.767
+  },
+  {
+   "id": "S03.4",
+   "scene": "S03",
+   "text": "They are plain dollar amounts, and they haven't changed since.",
+   "spoken": "They are plain dollar amounts, and they haven't changed since.",
+   "start": 71.895,
+   "end": 76.007
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "text": "Back to Frank and Rosa.",
+   "spoken": "Back to Frank and Rosa.",
+   "start": 76.6,
+   "end": 77.72
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "text": "In 2000, they paid $200,000 for a house in Phoenix.",
+   "spoken": "In two thousand, they paid two hundred thousand dollars for a house in Phoenix.",
+   "start": 78.173,
+   "end": 82.92
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "text": "Their kids have moved out, and on weekends they both look at smaller places.",
+   "spoken": "Their kids have moved out, and on weekends they both look at smaller places.",
+   "start": 83.0,
+   "end": 87.56
+  },
+  {
+   "id": "S04.4",
+   "scene": "S04",
+   "text": "Whenever selling comes up, Frank says the same thing: at least the profit is tax-free.",
+   "spoken": "Whenever selling comes up, Frank says the same thing: at least the profit is tax-free.",
+   "start": 87.649,
+   "end": 93.72
+  },
+  {
+   "id": "S04.5",
+   "scene": "S04",
+   "text": "[thoughtful] Is it? Has their gain passed the cap?",
+   "spoken": "[thoughtful] Is it? Has their gain passed the cap?",
+   "start": 94.28,
+   "end": 98.28
+  },
+  {
+   "id": "S05.1",
+   "scene": "S05",
+   "text": "We can't see their house, so we let its value rise exactly like the Phoenix area home price index from the Federal Housing Finance Agency, an average of many sales.",
+   "spoken": "We can't see their house, so we let its value rise exactly like the Phoenix area home price index from the Federal Housing Finance Agency, an average of many sales.",
+   "start": 99.267,
+   "end": 109.587
+  },
+  {
+   "id": "S05.2",
+   "scene": "S05",
+   "text": "We follow it quarter by quarter, from 2000 to the second quarter of 2026, the latest data.",
+   "spoken": "We follow it quarter by quarter, from two thousand to the second quarter of twenty twenty-six, the latest data.",
+   "start": 109.8,
+   "end": 116.467
+  },
+  {
+   "id": "S06.1",
+   "scene": "S06",
+   "text": "Here's the cap: a flat line at $500,000, the same in every quarter.",
+   "spoken": "Here's the cap: a flat line at five hundred thousand dollars, the same in every quarter.",
+   "start": 116.867,
+   "end": 122.787
+  },
+  {
+   "id": "S06.2",
+   "scene": "S06",
+   "text": "And here's their gain on paper, for a home that rose like the average: the $200,000, grown with the index, less the $200,000 they paid.",
+   "spoken": "And here's their gain on paper, for a home that rose like the average: the two hundred thousand dollars, grown with the index, less the two hundred thousand dollars they paid.",
+   "start": 123.007,
+   "end": 135.267
+  },
+  {
+   "id": "S06.3",
+   "scene": "S06",
+   "text": "For most of these years, it sits well under the line.",
+   "spoken": "For most of these years, it sits well under the line.",
+   "start": 135.427,
+   "end": 138.947
+  },
+  {
+   "id": "S06.4",
+   "scene": "S06",
+   "text": "Then, in the second quarter of 2022, it crosses.",
+   "spoken": "Then, in the second quarter of twenty twenty-two, it crosses.",
+   "start": 139.059,
+   "end": 143.027
+  },
+  {
+   "id": "S06.5",
+   "scene": "S06",
+   "text": "It slips back under for a while.",
+   "spoken": "It slips back under for a while.",
+   "start": 143.294,
+   "end": 145.587
+  },
+  {
+   "id": "S06.6",
+   "scene": "S06",
+   "text": "From the second quarter of 2023, it has stayed above.",
+   "spoken": "From the second quarter of twenty twenty-three, it has stayed above.",
+   "start": 145.683,
+   "end": 150.067
+  },
+  {
+   "id": "S07.1",
+   "scene": "S07",
+   "text": "[serious] So, on paper, if their home rose like the Phoenix average, this is the gain from the opening.",
+   "spoken": "[serious] So, on paper, if their home rose like the Phoenix average, this is the gain from the opening.",
+   "start": 151.067,
+   "end": 156.267
+  },
+  {
+   "id": "S07.2",
+   "scene": "S07",
+   "text": "That's past the cap.",
+   "spoken": "That's past the cap.",
+   "start": 156.443,
+   "end": 158.707
+  },
+  {
+   "id": "S07.3",
+   "scene": "S07",
+   "text": "Phoenix area prices are now almost 3.8 times their 2000 level.",
+   "spoken": "Phoenix area prices are now almost three point eight times their two thousand level.",
+   "start": 158.792,
+   "end": 163.307
+  },
+  {
+   "id": "S07.4",
+   "scene": "S07",
+   "text": "And it's a gain, not a tax bill: improvements and selling costs would both shrink it.",
+   "spoken": "And it's a gain, not a tax bill: improvements and selling costs would both shrink it.",
+   "start": 163.387,
+   "end": 169.307
+  },
+  {
+   "id": "S07.5",
+   "scene": "S07",
+   "text": "The cap stood still while their gain climbed past it.",
+   "spoken": "The cap stood still while their gain climbed past it.",
+   "start": 169.487,
+   "end": 173.787
+  },
+  {
+   "id": "S07.6",
+   "scene": "S07",
+   "text": "So is Phoenix unusual, or would the same thing happen in other cities?",
+   "spoken": "So is Phoenix unusual, or would the same thing happen in other cities?",
+   "start": 174.16,
+   "end": 179.307
+  },
   {
    "id": "S08.1",
    "scene": "S08",
    "text": "First, why is the line flat?",
    "spoken": "First, why is the line flat?",
-   "start": 0.0,
-   "end": 1.841
+   "start": 180.8,
+   "end": 182.641
   },
   {
    "id": "S08.2",
    "scene": "S08",
    "text": "The cap is written as a plain dollar amount, and it has never been adjusted.",
    "spoken": "The cap is written as a plain dollar amount, and it has never been adjusted.",
-   "start": 2.021,
-   "end": 6.321
+   "start": 182.921,
+   "end": 187.441
   },
   {
    "id": "S08.3",
    "scene": "S08",
    "text": "If $500,000 from May 1997 had kept up with consumer prices, it would be about $1,046,000 in August 2026 dollars.",
    "spoken": "If five hundred thousand dollars from May nineteen ninety-seven had kept up with consumer prices, it would be about one million forty-six thousand dollars in August twenty twenty-six dollars.",
-   "start": 6.534,
-   "end": 17.761
+   "start": 187.681,
+   "end": 199.841
   },
   {
    "id": "S08.4",
    "scene": "S08",
    "text": "It's everyday prices, not house prices, but it shows why a cap that never moves covers less and less of a long-held home's gain.",
    "spoken": "It's everyday prices, not house prices, but it shows why a cap that never moves covers less and less of a long-held home's gain.",
-   "start": 17.788,
-   "end": 26.881
+   "start": 200.134,
+   "end": 209.361
+  },
+  {
+   "id": "S09.1",
+   "scene": "S09",
+   "text": "Now run the same replay in 12 big metro areas: illustrative couples, each paying $200,000 in 2000 for a home that rose like its metro area's average.",
+   "spoken": "Now run the same replay in twelve big metro areas: illustrative couples, each paying two hundred thousand dollars in two thousand for a home that rose like its metro area's average.",
+   "start": 210.567,
+   "end": 221.367
+  },
+  {
+   "id": "S09.2",
+   "scene": "S09",
+   "text": "By the second quarter of 2026, the gain is past the cap in 5 of them.",
+   "spoken": "By the second quarter of twenty twenty-six, the gain is past the cap in five of them.",
+   "start": 221.66,
+   "end": 227.287
+  },
+  {
+   "id": "S09.3",
+   "scene": "S09",
+   "text": "Los Angeles, San Diego, Seattle, Miami and Phoenix.",
+   "spoken": "Los Angeles, San Diego, Seattle, Miami and Phoenix.",
+   "start": 227.427,
+   "end": 231.767
+  },
+  {
+   "id": "S10.1",
+   "scene": "S10",
+   "text": "Now give every couple $300,000 instead.",
+   "spoken": "Now give every couple three hundred thousand dollars instead.",
+   "start": 232.367,
+   "end": 235.327
+  },
+  {
+   "id": "S10.2",
+   "scene": "S10",
+   "text": "This time, for homes that rose like their metro area's average, the gain is past the cap in 11 of the 12.",
+   "spoken": "This time, for homes that rose like their metro area's average, the gain is past the cap in eleven of the twelve.",
+   "start": 235.423,
+   "end": 242.607
+  },
+  {
+   "id": "S10.3",
+   "scene": "S10",
+   "text": "Boston, New York, Denver, Dallas and both Bay Area markets join the first five.",
+   "spoken": "Boston, New York, Denver, Dallas and both Bay Area markets join the first five.",
+   "start": 242.778,
+   "end": 249.687
+  },
+  {
+   "id": "S10.4",
+   "scene": "S10",
+   "text": "Only Chicago hasn't reached the cap, at either price.",
+   "spoken": "Only Chicago hasn't reached the cap, at either price.",
+   "start": 249.791,
+   "end": 253.007
+  },
+  {
+   "id": "S11.1",
+   "scene": "S11",
+   "text": "[curious] And crossing isn't always a one-way trip.",
+   "spoken": "[curious] And crossing isn't always a one-way trip.",
+   "start": 253.6,
+   "end": 256.28
+  },
+  {
+   "id": "S11.2",
+   "scene": "S11",
+   "text": "In Miami, a $300,000 home that rose like the average first passed the cap in the fourth quarter of 2006.",
+   "spoken": "In Miami, a three hundred thousand dollars home that rose like the average first passed the cap in the fourth quarter of two thousand six.",
+   "start": 256.48,
+   "end": 265.6
+  },
+  {
+   "id": "S11.3",
+   "scene": "S11",
+   "text": "Then it fell back under, and has only stayed above since the second quarter of 2019.",
+   "spoken": "Then it fell back under, and has only stayed above since the second quarter of twenty nineteen.",
+   "start": 265.728,
+   "end": 272.16
+  },
+  {
+   "id": "S11.4",
+   "scene": "S11",
+   "text": "Being past the line once, on paper, didn't mean staying past it.",
+   "spoken": "Being past the line once, on paper, didn't mean staying past it.",
+   "start": 272.307,
+   "end": 277.44
+  },
+  {
+   "id": "S12.1",
+   "scene": "S12",
+   "text": "So Phoenix isn't unusual, and it isn't only the coasts: Dallas and Denver crossed too.",
+   "spoken": "So Phoenix isn't unusual, and it isn't only the coasts: Dallas and Denver crossed too.",
+   "start": 278.433,
+   "end": 284.913
+  },
+  {
+   "id": "S12.2",
+   "scene": "S12",
+   "text": "So flip the question.",
+   "spoken": "So flip the question.",
+   "start": 285.286,
+   "end": 286.913
+  },
+  {
+   "id": "S12.3",
+   "scene": "S12",
+   "text": "What 2000 purchase price would put a home that rose like its metro area's average exactly at the cap now?",
+   "spoken": "What two thousand purchase price would put a home that rose like its metro area's average exactly at the cap now?",
+   "start": 287.057,
+   "end": 294.913
   },
   {
    "id": "S13.1",
    "scene": "S13",
    "text": "In Phoenix, for a home that rose like the average, that price is about $179,200.",
    "spoken": "In Phoenix, for a home that rose like the average, that price is about one hundred seventy-nine thousand two hundred dollars.",
-   "start": 28.067,
-   "end": 35.507
+   "start": 295.7,
+   "end": 302.98
   },
   {
    "id": "S13.2",
    "scene": "S13",
    "text": "Rosa and Frank paid more than that, and that's why their line crossed.",
    "spoken": "Rosa and Frank paid more than that, and that's why their line crossed.",
-   "start": 35.571,
-   "end": 39.587
+   "start": 303.172,
+   "end": 309.06
   },
   {
    "id": "S13.3",
    "scene": "S13",
    "text": "Below that price, a Phoenix home is still under the cap; above it, it's over.",
    "spoken": "Below that price, a Phoenix home is still under the cap; above it, it's over.",
-   "start": 39.707,
-   "end": 44.067
+   "start": 309.26,
+   "end": 314.74
   },
   {
    "id": "S14.1",
    "scene": "S14",
    "text": "Do that for all 12 metro areas, each for a home that rose like its metro area's average, and you get a ladder of prices.",
    "spoken": "Do that for all twelve metro areas, each for a home that rose like its metro area's average, and you get a ladder of prices.",
-   "start": 45.267,
-   "end": 53.667
+   "start": 315.933,
+   "end": 323.453
   },
   {
    "id": "S14.2",
    "scene": "S14",
    "text": "Miami sits at the bottom of the ladder, and Chicago at the top.",
    "spoken": "Miami sits at the bottom of the ladder, and Chicago at the top.",
-   "start": 53.907,
-   "end": 58.387
+   "start": 323.64,
+   "end": 328.013
   },
   {
    "id": "S14.3",
    "scene": "S14",
    "text": "The faster an area's prices rose, the lower its rung: Miami's rose the most, Chicago's the least.",
    "spoken": "The faster an area's prices rose, the lower its rung: Miami's rose the most, Chicago's the least.",
-   "start": 58.567,
-   "end": 65.667
+   "start": 328.193,
+   "end": 335.453
   },
   {
    "id": "S14.4",
    "scene": "S14",
    "text": "Every city except Chicago sits under $300,000.",
    "spoken": "Every city except Chicago sits under three hundred thousand dollars.",
-   "start": 65.787,
-   "end": 70.227
+   "start": 335.6,
+   "end": 340.573
   },
   {
    "id": "S14.5",
    "scene": "S14",
    "text": "That's the cap, read a third way: not as a flat line, but as a price paid in 2000 that anyone can look up.",
    "spoken": "That's the cap, read a third way: not as a flat line, but as a price paid in two thousand that anyone can look up.",
-   "start": 70.355,
-   "end": 79.747
+   "start": 340.653,
+   "end": 348.573
+  },
+  {
+   "id": "S15.1",
+   "scene": "S15",
+   "text": "So, back to the opening question: is selling a home bought in 2000 still fully tax-free?",
+   "spoken": "So, back to the opening question: is selling a home bought in two thousand still fully tax-free?",
+   "start": 350.067,
+   "end": 356.707
+  },
+  {
+   "id": "S15.2",
+   "scene": "S15",
+   "text": "[serious] For Rosa and Frank, if their house rose like its metro area's average, not fully: part of their gain sits above the cap.",
+   "spoken": "[serious] For Rosa and Frank, if their house rose like its metro area's average, not fully: part of their gain sits above the cap.",
+   "start": 357.427,
+   "end": 366.627
+  },
+  {
+   "id": "S15.3",
+   "scene": "S15",
+   "text": "For you, it may come down to one comparison: your 2000 price against your city's rung.",
+   "spoken": "For you, it may come down to one comparison: your two thousand price against your city's rung.",
+   "start": 366.846,
+   "end": 373.026
+  },
+  {
+   "id": "S15.4",
+   "scene": "S15",
+   "text": "Above that rung, a home like that has already passed the cap. Below it, it hasn't.",
+   "spoken": "Above that rung, a home like that has already passed the cap. Below it, it hasn't.",
+   "start": 373.134,
+   "end": 379.187
+  },
+  {
+   "id": "S15.5",
+   "scene": "S15",
+   "text": "Below the rung isn't proof of no tax, and above it isn't proof of a large one. The video measures one line; it says nothing about what anyone does next.",
+   "spoken": "Below the rung isn't proof of no tax, and above it isn't proof of a large one. The video measures one line; it says nothing about what anyone does next.",
+   "start": 379.346,
+   "end": 390.147
+  },
+  {
+   "id": "S16.1",
+   "scene": "S16",
+   "text": "Your side of it is what you paid plus improvements, which count toward what the gain is measured from.",
+   "spoken": "Your side of it is what you paid plus improvements, which count toward what the gain is measured from.",
+   "start": 390.733,
+   "end": 395.933
+  },
+  {
+   "id": "S16.2",
+   "scene": "S16",
+   "text": "Selling costs, like agent fees, come off the gain too.",
+   "spoken": "Selling costs, like agent fees, come off the gain too.",
+   "start": 396.043,
+   "end": 400.173
+  },
+  {
+   "id": "S16.3",
+   "scene": "S16",
+   "text": "Outside these cities, the national index puts the line, for a home like the average, at about $243,500.",
+   "spoken": "Outside these cities, the national index puts the line, for a home like the average, at about two hundred forty-three thousand five hundred dollars.",
+   "start": 400.293,
+   "end": 409.453
+  },
+  {
+   "id": "S16.4",
+   "scene": "S16",
+   "text": "For a single seller, with the $250,000 cap, the national line is about $121,700.",
+   "spoken": "For a single seller, with the two hundred fifty thousand dollars cap, the national line is about one hundred twenty-one thousand seven hundred dollars.",
+   "start": 409.593,
+   "end": 419.053
+  },
+  {
+   "id": "S17.1",
+   "scene": "S17",
+   "text": "None of this is anyone's tax bill.",
+   "spoken": "None of this is anyone's tax bill.",
+   "start": 420.067,
+   "end": 421.747
+  },
+  {
+   "id": "S17.2",
+   "scene": "S17",
+   "text": "Gain above the cap is taxed as a long-term capital gain, since the home was held more than a year, at a rate that depends on income and state.",
+   "spoken": "Gain above the cap is taxed as a long-term capital gain, since the home was held more than a year, at a rate that depends on income and state.",
+   "start": 421.906,
+   "end": 431.427
+  },
+  {
+   "id": "S17.3",
+   "scene": "S17",
+   "text": "And the average is not your home: your street, your remodel and your purchase month can put you far from your rung.",
+   "spoken": "And the average is not your home: your street, your remodel and your purchase month can put you far from your rung.",
+   "start": 431.507,
+   "end": 439.346
+  },
+  {
+   "id": "S17.4",
+   "scene": "S17",
+   "text": "The line is a measurement, not a next step; this video doesn't weigh selling, keeping or waiting.",
+   "spoken": "The line is a measurement, not a next step; this video doesn't weigh selling, keeping or waiting.",
+   "start": 439.466,
+   "end": 445.747
+  },
+  {
+   "id": "S18.1",
+   "scene": "S18",
+   "text": "How we built this is on screen and in the description.",
+   "spoken": "How we built this is on screen and in the description.",
+   "start": 446.533,
+   "end": 449.493
+  },
+  {
+   "id": "S18.2",
+   "scene": "S18",
+   "text": "The price indexes are revised every quarter, so these lines can move a little with the next release.",
+   "spoken": "The price indexes are revised every quarter, so these lines can move a little with the next release.",
+   "start": 449.773,
+   "end": 455.493
+  },
+  {
+   "id": "S19.1",
+   "scene": "S19",
+   "text": "This is history, not a forecast: where prices went from 2000 to the second quarter of 2026, not where they, or the cap, go next.",
+   "spoken": "This is history, not a forecast: where prices went from two thousand to the second quarter of twenty twenty-six, not where they, or the cap, go next.",
+   "start": 458.0,
+   "end": 468.72
+  },
+  {
+   "id": "S19.2",
+   "scene": "S19",
+   "text": "[thoughtful] The cap is still the same flat line it was in 1997.",
+   "spoken": "[thoughtful] The cap is still the same flat line it was in nineteen ninety-seven.",
+   "start": 469.04,
+   "end": 472.805
+  },
+  {
+   "id": "S19.3",
+   "scene": "S19",
+   "text": "What moved is the house underneath it.",
+   "spoken": "What moved is the house underneath it.",
+   "start": 472.965,
+   "end": 475.605
   }
  ],
  "words": [
   {
-   "w": "First,",
+   "w": "[serious]",
    "s": 0.0,
-   "e": 0.4,
+   "e": 0.347,
+   "sid": "S01.1"
+  },
+  {
+   "w": "About",
+   "s": 0.369,
+   "e": 0.48,
+   "sid": "S01.1"
+  },
+  {
+   "w": "five",
+   "s": 0.544,
+   "e": 0.8,
+   "sid": "S01.1"
+  },
+  {
+   "w": "hundred",
+   "s": 0.84,
+   "e": 1.12,
+   "sid": "S01.1"
+  },
+  {
+   "w": "fifty-eight",
+   "s": 1.213,
+   "e": 1.76,
+   "sid": "S01.1"
+  },
+  {
+   "w": "thousand",
+   "s": 1.822,
+   "e": 2.32,
+   "sid": "S01.1"
+  },
+  {
+   "w": "one",
+   "s": 2.4,
+   "e": 2.64,
+   "sid": "S01.1"
+  },
+  {
+   "w": "hundred",
+   "s": 2.68,
+   "e": 2.96,
+   "sid": "S01.1"
+  },
+  {
+   "w": "dollars",
+   "s": 3.02,
+   "e": 3.44,
+   "sid": "S01.1"
+  },
+  {
+   "w": "in",
+   "s": 3.467,
+   "e": 3.52,
+   "sid": "S01.1"
+  },
+  {
+   "w": "paper",
+   "s": 3.587,
+   "e": 3.92,
+   "sid": "S01.1"
+  },
+  {
+   "w": "profit,",
+   "s": 3.989,
+   "e": 5.28,
+   "sid": "S01.1"
+  },
+  {
+   "w": "more",
+   "s": 5.328,
+   "e": 5.52,
+   "sid": "S01.1"
+  },
+  {
+   "w": "than",
+   "s": 5.536,
+   "e": 5.6,
+   "sid": "S01.1"
+  },
+  {
+   "w": "a",
+   "s": 5.68,
+   "e": 5.76,
+   "sid": "S01.1"
+  },
+  {
+   "w": "couple",
+   "s": 5.806,
+   "e": 6.08,
+   "sid": "S01.1"
+  },
+  {
+   "w": "can",
+   "s": 6.12,
+   "e": 6.24,
+   "sid": "S01.1"
+  },
+  {
+   "w": "take",
+   "s": 6.304,
+   "e": 6.56,
+   "sid": "S01.1"
+  },
+  {
+   "w": "tax-free.",
+   "s": 6.66,
+   "e": 8.08,
+   "sid": "S01.1"
+  },
+  {
+   "w": "That's",
+   "s": 8.24,
+   "e": 8.96,
+   "sid": "S01.2"
+  },
+  {
+   "w": "Rosa",
+   "s": 9.04,
+   "e": 9.36,
+   "sid": "S01.2"
+  },
+  {
+   "w": "and",
+   "s": 9.38,
+   "e": 9.44,
+   "sid": "S01.2"
+  },
+  {
+   "w": "Frank,",
+   "s": 9.52,
+   "e": 10.24,
+   "sid": "S01.2"
+  },
+  {
+   "w": "an",
+   "s": 10.293,
+   "e": 10.4,
+   "sid": "S01.2"
+  },
+  {
+   "w": "illustrative",
+   "s": 10.45,
+   "e": 10.96,
+   "sid": "S01.2"
+  },
+  {
+   "w": "Phoenix",
+   "s": 11.0,
+   "e": 11.28,
+   "sid": "S01.2"
+  },
+  {
+   "w": "couple",
+   "s": 11.326,
+   "e": 11.6,
+   "sid": "S01.2"
+  },
+  {
+   "w": "who",
+   "s": 11.64,
+   "e": 11.76,
+   "sid": "S01.2"
+  },
+  {
+   "w": "bought",
+   "s": 11.794,
+   "e": 12.0,
+   "sid": "S01.2"
+  },
+  {
+   "w": "in",
+   "s": 12.027,
+   "e": 12.08,
+   "sid": "S01.2"
+  },
+  {
+   "w": "two",
+   "s": 12.12,
+   "e": 12.24,
+   "sid": "S01.2"
+  },
+  {
+   "w": "thousand,",
+   "s": 12.302,
+   "e": 13.28,
+   "sid": "S01.2"
+  },
+  {
+   "w": "if",
+   "s": 13.36,
+   "e": 13.52,
+   "sid": "S01.2"
+  },
+  {
+   "w": "their",
+   "s": 13.56,
+   "e": 13.76,
+   "sid": "S01.2"
+  },
+  {
+   "w": "home",
+   "s": 13.808,
+   "e": 14.0,
+   "sid": "S01.2"
+  },
+  {
+   "w": "rose",
+   "s": 14.048,
+   "e": 14.24,
+   "sid": "S01.2"
+  },
+  {
+   "w": "like",
+   "s": 14.272,
+   "e": 14.4,
+   "sid": "S01.2"
+  },
+  {
+   "w": "the",
+   "s": 14.44,
+   "e": 14.56,
+   "sid": "S01.2"
+  },
+  {
+   "w": "average.",
+   "s": 14.62,
+   "e": 15.36,
+   "sid": "S01.2"
+  },
+  {
+   "w": "You'll",
+   "s": 15.52,
+   "e": 16.16,
+   "sid": "S01.3"
+  },
+  {
+   "w": "know,",
+   "s": 16.208,
+   "e": 16.56,
+   "sid": "S01.3"
+  },
+  {
+   "w": "city",
+   "s": 16.608,
+   "e": 16.8,
+   "sid": "S01.3"
+  },
+  {
+   "w": "by",
+   "s": 16.853,
+   "e": 16.96,
+   "sid": "S01.3"
+  },
+  {
+   "w": "city,",
+   "s": 17.024,
+   "e": 17.68,
+   "sid": "S01.3"
+  },
+  {
+   "w": "the",
+   "s": 17.7,
+   "e": 17.76,
+   "sid": "S01.3"
+  },
+  {
+   "w": "two",
+   "s": 17.8,
+   "e": 17.92,
+   "sid": "S01.3"
+  },
+  {
+   "w": "thousand",
+   "s": 17.964,
+   "e": 18.32,
+   "sid": "S01.3"
+  },
+  {
+   "w": "price",
+   "s": 18.387,
+   "e": 18.72,
+   "sid": "S01.3"
+  },
+  {
+   "w": "where",
+   "s": 18.747,
+   "e": 18.88,
+   "sid": "S01.3"
+  },
+  {
+   "w": "a",
+   "s": 18.92,
+   "e": 18.96,
+   "sid": "S01.3"
+  },
+  {
+   "w": "home",
+   "s": 19.024,
+   "e": 19.28,
+   "sid": "S01.3"
+  },
+  {
+   "w": "that",
+   "s": 19.312,
+   "e": 19.44,
+   "sid": "S01.3"
+  },
+  {
+   "w": "rose",
+   "s": 19.504,
+   "e": 19.76,
+   "sid": "S01.3"
+  },
+  {
+   "w": "like",
+   "s": 19.792,
+   "e": 19.92,
+   "sid": "S01.3"
+  },
+  {
+   "w": "its",
+   "s": 19.96,
+   "e": 20.08,
+   "sid": "S01.3"
+  },
+  {
+   "w": "metro",
+   "s": 20.147,
+   "e": 20.48,
+   "sid": "S01.3"
+  },
+  {
+   "w": "area's",
+   "s": 20.56,
+   "e": 20.96,
+   "sid": "S01.3"
+  },
+  {
+   "w": "average",
+   "s": 21.03,
+   "e": 21.52,
+   "sid": "S01.3"
+  },
+  {
+   "w": "passes",
+   "s": 21.646,
+   "e": 22.4,
+   "sid": "S01.3"
+  },
+  {
+   "w": "that",
+   "s": 22.432,
+   "e": 22.56,
+   "sid": "S01.3"
+  },
+  {
+   "w": "cap,",
+   "s": 22.66,
+   "e": 23.04,
+   "sid": "S01.3"
+  },
+  {
+   "w": "to",
+   "s": 23.173,
+   "e": 23.44,
+   "sid": "S01.3"
+  },
+  {
+   "w": "check",
+   "s": 23.48,
+   "e": 23.68,
+   "sid": "S01.3"
+  },
+  {
+   "w": "yours",
+   "s": 23.72,
+   "e": 23.92,
+   "sid": "S01.3"
+  },
+  {
+   "w": "against.",
+   "s": 23.98,
+   "e": 24.72,
+   "sid": "S01.3"
+  },
+  {
+   "w": "It's",
+   "s": 25.133,
+   "e": 25.293,
+   "sid": "S02.1"
+  },
+  {
+   "w": "a",
+   "s": 25.333,
+   "e": 25.373,
+   "sid": "S02.1"
+  },
+  {
+   "w": "line",
+   "s": 25.421,
+   "e": 25.613,
+   "sid": "S02.1"
+  },
+  {
+   "w": "for",
+   "s": 25.653,
+   "e": 25.773,
+   "sid": "S02.1"
+  },
+  {
+   "w": "a",
+   "s": 25.813,
+   "e": 25.853,
+   "sid": "S02.1"
+  },
+  {
+   "w": "home",
+   "s": 25.917,
+   "e": 26.173,
+   "sid": "S02.1"
+  },
+  {
+   "w": "like",
+   "s": 26.205,
+   "e": 26.333,
+   "sid": "S02.1"
+  },
+  {
+   "w": "the",
+   "s": 26.353,
+   "e": 26.413,
+   "sid": "S02.1"
+  },
+  {
+   "w": "average:",
+   "s": 26.473,
+   "e": 27.213,
+   "sid": "S02.1"
+  },
+  {
+   "w": "not",
+   "s": 27.273,
+   "e": 27.453,
+   "sid": "S02.1"
+  },
+  {
+   "w": "anyone's",
+   "s": 27.499,
+   "e": 27.853,
+   "sid": "S02.1"
+  },
+  {
+   "w": "tax",
+   "s": 27.953,
+   "e": 28.253,
+   "sid": "S02.1"
+  },
+  {
+   "w": "bill,",
+   "s": 28.301,
+   "e": 28.813,
+   "sid": "S02.1"
+  },
+  {
+   "w": "and",
+   "s": 28.933,
+   "e": 29.293,
+   "sid": "S02.1"
+  },
+  {
+   "w": "not",
+   "s": 29.353,
+   "e": 29.533,
+   "sid": "S02.1"
+  },
+  {
+   "w": "a",
+   "s": 29.573,
+   "e": 29.613,
+   "sid": "S02.1"
+  },
+  {
+   "w": "reason",
+   "s": 29.659,
+   "e": 29.933,
+   "sid": "S02.1"
+  },
+  {
+   "w": "to",
+   "s": 29.986,
+   "e": 30.093,
+   "sid": "S02.1"
+  },
+  {
+   "w": "sell",
+   "s": 30.157,
+   "e": 30.413,
+   "sid": "S02.1"
+  },
+  {
+   "w": "or",
+   "s": 30.466,
+   "e": 30.573,
+   "sid": "S02.1"
+  },
+  {
+   "w": "keep.",
+   "s": 30.653,
+   "e": 31.213,
+   "sid": "S02.1"
+  },
+  {
+   "w": "This",
+   "s": 31.389,
+   "e": 32.093,
+   "sid": "S02.2"
+  },
+  {
+   "w": "is",
+   "s": 32.146,
+   "e": 32.253,
+   "sid": "S02.2"
+  },
+  {
+   "w": "U.S.",
+   "s": 32.333,
+   "e": 32.653,
+   "sid": "S02.2"
+  },
+  {
+   "w": "only:",
+   "s": 32.717,
+   "e": 33.053,
+   "sid": "S02.2"
+  },
+  {
+   "w": "federal",
+   "s": 33.153,
+   "e": 33.853,
+   "sid": "S02.2"
+  },
+  {
+   "w": "tax,",
+   "s": 33.973,
+   "e": 34.573,
+   "sid": "S02.2"
+  },
+  {
+   "w": "with",
+   "s": 34.637,
+   "e": 34.893,
+   "sid": "S02.2"
+  },
+  {
+   "w": "state",
+   "s": 34.946,
+   "e": 35.213,
+   "sid": "S02.2"
+  },
+  {
+   "w": "taxes",
+   "s": 35.293,
+   "e": 35.693,
+   "sid": "S02.2"
+  },
+  {
+   "w": "not",
+   "s": 35.753,
+   "e": 35.933,
+   "sid": "S02.2"
+  },
+  {
+   "w": "modeled.",
+   "s": 35.983,
+   "e": 36.413,
+   "sid": "S02.2"
+  },
+  {
+   "w": "Every",
+   "s": 36.546,
+   "e": 37.213,
+   "sid": "S02.3"
+  },
+  {
+   "w": "couple",
+   "s": 37.259,
+   "e": 37.533,
+   "sid": "S02.3"
+  },
+  {
+   "w": "here",
+   "s": 37.581,
+   "e": 37.773,
+   "sid": "S02.3"
+  },
+  {
+   "w": "is",
+   "s": 37.826,
+   "e": 37.933,
+   "sid": "S02.3"
+  },
+  {
+   "w": "illustrative,",
+   "s": 37.983,
+   "e": 39.053,
+   "sid": "S02.3"
+  },
+  {
+   "w": "and",
+   "s": 39.093,
+   "e": 39.213,
+   "sid": "S02.3"
+  },
+  {
+   "w": "assumed",
+   "s": 39.273,
+   "e": 39.693,
+   "sid": "S02.3"
+  },
+  {
+   "w": "to",
+   "s": 39.746,
+   "e": 39.853,
+   "sid": "S02.3"
+  },
+  {
+   "w": "have",
+   "s": 39.869,
+   "e": 39.933,
+   "sid": "S02.3"
+  },
+  {
+   "w": "owned",
+   "s": 40.013,
+   "e": 40.413,
+   "sid": "S02.3"
+  },
+  {
+   "w": "and",
+   "s": 40.473,
+   "e": 40.653,
+   "sid": "S02.3"
+  },
+  {
+   "w": "lived",
+   "s": 40.72,
+   "e": 41.053,
+   "sid": "S02.3"
+  },
+  {
+   "w": "in",
+   "s": 41.08,
+   "e": 41.133,
+   "sid": "S02.3"
+  },
+  {
+   "w": "the",
+   "s": 41.153,
+   "e": 41.213,
+   "sid": "S02.3"
+  },
+  {
+   "w": "home",
+   "s": 41.357,
+   "e": 41.933,
+   "sid": "S02.3"
+  },
+  {
+   "w": "two",
+   "s": 42.053,
+   "e": 42.413,
+   "sid": "S02.3"
+  },
+  {
+   "w": "of",
+   "s": 42.493,
+   "e": 42.653,
+   "sid": "S02.3"
+  },
+  {
+   "w": "the",
+   "s": 42.673,
+   "e": 42.733,
+   "sid": "S02.3"
+  },
+  {
+   "w": "five",
+   "s": 42.797,
+   "e": 43.053,
+   "sid": "S02.3"
+  },
+  {
+   "w": "years",
+   "s": 43.12,
+   "e": 43.453,
+   "sid": "S02.3"
+  },
+  {
+   "w": "before",
+   "s": 43.499,
+   "e": 43.773,
+   "sid": "S02.3"
+  },
+  {
+   "w": "selling.",
+   "s": 43.823,
+   "e": 44.413,
+   "sid": "S02.3"
+  },
+  {
+   "w": "And",
+   "s": 44.573,
+   "e": 45.053,
+   "sid": "S02.4"
+  },
+  {
+   "w": "every",
+   "s": 45.093,
+   "e": 45.293,
+   "sid": "S02.4"
+  },
+  {
+   "w": "price",
+   "s": 45.346,
+   "e": 45.613,
+   "sid": "S02.4"
+  },
+  {
+   "w": "you'll",
+   "s": 45.633,
+   "e": 45.773,
+   "sid": "S02.4"
+  },
+  {
+   "w": "see",
+   "s": 45.833,
+   "e": 46.013,
+   "sid": "S02.4"
+  },
+  {
+   "w": "is",
+   "s": 46.093,
+   "e": 46.253,
+   "sid": "S02.4"
+  },
+  {
+   "w": "history,",
+   "s": 46.313,
+   "e": 47.213,
+   "sid": "S02.4"
+  },
+  {
+   "w": "not",
+   "s": 47.293,
+   "e": 47.533,
+   "sid": "S02.4"
+  },
+  {
+   "w": "a",
+   "s": 47.613,
+   "e": 47.693,
+   "sid": "S02.4"
+  },
+  {
+   "w": "forecast.",
+   "s": 47.773,
+   "e": 48.573,
+   "sid": "S02.4"
+  },
+  {
+   "w": "When",
+   "s": 49.367,
+   "e": 49.447,
+   "sid": "S03.1"
+  },
+  {
+   "w": "you",
+   "s": 49.507,
+   "e": 49.687,
+   "sid": "S03.1"
+  },
+  {
+   "w": "sell,",
+   "s": 49.751,
+   "e": 50.167,
+   "sid": "S03.1"
+  },
+  {
+   "w": "your",
+   "s": 50.215,
+   "e": 50.407,
+   "sid": "S03.1"
+  },
+  {
+   "w": "gain",
+   "s": 50.471,
+   "e": 50.727,
+   "sid": "S03.1"
+  },
+  {
+   "w": "is",
+   "s": 50.78,
+   "e": 50.887,
+   "sid": "S03.1"
+  },
+  {
+   "w": "the",
+   "s": 50.907,
+   "e": 50.967,
+   "sid": "S03.1"
+  },
+  {
+   "w": "sale",
+   "s": 51.031,
+   "e": 51.287,
+   "sid": "S03.1"
+  },
+  {
+   "w": "price,",
+   "s": 51.367,
+   "e": 52.087,
+   "sid": "S03.1"
+  },
+  {
+   "w": "less",
+   "s": 52.167,
+   "e": 52.487,
+   "sid": "S03.1"
+  },
+  {
+   "w": "what",
+   "s": 52.519,
+   "e": 52.647,
+   "sid": "S03.1"
+  },
+  {
+   "w": "you",
+   "s": 52.687,
+   "e": 52.807,
+   "sid": "S03.1"
+  },
+  {
+   "w": "paid,",
+   "s": 52.887,
+   "e": 53.607,
+   "sid": "S03.1"
+  },
+  {
+   "w": "and",
+   "s": 53.727,
+   "e": 54.087,
+   "sid": "S03.1"
+  },
+  {
+   "w": "less",
+   "s": 54.151,
+   "e": 54.407,
+   "sid": "S03.1"
+  },
+  {
+   "w": "what",
+   "s": 54.439,
+   "e": 54.567,
+   "sid": "S03.1"
+  },
+  {
+   "w": "you",
+   "s": 54.607,
+   "e": 54.727,
+   "sid": "S03.1"
+  },
+  {
+   "w": "spent",
+   "s": 54.767,
+   "e": 54.967,
+   "sid": "S03.1"
+  },
+  {
+   "w": "improving",
+   "s": 55.015,
+   "e": 55.447,
+   "sid": "S03.1"
+  },
+  {
+   "w": "the",
+   "s": 55.467,
+   "e": 55.527,
+   "sid": "S03.1"
+  },
+  {
+   "w": "place.",
+   "s": 55.607,
+   "e": 56.327,
+   "sid": "S03.1"
+  },
+  {
+   "w": "A",
+   "s": 56.607,
+   "e": 56.887,
+   "sid": "S03.2"
+  },
+  {
+   "w": "married",
+   "s": 56.927,
+   "e": 57.207,
+   "sid": "S03.2"
+  },
+  {
+   "w": "couple",
+   "s": 57.253,
+   "e": 57.527,
+   "sid": "S03.2"
+  },
+  {
+   "w": "filing",
+   "s": 57.584,
+   "e": 57.927,
+   "sid": "S03.2"
+  },
+  {
+   "w": "jointly",
+   "s": 57.987,
+   "e": 58.407,
+   "sid": "S03.2"
+  },
+  {
+   "w": "can",
+   "s": 58.507,
+   "e": 58.807,
+   "sid": "S03.2"
+  },
+  {
+   "w": "leave",
+   "s": 58.834,
+   "e": 58.967,
+   "sid": "S03.2"
+  },
+  {
+   "w": "up",
+   "s": 59.02,
+   "e": 59.127,
+   "sid": "S03.2"
+  },
+  {
+   "w": "to",
+   "s": 59.18,
+   "e": 59.287,
+   "sid": "S03.2"
+  },
+  {
+   "w": "five",
+   "s": 59.351,
+   "e": 59.607,
+   "sid": "S03.2"
+  },
+  {
+   "w": "hundred",
+   "s": 59.637,
+   "e": 59.847,
+   "sid": "S03.2"
+  },
+  {
+   "w": "thousand",
+   "s": 59.9,
+   "e": 60.327,
+   "sid": "S03.2"
+  },
+  {
+   "w": "dollars",
+   "s": 60.387,
+   "e": 60.807,
+   "sid": "S03.2"
+  },
+  {
+   "w": "of",
+   "s": 60.834,
+   "e": 60.887,
+   "sid": "S03.2"
+  },
+  {
+   "w": "that",
+   "s": 60.919,
+   "e": 61.047,
+   "sid": "S03.2"
+  },
+  {
+   "w": "gain",
+   "s": 61.127,
+   "e": 61.447,
+   "sid": "S03.2"
+  },
+  {
+   "w": "off",
+   "s": 61.587,
+   "e": 62.007,
+   "sid": "S03.2"
+  },
+  {
+   "w": "their",
+   "s": 62.034,
+   "e": 62.167,
+   "sid": "S03.2"
+  },
+  {
+   "w": "taxes,",
+   "s": 62.26,
+   "e": 63.367,
+   "sid": "S03.2"
+  },
+  {
+   "w": "and",
+   "s": 63.427,
+   "e": 63.607,
+   "sid": "S03.2"
+  },
+  {
+   "w": "a",
+   "s": 63.647,
+   "e": 63.687,
+   "sid": "S03.2"
+  },
+  {
+   "w": "single",
+   "s": 63.733,
+   "e": 64.007,
+   "sid": "S03.2"
+  },
+  {
+   "w": "seller",
+   "s": 64.064,
+   "e": 64.407,
+   "sid": "S03.2"
+  },
+  {
+   "w": "can",
+   "s": 64.527,
+   "e": 64.887,
+   "sid": "S03.2"
+  },
+  {
+   "w": "leave",
+   "s": 64.914,
+   "e": 65.047,
+   "sid": "S03.2"
+  },
+  {
+   "w": "out",
+   "s": 65.127,
+   "e": 65.367,
+   "sid": "S03.2"
+  },
+  {
+   "w": "two",
+   "s": 65.407,
+   "e": 65.527,
+   "sid": "S03.2"
+  },
+  {
+   "w": "hundred",
+   "s": 65.557,
+   "e": 65.767,
+   "sid": "S03.2"
+  },
+  {
+   "w": "fifty",
+   "s": 65.847,
+   "e": 66.247,
+   "sid": "S03.2"
+  },
+  {
+   "w": "thousand",
+   "s": 66.291,
+   "e": 66.647,
+   "sid": "S03.2"
+  },
+  {
+   "w": "dollars.",
+   "s": 66.707,
+   "e": 67.367,
+   "sid": "S03.2"
+  },
+  {
+   "w": "Those",
+   "s": 67.554,
+   "e": 68.487,
+   "sid": "S03.3"
+  },
+  {
+   "w": "caps",
+   "s": 68.567,
+   "e": 68.887,
+   "sid": "S03.3"
+  },
+  {
+   "w": "took",
+   "s": 68.919,
+   "e": 69.047,
+   "sid": "S03.3"
+  },
+  {
+   "w": "effect",
+   "s": 69.116,
+   "e": 69.527,
+   "sid": "S03.3"
+  },
+  {
+   "w": "in",
+   "s": 69.634,
+   "e": 69.847,
+   "sid": "S03.3"
+  },
+  {
+   "w": "May",
+   "s": 69.947,
+   "e": 70.247,
+   "sid": "S03.3"
+  },
+  {
+   "w": "nineteen",
+   "s": 70.309,
+   "e": 70.807,
+   "sid": "S03.3"
+  },
+  {
+   "w": "ninety-seven.",
+   "s": 70.853,
+   "e": 71.767,
+   "sid": "S03.3"
+  },
+  {
+   "w": "They",
+   "s": 71.895,
+   "e": 72.407,
+   "sid": "S03.4"
+  },
+  {
+   "w": "are",
+   "s": 72.447,
+   "e": 72.567,
+   "sid": "S03.4"
+  },
+  {
+   "w": "plain",
+   "s": 72.634,
+   "e": 72.967,
+   "sid": "S03.4"
+  },
+  {
+   "w": "dollar",
+   "s": 73.036,
+   "e": 73.447,
+   "sid": "S03.4"
+  },
+  {
+   "w": "amounts,",
+   "s": 73.507,
+   "e": 74.167,
+   "sid": "S03.4"
+  },
+  {
+   "w": "and",
+   "s": 74.187,
+   "e": 74.247,
+   "sid": "S03.4"
+  },
+  {
+   "w": "they",
+   "s": 74.279,
+   "e": 74.407,
+   "sid": "S03.4"
+  },
+  {
+   "w": "haven't",
+   "s": 74.434,
+   "e": 74.647,
+   "sid": "S03.4"
+  },
+  {
+   "w": "changed",
+   "s": 74.727,
+   "e": 75.287,
+   "sid": "S03.4"
+  },
+  {
+   "w": "since.",
+   "s": 75.354,
+   "e": 76.007,
+   "sid": "S03.4"
+  },
+  {
+   "w": "Back",
+   "s": 76.6,
+   "e": 76.68,
+   "sid": "S04.1"
+  },
+  {
+   "w": "to",
+   "s": 76.733,
+   "e": 76.84,
+   "sid": "S04.1"
+  },
+  {
+   "w": "Frank",
+   "s": 76.88,
+   "e": 77.08,
+   "sid": "S04.1"
+  },
+  {
+   "w": "and",
+   "s": 77.12,
+   "e": 77.24,
+   "sid": "S04.1"
+  },
+  {
+   "w": "Rosa.",
+   "s": 77.32,
+   "e": 77.72,
+   "sid": "S04.1"
+  },
+  {
+   "w": "In",
+   "s": 78.173,
+   "e": 79.08,
+   "sid": "S04.2"
+  },
+  {
+   "w": "two",
+   "s": 79.12,
+   "e": 79.24,
+   "sid": "S04.2"
+  },
+  {
+   "w": "thousand,",
+   "s": 79.284,
+   "e": 79.76,
+   "sid": "S04.2"
+  },
+  {
+   "w": "they",
+   "s": 79.784,
+   "e": 79.88,
+   "sid": "S04.2"
+  },
+  {
+   "w": "paid",
+   "s": 79.976,
+   "e": 80.36,
+   "sid": "S04.2"
+  },
+  {
+   "w": "two",
+   "s": 80.4,
+   "e": 80.52,
+   "sid": "S04.2"
+  },
+  {
+   "w": "hundred",
+   "s": 80.55,
+   "e": 80.76,
+   "sid": "S04.2"
+  },
+  {
+   "w": "thousand",
+   "s": 80.796,
+   "e": 81.08,
+   "sid": "S04.2"
+  },
+  {
+   "w": "dollars",
+   "s": 81.14,
+   "e": 81.56,
+   "sid": "S04.2"
+  },
+  {
+   "w": "for",
+   "s": 81.6,
+   "e": 81.72,
+   "sid": "S04.2"
+  },
+  {
+   "w": "a",
+   "s": 81.76,
+   "e": 81.8,
+   "sid": "S04.2"
+  },
+  {
+   "w": "house",
+   "s": 81.84,
+   "e": 82.04,
+   "sid": "S04.2"
+  },
+  {
+   "w": "in",
+   "s": 82.067,
+   "e": 82.12,
+   "sid": "S04.2"
+  },
+  {
+   "w": "Phoenix.",
+   "s": 82.18,
+   "e": 82.92,
+   "sid": "S04.2"
+  },
+  {
+   "w": "Their",
+   "s": 83.0,
+   "e": 83.4,
+   "sid": "S04.3"
+  },
+  {
+   "w": "kids",
+   "s": 83.448,
+   "e": 83.64,
+   "sid": "S04.3"
+  },
+  {
+   "w": "have",
+   "s": 83.656,
+   "e": 83.72,
+   "sid": "S04.3"
+  },
+  {
+   "w": "moved",
+   "s": 83.76,
+   "e": 83.96,
+   "sid": "S04.3"
+  },
+  {
+   "w": "out,",
+   "s": 84.04,
+   "e": 84.76,
+   "sid": "S04.3"
+  },
+  {
+   "w": "and",
+   "s": 84.8,
+   "e": 84.92,
+   "sid": "S04.3"
+  },
+  {
+   "w": "on",
+   "s": 84.947,
+   "e": 85.0,
+   "sid": "S04.3"
+  },
+  {
+   "w": "weekends",
+   "s": 85.062,
+   "e": 85.56,
+   "sid": "S04.3"
+  },
+  {
+   "w": "they",
+   "s": 85.64,
+   "e": 85.96,
+   "sid": "S04.3"
+  },
+  {
+   "w": "both",
+   "s": 85.992,
+   "e": 86.12,
+   "sid": "S04.3"
+  },
+  {
+   "w": "look",
+   "s": 86.152,
+   "e": 86.28,
+   "sid": "S04.3"
+  },
+  {
+   "w": "at",
+   "s": 86.307,
+   "e": 86.36,
+   "sid": "S04.3"
+  },
+  {
+   "w": "smaller",
+   "s": 86.41,
+   "e": 86.76,
+   "sid": "S04.3"
+  },
+  {
+   "w": "places.",
+   "s": 86.829,
+   "e": 87.56,
+   "sid": "S04.3"
+  },
+  {
+   "w": "Whenever",
+   "s": 87.649,
+   "e": 88.36,
+   "sid": "S04.4"
+  },
+  {
+   "w": "selling",
+   "s": 88.4,
+   "e": 88.68,
+   "sid": "S04.4"
+  },
+  {
+   "w": "comes",
+   "s": 88.72,
+   "e": 88.92,
+   "sid": "S04.4"
+  },
+  {
+   "w": "up,",
+   "s": 89.0,
+   "e": 89.48,
+   "sid": "S04.4"
+  },
+  {
+   "w": "Frank",
+   "s": 89.533,
+   "e": 89.8,
+   "sid": "S04.4"
+  },
+  {
+   "w": "says",
+   "s": 89.848,
+   "e": 90.04,
+   "sid": "S04.4"
+  },
+  {
+   "w": "the",
+   "s": 90.08,
+   "e": 90.2,
+   "sid": "S04.4"
+  },
+  {
+   "w": "same",
+   "s": 90.248,
+   "e": 90.44,
+   "sid": "S04.4"
+  },
+  {
+   "w": "thing:",
+   "s": 90.493,
+   "e": 91.48,
+   "sid": "S04.4"
+  },
+  {
+   "w": "at",
+   "s": 91.533,
+   "e": 91.64,
+   "sid": "S04.4"
+  },
+  {
+   "w": "least",
+   "s": 91.68,
+   "e": 91.88,
+   "sid": "S04.4"
+  },
+  {
+   "w": "the",
+   "s": 91.9,
+   "e": 91.96,
+   "sid": "S04.4"
+  },
+  {
+   "w": "profit",
+   "s": 92.029,
+   "e": 92.44,
+   "sid": "S04.4"
+  },
+  {
+   "w": "is",
+   "s": 92.52,
+   "e": 92.68,
+   "sid": "S04.4"
+  },
+  {
+   "w": "tax-free.",
+   "s": 92.76,
+   "e": 93.72,
+   "sid": "S04.4"
+  },
+  {
+   "w": "[thoughtful]",
+   "s": 94.28,
+   "e": 94.96,
+   "sid": "S04.5"
+  },
+  {
+   "w": "Is",
+   "s": 94.973,
+   "e": 95.0,
+   "sid": "S04.5"
+  },
+  {
+   "w": "it?",
+   "s": 95.08,
+   "e": 95.32,
+   "sid": "S04.5"
+  },
+  {
+   "w": "Has",
+   "s": 95.62,
+   "e": 96.52,
+   "sid": "S04.5"
+  },
+  {
+   "w": "their",
+   "s": 96.56,
+   "e": 96.76,
+   "sid": "S04.5"
+  },
+  {
+   "w": "gain",
+   "s": 96.84,
+   "e": 97.16,
+   "sid": "S04.5"
+  },
+  {
+   "w": "passed",
+   "s": 97.24,
+   "e": 97.72,
+   "sid": "S04.5"
+  },
+  {
+   "w": "the",
+   "s": 97.74,
+   "e": 97.8,
+   "sid": "S04.5"
+  },
+  {
+   "w": "cap?",
+   "s": 97.9,
+   "e": 98.28,
+   "sid": "S04.5"
+  },
+  {
+   "w": "We",
+   "s": 99.267,
+   "e": 99.347,
+   "sid": "S05.1"
+  },
+  {
+   "w": "can't",
+   "s": 99.387,
+   "e": 99.587,
+   "sid": "S05.1"
+  },
+  {
+   "w": "see",
+   "s": 99.627,
+   "e": 99.747,
+   "sid": "S05.1"
+  },
+  {
+   "w": "their",
+   "s": 99.774,
+   "e": 99.907,
+   "sid": "S05.1"
+  },
+  {
+   "w": "house,",
+   "s": 99.974,
+   "e": 100.387,
+   "sid": "S05.1"
+  },
+  {
+   "w": "so",
+   "s": 100.494,
+   "e": 100.707,
+   "sid": "S05.1"
+  },
+  {
+   "w": "we",
+   "s": 100.84,
+   "e": 101.107,
+   "sid": "S05.1"
+  },
+  {
+   "w": "let",
+   "s": 101.147,
+   "e": 101.267,
+   "sid": "S05.1"
+  },
+  {
+   "w": "its",
+   "s": 101.307,
+   "e": 101.427,
+   "sid": "S05.1"
+  },
+  {
+   "w": "value",
+   "s": 101.48,
+   "e": 101.747,
+   "sid": "S05.1"
+  },
+  {
+   "w": "rise",
+   "s": 101.843,
+   "e": 102.227,
+   "sid": "S05.1"
+  },
+  {
+   "w": "exactly",
+   "s": 102.297,
+   "e": 102.787,
+   "sid": "S05.1"
+  },
+  {
+   "w": "like",
+   "s": 102.819,
+   "e": 102.947,
+   "sid": "S05.1"
+  },
+  {
+   "w": "the",
+   "s": 102.967,
+   "e": 103.027,
+   "sid": "S05.1"
+  },
+  {
+   "w": "Phoenix",
+   "s": 103.077,
+   "e": 103.427,
+   "sid": "S05.1"
+  },
+  {
+   "w": "area",
+   "s": 103.491,
+   "e": 103.747,
+   "sid": "S05.1"
+  },
+  {
+   "w": "home",
+   "s": 103.795,
+   "e": 103.987,
+   "sid": "S05.1"
+  },
+  {
+   "w": "price",
+   "s": 104.04,
+   "e": 104.307,
+   "sid": "S05.1"
+  },
+  {
+   "w": "index",
+   "s": 104.387,
+   "e": 104.787,
+   "sid": "S05.1"
+  },
+  {
+   "w": "from",
+   "s": 104.883,
+   "e": 105.267,
+   "sid": "S05.1"
+  },
+  {
+   "w": "the",
+   "s": 105.287,
+   "e": 105.347,
+   "sid": "S05.1"
+  },
+  {
+   "w": "Federal",
+   "s": 105.407,
+   "e": 105.827,
+   "sid": "S05.1"
+  },
+  {
+   "w": "Housing",
+   "s": 105.877,
+   "e": 106.227,
+   "sid": "S05.1"
+  },
+  {
+   "w": "Finance",
+   "s": 106.297,
+   "e": 106.787,
+   "sid": "S05.1"
+  },
+  {
+   "w": "Agency,",
+   "s": 106.856,
+   "e": 107.907,
+   "sid": "S05.1"
+  },
+  {
+   "w": "an",
+   "s": 107.96,
+   "e": 108.067,
+   "sid": "S05.1"
+  },
+  {
+   "w": "average",
+   "s": 108.117,
+   "e": 108.467,
+   "sid": "S05.1"
+  },
+  {
+   "w": "of",
+   "s": 108.494,
+   "e": 108.547,
+   "sid": "S05.1"
+  },
+  {
+   "w": "many",
+   "s": 108.595,
+   "e": 108.787,
+   "sid": "S05.1"
+  },
+  {
+   "w": "sales.",
+   "s": 108.88,
+   "e": 109.587,
+   "sid": "S05.1"
+  },
+  {
+   "w": "We",
+   "s": 109.8,
+   "e": 110.227,
+   "sid": "S05.2"
+  },
+  {
+   "w": "follow",
+   "s": 110.273,
+   "e": 110.547,
+   "sid": "S05.2"
+  },
+  {
+   "w": "it",
+   "s": 110.6,
+   "e": 110.707,
+   "sid": "S05.2"
+  },
+  {
+   "w": "quarter",
+   "s": 110.747,
+   "e": 111.027,
+   "sid": "S05.2"
+  },
+  {
+   "w": "by",
+   "s": 111.08,
+   "e": 111.187,
+   "sid": "S05.2"
+  },
+  {
+   "w": "quarter,",
+   "s": 111.247,
+   "e": 111.907,
+   "sid": "S05.2"
+  },
+  {
+   "w": "from",
+   "s": 111.955,
+   "e": 112.147,
+   "sid": "S05.2"
+  },
+  {
+   "w": "two",
+   "s": 112.187,
+   "e": 112.307,
+   "sid": "S05.2"
+  },
+  {
+   "w": "thousand",
+   "s": 112.351,
+   "e": 112.707,
+   "sid": "S05.2"
+  },
+  {
+   "w": "to",
+   "s": 112.787,
+   "e": 112.947,
+   "sid": "S05.2"
+  },
+  {
+   "w": "the",
+   "s": 112.967,
+   "e": 113.027,
+   "sid": "S05.2"
+  },
+  {
+   "w": "second",
+   "s": 113.073,
+   "e": 113.347,
+   "sid": "S05.2"
+  },
+  {
+   "w": "quarter",
+   "s": 113.387,
+   "e": 113.667,
+   "sid": "S05.2"
+  },
+  {
+   "w": "of",
+   "s": 113.694,
+   "e": 113.747,
+   "sid": "S05.2"
+  },
+  {
+   "w": "twenty",
+   "s": 113.781,
+   "e": 113.987,
+   "sid": "S05.2"
+  },
+  {
+   "w": "twenty-six,",
+   "s": 114.033,
+   "e": 115.427,
+   "sid": "S05.2"
+  },
+  {
+   "w": "the",
+   "s": 115.447,
+   "e": 115.507,
+   "sid": "S05.2"
+  },
+  {
+   "w": "latest",
+   "s": 115.564,
+   "e": 115.907,
+   "sid": "S05.2"
+  },
+  {
+   "w": "data.",
+   "s": 115.987,
+   "e": 116.467,
+   "sid": "S05.2"
+  },
+  {
+   "w": "Here's",
+   "s": 116.867,
+   "e": 117.027,
+   "sid": "S06.1"
+  },
+  {
+   "w": "the",
+   "s": 117.047,
+   "e": 117.107,
+   "sid": "S06.1"
+  },
+  {
+   "w": "cap:",
+   "s": 117.207,
+   "e": 118.147,
+   "sid": "S06.1"
+  },
+  {
+   "w": "a",
+   "s": 118.187,
+   "e": 118.227,
+   "sid": "S06.1"
+  },
+  {
+   "w": "flat",
+   "s": 118.307,
+   "e": 118.627,
+   "sid": "S06.1"
+  },
+  {
+   "w": "line",
+   "s": 118.691,
+   "e": 118.947,
+   "sid": "S06.1"
+  },
+  {
+   "w": "at",
+   "s": 119.0,
+   "e": 119.107,
+   "sid": "S06.1"
+  },
+  {
+   "w": "five",
+   "s": 119.171,
+   "e": 119.427,
+   "sid": "S06.1"
+  },
+  {
+   "w": "hundred",
+   "s": 119.457,
+   "e": 119.667,
+   "sid": "S06.1"
+  },
+  {
+   "w": "thousand",
+   "s": 119.72,
+   "e": 120.147,
+   "sid": "S06.1"
+  },
+  {
+   "w": "dollars,",
+   "s": 120.207,
+   "e": 120.867,
+   "sid": "S06.1"
+  },
+  {
+   "w": "the",
+   "s": 120.887,
+   "e": 120.947,
+   "sid": "S06.1"
+  },
+  {
+   "w": "same",
+   "s": 121.059,
+   "e": 121.507,
+   "sid": "S06.1"
+  },
+  {
+   "w": "in",
+   "s": 121.64,
+   "e": 121.907,
+   "sid": "S06.1"
+  },
+  {
+   "w": "every",
+   "s": 121.974,
+   "e": 122.307,
+   "sid": "S06.1"
+  },
+  {
+   "w": "quarter.",
+   "s": 122.357,
+   "e": 122.787,
+   "sid": "S06.1"
+  },
+  {
+   "w": "And",
+   "s": 123.007,
+   "e": 123.667,
+   "sid": "S06.2"
+  },
+  {
+   "w": "here's",
+   "s": 123.699,
+   "e": 123.907,
+   "sid": "S06.2"
+  },
+  {
+   "w": "their",
+   "s": 123.92,
+   "e": 123.987,
+   "sid": "S06.2"
+  },
+  {
+   "w": "gain",
+   "s": 124.051,
+   "e": 124.307,
+   "sid": "S06.2"
+  },
+  {
+   "w": "on",
+   "s": 124.334,
+   "e": 124.387,
+   "sid": "S06.2"
+  },
+  {
+   "w": "paper,",
+   "s": 124.467,
+   "e": 125.347,
+   "sid": "S06.2"
+  },
+  {
+   "w": "for",
+   "s": 125.387,
+   "e": 125.507,
+   "sid": "S06.2"
+  },
+  {
+   "w": "a",
+   "s": 125.547,
+   "e": 125.587,
+   "sid": "S06.2"
+  },
+  {
+   "w": "home",
+   "s": 125.651,
+   "e": 125.907,
+   "sid": "S06.2"
+  },
+  {
+   "w": "that",
+   "s": 125.939,
+   "e": 126.067,
+   "sid": "S06.2"
+  },
+  {
+   "w": "rose",
+   "s": 126.147,
+   "e": 126.467,
+   "sid": "S06.2"
+  },
+  {
+   "w": "like",
+   "s": 126.515,
+   "e": 126.707,
+   "sid": "S06.2"
+  },
+  {
+   "w": "the",
+   "s": 126.727,
+   "e": 126.787,
+   "sid": "S06.2"
+  },
+  {
+   "w": "average:",
+   "s": 126.847,
+   "e": 127.827,
+   "sid": "S06.2"
+  },
+  {
+   "w": "the",
+   "s": 127.847,
+   "e": 127.907,
+   "sid": "S06.2"
+  },
+  {
+   "w": "two",
+   "s": 127.987,
+   "e": 128.227,
+   "sid": "S06.2"
+  },
+  {
+   "w": "hundred",
+   "s": 128.267,
+   "e": 128.547,
+   "sid": "S06.2"
+  },
+  {
+   "w": "thousand",
+   "s": 128.6,
+   "e": 129.027,
+   "sid": "S06.2"
+  },
+  {
+   "w": "dollars,",
+   "s": 129.087,
+   "e": 129.587,
+   "sid": "S06.2"
+  },
+  {
+   "w": "grown",
+   "s": 129.694,
+   "e": 130.227,
+   "sid": "S06.2"
+  },
+  {
+   "w": "with",
+   "s": 130.259,
+   "e": 130.387,
+   "sid": "S06.2"
+  },
+  {
+   "w": "the",
+   "s": 130.407,
+   "e": 130.467,
+   "sid": "S06.2"
+  },
+  {
+   "w": "index,",
+   "s": 130.547,
+   "e": 131.347,
+   "sid": "S06.2"
+  },
+  {
+   "w": "less",
+   "s": 131.427,
+   "e": 131.747,
+   "sid": "S06.2"
+  },
+  {
+   "w": "the",
+   "s": 131.887,
+   "e": 132.307,
+   "sid": "S06.2"
+  },
+  {
+   "w": "two",
+   "s": 132.347,
+   "e": 132.467,
+   "sid": "S06.2"
+  },
+  {
+   "w": "hundred",
+   "s": 132.497,
+   "e": 132.707,
+   "sid": "S06.2"
+  },
+  {
+   "w": "thousand",
+   "s": 132.751,
+   "e": 133.107,
+   "sid": "S06.2"
+  },
+  {
+   "w": "dollars",
+   "s": 133.177,
+   "e": 133.667,
+   "sid": "S06.2"
+  },
+  {
+   "w": "they",
+   "s": 133.763,
+   "e": 134.147,
+   "sid": "S06.2"
+  },
+  {
+   "w": "paid.",
+   "s": 134.243,
+   "e": 135.267,
+   "sid": "S06.2"
+  },
+  {
+   "w": "For",
+   "s": 135.427,
+   "e": 135.907,
+   "sid": "S06.3"
+  },
+  {
+   "w": "most",
+   "s": 135.971,
+   "e": 136.227,
+   "sid": "S06.3"
+  },
+  {
+   "w": "of",
+   "s": 136.254,
+   "e": 136.307,
+   "sid": "S06.3"
+  },
+  {
+   "w": "these",
+   "s": 136.347,
+   "e": 136.547,
+   "sid": "S06.3"
+  },
+  {
+   "w": "years,",
+   "s": 136.614,
+   "e": 137.107,
+   "sid": "S06.3"
+  },
+  {
+   "w": "it",
+   "s": 137.16,
+   "e": 137.267,
+   "sid": "S06.3"
+  },
+  {
+   "w": "sits",
+   "s": 137.315,
+   "e": 137.507,
+   "sid": "S06.3"
+  },
+  {
+   "w": "well",
+   "s": 137.571,
+   "e": 137.827,
+   "sid": "S06.3"
+  },
+  {
+   "w": "under",
+   "s": 137.88,
+   "e": 138.147,
+   "sid": "S06.3"
+  },
+  {
+   "w": "the",
+   "s": 138.167,
+   "e": 138.227,
+   "sid": "S06.3"
+  },
+  {
+   "w": "line.",
+   "s": 138.323,
+   "e": 138.947,
+   "sid": "S06.3"
+  },
+  {
+   "w": "Then,",
+   "s": 139.059,
+   "e": 139.587,
+   "sid": "S06.4"
+  },
+  {
+   "w": "in",
+   "s": 139.614,
+   "e": 139.667,
+   "sid": "S06.4"
+  },
+  {
+   "w": "the",
+   "s": 139.687,
+   "e": 139.747,
+   "sid": "S06.4"
+  },
+  {
+   "w": "second",
+   "s": 139.793,
+   "e": 140.067,
+   "sid": "S06.4"
+  },
+  {
+   "w": "quarter",
+   "s": 140.117,
+   "e": 140.467,
+   "sid": "S06.4"
+  },
+  {
+   "w": "of",
+   "s": 140.494,
+   "e": 140.547,
+   "sid": "S06.4"
+  },
+  {
+   "w": "twenty",
+   "s": 140.593,
+   "e": 140.867,
+   "sid": "S06.4"
+  },
+  {
+   "w": "twenty-two,",
+   "s": 140.901,
+   "e": 141.907,
+   "sid": "S06.4"
+  },
+  {
+   "w": "it",
+   "s": 142.014,
+   "e": 142.227,
+   "sid": "S06.4"
+  },
+  {
+   "w": "crosses.",
+   "s": 142.317,
+   "e": 143.027,
+   "sid": "S06.4"
+  },
+  {
+   "w": "It",
+   "s": 143.294,
+   "e": 143.827,
+   "sid": "S06.5"
+  },
+  {
+   "w": "slips",
+   "s": 143.88,
+   "e": 144.147,
+   "sid": "S06.5"
+  },
+  {
+   "w": "back",
+   "s": 144.195,
+   "e": 144.387,
+   "sid": "S06.5"
+  },
+  {
+   "w": "under",
+   "s": 144.427,
+   "e": 144.627,
+   "sid": "S06.5"
+  },
+  {
+   "w": "for",
+   "s": 144.667,
+   "e": 144.787,
+   "sid": "S06.5"
+  },
+  {
+   "w": "a",
+   "s": 144.827,
+   "e": 144.867,
+   "sid": "S06.5"
+  },
+  {
+   "w": "while.",
+   "s": 144.934,
+   "e": 145.587,
+   "sid": "S06.5"
+  },
+  {
+   "w": "From",
+   "s": 145.683,
+   "e": 146.067,
+   "sid": "S06.6"
+  },
+  {
+   "w": "the",
+   "s": 146.087,
+   "e": 146.147,
+   "sid": "S06.6"
+  },
+  {
+   "w": "second",
+   "s": 146.193,
+   "e": 146.467,
+   "sid": "S06.6"
+  },
+  {
+   "w": "quarter",
+   "s": 146.507,
+   "e": 146.787,
+   "sid": "S06.6"
+  },
+  {
+   "w": "of",
+   "s": 146.814,
+   "e": 146.867,
+   "sid": "S06.6"
+  },
+  {
+   "w": "twenty",
+   "s": 146.913,
+   "e": 147.187,
+   "sid": "S06.6"
+  },
+  {
+   "w": "twenty-three,",
+   "s": 147.233,
+   "e": 148.467,
+   "sid": "S06.6"
+  },
+  {
+   "w": "it",
+   "s": 148.494,
+   "e": 148.547,
+   "sid": "S06.6"
+  },
+  {
+   "w": "has",
+   "s": 148.607,
+   "e": 148.787,
+   "sid": "S06.6"
+  },
+  {
+   "w": "stayed",
+   "s": 148.844,
+   "e": 149.187,
+   "sid": "S06.6"
+  },
+  {
+   "w": "above.",
+   "s": 149.307,
+   "e": 150.067,
+   "sid": "S06.6"
+  },
+  {
+   "w": "[serious]",
+   "s": 151.067,
+   "e": 151.254,
+   "sid": "S07.1"
+  },
+  {
+   "w": "So,",
+   "s": 151.271,
+   "e": 151.387,
+   "sid": "S07.1"
+  },
+  {
+   "w": "on",
+   "s": 151.44,
+   "e": 151.547,
+   "sid": "S07.1"
+  },
+  {
+   "w": "paper,",
+   "s": 151.627,
+   "e": 152.107,
+   "sid": "S07.1"
+  },
+  {
+   "w": "if",
+   "s": 152.16,
+   "e": 152.267,
+   "sid": "S07.1"
+  },
+  {
+   "w": "their",
+   "s": 152.294,
+   "e": 152.427,
+   "sid": "S07.1"
+  },
+  {
+   "w": "home",
+   "s": 152.475,
+   "e": 152.667,
+   "sid": "S07.1"
+  },
+  {
+   "w": "rose",
+   "s": 152.731,
+   "e": 152.987,
+   "sid": "S07.1"
+  },
+  {
+   "w": "like",
+   "s": 153.019,
+   "e": 153.147,
+   "sid": "S07.1"
+  },
+  {
+   "w": "the",
+   "s": 153.167,
+   "e": 153.227,
+   "sid": "S07.1"
+  },
+  {
+   "w": "Phoenix",
+   "s": 153.277,
+   "e": 153.627,
+   "sid": "S07.1"
+  },
+  {
+   "w": "average,",
+   "s": 153.677,
+   "e": 154.507,
+   "sid": "S07.1"
+  },
+  {
+   "w": "this",
+   "s": 154.571,
+   "e": 154.827,
+   "sid": "S07.1"
+  },
+  {
+   "w": "is",
+   "s": 154.907,
+   "e": 155.067,
+   "sid": "S07.1"
+  },
+  {
+   "w": "the",
+   "s": 155.087,
+   "e": 155.147,
+   "sid": "S07.1"
+  },
+  {
+   "w": "gain",
+   "s": 155.211,
+   "e": 155.467,
+   "sid": "S07.1"
+  },
+  {
+   "w": "from",
+   "s": 155.499,
+   "e": 155.627,
+   "sid": "S07.1"
+  },
+  {
+   "w": "the",
+   "s": 155.647,
+   "e": 155.707,
+   "sid": "S07.1"
+  },
+  {
+   "w": "opening.",
+   "s": 155.757,
+   "e": 156.267,
+   "sid": "S07.1"
+  },
+  {
+   "w": "That's",
+   "s": 156.443,
+   "e": 157.227,
+   "sid": "S07.2"
+  },
+  {
+   "w": "past",
+   "s": 157.275,
+   "e": 157.467,
+   "sid": "S07.2"
+  },
+  {
+   "w": "the",
+   "s": 157.507,
+   "e": 157.627,
+   "sid": "S07.2"
+  },
+  {
+   "w": "cap.",
+   "s": 157.727,
+   "e": 158.707,
+   "sid": "S07.2"
+  },
+  {
+   "w": "Phoenix",
+   "s": 158.792,
+   "e": 159.387,
+   "sid": "S07.3"
+  },
+  {
+   "w": "area",
+   "s": 159.435,
+   "e": 159.627,
+   "sid": "S07.3"
+  },
+  {
+   "w": "prices",
+   "s": 159.684,
+   "e": 160.027,
+   "sid": "S07.3"
+  },
+  {
+   "w": "are",
+   "s": 160.067,
+   "e": 160.187,
+   "sid": "S07.3"
+  },
+  {
+   "w": "now",
+   "s": 160.227,
+   "e": 160.347,
+   "sid": "S07.3"
+  },
+  {
+   "w": "almost",
+   "s": 160.393,
+   "e": 160.667,
+   "sid": "S07.3"
+  },
+  {
+   "w": "three",
+   "s": 160.707,
+   "e": 160.907,
+   "sid": "S07.3"
+  },
+  {
+   "w": "point",
+   "s": 160.974,
+   "e": 161.307,
+   "sid": "S07.3"
+  },
+  {
+   "w": "eight",
+   "s": 161.32,
+   "e": 161.387,
+   "sid": "S07.3"
+  },
+  {
+   "w": "times",
+   "s": 161.48,
+   "e": 161.947,
+   "sid": "S07.3"
+  },
+  {
+   "w": "their",
+   "s": 161.974,
+   "e": 162.107,
+   "sid": "S07.3"
+  },
+  {
+   "w": "two",
+   "s": 162.147,
+   "e": 162.267,
+   "sid": "S07.3"
+  },
+  {
+   "w": "thousand",
+   "s": 162.311,
+   "e": 162.667,
+   "sid": "S07.3"
+  },
+  {
+   "w": "level.",
+   "s": 162.72,
+   "e": 163.307,
+   "sid": "S07.3"
+  },
+  {
+   "w": "And",
+   "s": 163.387,
+   "e": 163.627,
+   "sid": "S07.4"
+  },
+  {
+   "w": "it's",
+   "s": 163.68,
+   "e": 163.827,
+   "sid": "S07.4"
+  },
+  {
+   "w": "a",
+   "s": 163.847,
+   "e": 163.867,
+   "sid": "S07.4"
+  },
+  {
+   "w": "gain,",
+   "s": 163.963,
+   "e": 164.587,
+   "sid": "S07.4"
+  },
+  {
+   "w": "not",
+   "s": 164.627,
+   "e": 164.747,
+   "sid": "S07.4"
+  },
+  {
+   "w": "a",
+   "s": 164.787,
+   "e": 164.827,
+   "sid": "S07.4"
+  },
+  {
+   "w": "tax",
+   "s": 164.927,
+   "e": 165.227,
+   "sid": "S07.4"
+  },
+  {
+   "w": "bill:",
+   "s": 165.275,
+   "e": 166.267,
+   "sid": "S07.4"
+  },
+  {
+   "w": "improvements",
+   "s": 166.316,
+   "e": 166.907,
+   "sid": "S07.4"
+  },
+  {
+   "w": "and",
+   "s": 166.947,
+   "e": 167.067,
+   "sid": "S07.4"
+  },
+  {
+   "w": "selling",
+   "s": 167.107,
+   "e": 167.387,
+   "sid": "S07.4"
+  },
+  {
+   "w": "costs",
+   "s": 167.48,
+   "e": 167.947,
+   "sid": "S07.4"
+  },
+  {
+   "w": "would",
+   "s": 168.0,
+   "e": 168.267,
+   "sid": "S07.4"
+  },
+  {
+   "w": "both",
+   "s": 168.331,
+   "e": 168.587,
+   "sid": "S07.4"
+  },
+  {
+   "w": "shrink",
+   "s": 168.633,
+   "e": 168.907,
+   "sid": "S07.4"
+  },
+  {
+   "w": "it.",
+   "s": 168.987,
+   "e": 169.307,
+   "sid": "S07.4"
+  },
+  {
+   "w": "The",
+   "s": 169.487,
+   "e": 170.027,
+   "sid": "S07.5"
+  },
+  {
+   "w": "cap",
+   "s": 170.127,
+   "e": 170.427,
+   "sid": "S07.5"
+  },
+  {
+   "w": "stood",
+   "s": 170.48,
+   "e": 170.747,
+   "sid": "S07.5"
+  },
+  {
+   "w": "still",
+   "s": 170.827,
+   "e": 171.227,
+   "sid": "S07.5"
+  },
+  {
+   "w": "while",
+   "s": 171.32,
+   "e": 171.787,
+   "sid": "S07.5"
+  },
+  {
+   "w": "their",
+   "s": 171.827,
+   "e": 172.027,
+   "sid": "S07.5"
+  },
+  {
+   "w": "gain",
+   "s": 172.107,
+   "e": 172.427,
+   "sid": "S07.5"
+  },
+  {
+   "w": "climbed",
+   "s": 172.507,
+   "e": 173.067,
+   "sid": "S07.5"
+  },
+  {
+   "w": "past",
+   "s": 173.147,
+   "e": 173.467,
+   "sid": "S07.5"
+  },
+  {
+   "w": "it.",
+   "s": 173.52,
+   "e": 173.787,
+   "sid": "S07.5"
+  },
+  {
+   "w": "So",
+   "s": 174.16,
+   "e": 174.907,
+   "sid": "S07.6"
+  },
+  {
+   "w": "is",
+   "s": 174.96,
+   "e": 175.067,
+   "sid": "S07.6"
+  },
+  {
+   "w": "Phoenix",
+   "s": 175.117,
+   "e": 175.467,
+   "sid": "S07.6"
+  },
+  {
+   "w": "unusual,",
+   "s": 175.537,
+   "e": 176.667,
+   "sid": "S07.6"
+  },
+  {
+   "w": "or",
+   "s": 176.747,
+   "e": 176.907,
+   "sid": "S07.6"
+  },
+  {
+   "w": "would",
+   "s": 176.947,
+   "e": 177.147,
+   "sid": "S07.6"
+  },
+  {
+   "w": "the",
+   "s": 177.167,
+   "e": 177.227,
+   "sid": "S07.6"
+  },
+  {
+   "w": "same",
+   "s": 177.275,
+   "e": 177.467,
+   "sid": "S07.6"
+  },
+  {
+   "w": "thing",
+   "s": 177.494,
+   "e": 177.627,
+   "sid": "S07.6"
+  },
+  {
+   "w": "happen",
+   "s": 177.684,
+   "e": 178.027,
+   "sid": "S07.6"
+  },
+  {
+   "w": "in",
+   "s": 178.107,
+   "e": 178.267,
+   "sid": "S07.6"
+  },
+  {
+   "w": "other",
+   "s": 178.307,
+   "e": 178.507,
+   "sid": "S07.6"
+  },
+  {
+   "w": "cities?",
+   "s": 178.576,
+   "e": 179.307,
+   "sid": "S07.6"
+  },
+  {
+   "w": "First,",
+   "s": 180.8,
+   "e": 181.2,
    "sid": "S08.1"
   },
   {
    "w": "why",
-   "s": 0.48,
-   "e": 0.72,
+   "s": 181.28,
+   "e": 181.52,
    "sid": "S08.1"
   },
   {
    "w": "is",
-   "s": 0.773,
-   "e": 0.88,
+   "s": 181.573,
+   "e": 181.68,
    "sid": "S08.1"
   },
   {
    "w": "the",
-   "s": 0.9,
-   "e": 0.96,
+   "s": 181.7,
+   "e": 181.76,
    "sid": "S08.1"
   },
   {
    "w": "line",
-   "s": 1.024,
-   "e": 1.28,
+   "s": 181.824,
+   "e": 182.08,
    "sid": "S08.1"
   },
   {
    "w": "flat?",
-   "s": 1.392,
-   "e": 1.841,
+   "s": 182.192,
+   "e": 182.641,
    "sid": "S08.1"
   },
   {
    "w": "The",
-   "s": 2.021,
-   "e": 2.561,
+   "s": 182.921,
+   "e": 183.761,
    "sid": "S08.2"
   },
   {
    "w": "cap",
-   "s": 2.641,
-   "e": 2.881,
+   "s": 183.821,
+   "e": 184.001,
    "sid": "S08.2"
   },
   {
    "w": "is",
-   "s": 2.934,
-   "e": 3.041,
+   "s": 184.054,
+   "e": 184.161,
    "sid": "S08.2"
   },
   {
    "w": "written",
-   "s": 3.071,
-   "e": 3.281,
+   "s": 184.191,
+   "e": 184.401,
    "sid": "S08.2"
   },
   {
    "w": "as",
-   "s": 3.334,
-   "e": 3.441,
+   "s": 184.428,
+   "e": 184.481,
    "sid": "S08.2"
   },
   {
    "w": "a",
-   "s": 3.481,
-   "e": 3.521,
+   "s": 184.521,
+   "e": 184.561,
    "sid": "S08.2"
   },
   {
    "w": "plain",
-   "s": 3.574,
-   "e": 3.841,
+   "s": 184.614,
+   "e": 184.881,
    "sid": "S08.2"
   },
   {
    "w": "dollar",
-   "s": 3.898,
-   "e": 4.241,
+   "s": 184.938,
+   "e": 185.281,
    "sid": "S08.2"
   },
   {
    "w": "amount,",
-   "s": 4.298,
-   "e": 4.721,
+   "s": 185.327,
+   "e": 185.681,
    "sid": "S08.2"
   },
   {
    "w": "and",
-   "s": 4.741,
-   "e": 4.801,
+   "s": 185.741,
+   "e": 185.921,
    "sid": "S08.2"
   },
   {
    "w": "it",
-   "s": 4.854,
-   "e": 4.961,
+   "s": 185.948,
+   "e": 186.001,
    "sid": "S08.2"
   },
   {
    "w": "has",
-   "s": 4.981,
-   "e": 5.041,
+   "s": 186.041,
+   "e": 186.161,
    "sid": "S08.2"
   },
   {
    "w": "never",
-   "s": 5.108,
-   "e": 5.441,
+   "s": 186.214,
+   "e": 186.481,
    "sid": "S08.2"
   },
   {
    "w": "been",
-   "s": 5.473,
-   "e": 5.601,
+   "s": 186.513,
+   "e": 186.641,
    "sid": "S08.2"
   },
   {
    "w": "adjusted.",
-   "s": 5.654,
-   "e": 6.321,
+   "s": 186.703,
+   "e": 187.441,
    "sid": "S08.2"
   },
   {
    "w": "If",
-   "s": 6.534,
-   "e": 6.961,
+   "s": 187.681,
+   "e": 188.161,
    "sid": "S08.3"
   },
   {
    "w": "five",
-   "s": 7.009,
-   "e": 7.201,
+   "s": 188.209,
+   "e": 188.401,
    "sid": "S08.3"
   },
   {
    "w": "hundred",
-   "s": 7.231,
-   "e": 7.441,
+   "s": 188.421,
+   "e": 188.561,
    "sid": "S08.3"
   },
   {
    "w": "thousand",
-   "s": 7.485,
-   "e": 7.841,
+   "s": 188.605,
+   "e": 188.961,
    "sid": "S08.3"
   },
   {
    "w": "dollars",
-   "s": 7.901,
-   "e": 8.321,
+   "s": 189.021,
+   "e": 189.441,
    "sid": "S08.3"
   },
   {
    "w": "from",
-   "s": 8.353,
-   "e": 8.481,
+   "s": 189.473,
+   "e": 189.601,
    "sid": "S08.3"
   },
   {
    "w": "May",
-   "s": 8.561,
-   "e": 8.801,
+   "s": 189.701,
+   "e": 190.001,
    "sid": "S08.3"
   },
   {
    "w": "nineteen",
-   "s": 8.837,
-   "e": 9.121,
+   "s": 190.045,
+   "e": 190.401,
    "sid": "S08.3"
   },
   {
    "w": "ninety-seven",
-   "s": 9.155,
-   "e": 9.681,
+   "s": 190.447,
+   "e": 191.041,
    "sid": "S08.3"
   },
   {
    "w": "had",
-   "s": 9.761,
-   "e": 10.001,
+   "s": 191.201,
+   "e": 191.681,
    "sid": "S08.3"
   },
   {
    "w": "kept",
-   "s": 10.033,
-   "e": 10.161,
+   "s": 191.729,
+   "e": 191.921,
    "sid": "S08.3"
   },
   {
    "w": "up",
-   "s": 10.241,
-   "e": 10.401,
+   "s": 191.974,
+   "e": 192.081,
    "sid": "S08.3"
   },
   {
    "w": "with",
-   "s": 10.433,
-   "e": 10.561,
+   "s": 192.113,
+   "e": 192.241,
    "sid": "S08.3"
   },
   {
    "w": "consumer",
-   "s": 10.605,
-   "e": 10.961,
+   "s": 192.285,
+   "e": 192.641,
    "sid": "S08.3"
   },
   {
    "w": "prices,",
-   "s": 11.03,
-   "e": 12.241,
+   "s": 192.721,
+   "e": 193.921,
    "sid": "S08.3"
   },
   {
    "w": "it",
-   "s": 12.294,
-   "e": 12.401,
+   "s": 193.974,
+   "e": 194.081,
    "sid": "S08.3"
   },
   {
    "w": "would",
-   "s": 12.428,
-   "e": 12.561,
+   "s": 194.108,
+   "e": 194.241,
    "sid": "S08.3"
   },
   {
    "w": "be",
-   "s": 12.588,
-   "e": 12.641,
+   "s": 194.294,
+   "e": 194.401,
    "sid": "S08.3"
   },
   {
    "w": "about",
-   "s": 12.681,
-   "e": 12.881,
+   "s": 194.468,
+   "e": 194.801,
    "sid": "S08.3"
   },
   {
    "w": "one",
-   "s": 12.941,
-   "e": 13.121,
+   "s": 194.881,
+   "e": 195.121,
    "sid": "S08.3"
   },
   {
    "w": "million",
-   "s": 13.181,
-   "e": 13.601,
+   "s": 195.181,
+   "e": 195.601,
    "sid": "S08.3"
   },
   {
    "w": "forty-six",
-   "s": 13.668,
-   "e": 14.241,
+   "s": 195.668,
+   "e": 196.321,
    "sid": "S08.3"
   },
   {
    "w": "thousand",
-   "s": 14.285,
-   "e": 14.641,
+   "s": 196.365,
+   "e": 196.721,
    "sid": "S08.3"
   },
   {
    "w": "dollars",
-   "s": 14.711,
-   "e": 15.201,
+   "s": 196.801,
+   "e": 197.361,
    "sid": "S08.3"
   },
   {
    "w": "in",
-   "s": 15.281,
-   "e": 15.441,
+   "s": 197.441,
+   "e": 197.601,
    "sid": "S08.3"
   },
   {
    "w": "August",
-   "s": 15.498,
-   "e": 15.841,
+   "s": 197.681,
+   "e": 198.161,
    "sid": "S08.3"
   },
   {
    "w": "twenty",
-   "s": 15.887,
-   "e": 16.161,
+   "s": 198.218,
+   "e": 198.561,
    "sid": "S08.3"
   },
   {
    "w": "twenty-six",
-   "s": 16.207,
-   "e": 17.201,
+   "s": 198.595,
+   "e": 199.041,
    "sid": "S08.3"
   },
   {
    "w": "dollars.",
-   "s": 17.261,
-   "e": 17.761,
+   "s": 199.101,
+   "e": 199.841,
    "sid": "S08.3"
   },
   {
    "w": "It's",
-   "s": 17.788,
-   "e": 17.921,
+   "s": 200.134,
+   "e": 200.801,
    "sid": "S08.4"
   },
   {
    "w": "everyday",
-   "s": 17.992,
-   "e": 18.561,
+   "s": 200.845,
+   "e": 201.201,
    "sid": "S08.4"
   },
   {
    "w": "prices,",
-   "s": 18.641,
-   "e": 19.201,
+   "s": 201.281,
+   "e": 201.921,
    "sid": "S08.4"
   },
   {
    "w": "not",
-   "s": 19.261,
-   "e": 19.441,
+   "s": 202.001,
+   "e": 202.241,
    "sid": "S08.4"
   },
   {
    "w": "house",
-   "s": 19.494,
-   "e": 19.761,
+   "s": 202.294,
+   "e": 202.561,
    "sid": "S08.4"
   },
   {
    "w": "prices,",
-   "s": 19.818,
-   "e": 20.801,
+   "s": 202.63,
+   "e": 203.441,
    "sid": "S08.4"
   },
   {
    "w": "but",
-   "s": 20.821,
-   "e": 20.881,
+   "s": 203.461,
+   "e": 203.521,
    "sid": "S08.4"
   },
   {
    "w": "it",
-   "s": 20.908,
-   "e": 20.961,
+   "s": 203.574,
+   "e": 203.681,
    "sid": "S08.4"
   },
   {
    "w": "shows",
-   "s": 21.028,
-   "e": 21.361,
+   "s": 203.734,
+   "e": 204.001,
    "sid": "S08.4"
   },
   {
    "w": "why",
-   "s": 21.401,
-   "e": 21.521,
+   "s": 204.061,
+   "e": 204.241,
    "sid": "S08.4"
   },
   {
    "w": "a",
-   "s": 21.601,
-   "e": 21.681,
+   "s": 204.281,
+   "e": 204.321,
    "sid": "S08.4"
   },
   {
    "w": "cap",
-   "s": 21.761,
-   "e": 22.001,
+   "s": 204.421,
+   "e": 204.721,
    "sid": "S08.4"
   },
   {
    "w": "that",
-   "s": 22.017,
-   "e": 22.081,
+   "s": 204.753,
+   "e": 204.881,
    "sid": "S08.4"
   },
   {
    "w": "never",
-   "s": 22.134,
-   "e": 22.401,
+   "s": 204.921,
+   "e": 205.121,
    "sid": "S08.4"
   },
   {
    "w": "moves",
-   "s": 22.494,
-   "e": 22.961,
+   "s": 205.214,
+   "e": 205.681,
    "sid": "S08.4"
   },
   {
    "w": "covers",
-   "s": 23.052,
-   "e": 23.601,
+   "s": 205.772,
+   "e": 206.321,
    "sid": "S08.4"
   },
   {
    "w": "less",
-   "s": 23.681,
-   "e": 24.001,
+   "s": 206.385,
+   "e": 206.641,
    "sid": "S08.4"
   },
   {
    "w": "and",
-   "s": 24.061,
-   "e": 24.241,
+   "s": 206.681,
+   "e": 206.801,
    "sid": "S08.4"
   },
   {
    "w": "less",
-   "s": 24.321,
-   "e": 24.641,
+   "s": 206.865,
+   "e": 207.121,
    "sid": "S08.4"
   },
   {
    "w": "of",
-   "s": 24.774,
-   "e": 25.041,
+   "s": 207.201,
+   "e": 207.361,
    "sid": "S08.4"
   },
   {
    "w": "a",
-   "s": 25.081,
-   "e": 25.121,
+   "s": 207.401,
+   "e": 207.441,
    "sid": "S08.4"
   },
   {
    "w": "long-held",
-   "s": 25.185,
-   "e": 25.761,
+   "s": 207.521,
+   "e": 208.241,
    "sid": "S08.4"
   },
   {
    "w": "home's",
-   "s": 25.825,
-   "e": 26.161,
+   "s": 208.321,
+   "e": 208.721,
    "sid": "S08.4"
   },
   {
    "w": "gain.",
-   "s": 26.257,
-   "e": 26.881,
+   "s": 208.801,
+   "e": 209.361,
    "sid": "S08.4"
   },
   {
+   "w": "Now",
+   "s": 210.567,
+   "e": 210.647,
+   "sid": "S09.1"
+  },
+  {
+   "w": "run",
+   "s": 210.707,
+   "e": 210.887,
+   "sid": "S09.1"
+  },
+  {
+   "w": "the",
+   "s": 210.907,
+   "e": 210.967,
+   "sid": "S09.1"
+  },
+  {
+   "w": "same",
+   "s": 211.015,
+   "e": 211.207,
+   "sid": "S09.1"
+  },
+  {
+   "w": "replay",
+   "s": 211.264,
+   "e": 211.607,
+   "sid": "S09.1"
+  },
+  {
+   "w": "in",
+   "s": 211.66,
+   "e": 211.767,
+   "sid": "S09.1"
+  },
+  {
+   "w": "twelve",
+   "s": 211.836,
+   "e": 212.247,
+   "sid": "S09.1"
+  },
+  {
+   "w": "big",
+   "s": 212.327,
+   "e": 212.567,
+   "sid": "S09.1"
+  },
+  {
+   "w": "metro",
+   "s": 212.634,
+   "e": 212.967,
+   "sid": "S09.1"
+  },
+  {
+   "w": "areas:",
+   "s": 213.047,
+   "e": 214.087,
+   "sid": "S09.1"
+  },
+  {
+   "w": "illustrative",
+   "s": 214.137,
+   "e": 214.647,
+   "sid": "S09.1"
+  },
+  {
+   "w": "couples,",
+   "s": 214.697,
+   "e": 215.127,
+   "sid": "S09.1"
+  },
+  {
+   "w": "each",
+   "s": 215.175,
+   "e": 215.367,
+   "sid": "S09.1"
+  },
+  {
+   "w": "paying",
+   "s": 215.424,
+   "e": 215.767,
+   "sid": "S09.1"
+  },
+  {
+   "w": "two",
+   "s": 215.787,
+   "e": 215.847,
+   "sid": "S09.1"
+  },
+  {
+   "w": "hundred",
+   "s": 215.887,
+   "e": 216.167,
+   "sid": "S09.1"
+  },
+  {
+   "w": "thousand",
+   "s": 216.211,
+   "e": 216.567,
+   "sid": "S09.1"
+  },
+  {
+   "w": "dollars",
+   "s": 216.617,
+   "e": 216.967,
+   "sid": "S09.1"
+  },
+  {
+   "w": "in",
+   "s": 217.047,
+   "e": 217.207,
+   "sid": "S09.1"
+  },
+  {
+   "w": "two",
+   "s": 217.227,
+   "e": 217.287,
+   "sid": "S09.1"
+  },
+  {
+   "w": "thousand",
+   "s": 217.331,
+   "e": 217.687,
+   "sid": "S09.1"
+  },
+  {
+   "w": "for",
+   "s": 217.847,
+   "e": 218.327,
+   "sid": "S09.1"
+  },
+  {
+   "w": "a",
+   "s": 218.367,
+   "e": 218.407,
+   "sid": "S09.1"
+  },
+  {
+   "w": "home",
+   "s": 218.471,
+   "e": 218.727,
+   "sid": "S09.1"
+  },
+  {
+   "w": "that",
+   "s": 218.759,
+   "e": 218.887,
+   "sid": "S09.1"
+  },
+  {
+   "w": "rose",
+   "s": 218.967,
+   "e": 219.287,
+   "sid": "S09.1"
+  },
+  {
+   "w": "like",
+   "s": 219.319,
+   "e": 219.447,
+   "sid": "S09.1"
+  },
+  {
+   "w": "its",
+   "s": 219.487,
+   "e": 219.607,
+   "sid": "S09.1"
+  },
+  {
+   "w": "metro",
+   "s": 219.674,
+   "e": 220.007,
+   "sid": "S09.1"
+  },
+  {
+   "w": "area's",
+   "s": 220.087,
+   "e": 220.487,
+   "sid": "S09.1"
+  },
+  {
+   "w": "average.",
+   "s": 220.557,
+   "e": 221.367,
+   "sid": "S09.1"
+  },
+  {
+   "w": "By",
+   "s": 221.66,
+   "e": 222.247,
+   "sid": "S09.2"
+  },
+  {
+   "w": "the",
+   "s": 222.267,
+   "e": 222.327,
+   "sid": "S09.2"
+  },
+  {
+   "w": "second",
+   "s": 222.373,
+   "e": 222.647,
+   "sid": "S09.2"
+  },
+  {
+   "w": "quarter",
+   "s": 222.687,
+   "e": 222.967,
+   "sid": "S09.2"
+  },
+  {
+   "w": "of",
+   "s": 223.02,
+   "e": 223.127,
+   "sid": "S09.2"
+  },
+  {
+   "w": "twenty",
+   "s": 223.161,
+   "e": 223.367,
+   "sid": "S09.2"
+  },
+  {
+   "w": "twenty-six,",
+   "s": 223.401,
+   "e": 224.567,
+   "sid": "S09.2"
+  },
+  {
+   "w": "the",
+   "s": 224.587,
+   "e": 224.647,
+   "sid": "S09.2"
+  },
+  {
+   "w": "gain",
+   "s": 224.727,
+   "e": 225.047,
+   "sid": "S09.2"
+  },
+  {
+   "w": "is",
+   "s": 225.1,
+   "e": 225.207,
+   "sid": "S09.2"
+  },
+  {
+   "w": "past",
+   "s": 225.303,
+   "e": 225.687,
+   "sid": "S09.2"
+  },
+  {
+   "w": "the",
+   "s": 225.707,
+   "e": 225.767,
+   "sid": "S09.2"
+  },
+  {
+   "w": "cap",
+   "s": 225.847,
+   "e": 226.087,
+   "sid": "S09.2"
+  },
+  {
+   "w": "in",
+   "s": 226.167,
+   "e": 226.327,
+   "sid": "S09.2"
+  },
+  {
+   "w": "five",
+   "s": 226.407,
+   "e": 226.727,
+   "sid": "S09.2"
+  },
+  {
+   "w": "of",
+   "s": 226.754,
+   "e": 226.807,
+   "sid": "S09.2"
+  },
+  {
+   "w": "them.",
+   "s": 226.855,
+   "e": 227.287,
+   "sid": "S09.2"
+  },
+  {
+   "w": "Los",
+   "s": 227.427,
+   "e": 227.847,
+   "sid": "S09.3"
+  },
+  {
+   "w": "Angeles,",
+   "s": 227.897,
+   "e": 228.327,
+   "sid": "S09.3"
+  },
+  {
+   "w": "San",
+   "s": 228.367,
+   "e": 228.487,
+   "sid": "S09.3"
+  },
+  {
+   "w": "Diego,",
+   "s": 228.58,
+   "e": 229.127,
+   "sid": "S09.3"
+  },
+  {
+   "w": "Seattle,",
+   "s": 229.237,
+   "e": 230.247,
+   "sid": "S09.3"
+  },
+  {
+   "w": "Miami",
+   "s": 230.314,
+   "e": 230.647,
+   "sid": "S09.3"
+  },
+  {
+   "w": "and",
+   "s": 230.727,
+   "e": 230.967,
+   "sid": "S09.3"
+  },
+  {
+   "w": "Phoenix.",
+   "s": 231.037,
+   "e": 231.767,
+   "sid": "S09.3"
+  },
+  {
+   "w": "Now",
+   "s": 232.367,
+   "e": 232.607,
+   "sid": "S10.1"
+  },
+  {
+   "w": "give",
+   "s": 232.639,
+   "e": 232.767,
+   "sid": "S10.1"
+  },
+  {
+   "w": "every",
+   "s": 232.794,
+   "e": 232.927,
+   "sid": "S10.1"
+  },
+  {
+   "w": "couple",
+   "s": 232.984,
+   "e": 233.327,
+   "sid": "S10.1"
+  },
+  {
+   "w": "three",
+   "s": 233.367,
+   "e": 233.567,
+   "sid": "S10.1"
+  },
+  {
+   "w": "hundred",
+   "s": 233.597,
+   "e": 233.807,
+   "sid": "S10.1"
+  },
+  {
+   "w": "thousand",
+   "s": 233.851,
+   "e": 234.207,
+   "sid": "S10.1"
+  },
+  {
+   "w": "dollars",
+   "s": 234.247,
+   "e": 234.527,
+   "sid": "S10.1"
+  },
+  {
+   "w": "instead.",
+   "s": 234.597,
+   "e": 235.327,
+   "sid": "S10.1"
+  },
+  {
+   "w": "This",
+   "s": 235.423,
+   "e": 235.807,
+   "sid": "S10.2"
+  },
+  {
+   "w": "time,",
+   "s": 235.871,
+   "e": 236.207,
+   "sid": "S10.2"
+  },
+  {
+   "w": "for",
+   "s": 236.227,
+   "e": 236.287,
+   "sid": "S10.2"
+  },
+  {
+   "w": "homes",
+   "s": 236.34,
+   "e": 236.607,
+   "sid": "S10.2"
+  },
+  {
+   "w": "that",
+   "s": 236.639,
+   "e": 236.767,
+   "sid": "S10.2"
+  },
+  {
+   "w": "rose",
+   "s": 236.863,
+   "e": 237.247,
+   "sid": "S10.2"
+  },
+  {
+   "w": "like",
+   "s": 237.295,
+   "e": 237.487,
+   "sid": "S10.2"
+  },
+  {
+   "w": "their",
+   "s": 237.5,
+   "e": 237.567,
+   "sid": "S10.2"
+  },
+  {
+   "w": "metro",
+   "s": 237.634,
+   "e": 237.967,
+   "sid": "S10.2"
+  },
+  {
+   "w": "area's",
+   "s": 238.031,
+   "e": 238.367,
+   "sid": "S10.2"
+  },
+  {
+   "w": "average,",
+   "s": 238.427,
+   "e": 239.487,
+   "sid": "S10.2"
+  },
+  {
+   "w": "the",
+   "s": 239.507,
+   "e": 239.567,
+   "sid": "S10.2"
+  },
+  {
+   "w": "gain",
+   "s": 239.615,
+   "e": 239.807,
+   "sid": "S10.2"
+  },
+  {
+   "w": "is",
+   "s": 239.887,
+   "e": 240.047,
+   "sid": "S10.2"
+  },
+  {
+   "w": "past",
+   "s": 240.111,
+   "e": 240.367,
+   "sid": "S10.2"
+  },
+  {
+   "w": "the",
+   "s": 240.387,
+   "e": 240.447,
+   "sid": "S10.2"
+  },
+  {
+   "w": "cap",
+   "s": 240.547,
+   "e": 240.847,
+   "sid": "S10.2"
+  },
+  {
+   "w": "in",
+   "s": 240.874,
+   "e": 240.927,
+   "sid": "S10.2"
+  },
+  {
+   "w": "eleven",
+   "s": 241.007,
+   "e": 241.487,
+   "sid": "S10.2"
+  },
+  {
+   "w": "of",
+   "s": 241.567,
+   "e": 241.727,
+   "sid": "S10.2"
+  },
+  {
+   "w": "the",
+   "s": 241.747,
+   "e": 241.807,
+   "sid": "S10.2"
+  },
+  {
+   "w": "twelve.",
+   "s": 241.887,
+   "e": 242.607,
+   "sid": "S10.2"
+  },
+  {
+   "w": "Boston,",
+   "s": 242.778,
+   "e": 244.047,
+   "sid": "S10.3"
+  },
+  {
+   "w": "New",
+   "s": 244.087,
+   "e": 244.207,
+   "sid": "S10.3"
+  },
+  {
+   "w": "York,",
+   "s": 244.271,
+   "e": 244.767,
+   "sid": "S10.3"
+  },
+  {
+   "w": "Denver,",
+   "s": 244.836,
+   "e": 245.607,
+   "sid": "S10.3"
+  },
+  {
+   "w": "Dallas",
+   "s": 245.658,
+   "e": 245.967,
+   "sid": "S10.3"
+  },
+  {
+   "w": "and",
+   "s": 246.027,
+   "e": 246.207,
+   "sid": "S10.3"
+  },
+  {
+   "w": "both",
+   "s": 246.271,
+   "e": 246.527,
+   "sid": "S10.3"
+  },
+  {
+   "w": "Bay",
+   "s": 246.587,
+   "e": 246.767,
+   "sid": "S10.3"
+  },
+  {
+   "w": "Area",
+   "s": 246.815,
+   "e": 247.007,
+   "sid": "S10.3"
+  },
+  {
+   "w": "markets",
+   "s": 247.077,
+   "e": 247.567,
+   "sid": "S10.3"
+  },
+  {
+   "w": "join",
+   "s": 247.711,
+   "e": 248.287,
+   "sid": "S10.3"
+  },
+  {
+   "w": "the",
+   "s": 248.307,
+   "e": 248.367,
+   "sid": "S10.3"
+  },
+  {
+   "w": "first",
+   "s": 248.42,
+   "e": 248.687,
+   "sid": "S10.3"
+  },
+  {
+   "w": "five.",
+   "s": 248.783,
+   "e": 249.687,
+   "sid": "S10.3"
+  },
+  {
+   "w": "Only",
+   "s": 249.791,
+   "e": 250.207,
+   "sid": "S10.4"
+  },
+  {
+   "w": "Chicago",
+   "s": 250.277,
+   "e": 250.767,
+   "sid": "S10.4"
+  },
+  {
+   "w": "hasn't",
+   "s": 250.799,
+   "e": 251.007,
+   "sid": "S10.4"
+  },
+  {
+   "w": "reached",
+   "s": 251.037,
+   "e": 251.247,
+   "sid": "S10.4"
+  },
+  {
+   "w": "the",
+   "s": 251.267,
+   "e": 251.327,
+   "sid": "S10.4"
+  },
+  {
+   "w": "cap,",
+   "s": 251.427,
+   "e": 251.967,
+   "sid": "S10.4"
+  },
+  {
+   "w": "at",
+   "s": 251.994,
+   "e": 252.047,
+   "sid": "S10.4"
+  },
+  {
+   "w": "either",
+   "s": 252.081,
+   "e": 252.287,
+   "sid": "S10.4"
+  },
+  {
+   "w": "price.",
+   "s": 252.354,
+   "e": 253.007,
+   "sid": "S10.4"
+  },
+  {
+   "w": "[curious]",
+   "s": 253.6,
+   "e": 253.733,
+   "sid": "S11.1"
+  },
+  {
+   "w": "And",
+   "s": 253.74,
+   "e": 253.76,
+   "sid": "S11.1"
+  },
+  {
+   "w": "crossing",
+   "s": 253.813,
+   "e": 254.24,
+   "sid": "S11.1"
+  },
+  {
+   "w": "isn't",
+   "s": 254.28,
+   "e": 254.48,
+   "sid": "S11.1"
+  },
+  {
+   "w": "always",
+   "s": 254.526,
+   "e": 254.8,
+   "sid": "S11.1"
+  },
+  {
+   "w": "a",
+   "s": 254.84,
+   "e": 254.88,
+   "sid": "S11.1"
+  },
+  {
+   "w": "one-way",
+   "s": 254.92,
+   "e": 255.2,
+   "sid": "S11.1"
+  },
+  {
+   "w": "trip.",
+   "s": 255.296,
+   "e": 256.28,
+   "sid": "S11.1"
+  },
+  {
    "w": "In",
-   "s": 28.067,
-   "e": 28.147,
+   "s": 256.48,
+   "e": 256.88,
+   "sid": "S11.2"
+  },
+  {
+   "w": "Miami,",
+   "s": 256.973,
+   "e": 257.92,
+   "sid": "S11.2"
+  },
+  {
+   "w": "a",
+   "s": 258.0,
+   "e": 258.08,
+   "sid": "S11.2"
+  },
+  {
+   "w": "three",
+   "s": 258.12,
+   "e": 258.32,
+   "sid": "S11.2"
+  },
+  {
+   "w": "hundred",
+   "s": 258.37,
+   "e": 258.72,
+   "sid": "S11.2"
+  },
+  {
+   "w": "thousand",
+   "s": 258.773,
+   "e": 259.2,
+   "sid": "S11.2"
+  },
+  {
+   "w": "dollars",
+   "s": 259.25,
+   "e": 259.6,
+   "sid": "S11.2"
+  },
+  {
+   "w": "home",
+   "s": 259.68,
+   "e": 260.0,
+   "sid": "S11.2"
+  },
+  {
+   "w": "that",
+   "s": 260.096,
+   "e": 260.48,
+   "sid": "S11.2"
+  },
+  {
+   "w": "rose",
+   "s": 260.56,
+   "e": 260.88,
+   "sid": "S11.2"
+  },
+  {
+   "w": "like",
+   "s": 260.912,
+   "e": 261.04,
+   "sid": "S11.2"
+  },
+  {
+   "w": "the",
+   "s": 261.06,
+   "e": 261.12,
+   "sid": "S11.2"
+  },
+  {
+   "w": "average",
+   "s": 261.18,
+   "e": 261.6,
+   "sid": "S11.2"
+  },
+  {
+   "w": "first",
+   "s": 261.733,
+   "e": 262.4,
+   "sid": "S11.2"
+  },
+  {
+   "w": "passed",
+   "s": 262.457,
+   "e": 262.8,
+   "sid": "S11.2"
+  },
+  {
+   "w": "the",
+   "s": 262.82,
+   "e": 262.88,
+   "sid": "S11.2"
+  },
+  {
+   "w": "cap",
+   "s": 262.98,
+   "e": 263.28,
+   "sid": "S11.2"
+  },
+  {
+   "w": "in",
+   "s": 263.333,
+   "e": 263.44,
+   "sid": "S11.2"
+  },
+  {
+   "w": "the",
+   "s": 263.46,
+   "e": 263.52,
+   "sid": "S11.2"
+  },
+  {
+   "w": "fourth",
+   "s": 263.554,
+   "e": 263.76,
+   "sid": "S11.2"
+  },
+  {
+   "w": "quarter",
+   "s": 263.81,
+   "e": 264.16,
+   "sid": "S11.2"
+  },
+  {
+   "w": "of",
+   "s": 264.187,
+   "e": 264.24,
+   "sid": "S11.2"
+  },
+  {
+   "w": "two",
+   "s": 264.28,
+   "e": 264.4,
+   "sid": "S11.2"
+  },
+  {
+   "w": "thousand",
+   "s": 264.444,
+   "e": 264.8,
+   "sid": "S11.2"
+  },
+  {
+   "w": "six.",
+   "s": 264.92,
+   "e": 265.6,
+   "sid": "S11.2"
+  },
+  {
+   "w": "Then",
+   "s": 265.728,
+   "e": 266.24,
+   "sid": "S11.3"
+  },
+  {
+   "w": "it",
+   "s": 266.293,
+   "e": 266.4,
+   "sid": "S11.3"
+  },
+  {
+   "w": "fell",
+   "s": 266.448,
+   "e": 266.64,
+   "sid": "S11.3"
+  },
+  {
+   "w": "back",
+   "s": 266.688,
+   "e": 266.88,
+   "sid": "S11.3"
+  },
+  {
+   "w": "under,",
+   "s": 266.933,
+   "e": 267.68,
+   "sid": "S11.3"
+  },
+  {
+   "w": "and",
+   "s": 267.7,
+   "e": 267.76,
+   "sid": "S11.3"
+  },
+  {
+   "w": "has",
+   "s": 267.8,
+   "e": 267.92,
+   "sid": "S11.3"
+  },
+  {
+   "w": "only",
+   "s": 267.984,
+   "e": 268.24,
+   "sid": "S11.3"
+  },
+  {
+   "w": "stayed",
+   "s": 268.286,
+   "e": 268.56,
+   "sid": "S11.3"
+  },
+  {
+   "w": "above",
+   "s": 268.653,
+   "e": 269.12,
+   "sid": "S11.3"
+  },
+  {
+   "w": "since",
+   "s": 269.227,
+   "e": 269.76,
+   "sid": "S11.3"
+  },
+  {
+   "w": "the",
+   "s": 269.78,
+   "e": 269.84,
+   "sid": "S11.3"
+  },
+  {
+   "w": "second",
+   "s": 269.909,
+   "e": 270.32,
+   "sid": "S11.3"
+  },
+  {
+   "w": "quarter",
+   "s": 270.37,
+   "e": 270.72,
+   "sid": "S11.3"
+  },
+  {
+   "w": "of",
+   "s": 270.8,
+   "e": 270.96,
+   "sid": "S11.3"
+  },
+  {
+   "w": "twenty",
+   "s": 270.994,
+   "e": 271.2,
+   "sid": "S11.3"
+  },
+  {
+   "w": "nineteen.",
+   "s": 271.271,
+   "e": 272.16,
+   "sid": "S11.3"
+  },
+  {
+   "w": "Being",
+   "s": 272.307,
+   "e": 273.04,
+   "sid": "S11.4"
+  },
+  {
+   "w": "past",
+   "s": 273.104,
+   "e": 273.36,
+   "sid": "S11.4"
+  },
+  {
+   "w": "the",
+   "s": 273.38,
+   "e": 273.44,
+   "sid": "S11.4"
+  },
+  {
+   "w": "line",
+   "s": 273.504,
+   "e": 273.76,
+   "sid": "S11.4"
+  },
+  {
+   "w": "once,",
+   "s": 273.872,
+   "e": 274.48,
+   "sid": "S11.4"
+  },
+  {
+   "w": "on",
+   "s": 274.533,
+   "e": 274.64,
+   "sid": "S11.4"
+  },
+  {
+   "w": "paper,",
+   "s": 274.707,
+   "e": 275.76,
+   "sid": "S11.4"
+  },
+  {
+   "w": "didn't",
+   "s": 275.808,
+   "e": 276.16,
+   "sid": "S11.4"
+  },
+  {
+   "w": "mean",
+   "s": 276.192,
+   "e": 276.32,
+   "sid": "S11.4"
+  },
+  {
+   "w": "staying",
+   "s": 276.37,
+   "e": 276.72,
+   "sid": "S11.4"
+  },
+  {
+   "w": "past",
+   "s": 276.8,
+   "e": 277.12,
+   "sid": "S11.4"
+  },
+  {
+   "w": "it.",
+   "s": 277.173,
+   "e": 277.44,
+   "sid": "S11.4"
+  },
+  {
+   "w": "So",
+   "s": 278.433,
+   "e": 278.513,
+   "sid": "S12.1"
+  },
+  {
+   "w": "Phoenix",
+   "s": 278.583,
+   "e": 279.073,
+   "sid": "S12.1"
+  },
+  {
+   "w": "isn't",
+   "s": 279.153,
+   "e": 279.673,
+   "sid": "S12.1"
+  },
+  {
+   "w": "unusual,",
+   "s": 279.708,
+   "e": 280.513,
+   "sid": "S12.1"
+  },
+  {
+   "w": "and",
+   "s": 280.613,
+   "e": 280.913,
+   "sid": "S12.1"
+  },
+  {
+   "w": "it",
+   "s": 280.966,
+   "e": 281.073,
+   "sid": "S12.1"
+  },
+  {
+   "w": "isn't",
+   "s": 281.113,
+   "e": 281.313,
+   "sid": "S12.1"
+  },
+  {
+   "w": "only",
+   "s": 281.361,
+   "e": 281.553,
+   "sid": "S12.1"
+  },
+  {
+   "w": "the",
+   "s": 281.573,
+   "e": 281.633,
+   "sid": "S12.1"
+  },
+  {
+   "w": "coasts:",
+   "s": 281.713,
+   "e": 282.753,
+   "sid": "S12.1"
+  },
+  {
+   "w": "Dallas",
+   "s": 282.81,
+   "e": 283.153,
+   "sid": "S12.1"
+  },
+  {
+   "w": "and",
+   "s": 283.173,
+   "e": 283.233,
+   "sid": "S12.1"
+  },
+  {
+   "w": "Denver",
+   "s": 283.302,
+   "e": 283.713,
+   "sid": "S12.1"
+  },
+  {
+   "w": "crossed",
+   "s": 283.783,
+   "e": 284.273,
+   "sid": "S12.1"
+  },
+  {
+   "w": "too.",
+   "s": 284.353,
+   "e": 284.913,
+   "sid": "S12.1"
+  },
+  {
+   "w": "So",
+   "s": 285.286,
+   "e": 286.033,
+   "sid": "S12.2"
+  },
+  {
+   "w": "flip",
+   "s": 286.081,
+   "e": 286.273,
+   "sid": "S12.2"
+  },
+  {
+   "w": "the",
+   "s": 286.313,
+   "e": 286.433,
+   "sid": "S12.2"
+  },
+  {
+   "w": "question.",
+   "s": 286.477,
+   "e": 286.913,
+   "sid": "S12.2"
+  },
+  {
+   "w": "What",
+   "s": 287.057,
+   "e": 287.633,
+   "sid": "S12.3"
+  },
+  {
+   "w": "two",
+   "s": 287.653,
+   "e": 287.713,
+   "sid": "S12.3"
+  },
+  {
+   "w": "thousand",
+   "s": 287.775,
+   "e": 288.273,
+   "sid": "S12.3"
+  },
+  {
+   "w": "purchase",
+   "s": 288.309,
+   "e": 288.593,
+   "sid": "S12.3"
+  },
+  {
+   "w": "price",
+   "s": 288.66,
+   "e": 288.993,
+   "sid": "S12.3"
+  },
+  {
+   "w": "would",
+   "s": 289.086,
+   "e": 289.553,
+   "sid": "S12.3"
+  },
+  {
+   "w": "put",
+   "s": 289.573,
+   "e": 289.633,
+   "sid": "S12.3"
+  },
+  {
+   "w": "a",
+   "s": 289.673,
+   "e": 289.713,
+   "sid": "S12.3"
+  },
+  {
+   "w": "home",
+   "s": 289.777,
+   "e": 290.033,
+   "sid": "S12.3"
+  },
+  {
+   "w": "that",
+   "s": 290.065,
+   "e": 290.193,
+   "sid": "S12.3"
+  },
+  {
+   "w": "rose",
+   "s": 290.273,
+   "e": 290.593,
+   "sid": "S12.3"
+  },
+  {
+   "w": "like",
+   "s": 290.641,
+   "e": 290.833,
+   "sid": "S12.3"
+  },
+  {
+   "w": "its",
+   "s": 290.873,
+   "e": 290.993,
+   "sid": "S12.3"
+  },
+  {
+   "w": "metro",
+   "s": 291.06,
+   "e": 291.393,
+   "sid": "S12.3"
+  },
+  {
+   "w": "area's",
+   "s": 291.473,
+   "e": 291.953,
+   "sid": "S12.3"
+  },
+  {
+   "w": "average",
+   "s": 292.023,
+   "e": 292.513,
+   "sid": "S12.3"
+  },
+  {
+   "w": "exactly",
+   "s": 292.673,
+   "e": 293.793,
+   "sid": "S12.3"
+  },
+  {
+   "w": "at",
+   "s": 293.82,
+   "e": 293.873,
+   "sid": "S12.3"
+  },
+  {
+   "w": "the",
+   "s": 293.893,
+   "e": 293.953,
+   "sid": "S12.3"
+  },
+  {
+   "w": "cap",
+   "s": 294.053,
+   "e": 294.353,
+   "sid": "S12.3"
+  },
+  {
+   "w": "now?",
+   "s": 294.453,
+   "e": 294.913,
+   "sid": "S12.3"
+  },
+  {
+   "w": "In",
+   "s": 295.7,
+   "e": 295.78,
    "sid": "S13.1"
   },
   {
    "w": "Phoenix,",
-   "s": 28.197,
-   "e": 28.627,
+   "s": 295.86,
+   "e": 296.66,
    "sid": "S13.1"
   },
   {
    "w": "for",
-   "s": 28.667,
-   "e": 28.787,
+   "s": 296.7,
+   "e": 296.82,
    "sid": "S13.1"
   },
   {
    "w": "a",
-   "s": 28.827,
-   "e": 28.867,
+   "s": 296.86,
+   "e": 296.9,
    "sid": "S13.1"
   },
   {
    "w": "home",
-   "s": 28.915,
-   "e": 29.107,
+   "s": 296.948,
+   "e": 297.14,
    "sid": "S13.1"
   },
   {
    "w": "that",
-   "s": 29.123,
-   "e": 29.187,
+   "s": 297.172,
+   "e": 297.3,
    "sid": "S13.1"
   },
   {
    "w": "rose",
-   "s": 29.267,
-   "e": 29.587,
+   "s": 297.396,
+   "e": 297.78,
    "sid": "S13.1"
   },
   {
    "w": "like",
-   "s": 29.635,
-   "e": 29.827,
+   "s": 297.812,
+   "e": 297.94,
    "sid": "S13.1"
   },
   {
    "w": "the",
-   "s": 29.847,
-   "e": 29.907,
+   "s": 297.98,
+   "e": 298.1,
    "sid": "S13.1"
   },
   {
    "w": "average,",
-   "s": 29.957,
-   "e": 30.787,
+   "s": 298.16,
+   "e": 299.22,
    "sid": "S13.1"
   },
   {
    "w": "that",
-   "s": 30.819,
-   "e": 30.947,
+   "s": 299.252,
+   "e": 299.38,
    "sid": "S13.1"
   },
   {
    "w": "price",
-   "s": 31.0,
-   "e": 31.267,
+   "s": 299.433,
+   "e": 299.7,
    "sid": "S13.1"
   },
   {
    "w": "is",
-   "s": 31.32,
-   "e": 31.427,
+   "s": 299.727,
+   "e": 299.78,
    "sid": "S13.1"
   },
   {
    "w": "about",
-   "s": 31.48,
-   "e": 31.747,
+   "s": 299.847,
+   "e": 300.18,
    "sid": "S13.1"
   },
   {
    "w": "one",
-   "s": 31.807,
-   "e": 31.987,
+   "s": 300.26,
+   "e": 300.5,
    "sid": "S13.1"
   },
   {
    "w": "hundred",
-   "s": 32.017,
-   "e": 32.227,
+   "s": 300.53,
+   "e": 300.74,
    "sid": "S13.1"
   },
   {
    "w": "seventy-nine",
-   "s": 32.287,
-   "e": 32.867,
+   "s": 300.79,
+   "e": 301.3,
    "sid": "S13.1"
   },
   {
    "w": "thousand",
-   "s": 32.92,
-   "e": 33.347,
+   "s": 301.344,
+   "e": 301.7,
    "sid": "S13.1"
   },
   {
    "w": "two",
-   "s": 33.427,
-   "e": 33.667,
+   "s": 301.76,
+   "e": 301.94,
    "sid": "S13.1"
   },
   {
    "w": "hundred",
-   "s": 33.697,
-   "e": 33.907,
+   "s": 301.97,
+   "e": 302.18,
    "sid": "S13.1"
   },
   {
    "w": "dollars.",
-   "s": 33.977,
-   "e": 35.507,
+   "s": 302.25,
+   "e": 302.98,
    "sid": "S13.1"
   },
   {
    "w": "Rosa",
-   "s": 35.571,
-   "e": 35.827,
+   "s": 303.172,
+   "e": 303.94,
    "sid": "S13.2"
   },
   {
    "w": "and",
-   "s": 35.847,
-   "e": 35.907,
+   "s": 303.98,
+   "e": 304.1,
    "sid": "S13.2"
   },
   {
    "w": "Frank",
-   "s": 35.974,
-   "e": 36.307,
+   "s": 304.18,
+   "e": 304.58,
    "sid": "S13.2"
   },
   {
    "w": "paid",
-   "s": 36.371,
-   "e": 36.627,
+   "s": 304.708,
+   "e": 305.22,
    "sid": "S13.2"
   },
   {
    "w": "more",
-   "s": 36.659,
-   "e": 36.787,
+   "s": 305.284,
+   "e": 305.54,
    "sid": "S13.2"
   },
   {
    "w": "than",
-   "s": 36.819,
-   "e": 36.947,
+   "s": 305.572,
+   "e": 305.7,
    "sid": "S13.2"
   },
   {
    "w": "that,",
-   "s": 37.011,
-   "e": 37.667,
+   "s": 305.764,
+   "e": 306.66,
    "sid": "S13.2"
   },
   {
    "w": "and",
-   "s": 37.707,
-   "e": 37.827,
+   "s": 306.72,
+   "e": 306.9,
    "sid": "S13.2"
   },
   {
    "w": "that's",
-   "s": 37.875,
-   "e": 38.147,
+   "s": 306.98,
+   "e": 307.38,
    "sid": "S13.2"
   },
   {
    "w": "why",
-   "s": 38.187,
-   "e": 38.307,
+   "s": 307.46,
+   "e": 307.7,
    "sid": "S13.2"
   },
   {
    "w": "their",
-   "s": 38.334,
-   "e": 38.467,
+   "s": 307.74,
+   "e": 307.94,
    "sid": "S13.2"
   },
   {
    "w": "line",
-   "s": 38.531,
-   "e": 38.787,
+   "s": 308.004,
+   "e": 308.26,
    "sid": "S13.2"
   },
   {
    "w": "crossed.",
-   "s": 38.857,
-   "e": 39.587,
+   "s": 308.34,
+   "e": 309.06,
    "sid": "S13.2"
   },
   {
    "w": "Below",
-   "s": 39.707,
-   "e": 40.307,
+   "s": 309.26,
+   "e": 310.26,
    "sid": "S13.3"
   },
   {
    "w": "that",
-   "s": 40.339,
-   "e": 40.467,
+   "s": 310.308,
+   "e": 310.5,
    "sid": "S13.3"
   },
   {
    "w": "price,",
-   "s": 40.52,
-   "e": 40.867,
+   "s": 310.567,
+   "e": 310.98,
    "sid": "S13.3"
   },
   {
    "w": "a",
-   "s": 40.907,
-   "e": 40.947,
+   "s": 311.02,
+   "e": 311.06,
    "sid": "S13.3"
   },
   {
    "w": "Phoenix",
-   "s": 40.987,
-   "e": 41.267,
+   "s": 311.11,
+   "e": 311.46,
    "sid": "S13.3"
   },
   {
    "w": "home",
-   "s": 41.299,
-   "e": 41.427,
+   "s": 311.492,
+   "e": 311.62,
    "sid": "S13.3"
   },
   {
    "w": "is",
-   "s": 41.454,
-   "e": 41.507,
+   "s": 311.673,
+   "e": 311.78,
    "sid": "S13.3"
   },
   {
    "w": "still",
-   "s": 41.547,
-   "e": 41.747,
+   "s": 311.82,
+   "e": 312.02,
    "sid": "S13.3"
   },
   {
    "w": "under",
-   "s": 41.774,
-   "e": 41.907,
+   "s": 312.06,
+   "e": 312.26,
    "sid": "S13.3"
   },
   {
    "w": "the",
-   "s": 41.927,
-   "e": 41.987,
+   "s": 312.28,
+   "e": 312.34,
    "sid": "S13.3"
   },
   {
    "w": "cap;",
-   "s": 42.107,
-   "e": 42.627,
+   "s": 312.44,
+   "e": 313.14,
    "sid": "S13.3"
   },
   {
    "w": "above",
-   "s": 42.68,
-   "e": 42.947,
+   "s": 313.193,
+   "e": 313.46,
    "sid": "S13.3"
   },
   {
    "w": "it,",
-   "s": 42.974,
-   "e": 43.267,
+   "s": 313.513,
+   "e": 314.02,
    "sid": "S13.3"
   },
   {
    "w": "it's",
-   "s": 43.32,
-   "e": 43.507,
+   "s": 314.073,
+   "e": 314.26,
    "sid": "S13.3"
   },
   {
    "w": "over.",
-   "s": 43.571,
-   "e": 44.067,
+   "s": 314.324,
+   "e": 314.74,
    "sid": "S13.3"
   },
   {
    "w": "Do",
-   "s": 45.267,
-   "e": 45.347,
+   "s": 315.933,
+   "e": 316.013,
    "sid": "S14.1"
   },
   {
    "w": "that",
-   "s": 45.379,
-   "e": 45.507,
+   "s": 316.045,
+   "e": 316.173,
    "sid": "S14.1"
   },
   {
    "w": "for",
-   "s": 45.567,
-   "e": 45.747,
+   "s": 316.233,
+   "e": 316.413,
    "sid": "S14.1"
   },
   {
    "w": "all",
-   "s": 45.807,
-   "e": 45.987,
+   "s": 316.473,
+   "e": 316.653,
    "sid": "S14.1"
   },
   {
    "w": "twelve",
-   "s": 46.044,
-   "e": 46.387,
+   "s": 316.71,
+   "e": 317.053,
    "sid": "S14.1"
   },
   {
    "w": "metro",
-   "s": 46.454,
-   "e": 46.787,
+   "s": 317.12,
+   "e": 317.453,
    "sid": "S14.1"
   },
   {
    "w": "areas,",
-   "s": 46.854,
-   "e": 47.347,
+   "s": 317.52,
+   "e": 318.093,
    "sid": "S14.1"
   },
   {
    "w": "each",
-   "s": 47.427,
-   "e": 47.747,
+   "s": 318.157,
+   "e": 318.413,
    "sid": "S14.1"
   },
   {
    "w": "for",
-   "s": 47.827,
-   "e": 48.067,
+   "s": 318.453,
+   "e": 318.573,
    "sid": "S14.1"
   },
   {
    "w": "a",
-   "s": 48.107,
-   "e": 48.147,
+   "s": 318.613,
+   "e": 318.653,
    "sid": "S14.1"
   },
   {
    "w": "home",
-   "s": 48.227,
-   "e": 48.547,
+   "s": 318.717,
+   "e": 318.973,
    "sid": "S14.1"
   },
   {
    "w": "that",
-   "s": 48.579,
-   "e": 48.707,
+   "s": 319.021,
+   "e": 319.213,
    "sid": "S14.1"
   },
   {
    "w": "rose",
-   "s": 48.787,
-   "e": 49.107,
+   "s": 319.293,
+   "e": 319.613,
    "sid": "S14.1"
   },
   {
    "w": "like",
-   "s": 49.139,
-   "e": 49.267,
+   "s": 319.661,
+   "e": 319.853,
    "sid": "S14.1"
   },
   {
    "w": "its",
-   "s": 49.307,
-   "e": 49.427,
+   "s": 319.893,
+   "e": 320.013,
    "sid": "S14.1"
   },
   {
    "w": "metro",
-   "s": 49.494,
-   "e": 49.827,
+   "s": 320.066,
+   "e": 320.333,
    "sid": "S14.1"
   },
   {
    "w": "area's",
-   "s": 49.907,
-   "e": 50.307,
+   "s": 320.397,
+   "e": 320.733,
    "sid": "S14.1"
   },
   {
    "w": "average,",
-   "s": 50.367,
-   "e": 51.107,
+   "s": 320.783,
+   "e": 321.693,
    "sid": "S14.1"
   },
   {
    "w": "and",
-   "s": 51.247,
-   "e": 51.667,
+   "s": 321.733,
+   "e": 321.853,
    "sid": "S14.1"
   },
   {
    "w": "you",
-   "s": 51.707,
-   "e": 51.827,
+   "s": 321.873,
+   "e": 321.933,
    "sid": "S14.1"
   },
   {
    "w": "get",
-   "s": 51.907,
-   "e": 52.147,
+   "s": 321.973,
+   "e": 322.093,
    "sid": "S14.1"
   },
   {
    "w": "a",
-   "s": 52.187,
-   "e": 52.227,
+   "s": 322.193,
+   "e": 322.293,
    "sid": "S14.1"
   },
   {
    "w": "ladder",
-   "s": 52.284,
-   "e": 52.627,
+   "s": 322.322,
+   "e": 322.493,
    "sid": "S14.1"
   },
   {
    "w": "of",
-   "s": 52.68,
-   "e": 52.787,
+   "s": 322.52,
+   "e": 322.573,
    "sid": "S14.1"
   },
   {
    "w": "prices.",
-   "s": 52.878,
-   "e": 53.667,
+   "s": 322.653,
+   "e": 323.453,
    "sid": "S14.1"
   },
   {
    "w": "Miami",
-   "s": 53.907,
-   "e": 55.107,
+   "s": 323.64,
+   "e": 324.573,
    "sid": "S14.2"
   },
   {
    "w": "sits",
-   "s": 55.155,
-   "e": 55.347,
+   "s": 324.653,
+   "e": 324.973,
    "sid": "S14.2"
   },
   {
    "w": "at",
-   "s": 55.374,
-   "e": 55.427,
+   "s": 325.0,
+   "e": 325.053,
    "sid": "S14.2"
   },
   {
    "w": "the",
-   "s": 55.447,
-   "e": 55.507,
+   "s": 325.073,
+   "e": 325.133,
    "sid": "S14.2"
   },
   {
    "w": "bottom",
-   "s": 55.553,
-   "e": 55.827,
+   "s": 325.167,
+   "e": 325.373,
    "sid": "S14.2"
   },
   {
    "w": "of",
-   "s": 55.854,
-   "e": 55.907,
+   "s": 325.426,
+   "e": 325.533,
    "sid": "S14.2"
   },
   {
    "w": "the",
-   "s": 55.927,
-   "e": 55.987,
+   "s": 325.553,
+   "e": 325.613,
    "sid": "S14.2"
   },
   {
    "w": "ladder,",
-   "s": 56.033,
-   "e": 56.627,
+   "s": 325.659,
+   "e": 326.173,
    "sid": "S14.2"
   },
   {
    "w": "and",
-   "s": 56.647,
-   "e": 56.707,
+   "s": 326.193,
+   "e": 326.253,
    "sid": "S14.2"
   },
   {
    "w": "Chicago",
-   "s": 56.787,
-   "e": 57.347,
+   "s": 326.343,
+   "e": 326.973,
    "sid": "S14.2"
   },
   {
    "w": "at",
-   "s": 57.454,
-   "e": 57.667,
+   "s": 327.08,
+   "e": 327.293,
    "sid": "S14.2"
   },
   {
    "w": "the",
-   "s": 57.687,
-   "e": 57.747,
+   "s": 327.313,
+   "e": 327.373,
    "sid": "S14.2"
   },
   {
    "w": "top.",
-   "s": 57.847,
-   "e": 58.387,
+   "s": 327.493,
+   "e": 328.013,
    "sid": "S14.2"
   },
   {
    "w": "The",
-   "s": 58.567,
-   "e": 59.107,
+   "s": 328.193,
+   "e": 328.733,
    "sid": "S14.3"
   },
   {
    "w": "faster",
-   "s": 59.164,
-   "e": 59.507,
+   "s": 328.79,
+   "e": 329.133,
    "sid": "S14.3"
   },
   {
    "w": "an",
-   "s": 59.534,
-   "e": 59.587,
+   "s": 329.16,
+   "e": 329.213,
    "sid": "S14.3"
   },
   {
    "w": "area's",
-   "s": 59.651,
-   "e": 60.067,
+   "s": 329.277,
+   "e": 329.613,
    "sid": "S14.3"
   },
   {
    "w": "prices",
-   "s": 60.124,
-   "e": 60.467,
+   "s": 329.659,
+   "e": 329.933,
    "sid": "S14.3"
   },
   {
    "w": "rose,",
-   "s": 60.563,
-   "e": 61.267,
+   "s": 330.013,
+   "e": 330.573,
    "sid": "S14.3"
   },
   {
    "w": "the",
-   "s": 61.307,
-   "e": 61.427,
+   "s": 330.593,
+   "e": 330.653,
    "sid": "S14.3"
   },
   {
    "w": "lower",
-   "s": 61.48,
-   "e": 61.747,
+   "s": 330.72,
+   "e": 331.053,
    "sid": "S14.3"
   },
   {
    "w": "its",
-   "s": 61.807,
-   "e": 61.987,
+   "s": 331.113,
+   "e": 331.293,
    "sid": "S14.3"
   },
   {
    "w": "rung:",
-   "s": 62.047,
-   "e": 62.867,
+   "s": 331.353,
+   "e": 332.093,
    "sid": "S14.3"
   },
   {
    "w": "Miami's",
-   "s": 62.934,
-   "e": 63.347,
+   "s": 332.16,
+   "e": 332.573,
    "sid": "S14.3"
   },
   {
    "w": "rose",
-   "s": 63.395,
-   "e": 63.587,
+   "s": 332.637,
+   "e": 332.893,
    "sid": "S14.3"
   },
   {
    "w": "the",
-   "s": 63.607,
-   "e": 63.667,
+   "s": 332.913,
+   "e": 332.973,
    "sid": "S14.3"
   },
   {
    "w": "most,",
-   "s": 63.747,
-   "e": 64.307,
+   "s": 333.069,
+   "e": 333.693,
    "sid": "S14.3"
   },
   {
    "w": "Chicago's",
-   "s": 64.377,
-   "e": 64.947,
+   "s": 333.773,
+   "e": 334.493,
    "sid": "S14.3"
   },
   {
    "w": "the",
-   "s": 64.967,
-   "e": 65.027,
+   "s": 334.573,
+   "e": 334.813,
    "sid": "S14.3"
   },
   {
    "w": "least.",
-   "s": 65.107,
-   "e": 65.667,
+   "s": 334.893,
+   "e": 335.453,
    "sid": "S14.3"
   },
   {
    "w": "Every",
-   "s": 65.787,
-   "e": 66.387,
+   "s": 335.6,
+   "e": 336.333,
    "sid": "S14.4"
   },
   {
    "w": "city",
-   "s": 66.451,
-   "e": 66.707,
+   "s": 336.397,
+   "e": 336.653,
    "sid": "S14.4"
   },
   {
    "w": "except",
-   "s": 66.753,
-   "e": 67.027,
+   "s": 336.699,
+   "e": 336.973,
    "sid": "S14.4"
   },
   {
    "w": "Chicago",
-   "s": 67.097,
-   "e": 67.587,
+   "s": 337.043,
+   "e": 337.533,
    "sid": "S14.4"
   },
   {
    "w": "sits",
-   "s": 67.667,
-   "e": 67.987,
+   "s": 337.677,
+   "e": 338.253,
    "sid": "S14.4"
   },
   {
    "w": "under",
-   "s": 68.04,
-   "e": 68.307,
+   "s": 338.32,
+   "e": 338.653,
    "sid": "S14.4"
   },
   {
    "w": "three",
-   "s": 68.36,
-   "e": 68.627,
+   "s": 338.72,
+   "e": 339.053,
    "sid": "S14.4"
   },
   {
    "w": "hundred",
-   "s": 68.667,
-   "e": 68.947,
+   "s": 339.093,
+   "e": 339.373,
    "sid": "S14.4"
   },
   {
    "w": "thousand",
-   "s": 69.0,
-   "e": 69.427,
+   "s": 339.417,
+   "e": 339.773,
    "sid": "S14.4"
   },
   {
    "w": "dollars.",
-   "s": 69.487,
-   "e": 70.227,
+   "s": 339.843,
+   "e": 340.573,
    "sid": "S14.4"
   },
   {
    "w": "That's",
-   "s": 70.355,
-   "e": 70.947,
+   "s": 340.653,
+   "e": 341.053,
    "sid": "S14.5"
   },
   {
    "w": "the",
-   "s": 70.967,
-   "e": 71.027,
+   "s": 341.073,
+   "e": 341.133,
    "sid": "S14.5"
   },
   {
    "w": "cap,",
-   "s": 71.127,
-   "e": 71.747,
+   "s": 341.233,
+   "e": 341.773,
    "sid": "S14.5"
   },
   {
    "w": "read",
-   "s": 71.811,
-   "e": 72.067,
+   "s": 341.805,
+   "e": 341.933,
    "sid": "S14.5"
   },
   {
    "w": "a",
-   "s": 72.107,
-   "e": 72.147,
+   "s": 341.973,
+   "e": 342.013,
    "sid": "S14.5"
   },
   {
    "w": "third",
-   "s": 72.214,
-   "e": 72.547,
+   "s": 342.053,
+   "e": 342.253,
    "sid": "S14.5"
   },
   {
    "w": "way:",
-   "s": 72.647,
-   "e": 73.187,
+   "s": 342.313,
+   "e": 343.133,
    "sid": "S14.5"
   },
   {
    "w": "not",
-   "s": 73.327,
-   "e": 73.747,
+   "s": 343.193,
+   "e": 343.373,
    "sid": "S14.5"
   },
   {
    "w": "as",
-   "s": 73.827,
-   "e": 73.987,
+   "s": 343.453,
+   "e": 343.613,
    "sid": "S14.5"
   },
   {
    "w": "a",
-   "s": 74.027,
-   "e": 74.067,
+   "s": 343.653,
+   "e": 343.693,
    "sid": "S14.5"
   },
   {
    "w": "flat",
-   "s": 74.131,
-   "e": 74.387,
+   "s": 343.757,
+   "e": 344.013,
    "sid": "S14.5"
   },
   {
    "w": "line,",
-   "s": 74.499,
-   "e": 75.027,
+   "s": 344.093,
+   "e": 344.493,
    "sid": "S14.5"
   },
   {
    "w": "but",
-   "s": 75.127,
-   "e": 75.427,
+   "s": 344.613,
+   "e": 344.973,
    "sid": "S14.5"
   },
   {
    "w": "as",
-   "s": 75.48,
-   "e": 75.587,
+   "s": 345.026,
+   "e": 345.133,
    "sid": "S14.5"
   },
   {
    "w": "a",
-   "s": 75.627,
-   "e": 75.667,
+   "s": 345.173,
+   "e": 345.213,
    "sid": "S14.5"
   },
   {
    "w": "price",
-   "s": 75.734,
-   "e": 76.067,
+   "s": 345.266,
+   "e": 345.533,
    "sid": "S14.5"
   },
   {
    "w": "paid",
-   "s": 76.147,
-   "e": 76.467,
+   "s": 345.613,
+   "e": 345.933,
    "sid": "S14.5"
   },
   {
    "w": "in",
-   "s": 76.52,
-   "e": 76.627,
+   "s": 345.986,
+   "e": 346.093,
    "sid": "S14.5"
   },
   {
    "w": "two",
-   "s": 76.687,
-   "e": 76.867,
+   "s": 346.153,
+   "e": 346.333,
    "sid": "S14.5"
   },
   {
    "w": "thousand",
-   "s": 76.947,
-   "e": 77.587,
+   "s": 346.395,
+   "e": 346.893,
    "sid": "S14.5"
   },
   {
    "w": "that",
-   "s": 77.683,
-   "e": 78.067,
+   "s": 346.973,
+   "e": 347.293,
    "sid": "S14.5"
   },
   {
    "w": "anyone",
-   "s": 78.158,
-   "e": 78.707,
+   "s": 347.362,
+   "e": 347.773,
    "sid": "S14.5"
   },
   {
    "w": "can",
-   "s": 78.787,
-   "e": 79.027,
+   "s": 347.813,
+   "e": 347.933,
    "sid": "S14.5"
   },
   {
    "w": "look",
-   "s": 79.075,
-   "e": 79.267,
+   "s": 347.981,
+   "e": 348.173,
    "sid": "S14.5"
   },
   {
    "w": "up.",
-   "s": 79.374,
-   "e": 79.747,
+   "s": 348.253,
+   "e": 348.573,
    "sid": "S14.5"
+  },
+  {
+   "w": "So,",
+   "s": 350.067,
+   "e": 350.387,
+   "sid": "S15.1"
+  },
+  {
+   "w": "back",
+   "s": 350.451,
+   "e": 350.707,
+   "sid": "S15.1"
+  },
+  {
+   "w": "to",
+   "s": 350.733,
+   "e": 350.787,
+   "sid": "S15.1"
+  },
+  {
+   "w": "the",
+   "s": 350.807,
+   "e": 350.867,
+   "sid": "S15.1"
+  },
+  {
+   "w": "opening",
+   "s": 350.906,
+   "e": 351.187,
+   "sid": "S15.1"
+  },
+  {
+   "w": "question:",
+   "s": 351.24,
+   "e": 352.147,
+   "sid": "S15.1"
+  },
+  {
+   "w": "is",
+   "s": 352.2,
+   "e": 352.307,
+   "sid": "S15.1"
+  },
+  {
+   "w": "selling",
+   "s": 352.346,
+   "e": 352.627,
+   "sid": "S15.1"
+  },
+  {
+   "w": "a",
+   "s": 352.667,
+   "e": 352.707,
+   "sid": "S15.1"
+  },
+  {
+   "w": "home",
+   "s": 352.771,
+   "e": 353.026,
+   "sid": "S15.1"
+  },
+  {
+   "w": "bought",
+   "s": 353.072,
+   "e": 353.346,
+   "sid": "S15.1"
+  },
+  {
+   "w": "in",
+   "s": 353.427,
+   "e": 353.587,
+   "sid": "S15.1"
+  },
+  {
+   "w": "two",
+   "s": 353.627,
+   "e": 353.747,
+   "sid": "S15.1"
+  },
+  {
+   "w": "thousand",
+   "s": 353.845,
+   "e": 354.627,
+   "sid": "S15.1"
+  },
+  {
+   "w": "still",
+   "s": 354.72,
+   "e": 355.187,
+   "sid": "S15.1"
+  },
+  {
+   "w": "fully",
+   "s": 355.293,
+   "e": 355.827,
+   "sid": "S15.1"
+  },
+  {
+   "w": "tax-free?",
+   "s": 355.947,
+   "e": 356.707,
+   "sid": "S15.1"
+  },
+  {
+   "w": "[serious]",
+   "s": 357.427,
+   "e": 358.254,
+   "sid": "S15.2"
+  },
+  {
+   "w": "For",
+   "s": 358.267,
+   "e": 358.307,
+   "sid": "S15.2"
+  },
+  {
+   "w": "Rosa",
+   "s": 358.37,
+   "e": 358.627,
+   "sid": "S15.2"
+  },
+  {
+   "w": "and",
+   "s": 358.647,
+   "e": 358.707,
+   "sid": "S15.2"
+  },
+  {
+   "w": "Frank,",
+   "s": 358.787,
+   "e": 359.827,
+   "sid": "S15.2"
+  },
+  {
+   "w": "if",
+   "s": 359.88,
+   "e": 359.987,
+   "sid": "S15.2"
+  },
+  {
+   "w": "their",
+   "s": 360.014,
+   "e": 360.147,
+   "sid": "S15.2"
+  },
+  {
+   "w": "house",
+   "s": 360.2,
+   "e": 360.466,
+   "sid": "S15.2"
+  },
+  {
+   "w": "rose",
+   "s": 360.547,
+   "e": 360.867,
+   "sid": "S15.2"
+  },
+  {
+   "w": "like",
+   "s": 360.915,
+   "e": 361.107,
+   "sid": "S15.2"
+  },
+  {
+   "w": "its",
+   "s": 361.147,
+   "e": 361.267,
+   "sid": "S15.2"
+  },
+  {
+   "w": "metro",
+   "s": 361.32,
+   "e": 361.587,
+   "sid": "S15.2"
+  },
+  {
+   "w": "area's",
+   "s": 361.667,
+   "e": 362.067,
+   "sid": "S15.2"
+  },
+  {
+   "w": "average,",
+   "s": 362.127,
+   "e": 362.867,
+   "sid": "S15.2"
+  },
+  {
+   "w": "not",
+   "s": 363.007,
+   "e": 363.427,
+   "sid": "S15.2"
+  },
+  {
+   "w": "fully:",
+   "s": 363.494,
+   "e": 364.387,
+   "sid": "S15.2"
+  },
+  {
+   "w": "part",
+   "s": 364.418,
+   "e": 364.547,
+   "sid": "S15.2"
+  },
+  {
+   "w": "of",
+   "s": 364.574,
+   "e": 364.627,
+   "sid": "S15.2"
+  },
+  {
+   "w": "their",
+   "s": 364.654,
+   "e": 364.787,
+   "sid": "S15.2"
+  },
+  {
+   "w": "gain",
+   "s": 364.867,
+   "e": 365.187,
+   "sid": "S15.2"
+  },
+  {
+   "w": "sits",
+   "s": 365.283,
+   "e": 365.667,
+   "sid": "S15.2"
+  },
+  {
+   "w": "above",
+   "s": 365.72,
+   "e": 365.987,
+   "sid": "S15.2"
+  },
+  {
+   "w": "the",
+   "s": 366.007,
+   "e": 366.067,
+   "sid": "S15.2"
+  },
+  {
+   "w": "cap.",
+   "s": 366.187,
+   "e": 366.627,
+   "sid": "S15.2"
+  },
+  {
+   "w": "For",
+   "s": 366.846,
+   "e": 367.507,
+   "sid": "S15.3"
+  },
+  {
+   "w": "you,",
+   "s": 367.587,
+   "e": 367.906,
+   "sid": "S15.3"
+  },
+  {
+   "w": "it",
+   "s": 367.934,
+   "e": 367.987,
+   "sid": "S15.3"
+  },
+  {
+   "w": "may",
+   "s": 368.047,
+   "e": 368.227,
+   "sid": "S15.3"
+  },
+  {
+   "w": "come",
+   "s": 368.259,
+   "e": 368.387,
+   "sid": "S15.3"
+  },
+  {
+   "w": "down",
+   "s": 368.418,
+   "e": 368.547,
+   "sid": "S15.3"
+  },
+  {
+   "w": "to",
+   "s": 368.6,
+   "e": 368.707,
+   "sid": "S15.3"
+  },
+  {
+   "w": "one",
+   "s": 368.747,
+   "e": 368.867,
+   "sid": "S15.3"
+  },
+  {
+   "w": "comparison:",
+   "s": 368.925,
+   "e": 370.147,
+   "sid": "S15.3"
+  },
+  {
+   "w": "your",
+   "s": 370.179,
+   "e": 370.307,
+   "sid": "S15.3"
+  },
+  {
+   "w": "two",
+   "s": 370.346,
+   "e": 370.466,
+   "sid": "S15.3"
+  },
+  {
+   "w": "thousand",
+   "s": 370.502,
+   "e": 370.787,
+   "sid": "S15.3"
+  },
+  {
+   "w": "price",
+   "s": 370.867,
+   "e": 371.267,
+   "sid": "S15.3"
+  },
+  {
+   "w": "against",
+   "s": 371.337,
+   "e": 371.827,
+   "sid": "S15.3"
+  },
+  {
+   "w": "your",
+   "s": 371.843,
+   "e": 371.906,
+   "sid": "S15.3"
+  },
+  {
+   "w": "city's",
+   "s": 371.987,
+   "e": 372.387,
+   "sid": "S15.3"
+  },
+  {
+   "w": "rung.",
+   "s": 372.447,
+   "e": 373.026,
+   "sid": "S15.3"
+  },
+  {
+   "w": "Above",
+   "s": 373.134,
+   "e": 373.667,
+   "sid": "S15.4"
+  },
+  {
+   "w": "that",
+   "s": 373.715,
+   "e": 373.906,
+   "sid": "S15.4"
+  },
+  {
+   "w": "rung,",
+   "s": 373.966,
+   "e": 374.627,
+   "sid": "S15.4"
+  },
+  {
+   "w": "a",
+   "s": 374.667,
+   "e": 374.707,
+   "sid": "S15.4"
+  },
+  {
+   "w": "home",
+   "s": 374.755,
+   "e": 374.947,
+   "sid": "S15.4"
+  },
+  {
+   "w": "like",
+   "s": 374.978,
+   "e": 375.107,
+   "sid": "S15.4"
+  },
+  {
+   "w": "that",
+   "s": 375.171,
+   "e": 375.427,
+   "sid": "S15.4"
+  },
+  {
+   "w": "has",
+   "s": 375.507,
+   "e": 375.747,
+   "sid": "S15.4"
+  },
+  {
+   "w": "already",
+   "s": 375.817,
+   "e": 376.307,
+   "sid": "S15.4"
+  },
+  {
+   "w": "passed",
+   "s": 376.364,
+   "e": 376.707,
+   "sid": "S15.4"
+  },
+  {
+   "w": "the",
+   "s": 376.727,
+   "e": 376.787,
+   "sid": "S15.4"
+  },
+  {
+   "w": "cap.",
+   "s": 376.887,
+   "e": 377.346,
+   "sid": "S15.4"
+  },
+  {
+   "w": "Below",
+   "s": 377.454,
+   "e": 377.987,
+   "sid": "S15.4"
+  },
+  {
+   "w": "it,",
+   "s": 378.067,
+   "e": 378.547,
+   "sid": "S15.4"
+  },
+  {
+   "w": "it",
+   "s": 378.6,
+   "e": 378.707,
+   "sid": "S15.4"
+  },
+  {
+   "w": "hasn't.",
+   "s": 378.771,
+   "e": 379.187,
+   "sid": "S15.4"
+  },
+  {
+   "w": "Below",
+   "s": 379.346,
+   "e": 380.147,
+   "sid": "S15.5"
+  },
+  {
+   "w": "the",
+   "s": 380.187,
+   "e": 380.307,
+   "sid": "S15.5"
+  },
+  {
+   "w": "rung",
+   "s": 380.367,
+   "e": 380.707,
+   "sid": "S15.5"
+  },
+  {
+   "w": "isn't",
+   "s": 380.787,
+   "e": 381.227,
+   "sid": "S15.5"
+  },
+  {
+   "w": "proof",
+   "s": 381.26,
+   "e": 381.427,
+   "sid": "S15.5"
+  },
+  {
+   "w": "of",
+   "s": 381.454,
+   "e": 381.507,
+   "sid": "S15.5"
+  },
+  {
+   "w": "no",
+   "s": 381.587,
+   "e": 381.747,
+   "sid": "S15.5"
+  },
+  {
+   "w": "tax,",
+   "s": 381.887,
+   "e": 382.787,
+   "sid": "S15.5"
+  },
+  {
+   "w": "and",
+   "s": 382.807,
+   "e": 382.867,
+   "sid": "S15.5"
+  },
+  {
+   "w": "above",
+   "s": 382.92,
+   "e": 383.187,
+   "sid": "S15.5"
+  },
+  {
+   "w": "it",
+   "s": 383.24,
+   "e": 383.346,
+   "sid": "S15.5"
+  },
+  {
+   "w": "isn't",
+   "s": 383.427,
+   "e": 383.747,
+   "sid": "S15.5"
+  },
+  {
+   "w": "proof",
+   "s": 383.814,
+   "e": 384.147,
+   "sid": "S15.5"
+  },
+  {
+   "w": "of",
+   "s": 384.2,
+   "e": 384.307,
+   "sid": "S15.5"
+  },
+  {
+   "w": "a",
+   "s": 384.346,
+   "e": 384.387,
+   "sid": "S15.5"
+  },
+  {
+   "w": "large",
+   "s": 384.44,
+   "e": 384.707,
+   "sid": "S15.5"
+  },
+  {
+   "w": "one.",
+   "s": 384.767,
+   "e": 385.187,
+   "sid": "S15.5"
+  },
+  {
+   "w": "The",
+   "s": 385.367,
+   "e": 385.907,
+   "sid": "S15.5"
+  },
+  {
+   "w": "video",
+   "s": 385.96,
+   "e": 386.226,
+   "sid": "S15.5"
+  },
+  {
+   "w": "measures",
+   "s": 386.271,
+   "e": 386.627,
+   "sid": "S15.5"
+  },
+  {
+   "w": "one",
+   "s": 386.687,
+   "e": 386.867,
+   "sid": "S15.5"
+  },
+  {
+   "w": "line;",
+   "s": 386.947,
+   "e": 387.507,
+   "sid": "S15.5"
+  },
+  {
+   "w": "it",
+   "s": 387.56,
+   "e": 387.667,
+   "sid": "S15.5"
+  },
+  {
+   "w": "says",
+   "s": 387.699,
+   "e": 387.827,
+   "sid": "S15.5"
+  },
+  {
+   "w": "nothing",
+   "s": 387.887,
+   "e": 388.307,
+   "sid": "S15.5"
+  },
+  {
+   "w": "about",
+   "s": 388.36,
+   "e": 388.627,
+   "sid": "S15.5"
+  },
+  {
+   "w": "what",
+   "s": 388.659,
+   "e": 388.787,
+   "sid": "S15.5"
+  },
+  {
+   "w": "anyone",
+   "s": 388.856,
+   "e": 389.267,
+   "sid": "S15.5"
+  },
+  {
+   "w": "does",
+   "s": 389.315,
+   "e": 389.507,
+   "sid": "S15.5"
+  },
+  {
+   "w": "next.",
+   "s": 389.587,
+   "e": 390.147,
+   "sid": "S15.5"
+  },
+  {
+   "w": "Your",
+   "s": 390.733,
+   "e": 390.893,
+   "sid": "S16.1"
+  },
+  {
+   "w": "side",
+   "s": 390.941,
+   "e": 391.133,
+   "sid": "S16.1"
+  },
+  {
+   "w": "of",
+   "s": 391.16,
+   "e": 391.213,
+   "sid": "S16.1"
+  },
+  {
+   "w": "it",
+   "s": 391.24,
+   "e": 391.293,
+   "sid": "S16.1"
+  },
+  {
+   "w": "is",
+   "s": 391.346,
+   "e": 391.453,
+   "sid": "S16.1"
+  },
+  {
+   "w": "what",
+   "s": 391.485,
+   "e": 391.613,
+   "sid": "S16.1"
+  },
+  {
+   "w": "you",
+   "s": 391.653,
+   "e": 391.773,
+   "sid": "S16.1"
+  },
+  {
+   "w": "paid",
+   "s": 391.837,
+   "e": 392.093,
+   "sid": "S16.1"
+  },
+  {
+   "w": "plus",
+   "s": 392.141,
+   "e": 392.333,
+   "sid": "S16.1"
+  },
+  {
+   "w": "improvements,",
+   "s": 392.376,
+   "e": 393.373,
+   "sid": "S16.1"
+  },
+  {
+   "w": "which",
+   "s": 393.4,
+   "e": 393.533,
+   "sid": "S16.1"
+  },
+  {
+   "w": "count",
+   "s": 393.573,
+   "e": 393.773,
+   "sid": "S16.1"
+  },
+  {
+   "w": "toward",
+   "s": 393.842,
+   "e": 394.253,
+   "sid": "S16.1"
+  },
+  {
+   "w": "what",
+   "s": 394.317,
+   "e": 394.573,
+   "sid": "S16.1"
+  },
+  {
+   "w": "the",
+   "s": 394.593,
+   "e": 394.653,
+   "sid": "S16.1"
+  },
+  {
+   "w": "gain",
+   "s": 394.701,
+   "e": 394.893,
+   "sid": "S16.1"
+  },
+  {
+   "w": "is",
+   "s": 394.946,
+   "e": 395.053,
+   "sid": "S16.1"
+  },
+  {
+   "w": "measured",
+   "s": 395.097,
+   "e": 395.453,
+   "sid": "S16.1"
+  },
+  {
+   "w": "from.",
+   "s": 395.501,
+   "e": 395.933,
+   "sid": "S16.1"
+  },
+  {
+   "w": "Selling",
+   "s": 396.043,
+   "e": 396.813,
+   "sid": "S16.2"
+  },
+  {
+   "w": "costs,",
+   "s": 396.906,
+   "e": 397.613,
+   "sid": "S16.2"
+  },
+  {
+   "w": "like",
+   "s": 397.661,
+   "e": 397.853,
+   "sid": "S16.2"
+  },
+  {
+   "w": "agent",
+   "s": 397.92,
+   "e": 398.253,
+   "sid": "S16.2"
+  },
+  {
+   "w": "fees,",
+   "s": 398.349,
+   "e": 398.893,
+   "sid": "S16.2"
+  },
+  {
+   "w": "come",
+   "s": 398.925,
+   "e": 399.053,
+   "sid": "S16.2"
+  },
+  {
+   "w": "off",
+   "s": 399.093,
+   "e": 399.213,
+   "sid": "S16.2"
+  },
+  {
+   "w": "the",
+   "s": 399.233,
+   "e": 399.293,
+   "sid": "S16.2"
+  },
+  {
+   "w": "gain",
+   "s": 399.357,
+   "e": 399.613,
+   "sid": "S16.2"
+  },
+  {
+   "w": "too.",
+   "s": 399.693,
+   "e": 400.173,
+   "sid": "S16.2"
+  },
+  {
+   "w": "Outside",
+   "s": 400.293,
+   "e": 401.133,
+   "sid": "S16.3"
+  },
+  {
+   "w": "these",
+   "s": 401.16,
+   "e": 401.293,
+   "sid": "S16.3"
+  },
+  {
+   "w": "cities,",
+   "s": 401.362,
+   "e": 402.093,
+   "sid": "S16.3"
+  },
+  {
+   "w": "the",
+   "s": 402.113,
+   "e": 402.173,
+   "sid": "S16.3"
+  },
+  {
+   "w": "national",
+   "s": 402.226,
+   "e": 402.653,
+   "sid": "S16.3"
+  },
+  {
+   "w": "index",
+   "s": 402.733,
+   "e": 403.133,
+   "sid": "S16.3"
+  },
+  {
+   "w": "puts",
+   "s": 403.181,
+   "e": 403.373,
+   "sid": "S16.3"
+  },
+  {
+   "w": "the",
+   "s": 403.413,
+   "e": 403.533,
+   "sid": "S16.3"
+  },
+  {
+   "w": "line,",
+   "s": 403.613,
+   "e": 404.013,
+   "sid": "S16.3"
+  },
+  {
+   "w": "for",
+   "s": 404.093,
+   "e": 404.333,
+   "sid": "S16.3"
+  },
+  {
+   "w": "a",
+   "s": 404.373,
+   "e": 404.413,
+   "sid": "S16.3"
+  },
+  {
+   "w": "home",
+   "s": 404.461,
+   "e": 404.653,
+   "sid": "S16.3"
+  },
+  {
+   "w": "like",
+   "s": 404.685,
+   "e": 404.813,
+   "sid": "S16.3"
+  },
+  {
+   "w": "the",
+   "s": 404.853,
+   "e": 404.973,
+   "sid": "S16.3"
+  },
+  {
+   "w": "average,",
+   "s": 405.033,
+   "e": 405.733,
+   "sid": "S16.3"
+  },
+  {
+   "w": "at",
+   "s": 405.826,
+   "e": 406.013,
+   "sid": "S16.3"
+  },
+  {
+   "w": "about",
+   "s": 406.08,
+   "e": 406.413,
+   "sid": "S16.3"
+  },
+  {
+   "w": "two",
+   "s": 406.473,
+   "e": 406.653,
+   "sid": "S16.3"
+  },
+  {
+   "w": "hundred",
+   "s": 406.683,
+   "e": 406.893,
+   "sid": "S16.3"
+  },
+  {
+   "w": "forty-three",
+   "s": 406.96,
+   "e": 407.533,
+   "sid": "S16.3"
+  },
+  {
+   "w": "thousand",
+   "s": 407.604,
+   "e": 408.173,
+   "sid": "S16.3"
+  },
+  {
+   "w": "five",
+   "s": 408.221,
+   "e": 408.413,
+   "sid": "S16.3"
+  },
+  {
+   "w": "hundred",
+   "s": 408.443,
+   "e": 408.653,
+   "sid": "S16.3"
+  },
+  {
+   "w": "dollars.",
+   "s": 408.723,
+   "e": 409.453,
+   "sid": "S16.3"
+  },
+  {
+   "w": "For",
+   "s": 409.593,
+   "e": 410.013,
+   "sid": "S16.4"
+  },
+  {
+   "w": "a",
+   "s": 410.053,
+   "e": 410.093,
+   "sid": "S16.4"
+  },
+  {
+   "w": "single",
+   "s": 410.139,
+   "e": 410.413,
+   "sid": "S16.4"
+  },
+  {
+   "w": "seller,",
+   "s": 410.47,
+   "e": 411.213,
+   "sid": "S16.4"
+  },
+  {
+   "w": "with",
+   "s": 411.245,
+   "e": 411.373,
+   "sid": "S16.4"
+  },
+  {
+   "w": "the",
+   "s": 411.413,
+   "e": 411.533,
+   "sid": "S16.4"
+  },
+  {
+   "w": "two",
+   "s": 411.593,
+   "e": 411.773,
+   "sid": "S16.4"
+  },
+  {
+   "w": "hundred",
+   "s": 411.813,
+   "e": 412.093,
+   "sid": "S16.4"
+  },
+  {
+   "w": "fifty",
+   "s": 412.16,
+   "e": 412.493,
+   "sid": "S16.4"
+  },
+  {
+   "w": "thousand",
+   "s": 412.529,
+   "e": 412.813,
+   "sid": "S16.4"
+  },
+  {
+   "w": "dollars",
+   "s": 412.853,
+   "e": 413.133,
+   "sid": "S16.4"
+  },
+  {
+   "w": "cap,",
+   "s": 413.233,
+   "e": 414.013,
+   "sid": "S16.4"
+  },
+  {
+   "w": "the",
+   "s": 414.033,
+   "e": 414.093,
+   "sid": "S16.4"
+  },
+  {
+   "w": "national",
+   "s": 414.146,
+   "e": 414.573,
+   "sid": "S16.4"
+  },
+  {
+   "w": "line",
+   "s": 414.637,
+   "e": 414.893,
+   "sid": "S16.4"
+  },
+  {
+   "w": "is",
+   "s": 414.973,
+   "e": 415.133,
+   "sid": "S16.4"
+  },
+  {
+   "w": "about",
+   "s": 415.2,
+   "e": 415.533,
+   "sid": "S16.4"
+  },
+  {
+   "w": "one",
+   "s": 415.593,
+   "e": 415.773,
+   "sid": "S16.4"
+  },
+  {
+   "w": "hundred",
+   "s": 415.823,
+   "e": 416.173,
+   "sid": "S16.4"
+  },
+  {
+   "w": "twenty-one",
+   "s": 416.23,
+   "e": 416.733,
+   "sid": "S16.4"
+  },
+  {
+   "w": "thousand",
+   "s": 416.795,
+   "e": 417.293,
+   "sid": "S16.4"
+  },
+  {
+   "w": "seven",
+   "s": 417.413,
+   "e": 418.013,
+   "sid": "S16.4"
+  },
+  {
+   "w": "hundred",
+   "s": 418.043,
+   "e": 418.253,
+   "sid": "S16.4"
+  },
+  {
+   "w": "dollars.",
+   "s": 418.313,
+   "e": 419.053,
+   "sid": "S16.4"
+  },
+  {
+   "w": "None",
+   "s": 420.067,
+   "e": 420.147,
+   "sid": "S17.1"
+  },
+  {
+   "w": "of",
+   "s": 420.174,
+   "e": 420.227,
+   "sid": "S17.1"
+  },
+  {
+   "w": "this",
+   "s": 420.259,
+   "e": 420.387,
+   "sid": "S17.1"
+  },
+  {
+   "w": "is",
+   "s": 420.466,
+   "e": 420.627,
+   "sid": "S17.1"
+  },
+  {
+   "w": "anyone's",
+   "s": 420.684,
+   "e": 421.107,
+   "sid": "S17.1"
+  },
+  {
+   "w": "tax",
+   "s": 421.187,
+   "e": 421.427,
+   "sid": "S17.1"
+  },
+  {
+   "w": "bill.",
+   "s": 421.475,
+   "e": 421.747,
+   "sid": "S17.1"
+  },
+  {
+   "w": "Gain",
+   "s": 421.906,
+   "e": 422.547,
+   "sid": "S17.2"
+  },
+  {
+   "w": "above",
+   "s": 422.574,
+   "e": 422.707,
+   "sid": "S17.2"
+  },
+  {
+   "w": "the",
+   "s": 422.727,
+   "e": 422.787,
+   "sid": "S17.2"
+  },
+  {
+   "w": "cap",
+   "s": 422.867,
+   "e": 423.107,
+   "sid": "S17.2"
+  },
+  {
+   "w": "is",
+   "s": 423.16,
+   "e": 423.267,
+   "sid": "S17.2"
+  },
+  {
+   "w": "taxed",
+   "s": 423.334,
+   "e": 423.667,
+   "sid": "S17.2"
+  },
+  {
+   "w": "as",
+   "s": 423.747,
+   "e": 423.906,
+   "sid": "S17.2"
+  },
+  {
+   "w": "a",
+   "s": 423.947,
+   "e": 423.987,
+   "sid": "S17.2"
+  },
+  {
+   "w": "long-term",
+   "s": 424.05,
+   "e": 424.627,
+   "sid": "S17.2"
+  },
+  {
+   "w": "capital",
+   "s": 424.677,
+   "e": 425.026,
+   "sid": "S17.2"
+  },
+  {
+   "w": "gain,",
+   "s": 425.107,
+   "e": 425.507,
+   "sid": "S17.2"
+  },
+  {
+   "w": "since",
+   "s": 425.614,
+   "e": 426.147,
+   "sid": "S17.2"
+  },
+  {
+   "w": "the",
+   "s": 426.167,
+   "e": 426.227,
+   "sid": "S17.2"
+  },
+  {
+   "w": "home",
+   "s": 426.291,
+   "e": 426.547,
+   "sid": "S17.2"
+  },
+  {
+   "w": "was",
+   "s": 426.587,
+   "e": 426.707,
+   "sid": "S17.2"
+  },
+  {
+   "w": "held",
+   "s": 426.771,
+   "e": 427.026,
+   "sid": "S17.2"
+  },
+  {
+   "w": "more",
+   "s": 427.091,
+   "e": 427.346,
+   "sid": "S17.2"
+  },
+  {
+   "w": "than",
+   "s": 427.363,
+   "e": 427.427,
+   "sid": "S17.2"
+  },
+  {
+   "w": "a",
+   "s": 427.466,
+   "e": 427.507,
+   "sid": "S17.2"
+  },
+  {
+   "w": "year,",
+   "s": 427.587,
+   "e": 428.707,
+   "sid": "S17.2"
+  },
+  {
+   "w": "at",
+   "s": 428.76,
+   "e": 428.867,
+   "sid": "S17.2"
+  },
+  {
+   "w": "a",
+   "s": 428.906,
+   "e": 428.947,
+   "sid": "S17.2"
+  },
+  {
+   "w": "rate",
+   "s": 428.995,
+   "e": 429.187,
+   "sid": "S17.2"
+  },
+  {
+   "w": "that",
+   "s": 429.203,
+   "e": 429.267,
+   "sid": "S17.2"
+  },
+  {
+   "w": "depends",
+   "s": 429.317,
+   "e": 429.667,
+   "sid": "S17.2"
+  },
+  {
+   "w": "on",
+   "s": 429.72,
+   "e": 429.827,
+   "sid": "S17.2"
+  },
+  {
+   "w": "income",
+   "s": 429.896,
+   "e": 430.307,
+   "sid": "S17.2"
+  },
+  {
+   "w": "and",
+   "s": 430.406,
+   "e": 430.707,
+   "sid": "S17.2"
+  },
+  {
+   "w": "state.",
+   "s": 430.787,
+   "e": 431.427,
+   "sid": "S17.2"
+  },
+  {
+   "w": "And",
+   "s": 431.507,
+   "e": 431.747,
+   "sid": "S17.3"
+  },
+  {
+   "w": "the",
+   "s": 431.767,
+   "e": 431.827,
+   "sid": "S17.3"
+  },
+  {
+   "w": "average",
+   "s": 431.897,
+   "e": 432.387,
+   "sid": "S17.3"
+  },
+  {
+   "w": "is",
+   "s": 432.547,
+   "e": 432.867,
+   "sid": "S17.3"
+  },
+  {
+   "w": "not",
+   "s": 432.927,
+   "e": 433.107,
+   "sid": "S17.3"
+  },
+  {
+   "w": "your",
+   "s": 433.139,
+   "e": 433.267,
+   "sid": "S17.3"
+  },
+  {
+   "w": "home:",
+   "s": 433.346,
+   "e": 434.227,
+   "sid": "S17.3"
+  },
+  {
+   "w": "your",
+   "s": 434.243,
+   "e": 434.307,
+   "sid": "S17.3"
+  },
+  {
+   "w": "street,",
+   "s": 434.376,
+   "e": 434.947,
+   "sid": "S17.3"
+  },
+  {
+   "w": "your",
+   "s": 434.963,
+   "e": 435.026,
+   "sid": "S17.3"
+  },
+  {
+   "w": "remodel",
+   "s": 435.096,
+   "e": 435.587,
+   "sid": "S17.3"
+  },
+  {
+   "w": "and",
+   "s": 435.667,
+   "e": 435.906,
+   "sid": "S17.3"
+  },
+  {
+   "w": "your",
+   "s": 435.939,
+   "e": 436.067,
+   "sid": "S17.3"
+  },
+  {
+   "w": "purchase",
+   "s": 436.111,
+   "e": 436.466,
+   "sid": "S17.3"
+  },
+  {
+   "w": "month",
+   "s": 436.519,
+   "e": 436.787,
+   "sid": "S17.3"
+  },
+  {
+   "w": "can",
+   "s": 436.927,
+   "e": 437.346,
+   "sid": "S17.3"
+  },
+  {
+   "w": "put",
+   "s": 437.387,
+   "e": 437.507,
+   "sid": "S17.3"
+  },
+  {
+   "w": "you",
+   "s": 437.547,
+   "e": 437.667,
+   "sid": "S17.3"
+  },
+  {
+   "w": "far",
+   "s": 437.767,
+   "e": 438.067,
+   "sid": "S17.3"
+  },
+  {
+   "w": "from",
+   "s": 438.115,
+   "e": 438.307,
+   "sid": "S17.3"
+  },
+  {
+   "w": "your",
+   "s": 438.322,
+   "e": 438.387,
+   "sid": "S17.3"
+  },
+  {
+   "w": "rung.",
+   "s": 438.466,
+   "e": 439.346,
+   "sid": "S17.3"
+  },
+  {
+   "w": "The",
+   "s": 439.466,
+   "e": 439.827,
+   "sid": "S17.4"
+  },
+  {
+   "w": "line",
+   "s": 439.906,
+   "e": 440.227,
+   "sid": "S17.4"
+  },
+  {
+   "w": "is",
+   "s": 440.28,
+   "e": 440.387,
+   "sid": "S17.4"
+  },
+  {
+   "w": "a",
+   "s": 440.427,
+   "e": 440.466,
+   "sid": "S17.4"
+  },
+  {
+   "w": "measurement,",
+   "s": 440.514,
+   "e": 441.187,
+   "sid": "S17.4"
+  },
+  {
+   "w": "not",
+   "s": 441.247,
+   "e": 441.427,
+   "sid": "S17.4"
+  },
+  {
+   "w": "a",
+   "s": 441.466,
+   "e": 441.507,
+   "sid": "S17.4"
+  },
+  {
+   "w": "next",
+   "s": 441.555,
+   "e": 441.747,
+   "sid": "S17.4"
+  },
+  {
+   "w": "step;",
+   "s": 441.827,
+   "e": 442.707,
+   "sid": "S17.4"
+  },
+  {
+   "w": "this",
+   "s": 442.739,
+   "e": 442.867,
+   "sid": "S17.4"
+  },
+  {
+   "w": "video",
+   "s": 442.92,
+   "e": 443.187,
+   "sid": "S17.4"
+  },
+  {
+   "w": "doesn't",
+   "s": 443.227,
+   "e": 443.507,
+   "sid": "S17.4"
+  },
+  {
+   "w": "weigh",
+   "s": 443.547,
+   "e": 443.747,
+   "sid": "S17.4"
+  },
+  {
+   "w": "selling,",
+   "s": 443.807,
+   "e": 444.307,
+   "sid": "S17.4"
+  },
+  {
+   "w": "keeping",
+   "s": 444.357,
+   "e": 444.707,
+   "sid": "S17.4"
+  },
+  {
+   "w": "or",
+   "s": 444.84,
+   "e": 445.107,
+   "sid": "S17.4"
+  },
+  {
+   "w": "waiting.",
+   "s": 445.156,
+   "e": 445.747,
+   "sid": "S17.4"
+  },
+  {
+   "w": "How",
+   "s": 446.533,
+   "e": 446.613,
+   "sid": "S18.1"
+  },
+  {
+   "w": "we",
+   "s": 446.666,
+   "e": 446.773,
+   "sid": "S18.1"
+  },
+  {
+   "w": "built",
+   "s": 446.813,
+   "e": 447.013,
+   "sid": "S18.1"
+  },
+  {
+   "w": "this",
+   "s": 447.061,
+   "e": 447.253,
+   "sid": "S18.1"
+  },
+  {
+   "w": "is",
+   "s": 447.306,
+   "e": 447.413,
+   "sid": "S18.1"
+  },
+  {
+   "w": "on",
+   "s": 447.466,
+   "e": 447.573,
+   "sid": "S18.1"
+  },
+  {
+   "w": "screen",
+   "s": 447.63,
+   "e": 447.973,
+   "sid": "S18.1"
+  },
+  {
+   "w": "and",
+   "s": 448.093,
+   "e": 448.453,
+   "sid": "S18.1"
+  },
+  {
+   "w": "in",
+   "s": 448.506,
+   "e": 448.613,
+   "sid": "S18.1"
+  },
+  {
+   "w": "the",
+   "s": 448.633,
+   "e": 448.693,
+   "sid": "S18.1"
+  },
+  {
+   "w": "description.",
+   "s": 448.74,
+   "e": 449.493,
+   "sid": "S18.1"
+  },
+  {
+   "w": "The",
+   "s": 449.773,
+   "e": 450.613,
+   "sid": "S18.2"
+  },
+  {
+   "w": "price",
+   "s": 450.666,
+   "e": 450.933,
+   "sid": "S18.2"
+  },
+  {
+   "w": "indexes",
+   "s": 451.003,
+   "e": 451.493,
+   "sid": "S18.2"
+  },
+  {
+   "w": "are",
+   "s": 451.533,
+   "e": 451.653,
+   "sid": "S18.2"
+  },
+  {
+   "w": "revised",
+   "s": 451.713,
+   "e": 452.133,
+   "sid": "S18.2"
+  },
+  {
+   "w": "every",
+   "s": 452.173,
+   "e": 452.373,
+   "sid": "S18.2"
+  },
+  {
+   "w": "quarter,",
+   "s": 452.423,
+   "e": 452.853,
+   "sid": "S18.2"
+  },
+  {
+   "w": "so",
+   "s": 452.906,
+   "e": 453.013,
+   "sid": "S18.2"
+  },
+  {
+   "w": "these",
+   "s": 453.053,
+   "e": 453.253,
+   "sid": "S18.2"
+  },
+  {
+   "w": "lines",
+   "s": 453.306,
+   "e": 453.573,
+   "sid": "S18.2"
+  },
+  {
+   "w": "can",
+   "s": 453.613,
+   "e": 453.733,
+   "sid": "S18.2"
+  },
+  {
+   "w": "move",
+   "s": 453.781,
+   "e": 453.973,
+   "sid": "S18.2"
+  },
+  {
+   "w": "a",
+   "s": 454.013,
+   "e": 454.053,
+   "sid": "S18.2"
+  },
+  {
+   "w": "little",
+   "s": 454.087,
+   "e": 454.293,
+   "sid": "S18.2"
+  },
+  {
+   "w": "with",
+   "s": 454.325,
+   "e": 454.453,
+   "sid": "S18.2"
+  },
+  {
+   "w": "the",
+   "s": 454.473,
+   "e": 454.533,
+   "sid": "S18.2"
+  },
+  {
+   "w": "next",
+   "s": 454.581,
+   "e": 454.773,
+   "sid": "S18.2"
+  },
+  {
+   "w": "release.",
+   "s": 454.833,
+   "e": 455.493,
+   "sid": "S18.2"
+  },
+  {
+   "w": "This",
+   "s": 458.0,
+   "e": 458.4,
+   "sid": "S19.1"
+  },
+  {
+   "w": "is",
+   "s": 458.48,
+   "e": 458.64,
+   "sid": "S19.1"
+  },
+  {
+   "w": "history,",
+   "s": 458.7,
+   "e": 459.36,
+   "sid": "S19.1"
+  },
+  {
+   "w": "not",
+   "s": 459.42,
+   "e": 459.6,
+   "sid": "S19.1"
+  },
+  {
+   "w": "a",
+   "s": 459.64,
+   "e": 459.68,
+   "sid": "S19.1"
+  },
+  {
+   "w": "forecast:",
+   "s": 459.742,
+   "e": 460.96,
+   "sid": "S19.1"
+  },
+  {
+   "w": "where",
+   "s": 461.0,
+   "e": 461.2,
+   "sid": "S19.1"
+  },
+  {
+   "w": "prices",
+   "s": 461.257,
+   "e": 461.6,
+   "sid": "S19.1"
+  },
+  {
+   "w": "went",
+   "s": 461.648,
+   "e": 461.84,
+   "sid": "S19.1"
+  },
+  {
+   "w": "from",
+   "s": 461.888,
+   "e": 462.08,
+   "sid": "S19.1"
+  },
+  {
+   "w": "two",
+   "s": 462.1,
+   "e": 462.16,
+   "sid": "S19.1"
+  },
+  {
+   "w": "thousand",
+   "s": 462.267,
+   "e": 463.12,
+   "sid": "S19.1"
+  },
+  {
+   "w": "to",
+   "s": 463.173,
+   "e": 463.28,
+   "sid": "S19.1"
+  },
+  {
+   "w": "the",
+   "s": 463.3,
+   "e": 463.36,
+   "sid": "S19.1"
+  },
+  {
+   "w": "second",
+   "s": 463.394,
+   "e": 463.6,
+   "sid": "S19.1"
+  },
+  {
+   "w": "quarter",
+   "s": 463.66,
+   "e": 464.08,
+   "sid": "S19.1"
+  },
+  {
+   "w": "of",
+   "s": 464.133,
+   "e": 464.24,
+   "sid": "S19.1"
+  },
+  {
+   "w": "twenty",
+   "s": 464.286,
+   "e": 464.56,
+   "sid": "S19.1"
+  },
+  {
+   "w": "twenty-six,",
+   "s": 464.606,
+   "e": 466.0,
+   "sid": "S19.1"
+  },
+  {
+   "w": "not",
+   "s": 466.06,
+   "e": 466.24,
+   "sid": "S19.1"
+  },
+  {
+   "w": "where",
+   "s": 466.28,
+   "e": 466.48,
+   "sid": "S19.1"
+  },
+  {
+   "w": "they,",
+   "s": 466.544,
+   "e": 466.96,
+   "sid": "S19.1"
+  },
+  {
+   "w": "or",
+   "s": 467.013,
+   "e": 467.12,
+   "sid": "S19.1"
+  },
+  {
+   "w": "the",
+   "s": 467.14,
+   "e": 467.2,
+   "sid": "S19.1"
+  },
+  {
+   "w": "cap,",
+   "s": 467.32,
+   "e": 467.84,
+   "sid": "S19.1"
+  },
+  {
+   "w": "go",
+   "s": 467.893,
+   "e": 468.0,
+   "sid": "S19.1"
+  },
+  {
+   "w": "next.",
+   "s": 468.096,
+   "e": 468.72,
+   "sid": "S19.1"
+  },
+  {
+   "w": "[thoughtful]",
+   "s": 469.04,
+   "e": 469.418,
+   "sid": "S19.2"
+  },
+  {
+   "w": "The",
+   "s": 469.425,
+   "e": 469.445,
+   "sid": "S19.2"
+  },
+  {
+   "w": "cap",
+   "s": 469.525,
+   "e": 469.765,
+   "sid": "S19.2"
+  },
+  {
+   "w": "is",
+   "s": 469.792,
+   "e": 469.845,
+   "sid": "S19.2"
+  },
+  {
+   "w": "still",
+   "s": 469.885,
+   "e": 470.085,
+   "sid": "S19.2"
+  },
+  {
+   "w": "the",
+   "s": 470.125,
+   "e": 470.245,
+   "sid": "S19.2"
+  },
+  {
+   "w": "same",
+   "s": 470.293,
+   "e": 470.485,
+   "sid": "S19.2"
+  },
+  {
+   "w": "flat",
+   "s": 470.549,
+   "e": 470.805,
+   "sid": "S19.2"
+  },
+  {
+   "w": "line",
+   "s": 470.853,
+   "e": 471.045,
+   "sid": "S19.2"
+  },
+  {
+   "w": "it",
+   "s": 471.098,
+   "e": 471.205,
+   "sid": "S19.2"
+  },
+  {
+   "w": "was",
+   "s": 471.265,
+   "e": 471.445,
+   "sid": "S19.2"
+  },
+  {
+   "w": "in",
+   "s": 471.498,
+   "e": 471.605,
+   "sid": "S19.2"
+  },
+  {
+   "w": "nineteen",
+   "s": 471.658,
+   "e": 472.085,
+   "sid": "S19.2"
+  },
+  {
+   "w": "ninety-seven.",
+   "s": 472.119,
+   "e": 472.805,
+   "sid": "S19.2"
+  },
+  {
+   "w": "What",
+   "s": 472.965,
+   "e": 473.605,
+   "sid": "S19.3"
+  },
+  {
+   "w": "moved",
+   "s": 473.672,
+   "e": 474.005,
+   "sid": "S19.3"
+  },
+  {
+   "w": "is",
+   "s": 474.112,
+   "e": 474.325,
+   "sid": "S19.3"
+  },
+  {
+   "w": "the",
+   "s": 474.345,
+   "e": 474.405,
+   "sid": "S19.3"
+  },
+  {
+   "w": "house",
+   "s": 474.458,
+   "e": 474.725,
+   "sid": "S19.3"
+  },
+  {
+   "w": "underneath",
+   "s": 474.761,
+   "e": 475.125,
+   "sid": "S19.3"
+  },
+  {
+   "w": "it.",
+   "s": 475.205,
+   "e": 475.605,
+   "sid": "S19.3"
   }
  ],
  "anchors": [
   {
+   "shot": "S01-gain",
+   "param": "at",
+   "anchor": "@S01.1:About",
+   "word_t": 0.369,
+   "visual_t": 0.369,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-gain",
+   "param": "captionAt",
+   "anchor": "@S01.1:paper",
+   "word_t": 3.587,
+   "visual_t": 3.587,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-gain",
+   "param": "subAt",
+   "anchor": "@S01.1:more",
+   "word_t": 5.328,
+   "visual_t": 5.328,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-couple",
+   "param": "at",
+   "anchor": "@S01.2",
+   "word_t": 8.24,
+   "visual_t": 8.24,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-couple",
+   "param": "ats[0]",
+   "anchor": "@S01.2",
+   "word_t": 8.24,
+   "visual_t": 8.24,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-couple",
+   "param": "ats[1]",
+   "anchor": "@S01.2:bought",
+   "word_t": 11.794,
+   "visual_t": 11.794,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-couple",
+   "param": "ats[2]",
+   "anchor": "@S01.2:if",
+   "word_t": 13.36,
+   "visual_t": 13.36,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-promise",
+   "param": "at",
+   "anchor": "@S01.3",
+   "word_t": 15.52,
+   "visual_t": 15.533,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-promise",
+   "param": "ats[0]",
+   "anchor": "@S01.3",
+   "word_t": 15.52,
+   "visual_t": 15.533,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-promise",
+   "param": "ats[1]",
+   "anchor": "@S01.3:passes",
+   "word_t": 21.646,
+   "visual_t": 21.646,
+   "scene": "S01"
+  },
+  {
+   "shot": "S01-promise",
+   "param": "ats[2]",
+   "anchor": "@S01.3:check",
+   "word_t": 23.48,
+   "visual_t": 23.48,
+   "scene": "S01"
+  },
+  {
+   "shot": "S02-limits",
+   "param": "at",
+   "anchor": "@S02.1",
+   "word_t": 25.133,
+   "visual_t": 25.133,
+   "scene": "S02"
+  },
+  {
+   "shot": "S02-limits",
+   "param": "ats[0]",
+   "anchor": "@S02.1",
+   "word_t": 25.133,
+   "visual_t": 25.133,
+   "scene": "S02"
+  },
+  {
+   "shot": "S02-limits",
+   "param": "ats[1]",
+   "anchor": "@S02.2",
+   "word_t": 31.389,
+   "visual_t": 31.389,
+   "scene": "S02"
+  },
+  {
+   "shot": "S02-limits",
+   "param": "ats[2]",
+   "anchor": "@S02.3",
+   "word_t": 36.546,
+   "visual_t": 36.546,
+   "scene": "S02"
+  },
+  {
+   "shot": "S02-limits",
+   "param": "ats[3]",
+   "anchor": "@S02.4",
+   "word_t": 44.573,
+   "visual_t": 44.573,
+   "scene": "S02"
+  },
+  {
+   "shot": "S03-gain",
+   "param": "at",
+   "anchor": "@S03.1",
+   "word_t": 49.367,
+   "visual_t": 49.367,
+   "scene": "S03"
+  },
+  {
+   "shot": "S03-gain",
+   "param": "ats[0]",
+   "anchor": "@S03.1:gain",
+   "word_t": 50.471,
+   "visual_t": 50.471,
+   "scene": "S03"
+  },
+  {
+   "shot": "S03-caps",
+   "param": "at",
+   "anchor": "@S03.2",
+   "word_t": 56.607,
+   "visual_t": 56.607,
+   "scene": "S03"
+  },
+  {
+   "shot": "S03-caps",
+   "param": "items[0].at",
+   "anchor": "@S03.2:married",
+   "word_t": 56.927,
+   "visual_t": 56.927,
+   "scene": "S03"
+  },
+  {
+   "shot": "S03-caps",
+   "param": "items[1].at",
+   "anchor": "@S03.2:single",
+   "word_t": 63.733,
+   "visual_t": 63.733,
+   "scene": "S03"
+  },
+  {
+   "shot": "S04-couple",
+   "param": "at",
+   "anchor": "@S04.1",
+   "word_t": 76.6,
+   "visual_t": 76.6,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-couple",
+   "param": "ats[0]",
+   "anchor": "@S04.1",
+   "word_t": 76.6,
+   "visual_t": 76.6,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-couple",
+   "param": "ats[1]",
+   "anchor": "@S04.2:paid",
+   "word_t": 79.976,
+   "visual_t": 79.976,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-couple",
+   "param": "ats[2]",
+   "anchor": "@S04.4:at",
+   "word_t": 91.533,
+   "visual_t": 91.533,
+   "scene": "S04"
+  },
+  {
+   "shot": "S04-couple",
+   "param": "ats[3]",
+   "anchor": "@S04.5",
+   "word_t": 94.28,
+   "visual_t": 94.28,
+   "scene": "S04"
+  },
+  {
+   "shot": "S05-index",
+   "param": "at0",
+   "anchor": "@S05.1:Phoenix",
+   "word_t": 103.077,
+   "visual_t": 103.077,
+   "scene": "S05"
+  },
+  {
+   "shot": "S05-index",
+   "param": "at1",
+   "anchor": "@S05.2$",
+   "word_t": 116.467,
+   "visual_t": 116.467,
+   "scene": "S05"
+  },
+  {
+   "shot": "S06-cross",
+   "param": "levelAt",
+   "anchor": "@S06.1",
+   "word_t": 116.867,
+   "visual_t": 116.867,
+   "scene": "S06"
+  },
+  {
+   "shot": "S06-cross",
+   "param": "at0",
+   "anchor": "@S06.2",
+   "word_t": 123.007,
+   "visual_t": 123.007,
+   "scene": "S06"
+  },
+  {
+   "shot": "S06-cross",
+   "param": "at1",
+   "anchor": "@S06.5+3",
+   "word_t": 146.294,
+   "visual_t": 146.294,
+   "scene": "S06"
+  },
+  {
+   "shot": "S07-gain",
+   "param": "at",
+   "anchor": "@S07.1:gain",
+   "word_t": 155.211,
+   "visual_t": 155.211,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-gain",
+   "param": "captionAt",
+   "anchor": "@S07.2",
+   "word_t": 156.443,
+   "visual_t": 156.443,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-gain",
+   "param": "subAt",
+   "anchor": "@S07.1:gain",
+   "word_t": 155.211,
+   "visual_t": 155.211,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-growth",
+   "param": "at",
+   "anchor": "@S07.3:almost",
+   "word_t": 160.393,
+   "visual_t": 160.393,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-growth",
+   "param": "captionAt",
+   "anchor": "@S07.3:2000",
+   "word_t": 162.147,
+   "visual_t": 162.147,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-not",
+   "param": "at",
+   "anchor": "@S07.4",
+   "word_t": 163.387,
+   "visual_t": 163.4,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-not",
+   "param": "ats[0]",
+   "anchor": "@S07.4",
+   "word_t": 163.387,
+   "visual_t": 163.4,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-not",
+   "param": "ats[1]",
+   "anchor": "@S07.4:improvements",
+   "word_t": 166.316,
+   "visual_t": 166.316,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-line",
+   "param": "at0",
+   "anchor": "@S07.5",
+   "word_t": 169.487,
+   "visual_t": 169.5,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-line",
+   "param": "at1",
+   "anchor": "@S07.5+1.2",
+   "word_t": 170.687,
+   "visual_t": 170.687,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-q",
+   "param": "at",
+   "anchor": "@S07.6",
+   "word_t": 174.16,
+   "visual_t": 174.167,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-q",
+   "param": "ats[0]",
+   "anchor": "@S07.6",
+   "word_t": 174.16,
+   "visual_t": 174.167,
+   "scene": "S07"
+  },
+  {
+   "shot": "S07-q",
+   "param": "ats[1]",
+   "anchor": "@S07.6:would",
+   "word_t": 176.947,
+   "visual_t": 176.947,
+   "scene": "S07"
+  },
+  {
    "shot": "S08-shadow",
    "param": "at",
    "anchor": "@S08.1",
-   "word_t": 0.0,
-   "visual_t": 0.0,
+   "word_t": 180.8,
+   "visual_t": 180.8,
    "scene": "S08"
   },
   {
    "shot": "S08-shadow",
    "param": "noteAt",
    "anchor": "@S08.2:never",
-   "word_t": 5.108,
-   "visual_t": 5.108,
+   "word_t": 186.214,
+   "visual_t": 186.214,
    "scene": "S08"
   },
   {
    "shot": "S08-shadow",
    "param": "at0",
    "anchor": "@S08.3",
-   "word_t": 6.534,
-   "visual_t": 6.534,
+   "word_t": 187.681,
+   "visual_t": 187.681,
    "scene": "S08"
   },
   {
    "shot": "S08-shadow",
    "param": "at1",
    "anchor": "@S08.3:about",
-   "word_t": 12.681,
-   "visual_t": 12.681,
+   "word_t": 194.468,
+   "visual_t": 194.468,
    "scene": "S08"
   },
   {
    "shot": "S08-shadow",
    "param": "labelAt",
    "anchor": "@S08.3:about",
-   "word_t": 12.681,
-   "visual_t": 12.681,
+   "word_t": 194.468,
+   "visual_t": 194.468,
    "scene": "S08"
   },
   {
    "shot": "S08-shadow",
    "param": "footAt",
    "anchor": "@S08.3",
-   "word_t": 6.534,
-   "visual_t": 6.534,
+   "word_t": 187.681,
+   "visual_t": 187.681,
    "scene": "S08"
   },
   {
    "shot": "S08-shadow",
    "param": "bigAt",
    "anchor": "@S08.4",
-   "word_t": 17.788,
-   "visual_t": 17.788,
+   "word_t": 200.134,
+   "visual_t": 200.134,
    "scene": "S08"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "at",
+   "anchor": "@S09.1:illustrative",
+   "word_t": 214.137,
+   "visual_t": 214.137,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[0].at",
+   "anchor": "@S09.1+0.00",
+   "word_t": 210.567,
+   "visual_t": 210.567,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[1].at",
+   "anchor": "@S09.1+0.15",
+   "word_t": 210.717,
+   "visual_t": 210.717,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[2].at",
+   "anchor": "@S09.1+0.30",
+   "word_t": 210.867,
+   "visual_t": 210.867,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[3].at",
+   "anchor": "@S09.1+0.45",
+   "word_t": 211.017,
+   "visual_t": 211.017,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[4].at",
+   "anchor": "@S09.1+0.60",
+   "word_t": 211.167,
+   "visual_t": 211.167,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[5].at",
+   "anchor": "@S09.1+0.75",
+   "word_t": 211.317,
+   "visual_t": 211.317,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[6].at",
+   "anchor": "@S09.1+0.90",
+   "word_t": 211.467,
+   "visual_t": 211.467,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[7].at",
+   "anchor": "@S09.1+1.05",
+   "word_t": 211.617,
+   "visual_t": 211.617,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[8].at",
+   "anchor": "@S09.1+1.20",
+   "word_t": 211.767,
+   "visual_t": 211.767,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[9].at",
+   "anchor": "@S09.1+1.35",
+   "word_t": 211.917,
+   "visual_t": 211.917,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[10].at",
+   "anchor": "@S09.1+1.50",
+   "word_t": 212.067,
+   "visual_t": 212.067,
+   "scene": "S09"
+  },
+  {
+   "shot": "S09-bars",
+   "param": "items[11].at",
+   "anchor": "@S09.1+1.65",
+   "word_t": 212.217,
+   "visual_t": 212.217,
+   "scene": "S09"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "at",
+   "anchor": "@S10.1:300,000",
+   "word_t": 233.367,
+   "visual_t": 233.367,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[0].at",
+   "anchor": "@S10.1+0.00",
+   "word_t": 232.367,
+   "visual_t": 232.367,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[1].at",
+   "anchor": "@S10.1+0.15",
+   "word_t": 232.517,
+   "visual_t": 232.517,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[2].at",
+   "anchor": "@S10.1+0.30",
+   "word_t": 232.667,
+   "visual_t": 232.667,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[3].at",
+   "anchor": "@S10.1+0.45",
+   "word_t": 232.817,
+   "visual_t": 232.817,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[4].at",
+   "anchor": "@S10.1+0.60",
+   "word_t": 232.967,
+   "visual_t": 232.967,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[5].at",
+   "anchor": "@S10.1+0.75",
+   "word_t": 233.117,
+   "visual_t": 233.117,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[6].at",
+   "anchor": "@S10.1+0.90",
+   "word_t": 233.267,
+   "visual_t": 233.267,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[7].at",
+   "anchor": "@S10.1+1.05",
+   "word_t": 233.417,
+   "visual_t": 233.417,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[8].at",
+   "anchor": "@S10.1+1.20",
+   "word_t": 233.567,
+   "visual_t": 233.567,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[9].at",
+   "anchor": "@S10.1+1.35",
+   "word_t": 233.717,
+   "visual_t": 233.717,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[10].at",
+   "anchor": "@S10.1+1.50",
+   "word_t": 233.867,
+   "visual_t": 233.867,
+   "scene": "S10"
+  },
+  {
+   "shot": "S10-bars",
+   "param": "items[11].at",
+   "anchor": "@S10.1+1.65",
+   "word_t": 234.017,
+   "visual_t": 234.017,
+   "scene": "S10"
+  },
+  {
+   "shot": "S11-miami",
+   "param": "levelAt",
+   "anchor": "@S11.1",
+   "word_t": 253.6,
+   "visual_t": 253.6,
+   "scene": "S11"
+  },
+  {
+   "shot": "S11-miami",
+   "param": "at0",
+   "anchor": "@S11.2+2.5",
+   "word_t": 258.98,
+   "visual_t": 258.98,
+   "scene": "S11"
+  },
+  {
+   "shot": "S11-miami",
+   "param": "at1",
+   "anchor": "@S11.3$+1.8",
+   "word_t": 273.96,
+   "visual_t": 273.96,
+   "scene": "S11"
+  },
+  {
+   "shot": "S12-flip",
+   "param": "at",
+   "anchor": "@S12.1",
+   "word_t": 278.433,
+   "visual_t": 278.433,
+   "scene": "S12"
+  },
+  {
+   "shot": "S12-flip",
+   "param": "ats[0]",
+   "anchor": "@S12.1",
+   "word_t": 278.433,
+   "visual_t": 278.433,
+   "scene": "S12"
+  },
+  {
+   "shot": "S12-flip",
+   "param": "ats[1]",
+   "anchor": "@S12.2",
+   "word_t": 285.286,
+   "visual_t": 285.286,
+   "scene": "S12"
+  },
+  {
+   "shot": "S12-flip",
+   "param": "ats[2]",
+   "anchor": "@S12.3",
+   "word_t": 287.057,
+   "visual_t": 287.057,
+   "scene": "S12"
   },
   {
    "shot": "S13-phoenix",
    "param": "at",
    "anchor": "@S13.1:about",
-   "word_t": 31.48,
-   "visual_t": 31.48,
+   "word_t": 299.847,
+   "visual_t": 299.847,
    "scene": "S13"
   },
   {
    "shot": "S13-phoenix",
    "param": "captionAt",
    "anchor": "@S13.1:Phoenix",
-   "word_t": 28.197,
-   "visual_t": 28.197,
+   "word_t": 295.86,
+   "visual_t": 295.86,
    "scene": "S13"
   },
   {
    "shot": "S13-ruler",
    "param": "at",
    "anchor": "@S13.2",
-   "word_t": 35.571,
-   "visual_t": 35.571,
+   "word_t": 303.172,
+   "visual_t": 303.172,
    "scene": "S13"
   },
   {
    "shot": "S13-ruler",
    "param": "dotAt",
    "anchor": "@S13.2:Rosa",
-   "word_t": 35.571,
-   "visual_t": 35.571,
+   "word_t": 303.172,
+   "visual_t": 303.172,
    "scene": "S13"
   },
   {
    "shot": "S13-ruler",
    "param": "splitAt",
    "anchor": "@S13.3",
-   "word_t": 39.707,
-   "visual_t": 39.707,
+   "word_t": 309.26,
+   "visual_t": 309.26,
    "scene": "S13"
   },
   {
    "shot": "S13-ruler",
    "param": "underAt",
    "anchor": "@S13.3:under",
-   "word_t": 41.774,
-   "visual_t": 41.774,
+   "word_t": 312.06,
+   "visual_t": 312.06,
    "scene": "S13"
   },
   {
    "shot": "S13-ruler",
    "param": "overAt",
    "anchor": "@S13.3:over",
-   "word_t": 43.571,
-   "visual_t": 43.571,
+   "word_t": 314.324,
+   "visual_t": 314.324,
    "scene": "S13"
   },
   {
    "shot": "S13-ruler",
    "param": "labels[0].at",
    "anchor": "@S13.2:Rosa",
-   "word_t": 35.571,
-   "visual_t": 35.571,
+   "word_t": 303.172,
+   "visual_t": 303.172,
    "scene": "S13"
   },
   {
    "shot": "S13-ruler",
    "param": "labels[1].at",
    "anchor": "@S13.2:Rosa",
-   "word_t": 35.571,
-   "visual_t": 35.571,
+   "word_t": 303.172,
+   "visual_t": 303.172,
    "scene": "S13"
   },
   {
    "shot": "S13-ruler",
    "param": "labels[2].at",
    "anchor": "@S13.2",
-   "word_t": 35.571,
-   "visual_t": 35.571,
+   "word_t": 303.172,
+   "visual_t": 303.172,
    "scene": "S13"
   },
   {
    "shot": "S14-ladder",
    "param": "at",
    "anchor": "@S14.1",
-   "word_t": 45.267,
-   "visual_t": 45.267,
+   "word_t": 315.933,
+   "visual_t": 315.933,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "rungsAt0",
    "anchor": "@S14.1:all",
-   "word_t": 45.807,
-   "visual_t": 45.807,
+   "word_t": 316.473,
+   "visual_t": 316.473,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "rungsAt1",
    "anchor": "@S14.1:ladder",
-   "word_t": 52.284,
-   "visual_t": 52.284,
+   "word_t": 322.322,
+   "visual_t": 322.322,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "minAt",
    "anchor": "@S14.2:Miami",
-   "word_t": 53.907,
-   "visual_t": 53.907,
+   "word_t": 323.64,
+   "visual_t": 323.64,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "maxAt",
    "anchor": "@S14.2:Chicago",
-   "word_t": 56.787,
-   "visual_t": 56.787,
+   "word_t": 326.343,
+   "visual_t": 326.343,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "barsAt",
    "anchor": "@S14.3:faster",
-   "word_t": 59.164,
-   "visual_t": 59.164,
+   "word_t": 328.79,
+   "visual_t": 328.79,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "gMinAt",
    "anchor": "@S14.3:Miami's",
-   "word_t": 62.934,
-   "visual_t": 62.934,
+   "word_t": 332.16,
+   "visual_t": 332.16,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "gMaxAt",
    "anchor": "@S14.3:Chicago's",
-   "word_t": 64.377,
-   "visual_t": 64.377,
+   "word_t": 333.773,
+   "visual_t": 333.773,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "refAt",
    "anchor": "@S14.4:$300,000",
-   "word_t": 68.36,
-   "visual_t": 68.36,
+   "word_t": 338.72,
+   "visual_t": 338.72,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "titleAt",
    "anchor": "@S14.5",
-   "word_t": 70.355,
-   "visual_t": 70.355,
+   "word_t": 340.653,
+   "visual_t": 340.653,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "labels[0].at",
    "anchor": "@S14.1:ladder",
-   "word_t": 52.284,
-   "visual_t": 52.284,
+   "word_t": 322.322,
+   "visual_t": 322.322,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "labels[1].at",
    "anchor": "@S14.1",
-   "word_t": 45.267,
-   "visual_t": 45.267,
+   "word_t": 315.933,
+   "visual_t": 315.933,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "labels[2].at",
    "anchor": "@S14.4:$300,000",
-   "word_t": 68.36,
-   "visual_t": 68.36,
+   "word_t": 338.72,
+   "visual_t": 338.72,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "labels[3].at",
    "anchor": "@S14.4:$300,000",
-   "word_t": 68.36,
-   "visual_t": 68.36,
+   "word_t": 338.72,
+   "visual_t": 338.72,
    "scene": "S14"
   },
   {
    "shot": "S14-ladder",
    "param": "labels[4].at",
    "anchor": "@S14.4:$300,000",
-   "word_t": 68.36,
-   "visual_t": 68.36,
+   "word_t": 338.72,
+   "visual_t": 338.72,
    "scene": "S14"
+  },
+  {
+   "shot": "S15-q",
+   "param": "at",
+   "anchor": "@S15.1",
+   "word_t": 350.067,
+   "visual_t": 350.067,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-q",
+   "param": "ats[0]",
+   "anchor": "@S15.1",
+   "word_t": 350.067,
+   "visual_t": 350.067,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-phx",
+   "param": "at0",
+   "anchor": "@S15.2",
+   "word_t": 357.427,
+   "visual_t": 357.434,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-phx",
+   "param": "at1",
+   "anchor": "@S15.2+1.2",
+   "word_t": 358.627,
+   "visual_t": 358.627,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-ladder",
+   "param": "at",
+   "anchor": "@S15.3",
+   "word_t": 366.846,
+   "visual_t": 366.846,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-ladder",
+   "param": "rungsAt0",
+   "anchor": "@S15.3",
+   "word_t": 366.846,
+   "visual_t": 366.846,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-ladder",
+   "param": "rungsAt1",
+   "anchor": "@S15.3+0.8",
+   "word_t": 367.647,
+   "visual_t": 367.647,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-ladder",
+   "param": "labels[0].at",
+   "anchor": "@S15.3",
+   "word_t": 366.846,
+   "visual_t": 366.846,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-ladder",
+   "param": "labels[1].at",
+   "anchor": "@S15.4",
+   "word_t": 373.134,
+   "visual_t": 373.134,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-ladder",
+   "param": "labels[2].at",
+   "anchor": "@S15.4",
+   "word_t": 373.134,
+   "visual_t": 373.134,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-ladder",
+   "param": "labels[3].at",
+   "anchor": "@S15.4:Below",
+   "word_t": 377.454,
+   "visual_t": 377.454,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-ladder",
+   "param": "labels[4].at",
+   "anchor": "@S15.5",
+   "word_t": 379.346,
+   "visual_t": 379.346,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-measure",
+   "param": "at",
+   "anchor": "@S15.5:The",
+   "word_t": 380.187,
+   "visual_t": 380.2,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-measure",
+   "param": "ats[0]",
+   "anchor": "@S15.5:The",
+   "word_t": 380.187,
+   "visual_t": 380.2,
+   "scene": "S15"
+  },
+  {
+   "shot": "S15-measure",
+   "param": "ats[1]",
+   "anchor": "@S15.5:it",
+   "word_t": 383.24,
+   "visual_t": 383.24,
+   "scene": "S15"
+  },
+  {
+   "shot": "S16-side",
+   "param": "at",
+   "anchor": "@S16.1",
+   "word_t": 390.733,
+   "visual_t": 390.733,
+   "scene": "S16"
+  },
+  {
+   "shot": "S16-side",
+   "param": "ats[0]",
+   "anchor": "@S16.1",
+   "word_t": 390.733,
+   "visual_t": 390.733,
+   "scene": "S16"
+  },
+  {
+   "shot": "S16-side",
+   "param": "ats[1]",
+   "anchor": "@S16.2",
+   "word_t": 396.043,
+   "visual_t": 396.043,
+   "scene": "S16"
+  },
+  {
+   "shot": "S16-us",
+   "param": "at",
+   "anchor": "@S16.3",
+   "word_t": 400.293,
+   "visual_t": 400.3,
+   "scene": "S16"
+  },
+  {
+   "shot": "S16-us",
+   "param": "items[0].at",
+   "anchor": "@S16.3:about",
+   "word_t": 406.08,
+   "visual_t": 406.08,
+   "scene": "S16"
+  },
+  {
+   "shot": "S16-us",
+   "param": "items[1].at",
+   "anchor": "@S16.4:about",
+   "word_t": 415.2,
+   "visual_t": 415.2,
+   "scene": "S16"
+  },
+  {
+   "shot": "S17-bill",
+   "param": "at",
+   "anchor": "@S17.1",
+   "word_t": 420.067,
+   "visual_t": 420.067,
+   "scene": "S17"
+  },
+  {
+   "shot": "S17-bill",
+   "param": "ats[0]",
+   "anchor": "@S17.1",
+   "word_t": 420.067,
+   "visual_t": 420.067,
+   "scene": "S17"
+  },
+  {
+   "shot": "S17-bill",
+   "param": "ats[1]",
+   "anchor": "@S17.2",
+   "word_t": 421.906,
+   "visual_t": 421.906,
+   "scene": "S17"
+  },
+  {
+   "shot": "S17-bill",
+   "param": "ats[2]",
+   "anchor": "@S17.2:at",
+   "word_t": 428.76,
+   "visual_t": 428.76,
+   "scene": "S17"
+  },
+  {
+   "shot": "S17-avg",
+   "param": "at",
+   "anchor": "@S17.3",
+   "word_t": 431.507,
+   "visual_t": 431.507,
+   "scene": "S17"
+  },
+  {
+   "shot": "S17-avg",
+   "param": "ats[0]",
+   "anchor": "@S17.3",
+   "word_t": 431.507,
+   "visual_t": 431.507,
+   "scene": "S17"
+  },
+  {
+   "shot": "S17-avg",
+   "param": "ats[1]",
+   "anchor": "@S17.3:your",
+   "word_t": 433.139,
+   "visual_t": 433.139,
+   "scene": "S17"
+  },
+  {
+   "shot": "S17-next",
+   "param": "at",
+   "anchor": "@S17.4",
+   "word_t": 439.466,
+   "visual_t": 439.466,
+   "scene": "S17"
+  },
+  {
+   "shot": "S17-next",
+   "param": "ats[0]",
+   "anchor": "@S17.4",
+   "word_t": 439.466,
+   "visual_t": 439.466,
+   "scene": "S17"
+  },
+  {
+   "shot": "S17-next",
+   "param": "ats[1]",
+   "anchor": "@S17.4:this",
+   "word_t": 442.739,
+   "visual_t": 442.739,
+   "scene": "S17"
+  },
+  {
+   "shot": "S18-method",
+   "param": "at",
+   "anchor": "@S18.1",
+   "word_t": 446.533,
+   "visual_t": 446.533,
+   "scene": "S18"
+  },
+  {
+   "shot": "S19-hist",
+   "param": "at0",
+   "anchor": "@S19.1",
+   "word_t": 458.0,
+   "visual_t": 458.0,
+   "scene": "S19"
+  },
+  {
+   "shot": "S19-hist",
+   "param": "at1",
+   "anchor": "@S19.1+1.5",
+   "word_t": 459.5,
+   "visual_t": 459.5,
+   "scene": "S19"
+  },
+  {
+   "shot": "S19-flat",
+   "param": "at",
+   "anchor": "@S19.2",
+   "word_t": 469.04,
+   "visual_t": 469.04,
+   "scene": "S19"
+  },
+  {
+   "shot": "S19-flat",
+   "param": "ats[0]",
+   "anchor": "@S19.2",
+   "word_t": 469.04,
+   "visual_t": 469.04,
+   "scene": "S19"
+  },
+  {
+   "shot": "S19-flat",
+   "param": "ats[1]",
+   "anchor": "@S19.3",
+   "word_t": 472.965,
+   "visual_t": 472.965,
+   "scene": "S19"
   }
  ]
 }

@@ -6,39 +6,138 @@ characters: "Rosa & Frank (ILLUSTRATIVE, Phoenix)"
 hook: H2
 tokenCeiling: {episode: 4500000, P2: 1000000, P3: 1000000}
 pillar: thuế
-midrolls: []           # ghi ở C2 khi có bảng nhịp
 voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1004, settings: {stability: 0.5, speed: 0.9}}   # Eric (id như Tập 3)
 music: {style: C}      # G-016
 
-# ---- C3 style frame có chuyển động (nhà máy Mốc B): N1 "inflation shadow" (B08/S08) + N2 "threshold ladder" (B13–B14/S13–S14).
-#   python3 episodes/ep004/data/fetch.py --verify && python3 episodes/ep004/model/model.py && python3 episodes/ep004/design/c3/build_inputs.py
-#   bash toolkit/build.sh episodes/ep004/episode.yaml          (ghi chú: design/c3/NOTES.md)
-scope: excerpt              # chỉ S08, S13, S14: bỏ luật thời lượng / mid-roll
-script: design/c3/gen/script.json
-claims: design/c3/gen/claims.json
+# ---- C4 animatic cả tập (nhà máy). Hình: mẫu thư viện + N1/N2; shot S08/S13/S14 giữ nguyên bản đã ký ở C3.
+#   python3 episodes/ep004/data/fetch.py --verify && python3 episodes/ep004/model/model.py && python3 episodes/ep004/design/c4/build_inputs.py
+#   bash toolkit/build.sh episodes/ep004/episode.yaml && python3 episodes/ep004/design/c4/build_inputs.py --out     (ghi chú: gates/C4.md)
+scope: full
+script: design/c4/gen/script.json
+claims: design/c4/gen/claims.json
 tokens: design/c3/gen/tokens.json
-data: {file: design/c3/work/data.js, var: DATA}
+data: {file: design/c4/work/data.js, var: DATA}
 fps: 30
 res: 1080
-audio: {lufs: -14, true_peak: -1.5}
-dossier: {script_md: story/script.md, claim_risk: ../../topics-r1/machine/tax-2/claim-risk.md}
+audio: {lufs: -14, true_peak: -1.5}   # âm tạm C4: chỉ lời (nhạc style C phối ở C5)
+dossier: {script_md: story/script.md, claim_risk: ../../topics-r1/machine/tax-2/claim-risk.md, contract: contract.json}
+# mid-roll: trong khoảng giữ 1,5 s cuối S07 (hết Hồi 1) và cuối S14 (hết Hồi 2), theo giọng thật (out/factory/timeline.json)
+midrolls:
+  - {after_act: act1, scene: S07, t: 180.05}  # giữa khoảng giữ 1,5 s sau S07.6 (lời hết 179,31 s; cảnh hết 180,80 s)
+  - {after_act: act2, scene: S14, t: 349.3}   # giữa khoảng giữ 1,5 s sau S14.5 (lời hết 348,57 s; cảnh hết 350,07 s)
+acts:
+  - {id: cold-open, scenes: [S01, S02]}
+  - {id: act1, scenes: [S03, S04, S05, S06, S07]}
+  - {id: act2, scenes: [S08, S09, S10, S11, S12, S13, S14]}
+  - {id: act3, scenes: [S15, S16, S17]}
+  - {id: method, scenes: [S18]}
+  - {id: outro, scenes: [S19]}
 # BẮT BUỘC (spec.py): claim-risk tax-2 "Always say" → hiện trên mọi khung có ngưỡng / tăng trưởng / lãi của một vùng.
-# S08, S13, S14 không có nhãn "Counterweight on screen" trong script.md; hồ sơ không có contract.json.
 counterweights:
   - id: avg-home
     text: "A home that rose like the metro average"
-    claims: [threshold_joint_phoenix, threshold_joint_min, threshold_joint_max, gain_at_200k_phoenix,
+    # S09/S10 (12 thanh) và gain_at_200k_phoenix (thanh Phoenix ở S09): điều kiện nằm trong chữ của shot ("rose like their metro average"), không qua dòng engine (va chạm giá trị)
+    claims: [threshold_joint_phoenix, threshold_joint_min, threshold_joint_max,
              threshold_joint_miami, threshold_joint_los_angeles, threshold_joint_san_diego, threshold_joint_seattle, threshold_joint_new_york,
              threshold_joint_dallas, threshold_joint_boston, threshold_joint_denver, threshold_joint_us, threshold_joint_san_jose,
-             threshold_joint_san_francisco, threshold_joint_chicago, growth_miami, growth_chicago]
-  - id: measurement          # vòng 2 kiểm mù: đối trọng B08 (dòng engine trên-phải). B13/B14: nhãn shot N2 (p.labels, đáy-trái) —
-    text: "A measurement, not a tax bill or a next step"   # dòng engine thứ 2 trên-phải đụng nhãn thước N2 → engine đẩy xuống giữa thước
+             threshold_joint_san_francisco, threshold_joint_chicago, growth_miami, growth_chicago, growth_phoenix, threshold_single_us,
+            ]
+  - id: measurement          # C3 vòng 2: B08 dòng engine; B13/B14 nhãn shot N2 đáy-trái
+    text: "A measurement, not a tax bill or a next step"
     claims: [exclusion_effective_month, excl_joint_1997_in_now]
 custom_symbols:             # 2 ký hiệu mới đã duyệt ở G1 (CHARTER §5: ≤ 2)
   - {id: N1, file: design/c3/n1.js}
   - {id: N2, file: design/c3/n2.js}
 
 scenes:
+  - id: S01                 # móc H2 (KEY-1, loại 2)
+    tail: 0.4
+    shots:
+      - id: S01-gain
+        template: bignum
+        from: "@S01.1"
+        p: {claim: gain_at_200k_phoenix, at: "@S01.1:About", caption: "gain on paper · {illustrative_price_200k_usd} home that rose like the Phoenix average",
+            captionAt: "@S01.1:paper", sub: "more than the tax-free cap: {excl_joint_limit_usd}", subAt: "@S01.1:more", illustrative: true}
+      - id: S01-couple
+        template: person
+        from: "@S01.2"
+        p: {at: "@S01.2", caption: ["Rosa & Frank · Phoenix", "bought in {buy_year} for {illustrative_price_200k_usd}", "if their home rose like the Phoenix average"],
+            ats: ["@S01.2", "@S01.2:bought", "@S01.2:if"]}
+      - id: S01-promise
+        template: title
+        from: "@S01.3"
+        p: {at: "@S01.3", kicker: "US only", lines: ["City by city: the {buy_year} price", "where the gain passes the cap", "your {buy_year} price → check it against your city"],
+            ats: ["@S01.3", "@S01.3:passes", "@S01.3:check"]}
+  - id: S02
+    tail: 0.8
+    shots:
+      - id: S02-limits
+        template: title
+        from: "@S02.1"
+        p: {at: "@S02.1", lines: ["A line, not a tax bill · not a reason to sell or keep", "US federal tax only · state tax not modeled",
+                                  "Illustrative couples · use test: {ownership_use_test}", "History, not a forecast"],
+            ats: ["@S02.1", "@S02.2", "@S02.3", "@S02.4"]}
+  - id: S03
+    tail: 0.6
+    shots:
+      - id: S03-gain
+        template: title
+        from: "@S03.1"
+        p: {at: "@S03.1", lines: ["gain = sale price − what you paid − improvements"], ats: ["@S03.1:gain"]}
+      - id: S03-caps
+        template: bars
+        from: "@S03.2"
+        p: {at: "@S03.2", title: "Tax-free cap on the gain · since {exclusion_effective_month}",
+            items: [{label: "married, joint", claim: excl_joint_limit_usd, role: muted, at: "@S03.2:married"},
+                    {label: "single", claim: excl_single_limit_usd, role: muted, at: "@S03.2:single"}]}
+  - id: S04
+    tail: 1.0
+    shots:
+      - id: S04-couple
+        template: person
+        from: "@S04.1"
+        p: {at: "@S04.1", caption: ["Rosa & Frank · Phoenix", "paid {illustrative_price_200k_usd} in {buy_year}", "“At least it’s tax-free.”", "Is it?"],
+            ats: ["@S04.1", "@S04.2:paid", "@S04.4:at", "@S04.5"]}
+  - id: S05
+    tail: 0.4
+    shots:
+      - id: S05-index
+        template: line
+        from: "@S05.1"
+        p: {series: index.phoenix, title: "Phoenix-area home price index (FHFA via FRED)", at0: "@S05.1:Phoenix", at1: "@S05.2$", historical: true}
+  - id: S06                 # KEY-2 (loại 1): V3 vạch cố định + đường lãi
+    tail: 1.0
+    shots:
+      - id: S06-cross
+        template: line
+        from: "@S06.1"
+        p: {series: gain200.phoenix, level: excl_joint_limit_usd, levelLabel: "{excl_joint_limit_usd} cap", levelAt: "@S06.1",
+            title: "Gain on paper: {illustrative_price_200k_usd} home that rose like the Phoenix average",
+            at0: "@S06.2", at1: "@S06.5+3", illustrative: true, historical: true}
+  - id: S07
+    tail: 1.5                 # MR1 trong khoảng giữ
+    shots:
+      - id: S07-gain
+        template: bignum
+        from: "@S07.1"
+        p: {claim: gain_at_200k_phoenix, at: "@S07.1:gain", caption: "past the {excl_joint_limit_usd} cap", captionAt: "@S07.2", sub: "a home that rose like the Phoenix average", subAt: "@S07.1:gain", illustrative: true}
+      - id: S07-growth
+        template: bignum
+        from: "@S07.3"
+        p: {claim: growth_phoenix, at: "@S07.3:almost", caption: "Phoenix-area prices since {buy_year}", captionAt: "@S07.3:2000"}
+      - id: S07-not
+        template: title
+        from: "@S07.4"
+        p: {at: "@S07.4", lines: ["A gain, not a tax bill", "improvements and selling costs would shrink it"], ats: ["@S07.4", "@S07.4:improvements"]}
+      - id: S07-line
+        template: line
+        from: "@S07.5"
+        p: {series: gain200.phoenix, level: excl_joint_limit_usd, levelLabel: "{excl_joint_limit_usd} cap", at0: "@S07.5", at1: "@S07.5+1.2",
+            title: "Gain on paper: {illustrative_price_200k_usd} home that rose like the Phoenix average", illustrative: true, historical: true}
+      - id: S07-q
+        template: title
+        from: "@S07.6"
+        p: {at: "@S07.6", lines: ["Is Phoenix unusual?", "Would the same happen in other cities?"], ats: ["@S07.6", "@S07.6:would"]}
   - id: S08
     tail: 1.2
     shots:
@@ -53,6 +152,45 @@ scenes:
           labelAt: "@S08.3:about"
           footAt: "@S08.3"
           bigAt: "@S08.4"
+  - id: S09                 # KEY-4a (loại 1)
+    tail: 0.6
+    shots:
+      - id: S09-bars
+        template: bars
+        from: "@S09.1"
+        p: {at: "@S09.1:illustrative", title: "{illustrative_price_200k_usd} in {buy_year}, homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_200k_chicago, role: ink, at: "@S09.1+0.00"}, {label: "San Francisco", claim: gain_at_200k_san_francisco, role: ink, at: "@S09.1+0.15"}, {label: "San Jose", claim: gain_at_200k_san_jose, role: ink, at: "@S09.1+0.30"}, {label: "Denver", claim: gain_at_200k_denver, role: ink, at: "@S09.1+0.45"}, {label: "Boston", claim: gain_at_200k_boston, role: ink, at: "@S09.1+0.60"}, {label: "Dallas", claim: gain_at_200k_dallas, role: ink, at: "@S09.1+0.75"}, {label: "New York", claim: gain_at_200k_new_york, role: ink, at: "@S09.1+0.90"}, {label: "Seattle", claim: gain_at_200k_seattle, role: warn, at: "@S09.1+1.05"}, {label: "Phoenix", claim: gain_at_200k_phoenix, role: warn, at: "@S09.1+1.20"}, {label: "San Diego", claim: gain_at_200k_san_diego, role: warn, at: "@S09.1+1.35"}, {label: "Los Angeles", claim: gain_at_200k_los_angeles, role: warn, at: "@S09.1+1.50"}, {label: "Miami", claim: gain_at_200k_miami, role: warn, at: "@S09.1+1.65"}]}
+      - id: S09-count
+        template: bars
+        from: "@S09.2"
+        p: {at: 0, title: "{metros_crossed_at_200k} of {metro_count} past the cap · homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_200k_chicago, role: ink, at: 0}, {label: "San Francisco", claim: gain_at_200k_san_francisco, role: ink, at: 0}, {label: "San Jose", claim: gain_at_200k_san_jose, role: ink, at: 0}, {label: "Denver", claim: gain_at_200k_denver, role: ink, at: 0}, {label: "Boston", claim: gain_at_200k_boston, role: ink, at: 0}, {label: "Dallas", claim: gain_at_200k_dallas, role: ink, at: 0}, {label: "New York", claim: gain_at_200k_new_york, role: ink, at: 0}, {label: "Seattle", claim: gain_at_200k_seattle, role: warn, at: 0}, {label: "Phoenix", claim: gain_at_200k_phoenix, role: warn, at: 0}, {label: "San Diego", claim: gain_at_200k_san_diego, role: warn, at: 0}, {label: "Los Angeles", claim: gain_at_200k_los_angeles, role: warn, at: 0}, {label: "Miami", claim: gain_at_200k_miami, role: warn, at: 0}]}
+  - id: S10                 # KEY-4b (loại 1)
+    tail: 0.6
+    shots:
+      - id: S10-bars
+        template: bars
+        from: "@S10.1"
+        p: {at: "@S10.1:300,000", title: "{illustrative_price_300k_usd} in {buy_year}, homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_300k_chicago, role: ink, at: "@S10.1+0.00"}, {label: "San Francisco", claim: gain_at_300k_san_francisco, role: warn, at: "@S10.1+0.15"}, {label: "San Jose", claim: gain_at_300k_san_jose, role: warn, at: "@S10.1+0.30"}, {label: "Denver", claim: gain_at_300k_denver, role: warn, at: "@S10.1+0.45"}, {label: "Boston", claim: gain_at_300k_boston, role: warn, at: "@S10.1+0.60"}, {label: "Dallas", claim: gain_at_300k_dallas, role: warn, at: "@S10.1+0.75"}, {label: "New York", claim: gain_at_300k_new_york, role: warn, at: "@S10.1+0.90"}, {label: "Seattle", claim: gain_at_300k_seattle, role: warn, at: "@S10.1+1.05"}, {label: "Phoenix", claim: gain_at_300k_phoenix, role: warn, at: "@S10.1+1.20"}, {label: "San Diego", claim: gain_at_300k_san_diego, role: warn, at: "@S10.1+1.35"}, {label: "Los Angeles", claim: gain_at_300k_los_angeles, role: warn, at: "@S10.1+1.50"}, {label: "Miami", claim: gain_at_300k_miami, role: warn, at: "@S10.1+1.65"}]}
+      - id: S10-count
+        template: bars
+        from: "@S10.2"
+        p: {at: 0, title: "{metros_crossed_at_300k} of {metro_count} past the cap · homes that rose like their metro average", items: [{label: "Chicago", claim: gain_at_300k_chicago, role: ink, at: 0}, {label: "San Francisco", claim: gain_at_300k_san_francisco, role: warn, at: 0}, {label: "San Jose", claim: gain_at_300k_san_jose, role: warn, at: 0}, {label: "Denver", claim: gain_at_300k_denver, role: warn, at: 0}, {label: "Boston", claim: gain_at_300k_boston, role: warn, at: 0}, {label: "Dallas", claim: gain_at_300k_dallas, role: warn, at: 0}, {label: "New York", claim: gain_at_300k_new_york, role: warn, at: 0}, {label: "Seattle", claim: gain_at_300k_seattle, role: warn, at: 0}, {label: "Phoenix", claim: gain_at_300k_phoenix, role: warn, at: 0}, {label: "San Diego", claim: gain_at_300k_san_diego, role: warn, at: 0}, {label: "Los Angeles", claim: gain_at_300k_los_angeles, role: warn, at: 0}, {label: "Miami", claim: gain_at_300k_miami, role: warn, at: 0}]}
+  - id: S11                 # KEY-5 (loại 1)
+    tail: 1.0
+    shots:
+      - id: S11-miami
+        template: line
+        from: "@S11.1"
+        p: {series: gain300.miami, level: excl_joint_limit_usd, levelLabel: "{excl_joint_limit_usd} cap", levelAt: "@S11.1",
+            title: "Miami: {illustrative_price_300k_usd} home that rose like the Miami average",
+            at0: "@S11.2+2.5", at1: "@S11.3$+1.8", illustrative: true, historical: true}
+  - id: S12
+    tail: 0.8
+    shots:
+      - id: S12-flip
+        template: title
+        from: "@S12.1"
+        p: {at: "@S12.1", lines: ["Not just the coasts: Dallas and Denver crossed too", "So flip the question:", "what {buy_year} price puts the gain exactly at the cap?"],
+            ats: ["@S12.1", "@S12.2", "@S12.3"]}
   - id: S13
     tail: 1.2
     shots:
@@ -103,4 +241,99 @@ scenes:
             - {text: "Every city but", at: "@S14.4:$300,000", x: 1470, y: 560, size: 40}
             - {text: "Chicago is", at: "@S14.4:$300,000", x: 1470, y: 608, size: 40}
             - {text: "under {illustrative_price_300k_usd}", at: "@S14.4:$300,000", x: 1470, y: 656, size: 40}
-shorts: []
+  - id: S15                 # KEY-7 (loại 1)
+    tail: 0.6
+    shots:
+      - id: S15-q
+        template: title
+        from: "@S15.1"
+        p: {at: "@S15.1", lines: ["Bought in {buy_year}: still fully tax-free?"], ats: ["@S15.1"]}
+      - id: S15-phx
+        template: line
+        from: "@S15.2"
+        p: {series: gain200.phoenix, level: excl_joint_limit_usd, levelLabel: "{excl_joint_limit_usd} cap", at0: "@S15.2", at1: "@S15.2+1.2",
+            title: "If their home rose like the Phoenix average: gain {gain_at_200k_phoenix}", illustrative: true, historical: true}
+      - id: S15-ladder
+        template: N2
+        from: "@S15.3"
+        p:
+          mode: ladder
+          at: "@S15.3"
+          rungsAt0: "@S15.3"
+          rungsAt1: "@S15.3+0.8"
+          labels:
+            - {text: "Your {buy_year} price vs your city's rung", at: "@S15.3", x: 96, y: 100, size: 40}
+            - {text: "Above the rung:", at: "@S15.4", x: 1470, y: 560, size: 40}
+            - {text: "past the cap.", at: "@S15.4", x: 1470, y: 608, size: 40}
+            - {text: "Below it: not.", at: "@S15.4:Below", x: 1470, y: 656, size: 40}
+            - {text: "Not proof of tax, or of none", at: "@S15.5", x: 96, y: 1016, size: 40}
+      - id: S15-measure
+        template: title
+        from: "@S15.5:The"
+        p: {at: "@S15.5:The", lines: ["This video measures one line.", "It says nothing about what anyone does next."], ats: ["@S15.5:The", "@S15.5:it"]}
+  - id: S16
+    tail: 1.0
+    shots:
+      - id: S16-side
+        template: title
+        from: "@S16.1"
+        p: {at: "@S16.1", lines: ["Your side: what you paid + improvements", "Selling costs come off the gain too"], ats: ["@S16.1", "@S16.2"]}
+      - id: S16-us
+        template: bars
+        from: "@S16.3"
+        p: {at: "@S16.3", title: "National line · {buy_year} price",
+            items: [{label: "US, married joint", claim: threshold_joint_us, role: ink, at: "@S16.3:about"},
+                    {label: "US, single", claim: threshold_single_us, role: ink, at: "@S16.4:about"}]}
+  - id: S17
+    tail: 0.8
+    shots:
+      - id: S17-bill
+        template: title
+        from: "@S17.1"
+        p: {at: "@S17.1", lines: ["Not a tax bill", "Above the cap: {long_term_gain_rule}", "rate depends on income · state tax not modeled"],
+            ats: ["@S17.1", "@S17.2", "@S17.2:at"]}
+      - id: S17-avg
+        template: title
+        from: "@S17.3"
+        p: {at: "@S17.3", lines: ["The average is not your home", "street, remodel, purchase month: far from your rung"], ats: ["@S17.3", "@S17.3:your"]}
+      - id: S17-next
+        template: title
+        from: "@S17.4"
+        p: {at: "@S17.4", lines: ["This video measures the line.", "It doesn't say whether to sell."], ats: ["@S17.4", "@S17.4:this"]}
+  - id: S18                 # dự phòng V7 (P1): thẻ phương pháp + giới hạn, 1 câu lời + câu sửa số
+    tail: 2.5
+    shots:
+      - id: S18-method
+        template: method
+        from: "@S18.1"
+        p:
+          at: "@S18.1"
+          title: "How we know this"
+          lines:
+            - "FHFA all-transactions indexes via FRED (metro divisions)"
+            - "{buy_year} = average of its four quarters · sale: {sale_quarter}"
+            - "gain = price × index growth − price · no improvements, no fees"
+            - "US federal only · married, joint · use test assumed met"
+            - "Indexes are revised every quarter · CPI-U from {exclusion_effective_month}"
+            - "Not covered: surviving spouse · heirs (value at death)"
+  - id: S19
+    tail: 2.0
+    shots:
+      - id: S19-hist
+        template: line
+        from: "@S19.1"
+        p: {series: gain200.phoenix, level: excl_joint_limit_usd, levelLabel: "{excl_joint_limit_usd} cap", at0: "@S19.1", at1: "@S19.1+1.5",
+            title: "{buy_year} → {sale_quarter}: history, not a forecast", illustrative: true, historical: true}
+      - id: S19-flat
+        template: title
+        from: "@S19.2"
+        p: {at: "@S19.2", lines: ["The cap: the same flat line since {exclusion_effective_month}", "What moved is the house under it"], ats: ["@S19.2", "@S19.3"]}
+      - id: S19-end
+        template: endcard
+        from: "@S19.3$"
+        p: {at: 0, next: "Next: one more rule, tested on real data"}
+# Shorts 9:16 (episode.md §5; dựng/kiểm ở C5): nhịp then chốt bằng mẫu thư viện (N1/N2 chưa có bố cục dọc)
+shorts:
+  - {id: SH1, from: "@S06.1", to: "@S06.6$", hook: "A fixed cap vs a rising gain", end: "Full episode: the {buy_year} price test"}
+  - {id: SH2, from: "@S10.1", to: "@S10.4$", hook: "12 cities, one price", end: "Full episode: the {buy_year} price test"}
+  - {id: SH3, from: "@S11.1", to: "@S11.4$", hook: "Over the cap once ≠ for good", end: "Full episode: the {buy_year} price test"}

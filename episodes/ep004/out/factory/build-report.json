@@ -3,82 +3,131 @@
  "yaml": "episodes/ep004/episode.yaml",
  "steps": {
   "spec": {
-   "seconds": 0.0,
-   "problems": 1
+   "seconds": 0.01,
+   "problems": 0
   },
   "voice": {
-   "seconds": 10.14,
-   "scenes": 3,
-   "cache_hits": 2,
-   "el_chars_spent": 470
+   "seconds": 8.32,
+   "scenes": 19,
+   "cache_hits": 18,
+   "el_chars_spent": 318
   },
   "resolve": {
-   "seconds": 1.76,
-   "total": 81.2334,
-   "shots": 4,
-   "anchors": 32
+   "seconds": 5.66,
+   "total": 477.5999,
+   "shots": 37,
+   "anchors": 146
   },
   "render": {
-   "seconds": 32.88,
-   "segments": 18,
-   "rendered": 8,
-   "cache_hits": 10,
-   "frames": 1079,
-   "fps": 32.82,
+   "seconds": 300.13,
+   "segments": 111,
+   "rendered": 94,
+   "cache_hits": 17,
+   "frames": 12030,
+   "fps": 40.08,
    "workers": 4,
    "fmt": "jpeg"
   },
   "mix": {
-   "seconds": 25.31,
+   "seconds": 137.36,
    "video": "episodes/ep004/work/factory/video.mp4",
-   "sha256": "c230ae72a95b9b6365385c27b0a614179cb9dc1a0db6d7e27171ce056db10395",
-   "mb": 171.32
+   "sha256": "2c5be89b2d777559bfa975bf83762af40037d6017b574072e38a1a3139f5e37d",
+   "mb": 1006.02
   },
   "parts": {
-   "seconds": 25.27,
+   "seconds": 138.68,
    "parts": [
     {
      "file": "episodes/ep004/work/factory/ep004-part1-720p.mp4",
      "from": 0.0,
-     "to": 28.0667,
-     "mb": 6.12
+     "to": 158.7999,
+     "mb": 21.98
     },
     {
      "file": "episodes/ep004/work/factory/ep004-part2-720p.mp4",
-     "from": 28.0667,
-     "to": 45.2667,
-     "mb": 3.51
+     "from": 158.7999,
+     "to": 315.9332,
+     "mb": 45.15
     },
     {
      "file": "episodes/ep004/work/factory/ep004-part3-720p.mp4",
-     "from": 45.2667,
-     "to": 81.2334,
-     "mb": 7.2
+     "from": 315.9332,
+     "to": 477.5999,
+     "mb": 31.96
     }
    ]
   },
   "shorts": {
-   "seconds": 0.0,
-   "shorts": []
+   "seconds": 29.1,
+   "shorts": [
+    {
+     "id": "SH1",
+     "file": "episodes/ep004/work/factory/SH1.mp4",
+     "from": 116.8667,
+     "to": 150.4667,
+     "duration": 35.1,
+     "segments": 8,
+     "rendered": 0,
+     "cache_hits": 8,
+     "frames": 0,
+     "seconds": 0
+    },
+    {
+     "id": "SH2",
+     "file": "episodes/ep004/work/factory/SH2.mp4",
+     "from": 232.3667,
+     "to": 253.4,
+     "duration": 22.533,
+     "segments": 6,
+     "rendered": 0,
+     "cache_hits": 6,
+     "frames": 0,
+     "seconds": 0
+    },
+    {
+     "id": "SH3",
+     "file": "episodes/ep004/work/factory/SH3.mp4",
+     "from": 253.6,
+     "to": 277.8333,
+     "duration": 25.733,
+     "segments": 6,
+     "rendered": 6,
+     "cache_hits": 0,
+     "frames": 772,
+     "seconds": 20.31,
+     "fps": 38.02,
+     "workers": 4,
+     "fmt": "jpeg"
+    }
+   ]
   },
   "qc": {
-   "seconds": 9.84,
-   "pass": true,
-   "failed": [],
+   "seconds": 58.91,
+   "pass": false,
+   "failed": [
+    "freezedetect d=3 ∩ lời",
+    "SH1 vùng an toàn",
+    "SH1 đối trọng \"A home that rose like the metro average\"",
+    "SH1 đối trọng \"A measurement, not a tax bill or a next step\"",
+    "SH2 vùng an toàn",
+    "SH2 va chạm nhãn",
+    "SH2 đối trọng \"A home that rose like the metro average\"",
+    "SH2 đối trọng \"A measurement, not a tax bill or a next step\"",
+    "SH3 vùng an toàn",
+    "SH3 đối trọng \"A home that rose like the metro average\"",
+    "SH3 đối trọng \"A measurement, not a tax bill or a next step\""
+   ],
    "near": [
     "master sàn chữ",
-    "loudness TP"
+    "loudness TP",
+    "SH1 sàn chữ",
+    "SH2 sàn chữ",
+    "SH3 sàn chữ"
    ]
   }
  },
- "started": "2026-10-06T01:20:27Z",
- "spec": [
-  {
-   "level": "WARN",
-   "rule": "shorts",
-   "msg": "excerpt without a short"
-  }
- ],
+ "started": "2026-10-06T06:13:11Z",
+ "spec": [],
  "music": {},
- "total_seconds": 110.02
+ "total_seconds": 682.56
 }

@@ -1,0 +1,540 @@
+{
+ "episode": "ep004",
+ "lock": "250ab298",
+ "format": "lab",
+ "question": "Married, bought a home in 2000: what 2000 purchase price makes a home that rose like its metro area's average pass the $500,000 tax-free cap by the second quarter of 2026? (12 metros + US, history, US federal only)",
+ "characters": {
+  "rosa_frank": {
+   "color": "ink",
+   "shape": "person",
+   "illustrative": true,
+   "words": [
+    "Rosa",
+    "Frank"
+   ]
+  },
+  "note": "Rosa & Frank are an ILLUSTRATIVE Phoenix couple (badge on every frame they or their numbers appear); their $200,000 price is illustrative."
+ },
+ "claims": {
+  "core": [
+   "gain_at_200k_phoenix",
+   "threshold_joint_phoenix",
+   "threshold_joint_min",
+   "threshold_joint_max",
+   "metros_crossed_at_300k",
+   "excl_joint_1997_in_now"
+  ],
+  "decisive": [
+   "gain_at_200k_phoenix",
+   "threshold_joint_phoenix",
+   "threshold_joint_min",
+   "threshold_joint_max"
+  ],
+  "illustrative": [
+   "gain_at_200k_los_angeles",
+   "cross_quarter_at_200k_los_angeles",
+   "stay_quarter_at_200k_los_angeles",
+   "gain_at_300k_los_angeles",
+   "cross_quarter_at_300k_los_angeles",
+   "stay_quarter_at_300k_los_angeles",
+   "gain_at_200k_san_diego",
+   "cross_quarter_at_200k_san_diego",
+   "stay_quarter_at_200k_san_diego",
+   "gain_at_300k_san_diego",
+   "cross_quarter_at_300k_san_diego",
+   "stay_quarter_at_300k_san_diego",
+   "gain_at_200k_san_francisco",
+   "cross_quarter_at_200k_san_francisco",
+   "stay_quarter_at_200k_san_francisco",
+   "gain_at_300k_san_francisco",
+   "cross_quarter_at_300k_san_francisco",
+   "stay_quarter_at_300k_san_francisco",
+   "gain_at_200k_san_jose",
+   "cross_quarter_at_200k_san_jose",
+   "stay_quarter_at_200k_san_jose",
+   "gain_at_300k_san_jose",
+   "cross_quarter_at_300k_san_jose",
+   "stay_quarter_at_300k_san_jose",
+   "gain_at_200k_seattle",
+   "cross_quarter_at_200k_seattle",
+   "stay_quarter_at_200k_seattle",
+   "gain_at_300k_seattle",
+   "cross_quarter_at_300k_seattle",
+   "stay_quarter_at_300k_seattle",
+   "gain_at_200k_boston",
+   "cross_quarter_at_200k_boston",
+   "stay_quarter_at_200k_boston",
+   "gain_at_300k_boston",
+   "cross_quarter_at_300k_boston",
+   "stay_quarter_at_300k_boston",
+   "gain_at_200k_new_york",
+   "cross_quarter_at_200k_new_york",
+   "stay_quarter_at_200k_new_york",
+   "gain_at_300k_new_york",
+   "cross_quarter_at_300k_new_york",
+   "stay_quarter_at_300k_new_york",
+   "gain_at_200k_miami",
+   "cross_quarter_at_200k_miami",
+   "stay_quarter_at_200k_miami",
+   "gain_at_300k_miami",
+   "cross_quarter_at_300k_miami",
+   "stay_quarter_at_300k_miami",
+   "gain_at_200k_denver",
+   "cross_quarter_at_200k_denver",
+   "stay_quarter_at_200k_denver",
+   "gain_at_300k_denver",
+   "cross_quarter_at_300k_denver",
+   "stay_quarter_at_300k_denver",
+   "gain_at_200k_phoenix",
+   "cross_quarter_at_200k_phoenix",
+   "stay_quarter_at_200k_phoenix",
+   "gain_at_300k_phoenix",
+   "cross_quarter_at_300k_phoenix",
+   "stay_quarter_at_300k_phoenix",
+   "gain_at_200k_dallas",
+   "cross_quarter_at_200k_dallas",
+   "stay_quarter_at_200k_dallas",
+   "gain_at_300k_dallas",
+   "cross_quarter_at_300k_dallas",
+   "stay_quarter_at_300k_dallas",
+   "gain_at_200k_chicago",
+   "cross_quarter_at_200k_chicago",
+   "stay_quarter_at_200k_chicago",
+   "gain_at_300k_chicago",
+   "cross_quarter_at_300k_chicago",
+   "stay_quarter_at_300k_chicago",
+   "gain_at_200k_us",
+   "cross_quarter_at_200k_us",
+   "stay_quarter_at_200k_us",
+   "gain_at_300k_us",
+   "cross_quarter_at_300k_us",
+   "stay_quarter_at_300k_us",
+   "illustrative_price_200k_usd",
+   "illustrative_price_300k_usd"
+  ],
+  "assumptions": [
+   {
+    "id": "us-only",
+    "pattern": "US (federal )?(tax )?only"
+   },
+   {
+    "id": "use-test",
+    "pattern": "use test"
+   }
+  ],
+  "conditions": [
+   {
+    "id": "like-average",
+    "pattern": "rose like (the|its|their)? ?(metro( area'?s)?|phoenix|miami|us)? ?average",
+    "claims": [
+     "threshold_joint_los_angeles",
+     "gain_at_200k_los_angeles",
+     "cross_quarter_at_200k_los_angeles",
+     "stay_quarter_at_200k_los_angeles",
+     "gain_at_300k_los_angeles",
+     "cross_quarter_at_300k_los_angeles",
+     "stay_quarter_at_300k_los_angeles",
+     "threshold_joint_san_diego",
+     "gain_at_200k_san_diego",
+     "cross_quarter_at_200k_san_diego",
+     "stay_quarter_at_200k_san_diego",
+     "gain_at_300k_san_diego",
+     "cross_quarter_at_300k_san_diego",
+     "stay_quarter_at_300k_san_diego",
+     "threshold_joint_san_francisco",
+     "gain_at_200k_san_francisco",
+     "cross_quarter_at_200k_san_francisco",
+     "stay_quarter_at_200k_san_francisco",
+     "gain_at_300k_san_francisco",
+     "cross_quarter_at_300k_san_francisco",
+     "stay_quarter_at_300k_san_francisco",
+     "threshold_joint_san_jose",
+     "gain_at_200k_san_jose",
+     "cross_quarter_at_200k_san_jose",
+     "stay_quarter_at_200k_san_jose",
+     "gain_at_300k_san_jose",
+     "cross_quarter_at_300k_san_jose",
+     "stay_quarter_at_300k_san_jose",
+     "threshold_joint_seattle",
+     "gain_at_200k_seattle",
+     "cross_quarter_at_200k_seattle",
+     "stay_quarter_at_200k_seattle",
+     "gain_at_300k_seattle",
+     "cross_quarter_at_300k_seattle",
+     "stay_quarter_at_300k_seattle",
+     "threshold_joint_boston",
+     "gain_at_200k_boston",
+     "cross_quarter_at_200k_boston",
+     "stay_quarter_at_200k_boston",
+     "gain_at_300k_boston",
+     "cross_quarter_at_300k_boston",
+     "stay_quarter_at_300k_boston",
+     "threshold_joint_new_york",
+     "gain_at_200k_new_york",
+     "cross_quarter_at_200k_new_york",
+     "stay_quarter_at_200k_new_york",
+     "gain_at_300k_new_york",
+     "cross_quarter_at_300k_new_york",
+     "stay_quarter_at_300k_new_york",
+     "threshold_joint_miami",
+     "gain_at_200k_miami",
+     "cross_quarter_at_200k_miami",
+     "stay_quarter_at_200k_miami",
+     "gain_at_300k_miami",
+     "cross_quarter_at_300k_miami",
+     "stay_quarter_at_300k_miami",
+     "threshold_joint_denver",
+     "gain_at_200k_denver",
+     "cross_quarter_at_200k_denver",
+     "stay_quarter_at_200k_denver",
+     "gain_at_300k_denver",
+     "cross_quarter_at_300k_denver",
+     "stay_quarter_at_300k_denver",
+     "threshold_joint_phoenix",
+     "gain_at_200k_phoenix",
+     "cross_quarter_at_200k_phoenix",
+     "stay_quarter_at_200k_phoenix",
+     "gain_at_300k_phoenix",
+     "cross_quarter_at_300k_phoenix",
+     "stay_quarter_at_300k_phoenix",
+     "threshold_joint_dallas",
+     "gain_at_200k_dallas",
+     "cross_quarter_at_200k_dallas",
+     "stay_quarter_at_200k_dallas",
+     "gain_at_300k_dallas",
+     "cross_quarter_at_300k_dallas",
+     "stay_quarter_at_300k_dallas",
+     "threshold_joint_chicago",
+     "gain_at_200k_chicago",
+     "cross_quarter_at_200k_chicago",
+     "stay_quarter_at_200k_chicago",
+     "gain_at_300k_chicago",
+     "cross_quarter_at_300k_chicago",
+     "stay_quarter_at_300k_chicago",
+     "threshold_joint_us",
+     "gain_at_200k_us",
+     "cross_quarter_at_200k_us",
+     "stay_quarter_at_200k_us",
+     "gain_at_300k_us",
+     "cross_quarter_at_300k_us",
+     "stay_quarter_at_300k_us",
+     "threshold_single_us",
+     "threshold_joint_min",
+     "threshold_joint_max",
+     "threshold_joint_min_metro",
+     "threshold_joint_max_metro",
+     "metros_threshold_under_200k",
+     "metros_threshold_under_300k",
+     "metros_threshold_under_300k_names",
+     "metros_crossed_at_200k",
+     "metros_crossed_at_300k"
+    ]
+   }
+  ]
+ },
+ "model": {
+  "kind": "fixed-cap-vs-index-growth",
+  "output": "out/model.json",
+  "params": {
+   "series": {
+    "los_angeles": {
+     "file": "data/ATNHPIUS31084Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS31084Q"
+    },
+    "san_diego": {
+     "file": "data/ATNHPIUS41740Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS41740Q"
+    },
+    "san_francisco": {
+     "file": "data/ATNHPIUS41884Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS41884Q"
+    },
+    "san_jose": {
+     "file": "data/ATNHPIUS41940Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS41940Q"
+    },
+    "seattle": {
+     "file": "data/ATNHPIUS42644Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS42644Q"
+    },
+    "boston": {
+     "file": "data/ATNHPIUS14454Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS14454Q"
+    },
+    "new_york": {
+     "file": "data/ATNHPIUS35614Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS35614Q"
+    },
+    "miami": {
+     "file": "data/ATNHPIUS33124Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS33124Q"
+    },
+    "denver": {
+     "file": "data/ATNHPIUS19740Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS19740Q"
+    },
+    "phoenix": {
+     "file": "data/ATNHPIUS38060Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS38060Q"
+    },
+    "dallas": {
+     "file": "data/ATNHPIUS19124Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS19124Q"
+    },
+    "chicago": {
+     "file": "data/ATNHPIUS16984Q.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "ATNHPIUS16984Q"
+    },
+    "us": {
+     "file": "data/USSTHPI.csv",
+     "dateColumn": "observation_date",
+     "valueColumn": "USSTHPI"
+    }
+   },
+   "national": "us",
+   "buyYear": 2000,
+   "saleQuarter": "2026-04-01",
+   "caps": {
+    "joint": {
+     "value": 500000,
+     "series": "all"
+    },
+    "single": {
+     "value": 250000,
+     "series": [
+      "us"
+     ]
+    }
+   },
+   "primaryCap": "joint",
+   "prices": [
+    200000,
+    300000
+   ],
+   "countCutoffs": [
+    200000,
+    300000
+   ],
+   "crossFrom": "2001-01-01",
+   "deflator": {
+    "file": "data/CPIAUCNS.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "CPIAUCNS",
+    "baseMonth": "1997-05-01",
+    "nowMonth": "2026-08-01"
+   }
+  },
+  "claims": {
+   "growth_los_angeles": "growth_los_angeles",
+   "threshold_joint_los_angeles": "threshold_joint_los_angeles",
+   "gain_at_200k_los_angeles": "gain_at_200k_los_angeles",
+   "cross_quarter_at_200k_los_angeles": "cross_quarter_at_200k_los_angeles",
+   "stay_quarter_at_200k_los_angeles": "stay_quarter_at_200k_los_angeles",
+   "gain_at_300k_los_angeles": "gain_at_300k_los_angeles",
+   "cross_quarter_at_300k_los_angeles": "cross_quarter_at_300k_los_angeles",
+   "stay_quarter_at_300k_los_angeles": "stay_quarter_at_300k_los_angeles",
+   "growth_san_diego": "growth_san_diego",
+   "threshold_joint_san_diego": "threshold_joint_san_diego",
+   "gain_at_200k_san_diego": "gain_at_200k_san_diego",
+   "cross_quarter_at_200k_san_diego": "cross_quarter_at_200k_san_diego",
+   "stay_quarter_at_200k_san_diego": "stay_quarter_at_200k_san_diego",
+   "gain_at_300k_san_diego": "gain_at_300k_san_diego",
+   "cross_quarter_at_300k_san_diego": "cross_quarter_at_300k_san_diego",
+   "stay_quarter_at_300k_san_diego": "stay_quarter_at_300k_san_diego",
+   "growth_san_francisco": "growth_san_francisco",
+   "threshold_joint_san_francisco": "threshold_joint_san_francisco",
+   "gain_at_200k_san_francisco": "gain_at_200k_san_francisco",
+   "cross_quarter_at_200k_san_francisco": "cross_quarter_at_200k_san_francisco",
+   "stay_quarter_at_200k_san_francisco": "stay_quarter_at_200k_san_francisco",
+   "gain_at_300k_san_francisco": "gain_at_300k_san_francisco",
+   "cross_quarter_at_300k_san_francisco": "cross_quarter_at_300k_san_francisco",
+   "stay_quarter_at_300k_san_francisco": "stay_quarter_at_300k_san_francisco",
+   "growth_san_jose": "growth_san_jose",
+   "threshold_joint_san_jose": "threshold_joint_san_jose",
+   "gain_at_200k_san_jose": "gain_at_200k_san_jose",
+   "cross_quarter_at_200k_san_jose": "cross_quarter_at_200k_san_jose",
+   "stay_quarter_at_200k_san_jose": "stay_quarter_at_200k_san_jose",
+   "gain_at_300k_san_jose": "gain_at_300k_san_jose",
+   "cross_quarter_at_300k_san_jose": "cross_quarter_at_300k_san_jose",
+   "stay_quarter_at_300k_san_jose": "stay_quarter_at_300k_san_jose",
+   "growth_seattle": "growth_seattle",
+   "threshold_joint_seattle": "threshold_joint_seattle",
+   "gain_at_200k_seattle": "gain_at_200k_seattle",
+   "cross_quarter_at_200k_seattle": "cross_quarter_at_200k_seattle",
+   "stay_quarter_at_200k_seattle": "stay_quarter_at_200k_seattle",
+   "gain_at_300k_seattle": "gain_at_300k_seattle",
+   "cross_quarter_at_300k_seattle": "cross_quarter_at_300k_seattle",
+   "stay_quarter_at_300k_seattle": "stay_quarter_at_300k_seattle",
+   "growth_boston": "growth_boston",
+   "threshold_joint_boston": "threshold_joint_boston",
+   "gain_at_200k_boston": "gain_at_200k_boston",
+   "cross_quarter_at_200k_boston": "cross_quarter_at_200k_boston",
+   "stay_quarter_at_200k_boston": "stay_quarter_at_200k_boston",
+   "gain_at_300k_boston": "gain_at_300k_boston",
+   "cross_quarter_at_300k_boston": "cross_quarter_at_300k_boston",
+   "stay_quarter_at_300k_boston": "stay_quarter_at_300k_boston",
+   "growth_new_york": "growth_new_york",
+   "threshold_joint_new_york": "threshold_joint_new_york",
+   "gain_at_200k_new_york": "gain_at_200k_new_york",
+   "cross_quarter_at_200k_new_york": "cross_quarter_at_200k_new_york",
+   "stay_quarter_at_200k_new_york": "stay_quarter_at_200k_new_york",
+   "gain_at_300k_new_york": "gain_at_300k_new_york",
+   "cross_quarter_at_300k_new_york": "cross_quarter_at_300k_new_york",
+   "stay_quarter_at_300k_new_york": "stay_quarter_at_300k_new_york",
+   "growth_miami": "growth_miami",
+   "threshold_joint_miami": "threshold_joint_miami",
+   "gain_at_200k_miami": "gain_at_200k_miami",
+   "cross_quarter_at_200k_miami": "cross_quarter_at_200k_miami",
+   "stay_quarter_at_200k_miami": "stay_quarter_at_200k_miami",
+   "gain_at_300k_miami": "gain_at_300k_miami",
+   "cross_quarter_at_300k_miami": "cross_quarter_at_300k_miami",
+   "stay_quarter_at_300k_miami": "stay_quarter_at_300k_miami",
+   "growth_denver": "growth_denver",
+   "threshold_joint_denver": "threshold_joint_denver",
+   "gain_at_200k_denver": "gain_at_200k_denver",
+   "cross_quarter_at_200k_denver": "cross_quarter_at_200k_denver",
+   "stay_quarter_at_200k_denver": "stay_quarter_at_200k_denver",
+   "gain_at_300k_denver": "gain_at_300k_denver",
+   "cross_quarter_at_300k_denver": "cross_quarter_at_300k_denver",
+   "stay_quarter_at_300k_denver": "stay_quarter_at_300k_denver",
+   "growth_phoenix": "growth_phoenix",
+   "threshold_joint_phoenix": "threshold_joint_phoenix",
+   "gain_at_200k_phoenix": "gain_at_200k_phoenix",
+   "cross_quarter_at_200k_phoenix": "cross_quarter_at_200k_phoenix",
+   "stay_quarter_at_200k_phoenix": "stay_quarter_at_200k_phoenix",
+   "gain_at_300k_phoenix": "gain_at_300k_phoenix",
+   "cross_quarter_at_300k_phoenix": "cross_quarter_at_300k_phoenix",
+   "stay_quarter_at_300k_phoenix": "stay_quarter_at_300k_phoenix",
+   "growth_dallas": "growth_dallas",
+   "threshold_joint_dallas": "threshold_joint_dallas",
+   "gain_at_200k_dallas": "gain_at_200k_dallas",
+   "cross_quarter_at_200k_dallas": "cross_quarter_at_200k_dallas",
+   "stay_quarter_at_200k_dallas": "stay_quarter_at_200k_dallas",
+   "gain_at_300k_dallas": "gain_at_300k_dallas",
+   "cross_quarter_at_300k_dallas": "cross_quarter_at_300k_dallas",
+   "stay_quarter_at_300k_dallas": "stay_quarter_at_300k_dallas",
+   "growth_chicago": "growth_chicago",
+   "threshold_joint_chicago": "threshold_joint_chicago",
+   "gain_at_200k_chicago": "gain_at_200k_chicago",
+   "cross_quarter_at_200k_chicago": "cross_quarter_at_200k_chicago",
+   "stay_quarter_at_200k_chicago": "stay_quarter_at_200k_chicago",
+   "gain_at_300k_chicago": "gain_at_300k_chicago",
+   "cross_quarter_at_300k_chicago": "cross_quarter_at_300k_chicago",
+   "stay_quarter_at_300k_chicago": "stay_quarter_at_300k_chicago",
+   "growth_us": "growth_us",
+   "threshold_joint_us": "threshold_joint_us",
+   "gain_at_200k_us": "gain_at_200k_us",
+   "cross_quarter_at_200k_us": "cross_quarter_at_200k_us",
+   "stay_quarter_at_200k_us": "stay_quarter_at_200k_us",
+   "gain_at_300k_us": "gain_at_300k_us",
+   "cross_quarter_at_300k_us": "cross_quarter_at_300k_us",
+   "stay_quarter_at_300k_us": "stay_quarter_at_300k_us",
+   "threshold_single_us": "threshold_single_us",
+   "threshold_joint_min": "threshold_joint_min",
+   "threshold_joint_max": "threshold_joint_max",
+   "threshold_joint_min_metro": "threshold_joint_min_metro",
+   "threshold_joint_max_metro": "threshold_joint_max_metro",
+   "metros_threshold_under_200k": "metros_threshold_under_200k",
+   "metros_threshold_under_300k": "metros_threshold_under_300k",
+   "metros_threshold_under_300k_names": "metros_threshold_under_300k_names",
+   "metros_crossed_at_200k": "metros_crossed_at_200k",
+   "metros_crossed_at_300k": "metros_crossed_at_300k",
+   "cpi_base": "cpi_base",
+   "cpi_now": "cpi_now",
+   "excl_joint_1997_in_now": "excl_joint_1997_in_now",
+   "excl_joint_limit_usd": "cap:joint",
+   "excl_single_limit_usd": "cap:single",
+   "buy_year": "buyYear",
+   "illustrative_price_200k_usd": "price:200k",
+   "illustrative_price_300k_usd": "price:300k",
+   "metro_count": "metroCount",
+   "sale_quarter": "saleQuarter"
+  },
+  "code": "model/model.py"
+ },
+ "data": {
+  "sources": "data/sources.json",
+  "hosts": {
+   "primary": [
+    "fred.stlouisfed.org"
+   ],
+   "crosscheck": [
+    "fred.stlouisfed.org"
+   ]
+  },
+  "crosscheck": [],
+  "fetch": "python3 episodes/ep004/data/fetch.py --verify (FRED files are not committed; SHA-256 in data/sources.json)",
+  "_about": "No second source for the FHFA metro indexes: fhfa.gov is not reachable from the build proxy (C4). S03/S04 cross-check open (owner)."
+ },
+ "coverage": [
+  {
+   "attribute": "case",
+   "act": "act2",
+   "values": [
+    "los_angeles",
+    "san_diego",
+    "san_francisco",
+    "san_jose",
+    "seattle",
+    "boston",
+    "new_york",
+    "miami",
+    "denver",
+    "phoenix",
+    "dallas",
+    "chicago"
+   ]
+  }
+ ],
+ "sonification": {
+  "stem": "sonify",
+  "bandsHz": [
+   [
+    1500,
+    8000
+   ]
+  ],
+  "_about": "no data sonification in this episode (style C music only)"
+ },
+ "shorts": [
+  {
+   "file": "out/shorts/SH1.mp4"
+  },
+  {
+   "file": "out/shorts/SH2.mp4"
+  },
+  {
+   "file": "out/shorts/SH3.mp4"
+  }
+ ],
+ "artefacts": {
+  "M3": [
+   "out/video.mp4",
+   "out/captions.srt",
+   "out/package/description.md",
+   "out/timeline.json",
+   "out/script.json",
+   "out/claims.json",
+   "out/model.json",
+   "out/audio/stems/voice.flac",
+   "out/voice/takes.json",
+   "out/adbreaks.json",
+   "data/sources.json",
+   "out/rights.json",
+   "out/visual-assets.json",
+   "out/page.json"
+  ]
+ }
+}
