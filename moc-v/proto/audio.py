@@ -162,26 +162,26 @@ def music_code(spine):
         name = prog[k % len(prog)]; root, iv = DOR[name]
         fr = [hz(root + i) for i in iv]
         d = min(bar, stop - t0)
-        add(dry, t0, pad(fr, d + 0.6, 0.08 + 0.2 * ten, 700 + 1400 * ten))   # tương phản căng–chùng rõ hơn (lượt đạo diễn)
+        add(dry, t0, pad(fr, d + 0.6, 0.04 + 0.30 * ten ** 1.5, 600 + 1800 * ten))   # biên độ căng–chùng rộng (chủ dự án, Gói A §5)
         for e in range(8):
             t = t0 + e * BEAT / 2
             if t >= stop: break
             if ten >= 0.35:
-                add(dry, t, bass(hz(root - 12 + (12 if e % 2 else 0)), (0.2 if e % 2 == 0 else 0.11) * (0.6 + 0.6 * ten), 0.45 * BEAT))
+                add(dry, t, bass(hz(root - 12 + (12 if e % 2 else 0)), (0.2 if e % 2 == 0 else 0.11) * (0.3 + 1.0 * ten), 0.45 * BEAT))
             if ten >= 0.6:
                 add(dry, t + BEAT / 4, shaker(0.08 + 0.08 * ten), 0.3 if e % 2 else -0.3)
         for b in range(4):
             t = t0 + b * BEAT
             if t >= stop: break
             if ten >= 0.75 or (ten >= 0.55 and b % 2 == 0):
-                add(dry, t, thump((0.5 if b == 0 else 0.36) * (0.6 + 0.5 * ten)))
+                add(dry, t, thump((0.5 if b == 0 else 0.36) * (0.3 + 1.0 * ten)))
         if ten >= 0.45:
             tones = [m for m in range(62, 62 + 17) if (m - root) % 12 in [i % 12 for i in iv]]
             hits = OST[k % len(OST)] if ten >= 0.7 else OST[k % len(OST)][::2]
             for j, h in enumerate(hits):
                 t = t0 + h * BEAT / 4
                 if t >= stop: break
-                add(dry, t, pluck(hz(tones[(j * 2 + k) % len(tones)]), (0.15 if h in (0, 6, 8, 14) else 0.09) * (0.7 + 0.5 * ten)),
+                add(dry, t, pluck(hz(tones[(j * 2 + k) % len(tones)]), (0.15 if h in (0, 6, 8, 14) else 0.09) * (0.4 + 0.9 * ten)),
                     0.25 if j % 2 else -0.25)
         k += 1; t0 += bar
     # thả: F trưởng, thưa
@@ -280,6 +280,11 @@ def sfx_layer(spine, N):
             add(out, t, mixs(felt(hz(26), 0.32, 1.6), thump(0.32))); add(out, t, bell(hz(74), 0.06), 0.0)   # −10 dB, sau chữ 'cap'
         elif k == 'rise':
             add(out, t, glide(57, 69, e['dur'], 0.10))
+        elif k in ('whoosh_mode', 'whoosh_push'):   # chuyển chế độ / đẩy máy (quy tắc 3): gió có cao độ, cùng khoá
+            d = e['dur']; lo, hi = (500, 4200) if k == 'whoosh_mode' else (700, 2600)
+            add(out, t, mixs(noise_sweep(d, lo, hi, 0.13 if k == 'whoosh_mode' else 0.09, att=d * 0.6), glide(62, 69, d, 0.05)))
+        elif k == 'land':                            # chạm khi tới tư thế mới (S2: tick + nhịp trầm)
+            add(out, t, mixs(s2_tick(0.5), 0.6 * s2_pulse(hz(50), 0.6 if e.get('mode') else 0.35)))
     return out
 
 
@@ -334,7 +339,7 @@ def main():
     T = spine['total']; N = int(T * SR)
     voice = np.zeros(N)
     for tk in spine['takes']:
-        w = load(tk['wav']); i0 = int(tk['t'] * SR); n = min(len(w), N - i0); voice[i0:i0 + n] += w[:n]
+        w = load(tk['wav'] if 'wav' in tk else os.path.join(ROOT, tk['mp3'])); i0 = int(tk['t'] * SR); n = min(len(w), N - i0); voice[i0:i0 + n] += w[:n]
     venv = env200(voice)
     rep = {'music': music_src}
     if music_src == 'code':

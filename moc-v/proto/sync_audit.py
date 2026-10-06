@@ -7,7 +7,7 @@ import json, os, re, subprocess, sys
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 video, out = sys.argv[1:3]
-spine = json.load(open(os.path.join(HERE, 'spine.json')))
+spine = json.load(open(sys.argv[sys.argv.index('--spine') + 1] if '--spine' in sys.argv else os.path.join(HERE, 'spine.json')))
 from faster_whisper import WhisperModel
 m = WhisperModel('small.en', device='cpu', compute_type='int8')
 pcm = np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', video, '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], capture_output=True).stdout, np.float32)
@@ -23,21 +23,32 @@ d = np.array(d)
 raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', video, '-vf', 'fps=30,scale=320:180,format=gray', '-f', 'rawvideo', '-'], capture_output=True).stdout
 fr = np.frombuffer(raw, np.uint8).reshape(-1, 180, 320).astype(np.int16)
 diff = np.r_[0, [np.abs(fr[i] - fr[i - 1]).mean() for i in range(1, len(fr))]]
-VIS = ['b0.q', 'b1.blur', 'b2.draw0', 'b3.cap', 'b3.lbl', 'b4.grow', 'b4.less', 'b6.cross', 'b8.lbl', 'b9.fly', 'b10.past', 'b11.x']
+VIS = spine.get('visual_cues') or ['b0.q', 'b1.blur', 'b2.draw0', 'b3.cap', 'b3.lbl', 'b4.grow', 'b4.less', 'b6.cross', 'b8.lbl', 'b9.fly', 'b10.past', 'b11.x']
+LBL = spine.get('label_cues', {})            # cue → chữ trên hình: thời điểm hiện (opacity ≥ 0,5) đọc từ nhật ký trang (độ phân giải 0,1 s)
+moves = spine.get('moves', [])
 cues = {f"{b['id']}.{k}": t for b in spine['beats'] for k, t in b['cues'].items()}
-vis = {}
+plog = None
+lp = video.replace('.mp4', '.log.json')
+if os.path.exists(lp): plog = sorted(json.load(open(lp)), key=lambda l: l['t'])
+vis, how = {}, {}
 for name in VIS:
     t = cues[name]
+    if name in LBL and plog:
+        first = next((l['t'] for l in plog if l['t'] >= t - 1.0 and any(x['text'] == LBL[name] and x['opacity'] >= 0.5 for x in l['texts'])), None)
+        vis[name] = round(first - t, 3) if first is not None else None; how[name] = 'label'; continue
+    end = t + 0.8
+    for m in moves:                          # không để động tác máy quay kế tiếp lẫn vào cửa sổ đo
+        if t < m['t0'] < end: end = m['t0']
     base = float(np.median(diff[int((t - 0.7) * 30):int((t - 0.15) * 30)]))
-    i0, i1 = int((t - 0.3) * 30), int((t + 0.8) * 30)
+    i0, i1 = int((t - 0.3) * 30), int(end * 30)
     seg = diff[i0:i1]
-    if seg.max() - base < 0.08:
-        vis[name] = None; continue
+    if len(seg) == 0 or seg.max() - base < 0.08:
+        vis[name] = None; how[name] = 'motion'; continue
     on = int(np.argmax(seg > base + 0.5 * (seg.max() - base)))
-    vis[name] = round(i0 / 30 + on / 30 - t, 3)
+    vis[name] = round(i0 / 30 + on / 30 - t, 3); how[name] = 'motion'
 res = {'video': video, 'asr_words_matched': int(len(d)), 'asr_words_ref': len(ref),
        'voice_offset_s': {'median': round(float(np.median(d)), 3), 'p90_abs': round(float(np.percentile(np.abs(d), 90)), 3)},
-       'visual_peak_vs_keyword_s': vis,
+       'visual_peak_vs_keyword_s': vis, 'method': how,
        'visual_within_0.2s': f"{sum(v is not None and abs(v) <= 0.2 for v in vis.values())}/{len(vis)}",
        'visual_not_detected': [k for k, v in vis.items() if v is None]}
 json.dump(res, open(out, 'w'), indent=1)
