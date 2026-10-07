@@ -1,0 +1,14 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Says 80% is measured by a national price index and that insurance is still on in frame 6; the takeaways (ask a lender, count the insurance cost) are general caution only.\"},\n\"R2\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Gives the ~8-year schedule, the typical ~2 years on real history, and the slow case at ~9 years; 'plan for the slow case' is general caution, not a buy/wait/sell/choose call.\"},\n\"R3\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Says 80% 'on paper' comes from a national index and doesn't mean the insurance goes away; the takeaways (ask a lender, keep budgeting for the insurance) are general caution.\"},\n\"R4\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Covers the ~8-year schedule, the typical ~2 years on real history, and the slowest ~9 years; 'don't count on a particular timeline' is general caution. The source misread (FHA for FHFA) doesn't change the meaning.\"}}",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 3364,
+   "out": 15
+  },
+  "claude-sonnet-5-5": {
+   "in": 5748,
+   "out": 911
+  }
+ },
+ "turns": 1
+}

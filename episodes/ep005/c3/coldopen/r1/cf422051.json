@@ -1,0 +1,14 @@
+{
+ "answer": "1. **Idea:** The animation shows how long it takes a buyer who puts 10% down to get their loan down to 80% of the home's value. Frames 1 and 2 are an illustrative version, where the loan share falls steadily along the payment schedule. Frames 3 to 6 replace that with real US data from FHA, Freddie Mac and FRED. Each line is one purchase month between 1991 and 2016.\n\n2. **What changes:**\n   - The first two frames show a single smooth line sliding from 90% toward the 80% line.\n   - By frame 3 that line hits 80% at about 8 years, labeled \"schedule ≈ 8 years.\"\n   - Frames 4 and 5 fill in hundreds of historical lines, one per purchase month. They spread out, and many rise above 90% before they come down.\n   - Frame 6 highlights two of them. The typical buyer got to 80% in about 2 years, and the slowest case took about 9 years.\n\n3. **Meaning:** The loan's share of the home's value doesn't just follow the payment schedule. It also depends on what home prices do. When prices rose, many past buyers reached 80% much sooner than the schedule says, in about 2 years for the typical one. When prices fell, the loan share climbed above 90% for a while, and the slowest buyer took about 9 years, which is longer than the schedule. I'm guessing that 80% matters because it's the usual equity threshold, but the image doesn't say so.\n\n4. **Advice:** The frames say outright that this is \"a measurement, not a next step\" and \"not a reason to buy, rent or wait.\" They also say it's US-only history, not a forecast. A viewer shouldn't take a buy-or-rent instruction from it. What they could take away is that reaching 20% equity with 10% down is uncertain. It has often been quicker than the schedule, but it can also be slower, so they shouldn't count on a particular timeline.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9780,
+   "out": 1003
+  }
+ },
+ "turns": 2
+}

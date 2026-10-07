@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation seems to show a first-time buyer with a small down payment. On paper, their loan falls to 80% of the home's value, which is the usual point where mortgage insurance can come off. The frames suggest the insurance may not actually come off at that point. The footer says this is \"past buyers, measured,\" \"illustrative,\" and \"history, not a forecast.\" The source is listed as FHFA and Freddie Mac data via FRED.\n\n**2. What changes across the frames.**\n- In frame 1, the loan bar sits a bit below the home-value bar, and the label reads 88%.\n- In frames 2 and 3, the loan bar lines up with a line across the home-value bar, and the label changes to \"80% on paper.\" Frame 3 adds that the home value comes \"by a national price index.\"\n- Frames 4 to 6 switch to a 3D scene with a house, a person, a stack of cash, and an apartment building. In frame 4, a wireframe landscape that looks like a price history rises in the distance.\n- By frame 5 the house sits on a stack of money with a gold piece on the roof.\n- Frame 6 labels the scene \"insurance still on.\"\n\n**3. What it means.** As I read it, the loan looks like 80% of the home's value when you use a national price index. Your own lender and your own home might not agree. Mortgage insurance is still being charged in frame 6. The index shows 80%, but the real insurance depends on your actual loan and your home's actual value, and the animation doesn't explain how those are determined. The data is also from past buyers, so it describes what happened and doesn't predict what will.\n\n**4. The advice a viewer might take.** The footer says outright that this is \"not a reason to buy, rent or wait,\" so there is no buy-or-don't-buy advice. A viewer in my position, renting with about 10% saved, would probably take away three things:\n- A national index hitting 80% doesn't mean my insurance ends.\n- I should ask a lender exactly when and how mortgage insurance can be removed.\n- I should count that insurance cost in what I'd really pay.\n\nI'd treat that as a prompt to check the details, not as a rule.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1059,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9794,
+   "out": 1042
+  }
+ },
+ "turns": 2
+}

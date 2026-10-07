@@ -17,3 +17,6 @@ Hướng sửa (vòng 2, **bằng hình trước**, D-009 E6): xem `gates/C3-roo
 | N1 | 3/3 | **3/3** (sau người đọc thứ 3; chấm lại cả bộ: người chấm mới đổi người đọc 1 từ "không" sang "khuyên" — người chấm dao động, ghi nhận) | **TRƯỢT** — "plan to stay a long time", "extra principal payments early" |
 | N2 | 2/2 | **2/2** | **TRƯỢT** — "only buy if you can stay in the home", "don't try to time the market" |
 Token: người đọc 46.575 + 11.524, người chấm 10.623 + 11.646. Khoá nghĩa: nghĩa giữ 1/1 ở mọi lượt; vòng 2 không tốt hơn vòng 1 về khuyên (bằng nhau) → vòng 3 sửa tiếp từ bản vòng 2 (cùng hạng, bản mới hơn sửa đúng nguyên nhân hình đã chẩn đoán).
+
+## Cold open (E5k port + sửa lỗi "slowest case" hiện sớm) — kiểm lại E1/E2
+Rubric nguyên văn Mốc V (`moc-v/eval/ROOT-intent-ep005.json`), dải từ `review-c3/c3-clip.mp4` (E1 11,3–24,6 s; E2 24,8–34,6 s = mốc Mốc V + 1 s thẻ tiêu đề), `c3/coldopen/`. **E1 2/2 · E2 2/2 · khuyên 0/4 → ĐẠT.** Token 47.735 + 10.038.
