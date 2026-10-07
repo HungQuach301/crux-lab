@@ -1,6 +1,6 @@
 # Chạy Tập {N} — một phiên điều phối (D-008)
 
-Chủ dự án mở phiên mới và gõ: **"Chạy Tập {N}"** (hoặc "Chạy Tập {N}, đề tài #k"). Một phiên điều phối chạy hết tập, **dừng ở G1, C3 (khi tập có hình mới) và G2** (và chờ G3 khi giao hàng). Token cả tập: **mức cảnh báo 3,0 triệu, phân bổ theo loại việc** (`episode.md` §8; D-009: chỉ cảnh báo, báo số thực, không cắt bước chất lượng). ≤ 40 agent con (cảnh báo); kiểm mù không tính vào số agent (headless, ≤ 120 lượt).
+Chủ dự án mở phiên mới và gõ: **"Chạy Tập {N}"** (hoặc "Chạy Tập {N}, đề tài #k"). Một phiên điều phối chạy hết tập, **dừng ở G1, C3 (khi tập có hình mới) và G2** (và chờ G3 khi giao hàng). Token cả tập: **mức cảnh báo 3,0 triệu, phân bổ theo loại việc** (`episode.md` §8; D-009: chỉ cảnh báo, báo số thực, không cắt bước chất lượng). ≤ 40 agent con; kiểm mù không tính vào số agent (headless, ≤ 120 lượt).
 
 ## Luật điều phối
 - Mở bằng `bash toolkit/verify.sh ep{NNN}`; đọc `CHARTER.md`, `playbook/quality-framework.md`, `playbook/episode.md`, `episodes/ep{NNN}/PLAN.md` (mục "Phiên sau đọc"), `ledger.md`.

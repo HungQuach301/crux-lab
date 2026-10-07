@@ -42,25 +42,34 @@ g = np.frombuffer(raw, np.uint8).reshape(-1, 180, 320).astype(np.int16)
 cut = [round(i / 30, 2) for i in range(1, len(g)) if (np.abs(g[i] - g[i - 1]) > 25).mean() > 0.45]
 res['cuts'] = {'hard_cuts': cut}
 if (w, h) == (1920, 1080):
-    rgb = subprocess.run(['ffmpeg', '-v', 'error', '-i', video, '-vf', 'fps=5', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
-    F = np.frombuffer(rgb, np.uint8).reshape(-1, 1080, 1920, 3).astype(np.float64) / 255
-    lin = np.where(F <= 0.03928, F / 12.92, ((F + 0.055) / 1.055) ** 2.4)
-    L = 0.2126 * lin[..., 0] + 0.7152 * lin[..., 1] + 0.0722 * lin[..., 2]
-    prev, bad, n = {}, [], 0
+    # khung 1080p lấy ĐÚNG chỉ số khung n = 6k (t = k/5; fps=5 lệch tới nửa khung — cùng lỗi gói đạo diễn cũ), đọc lần lượt từng khung (nạp cả video float64 → hết bộ nhớ ở đoạn 34 s); phép tính giữ nguyên
+    by_k = {}
     for l in logs:
         k = round(l['t'] * 5)
-        if abs(l['t'] * 5 - k) > 0.01 or k >= len(L): continue
-        for tx in l['texts']:
-            key = tx['text'] + tx['kind']; box = tx['box']; p = prev.get(key); prev[key] = box
-            if tx['opacity'] < 0.95 or (p and max(abs(a - b) for a, b in zip(p, box)) >= 2): continue
-            x0, y0, x1, y1 = [int(v) for v in box]; x0, y0 = max(0, x0), max(0, y0); x1, y1 = min(1920, x1), min(1080, y1)
-            q = L[k, (y0 // 4) * 4:(y1 // 4 + 1) * 4, (x0 // 4) * 4:(x1 // 4 + 1) * 4]
-            if q.size < 16: continue
-            hh, ww = q.shape[0] // 4, q.shape[1] // 4
-            d = q[:hh * 4, :ww * 4].reshape(hh, 4, ww, 4).mean(axis=(1, 3)).ravel()
-            d.sort(); c25 = (d[int(len(d) * 0.95)] + 0.05) / (d[int(len(d) * 0.05)] + 0.05)
-            n += 1
-            if tx['px'] < 28 or c25 < 3: bad.append({'t': l['t'], 'text': tx['text'], 'px': tx['px'], 'contrastAt25': round(float(c25), 2)})
+        if abs(l['t'] * 5 - k) <= 0.01: by_k.setdefault(k, []).append(l)
+    proc = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', video, '-vf', r'select=not(mod(n\,6))', '-fps_mode', 'passthrough', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
+    prev, bad, n, k, FB = {}, [], 0, 0, 1080 * 1920 * 3
+    while True:
+        buf = proc.stdout.read(FB)
+        if len(buf) < FB: break
+        if k in by_k:
+            F = np.frombuffer(buf, np.uint8).reshape(1080, 1920, 3).astype(np.float64) / 255
+            lin = np.where(F <= 0.03928, F / 12.92, ((F + 0.055) / 1.055) ** 2.4)
+            L = 0.2126 * lin[..., 0] + 0.7152 * lin[..., 1] + 0.0722 * lin[..., 2]
+            for l in by_k[k]:
+                for tx in l['texts']:
+                    key = tx['text'] + tx['kind']; box = tx['box']; p = prev.get(key); prev[key] = box
+                    if tx['opacity'] < 0.95 or (p and max(abs(a - b) for a, b in zip(p, box)) >= 2): continue
+                    x0, y0, x1, y1 = [int(v) for v in box]; x0, y0 = max(0, x0), max(0, y0); x1, y1 = min(1920, x1), min(1080, y1)
+                    q = L[(y0 // 4) * 4:(y1 // 4 + 1) * 4, (x0 // 4) * 4:(x1 // 4 + 1) * 4]
+                    if q.size < 16: continue
+                    hh, ww = q.shape[0] // 4, q.shape[1] // 4
+                    d = q[:hh * 4, :ww * 4].reshape(hh, 4, ww, 4).mean(axis=(1, 3)).ravel()
+                    d.sort(); c25 = (d[int(len(d) * 0.95)] + 0.05) / (d[int(len(d) * 0.05)] + 0.05)
+                    n += 1
+                    if tx['px'] < 28 or c25 < 3: bad.append({'t': l['t'], 'text': tx['text'], 'px': tx['px'], 'contrastAt25': round(float(c25), 2)})
+        k += 1
+    proc.wait()
     res['C14'] = {'samples': n, 'violations': len(bad), 'examples': bad[:8]}
 else:
     res['C14'] = {'skipped': f'video {w}×{h}; C14 đo trên bản 1920×1080'}

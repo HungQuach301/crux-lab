@@ -134,7 +134,7 @@ export async function boot(res) {
       if (eA > 0) { const [x, y] = S2(XM(D.sched80), YL(0.8)); O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath(); O.ctx.moveTo(x, y); O.ctx.lineTo(x, S2(0, 0)[1]); O.ctx.stroke(); O.ctx.restore();
         O.text(t < b.c3.replayed ? 'about 8 years' : 'schedule ≈ 8 years', t < b.c3.replayed ? x - 16 : S2(XM(120), 0)[0], y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
       if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 60, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
-      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text(`slow cases ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, x, y - 40, 52, { kind: 'compare', color: C.accent, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
+      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text(`slowest case ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, x, y - 40, 52, { kind: 'compare', color: C.accent, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
     }
     // c4 (đồ thị: định nghĩa)
     if (dA > 0.02) {

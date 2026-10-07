@@ -97,7 +97,7 @@ spine = {'segment': 'ep005 S01.1 → S03.2 (cold open, table read G1)', 'version
          'marks': {'ten_lit': round(at('@S01.1$') + 0.25, 3)},   # 10 % đáy chồng giá sáng trong khoảng nghỉ (móc 5 s đầu)
          'mix': {'music_db': 17.0, 'data_db': 25.0},   # E5g: nhạc nghe được hơn, nốt dữ liệu không đè lời
          'sched_kf': SCHED, 'fan_kf': FAN, 'events': EV, 'tension': tension, 'shots': shots,   # nhạc tắt ở "removed": kết bằng lặng + tiếng trầm
-         'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical ≈ 2 years', 'c3.slow': 'slow cases ≈ 9 years', 'c4.eighty': '80% on paper', 'c4.paper': '90%', 'c5.removed': 'insurance still on'},
+         'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical ≈ 2 years', 'c3.slow': 'slowest case ≈ 9 years', 'c4.eighty': '80% on paper', 'c4.paper': '90%', 'c5.removed': 'insurance still on'},
          'visual_cues': ['c0.ten', 'c1.insurance', 'c1.twenty', 'c2.schedule', 'c2.eight', 'c3.replayed', 'c3.typically', 'c3.slow', 'c4.paper', 'c4.eighty', 'c5.removed'],
          'checks': {'rule2_rule3_rule7': errs or 'OK'}}
 json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)

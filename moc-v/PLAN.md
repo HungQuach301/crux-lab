@@ -36,4 +36,4 @@ Việc còn lại theo thứ tự: (a) Tập 4 nhà ở đồ thị theo V3i, c�
 
 ## Áp thiết kế vào nhà máy (06/10)
 Thư viện vật thể, spine v2, render theo cảnh có cache, âm theo spine, kiểm đoạn → `toolkit/factory/world/` (README nhà máy, `visual-library` §5 W1–W9).
-Dựng lại hai đoạn chứng minh qua nhà máy: hình + tiếng trùng MD5 với clip đã duyệt (`moc-v/b3/factory-proof.md`). Ghép vào master: BACKLOG F-5.
+Dựng lại hai đoạn chứng minh qua nhà máy: hình + tiếng trùng MD5 với clip v3l/E5h (bản sửa sau L3; L3 chấm trên v3k/E5g) (`moc-v/b3/factory-proof.md`). Ghép vào master: BACKLOG F-5.

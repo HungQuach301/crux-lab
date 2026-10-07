@@ -1,5 +1,7 @@
 # Áp thiết kế vào nhà máy — bằng chứng tái lập (06/10/2026)
 
+Clip so sánh là v3l/E5h — bản sửa khách quan (a)/(b) sau khi chủ dự án chấm L3 trên v3k/E5g; v3l/E5h chưa được chấm L3.
+
 `moc-v/world/*`, `moc-v/proto/audio.py`, `moc-v/proto/sync_audit.py` chuyển (git mv) vào `toolkit/factory/world/`; phần chung của hai
 `spine.py` rút thành `toolkit/factory/world/spine.py` (spine v2); thêm `build_seg.py` (một lệnh), luật `world` trong `spec.py`, bước `world` trong `build.py`.
 Đường dẫn cũ `moc-v/world/…` trong các báo cáo trước 06/10 là lịch sử.

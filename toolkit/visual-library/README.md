@@ -50,7 +50,7 @@ Mỗi đoạn chỉ viết `spine.py` + `scene.js` của nó. Mẫu: `moc-v/seg/
 
 | # | Vật thể (`lib3d.js`) | Tham số chính | Mang nghĩa | Xem trước | Bằng chứng |
 |---|---|---|---|---|---|
-| **W1** | `House` | `w, wall, roof, lit` | căn nhà của nhân vật; ở chế độ đồ thị **đứng trên mặt đất cạnh chồng**, không phải dữ liệu | `previews/world-ep004-house-stack.png` | Tập 4 đoạn (a): cổng gốc K1 3/3 · K2 3/3 · 0 khuyên (`moc-v/eval/v3-blind22-raw`); L3 4·4·4·4·4·4 |
+| **W1** | `House` | `w, wall, roof, lit` | căn nhà của nhân vật; ở chế độ đồ thị **đứng trên mặt đất cạnh chồng**, không phải dữ liệu | `previews/world-ep004-house-stack.png` | Tập 4 đoạn (a) v3l: cổng gốc K1 3/3 · K2 3/3 · 0 khuyên (`moc-v/eval/v3-blind22-raw`); L3 4·4·4·4·4·4 chấm trên v3k (nhà ở đồ thị khi đó chưa đứng cạnh chồng) |
 | **W2** | `Stack` | `unitUsd, bundleUsd` (mệnh giá bó **cố định**), `.set({usd, fromUsd, warnAboveUsd, tintBelowUsd})` | số tiền = chiều cao (số bó × độ dày bó); đỉnh chồng vẽ ra đường dữ liệu | như trên · `previews/world-ep004-chart.png` | như W1; Tập 5 đoạn (b) E2 3/3 · 0 khuyên (`moc-v/eval/e5-blind10-raw`) |
 | **W3** | `Beam` | `length, color` | mức cố định (trần, ngưỡng) — đứng yên, `ink-muted` | `previews/world-ep004-chart.png` | Tập 4 K1/K2 như W1 |
 | **W4** | `Person` | `h, color` | nhân vật minh hoạ không mặt (luôn ILLUSTRATIVE) | `previews/world-ep004-house-stack.png` | Tập 4 K1 như W1 |
@@ -61,4 +61,4 @@ Mỗi đoạn chỉ viết `spine.py` + `scene.js` của nó. Mẫu: `moc-v/seg/
 | **W9** | `Apartment` | `w, floors, color` | lối "thuê tiếp" | `previews/world-ep005-fork.png` | như W8 |
 | — | `Studio`, `Burst`, `setOpacity`, `PALETTE` | — | ánh sáng/sàn, loé khi chạm, mờ dần, màu vật liệu (màu dữ liệu vẫn là E2) | — | hạ tầng |
 
-Bằng chứng tái lập: dựng lại hai đoạn bằng `build_seg.py` cho hình và tiếng **trùng MD5** (giải mã) với clip chủ dự án đã duyệt (`moc-v/b3/factory-proof.md`).
+Bằng chứng tái lập: dựng lại hai đoạn bằng `build_seg.py` cho hình và tiếng **trùng MD5** (giải mã) với clip v3l/E5h (bản sửa sau L3; L3 chấm trên v3k/E5g) (`moc-v/b3/factory-proof.md`).

@@ -158,6 +158,17 @@ def check(spec, root, duration=None):
         bad = [s for s in w.get('scenes') or [] if s not in scene_ids]
         if not w.get('scenes') or bad:
             add('BLOCK', 'world', f"{w.get('id')}: scenes {bad or '[]'} — must list scenes of this episode")
+    if spec.get('world'):
+        add('WARN', 'world', 'world segments are built and checked but NOT yet spliced into the master (toolkit/factory/BACKLOG.md F-5)')
+    # B+2: nhãn thay số nói (`label: "…"` trong chú thích câu của script.md) phải có trên hình ở cảnh được dựng
+    sm = os.path.join(root, (spec.get('dossier') or {}).get('script_md', 'story/script.md'))
+    if os.path.exists(sm):
+        shown = {sc['id']: ' '.join(x for sh in sc.get('shots', []) for x in strings_in(sh.get('p', {}))) for sc in spec.get('scenes', [])}
+        for ln in open(sm, encoding='utf-8'):
+            m = re.match(r'^(S\d+)\.\d+', ln)
+            for t in re.findall(r'label:\s*"([^"]+)"', ln):
+                if m and m[1] in shown and t not in shown[m[1]]:
+                    add('WARN', 'labels', f'{ln.split()[0]}: label "{t}" (number moved off the voice) is not on screen in {m[1]}')
     P += counterweights(spec, root, claims)
     n_sym = len(spec.get('custom_symbols') or [])
     if n_sym > 2:   # D-009 (b): không còn trần số ký hiệu mới; hình mới đi qua C3 (clip có chuyển động + âm)

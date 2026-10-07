@@ -1,5 +1,5 @@
 """Test thư viện thế giới 3D của nhà máy (Mốc V, D-010): spine v2, lint, luật `world` trong spec. Không mạng, không render.
-Bằng chứng render/âm (chạy tay, nặng): build_seg.py dựng lại hai đoạn chứng minh → hình + tiếng trùng MD5 với clip đã duyệt (moc-v/b3).
+Bằng chứng render/âm (chạy tay, nặng): build_seg.py dựng lại hai đoạn chứng minh → hình + tiếng trùng MD5 với clip v3l/E5h (bản sửa sau L3; L3 chấm trên v3k/E5g) (moc-v/b3).
 
 (a) Anchors: đầu từ / cuối câu / từ đầu câu bỏ thẻ cảm xúc; mốc sai → dừng.
 (b) window: nằm giữa hai từ khoá ± pad; cửa sổ < 0,6 s → dừng; late/start.
@@ -7,7 +7,8 @@ Bằng chứng render/âm (chạy tay, nặng): build_seg.py dựng lại hai đ
 (d) move_sounds/shots_for: mỗi động tác một âm, 'mode' thêm tiếng chạm; cảnh cắt tại đầu động tác.
 (e) words_from_timeline: lấy lời đúng các cảnh, giờ tính từ đầu đoạn.
 (f) lint_comments bắt mã bị nuốt sau // và #.
-(g) spec: `world` thiếu spine.py/scene.js hoặc cảnh lạ → BLOCK.
+(g) spec: `world` thiếu spine.py/scene.js hoặc cảnh lạ → BLOCK; đủ → chỉ WARN F-5.
+(h) spec: nhãn `label:` của script.md không có trên hình ở cảnh được dựng → WARN.
 """
 import json, os, sys, tempfile, unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -73,11 +74,26 @@ class World(unittest.TestCase):
             base = {'format': '101', 'scope': 'excerpt', 'claims': 'claims.json', 'script': 'script.json', 'counterweights': [],
                     'scenes': [{'id': 'S01', 'shots': []}], 'shorts': [{'id': 'x'}]}
             wb = lambda P: [p for p in P if p['rule'] == 'world']
-            self.assertEqual(len(wb(SPEC.check({**base, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S01']}]}, d))), 1)
+            wbb = lambda P: [p for p in wb(P) if p['level'] == 'BLOCK']
+            self.assertEqual(len(wbb(SPEC.check({**base, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S01']}]}, d))), 1)
             os.makedirs(os.path.join(d, 'world/w1'))
             for f in ('spine.py', 'scene.js'): open(os.path.join(d, 'world/w1', f), 'w').write('')
-            self.assertEqual(wb(SPEC.check({**base, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S01']}]}, d)), [])
-            self.assertEqual(len(wb(SPEC.check({**base, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S09']}]}, d))), 1)
+            P = wb(SPEC.check({**base, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S01']}]}, d))
+            self.assertEqual([p['level'] for p in P], ['WARN'])   # chỉ cảnh báo F-5 (chưa ghép vào master)
+            self.assertEqual(len(wbb(SPEC.check({**base, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S09']}]}, d))), 1)
+
+    def test_h_label_on_screen(self):
+        import spec as SPEC
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, 'story'))
+            json.dump({'claims': [{'claimId': 'c1', 'display': '1', 'value': 1}]}, open(os.path.join(d, 'claims.json'), 'w'))
+            json.dump({'sentences': [{'id': 'S01.1', 'scene': 'S01', 'text': 'A wait.'}]}, open(os.path.join(d, 'script.json'), 'w'))
+            open(os.path.join(d, 'story/script.md'), 'w').write('S01.1 A wait. <!-- claims: c1; label: "wait ≥ {c1} years" -->\n')
+            sc = lambda txt: {'format': '101', 'scope': 'excerpt', 'claims': 'claims.json', 'script': 'script.json', 'counterweights': [],
+                              'shorts': [{'id': 'x'}], 'scenes': [{'id': 'S01', 'shots': [{'id': 'a', 'template': 'title', 'from': '@S01.1', 'p': {'t': txt}}]}]}
+            lb = lambda P: [p for p in P if p['rule'] == 'labels']
+            self.assertEqual(len(lb(SPEC.check(sc('nothing'), d))), 1)
+            self.assertEqual(lb(SPEC.check(sc('wait ≥ {c1} years'), d)), [])
 
 
 if __name__ == '__main__':

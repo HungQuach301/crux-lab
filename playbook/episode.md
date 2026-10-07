@@ -34,7 +34,7 @@
   5. KPI + token thực (trần = cảnh báo) + giờ render.
   Phiên sau chỉ đọc hiến chương, `quality-framework.md`, file này, PLAN, ledger và các file được nêu tên.
 - **Lượt đạo diễn (bắt buộc, chẩn đoán — D-009 E5, D-010 §6):** trước render bản cuối, mỗi đoạn có hình mới qua một lượt đạo diễn trên bản 540p (`quality-framework.md` §10): 4 trục + lời phê theo mốc giây. Lời phê là việc nên xem, không phải ngưỡng; không mở vòng sửa thẩm mỹ chỉ vì điểm máy. Thước đo cuối là phiếu L3 ở G2 (≥ 4 mọi dòng).
-- **Đoạn thế giới 3D:** khai `world:` trong `episode.yaml`; dựng và kiểm bằng `toolkit/factory/world/build_seg.py` (lint → spine → render theo cảnh có cache → âm → verify quy tắc 1/2/3/7); đồng bộ ±0,2 s bằng `sync_audit.py`; C14 trên bản 1080p.
+- **Đoạn thế giới 3D:** khai `world:` trong `episode.yaml`; dựng và kiểm bằng `toolkit/factory/world/build_seg.py`. **Chưa ghép vào master** (BACKLOG F-5): master của tập vẫn dùng cảnh 2D cho các cảnh đó cho tới khi F-5 xong; `spec.py` cảnh báo. Đoạn dựng (lint → spine → render theo cảnh có cache → âm → verify quy tắc 1/2/3/7); đồng bộ ±0,2 s bằng `sync_audit.py`; C14 trên bản 1080p.
 - **Số nói (B+2):** ≤ 2 số **mới** được nói mỗi cảnh (`toolkit/factory/numbers_said.py`, BLOCK trong `spec.py`); số thứ ba trở đi lên nhãn trên hình (người biên tập chọn), phạm vi không đổi.
 - **Giọng theo cảnh (B+1):** `voice_overrides: {Sxx: {seed | settings | voice | model | take}}` trong `episode.yaml` khi một cảnh cần take khác (vd Tập 5 S18 seed 1006).
 - Trước mỗi gói cổng và mỗi issue TỰ ĐỘNG: **REVIEWER** soát (`quality-framework.md` §7).
@@ -139,7 +139,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 | Điều phối | 0,5 triệu | ≤ 2 phiên |
 | Dự phòng | 0,15 triệu | |
 
-≤ 40 agent con (cảnh báo). EL ≤ 6.000 ký tự (cảnh báo; chi tiêu mới vẫn do chủ dự án quyết). Ledger ghi cột **loại việc** cho mỗi dòng.
+≤ 40 agent con. EL ≤ 6.000 ký tự (gần với chi tiêu: vượt → hỏi chủ dự án). Hai trần này **không đổi** — D-009 (c) chỉ đổi trần token thành mức cảnh báo. Ledger ghi cột **loại việc** cho mỗi dòng.
 
 Mỗi phiên ghi token thực (số harness của agent con + ngữ cảnh phiên) và **giờ render thực** (`build-report.json`, `<đoạn>.build.json`) vào PLAN mục 5 và gói; vượt mức cảnh báo thì nêu trong gói, không dừng việc chất lượng.
 
