@@ -7,7 +7,7 @@ Bằng chứng render/âm (chạy tay, nặng): build_seg.py dựng lại hai đ
 (d) move_sounds/shots_for: mỗi động tác một âm, 'mode' thêm tiếng chạm; cảnh cắt tại đầu động tác.
 (e) words_from_timeline: lấy lời đúng các cảnh, giờ tính từ đầu đoạn.
 (f) lint_comments bắt mã bị nuốt sau // và #.
-(g) spec: `world` thiếu spine.py/scene.js hoặc cảnh lạ → BLOCK; đủ → chỉ WARN F-5.
+(g) spec: `world` thiếu spine.py/scene.js, cảnh lạ, cảnh không liền hoặc chồng hai đoạn → BLOCK; đủ → không cảnh báo (F-5 đã ghép).
 (h) spec: nhãn `label:` của script.md không có trên hình ở cảnh được dựng → WARN.
 """
 import json, os, sys, tempfile, unittest
@@ -79,7 +79,12 @@ class World(unittest.TestCase):
             os.makedirs(os.path.join(d, 'world/w1'))
             for f in ('spine.py', 'scene.js'): open(os.path.join(d, 'world/w1', f), 'w').write('')
             P = wb(SPEC.check({**base, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S01']}]}, d))
-            self.assertEqual([p['level'] for p in P], ['WARN'])   # chỉ cảnh báo F-5 (chưa ghép vào master)
+            self.assertEqual(P, [])   # F-5 xong: đoạn hợp lệ không còn cảnh báo "chưa ghép"
+            two = {**base, 'scenes': [{'id': 'S01', 'shots': []}, {'id': 'S02', 'shots': []}, {'id': 'S03', 'shots': []}]}
+            self.assertEqual(len(wbb(SPEC.check({**two, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S01', 'S03']}]}, d))), 1)  # không liền
+            self.assertEqual(wbb(SPEC.check({**two, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S02', 'S03']}]}, d)), [])
+            self.assertEqual(len(wbb(SPEC.check({**two, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S01', 'S02']},
+                                                                   {'id': 'w2', 'dir': 'world/w1', 'scenes': ['S02']}]}, d))), 1)  # chồng
             self.assertEqual(len(wbb(SPEC.check({**base, 'world': [{'id': 'w1', 'dir': 'world/w1', 'scenes': ['S09']}]}, d))), 1)
 
     def test_h_label_on_screen(self):

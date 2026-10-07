@@ -6,7 +6,7 @@ Một lệnh: `bash toolkit/build.sh episodes/epNNN/episode.yaml [--workers 4] [
 |---|---|
 | `spec.py` | Kiểm `episode.yaml` (format lab/101, mid-roll, scope excerpt, claim tồn tại, custom_symbols ≤ 2 → hỏi, Shorts 2–3) trước mọi gọi API |
 | `voice.py` | ElevenLabs `with-timestamps` mỗi cảnh một lần, cache SHA-256 (lời nói + voice + model + seed + settings), ký tự → mốc từ |
-| `build.py` | spec → giọng → giải "@câu[:từ][$][+s]" → `timeline.json` + `captions.srt` (≤ 2×42 ký tự, 1–7 s) → render đoạn đổi → trộn + loudnorm 2 lượt → master → 3 phần 720p → Shorts → qc |
+| `build.py` | spec → giọng → giải "@câu[:từ][$][+s]" → `timeline.json` + `captions.srt` (≤ 2×42 ký tự, 1–7 s) → [world] → render đoạn đổi → [splice] → trộn + loudnorm 2 lượt → master → 3 phần 720p → Shorts → qc |
 | `render.js` + `page.html` | Playwright, mỗi worker một trang; khung trung gian JPEG q 0,95 (hoặc RGBA để đo); mỗi đoạn một file H.264 ghép bằng concat copy; log engine mỗi 6 khung |
 | `lib/engine.js`, `lib/templates.js` | Engine canvas (sàn chữ, tương phản, vùng an toàn, va chạm, nhãn ILLUSTRATIVE/history, đẩy máy) và 10 mẫu |
 | `music.py` | Trộn lời + nhạc nền ở mức Tập 3 (A07 20 dB, né 1–4 kHz 13 dB), ghi stem voice/music |
@@ -22,7 +22,16 @@ File nặng (video, cache đoạn, wav) ở `episodes/epNNN/work/factory/` (khô
 ## Thế giới 3D (D-010, Mốc V) — `toolkit/factory/world/`
 "Một thế giới, hai chế độ máy quay". Khai trong `episode.yaml`: `world: [{id, dir, scenes: [S04, S05]}]` (`dir` chứa `spine.py` + `scene.js` của đoạn).
 `spec.py` chặn khi thiếu file hoặc cảnh lạ; `build.py` bước `world` gọi `world/build_seg.py` cho từng đoạn (spine đọc lời từ `out/factory/timeline.json`
-qua biến `CRUX_TIMELINE`, `spine.words_from_timeline`) và dừng nếu tổng spine ≠ độ dài các cảnh. Ghép vào master: BACKLOG F-5.
+qua biến `CRUX_TIMELINE`, `spine.words_from_timeline`) và dừng nếu tổng spine ≠ độ dài các cảnh; `spec.py` chặn cảnh không liền / chồng hai đoạn.
+**Ghép vào master (F-5, `world/splice.py`):** bước `splice` (sau `render`) thay đúng các khung [f0, f1) của các cảnh đoạn chiếm bằng video đoạn
+(số khung đoạn ≠ tổng cảnh hoặc fps khác → dừng; khác kích thước → co giãn), rồi mã hoá lại CẢ master một lần với thông số của `render.js`
+(`ENCODE_H`: CBR 17M, preset fast, bt709). Trong `mix`: lời vẫn là track lời của tập (stem voice của đoạn chỉ dùng đo mức, không cộng);
+`music`/`data`/`sfx`/`room` của đoạn cộng vào stem `music`/`sonify`/`sfx`/`room` tại t0 của đoạn, nhân tỉ lệ RMS lời tập/lời đoạn; nhạc nền
+của tập tắt trong khoảng đoạn (fade 0,5 s ngoài mép); `mix-raw` = tổng đúng các stem; rồi loudnorm 2 lượt như cũ.
+`timeline.json`: cảnh/shot bị thay có `world: <id>`, thêm `world: [{id, scenes, t0, t1, f0, f1}]`; nhật ký khung 2D trong khoảng đoạn bị bỏ (qc
+chỉ xét khung 2D còn trong master). Báo cáo `out/factory/splice.json` (đoạn, cảnh, t0/t1, khung, sha256 video/stem đoạn, picture vào/ra, stem,
+mix-raw, master.wav, video). Test: `toolkit/tests/test_world_splice.py`.
+Giới hạn: shot 2D của cảnh bị thay vẫn render (cache) dù không vào master; Shorts vẫn dựng 2D (chưa lấy hình đoạn thế giới).
 
 | File | Việc |
 |---|---|
@@ -36,6 +45,7 @@ qua biến `CRUX_TIMELINE`, `spine.words_from_timeline`) và dừng nếu tổng
 | `sync_audit.py` | Đồng bộ lời/hình/âm ±0,2 s bằng ASR (faster-whisper) — chạy tay |
 | `lint_comments.py` | Bắt "chú thích nuốt mã" |
 | `build_seg.py` | Một lệnh: lint → spine → render → audio → mux → verify; báo giờ render thật (`<out>.build.json`) |
+| `splice.py` | F-5: ghép đoạn vào master của tập — hình (thay khung, mã hoá lại một lần) + tiếng (lớp đoạn vào stem tập) + `splice.json` |
 | `vendor/package.json` | three 0.186.1 (`npm ci`; node_modules không commit) |
 
 Giờ render đo được (4 lõi, SwiftShader, 3 worker, 540p): Tập 4 đoạn 69,6 s → 135,5 s; Tập 5 đoạn 34 s → 76 s (≈ 2 s máy/s phim); cache trúng → < 1 s.

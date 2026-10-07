@@ -158,8 +158,13 @@ def check(spec, root, duration=None):
         bad = [s for s in w.get('scenes') or [] if s not in scene_ids]
         if not w.get('scenes') or bad:
             add('BLOCK', 'world', f"{w.get('id')}: scenes {bad or '[]'} — must list scenes of this episode")
-    if spec.get('world'):
-        add('WARN', 'world', 'world segments are built and checked but NOT yet spliced into the master (toolkit/factory/BACKLOG.md F-5)')
+        order = [sc.get('id') for sc in spec.get('scenes', [])]   # F-5: một đoạn = một khoảng liền của master (world/splice.py)
+        ws = [s for s in w.get('scenes') or [] if s in scene_ids]
+        if ws and not bad and order[order.index(ws[0]):order.index(ws[0]) + len(ws)] != ws:
+            add('BLOCK', 'world', f"{w.get('id')}: scenes {ws} must be consecutive, in episode order (the segment replaces one span of the master)")
+    seen = [s for w in spec.get('world') or [] for s in w.get('scenes') or []]
+    if len(seen) != len(set(seen)):
+        add('BLOCK', 'world', f'a scene is in two world segments: {sorted({s for s in seen if seen.count(s) > 1})}')
     # B+2: nhãn thay số nói (`label: "…"` trong chú thích câu của script.md) phải có trên hình ở cảnh được dựng
     sm = os.path.join(root, (spec.get('dossier') or {}).get('script_md', 'story/script.md'))
     if os.path.exists(sm):
