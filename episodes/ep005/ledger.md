@@ -35,3 +35,8 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc: kiểm m�
 | 2026-10-07 | C3 | dựng | agent general-purpose (mới) | sửa N1/N2 vòng 3 (hình + nhãn) | 146.806 | render ≈ 0,05 h |
 | 2026-10-07 | C3 | kiểm mù | headless có ảnh | vòng 3 (5 + chấm ×2) | 58.465 + 17.280 | N1 1/3, N2 0/2 → hết 3 vòng, chủ dự án chọn |
 | 2026-10-07 | C3 | REVIEWER | agent general-purpose | soát gói C3 + chữ trên hình clip (R1) | 126.041 | ĐẠT có sửa (6 sửa đã áp); R1 0; không CHẶN |
+| 2026-10-07 | sau C3 | dựng | agent general-purpose | N1 thêm đối trọng | 96.721 | không đè nhãn; render 38 s |
+| 2026-10-07 | sau C3 | dựng | agent general-purpose | F-5 ghép đoạn thế giới vào master | 130.766 | test 5/5, bộ 36/36 |
+| 2026-10-07 | sau C3 | dựng | agent general-purpose | F-2 kiểm sfx + nhãn đè | 148.603 | test 5/5, bộ 41/41; Tập 5 0 BLOCK, cảnh báo N3 dày sfx, 5 nhấn 11–14 dB |
+| 2026-10-07 | sau C3 | dựng | agent general-purpose | F-3 nhạc theo bản đồ căng | 184.391 | 9,0 LU yên→đỉnh; A07 20,01 dB; né 1–4 kHz 9,2 dB (đích 13); chốt ở "removed" S20.2 |
+| 2026-10-07 | sau C3 | dựng | agent general-purpose | F-1 thử "fly" ở S02 | 165.942 | đạt mọi tiêu chí; render ×1,015; ống góc rộng làm nghiêng nhà (mắt) → giới hạn méo ở C4 |
