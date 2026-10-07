@@ -1,6 +1,6 @@
 {
  "segment": "ep005 C3 · N2 cột phát lại (S13.1–S13.3)",
- "version": 3,
+ "version": 4,
  "total": 14.93,
  "fps": 30,
  "pad": 0.25,
@@ -330,7 +330,7 @@
    "sid": "S13.3",
    "mode": "chart",
    "idea": "Các tháng chậm nằm liền nhau, ngay trước và trong đợt giảm giá nhà toàn quốc.",
-   "visual": "ngoặc trên cụm warn (\"together\"/\"stretch\"); đường chỉ số quốc gia (accent) vẽ ở \"national\", đoạn đỉnh → đáy đậm ở \"slump\".",
+   "visual": "ngoặc trên cụm warn + dải warn mờ dọc cụm xuống trục tháng mua (\"together\"); nhãn \"one stretch of purchase months\" (\"stretch\"); chỉ số quốc gia (accent) là dải mảnh TRONG trục tháng mua, dưới chân cột (vòng 2), vẽ tới \"national\", đoạn đỉnh → đáy đậm ở \"slump\".",
    "line": "They sit together in one stretch of the grid, the months just before and during the national price slump.",
    "sound": [
     "nốt dữ liệu theo chỉ số khi đường vẽ",
@@ -494,7 +494,8 @@
  },
  "label_cues": {
   "t1.years": "more than 60 months:",
-  "t2.slump": "national price slump"
+  "t2.slump": "national price slump",
+  "t2.stretch": "one stretch of purchase months"
  },
  "visual_cues": [
   "t0.tail",

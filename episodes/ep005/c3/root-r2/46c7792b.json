@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows how a 30-year fixed mortgage gets paid down. The example is a $360,000 loan at a 6.86% rate, which it labels as the September 2026 average from Freddie Mac via FRED. It is marked \"illustrative\", so it is a model and not a real loan offer. The monthly payment is $2,362 for principal plus interest.\n\n2. **What changes across the frames:**\n   - Frame 1 sets the scene with a house, a person, a calendar (monthly payments) and a tall stack of cash (the loan).\n   - Frames 2 and 3 label the loan amount, the rate and the monthly payment.\n   - Frames 4 to 6 add a curve of the loan balance over 360 payments. The calendar flips through payments 43, 92 and 114, and the cash stack shrinks along the curve.\n   - The curve starts out nearly flat, with the label \"slowly at first\". It steepens toward the end, with the label \"faster later\".\n\n3. **What it means:** Early payments go mostly to interest, so the balance barely drops. Around payment 114, which is nearly 10 years in, the stack is still tall. More of each payment goes to principal as time passes, so the balance falls faster in the later years. That is how amortization works. The payment stays the same, but its makeup shifts from interest to principal.\n\n4. **What a viewer would take away:**\n   - Don't expect to build equity quickly in the first several years. A first-time buyer who plans to move within a few years may owe almost as much as they started with.\n   - Budget for the full monthly payment, which is about $2,362 on this loan before taxes, insurance and maintenance.\n   - The rate has a big effect on the total cost, and that's a reason to shop lenders. Extra principal payments early on can cut interest, because that's when the balance falls slowest.\n   - The animation doesn't say whether to buy or rent. It only shows what the loan costs, so you'd want to weigh how long you plan to stay.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9782,
+   "out": 727
+  }
+ },
+ "turns": 2
+}

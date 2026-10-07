@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how a 30-year mortgage gets paid down. It uses a $360,000 loan at 6.86%, which is the September 2026 average rate from Freddie Mac via FRED. The $2,362 monthly payment covers principal plus interest. The \"ILLUSTRATIVE\" tag says these are example numbers, not a quote.\n\n2. **What changes.**\n   - Frame 1 shows a house, a person, a calendar pad and a stack of cash. These stand for the buyer, the monthly payment and the loan.\n   - Frames 2 and 3 label the stack as the $360,000 loan and the calendar as the $2,362 monthly payment. A timeline from 0 to 360 payments appears.\n   - Frames 4 to 6 step through payments 43, 92 and 114. The calendar page flips with each payment, and the cash stack slowly shrinks along a curve.\n   - The curve is labeled \"slowly at first\" and later \"faster later.\"\n\n3. **What it means.** Early payments go mostly to interest, so the balance barely falls in the first several years. Even after about 114 payments (nearly 10 years), the stack is still tall. The principal falls faster only in the later years, because the interest portion shrinks as the balance drops. This is how amortization works.\n\n4. **The advice.** I'd take away four things:\n   - **Budget for the payment.** Buying means committing to about $2,362 a month for a long time, before taxes, insurance and upkeep.\n   - **Expect slow equity early.** Don't assume you'll build much equity in the first few years. That matters if you might move or sell soon, since selling costs and slow paydown can leave you with little or nothing.\n   - **Plan to stay a long time.** The payoff comes from holding the home for years.\n   - **Consider the rate.** At 6.86%, a lot of each payment is interest. Shopping for a lower rate, making extra principal payments, or waiting for a better rate could save real money.\n\n   The animation doesn't tell you outright to buy or not to buy. It only shows the shape of the debt.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9782,
+   "out": 762
+  }
+ },
+ "turns": 2
+}

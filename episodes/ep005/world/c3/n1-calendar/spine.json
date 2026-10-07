@@ -1,6 +1,6 @@
 {
  "segment": "ep005 C3 · N1 lịch (S06.1 + S06.3)",
- "version": 3,
+ "version": 4,
  "total": 14.97,
  "fps": 30,
  "pad": 0.25,
@@ -312,7 +312,7 @@
    "sid": "S06.3",
    "mode": "chart",
    "idea": "Mỗi kỳ trả giảm dư nợ một chút: chậm lúc đầu, nhanh về sau.",
-   "visual": "lịch lật liên tục; chồng vay (W2) trượt sang phải theo số kỳ, đỉnh chồng vẽ đường dư nợ (W5); \"slowly\" đường gần như nằm ngang, \"faster\" dốc xuống.",
+   "visual": "cả lịch dư nợ in sẵn (W5 muted mảnh) ở \"Each\"; lịch lật, chồng vay (W2) trượt theo kỳ, đỉnh chồng tô đậm đoạn đã đi (gần như nằm ngang ở \"slowly\") và DỪNG ở kỳ 114 lúc \"faster\"; \"faster\": đoạn cuối dốc của đường in sáng lên.",
    "line": "Each payment pays the balance down a little, slowly at first, and faster later on.",
    "sound": [
     "nốt dữ liệu mỗi 5 năm (cao độ = dư nợ)"
@@ -347,18 +347,15 @@
    0
   ],
   [
-   11.069,
-   120
-  ],
-  [
    12.761,
-   240
-  ],
-  [
-   13.825,
-   360
+   114
   ]
  ],
+ "print_draw": [
+  8.64,
+  9.24
+ ],
+ "k_stop": 114,
  "events": [
   {
    "t": 4.37,
@@ -387,34 +384,29 @@
    "v": 1.0
   },
   {
-   "t": 9.855,
+   "t": 9.508,
    "kind": "data",
-   "v": 0.94
+   "v": 0.978
   },
   {
-   "t": 11.069,
+   "t": 10.375,
    "kind": "data",
-   "v": 0.855
+   "v": 0.954
   },
   {
-   "t": 11.915,
+   "t": 11.243,
    "kind": "data",
-   "v": 0.736
+   "v": 0.925
+  },
+  {
+   "t": 12.11,
+   "kind": "data",
+   "v": 0.893
   },
   {
    "t": 12.761,
    "kind": "data",
-   "v": 0.569
-  },
-  {
-   "t": 13.293,
-   "kind": "data",
-   "v": 0.332
-  },
-  {
-   "t": 13.825,
-   "kind": "data",
-   "v": 0.0
+   "v": 0.865
   }
  ],
  "tension": [

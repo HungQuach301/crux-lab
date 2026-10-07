@@ -1,0 +1,14 @@
+{
+ "answer": "```json\n{\n  \"R1\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Meaning matches the muted read: about 1 in 7 over 60 months, clustered in one 2005–2009 stretch under the price index peak. Advice is counted: 'only buy if you can stay in the home that long' and that buy timing matters.\"},\n  \"R2\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Matches the muted read: calendar pages are $2,362 monthly payments, and the stack follows the balance curve, slow first and faster later. Advice is counted: 'plan to stay a long time' and extra principal payments.\"},\n  \"R3\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Matches the muted read: monthly payment pages and a balance that falls slowly first, then faster. Advice is counted: extra principal payments early and weighing how long to stay, beyond the lender-shopping caution.\"},\n  \"R4\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Matches the muted read: more than 60 months is about 1 in 7, bunched in 2005–2009, under the price index peak and fall. Advice is counted: 'buy only if you could stay put' and 'don't try to time the market'.\"},\n  \"R5\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Matches the muted read: payment pages, a balance stack following the curve, slow then fast. Advice is counted: 'plan to stay a long time', extra principal payments, and 'waiting for a better rate'.\"}\n}\n```",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 3877,
+   "out": 15
+  },
+  "claude-sonnet-5-5": {
+   "in": 6436,
+   "out": 1318
+  }
+ },
+ "turns": 1
+}
