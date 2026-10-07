@@ -35,3 +35,20 @@
 | B17 | 1/3 | TRƯỢT | 1 lẫn 112 tháng với lịch; 1 khuyên |
 | B18 | 2/2 | **ĐẠT** | |
 **Tổng sau vòng 2: 10/12 = 83 % ≥ 80 % → cổng gốc C4 ĐẠT.** Theo D-009 vẫn sửa B08, B17 (vòng 3, cuối) cùng các nhận xét đạo diễn lặp. Token: 119.082 + 11.985, chấm 21.361 + 6.425.
+
+## Vòng 3 (`world/c4/FIX-R3.md`; người đọc mới `c4/root-r3/`, người thứ 3 `c4/root-r3x/`, chốt chặn có lời `c4/voiced-r3/`)
+Vòng cuối cho B08/B17; cùng lượt sửa 7 nhận xét đạo diễn lặp ở cả hai lượt độc lập + lỗi khách quan → mọi nhịp có hình đổi được kiểm lại (khoá nghĩa).
+| Nhịp | Vòng 3 | Tốt nhất trước | Kết luận |
+|---|---|---|---|
+| B02 | 1/3 (khuyên "chỉ mua nếu ở lâu") | 2/2 (v1) | **thấp hơn → tự loại** (hoàn chỗ đổi 0:22) |
+| B03 | 2/2 | 2/2 | ĐẠT |
+| N1 S06 | nghĩa 2/2 | — | ĐẠT (ngoại lệ C3) |
+| B07 | 2/2 | 2/2 | ĐẠT |
+| **B08** | **2/2** | 0/2 | **ĐẠT** (vòng 3) |
+| B12 | 2/2 | 2/2 | ĐẠT |
+| N2 S13 | nghĩa 2/2 | — | (ngoại lệ C3) |
+| B16 | 2/2 | 2/2 | ĐẠT |
+| **B17** | **2/2** | 1/3 | **ĐẠT** (vòng 3) |
+| B18 | 1/3 | 2/2 (v2) | **thấp hơn → tự loại** (hoàn khung tổng kết) |
+**Chốt chặn có lời vòng 3:** S06 3/3, khuyên 0/3 → ĐẠT; **S13 khuyên 2/3 → TRƯỢT** (v1 0/3). Dải S13 v2 và v3 gần như giống hệt (chỉ dời nhãn "60 months") → chênh lệch nhiều khả năng do mẫu nhỏ; vẫn áp luật ghi trước: hoàn chỗ đổi S13 về v2. Ba chỗ hoàn (B02 0:22, S13 quanh vạch 60, B18 khung tổng kết) mang lại nhận xét đạo diễn cũ → G2 nêu trước/sau (`review-g2/revert-*.mp4`) để chủ dự án chọn.
+Token: người đọc 237.047 + 23.705 + 70.735, chấm 37.806 + 8.290 + 12.500.
