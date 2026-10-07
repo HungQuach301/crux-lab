@@ -52,3 +52,7 @@ Vòng cuối cho B08/B17; cùng lượt sửa 7 nhận xét đạo diễn lặp 
 | B18 | 1/3 | 2/2 (v2) | **thấp hơn → tự loại** (hoàn khung tổng kết) |
 **Chốt chặn có lời vòng 3:** S06 3/3, khuyên 0/3 → ĐẠT; **S13 khuyên 2/3 → TRƯỢT** (v1 0/3). Dải S13 v2 và v3 gần như giống hệt (chỉ dời nhãn "60 months") → chênh lệch nhiều khả năng do mẫu nhỏ; vẫn áp luật ghi trước: hoàn chỗ đổi S13 về v2. Ba chỗ hoàn (B02 0:22, S13 quanh vạch 60, B18 khung tổng kết) mang lại nhận xét đạo diễn cũ → G2 nêu trước/sau (`review-g2/revert-*.mp4`) để chủ dự án chọn.
 Token: người đọc 237.047 + 23.705 + 70.735, chấm 37.806 + 8.290 + 12.500.
+
+## Sau khoá nghĩa (hoàn 3 chỗ về v2) — kết quả cuối C4
+Dải hoàn khớp v2: B02 SSIM 0,976 · S13 0,983 · B18 0,997 (`review-c4/strips/strips.json` `lock`). B11 (mốc dịch do take S04/S15 mới) kiểm lại 2/2 (`c4/root-b11/`, 23.601 + 7.831 token).
+**12/12 nhịp loại 1 đạt** (B08, B17 ở v3; B02, B18, S13 ở v2; còn lại v1–v3). Chốt chặn có lời S06 (v3) 3/3 · S13 (v1/v2) 3/3, khuyên 0.
