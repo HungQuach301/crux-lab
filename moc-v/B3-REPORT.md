@@ -19,7 +19,7 @@ Nhánh `moc-v`. Không sửa `checks/` (đề xuất ở `checks-appeal.md` A13�
 | **B+2** ≤ 2 số mới được nói mỗi cảnh | **Luật + bộ kiểm ĐẠT** — S03 trước: BLOCK 3 số; sau: 2 số, phạm vi Fannie Mae + 3 claim giữ; cả Tập 5 0 BLOCK; selftest 5/5; `spec.py` cảnh báo khi nhãn thay số không có trên hình. **Nhãn S03 mới ở dạng đặc tả trong `script.md`, chưa render** — phiên Tập 5 làm (cùng đọc lại giọng S03) | `b2/README.md` |
 | Áp thiết kế vào nhà máy | **ĐẠT** — `toolkit/factory/world/`: dựng lại hai đoạn qua nhà máy → hình + tiếng trùng MD5 với clip **v3l/E5h**; spine trùng byte; cache trúng 5/5 → 0,9 s; selftest 8/8. **Chưa ghép vào master** (BACKLOG F-5; `spec.py` cảnh báo) | `b3/factory-proof.md`, `visual-library` §5 |
 | Sửa CHARTER/playbook theo D-009/D-010 | **ĐÃ SỬA** — CHARTER v4 (gen §4 đúng chữ D-010 §3), quality-framework v3 (§10, C5 "Chính = 0", L3 ≥ 4, đạo diễn = chẩn đoán), episode.md v4, RUN/P1–P3, sổ gu. Trần 40 agent và EL 6.000 ký tự **giữ nguyên** (D-009 chỉ đổi trần token) | `decisions/D-009.md` "Đã sửa" |
-| REVIEWER | vòng 1: TRƯỢT 9 CHÍNH + 6 tham khảo → đã sửa; vòng 2: TRƯỢT 1 CHÍNH (giờ render đếm trùng) + 3 tham khảo → đã sửa (mục 4) | — |
+| REVIEWER | vòng 1: TRƯỢT 9 CHÍNH + 6 tham khảo → đã sửa; vòng 2: TRƯỢT 1 CHÍNH (giờ render đếm trùng) + 3 tham khảo → đã sửa; **xác nhận: ĐẠT** | — |
 
 **Chỉ số sát ngưỡng (±5 %, nêu tên):** đồng bộ `b1.many` 0,196 s và `c2.schedule` 0,189 s (ngưỡng 0,2 s); B+2: S01, S03, S05, S08, S11, S12 của Tập 5 đúng bằng ngưỡng 2 số mới.
 **Câu sát ranh giới lời khuyên** (rubric không tính, rubric không đổi từ vòng 1): "check whether you're near the limit before deciding to sell", "pay the loan down", "keep an emergency fund" — đáng xem lại khi lô K xử lý A9.
@@ -32,7 +32,7 @@ Nhánh `moc-v`. Không sửa `checks/` (đề xuất ở `checks-appeal.md` A13�
 
 ## 3. Giờ render thực
 - Đo từ file còn giữ, khử trùng theo nội dung (`b3/evidence/render-hours.json`; mỗi bản chỉ giữ lần cuối) + lần 1080p Tập 5 bị dừng (248 s, theo log): **3.010 s ≈ 0,84 h** máy. Ước cả mốc gồm các lần bị ghi đè (≈ 9 vòng Tập 4 + 6 vòng Tập 5 ở 540p có cache một phần, bản thử v1/v1b Gói A): **≈ 1,4–1,7 h** (4 lõi, SwiftShader). (Vòng 1 báo 1,18 h vì đếm hai lần 4 file trùng — REVIEWER vòng 2 bắt.)
-- Nhịp (wall, 3 worker song song): 540p ≈ 1,9–2,3 s máy / s phim; **1080p ≈ 6,9–7,1 s/s** (Tập 4: 69,6 s → 481 s; Tập 5: 34 s → 240 s); cache trúng < 1 s; âm 9–18 s / đoạn. Trường `wall_per_film_s_rendered` trong `*.build.json` cộng thời gian của **từng worker** (≈ 3 × wall) nên lớn hơn.
+- Nhịp (wall, 3 worker song song): 540p ≈ 1,9–2,3 s máy / s phim; **1080p ≈ 6,9–7,1 s/s** (Tập 4: 69,6 s → 481 s; Tập 5: 34 s → 240 s); cache trúng < 1 s; âm 9–18 s / đoạn. Trường `wall_per_film_s_rendered` trong `*.build.json` cộng thời gian của **từng worker** (≈ 2,7 × wall) nên lớn hơn.
 
 ## 4. Đã sửa sau REVIEWER vòng 1
 Chữ "slowest case" + cổng gốc E1 lại; ghi lệch 2 vòng mù vào D-010 §6; A15 ghi đúng hình/nhãn; mọi chỗ "trùng MD5" ghi rõ v3l/E5h; B+2 ghi "luật đạt, nhãn chưa render"; nêu chỉ số sát ngưỡng; bằng chứng verify/build/giờ render chép vào `b3/evidence/`; `quality-framework` C5 "Chính = 0"; trả trần 40 agent / EL 6.000; `spec.py` cảnh báo F-5 và nhãn thiếu (test mới); PLAN cập nhật đường dẫn và trạng thái; bảng tên phiên bản; câu sát ranh giới. Vòng 2: khử trùng giờ render (0,84 h, không phải 1,18 h); C14 kiểm video 30 fps trước khi lấy khung n = 6k. Thêm: bộ kiểm C14 1080p đọc từng khung đúng chỉ số (bản cũ hết bộ nhớ ở 1080p và lấy khung lệch tới nửa khung → 5 vi phạm giả lúc nhãn vừa hiện).
