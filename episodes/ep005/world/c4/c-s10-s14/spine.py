@@ -34,10 +34,10 @@ B = [
  ('n2', 'S13.3', 'chart', 'Nằm liền nhau quanh đợt giảm giá.', 'N2: ngoặc cụm; dải chỉ số; đỉnh→đáy.',
   {'together': '@S13.3:together', 'stretch': '@S13.3:stretch', 'national': '@S13.3:national', 'slump': '@S13.3:slump'}, ['tick', 'slide_down'], 0.85, 'đỉnh', 'đẩy máy'),
  ('z0', 'S14.1', 'chart', 'Chậm nhất: 10/2005, 112 tháng.', 'khung phóng dừng ở cột cao nhất.', {'october': '@S14.1:October', 'months': '@S14.1:months'}, ['chime'], 0.8, '', ''),
- ('z1', 'S14.2', 'chart', 'Lâu hơn lịch ở lãi tháng đó.', 'vạch lịch 90 kỳ trên cột.', {'schedule': '@S14.2:schedule', 'rate': '@S14.2:rate'}, [], 0.7, '', 'CHUYỂN CHẾ ĐỘ → thế giới'),
- ('z2', 'S14.3', 'world', 'Trung bình quốc gia; địa phương khác.', 'nhiều nhà, mỗi nhà một chồng lên xuống khác nhau.',
+ ('z1', 'S14.2', 'chart', 'Lâu hơn lịch ở lãi tháng đó.', 'vạch lịch 90 kỳ cắt ngang cột; sống lịch của mọi tháng.', {'schedule': '@S14.2:schedule', 'rate': '@S14.2:rate'}, [], 0.7, '', 'giữ (r2)'),
+ ('z2', 'S14.3', 'chart', 'Trung bình quốc gia; địa phương khác.', 'r2: GIỮ khung cột cao nhất; tên "national average, not one home".',
   {'national': '@S14.3:national', 'single': '@S14.3:single', 'local': '@S14.3:local'}, [], 0.5, '', ''),
- ('z3', 'S14.4', 'world', 'Vì sao cùng luật lại khác nhau?', '', {'rule': '@S14.4:rule', 'answers': '@S14.4:answers'}, [], 0.45, 'câu hỏi', 'lia sang ba người mua'),
+ ('z3', 'S14.4', 'chart', 'Vì sao cùng luật lại khác nhau?', '', {'rule': '@S14.4:rule', 'answers': '@S14.4:answers'}, [], 0.45, 'câu hỏi', 'CHUYỂN CHẾ ĐỘ → thế giới: ba người mua'),
 ]
 beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
@@ -51,8 +51,8 @@ MOVES = [
  ('m_row', 'mode', 'cTally', 'wRow', cue['k3']['not'], cue['n0']['typical'], 1.1, 'lời "The typical case also hides a long tail": dãy cột nhìn nghiêng, đuôi nhô lên → thế giới', 'whoosh_mode', False, 'fRow'),
  ('m_bars', 'mode', 'wRow', 'cBars', cue['n1']['seven'], cue['n1']['five'], 1.0, 'lời "took more than five years": ngưỡng 60 tháng là số → đồ thị', 'whoosh_mode', False, 'fFive'),
  ('m_zoom', 'push', 'cBars', 'cZoom', cue['n2']['slump'], cue['z0']['october'], 0.9, 'lời "The slowest was October 2005": khung phóng vào cột cao nhất → đẩy máy', 'whoosh_push', False, None),
- ('m_hood', 'mode', 'cZoom', 'wHood', cue['z1']['rate'], cue['z2']['national'], 1.0, 'lời "no single home tracks it": nhiều căn nhà, một chỉ số → thế giới', 'whoosh_mode', False, 'fHood'),
- ('m_buy', 'pan', 'wHood', 'wBuyers', cue['z3']['answers'], TOTAL, 1.2, 'lời "why did the same rule give such different answers?": ba người mua trả lời → lia', 'whoosh_push', False, None),
+ # C4 r2: bỏ cảnh khu nhiều nhà (S14.3, wHood) — vòng 1 khung 4–6 trôi sang nhà, người đọc mất cột cao nhất; khung GIỮ ở cột cao nhất tới hết S14
+ ('m_buy', 'mode', 'cZoom', 'wBuyers', cue['z3']['answers'], TOTAL, 1.2, 'lời "why did the same rule give such different answers?": câu trả lời là ba người mua → thế giới', 'whoosh_mode', False, 'fBuy'),
 ]
 moves = []
 for mid, verb, a, b, after, before, dur, reason, snd, late, via in MOVES:

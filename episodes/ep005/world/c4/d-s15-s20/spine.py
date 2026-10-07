@@ -26,7 +26,7 @@ B = [
  ('v3', 'S17.4', 'world', 'Bên cho vay có bỏ bảo hiểm không: dữ liệu không trả lời.', 'nhà Victor + khiên trên mái.', {'lender': '@S17.4:lender', 'show': '@S17.4:show'}, [], 0.5, '',
   'CHUYỂN CHẾ ĐỘ → đồ thị (ba làn cùng gốc)'),
  ('a0', 'S18.1', 'chart', 'Cùng luật, cùng chỉ số; khác tháng bắt đầu.', 'ba làn đặt cùng gốc.', {'same': '@S18.1:Same', 'started': '@S18.1:started', 'next': '@S18.1:next'}, [], 0.6, '', 'lùi máy'),
- ('a1', 'S18.2', 'chart', 'Hai mốc so sánh.', 'dải lịch + bó trên giấy.', {'benchmarks': '@S18.2:benchmarks'}, [], 0.5, '', ''),
+ ('a1', 'S18.2', 'chart', 'Hai mốc so sánh.', 'dải lịch + bó trên giấy.', {'plan': '@S18.2:plan', 'benchmarks': '@S18.2:benchmarks'}, [], 0.5, '', ''),   # C4 r2: vạch đứng "a plan" hiện ở "plan"
  ('a2', 'S18.3', 'chart', 'Lịch cố định từ đầu.', '', {'schedule': '@S18.3:schedule', 'decade': '@S18.3:decade'}, [], 0.5, '', ''),
  ('a3', 'S18.4', 'chart', 'Trên giấy: điển hình 23 tháng; ~2 năm khớp tháng điển hình.', 'vạch đứng ~24 tháng + nhãn mô tả.',
   {'history': '@S18.4:history', 'two': '@S18.4:two', 'slow': '@S18.4:slow', 'step': '@S18.4:step'}, [], 0.5, '', 'lia'),
@@ -47,7 +47,7 @@ MOVES = [
  ('m_v', 'pan', 'cLane2', 'cLane3', cue['o2']['payments'], cue['v0']['victor'], 1.0, 'lời "Victor bought the year after Owen": người mua thứ ba → lia', 'whoosh_push', False, None),
  ('m_vw', 'mode', 'cLane3', 'wVictor', cue['v2']['ninety'], cue['v3']['lender'], 0.9, 'lời "Whether a lender would have dropped his insurance": căn nhà + khiên → thế giới', 'whoosh_mode', False, 'fVic'),
  ('m_all', 'mode', 'wVictor', 'cAll', cue['v3']['show'], cue['a0']['same'], 0.9, 'lời "Same rule, same national index": ba làn cùng gốc → đồ thị', 'whoosh_mode', False, 'fAll'),
- ('m_bench', 'pull', 'cAll', 'cBench', cue['a0']['next'], cue['a1']['benchmarks'], 0.9, 'lời "a plan can be measured against two benchmarks": mở khung cho hai mốc → lùi máy', 'whoosh_soft', False, None),
+ ('m_bench', 'pull', 'cAll', 'cBench', cue['a0']['next'], cue['a1']['plan'], 0.9, 'lời "a plan can be measured against two benchmarks": mở khung cho hai mốc → lùi máy', 'whoosh_soft', False, None),
  ('m_down', 'pan', 'cBench', 'cDown', cue['a3']['step'], cue['a4']['twenty'], 1.1, 'lời "the other path, 20 percent down": về hai chồng giá → lia', 'whoosh_push', False, None),
  ('m_fork', 'mode', 'cDown', 'wFork', cue['a4']['forty'], cue['a5']['renting'], 1.0, 'lời "doesn\'t weigh that against renting or waiting": hai lối ngang nhau → thế giới', 'whoosh_mode', True, 'fFork'),
  ('m_card', 'mode', 'wFork', 'cCard', cue['a5']['measures'], cue['m0']['card'], 1.0, 'lời "How we know this … is on this card": thẻ phương pháp có số → đồ thị', 'whoosh_mode', False, 'fCard'),
@@ -75,12 +75,12 @@ spine = {'segment': 'ep005 C4 · D = S15–S20 (Hồi 3, phương pháp, kết)'
          'label_cues': {'g1.four': 'Grace · June 2014 · 4.16%', 'g2.middle': 'on paper: 23 months', 'g3.schedule': 'schedule: 71',
                         'o0.owen': 'Owen · January 2004 · 5.71%', 'o1.thirteen': 'on paper: 13 months · schedule: 86', 'o2.rising': 'index +11.2%',
                         'v0.victor': 'Victor · October 2005 · 6.07%', 'v1.eighty': 'on paper: 112 months', 'v1.below': 'index still 3.3% below purchase',
-                        'v2.ninety': 'schedule: 90 payments', 'v3.show': 'not in this data', 'a2.schedule': 'schedule: fixed at the start',
+                        'v2.ninety': 'schedule: 90 payments', 'v3.show': 'not in this data', 'a1.plan': 'a plan', 'v3.lender': '?', 'a2.schedule': 'schedule: fixed at the start',
                         'a3.history': 'on paper: typical 23 months · about 1 in 7 over 60', 'a4.forty': '20% down on $400,000: $40,000 more',
                         'a5.renting': 'keep renting, keep saving', 'e1.history': 'from about 1 year to more than 9 years · on paper', 'e1.never': 'on paper is not removed',
                         'e2.us': 'US only · history, not a forecast'},
          'visual_cues': ['g1.four', 'g2.middle', 'g3.schedule', 'o0.owen', 'o0.climbing', 'o1.thirteen', 'o2.rising', 'v0.victor', 'v1.fell', 'v1.eighty', 'v1.below',
-                         'v2.ninety', 'v3.show', 'a2.schedule', 'a3.history', 'a3.two', 'a4.twenty', 'a4.forty', 'a5.renting', 'e1.history', 'e1.never', 'e2.us'],
+                         'v2.ninety', 'v3.lender', 'v3.show', 'a1.plan', 'a2.schedule', 'a3.history', 'a3.two', 'a4.twenty', 'a4.forty', 'a5.renting', 'e1.history', 'e1.never', 'e2.us'],
          'checks': {'rule2_rule3': errs or 'OK', 'rule7': 'n/a (5 s đầu tập ở đoạn A)'}}
 K.write(HERE, spine, ['episodes/ep005/world/claims.json', 'episodes/ep005/work/world-data/derived.json', 'episodes/ep005/world/c4kit.js'])
 print('total', TOTAL, 'moves', [(m['id'], m['t0'], m['t1'], m.get('style')) for m in moves]); print('music_db', spine['mix']['music_db']); print('checks', errs or 'OK')

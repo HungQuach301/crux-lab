@@ -75,7 +75,7 @@
    "scene": "S08",
    "size": "chart",
    "move": "pull",
-   "moveReason": "lời \"Both dates come from the schedule alone\": cả đường + căn nhà ngoài khung → lùi máy"
+   "moveReason": "lời \"Both dates come from the schedule alone\": cả đường + giá trị nhà (chồng) ngoài khung → lùi máy"
   },
   {
    "id": "b-s04-s09:m_val",
@@ -155,18 +155,11 @@
    "moveReason": "lời \"The slowest was October 2005\": khung phóng vào cột cao nhất → đẩy máy"
   },
   {
-   "id": "c-s10-s14:m_hood",
-   "scene": "S14",
-   "size": "world",
-   "move": "mode (fly)",
-   "moveReason": "lời \"no single home tracks it\": nhiều căn nhà, một chỉ số → thế giới"
-  },
-  {
    "id": "c-s10-s14:m_buy",
    "scene": "S14",
    "size": "world",
-   "move": "pan",
-   "moveReason": "lời \"why did the same rule give such different answers?\": ba người mua trả lời → lia"
+   "move": "mode (fly)",
+   "moveReason": "lời \"why did the same rule give such different answers?\": câu trả lời là ba người mua → thế giới"
   },
   {
    "id": "d-s15-s20:m_g",

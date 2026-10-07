@@ -4,7 +4,7 @@
  "total": 132.6334,
  "fps": 30,
  "pad": 0.25,
- "episode_t0": 185.2001,
+ "episode_t0": 187.8335,
  "scenes": [
   "S10",
   "S11",
@@ -2678,12 +2678,12 @@
    "sid": "S14.2",
    "mode": "chart",
    "idea": "Lâu hơn lịch ở lãi tháng đó.",
-   "visual": "vạch lịch 90 kỳ trên cột.",
+   "visual": "vạch lịch 90 kỳ cắt ngang cột; sống lịch của mọi tháng.",
    "line": "That's longer than the schedule itself took at that month's rate.",
    "sound": [],
    "music": 0.7,
    "emotion": "",
-   "next": "CHUYỂN CHẾ ĐỘ → thế giới",
+   "next": "giữ (r2)",
    "t0": 116.165,
    "t1": 119.527,
    "cues": {
@@ -2694,9 +2694,9 @@
   {
    "id": "z2",
    "sid": "S14.3",
-   "mode": "world",
+   "mode": "chart",
    "idea": "Trung bình quốc gia; địa phương khác.",
-   "visual": "nhiều nhà, mỗi nhà một chồng lên xuống khác nhau.",
+   "visual": "r2: GIỮ khung cột cao nhất; tên \"national average, not one home\".",
    "line": "And this is a national average: no single home tracks it, and a local market can do much better or much worse.",
    "sound": [],
    "music": 0.5,
@@ -2713,14 +2713,14 @@
   {
    "id": "z3",
    "sid": "S14.4",
-   "mode": "world",
+   "mode": "chart",
    "idea": "Vì sao cùng luật lại khác nhau?",
    "visual": "",
    "line": "So why did the same rule give such different answers?",
    "sound": [],
    "music": 0.45,
    "emotion": "câu hỏi",
-   "next": "lia sang ba người mua",
+   "next": "CHUYỂN CHẾ ĐỘ → thế giới: ba người mua",
    "t0": 128.17,
    "t1": 131.047,
    "cues": {
@@ -2821,33 +2821,23 @@
    "sound": "whoosh_push"
   },
   {
-   "id": "m_hood",
+   "id": "m_buy",
    "verb": "mode",
    "from": "cZoom",
-   "to": "wHood",
-   "t0": 119.324,
-   "t1": 120.324,
-   "reason": "lời \"no single home tracks it\": nhiều căn nhà, một chỉ số → thế giới",
-   "sound": "whoosh_mode",
-   "style": "fly",
-   "via": "fHood"
-  },
-  {
-   "id": "m_buy",
-   "verb": "pan",
-   "from": "wHood",
    "to": "wBuyers",
    "t0": 130.87,
    "t1": 132.07,
-   "reason": "lời \"why did the same rule give such different answers?\": ba người mua trả lời → lia",
-   "sound": "whoosh_push"
+   "reason": "lời \"why did the same rule give such different answers?\": câu trả lời là ba người mua → thế giới",
+   "sound": "whoosh_mode",
+   "style": "fly",
+   "via": "fBuy"
   }
  ],
  "fly_fallback": {},
  "music_plan": {
   "bed": {
    "wav": "episodes/ep005/work/factory/music/bed.wav",
-   "offset": 185.2001,
+   "offset": 187.8335,
    "fade": 0.0
   },
   "stop": 132.6334,
@@ -2855,7 +2845,7 @@
   "accents": []
  },
  "mix": {
-  "music_db": 13.35,
+  "music_db": 13.28,
   "data_db": 25.0
  },
  "month_kf": [
@@ -3100,21 +3090,15 @@
    "kind": "chime"
   },
   {
-   "t": 119.324,
+   "t": 130.87,
    "kind": "whoosh_mode",
-   "dur": 1.0,
+   "dur": 1.2,
    "gain": 0.6
   },
   {
-   "t": 120.324,
+   "t": 132.07,
    "kind": "land",
    "mode": true
-  },
-  {
-   "t": 130.87,
-   "kind": "whoosh_push",
-   "dur": 1.2,
-   "gain": 0.8
   }
  ],
  "tension": [
@@ -3251,15 +3235,10 @@
   {
    "id": "s8",
    "t0": 109.522,
-   "t1": 119.324
-  },
-  {
-   "id": "s9",
-   "t0": 119.324,
    "t1": 130.87
   },
   {
-   "id": "s10",
+   "id": "s9",
    "t0": 130.87,
    "t1": 132.633
   }

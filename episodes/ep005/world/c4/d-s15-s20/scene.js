@@ -8,7 +8,7 @@ import { cues, moves, flyGuard, measure, followLight, Buyers, BX2, POP, PLATE } 
 
 const SEG = '/episodes/ep005/world/c4/d-s15-s20/';
 const L = [140, 154, 168], VX = 175.5, XA = 184, FX = 198, XD = 212, UP = 1e5;
-const XL = (c, k) => c - 5 + 10 * k / 120, YR = (l) => 0.8 + (l - 0.8) * 5, YI = (v) => -0.3 + (v - 1) * 2.0;
+const XL = (c, k) => c - 5 + 10 * k / 120, YR = (l) => 0.8 + (l - 0.8) * 5, YI = (v) => -0.2 + (v - 1) * 4.0;   // C4 r2: chỉ số ×2 (2,0 → 4,0), gốc −0,3 → −0,2 (trục năm không chạm dải chữ cố định, F-2) — −3,3 % của Victor ở tháng 112 thấy được (vòng 1: "dips and recovers")
 const ORDER = ['grace', 'owen', 'victor'];
 
 export async function boot(res) {
@@ -47,7 +47,7 @@ export async function boot(res) {
   const burst = Burst(); scene.add(burst);
   const vHouse = House({ w: 1.4 }); vHouse.position.set(VX, 0, 0); scene.add(vHouse);
   const vShield = Shield({ size: 0.75 }); vShield.position.set(VX, vHouse.userData.height * 0.86, 0.25); scene.add(vShield);
-  const vPerson = Person({ h: 1.15, color: '#D8C9E2' }); vPerson.position.set(VX + 1.1, 0, 0.6); vPerson.rotation.y = -0.3; scene.add(vPerson);
+  // C4 r2: bỏ người cạnh nhà Victor (vòng 1: nhà + người sau mười năm → "buy only if I can hold a decade"); nhà + khiên + "?" (dữ liệu không trả lời)
   // ---------- ba làn cùng gốc + bó trên giấy + dải lịch
   const allPaper = ORDER.map(() => Ribbon({ color: C.ink, z: 0.55 })), allSched = ORDER.map(() => Ribbon({ color: C.muted, z: 0.45 }));
   allPaper.forEach((r) => scene.add(r)); allSched.forEach((r) => scene.add(r));
@@ -56,7 +56,7 @@ export async function boot(res) {
   fan.set(fanLines, 0.3);
   const A80 = Beam({ length: 10.4, color: C.muted }); A80.position.set(XA, YR(0.8), 0.2); scene.add(A80);
   const A75 = Beam({ length: 10.4, color: C.muted }); A75.position.set(XA, YR(0.75), 0.2); scene.add(A75);
-  const plan = Beam({ length: 2.0, color: C.ink }); plan.rotation.z = Math.PI / 2; plan.position.set(XL(XA, 24), 1.0, 0.6); scene.add(plan);
+  const plan = Beam({ length: 2.3, color: C.ink }); plan.rotation.z = Math.PI / 2; plan.position.set(XL(XA, 24), 1.05, 0.6); plan.scale.y = 2.2; scene.add(plan);   // C4 r2: dày ×2,2, cao hơn bó
   // ---------- hai chồng giá (S18.5)
   const price = Stack({ unitUsd: UP, w: 1.1, d: 0.7 }); price.position.set(XD - 0.8, 0, 0); scene.add(price);
   const pHouse = House({ w: 1.2 }); pHouse.position.set(XD + 1.4, 0, 0); scene.add(pHouse);
@@ -65,7 +65,7 @@ export async function boot(res) {
   const fShield = Shield({ size: 0.8 }); fShield.position.set(FX - 1.2, fHouse.userData.height * 0.86, 0.25); scene.add(fShield);
   const apt = Apartment({ w: 1.5 }); apt.position.set(FX + 2.8, 0, -0.4); scene.add(apt);
   const you = Person({ h: 1.15, color: PALETTE.person2 }); you.position.set(FX + 0.8, 0, 0.8); scene.add(you);
-  const WORLD = { vHouse, vShield, vPerson, fHouse, fShield, apt, you, pHouse, ...Object.fromEntries(BU.items.flatMap((it, i) => [[`bHouse${i}`, it.house], [`bPerson${i}`, it.person]])) };
+  const WORLD = { vHouse, vShield, fHouse, fShield, apt, you, pHouse, ...Object.fromEntries(BU.items.flatMap((it, i) => [[`bHouse${i}`, it.house], [`bPerson${i}`, it.person]])) };
   const prog = (t, a, b_) => lin(t, a, b_);
   const lineTo = (arr, kmax, c, f) => { const pts = []; const K_ = Math.min(arr.length - 1, Math.floor(kmax)); for (let k = 0; k <= K_; k++) pts.push([XL(c, k), f(arr[k])]); if (pts.length < 2) pts.push([XL(c, 0.01), f(arr[0])]); return pts; };
   const schedArr = (B_, n) => { const a = []; for (let k = 0; k <= n; k++) a.push(sf(B_.rate, k)); return a; };
@@ -83,7 +83,7 @@ export async function boot(res) {
     lanes.forEach((o, i) => { const [kp, ks] = K[o.key], vis = t < M.m_vw.t1 ? 1 : 0;
       o.paper.set(lineTo(o.B.paper, kp, o.c, YR), 0.07, C.ink); o.paper.material.opacity = kp > 0.05 ? vis : 0;
       o.sched.set(lineTo(SCH[i], ks, o.c, YR), 0.05, C.muted); o.sched.material.opacity = ks > 0.05 ? vis : 0;
-      o.idx.set(lineTo(o.B.index, kp, o.c, YI), 0.05, C.accent); o.idx.material.opacity = kp > 0.05 ? vis : 0; setOpacity(o.beam, vis); });
+      o.idx.set(lineTo(o.B.index, o.key === 'victor' ? Math.min(kp, o.B.hit) : kp, o.c, YI), 0.05, C.accent); o.idx.material.opacity = kp > 0.05 ? vis : 0; setOpacity(o.beam, vis); });   // C4 r2: chỉ số của Victor dừng ở tháng 112 (tháng tới 80 % trên giấy) — vẽ tiếp 6 tháng làm cuối đường lên trên mức mua
     const fl = t >= b.v2.ninety ? 1 - lin(t, b.v2.ninety, b.v2.ninety + 0.8) : 0; burst.position.set(XL(L[2], 90), YR(0.8), 0.7); burst.scale.setScalar(0.2 + 0.8 * (1 - fl)); burst.material.opacity = fl * cw;
     // cùng gốc
     const inAll = (t >= M.m_all.t0 && t < M.m_fork.t1) || t >= M.m_ans.t0 ? 1 : 0, aIn = inAll * ease(t, t >= M.m_ans.t0 ? M.m_ans.t0 : M.m_all.t0, (t >= M.m_ans.t0 ? M.m_ans.t1 : M.m_all.t1));
@@ -91,7 +91,7 @@ export async function boot(res) {
       allSched[i].set(lineTo(SCH[i], 120, XA, YR), 0.045, C.muted); allSched[i].material.opacity = aIn * 0.9; });
     fan.material.opacity = aIn * ease(t, t >= M.m_ans.t0 ? M.m_ans.t1 : b.a1.benchmarks - 0.05, (t >= M.m_ans.t0 ? M.m_ans.t1 : b.a1.benchmarks) + 0.4);
     setOpacity(A80, aIn); setOpacity(A75, aIn);
-    setOpacity(plan, inAll * (t < M.m_ans.t0 ? 1 : 0) * ease(t, b.a3.two - 0.05, b.a3.two + POP));
+    setOpacity(plan, inAll * (t < M.m_ans.t0 ? 1 : 0) * ease(t, b.a1.plan - 0.05, b.a1.plan + POP)); plan.glow(t >= b.a1.plan ? Math.max(0, 1 - lin(t, b.a1.plan, b.a1.plan + 0.8)) : 0, C.ink);   // C4 r2: vạch "a plan" đứng từ "plan" (S18.2), không đợi "two"
     // S18.5: đáy 10 % → 20 %
     price.set({ usd: 400000, tintBelowUsd: 40000 + 40000 * easeOut(t, b.a4.twenty - 0.05, b.a4.twenty + 0.6), tint: C.cushion, tintA: 1 });
     renderer.render(scene, cam);
@@ -122,6 +122,13 @@ export async function boot(res) {
     T('index still 3.3% below purchase', 120, 360, 50, lA[2] * ease(t, b.v1.below - 0.05, b.v1.below + POP), { color: C.accent });
     { const [x, y] = S2(XL(L[2], 90), YR(0.8)); T('schedule: 90 payments', x, y + 70, 50, lA[2] * ease(t, b.v2.ninety - 0.05, b.v2.ninety + POP), { align: 'center', color: C.muted }); }
     { const [x, y] = S2(L[0] - 5, YI(0.8) - 0.2), [x1, y1] = S2(L[0] + 5, YR(0.95)); log.roi['o0.climbing'] = log.roi['v1.fell'] = [x, y1, x1, y + 10]; }
+    // C4 r2 (S17): mức chỉ số LÚC MUA (đường gạch, accent) trên làn Victor + mốc tháng 112: đường trên giấy chạm 80 % khi chỉ số vẫn DƯỚI mức mua
+    { const a = lA[2] * ease(t, b.v1.below - 0.05, b.v1.below + POP), V_ = D.buyers.victor, kh = V_.hit;
+      if (a > 0.01) { const c = O.ctx, [x0, y0] = S2(XL(L[2], 0), YI(1.0)), [x1] = S2(XL(L[2], 120), YI(1.0)), [xh, yh] = S2(XL(L[2], kh), YI(V_.index[kh]));
+        c.save(); c.globalAlpha = a; c.strokeStyle = C.accent; c.lineWidth = 3; c.setLineDash([12, 9]); c.beginPath(); c.moveTo(x0, y0); c.lineTo(x1, y0); c.stroke();
+        c.setLineDash([]);   // (r2 thử: gạch dọc từ 80 % xuống chỉ số cắt nhãn "schedule: 90 payments" — F-2 BLOCK → bỏ)
+        c.fillStyle = C.accent; c.beginPath(); c.arc(xh, yh, 9, 0, 7); c.fill(); c.strokeStyle = C.accent; c.lineWidth = 4; c.beginPath(); c.moveTo(xh + 18, y0); c.lineTo(xh + 18, yh); c.stroke(); c.restore(); } }
+    wl('?', VX, vShield.position.y + 0.1, 0.6, (t >= M.m_vw.t0 && t < M.m_all.t1 ? 1 : 0) * ease(t, b.v3.lender - 0.05, b.v3.lender + POP), 96);   // C4 r2: "?" trên khiên ở "lender"
     // nhà Victor
     wl('not in this data', VX, 2.6, 0.2, (t >= M.m_vw.t0 && t < M.m_all.t1 ? 1 : 0) * ease(t, b.v3.show - 0.05, b.v3.show + POP));
     // ba làn cùng gốc
@@ -134,11 +141,12 @@ export async function boot(res) {
       if (s1) {
         T('on paper: typical 23 months · about 1 in 7 over 60', 120, 334, 48, aA * ease(t, b.a3.history - 0.05, b.a3.history + POP));
         const [px, py] = S2(XL(XA, 24), 2.05), pa = aA * ease(t, b.a3.two - 0.05, b.a3.two + POP);
-        T('≈ 2 years matched the typical month —', px + 16, 430, 46, pa); T("not the slow ones, not the lender's step", px + 16, 488, 46, pa);
+        T('≈ 2 years matched the typical month —', px + 16, 430, 48, pa); T("not the slow ones, not the lender's step", px + 16, 490, 48, pa);
       } else T('from about 1 year to more than 9 years · on paper', 120, 334, 48, aA * ease(t, b.e1.history - 0.05, b.e1.history + POP));
       ORDER.forEach((k, i) => { const B_ = D.buyers[k], j = B_.paper.length - 1, [x, y] = S2(XL(XA, j), YR(B_.paper[j])); O.text(k[0].toUpperCase() + k.slice(1), x + 12, y + (k === 'owen' ? 40 : -12), 42, { alpha: aA * ease(t, b.a0.started - 0.05, b.a0.started + POP) }); });
     }
     { const [x, y] = S2(XL(XA, 24), 2.0), [, y1] = S2(0, 0); log.roi['a3.two'] = [x - 40, y - 10, x + 40, y1]; }
+    { const [px, py] = S2(XL(XA, 24), -0.1), pl = aA * (t < M.m_ans.t0 ? 1 : 0) * ease(t, b.a1.plan - 0.05, b.a1.plan + POP); T('a plan', px, py + 62, 56, pl, { kind: 'name', align: 'center' }); }   // C4 r2: tên vạch đứng (dưới chân vạch — trên đầu vạch là dòng "on paper: typical…")
     // hai chồng giá
     const dA = ok * ease(t, M.m_down.t1, M.m_down.t1 + POP) * (1 - ease(t, M.m_fork.t0, M.m_fork.t0 + 0.3));
     if (dA > 0.01) { const [x, y] = S2(XD - 0.8, 4.3); T('$400,000 home', x, y - 10, 54, dA, { align: 'center', kind: 'number' });

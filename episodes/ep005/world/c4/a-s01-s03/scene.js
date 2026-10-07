@@ -33,7 +33,7 @@ export async function boot(res) {
     // C4: via của các cú bay khác (đi ngang qua vật thế giới, máy gần như cân)
     fHome: { pos: [WX + 9.5, 2.6, 15.5], tgt: [WX + 3.0, 2.2, 0], fov: 35, chart: 0 },        // định nghĩa → căn nhà: lướt qua căn hộ từ phải
     fRule: { pos: [WX + 9.0, 3.0, 14.0], tgt: [WX + 23.0, 2.6, 0], fov: 35, chart: 0 },       // căn nhà → định nghĩa: quay về phía hai chồng
-    cDef75: { pos: [16.8, 2.4, 40.0], tgt: [16.8, 2.4, 0], fov: 12, chart: 1 },             // định nghĩa, khung hạ một chút: vạch 75 % + nhãn B+2
+    cDef75: { pos: [17.0, 2.7, 40.0], tgt: [17.0, 2.7, 0], fov: 8, chart: 1 },              // định nghĩa, khung CHẶT hơn (r2: fov 12 → 8, khoảng 80 %↔75 % lớn ×1,5): vạch 75 % + nhãn B+2
     fMeet: { pos: [BX - 4.0, 2.8, 17.0], tgt: [BX - 1.0, 1.8, 0], fov: 35, chart: 0 },        // định nghĩa → ba người mua (cùng phía phải)
   };
   const BU = Buyers(scene); Object.assign(poses, BU.poses);   // C4: ba người mua (c4kit, cùng toạ độ với đoạn C/D)
@@ -91,7 +91,8 @@ export async function boot(res) {
     return best;
   }
 
-  const bar75 = Beam({ length: 6.0, color: C.muted }); bar75.position.set(16.8, 0, 0.05); scene.add(bar75);   // C4 S03.3: vạch thứ hai (75 %)
+  const X75 = 19.4, L75 = 3.6;   // C4 r2: vạch 75 % là MỘT VẠCH KHÁC — đặt lệch phải (từ mép chồng vay ra ngoài), không trùng đoạn với vạch 80 % (vòng 1: "vạch nhân đôi")
+  const bar75 = Beam({ length: L75, color: C.muted }); bar75.position.set(X75, 0, 0.05); scene.add(bar75);   // C4 S03.3: vạch thứ hai (75 %)
   const m6 = mv[3], m7 = mv[4];
   function frame(t) {
     const pose0 = CAM.apply(t), pose = flyGuard(CAM, all, t), cw = pose0.chart, cam = CAM.cam, b = cue;   // C4: nắp ống kính khi bay
@@ -144,12 +145,13 @@ export async function boot(res) {
     const dA = Math.max(ease(t, mv[1].t0, mv[1].t1) * (1 - ease(t, mv[2].t1 - 0.2, mv[2].t1)), ease(t, m6.t0, m6.t1) * (1 - ease(t, m7.t1 - 0.2, m7.t1)));   // chữ của định nghĩa rời khi máy đã về; C4: lại hiện ở S03.3
     const r = lin(t, b.c4.paper, b.c4.eighty);              // tỉ lệ đi từ 90 % xuống 80 %, CHẠM 80 đúng chữ "eighty" (E5a: sớm 0,55 s)
     const vUsd = mix(400000, 440000, r), lUsd = mix(360000, 352000, r);
-    const vh = vStack.set({ usd: vUsd, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 }), lh = lStack.set({ usd: lUsd, tintBelowUsd: 1e9, tint: '#5B6573', tintA: 0.9 });   // E5e: cùng mã màu với thế giới (giá = xám nhạt, vay = xám đậm)
+    const w75 = t >= b.c6.seventy ? 0.75 * vUsd : Infinity;   // C4 r2: phần chồng vay CÒN Ở TRÊN vạch 75 % đổi warn ("still above the bar", vai màu beats.md) ở "seventy-five"
+    const vh = vStack.set({ usd: vUsd, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 }), lh = lStack.set({ usd: lUsd, warnAboveUsd: w75, tintBelowUsd: 1e9, tint: '#5B6573', tintA: 0.9 });   // E5e: cùng mã màu với thế giới (giá = xám nhạt, vay = xám đậm)
     vHouse.scale.setScalar(0.001); setOpacity(vHouse, 0);   // E5g: đồ thị chỉ có chồng (nhà là vật thế giới — cùng quy tắc Tập 4)   // đồ thị: đỉnh chồng là điểm dữ liệu — nhà đứng cạnh, mái thấp hơn
     bar80b.position.y = 0.8 * vUsd / U;
     for (const o of [vStack, lStack]) setOpacity(o, dA > 0.01 ? 1 : 0); setOpacity(bar80b, dA * ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP) * (1 - 0.5 * ease(t, b.c6.seventy, b.c6.seventy + 0.4)));
-    // C4 S03.3: vạch 75 % trượt từ mức 80 % xuống 75 % đúng chữ "seventy-five"; vạch 80 % mờ một nửa
-    const s75 = easeOut(t, b.c6.seventy - 0.05, b.c6.seventy + 0.45); bar75.position.y = mix(0.8, 0.75, s75) * vUsd / U; setOpacity(bar75, t >= m6.t0 ? dA * ease(t, b.c6.seventy - 0.1, b.c6.seventy) : 0);
+    // C4 S03.3: vạch 75 % VẼ RA ở chính mức 75 % (trái → phải) đúng chữ "seventy-five" — r2: không trượt ra từ vạch 80 % nữa (vòng 1 đọc thành "vạch dịch/nhân đôi"); vạch 80 % mờ một nửa
+    const s75 = easeOut(t, b.c6.seventy - 0.05, b.c6.seventy + 0.45); bar75.position.set(X75 - L75 / 2 * (1 - s75), 0.75 * vUsd / U, 0.05); bar75.scale.x = Math.max(0.001, s75); setOpacity(bar75, t >= m6.t0 ? dA * (s75 > 0.001 ? 1 : 0) : 0);
     // C4 S03.4: ba người mua hiện ở "three" (mọc lên từ mặt đất)
     const buyA = ease(t, b.c7.three - 0.05, b.c7.three + 0.35); BU.set(buyA); for (const it of BU.items) it.house.scale.setScalar(0.6 + 0.4 * easeOut(t, b.c7.three - 0.05, b.c7.three + 0.5));
 
@@ -194,7 +196,7 @@ export async function boot(res) {
       const pct = t < b.c4.paper + POP ? 90 : t < b.c4.eighty ? Math.max(81, Math.round(100 * lUsd / vUsd)) : 80;
       O.text(`${pct}%`, lx + 120, ly + 16, 60, { kind: 'compare', color: pct <= 80 ? C.ink : C.muted, alpha: a * ease(t, b.c4.paper, b.c4.paper + POP) * (1 - ease(t, b.c4.eighty, b.c4.eighty + POP)) });   // bộ đếm bật ĐÚNG "on paper" rồi chạy tới 80
       const [bx, by] = S2(18.4 + 0.9, 0.8 * vUsd / U);
-      O.text('80% on paper', bx + 10, by + 16, 60, { kind: 'compare', color: C.ink, alpha: a * ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP) * (1 - 0.5 * ease(t, b.c6.seventy, b.c6.seventy + 0.4)), plate: '#0B0E13', plateA: 0.7 });   // C4: mờ một nửa ở S03.3
+      O.text('80% on paper', bx + 10, by + (t >= m6.t0 ? -8 : 16), 60, { kind: 'compare', color: C.ink, alpha: a * ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP) * (1 - 0.5 * ease(t, b.c6.seventy, b.c6.seventy + 0.4)), plate: '#0B0E13', plateA: 0.7 });   // C4: mờ một nửa ở S03.3
     }
     // E5g: lối thuê lớn tới 20 % — mũi tên đi lên trên chồng ở căn hộ (cùng từ vựng hình "rise" của Tập 4)
     { const ua = ease(t, b.c1.twenty, b.c1.twenty + POP) * (1 - ease(t, mv[0].t0, mv[0].t0 + 0.3));
@@ -206,11 +208,11 @@ export async function boot(res) {
     // ---------- C4 S03.3 (đồ thị định nghĩa + vạch 75 %): chỉ khi đã chính diện
     const r6 = ok * ease(t, m6.t1, m6.t1 + POP) * (1 - ease(t, m7.t0, m7.t0 + 0.3));
     if (r6 > 0.01) {
-      O.text("loan owner's rule", 960, 232, 56, { align: 'center', alpha: r6 * ease(t, b.c6.rule - 0.05, b.c6.rule + POP), plate: '#0B0E13', plateA: 0.7 });
+      O.text("loan owner's rule: request · appraisal · wait", 960, 232, 56, { align: 'center', alpha: r6 * ease(t, b.c6.rule - 0.05, b.c6.rule + POP), plate: '#0B0E13', plateA: 0.7 });
       O.text(`Fannie Mae: wait ≥ ${CLm.value_removal_seasoning_years.value} years · loan ≤ ${Math.round(100 * CLm.value_removal_ltv_early.value)}%`, 960, 316, 54,
         { kind: 'compare', align: 'center', alpha: r6 * ease(t, b.c6.bar - 0.05, b.c6.bar + POP), plate: '#0B0E13', plateA: 0.8 });
-      const [qx, qy] = S2(18.4 + 0.9, 0.75 * vUsd / U);
-      O.text('75%', qx + 10, qy + 64, 60, { kind: 'number', color: C.ink, alpha: r6 * ease(t, b.c6.seventy - 0.05, b.c6.seventy + POP), plate: '#0B0E13', plateA: 0.7 });
+      const [qx, qy] = S2(X75 + L75 / 2, 0.75 * vUsd / U);
+      O.text('75%', qx - 10, qy + 64, 60, { kind: 'number', align: 'right', color: C.ink, alpha: r6 * ease(t, b.c6.seventy - 0.05, b.c6.seventy + POP), plate: '#0B0E13', plateA: 0.7 });
     }
     // ---------- C4 S03.4–S03.5 (thế giới): không số; lớp bắt buộc
     const wB = ease(t, m7.t1, m7.t1 + POP);

@@ -88,7 +88,7 @@ export async function boot(res) {
     // S06–S08: kỳ trả
     const k = t < b.y2.each ? 0 : Math.min(S.k_stop, S.k_stop * (t - S.pay_kf[0][0]) / (S.pay_kf[1][0] - S.pay_kf[0][0]));
     const pflip = t < b.y0.monthly ? 0 : t < b.y2.each ? (t < b.y0.monthly + 0.5 ? lin(t, b.y0.monthly - 0.1, b.y0.monthly + 0.4) : 0) : (k >= S.k_stop ? 0 : (k / 3) % 1);
-    const p6v = t >= M.m_pay.t0 && t < M.m_val.t1 ? 1 : 0; setOpacity(pcal, p6v); setOpacity(vHouse, t >= M.m_wide.t0 ? 1 : 0);
+    const p6v = t >= M.m_pay.t0 && t < M.m_val.t1 ? 1 : 0; setOpacity(pcal, p6v); setOpacity(vHouse, ease(t, M.m_val.t0, M.m_val.t1));   // C4 r2: ở S08.3 KHÔNG có căn nhà ngoài khung (vòng 1: nhà + đường trả hết 360 kỳ đọc thành "PMI tạm thời → không lý do để không mua"); nhà về trên chồng khi máy bay sang thế giới (S09.1)
     pcal.set({ flip: pflip, pages: 1 - k / 360 * 0.9, glow: 0 });
     const usd = 360000 * bal(k); loan.position.set(XK(k), 0, 0); loan.set({ usd, tintBelowUsd: 1e9, tint: '#5B6573', tintA: 0.9 }); setOpacity(loan, p6v);
     const pts = []; for (let j = 0; j <= Math.floor(k); j += 2) pts.push([XK(j), 360000 * bal(j) / UNIT]); pts.push([XK(k), usd / UNIT]);
@@ -98,8 +98,8 @@ export async function boot(res) {
     const k99 = CL.sched80_months_latest.value, k114 = CL.sched78_months_latest.value;
     const fl = t >= b.l1.ninety && t < b.l1.ninety + 0.8 ? 1 - lin(t, b.l1.ninety, b.l1.ninety + 0.8) : t >= b.a1.nine && t < b.a1.nine + 0.8 ? 1 - lin(t, b.a1.nine, b.a1.nine + 0.8) : 0;
     const kb = t < b.a1.nine ? k99 : k114; burst.position.set(XK(kb), 360000 * bal(kb) / UNIT, 0.6); burst.scale.setScalar(0.15 + 0.5 * (1 - fl)); burst.material.opacity = fl * cw;
-    // S08.3–S09.1: căn nhà ngoài khung; chồng giá trị mọc dưới nhà ở "value", lớn tiếp khi "prices rise"
-    const vg = easeOut(t, b.v0.value - 0.05, b.v0.value + 0.8), vr = ease(t, b.v0.value + 0.9, M.m_def.t0 + 0.3);
+    // S08.3: GIÁ TRỊ nhà (chồng giá trị, không nhà) đứng NGOÀI khung đồ thị lịch — C4 r2; S09.1: nhà đứng trên chồng, chồng lớn lên từ "value" khi "prices rise"
+    const vg = t >= M.m_wide.t0 ? 1 : 0, vr = 0.6 * easeOut(t, b.v0.value - 0.05, b.v0.value + 0.6) + 0.4 * ease(t, b.v0.value + 0.6, M.m_def.t0 + 0.3);   // r2: chồng đã đứng từ S08.3 → "value" = chồng (và nhà) BẬT lên rõ
     const vh = vStackW.set({ usd: (400000 + 60000 * vr) * vg, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 }); setOpacity(vStackW, vg > 0.01 ? 1 : 0); vHouse.position.set(VX, vh, 0);
     // S09.2: giá trị lên → 80 % của giá trị dâng lên gặp chồng vay (sớm hơn lịch); vạch lịch (80 % giá gốc) mờ
     const rr = ease(t, b.v1.same, b.v1.eighty), vU = mix(400000, 450000, rr), lU = mix(360000, 358000, rr);
@@ -166,11 +166,11 @@ export async function boot(res) {
       for (const kk of [k99, k114]) { const [x, y] = S2(XK(kk), 360000 * bal(kk) / UNIT, 0.5); c.save(); c.globalAlpha = w8; c.fillStyle = C.ink; c.beginPath(); c.arc(x, y, 8, 0, 7); c.fill(); c.restore();
         O.text(String(kk), kk === k99 ? x - 14 : x + 14, y - 26, 44, { kind: 'number', align: kk === k99 ? 'right' : 'left', alpha: w8 }); }
       for (const kk of [0, 120, 240, 360]) { const [x, y] = S2(XK(kk), 0, 0.4); O.text(kk === 360 ? '360 payments' : String(kk), x, y + 52, 44, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: w8 }); }
-      const [hx, hy] = O.toScreen(VX, 1.6, 0); O.text('the house', hx, hy - 30, 48, { align: 'center', alpha: w8, plate: PLATE, plateA: 0.6 });
+      const [hx, hy] = O.toScreen(VX, 400000 / UW, 0); O.text('home value', hx, hy - 30, 48, { align: 'center', alpha: w8, plate: PLATE, plateA: 0.6 });   // C4 r2: tên chồng giá trị (thay "the house")
     }
     // S09.1 (thế giới): tên
     wl('home value', VX, vh + 1.75, 0, (1 - ease(t, M.m_def.t0, M.m_def.t0 + 0.3)) * ease(t, b.v0.value - 0.05, b.v0.value + POP), 52);
-    { const [x0, y0] = O.toScreen(VX, 0.8, 0.4); log.roi['v0.value'] = [x0 - 110, y0 - 120, x0 + 110, y0 + 80]; }
+    { const [x0, y0] = O.toScreen(VX, vh, 0.4); log.roi['v0.value'] = [x0 - 140, y0 - 160, x0 + 140, y0 + 60]; }   // r2: vùng đỉnh chồng (chỗ đổi), không còn chân chồng
     // S09.2–S09.4 (đồ thị: hai chồng)
     const d9 = ok * ease(t, M.m_def.t1, M.m_def.t1 + POP) * (1 - ease(t, M.m_mr.t0, M.m_mr.t0 + 0.3));
     if (d9 > 0.01) {

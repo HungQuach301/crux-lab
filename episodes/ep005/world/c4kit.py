@@ -16,6 +16,37 @@ sys.dont_write_bytecode = True
 import wlib  # noqa: E402
 import spine as SV  # noqa: E402
 
+def _override_takes():
+    """C4 r2: take của cảnh theo voice_overrides (episode.yaml) như NHÀ MÁY chọn — voice-scenes.json (G1) còn ghi take cũ cho S04/S15.
+    Cảnh có {seed: N}: take trong voice-takes/ có cùng seed + cùng chữ/giọng/model/thiết lập với take G1 của cảnh; {take: h}: đúng file đó.
+    Thiếu take → dừng (không sinh giọng). Không có override → voice-scenes.json nguyên như trước."""
+    import yaml, glob, subprocess
+    vs = _VS0()
+    ov = (yaml.safe_load(open(os.path.join(EP, 'episode.yaml'))) or {}).get('voice_overrides') or {}
+    for sc, o in ov.items():
+        if sc not in vs:
+            continue
+        old = json.load(open(os.path.join(wlib.TAKES, vs[sc]['take'].replace('.mp3', '.json'))))
+        if o.get('take'):
+            h = o['take']
+        else:
+            hit = [os.path.basename(p)[:-5] for p in glob.glob(os.path.join(wlib.TAKES, '*.json'))
+                   if (lambda m: m.get('seed') == o.get('seed', old['seed']) and all(m.get(k) == old.get(k) for k in ('text', 'voice', 'model', 'settings')))(json.load(open(p)))]
+            if len(hit) != 1:
+                raise SystemExit(f'{sc}: voice_overrides {o} → {len(hit)} take trong voice-takes/ — dừng')
+            h = hit[0]
+        if h + '.mp3' != vs[sc]['take']:
+            mp3 = os.path.join(wlib.TAKES, h + '.mp3')
+            dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp3], capture_output=True, text=True, check=True).stdout)
+            vs[sc] = {**vs[sc], 'take': h + '.mp3', 'duration': round(dur, 2), 'override': o}
+    return vs
+
+
+_VS0 = wlib.voice_scenes
+_VS = {}
+wlib.voice_scenes = lambda: _VS.setdefault('v', _override_takes())
+
+
 BED = 'episodes/ep005/work/factory/music/bed.wav'
 MUSIC_BASE_DB = 16.0     # mức nhạc dưới lời TRƯỚC né (audio.py duck −4 dB + khoét 1–4 kHz) → A07 đo trên stem ≈ 20 dB (hiệu chỉnh ở C4)
 PAD = 0.25

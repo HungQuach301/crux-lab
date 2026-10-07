@@ -1285,8 +1285,8 @@
    "verb": "mode",
    "from": "cDef75",
    "to": "wBuyers",
-   "t0": 41.498,
-   "t1": 42.598,
+   "t0": 41.953,
+   "t1": 42.853,
    "reason": "lời \"three illustrative buyers\": là người → thế giới",
    "sound": "whoosh_mode",
    "style": "fly",
@@ -1312,7 +1312,7 @@
   58.0001
  ],
  "mix": {
-  "music_db": 17.88,
+  "music_db": 17.97,
   "data_db": 25.0
  },
  "sched_kf": [
@@ -1513,13 +1513,13 @@
    "dur": 0.5
   },
   {
-   "t": 41.498,
+   "t": 41.953,
    "kind": "whoosh_mode",
-   "dur": 1.1,
+   "dur": 0.9,
    "gain": 0.6
   },
   {
-   "t": 42.598,
+   "t": 42.853,
    "kind": "land",
    "mode": true
   },
@@ -1612,11 +1612,11 @@
   {
    "id": "s5",
    "t0": 33.743,
-   "t1": 41.498
+   "t1": 41.953
   },
   {
    "id": "s6",
-   "t0": 41.498,
+   "t0": 41.953,
    "t1": 58.0
   }
  ],
@@ -1627,7 +1627,7 @@
   "c4.eighty": "80% on paper",
   "c4.paper": "90%",
   "c5.removed": "insurance still on",
-  "c6.rule": "loan owner's rule",
+  "c6.rule": "loan owner's rule: request · appraisal · wait",
   "c6.bar": "Fannie Mae: wait ≥ 2 years · loan ≤ 75%",
   "c8.history": "US only · history, not a forecast",
   "c8.buy": "It won't say whether to buy or wait"

@@ -48,7 +48,7 @@ MOVES = [   # (id, verb, from, to, after, before, dur, reason, sound, late, via)
  ('m_pan', 'pan', 'cSched', 'cDef', cue['c3']['slow'], cue['c4']['paper'], 1.0, 'lời "On paper means…": định nghĩa cần hai chồng cạnh nhau → lia', 'whoosh_push', True, None),
  ('m_c5', 'mode', 'cDef', 'wHouse', cue['c4']['index'], cue['c5']['same'], 0.9, 'lời "…getting the insurance removed": bảo hiểm gắn với căn nhà → thế giới', 'whoosh_mode', False, 'fHome'),
  ('m_c6', 'mode', 'wHouse', 'cDef75', cue['c6']['removal'], cue['c6']['rule'], 1.1, 'lời "the loan owner\'s rule … a 75 percent bar": mức cố định thứ hai trên đúng đồ thị định nghĩa → đồ thị', 'whoosh_mode', False, 'fRule'),
- ('m_c7', 'mode', 'cDef75', 'wBuyers', cue['c6']['bar'], cue['c7']['three'], 1.1, 'lời "three illustrative buyers": là người → thế giới', 'whoosh_mode', False, 'fMeet'),
+ ('m_c7', 'mode', 'cDef75', 'wBuyers', cue['c6']['bar'], cue['c7']['three'], 0.9, 'lời "three illustrative buyers": là người → thế giới', 'whoosh_mode', True, 'fMeet'),   # C4 r2: sát "three" — đồ thị S03.3 (vạch 75 % + nhãn B+2) đứng yên lâu hơn
 ]
 moves = []
 for mid, verb, a, b, after, before, dur, reason, snd, late, via in MOVES:
@@ -85,7 +85,7 @@ spine = {'segment': 'ep005 C4 · A = S01–S03 + ident (cold open: port E5k/seg-
          'mix': {'music_db': K.music_db(S), 'data_db': 25.0},
          'sched_kf': SCHED, 'fan_kf': FAN, 'events': EV, 'tension': tension, 'shots': SV.shots_for(moves, TOTAL),
          'label_cues': {'c2.eight': 'about 8 years', 'c3.typically': 'typical ≈ 2 years', 'c3.slow': 'slowest case ≈ 9 years', 'c4.eighty': '80% on paper', 'c4.paper': '90%',
-                        'c5.removed': 'insurance still on', 'c6.rule': "loan owner's rule", 'c6.bar': 'Fannie Mae: wait ≥ 2 years · loan ≤ 75%',
+                        'c5.removed': 'insurance still on', 'c6.rule': "loan owner's rule: request · appraisal · wait", 'c6.bar': 'Fannie Mae: wait ≥ 2 years · loan ≤ 75%',
                         'c8.history': 'US only · history, not a forecast', 'c8.buy': "It won't say whether to buy or wait"},
          'visual_cues': ['c0.ten', 'c1.insurance', 'c1.twenty', 'c2.schedule', 'c2.eight', 'c3.replayed', 'c3.typically', 'c3.slow', 'c4.paper', 'c4.eighty', 'c5.removed',
                          'c6.rule', 'c6.seventy', 'c6.bar', 'c7.three', 'c8.history', 'c8.buy'],
