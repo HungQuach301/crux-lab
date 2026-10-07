@@ -17,7 +17,7 @@ Nhánh `moc-v` (từ `main` b1d3e79). Không sửa `checks/`, không đụng `ep
 
 ## Trả lời Gói A (06/10/2026, issue #45) → `decisions/D-010.md`
 Hướng B + C "một thế giới, hai chế độ máy quay"; 8 quy tắc; gen 3D tối giản; D-009 + E1–E6 duyệt; không nguồn trả phí.
-### Bước chứng minh (đang làm)
+### Bước chứng minh (xong 06/10; lịch sử — nay mã ở `toolkit/factory/world/`, lượt đạo diễn = chẩn đoán, không còn ngưỡng ≥ 4)
 - V1. Thư viện vật thể 3D có tham số + bộ động tác máy quay hữu hạn + lớp phủ 2D ≥ 48 px (`moc-v/world/`).
 - V2. Spine v2: thêm `mode` (world/chart), `camera` (động tác giữa nhịp), lý do chuyển chế độ + âm; mọi mốc từ spine.
 - V3. Render theo cảnh: cache + resume; 540p xem trước; 1080p bản cuối một lần.
@@ -37,3 +37,8 @@ Việc còn lại theo thứ tự: (a) Tập 4 nhà ở đồ thị theo V3i, c�
 ## Áp thiết kế vào nhà máy (06/10)
 Thư viện vật thể, spine v2, render theo cảnh có cache, âm theo spine, kiểm đoạn → `toolkit/factory/world/` (README nhà máy, `visual-library` §5 W1–W9).
 Dựng lại hai đoạn chứng minh qua nhà máy: hình + tiếng trùng MD5 với clip v3l/E5h (bản sửa sau L3; L3 chấm trên v3k/E5g) (`moc-v/b3/factory-proof.md`). Ghép vào master: BACKLOG F-5.
+
+## Trạng thái (07/10) — phiên sau đọc
+- B+1 ĐẠT (`b1/README.md`) · B+2 luật ĐẠT, nhãn S03 chưa render (`b2/README.md`) · áp nhà máy ĐẠT trừ F-5 (`b3/factory-proof.md`) · CHARTER/playbook đã sửa · 1080p + C14 ĐẠT cả hai đoạn · REVIEWER vòng 1 đã sửa.
+- Báo cáo: `moc-v/B3-REPORT.md`. **Chờ chủ dự án: "Duyệt Mốc V?"** — chưa merge `main`.
+- Việc cho phiên Tập 5: F-5, S03 (giọng + nhãn) và kiểm mù lại S03 → S12 (B3 §5). Kiểm diff dùng `origin/main`.

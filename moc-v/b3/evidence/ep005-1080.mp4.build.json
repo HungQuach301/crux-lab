@@ -1,0 +1,64 @@
+{
+ "segment": "moc-v/seg/ep005",
+ "res": 1080,
+ "out": "moc-v/work/world/ep005-1080.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.0,
+   "ok": true,
+   "problems": []
+  },
+  "spine": {
+   "seconds": 0.7,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 240.1,
+   "ok": true,
+   "shots": 5,
+   "rendered": [
+    "s0",
+    "s1",
+    "s3",
+    "s4",
+    "s2"
+   ],
+   "cached": 0,
+   "wall_s": 239.7,
+   "film_s": 34,
+   "wall_per_film_s_rendered": 18.78,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 8.7,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 1.5,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 28.2,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "samples": 1074,
+    "violations": 0,
+    "examples": []
+   },
+   "modes": {
+    "world_share": 0.412,
+    "chart_share": 0.588,
+    "first_5s_world": true
+   }
+  }
+ },
+ "total_seconds": 279.2
+}
