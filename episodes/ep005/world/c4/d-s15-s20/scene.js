@@ -186,7 +186,9 @@ export async function boot(res) {
     O.chrome({ illus: illus > 0.01, illusA: illus, src: hist > 0.01 && cA < 0.01 ? 'Source: FHFA · Freddie Mac via FRED' : null, srcA: hist,
       hist: Math.max(hist, hEnd) > 0.01, histA: Math.max(hist, hEnd), cw: hist > 0.01 && cA < 0.01 ? 'Past buyers, measured · not a reason to buy, rent or wait' : dA > 0.01 ? 'A measurement, not a next step' : null, cwA: Math.max(hist * (1 - cA), dA) });
     // C4 r3 (đạo diễn A+B: kết dừng cụt 7:42): khung kết đứng yên rồi tối dần về đen trong 1,5 s cuối, cùng nốt nhạc cuối (bed.py tắt dần 1,5 s cuối)
-    { const fb = ease(t, S.total - 1.6, S.total - 0.1); if (fb > 0.002) { const c = O.ctx; c.save(); c.globalAlpha = fb; c.fillStyle = '#000000'; c.fillRect(0, 0, 1920, 1080); c.restore(); } }
+    { const fb = ease(t, S.total - 1.6, S.total - 0.1); if (fb > 0.002) { const c = O.ctx; c.save(); c.globalAlpha = fb; c.fillStyle = '#000000'; c.fillRect(0, 0, 1920, 1080); c.restore();
+      // C5: tấm đen phủ cả chữ → nhật ký/trang kiểm ghi độ hiện THẬT của chữ (× (1 − fb)); điểm ảnh không đổi (C14 1080p bắt chữ "đứng yên, đục" lúc đang tối dần)
+      const k = 1 - fb; for (const x of log.texts) x.opacity = +(x.opacity * k).toFixed(3); for (const o of log.objects || []) if (o.kind === 'text') o.opacity = +(o.opacity * k).toFixed(3); } }
     Object.assign(log, measure(cam, WORLD));
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }

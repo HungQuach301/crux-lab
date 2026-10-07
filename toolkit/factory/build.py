@@ -487,14 +487,18 @@ class Build:
         return {'world': g['id'], 'render_world': {k: st.get(k) for k in ('wall_s', 'film_s', 'rendered', 'cached')}, 'endcard': st2, 'audio': au}
 
     # ---- shorts
+    def episode_time(self, anchor):
+        """Anchor "@Sxx.n[:word][$]" → episode seconds, resolved in the scene that holds that sentence."""
+        sid = SPEC.ANCHOR.match(anchor)['sid']
+        sc = next(x['scene'] for x in self.tl['sentences'] if x['id'] == sid)
+        off = next(x['start'] for x in self.tl['scenes'] if x['id'] == sc)
+        return Resolver(self.voices[sc], self.script).word_time(anchor) + off
+
     def do_shorts(self):
         res = []
         for S in self.S.get('shorts') or []:
-            sc = next(s for s in self.S['scenes'] if any(x['id'] == SPEC.ANCHOR.match(S['from'])['sid'] for x in self.tl['sentences'] if x['scene'] == s['id']))
-            off = next(x['start'] for x in self.tl['scenes'] if x['id'] == sc['id'])
-            R = Resolver(self.voices[sc['id']], self.script)
-            a = round(round((R.word_time(S['from']) + off) * self.fps) / self.fps, 4)
-            b = round(round((R.word_time(S['to']) + off + 0.4) * self.fps) / self.fps, 4)
+            a = round(round(self.episode_time(S['from']) * self.fps) / self.fps, 4)   # `from` and `to` may sit in different scenes (Tập 5 SH2: S13.1 → S14.4)
+            b = round(round((self.episode_time(S['to']) + 0.4) * self.fps) / self.fps, 4)
             L = round(b - a, 4)
             import shorts as WS
             g = WS.seg_for(getattr(self, 'splice_segs', None), a, b)

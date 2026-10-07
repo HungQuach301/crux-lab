@@ -3,7 +3,7 @@
 // quanh BC (N3 gập → N2) · cột tập A (24 tháng) quanh TC · (r2: bỏ khu nhiều nhà HD của S14.3; HD còn là điểm đi qua của cú bay) · ba người mua BX2 (c4kit, khung cuối = khung đầu đoạn D).
 import * as THREE from 'three';
 import { House, Stack, Beam, Studio, Fan, Burst, Shield, Ribbon, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
-import { Camera, Stage, loadJSON, fonts, C, lin, ease, easeOut, mix } from '/toolkit/factory/world/core.js';
+import { Camera, Stage, loadJSON, fonts, C, lin, ease, easeOut, mix, CK } from '/toolkit/factory/world/core.js';
 import { Calendar, Bars, foldPath } from '/episodes/ep005/world/obj5.js';
 import { cues, moves, flyGuard, measure, followLight, Street, Buyers, litCalendar, SX, BX2, POP, PLATE, interp } from '/episodes/ep005/world/c4kit.js';
 
@@ -127,6 +127,8 @@ export async function boot(res) {
     renderer.render(scene, cam);
     // ======================= lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0, S2 = (x, y, z = 0.3) => O.toScreen(x, y, z); log.roi = {};
+    // C5 trang kiểm (S06): mỗi cột = một tháng mua mang `case` 'YYYY-MM' (chỉ khi CK.on; khung render không đổi)
+    if (CK.on && bars.visible && bars.material.opacity > 0.01) P.forEach((p, i) => O.shape({ role: 'bar', case: p.m.slice(0, 7), world: [[target[i].x - 0.014, 0, 0], [target[i].x + 0.014, target[i].h, 0]], opacity: bars.material.opacity, key: 'bar-' + p.m.slice(0, 7) }));
     const wl = (txt, x, y, z, a, px = 48, col = C.ink) => { if (a > 0.01) { const [sx, sy] = O.toScreen(x, y, z); O.text(txt, sx, sy, px, { align: 'center', alpha: a, color: col, plate: PLATE, plateA: 0.6 }); } };
     // S10 thế giới (tên, không số)
     const wS = 1 - ease(t, M.m_push.t0, M.m_push.t0 + 0.3);

@@ -18,7 +18,7 @@ voice_overrides:
 # Đoạn thế giới dùng đúng lát nhạc này: spine music_plan = {bed: {wav: episodes/ep005/work/factory/music/bed.wav, offset: <giờ đầu đoạn>}}.
 audio:
   lufs: -14
-  true_peak: -1.5
+  true_peak: -2.0     # C5: đích −2,0 để bản AAC cuối còn dư ≤ −1,5 dBTP (540p: đích −1,5 → −1,45 sau AAC)
   music: work/factory/music/bed.wav
   music_cmd: "python3 episodes/ep005/world/music/bed.py {total} {out} --timeline episodes/ep005/out/factory/timeline.json"
 
@@ -31,7 +31,7 @@ claims: c4/gen/claims.json
 tokens: c4/gen/tokens.json
 data: {file: c4/gen/data.json}
 fps: 30
-res: 540
+res: 1080   # C5 bản cuối (C4 xem trước 540; đoạn thế giới render lại 1080 một lần, cache theo cảnh)
 dossier: {script_md: story/script.md, contract: contract.json}
 acts:
   - {id: cold-open, scenes: [S01, S02, S03]}
@@ -74,7 +74,7 @@ world:    # D-010: bốn đoạn thế giới phủ cả tập (ranh giới: ide
   - {id: b-s04-s09, dir: world/c4/b-s04-s09, scenes: [S04, S05, S06, S07, S08, S09]}
   - {id: c-s10-s14, dir: world/c4/c-s10-s14, scenes: [S10, S11, S12, S13, S14]}
   - {id: d-s15-s20, dir: world/c4/d-s15-s20, scenes: [S15, S16, S17, S18, S19, S20]}
-shorts:   # P3 bước 3 (sau C5); nhà máy chưa lấy hình đoạn thế giới cho Shorts → bản C4 chỉ là lời + thẻ cuối
-  - {id: SH1, from: "@S03.1", to: "@S03.3$", hook: "On paper is not removed", end: "Full episode on the channel"}
-  - {id: SH2, from: "@S11.1", to: "@S11.4$", hook: "23 months on paper, typically", end: "Full episode on the channel"}
-  - {id: SH3, from: "@S17.1", to: "@S17.3$", hook: "The slowest month in the replay", end: "Full episode on the channel"}
+shorts:   # C5 (P3 bước 3): ba Short dựng lại 1080×1920 từ đoạn thế giới (F-9); móc một dòng, không chữ số (khung có số luôn có ILLUSTRATIVE + history)
+  - {id: SH1, from: "@S11.1", to: "@S11.4$", hook: "How long, typically?", end: "Full episode on the channel"}      # 23 tháng vs lịch (đoạn c)
+  - {id: SH2, from: "@S13.1", to: "@S14.4$", hook: "The long tail", end: "Full episode on the channel"}             # đuôi chậm, 112 tháng (đoạn c)
+  - {id: SH3, from: "@S16.1", to: "@S17.3$", hook: "Fastest vs slowest", end: "Full episode on the channel"}        # Owen vs Victor (đoạn d)

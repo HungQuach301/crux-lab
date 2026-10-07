@@ -5,24 +5,33 @@
  "question": "You've saved 10% for a first home: buy now and pay mortgage insurance, or wait for 20%? Replaying every US purchase month from January 1991 to July 2016, how long did a 10%-down buyer take to reach 80% of the home's value on paper (national price index), against the law's payment schedule? (US only, history, not a forecast; on paper is not removal; no advice to buy or wait)",
  "characters": {
   "owen": {
+   "color": "#B9A2FF",
+   "shape": "person",
+   "side": "centre",
    "illustrative": true,
    "words": [
     "Owen"
    ]
   },
   "grace": {
+   "color": "#EE9CC4",
+   "shape": "person",
+   "side": "left",
    "illustrative": true,
    "words": [
     "Grace"
    ]
   },
   "victor": {
+   "color": "#79D7C9",
+   "shape": "person",
+   "side": "right",
    "illustrative": true,
    "words": [
     "Victor"
    ]
   },
-  "note": "Owen (fastest, bought 2004-01), Grace (typical = median, 2014-06), Victor (slowest, 2005-10) are ILLUSTRATIVE buyers built from real set-B purchase months (model.params.buyers; selection and tie rules in numbers.md). color / shape / side are left out on purpose until Mốc V design (see pending.characters)."
+  "note": "C5: colour/shape/side from the world code actually rendered — episodes/ep005/world/c4kit.js BCOL/BKEY + Buyers(): each buyer is a faceless Person (lib3d W4) in its own colour next to a house with the same roof colour, left→right Grace, Owen, Victor (x − 3, x, x + 3) wherever they stand together (S03.4, S14→S15, S18, S20); lanes L1–L3 keep the same order. Name labels use the same colour. The page declares the Person meshes (userData.checks {char, shape:\"person\", fill}). Owen = fastest (2004-01), Grace = typical/median (2014-06), Victor = slowest (2005-10), ILLUSTRATIVE buyers from real set-B purchase months (model.params.buyers)."
  },
  "scenarios": {
   "ten-percent-down": {
@@ -645,9 +654,30 @@
   }
  ],
  "sonification": {
-  "stem": "sonify"
+  "stem": "sonify",
+  "bandsHz": [
+   [
+    100,
+    1400
+   ],
+   [
+    4500,
+    7000
+   ]
+  ],
+  "_about": "C5: from the data-sound events actually used (toolkit/factory/world/audio.py data_layer, spine events kind \"data\"): a pitched pulse per data point, MIDI qpenta(45 + 19·v) = 110–330 Hz fundamental with its overtones, +24 semitones (≤ 1.3 kHz) on \"over\" points; a soft tick low-passed into 4.5–7 kHz. Measured on out/audio/stems/sonify.flac (Welch): 99.8 % of the stem energy in these two bands (5–95 % quantiles 114–349 Hz)."
  },
- "shorts": [],
+ "shorts": [
+  {
+   "file": "out/shorts/SH1.mp4"
+  },
+  {
+   "file": "out/shorts/SH2.mp4"
+  },
+  {
+   "file": "out/shorts/SH3.mp4"
+  }
+ ],
  "artefacts": {
   "M3": [
    "out/video.mp4",
@@ -685,43 +715,32 @@
   ]
  },
  "pending": {
-  "_about": "Fields left out on purpose (builder, before Mốc V). Each one makes the rules that read it MISSING until filled; none can be filled honestly without design / audio work.",
-  "characters": "characters.<k>.color, .shape, .side: need ep005 design/tokens.json and the figure design (beats.md E2 names `ink` for the faceless figures, but whether the three buyers share one colour/shape or are told apart is a design decision, not made yet). Rules V04, V09.",
-  "sonification.bandsHz": "needs the episode cue sheet (music style C; no data sonification decided yet). Rules T1, L1.",
-  "rights.visual": "not declared here; F12 will read out/visual-assets.json (or rights.visual) once Mốc V lists the visual assets.",
-  "claims.conditions": "on-paper label pattern and claim list are a proposal; confirm with the page text at Mốc V.",
+  "_about": "Fields still open after C5 (builder). Filled at C5: characters (color/shape/side), sonification.bandsHz, rights.visual, shorts, claims.conditions confirmed against the page (see below).",
+  "claims.conditions": "C5: kept as declared (18 claims, pattern \"on paper\"); confirmed or not by the page sampler S17 at C5 (out/checks/run-c5).",
   "scenarios": "ten-percent-down words (\"you\", \"10 percent down\") are a proposal for S16 (REFERENCE tier).",
-  "artefactsNotBuilt": [
-   "out/video.mp4",
-   "out/captions.srt",
-   "out/package/description.md",
-   "out/timeline.json",
-   "out/script.json",
-   "out/claims.json",
-   "out/audio/stems/voice.*",
-   "out/audio/stems/music.*",
-   "out/audio/stems/sfx.*",
-   "out/audio/stems/whoosh.*",
-   "out/audio/stems/room.*",
-   "out/audio/stems/sonify.*",
-   "out/voice/takes.json",
-   "out/camera.json",
-   "out/sfx-events.json",
-   "out/sonify-events.json",
-   "out/tempo-map.json",
-   "out/transitions.json",
-   "out/cues.json",
-   "out/tension-map.json",
-   "out/tension-map.png",
-   "out/adbreaks.json",
-   "preprod/shotlist.json",
-   "design/tokens.json",
-   "out/package/thumb-1.png",
-   "out/package/thumb-2.png",
-   "out/package/thumb-3.png",
-   "out/page.json",
-   "out/rights.json",
-   "out/visual-assets.json"
-  ]
+  "artefactsNotBuilt": []
+ },
+ "rights": {
+  "visual": [
+   {
+    "name": "Inter",
+    "kind": "font",
+    "family": "Inter",
+    "paths": [
+     "../../toolkit/render/fonts/inter-latin-*.woff2"
+    ]
+   },
+   {
+    "name": "3D world objects drawn by code (lib3d.js W1–W9, obj5.js, c4kit.js)",
+    "kind": "model3d"
+   }
+  ],
+  "generated": [
+   {
+    "glob": "work/world-data/derived.json",
+    "generator": "world/derive.py"
+   }
+  ],
+  "_about": "C5: same list as out/visual-assets.json (c4/build_inputs.py --out). No image, texture, model or document files: every 3D object is built by project code at run time; three.js 0.186.1 (MIT) is code and has its own entry in out/rights.json; Inter (OFL 1.1) is the only font."
  }
 }

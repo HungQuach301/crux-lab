@@ -38,11 +38,12 @@ def render_world(seg_dir, la, lb, out, hook, cws, workers=3, cache=None, extra=N
 def frame_logs(world_log, la, fps, end_logs=(), end_t0=None):
     """Nhật ký dọc của khung thế giới (log.v của core.Overlay, mỗi 3 khung) → dạng nhật ký engine 2D cho qc.py, mỗi 6 khung (t = giây của Short);
     + nhật ký thẻ cuối (engine 2D, f = khung của Short)."""
-    out = []
-    for L in world_log:
-        f = round((L['t'] - la) * fps)
-        if f % 6 or 'v' not in L:
+    out, seen = [], set()
+    for L in world_log:   # log every 3 frames at segment-time multiples of 0.1 s: the Short may start between them (la off the grid),
+        f = round((L['t'] - la) * fps)   # so keep the first log of each 6-frame bucket instead of f % 6 == 0 (which kept none when f ≡ 1, 2 mod 3)
+        if f < 0 or 'v' not in L or f // 6 in seen:
             continue
+        seen.add(f // 6)
         V = L['v']
         out.append({'t': round(f / fps, 3), 'texts': V['texts'], 'raised': V['raised'], 'fitted': V.get('fitted', []), 'shifted': V.get('shifted', []),
                     'collisions': V['collisions'], 'recoloured': V['recoloured'], 'tags': V['tags'], 'claims': V['claims'], 'hist': V['hist'], 'illus': V['illus']})

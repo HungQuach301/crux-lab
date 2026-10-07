@@ -1,0 +1,106 @@
+{
+ "texts": [
+  {
+   "text": "23 months",
+   "box": [
+    44,
+    65,
+    781.8,
+    181
+   ],
+   "fontPx": 150,
+   "claims": [
+    "medianB_months_to80"
+   ]
+  },
+  {
+   "text": "on paper",
+   "box": [
+    48,
+    226,
+    398.1,
+    111
+   ],
+   "fontPx": 92,
+   "claims": [
+    "medianB_months_to80"
+   ]
+  },
+  {
+   "text": "is not the same as removed",
+   "box": [
+    52,
+    356,
+    527.3,
+    49
+   ],
+   "fontPx": 40,
+   "claims": []
+  },
+  {
+   "text": "typical of 307 purchase months,",
+   "box": [
+    52,
+    439,
+    499.6,
+    39
+   ],
+   "fontPx": 32,
+   "claims": [
+    "nB",
+    "medianB_months_to80"
+   ]
+  },
+  {
+   "text": "January 1991 to July 2016, 10% down",
+   "box": [
+    52,
+    481,
+    574.7,
+    39
+   ],
+   "fontPx": 32,
+   "claims": [
+    "firstB",
+    "lastB"
+   ],
+   "params": [
+    "downShare"
+   ]
+  },
+  {
+   "text": "median",
+   "box": [
+    1136.2,
+    460.5,
+    99.8,
+    34
+   ],
+   "fontPx": 28,
+   "claims": [
+    "medianB_months_to80"
+   ]
+  },
+  {
+   "text": "US only · history, not a forecast",
+   "box": [
+    855.3,
+    669,
+    384.7,
+    31
+   ],
+   "fontPx": 26,
+   "claims": []
+  }
+ ],
+ "graphics": {
+  "claims": [
+   "nB",
+   "medianB_months_to80",
+   "maxB_months_to80",
+   "firstB",
+   "lastB"
+  ],
+  "what": "307 bars, one per purchase month January 1991–July 2016, height = months to 80% on paper (national index); bars at or under the median white, the rest dark; amber median line at 23 months. No axis numbers."
+ }
+}

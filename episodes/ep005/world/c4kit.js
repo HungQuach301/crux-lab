@@ -110,6 +110,7 @@ export function Buyers(scene, X = BX, { loans = false } = {}) {
     const stack = Stack({ unitUsd: U, w: 0.9, d: 0.6 }); stack.position.set(x, 0, 0); const h = stack.set({ usd: 400000, tintBelowUsd: 40001, tint: PALETTE.cushion, tintA: 1 }); scene.add(stack);
     const house = House({ w: 1.25, roof: BCOL[i] }); house.position.set(x, h, 0); scene.add(house);
     const p = Person({ h: 1.15, color: BCOL[i] }); p.position.set(x + 1.05, 0, 0.55); p.rotation.y = -0.35; scene.add(p);
+    p.userData.checks = { role: 'mark', char: BKEY[i], shape: 'person', case: BKEY[i], fill: BCOL[i], key: 'person-' + BKEY[i] };   // C5 trang kiểm (V04/V09/S06 hồi 3); khung render không đổi
     const it = { x, stack, house, person: p, top: h + house.userData.height, valueH: h };
     if (loans) {
       it.loan = Stack({ unitUsd: U, w: 0.5, d: 0.45 }); it.loan.position.set(x - 0.82, 0, 0.1); scene.add(it.loan);

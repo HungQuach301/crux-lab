@@ -16,7 +16,8 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | Mốc V | **XONG** — merge `main` 16d7e1f vào `ep005` | — | CHARTER v4, D-009, D-010, nhà máy thế giới |
 | B+2 S03 | **XONG** | `gates/S03-S12-*.md` | "a waiting period" + nhãn Fannie Mae; M4 9,8 s; mù S03→S12 6/6, khuyên 0 |
 | **C3 (P2)** | **XONG** (issue #46; `gates/C3-answer.md`) | `gates/C3.md`, `gates/C3-root.md`, `gates/REVIEW-C3.md`, `review-c3/c3-clip.mp4`, `world/SPINE-PLAN.md` | spine v2; N3 ĐẠT; N1/N2 hết 3 vòng (câu khuyên tắt tiếng) → chủ dự án chọn |
-| F-5, F-2, F-3, F-1 → C4 → C5 → Shorts → G2 | chưa | | sau C3 |
+| F-5, F-2, F-3, F-1 → C4 → C5 → Shorts → G2 | C4 XONG (khoá nghĩa) | `gates/C4-root.md` | |
+| **C5** (render 1080p + checks đủ bộ) | **TRƯỢT CHẶN** (5 luật trong hình/lời đã khoá) | `out/checks/run-c5/`, `out/explanations.json`, `HUONG-DAN-DANG.md` | 1080p −14,0 LUFS / −1,9 dBTP, A07 19,6 dB, A08 13,5 dB; CHẶN 29/35 (S07, S08, S09, S10, S17 + REG=S10); CHÍNH 5/11 (F07, V03, V08, V09, V11, V12 giải thích); Shorts SH1–SH3, thumbnail 3, gói mô tả — chờ chủ dự án |
 
 ## 2. Phiên sau đọc (sau Mốc V merge)
 `decisions/D-009.md` · đặc tả nhịp Mốc V (README/playbook do Mốc V ghi) · `CHARTER.md` · `playbook/episode.md` · `playbook/prompts/P3.md` · `episodes/ep005/PLAN.md` · `ledger.md` · `gates/G1.md` + trả lời G1 · `story/script.md` · `story/beats.md` · `episode.yaml` · `toolkit/factory/README.md`.
@@ -32,6 +33,7 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 - So headless ↔ `Explore`: cảnh mất chú ý khác nhau → câu hỏi mở cho tổng kết Tập 5.
 
 ## 4. Điểm dừng an toàn + lệnh chạy tiếp
+2026-10-07 (C5): **DỪNG chờ chủ dự án** (CHẶN trong hình khoá nghĩa). Dựng: `bash toolkit/build.sh episodes/ep005/episode.yaml` (res 1080, cache theo cảnh) → `python3 episodes/ep005/c4/build_inputs.py --out` → Shorts `cp work/factory/SH*.mp4 out/shorts/` → `bash episodes/ep005/c5/review_copies.sh` → checks `bash episodes/ep005/c5/checks.sh <thư mục tạm> --baseline episodes/ep005/out/checks/run-c4/report.json` (≈ 75 phút trang). Thumbnail: `NODE_PATH=$(npm root -g) node episodes/ep005/design/g2/thumbs.js`.
 2026-10-07: **DỪNG chờ C3.** Đoạn thế giới: `python3 toolkit/factory/world/build_seg.py episodes/ep005/world/<đoạn> --res 540` (cache theo băm; vendor three.js: `npm ci` trong `toolkit/factory/world/vendor`). Cổng gốc: `python3 episodes/ep005/c3/root_run.py read|grade …`. Sau C3: BACKLOG F-5 → F-2 → F-3 → F-1 (thử 1 lần chuyển) → C4.
 2026-10-06 (sau G1): **DỪNG chờ Mốc V.** Nhánh `ep005`. Lời theo cảnh: `python3 episodes/ep005/story/voice_scenes.py --skip S03,S12` (cache theo băm chữ; chỉ sinh cảnh đổi chữ; báo cáo `review-g1/voice-scenes.json`). Câu 75 % và S18 đã xong; đổi chữ cảnh nào thì `voice_scenes.py --only Sxx` (S18: `s18_seeds.py`, seed 1006), cảnh S01–S04 đổi thì chạy lại `table_read.py`.
 2026-10-06: **DỪNG ở G1.** Tái tạo: `python3 episodes/ep005/data/fetch.py --verify && python3 episodes/ep005/model/model.py && python3 episodes/ep005/model/statements.py --all && python3 episodes/ep005/story/check_script.py`. Đọc thử: `python3 episodes/ep005/story/table_read.py` (take ở `voice-takes/`, không sinh lại khi chữ không đổi; cần `pip install av==14.2.0` cho faster-whisper). Kiểm mù: `python3 episodes/ep005/blind.py read|grade …`.
@@ -48,3 +50,5 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | **Cộng** | **≈ 1,45 tr** | 3,0 | agent 12/40; EL 1.644/6.000; chủ dự án: G1 |
 
 **Sau G1 (2026-10-06):** lời theo cảnh **20/20** trong `voice-takes/` (≈ 7:12 lời); EL cả tập **8.735/6.000 (+46 %)** (S03/S12 sinh lại 938, S18 hai seed 1.266) — D-009: không cắt chất lượng vì trần; nêu tên. Agent 12/40 (không thêm agent sau G1).
+
+**C5 (2026-10-07):** giờ render 1080p: đoạn thế giới một lượt 1,48 h (a 0,22 · b 0,40 · c 0,50 · d 0,36) + d dựng lại 0,36 h (sửa nhật ký chữ lúc tối dần, điểm ảnh không đổi) + Shorts 0,26 h; tổng đồng hồ các lần build 3,8 h; trang kiểm checks 1,3 h. EL 0 ký tự.

@@ -71,7 +71,7 @@ def frame_rules(q, logs, orient, tag, cws=None):
         if orient == 'v' and (L['claims'] or L['hist']):
             need |= {'HISTORY', 'ILLUSTRATIVE'}
         if need - set(L['tags']):
-            miss.append(L.get('t', L['f']))
+            miss.append(L['t'] if 't' in L else L['f'])
     q.item(f'{tag} nhãn ILLUSTRATIVE / history', not miss, len(miss), '0 khung thiếu nhãn', f'{len(logs)} khung log (mỗi 6 khung)')
     for c in cws or []:  # each declared counterweight must actually be on screen ≥ 1 s (log every 6 frames)
         n = sum(('CW:' + c['id']) in L['tags'] for L in logs) * 6

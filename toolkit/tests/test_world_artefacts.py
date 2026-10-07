@@ -115,6 +115,10 @@ class Shorts(unittest.TestCase):
         q = QC.Q(); QC.frame_rules(q, logs, 'v', 'SHx', [{'id': 'x', 'text': 'cw'}])
         R = {i['item']: i['result'] for i in q.items}
         self.assertEqual(R['SHx sàn chữ'], 'ĐẠT'); self.assertEqual(R['SHx vùng an toàn'], 'ĐẠT'); self.assertEqual(R['SHx nhãn ILLUSTRATIVE / history'], 'ĐẠT')
+        off = WS.frame_logs(world, 9.9667, 30)                                       # Short starts off the 0.1 s log grid (Tập 5 SH1: f ≡ 2 mod 3)
+        self.assertEqual(len(off), 15)                                               # one log per 6-frame bucket, none dropped
+        q = QC.Q(); QC.frame_rules(q, off, 'v', 'SHy', [{'id': 'x', 'text': 'cw'}])
+        self.assertEqual({i['item']: i['result'] for i in q.items}['SHy đối trọng "cw"'], 'ĐẠT')
 
     def test_d2_audio(self):
         d = tempfile.mkdtemp()
@@ -162,3 +166,17 @@ class Bundle(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class ShortAnchors(unittest.TestCase):
+    def test_from_and_to_in_different_scenes(self):
+        """build.Build.episode_time: each anchor resolves in the scene that holds its sentence (Tập 5 SH2 @S13.1 → @S14.4$ hit KeyError)."""
+        import build as BLD
+        B = BLD.Build.__new__(BLD.Build)
+        B.script = {}
+        B.tl = {'sentences': [{'id': 'S13.1', 'scene': 'S13'}, {'id': 'S14.4', 'scene': 'S14'}],
+                'scenes': [{'id': 'S13', 'start': 100.0}, {'id': 'S14', 'start': 120.0}]}
+        B.voices = {'S13': {'words': [], 'sentences': [{'id': 'S13.1', 'start': 0.5, 'end': 3.0}]},
+                    'S14': {'words': [], 'sentences': [{'id': 'S14.4', 'start': 15.0, 'end': 17.25}]}}
+        self.assertAlmostEqual(B.episode_time('@S13.1'), 100.5)
+        self.assertAlmostEqual(B.episode_time('@S14.4$'), 137.25)
