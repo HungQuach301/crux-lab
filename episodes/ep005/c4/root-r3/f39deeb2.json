@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation follows one past buyer, \"Owen,\" who bought in January 2004 with a 5.71% mortgage rate. It tracks how fast his loan balance fell to 80% of the home's value. That 80% line is the usual point where a down payment under 20% stops needing extra costs like mortgage insurance. I'm inferring that last part, because the image only labels the line \"80%.\"\n\n**2. What changes across the frames.** The time axis runs from 0 to 10 years. Two white lines and a blue line are drawn in as time passes.\n- The blue line is the home price index, and it climbs quickly at the start.\n- The thin white \"schedule\" line is the planned paydown, and it slopes down slowly.\n- The thick white \"on paper\" line drops fast and crosses 80% at about 13 months. By frame 6 the price index is up 11.2%, and the schedule line doesn't reach 80% until about month 86, or roughly 7 years.\n\n**3. What it means.** Owen started with a small down payment, so his loan was well above 80% of the home's value. Rising prices cut that ratio much faster than his payments alone would have. On paper he reached 80% in about 13 months instead of 86. Most of the speedup came from price growth, not from paying down the loan.\n\n**4. The advice a viewer would take.** The takeaway is limited. Price growth can shorten how long a small down payment costs extra, but that depended on prices rising in Owen's case. The footer says this is \"past buyers, measured,\" \"not a reason to buy, rent or wait,\" and \"history, not a forecast.\" The tag also says \"illustrative,\" and it's US-only. As a renter with about 10% saved, I wouldn't read this as a reason to buy now or to hold off. I'd read it as a reminder to plan for the cost of a small down payment and not count on prices rising to get me out of it quickly.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9785,
+   "out": 979
+  }
+ },
+ "turns": 2
+}

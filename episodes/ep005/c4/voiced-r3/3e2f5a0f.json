@@ -1,0 +1,14 @@
+{
+ "answer": "1. This part shows what a mortgage costs each month and how the loan balance shrinks. It uses a $360,000 loan at September 2026's average rate of 6.86% (Freddie Mac data via FRED). The principal-and-interest payment is $2,362 a month. Taxes, home insurance and PMI (mortgage insurance) are added on top of that. The balance then falls along a schedule that is fixed on day one.\n\n2. Across the frames, the labels build up. First the $360,000 loan appears. Then the rate is added, then the $2,362 payment, then a note that taxes, insurance and PMI come on top. In frames 5 and 6 the view switches to a balance curve over 360 payments. The payment counter goes from 35 to 114, and the curve drops slowly at first and faster later. Every frame carries an \"ILLUSTRATIVE\" tag and the caption \"A measurement, not a next step.\"\n\n3. The $2,362 is only part of what you would pay each month. Your real monthly cost would be higher. Early on, most of each payment goes to interest, so the balance barely falls. Only in the later years does most of the payment reduce the principal. The frames suggest that payoff speeds up as the loan ages. The example is illustrative, so it isn't a quote for any particular buyer.\n\n4. The video gives no direct advice, and its caption says this is a measurement, not a next step. A viewer could still take away three things:\n   - Budget for the full monthly cost, not just principal and interest.\n   - Expect to build equity slowly in the first years.\n   - Treat the rate and payment as a snapshot, since they change with the market and with your own loan terms.\n\n   As a renter with about 10% saved, I would work out my own numbers before deciding anything. That means getting real quotes for taxes, insurance and PMI.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1132,
+   "out": 12
+  },
+  "claude-sonnet-5-5": {
+   "in": 9993,
+   "out": 672
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** This part shows what a mortgage costs each month and how the loan gets paid off. The example is a $360,000 loan at September 2026's average rate of 6.86% (Freddie Mac data via FRED). The principal-and-interest payment is $2,362 a month. Taxes, home insurance and PMI (mortgage insurance) are extra. The balance follows a schedule that is fixed on day one.\n\n2. **What changes.**\n   - Frames 1–3: the $360,000 loan stack appears, then the rate, then the $2,362 payment label.\n   - Frame 4: a \"taxes, home insurance and PMI on top\" note is added to the payment.\n   - Frames 5–6: the view switches to a balance curve over 360 payments. The payment counter moves from 35 to 114, and the stack of the loan shrinks as the counter rises.\n   - The curve starts out flat and then drops more steeply. It is labeled \"slowly at first\" and \"faster later.\"\n\n3. **What it means.**\n   - The $2,362 is only part of the real monthly cost. The full payment is higher once taxes, insurance and PMI are added.\n   - Early payments go mostly to interest, so the balance barely falls. Over time more of each payment goes to principal, and the balance falls faster.\n   - The schedule is set when the loan starts, and the graphic is marked \"illustrative.\"\n\n4. **Advice for a viewer.** The video gives no direct advice. The footer says \"A measurement, not a next step.\" A viewer could still take away three points:\n   - Budget for the full monthly cost, not just principal and interest.\n   - Expect to build equity slowly in the first years.\n   - Treat the numbers as an example, since your own rate, loan size and extra costs will differ.\n\n   As a renter with about 10% saved, I would take this as a reason to get real quotes before deciding. The $2,362 figure is not enough to decide on.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1130,
+   "out": 12
+  },
+  "claude-sonnet-5-5": {
+   "in": 9986,
+   "out": 708
+  }
+ },
+ "turns": 2
+}

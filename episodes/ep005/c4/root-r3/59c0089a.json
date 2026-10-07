@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows what a 30-year mortgage looks like at today's rate. The loan is $360,000 at a 6.86% average rate (September 2026, Freddie Mac via FRED). That gives a principal-and-interest payment of $2,362 a month. It also shows how the loan balance falls over the 360 payments. Every frame is labeled \"illustrative,\" and the caption says \"A measurement, not a next step.\"\n\n2. **What changes across the frames:**\n   - Frame 1 shows a small document or payment icon next to a tall stack that stands for the $360,000 loan.\n   - Frame 2 adds the 6.86% rate.\n   - Frame 3 adds the $2,362 monthly principal-and-interest payment, tied to the payment icon.\n   - Frame 4 adds a note that taxes, homeowners insurance and PMI come on top of that payment.\n   - Frame 5 switches to a loan-balance curve over 0 to 360 payments. The stack shrinks only a little by payment 35.\n   - Frame 6 shows the stack at payment 114, still well above zero. The curve is labeled \"slowly at first\" and \"faster later,\" and it is described as \"set on day one.\"\n\n3. **What it means:** The monthly payment is a fixed number, but the true monthly cost is higher once taxes, insurance and PMI are added. PMI is likely here because a buyer with about 10% down is under 20%. Early in the loan, most of each payment goes to interest. The balance falls slowly for roughly the first third of the loan, and the paydown speeds up in later years. That schedule is locked in from the start.\n\n4. **Advice a viewer might take:**\n   - Don't judge affordability by the $2,362 alone. Budget for the full payment, including taxes, insurance and PMI.\n   - Expect to build equity slowly in the early years. That matters if you might sell or move within a few years.\n   - The video doesn't tell you to buy, wait or refinance. Its caption frames the numbers as information, not a recommendation. A viewer would mainly come away better able to run their own numbers.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9778,
+   "out": 765
+  }
+ },
+ "turns": 2
+}

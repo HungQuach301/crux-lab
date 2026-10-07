@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation follows one past buyer, Victor, who bought in October 2005 with a 6.07% mortgage. It shows how long it took his loan to fall to 80% of the home's value, which is the usual equity milestone. The labels say it is illustrative, uses US data (FHFA and Freddie Mac via FRED), and is history rather than a forecast.\n\n**2. What changes across the frames.** The lines get drawn out over a 10-year axis.\n- **Price index (blue line):** It first rises a little, then falls for years, and then partly recovers. By year 10 it is still 3.3% below Victor's purchase price.\n- **\"On paper\" line (white):** This is his actual position given home prices. It drifts above the 80% line while prices fall, then comes back down and touches 80% at 112 months.\n- **Schedule line (thin gray):** This is what the loan alone would do. It slopes steadily down and would have hit 80% at 90 payments.\n\nThe last frame is just a house with a question mark.\n\n**3. What it means.** Paying down a mortgage on schedule would have given Victor 80% in about 7.5 years. Because home prices fell after he bought, it took about 9 years and 4 months, roughly 22 months longer. Home values can sit below the purchase price for a long time, and that delays the point where you have meaningful equity. I'm inferring that the 80% line is the loan-to-value threshold, since the image doesn't say so outright.\n\n**4. Advice a viewer would take.** The video gives no direct advice. Its caption says this is \"not a reason to buy, rent or wait.\" As a renter with about 10% saved, I'd take away a few cautions:\n- Don't count on prices rising to build my equity.\n- Expect that I may have to stay in the home many years.\n- Keep a cash cushion so I'm not forced to sell during a downturn.\n\nIt doesn't tell me whether to buy now, and it doesn't predict where prices are going.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9775,
+   "out": 1132
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it takes a first-time buyer with a small down payment to get rid of mortgage insurance. The 80% and 75% lines look like loan-to-value targets. The animation uses past US buyers, with home-price data from FHFA and Freddie Mac via FRED. Each buyer is lined up at their purchase date and run under the same rule and the same price index. The paydown \"on paper\" is a fixed schedule set at the start. The real path depends on what home prices did afterward.\n\n2. **What changes over time.**\n   - Frame 1 draws a few lines falling toward the 80% and 75% levels over 10 years, along with a rising and falling green price line.\n   - Frame 2 adds a \"a plan\" marker and names three example buyers: Owen, Grace and Victor. It also shows a faint web of many other past buyers' paths.\n   - Frame 3 labels the schedule as \"fixed at the start.\"\n   - Frame 4 adds the typical result: about 23 months, with roughly 1 in 7 buyers taking over 60 months. It notes that 2 years matched the typical month, \"not the slow ones, not the lender's step.\"\n   - Frame 5 switches to a $400,000 home shown as a green stack, with a small house beside it.\n   - Frame 6 shows two options, \"buy now + mortgage insurance\" and \"keep renting, keep saving,\" with a person standing between a house and an apartment building.\n\n3. **What it means.**\n   - The insurance usually ends sooner than the schedule alone suggests, because price changes and paydown both count. The typical case is about two years.\n   - The range is wide. A meaningful minority wait five years or more, depending on the market they bought into.\n   - The caption \"not a reason to buy, rent or wait\" and the \"illustrative / history, not a forecast\" tags say this is a measurement of past outcomes, not a prediction or a recommendation.\n\n4. **What a viewer would take from it.**\n   - It gives no push toward buying or renting. The closing frame lays out both paths as legitimate.\n   - It does give a way to think about the cost. If you buy with about 10% down, plan for mortgage insurance and don't assume it will vanish on a fixed date. It may be gone in about two years, and it could take five or more.\n   - For someone like me, renting with roughly 10% saved, the practical step is to run my own numbers for both paths. That means the insurance cost, how long I'd stay, and what I'd gain by renting and saving longer.\n   - Because this is US history and not a forecast, I wouldn't treat the 23-month figure as a promise.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1058,
+   "out": 12
+  },
+  "claude-sonnet-5-5": {
+   "in": 9785,
+   "out": 1122
+  }
+ },
+ "turns": 2
+}

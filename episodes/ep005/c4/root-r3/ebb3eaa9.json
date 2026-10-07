@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows what a typical mortgage costs and how the loan gets paid down. It uses a $360,000 loan at the September 2026 average rate of 6.86% (Freddie Mac, via FRED). It's labeled \"illustrative,\" so it's an example and not a quote for anyone in particular.\n\n2. **What changes across the frames:**\n   - Frames 1–2 show a $360,000 loan, drawn as a tall stack, next to a small payment block. Frame 2 adds the 6.86% rate.\n   - Frame 3 labels the monthly payment as $2,362 of principal plus interest.\n   - Frame 4 adds a note that taxes, homeowners insurance, and PMI come on top of that payment.\n   - Frames 5–6 switch to a curve of the loan balance over 360 payments, which is 30 years. The curve starts with the balance high and drops slowly, then falls faster later. The payment counter moves from 35 to 114 while the balance stays high.\n   - The caption \"A measurement, not a next step\" stays the same in every frame.\n\n3. **What it means:**\n   - The $2,362 is only the principal-and-interest part of the monthly cost. The real monthly bill is higher once taxes, insurance, and PMI are added.\n   - Early payments go mostly to interest, so the balance barely falls at first. Even after 114 payments, which is more than 9 years, a large share of the loan is still owed. Most of the principal gets paid off in the later years.\n   - The schedule is fixed on day one. The pace of paydown is built into the loan and doesn't change.\n\n4. **Advice a viewer might take away:**\n   - The video doesn't tell anyone to buy or wait. The caption says it is a measurement and not a recommendation.\n   - If you're a renter with about 10% saved, the practical takeaway is to budget for the full monthly cost, not just the $2,362 headline payment. That means adding taxes, insurance, and PMI, which a down payment under 20% usually triggers.\n   - Don't expect to build equity quickly. If you might move within a few years, you would own very little of the home.\n   - Compare your own numbers against this example, since your rate, price, and local taxes will differ.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1058,
+   "out": 12
+  },
+  "claude-sonnet-5-5": {
+   "in": 9787,
+   "out": 810
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it has taken past US home buyers with a small down payment to pay their mortgage down, or let their home's value rise, until they owe 80% or 75% of the home's value. Around 80% is when mortgage insurance can typically come off. The lines are based on FHFA and Freddie Mac data from FRED, with every buyer starting under the same rule and the same price index. It ends by setting \"buy now and pay mortgage insurance\" against \"keep renting and keep saving.\"\n\n2. **What changes.**\n   - Frame 1 shows the lines for the percent of the home's value still owed, running over 10 years. The loan balance falls on a fixed schedule, and the home's price moves along a historical path.\n   - Frames 2 and 3 add a faint cloud of many past buyers and label three example buyers: Owen, Grace and Victor. Owen and Grace reach the threshold quickly. Victor's line rises first and only gets to 80% and 75% after about 9 or 10 years. Frame 3 also notes that the schedule is fixed at the start.\n   - Frame 4 adds the numbers. On paper, the typical buyer reaches the threshold in about 23 months, but about 1 in 7 take more than 60 months. About 2 years matches the typical case, not the slow ones.\n   - Frame 5 switches to an illustrative $400,000 home shown as a stack of layers, with a small house beside it.\n   - Frame 6 shows a house labeled \"buy now + mortgage insurance,\" a person, and an apartment building labeled \"keep renting, keep saving.\"\n\n3. **What it means.** For buyers with a small down payment, the mortgage insurance period is usually short, around 2 years, but it varies a lot. If home prices fall or stay flat, it can last 5 years or more, and for some it takes nearly a decade. The \"past buyers\" cloud shows the typical outcome and the range around it. The small print says this is history, not a forecast, and it applies to the US only.\n\n4. **Advice a viewer would take.** The video gives no direct advice. The captions say \"not a reason to buy, rent or wait\" and \"a measurement, not a next step.\" A viewer could take away the following:\n   - Expect mortgage insurance to last about 2 years, but plan for the chance it lasts much longer.\n   - Buying with a small down payment and renting while you save are both reasonable paths.\n   - Decide based on your own budget, how long you plan to stay, and how much risk you can handle, not on this chart alone.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9779,
+   "out": 1312
+  }
+ },
+ "turns": 2
+}

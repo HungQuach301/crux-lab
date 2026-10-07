@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how much equity past US home buyers had two years after they bought. Each bar is one purchase month, from January 1991 to July 2024, which makes 403 months. Bar height is loan divided by value on paper at the two-year mark. A shorter bar means a smaller loan relative to the home's value. Two lines mark 80% and 75%. The data comes from FHFA, Freddie Mac via FRED, and a Fannie Mae guideline (B-8.1-04).\n\n2. **What changes across the frames.**\n   - Frame 1 shows only the gray bars and the two threshold lines.\n   - Frame 2 adds a header and the statistic that 58.6% of purchase months ended up at or under 80%.\n   - Frames 3 to 6 highlight in blue the months that ended up at or under 75%, and the share is 15.6%. There are two blue clusters, one around 2002 to 2004 and one around 2021 to 2023.\n   - Frames 4 to 6 add the label \"Fannie Mae's early bar\" and keep both statistics on screen.\n\n3. **What it means.** For most of the period, buyers had a loan above 75% of the home's value two years in. Fewer than one in six purchase months got under 75%, and a bit more than half got under 80%. The bars rise sharply for purchases around the mid-2000s, so those buyers ended up with the least equity. Buyers in the blue stretches, when prices rose quickly, got under 75% fastest. The 80% and 75% lines matter because lenders and Fannie Mae use cutoffs like these. I can't tell exactly what \"early bar\" refers to from the image alone.\n\n4. **The advice.** The footer says this is \"not a reason to buy, rent or wait.\" It also says the data is US only and is \"history, not a forecast.\" A viewer shouldn't treat it as a signal to act. They could take away that building equity quickly depends heavily on when you buy and on price trends, which nobody controls. They could also take away that a small down payment, like my roughly 10%, usually means a loan above 80% of the home's value for a while. So I shouldn't count on reaching 80% or 75% quickly.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9779,
+   "out": 1067
+  }
+ },
+ "turns": 2
+}
