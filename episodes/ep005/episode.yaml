@@ -10,3 +10,12 @@ music: {style: C}      # G-016
 # NHÀ MÁY CHƯA ĐỌC KHOÁ NÀY (build.py dùng một seed cho cả tập) → việc của Mốc V/nhà máy; không có thì nhà máy lấy lại take seed 1005.
 voice_overrides:
   S18: {seed: 1006}   # take voice-takes/5b3b914301ef48ab.mp3
+# F-3 (D-010 §5): nhạc bằng mã theo bản đồ căng cả tập — episodes/ep005/world/music/{tension,bed}.py; nghe thử + số đo: review-c4/music-audition.m4a,
+# review-c4/music-report.json (audition.py). Mức dưới lời 20 dB (A07) + né 1–4 kHz 13 dB: toolkit/factory/music.py. Nhạc về 0 quanh MR1
+# (midrolls[0].t nếu có, không thì giữa khoảng nghỉ sau S09.4). Đổi timeline (đuôi cảnh, MR1) → xoá bed.wav để nhà máy sinh lại.
+# Đoạn thế giới dùng đúng lát nhạc này: spine music_plan = {bed: {wav: episodes/ep005/work/factory/music/bed.wav, offset: <giờ đầu đoạn>}}.
+audio:
+  lufs: -14
+  true_peak: -1.5
+  music: work/factory/music/bed.wav
+  music_cmd: "python3 episodes/ep005/world/music/bed.py {total} {out} --timeline episodes/ep005/out/factory/timeline.json"

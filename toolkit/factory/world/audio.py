@@ -146,13 +146,34 @@ def tension_at(spine, t):
     return float(np.interp(t, [k[0] for k in kf], [k[1] for k in kf]))
 
 
+def bed_slice(T, bed):
+    """music_plan.bed = {'wav': <nhạc nền của tập, đường dẫn tuyệt đối hoặc từ gốc repo>, 'offset': <giờ đầu đoạn trong tập, s>, 'fade': s}.
+    Trả đúng lát [offset, offset + T] của nhạc nền (đệm 0 nếu thiếu), vào/ra cos `fade` (mặc định 0,05 s) — để nhạc của đoạn thế giới
+    liền với nhạc cả tập (mức căng, khoá, lưới phách, khoảng lặng mid-roll) thay vì một bản sinh riêng theo căng của riêng đoạn."""
+    p = bed['wav'] if os.path.isabs(bed['wav']) else os.path.join(ROOT, bed['wav'])
+    if not os.path.exists(p):
+        raise SystemExit(f'music_plan.bed: không có {p} — sinh nhạc nền của tập trước (audio.music_cmd)')
+    N = int(T * SR); i0 = int(round(float(bed.get('offset', 0.0)) * SR))
+    if i0 < 0:
+        raise SystemExit('music_plan.bed: offset < 0')
+    x = load(p, 2)[i0:i0 + N]
+    x = np.pad(x, ((0, N - len(x)), (0, 0)))
+    f = min(int(float(bed.get('fade', 0.05)) * SR), N // 2)
+    if f > 0:
+        r = 0.5 - 0.5 * np.cos(np.pi * np.arange(f) / f)
+        x[:f] *= r[:, None]; x[N - f:] *= r[::-1, None]
+    return x, {'bed': os.path.relpath(p, ROOT), 'offset': round(i0 / SR, 4), 'stop': T, 'release': T}
+
+
 def music_code(spine):
     """Tầng theo mức căng: pad luôn có; bass ≥ 0,35; pluck ≥ 0,45 (dày hơn ≥ 0,7); kick ≥ 0,55 (4 phách ≥ 0,75); shaker ≥ 0,6.
     Nhịp 114 BPM; đỉnh căng (b10 'past the cap') → cắt mọi tầng sau 'cap' với đuôi reverb (khoảng lặng ngắn, G-003),
     rồi b11 thả: F trưởng, pad + pluck thưa (sáng, G-016). Điểm nhấn felt rơi đúng sự kiện (vạch trần khoá, cắt vạch, qua trần)."""
+    mp = spine.get('music_plan')
+    if mp and mp.get('bed'):                        # F-3: đoạn dùng đúng lát nhạc nền CỦA TẬP (bản đồ căng cả tập), không tự sinh
+        return bed_slice(spine['total'], mp['bed'])
     T = spine['total']; N = int(T * SR) + SR; dry = np.zeros((N, 2))
     cue = {b['id']: b['cues'] for b in spine['beats']}
-    mp = spine.get('music_plan')
     if mp:                                          # spine v3: nhạc đọc kế hoạch từ đặc tả nhịp
         stop, rel0, ACC = mp['stop'], mp['release'] - 1.0, mp['accents']; TAU = mp.get('tau', 0.25)
     else:

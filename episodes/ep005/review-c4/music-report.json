@@ -1,0 +1,184 @@
+{
+ "a07_gap_db": 20.01,
+ "mid_duck_db_setting": 13.0,
+ "bpm": [
+  114.0,
+  114.065
+ ],
+ "mr1": 182.085,
+ "landing_removed_S20_2": 449.9,
+ "key_change_F_major": 313.67,
+ "mid_duck_db_measured": {
+  "voice_active_median": 9.2,
+  "voice_active_p90": 10.4,
+  "note": "mức dải 1–4 kHz của stem nhạc so với nhạc thô (trừ hệ số chung), cửa sổ 100 ms có lời; thấp hơn 13 dB vì cổng (40 ms vào / 350 ms nhả) nhả giữa các từ"
+ },
+ "sections": {
+  "cold open S01–S03": {
+   "t": [
+    0.0,
+    54.0
+   ],
+   "lufs_s_median": -38.5,
+   "lufs_s_p10_p90": [
+    -39.2,
+    -36.6
+   ],
+   "voice_over_music_db_A07": 21.9
+  },
+  "Hồi 1 calm S04–S06": {
+   "t": [
+    58.1,
+    117.3
+   ],
+   "lufs_s_median": -41.2,
+   "lufs_s_p10_p90": [
+    -41.9,
+    -40.8
+   ],
+   "voice_over_music_db_A07": 25.0
+  },
+  "Hồi 1 dates S07–S09": {
+   "t": [
+    118.3,
+    181.6
+   ],
+   "lufs_s_median": -38.5,
+   "lufs_s_p10_p90": [
+    -39.5,
+    -37.4
+   ],
+   "voice_over_music_db_A07": 21.9
+  },
+  "replay setup S10–S11": {
+   "t": [
+    182.6,
+    240.3
+   ],
+   "lufs_s_median": -35.4,
+   "lufs_s_p10_p90": [
+    -38.5,
+    -33.7
+   ],
+   "voice_over_music_db_A07": 18.5
+  },
+  "replay peak S13–S14": {
+   "t": [
+    277.7,
+    313.6
+   ],
+   "lufs_s_median": -32.2,
+   "lufs_s_p10_p90": [
+    -33.8,
+    -31.3
+   ],
+   "voice_over_music_db_A07": 15.0
+  },
+  "Hồi 3 S15–S18": {
+   "t": [
+    314.7,
+    427.7
+   ],
+   "lufs_s_median": -37.8,
+   "lufs_s_p10_p90": [
+    -39.8,
+    -34.5
+   ],
+   "voice_over_music_db_A07": 20.5
+  },
+  "outro S20 → removed": {
+   "t": [
+    436.9,
+    449.9
+   ],
+   "lufs_s_median": -38.5,
+   "lufs_s_p10_p90": [
+    -39.2,
+    -36.7
+   ],
+   "voice_over_music_db_A07": 21.9
+  },
+  "after removed": {
+   "t": [
+    449.9,
+    455.6
+   ],
+   "lufs_s_median": -40.3,
+   "lufs_s_p10_p90": [
+    -43.7,
+    -36.4
+   ],
+   "voice_over_music_db_A07": 16.6
+  }
+ },
+ "lufs_s_range_calm_to_peak_LU": 9.0,
+ "lufs_s_music_stem_p5_p95": [
+  -41.5,
+  -32.5
+ ],
+ "mr1_music_silence_s": 1.35,
+ "mr1_mix_silence_s": 1.18,
+ "selfsim": {
+  "label": "ep005-F3",
+  "phrases": 54,
+  "pairs": 53,
+  "meanSimilarity": 0.7867,
+  "medianSimilarity": 0.786,
+  "shareAtLeast0.90": 0.0189,
+  "shareAtLeast0.95": 0.0,
+  "longestRunOfRepeats(>=0.90)": 1,
+  "longestRunStarts": 369.95,
+  "mostRepetitive30s": [
+   [
+    285.78,
+    0.8416
+   ],
+   [
+    361.53,
+    0.8313
+   ],
+   [
+    210.04,
+    0.8214
+   ]
+  ]
+ },
+ "audition": {
+  "file": "episodes/ep005/review-c4/music-audition.m4a",
+  "seconds": 84.87,
+  "parts": [
+   {
+    "label": "calm · Hồi 1",
+    "from": 74.11,
+    "to": 84.07,
+    "at_in_audition": 0.0
+   },
+   {
+    "label": "MR1 → phát lại vào",
+    "from": 176.84,
+    "to": 196.31,
+    "at_in_audition": 9.71
+   },
+   {
+    "label": "phát lại dâng",
+    "from": 203.78,
+    "to": 223.07,
+    "at_in_audition": 28.93
+   },
+   {
+    "label": "đỉnh · đuôi chậm",
+    "from": 280.65,
+    "to": 298.71,
+    "at_in_audition": 47.97
+   },
+   {
+    "label": "chốt \"removed\"",
+    "from": 436.47,
+    "to": 455.56,
+    "at_in_audition": 65.78
+   }
+  ],
+  "note": "lời = take đã có (0 ký tự EL); nhạc + mức/né = đúng hàm nhà máy; nối 5 đoạn, chéo 0,25 s; loudnorm −14 LUFS"
+ },
+ "elevenlabs_chars": 0
+}
