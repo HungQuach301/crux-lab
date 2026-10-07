@@ -1,0 +1,20 @@
+[
+ {
+  "file": "12697e2f",
+  "sample": "B17-S17",
+  "role": "T",
+  "score": 0.5,
+  "advice": true,
+  "caution_only": false,
+  "why": "Gets the core contrast: 'on paper' lasted 112 months, longer than the schedule line's crossing at payment 90, and prices fell. But it says the index 'dips and recovers' rather than falling for years, and it never states the schedule crossing at 90. It also adds buy/wait-style advice ('only buy if I could stay put a long time')."
+ },
+ {
+  "file": "40c6044c",
+  "sample": "B03-S03",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Correctly says reaching 80% on paper doesn't automatically remove the insurance. It misses the second, lower 75% line, which it reads as the marker 'moving or doubling', and it misses the three steps (request, appraisal, wait). The 'ask the lender' point is general caution only."
+ }
+]

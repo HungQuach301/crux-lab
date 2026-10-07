@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation looks at how long a first-time buyer with a small down payment (about 80% loan-to-value or higher) typically takes to get their loan balance down to roughly 80% of the home's value. That is usually the point where mortgage insurance can come off. It uses past US buyers' histories (FHFA and Freddie Mac data via FRED), all lined up at their purchase date. The labels say it is illustrative, history and not a forecast.\n\n**2. What changes across the frames.**\n- Frame 1 shows a few lines starting near 80% and moving toward 75% over 10 years. The straight, steady lines are the fixed payoff schedule. The wavy white line is what happened \"on paper\" once home prices moved.\n- Frames 2 and 3 add many more past buyers as a dense bundle of wavy lines. The labeled examples (Owen, Grace, Victor) fall at different speeds. Frame 3 stresses that the schedule is fixed at the start.\n- Frame 4 zooms in on year 2 with a marker. The typical buyer got there in about 23 months, and about 1 in 7 took more than 60 months. The note says about 2 years matched the typical month, not the slow cases and not the lender's scheduled step.\n- Frame 5 switches to a $400,000 home with a stack of green blocks. It is labeled \"a measurement, not a next step.\"\n- Frame 6 shows two paths for the buyer: \"buy now + mortgage insurance\" (a house) and \"keep renting, keep saving\" (an apartment building), with a person between them.\n\n**3. What it means.** Mortgage insurance on a small down payment doesn't last as long as it would if only the lender's schedule counted. Rising home prices can get a buyer to the cutoff sooner, often in about 2 years. That isn't guaranteed. Some buyers wait 5 years or more, especially if prices stall or fall. The spread between buyers is wide, and the typical case isn't the only one.\n\n**4. Advice a viewer would take.** The video avoids telling anyone what to do. Its caption says this is \"not a reason to buy, rent or wait.\" A viewer would come away with these points:\n- Mortgage insurance with a small down payment may be temporary, and about 2 years is typical.\n- It could take much longer, so plan for the slow case and not only the typical one.\n- Buying now with insurance and renting while saving more are both presented as legitimate choices.\n- The decision should rest on personal finances, such as budget, how long they'd stay, and how much cushion they'd have. A past average shouldn't drive it.\n\nI can't confirm details beyond what is printed in the frames, such as exactly how \"on paper\" is calculated.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9785,
+   "out": 1337
+  }
+ },
+ "turns": 2
+}

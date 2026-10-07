@@ -1,0 +1,218 @@
+[
+ {
+  "file": "040dd0e2",
+  "sample": "B14-S14",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Gets Oct 2005, 112 months vs a 90-payment schedule, but misreads the measure as payoff/break-even and spends frames 4-6 on a houses scene."
+ },
+ {
+  "file": "1015c37a",
+  "sample": "N1-S06",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Payment $2,362, loan stack on payments, balance falls slowly then faster; the own-numbers and PMI remarks are general caution."
+ },
+ {
+  "file": "114089ce",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Bars over 60 months are few and clustered in one stretch of purchase months; cushion and stay-long remarks are caution."
+ },
+ {
+  "file": "1393ee6c",
+  "sample": "B14-S14",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Finds the Oct 2005, 112-month bar but misreads the measure and says the 90-payment schedule comparison is unclear."
+ },
+ {
+  "file": "3091a970",
+  "sample": "B12-S12",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "About 58.6% of months are under 80% at two years and only a thin slice (15.6%) under 75%; takeaways are caution only."
+ },
+ {
+  "file": "39cd49d4",
+  "sample": "B11-S11",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Median is 23 months, bars sit below the schedule line (90.6%), with a gap; takeaways are caution."
+ },
+ {
+  "file": "40b1f757",
+  "sample": "B03-S03",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Sees the 80% line and 'insurance still on' but says insurance drops at 80%, and misses the 75% line and the three steps."
+ },
+ {
+  "file": "42e06fe3",
+  "sample": "B07-S07",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Marker at payment 99 'may request' on the falling balance line; track-and-ask remarks are ask-the-lender caution, not buy/wait/choose."
+ },
+ {
+  "file": "4d779496",
+  "sample": "B03-S03",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Gets that 80% on paper does not end insurance and the loan owner's rule decides; misses the 75% line and steps; asks the lender only."
+ },
+ {
+  "file": "5167228b",
+  "sample": "B02-S02",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Starts at 90% and reaches 80% after about 8 years on the schedule; the rest is caution."
+ },
+ {
+  "file": "55f6fc2f",
+  "sample": "B16-S16",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Owen: on-paper line crosses 80% at about 13 months, schedule line at 86 months, index up; check-with-lender caution only."
+ },
+ {
+  "file": "6f14cda7",
+  "sample": "B17-S17",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Victor: on-paper line rises then falls past 80% late (112 months), index dips; misses the schedule crossing at 90 but the gist holds; caution only."
+ },
+ {
+  "file": "7930810a",
+  "sample": "B08-S08",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Second marker at 78% 'ends automatically' after the 80% 'may request' marker; says 'not a reason to rule out buying', which is buy advice."
+ },
+ {
+  "file": "acdf485c",
+  "sample": "B07-S07",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Marker at payment 99 where the balance reaches 80%, 'may request', plus conditions; action remarks are about the lender, not buy/wait/choose."
+ },
+ {
+  "file": "b5a83961",
+  "sample": "B16-S16",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Owen: on paper 13 months vs schedule 86 months, index +11.2%; caution only."
+ },
+ {
+  "file": "b7a6c6cc",
+  "sample": "N1-S06",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Same as R2: $2,362 payment and the balance falling slowly then faster; budget and own-numbers caution."
+ },
+ {
+  "file": "c6f4c67a",
+  "sample": "B02-S02",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Starts at 90%, reaches 80% after about 8 years on the schedule; caution only."
+ },
+ {
+  "file": "cace38ab",
+  "sample": "B11-S11",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Median 23 months, bars mostly below the schedule line; caution only."
+ },
+ {
+  "file": "cfc36939",
+  "sample": "B12-S12",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "58.6% under 80% and 15.6% under 75% at two years; caution only."
+ },
+ {
+  "file": "d70851f8",
+  "sample": "B18-S18",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Gets the fixed schedule and the fan of on-paper lines, but misses the 'your plan' card sliding between them and describes unrelated frames."
+ },
+ {
+  "file": "daccdbc7",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Over-60-month bars are few and in one stretch of purchase months; cushion and stay-long caution."
+ },
+ {
+  "file": "dcc6f776",
+  "sample": "B08-S08",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Markers at 80% (payment 99, may request) and 78% (ends automatically); adds 'don't treat it as a reason never to buy', which is buy advice."
+ },
+ {
+  "file": "dd9471e6",
+  "sample": "B18-S18",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Same as R20: schedule fixed versus wavy on-paper fan, but no 'your plan' card; treats both choices neutrally."
+ },
+ {
+  "file": "dee2ef09",
+  "sample": "B17-S17",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Victor's on-paper line stays above 80% for years and crosses at 112 months; ends with 'buy only if I can hold a decade', which is conditional buy advice."
+ }
+]

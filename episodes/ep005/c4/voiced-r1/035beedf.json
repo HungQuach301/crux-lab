@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The segment shows what a mortgage costs each month at a given rate. It uses a $360,000 loan at September 2026's average rate of 6.86% (Freddie Mac, via FRED). The principal-and-interest payment is $2,362 a month. The frames also show that this figure isn't the full housing cost, and that the loan balance falls on a schedule fixed on day one.\n\n2. **What changes across the frames.**\n   - Frames 1–2: the $360,000 loan appears, then the 6.86% rate label.\n   - Frame 3: the $2,362/month principal-and-interest payment is added.\n   - Frame 4: a note says taxes, home insurance and PMI come on top of that payment.\n   - Frames 5–6: a curve plots the loan balance against payment number (0 to 360). A counter moves from payment 35 to payment 114. The curve starts out flat (\"slowly at first\") and steepens toward the end (\"faster later\").\n\n3. **What it means.** At this rate, the base payment on a $360,000 loan is about $2,362 a month. The real monthly cost is higher once property taxes, homeowners insurance and mortgage insurance are added. PMI applies because the buyer put down less than 20%. Early payments are mostly interest, so the balance barely drops. Over time more of each payment goes to principal, and the balance falls faster. The schedule is fixed when the loan starts.\n\n4. **What a viewer would take from it.** The video doesn't tell viewers to do anything. The \"A measurement, not a next step\" caption and the \"Illustrative\" tag say the same. The practical takeaways are:\n   - Budget for more than the $2,362 quoted.\n   - Expect to build equity slowly in the first years.\n   - Treat the numbers as an example, since actual payments depend on the viewer's own loan size, rate and costs.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1128,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9981,
+   "out": 688
+  }
+ },
+ "turns": 2
+}

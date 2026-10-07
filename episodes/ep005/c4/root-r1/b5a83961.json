@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation follows one past buyer, \"Owen,\" who bought in January 2004 with a 5.71% mortgage rate. It compares two ways he could have reached the 80% mark, which I read as 80% loan-to-value, or 20% equity. The \"schedule\" line is the slow path from paying down the loan on its normal amortization schedule. The \"on paper\" line is the faster path when rising home prices (the blue price index) are counted. The image doesn't define the 80% line, so that reading is my inference. The chart is labeled \"Illustrative,\" with data from FHFA and Freddie Mac via FRED.\n\n**2. What changes across the frames.** The time axis runs from 0 to 10 years, and the lines are drawn out gradually from left to right.\n- The blue price index climbs, ending at +11.2%.\n- The \"on paper\" line drops quickly and crosses the 80% line at about 13 months.\n- The \"schedule\" line slopes down very gently and doesn't reach 80% until about month 86, roughly 7 years.\n- The text labels fill in over the frames: \"on paper: 13 months · schedule: 86,\" then \"index +11.2%.\"\n\n**3. What it means.** For this buyer, rising prices got them to 80% about 6 years sooner than loan paydown alone would have. Home price movement can matter more than the monthly payments in the early years. That only works if prices rise. The footer says this is \"Past buyers, measured,\" \"history, not a forecast,\" and \"US only.\"\n\n**4. Advice a viewer would take.** The video explicitly says this is not a reason to buy, rent, or wait. A viewer with about 10% down could take away three things:\n- Early equity depends heavily on what home prices do, not just on payments.\n- The 80% threshold is worth tracking.\n- One buyer's good timing isn't something to count on, because prices can also fall and delay or reverse the progress.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9778,
+   "out": 1171
+  }
+ },
+ "turns": 2
+}

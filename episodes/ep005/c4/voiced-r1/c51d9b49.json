@@ -1,0 +1,14 @@
+{
+ "answer": "1. This part shows what a mortgage payment looks like at a given rate. The example is a $360,000 loan at September 2026's average rate of 6.86% (Freddie Mac, via FRED). The principal-and-interest payment is $2,362 a month. Other costs come on top of that, and the loan balance falls on a fixed schedule.\n\n2. Frames 1 and 2 show the $360,000 loan as a tall stack beside a small payment block, and the 6.86% rate label appears. In frame 3 the $2,362/month label attaches to the payment block. In frame 4 an orange note adds \"taxes, home insurance and PMI on top.\" Frames 5 and 6 switch to a balance curve over 360 payments. The payment counter runs from 35 to 114, and the loan stack shrinks as the curve falls. The curve is labeled \"slowly at first\" on the early, flatter part and \"faster later\" on the steeper part.\n\n3. The $2,362 is only part of the real monthly cost, because taxes, insurance and PMI (private mortgage insurance) are extra. Early payments are mostly interest, so the balance barely drops at first. Over time more of each payment goes to principal, so the balance falls faster. The curve is \"set on day one,\" meaning the schedule is fixed by the loan terms. The \"ILLUSTRATIVE\" tag and the \"A measurement, not a next step\" caption mean this is an example and not a recommendation.\n\n4. The video gives no direct instruction. A viewer in my position, renting with about 10% saved, could take away a few things:\n   - Budget for more than the $2,362 principal-and-interest figure. With roughly 10% down, PMI is likely.\n   - Don't expect to build equity quickly in the first years.\n   - Treat the numbers as an example, and check them against your own loan quote.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1130,
+   "out": 14
+  },
+  "claude-sonnet-5-5": {
+   "in": 9979,
+   "out": 677
+  }
+ },
+ "turns": 2
+}

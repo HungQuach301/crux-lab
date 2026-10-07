@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how a $360,000 mortgage works at the September 2026 average rate of 6.86% (Freddie Mac, via FRED). The monthly principal-and-interest payment is $2,362. That payment doesn't include taxes, home insurance and PMI. The loan balance then follows a schedule that is fixed on day one. A badge marks the whole thing as \"illustrative.\"\n\n2. **What changes across the frames.**\n   - Frame 1 shows only a small building and a tall tower labeled \"$360,000 loan.\"\n   - Frame 2 adds the 6.86% rate.\n   - Frame 3 adds the $2,362/month principal-and-interest figure, with a line pointing to the small building.\n   - Frame 4 adds a warning that taxes, home insurance and PMI come on top of that payment.\n   - Frames 5 and 6 switch to a curve of the loan balance over 360 payments. In frame 5 the tower is still near its starting height at payment 35. By payment 114 in frame 6, the curve has only started to fall, and the labels say \"slowly at first\" and \"faster later.\"\n\n3. **What it means.** A big loan at today's rate gives a payment of over $2,300 a month before any extras, so the real monthly cost is higher. Early on, most of each payment goes to interest. The balance barely shrinks in the first several years, and the pace picks up only in the later years of the 30-year term. The schedule is set when you sign. The footer, \"A measurement, not a next step,\" says the video is showing a calculation and isn't telling you to buy.\n\n4. **What a viewer would take away.**\n   - Budget for the full monthly cost: principal and interest plus taxes, insurance and PMI. Don't budget for just the $2,362.\n   - Don't expect to build equity quickly. Early payments mostly cover interest, so you'd be building equity slowly for years. That matters if you might move within 5 to 10 years.\n   - The rate drives the payment. Today's 6.86% is a snapshot, and it affects what you can afford.\n   - The video gives no explicit instruction. The advice is to understand the real cost and the slow payoff before deciding.\n\nFor me in particular, with about 10% saved, a down payment that small probably means PMI. That puts my real monthly cost above $2,362, so I'd want to run the full numbers before treating this as affordable.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9782,
+   "out": 856
+  }
+ },
+ "turns": 2
+}
