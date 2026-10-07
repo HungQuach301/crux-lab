@@ -67,7 +67,7 @@ S04.5 So when does it end? <!-- claims: —; hold: 0.8 -->
 
 ## S05 — One illustrative loan
 
-S05.1 Here's an illustrative example: a $400,000 home, a little under the national median price of new homes sold from April through June. <!-- claims: ex_price, mspus_latest -->
+S05.1 Here's an illustrative example, in dollars of the day: a $400,000 home, a little under the national median price of new homes sold from April through June. <!-- claims: ex_price, mspus_latest -->
 S05.2 With 10 percent down, that leaves a $360,000 loan. <!-- claims: ex_loan, ex_extra_down_for_20; hold: 1 -->
 
 ## S06 — The rate and the payment
