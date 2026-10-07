@@ -6,6 +6,7 @@
 - Cache key = SHA-256 of (spoken text, voice id, model, seed, voice settings): the same key never calls the API twice.
 - Takes (mp3 + json with key and text) live in a committed folder (build.py: <episode>/voice-takes/), so the cache survives a new
   container; the wav is derived from the mp3 and goes to wav_dir (work, not committed).
+- voice_overrides (Mốc V B+1): per-scene seed/settings/voice/model, or a chosen take by its file name; see scene_cfg().
 - Key: injected by the environment proxy (xi-api-key); never read, sent or printed here.
 """
 import base64
@@ -36,6 +37,21 @@ def words_of(text, chars, starts, ends):
     return out
 
 
+OVERRIDE_KEYS = {'seed', 'settings', 'voice', 'model', 'take'}
+
+
+def scene_cfg(base, overrides, scene_id):
+    """voice_overrides (episode.yaml): {S18: {seed: 1006}} or {S18: {take: 5b3b914301ef48ab}}.
+    No override for the scene → returns `base` itself (the same object), so an episode without voice_overrides builds exactly as before."""
+    o = (overrides or {}).get(scene_id)
+    if not o:
+        return base
+    bad = set(o) - OVERRIDE_KEYS
+    if bad:
+        raise SystemExit(f'voice_overrides.{scene_id}: unknown keys {sorted(bad)} (allowed: {sorted(OVERRIDE_KEYS)})')
+    return {**base, **o}
+
+
 def voice_scene(cfg, sentences, cache_dir, wav_dir=None):
     spoken = to_spoken([s['text'] for s in sentences])
     text = ' '.join(spoken)
@@ -44,8 +60,17 @@ def voice_scene(cfg, sentences, cache_dir, wav_dir=None):
     wav_dir = wav_dir or cache_dir
     for d in (cache_dir, wav_dir):
         os.makedirs(d, exist_ok=True)
-    mp3, meta_p = (os.path.join(cache_dir, key[:16] + x) for x in ('.mp3', '.json'))
-    wav = os.path.join(wav_dir, key[:16] + '.wav')
+    if cfg.get('take'):  # a chosen take (voice_overrides): use that file, never call the API; its text must be this scene's text
+        tp = os.path.join(cache_dir, cfg['take'] + '.json')
+        if not os.path.exists(tp):
+            raise SystemExit(f"voice take {cfg['take']} not found in {cache_dir}")
+        tm = json.load(open(tp))
+        if tm['text'] != text:
+            raise SystemExit(f"voice take {cfg['take']}: its text differs from the scene text (re-voice or fix the script)")
+        key = tm['key']
+    name = cfg['take'] if cfg.get('take') else key[:16]
+    mp3, meta_p = (os.path.join(cache_dir, name + x) for x in ('.mp3', '.json'))
+    wav = os.path.join(wav_dir, name + '.wav')
     cached = os.path.exists(meta_p) and os.path.exists(mp3)
     if not cached:
         import requests

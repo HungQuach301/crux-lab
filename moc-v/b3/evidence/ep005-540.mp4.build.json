@@ -1,0 +1,62 @@
+{
+ "segment": "moc-v/seg/ep005",
+ "res": 540,
+ "out": "moc-v/work/world/ep005-540.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.0,
+   "ok": true,
+   "problems": []
+  },
+  "spine": {
+   "seconds": 0.7,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 77.5,
+   "ok": true,
+   "shots": 5,
+   "rendered": [
+    "s0",
+    "s1",
+    "s3",
+    "s4",
+    "s2"
+   ],
+   "cached": 0,
+   "wall_s": 76.9,
+   "film_s": 34,
+   "wall_per_film_s_rendered": 6.06,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 9.1,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 1.4,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 0.9,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+   },
+   "modes": {
+    "world_share": 0.412,
+    "chart_share": 0.588,
+    "first_5s_world": true
+   }
+  }
+ },
+ "total_seconds": 89.7
+}

@@ -1,6 +1,6 @@
-# Sổ tay chạy một tập (playbook v3, Mốc B, 05/10/2026)
+# Sổ tay chạy một tập (playbook v4, Mốc V, 06/10/2026)
 
-Áp từ Tập 4 (`decisions/D-006.md`). Khung: `playbook/quality-framework.md`. Biên kịch: `playbook/story.md`. Prompt mẫu: `playbook/prompts/`. Một tập chạy bằng một dòng: **"Chạy Tập N, phiên P1"** (hoặc "…, đề tài #k, phiên P1"), rồi "… P3" (và "… P2" chỉ khi G1 ghi "cần C3").
+Áp từ Tập 4 (`decisions/D-006.md`); v4 áp D-009 (chất lượng là ưu tiên tuyệt đối) và D-010 (thế giới 3D, 8 quy tắc hình–âm) từ Tập 5. Khung: `playbook/quality-framework.md`. Biên kịch: `playbook/story.md`. Prompt mẫu: `playbook/prompts/`. Một tập chạy bằng một dòng: **"Chạy Tập N, phiên P1"** (hoặc "…, đề tài #k, phiên P1"), rồi "… P3" (và "… P2" chỉ khi G1 ghi "cần C3").
 
 ## 0. Mở phiên
 `bash toolkit/verify.sh <nhánh-lệnh-ghi>`: kiểm công cụ, nhánh đúng lệnh (không tự đặt nhánh), `main` mới nhất. Trượt thì báo, không làm tiếp.
@@ -10,30 +10,34 @@
 | Phiên | Việc | Kết thúc ở | Chủ dự án |
 |---|---|---|---|
 | **P1** | Việc 0 (dữ liệu, mô hình, kiểm độc lập) → C1 máy (≤ 3 đề tài + logline, kiểm mù kể lại) → C2 (kịch bản, móc, kiểm máy + kiểm mù lời) → giao phiên K → **G1** | G1 trả lời | **G1** (1 lần) |
-| **P2** *(chỉ khi G1 ghi "cần C3")* | C3 ký hiệu mới (≤ 2 ký hiệu/tập; cổng gốc) | C3 trả lời | C3 (ngoại lệ) |
+| **P2** *(khi tập có hình mới: ký hiệu, vật thể 3D, hero object, mẫu chuyển cảnh)* | C3 hình mới (không trần số; cổng gốc; **clip có chuyển động và âm**) | C3 trả lời | C3 |
 | **P3** | C4 animatic (TỰ ĐỘNG) → C5 render + L1 (TỰ ĐỘNG) → **G2** → giao hàng → **G3** | Chủ dự án đăng; merge `main` | **G2**, **G3** |
 
 - **G1 sau C2** (D-006 Q2), một gói ≤ 3 câu:
   1. đề tài + logline;
   2. kịch bản: cấu trúc, cold open và móc đã chọn **dạng chữ**, kèm 2 phương án móc còn lại, mỗi phương án một dòng;
-  3. tiêu đề nháp + có cần C3 không.
+  3. tiêu đề nháp + danh sách hình mới (→ C3).
 - **Duyệt theo lô:** một G1 được duyệt 3–4 đề tài + logline cho cả mùa (`topics/season.md`). Tập sau lấy đề tài kế tiếp trong danh sách; G1 của tập đó chỉ còn câu 2–3.
 - **Chưa có danh sách mùa:** P1 viết C2 cho đề tài được khuyến nghị; G1 hiện hai ứng viên kia, mỗi ứng viên một dòng. Đánh đổi: chủ dự án đổi đề tài → C2 viết lại (≈ 1 lượt WRITER + 6 người đọc). Máy không tự chọn đề tài (D-004).
-- **Giọng, nhạc, hướng hình** dùng mặc định đã chốt (Eric `eleven_v3`, style C G-016, thư viện hình). Muốn đổi thì chủ dự án nêu ở G1.
-- **Nguyên tắc tốc độ:** chỉ mở vòng sửa khi lỗi CHẶN, hoặc sai nghĩa / claim / pháp lý. Lỗi CHÍNH không đổi nghĩa → **hàng chờ** trong gói G2. **Ngoại lệ phải hỏi:**
-  - vượt trần token > 25 % (§8);
+- **Giọng, nhạc, hướng hình** dùng mặc định đã chốt (Eric `eleven_v3`; nhạc bằng mã theo bản đồ căng, biên độ rộng; hướng hình "một thế giới, hai chế độ máy quay" D-010 + thư viện hình). Muốn đổi thì chủ dự án nêu ở G1.
+- **Chất lượng trước (D-009):** lỗi CHÍNH **sửa trước phát hành** (ngoại lệ: sửa làm hỏng yếu tố chất lượng khác → gói nêu, kèm số đo/bản trước-sau, chủ dự án chọn). Cổng gốc trượt nghĩa → **sửa bằng hình trước**, nhãn là cách cuối. Token chỉ cảnh báo (§8). **Ngoại lệ phải hỏi:**
   - đổi kịch bản đã duyệt;
   - số không xác minh được nguồn;
   - rủi ro pháp lý/bản quyền;
-  - cần ký hiệu mới.
+  - chi tiêu mới (CHARTER §6).
 - Mỗi tập một nhánh `epNNN` từ `main`. Chỉ P3 merge (fetch trước; trong file dùng chung chỉ sửa phần của tập).
 - **Bàn giao qua `episodes/epNNN/PLAN.md`**, đủ năm mục:
   1. bảng cổng;
   2. "Phiên sau đọc" (≤ ~8 file);
   3. việc treo;
   4. điểm dừng an toàn + lệnh chạy tiếp;
-  5. KPI + token so trần.
+  5. KPI + token thực (trần = cảnh báo) + giờ render.
   Phiên sau chỉ đọc hiến chương, `quality-framework.md`, file này, PLAN, ledger và các file được nêu tên.
+- **Tối đa 3 vòng mỗi lỗi (lessons V1):** một lỗi ở một cảnh sửa tối đa **3 vòng**; hết 3 vòng → gói nêu **bản trước/sau** kèm số đo để chủ dự án chọn (D-009 E3). **Khoá nghĩa (V2):** bản mới có điểm cổng gốc thấp hơn bản tốt nhất trước đó, hoặc có câu khuyên, thì tự loại — sửa tiếp từ bản tốt nhất.
+- **Lượt đạo diễn (bắt buộc, chẩn đoán — D-009 E5, D-010 §6):** trước render bản cuối, mỗi đoạn có hình mới qua một lượt đạo diễn trên bản 540p (`quality-framework.md` §10): 4 trục + lời phê theo mốc giây. Lời phê là việc nên xem, không phải ngưỡng; **chỉ sửa nhận xét lặp ở ≥ 2 lượt độc lập** (lessons V3); không mở vòng sửa thẩm mỹ chỉ vì điểm máy. Thước đo cuối là phiếu L3 ở G2 (≥ 4 mọi dòng).
+- **Đoạn thế giới 3D:** khai `world:` trong `episode.yaml`; dựng và kiểm bằng `toolkit/factory/world/build_seg.py`. **Chưa ghép vào master** (BACKLOG F-5): master của tập vẫn dùng cảnh 2D cho các cảnh đó cho tới khi F-5 xong; `spec.py` cảnh báo. Đoạn dựng (lint → spine → render theo cảnh có cache → âm → verify quy tắc 1/2/3/7); đồng bộ ±0,2 s bằng `sync_audit.py`; C14 trên bản 1080p.
+- **Số nói (B+2):** ≤ 2 số **mới** được nói mỗi cảnh (`toolkit/factory/numbers_said.py`, BLOCK trong `spec.py`); số thứ ba trở đi lên nhãn trên hình (người biên tập chọn), phạm vi không đổi.
+- **Giọng theo cảnh (B+1):** `voice_overrides: {Sxx: {seed | settings | voice | model | take}}` trong `episode.yaml` khi một cảnh cần take khác (vd Tập 5 S18 seed 1006).
 - Trước mỗi gói cổng và mỗi issue TỰ ĐỘNG: **REVIEWER** soát (`quality-framework.md` §7).
 
 ## 2. Model, effort, số agent
@@ -116,7 +120,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 | KPI | Tập 2 | Tập 3 | Đích Tập 4 |
 |---|---|---|---|
 | Chủ dự án tham gia | 11 cổng + giao hàng | 3 cổng + xác nhận tải | **2 cổng (G1, G2) + G3 đăng**; +1 nếu cần C3 |
-| Vòng mỗi cổng | C2 3 · C3 ~6 · C4 3 | C2 1 · C3 2 · C4 1 · C5 2 | TỰ ĐỘNG ≤ 2; sửa chỉ khi CHẶN/sai nghĩa |
+| Vòng mỗi cổng | C2 3 · C3 ~6 · C4 3 | C2 1 · C3 2 · C4 1 · C5 2 | TỰ ĐỘNG ≤ 2; từ Tập 5 lỗi CHÍNH cũng sửa (D-009) |
 | Số agent | ≈ 300 | 141 | **≤ 60** |
 | Ký tự ElevenLabs | 9.436 | 5.551 | ≤ 6.000 (gồm Shorts: dùng lại lời tập) |
 | Thời gian P1 → G2 | 3 ngày | ~1,5 ngày | ≤ 1 ngày làm máy |
@@ -124,7 +128,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 
 **Thực Tập 4:** ≈ 6,3 triệu, 102 agent, EL 11.702, chủ dự án 5 lượt (+G3); kiểm mù 49 % (lessons H1).
 
-**Trần Tập 5 = 3,0 triệu token, phân bổ theo loại việc** (`tongket-t4/REPORT.md` §7):
+**Mức cảnh báo Tập 5 = 3,0 triệu token, phân bổ theo loại việc** (`tongket-t4/REPORT.md` §7). Từ D-009 (c) đây là **mức cảnh báo, không phải trần**: vượt thì báo số thực trong gói; **không cắt bước chất lượng** (kiểm mù đủ người đọc, lượt đạo diễn, REVIEWER) vì token:
 
 | Loại việc | Trần | Ghi chú |
 |---|---|---|
@@ -136,9 +140,9 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 | Điều phối | 0,5 triệu | ≤ 2 phiên |
 | Dự phòng | 0,15 triệu | |
 
-≤ 40 agent con. EL ≤ 6.000 ký tự. Ledger ghi cột **loại việc** cho mỗi dòng. Một loại việc vượt trần của nó > 25 % → dừng hỏi.
+≤ 40 agent con. EL ≤ 6.000 ký tự (gần với chi tiêu: vượt → hỏi chủ dự án). Hai trần này **không đổi** — D-009 (c) chỉ đổi trần token thành mức cảnh báo. Ledger ghi cột **loại việc** cho mỗi dòng.
 
-Mỗi phiên ghi token thực (số harness của agent con + ngữ cảnh phiên) vào PLAN mục 5. Vượt > 25 % → dừng hỏi.
+Mỗi phiên ghi token thực (số harness của agent con + ngữ cảnh phiên) và **giờ render thực** (`build-report.json`, `<đoạn>.build.json`) vào PLAN mục 5 và gói; vượt mức cảnh báo thì nêu trong gói, không dừng việc chất lượng.
 
 ## 9. Định dạng tập (`episode.yaml` → `format`)
 | `format` | Thời lượng | Cấu trúc | Mid-roll |
@@ -161,4 +165,6 @@ Mỗi phiên ghi token thực (số harness của agent con + ngữ cảnh phiê
 | Chia mẫu, gói chấm, gộp điểm, dừng sớm | `python3 toolkit/blind/packets.py deal / packet / tally / next` (như v2) |
 | Giao hàng | `python3 toolkit/deliver/deliver.py …` (§6) |
 | Test công cụ | `python3 -m unittest discover -s toolkit/tests` |
-| Dựng một lệnh | `bash toolkit/build.sh episodes/epNNN/episode.yaml` — **chưa có**, phiên nhà máy (`moc-b/PLAN-FACTORY.md`) |
+| Dựng một lệnh | `bash toolkit/build.sh episodes/epNNN/episode.yaml` (`toolkit/factory/README.md`) |
+| Đoạn thế giới 3D | `python3 toolkit/factory/world/build_seg.py <thư mục đoạn> --res 540\|1080` |
+| Số nói mỗi cảnh | `python3 toolkit/factory/numbers_said.py episodes/epNNN/story/script.md` |

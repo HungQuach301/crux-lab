@@ -94,6 +94,8 @@ Trượt → WRITER mới, đầu bài ngắn, sửa trước G1 (≤ 2 vòng); 
 
 ## 7. Trần Tập 5: ≤ 3 triệu token cả tập
 
+> **D-009 (c), 06/10:** con số dưới đây là **mức cảnh báo**, không phải trần; vượt thì báo số thực trong gói, không dừng và không cắt bước chất lượng.
+
 | Loại việc | Trần | Cách |
 |---|---|---|
 | Kiểm mù | 0,6 triệu | headless; C1 3×2 + C2 ≤ 2×7 + cổng gốc ≤ 2 vòng × ≤ 20 lượt; không tóm tắt AI, không thumbnail, không hiệu chuẩn |

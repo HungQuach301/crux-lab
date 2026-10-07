@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Hướng B — vật thể thật 3D</title>
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(/toolkit/render/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(/toolkit/render/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(/toolkit/render/fonts/inter-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0E1116}
+canvas{display:block}
+</style>
+<script type="importmap">{"imports":{"three":"/moc-v/proto/vendor/node_modules/three/build/three.module.js","three/addons/":"/moc-v/proto/vendor/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import { boot } from './b.js';
+const house = new URLSearchParams(location.search).get('house') || 'code';
+window.APP = await boot(house);
+window.READY = true;
+</script>
+</body></html>

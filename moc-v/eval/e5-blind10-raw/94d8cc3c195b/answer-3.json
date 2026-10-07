@@ -1,0 +1,10 @@
+{
+ "answer": "1. **The idea:** Loan-to-value (LTV) depends on how the home's value moves, and low-down-payment buyers can get a very different LTV than the one they started with. The sequence uses a stack of \"home value\" next to a \"loan\" stack. It shows an 87% LTV falling to 80% \"on paper\" as the national price index rises. It ties this to mortgage insurance, which is \"still on\" even once the paper LTV hits 80%. The footer says this is illustrative, based on past buyers (FHFA and Freddie Mac data), and is not a forecast.\n\n2. **What changes:**\n   - Frames 1–3: The loan stack is 87% of the home value at first. The home-value stack grows, which puts the loan at 80% on paper. Frame 3 labels the home value as measured \"by a national price index.\"\n   - Frame 4: The view switches to a house, a person with cash, an apartment building, and a wavy price-history chart with a blue line.\n   - Frames 5–6: A loan block now sits beside the house. The caption \"insurance still on\" appears. So the paper 80% didn't remove the insurance, probably because the lender goes by its own value check or by the original price rather than by an index.\n\n3. **For someone like me (32, renter, 10% saved):** Putting 10% down means an LTV around 90% and probably private mortgage insurance (PMI). Home prices rising in an index doesn't automatically make the insurance go away. I'd likely have to ask the lender, and maybe pay for an appraisal, to show I'm at 80%. Until then I keep paying for it. The paper equity is real in the index, but it isn't automatically real to my lender.\n\n4. **Advice a viewer might take:** The video explicitly says it is not a reason to buy, rent or wait, so it isn't telling anyone what to do. Reasonable takeaways:\n   - Ask a lender how and when PMI can be removed, and what it requires. That may be a set LTV on the original value, a minimum time, or a new appraisal.\n   - Don't count on index-based price gains to cut my costs.\n   - Treat national past-buyer data as history, not a prediction for my local market.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "in": 9909,
+   "out": 829
+  }
+ },
+ "turns": 2
+}

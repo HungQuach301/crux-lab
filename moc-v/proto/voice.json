@@ -1,0 +1,1236 @@
+[
+ {
+  "wav": "/tmp/claude-0/-home-user-crux-lab/5c10649a-e778-5ed3-96c3-8e6c801ad82f/scratchpad/wav/622f722ee526dd57.wav",
+  "mp3": "/home/user/crux-lab/moc-v/proto/voice-takes/622f722ee526dd57.mp3",
+  "key": "622f722ee526dd576576a6a19fe304d6f9d785d693f79415fde7789050ba29d0",
+  "duration": 2.96,
+  "sentences": [
+   {
+    "id": "S04.5",
+    "spoken": "[thoughtful] Is it? Has their gain passed the cap?",
+    "start": 0.0,
+    "end": 2.96
+   }
+  ],
+  "words": [
+   {
+    "w": "[thoughtful]",
+    "s": 0.0,
+    "e": 0.16,
+    "sid": "S04.5"
+   },
+   {
+    "w": "Is",
+    "s": 0.24,
+    "e": 0.4,
+    "sid": "S04.5"
+   },
+   {
+    "w": "it?",
+    "s": 0.453,
+    "e": 0.72,
+    "sid": "S04.5"
+   },
+   {
+    "w": "Has",
+    "s": 0.92,
+    "e": 1.52,
+    "sid": "S04.5"
+   },
+   {
+    "w": "their",
+    "s": 1.547,
+    "e": 1.68,
+    "sid": "S04.5"
+   },
+   {
+    "w": "gain",
+    "s": 1.744,
+    "e": 2.0,
+    "sid": "S04.5"
+   },
+   {
+    "w": "passed",
+    "s": 2.046,
+    "e": 2.32,
+    "sid": "S04.5"
+   },
+   {
+    "w": "the",
+    "s": 2.36,
+    "e": 2.48,
+    "sid": "S04.5"
+   },
+   {
+    "w": "cap?",
+    "s": 2.58,
+    "e": 2.96,
+    "sid": "S04.5"
+   }
+  ],
+  "cached": false,
+  "chars": 50,
+  "take": {
+   "provider": "elevenlabs",
+   "voiceId": "cjVigY5qzO86Huf0OWal",
+   "model": "eleven_v3",
+   "seed": 1004,
+   "raw": "moc-v/proto/voice-takes/622f722ee526dd57.mp3"
+  }
+ },
+ {
+  "wav": "/tmp/claude-0/-home-user-crux-lab/5c10649a-e778-5ed3-96c3-8e6c801ad82f/scratchpad/wav/a68186068b2fcc0f.wav",
+  "mp3": "/home/user/crux-lab/moc-v/proto/voice-takes/a68186068b2fcc0f.mp3",
+  "key": "a68186068b2fcc0fe9e9828e1bf738009915dbf65109a152265a84c95fcb2181",
+  "duration": 17.44,
+  "sentences": [
+   {
+    "id": "S05.1",
+    "spoken": "We can't see their house, so we let its value rise exactly like the Phoenix area home price index from the Federal Housing Finance Agency, an average of many sales.",
+    "start": 0.0,
+    "end": 10.64
+   },
+   {
+    "id": "S05.2",
+    "spoken": "We follow it quarter by quarter, from two thousand to the second quarter of twenty twenty-six, the latest data.",
+    "start": 10.827,
+    "end": 17.44
+   }
+  ],
+  "words": [
+   {
+    "w": "We",
+    "s": 0.0,
+    "e": 0.08,
+    "sid": "S05.1"
+   },
+   {
+    "w": "can't",
+    "s": 0.12,
+    "e": 0.32,
+    "sid": "S05.1"
+   },
+   {
+    "w": "see",
+    "s": 0.36,
+    "e": 0.48,
+    "sid": "S05.1"
+   },
+   {
+    "w": "their",
+    "s": 0.507,
+    "e": 0.64,
+    "sid": "S05.1"
+   },
+   {
+    "w": "house,",
+    "s": 0.707,
+    "e": 1.12,
+    "sid": "S05.1"
+   },
+   {
+    "w": "so",
+    "s": 1.227,
+    "e": 1.44,
+    "sid": "S05.1"
+   },
+   {
+    "w": "we",
+    "s": 1.573,
+    "e": 1.84,
+    "sid": "S05.1"
+   },
+   {
+    "w": "let",
+    "s": 1.86,
+    "e": 1.92,
+    "sid": "S05.1"
+   },
+   {
+    "w": "its",
+    "s": 1.96,
+    "e": 2.08,
+    "sid": "S05.1"
+   },
+   {
+    "w": "value",
+    "s": 2.133,
+    "e": 2.4,
+    "sid": "S05.1"
+   },
+   {
+    "w": "rise",
+    "s": 2.576,
+    "e": 3.28,
+    "sid": "S05.1"
+   },
+   {
+    "w": "exactly",
+    "s": 3.38,
+    "e": 4.08,
+    "sid": "S05.1"
+   },
+   {
+    "w": "like",
+    "s": 4.112,
+    "e": 4.24,
+    "sid": "S05.1"
+   },
+   {
+    "w": "the",
+    "s": 4.26,
+    "e": 4.32,
+    "sid": "S05.1"
+   },
+   {
+    "w": "Phoenix",
+    "s": 4.38,
+    "e": 4.8,
+    "sid": "S05.1"
+   },
+   {
+    "w": "area",
+    "s": 4.864,
+    "e": 5.12,
+    "sid": "S05.1"
+   },
+   {
+    "w": "home",
+    "s": 5.168,
+    "e": 5.36,
+    "sid": "S05.1"
+   },
+   {
+    "w": "price",
+    "s": 5.427,
+    "e": 5.76,
+    "sid": "S05.1"
+   },
+   {
+    "w": "index",
+    "s": 5.827,
+    "e": 6.16,
+    "sid": "S05.1"
+   },
+   {
+    "w": "from",
+    "s": 6.224,
+    "e": 6.48,
+    "sid": "S05.1"
+   },
+   {
+    "w": "the",
+    "s": 6.5,
+    "e": 6.56,
+    "sid": "S05.1"
+   },
+   {
+    "w": "Federal",
+    "s": 6.61,
+    "e": 6.96,
+    "sid": "S05.1"
+   },
+   {
+    "w": "Housing",
+    "s": 7.01,
+    "e": 7.36,
+    "sid": "S05.1"
+   },
+   {
+    "w": "Finance",
+    "s": 7.43,
+    "e": 7.92,
+    "sid": "S05.1"
+   },
+   {
+    "w": "Agency,",
+    "s": 7.989,
+    "e": 8.72,
+    "sid": "S05.1"
+   },
+   {
+    "w": "an",
+    "s": 8.773,
+    "e": 8.88,
+    "sid": "S05.1"
+   },
+   {
+    "w": "average",
+    "s": 8.93,
+    "e": 9.28,
+    "sid": "S05.1"
+   },
+   {
+    "w": "of",
+    "s": 9.333,
+    "e": 9.44,
+    "sid": "S05.1"
+   },
+   {
+    "w": "many",
+    "s": 9.504,
+    "e": 9.76,
+    "sid": "S05.1"
+   },
+   {
+    "w": "sales.",
+    "s": 9.853,
+    "e": 10.64,
+    "sid": "S05.1"
+   },
+   {
+    "w": "We",
+    "s": 10.827,
+    "e": 11.2,
+    "sid": "S05.2"
+   },
+   {
+    "w": "follow",
+    "s": 11.246,
+    "e": 11.52,
+    "sid": "S05.2"
+   },
+   {
+    "w": "it",
+    "s": 11.547,
+    "e": 11.6,
+    "sid": "S05.2"
+   },
+   {
+    "w": "quarter",
+    "s": 11.64,
+    "e": 11.92,
+    "sid": "S05.2"
+   },
+   {
+    "w": "by",
+    "s": 11.973,
+    "e": 12.08,
+    "sid": "S05.2"
+   },
+   {
+    "w": "quarter,",
+    "s": 12.14,
+    "e": 12.8,
+    "sid": "S05.2"
+   },
+   {
+    "w": "from",
+    "s": 12.848,
+    "e": 13.04,
+    "sid": "S05.2"
+   },
+   {
+    "w": "two",
+    "s": 13.1,
+    "e": 13.28,
+    "sid": "S05.2"
+   },
+   {
+    "w": "thousand",
+    "s": 13.333,
+    "e": 13.76,
+    "sid": "S05.2"
+   },
+   {
+    "w": "to",
+    "s": 13.84,
+    "e": 14.0,
+    "sid": "S05.2"
+   },
+   {
+    "w": "the",
+    "s": 14.02,
+    "e": 14.08,
+    "sid": "S05.2"
+   },
+   {
+    "w": "second",
+    "s": 14.137,
+    "e": 14.48,
+    "sid": "S05.2"
+   },
+   {
+    "w": "quarter",
+    "s": 14.53,
+    "e": 14.88,
+    "sid": "S05.2"
+   },
+   {
+    "w": "of",
+    "s": 14.933,
+    "e": 15.04,
+    "sid": "S05.2"
+   },
+   {
+    "w": "twenty",
+    "s": 15.086,
+    "e": 15.36,
+    "sid": "S05.2"
+   },
+   {
+    "w": "twenty-six,",
+    "s": 15.394,
+    "e": 16.48,
+    "sid": "S05.2"
+   },
+   {
+    "w": "the",
+    "s": 16.5,
+    "e": 16.56,
+    "sid": "S05.2"
+   },
+   {
+    "w": "latest",
+    "s": 16.606,
+    "e": 16.88,
+    "sid": "S05.2"
+   },
+   {
+    "w": "data.",
+    "s": 16.944,
+    "e": 17.44,
+    "sid": "S05.2"
+   }
+  ],
+  "cached": false,
+  "chars": 276,
+  "take": {
+   "provider": "elevenlabs",
+   "voiceId": "cjVigY5qzO86Huf0OWal",
+   "model": "eleven_v3",
+   "seed": 1004,
+   "raw": "moc-v/proto/voice-takes/a68186068b2fcc0f.mp3"
+  }
+ },
+ {
+  "wav": "/tmp/claude-0/-home-user-crux-lab/5c10649a-e778-5ed3-96c3-8e6c801ad82f/scratchpad/wav/9d0ff1ea6d2c5e44.wav",
+  "mp3": "/home/user/crux-lab/moc-v/proto/voice-takes/9d0ff1ea6d2c5e44.mp3",
+  "key": "9d0ff1ea6d2c5e44c7f2d5a9e5fe1c3896d0f25852e9404a8de40b76d5b49cfd",
+  "duration": 32.0,
+  "sentences": [
+   {
+    "id": "S06.1",
+    "spoken": "Here's the cap: a flat line at five hundred thousand dollars, the same in every quarter.",
+    "start": 0.0,
+    "end": 5.92
+   },
+   {
+    "id": "S06.2",
+    "spoken": "And here's their gain on paper, for a home that rose like the average: the two hundred thousand dollars, grown with the index, less the two hundred thousand dollars they paid.",
+    "start": 6.08,
+    "end": 17.2
+   },
+   {
+    "id": "S06.3",
+    "spoken": "For most of these years, it sits well under the line.",
+    "start": 17.44,
+    "end": 21.28
+   },
+   {
+    "id": "S06.4",
+    "spoken": "Then, in the second quarter of twenty twenty-two, it crosses.",
+    "start": 21.456,
+    "end": 25.52
+   },
+   {
+    "id": "S06.5",
+    "spoken": "It slips back under for a while.",
+    "start": 25.76,
+    "end": 27.84
+   },
+   {
+    "id": "S06.6",
+    "spoken": "From the second quarter of twenty twenty-three, it has stayed above.",
+    "start": 27.952,
+    "end": 32.0
+   }
+  ],
+  "words": [
+   {
+    "w": "Here's",
+    "s": 0.0,
+    "e": 0.16,
+    "sid": "S06.1"
+   },
+   {
+    "w": "the",
+    "s": 0.18,
+    "e": 0.24,
+    "sid": "S06.1"
+   },
+   {
+    "w": "cap:",
+    "s": 0.36,
+    "e": 1.44,
+    "sid": "S06.1"
+   },
+   {
+    "w": "a",
+    "s": 1.48,
+    "e": 1.52,
+    "sid": "S06.1"
+   },
+   {
+    "w": "flat",
+    "s": 1.584,
+    "e": 1.84,
+    "sid": "S06.1"
+   },
+   {
+    "w": "line",
+    "s": 1.904,
+    "e": 2.16,
+    "sid": "S06.1"
+   },
+   {
+    "w": "at",
+    "s": 2.213,
+    "e": 2.32,
+    "sid": "S06.1"
+   },
+   {
+    "w": "five",
+    "s": 2.368,
+    "e": 2.56,
+    "sid": "S06.1"
+   },
+   {
+    "w": "hundred",
+    "s": 2.59,
+    "e": 2.8,
+    "sid": "S06.1"
+   },
+   {
+    "w": "thousand",
+    "s": 2.853,
+    "e": 3.28,
+    "sid": "S06.1"
+   },
+   {
+    "w": "dollars,",
+    "s": 3.34,
+    "e": 4.0,
+    "sid": "S06.1"
+   },
+   {
+    "w": "the",
+    "s": 4.02,
+    "e": 4.08,
+    "sid": "S06.1"
+   },
+   {
+    "w": "same",
+    "s": 4.176,
+    "e": 4.56,
+    "sid": "S06.1"
+   },
+   {
+    "w": "in",
+    "s": 4.64,
+    "e": 4.8,
+    "sid": "S06.1"
+   },
+   {
+    "w": "every",
+    "s": 4.867,
+    "e": 5.2,
+    "sid": "S06.1"
+   },
+   {
+    "w": "quarter.",
+    "s": 5.26,
+    "e": 5.92,
+    "sid": "S06.1"
+   },
+   {
+    "w": "And",
+    "s": 6.08,
+    "e": 6.56,
+    "sid": "S06.2"
+   },
+   {
+    "w": "here's",
+    "s": 6.592,
+    "e": 6.84,
+    "sid": "S06.2"
+   },
+   {
+    "w": "their",
+    "s": 6.86,
+    "e": 6.96,
+    "sid": "S06.2"
+   },
+   {
+    "w": "gain",
+    "s": 7.008,
+    "e": 7.2,
+    "sid": "S06.2"
+   },
+   {
+    "w": "on",
+    "s": 7.253,
+    "e": 7.36,
+    "sid": "S06.2"
+   },
+   {
+    "w": "paper,",
+    "s": 7.427,
+    "e": 8.24,
+    "sid": "S06.2"
+   },
+   {
+    "w": "for",
+    "s": 8.28,
+    "e": 8.4,
+    "sid": "S06.2"
+   },
+   {
+    "w": "a",
+    "s": 8.44,
+    "e": 8.48,
+    "sid": "S06.2"
+   },
+   {
+    "w": "home",
+    "s": 8.544,
+    "e": 8.8,
+    "sid": "S06.2"
+   },
+   {
+    "w": "that",
+    "s": 8.832,
+    "e": 8.96,
+    "sid": "S06.2"
+   },
+   {
+    "w": "rose",
+    "s": 9.04,
+    "e": 9.36,
+    "sid": "S06.2"
+   },
+   {
+    "w": "like",
+    "s": 9.392,
+    "e": 9.52,
+    "sid": "S06.2"
+   },
+   {
+    "w": "the",
+    "s": 9.54,
+    "e": 9.6,
+    "sid": "S06.2"
+   },
+   {
+    "w": "average:",
+    "s": 9.66,
+    "e": 10.72,
+    "sid": "S06.2"
+   },
+   {
+    "w": "the",
+    "s": 10.76,
+    "e": 10.88,
+    "sid": "S06.2"
+   },
+   {
+    "w": "two",
+    "s": 10.94,
+    "e": 11.12,
+    "sid": "S06.2"
+   },
+   {
+    "w": "hundred",
+    "s": 11.15,
+    "e": 11.36,
+    "sid": "S06.2"
+   },
+   {
+    "w": "thousand",
+    "s": 11.413,
+    "e": 11.84,
+    "sid": "S06.2"
+   },
+   {
+    "w": "dollars,",
+    "s": 11.9,
+    "e": 12.56,
+    "sid": "S06.2"
+   },
+   {
+    "w": "grown",
+    "s": 12.653,
+    "e": 13.12,
+    "sid": "S06.2"
+   },
+   {
+    "w": "with",
+    "s": 13.152,
+    "e": 13.28,
+    "sid": "S06.2"
+   },
+   {
+    "w": "the",
+    "s": 13.3,
+    "e": 13.36,
+    "sid": "S06.2"
+   },
+   {
+    "w": "index,",
+    "s": 13.44,
+    "e": 13.92,
+    "sid": "S06.2"
+   },
+   {
+    "w": "less",
+    "s": 14.064,
+    "e": 14.64,
+    "sid": "S06.2"
+   },
+   {
+    "w": "the",
+    "s": 14.74,
+    "e": 15.04,
+    "sid": "S06.2"
+   },
+   {
+    "w": "two",
+    "s": 15.1,
+    "e": 15.28,
+    "sid": "S06.2"
+   },
+   {
+    "w": "hundred",
+    "s": 15.31,
+    "e": 15.52,
+    "sid": "S06.2"
+   },
+   {
+    "w": "thousand",
+    "s": 15.564,
+    "e": 15.92,
+    "sid": "S06.2"
+   },
+   {
+    "w": "dollars",
+    "s": 15.97,
+    "e": 16.32,
+    "sid": "S06.2"
+   },
+   {
+    "w": "they",
+    "s": 16.352,
+    "e": 16.48,
+    "sid": "S06.2"
+   },
+   {
+    "w": "paid.",
+    "s": 16.576,
+    "e": 17.2,
+    "sid": "S06.2"
+   },
+   {
+    "w": "For",
+    "s": 17.44,
+    "e": 18.16,
+    "sid": "S06.3"
+   },
+   {
+    "w": "most",
+    "s": 18.208,
+    "e": 18.4,
+    "sid": "S06.3"
+   },
+   {
+    "w": "of",
+    "s": 18.427,
+    "e": 18.48,
+    "sid": "S06.3"
+   },
+   {
+    "w": "these",
+    "s": 18.52,
+    "e": 18.72,
+    "sid": "S06.3"
+   },
+   {
+    "w": "years,",
+    "s": 18.787,
+    "e": 19.44,
+    "sid": "S06.3"
+   },
+   {
+    "w": "it",
+    "s": 19.467,
+    "e": 19.52,
+    "sid": "S06.3"
+   },
+   {
+    "w": "sits",
+    "s": 19.584,
+    "e": 19.84,
+    "sid": "S06.3"
+   },
+   {
+    "w": "well",
+    "s": 19.904,
+    "e": 20.16,
+    "sid": "S06.3"
+   },
+   {
+    "w": "under",
+    "s": 20.227,
+    "e": 20.56,
+    "sid": "S06.3"
+   },
+   {
+    "w": "the",
+    "s": 20.58,
+    "e": 20.64,
+    "sid": "S06.3"
+   },
+   {
+    "w": "line.",
+    "s": 20.736,
+    "e": 21.28,
+    "sid": "S06.3"
+   },
+   {
+    "w": "Then,",
+    "s": 21.456,
+    "e": 22.24,
+    "sid": "S06.4"
+   },
+   {
+    "w": "in",
+    "s": 22.267,
+    "e": 22.32,
+    "sid": "S06.4"
+   },
+   {
+    "w": "the",
+    "s": 22.34,
+    "e": 22.4,
+    "sid": "S06.4"
+   },
+   {
+    "w": "second",
+    "s": 22.446,
+    "e": 22.72,
+    "sid": "S06.4"
+   },
+   {
+    "w": "quarter",
+    "s": 22.76,
+    "e": 23.04,
+    "sid": "S06.4"
+   },
+   {
+    "w": "of",
+    "s": 23.093,
+    "e": 23.2,
+    "sid": "S06.4"
+   },
+   {
+    "w": "twenty",
+    "s": 23.234,
+    "e": 23.44,
+    "sid": "S06.4"
+   },
+   {
+    "w": "twenty-two,",
+    "s": 23.486,
+    "e": 24.48,
+    "sid": "S06.4"
+   },
+   {
+    "w": "it",
+    "s": 24.587,
+    "e": 24.8,
+    "sid": "S06.4"
+   },
+   {
+    "w": "crosses.",
+    "s": 24.88,
+    "e": 25.52,
+    "sid": "S06.4"
+   },
+   {
+    "w": "It",
+    "s": 25.76,
+    "e": 26.24,
+    "sid": "S06.5"
+   },
+   {
+    "w": "slips",
+    "s": 26.28,
+    "e": 26.48,
+    "sid": "S06.5"
+   },
+   {
+    "w": "back",
+    "s": 26.528,
+    "e": 26.72,
+    "sid": "S06.5"
+   },
+   {
+    "w": "under",
+    "s": 26.773,
+    "e": 27.04,
+    "sid": "S06.5"
+   },
+   {
+    "w": "for",
+    "s": 27.06,
+    "e": 27.12,
+    "sid": "S06.5"
+   },
+   {
+    "w": "a",
+    "s": 27.16,
+    "e": 27.2,
+    "sid": "S06.5"
+   },
+   {
+    "w": "while.",
+    "s": 27.267,
+    "e": 27.84,
+    "sid": "S06.5"
+   },
+   {
+    "w": "From",
+    "s": 27.952,
+    "e": 28.4,
+    "sid": "S06.6"
+   },
+   {
+    "w": "the",
+    "s": 28.42,
+    "e": 28.48,
+    "sid": "S06.6"
+   },
+   {
+    "w": "second",
+    "s": 28.526,
+    "e": 28.8,
+    "sid": "S06.6"
+   },
+   {
+    "w": "quarter",
+    "s": 28.85,
+    "e": 29.2,
+    "sid": "S06.6"
+   },
+   {
+    "w": "of",
+    "s": 29.227,
+    "e": 29.28,
+    "sid": "S06.6"
+   },
+   {
+    "w": "twenty",
+    "s": 29.314,
+    "e": 29.52,
+    "sid": "S06.6"
+   },
+   {
+    "w": "twenty-three,",
+    "s": 29.566,
+    "e": 30.72,
+    "sid": "S06.6"
+   },
+   {
+    "w": "it",
+    "s": 30.747,
+    "e": 30.8,
+    "sid": "S06.6"
+   },
+   {
+    "w": "has",
+    "s": 30.86,
+    "e": 31.04,
+    "sid": "S06.6"
+   },
+   {
+    "w": "stayed",
+    "s": 31.086,
+    "e": 31.36,
+    "sid": "S06.6"
+   },
+   {
+    "w": "above.",
+    "s": 31.427,
+    "e": 32.0,
+    "sid": "S06.6"
+   }
+  ],
+  "cached": false,
+  "chars": 482,
+  "take": {
+   "provider": "elevenlabs",
+   "voiceId": "cjVigY5qzO86Huf0OWal",
+   "model": "eleven_v3",
+   "seed": 1004,
+   "raw": "moc-v/proto/voice-takes/9d0ff1ea6d2c5e44.mp3"
+  }
+ },
+ {
+  "wav": "/tmp/claude-0/-home-user-crux-lab/5c10649a-e778-5ed3-96c3-8e6c801ad82f/scratchpad/wav/48a7828fbe49402e.wav",
+  "mp3": "/home/user/crux-lab/moc-v/proto/voice-takes/48a7828fbe49402e.mp3",
+  "key": "48a7828fbe49402e5bb590ad85044c8619a50c9fbf1fa24f79cab6a9cd98f27b",
+  "duration": 12.0,
+  "sentences": [
+   {
+    "id": "S07.1",
+    "spoken": "[serious] So, on paper, if their home rose like the Phoenix average, this is the gain from the opening.",
+    "start": 0.0,
+    "end": 4.96
+   },
+   {
+    "id": "S07.2",
+    "spoken": "That's past the cap.",
+    "start": 5.104,
+    "end": 6.56
+   },
+   {
+    "id": "S07.3",
+    "spoken": "Phoenix area prices are now almost three point eight times their two thousand level.",
+    "start": 6.69,
+    "end": 12.0
+   }
+  ],
+  "words": [
+   {
+    "w": "[serious]",
+    "s": 0.0,
+    "e": 0.24,
+    "sid": "S07.1"
+   },
+   {
+    "w": "So,",
+    "s": 0.267,
+    "e": 0.4,
+    "sid": "S07.1"
+   },
+   {
+    "w": "on",
+    "s": 0.453,
+    "e": 0.56,
+    "sid": "S07.1"
+   },
+   {
+    "w": "paper,",
+    "s": 0.64,
+    "e": 1.2,
+    "sid": "S07.1"
+   },
+   {
+    "w": "if",
+    "s": 1.253,
+    "e": 1.36,
+    "sid": "S07.1"
+   },
+   {
+    "w": "their",
+    "s": 1.387,
+    "e": 1.52,
+    "sid": "S07.1"
+   },
+   {
+    "w": "home",
+    "s": 1.568,
+    "e": 1.76,
+    "sid": "S07.1"
+   },
+   {
+    "w": "rose",
+    "s": 1.824,
+    "e": 2.08,
+    "sid": "S07.1"
+   },
+   {
+    "w": "like",
+    "s": 2.096,
+    "e": 2.16,
+    "sid": "S07.1"
+   },
+   {
+    "w": "the",
+    "s": 2.18,
+    "e": 2.24,
+    "sid": "S07.1"
+   },
+   {
+    "w": "Phoenix",
+    "s": 2.29,
+    "e": 2.64,
+    "sid": "S07.1"
+   },
+   {
+    "w": "average,",
+    "s": 2.7,
+    "e": 3.52,
+    "sid": "S07.1"
+   },
+   {
+    "w": "this",
+    "s": 3.552,
+    "e": 3.68,
+    "sid": "S07.1"
+   },
+   {
+    "w": "is",
+    "s": 3.733,
+    "e": 3.84,
+    "sid": "S07.1"
+   },
+   {
+    "w": "the",
+    "s": 3.86,
+    "e": 3.92,
+    "sid": "S07.1"
+   },
+   {
+    "w": "gain",
+    "s": 3.984,
+    "e": 4.24,
+    "sid": "S07.1"
+   },
+   {
+    "w": "from",
+    "s": 4.272,
+    "e": 4.4,
+    "sid": "S07.1"
+   },
+   {
+    "w": "the",
+    "s": 4.42,
+    "e": 4.48,
+    "sid": "S07.1"
+   },
+   {
+    "w": "opening.",
+    "s": 4.53,
+    "e": 4.96,
+    "sid": "S07.1"
+   },
+   {
+    "w": "That's",
+    "s": 5.104,
+    "e": 5.76,
+    "sid": "S07.2"
+   },
+   {
+    "w": "past",
+    "s": 5.808,
+    "e": 6.0,
+    "sid": "S07.2"
+   },
+   {
+    "w": "the",
+    "s": 6.04,
+    "e": 6.16,
+    "sid": "S07.2"
+   },
+   {
+    "w": "cap.",
+    "s": 6.24,
+    "e": 6.56,
+    "sid": "S07.2"
+   },
+   {
+    "w": "Phoenix",
+    "s": 6.69,
+    "e": 7.6,
+    "sid": "S07.3"
+   },
+   {
+    "w": "area",
+    "s": 7.648,
+    "e": 7.84,
+    "sid": "S07.3"
+   },
+   {
+    "w": "prices",
+    "s": 7.897,
+    "e": 8.24,
+    "sid": "S07.3"
+   },
+   {
+    "w": "are",
+    "s": 8.28,
+    "e": 8.4,
+    "sid": "S07.3"
+   },
+   {
+    "w": "now",
+    "s": 8.48,
+    "e": 8.72,
+    "sid": "S07.3"
+   },
+   {
+    "w": "almost",
+    "s": 8.777,
+    "e": 9.12,
+    "sid": "S07.3"
+   },
+   {
+    "w": "three",
+    "s": 9.173,
+    "e": 9.44,
+    "sid": "S07.3"
+   },
+   {
+    "w": "point",
+    "s": 9.507,
+    "e": 9.84,
+    "sid": "S07.3"
+   },
+   {
+    "w": "eight",
+    "s": 9.867,
+    "e": 10.0,
+    "sid": "S07.3"
+   },
+   {
+    "w": "times",
+    "s": 10.107,
+    "e": 10.64,
+    "sid": "S07.3"
+   },
+   {
+    "w": "their",
+    "s": 10.667,
+    "e": 10.8,
+    "sid": "S07.3"
+   },
+   {
+    "w": "two",
+    "s": 10.86,
+    "e": 11.04,
+    "sid": "S07.3"
+   },
+   {
+    "w": "thousand",
+    "s": 11.084,
+    "e": 11.44,
+    "sid": "S07.3"
+   },
+   {
+    "w": "level.",
+    "s": 11.493,
+    "e": 12.0,
+    "sid": "S07.3"
+   }
+  ],
+  "cached": false,
+  "chars": 209,
+  "take": {
+   "provider": "elevenlabs",
+   "voiceId": "cjVigY5qzO86Huf0OWal",
+   "model": "eleven_v3",
+   "seed": 1004,
+   "raw": "moc-v/proto/voice-takes/48a7828fbe49402e.mp3"
+  }
+ }
+]

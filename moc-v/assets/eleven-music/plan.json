@@ -1,0 +1,10 @@
+{"composition_plan": {
+ "positive_global_styles": ["instrumental", "curious bright data-explainer underscore", "114 bpm", "D dorian to F major", "soft plucked synth ostinato", "warm pad", "soft kick", "minimal, leaves room for narration"],
+ "negative_global_styles": ["vocals", "sad", "slow", "aggressive drums", "dense lead melody", "loud cymbals"],
+ "sections": [
+  {"section_name": "question", "positive_local_styles": ["sparse pad", "light suspense"], "negative_local_styles": ["drums"], "duration_ms": 4600, "lines": []},
+  {"section_name": "method", "positive_local_styles": ["gentle pulse", "bass enters", "curious"], "negative_local_styles": ["kick"], "duration_ms": 18400, "lines": []},
+  {"section_name": "build", "positive_local_styles": ["plucked ostinato", "steady kick on 1 and 3", "rising energy"], "negative_local_styles": [], "duration_ms": 21400, "lines": []},
+  {"section_name": "peak", "positive_local_styles": ["full groove", "four on the floor soft kick", "shaker", "tension peak"], "negative_local_styles": [], "duration_ms": 18400, "lines": []},
+  {"section_name": "release", "positive_local_styles": ["drop to pad", "bright F major", "sparse plucks", "resolved"], "negative_local_styles": ["drums"], "duration_ms": 6800, "lines": []}
+ ]}, "model_id": "music_v1"}

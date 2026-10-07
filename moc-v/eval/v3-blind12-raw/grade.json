@@ -1,0 +1,10 @@
+{
+ "answer": "[\n{\"id\":\"b22d07f4\",\"score\":0.5,\"advice\":\"no\",\"why\":\"Gives $558,100 and 3.8x, but never says the gain exceeds the cap.\"},\n{\"id\":\"b010e24d\",\"score\":0.5,\"advice\":\"no\",\"why\":\"Has both figures and 'past the cap', but misreads the cap as a property-tax limit.\"},\n{\"id\":\"e78c3330\",\"score\":1,\"advice\":\"no\",\"why\":\"Paper gain, $500k cap, Q2 2022 cross, dip, above since Q2 2023.\"},\n{\"id\":\"59d9200c\",\"score\":0.5,\"advice\":\"no\",\"why\":\"Both figures present, but the cap is misread and not linked to $500k.\"},\n{\"id\":\"72fc547a\",\"score\":1,\"advice\":\"no\",\"why\":\"All K1 elements present: paper gain, cap, Q2 2022, dip, Q2 2023.\"},\n{\"id\":\"5234b028\",\"score\":1,\"advice\":\"no\",\"why\":\"Paper gain, cap, Q2 2022 cross, dip, above since Q2 2023.\"}\n]",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "in": 6778,
+   "out": 1105
+  }
+ },
+ "turns": 1
+}

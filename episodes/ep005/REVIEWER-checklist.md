@@ -1,6 +1,6 @@
 # REVIEWER — mục bắt buộc riêng của Tập 5
 
-Áp cho **mọi** lượt REVIEWER của Tập 5 (gói C4, G2, Shorts, mô tả, thumbnail), cùng với soát thường lệ (`quality-framework.md` §7). Chủ dự án, 2026-10-06. Luật máy đề xuất: `checks-appeal.md` A13 (lô K sau).
+Áp cho **mọi** lượt REVIEWER của Tập 5 (gói C4, G2, Shorts, mô tả, thumbnail), cùng với soát thường lệ (`quality-framework.md` §7). Chủ dự án, 2026-10-06. Luật máy đề xuất: `checks-appeal.md` A20 (lô K sau).
 
 ## R1 — Không nêu số tiền phí PMI (CHẶN)
 Không câu lời đọc, chữ trên hình, nhãn, thẻ phương pháp, Shorts, thumbnail, tiêu đề hay mô tả nào nêu **số tiền phí bảo hiểm thế chấp (PMI)** — theo tháng, theo năm, tổng, hay % khoản vay — vì không có nguồn (claim `pmi_premium` = không có giá trị; S04.3 "this video puts no dollar figure on it").

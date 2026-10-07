@@ -10,7 +10,7 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | C2 | ĐẠT (vòng 2) | `story/`, `gates/C2-*.md`, `gates/REVIEW-C2.md`, `c2/` | H-A; M1–M5 thật ĐẠT (M4 9,41 s); mù v2 6/6, khuyên 0, S18 3/6 |
 | Phiên K | **XONG** — K3.9 merge `main` a870e80 (LOCK d93276a4, kind `ltv-first-passage`); `main` đã merge vào `ep005` | `contract.json`, `out/checks/run-g1-k39/` | S01 104/0 · S03 · S04 PASS; S05 78/78 (claims thử); F11 FAIL + 85 MISSING chờ dựng |
 | Contract + tên | **XONG** | `contract.json`, `model/rename_check.py`, `out/model.before-rename.json` | khoá `buyer_owen/grace/victor_*`, số trùng 100 %; `pending`: màu/hình/bên nhân vật, `sonification.bandsHz`, `rights.visual` (cần Mốc V) |
-| REVIEWER R1 (không nêu phí PMI) | **0 vi phạm** | `REVIEWER-checklist.md`, `gates/REVIEW-R1.md` | bắt buộc mọi lượt REVIEWER Tập 5; luật máy đề xuất A13 |
+| REVIEWER R1 (không nêu phí PMI) | **0 vi phạm** | `REVIEWER-checklist.md`, `gates/REVIEW-R1.md` | bắt buộc mọi lượt REVIEWER Tập 5; luật máy đề xuất A20 |
 | **G1** | **XONG** (issue #43; `gates/G1-answer.md`) | `gates/G1.md`, `gates/REVIEW-G1.md` | #17 · L2 · H-A · T1 · 75 % (a): nguyên văn B-8.1-04, phạm vi Fannie Mae |
 | Lời theo cảnh | **XONG 20/20** (S18 seed 1006) | `story/voice_scenes.py`, `voice-takes/`, `review-g1/voice-scenes.json` | ASR từ khoá theo cảnh |
 | **Mốc V** | **CHỜ — chủ dự án mở** | — | Tập 5 dừng ở đây |

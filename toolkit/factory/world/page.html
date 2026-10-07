@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Crux · thế giới 3D (một thế giới, hai chế độ máy quay)</title>
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(/toolkit/render/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(/toolkit/render/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(/toolkit/render/fonts/inter-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0e1116} canvas{display:block}
+</style>
+<script type="importmap">{"imports":{"three":"/toolkit/factory/world/vendor/node_modules/three/build/three.module.js","three/addons/":"/toolkit/factory/world/vendor/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+const q = new URLSearchParams(location.search);
+const { boot } = await import(`/${q.get('seg')}/scene.js`)   // seg = thư mục đoạn tính từ gốc repo;
+const S = await boot(+(q.get('res') || 540));
+window.APP = { canvas: S.canvas, frame: (t) => S.frame(t) };
+window.READY = true;
+</script>
+</body></html>
