@@ -1,0 +1,3796 @@
+{
+ "root": "/home/user/crux-lab/episodes/ep005",
+ "contract": "/home/user/crux-lab/episodes/ep005/contract.json",
+ "lock": "d93276a491dd366c08ea0464d8de23bca80d82082a0c7be66ea2d555fd366b4a",
+ "video_sha256": "61289c0c0ed2897154cb084c4bbe8ed7c2349050ec7aa9213ac5e1baa41086a8",
+ "episode": "TRƯỢT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 35,
+   "pass": 19,
+   "notPass": [
+    "F01 FAIL",
+    "F08 FAIL",
+    "F11 FAIL",
+    "F12 MISSING",
+    "S02 MISSING",
+    "S06 MISSING",
+    "S07 MISSING",
+    "S08 MISSING",
+    "S09 MISSING",
+    "S17 MISSING",
+    "SH01 MISSING",
+    "SH02 MISSING",
+    "SH03 MISSING",
+    "SH04 MISSING",
+    "SH05 MISSING",
+    "C07 MISSING"
+   ]
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 11,
+   "pass": 1,
+   "notPass": [
+    "F07 FAIL",
+    "V03 MISSING",
+    "V08 MISSING",
+    "V09 MISSING",
+    "V11 MISSING",
+    "V12 MISSING",
+    "C02 MISSING",
+    "C05 MISSING",
+    "C14 MISSING",
+    "L1 MISSING"
+   ],
+   "explained": {
+    "F07": "Format 101 sets no padding (episode.md §9, 'không độn'): the cut is 462.6 s, under the 480 s soft minimum because the approved script reads that long; spec.py reports it as WARN, not BLOCK.",
+    "V03": "Page rule: the 3D world page (toolkit/factory/world/page.html) has no window.CHECKS, so the page sampler cannot run; world segments are checked instead by verify_seg (rules 1/2/3, hard cuts, F-2; C14 only at 1080p) and sync_audit. C4 animatic, 540p; to be solved with a CHECKS adapter or 1080p C14 at C5.",
+    "V08": "Page rule: the 3D world page (toolkit/factory/world/page.html) has no window.CHECKS, so the page sampler cannot run; world segments are checked instead by verify_seg (rules 1/2/3, hard cuts, F-2; C14 only at 1080p) and sync_audit. C4 animatic, 540p; to be solved with a CHECKS adapter or 1080p C14 at C5.",
+    "V09": "Page rule: the 3D world page (toolkit/factory/world/page.html) has no window.CHECKS, so the page sampler cannot run; world segments are checked instead by verify_seg (rules 1/2/3, hard cuts, F-2; C14 only at 1080p) and sync_audit. C4 animatic, 540p; to be solved with a CHECKS adapter or 1080p C14 at C5.",
+    "V11": "Page rule: the 3D world page (toolkit/factory/world/page.html) has no window.CHECKS, so the page sampler cannot run; world segments are checked instead by verify_seg (rules 1/2/3, hard cuts, F-2; C14 only at 1080p) and sync_audit. C4 animatic, 540p; to be solved with a CHECKS adapter or 1080p C14 at C5.",
+    "V12": "Page rule: the 3D world page (toolkit/factory/world/page.html) has no window.CHECKS, so the page sampler cannot run; world segments are checked instead by verify_seg (rules 1/2/3, hard cuts, F-2; C14 only at 1080p) and sync_audit. C4 animatic, 540p; to be solved with a CHECKS adapter or 1080p C14 at C5.",
+    "C02": "Page rule: the 3D world page (toolkit/factory/world/page.html) has no window.CHECKS, so the page sampler cannot run; world segments are checked instead by verify_seg (rules 1/2/3, hard cuts, F-2; C14 only at 1080p) and sync_audit. C4 animatic, 540p; to be solved with a CHECKS adapter or 1080p C14 at C5.",
+    "C05": "Page rule: the 3D world page (toolkit/factory/world/page.html) has no window.CHECKS, so the page sampler cannot run; world segments are checked instead by verify_seg (rules 1/2/3, hard cuts, F-2; C14 only at 1080p) and sync_audit. C4 animatic, 540p; to be solved with a CHECKS adapter or 1080p C14 at C5.",
+    "C14": "Page rule: the 3D world page (toolkit/factory/world/page.html) has no window.CHECKS, so the page sampler cannot run; world segments are checked instead by verify_seg (rules 1/2/3, hard cuts, F-2; C14 only at 1080p) and sync_audit. C4 animatic, 540p; to be solved with a CHECKS adapter or 1080p C14 at C5.",
+    "L1": "Needs contract.json sonification.bandsHz, still pending (contract.json pending.sonification.bandsHz); the data sounds are on their own stem (sonify) and F-2 measured keyword SNR ≥ 10 dB in every segment."
+   },
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 43,
+   "pass": 7,
+   "notPass": [
+    "A03 FAIL",
+    "A09 FAIL",
+    "A10 MISSING",
+    "A11 FAIL",
+    "A12 FAIL",
+    "A13 FAIL",
+    "A15 FAIL",
+    "A16 FAIL",
+    "A17 FAIL",
+    "S11 MISSING",
+    "S12 MISSING",
+    "S15 FAIL",
+    "S16 FAIL",
+    "R01 MISSING",
+    "R03 FAIL",
+    "R04 FAIL",
+    "R05 FAIL",
+    "R06 FAIL",
+    "V01 FAIL",
+    "V02 MISSING",
+    "V04 MISSING",
+    "V05 MISSING",
+    "V10 FAIL",
+    "C01 MISSING",
+    "C03 MISSING",
+    "C04 MISSING",
+    "C06 MISSING",
+    "C10 MISSING",
+    "C11 FAIL",
+    "C12 MISSING",
+    "C13 MISSING",
+    "C15 MISSING",
+    "P01 MISSING",
+    "T1 MISSING",
+    "T2 FAIL",
+    "T3 MISSING"
+   ]
+  }
+ },
+ "counts": {
+  "PASS": 27,
+  "FAIL": 22,
+  "MISSING": 40,
+  "ERROR": 0
+ },
+ "near": [
+  {
+   "rule": "F07",
+   "tier": "MAJOR",
+   "name": "duration s",
+   "value": 462.633333,
+   "op": "in",
+   "threshold": [
+    480.0,
+    900.0
+   ],
+   "unit": "s",
+   "pass": false,
+   "near": true
+  },
+  {
+   "rule": "A15",
+   "tier": "REFERENCE",
+   "name": "wpm act act2",
+   "value": 167.014258,
+   "op": "in",
+   "threshold": [
+    150.0,
+    160.0
+   ],
+   "unit": "wpm",
+   "pass": false,
+   "near": true
+  },
+  {
+   "rule": "A18",
+   "tier": "MAJOR",
+   "name": "distinct voices (provider, voiceId, model)",
+   "value": 1,
+   "op": "<=",
+   "threshold": 1,
+   "unit": "",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "S04",
+   "tier": "BLOCK",
+   "name": "mortgage30 tolerance",
+   "value": 0.5,
+   "op": "<=",
+   "threshold": 0.5,
+   "unit": "pp",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "S04",
+   "tier": "BLOCK",
+   "name": "hpi_mom tolerance",
+   "value": 0.5,
+   "op": "<=",
+   "threshold": 0.5,
+   "unit": "pp",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "S15",
+   "tier": "REFERENCE",
+   "name": "ident s",
+   "value": 3.0,
+   "op": "<=",
+   "threshold": 3.0,
+   "unit": "s",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "S15",
+   "tier": "REFERENCE",
+   "name": "outro s",
+   "value": 19.9333,
+   "op": ">=",
+   "threshold": 20.0,
+   "unit": "s",
+   "pass": false,
+   "near": true
+  }
+ ],
+ "results": [
+  {
+   "id": "F01",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "codec",
+     "value": "h264",
+     "op": "==",
+     "threshold": "h264",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "profile",
+     "value": "High",
+     "op": "==",
+     "threshold": "High",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "pix_fmt",
+     "value": "yuv420p",
+     "op": "==",
+     "threshold": "yuv420p",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "size",
+     "value": "960x540",
+     "op": "==",
+     "threshold": "1920x1080",
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "square pixels",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-F1, DX-F2",
+   "threshold": "h264 / High / yuv420p / 1920×1080 / 16:9 (square pixels)",
+   "fingerprint": "500605e10d8cd0f3",
+   "tier": "BLOCK",
+   "seconds": 0.1
+  },
+  {
+   "id": "F02",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "r_frame_rate",
+     "value": "30/1",
+     "op": "==",
+     "threshold": "30/1",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "avg_frame_rate",
+     "value": "30/1",
+     "op": "==",
+     "threshold": "30/1",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "PTS steps != 1/30 s",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "stepsSeen": {
+      "512": 13878
+     }
+    }
+   ],
+   "note": null,
+   "section": "DX-F1",
+   "threshold": "both rates exactly 30/1 and every PTS step = 1/30 s (constant frame rate)",
+   "fingerprint": "2e2f77485e6446dd",
+   "tier": "BLOCK",
+   "seconds": 0.6
+  },
+  {
+   "id": "F03",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "dropped frames",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "duplicated frames",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "first PTS",
+     "value": 0,
+     "op": "==",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "|frames - duration*30|",
+     "value": 1e-05,
+     "op": "<=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-F3",
+   "threshold": "dropped = 0, duplicated = 0, first PTS = 0, |frames − duration×30| ≤ 1",
+   "fingerprint": "1716de815932801e",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "F04",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "video Mbps",
+     "value": 16.996818,
+     "op": ">=",
+     "threshold": 16.0,
+     "unit": "Mbps",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-F2",
+   "threshold": "≥ 16 Mbps",
+   "fingerprint": "b84880bd39176eca",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "F05",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "color_primaries",
+     "value": "bt709",
+     "op": "==",
+     "threshold": "bt709",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "color_transfer",
+     "value": "bt709",
+     "op": "==",
+     "threshold": "bt709",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "color_space",
+     "value": "bt709",
+     "op": "==",
+     "threshold": "bt709",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "color_range",
+     "value": "tv",
+     "op": "==",
+     "threshold": "tv",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "Y outside 16-235 (%)",
+     "value": 0.002089,
+     "op": "<=",
+     "threshold": 0.1,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-F2",
+   "threshold": "all tags bt709, range tv (limited); Y outside 16–235 ≤ 0.1% of samples",
+   "fingerprint": "fb5a8e04e2527aaf",
+   "tier": "BLOCK",
+   "seconds": 7.0
+  },
+  {
+   "id": "F06",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "codec",
+     "value": "aac",
+     "op": "==",
+     "threshold": "aac",
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "sample_rate",
+     "value": 48000,
+     "op": "==",
+     "threshold": 48000,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "channels",
+     "value": 2,
+     "op": "==",
+     "threshold": 2,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "audio kbps",
+     "value": 309.758783,
+     "op": ">=",
+     "threshold": 272.0,
+     "unit": "kbps",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-F4",
+   "threshold": "AAC (LC), 48 kHz, 2 channels, measured ≥ 272 kbps (= 85% of the 320 kbps nominal: ffmpeg's native AAC at -b:a 320k measured 276 kbps on test C's master, so the measure allows its ABR undershoot but not a 256k or lower setting)",
+   "fingerprint": "f169c314873ab877",
+   "tier": "BLOCK",
+   "seconds": 0.4
+  },
+  {
+   "id": "F07",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "duration s",
+     "value": 462.633333,
+     "op": "in",
+     "threshold": [
+      480.0,
+      900.0
+     ],
+     "unit": "s",
+     "pass": false,
+     "near": true
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-S1 (CH §1 length)",
+   "threshold": "480 … 900 s (8:00–15:00)",
+   "fingerprint": "4c4bce0acad2fe73",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "F08",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "worst banding (%)",
+     "value": 69.823785,
+     "op": "<=",
+     "threshold": 5.0,
+     "unit": "%",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "framesJudged": 30,
+     "worst": [
+      [
+       78.0,
+       69.82
+      ],
+      [
+       80.0,
+       69.82
+      ],
+      [
+       84.0,
+       69.81
+      ],
+      [
+       70.0,
+       69.56
+      ],
+      [
+       72.0,
+       69.52
+      ]
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-V5",
+   "threshold": "worst frame ≤ 5% (frames with < 1% dark-gradient area are skipped)",
+   "fingerprint": "07ff4ebdb7cec464",
+   "tier": "BLOCK",
+   "seconds": 8.2
+  },
+  {
+   "id": "F09",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "text identical to script",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "lines > 42 chars",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "cues > 2 lines",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "cues outside 1-7 s",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "overlapping cues",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "firstDiff": null,
+     "longLines": [],
+     "badDurations": [],
+     "overlaps": [],
+     "cues": 113
+    }
+   ],
+   "note": null,
+   "section": "DX-F5",
+   "threshold": "text identical (100%); every line ≤ 42 chars; ≤ 2 lines; 1.0 ≤ duration ≤ 7.0 s; 0 overlaps",
+   "fingerprint": "206df129d7ea34ab",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "F10",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "chapters",
+     "value": 6,
+     "op": ">=",
+     "threshold": 3,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "first chapter start s",
+     "value": 0,
+     "op": "==",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "shortest chapter s",
+     "value": 11,
+     "op": ">=",
+     "threshold": 10.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mp4 chapters agree",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "chapters": [
+      {
+       "start": 0,
+       "title": "The question: buy with 10% down, or wait for 20%?"
+      },
+      {
+       "start": 58,
+       "title": "What mortgage insurance is, and the law's two dates"
+      },
+      {
+       "start": 185,
+       "title": "Replaying every purchase month, 1991 to 2016"
+      },
+      {
+       "start": 317,
+       "title": "Three illustrative buyers"
+      },
+      {
+       "start": 431,
+       "title": "How we know this"
+      },
+      {
+       "start": 442,
+       "title": "Back to the question"
+      }
+     ],
+     "mp4": []
+    }
+   ],
+   "note": null,
+   "section": "DX-F6",
+   "threshold": "≥ 3 chapters; first at 0:00; each ≥ 10 s; MP4 chapters (if any) equal the description's",
+   "fingerprint": "a9005215f87e44e2",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "F11",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "declared M3 artefacts",
+     "value": 32,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "declared artefacts not delivered",
+     "value": 7,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "release files not declared",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "notDelivered": [
+      "out/audio/stems/whoosh.*",
+      "out/camera.json",
+      "out/sonify-events.json",
+      "out/package/thumb-1.png",
+      "out/package/thumb-2.png",
+      "out/package/thumb-3.png",
+      "out/page.json"
+     ],
+     "notDeclared": []
+    }
+   ],
+   "note": null,
+   "section": "CH §4 khâu 3 (hợp đồng tập, K2)",
+   "threshold": "every declared M3 artefact delivered; every checks/CONTRACT.md release file declared",
+   "fingerprint": "eb72b164041573de",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "F12",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-A3 (sổ giấy phép), CH §5 (K3: quyền tài sản; K3.1: tài sản hình)",
+   "threshold": "0 sounding stems without a rights entry; visual list declared; 0 listed visuals without a rights entry; 0 visuals of an unknown kind; 0 loaded picture files or font families not declared; 0 generated rules without an existing generator; 0 assets with a missing field; 0 third-party assets without terms (or public-domain source and basis) or not cleared for commercial use; ≥ 1 asset",
+   "fingerprint": "0ac72b3fbd4b4eb9",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "A01",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "integrated LUFS",
+     "value": -14.0,
+     "op": "in",
+     "threshold": [
+      -15.0,
+      -13.0
+     ],
+     "unit": "LUFS",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A10",
+   "threshold": "−14 LUFS ± 1 (−15 … −13)",
+   "fingerprint": "90bd42d7584ea83c",
+   "tier": "BLOCK",
+   "seconds": 5.8
+  },
+  {
+   "id": "A02",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "true peak dBTP",
+     "value": -1.4,
+     "op": "<=",
+     "threshold": -1.0,
+     "unit": "dBTP",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A10",
+   "threshold": "≤ −1.0 dBTP",
+   "fingerprint": "cf2bfca832a8ec3b",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "A03",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "LRA LU",
+     "value": 3.5,
+     "op": "in",
+     "threshold": [
+      6.0,
+      10.0
+     ],
+     "unit": "LU",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A10",
+   "threshold": "6 … 10 LU",
+   "fingerprint": "9b1767b2c0981b51",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "A04",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "samples at full scale",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A10",
+   "threshold": "0 samples",
+   "fingerprint": "0c3453bc2aeb3f35",
+   "tier": "BLOCK",
+   "seconds": 4.0
+  },
+  {
+   "id": "A05",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "mean phase correlation",
+     "value": 0.980536,
+     "op": ">",
+     "threshold": 0.3,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "windows r<0 (%)",
+     "value": 0.021692,
+     "op": "<=",
+     "threshold": 5.0,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A10",
+   "threshold": "mean r > 0.3; windows with r < 0 ≤ 5%",
+   "fingerprint": "661ced8cbd2e7840",
+   "tier": "BLOCK",
+   "seconds": 0.3
+  },
+  {
+   "id": "A06",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "mono − stereo LU",
+     "value": 0.0,
+     "op": ">=",
+     "threshold": -3.0,
+     "unit": "LU",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "voice-band loss dB",
+     "value": 0.002548,
+     "op": "<=",
+     "threshold": 3.0,
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A10, DX-X5",
+   "threshold": "mono loudness ≥ stereo − 3 LU; voice-band loss ≤ 3 dB",
+   "fingerprint": "e8219cc7bd471b59",
+   "tier": "BLOCK",
+   "seconds": 10.3
+  },
+  {
+   "id": "A07",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "voice − music dB",
+     "value": 19.565643,
+     "op": "in",
+     "threshold": [
+      18.0,
+      22.0
+     ],
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A9",
+   "threshold": "18 … 22 dB",
+   "fingerprint": "3d0ed9ae39f81476",
+   "tier": "REFERENCE",
+   "seconds": 3.1
+  },
+  {
+   "id": "A08",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "onsets measured",
+     "value": 75,
+     "op": ">=",
+     "threshold": 3,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "median 1-4 kHz drop dB",
+     "value": 12.225204,
+     "op": ">=",
+     "threshold": 6.0,
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "median band-limited excess dB",
+     "value": 8.269547,
+     "op": ">=",
+     "threshold": 3.0,
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A9",
+   "threshold": "median presence drop ≥ 6 dB AND median (presence drop − low drop) ≥ 3 dB (the dip is band-limited, not broadband); ≥ 3 onsets measured",
+   "fingerprint": "ce5a60fda71b568f",
+   "tier": "REFERENCE",
+   "seconds": 2.8
+  },
+  {
+   "id": "A09",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "silences 0.8-1.5 s",
+     "value": 0,
+     "op": ">=",
+     "threshold": 3,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "spans": [],
+     "otherSpans": [
+      [
+       3.04,
+       0.06
+      ],
+      [
+       3.07,
+       0.05
+      ],
+      [
+       3.46,
+       0.09
+      ],
+      [
+       20.99,
+       0.06
+      ],
+      [
+       23.63,
+       0.05
+      ],
+      [
+       36.66,
+       0.18
+      ],
+      [
+       41.51,
+       0.07
+      ],
+      [
+       44.95,
+       0.05
+      ],
+      [
+       45.13,
+       0.13
+      ],
+      [
+       47.26,
+       0.11
+      ]
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-R6",
+   "threshold": "≥ 3 spans of 0.8–1.5 s",
+   "fingerprint": "75ebd0a342734fc4",
+   "tier": "REFERENCE",
+   "seconds": 8.6
+  },
+  {
+   "id": "A10",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/camera.json",
+   "section": "DX-A5",
+   "threshold": "Spearman ρ(peak speed, whoosh dB) ≥ 0.6 over ≥ 5 moves; every move with peak ≥ 0.3 fw/s has a whoosh ≥ −45 dBFS",
+   "fingerprint": "ab5f84cfaa6d1084",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "A11",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "events measured",
+     "value": 84,
+     "op": ">=",
+     "threshold": 8,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "Pearson pan~x",
+     "value": null,
+     "op": ">=",
+     "threshold": 0.7,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A5",
+   "threshold": "Pearson r(pan, (x − 960)/960) ≥ 0.7 over ≥ 8 events",
+   "fingerprint": "196170e9446b1c08",
+   "tier": "REFERENCE",
+   "seconds": 0.8
+  },
+  {
+   "id": "A12",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "accents",
+     "value": 0,
+     "op": ">=",
+     "threshold": 5,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "accents on a cut (%)",
+     "value": null,
+     "op": ">=",
+     "threshold": 100.0,
+     "unit": "%",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "accents confirmed by onset (%)",
+     "value": null,
+     "op": ">=",
+     "threshold": 90.0,
+     "unit": "%",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "beats confirmed by onset (%)",
+     "value": 96.580189,
+     "op": ">=",
+     "threshold": 70.0,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "missedAccents": []
+    }
+   ],
+   "note": null,
+   "section": "DX-A3",
+   "threshold": "≥ 5 accents; 100% of accents land on a cut; ≥ 90% of accents are real; ≥ 70% of beats while music is audible have an onset within ±50 ms",
+   "fingerprint": "e1e4b52c36ecb215",
+   "tier": "REFERENCE",
+   "seconds": 17.5
+  },
+  {
+   "id": "A13",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "takes",
+     "value": 20,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "max |stretch-1|",
+     "value": 79.95167,
+     "op": "<=",
+     "threshold": 0.1,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "over": [
+      [
+       "S01",
+       51.696
+      ],
+      [
+       "S02",
+       36.084
+      ],
+      [
+       "S03",
+       15.326
+      ],
+      [
+       "S04",
+       18.264
+      ],
+      [
+       "S05",
+       33.499
+      ],
+      [
+       "S06",
+       26.053
+      ],
+      [
+       "S07",
+       22.055
+      ],
+      [
+       "S08",
+       30.155
+      ],
+      [
+       "S09",
+       18.566
+      ],
+      [
+       "S10",
+       12.872
+      ],
+      [
+       "S11",
+       22.442
+      ],
+      [
+       "S12",
+       13.058
+      ],
+      [
+       "S13",
+       33.138
+      ],
+      [
+       "S14",
+       22.06
+      ],
+      [
+       "S15",
+       22.899
+      ],
+      [
+       "S16",
+       35.068
+      ],
+      [
+       "S17",
+       14.23
+      ],
+      [
+       "S18",
+       10.491
+      ],
+      [
+       "S19",
+       80.952
+      ],
+      [
+       "S20",
+       25.906
+      ]
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-A7",
+   "threshold": "every |stretch − 1| ≤ 0.10",
+   "fingerprint": "d9a3e6fde6d2f573",
+   "tier": "REFERENCE",
+   "seconds": 22.0
+  },
+  {
+   "id": "A14",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "key words",
+     "value": 93,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "key words missing",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-A7",
+   "threshold": "0 key words missing (no percentage threshold)",
+   "fingerprint": "01110949f33e3fce",
+   "tier": "BLOCK",
+   "seconds": 249.8
+  },
+  {
+   "id": "A15",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "wpm act cold-open",
+     "value": 168.31292,
+     "op": "in",
+     "threshold": [
+      150.0,
+      160.0
+     ],
+     "unit": "wpm",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "wpm act act1",
+     "value": 181.073975,
+     "op": "in",
+     "threshold": [
+      150.0,
+      160.0
+     ],
+     "unit": "wpm",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "wpm act act2",
+     "value": 167.014258,
+     "op": "in",
+     "threshold": [
+      150.0,
+      160.0
+     ],
+     "unit": "wpm",
+     "pass": false,
+     "near": true
+    },
+    {
+     "name": "wpm act act3",
+     "value": 173.076923,
+     "op": "in",
+     "threshold": [
+      150.0,
+      160.0
+     ],
+     "unit": "wpm",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "wpm act method",
+     "value": 203.007519,
+     "op": "in",
+     "threshold": [
+      150.0,
+      160.0
+     ],
+     "unit": "wpm",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "wpm act outro",
+     "value": 194.376528,
+     "op": "in",
+     "threshold": [
+      150.0,
+      160.0
+     ],
+     "unit": "wpm",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "sentences > 175 wpm",
+     "value": 42,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "fast": [
+      [
+       "S01.1",
+       198
+      ],
+      [
+       "S01.2",
+       185
+      ],
+      [
+       "S02.1",
+       233
+      ],
+      [
+       "S02.2",
+       185
+      ],
+      [
+       "S03.1",
+       175
+      ],
+      [
+       "S04.2",
+       182
+      ],
+      [
+       "S04.3",
+       218
+      ],
+      [
+       "S04.5",
+       585
+      ],
+      [
+       "S05.1",
+       179
+      ],
+      [
+       "S05.2",
+       191
+      ],
+      [
+       "S06.3",
+       179
+      ],
+      [
+       "S07.1",
+       192
+      ],
+      [
+       "S08.1",
+       188
+      ],
+      [
+       "S08.2",
+       179
+      ],
+      [
+       "S08.3",
+       209
+      ]
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-A7",
+   "threshold": "every act 150 … 160 wpm; no sentence > 175 wpm",
+   "fingerprint": "553d76fabbd6ca76",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "A16",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "sentences",
+     "value": 70,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "fake break marks",
+     "value": 8,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "sentences with a fake break",
+     "value": 8,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "sentence": "S02.2",
+     "marks": [
+      "extra punctuation: 1 more , ; : or inner stop than the written text"
+     ],
+     "n": 1
+    },
+    {
+     "sentence": "S03.5",
+     "marks": [
+      "extra punctuation: 1 more , ; : or inner stop than the written text"
+     ],
+     "n": 1
+    },
+    {
+     "sentence": "S07.2",
+     "marks": [
+      "extra punctuation: 1 more , ; : or inner stop than the written text"
+     ],
+     "n": 1
+    },
+    {
+     "sentence": "S14.1",
+     "marks": [
+      "extra punctuation: 1 more , ; : or inner stop than the written text"
+     ],
+     "n": 1
+    },
+    {
+     "sentence": "S15.2",
+     "marks": [
+      "extra punctuation: 1 more , ; : or inner stop than the written text"
+     ],
+     "n": 1
+    },
+    {
+     "sentence": "S16.1",
+     "marks": [
+      "extra punctuation: 1 more , ; : or inner stop than the written text"
+     ],
+     "n": 1
+    },
+    {
+     "sentence": "S17.1",
+     "marks": [
+      "extra punctuation: 1 more , ; : or inner stop than the written text"
+     ],
+     "n": 1
+    },
+    {
+     "sentence": "S20.3",
+     "marks": [
+      "extra punctuation: 1 more , ; : or inner stop than the written text"
+     ],
+     "n": 1
+    }
+   ],
+   "note": null,
+   "section": "DX-A7 (K3, cảnh báo)",
+   "threshold": "0 fake break marks (REFERENCE: reported, never fails the episode)",
+   "fingerprint": "bd234f58c70a3daa",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "A17",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "voiced sentences",
+     "value": 70,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "abnormal sentences share",
+     "value": 0.285714,
+     "op": "<=",
+     "threshold": 0.1,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "abnormal gaps share",
+     "value": 0.42,
+     "op": "<=",
+     "threshold": 0.1,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "medianGap": 0.67,
+     "gapHigh": 2.01,
+     "gaps": 50
+    },
+    {
+     "abnormalSentences": [
+      {
+       "sentence": "S03.3",
+       "innerPauses": [
+        0.68,
+        0.55,
+        0.38,
+        0.55,
+        0.27
+       ],
+       "share": 0.246,
+       "words": 25
+      },
+      {
+       "sentence": "S04.2",
+       "innerPauses": [
+        0.47,
+        0.33,
+        0.47,
+        0.52
+       ],
+       "share": 0.229,
+       "words": 23
+      },
+      {
+       "sentence": "S04.3",
+       "innerPauses": [
+        0.25,
+        0.55,
+        0.58
+       ],
+       "share": 0.238,
+       "words": 19
+      },
+      {
+       "sentence": "S04.4",
+       "innerPauses": [
+        0.3,
+        0.39
+       ],
+       "share": 0.191,
+       "words": 9
+      },
+      {
+       "sentence": "S05.2",
+       "innerPauses": [
+        0.84,
+        0.42
+       ],
+       "share": 0.246,
+       "words": 13
+      },
+      {
+       "sentence": "S07.2",
+       "innerPauses": [
+        0.77,
+        0.5
+       ],
+       "share": 0.259,
+       "words": 12
+      },
+      {
+       "sentence": "S10.2",
+       "innerPauses": [
+        0.79,
+        0.5
+       ],
+       "share": 0.202,
+       "words": 17
+      },
+      {
+       "sentence": "S10.4",
+       "innerPauses": [
+        0.57,
+        0.25,
+        0.48,
+        0.57,
+        0.39
+       ],
+       "share": 0.248,
+       "words": 25
+      },
+      {
+       "sentence": "S10.5",
+       "innerPauses": [
+        0.98,
+        0.57
+       ],
+       "share": 0.271,
+       "words": 15
+      },
+      {
+       "sentence": "S11.1",
+       "innerPauses": [
+        0.85
+       ],
+       "share": 0.316,
+       "words": 5
+      },
+      {
+       "sentence": "S11.3",
+       "innerPauses": [
+        0.84,
+        0.56,
+        0.45
+       ],
+       "share": 0.234,
+       "words": 24
+      },
+      {
+       "sentence": "S11.4",
+       "innerPauses": [
+        1.52
+       ],
+       "share": 0.279,
+       "words": 13
+      },
+      {
+       "sentence": "S14.3",
+       "innerPauses": [
+        0.45,
+        0.47,
+        0.49,
+        0.39
+       ],
+       "share": 0.25,
+       "words": 22
+      },
+      {
+       "sentence": "S14.4",
+       "innerPauses": [
+        0.75
+       ],
+       "share": 0.203,
+       "words": 10
+      },
+      {
+       "sentence": "S15.3",
+       "innerPauses": [
+        0.78,
+        0.35,
+        0.74
+       ],
+       "share": 0.238,
+       "words": 21
+      },
+      {
+       "sentence": "S17.4",
+       "innerPauses": [
+        1.09,
+        0.47
+       ],
+       "share": 0.29,
+       "words": 15
+      },
+      {
+       "sentence": "S18.4",
+       "innerPauses": [
+        0.79,
+        0.76,
+        0.47,
+        0.54
+       ],
+       "share": 0.248,
+       "words": 27
+      },
+      {
+       "sentence": "S18.6",
+       "innerPauses": [
+        0.87,
+        0.75
+       ],
+       "share": 0.231,
+       "words": 17
+      },
+      {
+       "sentence": "S19.1",
+       "innerPauses": [
+        0.48,
+        0.87,
+        0.26
+       ],
+       "share": 0.284,
+       "words": 18
+      },
+      {
+       "sentence": "S20.3",
+       "innerPauses": [
+        0.6,
+        0.25,
+        0.41
+       ],
+       "share": 0.296,
+       "words": 10
+      }
+     ]
+    },
+    {
+     "abnormalGaps": [
+      {
+       "after": "S03.2",
+       "gap": 0.0
+      },
+      {
+       "after": "S04.2",
+       "gap": 0.0
+      },
+      {
+       "after": "S04.3",
+       "gap": 0.0
+      },
+      {
+       "after": "S04.4",
+       "gap": 0.0
+      },
+      {
+       "after": "S05.1",
+       "gap": 0.0
+      },
+      {
+       "after": "S06.2",
+       "gap": 0.0
+      },
+      {
+       "after": "S07.1",
+       "gap": 0.0
+      },
+      {
+       "after": "S10.1",
+       "gap": 0.0
+      },
+      {
+       "after": "S10.3",
+       "gap": 0.0
+      },
+      {
+       "after": "S10.4",
+       "gap": 0.0
+      },
+      {
+       "after": "S11.2",
+       "gap": 0.0
+      },
+      {
+       "after": "S11.3",
+       "gap": 0.0
+      },
+      {
+       "after": "S14.1",
+       "gap": 0.0
+      },
+      {
+       "after": "S14.3",
+       "gap": 0.0
+      },
+      {
+       "after": "S15.2",
+       "gap": 0.0
+      },
+      {
+       "after": "S17.1",
+       "gap": 0.0
+      },
+      {
+       "after": "S17.3",
+       "gap": 0.0
+      },
+      {
+       "after": "S18.3",
+       "gap": 0.0
+      },
+      {
+       "after": "S18.5",
+       "gap": 0.0
+      },
+      {
+       "after": "S20.1",
+       "gap": 0.0
+      },
+      {
+       "after": "S20.2",
+       "gap": 0.0
+      }
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-A7, DX-R6 (K3, cảnh báo)",
+   "threshold": "PROVISIONAL: abnormal sentences ≤ 10%; abnormal gaps ≤ 10%; ≥ 1 sentence voiced (REFERENCE: reported, never fails the episode)",
+   "fingerprint": "483f26350bc28c42",
+   "tier": "REFERENCE",
+   "seconds": 3.6
+  },
+  {
+   "id": "A18",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "takes",
+     "value": 20,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "distinct voices (provider, voiceId, model)",
+     "value": 1,
+     "op": "<=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": true
+    }
+   ],
+   "details": [
+    {
+     "main": "elevenlabs / cjVigY5qzO86Huf0OWal / eleven_v3",
+     "mainTakes": 20,
+     "others": {}
+    },
+    {
+     "measured": []
+    }
+   ],
+   "note": null,
+   "section": "DX-A8 (K3, cảnh báo)",
+   "threshold": "PROVISIONAL: 1 voice (provider, voiceId, model) for the whole episode (REFERENCE: reported, never fails the episode)",
+   "fingerprint": "dafa2829e3315835",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "S01",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "values compared",
+     "value": 104,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mismatches",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "model parts not re-computed",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "kind": "ltv-first-passage",
+     "notRecomputed": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1",
+   "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
+   "fingerprint": "bd6d0ee85cf6c7c1",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S02",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-H1",
+   "threshold": "every declared assumption visible in the methodology card AND visible outside it; ≥ 1 assumption declared",
+   "fingerprint": "04bb167a62616b77",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S03",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "files",
+     "value": 5,
+     "op": ">=",
+     "threshold": 2,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "file problems",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "primary on a declared host",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "cross-check on a declared host",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "declaredHosts": {
+      "primary": [
+       "fred.stlouisfed.org"
+      ],
+      "crosscheck": [
+       "fred.stlouisfed.org"
+      ]
+     },
+     "seenHosts": {
+      "primary": [
+       "fred.stlouisfed.org"
+      ],
+      "crosscheck": [
+       "fred.stlouisfed.org"
+      ]
+     }
+    }
+   ],
+   "note": null,
+   "section": "DX-H4",
+   "threshold": "every file present with matching SHA-256, valid date, http(s) URL, terms quote ≥ 20 chars and terms URL; ≥ 1 primary file on a declared primary host; ≥ 1 cross-check file on a declared cross-check host",
+   "fingerprint": "d698b88b0419a45f",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S04",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "series pairs",
+     "value": 2,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mortgage30 tolerance",
+     "value": 0.5,
+     "op": "<=",
+     "threshold": 0.5,
+     "unit": "pp",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "hpi_mom tolerance",
+     "value": 0.5,
+     "op": "<=",
+     "threshold": 0.5,
+     "unit": "pp",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "used keys missing in a source",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "out-of-tolerance keys not reported",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "pairs": [
+      {
+       "series": "mortgage30",
+       "overTolerance": 0
+      },
+      {
+       "series": "hpi_mom",
+       "overTolerance": 52
+      }
+     ],
+     "unreported": [],
+     "missing": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H5",
+   "threshold": "≥ 1 pair; every declared tolerance ≤ 0.5 (pp); every used key present in both series; every key outside tolerance listed in \"mismatches\" (reported, not silently resolved)",
+   "fingerprint": "952fa38fc028f677",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S05",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "mapped claims",
+     "value": 78,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mapped claims absent",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims off their re-computation",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "schedules with B_0 ≠ L0, B_n ≠ 0 or a balance not strictly decreasing (every monthly rate)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "rates where sched(requestLtv) < sched(autoLtv) ≤ n fails, or a schedule decreasing in the rate",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "set-B months with T < 1",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "set-B months with the index never below purchase yet T later than the schedule",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "share at ≤ 75 minus share at ≤ 80 (set A)",
+     "value": -0.42928,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "set-B months whose first passage is not observed (censored)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "shares outside [0, 1], nA < nB, or lastB ≥ lastA",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "latest rate month incomplete, or a partial month not after it",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "buyers not in set B, not at their min / median / max, or not picked by their tie rule",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "quantities changed when the index is multiplied by 2.5 (index levels aside)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims missing their ILLUSTRATIVE flag",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "off": [],
+     "absent": [],
+     "missingIllustrative": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1, DX-H2",
+   "threshold": "≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months after normalisation, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag",
+   "fingerprint": "e57ec71dadeccbb2",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S06",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-H6",
+   "threshold": "every declared value shown (e.g. 69 of 69 start years), including cases where the thesis did not hold",
+   "fingerprint": "f5c41f1cb86285f5",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S07",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-H1, DX-H2",
+   "threshold": "0 orphan numbers on screen; 0 unregistered numbers in narration; 0 claims without formula; 0 unsourced non-illustrative claims; 0 sourced claims without dataYear",
+   "fingerprint": "db7b830d6bc3afa5",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S08",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-H2",
+   "threshold": "0 frames without badge; badge never later than the number (lag ≤ 0 frames)",
+   "fingerprint": "80936cb783720361",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S09",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-H3",
+   "threshold": "0 money claims without basis; 0 frames missing the on-screen basis; 0 bases used but never said in the narration",
+   "fingerprint": "87c9f20c51da53b0",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S10",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "advice sentences",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "forecast sentences",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "4% as recommendation",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "\"we\" for the viewer",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "\"US only\" stated",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "\"history, not a forecast\" stated",
+     "value": true,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "advice": [],
+     "forecast": [],
+     "four": [],
+     "we": []
+    }
+   ],
+   "note": null,
+   "section": "DX-I1, DX-I2",
+   "threshold": "0 matches of ADVICE, FORECAST, FOUR, WE_BAD; both required phrases present",
+   "fingerprint": "9cfd410e9d2df4c8",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S11",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-S6",
+   "threshold": "≥ 1 core claim; each core claim appears in ≥ 3 distinct scenes spanning ≥ 2 acts; ≥ 3 declared callbacks with distinct meanings, all verified",
+   "fingerprint": "dbdc0a42eec78a77",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "S12",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-S7",
+   "threshold": "new numbers ≤ duration / 8 s; no scene with > 2 new numbers; 0 claims marked axis but shown outside axis labels",
+   "fingerprint": "eed051aeced11bb2",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "S13",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "sentence length CV (≥ 4 words)",
+     "value": 0.43961,
+     "op": ">=",
+     "threshold": 0.35,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "staccato passages",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "sentences": 70,
+     "mean": 16.0,
+     "cvAllSentences": 0.44
+    }
+   ],
+   "note": null,
+   "section": "DX-S8 (sổ gu G-009)",
+   "threshold": "PROVISIONAL: CV (sentences ≥ 4 words) ≥ 0.35; 0 staccato passages",
+   "fingerprint": "f6f525969e4f2c7b",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "S14",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "ad breaks",
+     "value": 1,
+     "op": "==",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "breaks off an act boundary",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "breaks without ≥1 s silence",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "breaks in the first or last 120 s",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "format": "101",
+     "note": null,
+     "breaks": [
+      184.3
+     ],
+     "boundaries": [
+      185.2001,
+      317.8335,
+      431.9335,
+      442.7002
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-S10",
+   "threshold": "lab: 2 breaks, 101: 1 break; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s; each ≥ 120 s after the start and ≥ 120 s before the end",
+   "fingerprint": "4cd7b354b2465d8c",
+   "tier": "REFERENCE",
+   "seconds": 6.8
+  },
+  {
+   "id": "S15",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "act order",
+     "value": [
+      "cold-open",
+      "ident",
+      "act1",
+      "act2",
+      "act3",
+      "method",
+      "outro"
+     ],
+     "op": "==",
+     "threshold": [
+      "cold-open",
+      "ident",
+      "act1",
+      "act2",
+      "act3",
+      "method",
+      "outro"
+     ],
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "ident s",
+     "value": 3.0,
+     "op": "<=",
+     "threshold": 3.0,
+     "unit": "s",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "outro s",
+     "value": 19.9333,
+     "op": ">=",
+     "threshold": 20.0,
+     "unit": "s",
+     "pass": false,
+     "near": true
+    },
+    {
+     "name": "act gaps",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "scenes outside their act",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "format": "101",
+     "note": null,
+     "coldOpenS": 55.0001,
+     "gaps": [],
+     "outside": []
+    }
+   ],
+   "note": null,
+   "section": "DX-S1",
+   "threshold": "order cold-open, ident, act1, act2, act3, method, outro; ident ≤ 3 s; outro ≥ 20 s; timeline total ≥ 540 s (lab); every scene inside its act",
+   "fingerprint": "f50ebf66b761aa62",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "S16",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "decisive sentences",
+     "value": 4,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "share tied to a character or scenario",
+     "value": 0.25,
+     "op": ">=",
+     "threshold": 0.75,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "decisiveClaims": [
+      "maxB_months_to80",
+      "medianB_months_to80",
+      "sched80_months_latest",
+      "shareB_over60"
+     ],
+     "anchors": [
+      "characters.grace",
+      "characters.owen",
+      "characters.victor",
+      "scenarios.ten-percent-down"
+     ]
+    },
+    {
+     "sentence": "S07.2",
+     "claims": [
+      "sched80_months_latest"
+     ],
+     "tiedTo": [],
+     "text": "On this loan, that's payment 99, the date this video opened with."
+    },
+    {
+     "sentence": "S11.1",
+     "claims": [
+      "medianB_months_to80"
+     ],
+     "tiedTo": [],
+     "text": "The typical answer: 23 months."
+    },
+    {
+     "sentence": "S14.1",
+     "claims": [
+      "maxB_months_to80"
+     ],
+     "tiedTo": [],
+     "text": "The slowest was October 2005: 112 months on paper."
+    }
+   ],
+   "note": null,
+   "section": "DX-S3, RUBRIC H4 (sổ gu G-008)",
+   "threshold": "PROVISIONAL: ≥ 1 decisive sentence; ≥ 75% of decisive sentences tied to a declared character or scenario",
+   "fingerprint": "63091769966d83b9",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "S17",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-H2 (claim), checks-appeal A1",
+   "threshold": "0 frames without the label; every claim listed under a condition flagged with it; every flag names a declared condition",
+   "fingerprint": "a7e97dc21c6749fd",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S18",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "hook starts s",
+     "value": 0.0,
+     "op": "<=",
+     "threshold": 5.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "promise ends s",
+     "value": 22.654,
+     "op": "<=",
+     "threshold": 30.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "hook": "S01.1",
+     "hookDeclared": 0.0,
+     "promise": "S02.2",
+     "promiseDeclared": 22.847,
+     "heardWords": {
+      "hook": 8,
+      "promise": 25
+     }
+    }
+   ],
+   "note": null,
+   "section": "DX-S3, DX-S4 (story.md §1), checks-appeal A2",
+   "threshold": "hook heard from ≤ 5.0 s; promise heard by ≤ 30.0 s",
+   "fingerprint": "0efba656ee998a6b",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "SH01",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: contract.json: shorts = [{file}]",
+   "section": "D-006 Q3, checks-appeal A5",
+   "threshold": "1080 × 1920, H.264, one audio stream (AAC)",
+   "fingerprint": "7072e1b98e345a94",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "SH02",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: contract.json: shorts = [{file}]",
+   "section": "D-006 Q3, checks-appeal A5",
+   "threshold": "≤ 180 s (YouTube Shorts limit)",
+   "fingerprint": "a786483ec4cf8287",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "SH03",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: contract.json: shorts = [{file}]",
+   "section": "DX-A10, checks-appeal A5",
+   "threshold": "−14 LUFS ± 1 (−15 … −13) for every Short",
+   "fingerprint": "1659e1c240fdba5d",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "SH04",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: contract.json: shorts = [{file}]",
+   "section": "DX-A10, checks-appeal A5",
+   "threshold": "≤ −1.0 dBTP for every Short",
+   "fingerprint": "aeace3b7d86b9e66",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "SH05",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: contract.json: shorts = [{file}]",
+   "section": "DX-I1, DX-I2 (CHARTER §4 protected genes), checks-appeal A5",
+   "threshold": "0 matches in every Short",
+   "fingerprint": "173baa4eed3c5d3b",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "R01",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/audio/stems/whoosh.wav|flac",
+   "section": "DX-R1",
+   "threshold": "Pearson r ≥ 0.8 (cut rate), ≥ 0.7 (music level), ≥ 0.6 (audio density); 0 false peaks; 3 acts with a climax peak; 0 peaks without valley",
+   "fingerprint": "59e28c6b5996ccba",
+   "tier": "REFERENCE",
+   "seconds": 2.4
+  },
+  {
+   "id": "R02",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "longest stretch without a break s",
+     "value": 2.106,
+     "op": "<=",
+     "threshold": 60.0,
+     "unit": "s",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "from": 155.789,
+     "to": 157.895
+    }
+   ],
+   "note": null,
+   "section": "DX-R2",
+   "threshold": "longest gap ≤ 60 s",
+   "fingerprint": "7050a680e8f99ac0",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "R03",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "decisive claims",
+     "value": 4,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "shortest pause s",
+     "value": 0.0,
+     "op": ">=",
+     "threshold": 1.0,
+     "unit": "s",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "pauses < 1.0 s",
+     "value": 3,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "decisive numbers not heard",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "short": [
+      [
+       "sched80_months_latest",
+       "S02.1",
+       13.55,
+       14.26,
+       0.91
+      ],
+      [
+       "sched80_months_latest",
+       "S07.2",
+       131.39,
+       131.7,
+       0.5
+      ],
+      [
+       "maxB_months_to80",
+       "S14.1",
+       299.41,
+       null,
+       0.0
+      ]
+     ],
+     "notFound": [],
+     "all": [
+      [
+       "sched80_months_latest",
+       "S02.1",
+       13.55,
+       14.26,
+       0.91
+      ],
+      [
+       "sched80_months_latest",
+       "S07.2",
+       131.39,
+       131.7,
+       0.5
+      ],
+      [
+       "medianB_months_to80",
+       "S11.1",
+       224.31,
+       224.94,
+       1.21
+      ],
+      [
+       "maxB_months_to80",
+       "S14.1",
+       299.41,
+       null,
+       0.0
+      ]
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-R3",
+   "threshold": "≥ 1 decisive claim; every pause ≥ 1.0 s; 0 decisive numbers not found in ASR",
+   "fingerprint": "254f84761c7ec3ea",
+   "tier": "REFERENCE",
+   "seconds": 0.7
+  },
+  {
+   "id": "R04",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "cuts on beat/action (%)",
+     "value": 33.333333,
+     "op": ">=",
+     "threshold": 70.0,
+     "unit": "%",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "cuts": 3,
+     "onBeat": 1,
+     "onAction": 0,
+     "declaredAction": 0
+    }
+   ],
+   "note": null,
+   "section": "DX-R4",
+   "threshold": "≥ 70% of cuts on a beat or on action",
+   "fingerprint": "8d3d97d189d8bc4d",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "R05",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "shots < 1.2 s",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "shots > 12 s",
+     "value": 17,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "shot length CV",
+     "value": 0.457761,
+     "op": ">=",
+     "threshold": 0.4,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "act-2 scenes before climax",
+     "value": 0,
+     "op": ">=",
+     "threshold": 6,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "short": [],
+     "long": [
+      [
+       "S02",
+       13.8667
+      ],
+      [
+       "S03",
+       31.1667
+      ],
+      [
+       "S04",
+       26.5333
+      ],
+      [
+       "S05",
+       14.9333
+      ],
+      [
+       "S06",
+       18.8333
+      ],
+      [
+       "S07",
+       21.9667
+      ],
+      [
+       "S08",
+       16.3667
+      ],
+      [
+       "S09",
+       28.5667
+      ],
+      [
+       "S10",
+       36.9333
+      ],
+      [
+       "S11",
+       21.8
+      ],
+      [
+       "S12",
+       36.3667
+      ],
+      [
+       "S13",
+       15.0667
+      ],
+      [
+       "S14",
+       22.4667
+      ],
+      [
+       "S15",
+       21.3333
+      ],
+      [
+       "S16",
+       14.3667
+      ],
+      [
+       "S17",
+       33.4667
+      ],
+      [
+       "S18",
+       44.9333
+      ]
+     ],
+     "act2Groups": null
+    }
+   ],
+   "note": null,
+   "section": "DX-R5",
+   "threshold": "every shot 1.2 … 12 s (act \"outro\" exempt from the 12 s cap: it holds the end screen); CV = std/mean ≥ 0.4; act-2 means non-increasing and last ≤ 0.8 × first (≥ 6 scenes)",
+   "fingerprint": "7d98f01fd0342a71",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "R06",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "cuts",
+     "value": 2,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "cuts visible in picture (%)",
+     "value": 0.0,
+     "op": ">=",
+     "threshold": 90.0,
+     "unit": "%",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "notVisible": [
+      [
+       185.2,
+       0.19,
+       0.0
+      ],
+      [
+       317.834,
+       0.23,
+       0.0
+      ]
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-V10 (picture check of cuts)",
+   "threshold": "≥ 90% of cuts show a spike ≥ 3 × the surrounding median and ≥ 2 codes",
+   "fingerprint": "cb2475bae25dd531",
+   "tier": "REFERENCE",
+   "seconds": 5.1
+  },
+  {
+   "id": "V01",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "shots",
+     "value": 36,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "shots with field problems",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "scenes without a shot",
+     "value": 2,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "storyboard present",
+     "value": false,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "colour script present",
+     "value": false,
+     "op": "==",
+     "threshold": true,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "bad": [],
+     "uncovered": [
+      "IDENT",
+      "S07"
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-V12",
+   "threshold": "every shot has all 3 fields non-empty; moveReason ≥ 3 words; every timeline scene has ≥ 1 shot; storyboard and colour script present",
+   "fingerprint": "90ced56c2f028c32",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "V02",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V1",
+   "threshold": "≥ 90% of level-1 samples placed",
+   "fingerprint": "876ac87617e5f461",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "V03",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V3",
+   "threshold": "all text ink of non-travelling texts inside x 96–1824, y 54–1026 (90% safe area); 0 violations",
+   "fingerprint": "09e0f0150bef96e7",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "V04",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: contract.json: characters.owen.color",
+   "section": "DX-V4, DX-X3",
+   "threshold": "every declared character seen; main colour = declared colour and ≥ 95% of its observations; main shape = declared shape and ≥ 95%; declared colours all differ; each pair keeps one side for the whole video, and the side the contract declares (left < centre < right) when both sides are declared; 0 time-order violations",
+   "fingerprint": "9435eec7b39c2e24",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "V05",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/camera.json",
+   "section": "DX-V8",
+   "threshold": "≥ 5 moves; every move eased (≤ 0.4) and none linear; anticipation in ≥ 30% and overshoot in ≥ 30% of moves ≥ 1 s; no overshoot > 8%; peak |a| ≤ 8 fw/s²; ρ ≥ 0.3",
+   "fingerprint": "07aff0cb938aedb9",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "V08",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V6",
+   "threshold": "≥ 4.5:1 for every text sample",
+   "fingerprint": "ff0ebd1eeeeedc8e",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "V09",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: contract.json: characters.owen.color",
+   "section": "DX-V4, DX-X3",
+   "threshold": "every declared character seen; for every pair: ΔE2000 ≥ 20 under each simulation, grey contrast ≥ 1.5:1",
+   "fingerprint": "518bbadd35d36817",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "V10",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "verified match cuts",
+     "value": 2,
+     "op": ">=",
+     "threshold": 5,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "verified J/L cuts",
+     "value": 0,
+     "op": ">=",
+     "threshold": 4,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "dissolves without reason",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "undeclared dissolves",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "declaredMatch": 2,
+     "declaredJL": 0,
+     "undeclared": []
+    }
+   ],
+   "note": null,
+   "section": "DX-V10",
+   "threshold": "≥ 5 verified match cuts; ≥ 4 verified J/L-cuts; every declared dissolve has a reason ≥ 5 words and not \"default\"; 0 undeclared dissolves detected",
+   "fingerprint": "c54c79edfeb2aeca",
+   "tier": "REFERENCE",
+   "seconds": 5.0
+  },
+  {
+   "id": "V11",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11 (C rule text-line-collision, upgraded to pixels)",
+   "threshold": "< 4 overlapping pixels for every text in every sample (moving text: not in two consecutive samples); 0 violations",
+   "fingerprint": "d5827d9fd680db1e",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "V12",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V9 (replaces the camera-move exemption)",
+   "threshold": "NCC ≥ 0.97 for every text sample; 0 violations",
+   "fingerprint": "9d7a11491d2d7846",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "V13",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "moves longer than 3.0 s",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "frames in a move (%)",
+     "value": 0.0,
+     "op": "<=",
+     "threshold": 15.0,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "source": "declared scenes[].move",
+     "moves": 0,
+     "longest": 0,
+     "tooLong": []
+    }
+   ],
+   "note": null,
+   "section": "DX-V9, DX-V8 (replaces the camera-move exemption)",
+   "threshold": "every move ≤ 3.0 s; frames in a move ≤ 15% of the video",
+   "fingerprint": "1dd63c64ca6c6ccf",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "C01",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11 (C rule scene-leak)",
+   "threshold": "0 flagged frames",
+   "fingerprint": "0114525ac5ced386",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "C02",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11 (C rule bg-over-data)",
+   "threshold": "0 flagged frames",
+   "fingerprint": "6d774369c929d6a6",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "C03",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11 (C rule unlabelled-curve)",
+   "threshold": "0 flagged frames",
+   "fingerprint": "ad6a94148e1c7faa",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "C04",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11 (C rule axis-anchors)",
+   "threshold": "0 flagged frames",
+   "fingerprint": "b54a064055ab244f",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "C05",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11, DX-X4 (C rule grey-emphasis)",
+   "threshold": "0 flagged frames",
+   "fingerprint": "541c6b73269d66a1",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "C06",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11 (C rule number-colour)",
+   "threshold": "0 flagged frames",
+   "fingerprint": "8abbe233abf8e378",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "C07",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11 (C rule bar-proportion)",
+   "threshold": "0 flagged frames",
+   "fingerprint": "6b066c046496eb66",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "C10",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V1 (C rule level1)",
+   "threshold": "≥ 50% of samples with exactly one, never two",
+   "fingerprint": "e4cca701b1b52bf1",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "C11",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "layout repeats >2 in 90 s",
+     "value": 19,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    [
+     null,
+     [
+      "S01",
+      "S02",
+      "S03",
+      "IDENT",
+      "S04",
+      "S05"
+     ]
+    ],
+    [
+     null,
+     [
+      "S02",
+      "S03",
+      "IDENT",
+      "S04",
+      "S05",
+      "S06"
+     ]
+    ],
+    [
+     null,
+     [
+      "S03",
+      "IDENT",
+      "S04",
+      "S05",
+      "S06"
+     ]
+    ],
+    [
+     null,
+     [
+      "IDENT",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+     ]
+    ],
+    [
+     null,
+     [
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+     ]
+    ],
+    [
+     null,
+     [
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09"
+     ]
+    ],
+    [
+     null,
+     [
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10"
+     ]
+    ],
+    [
+     null,
+     [
+      "S07",
+      "S08",
+      "S09",
+      "S10"
+     ]
+    ],
+    [
+     null,
+     [
+      "S08",
+      "S09",
+      "S10",
+      "S11"
+     ]
+    ],
+    [
+     null,
+     [
+      "S09",
+      "S10",
+      "S11",
+      "S12"
+     ]
+    ]
+   ],
+   "note": null,
+   "section": "DX-V11 (C rule layout-repeat)",
+   "threshold": "no layout used more than 2 times in any 90 s window",
+   "fingerprint": "30557c4537aa7e4b",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "C12",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11 (C rule split-view)",
+   "threshold": "no run ≥ 1.0 s where the changes span > 60% of frame width or height",
+   "fingerprint": "15b2a41db13ccaea",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "C13",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11 (number–voice sync ±250 ms)",
+   "threshold": "|screen − onset| ≤ 250 ms for every pair; 0 spoken numbers missing from ASR",
+   "fingerprint": "6d6537e6622a9ac8",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "C14",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V11, DX-X4 (legible at 25%)",
+   "threshold": "every text ≥ 28 px (cap height ≥ 5 px at 25%) and ≥ 3:1 at 25%; 0 violations",
+   "fingerprint": "a6798a3f6a3c0f77",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "C15",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json",
+   "section": "DX-V5 (C rule tokens only)",
+   "threshold": "0 flagged frames",
+   "fingerprint": "74374048e57f8eeb",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "P01",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/package/thumb-1.png",
+   "section": "DX-P2",
+   "threshold": "3 thumbnails, each 1280×720; token share ≥ 97%; every text fontPx ≥ 90 (≥ 9 px at 10%) and contrast at 10% ≥ 3:1",
+   "fingerprint": "00d0de16695f1943",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "T1",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: contract.json: sonification.bandsHz",
+   "section": "DX-A1 (sổ gu G-001, G-006)",
+   "threshold": "PROVISIONAL: ≥ 60% of slots heard; ≥ 1 slot; declared bands ≥ 50% of the data stem energy; stems ~ master r ≥ 0.90; sonify stem delivered",
+   "fingerprint": "e7a5925e1b04aae3",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  },
+  {
+   "id": "T2",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "phrases measured",
+     "value": 54,
+     "op": ">=",
+     "threshold": 8,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "repeated phrases (%)",
+     "value": 12.962963,
+     "op": "<=",
+     "threshold": 5.0,
+     "unit": "%",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "longest run of repeated phrases",
+     "value": 2,
+     "op": "<=",
+     "threshold": 1,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "medianSimilarity": 0.8397,
+     "maxSimilarity": 0.9573,
+     "repeats": [
+      [
+       193.31,
+       3,
+       0.908
+      ],
+      [
+       210.11,
+       2,
+       0.9573
+      ],
+      [
+       218.52,
+       2,
+       0.9066
+      ],
+      [
+       260.54,
+       2,
+       0.9106
+      ],
+      [
+       310.97,
+       4,
+       0.9029
+      ],
+      [
+       361.4,
+       1,
+       0.9011
+      ],
+      [
+       378.21,
+       2,
+       0.9206
+      ]
+     ]
+    }
+   ],
+   "note": null,
+   "section": "DX-A2 (sổ gu G-002)",
+   "threshold": "≥ 8 phrases measured; repeats ≤ 5% of phrases; never 2 repeated phrases in a row",
+   "fingerprint": "2ef4ab7a79e5208a",
+   "tier": "REFERENCE",
+   "seconds": 3.8
+  },
+  {
+   "id": "T3",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/audio/stems/whoosh.wav|flac",
+   "section": "DX-R6 (sổ gu G-003)",
+   "threshold": "every entry 150–400 ms; master ≥ −80 dBFS and room stem ≥ −75 dBFS through every silence; ≥ 1 silence",
+   "fingerprint": "aae85b30becf5024",
+   "tier": "REFERENCE",
+   "seconds": 8.0
+  },
+  {
+   "id": "L1",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/audio/stems/whoosh.wav|flac",
+   "section": "DX-A1, DX-A9 (sổ gu G-006)",
+   "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
+   "fingerprint": "01832a4e805c145e",
+   "tier": "MAJOR",
+   "seconds": 18.1
+  },
+  {
+   "id": "REG",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "regressions",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": "first version: nothing to compare",
+   "section": "CH §5, §4 khâu 3 (cổng hồi quy)",
+   "threshold": "0 regressions of BLOCK rules (a --first run has nothing to compare and passes; no baseline and no --first = MISSING)",
+   "fingerprint": "edef7b9f85c08547",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  }
+ ]
+}

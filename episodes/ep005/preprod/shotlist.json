@@ -1,0 +1,256 @@
+{
+ "shots": [
+  {
+   "id": "a-s01-s03:m_pull",
+   "scene": "S01",
+   "size": "world",
+   "move": "pull",
+   "moveReason": "lời \"Do you buy now … or keep renting\": cần thấy cả hai lối → lùi máy"
+  },
+  {
+   "id": "a-s01-s03:m_c2",
+   "scene": "S01",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"On the schedule alone\": lịch trả nợ là một đường theo thời gian → đồ thị"
+  },
+  {
+   "id": "a-s01-s03:m_pan",
+   "scene": "S02",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời \"On paper means…\": định nghĩa cần hai chồng cạnh nhau → lia"
+  },
+  {
+   "id": "a-s01-s03:m_c5",
+   "scene": "S03",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"…getting the insurance removed\": bảo hiểm gắn với căn nhà → thế giới"
+  },
+  {
+   "id": "a-s01-s03:m_c6",
+   "scene": "S03",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"the loan owner's rule … a 75 percent bar\": mức cố định thứ hai trên đúng đồ thị định nghĩa → đồ thị"
+  },
+  {
+   "id": "a-s01-s03:m_c7",
+   "scene": "S03",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"three illustrative buyers\": là người → thế giới"
+  },
+  {
+   "id": "b-s04-s09:m_push",
+   "scene": "S04",
+   "size": "world",
+   "move": "push",
+   "moveReason": "lời \"the borrower pays for it, month after month\": người vay + lịch → đẩy máy"
+  },
+  {
+   "id": "b-s04-s09:m_e",
+   "scene": "S05",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"Here's an illustrative example\": ví dụ là các con số → đồ thị"
+  },
+  {
+   "id": "b-s04-s09:m_pay",
+   "scene": "S05",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời \"At September's average mortgage rate\": khoản vay → khoản trả theo kỳ → lia"
+  },
+  {
+   "id": "b-s04-s09:m_law",
+   "scene": "S06",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời \"By federal law … once the schedule says…\": mốc nằm ở mười năm đầu của chính đường này → đẩy máy"
+  },
+  {
+   "id": "b-s04-s09:m_wide",
+   "scene": "S08",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời \"Both dates come from the schedule alone\": cả đường + căn nhà ngoài khung → lùi máy"
+  },
+  {
+   "id": "b-s04-s09:m_val",
+   "scene": "S08",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"based on the home's current value\": giá trị là của căn nhà → thế giới"
+  },
+  {
+   "id": "b-s04-s09:m_def",
+   "scene": "S09",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"the same balance becomes a smaller share\": tỉ lệ là số → đồ thị"
+  },
+  {
+   "id": "b-s04-s09:m_mr",
+   "scene": "S09",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "hết Hồi 1, câu hỏi \"how fast … buyers there?\": phố (mỗi nhà một tháng mua) → thế giới, rồi MR1 lặng"
+  },
+  {
+   "id": "c-s10-s14:m_pan",
+   "scene": "S10",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "lời \"For each one, we set up the same … loan\": đi dọc phố, từng tháng mua → lia"
+  },
+  {
+   "id": "c-s10-s14:m_push",
+   "scene": "S10",
+   "size": "world",
+   "move": "push",
+   "moveReason": "lời \"Every month after that, we compare…\": một tháng mua cụ thể → đẩy máy"
+  },
+  {
+   "id": "c-s10-s14:m_fold",
+   "scene": "S10",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"Each bar here is one purchase month\": mọi tháng mua trên một biểu đồ → đồ thị"
+  },
+  {
+   "id": "c-s10-s14:m_but",
+   "scene": "S11",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"But that's on paper\": về căn nhà, khiên vẫn trên mái → thế giới"
+  },
+  {
+   "id": "c-s10-s14:m_tally",
+   "scene": "S12",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"We also checked a larger set\": 403 cột là số → đồ thị"
+  },
+  {
+   "id": "c-s10-s14:m_row",
+   "scene": "S12",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"The typical case also hides a long tail\": dãy cột nhìn nghiêng, đuôi nhô lên → thế giới"
+  },
+  {
+   "id": "c-s10-s14:m_bars",
+   "scene": "S13",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"took more than five years\": ngưỡng 60 tháng là số → đồ thị"
+  },
+  {
+   "id": "c-s10-s14:m_zoom",
+   "scene": "S13",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời \"The slowest was October 2005\": khung phóng vào cột cao nhất → đẩy máy"
+  },
+  {
+   "id": "c-s10-s14:m_hood",
+   "scene": "S14",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"no single home tracks it\": nhiều căn nhà, một chỉ số → thế giới"
+  },
+  {
+   "id": "c-s10-s14:m_buy",
+   "scene": "S14",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "lời \"why did the same rule give such different answers?\": ba người mua trả lời → lia"
+  },
+  {
+   "id": "d-s15-s20:m_g",
+   "scene": "S15",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"Grace bought in June 2014, at 4.16 percent\": các số của cô → đồ thị (sau 5 s đầu đoạn — quy tắc 7 của build_seg)"
+  },
+  {
+   "id": "d-s15-s20:m_o",
+   "scene": "S15",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời \"Owen bought…\": người mua thứ hai → lia"
+  },
+  {
+   "id": "d-s15-s20:m_v",
+   "scene": "S16",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời \"Victor bought the year after Owen\": người mua thứ ba → lia"
+  },
+  {
+   "id": "d-s15-s20:m_vw",
+   "scene": "S17",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"Whether a lender would have dropped his insurance\": căn nhà + khiên → thế giới"
+  },
+  {
+   "id": "d-s15-s20:m_all",
+   "scene": "S17",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"Same rule, same national index\": ba làn cùng gốc → đồ thị"
+  },
+  {
+   "id": "d-s15-s20:m_bench",
+   "scene": "S18",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời \"a plan can be measured against two benchmarks\": mở khung cho hai mốc → lùi máy"
+  },
+  {
+   "id": "d-s15-s20:m_down",
+   "scene": "S18",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời \"the other path, 20 percent down\": về hai chồng giá → lia"
+  },
+  {
+   "id": "d-s15-s20:m_fork",
+   "scene": "S18",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"doesn't weigh that against renting or waiting\": hai lối ngang nhau → thế giới"
+  },
+  {
+   "id": "d-s15-s20:m_card",
+   "scene": "S18",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"How we know this … is on this card\": thẻ phương pháp có số → đồ thị"
+  },
+  {
+   "id": "d-s15-s20:m_q",
+   "scene": "S19",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"So how long does the insurance last?\": câu hỏi mở đầu trở lại → thế giới"
+  },
+  {
+   "id": "d-s15-s20:m_ans",
+   "scene": "S20",
+   "size": "chart",
+   "move": "mode (fly)",
+   "moveReason": "lời \"On the schedule … on paper … from about a year to more than 9 years\": số → đồ thị"
+  },
+  {
+   "id": "d-s15-s20:m_end",
+   "scene": "S20",
+   "size": "world",
+   "move": "mode (fly)",
+   "moveReason": "lời \"on paper is never the same as removed\": khiên trên mái → thế giới"
+  }
+ ]
+}

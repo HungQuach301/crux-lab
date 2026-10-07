@@ -1,0 +1,18 @@
+{
+ "assets": [
+  {
+   "name": "Inter",
+   "kind": "font",
+   "family": "Inter",
+   "paths": [
+    "../../toolkit/render/fonts/inter-latin-*.woff2"
+   ]
+  }
+ ],
+ "generated": [
+  {
+   "glob": "work/world-data/derived.json",
+   "generator": "world/derive.py"
+  }
+ ]
+}

@@ -96,6 +96,21 @@ def resolve_params(p, R, t0, anchors, shot_id, key=''):
     return p
 
 
+def frame_size(orient, res):
+    """Khung render theo `res` của episode.yaml (1080 → 1920×1080; 720 → 1280×720; 540 → 960×540 bản xem trước của đoạn thế giới)."""
+    size = [1920, 1080] if orient == 'h' else [1080, 1920]
+    return size if res == 1080 else [round(x * res / 1080) for x in size]
+
+
+def blank_picture(out, size, fps, total):
+    """Tập chỉ có đoạn thế giới: hình nền đen đúng round(total·fps) khung, cùng thông số mã hoá master (splice thay mọi khung)."""
+    import splice as SPLICE   # world/splice.py: encode_args = thông số H.264 của render.js
+    n = round(total * fps)
+    sh(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', f'color=c=black:s={size[0]}x{size[1]}:r={fps}', '-frames:v', str(n),
+        *SPLICE.encode_args(ENCODE_H, fps), out])
+    return n
+
+
 def srt_time(t):
     ms = int(round(t * 1000))
     return f'{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}'
@@ -238,9 +253,7 @@ class Build:
     def render(self, name, shots, orient, total, hook=None, encode=None):
         """shots: [{id, template, t0, t1, p}] in job-local seconds. Returns the ordered segment files (cache paths)."""
         fps, res = self.fps, self.S.get('res', 1080)
-        size = [1920, 1080] if orient == 'h' else [1080, 1920]
-        if res == 720:
-            size = [round(x * 2 / 3) for x in size]
+        size = frame_size(orient, res)
         encode = encode or (ENCODE_H if orient == 'h' else {'crf': 14, 'preset': 'fast'})
         base = {'orient': orient, 'res': res, 'fps': fps, 'fmt': self.fmt, 'quality': 0.95, 'encode': encode, 'hook': hook,
                 'code': self.code_hash, 'inputs': self.inputs_hash}
@@ -308,6 +321,13 @@ class Build:
 
     def do_render(self):
         shots = [{k: s[k] for k in ('id', 'template', 't0', 't1', 'p')} for s in self.tl['shots']]
+        if not shots:   # D-010: mọi cảnh là đoạn thế giới (world:) → không có shot 2D; nền đen đúng số khung, splice thay toàn bộ
+            if not self.S.get('world'):
+                raise SystemExit('render: no 2D shot and no world segment')
+            self.picture = os.path.join(self.work, 'picture.mp4')
+            n = blank_picture(self.picture, frame_size('h', self.S.get('res', 1080)), self.fps, self.total)
+            json.dump([], open(os.path.join(self.work, 'frame-log.json'), 'w'))
+            return {'segments': 0, 'rendered': 0, 'cache_hits': 0, 'frames': n, 'blank': True}
         segs, st = self.render(self.S['episode'], shots, 'h', self.total)
         self.picture = os.path.join(self.work, 'picture.mp4')
         self.concat(segs, self.picture)

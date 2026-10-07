@@ -1,0 +1,2583 @@
+{
+ "claims": [
+  {
+   "claimId": "rate_month_latest",
+   "value": "2026-09-01",
+   "display": "September 2026",
+   "unit": "rate_month_latest",
+   "formula": "rate_month_latest",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S06",
+     "sentence": "S06.1"
+    }
+   ]
+  },
+  {
+   "claimId": "rate_latest",
+   "value": 6.8625,
+   "display": "6.86%",
+   "unit": "rate_latest",
+   "formula": "rate_latest",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.1"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.1"
+    }
+   ]
+  },
+  {
+   "claimId": "rate_partial",
+   "value": 7.28,
+   "display": "7.28% (1 week)",
+   "unit": "rate_partial",
+   "formula": "rate_partial",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "sched80_months_latest",
+   "value": 99,
+   "display": "99 payments (~8 years)",
+   "unit": "sched80_months_latest",
+   "formula": "sched80_months_latest",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.1"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.1"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.2"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.2"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.2"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.3"
+    },
+    {
+     "scene": "S20",
+     "sentence": "S20.2"
+    }
+   ]
+  },
+  {
+   "claimId": "sched78_months_latest",
+   "value": 114,
+   "display": "114 payments (9.5 years)",
+   "unit": "sched78_months_latest",
+   "formula": "sched78_months_latest",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.1"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.2"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.3"
+    }
+   ]
+  },
+  {
+   "claimId": "midpoint_months",
+   "value": 180,
+   "display": "15 years (ends month 181)",
+   "unit": "midpoint_months",
+   "formula": "midpoint_months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "midpoint_end_month",
+   "value": 181,
+   "display": "181",
+   "unit": "midpoint_end_month",
+   "formula": "midpoint_end_month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "midpoint_binding_rate_min",
+   "value": 12.56,
+   "display": "12.56%",
+   "unit": "midpoint_binding_rate_min",
+   "formula": "midpoint_binding_rate_min",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "midpoint_binding_last_month",
+   "value": "1985-05-01",
+   "display": "May 1985",
+   "unit": "midpoint_binding_last_month",
+   "formula": "midpoint_binding_last_month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "sched80_min_A",
+   "value": 58,
+   "display": "58",
+   "unit": "sched80_min_A",
+   "formula": "sched80_min_A",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "sched80_max_A",
+   "value": 132,
+   "display": "132",
+   "unit": "sched80_max_A",
+   "formula": "sched80_max_A",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "rate_min_A",
+   "value": 2.684,
+   "display": "2.68%",
+   "unit": "rate_min_A",
+   "formula": "rate_min_A",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "rate_max_A",
+   "value": 9.6375,
+   "display": "9.64%",
+   "unit": "rate_max_A",
+   "formula": "rate_max_A",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "nA",
+   "value": 403,
+   "display": "403",
+   "unit": "nA",
+   "formula": "nA",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S12",
+     "sentence": "S12.2"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.3"
+    }
+   ]
+  },
+  {
+   "claimId": "firstA",
+   "value": "1991-01-01",
+   "display": "January 1991",
+   "unit": "firstA",
+   "formula": "firstA",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "lastA",
+   "value": "2024-07-01",
+   "display": "July 2024",
+   "unit": "lastA",
+   "formula": "lastA",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "shareA_ltv24_le80",
+   "value": 0.5856079404466501,
+   "display": "58.6%",
+   "unit": "shareA_ltv24_le80",
+   "formula": "shareA_ltv24_le80",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "shareA_ltv24_le75",
+   "value": 0.15632754342431762,
+   "display": "15.6%",
+   "unit": "shareA_ltv24_le75",
+   "formula": "shareA_ltv24_le75",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S12",
+     "sentence": "S12.3"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.4"
+    }
+   ]
+  },
+  {
+   "claimId": "nB",
+   "value": 307,
+   "display": "307",
+   "unit": "nB",
+   "formula": "nB",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    }
+   ]
+  },
+  {
+   "claimId": "firstB",
+   "value": "1991-01-01",
+   "display": "January 1991",
+   "unit": "firstB",
+   "formula": "firstB",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "lastB",
+   "value": "2016-07-01",
+   "display": "July 2016",
+   "unit": "lastB",
+   "formula": "lastB",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "medianB_months_to80",
+   "value": 23,
+   "display": "23",
+   "unit": "medianB_months_to80",
+   "formula": "medianB_months_to80",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.1"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.4"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.4"
+    },
+    {
+     "scene": "S11",
+     "sentence": "S11.1"
+    },
+    {
+     "scene": "S11",
+     "sentence": "S11.2"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.2"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.4"
+    }
+   ]
+  },
+  {
+   "claimId": "minB_months_to80",
+   "value": 13,
+   "display": "13",
+   "unit": "minB_months_to80",
+   "formula": "minB_months_to80",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    },
+    {
+     "scene": "S20",
+     "sentence": "S20.2"
+    }
+   ]
+  },
+  {
+   "claimId": "shareB_over60",
+   "value": 0.1465798045602606,
+   "display": "14.7%",
+   "unit": "shareB_over60",
+   "formula": "shareB_over60",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.2"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.4"
+    }
+   ]
+  },
+  {
+   "claimId": "maxB_months_to80",
+   "value": 112,
+   "display": "112",
+   "unit": "maxB_months_to80",
+   "formula": "maxB_months_to80",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.1"
+    },
+    {
+     "scene": "S20",
+     "sentence": "S20.2"
+    }
+   ]
+  },
+  {
+   "claimId": "maxB_start",
+   "value": "2005-10-01",
+   "display": "October 2005",
+   "unit": "maxB_start",
+   "formula": "maxB_start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    }
+   ]
+  },
+  {
+   "claimId": "shareB_le_sched80",
+   "value": 0.9055374592833876,
+   "display": "90.6%",
+   "unit": "shareB_le_sched80",
+   "formula": "shareB_le_sched80",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S11",
+     "sentence": "S11.3"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_owen_purchaseMonth",
+   "value": "2004-01-01",
+   "display": "January 2004",
+   "unit": "buyer_owen_purchaseMonth",
+   "formula": "buyer_owen_purchaseMonth",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "owen",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_owen_rate",
+   "value": 5.7125,
+   "display": "5.71%",
+   "unit": "buyer_owen_rate",
+   "formula": "buyer_owen_rate",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "owen",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_owen_monthsTo80Index",
+   "value": 13,
+   "display": "13",
+   "unit": "buyer_owen_monthsTo80Index",
+   "formula": "buyer_owen_monthsTo80Index",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "owen",
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_owen_sched80Months",
+   "value": 86,
+   "display": "86",
+   "unit": "buyer_owen_sched80Months",
+   "formula": "buyer_owen_sched80Months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "owen",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_owen_sched78Months",
+   "value": 100,
+   "display": "100",
+   "unit": "buyer_owen_sched78Months",
+   "formula": "buyer_owen_sched78Months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "owen",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_owen_hpiChangeTo80Pct",
+   "value": 11.168413464204496,
+   "display": "+11.2%",
+   "unit": "buyer_owen_hpiChangeTo80Pct",
+   "formula": "buyer_owen_hpiChangeTo80Pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "owen",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_owen_ltvIndexAt24",
+   "value": 0.7246948318033396,
+   "display": "72.5%",
+   "unit": "buyer_owen_ltvIndexAt24",
+   "formula": "buyer_owen_ltvIndexAt24",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "owen",
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_grace_purchaseMonth",
+   "value": "2014-06-01",
+   "display": "June 2014",
+   "unit": "buyer_grace_purchaseMonth",
+   "formula": "buyer_grace_purchaseMonth",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "grace",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.4"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_grace_rate",
+   "value": 4.1625,
+   "display": "4.16%",
+   "unit": "buyer_grace_rate",
+   "formula": "buyer_grace_rate",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "grace",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.4"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_grace_monthsTo80Index",
+   "value": 23,
+   "display": "23",
+   "unit": "buyer_grace_monthsTo80Index",
+   "formula": "buyer_grace_monthsTo80Index",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "grace",
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.4"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_grace_sched80Months",
+   "value": 71,
+   "display": "71",
+   "unit": "buyer_grace_sched80Months",
+   "formula": "buyer_grace_sched80Months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "grace",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.4"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_grace_sched78Months",
+   "value": 83,
+   "display": "83",
+   "unit": "buyer_grace_sched78Months",
+   "formula": "buyer_grace_sched78Months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "grace",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.4"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_grace_hpiChangeTo80Pct",
+   "value": 9.773249138920793,
+   "display": "+9.8%",
+   "unit": "buyer_grace_hpiChangeTo80Pct",
+   "formula": "buyer_grace_hpiChangeTo80Pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "grace",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.4"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_grace_ltvIndexAt24",
+   "value": 0.7835232367178443,
+   "display": "78.4%",
+   "unit": "buyer_grace_ltvIndexAt24",
+   "formula": "buyer_grace_ltvIndexAt24",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "grace",
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.4"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_purchaseMonth",
+   "value": "2005-10-01",
+   "display": "October 2005",
+   "unit": "buyer_victor_purchaseMonth",
+   "formula": "buyer_victor_purchaseMonth",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_rate",
+   "value": 6.065,
+   "display": "6.07%",
+   "unit": "buyer_victor_rate",
+   "formula": "buyer_victor_rate",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_monthsTo80Index",
+   "value": 112,
+   "display": "112",
+   "unit": "buyer_victor_monthsTo80Index",
+   "formula": "buyer_victor_monthsTo80Index",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_sched80Months",
+   "value": 90,
+   "display": "90",
+   "unit": "buyer_victor_sched80Months",
+   "formula": "buyer_victor_sched80Months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_sched78Months",
+   "value": 104,
+   "display": "104",
+   "unit": "buyer_victor_sched78Months",
+   "formula": "buyer_victor_sched78Months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_hpiChangeTo80Pct",
+   "value": -3.282093892812621,
+   "display": "-3.3%",
+   "unit": "buyer_victor_hpiChangeTo80Pct",
+   "formula": "buyer_victor_hpiChangeTo80Pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_ltvIndexAt24",
+   "value": 0.8669564107820742,
+   "display": "86.7%",
+   "unit": "buyer_victor_ltvIndexAt24",
+   "formula": "buyer_victor_ltvIndexAt24",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "mspus_latest",
+   "value": 410700.0,
+   "display": "$410,700 (Q2 2026)",
+   "unit": "mspus_latest",
+   "formula": "mspus_latest",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    }
+   ]
+  },
+  {
+   "claimId": "mspus_quarter",
+   "value": "2026-04-01",
+   "display": "April 2026",
+   "unit": "mspus_quarter",
+   "formula": "mspus_quarter",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "ex_price",
+   "value": 400000,
+   "display": "$400,000",
+   "unit": "illustrativePrice",
+   "formula": "illustrativePrice",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.5"
+    }
+   ]
+  },
+  {
+   "claimId": "ex_loan",
+   "value": 360000.0,
+   "display": "$360,000",
+   "unit": "ex_loan",
+   "formula": "ex_loan",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    }
+   ]
+  },
+  {
+   "claimId": "ex_down",
+   "value": 40000.0,
+   "display": "$40,000",
+   "unit": "ex_down",
+   "formula": "ex_down",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "ex_payment_pi",
+   "value": 2361.937674158231,
+   "display": "$2,362/month",
+   "unit": "ex_payment_pi",
+   "formula": "ex_payment_pi",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S06",
+     "sentence": "S06.1"
+    }
+   ]
+  },
+  {
+   "claimId": "ex_target80",
+   "value": 320000.0,
+   "display": "$320,000",
+   "unit": "ex_target80",
+   "formula": "ex_target80",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S07",
+     "sentence": "S07.1"
+    }
+   ]
+  },
+  {
+   "claimId": "ex_target78",
+   "value": 312000.0,
+   "display": "$312,000",
+   "unit": "ex_target78",
+   "formula": "ex_target78",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "basis": "nominal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.1"
+    }
+   ]
+  },
+  {
+   "claimId": "ex_extra_down_for_20",
+   "value": 39999.999999999985,
+   "display": "$40,000 more",
+   "unit": "ex_extra_down_for_20",
+   "formula": "ex_extra_down_for_20",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "basis": "nominal",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.5"
+    }
+   ]
+  },
+  {
+   "claimId": "value_removal_ltv_early",
+   "value": 0.75,
+   "display": "75%",
+   "unit": "lenderLtvEarly",
+   "formula": "lenderLtvEarly",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.3"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.3"
+    }
+   ]
+  },
+  {
+   "claimId": "pmi_required_below20",
+   "value": 0.8,
+   "display": "under 20% down",
+   "unit": "requestLtv",
+   "formula": "requestLtv",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.1"
+    }
+   ]
+  },
+  {
+   "claimId": "slowB_n",
+   "value": 45,
+   "display": "45",
+   "unit": "slowB_n",
+   "formula": "slowB_n",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.3"
+    }
+   ]
+  },
+  {
+   "claimId": "slowB_years",
+   "value": [
+    2005,
+    2006,
+    2007,
+    2008,
+    2009
+   ],
+   "display": "[2005, 2006, 2007, 2008, 2009]",
+   "unit": "slowB_years",
+   "formula": "slowB_years",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.3"
+    }
+   ]
+  },
+  {
+   "claimId": "slowB_first",
+   "value": "2005-05-01",
+   "display": "May 2005",
+   "unit": "slowB_first",
+   "formula": "slowB_first",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "slowB_last",
+   "value": "2009-02-01",
+   "display": "February 2009",
+   "unit": "slowB_last",
+   "formula": "slowB_last",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "on-paper",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "hpi_peak_month",
+   "value": "2007-06-01",
+   "display": "June 2007 (index 226.0)",
+   "unit": "hpi_peak_month",
+   "formula": "hpi_peak_month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.3"
+    }
+   ]
+  },
+  {
+   "claimId": "hpi_peak",
+   "value": 226.0,
+   "display": "226.0",
+   "unit": "hpi_peak",
+   "formula": "hpi_peak",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "hpi_trough_month",
+   "value": "2012-01-01",
+   "display": "January 2012 (index 175.8, −22.2% from peak)",
+   "unit": "hpi_trough_month",
+   "formula": "hpi_trough_month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.3"
+    }
+   ]
+  },
+  {
+   "claimId": "hpi_trough",
+   "value": 175.8,
+   "display": "175.8",
+   "unit": "hpi_trough",
+   "formula": "hpi_trough",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "hpi_peak_to_trough_pct",
+   "value": -22.212389380530972,
+   "display": "−22.2%",
+   "unit": "hpi_peak_to_trough_pct",
+   "formula": "hpi_peak_to_trough_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "buyer_victor_index_peak",
+   "value": 0.043253473664774056,
+   "display": "+4.3% at month 20 (June 2007)",
+   "unit": "fraction:buyer_victor_indexPeakPct",
+   "formula": "fraction:buyer_victor_indexPeakPct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_index_peak_month",
+   "value": 20,
+   "display": "20",
+   "unit": "buyer_victor_indexPeakMonth",
+   "formula": "buyer_victor_indexPeakMonth",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_index_trough",
+   "value": -0.18847805013156063,
+   "display": "−18.8% at month 75 (January 2012)",
+   "unit": "fraction:buyer_victor_indexTroughPct",
+   "formula": "fraction:buyer_victor_indexTroughPct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "buyer_victor_index_trough_month",
+   "value": 75,
+   "display": "75",
+   "unit": "buyer_victor_indexTroughMonth",
+   "formula": "buyer_victor_indexTroughMonth",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "victor",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.3"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "robust_cs_medianB",
+   "value": 23,
+   "display": "23",
+   "unit": "robust_cs_medianB_months_to80",
+   "formula": "robust_cs_medianB_months_to80",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "robust_cs_maxB",
+   "value": 119,
+   "display": "119",
+   "unit": "robust_cs_maxB_months_to80",
+   "formula": "robust_cs_maxB_months_to80",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "robust_cs_maxB_start",
+   "value": "2006-04-01",
+   "display": "April 2006",
+   "unit": "robust_cs_maxB_start",
+   "formula": "robust_cs_maxB_start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "robust_cs_shareB_over60",
+   "value": 0.1465798045602606,
+   "display": "14.7%",
+   "unit": "robust_cs_shareB_over60",
+   "formula": "robust_cs_shareB_over60",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "robust_cs_shareA_le80",
+   "value": 0.5607940446650124,
+   "display": "56.1%",
+   "unit": "robust_cs_shareA_ltv24_le80",
+   "formula": "robust_cs_shareA_ltv24_le80",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "robust_cs_shareA_le75",
+   "value": 0.23325062034739455,
+   "display": "23.3%",
+   "unit": "robust_cs_shareA_ltv24_le75",
+   "formula": "robust_cs_shareA_ltv24_le75",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "pmi_premium",
+   "value": null,
+   "display": "—",
+   "unit": "rule",
+   "formula": "rule (numbers.md)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.3"
+    }
+   ]
+  },
+  {
+   "claimId": "borrower_request_conditions",
+   "value": "written request, good payment history, current, no subordinate lien",
+   "display": "written request · current on payments",
+   "unit": "rule",
+   "formula": "rule (numbers.md)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S07",
+     "sentence": "S07.1"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.3"
+    }
+   ]
+  },
+  {
+   "claimId": "value_removal_rule",
+   "value": "lender/investor rule",
+   "display": "loan owner's rule",
+   "unit": "rule",
+   "formula": "rule (numbers.md)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.3"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.3"
+    }
+   ]
+  },
+  {
+   "claimId": "value_removal_seasoning_years",
+   "value": 2,
+   "display": "2 years",
+   "unit": "rule",
+   "formula": "rule (numbers.md)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.3"
+    }
+   ]
+  }
+ ]
+}

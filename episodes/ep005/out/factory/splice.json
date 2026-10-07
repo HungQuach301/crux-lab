@@ -1,0 +1,187 @@
+{
+ "episode": "ep005",
+ "fps": 30,
+ "segments": [
+  {
+   "id": "a-s01-s03",
+   "scenes": [
+    "S01",
+    "S02",
+    "S03"
+   ],
+   "t0": 0.0,
+   "t1": 58.0001,
+   "f0": 0,
+   "f1": 1740,
+   "frames": 1740,
+   "video": "episodes/ep005/work/factory/world/a-s01-s03-540.mp4",
+   "video_sha256": "a6f7c7b7b453b34ac85b6778311f2daaf27673f5ab75cffe22d50fb6ed83de11",
+   "stems": {
+    "data": "ef7256bab7a5a7787f119f768a3b079ad0762bdefe75bfff05b8c45333b94c94",
+    "music": "3be3849cea58ae765de9ddd62ca042d45117d17546c3a8cf5c38467b36ffa1b9",
+    "room": "8049b9c83a203e3bf7244008b559ce48765d643ae784cbd1bcab3a2ddd701685",
+    "sfx": "866abf618e3e110125cc4f40b3cd63134dd9908d0522ea28075293b2e06e6657",
+    "voice": "659438089d064b6a4ea28881ab744c8a3aefa4dd6eec5a0811c2a249d1c11702"
+   }
+  },
+  {
+   "id": "b-s04-s09",
+   "scenes": [
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09"
+   ],
+   "t0": 58.0001,
+   "t1": 185.2001,
+   "f0": 1740,
+   "f1": 5556,
+   "frames": 3816,
+   "video": "episodes/ep005/work/factory/world/b-s04-s09-540.mp4",
+   "video_sha256": "432f134a64a4e2089f61d81276b9d878fb895c3d38dfe07bfd4e3f35e911fe5a",
+   "stems": {
+    "data": "2dddf76aa322f7718d62cd5931aa1f2b9a3ae89caffccce68ebc6a336f828c34",
+    "music": "10c156da7ac35bf1d1525ac3db3f317e9612c4ee6ebbf783aa2b8b99240e11c4",
+    "room": "74b0306db0586a0c7e8c85f807b7be847204eb3be9a643a630433470fad9cd1a",
+    "sfx": "4a21fb437391335a12251e417131769ff4cbac5189493fc4c266f8e59097a611",
+    "voice": "c8a5d0fe3cdd2357fbd1954ab57564b2d3a228ed6f9ac8f3818e2f721e7b0ed1"
+   }
+  },
+  {
+   "id": "c-s10-s14",
+   "scenes": [
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14"
+   ],
+   "t0": 185.2001,
+   "t1": 317.8335,
+   "f0": 5556,
+   "f1": 9535,
+   "frames": 3979,
+   "video": "episodes/ep005/work/factory/world/c-s10-s14-540.mp4",
+   "video_sha256": "f9fcea682090d47ac1f93526bde71b497ee0ca9e8fbd569a0aa552f583ae28da",
+   "stems": {
+    "data": "6290509e6ac2fcbb636c01465e8b129d01a6d8ea7a01a7dd0d5c2b659c96a0c1",
+    "music": "7fff5d2f7058a5d7805041937fc981889cfe07a67a5478d9d711eac26e8bdd55",
+    "room": "e087d420d2a684e5b9394470e6dc8b2be32b7b3b05d22396ce0223e4f6186adc",
+    "sfx": "6b0b30911031d42b824ab07e3fe8764a625d6acc16b07062b47c29fe6ef62ba4",
+    "voice": "34c68ef8e35158b5f5e90946d5ede242f7a803fa1f9f7b0af1b0c62fc55fdaf8"
+   }
+  },
+  {
+   "id": "d-s15-s20",
+   "scenes": [
+    "S15",
+    "S16",
+    "S17",
+    "S18",
+    "S19",
+    "S20"
+   ],
+   "t0": 317.8335,
+   "t1": 462.6335,
+   "f0": 9535,
+   "f1": 13879,
+   "frames": 4344,
+   "video": "episodes/ep005/work/factory/world/d-s15-s20-540.mp4",
+   "video_sha256": "d78f2aa3f38bae399580e5a9efd5654706d421cb12fca44b2dca43880b3b1b5b",
+   "stems": {
+    "data": "8afbc30559eabc1c9ee3be968cf0a219477dc584cca85e3d9556a33ae7047a66",
+    "music": "3edba2545fbf32a3e518a5546757963ed057f3d398b11651a46085c9de8b2cb6",
+    "room": "90f9e40f158637f0b60ff0622d7e03520b2bf00c50d2a16179613f9a6a8a64c1",
+    "sfx": "1356fd267395553e00fc0cbd4728b6ccc261e37e7616ca2f7d45dc7fe98d11b9",
+    "voice": "589bce986cd2a90f9cc8d3dae213c5744ef83ff9620cc9388a2ae21a7648cd66"
+   }
+  }
+ ],
+ "picture": {
+  "in": "episodes/ep005/work/factory/picture.mp4",
+  "in_sha256": "02ebf81353b7b511e9b6224545c1245bed4dc0aa773cedeec264adf274cfdee8",
+  "out": "episodes/ep005/work/factory/picture-spliced.mp4",
+  "out_sha256": "1d7c684ac8c31e23e795ddcb1221ae2f80dabc0ea0cbcd3f883439cd223b693a",
+  "frames": 13879,
+  "encode": {
+   "cbr": "17M",
+   "preset": "fast"
+  }
+ },
+ "frame_log_dropped": 0,
+ "audio": {
+  "segments": [
+   {
+    "id": "a-s01-s03",
+    "gain_db": -4.53,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -40.9,
+     "sonify": -51.1,
+     "sfx": -48.5,
+     "room": -65.0
+    },
+    "bed_off": true
+   },
+   {
+    "id": "b-s04-s09",
+    "gain_db": -4.72,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -42.5,
+     "sonify": -49.7,
+     "sfx": -52.4,
+     "room": -64.8
+    },
+    "bed_off": true
+   },
+   {
+    "id": "c-s10-s14",
+    "gain_db": -4.74,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -36.7,
+     "sonify": -51.1,
+     "sfx": -49.8,
+     "room": -65.0
+    },
+    "bed_off": true
+   },
+   {
+    "id": "d-s15-s20",
+    "gain_db": -4.52,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -40.1,
+     "sonify": -51.5,
+     "sfx": -51.7,
+     "room": -64.9
+    },
+    "bed_off": true
+   }
+  ],
+  "stems": [
+   "music",
+   "room",
+   "sfx",
+   "sonify",
+   "voice"
+  ],
+  "peak_scale": 1.0,
+  "stems_sha256": {
+   "music": "9158cbb11cd1dd84411be6ae1372a9169c4fbb87a68c9a9dff2db97dd6088230",
+   "room": "2c558f4ff32ba005fb1809e5f635104f4128d7b613e756657539052fa4675525",
+   "sfx": "089f83247055abedf370372bf86d850c47b6b388654cbb611b05e57ef6a86e20",
+   "sonify": "50e388a7c8c6850d1ba10994ba2e46272bb83d8d2010678e869078505b879e61",
+   "voice": "cafeedacba528090d9a9212f8dd987d45b66e9518c5ec243a6238f5210f9cf50"
+  },
+  "mix_raw_sha256": "209994399aff57de76aab91243fa9c068f4256d83a552bb1eb73ddb7c4190f8f",
+  "master_wav_sha256": "3b7d95df5ae6f9129735c51b458a22da1711ef746399d4980fe891c3b37ad0eb"
+ },
+ "video": {
+  "file": "episodes/ep005/work/factory/video.mp4",
+  "sha256": "0b448f9378240349b9295ebea8677c6fcef9c6c1c664e1047a401806c26422e8"
+ }
+}
