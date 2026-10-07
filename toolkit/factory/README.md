@@ -10,7 +10,7 @@ Một lệnh: `bash toolkit/build.sh episodes/epNNN/episode.yaml [--workers 4] [
 | `render.js` + `page.html` | Playwright, mỗi worker một trang; khung trung gian JPEG q 0,95 (hoặc RGBA để đo); mỗi đoạn một file H.264 ghép bằng concat copy; log engine mỗi 6 khung |
 | `lib/engine.js`, `lib/templates.js` | Engine canvas (sàn chữ, tương phản, vùng an toàn, va chạm, nhãn ILLUSTRATIVE/history, đẩy máy) và 10 mẫu |
 | `music.py` | Trộn lời + nhạc nền ở mức Tập 3 (A07 20 dB, né 1–4 kHz 13 dB), ghi stem voice/music |
-| `qc.py` | Luật làm việc của bên dựng (không thay `checks/`) → `out/factory/qc.md` |
+| `qc.py` | Luật làm việc của bên dựng (không thay `checks/`) → `out/factory/qc.md`; F-2 hộp chữ giao nhau = CẢNH BÁO (không làm trượt) |
 | `excerpt_checks.py` | Chạy các luật `checks/` không cần trang trên đoạn trích (kiểm LOCK trước) |
 
 File nặng (video, cache đoạn, wav) ở `episodes/epNNN/work/factory/` (không commit); báo cáo ở `episodes/epNNN/out/factory/`.
@@ -36,15 +36,16 @@ Giới hạn: shot 2D của cảnh bị thay vẫn render (cache) dù không và
 | File | Việc |
 |---|---|
 | `lib3d.js` | Thư viện vật thể có tham số W1–W9 (nhà, chồng tiền mệnh giá cố định, xà, người không mặt, vệt, bó đường, khiên, khu phố, căn hộ) — `visual-library` §5 |
-| `core.js` | Máy quay theo tư thế + động tác hữu hạn từ spine, trọng số chế độ đồ thị, lớp phủ 2D (chữ ≥ 48 px, nền mờ), nhật ký quy tắc 1 |
+| `core.js` | Máy quay theo tư thế + động tác hữu hạn từ spine, trọng số chế độ đồ thị, lớp phủ 2D (chữ ≥ 48 px, nền mờ), nhật ký quy tắc 1 + F-2 (chữ có thứ tự vẽ `n`/`plate`; `lines` = nét moveTo/lineTo của lớp phủ, toạ độ 1920×1080; đường cong và đường 3D không ghi) |
 | `spine.py` | Spine v2: `Anchors` ("@câu[:từ][$]"), `beats_from`, `window` (giữa hai từ khoá ± pad), `move_sounds`, `shots_for`, `check_rules` (2/3/7), `words_from_timeline` |
 | `onset.py` | Đầu từ = lúc nghe được (năng lượng), không phải mốc TTS |
 | `render_shots.js` + `page.html` | Render theo cảnh, cache SHA-256 (mã thư viện + cảnh + spine + dữ liệu + khoảng + độ phân giải), resume, lỗi trang = dừng, nhật ký 0,1 s |
 | `audio.py` | Lời + nhạc theo bản đồ căng (`music_plan`) + âm dữ liệu + sfx từ `spine.events`, `mix` {music_db, data_db}, −14 LUFS |
-| `verify_seg.py` | Quy tắc 1/2/3, cắt cứng, tỉ lệ chế độ, C14 (bản 1080p) trên sản phẩm cuối |
+| `verify_seg.py` | Quy tắc 1/2/3, cắt cứng, tỉ lệ chế độ, C14 (bản 1080p), F-2 trên sản phẩm cuối |
+| `sfx_labels.py` | F-2: sfx/phút, tối đa trong 10 s, sfx đè từ thường, sfx trên từ khoá (SNR lời/sfx từ stem; < 10 dB → BLOCK); hộp chữ giao nhau / đường lớp phủ (`log.lines`) cắt chữ (cả hai đọc được → BLOCK, đang mờ → WARN). Ngưỡng là hằng đầu file (tạm, A19). Chạy tay: `python3 toolkit/factory/world/sfx_labels.py <spine.json> <video.log.json> [<video>.audio]` |
 | `sync_audit.py` | Đồng bộ lời/hình/âm ±0,2 s bằng ASR (faster-whisper) — chạy tay |
 | `lint_comments.py` | Bắt "chú thích nuốt mã" |
-| `build_seg.py` | Một lệnh: lint → spine → render → audio → mux → verify; báo giờ render thật (`<out>.build.json`) |
+| `build_seg.py` | Một lệnh: lint → spine → render → audio → mux → verify (F-2 BLOCK cũng dừng); báo giờ render thật (`<out>.build.json`) |
 | `splice.py` | F-5: ghép đoạn vào master của tập — hình (thay khung, mã hoá lại một lần) + tiếng (lớp đoạn vào stem tập) + `splice.json` |
 | `vendor/package.json` | three 0.186.1 (`npm ci`; node_modules không commit) |
 

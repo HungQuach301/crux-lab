@@ -9,7 +9,8 @@ Các bước (mỗi bước dừng cả lệnh nếu trượt):
   render  render_shots.js theo cảnh có cache (chỉ cảnh đổi mới render; chạy lại = resume); lỗi trang = dừng
   audio   audio.py: lời + nhạc theo bản đồ căng + âm dữ liệu + sfx từ spine.events → mix.wav (−14 LUFS)
   mux     hình + tiếng → <out>
-  verify  verify_seg.py: quy tắc 1/2/3, cắt cứng, tỉ lệ chế độ, C14 (bản 1080p) → <out>.verify.json; quy tắc 1/2/3 hoặc cắt cứng trượt = thoát 1
+  verify  verify_seg.py: quy tắc 1/2/3, cắt cứng, tỉ lệ chế độ, C14 (bản 1080p), F-2 (mật độ sfx, nhãn đè nhau) → <out>.verify.json;
+          quy tắc 1/2/3, cắt cứng, C14 hoặc F-2 cấp BLOCK trượt = thoát 1 (F-2 WARN chỉ báo)
 Báo cáo giờ render thật (wall, s/giây phim) trong <out>.build.json (quy tắc 8: "báo giờ render và token thực").
 Đồng bộ lời–hình bằng ASR (sync_audit.py) chạy riêng vì cần faster-whisper.
 """
@@ -84,8 +85,11 @@ def main():
         fail = {'rule1': v['rule1']['violations'], 'rule2': len(v['rule2']['camera_moving_at_keyword']), 'rule3': len(v['rule3']['missing_reason_or_sound']),
                 'hard_cuts': len(v['cuts']['hard_cuts']), 'first_5s_world': v['modes']['first_5s_world']}
         c14 = v['C14'].get('violations')
-        ok = not (fail['rule1'] or fail['rule2'] or fail['rule3'] or fail['hard_cuts']) and fail['first_5s_world'] and not c14
-        return ok, {**fail, 'C14': v['C14'], 'modes': v['modes']}
+        f2 = v['F2']   # F-2: BLOCK (sfx che từ khoá / nhãn đè nhau ở trạng thái đọc) dừng build; WARN chỉ báo
+        for lv in ('block', 'warn'):
+            for m in f2[lv]: print(f'  F-2 {lv.upper()}: {m}')
+        ok = not (fail['rule1'] or fail['rule2'] or fail['rule3'] or fail['hard_cuts']) and fail['first_5s_world'] and not c14 and f2['level'] != 'BLOCK'
+        return ok, {**fail, 'C14': v['C14'], 'modes': v['modes'], 'F2': {**f2['summary'], 'block': f2['block'], 'warn': f2['warn']}}
 
     for name, fn in (('lint', lint), ('spine', spine), ('render', render), ('audio', audio), ('mux', mux), ('verify', verify)):
         step(name, fn)

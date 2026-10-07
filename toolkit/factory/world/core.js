@@ -47,11 +47,20 @@ export function Camera(poses, moves, aspect = 16 / 9) {
 export function Overlay(canvas, res) {
   const S = res / 1080; canvas.width = Math.round(1920 * S); canvas.height = Math.round(1080 * S);
   const ctx = canvas.getContext('2d');
-  let log = null, chartW = 0, camera = null;
+  let log = null, chartW = 0, camera = null, seq = 0;
   const proj = new THREE.Vector3();
+  // F-2: mọi nét stroke (moveTo/lineTo) trên lớp phủ → log.lines {n: thứ tự vẽ, a, w, seg: [[x0,y0,x1,y1]…]} ở toạ độ thiết kế 1920×1080
+  // (cả nét scene.js vẽ thẳng bằng O.ctx); sfx_labels.py kiểm đường cắt chữ. Đường cong/arc và đường 3D không ghi. Không đổi điểm ảnh.
+  let path = [], pen = null;
+  const dz = (x, y) => { const m = ctx.getTransform(); return [(m.a * x + m.c * y + m.e) / S, (m.b * x + m.d * y + m.f) / S]; };
+  const raw = { beginPath: ctx.beginPath.bind(ctx), moveTo: ctx.moveTo.bind(ctx), lineTo: ctx.lineTo.bind(ctx), stroke: ctx.stroke.bind(ctx) };
+  ctx.beginPath = () => { path = []; pen = null; raw.beginPath(); };
+  ctx.moveTo = (x, y) => { pen = dz(x, y); raw.moveTo(x, y); };
+  ctx.lineTo = (x, y) => { const p = dz(x, y); if (pen) path.push([...pen, ...p].map((v) => +v.toFixed(1))); pen = p; raw.lineTo(x, y); };
+  ctx.stroke = (...a) => { if (log && !a.length && path.length && ctx.globalAlpha > 0.01) log.lines.push({ n: seq++, a: +ctx.globalAlpha.toFixed(3), w: +ctx.lineWidth.toFixed(1), seg: path }); raw.stroke(...a); };
   const O = {
     ctx, S,
-    begin(t, cw, cam) { chartW = cw; camera = cam; log = { t, chartW: +cw.toFixed(3), texts: [], violations: [] }; ctx.setTransform(S, 0, 0, S, 0, 0); ctx.clearRect(0, 0, 1920, 1080); return log; },
+    begin(t, cw, cam) { chartW = cw; camera = cam; seq = 0; log = { t, chartW: +cw.toFixed(3), texts: [], lines: [], violations: [] }; ctx.setTransform(S, 0, 0, S, 0, 0); ctx.clearRect(0, 0, 1920, 1080); return log; },
     // toạ độ màn hình (thiết kế 1920×1080) của một điểm thế giới
     toScreen(x, y, z = 0) { proj.set(x, y, z).project(camera); return [(proj.x + 1) * 960, (1 - proj.y) * 540]; },
     // chữ: kind = 'name' | 'number' | 'compare' | 'chrome' | 'title'
@@ -65,7 +74,7 @@ export function Overlay(canvas, res) {
       const box = [x0, y - px * 0.78, x0 + w, y + px * 0.24];
       if (o.plate) { const pad = px * 0.32; ctx.fillStyle = rgba(o.plate, o.plateA ?? 0.72); roundRect(ctx, box[0] - pad, box[1] - pad * 0.7, w + 2 * pad, box[3] - box[1] + pad * 1.4, px * 0.3); ctx.fill(); }
       ctx.fillStyle = o.color || C.ink; ctx.fillText(s, x, y); ctx.restore();
-      log.texts.push({ text: s, kind, px, opacity: +a.toFixed(3), box: box.map((v) => +v.toFixed(1)) });
+      log.texts.push({ text: s, kind, px, opacity: +a.toFixed(3), box: box.map((v) => +v.toFixed(1)), n: seq++, ...(o.plate ? { plate: 1 } : {}) });
       return box;
     },
     bracket(x, y0, y1, color, a = 1, tick = 18, lw = 6) {
