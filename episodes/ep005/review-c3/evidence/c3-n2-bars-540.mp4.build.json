@@ -9,14 +9,14 @@
    "problems": []
   },
   "spine": {
-   "seconds": 0.4,
+   "seconds": 0.3,
    "ok": true,
    "stdout": [
     "checks OK"
    ]
   },
   "render": {
-   "seconds": 54.3,
+   "seconds": 54.1,
    "ok": true,
    "shots": 2,
    "rendered": [
@@ -24,21 +24,21 @@
     "s1"
    ],
    "cached": 0,
-   "wall_s": 53.8,
+   "wall_s": 53.5,
    "film_s": 14.93,
-   "wall_per_film_s_rendered": 6.03,
+   "wall_per_film_s_rendered": 5.97,
    "cores": 4
   },
   "audio": {
-   "seconds": 5.0,
+   "seconds": 4.6,
    "ok": true
   },
   "mux": {
-   "seconds": 1.0,
+   "seconds": 1.1,
    "ok": true
   },
   "verify": {
-   "seconds": 0.7,
+   "seconds": 1.0,
    "ok": true,
    "rule1": 0,
    "rule2": 0,
@@ -55,5 +55,5 @@
    }
   }
  },
- "total_seconds": 61.3
+ "total_seconds": 61.1
 }

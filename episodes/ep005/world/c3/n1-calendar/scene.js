@@ -1,4 +1,4 @@
-// Tập 5 · C3 · N1 lịch trả nợ (S06.1 + S06.3) · vòng 2 (FIX-R2.md). Mốc giờ chỉ từ spine.json; hằng số = hình học + độ dài hiệu ứng chung.
+// Tập 5 · C3 · N1 lịch trả nợ (S06.1 + S06.3) · vòng 3 (FIX-R3.md). Mốc giờ chỉ từ spine.json; hằng số = hình học + độ dài hiệu ứng chung.
 import * as THREE from 'three';
 import { House, Stack, Person, Ribbon, Studio, Shield, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
 import { Camera, Stage, loadJSON, fonts, C, lin, ease, easeOut } from '/toolkit/factory/world/core.js';
@@ -29,11 +29,10 @@ export async function boot(res) {
   const cal = Calendar({ w: 1.3, h: 1.6 }); cal.position.set(CX, 0, 0.2); scene.add(cal);
   const loan = Stack({ unitUsd: UNIT, w: 0.9, d: 0.6, maxUsd: 4e5 }); scene.add(loan);
   const line = Ribbon({ color: C.ink, z: 0.42 }); scene.add(line);            // đoạn chồng đã đi (đậm)
-  const sched = Ribbon({ color: C.muted, z: 0.4 }); scene.add(sched);         // cả lịch 360 kỳ in sẵn (mảnh) — lịch cố định từ đầu
-  const late = Ribbon({ color: C.chrome, z: 0.41 }); scene.add(late);         // "faster": đoạn cuối dốc của đường in sáng lên
+  const sched = Ribbon({ color: C.muted, z: 0.4 }); scene.add(sched);         // cả lịch 360 kỳ in sẵn — lịch cố định từ ngày vay (S20.2)
+  // vòng 3: bỏ "đoạn cuối sáng lên" ở "faster" — cuối đường không còn là đích/phần thưởng; cả lịch một màu trung tính, một độ dày
   const [P0, P1] = S.print_draw, KS = S.k_stop;
   const schedPts = []; for (let j = 0; j <= 360; j += 3) schedPts.push([XK(j), 360000 * bal(j) / UNIT]);
-  const latePts = schedPts.filter(([x]) => x >= XK(240) - 1e-6);
 
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam, b = cue;
@@ -50,14 +49,12 @@ export async function boot(res) {
     const pts = []; for (let j = 0; j <= Math.floor(k); j += 2) pts.push([XK(j), 360000 * bal(j) / UNIT]); pts.push([XK(k), usd / UNIT]);
     line.set(pts, 0.08, C.ink); line.material.opacity = t >= b.a1.each ? 1 : 0;
     const np = Math.max(2, Math.round(lin(t, P0, P1) * schedPts.length));
-    sched.set(schedPts.slice(0, np), 0.04, C.muted); sched.material.opacity = t >= P0 ? 0.9 : 0;
-    late.set(latePts, 0.065, C.chrome); late.material.opacity = ease(t, b.a1.faster - 0.05, b.a1.faster + POP);
+    sched.set(schedPts.slice(0, np), 0.055, C.muted); sched.material.opacity = t >= P0 ? 0.95 : 0;
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
     const [cx, cy] = O.toScreen(CX, 1.6, 0.3), [cbx, cby] = O.toScreen(CX, 0.0, 0.3);
     log.roi['a0.monthly'] = [cx - 110, cy - 10, cx + 110, cby + 10]; log.roi['a1.each'] = log.roi['a0.monthly'];
-    { const [x0, y0] = O.toScreen(XK(240), 4.2, 0.4), [x1, y1] = O.toScreen(XK(360), 0, 0.4); log.roi['a1.faster'] = [x0 - 40, y0, x1 + 40, y1 + 10]; }
     // chip gắn vào lịch (đồ thị): $2,362/month · principal + interest
     const pay = Math.round(CL.ex_payment_pi.value).toLocaleString('en-US');
     const chipA = ok * ease(t, b.a0.figure - 0.05, b.a0.figure + POP) * (1 - ease(t, b.a1.each - 0.2, b.a1.each + 0.2));   // chip vốn + lãi chỉ trong S06.1
@@ -67,7 +64,8 @@ export async function boot(res) {
     }
     const rA = ok * ease(t, mv.t1, mv.t1 + POP);
     O.text(`September 2026 average rate: ${CL.rate_latest.value.toFixed(2)}%`, 960, 232, 52, { kind: 'number', align: 'center', color: C.muted, alpha: rA * (1 - ease(t, b.a1.each - 0.4, b.a1.each)) });
-    O.text('loan balance · on the schedule', 960, 232, 52, { kind: 'compare', align: 'center', color: C.muted, alpha: ok * ease(t, b.a1.each, b.a1.each + POP) });
+    // vòng 3: nhãn sự thật duy nhất (7 từ, 52 px, không mệnh lệnh): lịch dư nợ cho sẵn từ ngày vay, không phải đích để "ở cho tới"
+    O.text('loan balance schedule · set on day one', 960, 232, 52, { kind: 'compare', align: 'center', color: C.ink, alpha: ok * ease(t, b.a1.each, b.a1.each + POP) });
     // trục kỳ trả + bộ đếm trên lịch (đồ thị)
     const axA = ok * ease(t, b.a1.each - 0.3, b.a1.each);
     for (const kk of [0, 120, 240, 360]) { const [x, y] = O.toScreen(XK(kk), 0, 0.4); O.text(kk === 360 ? '360 payments' : String(kk), x, y + 52, 44, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: axA }); }
@@ -76,7 +74,7 @@ export async function boot(res) {
     O.text('$360,000 loan', lx + 70, ly + 10, 48, { kind: 'number', color: C.ink, alpha: ok * ease(t, mv.t1, mv.t1 + POP) * (1 - ease(t, b.a1.each, b.a1.each + 0.4)) });
     const sA = ok * ease(t, b.a1.slowly - 0.05, b.a1.slowly + POP), fA = ok * ease(t, b.a1.faster - 0.05, b.a1.faster + POP);
     { const [x, y] = O.toScreen(XK(70), 360000 * bal(70) / UNIT, 0.4); O.text('slowly at first', x, y + 74, 52, { color: C.ink, align: 'center', alpha: sA }); }
-    { const [x, y] = O.toScreen(XK(300), 360000 * bal(300) / UNIT, 0.4); O.text('faster later', x - 40, y + 90, 52, { color: C.ink, align: 'right', alpha: fA }); }
+    { const [x, y] = O.toScreen(XK(300), 360000 * bal(300) / UNIT, 0.4); O.text('faster later', x - 40, y + 90, 52, { color: C.ink, align: 'right', alpha: fA, plate: '#0B0E13', plateA: 0.6 }); }
     O.chrome({ illus: true, illusA: 1, src: cw > 0.5 ? 'Rate: Freddie Mac via FRED' : null, srcA: ok });
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }

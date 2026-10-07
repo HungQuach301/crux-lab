@@ -4,7 +4,9 @@ Thế giới: 307 cột đứng trên sàn như một dãy phố nhìn nghiêng;
 → ĐỒ THỊ (lời "more than five years": số chỉ ở đồ thị): xà 60 tháng + nhãn "about 1 in 7"; "together/stretch" = ngoặc trên cụm warn;
 "national price slump" = đường chỉ số giá quốc gia (W5, accent) vẽ trên cột, đoạn đỉnh→đáy đậm lên.
 C3 vòng 2 (FIX-R2.md): chỉ số chuyển xuống thành dải mảnh trong trục tháng mua (dưới chân cột); tiêu đề trục giữ suốt; dải warn
-nối cụm với tháng mua; nhãn "one stretch of purchase months". Cột = thời gian tới 80 % trên giấy, không phải thời gian giữ nhà."""
+nối cụm với tháng mua; nhãn "one stretch of purchase months". Cột = thời gian tới 80 % trên giấy, không phải thời gian giữ nhà.
+C3 vòng 3 (FIX-R3.md): cột chậm màu trung tính (accent, không warn), chỉ số muted; tiêu đề chỉ còn "one bar per purchase month";
+nhãn thời lượng "each bar's height: / months to 80% on paper" + thước dọc ở mép phải cụm (tiền lệ D-010 §6 (b) E5j)."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); W5 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W5)
@@ -15,12 +17,12 @@ words, takes, lines, end = wlib.clip_voice([['S13.1', 'S13.2', 'S13.3']], lead=0
 TOTAL = round(end + 0.1, 2)
 A = SV.Anchors(words)
 B = [
- ('t0', 'S13.1', 'world', 'Trường hợp điển hình che một đuôi dài.', 'dãy cột nhìn nghiêng; xà "typical" thấp; ở "tail" các cột cao nhất sáng warn và nhô lên.',
+ ('t0', 'S13.1', 'world', 'Trường hợp điển hình che một đuôi dài.', 'dãy cột nhìn nghiêng; xà "typical" thấp; ở "tail" các cột cao nhất sáng màu trung tính (vòng 3: accent, không warn) và nhô lên.',
   {'typical': '@S13.1:typical', 'tail': '@S13.1:tail'}, ['nốt đi lên khi đuôi sáng'], 0.45, 'bất ngờ', ''),
  ('t1', 'S13.2', 'world', 'Khoảng 1/7 số tháng mua mất hơn 5 năm.', 'vẫn thế giới tới hết "seven"; chuyển sang đồ thị trước "five": xà 60 tháng + nhãn "more than 60 months: 14.7% (about 1 in 7)".',
   {'seven': '@S13.2:seven', 'five': '@S13.2:five', 'years': '@S13.2:years'}, ['chạm khi xà 60 tháng khoá', 'chuông ở "years"'], 0.6, 'nặng',
   'CHUYỂN CHẾ ĐỘ → đồ thị: "more than five years" là một số'),
- ('t2', 'S13.3', 'chart', 'Các tháng chậm nằm liền nhau, ngay trước và trong đợt giảm giá nhà toàn quốc.', 'ngoặc trên cụm warn + dải warn mờ dọc cụm xuống trục tháng mua ("together"); nhãn "one stretch of purchase months" ("stretch"); chỉ số quốc gia (accent) là dải mảnh TRONG trục tháng mua, dưới chân cột (vòng 2), vẽ tới "national", đoạn đỉnh → đáy đậm ở "slump".',
+ ('t2', 'S13.3', 'chart', 'Các tháng chậm nằm liền nhau, ngay trước và trong đợt giảm giá nhà toàn quốc.', 'ngoặc trên cụm chậm + dải mờ cùng màu dọc cụm xuống trục tháng mua ("together"); nhãn "one stretch of purchase months" ("stretch"); nhãn chiều cao cột + thước ở mép phải cụm (vòng 3); chỉ số quốc gia (vòng 3: muted) là dải mảnh TRONG trục tháng mua, dưới chân cột (vòng 2), vẽ tới "national", đoạn đỉnh → đáy đậm ở "slump".',
   {'together': '@S13.3:together', 'stretch': '@S13.3:stretch', 'national': '@S13.3:national', 'slump': '@S13.3:slump'}, ['nốt dữ liệu theo chỉ số khi đường vẽ', 'trượt xuống ở "slump"'], 0.65, 'hiểu', '(hết)'),
 ]
 beats = SV.beats_from(B, A, lines)

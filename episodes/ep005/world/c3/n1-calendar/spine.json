@@ -312,7 +312,7 @@
    "sid": "S06.3",
    "mode": "chart",
    "idea": "Mỗi kỳ trả giảm dư nợ một chút: chậm lúc đầu, nhanh về sau.",
-   "visual": "cả lịch dư nợ in sẵn (W5 muted mảnh) ở \"Each\"; lịch lật, chồng vay (W2) trượt theo kỳ, đỉnh chồng tô đậm đoạn đã đi (gần như nằm ngang ở \"slowly\") và DỪNG ở kỳ 114 lúc \"faster\"; \"faster\": đoạn cuối dốc của đường in sáng lên.",
+   "visual": "cả lịch dư nợ in sẵn (W5 muted mảnh) ở \"Each\"; lịch lật, chồng vay (W2) trượt theo kỳ, đỉnh chồng tô đậm đoạn đã đi (gần như nằm ngang ở \"slowly\") và DỪNG ở kỳ 114 lúc \"faster\"; \"faster\": nhãn \"faster later\" cạnh đoạn dốc của đường in (vòng 3: đường không sáng lên).",
    "line": "Each payment pays the balance down a little, slowly at first, and faster later on.",
    "sound": [
     "nốt dữ liệu mỗi 5 năm (cao độ = dư nợ)"
@@ -457,7 +457,8 @@
   "data_db": 25.0
  },
  "label_cues": {
-  "a0.figure": "$2,362/month · principal + interest"
+  "a0.figure": "$2,362/month · principal + interest",
+  "a1.faster": "faster later"
  },
  "visual_cues": [
   "a0.monthly",

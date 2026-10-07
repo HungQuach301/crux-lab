@@ -51,5 +51,6 @@
    "title": "N2 \u00b7 Replay bars, one per purchase month"
   }
  ],
- "r2": "2026-10-07: N1 and N2 segments replaced by C3 round-2 builds (same lengths: 449 / 446 frames); cold open, N3 and cards copied frame-for-frame from r1 clip; re-encoded x264 crf 20"
+ "r2": "2026-10-07: N1 and N2 segments replaced by C3 round-2 builds (same lengths: 449 / 446 frames); cold open, N3 and cards copied frame-for-frame from r1 clip; re-encoded x264 crf 20",
+ "r3": "2026-10-07: N1 (frames 1070\u20131518) and N2 (2029\u20132474) replaced by C3 round-3 builds (449 / 446 frames, audio bit-identical to r2 so the clip audio stream is copied); all other frames copied from r2 clip (PSNR vs r2 53\u201357 dB = re-encode only); x264 crf 20"
 }

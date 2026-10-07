@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows how a 30-year fixed mortgage gets paid down. It uses an illustrative $360,000 loan at 6.86%, the September 2026 average rate from Freddie Mac via FRED. The monthly payment is $2,362 for principal plus interest. The balance is a stack of cash, and the payment is a calendar page.\n\n2. **What changes:**\n   - Frame 1 sets the scene: a house, a person, a calendar, and a tall stack of cash.\n   - Frames 2 and 3 label the loan and the monthly payment, and a payment-count axis appears (0, 120, 240, 360).\n   - Frames 4 to 6 step through payments 43, 92, and 114. The calendar flips each month, and the stack of cash slides along a curve showing the balance falling.\n   - The curve is labeled \"set on day one.\" It drops slowly at first and faster later.\n\n3. **What it means:** The payment is the same every month, but the balance doesn't fall at a steady pace. In the early years most of each payment goes to interest, so the balance barely moves. Later, more of each payment goes to principal, and the balance drops faster. The whole schedule is fixed when you sign the loan. The \"illustrative\" tag means these are example numbers, not a quote.\n\n4. **Advice a viewer might take:**\n   - Expect to build equity slowly in the first several years. After about 10 years (120 payments), a large share of the loan is still owed.\n   - Look at the total cost of the loan, not just whether the monthly payment fits your budget.\n   - Rate and loan length matter a lot, so compare lenders and think about how long you'll stay in the home.\n   - If you sell or refinance early, you will have paid off less than you might expect.\n   - Extra principal payments early on would help the most. The animation implies this but doesn't say it.\n\n   The video gives no explicit recommendation, so these are my inferences from the picture. As a renter with about 10% saved, I'd take this as a reason to run the real numbers. I'd include taxes, insurance, and maintenance, which aren't shown here.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 12
+  },
+  "claude-sonnet-5-5": {
+   "in": 9781,
+   "out": 766
+  }
+ },
+ "turns": 2
+}

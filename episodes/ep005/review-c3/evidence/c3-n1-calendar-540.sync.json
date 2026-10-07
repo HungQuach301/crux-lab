@@ -10,13 +10,13 @@
   "a0.monthly": 0.13,
   "a0.figure": 0.146,
   "a1.each": 0.06,
-  "a1.faster": 0.006
+  "a1.faster": 0.139
  },
  "method": {
   "a0.monthly": "motion-roi",
   "a0.figure": "label",
   "a1.each": "motion-roi",
-  "a1.faster": "motion-roi"
+  "a1.faster": "label"
  },
  "visual_within_0.2s": "4/4",
  "visual_not_detected": []

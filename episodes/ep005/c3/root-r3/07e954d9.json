@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows how a 30-year mortgage gets paid down. It uses an illustrative $360,000 loan at 6.86%, the September 2026 average rate from Freddie Mac via FRED. The monthly payment is $2,362 for principal plus interest. The balance follows a schedule that is fixed on day one.\n\n2. **What changes:**\n   - Frame 1 shows a house, a person, a calendar page and a tall stack of cash.\n   - Frame 2 shrinks the scene and labels the stack as the $360,000 loan.\n   - Frame 3 adds the $2,362/month payment and a 0–360 payments axis.\n   - Frames 4 to 6 count payments (43, 92, 114) as the calendar flips forward. The stack shrinks a little at a time. A curve labeled \"loan balance schedule · set on day one\" starts nearly flat (\"slowly at first\") and steepens toward 360 (\"faster later\").\n\n3. **What it means:** Early payments go mostly to interest, so the balance barely falls for the first several years. Even after about 114 payments, roughly 9.5 years, the stack is still tall. Most of the principal gets paid off in the later years. The \"set on day one\" label says the payment schedule is locked in when you sign the loan. The \"illustrative\" tag says these are example numbers, not a quote.\n\n4. **Advice a viewer would take:**\n   - The video doesn't give explicit advice, but the implied lesson is not to expect fast equity from your payments early on.\n   - The real cost of a mortgage is mostly interest up front, so the rate and the loan size matter a lot.\n   - If you might move within 5 to 10 years, you'd have paid down little principal. Any equity would then come mostly from the home's price rising or from your down payment.\n   - For me, with about 10% saved, I'd take away two things. Budget for the full $2,362-type payment, and don't count on the balance dropping quickly. I'd also check the numbers against my own loan amount and rate.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9778,
+   "out": 740
+  }
+ },
+ "turns": 2
+}

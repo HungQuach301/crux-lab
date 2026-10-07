@@ -27,3 +27,10 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc: kiểm m�
 | 2026-10-07 | B+2 S03 | điều phối | phiên chính | merge `main` 16d7e1f (Mốc V); áp diff `moc-v/b2/ep005-S03.diff` ("a waiting period" + nhãn); check_script bỏ qua `label:` | — | numbers_said S03 2 số mới ĐẠT |
 | 2026-10-07 | B+2 S03 | dựng | `voice_scenes.py --only S03`, `table_read.py` | sinh lại S03 | — | EL **443**; ASR 0 mất; M1 2,8 · M2 22,8 · M3 9,0 · **M4 9,8** · M5 29,0 s ĐẠT (ước bằng chữ 10,4 — dùng số đo thật, §3.9) |
 | 2026-10-07 | B+2 S03 | kiểm mù | headless 6 + người chấm ×2 | đoạn S03 → S12 | 45.965 + 16.247 + 16.666 | 6/6, khuyên 0 (chấm lại vì thiếu định nghĩa), 2 năm 6/6 → ĐẠT |
+| 2026-10-07 | C3 | dựng | agent general-purpose | spine v2 cả tập, cold open E5k port, N1/N2/N3, clip C3 | 330.196 | verify 0 vi phạm; sync 25/25; render 0,10 h; EL 0 |
+| 2026-10-07 | C3 | kiểm mù | headless có ảnh | cổng gốc vòng 1 (6 + chấm) | 70.080 + 13.886 | nghĩa 6/6; N3 ĐẠT; N1, N2 khuyên 2/2 |
+| 2026-10-07 | C3 | dựng | agent general-purpose (mới) | sửa N1/N2 vòng 2 bằng hình | 173.397 | render ≈ 0,07 h |
+| 2026-10-07 | C3 | kiểm mù | headless có ảnh | vòng 2 (5 + chấm ×2) | 58.099 + 22.269 | N1 0/3, N2 0/2 |
+| 2026-10-07 | C3 | kiểm mù | headless có ảnh | cold open E1/E2 kiểm lại | 47.735 + 10.038 | 4/4, khuyên 0 |
+| 2026-10-07 | C3 | dựng | agent general-purpose (mới) | sửa N1/N2 vòng 3 (hình + nhãn) | 146.806 | render ≈ 0,05 h |
+| 2026-10-07 | C3 | kiểm mù | headless có ảnh | vòng 3 (5 + chấm ×2) | 58.465 + 17.280 | N1 1/3, N2 0/2 → hết 3 vòng, chủ dự án chọn |

@@ -4,7 +4,9 @@ Thế giới: người vay cạnh căn nhà, lịch đứng cạnh người; "mo
 chip "$2,362/month · principal + interest" gắn vào lịch; S06.3 lịch lật từng kỳ, chồng vay trượt theo thời gian, đỉnh chồng vẽ đường dư nợ
 (chậm lúc đầu, nhanh về sau).
 C3 vòng 2 (FIX-R2.md): người + nhà rời khung khi sang đồ thị; chip "principal + interest" chỉ trong S06.1; cả lịch 360 kỳ in sẵn (mảnh)
-ở "Each"; chồng + lịch chỉ đi tới kỳ 114 rồi đứng; "faster" = đoạn cuối của đường in sáng lên, chồng không đi tới đó."""
+ở "Each"; chồng + lịch chỉ đi tới kỳ 114 rồi đứng.
+C3 vòng 3 (FIX-R3.md): đoạn cuối đường in KHÔNG sáng lên ở "faster" (bỏ đích/phần thưởng cuối lịch) — cue "faster" = nhãn "faster later";
+tiêu đề đổi thành nhãn sự thật "loan balance schedule · set on day one" (lịch cố định từ ngày vay, S20.2)."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); W5 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W5)
@@ -17,7 +19,7 @@ A = SV.Anchors(words)
 B = [
  ('a0', 'S06.1', 'world', 'Lãi tháng 9 và khoản trả mỗi tháng (vốn + lãi) của khoản vay minh hoạ.', 'người vay, căn nhà, lịch đứng; "monthly" lật một trang (một kỳ trả). Chuyển sang đồ thị trước "figure": chip $2,362 gắn vào lịch.',
   {'rate': '@S06.1:rate', 'monthly': '@S06.1:monthly', 'payment': '@S06.1:payment', 'figure': '@S06.1:figure'}, ['tick khi lật trang', 'chạm khi chip gắn'], 0.35, 'bình thản', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
- ('a1', 'S06.3', 'chart', 'Mỗi kỳ trả giảm dư nợ một chút: chậm lúc đầu, nhanh về sau.', 'cả lịch dư nợ in sẵn (W5 muted mảnh) ở "Each"; lịch lật, chồng vay (W2) trượt theo kỳ, đỉnh chồng tô đậm đoạn đã đi (gần như nằm ngang ở "slowly") và DỪNG ở kỳ 114 lúc "faster"; "faster": đoạn cuối dốc của đường in sáng lên.',
+ ('a1', 'S06.3', 'chart', 'Mỗi kỳ trả giảm dư nợ một chút: chậm lúc đầu, nhanh về sau.', 'cả lịch dư nợ in sẵn (W5 muted mảnh) ở "Each"; lịch lật, chồng vay (W2) trượt theo kỳ, đỉnh chồng tô đậm đoạn đã đi (gần như nằm ngang ở "slowly") và DỪNG ở kỳ 114 lúc "faster"; "faster": nhãn "faster later" cạnh đoạn dốc của đường in (vòng 3: đường không sáng lên).',
   {'each': '@S06.3:Each', 'slowly': '@S06.3:slowly', 'faster': '@S06.3:faster', 'later': '@S06.3:later'}, ['nốt dữ liệu mỗi 5 năm (cao độ = dư nợ)'], 0.5, 'hiểu cơ chế', '(hết) giữ ≥ 1 s'),
 ]
 beats = SV.beats_from(B, A, lines)
@@ -48,7 +50,7 @@ errs = SV.check_rules(beats, moves, PAD)
 spine = {'segment': 'ep005 C3 · N1 lịch (S06.1 + S06.3)', 'version': 4, 'total': TOTAL, 'fps': 30, 'pad': PAD, 'takes': takes, 'words': words,
          'beats': beats, 'moves': moves, 'pay_kf': PAYK, 'print_draw': PRINT, 'k_stop': KSTOP, 'events': EV, 'tension': tension, 'shots': SV.shots_for(moves, TOTAL),
          'music_plan': wlib.music_plan_flat(TOTAL, [cue['a0']['figure'], cue['a1']['later']]), 'mix': {'music_db': 17.0, 'data_db': 25.0},
-         'label_cues': {'a0.figure': '$2,362/month · principal + interest'},
+         'label_cues': {'a0.figure': '$2,362/month · principal + interest', 'a1.faster': 'faster later'},
          'visual_cues': ['a0.monthly', 'a0.figure', 'a1.each', 'a1.faster'], 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
 json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)
 json.dump(['episodes/ep005/world/claims.json', 'episodes/ep005/world/obj5.js'], open(os.path.join(HERE, 'inputs.json'), 'w'))
