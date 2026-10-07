@@ -1,0 +1,62 @@
+{
+ "segment": "episodes/ep005/world/seg-s01-s03",
+ "res": 540,
+ "out": "episodes/ep005/work/world/seg-s01-s03-540.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.0,
+   "ok": true,
+   "problems": []
+  },
+  "spine": {
+   "seconds": 0.7,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 93.2,
+   "ok": true,
+   "shots": 5,
+   "rendered": [
+    "s0",
+    "s1",
+    "s3",
+    "s4",
+    "s2"
+   ],
+   "cached": 0,
+   "wall_s": 92.5,
+   "film_s": 33.68,
+   "wall_per_film_s_rendered": 7.3,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 11.6,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 1.8,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 1.9,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+   },
+   "modes": {
+    "world_share": 0.412,
+    "chart_share": 0.588,
+    "first_5s_world": true
+   }
+  }
+ },
+ "total_seconds": 109.2
+}

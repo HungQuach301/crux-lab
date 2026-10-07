@@ -1,0 +1,23 @@
+{
+ "video": "episodes/ep005/work/world/c3-n1-calendar-540.mp4",
+ "asr_words_matched": 32,
+ "asr_words_ref": 37,
+ "voice_offset_s": {
+  "median": -0.016,
+  "p90_abs": 0.106
+ },
+ "visual_peak_vs_keyword_s": {
+  "a0.monthly": 0.13,
+  "a0.figure": 0.146,
+  "a1.each": 0.06,
+  "a1.faster": -0.128
+ },
+ "method": {
+  "a0.monthly": "motion-roi",
+  "a0.figure": "label",
+  "a1.each": "motion-roi",
+  "a1.faster": "motion-roi"
+ },
+ "visual_within_0.2s": "4/4",
+ "visual_not_detected": []
+}

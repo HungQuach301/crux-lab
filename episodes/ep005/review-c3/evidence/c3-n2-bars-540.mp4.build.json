@@ -1,0 +1,59 @@
+{
+ "segment": "episodes/ep005/world/c3/n2-bars",
+ "res": 540,
+ "out": "episodes/ep005/work/world/c3-n2-bars-540.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.0,
+   "ok": true,
+   "problems": []
+  },
+  "spine": {
+   "seconds": 0.3,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 52.5,
+   "ok": true,
+   "shots": 2,
+   "rendered": [
+    "s0",
+    "s1"
+   ],
+   "cached": 0,
+   "wall_s": 52,
+   "film_s": 14.93,
+   "wall_per_film_s_rendered": 5.91,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 5.1,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 0.9,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 0.7,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+   },
+   "modes": {
+    "world_share": 0.373,
+    "chart_share": 0.627,
+    "first_5s_world": true
+   }
+  }
+ },
+ "total_seconds": 59.6
+}

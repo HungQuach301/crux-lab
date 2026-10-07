@@ -1,0 +1,59 @@
+{
+ "segment": "episodes/ep005/world/c3/n1-calendar",
+ "res": 540,
+ "out": "episodes/ep005/work/world/c3-n1-calendar-540.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.0,
+   "ok": true,
+   "problems": []
+  },
+  "spine": {
+   "seconds": 0.4,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 34.9,
+   "ok": true,
+   "shots": 2,
+   "rendered": [
+    "s0",
+    "s1"
+   ],
+   "cached": 0,
+   "wall_s": 34.4,
+   "film_s": 14.97,
+   "wall_per_film_s_rendered": 3.83,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 5.0,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 0.8,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 0.7,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+   },
+   "modes": {
+    "world_share": 0.387,
+    "chart_share": 0.613,
+    "first_5s_world": true
+   }
+  }
+ },
+ "total_seconds": 41.9
+}
