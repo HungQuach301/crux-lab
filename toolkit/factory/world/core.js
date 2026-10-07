@@ -23,18 +23,30 @@ export function Camera(poses, moves, aspect = 16 / 9) {
   const P = (name) => { const p = poses[name]; if (!p) throw new Error('pose ' + name); return p; };
   const lerpPose = (a, b, x) => ({ pos: a.pos.map((v, i) => mix(v, b.pos[i], x)), tgt: a.tgt.map((v, i) => mix(v, b.tgt[i], x)),
     fov: Math.exp(mix(Math.log(a.fov), Math.log(b.fov), x)), chart: mix(a.chart || 0, b.chart || 0, x) });
+  // F-1 (opt-in, move.style === 'fly'; mặc định 'dissolve' = lerpPose ở trên, KHÔNG đổi): máy quay ĐI THẬT từ tư thế này sang tư thế kia.
+  //  - vị trí + điểm nhìn theo đường cong bậc hai qua tư thế `via` (nếu có) ở x = 0,5 — máy đi ngang qua vật thế giới, không trượt thẳng;
+  //  - dolly-zoom: chiều cao khung ở điểm nhìn h = 2·d·tan(fov/2) nội suy log giữa hai tư thế, fov = 2·atan(h / 2d) theo khoảng cách thật
+  //    → lại gần thì góc rộng (thị sai khi đi qua vật), lùi xa thì tiêu cự dài ≈ trực giao ở tư thế đồ thị (fov của tư thế đích ở x = 1);
+  //  - chartW chỉ dâng ở nửa cuối khi vào đồ thị (rời đồ thị: rơi ở nửa đầu) → cổng số (chartW ≥ 0,95, quy tắc 1) chỉ mở khi đã chính diện.
+  const H = (p) => 2 * Math.hypot(...p.pos.map((v, i) => v - p.tgt[i])) * Math.tan(p.fov * Math.PI / 360);
+  const bez = (a, v, b, x) => a.map((p, i) => { const c = v ? 2 * v[i] - (p + b[i]) / 2 : (p + b[i]) / 2; return (1 - x) * (1 - x) * p + 2 * (1 - x) * x * c + x * x * b[i]; });
+  function flyPose(a, b, v, x) {
+    const pos = bez(a.pos, v && v.pos, b.pos, x), tgt = bez(a.tgt, v && v.tgt, b.tgt, x), d = Math.hypot(...pos.map((p, i) => p - tgt[i]));
+    const h = Math.exp(mix(Math.log(H(a)), Math.log(H(b)), x)), ca = a.chart || 0, cb = b.chart || 0;
+    return { pos, tgt, fov: 2 * Math.atan(h / (2 * d)) * 180 / Math.PI, chart: mix(ca, cb, cb >= ca ? ease(x, 0.5, 1) : ease(x, 0, 0.5)), fly: true };
+  }
   const ms = [...moves].sort((a, b) => a.t0 - b.t0);
   function poseAt(t) {
     let cur = P(ms.length ? ms[0].from : Object.keys(poses)[0]);
     for (const m of ms) {
       if (t < m.t0) break;
-      cur = t >= m.t1 ? P(m.to) : lerpPose(P(m.from), P(m.to), ease(t, m.t0, m.t1));
+      cur = t >= m.t1 ? P(m.to) : m.style === 'fly' ? flyPose(P(m.from), P(m.to), m.via ? P(m.via) : null, ease(t, m.t0, m.t1)) : lerpPose(P(m.from), P(m.to), ease(t, m.t0, m.t1));
       if (t < m.t1) break;
     }
     return cur;
   }
   return {
-    cam, poseAt,
+    cam, poseAt, flyPose,
     apply(t) {
       const p = poseAt(t); cam.fov = p.fov; cam.position.set(...p.pos); cam.lookAt(...p.tgt); cam.updateProjectionMatrix(); cam.updateMatrixWorld();
       return p;
