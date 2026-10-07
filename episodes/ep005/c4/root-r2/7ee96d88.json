@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it took past US home buyers to reach 80% equity, which is the point where private mortgage insurance can come off. It is the \"months to 80% on paper\" figure. Each bar is a purchase month, and its height is how many months that cohort needed. Data is from FHFA and Freddie Mac via FRED. The bar for October 2005 is highlighted at 112 months (9 years 4 months). That is the tallest part of the chart. Buyers from the mid-2000s peak waited much longer than buyers before or after them.\n\n2. **What changes across the frames.**\n   - Frame 1 shows only the bars with the October 2005 bar marked.\n   - Frame 2 adds a bracket and the label \"height = months to 80% on paper.\"\n   - Frame 3 adds an \"ILLUSTRATIVE\" tag and a line over the chart. Its label reads \"schedule at that rate: 90 payments\", meaning a normal payment schedule would reach 80% in about 90 payments. The line seems to be a mortgage-rate or price series.\n   - Frames 4 to 6 add the caption \"national average, not one home.\" The marked bar and the line stay in place.\n\n   The bars are the same in every frame. Only the annotations are added.\n\n3. **What it means.** On paper, the October 2005 buyer should have hit 80% in about 90 months. In practice it took 112, which is about 22 months longer. The likely reason is that prices fell after the 2005–2006 peak and wiped out early equity, so those buyers waited longer to drop PMI. Buyers whose purchase month fell outside that peak reached 80% much sooner, and the bars before and after it are much shorter. The caption says this is a national average, not a prediction for any one home.\n\n4. **What a viewer would take away.** The video says outright that this is \"not a reason to buy, rent or wait,\" and that it is \"history, not a forecast.\" The only real advice is about risk:\n   - Timing and local prices can add years to how long it takes to build equity.\n   - With about 10% down, you shouldn't count on reaching 80% quickly.\n   - You should have a cushion and plan to stay put for a long time.\n\n   I'd treat it as a reminder not to rely on fast appreciation. It doesn't say whether to buy now.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9781,
+   "out": 825
+  }
+ },
+ "turns": 2
+}

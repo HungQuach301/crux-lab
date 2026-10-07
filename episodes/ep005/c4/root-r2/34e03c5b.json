@@ -1,0 +1,14 @@
+{
+ "answer": "**1. What idea is this animation showing?**\nIt looks like it's about how long a first-time buyer with a small down payment would pay mortgage insurance. The lines seem to track the loan as a share of the home's value, falling from about 80% toward 75%. The animation compares the fixed repayment schedule (the \"on paper\" path) with what actually happened to past buyers. It replays every past purchase date under the same rule and the same price index (FHFA and Freddie Mac data via FRED), lined up at the moment of purchase.\n\n**2. What changes over time across the frames?**\n- **Frame 1:** a few lines run across a 0–10 year axis. One wiggly line shows what actually happened, and the flatter lines show the schedule.\n- **Frames 2–3:** a bundle of many thin lines appears, one per past buyer. Three example buyers are labeled: Owen at the quick end, Grace in the middle, and Victor at the slow end. A marker bar sits near year 2, with the note \"schedule: fixed at the start.\"\n- **Frame 4:** the labels get specific. It says the typical wait was 23 months, and about 1 in 7 buyers waited more than 60 months. It also says roughly 2 years matched the typical month, \"not the slow ones, not the lender's step.\"\n- **Frame 5:** the picture switches to a $400,000 home next to a stack of bars, with the bottom bars highlighted. That probably shows the share of the price that is equity, or the amount that has to be reached.\n- **Frame 6:** a house labeled \"buy now + mortgage insurance\" and an apartment building labeled \"keep renting, keep saving\" sit on either side of a person.\n\n**3. What does it mean?**\nThe apparent point is that mortgage insurance usually doesn't last forever. In past US data, buyers typically reached the cutoff in about 2 years, but the spread was wide. Some buyers took five years or more, and the written schedule alone didn't predict how long it took. The repeated captions say this is history, US-only, illustrative, and \"not a forecast.\"\n\n**4. What advice, if any, would a viewer take from this?**\nThe video avoids giving direct advice. Its own text says it is \"not a reason to buy, rent or wait\" and \"a measurement, not a next step.\" As a viewer with about 10% saved, I would take away a few things:\n- Paying mortgage insurance on a small down payment is probably temporary.\n- I should plan for the slow case, not just the typical one.\n- Buying now with insurance and renting while saving are both presented as legitimate choices. The decision is mine, and it should rest on my own budget and plans, not on this chart.\n\nI'm reading the axes and labels from a small image, so the exact meaning of the lines and the stack of bars is my best interpretation.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1058,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9777,
+   "out": 1441
+  }
+ },
+ "turns": 2
+}

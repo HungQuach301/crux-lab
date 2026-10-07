@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation follows one past buyer, \"Victor,\" who bought in October 2005 with a 6.07% mortgage. It asks how the buyer's equity compares with the home's price over the next 10 years. The 80% line looks like the loan-to-value mark, where a down payment of about 20% gets you there. The chart uses FHFA and Freddie Mac data from FRED, and it is labeled \"illustrative.\"\n\n2. **What changes across the frames.**\n   - Frame 1 shows only the empty chart with the 80% line.\n   - In frame 2, two lines start to draw. One is the loan balance on its normal paydown schedule, which drifts slowly down. The other is the loan balance measured against the home's price index, and it wobbles. A blue price-index line draws below them.\n   - In frame 3, the price index rises, then falls well below its starting level around years 5 to 7, then partly recovers. The loan-to-value line rises above 80% and then falls back.\n   - Frames 4 and 5 are the finished chart. They show \"on paper: 112 months,\" meaning the loan hit 80% on schedule after about 9 years and 4 months. They also show \"index still 3.3% below purchase,\" meaning home prices were still below Victor's purchase price at that point.\n   - Frame 6 drops the chart and shows a house with a question mark.\n\n3. **What it means.** A loan's paydown schedule says one thing, and what the housing market does can say another. Victor's schedule looked fine on paper. The market pushed the loan above 80% of the home's value for years, and prices were still below the purchase price after nearly a decade. A buyer who put down about 10% would have been in a worse spot than the chart shows. The closing caption says this is history, not a forecast, and not a reason to buy, rent or wait.\n\n4. **What a viewer would take away.** The video doesn't tell anyone what to do. A viewer would probably come away with these points:\n   - Don't count on a home's price going up, especially over a short holding period.\n   - Plan to stay long enough to ride out a dip.\n   - Keep a cushion, so you can cover payments without having to sell at a bad time.\n   - Know that a small down payment leaves you with little equity if prices drop.\n\n   As a renter with about 10% saved, I'd read it as a caution about timing and risk, not a verdict on buying. This was one buyer at one bad moment, so it's a stress test and not a prediction.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9789,
+   "out": 874
+  }
+ },
+ "turns": 2
+}

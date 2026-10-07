@@ -25,3 +25,13 @@
 | S06 (N1) | 3/3 | 0/3 |
 | S13 (N2) | 3/3 | 0/3 |
 **ĐẠT → N1/N2 giữ, không quay lại C3.** Token 70.796 + 12.315.
+
+## Vòng 2 (`world/c4/FIX-R2.md`; người đọc mới `c4/root-r2/`, người thứ 3 B17 `c4/root-r2x/`)
+| Nhịp | Đúng | Kết luận | Ghi chú |
+|---|---|---|---|
+| B03 | 2/2 | **ĐẠT** | vạch 75 % riêng, ba bước đọc ra |
+| B08 | 0/2 | TRƯỢT | nghĩa đúng; khuyên dạng mới: "đừng chờ tự hết ở 78 %, theo dõi và xin huỷ ở 80 %" (suy từ quyền ghi trên hình — loại A21 "tự suy") |
+| B14 | 2/2 | **ĐẠT** | |
+| B17 | 1/3 | TRƯỢT | 1 lẫn 112 tháng với lịch; 1 khuyên |
+| B18 | 2/2 | **ĐẠT** | |
+**Tổng sau vòng 2: 10/12 = 83 % ≥ 80 % → cổng gốc C4 ĐẠT.** Theo D-009 vẫn sửa B08, B17 (vòng 3, cuối) cùng các nhận xét đạo diễn lặp. Token: 119.082 + 11.985, chấm 21.361 + 6.425.

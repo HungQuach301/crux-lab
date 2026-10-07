@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it took past US home buyers to build 80% equity \"on paper\", by month of purchase. That's the point where a mortgage balance falls to 80% of the home's original price. The data comes from FHFA and Freddie Mac via FRED. Each bar is a purchase month, and its height is the number of months until that buyer reached 80% on paper. The highlighted bar is October 2005, which took 112 months (9 years 4 months). A second line, marked \"illustrative\", shows that a plain payment schedule at that mortgage rate would reach 80% in about 90 payments.\n\n2. **What changes.** Frame 1 shows only the bars, with October 2005 marked. The bars are low for early purchases, jump sharply around 2005, then decline and flatten. Frame 2 adds the label \"height = months to 80% on paper\". Frame 3 adds the wavy line and the \"schedule at that rate: 90 payments\" label. Frames 4 to 6 add \"national average, not one home\" and keep the same view. The chart itself doesn't change. Only the labels and annotations are added.\n\n3. **What it means.** Buyers who bought near the 2005 peak waited much longer to reach 80% than the simple payment schedule predicts. The gap is about 112 months against 90 payments. The likely reason is that home prices fell after 2005, so paying down the loan wasn't enough on its own. Buyers at other times reached 80% much sooner. Timing of purchase changed the outcome a lot. The caveats are that these are national averages and not any one home, the data is US only, and the line is illustrative.\n\n4. **Advice a viewer would take.** The image gives no instruction to buy, rent or wait. It says so directly: \"Past buyers, measured · not a reason to buy, rent or wait\" and \"history, not a forecast\". A viewer would mainly learn that building equity isn't guaranteed to follow the amortization schedule, because price moves can add years. It's also a reason not to assume equity arrives on a fixed timeline when planning a purchase with a small down payment, like the 10% in your case. Your own timeline could differ a lot from the average.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 15
+  },
+  "claude-sonnet-5-5": {
+   "in": 9778,
+   "out": 781
+  }
+ },
+ "turns": 2
+}
