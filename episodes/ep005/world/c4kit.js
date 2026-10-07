@@ -5,7 +5,7 @@
 //  - Street / Buyers: hai cụm thế giới dùng ở RANH GIỚI ĐOẠN (B→C phố; C→D ba người mua) — dựng bằng cùng một hàm, cùng toạ độ → khung đầu đoạn sau
 //    trùng khung cuối đoạn trước.
 import * as THREE from 'three';
-import { House, Stack, Person, Neighborhood, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
+import { House, Stack, Person, Beam, Neighborhood, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
 
 export const FOV_CAP = 38;                 // độ (dọc): tiêu cự ngắn nhất cho phép khi máy bay sát vật
 export const LEVEL = 0.85;                 // giữa cú bay: giảm góc cúi/ngửa còn 25 % (cân máy) — hết ở hai đầu cú bay (tư thế khai báo)
@@ -99,15 +99,34 @@ export function Street(scene) {
 }
 
 // ------------------------------------------------------------------ ba người mua minh hoạ (không mặt), mỗi người cạnh căn nhà trên chồng giá trị
-export function Buyers(scene, X = BX) {
-  const U = 2e5, out = [], cols = [PALETTE.person1, PALETTE.person2, '#D8C9E2'];
+// C4 r3 (đạo diễn A+B: "ba tháp giống hệt nhau"): mỗi người mua một MÀU riêng (người + mái nhà + tên + đường của họ ở S18), cùng thứ tự Grace · Owen · Victor
+// ở mọi đoạn. Màu nhận diện (không mang nghĩa dữ liệu): tránh accent (chỉ số), warn, cushion (tiền để dành), costlier.
+export const BNAME = ['Grace', 'Owen', 'Victor'], BKEY = ['grace', 'owen', 'victor'], BCOL = ['#EE9CC4', '#B9A2FF', '#79D7C9'];
+// loans: true → mỗi người thêm chồng VAY (xám đậm) cạnh tháp giá trị + vạch 80 % (muted) — S03.4: tỉ lệ vay trên giấy của từng người chạy theo dữ liệu thật
+export function Buyers(scene, X = BX, { loans = false } = {}) {
+  const U = 2e5, out = [];
   for (let i = 0; i < 3; i++) {
     const x = X + (i - 1) * 3.0;
     const stack = Stack({ unitUsd: U, w: 0.9, d: 0.6 }); stack.position.set(x, 0, 0); const h = stack.set({ usd: 400000, tintBelowUsd: 40001, tint: PALETTE.cushion, tintA: 1 }); scene.add(stack);
-    const house = House({ w: 1.25 }); house.position.set(x, h, 0); scene.add(house);
-    const p = Person({ h: 1.15, color: cols[i] }); p.position.set(x + 1.05, 0, 0.55); p.rotation.y = -0.35; scene.add(p);
-    out.push({ x, stack, house, person: p, top: h + house.userData.height });
+    const house = House({ w: 1.25, roof: BCOL[i] }); house.position.set(x, h, 0); scene.add(house);
+    const p = Person({ h: 1.15, color: BCOL[i] }); p.position.set(x + 1.05, 0, 0.55); p.rotation.y = -0.35; scene.add(p);
+    const it = { x, stack, house, person: p, top: h + house.userData.height, valueH: h };
+    if (loans) {
+      it.loan = Stack({ unitUsd: U, w: 0.5, d: 0.45 }); it.loan.position.set(x - 0.82, 0, 0.1); scene.add(it.loan);
+      it.tick = Beam({ length: 0.8, color: PALETTE.muted }); it.tick.position.set(x - 0.82, 0.8 * 400000 / U, 0.1); scene.add(it.tick);
+    }
+    out.push(it);
   }
   const poses = { wBuyers: { pos: [X + 0.4, 2.2, 11.4], tgt: [X, 1.6, 0], fov: 35, chart: 0 } };
-  return { items: out, poses, set(a) { for (const it of out) for (const o of [it.stack, it.house, it.person]) setOpacity(o, a); } };
+  return { items: out, poses,
+    set(a) { for (const it of out) for (const o of [it.stack, it.house, it.person]) setOpacity(o, a); },
+    // share: tỉ lệ vay ÷ giá trị (trên giấy) của người i; a: độ hiện; g: hệ số mọc (0 → 1)
+    loan(i, share, a, g = 1) { const it = out[i]; if (!it.loan) return; it.loan.set({ usd: 400000 * share * g, tintBelowUsd: 1e9, tint: '#5B6573', tintA: 0.9 }); setOpacity(it.loan, a > 0.01 && g > 0.01 ? a : 0); setOpacity(it.tick, a * Math.min(1, g * 1.5)); } };
+}
+
+// C4 r3 (đạo diễn: "khối tối trên cuốn lịch" 1:21, 3:30): trang đang lật (mặt sau quay về máy khi lật qua đỉnh) tự sáng như giấy, hai mặt, không đổ bóng
+export function litCalendar(cal) {
+  const pg = cal.userData.page;
+  pg.material.side = THREE.DoubleSide; pg.material.emissive = new THREE.Color('#E9E4D8'); pg.material.emissiveIntensity = 0.75; pg.castShadow = false;
+  return cal;
 }

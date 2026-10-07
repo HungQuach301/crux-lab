@@ -2812,16 +2812,26 @@
    "id": "m_law",
    "verb": "push",
    "from": "cPay",
-   "to": "cSched80",
+   "to": "cLaw",
    "t0": 61.616,
    "t1": 62.616,
-   "reason": "lời \"By federal law … once the schedule says…\": mốc nằm ở mười năm đầu của chính đường này → đẩy máy",
+   "reason": "lời \"By federal law … once the schedule says…\": cả đường lịch trong khung, hai mốc luật nằm trên chính đường này → đẩy máy (r3: giữ TOÀN đường cong)",
    "sound": "whoosh_push"
+  },
+  {
+   "id": "m_near",
+   "verb": "push",
+   "from": "cLaw",
+   "to": "cNear",
+   "t0": 73.249,
+   "t1": 74.249,
+   "reason": "lời \"On this loan, that's payment 99\": đẩy nhẹ vào vùng kỳ 99–114 (đường cong vẫn gần trọn khung) → đẩy máy",
+   "sound": "whoosh_soft"
   },
   {
    "id": "m_wide",
    "verb": "pull",
-   "from": "cSched80",
+   "from": "cNear",
    "to": "cWide",
    "t0": 94.888,
    "t1": 95.638,
@@ -3029,6 +3039,12 @@
    "kind": "chime"
   },
   {
+   "t": 73.249,
+   "kind": "whoosh_soft",
+   "dur": 1.0,
+   "gain": 0.8
+  },
+  {
    "t": 75.607,
    "kind": "tick",
    "v": 0.6
@@ -3205,25 +3221,30 @@
   {
    "id": "s4",
    "t0": 61.616,
-   "t1": 94.888
+   "t1": 73.249
   },
   {
    "id": "s5",
+   "t0": 73.249,
+   "t1": 94.888
+  },
+  {
+   "id": "s6",
    "t0": 94.888,
    "t1": 100.117
   },
   {
-   "id": "s6",
+   "id": "s7",
    "t0": 100.117,
    "t1": 107.395
   },
   {
-   "id": "s7",
+   "id": "s8",
    "t0": 107.395,
    "t1": 126.037
   },
   {
-   "id": "s8",
+   "id": "s9",
    "t0": 126.037,
    "t1": 129.833
   }
@@ -3238,12 +3259,13 @@
   "y1.taxes": "taxes, home insurance and PMI on top",
   "y2.slowly": "slowly at first",
   "y2.faster": "faster later",
-  "l0.eighty": "80% of original value = $320,000",
-  "l1.ninety": "payment 99: may request",
-  "l2.conditions": "conditions: written request · current on payments",
-  "a0.seventy": "78% = $312,000",
-  "a1.nine": "payment 114 (9.5 years): ends automatically",
+  "l0.eighty": "80% of original value",
+  "l1.ninety": "payment 99",
+  "l2.conditions": "conditions: e.g. payments current",
+  "a0.seventy": "78% of original value",
+  "a1.nine": "payment 114 (9.5 years)",
   "a2.schedule": "based on the schedule only",
+  "l0.law": "the law's two dates on this schedule",
   "v1.sooner": "80% sooner, on paper",
   "v1.paper": "on paper: loan ÷ value by a price index",
   "v2.request": "lender's rule: request · appraisal · minimum time"
@@ -3259,6 +3281,7 @@
   "y1.taxes",
   "y2.each",
   "y2.faster",
+  "l0.law",
   "l0.eighty",
   "l1.ninety",
   "l2.conditions",

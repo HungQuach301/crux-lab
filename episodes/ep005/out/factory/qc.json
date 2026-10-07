@@ -80,9 +80,9 @@
   {
    "item": "freezedetect d=3 ∩ lời",
    "result": "TRƯỢT",
-   "value": 216.76,
+   "value": 207.63,
    "threshold": "0 s",
-   "note": "44 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [43.5, 49.2333], [58.4667, 65.5333]]"
+   "note": "47 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [44.6, 49.2], [58.4667, 65.4667]]"
   },
   {
    "item": "mốc hình ≥ mốc từ",
@@ -93,15 +93,15 @@
   },
   {
    "item": "loudness",
-   "result": "ĐẠT",
-   "value": "-14.0 LUFS / -1.5 dBTP",
+   "result": "TRƯỢT",
+   "value": "-14.0 LUFS / -1.4 dBTP",
    "threshold": "-14 ± 1 LUFS, ≤ -1.5 dBTP",
    "note": ""
   },
   {
    "item": "kích thước phần",
    "result": "ĐẠT",
-   "value": 41.57,
+   "value": 42.61,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
   },
@@ -285,7 +285,7 @@
    "result": "ĐẠT",
    "value": 56,
    "threshold": "≥ 56 px",
-   "note": "1658 lần engine nâng cỡ"
+   "note": "1697 lần engine nâng cỡ"
   },
   {
    "item": "SH3 tương phản",
@@ -311,9 +311,9 @@
   {
    "item": "SH3 nhãn giao nhau (F-2)",
    "result": "CẢNH BÁO",
-   "value": 272,
+   "value": 246,
    "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
-   "note": "Victor · October 2005 · 6.07% × on paper 0.2–27.2 s; index still 3.3% below purchase × price index 13.8–27.2 s; index still 3.3% below purchase × on paper: 112 months 13.8–27.2 s"
+   "note": "Victor · October 2005 · 6.07% × on paper 0.2–27.2 s; index still 3.3% below purchase × price index 13.8–27.2 s; 80% × schedule: 90 payments 19.0–27.2 s"
   },
   {
    "item": "SH3 nhãn ILLUSTRATIVE / history",
@@ -366,11 +366,6 @@
   }
  ],
  "near": [
-  {
-   "item": "loudness TP",
-   "value": -1.5,
-   "threshold": -1.5
-  },
   {
    "item": "SH3 sàn chữ",
    "value": 56,

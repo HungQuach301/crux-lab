@@ -75,12 +75,12 @@ spine = {'segment': 'ep005 C4 · D = S15–S20 (Hồi 3, phương pháp, kết)'
          'label_cues': {'g1.four': 'Grace · June 2014 · 4.16%', 'g2.middle': 'on paper: 23 months', 'g3.schedule': 'schedule: 71',
                         'o0.owen': 'Owen · January 2004 · 5.71%', 'o1.thirteen': 'on paper: 13 months · schedule: 86', 'o2.rising': 'index +11.2%',
                         'v0.victor': 'Victor · October 2005 · 6.07%', 'v1.eighty': 'on paper: 112 months', 'v1.below': 'index still 3.3% below purchase',
-                        'v2.ninety': 'schedule: 90 payments', 'v3.show': 'not in this data', 'a1.plan': 'a plan', 'v3.lender': '?', 'a2.schedule': 'schedule: fixed at the start',
+                        'v2.schedule': 'schedule: 90 payments', 'v3.show': 'not in this data', 'a1.plan': 'a plan', 'v3.lender': '?', 'a2.schedule': 'schedule: fixed at the start',
                         'a3.history': 'on paper: typical 23 months · about 1 in 7 over 60', 'a4.forty': '20% down on $400,000: $40,000 more',
                         'a5.renting': 'keep renting, keep saving', 'e1.history': 'from about 1 year to more than 9 years · on paper', 'e1.never': 'on paper is not removed',
                         'e2.us': 'US only · history, not a forecast'},
          'visual_cues': ['g1.four', 'g2.middle', 'g3.schedule', 'o0.owen', 'o0.climbing', 'o1.thirteen', 'o2.rising', 'v0.victor', 'v1.fell', 'v1.eighty', 'v1.below',
-                         'v2.ninety', 'v3.lender', 'v3.show', 'a1.plan', 'a2.schedule', 'a3.history', 'a3.two', 'a4.twenty', 'a4.forty', 'a5.renting', 'e1.history', 'e1.never', 'e2.us'],
+                         'v2.schedule', 'v3.lender', 'v3.show', 'a1.plan', 'a2.schedule', 'a3.history', 'a3.two', 'a4.twenty', 'a4.forty', 'a5.renting', 'e1.history', 'e1.never', 'e2.us'],
          'checks': {'rule2_rule3': errs or 'OK', 'rule7': 'n/a (5 s đầu tập ở đoạn A)'}}
 K.write(HERE, spine, ['episodes/ep005/world/claims.json', 'episodes/ep005/work/world-data/derived.json', 'episodes/ep005/world/c4kit.js'])
 print('total', TOTAL, 'moves', [(m['id'], m['t0'], m['t1'], m.get('style')) for m in moves]); print('music_db', spine['mix']['music_db']); print('checks', errs or 'OK')

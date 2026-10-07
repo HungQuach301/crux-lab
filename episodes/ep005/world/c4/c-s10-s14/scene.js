@@ -5,10 +5,11 @@ import * as THREE from 'three';
 import { House, Stack, Beam, Studio, Fan, Burst, Shield, Ribbon, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
 import { Camera, Stage, loadJSON, fonts, C, lin, ease, easeOut, mix } from '/toolkit/factory/world/core.js';
 import { Calendar, Bars, foldPath } from '/episodes/ep005/world/obj5.js';
-import { cues, moves, flyGuard, measure, followLight, Street, Buyers, SX, BX2, POP, PLATE, interp } from '/episodes/ep005/world/c4kit.js';
+import { cues, moves, flyGuard, measure, followLight, Street, Buyers, litCalendar, SX, BX2, POP, PLATE, interp } from '/episodes/ep005/world/c4kit.js';
 
 const SEG = '/episodes/ep005/world/c4/c-s10-s14/';
-const UW = 2e5, RX = 60, BC = 75, TC = 92, HD = 108, HB = 0.025, HT = 5;
+const UW = 2e5, RX = 60, BC = 75, TC = 92, HD = 108, HB = 0.025, HT = 8, HA0 = 0.6;   // C4 r3 S12: trục cột tập A mở từ 60 % (HT 5 → 8): vạch 75 % tách khỏi vạch 80 % (34 → 61 px, đạo diễn A+B 4:07)
+const HA = (l) => Math.max(0.02, (l - HA0) * HT);
 const XM = (k) => BC - 5 + 10 * k / 120, YL = (l) => (l - 0.75) * 11;          // đường phát lại (N3, trước khi gập)
 const XB = (i, n) => BC - 5.5 + 11 * i / (n - 1), XT = (i, n) => TC - 5.5 + 11 * i / (n - 1);
 const SLOW = C.accent, IXC = C.muted, BASE = '#C9CFD8', DIM = '#59606B';
@@ -32,7 +33,7 @@ export async function boot(res) {
     fBut: { pos: [RX + 7.0, 2.4, 13], tgt: [RX + 1.0, 2.2, 0], fov: 35, chart: 0 },
     wHouse: { pos: [RX + 2.0, 2.6, 8.0], tgt: [RX + 0.3, 2.2, 0], fov: 35, chart: 0 },
     fTally: { pos: [RX + 12, 2.2, 14], tgt: [TC - 8, 1.6, 0], fov: 35, chart: 0 },
-    cTally: { pos: [TC, 1.2, 35], tgt: [TC, 1.2, 0], fov: 13, chart: 1 },
+    cTally: { pos: [TC, 1.44, 35], tgt: [TC, 1.44, 0], fov: 11.5, chart: 1 },   // C4 r3: khung theo trục mở (chân cột y = 0 ở 760 px)
     fRow: { pos: [TC - 10, 2.0, 12], tgt: [BC + 2, 1.0, 0], fov: 35, chart: 0 },
     wRow: { pos: [BC - 9.0, 1.7, 6.2], tgt: [BC - 1.2, 0.9, 0], fov: 35, chart: 0 },
     fFive: { pos: [BC - 5.0, 1.6, 14], tgt: [BC - 0.5, 1.0, 0], fov: 35, chart: 0 },
@@ -54,7 +55,7 @@ export async function boot(res) {
   const shield = Shield({ size: 0.75 }); scene.add(shield);
   const loan = Stack({ unitUsd: UW, w: 1.0, d: 0.7 }); loan.position.set(RX + 1.25, 0, 0.1); scene.add(loan);
   const bar80w = Beam({ length: 1.5 }); bar80w.position.set(RX + 1.25, 0, 0.1); scene.add(bar80w);
-  const cal = Calendar({ w: 1.1, h: 1.35 }); cal.position.set(RX + 2.75, 0, 0.3); cal.rotation.y = -0.25; scene.add(cal);
+  const cal = litCalendar(Calendar({ w: 1.1, h: 1.35 })); cal.position.set(RX + 2.75, 0, 0.3); cal.rotation.y = -0.25; scene.add(cal);
   const burstW = Burst(); scene.add(burstW);
   // ---------- S10.5–S11, S13–S14 cột tập B (một mặt đất y = 0)
   const beamF = Beam({ length: 11.4 }); beamF.position.set(BC, YL(0.8), 0); scene.add(beamF);
@@ -71,8 +72,8 @@ export async function boot(res) {
   const pk = IXs.reduce((a, x, i) => (x.m < '2012-01-01' && x.v > IXs[a].v ? i : a), 0), tr = IXs.reduce((a, x, i) => (x.m > IXs[pk].m && x.m < '2015-01-01' && x.v < IXs[a].v ? i : a), pk + 1);
   // ---------- S12 cột tập A: chiều cao = nợ ÷ giá trị ở 24 tháng
   const tbars = Bars({ n: nA, w: 0.02, d: 0.4 }); scene.add(tbars);
-  const T80 = Beam({ length: 11.4, color: C.ink }); T80.position.set(TC, (0.8 - 0.5) * HT, 0.3); scene.add(T80);
-  const T75 = Beam({ length: 11.4, color: C.muted }); T75.position.set(TC, (0.75 - 0.5) * HT, 0.3); scene.add(T75);
+  const T80 = Beam({ length: 11.4, color: C.ink }); T80.position.set(TC, HA(0.8), 0.3); scene.add(T80);
+  const T75 = Beam({ length: 11.4, color: C.accent }); T75.position.set(TC, HA(0.75), 0.3); scene.add(T75);   // r3: vạch 75 % màu của lát 75 % (accent)
   // ---------- S14.3: C4 r2 — không còn khu nhiều nhà; "national average, not one home" là tên trên khung cột cao nhất
   const WORLD = { street: ST.g, value, house, loan, cal, shield,
     ...Object.fromEntries(BU.items.flatMap((it, i) => [[`bHouse${i}`, it.house], [`bPerson${i}`, it.person]])) };
@@ -84,7 +85,7 @@ export async function boot(res) {
     // phố: cửa sổ sáng lần lượt (mỗi nhà một tháng mua), khối trả trước ở "same", đường chỉ số ở "value" → "index"
     items.forEach((it, i) => { const a = ease(t, mix(S.lit[0], S.lit[1], i / (nI - 1)) - 0.05, mix(S.lit[0], S.lit[1], i / (nI - 1)) + 0.25); for (const m of winMats[i]) m.emissiveIntensity = 0.9 * a; });
     downs.forEach((m, i) => { const a = ease(t, b.r1.same + 0.05 * i, b.r1.same + 0.05 * i + 0.25); m.material.opacity = a; m.visible = a > 0.01; });
-    const nx = Math.max(2, Math.round(lin(t, b.r2.value, b.r2.index) * ixPts.length)); ixLine.set(ixPts.slice(0, nx), 0.06, C.accent); ixLine.material.opacity = t >= b.r2.value ? 1 : 0;
+    const nx = Math.max(2, Math.round(lin(t, b.r2.value, b.r2.index) * ixPts.length)); ixLine.set(ixPts.slice(0, nx), 0.06, C.accent); ixLine.material.opacity = t >= b.r2.value ? 1 - ease(t, M.m_push.t0, M.m_push.t0 + 0.5) : 0;   // C4 r3: rời cùng cú đẩy (vòng 2: lơ lửng ở mép trái 3:24–3:34)
     // tháng mua minh hoạ (N3)
     const k = interp(S.month_kf, t), vUsd = 400000 * at(G.index, k), lUsd = 400000 * at(G.sched_line, k);
     const vh = value.set({ usd: vUsd, tintBelowUsd: 1e9, tint: '#C9D1DC', tintA: 0.55 }); house.position.set(RX, vh, 0);
@@ -116,10 +117,13 @@ export async function boot(res) {
     ridge.set(ridgePts, t >= M.m_zoom.t0 ? 0.03 : 0.045, C.muted); ridge.material.opacity = 0.9 * Math.max(rA, rZ);
     setOpacity(zs, rZ); zs.glow(t >= b.z1.schedule ? Math.max(0, 1 - lin(t, b.z1.schedule, b.z1.schedule + 0.8)) : 0, C.ink);
     // cột tập A (S12)
-    const k80 = ease(t, b.k1.two - 0.05, b.k1.two + POP), k75 = ease(t, b.k2.fifteen - 0.05, b.k2.fifteen + POP);
-    tbars.set(A.map((a, i) => ({ x: XT(i, nA), y: 0, h: Math.max(0.02, (a.l24 - 0.5) * HT), color: a.l24 <= 0.75 && k75 > 0.5 ? C.accent : a.l24 <= 0.8 && k80 > 0.5 ? C.ink : BASE })));
-    setOpacity(tbars, t >= M.m_tally.t0 && t < M.m_row.t1 ? 1 : 0); setOpacity(T80, t >= M.m_tally.t0 && t < M.m_row.t1 ? 1 : 0); setOpacity(T75, t >= M.m_tally.t0 && t < M.m_row.t1 ? 1 : 0);
+    const k80 = ease(t, b.k1.two - 0.05, b.k1.two + POP);
+    const sw = nA * lin(t, b.k2.t0, b.k2.fifteen);   // C4 r3: "Two years after purchase, only 15.6 percent" — lát 75 % sáng lần lượt trái → phải, bộ đếm chạy tới 15,6 % đúng "fifteen"
+    tbars.set(A.map((a, i) => ({ x: XT(i, nA), y: 0, h: HA(a.l24), color: a.l24 <= 0.75 && i < sw ? C.accent : a.l24 <= 0.8 && k80 > 0.5 ? '#E6E9EE' : BASE })));
+    const tIn = t >= M.m_tally.t0 ? ease(t, M.m_tally.t0 + 0.3, M.m_tally.t1 - 0.2) * (t < M.m_row.t0 ? 1 : 1 - ease(t, M.m_row.t0, M.m_row.t0 + 0.5)) : 0;   // r3: không bật/tắt bụp giữa cú bay (4:40)
+    setOpacity(tbars, tIn); setOpacity(T80, tIn); setOpacity(T75, tIn);
     T75.glow(t >= b.k2.seventy ? Math.max(0, 1 - lin(t, b.k2.seventy, b.k2.seventy + 0.8)) : 0, C.accent);
+    const n75 = A.reduce((m, a, i) => m + (a.l24 <= 0.75 && i < sw ? 1 : 0), 0);
     renderer.render(scene, cam);
     // ======================= lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0, S2 = (x, y, z = 0.3) => O.toScreen(x, y, z); log.roi = {};
@@ -157,15 +161,17 @@ export async function boot(res) {
     const c2 = ok * ease(t, M.m_tally.t1, M.m_tally.t1 + POP) * (1 - ease(t, M.m_row.t0, M.m_row.t0 + 0.3));
     if (c2 > 0.01) {
       O.text(`at 24 months · ${CL.nA.value} purchase months, January 1991 to July 2024`, 960, 186, 46, { kind: 'compare', align: 'center', alpha: c2 * ease(t, b.k1.larger - 0.05, b.k1.larger + POP) });
-      O.text(`at or under 80%: ${(100 * CL.shareA_ltv24_le80.value).toFixed(1)}%`, 120, 262, 54, { kind: 'compare', alpha: c2 * k80, plate: PLATE, plateA: 0.75 });
-      O.text(`at or under 75%: ${(100 * CL.shareA_ltv24_le75.value).toFixed(1)}%`, 120, 330, 54, { kind: 'compare', color: C.accent, alpha: c2 * k75, plate: PLATE, plateA: 0.75 });
-      O.text("Fannie Mae's early bar", 120, 392, 48, { kind: 'name', color: C.muted, alpha: c2 * ease(t, b.k2.fannie - 0.05, b.k2.fannie + POP) });
-      const [x80, y80] = S2(TC + 5.6, 0.3 * HT), [x75, y75] = S2(TC + 5.6, 0.25 * HT);
-      O.text('80%', x80 - 4, y80 - 12, 44, { kind: 'number', align: 'right', alpha: c2 }); O.text('75%', x75 - 4, y75 + 44, 44, { kind: 'number', align: 'right', color: C.muted, alpha: c2 });
+      // r3: 58,6 % (lời không đọc) hạ xuống — muted, nhỏ, không nền; 15,6 % (lời đọc) là dòng nổi, đếm lên
+      O.text(`at or under 80%: ${(100 * CL.shareA_ltv24_le80.value).toFixed(1)}%`, 120, 392, 48, { kind: 'compare', color: C.muted, alpha: c2 * k80 });
+      const v75 = t >= b.k2.fifteen ? 100 * CL.shareA_ltv24_le75.value : 100 * n75 / nA;
+      O.text(`at or under 75%: ${v75.toFixed(1)}%`, 120, 268, 60, { kind: 'compare', color: C.accent, alpha: c2 * ease(t, b.k2.t0 - 0.05, b.k2.t0 + POP), plate: PLATE, plateA: 0.8 });
+      O.text("Fannie Mae's early bar", 120, 330, 48, { kind: 'name', color: C.accent, alpha: c2 * ease(t, b.k2.fannie - 0.05, b.k2.fannie + POP) });
+      const [x80, y80] = S2(TC + 5.6, HA(0.8)), [x75, y75] = S2(TC + 5.6, HA(0.75));
+      O.text('80%', x80 - 4, y80 - 14, 48, { kind: 'number', align: 'right', alpha: c2, plate: PLATE, plateA: 0.8 }); O.text('75%', x75 - 4, y75 + 52, 48, { kind: 'number', align: 'right', color: C.accent, alpha: c2, plate: PLATE, plateA: 0.8 });
       const yb = S2(TC, 0)[1]; for (const yy of [1991, 2000, 2010, 2024]) { const i = A.findIndex((a) => a.m.startsWith(String(yy))); O.text(String(yy), S2(XT(i, nA), 0)[0], yb + 50, 44, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: c2 }); }
-      O.text('bar height = loan ÷ value on paper, 2 years after purchase', 960, 812, 44, { kind: 'compare', align: 'center', color: C.muted, alpha: c2 });
+      O.text('bar height = loan ÷ value on paper, 2 years after purchase', 960, 884, 44, { kind: 'compare', align: 'center', color: C.muted, alpha: c2 });
     }
-    { const [x0, y0] = S2(TC - 5.5, 0.35 * HT), [x1, y1] = S2(TC + 5.5, 0); log.roi['k1.two'] = [x0, y0, x1, y1]; }
+    { const [x0, y0] = S2(TC - 5.5, HA(0.86)), [x1, y1] = S2(TC + 5.5, 0); log.roi['k1.two'] = [x0, y0, x1, y1]; }
     // S13 (N2, vòng 3)
     const wRw = (t >= M.m_row.t0 ? 1 : 0) * (1 - ease(t, M.m_bars.t0, M.m_bars.t0 + 0.3));
     wl('typical', BC - 5.9, medH * HB + 0.15, 0.3, wRw * ease(t, b.n0.typical - 0.05, b.n0.typical + POP) * (1 - ease(t, b.n0.tail, b.n0.tail + 0.4)));
@@ -187,9 +193,10 @@ export async function boot(res) {
         if (sl > 0) { c.globalAlpha = sl * c3; c.strokeStyle = C.ink; c.lineWidth = 9; c.beginPath(); for (let i = pk; i <= tr; i++) { const x = XS(i), y = YS(IXs[i].v); i > pk ? c.lineTo(x, y) : c.moveTo(x, y); } c.stroke(); }
         c.restore(); }
       for (const yy of [1991, 1995, 2000, 2005, 2010, 2016]) { const i = P.findIndex((p) => p.m.startsWith(String(yy))); O.text(String(yy), XS(i), ys1 + 46, 48, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: c3 }); }
-      { const [x, y] = S2(BC - 5.5, 60 * HB); O.text('60 months', x, y - 16, 46, { kind: 'number', color: C.muted, alpha: c3 }); }
-      { const [x, y] = S2(BC - 5.5, 60 * HB + 1.1), pa = c3 * ease(t, b.n1.years - 0.05, b.n1.years + POP); O.text('more than 60 months:', x, y, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 });
-        O.text(`${(100 * CL.shareB_over60.value).toFixed(1)}% (about 1 in 7)`, x, y + 66, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 }); }
+      { const [x, y] = S2(BC - 5.5, 60 * HB), pa = c3 * ease(t, b.n1.years - 0.05, b.n1.years + POP);   // C4 r3: MỘT nhóm nhãn, cao hẳn trên vạch 60 (vòng 2: "60 months" + 14,7 % + chiều cao chồng lên vạch, 4:46)
+        O.text('more than 60 months:', x, y - 150, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 });
+        O.text(`${(100 * CL.shareB_over60.value).toFixed(1)}% (about 1 in 7)`, x, y - 86, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 });
+        const c = O.ctx; c.save(); c.globalAlpha = 0.8 * pa; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.moveTo(x + 6, y - 66); c.lineTo(x + 6, y - 6); c.stroke(); c.restore(); }
       { const [xr] = S2(XB(s1, n), 0), xR = xr + 26, yT = S2(0, CL.maxB_months_to80.value * HB)[1], c = O.ctx;
         c.save(); c.globalAlpha = 0.85 * c3; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.moveTo(xR - 10, yT); c.lineTo(xR + 10, yT); c.moveTo(xR, yT); c.lineTo(xR, yb); c.moveTo(xR - 10, yb); c.lineTo(xR + 10, yb); c.stroke(); c.restore();
         O.text("each bar's height:", xR + 20, yT + 34, 48, { alpha: c3, plate: PLATE, plateA: 0.75 }); O.text('months to 80% on paper', xR + 20, yT + 96, 48, { alpha: c3, plate: PLATE, plateA: 0.75 }); }
@@ -198,7 +205,7 @@ export async function boot(res) {
     }
     // S14.1–S14.4 phóng vào cột cao nhất — C4 r2: khung GIỮ tới hết S14 (không sang khu nhiều nhà); thước chiều cao = tháng tới 80 % trên giấy;
     // mốc lịch của chính tháng đó (90 kỳ) cắt ngang cột + sống lịch của mọi tháng; "national average, not one home" thành tên trên khung đồ thị
-    const c4 = ok * ease(t, M.m_zoom.t1, M.m_zoom.t1 + POP) * (1 - ease(t, M.m_buy.t0, M.m_buy.t0 + 0.3));
+    const c4 = ok * ease(t, M.m_zoom.t1, M.m_zoom.t1 + POP) * (1 - ease(t, M.m_buy.t0 - 0.35, M.m_buy.t0));   // C4 r3: tắt hẳn TRƯỚC cú bay (vòng 2: mảnh "yr 4 mo)" treo ở mép khi sang ba người mua)
     if (c4 > 0.01) {
       const [x, y] = S2(XB(tall, n), CL.maxB_months_to80.value * HB), [, yb0] = S2(0, 0);
       O.text('October 2005: 112 months (9 yr 4 mo)', x, y - 92, 54, { kind: 'compare', align: 'center', alpha: c4 * ease(t, b.z0.october - 0.05, b.z0.october + POP), plate: PLATE, plateA: 0.75 });

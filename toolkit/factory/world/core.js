@@ -169,7 +169,12 @@ export function Overlay(canvas, res) {
       if (cam) { const d = new THREE.Vector3(); cam.getWorldDirection(d); log.cam = { p: cam.position.toArray().map((v) => +v.toFixed(5)), d: d.toArray().map((v) => +v.toFixed(6)), fov: +cam.fov.toFixed(5), aspect: +cam.aspect.toFixed(6) }; }
       if (CK.on) { log.objects = []; for (const o of CK.shapes3d) { const id = 's' + seq; log.objects.push({ id, n: seq++, ...o }); } }
       if (V) log.v = { texts: [], raised: [], dropped: [], fitted: [], shifted: [], collisions: [], recoloured: [], tags: [], claims: [], hist: false, illus: false };
-      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, canvas.width, canvas.height); base(); return log;
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Lớp phủ chỉ được XOÁ mà không vẽ gì (khung không chữ, không lớp bắt buộc) → Chromium (canvas 2D tăng tốc, đọc sang canvas CPU ở compose)
+      // trả lại ẢNH CŨ của lớp phủ: chữ của khung trước "treo" qua cả cú bay (Tập 5 C4: mảnh "yr 4 mo)" 5:05, nhãn S13 ở 5:19). Vẽ một điểm
+      // gần như trong suốt (1/255) mỗi khung để lớp phủ luôn có lệnh vẽ mới — không thấy được trên hình.
+      ctx.fillStyle = 'rgba(0,0,0,0.004)'; ctx.fillRect(0, 0, 1, 1);
+      base(); return log;
     },
     // toạ độ màn hình (thiết kế 1920×1080) của một điểm thế giới
     toScreen(x, y, z = 0) { proj.set(x, y, z).project(camera); return [(proj.x + 1) * 960, (1 - proj.y) * 540]; },

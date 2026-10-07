@@ -4,7 +4,7 @@
 import * as THREE from 'three';
 import { House, Stack, Beam, Person, Ribbon, Studio, Burst, Apartment, Shield, Fan, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
 import { Camera, Stage, loadJSON, fonts, C, clamp, lin, ease, easeOut, mix, rgba } from '/toolkit/factory/world/core.js';
-import { flyGuard, measure, followLight, Buyers, BX } from '/episodes/ep005/world/c4kit.js';   // C4
+import { flyGuard, measure, followLight, Buyers, BX, BNAME, BKEY, BCOL } from '/episodes/ep005/world/c4kit.js';   // C4
 
 const FADE = 0.4, POP = 0.15;
 const U = 1.25e5;                                     // $ / đơn vị — chồng tiền ở định nghĩa (c4)
@@ -36,7 +36,7 @@ export async function boot(res) {
     cDef75: { pos: [17.0, 2.7, 40.0], tgt: [17.0, 2.7, 0], fov: 8, chart: 1 },              // định nghĩa, khung CHẶT hơn (r2: fov 12 → 8, khoảng 80 %↔75 % lớn ×1,5): vạch 75 % + nhãn B+2
     fMeet: { pos: [BX - 4.0, 2.8, 17.0], tgt: [BX - 1.0, 1.8, 0], fov: 35, chart: 0 },        // định nghĩa → ba người mua (cùng phía phải)
   };
-  const BU = Buyers(scene); Object.assign(poses, BU.poses);   // C4: ba người mua (c4kit, cùng toạ độ với đoạn C/D)
+  const BU = Buyers(scene, BX, { loans: true }); Object.assign(poses, BU.poses);   // C4: ba người mua (c4kit, cùng toạ độ với đoạn C/D); r3: mỗi người một màu + chồng vay của họ
   const FLY = S.moves.some((m) => m.style === 'fly');   // F-1: vật thế giới (vạch 20 %, khung đích) KHÔNG mờ khi máy rời — máy đi qua chúng
   // động tác thêm ở thế giới c0 → c1 (lùi máy): giữa "ten" và "buy" — lấy từ spine (cửa sổ tính như spine.window)
   const CAM = Camera(poses, all);
@@ -64,11 +64,12 @@ export async function boot(res) {
   const vHouse = House({ w: 1.2 }); scene.add(vHouse);
   const bar80b = Beam({ length: 6.0, color: C.muted }); bar80b.position.set(16.8, 0, 0); scene.add(bar80b);
   const paths = D.paths, nP = paths.length, typP = paths.find((p) => p.m === D.typical), slowP = paths.find((p) => p.m === D.slow);
+  const FANR = Math.max(...paths.map((p) => Math.max(...p.p.slice(88, 112))));   // C4 r3: đỉnh bó ở năm 7,3–9,3 (nhãn ca chậm nhất đặt trên, ngoài các đường, dưới dòng tiêu đề)
   const fanCol = new THREE.Color(C.bg).lerp(new THREE.Color(C.ink), 0.2).getStyle();   // E5c: bó dịu hơn, một nửa số tháng (đạo diễn: "mảng lưới trắng")
 
   // F-1 đo che khung: mỗi vật thế giới → hộp bao 3D (Box3, InstancedMesh tính lại theo bó đang hiện) chiếu ra màn hình, cắt theo khung;
   // tỉ lệ diện tích hình chữ nhật bao = CHẶN TRÊN của phần khung vật đó che. Góc nằm sau máy (w ≤ 0) → coi như che cả khung.
-  const WORLD = { house, price, mine, you, apt, shield, rentStack, target, loanW, ...Object.fromEntries(BU.items.flatMap((it, i) => [[`bHouse${i}`, it.house], [`bStack${i}`, it.stack], [`bPerson${i}`, it.person]])) }, bx = new THREE.Box3(), b1 = new THREE.Box3(), cv = new THREE.Vector4();
+  const WORLD = { house, price, mine, you, apt, shield, rentStack, target, loanW, ...Object.fromEntries(BU.items.flatMap((it, i) => [[`bHouse${i}`, it.house], [`bStack${i}`, it.stack], [`bPerson${i}`, it.person], [`bLoan${i}`, it.loan]])) }, bx = new THREE.Box3(), b1 = new THREE.Box3(), cv = new THREE.Vector4();
   function cover() {
     let best = { f: 0, obj: null };
     for (const [name, o] of Object.entries(WORLD)) {
@@ -153,12 +154,19 @@ export async function boot(res) {
     // C4 S03.3: vạch 75 % VẼ RA ở chính mức 75 % (trái → phải) đúng chữ "seventy-five" — r2: không trượt ra từ vạch 80 % nữa (vòng 1 đọc thành "vạch dịch/nhân đôi"); vạch 80 % mờ một nửa
     const s75 = easeOut(t, b.c6.seventy - 0.05, b.c6.seventy + 0.45); bar75.position.set(X75 - L75 / 2 * (1 - s75), 0.75 * vUsd / U, 0.05); bar75.scale.x = Math.max(0.001, s75); setOpacity(bar75, t >= m6.t0 ? dA * (s75 > 0.001 ? 1 : 0) : 0);
     // C4 S03.4: ba người mua hiện ở "three" (mọc lên từ mặt đất)
-    const buyA = ease(t, b.c7.three - 0.05, b.c7.three + 0.35); BU.set(buyA); for (const it of BU.items) it.house.scale.setScalar(0.6 + 0.4 * easeOut(t, b.c7.three - 0.05, b.c7.three + 0.5));
+    // C4 r3 (đạo diễn A+B 0:42: "khung trống" + "ba tháp giống hệt, đứng im 11 s"): ba người mua ĐÃ Ở ĐÓ khi máy bay tới (vật thế giới, không mờ vào);
+    // ở "three" chồng VAY của từng người mọc lên (90 %) rồi chạy theo đường TRÊN GIẤY thật của họ (10 tháng / giây): Owen chạm vạch 80 % sau ~1,3 s,
+    // Grace ~2,3 s, Victor lên trên 90 % rồi mới xuống — ba tốc độ khác nhau, không số (thế giới; quy tắc 1)
+    BU.set(t >= m7.t0 ? 1 : 0);
+    const gL = easeOut(t, b.c7.three - 0.05, b.c7.three + 0.4), mo = Math.max(0, (t - b.c7.three - 0.4) * 10);
+    BKEY.forEach((k, i) => { const pp = D.buyers[k].paper, j = Math.min(pp.length - 1, mo), j0 = Math.floor(j), share = pp[j0] + (pp[Math.min(pp.length - 1, j0 + 1)] - pp[j0]) * (j - j0);
+      BU.loan(i, share, t >= m7.t0 ? 1 : 0, gL); });
 
     renderer.render(scene, cam);
     // ======================= lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0, S2 = (x, y) => O.toScreen(x, y, 0.5); log.roi = {};
 
+    { const [x0, y0] = O.toScreen(BX - 3.0 - 1.1, 1.95, 0.1), [x1, y1] = O.toScreen(BX + 3.0 - 0.55, 0, 0.1); log.roi['c7.three'] = [x0, y0, x1, y1]; }   // C4 r3: chồng vay của ba người mọc ở "three"
     { const [x0, y0] = O.toScreen(WX, 0.1, 0); log.roi['c0.ten'] = [x0 - 90, y0 - 70, x0 + 90, y0 + 50]; }   // chồng 10 % đặt xuống
     { const [x0, y0] = O.toScreen(WX + 3.1, 0.3, 0.4); log.roi['c1.twenty'] = [x0 - 70, y0 - 60, x0 + 70, y0 + 50]; }          // chồng của người xem lớn tới 20 %
     { const [lx0, ly0] = O.toScreen(18.4, 3.0, 0); log.roi['c4.paper'] = [lx0 - 90, ly0 - 80, lx0 + 260, ly0 + 80]; }   // đỉnh chồng vay + bộ đếm %
@@ -176,14 +184,16 @@ export async function boot(res) {
       const aA = ok * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE));
       for (let yr = 0; yr <= 10; yr += 2) { const [x, y] = S2(XM(yr * 12), 0); O.text(yr === 10 ? '10 years' : String(yr), x, y + 48, 44, { kind: 'number', w: 600, color: C.muted, align: 'center', alpha: aA }); }
       for (const l of [0.9, 0.8]) {   // (b) bỏ nhãn 100 % (gợi "nợ nhiều hơn giá nhà")
-        const [x, y] = S2(XM(0), YL(l)); O.text(`${Math.round(l * 100)}%`, x - 24, y + 16, 48, { kind: 'number', color: l === 0.8 ? C.ink : C.muted, align: 'right', alpha: aA * (l === 1.0 ? ease(t, b.c3.replayed - 0.05, b.c3.replayed + POP) : 1) }); }
+        const [x, y] = S2(-5.55, YL(l)); O.text(`${Math.round(l * 100)}%`, x - 12, y + 16, 48, { kind: 'number', color: l === 0.8 ? C.ink : C.muted, align: 'right', alpha: aA, plate: '#0B0E13', plateA: 0.75 }); }   // C4 r3: trái đầu vạch 80 % (dài 10,8 → x −5,4), có nền — không đường nào cắt chữ
       O.text('loan as a share of the price · on the schedule', 960, 230, 52, { kind: 'compare', align: 'center', color: C.muted, alpha: aA * (1 - ease(t, b.c3.replayed - 0.3, b.c3.replayed - 0.05)) });
       O.text('Loan as % of home value · one line per purchase month, 1991–2016', 960, 230, 48, { kind: 'compare', align: 'center', color: C.ink, alpha: aA * ease(t, b.c3.replayed, b.c3.replayed + POP) });
       const eA = ease(t, b.c2.eight, b.c2.eight + POP) * aA;
       if (eA > 0) { const [x, y] = S2(XM(D.sched80), YL(0.8)); O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath(); O.ctx.moveTo(x, y); O.ctx.lineTo(x, S2(0, 0)[1]); O.ctx.stroke(); O.ctx.restore();
         O.text(t < b.c3.replayed ? 'about 8 years' : 'schedule ≈ 8 years', t < b.c3.replayed ? x - 16 : S2(XM(120), 0)[0], y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
-      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 60, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
-      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text(`slowest case ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, x, y - 40, 52, { kind: 'compare', color: C.accent, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
+      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 60, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0 - 0.3, mv[1].t0)), plate: '#0B0E13', plateA: 0.75 }); }   // C4 r3: tắt trước cú lia (không bị cắt mép)
+      if (sA > 0) { const aS = ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0 - 0.3, mv[1].t0)), [lx, ly] = S2(XM(92), YL(slowP.p[92])), [, yT] = S2(0, YL(FANR)), c = O.ctx;   // C4 r3: nhãn ở vùng trống trên-phải (không đường nào cắt), đường dẫn xuống chính đường chậm
+        c.save(); c.globalAlpha = aS; c.strokeStyle = C.accent; c.lineWidth = 3; c.beginPath(); c.moveTo(lx, ly - 12); c.lineTo(lx, yT - 64); c.stroke(); c.restore();
+        O.text(`slowest case ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, lx - 20, yT - 84, 52, { kind: 'compare', color: C.accent, alpha: aS, plate: '#0B0E13', plateA: 0.85 }); }
     }
     // c4 (đồ thị: định nghĩa)
     if (dA > 0.02) {
@@ -216,6 +226,8 @@ export async function boot(res) {
     }
     // ---------- C4 S03.4–S03.5 (thế giới): không số; lớp bắt buộc
     const wB = ease(t, m7.t1, m7.t1 + POP);
+    { const nA = ease(t, b.c7.buyers - 0.05, b.c7.buyers + POP) * (1 - ease(t, ID0 - 0.5, ID0));   // C4 r3: tên + màu riêng từng người mua (cùng màu ở đoạn C/D)
+      if (nA > 0.01) BU.items.forEach((it, i) => { const [x, y] = O.toScreen(it.x + 1.05, 1.5, 0.55); O.text(BNAME[i], x, y - 16, 52, { align: 'center', color: BCOL[i], alpha: nA, plate: '#0B0E13', plateA: 0.7 }); }); }
     // ---------- C4 ident: dấu kênh trên thế giới tối dần (3 s, không lời) → đoạn B mở từ tối
     const idA = ease(t, ID0, ID0 + 0.6), dark = Math.max(0.78 * idA, ease(t, ID1 - 0.7, ID1 - 0.05));
     const chOut = (1 - ease(t, mv[2].t0, mv[2].t0 + 0.4)) * (1 - idA);   // E5e: lớp chữ của đồ thị rời khi về cảnh thế giới
