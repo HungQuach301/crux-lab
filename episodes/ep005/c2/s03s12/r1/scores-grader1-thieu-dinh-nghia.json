@@ -1,0 +1,56 @@
+[
+ {
+  "file": "0453402b",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "two_years_from_label": true,
+  "why": "Covers 80% request / 78% automatic on the original schedule, the lender-rule Fannie 2-year + 75% current-value condition (2 years from the screen), and the 15.6% historical share of months."
+ },
+ {
+  "file": "587308bb",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "two_years_from_label": true,
+  "why": "All three points are correct; 2 years is attributed to the screen, and 15.6% is correctly described as a share of historical purchase months."
+ },
+ {
+  "file": "6b84bbc8",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "two_years_from_label": true,
+  "why": "Schedule rule, Fannie 2-year + 75% current value (from on-screen text), and the share of months are all correct; 'buyers' is loose wording but the definition is right."
+ },
+ {
+  "file": "c79549fb",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "two_years_from_label": true,
+  "why": "Gets the schedule rule, the lender/owner rule with 2 years and 75% of current value, and the share-of-months meaning; notes 2 years appears only on screen."
+ },
+ {
+  "file": "e06e3e63",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "two_years_from_label": false,
+  "why": "All three points are correct, but the 2 years is stated without saying it comes from the label."
+ },
+ {
+  "file": "e09e25a4",
+  "sample": "v1",
+  "role": "G",
+  "score": 1,
+  "advice": true,
+  "two_years_from_label": false,
+  "why": "All three points are correct; the 2-year wait is stated without a label attribution."
+ }
+]

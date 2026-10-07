@@ -120,6 +120,7 @@ for ln in open(SCRIPT, encoding='utf-8'):
         m = LINE.match(ln)
         if m:
             sid, role, emo, text, meta = m.groups()
+            meta = re.sub(r';\s*label:.*$', '', meta)  # B+2: nhãn trên hình, không phải claim
             cl, hold = meta, 0.0
             hm = re.search(r';\s*hold:\s*([\d.]+)', meta)
             if hm:

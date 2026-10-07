@@ -49,7 +49,7 @@ S02.2 {promise} We replayed real US prices and rates month by month, so you'll s
 
 S03.1 {define} On paper means the loan is 80 percent of the home's value by a national price index. <!-- claims: medianB_months_to80 -->
 S03.2 {hook} That's not the same as getting the insurance removed. <!-- claims: — -->
-S03.3 {define} Removal on today's value, when you ask, is the loan owner's rule; for Fannie Mae loans, that's two years and a 75 percent bar. <!-- claims: value_removal_rule, value_removal_ltv_early, value_removal_seasoning_years -->
+S03.3 {define} Removal on today's value, when you ask, is the loan owner's rule; for Fannie Mae loans, that's a waiting period and a 75 percent bar. <!-- claims: value_removal_rule, value_removal_ltv_early, value_removal_seasoning_years; label: "Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}" (B+2) -->
 S03.4 {promise} You'll also meet three illustrative buyers who got very different answers. <!-- claims: buyer_owen_*, buyer_grace_*, buyer_victor_* -->
 S03.5 {constraint} It's US only, history, not a forecast, and it won't say whether to buy or wait. <!-- claims: —; hold: 0.8 -->
 
