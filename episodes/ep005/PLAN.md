@@ -13,8 +13,10 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | REVIEWER R1 (không nêu phí PMI) | **0 vi phạm** | `REVIEWER-checklist.md`, `gates/REVIEW-R1.md` | bắt buộc mọi lượt REVIEWER Tập 5; luật máy đề xuất A20 |
 | **G1** | **XONG** (issue #43; `gates/G1-answer.md`) | `gates/G1.md`, `gates/REVIEW-G1.md` | #17 · L2 · H-A · T1 · 75 % (a): nguyên văn B-8.1-04, phạm vi Fannie Mae |
 | Lời theo cảnh | **XONG 20/20** (S18 seed 1006) | `story/voice_scenes.py`, `voice-takes/`, `review-g1/voice-scenes.json` | ASR từ khoá theo cảnh |
-| **Mốc V** | **CHỜ — chủ dự án mở** | — | Tập 5 dừng ở đây |
-| Chuyển kịch bản sang đặc tả nhịp Mốc V → C4 → C5 → Shorts → G2 | chưa | | sau Mốc V merge + K merge |
+| Mốc V | **XONG** — merge `main` 16d7e1f vào `ep005` | — | CHARTER v4, D-009, D-010, nhà máy thế giới |
+| B+2 S03 | **XONG** | `gates/S03-S12-*.md` | "a waiting period" + nhãn Fannie Mae; M4 9,8 s; mù S03→S12 6/6, khuyên 0 |
+| **C3 (P2)** | **CHỜ CHỦ DỰ ÁN** | `gates/C3.md`, `gates/C3-root.md`, `gates/REVIEW-C3.md`, `review-c3/c3-clip.mp4`, `world/SPINE-PLAN.md` | spine v2; N3 ĐẠT; N1/N2 hết 3 vòng (câu khuyên tắt tiếng) → chủ dự án chọn |
+| F-5, F-2, F-3, F-1 → C4 → C5 → Shorts → G2 | chưa | | sau C3 |
 
 ## 2. Phiên sau đọc (sau Mốc V merge)
 `decisions/D-009.md` · đặc tả nhịp Mốc V (README/playbook do Mốc V ghi) · `CHARTER.md` · `playbook/episode.md` · `playbook/prompts/P3.md` · `episodes/ep005/PLAN.md` · `ledger.md` · `gates/G1.md` + trả lời G1 · `story/script.md` · `story/beats.md` · `episode.yaml` · `toolkit/factory/README.md`.
@@ -30,6 +32,7 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 - So headless ↔ `Explore`: cảnh mất chú ý khác nhau → câu hỏi mở cho tổng kết Tập 5.
 
 ## 4. Điểm dừng an toàn + lệnh chạy tiếp
+2026-10-07: **DỪNG chờ C3.** Đoạn thế giới: `python3 toolkit/factory/world/build_seg.py episodes/ep005/world/<đoạn> --res 540` (cache theo băm; vendor three.js: `npm ci` trong `toolkit/factory/world/vendor`). Cổng gốc: `python3 episodes/ep005/c3/root_run.py read|grade …`. Sau C3: BACKLOG F-5 → F-2 → F-3 → F-1 (thử 1 lần chuyển) → C4.
 2026-10-06 (sau G1): **DỪNG chờ Mốc V.** Nhánh `ep005`. Lời theo cảnh: `python3 episodes/ep005/story/voice_scenes.py --skip S03,S12` (cache theo băm chữ; chỉ sinh cảnh đổi chữ; báo cáo `review-g1/voice-scenes.json`). Câu 75 % và S18 đã xong; đổi chữ cảnh nào thì `voice_scenes.py --only Sxx` (S18: `s18_seeds.py`, seed 1006), cảnh S01–S04 đổi thì chạy lại `table_read.py`.
 2026-10-06: **DỪNG ở G1.** Tái tạo: `python3 episodes/ep005/data/fetch.py --verify && python3 episodes/ep005/model/model.py && python3 episodes/ep005/model/statements.py --all && python3 episodes/ep005/story/check_script.py`. Đọc thử: `python3 episodes/ep005/story/table_read.py` (take ở `voice-takes/`, không sinh lại khi chữ không đổi; cần `pip install av==14.2.0` cho faster-whisper). Kiểm mù: `python3 episodes/ep005/blind.py read|grade …`.
 
