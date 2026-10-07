@@ -74,6 +74,8 @@ def main():
                  '-shortest', out])
         if r.returncode == 0:   # nhật ký trang đi theo video (verify_seg đọc <video>.log.json)
             os.replace(pic.replace('.mp4', '.log.json'), out.replace('.mp4', '.log.json'))
+            if os.path.exists(pic.replace('.mp4', '.cam.json')):   # máy quay từng khung → out/camera.json của tập (artefacts.py)
+                os.replace(pic.replace('.mp4', '.cam.json'), out.replace('.mp4', '.cam.json'))
         return r.returncode == 0, None
 
     def verify():

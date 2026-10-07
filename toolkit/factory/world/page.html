@@ -10,6 +10,10 @@ html,body{margin:0;background:#0e1116} canvas{display:block}
 </head><body>
 <script type="module">
 const q = new URLSearchParams(location.search);
+// core.CK (nhà máy): ?dither=0|1|2 (mặc định 2, F08) · ?orient=v[&vs=1&vcy=920&hook=…&cws=<JSON [{id,text}]>&vt0=<s>] = Short dọc 1080×1920 (res = 1920)
+const { CK } = await import('/toolkit/factory/world/core.js');
+if (q.has('dither')) CK.dither = +q.get('dither');
+if (q.get('orient') === 'v') CK.view = { orient: 'v', s: +(q.get('vs') || 1), cy: q.has('vcy') ? +q.get('vcy') : undefined, hook: q.get('hook') || '', cws: JSON.parse(q.get('cws') || '[]'), t0: +(q.get('vt0') || 0) };
 const { boot } = await import(`/${q.get('seg')}/scene.js`)   // seg = thư mục đoạn tính từ gốc repo;
 const S = await boot(+(q.get('res') || 540));
 window.APP = { canvas: S.canvas, frame: (t) => S.frame(t) };

@@ -3,8 +3,8 @@
 Hình: mỗi đoạn `world:` thay đúng các khung của các cảnh nó chiếm (khung [f0, f1) theo fps của tập); cả master mã hoá lại MỘT lần
       (cùng thông số H.264 với render.js: high, preset, CBR/CRF, yuv420p, bt709, timescale 15360) → một luồng đồng nhất.
       Số khung của đoạn phải bằng đúng f1 − f0 và fps của đoạn = fps của tập, sai → dừng (SystemExit), không kéo giãn.
-Tiếng: lời vẫn là track lời của tập (stem voice của đoạn KHÔNG cộng vào — chỉ dùng để đo mức); nhạc/âm dữ liệu/sfx/room tone của đoạn
-      (world/audio.py: stems/{music,data,sfx,room}.wav) cộng vào stem music/sonify/sfx/room của tập tại t0 của đoạn, cùng tỉ lệ
+Tiếng: lời vẫn là track lời của tập (stem voice của đoạn KHÔNG cộng vào — chỉ dùng để đo mức); nhạc/âm dữ liệu/sfx/whoosh/room tone của đoạn
+      (world/audio.py: stems/{music,data,sfx,whoosh,room}.wav; whoosh tuỳ chọn) cộng vào stem music/sonify/sfx/whoosh/room của tập tại t0 của đoạn, cùng tỉ lệ
       lời-đoạn → lời-tập (RMS lời trong khoảng). Nhạc nền của tập (nếu có) tắt trong khoảng đoạn (fade 0,5 s ngoài mép).
       mix-raw = tổng đúng các stem (48 kHz stereo, cùng gốc thời gian); loudnorm 2 lượt của build.py chạy sau trên toàn bản.
 Báo cáo: out/factory/splice.json (đoạn, cảnh, t0/t1, khung, sha256 đầu vào/đầu ra).
@@ -18,7 +18,8 @@ import numpy as np
 import soundfile as sf
 
 SR = 48000
-LAYERS = {'music': 'music', 'data': 'sonify', 'sfx': 'sfx', 'room': 'room'}   # stem của đoạn → stem của tập (checks/CONTRACT.md)
+LAYERS = {'music': 'music', 'data': 'sonify', 'sfx': 'sfx', 'whoosh': 'whoosh', 'room': 'room'}   # stem của đoạn → stem của tập (checks/CONTRACT.md)
+OPTIONAL = {'whoosh'}   # đoạn dựng trước khi audio.py tách whoosh: không có stem này (tiếng máy quay nằm trong sfx); có ở ≥ 1 đoạn → stem whoosh của tập
 BED_FADE = 0.5
 
 
@@ -135,11 +136,13 @@ def merge_audio(stems_dir, segs, total, raw_out, fps):
         i0, i1 = int(round(s['t0'] * SR)), int(round(s['t1'] * SR))
         n = i1 - i0
         F = stem_files(s['stems'])
-        miss = [k for k in ['voice', *LAYERS] if k not in F]
+        miss = [k for k in ['voice', *LAYERS] if k not in F and k not in OPTIONAL]
         if miss:
             raise SystemExit(f"splice {s['id']}: thiếu stem {miss} trong {s['stems']}")
         L = {}
         for k in ['voice', *LAYERS]:
+            if k not in F:
+                continue
             L[k], ln = load(F[k], n)
             if abs(ln - n) > SR / fps:
                 raise SystemExit(f"splice {s['id']}: stem {k} dài {ln / SR:.3f} s ≠ các cảnh {n / SR:.3f} s")
@@ -148,6 +151,8 @@ def merge_audio(stems_dir, segs, total, raw_out, fps):
         k = re_ / rv if basis == 'voice_rms' else 1.0
         added = {}
         for src, dst in LAYERS.items():
+            if src not in L:
+                continue
             S.setdefault(dst, np.zeros((N, 2)))
             S[dst][i0:i1] += L[src] * k
             added[dst] = round(20 * np.log10(rms(L[src] * k) + 1e-12), 1)
