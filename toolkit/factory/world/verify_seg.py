@@ -42,6 +42,8 @@ g = np.frombuffer(raw, np.uint8).reshape(-1, 180, 320).astype(np.int16)
 cut = [round(i / 30, 2) for i in range(1, len(g)) if (np.abs(g[i] - g[i - 1]) > 25).mean() > 0.45]
 res['cuts'] = {'hard_cuts': cut}
 if (w, h) == (1920, 1080):
+    fr = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=r_frame_rate', '-of', 'csv=p=0', video], capture_output=True, text=True).stdout.strip()
+    assert fr == '30/1', f'C14: cần video 30 fps (bước n = 6k), gặp {fr}'
     # khung 1080p lấy ĐÚNG chỉ số khung n = 6k (t = k/5; fps=5 lệch tới nửa khung — cùng lỗi gói đạo diễn cũ), đọc lần lượt từng khung (nạp cả video float64 → hết bộ nhớ ở đoạn 34 s); phép tính giữ nguyên
     by_k = {}
     for l in logs:

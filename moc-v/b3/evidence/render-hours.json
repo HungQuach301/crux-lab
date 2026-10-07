@@ -1,5 +1,5 @@
 {
- "render_json_files": [
+ "render_json_files_dedup_by_content": [
   {
    "file": "moc-v/eval/render/A.mp4.render.json",
    "wall_s": 75,
@@ -20,30 +20,6 @@
   },
   {
    "file": "moc-v/eval/render/C.mp4.render.json",
-   "wall_s": 70.7,
-   "film_s": 69.6,
-   "res": null
-  },
-  {
-   "file": "moc-v/work/A.mp4.render.json",
-   "wall_s": 75,
-   "film_s": 69.6,
-   "res": null
-  },
-  {
-   "file": "moc-v/work/B-cc.mp4.render.json",
-   "wall_s": 727.3,
-   "film_s": 69.6,
-   "res": null
-  },
-  {
-   "file": "moc-v/work/B-code.mp4.render.json",
-   "wall_s": 604.4,
-   "film_s": 69.6,
-   "res": null
-  },
-  {
-   "file": "moc-v/work/C.mp4.render.json",
    "wall_s": 70.7,
    "film_s": 69.6,
    "res": null
@@ -91,5 +67,12 @@
    "res": 540
   }
  ],
- "sum_wall_s": 4239.7
+ "extra_runs_from_logs": [
+  {
+   "what": "ep005 1080p l\u1ea7n 1 (verify h\u1ebft b\u1ed9 nh\u1edb, render gi\u1eef trong log)",
+   "wall_s": 248.1,
+   "src": "moc-v/work/world/b1080-ep005.log"
+  }
+ ],
+ "sum_wall_s": 3010.4
 }
