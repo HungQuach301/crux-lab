@@ -193,10 +193,10 @@ export async function boot(res) {
         if (sl > 0) { c.globalAlpha = sl * c3; c.strokeStyle = C.ink; c.lineWidth = 9; c.beginPath(); for (let i = pk; i <= tr; i++) { const x = XS(i), y = YS(IXs[i].v); i > pk ? c.lineTo(x, y) : c.moveTo(x, y); } c.stroke(); }
         c.restore(); }
       for (const yy of [1991, 1995, 2000, 2005, 2010, 2016]) { const i = P.findIndex((p) => p.m.startsWith(String(yy))); O.text(String(yy), XS(i), ys1 + 46, 48, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: c3 }); }
-      { const [x, y] = S2(BC - 5.5, 60 * HB), pa = c3 * ease(t, b.n1.years - 0.05, b.n1.years + POP);   // C4 r3: MỘT nhóm nhãn, cao hẳn trên vạch 60 (vòng 2: "60 months" + 14,7 % + chiều cao chồng lên vạch, 4:46)
-        O.text('more than 60 months:', x, y - 150, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 });
-        O.text(`${(100 * CL.shareB_over60.value).toFixed(1)}% (about 1 in 7)`, x, y - 86, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 });
-        const c = O.ctx; c.save(); c.globalAlpha = 0.8 * pa; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.moveTo(x + 6, y - 66); c.lineTo(x + 6, y - 6); c.stroke(); c.restore(); }
+      // khoá nghĩa (sau vòng 3): nhãn quanh vạch 60 tháng về bản r2 (vòng 3 bị hoàn), xem FIX-R3.md
+      { const [x, y] = S2(BC - 5.5, 60 * HB); O.text('60 months', x, y - 16, 46, { kind: 'number', color: C.muted, alpha: c3 }); }
+      { const [x, y] = S2(BC - 5.5, 60 * HB + 1.1), pa = c3 * ease(t, b.n1.years - 0.05, b.n1.years + POP); O.text('more than 60 months:', x, y, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 });
+        O.text(`${(100 * CL.shareB_over60.value).toFixed(1)}% (about 1 in 7)`, x, y + 66, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 }); }
       { const [xr] = S2(XB(s1, n), 0), xR = xr + 26, yT = S2(0, CL.maxB_months_to80.value * HB)[1], c = O.ctx;
         c.save(); c.globalAlpha = 0.85 * c3; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.moveTo(xR - 10, yT); c.lineTo(xR + 10, yT); c.moveTo(xR, yT); c.lineTo(xR, yb); c.moveTo(xR - 10, yb); c.lineTo(xR + 10, yb); c.stroke(); c.restore();
         O.text("each bar's height:", xR + 20, yT + 34, 48, { alpha: c3, plate: PLATE, plateA: 0.75 }); O.text('months to 80% on paper', xR + 20, yT + 96, 48, { alpha: c3, plate: PLATE, plateA: 0.75 }); }

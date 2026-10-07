@@ -64,7 +64,7 @@ export async function boot(res) {
   const vHouse = House({ w: 1.2 }); scene.add(vHouse);
   const bar80b = Beam({ length: 6.0, color: C.muted }); bar80b.position.set(16.8, 0, 0); scene.add(bar80b);
   const paths = D.paths, nP = paths.length, typP = paths.find((p) => p.m === D.typical), slowP = paths.find((p) => p.m === D.slow);
-  const FANR = Math.max(...paths.map((p) => Math.max(...p.p.slice(88, 112))));   // C4 r3: đỉnh bó ở năm 7,3–9,3 (nhãn ca chậm nhất đặt trên, ngoài các đường, dưới dòng tiêu đề)
+  // C4 khoá nghĩa (sau vòng 3): B02 về bản r2 — bỏ FANR (nhãn "slowest case" của r3 ở vùng trống trên-phải), xem FIX-R3.md
   const fanCol = new THREE.Color(C.bg).lerp(new THREE.Color(C.ink), 0.2).getStyle();   // E5c: bó dịu hơn, một nửa số tháng (đạo diễn: "mảng lưới trắng")
 
   // F-1 đo che khung: mỗi vật thế giới → hộp bao 3D (Box3, InstancedMesh tính lại theo bó đang hiện) chiếu ra màn hình, cắt theo khung;
@@ -190,10 +190,8 @@ export async function boot(res) {
       const eA = ease(t, b.c2.eight, b.c2.eight + POP) * aA;
       if (eA > 0) { const [x, y] = S2(XM(D.sched80), YL(0.8)); O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath(); O.ctx.moveTo(x, y); O.ctx.lineTo(x, S2(0, 0)[1]); O.ctx.stroke(); O.ctx.restore();
         O.text(t < b.c3.replayed ? 'about 8 years' : 'schedule ≈ 8 years', t < b.c3.replayed ? x - 16 : S2(XM(120), 0)[0], y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
-      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 60, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0 - 0.3, mv[1].t0)), plate: '#0B0E13', plateA: 0.75 }); }   // C4 r3: tắt trước cú lia (không bị cắt mép)
-      if (sA > 0) { const aS = ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0 - 0.3, mv[1].t0)), [lx, ly] = S2(XM(92), YL(slowP.p[92])), [, yT] = S2(0, YL(FANR)), c = O.ctx;   // C4 r3: nhãn ở vùng trống trên-phải (không đường nào cắt), đường dẫn xuống chính đường chậm
-        c.save(); c.globalAlpha = aS; c.strokeStyle = C.accent; c.lineWidth = 3; c.beginPath(); c.moveTo(lx, ly - 12); c.lineTo(lx, yT - 64); c.stroke(); c.restore();
-        O.text(`slowest case ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, lx - 20, yT - 84, 52, { kind: 'compare', color: C.accent, alpha: aS, plate: '#0B0E13', plateA: 0.85 }); }
+      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 60, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }   // khoá nghĩa: bản r2 (vòng 3 bị hoàn)
+      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text(`slowest case ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, x, y - 40, 52, { kind: 'compare', color: C.accent, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
     }
     // c4 (đồ thị: định nghĩa)
     if (dA > 0.02) {

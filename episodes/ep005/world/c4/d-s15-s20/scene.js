@@ -87,9 +87,9 @@ export async function boot(res) {
     burst.material.opacity = 0;   // C4 r3: bỏ chớp ở mốc lịch 90 (không "phần thưởng"); hai mốc là hai VẬT khác nhau ở lớp phủ
     // cùng gốc
     const inAll = (t >= M.m_all.t0 && t < M.m_fork.t1) || t >= M.m_ans.t0 ? 1 : 0, aIn = inAll * ease(t, t >= M.m_ans.t0 ? M.m_ans.t0 : M.m_all.t0, (t >= M.m_ans.t0 ? M.m_ans.t1 : M.m_all.t1));
-    ORDER.forEach((k, i) => { const B_ = D.buyers[k]; allPaper[i].set(lineTo(B_.paper, B_.paper.length - 1, XA, YR), 0.08, BCOL[i]); allPaper[i].material.opacity = aIn;   // C4 r3: đường của ba người mua mang màu của họ
+    ORDER.forEach((k, i) => { const B_ = D.buyers[k]; allPaper[i].set(lineTo(B_.paper, B_.paper.length - 1, XA, YR), 0.07, C.ink); allPaper[i].material.opacity = aIn;   // khoá nghĩa (sau vòng 3): khung tổng kết S18 về bản r2 (đường ink), xem FIX-R3.md
       allSched[i].set(lineTo(SCH[i], 120, XA, YR), 0.045, C.muted); allSched[i].material.opacity = aIn * 0.9; });
-    fan.material.opacity = 0.55 * aIn * ease(t, t >= M.m_ans.t0 ? M.m_ans.t1 : b.a1.benchmarks - 0.05, (t >= M.m_ans.t0 ? M.m_ans.t1 : b.a1.benchmarks) + 0.4);   // C4 r3: bó nền mờ hẳn (≈ 11 % độ sáng chữ; đạo diễn A+B 6:38–6:56)
+    fan.material.opacity = aIn * ease(t, t >= M.m_ans.t0 ? M.m_ans.t1 : b.a1.benchmarks - 0.05, (t >= M.m_ans.t0 ? M.m_ans.t1 : b.a1.benchmarks) + 0.4);   // khoá nghĩa: độ đậm bó nền như r2
     setOpacity(A80, aIn); setOpacity(A75, aIn);
     setOpacity(plan, inAll * (t < M.m_ans.t0 ? 1 : 0) * ease(t, b.a1.plan - 0.05, b.a1.plan + POP)); plan.glow(t >= b.a1.plan ? Math.max(0, 1 - lin(t, b.a1.plan, b.a1.plan + 0.8)) : 0, C.ink);   // C4 r2: vạch "a plan" đứng từ "plan" (S18.2), không đợi "two"
     // S18.5: đáy 10 % → 20 %
@@ -102,7 +102,8 @@ export async function boot(res) {
     // làn
     const laneA = (i, m0, m1) => ok * ease(t, m0, m0 + POP) * (m1 ? 1 - ease(t, m1, m1 + 0.3) : 1);
     const lA = [laneA(0, M.m_g.t1, M.m_o.t0), laneA(1, M.m_o.t1, M.m_v.t0), laneA(2, M.m_v.t1, M.m_vw.t0)];
-    const ax = (c, a) => { if (a < 0.01) return; for (const yr of [0, 2, 4, 6, 8, 10]) { const [x, y] = S2(XL(c, yr * 12), YI(0.8) - 0.15); O.text(yr === 10 ? '10 years' : String(yr), x, y + 40, 42, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: a }); }
+    const ax = (c, a, r2 = false) => { if (a < 0.01) return; for (const yr of [0, 2, 4, 6, 8, 10]) { const [x, y] = S2(XL(c, yr * 12), YI(0.8) - 0.15); O.text(yr === 10 ? '10 years' : String(yr), x, y + 40, 42, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: a }); }
+      if (r2) { const [x8, y8] = S2(c - 4.9, YR(0.8)); O.text('80%', x8, y8 - 16, 44, { kind: 'number', alpha: a }); return; }   // khoá nghĩa: khung tổng kết S18 giữ nhãn 80 % của r2
       const [x8, y8] = S2(c + 5.3, YR(0.8)); O.text('80%', x8, y8 + 14, 48, { kind: 'number', alpha: a, plate: PLATE, plateA: 0.75 }); };   // C4 r3: đầu PHẢI vạch (bên trái các đường xuất phát cắt chữ)
     ax(L[0], lA[0]); ax(L[1], lA[1]); ax(L[2], lA[2]);
     const legend = (a, n = 3, X0 = 1380, Y0 = 214, tri = false) => { if (a < 0.01) return; const c = O.ctx;   // légende cố định góc trên phải (tên đường, không số); tri: mẫu "on paper" ba màu người mua (r3)
@@ -146,21 +147,18 @@ export async function boot(res) {
     // ba làn cùng gốc
     const aA = ok * inAll * (t < M.m_down.t0 + 0.3 ? 1 - ease(t, M.m_down.t0, M.m_down.t0 + 0.3) : t >= M.m_ans.t1 ? ease(t, M.m_ans.t1, M.m_ans.t1 + POP) * (1 - ease(t, M.m_end.t0, M.m_end.t0 + 0.3)) : 0);
     if (aA > 0.01) {
-      ax(XA, aA); legend(aA, 2, 1500, 290, true); const [x75, y75] = S2(XA + 5.3, YR(0.75)); O.text('75%', x75, y75 + 40, 48, { kind: 'number', color: C.muted, alpha: aA, plate: PLATE, plateA: 0.75 });   // C4 r3: đầu phải vạch
+      ax(XA, aA, true); legend(aA, 2, 1500, 290); const [x75, y75] = S2(XA - 4.9, YR(0.75)); O.text('75%', x75, y75 + 46, 44, { kind: 'number', align: 'right', color: C.muted, alpha: aA });   // khoá nghĩa: bản r2
       const s1 = t < M.m_ans.t0;
       T('same rule, same index · lined up at purchase', 960, 200, 50, aA * (s1 ? ease(t, b.a0.same - 0.05, b.a0.same + POP) : 1), { align: 'center' });
       T('schedule: fixed at the start', 120, 270, 48, aA * (s1 ? ease(t, b.a2.schedule - 0.05, b.a2.schedule + POP) : ease(t, b.e1.schedule - 0.05, b.e1.schedule + POP)), { color: C.muted });
       if (s1) {
         T('on paper: typical 23 months · about 1 in 7 over 60', 120, 334, 48, aA * ease(t, b.a3.history - 0.05, b.a3.history + POP));
         const [px, py] = S2(XL(XA, 24), 2.05), pa = aA * ease(t, b.a3.two - 0.05, b.a3.two + POP);
-        { const yb = S2(XL(XA, 24), YR(0.75))[1], c = O.ctx;   // C4 r3: chú thích ra vùng TRỐNG dưới các đường (vòng 2: đè dữ liệu), nối vạch "a plan" bằng gạch ngang ngắn
-          if (pa > 0.01) { c.save(); c.globalAlpha = pa; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.moveTo(px + 8, yb + 92); c.lineTo(px + 90, yb + 92); c.stroke(); c.restore(); }
-          T('≈ 2 years matched the typical month —', px + 104, yb + 108, 48, pa); T("not the slow ones, not the lender's step", px + 104, yb + 170, 48, pa); }
+        T('≈ 2 years matched the typical month —', px + 16, 430, 48, pa); T("not the slow ones, not the lender's step", px + 16, 490, 48, pa);   // khoá nghĩa: chú thích ở chỗ của r2
       } else T('from about 1 year to more than 9 years · on paper', 120, 334, 48, aA * ease(t, b.e1.history - 0.05, b.e1.history + POP));
-      ORDER.forEach((k, i) => { const B_ = D.buyers[k], j = B_.paper.length - 1, [x, y] = S2(XL(XA, j), YR(B_.paper[j])); const pos = { owen: [-12, 56, 'right'], grace: [12, 56, 'left'], victor: [-24, -34, 'right'] }[k];   // Owen trái / Grace phải vạch "a plan"; Victor trên-trái đầu đường (không đè "80%")
-        O.text(k[0].toUpperCase() + k.slice(1), x + pos[0], y + pos[1], 48, { align: pos[2], color: BCOL[i], alpha: aA * ease(t, b.a0.started - 0.05, b.a0.started + POP), plate: PLATE, plateA: 0.8 }); });   // C4 r3: tên cùng màu đường, có nền, ra khỏi bó
+      ORDER.forEach((k, i) => { const B_ = D.buyers[k], j = B_.paper.length - 1, [x, y] = S2(XL(XA, j), YR(B_.paper[j])); O.text(k[0].toUpperCase() + k.slice(1), x + 12, y + (k === 'owen' ? 40 : -12), 42, { alpha: aA * ease(t, b.a0.started - 0.05, b.a0.started + POP) }); });   // khoá nghĩa: tên như r2
     }
-    { const [x, y] = S2(XL(XA, 24), 2.0), [, y1] = S2(0, 0), yb = S2(XL(XA, 24), YR(0.75))[1]; log.roi['a3.two'] = [x - 40, y - 10, x + 1000, Math.max(y1, yb + 190)]; }   // r3: + chú thích dưới-phải
+    { const [x, y] = S2(XL(XA, 24), 2.0), [, y1] = S2(0, 0); log.roi['a3.two'] = [x - 40, y - 10, x + 40, y1]; }
     { const [px, py] = S2(XL(XA, 24), -0.1), pl = aA * (t < M.m_ans.t0 ? 1 : 0) * ease(t, b.a1.plan - 0.05, b.a1.plan + POP); T('a plan', px, py + 62, 56, pl, { kind: 'name', align: 'center' }); }   // C4 r2: tên vạch đứng (dưới chân vạch — trên đầu vạch là dòng "on paper: typical…")
     // hai chồng giá
     const dA = ok * ease(t, M.m_down.t1, M.m_down.t1 + POP) * (1 - ease(t, M.m_fork.t0, M.m_fork.t0 + 0.3));

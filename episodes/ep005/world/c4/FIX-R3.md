@@ -95,3 +95,37 @@ Cổng gốc C4 vòng 3 cho B08 và B17, với người đọc MỚI, dải `str
 - Lưu ý cho người chấm B08: đáp án muted read không đổi (hai mốc trên đường lịch, giá trị nhà không có trên đồ thị). Nhãn mới là `the law's two dates on this schedule`.
 - Lưu ý cho người chấm B17: hình phân biệt lịch (ô vuông, dưới vạch, tháng 90) với trên giấy (chấm, trên vạch, tháng 112).
 - Các dải B02, B03, B07, B12, B13, B16, B18 đổi hình nhưng không đổi nghĩa. Nếu cần chắc chắn không lùi (khoá nghĩa), có thể chạy lại một vòng người đọc cho các dải này.
+
+## Khoá nghĩa — hoàn 3 chỗ
+
+Luật `playbook/episode.md` §1: bản mới có điểm thấp hơn bản tốt nhất trước đó ở cổng gốc mù thì tự động bị loại. Ba chỗ dưới đây quay về đúng mã vòng 2 (`d32cd93`). Chỉ hoàn những hunk này (tách bằng `git diff d32cd93 b84ca18 -- episodes/ep005/world/`). Mọi thay đổi khác của vòng 3 được giữ: B08, B17, các sửa đạo diễn khác, sửa pop, thẻ phương pháp đục, tối dần ở kết, và sửa xoá lớp phủ trong core.js. Lời và take giữ nguyên, `el_chars_spent 0`.
+
+| Chỗ | Vòng 3 (bị hoàn) | Sau khi hoàn (= r2) | Mã |
+|---|---|---|---|
+| B02 / S02, 0:20–0:23 | `slowest case ≈ 9 years` ở vùng trống trên-phải, có nền và gạch dẫn xuống đường chậm (`FANR`). `typical ≈ 2 years` có nền. Cả hai tắt 0,3 s TRƯỚC cú lia. | `slowest case` đặt giữa ngay trên đỉnh đường chậm, không nền. `typical` không nền. Cả hai mờ cùng cú lia (`FADE`). | `a-s01-s03/scene.js`: hai dòng `tA`/`sA` về r2, bỏ `FANR` |
+| B13 / S13-N2, 4:46–4:54 | Một khối nhãn cao hẳn trên vạch 60, có gạch dẫn. Bỏ nhãn `60 months` riêng. | `60 months` (muted) ngay trên vạch. `more than 60 months:` / `14.7% (about 1 in 7)` ở vị trí r2. `each bar's height…` không đổi ở cả hai vòng. | `c-s10-s14/scene.js`: khối nhãn vạch 60 về r2 |
+| B18 / S18, 6:38–6:56 (cùng khung ở S20) | Bó nền 55 %. Ba đường trên giấy và tên mang màu người mua, có nền. Légende "on paper" ba màu. Chú thích `≈ 2 years matched…` ở dưới các đường, có gạch nối. `80%`/`75%` ở đầu phải. | Bó nền 100 %. Đường trên giấy màu ink (0,07). Tên 42 px không nền. Légende một màu. Chú thích ở (px + 16, 430/490). `80%`/`75%` ở đầu trái. ROI `a3.two` như r2. | `d-s15-s20/scene.js`: `ax(c, a, r2)` chỉ cho khung tổng kết. Làn S15–S17 giữ `80%` đầu phải của r3. |
+
+Phần còn giữ của vòng 3 nằm cạnh B02: nhãn trục `80%`/`90%` ở 0:22 vẫn có nền, đặt trái đầu vạch (sửa nhãn bị cắt, không thuộc phạm vi hoàn). Trong span B02 không có thay đổi máy quay nào ở vòng 3. Thứ được hoàn quanh cú lia chỉ là thời điểm tắt nhãn.
+
+**Kiểm (540p, dựng lại):** `build.sh` exit 0 (2991 s: A render 243 s, B cache, C 671 s, D 439 s, shorts 823 s). `build_inputs.py --out`, animatic CRF 20 (464,47 s), highlights cắt lại (168,4 s).
+
+| Đoạn | Quy tắc 1/2/3 · cắt cứng | F-2 | Sync lời (median / p90) · ASR | Sync hình ≤ 0,2 s |
+|---|---|---|---|---|
+| A | 0/0/0 · 0 | WARN 6, **BLOCK 0** | +0,007 / 0,123 s · 131/141 | 16/17 (`c7.three`, như r3) |
+| C | 0/0/0 · 0 | WARN 5, **BLOCK 0** | 0,000 / 0,161 s · 296/327 | 26/26 |
+| D | 0/0/0 · 0 | WARN 1, **BLOCK 0** | 0,000 / 0,161 s · 319/360 | 22/24 (`o0.climbing`, `v1.fell`, như r3) |
+
+Mọi độ lệch hình theo từng cue giống hệt r3. qc master giống r3: true-peak −1,4 dBTP vẫn TRƯỢT sát ngưỡng, các dòng TRƯỢT cấu trúc như cũ.
+
+**Dải** (giờ hiện tại; PNG vòng 3 giữ ở `strips/<id>.r3.png`; `strips.json` → `lock`). Đo SSIM / PSNR trên cả ảnh dải:
+
+| Dải | so với r2 | so với r3 | Khác còn thấy so với r2 |
+|---|---|---|---|
+| B02-S02 | 0,976 / 29,8 dB | 0,996 / 35,2 dB | Khung 6 khớp r2. Cả 6 khung còn khác ở nhãn trục `80%`/`90%` (có nền, trái đầu vạch: sửa của r3 được giữ). Đó là toàn bộ chỗ lệch: khung 1–5 r2 SSIM 0,967–0,973, r3 1,000. |
+| B13-S13-N2 | 0,983 / 39,7 dB | 0,982 / 25,9 dB | Nhãn khớp r2. Khung 1–2: ô cột tập A nhỏ ở mép phải không còn (sửa pop 4:40 của r3 được giữ). Phần còn lại là nhiễu render/mã hoá. |
+| B18-S18 | 0,997 / 52,5 dB | 0,966 / 24,1 dB | Gần như giống hệt r2. |
+
+Các dải khác dựng lại từ animatic mới đều không đổi so với PNG hiện có (SSIM ≥ 0,999), trừ B11 (0,963). Dải B11 không được vẽ lại ở vòng 3, nên vốn đã lệch với hình vòng 3. Lần hoàn này không chạm B11.
+
+**Cho lựa chọn G2 của chủ dự án:** `review-g2/revert-B02.mp4` (0:11–0:25), `revert-B13.mp4` (4:43–4:57), `revert-B18.mp4` (6:38–6:53). Mỗi clip 14–15 s, 1920×644, trái = vòng 3 (bị hoàn), phải = đã hoàn (r2), tiếng của bản đã hoàn.
