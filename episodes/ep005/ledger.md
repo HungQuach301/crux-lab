@@ -34,3 +34,4 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc: kiểm m�
 | 2026-10-07 | C3 | kiểm mù | headless có ảnh | cold open E1/E2 kiểm lại | 47.735 + 10.038 | 4/4, khuyên 0 |
 | 2026-10-07 | C3 | dựng | agent general-purpose (mới) | sửa N1/N2 vòng 3 (hình + nhãn) | 146.806 | render ≈ 0,05 h |
 | 2026-10-07 | C3 | kiểm mù | headless có ảnh | vòng 3 (5 + chấm ×2) | 58.465 + 17.280 | N1 1/3, N2 0/2 → hết 3 vòng, chủ dự án chọn |
+| 2026-10-07 | C3 | REVIEWER | agent general-purpose | soát gói C3 + chữ trên hình clip (R1) | 126.041 | ĐẠT có sửa (6 sửa đã áp); R1 0; không CHẶN |
