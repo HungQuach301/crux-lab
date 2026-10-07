@@ -1,0 +1,10 @@
+{
+ "answer": "[\n{\"id\":\"8930754b\",\"score\":1,\"advice\":\"no\",\"why\":\"Covers index-based 80% on paper and insurance still on; only check-your-servicer advice.\"},\n{\"id\":\"ac501160\",\"score\":1,\"advice\":\"no\",\"why\":\"Both elements present; explicitly declines buy/rent/wait advice, only suggests checking lender rules.\"},\n{\"id\":\"7cbdc2a7\",\"score\":1,\"advice\":\"no\",\"why\":\"Both elements present; only suggests learning lender PMI rules and tracking.\"},\n{\"id\":\"105105f4\",\"score\":1,\"advice\":\"yes\",\"why\":\"All elements right; says only buy if staying 8-10 years, waiting could be reasonable.\"},\n{\"id\":\"a868212d\",\"score\":1,\"advice\":\"yes\",\"why\":\"All elements right; advises buying only if able to stay put, keep buffer.\"},\n{\"id\":\"c8381376\",\"score\":1,\"advice\":\"yes\",\"why\":\"All elements right; advises staying long enough to ride out slow case, keeping cushion.\"}\n]",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "in": 7221,
+   "out": 1026
+  }
+ },
+ "turns": 1
+}

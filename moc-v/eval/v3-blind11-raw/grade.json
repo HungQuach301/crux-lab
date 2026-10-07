@@ -1,0 +1,10 @@
+{
+ "answer": "[\n{\"id\":\"df603198\",\"score\":0.5,\"advice\":\"no\",\"why\":\"Dates and dip correct, but treats the line as home value, not gain.\"},\n{\"id\":\"3cd60687\",\"score\":1,\"advice\":\"no\",\"why\":\"States gain about $558,100 past the cap and prices about 3.8x 2000.\"},\n{\"id\":\"fbb6c058\",\"score\":1,\"advice\":\"no\",\"why\":\"Gain line rises, crosses cap Q2 2022, dips under, over since Q2 2023.\"},\n{\"id\":\"cbbce81c\",\"score\":1,\"advice\":\"no\",\"why\":\"Both elements present: gain ≈$558,100 over cap and ×3.8 since 2000.\"},\n{\"id\":\"e98c0b17\",\"score\":1,\"advice\":\"no\",\"why\":\"Both elements present: $558,100 gain past cap and prices 3.8x 2000.\"},\n{\"id\":\"d32c1c43\",\"score\":1,\"advice\":\"no\",\"why\":\"Gain crosses cap Q2 2022, dips under, stays over from Q2 2023.\"}\n]",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "in": 7015,
+   "out": 718
+  }
+ },
+ "turns": 1
+}

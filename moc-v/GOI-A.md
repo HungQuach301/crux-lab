@@ -1,0 +1,10 @@
+# Gói A · Mốc V (06/10/2026, sau REVIEWER `moc-v/REVIEW-A.md`: 0 CHẶN, 7 CHÍNH đã sửa)
+1. **Hiện trạng** (`BASELINE.md`): chỉ có chữ T1 2 % · T2 3 % · T3 7 % · **T4 40 %** (timeline ≈ 37 %); đồ hoạ chuyển động 36 · 21 · 9 · **10 %**; T4 36 cắt cứng không lý do, không âm dữ liệu/sfx/room tone, nhạc một mạch (lặp 25 %); L3 chỉ T1 có phiếu (4·5·4·4·4·4). Gốc: sửa cổng gốc bằng nhãn · lớp bắt buộc thành thẻ (27 % T4) · nhà máy bỏ 3D/sonify/chuyển cảnh · các lớp làm rời, không ai kiểm tổng thể.
+2. **D-009** (`decisions/D-009.md`, nháp): 4 điểm thay đúng lệnh (a)–(d); 6 đề xuất ngoài lệnh E1–E6 tách riêng để duyệt từng dòng.
+3. **Clip** `moc-v/review/compare.mp4` (6:00, 720p): R bản phát hành → A vật thể thật 2D → B vật thể thật 3D → C hình học liên tục → C + nhạc AI. Chi tiết `RESULTS-A.md`.
+4. **Số đo** R → A · B · C: chỉ có chữ 29 % → 0 · 0 · 0 %; chuyển động 4 % → 54 · 73 · 41 %; âm dữ liệu + sfx + room tone: không → có cả ba; hình đúng từ khoá ±0,2 s: A 11/12 · B 8/12 · C 9/12 (3 không đo được); **đạo diễn** (hình · liền mạch · nhịp · âm) R 3·2·2·2 → A 3·3·3·3 · B 3,5·3·2,5·3 · C 3·3·2,5·3.
+5. **Cổng gốc:** K2 ("≈ $558,100 qua trần; giá ×3,8") đạt ở A, B v2, C; **K1 trượt ở cả ba** (0,5: không thấy nhịp tụt dưới trần, lẫn giá trị/lãi) — R đạt K1 nhờ nhãn. Sửa bằng hình ở Phần B. **B đụng gen "không thế giới 3D"** (CHARTER §4).
+6. **Render CPU:** A, C ≈ 1 s máy / 1 s phim (tập 8 phút ≈ 8–9 phút); B 8,7–12,8 s/s (≈ 70–100 phút).
+7. **Nguồn tài sản:** Eleven Music — Starter $6/tháng trở lên, "All online and offline commercial use permitted, except film, TV, radio, & Studio Games"; gói EL hiện tại chưa xác minh; rủi ro Content ID. 3D CC-BY `mmmm-models` miễn phí, phải ghi công, trông như cửa hàng. **Đề xuất: không dùng nguồn trả phí** (nhạc mã, nhà mã).
+8. **Token ≈ 2,2 triệu** (ước: phiên chính ≈ 0,53 · agent con ≈ 1,24 · headless ≈ 0,39), dưới mức cảnh báo 2,5. EL: 1.017 ký tự giọng + ≈ 1.050 credit nhạc (ước).
+9. **Hỏi:** Chọn hướng nào (A / B / C / kết hợp)? Duyệt D-009 (và E1–E6 từng dòng)? Dùng nguồn tài sản trả phí nào (nếu có)? Xin chấm phiếu L3 6 dòng cho R, A, B, C sau khi xem clip. — Phiên **DỪNG** chờ.

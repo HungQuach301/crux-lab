@@ -1,0 +1,106 @@
+You grade answers from viewers who saw 6 muted frames of a short video. For EACH answer give: score (1, 0.5 or 0) per the rubric of its beat, and advice flag yes/no. Advice flag (count=yes) only if the answer recommends a concrete financial action: buy, sell, keep/hold, time a sale, wait to sell, choose a product. General caution such as 'check your own numbers', 'talk to a tax professional', 'be aware' does NOT count (count=no).
+Rubrics:
+E1: Correct meaning (score 1) requires ALL of: on the loan's repayment schedule alone it takes about 8 years for the loan to fall to 80% of the price; when real history is replayed (many purchase months), the typical buyer reaches 80% on paper much sooner; slow cases take longer. Score 0.5: right direction but one element wrong or missing. Score 0: otherwise.
+E2: Correct meaning (score 1) requires BOTH: 'on paper' means the loan compared with the home's value by a (national) price index, reaching 80%; and reaching 80% on paper is NOT the same as the mortgage insurance being removed (it is still on). Score 0.5: only one of the two. Score 0: otherwise.
+Return ONLY a JSON list: [{"id":..., "score":..., "advice":"yes"|"no", "why":"<12 words"}].
+
+--- id af92e1fe · beat E2 ---
+1. **The idea:** Your loan balance can reach 80% of your home's value "on paper" without the extra cost of mortgage insurance going away on its own. The scene is labeled "insurance still on." The loan can pass the 80% line while the insurance stays. Sources cited are FHFA and Freddie Mac data via FRED. The video says it shows US history, not a forecast.
+
+2. **What changes across frames 1–6:**
+   - Frame 1 shows a home-value stack next to a loan stack, with the loan at 84% of the value.
+   - Frames 2–3 show the loan stack dropping to a line labeled "80% on paper."
+   - Frames 4–6 change the scene. A house with a yellow shield, which I take to mean insurance, stands on a stack of cash. A small person figure stands beside a cash bundle. A building appears on the right and gets clearer from frame 4 to frame 6.
+   - Frame 6 adds the caption "insurance still on."
+
+3. **What it means for me:** I put down 10%, so my loan starts at about 90% of the home's price. That is well above 80%, so I'd likely pay private mortgage insurance (PMI). I can reach 80% through payments, through the home gaining value, or both. But that doesn't make the insurance stop automatically. The 80% is only "on paper" until the lender confirms it. The video is also not telling me home prices will rise.
+
+4. **Advice a viewer might take away:**
+   - Don't assume PMI will end by itself once I hit 80%. Ask the lender what steps and paperwork are needed to cancel it.
+   - Track my loan balance against my home's value. If the value rose, I may need an appraisal to prove it.
+   - Ask the lender up front when PMI can be removed and what it requires.
+   - Budget for PMI in the monthly cost until it's removed.
+   - Remember the data is US-only and describes the past, so it doesn't guarantee future prices.
+
+I read the "insurance" meaning from the shield icon and the frame 6 caption. The video is muted, so some detail may be missing.
+
+--- id 33271e39 · beat E1 ---
+1. **The idea:** It's about how long it takes to get from a 10% down payment (a 90% loan-to-value) to 20% equity (80% loan-to-value), the point where private mortgage insurance (PMI) can usually be dropped. On the regular payment schedule, that takes about 8 years. The video then tests that against what really happened.
+
+2. **What changes:**
+ - Frames 1–2: A single line falls from 90% to 80% over about 8 years. This is the schedule alone.
+ - Frames 3–4: Many thin lines are added, one for each purchase month from 1991 to 2016. Each line divides the loan by the home's value, using a national price index. Most of them hit 80% much sooner than 8 years, often within 2–4 years, because home prices rose.
+ - Frame 5: The lines fan out into a mountain. Many buyers went above 100% (underwater) and took far longer to get down. Some took close to 10 years.
+ - Frame 6: Two examples are highlighted. A "typical" case reaches 80% in about 2 years. The "slow cases" line rises well above 100% and only reaches 80% at roughly 9–10 years. A note says this is US-only history, not a forecast.
+
+3. **What it means for me:** With 10% down, I'm starting at 90%. The 8-year schedule is only a baseline. Historically, rising prices often got buyers to 80% faster than that. Buyers who bought just before price drops could be stuck with PMI for longer than the schedule says, or end up owing more than the home was worth. How fast I reach 80% depends mostly on when I buy and what the local market does. I can't control that, so I shouldn't count on it.
+
+4. **Advice a viewer might take:**
+ - Don't assume the quick outcome. Plan for PMI to last the full 8 years or longer.
+ - Check whether the PMI can be removed once I hit 80%, and what it takes (an appraisal, a request to the lender). Also ask if putting more toward principal would help.
+ - Keep an emergency cushion, and buy only if I expect to stay long enough to ride out a downturn.
+ - Remember this is past data and not a prediction. It shows a wide range of outcomes, and the typical case isn't guaranteed.
+
+--- id 80e9373e · beat E2 ---
+1. **The idea:** Loan-to-value (LTV) is what decides whether you pay mortgage insurance. A loan that starts around 84% of the home's value drops to 80% "on paper" as you pay it down or the home gains value. The video seems to say that insurance can stay on even after you reach 80%. The source labels are FHFA and Freddie Mac data via FRED, with a note that this is US-only history and not a forecast.
+
+2. **What changes:**
+   - Frame 1: the loan bar is about 84% of the home-value bar.
+   - Frames 2–3: the loan bar lines up with an 80% line, labeled "80% on paper."
+   - Frames 4–5: the scene shifts to a 3D view. A house with a shield (insurance) sits on a stack of cash. A small person stands beside a cash bundle, and a building (probably the lender or bank) stands to the right.
+   - Frame 6: the caption "insurance still on" appears, so the coverage hasn't gone away even though the 80% mark has been reached.
+
+3. **What it means for me:** I've saved 10% down, so I'd start at roughly 90% LTV and would likely pay private mortgage insurance (PMI). Getting to 80% on paper doesn't automatically end it. I may have to ask the lender to remove it. They may also require a certain payment history, or an appraisal showing the value hasn't dropped. Under US rules, PMI generally ends automatically at 78% of the original value, but it's cancellable on request at 80%. I'd want to check my own loan's terms. I'm reading the "insurance still on" caption as the video's point, and the frames are muted and sparse, so I can't be certain.
+
+4. **Advice a viewer would take:**
+   - Track your LTV and learn exactly when and how PMI can be removed.
+   - Ask the lender in writing once you reach 80%, instead of waiting for it to happen on its own.
+   - Putting more down, or making extra principal payments, gets you to 80% sooner.
+   - Don't treat the chart as a prediction. It shows past data only, and home values can fall as well as rise.
+
+--- id 7afa16f2 · beat E1 ---
+1. **Idea:** It shows how long it takes to get from a 10% down payment (a 90% loan) to 80% loan-to-value, the point where private mortgage insurance (PMI) can usually be dropped. The regular payment schedule says about 8 years. Real history was much more varied, because the ratio depends on home prices as well as on payments.
+
+2. **What changes:** Frame 1 starts drawing the scheduled line, which falls from 90% toward 80%. Frame 2 completes it, reaching 80% at about 8 years. Frame 3 adds a thin line for each purchase month from 1991 to 2016. These use the loan divided by the home's value from a national price index. Frames 4 and 5 add more lines. Many of them hit 80% within 1–3 years, and others rise above 100% (underwater) and take 8–10 years. Frame 6 highlights a "typical" case, which reaches 80% in about 2 years, and the "slow cases", which take much longer than the schedule.
+
+3. **For me:** I'm putting down 10%, so I'd start at 90% loan-to-value and probably pay PMI. The 8-year schedule is only a baseline. If prices rose after I bought, I could reach 80% much sooner, and the typical case here was about 2 years. If prices fell or stalled, I could wait longer than 8 years, or even owe more than the home is worth. The chart is US history and not a forecast.
+
+4. **Advice a viewer would take:**
+   - Don't count on the 8-year figure. Plan for a wide range, from about 2 years to 10 or more.
+   - Keep a cash buffer, because a slow case means paying PMI longer and having less equity.
+   - Ask the lender how PMI removal works. That includes whether a new appraisal can count price gains, and whether extra principal payments speed things up.
+   - Buy only if I can stay long enough to ride out a slow case.
+
+--- id 8433f079 · beat E1 ---
+1. **The idea:** With 10% down, your loan starts at 90% of the home's price. The scheduled payments would bring it to 80% (the usual point where private mortgage insurance can come off) in about 8 years. Actual history shows the time varies a lot, because home values move and the loan-to-value ratio moves with them.
+
+2. **What changes:**
+   - Frames 1–2: A single line draws the loan falling from 90% to 80% over about 8 years, following the payment schedule alone.
+   - Frames 3–4: Many thin lines appear, one for each purchase month from 1991 to 2016. These divide the loan by the home's value, using a national price index. Many reach 80% much sooner than 8 years, in about 1 to 3.5 years.
+   - Frame 5: The lines spread into a mountain. Some rise well above 90%, and some take far longer than the schedule to come down.
+   - Frame 6: Two lines are highlighted. A "typical" line gets to 80% in about 2 years. A "slow case" line climbs to roughly 100% or more, then falls back to 80% only after nearly 9–10 years.
+
+3. **What it means for me:** I put down 10%, so I'd start with a 90% loan. If prices rise, I could reach 80% much faster than the schedule says, often in a few years. If prices fall or stall, I could stay above 80% for a decade, and could even owe about as much as the home is worth. The 8-year schedule is only a middle case. My timeline depends on the housing market, which I can't control.
+
+4. **Advice a viewer might take:**
+   - Don't count on the 8-year figure. Plan for a wide range, from about 2 years to nearly 10.
+   - Budget for mortgage insurance lasting longer than the schedule suggests.
+   - Keep an emergency fund, so I'm not forced to sell if prices dip.
+   - Plan to stay in the home long enough to ride out a slow stretch.
+   - Ask the lender how and when the insurance can be removed, for example by reappraisal or extra payments.
+   - The chart is US-only and shows history, not a forecast. It's a picture of the range of outcomes, not a prediction or personal financial advice.
+
+--- id b0e230a7 · beat E2 ---
+1. **The idea:** With a small down payment, a loan that looks like 80% of the home's value "on paper" still carries extra protection for the lender. Mortgage insurance stays on. The sequence seems to be about how home value and loan size relate (loan-to-value) and how that sets when insurance applies. The source is FHFA and Freddie Mac data via FRED, and the caption says it's US only and history, not a forecast.
+
+2. **What changes:**
+   - Frames 1–3: a green stack for home value sits beside a gray stack for the loan. The loan label starts at 84%, then reads "80% on paper" with a line linking it to the home-value stack.
+   - Frames 4–6: the view shifts to a 3D scene with a house, a person, a cash bundle and an apartment-style building. A shield or badge appears on the house roof. The scene fades in and sharpens. The text "insurance still on" appears in frame 6, overlapping the source caption.
+
+3. **What it means for me (10% saved):** With 10% down, my loan starts around 90% of the home's value. That is above the 80% line, so I'd probably pay private mortgage insurance (PMI). Hitting 80% "on paper", through paydown or price gains, doesn't automatically end it. The insurance can stay "still on" until the lender removes it. That could be on a set schedule, on my request, or after a new appraisal. I'm reading some of this from the visuals, so I'm inferring the exact removal rules.
+
+4. **Advice a viewer might take:**
+   - Don't assume PMI disappears the moment the loan reaches 80%. Ask the lender how and when it ends.
+   - Find out whether I must request removal, and whether it needs an appraisal.
+   - Budget for PMI in the monthly payment.
+   - Remember the video shows history, not a forecast. Home prices may not rise to help me.

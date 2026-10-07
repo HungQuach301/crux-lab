@@ -4,7 +4,7 @@
 
 check(spec, root, duration=None) -> [{'level': 'BLOCK'|'ASK'|'WARN', 'rule', 'msg'}]
   BLOCK  the build stops (missing claim, unknown template, format maximum, bad mid-roll …)
-  ASK    an exception the owner must decide (custom_symbols > 2): build stops and the reason goes to the issue
+  ASK    an exception the owner must decide: build stops and the reason goes to the issue (none at present)
   WARN   reported in qc (101 below its soft minimum: "không độn", so never padded)
 """
 import json
@@ -134,10 +134,45 @@ def check(spec, root, duration=None):
         for cid in sorted(claim_ids_in({'h': sh.get('hook', ''), 'e': sh.get('end', '')})):
             if cid not in claims:
                 add('BLOCK', 'claim', f"{sh['id']}: claim {cid!r} is not in {spec['claims']}")
+    # B+2 (Mốc V): ≤ 2 số MỚI được NÓI mỗi cảnh; số thứ ba trở đi thành nhãn trên hình (toolkit/factory/numbers_said.py)
+    import numbers_said as NS
+    import voice as VOICE
+    order = list(sents.values())
+    if order:
+        _, NP = NS.check_scenes(order, VOICE.to_spoken([re.sub(r'^\[[a-z ]+\]\s+', '', s['text']) for s in order]), spec.get('spoken_numbers_max', 2))
+        legacy = spec.get('episode') in NS.LEGACY   # tập đã phát hành trước luật: chỉ báo, không chặn dựng lại
+        P += [{**p, 'level': 'WARN'} if legacy else p for p in NP]
+    scene_ids = {sc.get('id') for sc in spec.get('scenes', [])}
+    for sid, o in (spec.get('voice_overrides') or {}).items():   # B+1 (Mốc V)
+        if sid not in scene_ids:
+            add('BLOCK', 'voice_overrides', f'{sid}: not a scene of this episode')
+        elif not isinstance(o, dict) or not o or set(o) - {'seed', 'settings', 'voice', 'model', 'take'}:
+            add('BLOCK', 'voice_overrides', f'{sid}: {o!r} — allowed keys: seed, settings, voice, model, take')
+        elif 'take' in o and not os.path.isfile(os.path.join(root, 'voice-takes', str(o['take']) + '.mp3')):
+            add('BLOCK', 'voice_overrides', f"{sid}: take {o['take']!r} not in voice-takes/")
+    for w in spec.get('world') or []:   # D-010 (Mốc V): đoạn thế giới 3D, dựng bằng toolkit/factory/world/build_seg.py
+        d = os.path.join(root, str(w.get('dir', '')))
+        miss = [f for f in ('spine.py', 'scene.js') if not os.path.isfile(os.path.join(d, f))]
+        if not w.get('id') or not w.get('dir') or miss:
+            add('BLOCK', 'world', f"{w.get('id')}: needs id, dir with spine.py + scene.js (missing: {miss or 'id/dir'})")
+        bad = [s for s in w.get('scenes') or [] if s not in scene_ids]
+        if not w.get('scenes') or bad:
+            add('BLOCK', 'world', f"{w.get('id')}: scenes {bad or '[]'} — must list scenes of this episode")
+    if spec.get('world'):
+        add('WARN', 'world', 'world segments are built and checked but NOT yet spliced into the master (toolkit/factory/BACKLOG.md F-5)')
+    # B+2: nhãn thay số nói (`label: "…"` trong chú thích câu của script.md) phải có trên hình ở cảnh được dựng
+    sm = os.path.join(root, (spec.get('dossier') or {}).get('script_md', 'story/script.md'))
+    if os.path.exists(sm):
+        shown = {sc['id']: ' '.join(x for sh in sc.get('shots', []) for x in strings_in(sh.get('p', {}))) for sc in spec.get('scenes', [])}
+        for ln in open(sm, encoding='utf-8'):
+            m = re.match(r'^(S\d+)\.\d+', ln)
+            for t in re.findall(r'label:\s*"([^"]+)"', ln):
+                if m and m[1] in shown and t not in shown[m[1]]:
+                    add('WARN', 'labels', f'{ln.split()[0]}: label "{t}" (number moved off the voice) is not on screen in {m[1]}')
     P += counterweights(spec, root, claims)
     n_sym = len(spec.get('custom_symbols') or [])
-    if n_sym > 2:
-        add('ASK', 'custom_symbols', f'{n_sym} new symbols (> 2 per episode, CHARTER §5): owner must approve the exception')
+    if n_sym > 2:   # D-009 (b): không còn trần số ký hiệu mới; hình mới đi qua C3 (clip có chuyển động + âm)
+        add('WARN', 'custom_symbols', f'{n_sym} new symbols: each must pass C3 (clip with motion and sound), D-009 (b)')
     for c in spec.get('custom_symbols') or []:
         if not os.path.isfile(os.path.join(root, c.get('file', ''))):
             add('BLOCK', 'custom_symbols', f"{c.get('id')}: symbol file {c.get('file')!r} not found")

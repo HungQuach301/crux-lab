@@ -1,0 +1,150 @@
+"""Mốc V · đoạn chứng minh (a) — Tập 4 S04.5 → S07.3 · ĐẶC TẢ NHỊP v3 "một thế giới, hai chế độ máy quay" (D-010).
+  python3 moc-v/seg/ep004/spine.py   → moc-v/seg/ep004/spine.json   (thoát 1 nếu vi phạm quy tắc 2/3/7)
+Một nguồn duy nhất cho mọi lớp: lời (take), hình (chế độ, tư thế máy, cửa sổ), âm dữ liệu, sfx, nhạc (bản đồ căng).
+Mốc giờ: CHỈ từ alignment của take ("@câu:từ"); cửa sổ động tác máy quay tính từ hai từ khoá kề nhau (± ĐỆM).
+"""
+import json, os, re, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'toolkit', 'factory', 'world'))
+from onset import refine          # mốc đầu từ = lúc NGHE được (TTS hay gộp khoảng nghỉ vào đầu từ)
+import spine as SV                # spine v2 của nhà máy (toolkit/factory/world/spine.py)
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
+HOP = 0.14                                    # nhà nảy qua xà: chạm lại ngay sau đầu chữ "cap"
+PAD = 0.25                                    # quy tắc 2: máy quay đứng yên trong ± PAD quanh mọi từ khoá
+OFFSET = {'S04': 0.6, 'S05': 4.6, 'S06': 23.0, 'S07': 56.2}   # đầu mỗi take (khoảng nghỉ như bản phát hành)
+TOTAL = 69.6
+voice = json.load(open(os.path.join(ROOT, 'moc-v/proto/voice.json')))
+words = []
+for tk in voice:
+    off = OFFSET[tk['sentences'][0]['id'][:3]]
+    words += [{'w': w['w'], 's': round(w['s'] + off, 3), 'e': round(w['e'] + off, 3), 'sid': w['sid'], 's_tts': round(w['s_tts'] + off, 3)} for w in refine(tk['words'], tk['mp3'])]
+takes = [{'mp3': os.path.relpath(t['mp3'], ROOT), 't': OFFSET[t['sentences'][0]['id'][:3]], 'dur': t['duration']} for t in voice]
+lines = {s['id']: s['spoken'] for t in voice for s in t['sentences']}
+
+
+at = SV.Anchors(words).at
+
+
+# ---- nhịp: ý · lời · chế độ · hành động hình · âm · căng · cảm xúc · chuyển (cues = TỪ KHOÁ: máy quay đứng yên quanh chúng)
+B = [
+ ('b0', 'S04.5', 'world', 'Câu hỏi: lãi của Rosa & Frank đã qua trần chưa?', 'Rosa & Frank cạnh NHÀ trên chồng tiền $200,000 (2000); xà trần mờ hiện phía trên; dấu hỏi giữa mái và xà.',
+  {'has': '@S04.5:Has', 'q': '@S04.5:cap'}, ['riser tới "cap?"'], 0.30, 'tò mò', 'nhà mờ đi'),
+ ('b1', 'S05.1', 'world', 'Không thấy nhà thật → cho giá trị đi như chỉ số Phoenix (trung bình nhiều giao dịch).', 'nhà mờ trong sương + mũi tên giá lên; lùi máy thấy khu phố; mỗi nhà bật biển SOLD đúng một tick; các nhà bay vào chồng tiền của nhà chính (= trung bình).',
+  {'blur': '@S05.1:see', 'rise': '@S05.1:rise', 'pop0': '@S05.1:Phoenix', 'src': '@S05.1:Federal', 'many': '@S05.1:many', 'avg': '@S05.1:sales'},
+  ['whoosh mềm khi sương', 'tick mỗi nhà SOLD', 'hợp âm gom'], 0.35, 'rõ ràng, tin cậy', 'CHUYỂN CHẾ ĐỘ → đồ thị: "average of many sales" thành MỘT đường'),
+ ('b2', 'S05.2', 'chart', 'Đi từng quý từ 2000 đến Q2 2026.', 'đồ thị chính diện: 3 quý đầu nhảy từng bước ("quarter by quarter"), rồi đường GIÁ TRỊ (vệt đỉnh chồng tiền) chạy tới 2026; nhãn năm theo đầu đường.',
+  {'quarter': '@S05.2:quarter', 'y2000': '@S05.2:two', 'y2026': '@S05.2:twenty'}, ['âm dữ liệu: nốt theo giá trị'], 0.50, 'đà đi lên', 'đường giá trị tắt khi trần vào'),
+ ('b3', 'S06.1', 'chart', 'Trần là đường phẳng $500,000, mọi quý như nhau.', 'đường giá trị + nhà TẮT (tránh đọc nhầm "giá nhà vượt trần"); xà trần đủ dài rơi và khoá (tiếng trầm); "flat": vệt sáng quét dọc xà; nhãn "$500,000 cap"; "same in every quarter": cột mốc bằng nhau ở mỗi năm.',
+  {'cap': '@S06.1:cap', 'flat': '@S06.1:flat', 'five': '@S06.1:five', 'same': '@S06.1:same'}, ['thud khi xà khoá', 'nhịp chạy dọc xà'], 0.45, 'chắc, cố định', 'CHUYỂN CHẾ ĐỘ → thế giới: "their gain" (về người)'),
+ ('b4', 'S06.2', 'world', 'Lãi trên giấy = $200,000 lớn theo chỉ số − $200,000 đã trả.', 'cảnh minh hoạ trước mặt: nhà + Rosa & Frank, máy đẩy chậm vào nhà ("a home that rose like the average"); khối $200,000 dưới đáy chồng đổi màu teal (lúc "$200,000"); chồng lớn lên (lúc "grown"); khối đáy trượt sang phải, chồng hạ xuống (lúc "less"); lúc "paid" ngoặc đo phần còn lại = "their gain on paper".',
+  {'gain': '@S06.2:gain', 'two': '@S06.2:two', 'grow': '@S06.2:grown', 'less': '@S06.2:less', 'paid': '@S06.2:paid'},
+  ['tick khi khối đổi màu', 'nốt đi lên khi chồng lớn', 'trượt xuống có cao độ khi trừ'], 0.55, 'hiểu cơ chế', 'CHUYỂN CHẾ ĐỘ → đồ thị: phát lại lãi theo năm so với trần'),
+ ('b5', 'S06.3', 'chart', 'Phần lớn các năm lãi nằm dưới vạch xa.', 'từ chữ "For": NHÀ của họ tua về 2000 (phần lãi co về 0) trong lúc máy lùi về đồ thị; rồi nhà cưỡi đường LÃI từ 2000 (vệt đỉnh chồng); ngoặc "well under" giữa đỉnh chồng và xà.',
+  {'under': '@S06.3:under'}, ['âm dữ liệu thưa, trầm'], 0.45, 'yên', 'đầu đường tiến tới 2022'),
+ ('b6', 'S06.4', 'chart', 'Q2 2022: vượt.', 'đỉnh chồng chạm và xuyên xà đúng chữ "crosses"; loé; nhãn "Over: Q2 2022".',
+  {'q2022': '@S06.4:second', 'cross': '@S06.4:crosses'}, ['riser vào điểm cắt', 'chime đúng khung cắt'], 0.85, 'bất ngờ', 'ĐẨY MÁY vào 2021–2026: nhìn rõ nhịp tụt'),
+ ('b7', 'S06.5', 'chart', 'Tụt lại dưới một thời gian.', 'trong khung phóng: đường tụt dưới xà (đoạn dưới đổi về ink); nhãn "Back under".',
+  {'slips': '@S06.5:slips'}, ['âm dữ liệu đi xuống'], 0.65, 'lưỡng lự', 'lên lại'),
+ ('b8', 'S06.6', 'chart', 'Từ Q2 2023 ở trên luôn.', 'đường lên lại; đoạn trên xà warn tới 2026; nhãn "Stayed over since Q2 2023"; ba nhãn giữ tới khi số bay (trạng thái kết luận).',
+  {'stay': '@S06.6:From', 'lbl': '@S06.6:second', 'above': '@S06.6:above'}, ['nốt sáng giữ'], 0.85, 'chắc dần', 'Rosa & Frank đến cạnh nhà'),
+ ('b9', 'S07.1', 'chart', 'Con số của câu mở đầu là lãi của họ.', 'đẩy máy vào đầu đường (nhãn lịch sử rời khung); lúc "rose" mũi tên đi lên cạnh nhà (cùng mũi tên của b1); số "≈ $558,100" hiện ở đầu đường và bay LÊN thành bảng trên đỉnh chồng (lúc "this" → "opening"); nhãn "$500,000 cap" trên xà. Ở chế độ đồ thị không có người (người là vật của chế độ thế giới).',
+  {'rose': '@S07.1:rose', 'fly': '@S07.1:this', 'land': '@S07.1:opening'}, ['swish theo đường bay', 'tick khi chạm biển'], 0.95, 'nhận ra', 'nhà nảy qua xà'),
+ ('b10', 'S07.2', 'chart', 'Qua trần.', 'ngoặc warn bên phải chồng MỌC từ xà lên đỉnh, chạm đỉnh ngay sau chữ "cap" (tiếng chạm mềm + loé ở chỗ chồng xuyên xà): "past the cap"; nhạc tắt ở "cap" → lặng tới "Phoenix".',
+  {'past': '@S07.2:past', 'cap': '@S07.2:cap'}, ['chạm mềm ngay sau "cap"', 'nhạc tắt ở "cap" → lặng ~1 s'], 1.00, 'đỉnh căng', 'LÙI MÁY: cả 26 năm'),
+ ('b11', 'S07.3', 'chart', 'Giá vùng Phoenix gần ×3,8 so với 2000.', 'đổi đại lượng lãi → GIÁ từ chữ "Phoenix": cả đường lãi NÂNG đúng $200,000 (cái đã trả) thành đường giá (xanh), khối teal "what they paid" về đáy chồng 2026; xà, nhãn trần tắt; máy lùi ra toàn cảnh; chồng giá 2000 (teal) ở 2000; ngoặc "×1" và "×3.8" lúc "three"; tiêu đề "Phoenix-area prices since 2000".',
+  {'x': '@S07.3:three', 'lvl': '@S07.3:level'}, ['âm dữ liệu lên một quãng'], 0.30, 'thả, hiểu', '(hết) giữ trạng thái kết luận ≥ 1 s'),
+]
+beats = SV.beats_from(B, SV.Anchors(words), lines)
+cue = {b['id']: b['cues'] for b in beats}
+
+
+window = lambda after, before, dur, late=False, start=None: SV.window(after, before, dur, PAD, late, start)
+
+
+# ---- động tác máy quay hữu hạn (quy tắc 2) — mỗi lần có LÝ DO (câu lời / sự kiện dữ liệu) và ÂM (quy tắc 3)
+MOVES = [
+ ('hood', 'pull', 'wHome', 'wHood', cue['b1']['rise'], cue['b1']['pop0'], 1.1, 'lời "rise exactly like the … index" → lùi máy thấy khu phố (nhiều giao dịch)', 'whoosh_air'),
+ ('toChart', 'mode', 'wHood', 'cFull', cue['b1']['avg'], cue['b2']['quarter'], 1.05, 'lời "an average of many sales": nhiều nhà gom thành MỘT đường → chế độ đồ thị', 'whoosh_mode'),
+ ('toDemo', 'mode', 'cFull', 'wDemoNear', cue['b3']['same'], cue['b4']['gain'], 1.0, 'lời "And here\'s THEIR gain": về người và nhà của họ → chế độ thế giới', 'whoosh_mode'),
+ ('demoPush', 'push', 'wDemoNear', 'wDemoClose', cue['b4']['gain'], cue['b4']['two'], 2.6, 'lời "for a home that rose like the average": đẩy chậm vào nhà + chồng tiền của họ (ẩn dụ sắp được đo)', 'whoosh_air'),
+ ('demoPull', 'pull', 'wDemoClose', 'wDemo', cue['b4']['two'], cue['b4']['grow'], 0.9, 'lời "grown with the index": chồng sắp cao gấp bốn → lùi máy để thấy trọn', 'whoosh_air'),
+ ('backChart', 'mode', 'wDemo', 'cFull', cue['b4']['paid'], cue['b5']['under'], 1.0, 'lời "For most of these years" (lãi vừa tách ra): tua NHÀ về 2000 rồi phát lại theo năm so với trần → chế độ đồ thị', 'whoosh_mode'),
+ ('zoom', 'push', 'cFull', 'cZoom', cue['b6']['q2022'], cue['b6']['cross'], 1.2, 'lời "Then, in the second quarter of 2022": sắp tới điểm cắt và nhịp tụt — đoạn 2021–26 quá nhỏ ở thang 26 năm → đẩy máy TRƯỚC khi cắt', 'whoosh_push'),
+ ('tip', 'push', 'cZoom', 'cTip', cue['b8']['above'], cue['b9']['rose'], 2.2, 'lời "So, on paper, … THEIR home": con số sắp nói là của Rosa & Frank → đẩy chậm vào nhà ở đầu đường', 'whoosh_air'),
+ ('wide', 'pull', 'cTip', 'cFull', cue['b10']['cap'], cue['b11']['x'], 1.45, 'lời "Phoenix area prices … their 2000 level": cần cả hai đầu 2000 và 2026 → lùi máy', 'whoosh_air'),
+]
+moves = []
+for mid, verb, a, b, after, before, dur, reason, snd in MOVES:
+    t0, t1 = window(after, before, dur, late=(mid in ('wide', 'toDemo')),     # 'wide': giữ "past the cap" lâu nhất; 'toDemo': sát "And here's"
+                    start=at('@S06.3') if mid == 'backChart' else at('@S07.3') if mid == 'wide' else None)            # 'backChart': neo vào chữ "For most of these years"
+    moves.append({'id': mid, 'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
+
+# ---- lịch dữ liệu dùng chung cho hình VÀ âm (q = quý, 0 = 2000 Q1 … 105 = 2026 Q2)
+data = json.load(open(os.path.join(ROOT, 'moc-v/proto/data.json')))
+gain = [p['y'] for p in data['gain']]
+crossQ = 88 + (500000 - gain[88]) / (gain[89] - gain[88])
+DRAW = [[cue['b2']['quarter'], 0], [cue['b2']['quarter'] + 0.45, 1], [cue['b2']['quarter'] + 0.9, 2], [cue['b2']['y2000'], 3],
+        [cue['b2']['y2026'] + 0.15, 105]]   # v3e: đầu đường TỚI 2026 đúng chữ (lượt đạo diễn v3d: muộn 0,3–0,7 s)                                     # "quarter by quarter" = 3 bước; "2026" đến đầu đường
+MV = {m['id']: m for m in moves}
+RIDE = [[MV['backChart']['t1'] + 0.15, 0], [cue['b6']['cross'] - 0.9, 88], [cue['b6']['cross'], round(crossQ, 3)], [cue['b7']['slips'] + 0.1, 91],
+        [cue['b8']['stay'] - 0.2, 92], [cue['b8']['lbl'], 93], [cue['b8']['above'], 105]]
+
+
+def interp(kf, t):
+    if t <= kf[0][0]: return kf[0][1]
+    for (a, x), (b, y) in zip(kf, kf[1:]):
+        if t <= b: return x + (y - x) * (t - a) / (b - a)
+    return kf[-1][1]
+
+
+def when(kf, q):
+    for (a, x), (b, y) in zip(kf, kf[1:]):
+        if x <= q <= y and y > x: return a + (b - a) * (q - x) / (y - x)
+
+
+EV = []
+for q in [0, 1, 2] + list(range(4, 106, 4)):
+    EV.append({'t': round(when(DRAW, q), 3), 'kind': 'data', 'v': (gain[q] + 200000) / 800000, 'src': 'value'})
+for q in range(0, 106):
+    if q % 8 == 0 or (q >= 86 and q % 2 == 0):                  # b5 thưa hơn (lượt đạo diễn v3d: dày ở 41–47 s)
+        EV.append({'t': round(when(RIDE, min(q, 105)), 3), 'kind': 'data', 'v': max(0, gain[q]) / 800000, 'src': 'gain', 'over': gain[q] > 500000})
+pops = [round(cue['b1']['pop0'] + k * (cue['b1']['many'] - 0.3 - cue['b1']['pop0']) / 11, 3) for k in range(12)]
+EV += [{'t': cue['b0']['has'], 'kind': 'riser', 'to': cue['b0']['q']},
+       {'t': cue['b1']['blur'], 'kind': 'whoosh_soft'},
+       *[{'t': p, 'kind': 'tick', 'pop': k, 'v': 0.3 + 0.05 * (k % 5)} for k, p in enumerate(pops) if k % 2 == 0],   # v3j: 6 biển SOLD = 6 tick
+       {'t': cue['b1']['avg'], 'kind': 'gather'},
+       {'t': cue['b3']['cap'] + 0.3, 'kind': 'thud'},   # xà khoá (rơi 0,32 s)
+       {'t': cue['b4']['two'], 'kind': 'tick', 'v': 0.6},
+       {'t': cue['b4']['grow'], 'kind': 'rise', 'dur': 0.9},
+       {'t': cue['b4']['less'], 'kind': 'slide_down', 'dur': 1.6},
+       {'t': cue['b6']['cross'], 'kind': 'chime'},
+       {'t': cue['b11']['x'], 'kind': 'data', 'v': 0.95, 'src': 'value'},   # v3j: "3.8 times" có nốt   # v3i: bỏ riser (chồng whoosh đẩy máy)
+       {'t': cue['b9']['fly'], 'kind': 'swish', 'to': cue['b9']['land']}, {'t': cue['b9']['land'], 'kind': 'tick', 'v': 0.7},
+       {'t': cue['b10']['cap'] + HOP, 'kind': 'land', 'mode': False},   # nhà nảy qua xà, CHẠM ĐẤT ngay sau chữ "cap" (lượt đạo diễn v3c); sau đó lặng
+       {'t': cue['b9']['rose'], 'kind': 'rise', 'dur': 0.9}]                  # mũi tên "rose" (cùng từ vựng hình với b1)
+GAIN = {'demoPush': 2.0, 'wide': 0.2, 'tip': 0.5, 'backChart': 0.5, 'toChart': 0.6, 'toDemo': 0.6}   # lượt đạo diễn v3c: whoosh_mode/whoosh dài quá to
+EV += SV.move_sounds(moves, lambda m: GAIN.get(m['id'], 1.0))   # quy tắc 3: mỗi LOẠI động tác một âm riêng, chỉ đổi chế độ mới có tiếng chạm
+EV.sort(key=lambda e: e['t'])
+
+# ---- bản đồ căng (biên độ rộng: chủ dự án, Gói A §5)
+tension = sorted([[0, 0.12]] + [[b['t0'], b['music']] for b in beats if b['id'] != 'b11'] + [[cue['b10']['cap'] + 0.3, 1.0], [cue['b11']['x'], 0.30], [TOTAL - 2.0, 0.2], [TOTAL, 0.1]])
+# ---- cảnh render (cache theo cảnh, quy tắc 8): ranh giới = giữa các động tác máy quay
+shots = SV.shots_for(moves, TOTAL)
+
+# ---- tự kiểm
+errs = SV.check_rules(beats, moves, PAD)
+spine = {'segment': 'ep004 S04.5 → S07.3 (bản phát hành 93,44–163,60 s)', 'version': 3, 'total': TOTAL, 'fps': 30, 'pad': PAD,
+         'takes': takes, 'words': words, 'beats': beats, 'moves': moves, 'draw': DRAW, 'ride': RIDE, 'crossQ': crossQ,
+         'events': EV, 'tension': tension, 'pops': pops,
+         'music_plan': {'stop': cue['b10']['cap'], 'tau': 0.08, 'release': cue['b11']['x'], 'accents': [cue['b3']['cap'] + 0.5, cue['b6']['cross']]},
+         'marks': {'cw_home': at('@S06.2:home'), 'hop_land': round(cue['b10']['cap'] + HOP, 3)},   # mốc phụ (không phải từ khoá; không ràng buộc quy tắc 2)
+         'label_cues': {'b2.quarter': '2000 Q1', 'b0.q': '?', 'b1.many': 'many sales → one average', 'b3.five': '$500,000 cap', 'b4.gain': 'their gain on paper = ?', 'b4.two': 'what they paid',
+                        'b5.under': 'well under', 'b6.cross': 'Over: Q2 2022', 'b7.slips': 'Back under', 'b8.lbl': 'Stayed over since Q2 2023', 'b9.fly': '≈ $558,100',
+                        'b11.x': '×3.8'},
+         'visual_cues': ['b3.flat', 'b8.above', 'b9.rose', 'b0.q', 'b1.blur', 'b1.rise', 'b1.pop0', 'b1.many', 'b2.quarter', 'b3.cap', 'b3.five', 'b3.same', 'b4.gain', 'b4.two', 'b4.grow', 'b4.less', 'b5.under', 'b6.cross', 'b7.slips', 'b8.lbl', 'b9.fly', 'b10.past', 'b11.x'], 'shots': shots, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
+json.dump(spine, open(os.path.join(HERE, 'spine.json'), 'w'), indent=1, ensure_ascii=False)
+json.dump(['moc-v/proto/data.json'], open(os.path.join(HERE, 'inputs.json'), 'w'))   # dữ liệu cảnh đọc → vào khoá cache (render_shots.js)
+world = sum(m['t1'] - m['t0'] for m in moves if m['verb'] == 'mode')
+print('moves:', [(m['verb'], m['t0'], m['t1']) for m in moves]); print('shots:', [(s['t0'], s['t1']) for s in shots])
+print('checks:', errs or 'OK')
+sys.exit(1 if errs else 0)

@@ -191,7 +191,8 @@ class Build:
         self.voices, chars, hits = {}, 0, 0
         for sc in self.S['scenes']:
             sents = [s for s in self.script.values() if s['scene'] == sc['id']]
-            v = VOICE.voice_scene(self.S['voice'], sents, os.path.join(self.root, 'voice-takes'), os.path.join(self.work, 'voice'))
+            cfg = VOICE.scene_cfg(self.S['voice'], self.S.get('voice_overrides'), sc['id'])   # B+1: seed/take per scene
+            v = VOICE.voice_scene(cfg, sents, os.path.join(self.root, 'voice-takes'), os.path.join(self.work, 'voice'))
             self.voices[sc['id']] = v
             hits += v['cached']
             chars += 0 if v['cached'] else v['chars']
@@ -269,6 +270,28 @@ class Build:
         else:
             stat = {'frames': 0, 'seconds': 0}
         return segs, {'segments': len(segs), 'rendered': len(todo), 'cache_hits': len(segs) - len(todo), **stat}
+
+    # ---- world (D-010, Mốc V): mỗi đoạn thế giới 3D dựng + kiểm bằng world/build_seg.py; spine của đoạn đọc lời từ timeline.json
+    def do_world(self):
+        res, out = {}, {}
+        for w in self.S.get('world') or []:
+            seg = os.path.join(self.root, w['dir'])
+            env = {**os.environ, 'CRUX_TIMELINE': os.path.join(self.out, 'timeline.json'), 'CRUX_WORLD_SCENES': ','.join(w['scenes'])}
+            mp4 = os.path.join(self.work, 'world', f"{w['id']}-{self.S.get('res', 1080)}.mp4")
+            r = subprocess.run([sys.executable, os.path.join(HERE, 'world', 'build_seg.py'), seg, '--res', str(self.S.get('res', 1080)), '--out', mp4,
+                                '--workers', str(self.workers)], env=env, capture_output=True, text=True)
+            print(r.stdout[-1500:])
+            if r.returncode:
+                print(r.stderr[-3000:])
+                raise SystemExit(f"world {w['id']}: build_seg failed (see above)")
+            sp = json.load(open(os.path.join(seg, 'spine.json')))
+            dur = sum(s['dur'] for s in self.tl['scenes'] if s['id'] in w['scenes'])
+            if abs(sp['total'] - dur) > 1 / self.fps:
+                raise SystemExit(f"world {w['id']}: spine total {sp['total']} s ≠ scenes {w['scenes']} {dur:.3f} s (đoạn phải khớp đúng các cảnh nó thay)")
+            res[w['id']] = json.load(open(mp4 + '.build.json'))['steps']
+            out[w['id']] = mp4
+        self.world = out
+        return {'segments': res}
 
     def concat(self, segs, out):
         lst = out + '.txt'
@@ -393,6 +416,8 @@ def main():
     B.load_inputs()
     B.step('voice', B.do_voice)
     B.step('resolve', B.do_resolve)
+    if B.S.get('world'):
+        B.step('world', B.do_world)   # ghép đoạn thế giới vào master: toolkit/factory/BACKLOG.md F-5
     B.step('render', B.do_render)
     B.step('mix', B.do_mix)
     B.step('parts', B.do_parts)

@@ -1,0 +1,6 @@
+{
+ "name": "crux-world-vendor",
+ "private": true,
+ "description": "three.js cho thế giới 3D của nhà máy (Mốc V). npm ci ở thư mục này; node_modules không commit.",
+ "dependencies": { "three": "0.186.1" }
+}

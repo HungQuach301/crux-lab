@@ -1,0 +1,42 @@
+You grade answers from viewers who saw 6 muted frames of a short video. For EACH answer give: score (1, 0.5 or 0) per the rubric of its beat, and advice flag yes/no. Advice flag (count=yes) only if the answer recommends a concrete financial action: buy, sell, keep/hold, time a sale, wait to sell, choose a product. General caution such as 'check your own numbers', 'talk to a tax professional', 'be aware' does NOT count (count=no).
+Rubrics:
+E1: Correct meaning (score 1) requires ALL of: on the loan's repayment schedule alone it takes about 8 years for the loan to fall to 80% of the price; when real history is replayed (many purchase months), the typical buyer reaches 80% on paper much sooner; slow cases take longer. Score 0.5: right direction but one element wrong or missing. Score 0: otherwise.
+E2: Correct meaning (score 1) requires BOTH: 'on paper' means the loan compared with the home's value by a (national) price index, reaching 80%; and reaching 80% on paper is NOT the same as the mortgage insurance being removed (it is still on). Score 0.5: only one of the two. Score 0: otherwise.
+Return ONLY a JSON list: [{"id":..., "score":..., "advice":"yes"|"no", "why":"<12 words"}].
+
+--- id 06157dbf · beat E1 ---
+1. **The idea:** Buyers who put down 10% (a loan at 90% of the home's price) usually don't take as long as the standard payment schedule says to get their loan down to 80% of the home's value. At 80% you can drop private mortgage insurance (PMI). Home price changes, not just payments, drive that timeline. The data are US buyers from 1991–2016 (FHFA and Freddie Mac, via FRED).
+
+2. **What changes:**
+   - **Frames 1–2:** One illustrative blue line follows a single buyer. Loan-to-value rises and falls with home prices, and it hits 80% at about 10 years. A gray line shows the fixed payment schedule slowly reaching 80%.
+   - **Frame 3:** The gray schedule line is labeled "about 8 years." The real data start to appear.
+   - **Frames 4–5:** Many thin gray lines build up, one for each purchase month from 1991 to 2016. Most drop to 80% much earlier than the schedule. Some rise first, when prices fell.
+   - **Frame 6:** The chart marks the typical buyer at about 2 years and the slowest case at about 9 years. The schedule stays at about 8 years.
+
+3. **What it means for me:** With 10% down, I would pay PMI at first. Historically, rising home values often got buyers to 80% in around 2 years, well ahead of the 8-year schedule. That's a typical outcome, not a promise. Some buyers waited longer than the schedule, about 9 years in the slowest case, because prices dropped. So my PMI cost could end early or drag on, depending on the market.
+
+4. **Advice a viewer would take:** The video explicitly says it is not advice to buy, rent or wait, and that it is US history, not a forecast. A viewer could still take away three things:
+   - Don't assume PMI lasts for the full schedule.
+   - Don't count on a quick exit either.
+   - Ask a lender how and when PMI can be removed, including by reappraisal once the home has gained value.
+
+--- id 3bde067a · beat E1 ---
+1. **The idea:** Buyers who put down 10% (a loan of about 90% of the price) usually reach 80% loan-to-value, where mortgage insurance can come off, faster than the payment schedule says. The schedule alone takes about 8 years. In real US history, home price changes made it much quicker.
+
+2. **What changes:** Frames 1–2 show one illustrative blue line, which is a single buyer's loan share, and a gray straight line for the schedule. In frame 3 the real data appears, labeled as loan as % of home value for each purchase month from 1991 to 2016. The schedule is marked at about 8 years. Frames 4–5 add many gray lines, one per purchase month. They show a wide spread of outcomes, and the blue line is just one of them. Frame 6 highlights the typical case at about 2 years and the slowest at about 9 years.
+
+3. **What it means for me:** With 10% down, I'd probably reach 80% loan-to-value in a few years if prices rise as they often did. That isn't guaranteed, and the slowest buyers needed about 9 years. The 8-year schedule is a fallback, not the expectation. The data is US only and runs from 1991 to 2016.
+
+4. **Advice:** The video says plainly that this is not a reason to buy, rent or wait. A viewer could take away three things:
+   - Don't assume mortgage insurance lasts for the full schedule.
+   - Plan for the slow case anyway.
+   - Treat the figures as history, not a forecast.
+
+--- id d83af5be · beat E1 ---
+1. **The idea:** A 10% down payment (a loan of about 90% of the price) is supposed to fall to 80% on a fixed payment schedule, which takes about 8 years. In practice, how long it takes depends on what home prices do. The video shows this with real past US buyers, from 1991 to 2016. It says plainly that this is a measurement of history, not a forecast or a reason to buy, rent, or wait.
+
+2. **What changes:** Frames 1–2 show one illustrative blue line. It starts at 90% and, because prices rise and fall, wanders up and down before reaching 80% near year 9–10. A gray straight line shows the schedule on its own. Frame 3 switches to real data and marks the schedule at about 8 years. Frames 4–5 add one thin line for each purchase month, and together they form a large fan of paths. Frame 6 highlights two extremes: a typical buyer reached 80% in about 2 years, and the slowest case took about 9 years.
+
+3. **What it means for me:** I'm a renter with 10% saved, so I'd start at about 90% loan-to-value. The loan has to reach 80% before I'm likely to be able to drop mortgage insurance. For most past buyers that happened much faster than the schedule says, usually because prices rose. A few buyers needed far longer, because prices fell or stayed flat, and it didn't take much longer than the schedule's 8 years. So my timeline is uncertain. It's probably shorter than 8 years, but it could be longer, and I can't count on either.
+
+4. **Advice a viewer would take:** Don't plan on the 8-year schedule as a firm number, and don't plan on the quick 2-year case either. Budget for mortgage insurance lasting several years. Check whether the loan lets me remove it early, for example by reappraisal or extra principal payments. The video gives no buy, rent, or wait advice. It covers US data only, and past results don't guarantee future ones.

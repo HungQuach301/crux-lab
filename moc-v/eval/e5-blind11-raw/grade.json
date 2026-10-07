@@ -1,0 +1,10 @@
+{
+ "answer": "[\n{\"id\":\"06157dbf\",\"score\":1,\"advice\":\"no\",\"why\":\"Gives 8-year schedule, ~2-year typical, ~9-year slowest case; all elements present.\"},\n{\"id\":\"3bde067a\",\"score\":1,\"advice\":\"no\",\"why\":\"Covers 8-year schedule, much quicker typical case, slower 9-year case.\"},\n{\"id\":\"d83af5be\",\"score\":1,\"advice\":\"no\",\"why\":\"Schedule 8 years, typical 2 years, slow ~9 years; only caution and checking.\"}\n]",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "in": 4905,
+   "out": 1000
+  }
+ },
+ "turns": 1
+}
