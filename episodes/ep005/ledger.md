@@ -40,3 +40,5 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc: kiểm m�
 | 2026-10-07 | sau C3 | dựng | agent general-purpose | F-2 kiểm sfx + nhãn đè | 148.603 | test 5/5, bộ 41/41; Tập 5 0 BLOCK, cảnh báo N3 dày sfx, 5 nhấn 11–14 dB |
 | 2026-10-07 | sau C3 | dựng | agent general-purpose | F-3 nhạc theo bản đồ căng | 184.391 | 9,0 LU yên→đỉnh; A07 20,01 dB; né 1–4 kHz 9,2 dB (đích 13); chốt ở "removed" S20.2 |
 | 2026-10-07 | sau C3 | dựng | agent general-purpose | F-1 thử "fly" ở S02 | 165.942 | đạt mọi tiêu chí; render ×1,015; ống góc rộng làm nghiêng nhà (mắt) → giới hạn méo ở C4 |
+| 2026-10-07 | C4 | dựng (lời) | `story/seed_check.py`, `story/asr_all.py` | ASR medium từng từ cả 20 cảnh | — | S04.2 take 1005 rơi "the lender if" (1006 cũng rơi) → seed 1007; S15 "Grace bought"→"gray spot" → seed 1006; EL 406 + 406 + 302 + 302 = **1.416** |
+| 2026-10-07 | C4 | chẩn đoán | 2 agent đạo diễn độc lập (A, B) | animatic 540p | 136.388 + 161.371 | A: cảm xúc 2 · truyện 3 · hình 3 · nhịp 3; B: 3·3·3·3; 6 nhận xét lặp ở cả hai → sửa |

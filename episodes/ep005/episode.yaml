@@ -10,6 +10,8 @@ music: {style: C}      # G-016
 # Nhà máy đọc khoá này (B+1, voice.scene_cfg; kiểm C4: khoá băm S18 = take 5b3b914301ef48ab, 20/20 cảnh trúng cache, 0 ký tự EL).
 voice_overrides:
   S18: {seed: 1006}   # take voice-takes/5b3b914301ef48ab.mp3
+  S04: {seed: 1007}   # take voice-takes/68d5dbe4da841180.mp3 — seed 1005 và 1006 rơi "the lender if" ở S04.2 (ASR medium, review-c4/S04-seeds.json; lượt đạo diễn B 1:07)
+  S15: {seed: 1006}   # take voice-takes/b0d912d29478ac29.mp3 — seed 1005 ASR medium nghe "Grace bought" thành "gray spot"; 1006/1007 đúng (review-c4/S15-seeds.json, asr-all.json)
 # F-3 (D-010 §5): nhạc bằng mã theo bản đồ căng cả tập — episodes/ep005/world/music/{tension,bed}.py; nghe thử + số đo: review-c4/music-audition.m4a,
 # review-c4/music-report.json (audition.py). Mức dưới lời 20 dB (A07) + né 1–4 kHz 13 dB: toolkit/factory/music.py. Nhạc về 0 quanh MR1
 # (midrolls[0].t nếu có, không thì giữa khoảng nghỉ sau S09.4). Đổi timeline (đuôi cảnh, MR1) → xoá bed.wav để nhà máy sinh lại.
