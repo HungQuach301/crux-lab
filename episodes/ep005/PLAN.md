@@ -15,7 +15,7 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | Lời theo cảnh | **XONG 20/20** (S18 seed 1006) | `story/voice_scenes.py`, `voice-takes/`, `review-g1/voice-scenes.json` | ASR từ khoá theo cảnh |
 | Mốc V | **XONG** — merge `main` 16d7e1f vào `ep005` | — | CHARTER v4, D-009, D-010, nhà máy thế giới |
 | B+2 S03 | **XONG** | `gates/S03-S12-*.md` | "a waiting period" + nhãn Fannie Mae; M4 9,8 s; mù S03→S12 6/6, khuyên 0 |
-| **C3 (P2)** | **CHỜ CHỦ DỰ ÁN** | `gates/C3.md`, `gates/C3-root.md`, `gates/REVIEW-C3.md`, `review-c3/c3-clip.mp4`, `world/SPINE-PLAN.md` | spine v2; N3 ĐẠT; N1/N2 hết 3 vòng (câu khuyên tắt tiếng) → chủ dự án chọn |
+| **C3 (P2)** | **XONG** (issue #46; `gates/C3-answer.md`) | `gates/C3.md`, `gates/C3-root.md`, `gates/REVIEW-C3.md`, `review-c3/c3-clip.mp4`, `world/SPINE-PLAN.md` | spine v2; N3 ĐẠT; N1/N2 hết 3 vòng (câu khuyên tắt tiếng) → chủ dự án chọn |
 | F-5, F-2, F-3, F-1 → C4 → C5 → Shorts → G2 | chưa | | sau C3 |
 
 ## 2. Phiên sau đọc (sau Mốc V merge)
