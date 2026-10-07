@@ -1,6 +1,6 @@
 {
  "video": "c3-clip.mp4",
- "video_sha256": "377b1bfe4ecad491d3fa039c0d183a7c0eba9af26d1ef2dbaad578a1404624e1",
+ "video_sha256": "9ea6b5667e6e21d0f90f5a1e4038dbff3fd509b24aca504c3c35501e3fc6b1e5",
  "font": "inter-latin-700-normal.woff2",
  "layout": "3x2, 624x351, gap 12, label 50",
  "strips": {
@@ -17,7 +17,7 @@
     47.617,
     49.384
    ],
-   "sha256": "75aafe295afc3e73d4a409855a31264271ae26f2b0bc7494a23d520915e744d0"
+   "sha256": "a44ad26adc2825b9c19da097678ea3bddd7d94044cbbd5da7d8b15c6a6528aa0"
   },
   "N3-fold": {
    "span": [
@@ -75,5 +75,16 @@
   ],
   "r2_video_sha256": "07b6f434b4e0a23546c661999f3cc2ed5eecb11e01ed0e0b2e9b43a000fd6ca7",
   "note": "C3 round 3 (world/c3/FIX-R3.md); same span and frame times as r1/r2"
+ },
+ "r3-cw": {
+  "date": "2026-10-07",
+  "changed": [
+   "N1-calendar"
+  ],
+  "r3_copies": [
+   "N1-calendar.r3.png"
+  ],
+  "r3_video_sha256": "377b1bfe4ecad491d3fa039c0d183a7c0eba9af26d1ef2dbaad578a1404624e1",
+  "note": "after C3 (gates/C3-answer.md): N1 counterweight line 'A measurement, not a next step' in chart mode; not a fix round; same span and frame times; N2/N3 PNGs unchanged"
  }
 }

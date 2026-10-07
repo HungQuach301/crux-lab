@@ -75,7 +75,9 @@ export async function boot(res) {
     const sA = ok * ease(t, b.a1.slowly - 0.05, b.a1.slowly + POP), fA = ok * ease(t, b.a1.faster - 0.05, b.a1.faster + POP);
     { const [x, y] = O.toScreen(XK(70), 360000 * bal(70) / UNIT, 0.4); O.text('slowly at first', x, y + 74, 52, { color: C.ink, align: 'center', alpha: sA }); }
     { const [x, y] = O.toScreen(XK(300), 360000 * bal(300) / UNIT, 0.4); O.text('faster later', x - 40, y + 90, 52, { color: C.ink, align: 'right', alpha: fA, plate: '#0B0E13', plateA: 0.6 }); }
-    O.chrome({ illus: true, illusA: 1, src: cw > 0.5 ? 'Rate: Freddie Mac via FRED' : null, srcA: ok });
+    // sau C3 (gates/C3-answer.md): dòng đối trọng như các hình khác (cùng câu với khung đồ thị lịch giả định của cold open), chỉ ở chế độ đồ thị (có số)
+    const cwA = ok * ease(t, mv.t1, mv.t1 + POP);
+    O.chrome({ illus: true, illusA: 1, src: cw > 0.5 ? 'Rate: Freddie Mac via FRED' : null, srcA: ok, cw: cwA > 0.01 ? 'A measurement, not a next step' : null, cwA });
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }
   return { canvas: st.out, frame };

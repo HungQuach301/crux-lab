@@ -52,3 +52,9 @@ Lời + take: `words`/`takes` trong spine.json không đổi (0 ký tự EL); AS
 ## 6. Việc tiếp
 Cổng gốc C3 vòng 3 cho N1, N2 (người đọc MỚI, dải mới, cùng ý đồ `gates/C3-root-intent.md`); khoá nghĩa: nghĩa ≥ vòng 2. Muted read N2 trong `spans.json` vẫn ghi "turn warn" (không sửa theo lệnh) — người chấm so nghĩa (cột > 60 tháng nổi bật, ít, liền nhau 2005–2009, dưới đoạn đỉnh → đáy của chỉ số), màu không phải nghĩa; ghi lại nếu người chấm trừ vì màu.
 Khi dựng tập: màu cột chậm trung tính (accent) và chỉ số muted phải thống nhất với S11/S14 (cùng cBars); tiêu đề N1 "set on day one" khớp S20.2.
+
+## Sau C3: thêm đối trọng (2026-10-07, không tính vòng)
+Lệnh `gates/C3-answer.md` câu 2: N1 thêm dòng đối trọng như các hình khác. `n1-calendar/scene.js`: `O.chrome({… cw: 'A measurement, not a next step', cwA })` — cùng câu với khung lịch giả định của cold open (`seg-s01-s03/scene.js`, c2 "schedule"), cùng lớp chrome `core.js` (54 px, w600, dải nền mờ 925–1080, cố định x 96 / y 1022; không có `hist` vì N1 là lịch giả định, không phải dữ liệu lịch sử). Chỉ ở chế độ đồ thị: `cwA = ok · ease(mv.t1, +0,15 s)` (cùng lúc với `$360,000 loan` / lãi suất), hiện 86/150 mẫu nhật ký trang, mọi mẫu `chartW ≥ 0,95`.
+Va chạm: hộp đối trọng [96, 979.9, 924.5, 1035]; chữ khác thấp nhất là trục kỳ trả (đáy 886,9) → 0 cặp hộp chồng nhau trên cả 150 mẫu nhật ký.
+Dựng lại (540p): render 38,4 s wall cho 14,97 s phim (4,26 s/s), build 56,4 s; verify 1/2/3 = 0/0 (8)/0, cắt cứng 0, 5 s đầu W, W/C 38,7/61,3 %; sync lời −0,016 / 0,105 s, hình 4/4. Âm đoạn trùng bit với vòng 3 (md5 PCM), 449 khung. Ra `world/work/world/n1-calendar-540.*` (bằng chứng chép vào `review-c3/evidence/c3-n1-calendar-540.*`).
+Clip: `review-c3/c3-clip.mp4` thay khung 1070–1518 (N1) bằng bản mới; phần còn lại từ clip vòng 3 (PSNR 55,6 / 53,7 dB = chỉ mã hoá lại), âm chép nguyên (trùng bit), 2476 khung, 82,53 s. Dải N1 cùng thời điểm (`strips.json` mục `r3-cw`); bản trước giữ ở `strips/N1-calendar.r3.png`.
