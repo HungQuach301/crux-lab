@@ -24,3 +24,5 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc (`episode.
 | 2026-10-08 | C3 | dựng | agent general-purpose | N1 `obj6.js` Crates + 4 đoạn (s07/s24/s27/s29), spans | 283.582 | lint/spine 0 vi phạm |
 | 2026-10-08 | C3 | dựng | `build_seg.py --res 540` ×4 (lệnh nền) | dựng 4 đoạn | — | verify OK ×4; giờ render **0,15 h** (70 + 171 + 176 + 118 s) |
 | 2026-10-08 | C3 | kiểm mù | headless 8 đọc (ảnh) + 1 chấm | cổng gốc vòng 1 | 96.177 (trần) | nghĩa 8/8, khuyên 8/8 → trượt cả 4; vòng 2 sửa bằng hình (séc lớn lên) |
+| 2026-10-08 | C3 vòng 2 | dựng | agent general-purpose (mới) | séc lớn lên cạnh hàng thùng (FIX-R2) | 196.611 | lint/spine OK |
+| 2026-10-08 | C3 vòng 2 | dựng + kiểm mù | `build_seg` ×4 (0,15 h) + headless 8 đọc + 1 chấm | cổng gốc vòng 2 | 96.247 (trần) | s07/s24/s27 ĐẠT 2/2; s29 khuyên 1/2 → vòng 3 |
