@@ -17,4 +17,4 @@ for ep in ['ep002', 'ep003', 'ep004', 'ep005']:
     r = [w / d for w, d in per.values() if d > 0]
     print(f'{ep}: từ nói {spoken} · giây lời {speech:.1f} · tổng {total:.1f} · '
           f'đọc {spoken/speech:.2f} từ/s · thời lượng {spoken/total:.2f} từ/s · ngoài lời {total/speech-1:.0%} · '
-          f'theo cảnh {min(r):.2f}–{max(r):.2f} (trung vị {st.median(r):.2f})')
+          f'theo cảnh {min(r):.2f}–{max(r):.2f} (trung vị {st.median(r):.2f}, độ lệch chuẩn {st.pstdev(r):.2f})')
