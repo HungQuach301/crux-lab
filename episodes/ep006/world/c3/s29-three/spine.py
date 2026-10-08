@@ -5,7 +5,9 @@ loé, vẫn đủ 10; "Ruth" hàng mờ tới 0,904; "Carl" hàng mờ qua năm 
 "crates at year 20 · same 2% raise"; "full" = "10" trên hàng Edna, "nine" = "about 9" trên hàng Ruth, "four" = "about 4" trên hàng Carl;
 nhãn tên + tháng bắt đầu; "month" = dòng tháng bắt đầu sáng lên (điều khác nhau duy nhất).
 FIX-R2: mỗi người một tấm séc (obj6.Check) cạnh hàng; "Same raise" (S29.1) = ba séc cùng bước lên 20 kỷ niệm ×1,02 → ba séc CÙNG CỠ năm 20
-(×1,486, cùng một mức tăng) trước khi ba hàng mờ khác nhau theo tên. Séc bước im lặng (đang có whoosh của động tác mở đoạn)."""
+(×1,486, cùng một mức tăng) trước khi ba hàng mờ khác nhau theo tên. Séc bước im lặng (đang có whoosh của động tác mở đoạn).
+FIX-R3 (chỉ hình, scene.js): cột xếp theo tháng bắt đầu (Edna · Carl · Ruth); đồ thị: ngoặc chung ba séc "same check: +2% a year" (từ hết
+chuyển chế độ), trục tháng bắt đầu tỉ lệ năm có ba mốc, sáng lên ở "month". Mốc giờ/âm không đổi; nhãn tiêu đề rút còn "crates at year 20"."""
 import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); W6 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W6)
@@ -36,6 +38,6 @@ ev += ev2 + [{'t': cue['d0']['edna'], 'kind': 'tick', 'v': 0.5}, {'t': cue['d1']
              {'t': cue['d1']['four'], 'kind': 'tick', 'v': 0.35}, {'t': cue['d2']['month'], 'kind': 'tick', 'v': 0.4}]
 K.finish(HERE, 'ep006 C3 · s29-three (S29)', words, takes, lines, end, beats, moves, ev,
          {'rows': {'edna': [[0, 1.0]], 'ruth': rk, 'carl': ck}, 'cards': {n: K.step_check(cyrs, ramp=0.06) for n in ('edna', 'ruth', 'carl')},
-          'label_cues': {'d1.crates': 'crates at year 20 · same 2% raise', 'd1.full': '10', 'd1.nine': 'about 9', 'd1.four': 'about 4'},
+          'label_cues': {'d1.crates': 'crates at year 20', 'd1.full': '10', 'd1.nine': 'about 9', 'd1.four': 'about 4'},
           'visual_cues': ['d0.edna', 'd0.ruth', 'd0.carl', 'd1.full', 'd1.nine', 'd1.four', 'd2.month']},
          [cue['d0']['carl'], cue['d1']['four']])
