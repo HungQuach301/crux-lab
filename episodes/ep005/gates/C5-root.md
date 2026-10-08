@@ -19,3 +19,7 @@ Dải từ `out/video.mp4` (1080p, C5b `235f4cb`), khoảng = khoảng C4 dịch
 | B02 | 0/2 (0,5 + 0,5) | tiêu đề "Loan ÷ home value on paper" hiện từ phần chỉ có lịch → người đọc lấy quạt lịch sử làm ý chính, bỏ mốc lịch 8 năm |
 | B18 | 0/2 (0,5 + 0,5) | bố cục mới "ba bảng rồi gộp chung trục" lệch ý "ba bảng cạnh nhau"; đọc vạch 80 % thay vì 75 % |
 Không tốt hơn C5b → vòng 2: về bố cục C4 tốt nhất, chỉ giữ phần luật bắt buộc (màu V09, chữ S10, tấm nền, nhãn "on paper" chỉ trên khung có claim trên giấy). Token 49.695 + 12.910.
+
+## So C4 ↔ C5c đủ mẫu (ghi TRƯỚC khi chạy, 2026-10-08)
+Lý do: dải C5b gần trùng điểm ảnh với C4 mà điểm khác (n = 2–3) → nghi nhiễu. **Phép so:** mỗi nhịp B02, B18 — dải **C4 tốt nhất** (`review-c4/strips/B02-S02.r2.png` = bản v1/v2 đạt 2/2; `B18-S18.r2.png` = bản v2 đạt 2/2) và dải **C5c** (`review-g2/strips/B02-S02.png`, `B18-S18.png`), **6 người đọc mới mỗi dải** (24 lượt), cùng câu hỏi/vai, chấm bằng **một** người chấm cho cả 24 nhãn trộn (nhãn có id dải, không có phiên bản), cùng đáp án hiện hành (`review-c4/spans.json`).
+**Quyết định ghi trước:** C5c giữ nếu số người đọc đúng (nghĩa 1 + không khuyên_tính) của C5c **≥** của C4 cho từng nhịp (nghĩa không thấp hơn C4). C5c < C4 ở nhịp nào → nhịp đó về bố cục C4 (giữ phần luật bắt buộc) ở vòng 2. Kết quả ghi nguyên văn bên dưới, không chạy lại.
