@@ -2337,6 +2337,16 @@ def _(f, bad):
     f.json('out/checks/page.json', {'textOnlyTrack': [{'t': 0.0, 'textOnly': False}, {'t': 2.0, 'textOnly': True}, {'t': 4.0 if bad else 3.0, 'textOnly': False}]})
 
 
+
+@case('T4')
+def _(f, bad):
+    # 20 s segment: bad = 8 ticks in 10 s (> 6); good = 3 ticks in the word gaps
+    times = [5.0 + i for i in range(8)] if bad else [1.5, 3.0, 4.5]
+    sp = {'total': 20.0, 'words': [{'w': 'one', 's': 1.0, 'e': 1.3}], 'beats': [], 'events': [{'t': t, 'kind': 'tick'} for t in times] + [{'t': 2.0, 'kind': 'data'}]}
+    f.json('seg/spine.json', sp)
+    f.contract(world=[{'id': 'a', 'spine': 'seg/spine.json', 't0': 0.0}])
+
+
 EXTRA.update({'V14/reason': v14_variant('reason'), 'V14/first5': v14_variant('first5'), 'V14/cut': v14_variant('cut')})
 EXTRA.update({'R07/voice': r07_none_case})
 EXTRA.update({'S19/frame': s19_frame_case, 'S19/spoken': s19_spoken_case})

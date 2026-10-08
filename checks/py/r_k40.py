@@ -306,3 +306,35 @@ def v15_text_only(ctx):
     share = 100.0 * sum(b - a for a, b in runs) / total if total else 0.0
     return verdict('V15', [metric('text-only time (%)', share, '<=', 15.0, '%')],
                    details=[{'runs': len(runs), 'longest': sorted(([round(a, 2), round(b, 2)] for a, b in runs), key=lambda r: r[0] - r[1])[:10]}])
+
+
+# ---- A19 → T4 -------------------------------------------------------------------------------------------------------------------
+SFX_BEDS = {'drone_on'}
+SFX_DUR = {'tick': 0.15, 'land': 0.3, 'chime': 1.0, 'impact': 1.0, 'thud': 0.6, 'gather': 1.6}
+
+
+@rule('T4', 'D-010 §6 (lượt đạo diễn: sfx dày), checks-appeal A19', 'world segments (as R07): spine.events except kind "data" (data sound, own layer) and continuous '
+      'beds (drone_on), episode time = t + t0; spine.words (no [tags]). Per segment: events per minute of the segment, most events in a sliding 10 s window, share of '
+      'events starting inside a spoken word that is not a keyword (beats[].cues). The definition of the builder\'s F-2 meter (toolkit/factory/world/sfx_labels.py), '
+      'without its keyword-masking SNR (voice clarity is L1/A14) and without its label part (text over text or line: V11)',
+      'every segment ≤ 30 events/min, ≤ 6 events in any 10 s, ≤ 50% of events on plain spoken words; no world segment = nothing to check')
+def t4_sfx_density(ctx):
+    segs = world_segments(ctx)
+    if not segs:
+        return verdict('T4', [metric('segments over a density limit', 0, '<=', 0)], note='no world segments: nothing to check')
+    rows = []
+    for sid, sp, t0 in segs:
+        ev = sorted(float(e['t']) for e in sp.get('events', []) if e.get('kind') != 'data' and e.get('kind') not in SFX_BEDS)
+        W = [w for w in sp.get('words', []) if not str(w['w']).startswith('[') and w['e'] > w['s']]
+        kw = {round(t, 3) for b in sp.get('beats', []) for t in b.get('cues', {}).values()}
+        total = float(sp.get('total') or 0) or max(ev + [w['e'] for w in W] + [1e-9])
+        per_min = len(ev) / (total / 60) if total else 0.0
+        win = max((sum(1 for x in ev if t <= x < t + 10.0) for t in ev), default=0)
+        plain = sum(1 for t in ev if any(w['s'] <= t < w['e'] and not any(abs(w['s'] - k) <= 0.02 or w['s'] <= k < w['e'] for k in kw) for w in W))
+        rows.append({'segment': sid, 't0': round(t0, 2), 'events': len(ev), 'perMin': round(per_min, 1), 'max10s': win,
+                     'onPlainWords': plain, 'onPlainShare': round(100.0 * plain / len(ev), 1) if ev else 0.0})
+    over = [r for r in rows if r['perMin'] > 30 or r['max10s'] > 6 or r['onPlainShare'] > 50]
+    return verdict('T4', [metric('segments over a density limit', len(over), '<=', 0),
+                          metric('highest events/min', max(r['perMin'] for r in rows), '<=', 30.0),
+                          metric('most events in 10 s', max(r['max10s'] for r in rows), '<=', 6),
+                          metric('highest share on plain words (%)', max(r['onPlainShare'] for r in rows), '<=', 50.0, '%')], details=rows)

@@ -1,0 +1,96 @@
+{
+ "ep005": {
+  "contract": "checks-runs/K40/contracts/ep005.json",
+  "video": "episodes/ep005/review-g2/full-720p.mp4",
+  "R07": {
+   "id": "R07",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "visual cues within ±0.2 s (%)",
+     "value": 90.909091,
+     "op": ">=",
+     "threshold": 92.0,
+     "unit": "%",
+     "pass": false,
+     "near": true
+    },
+    {
+     "name": "|median voice offset| s",
+     "value": 0.0001,
+     "op": "<=",
+     "threshold": 0.2,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "cues": 88,
+     "within": 80,
+     "voiceWordsMatched": 1041,
+     "voiceMedian": -0.00010000000000331966,
+     "voiceP90abs": 0.19010000000002947
+    },
+    {
+     "segment": "a-s01-s03",
+     "cue": "c1.twenty",
+     "t": 8.057,
+     "offset": 0.276,
+     "how": "motion"
+    },
+    {
+     "segment": "a-s01-s03",
+     "cue": "c7.three",
+     "t": 43.113,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "c-s10-s14",
+     "cue": "z0.october",
+     "t": 300.3,
+     "offset": null,
+     "how": "label"
+    },
+    {
+     "segment": "d-s15-s20",
+     "cue": "o0.climbing",
+     "t": 345.284,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "d-s15-s20",
+     "cue": "v1.fell",
+     "t": 364.871,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "d-s15-s20",
+     "cue": "v3.show",
+     "t": 388.631,
+     "offset": null,
+     "how": "label"
+    },
+    {
+     "segment": "d-s15-s20",
+     "cue": "a4.twenty",
+     "t": 422.968,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "d-s15-s20",
+     "cue": "a5.renting",
+     "t": 429.374,
+     "offset": null,
+     "how": "label"
+    }
+   ],
+   "note": null
+  }
+ }
+}
