@@ -65,7 +65,7 @@ Gán cấp là việc của Phiên K, chủ dự án duyệt. **Checks khi dựn
 ## 5. Giao thức kiểm mù
 
 1. **Ý đồ ghi trước khi chạy** (`episodes/<tập>/gates/Cx-intent.md`, commit trước). Ý đồ gồm: mẫu, vai, câu hỏi cố định, rubric "đúng nghĩa" / "chỉ tả hình", ngưỡng, **luật dừng sớm** (mục 6). Với kiểm hình, phần "đúng nghĩa" của rubric **chép nguyên văn** câu "ý người xem phải đọc ra" của nhịp trong bảng nhịp C2. REVIEWER soát ý đồ và rubric **trước khi chạy**. Không sửa sau khi thấy kết quả.
-2. Mỗi mẫu giao cho **một agent mới**. Agent chỉ mở **một file tên hex** trong thư mục riêng; không có ngữ cảnh dự án (`toolkit/blind/packets.py deal`).
+2. Mỗi mẫu giao cho **một người đọc mới chạy headless** (`toolkit/blind/headless.sh`, `claude -p` không công cụ; ảnh thì chỉ Read) — cách kiểm mù chính từ Tập 5 (tổng kết Tập 5 §2a); không dùng agent con `Explore`. Người đọc chỉ thấy **một file tên hex**; không có ngữ cảnh dự án (`toolkit/blind/packets.py deal`). Mỗi 3 tập, C2 thêm một lượt người đọc model khác (`episode.md` §2).
 3. **Câu hỏi cố định, tiếng Anh**, vai khán giả đích của tập. Mọi kiểm mù có thêm câu suy diễn lời khuyên: *"What advice, if any, would a viewer take from this?"*
 4. **Người chấm là agent độc lập, mù tập.** Agent chỉ đọc gói nhãn ngẫu nhiên gồm câu trả lời và rubric (`packets.py packet`); khoá nhãn commit trước khi chấm. Chấm 1 / 0,5 / 0 kèm cờ câu khuyên. Một người đọc **đúng** khi điểm = 1 **và** không có câu khuyên. Phiên điều phối chỉ ghi và gộp (`packets.py tally`).
 5. Nguyên văn trả lời ghi vào `gates/Cx-blind.md`. Gói cổng chỉ đưa bảng tổng.

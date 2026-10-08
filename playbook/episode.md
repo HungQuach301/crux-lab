@@ -63,7 +63,9 @@ Mỗi agent con tốn **≈ 32–49 nghìn token cố định** (Mốc B, Tập 
 - **C2:** 6 người đọc + 1 người chấm, ≤ 2 vòng; dừng khi gặp khuyên_tính đầu tiên (A9) hoặc 2 sai; không dừng sớm khi đạt.
 - **Cổng gốc (C3/C4):** chỉ nhịp loại 1; 2 người đọc mỗi nhịp, người thứ 3 chỉ khi chia; người chấm độc lập.
 - **Không chạy:** tóm tắt AI ở G2, so cặp thumbnail, đối chứng trong tập thường (chỉ khi rubric mới, việc lô K), hiệu chuẩn so cặp móc (đã xong).
-- Tập 5 chạy song song headless và `Explore` trên C2 một lần (3 + 3). Giữ headless nếu cùng kết luận đạt/trượt và cùng cảnh mất chú ý nhiều nhất.
+- **Headless là cách kiểm mù chính** (tổng kết Tập 5 §2a, chủ dự án duyệt 08/10): C2 Tập 5 so song song 6 headless + 3 `Explore` — đạt/trượt trùng (6/6, 3/3, 0 khuyên); khối mất chú ý nhiều nhất khác cảnh nhưng **cùng loại** (khối phương pháp: S19 thẻ 4/6 vs S10.1 3/3); headless ≈ 1/4 giá, mù thật. **Không dùng `Explore` cho kiểm mù.**
+- **Câu mất chú ý** hỏi ở mọi kiểm mù lời (C2). Ngưỡng so/sửa đọc theo **loại khối**, không theo cảnh: *phương pháp / định nghĩa / số dày / nhân vật*. Một loại khối được **≥ 2/6** người đọc nêu → WRITER mới sửa khối đó (như Tập 5 v2: S19 còn 1 câu → S18 3/6).
+- **Một lượt người đọc model khác ở C2 mỗi 3 tập** (Tập 6, 9, 12…): thêm 1–2 người đọc headless Opus hoặc Haiku (`headless.sh --model`) trên cùng gói lời, cùng người chấm; giảm điểm mù chung của Sonnet (người đọc cùng model tương quan cao, lessons H3). Ghi kết quả so với 6 người Sonnet vào ledger; lệch đạt/trượt hoặc lệch loại khối → nêu ở G1.
 
 ## 3. Đầu bài WRITER (C2)
 
