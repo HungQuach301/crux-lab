@@ -4,7 +4,7 @@
 
 Thư mục đoạn chứa: spine.py (đặc tả nhịp, dùng toolkit/factory/world/spine.py) + scene.js (dùng lib3d.js/core.js) [+ dữ liệu].
 Các bước (mỗi bước dừng cả lệnh nếu trượt):
-  lint    lint_comments.py trên thư mục đoạn + thư viện (lỗi "chú thích nuốt mã")
+  lint    toolkit/tests/comment_guard.py trên thư mục đoạn + thư viện: chú thích nuốt mã (lint_comments + mẫu mở rộng) + node --check / py_compile
   spine   python3 <đoạn>/spine.py → spine.json; thoát ≠ 0 = vi phạm quy tắc 2/3/7
   render  render_shots.js theo cảnh có cache (chỉ cảnh đổi mới render; chạy lại = resume); lỗi trang = dừng
   audio   audio.py: lời + nhạc theo bản đồ căng + âm dữ liệu + sfx từ spine.events → mix.wav (−14 LUFS)
@@ -26,6 +26,8 @@ sys.dont_write_bytecode = True
 import lint_comments  # noqa: E402
 sys.path.insert(0, os.path.dirname(HERE))
 import guard  # noqa: E402
+sys.path.insert(0, os.path.join(ROOT, 'toolkit', 'tests'))
+import comment_guard  # noqa: E402
 
 
 def arg(k, d=None):
@@ -72,9 +74,9 @@ def main():
             json.dump(rep, open(final + '.build.failed.json', 'w'), indent=1, ensure_ascii=False)
             raise SystemExit(f'build_seg: dừng ở bước {name}; bản cũ giữ nguyên, thư mục tạm {os.path.relpath(stage, ROOT)}')
 
-    def lint():
-        bad = lint_comments.lint([os.path.join(ROOT, seg), HERE])
-        return not bad, {'problems': bad}
+    def lint():   # F-4 + tổng kết Tập 5 mục 13 (cine-lab #42, #76): chú thích giữa dòng nuốt mã + node --check / py_compile
+        bad, n = comment_guard.check([os.path.join(ROOT, seg), HERE])
+        return not bad, {'problems': bad, 'files': n}
 
     def spine():
         r = run([sys.executable, os.path.join(seg, 'spine.py')])

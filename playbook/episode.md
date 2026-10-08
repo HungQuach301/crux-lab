@@ -196,6 +196,7 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 | Đoạn thế giới 3D | `python3 toolkit/factory/world/build_seg.py <thư mục đoạn> --res 540\|1080` |
 | Số nói mỗi cảnh | `python3 toolkit/factory/numbers_said.py episodes/epNNN/story/script.md` |
 | Kiểm rảnh trước build | `python3 toolkit/factory/guard.py` (thoát 3 khi còn build/render) |
+| Chú thích nuốt mã + cú pháp | `python3 toolkit/tests/comment_guard.py [thư mục …]` |
 | Thước chỉ báo | `toolkit/indicators/README.md` |
 | Token phiên (đóng phiên) | `python3 toolkit/usage/from_events.py --session <id> --close trang*.json` |
 
@@ -204,3 +205,4 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 - **Trước mỗi build: không còn tiến trình build/render nào** — `python3 toolkit/factory/guard.py` (`ps`, bỏ qua chính shell của lệnh và các tiến trình cha/con của nó). `build.sh`, `build.py`, `build_seg.py` tự gọi và **từ chối, thoát 3** nếu còn (cine-lab #67: hai build ghi chồng một thư mục, x264 hỏng tệp thống kê). Thử 08/10: build thứ hai trên đoạn Tập 4 v3k khi build thứ nhất đang render → thoát 3, `build.sh` → thoát 3.
 - **Mã lỗi qua `PIPESTATUS`:** mọi lệnh `… | tee log` đọc `${PIPESTATUS[0]}` (mã của lệnh dựng, không phải của `tee`); `build.sh` đã làm vậy, log ở `<tập>/work/factory/build.log`.
 - **Đoạn thế giới dựng vào thư mục tạm** `<thư mục ra>/.staging-<tên>-<pid>/`, **chỉ thay bản cũ khi cả 6 bước đạt**; trượt → bản cũ giữ nguyên, báo cáo `<out>.build.failed.json` (cine-lab #70: xoá trước khi dựng, lỗi giữa chừng → mất 2,5 h khung). Cache cảnh của `render_shots.js` vốn ghi `.part` rồi đổi tên, không xoá.
+- **Đầu mỗi build:** `toolkit/tests/comment_guard.py` (mục 13; cine-lab #42, #76) — chú thích chèn giữa dòng nuốt mã + `node --check` (mô-đun ES qua `.mjs`) / `py_compile` mọi mã thế giới của tập và thư viện; lỗi → dừng trước khi dựng. Không chèn chú thích vào giữa dòng mã; đặt chú thích ở dòng riêng hoặc cuối dòng sau khi đã kiểm.
