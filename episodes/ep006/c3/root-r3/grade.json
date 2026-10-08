@@ -1,0 +1,14 @@
+{
+ "answer": "```json\n{\n  \"R1\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Reads Edna full, Ruth nearly full, Carl sharply shrunk, with start months labelled, which matches the muted read. It also tells the viewer to compare whether payouts adjust for actual inflation or rise by a fixed percentage, which is steering toward an inflation-linked option, so the advice counts.\"},\n  \"R2\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Reads Edna full, Ruth about 9, Carl under half, with start months, which matches the muted read. The claim that Ruth's row shrinks in frames 1-2 is a minor slip. It suggests weighing inflation-protected or COLA options against a flat payout and delaying Social Security, so the advice counts.\"}\n}\n```",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3089,
+   "cache_read": 1382,
+   "output": 795,
+   "in": 4473,
+   "out": 795
+  }
+ },
+ "turns": 1
+}

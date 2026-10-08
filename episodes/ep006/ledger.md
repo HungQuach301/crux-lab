@@ -26,3 +26,6 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc (`episode.
 | 2026-10-08 | C3 | kiểm mù | headless 8 đọc (ảnh) + 1 chấm | cổng gốc vòng 1 | 96.177 (trần) | nghĩa 8/8, khuyên 8/8 → trượt cả 4; vòng 2 sửa bằng hình (séc lớn lên) |
 | 2026-10-08 | C3 vòng 2 | dựng | agent general-purpose (mới) | séc lớn lên cạnh hàng thùng (FIX-R2) | 196.611 | lint/spine OK |
 | 2026-10-08 | C3 vòng 2 | dựng + kiểm mù | `build_seg` ×4 (0,15 h) + headless 8 đọc + 1 chấm | cổng gốc vòng 2 | 96.247 (trần) | s07/s24/s27 ĐẠT 2/2; s29 khuyên 1/2 → vòng 3 |
+| 2026-10-08 | C3 vòng 3 | dựng | agent general-purpose (mới) | s29 trục tháng bắt đầu + séc cùng cỡ (FIX-R3) | 116.230 | lint/spine OK |
+| 2026-10-08 | C3 vòng 3 | dựng + kiểm mù | `build_seg` s29 ×2 (r3, khôi phục r2; 0,07 h) + headless 2 đọc + 1 chấm | cổng gốc vòng 3 | 26.582 (trần) | s29 r3 khuyên 2/2 → tự loại; giữ r2; hết 3 vòng → gói C3 |
+| 2026-10-08 | C3 | điều phối | phiên chính (lệnh) | `sync_audit.py` ×4, ghép clip C3 | — | s07 4/4 · s24 5/7 · s27 7/8 · s29 4/7; clip 106,9 s |

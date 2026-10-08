@@ -1,0 +1,33 @@
+{
+ "video": "episodes/ep006/world/c3/out/s29-three.mp4",
+ "asr_words_matched": 43,
+ "asr_words_ref": 45,
+ "voice_offset_s": {
+  "median": 0.011,
+  "p90_abs": 0.14
+ },
+ "visual_peak_vs_keyword_s": {
+  "d0.edna": null,
+  "d0.ruth": null,
+  "d0.carl": null,
+  "d1.full": 0.16,
+  "d1.nine": 0.12,
+  "d1.four": 0.124,
+  "d2.month": 0.087
+ },
+ "method": {
+  "d0.edna": "motion",
+  "d0.ruth": "motion",
+  "d0.carl": "motion",
+  "d1.full": "label",
+  "d1.nine": "label",
+  "d1.four": "label",
+  "d2.month": "motion-roi"
+ },
+ "visual_within_0.2s": "4/7",
+ "visual_not_detected": [
+  "d0.edna",
+  "d0.ruth",
+  "d0.carl"
+ ]
+}

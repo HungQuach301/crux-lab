@@ -24,3 +24,19 @@ Người đọc headless có ảnh, 2 mỗi đoạn (`c3/root/`; khoá nhãn com
 - Sửa bằng hình đổi kết quả khuyên 8/8 → 1/8; nghĩa giữ 8/8 (khoá nghĩa: không thấp hơn vòng 1). Câu khuyên còn lại bám vào ca xấu nhất Carl ở cảnh ba người.
 - **Vòng 3 chỉ s29-three:** sửa bằng hình — ba hàng đặt trên một trục tháng bắt đầu (1949 · 1966 · 2006) để khác biệt đọc ra là **tháng bắt đầu**, không phải loại khoản (S29.3 "What differed was the month each one started"); séc cùng cỡ của ba người kèm nhãn sự thật "same check: +2% a year" (B29 đã có "same 2% raise").
 - Dựng: verify OK ×4, render 535 s (0,15 h). Headless: đọc 85.053 + chấm 11.194.
+
+## Vòng 3 · 2026-10-08 · chỉ s29-three: ba hàng trên trục tháng bắt đầu + séc cùng cỡ "same check: +2% a year" (`world/c3/FIX-R3.md`; `c3/root-r3/`)
+| Đoạn | Nghĩa | Khuyên_tính | Đúng | Kết luận |
+|---|---|---|---|---|
+| s29-three r3 | 2/2 | **2/2** | 0/2 | trượt; **kém hơn r2 (1/2) → tự loại (khoá nghĩa, lessons V2)** |
+- Câu khuyên: "so xem các phương án có điều chỉnh theo lạm phát không" — bám vào ca Carl < một nửa.
+- **Hết 3 vòng cho s29** (luật V1) → bản giữ = **r2** (mã khôi phục từ 1d885bf, dựng lại, verify OK; bản r3 lưu `world/c3/s29-three/r3-rejected/`, clip `review-c3/s29-three-r3-rejected.mp4`). Gói C3 nêu trước/sau để chủ dự án chọn (D-009 E3).
+
+## Tổng (bản giữ)
+| Đoạn | Vòng | Nghĩa | Khuyên | Kết luận | Đồng bộ ±0,2 s |
+|---|---|---|---|---|---|
+| s07-ruth | 2 | 2/2 | 0/2 | ĐẠT | 4/4 |
+| s24-carl | 2 | 2/2 | 0/2 | ĐẠT | 5/7 (2 cue không dò được: "Ruth's", "never") |
+| s27-edna | 2 | 2/2 | 0/2 | ĐẠT | 7/8 |
+| s29-three | 2 (giữ) | 2/2 | 1/2 | **trượt sau 3 vòng** → chủ dự án chọn | 4/7 |
+Clip duyệt: `review-c3/c3-crates-clip.mp4` (106,9 s, 540p, lời + nhạc + âm dữ liệu).

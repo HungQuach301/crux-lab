@@ -4,10 +4,10 @@
  "out": "episodes/ep006/world/c3/out/s29-three.mp4",
  "steps": {
   "lint": {
-   "seconds": 0.3,
+   "seconds": 0.4,
    "ok": true,
    "problems": [],
-   "files": 18
+   "files": 20
   },
   "spine": {
    "seconds": 0.5,
@@ -17,22 +17,18 @@
    ]
   },
   "render": {
-   "seconds": 100.0,
+   "seconds": 1.4,
    "ok": true,
    "shots": 3,
-   "rendered": [
-    "s0",
-    "s1",
-    "s2"
-   ],
-   "cached": 0,
-   "wall_s": 99.1,
+   "rendered": [],
+   "cached": 3,
+   "wall_s": 0.7,
    "film_s": 20.69,
-   "wall_per_film_s_rendered": 7.84,
+   "wall_per_film_s_rendered": 0,
    "cores": 4
   },
   "audio": {
-   "seconds": 12.7,
+   "seconds": 12.5,
    "ok": true
   },
   "mux": {
@@ -40,7 +36,7 @@
    "ok": true
   },
   "verify": {
-   "seconds": 2.9,
+   "seconds": 2.4,
    "ok": true,
    "rule1": 0,
    "rule2": 0,
@@ -71,5 +67,5 @@
    }
   }
  },
- "total_seconds": 117.9
+ "total_seconds": 18.8
 }
