@@ -13,6 +13,13 @@ LINE = re.compile(r'^(S\d\d)\.(\d+)\s+(?:\{(\w+)\}\s+)?(.+?)\s*<!--')
 TAG = re.compile(r'^\[[a-z ]+\]\s+')
 
 
+def pcm16k(path):
+    # av của faster_whisper lệch phiên bản trong container (metadata_errors) → giải mã bằng ffmpeg
+    import subprocess, numpy as np
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-f', 's16le', '-ac', '1', '-ar', '16000', '-'], capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+
+
 def rows():
     out = []
     for ln in open(f'{EP}/story/script.md', encoding='utf-8'):
@@ -41,7 +48,7 @@ def main():
     for sc in scenes:
         sents = [r for r in rs if r['scene'] == sc]
         v = V.voice_scene(cfg, [{'id': r['id'], 'scene': sc, 'text': r['text']} for r in sents], f'{EP}/voice-takes', f'{EP}/work/voice')
-        segs, _ = wm.transcribe(v['wav'], word_timestamps=True, language='en', beam_size=5, condition_on_previous_text=False)
+        segs, _ = wm.transcribe(pcm16k(v['wav']), word_timestamps=True, language='en', beam_size=5, condition_on_previous_text=False)
         words = [{'w': w.word.strip(), 'start': w.start, 'end': w.end} for g in segs for w in g.words]
         keys = [k for r in sents for k in r['keys']]
         miss = match_keys(keys, words) if keys else []

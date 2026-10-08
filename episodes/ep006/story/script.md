@@ -212,7 +212,7 @@ S27.1 Edna, also illustrative, started in January 1949, the last starting month 
 S27.2 Twenty years later, her check still bought at least what her first one did. <!-- claims: kept_up_last_start_20y, windows_20y -->
 S27.3 She is part of that early handful, and nobody who started after her got that answer. <!-- claims: windows_2pct_kept_up_20y -->
 S27.4 Her 20 years ended a few years into Carl's. <!-- claims: kept_up_last_start_20y, worst_window_start_year_20y, windows_20y -->
-S27.5 The same few years of prices that ended her stretch with all 10 crates lit began his. <!-- claims: kept_up_last_start_20y, worst_window_start_year_20y, worst_window_years_2pct_fell_20y; hold: 1 -->
+S27.5 The same few years of prices came at the end of her stretch, with all 10 crates still lit, and at the start of his. <!-- claims: kept_up_last_start_20y, worst_window_start_year_20y, worst_window_years_2pct_fell_20y; hold: 1 -->
 
 ## S28 — Ruth, this year
 
