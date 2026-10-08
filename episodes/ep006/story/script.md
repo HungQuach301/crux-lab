@@ -2,7 +2,7 @@
 
 Working title: *Does a 2% Annuity Raise Really Keep Up With Prices?* · Logline **L1** (C1, `gates/C1-logline.md`). Hook used: **H-B "Nghịch lý"** (paradox on a present-day fact, `hooks.md`). Format proposed: **`101`** (`episode.yaml`).
 
-**SHORTFALL (C2 v2, owner decides at G1):** 1,175 spoken words → est. **7:46** (466 s) vs target ≥ 8:15 (495 s): **≈ 72 words / 29 s short**. Reason: blind read round 1 (6/6 readers lost attention in S19–S20 and S22–S23); the pre-registered fallback (method-section pattern, story §3) cut S18–S23 from 12 spoken sentences to 3 (plus the act-3 question, kept), with the numbers moved to on-screen labels (B19, B21, B22), the V7 card (B31) and the description. Not padded back (story §4: `101` does not pad). Checker run with `--g1-short`; MR1 kept.
+**SHORTFALL (C2 v2, owner decides at G1; without `--g1-short` the checker FAILS on length only, 471 s < 495 s after the REVIEWER fixes — the flag is valid only after the owner picks option (a)):** REVIEWER G1 wording fixes applied (CHẶN-1: S08.1, S12.1, S12.2; CHÍNH-2: S04.3, S31.3) → now **1,186 spoken words, est. 7:50 (471 s), ≈ 61 words / 24 s short**. Before those fixes: 1,175 spoken words → est. **7:46** (466 s) vs target ≥ 8:15 (495 s): **≈ 72 words / 29 s short**. Reason: blind read round 1 (6/6 readers lost attention in S19–S20 and S22–S23); the pre-registered fallback (method-section pattern, story §3) cut S18–S23 from 12 spoken sentences to 3 (plus the act-3 question, kept), with the numbers moved to on-screen labels (B19, B21, B22), the V7 card (B31) and the description. Not padded back (story §4: `101` does not pad). Checker run with `--g1-short`; MR1 kept.
 
 **C2 v2 changes (S18–S23, S30.5 only; everything else unchanged).** S18 (1 in 3 at ≥ 90 %) and S20 (94.8 %, 99.5 %) removed as spoken scenes → labels on B19 / description. S19.1 rewritten (no spoken number): "Even the stretches that ran through the gentler 2000s and 2010s, the years closest to Ruth's own, fell short." S21.1 "And over 25 years, not one stretch kept up." (the one new spoken number of the block: 25). S22.1 = one sentence, no digits (Social Security's index about the same; a gentler measure kept up more often but still fell short in most stretches); "21 of 715" and "19.2%" on B22 and the V7 card, "description" noted there; the "since 1959 / none" comparison dropped from narration and screen (description only). S23 = the act-3 question only (S23.4 → S23.1). S30.5 now: "this video doesn't say which check, or which raise, to choose" (no option named). Act 2 now −7.4 points and act 1 +5.8 vs the `101` template (reference only, story §4).
 
@@ -87,7 +87,7 @@ S03.4 {constraint} It doesn't say which check to choose. <!-- claims: —; hold:
 
 S04.1 {hook} At 65, an income annuity can pay a bigger check that never changes, or a smaller check that rises by the same percentage every year. <!-- claims: guide_start -->
 S04.2 {constraint} How much smaller the rising check starts depends on the insurer, and this video doesn't model it. <!-- claims: — -->
-S04.3 {constraint} So it can't say which check pays more money in total. <!-- claims: — -->
+S04.3 {constraint} So it can't compare the dollars both checks pay out over a lifetime. <!-- claims: — -->
 S04.4 What it measures is buying power: what each check can buy, compared with what its own first check bought. <!-- claims: — -->
 
 ## S05 — Ruth's reasoning
@@ -109,7 +109,7 @@ S07.2 If her first check bought 10 crates of everything the index tracks, her ch
 
 ## S08 — The check she turned down
 
-S08.1 The bigger level check she turned down would buy about 6 of those crates today. <!-- claims: guide_real_level_end_pct, latest_window_real_value_level_payment_pct -->
+S08.1 Measured against its own first check, the bigger level check she turned down would buy about 6 in 10 today. <!-- claims: guide_real_level_end_pct, latest_window_real_value_level_payment_pct -->
 S08.2 So the raise slowed the loss. <!-- claims: — -->
 S08.3 That's measured against each check's own start, and the level check started bigger, by an amount this video doesn't model. <!-- claims: — -->
 
@@ -129,8 +129,8 @@ S11.1 By August 2022, it bought 94.5 percent of what her first check did. <!-- c
 
 ## S12 — How fast the level check got there
 
-S12.1 The level check she turned down got to her rising check's level much sooner. <!-- claims: guide_year_level_reaches_2pct_end -->
-S12.2 By year 5, it had already fallen to about 9 crates. <!-- claims: guide_year_level_reaches_2pct_end, latest_window_real_value_2pct_payment_pct -->
+S12.1 Measured against its own start, the level check she turned down fell that far much sooner. <!-- claims: guide_year_level_reaches_2pct_end -->
+S12.2 By year 5, it was already down to about 9 in 10. <!-- claims: guide_year_level_reaches_2pct_end, latest_window_real_value_2pct_payment_pct -->
 S12.3 Her rising check stands there now, after 20 years. <!-- claims: guide_real_2pct_end_pct, latest_window_real_value_2pct_payment_pct -->
 S12.4 So was Ruth's stretch unusual, or is this what a 2 percent raise usually did? <!-- claims: two_pct_growth_20y_pct; hold: 1.5 -->
 
@@ -231,7 +231,7 @@ S30.5 These rates describe what prices did; this video doesn't say which check, 
 
 S31.1 The consumer price index is a national average, not a retiree's own basket, and health care and housing can weigh differently for someone Ruth's age. <!-- claims: — -->
 S31.2 The 715 stretches overlap, so they're not 715 separate tests. <!-- claims: windows_20y -->
-S31.3 And because annuity pricing isn't modeled, nothing here says which check pays more money over a lifetime. <!-- claims: — -->
+S31.3 And because annuity pricing isn't modeled, nothing here compares the dollars both checks pay out over a lifetime. <!-- claims: — -->
 S31.4 How we know this, and what's left out, is on this card and in the description. <!-- claims: —; hold: 5 -->
 
 ## S32 — Outro: back to Ruth's question
