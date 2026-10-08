@@ -19,7 +19,8 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | F-5, F-2, F-3, F-1 → C4 → C5 → Shorts → G2 | C4 XONG (khoá nghĩa) | `gates/C4-root.md` | |
 | **C5** (render 1080p + checks đủ bộ) | **XONG** — C5c: Tập ĐẠT (CHẶN 35/35); nghĩa ≥ C4 (`gates/C5-root.md`) | `out/checks/run-c5/`, `out/explanations.json`, `HUONG-DAN-DANG.md` | 1080p −14,0 LUFS / −1,9 dBTP, A07 19,6 dB, A08 13,5 dB; CHẶN 29/35 (S07, S08, S09, S10, S17 + REG=S10); CHÍNH 5/11 (F07, V03, V08, V09, V11, V12 giải thích); Shorts SH1–SH3, thumbnail 3, gói mô tả — chờ chủ dự án |
 
-| **G2** | **CHỜ CHỦ DỰ ÁN** (phiếu L3) | `gates/G2.md`, `gates/REVIEW-G2.md`, `review-g2/` | sau G2: G3 Release `ep005-v1` (§ G3) |
+| **G2** | **XONG** (issue #47; `gates/G2-answer.md`) — L3 4·4·4·4·4·4, phát hành | `gates/G2.md`, `gates/REVIEW-G2.md`, `review-g2/` | thumb 3; T&C 3, 1, 2; Shorts OK; S17.3 giữ; V11 ngoại lệ (A22); nhãn Fannie Mae giữ (T5-2) |
+| **G3** | ĐANG LÀM — Release `ep005-v1` (§ G3) | `HUONG-DAN-DANG.md` | |
 
 ## 2. Phiên sau đọc (sau Mốc V merge)
 `decisions/D-009.md` · đặc tả nhịp Mốc V (README/playbook do Mốc V ghi) · `CHARTER.md` · `playbook/episode.md` · `playbook/prompts/P3.md` · `episodes/ep005/PLAN.md` · `ledger.md` · `gates/G1.md` + trả lời G1 · `story/script.md` · `story/beats.md` · `episode.yaml` · `toolkit/factory/README.md`.
