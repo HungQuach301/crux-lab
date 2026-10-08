@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it took past home buyers to get to \"80% on paper.\" The label doesn't define that. I'm guessing it means owing 80% or less of the home's value, so the buyer has 20% equity. Each bar is one month when someone bought, and its height is the number of months that buyer needed. The data is US only, from FHFA and Freddie Mac via FRED. Most buyers needed a moderate amount of time, but a few purchase months had a very long wait. That is the \"long tail.\"\n\n2. **What changes across the frames.**\n   - Frame 1 is a 3D ribbon of bars. Most are low and marked \"typical,\" with one tall spike on the right.\n   - Frame 2 colors the spike blue and calls it \"a long tail.\"\n   - Frame 3 flattens the view into a timeline from 1991 to 2016. It adds a 60-month line, and the blue bars sit well above it. They fall around 2005 to 2009.\n   - Frames 4 and 5 add the statistic that 14.7% of purchase months (about 1 in 7) took more than 60 months. They label the blue block as \"one stretch of purchase months.\"\n   - Frames 5 and 6 add a thin line for the national home price index along the bottom. In frame 6 it is fully drawn and rises over the whole period, with a bump near the blue stretch.\n\n3. **What it means.** Most buyers got to 80% on paper in well under five years. People who bought in the mid-2000s, near the price peak, often waited much longer than five years. The wait depended heavily on when you bought. About 1 in 7 purchase months in this history took more than five years. The footer says this is past buyers, measured, and \"not a reason to buy, rent or wait.\" It also says \"history, not a forecast.\"\n\n4. **What a viewer would take from it.** There's no instruction to buy or not to buy, and the video says so. What I'd take from it:\n   - Timing risk is real. If I buy and prices fall or stall soon after, building equity could take much longer than usual.\n   - With about 10% down, I should plan to stay put for a long time and keep a cushion for the bad-timing case, rather than assume I'll be at 20% equity in a few years.\n   - I shouldn't try to predict the perfect month. The data doesn't tell me whether to rent, buy, or wait, so my own finances, job stability, and how long I'd stay should drive the decision.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1368,
+   "out": 220
+  },
+  "claude-sonnet-5-5": {
+   "in": 9760,
+   "out": 1028
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "**1. What idea is the animation showing?**\n\nI think it shows how long a buyer with a small down payment (about 10%) might pay mortgage insurance. The 80% and 75% marks look like loan-to-value levels. 80% is usually where mortgage insurance can come off. The chart doesn't say \"mortgage insurance\" until the last frame, so that part is my inference. It follows past US buyers, using FHFA and Freddie Mac house-price data from FRED, with each buyer lined up at their purchase date. It's labeled \"illustrative.\"\n\n**2. What changes over time across the frames?**\n\n- **Frame 1:** There's a white line that rises and falls over 10 years. That looks like the path of home prices. Below it are flat or sloping gray lines for the loan schedule.\n- **Frames 2 and 3:** The picture fills in with many faint lines, one for each past buyer. Three named examples (Owen, Grace and Victor) show different outcomes. Owen gets to 80% very early, Grace later, and Victor only near year 10. A marker labeled \"a plan\" sits near year 2. The schedule is \"fixed at the start.\"\n- **Frame 4:** Numbers appear. The typical buyer got there in 23 months, and about 1 in 7 took more than 60 months. The note says \"≈2 years matched the typical month — not the slow ones, not the lender's step.\"\n- **Frame 5:** It switches to a $400,000 home with a stack of money beside it, and the bottom slice is highlighted. That is probably the down payment. A caption reads \"A measurement, not a next step.\"\n- **Frame 6:** It compares two people. One is \"buying now + mortgage insurance,\" shown with a house. The other is \"still renting, still saving,\" shown with an apartment building.\n\n**3. What does it mean?**\n\nMortgage insurance doesn't end on a fixed date for everyone. On paper, the loan schedule gets you to 80% at one point. In real life, home prices moved and buyers' timelines varied. Most past buyers got there in about two years, but some took five years or more. Planning on two years would have worked for a typical buyer but not for the slow ones.\n\n**4. What advice would a viewer take from this?**\n\nThe video avoids telling anyone what to do. The text says \"not a reason to buy, rent or wait,\" \"history, not a forecast,\" and \"US only.\" The takeaway I'd draw is to not assume mortgage insurance will be gone in two years. A cautious buyer would budget for it lasting longer, and past the typical case. They would also see that buying with 10% down and paying insurance is a real option, and so is renting while saving more. Which one is better depends on the person's own situation.\n\nAs a renter with about 10% saved, I'd take this as a reminder to plan for the slow case, not the average one. It doesn't tell me whether to buy now.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1369,
+   "out": 18
+  },
+  "claude-sonnet-5-5": {
+   "in": 9755,
+   "out": 1385
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long past home buyers took to get to 80% of their home's value still owed. That's the point where you have 20% equity. Each bar is one purchase month from 1991 to 2016. The chart comes from FHFA and Freddie Mac data via FRED. It uses a buyer who put down about 10%, which is close to my situation. I'm inferring that from the labels, since the frames never say what the 80% threshold is for.\n\n2. **What changes across the frames.**\n   - Frame 1 shows only the bars. They are low and flat through the 1990s and early 2000s, jump sharply for buyers around 2005 to 2007, then fall back down.\n   - Frame 2 dims the bars and adds a baseline marked \"median: 23 months on paper.\"\n   - Frame 3 adds a headline, \"90.6% no later than the schedule,\" and a thin line that drifts downward over the years.\n   - Frames 4 and 5 flip the layout and label the line \"schedule at each month's rate.\"\n   - Frame 6 brackets the distance between that line and the bars and labels it \"gap.\"\n\n3. **What it means.** The \"schedule\" line seems to be how many months it would take to reach 80% by making regular payments alone, given the mortgage rate in that month. The bars show how long it actually took once home price changes are included. For about 90.6% of buyers, the actual time was no longer than the schedule. For most buyers, rising prices sped things up. The typical wait was about 23 months. The gap is the time that price gains saved compared with paying down the loan alone. It shrinks and then widens as rates fall. The tall bars for 2005 to 2007 buyers show the minority who bought near the peak and waited much longer.\n\n4. **Advice a viewer would take.** The frames give almost no direct advice. The footer says in every frame: \"Past buyers, measured · not a reason to buy, rent or wait,\" and \"US only · history, not a forecast.\" As a renter with about 10% saved, I'd take away three things:\n   - Historically, reaching 20% equity often took only a couple of years, mostly because prices rose.\n   - That depended on when you bought, and buyers near a market peak could wait far longer.\n   - I shouldn't count on price gains. I should plan on the slower, payment-only schedule and treat anything faster as a bonus.\n\n   It doesn't tell me to buy now or to wait.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1369,
+   "out": 20
+  },
+  "claude-sonnet-5-5": {
+   "in": 9755,
+   "out": 1021
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,56 @@
+[
+ {
+  "file": "2e0b43b5",
+  "sample": "N1-S06",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Gives the $2,362 monthly payment and a balance that falls slowly at first and faster later; the advice is only to budget for the full cost and get a full estimate."
+ },
+ {
+  "file": "5a56fa11",
+  "sample": "N1-S06",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches the $2,362 payment and the slow-then-fast balance decline; the advice is general (budget for extras, don't treat it as a quote)."
+ },
+ {
+  "file": "60fe5b02",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Captures bars over 60 months at 14.7% (about 1 in 7) clustered in one stretch of purchase months; the advice is to plan for a long wait and keep a cushion, with no buy/wait/sell/choose call."
+ },
+ {
+  "file": "bbceae20",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches the 14.7% of months over 60, bunched in one stretch; the advice is only to plan for a longer wait and keep a cushion."
+ },
+ {
+  "file": "ec8fb2e7",
+  "sample": "N1-S06",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches the $2,362 payment and the slow-then-fast balance decline; the advice is to budget for extras and run the numbers with a real quote, which is a self-check."
+ },
+ {
+  "file": "fc4d43fb",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Captures the bars over 60 months (about 1 in 7) sitting together in one stretch; the advice is to keep a cushion and a plan to stay put, not a buy/wait/sell/choose recommendation."
+ }
+]

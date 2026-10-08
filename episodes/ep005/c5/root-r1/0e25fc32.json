@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it takes a buyer who put down about 10% to owe 80% or less of their home's value. That is the 80% line. Frames 1 and 2 are an illustrative case: the loan starts near 90% of the price and shrinks on the normal payment schedule, reaching 80% in about 8 years. Frames 3 to 6 swap in real history from FHFA and Freddie Mac data via FRED. Each thin line is one purchase month between 1991 and 2016.\n\n2. **What changes over time.**\n   - The single schedule line is replaced by a growing bundle of real lines.\n   - Many real lines drop to 80% much faster than the schedule, because home values rose.\n   - Other lines climb well above 90% before they come down, because home values fell.\n   - Frame 6 highlights two of them. The typical buyer got to 80% in about 2 years. The slowest case, in blue, took about 9 years. That is even longer than the 8-year schedule, and it spent years with a loan share above where it started.\n\n3. **What it means.** The time it takes to build a cushion of equity depends on more than your payments. It also depends on what home prices do after you buy. Usually prices help and the cushion arrives early. For some buyers prices hurt, and the wait runs longer than the payment schedule says. The caption in the image says this is \"a measurement, not a next step.\"\n\n4. **What a viewer would take from it.** The video seems to be saying not to treat this as a signal to buy, rent, or wait. The captions say it is past buyers, US only, \"history, not a forecast.\" If I were a renter with 10% saved, I'd take away three things:\n   - Putting 10% down is normal, and most past buyers got to 80% quickly.\n   - I shouldn't count on that, because the bad cases took many years.\n   - I should only buy if I can hold the home for a long time and cover the payments if prices dip.\n\n   The image doesn't say why 80% matters. My guess is that it's the point where extra loan costs like mortgage insurance can come off, but that is my inference and not something the frames state.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1369,
+   "out": 20
+  },
+  "claude-sonnet-5-5": {
+   "in": 9759,
+   "out": 998
+  }
+ },
+ "turns": 2
+}

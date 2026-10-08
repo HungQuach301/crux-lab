@@ -1,0 +1,14 @@
+{
+ "answer": "1. This part shows what a mortgage costs each month and how the loan gets paid off. The example is a $360,000 loan at September 2026's average rate of 6.86% (Freddie Mac data via FRED). The monthly principal-and-interest payment is $2,362. Taxes, home insurance and PMI come on top of that. The frames are labeled \"illustrative\" and \"a measurement, not a next step.\"\n\n2. Frames 1 to 3 add the rate and then the $2,362 payment next to the $360,000 loan. Frame 4 adds a note that taxes, insurance and PMI are extra. Frames 5 and 6 switch to a balance schedule over 360 payments, which is 30 years. A curve shows the balance falling. It falls slowly at first, around payment 0 to 120, and faster later, toward payment 360.\n\n3. The $2,362 is only part of the real monthly cost. Early payments go mostly to interest, so the balance barely drops at first. Later, more of each payment goes to principal, and the balance falls faster. The payment amount stays fixed from day one, which is why the schedule is \"set on day one.\"\n\n4. The video doesn't tell the viewer what to do, and it says so itself. A viewer could still take away a few things:\n   - Budget for more than principal and interest, because taxes, insurance and PMI add to it.\n   - Expect to build equity slowly in the early years.\n   - Don't treat $2,362 as a quote for their own loan. It depends on their loan size, rate and costs.\n\n   For someone who has saved about 10% of a home's price, as I have, PMI is likely to apply, since the down payment is under 20%. That makes the \"on top\" costs matter even more.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1469,
+   "out": 213
+  },
+  "claude-sonnet-5-5": {
+   "in": 9965,
+   "out": 634
+  }
+ },
+ "turns": 2
+}

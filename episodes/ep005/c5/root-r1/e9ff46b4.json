@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation follows one past buyer, \"Owen,\" who bought in January 2004 with a 5.71% mortgage. It shows how fast his equity built up in two different ways. One is \"on paper,\" meaning his loan balance against the home's value. The other is the fixed amortization \"schedule.\" The 80% line is probably the loan-to-value mark where a buyer reaches 20% equity. That is usually when private mortgage insurance can come off, though the image doesn't say so. The data comes from FHFA and Freddie Mac via FRED. It is labeled \"illustrative.\"\n\n2. **What changes across the frames.** Three lines are drawn from left to right along a 0–10 year axis.\n   - The white \"on paper\" line starts above 80% and drops to meet the 80% line at about 13 months (frame 4).\n   - The thin white \"schedule\" line barely slopes down. In frame 6 it reaches 80% at about year 7, which is 86 months.\n   - The blue house price index line climbs the whole time, up 11.2% by the point where the on-paper line crosses 80% (frames 5–6).\n\n3. **What it means.** Owen reached 80% in about 13 months instead of 86. The reason wasn't mostly his mortgage payments. Rising home prices pushed his loan-to-value down much faster than the payment schedule would have. His quick progress came from price appreciation, which is outside a buyer's control. It is also a single example from one time and place, and the footer says so: \"Past buyers, measured · not a reason to buy, rent or wait. US only · history, not a forecast.\"\n\n4. **Advice a viewer would take.** The video isn't telling anyone to buy, rent, or wait. A viewer would take away these points:\n   - Don't count on price gains to build equity quickly. The schedule alone took about 7 years to reach 80%.\n   - If you buy with a small down payment, as I would at about 10%, the time to reach 20% equity and drop mortgage insurance could be much shorter or much longer than the schedule says, depending on the market.\n   - Plan around the slower schedule and treat any appreciation as a bonus.\n   - One buyer's 2004 outcome isn't a forecast. Prices can also fall, which would slow equity growth or reverse it.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1370,
+   "out": 20
+  },
+  "claude-sonnet-5-5": {
+   "in": 9766,
+   "out": 821
+  }
+ },
+ "turns": 2
+}
