@@ -2460,7 +2460,36 @@ def f11_excerpt_case(bad):
         f.close()
 
 
+def s21_round_case(bad):
+    """S21 (K4.0.1): a description number is taken as written — 6.8 against a claim of 7 fails (bad); a § law citation is not a number (good)."""
+    f = F('S21-round')
+    try:
+        f.json('out/claims.json', {'claims': [{'claimId': 'a', 'value': 7, 'display': '7'}]})
+        f.text('out/package/description.md', 'About 6.8 years.\n' if bad else 'About 7 years. Law: 26 U.S.C. § 121.\n')
+        return f.run('S21')
+    finally:
+        f.close()
+
+
 EXTRA.update({'F11/factory-artefacts': f11_factory_case('artefacts'), 'F11/factory-world': f11_factory_case('world'), 'F11/excerpt': f11_excerpt_case})
+    finally:
+        f.close()
+
+
+def v14_segment_case(bad):
+    """V14 (K4.0.1): the first 5 s of EVERY segment are in the world — a second segment (t0 = 6 s) opening on a chart beat fails (bad)."""
+    f = F('V14-segment')
+    try:
+        sp = world_fixture(f, moves=[MOVE_OK], extra={'events': [{'t': 1.5, 'kind': 'whoosh_soft'}]})
+        sp2 = {'total': 3.0, 'words': [], 'moves': [], 'events': [], 'beats': [{'id': 'c0', 'mode': 'chart' if bad else 'world', 't0': 0.0, 't1': 3.0, 'cues': {}}]}
+        f.json('seg/spine2.json', sp2)
+        f.contract(world=[{'id': 'a', 'spine': 'seg/spine.json', 't0': 0.0}, {'id': 'b', 'spine': 'seg/spine2.json', 't0': 6.0}])
+        return f.run('V14')
+    finally:
+        f.close()
+
+
+EXTRA.update({'S21/round': s21_round_case, 'V14/segment': v14_segment_case})
 
 
 EXTRA.update({'V17/three': v17_three_case})

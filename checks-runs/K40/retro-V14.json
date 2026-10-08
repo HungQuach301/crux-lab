@@ -1,7 +1,7 @@
 {
  "ep005": {
   "contract": "checks-runs/K40/contracts/ep005.json",
-  "video": "episodes/ep005/review-g2/full-720p.mp4",
+  "video": "/home/user/crux-lab/episodes/ep005/review-g2/full-720p.mp4",
   "V14": {
    "id": "V14",
    "status": "PASS",
@@ -48,6 +48,140 @@
      "segments": 4,
      "keywords": 179,
      "moves": 36,
+     "rule1": "not measured (no chartW in page.json)"
+    },
+    {
+     "keywordsDuringMove": []
+    },
+    {
+     "movesWithoutReasonOrSound": []
+    },
+    {
+     "hardCuts": []
+    },
+    {
+     "first5s": []
+    }
+   ],
+   "note": null
+  }
+ },
+ "v3k": {
+  "contract": "episodes/v3k/contract.json",
+  "video": "/home/user/crux-lab/moc-v/review/proof-a-ep004-v3k-540p.mp4",
+  "V14": {
+   "id": "V14",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "keywords during a camera move",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "moves without reason or sound",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "hard cuts",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "first-5 s beats not in the world",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "segments": 1,
+     "keywords": 34,
+     "moves": 9,
+     "rule1": "not measured (no chartW in page.json)"
+    },
+    {
+     "keywordsDuringMove": []
+    },
+    {
+     "movesWithoutReasonOrSound": []
+    },
+    {
+     "hardCuts": []
+    },
+    {
+     "first5s": []
+    }
+   ],
+   "note": null
+  }
+ },
+ "e5k": {
+  "contract": "episodes/e5k/contract.json",
+  "video": "/home/user/crux-lab/moc-v/review/proof-b-ep005-e5k-540p.mp4",
+  "V14": {
+   "id": "V14",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "keywords during a camera move",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "moves without reason or sound",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "hard cuts",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "first-5 s beats not in the world",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "segments": 1,
+     "keywords": 21,
+     "moves": 4,
      "rule1": "not measured (no chartW in page.json)"
     },
     {
