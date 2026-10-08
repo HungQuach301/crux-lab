@@ -9,8 +9,9 @@ Steps (each timed → out/factory/build-report.json):
   world   (episode.yaml `world:`) each 3D world segment built + checked by world/build_seg.py; spine total must equal its scenes
   render  segments = shot × ≤ 5 s chunks; hash = segment spec + resolved anchors + code hash + data/claims/tokens; only misses render
   splice  (F-5, world/splice.py) world segment frames replace the frames of its scenes; picture re-encoded once; timeline marks `world`
-  mix     voice (+ optional music with ducking) (+ world segment music/sonify/sfx/room into the stems), loudnorm two-pass −14 LUFS /
-          ≤ −1 dBTP, AAC → master (concat copy of segments, or the spliced picture)
+  mix     voice (+ optional music with ducking) (+ world segment music/sonify/sfx/room into the stems) (+ F-12, opt-in `audio:`: channel
+          ident WAV in the last IDENT_S of a scene tail, music lift `close_lift_db` after the last word — music.post), loudnorm two-pass
+          −14 LUFS / ≤ −1 dBTP, AAC → master (concat copy of segments, or the spliced picture)
   parts   3 parts 720p ≤ 90 MB cut at the shot boundaries nearest 1/3 and 2/3
   artefacts (world:) out/camera.json + out/sonify-events.json (world/artefacts.py) and the checks page: out/page.json → one-file
           window.CHECKS page of every world segment (world/episode_page.py; checks-appeal A11)
@@ -418,6 +419,9 @@ class Build:
         if getattr(self, 'splice_segs', None):   # F-5: world segment layers into the stems; mix-raw = sum of the stems
             import splice as SPLICE
             info = {**info, 'world': SPLICE.merge_audio(stems, self.splice_segs, self.total, raw, self.fps)}
+        if A.get('ident') or float(A.get('close_lift_db') or 0):   # F-12: ident của kênh + nhạc lên sau chữ cuối (opt-in; không khai thì không chạm file)
+            import music as MUSIC
+            info = {**info, **MUSIC.post(stems, raw, self.tl, A, ROOT)}
         self.master_wav = os.path.join(self.work, 'master.wav')
         self.loudnorm(raw, self.master_wav, lufs, tp)
         self.video = os.path.join(self.work, 'video.mp4')
