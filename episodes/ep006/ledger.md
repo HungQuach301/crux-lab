@@ -29,4 +29,4 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc (`episode.
 | 2026-10-08 | C3 vòng 3 | dựng | agent general-purpose (mới) | s29 trục tháng bắt đầu + séc cùng cỡ (FIX-R3) | 116.230 | lint/spine OK |
 | 2026-10-08 | C3 vòng 3 | dựng + kiểm mù | `build_seg` s29 ×2 (r3, khôi phục r2; 0,07 h) + headless 2 đọc + 1 chấm | cổng gốc vòng 3 | 26.582 (trần) | s29 r3 khuyên 2/2 → tự loại; giữ r2; hết 3 vòng → gói C3 |
 | 2026-10-08 | C3 | điều phối | phiên chính (lệnh) | `sync_audit.py` ×4, ghép clip C3 | — | s07 4/4 · s24 5/7 · s27 7/8 · s29 4/7; clip 106,9 s |
-| 2026-10-08 | C3 | khác (đạo diễn, chẩn đoán) | agent general-purpose | lượt đạo diễn 540p 4 đoạn (`gates/C3-director.md`) | — | S07 3·4·3·4 · S24 4·4·2·3 · S27 3·3·2·3 · S29 4·4·3·3; 1 lượt → hàng chờ C4 |
+| 2026-10-08 | C3 | khác (đạo diễn, chẩn đoán) | agent general-purpose | lượt đạo diễn 540p 4 đoạn (`gates/C3-director.md`) | 122.969 | S07 3·4·3·4 · S24 4·4·2·3 · S27 3·3·2·3 · S29 4·4·3·3; 1 lượt → hàng chờ C4 |
