@@ -52,7 +52,9 @@ export async function boot(res) {
   const allPaper = ORDER.map(() => Ribbon({ color: C.ink, z: 0.55 })), allSched = ORDER.map(() => Ribbon({ color: C.muted, z: 0.45 }));
   allPaper.forEach((r) => scene.add(r)); allSched.forEach((r) => scene.add(r));
   const fan = Fan(); scene.add(fan);
-  const fanLines = D.paths.map((p) => ({ color: new THREE.Color(C.bg).lerp(new THREE.Color(C.ink), 0.2).getStyle(), pts: p.p.map((l, k) => [XL(XA, k), YR(l)]) }));
+  const band = Ribbon({ color: C.muted, z: 0.42 }); scene.add(band);   // C5c: dải lịch
+  const PW = 3.1, PC = { owen: XA - 3.45, grace: XA, victor: XA + 3.45 };   // C5c: ba bảng S18.1 (nhanh → chậm, trái → phải)
+  const fanLines = D.paths.map((p) => ({ color: new THREE.Color(C.bg).lerp(new THREE.Color(C.ink), 0.24).getStyle(), pts: p.p.map((l, k) => [XL(XA, k), YR(l)]) }));
   fan.set(fanLines, 0.3);
   const A80 = Beam({ length: 10.4, color: C.muted }); A80.position.set(XA, YR(0.8), 0.2); scene.add(A80);
   const A75 = Beam({ length: 10.4, color: C.muted }); A75.position.set(XA, YR(0.75), 0.2); scene.add(A75);
@@ -87,8 +89,14 @@ export async function boot(res) {
     burst.material.opacity = 0;   // C4 r3: bỏ chớp ở mốc lịch 90 (không "phần thưởng"); hai mốc là hai VẬT khác nhau ở lớp phủ
     // cùng gốc
     const inAll = (t >= M.m_all.t0 && t < M.m_fork.t1) || t >= M.m_ans.t0 ? 1 : 0, aIn = inAll * ease(t, t >= M.m_ans.t0 ? M.m_ans.t0 : M.m_all.t0, (t >= M.m_ans.t0 ? M.m_ans.t1 : M.m_all.t1));
-    ORDER.forEach((k, i) => { const B_ = D.buyers[k]; allPaper[i].set(lineTo(B_.paper, B_.paper.length - 1, XA, YR), 0.07, C.ink); allPaper[i].material.opacity = aIn;   // khoá nghĩa (sau vòng 3): khung tổng kết S18 về bản r2 (đường ink), xem FIX-R3.md
-      allSched[i].set(lineTo(SCH[i], 120, XA, YR), 0.045, C.muted); allSched[i].material.opacity = aIn * 0.9; });
+    // C5c (B18 C5b 0/2: người đọc không thấy "ba bảng" và "quạt nhanh→chậm"): S18.1 = BA BẢNG CẠNH NHAU (Owen nhanh · Grace · Victor chậm), mỗi bảng
+    // bắt đầu ở tháng mua, cùng một lịch; hết S18.1 ba bảng TRƯỢT VÀO một trục chung (mg 0 → 1) rồi bó trên giấy hiện ở "benchmarks". S20.2: luôn chung trục.
+    const mg = t >= M.m_ans.t0 ? 1 : ease(t, b.a0.t1, b.a1.plan - 0.1);
+    ORDER.forEach((k, i) => { const B_ = D.buyers[k], xk = (kk) => mix(PC[k] - PW / 2 + PW * kk / 120, XL(XA, kk), mg);
+      allPaper[i].set(B_.paper.map((l, kk) => [xk(kk), YR(l)]), 0.07, C.ink); allPaper[i].material.opacity = aIn;   // khoá nghĩa (sau vòng 3): khung tổng kết S18 về bản r2 (đường ink), xem FIX-R3.md
+      allSched[i].set(SCH[i].map((l, kk) => [xk(kk), YR(l)]), 0.045, C.muted); allSched[i].material.opacity = aIn * 0.9; });
+    // C5c: MỘT dải lịch cố định (dải mờ rộng phủ ba đường lịch) khi chung trục
+    band.set(SCH[0].map((_, kk) => [XL(XA, kk), YR((SCH[0][kk] + SCH[1][kk] + SCH[2][kk]) / 3)]), 0.16, C.muted); band.material.opacity = aIn * mg * 0.4;
     fan.material.opacity = aIn * ease(t, t >= M.m_ans.t0 ? M.m_ans.t1 : b.a1.benchmarks - 0.05, (t >= M.m_ans.t0 ? M.m_ans.t1 : b.a1.benchmarks) + 0.4);   // khoá nghĩa: độ đậm bó nền như r2
     setOpacity(A80, aIn); setOpacity(A75, aIn);
     setOpacity(plan, inAll * (t < M.m_ans.t0 ? 1 : 0) * ease(t, b.a1.plan - 0.05, b.a1.plan + POP)); plan.glow(t >= b.a1.plan ? Math.max(0, 1 - lin(t, b.a1.plan, b.a1.plan + 0.8)) : 0, C.ink);   // C4 r2: vạch "a plan" đứng từ "plan" (S18.2), không đợi "two"
@@ -102,7 +110,7 @@ export async function boot(res) {
     // làn
     const laneA = (i, m0, m1) => ok * ease(t, m0, m0 + POP) * (m1 ? 1 - ease(t, m1, m1 + 0.3) : 1);
     const lA = [laneA(0, M.m_g.t1, M.m_o.t0), laneA(1, M.m_o.t1, M.m_v.t0), laneA(2, M.m_v.t1, M.m_vw.t0)];
-    const ax = (c, a, r2 = false) => { if (a < 0.01) return; for (const yr of [0, 2, 4, 6, 8, 10]) { const [x, y] = S2(XL(c, yr * 12), YI(0.8) - 0.15); O.text(yr === 10 ? '10 years' : String(yr), x, y + 40, 42, { kind: 'number', role: 'axis-label', color: C.muted, align: 'center', w: 600, alpha: a }); }
+    const ax = (c, a, r2 = false, ya = a) => { if (a < 0.01) return; if (ya > 0.01) for (const yr of [0, 2, 4, 6, 8, 10]) { const [x, y] = S2(XL(c, yr * 12), YI(0.8) - 0.15); O.text(yr === 10 ? '10 years' : String(yr), x, y + 40, 42, { kind: 'number', role: 'axis-label', color: C.muted, align: 'center', w: 600, alpha: ya }); }
       if (r2) { const [x8, y8] = S2(c - 4.9, YR(0.8)); O.text('80%', x8, y8 - 16, 44, { kind: 'number', alpha: a, plate: PLATE, plateA: 0.8 }); return; }   // khoá nghĩa: khung tổng kết S18 giữ nhãn 80 % của r2; C5b V08 (3,4:1 trên bó sáng): thêm nền
       const [x8, y8] = S2(c + 5.3, YR(0.8)); O.text('80%', x8, y8 + 14, 48, { kind: 'number', alpha: a, plate: PLATE, plateA: 0.75 }); };   // C4 r3: đầu PHẢI vạch (bên trái các đường xuất phát cắt chữ)
     ax(L[0], lA[0]); ax(L[1], lA[1]); ax(L[2], lA[2]);
@@ -149,7 +157,8 @@ export async function boot(res) {
     // ba làn cùng gốc
     const aA = ok * inAll * (t < M.m_down.t0 + 0.3 ? 1 - ease(t, M.m_down.t0, M.m_down.t0 + 0.3) : t >= M.m_ans.t1 ? ease(t, M.m_ans.t1, M.m_ans.t1 + POP) * (1 - ease(t, M.m_end.t0 - 0.3, M.m_end.t0)) : 0);   // C5b (V12): chữ đồ thị rời TRƯỚC cú bay về căn nhà
     if (aA > 0.01) {
-      ax(XA, aA, true); legend(aA, 2, 1500, 290); const [x75, y75] = S2(XA - 4.9, YR(0.75)); O.text('75%', x75, y75 + 46, 44, { kind: 'number', align: 'right', color: C.muted, alpha: aA });   // khoá nghĩa: bản r2
+      ax(XA, aA, true, aA * mg); legend(aA * (1 - mg), 2, 120, 240); legend(aA * mg, 2, 1500, 290);   // C5c: ba bảng → légende góc trái (khung bảng Victor chiếm góc phải), chung trục → chỗ cũ; trục năm chung chỉ khi ba bảng đã vào chung trục
+      const [x75, y75] = S2(XA - 4.9, YR(0.75)); O.text('75%', x75, y75 + 46, 44, { kind: 'number', align: 'right', color: C.muted, alpha: aA });   // khoá nghĩa: bản r2
       const s1 = t < M.m_ans.t0;
       T('same rule, same index · lined up at purchase', 960, 200, 50, aA * (s1 ? ease(t, b.a0.same - 0.05, b.a0.same + POP) : 1), { align: 'center' });
       T('schedule: fixed at the start', 120, 270, 48, aA * (s1 ? ease(t, b.a2.schedule - 0.05, b.a2.schedule + POP) : ease(t, b.e1.schedule - 0.05, b.e1.schedule + POP)), { color: C.muted });
@@ -158,7 +167,13 @@ export async function boot(res) {
         const [px, py] = S2(XL(XA, 24), 2.05), pa = aA * ease(t, b.a3.two - 0.05, b.a3.two + POP);
         T('≈ 2 years matched the typical month —', px + 16, 430, 48, pa); T("not the slow ones, not the lender's step", px + 16, 490, 48, pa);   // khoá nghĩa: chú thích ở chỗ của r2
       } else T('from about 1 year to more than 9 years · on paper', 120, 334, 48, aA * ease(t, b.e1.history - 0.05, b.e1.history + POP));
-      ORDER.forEach((k, i) => { const B_ = D.buyers[k], j = B_.paper.length - 1, [x, y] = S2(XL(XA, j), YR(B_.paper[j])); O.text(k[0].toUpperCase() + k.slice(1), x + 12, y + (k === 'owen' ? 40 : -12), 42, { alpha: aA * ease(t, b.a0.started - 0.05, b.a0.started + POP), plate: PLATE, plateA: 0.75 }); });   // C5b V11: nền sau tên (chữ đè đường 3D)   // khoá nghĩa: tên như r2
+      // C5c: ba bảng (S18.1) — khung mảnh + tên người mua màu riêng (V09) trên đầu mỗi bảng, "fast"/"slow" ở hai đầu; tên trượt về cuối đường khi chung trục
+      const pA = aA * (1 - mg), TAG = { owen: 'Owen · fast', grace: 'Grace', victor: 'Victor · slow' };
+      if (pA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = 0.55 * pA; c.strokeStyle = C.muted; c.lineWidth = 3;
+        for (const k of ORDER) { const [x0, y0] = S2(PC[k] - PW / 2 - 0.12, YR(1.08)), [x1, y1] = S2(PC[k] + PW / 2 + 0.12, YR(0.7)); c.strokeRect(x0, y0, x1 - x0, y1 - y0); } c.restore(); }
+      ORDER.forEach((k, i) => { const B_ = D.buyers[k], j = B_.paper.length - 1, [xe, ye] = S2(XL(XA, j), YR(B_.paper[j])), [xp, yp] = S2(PC[k], YR(0.7));
+        const ex = k === 'victor' ? xe - 8 : xe + 12, ey = ye + (k === 'owen' ? 44 : -14), x = mix(xp, ex, mg), y = mix(yp + 58, ey, mg);   // ba bảng: tên DƯỚI khung (trên khung là légende)
+        O.text(TAG[k], x, y, 48, { kind: 'name', color: BCOL[i], align: mg < 0.5 ? 'center' : k === 'victor' ? 'right' : 'left', alpha: aA * ease(t, b.a0.same - 0.05, b.a0.same + POP), plate: PLATE, plateA: 0.75 }); });   // C5b V11: nền sau tên
     }
     { const [x, y] = S2(XL(XA, 24), 2.0), [, y1] = S2(0, 0); log.roi['a3.two'] = [x - 40, y - 10, x + 40, y1]; }
     { const [px, py] = S2(XL(XA, 24), -0.1), pl = aA * (t < M.m_ans.t0 ? 1 : 0) * ease(t, b.a1.plan - 0.05, b.a1.plan + POP); T('a plan', px, py + 62, 56, pl, { kind: 'name', align: 'center' }); }   // C4 r2: tên vạch đứng (dưới chân vạch — trên đầu vạch là dòng "on paper: typical…")

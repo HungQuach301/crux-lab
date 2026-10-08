@@ -65,7 +65,7 @@ export async function boot(res) {
   const bar80b = Beam({ length: 6.0, color: C.muted }); bar80b.position.set(16.8, 0, 0); scene.add(bar80b);
   const paths = D.paths, nP = paths.length, typP = paths.find((p) => p.m === D.typical), slowP = paths.find((p) => p.m === D.slow);
   // C4 khoá nghĩa (sau vòng 3): B02 về bản r2 — bỏ FANR (nhãn "slowest case" của r3 ở vùng trống trên-phải), xem FIX-R3.md
-  const fanCol = new THREE.Color(C.bg).lerp(new THREE.Color(C.ink), 0.2).getStyle();   // E5c: bó dịu hơn, một nửa số tháng (đạo diễn: "mảng lưới trắng")
+  const fanCol = new THREE.Color(C.bg).lerp(new THREE.Color(C.ink), 0.15).getStyle();   // C5c: bó lùi về nền (lịch là ý chính của nhịp)   // E5c: bó dịu hơn, một nửa số tháng (đạo diễn: "mảng lưới trắng")
 
   // F-1 đo che khung: mỗi vật thế giới → hộp bao 3D (Box3, InstancedMesh tính lại theo bó đang hiện) chiếu ra màn hình, cắt theo khung;
   // tỉ lệ diện tích hình chữ nhật bao = CHẶN TRÊN của phần khung vật đó che. Góc nằm sau máy (w ≤ 0) → coi như che cả khung.
@@ -126,7 +126,7 @@ export async function boot(res) {
     const kS = interp(S.sched_kf, t), chartA = cw;
     if (t >= b.c2.schedule) {
       const pts = []; for (let k = 0; k <= Math.min(120, kS) + 1e-6; k += 1) pts.push([XM(Math.min(k, kS)), YL(D.sched[Math.min(120, Math.round(Math.min(k, kS)))])]);
-      sched.set(pts, 0.08, C.muted); sched.material.opacity = chartA * (1 - ease(t, b.c3.replayed, b.c3.replayed + 0.6));   // E5f: đường minh hoạ RỜI khi dữ liệu thật vào (vạch gióng + nhãn 8 năm ở lại)
+      sched.set(pts, 0.11, C.chrome); sched.material.opacity = chartA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));   // C5c (B02 C5b 1/3: bó/2 năm thành ý chính): đường lịch Ở LẠI, dày và sáng nhất, trên bó dữ liệu thật tới hết S02   // E5f: đường minh hoạ RỜI khi dữ liệu thật vào (vạch gióng + nhãn 8 năm ở lại)
     } else sched.material.opacity = 0;
     setOpacity(bar80, (t >= mv[0].t0 && t < mv[2].t1) ? 1 : 0);   // vạch 80 % có mặt khi máy tới (không khung trống), rời sau cú lia
     bar80.glow(t >= b.c2.eight ? Math.max(0, 1 - lin(t, b.c2.eight, b.c2.eight + 0.8)) : 0);
@@ -138,8 +138,8 @@ export async function boot(res) {
       fan.set(lines); fan.material.opacity = Math.max(0.35, 1 - ease(t, mv[1].t1 - 0.4, mv[1].t1)) * (t < mv[2].t1 ? 1 : 0);   // E5g: bó còn mờ trong khung khi máy lướt về (không khung đen)
     } else fan.material.opacity = 0;
     const tA = ease(t, b.c3.typically - 0.05, b.c3.typically + POP) * chartA, sA = ease(t, b.c3.slow - 0.05, b.c3.slow + POP) * chartA;
-    typ.set(typP.p.map((l, k) => [XM(k), YL(l)]), 0.12, C.ink); typ.material.opacity = tA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));
-    slow.set(slowP.p.map((l, k) => [XM(k), YL(l)]), 0.12, C.accent); slow.material.opacity = sA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));   // (b) màu trung tính (vàng cảnh báo gợi "rủi ro → lời khuyên"). PORT ep005: E5k để lệnh opacity TRONG chú thích → đường chậm hiện từ c2; sửa lại đúng ý (hiện ở "slow")
+    typ.set(typP.p.map((l, k) => [XM(k), YL(l)]), 0.07, C.ink); typ.material.opacity = tA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));
+    slow.set(slowP.p.map((l, k) => [XM(k), YL(l)]), 0.07, C.accent); slow.material.opacity = sA * (1 - ease(t, mv[1].t1 - 0.4, mv[1].t1));   // (b) màu trung tính (vàng cảnh báo gợi "rủi ro → lời khuyên"). PORT ep005: E5k để lệnh opacity TRONG chú thích → đường chậm hiện từ c2; sửa lại đúng ý (hiện ở "slow")
     const fl = t >= b.c2.eight ? 1 - lin(t, b.c2.eight, b.c2.eight + 0.7) : 0;
     burst.position.set(XM(D.sched80), YL(0.8), 0.7); burst.scale.setScalar(0.5 + 2 * (1 - fl)); burst.material.opacity = fl * chartA;
     // c4: định nghĩa "on paper"
@@ -196,8 +196,8 @@ export async function boot(res) {
         O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath();
         if (gap) { O.ctx.moveTo(x, y); O.ctx.lineTo(x, gap[0]); O.ctx.moveTo(x, gap[1]); O.ctx.lineTo(x, yAx); } else { O.ctx.moveTo(x, y); O.ctx.lineTo(x, yAx); } O.ctx.stroke(); O.ctx.restore();
         O.text(t < b.c3.replayed ? 'about 8 years' : 'schedule ≈ 8 years', t < b.c3.replayed ? x - 16 : S2(XM(120), 0)[0], y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
-      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 60, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }   // khoá nghĩa: bản r2 (vòng 3 bị hoàn)
-      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text(`slowest case ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, x, y - 40, 52, { kind: 'compare', color: C.accent, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)), plate: '#0B0E13', plateA: 0.7 }); }
+      if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 48, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }   // khoá nghĩa: bản r2 (vòng 3 bị hoàn)
+      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text(`slowest case ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, x, y - 40, 48, { kind: 'compare', color: C.accent, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)), plate: '#0B0E13', plateA: 0.7 }); }
     }
     // c4 (đồ thị: định nghĩa)
     if (dA > 0.02) {
