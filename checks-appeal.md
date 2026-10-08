@@ -100,3 +100,5 @@ Chi tiết, bằng chứng và ưu/nhược: `tongket-t5/REPORT.md` §4. Chạy 
 3. **Báo cáo/chữ:** A15, A12.
 4. Còn mở từ trước: A5 phần chữ Shorts trên trang dọc, A7 (đứng hình khi có lời, cần hiệu chuẩn), A8, A11 (nhà máy đã xuất `page.json` — K chỉ xác nhận hợp đồng).
 5. **A25, A26** (áp tổng kết Tập 5 mục 15, 08/10): chỉ thêm, chạy thử hồi tố Tập 3–5 đã xong (chỉ báo, `tongket-t5/appeal-retro/RESULT.md`); K viết selftest, hiệu chuẩn A26 (dương giả nhân vật minh hoạ) trước khi khoá.
+
+**Bằng chứng mới cho A9 + A21 (C3 Tập 6, chủ dự án 08/10, `episodes/ep006/gates/C3-answer.md` câu 3):** "hỏi công ty bảo hiểm (séc tăng khởi đầu nhỏ hơn bao nhiêu) / hỏi báo giá phương án gắn lạm phát" = **thận trọng chung, không tính**; câu khuyên sản phẩm (chọn khoản gắn CPI/COLA) vẫn tính. Kiểm mù C4 Tập 6 chấm **song song rubric cũ (A9) và rubric ba cờ (K4.1 câu 3), 2 người chấm** — số liệu đó là hiệu chuẩn cho lô K4.1.
