@@ -1,0 +1,58 @@
+{
+ "ep003": {
+  "contract": "episodes/ep003/contract.json",
+  "video": null,
+  "R07": {
+   "id": "R07",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "visual cues within ±0.2 s (%)",
+     "value": 100.0,
+     "op": ">=",
+     "threshold": 92.0,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": "no world segments: nothing to check"
+  },
+  "V15": {
+   "id": "V15",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json"
+  }
+ },
+ "ep004": {
+  "contract": "episodes/ep004/contract.json",
+  "video": null,
+  "R07": {
+   "id": "R07",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "visual cues within ±0.2 s (%)",
+     "value": 100.0,
+     "op": ">=",
+     "threshold": 92.0,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": "no world segments: nothing to check"
+  },
+  "V15": {
+   "id": "V15",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json"
+  }
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "ep005": {
+  "contract": "checks-runs/K40/contracts/ep005.json",
+  "video": "episodes/ep005/review-g2/full-720p.mp4",
+  "V14": {
+   "id": "V14",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "keywords during a camera move",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "moves without reason or sound",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "hard cuts",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "first-5 s beats not in the world",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "segments": 4,
+     "keywords": 179,
+     "moves": 36,
+     "rule1": "not measured (no chartW in page.json)"
+    },
+    {
+     "keywordsDuringMove": []
+    },
+    {
+     "movesWithoutReasonOrSound": []
+    },
+    {
+     "hardCuts": []
+    },
+    {
+     "first5s": []
+    }
+   ],
+   "note": null
+  }
+ }
+}
