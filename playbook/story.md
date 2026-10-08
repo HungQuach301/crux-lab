@@ -19,6 +19,15 @@ WRITER đọc file này **trước** khi viết treatment hoặc kịch bản (`
 - **Cái giá cụ thể:** năm, số dư, thực hay danh nghĩa; mọi điểm quyết định gọi tên năm và số dư (DX-S5, G-008).
 - **Câu đối trọng** sau mỗi kết luận, chặn suy diễn "X tốt hơn"; không mệnh lệnh với người xem (lessons E4).
 
+## 2b. Cảm xúc: năm luật nhân vật (tổng kết Tập 5 §2b, chủ dự án duyệt 08/10)
+Tập 5: đạo diễn máy A chấm cảm xúc 2 — lý do chỉ thẳng vào kịch bản: người xem chỉ được gọi là "you" ở S01 rồi 4 phút luật không có người; ba người mua hứa ở S03.4 mà 4,5 phút sau mới có tên; câu ở đỉnh cảm xúc (Victor, S17.3) dài và rối nhất; kết bằng câu khái quát.
+1. **Một nhân vật dẫn đường từ cold open đến kết** (người điển hình): xuất hiện trước 0:45 (M5), đi qua phần phương pháp (vd "Grace's month is one of 307"), và **câu kết là câu của chính người đó**. Các nhân vật khác là đối trọng, ra ở hồi 3.
+2. **Lời hứa nhân vật phải trả trong ≤ 90 s**, hoặc không hứa (điều kiện móc **M6**, `episode.md` §3.9).
+3. **Cái được–mất bằng vật cụ thể khi không được nêu số tiền:** số hoá đơn, số tháng, một vật trong thế giới 3D (chồng tiền mệnh giá cố định) — "23 more bills" thay cho "$X". Vật và số vẫn phải có claim.
+4. **Câu ở đỉnh cảm xúc ≤ 15 từ, một ý một câu** (REVIEWER soát ở C2; Victor S17.3 Tập 5 là ví dụ trượt).
+5. **Kết quay về câu hỏi của nhân vật dẫn đường**, không quay về khái quát.
+Nhân vật minh hoạ vẫn mang nhãn ILLUSTRATIVE ở mọi khung (gen được bảo vệ). Cảm xúc không đo bằng máy: thước là phiếu L3 dòng 1; đạo diễn máy chỉ chẩn đoán. Nhân vật dẫn đường làm `101` dài thêm ≈ 15–25 s — tính vào ước độ dài (§2c, `check_script.py`), không độn.
+
 ## 3. Nhịp: mật độ số và khoảng thở
 - **≤ 1 số mới mỗi ~8 s; không cảnh nào > 2 số mới** (DX-S7). Đoạn có ≥ 3 số liền nhau thì đưa bớt lên hình. Kiểm trước khi sinh giọng.
 - **Sau mỗi số quyết định: ≥ 1 s không lời** (DX-R3), cùng ≥ 3 khoảng lặng có chủ ý 0,8–1,5 s trong tập (DX-R6).

@@ -84,13 +84,16 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
    - **M2** lời hứa kết thúc ≤ 30 s;
    - **M3** câu hỏi của người xem ≤ 30 s (được trùng M1);
    - **M4** 0:00–1:00 không khối `constraint`/`define` liền > 10 s (phần thừa lên nhãn hình, thẻ V7, mô tả);
-   - **M5** nhân vật hoặc cái được–mất quay lại ≤ 0:45.
-   Trượt → WRITER mới sửa (≤ 2 vòng), vẫn trượt → nêu ở G1. G1 báo 5 mốc thành một dòng.
+   - **M5** nhân vật hoặc cái được–mất quay lại ≤ 0:45;
+   - **M6** (từ Tập 6, `story.md` §2b.2) mọi lời hứa về nhân vật (vd "three buyers who got very different answers") được trả — nhân vật có tên và xuất hiện — **≤ 90 s** sau câu hứa; không trả được thì không hứa. Đo cả tập, không chỉ 60 s đầu; WRITER gắn vai `promise_character` cho câu hứa.
+   Trượt → WRITER mới sửa (≤ 2 vòng), vẫn trượt → nêu ở G1. G1 báo 6 mốc thành một dòng.
+
+10. **Năm luật nhân vật (`story.md` §2b, từ Tập 6):** một nhân vật dẫn đường từ cold open đến kết (trước 0:45, đi qua phần phương pháp, câu kết là câu của người đó); lời hứa nhân vật trả ≤ 90 s (M6); cái được–mất bằng vật cụ thể khi không được nêu số tiền ("23 more bills"); câu ở đỉnh cảm xúc ≤ 15 từ, một ý một câu; kết quay về câu hỏi của nhân vật. WRITER ghi trong bảng nhịp: tên nhân vật dẫn đường, câu đỉnh cảm xúc (số từ), câu kết.
 
 **Móc do máy chọn (D-006 Q4):**
 - WRITER viết **3 phương án 30 s đầu**, mỗi phương án một kiểu móc khác nhau (`packaging.md` §2). Cả ba đều theo story §1: 5 s đầu là được–mất hoặc câu hỏi trên sự thật hiện tại; lời hứa trước 0:30.
 - **So cặp móc — ỨNG VIÊN, đã hiệu chuẩn chính thức (P1 Tập 4, `episodes/ep004/cal-hook/`, lessons G1):** chọn bản gốc 7/8, mỗi mẫu ≥ 3/4, mỗi vị trí ≥ 3/4 — **đạt đúng bằng ngưỡng** ở cả ba điều kiện; mẫu mới (Tập 1 + kịch bản mới), thứ tự X/Y cân bằng. **Mới chứng minh phân biệt "có móc / bỏ móc"**, chưa chứng minh chọn đúng giữa ba móc đều tốt (Tập 4: người đọc chọn vị trí Y 7/9 ở vòng tròn). Cách dùng (chủ dự án, G1 Tập 4):
-  - **từ Tập 5:** REVIEWER chấm 3 phương án theo story §1 + điều kiện M1–M5 (§3.9); so cặp vòng tròn (headless, 3 lượt mỗi cặp, thứ tự xoay, báo lệch vị trí) **chỉ khi REVIEWER không tách được** (Tập 4: 9 người đọc, 0,29 triệu, H1/H2 không phân biệt);
+  - **từ Tập 5:** REVIEWER chấm 3 phương án theo story §1 + điều kiện M1–M6 (§3.9); so cặp vòng tròn (headless, 3 lượt mỗi cặp, thứ tự xoay, báo lệch vị trí) **chỉ khi REVIEWER không tách được** (Tập 4: 9 người đọc, 0,29 triệu, H1/H2 không phân biệt);
   - **kèm WRITER + REVIEWER**: REVIEWER chấm 3 phương án theo story §1 (lý do một dòng); khi so cặp và REVIEWER lệch nhau, hoặc khi thắng thua chỉ do bản đứng cùng một vị trí, G1 nêu cả hai;
   - mỗi lần dùng ghi kết quả + lệch vị trí vào ledger; hiệu chuẩn lại khi đổi model người đọc. Thước đo thật vẫn là giữ chân YouTube.
 - G1 hiện móc đã chọn dạng chữ trong kịch bản + 2 phương án còn lại, mỗi phương án một dòng. Chủ dự án chỉ đổi khi muốn. **Không sinh giọng cho phương án không chọn.**

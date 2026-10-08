@@ -6,7 +6,7 @@ Chủ dự án mở phiên mới và gõ: **"Chạy Tập {N}"** (hoặc "Chạy
 - Mở bằng `bash toolkit/verify.sh ep{NNN}`; đọc `CHARTER.md`, `playbook/quality-framework.md`, `playbook/episode.md`, `episodes/ep{NNN}/PLAN.md` (mục "Phiên sau đọc"), `ledger.md`.
 - Việc nặng (Việc 0, WRITER, dựng, checks, REVIEWER) → **agent MỚI, đầu bài ngắn**; phiên chính chỉ đọc tóm tắt; không gọi lại agent cũ.
 - **Kiểm mù → headless**, không agent con: `bash toolkit/blind/headless.sh <đầu-bài> <ra.json> [--read]` (≈ 10 nghìn token/lượt). Số người đọc, dừng sớm và vòng bỏ: `episode.md` §2.
-- **Móc:** điều kiện M1–M5 đo trên table read trước G1 (`episode.md` §3.9).
+- **Móc:** điều kiện M1–M6 đo trên table read trước G1; năm luật nhân vật `story.md` §2b (`episode.md` §3.10) (`episode.md` §3.9).
 - **Giọng:** take ở `episodes/ep{NNN}/voice-takes/` được commit, không sinh lại khi đổi container.
 - **Chất lượng là ưu tiên tuyệt đối (D-009):** lỗi CHÍNH sửa trước G2; sửa nghĩa bằng hình trước, nhãn là cách cuối; G2 cần phiếu L3 ≥ 4 mọi dòng.
 - **REVIEWER bắt buộc** trước mọi gói/issue gửi chủ dự án; không bỏ vì token — vượt mức cảnh báo thì báo số thực trong gói, không dừng bước chất lượng.
