@@ -10,14 +10,14 @@
    "files": 18
   },
   "spine": {
-   "seconds": 0.4,
+   "seconds": 0.5,
    "ok": true,
    "stdout": [
     "checks OK"
    ]
   },
   "render": {
-   "seconds": 92.8,
+   "seconds": 100.0,
    "ok": true,
    "shots": 3,
    "rendered": [
@@ -26,21 +26,21 @@
     "s2"
    ],
    "cached": 0,
-   "wall_s": 92.1,
+   "wall_s": 99.1,
    "film_s": 20.69,
-   "wall_per_film_s_rendered": 7.28,
+   "wall_per_film_s_rendered": 7.84,
    "cores": 4
   },
   "audio": {
-   "seconds": 12.3,
+   "seconds": 12.7,
    "ok": true
   },
   "mux": {
-   "seconds": 1.7,
+   "seconds": 1.6,
    "ok": true
   },
   "verify": {
-   "seconds": 2.6,
+   "seconds": 2.9,
    "ok": true,
    "rule1": 0,
    "rule2": 0,
@@ -71,5 +71,5 @@
    }
   }
  },
- "total_seconds": 110.1
+ "total_seconds": 117.9
 }
