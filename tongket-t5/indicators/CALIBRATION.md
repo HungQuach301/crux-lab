@@ -31,3 +31,10 @@ Mục 14 (cine-lab Q28, Q30), cùng mẫu: xem phần cuối.
 
 ## Token (trần, headless) và giờ máy
 Chấm mù khung 0,114 triệu (3 lượt × 60 ảnh); xem liền mạch 0,205 triệu (9 lượt). Thước máy (spine, máy quay, video) 0 token, < 1 phút máy mỗi tập.
+
+## Mục 14 — hai thước theo cine-lab Q28, Q30 (TAP6-G2-V2 §3), cùng mẫu, cùng luật giữ/bỏ (`av_indicators.py`)
+
+| Thước | Tập 1 (âm) | Tập 4 v3k | Tập 5 | Xếp đúng? | Kết luận |
+|---|---|---|---|---|---|
+| **Mỗi vật thể đổi trạng thái có tiếng riêng** (Q28 c): lần đổi có sfx trong [−0,3; +0,5] s · số loại tiếng · loại nhiều nhất | **0 %** (30 lần đổi = cắt trong cảnh; Tập 1 không có lớp sfx) | **52 %** (23 lần đổi, 10 loại, "tick" 17 %) | **40 %** (88 lần đổi, 7 loại, "chime" 34 %) | **đúng** | **GIỮ chỉ báo** — Tập 5 mới 40 %: 53/88 lần vật đổi trạng thái không có tiếng; cine-lab đòi 100 % cảnh đinh. Đích đề xuất cho Tập 6 (chỉ báo): ≥ 80 %, không loại nào > 40 % |
+| **Tông màu theo hồi** (Q30): ΔE76 giữa hai hồi liền nhau (CIELAB, điểm ảnh L* > 15) | ΔE 7,7 · 5,2 · 8,6 · 11,5 · 10,7 (TB 8,7); 5/5 cặp ≥ 5 | không đo được (một hồi) | ΔE 1,8 · 6,6 · 7,4 · 4,6 · 8,0 (TB 5,7); 3/5 cặp ≥ 5; hồi lạnh nhất: act2 | **SAI** (Tập 1 đổi tông nhiều hơn Tập 5) | **BỎ** — thẻ chữ 2D của Tập 1 đổi nền theo phần; đo "đổi tông" không phân biệt tông có chủ ý. Muốn dùng như cine-lab phải khai màu từng hồi (`map.color`) trước rồi đo "đúng màu" — việc gu, chủ dự án quyết |

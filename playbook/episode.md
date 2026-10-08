@@ -65,8 +65,8 @@ Mỗi agent con tốn **≈ 32–49 nghìn token cố định** (Mốc B, Tập 
 
 ## 2b. Thước chỉ báo chống tụt hình (tổng kết Tập 5 §3.2–3.3, từ Tập 6)
 Chạy ở C4 (spine + animatic) và C5 (bản cuối), báo một bảng trong gói G2; **chỉ báo, không ngưỡng, không mở vòng sửa chỉ vì số** (CHARTER §4). Lệnh và trạng thái: `toolkit/indicators/README.md`; hiệu chuẩn 08/10 trên Tập 1 (đối chứng âm), Tập 4 v3k, Tập 5: `tongket-t5/indicators/CALIBRATION.md`.
-- **Giữ:** nhịp trên spine (quãng có lời không cú máy/không vật đổi trạng thái > 8 s — **chưa hiệu chuẩn**, đối chứng dương 2/4); đa dạng khung nhìn theo máy quay (xếp đúng: Tập 1 cụm lớn nhất 58,5 %, Tập 5 6,8 %); thước mục 14 xếp đúng (xem CALIBRATION).
-- **Bỏ (xếp sai):** chấm mù khung, xem liền mạch mù — người đọc headless xếp Tập 1 trên Tập 5 / coi chuyển chế độ D-010 là "đổi phong cách". Gu hình đo bằng L3.
+- **Giữ:** nhịp trên spine (quãng có lời không cú máy/không vật đổi trạng thái > 8 s — **chưa hiệu chuẩn**, đối chứng dương 2/4); đa dạng khung nhìn theo máy quay (xếp đúng: Tập 1 cụm lớn nhất 58,5 %, Tập 5 6,8 %); mỗi vật thể đổi trạng thái có tiếng riêng (cine-lab Q28 c; Tập 1 0 % · v3k 52 % · Tập 5 40 % → chỉ báo, đích Tập 6 ≥ 80 %).
+- **Bỏ (xếp sai):** chấm mù khung, xem liền mạch mù — người đọc headless xếp Tập 1 trên Tập 5 / coi chuyển chế độ D-010 là "đổi phong cách"; tông màu theo hồi (cine-lab Q30) — Tập 1 đổi tông nhiều hơn Tập 5. Gu hình đo bằng L3.
 - Bên dựng thêm cờ `change: major|minor` cho mốc vật thể ở beat và `anchor: true` cho số neo để thước nhịp đo được "đổi mang nghĩa" (hiệu chuẩn lại sau Tập 6).
 
 ## 3. Đầu bài WRITER (C2)
