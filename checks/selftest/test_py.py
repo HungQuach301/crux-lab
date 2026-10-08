@@ -2417,6 +2417,52 @@ def s22_named_case(bad):
 EXTRA.update({'S22/named': s22_named_case})
 
 
+# ---- K4.1 (nhóm 1, chờ chủ dự án): F11 đọc danh sách phát hành của nhà máy (A10, A16) ----------------------------------------------------
+def f11_factory_case(kind):
+    """F11 on a factory build (A10/A16): the factory's release files present → pass, though the contract still lists the old pipeline's files;
+    bad: one file the factory really made is deleted (sonify-events of the artefacts step, or a world segment's verify report)."""
+    def fn(bad):
+        import r_file
+        f = F('F11-factory-' + kind)
+        try:
+            f.json('out/timeline.json', {'total': 60.0, 'scenes': []})
+            f.json('out/factory/build-report.json', {'steps': {'resolve': {'total': 60.0}, 'world': {}, 'mix': {'world': {'segments': [{'id': 'a', 'layers_rms_dbfs': {'sfx': -50, 'room': -65}}]}},
+                                                            'artefacts': {'camera': {'frames': 1800}, 'sonify': {'a': {}}, 'page': {'page': 'work/factory/page/index.html'}}}})
+            f.json('out/factory/splice.json', {'segments': [{'id': 'a', 't0': 0.0, 'video': 'work/factory/world/a-1080.mp4'}]})
+            f.contract(artefacts={'M3': ['out/video.mp4', 'out/tempo-map.json', 'out/cues.json']})
+            for x in r_file.factory_release(common.Ctx(f.root)):
+                if not os.path.exists(f.p(x)):
+                    f.text(x.replace('.*', '.flac'), 'x')
+            if bad:
+                os.remove(f.p('out/sonify-events.json' if kind == 'artefacts' else 'work/factory/world/a-1080.mp4.verify.json'))
+            return f.run('F11')
+        finally:
+            f.close()
+    return fn
+
+
+def f11_excerpt_case(bad):
+    """F11: a factory build of an EXCERPT (Tập 3: 75 s of a 572 s film) does not switch the rule to the factory list; the contract's M3 is judged (bad: a declared file absent)."""
+    import r_file
+    f = F('F11-excerpt')
+    try:
+        f.json('out/timeline.json', {'total': 572.0, 'scenes': []})
+        f.json('out/factory/build-report.json', {'steps': {'resolve': {'total': 75.0}}})
+        decl = [x.replace('.*', '.wav') for x in r_file.RELEASE_FILES]
+        for x in decl:
+            if not os.path.exists(f.p(x)):
+                f.text(x, 'x')
+        if bad:
+            os.remove(f.p('out/cues.json'))
+        f.contract(artefacts={'M3': decl})
+        return f.run('F11')
+    finally:
+        f.close()
+
+
+EXTRA.update({'F11/factory-artefacts': f11_factory_case('artefacts'), 'F11/factory-world': f11_factory_case('world'), 'F11/excerpt': f11_excerpt_case})
+
+
 EXTRA.update({'V17/three': v17_three_case})
 EXTRA.update({'V14/reason': v14_variant('reason'), 'V14/first5': v14_variant('first5'), 'V14/cut': v14_variant('cut')})
 EXTRA.update({'R07/voice': r07_none_case})

@@ -237,12 +237,79 @@ RELEASE_FILES = ['out/video.mp4', 'out/captions.srt', 'out/package/description.m
                  'design/tokens.json', 'out/package/thumb-1.png', 'out/package/thumb-2.png', 'out/package/thumb-3.png', 'out/page.json']
 
 
-@rule('F11', 'CH §4 khâu 3 (hợp đồng tập, K2)', 'episode contract (contract.json) artefacts.M3: the release list of paths (globs allowed); each must match ≥ 1 file under the root. '
-      'The list must include every release file of checks/CONTRACT.md (RELEASE_FILES; a stem may be .wav or .flac). Contract without artefacts.M3 = MISSING',
-      'every declared M3 artefact delivered; every checks/CONTRACT.md release file declared')
+# K4.1 (checks-appeal A10, A16): an episode built by the factory (out/factory/build-report.json) is judged on what the factory makes, not on the old
+# pipeline's list: the core release files, the stems its mix wrote, the artefacts of its `artefacts` step and, per world segment it spliced, the
+# segment video and the products of build_seg.py (<video>.build.json, <video>.verify.json, <video minus .mp4>.log.json).
+FACTORY_CORE = ['out/video.mp4', 'out/captions.srt', 'out/package/description.md', 'out/package/thumb-1.png', 'out/package/thumb-2.png',
+                'out/package/thumb-3.png', 'out/timeline.json', 'out/script.json', 'out/claims.json', 'out/voice/takes.json', 'out/adbreaks.json',
+                'out/rights.json', 'out/visual-assets.json', 'out/audio/stems/voice.*', 'out/audio/stems/music.*']
+
+
+def factory_release(ctx):
+    """The release list of a factory build, from out/factory/build-report.json (+ out/factory/splice.json for world segments)."""
+    br = ctx.json('out/factory/build-report.json')
+    st = br.get('steps') or {}
+    req = list(FACTORY_CORE)
+    for seg in ((st.get('mix') or {}).get('world') or {}).get('segments') or []:
+        req += [f'out/audio/stems/{k}.*' for k in (seg.get('layers_rms_dbfs') or {})]
+    a = st.get('artefacts') or {}
+    if a.get('camera'):
+        req.append('out/camera.json')
+    if a.get('sonify'):
+        req.append('out/sonify-events.json')
+    if a.get('page'):
+        req.append('out/page.json')
+    if 'world' in st:
+        for seg in ctx.json('out/factory/splice.json')['segments'] if ctx.has('out/factory/splice.json') else []:
+            v = seg['video']
+            rel = v if not v.startswith(('episodes/', '/')) else None
+            req += [x for x in ([v, v + '.build.json', v + '.verify.json', v[:-4] + '.log.json'] if rel is None else [rel, rel + '.build.json', rel + '.verify.json', rel[:-4] + '.log.json'])]
+    seen = []
+    for r in req:
+        if r not in seen:
+            seen.append(r)
+    return seen
+
+
+def factory_built(ctx):
+    """The factory built THIS film: its build report exists and the total it resolved equals out/timeline.json total (±0.5 s; an excerpt it built does not count)."""
+    if not ctx.has('out/factory/build-report.json') or not ctx.has('out/timeline.json'):
+        return False
+    tot = ((ctx.json('out/factory/build-report.json').get('steps') or {}).get('resolve') or {}).get('total')
+    return tot is not None and abs(float(tot) - ctx.total()) <= 0.5
+
+
+def _repo_path(ctx, rel):
+    """A factory path is relative to the episode root, or to the repository (episodes/<ep>/work/…): try the root, then its parents."""
+    import glob
+    import os
+    d = ctx.root
+    while True:
+        if glob.glob(os.path.join(d, rel)):
+            return True
+        up = os.path.dirname(d)
+        if up == d:
+            return False
+        d = up
+
+
+@rule('F11', 'CH §4 khâu 3 (hợp đồng tập, K2; K4.1: danh sách của nhà máy, checks-appeal A10, A16)', 'factory build (out/factory/build-report.json present and its resolved total = out/timeline.json total ±0.5 s; an excerpt does not count): the release list '
+      'is factory_release — FACTORY_CORE, every stem the mix wrote (steps.mix.world.segments[].layers_rms_dbfs), out/camera.json / out/sonify-events.json / out/page.json '
+      'when the artefacts step made them, and per spliced world segment (out/factory/splice.json) its video and build_seg products (.build.json, .verify.json, .log.json); '
+      'each must match ≥ 1 file (globs; a factory path may be relative to the repository); contract.json artefacts.M3 is reported, not required. Other builds (K2): '
+      'artefacts.M3 of the episode contract, each matching ≥ 1 file under the root, and it must include every release file of checks/CONTRACT.md (RELEASE_FILES); '
+      'contract without artefacts.M3 = MISSING',
+      'factory: every factory release file delivered; else every declared M3 artefact delivered and every checks/CONTRACT.md release file declared')
 def f11_artefacts(ctx):
     import fnmatch
     import glob
+    if factory_built(ctx):
+        req = factory_release(ctx)
+        absent = [p for p in req if not _repo_path(ctx, p)]
+        decl = (ctx.contract().get('artefacts') or {}).get('M3') or []
+        return verdict('F11', [metric('factory release files', len(req), '>=', 1), metric('factory release files not delivered', len(absent), '<=', 0)],
+                       details=[{'source': 'factory', 'notDelivered': absent[:40], 'required': req,
+                                 'declaredNotMadeByFactory': [d for d in decl if not any(fnmatch.fnmatch(r, d) or fnmatch.fnmatch(d, r) for r in req)]}])
     decl = ctx.cfield('artefacts', 'M3', kind=list)
     absent = [p for p in decl if not glob.glob(ctx.path(p))]
     undeclared = [r for r in RELEASE_FILES if not any(fnmatch.fnmatch(r, d) or fnmatch.fnmatch(d, r) for d in decl)]
