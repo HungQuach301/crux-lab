@@ -20,6 +20,7 @@
   1. đề tài + logline;
   2. kịch bản: cấu trúc, cold open và móc đã chọn **dạng chữ**, kèm 2 phương án móc còn lại, mỗi phương án một dòng;
   3. tiêu đề nháp + danh sách hình mới (→ C3).
+  Gói có dòng **mid-roll đủ điều kiện hay không** (§9, lessons T6-1); mẫu `playbook/templates/G1.md`.
 - **Duyệt theo lô:** một G1 được duyệt 3–4 đề tài + logline cho cả mùa (`topics/season.md`). Tập sau lấy đề tài kế tiếp trong danh sách; G1 của tập đó chỉ còn câu 2–3.
 - **Chưa có danh sách mùa:** P1 viết C2 cho đề tài được khuyến nghị; G1 hiện hai ứng viên kia, mỗi ứng viên một dòng. Đánh đổi: chủ dự án đổi đề tài → C2 viết lại (≈ 1 lượt WRITER + 6 người đọc). Máy không tự chọn đề tài (D-004).
 - **Giọng, nhạc, hướng hình** dùng mặc định đã chốt (Eric `eleven_v3`; nhạc bằng mã theo bản đồ căng, biên độ rộng; hướng hình "một thế giới, hai chế độ máy quay" D-010 + thư viện hình). Muốn đổi thì chủ dự án nêu ở G1.
@@ -181,6 +182,8 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 
 - **Luật chung:** mid-roll không đặt trong 2 phút đầu hay 2 phút cuối, luôn ở khoảng lặng ≥ 1 s.
 - **`101` không độn nội dung:** thiếu chất thì ngắn hơn hoặc gộp khái niệm. Thời lượng tối thiểu là mềm; tối đa là cứng.
+- **Độ dài `101` và mid-roll (lessons T6-1, chủ dự án 08/10):** YouTube chỉ cho mid-roll khi video **≥ 8:00** — tập dưới 8:00 **không được ghi là có mid-roll**. Ba chốt: **G1 ≥ 8:25 ước** (≥ 1.275 từ nói ÷ 2,52 từ/s; `check_script.py` CHẶN dưới 505 s; dư ≈ 5 % cho sai số hằng, cắt chữ sau G1, sinh lại giọng) → **≥ 8:10 thật trên timeline sau khi sinh lời** (thiếu → sửa trước render) → **≥ 8:00 ở C5** kèm chỗ mid-roll hợp lệ. Ngắn hơn chỉ khi chủ dự án chọn ở G1, và khi đó tập không có mid-roll.
+- **Mọi gói G1 có một dòng mid-roll** (mẫu `playbook/templates/G1.md`): *"mid-roll: đủ điều kiện / không đủ (độ dài ước m:ss, cần ≥ 8:00 thật; mốc m:ss ≥ 2 phút đầu/cuối; lặng ≥ 1 s)"*.
 - Khuôn đã thiết kế, **chưa dựng tập 101**. Kiểm khuôn tự động nằm trong `build.sh` (phiên nhà máy).
 
 ## 10. Sau phát hành

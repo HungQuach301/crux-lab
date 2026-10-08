@@ -9,7 +9,8 @@ TỐC ĐỘ ĐỌC (tổng kết Tập 5 §2c/§3.1, chủ dự án duyệt 08/1
   - WPS_TOTAL = 2,52 từ nói / giây thời lượng — gồm phần nhà máy thêm ngoài lời (giữ, ident, đuôi cảnh; Tập 4 2,53 · Tập 5 2,51).
     Dùng cho ĐỘ DÀI CẢ TẬP. Kiểm ngược: Tập 4 → 484 s (thật 481,6), Tập 5 → 463 s (thật 465,7).
   - Đổi giọng/model/speed → đo lại hai hằng. Thước cũ 2,4 từ/s (≈ 8:19 cho Tập 5, thật 7:46) bỏ.
-ĐỘ DÀI: `101` đích G1 ≥ 8:15 ước (495 s ≈ 1.250 từ nói; dư ≈ 15 s cho sai số), ≤ 9:00. Thiếu → CHẶN ở C2: WRITER mới thêm CHẤT có nguồn
+ĐỘ DÀI: `101` đích G1 ≥ 8:25 ước (505 s ≈ 1.275 từ nói; dư ≈ 5 % cho sai số hằng, cắt chữ sau G1, sinh lại giọng — lessons T6-1), ≤ 9:00;
+  chốt ≥ 8:10 thật trên timeline sau khi sinh lời, ≥ 8:00 ở C5 (sàn mid-roll YouTube). Thiếu → CHẶN ở C2: WRITER mới thêm CHẤT có nguồn
   (không độn, story §4) ≤ 2 vòng; vẫn thiếu → nêu ở G1 (ngắn hơn, bỏ mid-roll — chủ dự án chọn), chạy lại với `--g1-short` khi đã duyệt.
 
 CHẶN (exit 1):
@@ -55,7 +56,8 @@ _yaml = os.path.join(os.path.dirname(HERE), 'episode.yaml')
 if os.path.exists(_yaml):
     _m = re.search(r'^format:\s*[\'"]?(\w+)', open(_yaml, encoding='utf-8').read(), re.M)
     FORMAT = _m.group(1) if _m else FORMAT
-LEN_LIMITS = {'101': (495, 540), 'lab': (540, 660)}   # (đích tối thiểu ước, tối đa cứng) giây; 101 ≥ 8:15 (§3.1)
+LEN_LIMITS = {'101': (505, 540), 'lab': (540, 660)}   # (đích tối thiểu ước, tối đa cứng) giây; 101 ≥ 8:25 (lessons T6-1; trước: 8:15)
+MIDROLL_MIN_S = 480   # YouTube chỉ cho mid-roll khi video ≥ 8:00 (lessons T6-1)
 BANNED_NAMES = {'Nora', 'Walt', 'Anjali', 'Leah', 'Dana', 'Rosa', 'Frank', 'Maya', 'Grace', 'Owen', 'Victor'}   # TẬP: thêm tên tập trước
 CAST = ['Ruth', 'Carl', 'Edna']   # TẬP (ep006): Ruth = nhân vật dẫn đường (Aug 2006), Carl (Jan 1966), Edna (Jan 1949) đối trọng; tên nhân vật minh hoạ của tập (nhân vật dẫn đường đứng đầu); hoặc --cast A,B,C
 if '--cast' in sys.argv:
@@ -365,6 +367,12 @@ for p in order:
     if abs(d) > 5:
         warn.append(f'khuôn tỉ lệ: {p} lệch {d:+.1f} điểm')
 NMID = {'101': 1, 'lab': 2}.get(FORMAT, 1)
+# T6-1: dòng "mid-roll đủ điều kiện hay không" cho gói G1; tập < 8:00 không được ghi là có mid-roll
+_mr_ok = EST >= MIDROLL_MIN_S
+print(f'mid-roll: {"ĐỦ" if _mr_ok else "KHÔNG ĐỦ"} điều kiện theo độ dài ước {fmt(EST)} (cần ≥ 8:00 thật; ≥ 2 phút đầu/cuối; lặng ≥ 1 s) — '
+      'chốt bằng độ dài thật sau khi sinh lời (≥ 8:10) và ở C5 (≥ 8:00)')
+if mid and not _mr_ok:
+    warn.append(f'mid-roll khai trong kịch bản nhưng độ dài ước {fmt(EST)} < 8:00 — không được ghi là có mid-roll (T6-1)')
 if len(mid) != NMID and not (G1_SHORT and not mid):
     fail.append(f'mid-roll: {len(mid)} điểm ({FORMAT} cần {NMID}; bỏ mid-roll chỉ khi G1 duyệt, --g1-short)')
 for m in mid:
