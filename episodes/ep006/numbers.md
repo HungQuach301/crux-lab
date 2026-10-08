@@ -18,11 +18,12 @@ Tính: `model/model.py` (viết lại từ định nghĩa `result.json`, không 
 | `windows_25y` | 655 | 655 | 25-year windows (end s + 300), starts 1947-01..2001-08 | data/raw/CPIAUCNS.csv | history |
 | `windows_2pct_kept_up_25y` | 0 | 0 of 655 | count with 1.02^25 ≥ P (25-year) | data/raw/CPIAUCNS.csv | history |
 | `median_inflation_20y_pct_per_year` | 3.1 | 3.1% a year | median over 20-year windows of 100(P^(1/20) − 1) | data/raw/CPIAUCNS.csv | history; not an expectation |
-| `median_real_value_2pct_payment_after_20y_pct` | 80.7 | 80.7% (about 4/5) | median of 100 × 1.02^20 / P | data/raw/CPIAUCNS.csv | history |
+| `median_real_value_2pct_payment_after_20y_pct` | 80.7 | 80.7% (about 4/5; about 8 of 10 crates) | median of 100 × 1.02^20 / P | data/raw/CPIAUCNS.csv | history |
 | `median_real_value_level_payment_after_20y_pct` | 54.3 | 54.3% (about half) | median of 100 / P | data/raw/CPIAUCNS.csv | history |
 | `worst_real_value_2pct_payment_after_20y_pct` | 43.1 | 43.1% | min of 100 × 1.02^20 / P (window starting 1966-01) | data/raw/CPIAUCNS.csv | history |
 | `worst_real_value_level_payment_after_20y_pct` | 29.0 | 29.0% | level check in the same worst window (1966-01 → 1986-01) | data/raw/CPIAUCNS.csv | history |
 | `worst_window_start_year_20y` | 1966 | 1966 (January) | start of the worst window for the 2% check | data/raw/CPIAUCNS.csv | history |
+| `worst_window_years_2pct_fell_20y` | 20 | every one of 20 anniversaries (crates: 10 → about 4) | Carl's window (Jan 1966 → Jan 1986): count of anniversaries k=1..20 where 100 × 1.02^k / (CPI(s+12k)/CPI(s)) is below its value at k−1; crate row = round(10 × value / 100): 10 at the start, about 4 at year 20 (43.1%) | data/raw/CPIAUCNS.csv | ILLUSTRATIVE (Carl); history |
 | `share_2pct_at_least_90_after_20y_pct` | 32.6 | 32.6% (about 1 in 3) | % of 20-year windows with 2% check ≥ 90% of start | data/raw/CPIAUCNS.csv | history |
 | `share_2pct_at_least_75_after_20y_pct` | 56.2 | 56.2% | % of windows with 2% check ≥ 75% | data/raw/CPIAUCNS.csv | history |
 | `two_pct_growth_20y_pct` | 48.6 | 48.6% (about half) | 100(1.02^20 − 1): how much 20 raises of 2% grow a check | arithmetic | rule |

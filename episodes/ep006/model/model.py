@@ -119,6 +119,10 @@ def run():
     raw['median_year_level_reaches_2pct_end_median'] = statistics.median(yrs)
     # guide: year the level check first fell to the guide's own 2%-check end value
     raw['guide_year_level_reaches_2pct_end'] = next(r['year'] for r in path if r['real_level_pct'] <= raw['guide_real_2pct_end_pct'])
+    # counterweight Carl (ILLUSTRATIVE, worst 20-year window): anniversaries k=1..H where the 2% check bought less than at k−1
+    ws = raw['worst_window_start_20y']
+    wr = [100 * g ** k / (I[addm(ws, 12 * k)] / I[ws]) for k in range(H + 1)]
+    raw['worst_window_years_2pct_fell_20y'] = sum(1 for k in range(1, H + 1) if wr[k] < wr[k - 1])
     # by start decade
     dec = {}
     for (s, e, P), r in zip(W20, R2):

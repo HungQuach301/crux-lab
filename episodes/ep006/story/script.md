@@ -2,6 +2,8 @@
 
 Working title: *Does a 2% Annuity Raise Really Keep Up With Prices?* · Logline **L1** (C1, `gates/C1-logline.md`). Hook used: **H-B "Nghịch lý"** (paradox on a present-day fact, `hooks.md`). Format proposed: **`101`** (`episode.yaml`).
 
+**G1 (b) addition (new WRITER, 2026-10-08; owner chose (b) at G1, `gates/G1-answer.md`):** +93 spoken words → **1,279 spoken words, est. 8:27** (505 s target met; checker ĐẠT **without** `--g1-short`; timeline axis 8:14). Added: S16.3 (typical stretch in crates, no new number), **S24.4–S24.6** (Carl year by year in crates: his check bought less on every one of his 20 anniversaries; Ruth's climbed back early, his never did), **S27.4–S27.5** (Edna's 20 years end a few years into Carl's: the same years of prices close hers with 10 crates lit and open his), **S29.2** (crates at year 20: Edna full, Ruth about 9, Carl about 4; old S29.2 → S29.3, text unchanged). **One new number:** `worst_window_years_2pct_fell_20y` = 20 (numbers.md, model.py). Carl's "about 4" derives from 43.1 % (crates = round(10 × value)). Also edited to clear two `numbers_said.py` BLOCKs present in C2 v2: S06.2 "Over Ruth's 20 years" → "Over Ruth's 20-year stretch"; S28.2 "In the 12 months to this August" → "In the year to this August". Remaining warning: experiment −8.2 points vs the `101` template (reference only, story §4). The SHORTFALL note and checker block below describe C2 v2 before this addition.
+
 **SHORTFALL (C2 v2, owner decides at G1; without `--g1-short` the checker FAILS on length only, 471 s < 495 s after the REVIEWER fixes — the flag is valid only after the owner picks option (a)):** REVIEWER G1 wording fixes applied (CHẶN-1: S08.1, S12.1, S12.2; CHÍNH-2: S04.3, S31.3) → now **1,186 spoken words, est. 7:50 (471 s), ≈ 61 words / 24 s short**. Before those fixes: 1,175 spoken words → est. **7:46** (466 s) vs target ≥ 8:15 (495 s): **≈ 72 words / 29 s short**. Reason: blind read round 1 (6/6 readers lost attention in S19–S20 and S22–S23); the pre-registered fallback (method-section pattern, story §3) cut S18–S23 from 12 spoken sentences to 3 (plus the act-3 question, kept), with the numbers moved to on-screen labels (B19, B21, B22), the V7 card (B31) and the description. Not padded back (story §4: `101` does not pad). Checker run with `--g1-short`; MR1 kept.
 
 **C2 v2 changes (S18–S23, S30.5 only; everything else unchanged).** S18 (1 in 3 at ≥ 90 %) and S20 (94.8 %, 99.5 %) removed as spoken scenes → labels on B19 / description. S19.1 rewritten (no spoken number): "Even the stretches that ran through the gentler 2000s and 2010s, the years closest to Ruth's own, fell short." S21.1 "And over 25 years, not one stretch kept up." (the one new spoken number of the block: 25). S22.1 = one sentence, no digits (Social Security's index about the same; a gentler measure kept up more often but still fell short in most stretches); "21 of 715" and "19.2%" on B22 and the V7 card, "description" noted there; the "since 1959 / none" comparison dropped from narration and screen (description only). S23 = the act-3 question only (S23.4 → S23.1). S30.5 now: "this video doesn't say which check, or which raise, to choose" (no option named). Act 2 now −7.4 points and act 1 +5.8 vs the `101` template (reference only, story §4).
@@ -99,7 +101,7 @@ S05.3 So what does a raise of 2 percent a year add up to? <!-- claims: two_pct_g
 ## S06 — Raises against prices
 
 S06.1 After 20 raises, a check is 48.6 percent bigger than its first one. <!-- claims: two_pct_growth_20y_pct -->
-S06.2 Over Ruth's 20 years, the consumer price index rose 64.3 percent. <!-- claims: latest_window_price_rise_pct, latest_window_real_value_2pct_payment_pct; hold: 1 -->
+S06.2 Over Ruth's 20-year stretch, the consumer price index rose 64.3 percent. <!-- claims: latest_window_price_rise_pct, latest_window_real_value_2pct_payment_pct; hold: 1 -->
 S06.3 That index is a national average of what urban households pay for, from rent to medical care to gasoline, not any one person's own basket. <!-- claims: — -->
 
 ## S07 — The crates
@@ -159,6 +161,7 @@ S15.2 Since then, no starting month has kept up, including Ruth's. <!-- claims: 
 
 S16.1 In the typical stretch, prices rose 3.1 percent a year. <!-- claims: median_inflation_20y_pct_per_year -->
 S16.2 So after 20 raises, the rising check typically bought 80.7 percent of what its first check bought. <!-- claims: median_real_value_2pct_payment_after_20y_pct; hold: 1 -->
+S16.3 In crates, the typical rising check ended with most of its 10 still lit. <!-- claims: median_real_value_2pct_payment_after_20y_pct -->
 
 ## S17 — The level check in the typical stretch
 
@@ -189,6 +192,9 @@ S23.1 Then why did the same raise land so differently from one start to another?
 S24.1 Ruth isn't the worst case, and she isn't the best. <!-- claims: — -->
 S24.2 Carl, also illustrative, took the same kind of rising check in January 1966. <!-- claims: worst_window_start_year_20y -->
 S24.3 His 20 years had the fastest price rise of any stretch: 6.38 percent a year. <!-- claims: raise_needed_all_20y_pct; hold: 1 -->
+S24.4 Like Ruth's, his first check bought a row of 10 crates. <!-- claims: worst_window_years_2pct_fell_20y -->
+S24.5 On every one of his 20 anniversaries, his check bought less than it had the year before. <!-- claims: worst_window_years_2pct_fell_20y -->
+S24.6 Ruth's check climbed back in her early years; Carl's never did. <!-- claims: guide_years_2pct_at_or_above_100, worst_window_years_2pct_fell_20y; hold: 1 -->
 
 ## S25 — Carl's end
 
@@ -205,17 +211,20 @@ S26.1 He wasn't alone: stretches that began in the 1960s typically ended at 44.3
 S27.1 Edna, also illustrative, started in January 1949, the last starting month when a 2 percent raise kept up. <!-- claims: kept_up_last_start_20y, windows_2pct_kept_up_20y -->
 S27.2 Twenty years later, her check still bought at least what her first one did. <!-- claims: kept_up_last_start_20y, windows_20y -->
 S27.3 She is part of that early handful, and nobody who started after her got that answer. <!-- claims: windows_2pct_kept_up_20y -->
+S27.4 Her 20 years ended a few years into Carl's. <!-- claims: kept_up_last_start_20y, worst_window_start_year_20y, windows_20y -->
+S27.5 The same few years of prices that ended her stretch with all 10 crates lit began his. <!-- claims: kept_up_last_start_20y, worst_window_start_year_20y, worst_window_years_2pct_fell_20y; hold: 1 -->
 
 ## S28 — Ruth, this year
 
 S28.1 And Ruth, at 85, is still losing ground. <!-- claims: guide_real_2pct_end_pct -->
-S28.2 In the 12 months to this August, prices rose 3.4 percent, more than her 2 percent raise. <!-- claims: cpi_yoy_latest_pct, index_last_month, two_pct_growth_20y_pct -->
+S28.2 In the year to this August, prices rose 3.4 percent, more than her 2 percent raise. <!-- claims: cpi_yoy_latest_pct, index_last_month, two_pct_growth_20y_pct -->
 S28.3 That's one year of history, not a forecast for the year after it. <!-- claims: —; hold: 1 -->
 
 ## S29 — Same raise, three starts
 
 S29.1 Same raise, same rule: Edna kept up, Ruth fell short late, and Carl fell far behind. <!-- claims: windows_2pct_kept_up_20y, guide_last_year_2pct_at_or_above_100, worst_real_value_2pct_payment_after_20y_pct -->
-S29.2 What differed was the month each one started, and what prices did after that. <!-- claims: —; hold: 1 -->
+S29.2 In crates, Edna's row ended full, Ruth's at about 9, and Carl's at about 4. <!-- claims: kept_up_last_start_20y, guide_real_2pct_end_pct, latest_window_real_value_2pct_payment_pct, worst_window_years_2pct_fell_20y -->
+S29.3 What differed was the month each one started, and what prices did after that. <!-- claims: —; hold: 1 -->
 
 ## S30 — What raise history kept up with
 
