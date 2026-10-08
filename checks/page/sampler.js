@@ -119,7 +119,7 @@ async function openEnv() {
   // V11 collisions of one pixel sample, in the order the sequential sampler judged them: [text, other, pixels, moving?]. K4.1 (checks-appeal A22): a text is
   // its GLYPH ink (layer 'glyph'; plate/pill excluded), dilated 2 px; graphic ink under the plate of a text that has one does not count. The plate of a
   // text o = its own pixels in the text layer that are not glyph ink of any text, plus its own glyph ink, inside o's box widened by 0.4 em — a neighbour's
-  // glyph is never part of it. Graphic ink under a plate is counted apart (plateOver: [text, pixels], reported, not a violation; the owner decides).
+  // glyph is never part of it (a neighbour's PLATE pixels inside the widened box are: graphics under them count in o's plateOver too — a report-only figure). Graphic ink under a plate is counted apart (plateOver: [text, pixels], reported, not a violation; the owner decides).
   // Blind spot: a line drawn ABOVE a plate is hidden by the same rule (layers carry no z-order). Text vs text compares glyph ink only.
   // Returns the text mask (glyph + plate) unchanged for V03, V08, C14.
   async function collide(T, isMoving) {

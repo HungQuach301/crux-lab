@@ -2471,6 +2471,22 @@ def s21_round_case(bad):
         f.close()
 
 
+def f11_repo_path_case(bad):
+    """F11 factory path (K4.1): `episodes/<ep>/…` is found from the repository holding the root (good); an absolute path is refused (bad)."""
+    import r_file
+    d = tempfile.mkdtemp(prefix='kpy-F11-repo-')
+    try:
+        root = os.path.join(d, 'episodes', 'ep9')
+        os.makedirs(os.path.join(root, 'work'))
+        open(os.path.join(root, 'work', 'v.mp4'), 'w').write('x')
+        rel = os.path.join(root, 'work', 'v.mp4') if bad else 'episodes/ep9/work/v.mp4'
+        ok = r_file._repo_path(common.Ctx(root), rel)
+        return {'status': 'PASS' if ok else 'FAIL', 'metrics': []}
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
+EXTRA.update({'F11/repo-path': f11_repo_path_case})
 EXTRA.update({'F11/factory-artefacts': f11_factory_case('artefacts'), 'F11/factory-world': f11_factory_case('world'), 'F11/excerpt': f11_excerpt_case})
 
 

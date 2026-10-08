@@ -13,7 +13,7 @@ def ignored(rel):
     return subprocess.run(['git', 'check-ignore', '-q', rel], cwd=ROOT).returncode == 0
 
 
-print('# F11 cũ / mới trên Tập 3–5 (K4.1, chờ chủ dự án)\n')
+print('# F11 K4.1 trên Tập 3–5 (chế độ được chọn mỗi tập; chờ chủ dự án). F11 K2 trên gốc thật: ep004 out/checks/report.json (FAIL: 14 chưa khai + page.json), ep005 run-c5c (PASS)\n')
 for ep in ('ep003', 'ep004', 'ep005'):
     d, cache = retro.build(ep)
     ctx = common.Ctx(d, cache=cache)

@@ -283,7 +283,7 @@ def _repo_path(ctx, rel):
     folder that contains episodes/<this root's name>. Absolute paths are refused (they would match anywhere)."""
     import glob
     import os
-    if os.path.isabs(rel):
+    if os.path.isabs(rel) or '..' in rel.split('/'):
         return False
     if glob.glob(os.path.join(ctx.root, rel)):
         return True
@@ -291,7 +291,7 @@ def _repo_path(ctx, rel):
         return False
     d = os.path.dirname(ctx.root)
     while True:
-        if os.path.isdir(os.path.join(d, 'episodes')) and os.path.basename(ctx.root) in os.listdir(os.path.join(d, 'episodes')):
+        if os.path.isdir(os.path.join(d, 'episodes')) and os.path.realpath(os.path.join(d, 'episodes', os.path.basename(ctx.root))) == os.path.realpath(ctx.root):
             return bool(glob.glob(os.path.join(d, rel)))
         up = os.path.dirname(d)
         if up == d:
