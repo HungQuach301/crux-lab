@@ -1,0 +1,71 @@
+{
+ "grader_tokens": 11428,
+ "scores": [
+  {
+   "file": "38c53aae",
+   "sample": "v2",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "phương pháp",
+   "where": "\"The 715 stretches overlap\"",
+   "why": "Đúng câu hỏi và đáp án (hiếm khi theo kịp, 80,7%, Ruth ~90%); mất chú ý ở lưu ý thống kê trừu tượng; Q6 chỉ là hiểu giới hạn."
+  },
+  {
+   "file": "3a75486d",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "số dày",
+   "where": "\"12 of its first 15 anniversaries\"",
+   "why": "Đúng câu hỏi và đáp án (17/715, 80,7% so với 54,3%); chỗ mất chú ý là chuỗi đếm số dày; Q6 chỉ gợi ý hỏi công ty bảo hiểm, không bảo chọn khoản nào."
+  },
+  {
+   "file": "5a81bcdf",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "định nghĩa",
+   "where": "\"national average of what urban households pay for\"",
+   "why": "Đúng câu hỏi và đáp án (17/715, 80,7% so với 54,3%, Ruth ~90%); mất chú ý ở phần định nghĩa chỉ số giá; không có lời khuyên chọn khoản nào."
+  },
+  {
+   "file": "72e3f61e",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "định nghĩa",
+   "where": "\"keeping up means a check still buys at least...\" và chuỗi lưu ý đầu video",
+   "why": "Đúng câu hỏi và đáp án (17/715, 80,7% so với 54,3%, Ruth ~9/10); mất chú ý ở định nghĩa \"theo kịp\" và đống lưu ý xếp chồng; Q6 chỉ là hiểu giới hạn."
+  },
+  {
+   "file": "b9dfc203",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "phương pháp",
+   "where": "\"715 stretches overlap\"",
+   "why": "Đúng câu hỏi và đáp án (17/715, 80,7% so với 54,3%, Ruth ~9/10); mất chú ý ở lưu ý phương pháp trừu tượng; không có lời khuyên chọn khoản nào."
+  },
+  {
+   "file": "e9d07109",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "số dày",
+   "where": "\"By year 5, it had already fallen to about 9 crates\"",
+   "why": "Đúng câu hỏi và đáp án (hầu như không theo kịp, 80,7% so với 54,3%, Ruth ~9/10); mất chú ý vì so sánh hai khoản với nhiều mốc số; không có lời khuyên chọn khoản nào."
+  }
+ ]
+}

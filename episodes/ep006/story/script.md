@@ -1,30 +1,38 @@
-# Script — Episode 6 (format `101`, C2 draft v1, WRITER, 2026-10-08)
+# Script — Episode 6 (format `101`, C2 v2, WRITER, 2026-10-08)
 
 Working title: *Does a 2% Annuity Raise Really Keep Up With Prices?* · Logline **L1** (C1, `gates/C1-logline.md`). Hook used: **H-B "Nghịch lý"** (paradox on a present-day fact, `hooks.md`). Format proposed: **`101`** (`episode.yaml`).
 
-**Checker (`python3 episodes/ep006/story/check_script.py --cast Ruth,Carl,Edna`, from the repo root, final run — exit 0):**
+**SHORTFALL (C2 v2, owner decides at G1):** 1,175 spoken words → est. **7:46** (466 s) vs target ≥ 8:15 (495 s): **≈ 72 words / 29 s short**. Reason: blind read round 1 (6/6 readers lost attention in S19–S20 and S22–S23); the pre-registered fallback (method-section pattern, story §3) cut S18–S23 from 12 spoken sentences to 3 (plus the act-3 question, kept), with the numbers moved to on-screen labels (B19, B21, B22), the V7 card (B31) and the description. Not padded back (story §4: `101` does not pad). Checker run with `--g1-short`; MR1 kept.
+
+**C2 v2 changes (S18–S23, S30.5 only; everything else unchanged).** S18 (1 in 3 at ≥ 90 %) and S20 (94.8 %, 99.5 %) removed as spoken scenes → labels on B19 / description. S19.1 rewritten (no spoken number): "Even the stretches that ran through the gentler 2000s and 2010s, the years closest to Ruth's own, fell short." S21.1 "And over 25 years, not one stretch kept up." (the one new spoken number of the block: 25). S22.1 = one sentence, no digits (Social Security's index about the same; a gentler measure kept up more often but still fell short in most stretches); "21 of 715" and "19.2%" on B22 and the V7 card, "description" noted there; the "since 1959 / none" comparison dropped from narration and screen (description only). S23 = the act-3 question only (S23.4 → S23.1). S30.5 now: "this video doesn't say which check, or which raise, to choose" (no option named). Act 2 now −7.4 points and act 1 +5.8 vs the `101` template (reference only, story §4).
+
+**Checker (`python3 episodes/ep006/story/check_script.py --cast Ruth,Carl,Edna --g1-short`, from the repo root, final run C2 v2 — exit 0):**
 
 ```
 số cốt lõi windows_2pct_kept_up_20y: đọc ['S14.1'], nhắc bằng lời ['S15.1', 'S15.2', 'S27.1', 'S27.3', 'S29.1']
 móc script: M1 4.7 s ĐẠT · M2 27.3 s ĐẠT · M3 13.8 s ĐẠT · M4 7.0 s ĐẠT · M5 39.6 s ĐẠT · M6 0.0 s ĐẠT
 
-85 câu, 1251 từ viết (1305 từ đọc), độ dài ước 8:37 (1305 / 2.52 từ/s, 101); trục mốc giây 8:23 (2.75 từ/s + hold 25.5 s + ident 3 s)
+76 câu, 1132 từ viết (1175 từ đọc), độ dài ước 7:46 (1175 / 2.52 từ/s, 101); trục mốc giây 7:34 (2.75 từ/s + hold 24.5 s + ident 3 s)
 | Phần | Từ | Thời gian | Tỉ lệ | Khuôn 101 | Δ |
-| hook | 125 | 0:00–0:49 | 9.9 % | 8 % | +1.9 |
-| concept | 358 | 0:49–3:09 | 27.8 % | 25 % | +2.8 |
-| experiment | 377 | 3:09–5:41 | 30.3 % | 30 % | +0.3 |
-| buyers | 275 | 5:41–7:32 | 22.0 % | 25 % | -3.0 |
-| limits | 116 | 7:32–8:23 | 10.1 % | 12 % | -1.9 |
-mid-roll ≈ 3:09 sau S12.4 (hold 1.5 s), cách cuối 313 s: ĐẠT
-beats.md: 32 nhịp đã kiểm số trên hình
+| hook | 125 | 0:00–0:49 | 10.9 % | 8 % | +2.9 |
+| concept | 358 | 0:49–3:09 | 30.8 % | 25 % | +5.8  ← > ±5 (THAM KHẢO, nêu ở C2) |
+| experiment | 254 | 3:09–4:52 | 22.6 % | 30 % | -7.4  ← > ±5 (THAM KHẢO, nêu ở C2) |
+| buyers | 279 | 4:52–6:44 | 24.6 % | 25 % | -0.4 |
+| limits | 116 | 6:44–7:34 | 11.1 % | 12 % | -0.9 |
+mid-roll ≈ 3:09 sau S12.4 (hold 1.5 s), cách cuối 265 s: ĐẠT
+beats.md: 30 nhịp đã kiểm số trên hình
 hooks HA (4 câu riêng + S03 chung, phần riêng tới 27.6 s): M1 4.7 s ĐẠT · M2 27.6 s ĐẠT · M3 13.5 s ĐẠT · M4 7.0 s ĐẠT · M5 40.0 s ĐẠT · M6 0.0 s ĐẠT
 hooks HB (4 câu riêng + S03 chung, phần riêng tới 27.3 s): M1 4.7 s ĐẠT · M2 27.3 s ĐẠT · M3 13.8 s ĐẠT · M4 7.0 s ĐẠT · M5 39.6 s ĐẠT · M6 0.0 s ĐẠT
 hooks HC (4 câu riêng + S03 chung, phần riêng tới 27.6 s): M1 4.7 s ĐẠT · M2 27.6 s ĐẠT · M3 11.6 s ĐẠT · M4 7.0 s ĐẠT · M5 40.0 s ĐẠT · M6 0.0 s ĐẠT
 
 ĐẠT
+Cảnh báo (không chặn):
+  độ dài ước 466 s < đích 495 s — chủ dự án đã duyệt ở G1 (--g1-short)
+  khuôn tỉ lệ: concept lệch +5.8 điểm
+  khuôn tỉ lệ: experiment lệch -7.4 điểm
 ```
 
-Summary: **M1 4.7 s · M2 27.3 s · M3 13.8 s · M4 7.0 s · M5 39.6 s · M6 0.0 s (no character promise), all ĐẠT** · **1,305 spoken words → est. 8:37** (2.52 words/s; target ≥ 8:15, max 9:00) · act Δ vs the 101 template: hook +1.9 · concept +2.8 · experiment +0.3 · people −3.0 · limits −1.9 (none beyond ±5) · MR1 ≈ 3:09 ĐẠT. No shortfall: length was reached with sourced substance (CPI-W, PCE, decades, 25-year, raise grid, guide path), nothing padded.
+Summary (C2 v2): **M1 4.7 s · M2 27.3 s · M3 13.8 s · M4 7.0 s · M5 39.6 s · M6 0.0 s (no character promise), all ĐẠT** · **1,175 spoken words → est. 7:46** (2.52 words/s; target ≥ 8:15, max 9:00 — **short by ≈ 29 s, G1**) · act Δ vs the 101 template: hook +2.9 · concept +5.8 · experiment −7.4 · people −0.4 · limits −0.9 (concept and experiment beyond ±5, reference only) · MR1 ≈ 3:09 ĐẠT (265 s from the end).
 
 **Line format.** `Sxx.n {role} [emotion] narration <!-- claims: id, id; hold: s -->`. One sentence per line. Roles on every sentence starting before 1:00. Emotion tags (3): S01.2 `[curious]`, S10.2 `[serious]` (the `{peak}` line), S32.1 `[thoughtful]`. `hold` = silence in the edit. Visuals and on-screen text: `beats.md` (same scene ids).
 
@@ -35,19 +43,19 @@ Summary: **M1 4.7 s · M2 27.3 s · M3 13.8 s · M4 7.0 s · M5 39.6 s · M6 0.0
 
 **Core number:** `windows_2pct_kept_up_20y` — "17 of the 715" in digits once (S14.1, fact), then in words: S15.1–S15.2 "every one of those stretches … no starting month has kept up since" (when), S27.1/S27.3 Edna "the last starting month when a 2 percent raise kept up … that early handful" (a person), S29.1 "Edna kept up, Ruth fell short late" (comparison), with S30 turning it into the viewer's threshold (raise grid: 2 % vs 3 %, 3.1 %, 6.38 %, on screen B30).
 
-**Claim-risk applied:** no choice advice (S03.4, S30.5); pricing not modeled, never "which pays more" (S04.2–S04.3, S08.3, S17.3, S31.3); "history, not a forecast" (S03.3, S28.3, S32.1); "US only" (S03.3, S32.1); national average, not a retiree's basket, health care and housing (S06.3, S31.1); overlapping, not independent (S31.2); no 20-year window after Aug 2006: "began in the 1990s … ran through the 2000s and 2010s" (S19.1); 3.1 % "a median of the past, not an expectation" (S30.3); the latest 12-month 3.4 % is "one year of history, not a forecast" (S28.3); "we" = analysts only; no imperatives.
+**Claim-risk applied:** no choice advice (S03.4, S30.5: "doesn't say which check, or which raise, to choose"); pricing not modeled, never "which pays more" (S04.2–S04.3, S08.3, S17.3, S31.3); "history, not a forecast" (S03.3, S28.3, S32.1); "US only" (S03.3, S32.1); national average, not a retiree's basket, health care and housing (S06.3, S31.1); overlapping, not independent (S31.2); no 20-year window after Aug 2006: "ran through the gentler 2000s and 2010s" (S19.1, the span of 1990s starts; Ruth's 2006 start is the latest); 3.1 % "a median of the past, not an expectation" (S30.3); the latest 12-month 3.4 % is "one year of history, not a forecast" (S28.3); "we" = analysts only; no imperatives.
 
 **Checker edits (`# TẬP` lines only):** CAST = Ruth, Carl, Edna · CORE = `windows_2pct_kept_up_20y` / `\b17\b` · FULL_FORM = PCE → "personal consumption expenditures", CPI → "consumer price index" (the abbreviation "CPI" is never spoken; "CPI-U"/"CPI-W" would trip the hyphenated-abbreviation ASR rule, so the narration says "the consumer price index" and "the index Social Security uses for its yearly raises") · WORD_EXEMPT = `\b2000s and 2010s\b` (decade names required by claim-risk wording; no 2010 token exists in numbers.md; the span follows from `by_decade_1990_*` starts 1990–1999 + 20 years). Constants unchanged.
 
-**Statements without a numbers.md number (qualitative, for REVIEWER):** S05.2 Ruth's reasoning (ILLUSTRATIVE); S06.3 the index covers "rent to medical care to gasoline" (CPI-U all items, qualitative); S09.2 "slipped under in a few early years, then climbed back" (`guide_years_2pct_at_or_above_100` definition: below at years 2, 5, 6; sizes not in numbers.md, so not quantified); S19.2 1990s starts saw gentler prices than the typical stretch (implied by 94.8 % vs 80.7 %); S31.1 health care and housing "can weigh differently" (claim-risk limit, no R-CPI-E number).
+**Statements without a numbers.md number (qualitative, for REVIEWER):** S05.2 Ruth's reasoning (ILLUSTRATIVE); S06.3 the index covers "rent to medical care to gasoline" (CPI-U all items, qualitative); S09.2 "slipped under in a few early years, then climbed back" (`guide_years_2pct_at_or_above_100` definition: below at years 2, 5, 6; sizes not in numbers.md, so not quantified); S19.1 "gentler" 2000s and 2010s (1990s starts typical 94.8 % vs 80.7 % overall, on screen B19); S22.1 "about the same" (2.9 % vs 2.4 %) and "gentler price measure … fell short in most stretches" (PCE 19.2 % kept up, typical 88.0 %, on screen B22); S31.1 health care and housing "can weigh differently" (claim-risk limit, no R-CPI-E number).
 
 **Claims wanted:** none required. Optional for a later pass: Ruth's values at years 2, 5, 6 and 17–19 (would let S09.2 be exact); Carl's and Edna's crate counts as spoken numbers (`about 4 in 10` for 43.1 % is not a display form in numbers.md, so Carl's crates appear on screen only).
 
-**Mid-roll:** MR1 ≈ 3:09, in the 1.5 s hold after S12.4 (end of act 1, act-2 question open); 313 s from the end.
+**Mid-roll:** MR1 ≈ 3:09, in the 1.5 s hold after S12.4 (end of act 1, act-2 question open); 265 s from the end.
 
 **Act questions / turns.**
 - Act 1: *What does a 2 % raise add up to against prices?* Turn S10: Ruth's check, still at her first check's buying power at 80, falls below in one year and stays there (peak).
-- Act 2: *Was Ruth's stretch unusual?* Turn S14–S15: 17 of 715, all starting 1947 to 1949; counterweights S17.3 (own start, not dollars), S22–S23 (other indexes move the line, not the result).
+- Act 2: *Was Ruth's stretch unusual?* Turn S14–S15: 17 of 715, all starting 1947 to 1949; counterweights S17.3 (own start, not dollars), S22.1 (other indexes move the line, not the result; one sentence, numbers on screen).
 - Act 3: *Why did the same raise land so differently?* Turn S29: same raise, three start months. Answers the cold-open question in S32 with the same words ("keep up with prices"), the last sentence Ruth's.
 
 ---
@@ -158,36 +166,21 @@ S17.1 A level check, over the same stretches, typically kept 54.3 percent, about
 S17.2 And typically, the level check had already sunk to where the rising check would end by about year 8. <!-- claims: median_year_level_reaches_2pct_end_median -->
 S17.3 Again, that's buying power against each check's own start, not dollars paid. <!-- claims: — -->
 
-## S18 — Where Ruth's stretch sits
-
-S18.1 Only about 1 in 3 stretches ended with the rising check at 90 percent or more. <!-- claims: share_2pct_at_least_90_after_20y_pct -->
-S18.2 Ruth's is one of them, and it still fell short. <!-- claims: guide_real_2pct_end_pct -->
-
 ## S19 — Even the calmer decades
 
-S19.1 Not one of the 120 stretches that began in the 1990s kept up, and those ran through the 2000s and 2010s. <!-- claims: by_decade_1990_median_real_2pct -->
-S19.2 Prices in those years rose more gently than in the typical stretch, and it still wasn't enough. <!-- claims: by_decade_1990_median_real_2pct, median_real_value_2pct_payment_after_20y_pct -->
-
-## S20 — Close, not quite
-
-S20.1 Their typical rising check ended at 94.8 percent. <!-- claims: by_decade_1990_median_real_2pct -->
-S20.2 Of the stretches that began after that, up to Ruth's, none kept up, and the best ended at 99.5 percent. <!-- claims: by_decade_2000_kept, by_decade_2000_max_real_2pct; hold: 1 -->
+S19.1 Even the stretches that ran through the gentler 2000s and 2010s, the years closest to Ruth's own, fell short. <!-- claims: by_decade_1990_median_real_2pct, by_decade_2000_kept, median_real_value_2pct_payment_after_20y_pct -->
 
 ## S21 — Longer retirements
 
-S21.1 Over 25-year stretches, the rising check kept up in none of them. <!-- claims: windows_25y, windows_2pct_kept_up_25y; hold: 1 -->
+S21.1 And over 25 years, not one stretch kept up. <!-- claims: windows_25y, windows_2pct_kept_up_25y; hold: 1 -->
 
 ## S22 — Other price measures
 
-S22.1 We reran the test on the index Social Security uses for its yearly raises: the rising check kept up in 21 of the 715. <!-- claims: robust_cpiw_share_kept_up_20y_pct -->
-S22.2 That's close to the main index. <!-- claims: robust_cpiw_share_kept_up_20y_pct, share_2pct_kept_up_20y_pct -->
+S22.1 We also ran it on the index Social Security uses for its yearly raises, with about the same result; on a gentler price measure, the raise kept up more often but still fell short in most stretches. <!-- claims: robust_cpiw_share_kept_up_20y_pct, share_2pct_kept_up_20y_pct, robust_pce_share_kept_up_20y_pct, robust_pce_median_real_2pct_pct, median_real_value_2pct_payment_after_20y_pct -->
 
-## S23 — A gentler measure
+## S23 — The act-3 question
 
-S23.1 The personal consumption expenditures price index, or PCE, starts later, and on it, the rising check kept up in 19.2 percent of stretches. <!-- claims: robust_pce_share_kept_up_20y_pct -->
-S23.2 On the consumer price index, from those same starting months since 1959, it kept up in none. <!-- claims: cpiu_from_pce_start_kept_up_20y -->
-S23.3 So the measure matters, but on each one, falling short was the usual result. <!-- claims: robust_pce_share_kept_up_20y_pct, robust_cpiw_share_kept_up_20y_pct -->
-S23.4 Then why did the same raise land so differently from one start to another? <!-- claims: —; hold: 1 -->
+S23.1 Then why did the same raise land so differently from one start to another? <!-- claims: —; hold: 1 -->
 
 === ACT 3 — PEOPLE: the same raise, three starting months ===
 
@@ -230,7 +223,7 @@ S30.1 So what raise did keep up, in this history? <!-- claims: — -->
 S30.2 A raise of 3 percent a year kept up in 42.4 percent of the 20-year stretches. <!-- claims: raise_grid_3pct -->
 S30.3 About 3.1 percent kept up in half: that's the typical rate from before, a median of the past, not an expectation. <!-- claims: raise_needed_half_20y_pct, median_inflation_20y_pct_per_year -->
 S30.4 Keeping up in every stretch took the rate of Carl's years. <!-- claims: raise_needed_all_20y_pct -->
-S30.5 These rates describe what prices did; they don't say which check to take. <!-- claims: —; hold: 1 -->
+S30.5 These rates describe what prices did; this video doesn't say which check, or which raise, to choose. <!-- claims: —; hold: 1 -->
 
 === LIMITS + METHOD + OUTRO ===
 

@@ -10,3 +10,5 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc (`episode.
 | 2026-10-08 | C2 | khác (WRITER) | agent general-purpose | kịch bản v1, hooks H-A/B/C, beats, check_script | 192.777 | Ruth/Carl/Edna; H-B; check ĐẠT; 1.305 từ ≈ 8:37; 1 ký hiệu mới (hàng 10 thùng) |
 | 2026-10-08 | C2 | dựng | `story/table_read.py` (lệnh) | đọc thử S01–S04, EL Eric eleven_v3 | — | EL 1.114 ký tự; M1 3,6 · M2 27,5 · M3 13,9 · M4 6,06 · M5 33,3 · M6 0 ĐẠT |
 | 2026-10-08 | C2 | kiểm mù | headless 6 Sonnet + 1 Opus + 1 Haiku + 1 chấm | vòng 1 | 53.298 (trần) | 6/6, khuyên 0; số dày 6/6 → TRƯỢT, dự phòng; Opus khuyên 1 (suy ra) |
+| 2026-10-08 | C2 | khác (WRITER) | agent general-purpose (mới) | vòng 2: S18–S23 → 3 câu + nhãn/V7/mô tả; S30.5 | 89.619 | check ĐẠT (--g1-short); 1.175 từ ≈ 7:46 (thiếu 29 s, nêu G1) |
+| 2026-10-08 | C2 | kiểm mù | headless 6 Sonnet + 1 chấm | vòng 2 | 36.907 (trần) | 6/6, khuyên 0; phương pháp 2/6 · định nghĩa 2/6 · số dày 2/6 → ĐẠT |
