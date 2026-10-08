@@ -2242,6 +2242,16 @@ def s19_spoken_case(bad):
         f.close()
 
 
+
+@case('S20')
+def _(f, bad):
+    # Tập 5 S03 before B+2: three new said numbers in one scene (bad); good: the third is a repeat of a number said in S01
+    sents = [{'id': 'S01.1', 'scene': 'S01', 'text': 'x', 'spoken': 'You saved ten percent.', 'start': 0, 'end': 2},
+             {'id': 'S03.1', 'scene': 'S03', 'text': 'x', 'spoken': '[curious] At eighty percent, after two years,', 'start': 3, 'end': 5},
+             {'id': 'S03.2', 'scene': 'S03', 'text': 'x', 'spoken': ('or seventy-five percent.' if bad else 'or ten percent.') + ' Three buyers, in two thousand six.', 'start': 6, 'end': 8}]
+    f.json('out/script.json', {'sentences': sents})
+
+
 EXTRA.update({'S19/frame': s19_frame_case, 'S19/spoken': s19_spoken_case})
 
 

@@ -75,3 +75,39 @@ def s19_forbidden_amounts(ctx):
             uniq.append(b)
     return verdict('S19', [metric('units with an unsourced forbidden amount', len(uniq), '<=', 0)],
                    details=[{'unitsWithTerm': units}, *uniq[:20]])
+
+
+# ---- A17 → S20 ------------------------------------------------------------------------------------------------------------------
+# Same definition as the factory's gate (toolkit/factory/numbers_said.py, Mốc V B+2), re-written here: checks/ imports nothing from the builder.
+_UNITS = r'(percent|years?|months?|dollars?|times|quarters?|points?|basis points)'
+_NUMW = (r'(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|'
+         r'twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion|point|and|a|half|\d[\d,.]*)')
+_SAID = re.compile(r'\b((?:' + _NUMW + r')(?:[\s-]+' + _NUMW + r')*)\s+' + _UNITS + r'\b', re.I)
+
+
+def said_numbers(spoken):
+    """Quantities WITH a unit in a normalised spoken line: [(value words, unit)]. Unit-less counts ("three buyers") and calendar years do not count."""
+    out = []
+    for m in _SAID.finditer(spoken):
+        val = re.sub(r'^(?:(?:a|and)\s+)+', '', m.group(1).strip().lower())
+        if not re.search(r'\d|zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|teen|ty|hundred|thousand|million|half', val):
+            continue
+        out.append((val, re.sub(r's$', '', m.group(2).lower()), f'{val} {m.group(2).lower()}'))
+    return out
+
+
+@rule('S20', 'DX-S7 (lời mang số), checks-appeal A17', 'out/script.json sentences in order, `spoken` (the normalised line sent to TTS; delivery tags [..] removed; '
+      'text when no spoken). A said number = a quantity with a unit (percent, year, month, dollar, times, quarter, point, basis point); new = its (value, unit) '
+      'pair not said in any earlier sentence of the episode. Count new said numbers per scene', '≤ 2 new said numbers in every scene')
+def s20_said_per_scene(ctx):
+    said, per = set(), {}
+    for s in ctx.sentences():
+        line = re.sub(r'\[[^\]]*\]\s*', '', s.get('spoken') or s.get('text') or '')
+        r = per.setdefault(s.get('scene'), [])
+        for val, unit, txt in said_numbers(line):
+            if (val, unit) not in said:
+                r.append({'said': txt, 'sentence': s.get('id')})
+            said.add((val, unit))
+    over = {sc: v for sc, v in per.items() if len(v) > 2}
+    return verdict('S20', [metric('scenes with > 2 new said numbers', len(over), '<=', 0)],
+                   details=[{'scene': sc, 'new': v} for sc, v in over.items()] + [{'perScene': {sc: len(v) for sc, v in per.items() if v}}])

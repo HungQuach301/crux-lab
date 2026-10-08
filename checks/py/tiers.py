@@ -47,6 +47,7 @@ TIERS = {
     'S18': (REFERENCE, 'giữ chân: mốc hook ≤ 5 s, promise ≤ 30 s (K3.8, A2)'),
     # K4.0 (checks-appeal nhóm 2, chỉ thêm)
     'S19': (BLOCK, 'claim: số tiền hợp đồng tập cấm nêu khi không có nguồn (K4.0, A20)'),
+    'S20': (MAJOR, 'nghe giữ được số: ≤ 2 số mới nói mỗi cảnh (K4.0, A17; hiệu chuẩn: Tập 3 trượt 3 cảnh, Tập 4, Tập 5 đạt)'),
     # Shorts 9:16 (K3.8, A5)
     'SH01': (BLOCK, 'kỹ thuật file: Short 1080×1920'), 'SH02': (BLOCK, 'kỹ thuật file: Short ≤ 180 s'),
     'SH03': (BLOCK, 'âm lượng: Short'), 'SH04': (BLOCK, 'true peak: Short'),
