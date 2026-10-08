@@ -14,3 +14,4 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc (`episode.
 | 2026-10-08 | C2 | kiểm mù | headless 6 Sonnet + 1 chấm | vòng 2 | 36.907 (trần) | 6/6, khuyên 0; phương pháp 2/6 · định nghĩa 2/6 · số dày 2/6 → ĐẠT |
 | 2026-10-08 | G1 | khác (REVIEWER) | agent general-purpose | soát gói G1 + kịch bản C2 v2 (`gates/REVIEW-G1.md`) | 159.108 | ĐẠT có sửa: 1 CHẶN (thùng khoản đều) + 4 CHÍNH → đã áp; 7 PHỤ hàng chờ C3–C4 |
 | 2026-10-08 | G1 | điều phối | phiên chính | áp nguyên văn sửa REVIEWER (S04.3, S08.1, S12.1, S12.2, S31.3; B08; nhãn góc); "the two checks" → "both checks" (checker đọc "two" là số) | — | check ĐẠT (--g1-short); 1.186 từ ≈ 7:50 |
+| 2026-10-08 | G1 | điều phối | phiên P2 (chính) | chép câu trả lời G1 → `gates/G1-answer.md`; ghi `taste-ledger.md`, `AUTHORSHIP.md` | — | L1 sửa · H-B + C2 v2 · `101` (b) ≥ 1.275 từ · T1 · bài học T6-1 |
