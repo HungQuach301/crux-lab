@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows how long it took past buyers who put 10% down to get their loan down to 80% of the home's value. The 80% line is probably the point where extra costs like mortgage insurance usually end, but the image doesn't say so. Frames 1 and 2 show an illustrative schedule. The loan starts at 90% of the price and falls to 80% by about 8 years from regular payments alone. Frames 3 to 6 swap that for real data: one line for each purchase month from 1991 to 2016, from FHFA and Freddie Mac data via FRED.\n\n2. **What changes:** The single schedule line is replaced by a bundle of many gray lines. All of them start at 90%. Some drop quickly to 80%. Others rise well above 90% before they come back down. In frame 6 two lines are highlighted. The \"typical\" one reaches 80% in about 2 years, and the \"slowest case\" one takes about 9 years. That is slower than the 8-year schedule.\n\n3. **What it means:** Paying down the loan on schedule is only part of the story, because the loan's share of the home's value also moves with the home's price. In most past cases, rising prices got buyers to 80% much faster than the schedule, about 2 years. In the worst case, prices fell and it took longer than the schedule, about 9 years. So the time it takes is uncertain and depends on the market.\n\n4. **Advice a viewer would take:** The video gives no instruction to buy, rent or wait. The frames say this is \"a measurement, not a next step,\" \"not a reason to buy, rent or wait,\" and \"US only · history, not a forecast.\" A viewer would take away that, with 10% down, you can plan around the 8-year schedule. Past buyers were often much faster, but some were slower, so you shouldn't count on a quick drop to 80%. As a renter with about 10% saved, I'd read this as a way to budget for the range of outcomes, from about 2 to 9 years. I wouldn't treat it as a signal to act now.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1373,
+   "out": 20
+  },
+  "claude-sonnet-5-5": {
+   "in": 9771,
+   "out": 960
+  }
+ },
+ "turns": 2
+}

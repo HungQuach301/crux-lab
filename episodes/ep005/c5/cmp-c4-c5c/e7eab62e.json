@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long a buyer with a small down payment would pay mortgage insurance. It compares the fixed paydown schedule \"on paper\" with what happened to real past buyers. The same rule and the same home price index (FHFA/Freddie Mac data via FRED) were applied to every buyer, lined up at their purchase date. The vertical axis seems to show the loan as a share of the home's value, running from about 80% down to 75%. The horizontal axis runs 0 to 10 years. I'm inferring that this is the point where mortgage insurance can be dropped, and the image doesn't say so outright.\n\n2. **What changes across the frames.**\n   - Frame 1 shows a few lines, including the schedule and one real path.\n   - Frames 2 and 3 add a dense fan of many past buyers' paths. Three example buyers are labeled Grace, Owen and Victor, and \"a plan\" marks the schedule fixed at the start.\n   - Frame 4 adds numbers: on paper the typical case takes 23 months, and about 1 in 7 buyers were still not there after 60 months. A note says a two-year wait matched the typical month, not the slow cases and not the lender's step.\n   - Frame 5 switches to a $400,000 home next to a tall stack of green blocks, with the bottom blocks highlighted.\n   - Frame 6 shows a house with \"buy now + mortgage insurance\" and an apartment building with \"keep renting, keep saving,\" with a person standing between them.\n\n3. **What it means.** How long you pay mortgage insurance depends partly on the plan and partly on what home prices do after you buy. Most past buyers got out in roughly two years, but some took much longer, and the spread was wide. The repeated captions say this is history and not a forecast, applies to the US only, and is not a reason to buy, rent or wait. Frame 5 is labeled \"A measurement, not a next step.\"\n\n4. **What a viewer would take from it.** The video avoids telling you what to do. The only takeaway is to understand the choice. Buying with a small down payment means paying mortgage insurance for an uncertain length of time, and the typical case is about two years with a real chance of much longer. Renting and saving is the other path. As a renter with about 10% saved, I'd use this to plan for the slow case. I'd budget for the insurance lasting longer than two years instead of treating the typical number as a promise. The animation doesn't say which path is better.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1375,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "in": 9781,
+   "out": 1250
+  }
+ },
+ "turns": 2
+}

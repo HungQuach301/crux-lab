@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation shows how long it takes past US home buyers with small down payments to reach 80% loan-to-value. That is the point where mortgage insurance can normally come off. The data source is labeled FHFA and Freddie Mac via FRED. The whole thing is marked \"illustrative.\"\n\n**2. What changes across the frames.**\n- **Frame 1:** Three buyers appear side by side: Owen (fast), Grace, and Victor (slow). Each has a straight \"on paper\" payoff schedule, and a wiggly line shows what actually happened, which depends on home prices.\n- **Frames 2–3:** The three paths are lined up at the purchase date and overlaid on a 0–10 year axis. A \"plan\" marker sits at the start, and the note says the schedule is fixed at the start.\n- **Frame 4:** Numbers appear. On paper, the typical buyer reaches the 80% mark in about 23 months, and about 1 in 7 take more than 60 months. A callout says roughly 2 years matched the typical month, not the slow ones and not the lender's step.\n- **Frame 5:** The view switches to a $400,000 home drawn as a stack of equity, with \"all $ in dollars of the day.\"\n- **Frame 6:** It ends on two icons. One is a house with the label \"buying now + mortgage insurance.\" The other is an apartment building with the label \"still renting, still saving.\"\n\n**3. What it means.**\n- How fast you get below 80% loan-to-value depends on when you buy and what home prices do afterward, not only on the payment schedule.\n- Most buyers reach it in about two years, but some take five years or more.\n- The animation says it is a measurement of past buyers. It is not a forecast and not a reason to buy, rent, or wait.\n\n**4. Advice a viewer would take.**\n- The animation gives no direct advice, and it says so on every frame.\n- A viewer could take away that mortgage insurance is usually temporary but its length is uncertain, so they shouldn't assume the typical 2 years.\n- They might also see that buying with a small down payment and continuing to rent and save are both real options, with different trade-offs.\n- Because I read the frames only, I can't say what the narration recommends. The image doesn't show whether the 23-month figure assumes price growth or only paying down the loan.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1377,
+   "out": 373
+  },
+  "claude-sonnet-5-5": {
+   "in": 9775,
+   "out": 1103
+  }
+ },
+ "turns": 2
+}

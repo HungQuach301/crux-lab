@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it takes a buyer who puts down about 10% to get their loan down to 80% of the home's value. That is the point where private mortgage insurance (PMI) usually ends, though the frames never mention PMI. It compares the textbook payment schedule with what actually happened to past buyers.\n\n2. **What changes across the frames.**\n   - Frames 1–2 are labeled \"illustrative.\" One line starts at 90% and slopes down to the 80% line at about 8 years. That is the schedule.\n   - Frame 3 swaps the title to real data: loan as a percent of home value, one line per purchase month from 1991 to 2016. The data comes from FHFA and Freddie Mac via FRED.\n   - Frames 4–5 fill in hundreds of gray lines, one for each purchase month. Many dip below 80% quickly. Others rise first, because home prices fell, and then come down slowly.\n   - Frame 6 highlights two lines. The typical buyer reached 80% in about 2 years. The slowest case, shown in blue, took about 9 years, which is longer than the 8-year schedule.\n\n3. **What it means.** The schedule is only a baseline. Home price changes mostly decide how fast your loan-to-value ratio falls, and paying down principal matters less. Most past buyers got to 80% much faster than the schedule says, because prices rose. Buyers who bought before a price drop waited longer than the schedule, since their loan was a larger share of a home worth less. The captions say this is a measurement of past US buyers. It is not a forecast.\n\n4. **Advice a viewer would take.** The captions say plainly that this is \"not a reason to buy, rent or wait.\" The only takeaway is to expect a wide range. With 10% down, reaching 80% could take anywhere from about 2 to 9 years, depending on prices after you buy. So I wouldn't count on a specific date for dropping the extra costs. I'd also leave some room in my budget in case it takes longer than 8 years.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1375,
+   "out": 20
+  },
+  "claude-sonnet-5-5": {
+   "in": 9769,
+   "out": 748
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation compares how fast past US home buyers actually reached 80% loan-to-value (20% equity) with the schedule on paper. That is the point where mortgage insurance can come off. It uses FHFA and Freddie Mac data. Three example buyers, Owen (fast), Grace (typical) and Victor (slow), all follow the same rule and the same price index, lined up at their purchase date. The labels say \"ILLUSTRATIVE\", \"history, not a forecast\" and \"not a reason to buy, rent or wait.\"\n\n2. **What changes across the frames.**\n   - Frame 1 shows three separate panels, one per buyer. Each has a straight \"on paper\" schedule line and a wobbly real line of the loan balance relative to home value.\n   - Frames 2 and 3 overlay the three buyers on one shared 0–10 year axis, with a \"plan\" marker at the start. The paths spread out around the 80% line, and the background shows many other past buyers as a band.\n   - Frame 4 adds numbers. The paper schedule is fixed at the start, with a typical 23 months. About 1 in 7 buyers took more than 60 months. About 2 years matched the typical month, \"not the slow ones, not the lender's step.\"\n   - Frame 5 switches to a $400,000 home shown as a stack of green blocks. It is labeled \"a measurement, not a next step,\" in dollars of the day.\n   - Frame 6 ends with a person between two options. One is \"buying now + mortgage insurance\" and the other is \"still renting, still saving.\"\n\n3. **What it means.** The paper schedule says when you should reach 80%, but real timing depends on home prices, so it varies. Most buyers got there in around two years, a few quickly and some very slowly. About 1 in 7 took more than five years. Mortgage insurance on a roughly 10%-down purchase is therefore usually temporary, but its length is uncertain. Frame 6 frames the choice as buying with that insurance versus renting and saving.\n\n4. **Advice a viewer would take.** The video explicitly gives no buy, rent or wait recommendation. A viewer, like me with about 10% saved, would take away three things:\n   - Don't assume the paper schedule will tell you when the insurance ends. Plan for a typical 2 years or so, and budget for the chance it takes 5 or more.\n   - Check whether your monthly budget could handle the insurance for that long, since the data is historical and US-only.\n   - Treat this as one input to the buy-or-rent decision. Other factors matter too, such as local prices, how long you'll stay, and your savings.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1373,
+   "out": 24
+  },
+  "claude-sonnet-5-5": {
+   "in": 9767,
+   "out": 939
+  }
+ },
+ "turns": 2
+}

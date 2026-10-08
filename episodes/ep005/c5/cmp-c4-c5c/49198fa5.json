@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it takes a home buyer's loan to fall to 80% of the home's value. That is the point where you could drop private mortgage insurance. It compares the fixed payment schedule with what happened to real buyers. The schedule assumes the loan starts at about 90% of the price and reaches 80% in roughly 8 years, from paying down the loan alone. The real-world lines use FHFA and Freddie Mac data from FRED. They show loan divided by the home's value on paper, with one line per purchase month from 1991 to 2016.\n\n2. **What changes across the frames.**\n   - Frames 1–2: A single illustrative line, marked \"ILLUSTRATIVE\", slopes down from 90% to the 80% line. It gets there at about year 8.\n   - Frame 3: The label \"schedule ≈ 8 years\" appears. Real purchase-month lines begin to fan out from the starting point.\n   - Frames 4–5: Many more lines fill in. They spread widely. Some drop below the schedule quickly, and others rise well above 90% before coming back down.\n   - Frame 6: Two real cases are highlighted. A typical buyer reaches 80% in about 2 years. The slowest case, in blue, rises well above the starting level and takes about 9 years.\n\n3. **What it means.** The schedule is a rough guide, and actual experience varies a lot because home values moved. When prices rose, the loan share fell fast, and a typical buyer got to 80% in about 2 years. When prices fell, the loan share went up and the wait stretched out. Even the slowest case came in only slightly after the schedule's 8 years. The chart's own caption says this is a measurement of past buyers. It is US-only history and not a forecast.\n\n4. **Advice a viewer would take.** The animation gives no direct advice. It says outright that it is \"not a reason to buy, rent or wait.\" A careful viewer would take away a few points:\n   - Don't count on home price growth to get you out of mortgage insurance quickly.\n   - Don't assume the 8-year schedule will hold either, because it can run slower or faster.\n   - If you put down about 10%, plan for a range of outcomes, from about 2 years to 9 years or more, rather than a single date.\n   - The past isn't a promise, so this should inform your planning and not decide whether you buy.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1374,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "in": 9766,
+   "out": 854
+  }
+ },
+ "turns": 2
+}

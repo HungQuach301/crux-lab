@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation looks at how long a first-time buyer with a small down payment would pay mortgage insurance. It lines up many past home-price histories (FHFA and Freddie Mac data via FRED) at the month of purchase. It compares them with a fixed paydown schedule, and the schedule is labeled \"on paper.\" The lines at 80% and 75% appear to be loan-to-value thresholds, where mortgage insurance can come off. The labels are small, so that reading is my inference.\n\n2. **What changes.**\n   - Frame 1 shows a few lines over 10 years: the schedule falling toward the thresholds and a price line rising and then falling.\n   - Frame 2 adds a dense bundle of past price paths and a vertical marker labeled \"a plan.\" Three example buyers, Owen, Grace and Victor, sit along the way.\n   - Frame 3 adds the note that the schedule is \"fixed at the start.\"\n   - Frame 4 adds the numbers: on paper, the typical case takes 23 months, and about 1 in 7 buyers takes more than 60 months. It also says that about 2 years matched the typical month, \"not the slow ones, not the lender's step.\"\n   - Frame 5 switches to a $400,000 home drawn as a stack of blocks, with the bottom portion shaded as the owner's share.\n   - Frame 6 shows a house, a person and an apartment building, labeled \"buy now + mortgage insurance\" and \"keep renting, keep saving.\"\n\n3. **What it means.** The date mortgage insurance ends is not fixed. It depends on the schedule and on what home prices do after you buy. In the typical past case it ended in about two years. In roughly one in seven cases it took more than five years. Every frame is marked \"illustrative,\" \"history, not a forecast,\" and \"US only.\"\n\n4. **What a viewer would take away.** The animation gives no buy, rent or wait advice, and it says so: \"not a reason to buy, rent or wait\" and \"a measurement, not a next step.\" The takeaway is to treat mortgage insurance as a cost with an uncertain end date. If you're buying with about 10% down, the typical past case was around two years, but plan for the chance that it takes much longer. Frame 6 sets \"buy now with mortgage insurance\" beside \"keep renting and saving\" as two real options, and the choice is left to you.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1375,
+   "out": 216
+  },
+  "claude-sonnet-5-5": {
+   "in": 9777,
+   "out": 1168
+  }
+ },
+ "turns": 2
+}

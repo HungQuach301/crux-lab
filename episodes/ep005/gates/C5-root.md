@@ -23,3 +23,10 @@ Không tốt hơn C5b → vòng 2: về bố cục C4 tốt nhất, chỉ giữ 
 ## So C4 ↔ C5c đủ mẫu (ghi TRƯỚC khi chạy, 2026-10-08)
 Lý do: dải C5b gần trùng điểm ảnh với C4 mà điểm khác (n = 2–3) → nghi nhiễu. **Phép so:** mỗi nhịp B02, B18 — dải **C4 tốt nhất** (`review-c4/strips/B02-S02.r2.png` = bản v1/v2 đạt 2/2; `B18-S18.r2.png` = bản v2 đạt 2/2) và dải **C5c** (`review-g2/strips/B02-S02.png`, `B18-S18.png`), **6 người đọc mới mỗi dải** (24 lượt), cùng câu hỏi/vai, chấm bằng **một** người chấm cho cả 24 nhãn trộn (nhãn có id dải, không có phiên bản), cùng đáp án hiện hành (`review-c4/spans.json`).
 **Quyết định ghi trước:** C5c giữ nếu số người đọc đúng (nghĩa 1 + không khuyên_tính) của C5c **≥** của C4 cho từng nhịp (nghĩa không thấp hơn C4). C5c < C4 ở nhịp nào → nhịp đó về bố cục C4 (giữ phần luật bắt buộc) ở vòng 2. Kết quả ghi nguyên văn bên dưới, không chạy lại.
+
+### Kết quả so đủ mẫu (`c5/cmp-c4-c5c/`, 24 lượt, một người chấm; token 296.448 + 46.325)
+| Nhịp | C4 tốt nhất | C5c | Quyết định (ghi trước) |
+|---|---|---|---|
+| B02 | 5/6 (khuyên 1) | **6/6** | C5c ≥ C4 → **giữ C5c** |
+| B18 | 1/6 (nghĩa 0,5 ×5: bản C4 không có ba bảng) | **5/6** | C5c ≥ C4 → **giữ C5c** |
+Kết luận: các điểm thấp ở n = 2–3 (C5b, C5c vòng 1) là nhiễu mẫu nhỏ; bản C5c đạt nghĩa ≥ C4 ở mọi nhịp loại 1. Bài học: so phiên bản bằng 6 người đọc/dải cùng một người chấm (đề xuất cho tổng kết Tập 5).

@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation looks at how long it takes a new homebuyer to get their loan down to a target loan-to-value level, shown as the 80% and 75% lines. It uses real US house-price history (FHFA and Freddie Mac data via FRED). The label says \"illustrative,\" so the specific lines aren't a forecast. I'm inferring that the 80% line is where mortgage insurance can come off, but the image never says so outright. The point seems to be that the same payment schedule gives very different timelines depending on when you bought.\n\n**2. What changes across the frames.**\n- Frame 1 shows three example buyers, Owen (fast), Grace and Victor (slow). Each has the same fixed paydown schedule on paper, but their actual paths differ because house prices moved differently after each purchase.\n- Frames 2 and 3 line up many past purchase dates on one 0–10 year axis. Each buyer's path starts at 80% and drifts toward 75%. Some get there quickly and some take years, so the paths spread out.\n- Frame 4 adds numbers: on paper the typical case takes 23 months, but about 1 in 7 buyers took more than 60 months. It also notes that about 2 years matched the typical month, \"not the slow ones, not the lender's step.\"\n- Frame 5 switches to a $400,000 home shown as a stack of dollars, with the caption \"a measurement, not a next step.\"\n- Frame 6 compares \"buying now + mortgage insurance\" with \"still renting, still saving.\"\n\n**3. What it means.** The schedule on paper says one thing, but what happens depends on home prices after you buy. A typical buyer gets there in around two years. A meaningful minority, roughly one in seven, waited five years or more. The footer says this is past data for the US only, \"history, not a forecast,\" and \"not a reason to buy, rent or wait.\"\n\n**4. The advice a viewer would take.** The video explicitly avoids telling you to buy, rent or wait. As a renter with about 10% saved, I'd take away three things:\n- If I buy with a small down payment, I should expect to pay mortgage insurance for about two years, and plan for it possibly lasting much longer.\n- The \"typical\" timeline isn't guaranteed, so I shouldn't budget as if it were.\n- Buying now with insurance and renting while I keep saving are both legitimate options. The decision depends on my own finances and how long I plan to stay, not on this chart.\n\nI'm reading these frames without audio or narration, so the details above are my best interpretation of the labels.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1374,
+   "out": 256
+  },
+  "claude-sonnet-5-5": {
+   "in": 9774,
+   "out": 1281
+  }
+ },
+ "turns": 2
+}

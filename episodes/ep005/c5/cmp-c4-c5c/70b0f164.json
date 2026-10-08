@@ -1,0 +1,14 @@
+{
+ "answer": "**1. What idea is this animation showing?**\nIt shows how long past home buyers who put down less than 20% paid for mortgage insurance. The chart tracks the loan against the home's value, with 80% and 75% marked on the left. Mortgage insurance seems to end once the loan falls to about 80% of the home's value. Each buyer's path comes from real price history (FHFA and Freddie Mac data via FRED). It is labeled \"illustrative,\" and it is US only.\n\n**2. What changes over time across the frames?**\n- **Frame 1:** There is one wiggly line for how home prices actually moved. Next to it are flat or gently sloping lines for the scheduled paydown, and the axis runs 0 to 10 years.\n- **Frames 2–3:** Many past buyers are layered on as a gray mesh, with three named examples (Owen, Grace and Victor). A vertical marker sits near year 2, and a note says the schedule is fixed at the start.\n- **Frame 4:** Text says the typical buyer took about 23 months to get there, and about 1 in 7 took more than 60 months. Another note says about 2 years matched the typical month, not the slow cases and not the lender's own step.\n- **Frame 5:** The picture shifts to a $400,000 home, shown as a stack of blocks with the bottom portion filled in, like a down payment or equity.\n- **Frame 6:** Two choices appear, \"buy now + mortgage insurance\" and \"keep renting, keep saving.\"\n\n**3. What does it mean?**\nThe paper schedule says when the insurance should end, but real timing depends on what home prices did after each person bought. Most past buyers got out of mortgage insurance in about two years. A minority waited five years or more, because prices were flat or fell. So the cost of a small down payment varies a lot depending on when you buy.\n\n**4. What advice, if any, would a viewer take from this?**\nThe video gives no direct advice. The captions say \"not a reason to buy, rent or wait\" and \"a measurement, not a next step.\" As a renter with about 10% saved, I'd take a few things from it:\n- Buying with 10% down and paying mortgage insurance is not a long-term trap. Typically it was short, but I shouldn't count on that.\n- I should plan for the slow case, where the insurance lasts 5+ years, and check that I could afford that.\n- The choice between buying now and renting while I save is still mine. The animation doesn't say which is better, and it isn't a forecast.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1374,
+   "out": 230
+  },
+  "claude-sonnet-5-5": {
+   "in": 9766,
+   "out": 1185
+  }
+ },
+ "turns": 2
+}
