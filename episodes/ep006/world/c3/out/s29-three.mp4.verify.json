@@ -1,0 +1,195 @@
+{
+ "video": "/home/user/crux-lab/episodes/ep006/world/c3/out/.staging-s29-three-13026/s29-three.mp4",
+ "rule1": {
+  "violations": 0,
+  "examples": []
+ },
+ "rule2": {
+  "keywords": 8,
+  "camera_moving_at_keyword": []
+ },
+ "rule3": {
+  "moves": 2,
+  "missing_reason_or_sound": []
+ },
+ "modes": {
+  "world_share": 0.343,
+  "chart_share": 0.657,
+  "first_5s_world": true
+ },
+ "F2": {
+  "summary": {
+   "level": "OK",
+   "sfx_per_min": 23.2,
+   "sfx_max_10s": 6,
+   "sfx_on_speech": 6,
+   "sfx_on_plain_words": 1,
+   "sfx_events": 8,
+   "keyword_hits": 5,
+   "min_keyword_snr_db": 23.0,
+   "label_overlaps": 0,
+   "line_crossings": 0,
+   "block": 0,
+   "warn": 0
+  },
+  "level": "OK",
+  "block": [],
+  "warn": [],
+  "sfx": {
+   "events": 8,
+   "duration_s": 20.69,
+   "per_min": 23.2,
+   "max_window": {
+    "count": 6,
+    "t0": 6.552,
+    "t1": 16.552,
+    "times": [
+     6.552,
+     7.452,
+     9.44,
+     10.88,
+     12.976,
+     15.413
+    ]
+   },
+   "on_speech": {
+    "count": 6,
+    "plain_words": 1,
+    "times": [
+     {
+      "t": 2.373,
+      "kind": "tick",
+      "word": "Edna",
+      "keyword": true
+     },
+     {
+      "t": 6.552,
+      "kind": "whoosh_mode",
+      "word": "behind.",
+      "keyword": false
+     },
+     {
+      "t": 9.44,
+      "kind": "tick",
+      "word": "full,",
+      "keyword": true
+     },
+     {
+      "t": 10.88,
+      "kind": "tick",
+      "word": "nine,",
+      "keyword": true
+     },
+     {
+      "t": 12.976,
+      "kind": "tick",
+      "word": "four.",
+      "keyword": true
+     },
+     {
+      "t": 15.413,
+      "kind": "tick",
+      "word": "month",
+      "keyword": true
+     }
+    ]
+   },
+   "keyword_hits": [
+    {
+     "keyword": "d0.edna",
+     "word": "Edna",
+     "s": 2.373,
+     "e": 2.56,
+     "events": [
+      [
+       2.373,
+       "tick"
+      ]
+     ],
+     "snr_db": 23.0,
+     "level": "OK"
+    },
+    {
+     "keyword": "d1.full",
+     "word": "full,",
+     "s": 9.44,
+     "e": 10.08,
+     "events": [
+      [
+       9.44,
+       "tick"
+      ]
+     ],
+     "snr_db": 24.6,
+     "level": "OK"
+    },
+    {
+     "keyword": "d1.nine",
+     "word": "nine,",
+     "s": 10.88,
+     "e": 11.28,
+     "events": [
+      [
+       10.88,
+       "tick"
+      ]
+     ],
+     "snr_db": 32.8,
+     "level": "OK"
+    },
+    {
+     "keyword": "d1.four",
+     "word": "four.",
+     "s": 12.976,
+     "e": 13.84,
+     "events": [
+      [
+       12.976,
+       "tick"
+      ]
+     ],
+     "snr_db": 27.3,
+     "level": "OK"
+    },
+    {
+     "keyword": "d2.month",
+     "word": "month",
+     "s": 15.413,
+     "e": 15.68,
+     "events": [
+      [
+       15.413,
+       "tick"
+      ]
+     ],
+     "snr_db": 34.9,
+     "level": "OK"
+    }
+   ],
+   "stems": true,
+   "warn": [],
+   "block": []
+  },
+  "labels": {
+   "samples": 207,
+   "overlaps": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "line_crossings": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "warn": [],
+   "block": []
+  }
+ },
+ "cuts": {
+  "hard_cuts": []
+ },
+ "C14": {
+  "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+ }
+}

@@ -1,0 +1,133 @@
+{
+ "video": "/home/user/crux-lab/episodes/ep006/world/c3/out/.staging-s07-ruth-11622/s07-ruth.mp4",
+ "rule1": {
+  "violations": 0,
+  "examples": []
+ },
+ "rule2": {
+  "keywords": 4,
+  "camera_moving_at_keyword": []
+ },
+ "rule3": {
+  "moves": 2,
+  "missing_reason_or_sound": []
+ },
+ "modes": {
+  "world_share": 0.427,
+  "chart_share": 0.573,
+  "first_5s_world": true
+ },
+ "F2": {
+  "summary": {
+   "level": "OK",
+   "sfx_per_min": 22.9,
+   "sfx_max_10s": 4,
+   "sfx_on_speech": 3,
+   "sfx_on_plain_words": 1,
+   "sfx_events": 5,
+   "keyword_hits": 2,
+   "min_keyword_snr_db": 26.9,
+   "label_overlaps": 0,
+   "line_crossings": 0,
+   "block": 0,
+   "warn": 0
+  },
+  "level": "OK",
+  "block": [],
+  "warn": [],
+  "sfx": {
+   "events": 5,
+   "duration_s": 13.09,
+   "per_min": 22.9,
+   "max_window": {
+    "count": 4,
+    "t0": 0.355,
+    "t1": 10.355,
+    "times": [
+     0.355,
+     5.0,
+     6.2,
+     7.18
+    ]
+   },
+   "on_speech": {
+    "count": 3,
+    "plain_words": 1,
+    "times": [
+     {
+      "t": 5.0,
+      "kind": "whoosh_mode",
+      "word": "did.",
+      "keyword": false
+     },
+     {
+      "t": 7.18,
+      "kind": "tick",
+      "word": "ten",
+      "keyword": true
+     },
+     {
+      "t": 11.296,
+      "kind": "tick",
+      "word": "nine.",
+      "keyword": true
+     }
+    ]
+   },
+   "keyword_hits": [
+    {
+     "keyword": "a1.ten",
+     "word": "ten",
+     "s": 7.18,
+     "e": 7.36,
+     "events": [
+      [
+       7.18,
+       "tick"
+      ]
+     ],
+     "snr_db": 26.9,
+     "level": "OK"
+    },
+    {
+     "keyword": "a1.nine",
+     "word": "nine.",
+     "s": 11.296,
+     "e": 11.84,
+     "events": [
+      [
+       11.296,
+       "tick"
+      ]
+     ],
+     "snr_db": 28.9,
+     "level": "OK"
+    }
+   ],
+   "stems": true,
+   "warn": [],
+   "block": []
+  },
+  "labels": {
+   "samples": 131,
+   "overlaps": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "line_crossings": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "warn": [],
+   "block": []
+  }
+ },
+ "cuts": {
+  "hard_cuts": []
+ },
+ "C14": {
+  "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+ }
+}

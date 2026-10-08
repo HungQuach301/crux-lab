@@ -1,0 +1,75 @@
+{
+ "segment": "episodes/ep006/world/c3/s07-ruth",
+ "res": 540,
+ "out": "episodes/ep006/world/c3/out/s07-ruth.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.3,
+   "ok": true,
+   "problems": [],
+   "files": 18
+  },
+  "spine": {
+   "seconds": 0.4,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 59.0,
+   "ok": true,
+   "shots": 3,
+   "rendered": [
+    "s0",
+    "s1",
+    "s2"
+   ],
+   "cached": 0,
+   "wall_s": 58.4,
+   "film_s": 13.09,
+   "wall_per_film_s_rendered": 8.01,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 7.4,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 1.3,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 1.7,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+   },
+   "modes": {
+    "world_share": 0.427,
+    "chart_share": 0.573,
+    "first_5s_world": true
+   },
+   "F2": {
+    "level": "OK",
+    "sfx_per_min": 22.9,
+    "sfx_max_10s": 4,
+    "sfx_on_speech": 3,
+    "sfx_on_plain_words": 1,
+    "sfx_events": 5,
+    "keyword_hits": 2,
+    "min_keyword_snr_db": 26.9,
+    "label_overlaps": 0,
+    "line_crossings": 0,
+    "block": [],
+    "warn": []
+   }
+  }
+ },
+ "total_seconds": 70.0
+}

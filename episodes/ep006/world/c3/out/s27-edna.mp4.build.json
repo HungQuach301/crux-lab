@@ -1,0 +1,78 @@
+{
+ "segment": "episodes/ep006/world/c3/s27-edna",
+ "res": 540,
+ "out": "episodes/ep006/world/c3/out/s27-edna.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.3,
+   "ok": true,
+   "problems": [],
+   "files": 18
+  },
+  "spine": {
+   "seconds": 0.5,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 150.5,
+   "ok": true,
+   "shots": 4,
+   "rendered": [
+    "s0",
+    "s1",
+    "s2",
+    "s3"
+   ],
+   "cached": 0,
+   "wall_s": 149.8,
+   "film_s": 34.85,
+   "wall_per_film_s_rendered": 8.8,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 18.5,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 2.6,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 3.4,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+   },
+   "modes": {
+    "world_share": 0.169,
+    "chart_share": 0.831,
+    "first_5s_world": true
+   },
+   "F2": {
+    "level": "WARN",
+    "sfx_per_min": 15.5,
+    "sfx_max_10s": 5,
+    "sfx_on_speech": 9,
+    "sfx_on_plain_words": 3,
+    "sfx_events": 9,
+    "keyword_hits": 6,
+    "min_keyword_snr_db": 15.6,
+    "label_overlaps": 1,
+    "line_crossings": 0,
+    "block": [],
+    "warn": [
+     "Edna × Edna · ILLUSTRATIVE · Jan 1949 17.8–17.8 s (1 mẫu)"
+    ]
+   }
+  }
+ },
+ "total_seconds": 175.9
+}

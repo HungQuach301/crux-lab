@@ -1,0 +1,249 @@
+{
+ "video": "/home/user/crux-lab/episodes/ep006/world/c3/out/.staging-s27-edna-12627/s27-edna.mp4",
+ "rule1": {
+  "violations": 0,
+  "examples": []
+ },
+ "rule2": {
+  "keywords": 12,
+  "camera_moving_at_keyword": []
+ },
+ "rule3": {
+  "moves": 3,
+  "missing_reason_or_sound": []
+ },
+ "modes": {
+  "world_share": 0.169,
+  "chart_share": 0.831,
+  "first_5s_world": true
+ },
+ "F2": {
+  "summary": {
+   "level": "WARN",
+   "sfx_per_min": 15.5,
+   "sfx_max_10s": 5,
+   "sfx_on_speech": 9,
+   "sfx_on_plain_words": 3,
+   "sfx_events": 9,
+   "keyword_hits": 6,
+   "min_keyword_snr_db": 15.6,
+   "label_overlaps": 1,
+   "line_crossings": 0,
+   "block": 0,
+   "warn": 1
+  },
+  "level": "WARN",
+  "block": [],
+  "warn": [
+   "Edna × Edna · ILLUSTRATIVE · Jan 1949 17.8–17.8 s (1 mẫu)"
+  ],
+  "sfx": {
+   "events": 9,
+   "duration_s": 34.85,
+   "per_min": 15.5,
+   "max_window": {
+    "count": 5,
+    "t0": 0.45,
+    "t1": 10.45,
+    "times": [
+     0.45,
+     1.548,
+     5.306,
+     6.406,
+     7.984
+    ]
+   },
+   "on_speech": {
+    "count": 9,
+    "plain_words": 3,
+    "times": [
+     {
+      "t": 0.45,
+      "kind": "tick",
+      "word": "Edna,",
+      "keyword": true
+     },
+     {
+      "t": 1.548,
+      "kind": "whoosh_air",
+      "word": "illustrative,",
+      "keyword": false
+     },
+     {
+      "t": 5.306,
+      "kind": "whoosh_mode",
+      "word": "last",
+      "keyword": true
+     },
+     {
+      "t": 6.406,
+      "kind": "land",
+      "word": "month",
+      "keyword": false
+     },
+     {
+      "t": 7.984,
+      "kind": "tick",
+      "word": "kept",
+      "keyword": true
+     },
+     {
+      "t": 17.51,
+      "kind": "whoosh_soft",
+      "word": "started",
+      "keyword": false
+     },
+     {
+      "t": 21.0,
+      "kind": "tick",
+      "word": "Her",
+      "keyword": true
+     },
+     {
+      "t": 22.944,
+      "kind": "tick",
+      "word": "Carl's.",
+      "keyword": true
+     },
+     {
+      "t": 24.064,
+      "kind": "tick",
+      "word": "same",
+      "keyword": true
+     }
+    ]
+   },
+   "keyword_hits": [
+    {
+     "keyword": "c0.edna",
+     "word": "Edna,",
+     "s": 0.45,
+     "e": 0.88,
+     "events": [
+      [
+       0.45,
+       "tick"
+      ]
+     ],
+     "snr_db": 33.0,
+     "level": "OK"
+    },
+    {
+     "keyword": "c0.last",
+     "word": "last",
+     "s": 5.056,
+     "e": 5.44,
+     "events": [
+      [
+       5.306,
+       "whoosh_mode"
+      ]
+     ],
+     "snr_db": 187.1,
+     "level": "OK"
+    },
+    {
+     "keyword": "c0.kept",
+     "word": "kept",
+     "s": 7.984,
+     "e": 8.24,
+     "events": [
+      [
+       7.984,
+       "tick"
+      ]
+     ],
+     "snr_db": 23.0,
+     "level": "OK"
+    },
+    {
+     "keyword": "c3.her",
+     "word": "Her",
+     "s": 21.0,
+     "e": 21.04,
+     "events": [
+      [
+       21.0,
+       "tick"
+      ]
+     ],
+     "snr_db": 15.6,
+     "level": "OK"
+    },
+    {
+     "keyword": "c3.carl",
+     "word": "Carl's.",
+     "s": 22.944,
+     "e": 23.6,
+     "events": [
+      [
+       22.944,
+       "tick"
+      ]
+     ],
+     "snr_db": 30.6,
+     "level": "OK"
+    },
+    {
+     "keyword": "c4.same",
+     "word": "same",
+     "s": 24.064,
+     "e": 24.32,
+     "events": [
+      [
+       24.064,
+       "tick"
+      ]
+     ],
+     "snr_db": 30.5,
+     "level": "OK"
+    }
+   ],
+   "stems": true,
+   "warn": [],
+   "block": []
+  },
+  "labels": {
+   "samples": 349,
+   "overlaps": {
+    "count": 1,
+    "spans": [
+     {
+      "what": "Edna × Edna · ILLUSTRATIVE · Jan 1949",
+      "t0": 17.8,
+      "t1": 17.8,
+      "samples": 1,
+      "level": "WARN"
+     }
+    ],
+    "examples": [
+     {
+      "t": 17.8,
+      "a": "Edna",
+      "b": "Edna · ILLUSTRATIVE · Jan 1949",
+      "overlap_px": [
+       116.0,
+       18.1
+      ],
+      "level": "WARN"
+     }
+    ]
+   },
+   "line_crossings": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "warn": [
+    "Edna × Edna · ILLUSTRATIVE · Jan 1949 17.8–17.8 s (1 mẫu)"
+   ],
+   "block": []
+  }
+ },
+ "cuts": {
+  "hard_cuts": []
+ },
+ "C14": {
+  "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+ }
+}

@@ -1,0 +1,260 @@
+{
+ "video": "/home/user/crux-lab/episodes/ep006/world/c3/out/.staging-s24-carl-12261/s24-carl.mp4",
+ "rule1": {
+  "violations": 0,
+  "examples": []
+ },
+ "rule2": {
+  "keywords": 10,
+  "camera_moving_at_keyword": []
+ },
+ "rule3": {
+  "moves": 2,
+  "missing_reason_or_sound": []
+ },
+ "modes": {
+  "world_share": 0.29,
+  "chart_share": 0.71,
+  "first_5s_world": true
+ },
+ "F2": {
+  "summary": {
+   "level": "WARN",
+   "sfx_per_min": 16.2,
+   "sfx_max_10s": 5,
+   "sfx_on_speech": 9,
+   "sfx_on_plain_words": 1,
+   "sfx_events": 9,
+   "keyword_hits": 8,
+   "min_keyword_snr_db": 12.1,
+   "label_overlaps": 0,
+   "line_crossings": 0,
+   "block": 0,
+   "warn": 2
+  },
+  "level": "WARN",
+  "block": [],
+  "warn": [
+   "sfx [(20.32, 'tick')] trên từ khoá b3.ten 'ten' 20.32–20.56 SNR 12.5 dB",
+   "sfx [(28.3, 'tick')] trên từ khoá b5.ruths 'Ruth's' 28.3–28.32 SNR 12.1 dB"
+  ],
+  "sfx": {
+   "events": 9,
+   "duration_s": 33.41,
+   "per_min": 16.2,
+   "max_window": {
+    "count": 5,
+    "t0": 0.48,
+    "t1": 10.48,
+    "times": [
+     0.48,
+     4.02,
+     5.04,
+     9.03,
+     10.23
+    ]
+   },
+   "on_speech": {
+    "count": 9,
+    "plain_words": 1,
+    "times": [
+     {
+      "t": 0.48,
+      "kind": "tick",
+      "word": "Ruth",
+      "keyword": true
+     },
+     {
+      "t": 4.02,
+      "kind": "whoosh_soft",
+      "word": "best.",
+      "keyword": true
+     },
+     {
+      "t": 5.04,
+      "kind": "tick",
+      "word": "Carl,",
+      "keyword": true
+     },
+     {
+      "t": 9.03,
+      "kind": "whoosh_mode",
+      "word": "January",
+      "keyword": true
+     },
+     {
+      "t": 10.23,
+      "kind": "land",
+      "word": "sixty-six.",
+      "keyword": false
+     },
+     {
+      "t": 12.14,
+      "kind": "tick",
+      "word": "fastest",
+      "keyword": true
+     },
+     {
+      "t": 20.32,
+      "kind": "tick",
+      "word": "ten",
+      "keyword": true
+     },
+     {
+      "t": 28.3,
+      "kind": "tick",
+      "word": "Ruth's",
+      "keyword": true
+     },
+     {
+      "t": 31.227,
+      "kind": "tick",
+      "word": "never",
+      "keyword": true
+     }
+    ]
+   },
+   "keyword_hits": [
+    {
+     "keyword": "b0.ruth",
+     "word": "Ruth",
+     "s": 0.48,
+     "e": 0.72,
+     "events": [
+      [
+       0.48,
+       "tick"
+      ]
+     ],
+     "snr_db": 30.3,
+     "level": "OK"
+    },
+    {
+     "keyword": "b0.best",
+     "word": "best.",
+     "s": 3.76,
+     "e": 4.16,
+     "events": [
+      [
+       4.02,
+       "whoosh_soft"
+      ]
+     ],
+     "snr_db": 179.0,
+     "level": "OK"
+    },
+    {
+     "keyword": "b1.carl",
+     "word": "Carl,",
+     "s": 5.04,
+     "e": 5.52,
+     "events": [
+      [
+       5.04,
+       "tick"
+      ]
+     ],
+     "snr_db": 32.6,
+     "level": "OK"
+    },
+    {
+     "keyword": "b1.january",
+     "word": "January",
+     "s": 8.78,
+     "e": 9.2,
+     "events": [
+      [
+       9.03,
+       "whoosh_mode"
+      ]
+     ],
+     "snr_db": 185.2,
+     "level": "OK"
+    },
+    {
+     "keyword": "b2.fastest",
+     "word": "fastest",
+     "s": 12.14,
+     "e": 12.56,
+     "events": [
+      [
+       12.14,
+       "tick"
+      ]
+     ],
+     "snr_db": 28.4,
+     "level": "OK"
+    },
+    {
+     "keyword": "b3.ten",
+     "word": "ten",
+     "s": 20.32,
+     "e": 20.56,
+     "events": [
+      [
+       20.32,
+       "tick"
+      ]
+     ],
+     "snr_db": 12.5,
+     "level": "WARN"
+    },
+    {
+     "keyword": "b5.ruths",
+     "word": "Ruth's",
+     "s": 28.3,
+     "e": 28.32,
+     "events": [
+      [
+       28.3,
+       "tick"
+      ]
+     ],
+     "snr_db": 12.1,
+     "level": "WARN"
+    },
+    {
+     "keyword": "b5.never",
+     "word": "never",
+     "s": 31.227,
+     "e": 31.76,
+     "events": [
+      [
+       31.227,
+       "tick"
+      ]
+     ],
+     "snr_db": 24.7,
+     "level": "OK"
+    }
+   ],
+   "stems": true,
+   "warn": [
+    "sfx [(20.32, 'tick')] trên từ khoá b3.ten 'ten' 20.32–20.56 SNR 12.5 dB",
+    "sfx [(28.3, 'tick')] trên từ khoá b5.ruths 'Ruth's' 28.3–28.32 SNR 12.1 dB"
+   ],
+   "block": []
+  },
+  "labels": {
+   "samples": 334,
+   "overlaps": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "line_crossings": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "warn": [],
+   "block": []
+  }
+ },
+ "cuts": {
+  "hard_cuts": []
+ },
+ "C14": {
+  "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+ }
+}
