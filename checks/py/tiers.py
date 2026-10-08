@@ -49,7 +49,7 @@ TIERS = {
     'S19': (BLOCK, 'claim: số tiền hợp đồng tập cấm nêu khi không có nguồn (K4.0, A20)'),
     'S20': (MAJOR, 'nghe giữ được số: ≤ 2 số mới nói mỗi cảnh (K4.0, A17; hiệu chuẩn: Tập 3 trượt 3 cảnh, Tập 4, Tập 5 đạt)'),
     'R07': (REFERENCE, 'đồng bộ hình–lời ±0,2 s (K4.0, A14): chỉ báo — chưa tái lập được số của nhà máy khi không có hộp đối tượng/nhật ký trang'),
-    'V14': (MAJOR, 'đoạn thế giới: máy đứng ở từ khoá, cú máy có lý do + âm, không cắt cứng, 5 s đầu ở thế giới (K4.0, A18; hiệu chuẩn: hai đoạn chứng minh Mốc V và Tập 5 đạt)'),
+    'V14': (REFERENCE, 'đoạn thế giới: máy đứng ở từ khoá, cú máy có lý do + âm, không cắt cứng, 5 s đầu mỗi đoạn ở thế giới (K4.0, A18; K4.0.1 hạ chỉ báo: mẫu đã duyệt đều đạt nhưng chưa có đối chứng dương trên dữ liệu thật)'),
     'V15': (REFERENCE, 'khung chỉ chữ ≤ 15 % (K4.0, A13): chỉ báo — chưa hiệu chuẩn (page.json đã lưu của Tập 3–5 chưa có track này)'),
     'T4': (REFERENCE, 'mật độ sfx (K4.0, A19): chỉ báo — ngưỡng tạm của bộ đo F-2, chưa hiệu chuẩn bằng đối chứng "sfx dày"'),
     'V17': (REFERENCE, 'đọc kịp: nhãn ≥ 1 s mỗi 3 từ (K4.0, A24): chỉ báo cho tới khi hiệu chuẩn (A24)'),
