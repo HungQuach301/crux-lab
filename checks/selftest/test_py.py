@@ -2252,6 +2252,93 @@ def _(f, bad):
     f.json('out/script.json', {'sentences': sents})
 
 
+
+def world_fixture(f, cues=(1.0, 2.5, 4.0), late=0.0, dur=6.0, moves=(), words=('one', 'two', 'three'), extra=None):
+    """A one-segment world episode: spine with a beat whose cues are spoken words, and a 320×180 video where a block steps brighter at each cue (+ late)."""
+    fps = 30
+    sp = {'total': dur, 'fps': fps, 'pad': 0.25, 'words': [{'w': w, 's': t, 'e': t + 0.3, 'sid': 'S01.1'} for w, t in zip(words, cues)],
+          'beats': [{'id': 'b0', 'mode': 'world', 't0': 0.0, 't1': dur, 'cues': {w: t for w, t in zip(words, cues)}}],
+          'visual_cues': [f'b0.{w}' for w in words], 'moves': list(moves), 'events': [], **(extra or {})}
+    f.json('seg/spine.json', sp)
+    f.contract(world=[{'id': 'a', 'spine': 'seg/spine.json', 't0': 0.0}])
+    frames = []
+    for i in range(int(dur * fps)):
+        t = i / fps
+        fr = np.full((180, 320), 30, np.uint8)
+        k = sum(1 for c in cues if t >= c + late)
+        fr[40:140, 60:260] = 30 + 50 * k
+        frames.append(fr)
+    f.raw_video(frames)
+    f.json('out/script.json', {'sentences': [{'id': 'S01.1', 'scene': 'S01', 'text': ' '.join(words), 'start': cues[0] - 0.1, 'end': cues[-1] + 0.4}]})
+    f.asr([{'w': w, 'start': t + 0.02, 'end': t + 0.3, 'sentence': 'S01.1'} for w, t in zip(words, cues)])
+    return sp
+
+
+@case('R07')
+def _(f, bad):
+    # the picture changes at each spoken cue (good) or 0.5 s after it (bad)
+    world_fixture(f, late=0.5 if bad else 0.0)
+
+
+def r07_none_case(bad):
+    """R07: an episode without world segments has nothing to check (good); bad = one segment whose voice is heard 0.4 s late (|median| > 0.2 s)."""
+    f = F('R07-none')
+    try:
+        if bad:
+            world_fixture(f)
+            f.asr([{'w': w, 'start': t + 0.4, 'end': t + 0.6, 'sentence': 'S01.1'} for w, t in zip(('one', 'two', 'three'), (1.0, 2.5, 4.0))])
+        else:
+            f.contract()
+        return f.run('R07')
+    finally:
+        f.close()
+
+
+
+MOVE_OK = {'verb': 'pull', 'from': 'a', 'to': 'b', 't0': 1.5, 't1': 2.1, 'reason': 'lời cần thấy cả hai', 'sound': 'whoosh_soft'}
+
+
+@case('V14')
+def _(f, bad):
+    # rule 2: a camera move across the keyword "two" at 2.5 s (bad) or between keywords (good); its sound event is declared
+    mv = dict(MOVE_OK, t0=2.2, t1=2.9) if bad else MOVE_OK
+    world_fixture(f, moves=[mv], extra={'events': [{'t': mv['t0'], 'kind': 'whoosh_soft'}]})
+
+
+def v14_variant(kind):
+    def fn(bad):
+        f = F('V14-' + kind)
+        try:
+            ev = {'events': [{'t': 1.5, 'kind': 'whoosh_soft'}]}
+            if kind == 'reason':     # rule 3: the move's sound has no event (bad)
+                world_fixture(f, moves=[MOVE_OK], extra={'events': []} if bad else ev)
+            elif kind == 'first5':   # the opening beat is a chart (bad)
+                sp = world_fixture(f, moves=[MOVE_OK], extra=ev)
+                if bad:
+                    sp['beats'][0]['mode'] = 'chart'
+                    f.json('seg/spine.json', sp)
+            elif kind == 'cut':      # a whole-frame jump between two frames at 3 s (bad)
+                world_fixture(f, moves=[MOVE_OK], extra=ev)
+                if bad:
+                    fr = [np.full((180, 320), 30 if i < 90 else 220, np.uint8) for i in range(180)]
+                    f.raw_video(fr)
+                    f.asr([{'w': w, 'start': t + 0.02, 'end': t + 0.3, 'sentence': 'S01.1'} for w, t in zip(('one', 'two', 'three'), (1.0, 2.5, 4.0))])
+            return f.run('V14')
+        finally:
+            f.close()
+    return fn
+
+
+
+@case('V15')
+def _(f, bad):
+    # 10 s episode; text-only from 2 s to 4 s (20 %, bad) or 2 s to 3 s (10 %, good)
+    f.json('out/timeline.json', {'total': 10.0, 'scenes': [{'id': 'S01', 'start': 0, 'end': 10}]})
+    f.json('out/checks/page.json', {'textOnlyTrack': [{'t': 0.0, 'textOnly': False}, {'t': 2.0, 'textOnly': True}, {'t': 4.0 if bad else 3.0, 'textOnly': False}]})
+
+
+EXTRA.update({'V14/reason': v14_variant('reason'), 'V14/first5': v14_variant('first5'), 'V14/cut': v14_variant('cut')})
+EXTRA.update({'R07/voice': r07_none_case})
 EXTRA.update({'S19/frame': s19_frame_case, 'S19/spoken': s19_spoken_case})
 
 

@@ -111,3 +111,198 @@ def s20_said_per_scene(ctx):
     over = {sc: v for sc, v in per.items() if len(v) > 2}
     return verdict('S20', [metric('scenes with > 2 new said numbers', len(over), '<=', 0)],
                    details=[{'scene': sc, 'new': v} for sc, v in over.items()] + [{'perScene': {sc: len(v) for sc, v in per.items() if v}}])
+
+
+# ---- world segments (D-010: episodes built as 3D world segments with a spine) --------------------------------------------------------
+def world_segments(ctx):
+    """[(id, spine, t0)] of the episode's world segments, times of the episode = spine time + t0. Declared in contract.json `world`
+    [{id, spine, t0?}] or, failing that, in the builder's episode.yaml `world` [{id, dir}] (spine = <dir>/spine.json) with t0 from
+    out/factory/splice.json segments (one segment without a splice file: t0 = 0). An episode without world segments = [] (rule not applicable)."""
+    def get():
+        import json
+        import os
+        decl = None
+        try:
+            decl = ctx.contract().get('world')
+        except Missing:
+            decl = None
+        if not decl and ctx.has('episode.yaml'):
+            import yaml
+            y = yaml.safe_load(open(ctx.path('episode.yaml'), encoding='utf-8')) or {}
+            decl = [{'id': w['id'], 'spine': os.path.join(w['dir'], 'spine.json')} for w in y.get('world') or [] if isinstance(w, dict) and w.get('dir')]
+        if not decl:
+            return []
+        splice = {s['id']: s for s in ctx.json('out/factory/splice.json')['segments']} if ctx.has('out/factory/splice.json') else {}
+        out = []
+        for w in decl:
+            t0 = w.get('t0')
+            if t0 is None:
+                if w['id'] in splice:
+                    t0 = splice[w['id']]['t0']
+                elif len(decl) == 1:
+                    t0 = 0.0
+                else:
+                    raise Missing(f"t0 of world segment {w['id']} (contract.json world[].t0 or out/factory/splice.json)")
+            out.append((w['id'], ctx.json(w['spine']), float(t0)))
+        return out
+    return ctx.memo(('world',), get)
+
+
+def frame_diffs(ctx, w=320, h=180, fps=30, cut=False):
+    """Change between consecutive frames of the master (scaled to 320×180 grey, 30 fps); index i = frame i (0 for frame 0). cut=False: mean absolute
+    luma change; cut=True: share of pixels changing by > 25 levels (a hard cut is a share > 0.45). Both cached by video SHA."""
+    import os
+    import subprocess
+    import numpy as np
+    from common import sha256_file
+
+    def get():
+        cp = os.path.join(ctx.cache_dir, f'diff-{sha256_file(ctx.video())[:16]}-{w}x{h}-{fps}.npz')
+        if os.path.exists(cp):
+            z = np.load(cp)
+            return z['mean'], z['cut']
+        p = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', ctx.video(), '-vf', f'fps={fps},scale={w}:{h},format=gray', '-f', 'rawvideo', '-'], stdout=subprocess.PIPE)
+        mean, share, prev, n = [0.0], [0.0], None, w * h
+        while True:
+            b = p.stdout.read(n)
+            if len(b) < n:
+                break
+            fr = np.frombuffer(b, np.uint8).astype(np.int16)
+            if prev is not None:
+                a = np.abs(fr - prev)
+                mean.append(float(a.mean()))
+                share.append(float((a > 25).mean()))
+            prev = fr
+        p.wait()
+        z = (np.array(mean), np.array(share))
+        np.savez(cp, mean=z[0], cut=z[1])
+        return z
+    return ctx.memo(('diffs', w, h, fps), get)[1 if cut else 0]
+
+
+def _norm(w):
+    return re.sub(r'[^\w]', '', str(w)).lower()
+
+
+# ---- A14 → R07 ------------------------------------------------------------------------------------------------------------------
+@rule('R07', 'DX-R (đồng bộ hình–lời), D-010 §6, checks-appeal A14', 'world segments (contract.json world / episode.yaml world + out/factory/splice.json). '
+      'Picture: every spine visual cue (spine.visual_cues → beats[].cues, episode time = cue + t0) is located on the master: a label cue (spine.label_cues) at the first '
+      'page sample from cue − 1 s where that label text is visible (page sampler text track); any other cue (or a label cue without a text track) at the first frame in '
+      '[cue − 0.3 s, cue + 0.8 s] (window cut at camera moves of spine.moves) whose whole-frame luma change (320×180, 30 fps) rises past half of the window peak over the '
+      'median of [cue − 0.7, cue − 0.15] s; a peak < 0.08 above it = not detected. Offset = located − cue. Voice: own ASR of the master (asr_master) matched in order to '
+      'spine.words (next 6 tokens); offset = heard − aligned start. Toolkit/factory/world/sync_audit.py measured the same, without page ROIs (the checker has none)',
+      '≥ 92% of visual cues within ±0.2 s (undetected = outside); |median voice offset| ≤ 0.2 s; no world segment = nothing to check')
+def r07_sync(ctx):
+    import numpy as np
+    segs = world_segments(ctx)
+    if not segs:
+        return verdict('R07', [metric('visual cues within ±0.2 s (%)', 100.0, '>=', 92.0, '%')], note='no world segments: nothing to check')
+    d = frame_diffs(ctx)
+    tt = None
+    if ctx.has('out/checks/page.json'):
+        tt = ctx.json('out/checks/page.json').get('textTrack')
+    from r_audio import asr_master
+    heard = [(_norm(w['w']), w['start']) for w in asr_master(ctx)]
+    vis, voice = [], []
+    for sid, sp, t0 in segs:
+        cues = {f"{b['id']}.{k}": t for b in sp.get('beats', []) for k, t in b.get('cues', {}).items()}
+        moves = [(m['t0'] + t0, m['t1'] + t0) for m in sp.get('moves', [])]
+        labels = sp.get('label_cues') or {}
+        for name in sp.get('visual_cues') or []:
+            if name not in cues:
+                vis.append({'segment': sid, 'cue': name, 'offset': None, 'how': 'cue not in beats'})
+                continue
+            t = cues[name] + t0
+            if name in labels and tt:
+                first = next((e['t'] for e in tt if e['t'] >= t - 1.0 and any(i.get('text') == labels[name] for i in e.get('items', []))), None)
+                vis.append({'segment': sid, 'cue': name, 't': round(t, 3), 'offset': None if first is None else round(first - t, 3), 'how': 'label'})
+                continue
+            end, st = t + 0.8, t - 0.3
+            for a, b in moves:
+                if t < a < end:
+                    end = a
+                if st < b <= t:
+                    st = b + 1 / 30
+            base = float(np.median(d[max(0, int((t - 0.7) * 30)):max(1, int((t - 0.15) * 30))]))
+            i0, i1 = int(st * 30), int(end * 30)
+            seg = d[i0:i1]
+            if len(seg) == 0 or seg.max() - base < 0.08:
+                vis.append({'segment': sid, 'cue': name, 't': round(t, 3), 'offset': None, 'how': 'motion'})
+                continue
+            on = int(np.argmax(seg > base + 0.5 * (seg.max() - base)))
+            vis.append({'segment': sid, 'cue': name, 't': round(t, 3), 'offset': round(i0 / 30 + on / 30 - t, 3), 'how': 'motion'})
+        ref = [(_norm(w['w']), w['s'] + t0) for w in sp.get('words', []) if not str(w['w']).startswith('[')]
+        j = next((k for k, h in enumerate(heard) if h[1] >= t0 - 1.0), len(heard))
+        for word, t in ref:
+            for k in range(j, min(j + 6, len(heard))):
+                if heard[k][0] == word:
+                    voice.append(heard[k][1] - t)
+                    j = k + 1
+                    break
+    ok = [v for v in vis if v['offset'] is not None and abs(v['offset']) <= 0.2]
+    share = 100.0 * len(ok) / len(vis) if vis else 100.0
+    med = float(np.median(voice)) if voice else None
+    return verdict('R07', [metric('visual cues within ±0.2 s (%)', share, '>=', 92.0, '%'),
+                           metric('|median voice offset| s', None if med is None else abs(med), '<=', 0.2)],
+                   details=[{'cues': len(vis), 'within': len(ok), 'voiceWordsMatched': len(voice), 'voiceMedian': med,
+                             'voiceP90abs': float(np.percentile(np.abs(voice), 90)) if voice else None},
+                            *[v for v in vis if v['offset'] is None or abs(v['offset']) > 0.2][:20]])
+
+
+# ---- A18 → V14 ------------------------------------------------------------------------------------------------------------------
+@rule('V14', 'D-010 quy tắc 1/2/3/7 (đoạn thế giới), checks-appeal A18', 'world segments (as R07), the four checks of toolkit/factory/world/verify_seg.py that need no page '
+      'log: (rule 2) no spine keyword (beats[].cues) strictly inside a camera move widened by spine.pad (spine.moves (t0 − pad, t1 + pad)); (rule 3) every move has a reason and a sound whose kind '
+      'is among spine.events; (cuts) hard cuts on the master = consecutive frames (320×180 grey, 30 fps) with > 45% of pixels changing by > 25 levels; (first 5 s) '
+      'the beats of the episode\'s first 5 s are in mode "world". Rule 1 (number/compare texts only in chart mode, chartW ≥ 0.95) needs the page log\'s chartW, which '
+      'the page sampler does not record: not measured here (reported by the builder\'s verify_seg)',
+      '0 keywords during a move; 0 moves without reason or sound; 0 hard cuts; first 5 s in the world; no world segment = nothing to check')
+def v14_world(ctx):
+    segs = world_segments(ctx)
+    if not segs:
+        return verdict('V14', [metric('hard cuts', 0, '<=', 0)], note='no world segments: nothing to check')
+    kw_moving, no_reason, first = [], [], []
+    for sid, sp, t0 in segs:
+        pad = float(sp.get('pad', 0.25))
+        moves = sp.get('moves', [])
+        for b in sp.get('beats', []):
+            for k, t in b.get('cues', {}).items():
+                if any(m['t0'] - pad < t < m['t1'] + pad for m in moves):
+                    kw_moving.append({'segment': sid, 'cue': f"{b['id']}.{k}", 't': round(t + t0, 3)})
+            if b.get('t0', 0) + t0 < 5.0 and b.get('mode') not in (None, 'world'):
+                first.append({'segment': sid, 'beat': b['id'], 'mode': b.get('mode'), 't0': round(b.get('t0', 0) + t0, 3)})
+        kinds = {e.get('kind') for e in sp.get('events', [])}
+        no_reason += [{'segment': sid, 'move': f"{m.get('verb')} {m.get('from')}→{m.get('to')}", 't0': round(m['t0'] + t0, 3)}
+                      for m in moves if not m.get('reason') or m.get('sound') not in kinds]
+    share = frame_diffs(ctx, cut=True)
+    cuts = [round(i / 30, 2) for i, v in enumerate(share) if v > 0.45]
+    return verdict('V14', [metric('keywords during a camera move', len(kw_moving), '<=', 0), metric('moves without reason or sound', len(no_reason), '<=', 0),
+                           metric('hard cuts', len(cuts), '<=', 0), metric('first-5 s beats not in the world', len(first), '<=', 0)],
+                   details=[{'segments': len(segs), 'keywords': sum(len(b.get('cues', {})) for _, sp, _ in segs for b in sp.get('beats', [])),
+                             'moves': sum(len(sp.get('moves', [])) for _, sp, _ in segs), 'rule1': 'not measured (no chartW in page.json)'},
+                            {'keywordsDuringMove': kw_moving[:10]}, {'movesWithoutReasonOrSound': no_reason[:10]}, {'hardCuts': cuts[:20]}, {'first5s': first}])
+
+
+def _runs(track, key, total):
+    """[(t0, t1, value)] from a change track [{t, <key>}] (value holds until the next entry; the last until `total`)."""
+    out = []
+    for i, e in enumerate(track):
+        t1 = track[i + 1]['t'] if i + 1 < len(track) else total
+        if t1 > e['t']:
+            out.append((e['t'], t1, e[key]))
+    return out
+
+
+# ---- A13 → V15 ------------------------------------------------------------------------------------------------------------------
+@rule('V15', 'D-010 quy tắc 5 (không quay lại thẻ chữ), checks-appeal A13', 'page sampler text-only track (K4.0; every 0.1 s): a sample is text-only when a text is '
+      'visible and no visible non-text object other than role bg/card is on frame; on a world page (window.CHECKS.segments, the 3D world is a canvas the objects() '
+      'contract does not list) only when a bg/card object (opacity > 0.5) also covers ≥ 60% of the frame. Share = text-only time / out/timeline.json total',
+      'text-only time ≤ 15% of the episode')
+def v15_text_only(ctx):
+    p = ctx.json('out/checks/page.json')
+    if 'textOnlyTrack' not in p:
+        raise Missing('out/checks/page.json: textOnlyTrack (page sampler before K4.0)')
+    total = ctx.total()
+    runs = [(a, b) for a, b, v in _runs(p['textOnlyTrack'] or [], 'textOnly', total) if v]
+    share = 100.0 * sum(b - a for a, b in runs) / total if total else 0.0
+    return verdict('V15', [metric('text-only time (%)', share, '<=', 15.0, '%')],
+                   details=[{'runs': len(runs), 'longest': sorted(([round(a, 2), round(b, 2)] for a, b in runs), key=lambda r: r[0] - r[1])[:10]}])
