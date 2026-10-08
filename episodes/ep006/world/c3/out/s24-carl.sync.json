@@ -1,0 +1,32 @@
+{
+ "video": "episodes/ep006/world/c3/out/s24-carl.mp4",
+ "asr_words_matched": 71,
+ "asr_words_ref": 81,
+ "voice_offset_s": {
+  "median": 0.1,
+  "p90_abs": 0.24
+ },
+ "visual_peak_vs_keyword_s": {
+  "b1.carl": 0.193,
+  "b3.first": 0.08,
+  "b3.check": 0.097,
+  "b4.every": 0.03,
+  "b4.before": 0.12,
+  "b5.ruths": null,
+  "b5.never": null
+ },
+ "method": {
+  "b1.carl": "motion",
+  "b3.first": "label",
+  "b3.check": "label",
+  "b4.every": "motion-roi",
+  "b4.before": "label",
+  "b5.ruths": "label",
+  "b5.never": "motion"
+ },
+ "visual_within_0.2s": "5/7",
+ "visual_not_detected": [
+  "b5.ruths",
+  "b5.never"
+ ]
+}

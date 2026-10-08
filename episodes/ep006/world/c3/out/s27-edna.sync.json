@@ -1,0 +1,31 @@
+{
+ "video": "episodes/ep006/world/c3/out/s27-edna.mp4",
+ "asr_words_matched": 78,
+ "asr_words_ref": 83,
+ "voice_offset_s": {
+  "median": -0.013,
+  "p90_abs": 0.14
+ },
+ "visual_peak_vs_keyword_s": {
+  "c0.edna": -0.317,
+  "c1.twenty": 0.032,
+  "c1.check": 0.167,
+  "c2.answer": 0.021,
+  "c3.carl": 0.156,
+  "c4.same": 0.136,
+  "c4.end": 0.033,
+  "c4.start": 0.113
+ },
+ "method": {
+  "c0.edna": "motion",
+  "c1.twenty": "motion-roi",
+  "c1.check": "label",
+  "c2.answer": "motion-roi",
+  "c3.carl": "label",
+  "c4.same": "label",
+  "c4.end": "motion",
+  "c4.start": "motion"
+ },
+ "visual_within_0.2s": "7/8",
+ "visual_not_detected": []
+}
