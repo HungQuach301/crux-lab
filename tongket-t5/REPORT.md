@@ -4,7 +4,69 @@ Nhánh `tongket-t5` (từ `main` 6e0ae01, đã có merge ep005). Không sửa `c
 
 Đã đọc: `CHARTER.md` v4, `decisions/D-009.md`, `D-010.md`, `playbook/lessons.md` (V, T5), `episodes/ep005/{PLAN.md, ledger.md, gates/G2.md, gates/G2-answer.md}`. Từ `HungQuach301/cine-lab` (chỉ đọc): `reports/m3/BAI-HOC-LL.md`, `LO-3-5-TONG-KET.md`, `LO-6-8-G1.md`, `TAP6-G2-V2.md`, `playbook/PLAN-TAP-MAU.md`.
 
-<!-- MỤC 1 -->
+## 1. Số thực Tập 5 (log phiên) và so với Tập 2–4
+
+**Cách đo.** Transcript phiên đọc qua công cụ phiên từ xa (`list_events`, 100 sự kiện/lượt, 5 agent quét song song), giữ mọi sự kiện `result`: `usage` của lượt (luồng chính) và `modelUsage` **tích luỹ cả phiên** (gồm mọi agent con, tăng đơn điệu qua các lần container khởi động lại — đã kiểm). Khử trùng theo mã sự kiện (`uuid`); số tích luỹ là tổng các lượt gọi API đã khử trùng theo mã tin nhắn của SDK. **Trần = đầu vào mới (input + ghi cache) + sinh ra**; đọc cache báo riêng. Kiểm mù headless (`claude -p`) chạy ngoài phiên → cộng từ trường `tokens` của 191 tệp JSON trong `episodes/ep005/` (trường `in` gộp cả đọc cache → là **cận trên**). Dữ liệu: `tongket-t5/logs/*.jsonl`; tái tạo: `python3 tongket-t5/token_log.py tongket-t5/logs/t5.jsonl --windows tongket-t5/windows.json`.
+
+### 1a. Tập 5 theo cổng (phiên điều phối `01PQkm…`, cửa sổ theo giờ commit cổng, UTC)
+| Cửa sổ | Trần (triệu) | Luồng chính | Agent con | Đọc cache | Ghi chú |
+|---|---|---|---|---|---|
+| W1 Việc 0 → C1 → C2 → gói G1 (06/10 13:00–14:00) | 1,30 | 0,33 | 0,97 | 34,4 | |
+| W2 sau G1: lời, contract, R1, chờ Mốc V | 0,70 | 0,50 | 0,20 | 26,0 | |
+| W3 C3 (spine v2, 3 vòng N1/N2, REVIEWER) | 1,42 | 0,53 | 0,89 | 67,2 | |
+| **W4 F-5/F-2/F-3/F-1 + C4** (07/10 02:05–12:10) | **23,89** | 2,44 | **21,44** | 315,8 | agent con: ghi cache 20,5 · sinh ra 0,96 |
+| **W5 C5 + C5b + C5c** (07/10 12:10–08/10 07:55) | **53,17** | 3,25 | **49,92** | 190,3 | agent con: ghi cache 49,6 · **sinh ra 0,36** |
+| W6 G2 (REVIEWER, bản xem) | 1,91 | 1,47 | 0,45 | 29,1 | |
+| W7 G3 + merge `main` | 0,22 | 0,19 | 0,03 | 6,9 | |
+| **Phiên điều phối** | **82,62** | 8,71 | 73,91 | 669,6 | sinh ra 2,12 · đầu vào mới 80,50 (gần hết là ghi cache) |
+| Phiên K Tập 5 (`016RtX…`) | 0,47 | | | 11,1 | |
+| Kiểm mù headless (191 lượt: C4 1,02 · C5 0,74 · C3 0,29 · C2 0,21 · C1 0,04) | ≤ 2,31 | | | (gộp) | cận trên |
+| **Cả tập** | **≈ 85,4** | | | ≈ 681 | Mốc V (`013S2e…`, chung Tập 4/5) thêm 8,59 — không tính |
+
+### 1b. Tập 5 theo loại việc (trần, triệu)
+| Loại việc | Thực | Mức cảnh báo | Nguồn |
+|---|---|---|---|
+| **Dựng** (agent con W3–W5: nhà máy C3–C5, F-1…F-5; gồm cả REVIEWER C3 và 2 lượt đạo diễn — log không tách được) | **72,25** | 0,75 | agent con W3–W5 |
+| **Điều phối** (luồng chính) | **8,71** | 0,5 | `usage` từng lượt; 13 lượt ghi lại cả ngữ cảnh ≈ 0,6 triệu/lượt = 7,74 |
+| **Kiểm mù** (headless) | **≤ 2,31** | 0,6 | JSON đầu ra |
+| Agent con ngoài dựng 3D (Việc 0, WRITER ×3, REVIEWER C2/G1/R1/G2, kiểm độc lập, Explore ×3) | 1,65 | 0,4 + 0,45 + 0,15 | agent con W1, W2, W6, W7 |
+| Phiên K | 0,47 | — | |
+| **Cộng** | **≈ 85,4** | 3,0 | **× 28 mức cảnh báo** |
+
+Số gói G2 ước "≈ 10 triệu" chỉ đúng **1/8,5**: số harness của agent con (ledger) là cỡ ngữ cảnh cuối, không phải đầu vào mới (cine-lab #56 cùng lỗi). Ví dụ: ba agent C5 ghi ledger 1,29 triệu; log cho 49,9 triệu trần.
+
+### 1c. Giờ render, ElevenLabs, chủ dự án chạm
+- **Giờ render (máy, 4 lõi):** đo được — C5 lượt 1: đoạn thế giới 1,48 h (a 0,22 · b 0,40 · c 0,50 · d 0,36) + d dựng lại 0,36 h + Shorts 0,26 h, đồng hồ build 3,8 h; lượt cuối C5c (`build-report.json`): 0,79 h (chỉ d render lại, 0,27 h); trang checks ≈ 1,3 h/lần × 4 lần (C4, C5, C5b, C5c). **Tổng ≈ 15 h máy là số ước** của gói G2 (không còn log build của các lượt 540p C3/C4 và các lượt 1080p bị ghi đè). Tập 2–4: không có số đo cùng loại.
+- **ElevenLabs:** **10.850 ký tự** (ledger; take trong git 10.801) — lượt đầu 6.531, sinh lại 4.319 (40 %): câu 75 % (938), S18 hai seed (1.266), S03 B+2 (443), ASR từng từ C4 (1.416: S04, S15), S05.1 (256). Không mất take vì đổi container (take trong git: tiết kiệm như dự kiến ở `tongket-t4` §3).
+- **Chủ dự án chạm:** **≈ 11 lượt** trong phiên điều phối (13 lượt `origin: human`; 2 lượt có câu trả lời về "thay đổi chưa commit" nên nhiều khả năng là phản hồi stop-hook, không phải chủ dự án) + mở phiên K + tải file G3. Gồm 3 cổng (G1, C3, G2), G3/merge, và các quyết định giữa cổng (câu 75 %, S09 (a), F07/không mid-roll, bản xem G2). Đích D-006 là 3 cổng; phần vượt là quyết định giữa cổng.
+
+### 1d. So với Tập 2–4 (cùng cách đo; Tập 2–4 trước đây chỉ có số ước)
+| | Tập 2 | Tập 3 | Tập 4 | **Tập 5** |
+|---|---|---|---|---|
+| Phiên (điều phối + K) | 1 + 2 K | 3 + 1 K | 3 + 1 K | 1 + 1 K |
+| **Trần log (triệu)** | **≥ 50,9** (phiên chính; 2 phiên K đang quét) | **11,9** | **11,8** | **82,6 + 0,5** (+ headless ≤ 2,3) |
+| Số ước cũ | ≈ 12 | ≈ 6 | ≈ 6,3 | ≈ 10 |
+| Sinh ra (triệu) | 1,95 | 1,01 | 1,01 | 2,19 |
+| Đọc cache (triệu) | 535 | 292 | 192 | 681 |
+| Model agent con | Opus + Sonnet | Opus + Sonnet | Opus + Sonnet | **chỉ Opus** |
+| Thời lượng | 9:46 | 9:32 | 8:02 | 7:46 |
+| ElevenLabs | 9.436 | 5.551 | 11.702 | 10.850 |
+| Chủ dự án | 11 cổng + giao | 3 cổng + tải | 5 + G3 | 11 lượt + K + G3 |
+| Hình | 2D | 2D | 2D + nhà máy | **thế giới 3D** (Mốc V) |
+
+- Tập 3–4 ≈ 12 triệu/tập; Tập 5 gấp **≈ 7 lần**, dù sinh ra chỉ gấp 2 — khác biệt nằm gần hết ở **ghi cache của agent con dựng 3D** (W4 + W5 = 71,4 triệu).
+- Tập 2 cao (≥ 50,9) do ≈ 300 lượt kiểm mù bằng agent con và 3 ngày một phiên.
+
+### 1e. Ba khoản tốn nhất và cách giảm KHÔNG hạ chất lượng
+1. **Agent con dựng ngồi chờ render/checks: ≈ 71 triệu (83 %).** W5: ghi cache 49,6 triệu so với sinh ra 0,36 triệu (137 : 1) trong 20 giờ, phần lớn là chờ lượt 1080p (≈ 1,5 h) và checks (≈ 1,3 h). Mỗi lần agent thức dậy sau khi bộ nhớ đệm hết hạn thì ghi lại cả ngữ cảnh 0,4–0,65 triệu (ledger: cỡ ngữ cảnh cuối của agent C4/C5 400–655 nghìn). Khớp số: ≈ 100 lần × ≈ 0,5 triệu.
+   **Cách giảm:** agent dựng **không chờ**: khởi chạy build/checks bằng lệnh nền rồi **trả việc**; phiên điều phối nhận thông báo xong, giao **agent mới đầu bài ngắn** đọc `build-report.json`/`report.json` (ngữ cảnh ≈ 50–100 nghìn). Một vòng sửa = một agent. Cùng lệnh dựng, cùng checks, cùng kiểm mù → **chất lượng không đổi** (số đo: so CHẶN/CHÍNH và cổng gốc như C5c). Ước giảm ≈ 60 triệu. **Rủi ro:** agent mới mất ngữ cảnh sửa → đầu bài phải chép đủ "đã sửa gì, vì sao" (PLAN ≤ 1 trang, §3.7).
+2. **Luồng chính ghi lại ngữ cảnh lớn: 8,7 triệu** (13 lượt × ≈ 0,6 triệu khi thức dậy sau > 1 h). Ngữ cảnh phiên điều phối lên tới ≈ 0,6–0,7 triệu vì một phiên chạy 2 ngày.
+   **Cách giảm:** **mỗi cổng một phiên điều phối mới** (P1 → G1, P2 C3–C4, P3 C5–G3; CHARTER §7 đã có) mở bằng PLAN ≤ 1 trang + ≤ 8 tệp (§3.7) → ngữ cảnh ≈ 0,15 triệu, mỗi lần ghi lại ≈ 1/4. Không bỏ bước nào. Ước giảm ≈ 6 triệu.
+3. **Kiểm mù headless lặp do hình đổi sau khi đã khoá nghĩa: ≤ 2,3 triệu**, trong đó C5 0,74 triệu là kiểm lại vì sửa checks ở C5 làm đổi hình đã qua C4 (so đủ mẫu 24 lượt).
+   **Cách giảm:** sửa luật/nhà máy **trước** C3 (lô K §4 + §3.8) để C5 không phải đổi hình đã khoá; dừng sớm khi 2 người đọc đầu cùng kết luận (đã có, `tongket-t4` §2c). Không giảm số người đọc ở cổng có đổi hình. Ước giảm ≈ 0,7 triệu.
+
+**Mức cảnh báo Tập 6 (đề xuất, chủ dự án định nghĩa trần):** đo theo trần log; ≈ 15 triệu nếu áp 1 + 2 (dựng ≈ 10, điều phối ≈ 2,5, kiểm mù ≈ 1,5, khác ≈ 1). Không cắt bước chất lượng (D-009 c).
+
 
 ## 2. Các câu hỏi mở
 
