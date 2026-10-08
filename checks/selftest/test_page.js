@@ -47,7 +47,11 @@ const find = (e, tid) => e.find((x) => x.tid === tid);
 const CASES = {
   good: { els: good(), expect: { PASS: ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C10', 'C12', 'C14', 'C15', 'V02', 'V03', 'V04', 'V09', 'V08', 'V11', 'V12', 'S08', 'S09', 'S07', 'V15'] } },
   'V11-text-on-line': { els: mod((e) => { Object.assign(find(e, 'money'), { y: 780 }); find(e, 'money').x = 400; }), expect: { FAIL: ['V11'] } },
-  'V11-badge-on-series': { els: mod((e) => Object.assign(find(e, 'ill'), { x: 900, y: 590 })), expect: { FAIL: ['V11'] } },
+  // K4.1 (A22): the badge's pill covers the series under it; its glyph ink touches no exposed graphic -> no collision (before K4.1: FAIL, plate counted as text)
+  'V11-badge-on-series': { els: mod((e) => Object.assign(find(e, 'ill'), { x: 900, y: 590 })), expect: { PASS: ['V11'] } },
+  // K4.1 (A22): two badges whose pills overlap while their glyphs stay apart -> no collision
+  'V11-two-plates-overlap': { els: mod((e) => e.push({ type: 'text', tid: 'ill2', text: 'ILLUSTRATIVE', badge: true, bg: TOK.warn, color: TOK.bg, x: 1450, y: 948, size: 28 })),
+    expect: { PASS: ['V11'] } },
   'V11-axis-label-on-axis': { els: mod((e) => Object.assign(find(e, 'y1'), { y: 785 })), expect: { FAIL: ['V11'] } },
   'V11-text-on-text': { els: mod((e) => e.push({ type: 'text', tid: 'over', text: 'overlap', x: 720, y: 905, size: 36, color: TOK.ink })), expect: { FAIL: ['V11'] } },
   'V03-outside-safe': { els: mod((e) => Object.assign(find(e, 'money'), { x: 20 })), expect: { FAIL: ['V03'] } },

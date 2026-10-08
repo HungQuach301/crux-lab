@@ -116,22 +116,37 @@ async function openEnv() {
   const hasCam = fs.existsSync(path.join(ROOT, 'out/camera.json'));
   const camAt = hasCam ? cameraSpeed(J('out/camera.json')) : null;
   const shotRGB = async () => { const img = P.decodePNG(await page.screenshot({ type: 'png' })); return img; };
-  // V11 collisions of one pixel sample, in the order the sequential sampler judged them: [text, other, pixels, moving?] (glyph/badge ink vs graphic ink
-  // with 2 px clearance; text vs text for pairs whose boxes touch, nested badge/parent pairs excluded). Returns the text mask too (V03, V08, C14).
+  // V11 collisions of one pixel sample, in the order the sequential sampler judged them: [text, other, pixels, moving?]. K4.1 (checks-appeal A22): a text is
+  // its GLYPH ink (layer 'glyph'; plate/pill excluded), dilated 2 px; graphic ink lying under the plate of a text that has one (its text-layer pixels inside
+  // its box widened by 0.4 em) does not count — the plate covers it; text vs text compares glyph ink only (pairs whose boxes touch, nested pairs excluded).
+  // Returns the text mask (glyph + plate) unchanged for V03, V08, C14.
   async function collide(T, isMoving) {
-    const tm = await shotMask('text'), gm = await shotMask('graphics');
-    const td = P.dilate(tm, 2);
+    const tm = await shotMask('text'), gm0 = await shotMask('graphics');
+    const plated = T.filter((o) => o.role === 'badge' || o.background);
+    const gl = plated.length ? await shotMask('glyph') : tm;
+    let gm = gm0;
+    if (plated.length) {
+      const m = gm0.m.slice();
+      for (const o of plated) {
+        const e = 0.4 * (o.fontPx || (o.box[3] - o.box[1]));
+        const x0 = Math.max(0, Math.floor(o.box[0] - e)), y0 = Math.max(0, Math.floor(o.box[1] - e)), x1 = Math.min(tm.w, Math.ceil(o.box[2] + e)), y1 = Math.min(tm.h, Math.ceil(o.box[3] + e));
+        for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) { const i = y * tm.w + x; if (tm.m[i]) m[i] = 0; }
+      }
+      gm = { w: gm0.w, h: gm0.h, m };
+    }
+    const td = P.dilate(gl, 2);
     const list = [];
     for (const o of T) {
       const box = [o.box[0] - 3, o.box[1] - 3, o.box[2] + 3, o.box[3] + 3];
       const n = P.overlapIn(td, gm, box);
       if (n >= 4) list.push([o, 'graphics', n, isMoving(o)]);
     }
+    const glyphOf = (mk) => (gl === tm ? mk : { w: mk.w, h: mk.h, m: mk.m.map((v, i) => (v && gl.m[i] ? 1 : 0)) });
     for (let i = 0; i < T.length; i++) for (let j = i + 1; j < T.length; j++) {
       const a = T[i], b = T[j];
       if (a.parent === b.id || b.parent === a.id) continue;
       if (R.gapBetween(R.inflate(R.B(a), 3), R.B(b)) > 0) continue;
-      const ma = P.dilate(await shotMask('only', [a.id]), 2), mb2 = await shotMask('only', [b.id]);
+      const ma = P.dilate(glyphOf(await shotMask('only', [a.id])), 2), mb2 = glyphOf(await shotMask('only', [b.id]));
       const n = P.overlapIn(ma, mb2, [Math.min(a.box[0], b.box[0]) - 3, Math.min(a.box[1], b.box[1]) - 3, Math.max(a.box[2], b.box[2]) + 3, Math.max(a.box[3], b.box[3]) + 3]);
       if (n >= 4) list.push([a, 'text:' + b.tid, n, isMoving(a) || isMoving(b)]);
     }
