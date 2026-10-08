@@ -172,8 +172,11 @@ export async function boot(res) {
       if (pA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = 0.55 * pA; c.strokeStyle = C.muted; c.lineWidth = 3;
         for (const k of ORDER) { const [x0, y0] = S2(PC[k] - PW / 2 - 0.12, YR(1.08)), [x1, y1] = S2(PC[k] + PW / 2 + 0.12, YR(0.7)); c.strokeRect(x0, y0, x1 - x0, y1 - y0); } c.restore(); }
       ORDER.forEach((k, i) => { const B_ = D.buyers[k], j = B_.paper.length - 1, [xe, ye] = S2(XL(XA, j), YR(B_.paper[j])), [xp, yp] = S2(PC[k], YR(0.7));
-        const ex = k === 'victor' ? xe - 8 : xe + 12, ey = ye + (k === 'owen' ? 44 : -14), x = mix(xp, ex, mg), y = mix(yp + 58, ey, mg);   // ba bảng: tên DƯỚI khung (trên khung là légende)
-        O.text(TAG[k], x, y, 48, { kind: 'name', color: BCOL[i], align: mg < 0.5 ? 'center' : k === 'victor' ? 'right' : 'left', alpha: aA * ease(t, b.a0.same - 0.05, b.a0.same + POP), plate: PLATE, plateA: 0.75 }); });   // C5b V11: nền sau tên
+        const ex = k === 'victor' ? xe - 8 : xe + 12, ey = ye + (k === 'owen' ? 44 : -14), nA = aA * ease(t, b.a0.same - 0.05, b.a0.same + POP);
+        // tên KHÔNG trượt (F-2: hai tên cắt nhau giữa đường) — tắt ở chỗ bảng trong nửa đầu cú gộp, hiện ở cuối đường trong nửa sau
+        const a0 = nA * (1 - lin(mg, 0, 0.4)), a1 = nA * lin(mg, 0.6, 1);
+        if (a0 > 0.01) O.text(TAG[k], xp, yp + 58, 48, { kind: 'name', color: BCOL[i], align: 'center', alpha: a0, plate: PLATE, plateA: 0.75 });   // ba bảng: tên DƯỚI khung (trên khung là légende)
+        if (a1 > 0.01) O.text(TAG[k], ex, ey, 48, { kind: 'name', color: BCOL[i], align: k === 'victor' ? 'right' : 'left', alpha: a1, plate: PLATE, plateA: 0.75 }); });   // C5b V11: nền sau tên
     }
     { const [x, y] = S2(XL(XA, 24), 2.0), [, y1] = S2(0, 0); log.roi['a3.two'] = [x - 40, y - 10, x + 40, y1]; }
     { const [px, py] = S2(XL(XA, 24), -0.1), pl = aA * (t < M.m_ans.t0 ? 1 : 0) * ease(t, b.a1.plan - 0.05, b.a1.plan + POP); T('a plan', px, py + 62, 56, pl, { kind: 'name', align: 'center' }); }   // C4 r2: tên vạch đứng (dưới chân vạch — trên đầu vạch là dòng "on paper: typical…")
