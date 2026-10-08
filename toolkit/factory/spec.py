@@ -108,6 +108,29 @@ def counterweights(spec, root, claims):
     return P
 
 
+def claims_unrounded(spec, root):
+    """Việc treo nhà máy Tập 5 (tổng kết Tập 5 mục 11): `claims.json` phải ghi giá trị CHƯA làm tròn của mô hình. Tập 5 C4: S05 sai số
+    0,005 — với số đã làm tròn của numbers.md trượt 4 claim. Khi tập có `contract.json` `model.claims` (claimId → khoá mô hình) và
+    `out/model.json` `raw`, mỗi claim số phải bằng đúng `raw[khoá]` (sai số 1e-9); giá trị trùng `rounded[khoá]` mà khác raw → BLOCK."""
+    P = []
+    ct, mj = os.path.join(root, 'contract.json'), os.path.join(root, 'out', 'model.json')
+    if not (os.path.exists(ct) and os.path.exists(mj)):
+        return P
+    keys = (json.load(open(ct)).get('model') or {}).get('claims') or {}
+    M = json.load(open(mj))
+    raw, rnd = M.get('raw') or {}, M.get('rounded') or {}
+    vals = {c['claimId']: c.get('value') for c in json.load(open(os.path.join(root, spec['claims'])))['claims']}
+    for cid, key in keys.items():
+        v, r = vals.get(cid), raw.get(key)
+        if not isinstance(r, (int, float)) or isinstance(r, bool) or not isinstance(v, (int, float)):
+            continue
+        if abs(v - r) > 1e-9:
+            hint = ' (equals the ROUNDED model value)' if key in rnd and rnd[key] == v else ''
+            P.append({'level': 'BLOCK', 'rule': 'claims_unrounded',
+                      'msg': f'claim {cid}: claims.json value {v!r} != model raw {key} {r!r}{hint}; write the unrounded value (display carries rounding)'})
+    return P
+
+
 def check(spec, root, duration=None):
     P = []
     add = lambda level, rule, msg: P.append({'level': level, 'rule': rule, 'msg': msg})
@@ -175,6 +198,7 @@ def check(spec, root, duration=None):
                 if m and m[1] in shown and t not in shown[m[1]]:
                     add('WARN', 'labels', f'{ln.split()[0]}: label "{t}" (number moved off the voice) is not on screen in {m[1]}')
     P += counterweights(spec, root, claims)
+    P += claims_unrounded(spec, root)
     n_sym = len(spec.get('custom_symbols') or [])
     if n_sym > 2:   # D-009 (b): không còn trần số ký hiệu mới; hình mới đi qua C3 (clip có chuyển động + âm)
         add('WARN', 'custom_symbols', f'{n_sym} new symbols: each must pass C3 (clip with motion and sound), D-009 (b)')
