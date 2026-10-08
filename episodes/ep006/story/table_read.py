@@ -72,7 +72,9 @@ def main():
     clip = f'{EP}/review-g1/cold-open.m4a'
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *inputs, '-filter_complex', ';'.join(flt), '-map', '[o]', '-c:a', 'aac', '-b:a', '160k', clip], check=True)
     from faster_whisper import WhisperModel
-    segs, _ = WhisperModel('small.en', device='cpu', compute_type='int8').transcribe(clip)
+    import numpy as np  # av trong container không nhận metadata_errors → giải mã bằng ffmpeg
+    pcm = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', clip, '-f', 's16le', '-ac', '1', '-ar', '16000', '-'], capture_output=True, check=True).stdout
+    segs, _ = WhisperModel('small.en', device='cpu', compute_type='int8').transcribe(np.frombuffer(pcm, np.int16).astype(np.float32) / 32768)
     asr = ' '.join(s.text.strip() for s in segs)
     dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', clip], capture_output=True, text=True).stdout)
     rep = {'el_chars_spent': chars, 'clip': os.path.relpath(clip, ROOT), 'clip_s': round(dur, 1), 'M': res, 'timeline': timeline, 'asr': asr}

@@ -8,8 +8,8 @@ import json, os, secrets, subprocess, sys, concurrent.futures as cf
 from pathlib import Path
 HEADLESS = Path(__file__).resolve().parents[2] / 'toolkit/blind/headless.sh'
 
-def run(prompt, out, read=False):
-    cmd = ['bash', str(HEADLESS), str(prompt), str(out)] + (['--read'] if read else [])
+def run(prompt, out, read=False, model=None):
+    cmd = ['bash', str(HEADLESS), str(prompt), str(out)] + (['--read'] if read else []) + (['--model', model] if model else [])
     for _ in range(3):
         if subprocess.run(cmd, capture_output=True, text=True).returncode == 0 and Path(out).exists():
             return json.load(open(out))
@@ -18,15 +18,16 @@ def run(prompt, out, read=False):
 def read(spec_path, outdir):
     spec = json.load(open(spec_path)); o = Path(outdir).resolve(); o.mkdir(parents=True, exist_ok=True)
     key = []
-    for sample, role in spec['plan']:
+    for item in spec['plan']:
+        sample, role = item[0], item[1]; model = item[2] if len(item) > 2 else None
         h = secrets.token_hex(4)
         role_txt = spec['roles'].get(role, '')
         qs = '\n'.join(f'{i+1}. {q}' for i, q in enumerate(spec['questions']))
         text = (f"{role_txt}\n\n" if role_txt else '') + f"{spec['intro']}\n\n---\n{spec['samples'][sample]}\n---\n\nAnswer these questions, numbered, plain text, no tools:\n{qs}\n"
-        (o / f'{h}.txt').write_text(text); key.append({'file': h, 'sample': sample, 'role': role})
+        (o / f'{h}.txt').write_text(text); key.append({'file': h, 'sample': sample, 'role': role, 'model': model or 'sonnet'})
     json.dump(key, open(o / 'key.json', 'w'), indent=1)
     with cf.ThreadPoolExecutor(6) as ex:
-        res = dict(zip([k['file'] for k in key], ex.map(lambda k: run(o / f"{k['file']}.txt", o / f"{k['file']}.json"), key)))
+        res = dict(zip([k['file'] for k in key], ex.map(lambda k: run(o / f"{k['file']}.txt", o / f"{k['file']}.json", model=None if k['model'] == 'sonnet' else k['model']), key)))
     tok = sum(sum(m['in'] + m['out'] for m in r['tokens'].values()) for r in res.values() if r)
     print(json.dumps({'runs': len(key), 'ok': sum(1 for r in res.values() if r), 'tokens': tok}))
 
