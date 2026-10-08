@@ -1,4 +1,4 @@
-How long did mortgage insurance last for a buyer who put 10% down? We replayed every US purchase month from January 1991 to July 2016 and asked when the loan reached 80% of the home's value on paper, by a national price index, against the payment schedule the law uses. The typical answer: 23 months months on paper. On paper is not the same as the insurance being removed. US only · history, not a forecast. This video does not say whether to buy, rent or wait.
+How long did mortgage insurance last for a buyer who put 10% down? We replayed every US purchase month from January 1991 to July 2016 and asked when the loan reached 80% of the home's value on paper, by a national price index, against the payment schedule the law uses. The typical answer: 23 months on paper. On paper is not the same as the insurance being removed. US only · history, not a forecast. This video does not say whether to buy, rent or wait.
 Owen, Grace and Victor are ILLUSTRATIVE buyers built from real purchase months.
 
 Chapters

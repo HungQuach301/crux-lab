@@ -354,7 +354,7 @@ def extras(Y, tl):
     # C5 (G2 package): pasted verbatim into YouTube; title T1 lives in out/package/package.json + HUONG-DAN-DANG.md. REVIEWER R1: no premium amount.
     desc = [f"How long did mortgage insurance last for a buyer who put 10% down? We replayed every US purchase month from {dsp('firstB')} to {dsp('lastB')} "
             "and asked when the loan reached 80% of the home's value on paper, by a national price index, against the payment schedule the law uses. "
-            f"The typical answer: {dsp('medianB_months_to80')} months on paper. On paper is not the same as the insurance being removed. "
+            f"The typical answer: {dsp('medianB_months_to80')} on paper. On paper is not the same as the insurance being removed. "
             "US only · history, not a forecast. This video does not say whether to buy, rent or wait.",
             'Owen, Grace and Victor are ILLUSTRATIVE buyers built from real purchase months.', '',
             'Chapters'] + [f"{mmss(acts[a]['start'])} {txt}" for a, txt in ch if a in acts] + ['',
