@@ -34,7 +34,7 @@ Lấy bằng `python3 toolkit/usage/from_events.py --session session_019BA5MXtsQ
 
 ## 7. Prompt phiên kế (D-011) — chủ dự án dán nguyên khối vào phiên mới
 ```
-Chạy Tập 6, phiên P2. Nhánh ep006 (@ <sha cuối của ep006>). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md.
+Chạy Tập 6, phiên P2. Nhánh ep006 (@ e677bf1 hoặc mới hơn). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md.
 Gói đã gửi: episodes/ep006/gates/G1.md (issue #48). Việc đầu tiên: chép câu trả lời dưới đây vào episodes/ep006/gates/G1-answer.md, commit, push; ghi taste-ledger.md, AUTHORSHIP.md, ledger.
 Nếu main đã có khoá K mới (lô checks-k40, kind cho episodes/ep006/K-brief.md): merge main vào ep006 trước.
 Chặng này: áp G1 → C3 (ký hiệu "hàng 10 thùng" + nhạc hiệu kênh, clip có chuyển động và âm) → dừng ở C3 (đóng phiên theo playbook/prompts/RUN.md "Đóng phiên"). Nếu G1 ghi "không cần C3" thì làm P3 → dừng ở G2.
