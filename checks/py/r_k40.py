@@ -43,7 +43,7 @@ def s19_forbidden_amounts(ctx):
     if not fa:
         return verdict('S19', [metric('units with an unsourced forbidden amount', 0, '<=', 0)], note='contract.json declares no claims.forbiddenAmounts: nothing to check')
     sourced = [x for c in ctx.claims() if c.get('source') for x in _claim_usd(c)]
-    bad, units = [], 0
+    bad, units = [], set()
     for f in fa:
         terms = [re.compile(r'\b' + re.escape(t) + r'\b', re.I) for t in f.get('terms') or []]
         if not terms:
@@ -62,7 +62,7 @@ def s19_forbidden_amounts(ctx):
         for kind, uid, text, amts in cand:
             if not any(r.search(text) for r in terms):
                 continue
-            units += 1
+            units.add((kind, uid if kind == 'sentence' else text))
             orphan = [s for c, s in amts if not canon_matches(c, sourced)]
             if orphan:
                 bad.append({'id': f.get('id'), 'unit': kind, 'where': uid, 'amounts': orphan, 'text': text[:140]})
@@ -74,7 +74,7 @@ def s19_forbidden_amounts(ctx):
             seen.add(k)
             uniq.append(b)
     return verdict('S19', [metric('units with an unsourced forbidden amount', len(uniq), '<=', 0)],
-                   details=[{'unitsWithTerm': units}, *uniq[:20]])
+                   details=[{'unitsWithTerm': len(units)}, *uniq[:20]])
 
 
 # ---- A17 → S20 ------------------------------------------------------------------------------------------------------------------
@@ -252,8 +252,8 @@ def r07_sync(ctx):
 # ---- A18 → V14 ------------------------------------------------------------------------------------------------------------------
 @rule('V14', 'D-010 quy tắc 1/2/3/7 (đoạn thế giới), checks-appeal A18', 'world segments (as R07), the four checks of toolkit/factory/world/verify_seg.py that need no page '
       'log: (rule 2) no spine keyword (beats[].cues) strictly inside a camera move widened by spine.pad (spine.moves (t0 − pad, t1 + pad)); (rule 3) every move has a reason and a sound whose kind '
-      'is among spine.events; (cuts) hard cuts on the master = consecutive frames (320×180 grey, 30 fps) with > 45% of pixels changing by > 25 levels; (first 5 s) '
-      'the beats of the episode\'s first 5 s are in mode "world". Rule 1 (number/compare texts only in chart mode, chartW ≥ 0.95) needs the page log\'s chartW, which '
+      'is among spine.events; (cuts) hard cuts on the master inside a segment (t0, t0 + spine.total) = consecutive frames (320×180 grey, 30 fps) with > 45% of '
+      'pixels changing by > 25 levels (splice joins and non-world parts are not judged); (first 5 s) the beats of each segment\'s first 5 s are in mode "world". Rule 1 (number/compare texts only in chart mode, chartW ≥ 0.95) needs the page log\'s chartW, which '
       'the page sampler does not record: not measured here (reported by the builder\'s verify_seg)',
       '0 keywords during a move; 0 moves without reason or sound; 0 hard cuts; first 5 s in the world; no world segment = nothing to check')
 def v14_world(ctx):
@@ -268,13 +268,14 @@ def v14_world(ctx):
             for k, t in b.get('cues', {}).items():
                 if any(m['t0'] - pad < t < m['t1'] + pad for m in moves):
                     kw_moving.append({'segment': sid, 'cue': f"{b['id']}.{k}", 't': round(t + t0, 3)})
-            if b.get('t0', 0) + t0 < 5.0 and b.get('mode') not in (None, 'world'):
+            if b.get('t0', 0) < 5.0 and b.get('mode') not in (None, 'world'):
                 first.append({'segment': sid, 'beat': b['id'], 'mode': b.get('mode'), 't0': round(b.get('t0', 0) + t0, 3)})
         kinds = {e.get('kind') for e in sp.get('events', [])}
         no_reason += [{'segment': sid, 'move': f"{m.get('verb')} {m.get('from')}→{m.get('to')}", 't0': round(m['t0'] + t0, 3)}
                       for m in moves if not m.get('reason') or m.get('sound') not in kinds]
     share = frame_diffs(ctx, cut=True)
-    cuts = [round(i / 30, 2) for i, v in enumerate(share) if v > 0.45]
+    spans = [(t0, t0 + float(sp.get('total') or 0)) for _, sp, t0 in segs]
+    cuts = [round(i / 30, 2) for i, v in enumerate(share) if v > 0.45 and any(a < i / 30 < b for a, b in spans)]
     return verdict('V14', [metric('keywords during a camera move', len(kw_moving), '<=', 0), metric('moves without reason or sound', len(no_reason), '<=', 0),
                            metric('hard cuts', len(cuts), '<=', 0), metric('first-5 s beats not in the world', len(first), '<=', 0)],
                    details=[{'segments': len(segs), 'keywords': sum(len(b.get('cues', {})) for _, sp, _ in segs for b in sp.get('beats', [])),
@@ -347,7 +348,7 @@ def label_words(text):
 
 
 @rule('V17', 'DX-V (đọc kịp), lessons T5-2, checks-appeal A24', 'page sampler text track (every 0.1 s, texts with opacity > 0.5 on frame): each text\'s visible runs '
-      '(by tid; gaps ≤ 0.2 s joined; a run still on at the end of the timeline counts to the end). Words = whitespace tokens holding a letter or digit. Texts without a '
+      '(by tid and text; gaps ≤ 0.2 s joined; a run still on at the end of the timeline counts to the end). Words = whitespace tokens holding a letter or digit. Texts without a '
       'letter (counters, bare numbers) are not labels. A label needs ceil(words / 3) s on screen; its longest run is compared',
       'every label on screen ≥ 1 s per 3 words (rounded up); 0 labels too short')
 def v17_label_time(ctx):
@@ -358,7 +359,7 @@ def v17_label_time(ctx):
     total = ctx.total()
     runs, text_of, open_ = {}, {}, {}
     for i, e in enumerate(tt):
-        now = {it['tid']: it.get('text') or '' for it in e.get('items', [])}
+        now = {(it['tid'], it.get('text') or ''): it.get('text') or '' for it in e.get('items', [])}
         for tid, txt in now.items():
             text_of[tid] = txt
             if tid not in open_:
@@ -450,19 +451,19 @@ def claim_number_set(claims):
 
 @rule('S21', 'DX-H1 (lỗi số = 0 cả ngoài video), cine-lab BAI-HOC-LL #53, checks-appeal A25', 'out/package/description.md, line by line: chapter stamps (m:ss at line '
       'start), URLs, law citations (26 U.S.C. 121, 31 CFR 351.34(a), 70 FR 17288), series codes (capitals with a digit, e.g. MORTGAGE30US) and list numbering are '
-      'removed; every remaining number must be one a claim of out/claims.json stands for (claim_number_set: value, display, dataYears, ×100, ÷100, ×12, ÷12, '
-      'rounded to 0–2 decimals)', '0 numbers in the description without a claim')
+      'removed; every remaining number, as written (to 2 decimals), must be one a claim of out/claims.json stands for (claim_number_set: value, display, dataYears, '
+      '×100, ÷100, ×12, ÷12, rounded to 0–2 decimals)', '0 numbers in the description without a claim')
 def s21_description(ctx):
     ok = claim_number_set(ctx.claims())
     bad = []
     for n, ln in enumerate(ctx.text('out/package/description.md').splitlines(), 1):
         s = re.sub(r'^\s*\d+:\d\d\s*', '', ln)
         s = re.sub(r'https?://\S+', ' ', s)
-        s = re.sub(r'\b\d+\s+(U\.S\.C\.|CFR|FR)\s+[\d.]+(\([\w]+\))*(\s+and\s+[\d.]+(\([\w]+\))*)?', ' ', s)
+        s = re.sub(r'\b\d+\s+(U\.S\.C\.|CFR|FR)\s+(§\s*)?[\d.]+(\([\w]+\))*(\s+and\s+[\d.]+(\([\w]+\))*)?', ' ', s)
         s = re.sub(r'\b[A-Z][A-Z0-9]*\d[A-Z0-9]*\b', ' ', s)
         s = re.sub(r'^\s*\d+[.)]\s', ' ', s)
         for tok, x in _plain_nums(s):
-            if round(x, 2) not in ok and float(round(x)) not in ok:
+            if round(x, 2) not in ok:
                 bad.append({'line': n, 'number': tok, 'text': ln.strip()[:120]})
     return verdict('S21', [metric('numbers in the description without a claim', len(bad), '<=', 0)], details=bad[:20])
 
@@ -495,9 +496,9 @@ def s22_mixed_sources(ctx):
     for (kind, uid), cs in sorted(units.items(), key=lambda x: (x[0][0], str(x[0][1]))):
         ks = {key(c) for c in cs}
         srcs, pers = {k[0] for k in ks}, {k[1] for k in ks}
-        if len({c['claimId'] for c in cs}) < 2 or (len(srcs) < 2 and len(pers) < 2):
+        if len({c.get('claimId') for c in cs}) < 2 or (len(srcs) < 2 and len(pers) < 2):
             continue
-        row = {'unit': kind, 'id': uid, 'claims': sorted({c['claimId'] for c in cs}), 'sources': sorted(srcs), 'periods': sorted(map(str, pers)), 'text': text.get(uid, '')[:140]}
+        row = {'unit': kind, 'id': uid, 'claims': sorted({str(c.get('claimId')) for c in cs}), 'sources': sorted(srcs), 'periods': sorted(map(str, pers)), 'text': text.get(uid, '')[:140]}
         t = text.get(uid, '') if kind == 'sentence' else ''
         if len(srcs) < 2 and 'now' in pers and t and _NOW.search(t) and _PAST.search(t):
             named.append(row)
