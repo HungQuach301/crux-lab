@@ -39,6 +39,12 @@
 - **Số nói (B+2):** ≤ 2 số **mới** được nói mỗi cảnh (`toolkit/factory/numbers_said.py`, BLOCK trong `spec.py`); số thứ ba trở đi lên nhãn trên hình (người biên tập chọn), phạm vi không đổi.
 - **Giọng theo cảnh (B+1):** `voice_overrides: {Sxx: {seed | settings | voice | model | take}}` trong `episode.yaml` khi một cảnh cần take khác (vd Tập 5 S18 seed 1006).
 - Trước mỗi gói cổng và mỗi issue TỰ ĐỘNG: **REVIEWER** soát (`quality-framework.md` §7).
+- **Agent dựng không chờ (tổng kết Tập 5 §1e.1, chủ dự án duyệt 08/10).** Tập 5: agent con dựng W4 + W5 tốn ≈ 71 triệu trần (83 % cả tập), W5 ghi cache 49,6 triệu so với sinh ra 0,36 triệu — phần lớn là agent ngồi chờ lượt 1080p (≈ 1,5 h) và checks (≈ 1,3 h), mỗi lần thức dậy nạp lại cả ngữ cảnh 0,4–0,65 triệu.
+  1. Agent dựng **khởi chạy build/checks bằng công cụ chạy nền của phiên** (an toàn chạy nền: §11b) rồi **trả việc ngay** — không chờ, không hỏi trạng thái theo vòng.
+  2. Phiên điều phối nhận thông báo lệnh nền xong, rồi giao **agent MỚI, đầu bài ngắn** đọc `out/factory/build-report.json` / `checks-runs/<run>/report.json` (ngữ cảnh ≈ 50–100 nghìn), quyết vòng sửa.
+  3. **Một vòng sửa = một agent.** Không gọi lại agent cũ, không giữ agent sống qua một lượt render.
+  4. Đầu bài agent mới **chép "đã sửa gì, vì sao"** của các vòng trước (≤ 10 dòng, lấy từ PLAN tập — mẫu `playbook/templates/PLAN-tap.md`) để không mất ngữ cảnh sửa: cảnh, lỗi (mã luật), cách sửa, kết quả đo, việc còn lại.
+  Cùng lệnh dựng, cùng checks, cùng kiểm mù → chất lượng không đổi; số đo đối chiếu: CHẶN/CHÍNH và cổng gốc như C5c Tập 5. Kiểm ở Tập 6: đọc transcript một agent dựng, đếm lượt ghi cache > 0,3 triệu.
 
 ## 2. Model, effort, số agent
 
