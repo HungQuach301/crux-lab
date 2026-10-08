@@ -161,7 +161,7 @@ export async function boot(res) {
     //  · hai mốc CÙNG độ nặng: cùng chấm, cùng gạch dọc xuống trục kỳ, cùng khối nhãn 4 dòng (mức · số tiền · kỳ · điều luật nói), cùng cỡ chữ;
     //  · khối của 80 % ở TRÁI gạch kỳ 99, khối của 78 % ở PHẢI gạch kỳ 114, dưới đường cong — không đường nào cắt chữ (đạo diễn A+B 1:58–2:30);
     //  · điều kiện (S07.3) không còn "written request" (đọc thành việc phải làm); rời trước S08.
-    const z7 = ok * ease(t, M.m_law.t1, M.m_law.t1 + POP) * (1 - ease(t, M.m_wide.t0, M.m_wide.t0 + 0.3));
+    const z7 = ok * ease(t, M.m_law.t1, M.m_law.t1 + POP) * (1 - ease(t, M.m_wide.t0 - 0.3, M.m_wide.t0));   // C5b (V11/V12): khối nhãn hai mốc rời TRƯỚC cú lùi máy (không trượt qua nét gạch)
     if (z7 > 0.01) {
       O.text("the law's two dates on this schedule", 960, 182, 52, { kind: 'name', align: 'center', alpha: z7 * ease(t, b.l0.law - 0.05, b.l0.law + POP), plate: PLATE, plateA: 0.75 });
       const P99 = [XK(k99), 360000 * bal(k99) / UNIT], P114 = [XK(k114), 360000 * bal(k114) / UNIT], c = O.ctx;

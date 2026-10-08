@@ -248,7 +248,7 @@ export async function boot(res) {
     }
     if (dark > 0.002) { const c = O.ctx; c.save(); c.globalAlpha = dark; c.fillStyle = C.bg; c.fillRect(0, 0, 1920, 1080); c.restore(); }
     const mk = ease(t, ID0 + 0.3, ID0 + 0.8) * (1 - ease(t, ID1 - 0.8, ID1 - 0.2));
-    if (mk > 0.01) { O.text('CRUX', 960, 560, 120, { kind: 'chrome', align: 'center', w: 700, color: C.ink, alpha: mk }); O.text('decision lab · US personal finance', 960, 640, 48, { kind: 'chrome', align: 'center', w: 600, color: C.muted, alpha: mk }); }
+    if (mk > 0.01) { O.text('CRUX', 960, 560, 120, { kind: 'chrome', align: 'center', w: 700, color: C.ink, alpha: mk, plate: C.bg, plateA: 0.85 }); O.text('decision lab · US personal finance', 960, 640, 48, { kind: 'chrome', align: 'center', w: 600, color: C.muted, alpha: mk, plate: C.bg, plateA: 0.85 }); }   // C5b V11: nền sau dấu kênh (thế giới tối dần phía sau)
     Object.assign(log, measure(cam, WORLD));   // C4: che khung + nghiêng cạnh đứng (mỗi khung log)
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }

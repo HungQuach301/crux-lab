@@ -332,7 +332,7 @@ def extras(Y, tl):
         shutil.copy(src, os.path.join(EP, 'out', 'tension-map.png'))
     json.dump({'cues': [{'t': b['t0'], 'end': b['t1'], 'function': {'A': 'act-1 bed', 'B': 'act-2/3 bed', 'C': 'landing'}.get(b['sec'], b['sec']), 'key': b['key'],
                          'tempo': round(240 / b['len'], 3), 'layer': '+'.join(b['layers'])} for b in B['bars']],
-               'silences': [{'t': B['mr1_silence'][0], 'end': B['mr1_silence'][1], 'what': 'MR1'}]}, open(os.path.join(EP, 'out', 'cues.json'), 'w'), indent=1)
+               'silences': [{'t': B['mr1_silence'][0], 'end': B['mr1_silence'][1], 'what': 'MR1'}] if (Y.get('midrolls') or []) else []}, open(os.path.join(EP, 'out', 'cues.json'), 'w'), indent=1)
     cuts = []
     for a_, b_ in zip(Y['world'], Y['world'][1:]):
         t = next(s['start'] for s in tl['scenes'] if s['id'] == b_['scenes'][0])

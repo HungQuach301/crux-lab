@@ -89,10 +89,11 @@ def anchors(timeline=None):
         if mr: mr1 = float(mr[0]['t'])
     except Exception:
         mr1 = None
+    brk = mr1 is not None   # C5b (chủ dự án 08/10: Tập 5 không mid-roll): không khai midroll → không khoảng lặng MR1, nhạc liền
     if mr1 is None:   # script.md: MR1 trong khoảng giữ sau S09.4 → giữa từ cuối S09 và từ đầu S10
         mr1 = 0.5 * (last['S09'] + first['S10'])
     ident = 0.5 * (last['S03'] + first['S04'])
-    return {'scene_start': st, 'first': first, 'last': last, 'sent': sent, 'words': words, 'mr1': mr1, 'ident': ident, 'total': total}
+    return {'scene_start': st, 'first': first, 'last': last, 'sent': sent, 'words': words, 'mr1': mr1, 'mr1_break': brk, 'ident': ident, 'total': total}
 
 
 def resolve(a, A):
@@ -125,7 +126,7 @@ def curve(kf, t):
 def build(timeline=None):
     A = anchors(timeline)
     kf = keyframes(A)
-    return {'total': A['total'], 'mr1': A['mr1'], 'ident': A['ident'], 'landing': resolve(LANDING, A),
+    return {'total': A['total'], 'mr1': A['mr1'], 'mr1_break': A['mr1_break'], 'ident': A['ident'], 'landing': resolve(LANDING, A),
             'key_change': A['first'][KEY_CHANGE] - 1.0, 'accents': [(a, resolve(a, A)) for a in ACCENTS],
             'keyframes': [{'t': round(t, 3), 'v': v, 'at': a} for t, v, a in kf],
             'scenes': {sc: round(A['first'][sc], 3) for sc in sorted(A['first'])},

@@ -231,7 +231,7 @@ def render(total, M, seed=1005):
     ten_s = uniform_filter1d(ten_at(t), 150)                     # 1,5 s
     g = 10 ** (-DB_SPAN * (1 - ten_s) / 20)
     m = M['mr1']
-    gate = np.where(t < m - MR_HOLD - MR_REL, 1.0,
+    gate = np.ones_like(t) if not M.get('mr1_break', True) else np.where(t < m - MR_HOLD - MR_REL, 1.0,
                     np.where(t < m - MR_HOLD, 0.5 + 0.5 * np.cos(np.pi * (t - (m - MR_HOLD - MR_REL)) / MR_REL),
                              np.where(t < m + MR_HOLD, 0.0, np.clip((t - m - MR_HOLD) / MR_IN, 0, 1))))
     fade = np.clip(t / 0.8, 0, 1) * np.clip((total - t) / 1.5, 0, 1)
@@ -251,6 +251,9 @@ def main():
     total, out = float(sys.argv[1]), sys.argv[2]
     tl = sys.argv[sys.argv.index('--timeline') + 1] if '--timeline' in sys.argv else None
     M = TM.build(tl)
+    global MR_HOLD
+    if not M.get('mr1_break', True):   # C5b (chủ dự án 08/10): không mid-roll → không cổng lặng MR1; Hồi 2 vẫn bắt đầu ô nhịp ở ranh hồi (hold 0), nhạc liền
+        MR_HOLD = 0.0
     mus, info = render(total, M)
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     import soundfile as sf

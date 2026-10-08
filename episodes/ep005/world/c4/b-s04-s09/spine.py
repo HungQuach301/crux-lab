@@ -86,9 +86,12 @@ SIL = [round(M['m_mr']['t1'] + 0.5, 3), TOTAL]                       # MR1: lặ
 # C5b (checks S14): điểm chèn MR1 = episode.yaml midrolls[0].t (±1 s quanh ranh hồi 1→2 = đầu S10); CẢ BẢN TRỘN lặng (room tone cũng về 0) từ
 # MR1 − 0,65 s tới hết đoạn (= đầu S10) — cùng cửa sổ nhạc nền về 0 của bed.py [MR1 − 0,6; MR1 + 0,6]
 import yaml
-MR1 = float(yaml.safe_load(open(os.path.join(K.EP, 'episode.yaml')))['midrolls'][0]['t']) - S.t0
-assert SIL[0] <= MR1 - 0.65 and TOTAL - MR1 <= 1.0 and TOTAL - (MR1 - 0.65) >= 1.0, ('MR1', MR1, SIL, TOTAL)
-MIX_SIL = [[round(MR1 - 0.65, 3), TOTAL]]
+_mr = yaml.safe_load(open(os.path.join(K.EP, 'episode.yaml'))).get('midrolls') or []   # chủ dự án 08/10: Tập 5 không mid-roll → không lặng
+MIX_SIL = []
+if _mr:
+    MR1 = float(_mr[0]['t']) - S.t0
+    assert SIL[0] <= MR1 - 0.65 and TOTAL - MR1 <= 1.0 and TOTAL - (MR1 - 0.65) >= 1.0, ('MR1', MR1, SIL, TOTAL)
+    MIX_SIL = [[round(MR1 - 0.65, 3), TOTAL]]
 assert all(e['t'] < SIL[0] - 0.4 for e in EV), 'sfx trong khoảng lặng MR1'
 tension = [[0, 0.2]] + [[b['t0'], 0.2 + 0.5 * b['music']] for b in beats] + [[TOTAL, 0.0]]
 errs = SV.check_rules(beats, moves, PAD, rule3=True)
