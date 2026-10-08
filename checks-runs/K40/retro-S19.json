@@ -1,0 +1,69 @@
+{
+ "ep003": {
+  "contract": "episodes/ep003/contract.json",
+  "video": null,
+  "S19": {
+   "id": "S19",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "units with an unsourced forbidden amount",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": "contract.json declares no claims.forbiddenAmounts: nothing to check"
+  }
+ },
+ "ep004": {
+  "contract": "episodes/ep004/contract.json",
+  "video": null,
+  "S19": {
+   "id": "S19",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "units with an unsourced forbidden amount",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": "contract.json declares no claims.forbiddenAmounts: nothing to check"
+  }
+ },
+ "ep005": {
+  "contract": "checks-runs/K40/contracts/ep005.json",
+  "video": null,
+  "S19": {
+   "id": "S19",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "units with an unsourced forbidden amount",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "unitsWithTerm": 12
+    }
+   ],
+   "note": null
+  }
+ }
+}

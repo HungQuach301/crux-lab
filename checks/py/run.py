@@ -20,7 +20,7 @@ import time
 
 sys.path.insert(0, os.path.dirname(__file__))
 import common  # noqa: E402
-import r_file, r_audio, r_content, r_rhythm, r_visual, r_page, r_sound, r_voice, r_short  # noqa: E402,F401
+import r_file, r_audio, r_content, r_rhythm, r_visual, r_page, r_sound, r_voice, r_short, r_k40  # noqa: E402,F401
 import tiers  # noqa: E402
 
 ORDER = ['F', 'A', 'S', 'R', 'V', 'C', 'P', 'T', 'L']

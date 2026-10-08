@@ -45,6 +45,8 @@ TIERS = {
     'S15': (REFERENCE, 'tay nghề: cấu trúc hồi, sàn tổng theo format (K3.8: bỏ trần cold open)'), 'S16': (REFERENCE, 'chỉ tiêu gắn số với nhân vật'),
     'S17': (BLOCK, 'claim: nhãn điều kiện trên mọi khung có claim conditional (K3.8, A1)'),
     'S18': (REFERENCE, 'giữ chân: mốc hook ≤ 5 s, promise ≤ 30 s (K3.8, A2)'),
+    # K4.0 (checks-appeal nhóm 2, chỉ thêm)
+    'S19': (BLOCK, 'claim: số tiền hợp đồng tập cấm nêu khi không có nguồn (K4.0, A20)'),
     # Shorts 9:16 (K3.8, A5)
     'SH01': (BLOCK, 'kỹ thuật file: Short 1080×1920'), 'SH02': (BLOCK, 'kỹ thuật file: Short ≤ 180 s'),
     'SH03': (BLOCK, 'âm lượng: Short'), 'SH04': (BLOCK, 'true peak: Short'),

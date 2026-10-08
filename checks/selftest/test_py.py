@@ -2202,6 +2202,49 @@ EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_cas
          'S05/ltv-passage-buyers': lfp_buyers_case}
 
 
+# ---- K4.0: checks-appeal nhóm 2 (chỉ thêm luật) ---------------------------------------------------------------------------------------------
+PMI = {'claims': {'forbiddenAmounts': [{'id': 'pmi_premium', 'terms': ['PMI', 'mortgage insurance', 'premium']}]}}
+
+
+def s19_fixture(f, sentence, frame_texts=(), declare=True, claims=None):
+    f.contract(**(PMI if declare else {}))
+    f.json('out/script.json', {'sentences': [{'id': 'S01.1', 'scene': 'S01', 'text': sentence, 'start': 0.0, 'end': 3.0}]})
+    f.json('out/claims.json', {'claims': claims if claims is not None else [{'claimId': 'ex_price', 'value': 400000, 'display': '$400,000', 'source': {'id': 'model'}}]})
+    f.json('out/checks/page.json', {'textTrack': [{'t': 0.0, 'scene': 'S01', 'items': []}, {'t': 1.0, 'scene': 'S01', 'items': [{'tid': f'{x}#0', 'role': 'label', 'text': x} for x in frame_texts]}]})
+
+
+@case('S19')
+def _(f, bad):
+    # bad: "PMI costs about $150 a month" with no claim for $150; good: "a $400,000 home … mortgage insurance", $400,000 has a sourced claim
+    s19_fixture(f, 'PMI costs about $150 a month.' if bad else 'On a $400,000 home, you pay mortgage insurance until the loan reaches 80 percent.')
+
+
+def s19_frame_case(bad):
+    """S19 on a frame: a label "$150/mo" next to "PMI" in the same page sample (bad); "PMI" next to "$400,000" (sourced, good)."""
+    f = F('S19-frame')
+    try:
+        s19_fixture(f, 'Mortgage insurance has a cost.', ['PMI', '$150/mo' if bad else '$400,000 home'])
+        return f.run('S19')
+    finally:
+        f.close()
+
+
+def s19_spoken_case(bad):
+    """S19 on the words read: text without digits, spoken "one hundred fifty dollars" (bad); no forbiddenAmounts declared → nothing to check (good)."""
+    f = F('S19-spoken')
+    try:
+        s19_fixture(f, 'PMI costs about that much a month.', declare=bad)
+        sc = json.load(open(f.p('out/script.json')))
+        sc['sentences'][0]['spoken'] = 'PMI costs about one hundred fifty dollars a month.'
+        f.json('out/script.json', sc)
+        return f.run('S19')
+    finally:
+        f.close()
+
+
+EXTRA.update({'S19/frame': s19_frame_case, 'S19/spoken': s19_spoken_case})
+
+
 def main():
     only = set(sys.argv[sys.argv.index('--only') + 1].split(',')) if '--only' in sys.argv else None
     rows = []
