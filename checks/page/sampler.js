@@ -117,20 +117,29 @@ async function openEnv() {
   const camAt = hasCam ? cameraSpeed(J('out/camera.json')) : null;
   const shotRGB = async () => { const img = P.decodePNG(await page.screenshot({ type: 'png' })); return img; };
   // V11 collisions of one pixel sample, in the order the sequential sampler judged them: [text, other, pixels, moving?]. K4.1 (checks-appeal A22): a text is
-  // its GLYPH ink (layer 'glyph'; plate/pill excluded), dilated 2 px; graphic ink lying under the plate of a text that has one (its text-layer pixels inside
-  // its box widened by 0.4 em) does not count — the plate covers it; text vs text compares glyph ink only (pairs whose boxes touch, nested pairs excluded).
+  // its GLYPH ink (layer 'glyph'; plate/pill excluded), dilated 2 px; graphic ink under the plate of a text that has one does not count. The plate of a
+  // text o = its own pixels in the text layer that are not glyph ink of any text, plus its own glyph ink, inside o's box widened by 0.4 em — a neighbour's
+  // glyph is never part of it. Graphic ink under a plate is counted apart (plateOver: [text, pixels], reported, not a violation; the owner decides).
+  // Blind spot: a line drawn ABOVE a plate is hidden by the same rule (layers carry no z-order). Text vs text compares glyph ink only.
   // Returns the text mask (glyph + plate) unchanged for V03, V08, C14.
   async function collide(T, isMoving) {
     const tm = await shotMask('text'), gm0 = await shotMask('graphics');
     const plated = T.filter((o) => o.role === 'badge' || o.background);
     const gl = plated.length ? await shotMask('glyph') : tm;
     let gm = gm0;
+    const plateOver = [];
     if (plated.length) {
       const m = gm0.m.slice();
       for (const o of plated) {
+        const own = await shotMask('only', [o.id]);
         const e = 0.4 * (o.fontPx || (o.box[3] - o.box[1]));
         const x0 = Math.max(0, Math.floor(o.box[0] - e)), y0 = Math.max(0, Math.floor(o.box[1] - e)), x1 = Math.min(tm.w, Math.ceil(o.box[2] + e)), y1 = Math.min(tm.h, Math.ceil(o.box[3] + e));
-        for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) { const i = y * tm.w + x; if (tm.m[i]) m[i] = 0; }
+        let under = 0;
+        for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) {
+          const i = y * tm.w + x;
+          if ((tm.m[i] && !gl.m[i]) || (own.m[i] && gl.m[i])) { if (m[i]) under++; m[i] = 0; }
+        }
+        if (under >= 4) plateOver.push([o, under]);
       }
       gm = { w: gm0.w, h: gm0.h, m };
     }
@@ -150,7 +159,7 @@ async function openEnv() {
       const n = P.overlapIn(ma, mb2, [Math.min(a.box[0], b.box[0]) - 3, Math.min(a.box[1], b.box[1]) - 3, Math.max(a.box[2], b.box[2]) + 3, Math.max(a.box[3], b.box[3]) + 3]);
       if (n >= 4) list.push([a, 'text:' + b.tid, n, isMoving(a) || isMoving(b)]);
     }
-    return { tm, list };
+    return { tm, list, plateOver };
   }
   // K4.0 (A13): a world page (factory, D-010) draws its 3D world on a canvas the objects() contract does not list; only a covering card/bg makes a frame text-only
   const isWorld = await page.evaluate(() => typeof window.CHECKS.segments === 'function');
@@ -188,7 +197,7 @@ async function sampleJob(env, frameList, warm) {
     const miss = [...new Set(vis.map((x) => x.sp.id).filter((id) => { const re = condPat[conditional[id]]; return !re || !texts.some((tx) => re.test(tx)); }))];
     if (miss.length) { s17Without++; if (s17Ex.length < 10) s17Ex.push({ t: +t.toFixed(3), scene: s.id, claims: miss }); }
   }
-  const px = { collisions: [], movingCollisions: 0, safe: [], safeTravelling: 0, contrast: [], small: [], worstContrast: null, samples: 0,
+  const px = { collisions: [], plateOver: [], movingCollisions: 0, safe: [], safeTravelling: 0, contrast: [], small: [], worstContrast: null, samples: 0,
     ncc: [], nccStatic: [], nccMoving: [], nccSkipped: 0 };
   let prevBoxes = new Map(), prevMovingHits = new Set(), prevVisibleShapes = new Map();
   const chartEvents = [];
@@ -322,7 +331,8 @@ async function sampleJob(env, frameList, warm) {
       if (T.length) {
         px.samples++;
         const isMoving = (o) => (moved.get(o.id) || 0) >= TEXT_MOVING;
-        const { tm, list } = await collide(T, isMoving);
+        const { tm, list, plateOver } = await collide(T, isMoving);
+        for (const [o, n] of plateOver) px.plateOver.push({ t: +t.toFixed(2), scene: s.id, tid: o.tid, role: o.role, pixels: n });
         const hits = new Set();
         const hit = (o, other, n, moving = isMoving(o)) => {
           const k = o.tid + '|' + other;
@@ -450,7 +460,7 @@ async function sampleJob(env, frameList, warm) {
 function mergeStates(states) {
   const M = { per: {}, textTrack: [], motionTrack: [], textOnlyTrack: [], yearsTrack: [], casesTrack: [], posRows: [], chartEvents: [], splitRuns: [], claimScenes: {}, claimRoles: {}, claimFirst: {},
     claimFinal: {}, badgeFirst: {}, illFirst: {}, orphan: [], charObs: {}, charSides: {}, timeBad: [], s08Without: 0, s08Ex: [], s09Missing: 0, s09Ex: [], s17Without: 0, s17Ex: [], movingSamples: 0,
-    px: { collisions: [], movingCollisions: 0, safe: [], safeTravelling: 0, contrast: [], small: [], worstContrast: null, samples: 0, ncc: [], nccStatic: [], nccMoving: [], nccSkipped: 0 } };
+    px: { collisions: [], plateOver: [], movingCollisions: 0, safe: [], safeTravelling: 0, contrast: [], small: [], worstContrast: null, samples: 0, ncc: [], nccStatic: [], nccMoving: [], nccSkipped: 0 } };
   const minInto = (dst, src) => { for (const [k, v] of Object.entries(src)) if (dst[k] === undefined || v < dst[k]) dst[k] = v; };
   const unionInto = (dst, src) => { for (const [k, v] of Object.entries(src)) { const u = dst[k] ||= []; for (const x of v) if (!u.includes(x)) u.push(x); } };
   for (const S of states) {
@@ -477,6 +487,7 @@ function mergeStates(states) {
     for (const k of ['s08Without', 's09Missing', 's17Without', 'movingSamples']) M[k] += S[k];
     const a = M.px, b = S.px;
     for (const k of ['collisions', 'safe', 'contrast', 'small', 'ncc', 'nccStatic', 'nccMoving']) a[k].push(...b[k]);
+    a.plateOver.push(...(b.plateOver || []));
     for (const k of ['movingCollisions', 'safeTravelling', 'samples', 'nccSkipped']) a[k] += b[k];
     if (b.worstContrast && (a.worstContrast === null || b.worstContrast.cr < a.worstContrast.cr)) a.worstContrast = b.worstContrast;
     if (b.nccWorst && (!a.nccWorst || b.nccWorst.ncc < a.nccWorst.ncc)) a.nccWorst = b.nccWorst;
@@ -505,7 +516,8 @@ function aggregate(env, S, seconds) {
   const distinct = (xs, key, n = 40) => { const seen = new Map(); for (const x of xs) { const k = key(x); if (!seen.has(k)) seen.set(k, { ...x, samples: 0 }); seen.get(k).samples++; } return [...seen.values()].slice(0, n); };
   rules.V03 = { violations: px.safe.length, travellingSamples: px.safeTravelling, examples: distinct(px.safe, (x) => x.scene + '|' + x.tid) };
   rules.V08 = { violations: px.contrast.length, worst: px.worstContrast, examples: distinct(px.contrast, (x) => x.scene + '|' + x.tid) };
-  rules.V11 = { violations: px.collisions.length, movingNotPersistent: px.movingCollisions, byRole: px.collisions.reduce((m, c) => { m[c.role] = (m[c.role] || 0) + 1; return m; }, {}), examples: distinct(px.collisions, (x) => x.scene + '|' + x.tid + '|' + x.with) };
+  rules.V11 = { violations: px.collisions.length, movingNotPersistent: px.movingCollisions, byRole: px.collisions.reduce((m, c) => { m[c.role] = (m[c.role] || 0) + 1; return m; }, {}), examples: distinct(px.collisions, (x) => x.scene + '|' + x.tid + '|' + x.with),
+    plateOverGraphics: px.plateOver.length, plateOverExamples: distinct(px.plateOver, (x) => x.scene + '|' + x.tid, 20) };
   rules.C14 = { violations: px.small.length, examples: distinct(px.small, (x) => x.scene + '|' + x.tid) };
   const q = (xs, p) => { if (!xs.length) return null; const v = [...xs].sort((a, b) => a - b); return +v[Math.min(v.length - 1, Math.floor(p * v.length))].toFixed(3); };
   rules.V12 = { threshold: NCC_MIN, violations: px.ncc.length, textSamples: px.nccStatic.length + px.nccMoving.length, skippedFlat: px.nccSkipped,
