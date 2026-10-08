@@ -3,7 +3,7 @@
 // 0–10 năm (S07–S08) · căn nhà NGOÀI khung đồ thị (S08.3) → nhà trên chồng giá trị (S09.1) · hai chồng chính diện (S09.2–S09.4) · phố (MR1, c4kit).
 import * as THREE from 'three';
 import { House, Stack, Beam, Person, Ribbon, Studio, Shield, Burst, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
-import { Camera, Stage, loadJSON, fonts, C, lin, ease, easeOut, mix } from '/toolkit/factory/world/core.js';
+import { Camera, Stage, loadJSON, fonts, C, lin, ease, easeOut, mix, SAFE_H } from '/toolkit/factory/world/core.js';
 import { Calendar } from '/episodes/ep005/world/obj5.js';
 import { cues, moves, flyGuard, measure, followLight, Street, litCalendar, POP, PLATE } from '/episodes/ep005/world/c4kit.js';
 
@@ -121,7 +121,8 @@ export async function boot(res) {
     // S04 (thế giới: tên, không số)
     const w4 = 1 - ease(t, M.m_e.t0, M.m_e.t0 + 0.3);
     wl('mortgage insurance (PMI)', HX, roofY + 1.05, -0.15, w4 * ease(t, b.p0.private - 0.05, b.p0.private + POP) * (1 - ease(t, M.m_push.t0, M.m_push.t0 + 0.3)));
-    wl('lender', HX - 2.1, 1.65, 0.5, w4 * ease(t, b.p1.lender - 0.05, b.p1.lender + POP));   // C4 r3: người cho vay ở lại trong khung (wCal) — tên ở lại
+    // C5b (V12): tên hiện khi máy đã ĐỨNG YÊN sau cú đẩy (trước: hiện ở "lender", 0,8 s trước cú đẩy, trượt theo người trong cú đẩy → nhoè)
+    wl('lender', HX - 2.1, 1.65, 0.5, w4 * ease(t, Math.max(b.p1.lender, M.m_push.t1) - 0.05, Math.max(b.p1.lender, M.m_push.t1) + POP));   // C4 r3: người cho vay ở lại trong khung (wCal) — tên ở lại
     wl('borrower', HX + 1.6, 1.55, 0.6, w4 * ease(t, b.p1.borrower - 0.05, b.p1.borrower + POP));
     wl('cost: not shown in this video', HX + 3.3, 2.15, 0.3, w4 * ease(t, b.p2.dollar - 0.05, b.p2.dollar + POP), 44);
     { const [x0, y0] = O.toScreen(HX + 3.2, 1.25, 0.3), [, y1] = O.toScreen(HX + 3.2, 0, 0.3); log.roi['p1.lender'] = [x0 - 420, y0 - 40, x0 - 100, y1 + 10]; }
@@ -147,10 +148,11 @@ export async function boot(res) {
         O.text('taxes, home insurance and PMI on top', cx - 60, 270, 48, { kind: 'name', color: C.warn, alpha: chipA * ease(t, b.y1.taxes - 0.05, b.y1.taxes + POP), plate: PLATE, plateA: 0.8 }); }
       O.text('loan balance schedule · set on day one', 960, 205, 52, { kind: 'compare', align: 'center', alpha: y6 * ease(t, b.y2.each, b.y2.each + POP) });
       const axA = y6 * ease(t, b.y2.each - 0.3, b.y2.each);
-      for (const kk of [0, 120, 240, 360]) { const [x, y] = S2(XK(kk), 0, 0.4); O.text(kk === 360 ? '360 payments' : String(kk), x, y + 52, 44, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: axA }); }
-      if (t >= b.y2.each) { const [x, y] = S2(CX + 0.75, 0.5, 0.3); O.text(`payment ${Math.round(k)}`, x + 14, y, 48, { kind: 'number', alpha: axA, plate: PLATE, plateA: 0.7 }); }
+      for (const kk of [0, 120, 240, 360]) { const [x, y] = S2(XK(kk), 0, 0.4); O.text(kk === 360 ? '360 payments' : String(kk), x, y + 52, 44, { kind: 'number', role: 'axis-label', color: C.muted, align: 'center', w: 600, alpha: axA }); }
+      // C5b (S07): nhãn đi theo chồng vay = "each payment" (lời "Each payment …"); bộ đếm "payment 0…114" (số trung gian không phải claim) bỏ — trục 0/120/240/360 + lịch lật mang số kỳ
+      if (t >= b.y2.each) { const [x, y] = S2(CX + 0.75, 0.5, 0.3); O.text('each payment', x + 14, y, 48, { kind: 'name', alpha: axA, plate: PLATE, plateA: 0.7 }); }
       const [lx, ly] = S2(XK(0), 2.0, 0.4); O.text('$360,000 loan', lx + 70, ly + 10, 48, { kind: 'number', alpha: y6 * (1 - ease(t, b.y2.each, b.y2.each + 0.4)) });
-      { const [x, y] = S2(XK(70), 360000 * bal(70) / UNIT, 0.4); O.text('slowly at first', x, y + 74, 52, { align: 'center', alpha: y6 * ease(t, b.y2.slowly - 0.05, b.y2.slowly + POP) }); }
+      { const [x, y] = S2(XK(70), 360000 * bal(70) / UNIT, 0.4); O.text('slowly at first', x, y + 74, 52, { align: 'center', alpha: y6 * ease(t, b.y2.slowly - 0.05, b.y2.slowly + POP), plate: PLATE, plateA: 0.6 }); }   // C5b V11: nền (chữ đè đường lịch 3D)
       { const [x, y] = S2(XK(300), 360000 * bal(300) / UNIT, 0.4); O.text('faster later', x - 40, y + 90, 52, { align: 'right', alpha: y6 * ease(t, b.y2.faster - 0.05, b.y2.faster + POP), plate: PLATE, plateA: 0.6 }); }
     }
     log.roi['y2.each'] = [cx - 120, cy - 10, cx + 120, O.toScreen(CX, 0, 0.3)[1] + 10];
@@ -163,20 +165,23 @@ export async function boot(res) {
     if (z7 > 0.01) {
       O.text("the law's two dates on this schedule", 960, 182, 52, { kind: 'name', align: 'center', alpha: z7 * ease(t, b.l0.law - 0.05, b.l0.law + POP), plate: PLATE, plateA: 0.75 });
       const P99 = [XK(k99), 360000 * bal(k99) / UNIT], P114 = [XK(k114), 360000 * bal(k114) / UNIT], c = O.ctx;
-      const block = (anchor, al, lines) => { const [x, y] = S2(anchor[0], anchor[1], 0.5); lines.forEach(([txt, a, kind], i) => { if (a > 0.01) O.text(txt, x, y + 62 * i, 48, { kind, align: al, alpha: z7 * a, plate: PLATE, plateA: 0.75 }); }); };
+      // C5b (V03): khối căn phải không tràn mép trái vùng an toàn — cả khối dịch cùng nhau (giữ thẳng hàng), dòng "conditions" đi theo khối 80 %
+      c.save(); c.font = '700 48px Inter'; const W80 = Math.max(...['80% of original value', 'conditions: e.g. payments current'].map((q) => c.measureText(q).width)); c.restore();
+      const shift80 = Math.max(0, SAFE_H.x0 + 4 - (S2(P99[0] - 0.18, 3.3, 0.5)[0] - W80));
+      const block = (anchor, al, lines, dx = 0) => { const [x, y] = S2(anchor[0], anchor[1], 0.5); lines.forEach(([txt, a, kind], i) => { if (a > 0.01) O.text(txt, x + dx, y + 62 * i, 48, { kind, align: al, alpha: z7 * a, plate: PLATE, plateA: 0.75 }); }); };
       const e80 = ease(t, b.l0.eighty - 0.05, b.l0.eighty + POP), e99 = ease(t, b.l1.ninety - 0.05, b.l1.ninety + POP), e78 = ease(t, b.a0.seventy - 0.05, b.a0.seventy + POP), e114 = ease(t, b.a1.nine - 0.05, b.a1.nine + POP);
       // gạch dọc từ mốc xuống trục kỳ (thời gian), hai mốc giống hệt nhau
       for (const [P, a] of [[P99, e99], [P114, e114]]) { if (a < 0.01) continue; const [x, y] = S2(P[0], P[1], 0.5), [, y0] = S2(P[0], 0.95, 0.5);
         c.save(); c.globalAlpha = 0.8 * z7 * a; c.strokeStyle = C.ink; c.lineWidth = 3; c.setLineDash([9, 7]); c.beginPath(); c.moveTo(x, y + 12); c.lineTo(x, y0); c.stroke(); c.restore(); }
-      block([P99[0] - 0.18, 3.3], 'right', [['80% of original value', e80, 'compare'], ['= $320,000', e80, 'number'], ['payment 99', e99, 'number'], ['may request', e99, 'name']]);
+      block([P99[0] - 0.18, 3.3], 'right', [['80% of original value', e80, 'compare'], ['= $320,000', e80, 'number'], ['payment 99', e99, 'number'], ['may request', e99, 'name']], shift80);
       block([P114[0] + 0.18, 2.4], 'left', [['78% of original value', e78, 'compare'], ['= $312,000', e78, 'number'], ['payment 114 (9.5 years)', e114, 'number'], ['ends automatically', e114, 'name']]);
-      { const [x, y] = S2(P99[0] - 0.18, 3.3, 0.5); O.text('conditions: e.g. payments current', x, y + 62 * 4 + 20, 48, { kind: 'name', align: 'right', color: C.muted, alpha: z7 * ease(t, b.l2.conditions - 0.05, b.l2.conditions + POP) * (1 - ease(t, b.l2.t1, b.l2.t1 + 0.3)) }); }
+      { const [x, y] = S2(P99[0] - 0.18, 3.3, 0.5); O.text('conditions: e.g. payments current', x + shift80, y + 62 * 4 + 20, 48, { kind: 'name', align: 'right', color: C.muted, alpha: z7 * ease(t, b.l2.conditions - 0.05, b.l2.conditions + POP) * (1 - ease(t, b.l2.t1, b.l2.t1 + 0.3)) }); }
       // con trỏ đi dọc đường lịch: 0 → 99 (S07.1 → "ninety-nine"), 99 → 114 (S08.1 → "nine") — cùng một nhịp cho hai mốc
       const kc = t < b.a0.seventy ? k99 * lin(t, b.l0.eighty, b.l1.ninety) : k99 + (k114 - k99) * lin(t, b.a0.seventy, b.a1.nine), cA = z7 * ease(t, b.l0.eighty, b.l0.eighty + POP) * (1 - ease(t, b.a1.nine, b.a1.nine + 0.4));
       if (cA > 0.01) { const [x, y] = S2(XK(kc), 360000 * bal(kc) / UNIT, 0.5); c.save(); c.globalAlpha = cA; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.arc(x, y, 14, 0, 7); c.stroke(); c.restore(); }
       c.save(); c.globalAlpha = z7; c.fillStyle = C.ink; for (const [P, a] of [[P99, e99], [P114, e114]]) { if (a < 0.5) continue; const [x, y] = S2(P[0], P[1], 0.5); c.beginPath(); c.arc(x, y, 10, 0, 7); c.fill(); } c.restore();
       const axA = z7 * (1 - ease(t, M.m_near.t0, M.m_near.t0 + 0.3));   // trục kỳ ở khung toàn đường (khung đẩy nhẹ: trục nằm dưới khung)
-      for (const kk of [0, 120, 240, 360]) { const [x, y] = S2(XK(kk), 0, 0.4); O.text(kk === 360 ? '360 payments' : String(kk), x, y + 44, 44, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: axA }); }
+      for (const kk of [0, 120, 240, 360]) { const [x, y] = S2(XK(kk), 0, 0.4); O.text(kk === 360 ? '360 payments' : String(kk), x, y + 44, 44, { kind: 'number', role: 'axis-label', color: C.muted, align: 'center', w: 600, alpha: axA }); }
     }
     // S08.3 (khung rộng: đường cả 360 kỳ, hai mốc; căn nhà đứng ngoài khung đồ thị)
     const w8 = ok * ease(t, M.m_wide.t1, M.m_wide.t1 + POP) * (1 - ease(t, M.m_val.t0, M.m_val.t0 + 0.3));
@@ -186,7 +191,7 @@ export async function boot(res) {
       O.text('based on the schedule only', (ax + bx) / 2, ay - 26, 52, { kind: 'name', align: 'center', alpha: w8 * ease(t, b.a2.schedule - 0.05, b.a2.schedule + POP), plate: PLATE, plateA: 0.7 });
       for (const kk of [k99, k114]) { const [x, y] = S2(XK(kk), 360000 * bal(kk) / UNIT, 0.5); c.save(); c.globalAlpha = w8; c.fillStyle = C.ink; c.beginPath(); c.arc(x, y, 8, 0, 7); c.fill(); c.restore();
         O.text(String(kk), kk === k99 ? x - 14 : x + 14, y - 26, 44, { kind: 'number', align: kk === k99 ? 'right' : 'left', alpha: w8 }); }
-      for (const kk of [0, 120, 240, 360]) { const [x, y] = S2(XK(kk), 0, 0.4); O.text(kk === 360 ? '360 payments' : String(kk), x, y + 66, 44, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: w8 }); }   // r3: clear of the curve's end (F-2)
+      for (const kk of [0, 120, 240, 360]) { const [x, y] = S2(XK(kk), 0, 0.4); O.text(kk === 360 ? '360 payments' : String(kk), kk === 360 ? x + 24 : x, y + 66, 44, { kind: 'number', role: 'axis-label', color: C.muted, align: kk === 360 ? 'right' : 'center', w: 600, alpha: w8 }); }   // C5b V11: "360 payments" kết thúc ở vạch, không cắt cạnh khung gạch   // r3: clear of the curve's end (F-2)
       const [hx, hy] = O.toScreen(VX, 400000 / UW, 0); O.text('home value', hx, hy - 30, 48, { align: 'center', alpha: w8, plate: PLATE, plateA: 0.6 });   // C4 r2: tên chồng giá trị (thay "the house")
     }
     // S09.1 (thế giới): tên
@@ -198,8 +203,8 @@ export async function boot(res) {
       const [vx, vy] = S2(DX - 0.8, 1.8), [lx, ly] = S2(DX + 3.0, lU / UD);
       O.text('home value', vx, vy, 52, { align: 'right', alpha: d9 });
       O.text('loan', lx, ly - 30, 52, { align: 'center', alpha: d9 });
-      const pct = Math.max(80, Math.round(100 * lU / vU));
-      O.text(`${pct}%`, lx + 130, ly + 16, 60, { kind: 'compare', alpha: d9 * (1 - ease(t, b.v1.sooner, b.v1.sooner + POP)), color: pct <= 80 ? C.ink : C.muted });
+      // C5b (S07): "90%" (start_ltv) thay bộ đếm 90…80 % (số trung gian không phải claim); mờ ngay trước "sooner" khi "80% sooner, on paper" hiện
+      O.text(`${Math.round(100 * CL.start_ltv.value)}%`, lx + 130, ly + 16, 60, { kind: 'compare', alpha: d9 * (1 - ease(t, b.v1.sooner - 0.3, b.v1.sooner)), color: C.muted, plate: PLATE, plateA: 0.75 });
       const [sx, sy] = S2(DX + 1.5 + 2.8, 320000 / UD, 0.1); O.text('schedule: 80% of original price', sx + 16, sy + 50, 42, { kind: 'compare', color: C.muted, alpha: d9 });
       const [ex, ey] = S2(DX + 1.5 + 2.8, 0.8 * vU / UD, 0.15);
       O.text('80% sooner, on paper', ex + 16, ey - 18, 56, { kind: 'compare', alpha: d9 * ease(t, b.v1.sooner - 0.05, b.v1.sooner + POP), plate: PLATE, plateA: 0.75 });
@@ -209,8 +214,9 @@ export async function boot(res) {
     }
     // lớp bắt buộc
     const ch = Math.max(e5, y6, z7, w8, d9);
+    const money = Math.max(e5, y6, z7);   // C5b (S09, K3.3): khung có số $ (S05–S08.2) mang nhãn gốc cấp khung "All $ in dollars of the day"
     if (ch > 0.01) O.chrome({ illus: true, illusA: ch, src: e5 > 0.01 ? 'Price: Census/HUD via FRED' : y6 > 0.01 ? 'Rate: Freddie Mac via FRED' : d9 > 0.01 ? 'FHFA via FRED · CFPB · Fannie Mae B-8.1-04' : 'Law: 12 U.S.C. 4902',
-      srcA: ch, cw: 'A measurement, not a next step', cwA: ch });
+      srcA: ch, cw: 'A measurement, not a next step', cwA: ch, basis: money > 0.01 ? 'nominal' : null, basisA: money });
     const dark = 1 - ease(t, 0, 0.5);   // mở từ tối (ident đoạn A)
     if (dark > 0.002) { const c = O.ctx; c.save(); c.globalAlpha = dark; c.fillStyle = C.bg; c.fillRect(0, 0, 1920, 1080); c.restore(); }
     Object.assign(log, measure(cam, WORLD));

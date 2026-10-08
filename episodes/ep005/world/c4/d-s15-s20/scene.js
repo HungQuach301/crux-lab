@@ -102,8 +102,8 @@ export async function boot(res) {
     // làn
     const laneA = (i, m0, m1) => ok * ease(t, m0, m0 + POP) * (m1 ? 1 - ease(t, m1, m1 + 0.3) : 1);
     const lA = [laneA(0, M.m_g.t1, M.m_o.t0), laneA(1, M.m_o.t1, M.m_v.t0), laneA(2, M.m_v.t1, M.m_vw.t0)];
-    const ax = (c, a, r2 = false) => { if (a < 0.01) return; for (const yr of [0, 2, 4, 6, 8, 10]) { const [x, y] = S2(XL(c, yr * 12), YI(0.8) - 0.15); O.text(yr === 10 ? '10 years' : String(yr), x, y + 40, 42, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: a }); }
-      if (r2) { const [x8, y8] = S2(c - 4.9, YR(0.8)); O.text('80%', x8, y8 - 16, 44, { kind: 'number', alpha: a }); return; }   // khoá nghĩa: khung tổng kết S18 giữ nhãn 80 % của r2
+    const ax = (c, a, r2 = false) => { if (a < 0.01) return; for (const yr of [0, 2, 4, 6, 8, 10]) { const [x, y] = S2(XL(c, yr * 12), YI(0.8) - 0.15); O.text(yr === 10 ? '10 years' : String(yr), x, y + 40, 42, { kind: 'number', role: 'axis-label', color: C.muted, align: 'center', w: 600, alpha: a }); }
+      if (r2) { const [x8, y8] = S2(c - 4.9, YR(0.8)); O.text('80%', x8, y8 - 16, 44, { kind: 'number', alpha: a, plate: PLATE, plateA: 0.8 }); return; }   // khoá nghĩa: khung tổng kết S18 giữ nhãn 80 % của r2; C5b V08 (3,4:1 trên bó sáng): thêm nền
       const [x8, y8] = S2(c + 5.3, YR(0.8)); O.text('80%', x8, y8 + 14, 48, { kind: 'number', alpha: a, plate: PLATE, plateA: 0.75 }); };   // C4 r3: đầu PHẢI vạch (bên trái các đường xuất phát cắt chữ)
     ax(L[0], lA[0]); ax(L[1], lA[1]); ax(L[2], lA[2]);
     const legend = (a, n = 3, X0 = 1380, Y0 = 214, tri = false) => { if (a < 0.01) return; const c = O.ctx;   // légende cố định góc trên phải (tên đường, không số); tri: mẫu "on paper" ba màu người mua (r3)
@@ -113,15 +113,16 @@ export async function boot(res) {
         else { c.strokeStyle = col; c.beginPath(); c.moveTo(X0, y - 14); c.lineTo(X0 + 60, y - 14); c.stroke(); } c.restore();
         O.text(nm, X0 + 76, y, 42, { color: col, alpha: a }); }); };
     legend(Math.max(...lA));
-    T('Grace · June 2014 · 4.16%', 120, 210, 54, lA[0] * ease(t, b.g1.four - 0.05, b.g1.four + POP), { color: BCOL[0] });   // C4 r3: màu riêng của từng người mua
+    const BC_ = (k, ...f) => f.map((x) => `buyer_${k}_${x}`);   // C5b (S07/S08): số của làn khớp claim của CHÍNH người mua đó (minh hoạ), không claim tập B trùng giá trị
+    T('Grace · June 2014 · 4.16%', 120, 210, 54, lA[0] * ease(t, b.g1.four - 0.05, b.g1.four + POP), { color: BCOL[0], claims: BC_('grace', 'purchaseMonth', 'rate') });   // C4 r3: màu riêng của từng người mua
     wl('Grace', BX2 - 3.0 + 1.05, 1.55, 0.55, (t < M.m_g.t0 + 0.3 ? 1 - ease(t, M.m_g.t0, M.m_g.t0 + 0.3) : 0) * ease(t, b.g1.grace - 0.05, b.g1.grace + POP), 48);
-    T('on paper: 23 months', 120, 290, 50, lA[0] * ease(t, b.g2.middle - 0.05, b.g2.middle + POP));
-    T('schedule: 71', 120, 360, 50, lA[0] * ease(t, b.g3.schedule - 0.05, b.g3.schedule + POP), { color: C.muted });
-    T('Owen · January 2004 · 5.71%', 120, 210, 54, lA[1] * ease(t, b.o0.owen - 0.05, b.o0.owen + POP), { color: BCOL[1] });
-    T('on paper: 13 months · schedule: 86', 120, 290, 50, lA[1] * ease(t, b.o1.thirteen - 0.05, b.o1.thirteen + POP));
-    T('index +11.2%', 120, 360, 50, lA[1] * ease(t, b.o2.rising - 0.05, b.o2.rising + POP), { color: C.accent });
-    T('Victor · October 2005 · 6.07%', 120, 210, 54, lA[2] * ease(t, b.v0.victor - 0.05, b.v0.victor + POP), { color: BCOL[2] });
-    T('index still 3.3% below purchase', 120, 290, 50, lA[2] * ease(t, b.v1.below - 0.05, b.v1.below + POP), { color: C.accent });
+    T('on paper: 23 months', 120, 290, 50, lA[0] * ease(t, b.g2.middle - 0.05, b.g2.middle + POP), { claims: BC_('grace', 'monthsTo80Index') });
+    T('schedule: 71', 120, 360, 50, lA[0] * ease(t, b.g3.schedule - 0.05, b.g3.schedule + POP), { color: C.muted, claims: BC_('grace', 'sched80Months') });
+    T('Owen · January 2004 · 5.71%', 120, 210, 54, lA[1] * ease(t, b.o0.owen - 0.05, b.o0.owen + POP), { color: BCOL[1], claims: BC_('owen', 'purchaseMonth', 'rate') });
+    T('on paper: 13 months · schedule: 86', 120, 290, 50, lA[1] * ease(t, b.o1.thirteen - 0.05, b.o1.thirteen + POP), { claims: BC_('owen', 'monthsTo80Index', 'sched80Months') });
+    T('index +11.2%', 120, 360, 50, lA[1] * ease(t, b.o2.rising - 0.05, b.o2.rising + POP), { color: C.accent, claims: BC_('owen', 'hpiChangeTo80Pct') });
+    T('Victor · October 2005 · 6.07%', 120, 210, 54, lA[2] * ease(t, b.v0.victor - 0.05, b.v0.victor + POP), { color: BCOL[2], claims: BC_('victor', 'purchaseMonth', 'rate') });
+    T('index still 3.3% below purchase', 120, 290, 50, lA[2] * ease(t, b.v1.below - 0.05, b.v1.below + POP), { color: C.accent, claims: BC_('victor', 'hpiChangeTo80Pct') });
     // C4 r3 (B17 vòng 2: "112 tháng trên giấy" đọc thành lịch): HAI LẦN CHẠM 80 % LÀ HAI VẬT KHÁC NHAU, khoảng cách giữa chúng thấy được
     //  · lịch (muted, mảnh): Ô VUÔNG RỖNG ở tháng 90 trên vạch 80 % + nhãn ngay dưới — hiện ở "schedule" (S17.3), trước "ninety";
     //  · trên giấy (ink, dày): CHẤM ĐẶC ở tháng 112 + nhãn TRÊN đường (lịch ở DƯỚI vạch, trên giấy ở TRÊN vạch) — hiện ở "eighty" (S17.2);
@@ -131,9 +132,9 @@ export async function boot(res) {
       if (pA * sA > 0.01) { c.save(); c.globalAlpha = 0.5 * pA * sA; c.fillStyle = C.ink; c.fillRect(x90, y8 - 8, x112 - x90, 16); c.restore(); }
       if (sA > 0.01) { c.save(); c.globalAlpha = sA; c.fillStyle = C.bg; c.fillRect(x90 - 15, y8 - 15, 30, 30); c.strokeStyle = C.muted; c.lineWidth = 5; c.strokeRect(x90 - 15, y8 - 15, 30, 30);
         c.lineWidth = 3; c.beginPath(); c.moveTo(x90, y8 + 16); c.lineTo(x90, y8 + 34); c.stroke(); c.restore();
-        T('schedule: 90 payments', x90, y8 + 76, 50, sA, { align: 'center', color: C.muted }); }
+        T('schedule: 90 payments', x90, y8 + 76, 50, sA, { align: 'center', color: C.muted, claims: BC_('victor', 'sched80Months') }); }
       if (pA > 0.01) { c.save(); c.globalAlpha = pA; c.fillStyle = C.ink; c.beginPath(); c.arc(x112, y8, 14, 0, 7); c.fill(); c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.moveTo(x112, y8 - 16); c.lineTo(x112, y8 - 88); c.stroke(); c.restore();
-        T('on paper: 112 months', Math.min(x112, 1840 - 250), y8 - 106, 50, pA, { align: 'center' }); } }   // nhãn TRÊN đường trên giấy (dưới légende), gạch dẫn xuống chấm
+        T('on paper: 112 months', Math.min(x112, 1840 - 250), y8 - 106, 50, pA, { align: 'center', claims: BC_('victor', 'monthsTo80Index') }); } }   // nhãn TRÊN đường trên giấy (dưới légende), gạch dẫn xuống chấm
     { const [x, y] = S2(L[0] - 5, YI(0.8) - 0.2), [x1, y1] = S2(L[0] + 5, YR(0.95)); log.roi['o0.climbing'] = log.roi['v1.fell'] = [x, y1, x1, y + 10]; }
     // C4 r2 (S17): mức chỉ số LÚC MUA (đường gạch, accent) trên làn Victor + mốc tháng 112: đường trên giấy chạm 80 % khi chỉ số vẫn DƯỚI mức mua
     { const a = lA[2] * ease(t, b.v1.below - 0.05, b.v1.below + POP), V_ = D.buyers.victor, kh = V_.hit;
@@ -141,11 +142,12 @@ export async function boot(res) {
         c.save(); c.globalAlpha = a; c.strokeStyle = C.accent; c.lineWidth = 3; c.setLineDash([12, 9]); c.beginPath(); c.moveTo(x0, y0); c.lineTo(x1, y0); c.stroke();
         c.setLineDash([]);   // (r2 thử: gạch dọc từ 80 % xuống chỉ số cắt nhãn "schedule: 90 payments" — F-2 BLOCK → bỏ)
         c.fillStyle = C.accent; c.beginPath(); c.arc(xh, yh, 9, 0, 7); c.fill(); c.strokeStyle = C.accent; c.lineWidth = 4; c.beginPath(); c.moveTo(xh + 18, y0); c.lineTo(xh + 18, yh); c.stroke(); c.restore(); } }
-    wl('?', VX, vShield.position.y + 0.1, 0.6, (t >= M.m_vw.t0 && t < M.m_all.t1 ? 1 : 0) * ease(t, b.v3.lender - 0.05, b.v3.lender + POP), 96);   // C4 r2: "?" trên khiên ở "lender"
+    const vwOut = 1 - ease(t, M.m_all.t0 - 0.3, M.m_all.t0);   // C5b (V12): tên ở nhà Victor rời TRƯỚC cú bay sang ba làn (không trượt nhoè trong cú bay)
+    wl('?', VX, vShield.position.y + 0.1, 0.6, (t >= M.m_vw.t0 && t < M.m_all.t1 ? 1 : 0) * ease(t, b.v3.lender - 0.05, b.v3.lender + POP) * vwOut, 96);   // C4 r2: "?" trên khiên ở "lender"
     // nhà Victor
-    wl('not in this data', VX, 2.6, 0.2, (t >= M.m_vw.t0 && t < M.m_all.t1 ? 1 : 0) * ease(t, b.v3.show - 0.05, b.v3.show + POP));
+    wl('not in this data', VX, 2.6, 0.2, (t >= M.m_vw.t0 && t < M.m_all.t1 ? 1 : 0) * ease(t, b.v3.show - 0.05, b.v3.show + POP) * vwOut);
     // ba làn cùng gốc
-    const aA = ok * inAll * (t < M.m_down.t0 + 0.3 ? 1 - ease(t, M.m_down.t0, M.m_down.t0 + 0.3) : t >= M.m_ans.t1 ? ease(t, M.m_ans.t1, M.m_ans.t1 + POP) * (1 - ease(t, M.m_end.t0, M.m_end.t0 + 0.3)) : 0);
+    const aA = ok * inAll * (t < M.m_down.t0 + 0.3 ? 1 - ease(t, M.m_down.t0, M.m_down.t0 + 0.3) : t >= M.m_ans.t1 ? ease(t, M.m_ans.t1, M.m_ans.t1 + POP) * (1 - ease(t, M.m_end.t0 - 0.3, M.m_end.t0)) : 0);   // C5b (V12): chữ đồ thị rời TRƯỚC cú bay về căn nhà
     if (aA > 0.01) {
       ax(XA, aA, true); legend(aA, 2, 1500, 290); const [x75, y75] = S2(XA - 4.9, YR(0.75)); O.text('75%', x75, y75 + 46, 44, { kind: 'number', align: 'right', color: C.muted, alpha: aA });   // khoá nghĩa: bản r2
       const s1 = t < M.m_ans.t0;
@@ -156,7 +158,7 @@ export async function boot(res) {
         const [px, py] = S2(XL(XA, 24), 2.05), pa = aA * ease(t, b.a3.two - 0.05, b.a3.two + POP);
         T('≈ 2 years matched the typical month —', px + 16, 430, 48, pa); T("not the slow ones, not the lender's step", px + 16, 490, 48, pa);   // khoá nghĩa: chú thích ở chỗ của r2
       } else T('from about 1 year to more than 9 years · on paper', 120, 334, 48, aA * ease(t, b.e1.history - 0.05, b.e1.history + POP));
-      ORDER.forEach((k, i) => { const B_ = D.buyers[k], j = B_.paper.length - 1, [x, y] = S2(XL(XA, j), YR(B_.paper[j])); O.text(k[0].toUpperCase() + k.slice(1), x + 12, y + (k === 'owen' ? 40 : -12), 42, { alpha: aA * ease(t, b.a0.started - 0.05, b.a0.started + POP) }); });   // khoá nghĩa: tên như r2
+      ORDER.forEach((k, i) => { const B_ = D.buyers[k], j = B_.paper.length - 1, [x, y] = S2(XL(XA, j), YR(B_.paper[j])); O.text(k[0].toUpperCase() + k.slice(1), x + 12, y + (k === 'owen' ? 40 : -12), 42, { alpha: aA * ease(t, b.a0.started - 0.05, b.a0.started + POP), plate: PLATE, plateA: 0.75 }); });   // C5b V11: nền sau tên (chữ đè đường 3D)   // khoá nghĩa: tên như r2
     }
     { const [x, y] = S2(XL(XA, 24), 2.0), [, y1] = S2(0, 0); log.roi['a3.two'] = [x - 40, y - 10, x + 40, y1]; }
     { const [px, py] = S2(XL(XA, 24), -0.1), pl = aA * (t < M.m_ans.t0 ? 1 : 0) * ease(t, b.a1.plan - 0.05, b.a1.plan + POP); T('a plan', px, py + 62, 56, pl, { kind: 'name', align: 'center' }); }   // C4 r2: tên vạch đứng (dưới chân vạch — trên đầu vạch là dòng "on paper: typical…")
@@ -167,14 +169,14 @@ export async function boot(res) {
     { const [x, y] = S2(XD - 0.8, 0.8), [, y1] = S2(0, 0); log.roi['a4.twenty'] = [x - 90, y - 40, x + 90, y1 + 10]; }
     // hai lối (thế giới: tên)
     const fA = (t >= M.m_fork.t0 && t < M.m_card.t0 + 0.3 ? 1 - ease(t, M.m_card.t0, M.m_card.t0 + 0.3) : t >= M.m_q.t0 && t < M.m_ans.t0 + 0.3 ? 1 - ease(t, M.m_ans.t0, M.m_ans.t0 + 0.3) : 0);
-    wl('buy now + mortgage insurance', FX - 1.7, 2.55, 0.25, fA * ease(t, b.a5.renting - 0.05, b.a5.renting + POP) * (t < M.m_q.t0 ? 1 : 0), 48);
-    wl('keep renting, keep saving', FX + 3.3, 2.95, -0.4, fA * ease(t, b.a5.renting - 0.05, b.a5.renting + POP) * (t < M.m_q.t0 ? 1 : 0), 48);
+    wl('buying now + mortgage insurance', FX - 1.7, 2.55, 0.25, fA * ease(t, b.a5.renting - 0.05, b.a5.renting + POP) * (t < M.m_q.t0 ? 1 : 0), 48);
+    wl('still renting, still saving', FX + 3.3, 2.95, -0.4, fA * ease(t, b.a5.renting - 0.05, b.a5.renting + POP) * (t < M.m_q.t0 ? 1 : 0), 48);
     wl('on paper is not removed', FX - 1.2, 2.7, 0.25, (t >= M.m_end.t0 ? 1 : 0) * ease(t, b.e1.never - 0.05, b.e1.never + POP), 56);
     // thẻ V7 (S19)
     const cA = ok * ease(t, M.m_card.t1, M.m_card.t1 + 0.3) * (1 - ease(t, M.m_q.t0, M.m_q.t0 + 0.3));
-    if (cA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = cA; c.fillStyle = '#10141B';   // C4 r3: nền thẻ ĐỤC (vòng 2: toà nhà 3D lộ qua chữ, 7:13)
-       c.fillRect(110, 160, 1700, 720); c.globalAlpha = cA; c.strokeStyle = C.grid; c.lineWidth = 3; c.strokeRect(110, 160, 1700, 720); c.restore();
-      const lines = ['Rates: Freddie Mac 30-year (FRED), monthly mean · latest full month Sep 2026', 'Prices: FHFA purchase-only national index, not seasonally adjusted',
+    if (cA > 0.01) { O.card(110, 160, 1700, 720, { fill: '#10141B', stroke: C.grid, lw: 3, alpha: cA });   // C4 r3: nền thẻ ĐỤC (vòng 2: toà nhà 3D lộ qua chữ, 7:13); C5b: O.card = thẻ nền (V11 không tính chữ trên thẻ của chính nó)
+      // C5b (S07): "Sep 2026" → "September 2026" (= claim rate_month_latest); dòng giữ trong thẻ nên bỏ "(FRED)" (nguồn FRED ở mô tả và dòng nguồn của S06)
+      const lines = ['Rates: Freddie Mac 30-year, monthly mean · latest full month September 2026', 'Prices: FHFA purchase-only national index, not seasonally adjusted',
         "Loan: 10% down, 360-month fixed, each purchase month's rate", 'On paper: balance ≤ 80% of price × index change',
         '307 purchase months 1991–2016 · two-year check: 403 months to 2024', 'Law: 12 U.S.C. 4902 · request at 80%, automatic end at 78%',
         'Not modeled: insurance cost, appraisal fees, rent,', 'local prices, how fast savings grow, lender rules'];
@@ -184,7 +186,8 @@ export async function boot(res) {
     const hist = Math.max(...lA, aA, cA), illus = Math.max(t < M.m_g.t0 + 0.3 ? 1 - ease(t, M.m_g.t0, M.m_g.t0 + 0.3) : 0, ...lA, aA, dA, (t >= M.m_vw.t0 && t < M.m_all.t0 ? 1 : 0));
     const hEnd = t >= M.m_end.t1 ? ease(t, b.e2.us - 0.05, b.e2.us + POP) : 0;
     O.chrome({ illus: illus > 0.01, illusA: illus, src: hist > 0.01 && cA < 0.01 ? 'Source: FHFA · Freddie Mac via FRED' : null, srcA: hist,
-      hist: Math.max(hist, hEnd) > 0.01, histA: Math.max(hist, hEnd), cw: hist > 0.01 && cA < 0.01 ? 'Past buyers, measured · not a reason to buy, rent or wait' : dA > 0.01 ? 'A measurement, not a next step' : null, cwA: Math.max(hist * (1 - cA), dA) });
+      hist: Math.max(hist, hEnd) > 0.01, histA: Math.max(hist, hEnd), cw: hist > 0.01 && cA < 0.01 ? 'Past buyers, measured · not a reason to buy, rent or wait' : dA > 0.01 ? 'A measurement, not a next step' : null, cwA: Math.max(hist * (1 - cA), dA),
+      basis: dA > 0.01 ? 'nominal' : null, basisA: dA });   // C5b (S09): S18.5 ($400,000 · $40,000 more) mang nhãn gốc cấp khung
     // C4 r3 (đạo diễn A+B: kết dừng cụt 7:42): khung kết đứng yên rồi tối dần về đen trong 1,5 s cuối, cùng nốt nhạc cuối (bed.py tắt dần 1,5 s cuối)
     { const fb = ease(t, S.total - 1.6, S.total - 0.1); if (fb > 0.002) { const c = O.ctx; c.save(); c.globalAlpha = fb; c.fillStyle = '#000000'; c.fillRect(0, 0, 1920, 1080); c.restore();
       // C5: tấm đen phủ cả chữ → nhật ký/trang kiểm ghi độ hiện THẬT của chữ (× (1 − fb)); điểm ảnh không đổi (C14 1080p bắt chữ "đứng yên, đục" lúc đang tối dần)

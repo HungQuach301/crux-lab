@@ -68,8 +68,16 @@ export function Camera(poses, moves, aspect = 16 / 9) {
 //              lớp bắt buộc dọc của nhà máy: móc, ILLUSTRATIVE + "US only · history, not a forecast" trên MỌI khung có số, đối trọng xoay 3 s.
 // CK.dither    0 tắt · 1 dither trong shader (material.dithering của three: nhiễu trước khi lượng tử 8 bit) · 2 (mặc định) = 1 + hạt nhiễu
 //              ±4 mã CỐ ĐỊNH theo ô 2×2 ở điểm tối của khung ghép (darkDither; chỉ khi render, không ở trang kiểm) — chống banding gradient tối (checks F08).
+// CK.mode (C5 ep005, chẩn đoán checks V11): 'graphics3d' = chỉ hình 3D của lớp 'graphics' (không nét lớp phủ); 'graphics2d' = chỉ nét/tô của lớp phủ
+//              (không 3D) — tách va chạm chữ×hình 3D khỏi chữ×nét 2D. Khung render (mode 'all') không đổi.
 export const CK = { on: false, mode: 'all', ids: null, claims: null, freezeCam: null, lastCam: null, view: null, dither: 2, shapes3d: [] };
 export const VSAFE = { x0: 72, y0: 200, x1: 1008, y1: 1600 }, VFLOOR = 56, VZONE = { y0: 430, y1: 1410 };   // = qc.py SAFE['v'], FLOOR['v']
+// C5 ep005 (checks V03): vùng an toàn 90 % của khung ngang (x 96–1824, y 54–1026). Chữ cảnh (không phải chrome) tràn ra ≤ NUDGE.full px được đẩy
+// trọn vào trong; tràn NUDGE.full…NUDGE.max px: lực đẩy giảm tuyến tính về 0 (chữ đang bay ra khỏi khung đi ra liên tục, không nhảy); o.safe === false: tắt.
+export const SAFE_H = { x0: 96, y0: 54, x1: 1824, y1: 1026 }, NUDGE = { full: 60, max: 120, margin: 2 };
+// Lớp bắt buộc ngang: mép phải huy hiệu, đường chân chữ dòng dưới (mực của phần dưới chân chữ nằm trong vùng an toàn), nhãn gốc tính tiền cấp khung (S09, K3.3)
+export const CHROME_H = { right: 1800, base: 1006, base2: 936, top: 108 };
+export const BASIS_LABEL = { nominal: 'All $ in dollars of the day', real: "All $ in today's dollars" };
 const TAG_RE = /^ILLUSTRATIVE$|history, not a forecast/;
 const lumHex = (hex) => { const n = parseInt(String(hex).slice(1, 7), 16), f = (c) => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; };
   return 0.2126 * f(n >> 16) + 0.7152 * f((n >> 8) & 255) + 0.0722 * f(n & 255); };
@@ -103,6 +111,9 @@ export function Overlay(canvas, res) {
   const vs = V ? (V.s || 1) : 1, vx0 = V ? 960 - 540 / vs : 0, vy0 = V ? 540 - (V.cy ?? (VZONE.y0 + VZONE.y1) / 2) / vs : 0;
   const ctx = canvas.getContext('2d');
   let log = null, chartW = 0, camera = null, seq = 0, inText = false, bgDraw = false, vc = null;
+  // khung dọc (C5 ep005): chữ cảnh KHÔNG vẽ ngay mà vào hàng vq (cùng các lớp phủ cả khung vẽ sau chúng, để giữ thứ tự tối dần) → finish() xếp chỗ
+  // (layoutV: không cặp hộp chữ nào giao nhau) rồi mới vẽ
+  let vq = [];
   const base = () => ctx.setTransform(S * vs, 0, 0, S * vs, -vx0 * S * vs, -vy0 * S * vs);
   const proj = new THREE.Vector3();
   // F-2: mọi nét stroke (moveTo/lineTo) trên lớp phủ → log.lines {n: thứ tự vẽ, a, w, seg: [[x0,y0,x1,y1]…]} ở toạ độ thiết kế 1920×1080
@@ -111,7 +122,7 @@ export function Overlay(canvas, res) {
   const dz = (x, y) => { const m = ctx.getTransform(), k = S * vs; return [(m.a * x + m.c * y + m.e) / k + vx0, (m.b * x + m.d * y + m.f) / k + vy0]; };
   const raw = { beginPath: ctx.beginPath.bind(ctx), moveTo: ctx.moveTo.bind(ctx), lineTo: ctx.lineTo.bind(ctx), stroke: ctx.stroke.bind(ctx) };
   // CHECKS: lớp nào được vẽ (mode 'all' = mọi thứ, như khi render)
-  const draws = (isText) => { const m = CK.mode; if (m === 'all') return true; if (m === 'text' || m === 'glyph' || m === 'only') return isText; if (m === 'graphics') return !isText && !bgDraw; return !isText; };
+  const draws = (isText) => { const m = CK.mode; if (m === 'all') return true; if (m === 'text' || m === 'glyph' || m === 'only') return isText; if (m === 'graphics' || m === 'graphics2d') return !isText && !bgDraw; if (m === 'graphics3d') return false; return !isText; };
   const bbox = (P) => [Math.min(...P.map((p) => p[0])), Math.min(...P.map((p) => p[1])), Math.max(...P.map((p) => p[0])), Math.max(...P.map((p) => p[1]))];
   const shapeObj = (o, n = seq++) => { const id = 's' + n; log.objects.push({ id, n, kind: 'shape', key: o.key || id, sig: `${o.role}|${o.tag}|${(o.box || []).map(Math.round)}|${o.fill || ''}${o.stroke || ''}`, panel: null, chart: null, ...o }); };
   ctx.beginPath = () => { path = []; pen = null; pts = []; raw.beginPath(); };
@@ -135,7 +146,7 @@ export function Overlay(canvas, res) {
         if (P.length) shapeObj({ tag: k === 'fill' ? 'path' : 'rect', role: 'mark', fill: hexOf(ctx.fillStyle), stroke: null, opacity: +ctx.globalAlpha.toFixed(3), box: bbox(P).map(r1) });
       }
       if (draws(inText)) {
-        if (full && V) { ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); f(0, 0, canvas.width, canvas.height); ctx.restore(); }   // dọc: phủ cả khung dọc
+        if (full && V) vq.push({ op: 'fill', style: ctx.fillStyle, alpha: ctx.globalAlpha });   // dọc: phủ cả khung dọc — hoãn tới finish(), sau các chữ vẽ trước nó
         else f(...a);
       }
       bgDraw = b0;
@@ -161,10 +172,48 @@ export function Overlay(canvas, res) {
     if (raised) log.v.raised.push({ s, from: +(px * vs).toFixed(1), to: VFLOOR });
     return { p, lines, lh, x, y, box, W };
   }
+  // khung dọc: xếp chỗ chữ đã hoãn. Chữ lớn (≥ 48 px thiết kế) trước, theo thứ tự vẽ; mỗi chữ thử dịch dọc 0, ±1, ±2, ±3 bậc (bậc = cao hộp + 6 px)
+  // trong vùng của nó (nội dung: VZONE; chrome: VSAFE) tới khi không giao chữ đã đặt (> 1 px). Nhãn trục/vạch chia nhỏ (role 'axis-label' hoặc
+  // số < 48 px) không dịch khỏi trục: giao thì bỏ (log.v.dropped). Chữ nhỏ khác không có chỗ cũng bỏ; chữ lớn không có chỗ: đặt chỗ giao ít nhất.
+  function layoutV() {
+    const items = vq.filter((q) => q.op === 'text'), placed = [];
+    const vb = (it, dy) => { const b = vmap(it.box), p = it.pad * vs; return [b[0] - p, b[1] - p * 0.7 + dy, b[2] + p, b[3] + p * 0.7 + dy]; };
+    const hit = (b) => placed.reduce((m, q) => { const w = Math.min(b[2], q[2]) - Math.max(b[0], q[0]), h = Math.min(b[3], q[3]) - Math.max(b[1], q[1]); return w > 1 && h > 1 ? m + w * h : m; }, 0);
+    const order = items.map((it, i) => [it, i]).sort((A, B) => (A[0].small - B[0].small) || (A[1] - B[1]));
+    for (const [it] of order) {
+      const Z = it.kind === 'chrome' ? VSAFE : VZONE, b0 = vb(it, 0), step = b0[3] - b0[1] + 6;
+      let best = null;
+      for (const k of it.axis ? [0] : [0, 1, -1, 2, -2, 3, -3]) {
+        const b = vb(it, k * step); if (k && (b[1] < Z.y0 - 1 || b[3] > Z.y1 + 1)) continue;
+        const o = hit(b); if (!best || o < best.o) best = { dy: k * step, o, b }; if (!o) break;
+      }
+      if (best.o > 0 && (it.small || it.axis)) { it.drop = true;   // nhãn trục (mọi cỡ) không dịch khỏi trục: giao thì bỏ (C5b vòng 2: năm 48 px của S13 trong SH2)
+         log.v.dropped.push({ s: it.s, px: it.px, why: 'overlap' }); if (it.obj) it.obj.opacity = 0; continue; }
+      if (best.dy) { const d = best.dy / vs; it.y += d; it.box = [it.box[0], it.box[1] + d, it.box[2], it.box[3] + d]; log.v.shifted.push({ s: it.s, dy: +best.dy.toFixed(1) });
+        if (it.obj) it.obj.box = it.box.map(r1); }
+      placed.push(best.b);
+    }
+  }
+  function paintV() {
+    const m = CK.mode;
+    for (const q of vq) {
+      if (q.op === 'fill') { bgDraw = true; const dr = draws(false); bgDraw = false; if (dr) { ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = q.alpha; ctx.fillStyle = q.style; ctx.fillRect(0, 0, canvas.width, canvas.height); ctx.restore(); } continue; }
+      if (q.drop) continue;
+      const o = q.o, P = q.P, box = q.box;
+      ctx.save(); base(); ctx.globalAlpha = q.a; ctx.font = `${q.wfont} ${P}px Inter`; ctx.fontVariantNumeric = 'tabular-nums'; ctx.textAlign = o.align || 'left'; ctx.textBaseline = 'alphabetic';
+      inText = true;
+      if (o.plate && m !== 'glyph' && m !== 'only' && draws(true)) { const pad = P * 0.32; ctx.fillStyle = rgba(o.plate, o.plateA ?? 0.72); roundRect(ctx, box[0] - pad, box[1] - pad * 0.7, box[2] - box[0] + 2 * pad, box[3] - box[1] + pad * 1.4, P * 0.3); ctx.fill(); }
+      ctx.fillStyle = o.color || C.ink;
+      if (q.onlyHit && draws(true)) { const L_ = q.lines || [q.s]; L_.forEach((ln, j) => ctx.fillText(ln, q.x, q.y - (L_.length - 1 - j) * q.lh)); }
+      inText = false; ctx.restore();
+      log.v.texts.push({ s: q.s, kind: q.kind, px: +(P * vs).toFixed(1), box: vmap(box).map(r1), opacity: +q.a.toFixed(3), contrast: +contrastHex(o.color || C.ink, o.plate || C.bg).toFixed(2) });
+    }
+    vq = [];
+  }
   const O = {
     ctx, S,
     begin(t, cw, cam) {
-      chartW = cw; camera = cam; seq = 0; vc = null;
+      chartW = cw; camera = cam; seq = 0; vc = null; vq = [];
       log = { t, chartW: +cw.toFixed(3), texts: [], lines: [], violations: [] };
       if (cam) { const d = new THREE.Vector3(); cam.getWorldDirection(d); log.cam = { p: cam.position.toArray().map((v) => +v.toFixed(5)), d: d.toArray().map((v) => +v.toFixed(6)), fov: +cam.fov.toFixed(5), aspect: +cam.aspect.toFixed(6) }; }
       if (CK.on) { log.objects = []; for (const o of CK.shapes3d) { const id = 's' + seq; log.objects.push({ id, n: seq++, ...o }); } }
@@ -193,54 +242,79 @@ export function Overlay(canvas, res) {
       ctx.textAlign = o.align || 'left'; ctx.textBaseline = 'alphabetic';
       let w = ctx.measureText(s).width, x0 = o.align === 'center' ? x - w / 2 : o.align === 'right' ? x - w : x;
       let box = [x0, y - px * 0.78, x0 + w, y + px * 0.24], P = px, lines = null, lh = 0;
-      if (V) { const f = vfit(s, x, y, px, o, wfont); ({ box, lines, lh } = f); P = f.p; x = f.x; y = f.y; w = f.W; ctx.font = `${wfont} ${P}px Inter`;
-        // chữ NHỎ (< 48 px thiết kế: nhãn trục, vạch chia) được nâng lên sàn mà đè hộp chữ đã vẽ (> 4 px, vd. nhãn năm sát nhau) → bỏ
-        // (log.v.dropped), không vẽ chồng; chữ ≥ 48 px (nhãn nội dung) luôn được vẽ
-        const hit = P > px + 1e-6 && px < 48 && log.texts.some((q) => q.opacity > 0.05 && Math.min(q.box[2], box[2]) - Math.max(q.box[0], box[0]) > 4 / vs && Math.min(q.box[3], box[3]) - Math.max(q.box[1], box[1]) > 4 / vs);
-        if (hit) { ctx.restore(); log.v.dropped.push({ s, px }); return null; } }
-      inText = true;
-      if (o.plate && m !== 'glyph' && m !== 'only') { const pad = P * 0.32; ctx.fillStyle = rgba(o.plate, o.plateA ?? 0.72); roundRect(ctx, box[0] - pad, box[1] - pad * 0.7, box[2] - box[0] + 2 * pad, box[3] - box[1] + pad * 1.4, P * 0.3); ctx.fill(); }
-      ctx.fillStyle = o.color || C.ink;
-      if (onlyHit) { if (lines) lines.forEach((ln, j) => ctx.fillText(ln, x, y - (lines.length - 1 - j) * lh)); else ctx.fillText(s, x, y); }
-      inText = false;
+      if (!V && kind !== 'chrome' && o.safe !== false) {   // C5 (V03): đẩy chữ cảnh tràn ít vào vùng an toàn 90 % (xem NUDGE)
+        const push = (lo, hi, a0, a1) => { const over = a0 < lo ? lo - a0 : a1 > hi ? hi - a1 : 0, d = Math.abs(over); if (d < 1e-6 || a1 - a0 > hi - lo) return 0;
+          const k = d <= NUDGE.full ? 1 : d >= NUDGE.max ? 0 : (NUDGE.max - d) / (NUDGE.max - NUDGE.full); return Math.sign(over) * (d + NUDGE.margin) * k; };
+        // mực chữ thật cao hơn hộp 0,78 px ở chữ có nét lên (l, h, dấu i): kiểm mép trên với 0,86 px (checks V03 đo mực, C5b vòng 2: "insurance still on" lệch 2 px)
+        const dx = push(SAFE_H.x0, SAFE_H.x1, box[0], box[2]), dy = push(SAFE_H.y0, SAFE_H.y1, box[1] - px * 0.08, box[3]);
+        if (dx || dy) { x += dx; y += dy; x0 += dx; box = [box[0] + dx, box[1] + dy, box[2] + dx, box[3] + dy]; }
+      }
+      if (V) { const f = vfit(s, x, y, px, o, wfont); ({ box, lines, lh } = f); P = f.p; x = f.x; y = f.y; w = f.W; x0 = box[0]; ctx.font = `${wfont} ${P}px Inter`; }
+      let obj = null;
       if (CK.on) {   // objet hợp đồng window.CHECKS (trước restore: phông đang đặt → đo khoảng claim)
         const col = hexOf(o.color || C.ink), occ = log.objects.filter((q) => q.kind === 'text' && q.text === s).length;
         const claims = claimSpans(s, o.claims ? (CK.claims || []).filter((c) => o.claims.includes(c.id)) : CK.claims).map((c) => { const xa = x0 + ctx.measureText(s.slice(0, c.i)).width;
           return { id: c.id, text: c.d, box: [xa, box[1], xa + ctx.measureText(c.d).width, box[3]].map(r1), opacity: +a.toFixed(3), color: col, series: o.series ?? null, roll: !!o.roll }; });
         const role = o.role || (/^ILLUSTRATIVE$/.test(s) ? 'badge' : kind === 'title' ? 'title' : 'label');
-        log.objects.push({ id, n: seq, kind: 'text', tid: `${s}#${occ}`, role, text: s, box: box.map(r1), opacity: +a.toFixed(3), level: o.level ?? null, emph: !!o.emph,
+        obj = { id, n: seq, kind: 'text', tid: `${s}#${occ}`, role, text: s, box: box.map(r1), opacity: +a.toFixed(3), level: o.level ?? null, emph: !!o.emph,
           series: o.series ?? null, anchor: o.anchor ?? null, chart: o.chart ?? null, year: o.year ?? null, case: o.case ?? null, char: o.char ?? null,
           runs: [{ color: col, size: px }], color: col, fontPx: px, background: o.plate ? hexOf(o.plate) : null, parent: null, claims, key: `${s}#${occ}`,
-          sig: `${kind}|${s}|${box.map(Math.round)}`, kindHint: kind });
+          sig: `${kind}|${s}|${box.map(Math.round)}`, kindHint: kind };
+        log.objects.push(obj);
+      }
+      if (V) {   // khung dọc: vào hàng, finish() xếp chỗ rồi vẽ (layoutV)
+        vq.push({ op: 'text', s, x, y, px, P, o, kind, a, wfont, lines, lh, box, obj, onlyHit, pad: o.plate ? P * 0.32 : 0,
+          small: px < 48, axis: o.role === 'axis-label' || (kind === 'number' && px < 48) });
+      } else {
+        inText = true;
+        if (o.plate && m !== 'glyph' && m !== 'only') { const pad = P * 0.32; ctx.fillStyle = rgba(o.plate, o.plateA ?? 0.72); roundRect(ctx, box[0] - pad, box[1] - pad * 0.7, box[2] - box[0] + 2 * pad, box[3] - box[1] + pad * 1.4, P * 0.3); ctx.fill(); }
+        ctx.fillStyle = o.color || C.ink;
+        if (onlyHit) ctx.fillText(s, x, y);
+        inText = false;
       }
       ctx.restore();
       log.texts.push({ text: s, kind, px, opacity: +a.toFixed(3), box: box.map((v) => +v.toFixed(1)), n: seq++, ...(o.plate ? { plate: 1 } : {}) });
-      if (V) log.v.texts.push({ s, kind, px: +(P * vs).toFixed(1), box: vmap(box).map(r1), opacity: +a.toFixed(3), contrast: +contrastHex(o.color || C.ink, o.plate || C.bg).toFixed(2) });
       return box;
+    },
+    // C5 ep005 (V11): thẻ nền trung tính (thẻ phương pháp, khung chú thích) — vẽ như NỀN (bgDraw): không vào lớp 'graphics' của trang kiểm
+    // (checks V11 loại trừ thẻ trung tính và nền), ghi đối tượng role 'card'. o: {fill, stroke, lw, alpha}
+    card(x, y, w, h, o = {}) {
+      const a = o.alpha ?? 1; if (a <= 0.01) return;
+      ctx.save(); ctx.globalAlpha = a; bgDraw = true;
+      if (o.fill) { ctx.fillStyle = o.fill; ctx.fillRect(x, y, w, h); }
+      if (o.stroke) { ctx.strokeStyle = o.stroke; ctx.lineWidth = o.lw || 3; if (draws(false)) ctx.strokeRect(x, y, w, h); }
+      bgDraw = false; ctx.restore();
+      if (CK.on && log) shapeObj({ tag: 'rect', role: 'card', fill: hexOf(o.fill), stroke: hexOf(o.stroke), opacity: +a.toFixed(3), box: [x, y, x + w, y + h].map(r1) });
     },
     bracket(x, y0, y1, color, a = 1, tick = 18, lw = 6) {
       if (a <= 0.01) return; ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.beginPath();
       ctx.moveTo(x, y0); ctx.lineTo(x + tick, y0); ctx.lineTo(x + tick, y1); ctx.lineTo(x, y1); ctx.stroke(); ctx.restore();
     },
-    // lớp bắt buộc: cố định, 48 px, nền mờ (quy tắc 5); flags: {illus, hist, src, cw}. Khung dọc: chỉ ghi cờ — lớp bắt buộc dọc vẽ ở finish()
+    // lớp bắt buộc: cố định, 54 px (gốc tính tiền 44 px), nền mờ (quy tắc 5); flags: {illus, hist, src, cw, basis: 'nominal'|'real'} (+ <cờ>A = độ hiện).
+    // C5 (V03): mực của mọi dòng nằm trong vùng an toàn 90 % (CHROME_H). basis (S09, K3.3): nhãn gốc cấp khung, góc dưới phải, cho mọi khung có số $.
+    // Khung dọc: chỉ ghi cờ — lớp bắt buộc dọc vẽ ở finish()
     chrome(f, a = 1) {
-      if (V) { vc ||= {}; for (const k of ['illus', 'hist', 'src', 'cw']) if (f[k] && a * (f[k + 'A'] ?? 1) > 0.01) vc[k] = f[k]; return; }
-      const PX = 54, plate = '#0B0E13';
+      if (V) { vc ||= {}; for (const k of ['illus', 'hist', 'src', 'cw', 'basis']) if (f[k] && a * (f[k + 'A'] ?? 1) > 0.01) vc[k] = f[k]; return; }
+      const PX = 54, plate = '#0B0E13', H_ = CHROME_H;
       const band = (y0, y1, up) => { const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(up ? 1 : 0, rgba(plate, 0)); g.addColorStop(up ? 0.6 : 0.35, rgba(plate, 0.95 * a)); g.addColorStop(up ? 0 : 1, rgba(plate, 0.93 * a)); ctx.fillStyle = g; bgDraw = true; ctx.fillRect(0, y0, 1920, y1 - y0); bgDraw = false; };   // v3f: nửa trong của dải là nền ĐẶC sau chữ
       if (f.src || f.illus) band(0, 150, true);
-      if (f.hist || f.cw) band(f.cw && f.hist ? 850 : 925, 1080, false);
-      if (f.illus) O.text('ILLUSTRATIVE', 1824, 108, PX, { kind: 'chrome', color: '#1B1F26', plate: C.warn, plateA: 0.95, align: 'right', alpha: a * (f.illusA ?? 1) });
-      if (f.src) O.text(f.src, 96, 108, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.srcA ?? 1) });
-      if (f.cw) O.text(f.cw, 96, f.hist ? 952 : 1022, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.cwA ?? 1) });
-      if (f.hist) O.text('US only · history, not a forecast', 96, 1022, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.histA ?? 1) });
+      if (f.hist || f.cw || f.basis) band(f.cw && f.hist ? H_.base2 - 86 : H_.base - 81, 1080, false);
+      if (f.illus) O.text('ILLUSTRATIVE', H_.right, H_.top, PX, { kind: 'chrome', color: '#1B1F26', plate: C.warn, plateA: 0.95, align: 'right', alpha: a * (f.illusA ?? 1) });
+      if (f.src) O.text(f.src, 96, H_.top, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.srcA ?? 1) });
+      if (f.cw) O.text(f.cw, 96, f.hist ? H_.base2 : H_.base, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.cwA ?? 1) });
+      if (f.hist) O.text('US only · history, not a forecast', 96, H_.base, PX, { kind: 'chrome', w: 600, color: C.chrome, alpha: a * (f.histA ?? 1) });
+      if (f.basis) O.text(BASIS_LABEL[f.basis] || f.basis, H_.right, H_.base, 44, { kind: 'chrome', w: 600, color: C.chrome, align: 'right', alpha: a * (f.basisA ?? 1) });
     },
     // khung dọc (Short): lớp bắt buộc của nhà máy, toạ độ dọc 1080×1920 — móc (trên), ILLUSTRATIVE (phải, dưới móc), đối trọng xoay mỗi 3 s +
-    // "US only · history, not a forecast" (dưới) trên MỌI khung có số (chữ có chữ số) hoặc khi cảnh bật cờ tương ứng (playbook §5, như engine.js)
+    // "US only · history, not a forecast" (dưới) trên MỌI khung có số (chữ có chữ số) hoặc khi cảnh bật cờ tương ứng (playbook §5, như engine.js).
+    // C5 ep005: chữ cảnh đã hoãn (vq) được xếp chỗ trước (layoutV) — không cặp hộp chữ nào giao nhau — rồi vẽ, theo đúng thứ tự với lớp phủ cả khung;
+    // khung có dòng history thì luôn có ILLUSTRATIVE (qc.py frame_rules dọc đòi cả hai)
     finish() {
       if (!V || !log) return;
+      layoutV(); paintV();
       const T = log.t - (V.t0 || 0), L = log.v;
       const numeric = log.texts.some((x) => x.kind !== 'chrome' && x.opacity > 0.05 && /\d/.test(x.text));
-      const illus = numeric || !!(vc && vc.illus), hist = numeric || !!(vc && vc.hist);
+      const hist = numeric || !!(vc && vc.hist), illus = hist || !!(vc && vc.illus), basis = vc && vc.basis ? BASIS_LABEL[vc.basis] || vc.basis : null;
       const cws = (V.cws || []).filter((c) => !TAG_RE.test(c.text)), cw = (numeric || hist) && cws.length ? cws[Math.floor(Math.max(0, T) / 3) % cws.length] : null;
       ctx.save(); ctx.setTransform(S, 0, 0, S, 0, 0);
       const vt = (s, x, y, px, o = {}) => {   // chữ dọc: xuống dòng trong vùng an toàn, dòng cuối ở y
@@ -257,15 +331,16 @@ export function Overlay(canvas, res) {
       const measureLines = (s, px, w = 700) => { ctx.font = `${w} ${px}px Inter`; let n = 1, cur = ''; for (const q of s.split(' ')) { const tr = cur ? cur + ' ' + q : q; if (cur && ctx.measureText(tr).width > VSAFE.x1 - VSAFE.x0) { n++; cur = q; } else cur = tr; } return n; };
       // dải nền dưới chữ bắt buộc (cùng màu tấm nền của chrome ngang)
       const band = (y0, y1, up) => { const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(up ? 1 : 0, 'rgba(11,14,19,0)'); g.addColorStop(up ? 0.55 : 0.3, 'rgba(11,14,19,0.95)'); g.addColorStop(up ? 0 : 1, 'rgba(11,14,19,0.95)'); ctx.fillStyle = g; ctx.fillRect(0, y0, 1080, y1 - y0); };
-      const HIST = 'US only · history, not a forecast', hl = hist ? measureLines(HIST, VFLOOR, 600) : 0, cl = cw ? measureLines(cw.text, VFLOOR) : 0;
+      const HIST = 'US only · history, not a forecast', hl = hist ? measureLines(HIST, VFLOOR, 600) : 0, cl = cw ? measureLines(cw.text, VFLOOR) : 0, bl = basis ? measureLines(basis, VFLOOR, 600) : 0;
       if (V.hook || illus) band(0, VZONE.y0 + 10, true);
-      if (hist || cw) band(VSAFE.y1 - 68 * (hl + cl) - 70, 1920, false);
+      if (hist || cw || basis) band(VSAFE.y1 - 68 * (hl + cl + bl) - 70, 1920, false);
       if (V.hook) vt(V.hook, 540, VSAFE.y0 + 70, 64, { align: 'center' });
       if (illus) { vt('ILLUSTRATIVE', VSAFE.x1 - 18, VSAFE.y0 + 170, VFLOOR, { align: 'right', color: '#1B1F26', plate: C.warn }); L.tags.push('ILLUSTRATIVE'); }
       const yb = VSAFE.y1 - Math.ceil(VFLOOR * 0.24) - 2;   // dòng cuối: cả phần dưới chân chữ trong vùng an toàn
       if (hist) { vt(HIST, 540, yb, VFLOOR, { align: 'center', w: 600, color: C.chrome }); L.tags.push('HISTORY');
         for (const c of V.cws || []) if (TAG_RE.test(c.text)) L.tags.push('CW:' + c.id); }   // đối trọng trùng dòng history: đang hiện
       if (cw) { vt(cw.text, 540, yb - 68 * hl, VFLOOR, { align: 'center', color: C.ink }); L.tags.push('CW:' + cw.id); }
+      if (basis) { vt(basis, 540, yb - 68 * (hl + cl), VFLOOR, { align: 'center', w: 600, color: C.chrome }); L.tags.push('BASIS'); }
       ctx.restore();
       L.illus = illus; L.hist = hist; L.claims = numeric ? ['number'] : [];
     },
@@ -314,8 +389,8 @@ export function Stage(res) {
     if (CK.freezeCam) applyCam(cam, CK.freezeCam); else CK.lastCam = grabCam(cam);
     if (CK.on && m === 'all') CK.shapes3d = shapes3d(scene, cam);
     if (V) cam.setViewOffset(1920, 1080, 960 - 540 / vs, 540 - cy / vs, 1080 / vs, 1920 / vs);   // cửa sổ dọc của cùng khung thiết kế
-    if (m === 'text' || m === 'glyph' || m === 'only') { renderer.getClearColor(cc); const ca = renderer.getClearAlpha(); renderer.setClearColor(0x000000, 0); renderer.clear(); renderer.setClearColor(cc, ca); }
-    else if (m === 'graphics') {   // không nền: scene.background, sàn (userData.role 'bg')
+    if (m === 'text' || m === 'glyph' || m === 'only' || m === 'graphics2d') { renderer.getClearColor(cc); const ca = renderer.getClearAlpha(); renderer.setClearColor(0x000000, 0); renderer.clear(); renderer.setClearColor(cc, ca); }
+    else if (m === 'graphics' || m === 'graphics3d') {   // không nền: scene.background, sàn (userData.role 'bg')
       const bg = scene.background, hid = []; scene.background = null;
       scene.traverse((o) => { if (o.userData && o.userData.role === 'bg' && o.visible) { o.visible = false; hid.push(o); } });
       renderer.getClearColor(cc); const ca = renderer.getClearAlpha(); renderer.setClearColor(0x000000, 0);
@@ -330,7 +405,7 @@ export function Stage(res) {
       const m = CK.mode;
       if (m === 'all') { octx.drawImage(gl, 0, 0); octx.drawImage(ov, 0, 0); if (CK.dither >= 2 && !CK.on) darkDither(octx, W, H); return; }
       octx.clearRect(0, 0, W, H);
-      if (m === 'graphics' || m === 'notext') octx.drawImage(gl, 0, 0);
+      if (m === 'graphics' || m === 'graphics3d' || m === 'notext') octx.drawImage(gl, 0, 0);
       octx.drawImage(ov, 0, 0);
     },
   };

@@ -25,7 +25,7 @@ export async function boot(res) {
   const poses = {
     wYou: { pos: [WX + 2.0, 2.3, 7.8], tgt: [WX + 0.85, 1.75, 0.3], fov: 35, chart: 0 },   // E5d: chặt vào nhà + bạn; lùi máy mới mở ra căn hộ (lý do của cú pull)
     wFork: { pos: [WX + 2.6, 2.6, 11.8], tgt: [WX + 2.1, 1.6, 0], fov: 35, chart: 0 },   // C4: cúi bớt (6,8° → 4,9°) — cạnh đứng ≤ 3° khi bay (F-1)
-    cSched: { pos: [0, 2.0, 35.2], tgt: [0, 2.0, 0], fov: 12, chart: 1 },
+    cSched: { pos: [-0.45, 2.0, 35.2], tgt: [-0.45, 2.0, 0], fov: 12.6, chart: 1 },   // C5b (V03): khung lệch trái 0,45 + rộng hơn 5 % → nhãn 90 %/80 % (trái) và "10 years" (phải) trong vùng an toàn
     cDef: { pos: [16.8, 2.6, 40.0], tgt: [16.8, 2.6, 0], fov: 12, chart: 1 },
     wHouse: { pos: [WX + 3.4, 3.4, 12.2], tgt: [WX + 1.1, 2.0, 0.2], fov: 35, chart: 0 },
     // F-1: điểm giữa đường bay (x = 0,5) — máy lướt sát mặt trước căn hộ, nhìn về vạch 80 % đang chờ; fov do flyPose tính (dolly-zoom)
@@ -176,22 +176,28 @@ export async function boot(res) {
     if (youA > 0) { const [x, y] = O.toScreen(WX + 2.1, 1.45, 0.6); O.text('You', x, y - 20, 56, { align: 'center', alpha: youA, plate: '#0B0E13', plateA: 0.6 }); }
     const lOut = 1 - ease(t, mv[0].t0, mv[0].t0 + 0.3);           // nhãn thế giới rời TRƯỚC khi máy đổi chế độ (không chồng nhau giữa đường)
     const iA = ease(t, b.c1.insurance - 0.05, b.c1.insurance + POP) * worldA * lOut;
-    if (iA > 0 && t < mv[0].t1) { const [x, y] = O.toScreen(WX, roofY + 0.75, 0.2); O.text('buy now + mortgage insurance', x, y - 20, 48, { align: 'center', alpha: iA, plate: '#0B0E13', plateA: 0.6 }); }
+    if (iA > 0 && t < mv[0].t1) { const [x, y] = O.toScreen(WX, roofY + 0.75, 0.2); O.text('buying now + mortgage insurance', x, y - 20, 48, { align: 'center', alpha: iA, plate: '#0B0E13', plateA: 0.6 }); }
     const rA = ease(t, b.c1.renting - 0.05, b.c1.renting + POP) * worldA * lOut;
-    if (rA > 0 && t < mv[0].t1) { const [x, y] = O.toScreen(WX + 4.4, 2.35, -0.6); O.text('keep renting, keep saving', x, y - 20, 48, { align: 'center', alpha: rA, plate: '#0B0E13', plateA: 0.6 }); }
+    if (rA > 0 && t < mv[0].t1) { const [x, y] = O.toScreen(WX + 4.4, 2.35, -0.6); O.text('still renting, still saving', x, y - 20, 48, { align: 'center', alpha: rA, plate: '#0B0E13', plateA: 0.6 }); }
     // c2 (đồ thị)
     if (cw > 0.02 && t < mv[1].t1) {
       const aA = ok * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE));
-      for (let yr = 0; yr <= 10; yr += 2) { const [x, y] = S2(XM(yr * 12), 0); O.text(yr === 10 ? '10 years' : String(yr), x, y + 48, 44, { kind: 'number', w: 600, color: C.muted, align: 'center', alpha: aA }); }
+      for (let yr = 0; yr <= 10; yr += 2) { const [x, y] = S2(XM(yr * 12), 0); O.text(yr === 10 ? '10 years' : String(yr), x, y + 48, 44, { kind: 'number', role: 'axis-label', w: 600, color: C.chrome, align: 'center', alpha: aA }); }   // C5b: nhãn trục (claim role axis); V08 '10 years' 4,48:1 → màu chrome
       for (const l of [0.9, 0.8]) {   // (b) bỏ nhãn 100 % (gợi "nợ nhiều hơn giá nhà")
         const [x, y] = S2(-5.55, YL(l)); O.text(`${Math.round(l * 100)}%`, x - 12, y + 16, 48, { kind: 'number', color: l === 0.8 ? C.ink : C.muted, align: 'right', alpha: aA, plate: '#0B0E13', plateA: 0.75 }); }   // C4 r3: trái đầu vạch 80 % (dài 10,8 → x −5,4), có nền — không đường nào cắt chữ
       O.text('loan as a share of the price · on the schedule', 960, 230, 52, { kind: 'compare', align: 'center', color: C.muted, alpha: aA * (1 - ease(t, b.c3.replayed - 0.3, b.c3.replayed - 0.05)) });
-      O.text('Loan as % of home value · one line per purchase month, 1991–2016', 960, 230, 48, { kind: 'compare', align: 'center', color: C.ink, alpha: aA * ease(t, b.c3.replayed, b.c3.replayed + POP) });
+      // C5b (S17): tiêu đề của bó phát lại mang điều kiện "on paper" (mọi số trên khung này — typical ≈ 2 years, slowest ≈ 9 years — là số trên giấy)
+      O.text('Loan ÷ home value on paper · one line per purchase month, 1991–2016', 960, 230, 48, { kind: 'compare', align: 'center', color: C.ink, alpha: aA * ease(t, b.c3.replayed, b.c3.replayed + POP) });
       const eA = ease(t, b.c2.eight, b.c2.eight + POP) * aA;
-      if (eA > 0) { const [x, y] = S2(XM(D.sched80), YL(0.8)); O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath(); O.ctx.moveTo(x, y); O.ctx.lineTo(x, S2(0, 0)[1]); O.ctx.stroke(); O.ctx.restore();
+      if (eA > 0) { const [x, y] = S2(XM(D.sched80), YL(0.8)), yAx = S2(0, 0)[1];
+        // C5b (V11): sau "replayed" nhãn "schedule ≈ 8 years" nằm ngang qua đường gióng → đường gióng NGẮT quanh nhãn (khe 10 px trên/dưới hộp chữ)
+        let gap = null; if (t >= b.c3.replayed) { O.ctx.save(); O.ctx.font = '700 56px Inter'; const wl = O.ctx.measureText('schedule ≈ 8 years').width, xr = S2(XM(120), 0)[0]; O.ctx.restore();
+          if (x > xr - wl - 26 && x < xr + 26) gap = [y + 70 - 56 * 0.78 - 26, y + 70 + 56 * 0.24 + 26]; }
+        O.ctx.save(); O.ctx.globalAlpha = eA; O.ctx.setLineDash([10, 8]); O.ctx.strokeStyle = C.muted; O.ctx.lineWidth = 3; O.ctx.beginPath();
+        if (gap) { O.ctx.moveTo(x, y); O.ctx.lineTo(x, gap[0]); O.ctx.moveTo(x, gap[1]); O.ctx.lineTo(x, yAx); } else { O.ctx.moveTo(x, y); O.ctx.lineTo(x, yAx); } O.ctx.stroke(); O.ctx.restore();
         O.text(t < b.c3.replayed ? 'about 8 years' : 'schedule ≈ 8 years', t < b.c3.replayed ? x - 16 : S2(XM(120), 0)[0], y + 70, 56, { kind: 'number', color: C.ink, align: 'right', alpha: eA, plate: '#0B0E13', plateA: 0.7 }); }   // dưới vạch, trái đường gióng (đường chậm đi xuống ở bên phải)
       if (tA > 0) { const k = typP.p.length - 1, [x, y] = S2(XM(k), YL(typP.p[k])); O.text(`typical ≈ ${Math.round(CLm.medianB_months_to80.value / 12)} years`, x + 20, y + 64, 60, { kind: 'compare', color: C.ink, alpha: ok * tA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }   // khoá nghĩa: bản r2 (vòng 3 bị hoàn)
-      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text(`slowest case ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, x, y - 40, 52, { kind: 'compare', color: C.accent, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)) }); }
+      if (sA > 0) { const k = slowP.p.indexOf(Math.max(...slowP.p)), [x, y] = S2(XM(k), YL(slowP.p[k])); O.text(`slowest case ≈ ${Math.round(CLm.maxB_months_to80.value / 12)} years`, x, y - 40, 52, { kind: 'compare', color: C.accent, align: 'center', alpha: ok * sA / Math.max(cw, 1e-3) * (1 - ease(t, mv[1].t0, mv[1].t0 + FADE)), plate: '#0B0E13', plateA: 0.7 }); }
     }
     // c4 (đồ thị: định nghĩa)
     if (dA > 0.02) {
@@ -201,8 +207,9 @@ export async function boot(res) {
       O.text('home value', vx, vy - 74, 52, { color: C.ink, align: 'center', alpha: vA });
       O.text('by a national price index', vx, vy - 16, 48, { color: C.ink, w: 600, align: 'center', alpha: vA });   // vòng mù Tập 5 #1: E2 hụt "theo chỉ số giá" → nhãn đứng cùng "home value"
       O.text('loan', lx, ly - 30, 52, { color: C.ink, align: 'center', alpha: a * ease(t, b.c4.paper, b.c4.paper + POP) });
-      const pct = t < b.c4.paper + POP ? 90 : t < b.c4.eighty ? Math.max(81, Math.round(100 * lUsd / vUsd)) : 80;
-      O.text(`${pct}%`, lx + 120, ly + 16, 60, { kind: 'compare', color: pct <= 80 ? C.ink : C.muted, alpha: a * ease(t, b.c4.paper, b.c4.paper + POP) * (1 - ease(t, b.c4.eighty, b.c4.eighty + POP)) });   // bộ đếm bật ĐÚNG "on paper" rồi chạy tới 80
+      // C5b (S07): không còn bộ đếm 89…81 % (số trung gian không phải claim) — "90%" (start_ltv) hiện ĐÚNG "on paper", mờ đi ngay trước "eighty",
+      // lúc "80% on paper" (request_ltv) hiện ở vạch; chồng vay vẫn trôi từ 90 % xuống 80 %
+      O.text(`${Math.round(100 * CLm.start_ltv.value)}%`, lx + 120, ly + 16, 60, { kind: 'compare', color: C.muted, alpha: a * ease(t, b.c4.paper, b.c4.paper + POP) * (1 - ease(t, b.c4.eighty - 0.3, b.c4.eighty)) });
       const [bx, by] = S2(18.4 + 0.9, 0.8 * vUsd / U);
       O.text('80% on paper', bx + 10, by + (t >= m6.t0 ? -8 : 16), 60, { kind: 'compare', color: C.ink, alpha: a * ease(t, b.c4.eighty - 0.05, b.c4.eighty + POP) * (1 - 0.5 * ease(t, b.c6.seventy, b.c6.seventy + 0.4)), plate: '#0B0E13', plateA: 0.7 });   // C4: mờ một nửa ở S03.3
     }

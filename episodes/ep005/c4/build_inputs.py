@@ -43,7 +43,46 @@ def numbers_display():
 
 
 WORLD3D = '3D world objects drawn by code (lib3d.js W1–W9, obj5.js, c4kit.js)'   # C5: tên tài sản hình (rights ↔ visual-assets)
-SHOW = {'value_removal_ltv_early': '75%', 'pmi_required_below20': 'under 20% down', 'hpi_peak_to_trough_pct': '−22.2%'}   # hiển thị ngắn trên hình
+SHOW = {'value_removal_ltv_early': '75%', 'pmi_required_below20': 'under 20% down', 'hpi_peak_to_trough_pct': '−22.2%',   # hiển thị ngắn trên hình
+        # C5b (S07/S08): display = đúng chuỗi trên hình (core.claimSpans khớp nguyên văn): "payment 99", tick "99"; "112 months on paper (9 yr 4 mo)"; …
+        'sched80_months_latest': '99', 'sched78_months_latest': '114', 'medianB_months_to80': '23 months', 'maxB_months_to80': '112 months',
+        'buyer_victor_hpiChangeTo80Pct': '3.3% below purchase', 'mspus_latest': '$410,700', 'mspus_quarter': 'Q2 2026'}
+# C5b (S07): hằng số / đại lượng dẫn xuất CÓ trên hình hoặc trong lời mà chưa có claim. Mỗi dòng: (claimId, value, display, formula, nguồn, role, conditional).
+# Không có số mới nào của mô hình: chỉ tham số hợp đồng (model.params), luật (numbers.md), đổi đơn vị của claim mô hình, và nhãn trục (role "axis").
+CONST = [
+    ('start_ltv', 0.90, '90%', '1 − model.params.downShare: loan as a share of the price on the day of purchase (10% down)', 'contract.json model.params', None, None),
+    ('down_share', 0.10, '10%', 'model.params.downShare (the episode\'s down payment)', 'contract.json model.params', None, None),
+    ('down_target_share', 0.20, '20%', '1 − 0.80 (gse_charter_ltv_max_uninsured): the down payment at which PMI is usually not required (pmi_required_below20)', 'numbers.md', None, None),
+    ('request_ltv', 0.80, '80%', 'model.params.requestLtv: 12 U.S.C. 4902(a), the borrower may ask to cancel at 80% (of original value on the schedule; of the value by the index "on paper")', 'contract.json model.params', None, None),
+    ('auto_ltv', 0.78, '78%', 'model.params.autoLtv: 12 U.S.C. 4902(b), automatic termination at 78% of original value on the schedule', 'contract.json model.params', None, None),
+    ('term_months', 360, '360', 'model.params.termMonths (360-month fixed loan; last tick of the payment axis)', 'contract.json model.params', None, None),
+    ('term_years', 30, '30-year', 'model.params.termMonths / 12 (Freddie Mac 30-year fixed rate series)', 'contract.json model.params', None, None),
+    ('lookA_months', 24, '24 months', 'model.params.lookMonthsA (set A: loan ÷ value on paper 24 months after purchase)', 'contract.json model.params', None, None),
+    ('lookA_years', 2, '2 years after purchase', 'model.params.lookMonthsA / 12', 'contract.json model.params', None, None),
+    ('slowCut_months', 60, '60', 'model.params.slowCutMonths (the "more than 60 months" line of set B)', 'contract.json model.params', None, None),
+    ('slowCut_years', 5, '5 years', 'model.params.slowCutMonths / 12', 'contract.json model.params', None, None),
+    ('sched80_years', None, '8 years', 'sched80_months_latest / 12, shown as "about 8 years"', 'model', None, None),
+    ('sched78_years', None, '9.5 years', 'sched78_months_latest / 12', 'model', None, None),
+    ('medianB_years', None, '≈ 2 years', 'medianB_months_to80 / 12, rounded to whole years', 'model', None, 'on-paper'),
+    ('maxB_years', None, '9 years', 'maxB_months_to80 / 12, whole years ("≈ 9 years", "more than 9 years")', 'model', None, 'on-paper'),
+    ('maxB_years_months', None, '9 yr 4 mo', 'maxB_months_to80 written as years and months (112 = 9 × 12 + 4)', 'model', None, 'on-paper'),
+    ('minB_years', None, 'about 1 year', 'minB_months_to80 / 12, rounded to whole years', 'model', None, 'on-paper'),
+    ('shareB_over60_frac', None, 'about 1 in 7', '1 in round(1 / shareB_over60)', 'model', None, 'on-paper'),
+    ('firstB_year', 1991, '1991', 'year of firstB (= year of firstA): first purchase month of both sets; first year tick', 'model', None, None),
+    ('lastB_year', 2016, '2016', 'year of lastB: last purchase month of set B; last year tick of the set-B axis', 'model', None, None),
+    ('lastA_year', 2024, '2024', 'year of lastA: last purchase month of set A; last year tick of the set-A axis', 'model', None, None),
+    ('law_hpa_4902', '12 U.S.C. 4902', '12 U.S.C. 4902', 'statute citation (Homeowners Protection Act, termination of PMI)', 'https://www.law.cornell.edu/uscode/text/12/4902', None, None),
+    ('fannie_b8104', 'B-8.1-04', 'B-8.1-04', 'Fannie Mae Servicing Guide section citation (termination of conventional mortgage insurance)', 'https://servicing-guide.fanniemae.com/svc/b-8.1-04/termination-conventional-mortgage-insurance', None, None),
+] + [(f'axis_{k}', v, d, f'axis tick: {w}', 'axis', 'axis', None) for k, v, d, w in (
+    ('0', 0, '0', 'origin of the years-after-purchase and payment axes'), ('yr2', 2, '2', 'years after purchase'), ('yr4', 4, '4', 'years after purchase'),
+    ('yr6', 6, '6', 'years after purchase'), ('yr8', 8, '8', 'years after purchase'), ('yr10', 10, '10 years', 'years after purchase (last tick)'),
+    ('pay120', 120, '120', 'payment number'), ('pay240', 240, '240', 'payment number'),
+    ('y1995', 1995, '1995', 'purchase year'), ('y2000', 2000, '2000', 'purchase year'), ('y2005', 2005, '2005', 'purchase year'), ('y2010', 2010, '2010', 'purchase year'))]
+# C5b (S07): sentences that say a CONST / set boundary claim (narration text unchanged; script.md comments list model claims only)
+EXTRA_SPOKEN = {'down_share': ['S01.1', 'S05.2', 'S09.4', 'S10.2', 'S15.1'], 'down_target_share': ['S01.2'],
+                'request_ltv': ['S03.1', 'S07.1', 'S09.2', 'S10.4', 'S11.3', 'S12.4', 'S15.3', 'S16.2', 'S17.2', 'S17.3'], 'auto_ltv': ['S08.1'],
+                'firstB': ['S10.1'], 'lastB': ['S10.1'], 'firstA': ['S12.2'], 'shareB_over60_frac': ['S13.2'], 'slowCut_years': ['S13.2'], 'maxB_years': ['S20.2'],
+                'sched80_years': ['S02.1'], 'sched78_years': ['S08.2']}
 MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 
@@ -114,13 +153,37 @@ def claims():
         if cid not in have:
             out.append({'claimId': cid, 'value': val, 'display': d, 'unit': 'rule', 'formula': 'rule (numbers.md)', 'source': {'id': 'numbers.md', 'url': None},
                         'historical': False, 'illustrative': False, 'callbacks': [], 'shownIn': [], 'spoken': spoken.get(cid, [])})
+    raw_ = {c['claimId']: c['value'] for c in out}
+    derived = {'sched80_years': raw_['sched80_months_latest'] / 12, 'sched78_years': raw_['sched78_months_latest'] / 12,
+               'medianB_years': raw_['medianB_months_to80'] / 12, 'maxB_years': raw_['maxB_months_to80'] / 12, 'maxB_years_months': raw_['maxB_months_to80'],
+               'minB_years': raw_['minB_months_to80'] / 12, 'shareB_over60_frac': 1 / round(1 / raw_['shareB_over60'])}
+    assert f"{int(raw_['maxB_months_to80'] // 12)} yr {int(raw_['maxB_months_to80'] % 12)} mo" == '9 yr 4 mo' and round(derived['medianB_years']) == 2 and int(derived['maxB_years']) == 9
+    assert round(derived['minB_years']) == 1 and int(derived['sched80_years']) == 8 and round(1 / raw_['shareB_over60']) == 7
+    for cid, val, d, formula, src, role, cnd in CONST:
+        x = {'claimId': cid, 'value': derived.get(cid, val), 'display': d, 'unit': 'const', 'formula': formula,
+             'source': {'id': 'model' if src == 'model' else 'contract.json' if src.startswith('contract') else 'axis' if src == 'axis' else 'numbers.md' if src == 'numbers.md' else 'law',
+                        'url': src if src.startswith('http') else None},
+             'historical': src == 'model' and cid not in ('sched80_years', 'sched78_years'), 'illustrative': False, 'callbacks': [], 'shownIn': [], 'spoken': []}
+        if x['historical']:
+            x['dataYears'] = [1991, 2026]
+        if role:
+            x['role'] = role
+        if cnd or cid in cond:
+            x['conditional'] = cnd or cond[cid]
+        out.append(x)
+    by = {c['claimId']: c for c in out}
+    for cid, sids in EXTRA_SPOKEN.items():
+        have_s = {(q['scene'], q['sentence']) for q in by[cid]['spoken']}
+        by[cid]['spoken'] += [{'scene': sid.split('.')[0], 'sentence': sid} for sid in sids if (sid.split('.')[0], sid) not in have_s]
     return {'claims': out}
 
 
 def tokens():
     T = json.load(open(os.path.join(ROOT, 'toolkit', 'visual-library', 'tokens.json')))
     col = T.get('color') or T.get('colors')
-    return {'color': col, 'colors': {**col, 'muted': col.get('ink-muted', '#9AA4B2')},
+    C_ = json.load(open(os.path.join(EP, 'contract.json')))
+    buyers = {f'buyer-{k}': v['color'] for k, v in C_['characters'].items() if isinstance(v, dict)}   # C5b: màu nhận diện ba người mua (V09) là token
+    return {'color': col, 'colors': {**col, 'muted': col.get('ink-muted', '#9AA4B2'), **buyers},
             'series': {'schedule': col.get('ink-muted', '#9AA4B2'), 'onPaper': col['ink'], 'index': col['accent'], 'slow': col['accent'],
                        'cushion': '#269783'}, 'seriesOf': {}}
 

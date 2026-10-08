@@ -343,6 +343,19 @@ def room_tone(N, venv, mus_env):
     return np.stack([x * g, np.roll(x, 2400) * g], 1)
 
 
+def silence_gain(N, windows, ramp=0.05):
+    """Hệ số (N,) = 0 trong mọi cửa sổ [a, b] (giây), 1 ngoài cửa sổ, cos `ramp` s ngay ngoài hai đầu; None nếu không có cửa sổ."""
+    if not windows:
+        return None
+    t = np.arange(N) / SR
+    g = np.ones(N)
+    for a, b in windows:
+        d = np.maximum(a - t, t - b)          # > 0 ngoài cửa sổ: khoảng cách tới cửa sổ
+        w = np.where(d <= 0, 0.0, np.where(d >= ramp, 1.0, 0.5 - 0.5 * np.cos(np.pi * np.clip(d, 0, ramp) / ramp)))
+        g = np.minimum(g, w)
+    return g
+
+
 def env200(x):
     m = np.abs(x if x.ndim == 1 else x.mean(1))
     k = SR // 200
@@ -417,6 +430,13 @@ def main():
     sfx_d = duck(sfx * sc, venv, 6.0) if np.any(sfx) else sfx
     wh_d = duck(whoosh * sc, venv, 6.0) if np.any(whoosh) else whoosh   # duck tuyến tính → sfx_d + wh_d = lớp sfx cũ
     room = room_tone(N, venv, env200(mus_d))
+    # C5 ep005 (checks S14): spine.mix.silences [[a, b], …] (giây của đoạn) = lặng của bản trộn trừ lời: nhạc, âm dữ liệu, sfx, whoosh về 0 trong
+    # [a, b] (cos 50 ms hai đầu, ngoài cửa sổ) — điểm chèn quảng cáo cần ≥ 1 s master ≤ −40 dBFS. Room tone GIỮ làm sàn (≈ −60 dBFS, G-003 / checks T3:
+    # sàn master ≥ −80, room ≥ −75 dBFS trong khoảng lặng); C5b vòng 1 đưa cả room về 0 → T3 trượt, vòng 2 bỏ
+    sil = silence_gain(N, MX.get('silences') or [])
+    if sil is not None:
+        mus_d, data_d, sfx_d, wh_d = (x * sil[:, None] for x in (mus_d, data_d, sfx_d, wh_d))
+        rep['silences'] = MX['silences']
     v2 = np.stack([voice, voice], 1)
     mix = v2 + mus_d + data_d + sfx_d + wh_d + room
     # đo nghe thấy được (G-001): mức đỉnh âm dữ liệu trong khe lời so với RMS lời

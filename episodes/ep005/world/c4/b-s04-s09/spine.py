@@ -83,13 +83,19 @@ EV += [{'t': cue['l0']['eighty'], 'kind': 'chime'}, {'t': cue['l1']['ninety'], '
 EV += SV.move_sounds(moves, lambda m: {'mode': 0.6, 'pan': 0.8, 'push': 0.8, 'pull': 1.0}[m['verb']])
 EV.sort(key=lambda e: e['t'])
 SIL = [round(M['m_mr']['t1'] + 0.5, 3), TOTAL]                       # MR1: lặng (không sfx/âm dữ liệu sau tiếng chạm); nhạc nền về 0 quanh MR1
+# C5b (checks S14): điểm chèn MR1 = episode.yaml midrolls[0].t (±1 s quanh ranh hồi 1→2 = đầu S10); CẢ BẢN TRỘN lặng (room tone cũng về 0) từ
+# MR1 − 0,65 s tới hết đoạn (= đầu S10) — cùng cửa sổ nhạc nền về 0 của bed.py [MR1 − 0,6; MR1 + 0,6]
+import yaml
+MR1 = float(yaml.safe_load(open(os.path.join(K.EP, 'episode.yaml')))['midrolls'][0]['t']) - S.t0
+assert SIL[0] <= MR1 - 0.65 and TOTAL - MR1 <= 1.0 and TOTAL - (MR1 - 0.65) >= 1.0, ('MR1', MR1, SIL, TOTAL)
+MIX_SIL = [[round(MR1 - 0.65, 3), TOTAL]]
 assert all(e['t'] < SIL[0] - 0.4 for e in EV), 'sfx trong khoảng lặng MR1'
 tension = [[0, 0.2]] + [[b['t0'], 0.2 + 0.5 * b['music']] for b in beats] + [[TOTAL, 0.0]]
 errs = SV.check_rules(beats, moves, PAD, rule3=True)
 errs = [e for e in errs if not e.startswith('quy tắc 7')]          # quy tắc 7 = 5 s đầu TẬP (đoạn A); đoạn B mở ở thế giới (ident tối dần)
 spine = {'segment': 'ep005 C4 · B = S04–S09 (Hồi 1) + MR1', 'version': 5, 'total': TOTAL, 'fps': 30, 'pad': PAD, 'episode_t0': S.t0, 'scenes': S.scenes,
          'takes': S.takes, 'words': S.words, 'beats': beats, 'moves': moves, 'fly_fallback': FALLBACK, 'music_plan': K.music_plan(S),
-         'mix': {'music_db': K.music_db(S), 'data_db': 25.0}, 'pay_kf': PAYK, 'flip': FLIP, 'k_stop': KSTOP, 'mr1_silence': SIL,
+         'mix': {'music_db': K.music_db(S), 'data_db': 25.0, 'silences': MIX_SIL}, 'pay_kf': PAYK, 'flip': FLIP, 'k_stop': KSTOP, 'mr1_silence': SIL,
          'events': EV, 'tension': tension, 'shots': SV.shots_for(moves, TOTAL),
          'label_cues': {'p2.dollar': 'cost: not shown in this video', 'e0.four': '$400,000 home', 'e0.median': 'Q2 2026: $410,700', 'e1.ten': '$40,000 down', 'e1.loan': '$360,000 loan',
                         'y0.figure': '$2,362/month · principal + interest', 'y1.taxes': 'taxes, home insurance and PMI on top', 'y2.slowly': 'slowly at first',

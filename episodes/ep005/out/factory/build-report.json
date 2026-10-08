@@ -7,19 +7,19 @@
    "problems": 1
   },
   "voice": {
-   "seconds": 2.19,
+   "seconds": 2.35,
    "scenes": 20,
    "cache_hits": 20,
    "el_chars_spent": 0
   },
   "resolve": {
-   "seconds": 3.26,
-   "total": 464.4669,
+   "seconds": 3.49,
+   "total": 465.6669,
    "shots": 0,
    "anchors": 0
   },
   "world": {
-   "seconds": 876.64,
+   "seconds": 5550.76,
    "segments": {
     "a-s01-s03": {
      "lint": {
@@ -28,33 +28,41 @@
       "problems": []
      },
      "spine": {
-      "seconds": 16.5,
+      "seconds": 15.2,
       "ok": true,
       "stdout": [
        "checks OK"
       ]
      },
      "render": {
-      "seconds": 1.3,
+      "seconds": 668.1,
       "ok": true,
       "shots": 7,
-      "rendered": [],
-      "cached": 7,
-      "wall_s": 0.8,
+      "rendered": [
+       "s0",
+       "s3",
+       "s1",
+       "s4",
+       "s2",
+       "s5",
+       "s6"
+      ],
+      "cached": 0,
+      "wall_s": 667.6,
       "film_s": 58.0001,
-      "wall_per_film_s_rendered": 0,
+      "wall_per_film_s_rendered": 36.23,
       "cores": 4
      },
      "audio": {
-      "seconds": 26.5,
+      "seconds": 26.2,
       "ok": true
      },
      "mux": {
-      "seconds": 3.0,
+      "seconds": 2.9,
       "ok": true
      },
      "verify": {
-      "seconds": 65.2,
+      "seconds": 62.0,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -62,7 +70,7 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 1538,
+       "samples": 1537,
        "violations": 0,
        "examples": []
       },
@@ -80,7 +88,7 @@
        "sfx_events": 21,
        "keyword_hits": 11,
        "min_keyword_snr_db": 11.0,
-       "label_overlaps": 1,
+       "label_overlaps": 0,
        "line_crossings": 0,
        "block": [],
        "warn": [
@@ -88,8 +96,7 @@
         "sfx [(0.73, 'land')] trên từ khoá c0.ten 'ten' 0.73–0.96 SNR 11.0 dB",
         "sfx [(2.15, 'rise'), (2.56, 'whoosh_soft')] trên từ khoá c0.price 'price.' 2.15–2.8 SNR 13.6 dB",
         "sfx [(25.319, 'chime')] trên từ khoá c4.eighty 'eighty' 25.319–25.593 SNR 13.1 dB",
-        "sfx [(31.093, 'impact')] trên từ khoá c5.removed 'removed.' 31.093–31.673 SNR 11.3 dB",
-        "80% × 80% on paper 25.4–25.4 s (1 mẫu)"
+        "sfx [(31.093, 'impact')] trên từ khoá c5.removed 'removed.' 31.093–31.673 SNR 11.3 dB"
        ]
       }
      }
@@ -101,33 +108,44 @@
       "problems": []
      },
      "spine": {
-      "seconds": 16.5,
+      "seconds": 14.8,
       "ok": true,
       "stdout": [
        "checks OK"
       ]
      },
      "render": {
-      "seconds": 1.5,
+      "seconds": 1235.9,
       "ok": true,
       "shots": 10,
-      "rendered": [],
-      "cached": 10,
-      "wall_s": 1,
-      "film_s": 129.8334,
-      "wall_per_film_s_rendered": 0,
+      "rendered": [
+       "s0",
+       "s2",
+       "s3",
+       "s1",
+       "s4",
+       "s6",
+       "s9",
+       "s7",
+       "s5",
+       "s8"
+      ],
+      "cached": 0,
+      "wall_s": 1235.4,
+      "film_s": 131.0334,
+      "wall_per_film_s_rendered": 34.08,
       "cores": 4
      },
      "audio": {
-      "seconds": 55.4,
+      "seconds": 58.7,
       "ok": true
      },
      "mux": {
-      "seconds": 6.7,
+      "seconds": 6.2,
       "ok": true
      },
      "verify": {
-      "seconds": 161.5,
+      "seconds": 144.3,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -135,33 +153,32 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 3577,
+       "samples": 3897,
        "violations": 0,
        "examples": []
       },
       "modes": {
-       "world_share": 0.323,
-       "chart_share": 0.677,
+       "world_share": 0.331,
+       "chart_share": 0.669,
        "first_5s_world": true
       },
       "F2": {
        "level": "WARN",
-       "sfx_per_min": 12.0,
+       "sfx_per_min": 11.9,
        "sfx_max_10s": 5,
        "sfx_on_speech": 23,
        "sfx_on_plain_words": 9,
        "sfx_events": 26,
        "keyword_hits": 17,
-       "min_keyword_snr_db": 10.0,
-       "label_overlaps": 1,
-       "line_crossings": 47,
+       "min_keyword_snr_db": 13.2,
+       "label_overlaps": 0,
+       "line_crossings": 1,
        "block": [],
        "warn": [
-        "sfx [(38.807, 'land')] trên từ khoá e1.ten 'ten' 38.807–38.927 SNR 10.0 dB",
-        "sfx [(68.739, 'chime')] trên từ khoá l0.eighty 'eighty' 68.739–69.013 SNR 14.9 dB",
-        "80% × 80% sooner, on paper 112.9–112.9 s (1 mẫu)",
-        "đường × A measurement, not a next step 95–95 s (1 mẫu)",
-        "đường × 360 payments 95.7–100.2 s (46 mẫu)"
+        "sfx [(32.539, 'land'), (32.799, 'land')] trên từ khoá e0.four 'four' 32.799–32.927 SNR 13.2 dB",
+        "sfx [(39.687, 'land')] trên từ khoá e1.ten 'ten' 39.687–39.807 SNR 13.4 dB",
+        "sfx [(69.939, 'chime')] trên từ khoá l0.eighty 'eighty' 69.939–70.213 SNR 14.9 dB",
+        "đường × A measurement, not a next step 96.2–96.2 s (1 mẫu)"
        ]
       }
      }
@@ -173,33 +190,44 @@
       "problems": []
      },
      "spine": {
-      "seconds": 17.3,
+      "seconds": 15.3,
       "ok": true,
       "stdout": [
        "checks OK"
       ]
      },
      "render": {
-      "seconds": 1.8,
+      "seconds": 1676.4,
       "ok": true,
       "shots": 10,
-      "rendered": [],
-      "cached": 10,
-      "wall_s": 1.2,
+      "rendered": [
+       "s0",
+       "s2",
+       "s4",
+       "s1",
+       "s6",
+       "s7",
+       "s9",
+       "s3",
+       "s8",
+       "s5"
+      ],
+      "cached": 0,
+      "wall_s": 1675.8,
       "film_s": 132.6334,
-      "wall_per_film_s_rendered": 0,
+      "wall_per_film_s_rendered": 43.97,
       "cores": 4
      },
      "audio": {
-      "seconds": 59.6,
+      "seconds": 56.8,
       "ok": true
      },
      "mux": {
-      "seconds": 6.7,
+      "seconds": 6.6,
       "ok": true
      },
      "verify": {
-      "seconds": 161.6,
+      "seconds": 148.5,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -207,7 +235,7 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 5098,
+       "samples": 5221,
        "violations": 0,
        "examples": []
       },
@@ -225,7 +253,7 @@
        "sfx_events": 34,
        "keyword_hits": 15,
        "min_keyword_snr_db": 12.0,
-       "label_overlaps": 0,
+       "label_overlaps": 2,
        "line_crossings": 0,
        "block": [],
        "warn": [
@@ -233,7 +261,9 @@
         "sfx [(29.76, 'chime'), (30.01, 'whoosh_mode')] trên từ khoá r3.less 'less.' 29.76–30.16 SNR 12.9 dB",
         "sfx [(71.363, 'chime')] trên từ khoá k2.fifteen 'fifteen' 71.363–71.853 SNR 14.8 dB",
         "sfx [(101.58, 'chime')] trên từ khoá n1.years 'years.' 101.58–102.3 SNR 12.0 dB",
-        "sfx [(108.687, 'slide_down')] trên từ khoá n2.slump 'slump.' 108.687–109.18 SNR 13.6 dB"
+        "sfx [(108.687, 'slide_down')] trên từ khoá n2.slump 'slump.' 108.687–109.18 SNR 13.6 dB",
+        "Past buyers, measured · not a reason to buy, rent or wait × national home price index 109.7–109.7 s (1 mẫu)",
+        "Past buyers, measured · not a reason to buy, rent or wait × national price slump 109.7–109.7 s (1 mẫu)"
        ]
       }
      }
@@ -245,33 +275,47 @@
       "problems": []
      },
      "spine": {
-      "seconds": 17.0,
+      "seconds": 15.9,
       "ok": true,
       "stdout": [
        "checks OK"
       ]
      },
      "render": {
-      "seconds": 2.1,
+      "seconds": 1158.4,
       "ok": true,
       "shots": 13,
-      "rendered": [],
-      "cached": 13,
-      "wall_s": 1.4,
+      "rendered": [
+       "s0",
+       "s4",
+       "s1",
+       "s2",
+       "s5",
+       "s7",
+       "s8",
+       "s10",
+       "s3",
+       "s9",
+       "s11",
+       "s6",
+       "s12"
+      ],
+      "cached": 0,
+      "wall_s": 1157.9,
       "film_s": 144,
-      "wall_per_film_s_rendered": 0,
+      "wall_per_film_s_rendered": 31.29,
       "cores": 4
      },
      "audio": {
-      "seconds": 67.2,
+      "seconds": 63.6,
       "ok": true
      },
      "mux": {
-      "seconds": 7.4,
+      "seconds": 6.9,
       "ok": true
      },
      "verify": {
-      "seconds": 181.5,
+      "seconds": 167.9,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -279,7 +323,7 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 8703,
+       "samples": 8715,
        "violations": 0,
        "examples": []
       },
@@ -297,11 +341,12 @@
        "sfx_events": 25,
        "keyword_hits": 14,
        "min_keyword_snr_db": 12.6,
-       "label_overlaps": 0,
+       "label_overlaps": 1,
        "line_crossings": 0,
        "block": [],
        "warn": [
-        "sfx [(27.066, 'chime')] trên từ khoá o1.thirteen 'thirteen' 27.066–27.493 SNR 12.6 dB"
+        "sfx [(27.066, 'chime')] trên từ khoá o1.thirteen 'thirteen' 27.066–27.493 SNR 12.6 dB",
+        "$400,000 home × ILLUSTRATIVE 106.6–106.6 s (1 mẫu)"
        ]
       }
      }
@@ -309,27 +354,27 @@
    }
   },
   "render": {
-   "seconds": 121.5,
+   "seconds": 100.17,
    "segments": 0,
    "rendered": 0,
    "cache_hits": 0,
-   "frames": 13934,
+   "frames": 13970,
    "blank": true
   },
   "splice": {
-   "seconds": 195.99,
+   "seconds": 165.65,
    "segments": [
     "a-s01-s03",
     "b-s04-s09",
     "c-s10-s14",
     "d-s15-s20"
    ],
-   "frames": 13934,
+   "frames": 13970,
    "frame_log_dropped": 0
   },
   "mix": {
-   "seconds": 185.36,
-   "a07_gap_db": 19.99,
+   "seconds": 171.91,
+   "a07_gap_db": 20.01,
    "mid_duck_db": 13.0,
    "world": {
     "segments": [
@@ -338,7 +383,7 @@
       "gain_db": -4.53,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -41.0,
+       "music": -40.9,
        "sonify": -51.1,
        "sfx": -49.0,
        "whoosh": -58.9,
@@ -348,20 +393,20 @@
      },
      {
       "id": "b-s04-s09",
-      "gain_db": -4.71,
+      "gain_db": -4.68,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
        "music": -42.6,
        "sonify": -50.4,
-       "sfx": -53.2,
+       "sfx": -53.1,
        "whoosh": -61.4,
-       "room": -64.9
+       "room": -64.8
       },
       "bed_off": true
      },
      {
       "id": "c-s10-s14",
-      "gain_db": -4.72,
+      "gain_db": -4.74,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
        "music": -36.8,
@@ -374,7 +419,7 @@
      },
      {
       "id": "d-s15-s20",
-      "gain_db": -4.6,
+      "gain_db": -4.61,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
        "music": -40.1,
@@ -397,13 +442,13 @@
     "peak_scale": 1.0
    },
    "video": "episodes/ep005/work/factory/video.mp4",
-   "sha256": "0c6edee29e7487e0f399ef657a45dc7cd82ef2d283775f711a4225f01acb30ad",
-   "mb": 1005.92
+   "sha256": "5ce51208941eb40f28ca24b4fd022e0166f97e4b312faeceb57897aced966d52",
+   "mb": 1008.48
   },
   "artefacts": {
-   "seconds": 0.31,
+   "seconds": 0.33,
    "camera": {
-    "frames": 13934,
+    "frames": 13970,
     "world": [
      "a-s01-s03",
      "b-s04-s09",
@@ -437,48 +482,54 @@
      "c-s10-s14",
      "d-s15-s20"
     ],
-    "bytes": 2970936,
+    "bytes": 2985664,
     "page": "work/factory/page/index.html"
    }
   },
   "parts": {
-   "seconds": 159.08,
+   "seconds": 139.08,
    "parts": [
     {
      "file": "episodes/ep005/work/factory/ep005-part1-720p.mp4",
      "from": 0.0,
-     "to": 154.8223,
-     "mb": 44.41
+     "to": 155.2223,
+     "mb": 43.34
     },
     {
      "file": "episodes/ep005/work/factory/ep005-part2-720p.mp4",
-     "from": 154.8223,
-     "to": 309.6446,
-     "mb": 44.32
+     "from": 155.2223,
+     "to": 310.4446,
+     "mb": 43.5
     },
     {
      "file": "episodes/ep005/work/factory/ep005-part3-720p.mp4",
-     "from": 309.6446,
-     "to": 464.4669,
-     "mb": 41.47
+     "from": 310.4446,
+     "to": 465.6669,
+     "mb": 40.98
     }
    ]
   },
   "shorts": {
-   "seconds": 57.14,
+   "seconds": 1081.16,
    "shorts": [
     {
      "id": "SH1",
      "file": "episodes/ep005/work/factory/SH1.mp4",
-     "from": 224.7667,
-     "to": 245.9667,
+     "from": 225.9667,
+     "to": 247.1667,
      "duration": 22.7,
      "world": "c-s10-s14",
      "render_world": {
-      "wall_s": 0.8,
+      "wall_s": 263.4,
       "film_s": 21.200000000000003,
-      "rendered": [],
-      "cached": 5
+      "rendered": [
+       "span0",
+       "span1",
+       "span2",
+       "span3",
+       "span4"
+      ],
+      "cached": 0
      },
      "endcard": {
       "segments": 1,
@@ -488,21 +539,30 @@
       "seconds": 0
      },
      "audio": {
-      "measured_I": -13.93
+      "measured_I": -13.94
      }
     },
     {
      "id": "SH2",
      "file": "episodes/ep005/work/factory/SH2.mp4",
-     "from": 282.9333,
-     "to": 319.2667,
+     "from": 284.1333,
+     "to": 320.4667,
      "duration": 37.767,
      "world": "c-s10-s14",
      "render_world": {
-      "wall_s": 1,
+      "wall_s": 455.1,
       "film_s": 36.3334,
-      "rendered": [],
-      "cached": 8
+      "rendered": [
+       "span0",
+       "span1",
+       "span2",
+       "span3",
+       "span7",
+       "span4",
+       "span6",
+       "span5"
+      ],
+      "cached": 0
      },
      "endcard": {
       "segments": 1,
@@ -512,21 +572,31 @@
       "seconds": 0
      },
      "audio": {
-      "measured_I": -14.72
+      "measured_I": -14.69
      }
     },
     {
      "id": "SH3",
      "file": "episodes/ep005/work/factory/SH3.mp4",
-     "from": 341.0,
-     "to": 382.9667,
+     "from": 342.2,
+     "to": 384.1667,
      "duration": 43.467,
      "world": "d-s15-s20",
      "render_world": {
-      "wall_s": 1,
+      "wall_s": 320.8,
       "film_s": 41.9667,
-      "rendered": [],
-      "cached": 9
+      "rendered": [
+       "span1",
+       "span0",
+       "span3",
+       "span2",
+       "span5",
+       "span4",
+       "span6",
+       "span7",
+       "span8"
+      ],
+      "cached": 0
      },
      "endcard": {
       "segments": 1,
@@ -536,13 +606,13 @@
       "seconds": 0
      },
      "audio": {
-      "measured_I": -13.99
+      "measured_I": -14.0
      }
     }
    ]
   },
   "qc": {
-   "seconds": 72.25,
+   "seconds": 59.45,
    "pass": false,
    "failed": [
     "master đối trọng \"US only · history, not a forecast\"",
@@ -550,14 +620,9 @@
     "master đối trọng \"A measurement, not a next step\"",
     "master đối trọng \"It won't say whether to buy or wait\"",
     "freezedetect d=3 ∩ lời",
-    "loudness",
-    "SH2 nhãn ILLUSTRATIVE / history"
+    "loudness"
    ],
-   "warned": [
-    "SH1 nhãn giao nhau (F-2)",
-    "SH2 nhãn giao nhau (F-2)",
-    "SH3 nhãn giao nhau (F-2)"
-   ],
+   "warned": [],
    "near": [
     "SH1 sàn chữ",
     "SH2 sàn chữ",
@@ -565,7 +630,7 @@
    ]
   }
  },
- "started": "2026-10-07T15:35:56Z",
+ "started": "2026-10-07T23:05:27Z",
  "spec": [
   {
    "level": "WARN",
@@ -574,7 +639,7 @@
   }
  ],
  "music": {
-  "a07_gap_db": 19.99,
+  "a07_gap_db": 20.01,
   "mid_duck_db": 13.0,
   "world": {
    "segments": [
@@ -583,7 +648,7 @@
      "gain_db": -4.53,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -41.0,
+      "music": -40.9,
       "sonify": -51.1,
       "sfx": -49.0,
       "whoosh": -58.9,
@@ -593,20 +658,20 @@
     },
     {
      "id": "b-s04-s09",
-     "gain_db": -4.71,
+     "gain_db": -4.68,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
       "music": -42.6,
       "sonify": -50.4,
-      "sfx": -53.2,
+      "sfx": -53.1,
       "whoosh": -61.4,
-      "room": -64.9
+      "room": -64.8
      },
      "bed_off": true
     },
     {
      "id": "c-s10-s14",
-     "gain_db": -4.72,
+     "gain_db": -4.74,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
       "music": -36.8,
@@ -619,7 +684,7 @@
     },
     {
      "id": "d-s15-s20",
-     "gain_db": -4.6,
+     "gain_db": -4.61,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
       "music": -40.1,
@@ -642,5 +707,5 @@
    "peak_scale": 1.0
   }
  },
- "total_seconds": 1673.78
+ "total_seconds": 7274.39
 }

@@ -7,7 +7,7 @@ Ra thêm <out>.json: lưới phách (cho toolkit/audio/d_music_selfsim.py), từ
 
 Biên độ nghe được (D-010 §5 "rộng hơn bản thử"): mức căng điều khiển CẢ số tầng (pad → bass → pluck → kick → shaker → chuông) LẪN
 một đường gain liên tục (DB_SPAN dB giữa căng 0 và 1, làm mượt 1,5 s) — đo LUFS ngắn hạn của stem nhạc theo đoạn ở audition.py.
-MR1: nhạc về 0 trong [MR1 − 0,6; MR1 + 0,6] s (≥ 1 s lặng), nhả cos 0,6 s trước (G-003: không cắt cứng), vào lại 0,3 s; lưới ô nhịp bắt
+MR1: nhạc về 0 trong [MR1 − 0,6; MR1 + 0,6] s (≥ 1 s lặng), nhả cos 0,25 s trước (C5b; trước 0,6) (G-003: không cắt cứng), vào lại 0,3 s; lưới ô nhịp bắt
 đầu lại đúng sau khoảng lặng (Hồi 2 vào ở phách mạnh). Lưới Hồi 2–outro co giãn ≤ 0,1 % để PHÁCH MẠNH rơi đúng đầu từ "removed" (S20.2):
 ô trước là V (C), ô "removed" là I (F) — cadence chốt; sau đó chỉ còn pad + pluck thưa, tắt dần.
 G-002 (không lộ vòng): hợp âm theo chuỗi Markov, cấm lặp lại bất kỳ chuỗi 4 hợp âm nào trong 24 ô gần nhất; mỗi ô một hình ostinato
@@ -31,7 +31,7 @@ import tension as TM  # noqa: E402
 SR = WA.SR
 BPM = 114.0
 DB_SPAN = 1.0          # gain liên tục: căng 0 → −1 dB so với căng 1 (phần lớn biên độ do số tầng; đỉnh vẫn ≥ 15 dB dưới lời tại chỗ)
-MR_HOLD, MR_REL, MR_IN = 0.6, 0.6, 0.3
+MR_HOLD, MR_REL, MR_IN = 0.6, 0.25, 0.3   # C5b vòng 2: nhả 0,6 → 0,25 s (checks T3: vào khoảng lặng 150–400 ms; đo 0,615 s)
 hz = WA.hz
 NOTE = {'C': 0, 'Db': 1, 'D': 2, 'Eb': 3, 'E': 4, 'F': 5, 'Gb': 6, 'G': 7, 'Ab': 8, 'A': 9, 'Bb': 10, 'B': 11}
 CHORDS = {

@@ -3,7 +3,7 @@
 // quanh BC (N3 gập → N2) · cột tập A (24 tháng) quanh TC · (r2: bỏ khu nhiều nhà HD của S14.3; HD còn là điểm đi qua của cú bay) · ba người mua BX2 (c4kit, khung cuối = khung đầu đoạn D).
 import * as THREE from 'three';
 import { House, Stack, Beam, Studio, Fan, Burst, Shield, Ribbon, PALETTE, setOpacity } from '/toolkit/factory/world/lib3d.js';
-import { Camera, Stage, loadJSON, fonts, C, lin, ease, easeOut, mix, CK } from '/toolkit/factory/world/core.js';
+import { Camera, Stage, loadJSON, fonts, C, lin, ease, easeOut, mix, CK, SAFE_H } from '/toolkit/factory/world/core.js';
 import { Calendar, Bars, foldPath } from '/episodes/ep005/world/obj5.js';
 import { cues, moves, flyGuard, measure, followLight, Street, Buyers, litCalendar, SX, BX2, POP, PLATE, interp } from '/episodes/ep005/world/c4kit.js';
 
@@ -123,7 +123,6 @@ export async function boot(res) {
     const tIn = t >= M.m_tally.t0 ? ease(t, M.m_tally.t0 + 0.3, M.m_tally.t1 - 0.2) * (t < M.m_row.t0 ? 1 : 1 - ease(t, M.m_row.t0, M.m_row.t0 + 0.5)) : 0;   // r3: không bật/tắt bụp giữa cú bay (4:40)
     setOpacity(tbars, tIn); setOpacity(T80, tIn); setOpacity(T75, tIn);
     T75.glow(t >= b.k2.seventy ? Math.max(0, 1 - lin(t, b.k2.seventy, b.k2.seventy + 0.8)) : 0, C.accent);
-    const n75 = A.reduce((m, a, i) => m + (a.l24 <= 0.75 && i < sw ? 1 : 0), 0);
     renderer.render(scene, cam);
     // ======================= lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0, S2 = (x, y, z = 0.3) => O.toScreen(x, y, z); log.roi = {};
@@ -144,10 +143,10 @@ export async function boot(res) {
     const c1 = ok * (t < M.m_but.t0 + 0.3 ? 1 - ease(t, M.m_but.t0, M.m_but.t0 + 0.3) : 0);
     const preA = c1 * (1 - ease(t, F0 - 0.3, F0)), postA = c1 * ease(t, F1 - 0.1, F1 + POP);
     if (c1 > 0.01) {
-      O.text('Loan as % of home value · one line per purchase month, 1991–2016', 960, 180, 48, { kind: 'compare', align: 'center', alpha: preA });
+      O.text('Loan ÷ home value on paper · one line per purchase month, 1991–2016', 960, 180, 48, { kind: 'compare', align: 'center', alpha: preA });
       O.text('Months to 80% on paper · one bar per purchase month', 960, 180, 48, { kind: 'compare', align: 'center', alpha: postA });
       const yb = S2(BC, 0)[1], mA = c1 * ease(t, b.r4.month - 0.05, b.r4.month + POP);
-      for (const yy of [1991, 1995, 2000, 2005, 2010, 2016]) { const i = P.findIndex((p) => p.m.startsWith(String(yy))); O.text(String(yy), S2(target[i].x, 0)[0], yb + 50, 44, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: mA }); }
+      for (const yy of [1991, 1995, 2000, 2005, 2010, 2016]) { const i = P.findIndex((p) => p.m.startsWith(String(yy))); O.text(String(yy), S2(target[i].x, 0)[0], yb + 50, 44, { kind: 'number', role: 'axis-label', color: C.muted, align: 'center', w: 600, alpha: mA }); }
       if (hl > 0) { const [x, y0] = S2(target[tall].x + 0.12, target[tall].h), [, y1] = S2(0, 0); O.bracket(x + 6, y0, y1, C.ink, c1 * hl, 16, 5);
         O.text('height = months to 80% on paper', x - 60, (y0 + y1) / 2 - 40, 52, { align: 'right', kind: 'compare', alpha: c1 * hl, plate: PLATE, plateA: 0.75 }); }
       const [mx, my] = S2(BC - 5.4, medH * HB); O.text('median: 23 months on paper', mx, my + 58, 48, { kind: 'compare', align: 'left', alpha: c1 * ease(t, b.t0.twenty - 0.05, b.t0.twenty + POP), plate: PLATE, plateA: 0.75 });
@@ -165,13 +164,13 @@ export async function boot(res) {
       O.text(`at 24 months · ${CL.nA.value} purchase months, January 1991 to July 2024`, 960, 186, 46, { kind: 'compare', align: 'center', alpha: c2 * ease(t, b.k1.larger - 0.05, b.k1.larger + POP) });
       // r3: 58,6 % (lời không đọc) hạ xuống — muted, nhỏ, không nền; 15,6 % (lời đọc) là dòng nổi, đếm lên
       O.text(`at or under 80%: ${(100 * CL.shareA_ltv24_le80.value).toFixed(1)}%`, 120, 392, 48, { kind: 'compare', color: C.muted, alpha: c2 * k80 });
-      const v75 = t >= b.k2.fifteen ? 100 * CL.shareA_ltv24_le75.value : 100 * n75 / nA;
-      O.text(`at or under 75%: ${v75.toFixed(1)}%`, 120, 268, 60, { kind: 'compare', color: C.accent, alpha: c2 * ease(t, b.k2.t0 - 0.05, b.k2.t0 + POP), plate: PLATE, plateA: 0.8 });
+      // C5b (S07): no counting value (3.2 %, 6.5 %, … are not claims): the label is there from "Two years"; the value 15.6 % arrives on "fifteen"
+      O.text(t >= b.k2.fifteen ? `at or under 75%: ${(100 * CL.shareA_ltv24_le75.value).toFixed(1)}%` : 'at or under 75%:', 120, 268, 60, { kind: 'compare', color: C.accent, alpha: c2 * ease(t, b.k2.t0 - 0.05, b.k2.t0 + POP), plate: PLATE, plateA: 0.8 });
       O.text("Fannie Mae's early bar", 120, 330, 48, { kind: 'name', color: C.accent, alpha: c2 * ease(t, b.k2.fannie - 0.05, b.k2.fannie + POP) });
       const [x80, y80] = S2(TC + 5.6, HA(0.8)), [x75, y75] = S2(TC + 5.6, HA(0.75));
       O.text('80%', x80 - 4, y80 - 14, 48, { kind: 'number', align: 'right', alpha: c2, plate: PLATE, plateA: 0.8 }); O.text('75%', x75 - 4, y75 + 52, 48, { kind: 'number', align: 'right', color: C.accent, alpha: c2, plate: PLATE, plateA: 0.8 });
-      const yb = S2(TC, 0)[1]; for (const yy of [1991, 2000, 2010, 2024]) { const i = A.findIndex((a) => a.m.startsWith(String(yy))); O.text(String(yy), S2(XT(i, nA), 0)[0], yb + 50, 44, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: c2 }); }
-      O.text('bar height = loan ÷ value on paper, 2 years after purchase', 960, 884, 44, { kind: 'compare', align: 'center', color: C.muted, alpha: c2 });
+      const yb = S2(TC, 0)[1]; for (const yy of [1991, 2000, 2010, 2024]) { const i = A.findIndex((a) => a.m.startsWith(String(yy))); O.text(String(yy), S2(XT(i, nA), 0)[0], yb + 50, 44, { kind: 'number', role: 'axis-label', color: C.muted, align: 'center', w: 600, alpha: c2 }); }
+      O.text('bar height = loan ÷ value on paper, 2 years after purchase', 960, 884, 44, { kind: 'compare', align: 'center', color: C.chrome, alpha: c2 });   // C5b V08: muted 4,48:1 → chrome
     }
     { const [x0, y0] = S2(TC - 5.5, HA(0.86)), [x1, y1] = S2(TC + 5.5, 0); log.roi['k1.two'] = [x0, y0, x1, y1]; }
     // S13 (N2, vòng 3)
@@ -194,14 +193,16 @@ export async function boot(res) {
         for (let i = 0; i <= kk; i++) { const x = XS(Math.min(i, n - 1)), y = YS(IXs[i].v); i ? c.lineTo(x, y) : c.moveTo(x, y); } c.stroke();
         if (sl > 0) { c.globalAlpha = sl * c3; c.strokeStyle = C.ink; c.lineWidth = 9; c.beginPath(); for (let i = pk; i <= tr; i++) { const x = XS(i), y = YS(IXs[i].v); i > pk ? c.lineTo(x, y) : c.moveTo(x, y); } c.stroke(); }
         c.restore(); }
-      for (const yy of [1991, 1995, 2000, 2005, 2010, 2016]) { const i = P.findIndex((p) => p.m.startsWith(String(yy))); O.text(String(yy), XS(i), ys1 + 46, 48, { kind: 'number', color: C.muted, align: 'center', w: 600, alpha: c3 }); }
+      for (const yy of [1991, 1995, 2000, 2005, 2010, 2016]) { const i = P.findIndex((p) => p.m.startsWith(String(yy))); O.text(String(yy), XS(i), ys1 + 46, 48, { kind: 'number', role: 'axis-label', color: C.muted, align: 'center', w: 600, alpha: c3 }); }
       // khoá nghĩa (sau vòng 3): nhãn quanh vạch 60 tháng về bản r2 (vòng 3 bị hoàn), xem FIX-R3.md
       { const [x, y] = S2(BC - 5.5, 60 * HB); O.text('60 months', x, y - 16, 46, { kind: 'number', color: C.muted, alpha: c3 }); }
       { const [x, y] = S2(BC - 5.5, 60 * HB + 1.1), pa = c3 * ease(t, b.n1.years - 0.05, b.n1.years + POP); O.text('more than 60 months:', x, y, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 });
         O.text(`${(100 * CL.shareB_over60.value).toFixed(1)}% (about 1 in 7)`, x, y + 66, 52, { kind: 'compare', alpha: pa, plate: PLATE, plateA: 0.75 }); }
       { const [xr] = S2(XB(s1, n), 0), xR = xr + 26, yT = S2(0, CL.maxB_months_to80.value * HB)[1], c = O.ctx;
         c.save(); c.globalAlpha = 0.85 * c3; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.moveTo(xR - 10, yT); c.lineTo(xR + 10, yT); c.moveTo(xR, yT); c.lineTo(xR, yb); c.moveTo(xR - 10, yb); c.lineTo(xR + 10, yb); c.stroke(); c.restore();
-        O.text("each bar's height:", xR + 20, yT + 34, 48, { alpha: c3, plate: PLATE, plateA: 0.75 }); O.text('months to 80% on paper', xR + 20, yT + 96, 48, { alpha: c3, plate: PLATE, plateA: 0.75 }); }
+        // C5b (V03 + V11): ba dòng (dòng rộng nhất ≈ 420 px) bên phải thước, trong vùng an toàn, không chạm thước
+        O.text("each bar's height:", xR + 20, yT + 34, 48, { alpha: c3, plate: PLATE, plateA: 0.75 }); O.text('months to 80%', xR + 20, yT + 96, 48, { alpha: c3, plate: PLATE, plateA: 0.75 });
+        O.text('on paper', xR + 20, yT + 158, 48, { alpha: c3, plate: PLATE, plateA: 0.75 }); }
       O.text('national home price index', XS(0), ys1 + 116, 48, { color: IXC, alpha: c3 * ease(t, b.n2.national - 0.05, b.n2.national + POP) });
       O.text('national price slump', XS(Math.round((pk + tr) / 2)), ys1 + 116, 52, { align: 'center', alpha: c3 * sl, plate: PLATE, plateA: 0.75 });
     }
@@ -210,9 +211,10 @@ export async function boot(res) {
     const c4 = ok * ease(t, M.m_zoom.t1, M.m_zoom.t1 + POP) * (1 - ease(t, M.m_buy.t0 - 0.35, M.m_buy.t0));   // C4 r3: tắt hẳn TRƯỚC cú bay (vòng 2: mảnh "yr 4 mo)" treo ở mép khi sang ba người mua)
     if (c4 > 0.01) {
       const [x, y] = S2(XB(tall, n), CL.maxB_months_to80.value * HB), [, yb0] = S2(0, 0);
-      O.text('October 2005: 112 months (9 yr 4 mo)', x, y - 92, 54, { kind: 'compare', align: 'center', alpha: c4 * ease(t, b.z0.october - 0.05, b.z0.october + POP), plate: PLATE, plateA: 0.75 });
+      O.text('October 2005: 112 months on paper (9 yr 4 mo)', x, y - 92, 54, { kind: 'compare', align: 'center', alpha: c4 * ease(t, b.z0.october - 0.05, b.z0.october + POP), plate: PLATE, plateA: 0.75 });
       const hA = c4 * ease(t, b.z0.months - 0.05, b.z0.months + POP);
-      if (hA > 0.01) { O.bracket(x + 22, y, yb0, C.ink, hA, 16, 5); O.text('height = months to 80% on paper', x + 52, (y + yb0) / 2 + 16, 52, { kind: 'compare', alpha: hA, plate: PLATE, plateA: 0.75 }); }
+      if (hA > 0.01) { O.bracket(x + 22, y, yb0, C.ink, hA, 16, 5); O.text('height = months to 80%', x + 52, (y + yb0) / 2 + 16, 52, { kind: 'compare', alpha: hA, plate: PLATE, plateA: 0.75 });
+        O.text('on paper', x + 52, (y + yb0) / 2 + 82, 52, { kind: 'compare', alpha: hA, plate: PLATE, plateA: 0.75 }); }   // C5b (V03/V11): hai dòng — một dòng 848 px tràn mép phải, đẩy vào thì đè thước
       const [sx, sy] = S2(XB(tall, n) - 0.3, D.buyers.victor.sched * HB), sA = c4 * ease(t, b.z1.schedule - 0.05, b.z1.schedule + POP);
       if (sA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = sA; c.strokeStyle = C.muted; c.lineWidth = 3; c.setLineDash([8, 6]); c.beginPath(); c.moveTo(120, sy); c.lineTo(x - 8, sy); c.stroke(); c.restore();
         O.text('schedule at that rate: 90 payments', 120, sy - 26, 50, { kind: 'compare', color: C.muted, alpha: sA, plate: PLATE, plateA: 0.75 }); }

@@ -80,9 +80,9 @@
   {
    "item": "freezedetect d=3 ∩ lời",
    "result": "TRƯỢT",
-   "value": 210.63,
+   "value": 211.13,
    "threshold": "0 s",
-   "note": "48 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [44.5, 49.2333], [58.5, 66.3333]]"
+   "note": "47 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [44.5, 49.2333], [58.5, 66.3333]]"
   },
   {
    "item": "mốc hình ≥ mốc từ",
@@ -101,7 +101,7 @@
   {
    "item": "kích thước phần",
    "result": "ĐẠT",
-   "value": 44.41,
+   "value": 43.5,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
   },
@@ -142,10 +142,10 @@
   },
   {
    "item": "SH1 nhãn giao nhau (F-2)",
-   "result": "CẢNH BÁO",
-   "value": 454,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
-   "note": "1991 × median: 23 months on paper 1.867–21.067 s; 2000 × median: 23 months on paper 1.867–21.067 s; 2005 × median: 23 months on paper 1.867–21.067 s"
+   "note": ""
   },
   {
    "item": "SH1 nhãn ILLUSTRATIVE / history",
@@ -201,7 +201,7 @@
    "result": "ĐẠT",
    "value": 56,
    "threshold": "≥ 56 px",
-   "note": "903 lần engine nâng cỡ"
+   "note": "1030 lần engine nâng cỡ"
   },
   {
    "item": "SH2 tương phản",
@@ -226,15 +226,15 @@
   },
   {
    "item": "SH2 nhãn giao nhau (F-2)",
-   "result": "CẢNH BÁO",
-   "value": 487,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
-   "note": "1991 × 1995 5.6–14.6 s; 60 months × months to 80% on paper 5.6–14.6 s; each bar's height: × months to 80% on paper 5.6–14.6 s"
+   "note": ""
   },
   {
    "item": "SH2 nhãn ILLUSTRATIVE / history",
-   "result": "TRƯỢT",
-   "value": 4,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0 khung thiếu nhãn",
    "note": "190 khung log (mỗi 6 khung)"
   },
@@ -310,10 +310,10 @@
   },
   {
    "item": "SH3 nhãn giao nhau (F-2)",
-   "result": "CẢNH BÁO",
-   "value": 433,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
-   "note": "Owen · January 2004 · 5.71% × on paper 0.067–13.267 s; on paper × on paper: 13 months · schedule: 86 6.667–13.267 s; on paper: 13 months · schedule: 86 × price index 6.667–13.267 s"
+   "note": ""
   },
   {
    "item": "SH3 nhãn ILLUSTRATIVE / history",
@@ -353,7 +353,7 @@
   {
    "item": "SH3 loudness",
    "result": "ĐẠT",
-   "value": "-13.9 LUFS / -2.0 dBTP",
+   "value": "-14.0 LUFS / -1.9 dBTP",
    "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
    "note": ""
   },
@@ -362,7 +362,7 @@
    "result": "ĐẠT",
    "value": "101",
    "threshold": "scope full",
-   "note": "S03.3: label \"Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}\" (number moved off the voice) is not on screen in S03; 101: 464 s < soft minimum 480 s (không độn: shorter is fine, never pad)"
+   "note": "S03.3: label \"Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}\" (number moved off the voice) is not on screen in S03; 101: 466 s < soft minimum 480 s (không độn: shorter is fine, never pad)"
   }
  ],
  "near": [

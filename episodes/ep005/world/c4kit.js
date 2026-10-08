@@ -101,7 +101,9 @@ export function Street(scene) {
 // ------------------------------------------------------------------ ba người mua minh hoạ (không mặt), mỗi người cạnh căn nhà trên chồng giá trị
 // C4 r3 (đạo diễn A+B: "ba tháp giống hệt nhau"): mỗi người mua một MÀU riêng (người + mái nhà + tên + đường của họ ở S18), cùng thứ tự Grace · Owen · Victor
 // ở mọi đoạn. Màu nhận diện (không mang nghĩa dữ liệu): tránh accent (chỉ số), warn, cushion (tiền để dành), costlier.
-export const BNAME = ['Grace', 'Owen', 'Victor'], BKEY = ['grace', 'owen', 'victor'], BCOL = ['#EE9CC4', '#B9A2FF', '#79D7C9'];
+// C5b (checks V09): cùng họ màu (hồng · tím nhạt · xanh bạc hà) nhưng tách độ sáng — mọi cặp ΔE2000 ≥ 22 khi mô phỏng mù đỏ/lục (Machado 2009),
+// xám ≥ 1,66:1; tên trên nền nhãn ≥ 5,7:1 (V08). Trước: #EE9CC4 · #B9A2FF · #79D7C9 (xám 1,05–1,28; ΔE 2,1–19).
+export const BNAME = ['Grace', 'Owen', 'Victor'], BKEY = ['grace', 'owen', 'victor'], BCOL = ['#DE638C', '#BFAAFD', '#9EFFE7'];
 // loans: true → mỗi người thêm chồng VAY (xám đậm) cạnh tháp giá trị + vạch 80 % (muted) — S03.4: tỉ lệ vay trên giấy của từng người chạy theo dữ liệu thật
 export function Buyers(scene, X = BX, { loans = false } = {}) {
   const U = 2e5, out = [];

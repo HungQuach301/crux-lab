@@ -5,7 +5,7 @@
  "question": "You've saved 10% for a first home: buy now and pay mortgage insurance, or wait for 20%? Replaying every US purchase month from January 1991 to July 2016, how long did a 10%-down buyer take to reach 80% of the home's value on paper (national price index), against the law's payment schedule? (US only, history, not a forecast; on paper is not removal; no advice to buy or wait)",
  "characters": {
   "owen": {
-   "color": "#B9A2FF",
+   "color": "#BFAAFD",
    "shape": "person",
    "side": "centre",
    "illustrative": true,
@@ -14,7 +14,7 @@
    ]
   },
   "grace": {
-   "color": "#EE9CC4",
+   "color": "#DE638C",
    "shape": "person",
    "side": "left",
    "illustrative": true,
@@ -23,7 +23,7 @@
    ]
   },
   "victor": {
-   "color": "#79D7C9",
+   "color": "#9EFFE7",
    "shape": "person",
    "side": "right",
    "illustrative": true,
@@ -31,7 +31,7 @@
     "Victor"
    ]
   },
-  "note": "C5: colour/shape/side from the world code actually rendered — episodes/ep005/world/c4kit.js BCOL/BKEY + Buyers(): each buyer is a faceless Person (lib3d W4) in its own colour next to a house with the same roof colour, left→right Grace, Owen, Victor (x − 3, x, x + 3) wherever they stand together (S03.4, S14→S15, S18, S20); lanes L1–L3 keep the same order. Name labels use the same colour. The page declares the Person meshes (userData.checks {char, shape:\"person\", fill}). Owen = fastest (2004-01), Grace = typical/median (2014-06), Victor = slowest (2005-10), ILLUSTRATIVE buyers from real set-B purchase months (model.params.buyers)."
+  "note": "C5: colour/shape/side from the world code actually rendered — episodes/ep005/world/c4kit.js BCOL/BKEY + Buyers(): each buyer is a faceless Person (lib3d W4) in its own colour next to a house with the same roof colour, left→right Grace, Owen, Victor (x − 3, x, x + 3) wherever they stand together (S03.4, S14→S15, S18, S20); lanes L1–L3 keep the same order. Name labels use the same colour. The page declares the Person meshes (userData.checks {char, shape:\"person\", fill}). Owen = fastest (2004-01), Grace = typical/median (2014-06), Victor = slowest (2005-10), ILLUSTRATIVE buyers from real set-B purchase months (model.params.buyers). C5b (V09): colours changed to a luminance-separated, colour-blind-safe set with the same hue identity (Grace pink #DE638C, Owen lavender #BFAAFD, Victor mint-teal #9EFFE7): every pair ΔE2000 ≥ 22 under Machado 2009 protanopia/deuteranopia, grey contrast ≥ 1.66:1; name labels ≥ 5.7:1 on the label plate."
  },
  "scenarios": {
   "ten-percent-down": {
@@ -124,9 +124,14 @@
      "buyer_grace_monthsTo80Index",
      "buyer_grace_ltvIndexAt24",
      "buyer_victor_monthsTo80Index",
-     "buyer_victor_ltvIndexAt24"
+     "buyer_victor_ltvIndexAt24",
+     "medianB_years",
+     "maxB_years",
+     "maxB_years_months",
+     "minB_years",
+     "shareB_over60_frac"
     ],
-    "_about": "PROPOSAL (builder, G1/K-brief rule 1): every frame showing an index-LTV quantity carries \"on paper\" (beats: \"on paper: 23 months\", \"median: 23 months on paper\"). K-brief suggested the longer label \"on paper (national index), not removal\"; the pattern accepts both. To confirm at Mốc V with the page text."
+    "_about": "C5b (final, builder): every claim measured on the value by the national price index (\"on paper\") carries this condition: set-B months to 80% (median, min, max, its month and its years/months forms), the set-B shares (over 60 months, no later than the schedule), the set-A shares at 24 months, the slow stretch (count, years, first/last month) and each illustrative buyer's on-paper months and loan-to-value at 24 months. Schedule quantities (sched80/78, buyer schedules), rates, prices and the law's thresholds are not conditional. On screen the label is the words \"on paper\" in the same text or in a text visible on the same frame (titles \"Months to 80% on paper\", the lane legend \"on paper\", \"bar height = loan ÷ value on paper\"); pattern accepts the longer K-brief form \"on paper (national index), not removal\" too."
    }
   ],
   "_about": "Claim IDs = numbers.md (buyer IDs renamed fast/typical/slow → owen/grace/victor). Not modelled (rules / provisions, no model key): pmi_premium, borrower_request_conditions, value_removal_rule, value_removal_seasoning_years. core/decisive/assumptions/conditions are the builder's proposal."

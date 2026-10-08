@@ -17,8 +17,11 @@ const BUY = JSON.parse(fs.readFileSync(path.join(EP, 'work', 'world-data', 'deri
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 function T(id, x, y, px, s, claims, o = {}) { return { id, x, y, px, s, claims, params: o.params, w: o.w || 700, fill: o.fill || INK, anchor: o.anchor || 'start' }; }   // params: model.params of contract.json behind a number that is a set-up, not a result
 const txt = (t) => `<text data-id="${t.id}" x="${t.x}" y="${t.y}" font-size="${t.px}" font-weight="${t.w}" fill="${t.fill}" text-anchor="${t.anchor}">${esc(t.s)}</text>`;
-const badge = (x, y, claims) => ({ svg: `<rect x="${x}" y="${y}" width="196" height="44" rx="8" fill="${WARN}"/><text data-id="badge" x="${x + 98}" y="${y + 31}" font-size="26" font-weight="700" fill="${BG}" text-anchor="middle">ILLUSTRATIVE</text>`, claims });
-const foot = () => T('foot', 1240, 694, 26, 'US only · history, not a forecast', [], { w: 400, fill: MUTE, anchor: 'end' });
+// C5b (checks P01: chữ ≥ 90 px, đọc được ở 10 %): mọi chữ nội dung ≥ 90 px; dòng phụ (nguồn, tháng mua, nhãn cột) bỏ — đã có ở tiêu đề/mô tả.
+// Hai nhãn bắt buộc (ILLUSTRATIVE, "US only · history, not a forecast") không thể 90 px trong 1280×720 mà không đè tiêu đề: giữ nhỏ nhưng ĐẬM,
+// màu ink trên nền đặc (đọc được ở 10 %) — P01 vẫn đếm chúng dưới 90 px (giải thích trong out/explanations.json)
+const badge = (x, y, claims) => ({ svg: `<rect x="${x}" y="${y}" width="300" height="64" rx="10" fill="${WARN}"/><text data-id="badge" x="${x + 150}" y="${y + 46}" font-size="40" font-weight="700" fill="${BG}" text-anchor="middle">ILLUSTRATIVE</text>`, claims });
+const foot = () => T('foot', 1240, 700, 40, 'US only · history, not a forecast', [], { w: 700, fill: INK, anchor: 'end' });
 const months = (id) => `${d(id)} months`;
 
 // 307 cột tháng mua (chiều cao = số tháng tới 80 % trên giấy), như S11–S13; tô theo hàm col(bar, i)
@@ -31,12 +34,9 @@ function barChart(x0, x1, yb, hTop, col) {
 function thumb1() { // 23 months on paper — not removal; median line over the 307 purchase months
   const x0 = 690, x1 = 1236, yb = 600, hTop = 470, max = Math.max(...BARS.map((b) => b.hit)), med = C.medianB_months_to80.value, ym = yb - hTop * med / max;
   const body = barChart(x0, x1, yb, hTop, (b) => (b.hit <= med ? INK : GRID)) + `<rect x="${x0 - 8}" y="${ym - 3}" width="${x1 - x0 + 16}" height="6" fill="${WARN}"/>`;
-  const texts = [T('h1', 44, 210, 150, months('medianB_months_to80'), ['medianB_months_to80']),
-    T('h2', 48, 315, 92, 'on paper', ['medianB_months_to80'], { fill: WARN }),
-    T('s1', 52, 395, 40, 'is not the same as removed', [], { w: 600 }),
-    T('s2', 52, 470, 32, `typical of ${d('nB')} purchase months,`, ['nB', 'medianB_months_to80'], { w: 600, fill: MUTE }),
-    T('s3', 52, 512, 32, `${d('firstB')} to ${d('lastB')}, 10% down`, ['firstB', 'lastB'], { w: 600, fill: MUTE, params: ['downShare'] }),
-    T('s4', x1, ym - 16, 28, 'median', ['medianB_months_to80'], { w: 600, fill: WARN, anchor: 'end' }), foot()];
+  const texts = [T('h1', 44, 210, 150, d('medianB_months_to80'), ['medianB_months_to80']),
+    T('h2', 48, 330, 96, 'on paper', ['medianB_months_to80'], { fill: WARN }),
+    T('s1', 48, 450, 90, 'not removal', [], { w: 700 }), foot()];
   return { body, texts, graphics: { claims: ['nB', 'medianB_months_to80', 'maxB_months_to80', 'firstB', 'lastB'],
     what: `${C.nB.value} bars, one per purchase month ${d('firstB')}–${d('lastB')}, height = months to 80% on paper (national index); bars at or under the median white, the rest dark; amber median line at ${med} months. No axis numbers.` } };
 }
@@ -44,25 +44,20 @@ function thumb2() { // 1 in 7 took over 5 years on paper — the slow stretch li
   const x0 = 690, x1 = 1236, yb = 600, hTop = 470;
   const body = barChart(x0, x1, yb, hTop, (b) => (b.hit > 60 ? BLUE : GRID));
   const texts = [T('h1', 44, 210, 150, d('shareB_over60'), ['shareB_over60']),
-    T('h2', 48, 300, 64, 'took over 5 years', ['shareB_over60'], { params: ['slowCutMonths'] }),
-    T('h3', 48, 380, 64, 'on paper', ['shareB_over60'], { fill: WARN }),
-    T('s1', 52, 462, 32, `${d('slowB_n')} purchase months, ${d('slowB_first')}`, ['slowB_n', 'slowB_first'], { w: 600, fill: MUTE }),
-    T('s2', 52, 504, 32, `to ${d('slowB_last')}: the price slump`, ['slowB_last'], { w: 600, fill: MUTE }), foot()];
+    T('h2', 48, 330, 90, `over ${d('slowCut_years')}`, ['shareB_over60', 'slowCut_years'], { params: ['slowCutMonths'] }),
+    T('h3', 48, 450, 90, 'on paper', ['shareB_over60'], { fill: WARN }), foot()];
   return { body, texts, graphics: { claims: ['nB', 'shareB_over60', 'slowB_n', 'slowB_first', 'slowB_last', 'maxB_months_to80'],
     what: `${C.nB.value} bars (months to 80% on paper per purchase month); bars over 60 months in blue (${C.slowB_n.value}, ${d('slowB_first')}–${d('slowB_last')}), the rest dark. No axis numbers.` } };
 }
 function thumb3() { // Owen 13 vs Victor 112 months on paper — ILLUSTRATIVE buyers, bought 21 months apart
   const yb = 570, hTop = 400, max = C.buyer_victor_monthsTo80Index.value, bw = 150, xo = 820, xv = 1040;
   const ho = hTop * C.buyer_owen_monthsTo80Index.value / max, hv = hTop * C.buyer_victor_monthsTo80Index.value / max;
-  const bd = badge(52, 540, ['buyer_owen_monthsTo80Index', 'buyer_victor_monthsTo80Index', 'buyer_owen_purchaseMonth', 'buyer_victor_purchaseMonth']);
+  const bd = badge(48, 520, ['buyer_owen_monthsTo80Index', 'buyer_victor_monthsTo80Index']);
   const body = `<rect x="${xo}" y="${yb - ho}" width="${bw}" height="${ho}" fill="${INK}"/><rect x="${xv}" y="${yb - hv}" width="${bw}" height="${hv}" fill="${BLUE}"/>` +
     `<rect x="${xo - 30}" y="${yb}" width="${xv + bw - xo + 60}" height="3" fill="${MUTE}"/>` + bd.svg;
   const texts = [T('h1', 44, 170, 96, `Owen: ${months('buyer_owen_monthsTo80Index')}`, ['buyer_owen_monthsTo80Index']),
     T('h2', 44, 290, 96, months('buyer_victor_monthsTo80Index').replace(/^/, 'Victor: '), ['buyer_victor_monthsTo80Index'], { fill: BLUE }),
-    T('h3', 48, 380, 64, 'on paper, 10% down', ['buyer_owen_monthsTo80Index', 'buyer_victor_monthsTo80Index'], { fill: WARN, params: ['downShare'] }),
-    T('s1', 52, 462, 32, `bought ${d('buyer_owen_purchaseMonth')} and ${d('buyer_victor_purchaseMonth')}`, ['buyer_owen_purchaseMonth', 'buyer_victor_purchaseMonth'], { w: 600, fill: MUTE }),
-    T('s2', xo + bw / 2, yb + 46, 32, 'Owen', ['buyer_owen_monthsTo80Index'], { w: 600, anchor: 'middle' }),
-    T('s3', xv + bw / 2, yb + 46, 32, 'Victor', ['buyer_victor_monthsTo80Index'], { w: 600, anchor: 'middle', fill: BLUE }), foot()];
+    T('h3', 48, 420, 90, 'on paper', ['buyer_owen_monthsTo80Index', 'buyer_victor_monthsTo80Index'], { fill: WARN }), foot()];
   return { body, texts, badgeClaims: bd.claims, graphics: { claims: ['buyer_owen_monthsTo80Index', 'buyer_victor_monthsTo80Index'],
     what: 'two bars, height = months to 80% on paper for the two ILLUSTRATIVE buyers (Owen 13, Victor 112, same scale, no axis numbers). ILLUSTRATIVE badge.' } };
 }
@@ -80,7 +75,7 @@ function thumb3() { // Owen 13 vs Victor 112 months on paper — ILLUSTRATIVE bu
     await p.screenshot({ path: path.join(OUT, `thumb-${n}.png`) }); fs.unlinkSync(f);
     for (const [k, bx] of Object.entries(boxes)) if (bx[0] < 0 || bx[1] < 0 || bx[0] + bx[2] > 1280 || bx[1] + bx[3] > 720) throw new Error(`thumb ${n} ${k} off canvas ${bx}`);
     const texts = t.texts.map((x) => ({ text: x.s, box: boxes[x.id], fontPx: x.px, claims: x.claims, ...(x.params ? { params: x.params } : {}) }));
-    if (boxes.badge) texts.push({ text: 'ILLUSTRATIVE', box: boxes.badge, fontPx: 26, claims: t.badgeClaims });
+    if (boxes.badge) texts.push({ text: 'ILLUSTRATIVE', box: boxes.badge, fontPx: 40, claims: t.badgeClaims });
     fs.writeFileSync(path.join(OUT, `thumb-${n}.json`), JSON.stringify({ texts, graphics: t.graphics }, null, 1));
     console.log(n, texts.map((x) => x.text).join(' | '));
   }

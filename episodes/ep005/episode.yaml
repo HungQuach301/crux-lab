@@ -63,7 +63,7 @@ scenes:
   - {id: S19, tail: 5.0, shots: []}     # thẻ V7: 5 s đọc
   - {id: S20, tail: 2.0, shots: []}     # S20.3 hold 2
 midrolls:
-  - {after_act: act1, scene: S09, t: 184.3}   # Hồi 1→2: sau S09.4 (lời hết 181,6 s) máy bay về phố (182,5 s chạm), rồi lặng ≥ 1 s; ±1 s quanh đầu S10 (185,2 s)
+  - {after_act: act1, scene: S09, t: 188.4}   # Hồi 1→2. C5b (checks S14): đầu S10 = 189,03 s (S05 take mới 'in dollars of the day', +1,2 s); MR1 0,63 s trước ranh hồi, trong khoảng lặng [187,75; 189,03] (nhạc bed.py về 0 [MR1 ± 0,6]; sfx/âm dữ liệu đoạn B về 0: spine mix.silences; room tone giữ làm sàn). Trước: 184,3 (3,5 s trước ranh, lặng 0,8 s)
 counterweights:
   - {id: us-only, text: "US only · history, not a forecast", when: historical}
   - {id: measured, text: "Past buyers, measured · not a reason to buy, rent or wait", when: historical}
