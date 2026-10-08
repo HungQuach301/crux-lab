@@ -3,7 +3,7 @@
 **Nhánh:** `ep006` · **Đề tài:** #12 · **Format:** `101` · **Phiên hiện hành:** P2 (`session_01VWvKx3ATmgiMnpR3FiPq12`) — đóng ở C3 · lịch sử: `archive/PLAN-history.md`
 
 ## 1. Trạng thái
-**C3 chờ** (gói `gates/C3.md`, issue: xem §7). G1 áp (b): C2 v3 1.279 từ nói, ước 8:27, check ĐẠT không cờ; mid-roll đủ điều kiện theo ước (chốt thật ở P3). Kiểm mù lời v3: đúng 6/6, **khuyên 5/6 chấm gốc / 1/6 chấm trộn (v2 cũng 1/6)** → chủ dự án quyết. N1 hàng 10 thùng: S07/S24/S27 ĐẠT (vòng 2), **S29 trượt sau 3 vòng** (khuyên 1/2, giữ v2). Nhạc hiệu A/B + khúc đóng. 0 CHẶN mở; REVIEWER gói: `gates/REVIEW-C3.md`.
+**C3 chờ** (gói `gates/C3.md`, issue: xem §7). G1 áp (b): C2 v3 1.287 từ nói, ước 8:30, check ĐẠT không cờ; mid-roll đủ điều kiện theo ước (chốt thật ở P3). Kiểm mù lời v3: đúng 6/6, **khuyên 5/6 chấm gốc / 1/6 chấm trộn (v2 cũng 1/6)** → chủ dự án quyết. N1 hàng 10 thùng: S07/S24/S27 ĐẠT (vòng 2), **S29 trượt sau 3 vòng** (khuyên 1/2, giữ v2). Nhạc hiệu A/B + khúc đóng. 0 CHẶN mở; REVIEWER gói: `gates/REVIEW-C3.md`.
 
 ## 2. Việc tiếp (≤ 3) và việc treo
 1. Chép câu trả lời C3 → `gates/C3-answer.md`; ghi sổ gu, AUTHORSHIP, ledger; áp (S29, nhạc, kiểm mù/S04.2, EL).
@@ -18,17 +18,17 @@
 ## 4. Đã sửa gì, vì sao
 | Vòng | Cảnh | Lỗi | Sửa | Kết quả đo | Còn |
 |---|---|---|---|---|---|
-| G1 b | S16, S24, S27, S29 | độ dài 7:50 < 8:00 (mid-roll) | +93 từ: Carl/Edna theo năm bằng thùng; 1 số mới (20/20) | check ĐẠT, 8:27 | dư 4 từ |
+| G1 b | S16, S24, S27, S29 | độ dài 7:50 < 8:00 (mid-roll) | +93 từ: Carl/Edna theo năm bằng thùng; 1 số mới (20/20) | check ĐẠT, 8:30 (sau S27.5) | dư 12 từ |
 | REVIEWER | S27.5 | CHÍNH-1 nghe sai nhân quả | "came at the end of her stretch … and at the start of his" | check ĐẠT | CHÍNH-3 S04.2 → C3 |
 | C3 r1→r2 | N1 ×4 | khuyên 8/8 (tưởng khoản đều) | séc lớn lên ×1,02^k cạnh hàng | khuyên 1/8, nghĩa 8/8 | S29 |
 | C3 r3 | S29 | khuyên 1/2 | trục tháng bắt đầu + séc cùng cỡ | khuyên 2/2 → loại | giữ r2, chủ dự án chọn |
 
 ## 5. Mức cảnh báo, token, giờ render (`episode.md` §8)
-Mức cảnh báo tập **15** triệu. EL ≤ 6.000 (dùng **2.446**; cả tập ước 7.256 → hỏi ở C3) · agent con **12/40**.
+Mức cảnh báo tập **15** triệu. EL ≤ 6.000 (dùng **2.446**; cả tập ước 7.699 → hỏi ở C3) · agent con **12/40**.
 | Phiên | Đến (UTC) | Sinh ra | Đầu vào mới | Đọc cache | Trần | Headless (trần) | Giờ render |
 |---|---|---|---|---|---|---|---|
 | P1 | 2026-10-08 14:57 | 0,16 | 0,62 | 20,48 | **0,78** | 0,11 (23 lượt) | 0 |
-| P2 | 2026-10-08 16:28 | 0,30 | 1,01 | 47,60 | **1,31** | 0,28 (30 lượt) | 0,37 h |
+| P2 | 2026-10-08 16:28 | 0,30 | 1,01 | 47,60 | **1,31** | 0,28 (30 lượt) | 0,34 h |
 Log phiên (`list_events` kinds=result, `modelUsage` tích luỹ gồm agent con); lượt sau 16:28 (vòng 3, đạo diễn, REVIEWER gói, đóng) cộng ở P3. Cộng tập ≈ 2,5 / 15 triệu.
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
