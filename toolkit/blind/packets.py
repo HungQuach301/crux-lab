@@ -9,13 +9,19 @@ Bốn lệnh, đúng thứ tự một lượt kiểm:
   packet — từ câu trả lời (answers.json {hex: "nguyên văn"}) dựng gói cho người chấm độc lập mù tập:
            nhãn R01… trộn ngẫu nhiên, mỗi nhãn chỉ có câu trả lời + rubric "đúng nghĩa" / "chỉ tả hình";
            không tên tập, không tên mẫu, không biết mẫu nào là đối chứng. Khoá nhãn ghi riêng.
-  tally  — gộp điểm người chấm (scores.json {Rxx: {score: 1|0.5|0, advice: bool, why}}) → bảng theo mẫu,
+  tally  — gộp điểm người chấm (scores.json {Rxx: {score: 1|0.5|0, advice_stated: bool, advice_inferred: bool, caution_only: bool, quote, why}};
+           bản chấm cũ chỉ có `advice` vẫn đọc được: advice = advice_stated) → bảng theo mẫu,
            áp luật dừng sớm và luật câu khuyên, tính cổng (chỉ nhịp loại "image" của bộ ứng viên).
   next   — liệt kê mẫu cần người đọc thứ 3 (sau khi tally báo NEED_3RD) để chạy `deal --slots 3 --only …`.
 
 Luật (ghi trong ý đồ trước khi chạy; mặc định khớp quality-framework v2):
   * Một người đọc "đúng" khi score == 1 VÀ không có câu khuyên. 0,5 ghi lại để tham khảo, tính là "không đúng".
-  * Nhịp có ≥ 1 câu trả lời tự rút lời khuyên → TRƯỢT ngay (không cần người đọc thêm).
+  * Câu khuyên (K4.1, checks-appeal A9 + A21 — chờ chủ dự án duyệt): ba cờ, người chấm trích câu người đọc làm căn cứ (`quote`).
+      advice_stated   — video (hình, chữ trên hình, lời) NÊU hoặc ngụ ý một hành động tài chính: mua / bán / giữ / chờ / khoá / chọn hay tránh
+                        một sản phẩm. TÍNH: nhịp có ≥ 1 advice_stated → TRƯỢT ngay.
+      advice_inferred — người đọc TỰ SUY hành động từ dữ liệu khi bị hỏi câu 4 (và/hoặc câu 5 nói là kết luận của mình, hoặc ghi
+                        "the video doesn't state …"). BÁO, không chặn; đếm ở bảng.
+      caution_only    — chỉ thận trọng chung (tự kiểm số của mình, hỏi chuyên gia / bên cho vay / chuyên gia thuế). Không tính (A9).
   * Dừng sớm: 2 người đầu cùng kết quả → xong (2/2 đạt, 0/2 trượt); lệch → gọi người thứ 3; đạt khi ≥ 2/3 đúng.
   * Cổng: tỉ lệ nhịp "image" của bộ ứng viên đạt ≥ --threshold. Nhịp "illustration" và bộ đối chứng chỉ báo cáo.
 
@@ -103,8 +109,13 @@ def packet(keyfile, answersfile, rubricfile, packetfile, rubrickeyfile):
     RNG.shuffle(hexes)
     start = len(old)
     pk = {'rules': rub['rules'], 'scale': 'score: 1 = đủ phần ĐÚNG NGHĨA; 0.5 = một phần nghĩa; 0 = chỉ tả hình hoặc nghĩa khác. '
-          'advice: true nếu câu trả lời tự rút một lời khuyên hay phán "X an toàn/tốt hơn" cho người xem.',
-          'return': '{"Rxx": {"score": 1|0.5|0, "advice": true|false, "why": "≤ 15 từ"}}', 'items': {}}
+          'advice_stated: true khi câu trả lời cho thấy CHÍNH VIDEO (hình, chữ trên hình, lời) nêu hay ngụ ý một hành động tài chính '
+          '(mua, bán, giữ, chờ, khoá, chọn/tránh một sản phẩm), kể cả phán "X an toàn/tốt hơn" mà người đọc gán cho video. '
+          'advice_inferred: true khi người đọc TỰ SUY hành động đó từ dữ liệu (câu 4/5: "my own conclusion", "the video doesn\'t say …"). '
+          'caution_only: true khi chỉ có thận trọng chung (tự kiểm số của mình, hỏi chuyên gia/bên cho vay) — không tính là khuyên. '
+          'quote: trích nguyên văn câu của người đọc làm căn cứ cho cờ (rỗng nếu không cờ nào).',
+          'return': '{"Rxx": {"score": 1|0.5|0, "advice_stated": true|false, "advice_inferred": true|false, "caution_only": true|false, '
+                    '"quote": "…", "why": "≤ 15 từ"}}', 'items': {}}
     rk = dict(old)
     for i, h in enumerate(hexes, start + 1):
         it = key['items'][h]
@@ -166,14 +177,16 @@ def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None):
         v = sc[lab]
         if v['score'] not in (0, 0.5, 1):
             sys.exit(f'{lab}: điểm không hợp lệ {v["score"]}')
-        per.setdefault((it['set'], it['id']), {'kind': it.get('kind', 'image'), 'r': []})['r'].append(
-            (it['slot'], v['score'], bool(v.get('advice')), v.get('why', '')))
+        stated = bool(v['advice_stated']) if 'advice_stated' in v else bool(v.get('advice'))   # bản chấm cũ: advice = stated
+        d = per.setdefault((it['set'], it['id']), {'kind': it.get('kind', 'image'), 'r': [], 'inferred': 0})
+        d['r'].append((it['slot'], v['score'], stated, v.get('why', '')))
+        d['inferred'] += bool(v.get('advice_inferred')) and not stated
     rows = []
     for (st, sid), d in sorted(per.items(), key=lambda x: (x[0][0] != cand, x[0])):
         rs = sorted(d['r'])
         status, n_ok, adv = beat_status([(s, a) for _, s, a, _ in rs])
         rows.append({'set': st, 'id': sid, 'kind': d['kind'], 'scores': [s for _, s, _, _ in rs], 'readers': len(rs),
-                     'correct': n_ok, 'advice': adv, 'status': status, 'why': [w for *_, w in rs]})
+                     'correct': n_ok, 'advice': adv, 'advice_inferred': d['inferred'], 'status': status, 'why': [w for *_, w in rs]})
     gate = [r for r in rows if r['set'] == cand and r['kind'] == 'image']
     # câu khuyên ở BẤT KỲ nhịp nào của bộ ứng viên (kể cả loại 2) làm cổng trượt
     advice_beats = [r['id'] for r in rows if r['set'] == cand and r['advice']]

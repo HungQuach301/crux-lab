@@ -112,6 +112,35 @@ class Packets(unittest.TestCase):
         res, rk, sp = self._score(plan)
         self.assertEqual(res['verdict'], 'PASS')
 
+    def test_advice_stated_vs_inferred(self):
+        """K4.1 (A9 + A21): advice_stated chặn nhịp; advice_inferred chỉ đếm; bản chấm cũ `advice` đọc là stated."""
+        packets.deal(self.man, self.out, self.key, [1, 2])
+        key = json.load(open(self.key))
+        ans = {h: f'answer {v["id"]} {v["slot"]}' for h, v in key['items'].items()}
+        a = os.path.join(self.d, 'answers.json'); json.dump(ans, open(a, 'w'))
+        pk, rk = os.path.join(self.d, 'packet.json'), os.path.join(self.d, 'rubric-key.json')
+        packets.packet(self.key, a, self.rub, pk, rk)
+        self.assertIn('advice_stated', json.load(open(pk))['return'])
+        R = json.load(open(rk))
+        sc = {}
+        for lab, h in R.items():
+            v = key['items'][h]
+            if v['id'] == 'KEY-1':      # người đọc tự suy (video không nói) → không chặn
+                sc[lab] = {'score': 1, 'advice_stated': False, 'advice_inferred': True, 'quote': "the video doesn't state this", 'why': ''}
+            elif v['id'] == 'KEY-2':    # video nêu hành động → chặn
+                sc[lab] = {'score': 1, 'advice_stated': v['slot'] == 1, 'advice_inferred': False, 'quote': 'the label says Stay put to save', 'why': ''}
+            elif v['id'] == 'KEY-3':    # bản chấm cũ: advice = stated
+                sc[lab] = {'score': 1, 'advice': v['slot'] == 1, 'why': ''}
+            else:
+                sc[lab] = {'score': 0, 'advice_stated': False, 'caution_only': True, 'why': ''}
+        sp = os.path.join(self.d, 'scores.json'); json.dump(sc, open(sp, 'w'))
+        res = packets.tally(self.key, rk, sp, threshold=0.8)
+        rows = {r['id']: r for r in res['rows']}
+        self.assertEqual((rows['KEY-1']['status'], rows['KEY-1']['advice'], rows['KEY-1']['advice_inferred']), ('PASS', 0, 2))
+        self.assertEqual(rows['KEY-2']['status'], 'FAIL')
+        self.assertEqual(rows['KEY-3']['status'], 'FAIL')
+        self.assertEqual(sorted(res['advice_beats']), ['KEY-2', 'KEY-3'])
+
     def test_classes_guard(self):
         packets.deal(self.man, self.out, self.key, [1, 2])
         plan = {(s, i, k): (1, False) for s, i in (('ep003', 'KEY-1'), ('ep003', 'KEY-2'), ('ep003', 'KEY-3'),
