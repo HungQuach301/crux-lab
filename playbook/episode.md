@@ -5,7 +5,9 @@
 ## 0. Mở phiên
 `bash toolkit/verify.sh <nhánh-lệnh-ghi>`: kiểm công cụ, nhánh đúng lệnh (không tự đặt nhánh), `main` mới nhất. Trượt thì báo, không làm tiếp.
 
-## 1. Ba cổng, hai hoặc ba phiên
+## 1. Ba cổng, mỗi chặng một phiên (D-011)
+
+**Từ Tập 6:** phiên điều phối mới ở mỗi điểm dừng chờ chủ dự án (G1, C3 nếu có, G2); phiên cũ đóng bằng PLAN tập ≤ 1 trang + prompt phiên kế (tên nhánh, chỗ dán câu trả lời) — `prompts/RUN.md` mục "Đóng phiên". Bảng dưới là các chặng; sau G2 (giao hàng → G3 → merge) là một phiên mới.
 
 | Phiên | Việc | Kết thúc ở | Chủ dự án |
 |---|---|---|---|
@@ -25,7 +27,7 @@
   - số không xác minh được nguồn;
   - rủi ro pháp lý/bản quyền;
   - chi tiêu mới (CHARTER §6).
-- Mỗi tập một nhánh `epNNN` từ `main`. Chỉ P3 merge (fetch trước; trong file dùng chung chỉ sửa phần của tập).
+- Mỗi tập một nhánh `epNNN` từ `main`. Chỉ phiên điều phối chặng cuối (sau G2) merge (fetch trước; trong file dùng chung chỉ sửa phần của tập).
 - **Bàn giao qua `episodes/epNNN/PLAN.md`**, đủ năm mục:
   1. bảng cổng;
   2. "Phiên sau đọc" (≤ ~8 file);

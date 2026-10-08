@@ -68,7 +68,7 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
 | Vai | Làm | Không làm |
 |---|---|---|
 | Chủ dự án | Định hướng, gu, duyệt G1/G2/G3, quyết việc không đảo ngược được (`AUTHORSHIP.md`) | Không dựng, không viết luật |
-| Phiên điều phối (P1, P3; P2 khi có C3) | Giữ `PLAN.md`, chạy cổng, giao kiểm mù; **duy nhất merge `main`** | Không tự quyết gu, không sửa luật, không chấm kiểm mù |
+| Phiên điều phối (mỗi chặng một phiên, mở mới ở mỗi điểm dừng chờ chủ dự án — G1, C3 nếu có, G2; D-011) | Giữ `PLAN.md`, chạy cổng, giao kiểm mù; đóng bằng PLAN ≤ 1 trang + prompt phiên kế; **duy nhất merge `main`** | Không tự quyết gu, không sửa luật, không chấm kiểm mù |
 | WRITER / REVIEWER | Viết theo `story.md` / soát mọi gói và issue trước khi gửi | Không quyết |
 | Phiên K | Viết, giữ luật; xử lý `checks-appeal.md` theo lô; mở riêng chỉ khi cần kind mới | Không dựng |
 | Phiên R&D / tổng kết | Đề xuất biến thể, thí nghiệm, tổng kết tập | Không tự áp dụng khi chưa duyệt |

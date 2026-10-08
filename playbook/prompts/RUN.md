@@ -1,6 +1,6 @@
-# Chạy Tập {N} — một phiên điều phối (D-008)
+# Chạy Tập {N} — mỗi chặng một phiên điều phối (D-011, thay D-008 §1)
 
-Chủ dự án mở phiên mới và gõ: **"Chạy Tập {N}"** (hoặc "Chạy Tập {N}, đề tài #k"). Một phiên điều phối chạy hết tập, **dừng ở G1, C3 (khi tập có hình mới) và G2** (và chờ G3 khi giao hàng). Token cả tập: **mức cảnh báo 3,0 triệu, phân bổ theo loại việc** (`episode.md` §8; D-009: chỉ cảnh báo, báo số thực, không cắt bước chất lượng). ≤ 40 agent con; kiểm mù không tính vào số agent (headless, ≤ 120 lượt).
+Chủ dự án mở phiên mới và gõ: **"Chạy Tập {N}"** (hoặc "Chạy Tập {N}, đề tài #k"). Phiên điều phối chạy **một chặng** và **đóng ở điểm dừng chờ chủ dự án kế tiếp: G1, C3 (khi tập có hình mới), G2** (và G3 khi giao hàng). Chặng sau mở bằng **phiên MỚI**, dán prompt phiên kế mà phiên cũ để ở PLAN tập mục 7 (D-011). Token cả tập: **mức cảnh báo 3,0 triệu, phân bổ theo loại việc** (`episode.md` §8; D-009: chỉ cảnh báo, báo số thực, không cắt bước chất lượng). ≤ 40 agent con; kiểm mù không tính vào số agent (headless, ≤ 120 lượt).
 
 ## Luật điều phối
 - Mở bằng `bash toolkit/verify.sh ep{NNN}`; đọc `CHARTER.md`, `playbook/quality-framework.md`, `playbook/episode.md`, `episodes/ep{NNN}/PLAN.md` (mục "Phiên sau đọc"), `ledger.md`.
@@ -19,4 +19,10 @@ Chủ dự án mở phiên mới và gõ: **"Chạy Tập {N}"** (hoặc "Chạy
 3. **C4 → C5 → Shorts → G2** (`P3.md` việc 1–4). Dừng ở G2.
 4. Sau G2: áp quyết định, giao hàng, G3, merge `main` (`P3.md` việc 5–7).
 
-Chủ dự án trả lời G1/C3/G2/G3 ngay trong phiên; chỉ sang chat chiến lược khi có ngoại lệ.
+## Đóng phiên ở điểm dừng (D-011)
+1. `episodes/ep{NNN}/PLAN.md` **≤ 1 trang** theo `playbook/templates/PLAN-tap.md`; lịch sử dời sang `episodes/ep{NNN}/archive/PLAN-history.md`.
+2. Ghi **4 số token của phiên** (sinh ra · đầu vào mới · đọc cache · trần) vào PLAN mục 5 (`episode.md` §8).
+3. Viết **prompt phiên kế** vào PLAN mục 7: tên nhánh, tệp gói chủ dự án đọc, chặng kế, và chỗ dán `<<DÁN CÂU TRẢ LỜI Gx Ở ĐÂY>>`.
+4. REVIEWER soát gói → commit + push → báo chủ dự án đường dẫn gói và prompt phiên kế → **dừng**.
+
+Phiên mới: `bash toolkit/verify.sh ep{NNN}`, chép câu trả lời vào `gates/<cổng>-answer.md`, commit, rồi làm chặng tiếp. Chỉ sang chat chiến lược khi có ngoại lệ.

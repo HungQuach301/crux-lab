@@ -1,4 +1,4 @@
-**Từ phiên cuối Tập 4 (D-008): một prompt duy nhất `RUN.md` — "Chạy Tập N"; một phiên điều phối cho cả tập, dừng ở G1 và G2. Bảng dưới (D-006) giữ làm tham chiếu nội dung từng chặng.**
+**Từ Tập 6 (D-011, thay D-008 §1): prompt `RUN.md` — "Chạy Tập N"; mỗi chặng một phiên điều phối, mở mới ở mỗi điểm dừng chờ chủ dự án (G1, C3 nếu có, G2); phiên cũ đóng bằng PLAN ≤ 1 trang + prompt phiên kế. Bảng dưới (D-006) giữ làm tham chiếu nội dung từng chặng.**
 
 # Prompt mẫu cho một tập (playbook v3, D-006)
 
