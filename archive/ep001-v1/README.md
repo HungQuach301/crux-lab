@@ -15,3 +15,4 @@ Toàn bộ trạng thái nằm ở tag `ep001-v1-stopped` (`3cab8ba`). Vì sao d
 | `gate-B.md` | Gói Cổng B | Quá nhiều loại quyết định trong một cổng |
 
 Tài sản **giữ** từ bản này (không nằm trong archive): dữ liệu, mô hình, `numbers.md`, ba nhân vật, treatment Cổng A, bảng âm S2 — ở `episodes/ep001/` trên nhánh `ep001-v2`.
+- `PLAN.md`: PLAN gốc của repo (Tập 1, 30/09, bản ep001-v2), dời vào đây 08/10/2026 (tổng kết Tập 5 §3.7); PLAN gốc nay là PLAN kênh ≤ 1 trang.

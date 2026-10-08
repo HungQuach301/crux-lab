@@ -28,13 +28,8 @@
   - rủi ro pháp lý/bản quyền;
   - chi tiêu mới (CHARTER §6).
 - Mỗi tập một nhánh `epNNN` từ `main`. Chỉ phiên điều phối chặng cuối (sau G2) merge (fetch trước; trong file dùng chung chỉ sửa phần của tập).
-- **Bàn giao qua `episodes/epNNN/PLAN.md`**, đủ năm mục:
-  1. bảng cổng;
-  2. "Phiên sau đọc" (≤ ~8 file);
-  3. việc treo;
-  4. điểm dừng an toàn + lệnh chạy tiếp;
-  5. KPI + token thực (trần = cảnh báo) + giờ render.
-  Phiên sau chỉ đọc hiến chương, `quality-framework.md`, file này, PLAN, ledger và các file được nêu tên.
+- **Bàn giao qua `episodes/epNNN/PLAN.md` ≤ 1 trang** theo mẫu `playbook/templates/PLAN-tap.md` (tổng kết Tập 5 §3.7): 1 trạng thái · 2 việc tiếp (≤ 3) + việc treo · 3 quyết định đã có (trỏ `gates/*-answer.md`) · 4 đã sửa gì, vì sao · 5 mức cảnh báo + 4 số token mỗi phiên + giờ render · 6 **phiên sau đọc ≤ 8 tệp** · 7 prompt phiên kế (D-011). Bảng cổng chi tiết, lệnh cũ, giao file → `episodes/epNNN/archive/PLAN-history.md`; quyết định còn hiệu lực không chỉ nằm ở archive. `PLAN.md` gốc repo là **PLAN kênh** ≤ 1 trang (tập hiện hành, nhánh, việc treo, hàng chờ K) — phiên điều phối chặng cuối cập nhật khi merge.
+  Phiên sau chỉ đọc các tệp ở mục 6 của PLAN tập.
 - **Tối đa 3 vòng mỗi lỗi (lessons V1):** một lỗi ở một cảnh sửa tối đa **3 vòng**; hết 3 vòng → gói nêu **bản trước/sau** kèm số đo để chủ dự án chọn (D-009 E3). **Khoá nghĩa (V2):** bản mới có điểm cổng gốc thấp hơn bản tốt nhất trước đó, hoặc có câu khuyên, thì tự loại — sửa tiếp từ bản tốt nhất.
 - **Lượt đạo diễn (bắt buộc, chẩn đoán — D-009 E5, D-010 §6):** trước render bản cuối, mỗi đoạn có hình mới qua một lượt đạo diễn trên bản 540p (`quality-framework.md` §10): 4 trục + lời phê theo mốc giây. Lời phê là việc nên xem, không phải ngưỡng; **chỉ sửa nhận xét lặp ở ≥ 2 lượt độc lập** (lessons V3); không mở vòng sửa thẩm mỹ chỉ vì điểm máy. Thước đo cuối là phiếu L3 ở G2 (≥ 4 mọi dòng).
 - **Đoạn thế giới 3D:** khai `world:` trong `episode.yaml`; dựng và kiểm bằng `toolkit/factory/world/build_seg.py`. **Ghép vào master** bằng bước `splice` của nhà máy (BACKLOG F-5 xong 07/10, `toolkit/factory/world/splice.py`, test `test_world_splice.py`): hình thay khung các cảnh đoạn chiếm, tiếng đoạn vào stem tập, loudnorm chung; `spec.py` chặn cảnh không liên tiếp hoặc một cảnh nằm trong hai đoạn. Đoạn dựng (lint → spine → render theo cảnh có cache → âm → verify quy tắc 1/2/3/7); đồng bộ ±0,2 s bằng `sync_audit.py`; C14 trên bản 1080p.
