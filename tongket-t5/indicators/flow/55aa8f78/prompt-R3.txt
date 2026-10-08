@@ -1,0 +1,24 @@
+You are watching a 70-second explainer video as contact sheets (no sound), with the narration below.
+Sheets (open each with the Read tool, in order): /home/user/crux-lab/tongket-t5/indicators/flow/55aa8f78/sheet-01.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/55aa8f78/sheet-02.jpg
+Each sheet is a 4x4 grid read left-to-right, top-to-bottom; one frame every 2.5 seconds. Sheet k (k = 1, 2, …) starts at 40*(k-1) seconds,
+so the frame in row r, column c (both from 1) of sheet k is at 40*(k-1) + 2.5*(4*(r-1) + (c-1)) seconds.
+Narration (start second: sentence):
+1: Is it? Has their gain passed the cap?
+5: We can't see their house, so we let its value rise exactly like the Phoenix area home price index from the Federal Housing Finance Agency, an average of many sales.
+16: We follow it quarter by quarter, from two thousand to the second quarter of twenty twenty-six, the latest data.
+23: Here's the cap: a flat line at five hundred thousand dollars, the same in every quarter.
+29: And here's their gain on paper, for a home that rose like the average: the two hundred thousand dollars, grown with the index, less the two hundred thousand dollars they paid.
+41: For most of these years, it sits well under the line.
+45: Then, in the second quarter of twenty twenty-two, it crosses.
+49: It slips back under for a while.
+51: From the second quarter of twenty twenty-three, it has stayed above.
+56: So, on paper, if their home rose like the Phoenix average, this is the gain from the opening.
+62: That's past the cap.
+64: Phoenix area prices are now almost three point eight times their two thousand level.
+Tasks:
+1. List every moment where the picture BREAKS continuity: a sudden change of visual style (looks like a different video), or the picture
+   stays frozen while the narration moves on. Give the second and the kind ("style" or "frozen") and a few words why.
+2. Rate overall visual flow 1-10 (10 = the pictures flow as one continuous piece).
+Answer ONLY with JSON lines, nothing else:
+{"t": 0, "kind": "style", "why": "..."}
+{"flow": 0}

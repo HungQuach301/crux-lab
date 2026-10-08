@@ -1,0 +1,22 @@
+{
+ "answer": "{\"t\": 90, \"kind\": \"frozen\", \"why\": \"Same house, moving boxes and loan card sit unchanged for about 10s while the narration goes through Nora's loan and the dollars-of-the-day note\"}\n{\"t\": 135, \"kind\": \"frozen\", \"why\": \"The chart with the 'next?' box is held without change while the narration says it's history, not a forecast\"}\n{\"t\": 142, \"kind\": \"frozen\", \"why\": \"The refinance letter stays almost unchanged for about 8s while the narration moves to the 7.03% offer and the 'point' definition\"}\n{\"t\": 172, \"kind\": \"frozen\", \"why\": \"The cash stack and 'loan costs $5,124' scene is held for about 12s while the narration explains the closing costs\"}\n{\"t\": 285, \"kind\": \"frozen\", \"why\": \"The month-24 bar comparison with '$1,133 extra owed' barely changes across several sentences of narration\"}\n{\"t\": 375, \"kind\": \"frozen\", \"why\": \"The two houses with Walt's label stay static through the Walt introduction\"}\n{\"t\": 490, \"kind\": \"frozen\", \"why\": \"The Anjali houses scene is nearly unchanged for about 10s while the narration moves on\"}\n{\"t\": 535, \"kind\": \"frozen\", \"why\": \"The dimmed 'What these numbers are' bars sit static for about 10s while the narration moves on to the caveats\"}\n{\"flow\": 7}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4743,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 24,
+   "in": 4743,
+   "out": 24
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 24569,
+   "cache_read": 9459,
+   "output": 2860,
+   "in": 34032,
+   "out": 2860
+  }
+ },
+ "turns": 16
+}

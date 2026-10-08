@@ -65,7 +65,7 @@ Gán cấp là việc của Phiên K, chủ dự án duyệt. **Checks khi dựn
 ## 5. Giao thức kiểm mù
 
 1. **Ý đồ ghi trước khi chạy** (`episodes/<tập>/gates/Cx-intent.md`, commit trước). Ý đồ gồm: mẫu, vai, câu hỏi cố định, rubric "đúng nghĩa" / "chỉ tả hình", ngưỡng, **luật dừng sớm** (mục 6). Với kiểm hình, phần "đúng nghĩa" của rubric **chép nguyên văn** câu "ý người xem phải đọc ra" của nhịp trong bảng nhịp C2. REVIEWER soát ý đồ và rubric **trước khi chạy**. Không sửa sau khi thấy kết quả.
-2. Mỗi mẫu giao cho **một agent mới**. Agent chỉ mở **một file tên hex** trong thư mục riêng; không có ngữ cảnh dự án (`toolkit/blind/packets.py deal`).
+2. Mỗi mẫu giao cho **một người đọc mới chạy headless** (`toolkit/blind/headless.sh`, `claude -p` không công cụ; ảnh thì chỉ Read) — cách kiểm mù chính từ Tập 5 (tổng kết Tập 5 §2a); không dùng agent con `Explore`. Người đọc chỉ thấy **một file tên hex**; không có ngữ cảnh dự án (`toolkit/blind/packets.py deal`). Mỗi 3 tập, C2 thêm một lượt người đọc model khác (`episode.md` §2).
 3. **Câu hỏi cố định, tiếng Anh**, vai khán giả đích của tập. Mọi kiểm mù có thêm câu suy diễn lời khuyên: *"What advice, if any, would a viewer take from this?"*
 4. **Người chấm là agent độc lập, mù tập.** Agent chỉ đọc gói nhãn ngẫu nhiên gồm câu trả lời và rubric (`packets.py packet`); khoá nhãn commit trước khi chấm. Chấm 1 / 0,5 / 0 kèm cờ câu khuyên. Một người đọc **đúng** khi điểm = 1 **và** không có câu khuyên. Phiên điều phối chỉ ghi và gộp (`packets.py tally`).
 5. Nguyên văn trả lời ghi vào `gates/Cx-blind.md`. Gói cổng chỉ đưa bảng tổng.
@@ -102,7 +102,7 @@ Phiên **chỉ** tự quyết những việc sau, mỗi việc ghi một dòng l
 
 - **Gói cổng GU:** ≤ 3 câu hỏi, mỗi câu có phương án và **khuyến nghị**. Có clip xem được trên điện thoại (≤ 2 phút; C6 ≤ 3 phút). Có 1 dòng kiểm số độc lập, 1 dòng kiểm mù và **kết quả soát của REVIEWER**. Gói hiện ngay trong phiên; đồng thời mở issue `[Cổng Cx] Tập N — cần quyết định`.
 - **Issue cổng TỰ ĐỘNG:** `[Cổng Cx · tự động] Tập N — qua/ngoại lệ`, **≤ 5 dòng**: kết quả, ngưỡng, số vòng, có dùng dự phòng không (cái nào), link file. Không hỏi, không chờ.
-- Câu trả lời của chủ dự án ghi vào `taste-ledger.md`, `AUTHORSHIP.md` và `episodes/<tập>/ledger.md` trên nhánh tập; P3 merge vào `main`.
+- Câu trả lời của chủ dự án ghi vào `taste-ledger.md`, `AUTHORSHIP.md` và `episodes/<tập>/ledger.md` trên nhánh tập; phiên điều phối chặng cuối (P4, D-011) merge vào `main`.
 
 **Vai REVIEWER** (agent độc lập, đọc repo; Opus, effort Medium). REVIEWER soát mọi gói GU và mọi issue TỰ ĐỘNG trước khi gửi, theo checklist cố định:
 1. Gói khớp khung chất lượng: đúng loại cổng, đúng ngưỡng ghi trước, không sửa ý đồ sau kết quả.
@@ -112,6 +112,7 @@ Phiên **chỉ** tự quyết những việc sau, mỗi việc ghi một dòng l
 5. Không lệch giữa các phiên: tên kind/params theo phiên K; khoá SHA khớp; PLAN, ledger và gói nói cùng một chuyện.
 6. Chất lượng trước (D-009): không bước chất lượng nào bị cắt vì token; lỗi CHÍNH đã sửa hoặc có ngoại lệ kèm số đo; token và giờ render là số thực.
 7. Hình–âm (D-010): đoạn thế giới có bằng chứng quy tắc 1/2/3/7 (`verify_seg`), đồng bộ ±0,2 s, C14 trên bản 1080p; nhận định của lượt đạo diễn ghi là chẩn đoán, không dùng làm ngưỡng.
+8. Kịch bản (C2, G1; `story.md` §2b, từ Tập 6): (a) có một nhân vật dẫn đường xuất hiện trước 0:45, đi qua phần phương pháp, câu kết là câu của người đó; (b) M6 — lời hứa nhân vật trả ≤ 90 s; (c) không nêu số tiền thì cái được–mất là vật cụ thể có claim; (d) câu ở đỉnh cảm xúc ≤ 15 từ, một ý một câu (đếm, nêu số từ); (e) kết quay về câu hỏi của nhân vật, không khái quát. Trượt dòng nào → nêu dòng đó, WRITER mới sửa.
 
 Kết quả soát (đạt / các dòng trượt) in kèm gói. REVIEWER thay cho việc chủ dự án chuyển gói sang chat chiến lược.
 

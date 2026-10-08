@@ -1,0 +1,22 @@
+{
+ "answer": "{\"t\": 15, \"kind\": \"style\", \"why\": \"3D house/neighbourhood scene cuts to a flat 2D line chart\"}\n{\"t\": 30, \"kind\": \"style\", \"why\": \"chart view jumps back to the 3D house and money-stack scene\"}\n{\"t\": 42.5, \"kind\": \"style\", \"why\": \"house scene switches to a new chart with a different look and yellow labels\"}\n{\"t\": 10, \"kind\": \"frozen\", \"why\": \"neighbourhood houses barely change across several frames while narration covers the index\"}\n{\"t\": 65, \"kind\": \"frozen\", \"why\": \"final chart is identical from 65s to the end while narration continues\"}\n{\"flow\": 5}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1965,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 1965,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 4732,
+   "cache_read": 6675,
+   "output": 706,
+   "in": 11411,
+   "out": 706
+  }
+ },
+ "turns": 3
+}

@@ -532,8 +532,16 @@ class Build:
 
 
 def main():
+    import guard
+    guard.assert_idle('build')   # tổng kết Tập 5 mục 12 (cine-lab #67): không chạy chồng lên một build/render khác
     argv = sys.argv[1:]
     B = Build(argv[0], argv)
+    sys.path.insert(0, os.path.join(ROOT, 'toolkit', 'tests'))
+    import comment_guard   # mục 13 (cine-lab #42, #76): mã thế giới của tập + thư viện, trước mọi bước
+    bad, n = comment_guard.check([os.path.join(HERE, 'world')] + [os.path.join(B.root, w['dir']) for w in B.S.get('world') or []])
+    if bad:
+        print('\n'.join(bad))
+        raise SystemExit(f'comment_guard: {len(bad)} lỗi (chú thích nuốt mã / cú pháp) — sửa trước khi dựng')
     t = time.time()
     B.step('spec', B.do_spec)
     B.load_inputs()

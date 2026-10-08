@@ -1,0 +1,13 @@
+[lint] OK 0.0 s
+[spine] OK 0.7 s
+[render] OK 246.8 s
+[audio] OK 34.4 s
+[mux] OK 3.9 s
+  F-2 WARN: sfx 10 sự kiện trong 10 s từ 4.96 > 6
+  F-2 WARN: sfx [(33.94, 'tick')] trên từ khoá b4.two 'two' 33.94–34.12 SNR 14.4 dB
+  F-2 WARN: 2003 × home value 17.9–17.9 s (1 mẫu)
+  F-2 WARN: 2004 × home value 18–18 s (1 mẫu)
+  F-2 WARN: 2025 × 2026 Q2 64–64.6 s (7 mẫu)
+  F-2 WARN: 2000 × 2000 64.4–64.6 s (3 mẫu)
+[verify] OK 5.4 s
+build_seg: 291.3 s → ../../..<nháp>/v3k-540.mp4

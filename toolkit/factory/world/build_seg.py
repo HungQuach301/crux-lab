@@ -4,7 +4,7 @@
 
 Thư mục đoạn chứa: spine.py (đặc tả nhịp, dùng toolkit/factory/world/spine.py) + scene.js (dùng lib3d.js/core.js) [+ dữ liệu].
 Các bước (mỗi bước dừng cả lệnh nếu trượt):
-  lint    lint_comments.py trên thư mục đoạn + thư viện (lỗi "chú thích nuốt mã")
+  lint    toolkit/tests/comment_guard.py trên thư mục đoạn + thư viện: chú thích nuốt mã (lint_comments + mẫu mở rộng) + node --check / py_compile
   spine   python3 <đoạn>/spine.py → spine.json; thoát ≠ 0 = vi phạm quy tắc 2/3/7
   render  render_shots.js theo cảnh có cache (chỉ cảnh đổi mới render; chạy lại = resume); lỗi trang = dừng
   audio   audio.py: lời + nhạc theo bản đồ căng + âm dữ liệu + sfx từ spine.events → mix.wav (−14 LUFS)
@@ -12,15 +12,22 @@ Các bước (mỗi bước dừng cả lệnh nếu trượt):
   verify  verify_seg.py: quy tắc 1/2/3, cắt cứng, tỉ lệ chế độ, C14 (bản 1080p), F-2 (mật độ sfx, nhãn đè nhau) → <out>.verify.json;
           quy tắc 1/2/3, cắt cứng, C14 hoặc F-2 cấp BLOCK trượt = thoát 1 (F-2 WARN chỉ báo)
 Báo cáo giờ render thật (wall, s/giây phim) trong <out>.build.json (quy tắc 8: "báo giờ render và token thực").
+An toàn (tổng kết Tập 5 mục 12; cine-lab #67, #70): trước khi dựng kiểm không còn build/render nào khác (`guard.py`, thoát 3 nếu còn);
+mọi tệp ra dựng trong thư mục tạm `<thư mục ra>/.staging-<tên>-<pid>/`, CHỈ thay bản cũ khi cả 6 bước đạt. Trượt → bản cũ giữ nguyên,
+báo cáo ở `<out>.build.failed.json`, thư mục tạm giữ lại để xem.
 Đồng bộ lời–hình bằng ASR (sync_audit.py) chạy riêng vì cần faster-whisper.
 """
-import json, os, subprocess, sys, time
+import json, os, shutil, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 sys.path.insert(0, HERE)
 sys.dont_write_bytecode = True
 import lint_comments  # noqa: E402
+sys.path.insert(0, os.path.dirname(HERE))
+import guard  # noqa: E402
+sys.path.insert(0, os.path.join(ROOT, 'toolkit', 'tests'))
+import comment_guard  # noqa: E402
 
 
 def arg(k, d=None):
@@ -34,23 +41,42 @@ def run(cmd, **kw):
     return r
 
 
+def promote(stage, final_dir, base):
+    """Đưa mọi tệp/thư mục `base*` từ thư mục tạm sang chỗ thật (thay bản cũ); chỉ gọi khi mọi bước đạt."""
+    for f in sorted(os.listdir(stage)):
+        if not f.startswith(base):
+            continue
+        src, dst = os.path.join(stage, f), os.path.join(final_dir, f)
+        if os.path.isdir(src) and os.path.isdir(dst):
+            old = dst + f'.old-{os.getpid()}'
+            os.replace(dst, old); os.replace(src, dst); shutil.rmtree(old, ignore_errors=True)
+        else:
+            os.replace(src, dst)
+    shutil.rmtree(stage, ignore_errors=True)
+
+
 def main():
+    guard.assert_idle('build_seg')
     seg = os.path.relpath(os.path.abspath(sys.argv[1]), ROOT)
     res = int(arg('--res', 540))
-    out = os.path.abspath(arg('--out', os.path.join(ROOT, seg, '..', '..', 'work', 'world', f'{os.path.basename(seg)}-{res}.mp4')))
-    os.makedirs(os.path.dirname(out), exist_ok=True)
-    rep, T = {'segment': seg, 'res': res, 'out': os.path.relpath(out, ROOT), 'steps': {}}, time.time()
+    final = os.path.abspath(arg('--out', os.path.join(ROOT, seg, '..', '..', 'work', 'world', f'{os.path.basename(seg)}-{res}.mp4')))
+    base = os.path.basename(final)[:-len('.mp4')]
+    stage = os.path.join(os.path.dirname(final), f'.staging-{base}-{os.getpid()}')
+    os.makedirs(stage, exist_ok=True)
+    out = os.path.join(stage, os.path.basename(final))   # mọi bước ghi vào thư mục tạm
+    rep, T = {'segment': seg, 'res': res, 'out': os.path.relpath(final, ROOT), 'steps': {}}, time.time()
 
     def step(name, fn):
         t = time.time(); ok, info = fn(); rep['steps'][name] = {'seconds': round(time.time() - t, 1), 'ok': ok, **(info or {})}
         print(f'[{name}] {"OK" if ok else "TRƯỢT"} {rep["steps"][name]["seconds"]} s', flush=True)
         if not ok:
-            json.dump(rep, open(out + '.build.json', 'w'), indent=1, ensure_ascii=False)
-            raise SystemExit(f'build_seg: dừng ở bước {name}')
+            rep['staging'] = os.path.relpath(stage, ROOT)
+            json.dump(rep, open(final + '.build.failed.json', 'w'), indent=1, ensure_ascii=False)
+            raise SystemExit(f'build_seg: dừng ở bước {name}; bản cũ giữ nguyên, thư mục tạm {os.path.relpath(stage, ROOT)}')
 
-    def lint():
-        bad = lint_comments.lint([os.path.join(ROOT, seg), HERE])
-        return not bad, {'problems': bad}
+    def lint():   # F-4 + tổng kết Tập 5 mục 13 (cine-lab #42, #76): chú thích giữa dòng nuốt mã + node --check / py_compile
+        bad, n = comment_guard.check([os.path.join(ROOT, seg), HERE])
+        return not bad, {'problems': bad, 'files': n}
 
     def spine():
         r = run([sys.executable, os.path.join(seg, 'spine.py')])
@@ -97,7 +123,10 @@ def main():
         step(name, fn)
     rep['total_seconds'] = round(time.time() - T, 1)
     json.dump(rep, open(out + '.build.json', 'w'), indent=1, ensure_ascii=False)
-    print(f'build_seg: {rep["total_seconds"]} s → {os.path.relpath(out, ROOT)}')
+    promote(stage, os.path.dirname(final), base)
+    if os.path.exists(final + '.build.failed.json'):
+        os.remove(final + '.build.failed.json')
+    print(f'build_seg: {rep["total_seconds"]} s → {os.path.relpath(final, ROOT)}')
 
 
 if __name__ == '__main__':

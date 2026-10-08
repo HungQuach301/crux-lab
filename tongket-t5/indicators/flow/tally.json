@@ -1,0 +1,185 @@
+{
+ "flow": {
+  "t1": {
+   "flow_mean": 5.67,
+   "flows": [
+    4.0,
+    7.0,
+    6.0
+   ],
+   "points_all": 51,
+   "agreed": [
+    {
+     "t": 12.5,
+     "readers": 2,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 25.0,
+     "readers": 2,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 32.5,
+     "readers": 2,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 67.5,
+     "readers": 2,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 90.0,
+     "readers": 2,
+     "kinds": [
+      "frozen"
+     ]
+    },
+    {
+     "t": 141.0,
+     "readers": 2,
+     "kinds": [
+      "frozen",
+      "style"
+     ]
+    },
+    {
+     "t": 171.0,
+     "readers": 2,
+     "kinds": [
+      "frozen",
+      "style"
+     ]
+    },
+    {
+     "t": 257.5,
+     "readers": 2,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 285.0,
+     "readers": 3,
+     "kinds": [
+      "frozen"
+     ]
+    },
+    {
+     "t": 315.0,
+     "readers": 2,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 373.3,
+     "readers": 3,
+     "kinds": [
+      "frozen",
+      "style"
+     ]
+    },
+    {
+     "t": 486.2,
+     "readers": 2,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 535.0,
+     "readers": 2,
+     "kinds": [
+      "frozen"
+     ]
+    }
+   ],
+   "agreed_per_min": 1.32
+  },
+  "t4v3k": {
+   "flow_mean": 5.67,
+   "flows": [
+    5.0,
+    6.0,
+    6.0
+   ],
+   "points_all": 12,
+   "agreed": [
+    {
+     "t": 15.8,
+     "readers": 3,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 30.0,
+     "readers": 3,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 42.5,
+     "readers": 2,
+     "kinds": [
+      "style"
+     ]
+    },
+    {
+     "t": 65.0,
+     "readers": 3,
+     "kinds": [
+      "frozen"
+     ]
+    }
+   ],
+   "agreed_per_min": 3.45
+  },
+  "t5": {
+   "flow_mean": 7.67,
+   "flows": [
+    8.0,
+    7.0,
+    8.0
+   ],
+   "points_all": 16,
+   "agreed": [
+    {
+     "t": 59.2,
+     "readers": 3,
+     "kinds": [
+      "frozen",
+      "style"
+     ]
+    },
+    {
+     "t": 256.0,
+     "readers": 3,
+     "kinds": [
+      "frozen"
+     ]
+    },
+    {
+     "t": 454.0,
+     "readers": 3,
+     "kinds": [
+      "frozen"
+     ]
+    }
+   ],
+   "agreed_per_min": 0.39
+  }
+ },
+ "tokens_ceiling": 204545
+}

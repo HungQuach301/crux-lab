@@ -1,0 +1,16 @@
+{
+ "segment": "moc-v/seg/ep005",
+ "res": 540,
+ "out": "../../..<nháp>/v3k-540.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.3,
+   "ok": false,
+   "problems": [
+    "moc-v/seg/ep005/scene.js:98: mã sau // : (b) màu trung tính (vàng cảnh báo gợi \"rủi ro → lời khuyên\") slow.material.opacity = sA * "
+   ],
+   "files": 19
+  }
+ },
+ "staging": "../../..<nháp>/.staging-v3k-540-12590"
+}

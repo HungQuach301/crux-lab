@@ -1,0 +1,117 @@
+You are watching a 591-second explainer video as contact sheets (no sound), with the narration below.
+Sheets (open each with the Read tool, in order): /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-01.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-02.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-03.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-04.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-05.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-06.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-07.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-08.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-09.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-10.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-11.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-12.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-13.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-14.jpg, /home/user/crux-lab/tongket-t5/indicators/flow/3571cd18/sheet-15.jpg
+Each sheet is a 4x4 grid read left-to-right, top-to-bottom; one frame every 2.5 seconds. Sheet k (k = 1, 2, …) starts at 40*(k-1) seconds,
+so the frame in row r, column c (both from 1) of sheet k is at 40*(k-1) + 2.5*(4*(r-1) + (c-1)) seconds.
+Narration (start second: sentence):
+1: In February 2026, the average 30-year fixed mortgage rate in the US fell to 5.98 percent, the lowest since September 2022.
+12: Nora had borrowed in 2023, at 7.62 percent.
+17: At the February rate, a new loan would have cut her payment by $459 a month.
+24: She didn't take it.
+25: By late September, the rate was back above 7 percent, for the first time since January 2025.
+33: Now a letter comes from her lender: an offer to refinance, a new loan at a slightly lower rate that pays off the old one, for $5,124 in fees.
+46: How big a rate cut makes that worth it for Nora — and where would your own loan fall?
+52: And why would a smaller mortgage need a bigger cut?
+56: Nora borrowed in October 2023, the month the average rate reached 7.79 percent, its highest since 2000.
+67: She wasn't the only one: three in ten of that year's 30-year loans to buy a home carried a rate of 7 percent or more.
+77: Nora isn't a real person; we built her from typical figures, to show how the math works for one household.
+84: She had moved for a new job and bought her first home, with a $375,000 loan at 7.62 percent, the average rate that month.
+95: Every dollar amount in this story is in the dollars of the day, not adjusted for inflation.
+102: You may have heard that a refinance only pays off once rates fall a full percentage point below yours.
+107: We use that one-point line as a test.
+110: And for Nora, rates did cross that line.
+113: In 2026, the average spent 29 weeks at least a full point below her rate.
+119: At the February low, the gap was 1.64 points.
+124: After the week ending July 23, 2026, the gap never again reached a full point, and the window closed.
+132: Whether it opens again, we can't tell you: everything in this story is history, not a forecast, and it covers the US only.
+141: So the letter arrives in a different world.
+144: Say the rate it offers matches the national average for the week ending September 24, 2026: 7.03 percent.
+154: That is just over half a percentage point below what she pays now.
+158: From here on, when we say a point, we mean exactly that: one percentage point off the rate.
+166: Her monthly payment would drop by $221.
+170: Then comes the last line.
+173: $5,124 in loan costs, paid in cash at closing: the lender's charges for making the loan, plus anything she pays up front to buy the rate down.
+186: That bill is not made up.
+188: It is the median from nearly half a million refinances in 2025, and her loan size is the median too.
+197: If a letter like this has reached you, this is the math behind it.
+203: Is it worth paying?
+205: Worth it, here, means one thing: the savings pay back the fees before she sells or moves.
+212: We test a stay of three years, a choice we made, not a rule.
+217: There are two quick answers.
+219: The one-point line says no.
+221: Her cut falls short.
+223: Simple division says yes: $5,124 divided by $221 is about 24 months.
+234: Neither is quite right.
+236: The one-point line never looks at the bill.
+238: And the division leaves something out.
+242: Back to the letter.
+243: Break-even is the month when what she has saved covers the bill.
+247: Division stacks up $221 a month and stops at month 24.
+252: But while the savings stack up, something else is happening, to what she still owes.
+258: Nora has made 35 payments on her old loan, one a month since she moved in.
+265: With each one, a little more goes to paying down what she owes.
+269: A refinance starts a fresh 30-year clock, and in the early years of any mortgage, most of each payment goes to interest.
+278: So the new loan pays down her balance more slowly than the old one would have.
+284: By month 24, she owes $1,133 more than if she had kept the old loan.
+292: If she sold the house then, that $1,133 would come out of her sale money, so it cancels part of what she has saved.
+303: Her savings need a few more months to cover it, and the gap keeps growing a little while they do.
+309: Count it, and break-even moves from month 24 to month 30.
+316: The smaller the cut, the more that gap matters.
+320: Suppose her offer were only a quarter of a point.
+323: Division promises break-even in 38 months.
+327: But a saving that small can't outrun the growing gap in what she owes.
+331: Counting it, the fees never come back, not in all the years her old loan had left.
+338: At a full point, she would break even in 18 months, well inside three years.
+344: Somewhere between a quarter point and a full point is her line.
+348: At half a point, the fees come back in exactly 36 months.
+353: So for Nora, the answer is half a point, half of the one-point line.
+359: Her real offer, just over half a point, clears it.
+363: The February window closed, but by the three-year test, this letter still pays her back.
+369: Is half a point the line for everyone?
+373: Walt is another borrower we built from typical figures.
+376: He bought a smaller house the same month as Nora, with a $115,000 loan at the same rate.
+382: His letter offers the same cut.
+385: The bill at the bottom: $3,667.
+390: His loan is far smaller than hers.
+392: His bill is only a little smaller.
+396: In the 2025 data, refinance bills grow far more slowly than the loans they come with.
+402: For Walt, it comes to about 3.2 percent of what he borrowed.
+406: His savings, though, shrink with the loan.
+409: The same cut takes only $68 a month off his payment.
+413: $68 a month, against a $3,667 bill.
+419: Counting what he owes, he breaks even in month 75.
+424: If Walt sold after three years, he would come out $1,777 behind.
+431: For his fees to come back within three years, his rate would need to fall 1.12 points.
+438: That is more than the one-point line.
+441: So that is why a smaller mortgage needs a bigger rate cut.
+445: The fees barely shrink with the loan, and the monthly savings shrink right along with it.
+452: Anjali sits at the other end.
+454: Same month, same rate, same cut.
+458: She bought a bigger house, with a $655,000 loan, still under the conforming limit: the ceiling for the standard loans that Fannie Mae and Freddie Mac buy.
+469: Her bill is $5,514, close to what Nora pays.
+474: If she sold after three years, she would come out $5,250 ahead.
+481: To get her fees back within three years, she needs a cut of only about a third of a point.
+488: So, back to the letter, and the question it started with.
+492: How big a rate cut makes a refinance worth it, if worth it means the fees come back within three years?
+500: It depends on the size of the loan.
+502: For Walt, with a loan of $115,000, it takes more than a full point.
+508: For Nora, with $375,000, half a point.
+513: For Anjali, with $655,000, about a third of a point.
+518: Put your own loan on that scale, and you can see which of them you are closest to.
+523: Those lines rest on our assumptions: a loan taken out at the October 2023 rate, a median bill, and a three-year stay.
+532: The one-point line fits none of them.
+536: These are national average rates, median bills, and three made-up borrowers.
+541: In 2025, half of refinance bills fell between $3,443 and $8,270.
+551: A real rate, a real bill and a real balance will be different.
+555: Paying the fees by adding them to the loan, or choosing a shorter term, changes the math too.
+562: Which leaves the one number only you know: how long you will stay.
+568: For Nora, the same offer comes out $1,039 ahead if she sells after three years, and $8,093 ahead if she stays seven.
+580: The rate cut decides how fast the fees come back.
+583: How long you stay decides whether you are still there when they do.
+588: How long do you picture yourself in your home?
+Tasks:
+1. List every moment where the picture BREAKS continuity: a sudden change of visual style (looks like a different video), or the picture
+   stays frozen while the narration moves on. Give the second and the kind ("style" or "frozen") and a few words why.
+2. Rate overall visual flow 1-10 (10 = the pictures flow as one continuous piece).
+Answer ONLY with JSON lines, nothing else:
+{"t": 0, "kind": "style", "why": "..."}
+{"flow": 0}
