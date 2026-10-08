@@ -1,0 +1,186 @@
+{
+ "ep003": {
+  "contract": "episodes/ep003/contract.json",
+  "video": null,
+  "S21": {
+   "id": "S21",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "numbers in the description without a claim",
+     "value": 1,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "line": 14,
+     "number": "1954",
+     "text": "- Monthly average 3-month bill rate (secondary market, discount basis) from the Federal Reserve Board's H.15 release via"
+    }
+   ],
+   "note": null
+  },
+  "S22": {
+   "id": "S22",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "units mixing sources or periods",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "namedBoth": []
+    }
+   ],
+   "note": null
+  }
+ },
+ "ep004": {
+  "contract": "episodes/ep004/contract.json",
+  "video": null,
+  "S21": {
+   "id": "S21",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "numbers in the description without a claim",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null
+  },
+  "S22": {
+   "id": "S22",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "units mixing sources or periods",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "namedBoth": []
+    }
+   ],
+   "note": null
+  }
+ },
+ "ep005": {
+  "contract": "checks-runs/K40/contracts/ep005.json",
+  "video": null,
+  "S21": {
+   "id": "S21",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "numbers in the description without a claim",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null
+  },
+  "S22": {
+   "id": "S22",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "units mixing sources or periods",
+     "value": 2,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "namedBoth": [
+      {
+       "unit": "sentence",
+       "id": "S20.2",
+       "claims": [
+        "maxB_months_to80",
+        "maxB_years",
+        "minB_months_to80",
+        "sched80_months_latest"
+       ],
+       "sources": [
+        "model"
+       ],
+       "periods": [
+        "(1991, 2026)",
+        "now"
+       ],
+       "text": "On the schedule, the answer is set the day the loan starts; on paper, history gave answers from about a year to more than 9 years, and on pa"
+      }
+     ]
+    },
+    {
+     "unit": "sentence",
+     "id": "S12.3",
+     "claims": [
+      "nA",
+      "shareA_ltv24_le75",
+      "value_removal_ltv_early"
+     ],
+     "sources": [
+      "model"
+     ],
+     "periods": [
+      "(1991, 2026)",
+      "now"
+     ],
+     "text": "Two years after purchase, only 15.6 percent of them were at or below the 75 percent bar Fannie Mae sets for its loans when a borrower asks t"
+    },
+    {
+     "unit": "sentence",
+     "id": "S18.2",
+     "claims": [
+      "medianB_months_to80",
+      "sched80_months_latest"
+     ],
+     "sources": [
+      "model"
+     ],
+     "periods": [
+      "(1991, 2026)",
+      "now"
+     ],
+     "text": "So a plan can be measured against two benchmarks from this history."
+    }
+   ],
+   "note": null
+  }
+ }
+}

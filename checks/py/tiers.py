@@ -54,6 +54,8 @@ TIERS = {
     'T4': (REFERENCE, 'mật độ sfx (K4.0, A19): chỉ báo — ngưỡng tạm của bộ đo F-2, chưa hiệu chuẩn bằng đối chứng "sfx dày"'),
     'V17': (REFERENCE, 'đọc kịp: nhãn ≥ 1 s mỗi 3 từ (K4.0, A24): chỉ báo cho tới khi hiệu chuẩn (A24)'),
     'R08': (REFERENCE, 'nhịp trên spine: quãng tĩnh có lời ≤ 8 s (K4.0, A23): chỉ báo — đối chứng dương C4 Tập 5 trúng 2/4, chưa hiệu chuẩn'),
+    'S21': (MAJOR, 'lỗi số = 0 cả trong mô tả YouTube (K4.0, A25; hiệu chuẩn: Tập 3 bắt đúng 1954 không claim, Tập 4, Tập 5 đạt)'),
+    'S22': (REFERENCE, 'claim-risk: một câu/khung không ghép số khác nguồn/kỳ (K4.0, A26): chỉ báo — Tập 5 còn 3 câu nghi vấn chưa phân xử'),
     # Shorts 9:16 (K3.8, A5)
     'SH01': (BLOCK, 'kỹ thuật file: Short 1080×1920'), 'SH02': (BLOCK, 'kỹ thuật file: Short ≤ 180 s'),
     'SH03': (BLOCK, 'âm lượng: Short'), 'SH04': (BLOCK, 'true peak: Short'),

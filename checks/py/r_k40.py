@@ -425,3 +425,82 @@ def r08_still_stretches(ctx):
             if ws and ws[-1][1] - ws[0][0] > 8.0:
                 out.append({'segment': sid, 't0': round(ws[0][0] + t0, 2), 't1': round(ws[-1][1] + t0, 2), 'dur': round(ws[-1][1] - ws[0][0], 2)})
     return verdict('R08', [metric('still stretches > 8 s', len(out), '<=', 0), metric('longest still stretch s', max([o['dur'] for o in out] or [0.0]), '<=', 8.0)], details=out[:30])
+
+
+# ---- A25 → S21 ------------------------------------------------------------------------------------------------------------------
+def _plain_nums(text):
+    return [(m.group(0), float(m.group(0).lstrip('$').replace(',', ''))) for m in re.finditer(r'(?<![\w.])\$?\d[\d,]*(?:\.\d+)?', text)]
+
+
+def claim_number_set(claims):
+    """Every number a claim stands for: value, display, dataYears; ×100, ÷100, ×12, ÷12; rounded to 0, 1, 2 decimals."""
+    vals = set()
+    for c in claims:
+        v = c.get('value')
+        xs = [v] if isinstance(v, (int, float)) and not isinstance(v, bool) else []
+        if isinstance(v, str):
+            xs += [x for _, x in _plain_nums(v)]
+        xs += [x for _, x in _plain_nums(str(c.get('display', '')))]
+        xs += [float(y) for y in c.get('dataYears') or [] if isinstance(y, (int, float))]
+        for x in xs:
+            for y in (x, x * 100, x / 100, x / 12, x * 12):
+                vals |= {round(y, 2), round(y, 1), float(round(y)), float(int(y))}
+    return vals
+
+
+@rule('S21', 'DX-H1 (lỗi số = 0 cả ngoài video), cine-lab BAI-HOC-LL #53, checks-appeal A25', 'out/package/description.md, line by line: chapter stamps (m:ss at line '
+      'start), URLs, law citations (26 U.S.C. 121, 31 CFR 351.34(a), 70 FR 17288), series codes (capitals with a digit, e.g. MORTGAGE30US) and list numbering are '
+      'removed; every remaining number must be one a claim of out/claims.json stands for (claim_number_set: value, display, dataYears, ×100, ÷100, ×12, ÷12, '
+      'rounded to 0–2 decimals)', '0 numbers in the description without a claim')
+def s21_description(ctx):
+    ok = claim_number_set(ctx.claims())
+    bad = []
+    for n, ln in enumerate(ctx.text('out/package/description.md').splitlines(), 1):
+        s = re.sub(r'^\s*\d+:\d\d\s*', '', ln)
+        s = re.sub(r'https?://\S+', ' ', s)
+        s = re.sub(r'\b\d+\s+(U\.S\.C\.|CFR|FR)\s+[\d.]+(\([\w]+\))*(\s+and\s+[\d.]+(\([\w]+\))*)?', ' ', s)
+        s = re.sub(r'\b[A-Z][A-Z0-9]*\d[A-Z0-9]*\b', ' ', s)
+        s = re.sub(r'^\s*\d+[.)]\s', ' ', s)
+        for tok, x in _plain_nums(s):
+            if round(x, 2) not in ok and float(round(x)) not in ok:
+                bad.append({'line': n, 'number': tok, 'text': ln.strip()[:120]})
+    return verdict('S21', [metric('numbers in the description without a claim', len(bad), '<=', 0)], details=bad[:20])
+
+
+# ---- A26 → S22 ------------------------------------------------------------------------------------------------------------------
+_PARAM = re.compile(r'^(axis|contract\.json|numbers\.md|law|rule)$|CFR|U\.S\.C|FR \d|^`?model\.json`? `?params', re.I)
+_NOW = re.compile(r'\b(today|now|current(ly)?|latest|this year|on the schedule|schedule)\b', re.I)
+_PAST = re.compile(r'\b(history|historical(ly)?|in the past|since (19|20)\d\d|from (19|20)\d\d|(19|20)\d\d\s*(–|-|to)\s*(19|20)\d\d|on paper)\b', re.I)
+
+
+@rule('S22', 'DX-H2 (claim-risk), cine-lab BAI-HOC-LL #62, checks-appeal A26', 'units: a narration sentence (claims[].spoken) or a scene\'s frames (claims[].shownIn). '
+      'Data claims only: a numeric value, not illustrative, source not a parameter/law/axis (contract.json, numbers.md, law, rule, CFR, U.S.C.). A unit mixes when its '
+      'data claims have ≥ 2 sources (source.id) or ≥ 2 periods (dataYears; else historical → "hist", otherwise "now"). Exception: a sentence that names both a '
+      'present measure (today, now, current, latest, on the schedule) and a past one (history, in the past, since/from YYYY, YYYY–YYYY, on paper) when its periods '
+      'are "now" and a past period', '0 units mixing sources or periods without naming both')
+def s22_mixed_sources(ctx):
+    cl = [c for c in ctx.claims() if isinstance(c.get('value'), (int, float)) and not isinstance(c.get('value'), bool) and not c.get('illustrative')
+          and not _PARAM.search(str((c.get('source') or {}).get('id') or ''))]
+    text = {s.get('id'): s.get('text') or '' for s in ctx.sentences()}
+
+    def key(c):
+        return (c.get('source') or {}).get('id') or '?', tuple(c.get('dataYears') or ()) or ('hist' if c.get('historical') else 'now')
+    units = {}
+    for c in cl:
+        for sp in c.get('spoken') or []:
+            units.setdefault(('sentence', sp.get('sentence')), []).append(c)
+        for sc in c.get('shownIn') or []:
+            units.setdefault(('frames', sc if isinstance(sc, str) else str(sc)), []).append(c)
+    bad, named = [], []
+    for (kind, uid), cs in sorted(units.items(), key=lambda x: (x[0][0], str(x[0][1]))):
+        ks = {key(c) for c in cs}
+        srcs, pers = {k[0] for k in ks}, {k[1] for k in ks}
+        if len({c['claimId'] for c in cs}) < 2 or (len(srcs) < 2 and len(pers) < 2):
+            continue
+        row = {'unit': kind, 'id': uid, 'claims': sorted({c['claimId'] for c in cs}), 'sources': sorted(srcs), 'periods': sorted(map(str, pers)), 'text': text.get(uid, '')[:140]}
+        t = text.get(uid, '') if kind == 'sentence' else ''
+        if len(srcs) < 2 and 'now' in pers and t and _NOW.search(t) and _PAST.search(t):
+            named.append(row)
+        else:
+            bad.append(row)
+    return verdict('S22', [metric('units mixing sources or periods', len(bad), '<=', 0)], details=[{'namedBoth': named}, *bad[:20]])

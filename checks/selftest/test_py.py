@@ -2380,6 +2380,43 @@ def _(f, bad):
     f.contract(world=[{'id': 'a', 'spine': 'seg/spine.json', 't0': 0.0}])
 
 
+@case('S21')
+def _(f, bad):
+    # a year in the description's sources section that no claim carries (Tập 3 "1954", bad); a law citation and chapter stamps are not numbers (good)
+    f.json('out/claims.json', {'claims': [{'claimId': 'r', 'value': 0.068625, 'display': '6.86%'}, {'claimId': 'n', 'value': 307, 'display': '307', 'dataYears': [1991, 2026]}]})
+    f.text('out/package/description.md', '0:00 Intro\n1:05 The rule\nRates near 6.86% across 307 months, 1991 to 2026.\nLaw: 26 U.S.C. 121; series MORTGAGE30US.\n'
+           + ('Monthly means match to 0.01 points, 1954 to 2026.\n' if bad else 'https://fred.stlouisfed.org/series/MORTGAGE30US\n'))
+
+
+def s22_fixture(f, sentence, claims):
+    f.json('out/script.json', {'sentences': [{'id': 'S01.1', 'scene': 'S01', 'text': sentence, 'start': 0, 'end': 3}]})
+    f.json('out/claims.json', {'claims': [dict(c, spoken=[{'scene': 'S01', 'sentence': 'S01.1'}]) for c in claims]})
+
+
+@case('S22')
+def _(f, bad):
+    # cine-lab #62: a counted drop 1930–1940 next to a forecast 2025–2035 (bad); two numbers of one source and period (good)
+    hist = {'claimId': 'drop', 'value': -16.1, 'display': '−16.1%', 'source': {'id': 'census'}, 'dataYears': [1930, 1940]}
+    other = {'claimId': 'proj', 'value': -5.3, 'display': '−5.3%', 'source': {'id': 'cbo'}, 'dataYears': [2025, 2035]} if bad else \
+        {'claimId': 'drop2', 'value': -8.0, 'display': '−8%', 'source': {'id': 'census'}, 'dataYears': [1930, 1940]}
+    s22_fixture(f, 'It fell 16.1 percent then, and is set to fall 5.3 percent.', [hist, other])
+
+
+def s22_named_case(bad):
+    """S22: today's schedule next to history's range; the sentence names both measures (good) or neither (bad)."""
+    f = F('S22-named')
+    try:
+        sch = {'claimId': 'sched', 'value': 96, 'display': '96', 'source': {'id': 'model'}, 'historical': False}
+        hist = {'claimId': 'minB', 'value': 11, 'display': '11', 'source': {'id': 'model'}, 'dataYears': [1991, 2026]}
+        s22_fixture(f, 'It takes 96 months, or 11.' if bad else 'On the schedule it takes 96 months; on paper, history gave 11.', [sch, hist])
+        return f.run('S22')
+    finally:
+        f.close()
+
+
+EXTRA.update({'S22/named': s22_named_case})
+
+
 EXTRA.update({'V17/three': v17_three_case})
 EXTRA.update({'V14/reason': v14_variant('reason'), 'V14/first5': v14_variant('first5'), 'V14/cut': v14_variant('cut')})
 EXTRA.update({'R07/voice': r07_none_case})
