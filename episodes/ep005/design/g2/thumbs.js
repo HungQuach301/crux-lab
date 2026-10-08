@@ -10,6 +10,7 @@ const FONTS = path.join(EP, '..', '..', 'toolkit', 'render', 'fonts');
 const C = Object.fromEntries(JSON.parse(fs.readFileSync(path.join(EP, 'out', 'claims.json'))).claims.map((c) => [c.claimId, c]));
 const d = (id) => { if (!C[id] || C[id].display == null) throw new Error('claim ' + id); return C[id].display; };
 const TK = JSON.parse(fs.readFileSync(path.join(EP, 'design', 'tokens.json'))).colors;
+const OWEN = TK['buyer-owen'], VICTOR = TK['buyer-victor'];
 const BG = TK.bg, INK = TK.ink, WARN = TK.warn, MUTE = TK['ink-muted'], BLUE = TK.accent, GRID = TK.grid;
 const BARS = JSON.parse(fs.readFileSync(path.join(EP, 'work', 'world-data', 'derived.json'))).bars;
 if (BARS.length !== C.nB.value) throw new Error('bars ≠ nB');
@@ -53,10 +54,10 @@ function thumb3() { // Owen 13 vs Victor 112 months on paper — ILLUSTRATIVE bu
   const yb = 570, hTop = 400, max = C.buyer_victor_monthsTo80Index.value, bw = 150, xo = 820, xv = 1040;
   const ho = hTop * C.buyer_owen_monthsTo80Index.value / max, hv = hTop * C.buyer_victor_monthsTo80Index.value / max;
   const bd = badge(48, 520, ['buyer_owen_monthsTo80Index', 'buyer_victor_monthsTo80Index']);
-  const body = `<rect x="${xo}" y="${yb - ho}" width="${bw}" height="${ho}" fill="${INK}"/><rect x="${xv}" y="${yb - hv}" width="${bw}" height="${hv}" fill="${BLUE}"/>` +
+  const body = `<rect x="${xo}" y="${yb - ho}" width="${bw}" height="${ho}" fill="${OWEN}"/><rect x="${xv}" y="${yb - hv}" width="${bw}" height="${hv}" fill="${VICTOR}"/>` +
     `<rect x="${xo - 30}" y="${yb}" width="${xv + bw - xo + 60}" height="3" fill="${MUTE}"/>` + bd.svg;
-  const texts = [T('h1', 44, 170, 96, `Owen: ${months('buyer_owen_monthsTo80Index')}`, ['buyer_owen_monthsTo80Index']),
-    T('h2', 44, 290, 96, months('buyer_victor_monthsTo80Index').replace(/^/, 'Victor: '), ['buyer_victor_monthsTo80Index'], { fill: BLUE }),
+  const texts = [T('h1', 44, 170, 96, `Owen: ${months('buyer_owen_monthsTo80Index')}`, ['buyer_owen_monthsTo80Index'], { fill: OWEN }),
+    T('h2', 44, 290, 96, months('buyer_victor_monthsTo80Index').replace(/^/, 'Victor: '), ['buyer_victor_monthsTo80Index'], { fill: VICTOR }),
     T('h3', 48, 420, 90, 'on paper', ['buyer_owen_monthsTo80Index', 'buyer_victor_monthsTo80Index'], { fill: WARN }), foot()];
   return { body, texts, badgeClaims: bd.claims, graphics: { claims: ['buyer_owen_monthsTo80Index', 'buyer_victor_monthsTo80Index'],
     what: 'two bars, height = months to 80% on paper for the two ILLUSTRATIVE buyers (Owen 13, Victor 112, same scale, no axis numbers). ILLUSTRATIVE badge.' } };
