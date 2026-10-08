@@ -1,0 +1,119 @@
+{
+ "ep003": {
+  "contract": "episodes/ep003/contract.json",
+  "video": null,
+  "V17": {
+   "id": "V17",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json"
+  }
+ },
+ "ep004": {
+  "contract": "episodes/ep004/contract.json",
+  "video": null,
+  "V17": {
+   "id": "V17",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/checks/page.json"
+  }
+ },
+ "ep005": {
+  "contract": "checks-runs/K40/contracts/ep005.json",
+  "video": null,
+  "V17": {
+   "id": "V17",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "labels on screen too short to read",
+     "value": 10,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "labels": 129
+    },
+    {
+     "text": "Fannie Mae: wait ≥ 2 years · loan ≤ 75%",
+     "words": 7,
+     "needS": 3,
+     "longestS": 1.0,
+     "at": 41.1
+    },
+    {
+     "text": "slowest case ≈ 9 years",
+     "words": 4,
+     "needS": 2,
+     "longestS": 0.9,
+     "at": 22.1
+    },
+    {
+     "text": "from about 1 year to more than 9 years · on paper",
+     "words": 11,
+     "needS": 4,
+     "longestS": 3.2,
+     "at": 453.1
+    },
+    {
+     "text": "payment 114 (9.5 years)",
+     "words": 4,
+     "needS": 2,
+     "longestS": 1.3,
+     "at": 152.7
+    },
+    {
+     "text": "on paper",
+     "words": 2,
+     "needS": 1,
+     "longestS": 0.4,
+     "at": 397.7
+    },
+    {
+     "text": "schedule",
+     "words": 1,
+     "needS": 1,
+     "longestS": 0.4,
+     "at": 397.7
+    },
+    {
+     "text": "It won't say whether to buy or wait",
+     "words": 8,
+     "needS": 3,
+     "longestS": 2.6,
+     "at": 52.7
+    },
+    {
+     "text": "national home price index",
+     "words": 4,
+     "needS": 2,
+     "longestS": 1.6,
+     "at": 297.2
+    },
+    {
+     "text": "decision lab · US personal finance",
+     "words": 5,
+     "needS": 2,
+     "longestS": 1.9,
+     "at": 55.6
+    },
+    {
+     "text": "at or under 75%:",
+     "words": 4,
+     "needS": 2,
+     "longestS": 1.9,
+     "at": 258.5
+    }
+   ],
+   "note": null
+  }
+ }
+}

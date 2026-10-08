@@ -137,7 +137,9 @@ async function openEnv() {
     }
     return { tm, list };
   }
-  return { tl, claimsArr, claims, tokens, pageCfg, illustrative, condPat, conditional, scenes, sceneAt, browser, page, url, resources, seek, objects, layer, shotMask, hasCam, camAt, shotRGB, collide };
+  // K4.0 (A13): a world page (factory, D-010) draws its 3D world on a canvas the objects() contract does not list; only a covering card/bg makes a frame text-only
+  const isWorld = await page.evaluate(() => typeof window.CHECKS.segments === 'function');
+  return { tl, claimsArr, claims, tokens, pageCfg, illustrative, condPat, conditional, scenes, sceneAt, browser, page, url, resources, seek, objects, layer, shotMask, hasCam, camAt, shotRGB, collide, isWorld };
 }
 
 async function closeEnv(env) {
@@ -155,8 +157,8 @@ async function sampleJob(env, frameList, warm) {
   const t0 = Date.now();
   const per = Object.fromEntries(scenes.map((s) => [s.id, { samples: 0, l1: [], issues: {}, examples: {} }]));
   const add = (sid, rid, ex) => { const P_ = per[sid]; P_.issues[rid] = (P_.issues[rid] || 0) + 1; ((P_.examples[rid] ||= []).length < 3) && P_.examples[rid].push(ex); };
-  const textTrack = [], yearsTrack = [], motionTrack = [];
-  let lastMotion = '';
+  const textTrack = [], yearsTrack = [], motionTrack = [], textOnlyTrack = [];
+  let lastMotion = '', lastTextOnly = null;
   let lastTextSig = '';
   const claimScenes = {}, claimFirst = {}, claimRoles = {}, claimFinal = {};
   const orphan = [], charObs = {}, charSides = {}, casesTrack = [], posRows = [], timeBad = [];
@@ -287,6 +289,12 @@ async function sampleJob(env, frameList, warm) {
     const mh = require('crypto').createHash('sha1').update(JSON.stringify(objs.filter((o) => !(o.kind === 'shape' && o.role === 'bg') && o.opacity > 0.05 && R.onFrame(R.B(o), 1))
       .map((o) => [o.kind === 'text' ? o.tid : o.key, o.box.map(Math.round), +o.opacity.toFixed(2)]))).digest('hex').slice(0, 12);
     if (mh !== lastMotion) { motionTrack.push({ t: +t.toFixed(2), h: mh }); lastMotion = mh; }
+    // K4.0 (A13, V15): text-only sample = visible text, no visible non-text object other than bg/card, and (world page) a bg/card covering >= 60% of the frame
+    const content = objs.filter((o) => o.kind !== 'text' && o.opacity > 0.05 && o.role !== 'bg' && o.role !== 'card' && R.onFrame(R.B(o), 1)).length;
+    const cover = objs.some((o) => o.kind !== 'text' && (o.role === 'bg' || o.role === 'card') && o.opacity > 0.5 &&
+      Math.max(0, Math.min(1920, o.box[2]) - Math.max(0, o.box[0])) * Math.max(0, Math.min(1080, o.box[3]) - Math.max(0, o.box[1])) >= 0.6 * 1920 * 1080);
+    const tOnly = items.length > 0 && content === 0 && (!env.isWorld || cover);
+    if (tOnly !== lastTextOnly) { textOnlyTrack.push({ t: +t.toFixed(2), scene: s.id, textOnly: tOnly }); lastTextOnly = tOnly; }
 
     // ---- pixel rules (every frame, no camera-move exemption; K1) ---------------------------------------------------
     // Texts moving on screen get their own criteria: V12 (the video frame shows the same sharp text as the clean render) holds for
@@ -418,14 +426,14 @@ async function sampleJob(env, frameList, warm) {
   if (splitRun.length) splitRuns.push(splitRun);
   video.close();
   videoY.close();
-  return { per, textTrack, motionTrack, yearsTrack, casesTrack, posRows, chartEvents, splitRuns, claimScenes: Object.fromEntries(Object.entries(claimScenes).map(([k, v]) => [k, [...v]])),
+  return { per, textTrack, motionTrack, textOnlyTrack, yearsTrack, casesTrack, posRows, chartEvents, splitRuns, claimScenes: Object.fromEntries(Object.entries(claimScenes).map(([k, v]) => [k, [...v]])),
     claimRoles: Object.fromEntries(Object.entries(claimRoles).map(([k, v]) => [k, [...v]])), claimFirst, claimFinal, badgeFirst, illFirst, orphan, charObs, charSides,
     timeBad, s08Without, s08Ex, s09Missing, s09Ex, s17Without, s17Ex, movingSamples, px };
 }
 
 // Merge scene jobs (in time order) into the state one sequential job would have built.
 function mergeStates(states) {
-  const M = { per: {}, textTrack: [], motionTrack: [], yearsTrack: [], casesTrack: [], posRows: [], chartEvents: [], splitRuns: [], claimScenes: {}, claimRoles: {}, claimFirst: {},
+  const M = { per: {}, textTrack: [], motionTrack: [], textOnlyTrack: [], yearsTrack: [], casesTrack: [], posRows: [], chartEvents: [], splitRuns: [], claimScenes: {}, claimRoles: {}, claimFirst: {},
     claimFinal: {}, badgeFirst: {}, illFirst: {}, orphan: [], charObs: {}, charSides: {}, timeBad: [], s08Without: 0, s08Ex: [], s09Missing: 0, s09Ex: [], s17Without: 0, s17Ex: [], movingSamples: 0,
     px: { collisions: [], movingCollisions: 0, safe: [], safeTravelling: 0, contrast: [], small: [], worstContrast: null, samples: 0, ncc: [], nccStatic: [], nccMoving: [], nccSkipped: 0 } };
   const minInto = (dst, src) => { for (const [k, v] of Object.entries(src)) if (dst[k] === undefined || v < dst[k]) dst[k] = v; };
@@ -439,6 +447,7 @@ function mergeStates(states) {
     }
     for (const e of S.textTrack) { const last = M.textTrack[M.textTrack.length - 1]; if (!last || JSON.stringify(last.items) !== JSON.stringify(e.items)) M.textTrack.push(e); }
     for (const e of S.motionTrack) { const last = M.motionTrack[M.motionTrack.length - 1]; if (!last || last.h !== e.h) M.motionTrack.push(e); }
+    for (const e of S.textOnlyTrack || []) { const last = M.textOnlyTrack[M.textOnlyTrack.length - 1]; if (!last || last.textOnly !== e.textOnly) M.textOnlyTrack.push(e); }
     for (const k of ['yearsTrack', 'casesTrack', 'posRows', 'chartEvents', 'splitRuns']) M[k].push(...S[k]);
     unionInto(M.claimScenes, S.claimScenes); unionInto(M.claimRoles, S.claimRoles);
     minInto(M.claimFirst, S.claimFirst); minInto(M.claimFinal, S.claimFinal); minInto(M.badgeFirst, S.badgeFirst); minInto(M.illFirst, S.illFirst);
@@ -496,7 +505,7 @@ function aggregate(env, S, seconds) {
   const out = {
     root: ROOT, step: STEP, pixelStep: PSTEP, samples: Object.values(per).reduce((a, p) => a + p.samples, 0), pixelSamples: px.samples, seconds,
     rules, characters, chartEvents, movingSamples, cameraFromFile: hasCam, resources, pageUrl: url,
-    textTrack, motionTrack, yearsTrack, casesTrack, orphanNumbers: orphan,
+    textTrack, motionTrack, textOnlyTrack: S.textOnlyTrack, yearsTrack, casesTrack, orphanNumbers: orphan,
     claimScenes: Object.fromEntries(Object.entries(claimScenes).map(([k, v]) => [k, [...v]])), claimFirst, claimRoles: Object.fromEntries(Object.entries(claimRoles).map(([k, v]) => [k, [...v]])), claimFinal,
     scenes: Object.fromEntries(Object.entries(per).map(([k, v]) => [k, { samples: v.samples, issues: v.issues }])),
   };

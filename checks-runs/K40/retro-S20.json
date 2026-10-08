@@ -1,0 +1,172 @@
+{
+ "ep003": {
+  "contract": "episodes/ep003/contract.json",
+  "video": null,
+  "S20": {
+   "id": "S20",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "scenes with > 2 new said numbers",
+     "value": 3,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "scene": "S02",
+     "new": [
+      {
+       "said": "two point four zero percent",
+       "sentence": "S02.4"
+      },
+      {
+       "said": "five years",
+       "sentence": "S02.8"
+      },
+      {
+       "said": "three months",
+       "sentence": "S02.8"
+      }
+     ]
+    },
+    {
+     "scene": "S05",
+     "new": [
+      {
+       "said": "fifty-two point three percent",
+       "sentence": "S05.1"
+      },
+      {
+       "said": "ninety-three point one percent",
+       "sentence": "S05.2"
+      },
+      {
+       "said": "five point zero percent",
+       "sentence": "S05.2"
+      },
+      {
+       "said": "seventeen months",
+       "sentence": "S05.5"
+      },
+      {
+       "said": "one point three seven eight and one point three eight eight times",
+       "sentence": "S05.6"
+      }
+     ]
+    },
+    {
+     "scene": "S08",
+     "new": [
+      {
+       "said": "three point four two percent",
+       "sentence": "S08.3"
+      },
+      {
+       "said": "three point four seven percent",
+       "sentence": "S08.4"
+      },
+      {
+       "said": "two point zero nine seven times",
+       "sentence": "S08.5"
+      }
+     ]
+    },
+    {
+     "perScene": {
+      "S01": 1,
+      "S02": 3,
+      "S03": 1,
+      "S04": 2,
+      "S05": 5,
+      "S06": 1,
+      "S07": 2,
+      "S08": 3
+     }
+    }
+   ],
+   "note": null
+  }
+ },
+ "ep004": {
+  "contract": "episodes/ep004/contract.json",
+  "video": null,
+  "S20": {
+   "id": "S20",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "scenes with > 2 new said numbers",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "perScene": {
+      "S01": 1,
+      "S02": 1,
+      "S03": 2,
+      "S04": 1,
+      "S07": 1,
+      "S08": 2,
+      "S10": 1,
+      "S13": 1,
+      "S16": 2
+     }
+    }
+   ],
+   "note": null
+  }
+ },
+ "ep005": {
+  "contract": "checks-runs/K40/contracts/ep005.json",
+  "video": null,
+  "S20": {
+   "id": "S20",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "scenes with > 2 new said numbers",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "perScene": {
+      "S01": 2,
+      "S02": 1,
+      "S03": 2,
+      "S05": 2,
+      "S06": 1,
+      "S07": 1,
+      "S08": 2,
+      "S11": 2,
+      "S12": 2,
+      "S13": 1,
+      "S14": 1,
+      "S15": 1,
+      "S16": 1,
+      "S17": 1,
+      "S18": 1,
+      "S20": 1
+     }
+    }
+   ],
+   "note": null
+  }
+ }
+}

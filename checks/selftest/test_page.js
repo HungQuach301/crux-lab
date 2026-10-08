@@ -45,7 +45,7 @@ const mod = (fn) => { const e = good(); fn(e); return e; };
 const find = (e, tid) => e.find((x) => x.tid === tid);
 
 const CASES = {
-  good: { els: good(), expect: { PASS: ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C10', 'C12', 'C14', 'C15', 'V02', 'V03', 'V04', 'V09', 'V08', 'V11', 'V12', 'S08', 'S09', 'S07'] } },
+  good: { els: good(), expect: { PASS: ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C10', 'C12', 'C14', 'C15', 'V02', 'V03', 'V04', 'V09', 'V08', 'V11', 'V12', 'S08', 'S09', 'S07', 'V15'] } },
   'V11-text-on-line': { els: mod((e) => { Object.assign(find(e, 'money'), { y: 780 }); find(e, 'money').x = 400; }), expect: { FAIL: ['V11'] } },
   'V11-badge-on-series': { els: mod((e) => Object.assign(find(e, 'ill'), { x: 900, y: 590 })), expect: { FAIL: ['V11'] } },
   'V11-axis-label-on-axis': { els: mod((e) => Object.assign(find(e, 'y1'), { y: 785 })), expect: { FAIL: ['V11'] } },
@@ -97,6 +97,9 @@ const CASES = {
   // K3.1 F12: the sampler records what the page really loads; a font face loaded but not declared fails, a declared image passes
   'F12-undeclared-font': { els: good(), load: { image: true, font: true }, expect: { FAIL: ['F12'] } },
   'F12-declared-image': { els: good(), load: { image: true }, expect: { PASS: ['F12'] } },
+  // K4.0 (A13): a text card (bg + texts only) is text-only for the whole fixture -> V15 fails; the clean chart frame passes (good)
+  'V15-text-card': { els: [{ type: 'rect', x: 0, y: 0, w: 1920, h: 1080, fill: TOK.bg, role: 'bg' }, { type: 'text', tid: 'head', text: 'Same average', x: 640, y: 360, size: 64, color: TOK.ink, level: 1, center: true }],
+    expect: { FAIL: ['V15'] } },
   'S07-orphan-number': { els: mod((e) => e.push({ type: 'text', tid: 'orph', text: 'Up 12% since then', x: 700, y: 980, size: 32, color: TOK.ink })), expect: { FAIL: ['S07'] } },
 };
 

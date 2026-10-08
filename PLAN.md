@@ -20,5 +20,5 @@ PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLA
 
 ## Hàng chờ phiên K (`checks-appeal.md`, thứ tự Phiên T5)
 1. Hỏi chủ dự án một gói (sửa luật cũ): **A22** V11 glyph/plate → **A10 + A16** F11/F12 đọc từ nhà máy → **A9 + A21** rubric khuyên.
-2. Chỉ thêm, tự merge khi selftest đạt (D-008 §2): A20 → A17, A14, A18 → A13, A19, A24 → A23 → **A25, A26** (chỉ báo hồi tố Tập 3–5 đã chạy).
+2. ~~Chỉ thêm (D-008 §2): A20 → A17, A14, A18 → A13, A19, A24 → A23 → A25, A26~~ — **XONG, khoá K4.0** (LOCK `f3089787…`, 08/10): S19 CHẶN; S20, S21, V14 CHÍNH; R07, R08, T4, V15, V17, S22 THAM KHẢO (chỉ báo, chưa hiệu chuẩn). Selftest Python 324/324, trang 64/64; 89/89 luật cũ trùng trước/sau trên Tập 3–5. A12 xong.
 3. Báo cáo/chữ: A15, A12. Còn mở: A5, A7, A8, A11.
