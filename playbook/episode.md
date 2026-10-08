@@ -63,6 +63,12 @@ Mỗi agent con tốn **≈ 32–49 nghìn token cố định** (Mốc B, Tập 
 - **Câu mất chú ý** hỏi ở mọi kiểm mù lời (C2). Ngưỡng so/sửa đọc theo **loại khối**, không theo cảnh: *phương pháp / định nghĩa / số dày / nhân vật*. Một loại khối được **≥ 2/6** người đọc nêu → WRITER mới sửa khối đó (như Tập 5 v2: S19 còn 1 câu → S18 3/6).
 - **Một lượt người đọc model khác ở C2 mỗi 3 tập** (Tập 6, 9, 12…): thêm 1–2 người đọc headless Opus hoặc Haiku (`headless.sh --model`) trên cùng gói lời, cùng người chấm; giảm điểm mù chung của Sonnet (người đọc cùng model tương quan cao, lessons H3). Ghi kết quả so với 6 người Sonnet vào ledger; lệch đạt/trượt hoặc lệch loại khối → nêu ở G1.
 
+## 2b. Thước chỉ báo chống tụt hình (tổng kết Tập 5 §3.2–3.3, từ Tập 6)
+Chạy ở C4 (spine + animatic) và C5 (bản cuối), báo một bảng trong gói G2; **chỉ báo, không ngưỡng, không mở vòng sửa chỉ vì số** (CHARTER §4). Lệnh và trạng thái: `toolkit/indicators/README.md`; hiệu chuẩn 08/10 trên Tập 1 (đối chứng âm), Tập 4 v3k, Tập 5: `tongket-t5/indicators/CALIBRATION.md`.
+- **Giữ:** nhịp trên spine (quãng có lời không cú máy/không vật đổi trạng thái > 8 s — **chưa hiệu chuẩn**, đối chứng dương 2/4); đa dạng khung nhìn theo máy quay (xếp đúng: Tập 1 cụm lớn nhất 58,5 %, Tập 5 6,8 %); thước mục 14 xếp đúng (xem CALIBRATION).
+- **Bỏ (xếp sai):** chấm mù khung, xem liền mạch mù — người đọc headless xếp Tập 1 trên Tập 5 / coi chuyển chế độ D-010 là "đổi phong cách". Gu hình đo bằng L3.
+- Bên dựng thêm cờ `change: major|minor` cho mốc vật thể ở beat và `anchor: true` cho số neo để thước nhịp đo được "đổi mang nghĩa" (hiệu chuẩn lại sau Tập 6).
+
 ## 3. Đầu bài WRITER (C2)
 
 WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau:

@@ -6,14 +6,14 @@
 #   trần = input + cache_write + output (đầu vào mới + sinh ra); cache_read báo riêng. `in` = input + cache_write + cache_read (cận trên, giữ
 #   cho tệp cũ Tập 4–5), `out` = output. Token đo: ≈ 7 nghìn/lượt chữ, ≈ 11 nghìn/lượt ảnh (agent con: 32–49 nghìn).
 set -euo pipefail
-prompt=$1; out=$2; shift 2
+prompt=$(realpath "$1"); out=$2; shift 2   # đường tuyệt đối trước khi cd vào thư mục trống
 tools=""; model=sonnet
 while [ $# -gt 0 ]; do case $1 in --read) tools=Read;; --model) model=$2; shift;; esac; shift; done
 args=(-p --model "$model" --output-format json --no-session-persistence --tools "$tools")
 [ -n "$tools" ] && args+=(--allowedTools "$tools")
 raw=$(mktemp)
 # chạy từ thư mục trống để không nạp CLAUDE.md hay skill của repo
-(cd "$(mktemp -d)" && claude "${args[@]}" < "$(realpath "$prompt")") > "$raw"
+(cd "$(mktemp -d)" && claude "${args[@]}" < "$prompt") > "$raw"
 python3 - "$raw" "$out" <<'PY'
 import json, sys
 d = json.load(open(sys.argv[1]))

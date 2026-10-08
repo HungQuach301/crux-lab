@@ -1,0 +1,22 @@
+{
+ "answer": "{\"t\": 60, \"kind\": \"frozen\", \"why\": \"Lender/borrower/house tableau barely changes from about 60s to 90s while the narration moves through cost, measurement and the example\"}\n{\"t\": 255, \"kind\": \"frozen\", \"why\": \"The 24-month bar chart with the 75% highlight sits almost unchanged for about 25s while the narration moves on to the long tail\"}\n{\"t\": 435, \"kind\": \"frozen\", \"why\": \"The 'How we know this' text card stays static for about 20s\"}\n{\"t\": 455, \"kind\": \"frozen\", \"why\": \"The house and building scene with 'on paper is not removed' holds still through the closing narration\"}\n{\"flow\": 8}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4132,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 4132,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 20036,
+   "cache_read": 8846,
+   "output": 2067,
+   "in": 28886,
+   "out": 2067
+  }
+ },
+ "turns": 13
+}

@@ -1,0 +1,22 @@
+{
+ "answer": "{\"t\": 12.5, \"kind\": \"style\", \"why\": \"flat dark chart cuts to a 3D wooden-table scene\"}\n{\"t\": 25, \"kind\": \"style\", \"why\": \"3D cash stacks cut back to the flat chart\"}\n{\"t\": 32.5, \"kind\": \"style\", \"why\": \"flat chart cuts to a photoreal wood-table letter\"}\n{\"t\": 47.5, \"kind\": \"style\", \"why\": \"letter cut to a dark 3D row of houses, then to a flat chart at 55\"}\n{\"t\": 67.5, \"kind\": \"style\", \"why\": \"flat chart cuts to a night-street houses scene\"}\n{\"t\": 90, \"kind\": \"frozen\", \"why\": \"the same house and loan card hold about 15 s, until the chart at 102.5\"}\n{\"t\": 130, \"kind\": \"frozen\", \"why\": \"the chart with a '?' box holds still for about 20 s, with the letter (140-150) static after it\"}\n{\"t\": 180, \"kind\": \"frozen\", \"why\": \"the loan-costs cash stacks barely change for about 5 s\"}\n{\"t\": 190, \"kind\": \"frozen\", \"why\": \"the median-bill chart barely changes for about 15 s\"}\n{\"t\": 257.5, \"kind\": \"style\", \"why\": \"3D scene cuts to a flat clock graphic, then back to 3D at 277.5\"}\n{\"t\": 285, \"kind\": \"frozen\", \"why\": \"the '$1,133 extra owed' 3D scene barely changes for about 25 s\"}\n{\"t\": 315, \"kind\": \"style\", \"why\": \"3D break-even scene cuts to flat line charts\"}\n{\"t\": 372.5, \"kind\": \"style\", \"why\": \"flat chart cuts to the 3D Walt houses scene, which holds still for about 7 s\"}\n{\"t\": 395, \"kind\": \"style\", \"why\": \"3D night street cuts to flat bar charts\"}\n{\"t\": 487.5, \"kind\": \"style\", \"why\": \"flat chart cuts to the wood-table letter, then to a flat chart at 492.5\"}\n{\"t\": 535, \"kind\": \"frozen\", \"why\": \"the dimmed 'What these numbers are' bars hold for about 12 s\"}\n{\"t\": 580, \"kind\": \"frozen\", \"why\": \"the final house and cash stack barely move for about 10 s\"}\n{\"flow\": 6}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4743,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 287,
+   "in": 4743,
+   "out": 287
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 24565,
+   "cache_read": 9455,
+   "output": 5773,
+   "in": 34024,
+   "out": 5773
+  }
+ },
+ "turns": 16
+}

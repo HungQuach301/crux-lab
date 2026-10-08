@@ -1,0 +1,22 @@
+{
+ "answer": "{\"t\": 57, \"kind\": \"style\", \"why\": \"Full-screen CRUX logo card with faded houses, then a new PMI scene starts\"}\n{\"t\": 60, \"kind\": \"frozen\", \"why\": \"Same PMI house/notepad scene held for about 20 s while narration covers PMI, the lender and cost\"}\n{\"t\": 247, \"kind\": \"style\", \"why\": \"Cuts from flat chart to the 3D house scene with 'insurance still on', then back to flat charts\"}\n{\"t\": 255, \"kind\": \"frozen\", \"why\": \"The 24-month bar chart barely changes for about 30 s while the narration covers several points\"}\n{\"t\": 440, \"kind\": \"frozen\", \"why\": \"'How we know this' text card stays static while narration moves on to the conclusion\"}\n{\"t\": 452, \"kind\": \"frozen\", \"why\": \"Final house/apartment scene holds still for about 15 s during the closing narration\"}\n{\"flow\": 8}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4132,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 18,
+   "in": 4132,
+   "out": 18
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 20031,
+   "cache_read": 8840,
+   "output": 1881,
+   "in": 28875,
+   "out": 1881
+  }
+ },
+ "turns": 13
+}

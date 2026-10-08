@@ -1,0 +1,22 @@
+{
+ "answer": "{\"t\": 17.5, \"kind\": \"style\", \"why\": \"3D house and neighbourhood scene cuts to a flat 2D chart on a dark background\"}\n{\"t\": 30, \"kind\": \"style\", \"why\": \"Flat 2D cap chart cuts back to the 3D house and people scene with a different layout\"}\n{\"t\": 42.5, \"kind\": \"style\", \"why\": \"Return from the 3D scene to a 2D chart, now with yellow labels and a new title\"}\n{\"t\": 65, \"kind\": \"frozen\", \"why\": \"Final Phoenix ×3.8 chart is identical in the last frames while narration continues\"}\n{\"flow\": 6}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1965,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 1965,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 4734,
+   "cache_read": 6677,
+   "output": 687,
+   "in": 11415,
+   "out": 687
+  }
+ },
+ "turns": 3
+}

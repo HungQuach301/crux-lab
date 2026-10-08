@@ -1,0 +1,22 @@
+{
+ "answer": "{\"t\": 60, \"kind\": \"frozen\", \"why\": \"PMI scene (house, person, paper) barely changes while the narration explains what PMI is\"}\n{\"t\": 80, \"kind\": \"frozen\", \"why\": \"Same lender/borrower scene with 'cost: not shown' for about 10s while the narration moves on to the example\"}\n{\"t\": 140, \"kind\": \"frozen\", \"why\": \"Law schedule chart holds still for several frames during the conditions narration\"}\n{\"t\": 258, \"kind\": \"frozen\", \"why\": \"75% bar chart stays almost unchanged for about 20s while the narration moves to the Fannie Mae comparison\"}\n{\"t\": 430, \"kind\": \"frozen\", \"why\": \"'How we know this' card sits static for about 15s\"}\n{\"t\": 455, \"kind\": \"frozen\", \"why\": \"Closing 'on paper is not removed' frame is static through to the end\"}\n{\"flow\": 7}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4132,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 25,
+   "in": 4132,
+   "out": 25
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 20034,
+   "cache_read": 8844,
+   "output": 2067,
+   "in": 28882,
+   "out": 2067
+  }
+ },
+ "turns": 13
+}
