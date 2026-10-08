@@ -1,10 +1,11 @@
 // Tập 6 · C3 · s29-three (B29) · ba người, ba hàng: cùng khoản tăng 2 %, năm 20: 10 · about 9 · about 4; khác nhau = tháng bắt đầu.
+// FIX-R2: ba tấm séc cùng lớn lên ở "Same raise" tới cùng cỡ năm 20 (×1,486) cạnh ba hàng 10 · ≈ 9 · ≈ 4.
 import * as THREE from 'three';
-import { setup, column, showColumn, modeLook, chrome, label, kf, show, C } from '/episodes/ep006/world/c3kit.js';
+import { setup, column, showColumn, setCheck, modeLook, chrome, label, kf, show, C } from '/episodes/ep006/world/c3kit.js';
 import { mix } from '/toolkit/factory/world/core.js';
 
 const SEG = '/episodes/ep006/world/c3/s29-three/';
-const SZ = { size: 0.48, gap: 0.07 };
+const SZ = { size: 0.42, gap: 0.05, cw: 0.46, cbase: 0.8 };   // FIX-R2: hàng hẹp hơn để [người][séc][hàng] ×3 vừa khung
 
 export async function boot(res) {
   const poses = {
@@ -13,9 +14,9 @@ export async function boot(res) {
     cThree: { pos: [0, 2.74, 46.3], tgt: [0, 2.74, 0], fov: 14, chart: 1 },
   };
   const { S, CL, cue, st, O, renderer, scene, floor, CAM } = await setup(SEG, res, poses);
-  const cols = [['edna', 'Edna', -6.0, CL.kept_up_last_start_20y.display, '10', 'full'],
-    ['ruth', 'Ruth', 0, CL.guide_start.display, 'about 9', 'nine'],
-    ['carl', 'Carl', 6.0, CL.worst_window_start_year_20y.display, 'about 4', 'four']]
+  const cols = [['edna', 'Edna', -5.6, CL.kept_up_last_start_20y.display, '10', 'full'],
+    ['ruth', 'Ruth', 0.4, CL.guide_start.display, 'about 9', 'nine'],
+    ['carl', 'Carl', 6.4, CL.worst_window_start_year_20y.display, 'about 4', 'four']]
     .map(([id, nm, x, start, val, ck]) => ({ ...column(scene, { x, name: id, ...SZ }), id, nm, start, val, ck }));
   const b = cue, mode = S.moves.find((m) => m.verb === 'mode');
 
@@ -24,7 +25,7 @@ export async function boot(res) {
     modeLook(scene, floor, cw);
     for (const c of cols) {
       const pulse = c.id === 'edna' ? show(t, b.d0.edna) * (1 - show(t, b.d0.edna + 0.6)) : 0;
-      c.row.set({ value: kf(S.rows[c.id], t), pulse }); showColumn(c, 1);
+      c.row.set({ value: kf(S.rows[c.id], t), pulse }); showColumn(c, 1); setCheck(c, S, t);
     }
     renderer.render(scene, cam);
     // ---------------- lớp phủ

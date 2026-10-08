@@ -1,7 +1,8 @@
 // Tập 6 · C3 · s27-edna (B27) · Edna: hàng sáng đủ ở năm 20 (trần 10) → lùi máy: hai quãng Edna/Carl trên một trục thời gian, phần chồng tô;
 // cùng mấy năm giá: hàng Edna vẫn 10 sáng, hàng Carl mờ đi.
+// FIX-R2: tấm séc của Edna lớn lên ×1,02 mỗi kỷ niệm (bộ đếm 1 → 20) trong khi hàng vẫn đủ 10; "check: +2% a year" trên séc; séc Carl năm 1 → 3.
 import * as THREE from 'three';
-import { setup, column, showColumn, modeLook, chrome, brace, label, kf, show, PLATE, C } from '/episodes/ep006/world/c3kit.js';
+import { setup, column, showColumn, setCheck, checkLabel, checkBox, modeLook, chrome, brace, label, kf, show, PLATE, C } from '/episodes/ep006/world/c3kit.js';
 import { ease, lin, mix, rgba } from '/toolkit/factory/world/core.js';
 
 const SEG = '/episodes/ep006/world/c3/s27-edna/';
@@ -9,13 +10,14 @@ const AX = { y0: 1949, y1: 1986, x0: 200, x1: 1720, eY: 318, cY: 400, h: 36 };  
 
 export async function boot(res) {
   const poses = {
-    wEdna0: { pos: [-7.4, 2.9, 9.8], tgt: [-3.1, 0.6, 0], fov: 35, chart: 0 },
-    wEdna: { pos: [-6.0, 2.2, 7.8], tgt: [-3.7, 0.5, 0], fov: 35, chart: 0 },
-    cEdna: { pos: [-1.665, 0.706, 25.86], tgt: [-1.665, 0.706, 0], fov: 14, chart: 1 },
-    cBoth: { pos: [0, 2.27, 34.36], tgt: [0, 2.27, 0], fov: 14, chart: 1 },
+    wEdna0: { pos: [-8.0, 2.9, 9.8], tgt: [-3.9, 0.6, 0], fov: 35, chart: 0 },
+    wEdna: { pos: [-6.8, 2.2, 7.8], tgt: [-4.5, 0.5, 0], fov: 35, chart: 0 },
+    cEdna: { pos: [-2.4, 1.0, 25.86], tgt: [-2.4, 1.0, 0], fov: 14, chart: 1 },
+    cBoth: { pos: [-0.6, 2.27, 34.36], tgt: [-0.6, 2.27, 0], fov: 14, chart: 1 },
   };
   const { S, CL, cue, st, O, renderer, scene, floor, CAM } = await setup(SEG, res, poses);
-  const edna = column(scene, { x: -3.6, name: 'edna' }), carl = column(scene, { x: 3.6, name: 'carl' });
+  const SZ = { size: 0.45, gap: 0.08 };   // FIX-R2: hàng hẹp hơn để [người][séc][hàng] của hai người vừa khung cBoth
+  const edna = column(scene, { x: -3.6, name: 'edna', ...SZ }), carl = column(scene, { x: 3.6, name: 'carl', ...SZ });
   const b = cue, mode = S.moves.find((m) => m.verb === 'mode'), pull = S.moves.find((m) => m.verb === 'pull');
   const yr = (y) => AX.x0 + (AX.x1 - AX.x0) * (y - AX.y0) / (AX.y1 - AX.y0);
   const cnt = (Y, t) => Y.filter((y) => t >= y).length;
@@ -28,12 +30,13 @@ export async function boot(res) {
     const vE = kf(S.rows.edna, t), vC = kf(S.rows.carl, t);
     edna.row.set({ value: vE, appear: eA, pulse: show(t, b.c4.end) * (1 - show(t, b.c4.end + 1.2)) }); showColumn(edna, eA);
     carl.row.set({ value: vC, appear: cA }); showColumn(carl, cA);
+    setCheck(edna, S, t, eA); setCheck(carl, S, t, cA);
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0, u = ease(t, pull.t0, pull.t1); log.roi = {};
     for (const [col, nm, a] of [[edna, 'Edna', eA], [carl, 'Carl', cA]]) {
       const [x, y] = O.toScreen(col.person.position.x, col.h + 0.12, col.person.position.z);
-      label(O, cw < 0.95 ? `${nm} · ILLUSTRATIVE` : nm, x, y - 24, { align: 'center', kind: 'name', px: 48, w: 600, alpha: a * (cw < 0.95 ? 1 - cw : u) });
+      label(O, cw < 0.95 ? `${nm} · ILLUSTRATIVE` : nm, x, y - 24, { align: 'center', kind: 'name', px: 48, w: 600, alpha: a * (cw < 0.95 ? 1 - cw : ease(t, pull.t1 - 0.25, pull.t1)) });   // F-2: tên ngắn chỉ hiện khi lùi máy xong (không chồng nhãn ngày đang trượt)
     }
     // cEdna: nhãn ngày + kept up (cột trái); cBoth: nhãn ngày đi lên đầu thanh của Edna
     const mA = ok * show(t, mode.t1);
@@ -50,7 +53,7 @@ export async function boot(res) {
     label(O, 'all 10 crates still lit', x0, yb + 80, { kind: 'number', px: 48, alpha: gA });
     log.roi['c1.twenty'] = [x0 - 10, yt - 90, x1 + 10, yb + 110];
     // trục thời gian (cBoth): thanh Edna ("Her"), thanh Carl ("Carl's"), phần chồng ("same")
-    const bA = ok * u, eW = lin(t, b.c3.her, b.c3.her + 0.8), cWd = lin(t, b.c3.carl, b.c3.carl + 0.8), sA = ok * show(t, b.c4.same);
+    const bA = ok * u, eW = lin(t, b.c2.answer, b.c2.answer + 0.8), cWd = lin(t, b.c3.carl, b.c3.carl + 0.8), sA = ok * show(t, b.c4.same);
     if (bA > 0.01) {
       const c = O.ctx; c.save();
       if (sA > 0.01) { c.globalAlpha = sA; c.fillStyle = rgba(C.muted, 0.5); c.fillRect(yr(c0), AX.eY - 12, yr(e0 + 20) - yr(c0), AX.cY + AX.h - AX.eY + 24); }
@@ -63,7 +66,8 @@ export async function boot(res) {
     }
     label(O, `Carl · ILLUSTRATIVE · from ${CL.worst_window_start_year_20y.display}`, AX.x1, AX.cY + AX.h + 56, { align: 'right', kind: 'number', px: 48, w: 600, alpha: ok * show(t, b.c3.carl) });
     label(O, 'same years of prices: her last, his first', (yr(c0) + yr(e0 + 20)) / 2, 205, { align: 'center', kind: 'compare', px: 48, alpha: sA });
-    log.roi['c3.her'] = [AX.x0 - 10, AX.eY - 70, AX.x1 + 10, AX.cY + AX.h + 70]; log.roi['c4.same'] = log.roi['c3.her'];
+    log.roi['c2.answer'] = [AX.x0 - 10, AX.eY - 70, AX.x1 + 10, AX.cY + AX.h + 70]; log.roi['c4.same'] = log.roi['c2.answer'];
+    checkLabel(O, edna, CL, ok * show(t, b.c1.check), { dx: 14 }); log.roi['c1.check'] = checkBox(O, edna);
     // hàng của Carl: bộ đếm năm 1 → 3 ở "start"
     const kC = cnt(S.years.carl, t);
     if (kC >= 1) { const [xc, yc] = O.toScreen(carl.row.edgeX(10), top, 0.4); label(O, `year ${kC}`, xc, yc - 30, { align: 'right', kind: 'number', px: 52, alpha: ok }); }

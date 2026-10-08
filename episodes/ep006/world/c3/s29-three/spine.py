@@ -3,7 +3,9 @@
 Thế giới: ba người không mặt (Edna, Ruth, Carl — ILLUSTRATIVE), mỗi người sau hàng 10 thùng sáng đủ (khoản đầu). Theo lời S29.1: "Edna" hàng
 loé, vẫn đủ 10; "Ruth" hàng mờ tới 0,904; "Carl" hàng mờ qua năm 5/10/15/20 tới 0,431. → ĐỒ THỊ trước "crates" (số chỉ ở đồ thị):
 "crates at year 20 · same 2% raise"; "full" = "10" trên hàng Edna, "nine" = "about 9" trên hàng Ruth, "four" = "about 4" trên hàng Carl;
-nhãn tên + tháng bắt đầu; "month" = dòng tháng bắt đầu sáng lên (điều khác nhau duy nhất)."""
+nhãn tên + tháng bắt đầu; "month" = dòng tháng bắt đầu sáng lên (điều khác nhau duy nhất).
+FIX-R2: mỗi người một tấm séc (obj6.Check) cạnh hàng; "Same raise" (S29.1) = ba séc cùng bước lên 20 kỷ niệm ×1,02 → ba séc CÙNG CỠ năm 20
+(×1,486, cùng một mức tăng) trước khi ba hàng mờ khác nhau theo tên. Séc bước im lặng (đang có whoosh của động tác mở đoạn)."""
 import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); W6 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W6)
@@ -26,13 +28,14 @@ moves = K.moves_from([
     ('mode', 'wThree', 'cThree', cue['d0']['carl'] + 1.15, cue['d1']['crates'], 0.9,
      'lời S29.2 đặt số thùng ở năm 20 (10 · about 9 · about 4): số chỉ ở chế độ đồ thị (quy tắc 1) → đồ thị', 'whoosh_mode', {'start': 5.0})])
 Pr, Pc = K.P['ruth'], K.P['carl']
+cyrs = K.spread(A.at('@S29.1:Same'), A.at('@S29.1:rule') + 0.3, 20)      # "Same raise, same rule": ba séc cùng lớn lên 20 kỷ niệm
 rk, ev = K.step_row([cue['d0']['ruth']], [Pr[-1]], ramp=0.6, v0=1.0)
 ct = K.spread(cue['d0']['carl'], cue['d0']['carl'] + 0.9, 4)
 ck, ev2 = K.step_row(ct, [Pc[5], Pc[10], Pc[15], Pc[20]], ramp=0.22, v0=1.0)
 ev += ev2 + [{'t': cue['d0']['edna'], 'kind': 'tick', 'v': 0.5}, {'t': cue['d1']['full'], 'kind': 'tick', 'v': 0.6}, {'t': cue['d1']['nine'], 'kind': 'tick', 'v': 0.5},
              {'t': cue['d1']['four'], 'kind': 'tick', 'v': 0.35}, {'t': cue['d2']['month'], 'kind': 'tick', 'v': 0.4}]
 K.finish(HERE, 'ep006 C3 · s29-three (S29)', words, takes, lines, end, beats, moves, ev,
-         {'rows': {'edna': [[0, 1.0]], 'ruth': rk, 'carl': ck},
+         {'rows': {'edna': [[0, 1.0]], 'ruth': rk, 'carl': ck}, 'cards': {n: K.step_check(cyrs, ramp=0.06) for n in ('edna', 'ruth', 'carl')},
           'label_cues': {'d1.crates': 'crates at year 20 · same 2% raise', 'd1.full': '10', 'd1.nine': 'about 9', 'd1.four': 'about 4'},
           'visual_cues': ['d0.edna', 'd0.ruth', 'd0.carl', 'd1.full', 'd1.nine', 'd1.four', 'd2.month']},
          [cue['d0']['carl'], cue['d1']['four']])

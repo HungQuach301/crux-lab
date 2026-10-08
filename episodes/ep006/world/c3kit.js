@@ -3,7 +3,7 @@
 import * as THREE from 'three';
 import { Studio, Person, setOpacity } from '/toolkit/factory/world/lib3d.js';
 import { Camera, Stage, loadJSON, fonts, C, ease } from '/toolkit/factory/world/core.js';
-import { Crates } from '/episodes/ep006/world/obj6.js';
+import { Crates, Check, checkScale } from '/episodes/ep006/world/obj6.js';
 
 export const POP = 0.2, PLATE = '#0B0E13', FIG = '#C9D3E2';
 export const kf = (k, t) => { if (!k || !k.length) return 1; if (t <= k[0][0]) return k[0][1];
@@ -20,14 +20,24 @@ export async function setup(seg, res, poses) {
   return { S, CL, cue, st, O: st.O, renderer: st.renderer, scene, floor, CAM: Camera(poses, S.moves) };
 }
 
-// cột: hàng 10 thùng tâm x, người không mặt (W4, ILLUSTRATIVE) đứng sau thùng đầu tiên (đầu trái của hàng: hàng "của" người đó)
-export function column(scene, { x, z = 0, size = 0.5, gap = 0.1, name, h = 1.45 }) {
+// cột (FIX-R2): [người][tấm séc][hàng 10 thùng] — người không mặt (W4, ILLUSTRATIVE) đứng bên trái tấm séc của mình, séc đứng ngay đầu trái
+// hàng thùng nó mua: cùng một khung thấy séc lớn lên (1,02^k) trong khi thùng tối dần.
+export function column(scene, { x, z = 0, size = 0.5, gap = 0.1, name, h = 1.45, cw = 0.48, cbase = 0.75 }) {
   const row = Crates({ size, gap, name }); row.position.set(x, 0, z); scene.add(row);
-  const person = Person({ h, color: FIG }); person.position.set(row.crateX(0), 0, z - size * 1.3); scene.add(person);
+  const card = Check({ w: cw, base: cbase, name }); card.position.set(row.edgeX(0) - 0.18 - cw / 2, 0, z); scene.add(card);
+  const person = Person({ h, color: FIG }); person.position.set(card.position.x - cw / 2 - 0.3, 0, z - 0.25); scene.add(person);
   person.userData.checks = { role: 'mark', char: name, key: 'person-' + name };
-  return { row, person, x, z, h, size, name };
+  return { row, card, person, x, z, h, size, name, cw, cbase };
 }
+// nhãn sự thật của tấm séc (chỉ chế độ đồ thị, claim two_pct_growth_20y_pct): đặt trên đỉnh séc ở năm 20, căn trái theo mép trái séc
+export function checkLabel(O, col, CL, alpha, o = {}) {
+  const [x, y] = O.toScreen(col.card.position.x - col.cw / 2, col.cbase * checkScale(20) + 0.06, col.z);
+  return label(O, `check: +${CL.two_pct_growth_20y_pct.display} a year`, x + (o.dx || 0), y - 22, { kind: 'number', px: o.px || 48, alpha, ...o });
+}
+export const checkBox = (O, col) => { const [x0, y0] = O.toScreen(col.card.position.x - col.cw / 2 - 0.1, col.cbase * checkScale(20), col.z), [x1, y1] = O.toScreen(col.card.position.x + col.cw / 2 + 0.1, 0, col.z); return [x0 - 6, y0 - 6, x1 + 6, y1 + 6]; };
 export function showColumn(col, a) { setOpacity(col.person, a); col.person.scale.setScalar(Math.max(0.001, 0.85 + 0.15 * a)); }
+// tấm séc theo khung khoá k (số kỷ niệm) của spine: S.cards[tên] = [[t, k], …]; không có khoá → k = k0
+export function setCheck(col, S, t, appear = 1, k0 = 0) { const K = (S.cards || {})[col.name]; return col.card.set({ k: K ? kf(K, t) : k0, appear }); }
 
 // chế độ đồ thị: sàn + sương lùi đi (như Tập 5)
 export function modeLook(scene, floor, cw) { floor.material.opacity = 1 - 0.85 * cw; scene.fog.near = 30 + 120 * cw; scene.fog.far = 80 + 220 * cw; }

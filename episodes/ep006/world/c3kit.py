@@ -1,6 +1,7 @@
 """Tập 6 · C3 · phần chung của bốn đoạn N1 (hàng 10 thùng): lời thật cắt theo câu (wlib), nhịp/động tác/kiểm quy tắc (spine v2 nhà máy),
 khung khoá trạng thái hàng thùng (value theo giờ) và âm của mỗi lần đổi trạng thái.
   rows: {tên: [[t, value], …]} — nội suy tuyến tính trong scene.js (hàng giữ value trước mốc đầu / sau mốc cuối).
+  cards: {tên: [[t, k], …]} — tấm séc (FIX-R2), k = số kỷ niệm đã qua, chiều cao ×1,02^k (step_check).
   step_row(times, values, ramp) — mỗi lần đổi = một dốc ngắn ramp s bắt đầu đúng mốc; mỗi lần đổi một nốt 'data' (cao độ = value, audio.py S2).
 Mật độ sfx (F-2, sfx_labels.py): nốt 'data' là lớp âm dữ liệu riêng (không tính vào sfx/phút); 'tick'/'land'/whoosh giữ ≤ 6 trong 10 s."""
 import json, os, sys
@@ -23,6 +24,15 @@ def step_row(times, values, ramp=0.3, v0=None):
         ev.append({'t': round(t, 3), 'kind': 'data', 'v': round(min(1.0, v), 3)})
         prev = v
     return kf, ev
+
+
+def step_check(times, k0=0, ramp=0.12):
+    """FIX-R2 tấm séc: khung khoá [[t, k]] — tại times[i] séc bước từ kỷ niệm k0+i lên k0+i+1 (chiều cao base·1,02^k, obj6.Check) trong ramp s.
+    Không nốt riêng: séc bước cùng nhịp với hàng thùng và dùng chung nốt 'data' của hàng (không tăng mật độ âm)."""
+    kf = [[0.0, k0]]
+    for i, t in enumerate(times):
+        kf += [[round(t, 3), k0 + i], [round(t + ramp, 3), k0 + i + 1]]
+    return kf
 
 
 def spread(a, b, n):
