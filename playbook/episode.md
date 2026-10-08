@@ -104,6 +104,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 ## 5. Gói phát hành và Shorts (G2)
 - **Tiêu đề:** nháp ở G1 (so cặp một vòng, Tham khảo).
 - **Thumbnail:** ở G2 chỉ đưa 3 thumbnail đã qua claim-risk; **không so cặp** (Tập 3–4: người đọc chọn trùng chủ dự án 2/2, lessons H2). Chủ dự án chọn mặc định + thứ tự Test & Compare; T&C là số đo thật.
+- **Thumbnail bằng hình thế giới 3D (tổng kết Tập 5 §3.9, từ Tập 6):** thumbnail = **một khung tĩnh của thế giới** (nhà, người không mặt, chồng tiền) render bằng chính `build_seg.py` ở 1280×720 từ cảnh đã duyệt C3, cộng **tối đa 3–4 từ lớn**; bỏ chữ + cột 2D (`design/g2/thumbs.js` cũ). Ba phương án mỗi tập: (1) cảnh thế giới + 3 từ; (2) cảnh thế giới + 1 số "on paper"; (3) kiểu Tập 5 thumb-3 (chữ + cột 2D) làm **đối chứng trong Test & Compare ít nhất 2 tập**. Claim-risk áp như mọi khung (ILLUSTRATIVE, "on paper", không nêu số tiền phí khi tập cấm). Kiểm đọc được ở 168×94 px trước G2.
 - **Không tóm tắt AI ở G2** (0/3 lần đổi quyết định); sức kéo của móc đo ở C2 (§3.9).
 - **Shorts 2–3 cái 9:16 mỗi tập**, cắt từ nhịp then chốt đã qua checks:
   - ≤ 60 s;
@@ -112,6 +113,12 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
   - ILLUSTRATIVE và "history, not a forecast" trên mọi khung có số.
   Dựng bằng thư viện mẫu khi phiên nhà máy xong (`moc-b/PLAN-FACTORY.md`). Trước đó cắt tay từ bản cuối.
 - **Hướng dẫn đăng:** `episodes/epNNN/HUONG-DAN-DANG.md` theo mẫu `playbook/templates/HUONG-DAN-DANG.md`.
+
+## 5b. Âm: nhạc hiệu, cue theo hồi, lặng trước số neo (tổng kết Tập 5 §3.4, từ Tập 6)
+- **Nhạc hiệu kênh:** 3 s ở ident (`IDENT_S = 3`) và **một khúc đóng khác**; nhạc bằng mã (D-010 §5), dựng một lần cho cả kênh. Gu nhạc là quyền chủ dự án (CHARTER §6): **chủ dự án duyệt nhạc hiệu bằng clip có âm ở C3 Tập 6** (một lần cho cả kênh), sau đó dùng lại mọi tập.
+- **Mỗi hồi một cue riêng, không lặp vòng:** nhạc vẫn theo bản đồ căng (F-3 Tập 5: dâng ở phần phát lại, chốt hợp âm đúng từ khoá), thêm ràng buộc cue khác nhau giữa các hồi và không lặp vòng trong hồi.
+- **Lặng 0,7–0,9 s trước mỗi số neo** (≤ 3 số neo/tập, §3.2.4 của tổng kết; beat khai `anchor: true` trong spine). Tiếng hiệu ứng "land" đè đúng từ khoá số neo phải bỏ (F-2: sfx chỉ thấp hơn lời 11 dB).
+- **Không tăng mật độ sfx** khi thêm cue (F-2 cảnh báo đoạn a Tập 5: 21,7 sự kiện/phút, 8 trong 10 s). Lặng trước số làm tập dài ≈ 2–3 s — tính vào ước độ dài.
 
 ## 6. Giao hàng
 - Lệnh: `python3 toolkit/deliver/deliver.py episodes/epNNN/out/video.mp4 --out episodes/epNNN/work/delivery --name epNNN --branch epNNN-delivery --push`
