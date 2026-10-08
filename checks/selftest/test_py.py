@@ -2347,6 +2347,30 @@ def _(f, bad):
     f.contract(world=[{'id': 'a', 'spine': 'seg/spine.json', 't0': 0.0}])
 
 
+
+def v17_fixture(f, text, secs):
+    f.json('out/timeline.json', {'total': 10.0, 'scenes': [{'id': 'S01', 'start': 0, 'end': 10}]})
+    f.json('out/checks/page.json', {'textTrack': [{'t': 0.0, 'items': []}, {'t': 1.0, 'items': [{'tid': 'L#0', 'role': 'label', 'text': text}, {'tid': '42#0', 'text': '42'}]},
+                                                  {'t': round(1.0 + secs, 2), 'items': []}]})
+
+
+@case('V17')
+def _(f, bad):
+    # lessons T5-2: the 9-word Fannie Mae label for 1 s (bad) or 3 s (good); the bare counter "42" is not a label
+    v17_fixture(f, 'Fannie Mae: wait ≥ 2 years · loan ≤ 75%', 1.0 if bad else 3.0)
+
+
+def v17_three_case(bad):
+    """V17: 3 words need 1 s — 0.9 s fails (bad), 1.0 s passes (good)."""
+    f = F('V17-three')
+    try:
+        v17_fixture(f, 'Same loan, cheaper', 0.9 if bad else 1.0)
+        return f.run('V17')
+    finally:
+        f.close()
+
+
+EXTRA.update({'V17/three': v17_three_case})
 EXTRA.update({'V14/reason': v14_variant('reason'), 'V14/first5': v14_variant('first5'), 'V14/cut': v14_variant('cut')})
 EXTRA.update({'R07/voice': r07_none_case})
 EXTRA.update({'S19/frame': s19_frame_case, 'S19/spoken': s19_spoken_case})

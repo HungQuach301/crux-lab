@@ -338,3 +338,48 @@ def t4_sfx_density(ctx):
                           metric('highest events/min', max(r['perMin'] for r in rows), '<=', 30.0),
                           metric('most events in 10 s', max(r['max10s'] for r in rows), '<=', 6),
                           metric('highest share on plain words (%)', max(r['onPlainShare'] for r in rows), '<=', 50.0, '%')], details=rows)
+
+
+# ---- A24 → V17 ------------------------------------------------------------------------------------------------------------------
+def label_words(text):
+    """Words of a label: whitespace tokens holding a letter or digit (lone symbols ≥ · % → are not words)."""
+    return [w for w in str(text).split() if re.search(r'[A-Za-z0-9]', w)]
+
+
+@rule('V17', 'DX-V (đọc kịp), lessons T5-2, checks-appeal A24', 'page sampler text track (every 0.1 s, texts with opacity > 0.5 on frame): each text\'s visible runs '
+      '(by tid; gaps ≤ 0.2 s joined; a run still on at the end of the timeline counts to the end). Words = whitespace tokens holding a letter or digit. Texts without a '
+      'letter (counters, bare numbers) are not labels. A label needs ceil(words / 3) s on screen; its longest run is compared',
+      'every label on screen ≥ 1 s per 3 words (rounded up); 0 labels too short')
+def v17_label_time(ctx):
+    import math
+    tt = ctx.json('out/checks/page.json').get('textTrack')
+    if tt is None:
+        raise Missing('out/checks/page.json: textTrack')
+    total = ctx.total()
+    runs, text_of, open_ = {}, {}, {}
+    for i, e in enumerate(tt):
+        now = {it['tid']: it.get('text') or '' for it in e.get('items', [])}
+        for tid, txt in now.items():
+            text_of[tid] = txt
+            if tid not in open_:
+                rs = runs.setdefault(tid, [])
+                if rs and e['t'] - rs[-1][1] <= 0.2 + 1e-9:
+                    open_[tid] = rs.pop()[0]
+                else:
+                    open_[tid] = e['t']
+        for tid in [k for k in open_ if k not in now]:
+            runs.setdefault(tid, []).append((open_.pop(tid), e['t']))
+    for tid, t0 in open_.items():
+        runs.setdefault(tid, []).append((t0, total))
+    short, n = [], 0
+    for tid, rs in runs.items():
+        txt = text_of[tid]
+        if not re.search(r'[A-Za-z]', txt):
+            continue
+        n += 1
+        need = math.ceil(len(label_words(txt)) / 3)
+        got = max(b - a for a, b in rs)
+        if got + 1e-6 < need:
+            short.append({'text': txt[:80], 'words': len(label_words(txt)), 'needS': need, 'longestS': round(got, 2), 'at': round(max(rs, key=lambda r: r[1] - r[0])[0], 2)})
+    short.sort(key=lambda x: x['longestS'] - x['needS'])
+    return verdict('V17', [metric('labels on screen too short to read', len(short), '<=', 0)], details=[{'labels': n}, *short[:30]])
