@@ -8,7 +8,7 @@ Chạy ở C4 (animatic) và C5 (bản cuối), báo trong gói; thước mới 
 | Nhịp trên spine (quãng có lời không cú máy, không vật đổi trạng thái > 8 s; số trên nhãn) | `python3 toolkit/indicators/spine_pace.py <spine.json…> [--labels]` | chỉ báo, **chưa hiệu chuẩn** (đối chứng dương 2/4) |
 | Đa dạng khung nhìn (máy quay, không đo độ sáng) | `python3 toolkit/indicators/viewpoints.py camera out/camera.json` · `… spine <spine.json…>` | **chỉ báo, xếp đúng** |
 | Mỗi vật thể đổi trạng thái có tiếng riêng (cine-lab Q28 c) | `python3 toolkit/indicators/av_indicators.py states spine <spine.json…>` · `… states episode out/` | **chỉ báo, xếp đúng** (Tập 1 0 % · v3k 52 % · Tập 5 40 %) |
-| Tông màu theo hồi (cine-lab Q30) | `python3 toolkit/indicators/av_indicators.py tone <video> out/timeline.json` | **BỎ** (Tập 1 đổi tông nhiều hơn Tập 5) |
+| Tông màu theo hồi (cine-lab Q30) | `python3 toolkit/indicators/av_indicators.py tone <video> out/timeline.json` | **chưa đo đúng định nghĩa Q30** (đo lượng đổi tông, không phải "đúng tông đã khai"); cần khai màu từng hồi — chủ dự án quyết |
 | Chấm mù khung (cine-lab Q27) | `python3 toolkit/indicators/blind.py frames prep|tally …` | **BỎ** (xếp Tập 1 cao nhất) — giữ mã để tái lập |
 | Xem liền mạch mù (cine-lab Q31) | `python3 toolkit/indicators/blind.py flow prep|tally …` | **BỎ** (xếp v3k ≤ Tập 1) — giữ mã để tái lập |
 

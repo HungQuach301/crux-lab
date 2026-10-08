@@ -1,19 +1,20 @@
 # Sổ tay chạy một tập (playbook v4, Mốc V, 06/10/2026)
 
-Áp từ Tập 4 (`decisions/D-006.md`); v4 áp D-009 (chất lượng là ưu tiên tuyệt đối) và D-010 (thế giới 3D, 8 quy tắc hình–âm) từ Tập 5. Khung: `playbook/quality-framework.md`. Biên kịch: `playbook/story.md`. Prompt mẫu: `playbook/prompts/`. Một tập chạy bằng một dòng: **"Chạy Tập N, phiên P1"** (hoặc "…, đề tài #k, phiên P1"), rồi "… P3" (và "… P2" chỉ khi G1 ghi "cần C3").
+Áp từ Tập 4 (`decisions/D-006.md`); v4 áp D-009 (chất lượng là ưu tiên tuyệt đối) và D-010 (thế giới 3D, 8 quy tắc hình–âm) từ Tập 5. Khung: `playbook/quality-framework.md`. Biên kịch: `playbook/story.md`. Prompt mẫu: `playbook/prompts/`. Một tập mở bằng một dòng: **"Chạy Tập N"** (hoặc "Chạy Tập N, đề tài #k") — phiên P1; mỗi chặng sau là một phiên MỚI mở bằng prompt phiên kế mà phiên trước để ở PLAN tập mục 7 (D-011): P2 (chỉ khi G1 ghi "cần C3") → P3 → P4.
 
 ## 0. Mở phiên
 `bash toolkit/verify.sh <nhánh-lệnh-ghi>`: kiểm công cụ, nhánh đúng lệnh (không tự đặt nhánh), `main` mới nhất. Trượt thì báo, không làm tiếp.
 
 ## 1. Ba cổng, mỗi chặng một phiên (D-011)
 
-**Từ Tập 6:** phiên điều phối mới ở mỗi điểm dừng chờ chủ dự án (G1, C3 nếu có, G2); phiên cũ đóng bằng PLAN tập ≤ 1 trang + prompt phiên kế (tên nhánh, chỗ dán câu trả lời) — `prompts/RUN.md` mục "Đóng phiên". Bảng dưới là các chặng; sau G2 (giao hàng → G3 → merge) là một phiên mới.
+**Từ Tập 6:** phiên điều phối mới ở mỗi điểm dừng chờ chủ dự án (G1, C3 nếu có, G2); phiên cũ đóng bằng PLAN tập ≤ 1 trang + prompt phiên kế (tên nhánh, chỗ dán câu trả lời) — `prompts/RUN.md` mục "Đóng phiên". Bảng dưới là các chặng.
 
 | Phiên | Việc | Kết thúc ở | Chủ dự án |
 |---|---|---|---|
 | **P1** | Việc 0 (dữ liệu, mô hình, kiểm độc lập) → C1 máy (≤ 3 đề tài + logline, kiểm mù kể lại) → C2 (kịch bản, móc, kiểm máy + kiểm mù lời) → giao phiên K → **G1** | G1 trả lời | **G1** (1 lần) |
 | **P2** *(khi tập có hình mới: ký hiệu, vật thể 3D, hero object, mẫu chuyển cảnh)* | C3 hình mới (không trần số; cổng gốc; **clip có chuyển động và âm**) | C3 trả lời | C3 |
-| **P3** | C4 animatic (TỰ ĐỘNG) → C5 render + L1 (TỰ ĐỘNG) → **G2** → giao hàng → **G3** | Chủ dự án đăng; merge `main` | **G2**, **G3** |
+| **P3** | C4 animatic (TỰ ĐỘNG) → C5 render + L1 (TỰ ĐỘNG) → **G2** | G2 trả lời | **G2** |
+| **P4** *(phiên mới sau G2)* | Áp G2 → giao hàng → **G3** → merge `main` | Chủ dự án đăng; merge `main` | **G3** |
 
 - **G1 sau C2** (D-006 Q2), một gói ≤ 3 câu:
   1. đề tài + logline;
@@ -65,8 +66,9 @@ Mỗi agent con tốn **≈ 32–49 nghìn token cố định** (Mốc B, Tập 
 
 ## 2b. Thước chỉ báo chống tụt hình (tổng kết Tập 5 §3.2–3.3, từ Tập 6)
 Chạy ở C4 (spine + animatic) và C5 (bản cuối), báo một bảng trong gói G2; **chỉ báo, không ngưỡng, không mở vòng sửa chỉ vì số** (CHARTER §4). Lệnh và trạng thái: `toolkit/indicators/README.md`; hiệu chuẩn 08/10 trên Tập 1 (đối chứng âm), Tập 4 v3k, Tập 5: `tongket-t5/indicators/CALIBRATION.md`.
-- **Giữ:** nhịp trên spine (quãng có lời không cú máy/không vật đổi trạng thái > 8 s — **chưa hiệu chuẩn**, đối chứng dương 2/4); đa dạng khung nhìn theo máy quay (xếp đúng: Tập 1 cụm lớn nhất 58,5 %, Tập 5 6,8 %); mỗi vật thể đổi trạng thái có tiếng riêng (cine-lab Q28 c; Tập 1 0 % · v3k 52 % · Tập 5 40 % → chỉ báo, đích Tập 6 ≥ 80 %).
-- **Bỏ (xếp sai):** chấm mù khung, xem liền mạch mù — người đọc headless xếp Tập 1 trên Tập 5 / coi chuyển chế độ D-010 là "đổi phong cách"; tông màu theo hồi (cine-lab Q30) — Tập 1 đổi tông nhiều hơn Tập 5. Gu hình đo bằng L3.
+- **Giữ:** nhịp trên spine (quãng có lời không cú máy/không vật đổi trạng thái > 8 s — **chưa hiệu chuẩn**, đối chứng dương 2/4); đa dạng khung nhìn theo máy quay (xếp đúng: Tập 1 cụm lớn nhất 58,5 %, Tập 5 6,8 %); mỗi vật thể đổi trạng thái có tiếng riêng (cine-lab Q28 c; Tập 1 0 % · v3k 52 % · Tập 5 40 % → chỉ báo; không đặt đích — nếu cần, chủ dự án quyết ở G1 Tập 6).
+- **Bỏ (xếp sai):** chấm mù khung, xem liền mạch mù — người đọc headless xếp Tập 1 trên Tập 5 / coi chuyển chế độ D-010 là "đổi phong cách". Gu hình đo bằng L3.
+- **Chưa đo đúng định nghĩa:** tông màu theo hồi (cine-lab Q30 = đúng tông đã khai cho từng hồi; Crux chưa khai màu hồi) — khai `map.color` là việc gu, chủ dự án quyết.
 - Bên dựng thêm cờ `change: major|minor` cho mốc vật thể ở beat và `anchor: true` cho số neo để thước nhịp đo được "đổi mang nghĩa" (hiệu chuẩn lại sau Tập 6).
 
 ## 3. Đầu bài WRITER (C2)
@@ -164,7 +166,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 
 ≤ 40 agent con. EL ≤ 6.000 ký tự (gần với chi tiêu: vượt → hỏi chủ dự án). Hai trần này **không đổi**. Ledger ghi cột **loại việc** cho mỗi dòng.
 
-**Mỗi phiên khi đóng ghi 4 số đọc từ log vào PLAN tập mục 5:** sinh ra · đầu vào mới · đọc cache · trần. Cách lấy: `list_events(session_id=<phiên này>, kinds=["result"], limit=100)` → lưu trang JSON → `python3 toolkit/usage/from_events.py --session <id> --close trang*.json`. Sự kiện `result` chỉ có khi một lượt kết thúc → số ghi được là **đến lượt trước**; lượt đóng cộng vào ở phiên sau (ghi "đến <giờ>"). Headless không nằm trong log phiên: cộng bốn trường `tokens` của JSON đầu ra (`toolkit/blind/headless.sh`). Bảng cả tập: `python3 toolkit/usage/token_log.py <jsonl…> [--windows …]`. Ghi thêm **giờ render thực** (`build-report.json`, `<đoạn>.build.json`).
+**Mỗi phiên khi đóng ghi 4 số đọc từ log vào PLAN tập mục 5:** sinh ra · đầu vào mới · đọc cache · trần. Cách lấy: `list_events(session_id=<phiên này>, kinds=["result"], limit=100)` — bộ lọc chạy sau khi đọc trang nên trang có thể không có `result`: lật trang bằng `before_id` tới khi gặp — → lưu trang JSON → `python3 toolkit/usage/from_events.py --session <id> --close trang*.json`. Sự kiện `result` chỉ có khi một lượt kết thúc → số ghi được là **đến lượt trước**; lượt đóng cộng vào ở phiên sau (ghi "đến <giờ>"). Headless không nằm trong log phiên: cộng bốn trường `tokens` của JSON đầu ra (`toolkit/blind/headless.sh`). Bảng cả tập: `python3 toolkit/usage/token_log.py <jsonl…> [--windows …]`. Ghi thêm **giờ render thực** (`build-report.json`, `<đoạn>.build.json`).
 
 <details><summary>Mức cảnh báo Tập 5 (cũ, 3,0 triệu theo số công cụ báo — thực đo bằng log 85,4)</summary>
 
@@ -204,5 +206,6 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 - **Build, checks, render, lượt headless chạy bằng công cụ chạy nền của phiên** (Bash `run_in_background`; thông báo về khi xong). **Không `&`, không `nohup`** tự do: tiến trình `&` không được theo dõi, mất khi phiên/máy khởi động lại (cine-lab #38: tập 4 mất giữa render), và phiên tưởng build đã dừng.
 - **Trước mỗi build: không còn tiến trình build/render nào** — `python3 toolkit/factory/guard.py` (`ps`, bỏ qua chính shell của lệnh và các tiến trình cha/con của nó). `build.sh`, `build.py`, `build_seg.py` tự gọi và **từ chối, thoát 3** nếu còn (cine-lab #67: hai build ghi chồng một thư mục, x264 hỏng tệp thống kê). Thử 08/10: build thứ hai trên đoạn Tập 4 v3k khi build thứ nhất đang render → thoát 3, `build.sh` → thoát 3.
 - **Mã lỗi qua `PIPESTATUS`:** mọi lệnh `… | tee log` đọc `${PIPESTATUS[0]}` (mã của lệnh dựng, không phải của `tee`); `build.sh` đã làm vậy, log ở `<tập>/work/factory/build.log`.
+- **Lưu ý:** bước `spine` vẫn ghi `spine.json` thẳng vào thư mục đoạn (nguồn, có trong git) — build trượt sau bước spine để spine mới cạnh mp4 cũ; xem `git diff` của đoạn trước khi dựng lại.
 - **Đoạn thế giới dựng vào thư mục tạm** `<thư mục ra>/.staging-<tên>-<pid>/`, **chỉ thay bản cũ khi cả 6 bước đạt**; trượt → bản cũ giữ nguyên, báo cáo `<out>.build.failed.json` (cine-lab #70: xoá trước khi dựng, lỗi giữa chừng → mất 2,5 h khung). Cache cảnh của `render_shots.js` vốn ghi `.part` rồi đổi tên, không xoá.
 - **Đầu mỗi build:** `toolkit/tests/comment_guard.py` (mục 13; cine-lab #42, #76) — chú thích chèn giữa dòng nuốt mã + `node --check` (mô-đun ES qua `.mjs`) / `py_compile` mọi mã thế giới của tập và thư viện; lỗi → dừng trước khi dựng. Không chèn chú thích vào giữa dòng mã; đặt chú thích ở dòng riêng hoặc cuối dòng sau khi đã kiểm.

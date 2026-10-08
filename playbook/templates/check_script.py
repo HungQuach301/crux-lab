@@ -28,7 +28,7 @@ CHẶN (exit 1):
   - tên nhân vật không trùng tên đã dùng (BANNED_NAMES)
 CẢNH BÁO: ≥ 3 số mới trong 8 s; mốc trong ±5 % quanh ngưỡng (nêu tên, CHARTER §4); khuôn tỉ lệ story §4 lệch > ±5 điểm (THAM KHẢO);
   hooks.md không đủ 3 phương án; câu đỉnh cảm xúc (vai `peak`) > 15 từ (story §2b.4, REVIEWER quyết).
-  python3 check_script.py [script.md] [--g1-short]"""
+  python3 check_script.py [script.md] [--g1-short] [--cast A,B,C]"""
 import os, re, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -42,7 +42,7 @@ except Exception as e:  # noqa: BLE001
     print('cảnh báo: không import được r_content:', e)
     S10 = {'ADVICE': [r"\byou (should|must|need to|ought to|have to|'d better)\b"], 'FORECAST': [r'\bwill (rise|fall)\b'], 'WE_BAD': [r'\bwe (all|should|need)\b']}
 
-SCRIPT = os.path.abspath(next((a for a in sys.argv[1:] if not a.startswith('--')), os.path.join(os.path.dirname(os.path.abspath(__file__)), 'script.md')))
+SCRIPT = os.path.abspath(next((a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith('--') and sys.argv[i - 1] != '--cast'), os.path.join(os.path.dirname(os.path.abspath(__file__)), 'script.md')))
 HERE = os.path.dirname(SCRIPT)
 G1_SHORT = '--g1-short' in sys.argv   # chủ dự án đã duyệt ở G1: tập ngắn hơn đích, không độn
 BEATS, HOOKS = os.path.join(HERE, 'beats.md'), os.path.join(HERE, 'hooks.md')
@@ -57,7 +57,10 @@ if os.path.exists(_yaml):
     FORMAT = _m.group(1) if _m else FORMAT
 LEN_LIMITS = {'101': (495, 540), 'lab': (540, 660)}   # (đích tối thiểu ước, tối đa cứng) giây; 101 ≥ 8:15 (§3.1)
 BANNED_NAMES = {'Nora', 'Walt', 'Anjali', 'Leah', 'Dana', 'Rosa', 'Frank', 'Maya', 'Grace', 'Owen', 'Victor'}   # TẬP: thêm tên tập trước
-CAST = []           # TẬP: tên nhân vật minh hoạ của tập (nhân vật dẫn đường đứng đầu)
+CAST = []           # TẬP: tên nhân vật minh hoạ của tập (nhân vật dẫn đường đứng đầu); hoặc --cast A,B,C
+if '--cast' in sys.argv:
+    CAST = [x for x in sys.argv[sys.argv.index('--cast') + 1].split(',') if x]
+PERSON_PROMISE = re.compile(r'\b(meet|buyers?|people|person|illustrative|retirees?|borrowers?|families|workers?|savers?)\b', re.I)
 CORE = []           # TẬP: [(claim_id, regex số đọc lên)] số cốt lõi — đọc bằng số 1 lần, nhắc lại ≥ 3 lần bằng lời
 FULL_FORM = {}      # TẬP: {'PMI': 'private mortgage insurance'} viết tắt phải có dạng đầy đủ ở lần đầu
 ROLES = ('hook', 'promise', 'question', 'constraint', 'define', 'promise_character', 'peak')
@@ -299,8 +302,10 @@ def mconds(rs, name):
     out['M5'] = ret['end'] if ret else None
     # M6: mỗi lời hứa về nhân vật được trả (tên trong CAST xuất hiện) ≤ 90 s sau câu hứa; không có lời hứa → 0
     m6 = 0.0
+    if CAST == [] and any(r['role'] == 'promise_character' for r in rs):
+        m6 = None   # không đo được: điền CAST (hoặc --cast)
     for i, r in enumerate(rs):
-        if r['role'] != 'promise_character':
+        if r['role'] != 'promise_character' or m6 is None:
             continue
         pay = next((x for x in rs[i + 1:] if any(re.search(r'\b' + c + r'\b', x['text']) for c in CAST)), None)
         m6 = max(m6, (pay['start'] - r['end']) if pay else float('inf'))
@@ -317,6 +322,10 @@ def mconds(rs, name):
     return ' · '.join(res)
 
 
+# M6: lời hứa về người phải mang vai promise_character, không thì M6 không bao giờ đo (REVIEWER 08/10: Tập 5 S03.4 {promise} "meet three illustrative buyers")
+for r in rows:
+    if r['role'] == 'promise' and PERSON_PROMISE.search(r['text']):
+        fail.append(f'{r["sid"]}: lời hứa về người phải gắn vai promise_character (M6, story §2b.2)')
 print('móc script:', mconds(rows, 'script'))
 
 # ---------- duration, acts, mid-roll ----------

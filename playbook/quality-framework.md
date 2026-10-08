@@ -102,7 +102,7 @@ Phiên **chỉ** tự quyết những việc sau, mỗi việc ghi một dòng l
 
 - **Gói cổng GU:** ≤ 3 câu hỏi, mỗi câu có phương án và **khuyến nghị**. Có clip xem được trên điện thoại (≤ 2 phút; C6 ≤ 3 phút). Có 1 dòng kiểm số độc lập, 1 dòng kiểm mù và **kết quả soát của REVIEWER**. Gói hiện ngay trong phiên; đồng thời mở issue `[Cổng Cx] Tập N — cần quyết định`.
 - **Issue cổng TỰ ĐỘNG:** `[Cổng Cx · tự động] Tập N — qua/ngoại lệ`, **≤ 5 dòng**: kết quả, ngưỡng, số vòng, có dùng dự phòng không (cái nào), link file. Không hỏi, không chờ.
-- Câu trả lời của chủ dự án ghi vào `taste-ledger.md`, `AUTHORSHIP.md` và `episodes/<tập>/ledger.md` trên nhánh tập; P3 merge vào `main`.
+- Câu trả lời của chủ dự án ghi vào `taste-ledger.md`, `AUTHORSHIP.md` và `episodes/<tập>/ledger.md` trên nhánh tập; phiên điều phối chặng cuối (P4, D-011) merge vào `main`.
 
 **Vai REVIEWER** (agent độc lập, đọc repo; Opus, effort Medium). REVIEWER soát mọi gói GU và mọi issue TỰ ĐỘNG trước khi gửi, theo checklist cố định:
 1. Gói khớp khung chất lượng: đúng loại cổng, đúng ngưỡng ghi trước, không sửa ý đồ sau kết quả.
