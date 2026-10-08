@@ -36,7 +36,7 @@ P3 đọc từ `list_events` kết quả lượt 23:45 (`modelUsage` tích luỹ
 
 ## 7. Prompt phiên kế (D-011) — chủ dự án dán nguyên khối vào phiên mới
 ```
-Chạy Tập 6, phiên P3b. Nhánh ep006 (@ <SHA đóng P3> hoặc mới hơn). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md.
+Chạy Tập 6, phiên P3b. Nhánh ep006 (@ 8a7c51b hoặc mới hơn). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md.
 C3 đã áp (gates/C3-answer.md); giọng cả tập xong, độ dài thật 8:56,6. Việc đầu tiên: nếu main chưa có F-12 thì merge factory-f12 → main (lấy bản main ở hai dòng xung đột), rồi main → ep006.
 KHÔNG mở C4 khi main chưa có khoá K gồm kind Tập 6 (KINDS trong checks/py/r_model.py). Có khoá → chạy S01/S05, viết contract.json rồi C4. Chưa có → đóng phiên và báo.
 K4.1 (V11, F11, rubric khuyên) phải có trên main trước C5; chưa có thì dừng trước C5 và báo.
