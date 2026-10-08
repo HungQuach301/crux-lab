@@ -1,0 +1,155 @@
+{
+ "v3k": {
+  "contract": "episodes/v3k/contract.json",
+  "video": "moc-v/review/proof-a-ep004-v3k-540p.mp4",
+  "R07": {
+   "id": "R07",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "visual cues within ±0.2 s (%)",
+     "value": 60.869565,
+     "op": ">=",
+     "threshold": 92.0,
+     "unit": "%",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "|median voice offset| s",
+     "value": 0.01,
+     "op": "<=",
+     "threshold": 0.2,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "cues": 23,
+     "within": 14,
+     "voiceWordsMatched": 153,
+     "voiceMedian": 0.009999999999999787,
+     "voiceP90abs": 0.14719999999999905
+    },
+    {
+     "segment": "v3k-ep004",
+     "cue": "b9.rose",
+     "t": 58.024,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "v3k-ep004",
+     "cue": "b0.q",
+     "t": 3.18,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "v3k-ep004",
+     "cue": "b1.rise",
+     "t": 7.176,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "v3k-ep004",
+     "cue": "b1.pop0",
+     "t": 8.98,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "v3k-ep004",
+     "cue": "b1.many",
+     "t": 14.104,
+     "offset": 0.329,
+     "how": "motion"
+    },
+    {
+     "segment": "v3k-ep004",
+     "cue": "b2.quarter",
+     "t": 16.24,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "v3k-ep004",
+     "cue": "b4.gain",
+     "t": 30.008,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "v3k-ep004",
+     "cue": "b10.past",
+     "t": 62.008,
+     "offset": 0.392,
+     "how": "motion"
+    },
+    {
+     "segment": "v3k-ep004",
+     "cue": "b11.x",
+     "t": 65.373,
+     "offset": null,
+     "how": "motion"
+    }
+   ],
+   "note": null
+  }
+ },
+ "e5k": {
+  "contract": "episodes/e5k/contract.json",
+  "video": "moc-v/review/proof-b-ep005-e5k-540p.mp4",
+  "R07": {
+   "id": "R07",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "visual cues within ±0.2 s (%)",
+     "value": 81.818182,
+     "op": ">=",
+     "threshold": 92.0,
+     "unit": "%",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "|median voice offset| s",
+     "value": 0.004,
+     "op": "<=",
+     "threshold": 0.2,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "cues": 11,
+     "within": 9,
+     "voiceWordsMatched": 83,
+     "voiceMedian": 0.003999999999997783,
+     "voiceP90abs": 0.14000000000000057
+    },
+    {
+     "segment": "e5k-ep005",
+     "cue": "c1.twenty",
+     "t": 8.457,
+     "offset": null,
+     "how": "motion"
+    },
+    {
+     "segment": "e5k-ep005",
+     "cue": "c4.paper",
+     "t": 24.387,
+     "offset": null,
+     "how": "motion"
+    }
+   ],
+   "note": null
+  }
+ }
+}

@@ -1,0 +1,245 @@
+{
+ "ep003": {
+  "contract": "episodes/ep003/contract.json",
+  "video": null,
+  "T4": {
+   "id": "T4",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "segments over a density limit",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": "no world segments: nothing to check"
+  }
+ },
+ "ep004": {
+  "contract": "episodes/ep004/contract.json",
+  "video": null,
+  "T4": {
+   "id": "T4",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "segments over a density limit",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": "no world segments: nothing to check"
+  }
+ },
+ "ep005": {
+  "contract": "checks-runs/K40/contracts/ep005.json",
+  "video": null,
+  "T4": {
+   "id": "T4",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "segments over a density limit",
+     "value": 2,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "highest events/min",
+     "value": 21.7,
+     "op": "<=",
+     "threshold": 30.0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "most events in 10 s",
+     "value": 9,
+     "op": "<=",
+     "threshold": 6,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "highest share on plain words (%)",
+     "value": 34.6,
+     "op": "<=",
+     "threshold": 50.0,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "segment": "a-s01-s03",
+     "t0": 0.0,
+     "events": 21,
+     "perMin": 21.7,
+     "max10s": 8,
+     "onPlainWords": 6,
+     "onPlainShare": 28.6
+    },
+    {
+     "segment": "b-s04-s09",
+     "t0": 58.0,
+     "events": 26,
+     "perMin": 11.9,
+     "max10s": 5,
+     "onPlainWords": 9,
+     "onPlainShare": 34.6
+    },
+    {
+     "segment": "c-s10-s14",
+     "t0": 189.03,
+     "events": 34,
+     "perMin": 15.4,
+     "max10s": 9,
+     "onPlainWords": 10,
+     "onPlainShare": 29.4
+    },
+    {
+     "segment": "d-s15-s20",
+     "t0": 321.67,
+     "events": 25,
+     "perMin": 10.4,
+     "max10s": 5,
+     "onPlainWords": 6,
+     "onPlainShare": 24.0
+    }
+   ],
+   "note": null
+  }
+ },
+ "v3k": {
+  "contract": "episodes/v3k/contract.json",
+  "video": null,
+  "T4": {
+   "id": "T4",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "segments over a density limit",
+     "value": 1,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "highest events/min",
+     "value": 25.9,
+     "op": "<=",
+     "threshold": 30.0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "most events in 10 s",
+     "value": 10,
+     "op": "<=",
+     "threshold": 6,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "highest share on plain words (%)",
+     "value": 40.0,
+     "op": "<=",
+     "threshold": 50.0,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "segment": "v3k-ep004",
+     "t0": 0.0,
+     "events": 30,
+     "perMin": 25.9,
+     "max10s": 10,
+     "onPlainWords": 12,
+     "onPlainShare": 40.0
+    }
+   ],
+   "note": null
+  }
+ },
+ "e5k": {
+  "contract": "episodes/e5k/contract.json",
+  "video": null,
+  "T4": {
+   "id": "T4",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "segments over a density limit",
+     "value": 1,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "highest events/min",
+     "value": 24.7,
+     "op": "<=",
+     "threshold": 30.0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "most events in 10 s",
+     "value": 8,
+     "op": "<=",
+     "threshold": 6,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "highest share on plain words (%)",
+     "value": 21.4,
+     "op": "<=",
+     "threshold": 50.0,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "segment": "e5k-ep005",
+     "t0": 0.0,
+     "events": 14,
+     "perMin": 24.7,
+     "max10s": 8,
+     "onPlainWords": 3,
+     "onPlainShare": 21.4
+    }
+   ],
+   "note": null
+  }
+ }
+}

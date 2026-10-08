@@ -2202,6 +2202,227 @@ EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_cas
          'S05/ltv-passage-buyers': lfp_buyers_case}
 
 
+# ---- K4.0: checks-appeal nhóm 2 (chỉ thêm luật) ---------------------------------------------------------------------------------------------
+PMI = {'claims': {'forbiddenAmounts': [{'id': 'pmi_premium', 'terms': ['PMI', 'mortgage insurance', 'premium']}]}}
+
+
+def s19_fixture(f, sentence, frame_texts=(), declare=True, claims=None):
+    f.contract(**(PMI if declare else {}))
+    f.json('out/script.json', {'sentences': [{'id': 'S01.1', 'scene': 'S01', 'text': sentence, 'start': 0.0, 'end': 3.0}]})
+    f.json('out/claims.json', {'claims': claims if claims is not None else [{'claimId': 'ex_price', 'value': 400000, 'display': '$400,000', 'source': {'id': 'model'}}]})
+    f.json('out/checks/page.json', {'textTrack': [{'t': 0.0, 'scene': 'S01', 'items': []}, {'t': 1.0, 'scene': 'S01', 'items': [{'tid': f'{x}#0', 'role': 'label', 'text': x} for x in frame_texts]}]})
+
+
+@case('S19')
+def _(f, bad):
+    # bad: "PMI costs about $150 a month" with no claim for $150; good: "a $400,000 home … mortgage insurance", $400,000 has a sourced claim
+    s19_fixture(f, 'PMI costs about $150 a month.' if bad else 'On a $400,000 home, you pay mortgage insurance until the loan reaches 80 percent.')
+
+
+def s19_frame_case(bad):
+    """S19 on a frame: a label "$150/mo" next to "PMI" in the same page sample (bad); "PMI" next to "$400,000" (sourced, good)."""
+    f = F('S19-frame')
+    try:
+        s19_fixture(f, 'Mortgage insurance has a cost.', ['PMI', '$150/mo' if bad else '$400,000 home'])
+        return f.run('S19')
+    finally:
+        f.close()
+
+
+def s19_spoken_case(bad):
+    """S19 on the words read: text without digits, spoken "one hundred fifty dollars" (bad); no forbiddenAmounts declared → nothing to check (good)."""
+    f = F('S19-spoken')
+    try:
+        s19_fixture(f, 'PMI costs about that much a month.', declare=bad)
+        sc = json.load(open(f.p('out/script.json')))
+        sc['sentences'][0]['spoken'] = 'PMI costs about one hundred fifty dollars a month.'
+        f.json('out/script.json', sc)
+        return f.run('S19')
+    finally:
+        f.close()
+
+
+
+@case('S20')
+def _(f, bad):
+    # Tập 5 S03 before B+2: three new said numbers in one scene (bad); good: the third is a repeat of a number said in S01
+    sents = [{'id': 'S01.1', 'scene': 'S01', 'text': 'x', 'spoken': 'You saved ten percent.', 'start': 0, 'end': 2},
+             {'id': 'S03.1', 'scene': 'S03', 'text': 'x', 'spoken': '[curious] At eighty percent, after two years,', 'start': 3, 'end': 5},
+             {'id': 'S03.2', 'scene': 'S03', 'text': 'x', 'spoken': ('or seventy-five percent.' if bad else 'or ten percent.') + ' Three buyers, in two thousand six.', 'start': 6, 'end': 8}]
+    f.json('out/script.json', {'sentences': sents})
+
+
+
+def world_fixture(f, cues=(1.0, 2.5, 4.0), late=0.0, dur=6.0, moves=(), words=('one', 'two', 'three'), extra=None):
+    """A one-segment world episode: spine with a beat whose cues are spoken words, and a 320×180 video where a block steps brighter at each cue (+ late)."""
+    fps = 30
+    sp = {'total': dur, 'fps': fps, 'pad': 0.25, 'words': [{'w': w, 's': t, 'e': t + 0.3, 'sid': 'S01.1'} for w, t in zip(words, cues)],
+          'beats': [{'id': 'b0', 'mode': 'world', 't0': 0.0, 't1': dur, 'cues': {w: t for w, t in zip(words, cues)}}],
+          'visual_cues': [f'b0.{w}' for w in words], 'moves': list(moves), 'events': [], **(extra or {})}
+    f.json('seg/spine.json', sp)
+    f.contract(world=[{'id': 'a', 'spine': 'seg/spine.json', 't0': 0.0}])
+    frames = []
+    for i in range(int(dur * fps)):
+        t = i / fps
+        fr = np.full((180, 320), 30, np.uint8)
+        k = sum(1 for c in cues if t >= c + late)
+        fr[40:140, 60:260] = 30 + 50 * k
+        frames.append(fr)
+    f.raw_video(frames)
+    f.json('out/script.json', {'sentences': [{'id': 'S01.1', 'scene': 'S01', 'text': ' '.join(words), 'start': cues[0] - 0.1, 'end': cues[-1] + 0.4}]})
+    f.asr([{'w': w, 'start': t + 0.02, 'end': t + 0.3, 'sentence': 'S01.1'} for w, t in zip(words, cues)])
+    return sp
+
+
+@case('R07')
+def _(f, bad):
+    # the picture changes at each spoken cue (good) or 0.5 s after it (bad)
+    world_fixture(f, late=0.5 if bad else 0.0)
+
+
+def r07_none_case(bad):
+    """R07: an episode without world segments has nothing to check (good); bad = one segment whose voice is heard 0.4 s late (|median| > 0.2 s)."""
+    f = F('R07-none')
+    try:
+        if bad:
+            world_fixture(f)
+            f.asr([{'w': w, 'start': t + 0.4, 'end': t + 0.6, 'sentence': 'S01.1'} for w, t in zip(('one', 'two', 'three'), (1.0, 2.5, 4.0))])
+        else:
+            f.contract()
+        return f.run('R07')
+    finally:
+        f.close()
+
+
+
+MOVE_OK = {'verb': 'pull', 'from': 'a', 'to': 'b', 't0': 1.5, 't1': 2.1, 'reason': 'lời cần thấy cả hai', 'sound': 'whoosh_soft'}
+
+
+@case('V14')
+def _(f, bad):
+    # rule 2: a camera move across the keyword "two" at 2.5 s (bad) or between keywords (good); its sound event is declared
+    mv = dict(MOVE_OK, t0=2.2, t1=2.9) if bad else MOVE_OK
+    world_fixture(f, moves=[mv], extra={'events': [{'t': mv['t0'], 'kind': 'whoosh_soft'}]})
+
+
+def v14_variant(kind):
+    def fn(bad):
+        f = F('V14-' + kind)
+        try:
+            ev = {'events': [{'t': 1.5, 'kind': 'whoosh_soft'}]}
+            if kind == 'reason':     # rule 3: the move's sound has no event (bad)
+                world_fixture(f, moves=[MOVE_OK], extra={'events': []} if bad else ev)
+            elif kind == 'first5':   # the opening beat is a chart (bad)
+                sp = world_fixture(f, moves=[MOVE_OK], extra=ev)
+                if bad:
+                    sp['beats'][0]['mode'] = 'chart'
+                    f.json('seg/spine.json', sp)
+            elif kind == 'cut':      # a whole-frame jump between two frames at 3 s (bad)
+                world_fixture(f, moves=[MOVE_OK], extra=ev)
+                if bad:
+                    fr = [np.full((180, 320), 30 if i < 90 else 220, np.uint8) for i in range(180)]
+                    f.raw_video(fr)
+                    f.asr([{'w': w, 'start': t + 0.02, 'end': t + 0.3, 'sentence': 'S01.1'} for w, t in zip(('one', 'two', 'three'), (1.0, 2.5, 4.0))])
+            return f.run('V14')
+        finally:
+            f.close()
+    return fn
+
+
+
+@case('V15')
+def _(f, bad):
+    # 10 s episode; text-only from 2 s to 4 s (20 %, bad) or 2 s to 3 s (10 %, good)
+    f.json('out/timeline.json', {'total': 10.0, 'scenes': [{'id': 'S01', 'start': 0, 'end': 10}]})
+    f.json('out/checks/page.json', {'textOnlyTrack': [{'t': 0.0, 'textOnly': False}, {'t': 2.0, 'textOnly': True}, {'t': 4.0 if bad else 3.0, 'textOnly': False}]})
+
+
+
+@case('T4')
+def _(f, bad):
+    # 20 s segment: bad = 8 ticks in 10 s (> 6); good = 3 ticks in the word gaps
+    times = [5.0 + i for i in range(8)] if bad else [1.5, 3.0, 4.5]
+    sp = {'total': 20.0, 'words': [{'w': 'one', 's': 1.0, 'e': 1.3}], 'beats': [], 'events': [{'t': t, 'kind': 'tick'} for t in times] + [{'t': 2.0, 'kind': 'data'}]}
+    f.json('seg/spine.json', sp)
+    f.contract(world=[{'id': 'a', 'spine': 'seg/spine.json', 't0': 0.0}])
+
+
+
+def v17_fixture(f, text, secs):
+    f.json('out/timeline.json', {'total': 10.0, 'scenes': [{'id': 'S01', 'start': 0, 'end': 10}]})
+    f.json('out/checks/page.json', {'textTrack': [{'t': 0.0, 'items': []}, {'t': 1.0, 'items': [{'tid': 'L#0', 'role': 'label', 'text': text}, {'tid': '42#0', 'text': '42'}]},
+                                                  {'t': round(1.0 + secs, 2), 'items': []}]})
+
+
+@case('V17')
+def _(f, bad):
+    # lessons T5-2: the 9-word Fannie Mae label for 1 s (bad) or 3 s (good); the bare counter "42" is not a label
+    v17_fixture(f, 'Fannie Mae: wait ≥ 2 years · loan ≤ 75%', 1.0 if bad else 3.0)
+
+
+def v17_three_case(bad):
+    """V17: 3 words need 1 s — 0.9 s fails (bad), 1.0 s passes (good)."""
+    f = F('V17-three')
+    try:
+        v17_fixture(f, 'Same loan, cheaper', 0.9 if bad else 1.0)
+        return f.run('V17')
+    finally:
+        f.close()
+
+
+@case('R08')
+def _(f, bad):
+    # speech from 1 s to 12 s; one camera move at 6 s (good: two 5 s stretches) or none (bad: one 11 s stretch); a label cue is not a change
+    words = [{'w': f'w{i}', 's': 1.0 + i, 'e': 1.5 + i} for i in range(11)]
+    sp = {'total': 14.0, 'words': words, 'beats': [{'id': 'b0', 'cues': {'lbl': 6.0}}], 'label_cues': {'b0.lbl': 'x'}, 'visual_cues': [],
+          'moves': [] if bad else [{'t0': 5.8, 't1': 6.4, 'reason': 'r', 'sound': 'whoosh'}]}
+    f.json('seg/spine.json', sp)
+    f.contract(world=[{'id': 'a', 'spine': 'seg/spine.json', 't0': 0.0}])
+
+
+@case('S21')
+def _(f, bad):
+    # a year in the description's sources section that no claim carries (Tập 3 "1954", bad); a law citation and chapter stamps are not numbers (good)
+    f.json('out/claims.json', {'claims': [{'claimId': 'r', 'value': 0.068625, 'display': '6.86%'}, {'claimId': 'n', 'value': 307, 'display': '307', 'dataYears': [1991, 2026]}]})
+    f.text('out/package/description.md', '0:00 Intro\n1:05 The rule\nRates near 6.86% across 307 months, 1991 to 2026.\nLaw: 26 U.S.C. 121; series MORTGAGE30US.\n'
+           + ('Monthly means match to 0.01 points, 1954 to 2026.\n' if bad else 'https://fred.stlouisfed.org/series/MORTGAGE30US\n'))
+
+
+def s22_fixture(f, sentence, claims):
+    f.json('out/script.json', {'sentences': [{'id': 'S01.1', 'scene': 'S01', 'text': sentence, 'start': 0, 'end': 3}]})
+    f.json('out/claims.json', {'claims': [dict(c, spoken=[{'scene': 'S01', 'sentence': 'S01.1'}]) for c in claims]})
+
+
+@case('S22')
+def _(f, bad):
+    # cine-lab #62: a counted drop 1930–1940 next to a forecast 2025–2035 (bad); two numbers of one source and period (good)
+    hist = {'claimId': 'drop', 'value': -16.1, 'display': '−16.1%', 'source': {'id': 'census'}, 'dataYears': [1930, 1940]}
+    other = {'claimId': 'proj', 'value': -5.3, 'display': '−5.3%', 'source': {'id': 'cbo'}, 'dataYears': [2025, 2035]} if bad else \
+        {'claimId': 'drop2', 'value': -8.0, 'display': '−8%', 'source': {'id': 'census'}, 'dataYears': [1930, 1940]}
+    s22_fixture(f, 'It fell 16.1 percent then, and is set to fall 5.3 percent.', [hist, other])
+
+
+def s22_named_case(bad):
+    """S22: today's schedule next to history's range; the sentence names both measures (good) or neither (bad)."""
+    f = F('S22-named')
+    try:
+        sch = {'claimId': 'sched', 'value': 96, 'display': '96', 'source': {'id': 'model'}, 'historical': False}
+        hist = {'claimId': 'minB', 'value': 11, 'display': '11', 'source': {'id': 'model'}, 'dataYears': [1991, 2026]}
+        s22_fixture(f, 'It takes 96 months, or 11.' if bad else 'On the schedule it takes 96 months; on paper, history gave 11.', [sch, hist])
+        return f.run('S22')
+    finally:
+        f.close()
+
+
+EXTRA.update({'S22/named': s22_named_case})
+
+
+EXTRA.update({'V17/three': v17_three_case})
+EXTRA.update({'V14/reason': v14_variant('reason'), 'V14/first5': v14_variant('first5'), 'V14/cut': v14_variant('cut')})
+EXTRA.update({'R07/voice': r07_none_case})
+EXTRA.update({'S19/frame': s19_frame_case, 'S19/spoken': s19_spoken_case})
+
+
 def main():
     only = set(sys.argv[sys.argv.index('--only') + 1].split(',')) if '--only' in sys.argv else None
     rows = []
