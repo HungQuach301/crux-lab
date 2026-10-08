@@ -135,6 +135,18 @@ class C5bCore(unittest.TestCase):
         self.assertTrue({'ILLUSTRATIVE', 'HISTORY'} <= set(v1['tags']))
 
 
+class MidrollWaiver(unittest.TestCase):
+    def test_waiver(self):
+        import yaml
+        sys.path.insert(0, os.path.join(HERE, '..', 'factory'))
+        import spec as SP
+        Y = yaml.safe_load(open(os.path.join(HERE, '..', '..', 'episodes', 'ep005', 'episode.yaml')))
+        root = os.path.join(HERE, '..', '..', 'episodes', 'ep005')
+        lv = lambda y: [p['level'] for p in SP.check(y, root) if p['rule'] == 'midrolls']
+        self.assertEqual(lv({**Y, 'midrolls': [], 'midrolls_waiver': 'owner: no mid-roll'}), ['WARN'])
+        self.assertEqual(lv({**Y, 'midrolls': [], 'midrolls_waiver': ''}), ['BLOCK'])     # không lý do → vẫn chặn
+
+
 class SilenceGain(unittest.TestCase):
     def test_windows(self):
         import numpy as np

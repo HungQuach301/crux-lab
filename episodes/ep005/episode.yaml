@@ -62,7 +62,8 @@ scenes:
   - {id: S18, tail: 1.0, shots: []}
   - {id: S19, tail: 5.0, shots: []}     # thẻ V7: 5 s đọc
   - {id: S20, tail: 2.0, shots: []}     # S20.3 hold 2
-midrolls: []   # chủ dự án 08/10: Tập 5 (101) dưới 8:00 → KHÔNG mid-roll, không độn (out/adbreaks.json {"breaks": []}; nhạc liền, không khoảng lặng MR1). Trước (C5b vòng 1–2): t 188,4 s, 0,63 s trước đầu S10
+midrolls: []
+midrolls_waiver: "chủ dự án 08/10: 101 dưới 8:00, không mid-roll, không độn"   # chủ dự án 08/10: Tập 5 (101) dưới 8:00 → KHÔNG mid-roll, không độn (out/adbreaks.json {"breaks": []}; nhạc liền, không khoảng lặng MR1). Trước (C5b vòng 1–2): t 188,4 s, 0,63 s trước đầu S10
 counterweights:
   - {id: us-only, text: "US only · history, not a forecast", when: historical}
   - {id: measured, text: "Past buyers, measured · not a reason to buy, rent or wait", when: historical}

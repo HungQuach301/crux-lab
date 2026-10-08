@@ -191,7 +191,11 @@ def check(spec, root, duration=None):
     F = FORMATS[fmt]
     mids = spec.get('midrolls') or []
     if len(mids) != F['midrolls']:
-        add('BLOCK', 'midrolls', f"{fmt}: {len(mids)} mid-rolls, need {F['midrolls']}")
+        # owner decision (e.g. Tập 5, 08/10: a 101 under 8:00 runs with no mid-roll, no padding): `midrolls: []` + `midrolls_waiver: <reason>` → WARN
+        if not mids and str(spec.get('midrolls_waiver') or '').strip():
+            add('WARN', 'midrolls', f"{fmt}: 0 mid-rolls (need {F['midrolls']}) — owner waiver: {spec['midrolls_waiver']}")
+        else:
+            add('BLOCK', 'midrolls', f"{fmt}: {len(mids)} mid-rolls, need {F['midrolls']}")
     if duration is not None:
         if duration > F['max']:
             add('BLOCK', 'duration', f"{fmt}: {duration:.0f} s > hard maximum {F['max']} s")

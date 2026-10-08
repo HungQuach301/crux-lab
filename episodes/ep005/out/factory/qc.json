@@ -80,7 +80,7 @@
   {
    "item": "freezedetect d=3 ∩ lời",
    "result": "TRƯỢT",
-   "value": 211.13,
+   "value": 211.06,
    "threshold": "0 s",
    "note": "47 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [44.5, 49.2333], [58.5, 66.3333]]"
   },
@@ -101,7 +101,7 @@
   {
    "item": "kích thước phần",
    "result": "ĐẠT",
-   "value": 43.5,
+   "value": 44.28,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
   },
@@ -353,7 +353,7 @@
   {
    "item": "SH3 loudness",
    "result": "ĐẠT",
-   "value": "-14.0 LUFS / -1.9 dBTP",
+   "value": "-14.0 LUFS / -2.0 dBTP",
    "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
    "note": ""
   },
@@ -362,7 +362,7 @@
    "result": "ĐẠT",
    "value": "101",
    "threshold": "scope full",
-   "note": "S03.3: label \"Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}\" (number moved off the voice) is not on screen in S03; 101: 466 s < soft minimum 480 s (không độn: shorter is fine, never pad)"
+   "note": "S03.3: label \"Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}\" (number moved off the voice) is not on screen in S03; 101: 0 mid-rolls (need 1) — owner waiver: chủ dự án 08/10: 101 dưới 8:00, không mid-roll, không độn; 101: 466 s < soft minimum 480 s (không độn: shorter is fine, never pad)"
   }
  ],
  "near": [

@@ -13,10 +13,10 @@
 | master đối trọng "A measurement, not a next step" | TRƯỢT | 0 | ≥ 30 khung (1 s) |  |
 | master đối trọng "It won't say whether to buy or wait" | TRƯỢT | 0 | ≥ 30 khung (1 s) |  |
 | trục từ 0 | ĐẠT | 0 | 0 shot bars/line có min > 0 | swarm: vị trí chấm, không phải độ dài |
-| freezedetect d=3 ∩ lời | TRƯỢT | 211.13 | 0 s | 47 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [44.5, 49.2333], [58.5, 66.3333]] |
+| freezedetect d=3 ∩ lời | TRƯỢT | 211.06 | 0 s | 47 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [44.5, 49.2333], [58.5, 66.3333]] |
 | mốc hình ≥ mốc từ | ĐẠT | 0 | 0 | 0 mốc |
 | loudness | TRƯỢT | -14.0 LUFS / -1.9 dBTP | -14 ± 1 LUFS, ≤ -2.0 dBTP |  |
-| kích thước phần | ĐẠT | 43.5 | ≤ 90 MB mỗi phần | 3 phần 720p |
+| kích thước phần | ĐẠT | 44.28 | ≤ 90 MB mỗi phần | 3 phần 720p |
 | SH1 thời lượng | ĐẠT | 22.7 | ≤ 60 s |  |
 | SH1 sàn chữ | ĐẠT | 56 | ≥ 56 px | 961 lần engine nâng cỡ |
 | SH1 tương phản | ĐẠT | 7.5 | ≥ 4.5:1 | 0 lần đổi màu |
@@ -52,7 +52,7 @@
 | SH3 đối trọng "Past buyers, measured · not a reason to buy, rent or wait" | ĐẠT | 450 | ≥ 30 khung (1 s) |  |
 | SH3 đối trọng "A measurement, not a next step" | ĐẠT | 420 | ≥ 30 khung (1 s) |  |
 | SH3 đối trọng "It won't say whether to buy or wait" | ĐẠT | 360 | ≥ 30 khung (1 s) |  |
-| SH3 loudness | ĐẠT | -14.0 LUFS / -1.9 dBTP | −14 ± 2 LUFS, ≤ −1 dBTP |  |
-| luật format | ĐẠT | 101 | scope full | S03.3: label "Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}" (number moved off the voice) is not on screen in S03; 101: 466 s < soft minimum 480 s (không độn: shorter is fine, never pad) |
+| SH3 loudness | ĐẠT | -14.0 LUFS / -2.0 dBTP | −14 ± 2 LUFS, ≤ −1 dBTP |  |
+| luật format | ĐẠT | 101 | scope full | S03.3: label "Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}" (number moved off the voice) is not on screen in S03; 101: 0 mid-rolls (need 1) — owner waiver: chủ dự án 08/10: 101 dưới 8:00, không mid-roll, không độn; 101: 466 s < soft minimum 480 s (không độn: shorter is fine, never pad) |
 
 **Sát ngưỡng ±5 %:** SH1 sàn chữ (56 vs 56), SH2 sàn chữ (56 vs 56), SH3 sàn chữ (56 vs 56)
