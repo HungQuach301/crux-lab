@@ -1,11 +1,11 @@
 {
- "video": "/home/user/crux-lab/episodes/ep006/world/c3/out/.staging-s24-carl-12261/s24-carl.mp4",
+ "video": "/home/user/crux-lab/episodes/ep006/world/c3/out/.staging-s24-carl-17876/s24-carl.mp4",
  "rule1": {
   "violations": 0,
   "examples": []
  },
  "rule2": {
-  "keywords": 10,
+  "keywords": 11,
   "camera_moving_at_keyword": []
  },
  "rule3": {
@@ -19,25 +19,22 @@
  },
  "F2": {
   "summary": {
-   "level": "WARN",
+   "level": "OK",
    "sfx_per_min": 16.2,
    "sfx_max_10s": 5,
-   "sfx_on_speech": 9,
+   "sfx_on_speech": 8,
    "sfx_on_plain_words": 1,
    "sfx_events": 9,
-   "keyword_hits": 8,
-   "min_keyword_snr_db": 12.1,
+   "keyword_hits": 7,
+   "min_keyword_snr_db": 24.7,
    "label_overlaps": 0,
    "line_crossings": 0,
    "block": 0,
-   "warn": 2
+   "warn": 0
   },
-  "level": "WARN",
+  "level": "OK",
   "block": [],
-  "warn": [
-   "sfx [(20.32, 'tick')] trên từ khoá b3.ten 'ten' 20.32–20.56 SNR 12.5 dB",
-   "sfx [(28.3, 'tick')] trên từ khoá b5.ruths 'Ruth's' 28.3–28.32 SNR 12.1 dB"
-  ],
+  "warn": [],
   "sfx": {
    "events": 9,
    "duration_s": 33.41,
@@ -55,7 +52,7 @@
     ]
    },
    "on_speech": {
-    "count": 9,
+    "count": 8,
     "plain_words": 1,
     "times": [
      {
@@ -95,15 +92,9 @@
       "keyword": true
      },
      {
-      "t": 20.32,
+      "t": 18.92,
       "kind": "tick",
-      "word": "ten",
-      "keyword": true
-     },
-     {
-      "t": 28.3,
-      "kind": "tick",
-      "word": "Ruth's",
+      "word": "first",
       "keyword": true
      },
      {
@@ -186,32 +177,18 @@
      "level": "OK"
     },
     {
-     "keyword": "b3.ten",
-     "word": "ten",
-     "s": 20.32,
-     "e": 20.56,
+     "keyword": "b3.first",
+     "word": "first",
+     "s": 18.92,
+     "e": 19.04,
      "events": [
       [
-       20.32,
+       18.92,
        "tick"
       ]
      ],
-     "snr_db": 12.5,
-     "level": "WARN"
-    },
-    {
-     "keyword": "b5.ruths",
-     "word": "Ruth's",
-     "s": 28.3,
-     "e": 28.32,
-     "events": [
-      [
-       28.3,
-       "tick"
-      ]
-     ],
-     "snr_db": 12.1,
-     "level": "WARN"
+     "snr_db": 26.8,
+     "level": "OK"
     },
     {
      "keyword": "b5.never",
@@ -229,10 +206,7 @@
     }
    ],
    "stems": true,
-   "warn": [
-    "sfx [(20.32, 'tick')] trên từ khoá b3.ten 'ten' 20.32–20.56 SNR 12.5 dB",
-    "sfx [(28.3, 'tick')] trên từ khoá b5.ruths 'Ruth's' 28.3–28.32 SNR 12.1 dB"
-   ],
+   "warn": [],
    "block": []
   },
   "labels": {

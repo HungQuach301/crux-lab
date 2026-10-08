@@ -1,11 +1,11 @@
 {
- "video": "/home/user/crux-lab/episodes/ep006/world/c3/out/.staging-s27-edna-12627/s27-edna.mp4",
+ "video": "/home/user/crux-lab/episodes/ep006/world/c3/out/.staging-s27-edna-18256/s27-edna.mp4",
  "rule1": {
   "violations": 0,
   "examples": []
  },
  "rule2": {
-  "keywords": 12,
+  "keywords": 14,
   "camera_moving_at_keyword": []
  },
  "rule3": {
@@ -19,24 +19,22 @@
  },
  "F2": {
   "summary": {
-   "level": "WARN",
+   "level": "OK",
    "sfx_per_min": 15.5,
    "sfx_max_10s": 5,
-   "sfx_on_speech": 9,
-   "sfx_on_plain_words": 3,
+   "sfx_on_speech": 8,
+   "sfx_on_plain_words": 2,
    "sfx_events": 9,
    "keyword_hits": 6,
-   "min_keyword_snr_db": 15.6,
-   "label_overlaps": 1,
+   "min_keyword_snr_db": 23.0,
+   "label_overlaps": 0,
    "line_crossings": 0,
    "block": 0,
-   "warn": 1
+   "warn": 0
   },
-  "level": "WARN",
+  "level": "OK",
   "block": [],
-  "warn": [
-   "Edna × Edna · ILLUSTRATIVE · Jan 1949 17.8–17.8 s (1 mẫu)"
-  ],
+  "warn": [],
   "sfx": {
    "events": 9,
    "duration_s": 34.85,
@@ -54,8 +52,8 @@
     ]
    },
    "on_speech": {
-    "count": 9,
-    "plain_words": 3,
+    "count": 8,
+    "plain_words": 2,
     "times": [
      {
       "t": 0.45,
@@ -88,15 +86,9 @@
       "keyword": true
      },
      {
-      "t": 17.51,
-      "kind": "whoosh_soft",
-      "word": "started",
-      "keyword": false
-     },
-     {
-      "t": 21.0,
+      "t": 19.246,
       "kind": "tick",
-      "word": "Her",
+      "word": "answer.",
       "keyword": true
      },
      {
@@ -157,17 +149,17 @@
      "level": "OK"
     },
     {
-     "keyword": "c3.her",
-     "word": "Her",
-     "s": 21.0,
-     "e": 21.04,
+     "keyword": "c2.answer",
+     "word": "answer.",
+     "s": 19.246,
+     "e": 19.6,
      "events": [
       [
-       21.0,
+       19.246,
        "tick"
       ]
      ],
-     "snr_db": 15.6,
+     "snr_db": 28.2,
      "level": "OK"
     },
     {
@@ -206,37 +198,16 @@
   "labels": {
    "samples": 349,
    "overlaps": {
-    "count": 1,
-    "spans": [
-     {
-      "what": "Edna × Edna · ILLUSTRATIVE · Jan 1949",
-      "t0": 17.8,
-      "t1": 17.8,
-      "samples": 1,
-      "level": "WARN"
-     }
-    ],
-    "examples": [
-     {
-      "t": 17.8,
-      "a": "Edna",
-      "b": "Edna · ILLUSTRATIVE · Jan 1949",
-      "overlap_px": [
-       116.0,
-       18.1
-      ],
-      "level": "WARN"
-     }
-    ]
+    "count": 0,
+    "spans": [],
+    "examples": []
    },
    "line_crossings": {
     "count": 0,
     "spans": [],
     "examples": []
    },
-   "warn": [
-    "Edna × Edna · ILLUSTRATIVE · Jan 1949 17.8–17.8 s (1 mẫu)"
-   ],
+   "warn": [],
    "block": []
   }
  },

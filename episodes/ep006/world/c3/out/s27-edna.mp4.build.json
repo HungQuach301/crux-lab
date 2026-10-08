@@ -4,20 +4,20 @@
  "out": "episodes/ep006/world/c3/out/s27-edna.mp4",
  "steps": {
   "lint": {
-   "seconds": 0.3,
+   "seconds": 0.4,
    "ok": true,
    "problems": [],
    "files": 18
   },
   "spine": {
-   "seconds": 0.5,
+   "seconds": 0.6,
    "ok": true,
    "stdout": [
     "checks OK"
    ]
   },
   "render": {
-   "seconds": 150.5,
+   "seconds": 149.4,
    "ok": true,
    "shots": 4,
    "rendered": [
@@ -27,13 +27,13 @@
     "s3"
    ],
    "cached": 0,
-   "wall_s": 149.8,
+   "wall_s": 148.6,
    "film_s": 34.85,
-   "wall_per_film_s_rendered": 8.8,
+   "wall_per_film_s_rendered": 8.68,
    "cores": 4
   },
   "audio": {
-   "seconds": 18.5,
+   "seconds": 18.4,
    "ok": true
   },
   "mux": {
@@ -57,22 +57,20 @@
     "first_5s_world": true
    },
    "F2": {
-    "level": "WARN",
+    "level": "OK",
     "sfx_per_min": 15.5,
     "sfx_max_10s": 5,
-    "sfx_on_speech": 9,
-    "sfx_on_plain_words": 3,
+    "sfx_on_speech": 8,
+    "sfx_on_plain_words": 2,
     "sfx_events": 9,
     "keyword_hits": 6,
-    "min_keyword_snr_db": 15.6,
-    "label_overlaps": 1,
+    "min_keyword_snr_db": 23.0,
+    "label_overlaps": 0,
     "line_crossings": 0,
     "block": [],
-    "warn": [
-     "Edna × Edna · ILLUSTRATIVE · Jan 1949 17.8–17.8 s (1 mẫu)"
-    ]
+    "warn": []
    }
   }
  },
- "total_seconds": 175.9
+ "total_seconds": 174.8
 }
