@@ -44,3 +44,14 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc: kiểm m�
 | 2026-10-07 | C4 | chẩn đoán | 2 agent đạo diễn độc lập (A, B) | animatic 540p | 136.388 + 161.371 | A: cảm xúc 2 · truyện 3 · hình 3 · nhịp 3; B: 3·3·3·3; 6 nhận xét lặp ở cả hai → sửa |
 | 2026-10-07 | C5 | điều phối + dựng (lời) | phiên chính, `story/seed_check.py S05 1005` | S09 (a) chủ dự án duyệt: S05.1 thêm "in dollars of the day"; sinh lại S05 | — | EL **256**; ASR medium khớp từng từ |
 | 2026-10-08 | C5b | dựng | agent general-purpose (vòng sửa C5) | S07/S08 sổ claim (+35 claim hằng/dẫn xuất/trục), S09 nhãn gốc cấp khung + lời S05.1, S10 nhãn lựa chọn, S14→không mid-roll (chủ dự án 08/10), S17 "on paper", V03/V08/V09/V11/V12, Shorts xếp chữ dọc, thumbnail; 3 lượt render 1080p (vòng 3 = bản giao) | — | checks run-c5b: CHẶN 35/35, CHÍNH 9/11 (F07 quyết định chủ dự án, V11 chỉ còn dương tính giả có nền), Tập ĐẠT; EL 0 (take S05 do điều phối sinh) |
+| 2026-10-07 | C4 | dựng | agent (C4 animatic cả tập) | 4 đoạn thế giới, 22 fly, master 540p, checks lần 1 | 655.130 | |
+| 2026-10-07 | C4 | dựng | agent (nhà máy: page.json, F08, F11, Shorts) | | 487.861 | test 63/63 |
+| 2026-10-07 | C4 | dựng | agent (sửa vòng 2: B03 B08 B14 B17 B18 + take S04/S15) | | 397.344 | |
+| 2026-10-07 | C4 | dựng | agent (sửa vòng 3 + 7 nhận xét đạo diễn) | | 512.000 | |
+| 2026-10-07 | C4 | dựng | agent (hoàn 3 chỗ khoá nghĩa) | | 181.926 | |
+| 2026-10-07 | C4 | kiểm mù | headless (vòng 1–3, người thứ 3, chốt chặn có lời, B11) | | ≈ 1.000.000 | 12/12 |
+| 2026-10-07 | C5 | dựng | agent (C5 1080p, checks, Shorts, gói) | | 395.940 | CHẶN 29/35 |
+| 2026-10-08 | C5 | dựng | agent (C5b sửa CHẶN/CHÍNH + S05; 3 lượt 1080p do khởi động lại) | | 649.261 | CHẶN 35/35 |
+| 2026-10-08 | C5 | dựng | agent (C5c B02/B18) | | 241.933 | |
+| 2026-10-08 | C5 | kiểm mù | headless (C5b 8 nhịp, chốt chặn, C5c, so đủ mẫu 24 lượt) | | ≈ 790.000 | nghĩa ≥ C4 |
+| 2026-10-08 | G2 | REVIEWER | agent | gói G2 + R1 + 155 khung | 198.540 | ĐẠT có sửa |

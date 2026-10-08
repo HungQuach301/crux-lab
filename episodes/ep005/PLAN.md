@@ -17,7 +17,9 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 | B+2 S03 | **XONG** | `gates/S03-S12-*.md` | "a waiting period" + nhãn Fannie Mae; M4 9,8 s; mù S03→S12 6/6, khuyên 0 |
 | **C3 (P2)** | **XONG** (issue #46; `gates/C3-answer.md`) | `gates/C3.md`, `gates/C3-root.md`, `gates/REVIEW-C3.md`, `review-c3/c3-clip.mp4`, `world/SPINE-PLAN.md` | spine v2; N3 ĐẠT; N1/N2 hết 3 vòng (câu khuyên tắt tiếng) → chủ dự án chọn |
 | F-5, F-2, F-3, F-1 → C4 → C5 → Shorts → G2 | C4 XONG (khoá nghĩa) | `gates/C4-root.md` | |
-| **C5** (render 1080p + checks đủ bộ) | **TRƯỢT CHẶN** (5 luật trong hình/lời đã khoá) | `out/checks/run-c5/`, `out/explanations.json`, `HUONG-DAN-DANG.md` | 1080p −14,0 LUFS / −1,9 dBTP, A07 19,6 dB, A08 13,5 dB; CHẶN 29/35 (S07, S08, S09, S10, S17 + REG=S10); CHÍNH 5/11 (F07, V03, V08, V09, V11, V12 giải thích); Shorts SH1–SH3, thumbnail 3, gói mô tả — chờ chủ dự án |
+| **C5** (render 1080p + checks đủ bộ) | **XONG** — C5c: Tập ĐẠT (CHẶN 35/35); nghĩa ≥ C4 (`gates/C5-root.md`) | `out/checks/run-c5/`, `out/explanations.json`, `HUONG-DAN-DANG.md` | 1080p −14,0 LUFS / −1,9 dBTP, A07 19,6 dB, A08 13,5 dB; CHẶN 29/35 (S07, S08, S09, S10, S17 + REG=S10); CHÍNH 5/11 (F07, V03, V08, V09, V11, V12 giải thích); Shorts SH1–SH3, thumbnail 3, gói mô tả — chờ chủ dự án |
+
+| **G2** | **CHỜ CHỦ DỰ ÁN** (phiếu L3) | `gates/G2.md`, `gates/REVIEW-G2.md`, `review-g2/` | sau G2: G3 Release `ep005-v1` (§ G3) |
 
 ## 2. Phiên sau đọc (sau Mốc V merge)
 `decisions/D-009.md` · đặc tả nhịp Mốc V (README/playbook do Mốc V ghi) · `CHARTER.md` · `playbook/episode.md` · `playbook/prompts/P3.md` · `episodes/ep005/PLAN.md` · `ledger.md` · `gates/G1.md` + trả lời G1 · `story/script.md` · `story/beats.md` · `episode.yaml` · `toolkit/factory/README.md`.
