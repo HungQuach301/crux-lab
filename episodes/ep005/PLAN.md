@@ -52,3 +52,6 @@ Nhánh **`ep005`** (chủ dự án, G1; trước đó `ccr-a4da2518-3guqrl` @ `9
 **Sau G1 (2026-10-06):** lời theo cảnh **20/20** trong `voice-takes/` (≈ 7:12 lời); EL cả tập **8.735/6.000 (+46 %)** (S03/S12 sinh lại 938, S18 hai seed 1.266) — D-009: không cắt chất lượng vì trần; nêu tên. Agent 12/40 (không thêm agent sau G1).
 
 **C5 (2026-10-07):** giờ render 1080p: đoạn thế giới một lượt 1,48 h (a 0,22 · b 0,40 · c 0,50 · d 0,36) + d dựng lại 0,36 h (sửa nhật ký chữ lúc tối dần, điểm ảnh không đổi) + Shorts 0,26 h; tổng đồng hồ các lần build 3,8 h; trang kiểm checks 1,3 h. EL 0 ký tự.
+
+## G3 — kế hoạch giao file (chủ dự án 08/10)
+Sau G2 duyệt: GitHub Release tag **`ep005-v1`** (repo public) chứa master 1080p, Shorts, thumbnail, `captions.srt`, mô tả + **SHA256SUMS** (mỗi file < 2 GiB). Cách: REST API (`POST /repos/HungQuach301/crux-lab/releases`, tải tệp lên `uploads.github.com`) — proxy đính token GitHub App (quyền push/admin, kiểm 08/10 bằng GET chỉ đọc); `gh` CLI không dùng được (token phiên không hợp lệ). Sau khi đẩy: tải ngược từ link công khai `https://github.com/HungQuach301/crux-lab/releases/download/ep005-v1/<file>` → `sha256sum -c SHA256SUMS` → ghi kết quả vào `HUONG-DAN-DANG.md`. Không tạo được (quyền/proxy) → quay về nhánh tạm + phần 90 MB như Tập 4 (`toolkit/deliver/deliver.py`), báo lý do.
