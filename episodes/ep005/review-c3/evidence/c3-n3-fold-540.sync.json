@@ -1,0 +1,25 @@
+{
+ "video": "episodes/ep005/work/world/c3-n3-fold-540.mp4",
+ "asr_words_matched": 38,
+ "asr_words_ref": 40,
+ "voice_offset_s": {
+  "median": -0.007,
+  "p90_abs": 0.116
+ },
+ "visual_peak_vs_keyword_s": {
+  "f0.compare": 0.123,
+  "f0.value": 0.113,
+  "f0.less": 0.013,
+  "f1.bar": 0.046,
+  "f1.height": 0.116
+ },
+ "method": {
+  "f0.compare": "label",
+  "f0.value": "label",
+  "f0.less": "motion-roi",
+  "f1.bar": "motion-roi",
+  "f1.height": "label"
+ },
+ "visual_within_0.2s": "5/5",
+ "visual_not_detected": []
+}

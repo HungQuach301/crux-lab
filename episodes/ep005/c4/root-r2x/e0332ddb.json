@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation follows one past buyer, Victor, who bought in October 2005 with a 6.07% mortgage. It shows what happened to the loan against the home's value over the next ten years. The data comes from FHFA and Freddie Mac via FRED. The \"illustrative\" tag and the footer say this is measured history, not a forecast.\n\n**2. What changes across the frames.**\n- Frame 1 is an empty chart with only a flat 80% line.\n- In frame 2 the white \"on paper\" line and the gray \"schedule\" line start near each other. The blue price index starts to dip.\n- By frame 3 the price index sinks well below its starting level, bottoming around year 6. The white line rises far above the schedule line as the home's value falls, peaking around years 3 to 4. It then comes back down.\n- In frames 4 and 5 the picture is complete. At about 112 months the white line drops below the 80% line, but the label says the price index is still 3.3% below the purchase price.\n- Frame 6 is a house with a question mark.\n\n**3. What it means.** My reading is that the white line is the loan as a share of the home's value, and 80% is the usual threshold for having a solid equity cushion. When prices fell, Victor's loan looked much larger relative to the home than the payment schedule alone would suggest. He spent years above the 80% line even though he paid on time. He got back under it after about 9 years, mostly through paying down the loan, because prices had not fully recovered. So a buyer can be \"underwater\" or thinly cushioned for a long time, and home prices don't rebound on any schedule.\n\n**4. What a viewer would take from it.** The footer says this is \"not a reason to buy, rent or wait,\" so it isn't telling anyone to act. The practical takeaways, as I read them:\n- Plan to stay a long time, since equity can take close to a decade to rebuild after a bad entry point.\n- Don't count on price gains. Principal paydown did much of the work here.\n- Keep a cushion, meaning a bigger down payment, emergency savings, and a payment you can afford, so a price dip doesn't force a sale.\n\nAs a renter with about 10% saved, I'd see this as a reminder that a 10% down payment leaves less room than Victor's 20% if prices drop. It's one example, not a prediction.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1058,
+   "out": 12
+  },
+  "claude-sonnet-5-5": {
+   "in": 9780,
+   "out": 1135
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,62 @@
+{
+ "texts": [
+  {
+   "text": "23 months",
+   "box": [
+    44,
+    65,
+    781.8,
+    181
+   ],
+   "fontPx": 150,
+   "claims": [
+    "medianB_months_to80"
+   ]
+  },
+  {
+   "text": "on paper",
+   "box": [
+    48,
+    237,
+    415.4,
+    116
+   ],
+   "fontPx": 96,
+   "claims": [
+    "medianB_months_to80"
+   ]
+  },
+  {
+   "text": "not removal",
+   "box": [
+    48,
+    363,
+    519,
+    109
+   ],
+   "fontPx": 90,
+   "claims": []
+  },
+  {
+   "text": "US only · history, not a forecast",
+   "box": [
+    630.8,
+    661,
+    609.2,
+    49
+   ],
+   "fontPx": 40,
+   "claims": []
+  }
+ ],
+ "graphics": {
+  "claims": [
+   "nB",
+   "medianB_months_to80",
+   "maxB_months_to80",
+   "firstB",
+   "lastB"
+  ],
+  "what": "307 bars, one per purchase month January 1991–July 2016, height = months to 80% on paper (national index); bars at or under the median white, the rest dark; amber median line at 23 months. No axis numbers."
+ }
+}

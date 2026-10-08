@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows how long it takes a first-time buyer with a small down payment to get their loan down to 80% of the home's value. It starts with a textbook case, where you put 10% down and the loan is 90% of the price. On the regular payment schedule, the loan falls to 80% in about 8 years. That 80% mark is the usual point where extra costs for a small down payment, such as mortgage insurance, can come off. The animation then checks that schedule against real data.\n\n2. **What changes across the frames:**\n   - Frames 1 and 2 draw one illustrative line, labeled \"ILLUSTRATIVE.\" It starts at 90% and slopes down until it meets the 80% line at about 8 years.\n   - Frame 3 swaps in real data. The chart is now \"loan as % of home value, one line per purchase month, 1991–2016,\" from FHFA and Freddie Mac data via FRED. A bunch of lines start fanning out from 90%.\n   - Frames 4 and 5 fill in the full set of lines. Some drop quickly. Many rise first, because home prices fell or loans grew relative to value, and then come down much later.\n   - Frame 6 highlights two cases. The typical buyer reached 80% in about 2 years, much faster than the schedule's 8. The slowest case took about 9 years, longer than the schedule.\n\n3. **What it means:** The 8-year schedule is only a baseline that assumes the home's value doesn't change. In real life, home price changes mattered more than paydown. Most past buyers got to 80% much sooner because their homes appreciated. A few were stuck for longer than the schedule says because prices fell. So the time to reach 80% varied widely, from about 2 years to about 9 years or more.\n\n4. **What a viewer would take away:** The captions say this is \"a measurement, not a next step\" and \"not a reason to buy, rent or wait.\" It also says \"US only · history, not a forecast.\" So there's no instruction to buy or not buy. The takeaway is about expectations. Don't count on reaching 80% in exactly 8 years, and don't assume it will be fast. It depends heavily on what home prices do, which nobody can predict. If I were buying with about 10% down, I'd plan for the slow end of the range and treat an early drop to 80% as a bonus.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1377,
+   "out": 276
+  },
+  "claude-sonnet-5-5": {
+   "in": 9779,
+   "out": 841
+  }
+ },
+ "turns": 2
+}

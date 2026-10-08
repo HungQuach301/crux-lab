@@ -8,9 +8,13 @@
             của độ chói trong hộp trên khung video thu 4× (trung bình hộp 4×4) — như checks/page/sampler.js. Video phải 1920×1080.
   cuts    : cắt cứng = > 45 % điểm ảnh (xám, > 25 mức) đổi giữa hai khung liên tiếp
   modes   : tỉ lệ thời lượng chế độ thế giới / đồ thị (chartW < 0,5 / ≥ 0,5)
+  F2      : mật độ sfx (sự kiện/phút, tối đa trong 10 s, sfx đè lời, sfx che từ khoá — đo SNR trên <video>.audio/stems) + nhãn đè nhau /
+            chữ bị đường cắt (sfx_labels.py; BACKLOG F-2). level BLOCK (sfx che từ khoá, nhãn/đường đè chữ ở trạng thái đọc) → build_seg dừng
 """
 import json, os, subprocess, sys
 import numpy as np
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import sfx_labels  # noqa: E402
 seg, video, out = sys.argv[1:4]
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 S = json.load(open(os.path.join(seg if os.path.isdir(seg) else os.path.join(ROOT, 'moc-v/seg', seg), 'spine.json')))
@@ -34,6 +38,9 @@ res['rule3'] = {'moves': len(S['moves']), 'missing_reason_or_sound': [m for m in
 cw = np.array([l['chartW'] for l in logs])
 res['modes'] = {'world_share': round(float((cw < 0.5).mean()), 3), 'chart_share': round(float((cw >= 0.5).mean()), 3),
                 'first_5s_world': bool(all(l['chartW'] < 0.05 for l in logs if l['t'] < 5))}
+# F-2: mật độ sfx + nhãn đè nhau (nhật ký trang + spine.events + stem của audio.py nếu có)
+f2 = sfx_labels.check(S, logs, video.replace('.mp4', '.audio'))
+res['F2'] = {'summary': sfx_labels.summary(f2), **f2}
 # video frames (gray for cuts; rgb every 0.2 s for C14)
 w, h = map(int, subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', video],
                                capture_output=True, text=True).stdout.strip().split(','))
@@ -76,4 +83,6 @@ if (w, h) == (1920, 1080):
 else:
     res['C14'] = {'skipped': f'video {w}×{h}; C14 đo trên bản 1920×1080'}
 json.dump(res, open(out, 'w'), indent=1, ensure_ascii=False)
-print(json.dumps({k: (v if k not in ('rule1', 'C14') else {kk: vv for kk, vv in v.items() if kk != 'examples'}) for k, v in res.items()}, ensure_ascii=False))
+print(json.dumps({k: (v['summary'] if k == 'F2' else v if k not in ('rule1', 'C14') else {kk: vv for kk, vv in v.items() if kk != 'examples'}) for k, v in res.items()}, ensure_ascii=False))
+for lv in ('block', 'warn'):
+    for m in f2[lv]: print(f'F-2 {lv.upper()}: {m}')

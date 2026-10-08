@@ -1,0 +1,179 @@
+{
+ "kind": null,
+ "kindStatus": "new",
+ "params": {
+  "hpi": {
+   "file": "data/HPIPONM226N.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "HPIPONM226N"
+  },
+  "rate": {
+   "file": "data/MORTGAGE30US.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "MORTGAGE30US",
+   "frequency": "weekly"
+  },
+  "downShare": 0.1,
+  "termMonths": 360,
+  "requestLtv": 0.8,
+  "autoLtv": 0.78,
+  "lenderLtvEarly": 0.75,
+  "lookMonthsA": 24,
+  "minFollowB": 120,
+  "slowCutMonths": 60
+ },
+ "quantities": [
+  {
+   "name": "rate_month_latest",
+   "meaning": "latest complete calendar month of weekly PMMS rates",
+   "unit": "month",
+   "from": "result.json → numbers[id=rate_month_latest].value"
+  },
+  {
+   "name": "rate_latest",
+   "meaning": "mean of the weekly 30-year fixed rates dated in rate_month_latest",
+   "unit": "percent",
+   "from": "result.json → numbers[id=rate_latest].value"
+  },
+  {
+   "name": "sched80_months_latest",
+   "meaning": "payments until the scheduled balance of a 90% loan first reaches 80% of the purchase price, at rate_latest",
+   "unit": "months",
+   "from": "result.json → numbers[id=sched80_months_latest].value"
+  },
+  {
+   "name": "sched78_months_latest",
+   "meaning": "payments until the scheduled balance first reaches 78% of the purchase price, at rate_latest",
+   "unit": "months",
+   "from": "result.json → numbers[id=sched78_months_latest].value"
+  },
+  {
+   "name": "nA",
+   "meaning": "number of purchase months in set A (24 later months of index data)",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=nA].value"
+  },
+  {
+   "name": "firstA",
+   "meaning": "first purchase month in set A",
+   "unit": "month",
+   "from": "result.json → numbers[id=firstA].value"
+  },
+  {
+   "name": "lastA",
+   "meaning": "last purchase month in set A",
+   "unit": "month",
+   "from": "result.json → numbers[id=lastA].value"
+  },
+  {
+   "name": "shareA_ltv24_le75",
+   "meaning": "share of set A whose index loan-to-value after 24 payments is <= 75%",
+   "unit": "share",
+   "from": "result.json → numbers[id=shareA_ltv24_le75].value"
+  },
+  {
+   "name": "shareA_ltv24_le80",
+   "meaning": "share of set A whose index loan-to-value after 24 payments is <= 80%",
+   "unit": "share",
+   "from": "result.json → numbers[id=shareA_ltv24_le80].value"
+  },
+  {
+   "name": "nB",
+   "meaning": "number of purchase months in set B (more than 120 later months of index data)",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=nB].value"
+  },
+  {
+   "name": "firstB",
+   "meaning": "first purchase month in set B",
+   "unit": "month",
+   "from": "result.json → numbers[id=firstB].value"
+  },
+  {
+   "name": "lastB",
+   "meaning": "last purchase month in set B",
+   "unit": "month",
+   "from": "result.json → numbers[id=lastB].value"
+  },
+  {
+   "name": "medianB_months_to80",
+   "meaning": "median over set B of the first month the index loan-to-value is <= 80%",
+   "unit": "months",
+   "from": "result.json → numbers[id=medianB_months_to80].value"
+  },
+  {
+   "name": "shareB_over60",
+   "meaning": "share of set B whose first month at <= 80% index loan-to-value is after month 60",
+   "unit": "share",
+   "from": "result.json → numbers[id=shareB_over60].value"
+  },
+  {
+   "name": "maxB_months_to80",
+   "meaning": "largest first month at <= 80% index loan-to-value in set B",
+   "unit": "months",
+   "from": "result.json → numbers[id=maxB_months_to80].value"
+  },
+  {
+   "name": "maxB_start",
+   "meaning": "purchase month of maxB_months_to80 (same purchase month, earliest on ties)",
+   "unit": "month",
+   "from": "result.json → numbers[id=maxB_start].value"
+  },
+  {
+   "name": "shareB_le_sched80",
+   "meaning": "share of set B where the index reached 80% no later than the schedule did at that month's rate",
+   "unit": "share",
+   "from": "result.json → numbers[id=shareB_le_sched80].value"
+  },
+  {
+   "name": "downShare",
+   "meaning": "down payment as a share of the purchase price (10%); loan = 90%",
+   "unit": "share",
+   "from": "result.json → assumptions[0] (input, not computed)"
+  },
+  {
+   "name": "requestLtv",
+   "meaning": "80% of original value: borrower-request threshold (12 U.S.C. 4901(2)(A)) and the index-LTV target",
+   "unit": "share",
+   "from": "result.json → numbers[id=sched80_months_latest].definition (input)"
+  },
+  {
+   "name": "autoLtv",
+   "meaning": "78% of original value: automatic termination threshold (12 U.S.C. 4901(18)(A))",
+   "unit": "share",
+   "from": "result.json → numbers[id=sched78_months_latest].definition (input)"
+  },
+  {
+   "name": "lenderLtvEarly",
+   "meaning": "75% value-based threshold lenders often require in early years (claim-risk.md), used for shareA_ltv24_le75",
+   "unit": "share",
+   "from": "result.json → numbers[id=shareA_ltv24_le75].definition (input)"
+  },
+  {
+   "name": "minB_months_to80",
+   "meaning": "smallest first month at <= 80% index loan-to-value in set B (lower end of \"the real range\")",
+   "unit": "months",
+   "from": "not in result.json; recomputed by episodes/ep005/model/model.py (raw.minB_months_to80 = 13)"
+  },
+  {
+   "name": "hpi_first",
+   "meaning": "first month of the house price index file (span behind \"decades of home prices\")",
+   "unit": "month",
+   "from": "sources.json → series[HPIPONM226N] (1991-01); result.json numbers[].definition"
+  },
+  {
+   "name": "hpi_last",
+   "meaning": "last month of the house price index file (data \"now\")",
+   "unit": "month",
+   "from": "sources.json → series[HPIPONM226N].lastObservation"
+  }
+ ],
+ "noExistingKind": "None of the kinds in checks/CONTRACT.md 'Loại mô hình' fits. retirement-6040: annual portfolio withdrawals. refinance-breakeven: amortizes a loan but compares two loans' payments/balances against a closing cost and zig-zag rate history; no house-price index, no LTV threshold. float-vs-fixed-replay: replays a short-rate index over loan windows (interest totals), no collateral value. lock-vs-roll-replay: compounding products of rates over horizons. fixed-cap-vs-index-growth: quarterly regional index growth vs a fixed nominal cap from one buy year; no loan, no monthly first-passage time. This topic needs a monthly first-passage time of balance / index-grown value across every purchase month, plus schedule thresholds.",
+ "newKindNeeds": {
+  "inputs": "(1) Monthly house price index, one row per month, no gaps (FRED HPIPONM226N: observation_date, value; NSA, Jan 1991=100). (2) Weekly 30-year fixed mortgage rate in percent (FRED MORTGAGE30US: observation_date, value). Params: downShare (0.10), termMonths (360), thresholds requestLtv (0.80), autoLtv (0.78), lenderLtvEarly (0.75), lookMonthsA (24), minFollowB (120), slowCutMonths (60); rule for the 'latest' rate month.",
+  "computation": "Monthly rate R(m) = mean of the weekly rates dated in calendar month m. For a purchase month s with rate R(s): x = R/1200, loan L0 = 1 − downShare (fraction of price), level payment p = L0·x/(1 − (1+x)^−termMonths), scheduled balance B_k = L0(1+x)^k − p((1+x)^k − 1)/x. Scheduled months sched(R, t) = first k in 0..termMonths with B_k ≤ t (t = requestLtv, autoLtv), evaluated at the latest complete rate month. Index loan-to-value LTV(s,k) = B_k / (H[s+k]/H[s]). Set A = purchase months with a rate and at least lookMonthsA later index months: share with LTV(s,24) ≤ 0.80 and ≤ 0.75. Set B = purchase months with more than minFollowB later index months: T(s) = first k ≥ 0 with LTV(s,k) ≤ 0.80; report median, share T > slowCutMonths, max T and its month (earliest on ties), min T, and share T(s) ≤ sched(R(s), 0.80). Comparisons use ≤ with 1e-12 slack.",
+  "outputs": "rate_month_latest, rate_latest, sched80_months_latest, sched78_months_latest; nA, firstA, lastA, shareA_ltv24_le80, shareA_ltv24_le75; nB, firstB, lastB, medianB_months_to80, minB_months_to80, maxB_months_to80, maxB_start, shareB_over60, shareB_le_sched80; per-purchase-month table {start, rate, sched80, sched78, ltv24, T}. Optional stated rule: midpoint (termMonths/2 = 180; ends month 181, 12 U.S.C. 4902(c)).",
+  "invariants": "B_0 = L0 and B_termMonths = 0 (±1e-9); B_k strictly decreasing; sched(R,0.80) < sched(R,0.78) ≤ termMonths and both increase with R; LTV(s,0) = L0 = 0.90 > 0.80 so T(s) ≥ 1; T(s) ≤ sched(R(s),0.80) whenever H[s+k] ≥ H[s] for all k (prices never below purchase); share at ≤0.75 ≤ share at ≤0.80; multiplying H by a constant changes nothing; every T(s) in set B is observed (not censored); shares in [0,1]; nA ≥ nB, lastB < lastA.",
+  "dataNow": "Index to 2026-07; rates to 2026-09-24 in the dossier pin (fresh FRED adds 2026-10-01: the latest *complete* month rule keeps 2026-09)."
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows how a 30-year fixed mortgage is paid down. It uses an illustrative $360,000 loan at 6.86%, which it labels as the September 2026 average rate from Freddie Mac via FRED. The monthly payment is $2,362 for principal plus interest.\n\n2. **What changes:** Frame 1 shows a house, a person, a calendar page and a tall stack of cash. In frame 2 the stack is labeled as the $360,000 loan. Frame 3 labels the calendar as the $2,362 monthly payment, and an axis appears running from 0 to 360 payments. In frames 4 to 6 the calendar flips through payments 43, 92 and 114. The stack of cash moves along a curve of the loan balance. The curve falls slowly at first and then more steeply, labeled \"slowly at first\" and \"faster later.\"\n\n3. **What it means:** Early payments go mostly to interest, so the balance barely drops. After about 10 years (120 payments) the balance is still high. As the balance shrinks, more of each fixed payment goes to principal, so the balance falls faster in the later years. The stack in frame 6 is still tall at payment 114.\n\n4. **Advice a viewer would take:**\n   - Don't expect to build equity quickly in the first several years.\n   - Budget for a payment of about $2,362 a month, before taxes, insurance and upkeep, which the animation doesn't show.\n   - Plan to stay in the home a long time. If you sell early, you will have paid down little of the loan.\n   - The rate matters a lot, and the animation implies that extra principal payments early on would help.\n\n   The animation doesn't give any explicit advice. It is labeled \"illustrative,\" so I'd treat the numbers as an example and not as a quote for your own loan.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9782,
+   "out": 669
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,27 @@
+{
+ "lock": "d93276a491dd366c08ea0464d8de23bca80d82082a0c7be66ea2d555fd366b4a",
+ "lockVerified": "checks/ tree hash recomputed = checks/LOCK (d93276a4…)",
+ "contract": "episodes/ep005/contract.json",
+ "commands": [
+  "python3 checks/py/run.py episodes/ep005  (all Python rules; page sampler not run: no out/page.json, no video)",
+  "python3 run-g1-k39/s05root.py {raw|stated} <scratch root>; python3 checks/py/run.py <scratch root> --only S01,S05"
+ ],
+ "counts": {
+  "PASS": 3,
+  "FAIL": 1,
+  "MISSING": 85,
+  "ERROR": 0
+ },
+ "episode": "TRƯỢT",
+ "runnable": {
+  "F11": "FAIL",
+  "S01": "PASS",
+  "S03": "PASS",
+  "S04": "PASS"
+ },
+ "S05": {
+  "raw": "PASS: 78 mapped, 0 off, 0 absent, 0 missing ILLUSTRATIVE, invariants pass (synthetic out/claims.json = unrounded raw, as K39)",
+  "stated": "FAIL 4/78 off: *_hpiChangeTo80Pct (x3) and hpi_peak_to_trough_pct written at 1 decimal vs S05 % tolerance 0.005 → real out/claims.json must carry unrounded values (CONTRACT)"
+ },
+ "vsK39": "S01 104 compared / 0 mismatches / 0 not recomputed = K39; 78/78 claims mapped (K39 78/78)"
+}

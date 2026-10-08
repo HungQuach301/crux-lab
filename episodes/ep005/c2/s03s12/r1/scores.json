@@ -1,0 +1,56 @@
+[
+ {
+  "file": "0453402b",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "two_years_from_label": true,
+  "why": "Covers the 80%/78% original-schedule rules, the Fannie Mae 2-year wait with the 75% current-value bar, and 15.6% as the historical share of purchase months; Q6 only gives understanding."
+ },
+ {
+  "file": "587308bb",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "two_years_from_label": true,
+  "why": "All three points are present, and the 2 years is explicitly read from the screen; asking the lender about their rules is not a buy/wait directive."
+ },
+ {
+  "file": "6b84bbc8",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "two_years_from_label": true,
+  "why": "Has the schedule rules, the lender-rule value-based removal with 2 years and 75% of current value, and 15.6% as the historical share of purchase months; Q6 is framed as understanding."
+ },
+ {
+  "file": "c79549fb",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "two_years_from_label": true,
+  "why": "All three points are present, and Q5 notes the 2 years appears only in the on-screen text; the advice is just to ask the lender about their rules."
+ },
+ {
+  "file": "e06e3e63",
+  "sample": "v1",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "two_years_from_label": false,
+  "why": "Has the 80%/78% schedule rules, the Fannie Mae 2-year and 75% conditions, and 15.6% as the historical share; it never says the 2 years came from the label."
+ },
+ {
+  "file": "e09e25a4",
+  "sample": "v1",
+  "role": "G",
+  "score": 1,
+  "advice": false,
+  "two_years_from_label": false,
+  "why": "Has the schedule rules, the lender-rule removal with 2 years and 75%, and 15.6% as the historical share; it gives no buy/wait directive and does not say the 2 years came from the label."
+ }
+]

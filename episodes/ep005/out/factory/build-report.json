@@ -1,0 +1,670 @@
+{
+ "episode": "ep005",
+ "yaml": "episodes/ep005/episode.yaml",
+ "steps": {
+  "spec": {
+   "seconds": 0.05,
+   "problems": 2
+  },
+  "voice": {
+   "seconds": 1.94,
+   "scenes": 20,
+   "cache_hits": 20,
+   "el_chars_spent": 0
+  },
+  "resolve": {
+   "seconds": 2.69,
+   "total": 465.6669,
+   "shots": 0,
+   "anchors": 0
+  },
+  "world": {
+   "seconds": 1670.95,
+   "segments": {
+    "a-s01-s03": {
+     "lint": {
+      "seconds": 0.0,
+      "ok": true,
+      "problems": []
+     },
+     "spine": {
+      "seconds": 16.6,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ]
+     },
+     "render": {
+      "seconds": 1.3,
+      "ok": true,
+      "shots": 7,
+      "rendered": [],
+      "cached": 7,
+      "wall_s": 0.8,
+      "film_s": 58.0001,
+      "wall_per_film_s_rendered": 0,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 23.4,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 2.6,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 55.0,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 1537,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.529,
+       "chart_share": 0.471,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "WARN",
+       "sfx_per_min": 21.7,
+       "sfx_max_10s": 8,
+       "sfx_on_speech": 18,
+       "sfx_on_plain_words": 6,
+       "sfx_events": 21,
+       "keyword_hits": 11,
+       "min_keyword_snr_db": 11.0,
+       "label_overlaps": 0,
+       "line_crossings": 0,
+       "block": [],
+       "warn": [
+        "sfx 8 sự kiện trong 10 s từ 0.307 > 6",
+        "sfx [(0.73, 'land')] trên từ khoá c0.ten 'ten' 0.73–0.96 SNR 11.0 dB",
+        "sfx [(2.15, 'rise'), (2.56, 'whoosh_soft')] trên từ khoá c0.price 'price.' 2.15–2.8 SNR 13.6 dB",
+        "sfx [(25.319, 'chime')] trên từ khoá c4.eighty 'eighty' 25.319–25.593 SNR 13.1 dB",
+        "sfx [(31.093, 'impact')] trên từ khoá c5.removed 'removed.' 31.093–31.673 SNR 11.3 dB"
+       ]
+      }
+     }
+    },
+    "b-s04-s09": {
+     "lint": {
+      "seconds": 0.0,
+      "ok": true,
+      "problems": []
+     },
+     "spine": {
+      "seconds": 13.0,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ]
+     },
+     "render": {
+      "seconds": 1.5,
+      "ok": true,
+      "shots": 10,
+      "rendered": [],
+      "cached": 10,
+      "wall_s": 0.9,
+      "film_s": 131.0334,
+      "wall_per_film_s_rendered": 0,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 48.2,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 5.7,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 126.2,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 3884,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.331,
+       "chart_share": 0.669,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "WARN",
+       "sfx_per_min": 11.9,
+       "sfx_max_10s": 5,
+       "sfx_on_speech": 23,
+       "sfx_on_plain_words": 9,
+       "sfx_events": 26,
+       "keyword_hits": 17,
+       "min_keyword_snr_db": 13.2,
+       "label_overlaps": 0,
+       "line_crossings": 0,
+       "block": [],
+       "warn": [
+        "sfx [(32.539, 'land'), (32.799, 'land')] trên từ khoá e0.four 'four' 32.799–32.927 SNR 13.2 dB",
+        "sfx [(39.687, 'land')] trên từ khoá e1.ten 'ten' 39.687–39.807 SNR 13.4 dB",
+        "sfx [(69.939, 'chime')] trên từ khoá l0.eighty 'eighty' 69.939–70.213 SNR 14.9 dB"
+       ]
+      }
+     }
+    },
+    "c-s10-s14": {
+     "lint": {
+      "seconds": 0.0,
+      "ok": true,
+      "problems": []
+     },
+     "spine": {
+      "seconds": 13.2,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ]
+     },
+     "render": {
+      "seconds": 1.4,
+      "ok": true,
+      "shots": 10,
+      "rendered": [],
+      "cached": 10,
+      "wall_s": 0.9,
+      "film_s": 132.6334,
+      "wall_per_film_s_rendered": 0,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 48.6,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 5.7,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 127.6,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 5221,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.315,
+       "chart_share": 0.685,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "WARN",
+       "sfx_per_min": 15.4,
+       "sfx_max_10s": 9,
+       "sfx_on_speech": 24,
+       "sfx_on_plain_words": 10,
+       "sfx_events": 34,
+       "keyword_hits": 15,
+       "min_keyword_snr_db": 12.0,
+       "label_overlaps": 2,
+       "line_crossings": 0,
+       "block": [],
+       "warn": [
+        "sfx 9 sự kiện trong 10 s từ 23.079 > 6",
+        "sfx [(29.76, 'chime'), (30.01, 'whoosh_mode')] trên từ khoá r3.less 'less.' 29.76–30.16 SNR 12.9 dB",
+        "sfx [(71.363, 'chime')] trên từ khoá k2.fifteen 'fifteen' 71.363–71.853 SNR 14.8 dB",
+        "sfx [(101.58, 'chime')] trên từ khoá n1.years 'years.' 101.58–102.3 SNR 12.0 dB",
+        "sfx [(108.687, 'slide_down')] trên từ khoá n2.slump 'slump.' 108.687–109.18 SNR 13.6 dB",
+        "Past buyers, measured · not a reason to buy, rent or wait × national home price index 109.7–109.7 s (1 mẫu)",
+        "Past buyers, measured · not a reason to buy, rent or wait × national price slump 109.7–109.7 s (1 mẫu)"
+       ]
+      }
+     }
+    },
+    "d-s15-s20": {
+     "lint": {
+      "seconds": 0.0,
+      "ok": true,
+      "problems": []
+     },
+     "spine": {
+      "seconds": 12.8,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ]
+     },
+     "render": {
+      "seconds": 961.9,
+      "ok": true,
+      "shots": 13,
+      "rendered": [
+       "s0",
+       "s4",
+       "s1",
+       "s2",
+       "s5",
+       "s7",
+       "s8",
+       "s10",
+       "s3",
+       "s9",
+       "s11",
+       "s6",
+       "s12"
+      ],
+      "cached": 0,
+      "wall_s": 961.4,
+      "film_s": 144,
+      "wall_per_film_s_rendered": 25.98,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 54.3,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 6.0,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 145.8,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 8559,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.207,
+       "chart_share": 0.793,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "WARN",
+       "sfx_per_min": 10.4,
+       "sfx_max_10s": 5,
+       "sfx_on_speech": 18,
+       "sfx_on_plain_words": 6,
+       "sfx_events": 25,
+       "keyword_hits": 14,
+       "min_keyword_snr_db": 12.6,
+       "label_overlaps": 1,
+       "line_crossings": 0,
+       "block": [],
+       "warn": [
+        "sfx [(27.066, 'chime')] trên từ khoá o1.thirteen 'thirteen' 27.066–27.493 SNR 12.6 dB",
+        "$400,000 home × ILLUSTRATIVE 106.6–106.6 s (1 mẫu)"
+       ]
+      }
+     }
+    }
+   }
+  },
+  "render": {
+   "seconds": 86.74,
+   "segments": 0,
+   "rendered": 0,
+   "cache_hits": 0,
+   "frames": 13970,
+   "blank": true
+  },
+  "splice": {
+   "seconds": 148.48,
+   "segments": [
+    "a-s01-s03",
+    "b-s04-s09",
+    "c-s10-s14",
+    "d-s15-s20"
+   ],
+   "frames": 13970,
+   "frame_log_dropped": 0
+  },
+  "mix": {
+   "seconds": 131.16,
+   "a07_gap_db": 19.99,
+   "mid_duck_db": 13.0,
+   "world": {
+    "segments": [
+     {
+      "id": "a-s01-s03",
+      "gain_db": -4.53,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -40.9,
+       "sonify": -51.1,
+       "sfx": -49.0,
+       "whoosh": -58.9,
+       "room": -65.0
+      },
+      "bed_off": true
+     },
+     {
+      "id": "b-s04-s09",
+      "gain_db": -4.71,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -42.1,
+       "sonify": -50.4,
+       "sfx": -53.1,
+       "whoosh": -61.4,
+       "room": -65.0
+      },
+      "bed_off": true
+     },
+     {
+      "id": "c-s10-s14",
+      "gain_db": -4.72,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -36.8,
+       "sonify": -51.1,
+       "sfx": -50.3,
+       "whoosh": -59.0,
+       "room": -65.0
+      },
+      "bed_off": true
+     },
+     {
+      "id": "d-s15-s20",
+      "gain_db": -4.6,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -40.1,
+       "sonify": -51.6,
+       "sfx": -52.4,
+       "whoosh": -59.6,
+       "room": -64.9
+      },
+      "bed_off": true
+     }
+    ],
+    "stems": [
+     "music",
+     "room",
+     "sfx",
+     "sonify",
+     "voice",
+     "whoosh"
+    ],
+    "peak_scale": 1.0
+   },
+   "video": "episodes/ep005/work/factory/video.mp4",
+   "sha256": "8b3d620224efc4f99c73fbf97e6a80a7cf506aea85f4188ea1ee1e841a1d09ed",
+   "mb": 1008.46
+  },
+  "artefacts": {
+   "seconds": 0.27,
+   "camera": {
+    "frames": 13970,
+    "world": [
+     "a-s01-s03",
+     "b-s04-s09",
+     "c-s10-s14",
+     "d-s15-s20"
+    ]
+   },
+   "sonify": {
+    "a-s01-s03": {
+     "events": 17,
+     "from": "audio-report"
+    },
+    "b-s04-s09": {
+     "events": 12,
+     "from": "audio-report"
+    },
+    "c-s10-s14": {
+     "events": 11,
+     "from": "audio-report"
+    },
+    "d-s15-s20": {
+     "events": 10,
+     "from": "audio-report"
+    }
+   },
+   "page": {
+    "modules": 10,
+    "segments": [
+     "a-s01-s03",
+     "b-s04-s09",
+     "c-s10-s14",
+     "d-s15-s20"
+    ],
+    "bytes": 2988546,
+    "page": "work/factory/page/index.html"
+   }
+  },
+  "parts": {
+   "seconds": 110.36,
+   "parts": [
+    {
+     "file": "episodes/ep005/work/factory/ep005-part1-720p.mp4",
+     "from": 0.0,
+     "to": 155.2223,
+     "mb": 43.25
+    },
+    {
+     "file": "episodes/ep005/work/factory/ep005-part2-720p.mp4",
+     "from": 155.2223,
+     "to": 310.4446,
+     "mb": 43.58
+    },
+    {
+     "file": "episodes/ep005/work/factory/ep005-part3-720p.mp4",
+     "from": 310.4446,
+     "to": 465.6669,
+     "mb": 41.99
+    }
+   ]
+  },
+  "shorts": {
+   "seconds": 316.67,
+   "shorts": [
+    {
+     "id": "SH1",
+     "file": "episodes/ep005/work/factory/SH1.mp4",
+     "from": 225.9667,
+     "to": 247.1667,
+     "duration": 22.7,
+     "world": "c-s10-s14",
+     "render_world": {
+      "wall_s": 0.7,
+      "film_s": 21.200000000000003,
+      "rendered": [],
+      "cached": 5
+     },
+     "endcard": {
+      "segments": 1,
+      "rendered": 0,
+      "cache_hits": 1,
+      "frames": 0,
+      "seconds": 0
+     },
+     "audio": {
+      "measured_I": -13.93
+     }
+    },
+    {
+     "id": "SH2",
+     "file": "episodes/ep005/work/factory/SH2.mp4",
+     "from": 284.1333,
+     "to": 320.4667,
+     "duration": 37.767,
+     "world": "c-s10-s14",
+     "render_world": {
+      "wall_s": 0.7,
+      "film_s": 36.3334,
+      "rendered": [],
+      "cached": 8
+     },
+     "endcard": {
+      "segments": 1,
+      "rendered": 0,
+      "cache_hits": 1,
+      "frames": 0,
+      "seconds": 0
+     },
+     "audio": {
+      "measured_I": -14.75
+     }
+    },
+    {
+     "id": "SH3",
+     "file": "episodes/ep005/work/factory/SH3.mp4",
+     "from": 342.2,
+     "to": 384.1667,
+     "duration": 43.467,
+     "world": "d-s15-s20",
+     "render_world": {
+      "wall_s": 275.9,
+      "film_s": 41.9667,
+      "rendered": [
+       "span0",
+       "span1",
+       "span2",
+       "span3",
+       "span4",
+       "span5",
+       "span6",
+       "span7",
+       "span8"
+      ],
+      "cached": 0
+     },
+     "endcard": {
+      "segments": 1,
+      "rendered": 0,
+      "cache_hits": 1,
+      "frames": 0,
+      "seconds": 0
+     },
+     "audio": {
+      "measured_I": -13.96
+     }
+    }
+   ]
+  },
+  "qc": {
+   "seconds": 58.56,
+   "pass": false,
+   "failed": [
+    "master đối trọng \"US only · history, not a forecast\"",
+    "master đối trọng \"Past buyers, measured · not a reason to buy, rent or wait\"",
+    "master đối trọng \"A measurement, not a next step\"",
+    "master đối trọng \"It won't say whether to buy or wait\"",
+    "freezedetect d=3 ∩ lời",
+    "loudness"
+   ],
+   "warned": [],
+   "near": [
+    "SH1 sàn chữ",
+    "SH2 sàn chữ",
+    "SH3 sàn chữ"
+   ]
+  }
+ },
+ "started": "2026-10-08T06:01:20Z",
+ "spec": [
+  {
+   "level": "WARN",
+   "rule": "labels",
+   "msg": "S03.3: label \"Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}\" (number moved off the voice) is not on screen in S03"
+  },
+  {
+   "level": "WARN",
+   "rule": "midrolls",
+   "msg": "101: 0 mid-rolls (need 1) — owner waiver: chủ dự án 08/10: 101 dưới 8:00, không mid-roll, không độn"
+  }
+ ],
+ "music": {
+  "a07_gap_db": 19.99,
+  "mid_duck_db": 13.0,
+  "world": {
+   "segments": [
+    {
+     "id": "a-s01-s03",
+     "gain_db": -4.53,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -40.9,
+      "sonify": -51.1,
+      "sfx": -49.0,
+      "whoosh": -58.9,
+      "room": -65.0
+     },
+     "bed_off": true
+    },
+    {
+     "id": "b-s04-s09",
+     "gain_db": -4.71,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -42.1,
+      "sonify": -50.4,
+      "sfx": -53.1,
+      "whoosh": -61.4,
+      "room": -65.0
+     },
+     "bed_off": true
+    },
+    {
+     "id": "c-s10-s14",
+     "gain_db": -4.72,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -36.8,
+      "sonify": -51.1,
+      "sfx": -50.3,
+      "whoosh": -59.0,
+      "room": -65.0
+     },
+     "bed_off": true
+    },
+    {
+     "id": "d-s15-s20",
+     "gain_db": -4.6,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -40.1,
+      "sonify": -51.6,
+      "sfx": -52.4,
+      "whoosh": -59.6,
+      "room": -64.9
+     },
+     "bed_off": true
+    }
+   ],
+   "stems": [
+    "music",
+    "room",
+    "sfx",
+    "sonify",
+    "voice",
+    "whoosh"
+   ],
+   "peak_scale": 1.0
+  }
+ },
+ "total_seconds": 2527.87
+}

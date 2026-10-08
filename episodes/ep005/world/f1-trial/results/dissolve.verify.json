@@ -1,0 +1,333 @@
+{
+ "video": "episodes/ep005/work/world/f1-ref-dissolve-540.mp4",
+ "rule1": {
+  "violations": 0,
+  "examples": []
+ },
+ "rule2": {
+  "keywords": 21,
+  "camera_moving_at_keyword": []
+ },
+ "rule3": {
+  "moves": 4,
+  "missing_reason_or_sound": []
+ },
+ "modes": {
+  "world_share": 0.412,
+  "chart_share": 0.588,
+  "first_5s_world": true
+ },
+ "F2": {
+  "summary": {
+   "level": "WARN",
+   "sfx_per_min": 24.9,
+   "sfx_max_10s": 8,
+   "sfx_on_speech": 13,
+   "sfx_on_plain_words": 3,
+   "sfx_events": 14,
+   "keyword_hits": 9,
+   "min_keyword_snr_db": 11.1,
+   "label_overlaps": 1,
+   "line_crossings": 0,
+   "block": 0,
+   "warn": 6
+  },
+  "level": "WARN",
+  "block": [],
+  "warn": [
+   "sfx 8 sự kiện trong 10 s từ 0.707 > 6",
+   "sfx [(1.13, 'land')] trên từ khoá c0.ten 'ten' 1.13–1.36 SNR 11.1 dB",
+   "sfx [(2.55, 'rise'), (2.96, 'whoosh_soft')] trên từ khoá c0.price 'price.' 2.55–3.2 SNR 13.4 dB",
+   "sfx [(25.726, 'chime')] trên từ khoá c4.eighty 'eighty' 25.726–26.0 SNR 13.1 dB",
+   "sfx [(31.5, 'impact')] trên từ khoá c5.removed 'removed.' 31.5–32.08 SNR 11.3 dB",
+   "80% × 80% on paper 25.8–25.8 s (1 mẫu)"
+  ],
+  "sfx": {
+   "events": 14,
+   "duration_s": 33.68,
+   "per_min": 24.9,
+   "max_window": {
+    "count": 8,
+    "t0": 0.707,
+    "t1": 10.707,
+    "times": [
+     0.707,
+     1.13,
+     2.55,
+     2.96,
+     5.656,
+     8.457,
+     8.995,
+     10.095
+    ]
+   },
+   "on_speech": {
+    "count": 13,
+    "plain_words": 3,
+    "times": [
+     {
+      "t": 0.707,
+      "kind": "tick",
+      "word": "saved",
+      "keyword": true
+     },
+     {
+      "t": 1.13,
+      "kind": "land",
+      "word": "ten",
+      "keyword": true
+     },
+     {
+      "t": 2.55,
+      "kind": "rise",
+      "word": "price.",
+      "keyword": true
+     },
+     {
+      "t": 2.96,
+      "kind": "whoosh_soft",
+      "word": "price.",
+      "keyword": true
+     },
+     {
+      "t": 5.656,
+      "kind": "land",
+      "word": "insurance,",
+      "keyword": true
+     },
+     {
+      "t": 8.457,
+      "kind": "rise",
+      "word": "twenty",
+      "keyword": true
+     },
+     {
+      "t": 8.995,
+      "kind": "whoosh_mode",
+      "word": "percent?",
+      "keyword": false
+     },
+     {
+      "t": 13.753,
+      "kind": "chime",
+      "word": "eight",
+      "keyword": true
+     },
+     {
+      "t": 23.127,
+      "kind": "whoosh_push",
+      "word": "cases.",
+      "keyword": false
+     },
+     {
+      "t": 25.726,
+      "kind": "chime",
+      "word": "eighty",
+      "keyword": true
+     },
+     {
+      "t": 28.929,
+      "kind": "whoosh_mode",
+      "word": "index.",
+      "keyword": true
+     },
+     {
+      "t": 29.829,
+      "kind": "land",
+      "word": "That's",
+      "keyword": false
+     },
+     {
+      "t": 31.5,
+      "kind": "impact",
+      "word": "removed.",
+      "keyword": true
+     }
+    ]
+   },
+   "keyword_hits": [
+    {
+     "keyword": "c0.saved",
+     "word": "saved",
+     "s": 0.707,
+     "e": 1.04,
+     "events": [
+      [
+       0.707,
+       "tick"
+      ]
+     ],
+     "snr_db": 30.4,
+     "level": "OK"
+    },
+    {
+     "keyword": "c0.ten",
+     "word": "ten",
+     "s": 1.13,
+     "e": 1.36,
+     "events": [
+      [
+       1.13,
+       "land"
+      ]
+     ],
+     "snr_db": 11.1,
+     "level": "WARN"
+    },
+    {
+     "keyword": "c0.price",
+     "word": "price.",
+     "s": 2.55,
+     "e": 3.2,
+     "events": [
+      [
+       2.55,
+       "rise"
+      ],
+      [
+       2.96,
+       "whoosh_soft"
+      ]
+     ],
+     "snr_db": 13.4,
+     "level": "WARN"
+    },
+    {
+     "keyword": "c1.insurance",
+     "word": "insurance,",
+     "s": 5.656,
+     "e": 6.72,
+     "events": [
+      [
+       5.656,
+       "land"
+      ]
+     ],
+     "snr_db": 27.1,
+     "level": "OK"
+    },
+    {
+     "keyword": "c1.twenty",
+     "word": "twenty",
+     "s": 8.457,
+     "e": 8.8,
+     "events": [
+      [
+       8.457,
+       "rise"
+      ]
+     ],
+     "snr_db": 17.1,
+     "level": "OK"
+    },
+    {
+     "keyword": "c2.eight",
+     "word": "eight",
+     "s": 13.753,
+     "e": 13.96,
+     "events": [
+      [
+       13.753,
+       "chime"
+      ]
+     ],
+     "snr_db": 20.4,
+     "level": "OK"
+    },
+    {
+     "keyword": "c4.eighty",
+     "word": "eighty",
+     "s": 25.726,
+     "e": 26.0,
+     "events": [
+      [
+       25.726,
+       "chime"
+      ]
+     ],
+     "snr_db": 13.1,
+     "level": "WARN"
+    },
+    {
+     "keyword": "c4.index",
+     "word": "index.",
+     "s": 28.56,
+     "e": 29.28,
+     "events": [
+      [
+       28.929,
+       "whoosh_mode"
+      ]
+     ],
+     "snr_db": 23.8,
+     "level": "OK"
+    },
+    {
+     "keyword": "c5.removed",
+     "word": "removed.",
+     "s": 31.5,
+     "e": 32.08,
+     "events": [
+      [
+       31.5,
+       "impact"
+      ]
+     ],
+     "snr_db": 11.3,
+     "level": "WARN"
+    }
+   ],
+   "stems": true,
+   "warn": [
+    "sfx 8 sự kiện trong 10 s từ 0.707 > 6",
+    "sfx [(1.13, 'land')] trên từ khoá c0.ten 'ten' 1.13–1.36 SNR 11.1 dB",
+    "sfx [(2.55, 'rise'), (2.96, 'whoosh_soft')] trên từ khoá c0.price 'price.' 2.55–3.2 SNR 13.4 dB",
+    "sfx [(25.726, 'chime')] trên từ khoá c4.eighty 'eighty' 25.726–26.0 SNR 13.1 dB",
+    "sfx [(31.5, 'impact')] trên từ khoá c5.removed 'removed.' 31.5–32.08 SNR 11.3 dB"
+   ],
+   "block": []
+  },
+  "labels": {
+   "samples": 337,
+   "overlaps": {
+    "count": 1,
+    "spans": [
+     {
+      "what": "80% × 80% on paper",
+      "t0": 25.8,
+      "t1": 25.8,
+      "samples": 1,
+      "level": "WARN"
+     }
+    ],
+    "examples": [
+     {
+      "t": 25.8,
+      "a": "80%",
+      "b": "80% on paper",
+      "overlap_px": [
+       133.4,
+       61.2
+      ],
+      "level": "WARN"
+     }
+    ]
+   },
+   "line_crossings": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "warn": [
+    "80% × 80% on paper 25.8–25.8 s (1 mẫu)"
+   ],
+   "block": []
+  }
+ },
+ "cuts": {
+  "hard_cuts": []
+ },
+ "C14": {
+  "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+ }
+}

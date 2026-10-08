@@ -6,10 +6,18 @@ Steps (each timed → out/factory/build-report.json):
   spec    toolkit/factory/spec.py (BLOCK/ASK stop the build before any API call)
   voice   one ElevenLabs with-timestamps request per scene, SHA-256 cache (voice.py)
   resolve "@sentence[:word][$][+s]" → seconds; a visual never starts before its word; timeline.json + captions.srt
+  world   (episode.yaml `world:`) each 3D world segment built + checked by world/build_seg.py; spine total must equal its scenes
   render  segments = shot × ≤ 5 s chunks; hash = segment spec + resolved anchors + code hash + data/claims/tokens; only misses render
-  mix     voice (+ optional music with ducking), loudnorm two-pass −14 LUFS / ≤ −1 dBTP, AAC → master (concat copy of segments)
+  splice  (F-5, world/splice.py) world segment frames replace the frames of its scenes; picture re-encoded once; timeline marks `world`
+  mix     voice (+ optional music with ducking) (+ world segment music/sonify/sfx/room into the stems), loudnorm two-pass −14 LUFS /
+          ≤ −1 dBTP, AAC → master (concat copy of segments, or the spliced picture)
   parts   3 parts 720p ≤ 90 MB cut at the shot boundaries nearest 1/3 and 2/3
-  shorts  shots in range re-rendered 1080×1920, narration cut from the master, hook line, end card 1.5 s
+  artefacts (world:) out/camera.json + out/sonify-events.json (world/artefacts.py) and the checks page: out/page.json → one-file
+          window.CHECKS page of every world segment (world/episode_page.py; checks-appeal A11)
+  shorts  shots in range re-rendered 1080×1920 (always 1080, whatever `res`), narration cut from the master and loudnormed to −14 LUFS /
+          −1.5 dBTP, hook line, end card 1.5 s; a Short whose span lies inside one `world:` segment is re-rendered from that segment's scene
+          at 1080×1920 (world/shorts.py: vertical window of the same camera, text ≥ 56 px in the vertical safe area, ILLUSTRATIVE + history on
+          every frame with a number, counterweights in turn)
   qc      toolkit/factory/qc.py (builder rules; checks/ stays the judge)
 Work files (video, cache) go to <episode>/work/factory/ (not committed); reports to <episode>/out/factory/.
 """
@@ -28,9 +36,11 @@ sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 sys.path.insert(0, HERE)
+sys.path.insert(1, os.path.join(HERE, 'world'))
 import spec as SPEC  # noqa: E402
 import voice as VOICE  # noqa: E402
 
+ENCODE_H = {'cbr': '17M', 'preset': 'fast'}   # master picture (render.js encoder; world/splice.py re-encodes with the same)
 CHUNK = 150  # frames per segment (5 s at 30 fps): enough pieces for 4 workers on a 70 s scene
 CODE = ['lib/engine.js', 'lib/templates.js', 'page.html', 'render.js']
 
@@ -89,6 +99,21 @@ def resolve_params(p, R, t0, anchors, shot_id, key=''):
     if isinstance(p, dict):
         return {k: resolve_params(x, R, t0, anchors, shot_id, f'{key}.{k}' if key else k) for k, x in p.items()}
     return p
+
+
+def frame_size(orient, res):
+    """Khung render theo `res` của episode.yaml (1080 → 1920×1080; 720 → 1280×720; 540 → 960×540 bản xem trước của đoạn thế giới)."""
+    size = [1920, 1080] if orient == 'h' else [1080, 1920]
+    return size if res == 1080 else [round(x * res / 1080) for x in size]
+
+
+def blank_picture(out, size, fps, total):
+    """Tập chỉ có đoạn thế giới: hình nền đen đúng round(total·fps) khung, cùng thông số mã hoá master (splice thay mọi khung)."""
+    import splice as SPLICE   # world/splice.py: encode_args = thông số H.264 của render.js
+    n = round(total * fps)
+    sh(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', f'color=c=black:s={size[0]}x{size[1]}:r={fps}', '-frames:v', str(n),
+        *SPLICE.encode_args(ENCODE_H, fps), out])
+    return n
 
 
 def srt_time(t):
@@ -230,13 +255,11 @@ class Build:
         return {'total': self.total, 'shots': len(shots), 'anchors': len(anchors)}
 
     # ---- render (shared by master and Shorts)
-    def render(self, name, shots, orient, total, hook=None, encode=None):
+    def render(self, name, shots, orient, total, hook=None, encode=None, res=None):
         """shots: [{id, template, t0, t1, p}] in job-local seconds. Returns the ordered segment files (cache paths)."""
-        fps, res = self.fps, self.S.get('res', 1080)
-        size = [1920, 1080] if orient == 'h' else [1080, 1920]
-        if res == 720:
-            size = [round(x * 2 / 3) for x in size]
-        encode = encode or ({'cbr': '17M', 'preset': 'fast'} if orient == 'h' else {'crf': 14, 'preset': 'fast'})
+        fps, res = self.fps, res or self.S.get('res', 1080)
+        size = frame_size(orient, res)
+        encode = encode or (ENCODE_H if orient == 'h' else {'crf': 14, 'preset': 'fast'})
         base = {'orient': orient, 'res': res, 'fps': fps, 'fmt': self.fmt, 'quality': 0.95, 'encode': encode, 'hook': hook,
                 'code': self.code_hash, 'inputs': self.inputs_hash}
         segs, todo = [], []
@@ -303,6 +326,13 @@ class Build:
 
     def do_render(self):
         shots = [{k: s[k] for k in ('id', 'template', 't0', 't1', 'p')} for s in self.tl['shots']]
+        if not shots:   # D-010: mọi cảnh là đoạn thế giới (world:) → không có shot 2D; nền đen đúng số khung, splice thay toàn bộ
+            if not self.S.get('world'):
+                raise SystemExit('render: no 2D shot and no world segment')
+            self.picture = os.path.join(self.work, 'picture.mp4')
+            n = blank_picture(self.picture, frame_size('h', self.S.get('res', 1080)), self.fps, self.total)
+            json.dump([], open(os.path.join(self.work, 'frame-log.json'), 'w'))
+            return {'segments': 0, 'rendered': 0, 'cache_hits': 0, 'frames': n, 'blank': True}
         segs, st = self.render(self.S['episode'], shots, 'h', self.total)
         self.picture = os.path.join(self.work, 'picture.mp4')
         self.concat(segs, self.picture)
@@ -314,6 +344,42 @@ class Build:
             logs += [{**x, 'f': x['f'] + f0, 't': round((x['f'] + f0) / self.fps, 3), 'shot': g['shot']} for x in L['logs']]
         json.dump(logs, open(os.path.join(self.work, 'frame-log.json'), 'w'))
         return st
+
+    # ---- splice (F-5): world segments into the master picture; audio layers are merged in do_mix
+    def do_splice(self):
+        import splice as SPLICE   # world/splice.py
+        segs, rec = [], {'episode': self.S['episode'], 'fps': self.fps, 'segments': []}
+        for w in self.S['world']:
+            t0, t1, f0, f1 = SPLICE.scene_span(self.tl, w['scenes'], self.fps)
+            mp4 = self.world[w['id']]
+            segs.append({'id': w['id'], 'mp4': mp4, 'f0': f0, 'f1': f1, 't0': t0, 't1': t1, 'scenes': list(w['scenes']),
+                         'stems': os.path.join(mp4[:-4] + '.audio', 'stems')})
+        pic = os.path.join(self.work, 'picture-spliced.mp4')
+        r = SPLICE.splice_video(self.picture, segs, pic, self.fps, ENCODE_H)
+        rec['picture'] = {'in': os.path.relpath(self.picture, ROOT), 'in_sha256': SPLICE.sha_file(self.picture),
+                          'out': os.path.relpath(pic, ROOT), 'out_sha256': SPLICE.sha_file(pic), 'frames': r['frames'], 'encode': ENCODE_H}
+        self.picture = pic
+        cov = {}
+        for g in segs:
+            rec['segments'].append({'id': g['id'], 'scenes': g['scenes'], 't0': g['t0'], 't1': g['t1'], 'f0': g['f0'], 'f1': g['f1'],
+                                    'frames': g['f1'] - g['f0'], 'video': os.path.relpath(g['mp4'], ROOT), 'video_sha256': SPLICE.sha_file(g['mp4']),
+                                    'stems': {k: SPLICE.sha_file(p) for k, p in SPLICE.stem_files(g['stems']).items()}})
+            cov.update({sc: g['id'] for sc in g['scenes']})
+        for sc in self.tl['scenes']:
+            if sc['id'] in cov:
+                sc['world'] = cov[sc['id']]
+        for s in self.tl['shots']:   # 2D shots of covered scenes are rendered (cache) but not in the master
+            if s['scene'] in cov:
+                s['world'] = cov[s['scene']]
+        self.tl['world'] = [{k: g[k] for k in ('id', 'scenes', 't0', 't1', 'f0', 'f1')} for g in segs]
+        json.dump(self.tl, open(os.path.join(self.out, 'timeline.json'), 'w'), indent=1, ensure_ascii=False)
+        fl = os.path.join(self.work, 'frame-log.json')   # qc frame rules: only 2D frames that are still in the master
+        logs = json.load(open(fl))
+        keep = [x for x in logs if not any(g['f0'] <= x['f'] < g['f1'] for g in segs)]
+        json.dump(keep, open(fl, 'w'))
+        rec['frame_log_dropped'] = len(logs) - len(keep)
+        self.splice_segs, self.splice_rec = segs, rec
+        return {'segments': [g['id'] for g in segs], 'frames': r['frames'], 'frame_log_dropped': rec['frame_log_dropped']}
 
     # ---- mix + master
     def loudnorm(self, src, dst, lufs, tp):
@@ -349,12 +415,21 @@ class Build:
         else:
             shutil.copy(voice_raw, raw)
             sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', raw, os.path.join(stems, 'voice.flac')])
+        if getattr(self, 'splice_segs', None):   # F-5: world segment layers into the stems; mix-raw = sum of the stems
+            import splice as SPLICE
+            info = {**info, 'world': SPLICE.merge_audio(stems, self.splice_segs, self.total, raw, self.fps)}
         self.master_wav = os.path.join(self.work, 'master.wav')
         self.loudnorm(raw, self.master_wav, lufs, tp)
         self.video = os.path.join(self.work, 'video.mp4')
         sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', self.picture, '-i', self.master_wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
             '-c:a', 'aac', '-b:a', '384k', '-ar', '48000', '-ac', '2', '-movflags', '+faststart', '-shortest', self.video])
         self.report['music'] = info
+        if getattr(self, 'splice_rec', None):
+            import splice as SPLICE
+            self.splice_rec['audio'] = {**info['world'], 'stems_sha256': {k: SPLICE.sha_file(p) for k, p in SPLICE.stem_files(stems).items()},
+                                        'mix_raw_sha256': SPLICE.sha_file(raw), 'master_wav_sha256': SPLICE.sha_file(self.master_wav)}
+            self.splice_rec['video'] = {'file': os.path.relpath(self.video, ROOT), 'sha256': SPLICE.sha_file(self.video)}
+            json.dump(self.splice_rec, open(os.path.join(self.out, 'splice.json'), 'w'), indent=1, ensure_ascii=False)
         return {**info, 'video': os.path.relpath(self.video, ROOT), 'sha256': sha(open(self.video, 'rb').read()), 'mb': round(os.path.getsize(self.video) / 1e6, 2)}
 
     # ---- parts
@@ -375,29 +450,77 @@ class Build:
         self.parts = parts
         return {'parts': parts}
 
+    # ---- artefacts (world): camera, data-sound events, checks page
+    def do_artefacts(self):
+        import artefacts as ART
+        import episode_page as EPG
+        by = {w['id']: w for w in self.S['world']}
+        segs = [{'id': g['id'], 'mp4': g['mp4'], 't0': g['t0'], 'f0': g['f0'], 'f1': g['f1'],
+                 'spine': json.load(open(os.path.join(self.root, by[g['id']]['dir'], 'spine.json')))} for g in self.splice_segs]
+        out = os.path.join(self.root, 'out')
+        rep = ART.write(out, self.total, self.fps, segs)
+        rep['page'] = EPG.write_episode(self.root, self.S, self.tl, os.path.join(self.root, self.S['claims']), os.path.join(self.work, 'page', 'index.html'), self.fps)
+        rep['page'].pop('json', None)
+        return rep
+
+    def world_short(self, S, a, b, g):
+        """Short [a, b) inside world segment g (splice_segs entry): world/shorts.py."""
+        import shorts as WS
+        L = round(b - a, 4)
+        w = next(x for x in self.S['world'] if x['id'] == g['id'])
+        pic = os.path.join(self.work, f"{S['id']}-world.mp4")
+        cws = [{'id': c['id'], 'text': c['text']} for c in self.counterweights]
+        st = WS.render_world(os.path.join(self.root, w['dir']), a - g['t0'], b - g['t0'], pic, S.get('hook'), cws, self.workers,
+                             cache=os.path.join(self.work, 'world-shorts-cache', g['id']), vs=float(S.get('scale', WS.VS_DEFAULT)))
+        end = [{'id': S['id'] + '-end', 'template': 'endcard', 't0': 0.0, 't1': 1.5, 'p': {'next': S.get('end', ''), 'at': 0}}]
+        segs, st2 = self.render(S['id'] + '-end', end, 'v', 1.5, hook=S.get('hook'), res=1080)
+        endp = os.path.join(self.work, f"{S['id']}-end.mp4")
+        self.concat(segs, endp)
+        wav = os.path.join(self.work, f"{S['id']}.wav")
+        au = WS.short_audio(self.master_wav, a, L, 1.5, wav)
+        out = os.path.join(self.work, f"{S['id']}.mp4")
+        WS.assemble(pic, endp, wav, out, self.fps)
+        f0 = round(L * self.fps)
+        endlogs = [{**x, 'f': x['f'] + f0} for gg in segs for x in json.load(open(gg['out'] + '.log.json'))['logs']]
+        logs = WS.frame_logs(json.load(open(pic.replace('.mp4', '.log.json'))), a - g['t0'], self.fps, endlogs)
+        json.dump(logs, open(os.path.join(self.work, f"{S['id']}-frame-log.json"), 'w'))
+        return {'world': g['id'], 'render_world': {k: st.get(k) for k in ('wall_s', 'film_s', 'rendered', 'cached')}, 'endcard': st2, 'audio': au}
+
     # ---- shorts
+    def episode_time(self, anchor):
+        """Anchor "@Sxx.n[:word][$]" → episode seconds, resolved in the scene that holds that sentence."""
+        sid = SPEC.ANCHOR.match(anchor)['sid']
+        sc = next(x['scene'] for x in self.tl['sentences'] if x['id'] == sid)
+        off = next(x['start'] for x in self.tl['scenes'] if x['id'] == sc)
+        return Resolver(self.voices[sc], self.script).word_time(anchor) + off
+
     def do_shorts(self):
         res = []
         for S in self.S.get('shorts') or []:
-            sc = next(s for s in self.S['scenes'] if any(x['id'] == SPEC.ANCHOR.match(S['from'])['sid'] for x in self.tl['sentences'] if x['scene'] == s['id']))
-            off = next(x['start'] for x in self.tl['scenes'] if x['id'] == sc['id'])
-            R = Resolver(self.voices[sc['id']], self.script)
-            a = round(round((R.word_time(S['from']) + off) * self.fps) / self.fps, 4)
-            b = round(round((R.word_time(S['to']) + off + 0.4) * self.fps) / self.fps, 4)
+            a = round(round(self.episode_time(S['from']) * self.fps) / self.fps, 4)   # `from` and `to` may sit in different scenes (Tập 5 SH2: S13.1 → S14.4)
+            b = round(round((self.episode_time(S['to']) + 0.4) * self.fps) / self.fps, 4)
             L = round(b - a, 4)
+            import shorts as WS
+            g = WS.seg_for(getattr(self, 'splice_segs', None), a, b)
+            if g:   # D-010: the span is a world segment → re-render it vertical from the segment's scene
+                info = self.world_short(S, a, b, g)
+                out = os.path.join(self.work, f"{S['id']}.mp4")
+                res.append({'id': S['id'], 'file': os.path.relpath(out, ROOT), 'from': a, 'to': b, 'duration': round(probe_dur(out), 3), **info})
+                continue
             shots = []  # a shot entered mid-way keeps its own clock (lead) and length (dur): same picture as the master at that moment
             for s in self.tl['shots']:
                 if s['t1'] > a and s['t0'] < b:
                     shots.append({'id': s['id'] + '-v', 'template': s['template'], 't0': round(max(s['t0'], a) - a, 4), 't1': round(min(s['t1'], b) - a, 4),
                                   'lead': round(max(0.0, a - s['t0']), 4), 'dur': round(s['t1'] - s['t0'], 4), 'p': s['p']})
             shots.append({'id': S['id'] + '-end', 'template': 'endcard', 't0': L, 't1': round(L + 1.5, 4), 'p': {'next': S.get('end', ''), 'at': 0}})
-            segs, st = self.render(S['id'], shots, 'v', L + 1.5, hook=S.get('hook'))
+            segs, st = self.render(S['id'], shots, 'v', L + 1.5, hook=S.get('hook'), res=1080)   # Shorts are 1080×1920 (SH01) whatever `res`
             pic = os.path.join(self.work, f"{S['id']}-picture.mp4")
             self.concat(segs, pic)
             out = os.path.join(self.work, f"{S['id']}.mp4")
-            sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', pic, '-ss', str(a), '-t', str(L), '-i', self.master_wav, '-map', '0:v', '-map', '1:a',
-                '-c:v', 'copy', '-af', f'afade=t=in:d=0.05,afade=t=out:st={L - 0.15}:d=0.15,apad=whole_dur={L + 1.5}', '-c:a', 'aac', '-b:a', '320k',
-                '-ar', '48000', '-ac', '2', '-t', str(L + 1.5), out])
+            wav = os.path.join(self.work, f"{S['id']}.wav")
+            WS.short_audio(self.master_wav, a, L, 1.5, wav)   # −14 LUFS / −1.5 dBTP per Short (SH03, SH04)
+            sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', pic, '-i', wav, '-map', '0:v', '-map', '1:a',
+                '-c:v', 'copy', '-c:a', 'aac', '-b:a', '320k', '-ar', '48000', '-ac', '2', '-t', str(L + 1.5), out])
             logs = []
             for g in segs:
                 t0 = next(s['t0'] for s in shots if s['id'] == g['shot'])
@@ -417,9 +540,13 @@ def main():
     B.step('voice', B.do_voice)
     B.step('resolve', B.do_resolve)
     if B.S.get('world'):
-        B.step('world', B.do_world)   # ghép đoạn thế giới vào master: toolkit/factory/BACKLOG.md F-5
+        B.step('world', B.do_world)
     B.step('render', B.do_render)
+    if B.S.get('world'):
+        B.step('splice', B.do_splice)   # F-5: đoạn thế giới vào master (hình); tiếng ghép trong mix
     B.step('mix', B.do_mix)
+    if B.S.get('world'):
+        B.step('artefacts', B.do_artefacts)   # out/camera.json, out/sonify-events.json, out/page.json (+ work/factory/page/index.html)
     B.step('parts', B.do_parts)
     B.step('shorts', B.do_shorts)
     import qc as QC

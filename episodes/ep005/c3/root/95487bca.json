@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows how long past US home buyers took to get their loan down to 80% of their home's value. It measures this \"on paper\", meaning by the numbers, using home value and loan balance. The first two frames are an illustration, marked \"ILLUSTRATIVE\". They show a house with a \"home value\" tower, a smaller \"loan\" tower and a ledger pad. The later frames use real data, sourced to FHFA and Freddie Mac via FRED.\n\n2. **What changes across the frames:**\n   - Frames 1 and 2 are the same cartoon, with the loan tower highlighted in frame 2.\n   - Frame 3 is a 3D ridge chart. It has one line per purchase month from 1991 to 2016, showing loan as a percentage of home value over 0 to 10 years.\n   - Frames 4 to 6 flatten that into a bar chart, with one bar per purchase month. Each bar's height is the months it took to reach 80%.\n   - Frame 6 adds labels for the years and for what bar height means.\n\n3. **What it means:** The wait to reach 80% varied a lot depending on when someone bought.\n   - Buyers from the early 1990s through the early 2000s mostly had short bars.\n   - Buyers from roughly 2005 to 2007 have the tallest bars. Their waits were much longer, most likely because home prices fell after they bought.\n   - Bars drop back down for later purchase months.\n   - The takeaway is that timing and the market affected how quickly buyers built a cushion. It was not only a matter of how fast they paid down the loan.\n\n4. **Advice a viewer would take:** Very little that is direct, and that seems intentional. The captions say \"Past buyers, measured · not a reason to buy, rent or wait\" and \"US only · history, not a forecast.\" A viewer would take away that building equity isn't guaranteed or steady, and that the wait could be short or very long. As someone with about 10% saved, I'd read it as a reason to leave room in my budget for a long wait. The chart doesn't tell me whether to buy now or hold off.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1053,
+   "out": 14
+  },
+  "claude-sonnet-5-5": {
+   "in": 9758,
+   "out": 1105
+  }
+ },
+ "turns": 2
+}

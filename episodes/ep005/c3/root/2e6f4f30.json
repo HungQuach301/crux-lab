@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how a 30-year fixed mortgage gets paid off. The example is a $360,000 loan at 6.86%, which the frames give as the September 2026 average rate from Freddie Mac via FRED. The monthly payment is $2,362, covering principal plus interest. The frames are labeled \"illustrative,\" so this is a worked example and not a quote for any real person.\n\n2. **What changes.** Frame 1 shows a house, a person, a calendar page, and a tall stack of cash. The stack stands for the loan. In frame 2 the picture shrinks to the calendar and the $360,000 stack. Frame 3 adds the $2,362 monthly payment. In frames 4 to 6 a timeline runs from 0 to 360 payments, and the calendar page flips as payments go by (payment 75, then 181, then 346). The stack shrinks along a curve labeled \"loan balance · on the schedule.\" The curve falls slowly at first and then drops steeply, labeled \"faster later.\" By payment 346 only a small stub of cash is left.\n\n3. **What it means.** The monthly payment stays the same, but its makeup changes. Early on, most of each payment goes to interest, so the balance barely falls. Later, most of it goes to principal, and the balance falls quickly. After 75 payments, about 6 years, the balance has only dropped a modest amount. Most of the paydown comes in the last stretch of the loan.\n\n4. **Advice a viewer would take.**\n   - The video doesn't give explicit advice, but the implied lessons are practical. Don't expect to build equity quickly in the first several years.\n   - Selling or refinancing early means you've mostly paid interest and owe most of the loan.\n   - Budget for the full $2,362 a month, and remember that taxes, insurance, and upkeep come on top of it.\n   - As a renter who has saved about 10%, I'd take away that a home is a long-term commitment. It makes the most sense if I expect to stay many years.\n   - Extra principal payments early would help more than later ones, though the animation doesn't say that directly.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9783,
+   "out": 765
+  }
+ },
+ "turns": 2
+}

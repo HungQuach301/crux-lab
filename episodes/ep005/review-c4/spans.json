@@ -1,0 +1,240 @@
+{
+ "video": "episodes/ep005/review-c4/animatic-540p.mp4",
+ "note": "span = [t0, t1] in master seconds (out/factory/timeline.json); strips are MUTED frames; muted_read = beats.md type-1 column (S06: C3 N1 read)",
+ "spans": {
+  "B02-S02": {
+   "span": [
+    9.967,
+    23.347
+   ],
+   "scene": "S02",
+   "beat": "B02",
+   "type": 1,
+   "narration": [
+    "S02.1 On the schedule alone, you can't even ask to cancel it for about 8 years.",
+    "S02.2 We replayed real US prices and rates month by month, so you'll see how long it took on paper, typically and in slow cases."
+   ],
+   "muted_read": "The loan, as a share of the price, starts at 90 % and drifts down slowly; it only touches the 80 % line after about 8 years."
+  },
+  "B03-S03": {
+   "span": [
+    23.833,
+    54.494
+   ],
+   "scene": "S03",
+   "beat": "B03",
+   "type": 1,
+   "narration": [
+    "S03.1 On paper means the loan is 80 percent of the home's value by a national price index.",
+    "S03.2 That's not the same as getting the insurance removed.",
+    "S03.3 Removal on today's value, when you ask, is the loan owner's rule; for Fannie Mae loans, that's a waiting period and a 75 percent bar.",
+    "S03.4 You'll also meet three illustrative buyers who got very different answers.",
+    "S03.5 It's US only, history, not a forecast, and it won't say whether to buy or wait."
+   ],
+   "muted_read": "Hitting the 80 % line on paper is one line; a second, lower line (75 %, early years) and three steps (request, appraisal, wait) still stand before 'insurance removed'.",
+   "note": "S03.3 B+2 label on screen: \"Fannie Mae: wait ≥ 2 years · loan ≤ 75%\" (claims value_removal_seasoning_years, value_removal_ltv_early)"
+  },
+  "N1-S06": {
+   "span": [
+    102.1,
+    120.44
+   ],
+   "scene": "S06",
+   "beat": "B06",
+   "type": 2,
+   "narration": [
+    "S06.1 At September's average mortgage rate, 6.86 percent, the monthly payment for principal and interest is the figure on screen.",
+    "S06.2 Taxes, home insurance and the mortgage insurance all come on top of it.",
+    "S06.3 Each payment pays the balance down a little, slowly at first, and faster later on."
+   ],
+   "muted_read": "Each page of the calendar is one monthly payment ($2,362/month, principal + interest, illustrative); as the pages flip, the loan stack slides along the payments and its top draws the balance: it falls slowly at first and faster later.",
+   "note": "type 2 in beats.md; N1 calendar (C3) in context — C3-answer: no-voice blind check of S06 must show 0 advice",
+   "span_r1": [
+    99.467,
+    117.807
+   ]
+  },
+  "B07-S07": {
+   "span": [
+    120.933,
+    142.393
+   ],
+   "scene": "S07",
+   "beat": "B07",
+   "type": 1,
+   "narration": [
+    "S07.1 By federal law, the borrower can ask to cancel the insurance once the schedule says the loan is down to 80 percent of the original value, here $320,000.",
+    "S07.2 On this loan, that's payment 99, the date this video opened with.",
+    "S07.3 That request comes with conditions, such as being current on payments."
+   ],
+   "muted_read": "On the same falling line, a first marker sits where the loan reaches 80 % of the original price, at payment 99: 'you may ask'.",
+   "span_r1": [
+    118.3,
+    139.76
+   ]
+  },
+  "B08-S08": {
+   "span": [
+    142.9,
+    158.76
+   ],
+   "scene": "S08",
+   "beat": "B08",
+   "type": 1,
+   "narration": [
+    "S08.1 And the insurance has to end automatically when the schedule reaches 78 percent, as long as payments are current.",
+    "S08.2 Here, that's about 9.5 years in.",
+    "S08.3 Both dates come from the schedule alone, and both ignore what the house is worth."
+   ],
+   "muted_read": "A second marker a little later, at 78 %: 'ends automatically'. Both markers sit on the payment line; the house's value is nowhere on the chart.",
+   "span_r1": [
+    140.267,
+    156.127
+   ]
+  },
+  "B11-S11": {
+   "span": [
+    224.767,
+    246.067
+   ],
+   "scene": "S11",
+   "beat": "B11",
+   "type": 1,
+   "narration": [
+    "S11.1 The typical answer: 23 months.",
+    "S11.2 Half of the purchase months got there sooner, and half took longer.",
+    "S11.3 And in 90.6 percent of them, prices got the loan to 80 percent on paper no later than the schedule would have.",
+    "S11.4 That's the gap between the schedule's long road and the replay's typical one."
+   ],
+   "muted_read": "Most purchase months have short bars; a horizontal median line sits low at 23 months, far below a faint ridge of the schedule's own months; nearly every bar ends below its schedule mark.",
+   "span_r1": [
+    222.133,
+    243.433
+   ]
+  },
+  "B12-S12": {
+   "span": [
+    246.567,
+    281.467
+   ],
+   "scene": "S12",
+   "beat": "B12",
+   "type": 1,
+   "narration": [
+    "S12.1 But that's on paper.",
+    "S12.2 We also checked a larger set: every purchase month since January 1991 with two years of prices after it.",
+    "S12.3 Two years after purchase, only 15.6 percent of them were at or below the 75 percent bar Fannie Mae sets for its loans when a borrower asks to cancel on today's value, a separate route from the law's schedule.",
+    "S12.4 So reaching 80 percent on paper in about two years was common in this history, while clearing that early bar by then was not."
+   ],
+   "muted_read": "Two years in, a little more than half the months are under the 80 % line, but only a thin slice is under the 75 % line lenders often use early.",
+   "span_r1": [
+    243.933,
+    278.833
+   ]
+  },
+  "B13-S13-N2": {
+   "span": [
+    282.934,
+    297.514
+   ],
+   "scene": "S13",
+   "beat": "B13",
+   "type": 1,
+   "narration": [
+    "S13.1 The typical case also hides a long tail.",
+    "S13.2 About 1 in 7 purchase months took more than 5 years.",
+    "S13.3 They sit together in one stretch of the grid, the months just before and during the national price slump."
+   ],
+   "muted_read": "Back on the grid, the bars over 60 months turn `warn`; they are few, and they sit together in one stretch of purchase months.",
+   "note": "N2 bars (C3) in context — C3-answer: blind check of S13 must show 0 advice",
+   "span_r1": [
+    280.3,
+    294.88
+   ]
+  },
+  "B14-S14": {
+   "span": [
+    298.0,
+    319.38
+   ],
+   "scene": "S14",
+   "beat": "B14",
+   "type": 1,
+   "narration": [
+    "S14.1 The slowest was October 2005: 112 months on paper.",
+    "S14.2 That's longer than the schedule itself took at that month's rate.",
+    "S14.3 And this is a national average: no single home tracks it, and a local market can do much better or much worse.",
+    "S14.4 So why did the same rule give such different answers?"
+   ],
+   "muted_read": "The zoom frame lands on the tallest bar: bought October 2005, 112 months on paper, taller than that month's schedule mark.",
+   "span_r1": [
+    295.367,
+    316.747
+   ]
+  },
+  "B16-S16": {
+   "span": [
+    341.0,
+    354.86
+   ],
+   "scene": "S16",
+   "beat": "B16",
+   "type": 1,
+   "narration": [
+    "S16.1 Owen bought in January 2004, while prices were climbing fast.",
+    "S16.2 He reached 80 percent on paper in 13 months, the fastest in the replay.",
+    "S16.3 Rising prices did most of that work, not his payments."
+   ],
+   "muted_read": "Owen's panel: the index line climbs steeply, and his on-paper line drops through 80 % almost at once, while his schedule line has barely moved.",
+   "span_r1": [
+    339.167,
+    353.027
+   ]
+  },
+  "B17-S17": {
+   "span": [
+    355.367,
+    388.347
+   ],
+   "scene": "S17",
+   "beat": "B17",
+   "type": 1,
+   "narration": [
+    "S17.1 [serious] Victor bought the year after Owen, in October 2005: the slowest month in the replay.",
+    "S17.2 Prices rose a little, then fell for years, and even when he finally reached 80 percent on paper, the index was still below where it started.",
+    "S17.3 He got there by paying the loan down, and his own schedule, at his lower rate of 6.07 percent, reached 80 percent of the original price first, at payment 90.",
+    "S17.4 Whether a lender would have dropped his insurance at that point, this data can't show."
+   ],
+   "muted_read": "Victor's panel: the index line rises a little, then falls for years; his on-paper line stays above 80 % long after his schedule line has crossed it at payment 90.",
+   "span_r1": [
+    353.534,
+    386.514
+   ]
+  },
+  "B18-S18": {
+   "span": [
+    388.834,
+    433.254
+   ],
+   "scene": "S18",
+   "beat": "B18",
+   "type": 1,
+   "narration": [
+    "S18.1 Same rule, same national index: what differed was the month they started, and what prices did next.",
+    "S18.2 So a plan can be measured against two benchmarks from this history.",
+    "S18.3 One is the schedule the law uses, which on the example loan runs most of a decade.",
+    "S18.4 The other is history on paper: a plan that counts on about two years matched the typical month, not the slow ones, and not the lender's step.",
+    "S18.5 On the illustrative $400,000 home, the other path, 20 percent down, means $40,000 more up front.",
+    "S18.6 This video doesn't weigh that against renting or waiting; it measures how long the insurance math took."
+   ],
+   "muted_read": "Three panels side by side, aligned at purchase: one fixed schedule band and a fan of on-paper lines from fast to slow; a vertical 'your plan' marker stands between the schedule band and the fan; the 75 % line stays visible under all of them.",
+   "muted_read_old": "Three panels side by side, aligned at purchase: one fixed schedule band and a fan of on-paper lines from fast to slow; a blank card labelled 'your plan' slides between the schedule band and the fan; the 75 % line stays visible under all of them.",
+   "muted_read_note": "2026-10-07 trước vòng 2: tấm thẻ trống 'your plan' bỏ ở spine v2 (rủi ro khuyên, SPINE-PLAN) → vạch dọc 'your plan'; nghĩa (kế hoạch đặt giữa lịch và quạt) giữ",
+   "span_r1": [
+    387.0,
+    431.42
+   ]
+  }
+ },
+ "note_r2": "2026-10-07 C4 r2: take mới S04 (seed 1007) + S15 (seed 1006) theo voice_overrides → timeline dời; span tính lại CÙNG định nghĩa (đầu câu đầu → cuối câu cuối + 0,5 s, out/factory/timeline.json); span_r1 = giờ vòng 1. Dải vẽ lại chỉ cho B03-S03, B08-S08, B14-S14, B17-S17, B18-S18"
+}

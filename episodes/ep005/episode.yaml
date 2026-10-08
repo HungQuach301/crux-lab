@@ -1,0 +1,80 @@
+episode: ep005
+format: "101"          # 8–9 phút, 1 mid-roll ở ranh giới hồi, không độn (episode.md §9; D-007 thí điểm 101 #1, trụ vay/mortgage)
+topic: "queue #17 — topics-r2/machine/debt-2 (G1 duyệt 2026-10-06)"
+title: "10% Down and Mortgage Insurance: How Long Did It Last?"   # nháp (G1)
+pillar: vay nợ
+tokenCeiling: {episode: 3000000}
+voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1005, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
+music: {style: C}      # G-016
+# Seed giọng riêng theo cảnh (chủ dự án 2026-10-06: S18.5 "illustrative" — seed 1005 ASR nghe "illustrated"; 1006 rõ).
+# Nhà máy đọc khoá này (B+1, voice.scene_cfg; kiểm C4: khoá băm S18 = take 5b3b914301ef48ab, 20/20 cảnh trúng cache, 0 ký tự EL).
+voice_overrides:
+  S18: {seed: 1006}   # take voice-takes/5b3b914301ef48ab.mp3
+  S04: {seed: 1007}   # take voice-takes/68d5dbe4da841180.mp3 — seed 1005 và 1006 rơi "the lender if" ở S04.2 (ASR medium, review-c4/S04-seeds.json; lượt đạo diễn B 1:07)
+  S15: {seed: 1006}   # take voice-takes/b0d912d29478ac29.mp3 — seed 1005 ASR medium nghe "Grace bought" thành "gray spot"; 1006/1007 đúng (review-c4/S15-seeds.json, asr-all.json)
+# F-3 (D-010 §5): nhạc bằng mã theo bản đồ căng cả tập — episodes/ep005/world/music/{tension,bed}.py; nghe thử + số đo: review-c4/music-audition.m4a,
+# review-c4/music-report.json (audition.py). Mức dưới lời 20 dB (A07) + né 1–4 kHz 13 dB: toolkit/factory/music.py. Nhạc về 0 quanh MR1
+# (midrolls[0].t nếu có, không thì giữa khoảng nghỉ sau S09.4). Đổi timeline (đuôi cảnh, MR1) → xoá bed.wav để nhà máy sinh lại.
+# Đoạn thế giới dùng đúng lát nhạc này: spine music_plan = {bed: {wav: episodes/ep005/work/factory/music/bed.wav, offset: <giờ đầu đoạn>}}.
+audio:
+  lufs: -14
+  true_peak: -2.0     # C5: đích −2,0 để bản AAC cuối còn dư ≤ −1,5 dBTP (540p: đích −1,5 → −1,45 sau AAC)
+  music: work/factory/music/bed.wav
+  music_cmd: "python3 episodes/ep005/world/music/bed.py {total} {out} --timeline episodes/ep005/out/factory/timeline.json"
+
+# ---- C4 animatic cả tập (nhà máy, D-010): MỌI cảnh là đoạn thế giới 3D (world:), không shot 2D; 540p xem trước.
+#   python3 episodes/ep005/data/fetch.py --verify && python3 episodes/ep005/model/model.py && python3 episodes/ep005/world/derive.py
+#   python3 episodes/ep005/c4/build_inputs.py && bash toolkit/build.sh episodes/ep005/episode.yaml && python3 episodes/ep005/c4/build_inputs.py --out
+scope: full
+script: c4/gen/script.json
+claims: c4/gen/claims.json
+tokens: c4/gen/tokens.json
+data: {file: c4/gen/data.json}
+fps: 30
+res: 1080   # C5 bản cuối (C4 xem trước 540; đoạn thế giới render lại 1080 một lần, cache theo cảnh)
+dossier: {script_md: story/script.md, contract: contract.json}
+acts:
+  - {id: cold-open, scenes: [S01, S02, S03]}
+  - {id: ident, scenes: [S03]}          # 3 s cuối S03 (đuôi), không lời: dấu kênh trên thế giới
+  - {id: act1, scenes: [S04, S05, S06, S07, S08, S09]}
+  - {id: act2, scenes: [S10, S11, S12, S13, S14]}
+  - {id: act3, scenes: [S15, S16, S17, S18]}
+  - {id: method, scenes: [S19]}
+  - {id: outro, scenes: [S20]}
+scenes:
+  - {id: S01, tail: 1.0, shots: []}
+  - {id: S02, tail: 1.0, shots: []}
+  - {id: S03, tail: 4.0, shots: []}     # S03.5 hold 0,8 + ident 3 s
+  - {id: S04, tail: 1.0, shots: []}
+  - {id: S05, tail: 1.0, shots: []}
+  - {id: S06, tail: 1.0, shots: []}
+  - {id: S07, tail: 1.0, shots: []}
+  - {id: S08, tail: 1.0, shots: []}
+  - {id: S09, tail: 3.6, shots: []}     # S09.4 hold 1,5 → MR1: lặng ≥ 1 s cả bản trộn + máy bay về phố trước S10
+  - {id: S10, tail: 1.0, shots: []}
+  - {id: S11, tail: 1.0, shots: []}
+  - {id: S12, tail: 1.0, shots: []}
+  - {id: S13, tail: 1.0, shots: []}
+  - {id: S14, tail: 1.6, shots: []}     # S14.4 hold 1 + lia sang ba người mua
+  - {id: S15, tail: 1.0, shots: []}
+  - {id: S16, tail: 1.0, shots: []}
+  - {id: S17, tail: 1.0, shots: []}
+  - {id: S18, tail: 1.0, shots: []}
+  - {id: S19, tail: 5.0, shots: []}     # thẻ V7: 5 s đọc
+  - {id: S20, tail: 2.0, shots: []}     # S20.3 hold 2
+midrolls: []
+midrolls_waiver: "chủ dự án 08/10: 101 dưới 8:00, không mid-roll, không độn"   # chủ dự án 08/10: Tập 5 (101) dưới 8:00 → KHÔNG mid-roll, không độn (out/adbreaks.json {"breaks": []}; nhạc liền, không khoảng lặng MR1). Trước (C5b vòng 1–2): t 188,4 s, 0,63 s trước đầu S10
+counterweights:
+  - {id: us-only, text: "US only · history, not a forecast", when: historical}
+  - {id: measured, text: "Past buyers, measured · not a reason to buy, rent or wait", when: historical}
+  - {id: measurement, text: "A measurement, not a next step", claims: [ex_payment_pi, sched80_months_latest]}
+  - {id: no-advice, text: "It won't say whether to buy or wait", claims: [ex_extra_down_for_20]}
+world:    # D-010: bốn đoạn thế giới phủ cả tập (ranh giới: ident tối dần · phố sau MR1 · ba người mua) — c4kit.py / c4kit.js
+  - {id: a-s01-s03, dir: world/c4/a-s01-s03, scenes: [S01, S02, S03]}
+  - {id: b-s04-s09, dir: world/c4/b-s04-s09, scenes: [S04, S05, S06, S07, S08, S09]}
+  - {id: c-s10-s14, dir: world/c4/c-s10-s14, scenes: [S10, S11, S12, S13, S14]}
+  - {id: d-s15-s20, dir: world/c4/d-s15-s20, scenes: [S15, S16, S17, S18, S19, S20]}
+shorts:   # C5 (P3 bước 3): ba Short dựng lại 1080×1920 từ đoạn thế giới (F-9); móc một dòng, không chữ số (khung có số luôn có ILLUSTRATIVE + history)
+  - {id: SH1, from: "@S11.1", to: "@S11.4$", hook: "How long, typically?", end: "Full episode on the channel"}      # 23 tháng vs lịch (đoạn c)
+  - {id: SH2, from: "@S13.1", to: "@S14.4$", hook: "The long tail", end: "Full episode on the channel"}             # đuôi chậm, 112 tháng (đoạn c)
+  - {id: SH3, from: "@S16.1", to: "@S17.3$", hook: "Fastest vs slowest", end: "Full episode on the channel"}        # Owen vs Victor (đoạn d)

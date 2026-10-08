@@ -1,0 +1,14 @@
+{
+ "answer": "1. The animation shows how long it takes a buyer who puts 10% down to get their loan down to 80% of the home's value. It starts with a made-up \"illustrative\" line for a standard payment schedule. Then it swaps in real historical data from FHFA and Freddie Mac, pulled through FRED. The frames label the 80% line only as a level, not what it is for. I'd guess it's the point where mortgage insurance usually comes off, but the image doesn't say that.\n\n2. In frames 1 and 2, a single line slides from 90% down to 80% over about 8 years. That is the schedule alone, and the frames call it \"a measurement, not a next step.\" In frames 3 to 5, many thin gray lines fan out, one for each purchase month from 1991 to 2016. Some drop fast. Many rise first, because home values fell, and then come down slowly. In frame 6, two lines are highlighted. The typical buyer got to 80% in about 2 years, and the slowest case took about 9 years, which is longer than the 8-year schedule.\n\n3. The time it takes to reach 80% depends heavily on what home prices do after you buy, not just on your payments. The schedule says about 8 years. Most past buyers got there much sooner, because rising prices cut the loan's share of the value. Some bought at a bad time, watched prices fall, and waited longer than the schedule, up to about 9 years.\n\n4. The animation gives no buy, rent or wait advice. It says outright that it covers past buyers, is \"not a reason to buy, rent or wait,\" and covers the US only, as \"history, not a forecast.\" The most a viewer can take from it is to expect a wide range of outcomes. If I'm putting 10% down, I shouldn't count on reaching 80% in exactly 8 years or in 2. I should plan for the slow case, so I'd want to know I could afford the costs of staying under 80% for as long as 9 years.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1375,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "in": 9773,
+   "out": 925
+  }
+ },
+ "turns": 2
+}

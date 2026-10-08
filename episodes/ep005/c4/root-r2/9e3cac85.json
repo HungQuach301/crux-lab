@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation follows one past buyer, \"Victor,\" who bought in October 2005 with a 6.07% mortgage. It tests what happens to a low-down-payment buyer when home prices fall. It plots his equity against the 80% loan-to-value line, the point where private mortgage insurance usually can be dropped. It also plots the price index (FHFA/Freddie Mac data via FRED) relative to what he paid.\n\n2. **What changes:**\n   - **Frame 1:** There is only the 80% line on a 0–10 year axis.\n   - **Frame 2:** Two lines start to draw. The \"on paper\" schedule line and his actual loan-to-value line begin together near the 80% line. The blue price index sits below and starts to dip.\n   - **Frame 3:** The price index falls well below its starting level, bottoming around year 6. His loan-to-value line rises well above 80% because the home is worth less. The scheduled paydown line drifts down alone.\n   - **Frame 4:** The lines finish. His loan-to-value line only falls back to the 80% line around year 9 to 10. The schedule had it reaching 80% earlier. The caption says \"on paper: 112 months\" and \"index still 3.3% below purchase.\"\n   - **Frame 5:** Same as frame 4.\n   - **Frame 6:** A house with a \"?\" over it, which poses the buy-or-not question.\n\n3. **What it means:** On paper, paying down the loan on schedule would have gotten Victor to 80% in 112 months, about 9 years and 4 months. Falling prices made his real equity lag far behind that schedule. About 10 years after buying, the price index was still 3.3% below his purchase price. A buyer with a small down payment can be stuck with a high loan-to-value ratio, and the costs that come with it, much longer than the payment schedule implies. The chart is labeled \"illustrative,\" and it says \"history, not a forecast.\"\n\n4. **Advice a viewer would take:** The video says plainly that this is \"not a reason to buy, rent or wait,\" so it gives no direct instruction. The takeaways I'd draw are about risk:\n   - Don't assume the amortization schedule alone will build equity. Prices matter, especially with about 10% down.\n   - Plan to stay put for a long time, and keep an emergency cushion so you aren't forced to sell during a dip.\n   - Treat the 80% date as uncertain, because insurance costs can last longer than expected.\n   - It's one buyer in one period, so it shows what can happen, not what will happen.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1058,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9781,
+   "out": 915
+  }
+ },
+ "turns": 2
+}

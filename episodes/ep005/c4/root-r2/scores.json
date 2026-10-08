@@ -1,0 +1,92 @@
+[
+ {
+  "file": "22fb3447",
+  "sample": "B18-S18",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Reads the fixed schedule against the fan of past on-paper paths, with a plan marker near the start; the advice is only general caution (budget for a long wait, check own finances)."
+ },
+ {
+  "file": "2cdb4a0e",
+  "sample": "B03-S03",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Gets the 80% line, the lower 75% line and the request, appraisal and wait steps before insurance comes off; the only advice is to ask the lender about its rules."
+ },
+ {
+  "file": "3250bc75",
+  "sample": "B03-S03",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Same correct read as the muted version: 80% on paper is not enough, there are three steps, and the 75% test comes after; advice is limited to asking the loan owner."
+ },
+ {
+  "file": "33cdba5b",
+  "sample": "B17-S17",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Sees Victor's index falling and his loan-to-value line above 80%, but treats '112 months' as the schedule reaching 80%. The schedule line crossing earlier, at payment 90, is missed."
+ },
+ {
+  "file": "34e03c5b",
+  "sample": "B18-S18",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Gets the fixed schedule against the fan of on-paper paths from fast to slow, aligned at purchase; the advice is general (plan for the slow case, decide on own budget)."
+ },
+ {
+  "file": "7ee96d88",
+  "sample": "B14-S14",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Correctly reads the tallest bar as October 2005 at 112 months on paper, above the 90-payment schedule mark; the advice is general caution about timing."
+ },
+ {
+  "file": "9e3cac85",
+  "sample": "B17-S17",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Frame read matches: Victor's index falls for years and his on-paper line stays above 80% well after the schedule line crossed. The meaning section blurs 112 months with the schedule, but the gist is right; advice is risk caution only."
+ },
+ {
+  "file": "cdd1d23a",
+  "sample": "B08-S08",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Gets the 80% and 78% markers ('ends automatically') on the payment line, with the home's value not on the chart. Then gives directives such as 'don't wait for the automatic cutoff' and 'send a written request'."
+ },
+ {
+  "file": "d46211bf",
+  "sample": "B14-S14",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Same correct read of the October 2005 bar, 112 months against the 90-payment schedule; the advice is only to not assume equity arrives on a fixed timeline."
+ },
+ {
+  "file": "d58d6e7d",
+  "sample": "B08-S08",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Gets the two markers at 80% and 78% on the payment line, based on the original value and schedule only. Then tells the viewer not to wait for PMI to end, to track the balance and to send a written request."
+ }
+]

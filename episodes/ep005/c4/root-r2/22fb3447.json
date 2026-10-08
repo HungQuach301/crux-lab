@@ -1,0 +1,14 @@
+{
+ "answer": "I only opened the one image. Some labels are small, so parts of my reading are inferences.\n\n**1. What idea is the animation showing?**\nIt shows how long a first-time buyer with a small down payment might pay mortgage insurance. Mortgage insurance can come off once the loan falls to about 80% of the home's value. The chart compares two ways of getting there. One is the lender's fixed paydown schedule. The other is what actually happened to past buyers, using US home price and mortgage rate data (FHFA, Freddie Mac, FRED). Every frame is labeled \"illustrative\" and \"history, not a forecast.\"\n\n**2. What changes over time across the frames?**\n- Frame 1 shows a few lines drifting down from 80% toward 75% over 10 years. That includes one wiggly line for the \"on paper\" path and flatter lines for the schedule.\n- Frame 2 adds a dense cloud of many past buyers' paths. Three example buyers, Grace, Owen and Victor, are marked at a \"plan\" point near the start.\n- Frame 3 adds the note \"schedule: fixed at the start.\"\n- Frame 4 adds the numbers. The typical case took about 23 months, and about 1 in 7 buyers took more than 60 months. It also says roughly 2 years matched the typical month, \"not the slow ones, not the lender's step.\"\n- Frame 5 shows a $400,000 home next to a tall stack of blocks with the bottom ones highlighted. It is captioned \"A measurement, not a next step.\"\n- Frame 6 shows a house with mortgage insurance on one side and an apartment building on the other. The labels are \"buy now + mortgage insurance\" and \"keep renting, keep saving,\" with a neutral figure in between.\n\n**3. What does it mean?**\nThe schedule you're given at closing is only one possible path. Home prices move, so the real time to drop mortgage insurance varied a lot. Historically it was often about 2 years, but sometimes much longer, and for about 1 in 7 buyers it ran past 5 years. The video is measuring that spread. It is not predicting what will happen to you.\n\n**4. What advice would a viewer take from this?**\nThe video avoids telling you to buy, rent, or wait. The closing frames present both options as legitimate. A viewer would likely take away three things:\n- Don't assume mortgage insurance will end quickly. Budget as if it could last several years.\n- Don't treat the typical case, about 2 years, as a promise.\n- Make the buy-or-rent decision on your own finances. In my situation, that means checking whether I could afford the payment plus insurance if it lasted 5+ years.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9778,
+   "out": 1457
+  }
+ },
+ "turns": 2
+}

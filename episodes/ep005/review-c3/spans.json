@@ -1,0 +1,47 @@
+{
+ "clip": "episodes/ep005/review-c3/c3-clip.mp4",
+ "note": "span = [t0, t1] in c3-clip.mp4 seconds; strips.py takes the centres of 6 equal slices; muted read for type-1 beats copies beats.md",
+ "strips": {
+  "N1-calendar": {
+   "span": [
+    39.667,
+    50.267
+   ],
+   "segment": "episodes/ep005/world/c3/n1-calendar",
+   "beat": "B06 (S06, type 2) · also carries S04.2 / S07.2 in the plan",
+   "narration": [
+    "S06.1 At September's average mortgage rate, 6.86 percent, the monthly payment for principal and interest is the figure on screen.",
+    "S06.3 Each payment pays the balance down a little, slowly at first, and faster later on."
+   ],
+   "muted_read": "Each page of the calendar is one monthly payment ($2,362/month, principal + interest, illustrative); as the pages flip, the loan stack slides along the payments and its top draws the balance: it falls slowly at first and faster later."
+  },
+  "N3-fold": {
+   "span": [
+    58.833,
+    65.433
+   ],
+   "segment": "episodes/ep005/world/c3/n3-fold",
+   "beat": "B10 (S10, type 2) → hand-off to B11",
+   "narration": [
+    "S10.4 Every month after that, we compare the balance with the value, and stop the clock the first time the loan is 80 percent or less.",
+    "S10.5 Each bar here is one purchase month, and its height shows how long that took."
+   ],
+   "muted_read": "One buyer's calendar stops when the loan stack reaches the 80% mark on the home's value; then every purchase month's line folds into a bar standing at its purchase month, and the bar's height is how many months that month took to reach 80% on paper."
+  },
+  "N2-bars": {
+   "span": [
+    69.551,
+    82.151
+   ],
+   "segment": "episodes/ep005/world/c3/n2-bars",
+   "beat": "B13 (S13, type 1)",
+   "narration": [
+    "S13.1 The typical case also hides a long tail.",
+    "S13.2 About 1 in 7 purchase months took more than 5 years.",
+    "S13.3 They sit together in one stretch of the grid, the months just before and during the national price slump."
+   ],
+   "muted_read": "Back on the grid, the bars over 60 months are set apart in their own colour; they are few (about 1 in 7), and they sit together in one stretch of purchase months (2005–2009), under the part of the national price index that peaks and falls.",
+   "muted_read_note": "2026-10-07 trước vòng 3: \"turn warn\" → \"are set apart in their own colour\" (màu đổi theo tiền lệ D-010 §6; nghĩa không đổi)"
+  }
+ }
+}

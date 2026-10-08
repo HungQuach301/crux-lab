@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation shows how long a buyer with a small down payment might pay mortgage insurance. It follows past US buyers who all bought under the same rule, using the same house-price index (FHFA/Freddie Mac via FRED), lined up at their purchase date. The loan balance is measured against the home's value, with markers at 80% and 75%. The on-paper schedule says the balance should reach those lines on a fixed timetable. Real home prices moved the actual path faster or slower than that. The whole thing is labeled \"illustrative.\"\n\n**2. What changes across the frames.**\n- Frame 1 shows three separate buyers, Owen (fast), Grace (in between) and Victor (slow). Each has a different wobbly line for their loan-to-value path, set against the straight on-paper schedule.\n- Frames 2 and 3 stack many past buyers into one ridge-like chart over 0–10 years. Owen, Grace and Victor are marked along it, and the schedule is described as \"fixed at the start.\"\n- Frame 4 adds numbers. On paper the typical wait is 23 months, and about 1 in 7 buyers waited more than 60 months. A callout says roughly 2 years matched the typical month, \"not the slow ones, not the lender's step.\"\n- Frame 5 switches to a $400,000 home drawn as a stack of money, with a small slice (about the bottom tenth) in a different color. The note says \"A measurement, not a next step\" and that all dollars are in dollars of the day.\n- Frame 6 shows a house with an insurance-style marker labeled \"buying now + mortgage insurance\" next to an apartment building labeled \"still renting, still saving.\"\n\n**3. What it means.** With about 10% down, you normally pay mortgage insurance until you build enough equity to reach the 80% mark, or 75% on the other line. How long that takes depends on both your payments and what home prices do. Most past buyers got there in around two years. A minority waited five years or more, mostly when prices were flat or fell. The schedule on paper is a best case, and real outcomes spread widely around it. Frames 5 and 6 compare that cost and timeline with continuing to rent while saving more.\n\n**4. The advice a viewer would take.** The video gives no verdict. The captions say it is \"not a reason to buy, rent or wait,\" that it covers the US only, and that it is \"history, not a forecast.\" Someone like me, renting with about 10% saved, would take away three things:\n- Expect mortgage insurance to last about two years in a typical case.\n- Plan for it to last much longer, because about 1 in 7 past buyers waited more than five years.\n- Don't treat the lender's payment schedule as a promise of when it ends.\n\nThe decision to buy now or keep saving is left to the viewer.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1377,
+   "out": 224
+  },
+  "claude-sonnet-5-5": {
+   "in": 9779,
+   "out": 1365
+  }
+ },
+ "turns": 2
+}

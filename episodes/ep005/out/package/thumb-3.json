@@ -1,0 +1,76 @@
+{
+ "texts": [
+  {
+   "text": "Owen: 13 months",
+   "box": [
+    44,
+    77,
+    807.3,
+    116
+   ],
+   "fontPx": 96,
+   "claims": [
+    "buyer_owen_monthsTo80Index"
+   ]
+  },
+  {
+   "text": "Victor: 112 months",
+   "box": [
+    44,
+    197,
+    862.3,
+    116
+   ],
+   "fontPx": 96,
+   "claims": [
+    "buyer_victor_monthsTo80Index"
+   ]
+  },
+  {
+   "text": "on paper",
+   "box": [
+    48,
+    333,
+    389.4,
+    109
+   ],
+   "fontPx": 90,
+   "claims": [
+    "buyer_owen_monthsTo80Index",
+    "buyer_victor_monthsTo80Index"
+   ]
+  },
+  {
+   "text": "US only · history, not a forecast",
+   "box": [
+    630.8,
+    661,
+    609.2,
+    49
+   ],
+   "fontPx": 40,
+   "claims": []
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    56.5,
+    527,
+    283,
+    49
+   ],
+   "fontPx": 40,
+   "claims": [
+    "buyer_owen_monthsTo80Index",
+    "buyer_victor_monthsTo80Index"
+   ]
+  }
+ ],
+ "graphics": {
+  "claims": [
+   "buyer_owen_monthsTo80Index",
+   "buyer_victor_monthsTo80Index"
+  ],
+  "what": "two bars, height = months to 80% on paper for the two ILLUSTRATIVE buyers (Owen 13, Victor 112, same scale, no axis numbers). ILLUSTRATIVE badge."
+ }
+}

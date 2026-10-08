@@ -1,6 +1,9 @@
 """Mốc V · đoạn thử: tiếng ĐỦ LỚP từ trục xương sống (spine.json) — lời, nhạc theo căng–chùng, âm dữ liệu (bảng S2), hiệu ứng, room tone.
   python3 toolkit/factory/world/audio.py <out_dir> --spine <spine.json> [--music code|<file.wav>] [--no-data] [--no-sfx]   (từ moc-v/proto, Mốc V)
-Ra: <out_dir>/mix.wav (−14 LUFS, ≤ −1,5 dBTP) + stems/{voice,music,data,sfx,room}.wav + audio-report.json.
+Ra: <out_dir>/mix.wav (−14 LUFS, ≤ −1,5 dBTP) + stems/{voice,music,data,sfx,whoosh,room}.wav + audio-report.json.
+  whoosh = tiếng ĐỘNG TÁC MÁY QUAY (kind whoosh_*, swish, và mọi kind là `sound` của một spine.moves) tách khỏi sfx: cùng thang, cùng side-chain
+  (duck tuyến tính) → sfx + whoosh = lớp sfx cũ (mix không đổi); checks A10/R01/T3/L1 đọc stem whoosh (checks/CONTRACT.md).
+  audio-report.json → data_events [{t, t_sound, v}]: giờ thật của mỗi âm dữ liệu sau khi dời vào khe lời (out/sonify-events.json, artefacts.py).
 
 Luật áp (sổ gu):
   G-006 lời ưu tiên: nhạc dưới lời 20 dB (cách đo A07: RMS lúc có lời), mọi lớp phụ né lời (side-chain 8 dB) và mất dải 1–4 kHz khi có lời;
@@ -146,13 +149,34 @@ def tension_at(spine, t):
     return float(np.interp(t, [k[0] for k in kf], [k[1] for k in kf]))
 
 
+def bed_slice(T, bed):
+    """music_plan.bed = {'wav': <nhạc nền của tập, đường dẫn tuyệt đối hoặc từ gốc repo>, 'offset': <giờ đầu đoạn trong tập, s>, 'fade': s}.
+    Trả đúng lát [offset, offset + T] của nhạc nền (đệm 0 nếu thiếu), vào/ra cos `fade` (mặc định 0,05 s) — để nhạc của đoạn thế giới
+    liền với nhạc cả tập (mức căng, khoá, lưới phách, khoảng lặng mid-roll) thay vì một bản sinh riêng theo căng của riêng đoạn."""
+    p = bed['wav'] if os.path.isabs(bed['wav']) else os.path.join(ROOT, bed['wav'])
+    if not os.path.exists(p):
+        raise SystemExit(f'music_plan.bed: không có {p} — sinh nhạc nền của tập trước (audio.music_cmd)')
+    N = int(T * SR); i0 = int(round(float(bed.get('offset', 0.0)) * SR))
+    if i0 < 0:
+        raise SystemExit('music_plan.bed: offset < 0')
+    x = load(p, 2)[i0:i0 + N]
+    x = np.pad(x, ((0, N - len(x)), (0, 0)))
+    f = min(int(float(bed.get('fade', 0.05)) * SR), N // 2)
+    if f > 0:
+        r = 0.5 - 0.5 * np.cos(np.pi * np.arange(f) / f)
+        x[:f] *= r[:, None]; x[N - f:] *= r[::-1, None]
+    return x, {'bed': os.path.relpath(p, ROOT), 'offset': round(i0 / SR, 4), 'stop': T, 'release': T}
+
+
 def music_code(spine):
     """Tầng theo mức căng: pad luôn có; bass ≥ 0,35; pluck ≥ 0,45 (dày hơn ≥ 0,7); kick ≥ 0,55 (4 phách ≥ 0,75); shaker ≥ 0,6.
     Nhịp 114 BPM; đỉnh căng (b10 'past the cap') → cắt mọi tầng sau 'cap' với đuôi reverb (khoảng lặng ngắn, G-003),
     rồi b11 thả: F trưởng, pad + pluck thưa (sáng, G-016). Điểm nhấn felt rơi đúng sự kiện (vạch trần khoá, cắt vạch, qua trần)."""
+    mp = spine.get('music_plan')
+    if mp and mp.get('bed'):                        # F-3: đoạn dùng đúng lát nhạc nền CỦA TẬP (bản đồ căng cả tập), không tự sinh
+        return bed_slice(spine['total'], mp['bed'])
     T = spine['total']; N = int(T * SR) + SR; dry = np.zeros((N, 2))
     cue = {b['id']: b['cues'] for b in spine['beats']}
-    mp = spine.get('music_plan')
     if mp:                                          # spine v3: nhạc đọc kế hoạch từ đặc tả nhịp
         stop, rel0, ACC = mp['stop'], mp['release'] - 1.0, mp['accents']; TAU = mp.get('tau', 0.25)
     else:
@@ -243,11 +267,13 @@ def gap_shift(t, venv):
     return j / 200
 
 
-def data_layer(spine, N, venv):
+def data_layer(spine, N, venv, events=None):
     out = np.zeros((N, 2)); shifts = []
     for e in spine['events']:
         if e['kind'] != 'data': continue
         t = gap_shift(e['t'], venv); shifts.append(round(t - e['t'], 3))
+        if events is not None:
+            events.append({'t': round(e['t'], 4), 't_sound': round(t, 4), 'v': round(float(e['v']), 4), **({'over': True} if e.get('over') else {})})
         m = qpenta(45 + 19 * e['v'])                         # cao độ theo giá trị: thấp → cao, khoá D (ngũ cung)
         v = 0.9 if e.get('over') else (0.45 if e.get('src') == 'value' else 0.65)   # v3i: nốt giá trị (16–21 s) nhỏ hơn
         add(out, t, s2_pulse(hz(m), v), -0.2 + 0.4 * e['v'])
@@ -258,12 +284,20 @@ def data_layer(spine, N, venv):
 
 
 SFX_REF = 0.838
+WHOOSH_KINDS = ('whoosh', 'swish')   # tiền tố kind của tiếng động tác máy quay → stem whoosh
 
 
-def sfx_layer(spine, N):
-    out = np.zeros((N, 2))
+def is_whoosh(kind, spine=None):
+    return kind.startswith(WHOOSH_KINDS) or any(m.get('sound') == kind for m in (spine or {}).get('moves') or [])
+
+
+def sfx_layer(spine, N, split=False):
+    """Lớp hiệu ứng. split=True → (sfx, whoosh): tiếng động tác máy quay (is_whoosh) vào bộ đệm riêng; thứ tự gọi rng không đổi → sfx + whoosh
+    trùng đúng lớp split=False."""
+    sfx, wh = np.zeros((N, 2)), np.zeros((N, 2))
     for e in spine['events']:
         k, t = e['kind'], e['t']
+        out = wh if split and is_whoosh(k, spine) else sfx
         if k == 'riser':
             d = e['to'] - t; add(out, t, mixs(noise_sweep(d, 400, 3500, 0.10, att=d * 0.8), glide(57, 62, d, 0.05)))
         elif k == 'whoosh_air':                      # đẩy chậm (máy quay "thở"): gió rất nhẹ, dải hẹp, không cao độ
@@ -295,7 +329,7 @@ def sfx_layer(spine, N):
             add(out, t, gn * mixs(noise_sweep(d, lo, hi, 0.13 if k == 'whoosh_mode' else 0.09, att=d * 0.6), glide(62, 69, d, 0.05)))
         elif k == 'land':                            # chạm khi tới tư thế mới (S2: tick + nhịp trầm)
             add(out, t, mixs(s2_tick(0.35), 0.6 * s2_pulse(hz(50), 0.38 if e.get('mode') else 0.3)))   # E5a: tiếng chạm đổi chế độ to nhất → hạ
-    return out
+    return (sfx, wh) if split else sfx
 
 
 def room_tone(N, venv, mus_env):
@@ -307,6 +341,19 @@ def room_tone(N, venv, mus_env):
     q = np.repeat(quiet, SR // 200)[:N]; q = np.pad(q, (0, N - len(q)))
     g = 10 ** (6 * uniform_filter1d(q, int(0.2 * SR)) / 20)
     return np.stack([x * g, np.roll(x, 2400) * g], 1)
+
+
+def silence_gain(N, windows, ramp=0.05):
+    """Hệ số (N,) = 0 trong mọi cửa sổ [a, b] (giây), 1 ngoài cửa sổ, cos `ramp` s ngay ngoài hai đầu; None nếu không có cửa sổ."""
+    if not windows:
+        return None
+    t = np.arange(N) / SR
+    g = np.ones(N)
+    for a, b in windows:
+        d = np.maximum(a - t, t - b)          # > 0 ngoài cửa sổ: khoảng cách tới cửa sổ
+        w = np.where(d <= 0, 0.0, np.where(d >= ramp, 1.0, 0.5 - 0.5 * np.cos(np.pi * np.clip(d, 0, ramp) / ramp)))
+        g = np.minimum(g, w)
+    return g
 
 
 def env200(x):
@@ -364,8 +411,9 @@ def main():
         g_ = np.where(t_ < c0, 1.0, np.where(t_ < c0 + 1.1, np.exp(-(t_ - c0) / 0.09), np.clip((t_ - c0 - 1.1) / 0.2, 0, 1)))
         mus = mus * g_[:, None]
     mus = mus[:N]
-    data, shifts = data_layer(spine, N, venv) if '--no-data' not in sys.argv else (np.zeros((N, 2)), [])
-    sfx = sfx_layer(spine, N) if '--no-sfx' not in sys.argv else np.zeros((N, 2))
+    data_events = []
+    data, shifts = data_layer(spine, N, venv, data_events) if '--no-data' not in sys.argv else (np.zeros((N, 2)), [])
+    sfx, whoosh = sfx_layer(spine, N, split=True) if '--no-sfx' not in sys.argv else (np.zeros((N, 2)), np.zeros((N, 2)))
     # mức: nhạc 20 dB dưới lời (RMS lúc có lời, A07); âm dữ liệu −16 dB, sfx −14 dB dưới lời TRƯỚC side-chain (mọi lớp cùng cách đo)
     vr = rms_active(voice, venv)
     def level(x, db):
@@ -378,11 +426,19 @@ def main():
     data_d = duck(level(data, MX.get('data_db', 21.0)), venv, 8.0) if np.any(data) else data   # lượt đạo diễn v3c: −3 dB (chạm thân giọng ở 44–46, 52–54 s)
     # sfx: chuẩn theo ĐỈNH (đỉnh sfx = đỉnh lời − 12 dB), không theo RMS cả lớp — để hạ một tiếng không kéo tiếng khác lên (lượt đạo diễn v2)
     # v3d: thang CỐ ĐỊNH (SFX_REF = đỉnh lớp sfx bản v3c) — hạ một tiếng không kéo các tiếng khác lên; trần an toàn = đỉnh lời − 12 dB
-    sc = np.abs(voice).max() * 10 ** (-12 / 20) / max(SFX_REF, np.abs(sfx).max())
+    sc = np.abs(voice).max() * 10 ** (-12 / 20) / max(SFX_REF, np.abs(sfx + whoosh).max())   # thang của cả lớp (như trước khi tách whoosh)
     sfx_d = duck(sfx * sc, venv, 6.0) if np.any(sfx) else sfx
+    wh_d = duck(whoosh * sc, venv, 6.0) if np.any(whoosh) else whoosh   # duck tuyến tính → sfx_d + wh_d = lớp sfx cũ
     room = room_tone(N, venv, env200(mus_d))
+    # C5 ep005 (checks S14): spine.mix.silences [[a, b], …] (giây của đoạn) = lặng của bản trộn trừ lời: nhạc, âm dữ liệu, sfx, whoosh về 0 trong
+    # [a, b] (cos 50 ms hai đầu, ngoài cửa sổ) — điểm chèn quảng cáo cần ≥ 1 s master ≤ −40 dBFS. Room tone GIỮ làm sàn (≈ −60 dBFS, G-003 / checks T3:
+    # sàn master ≥ −80, room ≥ −75 dBFS trong khoảng lặng); C5b vòng 1 đưa cả room về 0 → T3 trượt, vòng 2 bỏ
+    sil = silence_gain(N, MX.get('silences') or [])
+    if sil is not None:
+        mus_d, data_d, sfx_d, wh_d = (x * sil[:, None] for x in (mus_d, data_d, sfx_d, wh_d))
+        rep['silences'] = MX['silences']
     v2 = np.stack([voice, voice], 1)
-    mix = v2 + mus_d + data_d + sfx_d + room
+    mix = v2 + mus_d + data_d + sfx_d + wh_d + room
     # đo nghe thấy được (G-001): mức đỉnh âm dữ liệu trong khe lời so với RMS lời
     rep['voice_over_music_db'] = round(20 * np.log10(vr / (rms_active(mus_d, venv) + 1e-12)), 2)
     gaps = np.repeat(venv < 10 ** (-38 / 20), SR // 200)[:N]; gaps = np.pad(gaps, (0, N - len(gaps))).astype(bool)
@@ -391,7 +447,7 @@ def main():
         rep['data_in_gaps_db_vs_voice'] = round(20 * np.log10(np.percentile(pk[venv < 10 ** (-38 / 20)], 99) / vr + 1e-12), 1)
         rep['data_shift_ms'] = {'max': int(1000 * max(map(abs, shifts))), 'mean': int(1000 * np.mean(np.abs(shifts)))}
     # lớp phụ không được vọt đỉnh hơn lời: giới hạn mềm tổng lớp phụ ở 0,8 × đỉnh lời (lời không bị nén)
-    side = mus_d + data_d + sfx_d
+    side = mus_d + data_d + sfx_d + wh_d
     lim = 0.8 * np.abs(voice).max()
     side = lim * np.tanh(side / lim)
     mix = v2 + side + room
@@ -406,8 +462,8 @@ def main():
     os.remove(tmp)
     g = 10 ** ((-14.0 - float(m['input_i'])) / 20)
     I, P = lufs(os.path.join(out, 'mix.wav'))
-    rep.update({'lufs': I, 'peak_dbfs': P})
-    for name, x in (('voice', v2), ('music', mus_d), ('data', data_d), ('sfx', sfx_d), ('room', room)):
+    rep.update({'lufs': I, 'peak_dbfs': P, 'data_events': data_events, 'whoosh_kinds': sorted({e['kind'] for e in spine['events'] if is_whoosh(e['kind'], spine)})})
+    for name, x in (('voice', v2), ('music', mus_d), ('data', data_d), ('sfx', sfx_d), ('whoosh', wh_d), ('room', room)):
         write(os.path.join(out, 'stems', name + '.wav'), x * 0.5 * g)
     json.dump(rep, open(os.path.join(out, 'audio-report.json'), 'w'), indent=1)
     print(json.dumps(rep))

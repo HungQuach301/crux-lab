@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation looks at how long it takes a new buyer with a small down payment to get their loan down to about 80% of the home's value. The 80% line is usually where mortgage insurance can come off. I'm inferring that from the \"80%\" label and the \"mortgage insurance\" caption in frame 6, because the frames never say it outright. It compares the lender's fixed paydown schedule (\"on paper\") with what actually happened to past US buyers. It uses real home-price history (FHFA index, via Freddie Mac and FRED), with every buyer lined up at their purchase date.\n\n2. **What changes across the frames:**\n   - **Frame 1:** Three example buyers appear: Owen (fast), Grace, and Victor (slow). Each has a line that falls toward the 80% mark, and the paths differ a lot.\n   - **Frames 2–3:** The view zooms out to a spread of many past buyers over 10 years, with a \"plan\" line fixed at the start.\n   - **Frame 4:** Numbers appear. The typical buyer took 23 months, and about 1 in 7 took more than 60 months. Two years matched the typical month, but not the slow cases and not the lender's step.\n   - **Frame 5:** It shows a $400,000 home as a stack of money, in dollars of the day.\n   - **Frame 6:** It contrasts \"buying now + mortgage insurance\" with \"still renting, still saving.\"\n\n3. **What it means:** Home prices drive how fast you build enough equity, not just your payments. The fixed schedule is only part of the story. In the past, most buyers got there in about two years, but some waited five years or more, and you can't know which group you'd land in. The captions say this is history, not a forecast, and US only.\n\n4. **Advice a viewer would take:** Strictly, none. The video says, \"Past buyers, measured · not a reason to buy, rent or wait,\" and \"A measurement, not a next step.\" As a renter with about 10% saved, I'd take away three things:\n   - Mortgage insurance might go away in around two years, but it could take much longer.\n   - I shouldn't count on the optimistic timeline.\n   - Buying and renting-and-saving are both left as open choices that depend on my own situation.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1374,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "in": 9774,
+   "out": 1161
+  }
+ },
+ "turns": 2
+}

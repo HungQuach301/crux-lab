@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it takes a buyer who puts down about 10% to get their loan down to 80% of the home's value. At that point the buyer has 20% equity, which is the usual threshold for dropping private mortgage insurance. The scheduled paydown takes about 8 years. The animation then compares that schedule with what actually happened to past US buyers.\n\n2. **What changes over time.**\n   - Frames 1 and 2 are labeled \"illustrative.\" A single line starts near 90% loan-to-price and slopes down to the 80% line. It reaches 80% at about 8 years, which is the \"schedule.\"\n   - Frame 3 switches to real data (FHFA and Freddie Mac, via FRED). It shows one line for each purchase month from 1991 to 2016. The lines start to fan out from the starting point.\n   - Frames 4 and 5 fill in the whole bundle of lines. Many drop below the schedule quickly. Others rise well above 90% before coming back down.\n   - Frame 6 highlights two cases. The typical buyer reached 80% in about 2 years, much faster than the schedule. The slowest case, in blue, took about 9 years. Its loan-to-value ratio went up first, which would happen if the home's value fell.\n\n3. **What it means.** Loan-to-value depends on home prices as well as on paying down the loan. In most of the historical cases, rising prices got buyers to 80% much sooner than the schedule predicts. In the worst cases, falling prices pushed the ratio above where it started and delayed reaching 80% past the schedule. The real range was wide, from roughly 2 years to 9 years or more.\n\n4. **What a viewer would take from it.** The animation doesn't tell anyone to buy, rent or wait. Its captions say \"Past buyers, measured · not a reason to buy, rent or wait\" and \"US only · history, not a forecast.\" A viewer should come away with a few points:\n   - Don't assume the 8-year schedule is exact.\n   - The typical outcome was faster, but a bad stretch for prices could make it slower.\n   - Equity and the date you can drop PMI depend on the housing market as well as on your payments.\n   - Plan for a range of outcomes, and don't treat the past as a promise.\n\nAs a renter with about 10% saved, I'd read this as a reason to keep a cushion and not count on price gains to build equity.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1374,
+   "out": 202
+  },
+  "claude-sonnet-5-5": {
+   "in": 9770,
+   "out": 868
+  }
+ },
+ "turns": 2
+}

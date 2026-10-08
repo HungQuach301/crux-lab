@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it took past US homebuyers to get their loan down to 80% of their home's value. That is the point where a buyer with a small down payment has built about 20% equity \"on paper.\" It uses a house, a loan tower, and a notepad as an illustration. It then switches to real data from FHFA and Freddie Mac via FRED.\n\n2. **What changes across the frames.**\n   - Frames 1–2 are labeled \"illustrative.\" A tall \"home value\" tower sits next to a shorter \"loan\" tower, and the loan tower gets a glow.\n   - Frame 3 is a 3D ridge of lines. Each line is one purchase month from 1991 to 2016. It plots loan as a percentage of home value over 10 years, with 80% as the reference line.\n   - Frames 4–6 flatten that into a bar chart. Each bar is a purchase month, and its height is the number of months it took to reach 80%. The bars are low (quick) for 1990s buyers and shrink further toward the early 2000s. They jump sharply for buyers around 2005–2007, then fall back through the 2010s. Frame 6 adds a bracket marking that bar height as \"months to 80% on paper.\"\n\n3. **What it means.** Time to reach 80% loan-to-value varies a lot depending on when you bought. Buyers in the late 1990s and early 2000s got there fast, mostly because prices rose. Buyers near the mid-2000s peak waited much longer because prices fell and their equity stalled. The timing of your purchase and the housing market's path affected equity as much as your own payments did.\n\n4. **What a viewer would take from it.** The slide's own captions say it is \"past buyers, measured,\" \"not a reason to buy, rent or wait,\" and \"history, not a forecast,\" and that it covers the US only. So the animation gives no buy-or-wait advice. A viewer might take away two things:\n   - Don't assume a small down payment will reach 20% equity on a set schedule. It could take a few months or many years.\n   - Expect that building equity depends partly on market timing you can't control. A first-time buyer with about 10% down should plan for the slow case, for example by keeping a cash cushion and not counting on price gains. They should also check what removing mortgage insurance would take in their own situation.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1053,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9774,
+   "out": 821
+  }
+ },
+ "turns": 2
+}

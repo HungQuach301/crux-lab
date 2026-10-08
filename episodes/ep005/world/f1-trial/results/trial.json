@@ -1,0 +1,19 @@
+{
+ "task": "F-1 thử trên MỘT lần chuyển: seg-s01-s03 wFork→cSched (S02 'schedule'), 540p; dissolve = seg-s01-s03 (cờ tắt), fly = f1-trial",
+ "date": "2026-10-07",
+ "window_s": [8.995, 10.095],
+ "flag_off_md5": "seg-s01-s03 dựng lại với core.js/spine.py mới (cờ tắt): 5/5 cảnh trùng MD5 với cache cũ; picture.mp4 b239eb1befa5fa7de707bf055e330ce6 = bản hiện tại",
+ "criteria": {
+  "verify_rules_1_2_3": {"dissolve": [0, 0, 0], "fly": [0, 0, 0], "pass": true},
+  "hard_cuts": {"dissolve": 0, "fly": 0, "pass": true},
+  "F2": {"dissolve": "0 BLOCK, 6 WARN, 1 nhãn đè (80% × 80% on paper 25,8 s, có từ trước)", "fly": "0 BLOCK, 6 WARN, cùng 1 nhãn đè — không nhãn đè mới", "pass": true},
+  "sync_audit": {"dissolve": "11/11 trong ±0,2 s", "fly": "11/11 trong ±0,2 s, độ lệch từng cue trùng hệt", "pass": true},
+  "chart_labels_after_landing": {"log": "236/236 mẫu t ≥ 10,095 s: hộp chữ, chartW, đường lớp phủ trùng hệt", "pixels": "8/8 khung PNG của trang (10,1–26 s) trùng từng byte", "pass": true},
+  "occlusion": {"method": "hộp bao 3D của từng vật thế giới chiếu ra màn hình, cắt theo khung (chặn trên phần khung bị che), log.cover mỗi 0,1 s", "max_fraction": 0.098, "at_s": 9.5, "object": "apt", "limit": "0,60 trong > 0,3 s", "pass": true},
+  "rule1_gate_in_fly": "chartW ≥ 0,95 lần đầu ở 10,0 s (x ≥ 0,9 của cửa sổ); 0 vi phạm quy tắc 1",
+  "render_ratio": {"dissolve_wall_s": 92.2, "fly_wall_s": 93.6, "ratio": 1.015, "shot_s2": [91.4, 92.9], "note": "3 worker, 4 nhân, chạy liền nhau; fly có thêm đo che khung"}
+ },
+ "audio": "fly dùng lại mix.wav của bản hoà tan: spine.events trùng hệt (cửa sổ, whoosh_mode + land không đổi) — không chạy audio.py (F-3 đang sửa)",
+ "outputs": ["episodes/ep005/review-c4/f1-trial-side-by-side.mp4", "episodes/ep005/review-c4/f1-trial-strip-dissolve.png", "episodes/ep005/review-c4/f1-trial-strip-fly.png",
+             "episodes/ep005/work/world/f1-trial-540.mp4", "episodes/ep005/work/world/f1-ref-dissolve-540.mp4"]
+}

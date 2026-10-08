@@ -1,0 +1,56 @@
+[
+ {
+  "file": "3e2f5a0f",
+  "sample": "N1-S06",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches the muted read: $2,362 P&I payment, balance falling slowly then faster. Closing 'work out my own numbers, get real quotes' is general caution only."
+ },
+ {
+  "file": "41ccc7e3",
+  "sample": "N1-S06",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches the muted read: payment pages with the balance curve slow then fast. Takeaways are budgeting and 'get quotes' caution, with no buy/wait/choose."
+ },
+ {
+  "file": "42acdc13",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches the muted read: few bars over 60 months (14.7%) clustered in one stretch of purchase months. Takeaways are general caution and explicitly not a reason to buy, rent or wait."
+ },
+ {
+  "file": "42fe5b82",
+  "sample": "N1-S06",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches the muted read: $360k loan, $2,362 P&I, balance slow then fast. Takeaways are budget-the-full-cost style caution only."
+ },
+ {
+  "file": "e4807c9a",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Meaning matches the muted read: a few long-wait bars clustered in one stretch. It then tells the viewer to plan to stay put a long time if buying near a peak, which is a hold/choose recommendation."
+ },
+ {
+  "file": "f48b766d",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Meaning matches the muted read: the 14.7% of bars over 60 months sit together in one stretch. It then recommends 'a plan to stay put for years' plus a cash cushion, which goes beyond pure caution into a hold recommendation."
+ }
+]

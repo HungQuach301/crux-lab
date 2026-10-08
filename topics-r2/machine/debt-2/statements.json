@@ -1,0 +1,210 @@
+[
+ {
+  "n": 1,
+  "where": "result.answer",
+  "text": "With 10% down at the September 2026 average 30-year rate (6.862%), the original schedule brings the loan to 80% of the purchase price after 99 payments and to 78% after 114: about 8 to 9.5 years of mortgage insurance if home values are ignored.",
+  "uses": [
+   "downShare",
+   "rate_month_latest",
+   "rate_latest",
+   "requestLtv",
+   "autoLtv",
+   "sched80_months_latest",
+   "sched78_months_latest"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 1 → True"
+ },
+ {
+  "n": 2,
+  "where": "result.answer",
+  "text": "Measured against the national home-price index instead, buyers who put 10% down in 307 purchase months from January 1991 to July 2016 reached a loan of 80% of the index value after a median of 23 months; 14.7% needed more than 60 months, and October 2005 buyers needed 112.",
+  "uses": [
+   "downShare",
+   "nB",
+   "firstB",
+   "lastB",
+   "requestLtv",
+   "medianB_months_to80",
+   "shareB_over60",
+   "maxB_start",
+   "maxB_months_to80"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 2 → True",
+  "note": "Same set B for every number; 112 is the T of the 2005-10 purchase month itself."
+ },
+ {
+  "n": 3,
+  "where": "result.answer",
+  "text": "At the two-year mark, 58.6% of 403 purchase months (1991-2024) were at or below 80% of index value, but only 15.6% were at or below 75%.",
+  "uses": [
+   "shareA_ltv24_le80",
+   "nA",
+   "firstA",
+   "lastA",
+   "shareA_ltv24_le75"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 3 → True",
+  "note": "Both shares over the same set A at k=24."
+ },
+ {
+  "n": 4,
+  "where": "result.answer / limits",
+  "text": "History, not a forecast.",
+  "uses": [
+   "hpi_last",
+   "lastA"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 4 → True",
+  "note": "Check: every month used is an observed month (lastA + 24 = hpi_last); nothing extrapolated."
+ },
+ {
+  "n": 5,
+  "where": "result.guess",
+  "text": "Buyers expect to pay mortgage insurance for most of a decade, until the loan is paid down to 80% of what they paid; price gains are rarely counted.",
+  "uses": [
+   "sched80_months_latest",
+   "requestLtv"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 5 → True",
+  "note": "Guess about beliefs; the check is that the schedule-only figure is 'most of a decade' (60 < sched80 <= 120). Not evidence of what buyers believe."
+ },
+ {
+  "n": 6,
+  "where": "result.changesDecision (part 1)",
+  "text": "The years of insurance a 10%-down buyer is pricing in are usually the schedule's 8+ years;",
+  "uses": [
+   "sched80_months_latest"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 6 → True",
+  "note": "Check: sched80 >= 96 months. Part 2 of the sentence is statement 7."
+ },
+ {
+  "n": 7,
+  "where": "result.changesDecision (part 2)",
+  "text": "national price history says equity on paper often reached 80% in about two years, but not reliably (one in seven purchase months took over five years, and lender value-based rules are stricter).",
+  "uses": [
+   "medianB_months_to80",
+   "shareB_over60",
+   "shareA_ltv24_le75",
+   "shareA_ltv24_le80"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 7 → True",
+  "note": "'one in seven' = 0.147 (1/0.147 = 6.8)."
+ },
+ {
+  "n": 8,
+  "where": "result.changesDecision",
+  "text": "The viewer can compare the real range, not one number, with the extra years of renting needed to reach 20%.",
+  "uses": [
+   "minB_months_to80",
+   "medianB_months_to80",
+   "maxB_months_to80"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 8 → True",
+  "note": "Check: the range is non-degenerate (min < median < max, set B: 13 < 23 < 112). Renting years are not modeled."
+ },
+ {
+  "n": 9,
+  "where": "result.limits",
+  "text": "A national index hides large local and individual differences.",
+  "uses": [
+   "maxB_months_to80"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 9 → True",
+  "note": "Qualitative; national data cannot measure local spread. Check only that even the national index has slow cases (max > 60)."
+ },
+ {
+  "n": 10,
+  "where": "result.limits",
+  "text": "Removal based on current value is set by the lender or investor (appraisal, minimum seasoning, often 75% in early years), so the index result is an upper bound on how early removal was possible.",
+  "uses": [
+   "lenderLtvEarly",
+   "requestLtv"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 10 → True",
+  "note": "Check: for every set-B month, the first month at <= 75% is never earlier than at <= 80%."
+ },
+ {
+  "n": 11,
+  "where": "result.limits",
+  "text": "The law-based schedule (80% request, 78% automatic) depends only on the original value.",
+  "uses": [
+   "requestLtv",
+   "autoLtv",
+   "sched80_months_latest",
+   "sched78_months_latest"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 11 → True",
+  "note": "Check: sched80 < sched78 (computed without the index)."
+ },
+ {
+  "n": 12,
+  "where": "claim-risk.md",
+  "text": "The 23-month median is when the loan reached 80% of a national index value.",
+  "uses": [
+   "medianB_months_to80",
+   "requestLtv"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 12 → True"
+ },
+ {
+  "n": 13,
+  "where": "claim-risk.md",
+  "text": "at the two-year mark only 15.6% of purchase months were at or below 75%.",
+  "uses": [
+   "shareA_ltv24_le75",
+   "lenderLtvEarly"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 13 → True"
+ },
+ {
+  "n": 14,
+  "where": "claim-risk.md",
+  "text": "October 2005 buyers took 112 months, and 14.7% of purchase months took over five years.",
+  "uses": [
+   "maxB_start",
+   "maxB_months_to80",
+   "shareB_over60"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 14 → True",
+  "note": "Same set B."
+ },
+ {
+  "n": 15,
+  "where": "claim-risk.md",
+  "text": "By law the borrower may request cancellation when the scheduled balance reaches 80% of original value and it ends automatically at 78% (with conditions such as being current on payments); value-based removal is a lender or investor rule, not the law.",
+  "uses": [
+   "requestLtv",
+   "autoLtv",
+   "sched80_months_latest",
+   "sched78_months_latest"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 15 → True",
+  "note": "Legal text in sources.json provisions; numeric check: sched80 < sched78."
+ },
+ {
+  "n": 16,
+  "where": "claim-risk.md",
+  "text": "Sets A and B use only purchase months with enough later data (24 or more than 120 months), so recent buyers are only in set A.",
+  "uses": [
+   "nA",
+   "nB",
+   "lastA",
+   "lastB",
+   "hpi_last"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 16 → True"
+ },
+ {
+  "n": 17,
+  "where": "card.promise",
+  "text": "Using decades of home prices and mortgage rates, we measure how long mortgage insurance actually had to stay for buyers who put 10% down.",
+  "uses": [
+   "hpi_first",
+   "hpi_last",
+   "downShare"
+  ],
+  "check": "python3 episodes/ep005/model/statements.py --statement 17 → True",
+  "note": "Check: index span >= 20 years (1991-2026). RISK: 'actually had to stay' overstates; the index result is equity on paper, not removal (result.assumptions[3]). Suggest 'how long it took, on paper, to reach 80%'."
+ }
+]

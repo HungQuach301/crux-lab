@@ -1,0 +1,14 @@
+{
+ "answer": "**1. What idea is this animation showing?**\nIt shows how long past home buyers with a small down payment took to reach 80% of their home's value \"on paper\". Reaching 80% means owing no more than 80% of the home's value, or having 20% equity. That is the point where private mortgage insurance usually can come off. Each bar is one month of purchase, from 1991 to 2016. The data come from FHFA and Freddie Mac via FRED.\n\n**2. What changes over time across the frames?**\n- **Frame 1:** There are just the bars. They are low and steady in the 1990s, jump sharply for purchases around 2005 to 2007, then fall back.\n- **Frame 2:** The chart is redrawn around a baseline, and a label appears saying the median is 23 months.\n- **Frame 3:** A line is added, with the headline \"90.6% no later than the schedule.\"\n- **Frames 4 and 5:** The line is labeled \"schedule at each month's rate.\" It sits high in the early 1990s and drifts lower over the years.\n- **Frame 6:** A bracket marks the \"gap\" between that schedule line and the bars.\n\n**3. What does it mean?**\nThe schedule line seems to show how long it would take to reach 80% by paying down the loan alone, at the mortgage rate of that month. The bars show how long it actually took. For about 90.6% of purchase months, buyers got there no later than the schedule predicted. The usual reason is that home prices rose, so equity grew faster than payments alone would build it. The median wait was about 23 months. The exception was buyers near the 2005 to 2007 peak, whose bars are far taller. Falling prices made them wait much longer, and their bars reach or pass the schedule line. I'm inferring some of this from the labels, because the frames don't spell out the method.\n\n**4. What advice, if any, would a viewer take from this?**\nThe video says outright that this is \"not a reason to buy, rent or wait,\" that it covers the US only, and that it is \"history, not a forecast.\" So there is no instruction to buy.\n\nAs a renter with about 10% saved, I'd take away three things:\n- Historically, a small down payment often got to 20% equity faster than the payment schedule alone suggested. That is mostly thanks to price growth.\n- That isn't guaranteed. If I bought at a market peak, it could take many years.\n- I should budget for mortgage insurance lasting longer than two years, and not count on appreciation to remove it.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1369,
+   "out": 19
+  },
+  "claude-sonnet-5-5": {
+   "in": 9759,
+   "out": 1404
+  }
+ },
+ "turns": 2
+}

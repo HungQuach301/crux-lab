@@ -1,0 +1,31 @@
+{
+ "cuts": [
+  {
+   "t": 58.0,
+   "from": "a-s01-s03",
+   "to": "b-s04-s09",
+   "type": "dissolve",
+   "match": null,
+   "audio": null,
+   "reason": "ident: world dims to the channel mark, act 1 fades in from dark"
+  },
+  {
+   "t": 189.034,
+   "from": "b-s04-s09",
+   "to": "c-s10-s14",
+   "type": "cut",
+   "match": "geometric",
+   "audio": null,
+   "reason": "segment boundary on a held camera: last frame of one segment = first frame of the next (same pose, same objects)"
+  },
+  {
+   "t": 321.667,
+   "from": "c-s10-s14",
+   "to": "d-s15-s20",
+   "type": "cut",
+   "match": "geometric",
+   "audio": null,
+   "reason": "segment boundary on a held camera: last frame of one segment = first frame of the next (same pose, same objects)"
+  }
+ ]
+}

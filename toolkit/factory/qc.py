@@ -3,7 +3,8 @@ a rule the builder thinks checks/ should hold goes to checks-appeal.md.
 
 run(build) → out/factory/qc.json + qc.md. Each item ĐẠT/TRƯỢT; every measured value within ±5 % of its threshold is named (CHARTER §4).
 Items: floor · contrast · safe area · label collisions · ILLUSTRATIVE/history tags · axis from 0 · freezedetect d=3 ∩ speech = 0 ·
-visual ≥ word · loudness · part size · Short length · format rules.
+visual ≥ word · loudness · part size · Short length · format rules · F-2 label overlap (box intersection on the frame log; CẢNH BÁO = warn,
+does not fail qc — engine collisions above stay TRƯỢT; 2D logs carry no line geometry or opacity, so line crossings are world-only).
 """
 import json
 import os
@@ -11,6 +12,9 @@ import re
 import subprocess
 
 import spec as SPEC
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'world'))
+import sfx_labels  # noqa: E402  (F-2: same overlap rule as world/verify_seg.py)
 
 SAFE = {'h': (96, 64, 1920 - 96, 1080 - 56), 'v': (72, 200, 1080 - 72, 1920 - 320)}
 FLOOR = {'h': 40, 'v': 56}
@@ -53,6 +57,10 @@ def frame_rules(q, logs, orient, tag, cws=None):
     q.item(f'{tag} vùng an toàn', not bad, len(bad), '0 hộp chữ ra ngoài (> 1 px)', json.dumps(bad[:3], ensure_ascii=False) if bad else '')
     col = [c for L in logs for c in L['collisions']]
     q.item(f'{tag} va chạm nhãn', not col, len(col), '0', json.dumps(col[:3], ensure_ascii=False) if col else '')
+    lc = label_overlap_2d(logs, W, H)
+    q.items.append({'item': f'{tag} nhãn giao nhau (F-2)', 'result': 'ĐẠT' if not lc['overlaps']['count'] else 'CẢNH BÁO', 'value': lc['overlaps']['count'],
+                    'threshold': f'0 cặp hộp chữ giao nhau > {sfx_labels.LABEL_TOL_PX:g} px (cảnh báo)',
+                    'note': '; '.join(s['what'] + f" {s['t0']}–{s['t1']} s" for s in lc['overlaps']['spans'][:3])})
     miss = []
     for L in logs:
         need = set()
@@ -63,11 +71,24 @@ def frame_rules(q, logs, orient, tag, cws=None):
         if orient == 'v' and (L['claims'] or L['hist']):
             need |= {'HISTORY', 'ILLUSTRATIVE'}
         if need - set(L['tags']):
-            miss.append(L.get('t', L['f']))
+            miss.append(L['t'] if 't' in L else L['f'])
     q.item(f'{tag} nhãn ILLUSTRATIVE / history', not miss, len(miss), '0 khung thiếu nhãn', f'{len(logs)} khung log (mỗi 6 khung)')
     for c in cws or []:  # each declared counterweight must actually be on screen ≥ 1 s (log every 6 frames)
         n = sum(('CW:' + c['id']) in L['tags'] for L in logs) * 6
         q.item(f"{tag} đối trọng \"{c['text']}\"", n >= 30, n, '≥ 30 khung (1 s)')
+
+
+def label_overlap_2d(logs, W, H):
+    """F-2 on the 2D engine log: boxes after camera zoom (about the centre), every text pair in the same logged frame."""
+    fr = []
+    for L in logs:
+        T = []
+        for x in L['texts']:
+            z = x.get('z', 1)
+            T.append({'text': x['s'], 'box': [W / 2 + (x['box'][0] - W / 2) * z, H / 2 + (x['box'][1] - H / 2) * z,
+                                              W / 2 + (x['box'][2] - W / 2) * z, H / 2 + (x['box'][3] - H / 2) * z]})
+        fr.append({'t': L['t'] if 't' in L else L['f'], 'texts': T})
+    return sfx_labels.label_check(fr)
 
 
 def speech_spans(words, gap=0.3):
@@ -126,11 +147,12 @@ def run(B):
     fp = [p for p in P if p['level'] in ('BLOCK', 'ASK')]
     q.item('luật format', not fp, B.S.get('format'), f"scope {B.S.get('scope', 'full')}",
            'đoạn trích: bỏ qua thời lượng/mid-roll' if B.S.get('scope') == 'excerpt' else '; '.join(p['msg'] for p in P))
-    res = {'items': q.items, 'near': q.near, 'pass': all(i['result'] == 'ĐẠT' for i in q.items)}
+    res = {'items': q.items, 'near': q.near, 'pass': all(i['result'] != 'TRƯỢT' for i in q.items)}
     json.dump(res, open(os.path.join(B.out, 'qc.json'), 'w'), indent=1, ensure_ascii=False)
     with open(os.path.join(B.out, 'qc.md'), 'w') as f:
         f.write(f"# qc nhà máy — {B.S['episode']} ({B.S.get('scope', 'full')})\n\n| Mục | Kết quả | Đo | Ngưỡng | Ghi chú |\n|---|---|---|---|---|\n")
         for i in q.items:
             f.write(f"| {i['item']} | {i['result']} | {i['value']} | {i['threshold']} | {i['note'].replace('|', '/')} |\n")
         f.write('\n**Sát ngưỡng ±5 %:** ' + (', '.join(f"{n['item']} ({n['value']} vs {n['threshold']})" for n in q.near) or 'không có') + '\n')
-    return {'pass': res['pass'], 'failed': [i['item'] for i in q.items if i['result'] != 'ĐẠT'], 'near': [n['item'] for n in q.near]}
+    return {'pass': res['pass'], 'failed': [i['item'] for i in q.items if i['result'] == 'TRƯỢT'],
+            'warned': [i['item'] for i in q.items if i['result'] == 'CẢNH BÁO'], 'near': [n['item'] for n in q.near]}

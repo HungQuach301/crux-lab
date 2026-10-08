@@ -1,0 +1,69 @@
+{
+ "texts": [
+  {
+   "text": "14.7%",
+   "box": [
+    44,
+    65,
+    446.9,
+    181
+   ],
+   "fontPx": 150,
+   "claims": [
+    "shareB_over60"
+   ]
+  },
+  {
+   "text": "over 5 years",
+   "box": [
+    48,
+    243,
+    541.2,
+    109
+   ],
+   "fontPx": 90,
+   "claims": [
+    "shareB_over60",
+    "slowCut_years"
+   ],
+   "params": [
+    "slowCutMonths"
+   ]
+  },
+  {
+   "text": "on paper",
+   "box": [
+    48,
+    363,
+    389.4,
+    109
+   ],
+   "fontPx": 90,
+   "claims": [
+    "shareB_over60"
+   ]
+  },
+  {
+   "text": "US only · history, not a forecast",
+   "box": [
+    630.8,
+    661,
+    609.2,
+    49
+   ],
+   "fontPx": 40,
+   "claims": []
+  }
+ ],
+ "graphics": {
+  "claims": [
+   "nB",
+   "shareB_over60",
+   "slowB_n",
+   "slowB_first",
+   "slowB_last",
+   "maxB_months_to80"
+  ],
+  "what": "307 bars (months to 80% on paper per purchase month); bars over 60 months in blue (45, May 2005–February 2009), the rest dark. No axis numbers."
+ }
+}

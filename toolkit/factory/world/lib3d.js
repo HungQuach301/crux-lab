@@ -126,7 +126,7 @@ export function Studio(scene, { shadowBox = 14 } = {}) {
   key.shadow.bias = -0.0008; key.target.position.set(0, 3, 0); scene.add(key, key.target);
   const rim = new THREE.DirectionalLight('#8FB4FF', 0.6); rim.position.set(6, 6, -10); scene.add(rim);
   const floor = new THREE.Mesh(new THREE.PlaneGeometry(160, 160), new THREE.MeshStandardMaterial({ color: PALETTE.floor, roughness: 0.95, transparent: true }));
-  floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+  floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; floor.userData.role = 'bg'; scene.add(floor);   // 'bg': lớp 'graphics' của trang kiểm bỏ sàn
   return { key, rim, floor };
 }
 

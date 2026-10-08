@@ -1,0 +1,386 @@
+{
+ "items": [
+  {
+   "item": "master sàn chữ",
+   "result": "ĐẠT",
+   "value": null,
+   "threshold": "≥ 40 px",
+   "note": "0 lần engine nâng cỡ"
+  },
+  {
+   "item": "master tương phản",
+   "result": "ĐẠT",
+   "value": null,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "master vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "master va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "master nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "master nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "0 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "master đối trọng \"US only · history, not a forecast\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"Past buyers, measured · not a reason to buy, rent or wait\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"A measurement, not a next step\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"It won't say whether to buy or wait\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "trục từ 0",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 shot bars/line có min > 0",
+   "note": "swarm: vị trí chấm, không phải độ dài"
+  },
+  {
+   "item": "freezedetect d=3 ∩ lời",
+   "result": "TRƯỢT",
+   "value": 212.03,
+   "threshold": "0 s",
+   "note": "47 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [44.5, 49.2333], [58.5, 66.3333]]"
+  },
+  {
+   "item": "mốc hình ≥ mốc từ",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": "0 mốc"
+  },
+  {
+   "item": "loudness",
+   "result": "TRƯỢT",
+   "value": "-14.0 LUFS / -1.9 dBTP",
+   "threshold": "-14 ± 1 LUFS, ≤ -2.0 dBTP",
+   "note": ""
+  },
+  {
+   "item": "kích thước phần",
+   "result": "ĐẠT",
+   "value": 43.58,
+   "threshold": "≤ 90 MB mỗi phần",
+   "note": "3 phần 720p"
+  },
+  {
+   "item": "SH1 thời lượng",
+   "result": "ĐẠT",
+   "value": 22.7,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH1 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "961 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH1 tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH1 vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "SH1 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "114 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH1 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 636,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"Past buyers, measured · not a reason to buy, rent or wait\"",
+   "result": "ĐẠT",
+   "value": 270,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"A measurement, not a next step\"",
+   "result": "ĐẠT",
+   "value": 186,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"It won't say whether to buy or wait\"",
+   "result": "ĐẠT",
+   "value": 180,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 loudness",
+   "result": "ĐẠT",
+   "value": "-13.8 LUFS / -2.1 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "SH2 thời lượng",
+   "result": "ĐẠT",
+   "value": 37.767,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH2 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "1030 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH2 tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH2 vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "SH2 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH2 nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "SH2 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "190 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH2 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 888,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"Past buyers, measured · not a reason to buy, rent or wait\"",
+   "result": "ĐẠT",
+   "value": 270,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"A measurement, not a next step\"",
+   "result": "ĐẠT",
+   "value": 276,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"It won't say whether to buy or wait\"",
+   "result": "ĐẠT",
+   "value": 342,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 loudness",
+   "result": "ĐẠT",
+   "value": "-14.0 LUFS / -1.5 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "SH3 thời lượng",
+   "result": "ĐẠT",
+   "value": 43.467,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH3 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "2493 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH3 tương phản",
+   "result": "ĐẠT",
+   "value": 5.91,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH3 vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "SH3 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH3 nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "SH3 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "218 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH3 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 1230,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 đối trọng \"Past buyers, measured · not a reason to buy, rent or wait\"",
+   "result": "ĐẠT",
+   "value": 450,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 đối trọng \"A measurement, not a next step\"",
+   "result": "ĐẠT",
+   "value": 420,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 đối trọng \"It won't say whether to buy or wait\"",
+   "result": "ĐẠT",
+   "value": 360,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 loudness",
+   "result": "ĐẠT",
+   "value": "-14.0 LUFS / -2.0 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "luật format",
+   "result": "ĐẠT",
+   "value": "101",
+   "threshold": "scope full",
+   "note": "S03.3: label \"Fannie Mae: wait ≥ {value_removal_seasoning_years} years · loan ≤ {value_removal_ltv_early}\" (number moved off the voice) is not on screen in S03; 101: 0 mid-rolls (need 1) — owner waiver: chủ dự án 08/10: 101 dưới 8:00, không mid-roll, không độn; 101: 466 s < soft minimum 480 s (không độn: shorter is fine, never pad)"
+  }
+ ],
+ "near": [
+  {
+   "item": "SH1 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  },
+  {
+   "item": "SH2 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  },
+  {
+   "item": "SH3 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  }
+ ],
+ "pass": false
+}

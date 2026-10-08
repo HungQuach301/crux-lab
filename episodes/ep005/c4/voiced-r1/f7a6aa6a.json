@@ -1,0 +1,14 @@
+{
+ "answer": "1. This part shows what a mortgage costs each month at the current average rate, and how the loan balance falls over the life of the loan. The example is a $360,000 loan at September 2026's average rate of 6.86% (Freddie Mac data via FRED). The monthly principal-and-interest payment is $2,362. The frames are labeled \"illustrative,\" and the caption \"A measurement, not a next step\" says this is not a recommendation.\n\n2. In frames 1–3, the loan and the rate appear first. Then the $2,362 monthly payment is attached to a small payment block beside the tall loan stack. In frame 4, a note is added: taxes, home insurance and PMI (mortgage insurance) come on top of that figure. In frames 5 and 6, the view changes to a balance curve over 360 payments. The payment counter moves from 35 to 114, and the loan stack shrinks as it does. The curve is labeled \"slowly at first\" on the left and \"faster later\" on the right.\n\n3. The $2,362 is only part of the real monthly cost, since taxes, insurance and PMI are extra. PMI is likely here because a buyer with about 10% down is typically under the 20% threshold. Early payments go mostly to interest, so the balance barely drops in the first several years. Equity builds much faster in the later years. The schedule is \"set on day one,\" so the pace of paydown is fixed by the loan terms and the rate.\n\n4. The video doesn't tell viewers to do anything. A viewer could still take away a few points. Budget for the full monthly cost, not just principal and interest. Expect equity to build slowly at first. Don't count on a quick payoff if you plan to sell or refinance within a few years. As a renter with about 10% saved, I'd take this as a reason to price out the all-in payment, including PMI, taxes and insurance, before deciding I can afford a home. I wouldn't treat it as a signal to buy or wait.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1131,
+   "out": 14
+  },
+  "claude-sonnet-5-5": {
+   "in": 9993,
+   "out": 708
+  }
+ },
+ "turns": 2
+}

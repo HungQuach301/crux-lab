@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long past US home buyers would have needed to pay a mortgage on schedule before owing 80% or less of the home's value. The caption calls this \"months to 80% on paper.\" The chart is a bar series, with one bar for each month. A bar's height is the number of months to reach 80% on paper. The sources are FHFA and Freddie Mac data via FRED.\n\n2. **What changes across the frames.**\n   - Frame 1 shows the bar series with one month highlighted: October 2005, at 112 months (9 years 4 months).\n   - Frame 2 adds the label \"height = months to 80% on paper\" and a bracket marking that bar's height.\n   - Frame 3 adds a line labeled \"schedule at that rate: 90 payments,\" marked ILLUSTRATIVE. It wanders across the top of the chart.\n   - Frames 4 to 6 add the note \"national average, not one home.\" The marked bar and the line stay the same.\n   - Early bars are low. They jump sharply around the 2005 mark, then decline gradually afterward.\n\n3. **What it means.**\n   - A buyer in the mid-2000s, near the peak, had to wait far longer than usual to reach 80% on paper.\n   - The scheduled payments alone would have taken 90 payments, but the line suggests the real wait ran longer, to 112 months. The most likely reason is falling home prices.\n   - The time to reach 80% depends on the purchase price, the interest rate and what home prices did afterward.\n   - The footers add limits. This is a national average rather than one home. It covers the US only. It is history, not a forecast.\n\n4. **Advice a viewer would take.**\n   - The footer says outright that this is \"not a reason to buy, rent or wait,\" so it gives no direct buy or rent instruction.\n   - As a renter with about 10% saved, I'd take away that equity isn't guaranteed to build quickly. Timing, prices and rates can stretch the wait to nearly ten years.\n   - If I did buy, I'd plan to stay a long time, keep a cash cushion, and not count on quick equity.\n   - I'd also remember that one national average doesn't describe my local market.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1368,
+   "out": 20
+  },
+  "claude-sonnet-5-5": {
+   "in": 9756,
+   "out": 791
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,38 @@
+[
+ {
+  "file": "07e954d9",
+  "sample": "N1-calendar",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches the muted read: calendar pages are the $2,362 monthly payments and the stack's top traces a balance that falls slowly, then faster. Takeaways are only general caution (budget for the payment, check own loan numbers)."
+ },
+ {
+  "file": "33ff82ff",
+  "sample": "N2-bars",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Matches the muted read: the over-60-month bars are set apart, about 1 in 7, clustered in 2005–2009 under the price-index peak and fall. 'Plan to stay in the home for a long time' is a hold/sell-type recommendation, so it counts as advice."
+ },
+ {
+  "file": "a3bd9578",
+  "sample": "N1-calendar",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Matches the muted read: the calendar page is the monthly payment and the stack slides along a balance curve that drops slowly, then faster. It adds advice that counts: compare lenders, make extra principal payments early, and think about how long to stay."
+ },
+ {
+  "file": "df1ca622",
+  "sample": "N2-bars",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Matches the muted read: the tall bars are highlighted as one 2005–2009 stretch, about 1 in 7 over 60 months, set against the price-index peak and fall. 'Plan to stay longer / expect to hold beyond five years' is hold advice that counts."
+ }
+]

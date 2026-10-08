@@ -1,0 +1,55 @@
+{
+ "video": "video.mp4",
+ "video_sha256": "1afb28242b4eaf14df08cde6c0430f2ad3b8970c67ba5900003228f621d662a8",
+ "font": "inter-latin-700-normal.woff2",
+ "layout": "3x2, 624x351, gap 12, label 50",
+ "strips": {
+  "N1-S06": {
+   "span": [
+    103.3,
+    121.64
+   ],
+   "times": [
+    104.828,
+    107.885,
+    110.942,
+    113.998,
+    117.055,
+    120.112
+   ],
+   "sha256": "153b6a73a67acfdf0f6229cc2799f038a65a56f13803901f25b308386c0afcbd"
+  },
+  "B02-S02": {
+   "span": [
+    9.967,
+    23.347
+   ],
+   "times": [
+    11.082,
+    13.312,
+    15.542,
+    17.772,
+    20.002,
+    22.232
+   ],
+   "sha256": "b36cdc6b659c35ad7bf53fb26564d046fcbf8a3c165ef3d7d917a6200901f097"
+  },
+  "B18-S18": {
+   "span": [
+    390.034,
+    434.454
+   ],
+   "times": [
+    393.736,
+    401.139,
+    408.542,
+    415.946,
+    423.349,
+    430.752
+   ],
+   "sha256": "408560fdd02b69a4e3fd0e8d7b57108c9de0348a0481158fecd4c68202b15c6d"
+  }
+ },
+ "video_sha256_c5c": "d2a04ca70015ec4d211f28495c0bd3d34bc979cb7ca7a8279cbc47cea0dc653a",
+ "note_c5c": "C5c: B02-S02, B18-S18 cắt lại từ out/video.mp4 C5c (video_sha256_c5c); bản C5b giữ ở *.c5b.png"
+}

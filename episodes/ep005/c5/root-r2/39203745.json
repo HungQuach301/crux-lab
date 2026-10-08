@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows how long it takes a buyer who puts about 10% down to get their loan down to 80% of the home's value. The loan starts near 90% of the price. The 80% line is a marker. I'd guess it matters because that's where mortgage insurance usually can come off, but the image doesn't say so. The first two frames are an illustrative schedule. The later frames use real data: the FHFA and Freddie Mac numbers via FRED, with one line for each purchase month from 1991 to 2016.\n\n2. **What changes across the frames:**\n   - Frames 1–2: A single line slopes down from 90% and reaches 80% at about 8 years. That is the planned pay-down.\n   - Frames 3–5: Many thin gray lines are added, one for each real purchase month. They spread out widely. Many drop below the schedule line, and many rise well above 90% before falling.\n   - Frame 6: Two cases are highlighted. The typical buyer reached 80% in about 2 years. The slowest case took about 9 years, and its loan share climbed well above 90% along the way.\n\n3. **What it means:** The 8-year schedule only counts paying down the loan. In real life the ratio also moves with home prices. Rising prices got most past buyers to 80% much faster than the schedule, typically in about 2 years. Falling prices pushed some buyers' loan share up for years, and the slowest took even longer than the schedule. So the time to reach 80% varied a lot, from about 2 years to about 9.\n\n4. **What a viewer would take from it:** The animation says outright that it isn't advice. It calls itself a measurement of past US buyers, \"not a reason to buy, rent or wait,\" and \"history, not a forecast.\" As someone with 10% saved, I'd take away three things:\n   - Don't count on the 8-year schedule. It could be much faster or slower.\n   - Don't assume the quick 2-year result will repeat, because it depended on prices rising.\n   - Plan for the slow case. If I buy, I should be able to afford the payment, including any mortgage insurance, for many years, and I shouldn't need to sell soon.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1366,
+   "out": 270
+  },
+  "claude-sonnet-5-5": {
+   "in": 9750,
+   "out": 977
+  }
+ },
+ "turns": 2
+}

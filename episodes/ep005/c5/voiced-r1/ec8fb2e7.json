@@ -1,0 +1,14 @@
+{
+ "answer": "1. This part shows what a mortgage costs each month at today's rate, and how the loan balance shrinks over the life of the loan. The example is a $360,000 loan at September 2026's average rate of 6.86% (Freddie Mac data via FRED). The principal-and-interest payment is $2,362 a month. The frames are labeled \"illustrative,\" so this is an example and not a quote for anyone.\n\n2. Frames 1 to 3 add information in steps. First comes the loan, drawn as a tall stack. Then the 6.86% rate appears. Then the $2,362 monthly payment, shown as a small block next to the loan. In frame 4, a note says taxes, home insurance and PMI (mortgage insurance) are added on top of that payment. Frames 5 and 6 switch to a curve of the loan balance across 360 payments (30 years). The curve falls slowly at the start and then drops faster toward the end. The labels \"slowly at first\" and \"faster later\" mark those two stretches.\n\n3. The $2,362 covers only principal and interest. Your real monthly cost will be higher once taxes, insurance and PMI are added. Early on, most of each payment goes to interest, so the balance barely moves. Later, more of each payment goes to principal and the balance falls faster. A fixed payment doesn't mean the balance falls at a steady pace.\n\n4. The video doesn't tell viewers to do anything. Its footer says \"A measurement, not a next step.\" Still, a few points follow from what it shows:\n   - Budget for more than the headline payment, since taxes, insurance and PMI come on top.\n   - Don't expect to build equity quickly in the first several years. That matters if you might sell or refinance early.\n   - Treat the numbers as an example and run your own with a real quote, because your price, down payment, rate and local taxes will differ.\n\n   As a renter who has saved about 10%, I'd take away that PMI probably applies to me. I'd also compare $2,362 plus the extras against my current rent before deciding anything.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1471,
+   "out": 248
+  },
+  "claude-sonnet-5-5": {
+   "in": 9971,
+   "out": 740
+  }
+ },
+ "turns": 2
+}

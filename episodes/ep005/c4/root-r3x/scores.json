@@ -1,0 +1,20 @@
+[
+ {
+  "file": "3a88c279",
+  "sample": "B18-S18",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Partly matches: it has a fixed schedule set at the start, a 'plan' marker, a 75% line and many paths. It misses the three aligned panels and the schedule band, and adds details not in the muted read (23 months, named buyers). Its 'run my own numbers for both paths' is general caution, and it says the animation gives no buy/rent push."
+ },
+ {
+  "file": "d95e5747",
+  "sample": "B02-S02",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Matches the muted read: the line starts at 90% and reaches 80% after about 8 years on the schedule. But it advises 'make sure you could afford the home and stay in it for 8 to 9 years' and 'plan for the slow case', which is a buy-conditional recommendation, not just general caution."
+ }
+]

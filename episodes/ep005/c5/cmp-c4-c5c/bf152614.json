@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it takes a buyer who starts with a small down payment to get their loan down to 80% of the home's value. The 80% line is the usual point where private mortgage insurance can come off. The sources are FHFA and Freddie Mac data via FRED. The early frames are labeled \"illustrative,\" and the later ones use real data. The animation compares the loan's fixed paydown schedule with what actually happened to past buyers.\n\n2. **What changes across the frames.**\n   - Frames 1–2: A single smooth line starts near 90% and falls toward the 80% line. It reaches 80% at about 8 years, which is the amortization schedule.\n   - Frame 3: The label changes to \"Loan ÷ home value on paper.\" Many faint lines start to appear at the left. Each line is one purchase month, from 1991 to 2016.\n   - Frames 4–5: The faint lines fan out into a large cloud. Some drop below the schedule line quickly. Others rise well above it, to roughly 90% or more, before they fall.\n   - Frame 6: Two cases are highlighted. The typical buyer reached 80% in about 2 years, faster than the schedule. The slowest case took about 9 years and rose a long way above 90% on the way. That buyer's home value fell, so their loan was a bigger share of it.\n\n3. **What it means.** The schedule is only a baseline. In practice, the loan-to-value ratio depends mostly on what home prices do. Rising prices got most past buyers to 80% much sooner than 8 years. Falling prices pushed some buyers up and kept them there longer. The spread shows the range of outcomes, and the schedule is only one point inside it.\n\n4. **Advice a viewer would take.** The frames give no buy, rent, or wait advice. The captions say \"Past buyers, measured · not a reason to buy, rent or wait\" and \"US only · history, not a forecast.\" A viewer should come away with a few cautions:\n   - Don't count on price gains to remove mortgage insurance quickly.\n   - Plan for the 8-year schedule or longer as the safer assumption.\n   - Know that a down payment around 10% can leave you exposed if prices fall.\n\n   For you, as a renter with about 10% saved, the takeaway is to budget for mortgage insurance lasting years, not months. Past results don't predict what happens next.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1373,
+   "out": 357
+  },
+  "claude-sonnet-5-5": {
+   "in": 9759,
+   "out": 859
+  }
+ },
+ "turns": 2
+}

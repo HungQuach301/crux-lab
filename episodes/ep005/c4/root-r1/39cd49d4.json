@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation shows how long past home buyers waited before their loan was down to 80% of the home's value \"on paper\". That is the usual point where mortgage insurance could come off. It has one bar for each month a home was bought, from about 1991 to 2016. The data come from FHFA house-price data and Freddie Mac rates, via FRED.\n\n**2. What changes across the frames.**\n- Frame 1 shows only the bars. They are low and fairly steady through the 1990s and early 2000s. They spike sharply for purchases around 2005 to 2008, then fall back to a low level after about 2010.\n- Frame 2 dims the bars and adds a line and label for the median, which is 23 months on paper.\n- Frame 3 adds a wavy line that slopes down over time. It also adds the headline \"90.6% no later than the schedule\".\n- Frames 4 and 5 rearrange the layout and label the line \"schedule at each month's rate\".\n- Frame 6 adds a bracket marked \"gap\" between the schedule line and the bars.\n\n**3. What it means.**\n- The schedule line appears to show how long it would take to reach 80% by making regular mortgage payments alone. It falls over time because mortgage rates fell, so more of each payment goes to principal.\n- For about 90.6% of purchase months, buyers reached 80% no later than that schedule. Rising home prices usually sped things up, which is the gap in frame 6. The typical wait was about 23 months.\n- The exception is the 2005 to 2008 group. Prices fell after they bought, so they waited much longer.\n- The image has no y-axis numbers, so I can't read exact month counts for the bars or the line. It also doesn't state the down payment, so I'm assuming it's roughly 10%.\n\n**4. Advice a viewer would take.** The footers say this is \"Past buyers, measured · not a reason to buy, rent or wait\" and \"history, not a forecast\". So it gives no instruction to buy or to wait. A viewer could reasonably take away four points:\n- With a small down payment, you have often reached 80% sooner than the payment schedule alone would suggest, because price growth helped.\n- That help is not guaranteed. If you buy near a market peak, you could wait years.\n- Gains \"on paper\" aren't cash, and the data cover the US only.\n- Plan so you could handle a long wait for 80% instead of counting on a short one.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 14
+  },
+  "claude-sonnet-5-5": {
+   "in": 9789,
+   "out": 1376
+  }
+ },
+ "turns": 2
+}

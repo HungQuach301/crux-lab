@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it took past US home buyers who put down about 10% to get their loan down to 80% of their home's value. That is the point where a buyer typically no longer has to pay mortgage insurance. It compares the scheduled paydown with what actually happened, using FHFA and Freddie Mac data from FRED.\n\n2. **What changes across the frames.**\n   - Frames 1–2 show an illustrative line. It starts at a 90% loan-to-value ratio and slopes down to 80% at about 8 years, which is the \"schedule.\" The label says this is a measurement, not a next step.\n   - Frame 3 swaps in real data. It plots one line per purchase month from 1991 to 2016, and the lines start to fan out from the 90% starting point.\n   - Frames 4–5 fill in the whole bundle of lines. Many drop to 80% quickly. Others rise first, because home values fell or the loan balance outpaced the home's value, and only come down much later.\n   - Frame 6 highlights two lines. The typical buyer reached 80% in about 2 years, much faster than the 8-year schedule. The slowest case took about 9 years, and its loan share climbed well above 90% before it came down.\n\n3. **What it means.** Paying down the loan on schedule is slow. In practice, home price changes mattered much more for how fast buyers built equity. In most cases rising prices got buyers to 80% far sooner than the schedule predicted. In a few cases falling prices left them underwater for years. The outcomes varied widely, and the 8-year schedule was neither typical nor a worst case.\n\n4. **What a viewer would take from it.** The video gives no buy, rent or wait advice. The frames say it is \"not a reason to buy, rent or wait,\" and that it covers the US only and is \"history, not a forecast.\" A viewer with a 10% down payment could take away three things:\n   - Expect to carry mortgage insurance for somewhere between about 2 and 9 years. The past range is wide, and the future could differ.\n   - Don't count on price gains to get you to 80% quickly.\n   - Plan for the slow case by keeping a cushion, and by not buying a home you might have to sell within a few years.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1373,
+   "out": 307
+  },
+  "claude-sonnet-5-5": {
+   "in": 9771,
+   "out": 805
+  }
+ },
+ "turns": 2
+}

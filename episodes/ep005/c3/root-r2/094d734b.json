@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows that the time it takes to build an 80% stake in a home (a 20% down payment, \"on paper\") is usually short but sometimes much longer. The distribution has a \"long tail.\" The chart uses US data from FHFA and Freddie Mac via FRED. It has one bar per month in which someone bought a home, covering roughly 1991 to 2016.\n\n2. **What changes across the frames.**\n   - Frames 1–2 show a 3D bar chart. A \"typical\" line runs along the low bars, and a tall gold block stands out as the long tail.\n   - Frame 3 flattens the chart to a 2D view. It adds a 60-month threshold line and the label \"more than 60 months: 14.7% (about 1 in 7).\" The gold bars are the purchase months that crossed that line, which cluster around 2005–2009.\n   - Frames 4–5 highlight that gold cluster as \"one stretch of purchase months.\"\n   - Frame 6 adds a blue line for the national home price index. It rises steadily and peaks around 2005–2007, which is the same period as the tall gold bars.\n\n3. **What it means.** For most past buyers, reaching 80% on paper took well under 60 months. About 1 in 7 buyers needed more than five years. Those buyers weren't spread evenly across time. They were concentrated in a single stretch, the mid-2000s. The blue price line suggests why: people who bought near the price peak waited the longest to build equity. The long tail is mostly a timing effect, not a random one.\n\n4. **Advice a viewer would take.** The video says outright that this is \"not a reason to buy, rent or wait,\" and that it is \"history, not a forecast.\" So it gives no instruction to buy or not. A first-time buyer in their late 20s or early 30s could still take a few things from it:\n   - When you buy matters a lot. Buying at a price peak can leave you waiting years to build equity.\n   - Don't assume a typical short timeline. Plan for the possibility that it takes more than five years, and only buy if you can stay in the home that long.\n   - The data covers only the US, and only people who actually bought.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9779,
+   "out": 775
+  }
+ },
+ "turns": 2
+}

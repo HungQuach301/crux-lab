@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation shows how much of a home's value was still owed as a loan two years after purchase, for buyers who bought in each month from January 1991 to July 2024. Each bar is one purchase month. Bar height is loan divided by the home's value on paper two years later. The sources are FHFA, Freddie Mac via FRED, and Fannie Mae's guideline B-8.1-04. Two horizontal lines mark 80% and 75%.\n\n**2. What changes across the frames.**\n- Frame 1 shows only the grey bars and the two threshold lines.\n- Frame 2 adds the first statistic: in 58.6% of the 403 purchase months, the loan was at or under 80% of value after 24 months.\n- Frame 3 adds a second statistic and highlights the matching bars in blue. In 15.6% of months, the loan was at or under 75%. The blue bars form two clusters, one in the early-to-mid 2000s and one around 2020–2022.\n- Frames 4 to 6 add a \"Fannie Mae's early bar\" label and keep the highlights. The blue patches get a little more emphasis, but the data doesn't change.\n\n**3. What it means.** Most buyers owed less than 80% of the home's value two years in, but only a small share owed 75% or less. Buyers who bought just before the mid-2000s price drop had the tallest bars, so they owed the most relative to value. Buyers who bought just before the 2020–2022 price run-up had the shortest bars. Putting 10% down starts you well above these thresholds. Whether you cross 80% or 75% within two years depends heavily on when you buy and what home prices do afterward, which you don't control.\n\nI'm not sure what \"Fannie Mae's early bar\" refers to. It probably means the loan-to-value level at which Fannie Mae's rules let a borrower get out of mortgage insurance early. The image doesn't say so, so treat that as a guess.\n\n**4. The advice a viewer would take.** The footer says it directly: this is past buyers, measured. It is not a reason to buy, rent, or wait, and it is US-only history, not a forecast. A viewer shouldn't treat it as a signal to time the market. As someone with about 10% saved, I'd take away three points:\n- Reaching 80% loan-to-value, where private mortgage insurance typically becomes removable, is common but not guaranteed within two years.\n- Reaching 75% is rare, so don't count on price gains to build equity quickly.\n- If I buy, I should plan for paying down the loan and for possibly carrying mortgage insurance for a while.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 13
+  },
+  "claude-sonnet-5-5": {
+   "in": 9778,
+   "out": 1344
+  }
+ },
+ "turns": 2
+}

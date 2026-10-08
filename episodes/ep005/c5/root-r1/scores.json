@@ -1,0 +1,146 @@
+[
+ {
+  "file": "0e25fc32",
+  "sample": "B02-S02",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Frames 1-2 match the muted read (starts ~90%, reaches 80% in ~8 years). The takeaway 'I should only buy if I can hold the home...' is a conditional buy recommendation."
+ },
+ {
+  "file": "2e03b0e2",
+  "sample": "B16-S16",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches Owen's panel: the index climbs, on-paper drops through 80% in ~13 months, the schedule barely moves. 'Don't build a plan that only works if prices rise' is general caution."
+ },
+ {
+  "file": "2f90cf61",
+  "sample": "B11-S11",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches: low bars, median 23 months, schedule ridge above, 90.6% no later than schedule. 'Budget for insurance longer than two years' is general caution."
+ },
+ {
+  "file": "3eb0ee98",
+  "sample": "B03-S03",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches: 80% on paper is one line, 75% and 2 years are stricter, and the request/appraisal/wait steps come before removal. Ask-the-lender and budget-for-appraisal points are general caution."
+ },
+ {
+  "file": "53e77df0",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": true,
+  "caution_only": false,
+  "why": "Matches: bars over 60 months are few and sit in one stretch of purchase months (14.7%, ~2005-09). 'The takeaway is to buy only if I could handle a long wait' is a conditional buy recommendation."
+ },
+ {
+  "file": "5827afd6",
+  "sample": "B18-S18",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Gets the fixed schedule, the on-paper lines, the 'a plan' marker, the 75% level and the named buyers. Misses the three aligned panels, the fan from fast to slow, and the marker sitting between the schedule band and the fan. Advice is general caution."
+ },
+ {
+  "file": "67f51a88",
+  "sample": "B14-S14",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches: the zoom lands on October 2005 at 112 months, above the 90-payment schedule mark. Plan-to-stay and cash-cushion points are general caution."
+ },
+ {
+  "file": "6fe380e2",
+  "sample": "B18-S18",
+  "role": "T",
+  "score": 0.5,
+  "advice": false,
+  "caution_only": true,
+  "why": "Partial: faint lines per buyer, Owen/Grace/Victor, the 'a plan' marker at ~2 years. Misreads the white line as the price path and misses the three panels and the marker position relative to the schedule band and the fan. Advice is general caution."
+ },
+ {
+  "file": "76daac46",
+  "sample": "B17-S17",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches Victor: the index falls for years, on-paper reaches 80% at 112 months, the schedule crossed at payment 90. Advice is general caution."
+ },
+ {
+  "file": "95583bae",
+  "sample": "B14-S14",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches: October 2005 at 112 months, taller than the 90-payment schedule mark. Advice is general caution."
+ },
+ {
+  "file": "a80efa03",
+  "sample": "B02-S02",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches: starts at 90%, slowly drifts down, reaches 80% at ~8 years. 'Plan for roughly 8 years' is general caution."
+ },
+ {
+  "file": "b37a415b",
+  "sample": "B03-S03",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches: 80% on paper is not removal, the request/appraisal/wait steps stand, and the 75% / 2-year bar is lower and stricter. Advice is to ask the lender, which is excluded caution."
+ },
+ {
+  "file": "be5dc608",
+  "sample": "B13-S13-N2",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches: bars over 60 months are few and sit together in one stretch of purchase months. Advice is general caution."
+ },
+ {
+  "file": "d3492498",
+  "sample": "B17-S17",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches Victor: the index dips and partly recovers, schedule at 90 payments, on-paper at 112 months. Advice is general caution."
+ },
+ {
+  "file": "e9ff46b4",
+  "sample": "B16-S16",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches Owen: the index climbs, on-paper hits 80% at ~13 months, the schedule at ~86 months. Advice is general caution."
+ },
+ {
+  "file": "fa84f12e",
+  "sample": "B11-S11",
+  "role": "T",
+  "score": 1,
+  "advice": false,
+  "caution_only": true,
+  "why": "Matches: bars mostly short, median 23 months, schedule line above, 90.6% no later than schedule. Advice is general caution."
+ }
+]

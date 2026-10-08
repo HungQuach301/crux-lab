@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation follows one past buyer, Victor, who bought in October 2005 with a 6.07% mortgage. It shows how the housing market after his purchase changed how long it took him to reach 80% of his home's value owed. The image doesn't define the 80% line, but it's probably the loan-to-value level where private mortgage insurance usually comes off. That would fit a buyer who started with about 10% down. The caption says this is \"history, not a forecast\" and \"not a reason to buy, rent or wait.\"\n\n2. **What changes:** The lines draw out left to right across a 0 to 10 year axis.\n   - The gray \"schedule\" line slopes steadily down toward 80%. This is the payoff path if prices never mattered.\n   - The white \"on paper\" line starts above 80%, then rises above the schedule as the blue price index falls. It peaks around year 5 or 6, then comes back down and meets 80% late.\n   - The blue \"price index\" line dips well below its starting level, bottoms out around years 6 to 7, then recovers only partway. Even at year 10 it is still 3.3% below Victor's purchase price.\n   - The labels fill in as it goes: the schedule hits 80% after 90 payments, while \"on paper\" gets there at 112 months.\n   - The last frame is just a house with a question mark.\n\n3. **What it means:** Paying the loan down on schedule wasn't enough for Victor. Home prices fell after he bought, so what he owed stayed high relative to what the home was worth. Reaching 80% took about 22 months longer than the schedule promised (112 months versus 90). A small down payment leaves little cushion, and a price drop can delay equity, and the things that depend on it, for years. Ten years later his home was still worth less than he paid.\n\n4. **Advice a viewer might take:** The video doesn't tell anyone to buy, rent or wait. A viewer would more likely take away a few cautions.\n   - Don't assume equity builds on the loan's schedule alone.\n   - Expect that a thin down payment could leave you stuck for longer if prices fall.\n   - Plan to stay put for a long time, and keep a cash buffer.\n   - Treat this as one historical example, since it's US-only and marked illustrative. The question mark house suggests the decision is still open and depends on your own situation.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1367,
+   "out": 253
+  },
+  "claude-sonnet-5-5": {
+   "in": 9749,
+   "out": 1153
+  }
+ },
+ "turns": 2
+}

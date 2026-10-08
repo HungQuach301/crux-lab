@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation shows when private mortgage insurance (PMI) can end under a federal law, 12 U.S.C. 4902. It plots a loan balance falling along its payment schedule. It marks two thresholds on that curve. At 80% of the home's original value, which is $320,000 in the example, the borrower may ask to drop it, and that happens at payment 99. At 78%, which is $312,000, it ends automatically, and that happens at payment 114, or about 9.5 years in.\n\n**2. What changes.**\n- Frames 1 to 4 follow the balance curve down. First the 80% point is marked, then the 78% point appears slightly further along. Frame 4 adds the labels \"payment 114 (9.5 years)\" and \"ends automatically.\"\n- Frames 5 and 6 zoom out to the full 360-payment (30-year) schedule. A home-value block sits beside the loan block, and the 99 and 114 markers show up early in the loan, before payment 120.\n- Frame 6 adds the caption \"based on the schedule only.\"\n- Every frame is tagged \"ILLUSTRATIVE,\" and the footer reads \"A measurement, not a next step.\"\n\n**3. What it means.** There are two dates, and they are only about 15 payments apart. The first is when you are allowed to ask. The second is when the lender must drop it without being asked. Both come early in a 30-year loan, not at the end. The numbers assume you simply follow the scheduled payments. The footer and the \"illustrative\" tag say the animation is showing a measurement, not telling you what to do.\n\n**4. What a viewer would take from it.**\n- With a down payment of around 10%, PMI is a temporary cost that should end in roughly 8 to 10 years if you only make the regular payments.\n- You don't have to wait for the automatic date. You can request removal at the 80% point, which could save about 15 months of premiums.\n- The animation doesn't give exact rules, such as payment history or other conditions. It also doesn't say whether extra payments or a rise in home value would change the timing. Before relying on those dates, I'd check them against my own loan terms and ask my lender.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1058,
+   "out": 12
+  },
+  "claude-sonnet-5-5": {
+   "in": 9777,
+   "out": 1159
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation shows how a 30-year fixed mortgage is paid off. The example is a $360,000 loan at 6.86%, which the frames label as the September 2026 average rate from Freddie Mac via FRED. The monthly payment is $2,362, covering principal and interest. The frames are marked \"illustrative,\" so they show a general pattern and not a prediction for any one loan.\n\n2. **What changes:** Frame 1 shows a house, a person, a calendar page and a tall stack of cash. Frame 2 shrinks the scene and labels the stack as the $360,000 loan. Frame 3 adds the $2,362 monthly payment and a timeline running from 0 to 360 payments. In frames 4 to 6, the calendar page flips as payments are made (payment 75, then 181, then 346). The stack of cash shrinks as this happens. A curve traces the loan balance. It falls slowly at first and then drops faster later. By payment 346 the stack is nearly gone.\n\n3. **What it means:** Early payments are mostly interest, so the balance barely falls for the first several years. Each payment is the same size, but the share going to principal grows over time. That is why the balance falls faster in the later years. By payment 75, about 6 years in, the stack has shrunk only a little.\n\n4. **Advice a viewer would take:**\n   - Don't expect to build equity quickly in the first years of a mortgage. Selling or refinancing early leaves you with little principal paid down.\n   - Budget for the full $2,362 a month, and stay in the home long enough for the principal paydown to speed up.\n   - Extra payments made early cut the principal sooner, so they save more interest than extra payments made late.\n   - The video doesn't state any of this advice, so these takeaways are my inference from the shape of the curve.\n\nI've assumed that a viewer like me, a renter with about 10% saved, would see this as a reminder that the monthly cost and slow early equity matter as much as the down payment.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1054,
+   "out": 19
+  },
+  "claude-sonnet-5-5": {
+   "in": 9765,
+   "out": 725
+  }
+ },
+ "turns": 2
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation is about how long it takes a buyer who puts down about 10% to get their loan down to 80% of the home's value. That point matters because it's roughly where private mortgage insurance (PMI) can come off. It compares the scheduled path with what actually happened to past US buyers.\n\n2. **What changes across the frames.**\n   - Frames 1–2 are labeled \"illustrative.\" A single line starts at 90% of the price and slides down to the 80% line. On the standard payment schedule that takes about 8 years.\n   - Frame 3 switches to real data (FHA/FHFA and Freddie Mac, via FRED). It draws one line for each purchase month from 1991 to 2016.\n   - Frames 4–5 fill in a large tangle of lines. Many drop to 80% much sooner than the schedule. Others rise above 90% first and take much longer to come down.\n   - Frame 6 highlights two cases. The typical buyer got to 80% in about 2 years. The slowest case took about 9 years, which is longer than the schedule.\n\n3. **What it means.** Loan-to-value depends on more than paying down the principal. It also depends on what home prices do. If prices rose, the loan fell as a share of the home's value much faster than the schedule predicts. If prices fell, the loan stayed high or even grew as a share of value, and the buyer stayed above 80% for years. The 8-year schedule is therefore a middle-of-the-road benchmark. Real outcomes ranged from about 2 years to about 9 years, depending on when someone bought.\n\n4. **What a viewer would take from it.** Not much about whether to act. The animation says outright that it is \"not a reason to buy, rent or wait,\" that it covers the US only, and that it is \"history, not a forecast.\" The practical points are about expectations. Don't assume PMI will end on the scheduled date, since it could be much sooner or later. Budget for the possibility that PMI lasts longer if prices stall or fall. As a buyer with 10% down, I'd read it as a reminder that my timeline depends partly on the market, not just on my payments.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1059,
+   "out": 12
+  },
+  "claude-sonnet-5-5": {
+   "in": 9788,
+   "out": 769
+  }
+ },
+ "turns": 2
+}

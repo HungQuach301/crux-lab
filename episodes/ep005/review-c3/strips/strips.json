@@ -1,0 +1,90 @@
+{
+ "video": "c3-clip.mp4",
+ "video_sha256": "9ea6b5667e6e21d0f90f5a1e4038dbff3fd509b24aca504c3c35501e3fc6b1e5",
+ "font": "inter-latin-700-normal.woff2",
+ "layout": "3x2, 624x351, gap 12, label 50",
+ "strips": {
+  "N1-calendar": {
+   "span": [
+    39.667,
+    50.267
+   ],
+   "times": [
+    40.55,
+    42.317,
+    44.084,
+    45.85,
+    47.617,
+    49.384
+   ],
+   "sha256": "a44ad26adc2825b9c19da097678ea3bddd7d94044cbbd5da7d8b15c6a6528aa0"
+  },
+  "N3-fold": {
+   "span": [
+    58.833,
+    65.433
+   ],
+   "times": [
+    59.383,
+    60.483,
+    61.583,
+    62.683,
+    63.783,
+    64.883
+   ],
+   "sha256": "f05294e528c7f93c2e1575cf88d9c8f0c2310e0161392151455316826e58eb9d",
+   "note": "frames unchanged from r1 (N3 segment copied frame-for-frame; clip re-encoded in r2 and r3) — PNG kept from r1"
+  },
+  "N2-bars": {
+   "span": [
+    69.551,
+    82.151
+   ],
+   "times": [
+    70.601,
+    72.701,
+    74.801,
+    76.901,
+    79.001,
+    81.101
+   ],
+   "sha256": "bccd338d5beeb8717042cca2c56c811954ebc2c88afb26a774e5c6cd5ad73ed5"
+  }
+ },
+ "r2": {
+  "date": "2026-10-07",
+  "changed": [
+   "N1-calendar",
+   "N2-bars"
+  ],
+  "r1_copies": [
+   "N1-calendar.r1.png",
+   "N2-bars.r1.png"
+  ],
+  "r1_video_sha256": "dd70121b6c8211cd68eca9bd71cbd8f6f7e5726474e5ceb909c51492b3a915da"
+ },
+ "r3": {
+  "date": "2026-10-07",
+  "changed": [
+   "N1-calendar",
+   "N2-bars"
+  ],
+  "r2_copies": [
+   "N1-calendar.r2.png",
+   "N2-bars.r2.png"
+  ],
+  "r2_video_sha256": "07b6f434b4e0a23546c661999f3cc2ed5eecb11e01ed0e0b2e9b43a000fd6ca7",
+  "note": "C3 round 3 (world/c3/FIX-R3.md); same span and frame times as r1/r2"
+ },
+ "r3-cw": {
+  "date": "2026-10-07",
+  "changed": [
+   "N1-calendar"
+  ],
+  "r3_copies": [
+   "N1-calendar.r3.png"
+  ],
+  "r3_video_sha256": "377b1bfe4ecad491d3fa039c0d183a7c0eba9af26d1ef2dbaad578a1404624e1",
+  "note": "after C3 (gates/C3-answer.md): N1 counterweight line 'A measurement, not a next step' in chart mode; not a fix round; same span and frame times; N2/N3 PNGs unchanged"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long it takes a home buyer's loan to fall to 80% of the home's value. That is the usual point where you can drop private mortgage insurance and have a real equity cushion. It starts with one illustrative line, then adds real historical data from FHFA and Freddie Mac (via FRED). Each line is one purchase month from 1991 to 2016.\n\n2. **What changes across the frames.**\n   - Frames 1–2: a single \"on the schedule\" line starts at about 90% loan-to-value and slopes down. It reaches 80% at about 8 years.\n   - Frames 3–5: lines for hundreds of purchase months pile up, building a mountain-shaped bundle. Many lines rise above 90% before they come down, and some take much longer than the schedule says.\n   - Frame 6: two lines are highlighted. The typical buyer got to 80% in about 2 years, much faster than the 8-year schedule. The slowest case, shown in blue, took about 9 years. Its line climbed first and then fell.\n\n3. **What it means.** The loan balance alone doesn't decide how fast you build equity. Home prices matter too. When prices rose, buyers hit 80% quickly, in about 2 years for the typical buyer. When prices fell, the loan's share of the home's value went up, and buyers took longer than the schedule's 8 years. The range is wide, from about 2 to 9 years.\n\n4. **What a viewer would take from it.** The animation says outright that it gives no advice: \"Past buyers, measured · not a reason to buy, rent or wait,\" and \"US only · history, not a forecast.\" The practical takeaways are modest.\n   - With about 10% down, expect to reach 80% loan-to-value in years rather than months. Plan for the slow case of roughly 9 years, not the fast one.\n   - Don't count on price gains to build equity. They helped past buyers, but they aren't guaranteed.\n   - Buy only if you expect to stay long enough, and have enough cash reserve, to get through a slow stretch.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1057,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9781,
+   "out": 751
+  }
+ },
+ "turns": 2
+}

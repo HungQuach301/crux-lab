@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows how long past US home buyers took to get to 80% loan-to-value. That means owning 20% of the home on paper, through price gains and loan paydown. There is one bar per purchase month, from 1991 to about 2016. The source is FHFA and Freddie Mac data via FRED.\n\n2. **What changes across the frames.**\n   - Frame 1 shows only the bars. They run low and steady at roughly 20 months or more through the 1990s and early 2000s. They jump sharply for people who bought around 2005–2007, then fall back down after 2010.\n   - Frame 2 adds a median line, \"23 months on paper,\" and dims the bars so the line stands out.\n   - Frame 3 adds a label saying 90.6% of buyers reached 80% no later than the standard amortization schedule would have. A jagged line also appears, sloping downward over time.\n   - Frames 4 and 5 relabel that line as \"schedule at each month's rate.\" It is the time it would take on the normal loan payoff schedule at that month's mortgage rate, and it falls as rates fall.\n   - Frame 6 marks the distance between that schedule line and the bars as the \"gap.\"\n\n3. **What it means.**\n   - For most buyers, reaching 80% took less time than the schedule alone predicted. Price appreciation sped it up, and that is the gap.\n   - The typical wait was about two years.\n   - Buyers from the mid-2000s peak took much longer. Prices fell after they bought, so they were stuck far longer before reaching 80%.\n   - The outcome depended heavily on when someone bought.\n\n4. **What advice a viewer would take.** The footer says outright: \"Past buyers, measured · not a reason to buy, rent or wait,\" and \"US only · history, not a forecast.\" So the animation gives no buy-or-rent advice. A viewer could reasonably conclude two things:\n   - Reaching 20% equity often takes about two years, and usually less than the loan schedule alone implies.\n   - Timing risk is real, because buyers near a market peak waited much longer.\n\n   For someone with about 10% saved, that means 20% equity, which is the point where private mortgage insurance can typically be dropped, is plausible within a few years. It isn't guaranteed, and past results don't predict future prices.",
+ "tokens": {
+  "claude-haiku-4-5-20251001": {
+   "in": 1056,
+   "out": 16
+  },
+  "claude-sonnet-5-5": {
+   "in": 9771,
+   "out": 830
+  }
+ },
+ "turns": 2
+}

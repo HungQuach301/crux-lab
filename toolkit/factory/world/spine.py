@@ -65,6 +65,19 @@ def window(after, before, dur, pad=0.25, late=False, start=None, eps=0.0):
 
 
 VERBS = ('push', 'pull', 'pan', 'mode')
+# F-1 (BACKLOG): kiểu chuyển chế độ, cờ opt-in trên động tác 'mode': không khai = 'dissolve' (hành vi cũ, điểm ảnh không đổi);
+# 'fly' = máy quay đi thật (core.js flyPose: đường cong qua tư thế 'via', dolly-zoom tới tiêu cự dài, chartW chỉ dâng khi đã chính diện).
+# Cửa sổ, âm, cảnh render KHÔNG phụ thuộc kiểu → quy tắc 2/3 giữ nguyên.
+MODE_STYLES = ('dissolve', 'fly')
+
+
+def with_style(move, style=None, via=None):
+    """Gắn kiểu chuyển chế độ vào một động tác (không đổi t0/t1/âm). style None/'dissolve' → trả nguyên động tác (spine.json không đổi)."""
+    if style in (None, 'dissolve'):
+        return move
+    if style not in MODE_STYLES or move['verb'] != 'mode':
+        raise SystemExit(f'F-1: kiểu {style!r} chỉ cho động tác mode, một trong {MODE_STYLES}')
+    return {**move, 'style': style, **({'via': via} if via else {})}
 
 
 def move_sounds(moves, gain=lambda m: 1.0):
@@ -90,6 +103,8 @@ def check_rules(beats, moves, pad, rule3=True):
             if m['t0'] - pad < t < m['t1'] + pad: errs.append(f'quy tắc 2: từ khoá {name} @{t} trong cửa sổ máy quay {m["verb"]} {m["t0"]}–{m["t1"]}')
         if rule3 and (not m.get('reason') or not m.get('sound') or m['verb'] not in VERBS):
             errs.append(f'quy tắc 3: động tác {m} thiếu lý do/âm hoặc động từ ngoài {VERBS}')
+        if m.get('style', 'dissolve') not in MODE_STYLES or (m.get('style') == 'fly' and m['verb'] != 'mode'):
+            errs.append(f'F-1: kiểu chuyển {m.get("style")!r} không hợp lệ cho {m["verb"]} (chỉ mode, {MODE_STYLES})')
     if beats[0]['mode'] != 'world' or any(m['verb'] == 'mode' and m['t0'] < 5.0 for m in moves):
         errs.append('quy tắc 7: 5 s đầu phải ở chế độ thế giới')
     return errs

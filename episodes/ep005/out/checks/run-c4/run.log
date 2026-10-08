@@ -1,0 +1,98 @@
+no out/page.json: page rules will be MISSING
+F01  FAIL       0.1s  size=960x540
+F02  PASS       0.6s  
+F03  PASS       0.0s  
+F04  PASS       0.0s  
+F05  PASS       7.0s  
+F06  PASS       0.4s  
+F07  FAIL       0.0s  duration s=462.633333
+F08  FAIL       8.2s  worst banding (%)=69.823785
+F09  PASS       0.0s  
+F10  PASS       0.0s  
+F11  FAIL       0.0s  declared artefacts not delivered=7
+F12  MISSING    0.0s    artifact missing: out/checks/page.json
+A01  PASS       5.8s  
+A02  PASS       0.0s  
+A03  FAIL       0.0s  LRA LU=3.5
+A04  PASS       4.0s  
+A05  PASS       0.3s  
+A06  PASS      10.3s  
+A07  PASS       3.1s  
+A08  PASS       2.8s  
+A09  FAIL       8.6s  silences 0.8-1.5 s=0
+A10  MISSING    0.0s    artifact missing: out/camera.json
+A11  FAIL       0.8s  Pearson pan~x=None
+A12  FAIL      17.5s  accents=0; accents on a cut (%)=None; accents confirmed by onset (%)=None
+A13  FAIL      22.0s  max |stretch-1|=79.95167
+A14  PASS     249.8s  
+A15  FAIL       0.0s  wpm act cold-open=168.31292; wpm act act1=181.073975; wpm act act2=167.014258; wpm act act3=173.076923; wpm act method=203.007519; wpm act outro=194.376528; sentences > 175 wpm=42
+A16  FAIL       0.0s  fake break marks=8; sentences with a fake break=8
+A17  FAIL       3.6s  abnormal sentences share=0.285714; abnormal gaps share=0.42
+A18  PASS       0.0s  
+S01  PASS       0.0s  
+S02  MISSING    0.0s    artifact missing: out/checks/page.json
+S03  PASS       0.0s  
+S04  PASS       0.0s  
+S05  PASS       0.0s  
+S06  MISSING    0.0s    artifact missing: out/checks/page.json
+S07  MISSING    0.0s    artifact missing: out/checks/page.json
+S08  MISSING    0.0s    artifact missing: out/checks/page.json
+S09  MISSING    0.0s    artifact missing: out/checks/page.json
+S10  PASS       0.0s  
+S11  MISSING    0.0s    artifact missing: out/checks/page.json
+S12  MISSING    0.0s    artifact missing: out/checks/page.json
+S13  PASS       0.0s  
+S14  PASS       6.8s  
+S15  FAIL       0.0s  outro s=19.9333
+S16  FAIL       0.0s  share tied to a character or scenario=0.25
+S17  MISSING    0.0s    artifact missing: out/checks/page.json
+S18  PASS       0.0s  
+SH01 MISSING    0.0s    artifact missing: contract.json: shorts = [{file}]
+SH02 MISSING    0.0s    artifact missing: contract.json: shorts = [{file}]
+SH03 MISSING    0.0s    artifact missing: contract.json: shorts = [{file}]
+SH04 MISSING    0.0s    artifact missing: contract.json: shorts = [{file}]
+SH05 MISSING    0.0s    artifact missing: contract.json: shorts = [{file}]
+R01  MISSING    2.4s    artifact missing: out/audio/stems/whoosh.wav|flac
+R02  PASS       0.0s  
+R03  FAIL       0.7s  shortest pause s=0.0; pauses < 1.0 s=3
+R04  FAIL       0.0s  cuts on beat/action (%)=33.333333
+R05  FAIL       0.0s  shots > 12 s=17; act-2 scenes before climax=0
+R06  FAIL       5.1s  cuts visible in picture (%)=0.0
+V01  FAIL       0.0s  scenes without a shot=2; storyboard present=False; colour script present=False
+V02  MISSING    0.0s    artifact missing: out/checks/page.json
+V03  MISSING    0.0s    artifact missing: out/checks/page.json
+V04  MISSING    0.0s    artifact missing: contract.json: characters.owen.color
+V05  MISSING    0.0s    artifact missing: out/camera.json
+V08  MISSING    0.0s    artifact missing: out/checks/page.json
+V09  MISSING    0.0s    artifact missing: contract.json: characters.owen.color
+V10  FAIL       5.0s  verified match cuts=2; verified J/L cuts=0
+V11  MISSING    0.0s    artifact missing: out/checks/page.json
+V12  MISSING    0.0s    artifact missing: out/checks/page.json
+V13  PASS       0.0s  
+C01  MISSING    0.0s    artifact missing: out/checks/page.json
+C02  MISSING    0.0s    artifact missing: out/checks/page.json
+C03  MISSING    0.0s    artifact missing: out/checks/page.json
+C04  MISSING    0.0s    artifact missing: out/checks/page.json
+C05  MISSING    0.0s    artifact missing: out/checks/page.json
+C06  MISSING    0.0s    artifact missing: out/checks/page.json
+C07  MISSING    0.0s    artifact missing: out/checks/page.json
+C10  MISSING    0.0s    artifact missing: out/checks/page.json
+C11  FAIL       0.0s  layout repeats >2 in 90 s=19
+C12  MISSING    0.0s    artifact missing: out/checks/page.json
+C13  MISSING    0.0s    artifact missing: out/checks/page.json
+C14  MISSING    0.0s    artifact missing: out/checks/page.json
+C15  MISSING    0.0s    artifact missing: out/checks/page.json
+P01  MISSING    0.0s    artifact missing: out/package/thumb-1.png
+T1   MISSING    0.0s    artifact missing: contract.json: sonification.bandsHz
+T2   FAIL       3.8s  repeated phrases (%)=12.962963; longest run of repeated phrases=2
+T3   MISSING    8.0s    artifact missing: out/audio/stems/whoosh.wav|flac
+L1   MISSING   18.1s    artifact missing: out/audio/stems/whoosh.wav|flac
+REG  PASS       first version: nothing to compare
+near F07 (CHÍNH) duration s = 462.633333 (threshold in [480.0, 900.0])
+near A15 (THAM KHẢO) wpm act act2 = 167.014258 (threshold in [150.0, 160.0])
+near A18 (CHÍNH) distinct voices (provider, voiceId, model) = 1 (threshold <= 1)
+near S04 (CHẶN) mortgage30 tolerance = 0.5 (threshold <= 0.5)
+near S04 (CHẶN) hpi_mom tolerance = 0.5 (threshold <= 0.5)
+near S15 (THAM KHẢO) ident s = 3.0 (threshold <= 3.0)
+near S15 (THAM KHẢO) outro s = 19.9333 (threshold >= 20.0)
+{"PASS": 27, "FAIL": 22, "MISSING": 40, "ERROR": 0} episode: TRƯỢT

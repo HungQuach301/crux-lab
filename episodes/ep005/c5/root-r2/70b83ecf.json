@@ -1,0 +1,14 @@
+{
+ "answer": "**1. The idea.** The animation shows how long past US buyers with small down payments took to get their loan down to 80% of the home's value. That is the point where mortgage insurance can usually be dropped. It compares the schedule on paper with what actually happened to home prices after purchase. The text says it uses FHFA and Freddie Mac data via FRED, and it labels the visuals \"illustrative.\"\n\n**2. What changes across the frames.**\n- **Frame 1:** Three past buyers, Owen (fast), Grace and Victor (slow), each have a line showing their loan relative to home value. All three follow the same rule, and each is measured from the day of purchase. The paper schedule is a straight line sloping down. Owen and Grace's real paths track it fairly closely. Victor's path wanders up and down and takes much longer to reach the 80% line.\n- **Frames 2 and 3:** The three paths are overlaid on one timeline from 0 to 10 years, with a \"plan\" marker near the start. Many faint lines show the spread of outcomes. Frame 3 adds that the schedule is fixed at the start.\n- **Frame 4:** It adds numbers. On paper the typical time is 23 months, but about 1 in 7 buyers took more than 60 months. About 2 years matches the typical month, \"not the slow ones, not the lender's step.\"\n- **Frame 5:** A $400,000 home appears next to a stack of green bars. The bars seem to show the owner's stake in the home, with only a small teal slice at the bottom. A note says all dollars are in dollars of the day, and that this is \"a measurement, not a next step.\"\n- **Frame 6:** The scene splits in two. One side is \"buying now + mortgage insurance\" (a house). The other is \"still renting, still saving\" (an apartment building). The person stands between them.\n\n**3. What it means.** Getting rid of mortgage insurance isn't guaranteed to take the time the paper schedule says. The typical buyer got there in about 2 years, but a meaningful minority (roughly 1 in 7) waited more than 5 years, because home prices moved against them. The repeated disclaimers (\"not a reason to buy, rent or wait,\" \"history, not a forecast,\" \"US only\") say this is a description of the past, not a prediction.\n\n**4. What a viewer would take from it.** The video doesn't tell me to buy, rent or wait. If I'm putting down about 10%, I shouldn't assume the insurance will disappear on the lender's timeline. I should be ready for it to last anywhere from about 2 to 5+ years. Frame 6 suggests the real decision is between two paths: buy now and pay insurance for an uncertain stretch, or keep renting and saving. Either can be reasonable, and the animation doesn't pick one. The takeaway for me is to budget for the slow case and not just the typical one.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1369,
+   "out": 278
+  },
+  "claude-sonnet-5-5": {
+   "in": 9759,
+   "out": 1350
+  }
+ },
+ "turns": 2
+}

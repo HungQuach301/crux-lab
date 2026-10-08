@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea:** The animation looks at how long past US home buyers with a small down payment took to get their loan down to 80% of the home's value. That's the point where mortgage insurance can usually come off. It lines up many past buyers by their purchase date and uses one rule and one price index (FHFA/Freddie Mac data via FRED). Three example buyers, Grace, Owen and Victor, show different paths. The labels say the figures are illustrative, US-only and \"history, not a forecast.\"\n\n2. **What changes across the frames:**\n   - Frame 1 shows a single price-history line against flat and sloping lines at 80% and 75%.\n   - Frames 2 and 3 add a dense bundle of lines for many past buyers. A vertical marker labeled \"a plan\" appears, and the schedule is \"fixed at the start.\"\n   - Frame 4 adds numbers. On paper, the typical buyer took about 23 months, and about 1 in 7 took over 60 months. It also notes that about 2 years matched the typical month, not the slow cases and not the lender's step.\n   - Frame 5 switches to a $400,000 home next to a tall stack of segments, mostly filled in at the bottom. I can't tell exactly what the stack measures, but it seems to be the down payment or equity share. The caption reads \"A measurement, not a next step.\"\n   - Frame 6 shows a house, a person and an apartment building. The labels are \"buy now + mortgage insurance\" and \"keep renting, keep saving.\"\n\n3. **What it means:** The schedule on paper, which is how long it should take to reach 80%, can differ from what actually happened to past buyers, because home prices moved. Most buyers got there in roughly two years, but a minority waited much longer. The animation is measuring that spread. It is not predicting what will happen to me.\n\n4. **Advice a viewer would take:** There's no direct advice, and the video says so: \"not a reason to buy, rent or wait.\" Frame 6 sets out the two choices without picking one. As a renter with about 10% saved, I'd take away three things:\n   - Buying with under 20% down means paying mortgage insurance for a while.\n   - It would probably last about two years, but it could last much longer.\n   - I should plan for the slower case instead of assuming the typical one.\n\n   I'd still have to decide for myself, using my own budget and how long I plan to stay.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "in": 1374,
+   "out": 20
+  },
+  "claude-sonnet-5-5": {
+   "in": 9770,
+   "out": 1197
+  }
+ },
+ "turns": 2
+}
