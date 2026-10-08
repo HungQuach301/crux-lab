@@ -3,7 +3,7 @@
 **Nhánh:** `ep006` · **Đề tài:** #12 · **Format:** `101` · **Phiên hiện hành:** P2 (`session_01VWvKx3ATmgiMnpR3FiPq12`) — đóng ở C3 · lịch sử: `archive/PLAN-history.md`
 
 ## 1. Trạng thái
-**C3 chờ** (gói `gates/C3.md`, issue: xem §7). G1 áp (b): C2 v3 1.287 từ nói, ước 8:30, check ĐẠT không cờ; mid-roll đủ điều kiện theo ước (chốt thật ở P3). Kiểm mù lời v3: đúng 6/6, **khuyên 5/6 chấm gốc / 1/6 chấm trộn (v2 cũng 1/6)** → chủ dự án quyết. N1 hàng 10 thùng: S07/S24/S27 ĐẠT (vòng 2), **S29 trượt sau 3 vòng** (khuyên 1/2, giữ v2). Nhạc hiệu A/B + khúc đóng. 0 CHẶN mở; REVIEWER gói: `gates/REVIEW-C3.md`.
+**C3 chờ** (gói `gates/C3.md`, issue [#49](https://github.com/HungQuach301/crux-lab/issues/49)). G1 áp (b): C2 v3 1.287 từ nói, ước 8:30, check ĐẠT không cờ; mid-roll đủ điều kiện theo ước (chốt thật ở P3). Kiểm mù lời v3: đúng 6/6, **khuyên 5/6 chấm gốc / 1/6 chấm trộn (v2 cũng 1/6)** → chủ dự án quyết. N1 hàng 10 thùng: S07/S24/S27 ĐẠT (vòng 2), **S29 trượt sau 3 vòng** (khuyên 1/2, giữ v2). Nhạc hiệu A/B + khúc đóng. 0 CHẶN mở; REVIEWER gói: `gates/REVIEW-C3.md`.
 
 ## 2. Việc tiếp (≤ 3) và việc treo
 1. Chép câu trả lời C3 → `gates/C3-answer.md`; ghi sổ gu, AUTHORSHIP, ledger; áp (S29, nhạc, kiểm mù/S04.2, EL).
@@ -36,8 +36,8 @@ Log phiên (`list_events` kinds=result, `modelUsage` tích luỹ gồm agent con
 
 ## 7. Prompt phiên kế (D-011) — chủ dự án dán nguyên khối vào phiên mới
 ```
-Chạy Tập 6, phiên P3. Nhánh ep006 (@ <SHA> hoặc mới hơn). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md.
-Gói đã gửi: episodes/ep006/gates/C3.md (issue #<N>). Việc đầu tiên: chép câu trả lời dưới đây vào episodes/ep006/gates/C3-answer.md, commit, push; ghi taste-ledger.md, AUTHORSHIP.md, ledger.
+Chạy Tập 6, phiên P3. Nhánh ep006 (@ 856bbd5 hoặc mới hơn). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md.
+Gói đã gửi: episodes/ep006/gates/C3.md (issue #49). Việc đầu tiên: chép câu trả lời dưới đây vào episodes/ep006/gates/C3-answer.md, commit, push; ghi taste-ledger.md, AUTHORSHIP.md, ledger.
 KHÔNG mở C4 khi main chưa có khoá K mới gồm kind Tập 6 (KINDS trong checks/py/r_model.py; K4.0.1 LOCK 79aeec0d chưa có). Có khoá → merge main vào ep006, chạy S01/S05, viết contract.json rồi mới C4. Chưa có → chỉ làm việc không phụ thuộc K (áp C3, giọng cả tập nếu EL được duyệt, đo độ dài thật ≥ 8:10, nhà máy F-12 trên factory-*), rồi dừng và báo.
 Chặng này: áp C3 → giọng cả tập → độ dài thật trên timeline ≥ 8:10 → C4 → C5 (≥ 8:00, mid-roll hợp lệ) → Shorts → G2 (đóng phiên theo playbook/prompts/RUN.md "Đóng phiên").
 Câu trả lời C3:

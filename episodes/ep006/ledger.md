@@ -31,3 +31,4 @@ Mỗi dòng: một agent con hoặc một lô headless. Loại việc (`episode.
 | 2026-10-08 | C3 | điều phối | phiên chính (lệnh) | `sync_audit.py` ×4, ghép clip C3 | — | s07 4/4 · s24 5/7 · s27 7/8 · s29 4/7; clip 106,9 s |
 | 2026-10-08 | C3 | khác (đạo diễn, chẩn đoán) | agent general-purpose | lượt đạo diễn 540p 4 đoạn (`gates/C3-director.md`) | 122.969 | S07 3·4·3·4 · S24 4·4·2·3 · S27 3·3·2·3 · S29 4·4·3·3; 1 lượt → hàng chờ C4 |
 | 2026-10-08 | C3 | khác (REVIEWER) | agent general-purpose | soát gói C3 (`gates/REVIEW-C3.md`) | 182.180 | ĐẠT có sửa: 0 CHẶN · 4 CHÍNH (số kịch bản sau S27.5, EL 7.699, phụ thuộc câu 3, ±5 %) · 7 PHỤ → đã áp |
+| 2026-10-08 | C3 | điều phối | phiên chính | gói C3 → issue #49; PLAN ≤ 1 trang + prompt P3; đóng P2 | — | dừng chờ chủ dự án |
