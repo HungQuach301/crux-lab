@@ -262,8 +262,7 @@ def factory_release(ctx):
     if 'world' in st:
         for seg in ctx.json('out/factory/splice.json')['segments'] if ctx.has('out/factory/splice.json') else []:
             v = seg['video']
-            rel = v if not v.startswith(('episodes/', '/')) else None
-            req += [x for x in ([v, v + '.build.json', v + '.verify.json', v[:-4] + '.log.json'] if rel is None else [rel, rel + '.build.json', rel + '.verify.json', rel[:-4] + '.log.json'])]
+            req += [v, v + '.build.json', v + '.verify.json', v[:-4] + '.log.json']
     seen = []
     for r in req:
         if r not in seen:
@@ -280,13 +279,20 @@ def factory_built(ctx):
 
 
 def _repo_path(ctx, rel):
-    """A factory path is relative to the episode root, or to the repository (episodes/<ep>/work/…): try the root, then its parents."""
+    """A factory path: relative to the episode root, or (only when it starts with episodes/) to the repository that holds the episode — the parent
+    folder that contains episodes/<this root's name>. Absolute paths are refused (they would match anywhere)."""
     import glob
     import os
-    d = ctx.root
+    if os.path.isabs(rel):
+        return False
+    if glob.glob(os.path.join(ctx.root, rel)):
+        return True
+    if not rel.startswith('episodes/'):
+        return False
+    d = os.path.dirname(ctx.root)
     while True:
-        if glob.glob(os.path.join(d, rel)):
-            return True
+        if os.path.isdir(os.path.join(d, 'episodes')) and os.path.basename(ctx.root) in os.listdir(os.path.join(d, 'episodes')):
+            return bool(glob.glob(os.path.join(d, rel)))
         up = os.path.dirname(d)
         if up == d:
             return False
@@ -314,7 +320,7 @@ def f11_artefacts(ctx):
     absent = [p for p in decl if not glob.glob(ctx.path(p))]
     undeclared = [r for r in RELEASE_FILES if not any(fnmatch.fnmatch(r, d) or fnmatch.fnmatch(d, r) for d in decl)]
     return verdict('F11', [metric('declared M3 artefacts', len(decl), '>=', 1), metric('declared artefacts not delivered', len(absent), '<=', 0),
-                           metric('release files not declared', len(undeclared), '<=', 0)], details=[{'notDelivered': absent[:30], 'notDeclared': undeclared}])
+                           metric('release files not declared', len(undeclared), '<=', 0)], details=[{'source': 'K2', 'notDelivered': absent[:30], 'notDeclared': undeclared}])
 
 
 STEMS = ['voice', 'music', 'sfx', 'whoosh', 'room', 'sonify']

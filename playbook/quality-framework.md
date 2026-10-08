@@ -113,7 +113,7 @@ Phiên **chỉ** tự quyết những việc sau, mỗi việc ghi một dòng l
 6. Chất lượng trước (D-009): không bước chất lượng nào bị cắt vì token; lỗi CHÍNH đã sửa hoặc có ngoại lệ kèm số đo; token và giờ render là số thực.
 7. Hình–âm (D-010): đoạn thế giới có bằng chứng quy tắc 1/2/3/7 (`verify_seg`), đồng bộ ±0,2 s, C14 trên bản 1080p; nhận định của lượt đạo diễn ghi là chẩn đoán, không dùng làm ngưỡng.
 8. Kịch bản (C2, G1; `story.md` §2b, từ Tập 6): (a) có một nhân vật dẫn đường xuất hiện trước 0:45, đi qua phần phương pháp, câu kết là câu của người đó; (b) M6 — lời hứa nhân vật trả ≤ 90 s; (c) không nêu số tiền thì cái được–mất là vật cụ thể có claim; (d) câu ở đỉnh cảm xúc ≤ 15 từ, một ý một câu (đếm, nêu số từ); (e) kết quay về câu hỏi của nhân vật, không khái quát. Trượt dòng nào → nêu dòng đó, WRITER mới sửa.
-9. Cổng gốc (checks-appeal A15, lô K4.0): `gates/Cx-root.md` / `Cx-blind.md` ghi **mỗi vòng sửa** một dòng `fix: picture` hoặc `fix: label` kèm lý do; vòng `label` phải nêu vòng `picture` đã thử trước (E6) và vì sao chưa đủ. Thiếu trường, hoặc `label` không có lý do "đã thử hình" → REVIEWER trượt dòng này.
+9. Cổng gốc (checks-appeal A15, nhóm 3 của phiên K 08/10, chờ merge cùng K4.1): `gates/Cx-root.md` / `Cx-blind.md` ghi **mỗi vòng sửa** một dòng `fix: picture` hoặc `fix: label` kèm lý do; vòng `label` phải nêu vòng `picture` đã thử trước (E6) và vì sao chưa đủ. Thiếu trường, hoặc `label` không có lý do "đã thử hình" → REVIEWER trượt dòng này.
 
 Kết quả soát (đạt / các dòng trượt) in kèm gói. REVIEWER thay cho việc chủ dự án chuyển gói sang chat chiến lược.
 

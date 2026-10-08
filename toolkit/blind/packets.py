@@ -178,6 +178,8 @@ def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None):
         if v['score'] not in (0, 0.5, 1):
             sys.exit(f'{lab}: điểm không hợp lệ {v["score"]}')
         stated = bool(v['advice_stated']) if 'advice_stated' in v else bool(v.get('advice'))   # bản chấm cũ: advice = stated
+        if ('advice_stated' in v) and (v.get('advice_stated') or v.get('advice_inferred')) and not str(v.get('quote') or '').strip():
+            sys.exit(f'{lab}: có cờ khuyên nhưng không trích câu người đọc (quote) — chấm lại')
         d = per.setdefault((it['set'], it['id']), {'kind': it.get('kind', 'image'), 'r': [], 'inferred': 0})
         d['r'].append((it['slot'], v['score'], stated, v.get('why', '')))
         d['inferred'] += bool(v.get('advice_inferred')) and not stated

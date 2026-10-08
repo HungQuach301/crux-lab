@@ -2472,8 +2472,6 @@ def s21_round_case(bad):
 
 
 EXTRA.update({'F11/factory-artefacts': f11_factory_case('artefacts'), 'F11/factory-world': f11_factory_case('world'), 'F11/excerpt': f11_excerpt_case})
-    finally:
-        f.close()
 
 
 def v14_segment_case(bad):
