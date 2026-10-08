@@ -13,10 +13,10 @@
 | master đối trọng "A measurement, not a next step" | TRƯỢT | 0 | ≥ 30 khung (1 s) |  |
 | master đối trọng "It won't say whether to buy or wait" | TRƯỢT | 0 | ≥ 30 khung (1 s) |  |
 | trục từ 0 | ĐẠT | 0 | 0 shot bars/line có min > 0 | swarm: vị trí chấm, không phải độ dài |
-| freezedetect d=3 ∩ lời | TRƯỢT | 211.06 | 0 s | 47 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [44.5, 49.2333], [58.5, 66.3333]] |
+| freezedetect d=3 ∩ lời | TRƯỢT | 212.03 | 0 s | 47 đoạn đứng yên ≥ 3 s cả phim: [[36.4667, 39.9667], [44.5, 49.2333], [58.5, 66.3333]] |
 | mốc hình ≥ mốc từ | ĐẠT | 0 | 0 | 0 mốc |
 | loudness | TRƯỢT | -14.0 LUFS / -1.9 dBTP | -14 ± 1 LUFS, ≤ -2.0 dBTP |  |
-| kích thước phần | ĐẠT | 44.28 | ≤ 90 MB mỗi phần | 3 phần 720p |
+| kích thước phần | ĐẠT | 43.58 | ≤ 90 MB mỗi phần | 3 phần 720p |
 | SH1 thời lượng | ĐẠT | 22.7 | ≤ 60 s |  |
 | SH1 sàn chữ | ĐẠT | 56 | ≥ 56 px | 961 lần engine nâng cỡ |
 | SH1 tương phản | ĐẠT | 7.5 | ≥ 4.5:1 | 0 lần đổi màu |
