@@ -1,0 +1,88 @@
+{
+ "segment": "moc-v/seg/ep004",
+ "res": 540,
+ "out": "../../..<nháp>/v3k-540.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.0,
+   "ok": true,
+   "problems": []
+  },
+  "spine": {
+   "seconds": 0.7,
+   "ok": true,
+   "stdout": [
+    "checks: OK"
+   ]
+  },
+  "render": {
+   "seconds": 246.8,
+   "ok": true,
+   "shots": 10,
+   "rendered": [
+    "s1",
+    "s0",
+    "s3",
+    "s4",
+    "s2",
+    "s5",
+    "s6",
+    "s9",
+    "s7",
+    "s8"
+   ],
+   "cached": 0,
+   "wall_s": 246.1,
+   "film_s": 69.6,
+   "wall_per_film_s_rendered": 10.26,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 34.4,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 3.9,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 5.4,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+   },
+   "modes": {
+    "world_share": 0.399,
+    "chart_share": 0.601,
+    "first_5s_world": true
+   },
+   "F2": {
+    "level": "WARN",
+    "sfx_per_min": 25.9,
+    "sfx_max_10s": 10,
+    "sfx_on_speech": 27,
+    "sfx_on_plain_words": 12,
+    "sfx_events": 30,
+    "keyword_hits": 15,
+    "min_keyword_snr_db": 14.4,
+    "label_overlaps": 12,
+    "line_crossings": 0,
+    "block": [],
+    "warn": [
+     "sfx 10 sự kiện trong 10 s từ 4.96 > 6",
+     "sfx [(33.94, 'tick')] trên từ khoá b4.two 'two' 33.94–34.12 SNR 14.4 dB",
+     "2003 × home value 17.9–17.9 s (1 mẫu)",
+     "2004 × home value 18–18 s (1 mẫu)",
+     "2025 × 2026 Q2 64–64.6 s (7 mẫu)",
+     "2000 × 2000 64.4–64.6 s (3 mẫu)"
+    ]
+   }
+  }
+ },
+ "total_seconds": 291.3
+}

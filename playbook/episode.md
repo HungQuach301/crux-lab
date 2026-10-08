@@ -195,3 +195,12 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 | Dựng một lệnh | `bash toolkit/build.sh episodes/epNNN/episode.yaml` (`toolkit/factory/README.md`) |
 | Đoạn thế giới 3D | `python3 toolkit/factory/world/build_seg.py <thư mục đoạn> --res 540\|1080` |
 | Số nói mỗi cảnh | `python3 toolkit/factory/numbers_said.py episodes/epNNN/story/script.md` |
+| Kiểm rảnh trước build | `python3 toolkit/factory/guard.py` (thoát 3 khi còn build/render) |
+| Thước chỉ báo | `toolkit/indicators/README.md` |
+| Token phiên (đóng phiên) | `python3 toolkit/usage/from_events.py --session <id> --close trang*.json` |
+
+## 11b. An toàn chạy nền (tổng kết Tập 5 mục 12; cine-lab BAI-HOC-LL #38, #67, #70)
+- **Build, checks, render, lượt headless chạy bằng công cụ chạy nền của phiên** (Bash `run_in_background`; thông báo về khi xong). **Không `&`, không `nohup`** tự do: tiến trình `&` không được theo dõi, mất khi phiên/máy khởi động lại (cine-lab #38: tập 4 mất giữa render), và phiên tưởng build đã dừng.
+- **Trước mỗi build: không còn tiến trình build/render nào** — `python3 toolkit/factory/guard.py` (`ps`, bỏ qua chính shell của lệnh và các tiến trình cha/con của nó). `build.sh`, `build.py`, `build_seg.py` tự gọi và **từ chối, thoát 3** nếu còn (cine-lab #67: hai build ghi chồng một thư mục, x264 hỏng tệp thống kê). Thử 08/10: build thứ hai trên đoạn Tập 4 v3k khi build thứ nhất đang render → thoát 3, `build.sh` → thoát 3.
+- **Mã lỗi qua `PIPESTATUS`:** mọi lệnh `… | tee log` đọc `${PIPESTATUS[0]}` (mã của lệnh dựng, không phải của `tee`); `build.sh` đã làm vậy, log ở `<tập>/work/factory/build.log`.
+- **Đoạn thế giới dựng vào thư mục tạm** `<thư mục ra>/.staging-<tên>-<pid>/`, **chỉ thay bản cũ khi cả 6 bước đạt**; trượt → bản cũ giữ nguyên, báo cáo `<out>.build.failed.json` (cine-lab #70: xoá trước khi dựng, lỗi giữa chừng → mất 2,5 h khung). Cache cảnh của `render_shots.js` vốn ghi `.part` rồi đổi tên, không xoá.

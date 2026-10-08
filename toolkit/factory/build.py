@@ -532,6 +532,8 @@ class Build:
 
 
 def main():
+    import guard
+    guard.assert_idle('build')   # tổng kết Tập 5 mục 12 (cine-lab #67): không chạy chồng lên một build/render khác
     argv = sys.argv[1:]
     B = Build(argv[0], argv)
     t = time.time()

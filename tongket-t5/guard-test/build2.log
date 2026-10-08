@@ -1,0 +1,5 @@
+build_seg: TỪ CHỐI — còn tiến trình build/render đang chạy (cine-lab #67: hai build ghi chồng nhau):
+  pid 9836: /bin/bash -c source /root/.claude/shell-snapshots/snapshot-bash-1791466196373-tjidiy.sh 2>/dev/null || true && export BUN_OPTIONS="--smol${BUN_OPTIONS:+ $BUN_OP
+  pid 9838: python3 toolkit/factory/world/build_seg.py moc-v/seg/ep004 --res 540 --out /tmp/claude-0/-home-user-crux-lab/e3a45d33-d7ff-52e0-a6d2-52b558a6cde0/scratchpad/gua
+  pid 9906: node /home/user/crux-lab/toolkit/factory/world/render_shots.js moc-v/seg/ep004 540 /tmp/claude-0/-home-user-crux-lab/e3a45d33-d7ff-52e0-a6d2-52b558a6cde0/scratc
+Chờ lượt đó xong (thông báo của công cụ nền), hoặc dừng hẳn nó rồi dựng lại sạch.
