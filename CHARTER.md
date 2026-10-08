@@ -76,7 +76,7 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
 ## 8. Chỉ số
 - **Chất lượng:** phiếu L3, luật đạt, lỗi số = 0.
 - **Khán giả:** CTR, giữ chân giây 30, thời lượng xem, điểm rời (`audience.md`).
-- **Hiệu quả:** số lần chủ dự án tham gia/tập, vòng/cổng, số agent, ký tự giọng, thời gian, token thực (trần = mức cảnh báo), giờ render.
+- **Hiệu quả:** số lần chủ dự án tham gia/tập, vòng/cổng, số agent, ký tự giọng, thời gian, token thực đọc từ log phiên (trần = đầu vào mới + sinh ra, so với mức cảnh báo), giờ render.
 - **Cảnh báo:** việc không phải tập > 20 %, chu kỳ không ra tập, máy móc phình, hồi quy.
 
 ## 9. Thẩm quyền

@@ -1,6 +1,6 @@
 # Chạy Tập {N} — mỗi chặng một phiên điều phối (D-011, thay D-008 §1)
 
-Chủ dự án mở phiên mới và gõ: **"Chạy Tập {N}"** (hoặc "Chạy Tập {N}, đề tài #k"). Phiên điều phối chạy **một chặng** và **đóng ở điểm dừng chờ chủ dự án kế tiếp: G1, C3 (khi tập có hình mới), G2** (và G3 khi giao hàng). Chặng sau mở bằng **phiên MỚI**, dán prompt phiên kế mà phiên cũ để ở PLAN tập mục 7 (D-011). Token cả tập: **mức cảnh báo 3,0 triệu, phân bổ theo loại việc** (`episode.md` §8; D-009: chỉ cảnh báo, báo số thực, không cắt bước chất lượng). ≤ 40 agent con; kiểm mù không tính vào số agent (headless, ≤ 120 lượt).
+Chủ dự án mở phiên mới và gõ: **"Chạy Tập {N}"** (hoặc "Chạy Tập {N}, đề tài #k"). Phiên điều phối chạy **một chặng** và **đóng ở điểm dừng chờ chủ dự án kế tiếp: G1, C3 (khi tập có hình mới), G2** (và G3 khi giao hàng). Chặng sau mở bằng **phiên MỚI**, dán prompt phiên kế mà phiên cũ để ở PLAN tập mục 7 (D-011). Token cả tập: **mức cảnh báo 15 triệu (Tập 6), trần = đầu vào mới + sinh ra đọc từ log phiên**, phân bổ theo loại việc (`episode.md` §8; D-009: chỉ cảnh báo, báo số thực, không cắt bước chất lượng). ≤ 40 agent con; kiểm mù không tính vào số agent (headless, ≤ 120 lượt).
 
 ## Luật điều phối
 - Mở bằng `bash toolkit/verify.sh ep{NNN}`; đọc `CHARTER.md`, `playbook/quality-framework.md`, `playbook/episode.md`, `episodes/ep{NNN}/PLAN.md` (mục "Phiên sau đọc"), `ledger.md`.
@@ -11,7 +11,7 @@ Chủ dự án mở phiên mới và gõ: **"Chạy Tập {N}"** (hoặc "Chạy
 - **Chất lượng là ưu tiên tuyệt đối (D-009):** lỗi CHÍNH sửa trước G2; sửa nghĩa bằng hình trước, nhãn là cách cuối; G2 cần phiếu L3 ≥ 4 mọi dòng.
 - **REVIEWER bắt buộc** trước mọi gói/issue gửi chủ dự án; không bỏ vì token — vượt mức cảnh báo thì báo số thực trong gói, không dừng bước chất lượng.
 - **Lượt đạo diễn** (chẩn đoán) trên bản 540p trước render bản cuối, mọi đoạn có hình mới (`quality-framework.md` §10).
-- Mọi commit đẩy lên `ep{NNN}`; ghi token/agent thực **theo loại việc** và **giờ render thực** vào `ledger.md` và PLAN §5.
+- Mọi commit đẩy lên `ep{NNN}`; ghi agent thực **theo loại việc** và **giờ render thực** vào `ledger.md`; khi đóng phiên ghi **4 số token từ log** (sinh ra · đầu vào mới · đọc cache · trần) vào PLAN §5 (`toolkit/usage/from_events.py --close`).
 
 ## Chặng (nội dung chi tiết: `P1.md`, `P3.md`)
 1. **Việc 0 → C1 → C2 → G1** (`P1.md`). Cần kind mới → giao phiên K; khoá K tự merge khi đủ điều kiện D-008 §2, không thì hỏi.

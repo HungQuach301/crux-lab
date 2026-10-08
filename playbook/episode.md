@@ -141,21 +141,26 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 
 **Thực Tập 4:** ≈ 6,3 triệu, 102 agent, EL 11.702, chủ dự án 5 lượt (+G3); kiểm mù 49 % (lessons H1).
 
-**Mức cảnh báo Tập 5 = 3,0 triệu token, phân bổ theo loại việc** (`tongket-t4/REPORT.md` §7). Từ D-009 (c) đây là **mức cảnh báo, không phải trần**: vượt thì báo số thực trong gói; **không cắt bước chất lượng** (kiểm mù đủ người đọc, lượt đạo diễn, REVIEWER) vì token:
+**Trần token (từ Tập 6, tổng kết Tập 5 §3.6, chủ dự án duyệt 08/10):** **trần = đầu vào mới (input + ghi cache) + sinh ra**, đọc từ **log phiên** (sự kiện `result` của transcript: `usage` của lượt, `modelUsage` tích luỹ cả phiên gồm agent con); đọc cache báo riêng. Số công cụ báo cho mỗi agent con (ledger) là cỡ ngữ cảnh cuối, **không phải** đầu vào mới (Tập 5 ước ≈ 10 triệu, log 85,4) — ledger chỉ giữ nó để phân loại việc.
 
-| Loại việc | Trần | Ghi chú |
+**Mức cảnh báo Tập 6 = 15 triệu (chỉ cảnh báo, D-009 c):** vượt thì báo số thực trong gói; **không cắt bước chất lượng** (kiểm mù đủ người đọc, lượt đạo diễn, REVIEWER). Ước khi áp §1 "Agent dựng không chờ" và D-011 (mỗi chặng một phiên):
+
+| Loại việc | Mức cảnh báo (triệu, trần log) | Tập 5 thực |
 |---|---|---|
-| Kiểm mù (headless) | 0,6 triệu | ≤ 120 lượt |
-| Dựng (nhà máy) | 0,75 triệu | ≤ 4 lượt agent; take giọng commit |
-| WRITER | 0,4 triệu | 1 + ≤ 2 agent mới |
-| REVIEWER | 0,45 triệu | ≤ 4, không cắt (D-008) |
-| Checks, kiểm độc lập | 0,15 triệu | |
-| Điều phối | 0,5 triệu | ≤ 2 phiên |
-| Dự phòng | 0,15 triệu | |
+| Dựng (agent dựng, nhà máy, vòng sửa) | ≈ 10 | 72,25 |
+| Điều phối (luồng chính các phiên) | ≈ 2,5 | 8,71 |
+| Kiểm mù (headless, cộng từ JSON đầu ra) | ≈ 1,5 | ≤ 2,31 |
+| Khác (WRITER, REVIEWER, Việc 0, kiểm độc lập, phiên K) | ≈ 1 | 2,12 |
+| **Cộng** | **15** | **≈ 85,4** |
 
-≤ 40 agent con. EL ≤ 6.000 ký tự (gần với chi tiêu: vượt → hỏi chủ dự án). Hai trần này **không đổi** — D-009 (c) chỉ đổi trần token thành mức cảnh báo. Ledger ghi cột **loại việc** cho mỗi dòng.
+≤ 40 agent con. EL ≤ 6.000 ký tự (gần với chi tiêu: vượt → hỏi chủ dự án). Hai trần này **không đổi**. Ledger ghi cột **loại việc** cho mỗi dòng.
 
-Mỗi phiên ghi token thực (số harness của agent con + ngữ cảnh phiên) và **giờ render thực** (`build-report.json`, `<đoạn>.build.json`) vào PLAN mục 5 và gói; vượt mức cảnh báo thì nêu trong gói, không dừng việc chất lượng.
+**Mỗi phiên khi đóng ghi 4 số đọc từ log vào PLAN tập mục 5:** sinh ra · đầu vào mới · đọc cache · trần. Cách lấy: `list_events(session_id=<phiên này>, kinds=["result"], limit=100)` → lưu trang JSON → `python3 toolkit/usage/from_events.py --session <id> --close trang*.json`. Sự kiện `result` chỉ có khi một lượt kết thúc → số ghi được là **đến lượt trước**; lượt đóng cộng vào ở phiên sau (ghi "đến <giờ>"). Headless không nằm trong log phiên: cộng bốn trường `tokens` của JSON đầu ra (`toolkit/blind/headless.sh`). Bảng cả tập: `python3 toolkit/usage/token_log.py <jsonl…> [--windows …]`. Ghi thêm **giờ render thực** (`build-report.json`, `<đoạn>.build.json`).
+
+<details><summary>Mức cảnh báo Tập 5 (cũ, 3,0 triệu theo số công cụ báo — thực đo bằng log 85,4)</summary>
+
+Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · điều phối 0,5 · dự phòng 0,15 (`tongket-t4/REPORT.md` §7). So với log: `tongket-t5/REPORT.md` §1b.
+</details>
 
 ## 9. Định dạng tập (`episode.yaml` → `format`)
 | `format` | Thời lượng | Cấu trúc | Mid-roll |

@@ -1,8 +1,10 @@
-"""Token thực từ log phiên (REPORT §1). Đầu vào: JSONL trích từ sự kiện `result` của transcript phiên
+"""Token thực từ log phiên (tongket-t5/REPORT.md §1; dời từ tongket-t5/ sang toolkit/usage/ 08/10). Đầu vào: JSONL trích từ sự kiện `result` của transcript phiên
 (list_events kinds=["result"]); mỗi dòng: s, uuid, t, pti, origin, u=[in, ghi cache, đọc cache, ra] của lượt
 (luồng chính), mu={model: [in, ghi cache, đọc cache, ra]} TÍCH LUỸ cả phiên (gồm agent con, qua các lần khởi động lại).
 Khử trùng theo uuid. Trần = đầu vào mới (in + ghi cache) + sinh ra; đọc cache báo riêng.
-    python3 tongket-t5/token_log.py tongket-t5/logs/*.jsonl [--windows tongket-t5/windows.json]
+    python3 toolkit/usage/token_log.py tongket-t5/logs/*.jsonl [--windows tongket-t5/windows.json]
+Trích JSONL từ trang `list_events` đã lưu: python3 toolkit/usage/from_events.py trang*.json > phien.jsonl
+Headless (`claude -p`) không nằm trong log phiên: cộng `tokens` của JSON đầu ra (toolkit/blind/headless.sh, bốn trường riêng).
 """
 import json, sys
 
