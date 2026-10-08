@@ -1,0 +1,10 @@
+# C3 — ý đồ cổng gốc N1 "hàng 10 thùng" (ghi TRƯỚC khi chạy; không sửa sau khi thấy kết quả)
+
+Ngày 2026-10-08 (phiên P2). Hình mới: **N1 hàng 10 thùng** (vật thể 3D `world/obj6.js`), dựng trong bốn đoạn có lời thật: **s07-ruth** (B07), **s24-carl** (B24), **s27-edna** (B27), **s29-three** (B29) — cả bốn đều loại 1 trong `story/beats.md`. Dải 6 khung **tắt tiếng, giữ chữ/số** từ clip 540p có chuyển động (`toolkit/blind/strips.py`, mốc ở `world/c3/spans.json`); bản sao tên hex ở `c3/root/`.
+- **Người đọc:** headless có ảnh (`toolkit/blind/headless.sh --read`, `c3/root_run.py`), mỗi lượt MỚI, chỉ mở một PNG; 2 người mỗi đoạn; lệch → người thứ 3; đoạn đạt khi ≥ 2/3 (dừng khi 2 người đầu cùng kết quả). Câu khuyên ở bất kỳ đoạn nào → đoạn trượt.
+- **Vai T:** "You are an American aged 64, about to retire, looking at an income annuity quote that offers two payout options."
+- **Câu hỏi** (như C3 Tập 4–5): 1. What idea is this animation showing? 2. What changes over time across the frames? 3. What does it mean? 4. What advice, if any, would a viewer take from this?
+- **Chấm:** người chấm độc lập mù tập; nghĩa 1 / 0,5 / 0 so với "muted read" = câu "ý người xem phải đọc ra" của nhịp chép **nguyên văn** từ `beats.md` (`spans.json`); cờ khuyên theo **A9** (thận trọng chung — tự kiểm số, hỏi công ty bảo hiểm/báo giá — không tính; khuyên chọn khoản đều/khoản tăng/phương án gắn CPI, mua/không mua niên kim — tính). Người đọc đúng = nghĩa 1 và khuyên_tính false.
+- **Ngưỡng mỗi đoạn:** ≥ 2/3 đúng, khuyên_tính 0. Trượt → **sửa bằng hình trước** (D-009 E6; cảnh 3D trượt độ đọc → chế độ đồ thị, quy tắc 6), nhãn nghĩa là cách cuối và ghi lý do; ≤ 3 vòng mỗi đoạn; khoá nghĩa (bản sau không thấp hơn bản tốt nhất, không thêm câu khuyên). Hết 3 vòng → gói C3 nêu trước/sau, chủ dự án chọn.
+- **Lượt đạo diễn** (chẩn đoán, không ngưỡng): một lượt trên bản 540p của cả bốn đoạn; chỉ sửa nhận xét lặp ở ≥ 2 lượt độc lập (lessons V3).
+- **Nhạc hiệu kênh:** không kiểm mù (gu nhạc là quyền chủ dự án, CHARTER §6); đo loudness/true peak, gửi clip `review-c3/music-ident.mp4`.
