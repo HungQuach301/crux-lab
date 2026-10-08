@@ -8,10 +8,9 @@ for ep in ['ep002', 'ep003', 'ep004', 'ep005']:
     S = json.load(open(f'episodes/{ep}/out/script.json'))['sentences']
     spoken = sum(words(x['spoken']) for x in S)
     speech = sum(x['end'] - x['start'] for x in S)
-    tl = f'episodes/{ep}/out/factory/timeline.json'
-    if not os.path.exists(tl):
-        tl = f'episodes/{ep}/out/timeline.json'
-    total = json.load(open(tl))['total']
+    # timeline đủ tập (Tập 3: out/factory chỉ là đoạn demo S04 → lấy bản dài nhất)
+    total = max(json.load(open(t))['total'] for t in (f'episodes/{ep}/out/factory/timeline.json',
+                f'episodes/{ep}/out/timeline.json') if os.path.exists(t))
     per = {}
     for x in S:
         a = per.setdefault(x['scene'], [0, 0.0]); a[0] += words(x['spoken']); a[1] += x['end'] - x['start']
