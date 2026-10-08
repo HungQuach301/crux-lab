@@ -2370,6 +2370,16 @@ def v17_three_case(bad):
         f.close()
 
 
+@case('R08')
+def _(f, bad):
+    # speech from 1 s to 12 s; one camera move at 6 s (good: two 5 s stretches) or none (bad: one 11 s stretch); a label cue is not a change
+    words = [{'w': f'w{i}', 's': 1.0 + i, 'e': 1.5 + i} for i in range(11)]
+    sp = {'total': 14.0, 'words': words, 'beats': [{'id': 'b0', 'cues': {'lbl': 6.0}}], 'label_cues': {'b0.lbl': 'x'}, 'visual_cues': [],
+          'moves': [] if bad else [{'t0': 5.8, 't1': 6.4, 'reason': 'r', 'sound': 'whoosh'}]}
+    f.json('seg/spine.json', sp)
+    f.contract(world=[{'id': 'a', 'spine': 'seg/spine.json', 't0': 0.0}])
+
+
 EXTRA.update({'V17/three': v17_three_case})
 EXTRA.update({'V14/reason': v14_variant('reason'), 'V14/first5': v14_variant('first5'), 'V14/cut': v14_variant('cut')})
 EXTRA.update({'R07/voice': r07_none_case})

@@ -383,3 +383,45 @@ def v17_label_time(ctx):
             short.append({'text': txt[:80], 'words': len(label_words(txt)), 'needS': need, 'longestS': round(got, 2), 'at': round(max(rs, key=lambda r: r[1] - r[0])[0], 2)})
     short.sort(key=lambda x: x['longestS'] - x['needS'])
     return verdict('V17', [metric('labels on screen too short to read', len(short), '<=', 0)], details=[{'labels': n}, *short[:30]])
+
+
+# ---- A23 → R08 ------------------------------------------------------------------------------------------------------------------
+def spine_changes(sp):
+    """[(t0, t1)] every picture change of a spine (segment time): camera moves, cuts (shots after the first), object state changes (visual_cues → beats[].cues),
+    keyed animations (*_kf, draw, ride: one change per key). Labels (label_cues) are not picture changes."""
+    ch = [(m['t0'], m['t1']) for m in sp.get('moves', [])]
+    ch += [(s['t0'], s['t0']) for s in sp.get('shots', [])[1:]]
+    beats = {b['id']: b for b in sp.get('beats', [])}
+    for vc in sp.get('visual_cues', []):
+        b, _, k = vc.partition('.')
+        t = beats.get(b, {}).get('cues', {}).get(k)
+        if t is not None:
+            ch.append((t, t))
+    for k, v in sp.items():
+        if (k.endswith('_kf') or k in ('draw', 'ride')) and isinstance(v, list):
+            ch += [(kf[0], kf[0]) for kf in v if isinstance(kf, list) and kf]
+    return sorted(ch)
+
+
+@rule('R08', 'tổng kết Tập 5 §3.2 (nhịp, đo trước render), checks-appeal A23', 'world segments (as R07), on the spine (before render): picture changes = spine_changes '
+      '(camera moves, cuts, object state changes of visual_cues, keyed animations; labels excluded). A still stretch = from the first to the last spoken word '
+      '(spine.words, no [tags]) lying between two consecutive changes. The definition of toolkit/indicators/spine_pace.py (Phiên T5)',
+      'no still stretch with speech > 8 s; no world segment = nothing to check')
+def r08_still_stretches(ctx):
+    segs = world_segments(ctx)
+    if not segs:
+        return verdict('R08', [metric('still stretches > 8 s', 0, '<=', 0)], note='no world segments: nothing to check')
+    out = []
+    for sid, sp, t0 in segs:
+        words = [(w['s'], w['e']) for w in sp.get('words', []) if not str(w['w']).startswith('[')]
+        edges, cur = [], 0.0
+        for a, b in spine_changes(sp):
+            if a > cur:
+                edges.append((cur, a))
+            cur = max(cur, b)
+        edges.append((cur, sp.get('total', cur)))
+        for a, b in edges:
+            ws = [w for w in words if w[0] >= a and w[1] <= b]
+            if ws and ws[-1][1] - ws[0][0] > 8.0:
+                out.append({'segment': sid, 't0': round(ws[0][0] + t0, 2), 't1': round(ws[-1][1] + t0, 2), 'dur': round(ws[-1][1] - ws[0][0], 2)})
+    return verdict('R08', [metric('still stretches > 8 s', len(out), '<=', 0), metric('longest still stretch s', max([o['dur'] for o in out] or [0.0]), '<=', 8.0)], details=out[:30])
