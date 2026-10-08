@@ -1,0 +1,8 @@
+episode: ep006
+format: "101"          # đề xuất ở G1 (8–9 phút, 1 mid-roll, không độn; ước 2,52 từ nói/s, 101 cần ≈ 1.250 từ nói) — chủ dự án chốt ở G1
+topic: "queue #12 — topics-r1/machine/retire-1 (D-011 Q1, chủ dự án 08/10)"
+title: "Does a 2% Annuity Raise Really Keep Up With Prices?"   # nháp (G1)
+pillar: hưu trí
+tokenCeiling: {episode: 15000000, note: "mức cảnh báo (episode.md §8), trần = đầu vào mới + sinh ra từ log phiên"}
+voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1005, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
+music: {style: C}      # G-016
