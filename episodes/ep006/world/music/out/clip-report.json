@@ -1,0 +1,45 @@
+{
+ "close_under_voice": {
+  "I_lufs": -14.2,
+  "tp_dbtp": -1.6,
+  "lra_lu": 7.7,
+  "a07_voice_over_music_db": 20.07,
+  "lift_after_last_word_db": 12.0,
+  "mid_duck_db": 13.0
+ },
+ "clip": {
+  "I_lufs": -15.0,
+  "tp_dbtp": -1.6,
+  "lra_lu": 7.5
+ },
+ "clip_mp4": "episodes/ep006/review-c3/music-ident.mp4",
+ "timeline_s": {
+  "ident-A": [
+   0,
+   3
+  ],
+  "silence1": [
+   3,
+   4
+  ],
+  "ident-B": [
+   4,
+   7
+  ],
+  "silence2": [
+   7,
+   8
+  ],
+  "close-A": [
+   8,
+   18.5
+  ],
+  "touch_A": 2.105,
+  "touch_B": 5.998,
+  "close_voice": [
+   9.0,
+   15.14
+  ],
+  "touch_close": 16.421
+ }
+}
