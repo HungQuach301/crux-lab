@@ -1,0 +1,72 @@
+{
+ "ep003": {
+  "oldRules": 89,
+  "identical": 89,
+  "differ": [],
+  "newRules": {
+   "S19": "PASS",
+   "S20": "FAIL",
+   "S21": "FAIL",
+   "S22": "PASS",
+   "R07": "PASS",
+   "R08": "PASS",
+   "V14": "PASS",
+   "V15": "MISSING",
+   "V17": "MISSING",
+   "T4": "PASS"
+  },
+  "oldStatus": {
+   "PASS": 14,
+   "FAIL": 9,
+   "MISSING": 66,
+   "ERROR": 0
+  }
+ },
+ "ep004": {
+  "oldRules": 89,
+  "identical": 89,
+  "differ": [],
+  "newRules": {
+   "S19": "PASS",
+   "S20": "PASS",
+   "S21": "PASS",
+   "S22": "PASS",
+   "R07": "PASS",
+   "R08": "PASS",
+   "V14": "PASS",
+   "V15": "MISSING",
+   "V17": "MISSING",
+   "T4": "PASS"
+  },
+  "oldStatus": {
+   "PASS": 6,
+   "FAIL": 9,
+   "MISSING": 73,
+   "ERROR": 1
+  }
+ },
+ "ep005": {
+  "oldRules": 89,
+  "identical": 89,
+  "differ": [],
+  "newRules": {
+   "S19": "PASS",
+   "S20": "PASS",
+   "S21": "PASS",
+   "S22": "FAIL",
+   "R07": "MISSING",
+   "R08": "FAIL",
+   "V14": "MISSING",
+   "V15": "MISSING",
+   "V17": "FAIL",
+   "T4": "FAIL"
+  },
+  "oldStatus": {
+   "PASS": 26,
+   "FAIL": 17,
+   "MISSING": 46,
+   "ERROR": 0
+  }
+ },
+ "_about": "K4.0 trước/sau: checks/ của main @ 447690e và của khoá K4.0, chạy cả bộ trên gốc hồi tố (retro.build: không video, page.json C5c cho Tập 5, --first). So status + metrics + fingerprint + tier từng luật cũ."
+}

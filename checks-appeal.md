@@ -70,6 +70,19 @@ Bên dựng, phiên tổng kết và REVIEWER **không sửa `checks/`**. Mọi 
 
 > **A23 — hiệu chuẩn 08/10 (áp tổng kết Tập 5 mục 9, `tongket-t5/indicators/CALIBRATION.md`):** thước quãng tĩnh trên spine bắt **2/4** quãng đạo diễn A ở animatic C4 Tập 5 (@ `b70a0db`); biến thể chỉ cú máy bắt 4/4 nhưng báo 18–19 quãng ở cả C4 lẫn bản cuối đã duyệt (không phân biệt). **Chưa đạt đối chứng dương → A23 vẫn `mở`**, chỉ báo ở Tập 6; cần cờ `change: major|minor` trên spine rồi hiệu chuẩn lại.
 
+> **K4.0 (08/10, nhóm 2, chỉ thêm — tự merge theo D-008 §2; `checks/README.md` mục "Thay đổi ở khoá K4.0").** Mã luật máy mới khác mã khiếu nại:
+> - **A20 → S19, CHẤP NHẬN (CHẶN).** `contract.json claims.forbiddenAmounts`; Tập 5 hồi tố 0 vi phạm. Bên dựng khai ở hợp đồng tập khi đề tài có khoản phí không nguồn.
+> - **A17 → S20, CHẤP NHẬN (CHÍNH).** Hiệu chuẩn: Tập 3 trượt đúng 3 cảnh, Tập 4–5 đạt.
+> - **A14 → R07, CHẤP NHẬN CÓ SỬA (THAM KHẢO, chỉ báo).** Không có hộp đối tượng theo cue, máy kiểm không tái lập số của nhà máy (v3k 14/23, e5k 9/11, Tập 5 cuối 80/88 = 90,9 %). Lô sau: bộ lấy mẫu ghi hộp đối tượng/ROI → hiệu chuẩn lại, rồi xét CHÍNH.
+> - **A18 → V14, CHẤP NHẬN CÓ SỬA (CHÍNH).** rule2, rule3, cắt cứng, 5 s đầu; v3k, e5k, Tập 5 cuối đạt. rule1 chưa đo (cần `chartW` trong `page.json`).
+> - **A13 → V15, CHẤP NHẬN CÓ SỬA (THAM KHẢO, chỉ báo).** Bộ lấy mẫu thêm `textOnlyTrack`; chưa hiệu chuẩn (page.json đã lưu chưa có track). Hiệu chuẩn ở lần chạy C5 Tập 6 cùng đối chứng Tập 1.
+> - **A19 → T4, CHẤP NHẬN CÓ SỬA (THAM KHẢO, chỉ báo).** Ngưỡng tạm "≤ 6 sfx/10 s" trượt cả Tập 5, v3k, e5k (đã duyệt L3) → ngưỡng sai, chưa hiệu chuẩn. Phần "nhãn đè" của A19 nằm ở V11/A22.
+> - **A24 → V17, CHẤP NHẬN (THAM KHẢO, chỉ báo như đề xuất).** Tập 5 bắt đúng nhãn Fannie Mae (1,0 s/cần 3 s) + 9 nhãn khác.
+> - **A23 → R08, CHẤP NHẬN CÓ SỬA (THAM KHẢO, chỉ báo).** Định nghĩa `spine_pace.py`; đối chứng dương 2/4 → A23 giữ `mở` cho phần hiệu chuẩn (cờ `change: major|minor` trên spine).
+> - **A25 → S21, CHẤP NHẬN (CHÍNH).** Tập 3 bắt đúng `1954`; Tập 4–5 đạt.
+> - **A26 → S22, CHẤP NHẬN CÓ SỬA (THAM KHẢO, chỉ báo).** Bỏ claim minh hoạ (hết dương giả Tập 3), miễn câu gọi tên cả hai thước (Tập 5 S20.2); còn Tập 5 S12.3, S18.2 chờ phân xử.
+> - **A12 — XONG (chữ).** Tiêu đề "Ngưỡng tạm" bỏ "chờ duyệt"; K2, K3.1, K3.7 ghi ngày duyệt kèm bằng chứng. K3.6 vẫn ghi "chờ chủ dự án duyệt" (chưa thấy bằng chứng duyệt).
+
 ## Hàng chờ lô K kế tiếp (Phiên T4, 06/10/2026) — thứ tự đề xuất
 1. **A10** F11/F12 viết lại cho nhà máy (bỏ 2 ngoại lệ mỗi tập).
 2. **A11** nhà máy xuất `page.json` (bên dựng làm; K xác nhận hợp đồng trang).
