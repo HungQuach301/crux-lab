@@ -1,0 +1,100 @@
+[
+ {
+  "n": 1,
+  "where": "result.answer",
+  "text": "Across 715 overlapping 20-year stretches of US consumer prices starting each month from 1947 to 2006, an annuity check that rises 2% a year kept its starting buying power in only 2.4% of them (17 windows, all starting 1947-1949).",
+  "uses": [
+   "windows_20y",
+   "first_start_20y",
+   "last_start_20y",
+   "share_2pct_kept_up_20y_pct",
+   "windows_2pct_kept_up_20y",
+   "kept_up_first_start_20y",
+   "kept_up_last_start_20y"
+  ],
+  "check": "python3 episodes/ep006/model/statements.py --statement 1 \u2192 True"
+ },
+ {
+  "n": 2,
+  "where": "result.answer",
+  "text": "Over 25-year stretches it kept up in 0.0%.",
+  "uses": [
+   "windows_25y",
+   "share_2pct_kept_up_25y_pct"
+  ],
+  "check": "python3 episodes/ep006/model/statements.py --statement 2 \u2192 True"
+ },
+ {
+  "n": 3,
+  "where": "result.answer",
+  "text": "Median inflation over 20 years was 3.1% a year, so after 20 raises the 2% check typically bought 80.7% of what its first check bought (level check: 54.3%).",
+  "uses": [
+   "median_inflation_20y_pct_per_year",
+   "median_real_value_2pct_payment_after_20y_pct",
+   "median_real_value_level_payment_after_20y_pct"
+  ],
+  "check": "python3 episodes/ep006/model/statements.py --statement 3 \u2192 True"
+ },
+ {
+  "n": 4,
+  "where": "result.answer",
+  "text": "In the worst stretch (starting 1966) it bought 43.1%.",
+  "uses": [
+   "worst_real_value_2pct_payment_after_20y_pct",
+   "worst_window_start_year_20y"
+  ],
+  "check": "python3 episodes/ep006/model/statements.py --statement 4 \u2192 True"
+ },
+ {
+  "n": 5,
+  "where": "result.answer",
+  "text": "In the latest full stretch, Aug 2006 to Aug 2026, the 2% check ended at 90.4% of its starting buying power and a level check at 60.9%.",
+  "uses": [
+   "latest_start",
+   "latest_end",
+   "latest_window_real_value_2pct_payment_pct",
+   "latest_window_real_value_level_payment_pct"
+  ],
+  "check": "python3 episodes/ep006/model/statements.py --statement 5 \u2192 True"
+ },
+ {
+  "n": 6,
+  "where": "result.answer",
+  "text": "A 2% raise slows the loss of buying power; historically it almost never stopped it.",
+  "uses": [
+   "windows_2pct_kept_up_20y",
+   "kept_up_last_start_20y"
+  ],
+  "check": "python3 episodes/ep006/model/statements.py --statement 6 \u2192 True"
+ },
+ {
+  "n": 7,
+  "where": "result.changesDecision",
+  "text": "The data show the 2% raise was partial protection in essentially every period since the late 1940s, including the low-inflation 2000s and 2010s: it narrows the gap with a level check but does not keep purchasing power steady.",
+  "uses": [
+   "by_decade",
+   "kept_up_last_start_20y"
+  ],
+  "check": "python3 episodes/ep006/model/statements.py --statement 7 \u2192 True"
+ },
+ {
+  "n": 8,
+  "where": "claim-risk.md",
+  "text": "It kept up in 17 of 715 windows; say 'almost never since the late 1940s' and give the count.",
+  "uses": [
+   "windows_2pct_kept_up_20y",
+   "windows_20y",
+   "kept_up_last_start_20y"
+  ],
+  "check": "python3 episodes/ep006/model/statements.py --statement 8 \u2192 True"
+ },
+ {
+  "n": 9,
+  "where": "claim-risk.md",
+  "text": "'Inflation averages 3.1%.' It is the median 20-year rate of 1947-2026 windows, not an expectation.",
+  "uses": [
+   "median_inflation_20y_pct_per_year"
+  ],
+  "check": "python3 episodes/ep006/model/statements.py --statement 9 \u2192 True"
+ }
+]
