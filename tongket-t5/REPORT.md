@@ -44,10 +44,10 @@ Số gói G2 ước "≈ 10 triệu" chỉ đúng **1/8,5**: số harness của 
 | | Tập 2 | Tập 3 | Tập 4 | **Tập 5** |
 |---|---|---|---|---|
 | Phiên (điều phối + K) | 1 + 2 K | 3 + 1 K | 3 + 1 K | 1 + 1 K |
-| **Trần log (triệu)** | **≥ 50,9** (phiên chính; 2 phiên K đang quét) | **11,9** | **11,8** | **82,6 + 0,5** (+ headless ≤ 2,3) |
+| **Trần log (triệu)** | **51,3** | **11,9** | **11,8** | **82,6 + 0,5** (+ headless ≤ 2,3) |
 | Số ước cũ | ≈ 12 | ≈ 6 | ≈ 6,3 | ≈ 10 |
-| Sinh ra (triệu) | 1,95 | 1,01 | 1,01 | 2,19 |
-| Đọc cache (triệu) | 535 | 292 | 192 | 681 |
+| Sinh ra (triệu) | 2,02 | 1,01 | 1,01 | 2,19 |
+| Đọc cache (triệu) | 549 | 292 | 192 | 681 |
 | Model agent con | Opus + Sonnet | Opus + Sonnet | Opus + Sonnet | **chỉ Opus** |
 | Thời lượng | 9:46 | 9:32 | 8:02 | 7:46 |
 | ElevenLabs | 9.436 | 5.551 | 11.702 | 10.850 |
@@ -55,7 +55,7 @@ Số gói G2 ước "≈ 10 triệu" chỉ đúng **1/8,5**: số harness của 
 | Hình | 2D | 2D | 2D + nhà máy | **thế giới 3D** (Mốc V) |
 
 - Tập 3–4 ≈ 12 triệu/tập; Tập 5 gấp **≈ 7 lần**, dù sinh ra chỉ gấp 2 — khác biệt nằm gần hết ở **ghi cache của agent con dựng 3D** (W4 + W5 = 71,4 triệu).
-- Tập 2 cao (≥ 50,9) do ≈ 300 lượt kiểm mù bằng agent con và 3 ngày một phiên.
+- Tập 2 cao (51,3; riêng một quãng chờ 10-01 12:22–20:25 ghi cache 33 triệu, cùng kiểu Tập 5) do ≈ 300 lượt kiểm mù bằng agent con và 3 ngày một phiên.
 
 ### 1e. Ba khoản tốn nhất và cách giảm KHÔNG hạ chất lượng
 1. **Agent con dựng ngồi chờ render/checks: ≈ 71 triệu (83 %).** W5: ghi cache 49,6 triệu so với sinh ra 0,36 triệu (137 : 1) trong 20 giờ, phần lớn là chờ lượt 1080p (≈ 1,5 h) và checks (≈ 1,3 h). Mỗi lần agent thức dậy sau khi bộ nhớ đệm hết hạn thì ghi lại cả ngữ cảnh 0,4–0,65 triệu (ledger: cỡ ngữ cảnh cuối của agent C4/C5 400–655 nghìn). Khớp số: ≈ 100 lần × ≈ 0,5 triệu.
