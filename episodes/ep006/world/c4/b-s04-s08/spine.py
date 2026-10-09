@@ -74,7 +74,7 @@ K.finish(HERE, S, 'ep006 C4 · B = S04–S08 (Hồi 1: hai séc, sức mua)', be
          {'rows': {'rise': rk, 'level': lk}, 'cards': {'rise': [[0, 0]] + [[round(t, 3), (i + 1) * 2] for i, t in enumerate(grow4)] + [[round(cue['b1']['starts'] - 0.3, 3), 20], [round(cue['b1']['starts'], 3), 0]]
                                                     + K.step_check(yrs7, ramp=0.1)[1:]},
           'years7': [round(t, 3) for t in yrs7], 'years8': [round(t, 3) for t in yrs8],
-          'growth': {'check': RAW['two_pct_growth_20y_pct'] / 100, 'prices': RAW['latest_window_price_rise_pct'] / 100}},
+          'ruth_path': Pr, 'growth': {'check': RAW['two_pct_growth_20y_pct'] / 100, 'prices': RAW['latest_window_price_rise_pct'] / 100}},
          {'b0.never': 'level check: never changes', 'b0.rises': 'rising check: +2% a year', 'b1.model': 'how much smaller: not modeled',
           'b2.dollars': 'dollars paid out: not compared', 'b3.buying': 'measured: buying power vs its own first check',
           'b4.august': 'Ruth · Aug 2006, age 65', 'b5.prices': 'prices go up, her check goes up', 'b6.two': 'check: +2% a year',
