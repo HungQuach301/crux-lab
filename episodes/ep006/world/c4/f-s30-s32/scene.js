@@ -11,7 +11,7 @@ const LX = 20, LEN = 8, AX1 = 40, AX2 = 49;                        // thang (x0,
 export async function boot(res) {
   const poses = {
     wLadder: { pos: [15.5, 3.6, 9.5], tgt: [22.5, 1.7, 0], fov: 40, chart: 0 },
-    cLadder: { pos: [23.6, 1.75, 25], tgt: [23.6, 1.75, 0], fov: 14, chart: 1 },
+    cLadder: { pos: [22.66, 1.75, 34.86], tgt: [22.66, 1.75, 0], fov: 14, chart: 1 },   // lùi đủ để nhãn bậc (trái) và "all stretches" (phải) nằm trong vùng an toàn: 128 px/đv
     cLim1: { pos: [AX1, 1.4, 20], tgt: [AX1, 1.4, 0], fov: 14, chart: 1 },
     cLim2: { pos: [AX2 + 0.6, 0.85, 11], tgt: [AX2 + 0.6, 0.85, 0], fov: 14, chart: 1 },
     wRuth: { pos: [-3.0, 2.2, 7.8], tgt: [-0.7, 0.5, 0], fov: 35, chart: 0 },
@@ -41,13 +41,15 @@ export async function boot(res) {
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
-    // S30 (cLadder): nhãn bậc bên trái, giá trị ở đầu thanh; vạch "half" / "all stretches"
+    // S30 (cLadder): nhãn bậc bên trái; giá trị ở đầu thanh — TRONG thanh khi thanh đủ dài (≥ 25 %), ngoài khi ngắn (2,4 %): nhờ vậy vạch "half"
+    // không cắt qua "42.4%" và "all · Carl's stretch" không tràn mép phải; vạch "half" / "all stretches"
     if (t < MV.m_pan31.t1) {
       const a = ok * (1 - show(t, MV.m_pan31.t0)), shownAt = [MV.m_c30.t1, b.g1.three, b.g2.three, b.g3.every], valAt = [MV.m_c30.t1, b.g1.forty, b.g2.half, b.g3.carls];
       for (let i = 0; i < 4; i++) {
         const r = lad.rungs[i], [xl, y] = O.toScreen(LX - 1.7, r.y, 0.5), [xe] = O.toScreen(LX + LEN * S.rungs[i].share / 100, r.y, 0.5);
         label(O, S.rungs[i].label, xl, y + 16, { align: 'right', kind: 'number', px: 52, alpha: a * show(t, shownAt[i]) });
-        label(O, S.rungs[i].value, xe + 24, y + 16, { align: 'left', kind: i === 3 ? 'compare' : 'number', px: 48, alpha: a * show(t, valAt[i] + 0.8) });
+        const inside = S.rungs[i].share >= 25;
+        label(O, S.rungs[i].value, inside ? xe - 24 : xe + 24, y + 16, { align: inside ? 'right' : 'left', kind: i === 3 ? 'compare' : 'number', px: 48, alpha: a * show(t, valAt[i] + 0.8) });
         log.roi[['g1.three', 'g1.three', 'g2.half', 'g3.carls'][i]] = [xl - 200, y - 40, xe + 400, y + 40];
       }
       const [xh, yt] = O.toScreen(LX + LEN * 0.5, 3.4, 0.5), [xa] = O.toScreen(LX + LEN, 3.4, 0.5), [, yb] = O.toScreen(LX, 0, 0.5);
@@ -74,13 +76,13 @@ export async function boot(res) {
       label(O, L['h2.dollars'], 960, 236, { align: 'center', kind: 'compare', px: 52, alpha: ok * show(t, b.h2.dollars, b.h3.card - 0.3) });
       log.roi['h2.dollars'] = [400, 170, 1520, 260];
     }
-    // S31.4: thẻ V7 (≤ 6 dòng, 5 s) — nền thẻ trung tính, chữ ≥ 48 px
+    // S31.4: thẻ V7 (≤ 6 dòng, 5 s) — nền thẻ trung tính, chữ ≥ 48 px; thẻ 110–1810 để dòng dài nhất (~1 655 px) nằm trong thẻ, không bị đẩy lệch lề
     const kA = ok * show(t, S.card[0], S.card[1]);
     if (kA > 0.01) {
-      O.card(150, 190, 1620, 640, { fill: '#171B22', stroke: '#2A303B', lw: 3, alpha: kA * 0.96 });
-      label(O, L.card0, 210, 280, { kind: 'title', px: 60, alpha: kA, plate: null });
-      for (let i = 1; i <= 5; i++) label(O, L['card' + i], 210, 290 + i * 92, { kind: 'number', px: 48, w: 600, alpha: kA, plate: null, color: i === 4 ? C.muted : C.ink });
-      log.roi['h3.card'] = [150, 190, 1770, 830];
+      O.card(110, 190, 1700, 640, { fill: '#171B22', stroke: '#2A303B', lw: 3, alpha: kA * 0.96 });
+      label(O, L.card0, 150, 280, { kind: 'title', px: 60, alpha: kA, plate: null });
+      for (let i = 1; i <= 5; i++) label(O, L['card' + i], 150, 290 + i * 92, { kind: 'number', px: 48, w: 600, alpha: kA, plate: null, color: i === 4 ? C.muted : C.ink });
+      log.roi['h3.card'] = [110, 190, 1810, 830];
     }
     // S32: Ruth, séc, hàng (khung mở đầu) → đồ thị
     nameTag(O, ruth, show(t, MV.m_w32.t0) * (1 - cw));
