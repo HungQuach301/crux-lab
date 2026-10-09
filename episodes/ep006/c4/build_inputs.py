@@ -152,6 +152,7 @@ def claims():
         ch = next((c for p, c in CHAR.items() if cid.startswith(p)), None)
         if ch:
             x['character'] = ch
+            x['illustrative'] = True   # S05: mọi claim của nhân vật ILLUSTRATIVE mang cờ (C4 checks lần 1: 7 claim Carl/Edna/Ruth thiếu)
         for k, flag in (('conditional', cid in cond), ('core', cid in core), ('decisive', cid in decisive)):
             if flag:
                 x[k] = cond[cid] if k == 'conditional' else True
