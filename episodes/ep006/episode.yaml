@@ -6,3 +6,87 @@ pillar: hưu trí
 tokenCeiling: {episode: 15000000, note: "mức cảnh báo (episode.md §8), trần = đầu vào mới + sinh ra từ log phiên"}
 voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1005, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
 music: {style: C}      # G-016
+# F-3 (D-010 §5) + episode.md §5b: nhạc bằng mã theo bản đồ căng, MỖI HỒI MỘT CUE (khoá/nhịp/hình riêng, không lặp vòng) — world/music/{tension,bed}.py.
+# Nhạc về 0 quanh MR1 (midrolls[0].t) và 0,75 s trước ba số neo (spine `anchor: true`: S11.1, S14.1, S25.1 — mỗi số ở đầu cảnh, lặng nằm TRONG đuôi
+# 1,0–1,2 s của cảnh trước: không cộng giây vào tập). Khúc đóng A (toolkit/factory/theme/close-A.wav) do bed.py đặt: điểm chạm 0,6 s sau chữ cuối.
+# Đổi timeline (đuôi, MR1) → xoá work/factory/music/bed.wav để sinh lại; đoạn thế giới dùng đúng lát nhạc này (c4kit.music_plan).
+audio:
+  lufs: -14
+  true_peak: -2.0     # như Tập 5 C5: −2,0 để bản AAC cuối còn dư ≤ −1,5 dBTP
+  music: work/factory/music/bed.wav
+  music_cmd: "python3 episodes/ep006/world/music/bed.py {total} {out} --timeline episodes/ep006/out/factory/timeline.json"
+  ident: {after: S03}            # F-12: nhạc hiệu A 3 s cuối đuôi S03 (toolkit/factory/theme/ident-A.wav)
+  close_lift_db: 12              # F-12: nhạc +12 dB trong 0,5 s sau chữ cuối (khúc đóng A nghe rõ ở thẻ cuối)
+
+# ---- C4 animatic cả tập (nhà máy, D-010): MỌI cảnh là đoạn thế giới 3D (world:), không shot 2D; 720p xem trước (C5 đổi res: 1080).
+#   python3 episodes/ep006/world/derive.py && python3 episodes/ep006/c4/build_inputs.py --timeline   (gen + timeline khô + nhạc nền, 0 ký tự EL)
+#   for s in a-s01-s03 b-s04-s08 c-s09-s12 d-s13-s23 e-s24-s29 f-s30-s32; do python3 episodes/ep006/world/c4/$s/spine.py && \
+#     node --import ./episodes/ep006/c4/smoke/register.mjs episodes/ep006/c4/smoke/run.mjs $s; done      (kiểm khai, không render)
+#   bash toolkit/build.sh episodes/ep006/episode.yaml && python3 episodes/ep006/c4/build_inputs.py --out
+scope: full
+script: c4/gen/script.json
+claims: c4/gen/claims.json
+tokens: c4/gen/tokens.json
+data: {file: c4/gen/data.json}
+fps: 30
+res: 720    # C4 animatic; C5 bản cuối 1080 (đoạn thế giới render lại một lần, cache theo cảnh)
+dossier: {script_md: story/script.md, contract: contract.json}
+acts:
+  - {id: cold-open, scenes: [S01, S02, S03]}
+  - {id: ident, scenes: [S03]}          # 3 s cuối S03 (đuôi), không lời: nhạc hiệu A trên thế giới tối dần
+  - {id: act1, scenes: [S04, S05, S06, S07, S08, S09, S10, S11, S12]}
+  - {id: act2, scenes: [S13, S14, S15, S16, S17, S19, S21, S22, S23]}
+  - {id: act3, scenes: [S24, S25, S26, S27, S28, S29, S30]}
+  - {id: method, scenes: [S31]}
+  - {id: outro, scenes: [S32]}
+scenes:
+  - {id: S01, tail: 1.0, shots: []}
+  - {id: S02, tail: 1.0, shots: []}
+  - {id: S03, tail: 4.0, shots: []}     # S03.4 hold 0,8 + ident A 3 s (audio.ident)
+  - {id: S04, tail: 1.0, shots: []}
+  - {id: S05, tail: 1.0, shots: []}
+  - {id: S06, tail: 1.0, shots: []}
+  - {id: S07, tail: 1.0, shots: []}
+  - {id: S08, tail: 1.0, shots: []}
+  - {id: S09, tail: 1.0, shots: []}
+  - {id: S10, tail: 1.2, shots: []}     # S10.2 {peak} hold 1,2
+  - {id: S11, tail: 1.0, shots: []}
+  - {id: S12, tail: 1.5, shots: []}     # S12.4 hold 1,5 → MR1 (lặng ≥ 1 s cả bản trộn)
+  - {id: S13, tail: 1.0, shots: []}
+  - {id: S14, tail: 1.0, shots: []}
+  - {id: S15, tail: 1.0, shots: []}
+  - {id: S16, tail: 1.0, shots: []}
+  - {id: S17, tail: 1.0, shots: []}
+  - {id: S19, tail: 1.0, shots: []}
+  - {id: S21, tail: 1.0, shots: []}
+  - {id: S22, tail: 1.0, shots: []}
+  - {id: S23, tail: 1.0, shots: []}
+  - {id: S24, tail: 1.0, shots: []}
+  - {id: S25, tail: 1.0, shots: []}
+  - {id: S26, tail: 1.0, shots: []}
+  - {id: S27, tail: 1.0, shots: []}
+  - {id: S28, tail: 1.0, shots: []}
+  - {id: S29, tail: 1.0, shots: []}
+  - {id: S30, tail: 1.0, shots: []}
+  - {id: S31, tail: 5.0, shots: []}     # thẻ V7 (B31): 5 s đọc
+  - {id: S32, tail: 2.0, shots: []}     # S32.3 hold 2 → khúc đóng A chạm sau chữ cuối (close_lift_db)
+# MR1 (101: 1 mid-roll, ranh hồi 1 → 2): giữa khoảng giữ 1,5 s sau S12.4 theo giọng thật (out/factory/timeline.json); cả bản trộn lặng ≥ 1 s
+# (đoạn c: spine mix.silences; nhạc nền: bed.py). ≥ 120 s từ đầu và từ cuối.
+midrolls:
+  - {after_act: act1, scene: S12, t: 208.15}   # lời S12 hết 207,42 s; cảnh hết 208,933 s → lặng [207,55; 208,75] + đoạn c lặng tới hết cảnh
+counterweights:
+  - {id: us-only, text: "US only · history, not a forecast", when: historical}
+  - {id: own-start, text: "Each check vs its own first check · not dollars", claims: [guide_real_level_end_pct, latest_window_real_value_level_payment_pct, median_real_value_level_payment_after_20y_pct, worst_real_value_level_payment_after_20y_pct]}
+  - {id: no-advice, text: "Not advice on which check or raise", claims: [raise_grid_3pct, raise_needed_half_20y_pct, raise_needed_all_20y_pct]}
+  - {id: one-year, text: "One year of history, not a forecast", claims: [cpi_yoy_latest_pct]}
+world:    # D-010: sáu đoạn thế giới phủ cả tập (ranh giới: ident tối dần · đồ thị V3 năm theo năm · MR1 · Carl · thang tăng) — world/c4kit.{py,js}
+  - {id: a-s01-s03, dir: world/c4/a-s01-s03, scenes: [S01, S02, S03]}
+  - {id: b-s04-s08, dir: world/c4/b-s04-s08, scenes: [S04, S05, S06, S07, S08]}
+  - {id: c-s09-s12, dir: world/c4/c-s09-s12, scenes: [S09, S10, S11, S12]}
+  - {id: d-s13-s23, dir: world/c4/d-s13-s23, scenes: [S13, S14, S15, S16, S17, S19, S21, S22, S23]}
+  - {id: e-s24-s29, dir: world/c4/e-s24-s29, scenes: [S24, S25, S26, S27, S28, S29]}
+  - {id: f-s30-s32, dir: world/c4/f-s30-s32, scenes: [S30, S31, S32]}
+shorts:   # nháp C4 (beats.md "Shorts candidates"): dựng lại 1080×1920 từ đoạn thế giới (F-9); móc một dòng, không chữ số
+  - {id: SH1, from: "@S06.1", to: "@S07.2$", hook: "A raise every year, and still less", end: "Full episode on the channel"}   # B06–B07: séc lớn lên, thùng tối dần (đoạn b)
+  - {id: SH2, from: "@S14.1", to: "@S15.2$", hook: "How often did it keep up?", end: "Full episode on the channel"}            # B14–B15: lưới, cụm 1947–1949 (đoạn d)
+  - {id: SH3, from: "@S29.1", to: "@S29.3$", hook: "Same raise, three starting months", end: "Full episode on the channel"}    # B29: ba hàng thùng (đoạn e)
