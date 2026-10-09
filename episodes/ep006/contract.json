@@ -1,0 +1,168 @@
+{
+ "episode": "ep006",
+ "lock": "4d688acd8e9b756a805597384c393704312ae1569edc3367ce387e24f4d8f969",
+ "format": "101",
+ "question": "Does an annuity check that rises 2% a year keep up with US consumer prices (CPI-U)? Replaying every 20-year stretch of retirement starting January 1947 to August 2006 (US only, history, not a forecast; no advice to pick a product, payout or company; total money received is not modelled)",
+ "characters": {
+  "ruth": {
+   "illustrative": true,
+   "words": [
+    "Ruth"
+   ],
+   "shape": "person"
+  },
+  "carl": {
+   "illustrative": true,
+   "words": [
+    "Carl"
+   ],
+   "shape": "person"
+  },
+  "edna": {
+   "illustrative": true,
+   "words": [
+    "Edna"
+   ],
+   "shape": "person"
+  },
+  "note": "Ruth = guide character (first check Aug 2006 at 65 = latest window); Carl = worst window (Jan 1966); Edna = earliest kept-up window (1949-01). ILLUSTRATIVE. Colour/side filled by the builder at C4 from the world code actually rendered."
+ },
+ "claims": {
+  "assumptions": [
+   {
+    "id": "us-only",
+    "pattern": "\\bUS only\\b"
+   },
+   {
+    "id": "history-not-forecast",
+    "pattern": "history,? not a forecast"
+   }
+  ],
+  "forbiddenAmounts": [
+   {
+    "id": "annuity_total_received",
+    "terms": [
+     "more money",
+     "pays more",
+     "total",
+     "in total",
+     "more overall"
+    ],
+    "window": "both"
+   }
+  ],
+  "_about": "K-brief Tập 6 rule (3). core/decisive/illustrative/conditions filled by the builder at C4.",
+  "illustrative": [
+   "guide_start",
+   "guide_last_year_2pct_at_or_above_100",
+   "guide_years_2pct_at_or_above_100",
+   "guide_real_2pct_2022_pct",
+   "guide_real_level_2021_pct",
+   "guide_real_2pct_end_pct",
+   "guide_real_level_end_pct",
+   "guide_year_level_reaches_2pct_end",
+   "worst_window_years_2pct_fell_20y"
+  ]
+ },
+ "model": {
+  "kind": "fixed-raise-vs-index-windows",
+  "output": "out/model.json",
+  "params": {
+   "index": {
+    "file": "data/raw/CPIAUCNS.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "CPIAUCNS",
+    "name": "cpiu"
+   },
+   "robust": {
+    "cpiw": {
+     "file": "data/raw/CWUR0000SA0.csv",
+     "valueColumn": "CWUR0000SA0"
+    },
+    "pce": {
+     "file": "data/raw/PCEPI.csv",
+     "valueColumn": "PCEPI"
+    }
+   },
+   "raise": 0.02,
+   "horizonsYears": [
+    20,
+    25
+   ],
+   "mainYears": 20,
+   "firstStart": "1947-01",
+   "guide": {
+    "start": "2006-08",
+    "age": 65
+   },
+   "raiseGrid": [
+    0.02,
+    0.025,
+    0.03,
+    0.035,
+    0.04
+   ],
+   "decades": [
+    1940,
+    1950,
+    1960,
+    1970,
+    1980,
+    1990,
+    2000
+   ],
+   "shareBands": [
+    90,
+    75
+   ]
+  },
+  "code": "model/model.py",
+  "claims": {
+   "cpi_yoy_latest_pct": "cpi_yoy_latest_pct",
+   "index_last_month": "index_last_month",
+   "windows_20y": "windows_20y",
+   "windows_2pct_kept_up_20y": "windows_2pct_kept_up_20y",
+   "share_2pct_kept_up_20y_pct": "share_2pct_kept_up_20y_pct",
+   "kept_up_first_start_20y": "kept_up_first_start_20y",
+   "kept_up_last_start_20y": "kept_up_last_start_20y",
+   "windows_25y": "windows_25y",
+   "windows_2pct_kept_up_25y": "windows_2pct_kept_up_25y",
+   "median_inflation_20y_pct_per_year": "median_inflation_20y_pct_per_year",
+   "median_real_value_2pct_payment_after_20y_pct": "median_real_value_2pct_payment_after_20y_pct",
+   "median_real_value_level_payment_after_20y_pct": "median_real_value_level_payment_after_20y_pct",
+   "worst_real_value_2pct_payment_after_20y_pct": "worst_real_value_2pct_payment_after_20y_pct",
+   "worst_real_value_level_payment_after_20y_pct": "worst_real_value_level_payment_after_20y_pct",
+   "worst_window_start_year_20y": "worst_window_start_year_20y",
+   "worst_window_years_2pct_fell_20y": "worst_window_years_2pct_fell_20y",
+   "share_2pct_at_least_90_after_20y_pct": "share_2pct_at_least_90_after_20y_pct",
+   "share_2pct_at_least_75_after_20y_pct": "share_2pct_at_least_75_after_20y_pct",
+   "two_pct_growth_20y_pct": "two_pct_growth_20y_pct",
+   "latest_start": "latest_start",
+   "latest_end": "latest_end",
+   "latest_window_real_value_2pct_payment_pct": "latest_window_real_value_2pct_payment_pct",
+   "latest_window_real_value_level_payment_pct": "latest_window_real_value_level_payment_pct",
+   "latest_window_price_rise_pct": "latest_window_price_rise_pct",
+   "latest_window_inflation_pct_per_year": "latest_window_inflation_pct_per_year",
+   "guide_start": "guide_start",
+   "guide_last_year_2pct_at_or_above_100": "guide_last_year_2pct_at_or_above_100",
+   "guide_years_2pct_at_or_above_100": "guide_years_2pct_at_or_above_100",
+   "guide_real_2pct_2022_pct": "guide_real_2pct_2022_pct",
+   "guide_real_level_2021_pct": "guide_real_level_2021_pct",
+   "guide_real_2pct_end_pct": "guide_real_2pct_end_pct",
+   "guide_real_level_end_pct": "guide_real_level_end_pct",
+   "guide_year_level_reaches_2pct_end": "guide_year_level_reaches_2pct_end",
+   "median_year_level_reaches_2pct_end_median": "median_year_level_reaches_2pct_end_median",
+   "by_decade_1990_median_real_2pct": "by_decade_1990_median_real_2pct",
+   "by_decade_2000_kept": "by_decade_2000_kept",
+   "by_decade_2000_max_real_2pct": "by_decade_2000_max_real_2pct",
+   "by_decade_1960_median_real_2pct": "by_decade_1960_median_real_2pct",
+   "raise_needed_half_20y_pct": "raise_needed_half_20y_pct",
+   "raise_needed_all_20y_pct": "raise_needed_all_20y_pct",
+   "raise_grid_3pct": "raise_grid_3pct",
+   "robust_cpiw_share_kept_up_20y_pct": "robust_cpiw_share_kept_up_20y_pct",
+   "robust_pce_share_kept_up_20y_pct": "robust_pce_share_kept_up_20y_pct",
+   "cpiu_from_pce_start_kept_up_20y": "cpiu_from_pce_start_kept_up_20y",
+   "robust_pce_median_real_2pct_pct": "robust_pce_median_real_2pct_pct"
+  }
+ }
+}
