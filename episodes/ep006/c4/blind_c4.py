@@ -13,13 +13,16 @@ sys.path.insert(0, str(EP)); import blind  # noqa: E402
 sys.path.insert(0, str(ROOT / 'toolkit' / 'blind')); import packets  # noqa: E402
 REV = EP / 'review-c4'
 T = "You are an American aged 64, about to retire, looking at an income annuity quote that offers two payout options."
-QS = ("Answer in plain sentences:\n1. What idea is this showing?\n2. What changes over time?\n3. What does it mean?\n"
-      "4. What advice, if any, would a viewer take from this?\n5. Did the video itself (picture, on-screen text or narration) suggest this, or is it your own conclusion?\n")
+Q14 = ("Answer in plain sentences:\n1. What idea is this showing?\n2. What changes over time?\n3. What does it mean?\n"
+       "4. What advice, if any, would a viewer take from this?\n")
+QS = {'root': Q14 + "5. Did the animation itself suggest this, or is it your own conclusion? If you gave no advice in 4, answer 'none'.\n",
+      'voiced': Q14 + "5. Did the video itself (picture, on-screen text or narration) suggest this, or is it your own conclusion? If you gave no advice in 4, answer 'none'.\n"}
 QUESTION_ID = 'C4 Tập 6: vai T + câu 1–5 (gates/C4-intent.md)'
 IMAGE = ['B01', 'B03', 'B04', 'B06', 'B07', 'B08', 'B09', 'B10', 'B12', 'B13', 'B14', 'B15', 'B16', 'B17', 'B19', 'B21', 'B22', 'B24', 'B25',
          'B27', 'B29', 'B30', 'B32']
 POS_LINE = "So if you are choosing today, take the payout that is tied to inflation."
-NEG = {'png': ROOT / 'episodes/ep005/c4/voiced-r1/035beedf.png', 'txt': ROOT / 'episodes/ep005/c4/voiced-r1/035beedf.txt'}   # Tập 5 S06 C4, có lời 3/3 khuyên 0
+NEU_LINE = "So the same raise ended in three different places, set by the month each one started."
+AUX = {'png': ROOT / 'episodes/ep005/c4/voiced-r1/035beedf.png', 'txt': ROOT / 'episodes/ep005/c4/voiced-r1/035beedf.txt'}   # Tập 5 S06 C4, có lời 3/3 khuyên 0
 LINE = re.compile(r'^(S\d\d)\.(\d+)\s+(?:\{\w+\}\s+)?(?:\[[a-z ]+\]\s+)?(.+?)\s*<!--')
 
 
@@ -42,6 +45,22 @@ def narration(scenes):
         if m and m[1] in scenes:
             out.append(m[3].strip())
     return '\n'.join(out)
+
+
+def srt_cues():
+    out = []
+    for blk in (EP / 'out/captions.srt').read_text().strip().split('\n\n'):
+        ln = blk.strip().split('\n')
+        a, b = ln[1].split(' --> ')
+        sec = lambda x: int(x[:2]) * 3600 + int(x[3:5]) * 60 + float(x[6:].replace(',', '.'))
+        out.append((sec(a), sec(b), ' '.join(ln[2:])))
+    return out
+
+
+def heard(scene_ids):
+    """Lời như người xem nghe: phụ đề có tâm nằm trong khoảng giờ các cảnh (REVIEWER PHỤ-9)."""
+    sc = [s for s in timeline()['scenes'] if s['id'] in scene_ids]
+    return '\n'.join(t for a, b, t in srt_cues() if any(s['start'] <= (a + b) / 2 < s['end'] for s in sc))
 
 
 def timeline():
@@ -101,16 +120,17 @@ def samples(kind):
     srt = (EP / 'out/captions.srt').read_text()
     whole = ('The images show frames from a whole personal-finance video (about 9 minutes), in time order: sheet 1 is the opening and first part, '
              'sheet 2 the second part, sheet 3 the third part, sheet 4 the limits and ending. This is the full narration you hear, with times:\n---\n' + srt + '\n---')
-    s29 = narration({'S29'})
+    s29 = heard({'S29'})
     voice = ('The image shows six numbered frames, in order, from a short animation in a personal-finance video. The line just before: "'
-             + narration({'S28'}).split('\n')[-1] + '"\nThis is the narration you hear over these frames:\n---\n{n}\n---')
-    neg = NEG['txt'].read_text()
+             + heard({'S28'}).split('\n')[-1] + '"\nThis is the narration you hear over these frames:\n---\n{n}\n---')
+    neg = AUX['txt'].read_text()
     neg_n = neg[neg.index('---') + 4:neg.rindex('---')].strip()
     return [('WHOLE', 'ep006', 'voiced', whole, sorted(REV.glob('sheet?.png'))),
             ('S29', 'ep006', 'voiced', voice.format(n=s29), [REV / 'strips' / 'B29.png']),
             ('POS-S29', 'ctrl', 'voiced', voice.format(n=s29 + '\n' + POS_LINE), [REV / 'strips' / 'B29.png']),
-            ('NEG-ep005-S06', 'ctrl', 'voiced', 'The image shows six numbered frames, in order, from a short animation in a personal-finance video. '
-             'This is the narration you hear over these frames:\n---\n' + neg_n + '\n---', [NEG['png']])]
+            ('NEG-S29', 'ctrl', 'voiced', voice.format(n=s29 + '\n' + NEU_LINE), [REV / 'strips' / 'B29.png']),
+            ('AUX-ep005-S06', 'ctrl', 'voiced', 'The image shows six numbered frames, in order, from a short animation in a personal-finance video. '
+             'This is the narration you hear over these frames:\n---\n' + neg_n + '\n---', [AUX['png']])]
 
 
 def do_read(run, kind, slots, only):
@@ -132,7 +152,7 @@ def do_read(run, kind, slots, only):
                 dst = o / f'{h}-{i + 1}{Path(f).suffix}'
                 dst.write_bytes(Path(f).read_bytes()); fl.append(str(dst))
             opn = ('Use the Read tool to open exactly ' + ('this one file' if len(fl) == 1 else f'these {len(fl)} files') + ' and nothing else: ' + ', '.join(fl))
-            (o / f'{h}.txt').write_text(f'{T}\n\n{opn}\n{body}\n{QS}')
+            (o / f'{h}.txt').write_text(f'{T}\n\n{opn}\n{body}\n{QS["root" if kd == "image" else "voiced"]}')
             key['items'][h] = {'id': sid, 'set': st, 'kind': 'image' if kd == 'image' else 'voiced', 'slot': k, 'sha256': packets._sha(o / f'{h}.txt')}
             jobs.append(h)
     with cf.ThreadPoolExecutor(6) as ex:
@@ -151,16 +171,18 @@ def rubric():
              '(picture, on-screen text or narration) states or implies a financial action: pick the level payout, the 2% rising payout, an '
              'inflation/CPI/COLA-linked payout, buy or skip an annuity, pick a company. advice_inferred = the reader drew that action themself '
              '(answer 5 says own conclusion, or says the video does not say it). caution_only = general care only (check your own numbers, ask the '
-             'insurer, ask for a quote, talk to an adviser) — not advice. Quote the reader verbatim for any flag.')
+             'insurer, ask for a quote, talk to an adviser) — not advice. Boundary (owner, C3 q3): "ask the insurer how much smaller the rising check starts" / '
+             '"ask what an inflation-linked option would cost" = caution_only; "weigh / consider / prefer / compare and choose the inflation-adjusted (COLA) option" '
+             '= advice. Quote the reader verbatim for any flag. Also return "q5": "video" | "own" | "none" from the reader\'s answer 5.')
     items = {b: {'meaning': bt[b]['muted_read'], 'description_only': 'lists shapes, colours, numbers or labels without the idea above'} for b in IMAGE}
-    whole = ('Whole episode (voiced): a 2% yearly raise on an annuity check lost buying power against US consumer prices in almost every 20-year '
-             'stretch since 1947 (17 of 715 kept up, none after early 1949), even though the check rises every year; the typical stretch kept about 4/5; '
-             'it depends on when the stretch started; history, not a forecast; no advice on which payout to pick.')
-    s29 = bt['B29']['muted_read'] + ' Same 2% raise; the outcome depended on the start month and what prices did after.'
+    c2 = (EP / 'c2/rubric.md').read_text()
+    whole = c2[c2.index('**Đúng câu hỏi**'):c2.index('**Câu khuyên:**')].strip()   # nguyên văn c2/rubric.md (REVIEWER CHẶN-2)
+    s29 = bt['B29']['muted_read'] + ' — cùng 2 %, kết quả do tháng bắt đầu.'
     items.update({'WHOLE': {'meaning': whole, 'description_only': 'retells scenes without the idea'},
                   'S29': {'meaning': s29, 'description_only': 'lists the three rows without the idea'},
                   'ctrl:POS-S29': {'meaning': s29, 'description_only': '—'},
-                  'ctrl:NEG-ep005-S06': {'meaning': 'A mortgage payment at the current average rate pays the loan balance down slowly at first, faster later; '
+                  'ctrl:NEG-S29': {'meaning': s29, 'description_only': '—'},
+                  'ctrl:AUX-ep005-S06': {'meaning': 'A mortgage payment at the current average rate pays the loan balance down slowly at first, faster later; '
                                                     'taxes, insurance and mortgage insurance come on top.', 'description_only': '—'}})
     return {'rules': rules, 'items': items}
 
@@ -177,7 +199,7 @@ def do_grade(run, n):
     pk = json.load(open(o / 'packet.json'))
     body = ('# Grading packet (blind). You are an independent grader. Each label Rxx is one reader\'s answers about part of a personal-finance video. '
             'Grade each label literally with the rules and the expected meaning given for it. You know nothing else.\n\n'
-            + json.dumps(pk, indent=1, ensure_ascii=False) + '\n\nOutput JSON only (no prose, no code fence), one entry per label: ' + pk['return'] + '\n')
+            + json.dumps(pk, indent=1, ensure_ascii=False) + '\n\nOutput JSON only (no prose, no code fence), one entry per label: ' + pk['return'] + ' — and add "q5": "video" | "own" | "none" to every entry.\n')
     (o / 'grade-prompt.txt').write_text(body)
 
     def one(k):
@@ -212,9 +234,10 @@ def do_tally(run):
         r['inferred'] += any(v.get('advice_inferred') and not v.get('advice_stated') for v in vs)
         r['caution'] += any(v.get('caution_only') for v in vs)
         r['quotes'] += [v.get('quote') for v in vs if v.get('quote')]
+        r.setdefault('q5', []).append('/'.join(sorted({str(v.get('q5', '?')) for v in vs})))
     json.dump({'graders': len(scs), 'rows': rows}, open(o / 'tally.json', 'w'), indent=1, ensure_ascii=False)
-    L = ['| Mẫu | Người đọc | Nghĩa = 1 | Khuyên (rubric cũ) | advice_stated (mới) | advice_inferred | caution_only |', '|---|---|---|---|---|---|---|']
-    L += [f"| {k} | {r['readers']} | {r['meaning1']} | {r['old']} | {r['new']} | {r['inferred']} | {r['caution']} |" for k, r in sorted(rows.items())]
+    L = ['| Mẫu | Người đọc | Nghĩa = 1 | Khuyên (rubric cũ) | advice_stated (mới) | advice_inferred | caution_only | Câu 5 |', '|---|---|---|---|---|---|---|---|']
+    L += [f"| {k} | {r['readers']} | {r['meaning1']} | {r['old']} | {r['new']} | {r['inferred']} | {r['caution']} | {', '.join(r['q5'])} |" for k, r in sorted(rows.items())]
     L.append(f'\n{len(scs)} người chấm; gộp thận trọng (điểm thấp nhất, cờ nếu bất kỳ người chấm nào bật).')
     (o / 'tally.md').write_text('\n'.join(L) + '\n'); print('\n'.join(L))
 
