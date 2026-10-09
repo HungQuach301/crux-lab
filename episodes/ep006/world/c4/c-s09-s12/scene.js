@@ -40,8 +40,10 @@ export async function boot(res) {
     const sc = (k, v) => O.toScreen(k * KX, VY(v), 0.46);
     const [bx1, by] = O.toScreen(20 * KX + 0.25, Y0, 0.4);
     label(O, 'first check', bx1, by - 26, { align: 'right', kind: 'name', px: 48, w: 600, color: C.muted, alpha: 1 });
-    { const [x0, y0] = O.toScreen(0, Y0, 0.4); label(O, L.axis0, x0, y0 + 70, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.d0.ruths) }); }
-    { const [x2, y2] = O.toScreen(20 * KX, Y0, 0.4); label(O, L.axis20, x2, y2 + 70, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.d3.since) }); }
+    // nhãn trục năm: gần (S09–S11) ngay dưới vạch; khi lùi máy (S12) xuống hàng đáy dưới đầu đường séc đều — không đè chấm năm 20, nét đứt séc đều và nhãn séc tăng
+    const yAx = (() => { const [, y2] = O.toScreen(20 * KX, Y0, 0.4), [, yl] = sc(20, PL[20]); return mix(y2 + 70, Math.max(y2 + 70, yl + 90), ease(t, MV.m_pull.t0, MV.m_pull.t1)); })();
+    { const [x0] = O.toScreen(0, Y0, 0.4); label(O, L.axis0, x0, yAx, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.d0.ruths) }); }
+    { const [x2] = O.toScreen(20 * KX, Y0, 0.4); label(O, L.axis20, x2, yAx, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.d3.since) }); }
     // chấm mỗi kỷ niệm 1 … 15 (cushion ≥ 100 %, warn < 100 %); S09.2 loé
     for (let k = 1; k <= Math.min(20, Math.floor(u)); k++) {
       const [x, y] = sc(k, P[k]), under = P[k] < 1, f = under ? pulse(t, b.d1.slipped, 1.2) : (k === 3 || k === 7 ? pulse(t, b.d1.climbed, 1.2) : 0);
