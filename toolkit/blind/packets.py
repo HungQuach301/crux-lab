@@ -21,7 +21,9 @@ Luật (ghi trong ý đồ trước khi chạy; mặc định khớp quality-fra
                         một sản phẩm. TÍNH: nhịp có ≥ 1 advice_stated → TRƯỢT ngay.
       advice_inferred — người đọc TỰ SUY hành động từ dữ liệu khi bị hỏi câu 4 (và/hoặc câu 5 nói là kết luận của mình, hoặc ghi
                         "the video doesn't state …"). BÁO, không chặn; đếm ở bảng.
-      caution_only    — chỉ thận trọng chung (tự kiểm số của mình, hỏi chuyên gia / bên cho vay / chuyên gia thuế). Không tính (A9).
+      caution_only    — chỉ thận trọng chung (tự kiểm số của mình, hỏi chuyên gia / bên cho vay / chuyên gia thuế / công ty bảo hiểm, hỏi báo giá). Không tính (A9; chủ dự án 08/10: hỏi bảo hiểm / báo giá = caution_only).
+      Áp dụng (chủ dự án 08/10, gói K4.1 câu 3): CHẠY THỬ ở C4 Tập 6 — kiểm mù bản có lời, chấm song song rubric cũ (`advice`) và mới, 2 người chấm, thêm
+      đối chứng hình thật; lệch giữa hai rubric thì giữ rubric cũ cho cổng.
   * Dừng sớm: 2 người đầu cùng kết quả → xong (2/2 đạt, 0/2 trượt); lệch → gọi người thứ 3; đạt khi ≥ 2/3 đúng.
   * Cổng: tỉ lệ nhịp "image" của bộ ứng viên đạt ≥ --threshold. Nhịp "illustration" và bộ đối chứng chỉ báo cáo.
 
@@ -112,7 +114,7 @@ def packet(keyfile, answersfile, rubricfile, packetfile, rubrickeyfile):
           'advice_stated: true khi câu trả lời cho thấy CHÍNH VIDEO (hình, chữ trên hình, lời) nêu hay ngụ ý một hành động tài chính '
           '(mua, bán, giữ, chờ, khoá, chọn/tránh một sản phẩm), kể cả phán "X an toàn/tốt hơn" mà người đọc gán cho video. '
           'advice_inferred: true khi người đọc TỰ SUY hành động đó từ dữ liệu (câu 4/5: "my own conclusion", "the video doesn\'t say …"). '
-          'caution_only: true khi chỉ có thận trọng chung (tự kiểm số của mình, hỏi chuyên gia/bên cho vay) — không tính là khuyên. '
+          'caution_only: true khi chỉ có thận trọng chung (tự kiểm số của mình, hỏi chuyên gia/bên cho vay/công ty bảo hiểm, hỏi báo giá) — không tính là khuyên. '
           'quote: trích nguyên văn câu của người đọc làm căn cứ cho cờ (rỗng nếu không cờ nào).',
           'return': '{"Rxx": {"score": 1|0.5|0, "advice_stated": true|false, "advice_inferred": true|false, "caution_only": true|false, '
                     '"quote": "…", "why": "≤ 15 từ"}}', 'items': {}}
