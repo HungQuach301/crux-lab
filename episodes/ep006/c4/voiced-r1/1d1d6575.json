@@ -1,0 +1,22 @@
+{
+ "answer": "1. The animation shows how a mortgage payment works. A $360,000 loan at September 2026's average rate of 6.86% (Freddie Mac data via FRED) has a $2,362 monthly payment for principal and interest. Taxes, home insurance and PMI are added on top of that. The frames are labeled \"Illustrative.\"\n\n2. Two things change. First, the on-screen figures build up: the rate, then the payment, then the extra costs. Second, the loan balance falls as the payment count rises from 0 toward 360 (frames 5 and 6 show payments 35 and 114). The curve drops slowly at first and faster later.\n\n3. The payment is set on day one and stays the same. Early on, most of each payment goes to interest, so the balance barely falls. Later, more of each payment goes to principal and the balance falls faster. The $2,362 is only part of the real monthly housing cost.\n\n4. The video gives no advice. The caption \"A measurement, not a next step\" says so directly. A viewer could take away a few points on their own. The payment quoted is not the full cost. Paying down the balance is slow early on. The rate shown is a market average, not a personal quote. None of this is a recommendation to do anything.\n\n5. Because the video gives no advice, the answer is \"none.\" The points in 4 come from my own reading. The video states only the facts in 1 to 3.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1509,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 152,
+   "in": 1509,
+   "out": 152
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3820,
+   "cache_read": 6219,
+   "output": 524,
+   "in": 10043,
+   "out": 524
+  }
+ },
+ "turns": 2
+}

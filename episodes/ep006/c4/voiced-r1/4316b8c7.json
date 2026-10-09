@@ -1,0 +1,22 @@
+{
+ "answer": "1. The frames illustrate how a 30-year mortgage works. A $360,000 loan at the September 2026 average rate of 6.86% (Freddie Mac, via FRED) has a fixed monthly principal-and-interest payment of $2,362. The loan balance then falls over the 360 payments.\n\n2. The payment count runs from 0 up to 114 (frames 5–6) along a 360-payment axis, and the loan balance curve slopes downward. The $2,362 payment stays the same. The text \"taxes, home insurance and PMI on top\" appears next to the payment in frame 4. The balance drops slowly at first and faster later.\n\n3. The $2,362 is only part of the real monthly cost, because taxes, insurance and PMI are added to it. Early payments are mostly interest, so the balance barely falls at the start. As the balance shrinks, more of each payment goes to principal, and the balance falls faster. The whole schedule is fixed on day one.\n\n4. The video gives no advice. Every frame is labeled \"A measurement, not a next step\" and \"ILLUSTRATIVE.\" A viewer could take away that the quoted payment understates the full cost of owning a home, and that equity builds slowly in the early years. Those are my inferences, not recommendations from the video.\n\n5. The video didn't suggest any advice, so my answer to 4 is my own reading. Its on-screen text explicitly says it is not offering a next step. The line about taxes, insurance and PMI is in the video, but it is a fact and not advice.\n\nYou mentioned an income annuity quote with two payout options. Nothing in this image concerns annuities, so I haven't tied the video to that decision.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1509,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 206,
+   "in": 1509,
+   "out": 206
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3820,
+   "cache_read": 6219,
+   "output": 627,
+   "in": 10043,
+   "out": 627
+  }
+ },
+ "turns": 2
+}

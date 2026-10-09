@@ -1,0 +1,22 @@
+{
+ "answer": "1. The animation shows how a 30-year mortgage works. It uses a $360,000 loan at September 2026's average rate of 6.86% (Freddie Mac, via FRED). The monthly principal-and-interest payment is $2,362. Property taxes, home insurance and mortgage insurance (PMI) are charged on top of that. The frames also show the loan balance falling on a schedule that is fixed on day one.\n\n2. Two things change. The first is the payment count, which runs from 0 toward 360 (payment 35, then payment 114). The second is the loan balance. It drops slowly in the early years and faster in the later ones, so the curve gets steeper as the payments go on.\n\n3. The $2,362 is only part of the real monthly housing cost. Early payments go mostly to interest, so the balance barely moves at first. Most of the paydown comes in the later years. The frames label the whole animation \"Illustrative\" and \"A measurement, not a next step.\"\n\n4. The video gives no advice, and a viewer shouldn't take any action from it. The most a viewer could take is awareness. The quoted payment understates the full monthly cost, and a new mortgage pays down slowly at the start. Nothing here tells anyone whether to buy, refinance or wait.\n\n5. None. I gave no advice in 4, so there is nothing to attribute. The points in 4 are only a restatement of what the picture, on-screen text and narration say.\n\nYou also said you're 64 and looking at an income annuity quote with two payout options. This video is about mortgages and says nothing about annuities, so I haven't drawn any conclusion about your choice from it.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1507,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 218,
+   "in": 1507,
+   "out": 218
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3814,
+   "cache_read": 6215,
+   "output": 607,
+   "in": 10033,
+   "out": 607
+  }
+ },
+ "turns": 2
+}
