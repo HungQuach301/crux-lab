@@ -45,9 +45,14 @@ const mod = (fn) => { const e = good(); fn(e); return e; };
 const find = (e, tid) => e.find((x) => x.tid === tid);
 
 const CASES = {
-  good: { els: good(), expect: { PASS: ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C10', 'C12', 'C14', 'C15', 'V02', 'V03', 'V04', 'V09', 'V08', 'V11', 'V12', 'S08', 'S09', 'S07', 'V15'] } },
+  good: { els: good(), plateOver: '0', expect: { PASS: ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C10', 'C12', 'C14', 'C15', 'V02', 'V03', 'V04', 'V09', 'V08', 'V11', 'V12', 'S08', 'S09', 'S07', 'V15'] } },
   'V11-text-on-line': { els: mod((e) => { Object.assign(find(e, 'money'), { y: 780 }); find(e, 'money').x = 400; }), expect: { FAIL: ['V11'] } },
-  'V11-badge-on-series': { els: mod((e) => Object.assign(find(e, 'ill'), { x: 900, y: 590 })), expect: { FAIL: ['V11'] } },
+  // K4.1 (A22): the badge's pill covers the series under it; its glyph ink touches no exposed graphic -> no collision (before K4.1: FAIL, plate counted as text)
+  'V11-badge-on-series': { els: mod((e) => Object.assign(find(e, 'ill'), { x: 900, y: 590 })), expect: { PASS: ['V11'] }, plateOver: '>0' },
+  // K4.1 (A22): two badges whose pills overlap while their glyphs stay apart -> no collision
+  // pills of ill (y 900) and ill2 (y 936) overlap by ~5 px (pill 41.6 px tall: 28 px × 1.2 + 2 × 4 px); glyph rows stay apart
+  'V11-two-plates-overlap': { els: mod((e) => e.push({ type: 'text', tid: 'ill2', text: 'ILLUSTRATIVE', badge: true, bg: TOK.warn, color: TOK.bg, x: 1450, y: 936, size: 28 })),
+    expect: { PASS: ['V11'] } },
   'V11-axis-label-on-axis': { els: mod((e) => Object.assign(find(e, 'y1'), { y: 785 })), expect: { FAIL: ['V11'] } },
   'V11-text-on-text': { els: mod((e) => e.push({ type: 'text', tid: 'over', text: 'overlap', x: 720, y: 905, size: 36, color: TOK.ink })), expect: { FAIL: ['V11'] } },
   'V03-outside-safe': { els: mod((e) => Object.assign(find(e, 'money'), { x: 20 })), expect: { FAIL: ['V03'] } },
@@ -172,6 +177,13 @@ async function main() {
       const ok = got === want;
       results.push({ case: name, rule: id, want, got, ok });
       console.log(`${ok ? 'ok  ' : 'FAIL'} ${name.padEnd(24)} ${id} want ${want} got ${got}${ok ? '' : '  ' + JSON.stringify(st[id] && st[id].metrics.filter((m) => !m.pass)).slice(0, 300)}`);
+    }
+    // K4.1 (A22, REVIEWER): graphics under a pill are not a V11 violation but are counted in V11.plateOverGraphics (report-only)
+    if (c.plateOver) {
+      const n = JSON.parse(fs.readFileSync(path.join(root, 'out', 'checks', 'page.json'), 'utf8')).rules.V11.plateOverGraphics;
+      const ok = c.plateOver === '>0' ? n > 0 : n === 0;
+      results.push({ case: name, rule: 'V11 plateOverGraphics', want: c.plateOver, got: n, ok });
+      console.log(`${ok ? 'ok  ' : 'FAIL'} ${name.padEnd(24)} V11 plateOverGraphics want ${c.plateOver} got ${n}`);
     }
     if (c.events) {
       const pg = JSON.parse(fs.readFileSync(path.join(root, 'out', 'checks', 'page.json'), 'utf8'));

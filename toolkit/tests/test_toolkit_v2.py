@@ -112,6 +112,47 @@ class Packets(unittest.TestCase):
         res, rk, sp = self._score(plan)
         self.assertEqual(res['verdict'], 'PASS')
 
+    def test_advice_stated_vs_inferred(self):
+        """K4.1 (A9 + A21): advice_stated chặn nhịp; advice_inferred chỉ đếm; bản chấm cũ `advice` đọc là stated."""
+        packets.deal(self.man, self.out, self.key, [1, 2])
+        key = json.load(open(self.key))
+        ans = {h: f'answer {v["id"]} {v["slot"]}' for h, v in key['items'].items()}
+        a = os.path.join(self.d, 'answers.json'); json.dump(ans, open(a, 'w'))
+        pk, rk = os.path.join(self.d, 'packet.json'), os.path.join(self.d, 'rubric-key.json')
+        packets.packet(self.key, a, self.rub, pk, rk)
+        self.assertIn('advice_stated', json.load(open(pk))['return'])
+        R = json.load(open(rk))
+        sc = {}
+        for lab, h in R.items():
+            v = key['items'][h]
+            if v['id'] == 'KEY-1':      # người đọc tự suy (video không nói) → không chặn
+                sc[lab] = {'score': 1, 'advice_stated': False, 'advice_inferred': True, 'quote': "the video doesn't state this", 'why': ''}
+            elif v['id'] == 'KEY-2':    # video nêu hành động → chặn
+                sc[lab] = {'score': 1, 'advice_stated': v['slot'] == 1, 'advice_inferred': False, 'quote': 'the label says Stay put to save', 'why': ''}
+            elif v['id'] == 'KEY-3':    # bản chấm cũ: advice = stated
+                sc[lab] = {'score': 1, 'advice': v['slot'] == 1, 'why': ''}
+            else:
+                sc[lab] = {'score': 0, 'advice_stated': False, 'caution_only': True, 'why': ''}
+        sp = os.path.join(self.d, 'scores.json'); json.dump(sc, open(sp, 'w'))
+        # chủ dự án 08/10 (gói K4.1 câu 3): chạy thử — luôn tính cả hai rubric; cổng mặc định rubric cũ; lệch → giữ rubric cũ
+        res = packets.tally(self.key, rk, sp, threshold=0.8)
+        rows = {r['id']: r for r in res['rows']}
+        self.assertEqual((res['advice_rubric'], rows['KEY-1']['status']), ('old', 'FAIL'))          # cũ: tự suy cũng chặn
+        self.assertEqual(sorted(res['advice_beats_old']), ['KEY-1', 'KEY-2', 'KEY-3'])
+        self.assertEqual(sorted(res['advice_beats_new']), ['KEY-2', 'KEY-3'])                       # mới: chỉ video nói
+        self.assertTrue(res['rubric_disagree'])
+        res2 = packets.tally(self.key, rk, sp, threshold=0.8, advice_rubric='new')
+        self.assertEqual(res2['advice_rubric'], 'old')                                              # lệch → giữ rubric cũ
+        new = packets._tally_one(json.load(open(self.key)), json.load(open(rk)), [json.load(open(sp))], 0.8, None, 'new')
+        nrows = {r['id']: r for r in new['rows']}
+        self.assertEqual((nrows['KEY-1']['status'], nrows['KEY-1']['advice'], nrows['KEY-1']['advice_inferred']), ('PASS', 0, 2))
+        # hai người chấm: gộp thận trọng (một người bật cờ là tính)
+        sp2 = os.path.join(self.d, 'scores2.json')
+        json.dump({lab: dict(v, advice_stated=False, advice_inferred=False, quote='') if 'advice_stated' in v else v for lab, v in sc.items()}, open(sp2, 'w'))
+        res3 = packets.tally(self.key, rk, [sp, sp2], threshold=0.8)
+        self.assertEqual((res3['graders'], sorted(res3['advice_beats_new'])), (2, ['KEY-2', 'KEY-3']))
+        self.assertIn('hai rubric lệch', packets.markdown(res) if res['verdict'] != 'PENDING' else 'hai rubric lệch')
+
     def test_classes_guard(self):
         packets.deal(self.man, self.out, self.key, [1, 2])
         plan = {(s, i, k): (1, False) for s, i in (('ep003', 'KEY-1'), ('ep003', 'KEY-2'), ('ep003', 'KEY-3'),

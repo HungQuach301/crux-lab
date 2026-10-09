@@ -2417,6 +2417,49 @@ def s22_named_case(bad):
 EXTRA.update({'S22/named': s22_named_case})
 
 
+# ---- K4.1 (nhóm 1, chờ chủ dự án): F11 đọc danh sách phát hành của nhà máy (A10, A16) ----------------------------------------------------
+def f11_factory_case(kind):
+    """F11 on a factory build (A10/A16): the factory's release files present → pass, though the contract still lists the old pipeline's files;
+    bad: one file the factory really made is deleted (sonify-events of the artefacts step, or a world segment's verify report)."""
+    def fn(bad):
+        import r_file
+        f = F('F11-factory-' + kind)
+        try:
+            f.json('out/timeline.json', {'total': 60.0, 'scenes': []})
+            f.json('out/factory/build-report.json', {'steps': {'resolve': {'total': 60.0}, 'world': {}, 'mix': {'world': {'segments': [{'id': 'a', 'layers_rms_dbfs': {'sfx': -50, 'room': -65}}]}},
+                                                            'artefacts': {'camera': {'frames': 1800}, 'sonify': {'a': {}}, 'page': {'page': 'work/factory/page/index.html'}}}})
+            f.json('out/factory/splice.json', {'segments': [{'id': 'a', 't0': 0.0, 'video': 'work/factory/world/a-1080.mp4'}]})
+            f.contract(artefacts={'M3': ['out/video.mp4', 'out/tempo-map.json', 'out/cues.json']})
+            for x in r_file.factory_release(common.Ctx(f.root)):
+                if not os.path.exists(f.p(x)):
+                    f.text(x.replace('.*', '.flac'), 'x')
+            if bad:
+                os.remove(f.p('out/sonify-events.json' if kind == 'artefacts' else 'work/factory/world/a-1080.mp4.verify.json'))
+            return f.run('F11')
+        finally:
+            f.close()
+    return fn
+
+
+def f11_excerpt_case(bad):
+    """F11: a factory build of an EXCERPT (Tập 3: 75 s of a 572 s film) does not switch the rule to the factory list; the contract's M3 is judged (bad: a declared file absent)."""
+    import r_file
+    f = F('F11-excerpt')
+    try:
+        f.json('out/timeline.json', {'total': 572.0, 'scenes': []})
+        f.json('out/factory/build-report.json', {'steps': {'resolve': {'total': 75.0}}})
+        decl = [x.replace('.*', '.wav') for x in r_file.RELEASE_FILES]
+        for x in decl:
+            if not os.path.exists(f.p(x)):
+                f.text(x, 'x')
+        if bad:
+            os.remove(f.p('out/cues.json'))
+        f.contract(artefacts={'M3': decl})
+        return f.run('F11')
+    finally:
+        f.close()
+
+
 def s21_round_case(bad):
     """S21 (K4.0.1): a description number is taken as written — 6.8 against a claim of 7 fails (bad); a § law citation is not a number (good)."""
     f = F('S21-round')
@@ -2426,6 +2469,39 @@ def s21_round_case(bad):
         return f.run('S21')
     finally:
         f.close()
+
+
+def f11_repo_path_case(bad):
+    """F11 factory path (K4.1): `episodes/<ep>/…` is found from the repository holding the root (good); an absolute path is refused (bad)."""
+    import r_file
+    d = tempfile.mkdtemp(prefix='kpy-F11-repo-')
+    try:
+        root = os.path.join(d, 'episodes', 'ep9')
+        os.makedirs(os.path.join(root, 'work'))
+        open(os.path.join(root, 'work', 'v.mp4'), 'w').write('x')
+        rel = os.path.join(root, 'work', 'v.mp4') if bad else 'episodes/ep9/work/v.mp4'
+        ok = r_file._repo_path(common.Ctx(root), rel)
+        return {'status': 'PASS' if ok else 'FAIL', 'metrics': []}
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
+def f11_repo_dotdot_case(bad):
+    """F11 factory path (K4.1, REVIEWER): a path with ".." is refused (bad: episodes/ep9/../ep9/work/v.mp4), the plain one found (good)."""
+    import r_file
+    d = tempfile.mkdtemp(prefix='kpy-F11-dotdot-')
+    try:
+        root = os.path.join(d, 'episodes', 'ep9')
+        os.makedirs(os.path.join(root, 'work'))
+        open(os.path.join(root, 'work', 'v.mp4'), 'w').write('x')
+        ok = r_file._repo_path(common.Ctx(root), 'episodes/ep9/../ep9/work/v.mp4' if bad else 'episodes/ep9/work/v.mp4')
+        return {'status': 'PASS' if ok else 'FAIL', 'metrics': []}
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
+EXTRA.update({'F11/repo-path': f11_repo_path_case, 'F11/repo-dotdot': f11_repo_dotdot_case})
+EXTRA.update({'F11/factory-artefacts': f11_factory_case('artefacts'), 'F11/factory-world': f11_factory_case('world'), 'F11/excerpt': f11_excerpt_case})
 
 
 def v14_segment_case(bad):

@@ -1,0 +1,258 @@
+{
+ "_about": "A22 trên Tập 5 C5c dựng lại (cùng trang 2.988.546 byte, cùng video 720p→1080p): sampler K4.0 (V11 cũ) và K4.1 (glyph/plate). Mọi luật trang khác trùng.",
+ "secondsK40": 2558.6,
+ "secondsK41": 3562.7,
+ "V11old": {
+  "violations": 2612,
+  "movingNotPersistent": 5,
+  "byRole": {
+   "label": 2612
+  }
+ },
+ "V11new": {
+  "violations": 359,
+  "movingNotPersistent": 1,
+  "byRole": {
+   "label": 359
+  },
+  "plateOverGraphics": 2462
+ },
+ "newExamples": [
+  {
+   "t": 35,
+   "scene": "S03",
+   "tid": "A measurement, not a next step#0",
+   "role": "label",
+   "with": "graphics",
+   "pixels": 5809,
+   "samples": 36
+  },
+  {
+   "t": 167.8,
+   "scene": "S09",
+   "tid": "A measurement, not a next step#0",
+   "role": "label",
+   "with": "graphics",
+   "pixels": 3819,
+   "samples": 88
+  },
+  {
+   "t": 390,
+   "scene": "S17",
+   "tid": "75%#0",
+   "role": "label",
+   "with": "graphics",
+   "pixels": 153,
+   "samples": 1
+  },
+  {
+   "t": 390.2,
+   "scene": "S18",
+   "tid": "75%#0",
+   "role": "label",
+   "with": "graphics",
+   "pixels": 153,
+   "samples": 38
+  },
+  {
+   "t": 436,
+   "scene": "S19",
+   "tid": "On paper: balance ≤ 80% of price × index change#0",
+   "role": "label",
+   "with": "graphics",
+   "pixels": 1930,
+   "samples": 49
+  },
+  {
+   "t": 436,
+   "scene": "S19",
+   "tid": "307 purchase months 1991–2016 · two-year check: 403 months to 2024#0",
+   "role": "label",
+   "with": "graphics",
+   "pixels": 7242,
+   "samples": 49
+  },
+  {
+   "t": 436,
+   "scene": "S19",
+   "tid": "Law: 12 U.S.C. 4902 · request at 80%, automatic end at 78%#0",
+   "role": "label",
+   "with": "graphics",
+   "pixels": 9924,
+   "samples": 49
+  },
+  {
+   "t": 436,
+   "scene": "S19",
+   "tid": "Not modeled: insurance cost, appraisal fees, rent,#0",
+   "role": "label",
+   "with": "graphics",
+   "pixels": 6500,
+   "samples": 49
+  }
+ ],
+ "plateOverExamples": [
+  {
+   "t": 13.6,
+   "scene": "S02",
+   "tid": "about 8 years#0",
+   "role": "label",
+   "pixels": 708,
+   "samples": 9
+  },
+  {
+   "t": 15.4,
+   "scene": "S02",
+   "tid": "schedule ≈ 8 years#0",
+   "role": "label",
+   "pixels": 30,
+   "samples": 38
+  },
+  {
+   "t": 22.2,
+   "scene": "S02",
+   "tid": "slowest case ≈ 9 years#0",
+   "role": "label",
+   "pixels": 3402,
+   "samples": 4
+  },
+  {
+   "t": 22.8,
+   "scene": "S02",
+   "tid": "80%#0",
+   "role": "label",
+   "pixels": 14,
+   "samples": 1
+  },
+  {
+   "t": 25.4,
+   "scene": "S03",
+   "tid": "80% on paper#0",
+   "role": "label",
+   "pixels": 923,
+   "samples": 45
+  },
+  {
+   "t": 40.2,
+   "scene": "S03",
+   "tid": "75%#0",
+   "role": "label",
+   "pixels": 657,
+   "samples": 10
+  },
+  {
+   "t": 44.6,
+   "scene": "S03",
+   "tid": "Grace#0",
+   "role": "label",
+   "pixels": 2343,
+   "samples": 51
+  },
+  {
+   "t": 55.6,
+   "scene": "IDENT",
+   "tid": "CRUX#0",
+   "role": "label",
+   "pixels": 36631,
+   "samples": 10
+  },
+  {
+   "t": 55.6,
+   "scene": "IDENT",
+   "tid": "decision lab · US personal finance#0",
+   "role": "label",
+   "pixels": 22146,
+   "samples": 10
+  },
+  {
+   "t": 83,
+   "scene": "S04",
+   "tid": "cost: not shown in this video#0",
+   "role": "label",
+   "pixels": 57,
+   "samples": 3
+  },
+  {
+   "t": 109.8,
+   "scene": "S06",
+   "tid": "$2,362/month · principal + interest#0",
+   "role": "label",
+   "pixels": 24,
+   "samples": 31
+  },
+  {
+   "t": 116,
+   "scene": "S06",
+   "tid": "each payment#0",
+   "role": "label",
+   "pixels": 6297,
+   "samples": 20
+  },
+  {
+   "t": 118.4,
+   "scene": "S06",
+   "tid": "slowly at first#0",
+   "role": "label",
+   "pixels": 6883,
+   "samples": 13
+  },
+  {
+   "t": 128,
+   "scene": "S07",
+   "tid": "80% of original value#0",
+   "role": "label",
+   "pixels": 4500,
+   "samples": 27
+  },
+  {
+   "t": 128,
+   "scene": "S07",
+   "tid": "= $320,000#0",
+   "role": "label",
+   "pixels": 475,
+   "samples": 24
+  },
+  {
+   "t": 147.8,
+   "scene": "S08",
+   "tid": "80% of original value#0",
+   "role": "label",
+   "pixels": 5768,
+   "samples": 31
+  },
+  {
+   "t": 165.4,
+   "scene": "S09",
+   "tid": "home value#0",
+   "role": "label",
+   "pixels": 199,
+   "samples": 7
+  },
+  {
+   "t": 168.6,
+   "scene": "S09",
+   "tid": "90%#0",
+   "role": "label",
+   "pixels": 119,
+   "samples": 17
+  },
+  {
+   "t": 172.2,
+   "scene": "S09",
+   "tid": "80% sooner, on paper#0",
+   "role": "label",
+   "pixels": 179,
+   "samples": 66
+  },
+  {
+   "t": 214.2,
+   "scene": "S10",
+   "tid": "home value#0",
+   "role": "label",
+   "pixels": 5226,
+   "samples": 25
+  }
+ ],
+ "otherRulesDiffer": [],
+ "reading": "Còn 359 mẫu / 8 chữ: 6 chữ trên dải đối trọng (chrome) hoặc thẻ phương pháp S19 (role card) phủ trên hình 3D — dải/thẻ không phải tấm nền riêng của chữ nên luật K4.1 vẫn đếm; \"75%\" S17–S18 (153 px, 39 mẫu) cần xem tay. Muốn về 0: trang nhà máy ghi dải chrome thành đối tượng role card, và V11 bỏ hình 3D dưới card (lô sau, cần bên dựng)."
+}
