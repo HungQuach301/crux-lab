@@ -1,0 +1,87 @@
+{
+ "segment": "episodes/ep005/world/c4/a-s01-s03",
+ "res": 1080,
+ "out": "../../../tmp/claude-0/-home-user-crux-lab/b7409b7f-b728-5a6e-9664-43262f737661/scratchpad/f13/a-s01-s03-1080.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.2,
+   "ok": true,
+   "problems": [],
+   "files": 18
+  },
+  "spine": {
+   "seconds": 12.1,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 621.4,
+   "ok": true,
+   "shots": 7,
+   "rendered": [
+    "s0",
+    "s3",
+    "s1",
+    "s4",
+    "s5",
+    "s2",
+    "s6"
+   ],
+   "cached": 0,
+   "wall_s": 620.5,
+   "film_s": 58.0001,
+   "wall_per_film_s_rendered": 33.42,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 23.6,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 2.6,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 56.5,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "samples": 1537,
+    "violations": 0,
+    "examples": []
+   },
+   "modes": {
+    "world_share": 0.529,
+    "chart_share": 0.471,
+    "first_5s_world": true
+   },
+   "F2": {
+    "level": "WARN",
+    "sfx_per_min": 21.7,
+    "sfx_max_10s": 8,
+    "sfx_on_speech": 18,
+    "sfx_on_plain_words": 6,
+    "sfx_events": 21,
+    "keyword_hits": 11,
+    "min_keyword_snr_db": 11.0,
+    "label_overlaps": 0,
+    "line_crossings": 0,
+    "block": [],
+    "warn": [
+     "sfx 8 sự kiện trong 10 s từ 0.307 > 6",
+     "sfx [(0.73, 'land')] trên từ khoá c0.ten 'ten' 0.73–0.96 SNR 11.0 dB",
+     "sfx [(2.15, 'rise'), (2.56, 'whoosh_soft')] trên từ khoá c0.price 'price.' 2.15–2.8 SNR 13.6 dB",
+     "sfx [(25.319, 'chime')] trên từ khoá c4.eighty 'eighty' 25.319–25.593 SNR 13.1 dB",
+     "sfx [(31.093, 'impact')] trên từ khoá c5.removed 'removed.' 31.093–31.673 SNR 11.3 dB"
+    ]
+   }
+  }
+ },
+ "total_seconds": 716.3
+}
