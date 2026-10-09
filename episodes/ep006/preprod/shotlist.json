@@ -1,0 +1,242 @@
+{
+ "shots": [
+  {
+   "id": "a-s01-s03:m_push",
+   "scene": "S01",
+   "size": "world",
+   "move": "push",
+   "moveReason": "sau \"less\": máy lại gần Ruth và hàng thùng vừa tối dần (câu hỏi của bà)"
+  },
+  {
+   "id": "a-s01-s03:m_c1",
+   "scene": "S01",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S01.2 đặt số (2 %/năm, 10 thùng): số chỉ ở chế độ đồ thị (quy tắc 1)"
+  },
+  {
+   "id": "a-s01-s03:m_pan",
+   "scene": "S02",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời S03.1 định nghĩa \"keeping up\" = so với séc đầu theo năm: lia sang đồ thị V3"
+  },
+  {
+   "id": "a-s01-s03:m_w",
+   "scene": "S03",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S03.3 \"US only … history\": lớp bắt buộc đứng riêng, về người (thế giới)"
+  },
+  {
+   "id": "b-s04-s08:m_c1",
+   "scene": "S04",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S04.2 so cỡ đầu hai séc: so sánh chỉ ở đồ thị chính diện"
+  },
+  {
+   "id": "b-s04-s08:m_pull",
+   "scene": "S04",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời S04.4 \"each check … its own first check\": lùi máy cho chỗ hai hàng thùng"
+  },
+  {
+   "id": "b-s04-s08:m_push",
+   "scene": "S04",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời S05.1 \"Ruth took her first rising check\": đẩy vào séc tăng của bà"
+  },
+  {
+   "id": "b-s04-s08:m_pan",
+   "scene": "S05",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời S06 so hai mức tăng (séc, giá) trên cùng gốc: lia sang hai thanh"
+  },
+  {
+   "id": "b-s04-s08:m_w",
+   "scene": "S06",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S07.1 \"her check grew … buys less\": về séc và hàng thùng của bà (thế giới)"
+  },
+  {
+   "id": "b-s04-s08:m_c7",
+   "scene": "S07",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S07.2 đặt số (10, about 9): số chỉ ở đồ thị (quy tắc 1)"
+  },
+  {
+   "id": "b-s04-s08:m_pull8",
+   "scene": "S07",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời S08.1 đưa séc đều trở lại: lùi máy thấy cả hai hàng"
+  },
+  {
+   "id": "c-s09-s12:m_c9",
+   "scene": "S09",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S09.1 đặt số (12 trong 15 kỷ niệm): số chỉ ở đồ thị (quy tắc 1); đoạn mở ≥ 5 s ở thế giới (quy tắc 7)"
+  },
+  {
+   "id": "c-s09-s12:m_push",
+   "scene": "S09",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời S10.1 đưa tới năm 15 (Aug 2021): đẩy máy về phía năm 15–20"
+  },
+  {
+   "id": "c-s09-s12:m_pull",
+   "scene": "S11",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời S12.1 đưa séc đều (rơi xa hơn nhiều): lùi máy, giãn trục y"
+  },
+  {
+   "id": "d-s13-s23:m_c13",
+   "scene": "S13",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S13.2 đặt số (715): số chỉ ở đồ thị chính diện (quy tắc 1)"
+  },
+  {
+   "id": "d-s13-s23:m_push15",
+   "scene": "S14",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời S15.1 \"every one of those stretches\": đẩy vào cụm 17 thanh bên trái"
+  },
+  {
+   "id": "d-s13-s23:m_pull15",
+   "scene": "S15",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời S16.1 \"the typical stretch\": lùi máy thấy cả tường (tới thanh của Ruth)"
+  },
+  {
+   "id": "d-s13-s23:m_push19",
+   "scene": "S17",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời S19.1 \"the years closest to Ruth's own\": đẩy vào các quãng 1985–2006"
+  },
+  {
+   "id": "d-s13-s23:m_pull21",
+   "scene": "S19",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời S21.1 \"over twenty-five years\": lùi máy cho cả tường đổi sang 25 năm"
+  },
+  {
+   "id": "d-s13-s23:m_w23",
+   "scene": "S22",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S23.1 hỏi vì sao khác nhau theo tháng bắt đầu: về thế giới, sang hồi 3 (người)"
+  },
+  {
+   "id": "e-s24-s29:m_pan24",
+   "scene": "S24",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "lời S24.2 chuyển sang Carl: lia qua hàng của Ruth sang chỗ hàng của Carl"
+  },
+  {
+   "id": "e-s24-s29:m_c24",
+   "scene": "S24",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S24.2–S24.3 đặt số (1966, 6.38%): số chỉ ở đồ thị (quy tắc 1)"
+  },
+  {
+   "id": "e-s24-s29:m_pan25",
+   "scene": "S25",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời S25.2 \"a level check, in his stretch\": lia cho chỗ hàng séc đều của Carl"
+  },
+  {
+   "id": "e-s24-s29:m_w27",
+   "scene": "S26",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S27.1 giới thiệu Edna: về thế giới, người và hàng thùng của bà (hiện sẵn trước tên)"
+  },
+  {
+   "id": "e-s24-s29:m_c27",
+   "scene": "S27",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S27.1 đặt ngày (1949) + \"kept up\": số và so sánh chỉ ở đồ thị"
+  },
+  {
+   "id": "e-s24-s29:m_pull27",
+   "scene": "S27",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời S27.4 đặt Edna cạnh Carl trên một trục thời gian: lùi máy"
+  },
+  {
+   "id": "e-s24-s29:m_pan28",
+   "scene": "S27",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời S28.1 \"And Ruth, at eighty-five\": lia về Ruth"
+  },
+  {
+   "id": "e-s24-s29:m_w29",
+   "scene": "S28",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S29.1 \"Same raise, same rule\": ba người cùng một thế giới"
+  },
+  {
+   "id": "e-s24-s29:m_c29",
+   "scene": "S29",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S29.2 đặt số thùng năm 20: số chỉ ở đồ thị (quy tắc 1)"
+  },
+  {
+   "id": "f-s30-s32:m_c30",
+   "scene": "S30",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S30.2 đặt số (42,4 %): số chỉ ở đồ thị (quy tắc 1); bậc 3 % đã sáng ở thế giới (\"three\"), đồ thị từ 5 s (quy tắc 7)"
+  },
+  {
+   "id": "f-s30-s32:m_pan31",
+   "scene": "S30",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời S31.1 giới hạn của chỉ số (giỏ quốc gia): lia sang hàng thùng chung"
+  },
+  {
+   "id": "f-s30-s32:m_pan31b",
+   "scene": "S31",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời S31.3 \"annuity pricing isn't modeled\": lia sang hai séc"
+  },
+  {
+   "id": "f-s30-s32:m_w32",
+   "scene": "S31",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S32 quay về câu hỏi của Ruth: về khung mở đầu (thế giới), sau 5 s thẻ V7"
+  },
+  {
+   "id": "f-s30-s32:m_c32",
+   "scene": "S32",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S32.3 đặt số (85, about 9 of 10): số chỉ ở đồ thị (quy tắc 1)"
+  }
+ ]
+}

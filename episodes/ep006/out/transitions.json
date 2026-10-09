@@ -1,0 +1,49 @@
+{
+ "cuts": [
+  {
+   "t": 51.233,
+   "from": "a-s01-s03",
+   "to": "b-s04-s08",
+   "type": "dissolve",
+   "match": null,
+   "audio": null,
+   "reason": "ident: world dims to the channel ident, act 1 fades in from dark"
+  },
+  {
+   "t": 149.667,
+   "from": "b-s04-s08",
+   "to": "c-s09-s12",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+  },
+  {
+   "t": 208.933,
+   "from": "c-s09-s12",
+   "to": "d-s13-s23",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+  },
+  {
+   "t": 329.433,
+   "from": "d-s13-s23",
+   "to": "e-s24-s29",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+  },
+  {
+   "t": 455.267,
+   "from": "e-s24-s29",
+   "to": "f-s30-s32",
+   "type": "cut",
+   "match": null,
+   "audio": null,
+   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+  }
+ ]
+}

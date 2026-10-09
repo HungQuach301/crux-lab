@@ -1,0 +1,2410 @@
+{
+ "claims": [
+  {
+   "claimId": "cpi_yoy_latest_pct",
+   "value": 3.3965478924364856,
+   "display": "3.4%",
+   "unit": "cpi_yoy_latest_pct",
+   "formula": "cpi_yoy_latest_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S28",
+     "sentence": "S28.2"
+    }
+   ]
+  },
+  {
+   "claimId": "index_last_month",
+   "value": "2026-08-01",
+   "display": "Aug 2026",
+   "unit": "index_last_month",
+   "formula": "index_last_month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.1"
+    },
+    {
+     "scene": "S28",
+     "sentence": "S28.2"
+    }
+   ]
+  },
+  {
+   "claimId": "windows_20y",
+   "value": 715,
+   "display": "715",
+   "unit": "windows_20y",
+   "formula": "windows_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.1"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.2"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.3"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.4"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.1"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.2"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.4"
+    },
+    {
+     "scene": "S31",
+     "sentence": "S31.2"
+    }
+   ]
+  },
+  {
+   "claimId": "windows_2pct_kept_up_20y",
+   "value": 17,
+   "display": "17",
+   "unit": "windows_2pct_kept_up_20y",
+   "formula": "windows_2pct_kept_up_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.1"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.3"
+    },
+    {
+     "scene": "S29",
+     "sentence": "S29.1"
+    }
+   ]
+  },
+  {
+   "claimId": "share_2pct_kept_up_20y_pct",
+   "value": 2.3776223776223775,
+   "display": "2.4%",
+   "unit": "share_2pct_kept_up_20y_pct",
+   "formula": "share_2pct_kept_up_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.1"
+    }
+   ]
+  },
+  {
+   "claimId": "kept_up_first_start_20y",
+   "value": "1947-09-01",
+   "display": "Sep 1947",
+   "unit": "kept_up_first_start_20y",
+   "formula": "kept_up_first_start_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    }
+   ]
+  },
+  {
+   "claimId": "kept_up_last_start_20y",
+   "value": "1949-01-01",
+   "display": "Jan 1949",
+   "unit": "kept_up_last_start_20y",
+   "formula": "kept_up_last_start_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "edna",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.1"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.2"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.4"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.5"
+    },
+    {
+     "scene": "S29",
+     "sentence": "S29.2"
+    }
+   ]
+  },
+  {
+   "claimId": "windows_25y",
+   "value": 655,
+   "display": "655",
+   "unit": "windows_25y",
+   "formula": "windows_25y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S21",
+     "sentence": "S21.1"
+    }
+   ]
+  },
+  {
+   "claimId": "windows_2pct_kept_up_25y",
+   "value": 0,
+   "display": "0 of 655",
+   "unit": "windows_2pct_kept_up_25y",
+   "formula": "windows_2pct_kept_up_25y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S21",
+     "sentence": "S21.1"
+    }
+   ]
+  },
+  {
+   "claimId": "median_inflation_20y_pct_per_year",
+   "value": 3.0987460692801116,
+   "display": "3.1% a year",
+   "unit": "median_inflation_20y_pct_per_year",
+   "formula": "median_inflation_20y_pct_per_year",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.3"
+    }
+   ]
+  },
+  {
+   "claimId": "median_real_value_2pct_payment_after_20y_pct",
+   "value": 80.71156537680373,
+   "display": "80.7%",
+   "unit": "median_real_value_2pct_payment_after_20y_pct",
+   "formula": "median_real_value_2pct_payment_after_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.1"
+    }
+   ]
+  },
+  {
+   "claimId": "median_real_value_level_payment_after_20y_pct",
+   "value": 54.31656974886574,
+   "display": "54.3%",
+   "unit": "median_real_value_level_payment_after_20y_pct",
+   "formula": "median_real_value_level_payment_after_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    }
+   ]
+  },
+  {
+   "claimId": "worst_real_value_2pct_payment_after_20y_pct",
+   "value": 43.114167146087304,
+   "display": "43.1%",
+   "unit": "worst_real_value_2pct_payment_after_20y_pct",
+   "formula": "worst_real_value_2pct_payment_after_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "carl",
+   "conditional": "us-consumer-prices",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S25",
+     "sentence": "S25.1"
+    },
+    {
+     "scene": "S25",
+     "sentence": "S25.3"
+    },
+    {
+     "scene": "S29",
+     "sentence": "S29.1"
+    }
+   ]
+  },
+  {
+   "claimId": "worst_real_value_level_payment_after_20y_pct",
+   "value": 29.01459854014599,
+   "display": "29.0%",
+   "unit": "worst_real_value_level_payment_after_20y_pct",
+   "formula": "worst_real_value_level_payment_after_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "carl",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S25",
+     "sentence": "S25.2"
+    }
+   ]
+  },
+  {
+   "claimId": "worst_window_start_year_20y",
+   "value": 1966,
+   "display": "Jan 1966",
+   "unit": "worst_window_start_year_20y",
+   "formula": "worst_window_start_year_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "carl",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S24",
+     "sentence": "S24.2"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.4"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.5"
+    }
+   ]
+  },
+  {
+   "claimId": "worst_window_years_2pct_fell_20y",
+   "value": 20,
+   "display": "20 of 20",
+   "unit": "worst_window_years_2pct_fell_20y",
+   "formula": "worst_window_years_2pct_fell_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "carl",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S24",
+     "sentence": "S24.4"
+    },
+    {
+     "scene": "S24",
+     "sentence": "S24.5"
+    },
+    {
+     "scene": "S24",
+     "sentence": "S24.6"
+    },
+    {
+     "scene": "S27",
+     "sentence": "S27.5"
+    },
+    {
+     "scene": "S29",
+     "sentence": "S29.2"
+    }
+   ]
+  },
+  {
+   "claimId": "share_2pct_at_least_90_after_20y_pct",
+   "value": 32.58741258741259,
+   "display": "32.6%",
+   "unit": "share_2pct_at_least_90_after_20y_pct",
+   "formula": "share_2pct_at_least_90_after_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_2pct_at_least_75_after_20y_pct",
+   "value": 56.22377622377623,
+   "display": "56.2%",
+   "unit": "share_2pct_at_least_75_after_20y_pct",
+   "formula": "share_2pct_at_least_75_after_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "two_pct_growth_20y_pct",
+   "value": 48.59473959783549,
+   "display": "48.6%",
+   "unit": "two_pct_growth_20y_pct",
+   "formula": "two_pct_growth_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.3"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.1"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.4"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.3"
+    },
+    {
+     "scene": "S28",
+     "sentence": "S28.2"
+    },
+    {
+     "scene": "S32",
+     "sentence": "S32.2"
+    }
+   ]
+  },
+  {
+   "claimId": "latest_start",
+   "value": "2006-08-01",
+   "display": "Aug 2006",
+   "unit": "latest_start",
+   "formula": "latest_start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.2"
+    }
+   ]
+  },
+  {
+   "claimId": "latest_end",
+   "value": "2026-08-01",
+   "display": "Aug 2026",
+   "unit": "latest_end",
+   "formula": "latest_end",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.1"
+    }
+   ]
+  },
+  {
+   "claimId": "latest_window_real_value_2pct_payment_pct",
+   "value": 90.4485861961868,
+   "display": "about 9 in 10",
+   "unit": "latest_window_real_value_2pct_payment_pct",
+   "formula": "latest_window_real_value_2pct_payment_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S06",
+     "sentence": "S06.2"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.2"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.2"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.3"
+    },
+    {
+     "scene": "S29",
+     "sentence": "S29.2"
+    },
+    {
+     "scene": "S32",
+     "sentence": "S32.2"
+    },
+    {
+     "scene": "S32",
+     "sentence": "S32.3"
+    }
+   ]
+  },
+  {
+   "claimId": "latest_window_real_value_level_payment_pct",
+   "value": 60.86930563018688,
+   "display": "about 6 in 10",
+   "unit": "latest_window_real_value_level_payment_pct",
+   "formula": "latest_window_real_value_level_payment_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.1"
+    }
+   ]
+  },
+  {
+   "claimId": "latest_window_price_rise_pct",
+   "value": 64.28641490926925,
+   "display": "64.3%",
+   "unit": "latest_window_price_rise_pct",
+   "formula": "latest_window_price_rise_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S06",
+     "sentence": "S06.2"
+    }
+   ]
+  },
+  {
+   "claimId": "latest_window_inflation_pct_per_year",
+   "value": 2.5132689669896457,
+   "display": "2.51% a year",
+   "unit": "latest_window_inflation_pct_per_year",
+   "formula": "latest_window_inflation_pct_per_year",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "guide_start",
+   "value": "2006-08-01",
+   "display": "Aug 2006",
+   "unit": "guide_start",
+   "formula": "guide_start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.1"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    }
+   ]
+  },
+  {
+   "claimId": "guide_last_year_2pct_at_or_above_100",
+   "value": 15,
+   "display": "15 years",
+   "unit": "guide_last_year_2pct_at_or_above_100",
+   "formula": "guide_last_year_2pct_at_or_above_100",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    },
+    {
+     "scene": "S29",
+     "sentence": "S29.1"
+    },
+    {
+     "scene": "S32",
+     "sentence": "S32.3"
+    }
+   ]
+  },
+  {
+   "claimId": "guide_years_2pct_at_or_above_100",
+   "value": 12,
+   "display": "12 of the first 15",
+   "unit": "guide_years_2pct_at_or_above_100",
+   "formula": "guide_years_2pct_at_or_above_100",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.2"
+    },
+    {
+     "scene": "S24",
+     "sentence": "S24.6"
+    }
+   ]
+  },
+  {
+   "claimId": "guide_real_2pct_2022_pct",
+   "value": 94.50993016466023,
+   "display": "94.5%",
+   "unit": "guide_real_2pct_2022_pct",
+   "formula": "guide_real_2pct_2022_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    },
+    {
+     "scene": "S11",
+     "sentence": "S11.1"
+    }
+   ]
+  },
+  {
+   "claimId": "guide_real_level_2021_pct",
+   "value": 74.53384362880026,
+   "display": "74.5%",
+   "unit": "guide_real_level_2021_pct",
+   "formula": "guide_real_level_2021_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "guide_real_2pct_end_pct",
+   "value": 90.4485861961868,
+   "display": "90.4%",
+   "unit": "guide_real_2pct_end_pct",
+   "formula": "guide_real_2pct_end_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "us-consumer-prices",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.2"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.1"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.2"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.3"
+    },
+    {
+     "scene": "S28",
+     "sentence": "S28.1"
+    },
+    {
+     "scene": "S29",
+     "sentence": "S29.2"
+    },
+    {
+     "scene": "S32",
+     "sentence": "S32.3"
+    }
+   ]
+  },
+  {
+   "claimId": "guide_real_level_end_pct",
+   "value": 60.86930563018688,
+   "display": "60.9%",
+   "unit": "guide_real_level_end_pct",
+   "formula": "guide_real_level_end_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.1"
+    }
+   ]
+  },
+  {
+   "claimId": "guide_year_level_reaches_2pct_end",
+   "value": 5,
+   "display": "year 5",
+   "unit": "guide_year_level_reaches_2pct_end",
+   "formula": "guide_year_level_reaches_2pct_end",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "ruth",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S12",
+     "sentence": "S12.1"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.2"
+    }
+   ]
+  },
+  {
+   "claimId": "median_year_level_reaches_2pct_end_median",
+   "value": 8,
+   "display": "about year 8",
+   "unit": "median_year_level_reaches_2pct_end_median",
+   "formula": "median_year_level_reaches_2pct_end_median",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    }
+   ]
+  },
+  {
+   "claimId": "by_decade_1990_median_real_2pct",
+   "value": 94.84294744154704,
+   "display": "94.8%",
+   "unit": "by_decade_1990_median_real_2pct",
+   "formula": "by_decade_1990_median_real_2pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "by_decade_2000_kept",
+   "value": 0,
+   "display": "0 of 79",
+   "unit": "by_decade_2000_kept",
+   "formula": "by_decade_2000_kept",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "by_decade_2000_max_real_2pct",
+   "value": 99.46761972758443,
+   "display": "99.5%",
+   "unit": "by_decade_2000_max_real_2pct",
+   "formula": "by_decade_2000_max_real_2pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "by_decade_1960_median_real_2pct",
+   "value": 44.250993176518065,
+   "display": "44.3%",
+   "unit": "by_decade_1960_median_real_2pct",
+   "formula": "by_decade_1960_median_real_2pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S26",
+     "sentence": "S26.1"
+    }
+   ]
+  },
+  {
+   "claimId": "raise_needed_half_20y_pct",
+   "value": 3.0987460692801116,
+   "display": "3.1%",
+   "unit": "raise_needed_half_20y_pct",
+   "formula": "raise_needed_half_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S30",
+     "sentence": "S30.3"
+    }
+   ]
+  },
+  {
+   "claimId": "raise_needed_all_20y_pct",
+   "value": 6.382250057633976,
+   "display": "6.38%",
+   "unit": "raise_needed_all_20y_pct",
+   "formula": "raise_needed_all_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "character": "carl",
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S24",
+     "sentence": "S24.3"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.4"
+    }
+   ]
+  },
+  {
+   "claimId": "raise_grid_3pct",
+   "value": 42.37762237762238,
+   "display": "42.4%",
+   "unit": "raise_grid_3pct",
+   "formula": "raise_grid_3pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S30",
+     "sentence": "S30.2"
+    }
+   ]
+  },
+  {
+   "claimId": "robust_cpiw_share_kept_up_20y_pct",
+   "value": 2.937062937062937,
+   "display": "2.9%",
+   "unit": "robust_cpiw_share_kept_up_20y_pct",
+   "formula": "robust_cpiw_share_kept_up_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S22",
+     "sentence": "S22.1"
+    }
+   ]
+  },
+  {
+   "claimId": "robust_pce_share_kept_up_20y_pct",
+   "value": 19.23076923076923,
+   "display": "19.2%",
+   "unit": "robust_pce_share_kept_up_20y_pct",
+   "formula": "robust_pce_share_kept_up_20y_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S22",
+     "sentence": "S22.1"
+    }
+   ]
+  },
+  {
+   "claimId": "cpiu_from_pce_start_kept_up_20y",
+   "value": 0,
+   "display": "0 of 571",
+   "unit": "cpiu_from_pce_start_kept_up_20y",
+   "formula": "cpiu_from_pce_start_kept_up_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "robust_pce_median_real_2pct_pct",
+   "value": 88.00524507229082,
+   "display": "88.0%",
+   "unit": "robust_pce_median_real_2pct_pct",
+   "formula": "robust_pce_median_real_2pct_pct",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "dataYears": [
+    1947,
+    2026
+   ],
+   "conditional": "us-consumer-prices",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S22",
+     "sentence": "S22.1"
+    }
+   ]
+  },
+  {
+   "claimId": "raise_2pct",
+   "value": 0.02,
+   "display": "2%",
+   "unit": "const",
+   "formula": "model.params.raise: the check rises 2% once a year, at each anniversary",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "raise_3pct",
+   "value": 0.03,
+   "display": "3%",
+   "unit": "const",
+   "formula": "model.params.raiseGrid rung 0.030 (raise_grid_3pct is its share)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "main_years",
+   "value": 20,
+   "display": "20-year",
+   "unit": "const",
+   "formula": "model.params.mainYears: a 20-year stretch of retirement (240 months)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "main_years_raises",
+   "value": 20,
+   "display": "20 raises",
+   "unit": "const",
+   "formula": "model.params.mainYears: 20 anniversaries = 20 raises",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "main_years_after",
+   "value": 20,
+   "display": "20 years",
+   "unit": "const",
+   "formula": "model.params.mainYears",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "long_years",
+   "value": 25,
+   "display": "25-year",
+   "unit": "const",
+   "formula": "model.params.horizonsYears[1]",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "first_start_month",
+   "value": "1947-01-01",
+   "display": "Jan 1947",
+   "unit": "const",
+   "formula": "first start month of the 20-year windows (model.params.firstStart)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "first_start_year",
+   "value": 1947,
+   "display": "1947",
+   "unit": "const",
+   "formula": "year of first_start_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "crates_first",
+   "value": 10,
+   "display": "10 crates",
+   "unit": "const",
+   "formula": "the first check's buying power drawn as a row of 10 crates (crates = round(10 × share), numbers.md)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "crates_all",
+   "value": 10,
+   "display": "all 10",
+   "unit": "const",
+   "formula": "crate row at or above 100% of the first check: all 10 lit (capped at 10)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "crates_full",
+   "value": 10,
+   "display": "10",
+   "unit": "const",
+   "formula": "Edna at year 20: 100.2% → round(10 × 1.002) = 10 crates (capped at 10)",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "crates_ruth",
+   "value": 9,
+   "display": "about 9",
+   "unit": "const",
+   "formula": "round(10 × guide_real_2pct_end_pct / 100)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "crates_carl",
+   "value": 4,
+   "display": "about 4",
+   "unit": "const",
+   "formula": "round(10 × worst_real_value_2pct_payment_after_20y_pct / 100)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "crates_carl_of10",
+   "value": 4,
+   "display": "about 4 of 10",
+   "unit": "const",
+   "formula": "round(10 × worst_real_value_2pct_payment_after_20y_pct / 100) of 10",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "crates_median",
+   "value": 8,
+   "display": "about 8 of 10",
+   "unit": "const",
+   "formula": "round(10 × median_real_value_2pct_payment_after_20y_pct / 100) of 10",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "guide_age_start",
+   "value": 65,
+   "display": "age 65",
+   "unit": "const",
+   "formula": "model.params.guide.age (ILLUSTRATIVE)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "guide_age_2021",
+   "value": 80,
+   "display": "age 80",
+   "unit": "const",
+   "formula": "guide_path[15].age",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "guide_age_2022",
+   "value": 81,
+   "display": "age 81",
+   "unit": "const",
+   "formula": "guide_path[16].age",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "guide_age_end",
+   "value": 85,
+   "display": "age 85",
+   "unit": "const",
+   "formula": "guide_path[20].age",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "guide_month_2021",
+   "value": "2021-08-01",
+   "display": "Aug 2021",
+   "unit": "const",
+   "formula": "guide_path[15].month (anniversary 15)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "guide_month_2022",
+   "value": "2022-08-01",
+   "display": "Aug 2022",
+   "unit": "const",
+   "formula": "guide_path[16].month (anniversary 16)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "guide_real_2pct_2021_pct",
+   "value": 100.31274027360394,
+   "display": "100.3%",
+   "unit": "const",
+   "formula": "guide_path[15].real_2pct_pct: the 2% check at anniversary 15 (last at or above 100%)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "share_kept_1_in",
+   "value": 42,
+   "display": "about 1 in 42",
+   "unit": "const",
+   "formula": "1 in round(715 / 17)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "by_decade_1990_kept_n",
+   "value": 0,
+   "display": "0 of 120",
+   "unit": "const",
+   "formula": "by_decade['1990'].kept of n = 120",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "by_decade_2000_n",
+   "value": 79,
+   "display": "79",
+   "unit": "const",
+   "formula": "by_decade['2000'].n: starts 2000-01 to 2006-08",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "decade_1990",
+   "value": 1990,
+   "display": "1990s",
+   "unit": "const",
+   "formula": "start decade 1990-01..1999-12",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "decade_1960",
+   "value": 1960,
+   "display": "1960s",
+   "unit": "const",
+   "formula": "start decade 1960-01..1969-12",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "decade_2000",
+   "value": 2000,
+   "display": "2000",
+   "unit": "const",
+   "formula": "first start year of the 2000s group",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "robust_cpiw_kept_up_n",
+   "value": 21,
+   "display": "21 of 715",
+   "unit": "const",
+   "formula": "robust_cpiw_kept_up_20y of robust_cpiw_windows_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "pce_first_year",
+   "value": 1959,
+   "display": "1959",
+   "unit": "const",
+   "formula": "first start year of the PCE windows (robust_pce_first_start)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "cpi_yoy_months",
+   "value": 12,
+   "display": "12 months",
+   "unit": "const",
+   "formula": "cpi_yoy_latest_pct window: 12 months to the last index month",
+   "source": {
+    "id": "numbers.md",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "edna_end_year",
+   "value": 1969,
+   "display": "1969",
+   "unit": "const",
+   "formula": "kept_up_last_start_20y + 20 years",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "carl_end_year",
+   "value": 1986,
+   "display": "1986",
+   "unit": "const",
+   "formula": "worst_window_start_year_20y + 20 years",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "carl_start_year",
+   "value": 1966,
+   "display": "1966",
+   "unit": "const",
+   "formula": "worst_window_start_year_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "edna_start_year",
+   "value": 1949,
+   "display": "1949",
+   "unit": "const",
+   "formula": "year of kept_up_last_start_20y",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "axis_year_1",
+   "value": 1,
+   "display": "year 1",
+   "unit": "const",
+   "formula": "anniversary counter (year 1 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_2",
+   "value": 2,
+   "display": "year 2",
+   "unit": "const",
+   "formula": "anniversary counter (year 2 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_3",
+   "value": 3,
+   "display": "year 3",
+   "unit": "const",
+   "formula": "anniversary counter (year 3 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_4",
+   "value": 4,
+   "display": "year 4",
+   "unit": "const",
+   "formula": "anniversary counter (year 4 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_5",
+   "value": 5,
+   "display": "year 5",
+   "unit": "const",
+   "formula": "anniversary counter (year 5 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_6",
+   "value": 6,
+   "display": "year 6",
+   "unit": "const",
+   "formula": "anniversary counter (year 6 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_7",
+   "value": 7,
+   "display": "year 7",
+   "unit": "const",
+   "formula": "anniversary counter (year 7 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_8",
+   "value": 8,
+   "display": "year 8",
+   "unit": "const",
+   "formula": "anniversary counter (year 8 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_9",
+   "value": 9,
+   "display": "year 9",
+   "unit": "const",
+   "formula": "anniversary counter (year 9 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_10",
+   "value": 10,
+   "display": "year 10",
+   "unit": "const",
+   "formula": "anniversary counter (year 10 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_11",
+   "value": 11,
+   "display": "year 11",
+   "unit": "const",
+   "formula": "anniversary counter (year 11 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_12",
+   "value": 12,
+   "display": "year 12",
+   "unit": "const",
+   "formula": "anniversary counter (year 12 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_13",
+   "value": 13,
+   "display": "year 13",
+   "unit": "const",
+   "formula": "anniversary counter (year 13 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_14",
+   "value": 14,
+   "display": "year 14",
+   "unit": "const",
+   "formula": "anniversary counter (year 14 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_15",
+   "value": 15,
+   "display": "year 15",
+   "unit": "const",
+   "formula": "anniversary counter (year 15 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_16",
+   "value": 16,
+   "display": "year 16",
+   "unit": "const",
+   "formula": "anniversary counter (year 16 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_17",
+   "value": 17,
+   "display": "year 17",
+   "unit": "const",
+   "formula": "anniversary counter (year 17 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_18",
+   "value": 18,
+   "display": "year 18",
+   "unit": "const",
+   "formula": "anniversary counter (year 18 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_19",
+   "value": 19,
+   "display": "year 19",
+   "unit": "const",
+   "formula": "anniversary counter (year 19 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  },
+  {
+   "claimId": "axis_year_20",
+   "value": 20,
+   "display": "year 20",
+   "unit": "const",
+   "formula": "anniversary counter (year 20 of 20)",
+   "source": {
+    "id": "axis",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "role": "axis"
+  }
+ ]
+}

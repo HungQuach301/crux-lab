@@ -93,7 +93,7 @@ def do_strips(video, tag):
     json.dump(spans, open(REV / 'spans-flat.json', 'w'))
     subprocess.run([sys.executable, str(ROOT / 'toolkit/blind/strips.py'), str(video), str(REV / 'spans-flat.json'), str(REV / 'strips')], check=True)
     # B: 4 tấm theo hồi (12 khung đều mỗi tấm)
-    groups = [('sheet1', ['cold-open', 'ident', 'act1']), ('sheet2', ['act2']), ('sheet3', ['act3']), ('sheet4', ['limits', 'method', 'outro'])]
+    groups = [('sheet1', ['cold-open', 'ident', 'act1']), ('sheet2', ['act2']), ('sheet3', ['act3']), ('sheet4', ['method', 'outro'])]
     acts = {}
     for s in tl['scenes']:
         acts.setdefault(s.get('act'), []).append(s)

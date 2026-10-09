@@ -1,0 +1,5 @@
+{
+ "url": "work/factory/page/index.html",
+ "ready": "new Promise((r) => { const k = () => (window.READY ? r(true) : setTimeout(k, 50)); k(); })",
+ "_about": "toolkit/factory/world/episode_page.py: trang một-file, window.CHECKS trên mọi đoạn world:"
+}

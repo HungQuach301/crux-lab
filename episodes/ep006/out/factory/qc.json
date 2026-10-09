@@ -1,0 +1,386 @@
+{
+ "items": [
+  {
+   "item": "master sàn chữ",
+   "result": "ĐẠT",
+   "value": null,
+   "threshold": "≥ 40 px",
+   "note": "0 lần engine nâng cỡ"
+  },
+  {
+   "item": "master tương phản",
+   "result": "ĐẠT",
+   "value": null,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "master vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "master va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "master nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "master nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "0 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "master đối trọng \"US only · history, not a forecast\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"Each check vs its own first check · not dollars\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"Not advice on which check or raise\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"One year of history, not a forecast\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "trục từ 0",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 shot bars/line có min > 0",
+   "note": "swarm: vị trí chấm, không phải độ dài"
+  },
+  {
+   "item": "freezedetect d=3 ∩ lời",
+   "result": "TRƯỢT",
+   "value": 235.14,
+   "threshold": "0 s",
+   "note": "58 đoạn đứng yên ≥ 3 s cả phim: [[8.53333, 12.6333], [22.3333, 26.9], [29.2667, 34.3667]]"
+  },
+  {
+   "item": "mốc hình ≥ mốc từ",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": "0 mốc"
+  },
+  {
+   "item": "loudness",
+   "result": "TRƯỢT",
+   "value": "-14.0 LUFS / -1.9 dBTP",
+   "threshold": "-14 ± 1 LUFS, ≤ -2.0 dBTP",
+   "note": ""
+  },
+  {
+   "item": "kích thước phần",
+   "result": "ĐẠT",
+   "value": 37.58,
+   "threshold": "≤ 90 MB mỗi phần",
+   "note": "3 phần 720p"
+  },
+  {
+   "item": "SH1 thời lượng",
+   "result": "ĐẠT",
+   "value": 38.567,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH1 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "520 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH1 tương phản",
+   "result": "ĐẠT",
+   "value": 6.04,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH1 vùng an toàn",
+   "result": "TRƯỢT",
+   "value": 186,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": "[{\"t\": 0.0, \"s\": \"A raise every year, and still less\", \"out_px\": 56.9}, {\"t\": 0.2, \"s\": \"A raise every year, and still less\", \"out_px\": 56.9}, {\"t\": 0.4, \"s\": \"A raise every year, and still less\", \"out_px\": 56.9}]"
+  },
+  {
+   "item": "SH1 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn giao nhau (F-2)",
+   "result": "CẢNH BÁO",
+   "value": 1,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": "20 raises of 2%: +48.6% × not one retiree's own basket 24.4–24.4 s"
+  },
+  {
+   "item": "SH1 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "194 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH1 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 1116,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"Each check vs its own first check · not dollars\"",
+   "result": "ĐẠT",
+   "value": 576,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"Not advice on which check or raise\"",
+   "result": "ĐẠT",
+   "value": 540,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"One year of history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 1116,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 loudness",
+   "result": "ĐẠT",
+   "value": "-14.0 LUFS / -2.1 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "SH2 thời lượng",
+   "result": "ĐẠT",
+   "value": 18.8,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH2 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "211 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH2 tương phản",
+   "result": "ĐẠT",
+   "value": 5.37,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH2 vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "SH2 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH2 nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "SH2 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "95 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH2 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 522,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"Each check vs its own first check · not dollars\"",
+   "result": "ĐẠT",
+   "value": 270,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"Not advice on which check or raise\"",
+   "result": "ĐẠT",
+   "value": 252,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"One year of history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 522,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 loudness",
+   "result": "ĐẠT",
+   "value": "-14.0 LUFS / -1.8 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "SH3 thời lượng",
+   "result": "ĐẠT",
+   "value": 20.933,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH3 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "673 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH3 tương phản",
+   "result": "ĐẠT",
+   "value": 5.77,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH3 vùng an toàn",
+   "result": "TRƯỢT",
+   "value": 98,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": "[{\"t\": 0.0, \"s\": \"Same raise, three starting months\", \"out_px\": 56.9}, {\"t\": 0.2, \"s\": \"Same raise, three starting months\", \"out_px\": 56.9}, {\"t\": 0.4, \"s\": \"Same raise, three starting months\", \"out_px\": 56.9}]"
+  },
+  {
+   "item": "SH3 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH3 nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "SH3 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "106 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH3 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 588,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 đối trọng \"Each check vs its own first check · not dollars\"",
+   "result": "ĐẠT",
+   "value": 318,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 đối trọng \"Not advice on which check or raise\"",
+   "result": "ĐẠT",
+   "value": 270,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 đối trọng \"One year of history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 588,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH3 loudness",
+   "result": "ĐẠT",
+   "value": "-13.8 LUFS / -1.9 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "luật format",
+   "result": "ĐẠT",
+   "value": "101",
+   "threshold": "scope full",
+   "note": ""
+  }
+ ],
+ "near": [
+  {
+   "item": "SH1 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  },
+  {
+   "item": "SH2 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  },
+  {
+   "item": "SH3 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  }
+ ],
+ "pass": false
+}
