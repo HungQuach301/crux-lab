@@ -1,67 +1,73 @@
-# K-PLAN — phiên K lô sau tổng kết Tập 5 (08/10/2026) · ≤ 1 trang
+# K-PLAN — phiên K (kind Tập 6 + K4.1), 08–09/10/2026 · ≤ 1 trang
 
-**Nhánh:** `claude/phase-k-after-episode-5-frjcpw` (lệnh ghi `checks-k40`; phiên chạy trên nhánh được giao) · **main:** `2c5eacf` (K4.0.1, LOCK `79aeec0d…`) · **nhánh:** đầu nhánh (+ nhóm 1 K4.1, chưa merge)
+**Nhánh:** `claude/phase-k-after-episode-5-frjcpw` (= `main` + commit đóng phiên này) · **main:** K4.1 @ `1678a38`, LOCK `4d688acd…` (đã tính lại trên main, khớp)
 
 ## 1. Trạng thái
-- **Nhóm 2 XONG, đã merge main** (D-008 §2):
-  - K4.0 `329eedd` → K4.0.1 `2c5eacf` sửa theo REVIEWER.
-  - Luật mới, theo cấp:
-    - S19 CHẶN;
-    - S20, S21 CHÍNH;
-    - V14, R07, R08, T4, V15, V17, S22 THAM KHẢO (chỉ báo, nêu tên ở `checks/README.md`).
-  - Selftest Python 328/328, trang 64/64.
-  - 89/89 luật cũ trùng fingerprint và cấp; trước/sau trên Tập 3–5 trùng.
-  - Tập 5 C5c dựng lại: mọi số đếm luật trang trùng run-c5c.
-  - Hồi tố chỉ báo, không sửa tập đã phát hành.
-- **Nhóm 1 sẵn trên nhánh, CHƯA merge** (gói `checks-runs/K41/GOI-chu-du-an.md`, 3 câu):
-  - A22: V11 Tập 5 từ 2612 xuống 359;
-  - A10 + A16: F11 đọc danh sách từ nhà máy;
-  - A9 + A21: rubric khuyên ba cờ.
-  - Selftest Python 336/336 trên nhánh.
-- **Nhóm 3:** A12 xong (K4.0). A15 nằm ở REVIEWER mục 9, trên nhánh.
-- **REVIEWER:**
-  - K4.0: ĐẠT có sửa, 2 CHÍNH đã sửa ở K4.0.1.
-  - Nhóm 1, lần cuối: ĐẠT có sửa, 0 CHẶN, 0 CHÍNH.
+- **K4.0.2 (kind Tập 6) đã lên main** @ `c54a489`, LOCK `1b83d940…`. Đã báo P3 Tập 6 ở #49.
+  - Kind `fixed-raise-vs-index-windows`, viết từ đặc tả. Không đọc `model.py`/`calc.py` của bên dựng.
+  - Dữ liệu thật Tập 6: FRED SHA khớp 4/4.
+  - S01: 89 khoá, 0 lệch. Claim: 45/45, gồm `worst_window_years_2pct_fell_20y`. Bất biến: 8/8. Đối chứng nhiễu: 8/8.
+  - Luật tập 3 qua S19 `forbiddenAmounts`: 83 câu script, 0 vi phạm; câu đối chứng trượt.
+  - Selftest Python 334/334, trang 64/64. Fingerprint 99/99 trùng. REVIEWER: ĐẠT có sửa, đã sửa.
+- **K4.1 (nhóm 1, chủ dự án duyệt 08/10) đã lên main.**
+  - V11: glyph/plate.
+  - F11: lấy danh sách phát hành từ nhà máy.
+  - Rubric khuyên: chạy thử ở C4 Tập 6. `tally` luôn tính hai rubric, cổng mặc định theo rubric cũ.
+  - A15.
+  - Selftest Python 344/344, trang 67/67. Chỉ F11 đổi fingerprint. REVIEWER: ĐẠT có sửa; CHẶN/CHÍNH đã sửa trước merge.
 
 ## 2. Việc tiếp (≤ 3) và treo
-1. Dán câu trả lời 3 câu vào `checks-runs/K41/GOI-answer.md`. Áp các câu "Có" → khoá **K4.1**: LOCK, README mục K4.1, merge main, kiểm SHA. Câu "Không" → revert phần đó trên nhánh trước khi khoá.
-2. **Kind Tập 6:** `origin/ep006:episodes/ep006/K-brief.md` (có, @ `26278228`). Cần kind mới: khoản trả tăng tỉ lệ cố định mỗi năm so với chỉ số giá tháng, mọi cửa sổ H năm. Viết từ đặc tả `topics-r1/machine/retire-1/model.json → newKindNeeds`. Bất biến: ô CPI trống là THIẾU (715 = 716 − 1), hoà lấy tháng sớm nhất. Luật tập 3 của brief → `claims.forbiddenAmounts` (S19). Tự merge nếu chỉ thêm. **Trước C3 Tập 6** (D-011 Q3).
+1. **Tập 6:**
+   - Bên dựng viết `contract.json`: `model.kind` + `index.name: "cpiu"` (mẫu `checks-runs/K402/contract-ep006-draft.json`), `claims.forbiddenAmounts`, `claims.conditions`.
+   - **C4:** chạy thử rubric khuyên. Kiểm mù bản có lời, 2 người chấm, `tally --scores a.json b.json`, thêm đối chứng hình thật.
+   - **C5:** đọc `V11.plateOverGraphics`. Lấy mẫu trang lâu hơn khoảng 39 %. F11 nhà máy phải ĐẠT trên cây C5 thật **trước G2**; trượt thì quay lại K2.
+2. Lô K sau:
+   - R07 cần hộp đối tượng theo từng cue.
+   - V14 rule1 cần `chartW`.
+   - Bên dựng ghi dải chrome thành đối tượng `card`, để V11 về 0.
+   - Selftest kind thiếu ca chỉ số đối chiếu và ca hoà.
+   - Hiệu chuẩn chỉ báo trên Tập 6: V15, V17, R08, T4, S22.
 3. Treo:
-   - selftest chứng minh `plateOverGraphics > 0` ở ca badge-on-series (REVIEWER THAM KHẢO 6), làm trước khi merge K4.1;
-   - F11 nhà máy chạy trên cây C5 đủ media (G2 Tập 6);
-   - R07 cần hộp đối tượng theo cue;
-   - V14 rule1 cần `chartW`;
-   - dải chrome ghi thành `card`, việc của bên dựng (để V11 về 0).
    - Còn mở: A5, A7, A8, A23 (cờ `change` trên spine).
+   - K3.6 còn ghi "chờ duyệt".
 
 ## 3. Quyết định đã có
-- 08/10 D-011 Q3: phiên K lô song song Tập 6 P1, merge trước C3.
-- D-008 §2: nhóm 2 tự merge. Nhóm 1 sửa luật cũ nên hỏi chủ dự án.
+08/10, gói K4.1 → `checks-runs/K41/GOI-answer.md`:
+- câu 1: Có;
+- câu 2: Có, với điều kiện F11 đạt ở C5 Tập 6;
+- câu 3: Có, chạy thử ở C4 Tập 6; hỏi bảo hiểm hoặc hỏi báo giá = `caution_only`.
 
-## 5. Token (log phiên, đọc từ transcript cục bộ đến 17:58 UTC; chưa có sự kiện `result` vì phiên một lượt)
+Lệnh: kind Tập 6 làm trước K4.1; K4.1 lên main trước C5 Tập 6.
+
+## 5. Token (đọc từ transcript cục bộ; phiên một lượt, chưa có sự kiện `result`)
 | Phiên | Đến (UTC) | Sinh ra | Đầu vào mới | Đọc cache | Trần |
 |---|---|---|---|---|---|
-| K lô 08/10 (gồm 3 agent con) | 17:58 | 170.090 | 757.341 | 80.464.818 | **927.431** |
+| K lô 08/10 (đã báo) | 08/10 17:58 | 170.090 | 757.341 | 80.464.818 | 927.431 |
+| **K tiếp (kind T6 + K4.1)** | 09/10 00:38 | 66.160 | 787.773 | 34.298.973 | **853.933** |
 
-Agent con: chấm khuyên 0,06 tr, REVIEWER 0,15 tr và 0,10 tr (cỡ ngữ cảnh do công cụ báo). Giờ máy: selftest 2 × 21–24 phút; lấy mẫu trang Tập 5 42,6 và 59,4 phút; ASR R07 Tập 5 ≈ 6 phút.
+Ghi chú:
+- Có 3 agent REVIEWER, mỗi lượt cỡ ngữ cảnh 0,09–0,10 triệu token.
+- Giờ máy:
+  - selftest: 4 lượt, 14–21 phút mỗi lượt;
+  - hiệu chuẩn kind: dưới 1 phút.
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
 1. `CHARTER.md`
 2. `decisions/D-008.md`
-3. `checks/README.md` (mục K4.0, K4.0.1)
-4. `checks-runs/K41/GOI-chu-du-an.md`
-5. `K-PLAN.md` (tệp này)
-6. `checks-appeal.md` (khối K4.0)
-7. `origin/ep006:episodes/ep006/K-brief.md`
-8. `topics-r1/machine/retire-1/model.json`
+3. `checks/README.md` (mục K4.0.2, K4.1)
+4. `checks/CONTRACT.md`
+5. `K-PLAN.md`
+6. `checks-appeal.md`
+7. `episodes/ep006/PLAN.md` (nhánh `ep006`)
+8. K-brief của tập kế tiếp
 
 ## 7. Prompt phiên kế
 ```
-Phiên K tiếp (K4.1 + kind Tập 6). Nhánh claude/phase-k-after-episode-5-frjcpw (đầu nhánh = commit đóng phiên K 08/10; main @ 2c5eacf, LOCK 79aeec0d). Mở bằng `bash toolkit/verify.sh`; đọc mục 6 của K-PLAN.md.
-Việc đầu tiên: chép câu trả lời dưới đây vào checks-runs/K41/GOI-answer.md, commit, push.
-1. Nhóm 1 (K4.1): áp câu "Có"; câu "Không" → revert phần đó trên nhánh. Làm việc treo REVIEWER 6 (selftest plateOverGraphics). Chạy selftest đủ bộ, cập nhật checks/README.md mục K4.1 + LOCK, REVIEWER, merge main, kiểm SHA LOCK trên main.
-2. Kind Tập 6 từ episodes/ep006/K-brief.md trên origin/ep006 (nếu chưa có thì ghi rõ "chờ" và dừng phần này): viết kind từ đặc tả, selftest tính tay, S01/S05 trên dữ liệu thật Tập 6 0 lệch, luật tập 3 qua claims.forbiddenAmounts; chỉ thêm → tự merge main theo D-008 §2 trước C3 Tập 6.
-Đóng phiên theo D-011: K-PLAN ≤ 1 trang, 4 số token, prompt phiên kế. DỪNG.
-Câu trả lời gói K4.1 (checks-runs/K41/GOI-chu-du-an.md):
-<<DÁN CÂU TRẢ LỜI GÓI K4.1 Ở ĐÂY>>
+Phiên K lô sau Tập 6. Nhánh <nhánh do lệnh ghi> từ main (K4.1 @ 1678a38, LOCK 4d688acd). Mở bằng `bash toolkit/verify.sh <nhánh>`; đọc mục 6 của K-PLAN.md.
+Việc đầu tiên: chép câu trả lời dưới đây vào checks-runs/K42/answer.md, commit, push.
+1. Kết quả C4/C5 Tập 6: rubric khuyên chạy thử (giữ/bỏ rubric cũ), F11 nhà máy trên cây C5 thật (ĐẠT → giữ; trượt → quay lại K2), V11.plateOverGraphics.
+2. Hiệu chuẩn chỉ báo trên Tập 6 (V15, V17, R08, T4, S22) và kind mới cho tập kế (K-brief nếu có; chưa có thì ghi "chờ").
+Chỉ thêm → tự merge theo D-008 §2; sửa luật cũ → gói ≤ 3 câu. Đóng phiên theo D-011: K-PLAN ≤ 1 trang, 4 số token, prompt phiên kế. DỪNG.
+Câu trả lời / kết quả Tập 6:
+<<DÁN CÂU TRẢ LỜI Ở ĐÂY>>
 ```
