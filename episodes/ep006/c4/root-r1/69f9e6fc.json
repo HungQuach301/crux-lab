@@ -1,0 +1,22 @@
+{
+ "answer": "1. The animation compares a level (fixed) annuity check with a rising check that is adjusted for inflation. It uses US consumer prices (CPI-U) and is labeled \"illustrative.\" Each check is shown as a stack of crates measured against its own first check.\n\n2. In frame 1, both checks start at full strength. The level check has 10 crates, and the rising check is labeled \"about 9 in 10 (90.4%).\" Over the frames, the level check's crates fade out until the label reads \"level check today: about 6 in 10 (60.9%).\" The rising check stays at about 9 in 10 (90.4%). The footer text later adds \"Each check vs its own first check · not dollars\" and \"US only · history, not a forecast.\"\n\n3. Inflation erodes what a fixed payment can buy. In this historical example, the level check buys only about 61% of what it did at the start. The rising check buys about 90% of what it did at the start. The rising check is not a full 100%, so it also lost some purchasing power, just far less. The comparison is in purchasing power relative to each check's own starting point. It does not compare dollar amounts, so it doesn't say the rising check pays more at the start.\n\n4. The animation gives no explicit advice. A viewer would likely take away that inflation protection matters over a long retirement, and that a level payout loses purchasing power. A viewer might also infer that a rising check costs something, though the animation doesn't show this. A rising check usually starts lower, and the frames don't show that tradeoff. The \"history, not a forecast\" note says future inflation could be different.\n\n5. The animation suggested the main takeaway, because it shows the level check shrinking while the rising check mostly holds. The cost tradeoff and any decision about which option to pick are my own conclusions. The animation did not say either.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1398,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 190,
+   "in": 1398,
+   "out": 190
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3706,
+   "cache_read": 6106,
+   "output": 660,
+   "in": 9816,
+   "out": 660
+  }
+ },
+ "turns": 2
+}
