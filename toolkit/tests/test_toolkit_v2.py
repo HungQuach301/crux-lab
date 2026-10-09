@@ -134,12 +134,24 @@ class Packets(unittest.TestCase):
             else:
                 sc[lab] = {'score': 0, 'advice_stated': False, 'caution_only': True, 'why': ''}
         sp = os.path.join(self.d, 'scores.json'); json.dump(sc, open(sp, 'w'))
+        # chủ dự án 08/10 (gói K4.1 câu 3): chạy thử — luôn tính cả hai rubric; cổng mặc định rubric cũ; lệch → giữ rubric cũ
         res = packets.tally(self.key, rk, sp, threshold=0.8)
         rows = {r['id']: r for r in res['rows']}
-        self.assertEqual((rows['KEY-1']['status'], rows['KEY-1']['advice'], rows['KEY-1']['advice_inferred']), ('PASS', 0, 2))
-        self.assertEqual(rows['KEY-2']['status'], 'FAIL')
-        self.assertEqual(rows['KEY-3']['status'], 'FAIL')
-        self.assertEqual(sorted(res['advice_beats']), ['KEY-2', 'KEY-3'])
+        self.assertEqual((res['advice_rubric'], rows['KEY-1']['status']), ('old', 'FAIL'))          # cũ: tự suy cũng chặn
+        self.assertEqual(sorted(res['advice_beats_old']), ['KEY-1', 'KEY-2', 'KEY-3'])
+        self.assertEqual(sorted(res['advice_beats_new']), ['KEY-2', 'KEY-3'])                       # mới: chỉ video nói
+        self.assertTrue(res['rubric_disagree'])
+        res2 = packets.tally(self.key, rk, sp, threshold=0.8, advice_rubric='new')
+        self.assertEqual(res2['advice_rubric'], 'old')                                              # lệch → giữ rubric cũ
+        new = packets._tally_one(json.load(open(self.key)), json.load(open(rk)), [json.load(open(sp))], 0.8, None, 'new')
+        nrows = {r['id']: r for r in new['rows']}
+        self.assertEqual((nrows['KEY-1']['status'], nrows['KEY-1']['advice'], nrows['KEY-1']['advice_inferred']), ('PASS', 0, 2))
+        # hai người chấm: gộp thận trọng (một người bật cờ là tính)
+        sp2 = os.path.join(self.d, 'scores2.json')
+        json.dump({lab: dict(v, advice_stated=False, advice_inferred=False, quote='') if 'advice_stated' in v else v for lab, v in sc.items()}, open(sp2, 'w'))
+        res3 = packets.tally(self.key, rk, [sp, sp2], threshold=0.8)
+        self.assertEqual((res3['graders'], sorted(res3['advice_beats_new'])), (2, ['KEY-2', 'KEY-3']))
+        self.assertIn('hai rubric lệch', packets.markdown(res) if res['verdict'] != 'PENDING' else 'hai rubric lệch')
 
     def test_classes_guard(self):
         packets.deal(self.man, self.out, self.key, [1, 2])

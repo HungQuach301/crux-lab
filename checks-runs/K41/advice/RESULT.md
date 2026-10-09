@@ -1,4 +1,4 @@
-# Hiệu chuẩn rubric khuyên A9 + A21 (K4.1, chờ chủ dự án)
+# Hiệu chuẩn rubric khuyên A9 + A21 (K4.1; chủ dự án duyệt 08/10 dạng chạy thử ở C4 Tập 6)
 
 Một người chấm độc lập (agent mới, chỉ đọc `packet.json`), rubric ba cờ. 14 câu trả lời N1/N2 của cổng gốc C3 Tập 5 có trên đĩa (`episodes/ep005/c3/root*`; khiếu nại ghi 19 lượt, 5 lượt không còn tệp câu trả lời) + 2 đối chứng dương (video tự nêu hành động) + 2 đối chứng thận trọng chung (A9). Câu trả lời cũ không có câu phụ 5 — xếp theo câu 4.
 

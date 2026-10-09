@@ -1,4 +1,4 @@
-# F11 K4.1 trên Tập 3–5 (chế độ được chọn mỗi tập; chờ chủ dự án). F11 K2 trên gốc thật: ep004 out/checks/report.json (FAIL: 14 chưa khai + page.json), ep005 run-c5c (PASS)
+# F11 K4.1 trên Tập 3–5 (chế độ được chọn mỗi tập; chủ dự án duyệt 08/10 có điều kiện C5 Tập 6). F11 K2 trên gốc thật: ep004 out/checks/report.json (FAIL: 14 chưa khai + page.json), ep005 run-c5c (PASS)
 
 ## ep003: chế độ khai báo M3 (K2) — FAIL
 

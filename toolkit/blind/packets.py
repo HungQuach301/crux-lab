@@ -16,7 +16,7 @@ Bốn lệnh, đúng thứ tự một lượt kiểm:
 
 Luật (ghi trong ý đồ trước khi chạy; mặc định khớp quality-framework v2):
   * Một người đọc "đúng" khi score == 1 VÀ không có câu khuyên. 0,5 ghi lại để tham khảo, tính là "không đúng".
-  * Câu khuyên (K4.1, checks-appeal A9 + A21 — chờ chủ dự án duyệt): ba cờ, người chấm trích câu người đọc làm căn cứ (`quote`).
+  * Câu khuyên (K4.1, checks-appeal A9 + A21 — chủ dự án duyệt 08/10 dạng CHẠY THỬ ở C4 Tập 6; cổng giữ rubric cũ tới khi chạy thử đạt): ba cờ, người chấm trích câu người đọc làm căn cứ (`quote`).
       advice_stated   — video (hình, chữ trên hình, lời) NÊU hoặc ngụ ý một hành động tài chính: mua / bán / giữ / chờ / khoá / chọn hay tránh
                         một sản phẩm. TÍNH: nhịp có ≥ 1 advice_stated → TRƯỢT ngay.
       advice_inferred — người đọc TỰ SUY hành động từ dữ liệu khi bị hỏi câu 4 (và/hoặc câu 5 nói là kết luận của mình, hoặc ghi
@@ -164,27 +164,34 @@ def check_classes(key, classesfile):
     return {'file': os.path.basename(classesfile), 'sha256': _sha(classesfile), 'image_share': round(share, 3)}
 
 
-def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None):
-    """Chỉ cho kiểm theo nhịp ở C3, C4 (≤ 3 người đọc mỗi mẫu). C1, C2 đếm theo ý đồ của cổng."""
-    key, rk, sc = _load(keyfile), _load(rubrickeyfile), _load(scoresfile)
+def _advice(v, rubric):
+    """Cờ khuyên CHẶN của một bản chấm theo rubric: 'old' = mọi cờ khuyên (trường `advice`, hoặc stated hay inferred); 'new' = advice_stated (A9 + A21)."""
+    if rubric == 'new':
+        return bool(v['advice_stated']) if 'advice_stated' in v else bool(v.get('advice'))
+    if 'advice' in v:
+        return bool(v['advice'])
+    return bool(v.get('advice_stated')) or bool(v.get('advice_inferred'))
+
+
+def _tally_one(key, rk, scs, threshold, classes, rubric):
     cand = key['candidate_set']
-    if any(v['slot'] > 3 for v in key['items'].values()):
-        sys.exit('tally chỉ dùng cho kiểm theo nhịp (≤ 3 người đọc); C1/C2 đếm theo ý đồ của cổng')
-    classes = check_classes(key, classesfile) if classesfile else None
     per = {}
     for lab, h in rk.items():
-        if lab not in sc:
+        vs = [sc[lab] for sc in scs if lab in sc]
+        if not vs:
             continue
         it = key['items'][h]
-        v = sc[lab]
-        if v['score'] not in (0, 0.5, 1):
-            sys.exit(f'{lab}: điểm không hợp lệ {v["score"]}')
-        stated = bool(v['advice_stated']) if 'advice_stated' in v else bool(v.get('advice'))   # bản chấm cũ: advice = stated
-        if ('advice_stated' in v) and (v.get('advice_stated') or v.get('advice_inferred')) and not str(v.get('quote') or '').strip():
-            sys.exit(f'{lab}: có cờ khuyên nhưng không trích câu người đọc (quote) — chấm lại')
+        for v in vs:
+            if v['score'] not in (0, 0.5, 1):
+                sys.exit(f'{lab}: điểm không hợp lệ {v["score"]}')
+            if ('advice_stated' in v) and (v.get('advice_stated') or v.get('advice_inferred')) and not str(v.get('quote') or '').strip():
+                sys.exit(f'{lab}: có cờ khuyên nhưng không trích câu người đọc (quote) — chấm lại')
+        # nhiều người chấm: gộp thận trọng — điểm thấp nhất, cờ khuyên nếu BẤT KỲ người chấm nào bật
+        score = min(v['score'] for v in vs)
+        adv = any(_advice(v, rubric) for v in vs)
         d = per.setdefault((it['set'], it['id']), {'kind': it.get('kind', 'image'), 'r': [], 'inferred': 0})
-        d['r'].append((it['slot'], v['score'], stated, v.get('why', '')))
-        d['inferred'] += bool(v.get('advice_inferred')) and not stated
+        d['r'].append((it['slot'], score, adv, ' / '.join(v.get('why', '') for v in vs)))
+        d['inferred'] += any(bool(v.get('advice_inferred')) and not bool(v.get('advice_stated')) for v in vs)
     rows = []
     for (st, sid), d in sorted(per.items(), key=lambda x: (x[0][0] != cand, x[0])):
         rs = sorted(d['r'])
@@ -197,7 +204,7 @@ def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None):
     pending = [r['id'] for r in gate if r['status'] not in ('PASS', 'FAIL')]
     n_pass = sum(r['status'] == 'PASS' for r in gate)
     res = {'candidate_set': cand, 'threshold': threshold, 'rows': rows, 'gate_beats': len(gate), 'gate_pass': n_pass,
-           'pending': pending, 'advice_beats': advice_beats, 'classes': classes}
+           'pending': pending, 'advice_beats': advice_beats, 'classes': classes, 'advice_rubric': rubric}
     if gate and not pending:
         share = n_pass / len(gate)
         res['share'] = round(share, 3)
@@ -205,6 +212,24 @@ def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None):
         res['near_threshold'] = abs(share - threshold) <= 0.05  # chống Goodhart: ±5% quanh ngưỡng phải nêu tên
     else:
         res['verdict'] = 'PENDING'
+    return res
+
+
+def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None, advice_rubric='old'):
+    """Chỉ cho kiểm theo nhịp ở C3, C4 (≤ 3 người đọc mỗi mẫu). C1, C2 đếm theo ý đồ của cổng.
+    scoresfile: một tệp hoặc danh sách tệp (nhiều người chấm, gộp thận trọng). Luôn tính CẢ HAI rubric khuyên (chủ dự án 08/10, gói K4.1 câu 3:
+    chạy thử ở C4 Tập 6): verdict_old, verdict_new, rubric_disagree. Cổng theo `advice_rubric` (mặc định 'old'); hai rubric lệch → cổng giữ rubric cũ."""
+    key, rk = _load(keyfile), _load(rubrickeyfile)
+    scs = [_load(f) for f in (scoresfile if isinstance(scoresfile, (list, tuple)) else [scoresfile])]
+    if any(v['slot'] > 3 for v in key['items'].values()):
+        sys.exit('tally chỉ dùng cho kiểm theo nhịp (≤ 3 người đọc); C1/C2 đếm theo ý đồ của cổng')
+    classes = check_classes(key, classesfile) if classesfile else None
+    old = _tally_one(key, rk, scs, threshold, classes, 'old')
+    new = _tally_one(key, rk, scs, threshold, classes, 'new')
+    disagree = old['verdict'] != new['verdict'] or old['advice_beats'] != new['advice_beats']
+    res = new if advice_rubric == 'new' and not disagree else old
+    res = dict(res, verdict_old=old['verdict'], verdict_new=new['verdict'], advice_beats_old=old['advice_beats'],
+               advice_beats_new=new['advice_beats'], rubric_disagree=disagree, graders=len(scs))
     return res
 
 
@@ -220,6 +245,9 @@ def markdown(res):
         adv = f"; câu khuyên ở {', '.join(res['advice_beats'])}" if res['advice_beats'] else ''
         L.append(f"\n**Cổng ({res['candidate_set']}, nhịp loại image): {res['gate_pass']}/{res['gate_beats']} = "
                  f"{res['share']:.0%}; ngưỡng {res['threshold']:.0%}{adv} → {res['verdict']}{near}.**")
+    if 'verdict_old' in res:
+        L.append(f"Rubric khuyên: cổng theo `{res['advice_rubric']}` · cũ {res['verdict_old']} · mới {res['verdict_new']}"
+                 + (' · **hai rubric lệch → giữ rubric cũ**' if res['rubric_disagree'] else '') + f" · {res['graders']} người chấm.")
     if res.get('classes'):
         c = res['classes']
         L.append(f"Bảng phân loại `{c['file']}` SHA-256 `{c['sha256'][:12]}…`, loại 1 = {c['image_share']:.0%}.")
@@ -238,7 +266,8 @@ def main(argv=None):
     p.add_argument('--rubric-key', required=True)
     t = sub.add_parser('tally')
     t.add_argument('--key', required=True); t.add_argument('--rubric-key', required=True)
-    t.add_argument('--scores', required=True); t.add_argument('--threshold', type=float, default=0.8)
+    t.add_argument('--scores', required=True, nargs='+', help='một hoặc nhiều tệp điểm (nhiều người chấm)'); t.add_argument('--threshold', type=float, default=0.8)
+    t.add_argument('--advice-rubric', choices=('old', 'new'), default='old', help="rubric khuyên của cổng; lệch giữa hai rubric thì giữ 'old'")
     t.add_argument('--json'); t.add_argument('--md'); t.add_argument('--classes', help='bảng phân loại nhịp đã báo')
     n = sub.add_parser('next')
     n.add_argument('--key', required=True); n.add_argument('--rubric-key', required=True)
@@ -251,7 +280,7 @@ def main(argv=None):
     elif a.cmd == 'packet':
         print('nhãn:', ' '.join(packet(a.key, a.answers, a.rubric, a.packet, a.rubric_key)))
     elif a.cmd == 'tally':
-        res = tally(a.key, a.rubric_key, a.scores, a.threshold, a.classes)
+        res = tally(a.key, a.rubric_key, a.scores, a.threshold, a.classes, a.advice_rubric)
         if a.json:
             _dump(res, a.json)
         md = markdown(res)

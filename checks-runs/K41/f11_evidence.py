@@ -1,4 +1,4 @@
-"""K4.1 (chờ chủ dự án) — bằng chứng A10 + A16: F11 cũ (khai báo M3 + RELEASE_FILES) và F11 mới (danh sách của nhà máy) trên Tập 3–5.
+"""K4.1 (chủ dự án duyệt 08/10 có điều kiện C5 Tập 6) — bằng chứng A10 + A16: F11 cũ (khai báo M3 + RELEASE_FILES) và F11 mới (danh sách của nhà máy) trên Tập 3–5.
 Bản trong git không có media (video, stem, work/factory: .gitignore) → mỗi tệp thiếu được xếp: có trong git / bị .gitignore (giao ở bản C5, không vào git) /
 thiếu thật. Tập 4, Tập 5: kết quả F11 trên gốc thật đã lưu (out/checks/report.json, run-c5c) để so.
   python3 checks-runs/K41/f11_evidence.py > checks-runs/K41/F11-evidence.md"""
@@ -13,7 +13,7 @@ def ignored(rel):
     return subprocess.run(['git', 'check-ignore', '-q', rel], cwd=ROOT).returncode == 0
 
 
-print('# F11 K4.1 trên Tập 3–5 (chế độ được chọn mỗi tập; chờ chủ dự án). F11 K2 trên gốc thật: ep004 out/checks/report.json (FAIL: 14 chưa khai + page.json), ep005 run-c5c (PASS)\n')
+print('# F11 K4.1 trên Tập 3–5 (chế độ được chọn mỗi tập; chủ dự án duyệt 08/10 có điều kiện C5 Tập 6). F11 K2 trên gốc thật: ep004 out/checks/report.json (FAIL: 14 chưa khai + page.json), ep005 run-c5c (PASS)\n')
 for ep in ('ep003', 'ep004', 'ep005'):
     d, cache = retro.build(ep)
     ctx = common.Ctx(d, cache=cache)
