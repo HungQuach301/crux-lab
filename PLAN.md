@@ -19,6 +19,7 @@ PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLA
 - Nhà máy: `toolkit/factory/BACKLOG.md` (giữa tập chỉ sửa CHẶN + CHÍNH của tập đang làm; việc khác gom đầu tập, nhánh `factory-*`).
 
 ## Hàng chờ phiên K (`checks-appeal.md`, thứ tự Phiên T5)
+0. **K4.0.2 (09/10): kind `fixed-raise-vs-index-windows` cho Tập 6** — LOCK `1b83d940…`; S01 Tập 6 89 khoá 0 lệch, 45/45 claim, 8/8 bất biến. Tập 6 khai `model.kind` + `index.name: "cpiu"` (mẫu `checks-runs/K402/contract-ep006-draft.json`). **K4.1 đã lên main (09/10, LOCK `4d688acd…`)**: V11 glyph/plate (REVIEWER đọc `plateOverGraphics` mỗi C5), F11 nhà máy (phải ĐẠT trên cây C5 thật Tập 6 trước G2, trượt → K2), rubric khuyên chạy thử C4 Tập 6 (`tally` mặc định rubric cũ).
 1. Hỏi chủ dự án một gói (sửa luật cũ): **A22** V11 glyph/plate → **A10 + A16** F11/F12 đọc từ nhà máy → **A9 + A21** rubric khuyên.
 2. ~~Chỉ thêm (D-008 §2): A20 → A17, A14, A18 → A13, A19, A24 → A23 → A25, A26~~ — **XONG, khoá K4.0 → K4.0.1** (LOCK `79aeec0d…`, 08/10; K4.0.1 = sửa theo REVIEWER): S19 CHẶN; S20, S21 CHÍNH; V14, R07, R08, T4, V15, V17, S22 THAM KHẢO (chỉ báo, chưa hiệu chuẩn). Selftest Python 324/324, trang 64/64; 89/89 luật cũ trùng trước/sau trên Tập 3–5. A12 xong.
 3. Báo cáo/chữ: A15, A12. Còn mở: A5, A7, A8, A11.

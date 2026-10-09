@@ -1,0 +1,27 @@
+{
+ "_about": "K4.0 sampler trên Tập 5 C5c dựng lại (trang episode_page.py, 2.988.546 byte như C5c; video = review-g2/full-720p.mp4 phóng 1080p; work/world-data/derived.json sinh lại, FRED SHA 5/5 khớp) so với run-c5c/page.json.gz (sampler K3.9). Bỏ: seconds, textOnlyTrack, root, pageUrl, jobs, cache, resources.",
+ "keysCompared": 19,
+ "keysDiffering": [
+  "rules"
+ ],
+ "V11": [
+  2612,
+  2612
+ ],
+ "textOnlyTrack": [
+  {
+   "t": 0,
+   "scene": "S01",
+   "textOnly": false
+  }
+ ],
+ "ruleFieldsDiffering": {
+  "V08": [
+   "worst (thống kê điểm ảnh video)"
+  ],
+  "V12": [
+   "staticMedian, staticP05, movingMedian, movingP05, lowest (NCC trên video)"
+  ]
+ },
+ "reading": "Mọi số đếm luật (framesFlagged, violations, framesWithout…) và textTrack/motionTrack/claim trùng C5c; chỉ các thống kê đo trên ĐIỂM ẢNH video khác vì video dựng lại là bản 720p phóng 1080p, không phải master. V15 Tập 5: textOnlyTrack = một mục false → 0 % khung chỉ chữ."
+}

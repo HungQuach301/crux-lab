@@ -1,0 +1,380 @@
+{
+ "root": "/tmp/claude-0/-home-user-crux-lab/59201345-1fc4-5bff-b770-7f2f8f4491c0/scratchpad/ep6/episodes/ep006",
+ "sha": {
+  "CPIAUCNS.csv": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+  "CPIAUCSL.csv": "f8ecddf53a9a9a74dda92c2c4204e6039466fcb744bc74171b73b5f6aac48119",
+  "CWUR0000SA0.csv": "27ceaacf4113963e47ec193ae819049c7d5f44fae8da26fd041a757bb1f951e0",
+  "PCEPI.csv": "0f416a343a73a3b723af3315679596eecd7300abb433e8999c6a161d46c22e4f"
+ },
+ "S01": {
+  "checked": 89,
+  "mismatches": [],
+  "notRecomputed": []
+ },
+ "claims": {
+  "rows": 44,
+  "compared": 45,
+  "ok": 45,
+  "mismatch": 0,
+  "notKind": [],
+  "detail": [
+   {
+    "claim": "cpi_yoy_latest_pct",
+    "kind": 3.3965478924364856,
+    "model": 3.3965478924364856,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "index_last_month",
+    "kind": "2026-08",
+    "model": "2026-08-01",
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "windows_20y",
+    "kind": 715.0,
+    "model": 715,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "windows_2pct_kept_up_20y",
+    "kind": 17.0,
+    "model": 17,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "share_2pct_kept_up_20y_pct",
+    "kind": 2.3776223776223775,
+    "model": 2.3776223776223775,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "kept_up_first_start_20y",
+    "kind": "1947-09",
+    "model": "1947-09-01",
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "kept_up_last_start_20y",
+    "kind": "1949-01",
+    "model": "1949-01-01",
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "windows_25y",
+    "kind": 655.0,
+    "model": 655,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "windows_2pct_kept_up_25y",
+    "kind": 0.0,
+    "model": 0,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "median_inflation_20y_pct_per_year",
+    "kind": 3.0987460692801116,
+    "model": 3.0987460692801116,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "median_real_value_2pct_payment_after_20y_pct",
+    "kind": 80.71156537680373,
+    "model": 80.71156537680373,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "median_real_value_level_payment_after_20y_pct",
+    "kind": 54.31656974886574,
+    "model": 54.31656974886574,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "worst_real_value_2pct_payment_after_20y_pct",
+    "kind": 43.114167146087304,
+    "model": 43.114167146087304,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "worst_real_value_level_payment_after_20y_pct",
+    "kind": 29.01459854014599,
+    "model": 29.01459854014599,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "worst_window_start_year_20y",
+    "kind": 1966.0,
+    "model": 1966,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "worst_window_years_2pct_fell_20y",
+    "kind": 20.0,
+    "model": 20,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "share_2pct_at_least_90_after_20y_pct",
+    "kind": 32.58741258741259,
+    "model": 32.58741258741259,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "share_2pct_at_least_75_after_20y_pct",
+    "kind": 56.22377622377623,
+    "model": 56.22377622377623,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "two_pct_growth_20y_pct",
+    "kind": 48.59473959783549,
+    "model": 48.59473959783549,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "latest_start",
+    "kind": "2006-08",
+    "model": "2006-08-01",
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "latest_end",
+    "kind": "2026-08",
+    "model": "2026-08-01",
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "latest_window_real_value_2pct_payment_pct",
+    "kind": 90.4485861961868,
+    "model": 90.4485861961868,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "latest_window_real_value_level_payment_pct",
+    "kind": 60.86930563018688,
+    "model": 60.86930563018688,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "latest_window_price_rise_pct",
+    "kind": 64.28641490926925,
+    "model": 64.28641490926925,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "latest_window_inflation_pct_per_year",
+    "kind": 2.5132689669896457,
+    "model": 2.5132689669896457,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "guide_start",
+    "kind": "2006-08",
+    "model": "2006-08-01",
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "guide_last_year_2pct_at_or_above_100",
+    "kind": 15.0,
+    "model": 15,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "guide_years_2pct_at_or_above_100",
+    "kind": 12.0,
+    "model": 12,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "guide_real_2pct_2022_pct",
+    "kind": 94.50993016466023,
+    "model": "94.5",
+    "against": "numbers.md (rounded)",
+    "ok": true
+   },
+   {
+    "claim": "guide_real_level_2021_pct",
+    "kind": 74.53384362880026,
+    "model": "74.5",
+    "against": "numbers.md (rounded)",
+    "ok": true
+   },
+   {
+    "claim": "guide_real_2pct_end_pct",
+    "kind": 90.4485861961868,
+    "model": 90.4485861961868,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "guide_real_level_end_pct",
+    "kind": 60.86930563018688,
+    "model": 60.86930563018688,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "guide_year_level_reaches_2pct_end",
+    "kind": 5.0,
+    "model": 5,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "median_year_level_reaches_2pct_end_median",
+    "kind": 8.0,
+    "model": 8,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "by_decade_1990_median_real_2pct",
+    "kind": 94.84294744154704,
+    "model": "94.8",
+    "against": "numbers.md (rounded)",
+    "ok": true
+   },
+   {
+    "claim": "by_decade_2000_kept",
+    "kind": 0,
+    "model": "0",
+    "against": "numbers.md (rounded)",
+    "ok": true
+   },
+   {
+    "claim": "by_decade_2000_max_real_2pct",
+    "kind": 99.46761972758443,
+    "model": "99.5",
+    "against": "numbers.md (rounded)",
+    "ok": true
+   },
+   {
+    "claim": "by_decade_1960_median_real_2pct",
+    "kind": 44.250993176518065,
+    "model": "44.3",
+    "against": "numbers.md (rounded)",
+    "ok": true
+   },
+   {
+    "claim": "raise_needed_half_20y_pct",
+    "kind": 3.0987460692801116,
+    "model": 3.0987460692801116,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "raise_needed_all_20y_pct",
+    "kind": 6.382250057633976,
+    "model": 6.382250057633976,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "raise_grid_3pct",
+    "kind": 42.37762237762238,
+    "model": "42.4",
+    "against": "numbers.md (rounded)",
+    "ok": true
+   },
+   {
+    "claim": "robust_cpiw_share_kept_up_20y_pct",
+    "kind": 2.937062937062937,
+    "model": 2.937062937062937,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "robust_pce_share_kept_up_20y_pct",
+    "kind": 19.23076923076923,
+    "model": 19.23076923076923,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "cpiu_from_pce_start_kept_up_20y",
+    "kind": 0.0,
+    "model": 0,
+    "against": "raw",
+    "ok": true
+   },
+   {
+    "claim": "robust_pce_median_real_2pct_pct",
+    "kind": 88.00524507229082,
+    "model": 88.00524507229082,
+    "against": "raw",
+    "ok": true
+   }
+  ]
+ },
+ "invariants": [
+  {
+   "name": "kept shares outside [0, 100]",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "windows where the fixed-raise check is not above the level check (raise > 0)",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "quantities changed when the index is multiplied by 2",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "raise-grid steps where a higher raise keeps up in fewer windows",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "raise needed for half / all ≠ median / max inflation, or windows not kept at raise_needed_all",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "windows touching a missing month, or a window count ≠ candidate starts with both months present",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "windows ending after the last observation or starting after last − 12H",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "worst / best starts that are not the earliest among equal values",
+   "value": 0,
+   "pass": true
+  }
+ ]
+}
