@@ -56,7 +56,7 @@ ev = [{'t': cue['g0']['raise'], 'kind': 'rise', 'dur': 1.2}, {'t': cue['g1']['fo
       {'t': cue['g2']['half'], 'kind': 'data', 'v': 0.5}, {'t': cue['g3']['carls'], 'kind': 'data', 'v': 1.0},
       {'t': cue['i2']['nine'], 'kind': 'tick', 'v': 0.5}]
 K.finish(HERE, S, 'ep006 C4 · F = S30–S32 (thang mức tăng · giới hạn + V7 · kết)', beats, moves, ev,
-         {'card': card, 'ruth_end': K.P['ruth'][-1],
+         {'card': card, 'ruth_end': K.P['ruth'][-1], 'ruth_path': K.P['ruth'],
           'rungs': [{'id': 'r2', 'label': '2%', 'share': K.GRID['raise_grid']['0.020'], 'value': '2.4%'},
                     {'id': 'r3', 'label': '3%', 'share': K.GRID['raise_grid']['0.030'], 'value': '42.4%'},
                     {'id': 'r31', 'label': '3.1%', 'share': 50.0, 'value': 'half'},
@@ -64,7 +64,7 @@ K.finish(HERE, S, 'ep006 C4 · F = S30–S32 (thang mức tăng · giới hạn 
          {'g2.median': 'a median of the past, not an expectation', 'g4.choose': 'Not advice on which check or raise',
           'h0.national': "a national average, not one retiree's basket", 'h1.overlap': 'overlapping stretches, not 715 separate tests',
           'h2.dollars': 'dollars paid out: not compared', 'i2.eighty': 'Ruth · ILLUSTRATIVE · age 85', 'i2.nine': 'about 9 in 10',
-          'i2.ten': 'first check: 10 crates', 'card0': 'How we know this',
+          'i2.ten': 'first check: 10 crates', 'i2.check': 'check: +2% a year', 'card0': 'How we know this',
           'card1': 'Prices: CPI-U all items, US city average (FRED CPIAUCNS), to Aug 2026',
           'card2': '715 overlapping 20-year stretches, Jan 1947 to Aug 2006',
           'card3': 'Check rises 2% once a year; measured against its first check',

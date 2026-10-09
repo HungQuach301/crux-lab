@@ -14,14 +14,14 @@ export async function boot(res) {
   const poses = {
     wRuth: { pos: [-3.0, 2.2, 7.8], tgt: [-0.7, 0.5, 0], fov: 35, chart: 0 },
     wCarl: { pos: [3.0, 2.2, 7.8], tgt: [5.3, 0.5, 0], fov: 35, chart: 0 },
-    cCarl: { pos: [6.7, 1.05, 23], tgt: [6.7, 1.05, 0], fov: 14, chart: 1 },
-    cCarl2: { pos: [9.6, 1.1, 33], tgt: [9.6, 1.1, 0], fov: 14, chart: 1 },
+    cCarl: { pos: [6.7, 0.85, 26], tgt: [6.7, 0.85, 0], fov: 14, chart: 1 },     // FIX-R1: lùi + hạ tâm — nhãn dưới hàng cách dải chân trang ≥ 60 px, đỉnh thanh giá dưới dải nhãn góc
+    cCarl2: { pos: [9.2, 1.1, 35], tgt: [9.2, 1.1, 0], fov: 14, chart: 1 },      // FIX-R1: người Carl → hàng séc đều trọn trong [96, 1824]
     wEdna: { pos: [-8.8, 2.2, 7.8], tgt: [-6.5, 0.5, 0], fov: 35, chart: 0 },
-    cEdna: { pos: [-4.4, 1.0, 22], tgt: [-4.4, 1.0, 0], fov: 14, chart: 1 },
-    cBoth: { pos: [0.0, 2.6, 44], tgt: [0.0, 2.6, 0], fov: 14, chart: 1 },
+    cEdna: { pos: [-6.2, 1.0, 22], tgt: [-6.2, 1.0, 0], fov: 14, chart: 1 },     // FIX-R1: người Edna không còn cắt mép trái
+    cBoth: { pos: [-0.2, 2.6, 47], tgt: [-0.2, 2.6, 0], fov: 14, chart: 1 },     // FIX-R1: người Edna → hàng Carl trọn trong [96, 1824]
     cRuth: { pos: [0.6, 1.05, 22], tgt: [0.6, 1.05, 0], fov: 14, chart: 1 },
-    wThree: { pos: [-0.6, 2.2, 10.6], tgt: [0.4, 0.8, 0], fov: 50, chart: 0 },
-    cThree: { pos: [0, 2.74, 46.3], tgt: [0, 2.74, 0], fov: 14, chart: 1 },
+    wThree: { pos: [-1.6, 2.3, 12.9], tgt: [-0.6, 0.8, 0], fov: 50, chart: 0 },  // S29 giữ ý hình C3; FIX-R1 chỉ sửa mép: tên/người Edna trong khung
+    cThree: { pos: [-0.2, 2.74, 46.3], tgt: [-0.2, 2.74, 0], fov: 14, chart: 1 },
   };
   const { S, CL, X, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses, ['/episodes/ep006/world/grid.json']);
   const G = X[0], b = cue, L = S.label_cues;
@@ -31,33 +31,47 @@ export async function boot(res) {
     carl: column(scene, { x: 6.4, name: 'carl', ...SZ }),
   };
   const lev = column(scene, { x: 13.2, name: 'carlLevel', who: 'carl', person: false, level: true, ...SZ });
+  // FIX-R1: cột vẽ SAU sàn. Sàn trong suốt, xếp theo khoảng cách: cột đang hiện/mờ dần (không ghi độ sâu) ở xa hơn gốc sàn bị sàn vẽ đè mất
+  // cả cột, chỉ còn bóng (khung gần trống 334 s, 386 s ở lượt C4)
+  for (const c of [...Object.values(cols), lev]) for (const g of [c.row, c.card, c.person]) if (g) g.traverse((o) => { o.renderOrder = 2; });
   // S24.3: thanh GIÁ (accent) cạnh hàng của Carl — mọc ×(1 + 6,38 %)^20 trong câu "fastest price rise"
   const pg = new THREE.BoxGeometry(0.5, 1, 0.4); pg.translate(0, 0.5, 0);
   const price = new THREE.Mesh(pg, new THREE.MeshStandardMaterial({ color: C.accent, emissive: new THREE.Color(C.accent), emissiveIntensity: 0.3, roughness: 0.6, transparent: true }));
-  price.position.set(9.4, 0, 0); price.castShadow = true; scene.add(price); price.userData.checks = { role: 'bar', key: 'prices-carl', series: 'prices' };
+  price.position.set(9.4, 0, 0); price.castShadow = true; price.renderOrder = 2; scene.add(price); price.userData.checks = { role: 'bar', key: 'prices-carl', series: 'prices' };
   const starts = G.cpiu20.map((r) => r[0]), v20 = G.cpiu20.map((r) => r[1]), iC = starts.indexOf('1966-01');
   const cnt = (Y, t) => Y.filter((y) => t >= y).length;
   const yr = (y) => AX.x0 + (AX.x1 - AX.x0) * (y - AX.y0) / (AX.y1 - AX.y0);
   const ix = (k) => INSET.x0 + (INSET.x1 - INSET.x0) * k / 20, iy = (v) => INSET.y1 - (INSET.y1 - INSET.y0) * (v - INSET.v0) / (INSET.v1 - INSET.v0);
   const M = MV, R = S.reset;
+  const six = S.words.find((w) => w.sid === 'S24.3' && w.w === 'six').s;   // lời đọc số 6.38%
 
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
     followLight(key, pose.tgt); modeLook(scene, floor, cw);
-    // hiện/mờ từng cột theo cảnh: Carl từ "Carl" (S24.2); Edna từ cú về thế giới S27; Ruth mờ khi máy ở Carl/Edna; S29 cả ba
-    const cA = ease(t, b.b1.carl - 0.05, b.b1.carl + 0.8), eA = ease(t, M.m_w27.t0, M.m_w27.t1);
-    const solo27 = t >= M.m_w27.t0 && t < M.m_pan28.t0, solo24 = t >= M.m_pan24.t1 && t < M.m_w27.t0, three = t >= M.m_w29.t0;
-    const aR = three || t < M.m_pan24.t1 || t >= M.m_pan28.t0 ? 1 : 0.18, aE = three || solo27 ? eA : 0, aC = three ? 1 : solo27 ? ease(t, b.d3.carl - 0.05, b.d3.carl + 0.8) : solo24 ? cA : t < M.m_pan24.t1 ? cA : 0.18;
+    // hiện/mờ từng cột theo cảnh (FIX-R1: cột không nói tới ẩn hẳn, mờ/hiện DẦN trong cú máy — không còn mẩu hàng 0,18 cắt mép khung):
+    // Carl mọc trong cú lia S24 (không khung trống), Ruth tắt dần trong cú lia; Edna từ cú về thế giới S27; Ruth lướt qua giữa cú bay S26 → S27;
+    // Edna/Carl tắt trong cú lia về Ruth (S28); S29 cả ba hiện dần trong cú về thế giới
+    const fin = (m) => ease(t, m.t0, m.t1), fout = (m) => 1 - ease(t, m.t0, m.t1);
+    const cA = ease(t, M.m_pan24.t0, b.b1.carl + 0.2), three = t >= M.m_w29.t0;
+    const W7 = M.m_w27, pass = ease(t, W7.t0 + 0.15, W7.t0 + 0.45) * (1 - ease(t, W7.t1 - 0.35, W7.t1));
+    const aR = three ? 1 : t < W7.t0 ? 1 - ease(t, M.m_pan24.t0 + 0.3, M.m_pan24.t1 + 0.2) : t < M.m_pan28.t0 ? pass : fin(M.m_pan28);
+    const aE = three ? fin(M.m_w29) : t < M.m_w27.t0 ? 0 : fin(M.m_w27) * fout(M.m_pan28);
+    const aC = three ? fin(M.m_w29) : t < W7.t1 ? cA * (1 - ease(t, W7.t0 + 0.4, W7.t1)) : ease(t, b.d3.carl - 0.05, b.d3.carl + 0.8) * fout(M.m_pan28);
     for (const [id, c] of Object.entries(cols)) {
       const a = id === 'ruth' ? aR : id === 'carl' ? aC : aE;
-      c.row.set({ value: kf(S.rows[id], t), appear: id === 'carl' ? (t < M.m_pan24.t1 ? cA : 1) : 1,
+      // đặt lại hiện/ẩn mỗi khung: setOpacity ẩn cả lưới con khi a ≈ 0 mà không ai bật lại khi a về 1 — khung phụ thuộc thứ tự render
+      // (worker render cảnh S27 sau một cảnh có Edna ẩn → thẻ + hàng Edna mất 394–404 s ở lượt C4)
+      hideColumn(c, 1);
+      c.row.set({ value: kf(S.rows[id], t), appear: id === 'carl' ? (t < M.m_pan24.t1 + 1 ? cA : 1) : 1,
         pulse: id === 'carl' ? pulse(t, b.b5.never, 0.8) + pulse(t, b.c2.helped, 0.8) + pulse(t, b.d4.start, 1.4) : id === 'edna' ? pulse(t, b.d4.end, 1.2) + pulse(t, b.f0.edna, 0.6) : pulse(t, b.e0.losing, 0.9) });
       setCheck(c, S, t, 1);
       showColumn(c, a); if (a < 0.999) hideColumn(c, a);
     }
     const lvA = show(t, b.c1.level, M.m_w27.t0);
+    hideColumn(lev, 1);
     lev.row.set({ value: kf(S.rows.carlLevel, t), appear: lvA }); setCheck(lev, S, t, lvA); if (lvA < 0.999) hideColumn(lev, lvA);
-    const pgA = show(t, b.b2.fastest, M.m_pan25.t1), pgh = lin(t, b.b2.fastest, b.b2.year + 0.3);
+    // FIX-R1: thanh giá mọc suốt "fastest price rise of any stretch" tới số ("six"), mang nhãn của nó cạnh đỉnh; tắt trước "less … before"
+    const pgA = show(t, b.b2.fastest, b.b4.before - 0.35), pgh = ease(t, b.b2.fastest, six);
     price.scale.y = Math.max(0.001, SZ.cbase * Math.pow(S.price_growth, pgh)); price.material.opacity = pgA; price.visible = pgA > 0.01;
     renderer.render(scene, cam);
     // ---------------- lớp phủ
@@ -67,23 +81,26 @@ export async function boot(res) {
     const Cc = cols.carl, RC = rowBox(O, Cc, kf(S.rows.carl, t));
     // ===== S24 (cCarl)
     const s24 = M.m_pan25.t0 - 0.1;
+    // FIX-R1: "rising check: 43.1%" hiện ĐÚNG lúc lời đọc ("forty-three") ở chỗ dưới hàng của Carl và đi theo hàng suốt cú lia S25 (trước: tắt rồi
+    // hiện lại sau cú lia, trễ 3 s); nhãn dưới hàng ở yb + 76 / yb + 166 — cách dải chân trang
+    if (t < M.m_w27.t1) label(O, L['c0.forty'], (RC.x0 + RC.x1) / 2, RC.yb + 76, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.c0.forty, M.m_w27.t0) });
     if (t < M.m_pan25.t1) {
-      label(O, L['b1.january'], 120, 385, { kind: 'number', px: 48, w: 600, color: CHAR.carl, alpha: ok * show(t, M.m_c24.t1, s24) });
-      label(O, L['b2.fastest'], 120, 228, { kind: 'number', px: 48, alpha: ok * show(t, b.b2.fastest, s24) });
-      label(O, L['b4.before'], 120, 306, { kind: 'compare', px: 48, alpha: ok * show(t, b.b4.before, s24) });
+      label(O, L['b1.january'], 120, 330, { kind: 'number', px: 48, w: 600, color: CHAR.carl, alpha: ok * show(t, M.m_c24.t1, b.b5.ruths) });
+      const [pxl, pyt] = O.toScreen(price.position.x - 0.25, price.scale.y, 0.2);
+      label(O, L['b2.fastest'], pxl - 24, pyt + 36, { align: 'right', kind: 'number', px: 48, alpha: ok * show(t, six, b.b4.before - 0.35) });
+      label(O, L['b4.before'], 120, 228, { kind: 'compare', px: 48, alpha: ok * show(t, b.b4.before, b.b5.never) });
       checkLabel(O, Cc, L['b3.check'], ok * show(t, b.b3.check, b.b4.every), { dx: 14 });
-      const tA = ok * show(t, b.b3.first, s24);
+      const tA = ok * show(t, b.b3.first, b.c0.forty - 0.35);
       brace(O, RC.x0, RC.x1, RC.yb + 22, C.muted, tA, 5, -14);
-      label(O, L['b3.first'], RC.x0, RC.yb + 86, { kind: 'number', px: 48, alpha: tA, color: C.muted });
+      label(O, L['b3.first'], RC.x0, RC.yb + 76, { kind: 'number', px: 48, alpha: tA, color: C.muted });
       const k = cnt(S.years.carl, t);
-      if (k >= 1 && t < b.c0.forty) label(O, `year ${k}`, RC.x1, RC.yt - 30, { align: 'right', kind: 'number', px: 52, alpha: ok });
-      const yA = ok * show(t, S.years.carl[19] + 0.25, s24);
-      brace(O, RC.x0, RC.xl, RC.yb + 132, C.ink, yA, 5, -14);
-      label(O, L['b4.y20'], RC.x0, RC.yb + 196, { kind: 'number', px: 48, alpha: ok * show(t, S.years.carl[19] + 0.25, b.c0.forty - 0.35) });
-      label(O, L['c0.forty'], RC.x0, RC.yb + 196, { kind: 'number', px: 52, alpha: ok * show(t, b.c0.forty, s24) });
-      log.roi['b4.every'] = [RC.x0 - 10, RC.yt - 80, RC.x1 + 10, RC.yb + 10]; log.roi['b3.first'] = [RC.x0 - 10, RC.yb, RC.x1 + 10, RC.yb + 110];
-      log.roi['b2.fastest'] = [100, 180, 1300, 250]; log.roi['c0.forty'] = [RC.x0 - 10, RC.yb + 140, RC.x1 + 10, RC.yb + 230];
-      // ô nhỏ S24.6: vạch séc đầu + đường của Ruth — năm 1–15 đậm (lên lại), cuối mờ (lượt đạo diễn C3)
+      if (k >= 1 && t < b.b5.ruths) label(O, `year ${k}`, RC.x1, RC.yt - 30, { align: 'right', kind: 'number', px: 52, alpha: ok * (1 - show(t, b.b5.ruths - 0.3)) });
+      const yA = ok * show(t, S.years.carl[19] + 0.25, b.c0.forty - 0.35);
+      brace(O, RC.x0, RC.xl, RC.yb + 112, C.ink, yA, 5, -14);
+      label(O, L['b4.y20'], RC.x0, RC.yb + 166, { kind: 'number', px: 48, alpha: yA });
+      log.roi['b4.every'] = [RC.x0 - 10, RC.yt - 80, RC.x1 + 10, RC.yb + 10]; log.roi['b3.first'] = [RC.x0 - 10, RC.yb, RC.x1 + 10, RC.yb + 100];
+      log.roi['b2.fastest'] = [pxl - 900, pyt - 10, pxl + 120, pyt + 60]; log.roi['c0.forty'] = [RC.x0 - 10, RC.yb + 30, RC.x1 + 10, RC.yb + 100];
+      // ô nhỏ S24.6: vạch séc đầu + đường của Ruth — năm 1–15 đậm (lên lại), cuối mờ (lượt đạo diễn C3); FIX-R1: thanh giá đã tắt, bớt chữ trong ô
       const iA = ok * show(t, b.b5.ruths, s24), d = lin(t, b.b5.ruths, b.b5.ruths + 1.2);
       if (iA > 0.01) {
         const c = O.ctx, P = S.ruth_path, n = Math.max(1, Math.round(d * 20));
@@ -92,7 +109,6 @@ export async function boot(res) {
         for (let j = 1; j <= n; j++) { c.globalAlpha = iA * (j <= 15 ? 1 : 0.35); c.strokeStyle = CHAR.ruth; c.lineWidth = j <= 15 ? 7 : 4;
           c.beginPath(); c.moveTo(ix(j - 1), iy(P[j - 1])); c.lineTo(ix(j), iy(P[j])); c.stroke(); }
         c.restore();
-        label(O, 'first check', INSET.x0, iy(1) + 80, { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: iA });
         label(O, 'Ruth · ILLUSTRATIVE:', INSET.x1, 470, { align: 'right', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: iA });
         label(O, 'back above in early years', INSET.x1, 530, { align: 'right', kind: 'compare', px: 48, alpha: iA });
         label(O, "Carl's: never", INSET.x1, 590, { align: 'right', kind: 'compare', px: 48, color: CHAR.carl, alpha: ok * show(t, b.b5.never, s24) });
@@ -101,14 +117,13 @@ export async function boot(res) {
     }
     // ===== S25–S26 (cCarl2)
     if (t > M.m_pan25.t0 && t < M.m_w27.t1) {
-      const RL = rowBox(O, lev, kf(S.rows.carlLevel, t)), a5 = ok * show(t, M.m_pan25.t1, M.m_w27.t0);
-      label(O, L['c0.forty'], (RC.x0 + RC.x1) / 2, RC.yb + 86, { align: 'center', kind: 'number', px: 48, alpha: a5 });
-      label(O, L['c1.twenty'], (RL.x0 + RL.x1) / 2, RL.yb + 86, { align: 'center', kind: 'number', px: 48, color: C.ink, alpha: ok * show(t, b.c1.twenty, M.m_w27.t0) });
+      const RL = rowBox(O, lev, kf(S.rows.carlLevel, t));
+      label(O, L['c1.twenty'], (RL.x0 + RL.x1) / 2, RL.yb + 76, { align: 'center', kind: 'number', px: 48, color: C.ink, alpha: ok * show(t, b.c1.twenty, M.m_w27.t0) });
       const hA = ok * show(t, b.c2.half, M.m_w27.t0);
       for (const r of [RC, RL]) seg2(O, (r.x0 + r.x1) / 2, r.yt - 30, (r.x0 + r.x1) / 2, r.yb + 10, C.muted, hA, 4, [8, 6]);
       label(O, L['c2.half'], (RC.x0 + RC.x1) / 2, RC.yt - 50, { align: 'center', kind: 'compare', px: 48, alpha: hA });
       checkLabel(O, lev, 'level check', ok * show(t, b.c1.level, M.m_w27.t0), { kind: 'name', w: 600, color: C.muted });
-      log.roi['c1.level'] = [RL.x0 - 10, RL.yt - 20, RL.x1 + 10, RL.yb + 10]; log.roi['c1.twenty'] = [RL.x0 - 10, RL.yb + 20, RL.x1 + 10, RL.yb + 110];
+      log.roi['c1.level'] = [RL.x0 - 10, RL.yt - 20, RL.x1 + 10, RL.yb + 10]; log.roi['c1.twenty'] = [RL.x0 - 10, RL.yb + 20, RL.x1 + 10, RL.yb + 100];
       log.roi['c2.half'] = [RC.x0, RC.yt - 90, RL.x1, RL.yb + 10];
       // S26: dải nhỏ 715 quãng (đầu khung), thập niên 1960 sáng, thanh của Carl màu Carl
       const sA = ok * show(t, b.c3.sixties, M.m_w27.t0);
@@ -117,7 +132,7 @@ export async function boot(res) {
         c.save(); c.globalAlpha = sA;
         v20.forEach((v, i) => { const s60 = starts[i] >= '1960' && starts[i] < '1970'; c.fillStyle = i === iC ? CHAR.carl : s60 ? C.warn : rgba(C.muted, 0.28); c.fillRect(x0 + i * pw, base - v * hS, Math.max(1, pw - 0.5), v * hS); });
         c.restore(); seg2(O, x0, base - 100 * hS, x1, base - 100 * hS, C.muted, sA, 2);
-        label(O, L['c3.forty'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: sA });
+        label(O, L['c3.forty'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.c3.forty - 1.0, M.m_w27.t0) });   // FIX-R1: sát lời "forty-four" (trước: sớm 2,4 s); 1 s trước để 5 từ đủ 2 s trước cú về thế giới
         log.roi['c3.sixties'] = [x0, base - 140, x1, base];
       }
     }
@@ -183,7 +198,7 @@ export async function boot(res) {
       }
       log.roi['f2.month'] = [96, 560, 1824, 640];
     }
-    const cwA = show(t, b.e2.history, M.m_w29.t1);
+    const cwA = show(t, b.e2.t0, M.m_w29.t1 + 0.6);   // FIX-R1: đối trọng 7 từ ≥ 3 s (trước ~2,4 s)
     chrome(O, 1, cwA > 0.01 ? L['e2.history'] : null, cwA);
     dip(O, 1 - ease(t, 0, 0.4));
     st.compose(); log.camMoving = CAM.moving(t); return log;
