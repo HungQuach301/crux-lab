@@ -1,0 +1,67 @@
+{
+ "script": {
+  "status": "PASS",
+  "metrics": [
+   {
+    "name": "units with an unsourced forbidden amount",
+    "value": 0,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": true,
+    "near": false
+   }
+  ],
+  "details": [
+   {
+    "unitsWithTerm": 0
+   }
+  ]
+ },
+ "control": {
+  "status": "FAIL",
+  "metrics": [
+   {
+    "name": "units with an unsourced forbidden amount",
+    "value": 1,
+    "op": "<=",
+    "threshold": 0,
+    "unit": "",
+    "pass": false,
+    "near": false
+   }
+  ],
+  "details": [
+   {
+    "unitsWithTerm": 1
+   },
+   {
+    "id": "annuity_total_received",
+    "unit": "sentence",
+    "where": "X.1",
+    "amounts": [
+     "$41,000"
+    ],
+    "text": "Over 20 years the level check pays $41,000 more in total."
+   }
+  ]
+ },
+ "_about": "luật tập 3 (K-brief Tập 6): không câu nào so tổng tiền nhận được giữa khoản đều và khoản 2 %. S19 bắt câu/khung có từ khoá + số $ không có claim nguồn; câu so sánh KHÔNG có số (vd \"the level check pays more\") là phán đoán nghĩa → REVIEWER/kiểm mù.",
+ "contractSnippet": {
+  "claims": {
+   "forbiddenAmounts": [
+    {
+     "id": "annuity_total_received",
+     "terms": [
+      "more money",
+      "pays more",
+      "total",
+      "in total",
+      "more overall"
+     ],
+     "window": "sentence"
+    }
+   ]
+  }
+ }
+}
