@@ -14,6 +14,7 @@ import sys
 
 import yaml
 
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 FORMATS = {'lab': {'min': 540, 'max': 660, 'midrolls': 2}, '101': {'min': 480, 'max': 540, 'midrolls': 1}}
 TEMPLATES = {'title', 'bignum', 'bars', 'line', 'swarm', 'paths', 'timeline', 'method', 'person', 'endcard'}
 ANCHOR = re.compile(r'^@(?P<sid>[A-Za-z0-9]+\.\d+)(?P<end>\$)?(?::(?P<word>[^+]+?))?(?:\+(?P<off>[\d.]+))?$')
@@ -173,6 +174,20 @@ def check(spec, root, duration=None):
             add('BLOCK', 'voice_overrides', f'{sid}: {o!r} — allowed keys: seed, settings, voice, model, take')
         elif 'take' in o and not os.path.isfile(os.path.join(root, 'voice-takes', str(o['take']) + '.mp3')):
             add('BLOCK', 'voice_overrides', f"{sid}: take {o['take']!r} not in voice-takes/")
+    A = spec.get('audio') or {}   # F-12: ident của kênh + nhạc lên sau chữ cuối (toolkit/factory/music.py post)
+    if A.get('ident') is not None:
+        import music as MUSIC
+        idt = A['ident'] if isinstance(A['ident'], dict) else {}
+        sc = next((s for s in spec.get('scenes', []) if s.get('id') == idt.get('after')), None)
+        wav = os.path.join(ROOT, idt.get('wav') or MUSIC.THEME_IDENT)
+        if sc is None:
+            add('BLOCK', 'audio.ident', f"{A['ident']!r}: needs {{after: <scene id>, wav?, db?}} naming a scene of this episode")
+        elif float(sc.get('tail', 1.0)) < MUSIC.IDENT_S:
+            add('BLOCK', 'audio.ident', f"{sc['id']}: tail {sc.get('tail', 1.0)} s < IDENT_S {MUSIC.IDENT_S} s (the ident plays in the last {MUSIC.IDENT_S} s of the tail)")
+        elif not os.path.isfile(wav):
+            add('BLOCK', 'audio.ident', f'ident wav {os.path.relpath(wav, ROOT)!r} not found (path from the repo root)')
+    if A.get('close_lift_db') is not None and not (0 <= float(A['close_lift_db']) <= 24 and float(A.get('close_lift_s', 0.5)) > 0):
+        add('BLOCK', 'audio.close_lift', f"close_lift_db {A['close_lift_db']} (0–24) / close_lift_s {A.get('close_lift_s')} (> 0)")
     for w in spec.get('world') or []:   # D-010 (Mốc V): đoạn thế giới 3D, dựng bằng toolkit/factory/world/build_seg.py
         d = os.path.join(root, str(w.get('dir', '')))
         miss = [f for f in ('spine.py', 'scene.js') if not os.path.isfile(os.path.join(d, f))]

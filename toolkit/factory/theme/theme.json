@@ -1,0 +1,93 @@
+{
+ "sr": 48000,
+ "target_lufs": {
+  "ident": -16.0,
+  "close": -18.0
+ },
+ "tp_max_dbtp": -1.5,
+ "files": {
+  "ident-A": {
+   "bpm": 114,
+   "touch_s": 2.105,
+   "beats_s": [
+    0.0,
+    0.526,
+    1.053,
+    1.579,
+    2.105
+   ],
+   "motif_s": [
+    0.526,
+    0.789,
+    1.053,
+    1.579,
+    1.842
+   ],
+   "I_lufs": -16.1,
+   "tp_dbtp": -2.1,
+   "lra_lu": 20.0,
+   "gain_db": -1.3,
+   "limiter_max_gr_db": 2.52,
+   "last40ms_peak_dbfs": -240.0,
+   "dur_s": 3.0
+  },
+  "ident-B": {
+   "bpm": 132,
+   "touch_s": 1.998,
+   "beats_s": [
+    0.18,
+    0.635,
+    1.089,
+    1.544,
+    1.998
+   ],
+   "I_lufs": -16.1,
+   "tp_dbtp": -2.1,
+   "lra_lu": 20.0,
+   "gain_db": 2.4,
+   "limiter_max_gr_db": 2.67,
+   "last40ms_peak_dbfs": -240.0,
+   "dur_s": 3.0
+  },
+  "close-A": {
+   "bpm": 114,
+   "bar_s": 2.105,
+   "touch_s": 8.421,
+   "len_s": 10.5,
+   "chords": [
+    "Dm7",
+    "Bbmaj7",
+    "Gm7",
+    "Csus4-C",
+    "Fadd9"
+   ],
+   "I_lufs": -18.1,
+   "tp_dbtp": -2.1,
+   "lra_lu": 4.3,
+   "gain_db": 1.7,
+   "limiter_max_gr_db": 3.3,
+   "last40ms_peak_dbfs": -240.0,
+   "dur_s": 10.5
+  },
+  "close-B": {
+   "bpm": 114,
+   "bar_s": 2.105,
+   "touch_s": 8.421,
+   "len_s": 10.5,
+   "chords": [
+    "Dm7",
+    "Bbmaj7",
+    "Gm7",
+    "F5 glide",
+    "F unison"
+   ],
+   "I_lufs": -18.1,
+   "tp_dbtp": -2.1,
+   "lra_lu": 2.1,
+   "gain_db": 2.6,
+   "limiter_max_gr_db": 1.72,
+   "last40ms_peak_dbfs": -240.0,
+   "dur_s": 10.5
+  }
+ }
+}

@@ -18,6 +18,7 @@ File nặng (video, cache đoạn, wav) ở `episodes/epNNN/work/factory/` (khô
 Đoạn render được cache theo băm (đặc tả shot + mốc đã giải + mã engine/mẫu/trang/render + claims/tokens/dữ liệu + khoảng khung).
 **Đối trọng (bắt buộc):** `counterweights:` trong `episode.yaml`, mỗi dòng `{id, text, claims: [...] | when: historical|numbers, attach?: history}`. `spec.py` gom mọi dòng hồ sơ đòi (nhãn "Counterweight on screen" trong `story/script.md` của cảnh được dựng, `Always say "…"` trong claim-risk, giả định `contract.json`); thiếu trường hoặc thiếu dòng → `build.sh` dừng. Engine hiện dòng trên mọi khung có claim kích hoạt; qc kiểm mỗi dòng ≥ 1 s.
 **Nhạc nền:** `audio.music` (+ `music_cmd` để sinh lại) → `music.py`: nhạc dưới lời 20 dB (cách đo A07), dải 1–4 kHz né lời 13 dB, như Tập 1–3; rồi loudnorm 2 lượt. Đã chạy trên S04 Tập 3: A07 19,99 dB, A08 né 7,9 dB, −14,0 LUFS, −1,5 dBTP.
+**Nhạc hiệu kênh (F-12, C3 Tập 6 08/10: theme A):** `toolkit/factory/theme/` = `ident-A.wav` (3,0 s, −16 LUFS), `close-A.wav` (khúc đóng 10,5 s, chạm 8,42 s), `theme.json` — đúng từng byte bản duyệt (nhánh ep006 `episodes/ep006/world/music/out/`, sinh bằng `theme.py` của tập). Opt-in trong `audio:`, `music.post` chạy sau trộn/ghép đoạn thế giới, trước loudnorm (2D và thế giới như nhau): `ident: {after: S03, wav?, db?}` → `IDENT_S` 3 s cuối đuôi cảnh `after` phát WAV (mặc định ident-A, đường dẫn từ gốc repo; đuôi ≥ 3 s, lời lấn vào → dừng), mức = lời của tập + `db` (−2 LU), nhạc nền nhường 0,25 s; `close_lift_db: 12` (+ `close_lift_s: 0.5`, `close_lift_delay_s: 0`) → sau chữ cuối (mốc từ cuối ∨ lời tắt trên stem voice) stem music lên +12 dB trong 0,5 s, khi còn lời nhạc không đổi. Khúc đóng tự đặt vào bed của tập (`music_cmd`). Không khai → không chạm file (master trùng byte). Test `toolkit/tests/test_factory_f12.py`: −14,0 LUFS, −1,0 dBTP, A07 19,97 dB sau khi nâng.
 
 ## Thế giới 3D (D-010, Mốc V) — `toolkit/factory/world/`
 "Một thế giới, hai chế độ máy quay". Khai trong `episode.yaml`: `world: [{id, dir, scenes: [S04, S05]}]` (`dir` chứa `spine.py` + `scene.js` của đoạn).
@@ -57,7 +58,7 @@ Short vắt qua hai đoạn → đường 2D cũ. Mọi Short giờ ra 1080×192
 
 | File | Việc |
 |---|---|
-| `lib3d.js` | Thư viện vật thể có tham số W1–W9 (nhà, chồng tiền mệnh giá cố định, xà, người không mặt, vệt, bó đường, khiên, khu phố, căn hộ) — `visual-library` §5 |
+| `lib3d.js` | Thư viện vật thể có tham số W1–W10 (nhà, chồng tiền mệnh giá cố định, xà, người không mặt, vệt, bó đường, khiên, khu phố, căn hộ, hàng thùng + séc `Crates`/`Check`) — `visual-library` §5 |
 | `core.js` | Máy quay theo tư thế + động tác hữu hạn từ spine, trọng số chế độ đồ thị, lớp phủ 2D (chữ ≥ 48 px, nền mờ), nhật ký quy tắc 1 + F-2 (chữ có thứ tự vẽ `n`/`plate`; `lines` = nét moveTo/lineTo của lớp phủ, toạ độ 1920×1080; đường cong và đường 3D không ghi) + `log.cam` (máy quay thật). `CK`: trang kiểm (`on`, `mode` = lớp, `freezeCam`, `claims`), khung dọc (`view`), dither (F08); `O.shape()` khai hình dữ liệu cho trang kiểm |
 | `episode_page.py` + `episode_page.js` | Trang kiểm một-file của tập (`window.CHECKS` trên mọi đoạn `world:`) + `out/page.json` |
 | `artefacts.py` | `out/camera.json` (máy quay 3D → 2.5D của CONTRACT) + `out/sonify-events.json` từ sản phẩm `build_seg.py` |
