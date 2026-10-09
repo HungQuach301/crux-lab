@@ -977,22 +977,22 @@
   {
    "id": "d0",
    "sid": "S09.1",
-   "mode": "chart",
+   "mode": "world",
    "idea": "Năm theo năm: 12 trong 15 kỷ niệm đầu, séc mua ít nhất bằng séc đầu.",
-   "visual": "đường năm 0 → 15; chấm mỗi kỷ niệm; nhãn 12 of the first 15.",
+   "visual": "thế giới: séc lớn lên từng kỷ niệm, hàng thùng theo sức mua, \"twelve\" hàng loé → đồ thị: đường năm 0 → 15, chấm mỗi kỷ niệm; nhãn 12 of the first 15.",
    "line": "Year by year, Ruth's check bought at least what her first one did on 12 of its first 15 anniversaries.",
    "sound": [
     "nốt dữ liệu mỗi năm"
    ],
    "music": 0.45,
    "emotion": "chú ý",
-   "next": "—",
+   "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
    "t0": 0.09,
    "t1": 7.44,
    "cues": {
     "ruths": 0.944,
     "twelve": 4.469,
-    "fifteen": 5.7
+    "anniv": 6.38
    }
   },
   {
@@ -1159,6 +1159,16 @@
  ],
  "moves": [
   {
+   "id": "m_c9",
+   "verb": "mode",
+   "from": "wRuth",
+   "to": "cNear0",
+   "t0": 5.05,
+   "t1": 6.05,
+   "reason": "lời S09.1 đặt số (12 trong 15 kỷ niệm): số chỉ ở đồ thị (quy tắc 1); đoạn mở ≥ 5 s ở thế giới (quy tắc 7)",
+   "sound": "whoosh_mode"
+  },
+  {
    "id": "m_push",
    "verb": "push",
    "from": "cNear0",
@@ -1221,14 +1231,20 @@
    "v": 1.0
   },
   {
+   "t": 5.05,
+   "kind": "whoosh_mode",
+   "dur": 1.0,
+   "gain": 0.6
+  },
+  {
    "t": 5.7,
    "kind": "data",
    "v": 1.0
   },
   {
-   "t": 8.6,
-   "kind": "tick",
-   "v": 0.3
+   "t": 6.05,
+   "kind": "land",
+   "mode": true
   },
   {
    "t": 10.93,
@@ -1338,15 +1354,20 @@
   {
    "id": "s0",
    "t0": 0,
-   "t1": 11.745
+   "t1": 5.05
   },
   {
    "id": "s1",
+   "t0": 5.05,
+   "t1": 11.745
+  },
+  {
+   "id": "s2",
    "t0": 11.745,
    "t1": 35.495
   },
   {
-   "id": "s2",
+   "id": "s3",
    "t0": 35.495,
    "t1": 59.267
   }
@@ -1527,7 +1548,7 @@
  ],
  "mr1": 58.483,
  "label_cues": {
-  "d0.twelve": "at or above: 12 of the first 15",
+  "d0.anniv": "at or above: 12 of the first 15",
   "d2.august": "Aug 2021, age 80: 100.3%",
   "d4.august": "Aug 2022, age 81: 94.5%",
   "d6.five": "level check: about 9 in 10 by year 5",
@@ -1538,6 +1559,7 @@
  "visual_cues": [
   "d0.ruths",
   "d0.twelve",
+  "d0.anniv",
   "d1.slipped",
   "d1.climbed",
   "d2.august",
@@ -1550,6 +1572,6 @@
   "d8.ruths"
  ],
  "checks": {
-  "rule2_rule3": "OK"
+  "rule2_rule3_rule7": "OK"
  }
 }

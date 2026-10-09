@@ -1,6 +1,7 @@
 """Tập 6 · C4 · ĐOẠN F = S30–S32 (mức tăng nào đã theo kịp · giới hạn + thẻ phương pháp V7 · kết). Lời + giờ = timeline của nhà máy (0 ký tự EL).
-  python3 episodes/ep006/world/c4/f-s30-s32/spine.py → spine.json (thoát 1 nếu vi phạm quy tắc 2/3)
-B30 (V10 thang, c4kit.Ladder): thế giới — bốn bậc (2 %, 3 %, 3,1 %, 6,38 %) như bậc thang; → ĐỒ THỊ: thanh của mỗi bậc = phần quãng 20 năm theo kịp:
+  python3 episodes/ep006/world/c4/f-s30-s32/spine.py → spine.json (thoát 1 nếu vi phạm quy tắc 2/3/7)
+B30 (V10 thang, c4kit.Ladder): thế giới — bốn bậc (2 %, 3 %, 3,1 %, 6,38 %) như bậc thang, "three" (S30.2) = bậc 3 % sáng ở thế giới; → ĐỒ THỊ
+từ 5,05 s (quy tắc 7: đoạn mở ≥ 5 s ở thế giới), xong trước "forty-two": thanh của mỗi bậc = phần quãng 20 năm theo kịp:
 2 %: 2.4% (từ hồi 2) · "forty" = 3 %: 42.4% · "half" = 3.1%: half (+ "a median of the past, not an expectation") · "Carl's" = 6.38%: all;
 "choose" = đối trọng "Not advice on which check or raise".
 B31: giới hạn — "national" = hàng 10 thùng chung + "a national average, not one retiree's basket"; "overlap" = các thanh 20 năm chồng nhau
@@ -15,9 +16,9 @@ SV = K.SV
 S = K.Seg(['S30', 'S31', 'S32'])
 B = [
  ('g0', 'S30.1', 'world', 'Vậy mức tăng nào đã theo kịp, trong lịch sử này?', 'bậc thang bốn mức tăng.',
-  {'raise': '@S30.1:raise', 'history': '@S30.1:history'}, ['rise'], 0.48, 'tò mò', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
- ('g1', 'S30.2', 'chart', 'Tăng 3 %/năm theo kịp ở 42,4 % số quãng.', 'thanh bậc 3 % tới 42,4 %.',
-  {'three': '@S30.2:three', 'forty': '@S30.2:forty-two'}, ['data'], 0.58, 'chú ý', '—'),
+  {'raise': '@S30.1:raise', 'history': '@S30.1:history'}, ['rise'], 0.48, 'tò mò', '—'),
+ ('g1', 'S30.2', 'chart', 'Tăng 3 %/năm theo kịp ở 42,4 % số quãng.', 'bậc 3 % sáng (thế giới) → đồ thị; thanh bậc 3 % tới 42,4 %.',
+  {'three': '@S30.2:three', 'forty': '@S30.2:forty-two'}, ['data'], 0.58, 'chú ý', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
  ('g2', 'S30.3', 'chart', 'Khoảng 3,1 % theo kịp một nửa — trung vị quá khứ, không phải kỳ vọng.', 'thanh bậc 3,1 % tới nửa; nhãn trung vị.',
   {'three': '@S30.3:three', 'half': '@S30.3:half', 'median': '@S30.3:median'}, ['data'], 0.6, 'thận trọng', '—'),
  ('g3', 'S30.4', 'chart', 'Theo kịp mọi quãng cần mức của những năm của Carl.', 'thanh bậc 6,38 % tới hết.',
@@ -42,7 +43,8 @@ B = [
 beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
 moves = K.moves_of([
-    ('m_c30', 'mode', 'wLadder', 'cLadder', cue['g0']['history'], cue['g1']['three'], 1.2, 'lời S30.2 đặt số (3 %, 42,4 %): số chỉ ở đồ thị (quy tắc 1)', 'whoosh_mode', {}),
+    ('m_c30', 'mode', 'wLadder', 'cLadder', cue['g1']['three'], cue['g1']['forty'], 1.2,
+     'lời S30.2 đặt số (42,4 %): số chỉ ở đồ thị (quy tắc 1); bậc 3 % đã sáng ở thế giới ("three"), đồ thị từ 5 s (quy tắc 7)', 'whoosh_mode', {'start': 5.05}),
     ('m_pan31', 'pan', 'cLadder', 'cLim1', S.at('@S30.5$'), cue['h0']['national'], 1.2, 'lời S31.1 giới hạn của chỉ số (giỏ quốc gia): lia sang hàng thùng chung', 'whoosh_soft', {}),
     ('m_pan31b', 'pan', 'cLim1', 'cLim2', S.at('@S31.2:tests'), cue['h2']['annuity'], 0.75, 'lời S31.3 "annuity pricing isn\'t modeled": lia sang hai séc', 'whoosh_soft', {}),
     ('m_w32', 'mode', 'cLim2', 'wRuth', S.at('@S31.4$'), cue['i0']['only'], 1.2, 'lời S32 quay về câu hỏi của Ruth: về khung mở đầu (thế giới), sau 5 s thẻ V7', 'whoosh_mode', {'late': True}),
@@ -70,4 +72,4 @@ K.finish(HERE, S, 'ep006 C4 · F = S30–S32 (thang mức tăng · giới hạn 
           'card5': 'Also run: CPI-W 21 of 715 · PCE 19.2% (description)'},
          ['g0.raise', 'g1.three', 'g1.forty', 'g2.half', 'g2.median', 'g3.carls', 'g4.choose', 'h0.national', 'h1.overlap', 'h2.dollars', 'h3.card',
           'i1.ruth', 'i2.fifteen', 'i2.eighty', 'i2.nine', 'i2.ten'],
-         accents=[cue['g1']['forty'], cue['i2']['nine']])
+         accents=[cue['g1']['forty'], cue['i2']['nine']], rule7=True)

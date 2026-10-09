@@ -1442,7 +1442,7 @@
    ],
    "music": 0.48,
    "emotion": "tò mò",
-   "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
+   "next": "—",
    "t0": 0.01,
    "t1": 2.56,
    "cues": {
@@ -1455,14 +1455,14 @@
    "sid": "S30.2",
    "mode": "chart",
    "idea": "Tăng 3 %/năm theo kịp ở 42,4 % số quãng.",
-   "visual": "thanh bậc 3 % tới 42,4 %.",
+   "visual": "bậc 3 % sáng (thế giới) → đồ thị; thanh bậc 3 % tới 42,4 %.",
    "line": "A raise of 3 percent a year kept up in 42.4 percent of the 20-year stretches.",
    "sound": [
     "data"
    ],
    "music": 0.58,
    "emotion": "chú ý",
-   "next": "—",
+   "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
    "t0": 3.66,
    "t1": 10.0,
    "cues": {
@@ -1665,9 +1665,9 @@
    "verb": "mode",
    "from": "wLadder",
    "to": "cLadder",
-   "t0": 2.554,
-   "t1": 3.753,
-   "reason": "lời S30.2 đặt số (3 %, 42,4 %): số chỉ ở đồ thị (quy tắc 1)",
+   "t0": 5.05,
+   "t1": 6.25,
+   "reason": "lời S30.2 đặt số (42,4 %): số chỉ ở đồ thị (quy tắc 1); bậc 3 % đã sáng ở thế giới (\"three\"), đồ thị từ 5 s (quy tắc 7)",
    "sound": "whoosh_mode"
   },
   {
@@ -1718,13 +1718,13 @@
    "dur": 1.2
   },
   {
-   "t": 2.554,
+   "t": 5.05,
    "kind": "whoosh_mode",
-   "dur": 1.199,
+   "dur": 1.2,
    "gain": 0.6
   },
   {
-   "t": 3.753,
+   "t": 6.25,
    "kind": "land",
    "mode": true
   },
@@ -1845,11 +1845,11 @@
   {
    "id": "s0",
    "t0": 0,
-   "t1": 2.554
+   "t1": 5.05
   },
   {
    "id": "s1",
-   "t0": 2.554,
+   "t0": 5.05,
    "t1": 30.078
   },
   {
@@ -1958,6 +1958,6 @@
   "i2.ten"
  ],
  "checks": {
-  "rule2_rule3": "OK"
+  "rule2_rule3_rule7": "OK"
  }
 }

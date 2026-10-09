@@ -7,7 +7,7 @@ Mẫu: episodes/ep005/world/c4kit.py (Seg, music_plan, music_db) + episodes/ep00
   step_row / step_check / spread → khung khoá hàng thùng (sức mua) + tấm séc (×1,02 mỗi kỷ niệm), như C3
   moves_of(specs)      → động tác máy (cửa sổ giữa hai từ khoá ± PAD) có id / lý do / âm
   quiet(S, …)          → lặng của bản trộn (MR1) + kiểm KHÔNG sfx trong lặng trước số neo (episode.md §5b) và trong lặng MR1
-  finish(…)            → ghép spine.json (+ inputs.json), tự kiểm quy tắc 2/3 (+ 7 ở đoạn a), in tóm tắt; thoát 1 nếu vi phạm
+  finish(…)            → ghép spine.json (+ inputs.json), tự kiểm quy tắc 2/3/7 (mọi đoạn), in tóm tắt; thoát 1 nếu vi phạm
 """
 import json, os, sys
 import numpy as np
@@ -156,11 +156,11 @@ def anchor_windows(S, sids):
 
 
 def finish(here, S, name, beats, moves, events, extra, label_cues, visual_cues, accents=(), anchors=(), silences=(), rule7=False, inputs=()):
-    """Ghép spine.json, tự kiểm quy tắc 2/3 (+7 ở đoạn mở tập), không sfx/whoosh trong lặng (neo, MR1), ghi inputs.json; thoát 1 nếu vi phạm."""
+    """Ghép spine.json, tự kiểm quy tắc 2/3/7 (mọi đoạn: verify đòi 5 s đầu thế giới), không sfx/whoosh trong lặng (neo, MR1), ghi inputs.json; thoát 1 nếu vi phạm."""
     ev = sorted(events + SV.move_sounds(moves, lambda m: {'mode': 0.6, 'pan': 0.8, 'push': 0.7, 'pull': 0.9}[m['verb']]), key=lambda e: e['t'])
+    # quy tắc 7 (5 s đầu ở thế giới) kiểm ở MỌI đoạn: build_seg verify đòi first_5s_world cho từng đoạn. rule7 nay chỉ đặt tên khoá
+    # 'checks' (đoạn cũ giữ tên cũ → spine.json đã render không đổi byte → cache render_shots, vốn băm spine.json, vẫn trúng)
     errs = SV.check_rules(beats, moves, PAD)
-    if not rule7:
-        errs = [e for e in errs if not e.startswith('quy tắc 7')]   # quy tắc 7 = 5 s đầu TẬP (đoạn a)
     aw = anchor_windows(S, anchors)
     for b in beats:
         if b['sid'] in anchors:
