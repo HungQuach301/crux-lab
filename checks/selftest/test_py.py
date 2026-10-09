@@ -2450,6 +2450,83 @@ EXTRA.update({'R07/voice': r07_none_case})
 EXTRA.update({'S19/frame': s19_frame_case, 'S19/spoken': s19_spoken_case})
 
 
+# ---- K4.0.2: kind "fixed-raise-vs-index-windows" (Tập 6) — every number by hand from the spec, never by calling the rule's code ----------------------
+# Index 100 for 2000-01..06; 2001-01..06 = 150, 120, 200, 100, blank, 160 (2000-07..12 = 110, a blank is MISSING, not 0). raise = 50%, H = 1 year (G = 1.5).
+# Windows (start: P, real 50% check = 100·1.5/P, level = 100/P): Jan 1.5 → 100 / 66.667 (kept, G ≥ P); Feb 1.2 → 125 / 83.333 (kept); Mar 2.0 → 75 / 50;
+# Apr 1.0 → 150 / 100 (kept); May → end 2001-05 blank: EXCLUDED; Jun 1.6 → 93.75 / 62.5. n = 5, kept 3 (60%), inflation 100(P − 1) = 50, 20, 100, 0, 60.
+FRW_IDX = [100] * 6 + [110] * 6 + [150, 120, 200, 100, None, 160]
+FRW_PARAMS = {'index': {'file': 'data/cpi.csv', 'dateColumn': 'observation_date', 'valueColumn': 'CPI'}, 'raise': 0.5, 'horizonsYears': [1],
+              'firstStart': '2000-01', 'guide': {'start': '2000-01', 'age': 65}, 'raiseGrid': [0.0, 0.5, 1.0], 'decades': [2000], 'shareBands': [90]}
+FRW_WINDOWS = [('2000-01', '2001-01', 1.5, 100.0, 200 / 3), ('2000-02', '2001-02', 1.2, 125.0, 250 / 3), ('2000-03', '2001-03', 2.0, 75.0, 50.0),
+               ('2000-04', '2001-04', 1.0, 150.0, 100.0), ('2000-06', '2001-06', 1.6, 93.75, 62.5)]
+FRW_RAW = {'index_first_month': '2000-01-01', 'index_last_month': '2001-06-01', 'index_blank_months': ['2001-05-01'], 'cpi_yoy_latest_pct': 60.0,
+           'windows_1y': 5, 'first_start_1y': '2000-01', 'last_start_1y': '2000-06', 'windows_50pct_kept_up_1y': 3, 'share_50pct_kept_up_1y_pct': 60.0,
+           'kept_up_first_start_1y': '2000-01-01', 'kept_up_last_start_1y': '2000-04', 'median_inflation_1y_pct_per_year': 50.0,
+           'min_inflation_1y_pct_per_year': 0.0, 'max_inflation_1y_pct_per_year': 100.0, 'median_real_value_50pct_payment_after_1y_pct': 100.0,
+           'median_real_value_level_payment_after_1y_pct': 200 / 3, 'worst_real_value_50pct_payment_after_1y_pct': 75.0,
+           'worst_real_value_level_payment_after_1y_pct': 50.0, 'worst_window_start_1y': '2000-03', 'worst_window_start_year_1y': 2000,
+           'best_real_value_50pct_payment_after_1y_pct': 150.0, 'best_window_start_1y': '2000-04', 'share_50pct_at_least_90_after_1y_pct': 80.0,
+           'latest_start': '2000-06', 'latest_end': '2001-06', 'latest_window_real_value_50pct_payment_pct': 93.75, 'latest_window_real_value_level_payment_pct': 62.5,
+           'latest_window_inflation_pct_per_year': 60.0, 'latest_window_price_rise_pct': 60.0, 'latest_window_rank_50pct': 4, '50pct_growth_1y_pct': 50.0,
+           'guide_path': [{'year': 0, 'month': '2000-01-01', 'age': 65, 'price_ratio': 1.0, 'real_50pct_pct': 100.0, 'real_level_pct': 100.0},
+                          {'year': 1, 'month': '2001-01-01', 'age': 66, 'price_ratio': 1.5, 'real_50pct_pct': 100.0, 'real_level_pct': 200 / 3}],
+           'guide_start': '2000-01', 'guide_end': '2001-01', 'guide_real_50pct_end_pct': 100.0, 'guide_real_level_end_pct': 200 / 3,
+           'guide_years_50pct_at_or_above_100': 1, 'guide_last_year_50pct_at_or_above_100': 1, 'guide_min_50pct_pct': 100.0, 'guide_min_50pct_year': 0,
+           'guide_last_year_level_at_or_above_90': 0, 'guide_year_level_reaches_50pct_end': 1, 'median_year_level_reaches_50pct_end_median': 1,
+           'worst_window_years_50pct_fell_1y': 1,
+           'by_decade': {'2000': {'n': 5, 'kept': 3, 'median_real_50pct_pct': 100.0, 'min_real_50pct_pct': 75.0, 'max_real_50pct_pct': 150.0, 'median_inflation_pct': 50.0}},
+           'raise_grid': {'0.000': 20.0, '0.500': 60.0, '1.000': 100.0}, 'raise_needed_all_1y_pct': 100.0, 'raise_needed_half_1y_pct': 50.0,
+           'windows': [{'start': a + '-01', 'end': b + '-01', 'P': P, 'real_50pct_pct': r, 'real_level_pct': l} for a, b, P, r, l in FRW_WINDOWS]}
+
+
+def frw_files(f):
+    with open(f.p('data/cpi.csv'), 'w') as fh:
+        fh.write('observation_date,CPI\n' + ''.join(f'{2000 + i // 12}-{i % 12 + 1:02d}-01,{"" if v is None else v}\n' for i, v in enumerate(FRW_IDX)))
+
+
+def frw_s01_case(bad):
+    """S01 kind fixed-raise-vs-index-windows (hand table above), model file {params, raw, rounded}; bad = the blank month 2001-05 read as a window
+    (6 windows: a blank counted, not skipped)."""
+    f = F('S01-frw')
+    try:
+        frw_files(f)
+        f.contract(model={'kind': 'fixed-raise-vs-index-windows', 'output': 'out/model.json', 'params': FRW_PARAMS})
+        f.json('out/model.json', {'params': {'raise': 0.5}, 'raw': dict(FRW_RAW, windows_1y=6 if bad else 5), 'rounded': {}})
+        return f.run('S01')
+    finally:
+        f.close()
+
+
+def frw_s05_variant(name, claims):
+    f = F('S05-frw-' + name)
+    try:
+        frw_files(f)
+        f.contract(model={'kind': 'fixed-raise-vs-index-windows', 'output': 'out/model.json', 'params': FRW_PARAMS, 'claims': {cid: key for cid, key, _ in claims}},
+                   characters={}, claims={'illustrative': [], 'core': [], 'decisive': []})
+        f.json('out/claims.json', {'claims': [{'claimId': cid, 'value': v, 'display': str(v)} for cid, _, v in claims]})
+        return f.run('S05')
+    finally:
+        f.close()
+
+
+def frw_s05_case(bad):
+    """S05: headline and derived keys (decade, raise grid, guide's anniversary by calendar year, fraction:); bad = the last kept-up start written as
+    2000-06 (the June window, P 1.6 > G 1.5, did not keep up)."""
+    return frw_s05_variant('main', [('sh', 'share_50pct_kept_up_1y_pct', 60.0), ('fr', 'fraction:share_50pct_kept_up_1y_pct', 0.6),
+                                    ('wy', 'worst_window_start_year_1y', 2000), ('kl', 'kept_up_last_start_1y', '2000-06' if bad else '2000-04-01'),
+                                    ('dk', 'by_decade_2000_kept', 3), ('dm', 'by_decade_2000_median_real_50pct', 100.0), ('rg', 'raise_grid_100pct', 100.0),
+                                    ('gl', 'guide_real_level_2001_pct', 66.667), ('rk', 'latest_window_rank_50pct', 4), ('ny', 'median_year_level_reaches_50pct_end_median', 1),
+                                    ('rs', 'raise', 0.5)])
+
+
+def frw_s05_fell_case(bad):
+    """S05: anniversaries the 50% check fell in the worst window (March: 100 → 75, one fall) — 1; bad = 0."""
+    return frw_s05_variant('fell', [('f', 'worst_window_years_50pct_fell_1y', 0 if bad else 1)])
+
+
+EXTRA.update({'S01/fixed-raise': frw_s01_case, 'S05/fixed-raise': frw_s05_case, 'S05/fixed-raise-fell': frw_s05_fell_case})
+
+
 def main():
     only = set(sys.argv[sys.argv.index('--only') + 1].split(',')) if '--only' in sys.argv else None
     rows = []

@@ -9,6 +9,7 @@ Each kind gives:
 """
 import csv
 import math
+import re
 
 import numpy as np
 
@@ -1752,12 +1753,355 @@ def lfp_invariants(ctx, params):
             metric('quantities changed when the index is multiplied by 2.5 (index levels aside)', drift, '<=', 0)]
 
 
+# ---- kind "fixed-raise-vs-index-windows" (Episode 6, K4.0.2) ------------------------------------------------------------------------------
+#   Written from the spec topics-r1/machine/retire-1/model.json → newKindNeeds (+ quantities[].meaning) and episodes/ep006/numbers.md (definitions of
+#   the episode's extensions: guide path, decades, raise grid, bands, robust indexes); never from calc.py or the builder's model code.
+#   Index I(m): a monthly price index; a blank or "." value is MISSING (never 0). Window (s, H): start month s ≥ firstStart, end e = s + 12H, both I(s)
+#   and I(e) present. P = I(e)/I(s); fixed-raise growth G = (1 + raise)^H; kept = G ≥ P; real fixed-raise check = 100·G/P; real level check = 100/P;
+#   annualised inflation = 100(P^(1/H) − 1). Anniversary k of a window: month s + 12k, value 100(1 + raise)^k / (I(s + 12k)/I(s)) (level: 100 / ratio).
+#   Ties of a min / max → the earliest start. Medians are numpy medians (mean of the two middle values for an even count). Shares are percents.
+#   Key labels come from the parameters: horizon "20y", raise "2pct" (and the word "two" in two_pct_growth_<H>y_pct), bands "90", grid "0.030".
+FRW_CNT, FRW_MON, FRW_PCT, FRW_RATIO, FRW_EXACT, FRW_TREE = 'count', 'month', 'pct', 'ratio', 'exact', 'tree'
+FRW_TOL = {FRW_PCT: 0.005, FRW_RATIO: 0.0005, FRW_CNT: 0}   # S05: % 0.005, ratios 0.0005, counts and months exactly
+FRW_WORDS = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten'}
+
+
+def _frw_params(params):
+    idx, raise_, hs, first = _need(params, 'index', 'raise', 'horizonsYears', 'firstStart')
+    raise_ = float(raise_)
+    hs = [int(h) for h in hs]
+    if not hs or any(h < 1 for h in hs) or raise_ <= -1:
+        raise Missing('contract.json: model.params: horizonsYears ≥ 1, raise > −1')
+    main = int(params.get('mainYears', hs[0]))
+    if main not in hs:
+        raise Missing('contract.json: model.params.mainYears must be one of horizonsYears')
+    guide = params.get('guide')
+    if guide is not None and (ym(guide.get('start', '')) is None or guide.get('age') is None):
+        raise Missing('contract.json: model.params.guide = {start: month, age}')
+    rb = {}
+    for k, spec in (params.get('robust') or {}).items():
+        rb[k] = {'dateColumn': idx.get('dateColumn'), **spec}
+    return {'index': idx, 'name': idx.get('name', 'index'), 'raise': raise_, 'hs': hs, 'main': main, 'first': _ym_need(first, 'firstStart'),
+            'guide': guide, 'grid': [float(r) for r in params.get('raiseGrid') or []], 'decades': [int(d) for d in params.get('decades') or []],
+            'bands': [float(b) for b in params.get('shareBands') or []], 'robust': rb}
+
+
+def _frw_lab(c):
+    r = 100 * c['raise']
+    return f'{r:g}'.replace('.', 'p') + 'pct'
+
+
+def _frw_windows(I, first, H, raise_, scale=1.0):
+    """Every window (s, H) of index I ({month: value}) from `first`: [(s, e, P, real2, level)]; a window touching a missing month is excluded."""
+    G = (1 + raise_) ** H
+    last = max(I)
+    out = []
+    for s in range(max(first, min(I)), last - 12 * H + 1):
+        e = s + 12 * H
+        if s in I and e in I:
+            P = (I[e] * scale) / (I[s] * scale)
+            out.append((s, e, P, 100 * G / P, 100 / P))
+    return out
+
+
+def _frw_group(ws, H, raise_, lab, bands, suffix):
+    """The headline keys of one horizon (suffix "_20y"): counts, starts, kept, inflation, real values, worst / best (earliest on ties), bands."""
+    o = {}
+    n = len(ws)
+    kept = [w for w in ws if (1 + raise_) ** H >= w[2]]
+    infl = [100 * (w[2] ** (1 / H) - 1) for w in ws]
+    o[f'windows{suffix}'] = (n, FRW_CNT)
+    if not ws:
+        return o
+    o[f'first_start{suffix}'] = (Month(ws[0][0]), FRW_MON)
+    o[f'last_start{suffix}'] = (Month(ws[-1][0]), FRW_MON)
+    o[f'windows_{lab}_kept_up{suffix}'] = (len(kept), FRW_CNT)
+    o[f'share_{lab}_kept_up{suffix}_pct'] = (100 * len(kept) / n, FRW_PCT)
+    o[f'kept_up_first_start{suffix}'] = (Month(kept[0][0]) if kept else None, FRW_MON)
+    o[f'kept_up_last_start{suffix}'] = (Month(kept[-1][0]) if kept else None, FRW_MON)
+    o[f'median_inflation{suffix}_pct_per_year'] = (float(np.median(infl)), FRW_PCT)
+    o[f'min_inflation{suffix}_pct_per_year'] = (min(infl), FRW_PCT)
+    o[f'max_inflation{suffix}_pct_per_year'] = (max(infl), FRW_PCT)
+    o[f'median_real_value_{lab}_payment_after{suffix}_pct'] = (float(np.median([w[3] for w in ws])), FRW_PCT)
+    o[f'median_real_value_level_payment_after{suffix}_pct'] = (float(np.median([w[4] for w in ws])), FRW_PCT)
+    wi = min(range(n), key=lambda i: (ws[i][3], i))
+    bi = max(range(n), key=lambda i: (ws[i][3], -i))
+    o[f'worst_real_value_{lab}_payment_after{suffix}_pct'] = (ws[wi][3], FRW_PCT)
+    o[f'worst_real_value_level_payment_after{suffix}_pct'] = (ws[wi][4], FRW_PCT)
+    o[f'worst_window_start{suffix}'] = (Month(ws[wi][0]), FRW_MON)
+    o[f'worst_window_start_year{suffix}'] = (ws[wi][0] // 12, FRW_CNT)
+    o[f'best_real_value_{lab}_payment_after{suffix}_pct'] = (ws[bi][3], FRW_PCT)
+    o[f'best_window_start{suffix}'] = (Month(ws[bi][0]), FRW_MON)
+    for b in bands:
+        o[f'share_{lab}_at_least_{b:g}_after{suffix}_pct'] = (100 * sum(w[3] >= b for w in ws) / n, FRW_PCT)
+    return o
+
+
+def _frw_path(I, s, H, raise_):
+    """Anniversaries k = 0..H of a start month: [(k, month, ratio or None, real2 or None, level or None)]."""
+    out = []
+    for k in range(H + 1):
+        m = s + 12 * k
+        if m in I and s in I:
+            r = I[m] / I[s]
+            out.append((k, m, r, 100 * (1 + raise_) ** k / r, 100 / r))
+        else:
+            out.append((k, m, None, None, None))
+    return out
+
+
+def frw_run(ctx, params, scale=1.0):
+    """Every quantity of the kind (unrounded) as {key: (value, type)}; nested keys (guide_path, by_decade, raise_grid, windows) have type tree.
+    scale multiplies the index (invariant replay)."""
+    c = _frw_params(params)
+    I = {m: v * scale for m, v in monthly_values(ctx, c['index'], 'index').items()}
+    lab, H = _frw_lab(c), c['main']
+    sx = f'_{H}y'
+    first = max(c['first'], min(I))
+    last = max(I)
+    o = {'index_first_month': (Month(first), FRW_MON), 'index_last_month': (Month(last), FRW_MON),
+         'index_blank_months': ([ym_str(i) + '-01' for i in range(first, last + 1) if i not in I], FRW_EXACT),
+         'cpi_yoy_latest_pct': (100 * (I[last] / I[last - 12] - 1) if last - 12 in I else None, FRW_PCT)}
+    wins = {}
+    for h in c['hs']:
+        wins[h] = _frw_windows(I, c['first'], h, c['raise'])
+        o.update(_frw_group(wins[h], h, c['raise'], lab, c['bands'], f'_{h}y'))
+    ws = wins[H]
+    G = (1 + c['raise']) ** H
+    if ws:
+        lw = ws[-1]
+        o.update({'latest_start': (Month(lw[0]), FRW_MON), 'latest_end': (Month(lw[1]), FRW_MON),
+                  f'latest_window_real_value_{lab}_payment_pct': (lw[3], FRW_PCT), 'latest_window_real_value_level_payment_pct': (lw[4], FRW_PCT),
+                  'latest_window_inflation_pct_per_year': (100 * (lw[2] ** (1 / H) - 1), FRW_PCT), 'latest_window_price_rise_pct': (100 * (lw[2] - 1), FRW_PCT),
+                  f'latest_window_rank_{lab}': (1 + sum(w[3] > lw[3] for w in ws), FRW_CNT)})
+    word = FRW_WORDS.get(int(round(100 * c['raise']))) if abs(100 * c['raise'] - round(100 * c['raise'])) < 1e-9 else None
+    o[f'{word or lab}_pct_growth{sx}_pct' if word else f'{lab}_growth{sx}_pct'] = (100 * (G - 1), FRW_PCT)
+    med2 = float(np.median([w[3] for w in ws])) if ws else None
+    if c['guide'] is not None:
+        gs = ym(c['guide']['start'])
+        path = _frw_path(I, gs, H, c['raise'])
+        age = int(c['guide']['age'])
+        o['guide_path'] = ([{'year': k, 'month': ym_str(m) + '-01', 'age': age + k, 'price_ratio': r, f'real_{lab}_pct': v2, 'real_level_pct': vl}
+                            for k, m, r, v2, vl in path], FRW_TREE)
+        ok = [(k, v2, vl) for k, m, r, v2, vl in path if v2 is not None]
+        end2, endl = path[-1][3], path[-1][4]
+        at100 = [k for k, v2, _ in ok if k >= 1 and v2 >= 100]
+        mk = min(ok, key=lambda t: (t[1], t[0]))
+        o.update({'guide_start': (Month(gs), FRW_MON), 'guide_end': (Month(gs + 12 * H), FRW_MON),
+                  f'guide_real_{lab}_end_pct': (end2, FRW_PCT), 'guide_real_level_end_pct': (endl, FRW_PCT),
+                  f'guide_years_{lab}_at_or_above_100': (len(at100), FRW_CNT), f'guide_last_year_{lab}_at_or_above_100': (max(at100) if at100 else None, FRW_CNT),
+                  f'guide_min_{lab}_pct': (mk[1], FRW_PCT), f'guide_min_{lab}_year': (mk[0], FRW_CNT)})
+        if c['bands']:
+            b0 = c['bands'][0]
+            lv = [k for k, _, vl in ok if vl >= b0]
+            o[f'guide_last_year_level_at_or_above_{b0:g}'] = (max(lv) if lv else None, FRW_CNT)
+        if end2 is not None:
+            hit = [k for k, _, vl in ok if k >= 1 and vl <= end2]
+            o[f'guide_year_level_reaches_{lab}_end'] = (hit[0] if hit else None, FRW_CNT)
+    if ws:
+        firsts = []
+        for w in ws:
+            hit = next((k for k, m, r, v2, vl in _frw_path(I, w[0], H, c['raise']) if k >= 1 and vl is not None and vl <= med2), None)
+            if hit is not None:
+                firsts.append(hit)
+        o[f'median_year_level_reaches_{lab}_end_median'] = (float(np.median(firsts)) if firsts else None, FRW_CNT)
+        wi = min(range(len(ws)), key=lambda i: (ws[i][3], i))
+        wp = [v2 for k, m, r, v2, vl in _frw_path(I, ws[wi][0], H, c['raise'])]
+        o[f'worst_window_years_{lab}_fell{sx}'] = (sum(1 for a, b in zip(wp, wp[1:]) if a is not None and b is not None and b < a), FRW_CNT)
+        dec = {}
+        for d in c['decades']:
+            dw = [w for w in ws if d <= w[0] // 12 <= d + 9]
+            if dw:
+                dec[str(d)] = {'n': len(dw), 'kept': sum(G >= w[2] for w in dw), f'median_real_{lab}_pct': float(np.median([w[3] for w in dw])),
+                               f'min_real_{lab}_pct': min(w[3] for w in dw), f'max_real_{lab}_pct': max(w[3] for w in dw),
+                               'median_inflation_pct': float(np.median([100 * (w[2] ** (1 / H) - 1) for w in dw]))}
+        if c['decades']:
+            o['by_decade'] = (dec, FRW_TREE)
+        if c['grid']:
+            o['raise_grid'] = ({f'{r:.3f}': 100 * sum((1 + r) ** H >= w[2] for w in ws) / len(ws) for r in c['grid']}, FRW_TREE)
+        infl = [100 * (w[2] ** (1 / H) - 1) for w in ws]
+        o[f'raise_needed_all{sx}_pct'] = (max(infl), FRW_PCT)
+        o[f'raise_needed_half{sx}_pct'] = (float(np.median(infl)), FRW_PCT)
+        o['windows'] = ([{'start': ym_str(w[0]) + '-01', 'end': ym_str(w[1]) + '-01', 'P': w[2], f'real_{lab}_pct': w[3], 'real_level_pct': w[4]} for w in ws], FRW_TREE)
+    for k, spec in c['robust'].items():
+        J = {m: v * scale for m, v in monthly_values(ctx, spec, f'robust.{k}').items()}
+        rw = _frw_windows(J, c['first'], H, c['raise'])
+        p = f'robust_{k}_'
+        o[p + f'windows{sx}'] = (len(rw), FRW_CNT)
+        if rw:
+            o.update({p + 'first_start': (Month(rw[0][0]), FRW_MON), p + 'last_start': (Month(rw[-1][0]), FRW_MON),
+                      p + f'kept_up{sx}': (sum(G >= w[2] for w in rw), FRW_CNT),
+                      p + f'share_kept_up{sx}_pct': (100 * sum(G >= w[2] for w in rw) / len(rw), FRW_PCT),
+                      p + f'median_real_{lab}_pct': (float(np.median([w[3] for w in rw])), FRW_PCT),
+                      p + 'median_inflation_pct': (float(np.median([100 * (w[2] ** (1 / H) - 1) for w in rw])), FRW_PCT),
+                      p + f'latest_real_{lab}_pct': (rw[-1][3], FRW_PCT)})
+            if rw[0][0] > (ws[0][0] if ws else rw[0][0]):
+                cw = [w for w in ws if w[0] >= rw[0][0]]
+                q = f'{c["name"]}_from_{k}_start_'
+                o.update({q + f'windows{sx}': (len(cw), FRW_CNT), q + f'kept_up{sx}': (sum(G >= w[2] for w in cw), FRW_CNT),
+                          q + f'median_real_{lab}_pct': (float(np.median([w[3] for w in cw])) if cw else None, FRW_PCT)})
+    return {'c': c, 'I': I, 'wins': wins, 'out': o}
+
+
+def _frw_cached(ctx, params, scale=1.0):
+    return ctx.memo(('frw-run', id(params), scale), lambda: (params, frw_run(ctx, params, scale)))[1]
+
+
+def _frw_same(t, v):
+    """Builder value t vs re-computed v, recursively: floats 1e-9 relative, ints / bools / strings / null equal, months equal after normalisation."""
+    if isinstance(v, dict):
+        return isinstance(t, dict) and set(t) == set(v) and all(_frw_same(t[k], v[k]) for k in v)
+    if isinstance(v, list):
+        return isinstance(t, list) and len(t) == len(v) and all(_frw_same(a, b) for a, b in zip(t, v))
+    if v is None or isinstance(v, bool):
+        return t is v or t == v and type(t) is type(v)
+    if isinstance(v, str):
+        return isinstance(t, str) and (t == v or ym(t) is not None and ym(t) == ym(v))
+    if isinstance(t, bool) or not isinstance(t, (int, float)):
+        return False
+    if isinstance(v, int) and not isinstance(v, float):
+        return t == v
+    return abs(t - v) <= 1e-9 * max(1.0, abs(v))
+
+
+def frw_compare(ctx, params, out):
+    """The model file: {params (echo, not compared), raw: {key: unrounded value}, rounded?: {...} (display, not compared)}; a flat file without "raw" is
+    read as raw. S01: shares, %, ratios 1e-9 relative; counts exactly; months exactly after normalisation; lists, trees (guide path, decades, raise grid,
+    every window) element by element; null by equality. Every key the kind computes must be present; a raw key it does not compute (and not in
+    conventions / notModel) is listed."""
+    o = _frw_cached(ctx, params)['out']
+    raw = out.get('raw') if isinstance(out.get('raw'), dict) else out
+    bad, checked = [], 0
+    for k, (v, how) in o.items():
+        checked += 1
+        t = raw.get(k, '<absent>')
+        mine = (ym_str(v) if v is not None else None) if how == FRW_MON else v
+        if t == '<absent>':
+            bad.append((k, 'absent', mine if how != FRW_TREE else '<tree>'))
+            continue
+        if how == FRW_MON:
+            ok = (t is None and v is None) or (v is not None and isinstance(t, str) and ym(t) == int(v))
+        elif how == FRW_EXACT:
+            ok = Exact(v).same(t)
+        elif how == FRW_CNT and isinstance(v, float):
+            ok = not isinstance(t, bool) and isinstance(t, (int, float)) and abs(t - v) <= 1e-9
+        else:
+            ok = _frw_same(t, v)
+        if not ok:
+            bad.append((k, t if how != FRW_TREE else '<tree differs>', mine if how != FRW_TREE else '<tree>'))
+    for k, v in (params.get('conventions') or {}).items():
+        checked += 1
+        if raw.get(k) != v:
+            bad.append((k, raw.get(k), v))
+    covered = set(o) | set(params.get('conventions') or {}) | set(params.get('notModel', []))
+    unrec = sorted(set(raw) - covered)
+    if raw is not out:
+        unrec += sorted(set(out) - {'params', 'raw', 'rounded'} - covered)
+    return checked, bad, unrec
+
+
+FRW_INPUTS = {'raise': FRW_RATIO}
+
+
+def frw_value(ctx, params, key):
+    """Keys (S05): every key of the model file the kind computes (e.g. "windows_20y", "share_2pct_kept_up_20y_pct", "worst_window_start_year_20y",
+    "guide_last_year_2pct_at_or_above_100", "robust_pce_share_kept_up_20y_pct", "cpiu_from_pce_start_kept_up_20y"); the episode's derived keys
+    "by_decade_<decade>_<n | kept | median_real_2pct | min_real_2pct | max_real_2pct | median_inflation>", "raise_grid_<r>pct" (e.g. raise_grid_3pct =
+    the share at a 3% raise), "guide_real_<2pct | level>_<calendar year>_pct" (the guide's value at the anniversary in that year); the input "raise";
+    and "fraction:<key>" = a % key / 100. Tolerances: % 0.005; ratios 0.0005; counts, years and months exactly (YYYY-MM ≡ YYYY-MM-01); lists and null
+    by equality."""
+    run = _frw_cached(ctx, params)
+    o, c = run['out'], run['c']
+    lab = _frw_lab(c)
+    if key == 'raise':
+        return c['raise'], FRW_TOL[FRW_RATIO]
+    frac = key.startswith('fraction:')
+    k = key.partition(':')[2] if frac else key
+    m = re.fullmatch(r'by_decade_(\d{4})_(n|kept|median_real_\w+|min_real_\w+|max_real_\w+|median_inflation)', k)
+    if m and m.group(1) in (o.get('by_decade', ({}, 0))[0]):
+        d = o['by_decade'][0][m.group(1)]
+        f = m.group(2) if m.group(2) in ('n', 'kept') else m.group(2) + '_pct'
+        if f in d:
+            return (d[f], 0) if f in ('n', 'kept') else (float(d[f]), FRW_TOL[FRW_PCT])
+    m = re.fullmatch(r'raise_grid_(\d+(?:p\d+)?)pct', k)
+    if m and 'raise_grid' in o:
+        r = float(m.group(1).replace('p', '.')) / 100
+        g = o['raise_grid'][0].get(f'{r:.3f}')
+        if g is not None:
+            return float(g), FRW_TOL[FRW_PCT]
+    m = re.fullmatch(r'guide_real_(level|' + re.escape(lab) + r')_(\d{4})_pct', k)
+    if m and 'guide_path' in o:
+        f = 'real_level_pct' if m.group(1) == 'level' else f'real_{lab}_pct'
+        row = next((r for r in o['guide_path'][0] if int(r['month'][:4]) == int(m.group(2))), None)
+        if row is not None and row[f] is not None:
+            return float(row[f]), FRW_TOL[FRW_PCT]
+    if k not in o or o[k][1] == FRW_TREE or frac and o[k][1] != FRW_PCT:
+        raise Missing(f'contract.json: model.claims key "{key}" is not a quantity of kind fixed-raise-vs-index-windows')
+    v, how = o[k]
+    if v is None or how == FRW_EXACT:
+        return Exact(v), 0
+    if how == FRW_MON:
+        return v, 0
+    if how == FRW_CNT:
+        return (float(v), 0)
+    return (float(v) / 100, FRW_TOL[how] / 100) if frac else (float(v), FRW_TOL[how])
+
+
+def frw_invariants(ctx, params):
+    """The spec's invariants (newKindNeeds.invariants) and the K-brief's data rules, on the contract's own inputs:
+    (1) every kept share in [0, 100]; (2) real fixed-raise > real level in every window when raise > 0; (3) multiplying the index by 2 leaves every
+    output unchanged; (4) kept count non-decreasing in the raise (raise grid, ascending); (5) raise_needed_half = median inflation; raise_needed_all =
+    max inflation and every window kept at that raise; (6) every window's start and end month present, and windows = candidate starts − starts whose start
+    or end month is missing (the brief: 715 = 716 − 1 for 2025-10); (7) the latest window ends at most at the last observation and no window starts later
+    than last − 12H; (8) worst / best starts are the earliest among equal values."""
+    run = _frw_cached(ctx, params)
+    c, I, wins, o = run['c'], run['I'], run['wins'], run['out']
+    e1 = sum(1 for k, (v, how) in o.items() if 'kept_up' in k and k.endswith('_pct') and v is not None and not 0 <= v <= 100)
+    e2 = sum(1 for h in wins for w in wins[h] if c['raise'] > 0 and not w[3] > w[4])
+    o2 = _frw_cached(ctx, params, 2.0)['out']
+    drift = sum(1 for k, (v, how) in o.items() if not _frw_same(o2[k][0], v))   # the whole index (and every robust index) is scaled
+    H, ws = c['main'], wins[c['main']]
+    grid = sorted(c['grid'])
+    ks = [sum((1 + r) ** H >= w[2] for w in ws) for r in grid]
+    e4 = sum(1 for a, b in zip(ks, ks[1:]) if b < a)
+    infl = [100 * (w[2] ** (1 / H) - 1) for w in ws]
+    e5 = 0
+    if ws:
+        rh, ra = o[f'raise_needed_half_{H}y_pct'][0], o[f'raise_needed_all_{H}y_pct'][0]
+        e5 = int(abs(rh - float(np.median(infl))) > 1e-12) + int(abs(ra - max(infl)) > 1e-12)
+        e5 += sum(1 for w in ws if (1 + ra / 100) ** H < w[2] * (1 - 1e-12))
+    first, last = max(c['first'], min(I)), max(I)
+    e6 = 0
+    for h in wins:
+        cand = list(range(first, last - 12 * h + 1))
+        e6 += sum(1 for w in wins[h] if w[0] not in I or w[1] not in I)
+        e6 += int(len(wins[h]) != sum(1 for s in cand if s in I and s + 12 * h in I))
+    e7 = sum(1 for h in wins for w in wins[h] if w[1] > last or w[0] > last - 12 * h)
+    e8 = 0
+    for h in wins:
+        w_ = wins[h]
+        if w_:
+            mn = min(w[3] for w in w_)
+            mx = max(w[3] for w in w_)
+            e8 += int(o[f'worst_window_start_{h}y'][0] != next(w[0] for w in w_ if w[3] == mn))
+            e8 += int(o[f'best_window_start_{h}y'][0] != next(w[0] for w in w_ if w[3] == mx))
+    return [metric('kept shares outside [0, 100]', e1, '<=', 0),
+            metric('windows where the fixed-raise check is not above the level check (raise > 0)', e2, '<=', 0),
+            metric('quantities changed when the index is multiplied by 2', drift, '<=', 0),
+            metric('raise-grid steps where a higher raise keeps up in fewer windows', e4, '<=', 0),
+            metric('raise needed for half / all ≠ median / max inflation, or windows not kept at raise_needed_all', e5, '<=', 0),
+            metric('windows touching a missing month, or a window count ≠ candidate starts with both months present', e6, '<=', 0),
+            metric('windows ending after the last observation or starting after last − 12H', e7, '<=', 0),
+            metric('worst / best starts that are not the earliest among equal values', e8, '<=', 0)]
+
+
 KINDS = {'retirement-6040': (ret_compare, ret_value, ret_invariants),
          'refinance-breakeven': (refi_compare, refi_value, lambda ctx, p: []),
          'float-vs-fixed-replay': (fvf_compare, fvf_value, fvf_invariants),
          'lock-vs-roll-replay': (lvr_compare, lvr_value, lvr_invariants),
          'fixed-cap-vs-index-growth': (fci_compare, fci_value, fci_invariants),
-         'ltv-first-passage': (lfp_compare, lfp_value, lfp_invariants)}
+         'ltv-first-passage': (lfp_compare, lfp_value, lfp_invariants),
+         'fixed-raise-vs-index-windows': (frw_compare, frw_value, frw_invariants)}
 
 
 def kind(ctx):
