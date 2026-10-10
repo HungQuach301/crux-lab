@@ -1,0 +1,103 @@
+{
+ "candidate_set": "ep006",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep006",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Gets 'not modeled' and two checks, but misses the greyed starting-gap idea. / Two cards and not-modeled gap noted, but starting-height gap and shapes muddled.",
+    "Notes '?' and not modeled but not the starting-height gap. / Two checks, unmeasured gap with '?' captured; advice self-drawn."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B14",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Captures nearly all bars below start, 17 of 715 kept up; advice self-drawn. / Captures nearly all bars below start, few kept up; advice self-drawn.",
+    "Fixed check bought less nearly all months, 17 of 715; advice own. / Almost all months below start; 17 of 715 kept up captured."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B29",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Same 2% raise, different start dates, Carl worst; but misattributes cause, Edna 10 crates ok. / Crate rows and outcomes right; start-month-only label and Edna full missed.",
+    "Three retirees, crate rows 10/9/4, start-date dependence; advice own. / Three retirees and crate outcomes right; start-month-only labeling not conveyed, over-interprets."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B30",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Ladder with half at 3.1 and all at top; advice own reading. / Ladder, half at 3.1, all at 6.38 captured; advice self-inferred.",
+    "Ladder, half at 3.1, all at 6.38 top rung; advice self-inferred. / Ladder, half at 3.1, all at top rung Carl's stretch captured."
+   ]
+  }
+ ],
+ "gate_beats": 4,
+ "gate_pass": 0,
+ "pending": [],
+ "advice_beats": [
+  "B04",
+  "B14",
+  "B29",
+  "B30"
+ ],
+ "classes": null,
+ "advice_rubric": "old",
+ "share": 0.0,
+ "verdict": "FAIL",
+ "near_threshold": false,
+ "verdict_old": "FAIL",
+ "verdict_new": "FAIL",
+ "advice_beats_old": [
+  "B04",
+  "B14",
+  "B29",
+  "B30"
+ ],
+ "advice_beats_new": [],
+ "rubric_disagree": true,
+ "graders": 2
+}
