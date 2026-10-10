@@ -1,48 +1,44 @@
 # PLAN Tập 6 — Does a 2% Annuity Raise Really Keep Up With Prices?  (≤ 1 trang; viết lại khi đóng phiên)
 
-**Nhánh:** `ep006` · **Đề tài:** #12 · **Format:** `101` · **Phiên vừa đóng:** P3b (`session_01426YSqdhTHTztxkQ5Ax1jg`) — đóng **giữa C4** theo lệnh chốt an toàn (hạn mức tuần ≈ 6 %) · lịch sử: `archive/PLAN-history.md`
+**Nhánh:** `ep006` (P3c đẩy cả `ep006` và `claude/gracious-brown-rccz2m`, cùng SHA) · **Đề tài:** #12 · **Format:** `101` · **Phiên vừa đóng:** P3c (`session_01QNrEnsRn8CMnf6J5ujL79c`) — đóng **giữa C5** (chốt an toàn: ngữ cảnh phiên ≈ 265 nghìn, sát ngưỡng 300 nghìn) · lịch sử: `archive/PLAN-history.md`
 
 ## 1. Trạng thái
-F-12 + K4.0.2 + K4.1 trên `main` (9f16de0) và `ep006`; LOCK `4d688acd` khớp. `contract.json` (kind `fixed-raise-vs-index-windows`, `index.name: cpiu`): S01 89/0, S05 45/45 + 8/8. **Animatic 720p cả tập** (6 đoạn thế giới a–f): **536,6 s = 8:56,6** (≤ 9:00, dư 3,4 s), MR1 208,15 s, giọng 30/30 cache, EL 0; vòng sửa 1 bố cục xong, dựng lại @ ddf5bf1 (6/6 verify). F-13 (mux `-shortest` rơi khung) sửa trên `ep006`, bằng chứng `c4/f13/EVIDENCE.md`. **Kiểm mù C4** (rubric MỚI theo `gates/C4-answer.md`): bản có lời cả tập 0/3 · S29 0/3 `advice_stated` → **chốt C3 ĐẠT**; cổng gốc vòng 0 (trên bản trước sửa): `advice_stated` chỉ B08; nghĩa 0,5 ở B01 B03 B15 B32. Checks lần 1: luật Python — CHẶN còn F01 (720p) và F11 (chốt ở C5); đủ bộ (gồm trang) trên bản sửa: xem §2.1.
+**C4 xong.** Cổng gốc (rubric MỚI): **21/23 = 91,3 % ĐẠT**, `advice_stated` = 0 mọi lượt (`c4/ROOT-SUMMARY-P3c.md`); B04, B12 sửa bằng hình → 1·1; **B01, B15 hết 3 vòng (0,5) → G2 nêu trước/sau** (dải `review-c4/r1`, `r2`, `r3` → `strips/`); B32 trả về bản vòng 2 (khoá nghĩa). Nhận xét đạo diễn "Treo" đã sửa: khung chuyển máy 0,6–0,9 → 0 s; "44.3%" +0,08 s; nhãn outro chỉ ở đồ thị; **"3%" còn trễ 1,26 s** (quy tắc 7 × quy tắc 1, bậc 3 % sáng đúng "three" ở thế giới) → ngoại lệ G2 kèm số đo. **C5:** 1080p dựng xong **536,6 s = 8:56,6** (≥ 8:00, ≤ 9:00), 6/6 đoạn verify OK gồm **C14** (sửa: lớp tối vẽ trước chữ — ident a, mờ vào d/e/f); Shorts SH1–SH3 dựng. qc nhà máy 8 TRƯỢT: 6 giống Tập 5 đã đăng (đối trọng master "0 khung log", freezedetect, true peak −1,8 dBTP); **mới: SH1, SH3 móc ra ngoài vùng an toàn dọc (186 / 98 hộp)**. Checks đủ bộ lần 2 (cây C5 thật): xem §2.1.
 
 ## 2. Việc tiếp (≤ 3) và việc treo
-1. **Checks đủ bộ lần 1** trên bản @ ddf5bf1: nếu chưa có `checks-runs`/báo cáo commit thì chạy lại khi máy rảnh: `bash episodes/ep006/c4/checks.sh <ngoài repo>/chk-c4 --first` — **P3b chạy 2 lần, cả hai bị dừng ở trần 2 h của lệnh nền** (lần 2 máy rảnh) khi bộ lấy mẫu trang chưa xong → tách: `SKIP_PAGE=` chạy `node checks/page/sampler.js` riêng (nền, `K_JOBS=4`) rồi `SKIP_PAGE=1 checks/run.sh` cho phần Python; luật Python đã có (CHẶN còn F01, F11).
-2. **Cổng gốc chỉ các nhịp B01 B03 B08 B15 B32** trên dải mới `review-c4/strips/` (đã sửa bằng hình vòng 1; luật 3 vòng, khoá nghĩa): `python3 c4/blind_c4.py read c4/root-r2 root --only B01,B03,B08,B15,B32` → `pack` → commit → `grade --graders 2` → tally `--advice-rubric new` (rubric cũ báo song song). Trượt → sửa bằng hình (vòng 2/3) → đọc lại; hết 3 vòng → G2 nêu trước/sau. Rồi lượt đạo diễn 2 lượt chỉ nếu đổi lớn.
-3. **C5 → Shorts → G2**: `res: 1080` (C14, V11.plateOverGraphics cho REVIEWER), **F11 ĐẠT trên cây C5 thật** (trượt → báo, quay lại K2), `sync_audit.py` ±0,2 s, ≥ 8:00 và ≤ 9:00 đo lại sau mỗi lần dựng; Shorts SH1–SH3 (`episode.yaml shorts`, ghi `contract.json shorts`); gói G2 + REVIEWER; đóng phiên.
-- Treo: lượt đạo diễn còn ghi — khung chuyển máy (đồ thị nửa ngoài khung ≤ 0,5 s), "44.3%" sớm 0,7 s, "3%" thang trễ 1,9 s (quy tắc 1 + 7), nhãn thêm "check: +2% a year" ở outro (B32). P4 merge **squash** `ep006` → `main` (gồm F-13). Lô K: `checks-appeal.md` A28 (mặc định rubric mới).
+1. **Checks đủ bộ trên cây C5** (`bash episodes/ep006/c5/checks_split.sh <ngoài repo>/chk-c5 --first`; dừng ở trần 2 h → `RESUME=1` cùng lệnh, cache trang theo cảnh): **F11 phải ĐẠT** (trượt → báo, quay lại K2); V11.plateOverGraphics chép cho REVIEWER; CHẶN/CHÍNH sửa trước G2. Kết quả P3c: <<xem dòng "Checks P3c" dưới>>.
+2. **Shorts:** sửa móc SH1 ("A raise every year, and still less") và SH3 ra ngoài vùng an toàn dọc (xuống dòng/ngắn hơn trong `episode.yaml shorts`, móc do máy chọn); dựng lại Shorts (`build.sh` trúng cache đoạn); ghi `contract.json shorts`. `sync_audit.py out/video.mp4 <ra.json> --spine …` mỗi đoạn ±0,2 s (ghi thêm: sfx tick đè "three" e 96,7 s SNR 14 dB — F-2 WARN).
+3. **G2** (`P3.md` việc 4): gói ≤ 3 câu + phiếu L3 + REVIEWER (headless chỉ đọc, `c5/api.sh review`); nêu B01/B15 trước/sau, "3%" 1,26 s, true peak −1,8 dBTP (như Tập 5); clip ≤ 3 phút, bản 720p (`out/factory` phần 720p). Đóng phiên.
+- Treo: P4 merge **squash** `ep006` → `main` (gồm F-13). Lô K: `checks-appeal.md` A28; đề xuất: qc nhà máy đọc đối trọng master ở đoạn world (0 khung log ở Tập 5–6).
 
 ## 3. Quyết định đã có (chủ dự án)
-G1 → `gates/G1-answer.md` · C3 → `gates/C3-answer.md` · 09/10 P3b: F-13 sửa trên `ep006` (điều kiện, bằng chứng) · **C4 rubric MỚI** → `gates/C4-answer.md` · Tập 4 không đăng, Tập 3/5 đã đăng (sổ gu).
+G1 → `gates/G1-answer.md` · C3 → `gates/C3-answer.md` · F-13 sửa trên `ep006` · **C4 rubric MỚI** → `gates/C4-answer.md` · 10/10 P3c: chi API qua khoá Console (`CONSOLE_API_KEY`, trần $170); không lượt đạo diễn; ≤ 10 ảnh/phiên; đẩy cả `ep006` và nhánh phiên.
 
 ## 4. Đã sửa gì, vì sao
 | Vòng | Cảnh | Lỗi | Sửa | Kết quả đo | Còn |
 |---|---|---|---|---|---|
-| C4 l1 | c, f | F-2 chữ × chữ/đường | dời nhãn trục; số vào thanh | 104 → 0; 177 → 0 | — |
-| C4 l2 | c, f | quy tắc 7 | mở 5 s ở thế giới | verify OK | — |
-| F-13 | nhà máy | mux `-shortest` rơi 2–4 khung | bỏ `-shortest` | splice OK; Tập 5 trùng byte hình | vào `main` P4 |
-| C4 r1 | a–f | cắt mép, đè chân trang, chồng nhãn, ident đen, Edna mất (hideColumn), khung tĩnh dài | `c4/FIX-R1.md` | F-2 0, mép 0 (phát lại) | đọc lại B01 B03 B08 B15 B32 |
+| C4 r2 | a–f | nghĩa B01 B04 B12 B15 B32; treo đạo diễn | séc ngang + viền séc đầu; hai séc chênh + "?"; vạch 90 %; thanh Ruth; khung máy | gốc r3: B32 tụt → trả bản cũ | — |
+| C4 r3 | a–d | B01 B04 B12 B15 | séc lớn qua cả S01 (nốt theo hình); phần thiếu gạch + "?"; năm 5/20; mốc năm + "start month" | B04, B12 1·1; B01, B15 0,5 | G2 trước/sau |
+| C5 | a, d–f | C14 chữ dưới lớp tối | lớp tối vẽ trước chữ | 6/6 verify OK | — |
 
 ## 5. Mức cảnh báo, token, giờ render (`episode.md` §8)
-Mức cảnh báo tập **15** triệu. EL **7.699/7.700** (P3b: 0). Agent con P3b: **10** (cộng tập 23/40).
-| Phiên | Đến (UTC) | Sinh ra | Đầu vào mới | Đọc cache | Trần | Headless (trần) | Giờ render |
+Mức cảnh báo tập **15** triệu. EL **7.699/7.700** (P3c: 0). Agent con P3c: **0** (lượt dựng/đọc chạy headless bằng khoá Console).
+| Phiên | Đến (UTC) | Sinh ra | Đầu vào mới | Đọc cache | Trần | Headless | Giờ render |
 |---|---|---|---|---|---|---|---|
-| P3b | 2026-10-09 10:08 | **1,35** | **71,18** | 475,72 | **72,52** | 0,64 (126 lượt) | ≈ 2,5 h |
-| P3c (đang chạy) | 2026-10-10 06:55 | 0,26 | 0,70 | 43,92 | **0,96** (sau cổng gốc vòng 4) | API Console bên dưới | 1080p đang dựng |
-
-**Chi API Console (P3c, khoá `CONSOLE_API_KEY`, BƯỚC 0 đạt: apiKeySource = ANTHROPIC_API_KEY; trần $170):** thử Haiku $0,002 · cổng gốc vòng 2 (15 đọc + 4 chấm, Sonnet) $0,51 · dựng X (a–c, Opus, 83 lượt: vào 110 · ghi cache 158.937 · đọc cache 6,81 tr · ra 69.057) $4,01 · dựng Y (d–f, 95 lượt: vào 154 · ghi cache 181.236 · đọc cache 10,87 tr · ra 64.823) $4,92 · cổng gốc vòng 3 $0,41 · dựng Z (vòng sửa 3, 104 lượt: vào 140 · ghi cache 169.867 · đọc cache 9,79 tr · ra 61.955) $4,56 · cổng gốc vòng 4 $0,27 → **cộng $14,67**.
-**Vượt mức cảnh báo ≈ 4,8 lần** (D-009: chỉ cảnh báo) — gần hết là agent con dựng/đạo diễn đọc nhiều ảnh (đạo diễn A 3.731 lượt công cụ). Cộng tập ≈ 75,5 / 15 triệu.
+| P3b | 2026-10-09 10:08 | 1,35 | 71,18 | 475,72 | 72,52 | 0,64 | ≈ 2,5 h |
+| P3c | 2026-10-10 06:55 | 0,27 | 0,94 | 51,18 | **1,21** | xem chi API | ≈ 3,9 h (1080p 7.135 + 2.729 s; dải nhịp ≈ 0,5 h) |
+**Chi API Console P3c (trần $170): $14,67** — Haiku thử $0,002 · cổng gốc vòng 2/3/4 $0,51 + $0,41 + $0,27 · dựng X $4,01 · Y $4,92 · Z $4,56 (Opus; token từng lượt ở commit 9895edf, 89e4e8c và log `c5/api.sh`). Cộng tập ≈ 76,7 / 15 triệu (D-009: chỉ cảnh báo).
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
-1. `CHARTER.md` 2. `playbook/episode.md` 3. `episodes/ep006/PLAN.md` 4. `episodes/ep006/ledger.md` 5. `episodes/ep006/gates/C4-answer.md` 6. `episodes/ep006/gates/C4-intent.md` 7. `episodes/ep006/c4/FIX-R1.md` 8. `playbook/prompts/P3.md`
+1. `CHARTER.md` 2. `playbook/episode.md` 3. `episodes/ep006/PLAN.md` 4. `episodes/ep006/ledger.md` 5. `episodes/ep006/c4/ROOT-SUMMARY-P3c.md` 6. `episodes/ep006/out/factory/qc.md` 7. `playbook/prompts/P3.md` 8. `playbook/templates/G2.md` (nếu có)
 
-**Tệp lớn ngoài git** (mất container → dựng lại): `data/raw/*.csv` (CPIAUCNS `f79e3a78…`, CPIAUCSL `f8ecddf5…`, CWUR0000SA0 `27ceaacf…`, PCEPI `0f416a34…`) ← `python3 episodes/ep006/data/fetch.py --verify` · `out/video.mp4` 720p `0267f00e…` (1,1 GB), `out/audio/stems/*.flac`, `work/factory/world/{a…f}-720.mp4` (a `6006c569…` b `77b8afaf…` c `048b5b88…` d `54978488…` e `b45fc385…` f `57fdc9c9…`), `work/factory/music/bed.wav` `47ff2d28…`, `work/factory/SH{1,2,3}.mp4` ← `python3 episodes/ep006/world/derive.py && python3 episodes/ep006/c4/build_inputs.py --timeline && bash toolkit/build.sh episodes/ep006/episode.yaml` (nền, ≈ 1,5 h không cache) `&& python3 episodes/ep006/c4/build_inputs.py --out`. Checks cần `av` < 15 (`pip install "av>=12,<15"`; av 19 làm A12–A15, S18, R03, R07, V10, L1 ERROR).
+**Tệp lớn ngoài git** (mất container → dựng lại): `cd toolkit/factory/world/vendor && npm ci` (three) · `pip install "av>=12,<15" --only-binary=:all:` · `python3 episodes/ep006/data/fetch.py --verify` · `python3 episodes/ep006/world/derive.py && python3 episodes/ep006/c4/build_inputs.py --timeline && bash toolkit/build.sh episodes/ep006/episode.yaml && python3 episodes/ep006/c4/build_inputs.py --out` (1080p không cache ≈ 2,8 h: lệnh nền trần 2 h → chạy lại `build.sh`, đoạn đã dựng trúng cache).
 
 ## 7. Prompt phiên kế (D-011) — chủ dự án dán nguyên khối vào phiên mới
 ```
-Chạy Tập 6, phiên P3c. Nhánh ep006 (@ SHA đóng P3b hoặc mới hơn). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md.
-C4 dở: animatic 720p đã sửa vòng 1 (536,6 s); cổng khuyên dùng rubric MỚI (gates/C4-answer.md) — bản có lời cả tập + S29 ĐẠT. Container mới thì dựng lại theo PLAN §6 "Tệp lớn ngoài git" trước.
-Việc: (1) checks đủ bộ lần 1 nếu chưa có báo cáo; (2) cổng gốc chỉ B01 B03 B08 B15 B32 (luật 3 vòng, khoá nghĩa); (3) C5 (1080p, ≥ 8:00, ≤ 9:00, mid-roll hợp lệ; REVIEWER đọc V11.plateOverGraphics; F11 phải ĐẠT trên cây C5 thật, trượt thì báo) → Shorts → G2 (đóng phiên theo playbook/prompts/RUN.md "Đóng phiên").
-Việc nặng chạy nền rồi giao agent MỚI đầu bài ngắn; không chạy song song checks với render/kiểm mù.
+Chạy Tập 6, phiên P3d. Nhánh ep006 (@ SHA đóng P3c hoặc mới hơn). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md và làm mục 2 (việc tiếp 1–3) đến G2, rồi đóng phiên theo D-011.
+Container mới thì dựng lại theo PLAN §6 "Tệp lớn ngoài git" trước (1080p ≈ 2,8 h nền).
+Việc nặng chạy headless bằng khoá Console (`episodes/ep006/c5/api.sh`, BƯỚC 0 như P3c); ghi chi API vào PLAN §5 sau mỗi bước; không chạy song song checks với render.
 Ghi chú thêm của chủ dự án (nếu có):
 <<DÁN GHI CHÚ Ở ĐÂY>>
 ```
