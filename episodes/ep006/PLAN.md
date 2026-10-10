@@ -27,6 +27,9 @@ Mức cảnh báo tập **15** triệu. EL **7.699/7.700** (P3b: 0). Agent con P
 | Phiên | Đến (UTC) | Sinh ra | Đầu vào mới | Đọc cache | Trần | Headless (trần) | Giờ render |
 |---|---|---|---|---|---|---|---|
 | P3b | 2026-10-09 10:08 | **1,35** | **71,18** | 475,72 | **72,52** | 0,64 (126 lượt) | ≈ 2,5 h |
+| P3c (đang chạy) | 2026-10-10 06:55 | 0,17 | 0,49 | 28,36 | **0,67** (sau vòng sửa 2) | API Console bên dưới | — |
+
+**Chi API Console (P3c, khoá `CONSOLE_API_KEY`, BƯỚC 0 đạt: apiKeySource = ANTHROPIC_API_KEY; trần $170):** thử Haiku $0,002 · cổng gốc vòng 2 (15 đọc + 4 chấm, Sonnet) $0,51 · dựng X (a–c, Opus, 83 lượt: vào 110 · ghi cache 158.937 · đọc cache 6,81 tr · ra 69.057) $4,01 · dựng Y (d–f, 95 lượt: vào 154 · ghi cache 181.236 · đọc cache 10,87 tr · ra 64.823) $4,92 → **cộng $9,44**.
 **Vượt mức cảnh báo ≈ 4,8 lần** (D-009: chỉ cảnh báo) — gần hết là agent con dựng/đạo diễn đọc nhiều ảnh (đạo diễn A 3.731 lượt công cụ). Cộng tập ≈ 75,5 / 15 triệu.
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
