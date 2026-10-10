@@ -1,0 +1,117 @@
+{
+ "rules": "Score the MEANING against the expected reading. Advice flags (gates/C4-intent.md D): advice_stated = the reader says the VIDEO itself (picture, on-screen text or narration) states or implies a financial action: pick the level payout, the 2% rising payout, an inflation/CPI/COLA-linked payout, buy or skip an annuity, pick a company. advice_inferred = the reader drew that action themself (answer 5 says own conclusion, or says the video does not say it). caution_only = general care only (check your own numbers, ask the insurer, ask for a quote, talk to an adviser) — not advice. Boundary (owner, C3 q3): \"ask the insurer how much smaller the rising check starts\" / \"ask what an inflation-linked option would cost\" = caution_only; \"weigh / consider / prefer / compare and choose the inflation-adjusted (COLA) option\" = advice. Quote the reader verbatim for any flag. Also return \"q5\": \"video\" | \"own\" | \"none\" from the reader's answer 5.",
+ "items": {
+  "B01": {
+   "meaning": "A faceless figure stands by 10 crates; the check card above her grows a little each beat, yet crates go dark one by one until 9 are lit.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B03": {
+   "meaning": "A fixed line at 100 % is labelled 'what the first check bought'; Ruth's check line ends just under it.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B04": {
+   "meaning": "One figure between two cards: a taller card with a flat line and a shorter card with a gently rising line; the gap between their starting heights is greyed with a '?' — not measured.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B06": {
+   "meaning": "Two bars from the same base: the check's bar (`ink`) grows to +48.6 %, the price index bar (`accent`) grows past it to +64.3 %.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B07": {
+   "meaning": "Back to the crate row: of 10 crates her first check bought, 9 stay lit today.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B08": {
+   "meaning": "A second crate row under the taller card, labelled as the level check's own first check: only 6 of its 10 lit. A grey note: the two rows start from different check sizes.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B09": {
+   "meaning": "Ruth's line walks left to right along the 100 % line, dipping under it three times early and coming back each time.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B10": {
+   "meaning": "At year 15 the line is still a hair above the fixed line; one step later it drops clearly under it and stays under to the right edge.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B12": {
+   "meaning": "A second, `ink-muted` line (the level check) falls fast and crosses the height where Ruth's line ends after only 5 years; '?' over the 20-year span.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B13": {
+   "meaning": "Ruth's single chart shrinks into the last tile of a long grid; tiles fill left to right, one per starting month.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B14": {
+   "meaning": "Almost every tile turns `warn`; a thin cluster of `cushion` tiles sits at the far left.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B15": {
+   "meaning": "The zoom frame lands on the left cluster; everything to its right, up to Ruth's tile, is `warn`.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B16": {
+   "meaning": "A median line across the tile heights sits at about four fifths of the 100 % line; beside it a crate row with 8 of 10 lit.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B17": {
+   "meaning": "A second median line, `ink-muted`, sits near half; a small year marker at 8 on its fall.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B19": {
+   "meaning": "The 1990s-start tiles light up as one block, every one `warn` but tall, the tallest just under the 100 % line; the 2000-to-2006 starts beside them, also `warn`; Ruth's tile at the end of the row.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B21": {
+   "meaning": "The grid redraws with longer tiles; no `cushion` tile anywhere.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B22": {
+   "meaning": "Two small grids beside the main one: the Social Security index grid looks nearly the same (a thin left cluster); the shorter PCE grid (from 1959) has more scattered `cushion` tiles but is still mostly `warn`.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B24": {
+   "meaning": "A second faceless figure over the 1966 tile with his row of 10 crates; a year counter ticks 1 to 20 and the row dims a little at every tick, never brightening, until about 4 are lit; a small inset of Ruth's line dipping and recovering early sits beside it.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B25": {
+   "meaning": "Carl's crate row: 10 crates, fewer than half lit; under the level card, fewer than a third.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B27": {
+   "meaning": "A third figure over the last `cushion` tile; her crate row ends fully lit. Her 20-year bar and Carl's on one time axis overlap at the end of hers / start of his; the shared years are shaded.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B29": {
+   "meaning": "Three figures side by side, each over a crate row: Edna all lit, Ruth 9 lit, Carl fewer than half; each labelled with a start month only.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B30": {
+   "meaning": "A ladder of yearly raises; each rung's bar shows the share of stretches it kept up with; half is reached at 3.1, all only at the top rung (Carl's stretch).",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B32": {
+   "meaning": "Back to the opening frame: Ruth, her rising card, 9 of 10 crates lit; nothing drawn past August 2026.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "WHOLE": {
+   "meaning": "**Đúng câu hỏi** (câu 1–2): video hỏi liệu khoản niên kim tăng 2 % mỗi năm có **giữ được sức mua / theo kịp giá cả** (so với khoản đều lớn hơn không đổi), qua người về hưu Ruth.\n**Đúng đáp án** (câu 2): theo lịch sử giá Mỹ, khoản tăng 2 % **hầu như không bao giờ** giữ được sức mua qua 20 năm (chỉ 17 trên 715 quãng / khoảng 2 %, đều bắt đầu cuối thập niên 1940; 25 năm: không lần nào) — nó **làm chậm** việc mất sức mua chứ không chặn được (thường còn khoảng 80 % so với khoảng một nửa của khoản đều; Ruth giữ được khoảng 15 năm rồi tụt, nay khoảng 9/10). Cần ý \"hầu như không theo kịp\" + ít nhất một trong: \"chậm hơn khoản đều\" / mức thường gặp ~80 % / Ruth ~90 %. Đủ câu hỏi + đáp án → 1; một trong hai → 0,5; không → 0.",
+   "description_only": "retells scenes without the idea"
+  },
+  "S29": {
+   "meaning": "Three figures side by side, each over a crate row: Edna all lit, Ruth 9 lit, Carl fewer than half; each labelled with a start month only. — cùng 2 %, kết quả do tháng bắt đầu.",
+   "description_only": "lists the three rows without the idea"
+  },
+  "ctrl:POS-S29": {
+   "meaning": "Three figures side by side, each over a crate row: Edna all lit, Ruth 9 lit, Carl fewer than half; each labelled with a start month only. — cùng 2 %, kết quả do tháng bắt đầu.",
+   "description_only": "—"
+  },
+  "ctrl:NEG-S29": {
+   "meaning": "Three figures side by side, each over a crate row: Edna all lit, Ruth 9 lit, Carl fewer than half; each labelled with a start month only. — cùng 2 %, kết quả do tháng bắt đầu.",
+   "description_only": "—"
+  },
+  "ctrl:AUX-ep005-S06": {
+   "meaning": "A mortgage payment at the current average rate pays the loan balance down slowly at first, faster later; taxes, insurance and mortgage insurance come on top.",
+   "description_only": "—"
+  }
+ }
+}

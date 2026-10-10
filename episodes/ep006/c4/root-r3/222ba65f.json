@@ -1,0 +1,15 @@
+{
+ "answer": "1. The animation compares two annuity payout styles for a person named Ruth. One is a level check that never changes. The other is a rising check that grows 2% a year. The question is how each holds up against US consumer price inflation (CPI-U).\n\n2. Ruth first appears alone. Then two checks appear, one on each side of her. The labels then say \"level check: never changes\" and \"rising check: +2% a year\", with a \"?\" beside the rising check. The caption \"how much smaller: not modeled\" appears next. The scene then zooms out so Ruth and the checks shrink. In the last frame, each check is shown as a row of blocks measured against \"its own first check\", which is buying power. Throughout, the animation says \"ILLUSTRATIVE\" and \"US only · history, not a forecast\".\n\n3. A check that stays the same buys less each year as prices rise. A check that rises by a fixed percentage can hold its buying power better. The animation does not say how much smaller the level check's buying power gets, because it says that is \"not modeled\". The final frame compares each check's buying power to its own first check.\n\n4. The animation gives no explicit advice. A viewer might take away that inflation erodes a fixed payment over time and that the two options are worth comparing. That is an inference from the animation, not something it states.\n\n5. The advice is my own conclusion. The animation only illustrates the comparison and warns that it is a history, not a forecast, and is not modeled.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3704,
+   "cache_read": 6314,
+   "output": 537,
+   "in": 10022,
+   "out": 537
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0208254
+}
