@@ -1,0 +1,47 @@
+{
+ "R11": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "It is my own conclusion, drawn from the retirement-income setting you described.",
+  "why": "Fixed line, Ruth's line ends just below; reader's advice is own.",
+  "q5": "own"
+ },
+ "R12": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own conclusion.",
+  "why": "Level line falls below; 5-year point and '?' span only partly captured.",
+  "q5": "own"
+ },
+ "R13": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Level falls to ~90% at year 5; '?' over 20 years.",
+  "q5": "none"
+ },
+ "R14": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Anything stronger would be my own conclusion.",
+  "why": "Notes 'how much smaller: not modeled' but misses the greyed starting-height gap.",
+  "q5": "own"
+ },
+ "R15": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The comparison to weigh over a long retirement is my own reading.",
+  "why": "Two cards, '?' between, 'how much smaller: not modeled' captured.",
+  "q5": "own"
+ }
+}

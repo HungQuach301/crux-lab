@@ -1,0 +1,81 @@
+{
+ "candidate_set": "ep006",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep006",
+   "id": "B03",
+   "kind": "image",
+   "scores": [
+    1
+   ],
+   "readers": 1,
+   "correct": 0,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Fixed line, Ruth's line ends just below; reader's advice is own. / Correct idea: first-check line, Ruth's line ends just below; advice self-inferred."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Two cards, '?' between, 'how much smaller: not modeled' captured. / Two cards and '?' not modeled captured; starting-height gap not stated.",
+    "Notes 'how much smaller: not modeled' but misses the greyed starting-height gap. / Two checks and 'not modeled' gap captured, but not taller/shorter starting heights."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B12",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Level falls to ~90% at year 5; '?' over 20 years. / Level falls by year 5 and '?' noted, but Ruth's line crossing not captured.",
+    "Level line falls below; 5-year point and '?' span only partly captured. / Level line falls below by year 5, but misreads Ruth's line and '?' meaning."
+   ]
+  }
+ ],
+ "gate_beats": 3,
+ "gate_pass": 0,
+ "pending": [],
+ "advice_beats": [
+  "B03",
+  "B04",
+  "B12"
+ ],
+ "classes": null,
+ "advice_rubric": "old",
+ "share": 0.0,
+ "verdict": "FAIL",
+ "near_threshold": false,
+ "verdict_old": "FAIL",
+ "verdict_new": "PENDING",
+ "advice_beats_old": [
+  "B03",
+  "B04",
+  "B12"
+ ],
+ "advice_beats_new": [],
+ "rubric_disagree": true,
+ "graders": 2
+}
