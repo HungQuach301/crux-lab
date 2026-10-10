@@ -1,0 +1,15 @@
+{
+ "answer": "1. The animation shows how inflation affects a retiree's income. A character named Ruth chooses between two kinds of annuity check. One is a level check that never changes. The other is a rising check that grows 2% a year. The frames are labeled \"illustrative\" and use US consumer prices (CPI-U).\n\n2. Ruth and the two checks shrink over the frames, and the final frame shows a row of \"its own first check\" blocks for each option. The level check's dollar amount stays the same, while the rising check's amount grows each year. The animation does not show how much smaller the buying power gets. Frame 4 says \"how much smaller: not modeled.\" Frame 6 says buying power is \"measured\" against each check's own first check.\n\n3. A check that never changes buys less each year as prices rise. The rising check is meant to keep up with prices better, though the \"?\" on it shows the outcome is unknown. The animation measures each check's buying power against its own first payment, so it does not compare the two options directly. A footer on every frame says \"US only · history, not a forecast,\" so it does not predict future inflation.\n\n4. The animation gives no explicit advice. A viewer might take away that a level payment loses buying power over time and that an inflation-adjusted option is worth weighing. The animation does not say which option is better. It does not show what each option costs, such as a lower starting payment for the rising check, so a viewer cannot judge the trade-off from it.\n\n5. The advice in 4 is my own conclusion. The animation only illustrates the idea and says nothing about what to choose.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 4557,
+   "cache_read": 5471,
+   "output": 574,
+   "in": 10032,
+   "out": 574
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0245231
+}
