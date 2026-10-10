@@ -108,6 +108,10 @@ def CONST(raw, P):
         ('edna_start_year', int(raw['kept_up_last_start_20y'][:4]), '1949', 'year of kept_up_last_start_20y', 'model'),
         # C5b (S07): "the gentler 2000s and 2010s" (S19.1): the 2000s start group (starts 2000-01..2006-08) runs its 20 years through 2010–2019
         ('decade_2010', 2010, '2010s', "years 2010-01..2019-12 inside the 20-year windows of the 2000s start group (by_decade['2000']: ends 2020-01..2026-08)", 'model'),
+        # G2 (REVIEW-G1 #8, mô tả): tháng CPI trống của nguồn và tháng bắt đầu bị bỏ vì khoảng 20 năm của nó kết thúc ở tháng trống (715 = 716 − 1)
+        ('cpi_blank_month', raw['index_blank_months'][0], 'October 2025', 'raw.index_blank_months[0] (CPIAUCNS value blank in the source)', 'model'),
+        ('skipped_start_month', f"{int(raw['index_blank_months'][0][:4]) - 20}{raw['index_blank_months'][0][4:]}", 'October 2005',
+         'cpi_blank_month − 20 years: the only start month in Jan 1947..Aug 2006 whose 20-year stretch ends on a blank index month', 'model'),
     ]
     rows += [(f'axis_year_{k}', k, f'year {k}', f'anniversary counter (year {k} of 20)', 'axis') for k in range(1, 21)]
     return rows

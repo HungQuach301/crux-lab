@@ -2240,6 +2240,46 @@
    ]
   },
   {
+   "claimId": "cpi_blank_month",
+   "value": "2025-10-01",
+   "display": "October 2025",
+   "unit": "const",
+   "formula": "raw.index_blank_months[0] (CPIAUCNS value blank in the source)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
+   "claimId": "skipped_start_month",
+   "value": "2005-10-01",
+   "display": "October 2005",
+   "unit": "const",
+   "formula": "cpi_blank_month − 20 years: the only start month in Jan 1947..Aug 2006 whose 20-year stretch ends on a blank index month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1947,
+    2026
+   ]
+  },
+  {
    "claimId": "axis_year_1",
    "value": 1,
    "display": "year 1",
