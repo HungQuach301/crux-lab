@@ -1,0 +1,56 @@
+{
+ "R01": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Any further conclusion, such as weighing the starting amount against inflation protection, is my own reading and not something the animation stated.",
+  "why": "Gets level vs rising and 'not modeled', but says rising likely starts smaller; gap-unmeasured partly captured.",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Any suggestion to weigh the choice comes from me placing the animation next to the annuity quote.",
+  "why": "Notes 'not modeled' but says no starting amounts; misses smaller-start card gap idea.",
+  "q5": "own"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own conclusion.",
+  "why": "Correctly reads Edna full, Ruth 9, Carl ~4 crates, with start dates.",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice about comparing the two payout options is my own conclusion, drawn from my situation as someone about to choose an annuity.",
+  "why": "Correct crate-row reading; advice explicitly self-derived.",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gets level vs rising and 'not modeled', but misreads shrinking scene; gap card partly missed.",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own conclusion.",
+  "why": "Correct three retirees and crate rows; takeaway self-drawn.",
+  "q5": "own"
+ }
+}

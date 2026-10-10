@@ -1,0 +1,56 @@
+{
+ "R01": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Any further conclusion, such as weighing the starting amount against inflation protection, is my own reading",
+  "why": "Gets smaller start and 'not modeled', misses the greyed gap idea.",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own conclusion.",
+  "why": "Notes '?' and 'not modeled', but not that rising starts smaller.",
+  "q5": "own"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own conclusion.",
+  "why": "Edna full, Ruth 9, Carl 4; outcomes depend on start date.",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice about comparing the two payout options is my own conclusion",
+  "why": "All three rows correct; start-date dependence captured.",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Notes '?' and 'not modeled', misreads shrinking scene, omits smaller start.",
+  "q5": "none"
+ },
+ "R06": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own conclusion.",
+  "why": "Correct crate counts; same raise, outcome depends on start date.",
+  "q5": "own"
+ }
+}
