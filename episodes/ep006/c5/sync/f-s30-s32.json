@@ -1,0 +1,47 @@
+{
+ "video": "episodes/ep006/work/factory/world/f-s30-s32-1080.mp4",
+ "asr_words_matched": 171,
+ "asr_words_ref": 199,
+ "voice_offset_s": {
+  "median": -0.006,
+  "p90_abs": 0.12
+ },
+ "visual_peak_vs_keyword_s": {
+  "g0.raise": -0.32,
+  "g1.three": -0.014,
+  "g1.forty": -0.32,
+  "g2.half": -0.309,
+  "g2.median": 0.094,
+  "g3.carls": -0.313,
+  "g4.choose": -0.64,
+  "h0.national": 0.174,
+  "h1.overlap": 0.087,
+  "h2.dollars": 0.137,
+  "h3.card": -0.249,
+  "i1.ruth": 0.016,
+  "i2.fifteen": 0.02,
+  "i2.eighty": -0.194,
+  "i2.nine": 0.1,
+  "i2.ten": 0.08
+ },
+ "method": {
+  "g0.raise": "motion",
+  "g1.three": "motion-roi",
+  "g1.forty": "motion-roi",
+  "g2.half": "motion-roi",
+  "g2.median": "label",
+  "g3.carls": "motion-roi",
+  "g4.choose": "label",
+  "h0.national": "label",
+  "h1.overlap": "label",
+  "h2.dollars": "label",
+  "h3.card": "motion",
+  "i1.ruth": "motion",
+  "i2.fifteen": "motion",
+  "i2.eighty": "label",
+  "i2.nine": "label",
+  "i2.ten": "label"
+ },
+ "visual_within_0.2s": "10/16",
+ "visual_not_detected": []
+}

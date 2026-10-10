@@ -192,8 +192,8 @@ export async function boot(res) {
     // ===== S29 (wThree → cThree): port C3 s29-three
     if (three) {
       const mA = ok * show(t, M.m_c29.t1), hA = show(t, b.f2.month), hp = pulse(t, b.f2.month, 1.2);
-      // C5b (C05): từ "month" ba tháng bắt đầu là chữ SÁNG NHẤT (ink, phóng) — tiêu đề và số thùng lùi về muted; tên giữ màu nhân vật
-      const dim = hA > 0.5 ? C.muted : C.ink;
+      // C5b (C05): từ "month" ba tháng bắt đầu sáng ngang số thùng (ink, phóng); số thùng KHÔNG lùi về muted (cổng gốc B29 tụt 1·1 → 0,5·0,5 khi lùi)
+      const dim = C.ink;
       label(O, L['f1.crates'], 960, 236, { align: 'center', kind: 'compare', px: 52, color: dim, alpha: ok * show(t, b.f1.crates) });
       const sd = { edna: CL.kept_up_last_start_20y.display, ruth: CL.guide_start.display, carl: CL.worst_window_start_year_20y.display };
       const vals = { edna: [L['f1.full'], 'full'], ruth: [L['f1.nine'], 'nine'], carl: [L['f1.four'], 'four'] };

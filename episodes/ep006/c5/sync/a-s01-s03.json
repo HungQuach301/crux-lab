@@ -1,0 +1,35 @@
+{
+ "video": "episodes/ep006/work/factory/world/a-s01-s03-1080.mp4",
+ "asr_words_matched": 114,
+ "asr_words_ref": 126,
+ "voice_offset_s": {
+  "median": 0.0,
+  "p90_abs": 0.114
+ },
+ "visual_peak_vs_keyword_s": {
+  "a0.rises": 0.046,
+  "a0.less": null,
+  "a1.two": 0.14,
+  "a1.keep": 0.092,
+  "a2.twentieth": 0.034,
+  "a3.every": 0.114,
+  "a4.keeping": 0.08,
+  "a5.short": -0.113,
+  "a7.choose": 0.1
+ },
+ "method": {
+  "a0.rises": "motion",
+  "a0.less": "motion",
+  "a1.two": "label",
+  "a1.keep": "label",
+  "a2.twentieth": "motion-roi",
+  "a3.every": "motion-roi",
+  "a4.keeping": "label",
+  "a5.short": "motion-roi",
+  "a7.choose": "label"
+ },
+ "visual_within_0.2s": "8/9",
+ "visual_not_detected": [
+  "a0.less"
+ ]
+}

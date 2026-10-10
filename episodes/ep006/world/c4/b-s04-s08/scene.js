@@ -87,8 +87,8 @@ export async function boot(res) {
         c.restore();
         seg2(O, ax, ay, bx0, ay, C.muted, gA * 0.7, 3, [10, 8]);
         for (const [x0, y0, x1, y1] of [[bx0, ay, bx, ay], [bx0, ay, bx0, fy], [bx, ay, bx, fy]]) seg2(O, x0, y0, x1, y1, C.muted, gA, 4, [12, 8]);
-        // C5b (V11): "?" có tấm nền mờ của nó — nét gạch không đi qua nét chữ
-        label(O, '?', (bx0 + bx) / 2, (ay + by) / 2 + 52 * 0.27, { align: 'center', kind: 'title', px: 52, alpha: gA });
+        // C5b: tấm nền cho "?" (V11) che vùng xám → cổng gốc B04 tụt 1·1 → 0,5·0,5; giữ không nền, V11 S04 là ngoại lệ CHÍNH (out/explanations.json)
+        label(O, '?', (bx0 + bx) / 2, (ay + by) / 2 + 52 * 0.27, { align: 'center', kind: 'title', px: 52, alpha: gA, plate: null });
       }
       label(O, L['b1.model'], 960, 236, { align: 'center', kind: 'compare', px: 52, alpha: ok * show(t, b.b1.model, MV.m_pull.t1 - 0.3) });
       label(O, L['b2.dollars'], 960, 312, { align: 'center', kind: 'compare', px: 52, color: C.muted, alpha: ok * show(t, b.b2.dollars, MV.m_pull.t1 - 0.3) });

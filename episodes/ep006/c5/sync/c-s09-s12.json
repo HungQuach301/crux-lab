@@ -1,0 +1,41 @@
+{
+ "video": "episodes/ep006/work/factory/world/c-s09-s12-1080.mp4",
+ "asr_words_matched": 121,
+ "asr_words_ref": 133,
+ "voice_offset_s": {
+  "median": 0.0,
+  "p90_abs": 0.123
+ },
+ "visual_peak_vs_keyword_s": {
+  "d0.ruths": 0.089,
+  "d0.twelve": 0.031,
+  "d0.anniv": 0.12,
+  "d1.slipped": 0.0,
+  "d1.climbed": 0.503,
+  "d2.august": 0.13,
+  "d3.fell": 0.132,
+  "d3.since": 0.02,
+  "d4.august": 0.093,
+  "d5.level": 0.627,
+  "d6.five": 0.171,
+  "d7.twenty": 0.127,
+  "d8.ruths": 0.03
+ },
+ "method": {
+  "d0.ruths": "motion",
+  "d0.twelve": "motion-roi",
+  "d0.anniv": "label",
+  "d1.slipped": "motion-roi",
+  "d1.climbed": "motion",
+  "d2.august": "label",
+  "d3.fell": "motion-roi",
+  "d3.since": "motion",
+  "d4.august": "label",
+  "d5.level": "motion",
+  "d6.five": "label",
+  "d7.twenty": "label",
+  "d8.ruths": "motion-roi"
+ },
+ "visual_within_0.2s": "11/13",
+ "visual_not_detected": []
+}
