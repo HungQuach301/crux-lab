@@ -1,0 +1,74 @@
+{
+ "R01": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in 4 is my own conclusion.",
+  "why": "Sees first-check line and 'none since' but reads it as prices, not warn zone.",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That advice is my own conclusion.",
+  "why": "Level line falls to 9 in 10 by year 5; '?' at 20 years.",
+  "q5": "own"
+ },
+ "R03": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The takeaway in 4 is my own conclusion.",
+  "why": "Notes shaded gap and 'none since' but unsure of meaning; partial.",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The idea that a viewer should weigh the two options is my own inference.",
+  "why": "Flat vs rising check, starting gap unmodeled; captured correctly.",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "It is my own inference from the level and rising checks and the \"?\", combined with your annuity context.",
+  "why": "Level line falls to 9 in 10 by year 5; '?' at end.",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in answer 4 is my own conclusion",
+  "why": "Check grows, crates stay; sees crates and check but misses buying power loss.",
+  "q5": "own"
+ },
+ "R07": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own conclusion.",
+  "why": "Crates fade while check grows; understood erosion but confuses level versus rising check.",
+  "q5": "own"
+ },
+ "R08": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The animation did not suggest this advice. It is my own conclusion.",
+  "why": "Two cards, level vs rising, gap '?' not modeled; correct.",
+  "q5": "own"
+ }
+}

@@ -29,7 +29,7 @@ claims: c4/gen/claims.json
 tokens: c4/gen/tokens.json
 data: {file: c4/gen/data.json}
 fps: 30
-res: 720    # C4 animatic; C5 bản cuối 1080 (đoạn thế giới render lại một lần, cache theo cảnh)
+res: 1080   # C5 bản cuối (P3c); C4 animatic là 720 (đoạn thế giới render lại một lần, cache theo cảnh)
 dossier: {script_md: story/script.md, contract: contract.json}
 acts:
   - {id: cold-open, scenes: [S01, S02, S03]}
