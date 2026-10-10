@@ -26,7 +26,7 @@ export async function boot(res) {
   // vòng sửa 2 (B04 "two stacks of papers", "about the same length"): hai TẤM SÉC ngang (checklook.js) — séc đều lớn hơn rõ (1,25 × 0,68, nét phẳng),
   // séc tăng nhỏ hơn (0,86 × 0,44 = séc của Ruth ở đoạn a/c, nét nhích lên)
   const lev = column(scene, { x: -4.6, name: 'level', who: 'ruth', person: false, level: true, cw: 1.25, cbase: 0.68 }); checkLook(lev);
-  const ris = column(scene, { x: 4.6, name: 'rise', who: 'ruth', person: false, cw: 0.86, cbase: 0.44 }); checkLook(ris);
+  const ris = column(scene, { x: 4.6, name: 'rise', who: 'ruth', person: false, cw: 0.86, cbase: 0.44 }); checkLook(ris, { rise: [0.6, 0.95, 0.3] });   // vòng sửa 3 (B04): nét nhích lên ~9° → ~17°
   const ruth = Person({ h: 1.45, color: CHAR.ruth }); ruth.position.set(0, 0, -0.25); scene.add(ruth);
   ruth.userData.checks = { role: 'mark', char: 'ruth', shape: 'person', fill: CHAR.ruth, key: 'person-ruth' };
   const lx1 = lev.card.position.x, rx1 = ris.card.position.x;
@@ -77,12 +77,17 @@ export async function boot(res) {
       label(O, L['b0.never'], Math.max(lx, 96 + tw(L['b0.never']) + 20), yL, { align: 'right', kind: 'compare', px: 48, color: C.muted, alpha: ok * show(t, MV.m_c1.t1, s4) });
       label(O, L['b0.rises'], Math.min(rx, 1824 - tw(L['b0.rises']) - 20), yL, { kind: 'number', px: 48, alpha: ok * show(t, MV.m_c1.t1, s4) });
       // "starts": phần séc tăng THIẾU so với cỡ đầu của séc đều = ô xám trên séc tăng (từ đỉnh séc tăng lên tới mức đỉnh séc đều) + "?" — không đo
+      // vòng sửa 3 (B04: "?" đọc ra "giá trị séc tăng không chắc"): viền nét đứt CAO BẰNG séc đều chồng lên séc tăng (nối ngang từ đỉnh séc đều),
+      // phần thiếu trên đỉnh séc tăng tô gạch xám, "?" nằm TRONG phần thiếu — chênh cỡ đầu là thứ không đo
       const gA = ok * show(t, b.b1.starts, s4);
       if (gA > 0.01) {
-        const [ax, ay] = O.toScreen(lev.card.position.x + lev.cw / 2, lev.cbase, 0.1), [bx0, by] = O.toScreen(ris.card.position.x - ris.cw / 2, ris.cbase, 0.1), [bx] = O.toScreen(ris.card.position.x + ris.cw / 2, 0, 0.1), c = O.ctx;
-        c.save(); c.globalAlpha = gA; c.fillStyle = rgba(C.muted, 0.35); c.fillRect(bx0, ay, bx - bx0, by - ay); c.restore();
-        seg2(O, ax, ay, bx, ay, C.muted, gA * 0.7, 3, [10, 8]); seg2(O, bx0, ay, bx, ay, C.muted, gA, 3);
-        label(O, '?', bx + 30, (ay + by) / 2 + 30, { kind: 'title', px: 84, alpha: gA, plate: null });
+        const [ax, ay] = O.toScreen(lev.card.position.x + lev.cw / 2, lev.cbase, 0.1), [bx0, by] = O.toScreen(ris.card.position.x - ris.cw / 2, ris.cbase, 0.1), [bx, fy] = O.toScreen(ris.card.position.x + ris.cw / 2, 0, 0.1), c = O.ctx, hh = by - ay;
+        c.save(); c.globalAlpha = gA; c.beginPath(); c.rect(bx0, ay, bx - bx0, hh); c.clip(); c.fillStyle = rgba(C.muted, 0.22); c.fillRect(bx0, ay, bx - bx0, hh);
+        c.fillStyle = rgba(C.muted, 0.45); for (let x = bx0 - hh; x < bx; x += 20) { c.beginPath(); c.moveTo(x, by); c.lineTo(x + 7, by); c.lineTo(x + 7 + hh, ay); c.lineTo(x + hh, ay); c.fill(); }
+        c.restore();
+        seg2(O, ax, ay, bx0, ay, C.muted, gA * 0.7, 3, [10, 8]);
+        for (const [x0, y0, x1, y1] of [[bx0, ay, bx, ay], [bx0, ay, bx0, fy], [bx, ay, bx, fy]]) seg2(O, x0, y0, x1, y1, C.muted, gA, 4, [12, 8]);
+        label(O, '?', (bx0 + bx) / 2, (ay + by) / 2 + 52 * 0.27, { align: 'center', kind: 'title', px: 52, alpha: gA, plate: null });
       }
       label(O, L['b1.model'], 960, 236, { align: 'center', kind: 'compare', px: 52, alpha: ok * show(t, b.b1.model, MV.m_pull.t1 - 0.3) });
       label(O, L['b2.dollars'], 960, 312, { align: 'center', kind: 'compare', px: 52, color: C.muted, alpha: ok * show(t, b.b2.dollars, MV.m_pull.t1 - 0.3) });
@@ -118,7 +123,8 @@ export async function boot(res) {
     // S07 (cRise2, C3 s07-ruth): séc "+2% a year" ở "check", ngoặc 10 chỗ ở "ten", phần sáng + about 9 in 10 ở "nine"
     const s7 = MV.m_pull8.t1 + 1.8;   // vòng sửa 1: nhãn 8 từ "today: about 9 in 10 crates (90.4%)" ≥ 3 s
     if (t > MV.m_c7.t0 && t < s7 + 0.4) {
-      checkLabel(O, ris, L['b6.two'], ok * show(t, b.c1.check, s7), { dx: 14 });
+      const [cx7] = O.toScreen(ris.card.position.x - ris.cw / 2, 0, ris.z);   // vòng sửa 3: kẹp mép trái (phát lại: hộp chữ từ x 71 ở cRise2)
+      checkLabel(O, ris, L['b6.two'], ok * show(t, b.c1.check, s7), { dx: Math.max(14, 100 - cx7) });
       const tA = ok * show(t, b.c1.ten, MV.m_pull8.t0), nA = ok * show(t, b.c1.nine, s7);
       brace(O, RR.x0, RR.x1, RR.yb + 22, C.muted, tA, 5, -14);
       label(O, L['c1.ten'], (RR.x0 + RR.x1) / 2, RR.yb + 86, { align: 'center', kind: 'number', color: C.muted, alpha: tA });

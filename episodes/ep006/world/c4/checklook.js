@@ -9,10 +9,12 @@ import { C, checkScale } from '/episodes/ep006/world/c4kit.js';
 const INK = '#2A303B', R20 = checkScale(20);
 const flat = (color) => new THREE.MeshStandardMaterial({ color, emissive: new THREE.Color(color), emissiveIntensity: 0.15, roughness: 0.8, transparent: true });
 
-export function checkLook(col, { trend = col.level ? 'flat' : 'rise', anchor = 1 } = {}) {
+// vòng sửa 3 (tuỳ chọn, mặc định = vòng 2): ghost = màu viền séc đầu, gL = bề dày viền, ghostFill = độ đậm vùng séc đầu (B01: viền tối, dày — thấy ở 540p trên thẻ trắng);
+// rise = [y0, y1, nửa bề ngang] của nét nhích lên theo phần chiều cao/bề ngang thẻ (B04: dốc rõ hơn)
+export function checkLook(col, { trend = col.level ? 'flat' : 'rise', anchor = 1, ghost = C.muted, gL = 0.022, ghostFill = 0, rise = [0.66, 0.9, 0.4] } = {}) {
   const g = col.card, { w, base, d, inner, first } = g.userData;
   inner.remove(...inner.children.slice(1)); g.remove(first);                       // hai vạch của thẻ đứng cũ + vạch séc đầu cũ (thay bằng viền)
-  const mk = inner.children[0].material, mI = flat(INK), mG = flat(C.muted);
+  const mk = inner.children[0].material, mI = flat(INK), mG = flat(ghost);
   const bar = (m, sx, sy) => { const b = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 0.01), m); b.scale.set(sx, sy, 1); return b; };
   // vạch séc trong toạ độ thẻ (x ∈ [−w/2, w/2], y ∈ [0, 1] theo chiều cao thẻ): dòng người nhận, dòng ghi chú, dòng ký, ô số tiền (khung)
   const T = 0.055, BX = 0.31, BW = 0.2, BH = 0.24, BY = 0.46;
@@ -23,18 +25,21 @@ export function checkLook(col, { trend = col.level ? 'flat' : 'rise', anchor = 1
   // nét xu hướng (phần trên mặt séc): đặt lại mỗi khung theo cỡ thẻ để giữ đúng góc
   const tr = bar(mI, 1, 1); g.add(tr);
   // viền séc đầu: khung chữ nhật cỡ k = 0 tại chỗ (cùng góc dưới neo với thẻ)
-  const ghost = new THREE.Group(), L = 0.022;
-  if (!col.level) for (const [x, y, sx, sy] of [[0, base, w, L], [0, 0.011, w, L], [-w / 2, base / 2, L, base], [w / 2, base / 2, L, base]]) { const b = bar(mG, sx, sy); b.position.set(x, y, 0); ghost.add(b); }
-  ghost.position.z = d / 2 + 0.02; g.add(ghost);
+  const gh = new THREE.Group(), L = gL;
+  if (!col.level) for (const [x, y, sx, sy] of [[0, base, w, L], [0, L / 2, w, L], [-w / 2, base / 2, L, base], [w / 2, base / 2, L, base]]) { const b = bar(mG, sx, sy); b.position.set(x, y, 0); gh.add(b); }
+  gh.position.z = d / 2 + 0.02; g.add(gh);
+  // ghostFill > 0: vùng séc đầu tô xám nhạt dưới các vạch → phần séc lớn thêm (dải trên + trái) là phần trắng sáng
+  const mF = flat(C.muted), fill = bar(mF, w, base); fill.position.set(0, base / 2, d / 2 + 0.003); fill.visible = false; if (!col.level && ghostFill > 0) g.add(fill);
   const set0 = g.set;
   g.set = (o = {}) => {
     const s = set0(o), a = Math.min(1, Math.max(0, o.appear ?? 1));
     inner.scale.x = s; inner.position.x = anchor * (w / 2) * (1 - s);
-    const cx = inner.position.x, ww = w * s, hh = base * s * a, x0 = cx - ww * 0.4, x1 = cx + ww * 0.4, y0 = hh * (trend === 'rise' ? 0.66 : 0.8), y1 = trend === 'rise' ? hh * 0.9 : y0;
+    const cx = inner.position.x, ww = w * s, hh = base * s * a, hw = trend === 'rise' ? rise[2] : 0.4, x0 = cx - ww * hw, x1 = cx + ww * hw, y0 = hh * (trend === 'rise' ? rise[0] : 0.8), y1 = trend === 'rise' ? hh * rise[1] : y0;
     tr.position.set((x0 + x1) / 2, (y0 + y1) / 2, d / 2 + 0.008); tr.rotation.z = Math.atan2(y1 - y0, x1 - x0);
     tr.scale.set(Math.hypot(x1 - x0, y1 - y0), 0.045, 1); tr.visible = a > 0.3;
     const gA = Math.min(1, Math.max(0, (s - 1.005) / 0.03)) * Math.min(1, a * 1.5);  // viền chỉ hiện khi séc đã lớn hơn séc đầu
-    mI.opacity = mk.opacity; mG.opacity = gA * mk.opacity; ghost.visible = gA > 0.01;
+    mI.opacity = mk.opacity; mG.opacity = gA * mk.opacity; gh.visible = gA > 0.01;
+    mF.opacity = gA * mk.opacity * ghostFill; fill.visible = ghostFill > 0 && gA > 0.01;
     return s;
   };
   if (col.person) col.person.position.x -= anchor * w * (R20 - 1);                 // chỗ cho séc năm 20 (lớn về phía người)

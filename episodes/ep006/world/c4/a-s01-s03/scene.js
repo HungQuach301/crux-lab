@@ -2,7 +2,7 @@
 // lùi về 1947 → lia sang đồ thị V3 (đường của Ruth so với séc đầu) → về thế giới, đối trọng; ident: tối dần. Mốc giờ chỉ từ spine.json.
 import * as THREE from 'three';
 import { Ribbon } from '/toolkit/factory/world/lib3d.js';
-import { setup, column, showColumn, setCheck, checkLabel, nameTag, rowBox, modeLook, followLight, chrome, brace, label, seg2, dip, kf, show, pulse,
+import { setup, column, showColumn, checkLabel, nameTag, rowBox, modeLook, followLight, chrome, brace, label, seg2, dip, show, pulse,
   CHAR, C, ease, lin, mix, rgba } from '/episodes/ep006/world/c4kit.js';
 import { checkLook } from '/episodes/ep006/world/c4/checklook.js';
 
@@ -20,8 +20,16 @@ export async function boot(res) {
     wRuth2: { pos: [-3.3, 2.0, 8.6], tgt: [-1.3, 0.7, 0], fov: 35, chart: 0 },
   };
   const { S, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
-  const ruth = column(scene, { x: 0, name: 'ruth', cw: 0.86, cbase: 0.44 }); checkLook(ruth);   // vòng sửa 2 (B01 "refrigerator"): séc ngang, lớn đều, viền séc đầu
-  const b = cue, P = S.ruth_path;
+  const ruth = column(scene, { x: 0, name: 'ruth', cw: 0.86, cbase: 0.44 });   // vòng sửa 2 (B01 "refrigerator"): séc ngang, lớn đều, viền séc đầu
+  checkLook(ruth, { ghost: '#2A303B', gL: 0.04, ghostFill: 0.55 });   // vòng sửa 3 (B01): viền séc đầu tối + dày, trong viền xám nhạt — phần lớn thêm sáng trắng
+  const b = cue, P = S.ruth_path, cardM = ruth.card.userData.inner.children[0].material;
+  // vòng sửa 3 (B01 tắt tiếng: 6 khung đều của S01 chỉ bắt được MỘT khung lúc séc lớn): kỷ niệm 1–15 giữ giờ spine (nốt sfx), kỷ niệm 16–20 (phần
+  // thùng thứ 10 tối) rải đều từ cuối cú vào đồ thị tới sau "keep" — séc nhích + loé từng nấc và thùng thứ 10 mờ dần qua nhiều khung, không bật một lần
+  const TY = [...S.years.slice(0, 15), ...[0, 1, 2, 3, 4].map((j) => mix(MV.m_c1.t1 - 0.5, b.a1.keep + 0.65, j / 4))];
+  const yearsAt = (t) => { let k = 0, v = P[0], fl = 0;
+    for (let i = 0; i < 20; i++) { const late = i >= 15, r = ease(t, TY[i], TY[i] + (late ? 0.5 : 0.12));
+      k += r; v += (P[i + 1] - P[i]) * r; fl = Math.max(fl, late ? pulse(t, TY[i], 1.0) : 0.6 * pulse(t, TY[i], 0.35)); }
+    return { k, v, fl }; };
   // V3: vạch séc đầu (cố định, ink-muted) + đường của Ruth (ink; dưới vạch = warn)
   const base = new THREE.Mesh(new THREE.BoxGeometry(20 * KX + 0.4, 0.035, 0.04), new THREE.MeshStandardMaterial({ color: C.muted, emissive: new THREE.Color(C.muted), emissiveIntensity: 0.5, transparent: true }));
   base.position.set(XL + 10 * KX, VY(1), 0.4); scene.add(base);
@@ -32,8 +40,9 @@ export async function boot(res) {
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
     followLight(key, pose.tgt); modeLook(scene, floor, cw);
-    const v = kf(S.rows.ruth, t);
-    ruth.row.set({ value: v, pulse: pulse(t, b.a1.keep, 0.8) + pulse(t, S.years[19] + 0.15, 0.9) }); showColumn(ruth, 1); setCheck(ruth, S, t);   // loé: còn 9 thùng sáng (B01)
+    const Y = yearsAt(t), v = Y.v;
+    ruth.row.set({ value: v, pulse: pulse(t, b.a1.keep, 0.8) + pulse(t, TY[19] + 0.15, 0.9) }); showColumn(ruth, 1);   // loé: còn 9 thùng sáng (B01)
+    ruth.card.set({ k: Y.k, appear: 1 }); cardM.emissiveIntensity = 0.3 + 0.9 * Y.fl;   // séc loé mỗi nấc kỷ niệm
     const u = lin(t, S.line_draw[0], S.line_draw[1]) * 20, n = Math.floor(u);
     const pts = []; for (let k = 0; k <= n; k++) pts.push([XL + k * KX, VY(P[k]), P[k] < 1 ? C.warn : C.ink]);
     if (n < 20 && u > 0) pts.push([XL + u * KX, VY(mix(P[n], P[n + 1], u - n)), C.ink]);
@@ -45,7 +54,7 @@ export async function boot(res) {
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
     nameTag(O, ruth, (1 - cw) * (t > MV.m_w.t0 && t < MV.m_w.t1 + 0.2 ? ease(t, MV.m_w.t1 - 0.1, MV.m_w.t1 + 0.2) : 1));   // không hiện tên khi máy còn lia qua (mép trái)
-    // B01: cỡ séc đầu = viền ink-muted cố định trên thẻ (checklook.js) — séc lớn đều ra khỏi viền khi máy ĐỨNG (cú đẩy sau năm 20, spine)
+    // B01: cỡ séc đầu = viền cố định trên thẻ (checklook.js; vòng 3: tối, dày) — séc lớn đều ra khỏi viền, từng nấc qua cả S01
     const R = rowBox(O, ruth, v), offS02 = MV.m_pan.t0 - 0.3;
     // S01.2: séc +2% a year; ngoặc 10 thùng + "?" (câu hỏi của bà)
     checkLabel(O, ruth, 'check: +2% a year', ok * show(t, b.a1.two, b.a2.twentieth - 0.4), { dx: 14 });

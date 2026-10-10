@@ -33,13 +33,14 @@ B = [
 beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
 IDENT = [round(S.end['S03'] - 3.0, 3), S.end['S03']]
-years = K.spread(cue['a0']['rises'], cue['a0']['less'] + 0.85, 20)
+years = K.spread(cue['a0']['rises'], cue['a0']['less'] + 0.85, 20)[:15]   # vòng sửa 3 (B01): kỷ niệm 1–15 trong S01.1; 16–20 rải trong S01.2 (sau m_c1)
 moves = K.moves_of([   # vòng sửa 2 (B01 "shrink"): cú đẩy bắt đầu sau kỷ niệm 20 — séc lớn lên khi máy đứng yên
-    ('m_push', 'push', 'wRuth0', 'wRuth', cue['a0']['less'], cue['a1']['sixty'], 1.6, 'sau "less": máy lại gần Ruth và hàng thùng vừa tối dần (câu hỏi của bà)', 'whoosh_air', {'start': years[-1] + 0.15}),
+    ('m_push', 'push', 'wRuth0', 'wRuth', cue['a0']['less'], cue['a1']['sixty'], 1.6, 'sau "less": máy lại gần Ruth và hàng thùng vừa tối dần (câu hỏi của bà)', 'whoosh_air', {'start': years[14] + 0.15}),
     ('m_c1', 'mode', 'wRuth', 'cRuth', cue['a1']['sixty'], cue['a1']['two'], 1.2, 'lời S01.2 đặt số (2 %/năm, 10 thùng): số chỉ ở chế độ đồ thị (quy tắc 1)', 'whoosh_mode', {'start': 5.0}),
     ('m_pan', 'pan', 'cRuth', 'cLine', cue['a3']['much'], cue['a4']['keeping'], 1.1, 'lời S03.1 định nghĩa "keeping up" = so với séc đầu theo năm: lia sang đồ thị V3', 'whoosh_soft', {}),
     ('m_w', 'mode', 'cLine', 'wRuth2', cue['a5']['short'], cue['a6']['only'], 1.1, 'lời S03.3 "US only … history": lớp bắt buộc đứng riêng, về người (thế giới)', 'whoosh_mode', {}),
 ])
+years += K.spread(moves[1]['t1'] - 0.5, cue['a1']['keep'] + 0.65, 5)   # = TY của scene.js: nốt dữ liệu + séc + hàng đúng lúc hình đổi (đồng bộ hình–âm)
 Pr = K.P['ruth']
 rk, ev = K.step_row(years, Pr[1:], ramp=0.12, v0=1.0)
 ev += [{'t': cue['a1']['two'], 'kind': 'tick', 'v': 0.5}, {'t': cue['a1']['keep'], 'kind': 'tick', 'v': 0.55},

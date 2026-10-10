@@ -49,7 +49,7 @@ export async function boot(res) {
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0, L = S.label_cues; log.roi = {};
     const sc = (k, v) => O.toScreen(k * KX, VY(v), 0.46);
     const [bx1, by] = O.toScreen(20 * KX + 0.25, Y0, 0.4);
-    nameTag(O, ruth, 1 - cw);
+    nameTag(O, ruth, (1 - cw) * (1 - ease(t, MV.m_c9.t0 - 0.1, MV.m_c9.t0 + 0.1)));   // vòng sửa 3: tắt ngay đầu cú vào đồ thị (phát lại: ra mép trái 5,2–5,6)
     if (cw < 0.5) { const R = rowBox(O, ruth, vAt(P, Math.max(0, u))); log.roi['d0.twelve'] = [R.x0 - 10, R.yt - 20, R.x1 + 10, R.yb + 20]; }
     // R1: "first check" — cNear0: kẹp vào mép phải (vạch dài quá khung); cWide: dời sang NGAY SAU đầu vạch (không chồng nhãn séc tăng ở năm 20)
     { const pw = ease(t, MV.m_pull.t0, MV.m_pull.t1), c = O.ctx; c.save(); c.font = '600 48px Inter'; const wF = c.measureText('first check').width; c.restore();
@@ -84,6 +84,12 @@ export async function boot(res) {
       if (eA > 0.01 && g > 0.001) seg2(O, x20, y20, mix(x20, xc, g), y20, C.ink, eA * 0.9, 4);
       for (const [x, y, c, a, p] of [[xc, yc, C.muted, fA, pulse(t, b.d6.five, 1.0) + pz], [x20, y20, C.warn, eA, pulse(t, b.d7.rising, 1.0) + pz]]) {
         dot(O, x, y, 22 + 8 * p, C.ink, a * 0.35); dot(O, x, y, 13, c, a); }
+      // vòng sửa 3 (B12 "no 5-year crossing"): vạch dọc mảnh từ hai điểm xuống trục + nhãn trục "year 5" (ở "five") · "year 20" (ở "twenty"),
+      // hàng dưới nhãn tháng của trục; vạch ngang 90 % giữ tới cuối cảnh
+      { const yR = yAx + 62, a5 = ok * show(t, b.d6.five), a20 = ok * show(t, b.d7.twenty);
+        seg2(O, xc, yc + 24, xc, yR - 52, C.muted, a5, 3); seg2(O, x20, y20 + 24, x20, yAx - 52, C.ink, a20 * 0.8, 3);
+        label(O, 'year 5', xc, yR, { align: 'center', kind: 'number', px: 48, alpha: a5 });
+        label(O, 'year 20', x20, yR, { align: 'center', kind: 'number', px: 48, alpha: a20 }); }
       label(O, L['d6.five'], 960, 236, { align: 'center', kind: 'number', px: 52, color: C.ink, alpha: fA });   // R1: hàng tiêu đề (không đè đường séc đều)
       label(O, L['d7.twenty'], 960, 312, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.d7.twenty) });   // R1: hàng tiêu đề 2
       log.roi['d6.five'] = [xc - 30, yc - 30, xc + 30, yc + 30]; log.roi['d7.twenty'] = [xc - 30, y20 - 60, x20 + 30, y20 + 30]; }

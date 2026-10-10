@@ -4,7 +4,7 @@
 import * as THREE from 'three';
 import { Person, Crates } from '/toolkit/factory/world/lib3d.js';
 import { CK } from '/toolkit/factory/world/core.js';
-import { setup, Strip, modeLook, followLight, chrome, label, seg2, dip, show, pulse, setOpacity, CHAR, C, ease, lin, mix, rgba } from '/episodes/ep006/world/c4kit.js';
+import { setup, Strip, stripYearX, modeLook, followLight, chrome, label, seg2, dip, show, pulse, setOpacity, CHAR, C, ease, lin, mix, rgba } from '/episodes/ep006/world/c4kit.js';
 
 const SEG = '/episodes/ep006/world/c4/d-s13-s23/';
 const UNIT = 8, W = 40;
@@ -38,6 +38,7 @@ export async function boot(res) {
   const wAt = (sid, re) => { const w = S.words.find((q) => q.sid.startsWith(sid) && re.test(q.w)); return w ? w.s : null; };
   const tRuth15 = wAt('S15.2', /^Ruth/), tRising16 = wAt('S16.2', /^rising/);
   // quét sáng trái → phải (đếm / hỏi từng quãng / xếp theo tháng): thanh i loé khi đầu quét đi qua
+  const tw = (s, px = 48) => { const c = O.ctx; c.save(); c.font = `700 ${px}px Inter`; const w = c.measureText(s).width; c.restore(); return w; };
   const sweep = (t, a, d) => { if (t < a || t > a + d + 0.3) return null; const p = (t - a) / d * (n + 80) - 40; return (i) => Math.max(0, 1 - Math.abs(i - p) / 40); };
 
   function frame(t) {
@@ -78,7 +79,7 @@ export async function boot(res) {
     if (CK.on && grow >= 1 && mx < 0.5 && ml < 0.5 && dimMini < 0.5) for (let i = 0; i < starts.length; i++) {
       const x = strip.xOf(i), h = UNIT * v20[i] / 100; O.shape({ role: 'bar', world: [[x - strip.pitch / 2, 0, 0.3], [x + strip.pitch / 2, h, 0.3]], case: starts[i], value: v20[i], series: 'cpiu20' });
     }
-    { const [x, y] = O.toScreen(ruth.position.x, 1.6, 0.3); label(O, 'Ruth', x, y - 24, { align: 'center', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: 1 - cw }); }
+    { const [x, y] = O.toScreen(ruth.position.x, 1.6, 0.3); label(O, 'Ruth', x, y - 24, { align: 'center', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: (1 - cw) * (t > MV.m_w23.t0 ? ease(t, MV.m_w23.t1 - 0.1, MV.m_w23.t1 + 0.2) : 1) }); }   // vòng sửa 3: không hiện khi máy còn chạy về thế giới (phát lại: ra mép 114,7)
     const s13 = MV.m_push15.t0;
     label(O, L['e1.seven'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.e1.seven, b.e2.question - 0.2) });
     { const [x, y0] = top(iR, v20[iR]), y = Math.min(y0, ly); label(O, L['e1.ruths'], x, y - 40, { align: 'right', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: ok * show(t, b.e1.ruths, s13) * (1 - f19) });
@@ -86,8 +87,15 @@ export async function boot(res) {
     const s15 = t > MV.m_push15.t0 ? 1 - ease(t, b.e8.typical, b.e8.typical + 0.3) : 0;
     label(O, 'first check', fx0, ly - 26, { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * wide * (1 - s15) * show(t, b.e2.least) * (1 - show(t, b.f6.social - 0.3)) });
     label(O, L['e3.tile'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.e3.tile, b.e4.kept - 0.3) });
-    label(O, L.axis0, fx0, fy + 64, { align: 'left', kind: 'number', px: 48, alpha: ok * wide * show(t, b.e3.month) * (1 - show(t, b.f6.social - 0.3)) });
-    label(O, L.axis1, fx1, fy + 64, { align: 'right', kind: 'number', px: 48, alpha: ok * wide * show(t, b.e3.month) * (1 - show(t, b.f6.social - 0.3)) });
+    // vòng sửa 3 (B15: trục ngang đọc ra "thời gian của một séc"): từ S15 nhãn trục cả ở cLeft (tắt khi lùi máy), mốc năm bắt đầu 1966 · 1986 giữa
+    // "1947" và "Aug 2006" + chú thích trục "start month" — mỗi thanh = một quãng 20 năm theo tháng bắt đầu; mốc ngoài khung thì ẩn
+    const ax = ok * show(t, b.e3.month) * (1 - show(t, b.f6.social - 0.3)), wS = t > MV.m_push15.t1 && t < MV.m_pull15.t1 + 1 ? 1 - show(t, MV.m_pull15.t0 - 0.1, MV.m_pull15.t1 - 0.3) : wide;
+    const tk = ok * show(t, MV.m_push15.t1) * (1 - show(t, b.f6.social - 0.3)) * wS, inF = (x, s) => { const h = tw(s) / 2; return x - h >= 100 && x + h <= 1820 ? 1 : 0; };
+    label(O, L.axis0, fx0, fy + 64, { align: 'left', kind: 'number', px: 48, alpha: ax * wS * (fx0 >= 96 ? 1 : 0) });
+    label(O, L.axis1, fx1, fy + 64, { align: 'right', kind: 'number', px: 48, alpha: ax * wS * (fx1 <= 1824 ? 1 : 0) });
+    { const xs = [1966, 1986].map((y) => O.toScreen(stripYearX(strip, starts, y), 0, 0.3)[0]);
+      xs.forEach((x, j) => { const s = String([1966, 1986][j]), a = tk * inF(x, s); seg2(O, x, fy + 6, x, fy + 18, C.muted, a, 3); label(O, s, x, fy + 64, { align: 'center', kind: 'number', px: 48, alpha: a }); });
+      const xm = (xs[0] + xs[1]) / 2; label(O, 'start month', xm, fy + 64, { align: 'center', kind: 'name', px: 48, w: 600, color: C.muted, alpha: tk * inF(xm, 'start month') }); }
     log.roi['e3.tile'] = (() => { const [x, y] = top(300, v20[300]); return [x - 30, y - 30, x + 30, fy]; })(); log.roi['e2.least'] = [fx0, ly - 20, fx1, ly + 20];
     // S14: phán + 17 of 715 + 1 in 42 (trên cụm trái)
     label(O, L['e4.seventeen'], 960, 236, { align: 'center', kind: 'number', px: 56, color: C.cushion, alpha: ok * show(t, b.e4.seventeen, MV.m_push15.t1 + 0.3) });
@@ -110,9 +118,10 @@ export async function boot(res) {
         c.restore(); }
       seg2(O, xs, yb, xe, yb, C.warn, ok * show(t, b.e7.since, b.e8.typical), 6);
       label(O, L['e7.since'], xs + 10, yb - 30, { align: 'left', kind: 'compare', px: 52, color: C.warn, alpha: ok * show(t, b.e7.since, b.e8.typical - 0.3) });
-      const rA = ok * show(t, tRuth15 - 0.1, b.e8.typical + 0.6), [xr0] = O.toScreen(strip.xOf(iR) - 0.09, 0, 0.3), [xr1, yr] = O.toScreen(strip.xOf(iR) + 0.09, UNIT * v20[iR] / 100, 0.3);
+      // vòng sửa 3 (B15): thanh của Ruth tô màu Ruth + tên từ cuối cú lùi máy (nửa sau S15), không chờ "Ruth's"
+      const rA = ok * show(t, MV.m_pull15.t1 - 0.4, b.e8.typical + 0.6), [xr0] = O.toScreen(strip.xOf(iR) - 0.14, 0, 0.3), [xr1, yr] = O.toScreen(strip.xOf(iR) + 0.14, UNIT * v20[iR] / 100, 0.3);
       if (rA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = rA; c.fillStyle = CHAR.ruth; c.fillRect(xr0, yr, xr1 - xr0, fy - yr); c.restore(); }
-      label(O, 'Ruth', xr1 + 14, ly + 48, { align: 'left', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: rA });
+      label(O, 'Ruth', Math.min(xr1 + 14, 1820 - tw('Ruth')), ly + 48, { align: 'left', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: rA });
       const inL = t > MV.m_push15.t1 ? 1 : 0;   // R2: suốt S15 nhãn vạch ở đầu PHẢI (trái là "none since"), về trái ở "typical"
       label(O, 'first check', Math.min(1800, fx1), ly - 26, { align: 'right', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * inL * show(t, b.e6.every, b.e8.typical - 0.3) });
       log.roi['e6.september'] = [x0 - 20, 190, x1 + 700, fy]; log.roi['e7.since'] = [xs, yb - 90, 1820, fy]; }
