@@ -1,0 +1,4 @@
+{
+ "_about": "C5c (out/checks/run-c5c, LOCK 4d688acd): one entry per CHÍNH rule that does not pass. D-009 (a): CHÍNH is fixed before release unless the fix harms another quality element; the entry gives the before/after measurement.",
+ "V11": "32 samples, one label only: the '?' (title, 52 px) in S04 at 62.6 s sits inside the greyed, unmeasured gap between the two cards' starting heights (its own dashed outline and grey fill, 312 px under the glyph). The fix was built and measured in C5b: giving '?' its backing plate cleared V11 (0 collisions, run-c5b) but hid the grey gap, and the muted root gate on B04 fell from 1·1 (C4 round 4) / 1·0.5 (control on the C4 strip) to 0.5·0.5 (c4/root-c5b: 'misses the greyed starting-gap idea'). Meaning lock wins: C5c keeps the C4 picture (no plate). No other text-on-graphic overlap in the episode; V11.plateOverGraphics 2,518 (reported only)."
+}
