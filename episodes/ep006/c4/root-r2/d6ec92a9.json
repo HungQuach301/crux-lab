@@ -1,0 +1,15 @@
+{
+ "answer": "1. The animation compares two annuity payout styles against US consumer price inflation (CPI-U). One is a level check that stays the same. The other is a rising check that grows over time. Both are shown as rows of crates, and each is measured against its own first check. It is labeled \"illustrative\" and \"history, not a forecast.\"\n\n2. Over the frames, the level check's crates fade out. It starts at 10 crates and ends at about 6 in 10, or 60.9%. The rising check's crates fade only a little, ending at about 9 in 10, or 90.4%. Frame 6 adds a note that starting sizes are not modeled.\n\n3. The meaning is that inflation erodes what a fixed payment can buy. In the illustration, the level check has lost about 40% of its buying power compared with its own first check. The rising check has lost only about 10%. The comparison is relative to each check's own starting amount, not in dollars. It says nothing about which option pays more at the start.\n\n4. The animation gives no explicit advice. A viewer might take away that inflation matters when comparing a level payout with a rising one. A level check loses purchasing power over time, and a rising check holds up better.\n\n5. The advice in 4 is my own reading. The animation only shows the erosion figures and the caveats. It never tells the viewer to pick either option, and it says the starting sizes are not modeled, so it leaves the trade-off between a lower starting rising check and a higher level check open.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 4557,
+   "cache_read": 5471,
+   "output": 547,
+   "in": 10032,
+   "out": 547
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0242531
+}
