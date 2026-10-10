@@ -12,3 +12,12 @@
 
 17 nhịp còn lại ĐẠT ở vòng 0 (B06 B07 B08 B09 B10 B13 B14 B16 B17 B19 B21 B22 B24 B25 B27 B29 B30). **Cổng: 21/23 = 91,3 % ≥ 80 % → ĐẠT; `advice_stated` = 0 ở mọi lượt đọc** (rubric cũ báo song song: mọi nhịp có cờ `advice_inferred`, người đọc tự nói "my own conclusion").
 B01 (người chấm vòng 4): "check growth noted, but dimming to 9 lit crates not clearly stated" — người đọc nắm nghịch lý (séc lớn, thùng mờ), hụt chi tiết "9 thùng sáng". B15: "gets the early cluster and 'none since', but misreads as inflation story / misses warn region". Dải: `review-c4/strips/` (nay) · `review-c4/r1`, `r2`, `r3` (trước).
+
+## C5 (kiểm lại nhịp có hình đổi; rubric MỚI, gộp thận trọng)
+| Nhịp | C5b (root-c5b) | Đối chứng dải C4 cuối (root-c5b-ctl) | C5c (root-c5c, 3 người đọc) | Kết |
+|---|---|---|---|---|
+| B04 | 0,5 · 0,5 (có tấm nền "?") | 1 · 0,5 | 0,5 · 0,5 · 0,5 (không tấm nền, dải ≈ C4: chênh 1,07/255) | 0,5 — dao động; bản giao giữ tấm nền (V11, REVIEWER G2) |
+| B14 | 1 · 1 | — | — | ĐẠT |
+| B29 | 0,5 · 0,5 (số thùng lùi xám) | 1 · 1 | 1 · 1 · 1 (số thùng giữ ink) | ĐẠT |
+| B30 | 1 · 1 | — | — | ĐẠT |
+**Cổng sau C5: 20/23 = 87 % ≥ 80 % → ĐẠT** (B01, B15, B04 0,5); `advice_stated` = 0 ở 18 lượt đọc C5.
