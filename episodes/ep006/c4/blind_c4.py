@@ -204,7 +204,13 @@ def do_grade(run, n):
 
     def one(k):
         r = blind.run(o / 'grade-prompt.txt', o / f'grade-g{k}.json')
-        txt = r['answer']; sc = json.loads(txt[txt.find('{'):txt.rfind('}') + 1])
+        txt, dec, objs, i = r['answer'], json.JSONDecoder(), [], 0   # P3c: người chấm đôi khi in hai khối (bản sửa sau) → lấy khối JSON cuối
+        while (j := txt.find('{', i)) >= 0:
+            try:
+                o, e = dec.raw_decode(txt[j:]); objs.append(o); i = j + e
+            except ValueError:
+                i = j + 1
+        sc = {k: v for k, v in objs[-1].items() if isinstance(v, dict)}
         json.dump(sc, open(o / f'scores-g{k}.json', 'w'), indent=1, ensure_ascii=False)
         return k, sum(v['input'] + v['cache_write'] + v['output'] for v in r['tokens'].values())
     with cf.ThreadPoolExecutor(n) as ex:
