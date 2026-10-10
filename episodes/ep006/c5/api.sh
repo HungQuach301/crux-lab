@@ -8,7 +8,7 @@ mode=$1; brief=$(realpath "$2"); log=$3; shift 3; model=claude-opus-5-5
 while [ $# -gt 0 ]; do case $1 in --model) model=$2; shift;; esac; shift; done
 [ -n "${CONSOLE_API_KEY:-}" ] || { echo "thiếu CONSOLE_API_KEY"; exit 2; }
 case $mode in
-  build)  tools="Read,Edit,Write,Grep,Glob,Bash(python3 *),Bash(node *),Bash(git diff*),Bash(git status*),Bash(git log*),Bash(ls *),Bash(ffmpeg *),Bash(ffprobe *)";;
+  build)  tools="Read,Edit,Write,Grep,Glob,Bash(python3 *),Bash(node *),Bash(NODE_PATH=* node *),Bash(git diff*),Bash(git status*),Bash(git log*),Bash(ls *),Bash(ffmpeg *),Bash(ffprobe *)";;
   review) tools="Read,Grep,Glob,Bash(git *),Bash(python3 *)";;
   *) echo "mode build|review"; exit 2;;
 esac
