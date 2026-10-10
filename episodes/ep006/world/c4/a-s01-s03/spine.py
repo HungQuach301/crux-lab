@@ -33,14 +33,14 @@ B = [
 beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
 IDENT = [round(S.end['S03'] - 3.0, 3), S.end['S03']]
-moves = K.moves_of([
-    ('m_push', 'push', 'wRuth0', 'wRuth', cue['a0']['less'], cue['a1']['sixty'], 1.6, 'sau "less": máy lại gần Ruth và hàng thùng vừa tối dần (câu hỏi của bà)', 'whoosh_air', {}),
+years = K.spread(cue['a0']['rises'], cue['a0']['less'] + 0.85, 20)
+moves = K.moves_of([   # vòng sửa 2 (B01 "shrink"): cú đẩy bắt đầu sau kỷ niệm 20 — séc lớn lên khi máy đứng yên
+    ('m_push', 'push', 'wRuth0', 'wRuth', cue['a0']['less'], cue['a1']['sixty'], 1.6, 'sau "less": máy lại gần Ruth và hàng thùng vừa tối dần (câu hỏi của bà)', 'whoosh_air', {'start': years[-1] + 0.15}),
     ('m_c1', 'mode', 'wRuth', 'cRuth', cue['a1']['sixty'], cue['a1']['two'], 1.2, 'lời S01.2 đặt số (2 %/năm, 10 thùng): số chỉ ở chế độ đồ thị (quy tắc 1)', 'whoosh_mode', {'start': 5.0}),
     ('m_pan', 'pan', 'cRuth', 'cLine', cue['a3']['much'], cue['a4']['keeping'], 1.1, 'lời S03.1 định nghĩa "keeping up" = so với séc đầu theo năm: lia sang đồ thị V3', 'whoosh_soft', {}),
     ('m_w', 'mode', 'cLine', 'wRuth2', cue['a5']['short'], cue['a6']['only'], 1.1, 'lời S03.3 "US only … history": lớp bắt buộc đứng riêng, về người (thế giới)', 'whoosh_mode', {}),
 ])
 Pr = K.P['ruth']
-years = K.spread(cue['a0']['rises'], cue['a0']['less'] + 0.85, 20)
 rk, ev = K.step_row(years, Pr[1:], ramp=0.12, v0=1.0)
 ev += [{'t': cue['a1']['two'], 'kind': 'tick', 'v': 0.5}, {'t': cue['a1']['keep'], 'kind': 'tick', 'v': 0.55},
        {'t': cue['a2']['twentieth'], 'kind': 'tick', 'v': 0.4}, {'t': cue['a3']['every'], 'kind': 'rise', 'dur': 1.2},
@@ -53,4 +53,4 @@ K.finish(HERE, S, 'ep006 C4 · A = S01–S03 + ident (cold open)', beats, moves,
           'a3.nineteen': 'every 20-year stretch since 1947', 'a4.keeping': 'keeping up = buys at least the first check',
           'a5.ruth': 'Ruth · ILLUSTRATIVE', 'a7.choose': 'Not advice on which check or raise'},
          ['a0.rises', 'a0.less', 'a1.two', 'a1.keep', 'a2.twentieth', 'a3.every', 'a4.keeping', 'a5.short', 'a7.choose'],
-         accents=[cue['a0']['less']], rule7=True)
+         accents=[cue['a0']['less']], rule7=True, inputs=['episodes/ep006/world/c4/checklook.js'])

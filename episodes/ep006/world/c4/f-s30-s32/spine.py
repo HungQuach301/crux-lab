@@ -43,8 +43,8 @@ B = [
 beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
 moves = K.moves_of([
-    ('m_c30', 'mode', 'wLadder', 'cLadder', cue['g1']['three'], cue['g1']['forty'], 1.2,
-     'lời S30.2 đặt số (42,4 %): số chỉ ở đồ thị (quy tắc 1); bậc 3 % đã sáng ở thế giới ("three"), đồ thị từ 5 s (quy tắc 7)', 'whoosh_mode', {'start': 5.05}),
+    ('m_c30', 'mode', 'wLadder', 'cLadder', cue['g1']['three'], cue['g1']['forty'], 0.7,
+     'lời S30.2 đặt số (3 %, 42,4 %): số chỉ ở đồ thị (quy tắc 1); bậc 3 % đã sáng ở thế giới ("three"), đồ thị từ đúng 5 s (quy tắc 7), cú ngắn để "3%" hiện sớm nhất', 'whoosh_mode', {'start': 5.0}),
     ('m_pan31', 'pan', 'cLadder', 'cLim1', S.at('@S30.5$'), cue['h0']['national'], 1.2, 'lời S31.1 giới hạn của chỉ số (giỏ quốc gia): lia sang hàng thùng chung', 'whoosh_soft', {}),
     ('m_pan31b', 'pan', 'cLim1', 'cLim2', S.at('@S31.2:tests'), cue['h2']['annuity'], 0.75, 'lời S31.3 "annuity pricing isn\'t modeled": lia sang hai séc', 'whoosh_soft', {}),
     ('m_w32', 'mode', 'cLim2', 'wRuth', S.at('@S31.4$'), cue['i0']['only'], 1.2, 'lời S32 quay về câu hỏi của Ruth: về khung mở đầu (thế giới), sau 5 s thẻ V7', 'whoosh_mode', {'late': True}),

@@ -60,7 +60,7 @@ cue = {b['id']: b['cues'] for b in beats}
 moves = K.moves_of([
     ('m_c13', 'mode', 'wWall0', 'cWall', cue['e0']['followed'], cue['e1']['seven'], 1.0, 'lời S13.2 đặt số (715): số chỉ ở đồ thị chính diện (quy tắc 1)', 'whoosh_mode', {}),
     ('m_push15', 'push', 'cWall', 'cLeft', cue['e5']['one'] + 0.5, cue['e6']['every'], 1.2, 'lời S15.1 "every one of those stretches": đẩy vào cụm 17 thanh bên trái', 'whoosh_push', {}),
-    ('m_pull15', 'pull', 'cLeft', 'cWall', S.at('@S15.2$'), cue['e8']['typical'], 0.7, 'lời S16.1 "the typical stretch": lùi máy thấy cả tường (tới thanh của Ruth)', 'whoosh_soft', {}),
+    ('m_pull15', 'pull', 'cLeft', 'cWall', cue['e7']['since'], S.at('@S15.2:Ruth'), 1.2, 'lời S15.2 "Since then … including Ruth\'s": lùi máy ngay sau "Since", vạch "none since" chạy tới thanh của Ruth đúng "Ruth\'s"', 'whoosh_soft', {'start': cue['e7']['since']}),
     ('m_push19', 'push', 'cWall', 'cRight', S.at('@S17.3$'), cue['f4']['gentler'], 1.3, 'lời S19.1 "the years closest to Ruth\'s own": đẩy vào các quãng 1985–2006', 'whoosh_push', {}),
     ('m_pull21', 'pull', 'cRight', 'cWall', S.at('@S19.1$'), cue['f5']['twenty'], 1.1, 'lời S21.1 "over twenty-five years": lùi máy cho cả tường đổi sang 25 năm', 'whoosh_soft', {}),
     ('m_w23', 'mode', 'cWall', 'wWall1', S.at('@S22.1$'), cue['f7']['why'], 0.7, 'lời S23.1 hỏi vì sao khác nhau theo tháng bắt đầu: về thế giới, sang hồi 3 (người)', 'whoosh_mode', {}),

@@ -5,6 +5,7 @@
 import * as THREE from 'three';
 import { Ribbon, Crates } from '/toolkit/factory/world/lib3d.js';
 import { setup, column, showColumn, nameTag, rowBox, modeLook, followLight, chrome, label, seg2, dot, kf, show, pulse, CHAR, C, ease, mix } from '/episodes/ep006/world/c4kit.js';
+import { checkLook } from '/episodes/ep006/world/c4/checklook.js';
 
 const SEG = '/episodes/ep006/world/c4/c-s09-s12/';
 const KX = 0.42, Y0 = 2.4, SZ = [12, 4.6];                         // năm k → x = k·KX; vạch séc đầu ở y = Y0; thang y: gần (S09–S11) → rộng (S12)
@@ -12,7 +13,7 @@ const WX = -12;                                                    // cột th�
 
 export async function boot(res) {
   const poses = {
-    wRuth: { pos: [WX - 3.0, 2.2, 7.8], tgt: [WX - 0.7, 0.5, 0], fov: 35, chart: 0 },   // = wRuth của đoạn a/e/f, dời theo cột
+    wRuth: { pos: [WX - 3.7, 2.2, 7.8], tgt: [WX - 1.4, 0.5, 0], fov: 35, chart: 0 },   // = wRuth của đoạn a (vòng sửa 2: dời trái 0,7 cho séc ngang), dời theo cột
     cNear0: { pos: [3.4, 2.15, 19], tgt: [3.4, 2.15, 0], fov: 14, chart: 1 },
     cNear: { pos: [5.4, 2.0, 18], tgt: [5.4, 2.0, 0], fov: 14, chart: 1 },
     cWide: { pos: [5.0, 1.75, 27], tgt: [5.0, 1.75, 0], fov: 14, chart: 1 },
@@ -23,7 +24,7 @@ export async function boot(res) {
   base.position.set(10 * KX, Y0, 0.4); scene.add(base);
   const line = Ribbon({ color: C.ink, z: 0.46, width: 0.06 }), lvl = Ribbon({ color: C.muted, z: 0.44, width: 0.05 }); scene.add(line, lvl);
   const row = Crates({ size: 0.26, gap: 0.05, name: 'ruth' }); row.position.set(4.2, 0.2, 0); scene.add(row);
-  const ruth = column(scene, { x: WX, name: 'ruth-world', who: 'ruth' });
+  const ruth = column(scene, { x: WX, name: 'ruth-world', who: 'ruth', cw: 0.86, cbase: 0.44 }); checkLook(ruth);   // séc như khung mở đầu (đoạn a, vòng sửa 2)
   const vAt = (A, u) => { const n = Math.min(19, Math.floor(u)); return u >= 20 ? A[20] : mix(A[n], A[n + 1], u - n); };
 
   function frame(t) {
@@ -31,14 +32,17 @@ export async function boot(res) {
     followLight(key, pose.tgt); modeLook(scene, floor, cw);
     const s = mix(SZ[0], SZ[1], ease(t, MV.m_pull.t0, MV.m_pull.t1)), VY = (v) => Y0 + (v - 1) * s;
     const u = kf(S.draw, t), u2 = kf(S.level_draw, t);
+    // vòng sửa 2 (khung chuyển máy): đồ thị (vạch, đường, hàng nhỏ, chấm, nhãn) hiện khi cú vào đồ thị gần dừng — không nửa ngoài khung khi máy chạy
+    const aC = ease(t, MV.m_c9.t1 - 0.35, MV.m_c9.t1);
+    base.visible = aC > 0.005; for (const q of [base, line, lvl]) q.material.opacity = aC;
     const pts = []; for (let k = 0; k <= Math.floor(u); k++) pts.push([k * KX, VY(P[k]), P[k] < 1 ? C.warn : C.ink]);
     if (u % 1 > 0) pts.push([u * KX, VY(vAt(P, u)), vAt(P, u) < 1 ? C.warn : C.ink]);
-    line.visible = pts.length > 1; if (line.visible) line.set(pts, 0.06);
+    line.visible = pts.length > 1 && aC > 0.005; if (line.visible) line.set(pts, 0.06);
     const lp = []; for (let k = 0; k <= Math.floor(u2); k++) lp.push([k * KX, VY(PL[k])]);
     if (u2 % 1 > 0) lp.push([u2 * KX, VY(vAt(PL, u2))]);
     lvl.visible = lp.length > 1; if (lvl.visible) lvl.set(lp, 0.05, C.muted);
     row.position.y = mix(1.0, 0.2, ease(t, MV.m_pull.t0, MV.m_pull.t1));   // R1: hàng nhỏ nâng khỏi dải chân trang ở cNear0/cNear (y 0,2 → đáy 940–990 px); cWide hạ về 0,2 (dưới đường séc đều)
-    row.set({ value: vAt(P, Math.max(0, u)), pulse: pulse(t, b.d3.fell, 0.9) });
+    row.set({ value: vAt(P, Math.max(0, u)), pulse: pulse(t, b.d3.fell, 0.9), appear: aC });
     ruth.row.set({ value: vAt(P, Math.max(0, u)), pulse: pulse(t, b.d0.twelve, 0.9) }); ruth.card.set({ k: Math.min(20, u), appear: 1 }); showColumn(ruth, 1);
     renderer.render(scene, cam);
     // ---------------- lớp phủ
@@ -50,7 +54,7 @@ export async function boot(res) {
     // R1: "first check" — cNear0: kẹp vào mép phải (vạch dài quá khung); cWide: dời sang NGAY SAU đầu vạch (không chồng nhãn séc tăng ở năm 20)
     { const pw = ease(t, MV.m_pull.t0, MV.m_pull.t1), c = O.ctx; c.save(); c.font = '600 48px Inter'; const wF = c.measureText('first check').width; c.restore();
       const pu = ease(t, MV.m_push.t0, MV.m_push.t1);   // cNear0: dưới vạch (đường năm 13–15 ở trên vạch); cNear: trên vạch (năm 16–20 ở dưới)
-      label(O, 'first check', mix(Math.min(bx1, 1800), bx1 + 24 + wF, pw), mix(mix(by + 56, by - 26, pu), by + 16, pw), { align: 'right', kind: 'name', px: 48, w: 600, color: C.muted, alpha: Math.max(0, (cw - 0.8) / 0.2) }); }
+      label(O, 'first check', mix(Math.min(bx1, 1800), bx1 + 24 + wF, pw), mix(mix(by + 56, by - 26, pu), by + 16, pw), { align: 'right', kind: 'name', px: 48, w: 600, color: C.muted, alpha: aC * Math.max(0, (cw - 0.8) / 0.2) }); }
     // nhãn trục năm: gần (S09–S11) dưới vạch, thấp hơn chỗ đường hụt năm 2 (R1); khi lùi máy (S12) xuống hàng đáy dưới đầu đường séc đều — không đè chấm năm 20, nét đứt séc đều và nhãn séc tăng
     const axHide = show(t, MV.m_push.t0 - 0.35, MV.m_pull.t1 - 0.3);   // R1: nhãn trục tắt khi đẩy/lùi máy (không trượt ra mép trái)
     const yAx = (() => { const [, y2] = O.toScreen(20 * KX, Y0, 0.4), [, yl] = sc(20, PL[20]); return mix(y2 + 190, Math.max(y2 + 70, yl + 90), ease(t, MV.m_pull.t0, MV.m_pull.t1)); })();
@@ -59,7 +63,7 @@ export async function boot(res) {
     // chấm mỗi kỷ niệm 1 … 15 (cushion ≥ 100 %, warn < 100 %); S09.2 loé
     for (let k = 1; k <= Math.min(20, Math.floor(u)); k++) {
       const [x, y] = sc(k, P[k]), under = P[k] < 1, f = under ? pulse(t, b.d1.slipped, 1.2) : (k === 3 || k === 7 ? pulse(t, b.d1.climbed, 1.2) : 0);
-      dot(O, x, y, 9 + 9 * f, under ? C.warn : C.cushion, cw);
+      dot(O, x, y, 9 + 9 * f, under ? C.warn : C.cushion, cw * aC);
     }
     label(O, L['d0.anniv'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.d0.anniv, b.d2.august - 0.4) });
     log.roi['d0.anniv'] = [400, 170, 1520, 260]; log.roi['d1.slipped'] = (() => { const [x, y] = sc(2, P[2]); const [x2] = sc(6, P[6]); return [x - 30, y - 60, x2 + 30, y + 60]; })();
@@ -72,18 +76,19 @@ export async function boot(res) {
       // R1: dưới-trái điểm năm 16 (đường trước đó ở trên vạch, sau đó ở bên phải) — không đè đường, không ra mép phải
       label(O, L['d4.august'], x - 30, y + 64, { align: 'right', kind: 'number', px: 48, alpha: a * (1 - show(t, MV.m_pull.t0)) }); log.roi['d4.august'] = [x - 700, y + 10, x + 30, y + 100]; }
     log.roi['d3.fell'] = (() => { const [x, y] = sc(15, P[15]); const [x2, y2] = sc(16, P[16]); return [x - 40, y - 40, x2 + 40, y2 + 40]; })();
-    // S12: séc đều tới mức cuối của séc tăng ở năm 5; vạch nét đứt 90,4 %; điểm cuối séc tăng
-    const fA = ok * show(t, b.d6.five);
-    if (fA > 0.01) {
-      const [x5, y5] = sc(5, PL[5]), [x20, y20] = sc(20, P[20]);
-      seg2(O, x5, y20, x20, y20, C.ink, fA * 0.8, 3, [12, 10]);
-      dot(O, x5, y5, 13, C.muted, fA); label(O, L['d6.five'], 960, 236, { align: 'center', kind: 'number', px: 52, color: C.ink, alpha: fA });   // R1: hàng tiêu đề (không đè đường séc đều)
-      log.roi['d6.five'] = [x5 - 30, y5 - 30, x20 + 30, y20 + 30];
-    }
-    { const [x20, y20] = sc(20, P[20]); const a = ok * show(t, b.d7.twenty); dot(O, x20, y20, 13 + 6 * pulse(t, b.d7.twenty, 1), C.warn, a);
-      label(O, L['d7.twenty'], 960, 312, { align: 'center', kind: 'number', px: 52, alpha: a }); log.roi['d7.twenty'] = [x20 - 60, y20 - 60, x20 + 30, y20 + 30]; }   // R1: hàng tiêu đề 2
+    // S12 (vòng sửa 2, B12 tắt tiếng không nối hai ý): "five" = chấm sáng nơi đường séc đều CẮT mức cuối của séc tăng (≈ năm 5); "rising" = chấm cuối
+    // đường Ruth (năm 20) sáng, vạch ngang mảnh kéo NGƯỢC từ đó sang trái tới chỗ cắt; "twenty" = hai đầu loé — cùng một mức, năm 5 so với năm 20
+    { let kc = 20; for (let k = 0; k < 20; k++) if (PL[k] >= P[20] && PL[k + 1] < P[20]) { kc = k + (PL[k] - P[20]) / (PL[k] - PL[k + 1]); break; }
+      const [xc, yc] = sc(kc, P[20]), [x20, y20] = sc(20, P[20]), fA = ok * show(t, b.d6.five), eA = ok * show(t, b.d7.rising), g = ease(t, b.d7.rising + 0.3, b.d7.rising + 1.5);
+      const pz = pulse(t, b.d7.twenty, 1.0);
+      if (eA > 0.01 && g > 0.001) seg2(O, x20, y20, mix(x20, xc, g), y20, C.ink, eA * 0.9, 4);
+      for (const [x, y, c, a, p] of [[xc, yc, C.muted, fA, pulse(t, b.d6.five, 1.0) + pz], [x20, y20, C.warn, eA, pulse(t, b.d7.rising, 1.0) + pz]]) {
+        dot(O, x, y, 22 + 8 * p, C.ink, a * 0.35); dot(O, x, y, 13, c, a); }
+      label(O, L['d6.five'], 960, 236, { align: 'center', kind: 'number', px: 52, color: C.ink, alpha: fA });   // R1: hàng tiêu đề (không đè đường séc đều)
+      label(O, L['d7.twenty'], 960, 312, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.d7.twenty) });   // R1: hàng tiêu đề 2
+      log.roi['d6.five'] = [xc - 30, yc - 30, xc + 30, yc + 30]; log.roi['d7.twenty'] = [xc - 30, y20 - 60, x20 + 30, y20 + 30]; }
     label(O, 'level check', ...(() => { const [x, y] = sc(Math.min(20, u2), vAt(PL, Math.min(20, u2))); return [x + 20, y + 20]; })(), { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * show(t, b.d5.level) * (u2 >= 4 ? 1 : 0) });
-    label(O, 'Ruth · ILLUSTRATIVE', ...(() => { const [x, y] = sc(0, 1); return [x, y - 64]; })(), { align: 'left', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: cw * show(t, b.d0.ruths, MV.m_push.t0 - 0.35) });   // R1: tắt trước khi đẩy máy (không trượt ra mép trái)
+    label(O, 'Ruth · ILLUSTRATIVE', ...(() => { const [x, y] = sc(0, 1); return [x, y - 64]; })(), { align: 'left', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: cw * aC * show(t, b.d0.ruths, MV.m_push.t0 - 0.35) });   // R1: tắt trước khi đẩy máy (không trượt ra mép trái)
     label(O, '?', 1700, 330, { align: 'center', kind: 'title', px: 120, alpha: ok * show(t, b.d8.ruths), plate: null });
     log.roi['d8.ruths'] = [1600, 200, 1800, 360];
     chrome(O, 1);

@@ -65,13 +65,14 @@ rk, ev = K.step_row(yrs7, Pr[1:], ramp=0.14, v0=1.0)
 yrs8 = K.spread(cue['c2']['level'], cue['c2']['six'] - 0.25, 20)              # S08.1: hàng của séc đều tối theo đường mức của Ruth tới 0,609
 lk, ev2 = K.step_row(yrs8, Lr[1:], ramp=0.12, v0=1.0)
 grow4 = K.spread(cue['b0']['rises'], cue['b0']['year'], 10)                   # S04.1 "rises": séc bước lên (minh hoạ phép tăng) rồi về cỡ đầu ở "starts"
+# vòng sửa 2 (B04): bước lên tới k = 6 (×1,13, nhích nhẹ) — séc tăng vẫn rõ nhỏ hơn séc đều khi so cỡ đầu
 ev += ev2 + [{'t': cue['b0']['bigger'], 'kind': 'tick', 'v': 0.35}, {'t': cue['b0']['rises'], 'kind': 'rise', 'dur': 1.4},
              {'t': cue['b1']['starts'], 'kind': 'tick', 'v': 0.4}, {'t': cue['b3']['each'], 'kind': 'rise', 'dur': 0.8},
              {'t': cue['b4']['august'], 'kind': 'tick', 'v': 0.45}, {'t': cue['b6']['two'], 'kind': 'tick', 'v': 0.5},
              {'t': cue['b7']['forty'], 'kind': 'data', 'v': 0.75}, {'t': cue['b8']['sixty'], 'kind': 'data', 'v': 0.95},
              {'t': cue['c1']['ten'], 'kind': 'tick', 'v': 0.45}, {'t': cue['c1']['nine'], 'kind': 'tick', 'v': 0.6}]
 K.finish(HERE, S, 'ep006 C4 · B = S04–S08 (Hồi 1: hai séc, sức mua)', beats, moves, ev,
-         {'rows': {'rise': rk, 'level': lk}, 'cards': {'rise': [[0, 0]] + [[round(t, 3), (i + 1) * 2] for i, t in enumerate(grow4)] + [[round(cue['b1']['starts'] - 0.3, 3), 20], [round(cue['b1']['starts'], 3), 0]]
+         {'rows': {'rise': rk, 'level': lk}, 'cards': {'rise': [[0, 0]] + [[round(t, 3), round((i + 1) * 0.6, 1)] for i, t in enumerate(grow4)] + [[round(cue['b1']['starts'] - 0.3, 3), 6], [round(cue['b1']['starts'], 3), 0]]
                                                     + K.step_check(yrs7, ramp=0.1)[1:]},
           'years7': [round(t, 3) for t in yrs7], 'years8': [round(t, 3) for t in yrs8],
           'ruth_path': Pr, 'growth': {'check': RAW['two_pct_growth_20y_pct'] / 100, 'prices': RAW['latest_window_price_rise_pct'] / 100}},
@@ -85,4 +86,4 @@ K.finish(HERE, S, 'ep006 C4 · B = S04–S08 (Hồi 1: hai séc, sức mua)', be
           'c4.model': 'starting sizes: not modeled'},
          ['b0.bigger', 'b0.smaller', 'b0.rises', 'b1.starts', 'b1.model', 'b2.dollars', 'b3.each', 'b4.took', 'b4.august', 'b5.prices', 'b6.two', 'b7.forty',
           'b8.sixty', 'b9.national', 'c0.grew', 'c0.less', 'c1.ten', 'c1.nine', 'c2.level', 'c2.six', 'c3.slowed', 'c4.own', 'c4.bigger', 'c4.model'],
-         accents=[cue['b8']['sixty'], cue['c1']['nine']])
+         accents=[cue['b8']['sixty'], cue['c1']['nine']], inputs=['episodes/ep006/world/c4/checklook.js'])

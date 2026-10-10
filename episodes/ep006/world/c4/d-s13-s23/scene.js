@@ -54,7 +54,7 @@ export async function boot(res) {
     const sw = sweep(t, b.e1.seven, 1.5) || sweep(t, b.e2.question, b.e2.least - b.e2.question) || sweep(t, b.e3.month, 1.0);
     const fT = show(t, b.e8.typical, b.e9.eighty + 1.2), medV = S.med.rising;
     const ml = ease(t, b.f1.level, b.f1.level + 1.6) * (1 - ease(t, MV.m_push19.t0, MV.m_push19.t1));
-    const hR = Math.max(pulse(t, b.e1.ruths, 1.4), pulse(t, MV.m_pull15.t1 - 0.2, 1.6), hiP);
+    const hR = Math.max(pulse(t, b.e1.ruths, 1.4), pulse(t, tRuth15, 1.6), hiP);
     strip.set({
       grow, verdict, morph: ml > 0.001 ? { to: lv20, x: ml } : mx > 0 ? { to: v25, x: mx } : null, dim: 1 - 0.85 * dimMini, opacity: 1 - 0.97 * dimMini,
       focus: (i) => (f19 > 0 ? mix(1, i >= i90 ? 1 : 0.15, f19) : fT > 0 ? mix(1, Math.abs(v20[i] - medV) <= 2.5 ? 1 : 0.3, fT) : 1),
@@ -83,7 +83,8 @@ export async function boot(res) {
     label(O, L['e1.seven'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.e1.seven, b.e2.question - 0.2) });
     { const [x, y0] = top(iR, v20[iR]), y = Math.min(y0, ly); label(O, L['e1.ruths'], x, y - 40, { align: 'right', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: ok * show(t, b.e1.ruths, s13) * (1 - f19) });
       log.roi['e1.ruths'] = [x - 40, y - 100, x + 40, fy]; }
-    label(O, 'first check', fx0, ly - 26, { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * wide * show(t, b.e2.least) * (1 - show(t, b.f6.social - 0.3)) });
+    const s15 = t > MV.m_push15.t0 ? 1 - ease(t, b.e8.typical, b.e8.typical + 0.3) : 0;
+    label(O, 'first check', fx0, ly - 26, { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * wide * (1 - s15) * show(t, b.e2.least) * (1 - show(t, b.f6.social - 0.3)) });
     label(O, L['e3.tile'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.e3.tile, b.e4.kept - 0.3) });
     label(O, L.axis0, fx0, fy + 64, { align: 'left', kind: 'number', px: 48, alpha: ok * wide * show(t, b.e3.month) * (1 - show(t, b.f6.social - 0.3)) });
     label(O, L.axis1, fx1, fy + 64, { align: 'right', kind: 'number', px: 48, alpha: ok * wide * show(t, b.e3.month) * (1 - show(t, b.f6.social - 0.3)) });
@@ -95,16 +96,26 @@ export async function boot(res) {
     // S15: cụm 1947–1949 (cLeft) + "none since"
     // R1 (nghĩa B15): cụm xanh 1947–1949 = đỉnh thanh VƯỢT vạch "first check" (giữ được sức mua); "Since" = vạch warn chạy dọc vạch séc đầu từ 1949
     // tới thanh của Ruth (tới đúng "Ruth's"), mọi thanh sau đó nằm dưới; lùi máy thấy vạch tới thanh Ruth, thanh Ruth loé
+    // R2 (B15 vòng 2: "không rõ trục đo gì", không ai thấy thanh của Ruth): máy lùi ngay sau "Since" (spine), vạch "none since" chạy từ cụm xanh tới
+    // ĐÚNG thanh cuối ở "Ruth's"; thanh cuối tô màu Ruth (như các cảnh khác) + tên; khoảng hụt từ đỉnh mỗi thanh sau 1949 tới vạch "first check"
+    // tô warn nhạt theo vạch chạy → cao thanh đọc ra là sức mua SO VỚI SÉC ĐẦU (thiếu bao nhiêu), không phải giá
     { const [x0, y0] = top(iOf('1947-09'), 104), [x1] = top(iE, 104);
-      const a = ok * show(t, b.e6.september, MV.m_pull15.t0);
+      const a = ok * show(t, b.e6.september, b.e8.typical);
       if (a > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = a; c.strokeStyle = C.cushion; c.lineWidth = 5; c.strokeRect(x0 - 14, y0 - 16, x1 - x0 + 28, fy - y0 + 26); c.restore(); }
-      label(O, L['e6.september'], x1 + 40, 250, { align: 'left', kind: 'number', px: 52, color: C.cushion, alpha: a });
-      const pS = lin(t, b.e7.since, tRuth15 + 0.2), [xs, yb] = O.toScreen(strip.xOf(iE + 1), UNIT * 1.005, 0.36), [xe] = O.toScreen(mix(strip.xOf(iE + 1), strip.xOf(iR), pS), UNIT, 0.36);
-      seg2(O, xs, yb, xe, yb, C.warn, ok * show(t, b.e7.since, MV.m_pull15.t1 + 0.2), 6);
-      label(O, L['e7.since'], xs + 10, yb - 30, { align: 'left', kind: 'compare', px: 52, color: C.warn, alpha: ok * show(t, b.e7.since, MV.m_pull15.t0) });
-      const inL = t > MV.m_push15.t1 && t < MV.m_pull15.t0 ? 1 : 0;
-      label(O, 'first check', 1800, ly - 26, { align: 'right', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * inL * show(t, b.e6.every) });
-      log.roi['e6.september'] = [x0 - 20, 190, x1 + 700, fy]; log.roi['e7.since'] = [xs, yb - 90, 1820, yb + 20]; }
+      label(O, L['e6.september'], x1 + 40, 250, { align: 'left', kind: 'number', px: 52, color: C.cushion, alpha: ok * show(t, b.e6.september, MV.m_pull15.t0) });
+      const pS = lin(t, b.e7.since, tRuth15), [xs, yb] = O.toScreen(strip.xOf(iE + 1), UNIT * 1.005, 0.36), [xe] = O.toScreen(mix(strip.xOf(iE + 1), strip.xOf(iR), pS), UNIT, 0.36);
+      const gA = ok * show(t, b.e7.since, b.e8.typical), iCut = mix(iE + 1, iR, pS);
+      if (gA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = gA; c.fillStyle = rgba(C.warn, 0.3);
+        for (let i = iE + 1; i <= iCut; i++) { const [xa] = O.toScreen(strip.xOf(i) - strip.pitch / 2, 0, 0.3), [xb, yt] = O.toScreen(strip.xOf(i) + strip.pitch / 2, UNIT * v20[i] / 100, 0.3); c.fillRect(xa, ly, xb - xa, yt - ly); }
+        c.restore(); }
+      seg2(O, xs, yb, xe, yb, C.warn, ok * show(t, b.e7.since, b.e8.typical), 6);
+      label(O, L['e7.since'], xs + 10, yb - 30, { align: 'left', kind: 'compare', px: 52, color: C.warn, alpha: ok * show(t, b.e7.since, b.e8.typical - 0.3) });
+      const rA = ok * show(t, tRuth15 - 0.1, b.e8.typical + 0.6), [xr0] = O.toScreen(strip.xOf(iR) - 0.09, 0, 0.3), [xr1, yr] = O.toScreen(strip.xOf(iR) + 0.09, UNIT * v20[iR] / 100, 0.3);
+      if (rA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = rA; c.fillStyle = CHAR.ruth; c.fillRect(xr0, yr, xr1 - xr0, fy - yr); c.restore(); }
+      label(O, 'Ruth', xr1 + 14, ly + 48, { align: 'left', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: rA });
+      const inL = t > MV.m_push15.t1 ? 1 : 0;   // R2: suốt S15 nhãn vạch ở đầu PHẢI (trái là "none since"), về trái ở "typical"
+      label(O, 'first check', Math.min(1800, fx1), ly - 26, { align: 'right', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * inL * show(t, b.e6.every, b.e8.typical - 0.3) });
+      log.roi['e6.september'] = [x0 - 20, 190, x1 + 700, fy]; log.roi['e7.since'] = [xs, yb - 90, 1820, fy]; }
     // S16–S17: trung vị + hàng thùng điển hình + séc đều + ô năm 8
     label(O, L['e8.three'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.e8.three, b.f1.level - 0.3) });
     { const [, y] = O.toScreen(0, UNIT * yR / 100, 0.3); label(O, L.m80, fx1 + 10, y + 16, { align: 'left', kind: 'number', px: 48, alpha: ok * show(t, b.e9.eighty, MV.m_push19.t0) }); }

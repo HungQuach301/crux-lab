@@ -4,7 +4,8 @@
 import * as THREE from 'three';
 import { Person } from '/toolkit/factory/world/lib3d.js';
 import { setup, column, setCheck, checkLabel, rowBox, modeLook, followLight, chrome, brace, label, seg2, kf, show, pulse, setOpacity,
-  CHAR, C, ease, mix, rgba } from '/episodes/ep006/world/c4kit.js';
+  CHAR, C, ease, mix, rgba, checkScale } from '/episodes/ep006/world/c4kit.js';
+import { checkLook } from '/episodes/ep006/world/c4/checklook.js';
 
 const SEG = '/episodes/ep006/world/c4/b-s04-s08/';
 const BX = [12.6, 14.0], BU = 2.0;                                  // hai thanh S06 (phần TĂNG so với séc đầu / giá đầu, cùng gốc): x séc, x giá; +100 % = 2 đơn vị
@@ -13,16 +14,19 @@ export async function boot(res) {
   const poses = {
     wFig0: { pos: [0.3, 2.0, 7.0], tgt: [0, 0.7, 0], fov: 35, chart: 0 },
     cCards: { pos: [0, 0.95, 17], tgt: [0, 0.95, 0], fov: 14, chart: 1 },        // vòng sửa 1: lùi + hạ — nhãn hai séc trong mép, chữ trên không đè đầu Ruth
-    cCols: { pos: [-0.2, 1.0, 42], tgt: [-0.2, 1.0, 0], fov: 14, chart: 1 },       // vòng sửa 1: lùi thêm — séc đều trái + đuôi hàng séc tăng phải trong mép
-    cRise: { pos: [4.0, 0.95, 20], tgt: [4.0, 0.95, 0], fov: 14, chart: 1 },
+    // vòng sửa 2 (séc ngang: séc đều lớn hơn, séc tăng lớn về phía Ruth): cCols lùi 42 → 46, cRise/wRise dời trái — người, séc, hàng trong mép
+    cCols: { pos: [-0.2, 1.0, 46], tgt: [-0.2, 1.0, 0], fov: 14, chart: 1 },       // vòng sửa 1: lùi thêm — séc đều trái + đuôi hàng séc tăng phải trong mép
+    cRise: { pos: [3.8, 0.95, 21.5], tgt: [3.8, 0.95, 0], fov: 14, chart: 1 },
     cBars: { pos: [13.9, 1.0, 22], tgt: [13.9, 1.0, 0], fov: 14, chart: 1 },      // vòng sửa 1: hai thanh giữa khung, nhãn gốc dưới thanh
-    wRise: { pos: [1.6, 2.2, 7.8], tgt: [3.9, 0.5, 0], fov: 35, chart: 0 },
+    wRise: { pos: [1.0, 2.2, 7.8], tgt: [3.3, 0.5, 0], fov: 35, chart: 0 },
     cRise2: { pos: [5.4, 0.5, 22], tgt: [5.4, 0.5, 0], fov: 14, chart: 1 },       // vòng sửa 1: hàng của séc tăng giữa khung (nhãn 90.4% trong mép)
   };
   const { S, CL, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
   const b = cue;
-  const lev = column(scene, { x: -4.6, name: 'level', who: 'ruth', person: false, level: true, cbase: 1.0 });
-  const ris = column(scene, { x: 4.6, name: 'rise', who: 'ruth', person: false });
+  // vòng sửa 2 (B04 "two stacks of papers", "about the same length"): hai TẤM SÉC ngang (checklook.js) — séc đều lớn hơn rõ (1,25 × 0,68, nét phẳng),
+  // séc tăng nhỏ hơn (0,86 × 0,44 = séc của Ruth ở đoạn a/c, nét nhích lên)
+  const lev = column(scene, { x: -4.6, name: 'level', who: 'ruth', person: false, level: true, cw: 1.25, cbase: 0.68 }); checkLook(lev);
+  const ris = column(scene, { x: 4.6, name: 'rise', who: 'ruth', person: false, cw: 0.86, cbase: 0.44 }); checkLook(ris);
   const ruth = Person({ h: 1.45, color: CHAR.ruth }); ruth.position.set(0, 0, -0.25); scene.add(ruth);
   ruth.userData.checks = { role: 'mark', char: 'ruth', shape: 'person', fill: CHAR.ruth, key: 'person-ruth' };
   const lx1 = lev.card.position.x, rx1 = ris.card.position.x;
@@ -43,10 +47,10 @@ export async function boot(res) {
     followLight(key, pose.tgt); modeLook(scene, floor, cw);
     // séc trượt về đầu hàng của nó ở "each"; hàng mọc
     const sl = ease(t, b.b3.each - 0.05, b.b3.each + 0.8);
-    lev.card.position.x = mix(-0.85, lx1, sl); ris.card.position.x = mix(0.85, rx1, sl);
+    lev.card.position.x = mix(-1.0, lx1, sl); ris.card.position.x = mix(1.0, rx1, sl);
     const rA = ease(t, b.b3.each, b.b3.each + 0.9);
-    // Ruth: giữa hai séc → cạnh séc tăng ở "took"; séc đều + hàng của nó mờ từ "took", sáng lại ở S08 "level"
-    ruth.position.x = mix(0, rx1 - 0.54, ease(t, b.b4.took - 0.05, b.b4.took + 0.8));
+    // Ruth: giữa hai séc → cạnh séc tăng ở "took" (chừa chỗ séc năm 20 lớn về phía bà); séc đều + hàng của nó mờ từ "took", sáng lại ở S08 "level"
+    ruth.position.x = mix(0, rx1 + ris.cw / 2 - ris.cw * checkScale(20) - 0.11, ease(t, b.b4.took - 0.05, b.b4.took + 0.8));
     const lvA = 1 - 0.7 * ease(t, b.b4.took, b.b4.took + 0.8) * (1 - ease(t, b.c2.first - 0.2, b.c2.first + 0.4));
     lev.row.set({ value: kf(S.rows.level, t), appear: rA, pulse: pulse(t, b.c2.six, 0.8) });
     ris.row.set({ value: kf(S.rows.rise, t), appear: rA, pulse: pulse(t, b.c1.nine, 0.6) + pulse(t, b.c3.slowed, 0.9) });
@@ -54,7 +58,7 @@ export async function boot(res) {
     setCheck(lev, S, t, lA); setCheck(ris, S, t, sA);
     if (lvA < 0.999) { setOpacity(lev.row, lvA * (rA > 0.002 ? 1 : 0)); setOpacity(lev.card, lvA * lA); }
     // S06 thanh: hiện từ cú lia, mọc ở "forty" / "sixty"; tắt khi về thế giới
-    const bA = t >= MV.m_pan.t0 && t < MV.m_w.t1 ? 1 - ease(t, MV.m_w.t0, MV.m_w.t0 + 0.5) : 0;
+    const bA = t >= MV.m_pan.t0 && t < MV.m_w.t1 ? 1 - ease(t, MV.m_w.t0, MV.m_w.t0 + 0.3) : 0;   // vòng sửa 2: tắt trong 0,3 s đầu cú về thế giới (không nửa ngoài khung)
     const u1 = Math.min(1, Math.max(0, (t - b.b7.twenty) / (b.b7.forty - b.b7.twenty))), u2 = Math.min(1, Math.max(0, (t - b.b8.ruths) / (b.b8.sixty - b.b8.ruths)));
     const hC = byYear(yrC, u1), hP = byYear(yrP, u2), g1 = hC / gC;
     bars[0].hi.scale.y = Math.max(0.001, BU * hC); bars[1].hi.scale.y = Math.max(0.001, BU * hP);   // cùng gốc y = 0; năm 20 đúng lúc lời nói số
@@ -68,14 +72,16 @@ export async function boot(res) {
     // S04 (cCards): nhãn hai séc, khoảng chênh cỡ đầu "?", không mô hình hoá; S04.3 không so tiền
     const s4 = MV.m_pull.t0 - 0.2;
     if (t < MV.m_pull.t1) {
-      const [lx, ly] = O.toScreen(lev.card.position.x - lev.cw / 2, lev.cbase + 0.05, 0), [rx, ry] = O.toScreen(ris.card.position.x + ris.cw / 2, ris.cbase * 1.02 ** 20 + 0.05, 0);
-      label(O, L['b0.never'], Math.max(lx - 20, 96 + tw(L['b0.never']) + 20), ly - 10, { align: 'right', kind: 'compare', px: 48, color: C.muted, alpha: ok * show(t, MV.m_c1.t1, s4) });
-      label(O, L['b0.rises'], Math.min(rx + 20, 1824 - tw(L['b0.rises']) - 20), ry - 10, { kind: 'number', px: 48, alpha: ok * show(t, MV.m_c1.t1, s4) });
+      // vòng sửa 2: nhãn trên mỗi séc (séc đều: canh phải theo mép phải séc · séc tăng: canh trái theo mép trái séc) — không chồng Ruth ở giữa
+      const yL = O.toScreen(0, lev.cbase + 0.3, 0)[1], [lx] = O.toScreen(lev.card.position.x + lev.cw / 2, 0, 0), [rx] = O.toScreen(ris.card.position.x - ris.cw / 2, 0, 0);
+      label(O, L['b0.never'], Math.max(lx, 96 + tw(L['b0.never']) + 20), yL, { align: 'right', kind: 'compare', px: 48, color: C.muted, alpha: ok * show(t, MV.m_c1.t1, s4) });
+      label(O, L['b0.rises'], Math.min(rx, 1824 - tw(L['b0.rises']) - 20), yL, { kind: 'number', px: 48, alpha: ok * show(t, MV.m_c1.t1, s4) });
+      // "starts": phần séc tăng THIẾU so với cỡ đầu của séc đều = ô xám trên séc tăng (từ đỉnh séc tăng lên tới mức đỉnh séc đều) + "?" — không đo
       const gA = ok * show(t, b.b1.starts, s4);
       if (gA > 0.01) {
-        const [ax, ay] = O.toScreen(lev.card.position.x - lev.cw / 2, lev.cbase, 0.1), [bx, by] = O.toScreen(ris.card.position.x + ris.cw / 2, ris.cbase, 0.1), c = O.ctx;
-        c.save(); c.globalAlpha = gA; c.fillStyle = rgba(C.muted, 0.35); c.fillRect(ax, ay, bx - ax, by - ay); c.restore();
-        seg2(O, ax, ay, bx, ay, C.muted, gA, 3); seg2(O, ax, by, bx, by, C.muted, gA, 3);
+        const [ax, ay] = O.toScreen(lev.card.position.x + lev.cw / 2, lev.cbase, 0.1), [bx0, by] = O.toScreen(ris.card.position.x - ris.cw / 2, ris.cbase, 0.1), [bx] = O.toScreen(ris.card.position.x + ris.cw / 2, 0, 0.1), c = O.ctx;
+        c.save(); c.globalAlpha = gA; c.fillStyle = rgba(C.muted, 0.35); c.fillRect(bx0, ay, bx - bx0, by - ay); c.restore();
+        seg2(O, ax, ay, bx, ay, C.muted, gA * 0.7, 3, [10, 8]); seg2(O, bx0, ay, bx, ay, C.muted, gA, 3);
         label(O, '?', bx + 30, (ay + by) / 2 + 30, { kind: 'title', px: 84, alpha: gA, plate: null });
       }
       label(O, L['b1.model'], 960, 236, { align: 'center', kind: 'compare', px: 52, alpha: ok * show(t, b.b1.model, MV.m_pull.t1 - 0.3) });

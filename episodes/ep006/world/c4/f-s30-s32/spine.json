@@ -1665,9 +1665,9 @@
    "verb": "mode",
    "from": "wLadder",
    "to": "cLadder",
-   "t0": 5.05,
-   "t1": 6.25,
-   "reason": "lời S30.2 đặt số (42,4 %): số chỉ ở đồ thị (quy tắc 1); bậc 3 % đã sáng ở thế giới (\"three\"), đồ thị từ 5 s (quy tắc 7)",
+   "t0": 5.0,
+   "t1": 5.7,
+   "reason": "lời S30.2 đặt số (3 %, 42,4 %): số chỉ ở đồ thị (quy tắc 1); bậc 3 % đã sáng ở thế giới (\"three\"), đồ thị từ đúng 5 s (quy tắc 7), cú ngắn để \"3%\" hiện sớm nhất",
    "sound": "whoosh_mode"
   },
   {
@@ -1718,13 +1718,13 @@
    "dur": 1.2
   },
   {
-   "t": 5.05,
+   "t": 5.0,
    "kind": "whoosh_mode",
-   "dur": 1.2,
+   "dur": 0.7,
    "gain": 0.6
   },
   {
-   "t": 6.25,
+   "t": 5.7,
    "kind": "land",
    "mode": true
   },
@@ -1845,11 +1845,11 @@
   {
    "id": "s0",
    "t0": 0,
-   "t1": 5.05
+   "t1": 5.0
   },
   {
    "id": "s1",
-   "t0": 5.05,
+   "t0": 5.0,
    "t1": 30.078
   },
   {

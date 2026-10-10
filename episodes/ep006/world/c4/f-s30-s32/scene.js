@@ -2,6 +2,7 @@
 // nhau, hai séc "?") · thẻ phương pháp V7 (5 s) · về khung mở đầu: Ruth, séc, 9/10 thùng → đồ thị "about 9 in 10". Mốc giờ chỉ từ spine.json.
 import * as THREE from 'three';
 import { Crates, Check } from '/toolkit/factory/world/lib3d.js';
+import { checkLook } from '/episodes/ep006/world/c4/checklook.js';
 import { setup, column, showColumn, hideColumn, setCheck, checkLabel, nameTag, rowBox, Ladder, modeLook, followLight, chrome, brace, label, seg2, dip, kf, show, pulse,
   CHAR, C, ease, lin, mix, rgba, setOpacity } from '/episodes/ep006/world/c4kit.js';
 
@@ -24,7 +25,7 @@ export async function boot(res) {
   const lvC = Check({ w: 0.5, base: 1.0, name: 'level-limits' }); lvC.position.set(AX2, 0, 0); scene.add(lvC);
   lvC.traverse((o) => { if (o.isMesh && o.material.color && o.material.color.getHexString() === 'f2f4f7') { o.material.color.set(C.muted); o.material.emissive.set(C.muted); o.material.emissiveIntensity = 0.12; } });
   const riC = Check({ w: 0.5, base: 0.75, name: 'rising-limits' }); riC.position.set(AX2 + 1.2, 0, 0); scene.add(riC);
-  const ruth = column(scene, { x: 0, name: 'ruth' });
+  const ruth = column(scene, { x: 0.8, name: 'ruth', cw: 0.86, cbase: 0.44 }); checkLook(ruth);   // P3c: séc như khung mở đầu (x 0,8: người trong mép trái sau khi séc ngang dời người) (đoạn a, checklook.js; viền séc đầu 3D thay viền nét đứt 2D)
   const grow = [[b.g1.forty, 1], [b.g2.half, 2], [b.g3.carls, 3]];
   // FIX-R1: mọi vật vẽ sau sàn trong suốt (vật đang hiện/mờ dần không bị sàn vẽ đè); mỗi khu chỉ hiện quanh lời của nó, hiện/mờ trong cú lia
   // (không còn hàng thùng / thanh / séc thò ở mép khung lúc chuyển 486, 500, 517 s, vật trắng ở mép phải thang 455–461 s)
@@ -32,7 +33,9 @@ export async function boot(res) {
   // S32 (nghĩa B32): khoản của Ruth là khoản TĂNG — "Twenty years ago" séc về khoản đầu (k = 0, 10 thùng), "Her answer: for fifteen years"
   // năm 1 → 15 (séc lớn dần, hàng gần đủ), năm 16 → 20 tới "eighty-five" (9 thùng), như khung mở đầu
   const P = S.ruth_path, W32 = MV.m_w32;
-  const yr32 = (t) => t < b.i1.t0 ? 20 : t < b.i2.t0 ? 20 * (1 - ease(t, b.i1.t0, b.i1.ruth + 0.3)) : t < b.i2.yes ? 15 * lin(t, b.i2.t0 + 0.1, b.i2.yes) : 15 + 5 * lin(t, b.i2.yes + 0.3, b.i2.eighty + 0.3);
+  // R2 (B32): séc BƯỚC từng nấc mỗi kỷ niệm (như B01), không trượt đều
+  const step = (u) => Math.floor(u) + ease(u - Math.floor(u), 0, 0.3);
+  const yr32 = (t) => t < b.i1.t0 ? 20 : t < b.i2.t0 ? 20 * (1 - ease(t, b.i1.t0, b.i1.ruth + 0.3)) : t < b.i2.yes ? step(15 * lin(t, b.i2.t0 + 0.1, b.i2.yes)) : 15 + step(5 * lin(t, b.i2.yes + 0.3, b.i2.eighty + 0.3));
 
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
@@ -40,7 +43,8 @@ export async function boot(res) {
     // thang: bậc 2 % hiện đủ khi vào đồ thị (kết quả hồi 2); ba bậc kia mọc đúng từ khoá
     const P31 = MV.m_pan31, P31b = MV.m_pan31b;
     const ladA = 1 - ease(t, P31.t0, P31.t0 + 0.6), rowA = ease(t, P31.t1 - 0.6, P31.t1) * (1 - ease(t, P31b.t0, P31b.t0 + 0.35));
-    const chkA = ease(t, P31b.t1 - 0.4, P31b.t1) * (1 - ease(t, S.card[0], S.card[0] + 0.4)), ruA = ease(t, W32.t0, W32.t0 + 0.6);
+    // R2 (khung chuyển máy): Ruth chỉ hiện khi máy gần dừng ở wRuth (trước: hiện từ đầu cú, cả cột ngoài khung ~0,9 s)
+    const chkA = ease(t, P31b.t1 - 0.4, P31b.t1) * (1 - ease(t, S.card[0], S.card[0] + 0.4)), ruA = ease(t, W32.t1 - 0.22, W32.t1 + 0.2);
     lad.set(0, S.rungs[0].share / 100 * ease(t, MV.m_c30.t0, MV.m_c30.t1), ladA);
     for (const [tt, i] of grow) lad.set(i, S.rungs[i].share / 100 * ease(t, tt - 0.6, tt + 0.1), ladA);   // FIX-R1: thanh tới đích ĐÚNG lúc lời đọc số
     for (let i = 0; i < 4; i++) { const r = lad.rungs[i]; const hi = i === 1 ? Math.max(pulse(t, b.g1.three, 1), show(t, b.g1.three, b.g2.three)) : i === 2 ? pulse(t, b.g2.three, 1) : i === 3 ? pulse(t, b.g3.every, 1) : 0;

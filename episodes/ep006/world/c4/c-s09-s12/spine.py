@@ -7,9 +7,9 @@ hàng thùng theo sức mua năm đó (cùng bộ đếm năm với đường v�
 B09 (S09): đường vẽ năm 0 → 15 từ "Ruth's" tới "fifteen" (hiện khi vào đồ thị); "anniversaries" = "at or above: 12 of the first 15"; "slipped" = ba chấm warn (năm 2, 5, 6) loé,
 "climbed" = chấm sau đó loé. B10 (S10, ĐỈNH): "August" = mốc năm 15 "Aug 2021, age 80: 100.3%"; "single" → "fell" = đoạn 15 → 16 rơi qua vạch
 (warn); "caught" → "since" = năm 16 → 20 vẫn dưới vạch. B11 (S11, SỐ NEO: lặng 0,75 s trước câu): "August" = "Aug 2022, age 81: 94.5%".
-B12 (S12): lùi máy + giãn trục y (đường séc đều cần chỗ); "level" = đường séc đều (ink-muted) vẽ năm 0 → 20; "five" = chấm năm 5 + vạch nét đứt ở
-mức cuối của séc tăng (90,4 %) "level check: about 9 in 10 by year 5"; "twenty" = điểm cuối của séc tăng trên cùng vạch "rising check: there after
-20 years"; S12.4 câu hỏi hồi 2: "?" lớn. MR1: cả bản trộn lặng từ MR1 − 0,65 s tới hết đoạn (= đầu S13), không sfx/âm dữ liệu."""
+B12 (S12): lùi máy + giãn trục y (đường séc đều cần chỗ); "level" = đường séc đều (ink-muted) vẽ năm 0 → 20; "five" = chấm sáng nơi đường séc đều cắt
+mức cuối của séc tăng (90,4 %, ≈ năm 5) "level check: about 9 in 10 by year 5"; "rising" = chấm cuối đường Ruth (năm 20) sáng + vạch ngang mảnh kéo
+ngược sang trái tới chỗ cắt (vòng sửa 2); "twenty" = hai đầu loé, "rising check: there after 20 years"; S12.4 câu hỏi hồi 2: "?" lớn. MR1: cả bản trộn lặng từ MR1 − 0,65 s tới hết đoạn (= đầu S13), không sfx/âm dữ liệu."""
 import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); W6 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W6)
@@ -67,4 +67,4 @@ K.finish(HERE, S, 'ep006 C4 · C = S09–S12 (Hồi 1: năm theo năm, cú rơi,
          {'d0.anniv': 'at or above: 12 of the first 15', 'd2.august': 'Aug 2021, age 80: 100.3%', 'd4.august': 'Aug 2022, age 81: 94.5%',
           'd6.five': 'level check: about 9 in 10 by year 5', 'd7.twenty': 'rising check: there after 20 years', 'axis0': 'Aug 2006', 'axis20': 'Aug 2026'},
          ['d0.ruths', 'd0.twelve', 'd0.anniv', 'd1.slipped', 'd1.climbed', 'd2.august', 'd3.fell', 'd3.since', 'd4.august', 'd5.level', 'd6.five', 'd7.twenty', 'd8.ruths'],
-         accents=[cue['d3']['fell']], anchors=['S11.1'], silences=SIL, rule7=True)
+         accents=[cue['d3']['fell']], anchors=['S11.1'], silences=SIL, rule7=True, inputs=['episodes/ep006/world/c4/checklook.js'])

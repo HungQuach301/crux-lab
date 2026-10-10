@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import { Ribbon } from '/toolkit/factory/world/lib3d.js';
 import { setup, column, showColumn, setCheck, checkLabel, nameTag, rowBox, modeLook, followLight, chrome, brace, label, seg2, dip, kf, show, pulse,
   CHAR, C, ease, lin, mix, rgba } from '/episodes/ep006/world/c4kit.js';
+import { checkLook } from '/episodes/ep006/world/c4/checklook.js';
 
 const SEG = '/episodes/ep006/world/c4/a-s01-s03/';
 const XL = 12, KX = 0.32, VY = (v) => -0.2 + v * 2.0;            // đồ thị V3 trong thế giới: năm k → x, sức mua (phần) → y; trục từ 0 (vòng sửa 1, B03:
@@ -11,14 +12,15 @@ const XL = 12, KX = 0.32, VY = (v) => -0.2 + v * 2.0;            // đồ thị 
 
 export async function boot(res) {
   const poses = {
-    wRuth0: { pos: [-4.2, 2.9, 9.8], tgt: [-0.5, 0.65, 0], fov: 28, chart: 0 },    // hẹp hơn (B01): séc lớn dần đọc được
-    wRuth: { pos: [-3.0, 2.2, 7.8], tgt: [-0.7, 0.5, 0], fov: 35, chart: 0 },
+    // vòng sửa 2: ba tư thế thế giới dời trái 0,7 — séc ngang lớn về phía Ruth, người dời trái theo (checklook.js); người + hàng thùng trong mép
+    wRuth0: { pos: [-4.9, 2.9, 9.8], tgt: [-1.2, 0.65, 0], fov: 28, chart: 0 },    // hẹp hơn (B01): séc lớn dần đọc được
+    wRuth: { pos: [-3.7, 2.2, 7.8], tgt: [-1.4, 0.5, 0], fov: 35, chart: 0 },
     cRuth: { pos: [-0.8, 0.95, 24], tgt: [-0.8, 0.95, 0], fov: 14, chart: 1 },
     cLine: { pos: [XL + 3.0, 1.25, 19.5], tgt: [XL + 3.0, 1.25, 0], fov: 14, chart: 1 },
-    wRuth2: { pos: [-2.6, 2.0, 8.6], tgt: [-0.6, 0.7, 0], fov: 35, chart: 0 },
+    wRuth2: { pos: [-3.3, 2.0, 8.6], tgt: [-1.3, 0.7, 0], fov: 35, chart: 0 },
   };
   const { S, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
-  const ruth = column(scene, { x: 0, name: 'ruth' });
+  const ruth = column(scene, { x: 0, name: 'ruth', cw: 0.86, cbase: 0.44 }); checkLook(ruth);   // vòng sửa 2 (B01 "refrigerator"): séc ngang, lớn đều, viền séc đầu
   const b = cue, P = S.ruth_path;
   // V3: vạch séc đầu (cố định, ink-muted) + đường của Ruth (ink; dưới vạch = warn)
   const base = new THREE.Mesh(new THREE.BoxGeometry(20 * KX + 0.4, 0.035, 0.04), new THREE.MeshStandardMaterial({ color: C.muted, emissive: new THREE.Color(C.muted), emissiveIntensity: 0.5, transparent: true }));
@@ -35,15 +37,15 @@ export async function boot(res) {
     const u = lin(t, S.line_draw[0], S.line_draw[1]) * 20, n = Math.floor(u);
     const pts = []; for (let k = 0; k <= n; k++) pts.push([XL + k * KX, VY(P[k]), P[k] < 1 ? C.warn : C.ink]);
     if (n < 20 && u > 0) pts.push([XL + u * KX, VY(mix(P[n], P[n + 1], u - n)), C.ink]);
-    const lA = t >= MV.m_pan.t0 && t < MV.m_w.t1 ? 1 : 0;
-    if (pts.length > 1) line.set(pts, 0.07); line.visible = lA > 0 && pts.length > 1; base.visible = zero.visible = lA > 0;
+    // vòng sửa 2 (khung chuyển máy): đồ thị V3 hiện khi cú lia gần dừng, tắt trong 0,3 s đầu cú về thế giới — không nửa ngoài khung khi máy chạy
+    const lA = ease(t, MV.m_pan.t1 - 0.35, MV.m_pan.t1) * (1 - ease(t, MV.m_w.t0, MV.m_w.t0 + 0.3));
+    if (pts.length > 1) line.set(pts, 0.07); line.visible = lA > 0.005 && pts.length > 1; base.visible = zero.visible = lA > 0.005;
+    line.material.opacity = base.material.opacity = zero.material.opacity = lA;
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
     nameTag(O, ruth, (1 - cw) * (t > MV.m_w.t0 && t < MV.m_w.t1 + 0.2 ? ease(t, MV.m_w.t1 - 0.1, MV.m_w.t1 + 0.2) : 1));   // không hiện tên khi máy còn lia qua (mép trái)
-    // B01: vạch nét đứt = cỡ séc đầu (cố định) — séc bước lên 20 lần vượt khỏi vạch, lớn dần thấy được
-    { const gA = show(t, b.a0.rises, b.a2.twentieth - 0.4), [gx0, gy] = O.toScreen(ruth.card.position.x - ruth.cw / 2 - 0.08, ruth.cbase, 0.05), [gx1] = O.toScreen(ruth.card.position.x + ruth.cw / 2 + 0.08, ruth.cbase, 0.05);
-      seg2(O, gx0, gy, gx1, gy, C.muted, gA * 0.9, 4, [8, 6]); }
+    // B01: cỡ séc đầu = viền ink-muted cố định trên thẻ (checklook.js) — séc lớn đều ra khỏi viền khi máy ĐỨNG (cú đẩy sau năm 20, spine)
     const R = rowBox(O, ruth, v), offS02 = MV.m_pan.t0 - 0.3;
     // S01.2: séc +2% a year; ngoặc 10 thùng + "?" (câu hỏi của bà)
     checkLabel(O, ruth, 'check: +2% a year', ok * show(t, b.a1.two, b.a2.twentieth - 0.4), { dx: 14 });

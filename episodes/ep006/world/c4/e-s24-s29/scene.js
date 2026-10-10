@@ -55,8 +55,9 @@ export async function boot(res) {
     const cA = ease(t, M.m_pan24.t0, b.b1.carl + 0.2), three = t >= M.m_w29.t0;
     const W7 = M.m_w27, pass = ease(t, W7.t0 + 0.15, W7.t0 + 0.45) * (1 - ease(t, W7.t1 - 0.35, W7.t1));
     const aR = three ? 1 : t < W7.t0 ? 1 - ease(t, M.m_pan24.t0 + 0.3, M.m_pan24.t1 + 0.2) : t < M.m_pan28.t0 ? pass : fin(M.m_pan28);
-    const aE = three ? fin(M.m_w29) : t < M.m_w27.t0 ? 0 : fin(M.m_w27) * fout(M.m_pan28);
-    const aC = three ? fin(M.m_w29) : t < W7.t1 ? cA * (1 - ease(t, W7.t0 + 0.4, W7.t1)) : ease(t, b.d3.carl - 0.05, b.d3.carl + 0.8) * fout(M.m_pan28);
+    // R2 (khung chuyển máy): cú về thế giới S27 — Carl mờ hết trước khi trượt quá nửa ra ngoài khung (+0,6 s), Edna chỉ hiện khi đã vào khung (từ +0,5 s)
+    const aE = three ? fin(M.m_w29) : t < M.m_w27.t0 ? 0 : ease(t, W7.t0 + 0.5, W7.t1) * fout(M.m_pan28);
+    const aC = three ? fin(M.m_w29) : t < W7.t1 ? cA * (1 - ease(t, W7.t0 + 0.15, W7.t0 + 0.6)) : ease(t, b.d3.carl - 0.05, b.d3.carl + 0.8) * fout(M.m_pan28);
     for (const [id, c] of Object.entries(cols)) {
       const a = id === 'ruth' ? aR : id === 'carl' ? aC : aE;
       // đặt lại hiện/ẩn mỗi khung: setOpacity ẩn cả lưới con khi a ≈ 0 mà không ai bật lại khi a về 1 — khung phụ thuộc thứ tự render
@@ -132,7 +133,12 @@ export async function boot(res) {
         c.save(); c.globalAlpha = sA;
         v20.forEach((v, i) => { const s60 = starts[i] >= '1960' && starts[i] < '1970'; c.fillStyle = i === iC ? CHAR.carl : s60 ? C.warn : rgba(C.muted, 0.28); c.fillRect(x0 + i * pw, base - v * hS, Math.max(1, pw - 0.5), v * hS); });
         c.restore(); seg2(O, x0, base - 100 * hS, x1, base - 100 * hS, C.muted, sA, 2);
-        label(O, L['c3.forty'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.c3.forty - 1.0, M.m_w27.t0) });   // FIX-R1: sát lời "forty-four" (trước: sớm 2,4 s); 1 s trước để 5 từ đủ 2 s trước cú về thế giới
+        // R2: số hiện ĐÚNG "forty-four" (trước: sớm 0,7 s); phần chữ hiện ở "1960s" — hai mảnh cạnh nhau, mỗi mảnh ≥ 1 s / 3 từ trước cú về thế giới
+        const txt = L['c3.forty'], cut = txt.lastIndexOf(' '), pre = txt.slice(0, cut), num = txt.slice(cut + 1);
+        c.save(); c.font = '700 52px Inter'; const wP = c.measureText(pre).width, wN = c.measureText(num).width; c.restore();
+        const xP = 960 - (wP + 44 + wN) / 2;
+        label(O, pre, xP, 236, { align: 'left', kind: 'number', px: 52, alpha: ok * show(t, b.c3.sixties, M.m_w27.t0) });
+        label(O, num, xP + wP + 44, 236, { align: 'left', kind: 'number', px: 52, alpha: ok * show(t, b.c3.forty, M.m_w27.t0) });
         log.roi['c3.sixties'] = [x0, base - 140, x1, base];
       }
     }
