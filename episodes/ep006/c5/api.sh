@@ -12,6 +12,7 @@ case $mode in
   review) tools="Read,Grep,Glob,Bash(git *),Bash(python3 *)";;
   *) echo "mode build|review"; exit 2;;
 esac
+[ -z "${EXTRA_TOOLS:-}" ] || tools="$tools,$EXTRA_TOOLS"   # P3c C5b: vd. Bash(KEEP=1 PYONLY=1 bash episodes/ep006/c5/checks_split.sh *)
 cd "$(dirname "$0")/../../.."
 ANTHROPIC_API_KEY="$CONSOLE_API_KEY" claude -p --model "$model" --output-format stream-json --verbose \
   --allowedTools "$tools" --permission-mode dontAsk < "$brief" > "$log" 2> "${log%.jsonl}.err" || true
