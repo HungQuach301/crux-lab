@@ -1,65 +1,70 @@
 {
  "texts": [
   {
-   "text": "17 of 715",
+   "text": "Bigger check.",
    "box": [
-    44,
-    84,
-    495.9,
+    40,
+    444,
+    809.4,
     145
    ],
    "fontPx": 120,
    "claims": [
-    "windows_2pct_kept_up_20y",
-    "windows_20y"
+    "raise_2pct",
+    "two_pct_growth_20y_pct"
    ]
   },
   {
-   "text": "kept up",
+   "text": "Buys less?",
    "box": [
-    48,
-    227,
-    349.4,
-    116
+    40,
+    566,
+    627.5,
+    145
    ],
-   "fontPx": 96,
+   "fontPx": 120,
    "claims": [
-    "windows_2pct_kept_up_20y"
-   ]
-  },
-  {
-   "text": "2% a year",
-   "box": [
-    48,
-    353,
-    438.9,
-    109
-   ],
-   "fontPx": 90,
-   "claims": [
-    "raise_2pct"
+    "guide_real_2pct_end_pct",
+    "crates_ruth"
    ]
   },
   {
    "text": "US only · history, not a forecast",
    "box": [
-    630.8,
-    661,
+    40,
+    15,
     609.2,
     49
    ],
    "fontPx": 40,
    "claims": []
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    948.5,
+    15,
+    283,
+    49
+   ],
+   "fontPx": 40,
+   "claims": [
+    "guide_start",
+    "guide_real_2pct_end_pct",
+    "crates_ruth",
+    "crates_full",
+    "main_years_raises"
+   ]
   }
  ],
  "graphics": {
   "claims": [
-   "windows_20y",
-   "windows_2pct_kept_up_20y",
-   "first_start_month",
-   "latest_start",
-   "main_years"
+   "guide_start",
+   "guide_real_2pct_end_pct",
+   "crates_ruth",
+   "crates_full",
+   "main_years_raises"
   ],
-  "what": "715 bars, one per 20-year stretch starting Jan 1947–Aug 2006, height = buying power of the 2%-a-year check after 20 raises vs its own first check (CPI-U); white line = 100% (its first check); the 17 bars at or above it in green, the rest dark. No axis numbers."
+  "what": "world frame, segment b (b-s04-s08) at 70.2s (end of S07.1 \"her check grew … buys less\"), rendered 1920×1080 and cropped: ILLUSTRATIVE Ruth (no face), her rising check after 20 raises, her row of 10 crates with the last one dark (buys about 9). No numbers in the frame; scene chrome cropped/covered and redrawn as the badge and footer."
  }
 }

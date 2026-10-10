@@ -1,62 +1,69 @@
 {
  "texts": [
   {
-   "text": "80.7%",
+   "text": "+48.6%",
+   "box": [
+    36,
+    431,
+    672.3,
+    206
+   ],
+   "fontPx": 170,
+   "claims": [
+    "two_pct_growth_20y_pct"
+   ]
+  },
+  {
+   "text": "on paper",
    "box": [
     44,
-    65,
-    480.3,
-    181
+    597,
+    415.4,
+    116
    ],
-   "fontPx": 150,
+   "fontPx": 96,
    "claims": [
-    "median_real_value_2pct_payment_after_20y_pct"
-   ]
-  },
-  {
-   "text": "after 20 raises",
-   "box": [
-    48,
-    243,
-    633.3,
-    109
-   ],
-   "fontPx": 90,
-   "claims": [
-    "main_years_raises"
-   ]
-  },
-  {
-   "text": "typically",
-   "box": [
-    48,
-    363,
-    380.2,
-    109
-   ],
-   "fontPx": 90,
-   "claims": [
-    "median_real_value_2pct_payment_after_20y_pct"
+    "two_pct_growth_20y_pct"
    ]
   },
   {
    "text": "US only · history, not a forecast",
    "box": [
-    630.8,
-    661,
+    40,
+    15,
     609.2,
     49
    ],
    "fontPx": 40,
    "claims": []
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    948.5,
+    15,
+    283,
+    49
+   ],
+   "fontPx": 40,
+   "claims": [
+    "guide_start",
+    "guide_real_2pct_end_pct",
+    "crates_ruth",
+    "crates_full",
+    "main_years_raises"
+   ]
   }
  ],
  "graphics": {
   "claims": [
-   "median_real_value_2pct_payment_after_20y_pct",
+   "guide_start",
+   "guide_real_2pct_end_pct",
+   "crates_ruth",
+   "crates_full",
    "main_years_raises",
-   "raise_2pct"
+   "two_pct_growth_20y_pct"
   ],
-  "what": "two bars on one scale: grey = the first check's buying power (100%), amber = the typical (median) 2%-a-year check after 20 raises (80.7%). No axis numbers."
+  "what": "world frame, segment b (b-s04-s08) at 70.2s (end of S07.1 \"her check grew … buys less\"), rendered 1920×1080 and cropped: ILLUSTRATIVE Ruth (no face), her rising check after 20 raises, her row of 10 crates with the last one dark (buys about 9). No numbers in the frame; scene chrome cropped/covered and redrawn as the badge and footer."
  }
 }
