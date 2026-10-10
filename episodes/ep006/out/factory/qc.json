@@ -80,7 +80,7 @@
   {
    "item": "freezedetect d=3 ∩ lời",
    "result": "TRƯỢT",
-   "value": 205.73,
+   "value": 206.03,
    "threshold": "0 s",
    "note": "51 đoạn đứng yên ≥ 3 s cả phim: [[22.3333, 26.9], [41.9333, 46.4667], [51.2333, 54.2333]]"
   },
@@ -101,7 +101,7 @@
   {
    "item": "kích thước phần",
    "result": "ĐẠT",
-   "value": 46.69,
+   "value": 46.58,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
   },
@@ -128,10 +128,10 @@
   },
   {
    "item": "SH1 vùng an toàn",
-   "result": "TRƯỢT",
-   "value": 186,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0 hộp chữ ra ngoài (> 1 px)",
-   "note": "[{\"t\": 0.0, \"s\": \"A raise every year, and still less\", \"out_px\": 56.9}, {\"t\": 0.2, \"s\": \"A raise every year, and still less\", \"out_px\": 56.9}, {\"t\": 0.4, \"s\": \"A raise every year, and still less\", \"out_px\": 56.9}]"
+   "note": ""
   },
   {
    "item": "SH1 va chạm nhãn",
@@ -296,10 +296,10 @@
   },
   {
    "item": "SH3 vùng an toàn",
-   "result": "TRƯỢT",
-   "value": 98,
+   "result": "ĐẠT",
+   "value": 0,
    "threshold": "0 hộp chữ ra ngoài (> 1 px)",
-   "note": "[{\"t\": 0.0, \"s\": \"Same raise, three starting months\", \"out_px\": 56.9}, {\"t\": 0.2, \"s\": \"Same raise, three starting months\", \"out_px\": 56.9}, {\"t\": 0.4, \"s\": \"Same raise, three starting months\", \"out_px\": 56.9}]"
+   "note": ""
   },
   {
    "item": "SH3 va chạm nhãn",
