@@ -87,6 +87,6 @@ world:    # D-010: sáu đoạn thế giới phủ cả tập (ranh giới: iden
   - {id: e-s24-s29, dir: world/c4/e-s24-s29, scenes: [S24, S25, S26, S27, S28, S29]}
   - {id: f-s30-s32, dir: world/c4/f-s30-s32, scenes: [S30, S31, S32]}
 shorts:   # nháp C4 (beats.md "Shorts candidates"): dựng lại 1080×1920 từ đoạn thế giới (F-9); móc một dòng, không chữ số
-  - {id: SH1, from: "@S06.1", to: "@S07.2$", hook: "A raise every year, and still less", end: "Full episode on the channel"}   # B06–B07: séc lớn lên, thùng tối dần (đoạn b)
+  - {id: SH1, from: "@S06.1", to: "@S07.2$", hook: "A raise every year, still less", end: "Full episode on the channel"}   # B06–B07: séc lớn lên, thùng tối dần (đoạn b)
   - {id: SH2, from: "@S14.1", to: "@S15.2$", hook: "How often did it keep up?", end: "Full episode on the channel"}            # B14–B15: lưới, cụm 1947–1949 (đoạn d)
-  - {id: SH3, from: "@S29.1", to: "@S29.3$", hook: "Same raise, three starting months", end: "Full episode on the channel"}    # B29: ba hàng thùng (đoạn e)
+  - {id: SH3, from: "@S29.1", to: "@S29.3$", hook: "One raise, three start months", end: "Full episode on the channel"}    # B29: ba hàng thùng (đoạn e)
