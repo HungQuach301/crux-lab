@@ -41,7 +41,8 @@ export async function boot(res) {
     const P31 = MV.m_pan31, P31b = MV.m_pan31b;
     const ladA = 1 - ease(t, P31.t0, P31.t0 + 0.6), rowA = ease(t, P31.t1 - 0.6, P31.t1) * (1 - ease(t, P31b.t0, P31b.t0 + 0.35));
     // R2 (khung chuyển máy): Ruth chỉ hiện khi máy gần dừng ở wRuth (trước: hiện từ đầu cú, cả cột ngoài khung ~0,9 s)
-    const chkA = ease(t, P31b.t1 - 0.4, P31b.t1) * (1 - ease(t, S.card[0], S.card[0] + 0.4)), ruA = ease(t, W32.t1 - 0.22, W32.t1 + 0.2);
+    // C5b (V11): hai séc tắt hẳn TRƯỚC khi thẻ phương pháp hiện — chữ thẻ không chồng séc 3D lúc thẻ còn mờ
+    const chkA = ease(t, P31b.t1 - 0.4, P31b.t1) * (1 - ease(t, S.card[0] - 0.4, S.card[0])), ruA = ease(t, W32.t1 - 0.22, W32.t1 + 0.2);
     lad.set(0, S.rungs[0].share / 100 * ease(t, MV.m_c30.t0, MV.m_c30.t1), ladA);
     for (const [tt, i] of grow) lad.set(i, S.rungs[i].share / 100 * ease(t, tt - 0.6, tt + 0.1), ladA);   // FIX-R1: thanh tới đích ĐÚNG lúc lời đọc số
     for (let i = 0; i < 4; i++) { const r = lad.rungs[i]; const hi = i === 1 ? Math.max(pulse(t, b.g1.three, 1), show(t, b.g1.three, b.g2.three)) : i === 2 ? pulse(t, b.g2.three, 1) : i === 3 ? pulse(t, b.g3.every, 1) : 0;
@@ -115,7 +116,8 @@ export async function boot(res) {
       log.roi['i2.nine'] = [R.x0 - 10, R.yb, R.x1 + 10, R.yb + 110]; log.roi['i2.ten'] = [R.x0 - 10, R.yb + 110, R.x1 + 10, R.yb + 220];
       log.roi['i2.eighty'] = [100, 170, 900, 260];
     }
-    const illus = Math.max(show(t, b.g3.carls, MV.m_pan31.t0), show(t, MV.m_w32.t0));
+    // C5b (S08): huy hiệu từ "every" (khi nhãn bậc "6.38%" hiện), sớm 0,1 s — không còn khung số mà thiếu huy hiệu
+    const illus = Math.max(show(t, b.g3.every - 0.1, MV.m_pan31.t0), show(t, MV.m_w32.t0));
     const cwA = show(t, b.g4.choose - 0.8, MV.m_pan31.t1 + 0.3);   // FIX-R1: đối trọng 8 từ ≥ 3 s
     chrome(O, illus, cwA > 0.01 ? L['g4.choose'] : null, cwA);
     st.compose(); log.camMoving = CAM.moving(t); return log;

@@ -1,0 +1,62 @@
+{
+ "texts": [
+  {
+   "text": "80.7%",
+   "box": [
+    44,
+    65,
+    480.3,
+    181
+   ],
+   "fontPx": 150,
+   "claims": [
+    "median_real_value_2pct_payment_after_20y_pct"
+   ]
+  },
+  {
+   "text": "after 20 raises",
+   "box": [
+    48,
+    243,
+    633.3,
+    109
+   ],
+   "fontPx": 90,
+   "claims": [
+    "main_years_raises"
+   ]
+  },
+  {
+   "text": "typically",
+   "box": [
+    48,
+    363,
+    380.2,
+    109
+   ],
+   "fontPx": 90,
+   "claims": [
+    "median_real_value_2pct_payment_after_20y_pct"
+   ]
+  },
+  {
+   "text": "US only · history, not a forecast",
+   "box": [
+    630.8,
+    661,
+    609.2,
+    49
+   ],
+   "fontPx": 40,
+   "claims": []
+  }
+ ],
+ "graphics": {
+  "claims": [
+   "median_real_value_2pct_payment_after_20y_pct",
+   "main_years_raises",
+   "raise_2pct"
+  ],
+  "what": "two bars on one scale: grey = the first check's buying power (100%), amber = the typical (median) 2%-a-year check after 20 raises (80.7%). No axis numbers."
+ }
+}

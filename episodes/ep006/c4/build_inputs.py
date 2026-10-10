@@ -106,9 +106,20 @@ def CONST(raw, P):
         ('carl_end_year', raw['worst_window_start_year_20y'] + 20, '1986', 'worst_window_start_year_20y + 20 years', 'model'),
         ('carl_start_year', raw['worst_window_start_year_20y'], '1966', 'worst_window_start_year_20y', 'model'),
         ('edna_start_year', int(raw['kept_up_last_start_20y'][:4]), '1949', 'year of kept_up_last_start_20y', 'model'),
+        # C5b (S07): "the gentler 2000s and 2010s" (S19.1): the 2000s start group (starts 2000-01..2006-08) runs its 20 years through 2010–2019
+        ('decade_2010', 2010, '2010s', "years 2010-01..2019-12 inside the 20-year windows of the 2000s start group (by_decade['2000']: ends 2020-01..2026-08)", 'model'),
     ]
     rows += [(f'axis_year_{k}', k, f'year {k}', f'anniversary counter (year {k} of 20)', 'axis') for k in range(1, 21)]
     return rows
+
+
+# C5b (S07): câu nói một hằng số / claim CONST (lời không đổi; chú thích claims của script.md chỉ liệt kê claim mô hình)
+EXTRA_SPOKEN = {'raise_2pct': ['S01.2', 'S05.3', 'S12.4', 'S13.3', 'S27.1', 'S28.2', 'S32.2'], 'raise_3pct': ['S30.2'],
+                'main_years': ['S02.2', 'S06.1', 'S06.2', 'S12.3', 'S13.1', 'S16.2', 'S25.1', 'S30.2'], 'long_years': ['S21.1'],
+                'first_start_year': ['S02.2', 'S13.1'], 'guide_age_start': ['S01.2', 'S04.1'], 'guide_age_2021': ['S10.1'],
+                'guide_month_2021': ['S10.1'], 'guide_month_2022': ['S11.1'], 'guide_age_end': ['S28.1', 'S32.3'], 'share_kept_1_in': ['S14.2'],
+                'crates_first': ['S16.3', 'S24.4'], 'crates_all': ['S27.5'], 'crates_carl': ['S29.2'], 'decade_2000': ['S19.1'],
+                'decade_2010': ['S19.1'], 'decade_1960': ['S26.1']}
 
 
 def model_value(raw, P, key):
@@ -133,7 +144,10 @@ def claims():
     M = json.load(open(os.path.join(EP, 'out', 'model.json')))
     raw, P = M['raw'], M['params'] if 'params' in M else C['model']['params']
     ill = set(C['claims'].get('illustrative', []))
-    cond = {c: x['id'] for x in C['claims'].get('conditions', []) for c in x.get('claims', [])}
+    cond = {}   # C5b (S17): một claim mang MỘT cờ (checks: conditional = id); điều kiện khai trước thắng (trước đây khai sau ghi đè)
+    for x in C['claims'].get('conditions', []):
+        for c in x.get('claims', []):
+            cond.setdefault(c, x['id'])
     core, decisive = set(C['claims'].get('core', [])), set(C['claims'].get('decisive', []))
     disp = numbers_display()
     spoken = {}
@@ -169,6 +183,10 @@ def claims():
             if cid in cond:
                 x['conditional'] = cond[cid]
         out.append(x)
+    by = {c['claimId']: c for c in out}
+    for cid, sids in EXTRA_SPOKEN.items():
+        have_s = {q['sentence'] for q in by[cid]['spoken']}
+        by[cid]['spoken'] += [{'scene': sid.split('.')[0], 'sentence': sid} for sid in sids if sid not in have_s]
     ids = [c['claimId'] for c in out]
     assert len(ids) == len(set(ids)), 'claimId trùng'
     return {'claims': out}

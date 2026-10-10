@@ -1,0 +1,78 @@
+{
+ "texts": [
+  {
+   "text": "Same 2% raise",
+   "box": [
+    44,
+    77,
+    697.3,
+    116
+   ],
+   "fontPx": 96,
+   "claims": [
+    "raise_2pct"
+   ]
+  },
+  {
+   "text": "Ruth: 90.4%",
+   "box": [
+    44,
+    197,
+    591.5,
+    116
+   ],
+   "fontPx": 96,
+   "claims": [
+    "guide_real_2pct_end_pct"
+   ]
+  },
+  {
+   "text": "Carl: 43.1%",
+   "box": [
+    44,
+    317,
+    535.3,
+    116
+   ],
+   "fontPx": 96,
+   "claims": [
+    "worst_real_value_2pct_payment_after_20y_pct"
+   ]
+  },
+  {
+   "text": "US only · history, not a forecast",
+   "box": [
+    630.8,
+    661,
+    609.2,
+    49
+   ],
+   "fontPx": 40,
+   "claims": []
+  },
+  {
+   "text": "ILLUSTRATIVE",
+   "box": [
+    56.5,
+    547,
+    283,
+    49
+   ],
+   "fontPx": 40,
+   "claims": [
+    "kept_up_last_start_20y",
+    "guide_real_2pct_end_pct",
+    "worst_real_value_2pct_payment_after_20y_pct"
+   ]
+  }
+ ],
+ "graphics": {
+  "claims": [
+   "kept_up_last_start_20y",
+   "guide_real_2pct_end_pct",
+   "worst_real_value_2pct_payment_after_20y_pct",
+   "main_years_raises"
+  ],
+  "what": "three bars, same scale, buying power of the 2%-a-year check after 20 raises vs its own first check for the three ILLUSTRATIVE retirees, in their colours: Edna (start Jan 1949, kept up), Ruth (start Aug 2006, 90.4%), Carl (start Jan 1966, 43.1%). No axis numbers. ILLUSTRATIVE badge."
+ }
+}

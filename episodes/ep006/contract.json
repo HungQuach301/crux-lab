@@ -31,7 +31,7 @@
     "Edna"
    ]
   },
-  "note": "C4 (builder, from the world code rendered: episodes/ep006/world/c4kit.js CHAR + column()): each character is a faceless Person (lib3d W4) in its own colour standing left of its own Check (W10b) and crate row (W10 Crates); name labels use the same colour. Left→right Edna, Ruth, Carl wherever the three stand together (S29, S32 recap); alone, each stands at the centre of the frame. Colours = the luminance-separated, colour-blind-safe set validated in Tập 5 C5b (checks V09): lavender #BFAAFD, pink #DE638C, mint #9EFFE7 — none is a data colour (accent = prices, warn = fell short, cushion = kept up). Ruth = guide (first check Aug 2006 at 65 = latest window); Carl = worst window (Jan 1966); Edna = last kept-up start (Jan 1949). ILLUSTRATIVE on every frame where one of them is drawn. The page declares the Person meshes (userData.checks {char, shape:\"person\", fill})."
+  "note": "C4 (builder, from the world code rendered: episodes/ep006/world/c4kit.js CHAR + column()): each character is a faceless Person (lib3d W4) in its own colour standing left of its own Check (W10b) and crate row (W10 Crates); name labels use the same colour. Left\u2192right Edna, Ruth, Carl wherever the three stand together (S29, S32 recap); alone, each stands at the centre of the frame. Colours = the luminance-separated, colour-blind-safe set validated in T\u1eadp 5 C5b (checks V09): lavender #BFAAFD, pink #DE638C, mint #9EFFE7 \u2014 none is a data colour (accent = prices, warn = fell short, cushion = kept up). Ruth = guide (first check Aug 2006 at 65 = latest window); Carl = worst window (Jan 1966); Edna = last kept-up start (Jan 1949). ILLUSTRATIVE on every frame where one of them is drawn. The page declares the Person meshes (userData.checks {char, shape:\"person\", fill})."
  },
  "claims": {
   "assumptions": [
@@ -57,7 +57,7 @@
     "window": "both"
    }
   ],
-  "_about": "K-brief Tập 6 rule (3). core/decisive/illustrative/conditions filled by the builder at C4.",
+  "_about": "K-brief T\u1eadp 6 rule (3). core/decisive/illustrative/conditions filled by the builder at C4.",
   "illustrative": [
    "guide_start",
    "guide_last_year_2pct_at_or_above_100",
@@ -134,12 +134,13 @@
      "cpiu_from_pce_start_kept_up_20y",
      "robust_pce_median_real_2pct_pct"
     ],
-    "_about": "C4 (builder): every claim measured on past prices carries this condition; on screen the fixed chrome line \"US only · history, not a forecast\" (core.js chrome hist) is on every frame of every world segment."
+    "_about": "C4 (builder): every claim measured on past prices carries this condition; on screen the fixed chrome line \"US only \u00b7 history, not a forecast\" (core.js chrome hist) is on every frame of every world segment."
    },
    {
     "id": "us-consumer-prices",
     "pattern": "US consumer prices|CPI-U",
-    "claims": [
+    "_about": "C4 (builder, K-brief rule 2): every buying-power claim is measured against the national CPI-U basket, not a retiree's own; on screen the fixed chrome source line \"US consumer prices (CPI-U)\" is on every frame. C5b (checks S17): every claim listed here is also listed under history-not-forecast, and out/claims.json carries ONE flag per claim (conditional: \"<id>\"), so these 31 claims are flagged history-not-forecast and kept here as alsoClaims (declared, not flagged); the CPI-U source line stays on every frame next to the history line.",
+    "alsoClaims": [
      "windows_2pct_kept_up_20y",
      "share_2pct_kept_up_20y_pct",
      "kept_up_first_start_20y",
@@ -171,8 +172,7 @@
      "robust_pce_share_kept_up_20y_pct",
      "cpiu_from_pce_start_kept_up_20y",
      "robust_pce_median_real_2pct_pct"
-    ],
-    "_about": "C4 (builder, K-brief rule 2): every buying-power claim is measured against the national CPI-U basket, not a retiree's own; on screen the fixed chrome source line \"US consumer prices (CPI-U)\" is on every frame."
+    ]
    }
   ]
  },
@@ -998,7 +998,106 @@
     "2006-07",
     "2006-08"
    ],
-   "_about": "C4: the replay grid of act 2 (segment d-s13-s23, S13–S15) draws one bar per 20-year window, each declared on the checks page with case = its start month (YYYY-MM); 715 values, 1947-01 → 2006-08 without 2005-10 (blank index month 2025-10)."
+   "_about": "C4: the replay grid of act 2 (segment d-s13-s23, S13\u2013S15) draws one bar per 20-year window, each declared on the checks page with case = its start month (YYYY-MM); 715 values, 1947-01 \u2192 2006-08 without 2005-10 (blank index month 2025-10)."
   }
- ]
+ ],
+ "data": {
+  "sources": "data/sources.json",
+  "hosts": {
+   "primary": [
+    "fred.stlouisfed.org"
+   ],
+   "crosscheck": [
+    "fred.stlouisfed.org"
+   ]
+  },
+  "crosscheck": [
+   {
+    "series": "cpi_yoy",
+    "primary": {
+     "file": "data/normalized/cpiaucns_yoy.csv",
+     "key": "month",
+     "column": "pct"
+    },
+    "crosscheck": {
+     "file": "data/normalized/cpiaucsl_yoy.csv",
+     "key": "month",
+     "column": "pct"
+    },
+    "tolerance": 0.5,
+    "used": "crosscheck",
+    "_about": "CPI-U NSA (CPIAUCNS, the model index) vs CPI-U SA (CPIAUCSL), 12-month % change, 1948-01..2026-08 (data/fetch.py normalize()); 943/943 months within 0.5 pp (max gap 0.468 pp, mean 0.075 pp; data/sources.json crosscheckSummary); 2025-10 blank in both (no BLS release). Same BLS index with and without seasonal adjustment: checks the copy and the 12-month arithmetic, not an independent price measure (the robustness runs on CPI-W and PCE are in model.params.robust)."
+   }
+  ],
+  "fetch": "python3 episodes/ep006/data/fetch.py --verify (FRED files are not committed; SHA-256 in data/sources.json)"
+ },
+ "sonification": {
+  "stem": "sonify",
+  "bandsHz": [
+   [
+    100,
+    1400
+   ],
+   [
+    4500,
+    7000
+   ]
+  ],
+  "_about": "C5b: from the data-sound events actually used (toolkit/factory/world/audio.py data_layer, spine events kind \"data\"): a pitched pulse per data point, MIDI qpenta(45 + 19\u00b7v) = 110\u2013330 Hz fundamental with its overtones, +24 semitones (\u2264 1.3 kHz) on \"over\" points; a soft tick band-passed 4.5\u20137 kHz (s2_tick). Measured on out/audio/stems/sonify.flac of the C5 build (Welch): 99.9 % of the stem energy in these two bands (5\u201395 % quantiles 176\u2013387 Hz); 4th-order Butterworth per band, summed: 99.8 %."
+ },
+ "shorts": [
+  {
+   "file": "out/shorts/SH1.mp4"
+  },
+  {
+   "file": "out/shorts/SH2.mp4"
+  },
+  {
+   "file": "out/shorts/SH3.mp4"
+  }
+ ],
+ "artefacts": {
+  "M3": [
+   "out/video.mp4",
+   "out/captions.srt",
+   "out/package/description.md",
+   "out/timeline.json",
+   "out/script.json",
+   "out/claims.json",
+   "out/audio/stems/voice.*",
+   "out/audio/stems/music.*",
+   "out/audio/stems/sfx.*",
+   "out/audio/stems/whoosh.*",
+   "out/audio/stems/room.*",
+   "out/audio/stems/sonify.*",
+   "out/voice/takes.json",
+   "out/camera.json",
+   "out/sfx-events.json",
+   "out/sonify-events.json",
+   "out/tempo-map.json",
+   "out/transitions.json",
+   "out/cues.json",
+   "out/tension-map.json",
+   "out/adbreaks.json",
+   "preprod/shotlist.json",
+   "design/tokens.json",
+   "out/package/thumb-1.png",
+   "out/package/thumb-2.png",
+   "out/package/thumb-3.png",
+   "out/page.json",
+   "out/model.json",
+   "data/sources.json",
+   "out/rights.json",
+   "out/visual-assets.json"
+  ],
+  "_about": "Factory build (checks F11 K4.1): the release list is the factory's (core + stems + artefacts + six world segments with build/verify/log); this list is reported only. out/tension-map.png is not made by the factory (checks R01, reference tier)."
+ },
+ "pending": {
+  "_about": "Fields still open after C5b (builder). Filled at C5b: data (sources, hosts, crosscheck), sonification.bandsHz, shorts, artefacts, one condition flag per claim (S17).",
+  "shorts": "out/shorts/SH1..3.mp4 are rebuilt from the world segments by the factory (episode.yaml shorts) and copied there by the main session; not committed (.gitignore).",
+  "claims.conditions": "C5b: 31 claims carry history-not-forecast; us-consumer-prices keeps them as alsoClaims (see its _about). The page sampler S17 must be re-run on the C5b tree.",
+  "artefactsNotBuilt": [
+   "out/tension-map.png"
+  ]
+ }
 }

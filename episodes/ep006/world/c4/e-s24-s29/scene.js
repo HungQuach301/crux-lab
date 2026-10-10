@@ -192,14 +192,16 @@ export async function boot(res) {
     // ===== S29 (wThree → cThree): port C3 s29-three
     if (three) {
       const mA = ok * show(t, M.m_c29.t1), hA = show(t, b.f2.month), hp = pulse(t, b.f2.month, 1.2);
-      label(O, L['f1.crates'], 960, 236, { align: 'center', kind: 'compare', px: 52, alpha: ok * show(t, b.f1.crates) });
+      // C5b (C05): từ "month" ba tháng bắt đầu là chữ SÁNG NHẤT (ink, phóng) — tiêu đề và số thùng lùi về muted; tên giữ màu nhân vật
+      const dim = hA > 0.5 ? C.muted : C.ink;
+      label(O, L['f1.crates'], 960, 236, { align: 'center', kind: 'compare', px: 52, color: dim, alpha: ok * show(t, b.f1.crates) });
       const sd = { edna: CL.kept_up_last_start_20y.display, ruth: CL.guide_start.display, carl: CL.worst_window_start_year_20y.display };
       const vals = { edna: [L['f1.full'], 'full'], ruth: [L['f1.nine'], 'nine'], carl: [L['f1.four'], 'four'] };
       for (const id of ['edna', 'ruth', 'carl']) {
         const c = cols[id], [xl] = O.toScreen(c.row.edgeX(0), 0, 0.4);
         label(O, `${NAME[id]} · ILLUSTRATIVE`, xl, 550, { kind: 'name', px: 48, w: 600, color: CHAR[id], alpha: mA });
-        label(O, sd[id], xl, 610, { kind: 'number', px: 48 + 8 * hp, w: 600, color: hA > 0.5 ? CHAR[id] : C.muted, alpha: mA, emph: hA > 0.5 });
-        label(O, vals[id][0], xl, 462, { kind: 'number', px: 72, alpha: ok * show(t, b.f1[vals[id][1]]) });
+        label(O, sd[id], xl, 610, { kind: 'number', px: 48 + 8 * hp, w: 600, color: hA > 0.5 ? C.ink : C.muted, alpha: mA, emph: hA > 0.5 });
+        label(O, vals[id][0], xl, 462, { kind: 'number', px: 72, color: dim, alpha: ok * show(t, b.f1[vals[id][1]]) });
         const r = rowBox(O, c); log.roi[`f1.${vals[id][1]}`] = [r.x0 - 10, 390, r.x1 + 10, r.yb + 10];
         log.roi['f0.' + id] = [r.x0 - 10, r.yt - 20, r.x1 + 10, r.yb + 10];
       }

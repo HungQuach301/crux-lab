@@ -86,17 +86,20 @@ export async function boot(res) {
     { const [x, y0] = top(iR, v20[iR]), y = Math.min(y0, ly); label(O, L['e1.ruths'], x, y - 40, { align: 'right', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: ok * show(t, b.e1.ruths, s13) * (1 - f19) });
       log.roi['e1.ruths'] = [x - 40, y - 100, x + 40, fy]; }
     const s15 = t > MV.m_push15.t0 ? 1 - ease(t, b.e8.typical, b.e8.typical + 0.3) : 0;
-    label(O, 'first check', fx0, ly - 26, { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * wide * (1 - s15) * show(t, b.e2.least) * (1 - show(t, b.f6.social - 0.3)) });
+    // C5b (V03): nhãn canh trái ở mép tường lùi vào ≥ 102 px — mực chữ (lề trái của glyph) không ra ngoài x 96
+    const lx0 = Math.max(fx0, 102);
+    label(O, 'first check', lx0, ly - 26, { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * wide * (1 - s15) * show(t, b.e2.least) * (1 - show(t, b.f6.social - 0.3)) });
     label(O, L['e3.tile'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.e3.tile, b.e4.kept - 0.3) });
     // vòng sửa 3 (B15: trục ngang đọc ra "thời gian của một séc"): từ S15 nhãn trục cả ở cLeft (tắt khi lùi máy), mốc năm bắt đầu 1966 · 1986 giữa
-    // "1947" và "Aug 2006" + chú thích trục "start month" — mỗi thanh = một quãng 20 năm theo tháng bắt đầu; mốc ngoài khung thì ẩn
+    // "1947" và "Aug 2006" + chú thích trục "starting month" — mỗi thanh = một quãng 20 năm theo tháng bắt đầu; mốc ngoài khung thì ẩn
     const ax = ok * show(t, b.e3.month) * (1 - show(t, b.f6.social - 0.3)), wS = t > MV.m_push15.t1 && t < MV.m_pull15.t1 + 1 ? 1 - show(t, MV.m_pull15.t0 - 0.1, MV.m_pull15.t1 - 0.3) : wide;
     const tk = ok * show(t, MV.m_push15.t1) * (1 - show(t, b.f6.social - 0.3)) * wS, inF = (x, s) => { const h = tw(s) / 2; return x - h >= 100 && x + h <= 1820 ? 1 : 0; };
-    label(O, L.axis0, fx0, fy + 64, { align: 'left', kind: 'number', px: 48, alpha: ax * wS * (fx0 >= 96 ? 1 : 0) });
+    label(O, L.axis0, lx0, fy + 64, { align: 'left', kind: 'number', px: 48, alpha: ax * wS * (fx0 >= 96 ? 1 : 0) });
     label(O, L.axis1, fx1, fy + 64, { align: 'right', kind: 'number', px: 48, alpha: ax * wS * (fx1 <= 1824 ? 1 : 0) });
     { const xs = [1966, 1986].map((y) => O.toScreen(stripYearX(strip, starts, y), 0, 0.3)[0]);
       xs.forEach((x, j) => { const s = String([1966, 1986][j]), a = tk * inF(x, s); seg2(O, x, fy + 6, x, fy + 18, C.muted, a, 3); label(O, s, x, fy + 64, { align: 'center', kind: 'number', px: 48, alpha: a }); });
-      const xm = (xs[0] + xs[1]) / 2; label(O, 'start month', xm, fy + 64, { align: 'center', kind: 'name', px: 48, w: 600, color: C.muted, alpha: tk * inF(xm, 'start month') }); }
+      // C5b (S10): "start month" bị đọc là câu mệnh lệnh ("start …") — đổi chữ, cùng nghĩa, cùng chữ lời S27.1 ("the last starting month")
+      const xm = (xs[0] + xs[1]) / 2; label(O, 'starting month', xm, fy + 64, { align: 'center', kind: 'name', px: 48, w: 600, color: C.muted, alpha: tk * inF(xm, 'starting month') }); }
     log.roi['e3.tile'] = (() => { const [x, y] = top(300, v20[300]); return [x - 30, y - 30, x + 30, fy]; })(); log.roi['e2.least'] = [fx0, ly - 20, fx1, ly + 20];
     // S14: phán + 17 of 715 + 1 in 42 (trên cụm trái)
     label(O, L['e4.seventeen'], 960, 236, { align: 'center', kind: 'number', px: 56, color: C.cushion, alpha: ok * show(t, b.e4.seventeen, MV.m_push15.t1 + 0.3) });
