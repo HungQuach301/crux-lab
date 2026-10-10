@@ -72,6 +72,7 @@ export async function boot(res) {
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
+    dip(O, 1 - ease(t, 0, 0.4));   // P3c (C14 1080p): lớp mờ vào đầu đoạn vẽ TRƯỚC mọi chữ — chữ không mờ dưới lớp tối
     const top = (i, v) => O.toScreen(strip.xOf(i), UNIT * v / 100, 0.3);
     const [fx0, fy] = O.toScreen(0, 0, 0.3), [fx1] = O.toScreen(W, 0, 0.3), [, ly] = O.toScreen(0, UNIT, 0.3);
     const wide = (t < MV.m_push15.t0 || t > MV.m_pull15.t1) && (t < MV.m_push19.t0 || t > MV.m_pull21.t1) ? 1 : 0;   // nhãn trục chỉ ở khung cả tường
@@ -168,7 +169,6 @@ export async function boot(res) {
     { const [x, y] = top(iC, v20[iC]); log.roi['f7.start'] = [x - 400, y - 200, x + 400, fy]; }
     const cwA = show(t, b.f3.own, b.f4.gentler);
     chrome(O, 1, cwA > 0.01 ? L['f3.own'] : null, cwA);
-    dip(O, 1 - ease(t, 0, 0.4));
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }
   return { canvas: st.out, frame };

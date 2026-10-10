@@ -55,6 +55,7 @@ export async function boot(res) {
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
+    dip(O, 1 - ease(t, 0, 0.4));   // P3c (C14 1080p): lớp mờ vào đầu đoạn vẽ TRƯỚC mọi chữ — chữ không mờ dưới lớp tối
     // S30 (cLadder): nhãn bậc bên trái; giá trị ở đầu thanh — TRONG thanh khi thanh đủ dài (≥ 25 %), ngoài khi ngắn (2,4 %): nhờ vậy vạch "half"
     // không cắt qua "42.4%" và "all · Carl's stretch" không tràn mép phải; vạch "half" / "all stretches"
     if (t < MV.m_pan31.t1) {
@@ -117,7 +118,6 @@ export async function boot(res) {
     const illus = Math.max(show(t, b.g3.carls, MV.m_pan31.t0), show(t, MV.m_w32.t0));
     const cwA = show(t, b.g4.choose - 0.8, MV.m_pan31.t1 + 0.3);   // FIX-R1: đối trọng 8 từ ≥ 3 s
     chrome(O, illus, cwA > 0.01 ? L['g4.choose'] : null, cwA);
-    dip(O, 1 - ease(t, 0, 0.4));
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }
   return { canvas: st.out, frame };

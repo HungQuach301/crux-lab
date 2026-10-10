@@ -53,6 +53,8 @@ export async function boot(res) {
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
+    // ident: thế giới tối dần (vòng sửa 1: không đen kịt). P3c (C14 1080p: chữ mờ dưới lớp tối 49,4–49,8 s): lớp tối vẽ TRƯỚC mọi chữ — chỉ thế giới tối, chữ giữ tương phản
+    dip(O, 0.62 * ease(t, S.ident[0], S.ident[0] + 1.4));
     nameTag(O, ruth, (1 - cw) * (t > MV.m_w.t0 && t < MV.m_w.t1 + 0.2 ? ease(t, MV.m_w.t1 - 0.1, MV.m_w.t1 + 0.2) : 1));   // không hiện tên khi máy còn lia qua (mép trái)
     // B01: cỡ séc đầu = viền cố định trên thẻ (checklook.js; vòng 3: tối, dày) — séc lớn đều ra khỏi viền, từng nấc qua cả S01
     const R = rowBox(O, ruth, v), offS02 = MV.m_pan.t0 - 0.3;
@@ -104,7 +106,6 @@ export async function boot(res) {
     chrome(O, 1, cwA > 0.01 ? S.label_cues['a7.choose'] : null, cwA);
     log.roi['a7.choose'] = [96, 860, 1500, 960];
     // ident: thế giới tối dần (nhạc hiệu A do music.post phát ở 3 s cuối đuôi S03)
-    dip(O, 0.62 * ease(t, S.ident[0], S.ident[0] + 1.4));   // vòng sửa 1: tối dần, không đen kịt — Ruth + hàng thùng còn thấy mờ dưới nhạc hiệu
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }
   return { canvas: st.out, frame };

@@ -77,6 +77,7 @@ export async function boot(res) {
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
+    dip(O, 1 - ease(t, 0, 0.4));   // P3c (C14 1080p): lớp mờ vào đầu đoạn vẽ TRƯỚC mọi chữ — chữ không mờ dưới lớp tối
     // tên trên đầu (thế giới) — màu nhận diện
     for (const [id, c] of Object.entries(cols)) nameTag(O, c, (id === 'ruth' ? aR : id === 'carl' ? aC : aE) * (1 - cw));
     const Cc = cols.carl, RC = rowBox(O, Cc, kf(S.rows.carl, t));
@@ -206,7 +207,6 @@ export async function boot(res) {
     }
     const cwA = show(t, b.e2.t0, M.m_w29.t1 + 0.6);   // FIX-R1: đối trọng 7 từ ≥ 3 s (trước ~2,4 s)
     chrome(O, 1, cwA > 0.01 ? L['e2.history'] : null, cwA);
-    dip(O, 1 - ease(t, 0, 0.4));
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }
   return { canvas: st.out, frame };
