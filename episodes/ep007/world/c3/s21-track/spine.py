@@ -34,13 +34,14 @@ late_v = [min(L, k + 1) for k in range(nl)]
 late_up, e2 = K.steps(lt, late_v, ramp=0.07, v0=0, pitch=lambda v: 0.62 + 0.3 * v / L, over=True)
 ft = K.spread(cue['a2']['finish'], cue['a2']['add'] - 0.2, 15)     # cột cuối phủ xong + ô trễ cuối tắt ở add (< seven: nhãn)
 ex, e3 = K.steps(ft, [k + 1 for k in range(15)], ramp=0.12, v0=0, pitch=lambda v: 0.3 + 0.3 * v / 15)
-late_dn, _ = K.steps(ft, [round(L * (1 - (k + 1) / 15), 3) for k in range(15)], ramp=0.12, v0=L)
-assert ft[-1] + 0.12 < cue['a2']['seven'] - 0.05, 'ô trễ phải tắt hẳn trước nhãn "180 months"'
+# ô trễ rút về nhanh hơn lớp phủ một cột: hết hẳn khi cột 14 phủ xong — không khung nào có cả 15 cột phủ lẫn ô warn ngoài vách
+late_dn, _ = K.steps(ft[:14], [round(L * max(0.0, 1 - (k + 1) / 14), 3) for k in range(14)], ramp=0.12, v0=L)
+assert ft[13] + 0.12 <= ft[14] + 0.001 and ft[-1] + 0.12 < cue['a2']['seven'] - 0.05, 'ô trễ phải tắt hẳn trước cột cuối và trước nhãn "180 months"'
 late = late_up + [p for p in late_dn if p[0] > late_up[-1][0]]
 ev += e2 + e3 + [{'t': cue['a1']['ends'], 'kind': 'tick', 'v': 0.45}, {'t': cue['a1']['late'], 'kind': 'tick', 'v': 0.6},
                  {'t': cue['a2']['seven'], 'kind': 'tick', 'v': 0.55}]
 K.finish(HERE, 'ep007 C3 · s21-track (S21)', words, takes, lines, end, beats, moves, ev,
-         {'lit': lit, 'late': late, 'extra': ex, 'mark_t': cue['a0']['same'], 'old_out': cue['a2']['finish'], 'clear_t': round(ft[-1] + 0.12, 3),
+         {'lit': lit, 'late': late, 'extra': ex, 'mark_t': cue['a0']['same'], 'old_out': cue['a2']['finish'], 'clear_t': round(ft[13] + 0.12, 3),
           'label_cues': {'a1.ends': 'pay $2,828 on the 30-year: about 195 months', 'a1.late': 'about 15 months late',
                          'a2.seven': 'to finish in 180 months: $2,216 required + $733 a month'},
           'visual_cues': ['a0.pay', 'a0.same', 'a1.doesnt', 'a1.ends', 'a1.late', 'a2.finish', 'a2.seven']},

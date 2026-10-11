@@ -17,7 +17,7 @@
    ]
   },
   "render": {
-   "seconds": 98.7,
+   "seconds": 95.7,
    "ok": true,
    "shots": 3,
    "rendered": [
@@ -26,21 +26,21 @@
     "s2"
    ],
    "cached": 0,
-   "wall_s": 98,
+   "wall_s": 94.9,
    "film_s": 14.05,
-   "wall_per_film_s_rendered": 12.41,
+   "wall_per_film_s_rendered": 11.96,
    "cores": 4
   },
   "audio": {
-   "seconds": 8.2,
+   "seconds": 8.1,
    "ok": true
   },
   "mux": {
-   "seconds": 1.1,
+   "seconds": 1.0,
    "ok": true
   },
   "verify": {
-   "seconds": 2.2,
+   "seconds": 1.9,
    "ok": true,
    "rule1": 0,
    "rule2": 0,
@@ -71,5 +71,5 @@
    }
   }
  },
- "total_seconds": 110.8
+ "total_seconds": 107.5
 }

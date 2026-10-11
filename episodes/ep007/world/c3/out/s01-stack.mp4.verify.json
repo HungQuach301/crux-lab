@@ -1,5 +1,5 @@
 {
- "video": "/home/user/crux-lab/episodes/ep007/world/c3/out/.staging-s01-stack-5311/s01-stack.mp4",
+ "video": "/home/user/crux-lab/episodes/ep007/world/c3/out/.staging-s01-stack-27679/s01-stack.mp4",
  "rule1": {
   "violations": 0,
   "examples": []
@@ -13,20 +13,20 @@
   "missing_reason_or_sound": []
  },
  "modes": {
-  "world_share": 0.409,
-  "chart_share": 0.591,
+  "world_share": 0.394,
+  "chart_share": 0.606,
   "first_5s_world": true
  },
  "F2": {
   "summary": {
    "level": "OK",
-   "sfx_per_min": 22.0,
-   "sfx_max_10s": 5,
-   "sfx_on_speech": 4,
-   "sfx_on_plain_words": 1,
-   "sfx_events": 5,
+   "sfx_per_min": 17.6,
+   "sfx_max_10s": 4,
+   "sfx_on_speech": 2,
+   "sfx_on_plain_words": 0,
+   "sfx_events": 4,
    "keyword_hits": 3,
-   "min_keyword_snr_db": 16.8,
+   "min_keyword_snr_db": 15.0,
    "label_overlaps": 0,
    "line_crossings": 0,
    "block": 0,
@@ -36,24 +36,23 @@
   "block": [],
   "warn": [],
   "sfx": {
-   "events": 5,
+   "events": 4,
    "duration_s": 13.65,
-   "per_min": 22.0,
+   "per_min": 17.6,
    "max_window": {
-    "count": 5,
+    "count": 4,
     "t0": 0.429,
     "t1": 10.429,
     "times": [
      0.429,
      5.0,
-     6.2,
-     6.52,
-     10.35
+     5.676,
+     6.52
     ]
    },
    "on_speech": {
-    "count": 4,
-    "plain_words": 1,
+    "count": 2,
+    "plain_words": 0,
     "times": [
      {
       "t": 5.0,
@@ -62,21 +61,9 @@
       "keyword": true
      },
      {
-      "t": 6.2,
-      "kind": "land",
-      "word": "borrowing",
-      "keyword": false
-     },
-     {
       "t": 6.52,
       "kind": "tick",
       "word": "three",
-      "keyword": true
-     },
-     {
-      "t": 10.35,
-      "kind": "tick",
-      "word": "payment",
       "keyword": true
      }
     ]
@@ -97,6 +84,20 @@
      "level": "OK"
     },
     {
+     "keyword": "a1.borrowing",
+     "word": "borrowing",
+     "s": 5.936,
+     "e": 6.44,
+     "events": [
+      [
+       5.676,
+       "land"
+      ]
+     ],
+     "snr_db": 43.9,
+     "level": "OK"
+    },
+    {
      "keyword": "a1.three",
      "word": "three",
      "s": 6.52,
@@ -107,21 +108,7 @@
        "tick"
       ]
      ],
-     "snr_db": 16.8,
-     "level": "OK"
-    },
-    {
-     "keyword": "a1.payment",
-     "word": "payment",
-     "s": 10.35,
-     "e": 10.84,
-     "events": [
-      [
-       10.35,
-       "tick"
-      ]
-     ],
-     "snr_db": 27.7,
+     "snr_db": 15.0,
      "level": "OK"
     }
    ],

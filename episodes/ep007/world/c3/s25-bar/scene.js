@@ -60,7 +60,7 @@ export async function boot(res) {
     }
     // chữ cột phải: hai ý → hai dòng (visual-library §1), dưới thanh; "not tested" hai dòng ngay dưới (bỏ chồng ba nhãn ở đỉnh khung);
     // "any other use" ngay dưới đáy hành trình của bóng (chữ đứng yên, không gợi độ cao nào)
-    const XR = 860, i2 = ok * show(t, b.a2.investment);
+    const XR = 820, i2 = ok * show(t, b.a2.investment);
     label(O, 'interest no longer charged,', XR, by + 215, { kind: 'compare', px: 48, alpha: i2 });
     label(O, 'not an investment return', XR, by + 280, { kind: 'compare', px: 48, alpha: i2 });
     log.roi['a2.investment'] = [XR - 10, by + 165, XR + 700, by + 300];

@@ -211,10 +211,10 @@
    "sid": "S01.1",
    "mode": "world",
    "idea": "Khoản dự phòng của Tessa có giá mỗi tháng.",
-   "visual": "Tessa cạnh nhà; chồng tiền mỏng hiện cạnh nhà, thêm một bó mỗi nhịp.",
+   "visual": "Tessa cạnh nhà; bó tiền đầu trồi ra ở bậc cửa nhà (\"costs\").",
    "line": "Tessa's mortgage fallback costs $120 a month.",
    "sound": [
-    "nốt dữ liệu mỗi bó (cao độ = chiều cao)"
+    "nốt dữ liệu khi bó ra cửa"
    ],
    "music": 0.3,
    "emotion": "tò mò",
@@ -231,9 +231,10 @@
    "sid": "S01.2",
    "mode": "chart",
    "idea": "Khoản vay $320,000, tuần 8/10/2026; giá $120 mỗi tháng.",
-   "visual": "chính diện: \"$120 a month\" trên chồng (\"three\"), nhãn khoản vay trên nhà (\"payment\").",
+   "visual": "chính diện: bó đầu chạm chồng + \"price of the fallback: $120 a month\" (\"borrowing\"); nhãn khoản vay trên nhà (\"three\"); mỗi nhịp một bó từ cửa ra chồng.",
    "line": "She's borrowing $320,000, and in her city that payment is her biggest bill.",
    "sound": [
+    "nốt dữ liệu mỗi bó chạm",
     "tick khi nhãn hiện"
    ],
    "music": 0.45,
@@ -242,8 +243,8 @@
    "t0": 5.71,
    "t1": 12.2,
    "cues": {
-    "three": 6.52,
-    "payment": 10.35
+    "borrowing": 5.936,
+    "three": 6.52
    }
   }
  ],
@@ -254,7 +255,7 @@
    "to": "wS",
    "t0": 0.429,
    "t1": 2.429,
-   "reason": "mở đoạn: máy lại gần Tessa và chỗ trống cạnh nhà trước bó đầu (\"costs\")",
+   "reason": "mở đoạn: máy lại gần Tessa và cửa nhà trước khi bó đầu ra (\"costs\")",
    "sound": "whoosh_air"
   },
   {
@@ -262,8 +263,8 @@
    "from": "wS",
    "to": "cS",
    "t0": 5.0,
-   "t1": 6.2,
-   "reason": "lời S01.2 đặt số tiền khoản vay; số chỉ ở chế độ đồ thị (quy tắc 1) → đồ thị sau 5 s thế giới (quy tắc 7)",
+   "t1": 5.676,
+   "reason": "giá $120 chỉ hiện ở chế độ đồ thị (quy tắc 1) → đồ thị ngay sau 5 s thế giới (quy tắc 7), xong trước khi bó đầu chạm chồng",
    "sound": "whoosh_mode"
   }
  ],
@@ -277,48 +278,48 @@
   {
    "t": 2.867,
    "kind": "data",
-   "v": 0.333
-  },
-  {
-   "t": 4.587,
-   "kind": "data",
-   "v": 0.417
+   "v": 0.2
   },
   {
    "t": 5.0,
    "kind": "whoosh_mode",
-   "dur": 1.2,
+   "dur": 0.676,
    "gain": 0.6
   },
   {
-   "t": 6.2,
+   "t": 5.676,
    "kind": "land",
    "mode": true
   },
   {
-   "t": 6.52,
+   "t": 5.936,
    "kind": "data",
-   "v": 0.5
+   "v": 0.333
   },
   {
    "t": 6.52,
    "kind": "tick",
-   "v": 0.45
+   "v": 0.55
   },
   {
    "t": 8.03,
    "kind": "data",
-   "v": 0.583
+   "v": 0.417
   },
   {
    "t": 9.704,
    "kind": "data",
-   "v": 0.667
+   "v": 0.5
   },
   {
    "t": 10.35,
-   "kind": "tick",
-   "v": 0.55
+   "kind": "data",
+   "v": 0.583
+  },
+  {
+   "t": 11.21,
+   "kind": "data",
+   "v": 0.667
   },
   {
    "t": 11.65,
@@ -371,7 +372,7 @@
   "release": 14.65,
   "accents": [
    2.867,
-   6.52
+   5.936
   ]
  },
  "mix": {
@@ -384,43 +385,43 @@
    0.0
   ],
   [
-   2.867,
+   5.936,
    0.0
   ],
   [
-   3.087,
+   5.986,
    1441.47
-  ],
-  [
-   4.587,
-   1441.47
-  ],
-  [
-   4.807,
-   2882.94
-  ],
-  [
-   6.52,
-   2882.94
-  ],
-  [
-   6.74,
-   4324.41
   ],
   [
    8.03,
-   4324.41
+   1441.47
   ],
   [
-   8.25,
-   5765.88
+   8.08,
+   2882.94
   ],
   [
    9.704,
+   2882.94
+  ],
+  [
+   9.754,
+   4324.41
+  ],
+  [
+   10.35,
+   4324.41
+  ],
+  [
+   10.4,
    5765.88
   ],
   [
-   9.924,
+   11.21,
+   5765.88
+  ],
+  [
+   11.26,
    7207.35
   ],
   [
@@ -428,19 +429,28 @@
    7207.35
   ],
   [
-   11.87,
+   11.7,
    8648.82
   ]
  ],
+ "land": [
+  5.936,
+  8.03,
+  9.704,
+  10.35,
+  11.21,
+  11.65
+ ],
+ "fly": 0.7,
+ "out0": 2.867,
  "label_cues": {
-  "a1.three": "$120 a month",
-  "a1.payment": "$320,000 loan · week of Oct 8, 2026"
+  "a1.borrowing": "price of the fallback:",
+  "a1.three": "$320,000 loan · week of Oct 8, 2026"
  },
  "visual_cues": [
   "a0.costs",
-  "a0.month",
-  "a1.three",
-  "a1.payment"
+  "a1.borrowing",
+  "a1.three"
  ],
  "checks": {
   "rule2_rule3_rule7": "OK"

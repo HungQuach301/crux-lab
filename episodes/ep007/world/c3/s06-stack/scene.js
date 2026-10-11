@@ -70,7 +70,9 @@ export async function boot(res) {
     label(O, D('pay15_month'), vx - 14, vy + 16, { align: 'right', kind: 'number', alpha: ok * show(t, 0, b.a1.same), claims: ['pay15_month'] });
     const [rx, ry] = O.toScreen(bar30.position.x - BAR_W / 2, bar30.topY(G.pay30), 0);
     label(O, `required: ${D('pay30_now')}`, rx, ry - 30, { kind: 'number', alpha: ok * show(t, 0, b.a0.forty), claims: ['pay30_now'] });
-    label(O, `30-year paid in 15: ${D('pay30on15_now')}`, 1800, y30 - 95, { align: 'right', kind: 'number', alpha: ok * show(t, b.a0.forty), claims: ['pay30on15_now'] });
+    // vòng 3 (REVIEW-C3 PHỤ): ghim theo đỉnh thanh 30 năm khi dâng; chỉ hiện khi đỉnh đã qua vạch mức 15 năm
+    const [, yNow] = O.toScreen(bar30.position.x, bar30.topY(u30), 0), past = Math.min(1, Math.max(0, (u30 - G.pay15) / 30));
+    label(O, `30-year paid in 15: ${D('pay30on15_now')}`, 1800, yNow - 95, { align: 'right', kind: 'number', alpha: ok * show(t, b.a0.forty) * past, claims: ['pay30on15_now'] });
     const [xs, ys] = O.toScreen(bar30.position.x + BAR_W / 2, top15 + sliver / 2, 0);
     label(O, `+${D('extra_vs15_month_now')}`, xs + 26, ys + 18, { kind: 'number', px: 56, alpha: ok * show(t, b.a1.one), claims: ['extra_vs15_month_now'] });
     const [kx, ky] = O.toScreen(stack.position.x, 15 * BUNDLE_TH, 0), sy = Math.min(ky, y30) - 165;

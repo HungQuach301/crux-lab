@@ -4,20 +4,18 @@
  "asr_words_ref": 27,
  "voice_offset_s": {
   "median": 0.003,
-  "p90_abs": 0.286
+  "p90_abs": 0.267
  },
  "visual_peak_vs_keyword_s": {
-  "a0.costs": 0.033,
-  "a0.month": 0.013,
-  "a1.three": 0.08,
-  "a1.payment": 0.15
+  "a0.costs": 0.133,
+  "a1.borrowing": 0.164,
+  "a1.three": 0.08
  },
  "method": {
   "a0.costs": "motion-roi",
-  "a0.month": "motion-roi",
-  "a1.three": "label",
-  "a1.payment": "label"
+  "a1.borrowing": "label",
+  "a1.three": "label"
  },
- "visual_within_0.2s": "4/4",
+ "visual_within_0.2s": "3/3",
  "visual_not_detected": []
 }

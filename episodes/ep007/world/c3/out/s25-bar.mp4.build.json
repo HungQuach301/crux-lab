@@ -4,20 +4,20 @@
  "out": "episodes/ep007/world/c3/out/s25-bar.mp4",
  "steps": {
   "lint": {
-   "seconds": 0.3,
+   "seconds": 0.4,
    "ok": true,
    "problems": [],
    "files": 18
   },
   "spine": {
-   "seconds": 0.5,
+   "seconds": 0.6,
    "ok": true,
    "stdout": [
     "checks OK"
    ]
   },
   "render": {
-   "seconds": 130.6,
+   "seconds": 136.4,
    "ok": true,
    "shots": 2,
    "rendered": [
@@ -25,13 +25,13 @@
     "s1"
    ],
    "cached": 0,
-   "wall_s": 130,
+   "wall_s": 135.7,
    "film_s": 30.05,
-   "wall_per_film_s_rendered": 6.11,
+   "wall_per_film_s_rendered": 6.4,
    "cores": 4
   },
   "audio": {
-   "seconds": 16.5,
+   "seconds": 16.8,
    "ok": true
   },
   "mux": {
@@ -39,7 +39,7 @@
    "ok": true
   },
   "verify": {
-   "seconds": 3.1,
+   "seconds": 3.4,
    "ok": true,
    "rule1": 0,
    "rule2": 0,
@@ -70,5 +70,5 @@
    }
   }
  },
- "total_seconds": 153.1
+ "total_seconds": 159.7
 }
