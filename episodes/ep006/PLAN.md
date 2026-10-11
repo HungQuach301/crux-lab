@@ -1,47 +1,43 @@
 # PLAN Tập 6 — Does a 2% Annuity Raise Really Keep Up With Prices?  (≤ 1 trang; viết lại khi đóng phiên)
 
-**Nhánh:** `ep006` (P3c đẩy cả `ep006` và `claude/gracious-brown-rccz2m`, cùng SHA) · **Đề tài:** #12 · **Format:** `101` · **Phiên vừa đóng:** P3c (`session_01QNrEnsRn8CMnf6J5ujL79c`, chủ dự án cho chạy tiếp quá 300 nghìn ngữ cảnh) · lịch sử: `archive/PLAN-history.md`
+**Nhánh:** `ep006` (đẩy cả `ep006` và `claude/gracious-brown-rccz2m`) → **merge squash vào `main` @ `MERGE_SHA`** · **Đề tài:** #12 · **Format:** `101` · **Phiên vừa đóng:** P4 giao file, chạy tiếp trong phiên P3c (`session_01QNrEnsRn8CMnf6J5ujL79c`, lệnh chủ dự án 11/10) · lịch sử: `archive/PLAN-history.md`
 
 ## 1. Trạng thái
-**G2 chờ** — gói `gates/G2.md`, issue [#51](https://github.com/HungQuach301/crux-lab/issues/51), REVIEWER `gates/REVIEW-G2.md` (ĐẠT có sửa, đã áp). Bản giao 1080p **536,6 s = 8:56,6** (MR1 3:28), master SHA `f96da0ea…`, 720p `ef3a3ffd…` (`review-g2/`). Checks **`run-c5d`: Tập ĐẠT, CHẶN 36/36, CHÍNH 13/13, F11 ĐẠT** (lịch sử: run-c5 TRƯỢT → C5b → run-c5b ĐẠT → C5c → run-c5c ĐẠT có giải thích V11 → REVIEWER → C5d). Cổng gốc **20/23 = 87 %**, `advice_stated` 0 (B01, B15 hết 3 vòng; B04 dao động 0,5–1). qc 6 TRƯỢT như Tập 5 (−1,8 dBTP, freezedetect, đối trọng master 0 khung log). Shorts SH1–SH3 ĐẠT (móc một dòng). Thumbnail: 2 khung thế giới + 1 đối chứng 2D.
+**G3 chờ chủ dự án đăng** — G2 duyệt 11/10 (`gates/G2-answer.md`: L3 ≥ 4 cả 6 dòng, phát hành CÓ). Bản cuối không đổi → checks `run-c5d` (LOCK `4d688acd`) là của bản giao: Tập ĐẠT, CHẶN 36/36, CHÍNH 13/13. Giao: nhánh `ep006-delivery` @ `d4d8c48` — master nguyên byte `f96da0ea…` (13 phần 90 MB) + Shorts + thumbnail + phụ đề + mô tả; tải ngược `sha256sum -c` **22/22 OK**. Hướng dẫn: `HUONG-DAN-DANG.md` (link tải thẳng + SHA). Merge squash `ep006` → `main` (gồm F-13; không có WAV 265 MB của df9c2d4 — đã ngoài cây), LOCK trên main `4d688acd` khớp.
 
 ## 2. Việc tiếp (≤ 3) và việc treo
-1. **P4 việc 5:** chép câu trả lời G2 → `gates/G2-answer.md`; áp quyết định (sửa → dựng lại đoạn đổi + `c5/checks_split.sh` đủ bộ, trần 2 h → `RESUME=1`); `taste-ledger.md`, `AUTHORSHIP.md`, ledger; `HUONG-DAN-DANG.md` theo mẫu; `audience.md`.
-2. **P4 việc 6 — giao hàng** (`episode.md` §6, `toolkit/deliver/deliver.py`): master `out/video.mp4` + Shorts `out/shorts/` + gói `out/package/` + SHA-256 → G3 (chủ dự án đăng, xác nhận).
-3. **P4 việc 7:** KPI vào ledger, so Tập 5; merge **squash** `ep006` → `main` (fetch trước; gồm F-13; 265 MB WAV), cập nhật PLAN kênh.
-- Treo: lô K — `checks-appeal.md` A28; đề xuất qc nhà máy đọc đối trọng master ở đoạn thế giới; REG không so run trước (REVIEWER G2 §7); nghi vấn "none since" che mép dải cảnh báo S15 (B15).
+1. **Thumbnail ChatGPT** (chủ dự án gửi ảnh): kiểm chữ trên ảnh — không số tiền, không khuyên, ILLUSTRATIVE khi có nhân vật, "US only · history, not a forecast" → báo đạt/không; ghi ledger + `HUONG-DAN-DANG.md`.
+2. **G3:** chủ dự án tải, đăng theo `HUONG-DAN-DANG.md`, ghi link + ngày vào `audience.md`; xoá nhánh `ep006-delivery` (proxy chặn → chủ dự án xoá: GitHub → Branches → Delete).
+3. **Tổng kết Tập 6** — phiên riêng (P3.md việc 7); mốc 7 ngày: ảnh YouTube Studio → `audience.md`.
+- Treo: lô K — `checks-appeal.md` A28; qc nhà máy đọc đối trọng master ở đoạn thế giới; REG không so run trước (REVIEWER G2 §7); nghi vấn "none since" che mép dải cảnh báo S15 (B15).
 
 ## 3. Quyết định đã có (chủ dự án)
-G1 → `gates/G1-answer.md` · C3 → `gates/C3-answer.md` · F-13 trên `ep006` · C4 rubric MỚI → `gates/C4-answer.md` · 10/10 P3c: việc nặng headless khoá Console (trần $170), không lượt đạo diễn, ≤ 10 ảnh/phiên, đẩy cả `ep006` và nhánh phiên; bỏ ngưỡng 300 nghìn ngữ cảnh cho P3c.
+G1 → `gates/G1-answer.md` · C3 → `gates/C3-answer.md` · F-13 trên `ep006` · C4 rubric MỚI → `gates/C4-answer.md` · **11/10 G2 → `gates/G2-answer.md`** (L3 ≥ 4 không điểm chi tiết, phát hành, giữ B01/B15, thumbnail ChatGPT nền thumb-1 / T&C 1, 2, 3 nếu bộ nhà máy, Shorts OK) · 11/10: P4 chạy trong phiên P3c; giao bằng nhánh tạm (không thử Release); merge squash.
 
 ## 4. Đã sửa gì, vì sao
 | Vòng | Cảnh | Lỗi | Sửa | Kết quả đo | Còn |
 |---|---|---|---|---|---|
-| C4 r2–r3 | a–f | nghĩa B01 B04 B12 B15 B32 | séc ngang/lớn, "?" phần thiếu, mốc năm | B04 B12 1·1; B01 B15 0,5 | G2 trước/sau |
-| C5 | a d e f | C14 | lớp tối vẽ trước chữ | 6/6 verify | — |
-| C5b | hợp đồng, b d e f | CHẶN 13, CHÍNH 4 (run-c5) | sổ claim S07/S17, gói, huy hiệu S30, "starting month", mép 102, séc tắt trước thẻ | run-c5b ĐẠT; B04 B29 tụt | C5c |
-| C5c | e (b) | B29 tụt (số thùng xám) | số thùng giữ ink | B29 1·1·1 | — |
-| C5d | b, mô tả | REVIEWER: ngoại lệ V11 không có số đo hại; REVIEW-G1 #8 | "?" có tấm nền; câu tháng bỏ 10/2005 + 2 claim | run-c5d ĐẠT, V11 0 | — |
+| C5–C5d | a–f, hợp đồng, mô tả | run-c5 TRƯỢT; B29 tụt; V11 S04 | xem `archive/PLAN-history.md` (PLAN đóng P3c §4) | run-c5d ĐẠT; cổng gốc 20/23 | — |
+| P4 | — | — | không sửa (G2 giữ bản sau) | giao 22/22 OK | thumbnail ChatGPT |
 
 ## 5. Mức cảnh báo, token, giờ render (`episode.md` §8)
-Mức cảnh báo tập **15** triệu. EL **7.699/7.700** (P3c: 0). Agent con P3c: **0**.
+Mức cảnh báo tập **15** triệu. EL **7.699/7.700**. Agent con cả tập **23/40** (P3c, P4: 0).
 | Phiên | Đến (UTC) | Sinh ra | Đầu vào mới | Đọc cache | Trần | Headless | Giờ render |
 |---|---|---|---|---|---|---|---|
 | P3b | 2026-10-09 10:08 | 1,35 | 71,18 | 475,72 | 72,52 | 0,64 | ≈ 2,5 h |
-| P3c | 2026-10-11 03:20 | 0,48 | 2,19 | 109,11 | **2,67** | xem chi API | 1080p ≈ 7,7 h (6 lần) · checks ≈ 10,3 h (4 lượt) |
-**Chi API Console P3c (trần $170): ≈ $25,5** — Haiku $0,002 · kiểm mù ≈ $1,8 (cổng gốc r2–r4, C5b, đối chứng, C5c) · dựng X $4,01, Y $4,92, Z $4,56, C5b-A $3,50, C5b-B $3,31, C (thumbnail) $1,38 · REVIEWER G2 $1,98. Cộng tập ≈ 78 / 15 triệu (D-009: chỉ cảnh báo).
+| P3c | 2026-10-11 03:20 | 0,48 | 2,19 | 109,11 | 2,67 | xem chi API | 1080p ≈ 7,7 h · checks ≈ 10,3 h |
+| P4 (trong phiên P3c) | 2026-10-11 03:52 | 0,03 | 0,11 | 7,71 | **0,14** | 0 | 0 (giao nguyên byte, không mã hoá lại) |
+Cách đo: `python3 episodes/ep006/c5/session_tokens.py <phiên.jsonl>` (cộng dồn phiên) trừ dòng P3c. **Chi API Console: P3c ≈ $25,5 · P4 $0 · cộng ≈ $25,5 / trần $170.** Cộng tập ≈ 77,9 / 15 triệu (Tập 5 ≈ 85,4; D-009: chỉ cảnh báo).
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
-1. `CHARTER.md` 2. `playbook/episode.md` (§6 giao hàng) 3. `episodes/ep006/PLAN.md` 4. `episodes/ep006/ledger.md` 5. `episodes/ep006/gates/G2.md` 6. `episodes/ep006/gates/REVIEW-G2.md` 7. `playbook/prompts/P3.md` (chặng P4) 8. `playbook/templates/HUONG-DAN-DANG.md`
+1. `CHARTER.md` 2. `playbook/episode.md` (§8 KPI) 3. `episodes/ep006/PLAN.md` 4. `episodes/ep006/ledger.md` 5. `episodes/ep006/gates/G2-answer.md` 6. `episodes/ep006/HUONG-DAN-DANG.md` 7. `episodes/ep006/audience.md` 8. `playbook/prompts/P3.md` (việc 7)
 
-**Tệp lớn ngoài git** (mất container → dựng lại trước khi giao): `cd toolkit/factory/world/vendor && npm ci` · `pip install "av>=12,<15" --only-binary=:all:` · `python3 episodes/ep006/data/fetch.py --verify` · `python3 episodes/ep006/world/derive.py && python3 episodes/ep006/c4/build_inputs.py --timeline && bash toolkit/build.sh episodes/ep006/episode.yaml && python3 episodes/ep006/c4/build_inputs.py --out` (≈ 2,8 h nền, trần 2 h → chạy lại, đoạn trúng cache); rồi `cp episodes/ep006/work/factory/SH{1,2,3}.mp4 episodes/ep006/out/shorts/`; kiểm SHA master = `f96da0ea…` (`review-g2/full-720p.mp4.sha256`).
+Tệp lớn ngoài git: master + Shorts nằm trên nhánh `ep006-delivery` (tới khi xoá) và ở `out/` của container này; dựng lại theo lệnh ở `archive/PLAN-history.md` (PLAN đóng P3c §6), kiểm SHA `f96da0ea…`.
 
 ## 7. Prompt phiên kế (D-011) — chủ dự án dán nguyên khối vào phiên mới
 ```
-Chạy Tập 6, phiên P4 (giao file). Nhánh ep006 (@ SHA đóng P3c hoặc mới hơn). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md.
-Gói đã gửi: episodes/ep006/gates/G2.md (issue #51). Việc đầu tiên: chép câu trả lời dưới đây vào episodes/ep006/gates/G2-answer.md, commit, push.
-Chặng này: P3.md chặng P4 việc 5–7 (áp G2 → giao hàng → G3 → merge squash ep006 vào main) → dừng ở G3/merge (đóng phiên theo playbook/prompts/RUN.md "Đóng phiên").
-Container mới thì dựng lại tệp lớn theo PLAN §6 trước (≈ 2,8 h nền) và kiểm SHA master. Việc nặng headless khoá Console (`episodes/ep006/c5/api.sh`, BƯỚC 0 như P3c); không chạy song song checks với render.
-Câu trả lời G2:
-<<DÁN CÂU TRẢ LỜI G2 Ở ĐÂY>>
+Tập 6 đã giao (G3). Nhánh main (ep006 đã merge squash). Mở bằng `bash toolkit/verify.sh ep006`; đọc mục 6 của episodes/ep006/PLAN.md.
+Việc: (1) nếu có ảnh thumbnail ChatGPT đính kèm: kiểm chữ trên ảnh (không số tiền, không khuyên, ILLUSTRATIVE khi có nhân vật, "US only · history, not a forecast"), báo đạt/không, ghi ledger + HUONG-DAN-DANG.md; (2) ghi link video + ngày đăng vào episodes/ep006/audience.md; (3) xoá nhánh ep006-delivery nếu tôi đã tải xong (proxy chặn → báo). Tổng kết Tập 6 là phiên riêng.
+Thông tin đăng:
+<<DÁN LINK VIDEO, NGÀY ĐĂNG, ẢNH THUMBNAIL Ở ĐÂY>>
 ```
