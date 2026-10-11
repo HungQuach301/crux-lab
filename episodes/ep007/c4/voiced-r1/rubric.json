@@ -1,0 +1,105 @@
+{
+ "rules": "Score the MEANING against the expected reading. Advice flags (gates/C4-intent.md, new rubric): advice_stated = the reader says the VIDEO itself (picture, on-screen text or narration) states or implies a financial action: pick the 15-year or the 30-year, pay extra principal, invest instead, pay monthly rather than yearly (or the reverse), wait for or lock a rate, a rate forecast. advice_inferred = the reader drew that action themself (answer 5 says own conclusion, or says the video does not say it). caution_only = general care only (check your own numbers, ask the lender or an adviser, compare your loan rate with other uses of the money, know the price of the fallback) — not advice. Quote the reader verbatim for any flag. Also return \"q5\": \"video\" | \"own\" | \"none\" from the reader's answer 5. Some items ask for one more flag in their meaning text: return it for that item.",
+ "items": {
+  "B01": {
+   "meaning": "A faceless figure by her house; a thin stack of bills appears beside the house and grows by one bundle on each beat, with a monthly price over it.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B04": {
+   "meaning": "Two payment bars side by side over Tessa: the 30-year's required payment is visibly shorter than the 15-year's.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B05": {
+   "meaning": "A green bracket fills the space between the two payment bars, labelled as the room a tight month leaves.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B06": {
+   "meaning": "The 30-year bar is raised to finish in 15 years and ends just above the 15-year bar; the sliver above becomes bills that drop onto the stack, month after month, until it stands at its full height.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B08": {
+   "meaning": "Two interest stacks: a very tall one for the 30-year on its own schedule, a much shorter one for the 30-year paid in 15.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B09": {
+   "meaning": "The 15-year's interest stack stands next to the 30-year-paid-in-15 stack; the extra top section lifts off and lands beside Tessa's house as the stack. Hold on the stack (MR1 follows).",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B10": {
+   "meaning": "Left: one flat dashed line labelled \"one assumed rate\". Right: both real survey lines, wiggling week by week since 1991, with a real 15-year card beside the 30-year card. Then the replay grid fills with 1,833 cells; the last cell lights as Tessa's.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B11": {
+   "meaning": "The space between the two accent lines widens and narrows across the years; a bracket marks its smallest and largest.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B13": {
+   "meaning": "A long row of stacks, one per week, rising and falling in step with the gap; their tops draw a ribbon. The shortest is marked.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B15": {
+   "meaning": "A median line crosses the row; Tessa's stack at the right end stands above it, and only a thin slice of weeks (lit) is as tall. Hold.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B18": {
+   "meaning": "The rate line drops sharply into the 2010s while the 2010s stack stands taller than the 1990s stack.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B19": {
+   "meaning": "Beside each decade's stack, its gap bracket: the two later brackets are visibly wider, and the stacks line up with the brackets, not with the rate.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B21": {
+   "meaning": "A month track runs from Tessa's house: 180 tiles, then 15 more tiles light in warn past the 15-year mark. Then a thin extra slab on top of the required payment makes the track end exactly at 180. Also return \"extra_layer_seen\": true only if the reader describes a VISIBLE extra layer, slab or block placed on top of each month's tile (its colour, position or movement), with a quote; false if they only describe blocks, colours or a grid changing, or only repeat the $733 number or a label.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B22": {
+   "meaning": "The required-payment level (ink-muted line) stays flat for years while the balance shrinks faster under it.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B23": {
+   "meaning": "On the month track, extra principal arrives as one big block every 12th tile instead of thin slabs; the track ends 4 tiles later.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B25": {
+   "meaning": "A horizontal beam rises beside the house to the height of the loan rate; a single extra dollar sits on top of it; a second dollar, labelled \"any other use\", is held up against the beam.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B28": {
+   "meaning": "A horizontal line at Tessa's bar across the whole history; only scattered stretches (mostly the 1990s and 2000s) rise above it.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B29": {
+   "meaning": "A second faceless figure and house appear left of Tessa's, dated January 2021; his stack is visibly shorter.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B30": {
+   "meaning": "Two houses side by side: Leo's short stack, wide green fallback bracket and low beam; Tessa's tall stack and high beam. Hold.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B31": {
+   "meaning": "An empty third slot beside the two houses with a blank beam and a blank stack, labelled with where each comes from.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B33": {
+   "meaning": "Back to the cold-open frame: Tessa by her house, the tall stack on one side and the high beam on the other; the two offer cards from B02 merge into one \"15-year + fallback\" card. Hold.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "WHOLE": {
+   "meaning": "**Đúng câu hỏi** (câu 1–2): video hỏi giữa **khoản vay 15 năm** và **khoản 30 năm trả hết trong 15 năm** (giữ khoản trả tối thiểu thấp hơn làm đường lui), qua người mua Tessa.\n**Đúng đáp án** (câu 2): khoản 30 năm trả trong 15 năm = khoản 15 năm **cộng một đường lui có giá**: tuần này khoảng **$120/tháng, $21,622 qua 15 năm**; theo lịch sử từ 1991 giá này dao động (khoảng $6,100–$29,500, trung vị khoảng $16,600; tuần này đắt — ít hơn 1/5 số tuần cao bằng), theo **chênh lãi** 30 vs 15 năm; **và/hoặc** mỗi đô la trả thêm \"được\" đúng **lãi khoản vay (7.40%)** — mốc cách dùng tiền khác phải vượt. Cần ý \"đường lui có giá bằng đô la\" + ít nhất một trong: con số tuần này / dải lịch sử / mốc = lãi khoản vay. Đủ câu hỏi + đáp án → 1; một trong hai → 0,5; không → 0. Note: the \"bar\" idea is met when the reader says the loan rate is what another use of the money is MEASURED AGAINST; \"has to beat\" is neither needed nor rewarded. Also return \"must_beat_or_guaranteed\": true if the reader says the video tells them that any other use of the money HAS TO BEAT / must clear the 7.40% rate, or that paying extra is a guaranteed / sure / risk-free saving or return; quote it. False otherwise.",
+   "description_only": "retells scenes without the idea"
+  },
+  "S21": {
+   "meaning": "A month track runs from Tessa's house: 180 tiles, then 15 more tiles light in warn past the 15-year mark. Then a thin extra slab on top of the required payment makes the track end exactly at 180. Also return \"extra_layer_seen\": true only if the reader describes a VISIBLE extra layer, slab or block placed on top of each month's tile (its colour, position or movement), with a quote; false if they only describe blocks, colours or a grid changing, or only repeat the $733 number or a label.",
+   "description_only": "lists tiles and colours without the idea"
+  },
+  "S23-S24": {
+   "meaning": "On the month track, extra principal arrives as one big block every 12th tile instead of thin slabs; the track ends 4 tiles later. Then: paying yearly costs about $8,200 more interest, but the money waits in an account in the meantime, and what it earns there is not counted — a cost of timing, not a verdict.",
+   "description_only": "lists blocks without the idea"
+  },
+  "S25": {
+   "meaning": "A horizontal beam rises beside the house to the height of the loan rate; a single extra dollar sits on top of it; a second dollar, labelled \"any other use\", is held up against the beam. The bar is the loan rate, before taxes: interest no longer charged, not an investment return; no investment is compared. Also return \"must_beat_or_guaranteed\": true if the reader says the video tells them that any other use of the money HAS TO BEAT / must clear the 7.40% rate, or that paying extra is a guaranteed / sure / risk-free saving or return; quote it. False otherwise.",
+   "description_only": "describes the beam without the idea"
+  }
+ }
+}

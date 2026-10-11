@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation shows how extra monthly payments shorten a mortgage. A character named Tessa stands beside a house, and a grid of tiles stands for the monthly payments. Each tile appears to be one month. Frames 1 to 3 build the grid, and frames 4 to 6 compare paying schedules. The whole thing is labeled \"Illustrative,\" \"Loan math at the Oct 8, 2026 survey rate,\" and \"US only · history, not a forecast.\"\n\n2. The number of payment tiles changes. The grid grows from nothing in frames 1 to 3. In frame 4 the caption reads \"pay $2,828 on the 30-year: about 195 months,\" and a gold strip marks the extra tiles beyond 180 months. In frame 5 that gold strip shrinks, and the tiles look greenish, as if they are filled with cash. In frame 6 the grid ends at 180 months with no gold left. Its caption reads \"to finish in 180 months: about $733 extra on top of the $2,216 required.\"\n\n3. Tessa has a 30-year loan with a required payment of about $2,216. If she pays $2,828 a month, which is about $612 extra, the loan is paid off in about 195 months, or roughly 16 years. If she pays about $2,949 a month ($2,216 + $733), the loan is paid off in 180 months, or 15 years. So extra payments turn a 30-year loan into a shorter one, and the more she adds, the sooner it ends.\n\n4. A viewer might take away that adding a few hundred dollars a month to a 30-year mortgage can cut its life roughly in half. They might also see that a 15-year payoff on a 30-year loan takes about $733 a month on top of the required payment. The animation gives no advice on whether to pay extra or invest instead. It shows no investment returns, no interest-rate comparison and no recommendation.\n\n5. The advice in 4 is my own conclusion. The animation only shows payoff timelines for the two payment amounts. Its captions say the figures are illustrative and \"history, not a forecast,\" which points away from recommending any action.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1456,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 1456,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3766,
+   "cache_read": 6375,
+   "output": 763,
+   "in": 10145,
+   "out": 763
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0234961
+}

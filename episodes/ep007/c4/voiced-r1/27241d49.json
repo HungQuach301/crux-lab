@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation shows that paying a 30-year mortgage at the 15-year payment doesn't make it finish in 15 years. Tessa's loan is illustrative, at the Oct 8, 2026 survey rate. A tile grid stands for the monthly payments. At $2,828 a month on the 30-year loan, the grid runs about 195 months, which is 15 months past the 180-month mark. The 15-year loan's required payment is $2,216. To finish in exactly 180 months, she would need to add about $733 a month on top of the required 30-year payment.\n\n2. The grid of payment tiles grows from nothing in frames 1–3 until it covers the loan's whole term. In frame 4, a gold strip marks the months that run past 180. In frame 5, the tiles are filled in with green, which looks like extra money going in. In frame 6, the gold strip is gone and the loan ends at 180 months. So the payoff date moves from about 195 months to 180 months as the extra payment goes up.\n\n3. The \"same payment as the 15-year\" shortcut doesn't work, because the 30-year loan carries a higher rate, and the video says it ends about 15 months late. The 15-year payment is not the same figure as the 30-year payment plus the extra. The video's numbers are $2,216 required plus $733 extra, which is more than $2,828 (about $2,949). That sum doesn't match the $2,828 figure, and the video doesn't explain the gap. The $2,828 and $733 figures are not directly comparable as shown. The accurate takeaway is that you have to calculate the extra amount against your own loan's terms. Matching another loan's payment won't give you its payoff date.\n\n4. The video gives no direct recommendation about whether to pay extra or invest. A viewer could take away a practical point: if they want to finish a 30-year loan in 15 years, they should work out the extra payment from their own loan's terms. They shouldn't assume that matching a 15-year payment will do it. The video says nothing about extra payments versus investing, so it doesn't answer your original question.\n\n5. The video itself suggests the practical point in the second half of answer 4. The narration and on-screen text say the shortcut ends about 15 months late and that $733 extra is needed to finish in 180 months. The labels \"ILLUSTRATIVE\" and \"US only · history, not a forecast\" signal that these are example figures and not advice. The point that the viewer should calculate against their own loan's terms is my own reading. The video doesn't state it. On the pay-extra-or-invest question, the video says nothing, and any conclusion there would be mine.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1593,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 227,
+   "in": 1593,
+   "out": 227
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3903,
+   "cache_read": 6512,
+   "output": 929,
+   "in": 10419,
+   "out": 929
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.025834000000000003
+}
