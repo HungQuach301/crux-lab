@@ -186,6 +186,16 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 
 ≤ 40 agent con. EL ≤ 6.000 ký tự (gần với chi tiêu: vượt → hỏi chủ dự án). Hai trần này **không đổi**. Ledger ghi cột **loại việc** cho mỗi dòng.
 
+**Mức cảnh báo theo format (từ Tập 7, tổng kết Tập 6 §3; chỉ cảnh báo, D-009 c).** Gốc: Tập 6 thực ≈ 83,1 triệu, trong đó 72,95 là P3b (agent con dựng C4); làm theo cách P3c (headless khoá Console, 0 agent con) thì Tập 6 ≈ 11–12 triệu trần phiên + kiểm mù + ≈ $30 Console. `deep` ≈ 1,8 × thời lượng `101` → ≈ 1,6–1,8 × việc dựng/kiểm.
+| | `101` | `lab` | **`deep`** |
+|---|---|---|---|
+| Trần token (log phiên + headless thuê bao) | 12 triệu | 15 triệu | **20 triệu** |
+| Chi khoá Console (nếu duyệt là chuẩn — lessons T6-9) | $35 | $45 | **$60** |
+| ElevenLabs (ký tự, gồm sinh lại ≈ 10 %) | ≈ 8.000 | ≈ 9.500 | **≈ 13.000–15.000** (2.120–2.450 từ nói × ≈ 5,9 ký tự/từ + sinh lại) |
+| Giờ máy (1080p + checks, gồm 1 lượt sửa) | ≈ 12 h | ≈ 15 h | **≈ 22 h**; ≈ 35–40 h nếu chưa có A29 (cache trang theo cảnh) |
+- **EL cho `deep` vượt trần 6.000 ký tự/tập ở trên**: trần 6.000 là cho `101`. **Chủ dự án kiểm hạn mức gói ElevenLabs** trước P1 tập `deep` đầu tiên: ≈ 15.000 ký tự/tập × 4 tập/tháng ≈ 60.000 ký tự/tháng, chưa tính Shorts và đọc thử. Hạn mức không đủ → `lab`, hoặc nâng gói (chi tiêu mới, CHARTER §6).
+- **Giờ máy:** 1080p không cache ≈ 2,8 h cho 536,6 s (Tập 6), nên `deep` 900–1.020 s ≈ 4,7–5,3 h một lượt đủ, vượt trần 2 h của lệnh nền → bắt buộc chạy tiếp được (§11b).
+
 **Mỗi phiên khi đóng ghi 4 số đọc từ log vào PLAN tập mục 5:** sinh ra · đầu vào mới · đọc cache · trần. Cách lấy: `list_events(session_id=<phiên này>, kinds=["result"], limit=100)` — bộ lọc chạy sau khi đọc trang nên trang có thể không có `result`: lật trang bằng `before_id` tới khi gặp — → lưu trang JSON → `python3 toolkit/usage/from_events.py --session <id> --close trang*.json`. Sự kiện `result` chỉ có khi một lượt kết thúc → số ghi được là **đến lượt trước**; lượt đóng cộng vào ở phiên sau (ghi "đến <giờ>"). Headless không nằm trong log phiên: cộng bốn trường `tokens` của JSON đầu ra (`toolkit/blind/headless.sh`). Bảng cả tập: `python3 toolkit/usage/token_log.py <jsonl…> [--windows …]`. Ghi thêm **giờ render thực** (`build-report.json`, `<đoạn>.build.json`).
 
 <details><summary>Mức cảnh báo Tập 5 (cũ, 3,0 triệu theo số công cụ báo — thực đo bằng log 85,4)</summary>
@@ -198,12 +208,16 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 |---|---|---|---|
 | `lab` | 9–11 phút | móc → bối cảnh/nhân vật → hành trình (phép thử) → đáp án + ngưỡng → giới hạn | 2, ở ranh giới hồi |
 | `101` | 8–9 phút | khái niệm → thí nghiệm nhỏ trên dữ liệu thật → khác nhau ở 2–3 người → giới hạn | 1, ở ranh giới hồi, trong khoảng lặng |
+| **`deep`** *(D-012; chờ chủ dự án duyệt con số ở gói tổng kết Tập 6 câu 2)* | **14–17 phút** (ước G1 ≥ 14:42 = sàn + 5 %; tối đa cứng 17:00) | móc → khái niệm + **hai nhân vật** cùng xuất phát → phát lại **nhiều cửa sổ lịch sử** → nhân vật 2 / ca đối chứng → **câu hỏi khán giả** (ACT 4) → giới hạn | **2–3**, mỗi điểm ở ranh giới hồi có lặng ≥ 1 s, ≥ 2 phút đầu/cuối, cách nhau ≥ 3 phút |
 
 - **Luật chung:** mid-roll không đặt trong 2 phút đầu hay 2 phút cuối, luôn ở khoảng lặng ≥ 1 s.
 - **`101` không độn nội dung:** thiếu chất thì ngắn hơn hoặc gộp khái niệm. Thời lượng tối thiểu là mềm; tối đa là cứng.
 - **Độ dài `101` và mid-roll (lessons T6-1, chủ dự án 08/10):** YouTube chỉ cho mid-roll khi video **≥ 8:00** — tập dưới 8:00 **không được ghi là có mid-roll**. Ba chốt: **G1 ≥ 8:25 ước** (≥ 1.275 từ nói ÷ 2,52 từ/s; `check_script.py` CHẶN dưới 505 s; dư ≈ 5 % cho sai số hằng, cắt chữ sau G1, sinh lại giọng) → **≥ 8:10 thật trên timeline sau khi sinh lời** (thiếu → sửa trước render) → **≥ 8:00 ở C5** kèm chỗ mid-roll hợp lệ. Ngắn hơn chỉ khi chủ dự án chọn ở G1, và khi đó tập không có mid-roll.
 - **Mọi gói G1 có một dòng mid-roll** (mẫu `playbook/templates/G1.md`): *"mid-roll: đủ điều kiện / không đủ (độ dài ước m:ss, cần ≥ 8:00 thật; mốc m:ss ≥ 2 phút đầu/cuối; lặng ≥ 1 s)"*.
 - Khuôn đã thiết kế, **chưa dựng tập 101**. Kiểm khuôn tự động nằm trong `build.sh` (phiên nhà máy).
+- **`deep` — điều kiện không độn (D-012 mục 1; kiểm ở C1–C2, nêu ở G1):** chỉ chọn `deep` khi hồ sơ đề tài có **đủ cả ba**: (1) **≥ 3 cửa sổ/thời kỳ lịch sử cho kết quả khác nhau** (mỗi cửa sổ một kết quả mới, không lặp kết luận); (2) **hai nhân vật** ILLUSTRATIVE cùng xuất phát, khác một lựa chọn (khuôn "Same start, different choice", `market/REPORT.md` §3); (3) **≥ 3 câu hỏi khán giả** của hồ sơ cầu, mỗi câu một nhịp trả lời riêng (ACT 4). WRITER ghi cạnh mỗi phút thêm (so với `lab`) claim mới hoặc câu hỏi được trả lời; phút không có cả hai là độn → cắt. Kiểm mù lời C2: không loại khối nào bị ≥ 2/6 người đọc nêu mất chú ý (như mọi format). Thiếu một trong ba → `lab`/`101`, ghi một vế ở dòng **Độ dài** của G1.
+- **`deep` — mid-roll:** 2 điểm khi độ dài thật < 15:30, 3 điểm khi ≥ 15:30; chỉ ở ranh giới hồi (sau móc ≥ 2:00, trước 2 phút cuối), lặng ≥ 1 s, cách nhau ≥ 3:00. `check_script.py` mẫu đã kiểm (`LEN_LIMITS['deep']`, `NMID`, khoảng cách); checks khoá: đề xuất A31 (lô K Tập 7, trước C4).
+- **`deep` — nhà máy trước:** tập `deep` đầu tiên chỉ mở C3 khi F-14 (nhịp hình, `toolkit/factory/BACKLOG.md`) đã đạt đích đo trên Tập 6 dựng lại (D-012 mục 1, lessons T6-6).
 
 ## 10. Sau phát hành
 Ở mốc 7 ngày: `episodes/epNNN/audience.md` theo mẫu `playbook/templates/audience.md`. Chủ dự án gửi **một** ảnh chụp YouTube Studio cho chat chiến lược. Điểm rời lớn nhất → nhịp kịch bản tương ứng → `lessons.md` / `story.md`.

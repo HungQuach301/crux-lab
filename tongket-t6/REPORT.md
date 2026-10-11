@@ -76,3 +76,26 @@ Chi tiết từng mục (số đo, nguyên nhân gốc, luật) ở `playbook/le
 | (i) gói ChatGPT lệch video | "baskets" ≠ crates · ảnh chụp ≠ thế giới 3D · mỗi thumbnail một màu · tiêu đề ≠ T1 | **ÁP** qua mục 4 | `playbook/packaging.md` §7, `episode.md` §5c, `toolkit/package/` |
 
 **Đo (d) trên Tập 6** (`python3 toolkit/indicators/spine_pace.py episodes/ep006/world/c4/*/spine.json --labels`): các quãng tĩnh có lời là 0:29–0:40 (11,2 s), 1:35–1:44, 1:47–1:56, 2:43–2:51, **3:41–3:53 (11,3 s)**, 4:40–4:50, 8:07–8:16. Thước này chưa hiệu chuẩn (A23: đối chứng dương 2/4), nên chỉ dùng làm chỉ báo. Đích của F-14 đo trên Tập 6 dựng lại, đối chứng là bản giao.
+
+## 3. Độ dài mới: format `deep`
+
+Theo D-012 mục 1: dải vượt trội có trung vị ~15–16 phút (`market/REPORT.md` §4; tứ phân vị ~12–19).
+
+| | Đề xuất (chờ duyệt con số, gói §5 câu 2) |
+|---|---|
+| Tên · thời lượng | **`deep` 14–17 phút**. Ước G1 ≥ 14:42 (sàn + 5 %, như `101`), tối đa cứng 17:00 |
+| Cấu trúc | móc → khái niệm + **hai nhân vật** cùng xuất phát → phát lại nhiều cửa sổ → nhân vật 2 / ca đối chứng → **ACT 4 câu hỏi khán giả** → giới hạn. Khuôn tỉ lệ: 5 · 15 · 25 · 20 · 25 · 10 % |
+| Mid-roll | 2–3 điểm (3 khi ≥ 15:30), mỗi điểm ở ranh giới hồi có lặng ≥ 1 s, ≥ 2 phút đầu/cuối, cách nhau ≥ 3 phút |
+| Không độn | Chỉ chọn khi đủ cả ba: ≥ 3 cửa sổ lịch sử cho kết quả khác nhau · hai nhân vật · ≥ 3 câu hỏi khán giả, mỗi câu một nhịp. Mỗi phút thêm phải mang claim mới hoặc câu hỏi được trả lời |
+| Nhà máy trước | Tập `deep` đầu tiên mở C3 chỉ khi F-14 đạt đích trên Tập 6 dựng lại (§2 d) |
+| Trần (cảnh báo) | 20 triệu token · Console $60 · **EL ≈ 13.000–15.000 ký tự/tập** · giờ máy ≈ 22 h (35–40 h nếu chưa có A29) |
+
+**Đã áp** (không phải gu; con số `deep` chờ duyệt nên ghi "chờ" ngay trong văn bản):
+- `playbook/episode.md` §9: dòng `deep`, điều kiện không độn, mid-roll, "nhà máy trước".
+- `playbook/episode.md` §8: mức cảnh báo theo format.
+- `playbook/templates/check_script.py`: `LEN_LIMITS['deep']` (882, 1020); khuôn `deep`; ACT 4; mid-roll 2–3 và khoảng cách ≥ 180 s. Thử trên bản sao kịch bản Tập 6 khai `deep` → TRƯỢT độ dài (536 < 882 s, thiếu ≈ 830 từ) và TRƯỢT mid-roll (1 < 2). Kịch bản Tập 6 với `101` cho cùng kết quả như trước, trừ phần do hằng mới.
+- `checks-appeal.md` A31: luật độ dài theo format cho lô K (F07 + mid-roll), chạy trước C4 Tập 7.
+
+**ElevenLabs:** 2.120–2.450 từ nói × ≈ 5,9 ký tự/từ + ≈ 10 % sinh lại ≈ **13.000–15.000 ký tự/tập**, gấp ≈ 2 lần Tập 6 (7.699). Bốn tập/tháng ≈ 60.000 ký tự. **Chủ dự án cần kiểm hạn mức gói ElevenLabs.** Không đủ thì hoặc dùng `lab`, hoặc nâng gói (đó là chi tiêu mới).
+
+**CHARTER §1 chưa sửa:** hiện ghi "hai định dạng". Phiên P1 Tập 7 sửa sau khi chủ dự án duyệt câu 2 (D-012 "Thay").
