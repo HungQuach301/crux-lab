@@ -31,7 +31,7 @@ Agent con: ledger ghi 23. Log đếm 25 (P1 4 · P2 8 · P3 1 · P3b 10 · K 2);
 ### 1b. So Tập 5
 | | Tập 5 | **Tập 6** |
 |---|---|---|
-| Trần cả tập | ≈ 85,4 | **≈ 83,4** (−2 %) |
+| Trần cả tập | ≈ 85,4 | **≈ 83,1** (−3 %) |
 | Phiên | 1 điều phối + 1 K | 6 điều phối (P1, P2, P3, P3b, P3c+P4) + 1 K |
 | Khoản lớn nhất | agent con dựng W4 + W5: 71,4 (84 %) | **P3b: 72,95 (87 %)**, cũng là agent con dựng C4 |
 | Mức cảnh báo | 3,0 (đo cũ) | 15 → vượt **× 5,6** |
