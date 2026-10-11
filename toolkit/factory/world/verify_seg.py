@@ -38,6 +38,19 @@ res['rule3'] = {'moves': len(S['moves']), 'missing_reason_or_sound': [m for m in
 cw = np.array([l['chartW'] for l in logs])
 res['modes'] = {'world_share': round(float((cw < 0.5).mean()), 3), 'chart_share': round(float((cw >= 0.5).mean()), 3),
                 'first_5s_world': bool(all(l['chartW'] < 0.05 for l in logs if l['t'] < 5))}
+# F-14 (c): spine có `f14` → quy tắc 7 chỉ giữ 5 s đầu TẬP (đoạn bắt đầu ≥ 5 s: luôn đạt); nhãn neo vào từ: mốc hiện thật (mẫu 0,1 s đầu tiên từ
+# cue − 1 s có chữ đó, opacity > 0,5 — như textTrack của checks/page/sampler.js) − mốc từ; |lệch| > 0,2 s = CẢNH BÁO
+if 'f14' in S:
+    lim = 5.0 - (S.get('episode_t0') or 0.0)
+    res['modes']['first_5s_world'] = bool(all(l['chartW'] < 0.05 for l in logs if l['t'] < lim)) if lim > 0 else True
+    cue_t = {f"{b['id']}.{k}": t for b in S['beats'] for k, t in b['cues'].items()}
+    lab = []
+    for n, txt in (S.get('label_cues') or {}).items():
+        if n not in cue_t: continue
+        first = next((l['t'] for l in logs if l['t'] >= cue_t[n] - 1.0 and any(x['text'] == txt and x['opacity'] > 0.5 for x in l['texts'])), None)
+        lab.append({'cue': n, 't': cue_t[n], 'lag': None if first is None else round(first - cue_t[n], 2)})
+    late = [x for x in lab if x['lag'] is None or abs(x['lag']) > 0.2 + 1e-9]
+    res['labels'] = {'n': len(lab), 'within_0_2': len(lab) - len(late), 'late': late}
 # F-2: mật độ sfx + nhãn đè nhau (nhật ký trang + spine.events + stem của audio.py nếu có)
 f2 = sfx_labels.check(S, logs, video.replace('.mp4', '.audio'))
 res['F2'] = {'summary': sfx_labels.summary(f2), **f2}
