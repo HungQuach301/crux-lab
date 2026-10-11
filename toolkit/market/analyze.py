@@ -12,7 +12,7 @@ Mọi chỉ số ở đây là TỰ TÍNH, KHÔNG PHẢI CHỈ SỐ YOUTUBE. Rep
 
 Định nghĩa (tự tính):
 - hệ số vượt trội = lượt xem video / trung vị lượt xem các video dài khác của cùng kênh đăng trong ±90 ngày; chỉ video ≥ 30 ngày
-  tuổi, cần ≥ 5 video so sánh. Cờ ≥ 3×, ≥ 5×.
+  tuổi, cần ≥ 5 video so sánh. Cờ ≥ 3×, ≥ 5× (cần thêm ≥ 10.000 lượt xem). Chỉ kênh giữ sau phân loại (kept_channels).
 - lượt xem/ngày = lượt xem / số ngày từ lúc đăng.
 - cờ thời sự = (a) tiêu đề có từ khoá sự kiện, hoặc (b) ≥ 3 kênh khác nhau có video vượt trội ≥ 3× cùng đề tài trong 21 ngày.
 - gắn đề tài: cosine(embedding tiêu đề + 300 ký tự mô tả, embedding đề tài) ≥ NGƯỠNG và hơn đề tài thứ hai ≥ BIÊN.
@@ -24,6 +24,7 @@ from common import yt, cache_dir, latest_cache, jdump, jload, quota_used, label
 HERE = pathlib.Path(__file__).parent
 TOPICS = jload(HERE / 'topics.json')['topics']
 SIM_MIN, SIM_MARGIN = 0.55, 0.04
+FLOOR = 10_000   # cờ vượt trội cần ≥ 10.000 lượt xem: kênh tí hon có trung vị vài chục lượt, hệ số vô nghĩa
 NOW = dt.datetime.now(dt.timezone.utc)
 EVENT = re.compile(r'\b(new law|just passed|big beautiful bill|obbb|no tax on (tips|overtime)|tariff|shutdown|fed (cut|hike)|'
                    r'rate cut|breaking|this week|announced|trump|biden|election|2026 changes|new rules?)\b', re.I)
@@ -56,6 +57,17 @@ def all_videos():
                         'thumb': (s.get('thumbnails', {}).get('high') or {}).get('url'), 'src': 'search',
                         'lang': s.get('defaultAudioLanguage') or s.get('defaultLanguage')}
     return out
+
+
+SEEDS = {'UCKhpM-cu2Cod-GyG6KngNYg', 'UCZJnbHQTYBy1I8GpHlsAUMg'}
+
+
+def kept_channels():
+    """Kênh giữ sau phân loại (discover.py classify): có vòng tròn, không lý do loại; hạt giống chủ dự án luôn giữ."""
+    cl = jload(day() / 'discover' / 'classified.json')
+    ok = lambda x: (x.get('circle') in ('direct', 'adjacent') and not x.get('exclude')) or \
+        (x.get('circle') == 'form' and set(x.get('exclude', [])) <= {'off_topic'})
+    return {c for c, x in cl.items() if (ok(x) and x.get('long_videos_last_90d', 0) > 0) or c in SEEDS}
 
 
 # ---------- embeddings ----------
@@ -101,9 +113,10 @@ def cmd_tag():
 def cmd_outliers():
     vids = all_videos()
     tags = jload(day() / 'analysis' / 'tags.json')
+    keep = kept_channels()
     by_ch = {}
     for v in vids.values():
-        if v['src'] == 'pull':
+        if v['src'] == 'pull' and v['channelId'] in keep:
             by_ch.setdefault(v['channelId'], []).append(v)
     res = {}
     for c, vs in by_ch.items():
@@ -120,7 +133,7 @@ def cmd_outliers():
             f = v['views'] / med if med else 0
             res[v['id']] = {'channelId': c, 'channelTitle': v['channelTitle'], 'title': v['title'], 'publishedAt': v['publishedAt'],
                             'duration': v['duration'], 'views': v['views'], 'vpd': round(v['vpd'], 1), 'factor': round(f, 2),
-                            'flag3': f >= 3, 'flag5': f >= 5, 'topic': (tags.get(v['id']) or {}).get('topic'),
+                            'flag3': f >= 3 and v['views'] >= FLOOR, 'flag5': f >= 5 and v['views'] >= FLOOR, 'topic': (tags.get(v['id']) or {}).get('topic'),
                             'event_kw': bool(EVENT.search(v['title']))}
     # cờ thời sự (b): ≥ 3 kênh có vượt trội ≥ 3× cùng đề tài trong 21 ngày
     hot = [r for r in res.values() if r['flag3'] and r['topic']]
