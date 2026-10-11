@@ -168,7 +168,7 @@ export async function boot(res) {
       label(O, L['c2.level'], (RL.x0 + RL.x1) / 2, RL.yt - 40, { align: 'center', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * show(t, at(S, 'c2.level', b.c2.level), b.c3.slowed) });   // F-14 (c)
       label(O, L['c2.first'], inX((RL.x0 + RL.x1) / 2, L['c2.first']), RL.yb + 86, { align: 'center', kind: 'number', px: 48, color: C.muted, alpha: ok * show(t, b.c2.first, b.c2.six - 0.3) });
       label(O, L['c2.six'], inX((RL.x0 + RL.x1) / 2, L['c2.six']), RL.yb + 86, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.c2.six) });
-      label(O, L['c4.model'], 960, 236, { align: 'center', kind: 'compare', px: 52, color: C.muted, alpha: ok * show(t, at(S, 'c4.bigger', b.c4.bigger)) });   // F-14 (c): neo vào "bigger" (đầu ý; neo vào "model" đẩy nhãn ra khỏi dải nhịp B08 → nghĩa tụt)
+      label(O, L['c4.bigger'], 960, 236, { align: 'center', kind: 'compare', px: 52, color: C.muted, alpha: ok * show(t, at(S, 'c4.bigger', b.c4.bigger)) });   // F-14 (c): neo vào "bigger" (đầu ý; neo vào "model" đẩy nhãn ra khỏi dải nhịp B08 → nghĩa tụt)
       // F-14 (a) S08.2 "the raise slowed the loss": thùng séc tăng còn giữ mà séc đều đã mất (6,09 → 9,04) được viền dần từ "slowed"
       { const SK = S.life.slowed.keys, sp = lin(t, SK[0][0], SK[1][0]), sA2 = ok * show(t, SK[0][0], b.c4.own);
         if (sA2 > 0.01) { const [xa] = O.toScreen(ris.row.edgeX(6.09), 0, ris.z + 0.4), [xb] = O.toScreen(ris.row.edgeX(9.04), 0, ris.z + 0.4);
