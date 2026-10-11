@@ -8,7 +8,7 @@ mỗi lần vật đổi trạng thái = một nốt dữ liệu (`../c3kit.py s
 | Đoạn | Nhịp · cảnh | Hình |
 |---|---|---|
 | `s01-stack` | B01 KEY-1 · S01 | Tessa cạnh nhà; the stack (W2) hiện cạnh nhà, +1 bó ở mỗi nhịp lời (6 bó) → đồ thị: "$120 a month" trên chồng, "$320,000 loan · week of Oct 8, 2026" trên nhà |
-| `s06-stack` | B06 KEY-3 · S06 | hai thanh khoản trả (ink): 15 năm, 30 năm; "finishing" thanh 30 năm nâng lên mức trả xong trong 15 năm, phần trên mức 15 năm = warn → đồ thị: "$2,948", "+$120"; phần dôi thành 15 bó rơi lên chồng tới đủ chiều cao, "the stack: $21,622 over 15 years" |
+| `s06-stack` | B06 KEY-3 · S06 | (vòng 2) hai thanh khoản trả (ink): 15 năm, 30 năm (ngắn hơn); "finishing" vạch mức 15 năm (ink-muted) qua cả hai → đồ thị (sau "takes"): "$2,828 a month" ở vạch, "required: $2,216 a month" trên thanh 30 năm; "forty" thanh 30 năm dâng tới $2,948, lát warn trên vạch, "30-year paid in 15: $2,948 a month"; "+$120 a month"; "same" → mỗi nhịp lát tách khỏi đỉnh thanh 30 năm bay sang chồng (15 bó), "the stack: $21,622 extra paid over 15 years" |
 | `s21-track` | B21 KEY-9 · S21 | **N1** từ nhà Tessa: 15 cột-năm × 12 ô → vạch 15 năm → đồ thị: 14,6 ô warn quá vạch ("about 195 months", "about 15 months late") → lớp trả thêm phủ từng cột, ô trễ tắt dần, đường xong đúng ô 180 ("to finish in 180 months: +$733 a month") |
 | `s23-track` | B23 · S23 | **N1** (trạng thái cuối S21): mỗi cột-năm gom 12 lớp mỏng thành MỘT khối trên ô thứ 12 → 4 ô warn quá vạch ("$8,792 once a year", "ends in 184 months: 4 months later") |
 | `s25-bar` | B25 KEY-10 · S25 | đô la trả thêm từ tay Tessa đặt lên the bar (W3 `Beam`, ink-muted) đang sát sàn; thanh dâng tới độ cao lãi → đồ thị: vạch đo sàn→thanh, "the bar: 7.40% a year, before taxes", "interest no longer charged, / not an investment return" (hai dòng), đô la thứ hai "any other use" **đặt áp vào đầu thanh, ngang thanh** (không trèo/vượt — G1 câu 1), "not tested: whether any investment clears it". Không có lợi suất đầu tư nào |
@@ -55,6 +55,23 @@ Lớp bắt buộc (như c3kit.js Tập 6): ILLUSTRATIVE + nguồn "Freddie Mac 
 | s23-track | 14,05 | 99 | OK | 4/5 (`a1.extra` −0,21: cột gom cuối) | 0,014 / 0,10 |
 | s25-bar | 30,05 | 131 | OK (vòng 1 F-2 BLOCK: vạch đo × tên Tessa → Tessa sang trái nhà) | 6/7 (`a3.measured` −0,30: đô la thứ hai trượt vào trước khi chạm) | −0,017 / 0,10 |
 Clip duyệt `review-c3/c3-clip.mp4`: 118,33 s, −14,0 LUFS, −1,9 dBTP (`c3-clip.json`). Giọng: 1.493 ký tự ElevenLabs (trần 3.000).
+
+## Vòng 2 (11/10) — sửa `s06-stack` sau cổng gốc tắt tiếng (nghĩa 0,5 + 0,5 → TRƯỢT)
+Người đọc vòng 1 không thấy thanh 30 năm được **nâng** (lúc nâng còn ở chế độ thế giới, chưa có nhãn; ở đồ thị đã nâng xong) và đọc chồng thành
+"tiền để dành / đầu tư phần chênh" (bó rơi từ không trung, nhãn chồng không nói đó là tiền ĐÃ TRẢ). Sửa bằng hình trước (D-009), nhãn cuối:
+- **Trước khi nâng, ở đồ thị**: chuyển chế độ sớm (ngay sau "takes", 5,90 → 6,90 s; vẫn ≥ 5 s đầu ở thế giới); thanh 30 năm đứng ở mức bắt buộc,
+  rõ ràng ngắn hơn, nhãn "required: $2,216 a month" (claim mới `pay30_now`); "$2,828 a month" (claim `pay15_month`, `of: pay15_now`, = cả cột
+  Hiển thị) ở đầu trái **vạch mức 15 năm**.
+- **Vạch mức 15 năm** (3D, `ink-muted` = TRACK.mark, đứng yên, trước mặt hai thanh, kéo qua cả hai) vẽ từ trái ở "finishing" (nốt tick; là
+  cue hình `a0.finishing` thay cho cú nâng cũ).
+- **Dâng**: thanh 30 năm dâng ở "forty-eight" trong 1,4 s (âm `rise`), qua vạch một lát warn; "required" tắt, "30-year paid in 15: $2,948 a month" hiện.
+- **Lát tách khỏi thanh**: thứ tự trái → phải nhà · chồng · thanh 15 năm · thanh 30 năm (chồng giữa nhà và thanh); mỗi lát bay bắt đầu TRÙNG lát
+  warn trên đỉnh thanh 30 năm (cùng bề ngang/sâu/dày), nhấc lên, vòng ra trước thanh 15 năm (z) rồi thành bó trên đỉnh chồng; vệt đường bay
+  warn mờ, nét đứt nối đỉnh thanh với lát (chỉ ở đồ thị). Bay 0,8 s, ≤ 2 lát cùng lúc; lát đầu rời thanh đúng "same" (vòng 1 `a1.same` −0,24 s);
+  mỗi lần chạm một nốt dữ liệu như cũ. Thanh 30 năm giữ nguyên $2,948 (khoản trả lặp lại mỗi tháng).
+- **Nhãn chồng**: "the stack: $21,622 extra paid over 15 years" (định nghĩa `extra_vs15_total_now` = phần trả thêm qua 15 năm); không chữ khuyên,
+  không "save/invest". "$2,828 a month" tắt ở "same" (đường bay đi qua chỗ nó).
+- `derive.py`: thêm `pay30_now` vào `disp` và `pay15_month` (claims.json sửa tay khớp đúng đầu ra derive — chạy lại derive.py để xác nhận).
 
 ## Lệnh (từ gốc repo; cần `npm ci` trong `toolkit/factory/world/vendor` một lần)
 ```

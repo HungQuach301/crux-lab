@@ -16,7 +16,7 @@ for ln in open(os.path.join(EP, 'numbers.md'), encoding='utf-8'):
 disp = {'extra_vs15_month_now': '$120 a month', 'extra_vs15_total_now': '$21,622', 'pay30on15_now': '$2,948 a month', 'pay15_now': '$2,828',
         'last_week': 'October 8, 2026', 'months_at_pay15_now': 'about 195 months', 'months_late_at_pay15_now': 'about 15 months late',
         'extra_principal_needed_now': '$733 a month', 'monthly_extra_months': '180 months', 'yearly_lump': '$8,792 once a year',
-        'yearly_lump_months': '184 months', 'bar_now': '7.40% a year, before taxes', 'r30_now': '7.40%'}
+        'yearly_lump_months': '184 months', 'bar_now': '7.40% a year, before taxes', 'r30_now': '7.40%', 'pay30_now': '$2,216 a month'}
 cl = {}
 for k, d in disp.items():
     full = rows[k]
@@ -27,6 +27,9 @@ assert Q['last_week']['value'] == '2026-10-08'
 cl['last_week_short'] = {'value': '2026-10-08', 'display': 'Oct 8, 2026', 'display_full': rows['last_week'], 'of': 'last_week'}
 cl['yearly_lump_late'] = {'value': Q['yearly_lump_months']['value'] - 180, 'display': '4 months later', 'display_full': rows['yearly_lump_months'], 'of': 'yearly_lump_months'}
 assert '4 months later' in rows['yearly_lump_months'] and Q['yearly_lump_months']['value'] - 180 == 4
+# s06 (vòng 2): khoản 15 năm ghi kèm "a month" cạnh vạch mức 15 năm — cùng claim pay15_now, chuỗi = cả cột Hiển thị
+cl['pay15_month'] = {'value': Q['pay15_now']['value'], 'display': '$2,828 a month', 'display_full': rows['pay15_now'], 'of': 'pay15_now'}
+assert cl['pay15_month']['display'] in rows['pay15_now']
 cl['principal'] = {'value': model['params']['principal'], 'display': '$320,000', 'display_full': '$320,000 (params.principal; ILLUSTRATIVE loan)'}
 assert model['params']['principal'] == 320000
 

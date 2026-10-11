@@ -64,6 +64,11 @@
   "display": "7.40%",
   "display_full": "7.40%"
  },
+ "pay30_now": {
+  "value": 2215.62,
+  "display": "$2,216 a month",
+  "display_full": "$2,216 a month"
+ },
  "last_week_short": {
   "value": "2026-10-08",
   "display": "Oct 8, 2026",
@@ -75,6 +80,12 @@
   "display": "4 months later",
   "display_full": "184 months (4 months later)",
   "of": "yearly_lump_months"
+ },
+ "pay15_month": {
+  "value": 2828.16,
+  "display": "$2,828 a month",
+  "display_full": "$2,828 a month",
+  "of": "pay15_now"
  },
  "principal": {
   "value": 320000.0,

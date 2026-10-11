@@ -414,10 +414,11 @@
    "sid": "S06.1",
    "mode": "world",
    "idea": "Trả khoản 30 năm xong trong 15 năm cần $2,948 mỗi tháng.",
-   "visual": "thanh 30 năm nâng lên, vượt thanh 15 năm; phần dôi warn; đồ thị: nhãn $2,948.",
+   "visual": "vạch mức 15 năm; đồ thị: hai thanh trước khi nâng có nhãn; \"forty\": thanh 30 năm dâng qua vạch; nhãn $2,948.",
    "line": "At 7.4 percent, finishing that loan in 15 years takes $2,948 a month.",
    "sound": [
-    "rise khi thanh nâng",
+    "tick khi vạch hiện",
+    "rise khi thanh dâng",
     "tick khi nhãn hiện"
    ],
    "music": 0.3,
@@ -436,7 +437,7 @@
    "sid": "S06.2",
    "mode": "chart",
    "idea": "Hơn khoản 15 năm $120 mỗi tháng.",
-   "visual": "nhãn \"+$120 a month\" cạnh phần warn; \"same\": bó bắt đầu rơi lên chồng.",
+   "visual": "nhãn \"+$120 a month\" cạnh lát warn; \"same\": lát tách khỏi đỉnh thanh 30 năm, bay sang chồng.",
    "line": "That's $120 a month more than the 15-year loan, for the same house and the same 15 years.",
    "sound": [
     "nốt dữ liệu mỗi bó chạm chồng"
@@ -455,8 +456,8 @@
    "id": "a2",
    "sid": "S06.3",
    "mode": "chart",
-   "idea": "Qua 15 năm: $21,622.",
-   "visual": "chồng tới đủ chiều cao; nhãn \"the stack: $21,622 over 15 years\". Giữ.",
+   "idea": "Qua 15 năm: $21,622 trả thêm.",
+   "visual": "chồng tới đủ chiều cao; nhãn \"the stack: $21,622 extra paid over 15 years\". Giữ.",
    "line": "Over those 15 years, the extra adds up to $21,622.",
    "sound": [
     "tick khi nhãn hiện"
@@ -476,28 +477,33 @@
    "verb": "mode",
    "from": "wS",
    "to": "cS",
-   "t0": 6.167,
-   "t1": 7.367,
-   "reason": "lời S06.1 đặt số tiền mỗi tháng; số chỉ ở chế độ đồ thị (quy tắc 1) → đồ thị sau khi thấy thanh nâng (≥ 5 s thế giới)",
+   "t0": 5.897,
+   "t1": 6.897,
+   "reason": "lời S06.1 đặt số tiền mỗi tháng; số chỉ ở chế độ đồ thị (quy tắc 1) → đồ thị SỚM (ngay sau \"takes\") để hai thanh trước khi nâng đọc được có nhãn",
    "sound": "whoosh_mode"
   }
  ],
  "events": [
   {
    "t": 3.138,
-   "kind": "rise",
-   "dur": 1.1
+   "kind": "tick",
+   "v": 0.35
   },
   {
-   "t": 6.167,
+   "t": 5.897,
    "kind": "whoosh_mode",
-   "dur": 1.2,
+   "dur": 1.0,
    "gain": 0.6
   },
   {
-   "t": 7.367,
+   "t": 6.897,
    "kind": "land",
    "mode": true
+  },
+  {
+   "t": 7.907,
+   "kind": "rise",
+   "dur": 1.4
   },
   {
    "t": 7.907,
@@ -510,72 +516,72 @@
    "v": 0.55
   },
   {
-   "t": 15.704,
+   "t": 16.504,
    "kind": "data",
    "v": 0.24
   },
   {
-   "t": 16.18,
+   "t": 16.923,
    "kind": "data",
    "v": 0.28
   },
   {
-   "t": 16.656,
+   "t": 17.342,
    "kind": "data",
    "v": 0.32
   },
   {
-   "t": 17.132,
+   "t": 17.76,
    "kind": "data",
    "v": 0.36
   },
   {
-   "t": 17.608,
+   "t": 18.179,
    "kind": "data",
    "v": 0.4
   },
   {
-   "t": 18.084,
+   "t": 18.598,
    "kind": "data",
    "v": 0.44
   },
   {
-   "t": 18.56,
+   "t": 19.017,
    "kind": "data",
    "v": 0.48
   },
   {
-   "t": 19.036,
+   "t": 19.436,
    "kind": "data",
    "v": 0.52
   },
   {
-   "t": 19.511,
+   "t": 19.854,
    "kind": "data",
    "v": 0.56
   },
   {
-   "t": 19.987,
+   "t": 20.273,
    "kind": "data",
    "v": 0.6
   },
   {
-   "t": 20.463,
+   "t": 20.692,
    "kind": "data",
    "v": 0.64
   },
   {
-   "t": 20.939,
+   "t": 21.111,
    "kind": "data",
    "v": 0.68
   },
   {
-   "t": 21.415,
+   "t": 21.529,
    "kind": "data",
    "v": 0.72
   },
   {
-   "t": 21.891,
+   "t": 21.948,
    "kind": "data",
    "v": 0.76
   },
@@ -616,11 +622,11 @@
   {
    "id": "s0",
    "t0": 0,
-   "t1": 6.167
+   "t1": 5.897
   },
   {
    "id": "s1",
-   "t0": 6.167,
+   "t0": 5.897,
    "t1": 27.81
   }
  ],
@@ -644,11 +650,11 @@
    2215.62
   ],
   [
-   3.138,
+   7.907,
    2215.62
   ],
   [
-   4.238,
+   9.307,
    2948.28
   ]
  ],
@@ -658,115 +664,115 @@
    0.0
   ],
   [
-   15.704,
+   16.504,
    0.0
   ],
   [
-   15.824,
+   16.624,
    1441.47
   ],
   [
-   16.18,
+   16.923,
    1441.47
   ],
   [
-   16.3,
+   17.043,
    2882.94
   ],
   [
-   16.656,
+   17.342,
    2882.94
   ],
   [
-   16.776,
+   17.462,
    4324.41
   ],
   [
-   17.132,
+   17.76,
    4324.41
   ],
   [
-   17.252,
+   17.88,
    5765.88
   ],
   [
-   17.608,
+   18.179,
    5765.88
   ],
   [
-   17.728,
+   18.299,
    7207.35
   ],
   [
-   18.084,
+   18.598,
    7207.35
   ],
   [
-   18.204,
+   18.718,
    8648.82
   ],
   [
-   18.56,
+   19.017,
    8648.82
   ],
   [
-   18.68,
+   19.137,
    10090.29
   ],
   [
-   19.036,
+   19.436,
    10090.29
   ],
   [
-   19.156,
+   19.556,
    11531.76
   ],
   [
-   19.511,
+   19.854,
    11531.76
   ],
   [
-   19.631,
+   19.974,
    12973.23
   ],
   [
-   19.987,
+   20.273,
    12973.23
   ],
   [
-   20.107,
+   20.393,
    14414.7
   ],
   [
-   20.463,
+   20.692,
    14414.7
   ],
   [
-   20.583,
+   20.812,
    15856.17
   ],
   [
-   20.939,
+   21.111,
    15856.17
   ],
   [
-   21.059,
+   21.231,
    17297.64
   ],
   [
-   21.415,
+   21.529,
    17297.64
   ],
   [
-   21.535,
+   21.649,
    18739.11
   ],
   [
-   21.891,
+   21.948,
    18739.11
   ],
   [
-   22.011,
+   22.068,
    20180.58
   ],
   [
@@ -779,27 +785,28 @@
   ]
  ],
  "drops": [
-  15.704,
-  16.18,
-  16.656,
-  17.132,
-  17.608,
-  18.084,
-  18.56,
-  19.036,
-  19.511,
-  19.987,
-  20.463,
-  20.939,
-  21.415,
-  21.891,
+  16.504,
+  16.923,
+  17.342,
+  17.76,
+  18.179,
+  18.598,
+  19.017,
+  19.436,
+  19.854,
+  20.273,
+  20.692,
+  21.111,
+  21.529,
+  21.948,
   22.367
  ],
- "drop_dur": 0.42,
+ "drop_dur": 0.8,
+ "level_t": 3.138,
  "label_cues": {
   "a0.forty": "30-year paid in 15: $2,948 a month",
   "a1.one": "+$120 a month",
-  "a2.twenty": "the stack: $21,622 over 15 years"
+  "a2.twenty": "the stack: $21,622 extra paid over 15 years"
  },
  "visual_cues": [
   "a0.finishing",
