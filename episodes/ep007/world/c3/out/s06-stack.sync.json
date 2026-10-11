@@ -4,13 +4,13 @@
  "asr_words_ref": 56,
  "voice_offset_s": {
   "median": -0.07,
-  "p90_abs": 0.575
+  "p90_abs": 0.578
  },
  "visual_peak_vs_keyword_s": {
-  "a0.finishing": 0.029,
+  "a0.finishing": 0.229,
   "a0.forty": 0.093,
   "a1.one": 0.17,
-  "a1.same": -0.237,
+  "a1.same": 0.529,
   "a2.twenty": 0.083
  },
  "method": {
@@ -20,6 +20,6 @@
   "a1.same": "motion-roi",
   "a2.twenty": "label"
  },
- "visual_within_0.2s": "4/5",
+ "visual_within_0.2s": "3/5",
  "visual_not_detected": []
 }
