@@ -7,7 +7,7 @@ Nhánh `tongket-t6` (từ `main` f614e6b). Quyết định chủ dự án 11/10 
 ## 1. Số thực Tập 6 theo phiên
 
 **Cách đo.** Mỗi phiên: `list_events(kinds=["result"])` trang mới nhất → sự kiện `result` cuối có `modelUsage` tích luỹ của **tiến trình** (gồm agent con). Lưu ở `tongket-t6/logs/t6.jsonl`; tái tạo: `python3 toolkit/usage/token_log.py tongket-t6/logs/t6.jsonl`. **Trần = đầu vào mới (input + ghi cache) + sinh ra**; đọc cache báo riêng. Cột "giá niêm yết" = `total_cost_usd` của log. Phiên chạy bằng gói thuê bao nên đây là giá quy đổi, không phải tiền chi; chỉ khoá Console là chi thật.
-**Sửa cách đo của tổng kết Tập 5:** `modelUsage` **không** cộng qua các lần khởi động lại. Phiên P3c có `process_turn_index` = 0 ở 11/10 03:53, và log chỉ còn 1,58 triệu trần cho tiến trình cuối. Vì vậy với P3c/P4 tôi lấy số của transcript cục bộ (`c5/session_tokens.py`, khử trùng theo mã tin nhắn, 2,67 + 0,14), lớn hơn số log. Các phiên khác không khởi động lại sau lượt cuối (`pti` > 0). Phiên K có `pti` 0 nhưng **không đếm thiếu**: `modelUsage` cuối là 1,86 triệu, còn `usage` của chính lượt đó chỉ là 0,68 triệu; K-PLAN ghi lượt 1 = 0,93 triệu và lượt 2 = 0,85 triệu (transcript cục bộ), cộng 1,78 ≈ 1,86.
+**Sửa cách đo của tổng kết Tập 5:** `modelUsage` **không** cộng qua các lần khởi động lại. Phiên P3c có `process_turn_index` = 0 ở 11/10 03:53, và log chỉ còn 1,58 triệu trần cho tiến trình cuối. Vì vậy với P3c/P4 tôi lấy số của transcript cục bộ (`c5/session_tokens.py`, khử trùng theo mã tin nhắn, 2,67 + 0,14), lớn hơn số log. Các phiên khác không khởi động lại sau lượt cuối (`pti` > 0). Phiên K có `pti` 0 nhưng **không đếm thiếu**: `modelUsage` cuối là 1,86 triệu, còn `usage` của chính lượt đó chỉ là 0,68 triệu; K-PLAN §5 ghi lượt 1 ≥ 0,93 triệu (đến 17:58 08/10); lượt 2 ≈ 0,85 triệu do phiên K tự đo từ transcript cục bộ (câu trả lời cuối của phiên K, log `result` 09/10 00:39). Cộng ≈ 1,78 ≤ 1,86.
 
 ### 1a. Theo phiên (triệu token)
 | Phiên (mã) | Chặng | Sinh ra | Đầu vào mới | Đọc cache | **Trần** | Giá niêm yết | Agent con | Giờ máy | EL |
@@ -24,7 +24,7 @@ Nhánh `tongket-t6` (từ `main` f614e6b). Quyết định chủ dự án 11/10 
 | **Cả tập** | | 2,84 | ≈ 80 | ≈ 826 | **≈ 83,0** | ≈ $605 niêm yết (P3c chỉ có tiến trình cuối) + **$25,5 chi** | **25** | **≈ 23,4 h** | **7.699** |
 
 \* X/Y/Z có đủ 4 trường: input + ghi cache + sinh ra theo `archive/PLAN-history.md`, bản đóng P3b mục 5 (228.104 + 246.213 + 231.962 = 0,706 triệu, $13,49 → 0,052 triệu/$). Ledger ghi "≈ 0,65" là số làm tròn sớm. Các lượt Console khác chỉ có số $, nên phần trần của chúng ước theo cùng tỉ lệ: 0,706 + 12,0 × 0,052 ≈ 1,33.
-Agent con: ledger ghi 23. Log đếm 25 (P1 4 · P2 8 · P3 1 · P3b 10 · K 2); 2 agent của K không thuộc trần 40 của tập.
+Agent con: ledger ghi 23. Log đếm 25 (P1 4 · P2 8 · P3 1 · P3b 10 · K 2); agent của K không thuộc trần 40 của tập. K-PLAN ghi K có 3 agent, log tiến trình cuối đếm 2.
 
 **Chủ dự án chạm ≈ 11 lượt.** Đếm từ `gates/*-answer.md`, ledger và lệnh mở phiên, không đếm từ log: mở P1 · G1 · C3 · quyền merge F-12 (mở P3b) · mở K + trả lời K4.1 · C4 chốt an toàn (rubric mới) · mở P3c với khoá Console · cho P3c chạy quá 300 nghìn ngữ cảnh · G2 + lệnh P4 · thumbnail ChatGPT. Tập 5 cũng ≈ 11.
 
@@ -82,7 +82,7 @@ Chi tiết từng mục (số đo, nguyên nhân gốc, luật) ở `playbook/le
 
 ## 3. Độ dài mới: format `deep`
 
-Theo D-012 mục 1: dải vượt trội có trung vị ~15–16 phút (`market/REPORT.md` §4; tứ phân vị ~12–19).
+Theo D-012 mục 1: dải vượt trội có trung vị ~15–16 phút (`market/REPORT.md` §4; tứ phân vị ~12–19). Con số này chưa tính lại sau khi loại kênh của mình (T6-12). Ít khả năng đổi kết luận, vì chỉ có một kênh và các video của nó dài 5–10 phút.
 
 | | Đề xuất (chờ duyệt con số, gói §5 câu 2) |
 |---|---|
@@ -160,6 +160,8 @@ Thành luật ở `episode.md` §10 mục 4–5: đổi/giữ ở mốc 48–72 
 | T1 (G1) "Does a 2% Annuity Raise Really Keep Up With Prices?" | 3 · 4 |
 | Tiêu đề ChatGPT | chưa chấm (chủ dự án chưa gửi nguyên văn) |
 
+Điểm trong bảng chấm bằng `rescore.py` **trước** khi sửa mã theo REVIEWER (model cũ, chưa ghi trường `model`); P3 Tập 7 chạy lại.
+
 **Đọc kết quả:** Sonnet chấm rộng tay (gần như mọi ảnh 4–5) và không bắt được lỗi số thùng. Vì vậy nó chỉ là bộ lọc thô: nó loại được vật thể sai và ảnh chụp, nhưng không chọn được giữa các phương án tốt. Chênh lệch thật nằm ở luật cứng: đường API lai giữ đúng vật thể, thế giới và màu kênh theo cách làm; đường ChatGPT thì không (T6-11). Thước đo thật vẫn là Test & Compare và CTR sau đăng (§10.4).
 
 ## 5. Gói cho chủ dự án (≤ 3 câu, mỗi câu có khuyến nghị)
@@ -180,7 +182,7 @@ Thành luật ở `episode.md` §10 mục 4–5: đổi/giữ ở mốc 48–72 
 - **Khuyến nghị: duyệt cả bốn.** (d) và (f) dùng thử 3 tập rồi hiệu chuẩn lại.
 
 **Câu 2: format `deep` và format Tập 7–8?**
-- `deep` 14–17 phút, ước G1 ≥ 14:42, mid-roll 2 điểm (3 khi ≥ 15:30), các điểm cách nhau ≥ 3 phút.
+- `deep` 14–17 phút, ước G1 ≥ 14:42, mid-roll 2 điểm (3 khi ≥ 15:30), các điểm cách nhau ≥ 3 phút. Dải vượt trội ~15–16 phút chưa tính lại sau khi loại kênh mình (T6-12).
 - Ba điều kiện không độn: ≥ 3 cửa sổ lịch sử cho kết quả khác nhau · hai nhân vật · ≥ 3 câu hỏi khán giả.
 - Trần cảnh báo: 20 triệu token, $60, ≈ 22 h máy.
 - **ElevenLabs ≈ 13.000–15.000 ký tự/tập**, ≈ 52.000–60.000/tháng nếu 4 tập. **Anh kiểm hạn mức gói ElevenLabs.**
@@ -204,9 +206,9 @@ Thành luật ở `episode.md` §10 mục 4–5: đổi/giữ ở mốc 48–72 
 ```
 Chạy Tập 7, đề tài #13 (15-year mortgage vs a 30-year paid off in 15), phiên P1 — G1 LÔ Tập 7–8 (D-011 Q1, D-012).
 BƯỚC 0: `git fetch origin main tongket-t6`; main chưa có tongket-t6 → phiên này (điều phối, duy nhất merge main — CHARTER §7) merge `tongket-t6` vào main (fetch trước; xung đột chỉ ở tệp dùng chung → giữ cả hai phần), push.
-BƯỚC 1 (nhánh tongket-t6-answer từ main): chép câu trả lời dưới đây vào tongket-t6/ANSWER.md; áp mục được duyệt: D-011 sửa (1a), phiếu L3 bỏ chữ "nháp" (1f), toolkit/api.sh là chuẩn + trần chi (1g), format deep → CHARTER §1 + episode.md §8–§9 bỏ chữ "chờ" (2), bộ nhận diện + đường thumbnail (3), OWN_CHANNELS (T6-12). Mục bác → giữ nguyên trạng (mục đã áp trong phiên tổng kết mà bị bác → hoàn lại); mục sửa → áp theo câu sửa. Ghi taste-ledger.md, AUTHORSHIP.md. Merge main, rồi mới tạo ep007 từ main và chạy `bash toolkit/verify.sh ep007`. Nếu 1d duyệt: viết đầu bài phiên nhà máy F-14 (nhánh factory-f14, đo trên Tập 6 dựng lại, đối chứng master SHA-256 f96da0ea…), để ở tongket-t6/F14-brief.md cho chủ dự án mở song song — P1 không làm F-14.
+BƯỚC 1 (nhánh tongket-t6-answer từ main): chép câu trả lời dưới đây vào tongket-t6/ANSWER.md; áp mục được duyệt: D-011 sửa (1a), phiếu L3 bỏ chữ "nháp" (1f), toolkit/api.sh là chuẩn + trần chi (1g), format deep → CHARTER §1 + episode.md §8–§9 bỏ chữ "chờ" (2), bộ nhận diện + đường thumbnail (3). OWN_CHANNELS (T6-12) đã áp, không cần duyệt; chỉ chạy việc treo (hồ sơ q01/q17, `market/REPORT.md` §4). Mục bác → giữ nguyên trạng (mục đã áp trong phiên tổng kết mà bị bác → hoàn lại); mục sửa → áp theo câu sửa. Ghi taste-ledger.md, AUTHORSHIP.md. Merge main, rồi mới tạo ep007 từ main và chạy `bash toolkit/verify.sh ep007`. Nếu 1d duyệt: viết đầu bài phiên nhà máy F-14 (nhánh factory-f14, đo trên Tập 6 dựng lại, đối chứng master SHA-256 f96da0ea…), để ở tongket-t6/F14-brief.md cho chủ dự án mở song song — P1 không làm F-14.
 Đọc (≤ 8): CHARTER.md · decisions/D-012.md · tongket-t6/ANSWER.md · playbook/episode.md · playbook/packaging.md (§7) · playbook/prompts/P1.md · market/topics/q13-15-vs-30-mortgage.md · tongket-t6/anchors/q13-15-vs-30-mortgage.json.
-Tập 7: P1 Việc 0 → C1 → C2 → G1 theo P1.md. Format theo câu 2 (deep chỉ khi F-14 đã đạt trước G1). Video neo + ý tưởng tiêu đề/thumbnail chốt ở G1 (packaging.md §7.1). Việc nặng: nếu 1g duyệt → headless khoá Console (toolkit/api.sh), 0 agent con trừ khi cần công cụ phiên; nếu bác → headless thuê bao (toolkit/blind/headless.sh) và agent theo episode.md §1.
+Tập 7: P1 Việc 0 → C1 → C2 → G1 theo P1.md. Format theo câu trả lời 2. Nếu câu trả lời chọn deep mà 1d bị bác hoặc F-14 chưa đạt trước G1 → nêu mâu thuẫn ở G1 lô (episode.md §9 "nhà máy trước"), không tự chọn. Video neo + ý tưởng tiêu đề/thumbnail chốt ở G1 (packaging.md §7.1). Việc nặng: nếu 1g duyệt → headless khoá Console (toolkit/api.sh), 0 agent con trừ khi cần công cụ phiên; nếu bác → headless thuê bao (toolkit/blind/headless.sh) và agent theo episode.md §1.
 Tập 8 (#20 thuê vs mua, phát lại lịch sử thật; dự phòng #6): song song, chạy máy đề tài làm hồ sơ #20 (topic-dossier.md §4: quyền dữ liệu giá thuê/giá nhà); G1 lô có đề tài + logline + format + neo (tongket-t6/anchors/s1-rent-vs-buy-history.json) cho Tập 8. Hồ sơ #20 không qua §4 → #6.
 Dừng ở G1 lô (đóng phiên theo D-011, hoặc bản sửa nếu 1a duyệt).
 Câu trả lời tổng kết Tập 6:

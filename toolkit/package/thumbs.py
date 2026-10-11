@@ -4,7 +4,8 @@
 nên đúng từng ký tự và qua claim-risk như mọi khung.
 
   python3 toolkit/package/thumbs.py --frame <khung 1920×1080.png> --keep "<vật thể + nhân vật phải giữ, tiếng Anh>" --text "BIGGER CHECK|BUYS LESS?" \
-      --pillar retire --out episodes/epNNN/out/package/hybrid-1.png [--character] [--no-api] [--quality high]
+      --pillar retire --ep episodes/epNNN --out episodes/epNNN/out/package/hybrid-1.png [--no-character] [--no-api] [--quality medium]
+  --ep       BẮT BUỘC ở P3: kiểm claim-risk chữ trên ảnh (S10 + số có claim); thiếu thì chỉ in cảnh báo.
   --no-api   bỏ bước API (proxy/quyền chặn): lớp chữ đặt thẳng lên khung → dùng làm ảnh tham khảo cho đường ChatGPT thủ công (brief).
   Khung: `NODE_PATH=/opt/node-tools/node_modules node toolkit/factory/world/render_shots.js <đoạn> 1080 /tmp/x.mp4 --stills <giây> --stills-dir <thư mục>`.
 Ghi <out>.json: chữ, claim do người gọi khai (--claims), prompt, model, chi ước, đường đi (api / no-api). Khoá: proxy gắn (api.openai.com),

@@ -108,7 +108,7 @@ Kết quả: `episodes/ep001/review-c6/pack-test/results.md`. Chủ dự án ch�
    - Tự kiểm: S21, claim-risk S10, số có claim, chương khớp hồi, **từ chỉ vật thể** (`--objects`, cấm `--banned`).
 3. **Thumbnail lai** (`toolkit/package/thumbs.py`):
    - 3 khung thế giới 3D 1280×720 có vật thể trung tâm (`render_shots.js --stills`) → OpenAI image API `images/edits`. Prompt: giữ vật thể/nhân vật/màu/low-poly, bỏ mọi chữ, không thêm vật, không ảnh chụp, không mặt.
-   - **Lớp chữ do máy vẽ**, nên đúng từng ký tự và qua claim-risk.
+   - **Lớp chữ do máy vẽ**, nên đúng từng ký tự; claim-risk chạy khi gọi với `--ep episodes/epNNN` (**bắt buộc** ở P3).
    - Không có API (proxy/quyền chặn, thoát 3) → `--no-api` + brief (`templates/PACKAGING-BRIEF.md`, có `--objects/--banned`) cho **ChatGPT thủ công**. Đây là đường dự phòng.
 4. **Bộ nhận diện kênh "Money Rerouted"** *(CHỜ chủ dự án duyệt — gói tổng kết Tập 6 câu 3; đến khi duyệt chỉ là đề xuất)* (tên kênh YouTube của Crux — chủ dự án nêu 11/10; đổi là quyền chủ dự án):
    - logo **"M."** trong ô bo góc màu trụ, trên trái (32, 28, 80×80 px ở 1280×720);
