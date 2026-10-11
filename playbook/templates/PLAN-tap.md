@@ -35,3 +35,11 @@ Chặng này: {việc} → dừng ở {cổng kế} (đóng phiên theo playbook
 Câu trả lời {cổng}:
 <<DÁN CÂU TRẢ LỜI {cổng} Ở ĐÂY>>
 ```
+Khi phiên kế là **P4** (sau G2), thêm vào cuối khối trên (`episode.md` §5c — cùng một lượt dán, không lượt chạm mới):
+```
+Gói ChatGPT (từ out/package/PACKAGING-BRIEF.md) — phiên chép vào out/package/chatgpt/ rồi chạy toolkit/market/package_check.py:
+Tiêu đề: <<DÁN TIÊU ĐỀ>>
+Mô tả:
+<<DÁN MÔ TẢ>>
+Thumbnail: <<ĐÍNH KÈM ẢNH>>
+```
