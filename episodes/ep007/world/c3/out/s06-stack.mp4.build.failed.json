@@ -17,7 +17,7 @@
    ]
   },
   "render": {
-   "seconds": 129.1,
+   "seconds": 138.4,
    "ok": true,
    "shots": 2,
    "rendered": [
@@ -25,21 +25,21 @@
     "s1"
    ],
    "cached": 0,
-   "wall_s": 128.4,
+   "wall_s": 137.7,
    "film_s": 27.81,
-   "wall_per_film_s_rendered": 6.37,
+   "wall_per_film_s_rendered": 7,
    "cores": 4
   },
   "audio": {
-   "seconds": 15.6,
+   "seconds": 17.1,
    "ok": true
   },
   "mux": {
-   "seconds": 1.8,
+   "seconds": 2.5,
    "ok": true
   },
   "verify": {
-   "seconds": 3.1,
+   "seconds": 3.5,
    "ok": false,
    "rule1": 0,
    "rule2": 0,
@@ -63,14 +63,14 @@
     "sfx_events": 7,
     "keyword_hits": 5,
     "min_keyword_snr_db": 21.7,
-    "label_overlaps": 63,
+    "label_overlaps": 62,
     "line_crossings": 0,
     "block": [
-     "15-year × 30-year 0–6.2 s (63 mẫu)"
+     "15-year × 30-year 0–6.1 s (62 mẫu)"
     ],
     "warn": []
    }
   }
  },
- "staging": "episodes/ep007/world/c3/out/.staging-s06-stack-16248"
+ "staging": "episodes/ep007/world/c3/out/.staging-s06-stack-18312"
 }

@@ -64,8 +64,8 @@ export async function boot(res) {
     // tên thanh dưới chân; số: "$2,828 a month" ở đầu trái vạch mức 15 năm, "required: …" trên thanh 30 năm (tắt khi dâng), "30-year paid in 15"
     // trên cặp thanh (căn phải), "+$120" ngay phải lát warn, nhãn chồng cao nhất
     const [x15, f15] = O.toScreen(bar15.position.x, 0, 0.3), [x30, f30] = O.toScreen(bar30.position.x, 0, 0.3), [, y30] = O.toScreen(bar30.position.x, bar30.topY(G.pay30on15), 0);
-    label(O, '15-year', x15, f15 + 52, { align: 'center', kind: 'name', px: 48, w: 240 });
-    label(O, '30-year', x30, f30 + 52, { align: 'center', kind: 'name', px: 48, w: 240 });
+    label(O, '15-year', x15, f15 + 52, { align: 'center', kind: 'name', px: 48, w: 240, alpha: ok });
+    label(O, '30-year', x30, f30 + 52, { align: 'center', kind: 'name', px: 48, w: 240, alpha: ok });
     const [vx, vy] = O.toScreen(lx0, top15, LZ);
     label(O, D('pay15_month'), vx - 14, vy + 16, { align: 'right', kind: 'number', alpha: ok * show(t, 0, b.a1.same), claims: ['pay15_month'] });
     const [rx, ry] = O.toScreen(bar30.position.x - BAR_W / 2, bar30.topY(G.pay30), 0);
