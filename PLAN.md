@@ -1,4 +1,4 @@
-# PLAN kênh Crux (≤ 1 trang) — cập nhật 11/10/2026 (P2 Tập 7: C3 chờ)
+# PLAN kênh Crux (≤ 1 trang) — cập nhật 11/10/2026 (P2 Tập 7: C3 đã trả lời → P3)
 
 PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLAN-tap.md`). PLAN Tập 1 cũ: `archive/ep001-v1/PLAN.md`. Thẩm quyền: `CHARTER.md` → `decisions/` (mới nhất D-012).
 
@@ -9,10 +9,10 @@ PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLA
 | 4 | #3 giới hạn $500,000 khi bán nhà | — | — | **KHÔNG đăng** (chủ dự án 09/10: không đủ chất lượng — hình nghèo, nhiều chữ; sổ gu) |
 | 5 | #17 PMI 10 % trả trước | `101` | — (đã merge `main` 6e0ae01) | **đã đăng 09/10**; tổng kết `tongket-t5/` áp xong (D-011) |
 | 6 | #12 "Does a 2% Annuity Raise Really Keep Up With Prices?" | `101` | — (merge squash `main` 99e90d4) | **G3: chờ chủ dự án đăng**; tổng kết `tongket-t6/` đã trả lời + áp (`ANSWER.md`) |
-| **7** | **#13 15 năm vs 30 năm trả trong 15** (D-012) | `lab` (F-14 chưa đạt trước G1) | `ep007` | **G1 lô chờ** (`episodes/ep007/gates/G1.md`); phiên kế P2 (C3): prompt `episodes/ep007/PLAN.md` mục 7 |
+| **7** | **#13 15 năm vs 30 năm trả trong 15** (D-012) | `lab` (F-14 chưa đạt trước G1) | `ep007` | **C3 đã trả lời** (`episodes/ep007/gates/C3-answer.md`); kế: P3 (C4 → G2), prompt `episodes/ep007/PLAN.md` mục 7 |
 | 8 | #20 thuê vs mua — phát lại lịch sử thật (dự phòng #6) | `lab` (đề xuất G1 lô) | — | hồ sơ `topics-r2/machine/rent-buy-1/` §4 ĐẠT; chờ G1 lô (điều kiện tỉ lệ thuê/giá có nguồn) |
 
-**Tiếp Tập 7:** G1 lô đã trả lời; **C3 chờ** (`episodes/ep007/gates/C3.md`). Phiên P3: dán prompt `episodes/ep007/PLAN.md` mục 7 + câu trả lời C3 (C4 chỉ sau khi `main` có khoá K Tập 7).
+**Tiếp Tập 7:** C3 đã trả lời (S21 lớp trả thêm = CHÍNH, C4 sửa + kiểm mù lại); khoá K4.2/K4.2b (kind Tập 7) đã merge vào `ep007` → P3 (C4 → G2): chạy tiếp trong container này sau `/compact` (D-011 sửa) hoặc phiên mới với prompt `episodes/ep007/PLAN.md` mục 7.
 
 ## Việc treo
 - **F-14 nhịp hình**: đầu bài `tongket-t6/F14-brief.md` (chủ dự án mở `factory-f14` song song); **lô K Tập 7**: `episodes/ep007/K-brief.md` (kind mới) + A29–A31, trước C4. Hồ sơ q01/q17 + §4: xong 11/10. **EL:** `user_read` bật; còn 72.750 / 144.034 ký tự (11/10, làm mới 01/11).
