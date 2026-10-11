@@ -316,8 +316,14 @@ def cmd_gap():
 QUESTIONS_PROMPT = '''Below are paraphrased audience comments (type, weight, gist) from YouTube videos about: %s.
 Write the 5 most important audience questions this topic must answer, ranked by total weight and frequency, plus 3 typical personal situations
 (composite, no real names, US context), plus up to 3 competitor weaknesses viewers complain about, plus any requested topics for new videos.
-Return JSON only: {"questions": [{"q": "...", "weight": "high"|"medium"|"low"}], "situations": ["..."], "weaknesses": ["..."], "requests": ["..."]}.
+Also, from the TOP VIDEO TITLES below, write up to 3 abstract title templates (e.g. "X vs Y: Which Costs More Over N Years?") — never copy a title —
+and 3-6 search keywords for a video description.
+Return JSON only: {"questions": [{"q": "...", "weight": "high"|"medium"|"low"}], "situations": ["..."], "weaknesses": ["..."], "requests": ["..."],
+"title_templates": ["..."], "keywords": ["..."]}.
 If there are few comments, infer conservatively from the topic and say so in a field "note".
+
+TOP VIDEO TITLES:
+%s
 
 COMMENTS:
 %s'''
@@ -352,17 +358,23 @@ def cmd_profile():
         gl = 'chưa có dữ liệu' if not g else 'cao' if real == 0 else 'vừa' if real <= 1 else 'thấp'
         comments = cm.get(t['id'], [])
         lines = '\n'.join(f"{k['type']}\t{k['weight']}\t{k['gist']}" for k in sorted(comments, key=lambda k: -k['weight'])[:120])
-        q = ask(QUESTIONS_PROMPT % (t['title'] + ' (viewers search: ' + '; '.join(t['q']) + ')', lines or '(none)'), task='profile')
         comp = sorted((v for v in vids.values() if (tags.get(v['id']) or {}).get('topic') == t['id']), key=lambda v: -v['views'])[:5]
+        q = ask(QUESTIONS_PROMPT % (t['title'] + ' (viewers search: ' + '; '.join(t['q']) + ')',
+                                    '\n'.join(v['title'] for v in comp) or '(none)', lines or '(none)'), task='profile')
         outl = sorted((r for r in out.values() if r['topic'] == t['id'] and r['flag3'] and not r['topical']), key=lambda r: -r['factor'])[:3]
-        durs = [v['duration'] / 60 for v in comp]
+        durs = [r['duration'] / 60 for r in out.values() if r['topic'] == t['id'] and r['flag3'] and not r['topical']]
+        dur_src = 'vượt trội'
+        if len(durs) < 3:
+            durs, dur_src = [v['duration'] / 60 for v in comp], 'đầu bảng'
         prof[t['id']] = {'title': t['title'], 'demand': label(d['vpd_top10_median'], lo, hi) if d['n_tagged'] >= 3 else 'thấp (ít video)',
                          'n_tagged_label': label(d['n_tagged'], 8, 25), 'gap': gl, 'gap_methods': [x.get('method') for x in g],
                          'questions': q, 'n_comments_kept': len(comments),
                          'competitors': [{'channel': v['channelTitle'], 'title': v['title'], 'id': v['id'], 'min': round(v['duration'] / 60, 1)} for v in comp],
                          'outliers': [{'channel': r['channelTitle'], 'title': r['title'], 'id': vid_of(out, r), 'min': round(r['duration'] / 60, 1),
                                        'band': '≥ 5×' if r['flag5'] else '≥ 3×'} for r in outl],
-                         'dur_range_min': [round(min(durs), 1), round(max(durs), 1)] if durs else None,
+                         'dur_range_min': [round(sorted(durs)[len(durs) // 4], 1), round(sorted(durs)[(3 * len(durs)) // 4], 1)] if durs else None,
+                         'dur_src': dur_src, 'n_out_tagged': len([1 for r in out.values() if r['topic'] == t['id'] and r['flag3']]),
+                         'requests': q.get('requests', []) if isinstance(q, dict) else [],
                          'title_patterns': [feats(v) for v in comp[:3]]}
     jdump({'cutoffs_vpd': [lo, hi], 'demand_raw': dem, 'profiles': prof}, day() / 'analysis' / 'profile.json')
     print({k: (v['demand'], v['gap'], v['n_comments_kept']) for k, v in prof.items()})

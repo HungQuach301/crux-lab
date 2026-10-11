@@ -2,6 +2,9 @@
 """Tìm kênh theo VIDEO trước (Phiên Thị trường, bước 2). Số liệu thô → ~/market-cache/<ngày>/discover/ (ngoài git).
 
   python3 toolkit/market/discover.py search      # 3 search/đề tài + vòng 'hình thức' (≈ 66 search = 6.600 đơn vị)
+  python3 toolkit/market/discover.py search --topics q12-annuity-raise q13-…   # làm mới vài đề tài (P1 Việc 0)
+  python3 toolkit/market/discover.py candidates  # ứng viên: ≥ 3 đề tài + kênh nổi bật + mới nổi + hạt giống
+  python3 toolkit/market/discover.py classify    # Haiku headless: vòng tròn + lý do loại (sau pull.py)
   python3 toolkit/market/discover.py aggregate   # videos.list + channels.list, gom kênh theo số đề tài, mở rộng channelSections
 
 Mỗi đề tài (toolkit/market/topics.json): q[0] 30 ngày theo lượt xem, q[1] 90 ngày theo lượt xem, q[0] 90 ngày theo độ liên quan (top 20).
@@ -25,15 +28,18 @@ def search(q, days, order, n):
               videoDuration='medium', publishedAfter=rfc(days), order=order, maxResults=n)
 
 
-def cmd_search():
+def cmd_search(only=None):
+    """only: danh sách id đề tài (làm mới ở P1 Việc 0: đề tài + 2–3 đề tài kế); None = tất cả + vòng hình thức."""
     out = cache_dir() / 'discover' / 'search'
     out.mkdir(parents=True, exist_ok=True)
     jobs = []
     for t in TOPICS['topics']:
+        if only and t['id'] not in only:
+            continue
         jobs += [(t['id'], 'v30', t['q'][0], 30, 'viewCount', 50),
                  (t['id'], 'v90', t['q'][1], 90, 'viewCount', 50),
                  (t['id'], 'r90', t['q'][0], 90, 'relevance', 20)]
-    for i, q in enumerate(TOPICS['form_circle']):
+    for i, q in enumerate([] if only else TOPICS['form_circle']):
         jobs.append(('form', f'f{i}', q, 90, 'viewCount', 50))
     for tid, kind, q, days, order, n in jobs:
         f = out / f'{tid}-{kind}.json'
@@ -170,4 +176,8 @@ def cmd_classify():
 
 
 if __name__ == '__main__':
+    a = sys.argv[1:]
+    if a[0] == 'search' and '--topics' in a:
+        cmd_search(a[a.index('--topics') + 1:])
+        sys.exit()
     {'classify': cmd_classify, 'search': cmd_search, 'aggregate': cmd_aggregate, 'candidates': cmd_candidates}[sys.argv[1]]()

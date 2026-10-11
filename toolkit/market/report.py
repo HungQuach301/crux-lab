@@ -2,7 +2,8 @@
 """Ghi phần sinh máy của market/ từ ~/market-cache/<ngày>/ — CHỈ nhãn và định tính, không số liệu thô.
 
   python3 toolkit/market/report.py channels   # → market/CHANNELS.md
-  python3 toolkit/market/report.py topics     # → market/topics/<đề tài>.md (hồ sơ cầu) + bảng nhãn cho topics/queue.md
+  python3 toolkit/market/report.py topics     # → market/topics/<đề tài>.md (hồ sơ cầu) + market/topics/labels.json
+  python3 toolkit/market/report.py queue      # cột Cầu / Khoảng trống trong topics/queue.md
 
 Định danh kênh/video (channelId, videoId) được giữ (YouTube cho phép lưu định danh); tiêu đề video của người khác chỉ ghi
 dạng diễn giải ngắn hoặc khuôn trừu tượng, không chép nguyên; không ghi lượt xem, người đăng ký, like.
@@ -96,5 +97,91 @@ def cmd_channels():
     print('market/CHANNELS.md:', len(seed), 'hạt giống,', {k: len(v) for k, v in main.items()}, len(trial), 'thử việc,', len(gone), 'loại')
 
 
+METHOD = {'real_history': 'dữ liệu lịch sử thật', 'fixed_assumption': 'giả định cố định', 'opinion': 'ý kiến, không tính', 'news': 'tin tức'}
+WEIGHT = {'high': 'cao', 'medium': 'vừa', 'low': 'thấp'}
+
+
+def mmss(m):
+    return f"{int(m)}:{int(round((m - int(m)) * 60)):02d}"
+
+
+def cmd_topics():
+    d = A.day()
+    prof = jload(d / 'analysis' / 'profile.json')['profiles']
+    gap = jload(d / 'analysis' / 'gap.json') if (d / 'analysis' / 'gap.json').exists() else {}
+    row_of = {t['id']: t.get('row') for t in A.TOPICS}
+    od = ROOT / 'market' / 'topics'
+    od.mkdir(parents=True, exist_ok=True)
+    labels = {}
+    for tid, p in prof.items():
+        q = p['questions'] if isinstance(p['questions'], dict) else {}
+        qs = q.get('questions', [])[:5]
+        gm = {x['id']: x for x in gap.get(tid, [])}
+        dr = p.get('dur_range_min')
+        L = [f"# Hồ sơ cầu — {p['title']}", '',
+             f"Đề tài: {'dòng #' + str(row_of[tid]) if row_of.get(tid) else 'từ hạt giống'} trong `topics/queue.md` · id `{tid}` · **Làm mới: {d.name}** (làm lại khi > 30 ngày, `playbook/episode.md` §1b.1).",
+             'Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ngoài git). Không số liệu thô; nhãn và chỉ số **tự tính, không phải chỉ số YouTube**. '
+             'Câu hỏi, hoàn cảnh, điểm yếu: Haiku tóm từ bình luận đã lọc (diễn đạt lại, không trích nguyên văn) — máy viết, có thể sai.', '',
+             '| Mục | Nhãn | Cách tính (tự tính) |', '|---|---|---|',
+             f"| Mức cầu (trừ thời sự) | **{p['demand']}** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |",
+             f"| Khoảng trống | **{p['gap']}** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |",
+             f"| Số video gắn đề tài | {p['n_tagged_label']} | embeddings, chỉ cặp khớp cao (cosine ≥ {A.SIM_MIN}, biên ≥ {A.SIM_MARGIN}) |",
+             f"| Dải thời lượng | {mmss(dr[0]) + '–' + mmss(dr[1]) if dr else 'chưa có'} | tứ phân vị 25–75 % của video {p.get('dur_src', '')} cùng đề tài |", '',
+             '## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)']
+        L += [f"{i}. {x['q']} — trọng số {WEIGHT.get(x.get('weight'), x.get('weight'))}" for i, x in enumerate(qs, 1)] or ['chưa có']
+        if q.get('note'):
+            L += ['', f"_Ghi chú máy: {q['note']}_"]
+        L += ['', '## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)']
+        L += [f"- {x}" for x in q.get('situations', [])[:3]] or ['- chưa có']
+        L += ['', '## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)']
+        L += [f"- {x}" for x in q.get('weaknesses', [])[:3]]
+        meth = [METHOD.get(x.get('method'), x.get('method')) for x in gap.get(tid, [])]
+        if meth:
+            L.append(f"- Phương pháp của {len(meth)} video đầu bảng: " + ', '.join(f"{meth.count(m)} {m}" for m in dict.fromkeys(meth)) + '.')
+        L += ['', '## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)', '', '| Kênh | Video | Thời lượng | Phương pháp |', '|---|---|---|---|']
+        for c in p['competitors']:
+            g = gm.get(c['id'], {})
+            L.append(f"| {c['channel'].replace('|', '·')} | [{c['id']}](https://youtu.be/{c['id']}) | {mmss(c['min'])} | {METHOD.get(g.get('method'), '—')} |")
+        L += ['', '## Video vượt trội cùng đề tài (cho dòng G1)', '']
+        L += [f"- {o['channel'].replace('|', '·')} — [{o['id']}](https://youtu.be/{o['id']}) — {mmss(o['min'])} — {o['band']} (tự tính)" for o in p['outliers']] or \
+             ['- chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo']
+        L += ['', '## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail']
+        L += [f"- {x}" for x in q.get('title_templates', [])[:3]]
+        L += ['- Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).', '', '## Từ khoá mô tả', ', '.join(q.get('keywords', [])[:6]) or 'chưa có']
+        if q.get('requests'):
+            L += ['', '## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)'] + [f"- {x}" for x in q['requests'][:5]]
+        (od / f'{tid}.md').write_text('\n'.join(L) + '\n')
+        labels[tid] = (p['demand'], p['gap'])
+    jdump_labels = ROOT / 'market' / 'topics' / 'labels.json'
+    jdump_labels.write_text(json.dumps({'day': d.name, 'labels': labels}, ensure_ascii=False, indent=1))
+    print(len(labels), 'hồ sơ cầu →', od)
+
+
+def cmd_queue():
+    """Thêm/cập nhật cột Cầu / Khoảng trống trong topics/queue.md từ market/topics/labels.json (dòng có id trong topics.json)."""
+    lab = json.loads((ROOT / 'market' / 'topics' / 'labels.json').read_text())['labels']
+    by_row = {t['row']: t['id'] for t in A.TOPICS if t.get('row')}
+    by_row.update({20: 's1-rent-vs-buy-history', 21: 's2-rental-vs-index-history'})
+    q = ROOT / 'topics' / 'queue.md'
+    out = []
+    for ln in q.read_text().splitlines():
+        cells = ln.split(' | ')
+        if ln.startswith('| # |') and 'Cầu' not in ln:
+            ln = ln[:-1] + ' Cầu | Khoảng trống |'
+        elif ln.startswith('|---') and ln.count('|') == 8:
+            ln = ln + '---|---|'
+        elif re.match(r'^\| \d+ \|', ln):
+            n = int(ln.split('|')[1])
+            tid = by_row.get(n)
+            c, g = lab.get(tid, ('—', '—')) if tid else ('—', '—')
+            parts = ln.rstrip().rstrip('|').split(' | ')
+            if len(parts) > 7:      # đã có cột → thay
+                parts = parts[:7]
+            ln = ' | '.join(parts).rstrip() + f' | {c} | {g} |'
+        out.append(ln)
+    q.write_text('\n'.join(out) + '\n')
+    print('topics/queue.md: cột Cầu / Khoảng trống')
+
+
 if __name__ == '__main__':
-    {'channels': cmd_channels}[sys.argv[1]]()
+    {'channels': cmd_channels, 'topics': cmd_topics, 'queue': cmd_queue}[sys.argv[1]]()
