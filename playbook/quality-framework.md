@@ -115,6 +115,8 @@ Phiên **chỉ** tự quyết những việc sau, mỗi việc ghi một dòng l
 8. Kịch bản (C2, G1; `story.md` §2b, từ Tập 6): (a) có một nhân vật dẫn đường xuất hiện trước 0:45, đi qua phần phương pháp, câu kết là câu của người đó; (b) M6 — lời hứa nhân vật trả ≤ 90 s; (c) không nêu số tiền thì cái được–mất là vật cụ thể có claim; (d) câu ở đỉnh cảm xúc ≤ 15 từ, một ý một câu (đếm, nêu số từ); (e) kết quay về câu hỏi của nhân vật, không khái quát. Trượt dòng nào → nêu dòng đó, WRITER mới sửa.
 9. Cổng gốc (checks-appeal A15, nhóm 3 — lệnh chủ dự án mở phiên K 08/10 "Nhóm 3 (A15, A12) làm luôn nếu chỉ là chữ"; vào main cùng K4.1): `gates/Cx-root.md` / `Cx-blind.md` ghi **mỗi vòng sửa** một dòng `fix: picture` hoặc `fix: label` kèm lý do; vòng `label` phải nêu vòng `picture` đã thử trước (E6) và vì sao chưa đủ. Thiếu trường, hoặc `label` không có lý do "đã thử hình" → REVIEWER trượt dòng này.
 
+10. Hồ sơ cầu (C2, G1; Phiên Thị trường, `episode.md` §1b): kịch bản trả lời **≥ 3/5 câu hỏi khán giả** của `market/topics/<đề tài>.md` — REVIEWER đếm từ bảng nhịp (câu → cảnh) và đọc lại cảnh đó; logline trả lời câu hỏi trọng số cao nhất; có một nhịp xử lý điểm yếu đối thủ, không nêu tên kênh; gói G1 có dòng "trả lời câu hỏi X, Y, Z" + 3 video vượt trội với nhãn "tự tính". Không có hồ sơ cầu → ghi "chưa có", không trượt. Dưới 3/5 → trượt dòng này, WRITER mới sửa.
+
 Kết quả soát (đạt / các dòng trượt) in kèm gói. REVIEWER thay cho việc chủ dự án chuyển gói sang chat chiến lược.
 
 ## 8. Phiếu chấm L3 (C6)

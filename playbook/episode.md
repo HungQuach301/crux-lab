@@ -46,6 +46,16 @@
   4. Đầu bài agent mới **chép "đã sửa gì, vì sao"** của các vòng trước (≤ 10 dòng, lấy từ PLAN tập — mẫu `playbook/templates/PLAN-tap.md`) để không mất ngữ cảnh sửa: cảnh, lỗi (mã luật), cách sửa, kết quả đo, việc còn lại.
   Cùng lệnh dựng, cùng checks, cùng kiểm mù → chất lượng không đổi; số đo đối chiếu: CHẶN/CHÍNH và cổng gốc như C5c Tập 5. Kiểm ở Tập 6: đọc transcript một agent dựng, đếm lượt ghi cache > 0,3 triệu.
 
+## 1b. Dữ liệu thị trường trong quy trình (Phiên Thị trường `market-r1`, chủ dự án duyệt hướng 10–11/10) — KHÔNG thêm cổng, phiên hay lượt chạm
+Nguồn: `market/` (`CHANNELS.md`, `topics/<đề tài>.md` = hồ sơ cầu, `REPORT.md`, `teardowns/`), công cụ `toolkit/market/` (README ở đầu mỗi tệp). Số liệu thô YouTube **chỉ** ở `~/market-cache/<ngày>/` ngoài git (YouTube API Developer Policies III.E.4); repo nhận nhãn (cao/vừa/thấp) và kết luận định tính; chỉ số tự tính ghi "tự tính, không phải chỉ số YouTube". Mọi bước dưới là việc máy trong chặng sẵn có; thiếu dữ liệu thì ghi "chưa có" và làm tiếp, không hỏi.
+1. **P1 Việc 0:** hồ sơ cầu của đề tài (và 2–3 đề tài kế trong `topics/season.md` / hàng đợi) có dòng "Làm mới:" cũ hơn 30 ngày → `python3 toolkit/market/purge.py` rồi làm mới: `discover.py search --topics <id…>` (≤ 3 search/đề tài; hạn mức 10.000 đơn vị/ngày, ≤ 100 search) → `pull.py` cho kênh trong `market/CHANNELS.md` → `analyze.py tag outliers comments gap profile` → `report.py topics`. Đồng thời **quét video mới nổi** (30 ngày) của các đề tài đó; video vượt trội mới vào mục "Video đối thủ theo tập" của hồ sơ.
+2. **C1:** logline **trả lời câu hỏi trọng số cao nhất** của hồ sơ cầu (câu 1 mục "Câu hỏi khán giả"); kiểm mù kể lại giữ nguyên.
+3. **C2 (WRITER):** §3 mục 11. **REVIEWER:** `quality-framework.md` §7 mục 10 (trả lời ≥ 3/5 câu hỏi).
+4. **Kiểm mù lời C2:** vai người đọc = **người hỏi** câu hỏi trọng số cao nhất, nhập vai từ một hoàn cảnh điển hình của hồ sơ (thay vai khán giả chung; câu hỏi cố định giữ nguyên, thêm một câu: *"Did the video answer the question you came with? Which part?"*). Ghi vào ý đồ `gates/C2-intent.md` trước khi chạy như mọi ý đồ.
+5. **G1:** gói thêm **1 dòng** "trả lời câu hỏi X, Y, Z (hồ sơ cầu)" + **3 video vượt trội cùng đề tài** (liên kết, kênh, nhãn ≥ 3× / ≥ 5×) — không thêm câu hỏi cho chủ dự án (`templates/G1.md`).
+6. **P3 → G2 → P4 (đóng gói qua ChatGPT):** §5c.
+7. **Sau phát hành:** vòng tự hiệu chỉnh nhãn cầu §10.
+
 ## 2. Model, effort, số agent
 
 | Việc | Model | Effort |
@@ -97,6 +107,8 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 
 10. **Năm luật nhân vật (`story.md` §2b, từ Tập 6):** một nhân vật dẫn đường từ cold open đến kết (trước 0:45, đi qua phần phương pháp, câu kết là câu của người đó); lời hứa nhân vật trả ≤ 90 s (M6); cái được–mất bằng vật cụ thể khi không được nêu số tiền ("23 more bills"); câu ở đỉnh cảm xúc ≤ 15 từ, một ý một câu; kết quay về câu hỏi của nhân vật. WRITER ghi trong bảng nhịp: tên nhân vật dẫn đường, câu đỉnh cảm xúc (số từ), câu kết.
 
+11. **Hồ sơ cầu (`market/topics/<đề tài>.md`, §1b):** nhân vật dẫn đường dựng từ **một hoàn cảnh điển hình** của hồ sơ (vẫn ILLUSTRATIVE); kịch bản **trả lời ≥ 3/5 câu hỏi khán giả** (ghi câu nào trả ở cảnh nào trong bảng nhịp); **một nhịp xử lý một điểm yếu đối thủ** của hồ sơ (vd "giả định lợi suất cố định" → phát lại lịch sử thật) mà không nêu tên kênh; **độ dài trong dải thời lượng vượt trội** của hồ sơ **và** trong khung `format` §9 — hai dải không giao nhau thì theo `format` và nêu ở G1 (đổi khuôn là quyền chủ dự án).
+
 **Móc do máy chọn (D-006 Q4):**
 - WRITER viết **3 phương án 30 s đầu**, mỗi phương án một kiểu móc khác nhau (`packaging.md` §2). Cả ba đều theo story §1: 5 s đầu là được–mất hoặc câu hỏi trên sự thật hiện tại; lời hứa trước 0:30.
 - **So cặp móc — ỨNG VIÊN, đã hiệu chuẩn chính thức (P1 Tập 4, `episodes/ep004/cal-hook/`, lessons G1):** chọn bản gốc 7/8, mỗi mẫu ≥ 3/4, mỗi vị trí ≥ 3/4 — **đạt đúng bằng ngưỡng** ở cả ba điều kiện; mẫu mới (Tập 1 + kịch bản mới), thứ tự X/Y cân bằng. **Mới chứng minh phân biệt "có móc / bỏ móc"**, chưa chứng minh chọn đúng giữa ba móc đều tốt (Tập 4: người đọc chọn vị trí Y 7/9 ở vòng tròn). Cách dùng (chủ dự án, G1 Tập 4):
@@ -114,6 +126,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 - **Tiêu đề:** nháp ở G1 (so cặp một vòng, Tham khảo).
 - **Thumbnail:** ở G2 chỉ đưa 3 thumbnail đã qua claim-risk; **không so cặp** (Tập 3–4: người đọc chọn trùng chủ dự án 2/2, lessons H2). Chủ dự án chọn mặc định + thứ tự Test & Compare; T&C là số đo thật.
 - **Thumbnail bằng hình thế giới 3D (tổng kết Tập 5 §3.9, từ Tập 6):** thumbnail = **một khung tĩnh của thế giới** (nhà, người không mặt, chồng tiền) render bằng chính `build_seg.py` ở 1280×720 từ cảnh đã duyệt C3, cộng **tối đa 3–4 từ lớn**; bỏ chữ + cột 2D (`design/g2/thumbs.js` cũ). Ba phương án mỗi tập: (1) cảnh thế giới + 3 từ; (2) cảnh thế giới + 1 số "on paper"; (3) kiểu Tập 5 thumb-3 (chữ + cột 2D) làm **đối chứng trong Test & Compare ít nhất 2 tập**. Claim-risk áp như mọi khung (ILLUSTRATIVE, "on paper", không nêu số tiền phí khi tập cấm). Kiểm đọc được ở 168×94 px trước G2.
+- **Từ Tập 7 — đóng gói qua ChatGPT (§5c):** tiêu đề, mô tả, thumbnail do **chủ dự án làm trên ChatGPT** từ `PACKAGING-BRIEF.md`; máy render **2–3 khung thế giới không chữ** (`out/package/bg-*.png`, cách render như đoạn trên) làm ảnh nền thay cho 3 thumbnail có chữ; phương án (3) đối chứng kiểu Tập 5 vẫn render cho Test & Compare đến khi đủ 2 tập.
 - **Không tóm tắt AI ở G2** (0/3 lần đổi quyết định); sức kéo của móc đo ở C2 (§3.9).
 - **Shorts 2–3 cái 9:16 mỗi tập**, cắt từ nhịp then chốt đã qua checks:
   - ≤ 60 s;
@@ -122,6 +135,11 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
   - ILLUSTRATIVE và "history, not a forecast" trên mọi khung có số.
   Dựng bằng thư viện mẫu khi phiên nhà máy xong (`moc-b/PLAN-FACTORY.md`). Trước đó cắt tay từ bản cuối.
 - **Hướng dẫn đăng:** `episodes/epNNN/HUONG-DAN-DANG.md` theo mẫu `playbook/templates/HUONG-DAN-DANG.md`.
+
+## 5c. Đóng gói qua ChatGPT (Phiên Thị trường bước 7, từ Tập 7; không thêm lượt chạm)
+1. **P3, trước G2:** `python3 toolkit/market/brief.py episodes/epNNN --topic <id hồ sơ cầu> --bg out/package/bg-1.png --bg …` → `out/package/PACKAGING-BRIEF.md` (tiếng Anh, ≤ 1 trang, mẫu `playbook/templates/PACKAGING-BRIEF.md`): tóm tắt tập, số được phép (claim có trong `claims.json`) / bị cấm, "history, not a forecast", ILLUSTRATIVE, không khuyên, không số tiền thiếu nguồn, chương + mốc giờ từ `out/timeline.json`, 3 khuôn tiêu đề thắng + kiểu thumbnail thắng (`market/REPORT.md`), từ khoá mô tả, câu hỏi khán giả đã trả lời, ảnh nền + màu/font kênh, ≤ 4 từ lớn trên ảnh. Brief đi kèm gói G2, câu (2).
+2. **Giữa G2 và P4:** chủ dự án dán brief vào ChatGPT (đính kèm ảnh nền), rồi dán **tiêu đề + mô tả + ảnh thumbnail** vào prompt P4 cùng câu trả lời G2 (PLAN tập mục 7) — cùng một lượt dán, không lượt chạm mới.
+3. **P4, chốt kiểm:** `python3 toolkit/market/package_check.py episodes/epNNN --title "…" --description <tệp> --thumb <ảnh>` — **S21** (luật khoá, trên mô tả), claim-risk (ADVICE/FORECAST/FOUR/WE_BAD, số có claim, cụm bắt buộc, ILLUSTRATIVE), **chương khớp timeline** (±2 s đầu hồi, ≥ 10 s/chương), **chữ trên ảnh** (≤ 4 từ lớn, số có claim). Dòng `[METHOD AND SOURCES]` trong mô tả được thay bằng khối phương pháp + nguồn của máy. ĐẠT → ghi vào `HUONG-DAN-DANG.md`. TRƯỢT → `out/package/package-check.md` có **câu sửa sẵn** (tiếng Anh) cho mỗi lỗi; P4 đưa câu sửa cho chủ dự án cùng lúc báo giao hàng (G3), chủ dự án sửa trên ChatGPT trước khi đăng.
 
 ## 5b. Âm: nhạc hiệu, cue theo hồi, lặng trước số neo (tổng kết Tập 5 §3.4, từ Tập 6)
 - **Nhạc hiệu kênh:** 3 s ở ident (`IDENT_S = 3`) và **một khúc đóng khác**; nhạc bằng mã (D-010 §5), dựng một lần cho cả kênh. Gu nhạc là quyền chủ dự án (CHARTER §6): **chủ dự án duyệt nhạc hiệu bằng clip có âm ở C3 Tập 6** (một lần cho cả kênh), sau đó dùng lại mọi tập.
@@ -189,6 +207,11 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 ## 10. Sau phát hành
 Ở mốc 7 ngày: `episodes/epNNN/audience.md` theo mẫu `playbook/templates/audience.md`. Chủ dự án gửi **một** ảnh chụp YouTube Studio cho chat chiến lược. Điểm rời lớn nhất → nhịp kịch bản tương ứng → `lessons.md` / `story.md`.
 
+**Vòng tự hiệu chỉnh dữ liệu thị trường (Phiên Thị trường bước 8; máy làm, không hỏi):**
+1. **Sau mỗi tập:** ghi vào `market/CALIBRATION.md` một dòng: tập, đề tài, nhãn cầu lúc chọn (cao/vừa/thấp), nhãn khoảng trống, **lượt xem 28 ngày** của tập (kênh mình — số của Crux, được ghi). Số 28 ngày lấy cùng ảnh YouTube Studio ở mốc 7 ngày khi có, không thì ở tổng kết tập kế.
+2. **Sau mỗi 3 tập có nhãn:** nếu trung vị lượt xem 28 ngày của các tập nhãn "cao" **không hơn** các tập nhãn "vừa" → nhãn cầu sai: sửa cách tính trong `toolkit/market/analyze.py` (`cmd_profile`: trọng số lượt xem/ngày, số video vượt trội, số bình luận yêu cầu) trên nhánh `market-*`, chạy lại `report.py topics`, ghi lý do vào `market/CALIBRATION.md`. Chưa đủ 3 tập "cao" và 3 "vừa" → ghi "chưa đủ mẫu", không sửa.
+3. **Hằng tháng khi có Analytics kênh mình:** kênh nằm trong nguồn lưu lượng "video đề xuất" (suggested videos) của Crux → thêm/giữ ở `market/CHANNELS.md` (vòng tương ứng, lý do "nguồn đề xuất"); kênh trong danh sách 3 tháng liền không xuất hiện và không có video nổ → bỏ. Danh sách mới nổi hết hạn thử việc 90 ngày được xét cùng lúc.
+
 ## 11. Công cụ
 | Việc | Lệnh |
 |---|---|
@@ -203,6 +226,8 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 | Kiểm rảnh trước build | `python3 toolkit/factory/guard.py` (thoát 3 khi còn build/render) |
 | Chú thích nuốt mã + cú pháp | `python3 toolkit/tests/comment_guard.py [thư mục …]` |
 | Thước chỉ báo | `toolkit/indicators/README.md` |
+| Thị trường: làm mới / hồ sơ cầu | `toolkit/market/{purge,discover,pull,analyze,report}.py` (§1b) |
+| Brief đóng gói ChatGPT · kiểm gói P4 | `python3 toolkit/market/brief.py …` · `python3 toolkit/market/package_check.py …` (§5c) |
 | Token phiên (đóng phiên) | `python3 toolkit/usage/from_events.py --session <id> --close trang*.json` |
 
 ## 11b. An toàn chạy nền (tổng kết Tập 5 mục 12; cine-lab BAI-HOC-LL #38, #67, #70)
