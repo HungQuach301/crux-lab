@@ -1,0 +1,23 @@
+{
+ "answer": "**s01-stack**\nScores: Emotion 2 · Sound-off 2 · Pacing 2 · Composition 3\n\n1. **3.2–4.6 s:** At 4.1 s, while \"$120 a month\" is being spoken, there's one bundle and no price. The price only shows up by 6.83 s, about 2 s late. Fix: put the price on top of the first bundle as it lands, at 3.2 s (\"one\").\n2. **6.5–8.0 s:** The $320,000 line isn't on screen at 9.57 s and only appears by 12.3 s, roughly 4 s after it's spoken. It also floats as a caption with no object. Fix: at 6.5 s, put a large loan block behind the house, sized by the amount, so the bundles read as payments against it.\n3. **9.7–11.7 s:** \"Biggest bill\" has no picture. The stack just keeps growing on its own, so with sound off it reads as savings. Fix: at 9.7 s, bring in two or three thinner bill stacks (utilities, groceries) next to it and let the mortgage stack tower over them.\n4. **Throughout:** Tessa never moves, and her name tag runs into the roof at 6.83 s and 9.57 s. \"Tessa · ILLUSTRATIVE\" repeats the corner badge. Fix: turn her toward the stack and drop her shoulders on \"biggest bill.\" Shorten the tag to \"Tessa\" and move it clear of the roof.\n\n**s21-track**\nScores: Emotion 2 · Sound-off 2 · Pacing 3 · Composition 2\n\n1. **7.89–13.15 s:** The 180 tiles sit in a square grid, so they don't read as a track or as time, and the wall has no marking. Fix: run the tiles away from the house in rows of 12, add year ticks, and label the wall \"15 yrs.\" That way the overrun reads as distance past the end.\n2. **14.1–16.6 s:** The orange tiles are in place by 18.41 s, but there's no frame inside 14.1–16.6 s to show they light on \"doesn't.\" Fix: light them one at a time starting at 15.0 s and hold the camera on the overflow.\n3. **23.67 s:** Every tile turns green, but no extra slab shows on top of the tiles. A tan tile still pokes out past the wall at the bottom right, which suggests it still runs late and contradicts \"ends exactly at 180.\" Fix: grow a thin slab on each tile from 19.9 s, pull the overflow back behind the wall, and remove that leftover tile.\n4. **13.15 s on:** Tessa shrinks to a speck in the bottom-left corner and her tag touches the frame edge, so the story drops out. Fix: frame her at the start of the track, looking along it toward the wall.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2839,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 352,
+   "in": 2839,
+   "out": 352
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 11896,
+   "cache_read": 6910,
+   "output": 2330,
+   "in": 18810,
+   "out": 2330
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.14362589999999997
+}
