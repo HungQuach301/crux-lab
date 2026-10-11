@@ -71,7 +71,7 @@ export async function boot(res) {
       const c = O.ctx, w = (R.x1 - R.x0) / 20, y = R.yb + 40; c.save(); c.globalAlpha = cA;
       for (let k = 0; k < 20; k++) { c.fillStyle = k < fill * 20 ? CHAR.ruth : rgba(C.muted, 0.35); c.fillRect(R.x0 + k * w + 2, y, w - 4, 26); }
       c.restore();
-      const SK = S.life.stack.keys, sA = ok * show(t, b.a3.every, offS02), nS = Math.round(lin(t, SK[0][0], SK[1][0]) * 14);   // F-14 (a): chồng dải suốt câu
+      const SK = S.life.stack.keys, sA = ok * show(t, b.a3.every, offS02), nS = 1 + Math.round(lin(t, SK[0][0], SK[1][0]) * 13);   // dải đầu tiên hiện ĐÚNG "every" (R07 +0,25 s)   // F-14 (a): chồng dải suốt câu
       if (sA > 0.01) {
         c.save();
         for (let j = 1; j <= nS; j++) { c.globalAlpha = sA * (0.55 - j * 0.03); c.fillStyle = C.muted; c.fillRect(R.x0 - j * 34, y - j * 34, R.x1 - R.x0, 18); }
@@ -89,7 +89,8 @@ export async function boot(res) {
       { const [, y0] = O.toScreen(XL, VY(0), 0.4), [, y1] = O.toScreen(XL, VY(1), 0.4), [, y2] = O.toScreen(XL, VY(1.12), 0.4), c = O.ctx, gT = lin(t, b.a4.keeping, b.a4.keeping + 1.6);
         c.save(); c.globalAlpha = ok * 0.55; c.fillStyle = C.grid;
         for (let k = 0; k <= 20 * gT; k++) { const [x] = O.toScreen(XL + k * KX, 0, 0.4); c.fillRect(x - 2, y0 - (k % 5 ? 10 : 20), 4, k % 5 ? 10 : 20); }
-        c.globalAlpha = ok * 0.3 * show(t, b.a4.least, MV.m_w.t0 - 0.2); c.fillStyle = C.cushion; c.fillRect(bx0, y2, bx1 - bx0, y1 - y2 - 3);   // F-14: vùng "at least" rõ hơn (cue hình)
+        const AL = S.life.atleast.keys, al = 0.3 + 0.7 * lin(t, AL[0][0], AL[1][0]);   // F-14 (a): vùng "at least" tô dần trái → phải
+        c.globalAlpha = ok * 0.3 * show(t, b.a4.least, MV.m_w.t0 - 0.2); c.fillStyle = C.cushion; c.fillRect(bx0, y2, (bx1 - bx0) * al, y1 - y2 - 3);   // F-14: vùng "at least" rõ hơn (cue hình)
         // vùng dưới đường của Ruth (tới đáy 0): phần sức mua còn lại — 90,4 % gần đầy
         if (pts.length > 1) { c.globalAlpha = ok * 0.12; c.fillStyle = C.ink; c.beginPath(); c.moveTo(...O.toScreen(pts[0][0], VY(0), 0.4));
           for (const q of pts) c.lineTo(...O.toScreen(q[0], q[1], 0.4)); c.lineTo(...O.toScreen(pts[pts.length - 1][0], VY(0), 0.4)); c.closePath(); c.fill(); }
@@ -98,7 +99,8 @@ export async function boot(res) {
       label(O, S.label_cues['a4.keeping'], 960, 236, { align: 'center', kind: 'compare', px: 52, alpha: ok * show(t, b.a4.keeping, MV.m_w.t0 - 0.2) });
       const [ex, ey] = O.toScreen(XL + Math.min(u, 20) * KX, VY(P[Math.min(20, Math.ceil(u))]), 0.45);
       const eA = ok * show(t, b.a5.short, MV.m_w.t0 - 0.2);
-      if (eA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = eA; c.fillStyle = C.warn; c.beginPath(); c.arc(ex, ey, 12, 0, 7); c.fill(); c.restore(); }
+      if (eA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = eA; c.fillStyle = C.warn; c.beginPath(); c.arc(ex, ey, 12, 0, 7); c.fill();
+        const rp = pulse(t, b.a5.short, 0.9); if (rp > 0.01) { c.globalAlpha = eA * 0.5 * rp; c.beginPath(); c.arc(ex, ey, 12 + 60 * (1 - rp), 0, 7); c.fill(); } c.restore(); }   // F-14: vòng loé ĐÚNG "short"
       label(O, 'Ruth · ILLUSTRATIVE', Math.max(ex, 640), ey + 80, { align: 'right', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: ok * show(t, b.a5.ruth, MV.m_w.t0 - 0.2) });
       log.roi['a4.keeping'] = [400, 160, 1520, 260]; log.roi['a5.short'] = [ex - 30, ey - 30, ex + 30, ey + 30];
     }

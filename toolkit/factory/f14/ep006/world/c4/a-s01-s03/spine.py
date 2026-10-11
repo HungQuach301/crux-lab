@@ -61,6 +61,8 @@ K.finish(HERE, S, 'ep006 C4 · A = S01–S03 + ident (cold open)', beats, moves,
                    'a4.keeping': cue['a4']['keeping'], 'a5.ruth': cue['a5']['ruth'], 'a7.choose': cue['a7']['choose']},
          life={'stack': {'what': '"every 20-year stretch since 1947": dải 20 năm chồng lên lùi về 1947 suốt câu S02.2 (từ "every" tới "much")',
                          'keys': [[cue['a3']['every'], 0], [cue['a3']['much'], 14]]},
+               'atleast': {'what': 'S03.1 "at least what her first check bought": vùng "at least" (trên vạch séc đầu) tô dần trái → phải từ "least" tới hết câu',
+                           'keys': [[cue['a4']['least'], 0], [S.at('@S03.1$'), 1]]},
                'line': {'what': 'đường sức mua của Ruth vẽ năm 0 → 20 từ "Ruth" tới "today"', 'keys': [[cue['a5']['ruth'], 0], [cue['a5']['today'], 20]]},
                'history': {'what': '"US only, history, not a forecast": lịch 20 năm của Ruth sáng dần từ "only" tới hết câu; ô sau năm 20 để trống (không dự báo)',
                            'keys': [[cue['a6']['only'], 0], [S.at('@S03.3$'), 20]]}})

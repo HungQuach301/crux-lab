@@ -84,7 +84,7 @@ Pr, Pc, Pe = K.P['ruth'], K.P['carl'], K.P['edna']
 yc = K.spread(cue['b4']['every'], cue['b4']['before'] + 0.35, 20)
 ck, ev = K.step_row(yc, Pc[1:], ramp=0.2, v0=1.0)
 # S25.2: hàng séc đều của Carl tối tới 0,290
-cl, ev2 = K.step_row([cue['c1']['level'] + 0.3], [0.2901459854014599], ramp=1.6, v0=1.0)
+cl, ev2 = K.step_row([cue['c1']['level'] + 0.3], [0.2901459854014599], ramp=round(S.at('@S25.2$') - cue['c1']['level'] - 0.3, 3), v0=1.0)   # F-14 (a): tối dần suốt câu S25.2
 # S27: Edna năm 1 → 20 (trần 10), chạy lại 18–20 ở "end"; Carl về khởi điểm ở "Carl" (S27.4) rồi năm 1 → 3 ở "start"
 ye = K.spread(cue['d1']['twenty'], cue['d1']['least'] + 0.9, 20)
 ek, ev3 = K.step_row(ye, Pe[1:], ramp=0.15, v0=1.0)
@@ -129,9 +129,11 @@ K.finish(HERE, S, 'ep006 C4 · E = S24–S29 (Hồi 3: Carl, Edna, Ruth, ba thá
           'carl27': [round(t, 3) for t in cy]}, 'reset': reset, 'ruth_path': Pr, 'yoy': K.CLAIMS.get('cpi_yoy_latest_pct', {}).get('value') or YOY, 'price_growth': (1 + K.CLAIMS['raise_needed_all_20y_pct']['value'] / 100) ** 20},
          {'b2.fastest': 'prices: 6.38% a year, the fastest stretch', 'b1.january': 'Carl · ILLUSTRATIVE · Jan 1966', 'b3.first': 'first check: 10 crates',
           'b3.check': 'check: +2% a year', 'b4.before': 'less buying power on 20 of 20 anniversaries', 'b4.y20': 'year 20: about 4 of 10 crates',
-          'b5.ruths': 'back above in early years',   # F-14: đúng chữ nhãn trên hình (trước: không khớp nhãn nào → R07 không thấy) 'c0.forty': 'rising check: 43.1%', 'c1.twenty': 'level check: 29.0%',
+          # F-14: đúng chữ nhãn trên hình (trước: không khớp nhãn nào → R07 không thấy)
+          'b5.ruths': 'back above in early years', 'c0.forty': 'rising check: 43.1%', 'c1.twenty': 'level check: 29.0%',
           'c2.half': 'less than half', 'c3.forty': '1960s starts, typical: 44.3%', 'd0.kept': 'kept up: the last start month that did',
-          'd0.edna': 'Edna · ILLUSTRATIVE', 'd0.ednaDate': 'Edna · ILLUSTRATIVE · Jan 1949',   # F-14 (c): tên neo vào "Edna" ở thế giới; ngày ở đồ thị 'd1.check': 'check: +2% a year', 'd1.y20': 'year 20: all 10 still lit',
+          # F-14 (c): tên neo vào "Edna" ở thế giới; ngày ở đồ thị
+          'd0.edna': 'Edna · ILLUSTRATIVE', 'd0.ednaDate': 'Edna · ILLUSTRATIVE · Jan 1949', 'd1.check': 'check: +2% a year', 'd1.y20': 'year 20: all 10 still lit',
           'd3.carl': 'Carl · ILLUSTRATIVE · from Jan 1966', 'd4.same': 'same years of prices: her last, his first', 'd4.lit': 'all 10 crates still lit',
           'e0.eighty': 'Ruth · ILLUSTRATIVE · age 85', 'e1.three': '12 months to Aug 2026: prices +3.4%', 'e1.two': 'her raise: +2%',
           'e2.history': 'One year of history, not a forecast', 'f1.crates': 'crates at year 20 · same 2% raise', 'f1.full': '10', 'f1.nine': 'about 9',
@@ -150,6 +152,7 @@ K.finish(HERE, S, 'ep006 C4 · E = S24–S29 (Hồi 3: Carl, Edna, Ruth, ba thá
                           'keys': [[cue['b1']['carl'], 0], [cue['b1']['january'], 1]]},
                'yearly': {'what': 'S24.3 "6.38 percent a year": 20 vạch năm trên thanh giá (mỗi năm +6,38 %) hiện lần lượt từ lời đọc số tới "first"',
                           'keys': [[S.at('@S24.3:six'), 0], [cue['b3']['first'], 20]]},
+               'edna10': {'what': 'S27.1: séc đầu của Edna sáng lần lượt 10 thùng nó mua từ "Edna" tới "last"', 'keys': [[cue['d0']['edna'], 0], [cue['d0']['last'], 10]]},
                'helped': {'what': 'S25.3 "His raise helped": phần thùng séc tăng giữ hơn séc đều (2,9 → 4,31) được viền dần từ "helped" tới "half"',
                           'keys': [[cue['c2']['helped'], 0], [cue['c2']['half'], 1]]},
                'sixties': {'what': 'S26.1 "stretches that began in the 1960s": đi qua các tháng bắt đầu 1960–1969 từ "1960s" tới "forty-four"',

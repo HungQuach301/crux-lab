@@ -2,7 +2,7 @@
 // S24 Carl (port C3 s24 + lượt đạo diễn: thanh giá mọc ở "fastest") · S25 43,1 % / 29,0 % · S26 dải 1960s · S27 Edna (port C3 s27 + mốc năm, phần chồng
 // accent) · S28 Ruth 85, một năm · S29 ba người (port C3 s29 + máy gần hơn, "month" loé). Mốc giờ chỉ từ spine.json.
 import * as THREE from 'three';
-import { setup, column, showColumn, hideColumn, setCheck, checkLabel, nameTag, rowBox, modeLook, followLight, chrome, brace, label, seg2, dip, kf, show, pulse, at,
+import { setup, column, showColumn, hideColumn, setCheck, checkLabel, nameTag, rowBox, modeLook, followLight, chrome, brace, label, seg2, dip, kf, show, pulse, at, countBand,
   CHAR, NAME, C, ease, lin, mix, rgba } from '/episodes/ep006/world/c4kit.js';
 
 const SEG = '/episodes/ep006/world/c4/e-s24-s29/';
@@ -65,10 +65,12 @@ export async function boot(res) {
       // (worker render cảnh S27 sau một cảnh có Edna ẩn → thẻ + hàng Edna mất 394–404 s ở lượt C4)
       hideColumn(c, 1);
       c.row.set({ value: kf(S.rows[id], t), appear: id === 'carl' ? (t < C10[1][0] + 1 ? cA * carlRow : 1) : 1,
-        pulse: id === 'carl' ? pulse(t, b.b5.never, 0.8) + pulse(t, b.c2.helped, 0.8) + pulse(t, b.d4.start, 1.4) + 1.2 * pulse(t, b.f0.carl, 0.7)
-          : id === 'edna' ? pulse(t, b.d4.end, 1.2) + 1.2 * pulse(t, b.f0.edna, 0.7) : pulse(t, b.e0.losing, 0.9) + 1.2 * pulse(t, b.f0.ruth, 0.7) });   // F-14: loé ĐÚNG tên (R07 f0.ruth/carl)
+        pulse: id === 'carl' ? pulse(t, b.b5.never, 0.8) + pulse(t, b.c2.helped, 0.8) + pulse(t, b.d4.start, 1.4) + 2.5 * pulse(t, b.f0.carl, 0.7)
+          : id === 'edna' ? pulse(t, b.d4.end, 1.2) + 2.5 * pulse(t, b.f0.edna, 0.7) : pulse(t, b.e0.losing, 0.9) + 2.5 * pulse(t, b.f0.ruth, 0.7) });
+      if (id === 'edna' && !three) { const EK = S.life.edna10.keys, en = 10 * lin(t, EK[0][0], EK[1][0]), cr = c.row.userData.crates, eo = 1 - ease(t, M.m_c27.t1, M.m_c27.t1 + 0.6);   // séc đầu Edna sáng 10 thùng
+        if (t > EK[0][0] && eo > 0) for (let j = 0; j < 10; j++) cr[j].m.emissiveIntensity += 0.6 * eo * Math.min(1, Math.max(0, en - j)); }   // F-14: loé ĐÚNG tên (R07 f0.ruth/carl)
       if (id === 'ruth' && t < M.m_pan24.t1) { const RK = S.life.ruth9.keys, cn = 9 * lin(t, RK[0][0], RK[1][0]), cr = c.row.userData.crates;   // F-14 (a): đếm thùng còn sáng của Ruth
-        if (t > RK[0][0] && t < RK[1][0] + 0.6) for (let j = 0; j < 9; j++) cr[j].m.emissiveIntensity += 0.45 * Math.max(0, 1 - Math.abs(cn - j - 0.5) * 1.6); }
+        if (t > RK[0][0] && t < RK[1][0] + 0.6) for (let j = 0; j < 9; j++) cr[j].m.emissiveIntensity += 0.6 * Math.min(1, Math.max(0, cn - j)); }
       setCheck(c, S, t, 1);
       showColumn(c, a); if (a < 0.999) hideColumn(c, a);
     }
@@ -97,8 +99,9 @@ export async function boot(res) {
       label(O, L['b1.january'], 120, 330, { kind: 'number', px: 48, w: 600, color: CHAR.carl, alpha: ok * show(t, M.m_c24.t1, b.b5.ruths) });
       const [pxl, pyt] = O.toScreen(price.position.x - 0.25, price.scale.y, 0.2);
       label(O, L['b2.fastest'], pxl - 24, pyt + 36, { align: 'right', kind: 'number', px: 48, alpha: ok * show(t, at(S, 'b2.fastest', six), b.b4.before - 0.35) });   // F-14 (c): neo vào "fastest"
-      if (nYr > 0 && pgA > 0.01) for (let j = 1; j <= Math.min(20, Math.floor(nYr)); j++) { const [qx0, qy] = O.toScreen(price.position.x - 0.25, SZ.cbase * Math.pow(S.price_growth, j / 20), 0.2), [qx1] = O.toScreen(price.position.x + 0.25, 0, 0.2);
-        seg2(O, qx0, qy, qx1, qy, C.bg, ok * pgA * 0.8, 2); }
+      if (nYr > 0 && pgA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = ok * pgA * 0.6; c.fillStyle = C.bg;   // năm chẵn tô sẫm: 20 năm xếp chồng trên thanh giá
+        for (let j = 0; j < Math.min(20, Math.floor(nYr)); j += 2) { const [qx0, qa] = O.toScreen(price.position.x - 0.25, SZ.cbase * Math.pow(S.price_growth, j / 20), 0.2), [qx1, qb] = O.toScreen(price.position.x + 0.25, SZ.cbase * Math.pow(S.price_growth, (j + 1) / 20), 0.2);
+          c.fillRect(qx0, qb, qx1 - qx0, qa - qb); } c.restore(); }
       label(O, L['b4.before'], 120, 228, { kind: 'compare', px: 48, alpha: ok * show(t, b.b4.before, b.b5.never) });
       checkLabel(O, Cc, L['b3.check'], ok * show(t, b.b3.check, b.b4.every), { dx: 14 });
       const tA = ok * show(t, b.b3.first, b.c0.forty - 0.35);
@@ -135,7 +138,8 @@ export async function boot(res) {
       label(O, L['c2.half'], (RC.x0 + RC.x1) / 2, RC.yt - 50, { align: 'center', kind: 'compare', px: 48, alpha: hA });
       // F-14 (a) "His raise helped": thùng séc tăng giữ hơn séc đều (2,9 → 4,31) được viền dần từ "helped" tới "half"
       { const HK = S.life.helped.keys, hp2 = lin(t, HK[0][0], HK[1][0]), [xa] = O.toScreen(Cc.row.edgeX(2.90), 0, Cc.z + 0.4), [xb] = O.toScreen(Cc.row.edgeX(4.31), 0, Cc.z + 0.4);
-        if (hp2 > 0) seg2(O, xa, RC.yb + 12, xa + (xb - xa) * hp2, RC.yb + 12, C.cushion, ok * show(t, HK[0][0], M.m_w27.t0), 6); }
+        const hA3 = ok * show(t, HK[0][0], M.m_w27.t0); if (hp2 > 0) { seg2(O, xa, RC.yb + 12, xa + (xb - xa) * hp2, RC.yb + 12, C.cushion, hA3, 6);
+          const c = O.ctx; c.save(); c.globalAlpha = 0.3 * hA3; c.fillStyle = C.cushion; c.fillRect(xa, RC.yt - 8, (xb - xa) * hp2, RC.yb - RC.yt + 16); c.restore(); } }
       checkLabel(O, lev, 'level check', ok * show(t, b.c1.level, M.m_w27.t0), { kind: 'name', w: 600, color: C.muted });
       log.roi['c1.level'] = [RL.x0 - 10, RL.yt - 20, RL.x1 + 10, RL.yb + 10]; log.roi['c1.twenty'] = [RL.x0 - 10, RL.yb + 20, RL.x1 + 10, RL.yb + 100];
       log.roi['c2.half'] = [RC.x0, RC.yt - 90, RL.x1, RL.yb + 10];
@@ -179,7 +183,8 @@ export async function boot(res) {
         const c = O.ctx; c.save();
         if (sA > 0.01) { c.globalAlpha = sA; c.fillStyle = rgba(C.accent, 0.45); c.fillRect(yr(c0), AX.eY - 12, yr(e0 + 20) - yr(c0), AX.cY + AX.h - AX.eY + 24);
         const YS = S.life.sameyears.keys, ys = lin(t, YS[0][0], YS[1][0]);   // F-14 (a) "the same few years of prices": vạch đi qua 1966 → 1969
-        if (t > YS[0][0]) { c.globalAlpha = sA * 0.9; c.fillStyle = C.ink; c.fillRect(mix(yr(c0), yr(e0 + 20), ys) - 2, AX.eY - 12, 4, AX.cY + AX.h - AX.eY + 24); } }
+        if (t > YS[0][0]) { c.globalAlpha = sA * 0.9; c.fillStyle = C.ink; c.fillRect(mix(yr(c0), yr(e0 + 20), ys) - 2, AX.eY - 12, 4, AX.cY + AX.h - AX.eY + 24);
+          c.globalAlpha = sA * 0.55; c.fillRect(yr(c0), AX.eY - 12, (yr(e0 + 20) - yr(c0)) * ys, AX.cY + AX.h - AX.eY + 24); } }   // phần đã qua tô thêm (tích luỹ)
         c.globalAlpha = bA; c.fillStyle = CHAR.edna; if (eW > 0) c.fillRect(yr(e0), AX.eY, (yr(e0 + 20) - yr(e0)) * eW, AX.h);
         c.fillStyle = CHAR.carl; if (cWd > 0) c.fillRect(yr(c0), AX.cY, (yr(c0 + 20) - yr(c0)) * cWd, AX.h);
         c.restore();
@@ -224,6 +229,9 @@ export async function boot(res) {
       }
       log.roi['f2.month'] = [96, 560, 1824, 640];
     }
+    { const RK = S.life.ruth9.keys, EK = S.life.edna10.keys, wA = 1 - cw;   // F-14 (a): dải đếm thùng (thế giới, tích luỹ)
+      if (t > RK[0][0] && t < M.m_pan24.t0) countBand(O, cols.ruth.row, 9 * lin(t, RK[0][0], RK[1][0]), CHAR.ruth, wA * 0.25 * aR);
+      if (t > EK[0][0] && t < M.m_c27.t0) countBand(O, cols.edna.row, 10 * lin(t, EK[0][0], EK[1][0]), CHAR.edna, wA * 0.25 * aE); }
     const cwA = show(t, at(S, 'e2.history', b.e2.history), M.m_w29.t1 + 0.65);   // F-14 (c): neo vào "history" (R07 −0,60 s), vẫn ≥ 3 s
     chrome(O, 1, cwA > 0.01 ? L['e2.history'] : null, cwA);
     st.compose(); log.camMoving = CAM.moving(t); return log;

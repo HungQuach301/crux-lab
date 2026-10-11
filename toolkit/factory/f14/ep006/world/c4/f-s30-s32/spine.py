@@ -44,7 +44,7 @@ beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
 moves = K.moves_of([
     # F-14 (c): quy tắc 7 chỉ giữ 5 s đầu TẬP → đồ thị xong TRƯỚC "three" (giữa "history" và "three"), nhãn "3%" hiện đúng từ "three"
-    ('m_c30', 'mode', 'wLadder', 'cLadder', cue['g0']['history'], cue['g1']['three'], 0.7,
+    ('m_c30', 'mode', 'wLadder', 'cLadder', cue['g0']['history'], cue['g1']['three'] - 0.5, 0.7,   # xong ≥ 0,75 s trước "three" (R07: nền đo yên)
      'lời S30.2 đặt số (3 %, 42,4 %): số chỉ ở đồ thị (quy tắc 1); vào đồ thị ngay trước "three" để "3%" hiện đúng lúc lời đọc', 'whoosh_mode', {'late': True}),
     ('m_pan31', 'pan', 'cLadder', 'cLim1', S.at('@S30.5$'), cue['h0']['national'], 1.2, 'lời S31.1 giới hạn của chỉ số (giỏ quốc gia): lia sang hàng thùng chung', 'whoosh_soft', {}),
     ('m_pan31b', 'pan', 'cLim1', 'cLim2', S.at('@S31.2:tests'), cue['h2']['annuity'], 0.75, 'lời S31.3 "annuity pricing isn\'t modeled": lia sang hai séc', 'whoosh_soft', {}),

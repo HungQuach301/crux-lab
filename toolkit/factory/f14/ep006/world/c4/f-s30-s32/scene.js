@@ -28,7 +28,7 @@ export async function boot(res) {
   const glow0 = row.userData.crates[2].m.emissive.clone(), accent3 = new THREE.Color(C.accent);   // F-14 (a) "weigh": màu sáng gốc của thùng   // P3c: séc đứng như vòng 2 — khoá nghĩa B32 (vòng 2 nghĩa 2/2; séc ngang + bước nấc ở vòng 3: 1/3)
   // F-14 (a): thanh mỗi bậc nhảy 70 % ĐÚNG từ đọc số (0,25 s) rồi mọc nốt tới hết ý (S.life.bars: forty → hết câu, half → median, Carl → hết câu)
   const BK = S.life.bars.keys, bars = [[BK[0][0], BK[1][0], 1], [BK[2][0], BK[3][0], 2], [BK[4][0], BK[5][0], 3]];
-  const step = (t, a, z) => 0.7 * ease(t, a - 0.05, a + 0.25) + 0.3 * lin(t, a + 0.25, Math.max(z, a + 1));
+  const step = (t, a, z) => 0.2 * ease(t, a - 0.05, a + 0.25) + 0.8 * lin(t, a + 0.25, Math.max(z, a + 1));   // nhãn giá trị hiện ĐÚNG từ (cue nhãn); thanh mọc suốt ý
   // FIX-R1: mọi vật vẽ sau sàn trong suốt (vật đang hiện/mờ dần không bị sàn vẽ đè); mỗi khu chỉ hiện quanh lời của nó, hiện/mờ trong cú lia
   // (không còn hàng thùng / thanh / séc thò ở mép khung lúc chuyển 486, 500, 517 s, vật trắng ở mép phải thang 455–461 s)
   scene.traverse((o) => { if (o !== floor && o.isMesh) o.renderOrder = 2; });
@@ -45,7 +45,7 @@ export async function boot(res) {
     const ladA = 1 - ease(t, P31.t0, P31.t0 + 0.6), rowA = ease(t, P31.t1 - 0.6, P31.t1) * (1 - ease(t, P31b.t0, P31b.t0 + 0.35));
     // R2 (khung chuyển máy): Ruth chỉ hiện khi máy gần dừng ở wRuth (trước: hiện từ đầu cú, cả cột ngoài khung ~0,9 s)
     // C5b (V11): hai séc tắt hẳn TRƯỚC khi thẻ phương pháp hiện — chữ thẻ không chồng séc 3D lúc thẻ còn mờ
-    const chkA = ease(t, P31b.t1 - 0.4, P31b.t1) * (1 - ease(t, S.card[0] - 0.4, S.card[0])), ruA = ease(t, W32.t1 - 0.22, W32.t1 + 0.2);
+    const chkA = ease(t, P31b.t1 - 0.4, P31b.t1) * (1 - ease(t, S.card[0] - 0.05, S.card[0] + 0.2)), ruA = ease(t, W32.t1 - 0.22, W32.t1 + 0.2);
     lad.set(0, S.rungs[0].share / 100 * ease(t, MV.m_c30.t0, MV.m_c30.t1), ladA);
     for (const [a, z, i] of bars) lad.set(i, S.rungs[i].share / 100 * step(t, a, z), ladA);
     // F-14 (a) "these rates" (S30.5): bốn bậc lần lượt sáng từ "describe" tới "choose" (S.life.rates), thanh của bậc đang nói sáng lên
@@ -79,7 +79,9 @@ export async function boot(res) {
       }
       const [xh, yt] = O.toScreen(LX + LEN * 0.5, 3.4, 0.5), [xa] = O.toScreen(LX + LEN, 3.4, 0.5), [, yb] = O.toScreen(LX, 0, 0.5);
       { const HK = S.life.halfline.keys, hp = 0.35 + 0.65 * lin(t, HK[0][0], HK[1][0]);   // F-14 (a): vạch trung vị kẻ dần từ "median" tới hết câu
-        seg2(O, xh, yb - (yb - yt) * hp, xh, yb, C.muted, a * show(t, b.g2.half), 3, [8, 8]); } seg2(O, xa, yt, xa, yb, C.muted, a * show(t, MV.m_c30.t1), 3, [8, 8]);
+        seg2(O, xh, yb - (yb - yt) * hp, xh, yb, C.muted, a * show(t, b.g2.half), 3, [8, 8]);
+        const [xl0] = O.toScreen(LX, 0, 0.5), c = O.ctx, hq = lin(t, HK[0][0], HK[1][0]);   // nửa trái (≤ trung vị) tô dần từ trên xuống
+        if (hq > 0) { c.save(); c.globalAlpha = a * 0.12; c.fillStyle = C.ink; c.fillRect(xl0, yt, xh - xl0, (yb - yt) * hq); c.restore(); } } seg2(O, xa, yt, xa, yb, C.muted, a * show(t, MV.m_c30.t1), 3, [8, 8]);
       // FIX-R1: hai nhãn tên của thang hiện từ "raise" ngay ở thế giới (loại 'name', không số) — thang 3D 5 s đầu không còn câm
       const nA = (1 - show(t, MV.m_pan31.t0)) * show(t, b.g0.raise);
       label(O, 'all stretches', xa, yb + 46, { align: 'center', kind: 'name', px: 48, w: 600, color: C.muted, alpha: nA });
@@ -91,7 +93,7 @@ export async function boot(res) {
     label(O, L['h0.national'], 960, 236, { align: 'center', kind: 'name', px: 52, w: 600, alpha: ok * show(t, at(S, 'h0.national', b.h0.national), MV.m_pan31b.t0) });
   { const wA = ok * show(t, b.h0.health, MV.m_pan31b.t0) * rowA;   // tên hai thùng (không số), đúng "health"
     if (wA > 0.01) { const cr = row.userData.crates, top = row.userData.height;
-      for (const [j, txt] of [[2, L['h0.health']], [7, 'housing']]) { const [x, y] = O.toScreen(row.crateX(j), top * (j === 2 ? 1.55 : 0.65) + 0.12, 0.2);
+      for (const [j, txt] of [[2, L['h0.health']], [7, 'housing']]) { const [x, y] = O.toScreen(row.crateX(j), top * 1.6 + 0.12, 0.2);
         label(O, txt, x, y - 20, { align: 'center', kind: 'name', px: 48, w: 600, color: C.accent, alpha: wA }); }
       log.roi['h0.health'] = [600, 300, 1320, 640]; } }
     const oA = ok * show(t, b.h1.overlap, MV.m_pan31b.t0);
@@ -112,10 +114,10 @@ export async function boot(res) {
       // F-14 (a) "pay out over a lifetime": 20 vạch năm trả tiền (lịch) trên hai séc sáng lần lượt từ "annuity" tới hết câu; "dollars" = ngoặc tổng "?" (không so tiền)
       const LK = S.life.lifetime.keys, nY = Math.min(20, 20 * lin(t, LK[0][0], LK[1][0]));
       if (qA > 0.01) { const c = O.ctx, [lx] = O.toScreen(AX2 - 0.35, 1.25, 0.1), [rx, ry] = O.toScreen(AX2 + 1.55, 1.25, 0.1), pw = (rx - lx) / 20;
-        c.save(); for (let j = 0; j < 20; j++) { const on = Math.min(1, Math.max(0, nY - j)); c.globalAlpha = qA * (0.25 + 0.6 * on); c.fillStyle = on > 0.5 ? C.ink : C.muted; c.fillRect(lx + j * pw + 2, ry - 30, pw - 6, 26); } c.restore();
-        const dA = qA * show(t, b.h2.dollars); brace(O, lx, rx, ry - 44, C.muted, dA, 4, 12);
-        label(O, '?', (lx + rx) / 2, ry - 62, { align: 'center', kind: 'title', px: 64, alpha: dA, plate: null });
-        log.roi['h2.annuity'] = [lx - 10, ry - 140, rx + 10, ry]; } }
+        c.save(); for (let j = 0; j < 20; j++) { const on = Math.min(1, Math.max(0, nY - j)); c.globalAlpha = qA * (0.25 + 0.6 * on); c.fillStyle = on > 0.5 ? C.ink : C.muted; c.fillRect(lx + j * pw + 2, ry - 70, pw - 6, 66); } c.restore();
+        const dA = qA * show(t, b.h2.dollars); brace(O, lx, rx, ry - 80, C.muted, dA, 4, 12);
+        label(O, '?', rx + 30, ry - 14, { align: 'left', kind: 'title', px: 64, alpha: dA, plate: null });
+        log.roi['h2.annuity'] = [lx - 10, ry - 140, rx + 10, ry]; }
       log.roi['h2.dollars'] = [400, 170, 1520, 260];
     }
     // S31.4: thẻ V7 (≤ 6 dòng, 5 s) — nền thẻ trung tính, chữ ≥ 48 px; thẻ 110–1810 để dòng dài nhất (~1 655 px) nằm trong thẻ, không bị đẩy lệch lề

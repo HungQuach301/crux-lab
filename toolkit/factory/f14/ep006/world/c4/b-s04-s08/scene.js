@@ -3,7 +3,7 @@
 // → S07 (C3 đã duyệt): séc lớn lên, hàng tối tới 0,904 → đồ thị 10 / about 9 → S08: hàng của séc đều tối tới 0,609. Mốc giờ chỉ từ spine.json.
 import * as THREE from 'three';
 import { Person } from '/toolkit/factory/world/lib3d.js';
-import { setup, column, setCheck, checkLabel, rowBox, modeLook, followLight, chrome, brace, label, seg2, kf, show, pulse, setOpacity, at,
+import { setup, column, setCheck, checkLabel, rowBox, modeLook, followLight, chrome, brace, label, seg2, kf, show, pulse, setOpacity, at, countBand,
   CHAR, C, ease, lin, mix, rgba, checkScale } from '/episodes/ep006/world/c4kit.js';
 import { checkLook } from '/episodes/ep006/world/c4/checklook.js';
 
@@ -48,7 +48,7 @@ export async function boot(res) {
     // séc trượt về đầu hàng của nó ở "each"; hàng mọc
     const sl = ease(t, b.b3.each - 0.05, b.b3.each + 0.8);
     lev.card.position.x = mix(-1.0, lx1, sl); ris.card.position.x = mix(1.0, rx1, sl);
-    const rA = ease(t, b.b3.each, b.b3.each + 0.9);
+    const RW = S.life.rows.keys, rA = ease(t, RW[0][0], RW[1][0]);   // F-14 (a): hai hàng mọc lần lượt suốt "each … its own first check"
     // Ruth: giữa hai séc → cạnh séc tăng ở "took" (chừa chỗ séc năm 20 lớn về phía bà); séc đều + hàng của nó mờ từ "took", sáng lại ở S08 "level"
     ruth.position.x = mix(0, rx1 + ris.cw / 2 - ris.cw * checkScale(20) - 0.11, ease(t, b.b4.took - 0.05, b.b4.took + 0.8));
     const DK = S.life.declined.keys, lvA = 1 - 0.7 * ease(t, DK[0][0], DK[1][0]) * (1 - ease(t, b.c2.first - 0.2, b.c2.first + 0.4));   // F-14 (a): séc bà không chọn mờ dần suốt câu S05.1
@@ -56,7 +56,9 @@ export async function boot(res) {
     ris.row.set({ value: kf(S.rows.rise, t), appear: rA, pulse: pulse(t, b.c1.nine, 0.6) + pulse(t, b.c3.slowed, 0.9) + pulse(t, b.c0.less, 0.6) });   // F-14: loé ĐÚNG "less"
     // F-14 (a) S07.2 "today … about 9": đếm từng thùng còn sáng 1 → 9 từ "ten" tới "nine" (S.life.count)
     { const CK = S.life.count.keys, cn = 9 * lin(t, CK[0][0], CK[1][0]), cr = ris.row.userData.crates;
-      if (t > CK[0][0] && t < CK[1][0] + 0.6) for (let j = 0; j < 9; j++) cr[j].m.emissiveIntensity += 0.45 * Math.max(0, 1 - Math.abs(cn - j - 0.5) * 1.6); }
+      if (t > CK[0][0] && t < CK[1][0] + 0.6) for (let j = 0; j < 9; j++) cr[j].m.emissiveIntensity += 0.5 * Math.min(1, Math.max(0, cn - j));   // đã đếm thì giữ sáng
+      const FK = S.life.first10.keys, fn = 10 * lin(t, FK[0][0], FK[1][0]), fo = 1 - ease(t, FK[1][0] + 0.3, FK[1][0] + 1.3);   // F-14 (a): séc đầu sáng 10 thùng nó mua
+      if (t > FK[0][0] && fo > 0) for (let j = 0; j < 10; j++) cr[j].m.emissiveIntensity += 0.6 * fo * Math.min(1, Math.max(0, fn - j)); }
     const lA = ease(t, b.b0.bigger - 0.05, b.b0.bigger + 0.25), sA = ease(t, b.b0.smaller - 0.05, b.b0.smaller + 0.25);   // F-14: hiện gọn đúng từ (R07 b0 +0,31/+0,23 s)
     setCheck(lev, S, t, lA); setCheck(ris, S, t, sA);
     // F-14 (a) S05.2–S05.3 "her check goes up too": séc tăng nhích từng kỷ niệm (×1,02) từ "check" tới hết S05.3; về cỡ đầu khi máy đã lia khỏi (S07 tăng lại từ đầu)
@@ -91,7 +93,8 @@ export async function boot(res) {
       const gA = ok * show(t, b.b1.starts, s4);
       if (gA > 0.01) {
         const [ax, ay] = O.toScreen(lev.card.position.x + lev.cw / 2, lev.cbase, 0.1), [bx0, by] = O.toScreen(ris.card.position.x - ris.cw / 2, ris.cbase, 0.1), [bx, fy] = O.toScreen(ris.card.position.x + ris.cw / 2, 0, 0.1), c = O.ctx, hh = by - ay;
-        c.save(); c.globalAlpha = gA; c.beginPath(); c.rect(bx0, ay, bx - bx0, hh); c.clip(); c.fillStyle = rgba(C.muted, 0.22); c.fillRect(bx0, ay, bx - bx0, hh);
+        const TH = 0.3 + 0.7 * lin(t, S.life.trace.keys[0][0], S.life.trace.keys[1][0]);   // F-14 (a): phần thiếu (không đo) tô dần từ trên xuống "starts" → "model"
+        c.save(); c.globalAlpha = gA; c.beginPath(); c.rect(bx0, ay, bx - bx0, hh * TH); c.clip(); c.fillStyle = rgba(C.muted, 0.22); c.fillRect(bx0, ay, bx - bx0, hh);
         c.fillStyle = rgba(C.muted, 0.45); for (let x = bx0 - hh; x < bx; x += 20) { c.beginPath(); c.moveTo(x, by); c.lineTo(x + 7, by); c.lineTo(x + 7 + hh, ay); c.lineTo(x + hh, ay); c.fill(); }
         c.restore();
         seg2(O, ax, ay, bx0, ay, C.muted, gA * 0.7, 3, [10, 8]);
@@ -129,6 +132,10 @@ export async function boot(res) {
       // F-14 (a): vạch đỉnh séc kéo dần sang thanh giá từ "forty" tới hết S06.1 (mốc so sánh); phần giá vượt vạch tô dần từ "sixty" (S.life.line48 / outran)
       const LK = S.life.line48.keys, OK3 = S.life.outran.keys, lp = lin(t, LK[0][0], LK[1][0]);
       seg2(O, bx0, cy, bx0 + (xr + 10 - bx0) * lp, cy, C.ink, ok * bA * show(t, b.b7.forty), 3, [10, 8]);
+      { const RS = S.life.raises.keys, nR = 20 * lin(t, RS[0][0], RS[1][0]), [qx0] = O.toScreen(BX[0] - 0.55, 0, 0.3), [qx1] = O.toScreen(BX[0] + 0.55, 0, 0.3), c = O.ctx;   // 20 lần tăng xếp chồng
+        if (nR > 0 && t < MV.m_w.t0) { c.save(); c.globalAlpha = ok * bA * 0.35; c.fillStyle = C.bg;
+          for (let j = 0; j < Math.floor(nR); j++) { const [, ya] = O.toScreen(0, BU * yrC(j), 0.3), [, yb2] = O.toScreen(0, BU * yrC(j + 1), 0.3); if (j % 2 === 0) c.fillRect(qx0, yb2, qx1 - qx0, ya - yb2); }
+          c.restore(); } }
       { const op = lin(t, OK3[0][0], OK3[1][0]), [px0] = O.toScreen(BX[1] - 0.55, 0, 0.3), [px1] = O.toScreen(BX[1] + 0.55, 0, 0.3);
         if (op > 0 && py < cy) { const c = O.ctx; c.save(); c.globalAlpha = ok * bA * 0.45; c.fillStyle = C.warn; c.fillRect(px0, cy - (cy - py) * op, px1 - px0, (cy - py) * op); c.restore(); } }
       label(O, 'first check · first price', bxm, by0 + 60, { align: 'center', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * bA * show(t, b.b7.twenty) });   // gốc chung, dưới hai thanh
@@ -158,18 +165,23 @@ export async function boot(res) {
       // vòng sửa 1: hai nhãn dài không vừa một hàng ngang (≈ 940 + 820 px) → nhãn séc tăng xuống hàng dưới, cả hai giữ trong mép an toàn
       label(O, L['c2.rising'], inX((RR.x0 + RR.x1) / 2, L['c2.rising']), RR.yb + 152, { align: 'center', kind: 'number', px: 48, alpha: a8 });
       brace(O, RL.x0, RL.x1, RL.yb + 22, C.muted, ok * show(t, b.c2.first), 4, -12);
+      label(O, L['c2.level'], (RL.x0 + RL.x1) / 2, RL.yt - 40, { align: 'center', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * show(t, at(S, 'c2.level', b.c2.level), b.c3.slowed) });   // F-14 (c)
       label(O, L['c2.first'], inX((RL.x0 + RL.x1) / 2, L['c2.first']), RL.yb + 86, { align: 'center', kind: 'number', px: 48, color: C.muted, alpha: ok * show(t, b.c2.first, b.c2.six - 0.3) });
       label(O, L['c2.six'], inX((RL.x0 + RL.x1) / 2, L['c2.six']), RL.yb + 86, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.c2.six) });
       label(O, L['c4.model'], 960, 236, { align: 'center', kind: 'compare', px: 52, color: C.muted, alpha: ok * show(t, at(S, 'c4.model', b.c4.model)) });   // F-14 (c): neo vào 'model'
       // F-14 (a) S08.2 "the raise slowed the loss": thùng séc tăng còn giữ mà séc đều đã mất (6,09 → 9,04) được viền dần từ "slowed"
       { const SK = S.life.slowed.keys, sp = lin(t, SK[0][0], SK[1][0]), sA2 = ok * show(t, SK[0][0], b.c4.own);
         if (sA2 > 0.01) { const [xa] = O.toScreen(ris.row.edgeX(6.09), 0, ris.z + 0.4), [xb] = O.toScreen(ris.row.edgeX(9.04), 0, ris.z + 0.4);
-          seg2(O, xa, RR.yt - 14, xa + (xb - xa) * sp, RR.yt - 14, C.cushion, sA2, 6); } }
+          seg2(O, xa, RR.yt - 14, xa + (xb - xa) * sp, RR.yt - 14, C.cushion, sA2, 6);
+          const c = O.ctx; c.save(); c.globalAlpha = sA2 * 0.3; c.fillStyle = C.cushion; c.fillRect(xa, RR.yt - 8, (xb - xa) * sp, RR.yb - RR.yt + 16); c.restore(); } }
       const bg = pulse(t, b.c4.bigger, 1.2);
       if (bg > 0.01) for (const col of [lev, ris]) { const [x, y] = O.toScreen(col.card.position.x, col.cbase, 0.2); seg2(O, x - 40, y, x + 40, y, C.warn, ok * bg, 5); }
       log.roi['c2.six'] = [RL.x0 - 10, RL.yb + 20, RL.x1 + 10, RL.yb + 120]; log.roi['c2.level'] = [RL.x0 - 10, RL.yt - 20, RL.x1 + 10, RL.yb + 10];
       log.roi['c4.model'] = [400, 170, 1520, 260];
     }
+    { const CK = S.life.count.keys, FK = S.life.first10.keys;   // F-14 (a): dải đếm thùng (tích luỹ) — S07.2 đếm 9 · S05.1 séc đầu mua 10
+      if (t > CK[0][0] && t < CK[1][0] + 1.2) countBand(O, ris.row, 9 * lin(t, CK[0][0], CK[1][0]), C.ink, ok * 0.22 * (1 - ease(t, CK[1][0] + 0.6, CK[1][0] + 1.2)));
+      if (t > FK[0][0] && t < FK[1][0] + 1.3) countBand(O, ris.row, 10 * lin(t, FK[0][0], FK[1][0]), C.ink, ok * 0.22 * (1 - ease(t, FK[1][0] + 0.3, FK[1][0] + 1.3))); }
     const cwA = show(t, b.c4.own);
     chrome(O, 1, cwA > 0.01 ? L['c4.own'] : null, cwA);
     st.compose(); log.camMoving = CAM.moving(t); return log;

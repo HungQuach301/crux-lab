@@ -45,6 +45,9 @@ export async function boot(res) {
     return (i) => (i < i0 - w || i > i1 + w ? 0 : Math.max(0, 1 - Math.abs(i - p) / w)); };
   const kept = v20.map((v, i) => [v, i]).filter(([v]) => v >= 100).map(([, i]) => i);   // 17 quãng theo kịp (thứ tự tháng)
   const iSep = iOf('1947-09');
+  // F-14 (a): quét TÍCH LUỸ — thanh đã qua giữ sáng (đổi hình tích luỹ, không chỉ một vệt đi qua)
+  const fillTo = (t, K, i0, i1) => { if (t < K[0][0] || t > K[1][0] + 0.6) return null; const p = i0 + (i1 - i0 + 1) * lin(t, K[0][0], K[1][0]);
+    return (i) => (i < i0 || i > i1 ? 0 : 0.8 * Math.min(1, Math.max(0, p - i))); };
 
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
@@ -61,8 +64,8 @@ export async function boot(res) {
     const LF = S.life, ksN = 17 * lin(t, LF.seventeen.keys[0][0], LF.seventeen.keys[1][0]);
     // F-14: quét "question" có đầu quét ngay ở từ (R07 e2.question) và tắt ≥ 0,7 s trước "least" (R07 e2.least: nền đo yên)
     const sw = sweep(t, b.e1.seven, 1.5) || walk(t, LF.recent.keys, 0, n - 1, 40) || walk(t, [[b.e2.question], [b.e2.least - 0.9]], 0, n - 1, 40) || sweep(t, b.e3.month, 1.0)
-      || walk(t, LF.cluster.keys, iSep, iE, 4) || walk(t, LF.closest.keys, i90, iR, 20) || walk(t, LF.none25.keys, 0, n - 1, 40)
-      || (t >= LF.seventeen.keys[0][0] && t < LF.seventeen.keys[1][0] + 0.6 ? (i) => { const j = kept.indexOf(i); return j < 0 ? 0 : Math.max(0, 1 - Math.abs(ksN - j - 0.5) * 0.8); } : null);
+      || fillTo(t, LF.cluster.keys, iSep, iE) || walk(t, LF.closest.keys, i90, iR, 20) || walk(t, LF.none25.keys, 0, n - 1, 40)
+      || (t >= LF.seventeen.keys[0][0] && t < LF.seventeen.keys[1][0] + 0.6 ? (i) => { const j = kept.indexOf(i); return j < 0 ? 0 : 0.9 * Math.min(1, Math.max(0, ksN - j)); } : null);
     const fT = show(t, b.e8.typical, b.e9.eighty + 1.2), medV = S.med.rising;
     const ml = ease(t, b.f1.level, b.f1.level + 1.6) * (1 - ease(t, MV.m_push19.t0, MV.m_push19.t1));
     const hR = Math.max(pulse(t, b.e1.ruths, 1.4), pulse(t, tRuth15, 1.6), hiP);
@@ -74,8 +77,9 @@ export async function boot(res) {
     setOpacity(ruth, 1 - dimMini);
     strip.line.visible = t >= b.e2.least - 0.05 && dimMini < 0.99; strip.line.material.opacity = ease(t, b.e2.least - 0.05, b.e2.least + 0.4) * (1 - dimMini);
     // R1: vạch trung vị HẠ từ vạch séc đầu (100 %) xuống mức trung vị từ đầu cụm lời tới đúng từ số ("rising" → "eighty"; "level" → "fifty-four")
-    const yR = mix(100, S.med.rising, ease(t, tRising16, b.e9.eighty)), yL = mix(100, S.med.level, ease(t, b.f1.level, b.f1.fifty));
-    medR.visible = t >= tRising16 - 0.05 && t < b.f5.twenty; medR.material.opacity = ease(t, tRising16 - 0.05, tRising16 + 0.3); medR.position.y = UNIT * yR / 100;
+    // F-14 (a): vạch trung vị hạ suốt câu S16.2 (đầu câu → "eighty")
+    const yR = mix(100, S.med.rising, ease(t, b.e9.t0, b.e9.eighty)), yL = mix(100, S.med.level, ease(t, b.f1.level, b.f1.fifty));
+    medR.visible = t >= b.e9.t0 - 0.05 && t < b.f5.twenty; medR.material.opacity = ease(t, b.e9.t0 - 0.05, b.e9.t0 + 0.3); medR.position.y = UNIT * yR / 100;
     medL.visible = t >= b.f1.level - 0.05 && t < b.f5.twenty; medL.material.opacity = ease(t, b.f1.level - 0.05, b.f1.level + 0.3); medL.position.y = UNIT * yL / 100;
     const cA = show(t, b.f0.crates, b.f1.level + 0.7);
     // F-14: thùng điển hình mờ dần từ "crates" tới "most" (sống theo câu), loé gọn ĐÚNG "most" (R07 f0.most không đo được)
@@ -145,17 +149,19 @@ export async function boot(res) {
     { const [, y] = O.toScreen(0, UNIT * yR / 100, 0.3); label(O, L.m80, fx1 + 10, y + 16, { align: 'left', kind: 'number', px: 48, alpha: ok * show(t, b.e9.eighty, MV.m_push19.t0) }); }
     label(O, L['e9.eighty'], 960, 312, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.e9.eighty, b.f0.crates) });
     { const [x0, y0] = O.toScreen(crates.edgeX(0), 11.5, 0), [x1] = O.toScreen(crates.edgeX(10), 11.5, 0);
-      label(O, L['f0.ten'], (x0 + x1) / 2, y0 + 70, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.f0.ten, b.f1.level + 0.7) }); log.roi['f0.most'] = [x0 - 10, y0 - 60, x1 + 10, y0 + 90]; }
+      label(O, L['f0.ten'], (x0 + x1) / 2, y0 + 70, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, at(S, 'f0.most', b.f0.most), b.f1.level + 0.7) });   // F-14 (c): neo vào "most"
+      log.roi['f0.most'] = [x0 - 10, y0 - 60, x1 + 10, y0 + 90]; }
     { const [, y] = O.toScreen(0, UNIT * yL / 100, 0.3); label(O, L.m54, fx1 + 10, y + 16, { align: 'left', kind: 'number', px: 48, color: C.muted, alpha: ok * show(t, b.f1.fifty, MV.m_push19.t0) }); }
     // F-14 (a) "about half": vạch 50 % kẻ dần trái → phải từ "fifty-four" tới "sunk" (S.life.half)
     { const HK = S.life.half.keys, hp = lin(t, HK[0][0], HK[1][0]), [, yh] = O.toScreen(0, UNIT * 0.5, 0.3);
-      if (hp > 0) seg2(O, fx0, yh, fx0 + (fx1 - fx0) * hp, yh, C.muted, ok * 0.8 * (1 - show(t, MV.m_push19.t0)), 3, [10, 8]); }
+      if (hp > 0) { const hA2 = ok * (1 - show(t, MV.m_push19.t0)); seg2(O, fx0, yh, fx0 + (fx1 - fx0) * hp, yh, C.muted, 0.8 * hA2, 3, [10, 8]);
+        const c = O.ctx; c.save(); c.globalAlpha = 0.14 * hA2; c.fillStyle = C.muted; c.fillRect(fx0, yh, (fx1 - fx0) * hp, fy - yh); c.restore(); } }   // nửa dưới tô dần
     label(O, L['f1.fifty'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.f1.fifty, MV.m_push19.t0) });
     const yA = ok * show(t, b.f2.sunk, MV.m_push19.t0);   // R1: hàng 20 ô năm hiện từ "sunk", tô dần từng năm tới đúng "eight" (số hiện ở "eight")
     if (yA > 0.01) {   // ô nhỏ: 20 năm, 8 ô đầu tô (séc đều chạm mức cuối của séc tăng khoảng năm 8)
       const c = O.ctx, x0 = 300, w = 60, y = 360; c.save(); c.globalAlpha = yA;
       const SN = S.life.sinks.keys, kS = mix(8, 20, lin(t, SN[0][0], SN[1][0]));   // F-14 (a): năm 9 → 20 vẫn chìm (tô nhạt) từ "eight" tới "own"
-      for (let k = 0; k < 20; k++) { c.fillStyle = k < 8 * lin(t, b.f2.sunk + 0.3, b.f2.eight) ? C.muted : k < kS && t > SN[0][0] ? rgba(C.muted, 0.5) : rgba(C.grid, 0.9); c.fillRect(x0 + k * w + 3, y, w - 6, 34); }
+      for (let k = 0; k < 20; k++) { c.fillStyle = k < 8 * lin(t, b.f2.sunk + 0.3, b.f2.eight) ? C.muted : k < kS && t > SN[0][0] ? rgba(C.muted, 0.75) : rgba(C.grid, 0.9); c.fillRect(x0 + k * w + 3, y, w - 6, 34); }
       c.restore(); label(O, L['f2.eight'], 960, 312, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.f2.eight, MV.m_push19.t0) });
       log.roi['f2.eight'] = [x0, 280, x0 + 20 * w, 400];
     }

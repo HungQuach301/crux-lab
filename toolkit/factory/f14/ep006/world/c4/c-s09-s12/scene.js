@@ -4,7 +4,7 @@
 // Mốc giờ chỉ từ spine.json.
 import * as THREE from 'three';
 import { Ribbon, Crates } from '/toolkit/factory/world/lib3d.js';
-import { setup, column, showColumn, nameTag, rowBox, modeLook, followLight, chrome, label, seg2, dot, kf, show, pulse, at, CHAR, C, ease, lin, mix } from '/episodes/ep006/world/c4kit.js';
+import { setup, column, showColumn, nameTag, rowBox, modeLook, followLight, chrome, label, seg2, dot, kf, show, pulse, at, countBand, CHAR, C, ease, lin, mix } from '/episodes/ep006/world/c4kit.js';
 import { checkLook } from '/episodes/ep006/world/c4/checklook.js';
 
 const SEG = '/episodes/ep006/world/c4/c-s09-s12/';
@@ -50,7 +50,7 @@ export async function boot(res) {
     row.set({ value: rowV, pulse: pulse(t, b.d3.fell, 0.9), appear: aC });
     // F-14 (a): đếm thùng sáng (S10.1: 1 → 10 tới "more"; S11.1: 1 → 9,45 tới "ninety-four")
     for (const CK of [S.life.count10.keys, C16]) if (t > CK[0][0] && t < CK[1][0] + 0.6) { const cn = CK[1][1] * lin(t, CK[0][0], CK[1][0]), cr = row.userData.crates;
-      for (let j = 0; j < Math.ceil(CK[1][1]); j++) cr[j].m.emissiveIntensity += 0.5 * Math.max(0, 1 - Math.abs(cn - j - 0.5) * 1.6); }
+      for (let j = 0; j < Math.ceil(CK[1][1]); j++) cr[j].m.emissiveIntensity += 0.6 * Math.min(1, Math.max(0, cn - j)); }   // đã đếm thì giữ sáng (đổi hình tích luỹ)
     ruth.row.set({ value: vAt(P, Math.max(0, u)), pulse: pulse(t, b.d0.twelve, 0.9) }); ruth.card.set({ k: Math.min(20, u), appear: 1 }); showColumn(ruth, 1);
     renderer.render(scene, cam);
     // ---------------- lớp phủ
@@ -73,6 +73,7 @@ export async function boot(res) {
       const [x, y] = sc(k, P[k]), under = P[k] < 1, f = under ? pulse(t, b.d1.slipped, 1.2) : (k === 3 || k === 7 ? pulse(t, b.d1.climbed, 1.2) : 0);
       dot(O, x, y, 9 + 9 * f, under ? C.warn : C.cushion, cw * aC);
     }
+    label(O, L['d1.climbed'], 960, 312, { align: 'center', kind: 'name', px: 52, w: 600, color: C.cushion, alpha: ok * show(t, at(S, 'd1.climbed', b.d1.climbed), b.d2.august - 0.4) });   // F-14 (c)
     label(O, L['d0.anniv'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.d0.anniv, b.d2.august - 0.4) });
     log.roi['d0.anniv'] = [400, 170, 1520, 260]; log.roi['d1.slipped'] = (() => { const [x, y] = sc(2, P[2]); const [x2] = sc(6, P[6]); return [x - 30, y - 60, x2 + 30, y + 60]; })();
     // S10.1 mốc năm 15; S10.2 cú rơi; S11.1 mốc năm 16
@@ -103,10 +104,12 @@ export async function boot(res) {
       label(O, L['d6.five'], 960, 236, { align: 'center', kind: 'number', px: 52, color: C.ink, alpha: fA });   // R1: hàng tiêu đề (không đè đường séc đều)
       label(O, L['d7.twenty'], 960, 312, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.d7.twenty) });   // R1: hàng tiêu đề 2
       log.roi['d6.five'] = [xc - 30, yc - 30, xc + 30, yc + 30]; log.roi['d7.twenty'] = [xc - 30, y20 - 60, x20 + 30, y20 + 30]; }
-    label(O, 'level check', ...(() => { const [x, y] = sc(Math.min(20, u2), vAt(PL, Math.min(20, u2))); return [x + 20, y + 20]; })(), { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * show(t, b.d5.level) * (u2 >= 4 ? 1 : 0) });
+    label(O, 'level check', ...(() => { const [x, y] = sc(Math.min(20, u2), vAt(PL, Math.min(20, u2))); return [x + 20, y + 20]; })(), { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * show(t, b.d5.level) });   // F-14: tên hiện ĐÚNG "level" (R07 d5 +0,33 s)
     label(O, 'Ruth · ILLUSTRATIVE', ...(() => { const [x, y] = sc(0, 1); return [x, y - 64]; })(), { align: 'left', kind: 'name', px: 48, w: 600, color: CHAR.ruth, alpha: cw * aC * show(t, b.d0.ruths, MV.m_push.t0 - 0.35) });   // R1: tắt trước khi đẩy máy (không trượt ra mép trái)
     label(O, '?', 1700, 330, { align: 'center', kind: 'title', px: 120, alpha: ok * show(t, b.d8.ruths), plate: null });
     log.roi['d8.ruths'] = [1600, 200, 1800, 360];
+    for (const CK of [S.life.count10.keys, S.life.count16.keys]) if (t > CK[0][0] && t < CK[1][0] + 1.2)   // F-14 (a): dải đếm thùng (tích luỹ)
+      countBand(O, row, CK[1][1] * lin(t, CK[0][0], CK[1][0]), C.cushion, ok * 0.28 * (1 - ease(t, CK[1][0] + 0.6, CK[1][0] + 1.2)));
     chrome(O, 1);
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }
