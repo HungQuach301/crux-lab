@@ -1,0 +1,73 @@
+{
+ "S01": {
+  "take": "802858880ff8d129.mp3",
+  "duration": 10.8,
+  "chars": 172,
+  "cached": false,
+  "sentences": [
+   "S01.1",
+   "S01.2"
+  ],
+  "text_matches_script": true
+ },
+ "S06": {
+  "take": "4fdff35e031f5b4b.mp3",
+  "duration": 25.76,
+  "chars": 347,
+  "cached": false,
+  "sentences": [
+   "S06.1",
+   "S06.2",
+   "S06.3"
+  ],
+  "text_matches_script": true
+ },
+ "S21": {
+  "take": "337b6d7096c5ff8d.mp3",
+  "duration": 24.64,
+  "chars": 349,
+  "cached": false,
+  "sentences": [
+   "S21.1",
+   "S21.2",
+   "S21.3"
+  ],
+  "text_matches_script": true
+ },
+ "S23": {
+  "take": "619cd9648ad2ba2f.mp3",
+  "duration": 12.0,
+  "chars": 210,
+  "cached": false,
+  "sentences": [
+   "S23.1",
+   "S23.2",
+   "S23.3"
+  ],
+  "text_matches_script": true
+ },
+ "S25": {
+  "take": "06f4efe1052f1b38.mp3",
+  "duration": 28.0,
+  "chars": 415,
+  "cached": false,
+  "sentences": [
+   "S25.1",
+   "S25.2",
+   "S25.3",
+   "S25.4",
+   "S25.5"
+  ],
+  "text_matches_script": true
+ },
+ "_spent_chars": 1493,
+ "_config": {
+  "voice": "cjVigY5qzO86Huf0OWal",
+  "model": "eleven_v3",
+  "seed": 1007,
+  "settings": {
+   "stability": 0.5,
+   "speed": 0.9
+  }
+ }
+}

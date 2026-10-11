@@ -1,0 +1,25 @@
+{
+ "video": "episodes/ep007/world/c3/out/s23-track.mp4",
+ "asr_words_matched": 38,
+ "asr_words_ref": 38,
+ "voice_offset_s": {
+  "median": 0.014,
+  "p90_abs": 0.097
+ },
+ "visual_peak_vs_keyword_s": {
+  "a0.once": 0.105,
+  "a1.one": 0.1,
+  "a1.extra": -0.207,
+  "a2.ends": 0.023,
+  "a2.four": 0.136
+ },
+ "method": {
+  "a0.once": "motion-roi",
+  "a1.one": "label",
+  "a1.extra": "motion-roi",
+  "a2.ends": "motion-roi",
+  "a2.four": "label"
+ },
+ "visual_within_0.2s": "4/5",
+ "visual_not_detected": []
+}

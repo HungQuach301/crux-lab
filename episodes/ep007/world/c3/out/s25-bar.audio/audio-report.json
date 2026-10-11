@@ -1,0 +1,33 @@
+{
+ "music": "code",
+ "stop": 30.05,
+ "release": 31.05,
+ "voice_over_music_db": 20.86,
+ "data_in_gaps_db_vs_voice": -19.9,
+ "data_shift_ms": {
+  "max": 105,
+  "mean": 75
+ },
+ "lufs": -14.0,
+ "peak_dbfs": -1.5,
+ "data_events": [
+  {
+   "t": 1.377,
+   "t_sound": 1.32,
+   "v": 0.25
+  },
+  {
+   "t": 6.28,
+   "t_sound": 6.385,
+   "v": 0.668
+  },
+  {
+   "t": 20.636,
+   "t_sound": 20.7,
+   "v": 0.668
+  }
+ ],
+ "whoosh_kinds": [
+  "whoosh_mode"
+ ]
+}

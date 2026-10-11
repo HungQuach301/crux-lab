@@ -1,0 +1,49 @@
+{
+ "music": "code",
+ "stop": 13.65,
+ "release": 14.65,
+ "voice_over_music_db": 20.9,
+ "data_in_gaps_db_vs_voice": -8.8,
+ "data_shift_ms": {
+  "max": 120,
+  "mean": 66
+ },
+ "lufs": -14.0,
+ "peak_dbfs": -1.5,
+ "data_events": [
+  {
+   "t": 2.867,
+   "t_sound": 2.835,
+   "v": 0.333
+  },
+  {
+   "t": 4.587,
+   "t_sound": 4.57,
+   "v": 0.417
+  },
+  {
+   "t": 6.52,
+   "t_sound": 6.64,
+   "v": 0.5
+  },
+  {
+   "t": 8.03,
+   "t_sound": 8.14,
+   "v": 0.583
+  },
+  {
+   "t": 9.704,
+   "t_sound": 9.745,
+   "v": 0.667
+  },
+  {
+   "t": 11.65,
+   "t_sound": 11.73,
+   "v": 0.75
+  }
+ ],
+ "whoosh_kinds": [
+  "whoosh_air",
+  "whoosh_mode"
+ ]
+}
