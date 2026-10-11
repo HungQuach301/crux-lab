@@ -89,41 +89,32 @@ Kết quả: `episodes/ep001/review-c6/pack-test/results.md`. Chủ dự án ch�
 4. **Gu của chủ dự án và so cặp mù khác nhau — để dữ liệu thật phân xử.** So cặp mù nghiêng về c2 + W (12/12, W 4/4); chủ dự án chọn a1 + H (a1 3/12, H 1/4) theo gu, và đưa cả H lẫn W vào Test & Compare. **Việc cho tổng kết Tập 1:** ghi kết quả Test & Compare (tỉ lệ xem theo thời gian xem của H, W, L) và CTR/thời gian xem của tiêu đề a1 vào đây; so với dự báo của so cặp mù và với gu. Nếu W thắng H rõ, so cặp mù đáng tin hơn cho thumbnail; nếu H thắng, ghi lại vì sao vai mù không bắt được (có thể do bài học 2: vai trùng móc c). Tiêu đề không nằm trong Test & Compare (chỉ thử thumbnail), nên a1 so với c2 chỉ ước được qua CTR so với các video sau.
 
 
-## 7. Gói phát hành khớp video + xu hướng + đề xuất (D-012 mục 3, từ Tập 7; tổng kết Tập 6 §4) — LUẬT
+## 7. Gói phát hành khớp video + xu hướng + đề xuất (D-012 mục 3 sửa theo câu trả lời tổng kết Tập 6 câu 3, 11/10; từ Tập 7) — LUẬT
 
-**Vì sao:** gói ChatGPT Tập 6 lệch video. Ảnh vẽ "baskets" thay vì crates của video, vẽ ảnh chụp đồ vật thay vì thế giới 3D, mỗi thumbnail một màu, và tiêu đề khác T1 đã duyệt (lessons T6-11). Người bấm vào phải thấy đúng thứ đã được hứa (§1.7).
+**Vì sao:** gói ChatGPT Tập 6 lệch video. Ảnh vẽ "baskets" thay vì crates của video, vẽ ảnh chụp đồ vật thay vì thế giới 3D, mỗi thumbnail một màu, và tiêu đề khác T1 đã duyệt (lessons T6-11). Nguyên nhân là **đầu vào** thiếu (brief không ghi tên vật thể, không có neo, không có xu hướng), không phải công cụ. Người bấm vào phải thấy đúng thứ đã được hứa (§1.7).
+
+**Chủ dự án quyết 11/10:** thumbnail API lai **KHÔNG ĐẠT** — không dùng, không render đối chứng 2D; bộ nhận diện `tongket-t6/thumbs/api-*.png` (logo "M.", chữ dưới trái, màu theo trụ) **không duyệt**. **Gói phát hành (tiêu đề, mô tả, thumbnail, tag) do chủ dự án làm trên ChatGPT.** Claude cung cấp đầu vào và kiểm đầu ra.
 
 1. **G1 chốt ý tưởng** (`templates/G1.md` mục 3):
    - **Video neo** 1–3 cái (`toolkit/market/anchors.py anchors`): cùng câu hỏi khán giả, đăng 30–90 ngày, tốc độ lượt xem/ngày cao nhất trong đề tài. Không dùng `relatedToVideoId` (YouTube đã bỏ khỏi API).
    - Tập đóng vai **phần tiếp theo tự nhiên** của video neo. Khác biệt chính là **lịch sử thật**. Gói có 1 dòng "neo: …; khác biệt: …".
    - Ý tưởng tiêu đề: cụm từ khán giả gõ đứng đầu, theo khuôn thắng.
-   - Ý tưởng thumbnail: **vật thể trung tâm của chính video** + ≤ 4 từ.
+   - Ý tưởng thumbnail: **chữ + vật thể trung tâm của chính video** (≤ 4 từ) — để chủ dự án đưa vào ChatGPT sau.
    - WRITER trả lời lời hứa trong 30 s đầu và đúng khoảng trống của video neo (`episode.md` §3 mục 12).
-2. **Chữ do Claude viết** (`toolkit/package/text.py`, P3 trước G2):
-   - 3 tiêu đề ≤ 60 ký tự, cụm tìm kiếm đứng đầu.
-   - Mô tả: 2 dòng đầu ≤ 150 ký tự, chứa cụm tìm kiếm; phần thân lấy từ mô tả máy (phương pháp + nguồn).
-   - Chương: giữ mốc của timeline, tên có từ khoá.
-   - **≤ 5 tag** (YouTube nói tag ít tác dụng).
-   - Nguồn: `claims.json`, `timeline.json`, hồ sơ cầu, khuôn thắng, video neo.
-   - Tự kiểm: S21, claim-risk S10, số có claim, chương khớp hồi, **từ chỉ vật thể** (`--objects`, cấm `--banned`).
-3. **Thumbnail lai** (`toolkit/package/thumbs.py`):
-   - 3 khung thế giới 3D 1280×720 có vật thể trung tâm (`render_shots.js --stills`) → OpenAI image API `images/edits`. Prompt: giữ vật thể/nhân vật/màu/low-poly, bỏ mọi chữ, không thêm vật, không ảnh chụp, không mặt.
-   - **Lớp chữ do máy vẽ**, nên đúng từng ký tự; claim-risk chạy khi gọi với `--ep episodes/epNNN` (**bắt buộc** ở P3).
-   - Không có API (proxy/quyền chặn, thoát 3) → `--no-api` + brief (`templates/PACKAGING-BRIEF.md`, có `--objects/--banned`) cho **ChatGPT thủ công**. Đây là đường dự phòng.
-4. **Bộ nhận diện kênh "Money Rerouted"** *(CHỜ chủ dự án duyệt — gói tổng kết Tập 6 câu 3; đến khi duyệt chỉ là đề xuất)* (tên kênh YouTube của Crux — chủ dự án nêu 11/10; đổi là quyền chủ dự án):
-   - logo **"M."** trong ô bo góc màu trụ, trên trái (32, 28, 80×80 px ở 1280×720);
-   - **một font**: Inter Bold (`toolkit/render/fonts`);
-   - chữ lớn **dưới trái** (x = 48, đáy cách 64 px), 96–112 px, viền nền 3 px, **dòng cuối màu trụ**;
-   - ILLUSTRATIVE trên phải khi có nhân vật;
-   - chân trang "US only · history, not a forecast" dưới phải 24 px;
-   - nền tối dần ở nửa dưới;
-   - **màu theo trụ**: vay và nợ `#F2B441` · nghỉ hưu và đầu tư dài hạn `#3FBF7F` · thuế và chính sách `#4C8DFF`.
-   - Một tập dùng một màu trụ cho cả 3 thumbnail (Tập 6 ChatGPT: mỗi ảnh một màu → sai).
-   - **Khung chọn để chừa góc dưới trái trống.** Tập 6 api-2: chữ đè hàng thùng bên trái.
-5. **P4** (`toolkit/package/rescore.py`):
-   - quét tốc độ 7 ngày của đề tài (`anchors.py trend`, lọc nội dung ngoài Mỹ);
-   - chấm lại 3 tiêu đề + 3 thumbnail theo mức gần mẫu đang lên **và** khớp nội dung. Khớp nội dung xếp trước; không đổi lấy mặt người, mũi tên dự báo hay số tiền không claim;
-   - chọn mặc định + thứ tự Test & Compare; gợi ý giờ đăng;
-   - **kiểm mọi bản cuối, kể cả ChatGPT**: vật thể thấy trên ảnh (`objects_seen`), số, chương (`package_check.py`).
-   - Gợi ý tìm kiếm YouTube (`suggestqueries.google.com`): **proxy chặn (403, 11/10)** → bỏ; cụm tìm kiếm lấy từ video neo + hồ sơ cầu.
+2. **P4, khi video hoàn tất, trước G3 — Claude giao `out/package/PACKAGING-BRIEF.md`** (tiếng Anh, chủ dự án dán thẳng vào ChatGPT; mẫu `templates/PACKAGING-BRIEF.md`; `python3 toolkit/market/brief.py episodes/epNNN --topic <id> --trend <trend.json> --anchors <neo.json> --g1-title "…" --objects "…" --banned "…" --frame <png> ×3–4`):
+   - (a) **quét tốc độ 7 ngày** của đề tài (`anchors.py trend --save`, lọc nội dung ngoài Mỹ): khuôn tiêu đề, kiểu thumbnail, cụm tìm kiếm đang lên;
+   - (b) **1–3 video neo** + cụm từ chính + điểm khác biệt;
+   - (c) **khuôn tiêu đề thắng** + **cụm từ tìm kiếm đặt đầu tiêu đề và 2 dòng đầu mô tả**;
+   - (d) **kiểu thumbnail thắng 90 ngày** (`market/REPORT.md`) + **vật thể trung tâm của chính video, đúng tên gọi trong lời** (`--objects`; cấm vật thay thế `--banned`);
+   - (e) **claim được/bị cấm** (`claims.json`), **chương + mốc giờ từ timeline**, câu hỏi khán giả đã trả lời;
+   - (f) **3–4 khung đẹp nhất PNG** của bản cuối (1280×720, không chữ) làm tham chiếu.
+3. **Chủ dự án** dán brief + khung vào ChatGPT, rồi dán **tiêu đề, mô tả, ảnh thumbnail** (và tag) của ChatGPT vào P4 — cùng phiên P4, không thêm cổng.
+4. **P4 kiểm** (`toolkit/market/package_check.py` + `toolkit/package/rescore.py` + đọc của phiên):
+   - **S21** (luật khoá, trên mô tả); **claim-risk** (ADVICE/FORECAST/FOUR/WE_BAD, số có claim, cụm bắt buộc, ILLUSTRATIVE);
+   - **từ ngữ vật thể khớp lời** (vật thể thấy trên ảnh và chữ = tên gọi trong kịch bản, không vật bị cấm);
+   - **chương khớp timeline** (±2 s đầu hồi, ≥ 10 s/chương);
+   - **mức bám xu hướng/neo** (cụm tìm kiếm đứng đầu, khuôn thắng) — `rescore.py` chỉ là **bộ lọc thô** (Sonnet chấm rộng tay, không bắt lỗi số lượng, tổng kết Tập 6 §4f); phiên đọc ảnh và chữ để kết luận.
+   - Lệch → trả **câu sửa sẵn** (tiếng Anh, dán lại vào ChatGPT) cùng lúc báo giao hàng (G3). ĐẠT → ghi vào `HUONG-DAN-DANG.md`.
+   - Gợi ý tìm kiếm YouTube (`suggestqueries.google.com`): **proxy chặn (403, 11/10)** → bỏ; cụm tìm kiếm lấy từ video neo + hồ sơ cầu + quét 7 ngày.
+5. **Công cụ phụ, không phải đường chính:** `toolkit/package/text.py` (chữ do Claude viết) và `toolkit/package/thumbs.py` (khung → OpenAI `images/edits`) giữ trong repo; chỉ chạy khi chủ dự án yêu cầu. Không render đối chứng 2D.
 6. **Sau đăng:** `episode.md` §10 mục 4–5 (luật; chưa dựng công cụ).

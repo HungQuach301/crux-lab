@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Sinh out/package/PACKAGING-BRIEF.md điền sẵn cho một tập (Phiên Thị trường bước 7; chạy ở P3 trước G2, gửi kèm gói G2).
+"""Sinh out/package/PACKAGING-BRIEF.md điền sẵn cho một tập — ĐƯỜNG CHÍNH từ Tập 7 (câu trả lời tổng kết Tập 6 câu 3; `playbook/packaging.md` §7).
+Chạy ở P4 khi video hoàn tất, trước G3; chủ dự án dán vào ChatGPT, dán kết quả lại vào P4.
 
-  python3 toolkit/market/brief.py episodes/epNNN --topic <id hồ sơ cầu, vd q12-annuity-raise> [--answered 1,3,4] [--bg out/package/bg-1.png …]
+  python3 toolkit/market/brief.py episodes/epNNN --topic <id hồ sơ cầu, vd q12-annuity-raise> [--answered 1,3,4]
+      [--trend <anchors.py trend --save …json>] [--anchors <anchors.py anchors --save …json>] [--g1-title "…"]
+      [--frame out/package/frame-1.png …] (3–4 khung đẹp nhất, mục f; --bg là tên cũ)
       [--objects "crates, a paper check"] [--banned "baskets, groceries"]   (lessons T6-11: ChatGPT vẽ 'baskets' thay crates khi brief không ghi tên vật thể)
   --answered: số thứ tự câu hỏi khán giả mà kịch bản trả lời (bảng nhịp C2, ≥ 3/5); mặc định 1,2,3.
 
 Nguồn: out/claims.json (số được phép = `display`), out/timeline.json (chương = đầu hồi, bỏ ident), out/package/description.md của máy
 (đoạn tóm tắt + tên chương nếu có), market/topics/<id>.md (câu hỏi khán giả, từ khoá), market/REPORT.md (khuôn tiêu đề + kiểu thumbnail thắng).
-Ảnh nền: 2–3 khung thế giới 3D 1280×720 KHÔNG chữ (build_seg.py từ cảnh đã duyệt, như `playbook/episode.md` §5) — P3 render, brief chỉ liệt kê.
+Khung (f): 3–4 khung đẹp nhất của bản cuối 1280×720 KHÔNG chữ (trích từ master hoặc build_seg.py) — P4 trích, brief chỉ liệt kê.
 """
 import json, pathlib, re, sys
 
@@ -23,7 +26,8 @@ def section(md, head):
 def main(a):
     ep = pathlib.Path(a[0])
     topic = a[a.index('--topic') + 1] if '--topic' in a else None
-    bgs = [a[i + 1] for i, x in enumerate(a) if x == '--bg']
+    bgs = [a[i + 1] for i, x in enumerate(a) if x in ('--bg', '--frame')]
+    opt = lambda k: a[a.index(k) + 1] if k in a else None   # noqa: E731
     n = re.sub(r'\D', '', ep.name).lstrip('0') or '?'
     claims = json.loads((ep / 'out' / 'claims.json').read_text())
     cl = claims['claims'] if isinstance(claims, dict) else claims
@@ -66,20 +70,26 @@ def main(a):
             .replace('{0:00 … from out/timeline.json acts}', '\n'.join(chap))
             .replace('{winning style from market/REPORT.md §3}', thumb)
             .replace('{3–4}', '4').replace('{keywords}', kw).replace('{X, Y, Z}', qs))
-    pillar = next((t.get('pillar') for t in json.loads((ROOT / 'toolkit/market/topics.json').read_text())['topics'] if t['id'] == topic), None)
-    pillar_color = {'hưu trí': '#3FBF7F', 'vay nợ': '#F2B441', 'thuế': '#4C8DFF'}.get(pillar)
-    if not pillar_color:
-        print(f'cảnh báo: không thấy trụ của đề tài {topic!r} trong topics.json — màu trụ để trống, điền tay', file=sys.stderr); pillar_color = '{pillar color}'
     body = (body.replace('{objects}', a[a.index('--objects') + 1] if '--objects' in a else '{objects — tên vật thể trung tâm như trong kịch bản}')
-            .replace('{banned}', a[a.index('--banned') + 1] if '--banned' in a else '{vật thay thế bị cấm}').replace('{pillar_color}', pillar_color))
+            .replace('{banned}', a[a.index('--banned') + 1] if '--banned' in a else '{vật thay thế bị cấm}'))
+    trend = json.loads(pathlib.Path(opt('--trend')).read_text()) if opt('--trend') else {}
+    tr = ('- title patterns: ' + '; '.join(trend.get('title_patterns', [])) + '\n- thumbnail patterns: ' + '; '.join(trend.get('thumbnail_patterns', []))
+          + '\n- rising search phrases: ' + ', '.join(trend.get('keywords', []))) if trend else '{chưa quét: anchors.py trend --save}'
+    anc = json.loads(pathlib.Path(opt('--anchors')).read_text()) if opt('--anchors') else []
+    an = '\n'.join(f"- {x['link']} ({x['channel']}): key phrase \"{x.get('phrase')}\"; what we add: {x.get('gap')}" for x in anc) + \
+        ('\n- Our difference: we replay real US history instead of a fixed assumption.' if anc else '{chưa có neo}')
+    phrase = (anc[0].get('phrase') if anc else None) or (trend.get('keywords') or ['{phrase}'])[0]
+    body = (body.replace('{trend}', tr).replace('{anchors}', an).replace('{phrase}', phrase)
+            .replace('{g1 title}', opt('--g1-title') or title or '{tiêu đề G1}')
+            .replace('{frames}', ', '.join(pathlib.Path(b).name for b in bgs) or '{3–4 khung PNG}'))
     for i, f in enumerate(frames[:3], 1):
         body = body.replace(f'{{frame {i}}}', f)
     head = f'# Packaging brief — Episode {n}: {title or "{working title}"}\n'
-    head += f'<!-- Sinh bằng toolkit/market/brief.py. Ảnh nền đính kèm: {", ".join(bgs) or "out/package/bg-1.png, bg-2.png (P3 render)"}. Dán nguyên phần dưới vạch vào ChatGPT. -->\n---'
+    head += f'<!-- Sinh bằng toolkit/market/brief.py. Ảnh nền đính kèm: {", ".join(bgs) or "out/package/bg-1.png, bg-2.png (P3 render)"}. Dán nguyên phần dưới vạch vào ChatGPT, đính kèm các khung. -->\n---'
     out = ep / 'out' / 'package' / 'PACKAGING-BRIEF.md'
     out.write_text(head + body)
     words = len(re.findall(r'\S+', body))
-    print(out, f'{words} từ', '(≤ 1 trang ≈ 600 từ)' if words <= 600 else '— DÀI HƠN 1 TRANG, rút gọn số được phép')
+    print(out, f'{words} từ', '(≤ 900 từ)' if words <= 900 else '— DÀI, rút gọn số được phép hoặc tóm tắt')
 
 
 if __name__ == '__main__':

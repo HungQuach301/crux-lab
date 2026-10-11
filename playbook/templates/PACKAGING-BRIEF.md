@@ -1,30 +1,34 @@
 # Packaging brief — Episode {N}: {working title}
-<!-- Từ Tập 7 (D-012): ĐƯỜNG DỰ PHÒNG — đường chính là toolkit/package/text.py + thumbs.py (playbook/packaging.md §7). Mẫu (Phiên Thị trường bước 7). P3 sinh bản điền sẵn bằng `python3 toolkit/market/brief.py episodes/epNNN --topic <id hồ sơ cầu>`
-     → episodes/epNNN/out/package/PACKAGING-BRIEF.md, gửi kèm gói G2. Tiếng Anh, ≤ 1 trang, chủ dự án dán NGUYÊN khối dưới vạch vào ChatGPT,
-     đính kèm 2–3 ảnh nền bg-*.png. ChatGPT làm tiêu đề, mô tả, thumbnail; chủ dự án dán kết quả vào prompt P4 (cùng câu trả lời G2);
-     P4 kiểm bằng toolkit/market/package_check.py (S21, claim-risk, chương khớp timeline, chữ trên ảnh). -->
+<!-- ĐƯỜNG CHÍNH từ Tập 7 (câu trả lời tổng kết Tập 6 câu 3, 11/10; `playbook/packaging.md` §7). P4 (video hoàn tất, trước G3) sinh bản điền sẵn:
+     python3 toolkit/market/brief.py episodes/epNNN --topic <id> --trend <trend7.json> --anchors <neo.json> --objects "…" --banned "…" --frame <png> ×3–4
+     → episodes/epNNN/out/package/PACKAGING-BRIEF.md. Tiếng Anh; chủ dự án dán NGUYÊN khối dưới vạch vào ChatGPT, đính kèm 3–4 khung PNG (f).
+     ChatGPT làm tiêu đề, mô tả, thumbnail, tag; chủ dự án dán kết quả lại vào P4 → P4 kiểm (package_check.py + rescore.py + đọc) → câu sửa sẵn nếu lệch. -->
 ---
-You are packaging one YouTube video for **Crux**, a US personal-finance channel that replays real history with data. Make: 3 titles, 1 description, 1 thumbnail (1280×720) on one of the attached background frames.
+You are packaging one finished YouTube video for **Crux**, a US personal-finance channel that replays real history with data. Make: 3 titles (mark your pick), 1 description, ≤ 5 tags, 1 thumbnail (1280×720).
 
 **Episode.** {2–3 sentences: the viewer question, what was replayed (series, years), the answer in plain words, the guide character.}
 
-**Allowed numbers — use only these, exactly as written:** {display list from out/claims.json}. Any other number, dollar amount or year is forbidden.
-**Rules (hard):** say "history, not a forecast" and "US only" in the description · characters are ILLUSTRATIVE (write the word next to any character figure) · no advice (no "you should", "best", "do this"), no prediction ("will", "next year") · no dollar amount without a source above · no "your loan/your money will…" (use "a buyer who…").
+**(a) What is rising this week on this topic** (last 7 days, fastest views/day; patterns, not titles to copy):
+{trend}
 
-**Chapters (paste exactly):**
-{0:00 … from out/timeline.json acts}
+**(b) Anchor videos — make ours the natural next video after these** (same viewer question, 30–90 days old, fastest in the topic):
+{anchors}
 
-**Title frames that win in this niche** (pick 3, fill with the allowed numbers; ≤ 60 characters):
+**(c) Title.** Put the search phrase FIRST in the title and in the first 2 lines of the description (~150 characters). Search phrase: **{phrase}**. Title frames that win in this niche (≤ 60 characters, fill only with allowed numbers):
 1. {frame 1}
 2. {frame 2}
 3. {frame 3}
+Title approved at G1 (keep its idea): {g1 title}
 
-**Objects (exact words, never substitute):** {objects}. **Never:** {banned}.
+**(d) Thumbnail.** Winning style (90 days): {winning style from market/REPORT.md §3}. Center it on **this video's own object, named exactly as the narration says: {objects}**. Never: {banned}. Base it on one attached frame (3D low-poly world, faceless figures, no photos, no faces, no logos, no prediction arrows). Max **{3–4} large words**; one idea; readable at phone size (168×94). Characters are ILLUSTRATIVE (write the word next to any figure).
 
-**Thumbnail:** keep the attached 3D frame's objects, figures, colors and low-poly style (no photos). {winning style from market/REPORT.md §3}. Max **{3–4} large words**; one idea; readable at phone size (168×94). Use an attached frame as the background (3D world, faceless figures, the episode's own objects). Colors: background #0E1116, text #F2F4F7, accent #4C8DFF, warn #F2B441, positive #3FBF7F, negative #E5484D. Font: Inter Bold. Kit (proposed, pending owner approval): "M." logo top-left and last headline line in {pillar_color}; headline bottom-left; ILLUSTRATIVE badge top-right if a figure shows; footer "US only · history, not a forecast". No faces, no other logos, no prediction arrows.
+**(e) Facts you may use.** Allowed numbers — only these, exactly as written: {display list from out/claims.json}. Any other number, dollar amount or year is forbidden.
+Forbidden: advice ("you should", "best", "do this"), prediction ("will", "next year"), "your loan/your money will…" (use "a buyer who…"), dollar amounts not listed above. The description must say "history, not a forecast" and "US only".
+Chapters (paste exactly):
+{0:00 … from out/timeline.json acts}
+Audience questions this video answers (use their words): {X, Y, Z}
+Description keywords: {keywords}
 
-**Description keywords** (first 2 lines, ~150 characters, must contain the first keyword): {keywords}
+**(f) Attached frames:** {frames} — the best frames of the finished video; use them as the visual reference and background.
 
-**Audience questions this video answers** (use their words in the title/description): {X, Y, Z}
-
-Return: three titles (mark your pick), the full description (summary paragraph → chapters → a line that is exactly `[METHOD AND SOURCES]` — Crux pastes its sourced method block there → disclaimers), and the thumbnail image.
+Return: three titles (mark your pick), the full description (2 search lines → summary → chapters → a line that is exactly `[METHOD AND SOURCES]` — Crux pastes its sourced method block there → disclaimers), ≤ 5 tags, and the thumbnail image.
