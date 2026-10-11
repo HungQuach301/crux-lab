@@ -1,5 +1,5 @@
 {
- "segment": "ep007 C4 · E = S21–S24 · KHUNG (lượt 2)",
+ "segment": "ep007 C4 · E = S21–S24 (Tessa tự thử: trả bằng khoản 15 năm, trả thêm, khoản bắt buộc đứng yên, trả năm) + MR2",
  "version": 7,
  "total": 84.0999,
  "fps": 30,
@@ -1584,188 +1584,900 @@
  ],
  "beats": [
   {
-   "id": "s0",
+   "id": "a0",
    "sid": "S21.1",
    "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "idea": "Lối tắt: trả khoản 30 năm đúng bằng khoản 15 năm và tưởng xong cùng ngày.",
+   "visual": "vách 15 năm làm đích; 180 ô đặt dần tới vách; vách loé ở \"same\".",
    "line": "Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day.",
-   "sound": [],
+   "sound": [
+    "nốt dữ liệu mỗi cột-năm",
+    "tick"
+   ],
    "music": 0.3,
-   "emotion": "—",
-   "next": "—",
+   "emotion": "tò mò",
+   "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
    "t0": 0.09,
    "t1": 11.04,
-   "cues": {}
+   "cues": {
+    "pay": 4.5,
+    "assume": 8.937,
+    "same": 10.144
+   }
   },
   {
-   "id": "s1",
+   "id": "a1",
    "sid": "S21.2",
-   "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "mode": "chart",
+   "idea": "Không: xong muộn khoảng 15 tháng.",
+   "visual": "14,6 ô warn quá vạch; hai nhãn.",
    "line": "At the October eighth rates, it doesn't: it ends about 15 months late.",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
-   "next": "—",
+   "sound": [
+    "nốt dữ liệu sáng mỗi ô trễ",
+    "tick",
+    "tick"
+   ],
+   "music": 0.5,
+   "emotion": "nghiêm",
+   "next": "(liền)",
    "t0": 11.873,
    "t1": 16.48,
-   "cues": {}
+   "cues": {
+    "doesnt": 13.493,
+    "ends": 14.48,
+    "late": 16.0
+   }
   },
   {
-   "id": "s2",
+   "id": "a2",
    "sid": "S21.3",
-   "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "mode": "chart",
+   "idea": "Muốn xong trong 15 năm: thêm $733 mỗi tháng trên khoản bắt buộc.",
+   "visual": "tấm trả thêm rơi vào từng cột, ô bắt buộc tối xuống, ô trễ rút hết; nhãn.",
    "line": "To finish in 15 years, she'd add $733 a month on top of the required payment.",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
-   "next": "—",
+   "sound": [
+    "nốt dữ liệu mỗi tấm",
+    "tick"
+   ],
+   "music": 0.44,
+   "emotion": "hiểu",
+   "next": "(liền)",
    "t0": 17.18,
    "t1": 24.24,
-   "cues": {}
+   "cues": {
+    "finish": 17.246,
+    "add": 19.28,
+    "seven": 19.587,
+    "required": 23.102
+   }
   },
   {
-   "id": "s3",
+   "id": "b0",
    "sid": "S22.1",
-   "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "mode": "chart",
+   "idea": "Trả thêm không làm giảm khoản bắt buộc; khoản vay chỉ xong sớm hơn.",
+   "visual": "bóng lịch 30 năm; thanh mức bắt buộc; bóng rút về vách.",
    "line": "That extra never lowers what the loan requires: the required payment stays where it was, and the loan simply ends sooner.",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
+   "sound": [
+    "rise",
+    "tick",
+    "nốt dữ liệu"
+   ],
+   "music": 0.4,
+   "emotion": "hiểu",
    "next": "—",
    "t0": 25.323,
    "t1": 32.673,
-   "cues": {}
+   "cues": {
+    "requires": 27.224,
+    "stays": 29.286,
+    "sooner": 32.09
+   }
   },
   {
-   "id": "s4",
+   "id": "b1",
    "sid": "S22.2",
-   "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "mode": "chart",
+   "idea": "Mỗi đô la thêm cắt lãi tháng sau; khoản trả giữ nguyên nên nhiều hơn vào gốc.",
+   "visual": "khoản bắt buộc tách lãi/gốc; con trỏ qua các tháng, lãi co lại.",
    "line": "Each extra dollar does cut the next month's interest; the payment just stays fixed, so more of it goes to principal.",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
-   "next": "—",
+   "sound": [
+    "nốt dữ liệu mỗi năm (giảm dần)",
+    "tick"
+   ],
+   "music": 0.42,
+   "emotion": "hiểu",
+   "next": "CHUYỂN CHẾ ĐỘ → thế giới",
    "t0": 33.455,
    "t1": 40.193,
-   "cues": {}
+   "cues": {
+    "cut": 34.673,
+    "interest": 35.517,
+    "fixed": 37.46,
+    "principal": 39.521
+   }
   },
   {
-   "id": "s5",
+   "id": "b2",
    "sid": "S22.3",
    "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "idea": "Vì thế đường lui còn đó nhiều năm sau, nếu một tháng trục trặc.",
+   "visual": "cột năm 10 loé; một tấm nhấc lên, ô bắt buộc vẫn đó.",
    "line": "That's why the fallback is still there years later, if a month goes wrong.",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
+   "sound": [
+    "tick",
+    "nốt dữ liệu"
+   ],
+   "music": 0.4,
+   "emotion": "yên",
    "next": "—",
    "t0": 40.665,
    "t1": 44.273,
-   "cues": {}
+   "cues": {
+    "later": 42.406,
+    "wrong": 43.846
+   }
   },
   {
-   "id": "s6",
+   "id": "b3",
    "sid": "S23.1",
    "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "idea": "Gửi phần thêm mỗi năm một lần thay vì mỗi tháng?",
+   "visual": "sóng mỗi tháng một lớp; cột đầu gom 12 tấm thành khối 12 lớp.",
    "line": "Tessa has another practical question: could she send the extra once a year instead of every month?",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
-   "next": "—",
+   "sound": [
+    "rise",
+    "nốt dữ liệu khi cột gom"
+   ],
+   "music": 0.34,
+   "emotion": "tò mò",
+   "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
    "t0": 45.367,
    "t1": 50.707,
-   "cues": {}
+   "cues": {
+    "send": 48.275,
+    "once": 48.995
+   }
   },
   {
-   "id": "s7",
+   "id": "b4",
    "sid": "S23.2",
-   "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "mode": "chart",
+   "idea": "Một khoản mỗi năm, cùng tổng.",
+   "visual": "14 cột còn lại gom; nhãn.",
    "line": "That's one payment a year, the same total as the monthly extra.",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
-   "next": "—",
+   "sound": [
+    "nốt dữ liệu mỗi cột",
+    "tick"
+   ],
+   "music": 0.4,
+   "emotion": "hiểu",
+   "next": "(liền)",
    "t0": 51.305,
    "t1": 54.227,
-   "cues": {}
+   "cues": {
+    "one": 51.467,
+    "extra": 53.574
+   }
   },
   {
-   "id": "s8",
+   "id": "b5",
    "sid": "S23.3",
-   "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "mode": "chart",
+   "idea": "Trả kiểu đó, khoản vay xong muộn 4 tháng.",
+   "visual": "4 ô warn quá vách; nhãn.",
    "line": "Paid that way, the loan ends four months later.",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
-   "next": "—",
+   "sound": [
+    "nốt dữ liệu sáng mỗi ô trễ",
+    "tick"
+   ],
+   "music": 0.46,
+   "emotion": "bình thản",
+   "next": "(liền)",
    "t0": 54.821,
    "t1": 57.267,
-   "cues": {}
+   "cues": {
+    "ends": 55.811,
+    "four": 56.131
+   }
   },
   {
-   "id": "s9",
+   "id": "b6",
    "sid": "S24.1",
-   "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "mode": "chart",
+   "idea": "Và tốn thêm khoảng $8,200 tiền lãi vì mỗi đô la nằm trên dư nợ lâu hơn.",
+   "visual": "chồng lãi nhỏ dâng; nhãn; khối năm loé.",
    "line": "And it charges about $8,200 more in interest, because each dollar sits on the balance longer before it arrives.",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
+   "sound": [
+    "rise",
+    "tick",
+    "tick"
+   ],
+   "music": 0.44,
+   "emotion": "hiểu",
    "next": "—",
    "t0": 58.367,
    "t1": 66.587,
-   "cues": {}
+   "cues": {
+    "charges": 58.797,
+    "about": 59.2,
+    "sits": 63.707
+   }
   },
   {
-   "id": "s10",
+   "id": "b7",
    "sid": "S24.2",
-   "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "mode": "chart",
+   "idea": "Không phải phán xét trả năm: tiền nằm trong tài khoản lâu hơn, lãi ở đó không tính.",
+   "visual": "khay tài khoản cạnh Tessa; hai nhãn đối trọng.",
    "line": "That isn't a verdict on paying yearly: the money stays in her account longer, and what it earns there isn't counted.",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
-   "next": "—",
+   "sound": [
+    "tick",
+    "nốt dữ liệu",
+    "tick"
+   ],
+   "music": 0.4,
+   "emotion": "cân bằng",
+   "next": "CHUYỂN CHẾ ĐỘ → thế giới",
    "t0": 67.499,
    "t1": 74.387,
-   "cues": {}
+   "cues": {
+    "verdict": 67.907,
+    "account": 70.557,
+    "counted": 73.367
+   }
   },
   {
-   "id": "s11",
+   "id": "b8",
    "sid": "S24.3",
    "mode": "world",
-   "idea": "(lượt 2)",
-   "visual": "(lượt 2: chưa dựng)",
+   "idea": "Câu hỏi bên dưới: đô la thêm vào khoản vay thực sự được gì?",
+   "visual": "tờ đô la từ tay Tessa bay lên về phía nhà; giữ.",
    "line": "Which leaves the question underneath all of this: when Tessa puts an extra dollar into the mortgage, what does it actually earn?",
-   "sound": [],
-   "music": 0.3,
-   "emotion": "—",
-   "next": "—",
+   "sound": [
+    "nốt dữ liệu"
+   ],
+   "music": 0.5,
+   "emotion": "tò mò",
+   "next": "MR2",
    "t0": 74.897,
    "t1": 82.587,
-   "cues": {}
+   "cues": {
+    "tessa": 78.107,
+    "dollar": 79.113,
+    "earn": 82.043
+   }
   }
  ],
- "moves": [],
- "events": [],
+ "moves": [
+  {
+   "id": "m_push0",
+   "verb": "push",
+   "from": "wT0",
+   "to": "wT",
+   "t0": 1.045,
+   "t1": 3.445,
+   "reason": "mở đoạn: máy lại gần nhà Tessa và khoảng sàn nơi đường tháng sẽ chạy, trước ô đầu (\"pay\")",
+   "sound": "whoosh_air"
+  },
+  {
+   "id": "m_c21",
+   "verb": "mode",
+   "from": "wT",
+   "to": "cQ",
+   "t0": 11.164,
+   "t1": 12.464,
+   "reason": "lời S21.2–S21.3 đặt số tháng và số tiền (số chỉ ở đồ thị, quy tắc 1) → góc 3/4 (không nhìn thẳng xuống): đếm ô trễ, thấy CẠNH tấm trả thêm",
+   "sound": "whoosh_mode"
+  },
+  {
+   "id": "m_w22",
+   "verb": "mode",
+   "from": "cQ",
+   "to": "wT",
+   "t0": 40.258,
+   "t1": 41.658,
+   "reason": "lời S22.3 \"if a month goes wrong\" (đời Tessa, không số): về thế giới, gần đường tháng và nhà",
+   "sound": "whoosh_mode"
+  },
+  {
+   "id": "m_c23",
+   "verb": "mode",
+   "from": "wT",
+   "to": "cQ",
+   "t0": 49.626,
+   "t1": 50.826,
+   "reason": "lời S23.2–S24.2 đặt số tiền, số tháng, tiền lãi (số) → góc 3/4: thấy độ cao khối năm 12 lớp và đếm ô trễ",
+   "sound": "whoosh_mode"
+  },
+  {
+   "id": "m_w24",
+   "verb": "mode",
+   "from": "cQ",
+   "to": "wT",
+   "t0": 76.287,
+   "t1": 77.787,
+   "reason": "lời S24.3 câu hỏi của hồi 3 về đô la của Tessa (không số): về thế giới, Tessa và nhà",
+   "sound": "whoosh_mode"
+  }
+ ],
+ "events": [
+  {
+   "t": 1.045,
+   "kind": "whoosh_air",
+   "dur": 2.4,
+   "gain": 0.7
+  },
+  {
+   "t": 4.5,
+   "kind": "data",
+   "v": 0.227
+  },
+  {
+   "t": 4.795,
+   "kind": "data",
+   "v": 0.253
+  },
+  {
+   "t": 5.091,
+   "kind": "data",
+   "v": 0.28
+  },
+  {
+   "t": 5.386,
+   "kind": "data",
+   "v": 0.307
+  },
+  {
+   "t": 5.682,
+   "kind": "data",
+   "v": 0.333
+  },
+  {
+   "t": 5.977,
+   "kind": "data",
+   "v": 0.36
+  },
+  {
+   "t": 6.273,
+   "kind": "data",
+   "v": 0.387
+  },
+  {
+   "t": 6.568,
+   "kind": "data",
+   "v": 0.413
+  },
+  {
+   "t": 6.864,
+   "kind": "data",
+   "v": 0.44
+  },
+  {
+   "t": 7.159,
+   "kind": "data",
+   "v": 0.467
+  },
+  {
+   "t": 7.455,
+   "kind": "data",
+   "v": 0.493
+  },
+  {
+   "t": 7.75,
+   "kind": "data",
+   "v": 0.52
+  },
+  {
+   "t": 8.046,
+   "kind": "data",
+   "v": 0.547
+  },
+  {
+   "t": 8.341,
+   "kind": "data",
+   "v": 0.573
+  },
+  {
+   "t": 8.637,
+   "kind": "data",
+   "v": 0.6
+  },
+  {
+   "t": 10.144,
+   "kind": "tick",
+   "v": 0.4
+  },
+  {
+   "t": 11.164,
+   "kind": "whoosh_mode",
+   "dur": 1.3,
+   "gain": 0.6
+  },
+  {
+   "t": 12.464,
+   "kind": "land",
+   "mode": true
+  },
+  {
+   "t": 13.593,
+   "kind": "data",
+   "v": 0.641,
+   "over": true
+  },
+  {
+   "t": 13.648,
+   "kind": "data",
+   "v": 0.661,
+   "over": true
+  },
+  {
+   "t": 13.703,
+   "kind": "data",
+   "v": 0.682,
+   "over": true
+  },
+  {
+   "t": 13.757,
+   "kind": "data",
+   "v": 0.702,
+   "over": true
+  },
+  {
+   "t": 13.812,
+   "kind": "data",
+   "v": 0.723,
+   "over": true
+  },
+  {
+   "t": 13.867,
+   "kind": "data",
+   "v": 0.743,
+   "over": true
+  },
+  {
+   "t": 13.922,
+   "kind": "data",
+   "v": 0.764,
+   "over": true
+  },
+  {
+   "t": 13.977,
+   "kind": "data",
+   "v": 0.784,
+   "over": true
+  },
+  {
+   "t": 14.031,
+   "kind": "data",
+   "v": 0.805,
+   "over": true
+  },
+  {
+   "t": 14.086,
+   "kind": "data",
+   "v": 0.825,
+   "over": true
+  },
+  {
+   "t": 14.141,
+   "kind": "data",
+   "v": 0.846,
+   "over": true
+  },
+  {
+   "t": 14.196,
+   "kind": "data",
+   "v": 0.867,
+   "over": true
+  },
+  {
+   "t": 14.25,
+   "kind": "data",
+   "v": 0.887,
+   "over": true
+  },
+  {
+   "t": 14.305,
+   "kind": "data",
+   "v": 0.908,
+   "over": true
+  },
+  {
+   "t": 14.36,
+   "kind": "data",
+   "v": 0.92,
+   "over": true
+  },
+  {
+   "t": 14.48,
+   "kind": "tick",
+   "v": 0.45
+  },
+  {
+   "t": 16.0,
+   "kind": "tick",
+   "v": 0.6
+  },
+  {
+   "t": 17.626,
+   "kind": "data",
+   "v": 0.32
+  },
+  {
+   "t": 17.734,
+   "kind": "data",
+   "v": 0.34
+  },
+  {
+   "t": 17.842,
+   "kind": "data",
+   "v": 0.36
+  },
+  {
+   "t": 17.95,
+   "kind": "data",
+   "v": 0.38
+  },
+  {
+   "t": 18.058,
+   "kind": "data",
+   "v": 0.4
+  },
+  {
+   "t": 18.166,
+   "kind": "data",
+   "v": 0.42
+  },
+  {
+   "t": 18.274,
+   "kind": "data",
+   "v": 0.44
+  },
+  {
+   "t": 18.381,
+   "kind": "data",
+   "v": 0.46
+  },
+  {
+   "t": 18.489,
+   "kind": "data",
+   "v": 0.48
+  },
+  {
+   "t": 18.597,
+   "kind": "data",
+   "v": 0.5
+  },
+  {
+   "t": 18.705,
+   "kind": "data",
+   "v": 0.52
+  },
+  {
+   "t": 18.813,
+   "kind": "data",
+   "v": 0.54
+  },
+  {
+   "t": 18.921,
+   "kind": "data",
+   "v": 0.56
+  },
+  {
+   "t": 19.029,
+   "kind": "data",
+   "v": 0.58
+  },
+  {
+   "t": 19.137,
+   "kind": "data",
+   "v": 0.6
+  },
+  {
+   "t": 19.587,
+   "kind": "tick",
+   "v": 0.55
+  },
+  {
+   "t": 23.102,
+   "kind": "tick",
+   "v": 0.35
+  },
+  {
+   "t": 27.224,
+   "kind": "rise",
+   "dur": 1.2
+  },
+  {
+   "t": 29.286,
+   "kind": "tick",
+   "v": 0.45
+  },
+  {
+   "t": 32.09,
+   "kind": "data",
+   "v": 0.3
+  },
+  {
+   "t": 34.823,
+   "kind": "data",
+   "v": 0.684
+  },
+  {
+   "t": 35.151,
+   "kind": "data",
+   "v": 0.664
+  },
+  {
+   "t": 35.48,
+   "kind": "data",
+   "v": 0.642
+  },
+  {
+   "t": 35.517,
+   "kind": "tick",
+   "v": 0.45
+  },
+  {
+   "t": 35.808,
+   "kind": "data",
+   "v": 0.619
+  },
+  {
+   "t": 36.137,
+   "kind": "data",
+   "v": 0.594
+  },
+  {
+   "t": 36.465,
+   "kind": "data",
+   "v": 0.567
+  },
+  {
+   "t": 36.794,
+   "kind": "data",
+   "v": 0.537
+  },
+  {
+   "t": 37.122,
+   "kind": "data",
+   "v": 0.506
+  },
+  {
+   "t": 37.45,
+   "kind": "data",
+   "v": 0.472
+  },
+  {
+   "t": 37.46,
+   "kind": "tick",
+   "v": 0.35
+  },
+  {
+   "t": 37.779,
+   "kind": "data",
+   "v": 0.436
+  },
+  {
+   "t": 38.107,
+   "kind": "data",
+   "v": 0.396
+  },
+  {
+   "t": 38.436,
+   "kind": "data",
+   "v": 0.354
+  },
+  {
+   "t": 38.764,
+   "kind": "data",
+   "v": 0.309
+  },
+  {
+   "t": 39.093,
+   "kind": "data",
+   "v": 0.26
+  },
+  {
+   "t": 39.421,
+   "kind": "data",
+   "v": 0.207
+  },
+  {
+   "t": 40.258,
+   "kind": "whoosh_mode",
+   "dur": 1.4,
+   "gain": 0.6
+  },
+  {
+   "t": 41.658,
+   "kind": "land",
+   "mode": true
+  },
+  {
+   "t": 42.406,
+   "kind": "tick",
+   "v": 0.35
+  },
+  {
+   "t": 43.846,
+   "kind": "data",
+   "v": 0.5,
+   "over": true
+  },
+  {
+   "t": 45.417,
+   "kind": "rise",
+   "dur": 2.808
+  },
+  {
+   "t": 49.626,
+   "kind": "whoosh_mode",
+   "dur": 1.2,
+   "gain": 0.6
+  },
+  {
+   "t": 49.895,
+   "kind": "data",
+   "v": 0.323
+  },
+  {
+   "t": 50.826,
+   "kind": "land",
+   "mode": true
+  },
+  {
+   "t": 51.467,
+   "kind": "tick",
+   "v": 0.5
+  },
+  {
+   "t": 52.217,
+   "kind": "data",
+   "v": 0.347
+  },
+  {
+   "t": 52.321,
+   "kind": "data",
+   "v": 0.37
+  },
+  {
+   "t": 52.426,
+   "kind": "data",
+   "v": 0.393
+  },
+  {
+   "t": 52.53,
+   "kind": "data",
+   "v": 0.417
+  },
+  {
+   "t": 52.635,
+   "kind": "data",
+   "v": 0.44
+  },
+  {
+   "t": 52.739,
+   "kind": "data",
+   "v": 0.463
+  },
+  {
+   "t": 52.843,
+   "kind": "data",
+   "v": 0.487
+  },
+  {
+   "t": 52.948,
+   "kind": "data",
+   "v": 0.51
+  },
+  {
+   "t": 53.052,
+   "kind": "data",
+   "v": 0.533
+  },
+  {
+   "t": 53.156,
+   "kind": "data",
+   "v": 0.557
+  },
+  {
+   "t": 53.261,
+   "kind": "data",
+   "v": 0.58
+  },
+  {
+   "t": 53.365,
+   "kind": "data",
+   "v": 0.603
+  },
+  {
+   "t": 53.47,
+   "kind": "data",
+   "v": 0.627
+  },
+  {
+   "t": 53.574,
+   "kind": "data",
+   "v": 0.65
+  },
+  {
+   "t": 55.831,
+   "kind": "data",
+   "v": 0.75,
+   "over": true
+  },
+  {
+   "t": 55.898,
+   "kind": "data",
+   "v": 0.85,
+   "over": true
+  },
+  {
+   "t": 55.964,
+   "kind": "data",
+   "v": 0.95,
+   "over": true
+  },
+  {
+   "t": 56.031,
+   "kind": "data",
+   "v": 1.0,
+   "over": true
+  },
+  {
+   "t": 56.131,
+   "kind": "tick",
+   "v": 0.35
+  },
+  {
+   "t": 58.797,
+   "kind": "rise",
+   "dur": 0.7
+  },
+  {
+   "t": 59.2,
+   "kind": "tick",
+   "v": 0.45
+  },
+  {
+   "t": 63.707,
+   "kind": "tick",
+   "v": 0.3
+  },
+  {
+   "t": 67.907,
+   "kind": "tick",
+   "v": 0.4
+  },
+  {
+   "t": 70.557,
+   "kind": "data",
+   "v": 0.45
+  },
+  {
+   "t": 73.367,
+   "kind": "tick",
+   "v": 0.35
+  },
+  {
+   "t": 76.287,
+   "kind": "whoosh_mode",
+   "dur": 1.5,
+   "gain": 0.6
+  },
+  {
+   "t": 77.787,
+   "kind": "land",
+   "mode": true
+  },
+  {
+   "t": 79.113,
+   "kind": "data",
+   "v": 0.7
+  }
+ ],
  "tension": [
   [
    0,
@@ -1777,47 +2489,47 @@
   ],
   [
    11.873,
-   0.38
+   0.5
   ],
   [
    17.18,
-   0.38
+   0.464
   ],
   [
    25.323,
-   0.38
+   0.44
   ],
   [
    33.455,
-   0.38
+   0.452
   ],
   [
    40.665,
-   0.38
+   0.44
   ],
   [
    45.367,
-   0.38
+   0.404
   ],
   [
    51.305,
-   0.38
+   0.44
   ],
   [
    54.821,
-   0.38
+   0.47600000000000003
   ],
   [
    58.367,
-   0.38
+   0.464
   ],
   [
    67.499,
-   0.38
+   0.44
   ],
   [
    74.897,
-   0.38
+   0.5
   ],
   [
    84.0999,
@@ -1828,6 +2540,31 @@
   {
    "id": "s0",
    "t0": 0,
+   "t1": 1.045
+  },
+  {
+   "id": "s1",
+   "t0": 1.045,
+   "t1": 11.164
+  },
+  {
+   "id": "s2",
+   "t0": 11.164,
+   "t1": 40.258
+  },
+  {
+   "id": "s3",
+   "t0": 40.258,
+   "t1": 49.626
+  },
+  {
+   "id": "s4",
+   "t0": 49.626,
+   "t1": 76.287
+  },
+  {
+   "id": "s5",
+   "t0": 76.287,
    "t1": 84.1
   }
  ],
@@ -1839,12 +2576,20 @@
   },
   "stop": 84.0999,
   "release": 84.0999,
-  "accents": []
+  "accents": [
+   16.0,
+   19.587
+  ]
  },
  "mix": {
   "music_db": 16.21,
   "data_db": 25.0,
-  "silences": []
+  "silences": [
+   [
+    82.69,
+    84.0999
+   ]
+  ]
  },
  "anchor_silences": [],
  "start": {
@@ -1865,9 +2610,840 @@
   "S23": 57.267,
   "S24": 82.587
  },
- "stub": true,
- "label_cues": {},
- "visual_cues": [],
+ "lit": [
+  [
+   0.0,
+   0
+  ],
+  [
+   4.5,
+   0
+  ],
+  [
+   4.72,
+   12
+  ],
+  [
+   4.795,
+   12
+  ],
+  [
+   5.015,
+   24
+  ],
+  [
+   5.091,
+   24
+  ],
+  [
+   5.311,
+   36
+  ],
+  [
+   5.386,
+   36
+  ],
+  [
+   5.606,
+   48
+  ],
+  [
+   5.682,
+   48
+  ],
+  [
+   5.902,
+   60
+  ],
+  [
+   5.977,
+   60
+  ],
+  [
+   6.197,
+   72
+  ],
+  [
+   6.273,
+   72
+  ],
+  [
+   6.493,
+   84
+  ],
+  [
+   6.568,
+   84
+  ],
+  [
+   6.788,
+   96
+  ],
+  [
+   6.864,
+   96
+  ],
+  [
+   7.084,
+   108
+  ],
+  [
+   7.159,
+   108
+  ],
+  [
+   7.379,
+   120
+  ],
+  [
+   7.455,
+   120
+  ],
+  [
+   7.675,
+   132
+  ],
+  [
+   7.75,
+   132
+  ],
+  [
+   7.97,
+   144
+  ],
+  [
+   8.046,
+   144
+  ],
+  [
+   8.266,
+   156
+  ],
+  [
+   8.341,
+   156
+  ],
+  [
+   8.562,
+   168
+  ],
+  [
+   8.637,
+   168
+  ],
+  [
+   8.857,
+   180
+  ]
+ ],
+ "lay": [
+  4.5,
+  4.795,
+  5.091,
+  5.386,
+  5.682,
+  5.977,
+  6.273,
+  6.568,
+  6.864,
+  7.159,
+  7.455,
+  7.75,
+  8.046,
+  8.341,
+  8.637
+ ],
+ "late21": [
+  [
+   0.0,
+   0
+  ],
+  [
+   13.593,
+   0
+  ],
+  [
+   13.663,
+   1
+  ],
+  [
+   13.648,
+   1
+  ],
+  [
+   13.718,
+   2
+  ],
+  [
+   13.703,
+   2
+  ],
+  [
+   13.773,
+   3
+  ],
+  [
+   13.757,
+   3
+  ],
+  [
+   13.827,
+   4
+  ],
+  [
+   13.812,
+   4
+  ],
+  [
+   13.882,
+   5
+  ],
+  [
+   13.867,
+   5
+  ],
+  [
+   13.937,
+   6
+  ],
+  [
+   13.922,
+   6
+  ],
+  [
+   13.992,
+   7
+  ],
+  [
+   13.977,
+   7
+  ],
+  [
+   14.047,
+   8
+  ],
+  [
+   14.031,
+   8
+  ],
+  [
+   14.101,
+   9
+  ],
+  [
+   14.086,
+   9
+  ],
+  [
+   14.156,
+   10
+  ],
+  [
+   14.141,
+   10
+  ],
+  [
+   14.211,
+   11
+  ],
+  [
+   14.196,
+   11
+  ],
+  [
+   14.266,
+   12
+  ],
+  [
+   14.25,
+   12
+  ],
+  [
+   14.32,
+   13
+  ],
+  [
+   14.305,
+   13
+  ],
+  [
+   14.375,
+   14
+  ],
+  [
+   14.36,
+   14
+  ],
+  [
+   14.43,
+   14.6
+  ],
+  [
+   17.626,
+   14.6
+  ],
+  [
+   17.726,
+   13.557
+  ],
+  [
+   17.734,
+   13.557
+  ],
+  [
+   17.834,
+   12.514
+  ],
+  [
+   17.842,
+   12.514
+  ],
+  [
+   17.942,
+   11.471
+  ],
+  [
+   17.95,
+   11.471
+  ],
+  [
+   18.05,
+   10.429
+  ],
+  [
+   18.058,
+   10.429
+  ],
+  [
+   18.158,
+   9.386
+  ],
+  [
+   18.166,
+   9.386
+  ],
+  [
+   18.266,
+   8.343
+  ],
+  [
+   18.274,
+   8.343
+  ],
+  [
+   18.374,
+   7.3
+  ],
+  [
+   18.381,
+   7.3
+  ],
+  [
+   18.482,
+   6.257
+  ],
+  [
+   18.489,
+   6.257
+  ],
+  [
+   18.589,
+   5.214
+  ],
+  [
+   18.597,
+   5.214
+  ],
+  [
+   18.697,
+   4.171
+  ],
+  [
+   18.705,
+   4.171
+  ],
+  [
+   18.805,
+   3.129
+  ],
+  [
+   18.813,
+   3.129
+  ],
+  [
+   18.913,
+   2.086
+  ],
+  [
+   18.921,
+   2.086
+  ],
+  [
+   19.021,
+   1.043
+  ],
+  [
+   19.029,
+   1.043
+  ],
+  [
+   19.129,
+   0.0
+  ]
+ ],
+ "clear_t": 19.129,
+ "land": [
+  17.626,
+  17.734,
+  17.842,
+  17.95,
+  18.058,
+  18.166,
+  18.274,
+  18.381,
+  18.489,
+  18.597,
+  18.705,
+  18.813,
+  18.921,
+  19.029,
+  19.137
+ ],
+ "drop": 0.38,
+ "mark_t": 4.5,
+ "share": [
+  0.8906,
+  0.8879,
+  0.8852,
+  0.8825,
+  0.8797,
+  0.8769,
+  0.8741,
+  0.8713,
+  0.8685,
+  0.8656,
+  0.8627,
+  0.8599,
+  0.857,
+  0.854,
+  0.8511,
+  0.8481,
+  0.8452,
+  0.8422,
+  0.8392,
+  0.8361,
+  0.8331,
+  0.83,
+  0.8269,
+  0.8238,
+  0.8207,
+  0.8175,
+  0.8144,
+  0.8112,
+  0.808,
+  0.8048,
+  0.8015,
+  0.7983,
+  0.795,
+  0.7917,
+  0.7884,
+  0.785,
+  0.7816,
+  0.7783,
+  0.7748,
+  0.7714,
+  0.768,
+  0.7645,
+  0.761,
+  0.7575,
+  0.754,
+  0.7504,
+  0.7468,
+  0.7432,
+  0.7396,
+  0.736,
+  0.7323,
+  0.7286,
+  0.7249,
+  0.7212,
+  0.7174,
+  0.7136,
+  0.7098,
+  0.706,
+  0.7021,
+  0.6983,
+  0.6944,
+  0.6904,
+  0.6865,
+  0.6825,
+  0.6785,
+  0.6745,
+  0.6704,
+  0.6664,
+  0.6623,
+  0.6582,
+  0.654,
+  0.6498,
+  0.6456,
+  0.6414,
+  0.6372,
+  0.6329,
+  0.6286,
+  0.6242,
+  0.6199,
+  0.6155,
+  0.6111,
+  0.6067,
+  0.6022,
+  0.5977,
+  0.5932,
+  0.5886,
+  0.5841,
+  0.5795,
+  0.5748,
+  0.5702,
+  0.5655,
+  0.5608,
+  0.556,
+  0.5512,
+  0.5464,
+  0.5416,
+  0.5367,
+  0.5318,
+  0.5269,
+  0.5219,
+  0.517,
+  0.5119,
+  0.5069,
+  0.5018,
+  0.4967,
+  0.4916,
+  0.4864,
+  0.4812,
+  0.4759,
+  0.4707,
+  0.4654,
+  0.46,
+  0.4547,
+  0.4493,
+  0.4438,
+  0.4383,
+  0.4328,
+  0.4273,
+  0.4217,
+  0.4161,
+  0.4105,
+  0.4048,
+  0.3991,
+  0.3934,
+  0.3876,
+  0.3818,
+  0.3759,
+  0.37,
+  0.3641,
+  0.3581,
+  0.3521,
+  0.3461,
+  0.34,
+  0.3339,
+  0.3278,
+  0.3216,
+  0.3154,
+  0.3091,
+  0.3028,
+  0.2965,
+  0.2901,
+  0.2837,
+  0.2772,
+  0.2707,
+  0.2642,
+  0.2576,
+  0.251,
+  0.2443,
+  0.2376,
+  0.2309,
+  0.2241,
+  0.2173,
+  0.2104,
+  0.2035,
+  0.1966,
+  0.1896,
+  0.1825,
+  0.1755,
+  0.1683,
+  0.1612,
+  0.154,
+  0.1467,
+  0.1394,
+  0.1321,
+  0.1247,
+  0.1172,
+  0.1097,
+  0.1022,
+  0.0946,
+  0.087,
+  0.0793,
+  0.0716,
+  0.0639,
+  0.0561,
+  0.0482,
+  0.0403,
+  0.0323,
+  0.0243,
+  0.0163,
+  0.0082
+ ],
+ "cursor": [
+  34.673,
+  39.521
+ ],
+ "wave": [
+  45.417,
+  48.225
+ ],
+ "gather": [
+  [
+   48.995,
+   49.895
+  ],
+  [
+   51.467,
+   52.217
+  ],
+  [
+   51.571,
+   52.321
+  ],
+  [
+   51.676,
+   52.426
+  ],
+  [
+   51.78,
+   52.53
+  ],
+  [
+   51.885,
+   52.635
+  ],
+  [
+   51.989,
+   52.739
+  ],
+  [
+   52.093,
+   52.843
+  ],
+  [
+   52.198,
+   52.948
+  ],
+  [
+   52.302,
+   53.052
+  ],
+  [
+   52.406,
+   53.156
+  ],
+  [
+   52.511,
+   53.261
+  ],
+  [
+   52.615,
+   53.365
+  ],
+  [
+   52.72,
+   53.47
+  ],
+  [
+   52.824,
+   53.574
+  ]
+ ],
+ "late23": [
+  [
+   0.0,
+   0
+  ],
+  [
+   55.831,
+   0
+  ],
+  [
+   55.901,
+   1
+  ],
+  [
+   55.898,
+   1
+  ],
+  [
+   55.968,
+   2
+  ],
+  [
+   55.964,
+   2
+  ],
+  [
+   56.034,
+   3
+  ],
+  [
+   56.031,
+   3
+  ],
+  [
+   56.101,
+   4
+  ]
+ ],
+ "lift": {
+  "i": 114,
+  "t": [
+   43.846,
+   47.075
+  ]
+ },
+ "mr2": 83.34,
+ "x": {
+  "tray": [
+   -0.9,
+   0.9
+  ],
+  "bar": [
+   -0.9,
+   0.9
+  ],
+  "istack": [
+   8.1,
+   -2.2
+  ],
+  "house": [
+   -1.55,
+   -1.4
+  ],
+  "tessa": [
+   -2.7,
+   -0.5
+  ]
+ },
+ "gestures": [
+  {
+   "t": 4.5,
+   "kind": "lean",
+   "to": 3.0,
+   "hold": 1.4
+  },
+  {
+   "t": 13.493,
+   "kind": "arm",
+   "to": 6.6,
+   "hold": 1.6
+  },
+  {
+   "t": 17.246,
+   "kind": "arm",
+   "to": 3.0,
+   "hold": 2.0
+  },
+  {
+   "t": 32.09,
+   "kind": "nod",
+   "hold": 0.5
+  },
+  {
+   "t": 34.673,
+   "kind": "arm",
+   "to": -0.9,
+   "hold": 1.6
+  },
+  {
+   "t": 43.846,
+   "kind": "lean",
+   "to": 3.8,
+   "hold": 1.4
+  },
+  {
+   "t": 48.995,
+   "kind": "arm",
+   "to": 0.5,
+   "hold": 1.4
+  },
+  {
+   "t": 55.811,
+   "kind": "lean",
+   "to": 6.6,
+   "hold": 1.4
+  },
+  {
+   "t": 58.797,
+   "kind": "lean",
+   "to": 8.1,
+   "hold": 1.2
+  },
+  {
+   "t": 70.557,
+   "kind": "arm",
+   "to": -0.9,
+   "hold": 1.6
+  },
+  {
+   "t": 79.113,
+   "kind": "arm",
+   "to": -1.55,
+   "hold": 2.6
+  }
+ ],
+ "label_cues": {
+  "a1.ends": "pay $2,828 on the 30-year: about 195 months",
+  "a1.late": "about 15 months late",
+  "a2.seven": "to finish in 180 months:",
+  "b0.stays": "required payment: stays $2,216",
+  "b0.sooner": "loan ends sooner",
+  "b1.interest": "next month's interest ↓, payment fixed",
+  "b4.one": "$8,792 once a year (12 × $732.67)",
+  "b5.four": "ends in 184 months: 4 months later than monthly",
+  "b6.about": "about $8,200 more interest",
+  "b7.verdict": "not a verdict on paying yearly",
+  "b7.counted": "what it earns there: not counted"
+ },
+ "visual_cues": [
+  "a0.pay",
+  "a0.same",
+  "a1.doesnt",
+  "a1.ends",
+  "a1.late",
+  "a2.finish",
+  "a2.seven",
+  "a2.required",
+  "b0.requires",
+  "b0.stays",
+  "b0.sooner",
+  "b1.cut",
+  "b1.interest",
+  "b1.fixed",
+  "b1.principal",
+  "b2.later",
+  "b2.wrong",
+  "b3.send",
+  "b3.once",
+  "b4.one",
+  "b4.extra",
+  "b5.ends",
+  "b5.four",
+  "b6.charges",
+  "b6.about",
+  "b6.sits",
+  "b7.verdict",
+  "b7.account",
+  "b7.counted",
+  "b8.dollar",
+  "b8.earn"
+ ],
  "checks": {
   "rule2_rule3_rule7": "OK"
  }
