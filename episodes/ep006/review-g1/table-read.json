@@ -1,0 +1,130 @@
+{
+ "el_chars_spent": 0,
+ "clip": "episodes/ep006/review-g1/cold-open.m4a",
+ "clip_s": 47.2,
+ "M": {
+  "M1 hook ends ≤ 5.0": {
+   "value": 3.6,
+   "pass": true
+  },
+  "M2 promise ends ≤ 30": {
+   "value": 27.48,
+   "pass": true
+  },
+  "M3 question ≤ 30": {
+   "value": 13.92,
+   "pass": true
+  },
+  "M4 longest constraint/define block 0–60 s ≤ 10": {
+   "value": 6.06,
+   "pass": true
+  },
+  "M5 character/stake returns ≤ 45": {
+   "value": 33.34,
+   "pass": true
+  },
+  "M6 character promise paid ≤ 90": {
+   "value": 0.0,
+   "pass": true
+  }
+ },
+ "timeline": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "role": "hook",
+   "text": "Ruth's check rises every year, and it buys less than her first one.",
+   "start": 0.0,
+   "end": 3.6
+  },
+  {
+   "id": "S01.2",
+   "scene": "S01",
+   "role": "question",
+   "text": "[curious] At 65, she chose the smaller annuity check that rises 2 percent a year, and asked one thing: would 2 percent keep up with prices?",
+   "start": 4.2,
+   "end": 13.92
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "role": "hook",
+   "text": "Her twentieth year of checks ended this August.",
+   "start": 14.92,
+   "end": 17.56
+  },
+  {
+   "id": "S02.2",
+   "scene": "S02",
+   "role": "promise",
+   "text": "We tested that raise against every 20-year stretch of US prices since 1947, to see how often it kept its buying power, and how much it usually kept.",
+   "start": 17.8,
+   "end": 27.48
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "role": "define",
+   "text": "Here, keeping up means a check still buys at least what its own first check bought.",
+   "start": 28.48,
+   "end": 33.04
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "role": "hook",
+   "text": "Ruth is an illustrative retiree, built on real US prices, and today her check falls short of that.",
+   "start": 33.34,
+   "end": 40.96
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "role": "constraint",
+   "text": "This is US only, and it's history, not a forecast.",
+   "start": 41.14,
+   "end": 44.48
+  },
+  {
+   "id": "S03.4",
+   "scene": "S03",
+   "role": "constraint",
+   "text": "It doesn't say which check to choose.",
+   "start": 44.61,
+   "end": 47.2
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "role": "hook",
+   "text": "At 65, an income annuity can pay a bigger check that never changes, or a smaller check that rises by the same percentage every year.",
+   "start": 51.2,
+   "end": 60.16
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "role": "constraint",
+   "text": "How much smaller the rising check starts depends on the insurer, and this video doesn't model it.",
+   "start": 60.32,
+   "end": 66.16
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "role": "constraint",
+   "text": "So it can't say which check pays more money in total.",
+   "start": 66.35,
+   "end": 69.36
+  },
+  {
+   "id": "S04.4",
+   "scene": "S04",
+   "role": null,
+   "text": "What it measures is buying power: what each check can buy, compared with what its own first check bought.",
+   "start": 69.44,
+   "end": 76.56
+  }
+ ],
+ "asr": "Ruth's check rises every year and it buys less than her first one. At 65, she chose the smaller annuity check that rises 2% a year and asked one thing. Would 2% keep up with prices? Her 20th year of checks ended this August. We tested that raise against every 20-year stretch of U.S. prices since 1947 to see how often it kept its buying power and how much it usually kept. Here, keeping up means a check still buys at least what its own first check bought. Ruth is an illustrative retiree built on real U.S. prices. And today, her check falls short of that. This is U.S. only and it's history, not a forecast. It doesn't say which check to choose."
+}

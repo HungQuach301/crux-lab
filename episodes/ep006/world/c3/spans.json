@@ -1,0 +1,109 @@
+{
+ "note": "C3 cổng gốc N1 (C3-root-intent.md): mỗi đoạn một clip 540p riêng (episodes/ep006/world/c3/out/<đoạn>.mp4, dựng bằng build_seg.py); span = [0, total] giây của clip; times = tâm 6 lát bằng nhau (toolkit/blind/strips.py frame_times); muted_read = cột \"muted read (type 1)\" của story/beats.md, chép nguyên văn; dải TẮT TIẾNG, GIỮ chữ/số.",
+ "strips": {
+  "N1-s07-ruth": {
+   "clip": "episodes/ep006/world/c3/out/s07-ruth.mp4",
+   "segment": "episodes/ep006/world/c3/s07-ruth",
+   "beat": "B07",
+   "scene": "S07",
+   "type": 1,
+   "span": [
+    0.0,
+    13.09
+   ],
+   "times": [
+    1.091,
+    3.272,
+    5.454,
+    7.636,
+    9.818,
+    11.999
+   ],
+   "narration": [
+    "S07.1 Her check grew, but prices grew more, so today it buys less than her first check did.",
+    "S07.2 If her first check bought 10 crates of everything the index tracks, her check today buys about 9."
+   ],
+   "muted_read": "\"Back to the crate row: of 10 crates her first check bought, 9 stay lit today.\""
+  },
+  "N1-s24-carl": {
+   "clip": "episodes/ep006/world/c3/out/s24-carl.mp4",
+   "segment": "episodes/ep006/world/c3/s24-carl",
+   "beat": "B24",
+   "scene": "S24",
+   "type": 1,
+   "span": [
+    0.0,
+    33.41
+   ],
+   "times": [
+    2.784,
+    8.352,
+    13.921,
+    19.489,
+    25.057,
+    30.626
+   ],
+   "narration": [
+    "S24.1 Ruth isn't the worst case, and she isn't the best.",
+    "S24.2 Carl, also illustrative, took the same kind of rising check in January 1966.",
+    "S24.3 His 20 years had the fastest price rise of any stretch: 6.38 percent a year.",
+    "S24.4 Like Ruth's, his first check bought a row of 10 crates.",
+    "S24.5 On every one of his 20 anniversaries, his check bought less than it had the year before.",
+    "S24.6 Ruth's check climbed back in her early years; Carl's never did."
+   ],
+   "muted_read": "\"A second faceless figure over the 1966 tile with his row of 10 crates; a year counter ticks 1 to 20 and the row dims a little at every tick, never brightening, until about 4 are lit; a small inset of Ruth's line dipping and recovering early sits beside it.\""
+  },
+  "N1-s27-edna": {
+   "clip": "episodes/ep006/world/c3/out/s27-edna.mp4",
+   "segment": "episodes/ep006/world/c3/s27-edna",
+   "beat": "B27",
+   "scene": "S27",
+   "type": 1,
+   "span": [
+    0.0,
+    34.85
+   ],
+   "times": [
+    2.904,
+    8.713,
+    14.521,
+    20.329,
+    26.138,
+    31.946
+   ],
+   "narration": [
+    "S27.1 Edna, also illustrative, started in January 1949, the last starting month when a 2 percent raise kept up.",
+    "S27.2 Twenty years later, her check still bought at least what her first one did.",
+    "S27.3 She is part of that early handful, and nobody who started after her got that answer.",
+    "S27.4 Her 20 years ended a few years into Carl's.",
+    "S27.5 The same few years of prices came at the end of her stretch, with all 10 crates still lit, and at the start of his."
+   ],
+   "muted_read": "\"A third figure over the last `cushion` tile; her crate row ends fully lit. Her 20-year bar and Carl's on one time axis overlap at the end of hers / start of his; the shared years are shaded.\""
+  },
+  "N1-s29-three": {
+   "clip": "episodes/ep006/world/c3/out/s29-three.mp4",
+   "segment": "episodes/ep006/world/c3/s29-three",
+   "beat": "B29",
+   "scene": "S29",
+   "type": 1,
+   "span": [
+    0.0,
+    20.69
+   ],
+   "times": [
+    1.724,
+    5.173,
+    8.621,
+    12.069,
+    15.518,
+    18.966
+   ],
+   "narration": [
+    "S29.1 Same raise, same rule: Edna kept up, Ruth fell short late, and Carl fell far behind.",
+    "S29.2 In crates, Edna's row ended full, Ruth's at about 9, and Carl's at about 4.",
+    "S29.3 What differed was the month each one started, and what prices did after that."
+   ],
+   "muted_read": "\"Three figures side by side, each over a crate row: Edna all lit, Ruth 9 lit, Carl fewer than half; each labelled with a start month only.\""
+  }
+ }
+}

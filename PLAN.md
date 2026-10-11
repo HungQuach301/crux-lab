@@ -1,12 +1,14 @@
-# PLAN kênh Crux (≤ 1 trang) — cập nhật 08/10/2026
+# PLAN kênh Crux (≤ 1 trang) — cập nhật 09/10/2026
 
 PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLAN-tap.md`). PLAN Tập 1 cũ: `archive/ep001-v1/PLAN.md`. Thẩm quyền: `CHARTER.md` → `decisions/` (mới nhất D-011).
 
 ## Tập hiện hành
 | Tập | Đề tài | Format | Nhánh | Trạng thái |
 |---|---|---|---|---|
-| 5 | #17 PMI 10 % trả trước | `101` | — (đã merge `main` 6e0ae01) | phát hành; tổng kết `tongket-t5/` áp xong (D-011) |
-| **6** | **#12 "Does a 2% Annuity Raise Really Keep Up With Prices?"** (`topics-r1/machine/retire-1/`) | `101` hoặc `lab` (G1) | `ep006` (tạo từ `main` khi mở P1) | **chưa mở** — G1 từng tập; mức cảnh báo 15 triệu |
+| 3 | savings bond vs T-bills | `lab` | — | **đã đăng 09/10** |
+| 4 | #3 giới hạn $500,000 khi bán nhà | — | — | **KHÔNG đăng** (chủ dự án 09/10: không đủ chất lượng — hình nghèo, nhiều chữ; sổ gu) |
+| 5 | #17 PMI 10 % trả trước | `101` | — (đã merge `main` 6e0ae01) | **đã đăng 09/10**; tổng kết `tongket-t5/` áp xong (D-011) |
+| **6** | **#12 "Does a 2% Annuity Raise Really Keep Up With Prices?"** (`topics-r1/machine/retire-1/`) | `101` | `ep006` | **P3b (09/10): C4 → C5 → G2**; F-12 + K4.0.2 + K4.1 đã vào `main` (9f16de0) và `ep006`; mức cảnh báo 15 triệu |
 | 7 | đề xuất #2 tăng ca/việc thứ hai (`topics-r1/machine/tax-4/`) | — | — | G1 theo lô 2 tập từ Tập 7 (D-011 Q1) |
 
 **Mở Tập 6:** phiên mới, gõ `Chạy Tập 6, đề tài #12` (`playbook/prompts/RUN.md`; mỗi chặng một phiên — D-011).

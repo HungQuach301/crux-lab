@@ -1,0 +1,97 @@
+{
+ "root": "/home/user/crux-lab/episodes/ep006",
+ "contract": "/home/user/crux-lab/episodes/ep006/contract.json",
+ "lock": "4d688acd8e9b756a805597384c393704312ae1569edc3367ce387e24f4d8f969",
+ "video_sha256": null,
+ "episode": "TRƯỢT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 2,
+   "pass": 1,
+   "notPass": [
+    "S05 MISSING"
+   ]
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "explained": {},
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 0,
+   "pass": 0,
+   "notPass": []
+  }
+ },
+ "counts": {
+  "PASS": 1,
+  "FAIL": 0,
+  "MISSING": 1,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "S01",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "values compared",
+     "value": 89,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mismatches",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "model parts not re-computed",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "kind": "fixed-raise-vs-index-windows",
+     "notRecomputed": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H1",
+   "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
+   "fingerprint": "bd6d0ee85cf6c7c1",
+   "tier": "BLOCK",
+   "seconds": 0.1
+  },
+  {
+   "id": "S05",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: contract.json: claims.illustrative",
+   "section": "DX-H1, DX-H2",
+   "threshold": "≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months after normalisation, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag",
+   "fingerprint": "e57ec71dadeccbb2",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  }
+ ]
+}

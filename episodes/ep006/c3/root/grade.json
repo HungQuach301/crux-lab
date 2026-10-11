@@ -1,0 +1,14 @@
+{
+ "answer": "```json\n{\n  \"R1\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Reads 9 of 10 crates lit (90.4%), matching the muted read, but then steers toward comparing level vs inflation-adjusted annuity payouts.\"},\n  \"R2\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Row dims to about 4 of 10 and Ruth's inset is noted with 'back above in early years' (its shape is described loosely); advises weighing a flat payout against an inflation-rising one.\"},\n  \"R3\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Edna's row stays fully lit and the 20-year bars overlap at her end / his start; advises that a level payout is exposed and a rising one protects.\"},\n  \"R4\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Carl's row dims to about 4 of 10 with Ruth's inset noted; advises checking whether the annuity adjusts for inflation and comparing level vs rising options.\"},\n  \"R5\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"9 lit, 1 dark, 90.4% matches the muted read; advises comparing a level payout with a COLA-type payout.\"},\n  \"R6\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Edna 10, Ruth about 9, Carl about 4 across three figures matches; advises being wary of fixed payouts and checking COLA/CPI-linked options.\"},\n  \"R7\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Edna 10, Ruth about 9, Carl about 4 matches; advises comparing level vs inflation-tracking payouts rather than the first-year payment alone.\"},\n  \"R8\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Edna's row fully lit and the shared-years overlap with Carl are read correctly; advises weighing a level payout against an inflation-adjusted one.\"}\n}\n```",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 7211,
+   "cache_read": 1382,
+   "output": 1745,
+   "in": 8595,
+   "out": 1745
+  }
+ },
+ "turns": 1
+}

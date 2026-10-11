@@ -1,0 +1,14 @@
+{
+ "answer": "1. **The idea.** The animation shows that the same income annuity can turn out very differently depending on when you retire. It compares two illustrative retirees, Edna, who starts in January 1949, and Carl, who starts in January 1966. Each has a check that grows 2% a year. The animation tests that check against US consumer prices (CPI-U). The footer says \"US only · history, not a forecast.\"\n\n2. **What changes across the frames.**\n   - Frame 1 introduces Edna with a row of ten crates (the stack of ten \"crates\" or \"lights\" represents her purchasing power).\n   - Frames 2 and 3 follow her forward. Her check rises 2% a year, and by year 20 all 10 crates are \"still lit.\" Her check kept up with prices, since 1949 is \"the last start month that did.\"\n   - Frame 4 shrinks her timeline to a bar.\n   - Frame 5 adds Carl's bar, which starts in 1966 and overlaps the end of Edna's. The caption reads \"same years of prices: her last, his first.\"\n   - Frame 6 shows Edna at year 20 with all crates lit, while Carl at year 3 already has his last crates fading out.\n\n3. **What it means.** A fixed 2% annual raise only protects you if inflation stays at or below about 2%. Edna retired in a stretch where it did, so her buying power held up. Carl retired just before the high-inflation years that followed. His crates dim early, which means his check buys less and less. The outcome depends on the inflation that happens to arrive, which you don't control.\n\n4. **Advice a viewer might take.** The animation doesn't give explicit advice. A viewer would probably take away these points:\n   - A fixed payout, or one with a small fixed raise, carries inflation risk.\n   - The starting date matters a lot.\n   - Before choosing between a level payout and an inflation-adjusted one, think about whether a 2% raise would really be enough.\n\n   For me, at 64 and weighing two payout options, that would mean asking how much a lower starting payment with true CPI adjustment would cost compared with a higher fixed or 2% payout. It would also mean not assuming that low inflation will continue. The animation uses history only and says it is not a forecast, so it supports caution rather than a specific choice.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3667,
+   "cache_read": 6072,
+   "output": 819,
+   "in": 9743,
+   "out": 819
+  }
+ },
+ "turns": 2
+}

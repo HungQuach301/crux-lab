@@ -1,0 +1,123 @@
+{
+ "candidate_set": "ep006",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep006",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Crates go dark, check grows 2%, 9 of 10 lit, '?' captured. / Crates go dark and check grows; but never states 9 lit, ends at 10 crates.",
+    "Crates go dark, check +2%, 10 crates start, '?' unknown. / Crates go dark, +2% check; but says 'last crate' only, unresolved."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Two checks, level vs +2%, 'how much smaller: not modeled' captured. / Two cards and 'not modeled' gap right; misses taller flat card, shorter rising start.",
+    "Two checks, level vs rising, gap 'not modeled' with '?'; no advice. / Two cards, level vs rising; gap 'not modeled' noted, but heights/greyed gap muddled."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B12",
+   "kind": "image",
+   "scores": [
+    0.5,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Gets level line falling, 9/10 by year 5; '?' read as uncertainty, not 20-year span. / Gets fast-falling level line and 20-year gap; misses crossing Ruth's end height at year 5.",
+    "Level line falls, ~90% by year 5, rising check holds after 20 years, '?' noted. / Level line falls to 9/10 by year 5; rising line there at 20; '?'."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B15",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Gets 'none since' and Ruth at end; doesn't tie warn span to left cluster. / Zoom to early window then full span, 'none since'; warn coloring not identified.",
+    "Gets 'none since' and below-start; misses warn-colored span up to Ruth's tile. / Gets 'none since' after early peak; misses warn-colored span and left cluster zoom."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B32",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Rising 2% check, 9 of 10 crates lit, last dark; correct. / Rising 2% check, 9 of 10 crates lit, nothing beyond; correct.",
+    "Gets 9 of 10 crates and +2% check, but muddles check shrinking. / Rising check +2%, 9 of 10 crates lit at 85; correct meaning."
+   ]
+  }
+ ],
+ "gate_beats": 5,
+ "gate_pass": 0,
+ "pending": [],
+ "advice_beats": [
+  "B01",
+  "B04",
+  "B12",
+  "B15",
+  "B32"
+ ],
+ "classes": null,
+ "advice_rubric": "old",
+ "share": 0.0,
+ "verdict": "FAIL",
+ "near_threshold": false,
+ "verdict_old": "FAIL",
+ "verdict_new": "PENDING",
+ "advice_beats_old": [
+  "B01",
+  "B04",
+  "B12",
+  "B15",
+  "B32"
+ ],
+ "advice_beats_new": [],
+ "rubric_disagree": true,
+ "graders": 2
+}

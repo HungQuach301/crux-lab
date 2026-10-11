@@ -1,0 +1,133 @@
+LOCK 4d688acd8e9b756a805597384c393704312ae1569edc3367ce387e24f4d8f969 ok (checks/LOCK = contract.json lock)
+page.evaluate: Target page, context or browser has been closed
+    at layer (/home/user/chk-c5/checks/page/sampler.js:113:34)
+    at shotMask (/home/user/chk-c5/checks/page/sampler.js:114:141)
+    at async collide (/home/user/chk-c5/checks/page/sampler.js:128:32)
+    at async sampleJob (/home/user/chk-c5/checks/page/sampler.js:334:41)
+    at async /home/user/chk-c5/checks/page/sampler.js:624:19
+    at async run (/home/user/chk-c5/checks/page/sampler.js:615:3)
+{"seconds":1106.9,"samples":5366,"pixelSamples":2683,"summary":{"C01":0,"C02":0,"C03":0,"C04":0,"C05":0,"C06":3281,"C07":0,"C15":38403,"C10":0,"C12":[{"scene":"S03","start":31.8,"durationS":1,"maxW":0.815,"maxH":0},{"scene":"S29","start":435.6,"durationS":1.1,"maxW":0.602,"maxH":0.01}],"S08":0,"S09":"","S17":0,"V02":"","V03":0,"V08":0,"V11":0,"C14":0,"V12":0,"V04":""}}
+page sampler OK
+F01  PASS       0.1s  
+F02  PASS       0.8s  
+F03  PASS       0.0s  
+F04  PASS       0.0s  
+F05  PASS      29.5s  
+F06  PASS       0.5s  
+F07  PASS       0.0s  
+F08  PASS      60.7s  
+F09  PASS       0.0s  
+F10  PASS       0.0s  
+F11  PASS       0.0s  
+F12  PASS      16.1s  
+A01  PASS       6.0s  
+A02  PASS       0.0s  
+A03  FAIL       0.0s  LRA LU=3.7
+A04  PASS       4.2s  
+A05  PASS       0.3s  
+A06  PASS      11.4s  
+A07  PASS       1.2s  
+A08  PASS       2.8s  
+A09  PASS       9.4s  
+A10  FAIL       1.3s  Spearman speed~whoosh=-0.366644; fast moves without whoosh=30
+A11  FAIL       0.0s  Pearson pan~x=None
+A12  ERROR     18.7s    TypeError: unsupported operand type(s) for -: 'float' and 'dict'
+A13  FAIL      46.3s  max |stretch-1|=165.74415
+A14  PASS     267.7s  
+A15  FAIL       0.0s  wpm act cold-open=186.673199; wpm act act1=169.055549; wpm act act2=165.82679; wpm act act3=162.640959; wpm act method=189.774697; wpm act outro=167.808219; sentences > 175 wpm=37
+A16  FAIL       0.0s  fake break marks=14; sentences with a fake break=14
+A17  FAIL       5.1s  abnormal sentences share=0.253012; abnormal gaps share=0.320755
+A18  PASS       0.0s  
+S01  PASS       0.1s  
+S02  PASS       0.0s  
+S03  PASS       0.0s  
+S04  PASS       0.0s  
+S05  PASS       0.0s  
+S06  PASS       0.0s  
+S07  PASS       0.0s  
+S08  PASS       0.0s  
+S09  PASS       0.0s  
+S10  PASS       0.0s  
+S11  FAIL       0.0s  windows_20y callbacks w/ distinct meaning=0; windows_2pct_kept_up_20y acts=1; windows_2pct_kept_up_20y callbacks w/ distinct meaning=0; share_2pct_kept_up_20y_pct scenes=1; share_2pct_kept_up_20y_pct 
+S12  FAIL       0.1s  new numbers=72; max new numbers in a scene=9; axis claims shown outside axes=19
+S13  PASS       0.0s  
+S14  PASS       7.3s  
+S15  FAIL       0.0s  outro s=19.8333
+S16  FAIL       0.0s  share tied to a character or scenario=0.5
+S17  PASS       0.0s  
+S18  PASS       0.0s  
+S19  PASS       0.0s  
+S20  PASS       0.0s  
+S21  PASS       0.0s  
+S22  FAIL       0.0s  units mixing sources or periods=2
+SH01 PASS       0.4s  
+SH02 PASS       0.3s  
+SH03 PASS       1.2s  
+SH04 PASS       0.0s  
+SH05 PASS      22.0s  
+R01  MISSING    0.0s    artifact missing: out/tension-map.png
+R02  FAIL       0.0s  longest stretch without a break s=157.717
+R03  FAIL       5.7s  shortest pause s=0.0; pauses < 1.0 s=5
+R04  FAIL       0.0s  cuts on beat/action (%)=0.0
+R05  FAIL       0.0s  shots > 12 s=22; act-2 scenes before climax=0
+R06  PASS      24.4s  
+R07  FAIL      60.2s  visual cues within ±0.2 s (%)=70.338983
+R08  FAIL       0.0s  still stretches > 8 s=7; longest still stretch s=11.28
+V01  FAIL       0.0s  scenes without a shot=7; storyboard present=False; colour script present=False
+V02  FAIL       0.0s  level-1 samples=0; level-1 placed (%)=None
+V03  PASS       0.0s  
+V04  FAIL       0.0s  carl colour share=0.900969; carl shape share=0.900969; edna colour share=0.810573; edna shape share=0.810573
+V05  FAIL      29.1s  anticipation in moves ≥1 s (%)=0.0; overshoot in moves ≥1 s (%)=0.0; overshoot > 8%=4; peak |a| fw/s²=39.81
+V08  PASS       0.0s  
+V09  PASS       0.0s  
+V10  FAIL      25.0s  verified match cuts=0; verified J/L cuts=0
+V11  PASS       0.0s  
+V12  PASS       0.0s  
+V13  PASS       0.0s  
+V14  FAIL       0.0s  first-5 s beats not in the world=1
+V15  PASS       0.0s  
+V17  FAIL       0.0s  labels on screen too short to read=18
+C01  PASS       0.0s  
+C02  PASS       0.0s  
+C03  PASS       0.0s  
+C04  PASS       0.0s  
+C05  PASS       0.0s  
+C06  FAIL       0.0s  frames flagged=3281
+C07  PASS       0.0s  
+C10  PASS       0.0s  
+C11  FAIL       0.0s  layout repeats >2 in 90 s=29
+C12  FAIL       0.0s  split-view runs=2
+C13  FAIL       0.0s  worst |offset| ms=20900; pairs > 250 ms=41
+C14  PASS       0.0s  
+C15  FAIL       0.0s  frames flagged=38403
+P01  FAIL       4.2s  thumb texts below 90 px=4
+T1   FAIL      45.0s  share of slots heard in a pause=0.357576
+T2   PASS       2.2s  
+T3   PASS      16.1s  
+T4   PASS       0.0s  
+L1   PASS      23.0s  
+REG  PASS       first version: nothing to compare
+near A15 (THAM KHẢO) wpm act act2 = 165.82679 (threshold in [150.0, 160.0])
+near A15 (THAM KHẢO) wpm act act3 = 162.640959 (threshold in [150.0, 160.0])
+near A15 (THAM KHẢO) wpm act outro = 167.808219 (threshold in [150.0, 160.0])
+near A18 (CHÍNH) distinct voices (provider, voiceId, model) = 1 (threshold <= 1)
+near S04 (CHẶN) series pairs = 1 (threshold >= 1)
+near S04 (CHẶN) cpi_yoy tolerance = 0.5 (threshold <= 0.5)
+near S06 (CHẶN) coverage statements = 1 (threshold >= 1)
+near S06 (CHẶN) case values shown in act2 = 715 (threshold >= 715)
+near S11 (THAM KHẢO) windows_20y acts = 2 (threshold >= 2)
+near S11 (THAM KHẢO) windows_2pct_kept_up_20y scenes = 3 (threshold >= 3)
+near S11 (THAM KHẢO) guide_real_2pct_end_pct scenes = 3 (threshold >= 3)
+near S11 (THAM KHẢO) guide_real_2pct_end_pct acts = 2 (threshold >= 2)
+near S11 (THAM KHẢO) raise_needed_half_20y_pct acts = 2 (threshold >= 2)
+near S13 (THAM KHẢO) sentence length CV (≥ 4 words) = 0.362272 (threshold >= 0.35)
+near S15 (THAM KHẢO) ident s = 3.0 (threshold <= 3.0)
+near S15 (THAM KHẢO) outro s = 19.8333 (threshold >= 20.0)
+near V09 (CHÍNH) declared characters seen on screen = 3 (threshold >= 3)
+near P01 (THAM KHẢO) thumb 1 token share (%) = 100.0 (threshold >= 97.0)
+near P01 (THAM KHẢO) thumb 2 token share (%) = 100.0 (threshold >= 97.0)
+near P01 (THAM KHẢO) thumb 3 token share (%) = 100.0 (threshold >= 97.0)
+near T2 (THAM KHẢO) longest run of repeated phrases = 1 (threshold <= 1)
+near T4 (THAM KHẢO) most events in 10 s = 6 (threshold <= 6)
+{"PASS": 65, "FAIL": 32, "MISSING": 1, "ERROR": 1} episode: ĐẠT
+rc=0

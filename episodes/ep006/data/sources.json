@@ -1,0 +1,167 @@
+{
+ "files": [
+  {
+   "path": "data/raw/CPIAUCNS.csv",
+   "role": "primary",
+   "series": "CPIAUCNS",
+   "what": "CPI-U, all items in U.S. city average, all urban consumers, index 1982-84=100, monthly, not seasonally adjusted (BLS via FRED)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCNS",
+   "sha256": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+   "downloaded": "2026-10-08",
+   "bytes": 25074,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep006/data/fetch.py --verify",
+   "firstObservation": "1913-01-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": 334.98,
+    "updatedQuote": "Updated: Sep 11, 2026 8:37 AM CDT",
+    "unitsQuote": "Index 1982-1984=100 , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "retrieved": "2026-10-08"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCNS",
+    "citation": "CPIAUCNS, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CPIAUCNS"
+   }
+  },
+  {
+   "path": "data/raw/CPIAUCSL.csv",
+   "role": "crosscheck",
+   "series": "CPIAUCSL",
+   "what": "CPI-U, all items, seasonally adjusted (BLS via FRED): crosscheck of 12-month % change",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CPIAUCSL",
+   "sha256": "f8ecddf53a9a9a74dda92c2c4204e6039466fcb744bc74171b73b5f6aac48119",
+   "downloaded": "2026-10-08",
+   "bytes": 17744,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep006/data/fetch.py --verify",
+   "firstObservation": "1947-01-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": 334.131,
+    "updatedQuote": "Updated: Sep 11, 2026 8:37 AM CDT",
+    "unitsQuote": "Index 1982-1984=100 , Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/CPIAUCSL",
+    "retrieved": "2026-10-08"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+    "citation": "CPIAUCSL, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CPIAUCSL"
+   }
+  },
+  {
+   "path": "data/raw/CWUR0000SA0.csv",
+   "role": "robust",
+   "series": "CWUR0000SA0",
+   "what": "CPI-W, urban wage earners and clerical workers, all items, NSA (BLS via FRED): the index behind Social Security COLAs",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CWUR0000SA0",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CWUR0000SA0&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/CWUR0000SA0",
+   "sha256": "27ceaacf4113963e47ec193ae819049c7d5f44fae8da26fd041a757bb1f951e0",
+   "downloaded": "2026-10-08",
+   "bytes": 25083,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep006/data/fetch.py --verify",
+   "firstObservation": "1913-01-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": 328.481,
+    "updatedQuote": "Updated: Sep 11, 2026 8:35 AM CDT",
+    "unitsQuote": "Index 1982-1984=100 , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/CWUR0000SA0",
+    "retrieved": "2026-10-08"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CWUR0000SA0",
+    "citation": "CWUR0000SA0, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CWUR0000SA0"
+   }
+  },
+  {
+   "path": "data/raw/PCEPI.csv",
+   "role": "robust",
+   "series": "PCEPI",
+   "what": "Personal consumption expenditures chain-type price index, 2017=100, monthly, SA (BEA via FRED), from 1959",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCEPI",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCEPI&coed=2026-08-01",
+   "seriesPage": "https://fred.stlouisfed.org/series/PCEPI",
+   "sha256": "0f416a343a73a3b723af3315679596eecd7300abb433e8999c6a161d46c22e4f",
+   "downloaded": "2026-10-08",
+   "bytes": 14748,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep006/data/fetch.py --verify",
+   "firstObservation": "1959-01-01",
+   "lastObservation": {
+    "date": "2026-08-01",
+    "value": 131.579,
+    "updatedQuote": "Updated: Sep 30, 2026 7:43 AM CDT",
+    "unitsQuote": "Index 2017=100 , Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/PCEPI",
+    "retrieved": "2026-10-08"
+   },
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/PCEPI",
+    "citation": "PCEPI, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/PCEPI"
+   }
+  }
+ ],
+ "mismatches": [],
+ "derived": [
+  {
+   "path": "data/normalized/cpiaucns.csv",
+   "sha256": "1aad66f238a359823544e647be72b0f00eba989d8fc21be4160c0d9a69ac791b",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  },
+  {
+   "path": "data/normalized/cpiaucns_yoy.csv",
+   "sha256": "76c1640c25e47f81e88fd3c82e4e1ac7b9aad5fe8982e832bb97ee4086350f77",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  },
+  {
+   "path": "data/normalized/cpiaucsl_yoy.csv",
+   "sha256": "9ce7199cf59b27a80a0638d4ddc7b8779c2c8ff472568c6632b419b02595d973",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  }
+ ],
+ "crosscheckSummary": {
+  "cpi_yoy": {
+   "months": 943,
+   "within": 943,
+   "maxGapPp": 0.468,
+   "meanGapPp": 0.0753,
+   "from": "1948-01-01",
+   "to": "2026-08-01",
+   "blankPrimary": [
+    "2025-10-01"
+   ],
+   "blankCrosscheck": [
+    "2025-10-01"
+   ],
+   "note": "Same index, seasonal adjustment removed only within-year pattern; 12-month changes should agree closely."
+  }
+ },
+ "dossierPins": [
+  {
+   "series": "CPIAUCNS",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS&coed=2026-08-01",
+   "sha256Dossier": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+   "sha256Now": "f79e3a78837142293449cee4a1a9b1da7be677fb3e989ffb2ef48e8e7cf4cdd7",
+   "matchesDossier": true,
+   "freshPrefixIdentical": true,
+   "freshAddsObservations": 0
+  }
+ ],
+ "provisions": [],
+ "blocked": {
+  "bls.gov": "HTTP 403 from the session proxy (2026-10-08): R-CPI-E (BLS research index for Americans 62+) not fetched; the retiree-basket limit is stated qualitatively, no R-CPI-E number is used."
+ },
+ "_about": "FRED copies, not committed (python3 episodes/ep006/data/fetch.py --verify re-downloads from pinnedUrl and checks SHA-256). \"Now\" of the data: CPI-U to 2026-08-01 (September 2026 CPI not yet released on 2026-10-08)."
+}

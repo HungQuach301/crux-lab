@@ -1,0 +1,85 @@
+{
+ "cues": [
+  {
+   "t": 0.0,
+   "end": 48.233,
+   "function": "cold open",
+   "cue": "Q",
+   "key": "D dorian",
+   "tempo": 114.44,
+   "bars": 23
+  },
+  {
+   "t": 51.033,
+   "end": 207.55,
+   "function": "act 1",
+   "cue": "A1",
+   "key": "D dorian -2",
+   "tempo": 113.47,
+   "bars": 74
+  },
+  {
+   "t": 208.75,
+   "end": 329.013,
+   "function": "act 2 replay",
+   "cue": "A2",
+   "key": "D dorian +2",
+   "tempo": 113.75,
+   "bars": 57
+  },
+  {
+   "t": 329.013,
+   "end": 485.26,
+   "function": "act 3 people",
+   "cue": "A3",
+   "key": "F major",
+   "tempo": 113.67,
+   "bars": 74
+  },
+  {
+   "t": 485.26,
+   "end": 536.6,
+   "function": "limits + outro",
+   "cue": "O",
+   "key": "F major",
+   "tempo": 112.49,
+   "bars": 25
+  },
+  {
+   "t": 526.786,
+   "end": 536.6,
+   "function": "closing cue A (F-12)",
+   "cue": "close-A",
+   "key": "F major",
+   "tempo": 114.0,
+   "touch": 535.207
+  }
+ ],
+ "silences": [
+  {
+   "what": "MR1",
+   "t": 207.55,
+   "end": 208.75
+  },
+  {
+   "what": "ident",
+   "t": 48.233,
+   "end": 51.233
+  },
+  {
+   "what": "anchor S11.1",
+   "t": 176.423,
+   "end": 177.173
+  },
+  {
+   "what": "anchor S14.1",
+   "t": 240.96,
+   "end": 241.71
+  },
+  {
+   "what": "anchor S25.1",
+   "t": 362.14,
+   "end": 362.89
+  }
+ ]
+}

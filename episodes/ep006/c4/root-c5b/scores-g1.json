@@ -1,0 +1,74 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own conclusion, not something the animation stated.",
+  "why": "Captures nearly all bars below start, 17 of 715 kept up; advice self-drawn.",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might infer that a payout fixed in dollars loses buying power over time, and that a payout with annual raises might be worth comparing. That inference is mine.",
+  "why": "Ladder, half at 3.1, all at 6.38 top rung; advice self-inferred.",
+  "q5": "own"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "But the frames never mention annuities or payouts, so that is my own reading.",
+  "why": "Ladder with half at 3.1 and all at top; advice own reading.",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "It is my own conclusion, drawn from your annuity-quote context.",
+  "why": "Same 2% raise, different start dates, Carl worst; but misattributes cause, Edna 10 crates ok.",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "the annuity comparison is my own conclusion.",
+  "why": "Fixed check bought less nearly all months, 17 of 715; advice own.",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in 4 is my own conclusion.",
+  "why": "Gets 'not modeled' and two checks, but misses the greyed starting-gap idea.",
+  "q5": "own"
+ },
+ "R07": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The takeaway in point 4, to weigh inflation when choosing between the two payouts, is my own conclusion.",
+  "why": "Notes '?' and not modeled but not the starting-height gap.",
+  "q5": "own"
+ },
+ "R08": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The conclusion in 4 is my own.",
+  "why": "Three retirees, crate rows 10/9/4, start-date dependence; advice own.",
+  "q5": "own"
+ }
+}

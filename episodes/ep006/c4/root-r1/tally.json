@@ -1,0 +1,477 @@
+{
+ "candidate_set": "ep006",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep006",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Crates dark, +2% seen, but 9 lit and growing card unclear. / Crates/dark crate seen; unsure whether rising check loses",
+    "Dark crate and +2% seen; 9 lit and outcome unclear. / Dark crate and +2% seen; meaning partly guessed"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B03",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Reader says line ends well below, not just under 100%. / Idea right but line ends 'well below', not just under",
+    "Reader has Ruth's line ending clearly below, not just under. / Flat line right, but Ruth ends 'well below', not just under"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Two cards with greyed '?' gap; reader draws weighing action. / Flat vs rising cards, '?' not modeled; weighing inference",
+    "Two cards seen, but the unmodeled gap is misread as buying power. / Two cards and not-modeled gap correct; general care"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B06",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Two bars, +48.6% vs +64.3%; only a check-your-options caution. / Both bars correct (48.6 vs 64.3); only a check-your-options caution",
+    "Two bars +48.6% vs +64.3%; reader infers a look at rising payout. / Both bars correct; reader infers consider rising payout"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B07",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "9 of 10 crates lit, 90.4%; comparison caution only. / 9 of 10 crates, 90.4%; own compare inference",
+    "9 of 10 crates lit, 90.4%; caution to ask. / 9 of 10 crates, 90.4%; ask-only"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B08",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Level 60.9% vs rising 90.4%; reader infers protection matters. / 60.9% row correct; reader credits video with protection takeaway",
+    "Level 6 of 10 and different starts noted; reader infers. / 6 of 10 level row and note correct; own conclusion"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "12 of first 15 at or above baseline; reader infers weighing. / 12 of first 15 at/above baseline; own weighing",
+    "Ruth's line dips below baseline three times early; no advice. / Three dips below 100%, 12 of 15; no advice"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B10",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Line peaks just above at year 15, then drops below. / Slightly above at 100.3%, then drops under; ask-only",
+    "Peak just above at age 80, then drop below; reader infers comparing. / Hair above then drop below; own compare inference"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B12",
+   "kind": "image",
+   "scores": [
+    0.5,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Level line falls, year 5 about 9 in 10 seen; muddled first-check line. / Level check falls to ~9 in 10 by year 5; only asks",
+    "Level line falls, about 9 in 10 by year 5, '?' read. / Level line falls to ~9 in 10 by year 5, '?'; own inference"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B13",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "715 stretches, Ruth's stretch at the end, 20-year tiles; no advice. / Ruth at end of 715 twenty-year stretches; no advice",
+    "715 overlapping stretches, Ruth's at the end; only a loose inference. / Ruth's tile in 715-tile grid; no action"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B14",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "17 of 715 green months at left read; reader infers weighing. / 17 of 715 green cluster at left; own weighing",
+    "17 of 715 with a left green cluster; reader infers action. / 17 of 715 green cluster at left correct; general care"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B15",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Window and 'none since' seen, but meaning vague and tentative. / Found left window and 'none since', meaning of 'kept up' missed",
+    "Window and 'none since' seen, but meaning tentative and partly off. / Found left cluster and 'none since', but meaning unclear"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B16",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Median at 80.7% and 8 of 10 crates; only general care. / 80.7% line and 8 of 10 crates correct; general care",
+    "80.7% median line and 8 of 10 crates read correctly. / 80.7% and 8 of 10 crates correct; ask-only"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B17",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "54.3% about half and year 8 marker read; no advice. / 54.3% near half, year 8 marker; no advice",
+    "54.3% median line and year 8 marker both read correctly. / 54.3% near half and year 8 captured; only an ask"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B19",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "1990s and 2000s starts and Ruth tile read; caution only. / 1990s and 2000s tiles with 94.8/99.5/Ruth correct; ask-only",
+    "Tiles for 1990s and 2000s starts plus Ruth; reader infers action. / 1990s and 2000s tiles all short of 100%; own inference"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B21",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "0 of 655 kept up read; reader leans toward rising payout. / 0 of 655, no cushion tile; own lean-toward advice",
+    "0 of 655 kept up read; reader infers considering an adjusted option. / 0 of 655 kept up; own consider-adjusting advice"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "CPI-W and PCE side grids read; reader infers weighing. / CPI-W and PCE grids described; weigh-option inference",
+    "Side grids for CPI-W and PCE read; reader infers weighing. / Extra CPI-W and PCE grids described; own weighing"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B24",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Carl crates 10 to about 4; reader infers weighing action. / Carl row dims to 4; own weigh-options inference",
+    "Carl row dims to about 4, Ruth inset noted; caution only. / Carl row dims to 4, Ruth inset; ask-only"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Carl's crates, 43.1% vs 29.0%; reader infers choosing action. / Carl 43.1% vs 29.0% correct; own choose-protection inference",
+    "Carl crate row and 43.1%/29.0% read; reader favors protection. / Carl crates and 43.1/29.0 correct; own favor-protection advice"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B27",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Edna, Carl, shared 1966–69 years, third figure all lit; no action. / Edna fully lit, shared years overlap; no action implied",
+    "Edna, Carl, shared years read; reader infers comparing. / Edna lit at year 20, overlap years; own compare inference"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B29",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 1,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Three figures 10, 9, 4 crates; caution only. / Three figures 10/9/4 correct; ask-only",
+    "Edna full, Ruth 9, Carl about 4; reader infers considering. / Edna 10, Ruth 9, Carl 4 correct; own consider inference"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B30",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Raise ladder with shares of stretches; only a comparison caution. / Ladder 2.4/42.4/half/all correct; reader's own compare-options inference",
+    "Raise ladder correctly read; reader infers weighing options. / Ladder with 2.4/42.4/half/all correct; own weighing"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B32",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Ruth, 9 of 10 crates lit; only a caution to ask. / 9 of 10 crates right but called a fixed payment, not rising",
+    "Opening frame, 9 of 10 crates lit; caution only. / 9 of 10 crates, but reads it as fixed, not rising card"
+   ]
+  }
+ ],
+ "gate_beats": 23,
+ "gate_pass": 3,
+ "pending": [],
+ "advice_beats": [
+  "B01",
+  "B04",
+  "B06",
+  "B07",
+  "B08",
+  "B09",
+  "B10",
+  "B12",
+  "B14",
+  "B19",
+  "B21",
+  "B22",
+  "B24",
+  "B25",
+  "B27",
+  "B29",
+  "B30"
+ ],
+ "classes": {
+  "file": "classes.json",
+  "sha256": "0d91af0b353f8d324e0a30ab8641c621123a8db604b476c20218c488436dd16d",
+  "image_share": 0.767
+ },
+ "advice_rubric": "old",
+ "share": 0.13,
+ "verdict": "FAIL",
+ "near_threshold": false,
+ "verdict_old": "FAIL",
+ "verdict_new": "PENDING",
+ "advice_beats_old": [
+  "B01",
+  "B04",
+  "B06",
+  "B07",
+  "B08",
+  "B09",
+  "B10",
+  "B12",
+  "B14",
+  "B19",
+  "B21",
+  "B22",
+  "B24",
+  "B25",
+  "B27",
+  "B29",
+  "B30"
+ ],
+ "advice_beats_new": [
+  "B08"
+ ],
+ "rubric_disagree": true,
+ "graders": 2
+}

@@ -1,0 +1,62 @@
+{
+ "video": "episodes/ep006/work/factory/world/d-s13-s23-1080.mp4",
+ "asr_words_matched": 243,
+ "asr_words_ref": 283,
+ "voice_offset_s": {
+  "median": 0.003,
+  "p90_abs": 0.133
+ },
+ "visual_peak_vs_keyword_s": {
+  "e0.every": -0.28,
+  "e1.seven": 0.127,
+  "e1.ruths": 0.14,
+  "e2.least": 0.034,
+  "e3.tile": 0.084,
+  "e4.kept": 0.022,
+  "e4.seventeen": 0.133,
+  "e5.one": 0.133,
+  "e6.september": 0.127,
+  "e7.since": 0.097,
+  "e8.three": 0.16,
+  "e9.eighty": 0.124,
+  "f0.most": 0.38,
+  "f1.fifty": 0.16,
+  "f2.eight": 0.126,
+  "f3.own": 0.173,
+  "f4.gentler": 0.012,
+  "f4.ruths": 0.032,
+  "f5.twenty": null,
+  "f6.social": -0.257,
+  "f6.gentler": 0.003,
+  "f7.start": null
+ },
+ "method": {
+  "e0.every": "motion",
+  "e1.seven": "label",
+  "e1.ruths": "label",
+  "e2.least": "motion-roi",
+  "e3.tile": "label",
+  "e4.kept": "motion-roi",
+  "e4.seventeen": "label",
+  "e5.one": "label",
+  "e6.september": "label",
+  "e7.since": "label",
+  "e8.three": "label",
+  "e9.eighty": "label",
+  "f0.most": "motion-roi",
+  "f1.fifty": "label",
+  "f2.eight": "label",
+  "f3.own": "label",
+  "f4.gentler": "motion-roi",
+  "f4.ruths": "motion-roi",
+  "f5.twenty": "motion",
+  "f6.social": "motion-roi",
+  "f6.gentler": "motion-roi",
+  "f7.start": "motion"
+ },
+ "visual_within_0.2s": "17/22",
+ "visual_not_detected": [
+  "f5.twenty",
+  "f7.start"
+ ]
+}

@@ -97,7 +97,7 @@ def main():
     def mux():
         pic, mix = out.replace('.mp4', '.picture.mp4'), os.path.join(out.replace('.mp4', '.audio'), 'mix.wav')
         r = run(['ffmpeg', '-y', '-loglevel', 'error', '-i', pic, '-i', mix, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '256k',
-                 '-shortest', out])
+                 out])   # F-13 (Tập 6 C4): không -shortest — với AAC nó cắt 2–4 khung cuối (1537 → 1535) và splice dừng; mix.wav dài đúng bằng hình
         if r.returncode == 0:   # nhật ký trang đi theo video (verify_seg đọc <video>.log.json)
             os.replace(pic.replace('.mp4', '.log.json'), out.replace('.mp4', '.log.json'))
             if os.path.exists(pic.replace('.mp4', '.cam.json')):   # máy quay từng khung → out/camera.json của tập (artefacts.py)

@@ -1,0 +1,23 @@
+{
+ "video": "episodes/ep006/world/c3/out/s07-ruth.mp4",
+ "asr_words_matched": 33,
+ "asr_words_ref": 35,
+ "voice_offset_s": {
+  "median": 0.0,
+  "p90_abs": 0.088
+ },
+ "visual_peak_vs_keyword_s": {
+  "a0.less": 0.032,
+  "a1.check": 0.12,
+  "a1.ten": 0.12,
+  "a1.nine": 0.104
+ },
+ "method": {
+  "a0.less": "motion-roi",
+  "a1.check": "label",
+  "a1.ten": "label",
+  "a1.nine": "label"
+ },
+ "visual_within_0.2s": "4/4",
+ "visual_not_detected": []
+}

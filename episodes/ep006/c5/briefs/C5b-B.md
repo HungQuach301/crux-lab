@@ -1,0 +1,10 @@
+## Tập 6 · C5b lượt B (sửa hình cho luật trang) — làm trong /home/user/crux-lab, nhánh ep006, KHÔNG commit (phiên chính commit)
+Đọc `episodes/ep006/c5/briefs/common.md` (luật chung vòng C4: không đổi lời/mốc spine/độ dài, 536,6 s, khoá nghĩa, mép an toàn, ≤ 8 ảnh tĩnh, kiểm bắt buộc) — mọi luật đó áp. Bối cảnh: checks đủ bộ trên cây C5 1080p (`episodes/ep006/out/checks/run-c5/report.md`, chi tiết `report.json` → `details` mỗi luật; định nghĩa luật `checks/README.md`, mã `checks/`). Luật CHẶN/CHÍNH phải sửa trước G2 (`playbook/prompts/P3.md` việc 2). Lượt A song song sửa `contract.json`/`out/package` — bạn chỉ sửa `episodes/ep006/world/c4/<đoạn>/scene.js` (spine.py chỉ khi bắt buộc, không đổi mốc). Giây trong report = giây tập; mốc đầu đoạn ở `episodes/ep006/out/factory/timeline.json`.
+Lỗi cần sửa (sửa ít nhất có thể; nghĩa nhịp đã ĐẠT không được mất — đặc biệt f-s30-s32 là bản vòng 2 đã khoá nghĩa):
+1. **S08 (CHẶN)** S30 t 475,0–476,6: claim `raise_needed_all_20y_pct` hiện mà thiếu nhãn huy hiệu (17 khung; trễ tối đa 51 khung). Nhãn phải hiện cùng khung với số.
+2. **S10 (CHẶN)** chữ màn hình "start month" ở S14 bị bộ dò khuyên bắt (xem mẫu ADVICE trong `checks/`). Đổi chữ để giữ nghĩa (mốc tháng bắt đầu của từng khoảng 20 năm) mà không là lời khuyên/chỉ thị.
+3. **V03 (CHÍNH)** 560 mẫu chữ ra ngoài vùng an toàn: "first check", "1947" mực x0 = 95 (< 96) S13–S16; xem hết danh sách trong details.
+4. **V11 (CHÍNH)** 38 va chạm chữ–đồ hoạ: S04 "?" (title, 32 mẫu) và nhãn phương pháp S31 (label). Sửa nếu thật; nếu là chữ trên tấm nền của chính nó (dương tính giả như Tập 5 A22, `V11.plateOverGraphics`) thì ghi số đo vào trả về, không sửa.
+5. **C05 (CHÍNH)** S29 980 khung: nhãn nhấn ("Jan 1949"…) tối hơn nhãn phụ ("crates at year 20 · same 2% raise", "10", "about 9" màu #f2f4f7). Đảo thứ bậc độ sáng cho đúng.
+Kiểm được: ảnh tĩnh `render_shots.js --stills` (≤ 8 ảnh xem), nhật ký trang `<cảnh>.log.json` (hộp chữ, opacity), `toolkit/factory/world/sfx_labels.py` label_check, spine.py "checks OK", comment_guard, 536,6 s.
+Trả về ≤ 15 dòng: mỗi lỗi sửa/không sửa + số đo; đoạn nào đổi (phiên chính chỉ render lại đoạn đổi); rủi ro nghĩa.

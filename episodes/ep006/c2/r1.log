@@ -1,0 +1,93 @@
+{
+ "grader_tokens": 12763,
+ "scores": [
+  {
+   "file": "03c9ca7d",
+   "sample": "v1",
+   "role": "T",
+   "model": "opus",
+   "score": 1,
+   "advice": true,
+   "block": "số dày",
+   "where": "PCE 19.2% vs 'none', different window",
+   "why": "Gets the question and 'usually no' with 80.7% vs 54.3%; q6 adds action advice (price a higher or CPI-linked option, keep other inflation-sensitive resources)."
+  },
+  {
+   "file": "274870c4",
+   "sample": "v1",
+   "role": "T",
+   "model": "haiku",
+   "score": 1,
+   "advice": false,
+   "block": "không",
+   "where": "nowhere",
+   "why": "Gets the question and 'almost never' with 80.7% vs 54.3% for the level check; q6 declines to recommend a choice."
+  },
+  {
+   "file": "474fcfdc",
+   "sample": "v1",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "số dày",
+   "where": "1990s stretches, 94.8%, 99.5%, 25-year, SS index, PCE",
+   "why": "Gets the question and 'mostly no' with 80.7% and Ruth ~90%; attention lost to a run of statistics."
+  },
+  {
+   "file": "5b143ad0",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "số dày",
+   "where": "PCE 19.2% and CPI 'none' from 1959",
+   "why": "Gets the question and 'rarely' with 80.7% vs 54.3% and Ruth ~9 of 10; q6 is only a framing of limits."
+  },
+  {
+   "file": "78b9030a",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "số dày",
+   "where": "PCE 19.2% / CPI none, shifted start date",
+   "why": "Gets the question and 'usually did not' with 80.7% and Ruth ~90%; q6 only says not to assume full protection and to ask the insurer for the gap."
+  },
+  {
+   "file": "7ebc7f65",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "số dày",
+   "where": "'By year 5... about 9 crates' two-check comparison",
+   "why": "Gets the question and 'mostly no' with 80.7% vs 54.3% and Ruth ~9 of 10; q6 is only understanding of the promise."
+  },
+  {
+   "file": "a658ffc9",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "số dày",
+   "where": "'after that, up to Ruth's... 99.5 percent'",
+   "why": "Gets the question and 'mostly no' with 80.7% vs 54.3%; q6 gives no choice-type advice."
+  },
+  {
+   "file": "e53e6ab8",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "số dày",
+   "where": "'after that... best ended at 99.5 percent'",
+   "why": "Gets the question and 'mostly no' with 17/715, 80.7% vs 54.3%, and Ruth ~9 of 10; q6 is only a narrow takeaway."
+  }
+ ]
+}

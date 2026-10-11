@@ -1,0 +1,38 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That advice is my own conclusion. The animation only shows the crate counts",
+  "why": "Meaning captured fully; reader says advice is own conclusion.",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Captures figure, two cards, flat vs rising, grey '?' unmodeled gap; no advice.",
+  "q5": "none"
+ },
+ "R03": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The animation did not suggest the advice. The viewer would be drawing that conclusion themselves.",
+  "why": "Gets cards and '?' but misses greyed gap as unmeasured; says rising starts smaller.",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in 4 is my own conclusion, drawn from the context of your annuity quote.",
+  "why": "Three figures, crate counts correct; advice self-derived.",
+  "q5": "own"
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "answer": "{\"R01\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":false,\"quote\":\"\",\"why\":\"Correct mortgage meaning: slow early paydown, faster later, extras on top.\",\"q5\":\"own\"},\"R02\":{\"score\":1,\"advice_stated\":true,\"advice_inferred\":false,\"caution_only\":false,\"quote\":\"The narration said this directly: \\\"So if you are choosing today, take the payout that is tied to inflation.\\\"\",\"why\":\"Same 2%, outcome depends on start month; reader attributes COLA advice to video.\",\"q5\":\"video\"},\"R03\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"The viewer could weigh that when comparing the two payout options.\",\"why\":\"Idea correct; advice self-drawn, video gives no choice.\",\"q5\":\"own\"},\"R04\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":false,\"quote\":\"\",\"why\":\"Correct mortgage meaning; no advice drawn.\",\"q5\":\"none\"},\"R05\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"A viewer could reasonably take away that a 2% raise should not be assumed to preserve buying power over 20 years.\",\"why\":\"Question and answer correct (17/715, slows loss); advice is reader's own.\",\"q5\":\"own\"},\"R06\":{\"score\":1,\"advice_stated\":true,\"advice_inferred\":false,\"caution_only\":false,\"quote\":\"The advice came from the video's narration, in its last line (\\\"So if you are choosing today, take the payout that is tied to inflation\\\").\",\"why\":\"Idea correct; reader attributes inflation-linked payout advice to video.\",\"q5\":\"video\"},\"R07\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"the lesson is to ask how a payment would hold up if prices rise faster than expected\",\"why\":\"Idea correct; takeaway is reader's own, mild caution.\",\"q5\":\"own\"},\"R08\":{\"score\":1,\"advice_stated\":true,\"advice_inferred\":false,\"caution_only\":false,\"quote\":\"The video itself suggested this, through its narration: \\\"So if you are choosing today, take the payout that is tied to inflation.\\\"\",\"why\":\"Idea correct; reader says video advises inflation-tied payout.\",\"q5\":\"video\"},\"R09\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":false,\"quote\":\"\",\"why\":\"Correct mortgage meaning; no advice.\",\"q5\":\"none\"},\"R10\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":true,\"quote\":\"that suggests asking whether each option adjusts for inflation\",\"why\":\"Idea correct; only ask-the-insurer type caution, own reading.\",\"q5\":\"own\"},\"R11\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":true,\"quote\":\"that would mean checking whether either option adjusts for inflation\",\"why\":\"Idea correct; general checking caution, own conclusion.\",\"q5\":\"own\"},\"R12\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"A viewer could compare the raise with what prices have done, and with how much smaller the starting check is.\",\"why\":\"Question and answer correct; compare-suggestion is reader's own inference.\",\"q5\":\"own\"},\"R13\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"Compare the two payout options with that in mind. For example, ask whether a payout that rises each year would protect you better than a flat one\",\"why\":\"Idea correct; reader's own inference, not video's.\",\"q5\":\"own\"},\"R14\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":true,\"quote\":\"it suggests asking whether each payout option adjusts for inflation\",\"why\":\"Idea correct; ask-type caution, reader's own.\",\"q5\":\"own\"},\"R15\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"Weigh the buying-power results against that dollar cost, with a professional if needed.\",\"why\":\"Question and answer correct; weigh-advice is reader's own.\",\"q5\":\"own\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 14547,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 20,
+   "in": 14547,
+   "out": 20
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 15434,
+   "cache_read": 535,
+   "output": 1481,
+   "in": 15971,
+   "out": 1481
+  }
+ },
+ "turns": 1
+}

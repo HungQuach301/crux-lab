@@ -1,0 +1,190 @@
+{
+ "video": "out/video.mp4",
+ "tag": "c4-r2",
+ "strips": {
+  "B01": {
+   "scene": "S01",
+   "muted_read": "A faceless figure stands by 10 crates; the check card above her grows a little each beat, yet crates go dark one by one until 9 are lit.",
+   "span": [
+    0.2,
+    14.733
+   ]
+  },
+  "B03": {
+   "scene": "S03",
+   "muted_read": "A fixed line at 100 % is labelled 'what the first check bought'; Ruth's check line ends just under it.",
+   "span": [
+    28.7,
+    48.033
+   ]
+  },
+  "B04": {
+   "scene": "S04",
+   "muted_read": "One figure between two cards: a taller card with a flat line and a shorter card with a gently rising line; the gap between their starting heights is greyed with a '?' — not measured.",
+   "span": [
+    51.433,
+    77.967
+   ]
+  },
+  "B06": {
+   "scene": "S06",
+   "muted_read": "Two bars from the same base: the check's bar (`ink`) grows to +48.6 %, the price index bar (`accent`) grows past it to +64.3 %.",
+   "span": [
+    92.333,
+    117.167
+   ]
+  },
+  "B07": {
+   "scene": "S07",
+   "muted_read": "Back to the crate row: of 10 crates her first check bought, 9 stay lit today.",
+   "span": [
+    117.567,
+    129.6
+   ]
+  },
+  "B08": {
+   "scene": "S08",
+   "muted_read": "A second crate row under the taller card, labelled as the level check's own first check: only 6 of its 10 lit. A grey note: the two rows start from different check sizes.",
+   "span": [
+    130.0,
+    149.467
+   ]
+  },
+  "B09": {
+   "scene": "S09",
+   "muted_read": "Ruth's line walks left to right along the 100 % line, dipping under it three times early and coming back each time.",
+   "span": [
+    149.867,
+    163.1
+   ]
+  },
+  "B10": {
+   "scene": "S10",
+   "muted_read": "At year 15 the line is still a hair above the fixed line; one step later it drops clearly under it and stays under to the right edge.",
+   "span": [
+    163.5,
+    176.933
+   ]
+  },
+  "B12": {
+   "scene": "S12",
+   "muted_read": "A second, `ink-muted` line (the level check) falls fast and crosses the height where Ruth's line ends after only 5 years; '?' over the 20-year span.",
+   "span": [
+    185.7,
+    208.733
+   ]
+  },
+  "B13": {
+   "scene": "S13",
+   "muted_read": "Ruth's single chart shrinks into the last tile of a long grid; tiles fill left to right, one per starting month.",
+   "span": [
+    209.133,
+    241.5
+   ]
+  },
+  "B14": {
+   "scene": "S14",
+   "muted_read": "Almost every tile turns `warn`; a thin cluster of `cushion` tiles sits at the far left.",
+   "span": [
+    241.9,
+    248.167
+   ]
+  },
+  "B15": {
+   "scene": "S15",
+   "muted_read": "The zoom frame lands on the left cluster; everything to its right, up to Ruth's tile, is `warn`.",
+   "span": [
+    248.567,
+    259.4
+   ]
+  },
+  "B16": {
+   "scene": "S16",
+   "muted_read": "A median line across the tile heights sits at about four fifths of the 100 % line; beside it a crate row with 8 of 10 lit.",
+   "span": [
+    259.8,
+    277.2
+   ]
+  },
+  "B17": {
+   "scene": "S17",
+   "muted_read": "A second median line, `ink-muted`, sits near half; a small year marker at 8 on its fall.",
+   "span": [
+    277.6,
+    297.867
+   ]
+  },
+  "B19": {
+   "scene": "S19",
+   "muted_read": "The 1990s-start tiles light up as one block, every one `warn` but tall, the tallest just under the 100 % line; the 2000-to-2006 starts beside them, also `warn`; Ruth's tile at the end of the row.",
+   "span": [
+    298.267,
+    305.833
+   ]
+  },
+  "B21": {
+   "scene": "S21",
+   "muted_read": "The grid redraws with longer tiles; no `cushion` tile anywhere.",
+   "span": [
+    306.233,
+    310.367
+   ]
+  },
+  "B22": {
+   "scene": "S22",
+   "muted_read": "Two small grids beside the main one: the Social Security index grid looks nearly the same (a thin left cluster); the shorter PCE grid (from 1959) has more scattered `cushion` tiles but is still mostly `warn`.",
+   "span": [
+    310.767,
+    323.767
+   ]
+  },
+  "B24": {
+   "scene": "S24",
+   "muted_read": "A second faceless figure over the 1966 tile with his row of 10 crates; a year counter ticks 1 to 20 and the row dims a little at every tick, never brightening, until about 4 are lit; a small inset of Ruth's line dipping and recovering early sits beside it.",
+   "span": [
+    329.633,
+    362.7
+   ]
+  },
+  "B25": {
+   "scene": "S25",
+   "muted_read": "Carl's crate row: 10 crates, fewer than half lit; under the level card, fewer than a third.",
+   "span": [
+    363.1,
+    379.467
+   ]
+  },
+  "B27": {
+   "scene": "S27",
+   "muted_read": "A third figure over the last `cushion` tile; her crate row ends fully lit. Her 20-year bar and Carl's on one time axis overlap at the end of hers / start of his; the shared years are shaded.",
+   "span": [
+    388.067,
+    420.267
+   ]
+  },
+  "B29": {
+   "scene": "S29",
+   "muted_read": "Three figures side by side, each over a crate row: Edna all lit, Ruth 9 lit, Carl fewer than half; each labelled with a start month only.",
+   "span": [
+    435.433,
+    455.067
+   ]
+  },
+  "B30": {
+   "scene": "S30",
+   "muted_read": "A ladder of yearly raises; each rung's bar shows the share of stretches it kept up with; half is reached at 3.1, all only at the top rung (Carl's stretch).",
+   "span": [
+    455.467,
+    485.5
+   ]
+  },
+  "B32": {
+   "scene": "S32",
+   "muted_read": "Back to the opening frame: Ruth, her rising card, 9 of 10 crates lit; nothing drawn past August 2026.",
+   "span": [
+    516.967,
+    536.4
+   ]
+  }
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "answer": "1. The animation shows how inflation affects an income annuity. It compares a level check, which never changes, with a rising check that grows 2% a year. The example person is Ruth, and the data is US consumer prices (CPI-U).\n\n2. Ruth starts alone in frame 1, then gets two checks, one on each side, in frame 2. Frame 3 labels them: the level check \"never changes\" and the rising check is \"+2% a year\", with a \"?\" on the rising one. Frame 4 adds the note \"how much smaller: not modeled\". In frame 5 the whole scene shrinks, which suggests time passing. In frame 6 each check is shown next to a row of its own first check, so each is measured as buying power against its own starting check.\n\n3. A check that stays the same buys less each year as prices rise, so its real value shrinks. A rising check is meant to keep up better. The animation does not say how much smaller the level check gets. It is marked \"ILLUSTRATIVE\", and it says \"US only · history, not a forecast.\"\n\n4. The animation gives no direct advice. A viewer might take away that inflation erodes a fixed payment over time, and that this is worth weighing when choosing between a level and a rising payout. That is my reading of it, not something the animation says.\n\n5. The animation did not suggest this advice. It is my own conclusion. The animation only shows the comparison and says the size of the effect is not modeled or forecast.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3702,
+   "cache_read": 6313,
+   "output": 534,
+   "in": 10019,
+   "out": 534
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.020787299999999998
+}

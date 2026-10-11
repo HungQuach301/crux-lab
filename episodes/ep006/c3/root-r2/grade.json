@@ -1,0 +1,14 @@
+{
+ "answer": "```json\n{\n  \"R1\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Reads 9 of 10 crates lit today (90.4%). The advice is general: look past the first check and compare quotes.\"},\n  \"R2\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Reads Carl's row dimming to about 4 of 10 lit and Ruth's inset line recovering. The advice describes trade-offs and says to compare quotes.\"},\n  \"R3\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Reads Edna 10, Ruth about 9, Carl about 4. The advice says to check how the income adjusts and states that the video recommends nothing.\"},\n  \"R4\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Reads 9 of 10 crates lit (90.4%). The advice is descriptive and says to compare the real quotes.\"},\n  \"R5\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Reads Edna's row fully lit and the bars overlapping, with the shared years (her last, his first). The advice is general caution about inflation risk.\"},\n  \"R6\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Reads about 4 of 10 crates left for Carl and Ruth's inset recovering. The advice is to compare options over 20+ years, with no pick.\"},\n  \"R7\": {\"score\": 1, \"advice\": false, \"caution_only\": true, \"why\": \"Reads Edna's row fully lit and the overlapping 20-year bars. The advice is that a 2% escalator is not inflation protection, with no specific pick.\"},\n  \"R8\": {\"score\": 1, \"advice\": true, \"caution_only\": false, \"why\": \"Reads Edna full, Ruth about 9, Carl about 4. It says an inflation-adjusted or COLA option 'deserves serious weight', which steers toward a payout type.\"}\n}\n```",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 7656,
+   "cache_read": 1382,
+   "output": 2154,
+   "in": 9040,
+   "out": 2154
+  }
+ },
+ "turns": 1
+}

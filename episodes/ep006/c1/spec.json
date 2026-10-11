@@ -1,0 +1,44 @@
+{
+ "samples": {
+  "L1": "In August 2006, a retiree turning 65 chose the smaller annuity check that rises 2% a year over the bigger check that never changes, to keep up with prices. For 15 years, it did. We test that 2% raise against every 20-year stretch of US consumer prices since 1947 to see how often it actually kept its buying power, how much it usually kept, and why her stretch ended below where it started. History, not a forecast: it won't tell you which check to choose, and the price index is a national average, not any one retiree's shopping basket.",
+  "L2": "At 65, an annuity can pay you a bigger check that never changes, or a smaller check that rises 2% a year. Many people assume a 2% raise roughly keeps up with prices. We replay every 20-year stretch of US consumer prices since 1947 to measure how much buying power the rising check really kept: how often it kept up, in a typical stretch, and in the worst one. History, not a forecast: it won't tell you which check to pick or what inflation will do, and the price index is a national average, not any one retiree's basket."
+ },
+ "roles": {
+  "T": "You are an American aged 64, about to retire, looking at an income annuity quote that offers two payout options.",
+  "G": ""
+ },
+ "intro": "Below is the short description of an upcoming YouTube video. Read it once.",
+ "questions": [
+  "In 2-3 sentences, retell what this video will be about: who it is for, what decision it looks at, and how it will answer it.",
+  "What do you expect to know by the end? (one sentence)",
+  "Was anything confusing or hard to follow? Quote the exact words, or say \"nothing\".",
+  "Does it sound like the video will tell you which annuity check to choose, or predict future inflation? Answer yes or no, then why.",
+  "What advice, if any, would a viewer take from this?"
+ ],
+ "plan": [
+  [
+   "L1",
+   "T"
+  ],
+  [
+   "L1",
+   "T"
+  ],
+  [
+   "L1",
+   "G"
+  ],
+  [
+   "L2",
+   "T"
+  ],
+  [
+   "L2",
+   "T"
+  ],
+  [
+   "L2",
+   "G"
+  ]
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "answer": "1. The animation shows how rarely a fixed income has kept up with US consumer price inflation over 25-year stretches of history. It tests this with several inflation measures: CPI-U, CPI-W (the index Social Security uses), and PCE.\n\n2. In frame 1, a single CPI-U series runs from 1947 to August 2006, and the counter reads \"0 of 655 kept up.\" In frames 2 and 3, the count settles at 17 of 715 for CPI-U. A second CPI-W layer is added, with 21 of 715. In frames 4 to 6, a third layer for PCE (from 1959) is added, with 19.2% kept up and a typical figure of 88.0%. Teal highlights mark the few windows that did keep up. The frames also carry the labels \"ILLUSTRATIVE\" and \"US only · history, not a forecast.\"\n\n3. In almost every 25-year window, prices rose enough that a payment fixed at the start lost purchasing power. Only a small share of windows kept up: about 2% to 3% on CPI-U and CPI-W, and 19.2% on PCE. The PCE line also gives a \"typical 88.0%\". I read that as the typical share of purchasing power left, but the image doesn't spell it out.\n\n4. The animation gives no explicit advice. A viewer might take away that a flat, non-inflation-adjusted payout is likely to buy less over a long retirement. They might then weigh that against any option that adjusts for inflation.\n\n5. The conclusion in 4 is my own inference. The animation only presents the historical counts and says it is \"history, not a forecast.\" It doesn't tell the viewer what to do or which payout option to pick.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1396,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 206,
+   "in": 1396,
+   "out": 206
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3704,
+   "cache_read": 6106,
+   "output": 626,
+   "in": 9814,
+   "out": 626
+  }
+ },
+ "turns": 2
+}

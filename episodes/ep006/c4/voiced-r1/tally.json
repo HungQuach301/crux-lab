@@ -1,0 +1,103 @@
+{
+ "graders": 2,
+ "rows": {
+  "ctrl/AUX-ep005-S06": {
+   "readers": 3,
+   "meaning1": 3,
+   "old": 0,
+   "new": 0,
+   "inferred": 0,
+   "caution": 0,
+   "quotes": [],
+   "q5": [
+    "own",
+    "none",
+    "none"
+   ]
+  },
+  "ctrl/POS-S29": {
+   "readers": 3,
+   "meaning1": 3,
+   "old": 3,
+   "new": 3,
+   "inferred": 0,
+   "caution": 0,
+   "quotes": [
+    "The narration said this directly: \"So if you are choosing today, take the payout that is tied to inflation.\"",
+    "The narration said this directly: \"So if you are choosing today, take the payout that is tied to inflation.\"",
+    "The advice came from the video's narration, in its last line (\"So if you are choosing today, take the payout that is tied to inflation\")",
+    "The advice came from the video's narration, in its last line (\"So if you are choosing today, take the payout that is tied to inflation\").",
+    "The video itself suggested this, through its narration: \"So if you are choosing today, take the payout that is tied to inflation.\"",
+    "The video itself suggested this, through its narration: \"So if you are choosing today, take the payout that is tied to inflation.\""
+   ],
+   "q5": [
+    "video",
+    "video",
+    "video"
+   ]
+  },
+  "ctrl/NEG-S29": {
+   "readers": 3,
+   "meaning1": 3,
+   "old": 1,
+   "new": 0,
+   "inferred": 1,
+   "caution": 2,
+   "quotes": [
+    "The viewer could weigh that when comparing the two payout options.",
+    "The viewer could weigh that when comparing the two payout options.",
+    "that suggests asking whether each option adjusts for inflation",
+    "that suggests asking whether each option adjusts for inflation",
+    "it suggests asking whether each payout option adjusts for inflation",
+    "it suggests asking whether each payout option adjusts for inflation"
+   ],
+   "q5": [
+    "own",
+    "own",
+    "own"
+   ]
+  },
+  "ep006/WHOLE": {
+   "readers": 3,
+   "meaning1": 3,
+   "old": 3,
+   "new": 0,
+   "inferred": 3,
+   "caution": 0,
+   "quotes": [
+    "The takeaway is my own conclusion, not the video's.",
+    "A viewer could reasonably take away that a 2% raise should not be assumed to preserve buying power over 20 years.",
+    "A viewer could compare the raise with what prices have done, and with how much smaller the starting check is.",
+    "A viewer could compare the raise with what prices have done, and with how much smaller the starting check is.",
+    "Weigh the buying-power results against that dollar cost, with a professional if needed.",
+    "Weigh the buying-power results against that dollar cost, with a professional if needed."
+   ],
+   "q5": [
+    "own",
+    "own",
+    "own"
+   ]
+  },
+  "ep006/S29": {
+   "readers": 3,
+   "meaning1": 3,
+   "old": 2,
+   "new": 0,
+   "inferred": 2,
+   "caution": 2,
+   "quotes": [
+    "the lesson is to ask how a payment would hold up if prices rise faster than expected",
+    "the lesson is to ask how a payment would hold up if prices rise faster than expected",
+    "that would mean checking whether either option adjusts for inflation",
+    "that would mean checking whether either option adjusts for inflation",
+    "ask whether a payout that rises each year would protect you better than a flat one",
+    "Compare the two payout options with that in mind. For example, ask whether a payout that rises each year would protect you better than a flat one"
+   ],
+   "q5": [
+    "own",
+    "own",
+    "own"
+   ]
+  }
+ }
+}

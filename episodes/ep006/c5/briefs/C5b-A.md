@@ -1,0 +1,13 @@
+## Tập 6 · C5b lượt A (hợp đồng, sổ claim, gói) — làm trong /home/user/crux-lab, nhánh ep006, KHÔNG commit (phiên chính commit)
+Bối cảnh: checks đủ bộ trên cây C5 thật (`episodes/ep006/out/checks/run-c5/report.md` + `report.json`, chi tiết từng luật trong `details`) → Tập TRƯỢT. Luật CHẶN và CHÍNH phải sửa trước G2 (`playbook/prompts/P3.md` việc 2; `CHARTER.md`; không sửa `checks/`, không sửa `toolkit/`). Tập 5 đã qua đúng loại lỗi này: đọc `git show 3a4f8f4 -- episodes/ep005` (contract.json, out/package, thumbs.js, rights, shorts) và `git show 4380b1a -- episodes/ep005` (sổ claim S07/S08, S17), `episodes/ep005/contract.json`, `episodes/ep005/out/explanations.json`, `checks/README.md` (định nghĩa luật). Lượt B song song sửa `episodes/ep006/world/c4/*/scene.js` — bạn KHÔNG sửa scene.js/spine.py.
+
+Việc của bạn (mỗi luật: sửa đúng nguồn, không lách đo):
+1. **S03, S04** (CHẶN, MISSING): `contract.json` `data.sources`, `data.hosts`, `data.crosscheck` theo dữ liệu thật của Tập 6 (`episodes/ep006/data/`, `fetch.py`).
+2. **T1** `sonification.bandsHz` từ sự kiện âm dữ liệu thật (như Tập 5 `_about`); **SH01–SH05** `contract.json shorts` → `out/shorts/SH{1,2,3}.mp4` (phiên chính dựng lại Shorts và chép vào đó; móc mới ở `episode.yaml shorts`); `artefacts`, `rights`, `pending` nếu luật cần (xem F11/F12 trong README, Tập 5).
+3. **S07** (36 số trong lời chưa đăng ký) và **S12** nếu cùng gốc: đăng ký claim hằng/dẫn xuất/trục theo cách Tập 5 (4380b1a), có công thức + nguồn; không sửa lời.
+4. **S17** (31 claim liệt kê chưa gắn cờ điều kiện `history-not-forecast`): gắn cờ đúng chỗ khai.
+5. **F10, S21, F11 (phần out/package)**: `out/package/description.md` (chương ≥ 3, đầu 0:00, mỗi chương ≥ 10 s, mọi số trong mô tả đều là claim), `package.json`, 3 thumbnail `thumb-{1,2,3}.png` + `.json` dựng bằng `episodes/ep006/design/g2/thumbs.js` (theo mẫu Tập 5; số trên ảnh = claim; qua claim-risk; không khuyên). Tiêu đề lấy `episode.yaml`.
+6. `out/explanations.json` cho luật CHÍNH còn lại SAU khi lượt B sửa (V03, V11, C05): chỉ viết giải thích khi đo là dương tính giả có số đo (như Tập 5 A22); để trống nếu chưa chắc — phiên chính quyết sau checks lại.
+Kiểm: chạy `KEEP=1 PYONLY=1 bash episodes/ep006/c5/checks_split.sh /home/user/chk-c5 --first` (chỉ luật Python, ≈ vài phút; dùng page.json cũ nên luật trang chưa phản ánh sửa của lượt B) và đọc `/home/user/chk-c5/episodes/ep006/out/checks/report.md`. Được chạy nhiều lần.
+Không: render video, `build.sh`, sửa lời/spine, sửa `checks/`/`toolkit/`, lệnh mạng.
+Trả về ≤ 15 dòng: mỗi luật (S03 S04 S07 S10? S17 F10 F11 S21 SH01–05 T1) trạng thái sau kiểm PYONLY; tệp đổi; việc còn cho phiên chính.

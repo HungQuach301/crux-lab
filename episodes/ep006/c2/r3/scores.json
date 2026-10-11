@@ -1,0 +1,68 @@
+[
+ {
+  "file": "007216cb",
+  "sample": "v3",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": true,
+  "block": "nhân vật",
+  "where": "Ruth took her first rising check in August 2006",
+  "why": "Đúng câu hỏi và đáp án (17/715, 80,7 %, Ruth 94,5 %). Câu 6 có hành động: hỏi công ty bảo hiểm khoản tăng khởi đầu nhỏ hơn bao nhiêu."
+ },
+ {
+  "file": "38521c35",
+  "sample": "v3",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": true,
+  "block": "phương pháp",
+  "where": "The 715 stretches overlap, so they're not 715 separate tests",
+  "why": "Đúng câu hỏi và đáp án (17/715, 80,7 %, Ruth 94,5 %). Câu 6 có hành động: hỏi chênh lệch khoản khởi đầu rồi so với kết quả sức mua."
+ },
+ {
+  "file": "89a2dddc",
+  "sample": "v3",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "block": "phương pháp",
+  "where": "The 715 stretches overlap, so they're not 715 separate tests",
+  "why": "Đúng câu hỏi và đáp án (17/715, 80,7 %, Ruth 94,5 %). Câu 6 nói rõ không có lời khuyên, chỉ nêu điều người xem rút ra."
+ },
+ {
+  "file": "8c560eac",
+  "sample": "v3",
+  "role": "G",
+  "model": "sonnet",
+  "score": 1,
+  "advice": true,
+  "block": "phương pháp",
+  "where": "The 715 stretches overlap, so they're not 715 separate tests",
+  "why": "Đúng câu hỏi và đáp án (17/715, 80,7 %, Ruth ~9/10). Câu 6 có 'should weigh' khoản khởi đầu và các nguồn bảo vệ lạm phát khác, nên tính là hành động."
+ },
+ {
+  "file": "c65d3523",
+  "sample": "v3",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": true,
+  "block": "khác",
+  "where": "repeated disclaimers: 'doesn't say which check, or which raise, to choose'",
+  "why": "Đúng câu hỏi và đáp án (17/715, 80,7 %, Ruth 94,5 %). Câu 6 có hành động: hỏi công ty bảo hiểm khoản khởi đầu và chi phí lựa chọn gắn lạm phát."
+ },
+ {
+  "file": "f16ebc24",
+  "sample": "v3",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": true,
+  "block": "khác",
+  "where": "This is US only, and it's history, not a forecast",
+  "why": "Đúng câu hỏi và đáp án (17/715, 80,7 %, mất ít hơn khoản đều). Câu 6 nói cần hỏi công ty bảo hiểm khoản khởi đầu nhỏ hơn bao nhiêu, tính là hành động."
+ }
+]

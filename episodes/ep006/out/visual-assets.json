@@ -1,0 +1,22 @@
+{
+ "assets": [
+  {
+   "name": "Inter",
+   "kind": "font",
+   "family": "Inter",
+   "paths": [
+    "../../toolkit/render/fonts/inter-latin-*.woff2"
+   ]
+  },
+  {
+   "name": "3D world objects drawn by code (lib3d.js W1\u2013W10, c4kit.js)",
+   "kind": "model3d"
+  }
+ ],
+ "generated": [
+  {
+   "glob": "world/grid.json",
+   "generator": "world/derive.py"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "answer": "1. **Idea:** The same 2% raise buys different amounts depending on when you start, because prices over the next 20 years differ by starting period. Three illustrative people each get the same raise. Edna starts in Jan 1949, Ruth in Aug 2006, and Carl in Jan 1966. Each person's income is shown as a row of crates, meaning what the income buys.\n\n2. **What changes over time:** Prices (US CPI-U) rise over the 20 years while each person's pay rises 2% a year. The crate rows shrink or stay full depending on how fast prices climbed against that raise. In the first frames Ruth's and Carl's rows start out similar, and Carl's later fades. By year 20, Edna's row is still full at 10 crates, Ruth's is at about 9, and Carl's is at about 4.\n\n3. **What it means:** A fixed raise doesn't guarantee your purchasing power holds up. The result depends on what prices do after you start, and that varies a lot between starting periods. Edna's raise kept up with prices, Ruth's fell a little short late, and Carl's lost most of its buying power. The video notes this is US-only, labeled illustrative, and is history, not a forecast.\n\n4. **Advice for a viewer:** The video gives no direct advice. A viewer might take away that a payout or raise that stays the same or rises by a set percentage can lose value if prices rise faster. That is my reading, not something the video states. For this annuity decision, it suggests asking whether each payout option adjusts for inflation. The video doesn't say which option to pick.\n\n5. **Source:** The video showed the comparison through the picture, the on-screen text (\"same 2% raise,\" \"history, not a forecast\") and the narration. It did not suggest the annuity takeaway in 4. That is my own conclusion, drawn from the idea of purchasing power.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1554,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 465,
+   "in": 1554,
+   "out": 465
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3864,
+   "cache_read": 6264,
+   "output": 687,
+   "in": 10132,
+   "out": 687
+  }
+ },
+ "turns": 2
+}

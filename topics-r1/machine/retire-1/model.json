@@ -1,0 +1,148 @@
+{
+ "kind": null,
+ "kindStatus": "new",
+ "params": {
+  "index": {
+   "file": "data/CPIAUCNS.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "CPIAUCNS"
+  },
+  "raise": 0.02,
+  "horizonsYears": [
+   20,
+   25
+  ],
+  "firstStart": "1947-01-01"
+ },
+ "quantities": [
+  {
+   "name": "windows_20y",
+   "meaning": "number of overlapping 20-year windows (start 1947-01..2006-08, both CPI values present)",
+   "unit": "windows",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.windows_20y"
+  },
+  {
+   "name": "first_start_20y",
+   "meaning": "first start month of a 20-year window",
+   "unit": "month",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.first_start_20y"
+  },
+  {
+   "name": "last_start_20y",
+   "meaning": "last start month of a 20-year window",
+   "unit": "month",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.last_start_20y"
+  },
+  {
+   "name": "windows_2pct_kept_up_20y",
+   "meaning": "20-year windows where 1.02^20 >= CPI(e)/CPI(s)",
+   "unit": "windows",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.windows_2pct_kept_up_20y"
+  },
+  {
+   "name": "share_2pct_kept_up_20y_pct",
+   "meaning": "percent of 20-year windows where the 2% check kept its buying power",
+   "unit": "percent",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.share_2pct_kept_up_20y_pct"
+  },
+  {
+   "name": "kept_up_first_start_20y",
+   "meaning": "first start month of a kept-up window",
+   "unit": "month",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.kept_up_first_start_20y"
+  },
+  {
+   "name": "kept_up_last_start_20y",
+   "meaning": "last start month of a kept-up window",
+   "unit": "month",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.kept_up_last_start_20y"
+  },
+  {
+   "name": "windows_25y",
+   "meaning": "number of 25-year windows",
+   "unit": "windows",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.windows_25y"
+  },
+  {
+   "name": "share_2pct_kept_up_25y_pct",
+   "meaning": "percent of 25-year windows where 1.02^25 >= P",
+   "unit": "percent",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.share_2pct_kept_up_25y_pct"
+  },
+  {
+   "name": "median_inflation_20y_pct_per_year",
+   "meaning": "median annualized CPI inflation over 20-year windows",
+   "unit": "percent per year",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.median_inflation_20y_pct_per_year"
+  },
+  {
+   "name": "median_real_value_2pct_payment_after_20y_pct",
+   "meaning": "median buying power of the 2% check after 20 raises, % of its first check",
+   "unit": "percent",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.median_real_value_2pct_payment_after_20y_pct"
+  },
+  {
+   "name": "median_real_value_level_payment_after_20y_pct",
+   "meaning": "median buying power of a level check after 20 years",
+   "unit": "percent",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.median_real_value_level_payment_after_20y_pct"
+  },
+  {
+   "name": "worst_real_value_2pct_payment_after_20y_pct",
+   "meaning": "lowest buying power of the 2% check after 20 years",
+   "unit": "percent",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.worst_real_value_2pct_payment_after_20y_pct"
+  },
+  {
+   "name": "worst_window_start_year_20y",
+   "meaning": "start year of that worst window",
+   "unit": "year",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.worst_window_start_year_20y"
+  },
+  {
+   "name": "latest_start",
+   "meaning": "start of the latest complete 20-year window",
+   "unit": "month",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.latest_start"
+  },
+  {
+   "name": "latest_end",
+   "meaning": "end of the latest complete 20-year window",
+   "unit": "month",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.latest_end"
+  },
+  {
+   "name": "latest_window_real_value_2pct_payment_pct",
+   "meaning": "buying power of the 2% check in the latest window",
+   "unit": "percent",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.latest_window_real_value_2pct_payment_pct"
+  },
+  {
+   "name": "latest_window_real_value_level_payment_pct",
+   "meaning": "buying power of a level check in the latest window",
+   "unit": "percent",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.latest_window_real_value_level_payment_pct"
+  },
+  {
+   "name": "by_decade",
+   "meaning": "per start decade: windows, kept-up count, median/min/max 2% buying power, median inflation",
+   "unit": "object",
+   "from": "result.json → numbers / episodes/ep006/out/model.json raw.by_decade"
+  }
+ ],
+ "noExistingKind": {
+  "lock-vs-roll-replay": "compounds a RATE series (1 + R·p/1200); here the input is a price INDEX level ratio, and the fixed side grows on anniversaries, not a constant multiple compared once",
+  "fixed-cap-vs-index-growth": "quarterly series, a fixed nominal cap vs gain over one buy year; no rolling windows, no fixed growth rate",
+  "retirement-6040": "annual stock/bond/inflation returns with withdrawals; no monthly CPI windows",
+  "float-vs-fixed-replay": "loan interest on a rate index",
+  "refinance-breakeven": "loan breakeven",
+  "ltv-first-passage": "loan-to-value first passage"
+ },
+ "newKindNeeds": {
+  "inputs": "one monthly price index CSV (date, value; blank or \".\" = missing, not 0): CPIAUCNS primary; optional robust indexes (CWUR0000SA0, PCEPI) with the same layout",
+  "computation": "for every start month s >= firstStart and each horizon H (years) with I(s) and I(s+12H) present: P = I(s+12H)/I(s); fixed-raise growth G = (1+raise)^H; kept = G >= P; real fixed-raise check = 100·G/P; real level check = 100/P; annualized inflation = 100(P^(1/H) − 1); per-anniversary path for a named start month: 100·(1+raise)^k / (I(s+12k)/I(s)), k = 0..H",
+  "outputs": "nWindows, first/last start, kept count and share, kept first/last start, median/min/max annualized inflation, median/worst/best real value of fixed-raise and level checks (+ start of worst/best; earliest on ties), shares >= bands (90, 75), latest window values, by start decade (n, kept, median/min/max real, median inflation), raise grid shares, raise needed for half/all windows, guide path and its derived keys, the same headline keys on each robust index",
+  "invariants": "kept share in [0,100]; real fixed-raise > real level in every window when raise > 0; doubling the index leaves every output unchanged; kept count non-decreasing in raise; raise_needed_half = median inflation; raise_needed_all = max inflation and every window kept at that raise; windows skipping a blank month are excluded (2025-10 → start 2005-10 for H=20, 2000-10 for H=25)",
+  "dataNow": "CPIAUCNS last observation 2026-08-01 (pinned coed=2026-08-01, SHA f79e3a78…; September 2026 CPI not released on 2026-10-08)"
+ }
+}

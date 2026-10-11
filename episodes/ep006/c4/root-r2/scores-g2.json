@@ -1,0 +1,42 @@
+{
+ "R11": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "It is my own conclusion, drawn from the retirement-income setting you described.",
+  "why": "Correct idea: first-check line, Ruth's line ends just below; advice self-inferred."
+ },
+ "R12": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own conclusion.",
+  "why": "Level line falls below by year 5, but misreads Ruth's line and '?' meaning."
+ },
+ "R13": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Level falls by year 5 and '?' noted, but Ruth's line crossing not captured."
+ },
+ "R14": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Anything stronger would be my own conclusion.",
+  "why": "Two checks and 'not modeled' gap captured, but not taller/shorter starting heights."
+ },
+ "R15": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The animation did not suggest that advice. The comparison to weigh over a long retirement is my own reading.",
+  "why": "Two cards and '?' not modeled captured; starting-height gap not stated."
+ }
+}
