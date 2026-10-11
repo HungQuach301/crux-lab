@@ -2737,6 +2737,27 @@ EXTRA.update({'SH06': sh06_case, 'SH06/px': sh06_px_case})
 
 
 # ---- K4.2b (A31 2b): S14 / S15 for deep ---------------------------------------------------------------------------------------------------------------
+def s14_fixture(name, fmt, breaks):
+    f = F(name)
+    try:
+        x = programme(900, levels=(-20,)) * 0.5
+        for a in (300, 450, 600):
+            x[int(a * SR):int((a + 1.3) * SR)] = 0
+        master_fixture(f, x)
+        f.json('out/timeline.json', {'total': 900, 'acts': [{'id': 'act1', 'start': 0, 'end': 300.0}, {'id': 'act2', 'start': 300.0, 'end': 450.0},
+                                                            {'id': 'act3', 'start': 450.0, 'end': 600.0}, {'id': 'method', 'start': 600.0, 'end': 900}], 'scenes': []})
+        f.contract(format=fmt)
+        f.json('out/adbreaks.json', {'breaks': breaks})
+        return f.run('S14')
+    finally:
+        f.close()
+
+
+def s14_lab_gap_case(bad):
+    """S14 lab (K4.2b): the ≥ 180 s spacing is for deep only — two lab breaks 150 s apart (300.1, 450.1) still pass; bad = three breaks (lab wants 2)."""
+    return s14_fixture('S14-lab-gap', 'lab', [300.1, 450.1, 600.1] if bad else [300.1, 450.1])
+
+
 def s14_deep_case(bad):
     """S14 deep: 2–3 breaks, consecutive ≥ 180 s apart, each at an act boundary in silence, ≥ 120 s from the ends (900 s programme, acts at 300/450/600).
     bad = breaks at 300.1 and 450.1 (150 s apart); good = 300.1 and 600.1 (300 s apart)."""
@@ -2771,7 +2792,7 @@ def s15_deep_case(bad):
         f.close()
 
 
-EXTRA.update({'S14/deep': s14_deep_case, 'S15/deep': s15_deep_case})
+EXTRA.update({'S14/deep': s14_deep_case, 'S14/lab-gap': s14_lab_gap_case, 'S15/deep': s15_deep_case})
 
 def main():
     only = set(sys.argv[sys.argv.index('--only') + 1].split(',')) if '--only' in sys.argv else None

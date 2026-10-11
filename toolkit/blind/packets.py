@@ -16,14 +16,14 @@ Bốn lệnh, đúng thứ tự một lượt kiểm:
 
 Luật (ghi trong ý đồ trước khi chạy; mặc định khớp quality-framework v2):
   * Một người đọc "đúng" khi score == 1 VÀ không có câu khuyên. 0,5 ghi lại để tham khảo, tính là "không đúng".
-  * Câu khuyên (K4.1, checks-appeal A9 + A21 — chủ dự án duyệt 08/10 dạng CHẠY THỬ ở C4 Tập 6; cổng giữ rubric cũ tới khi chạy thử đạt): ba cờ, người chấm trích câu người đọc làm căn cứ (`quote`).
+  * Câu khuyên (K4.1, checks-appeal A9 + A21 — chủ dự án duyệt 08/10 dạng CHẠY THỬ ở C4 Tập 6; từ K4.2b (A28, chủ dự án 11/10 câu 1a) cổng mặc định rubric mới): ba cờ, người chấm trích câu người đọc làm căn cứ (`quote`).
       advice_stated   — video (hình, chữ trên hình, lời) NÊU hoặc ngụ ý một hành động tài chính: mua / bán / giữ / chờ / khoá / chọn hay tránh
                         một sản phẩm. TÍNH: nhịp có ≥ 1 advice_stated → TRƯỢT ngay.
       advice_inferred — người đọc TỰ SUY hành động từ dữ liệu khi bị hỏi câu 4 (và/hoặc câu 5 nói là kết luận của mình, hoặc ghi
                         "the video doesn't state …"). BÁO, không chặn; đếm ở bảng.
       caution_only    — chỉ thận trọng chung (tự kiểm số của mình, hỏi chuyên gia / bên cho vay / chuyên gia thuế / công ty bảo hiểm, hỏi báo giá). Không tính (A9; chủ dự án 08/10: hỏi bảo hiểm / báo giá = caution_only).
       Áp dụng (chủ dự án 08/10, gói K4.1 câu 3): CHẠY THỬ ở C4 Tập 6 — kiểm mù bản có lời, chấm song song rubric cũ (`advice`) và mới, 2 người chấm, thêm
-      đối chứng hình thật; lệch giữa hai rubric thì giữ rubric cũ cho cổng.
+      đối chứng hình thật. Từ K4.2b (A28, 1a): mặc định `new` (câu khuyên = advice_stated); lệch → cổng theo rubric đã chọn, rubric kia chỉ báo.
   * Dừng sớm: 2 người đầu cùng kết quả → xong (2/2 đạt, 0/2 trượt); lệch → gọi người thứ 3; đạt khi ≥ 2/3 đúng.
   * Cổng: tỉ lệ nhịp "image" của bộ ứng viên đạt ≥ --threshold. Nhịp "illustration" và bộ đối chứng chỉ báo cáo.
 
