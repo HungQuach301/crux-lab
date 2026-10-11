@@ -144,13 +144,13 @@ export async function boot(res) {
       log.roi['c1.level'] = [RL.x0 - 10, RL.yt - 20, RL.x1 + 10, RL.yb + 10]; log.roi['c1.twenty'] = [RL.x0 - 10, RL.yb + 20, RL.x1 + 10, RL.yb + 100];
       log.roi['c2.half'] = [RC.x0, RC.yt - 90, RL.x1, RL.yb + 10];
       // S26: dải nhỏ 715 quãng (đầu khung), thập niên 1960 sáng, thanh của Carl màu Carl
-      const sA = ok * show(t, b.c3.sixties, M.m_w27.t0);
+      const sA = ok * show(t, b.c3.alone, M.m_w27.t0);   // F-14 (a): "He wasn't alone": dải 715 quãng hiện ở "alone", thập niên 1960 sáng ở "1960s"
       if (sA > 0.01) {
         const c = O.ctx, x0 = 240, x1 = 1680, pw = (x1 - x0) / starts.length, base = 420, hS = 1.3;
         c.save(); c.globalAlpha = sA;
         // F-14 (a) "began in the 1960s": đầu đi qua các tháng bắt đầu 1960 → 1969 (S.life.sixties), tháng đang qua sáng ink
         const SX = S.life.sixties.keys, i60 = starts.indexOf('1960-01'), i70 = starts.indexOf('1970-01'), pS = i60 + (i70 - i60) * lin(t, SX[0][0], SX[1][0]);
-        v20.forEach((v, i) => { const s60 = starts[i] >= '1960' && starts[i] < '1970', near = s60 && t > SX[0][0] && Math.abs(i - pS) < 6;
+        v20.forEach((v, i) => { const s60 = t >= b.c3.sixties && starts[i] >= '1960' && starts[i] < '1970', near = s60 && t > SX[0][0] && Math.abs(i - pS) < 6;
           c.fillStyle = i === iC ? CHAR.carl : near ? C.ink : s60 ? C.warn : rgba(C.muted, 0.28); c.fillRect(x0 + i * pw, base - v * hS, Math.max(1, pw - 0.5), v * hS); });
         c.restore(); seg2(O, x0, base - 100 * hS, x1, base - 100 * hS, C.muted, sA, 2);
         // R2: số hiện ĐÚNG "forty-four" (trước: sớm 0,7 s); phần chữ hiện ở "1960s" — hai mảnh cạnh nhau, mỗi mảnh ≥ 1 s / 3 từ trước cú về thế giới
@@ -184,7 +184,7 @@ export async function boot(res) {
         if (sA > 0.01) { c.globalAlpha = sA; c.fillStyle = rgba(C.accent, 0.45); c.fillRect(yr(c0), AX.eY - 12, yr(e0 + 20) - yr(c0), AX.cY + AX.h - AX.eY + 24);
         const YS = S.life.sameyears.keys, ys = lin(t, YS[0][0], YS[1][0]);   // F-14 (a) "the same few years of prices": vạch đi qua 1966 → 1969
         if (t > YS[0][0]) { c.globalAlpha = sA * 0.9; c.fillStyle = C.ink; c.fillRect(mix(yr(c0), yr(e0 + 20), ys) - 2, AX.eY - 12, 4, AX.cY + AX.h - AX.eY + 24);
-          c.globalAlpha = sA * 0.55; c.fillRect(yr(c0), AX.eY - 12, (yr(e0 + 20) - yr(c0)) * ys, AX.cY + AX.h - AX.eY + 24); } }   // phần đã qua tô thêm (tích luỹ)
+          c.globalAlpha = sA * 0.85; c.fillRect(yr(c0), AX.eY - 12, (yr(e0 + 20) - yr(c0)) * ys, AX.cY + AX.h - AX.eY + 24); } }   // phần đã qua tô thêm (tích luỹ)
         c.globalAlpha = bA; c.fillStyle = CHAR.edna; if (eW > 0) c.fillRect(yr(e0), AX.eY, (yr(e0 + 20) - yr(e0)) * eW, AX.h);
         c.fillStyle = CHAR.carl; if (cWd > 0) c.fillRect(yr(c0), AX.cY, (yr(c0 + 20) - yr(c0)) * cWd, AX.h);
         c.restore();
@@ -231,6 +231,9 @@ export async function boot(res) {
     }
     { const RK = S.life.ruth9.keys, EK = S.life.edna10.keys, wA = 1 - cw;   // F-14 (a): dải đếm thùng (thế giới, tích luỹ)
       if (t > RK[0][0] && t < M.m_pan24.t0) countBand(O, cols.ruth.row, 9 * lin(t, RK[0][0], RK[1][0]), CHAR.ruth, wA * 0.25 * aR);
+      { const CF = S.life.carlfirst.keys, RF = S.life.ruth85.keys;
+        if (t > CF[0][0] && t < CF[1][0] + 1.2) countBand(O, cols.carl.row, 10 * lin(t, CF[0][0], CF[1][0]), C.ink, ok * 0.22 * (1 - ease(t, CF[1][0] + 0.6, CF[1][0] + 1.2)));
+        if (t > RF[0][0] && t < RF[1][0] + 1.2) countBand(O, cols.ruth.row, RF[1][1] * lin(t, RF[0][0], RF[1][0]), CHAR.ruth, ok * 0.25 * (1 - ease(t, RF[1][0] + 0.6, RF[1][0] + 1.2))); }
       if (t > EK[0][0] && t < M.m_c27.t0) countBand(O, cols.edna.row, 10 * lin(t, EK[0][0], EK[1][0]), CHAR.edna, wA * 0.25 * aE); }
     const cwA = show(t, at(S, 'e2.history', b.e2.history), M.m_w29.t1 + 0.65);   // F-14 (c): neo vào "history" (R07 −0,60 s), vẫn ≥ 3 s
     chrome(O, 1, cwA > 0.01 ? L['e2.history'] : null, cwA);

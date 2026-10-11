@@ -110,6 +110,8 @@ export async function boot(res) {
     log.roi['d8.ruths'] = [1600, 200, 1800, 360];
     for (const CK of [S.life.count10.keys, S.life.count16.keys]) if (t > CK[0][0] && t < CK[1][0] + 1.2)   // F-14 (a): dải đếm thùng (tích luỹ)
       countBand(O, row, CK[1][1] * lin(t, CK[0][0], CK[1][0]), C.cushion, ok * 0.28 * (1 - ease(t, CK[1][0] + 0.6, CK[1][0] + 1.2)));
+    { const LK = S.life.level5.keys; if (t > LK[0][0] && t < LK[1][0] + 1.2)   // S12.2 "about 9 in 10": đếm 9 thùng còn sáng của séc đều
+      countBand(O, row, 9 * lin(t, LK[0][0], LK[1][0]), C.muted, ok * 0.3 * (1 - ease(t, LK[1][0] + 0.6, LK[1][0] + 1.2))); }
     chrome(O, 1);
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }

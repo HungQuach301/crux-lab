@@ -115,6 +115,10 @@ export async function boot(res) {
       xs.forEach((x, j) => { const s = String([1966, 1986][j]), a = tk * inF(x, s); seg2(O, x, fy + 6, x, fy + 18, C.muted, a, 3); label(O, s, x, fy + 64, { align: 'center', kind: 'number', px: 48, alpha: a }); });
       // C5b (S10): "start month" bị đọc là câu mệnh lệnh ("start …") — đổi chữ, cùng nghĩa, cùng chữ lời S27.1 ("the last starting month")
       const xm = (xs[0] + xs[1]) / 2; label(O, 'starting month', xm, fy + 64, { align: 'center', kind: 'name', px: 48, w: 600, color: C.muted, alpha: tk * inF(xm, 'starting month') }); }
+    { const AK = S.life.atleast.keys, ap = lin(t, AK[0][0], AK[1][0]), [, yz] = O.toScreen(0, UNIT * 1.15, 0.3), aA = ok * wide * show(t, AK[0][0], b.e4.kept);
+      if (ap > 0 && aA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = 0.16 * aA; c.fillStyle = C.cushion; c.fillRect(fx0, yz, (fx1 - fx0) * ap, ly - yz); c.restore(); } }   // F-14 (a) "at least"
+    { const [, y100] = O.toScreen(0, UNIT, 0.3), [, ym] = O.toScreen(0, UNIT * yR / 100, 0.3), mA = ok * (t >= b.e9.t0 && t < b.f0.crates ? 1 : 0);   // F-14 (a): phần mất của séc tăng điển hình (100 % → trung vị) tô dần
+      if (mA > 0 && ym > y100) { const c = O.ctx; c.save(); c.globalAlpha = 0.14; c.fillStyle = C.warn; c.fillRect(fx0, y100, fx1 - fx0, ym - y100); c.restore(); } }
     log.roi['e3.tile'] = (() => { const [x, y] = top(300, v20[300]); return [x - 30, y - 30, x + 30, fy]; })(); log.roi['e2.least'] = [fx0, ly - 20, fx1, ly + 20];
     // S14: phán + 17 of 715 + 1 in 42 (trên cụm trái)
     label(O, L['e4.seventeen'], 960, 236, { align: 'center', kind: 'number', px: 56, color: C.cushion, alpha: ok * show(t, b.e4.seventeen, MV.m_push15.t1 + 0.3) });

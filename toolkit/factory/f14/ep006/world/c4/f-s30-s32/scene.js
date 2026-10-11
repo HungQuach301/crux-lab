@@ -91,7 +91,7 @@ export async function boot(res) {
     }
     // S31 giới hạn
     label(O, L['h0.national'], 960, 236, { align: 'center', kind: 'name', px: 52, w: 600, alpha: ok * show(t, at(S, 'h0.national', b.h0.national), MV.m_pan31b.t0) });
-  { const wA = ok * show(t, b.h0.health, MV.m_pan31b.t0) * rowA;   // tên hai thùng (không số), đúng "health"
+  { const wA = ok * show(t, b.h0.health, b.h1.overlap - 0.3) * rowA;   // tắt trước nhãn "overlapping stretches" (không đè chữ)   // tên hai thùng (không số), đúng "health"
     if (wA > 0.01) { const cr = row.userData.crates, top = row.userData.height;
       for (const [j, txt] of [[2, L['h0.health']], [7, 'housing']]) { const [x, y] = O.toScreen(row.crateX(j), top * 1.6 + 0.12, 0.2);
         label(O, txt, x, y - 20, { align: 'center', kind: 'name', px: 48, w: 600, color: C.accent, alpha: wA }); }

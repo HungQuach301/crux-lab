@@ -77,7 +77,7 @@ K.finish(HERE, S, 'ep006 C4 · C = S09–S12 (Hồi 1: năm theo năm, cú rơi,
          life={'count10': {'what': 'S10.1 "still bought a little more than her first one": hàng nhỏ đếm 10 thùng sáng (1 → 10) từ "August" tới "more"',
                            'keys': [[cue['d2']['august'], 0], [cue['d2']['more'], 10]]},
                'count16': {'what': 'S11.1 "By August 2022 … 94.5 percent": hàng nhỏ về năm 16 (0,945) rồi đếm thùng sáng từ "August" tới "ninety-four"',
-                           'keys': [[cue['d4']['august'], 0], [cue['d4']['ninety'], 9.45]]},
+                           'keys': [[cue['d4']['august'], 0], [S.at('@S11.1$'), 9.45]]},
                'level5': {'what': 'S12.2 "By year 5 … about 9 in 10": hàng nhỏ theo séc đều năm 0 → 5 từ "five" tới hết câu', 'keys': [[cue['d6']['five'], 0], [S.at('@S12.2$'), 5]]},
                'rise20': {'what': 'S12.3 "Her rising check stands there now, after 20 years": hàng nhỏ theo séc tăng năm 0 → 20 từ "rising" tới "twenty"',
                           'keys': [[cue['d7']['rising'], 0], [cue['d7']['twenty'], 20]]}})
