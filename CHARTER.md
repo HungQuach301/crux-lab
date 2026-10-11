@@ -41,7 +41,7 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
 |---|---|---|
 | **G1** | Sau C2 | Đề tài, logline, kịch bản (cấu trúc, cold open, móc), tiêu đề nháp. Được duyệt theo lô cả mùa (đề tài + logline) |
 | (C3) | Khi tập có hình mới (ký hiệu, vật thể, hero object, mẫu chuyển cảnh) | Hình mới — xem clip có chuyển động và âm |
-| **G2** | = C6 | Bản cuối, tiêu đề/thumbnail, Shorts |
+| **G2** | = C6 | Bản cuối, Shorts. Gói phát hành (tiêu đề, mô tả, thumbnail, tag): chủ dự án làm trên ChatGPT ở P4 theo brief, phiên kiểm đầu ra (D-012 câu 3) |
 | **G3** | Phát hành | Đăng |
 
 - **Các cổng còn lại là TỰ ĐỘNG:** ngưỡng ghi trước, tối đa 2 vòng, nhánh dự phòng đặt sẵn, báo qua issue, không chờ.

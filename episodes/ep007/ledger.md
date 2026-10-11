@@ -20,3 +20,4 @@
 | 2026-10-11 | G1 | tiêu đề | `blind.py` 3 người đọc | `c1/titles/r1/` | ≈ 15 nghìn | T2 3/3 |
 | 2026-10-11 | việc treo | thị trường | discover/pull/classify/analyze/report (Haiku/Sonnet Console, YouTube ≈ 7.300 đv) | q01, q17, `market/REPORT.md` §4 (cherry-pick main 4e72338) | — | `analyze.all_videos` lọc kênh Crux; q17 khoảng trống vừa → cao; §4 ~15 phút (11–18) vs ~12 |
 | 2026-10-11 | G1 | REVIEWER | `briefs/reviewer-g1.md` (Opus) | `gates/REVIEW-G1.md` | xem tệp | ĐẠT có sửa: 6 CHÍNH → áp |
+| 2026-10-11 | G1 trả lời | điều phối | P2: verify.sh ep007; merge `origin/main` (2 commit) vào ep007; chép câu trả lời | `gates/G1-answer.md`, `taste-ledger.md`, `AUTHORSHIP.md`, CHARTER §5 dòng G2 | — | áp G1: #13 L1 · (a) kiểm mù vòng 3 rubric MỚI · mốc ngày thay "this week" · T2 · N1 duyệt |
