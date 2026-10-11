@@ -69,10 +69,12 @@ export async function boot(res) {
     const fT = show(t, b.e8.typical, b.e9.eighty + 1.2), medV = S.med.rising;
     const ml = ease(t, b.f1.level, b.f1.level + 1.6) * (1 - ease(t, MV.m_push19.t0, MV.m_push19.t1));
     const hR = Math.max(pulse(t, b.e1.ruths, 1.4), pulse(t, tRuth15, 1.6), hiP);
+    const dimS = 1 - 0.6 * show(t, b.f7.start);   // v4 (R07 f7.start): cả tường tối xuống ĐÚNG "start", ba tháng bắt đầu sáng (không tên)
     strip.set({
-      grow, verdict, morph: ml > 0.001 ? { to: lv20, x: ml } : mx > 0 ? { to: v25, x: mx } : null, dim: 1 - 0.85 * dimMini, opacity: 1 - 0.97 * dimMini,
+      grow, verdict, morph: ml > 0.001 ? { to: lv20, x: ml } : mx > 0 ? { to: v25, x: mx } : null, dim: (1 - 0.85 * dimMini) * dimS, opacity: 1 - 0.97 * dimMini,
       focus: (i) => (f19 > 0 ? mix(1, i >= i90 ? 1 : 0.15, f19) : fT > 0 ? mix(1, Math.abs(v20[i] - medV) <= 2.5 ? 1 : 0.3, fT) : 1),
-      hi: (i) => Math.max(sw ? sw(i) : 0, stW ? 0.5 * stW(i) : 0, i === iR ? hR : i === iE || i === iC ? hiP : (i === 300 ? pulse(t, b.e3.tile, 1.2) : 0)),
+      hi: (i) => Math.max(sw ? sw(i) : 0, stW ? 0.5 * stW(i) : 0, i >= i90 ? pulse(t, b.f4.ruths, 0.9) : 0,   // v4 (R07 f4.ruths): quãng 1990–2006 loé ĐÚNG "Ruth's"
+        i === iE || i === iC || i === iR ? show(t, b.f7.start, MV.m_w23.t1 + 9) : 0, i === iR ? hR : i === iE || i === iC ? hiP : (i === 300 ? pulse(t, b.e3.tile, 1.2) : 0)),
     });
     setOpacity(ruth, 1 - dimMini);
     strip.line.visible = t >= b.e2.least - 0.05 && dimMini < 0.99; strip.line.material.opacity = ease(t, b.e2.least - 0.05, b.e2.least + 0.4) * (1 - dimMini);
@@ -83,7 +85,7 @@ export async function boot(res) {
     medL.visible = t >= b.f1.level - 0.05 && t < b.f5.twenty; medL.material.opacity = ease(t, b.f1.level - 0.05, b.f1.level + 0.3); medL.position.y = UNIT * yL / 100;
     const cA = show(t, b.f0.crates, b.f1.level + 0.7);
     // F-14: thùng điển hình mờ dần từ "crates" tới "most" (sống theo câu), loé gọn ĐÚNG "most" (R07 f0.most không đo được)
-    crates.set({ value: mix(1, S.med.rising / 100, ease(t, b.f0.crates + 0.4, b.f0.most)), appear: cA, pulse: pulse(t, b.f0.ten, 0.8) + 1.4 * pulse(t, b.f0.most, 0.7) });
+    crates.set({ value: mix(1, S.med.rising / 100, ease(t, b.f0.crates + 0.4, b.f0.most)), appear: cA, pulse: pulse(t, b.f0.ten, 0.8) + 4 * pulse(t, b.f0.most, 0.7) });   // v4: các thùng còn sáng loé mạnh ĐÚNG "most"
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
@@ -188,17 +190,25 @@ export async function boot(res) {
       for (let r = 0; r < 3; r++) {
         const a = ok * dimMini * (r === 0 ? 1 : show(t, tags[r][1])); if (a < 0.01) continue;
         c.save(); c.globalAlpha = a; const off = r === 2 ? pceOff : 0;
-        // F-14 (a): dải CPI-W / PCE chạy theo tháng bắt đầu từ lúc lời nói tới nó tới từ khoá sau (S.life.cpiw / pce); CPI-U (đã có ở tường) hiện đủ
-        const gK = r === 1 ? S.life.cpiw.keys : r === 2 ? S.life.pce.keys : null, gN = gK ? mini[r].length * (0.12 + 0.88 * lin(t, gK[0][0], gK[1][0])) : mini[r].length;
+        // v4 (B22): mỗi dải (CPI-U, CPI-W, PCE) hiện ĐỦ ở từ khoá của nó — bỏ life cpiw/pce (dải vẽ dần làm khung đọc mù thấy dải thiếu)
+        const gN = mini[r].length;   // v4 (B22): mỗi dải hiện ĐỦ ở từ khoá của nó (bỏ life cpiw/pce — dải vẽ dần làm khung đọc mù thấy dải thiếu)
         mini[r].forEach((v, i) => { if (i > gN) return; c.fillStyle = v >= 100 ? C.cushion : rgba(C.warn, 0.85); const h = v * hS; c.fillRect(x0 + (i + off) * pw, rowsY[r] - h, Math.max(1, pw - 0.6), h); });
         c.restore(); seg2(O, x0, rowsY[r] - 100 * hS, x1, rowsY[r] - 100 * hS, C.muted, a * 0.9, 2);
+        // v4 (thay life dải vẽ dần): đổi trạng thái ĐÚNG từ trên dải ĐỦ — "same": khung cụm theo kịp của CPI-U và CPI-W; "often": các quãng PCE theo kịp
+        // sáng đậm; "most": gạch warn dưới dải PCE (phần lớn quãng vẫn hụt)
+        const kIdx = mini[r].map((v, i) => (v >= 100 ? i : -1)).filter((i) => i >= 0), off2 = r === 2 ? pceOff : 0;
+        if (r < 2 && kIdx.length) { const sA3 = a * show(t, b.f6.same); if (sA3 > 0.01) { c.save(); c.globalAlpha = sA3; c.strokeStyle = C.cushion; c.lineWidth = 4;
+          c.strokeRect(x0 + (kIdx[0] + off2) * pw - 8, rowsY[r] - 130 * hS, (kIdx[kIdx.length - 1] - kIdx[0] + 1) * pw + 16, 130 * hS + 8); c.restore(); } }
+        if (r === 2) { const oA = a * show(t, b.f6.often), mA2 = a * show(t, b.f6.most);
+          if (oA > 0.01) { c.save(); c.globalAlpha = oA; c.fillStyle = C.cushion; mini[2].forEach((v, i) => { if (v >= 100) c.fillRect(x0 + (i + off2) * pw, rowsY[2] - v * hS - 10, Math.max(2, pw), 10); }); c.restore(); }
+          if (mA2 > 0.01) seg2(O, x0 + off2 * pw, rowsY[2] + 14, x1, rowsY[2] + 14, C.warn, mA2, 6); }
         label(O, L[tags[r][0]], x0, rowsY[r] - 194, { align: 'left', kind: 'number', px: 48, alpha: a });
       }
       log.roi['f6.social'] = [x0, 440, x1, 670]; log.roi['f6.gentler'] = [x0, 680, x1, 910];
     }
     { const [x, y] = top(iC, v20[iC]); log.roi['f7.start'] = [x - 400, y - 200, x + 400, fy]; }
     // F-14 (c) S23.1 "from one start to another": ba thanh sáng + tên ba người của hồi 3 (Edna 1949, Carl 1966, Ruth 2006 — tên, không số) ĐÚNG "start"
-    { const nA = (1 - cw) * show(t, at(S, 'f7.start', b.f7.start));
+    { const nA = 0;   // v4: bỏ tên Edna/Carl ở S23 (lời không nói tên)
       if (nA > 0.01) for (const [i, nm, col] of [[iE, 'Edna', CHAR.edna], [iC, 'Carl', CHAR.carl]]) { const [x, y] = top(i, v20[i] * 0.55); label(O, nm, x, y, { align: 'center', kind: 'name', px: 48, w: 600, color: col, alpha: nA }); } }
     const cwA = show(t, b.f3.own, b.f4.gentler);
     chrome(O, 1, cwA > 0.01 ? L['f3.own'] : null, cwA);

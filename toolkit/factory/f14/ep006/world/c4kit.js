@@ -22,7 +22,8 @@ export const grow = (t, a, b, min = 0.8) => (a == null ? 0 : ease(t, a - 0.05, M
 // F-14 (c): nhãn neo vào từ — mốc hiện = spine.label_at[tên] (spine kiểm ±0,2 s quanh từ của cue cùng tên)
 // F-14 (a): dải mờ phủ n thùng đầu của một hàng (đếm thùng: phần đã đếm giữ sáng — đổi hình tích luỹ đủ lớn để thấy trên cả khung)
 export function countBand(O, row, n, color, a, z = 0.45) {
-  if (a <= 0.01 || n <= 0) return; const top = row.userData.height, y0 = row.position.y;
+  if (a <= 0.01 || n <= 0) return; n = Math.ceil(n - 1e-6);   // v4: đếm từng thùng (bậc rõ, không mép trườn — freezedetect/x264 bỏ qua mép trườn)
+  const top = row.userData.height, y0 = row.position.y;
   const [x0, ya] = O.toScreen(row.edgeX(0), y0 + top + 0.04, row.position.z + z), [x1, yb] = O.toScreen(row.edgeX(Math.min(10, n)), y0 - 0.02, row.position.z + z);
   const c = O.ctx; c.save(); c.globalAlpha = a; c.fillStyle = color; c.fillRect(x0 - 4, ya, x1 - x0 + 8, yb - ya); c.restore();
 }

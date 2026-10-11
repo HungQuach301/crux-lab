@@ -28,7 +28,8 @@ export async function boot(res) {
   const glow0 = row.userData.crates[2].m.emissive.clone(), accent3 = new THREE.Color(C.accent);   // F-14 (a) "weigh": màu sáng gốc của thùng   // P3c: séc đứng như vòng 2 — khoá nghĩa B32 (vòng 2 nghĩa 2/2; séc ngang + bước nấc ở vòng 3: 1/3)
   // F-14 (a): thanh mỗi bậc nhảy 70 % ĐÚNG từ đọc số (0,25 s) rồi mọc nốt tới hết ý (S.life.bars: forty → hết câu, half → median, Carl → hết câu)
   const BK = S.life.bars.keys, bars = [[BK[0][0], BK[1][0], 1], [BK[2][0], BK[3][0], 2], [BK[4][0], BK[5][0], 3]];
-  const step = (t, a, z) => 0.2 * ease(t, a - 0.05, a + 0.25) + 0.8 * lin(t, a + 0.25, Math.max(z, a + 1));   // nhãn giá trị hiện ĐÚNG từ (cue nhãn); thanh mọc suốt ý
+  // v4 (R07 g1.forty/g2.half/g3.carls): thanh nhảy 70 % trong 2 khung ĐÚNG từ đọc số (vật đổi ở từ), 30 % còn lại mọc suốt ý
+  const step = (t, a, z) => 0.5 * ease(t, a, a + 0.07) + 0.5 * lin(t, a + 0.07, Math.max(z, a + 1));   // v4: 50 % đúng từ, 50 % mọc suốt ý   // nhãn giá trị hiện ĐÚNG từ (cue nhãn); thanh mọc suốt ý
   // FIX-R1: mọi vật vẽ sau sàn trong suốt (vật đang hiện/mờ dần không bị sàn vẽ đè); mỗi khu chỉ hiện quanh lời của nó, hiện/mờ trong cú lia
   // (không còn hàng thùng / thanh / séc thò ở mép khung lúc chuyển 486, 500, 517 s, vật trắng ở mép phải thang 455–461 s)
   scene.traverse((o) => { if (o !== floor && o.isMesh) o.renderOrder = 2; });
@@ -124,7 +125,7 @@ export async function boot(res) {
     const kA = ok * show(t, S.card[0], S.card[1]);
     if (kA > 0.01) {
       O.card(100, 190, 1722, 640, { fill: '#171B22', stroke: '#2A303B', lw: 3, alpha: kA * 0.96 });   // FIX-R1: dòng 1 cách mép phải thẻ ≥ 35 px
-      label(O, L.card0, 130, 280, { kind: 'title', px: 60, alpha: kA, plate: null });
+      label(O, L.card0, 130, 280, { kind: 'title', px: 60, alpha: kA * ease(t, S.card[0] + 0.15, S.card[0] + 0.4), plate: null });   // v4 (V11): tiêu đề hiện từ "card" + 0,15 s (nhãn trước đã tắt)
       // F-14 (a): các dòng hiện theo thứ tự đọc (S.life.card: 0,7 s/dòng) — mỗi dòng vẫn ≥ 5 s trên khung tới hết thẻ
       const CK2 = S.life.card.keys, dl = (CK2[1][0] - CK2[0][0]) / 5;
       for (let i = 1; i <= 5; i++) label(O, L['card' + i], 130, 290 + i * 92, { kind: 'number', px: 48, w: 600, alpha: kA * ease(t, CK2[0][0] + i * dl - 0.05, CK2[0][0] + i * dl + 0.2), plate: null, color: i === 4 ? C.muted : C.ink });

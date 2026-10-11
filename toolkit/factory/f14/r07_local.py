@@ -2,6 +2,7 @@
 số chính vẫn là checks run đủ bộ. Khác duy nhất: chữ nhãn đọc từ nhật ký trang của render (<seg>.log.json: chữ opacity > 0,5) thay cho textTrack
 của bộ lấy mẫu trang (cùng tiêu chí opacity > 0,5, mẫu 0,1 s); hoặc từ page.json(.gz) của một checks run (--page). Không đo phần giọng (ASR).
   python3 toolkit/factory/f14/r07_local.py <master.mp4> <thư mục đoạn> <ra.json> [--page page.json(.gz)] [--logs <thư mục *.log.json theo tên đoạn>]
+       [--like <r07.json của bản giao>]   # INTENT §8 đọc chặt: CHỈ cue của bản giao, mỗi cue đo đúng cách bản giao đo nó (label/motion); thiếu cue = trượt
 """
 import gzip, json, os, subprocess, sys
 import numpy as np
@@ -28,6 +29,9 @@ def main():
     cache = video + '.diff.npy'
     d = np.load(cache) if os.path.exists(cache) and os.path.getmtime(cache) > os.path.getmtime(video) else diffs(video)
     np.save(cache, d)
+    like = None
+    if '--like' in a:
+        like = {(v['segment'], v['cue']): v['how'] for v in json.load(open(a[a.index('--like') + 1]))['all']}
     tt = None
     if page:
         pj = json.load(gzip.open(page) if page.endswith('.gz') else open(page))
@@ -43,15 +47,19 @@ def main():
         log = None
         if logd and os.path.exists(os.path.join(logd, name + '.log.json')):
             log = sorted(json.load(open(os.path.join(logd, name + '.log.json'))), key=lambda l: l['t'])
-        for cn in sp.get('visual_cues') or []:
+        names = sp.get('visual_cues') or []
+        if like is not None:
+            names = [c for (sg, c) in like if sg == name]
+        for cn in names:
             if cn not in cues:
                 vis.append({'segment': name, 'cue': cn, 'offset': None, 'how': 'cue not in beats'}); continue
             t = cues[cn] + t0
-            if cn in labels and (tt or log):
+            method = like.get((name, cn)) if like is not None else None
+            if (cn in labels if method is None else method == 'label') and (tt or log):
                 if tt:
-                    first = next((e['t'] for e in tt if e['t'] >= t - 1.0 and any(i.get('text') == labels[cn] for i in e.get('items', []))), None)
+                    first = None if cn not in labels else next((e['t'] for e in tt if e['t'] >= t - 1.0 and any(i.get('text') == labels[cn] for i in e.get('items', []))), None)
                 else:
-                    first = next((l['t'] + t0 for l in log if l['t'] + t0 >= t - 1.0 and any(x['text'] == labels[cn] and x['opacity'] > 0.5 for x in l['texts'])), None)
+                    first = None if cn not in labels else next((l['t'] + t0 for l in log if l['t'] + t0 >= t - 1.0 and any(x['text'] == labels[cn] and x['opacity'] > 0.5 for x in l['texts'])), None)
                 vis.append({'segment': name, 'cue': cn, 't': round(t, 3), 'offset': None if first is None else round(first - t, 3), 'how': 'label'}); continue
             end, st = t + 0.8, t - 0.3
             for x, y in moves:

@@ -51,7 +51,7 @@ export async function boot(res) {
     const RW = S.life.rows.keys, rA = ease(t, RW[0][0], RW[1][0]);   // F-14 (a): hai hàng mọc lần lượt suốt "each … its own first check"
     // Ruth: giữa hai séc → cạnh séc tăng ở "took" (chừa chỗ séc năm 20 lớn về phía bà); séc đều + hàng của nó mờ từ "took", sáng lại ở S08 "level"
     ruth.position.x = mix(0, rx1 + ris.cw / 2 - ris.cw * checkScale(20) - 0.11, ease(t, b.b4.took - 0.05, b.b4.took + 0.8));
-    const DK = S.life.declined.keys, lvA = 1 - 0.7 * ease(t, DK[0][0], DK[1][0]) * (1 - ease(t, b.c2.first - 0.2, b.c2.first + 0.4));   // F-14 (a): séc bà không chọn mờ dần suốt câu S05.1
+    const DK = S.life.declined.keys, lvA = 1 - 0.7 * ease(t, DK[0][0], DK[1][0]) * (1 - ease(t, b.c2.level - 0.05, b.c2.level + 0.2));   // F-14 (a): séc bà không chọn mờ dần suốt câu S05.1; v4: séc đều + hàng của nó sáng lại ĐÚNG "level" (vật đổi ở từ, R07 c2.level)
     lev.row.set({ value: kf(S.rows.level, t), appear: rA, pulse: pulse(t, b.c2.six, 0.8) + pulse(t, b.c2.level, 0.6) });   // F-14: loé ĐÚNG "level" (R07 c2.level)
     ris.row.set({ value: kf(S.rows.rise, t), appear: rA, pulse: pulse(t, b.c1.nine, 0.6) + pulse(t, b.c3.slowed, 0.9) + pulse(t, b.c0.less, 0.6) });   // F-14: loé ĐÚNG "less"
     // F-14 (a) S07.2 "today … about 9": đếm từng thùng còn sáng 1 → 9 từ "ten" tới "nine" (S.life.count)
@@ -61,6 +61,8 @@ export async function boot(res) {
       if (t > FK[0][0] && fo > 0) for (let j = 0; j < 10; j++) cr[j].m.emissiveIntensity += 0.6 * fo * Math.min(1, Math.max(0, fn - j)); }
     const lA = ease(t, b.b0.bigger - 0.05, b.b0.bigger + 0.25), sA = ease(t, b.b0.smaller - 0.05, b.b0.smaller + 0.25);   // F-14: hiện gọn đúng từ (R07 b0 +0,31/+0,23 s)
     setCheck(lev, S, t, lA); setCheck(ris, S, t, sA);
+    // v4 (R07 c4.bigger): hai tấm séc loé ĐÚNG "bigger" ("the level check started bigger") — vật đổi ở từ, không chỉ nhãn
+    { const fb = pulse(t, b.c4.bigger, 0.9); for (const col of [lev, ris]) { const m = col.card.userData.inner.children[0].material; m.emissiveIntensity = (m.userData.e0 ??= m.emissiveIntensity) + 1.6 * fb; } }
     // F-14 (a) S05.2–S05.3 "her check goes up too": séc tăng nhích từng kỷ niệm (×1,02) từ "check" tới hết S05.3; về cỡ đầu khi máy đã lia khỏi (S07 tăng lại từ đầu)
     { const GK = S.life.goesup.keys; if (t > GK[0][0] && t < MV.m_pan.t1) ris.card.set({ k: GK[1][1] * lin(t, GK[0][0], GK[1][0]), appear: sA }); }
     if (lvA < 0.999) { setOpacity(lev.row, lvA * (rA > 0.002 ? 1 : 0)); setOpacity(lev.card, lvA * lA); }

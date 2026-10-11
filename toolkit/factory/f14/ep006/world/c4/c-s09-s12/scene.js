@@ -72,6 +72,7 @@ export async function boot(res) {
     for (let k = 1; k <= Math.min(20, Math.floor(u)); k++) {
       const [x, y] = sc(k, P[k]), under = P[k] < 1, f = under ? pulse(t, b.d1.slipped, 1.2) : (k === 3 || k === 7 ? pulse(t, b.d1.climbed, 1.2) : 0);
       dot(O, x, y, 9 + 9 * f, under ? C.warn : C.cushion, cw * aC);
+      if (!under && (k === 3 || k === 7)) { const hc = pulse(t, b.d1.climbed, 1.0); if (hc > 0.01) dot(O, x, y, 34, C.cushion, cw * aC * 0.55 * hc); }   // v4 (R07 d1.climbed): năm lên lại sáng quầng ĐÚNG "climbed"
     }
     label(O, L['d1.climbed'], 960, 312, { align: 'center', kind: 'name', px: 52, w: 600, color: C.cushion, alpha: ok * show(t, at(S, 'd1.climbed', b.d1.climbed), b.d2.august - 0.4) });   // F-14 (c)
     label(O, L['d0.anniv'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.d0.anniv, b.d2.august - 0.4) });
