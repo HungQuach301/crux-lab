@@ -24,4 +24,13 @@
 | 2026-10-11 | G1 câu 2 | WRITER (điều phối, sửa máy) | mốc tuần dữ liệu thay "this week": S01.2 bỏ, S03.1 ngày đầy đủ, S07.2/S09.3/S12.2/S21.2/S23.2 "October 8", S33.3 ngày đầy đủ; hình B01/B03/B32/B33; checker miễn đúng ngày `last_week` | `story/`, `numbers.md` | — | checker ĐẠT, M2 ước 26,3 s, 10:01 |
 | 2026-10-11 | C2 vòng 3 | kiểm mù | `blind.py` 6 Sonnet + 1 chấm (headless khoá Console), rubric MỚI, câu 8 nguồn khuyên | `c2/r3/`, `gates/C2-blind.md` | đọc 67.796 token + chấm | đúng 6/6 · `advice_stated` 0/6 → QUA · inferred 1/6 · số dày S21–S24 3/6 → S21.2/S23.2 số lên hình (ước 9:54) |
 | 2026-10-11 | EL | hạn mức | `GET /v1/user/subscription` (quyền `user_read` đã bật) | — | — | creator: đã dùng 63.494 / 144.034 → **còn 80.540 ký tự**, làm mới 2026-11-01 06:57 UTC; đủ Tập 7 (≈ 8.600) + Tập 8 |
-| 2026-10-11 | C3 | dựng | `toolkit/api.sh build briefs/builder-c3.md` (Opus, khoá Console) | `world/`, `review-c3/` | đang chạy | 5 đoạn: s01-stack, s06-stack, s21-track, s23-track, s25-bar |
+| 2026-10-11 | C3 | dựng | `toolkit/api.sh build briefs/builder-c3.md` (Opus, khoá Console) | `world/`, `review-c3/` | $8,76 | 5 đoạn 540p verify OK; EL 1.493 ký tự; clip 1:58 −14,0 LUFS |
+| 2026-10-11 | C3 | lời | S21 "October eighth" (bộ chuẩn hoá đọc "8" → "eight"); sinh lại S21 | `voice-takes/`, `story/` | EL 350 | hạn mức đọc lại: còn 72.750 (lệch ≈ 5.947 chưa rõ nguồn) |
+| 2026-10-11 | C3 | cổng gốc r1 | `c3/root_run.py` 10 + 1 (người thứ 3 S01) Sonnet headless + chấm | `c3/root/`, `c3/root-s01x/` | $0,37 | S01 2/3 · **S06 0,5·0,5 TRƯỢT** · S21/S23/S25 2/2 · stated 0 |
+| 2026-10-11 | C3 | đạo diễn r1 | `c3/director.py` Opus headless, 2 lượt × 10 khung + S06 5 khung | `c3/director/`, `c3/director-r2/` | $0,39 | điểm 2–3 |
+| 2026-10-11 | C3 | dựng sửa S06 r2 | `toolkit/api.sh build briefs/builder-c3-fix-s06.md` (Bash bị chặn → phiên tự dựng; F-2 BLOCK nhãn tên thanh → chỉ ở đồ thị) | `world/c3/s06-stack/` | $1,67 | cổng gốc r2 S06 **2/2** |
+| 2026-10-11 | C3 | REVIEWER | `toolkit/api.sh review briefs/reviewer-c3.md` (Opus, ≤ 10 khung) | `gates/REVIEW-C3.md` | $1,42 | ĐẠT có sửa, 5 CHÍNH (chấm nới r1) |
+| 2026-10-11 | C3 | dựng sửa r3 | `toolkit/api.sh build briefs/builder-c3-fix-r3.md` | `world/` | $7,54 | S01/S21/S23/S25 + PHỤ; verify OK 5/5 |
+| 2026-10-11 | C3 | cổng gốc r3 + đạo diễn r3 | 10 đọc + chấm; Opus 3 lượt ≤ 10 khung | `c3/root-r3/`, `c3/director-r3/` | $0,45 + $0,38 | **5/5 2/2, stated 0** · hàng chờ C4 §3 |
+| 2026-10-11 | C3 | REVIEWER lượt 2 | `briefs/reviewer-c3-r2.md` | `gates/REVIEW-C3-r2.md` | $1,09 | ĐẠT có sửa → câu chữ áp vào gói |
+| 2026-10-11 | đóng P2 | điều phối | PLAN ≤ 1 trang + prompt P3; `world/c3/out` bỏ theo dõi (≈ 300 MB đã vào lịch sử) | `PLAN.md`, `archive/PLAN-history.md` | Console P2 ≈ $22,3 | **dừng ở C3** |
