@@ -71,7 +71,7 @@ S01.2 {hook} She's borrowing $320,000 this week, and in her city that payment is
 ## S02 — Her question, and the promise
 
 S02.1 {question} [curious] A 15-year mortgage, or a 30-year paid off in 15 years anyway, with its lower payment kept for a bad month? <!-- claims: pay30on15_now -->
-S02.2 {promise} We replayed every week the US survey priced both loans, to put that fallback in dollars and find what each extra dollar of principal earns. <!-- claims: n_weeks; hold: 0.5 -->
+S02.2 {promise} We replayed every week of US mortgage surveys to price that fallback in dollars, and what each extra dollar of principal earns. <!-- claims: n_weeks; hold: 0.5 -->
 
 ## S03 — Who Tessa is, this week's rates, the limits (shared continuation for all three hooks)
 
@@ -141,30 +141,31 @@ S12.2 Tessa's gap this week sits a little above that average. <!-- claims: sprea
 ## S13 — The smallest stack
 
 S13.1 Stand a stack beside every week, and the stacks rise and fall with that gap. <!-- claims: — -->
-S13.2 The smallest was $6,097, in December 2008. <!-- claims: extra_total_min, extra_total_min_week; hold: 1.0 -->
+S13.2 The smallest was $6,097. <!-- claims: extra_total_min; hold: 1.0 -->
 
 ## S14 — The tallest stack
 
-S14.1 The tallest was $29,502, in January 2023. <!-- claims: extra_total_max, extra_total_max_week; hold: 1.0 -->
+S14.1 The tallest was $29,502. <!-- claims: extra_total_max; hold: 1.0 -->
 
 ## S15 — Tessa's place
 
 S15.1 The typical week, the median, priced the fallback at $16,631. <!-- claims: extra_total_median -->
 S15.2 {peak} [serious] Fewer than 1 in 5 weeks since 1991 put a price this high on it. <!-- claims: share_extra_ge_now, first_week, extra_vs15_total_now; hold: 1.5 -->
-S15.3 That makes Tessa's fallback expensive by history, not a mistake: what a lower payment is worth in a bad month is something this replay can't measure. <!-- claims: extra_vs15_total_now -->
+S15.3 That makes Tessa's fallback expensive by history. <!-- claims: extra_vs15_total_now -->
+S15.4 What a lower payment is worth in a bad month, this replay can't measure. <!-- claims: — -->
 
 ## S16 — By decade: the 1990s
 
 S16.1 Line the weeks up by decade, and the pattern is not the one most people expect. <!-- claims: — -->
-S16.2 In the 1990s, with the 30-year rate typically near 7.73 percent, the typical fallback cost $15,118. <!-- claims: era1991_median_r30, era1991_median_extra_total -->
+S16.2 In the 1990s, the typical fallback cost $15,118. <!-- claims: era1991_median_extra_total -->
 
 ## S17 — The 2000s
 
-S17.1 In the 2000s, with rates near 6.18 percent, it cost about the same: $14,210. <!-- claims: era2000_median_r30, era2000_median_extra_total -->
+S17.1 In the 2000s, with lower rates, it cost about the same: $14,210. <!-- claims: era2000_median_extra_total -->
 
 ## S18 — Lower rates, pricier fallback
 
-S18.1 In the 2010s, rates were far lower, typically near 4.03 percent, yet the fallback cost more: $20,374. <!-- claims: era2010_median_r30, era2010_median_extra_total; hold: 1.0 -->
+S18.1 In the 2010s, rates were far lower, yet the fallback cost more: $20,374. <!-- claims: era2010_median_extra_total; hold: 1.0 -->
 
 ## S19 — The gap explains it
 
@@ -185,7 +186,8 @@ S21.3 To finish in 15 years, she'd add $733 a month on top of the required payme
 ## S22 — The extra doesn't touch the required payment
 
 S22.1 That extra never lowers what the loan requires: the required payment stays where it was, and the loan simply ends sooner. <!-- claims: — -->
-S22.2 That's why the fallback is still there years later, if a month goes wrong. <!-- claims: — -->
+S22.2 Each extra dollar does cut the next month's interest; the payment just stays fixed, so more of it goes to principal. <!-- claims: — -->
+S22.3 That's why the fallback is still there years later, if a month goes wrong. <!-- claims: — -->
 
 ## S23 — Once a year instead of monthly (viewer question 3)
 
@@ -196,7 +198,7 @@ S23.3 Paid that way, the loan ends four months later. <!-- claims: yearly_lump_m
 ## S24 — What the timing costs
 
 S24.1 And it charges about $8,200 more in interest, because each dollar sits on the balance longer before it arrives. <!-- claims: yearly_vs_monthly_interest; hold: 1.0 -->
-S24.2 Monthly or yearly is a cash-flow choice; the replay only prices the timing. <!-- claims: — -->
+S24.2 That isn't a verdict on paying yearly: the money stays in her account longer, and what it earns there isn't counted. <!-- claims: — -->
 S24.3 Which leaves the question underneath all of this: when Tessa puts an extra dollar into the mortgage, what does it actually earn? <!-- claims: —; hold: 1.5 -->
 
 >>> MID-ROLL 2 (in the 1.5 s hold after S24.3; end of act 2, act-3 question open)
@@ -209,17 +211,17 @@ S24.3 Which leaves the question underneath all of this: when Tessa puts an extra
 S25.1 Every extra dollar of principal stops interest from being charged on that dollar, at the loan's own rate. <!-- claims: bar_now -->
 S25.2 On Tessa's 30-year, that's 7.4 percent a year, before taxes. <!-- claims: bar_now; hold: 1.0 -->
 S25.3 It isn't an investment return; it's interest she no longer pays. <!-- claims: bar_now -->
-S25.4 That rate is the bar: any other use of that dollar has to clear it to come out ahead. <!-- claims: bar_now -->
-S25.5 Whether any investment clears it isn't tested here: the bar is a ruler to hold another choice up against. <!-- claims: — -->
+S25.4 That rate is the bar any other use of that dollar gets measured against, before taxes. <!-- claims: bar_now -->
+S25.5 Whether any investment clears it, once risk and taxes count, isn't tested here. <!-- claims: — -->
 
 ## S26 — The bar's history
 
 S26.1 The bar moves with the rate a loan was taken at. <!-- claims: — -->
-S26.2 Since 1991, it has stood as high as 9.25 percent, in November 1994. <!-- claims: r30_max, r30_max_week, first_week; hold: 1.0 -->
+S26.2 Since 1991, it has stood as high as 9.25 percent. <!-- claims: r30_max, first_week; hold: 1.0 -->
 
 ## S27 — The low point
 
-S27.1 And as low as 2.65 percent, in January 2021. <!-- claims: r30_min, r30_min_week; hold: 1.0 -->
+S27.1 And as low as 2.65 percent. <!-- claims: r30_min; hold: 1.0 -->
 
 ## S28 — How high Tessa's bar is
 
@@ -227,12 +229,12 @@ S28.1 Only about 1 week in 5 had a bar as high as Tessa's. <!-- claims: share_r3
 
 ## S29 — Leo
 
-S29.1 Leo, also illustrative, took a 30-year loan of the same size in that January 2021 week, at 2.65 percent, and paid it like a 15-year too. <!-- claims: leo_r30, leo_r15, r30_min_week -->
-S29.2 His fallback was cheaper: $13,231 over 15 years, about $74 a month. <!-- claims: leo_extra_vs15_total, leo_extra_vs15_month -->
+S29.1 Leo, also illustrative, took a 30-year loan of the same size in January 2021, the week of that lowest rate, and paid it like a 15-year too. <!-- claims: leo_r30, r30_min_week, monthly_extra_months -->
+S29.2 His fallback was cheaper: $13,231 over 15 years. <!-- claims: leo_extra_vs15_total, leo_extra_vs15_month -->
 
 ## S30 — Leo's bar
 
-S30.1 And it was bigger: his required payment sat about $793 a month below the 15-year's. <!-- claims: leo_fallback_gap -->
+S30.1 And it left him more room: his required payment sat about $793 a month below the 15-year's. <!-- claims: leo_fallback_gap -->
 S30.2 But his bar was 2.65 percent: each extra dollar he paid earned only that, before taxes. <!-- claims: leo_r30 -->
 S30.3 [thoughtful] Same plan, a different week, and it means something else. <!-- claims: —; hold: 1.0 -->
 S30.4 For Leo, the stack was short and the bar was low; for Tessa, the stack is tall and the bar is high. <!-- claims: leo_extra_vs15_total, extra_vs15_total_now -->
@@ -254,4 +256,4 @@ S32.2 This is US only, and it's history, not a forecast; it doesn't say which lo
 
 S33.1 Beside Tessa's house now stand a tall stack and a high bar. <!-- claims: extra_vs15_total_now, bar_now -->
 S33.2 She asked: a 15-year, or a 30-year paid in 15? <!-- claims: pay30on15_now -->
-S33.3 [thoughtful] Her answer: the 30-year paid in 15 is the 15-year plus a fallback, and this week, that fallback costs her $120 a month. <!-- claims: extra_vs15_month_now, pay30on15_now; hold: 1.5 -->
+S33.3 [thoughtful] What she now knows: the 30-year paid in 15 is the 15-year plus a fallback, and this week, that fallback costs her $120 a month. <!-- claims: extra_vs15_month_now, pay30on15_now; hold: 1.5 -->

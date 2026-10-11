@@ -1,0 +1,114 @@
+{
+ "el_chars_spent": 260,
+ "clip": "episodes/ep007/review-g1/cold-open.m4a",
+ "clip_s": 48.7,
+ "M": {
+  "M1 hook ends ≤ 5.0": {
+   "value": 3.68,
+   "pass": true
+  },
+  "M2 promise ends ≤ 30": {
+   "value": 29.8,
+   "pass": true
+  },
+  "M3 question ≤ 30": {
+   "value": 20.04,
+   "pass": true
+  },
+  "M4 longest constraint/define block 0–60 s ≤ 10": {
+   "value": 6.86,
+   "pass": true
+  },
+  "M5 character/stake returns ≤ 45": {
+   "value": 30.8,
+   "pass": true
+  },
+  "M6 character promise paid ≤ 90": {
+   "value": 0.0,
+   "pass": true
+  }
+ },
+ "timeline": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "role": "hook",
+   "text": "Tessa's mortgage fallback costs $120 a month.",
+   "start": 0.0,
+   "end": 3.68
+  },
+  {
+   "id": "S01.2",
+   "scene": "S01",
+   "role": "hook",
+   "text": "She's borrowing $320,000 this week, and in her city that payment is her biggest bill.",
+   "start": 3.86,
+   "end": 11.52
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "role": "question",
+   "text": "[curious] A 15-year mortgage, or a 30-year paid off in 15 years anyway, with its lower payment kept for a bad month?",
+   "start": 12.52,
+   "end": 20.04
+  },
+  {
+   "id": "S02.2",
+   "scene": "S02",
+   "role": "promise",
+   "text": "We replayed every week of US mortgage surveys to price that fallback in dollars, and what each extra dollar of principal earns.",
+   "start": 20.65,
+   "end": 29.8
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "role": "hook",
+   "text": "Tessa is illustrative, but her rates are real: this week's survey has the 15-year at 6.73 percent and the 30-year at 7.4 percent.",
+   "start": 30.8,
+   "end": 41.84
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "role": "constraint",
+   "text": "This is US only, and it's history, not a forecast.",
+   "start": 41.86,
+   "end": 44.96
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "role": "constraint",
+   "text": "It won't say which loan to take, or whether to invest.",
+   "start": 45.2,
+   "end": 48.72
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "role": "hook",
+   "text": "Here is what Tessa is weighing.",
+   "start": 52.72,
+   "end": 54.16
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "role": "hook",
+   "text": "On $320,000, the 15-year loan's payment is $2,828 a month.",
+   "start": 54.48,
+   "end": 62.72
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "role": "hook",
+   "text": "The 30-year loan only requires $2,216.",
+   "start": 63.0,
+   "end": 69.52
+  }
+ ],
+ "asr": "Tessa's mortgage fallback costs $120 a month. She's borrowing $320,000 this week, and in her city, that payment is her biggest bill. A 15-year mortgage or a 30-year paid off in 15 years anyway, with its lower payment kept for a bad month? We replayed every week of U.S. mortgage surveys to price that fallback in dollars and what each extra dollar of principal earns. Tessa is illustrative, but her rates are real. This week's survey has the 15-year at 6.73%, and the 30-year at 7.4%. This is U.S. only, and it's history, not a forecast. It won't say which loan to take or whether to invest."
+}

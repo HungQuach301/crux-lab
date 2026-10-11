@@ -1,4 +1,4 @@
-# Beats — Episode 7 (format `lab`, C2 v1, WRITER, 2026-10-11)
+# Beats — Episode 7 (format `lab`, C2 v3, WRITER, 2026-10-11)
 
 Times from `check_script.py` (2.66 spoken words/s with numbers read out, scripted holds, 3 s ident; timeline axis 10:06); runtime est. **10:37** at 2.40 words/s for the whole episode (C2 v1 figures; C2 v2: 1,454 spoken words, est. 10:05, axis 9:38). Scene ids = `script.md`. Hook used: **H-B "Chi phí ẩn"** (`hooks.md`).
 **Type 1** = the picture carries the meaning on its own ("muted read" = what a muted viewer must read off the picture). **Type 2** = the picture illustrates the narration.
@@ -80,3 +80,7 @@ On-screen text in quotes is what the checker reads; every number in it maps to a
 - What a lower required payment is worth in a job loss or an emergency is not measured.
 - Tessa and Leo are illustrative. Tessa's numbers hold only at this week's survey rates on $320,000; another offer gives another stack.
 - US only. History, not a forecast. Not advice on which loan to take, or on whether to invest.
+
+
+## C2 v3 (sau REVIEWER, 2026-10-11)
+Lời S13.2, S14.1, S16.2, S17.1, S18.1, S26.2, S27.1 bỏ ngày/lãi thập kỷ → **chữ trên hình** của B13 ("Dec 2008"), B14 ("Jan 2023"), B16–B18 (lãi 30 năm điển hình "7.73%", "6.18%", "4.03%"), B26 ("Nov 1994"), B27 ("Jan 2021"); claim giữ như cũ (extra_total_min_week, extra_total_max_week, era*_median_r30, r30_max_week, r30_min_week). B25: "is held up against the beam" (không "climb over"); B29: "$74 a month" lên nhãn (leo_extra_vs15_month). B22: nhãn "next month's interest ↓, payment fixed" (Q5).
