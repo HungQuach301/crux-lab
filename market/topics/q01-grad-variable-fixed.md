@@ -11,24 +11,24 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 8–10 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
-1. Over my full repayment term, does a variable or fixed rate end up costing less, and how much could rate changes shift my payment? — trọng số cao
-2. Should I refinance my student loans now, and what would I gain or give up by doing so? — trọng số cao
-3. What do I lose by refinancing federal loans into a private loan, such as income-driven plans, forgiveness eligibility, and deferment options? — trọng số cao
-4. Is my current rate competitive, and was it locked or set by a formula when I first borrowed? — trọng số vừa
-5. How do I compare the break-even point between a lower variable starting rate and a higher fixed rate? — trọng số vừa
+1. How do variable and fixed student loan rates actually differ in cost over a 10-year repayment? — trọng số cao
+2. Should I refinance my federal student loans into a private loan, and what do I lose if I do? — trọng số cao
+3. How much can a variable rate rise over the life of the loan, and is there a cap? — trọng số vừa
+4. How is my student loan interest rate set, and can I change it after I've already borrowed? — trọng số vừa
+5. When does it make sense to pay off a low fixed rate early versus invest the extra money? — trọng số thấp
 
-_Ghi chú máy: No comments were provided, so all questions, situations, weaknesses, and requests are inferred from the topic and the video titles alone. Weaknesses are especially speculative._
+_Ghi chú máy: No audience comments were provided, so all questions, situations, weaknesses, and requests below are inferred from the topic and the video framing, not observed viewer feedback. Weights are conservative estimates._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A recent graduate with private loans at a variable rate who wants to know whether to lock in a fixed rate before rates move up
-- A mid-career borrower with federal loans who is considering refinancing to a lower rate but may pursue forgiveness or income-driven repayment
-- A borrower with a co-signer, or a parent who co-borrowed, deciding between fixed and variable for a long repayment window
+- A recent graduate with a mix of federal subsidized and unsubsidized loans who is weighing a private refinance offer with a lower variable rate.
+- A mid-career borrower with a 7 percent fixed-rate private loan who is watching rates change and wondering whether switching to variable would save money.
+- A parent or borrower on an income-driven repayment plan who is unsure whether refinancing would cost them federal forgiveness or repayment protections.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Likely leans on historical rate charts without translating them into a concrete monthly or lifetime cost example (inferred; no comments provided)
-- May skip the difference between federal and private loan protections, which is a common point of confusion (inferred)
-- Probably offers little guidance on when a variable rate's cap or floor terms matter (inferred)
-- Phương pháp của 4 video đầu bảng: 1 giả định cố định, 1 ý kiến, không tính, 1 dữ liệu lịch sử thật, 1 tin tức.
+- Explanations often jump straight to rate comparisons without a worked example showing total interest paid under each option.
+- Content may treat the choice as purely about the rate and skip federal protections such as deferment, forbearance, and income-driven plans that disappear after refinancing.
+- Videos may assume viewers already understand how interest accrues and capitalizes, leaving beginners without the basics.
+- Phương pháp của 3 video đầu bảng: 1 giả định cố định, 1 ý kiến, không tính, 1 dữ liệu lịch sử thật.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
 
@@ -36,18 +36,17 @@ _Ghi chú máy: No comments were provided, so all questions, situations, weaknes
 |---|---|---|---|
 | Aussie Wealth With Finn | [F238YE76Oug](https://youtu.be/F238YE76Oug) | 5–10 phút | giả định cố định |
 | The White Coat Investor | [RwUnPXAMcxs](https://youtu.be/RwUnPXAMcxs) | 5–10 phút | ý kiến, không tính |
-| Money Rerouted | [-AwfRUE6UTI](https://youtu.be/-AwfRUE6UTI) | 5–10 phút | dữ liệu lịch sử thật |
-| Cash on Trial | [fFStR18qWos](https://youtu.be/fFStR18qWos) | 5–10 phút | tin tức |
+| Cash on Trial | [fFStR18qWos](https://youtu.be/fFStR18qWos) | 5–10 phút | dữ liệu lịch sử thật |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- [Rate Type A] vs [Rate Type B]: Which Costs Less Over [N] Years?
-- Should You Refinance [Loan Type] When Rates Are [Condition]? A Break-Even Breakdown
-- [Loan Type] Interest Rate History: What Happened and What It Means for Your Payment
+- Fixed vs Variable Student Loans: Which Costs Less Over N Years?
+- Should You Refinance? What You Give Up Before You Sign
+- Variable Rate Risk: How High Could Your Payment Really Go?
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-variable vs fixed student loan rate, refinance student loans, private student loan interest rates, fixed vs variable interest rate comparison, student loan refinancing calculator, historical student loan interest rates
+fixed vs variable student loan, student loan refinance, variable interest rate loans, federal vs private student loans, student loan repayment calculator, should I refinance student loans

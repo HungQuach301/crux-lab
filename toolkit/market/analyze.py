@@ -19,7 +19,7 @@ Mọi chỉ số ở đây là TỰ TÍNH, KHÔNG PHẢI CHỈ SỐ YOUTUBE. Rep
 """
 import datetime as dt, json, math, os, pathlib, re, statistics as stx, sys, urllib.request
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from mcommon import yt, cache_dir, latest_cache, jdump, jload, quota_used, label
+from mcommon import yt, cache_dir, latest_cache, jdump, jload, quota_used, label, OWN_CHANNELS
 
 HERE = pathlib.Path(__file__).parent
 TOPICS = jload(HERE / 'topics.json')['topics']
@@ -56,7 +56,7 @@ def all_videos():
                         'description': s.get('description', '')[:1500], 'channelId': s['channelId'], 'channelTitle': s['channelTitle'],
                         'thumb': (s.get('thumbnails', {}).get('high') or {}).get('url'), 'src': 'search',
                         'lang': s.get('defaultAudioLanguage') or s.get('defaultLanguage')}
-    return out
+    return {k: v for k, v in out.items() if v.get('channelId') not in OWN_CHANNELS}   # T6-12: kênh của Crux không phải đối thủ
 
 
 SEEDS = {'UCKhpM-cu2Cod-GyG6KngNYg', 'UCZJnbHQTYBy1I8GpHlsAUMg'}
