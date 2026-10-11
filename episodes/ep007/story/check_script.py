@@ -74,6 +74,8 @@ ADVICE_EXTRA = re.compile(r"\b(you should|you need|you'd want|it's time to|best 
 WORDNUM = {'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12,
            'twenty': 20, 'thirty': 30, 'forty': 40, 'fifty': 50, 'sixty': 60, 'hundred': 100, 'thousand': 1000}
 WORD_EXEMPT = [r'\b(1990|2000|2010|2020)s\b']   # TẬP: Tập 7 — tên thập niên (khung era*_median_* trong numbers.md), không phải số liệu
+# TẬP: Tập 7 — mốc tuần dữ liệu (claim last_week = 2026-10-08; G1 câu 2: thay "this week"): là nhãn thời điểm, không phải số liệu mới; chỉ miễn đúng ngày này, ngày khác vẫn bị kiểm
+WORD_EXEMPT += [r'\bOctober 8(, 2026)?\b']
 TEMPLATES = {'101': {'hook': 8, 'concept': 25, 'experiment': 30, 'buyers': 25, 'limits': 12},   # khuôn 101 (story §4)
              'lab': {'hook': 8, 'concept': 15, 'experiment': 45, 'buyers': 20, 'limits': 12},   # khuôn lab (story §4): móc · bối cảnh/nhân vật · hành trình · đáp án + ngưỡng · giới hạn (Tập 7)
              # deep (D-012, episode.md §9): móc · khái niệm + hai nhân vật · phát lại nhiều cửa sổ · nhân vật 2 / ca đối chứng · câu hỏi khán giả · giới hạn

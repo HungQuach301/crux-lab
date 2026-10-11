@@ -37,14 +37,14 @@ Summary (C2 v1): **M1 3.8 s · M2 28.2 s · M3 18.8 s · M4 8.7 s · M5 39.2 s �
 **Line format.** `Sxx.n {role} [emotion] narration <!-- claims: id, id; hold: s -->`. One sentence per line. Roles on every sentence starting before 1:00. Emotion tags (4): S02.1 `[curious]`, S15.2 `[serious]` (the `{peak}` line), S30.3 `[thoughtful]`, S33.3 `[thoughtful]`. `hold` = silence in the edit. Visuals and on-screen text: `beats.md` (same scene ids). Act boundaries are the `=== … ===` lines (the checker reads these, as in Episode 6).
 
 **Characters (all ILLUSTRATIVE, badge on every frame).** **Tessa** = lead (story §2b), built from dossier situation 2 (high-cost metro, large payment, tight budget, "is a 15-year payoff realistic?"): borrows $320,000 in the week of October 8, 2026; 15-year at 6.73 %, 30-year at 7.40 %. **Leo** = counterweight in act 3 only: a 30-year of the same size in the week of January 7, 2021 at 2.65 % (`leo_*`; the same week as `r30_min_week`), paid like a 15-year: smaller stack ($13,231, about $74 a month), bigger fallback (about $793 a month), bar only 2.65 %.
-- Tessa's question (S02.1): *"A 15-year mortgage, or a 30-year paid off in 15 years anyway, with its lower payment kept for a bad month?"* → method: S10.4 "Tessa's week is the last of them, and in every earlier week we asked her question" → final line, hers (S33.3): *"Her answer: the 30-year paid in 15 is the 15-year plus a fallback, and this week, that fallback costs her $120 a month."*
+- Tessa's question (S02.1): *"A 15-year mortgage, or a 30-year paid off in 15 years anyway, with its lower payment kept for a bad month?"* → method: S10.4 "Tessa's week is the last of them, and in every earlier week we asked her question" → final line, hers (S33.3): *"Her answer: the 30-year paid in 15 is the 15-year plus a fallback, and at the rates of the week of October 8, 2026, that fallback costs her $120 a month."*
 - Peak (S15.2, `{peak}`, 14 words): *"Fewer than 1 in 5 weeks since 1991 put a price this high on it."*
 
 **Core number:** `extra_vs15_total_now` — "$21,622" in digits once (S06.3, fact), then in words as **"the stack"**: S07.1 / S09.1 (what it is: the price of the fallback, the difference between two interest totals), S15.2–S15.3 (comparison: fewer than 1 in 5 weeks as high; expensive by history, not a mistake), S20.1 (close to the 2020s typical), S30.4 (Leo's short stack vs hers), S31.2 (threshold: any borrower's stack comes from the gap between their two offers), S33.1 (callback image). Second recurring object: **"the bar"** (`bar_now`, 7.40 % a year, before taxes), S25–S33.
 
 **Central object (thumbnail G1):** **"the stack"** — a W2 stack of bills (fixed bundle size) beside Tessa's house. Second: **"the bar"** (W3 beam at the loan rate).
 
-**Claim-risk applied (`topics-r2/machine/debt-1/claim-risk.md` + numbers.md speaking rules):** no advice: S03.3 "won't say which loan to take, or whether to invest", S32.2; the price is set *next to* the flexibility, never judged: S05.1–S05.2, S15.3 "expensive by history, not a mistake", S31.3 (a dollar in the house is hard to get back); "history, not a forecast": S03.2, S20.2 ("nothing here says where it goes"), S32.2; "US only": S03.2, S32.2; current numbers only at this week's survey rates on $320,000: S03.1, V7 card B32 + description; the gap is never "always 0.6": S11.2 (0.2 to 1.0 point), S12.1 (average 0.57, at least half a point in about 2 in 3 weeks); principal and interest only, no taxes, insurance, PMI, deductions: V7 card B32 + description; prime-borrower survey averages, points and fees differ: V7 card B32 + description; value of the fallback not measured: S15.3, V7 card + description; "each extra dollar earns 7.40 %" = interest no longer charged, before taxes, not an investment return, no market comparison: S25.2–S25.3, S25.5 ("whether any investment clears it isn't tested here"), V7 card + description; no market return is stated anywhere (none in numbers.md); "we" = analysts only; no imperatives (checker).
+**Claim-risk applied (`topics-r2/machine/debt-1/claim-risk.md` + numbers.md speaking rules):** no advice: S03.3 "won't say which loan to take, or whether to invest", S32.2; the price is set *next to* the flexibility, never judged: S05.1–S05.2, S15.3 "expensive by history, not a mistake", S31.3 (a dollar in the house is hard to get back); "history, not a forecast": S03.2, S20.2 ("nothing here says where it goes"), S32.2; "US only": S03.2, S32.2; current numbers only at the survey rates of the week of October 8, 2026 on $320,000: S03.1, V7 card B32 + description; the gap is never "always 0.6": S11.2 (0.2 to 1.0 point), S12.1 (average 0.57, at least half a point in about 2 in 3 weeks); principal and interest only, no taxes, insurance, PMI, deductions: V7 card B32 + description; prime-borrower survey averages, points and fees differ: V7 card B32 + description; value of the fallback not measured: S15.3, V7 card + description; "each extra dollar earns 7.40 %" = interest no longer charged, before taxes, not an investment return, no market comparison: S25.2–S25.3, S25.5 ("whether any investment clears it isn't tested here"), V7 card + description; no market return is stated anywhere (none in numbers.md); "we" = analysts only; no imperatives (checker).
 
 **Checker edits (`# TẬP` lines only):** CAST = Tessa, Leo · CORE = `extra_vs15_total_now` / `21,622` · FULL_FORM = PMI → "private mortgage insurance" (C2 v2: no longer spoken; "PMI" appears only on the V7 card) · WORD_EXEMPT = `\b(1990|2000|2010|2020)s\b` (decade names; the decade medians are `era1991_*` … `era2020_*`, and "1990" is not a numbers.md token). BANNED_NAMES unchanged (Tessa, Leo not in it). Constants unchanged.
 
@@ -56,7 +56,7 @@ Summary (C2 v1): **M1 3.8 s · M2 28.2 s · M3 18.8 s · M4 8.7 s · M5 39.2 s �
 
 **Act questions / turns.**
 - Act 1: *What exactly does the fallback cost Tessa?* Turn S09.2: the 30-year paid in 15 is the 15-year plus a fallback, and the fallback has a price (the stack).
-- Act 2: *Is that a normal price, or is this week unusual?* Turn S15.2 (peak: fewer than 1 in 5 weeks this high) and S18–S19 (a lower rate didn't mean a cheaper fallback; a wider gap meant a pricier one); then Tessa's own plan tested (Q2 S21, Q5 S22, Q3 S23–S24).
+- Act 2: *Is that a normal price, or is the week of October 8 unusual?* Turn S15.2 (peak: fewer than 1 in 5 weeks this high) and S18–S19 (a lower rate didn't mean a cheaper fallback; a wider gap meant a pricier one); then Tessa's own plan tested (Q2 S21, Q5 S22, Q3 S23–S24).
 - Act 3: *What does an extra dollar into the mortgage earn?* Turn S30.3 "Same plan, a different week, and it means something else" (Leo vs Tessa); threshold S31; answers the cold-open question in S33 with the same words ("a 30-year paid in 15"), the last sentence Tessa's.
 
 ---
@@ -66,16 +66,16 @@ Summary (C2 v1): **M1 3.8 s · M2 28.2 s · M3 18.8 s · M4 8.7 s · M5 39.2 s �
 ## S01 — Tessa's fallback has a price
 
 S01.1 {hook} Tessa's mortgage fallback costs $120 a month. <!-- claims: extra_vs15_month_now -->
-S01.2 {hook} She's borrowing $320,000 this week, and in her city that payment is her biggest bill. <!-- claims: interest_15_now, last_week -->
+S01.2 {hook} She's borrowing $320,000, and in her city that payment is her biggest bill. <!-- claims: interest_15_now -->
 
 ## S02 — Her question, and the promise
 
 S02.1 {question} [curious] A 15-year mortgage, or a 30-year paid off in 15 years anyway, with its lower payment kept for a bad month? <!-- claims: pay30on15_now -->
 S02.2 {promise} We replayed every week of US mortgage surveys to price that fallback in dollars, and what each extra dollar of principal earns. <!-- claims: n_weeks; hold: 0.5 -->
 
-## S03 — Who Tessa is, this week's rates, the limits (shared continuation for all three hooks)
+## S03 — Who Tessa is, her week's rates (dated), the limits (shared continuation for all three hooks)
 
-S03.1 {hook} Tessa is illustrative, but her rates are real: this week's survey has the 15-year at 6.73 percent and the 30-year at 7.4 percent. <!-- claims: r15_now, r30_now -->
+S03.1 {hook} Tessa is illustrative, but her rates are real: the survey for the week of October 8, 2026 has the 15-year at 6.73 percent and the 30-year at 7.4 percent. <!-- claims: last_week, r15_now, r30_now -->
 S03.2 {constraint} This is US only, and it's history, not a forecast. <!-- claims: — -->
 S03.3 {constraint} It won't say which loan to take, or whether to invest. <!-- claims: —; hold: 0.8 -->
 
@@ -104,7 +104,7 @@ S06.3 Over those 15 years, the extra adds up to $21,622. <!-- claims: extra_vs15
 ## S07 — The stack
 
 S07.1 In Tessa's world, that price is a stack of bills beside her house: the stack is what keeping the fallback costs. <!-- claims: extra_vs15_total_now -->
-S07.2 It exists because the 30-year carries a higher rate on the same balance, this week 0.67 point higher. <!-- claims: spread_now -->
+S07.2 It exists because the 30-year carries a higher rate on the same balance: on October 8, 0.67 point higher. <!-- claims: spread_now -->
 
 ## S08 — Why paying in 15 matters at all
 
@@ -115,7 +115,7 @@ S08.2 Paid in 15 years, it charges $210,691. <!-- claims: interest_30on15_now; h
 
 S09.1 The 15-year loan charges $189,069, and the difference between those last two totals is exactly the stack. <!-- claims: interest_15_now, interest_30on15_now, extra_vs15_total_now; hold: 0.8 -->
 S09.2 So the 30-year paid in 15 isn't the same loan as the 15-year: it's the 15-year plus a fallback, and the fallback has a price. <!-- claims: pay30on15_now, extra_vs15_total_now -->
-S09.3 Is Tessa's stack a normal price for that fallback, or is this week unusual? <!-- claims: extra_vs15_total_now; hold: 1.5 -->
+S09.3 Is Tessa's stack a normal price for that fallback, or is the week of October 8 unusual? <!-- claims: extra_vs15_total_now; hold: 1.5 -->
 
 >>> MID-ROLL 1 (in the 1.5 s hold after S09.3; end of act 1, act-2 question open)
 
@@ -136,7 +136,7 @@ S11.2 Since 1991, that gap has run from 0.2 point to 1.0 point. <!-- claims: spr
 ## S12 — Typical gap
 
 S12.1 It averaged 0.57 point, and was at least half a point in about 2 in 3 weeks. <!-- claims: spread_mean, share_spread_ge_050 -->
-S12.2 Tessa's gap this week sits a little above that average. <!-- claims: spread_now, spread_mean -->
+S12.2 Tessa's gap on October 8 sits a little above that average. <!-- claims: spread_now, spread_mean -->
 
 ## S13 — The smallest stack
 
@@ -180,7 +180,7 @@ S20.2 That's history, not a forecast: the gap has moved before, and nothing here
 ## S21 — The shortcut (viewer question 2)
 
 S21.1 Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day. <!-- claims: pay15_now, pay30on15_now -->
-S21.2 At this week's rates, it doesn't: it ends after about 195 months, about 15 months late. <!-- claims: months_at_pay15_now, months_late_at_pay15_now; hold: 1.0 -->
+S21.2 At the October 8 rates, it doesn't: it ends after about 195 months, about 15 months late. <!-- claims: months_at_pay15_now, months_late_at_pay15_now; hold: 1.0 -->
 S21.3 To finish in 15 years, she'd add $733 a month on top of the required payment. <!-- claims: extra_principal_needed_now -->
 
 ## S22 — The extra doesn't touch the required payment
@@ -192,7 +192,7 @@ S22.3 That's why the fallback is still there years later, if a month goes wrong.
 ## S23 — Once a year instead of monthly (viewer question 3)
 
 S23.1 Tessa has another practical question: could she send the extra once a year instead of every month? <!-- claims: — -->
-S23.2 At this week's rates, that's $8,792 once a year, the same total as the monthly extra. <!-- claims: yearly_lump, extra_principal_needed_now -->
+S23.2 At the October 8 rates, that's $8,792 once a year, the same total as the monthly extra. <!-- claims: yearly_lump, extra_principal_needed_now -->
 S23.3 Paid that way, the loan ends four months later. <!-- claims: yearly_lump_months; hold: 0.8 -->
 
 ## S24 — What the timing costs
@@ -256,4 +256,4 @@ S32.2 This is US only, and it's history, not a forecast; it doesn't say which lo
 
 S33.1 Beside Tessa's house now stand a tall stack and a high bar. <!-- claims: extra_vs15_total_now, bar_now -->
 S33.2 She asked: a 15-year, or a 30-year paid in 15? <!-- claims: pay30on15_now -->
-S33.3 [thoughtful] What she now knows: the 30-year paid in 15 is the 15-year plus a fallback, and this week, that fallback costs her $120 a month. <!-- claims: extra_vs15_month_now, pay30on15_now; hold: 1.5 -->
+S33.3 [thoughtful] What she now knows: the 30-year paid in 15 is the 15-year plus a fallback, and at the rates of the week of October 8, 2026, that fallback costs her $120 a month. <!-- claims: extra_vs15_month_now, pay30on15_now, last_week; hold: 1.5 -->
