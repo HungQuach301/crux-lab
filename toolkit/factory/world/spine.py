@@ -168,8 +168,8 @@ def check_f14(spine):
     return errs, warn
 
 
-def life_keys(points, hold_at_end=True):
-    """F-14 (a): track liên tục từ các mốc [(t, v)] gắn vào từ (giá trị ở mỗi từ khoá = trạng thái dữ liệu tại đó); giữa hai mốc nội suy tuyến tính
-    — vật đi dần theo thời gian của câu thay vì bậc 0,3 s rồi đứng. Trả [[t, v]] (dùng như khung khoá của scene, c4kit.kf)."""
+def life_keys(points):
+    """F-14 (a): chuẩn hoá các mốc [(t, v)] gắn vào từ của một track `life` (sắp theo giờ, làm tròn ms) → [[t, v]]. Việc nội suy tuyến tính giữa
+    hai mốc do scene làm (c4kit.kf / lin) — vật đi dần theo thời gian của câu thay vì bậc 0,3 s rồi đứng."""
     pts = sorted((round(float(t), 3), v) for t, v in points)
     return [[t, v] for t, v in pts]
