@@ -1,0 +1,105 @@
+[
+ {
+  "episode": "ep004",
+  "report": "episodes/ep004/out/checks/report.json",
+  "format": "lab",
+  "duration": 481.566667,
+  "breaks": [
+   180.05,
+   349.3
+  ],
+  "total": 481.5999,
+  "statusInReport": {
+   "F07": "PASS",
+   "S14": "PASS",
+   "S15": "FAIL"
+  },
+  "old": {
+   "F07": true,
+   "S14.count": true,
+   "S14.gap": true,
+   "S15.total": false
+  },
+  "new": {
+   "F07": false,
+   "S14.count": true,
+   "S14.gap": true,
+   "S15.total": false
+  }
+ },
+ {
+  "episode": "ep005",
+  "report": "episodes/ep005/out/checks/report.json",
+  "format": "101",
+  "duration": 462.633333,
+  "breaks": [
+   184.3
+  ],
+  "total": 465.6669,
+  "statusInReport": {
+   "F07": "FAIL",
+   "S14": "PASS",
+   "S15": "FAIL"
+  },
+  "old": {
+   "F07": false,
+   "S14.count": true,
+   "S14.gap": true,
+   "S15.total": true
+  },
+  "new": {
+   "F07": false,
+   "S14.count": true,
+   "S14.gap": true,
+   "S15.total": true
+  }
+ },
+ {
+  "episode": "ep006",
+  "report": "episodes/ep006/out/checks/run-c5d/report.json",
+  "format": "101",
+  "duration": 536.6,
+  "breaks": [
+   208.15
+  ],
+  "total": 536.6,
+  "statusInReport": {
+   "F07": "PASS",
+   "S14": "PASS",
+   "S15": "FAIL"
+  },
+  "old": {
+   "F07": true,
+   "S14.count": true,
+   "S14.gap": true,
+   "S15.total": true
+  },
+  "new": {
+   "F07": true,
+   "S14.count": true,
+   "S14.gap": true,
+   "S15.total": true
+  }
+ },
+ {
+  "episode": "ep007",
+  "report": null,
+  "format": "lab",
+  "duration": 605.0,
+  "breaks": [],
+  "total": 605.0,
+  "note": "chưa dựng: ước 10:05 của kịch bản C2 v3 (episodes/ep007/gates/G1.md); chỉ F07/S15 theo độ dài ước",
+  "old": {
+   "F07": true,
+   "S14.count": null,
+   "S14.gap": null,
+   "S15.total": true
+  },
+  "new": {
+   "F07": true,
+   "S14.count": null,
+   "S14.gap": null,
+   "S15.total": true
+  }
+ }
+]

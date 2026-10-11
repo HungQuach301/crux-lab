@@ -105,10 +105,13 @@ def f06_audio_format(ctx):
     return verdict('F06', ms)
 
 
-@rule('F07', 'DX-S1 (CH §1 length)', 'container duration (ffprobe format.duration); K3: the range of CHARTER §1 (8–15 minutes)', '480 … 900 s (8:00–15:00)')
+@rule('F07', 'DX-S1 (CH §1 length)', 'container duration (ffprobe format.duration); K4.2b (A31, D-012; chủ dự án 2b): the range of CHARTER §1 by contract.json '
+      'format (no format = lab, as S14/S15)', '101: 480 … 540 s (8:00–9:00); lab: 540 … 660 s (9:00–11:00); deep: 840 … 1020 s (14:00–17:00)')
 def f07_duration(ctx):
+    from r_content import FORMATS, episode_format
+    fmt, note = episode_format(ctx)
     dur = float(_streams(ctx)['format']['duration'])
-    return verdict('F07', [metric('duration s', dur, 'in', [480.0, 900.0], 's')])
+    return verdict('F07', [metric('duration s', dur, 'in', FORMATS[fmt]['length'], 's')], details=[{'format': fmt, 'note': note}])
 
 
 # ---- banding ------------------------------------------------------------------------------------

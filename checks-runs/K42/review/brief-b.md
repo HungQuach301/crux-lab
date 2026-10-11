@@ -1,0 +1,9 @@
+Bạn là REVIEWER độc lập của Crux (Opus). Soát lô K4.2b (sửa luật cũ theo câu trả lời chủ dự án) TRƯỚC khi merge `main`. Chỉ đọc. Không agent con. Mỗi lệnh Bash là MỘT lệnh. Không in biến môi trường.
+Đọc: `checks-runs/K42/GOI-chu-du-an.md` · `checks-runs/K42/GOI-answer.md` (1a, 2b: trần CHÍNH, không F13; sàn theo format; S14 deep 2–3 cách ≥ 180 s chỉ deep; S15 sàn deep 840) · `git diff origin/main` cho: `checks/py/r_file.py` (F07), `checks/py/r_content.py` (FORMATS, S14, S15), `checks/py/tiers.py`, `checks/selftest/test_py.py`, `checks/CONTRACT.md`, `checks/README.md` (mục K4.2b, bảng luật F07/S14/S15, bảng cấp), `toolkit/blind/packets.py`, `toolkit/tests/test_toolkit_v2.py`, `playbook/quality-framework.md`, `checks-appeal.md`, `PLAN.md` · `checks-runs/K42/before_after_a31.py`, `a31-before-after.json`, `before_after_a28.py`, `a28-before-after.json`, `fingerprints-K42b.json` · `CHARTER.md` §1.
+Soát:
+(1) Mã đúng đúng câu trả lời 2b, không hơn không kém: F07 khoảng theo format, CHÍNH; không có luật trần CHẶN; khoảng cách mid-roll chỉ cho deep; lab/101 của S14/S15 giữ nguyên số đo; không format = lab.
+(2) A28 đúng 1a: mặc định new; lệch → theo rubric đã chọn; rubric kia vẫn báo; CLI và hàm cùng mặc định; không còn chỗ nào (mã, doc) nói "lệch → giữ cũ" như luật hiện hành.
+(3) Selftest: fixture bad trượt vì đúng lý do (S14/deep: khoảng cách chứ không phải lý do khác; S15/deep: tổng). Chạy `python3 checks/selftest/test_py.py --only F07,S14,S15` và `python3 -m unittest toolkit/tests/test_toolkit_v2.py` nếu được.
+(4) Báo cáo trước/sau: số trong README K4.2b khớp tệp json (Tập 4 F07 PASS→FAIL duy nhất; A28 8 lượt, không FAIL→PASS); cách làm (áp ngưỡng lên số đo đã ghi) có lỗ nào không.
+(5) README bảng luật/bảng cấp khớp `python3 checks/py/run.py .. --list` (measure, threshold, tierReason của F07/S14/S15).
+Trả về: **ĐẠT / ĐẠT có sửa / TRƯỢT**; CHẶN / CHÍNH / PHỤ (tệp:dòng, vấn đề, sửa nguyên văn). ≤ 30 dòng.

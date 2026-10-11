@@ -1513,14 +1513,30 @@ def near_case(bad):
     return common.Result('NEAR', 'PASS' if ok else 'FAIL', [common.metric('near flags', ok, '==', True)], details=[got])
 
 
-def f07_long_case(bad):
-    """F07 (K3): CHARTER §1 caps the length at 15:00; bad = 905 s must fail, good = 480 s (the lower edge) must pass."""
-    f = F('F07-long')
+def f07_variant(name, fmt, dur):
+    f = F('F07-' + name)
     try:
-        f.video(size='64x36', dur=905 if bad else 480, src='color')
+        if fmt:
+            f.contract(format=fmt)
+        f.video(size='64x36', dur=dur, src='color')
         return f.run('F07')
     finally:
         f.close()
+
+
+def f07_long_case(bad):
+    """F07 (K4.2b, A31 2b): lab (no format = lab) caps at 11:00; bad = 661 s, good = 660 s (the upper edge)."""
+    return f07_variant('long', None, 661 if bad else 660)
+
+
+def f07_101_case(bad):
+    """F07 (K4.2b): 101 is 480–540 s; bad = 545 s (inside lab, over the 101 cap), good = 480 s (the lower edge)."""
+    return f07_variant('101', '101', 545 if bad else 480)
+
+
+def f07_deep_case(bad):
+    """F07 (K4.2b): deep is 840–1020 s; bad = 660 s (a lab length declared deep), good = 900 s (over the old 15:00 cap)."""
+    return f07_variant('deep', 'deep', 660 if bad else 900)
 
 
 # ---- K3.5: kind float-vs-fixed-replay (Episode 2) ------------------------------------------------------------------------------------------
@@ -2177,7 +2193,7 @@ def sh05_case(bad):
 
 
 EXTRA = {'REG': reg_case, 'S01/refinance': refi_case, 'A14/asr-cut': asr_cut_case, 'A14/asr-two-pass': asr_pass_case,
-         'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case, 'F07/too-long': f07_long_case,
+         'TIERS': tiers_case, 'VERDICT': verdict_case, 'REG/tier': reg_tier_case, 'NEAR': near_case, 'F07/too-long': f07_long_case, 'F07/101': f07_101_case, 'F07/deep': f07_deep_case,
          'F12/photo': f12_photo_case, 'F12/font': f12_font_case, 'F12/public-domain': f12_pd_case, 'F12/quote-card': f12_quote_case,
          'F12/self-made': f12_selfmade_case, 'F12/no-manifest': f12_manifest_case,
          'F12/loaded': f12_loaded_case, 'F12/loaded-font': f12_loaded_font_case, 'F12/generated': f12_generated_case,
@@ -2718,6 +2734,44 @@ def sh06_px_case(bad):
 
 
 EXTRA.update({'SH06': sh06_case, 'SH06/px': sh06_px_case})
+
+
+# ---- K4.2b (A31 2b): S14 / S15 for deep ---------------------------------------------------------------------------------------------------------------
+def s14_deep_case(bad):
+    """S14 deep: 2–3 breaks, consecutive ≥ 180 s apart, each at an act boundary in silence, ≥ 120 s from the ends (900 s programme, acts at 300/450/600).
+    bad = breaks at 300.1 and 450.1 (150 s apart); good = 300.1 and 600.1 (300 s apart)."""
+    f = F('S14-deep')
+    try:
+        x = programme(900, levels=(-20,)) * 0.5
+        for a in (300, 450, 600):
+            x[int(a * SR):int((a + 1.3) * SR)] = 0
+        master_fixture(f, x)
+        f.json('out/timeline.json', {'total': 900, 'acts': [{'id': 'act1', 'start': 0, 'end': 300.0}, {'id': 'act2', 'start': 300.0, 'end': 450.0},
+                                                            {'id': 'act3', 'start': 450.0, 'end': 600.0}, {'id': 'method', 'start': 600.0, 'end': 900}], 'scenes': []})
+        f.contract(format='deep')
+        f.json('out/adbreaks.json', {'breaks': [300.1, 450.1] if bad else [300.1, 600.1]})
+        return f.run('S14')
+    finally:
+        f.close()
+
+
+def s15_deep_case(bad):
+    """S15 deep: timeline total ≥ 840 s; bad = 830 s, good = 850 s (act2 stretched)."""
+    f = F('S15-deep')
+    try:
+        acts, t = [], 0.0
+        for a, d in ORDER_ACTS:
+            d = 20 if a == 'cold-open' else (d + (212 if bad else 232)) if a == 'act2' else d   # 618 s + 212 = 830 (bad), + 232 = 850
+            acts.append({'id': a, 'start': t, 'end': t + d})
+            t += d
+        f.json('out/timeline.json', {'total': t, 'acts': acts, 'scenes': [{'id': a['id'], 'act': a['id'], 'start': a['start'], 'dur': a['end'] - a['start']} for a in acts]})
+        f.contract(format='deep')
+        return f.run('S15')
+    finally:
+        f.close()
+
+
+EXTRA.update({'S14/deep': s14_deep_case, 'S15/deep': s15_deep_case})
 
 def main():
     only = set(sys.argv[sys.argv.index('--only') + 1].split(',')) if '--only' in sys.argv else None
