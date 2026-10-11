@@ -1,5 +1,5 @@
 {
- "video": "/home/user/crux-lab/episodes/ep007/world/c3/out/.staging-s06-stack-5687/s06-stack.mp4",
+ "video": "/home/user/crux-lab/episodes/ep007/world/c3/out/.staging-s06-stack-19027/s06-stack.mp4",
  "rule1": {
   "violations": 0,
   "examples": []
@@ -13,20 +13,20 @@
   "missing_reason_or_sound": []
  },
  "modes": {
-  "world_share": 0.245,
-  "chart_share": 0.755,
+  "world_share": 0.23,
+  "chart_share": 0.77,
   "first_5s_world": true
  },
  "F2": {
   "summary": {
    "level": "OK",
-   "sfx_per_min": 12.9,
-   "sfx_max_10s": 5,
-   "sfx_on_speech": 5,
-   "sfx_on_plain_words": 1,
-   "sfx_events": 6,
-   "keyword_hits": 4,
-   "min_keyword_snr_db": 22.1,
+   "sfx_per_min": 15.1,
+   "sfx_max_10s": 6,
+   "sfx_on_speech": 6,
+   "sfx_on_plain_words": 0,
+   "sfx_events": 7,
+   "keyword_hits": 5,
+   "min_keyword_snr_db": 21.7,
    "label_overlaps": 0,
    "line_crossings": 0,
    "block": 0,
@@ -36,36 +36,43 @@
   "block": [],
   "warn": [],
   "sfx": {
-   "events": 6,
+   "events": 7,
    "duration_s": 27.81,
-   "per_min": 12.9,
+   "per_min": 15.1,
    "max_window": {
-    "count": 5,
+    "count": 6,
     "t0": 3.138,
     "t1": 13.138,
     "times": [
      3.138,
-     6.167,
-     7.367,
+     5.897,
+     6.897,
+     7.907,
      7.907,
      10.93
     ]
    },
    "on_speech": {
-    "count": 5,
-    "plain_words": 1,
+    "count": 6,
+    "plain_words": 0,
     "times": [
      {
       "t": 3.138,
-      "kind": "rise",
+      "kind": "tick",
       "word": "finishing",
       "keyword": true
      },
      {
-      "t": 7.367,
-      "kind": "land",
-      "word": "nine",
-      "keyword": false
+      "t": 5.897,
+      "kind": "whoosh_mode",
+      "word": "takes",
+      "keyword": true
+     },
+     {
+      "t": 7.907,
+      "kind": "rise",
+      "word": "forty-eight",
+      "keyword": true
      },
      {
       "t": 7.907,
@@ -96,10 +103,24 @@
      "events": [
       [
        3.138,
-       "rise"
+       "tick"
       ]
      ],
-     "snr_db": 23.1,
+     "snr_db": 31.9,
+     "level": "OK"
+    },
+    {
+     "keyword": "a0.takes",
+     "word": "takes",
+     "s": 5.637,
+     "e": 5.96,
+     "events": [
+      [
+       5.897,
+       "whoosh_mode"
+      ]
+     ],
+     "snr_db": 180.4,
      "level": "OK"
     },
     {
@@ -110,10 +131,14 @@
      "events": [
       [
        7.907,
+       "rise"
+      ],
+      [
+       7.907,
        "tick"
       ]
      ],
-     "snr_db": 31.1,
+     "snr_db": 22.1,
      "level": "OK"
     },
     {
@@ -127,7 +152,7 @@
        "tick"
       ]
      ],
-     "snr_db": 26.0,
+     "snr_db": 26.5,
      "level": "OK"
     },
     {
@@ -141,7 +166,7 @@
        "tick"
       ]
      ],
-     "snr_db": 22.1,
+     "snr_db": 21.7,
      "level": "OK"
     }
    ],
