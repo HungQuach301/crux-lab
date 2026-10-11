@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"A viewer might loosely take away that small monthly amounts add up. That is an inference and not something the animation tells them.\", \"why\": \"Reader describes the figure by the house and a stack growing in bundles under a '$120 a month' label, which matches the muted read. They say the image states no action (no 15/30-year choice, prepay, or invest), and the 'small amounts add up' takeaway is flagged as the reader's own inference.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2370,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 416,
+   "in": 2370,
+   "out": 416
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2416,
+   "cache_read": 1382,
+   "output": 770,
+   "in": 3800,
+   "out": 770
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0179512
+}
