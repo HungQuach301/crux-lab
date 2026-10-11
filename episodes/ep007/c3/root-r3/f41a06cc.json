@@ -1,0 +1,23 @@
+{
+ "answer": "1. **The idea.** The animation shows how paying extra on a mortgage shortens the loan. A character named Tessa, labeled \"illustrative,\" has a house and a grid of tiles. Each tile appears to stand for one monthly payment. The caption says the data is \"US only · history, not a forecast\" and credits the Freddie Mac weekly mortgage survey.\n\n2. **What changes.** Frame 1 shows only the house and Tessa. In frames 2 and 3 a grid of tiles grows out from the house, which looks like the payment schedule being laid out. In frame 4 the grid is full and gray, with a few gold tiles along the right edge. The label reads \"pay $2,828 on the 30-year: about 195 months.\" In frame 5 the gold tiles are gone and the grid is all white. In frame 6 the label reads \"to finish in 180 months: $2,216 required + $733 a month.\"\n\n3. **What it means.** Tessa's 30-year loan has a required payment of $2,216 a month. If she pays $2,828 a month instead, the loan ends in about 195 months, which is roughly 16 years. To finish in exactly 180 months (15 years), she would add $733 a month to the required $2,216. The gold tiles in frame 4 seem to show the months that extra payments cut off. The $2,216 and $733 add up to about $2,949, a little more than the $2,828 in frame 4. I'm treating that as an approximation, not an error.\n\n4. **Advice a viewer might take.** The animation gives no direct advice. Nothing on screen says to pay extra or to invest instead. A viewer could only conclude that extra monthly payments shorten the loan and that finishing in 15 years takes a specific, larger payment. The animation never compares this with investing, so it doesn't help with your question.\n\n5. **Source of the takeaway.** The \"extra payments shorten the loan\" reading comes from the picture and on-screen text, namely the shrinking grid and the month and dollar labels. Any advice beyond that would be my own conclusion, because the animation gives none. For your question, the disclaimers \"illustrative\" and \"history, not a forecast\" mean you shouldn't treat these numbers as a prediction or as proof that paying extra beats investing.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1459,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 192,
+   "in": 1459,
+   "out": 192
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3772,
+   "cache_read": 6383,
+   "output": 813,
+   "in": 10159,
+   "out": 813
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0241062
+}
