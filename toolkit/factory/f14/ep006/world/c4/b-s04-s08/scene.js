@@ -168,13 +168,13 @@ export async function boot(res) {
       label(O, L['c2.level'], (RL.x0 + RL.x1) / 2, RL.yt - 40, { align: 'center', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * show(t, at(S, 'c2.level', b.c2.level), b.c3.slowed) });   // F-14 (c)
       label(O, L['c2.first'], inX((RL.x0 + RL.x1) / 2, L['c2.first']), RL.yb + 86, { align: 'center', kind: 'number', px: 48, color: C.muted, alpha: ok * show(t, b.c2.first, b.c2.six - 0.3) });
       label(O, L['c2.six'], inX((RL.x0 + RL.x1) / 2, L['c2.six']), RL.yb + 86, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.c2.six) });
-      label(O, L['c4.model'], 960, 236, { align: 'center', kind: 'compare', px: 52, color: C.muted, alpha: ok * show(t, at(S, 'c4.model', b.c4.model)) });   // F-14 (c): neo vào 'model'
+      label(O, L['c4.model'], 960, 236, { align: 'center', kind: 'compare', px: 52, color: C.muted, alpha: ok * show(t, at(S, 'c4.bigger', b.c4.bigger)) });   // F-14 (c): neo vào "bigger" (đầu ý; neo vào "model" đẩy nhãn ra khỏi dải nhịp B08 → nghĩa tụt)
       // F-14 (a) S08.2 "the raise slowed the loss": thùng séc tăng còn giữ mà séc đều đã mất (6,09 → 9,04) được viền dần từ "slowed"
       { const SK = S.life.slowed.keys, sp = lin(t, SK[0][0], SK[1][0]), sA2 = ok * show(t, SK[0][0], b.c4.own);
         if (sA2 > 0.01) { const [xa] = O.toScreen(ris.row.edgeX(6.09), 0, ris.z + 0.4), [xb] = O.toScreen(ris.row.edgeX(9.04), 0, ris.z + 0.4);
           seg2(O, xa, RR.yt - 14, xa + (xb - xa) * sp, RR.yt - 14, C.cushion, sA2, 6);
           const c = O.ctx; c.save(); c.globalAlpha = sA2 * 0.3; c.fillStyle = C.cushion; c.fillRect(xa, RR.yt - 8, (xb - xa) * sp, RR.yb - RR.yt + 16); c.restore(); } }
-      const bg = pulse(t, b.c4.bigger, 1.2);
+      const bg = Math.max(pulse(t, b.c4.bigger, 1.2), pulse(t, b.c4.model, 1.2));   // "doesn't model": hai cỡ đầu loé lại
       if (bg > 0.01) for (const col of [lev, ris]) { const [x, y] = O.toScreen(col.card.position.x, col.cbase, 0.2); seg2(O, x - 40, y, x + 40, y, C.warn, ok * bg, 5); }
       log.roi['c2.six'] = [RL.x0 - 10, RL.yb + 20, RL.x1 + 10, RL.yb + 120]; log.roi['c2.level'] = [RL.x0 - 10, RL.yt - 20, RL.x1 + 10, RL.yb + 10];
       log.roi['c4.model'] = [400, 170, 1520, 260];
