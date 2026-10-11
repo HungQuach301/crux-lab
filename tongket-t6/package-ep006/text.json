@@ -1,0 +1,80 @@
+{
+ "titles": [
+  {
+   "title": "Annuity inflation protection: did a 2% raise keep up?",
+   "search_phrase": "annuity inflation protection",
+   "frame": "question",
+   "why": "Top niche search phrase first, then the exact question the video answers."
+  },
+  {
+   "title": "Annuity 2% raise vs inflation: the 20-year scorecard",
+   "search_phrase": "annuity 2% raise vs inflation",
+   "frame": "X vs Y: The N-Year Scorecard, Replayed Through Real History",
+   "why": "Winning versus frame; the 20-year replay is the scorecard."
+  },
+  {
+   "title": "Retirement income annuity: a 2% raise kept up 17 of 715",
+   "search_phrase": "retirement income annuity",
+   "frame": "[People like me]? What N Years of Real History Say",
+   "why": "Broad retiree search phrase plus the headline result, which the video pays off."
+  }
+ ],
+ "description_head": "Annuity inflation protection, replayed: a check rising 2% a year vs US prices.\nEvery 20-year stretch from 1947 to Aug 2006, 715 in all.",
+ "chapters": [
+  {
+   "t": 0,
+   "name": "Ruth's 2% annuity raise question"
+  },
+  {
+   "t": 51,
+   "name": "Ruth's annuity check, year by year"
+  },
+  {
+   "t": 208,
+   "name": "Every 20-year stretch since 1947"
+  },
+  {
+   "t": 329,
+   "name": "Carl, Edna and the start month"
+  },
+  {
+   "t": 485,
+   "name": "How we replayed US prices"
+  },
+  {
+   "t": 516,
+   "name": "Back to Ruth's question"
+  }
+ ],
+ "tags": [
+  "annuity inflation protection",
+  "annuity cost of living rider",
+  "retirement income annuity",
+  "annuity vs inflation",
+  "fixed annuity inflation"
+ ],
+ "description_file": "tongket-t6/package-ep006/description.md",
+ "check": {
+  "pass": true,
+  "fails": [],
+  "S21": "PASS"
+ },
+ "cost_usd": 0.073663,
+ "usage": {
+  "claude-opus-5-5": {
+   "inputTokens": 2,
+   "outputTokens": 2209,
+   "cacheReadInputTokens": 535,
+   "cacheCreationInputTokens": 3671,
+   "webSearchRequests": 0,
+   "costUSD": 0.073663,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 1650,
+   "canonicalModel": "claude-opus-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "model": "claude-opus-5-5"
+}

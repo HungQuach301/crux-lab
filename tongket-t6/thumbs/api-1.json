@@ -1,0 +1,29 @@
+{
+ "texts": [
+  "20 YEARS",
+  "LATER"
+ ],
+ "claims": [
+  "main_years_raises"
+ ],
+ "frame": "/tmp/claude-0/frames/a-s01-s03-t4.00.png",
+ "path": "openai images/edits gpt-image-1",
+ "quality": "medium",
+ "prompt": "Edit this frame from an explainer video into a YouTube thumbnail background. KEEP exactly these objects and characters, same shapes, same colors, same count, same arrangement: one faceless lavender low-poly figure (Ruth) at left, a white paper check in front of her, and a long row of exactly 10 white closed crates receding to the right. Make them larger and closer to the camera, with dramatic soft key light, deeper shadows and gentle depth of field on a dark charcoal background (#0E1116). Style stays minimal low-poly 3D, matte, not photorealistic. Remove ALL text, labels, numbers, badges, captions and logos from the image. Do not add any new object, person, face, hand, money bill, coin, basket, arrow or chart. Characters stay faceless. Keep the top and bottom dark bands empty (they will be cropped). Leave the lower-left third darker and calm for a headline.",
+ "usage": {
+  "input_tokens": 551,
+  "input_tokens_details": {
+   "image_tokens": 323,
+   "text_tokens": 228
+  },
+  "output_tokens": 1568,
+  "output_tokens_details": {
+   "image_tokens": 1568,
+   "text_tokens": 0
+  },
+  "total_tokens": 2119
+ },
+ "cost_usd_est": 0.063,
+ "pillar": "retire",
+ "character": true
+}

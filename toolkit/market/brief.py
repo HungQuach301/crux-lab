@@ -2,6 +2,7 @@
 """Sinh out/package/PACKAGING-BRIEF.md điền sẵn cho một tập (Phiên Thị trường bước 7; chạy ở P3 trước G2, gửi kèm gói G2).
 
   python3 toolkit/market/brief.py episodes/epNNN --topic <id hồ sơ cầu, vd q12-annuity-raise> [--answered 1,3,4] [--bg out/package/bg-1.png …]
+      [--objects "crates, a paper check"] [--banned "baskets, groceries"]   (lessons T6-11: ChatGPT vẽ 'baskets' thay crates khi brief không ghi tên vật thể)
   --answered: số thứ tự câu hỏi khán giả mà kịch bản trả lời (bảng nhịp C2, ≥ 3/5); mặc định 1,2,3.
 
 Nguồn: out/claims.json (số được phép = `display`), out/timeline.json (chương = đầu hồi, bỏ ident), out/package/description.md của máy
@@ -29,7 +30,7 @@ def main(a):
     # số được phép = claim có số mà phim nói ra hoặc hiện trên hình (đủ ngắn để brief ≤ 1 trang); số khác trong claims.json vẫn qua S21
     said = [c for c in cl if (c.get('spoken') or c.get('shownIn')) and not re.fullmatch(r'(age|year) \d+|all \d+', str(c.get('display', '')))]
     said.sort(key=lambda c: -(len(c.get('spoken') or []) + len(c.get('shownIn') or [])))
-    displays = list(dict.fromkeys(str(c['display']) for c in said if c.get('display') and re.search(r'\d', str(c['display']))))[:20]
+    displays = list(dict.fromkeys(str(c['display']) for c in said if c.get('display') and re.search(r'\d', str(c['display']))))[:12]   # 12: brief ≤ 1 trang sau khi thêm vật thể + bộ nhận diện (D-012)
     tl = json.loads((ep / 'out' / 'timeline.json').read_text())
     desc_p = ep / 'out' / 'package' / 'description.md'
     desc = desc_p.read_text() if desc_p.exists() else ''
@@ -65,6 +66,12 @@ def main(a):
             .replace('{0:00 … from out/timeline.json acts}', '\n'.join(chap))
             .replace('{winning style from market/REPORT.md §3}', thumb)
             .replace('{3–4}', '4').replace('{keywords}', kw).replace('{X, Y, Z}', qs))
+    pillar = next((t.get('pillar') for t in json.loads((ROOT / 'toolkit/market/topics.json').read_text())['topics'] if t['id'] == topic), None)
+    pillar_color = {'hưu trí': '#3FBF7F', 'vay nợ': '#F2B441', 'thuế': '#4C8DFF'}.get(pillar)
+    if not pillar_color:
+        print(f'cảnh báo: không thấy trụ của đề tài {topic!r} trong topics.json — màu trụ để trống, điền tay', file=sys.stderr); pillar_color = '{pillar color}'
+    body = (body.replace('{objects}', a[a.index('--objects') + 1] if '--objects' in a else '{objects — tên vật thể trung tâm như trong kịch bản}')
+            .replace('{banned}', a[a.index('--banned') + 1] if '--banned' in a else '{vật thay thế bị cấm}').replace('{pillar_color}', pillar_color))
     for i, f in enumerate(frames[:3], 1):
         body = body.replace(f'{{frame {i}}}', f)
     head = f'# Packaging brief — Episode {n}: {title or "{working title}"}\n'

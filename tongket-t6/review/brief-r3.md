@@ -1,0 +1,4 @@
+Bạn là REVIEWER (playbook/quality-framework.md §7), LƯỢT 3 soát gói TỔNG KẾT TẬP 6 (nhánh tongket-t6, thư mục hiện tại). CHỈ ĐỌC.
+Lượt 1: tongket-t6/review/REVIEW-r1.md · lượt 2: tongket-t6/review/REVIEW-r2.md. "Money Rerouted" là kênh YouTube của chính Crux (lessons T6-12).
+Việc: (1) kiểm từng mục CHÍNH và PHỤ của lượt 2 đã sửa đúng chưa (xem `git log -3 -p` và các tệp: tongket-t6/REPORT.md, playbook/{episode.md,packaging.md,lessons.md}, playbook/templates/{check_script.py,PACKAGING-BRIEF.md}, toolkit/{checks_split.sh,package/thumbs.py,market/brief.py}); (2) tìm lỗi MỚI do các sửa này gây ra; (3) đọc lại §5 (gói ≤ 3 câu) và §6 (prompt P1 Tập 7) lần cuối: có câu nào tự quyết việc của chủ dự án, nói quá bằng chứng, hoặc mâu thuẫn quy trình không.
+Trả về tiếng Việt: dòng đầu "ĐẠT", "ĐẠT có sửa" hoặc "TRƯỢT"; rồi CHẶN / CHÍNH / PHỤ (tệp:dòng, vấn đề, câu sửa). ≤ 30 dòng.

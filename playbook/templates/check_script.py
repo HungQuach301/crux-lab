@@ -47,8 +47,9 @@ SCRIPT = os.path.abspath(next((a for i, a in enumerate(sys.argv[1:], 1) if not a
 HERE = os.path.dirname(SCRIPT)
 G1_SHORT = '--g1-short' in sys.argv   # chủ dự án đã duyệt ở G1: tập ngắn hơn đích, không độn
 BEATS, HOOKS = os.path.join(HERE, 'beats.md'), os.path.join(HERE, 'hooks.md')
-WPS_SPEECH = 2.75   # từ nói / giây lời (Eric eleven_v3, speed 0.9; Tập 4–5, tongket-t5 §2c)
-WPS_TOTAL = 2.52    # từ nói / giây thời lượng cả tập (gồm phần ngoài lời của nhà máy; Tập 4–5)
+WPS_SPEECH = 2.66   # từ nói / giây lời (Eric eleven_v3, speed 0.9; đo trên Tập 6 — lessons T6-5; Tập 4–5: 2,72–2,75)
+WPS_TOTAL = 2.40    # từ nói / giây thời lượng cả tập (gồm ident, lặng trước số neo, khúc đóng; Tập 6; Tập 4–5: 2,51–2,53)
+# Đo lại sau mỗi tập: python3 toolkit/usage/measure_pace.py <tập…>; lệch > 2 % → sửa hai hằng này (lessons T6-5).
 WPS = WPS_SPEECH    # mốc giây trong tập (móc, mật độ, mid-roll)
 IDENT_S = 3.0
 FORMAT = '101'
@@ -56,7 +57,7 @@ _yaml = os.path.join(os.path.dirname(HERE), 'episode.yaml')
 if os.path.exists(_yaml):
     _m = re.search(r'^format:\s*[\'"]?(\w+)', open(_yaml, encoding='utf-8').read(), re.M)
     FORMAT = _m.group(1) if _m else FORMAT
-LEN_LIMITS = {'101': (505, 540), 'lab': (540, 660)}   # (đích tối thiểu ước, tối đa cứng) giây; 101 ≥ 8:25 (lessons T6-1; trước: 8:15)
+LEN_LIMITS = {'101': (505, 540), 'lab': (540, 660), 'deep': (882, 1020)}   # (đích tối thiểu ước, tối đa cứng) giây; 101 ≥ 8:25 (lessons T6-1); deep ≥ 14:42 ước = sàn 14:00 + 5 % (D-012, episode.md §9)
 MIDROLL_MIN_S = 480   # YouTube chỉ cho mid-roll khi video ≥ 8:00 (lessons T6-1)
 BANNED_NAMES = {'Nora', 'Walt', 'Anjali', 'Leah', 'Dana', 'Rosa', 'Frank', 'Maya', 'Grace', 'Owen', 'Victor'}   # TẬP: thêm tên tập trước
 CAST = []           # TẬP: tên nhân vật minh hoạ của tập (nhân vật dẫn đường đứng đầu); hoặc --cast A,B,C
@@ -73,7 +74,10 @@ ADVICE_EXTRA = re.compile(r"\b(you should|you need|you'd want|it's time to|best 
 WORDNUM = {'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12,
            'twenty': 20, 'thirty': 30, 'forty': 40, 'fifty': 50, 'sixty': 60, 'hundred': 100, 'thousand': 1000}
 WORD_EXEMPT = []    # TẬP: cụm số không phải số liệu (vd r'\bthree illustrative buyers\b')
-TEMPLATE = {'hook': 8, 'concept': 25, 'experiment': 30, 'buyers': 25, 'limits': 12}   # khuôn 101 (story §4)
+TEMPLATES = {'101': {'hook': 8, 'concept': 25, 'experiment': 30, 'buyers': 25, 'limits': 12},   # khuôn 101 (story §4)
+             # deep (D-012, episode.md §9): móc · khái niệm + hai nhân vật · phát lại nhiều cửa sổ · nhân vật 2 / ca đối chứng · câu hỏi khán giả · giới hạn
+             'deep': {'hook': 5, 'concept': 15, 'experiment': 25, 'buyers': 20, 'questions': 25, 'limits': 10}}
+TEMPLATE = TEMPLATES.get(FORMAT, TEMPLATES['101'])
 
 # ---------- numbers.md ----------
 NUM_MD = open(os.path.join(os.path.dirname(HERE), 'numbers.md'), encoding='utf-8').read()
@@ -136,7 +140,7 @@ def spoken_words(text):
 # ---------- parse script ----------
 LINE = re.compile(r'^(S\d{2}\.\d+)\s+(?:\{(\w+)\}\s+)?((?:\[[a-z ]+\]\s+)?)(.*?)\s*<!--\s*claims:\s*(.*?)\s*-->\s*$')
 rows, part, mid = [], None, []
-PARTMAP = [('COLD OPEN', 'hook'), ('ACT 1', 'concept'), ('ACT 2', 'experiment'), ('ACT 3', 'buyers'), ('LIMITS', 'limits')]
+PARTMAP = [('COLD OPEN', 'hook'), ('ACT 1', 'concept'), ('ACT 2', 'experiment'), ('ACT 3', 'buyers'), ('ACT 4', 'questions'), ('LIMITS', 'limits')]   # ACT 4 chỉ ở deep
 events = []  # (kind, payload) in order
 for ln in open(SCRIPT, encoding='utf-8'):
     ln = ln.rstrip('\n')
@@ -348,7 +352,7 @@ span = {}
 for r in rows:
     a, b = span.get(r['part'], (r['start'], r['next']))
     span[r['part']] = (min(a, r['start']), max(b, r['next']))
-order = [p for _, p in PARTMAP]
+order = [p for _, p in PARTMAP if p in span]
 bounds = {}
 for i, p in enumerate(order):
     s = 0.0 if i == 0 else bounds[order[i - 1]][1]
@@ -357,24 +361,31 @@ for i, p in enumerate(order):
 fmt = lambda x: f'{int(x // 60)}:{int(x % 60):02d}'  # noqa: E731
 print(f'\n{len(rows)} câu, {len(alltext.split())} từ viết ({SPOKEN} từ đọc), độ dài ước {fmt(EST)} ({SPOKEN} / {WPS_TOTAL} từ/s, {FORMAT}); '
       f'trục mốc giây {fmt(TOTAL)} ({WPS_SPEECH} từ/s + hold {sum(r["hold"] for r in rows):.1f} s + ident {IDENT_S:.0f} s)')
-print('| Phần | Từ | Thời gian | Tỉ lệ | Khuôn 101 | Δ |')
+print(f'| Phần | Từ | Thời gian | Tỉ lệ | Khuôn {FORMAT} | Δ |')
 for p in order:
     s, e = bounds[p]
     share = (e - s) / TOTAL * 100
     wc = sum(len(r['text'].split()) for r in rows if r['part'] == p)
-    d = share - TEMPLATE[p]
-    print(f'| {p} | {wc} | {fmt(s)}–{fmt(e)} | {share:.1f} % | {TEMPLATE[p]} % | {d:+.1f}{"  ← > ±5 (THAM KHẢO, nêu ở C2)" if abs(d) > 5 else ""} |')
+    d = share - TEMPLATE.get(p, share)
+    print(f'| {p} | {wc} | {fmt(s)}–{fmt(e)} | {share:.1f} % | {TEMPLATE.get(p, "—")} % | {d:+.1f}{"  ← > ±5 (THAM KHẢO, nêu ở C2)" if abs(d) > 5 else ""} |')
     if abs(d) > 5:
         warn.append(f'khuôn tỉ lệ: {p} lệch {d:+.1f} điểm')
-NMID = {'101': 1, 'lab': 2}.get(FORMAT, 1)
+NMID = {'101': (1, 1), 'lab': (2, 2), 'deep': (2, 3)}.get(FORMAT, (1, 1))   # (ít nhất, nhiều nhất)
 # T6-1: dòng "mid-roll đủ điều kiện hay không" cho gói G1; tập < 8:00 không được ghi là có mid-roll
 _mr_ok = EST >= MIDROLL_MIN_S
 print(f'mid-roll: {"ĐỦ" if _mr_ok else "KHÔNG ĐỦ"} điều kiện theo độ dài ước {fmt(EST)} (cần ≥ 8:00 thật; ≥ 2 phút đầu/cuối; lặng ≥ 1 s) — '
       'chốt bằng độ dài thật sau khi sinh lời (≥ 8:10) và ở C5 (≥ 8:00)')
 if mid and not _mr_ok:
     warn.append(f'mid-roll khai trong kịch bản nhưng độ dài ước {fmt(EST)} < 8:00 — không được ghi là có mid-roll (T6-1)')
-if len(mid) != NMID and not (G1_SHORT and not mid):
-    fail.append(f'mid-roll: {len(mid)} điểm ({FORMAT} cần {NMID}; bỏ mid-roll chỉ khi G1 duyệt, --g1-short)')
+if FORMAT == 'deep':   # episode.md §9: 2 điểm khi < 15:30, 3 khi ≥ 15:30 (theo độ dài ước; chốt lại trên độ dài thật)
+    NMID = (3, 3) if EST >= 930 else (2, 2)
+    if 'questions' not in span:
+        fail.append('deep thiếu ACT 4 (câu hỏi khán giả, episode.md §9)')
+if not NMID[0] <= len(mid) <= NMID[1] and not (G1_SHORT and not mid):
+    fail.append(f'mid-roll: {len(mid)} điểm ({FORMAT} cần {NMID[0]}–{NMID[1]}; bỏ mid-roll chỉ khi G1 duyệt, --g1-short)')
+for a, b in zip(sorted(mid), sorted(mid)[1:]) if FORMAT == 'deep' else []:
+    if b - a < 180:
+        fail.append(f'mid-roll {fmt(a)} và {fmt(b)} cách nhau {b - a:.0f} s < 180 s (deep: 2–3 điểm, mỗi điểm một ranh giới hồi)')
 for m in mid:
     prev = max((r for r in rows if r['next'] <= m + 1e-6), key=lambda r: r['next'])
     nxt_part = next((p for k, p in events[[e[1] is prev for e in events].index(True) + 1:] if k == 'part'), None)
