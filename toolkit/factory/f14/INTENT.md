@@ -60,3 +60,20 @@ Trần chi cảnh báo **$45** (Console: cổng gốc 2 bản ≈ $3, REVIEWER �
 Bản F-14 thêm cue hình MỚI (vd ba mục giỏ "rent / medical care / gasoline", nhãn giá trị của bậc thang) → mẫu số R07 đổi. Để cue dễ đo không thổi
 phồng tỉ lệ: **R07 báo hai cách và đích ≥ 90 % phải đạt ở CẢ HAI**: (1) toàn bộ cue của bản F-14; (2) **chỉ 118 cue của bản giao** (cùng tên cue,
 cùng cách đo). Cue đổi tên/bỏ khỏi `visual_cues` = tính là trượt ở cách (2). Tương tự, thước spine báo cả "chỉ cue cũ".
+
+## 8. v4 — ghi trước (12/10, chủ dự án duyệt chạy v4; TRƯỚC mọi sửa và đo của v4)
+**Mục đích:** quyết Tập 8 `deep` trước C2 Tập 8. v4 = v3 + ba sửa (B22, V11, 9 cue R07 bằng vật), dựng lại 1080p, đo lại đủ.
+**Cổng gốc v4** (rubric mới, `root_new.py`, gộp thận trọng):
+1. ≥ 20/23 nhịp ĐẠT và advice_stated = 0.
+2. So với **đối chứng đọc lại CÙNG phiên**: master bản giao `f96da0ea…` và master v4 cùng được đọc bởi **người đọc mới** (2 người/nhịp, + người thứ 3
+   khi tách đôi như cũ), chấm trong **CÙNG một gói chấm** (một packet chung, nhãn trộn ngẫu nhiên, 2 người chấm) — không dùng lại lượt đọc/chấm cũ.
+3. Mỗi nhịp ĐẠT ở đối chứng mà tụt ở v4 → **3 người đọc mới + 2 người chấm** (gói riêng, cả hai bản nhịp đó cùng gói); vẫn tụt → **TRƯỢT**.
+4. **B22 phải ĐẠT** ở v4 (sau bước 3 nếu cần).
+**R07:** giữ nguyên §7 — ≥ 90 % ở CẢ HAI cách: (1) checks khoá trên mọi cue của v4; (2) đọc chặt **118 cue của bản giao**: mỗi cue đo bằng ĐÚNG cách
+bản giao đo nó (cue bản giao đo bằng chênh khung → v4 cũng đo bằng chênh khung, kể cả khi v4 có nhãn neo; cue bản giao đo bằng nhãn → nhãn), cùng code
+`r07_local.py` (khớp checks 70,3 % trên bản giao). Cue đổi tên/bỏ = trượt.
+**Các đích khác giữ nguyên** (§3): freezedetect ∩ lời < 60 s · "3%" ≤ 0,2 s (textTrack checks) · CHẶN 0 · spine 0 (chỉ báo). Báo thêm: CHÍNH (V11),
+REG so với `run-c5d`, F-2, qc.
+**Checks:** LOCK hiện hành trên `main` (nhánh rebase lên `origin/main` @ `76ef2b1` trước khi đo; chạy lại test).
+**Chi:** headless khoá Console, 0 agent con; trần cảnh báo $45 cho cả F-14 (đã chi ≈ $7,4 tới v3). Không merge.
+**Kết:** ĐẠT/TRƯỢT từng đích; F-14 v4 ĐẠT khi mọi số chính đạt.
