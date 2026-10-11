@@ -1,0 +1,136 @@
+[
+ {
+  "n": 1,
+  "where": "result.answer",
+  "text": "Across 307 purchase months from January 1991 to July 2016, a buyer who held a home for 10 years ended ahead of an identical renter in 75.6% of them (median $157,104 ahead on a $400,000 home), with no investing of the difference.",
+  "uses": [
+   "first_10y",
+   "last_10y",
+   "median_adv_10y",
+   "n_10y",
+   "price",
+   "share_buyer_ahead_10y"
+  ],
+  "check": "python3 calc.py --statement 1 → True"
+ },
+ {
+  "n": 2,
+  "where": "result.answer",
+  "text": "The worst start was June 2006: the home index rose only 3.2% in 10 years and the buyer ended $82,385 behind the renter.",
+  "uses": [
+   "worst_adv_10y",
+   "worst_price_change_10y",
+   "worst_start_10y"
+  ],
+  "check": "python3 calc.py --statement 2 → True"
+ },
+ {
+  "n": 3,
+  "where": "result.answer",
+  "text": "The best start was April 2012, at a 3.91% mortgage rate: the index rose 114.3% and the buyer ended $483,975 ahead.",
+  "uses": [
+   "best_adv_10y",
+   "best_price_change_10y",
+   "best_rate_10y",
+   "best_start_10y"
+  ],
+  "check": "python3 calc.py --statement 3 → True"
+ },
+ {
+  "n": 4,
+  "where": "result.answer",
+  "text": "By start period: 1990s buyers were ahead in 100.0% of 10-year windows, 2002-2007 buyers in 8.3%, and 2009-2016 buyers in 100.0%.",
+  "uses": [
+   "era_1990s_share",
+   "era_2002-2007_share",
+   "era_2009-2016_share"
+  ],
+  "check": "python3 calc.py --statement 4 → True"
+ },
+ {
+  "n": 5,
+  "where": "result.answer",
+  "text": "Holding period matters: the buyer was ahead in 74.4% of 5-year windows and 100.0% of 15-year windows (worst 15-year start November 2005, still $79,829 ahead).",
+  "uses": [
+   "share_buyer_ahead_15y",
+   "share_buyer_ahead_5y",
+   "worst_adv_15y",
+   "worst_start_15y"
+  ],
+  "check": "python3 calc.py --statement 5 → True"
+ },
+ {
+  "n": 6,
+  "where": "result.answer",
+  "text": "The result leans on the starting rent: with today's rent set at 5.0% of the price a year the 10-year share is 75.6%; at 4% it is 64.2%, at 6% it is 92.2%; if the renter's savings earn 3-month T-bill rates it is 66.4%.",
+  "uses": [
+   "share_buyer_ahead_10y",
+   "share_tbills_10y",
+   "share_yield4pct_10y",
+   "share_yield6pct_10y",
+   "yield_anchor_pct"
+  ],
+  "check": "python3 calc.py --statement 6 → True"
+ },
+ {
+  "n": 7,
+  "where": "result.guess",
+  "text": "Most people expect buying to win almost always, because rent is 'thrown away'; in this replay the renter still came out ahead in 75 of 307 10-year windows.",
+  "uses": [
+   "n_10y",
+   "n_renter_ahead_10y"
+  ],
+  "check": "python3 calc.py --statement 7 → True",
+  "note": "Guess about beliefs (market dossier: 'thrown away' is the misconception competitors rebut); the check is only that the renter won some but not all windows. Not evidence of what viewers believe."
+ },
+ {
+  "n": 8,
+  "where": "result.changesDecision",
+  "text": "Every 10-year start where the renter came out ahead fell between April 2001 and December 2007, when starting rent was low next to the price (at most 6.43% a year, against a median of 6.71%).",
+  "uses": [
+   "renter_first_10y",
+   "renter_last_10y",
+   "yield_max_renter_ahead_10y",
+   "yield_median_10y"
+  ],
+  "check": "python3 calc.py --statement 8 → True",
+  "note": "Same 10-year set for every number; the check also requires the largest renter-win yield to be below the median yield."
+ },
+ {
+  "n": 9,
+  "where": "result.changesDecision",
+  "text": "At the September 2026 average rate of 6.86%, the buyer's first month costs $2,933 against $1,667 rent, so rent is 56.8% of the buyer's outlay: lower than at any of the 307 replayed start months (lowest 57.9%, July 2006).",
+  "uses": [
+   "n_10y",
+   "rate_latest",
+   "rate_month_latest",
+   "rent_to_outlay_min_10y",
+   "rent_to_outlay_min_start_10y",
+   "today_buyer_month1",
+   "today_rent_month1",
+   "today_rent_to_outlay"
+  ],
+  "check": "python3 calc.py --statement 9 → True",
+  "note": "Today's month-1 figures use the anchor rent yield and the latest complete rate month; the ranking is independent of the 5% anchor because rent scales the same way at every start."
+ },
+ {
+  "n": 10,
+  "where": "claim-risk.md",
+  "text": "The home is the national FHFA index, not one house: in the worst window the national index rose 3.2%; a single home or city can do much better or worse.",
+  "uses": [
+   "worst_price_change_10y"
+  ],
+  "check": "python3 calc.py --statement 10 → True",
+  "note": "Number from the worst window; the second clause is a caveat, not a measured claim."
+ },
+ {
+  "n": 11,
+  "where": "result.answer / claim-risk.md",
+  "text": "History, not a forecast: the last window used ends in July 2026, the last month of the price index.",
+  "uses": [
+   "hpi_last"
+  ],
+  "check": "python3 calc.py --statement 11 → True",
+  "note": "Check: last_10y + 120 months = hpi_last; nothing extrapolated."
+ }
+]

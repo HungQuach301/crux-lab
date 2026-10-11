@@ -1,0 +1,19 @@
+{
+  "decision": "Buy a home and hold it about 10 years, or rent an equivalent home: how did it turn out from every real start month?",
+  "queries": [],
+  "results": [],
+  "verdict": "gap-per-market-dossier (web search not run)",
+  "nearest": [
+    {
+      "title": "Logical Money — \"Meet Ryan and Steve\" (rent vs buy, 20 years)",
+      "url": "https://www.youtube.com/watch?v=nkT_K8l1rEw",
+      "why": "Same two-character frame; fixed assumed returns (stocks ~10%/yr, home ~3-4%/yr), one scenario, no replay of real start years (market/teardowns/logical-money.md)."
+    },
+    {
+      "title": "Top videos for the topic (market/topics/s1-rent-vs-buy-history.md)",
+      "url": "https://youtu.be/VSnf3GaGgMU",
+      "why": "Method count of the 6 top videos: 3 fixed assumptions, 2 opinion with no calculation, 1 with real historical data; gap label 'vừa'."
+    }
+  ],
+  "note": "WebSearch was denied in this session, so no fresh search of articles or calculators was run; the verdict rests on the market dossier (refreshed 2026-10-11) and the Logical Money teardown, which read titles and descriptions of the top videos. A session with web access should rerun three queries (e.g. 'rent vs buy historical backtest every start month', 'renting vs buying 2006 vs 2012 which won', 'rent vs buy real home price and rent data') before C1."
+}

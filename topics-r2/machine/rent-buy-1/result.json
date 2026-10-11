@@ -1,0 +1,474 @@
+{
+  "answer": "Across 307 purchase months from January 1991 to July 2016, a buyer who held a home for 10 years ended ahead of an identical renter in 75.6% of them (median $157,104 ahead on a $400,000 home), with no investing of the difference. The worst start was June 2006: the home index rose only 3.2% in 10 years and the buyer ended $82,385 behind the renter. The best start was April 2012, at a 3.91% mortgage rate: the index rose 114.3% and the buyer ended $483,975 ahead. By start period: 1990s buyers were ahead in 100.0% of 10-year windows, 2002-2007 buyers in 8.3%, and 2009-2016 buyers in 100.0%. Holding period matters: the buyer was ahead in 74.4% of 5-year windows and 100.0% of 15-year windows (worst 15-year start November 2005, still $79,829 ahead). The result leans on the starting rent: with today's rent set at 5.0% of the price a year the 10-year share is 75.6%; at 4% it is 64.2%, at 6% it is 92.2%; if the renter's savings earn 3-month T-bill rates it is 66.4%. History, not a forecast: the last window used ends in July 2026, the last month of the price index.",
+  "guess": "Most people expect buying to win almost always, because rent is 'thrown away'; in this replay the renter still came out ahead in 75 of 307 10-year windows.",
+  "changesDecision": "Every 10-year start where the renter came out ahead fell between April 2001 and December 2007, when starting rent was low next to the price (at most 6.43% a year, against a median of 6.71%). At the September 2026 average rate of 6.86%, the buyer's first month costs $2,933 against $1,667 rent, so rent is 56.8% of the buyer's outlay: lower than at any of the 307 replayed start months (lowest 57.9%, July 2006).",
+  "numbers": [
+    {
+      "id": "hpi_last",
+      "value": "2026-07",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Last month in the house price index file."
+    },
+    {
+      "id": "cpi_last",
+      "value": "2026-08",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Last month in the CPI rent file."
+    },
+    {
+      "id": "tb_last",
+      "value": "2026-09",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Last month in the T-bill file."
+    },
+    {
+      "id": "rate_last_week",
+      "value": "2026-10-08",
+      "unit": "date",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Last weekly PMMS date in the rate file."
+    },
+    {
+      "id": "rate_month_latest",
+      "value": "2026-09",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Latest complete calendar month of weekly rates (the month of the last week counts only if the next weekly date falls in the next month)."
+    },
+    {
+      "id": "rate_latest",
+      "value": 6.86,
+      "unit": "percent",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Mean of the weekly 30-year rates dated in rate_month_latest, rounded to 0.01."
+    },
+    {
+      "id": "n_5y",
+      "value": 367,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of start months s >= 1991-01 with a rate in s and index and CPI rent for every month s..s+60."
+    },
+    {
+      "id": "first_5y",
+      "value": "1991-01",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. First start month of the 5-year set."
+    },
+    {
+      "id": "last_5y",
+      "value": "2021-07",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Last start month of the 5-year set."
+    },
+    {
+      "id": "share_buyer_ahead_5y",
+      "value": 74.4,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of the 5-year set with advantage > 0, rounded to 0.1."
+    },
+    {
+      "id": "median_adv_5y",
+      "value": 79931,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Median advantage over the 5-year set, rounded to whole dollars."
+    },
+    {
+      "id": "best_start_5y",
+      "value": "2017-05",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Start month with the largest 5-year advantage (earliest on ties)."
+    },
+    {
+      "id": "best_adv_5y",
+      "value": 213918,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Advantage of best_start_5y."
+    },
+    {
+      "id": "worst_start_5y",
+      "value": "2006-05",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Start month with the smallest 5-year advantage (earliest on ties)."
+    },
+    {
+      "id": "worst_adv_5y",
+      "value": -149392,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Advantage of worst_start_5y (negative = renter ahead; statements quote the absolute value with 'behind')."
+    },
+    {
+      "id": "n_renter_ahead_5y",
+      "value": 94,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of 5-year start months with advantage <= 0."
+    },
+    {
+      "id": "n_10y",
+      "value": 307,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of start months s >= 1991-01 with a rate in s and index and CPI rent for every month s..s+120."
+    },
+    {
+      "id": "first_10y",
+      "value": "1991-01",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. First start month of the 10-year set."
+    },
+    {
+      "id": "last_10y",
+      "value": "2016-07",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Last start month of the 10-year set."
+    },
+    {
+      "id": "share_buyer_ahead_10y",
+      "value": 75.6,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of the 10-year set with advantage > 0, rounded to 0.1."
+    },
+    {
+      "id": "median_adv_10y",
+      "value": 157104,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Median advantage over the 10-year set, rounded to whole dollars."
+    },
+    {
+      "id": "best_start_10y",
+      "value": "2012-04",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Start month with the largest 10-year advantage (earliest on ties)."
+    },
+    {
+      "id": "best_adv_10y",
+      "value": 483975,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Advantage of best_start_10y."
+    },
+    {
+      "id": "worst_start_10y",
+      "value": "2006-06",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Start month with the smallest 10-year advantage (earliest on ties)."
+    },
+    {
+      "id": "worst_adv_10y",
+      "value": -82385,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Advantage of worst_start_10y (negative = renter ahead; statements quote the absolute value with 'behind')."
+    },
+    {
+      "id": "n_renter_ahead_10y",
+      "value": 75,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of 10-year start months with advantage <= 0."
+    },
+    {
+      "id": "n_15y",
+      "value": 247,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of start months s >= 1991-01 with a rate in s and index and CPI rent for every month s..s+180."
+    },
+    {
+      "id": "first_15y",
+      "value": "1991-01",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. First start month of the 15-year set."
+    },
+    {
+      "id": "last_15y",
+      "value": "2011-07",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Last start month of the 15-year set."
+    },
+    {
+      "id": "share_buyer_ahead_15y",
+      "value": 100.0,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of the 15-year set with advantage > 0, rounded to 0.1."
+    },
+    {
+      "id": "median_adv_15y",
+      "value": 187511,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Median advantage over the 15-year set, rounded to whole dollars."
+    },
+    {
+      "id": "best_start_15y",
+      "value": "2011-05",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Start month with the largest 15-year advantage (earliest on ties)."
+    },
+    {
+      "id": "best_adv_15y",
+      "value": 663211,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Advantage of best_start_15y."
+    },
+    {
+      "id": "worst_start_15y",
+      "value": "2005-11",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Start month with the smallest 15-year advantage (earliest on ties)."
+    },
+    {
+      "id": "worst_adv_15y",
+      "value": 79829,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Advantage of worst_start_15y (negative = renter ahead; statements quote the absolute value with 'behind')."
+    },
+    {
+      "id": "n_renter_ahead_15y",
+      "value": 0,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of 15-year start months with advantage <= 0."
+    },
+    {
+      "id": "best_rate_10y",
+      "value": 3.91,
+      "unit": "percent",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Month-average 30-year rate in best_start_10y."
+    },
+    {
+      "id": "best_price_change_10y",
+      "value": 114.3,
+      "unit": "percent",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. 100*(HPI(s+120)/HPI(s)-1) for s = best_start_10y."
+    },
+    {
+      "id": "best_rent_change_10y",
+      "value": 40.2,
+      "unit": "percent",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. 100*(CPIrent(s+120)/CPIrent(s)-1) for s = best_start_10y."
+    },
+    {
+      "id": "best_equity_10y",
+      "value": 554248,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Buyer's net equity after 120 months for s = best_start_10y."
+    },
+    {
+      "id": "best_pot_10y",
+      "value": 70273,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Renter's pot after 120 months for s = best_start_10y."
+    },
+    {
+      "id": "worst_rate_10y",
+      "value": 6.68,
+      "unit": "percent",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Month-average 30-year rate in worst_start_10y."
+    },
+    {
+      "id": "worst_price_change_10y",
+      "value": 3.2,
+      "unit": "percent",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. 100*(HPI(s+120)/HPI(s)-1) for s = worst_start_10y."
+    },
+    {
+      "id": "worst_rent_change_10y",
+      "value": 31.9,
+      "unit": "percent",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. 100*(CPIrent(s+120)/CPIrent(s)-1) for s = worst_start_10y."
+    },
+    {
+      "id": "worst_equity_10y",
+      "value": 115374,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Buyer's net equity after 120 months for s = worst_start_10y."
+    },
+    {
+      "id": "worst_pot_10y",
+      "value": 197760,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Renter's pot after 120 months for s = worst_start_10y."
+    },
+    {
+      "id": "era_1990s_n",
+      "value": 108,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of 10-year start months in the 1990s period (1990s = 1991-01..1999-12, 2002-2007 = 2002-01..2007-12, 2009-2016 = 2009-01..2016-07)."
+    },
+    {
+      "id": "era_1990s_share",
+      "value": 100.0,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of the 1990s 10-year starts with advantage > 0."
+    },
+    {
+      "id": "era_1990s_median",
+      "value": 187313,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Median 10-year advantage over the 1990s starts."
+    },
+    {
+      "id": "era_2002-2007_n",
+      "value": 72,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of 10-year start months in the 2002-2007 period (1990s = 1991-01..1999-12, 2002-2007 = 2002-01..2007-12, 2009-2016 = 2009-01..2016-07)."
+    },
+    {
+      "id": "era_2002-2007_share",
+      "value": 8.3,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of the 2002-2007 10-year starts with advantage > 0."
+    },
+    {
+      "id": "era_2002-2007_median",
+      "value": -32538,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Median 10-year advantage over the 2002-2007 starts."
+    },
+    {
+      "id": "era_2009-2016_n",
+      "value": 91,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of 10-year start months in the 2009-2016 period (1990s = 1991-01..1999-12, 2002-2007 = 2002-01..2007-12, 2009-2016 = 2009-01..2016-07)."
+    },
+    {
+      "id": "era_2009-2016_share",
+      "value": 100.0,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of the 2009-2016 10-year starts with advantage > 0."
+    },
+    {
+      "id": "era_2009-2016_median",
+      "value": 408914,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Median 10-year advantage over the 2009-2016 starts."
+    },
+    {
+      "id": "renter_first_10y",
+      "value": "2001-04",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Earliest 10-year start month with advantage <= 0."
+    },
+    {
+      "id": "renter_last_10y",
+      "value": "2007-12",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Latest 10-year start month with advantage <= 0."
+    },
+    {
+      "id": "yield_median_10y",
+      "value": 6.71,
+      "unit": "percent per year",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Median starting rent yield y(s) over the 10-year set."
+    },
+    {
+      "id": "yield_max_renter_ahead_10y",
+      "value": 6.43,
+      "unit": "percent per year",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Largest starting rent yield y(s) among 10-year starts with advantage <= 0."
+    },
+    {
+      "id": "share_tbills_10y",
+      "value": 66.4,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of 10-year starts with advantage > 0 when the pot earns TB3MS/1200 each month."
+    },
+    {
+      "id": "n_tbills_10y",
+      "value": 307,
+      "unit": "purchase months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Number of 10-year starts in the T-bill variant."
+    },
+    {
+      "id": "share_yield4pct_10y",
+      "value": 64.2,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of 10-year starts with advantage > 0 when the anchor rent yield is 4%."
+    },
+    {
+      "id": "share_yield6pct_10y",
+      "value": 92.2,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of 10-year starts with advantage > 0 when the anchor rent yield is 6%."
+    },
+    {
+      "id": "share_fixedyield_10y",
+      "value": 61.6,
+      "unit": "% of start months",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Share of 10-year starts with advantage > 0 when every start uses a fixed 5% rent yield (no drift with CPI rent/HPI)."
+    },
+    {
+      "id": "yield_first_10y",
+      "value": 7.12,
+      "unit": "percent per year",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. y(s) at first_10y."
+    },
+    {
+      "id": "yield_worst_10y",
+      "value": 5.04,
+      "unit": "percent per year",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. y(s) at worst_start_10y."
+    },
+    {
+      "id": "yield_min_10y",
+      "value": 5.03,
+      "unit": "percent per year",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Smallest y(s) over the 10-year set."
+    },
+    {
+      "id": "yield_max_10y",
+      "value": 7.39,
+      "unit": "percent per year",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Largest y(s) over the 10-year set."
+    },
+    {
+      "id": "rent_to_outlay_min_10y",
+      "value": 57.9,
+      "unit": "percent",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Smallest month-1 rent / buyer month-1 outlay (payment + owner costs) over the 10-year set."
+    },
+    {
+      "id": "rent_to_outlay_min_start_10y",
+      "value": "2006-07",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Start month of rent_to_outlay_min_10y."
+    },
+    {
+      "id": "today_buyer_month1",
+      "value": 2933,
+      "unit": "dollars per month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Payment on $320,000 at rate_latest over 360 months + 2.5%/12 of $400,000."
+    },
+    {
+      "id": "today_rent_month1",
+      "value": 1667,
+      "unit": "dollars per month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. 5% of $400,000 / 12 (anchor rent yield)."
+    },
+    {
+      "id": "today_rent_to_outlay",
+      "value": 56.8,
+      "unit": "percent",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. today_rent_month1 / today_buyer_month1 (unrounded)."
+    },
+    {
+      "id": "price",
+      "value": 400000,
+      "unit": "dollars",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Illustrative purchase price; every dollar result scales linearly with it."
+    },
+    {
+      "id": "yield_anchor_pct",
+      "value": 5.0,
+      "unit": "percent per year",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Assumed gross rent / price at the anchor month (ILLUSTRATIVE)."
+    },
+    {
+      "id": "anchor_month",
+      "value": "2026-07",
+      "unit": "month",
+      "definition": "Data: data/HPIPONM226N.csv (FHFA purchase-only HPI, US, monthly NSA), data/CUUR0000SEHA.csv (CPI-U Rent of primary residence, US city average, NSA; 2025-10 not published, filled with the geometric mean of 2025-09 and 2025-11), data/MORTGAGE30US.csv (Freddie Mac PMMS weekly, averaged per calendar month), data/TB3MS.csv (3-month T-bill, monthly). ILLUSTRATIVE pair starting in month s: $400,000 home valued by the index; buyer 20% down + 3% closing, 30-year loan at the month-s rate, owner costs 2.5%/yr of current value, 6% selling cost; renter's rent starts at y(s)*price/yr, y(s) = 5% * (CPIrent(s)/HPI(s)) / (CPIrent(2026-07)/HPI(2026-07)), grows with CPI rent. Equal spending: the cheaper side's monthly difference plus the renter's 23% upfront cash sit in a pot (cash, 0%, unless stated). Advantage = buyer equity (0.94*value - balance) - pot after H years. Anchor month for the rent yield (last month of the price index)."
+    }
+  ],
+  "assumptions": [
+    "ILLUSTRATIVE pair; the home is the FHFA national purchase-only index scaled to $400,000, not a particular house or city.",
+    "Buyer: 20% down, 3% closing costs, 30-year fixed at the month-average PMMS rate of the purchase month, principal and interest only on the loan.",
+    "Owner costs 2.5% of current value per year (property tax 1.0%, insurance 0.5%, maintenance 1.0%), fixed assumption.",
+    "Selling cost 6% of the final value.",
+    "Starting rent: 5% of the price per year at July 2026 (ILLUSTRATIVE, not sourced), carried back by the ratio CPI rent / HPI; rent then grows with CPI 'Rent of primary residence'.",
+    "Equal spending: the side that pays less each month keeps the difference in a pot with the renter's upfront 23%; main case 0% return, variant 3-month T-bills.",
+    "CPI rent for October 2025 was not published; filled with the geometric mean of September and November 2025.",
+    "No income tax effects (mortgage interest deduction, capital-gains exclusion), no refinancing, no moving costs, no renter's insurance."
+  ],
+  "limits": "History, not a forecast. One national index stands for the home; single homes and cities differ widely. The starting rent level is an assumption and the share of buyer wins moves with it (see statement 6). CPI rent tracks rents of sitting tenants and lags market asking rents. The renter's savings are not invested in stocks (no FRED stock series with display rights over this span), so the question of investing the difference in the market is not answered. Taxes, refinancing and moving costs are left out."
+}

@@ -1,0 +1,113 @@
+{
+  "dataNow": {
+    "note": "'Now' of the data (lessons A10): the replay ends at the last month of the house price index. Retrieved 2026-10-11.",
+    "hpi_last": "2026-07",
+    "cpi_rent_last": "2026-08",
+    "rate_last_week": "2026-10-08",
+    "rate_month_latest": "2026-09",
+    "tbill_last": "2026-09",
+    "last_window_end": "2026-07"
+  },
+  "series": [
+    {
+      "id": "HPIPONM226N",
+      "what": "FHFA purchase-only house price index, United States, monthly, NSA (Jan 1991=100). An index of many homes, not one house.",
+      "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Federal Housing Finance Agency)",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HPIPONM226N&coed=2026-07-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/HPIPONM226N",
+      "file": "data/HPIPONM226N.csv",
+      "sha256": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+      "bytes": 7715,
+      "retrieved": "2026-10-11",
+      "lastObservation": "2026-07-01",
+      "updatedQuote": "Updated: Sep 29, 2026 9:06 AM CDT",
+      "unitsQuote": "Index Jan 1991=100 , Not Seasonally Adjusted",
+      "terms": {
+        "quote": "Public Domain: Citation Requested",
+        "url": "https://fred.stlouisfed.org/series/HPIPONM226N",
+        "legalQuote": "Public Domain: Citation requested These series may be under copyright or in the public domain and may be used without permission, provided you do not engage in any prohibited use. When using, please cite the data source and acknowledge that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+        "legalUrl": "https://fred.stlouisfed.org/legal/",
+        "citation": "U.S. Federal Housing Finance Agency, HPIPONM226N, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/HPIPONM226N"
+      },
+      "display": "yes, with credit \"Source: FHFA via FRED\""
+    },
+    {
+      "id": "CUUR0000SEHA",
+      "what": "CPI-U: Rent of primary residence, U.S. city average, monthly, NSA (1982-1984=100). October 2025 not published (empty in file).",
+      "provider": "FRED, Federal Reserve Bank of St. Louis (source: U.S. Bureau of Labor Statistics)",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUUR0000SEHA&coed=2026-08-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/CUUR0000SEHA",
+      "file": "data/CUUR0000SEHA.csv",
+      "sha256": "ffc374b21c6d71037484a3061d06bfaa453c79b75d2c38fbe771b7de826c93ff",
+      "bytes": 23113,
+      "retrieved": "2026-10-11",
+      "lastObservation": "2026-08-01",
+      "updatedQuote": "Updated: Sep 11, 2026 8:37 AM CDT",
+      "unitsQuote": "Index 1982-1984=100 , Not Seasonally Adjusted",
+      "terms": {
+        "quote": "Public Domain: Citation Requested",
+        "url": "https://fred.stlouisfed.org/series/CUUR0000SEHA",
+        "legalQuote": "Public Domain: Citation requested These series may be under copyright or in the public domain and may be used without permission, provided you do not engage in any prohibited use. When using, please cite the data source and acknowledge that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+        "legalUrl": "https://fred.stlouisfed.org/legal/",
+        "citation": "U.S. Bureau of Labor Statistics, CUUR0000SEHA, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CUUR0000SEHA"
+      },
+      "display": "yes, with credit \"Source: BLS via FRED\""
+    },
+    {
+      "id": "MORTGAGE30US",
+      "what": "Freddie Mac PMMS 30-year fixed rate, weekly (Thursday), percent; averaged per calendar month in calc.py.",
+      "provider": "FRED, Federal Reserve Bank of St. Louis (source: Freddie Mac)",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-10-08",
+      "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+      "file": "data/MORTGAGE30US.csv",
+      "sha256": "93663891f9167cf71dfd50b7cbe54ef60fab42f788371d84bf665fb1c5e6c354",
+      "bytes": 46963,
+      "retrieved": "2026-10-11",
+      "lastObservation": "2026-10-08",
+      "updatedQuote": "Updated: Oct 8, 2026 11:02 AM CDT",
+      "unitsQuote": "Percent , Not Seasonally Adjusted",
+      "terms": {
+        "quote": "Copyrighted: Citation Required",
+        "url": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+        "legalQuote": "Copyrighted: Citation required These series are under copyright; but, provided you have not engaged in any prohibited uses, you may use these data series with proper attribution of the source and acknowledgment that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+        "legalUrl": "https://fred.stlouisfed.org/legal/",
+        "citation": "Freddie Mac, MORTGAGE30US, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MORTGAGE30US"
+      },
+      "display": "yes, with credit \"Source: Freddie Mac via FRED\" (as RIGHTS.md D-FRED-1; data file not redistributed)"
+    },
+    {
+      "id": "TB3MS",
+      "what": "3-month Treasury bill secondary market rate, monthly average of business days, discount basis, percent. Robustness only.",
+      "provider": "FRED, Federal Reserve Bank of St. Louis (source: Board of Governors of the Federal Reserve System (US))",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-09-01",
+      "seriesPage": "https://fred.stlouisfed.org/series/TB3MS",
+      "file": "data/TB3MS.csv",
+      "sha256": "631bc444a8c5370c3a2df12f484a67ae7b9a68c00fe8a33215895fb49c8cc08c",
+      "bytes": 17865,
+      "retrieved": "2026-10-11",
+      "lastObservation": "2026-09-01",
+      "updatedQuote": "Updated: Oct 1, 2026 3:16 PM CDT",
+      "unitsQuote": "Percent , Not Seasonally Adjusted",
+      "terms": {
+        "quote": "Public Domain: Citation Requested",
+        "url": "https://fred.stlouisfed.org/series/TB3MS",
+        "legalQuote": "Public Domain: Citation requested These series may be under copyright or in the public domain and may be used without permission, provided you do not engage in any prohibited use. When using, please cite the data source and acknowledge that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+        "legalUrl": "https://fred.stlouisfed.org/legal/",
+        "citation": "Board of Governors of the Federal Reserve System (US), TB3MS, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/TB3MS"
+      },
+      "display": "yes, with credit \"Source: Federal Reserve via FRED\""
+    }
+  ],
+  "provisions": [
+    {
+      "what": "FRED commercial use",
+      "url": "https://fred.stlouisfed.org/legal/",
+      "quote": "IV. Commercial Use Series with the following copyright labels—Public Domain: Citation requested and Copyrighted: Citation required—may be used for internal commercial uses and may be displayed in textbooks, newsletters, or reports to clients provided that appropriate attribution is given to FRED as well as the original source of the data.",
+      "retrieved": "2026-10-11"
+    }
+  ],
+  "notUsed": [
+    {"id": "CSUSHPINSA", "why": "Case-Shiller, \"Copyrighted: Pre-Approval Required\" (episodes/ep005/data/sources.json): not used."},
+    {"id": "SP500", "why": "No stock series used: investing the renter's savings in stocks is not modelled."}
+  ]
+}

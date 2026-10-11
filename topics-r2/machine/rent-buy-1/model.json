@@ -1,0 +1,537 @@
+{
+ "kind": null,
+ "kindStatus": "new",
+ "params": {
+  "hpi": {
+   "file": "data/HPIPONM226N.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "HPIPONM226N"
+  },
+  "rent": {
+   "file": "data/CUUR0000SEHA.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "CUUR0000SEHA",
+   "fill": {
+    "2025-10": "geomean(2025-09, 2025-11)"
+   }
+  },
+  "rate": {
+   "file": "data/MORTGAGE30US.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "MORTGAGE30US",
+   "frequency": "weekly"
+  },
+  "cashRate": {
+   "file": "data/TB3MS.csv",
+   "dateColumn": "observation_date",
+   "valueColumn": "TB3MS",
+   "use": "robustness only"
+  },
+  "price": 400000,
+  "downShare": 0.2,
+  "closingShare": 0.03,
+  "ownerCostShare": 0.025,
+  "sellShare": 0.06,
+  "termMonths": 360,
+  "rentYieldAnchor": 0.05,
+  "anchorMonth": "2026-07",
+  "firstStart": "1991-01",
+  "horizonsYears": [
+   5,
+   10,
+   15
+  ],
+  "mainYears": 10,
+  "eras": {
+   "1990s": [
+    "1991-01",
+    "1999-12"
+   ],
+   "2002-2007": [
+    "2002-01",
+    "2007-12"
+   ],
+   "2009-2016": [
+    "2009-01",
+    "2016-07"
+   ]
+  },
+  "robust": {
+   "anchorYields": [
+    0.04,
+    0.06
+   ],
+   "tbills": true,
+   "fixedYield": 0.05
+  },
+  "characters": {
+   "buyer": "ILLUSTRATIVE, buys in month s",
+   "renter": "ILLUSTRATIVE, rents the same home-equivalent from month s"
+  }
+ },
+ "quantities": [
+  {
+   "name": "hpi_last",
+   "meaning": "Last month in the house price index file.",
+   "unit": "month",
+   "from": "result.json → numbers[id=hpi_last].value"
+  },
+  {
+   "name": "cpi_last",
+   "meaning": "Last month in the CPI rent file.",
+   "unit": "month",
+   "from": "result.json → numbers[id=cpi_last].value"
+  },
+  {
+   "name": "tb_last",
+   "meaning": "Last month in the T-bill file.",
+   "unit": "month",
+   "from": "result.json → numbers[id=tb_last].value"
+  },
+  {
+   "name": "rate_last_week",
+   "meaning": "Last weekly PMMS date in the rate file.",
+   "unit": "date",
+   "from": "result.json → numbers[id=rate_last_week].value"
+  },
+  {
+   "name": "rate_month_latest",
+   "meaning": "Latest complete calendar month of weekly rates (the month of the last week counts only if the next weekly date falls in the next month).",
+   "unit": "month",
+   "from": "result.json → numbers[id=rate_month_latest].value"
+  },
+  {
+   "name": "rate_latest",
+   "meaning": "Mean of the weekly 30-year rates dated in rate_month_latest, rounded to 0.01.",
+   "unit": "percent",
+   "from": "result.json → numbers[id=rate_latest].value"
+  },
+  {
+   "name": "n_5y",
+   "meaning": "Number of start months s >= 1991-01 with a rate in s and index and CPI rent for every month s..s+60.",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=n_5y].value"
+  },
+  {
+   "name": "first_5y",
+   "meaning": "First start month of the 5-year set.",
+   "unit": "month",
+   "from": "result.json → numbers[id=first_5y].value"
+  },
+  {
+   "name": "last_5y",
+   "meaning": "Last start month of the 5-year set.",
+   "unit": "month",
+   "from": "result.json → numbers[id=last_5y].value"
+  },
+  {
+   "name": "share_buyer_ahead_5y",
+   "meaning": "Share of the 5-year set with advantage > 0, rounded to 0.1.",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=share_buyer_ahead_5y].value"
+  },
+  {
+   "name": "median_adv_5y",
+   "meaning": "Median advantage over the 5-year set, rounded to whole dollars.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=median_adv_5y].value"
+  },
+  {
+   "name": "best_start_5y",
+   "meaning": "Start month with the largest 5-year advantage (earliest on ties).",
+   "unit": "month",
+   "from": "result.json → numbers[id=best_start_5y].value"
+  },
+  {
+   "name": "best_adv_5y",
+   "meaning": "Advantage of best_start_5y.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=best_adv_5y].value"
+  },
+  {
+   "name": "worst_start_5y",
+   "meaning": "Start month with the smallest 5-year advantage (earliest on ties).",
+   "unit": "month",
+   "from": "result.json → numbers[id=worst_start_5y].value"
+  },
+  {
+   "name": "worst_adv_5y",
+   "meaning": "Advantage of worst_start_5y (negative = renter ahead; statements quote the absolute value with 'behind').",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=worst_adv_5y].value"
+  },
+  {
+   "name": "n_renter_ahead_5y",
+   "meaning": "Number of 5-year start months with advantage <= 0.",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=n_renter_ahead_5y].value"
+  },
+  {
+   "name": "n_10y",
+   "meaning": "Number of start months s >= 1991-01 with a rate in s and index and CPI rent for every month s..s+120.",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=n_10y].value"
+  },
+  {
+   "name": "first_10y",
+   "meaning": "First start month of the 10-year set.",
+   "unit": "month",
+   "from": "result.json → numbers[id=first_10y].value"
+  },
+  {
+   "name": "last_10y",
+   "meaning": "Last start month of the 10-year set.",
+   "unit": "month",
+   "from": "result.json → numbers[id=last_10y].value"
+  },
+  {
+   "name": "share_buyer_ahead_10y",
+   "meaning": "Share of the 10-year set with advantage > 0, rounded to 0.1.",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=share_buyer_ahead_10y].value"
+  },
+  {
+   "name": "median_adv_10y",
+   "meaning": "Median advantage over the 10-year set, rounded to whole dollars.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=median_adv_10y].value"
+  },
+  {
+   "name": "best_start_10y",
+   "meaning": "Start month with the largest 10-year advantage (earliest on ties).",
+   "unit": "month",
+   "from": "result.json → numbers[id=best_start_10y].value"
+  },
+  {
+   "name": "best_adv_10y",
+   "meaning": "Advantage of best_start_10y.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=best_adv_10y].value"
+  },
+  {
+   "name": "worst_start_10y",
+   "meaning": "Start month with the smallest 10-year advantage (earliest on ties).",
+   "unit": "month",
+   "from": "result.json → numbers[id=worst_start_10y].value"
+  },
+  {
+   "name": "worst_adv_10y",
+   "meaning": "Advantage of worst_start_10y (negative = renter ahead; statements quote the absolute value with 'behind').",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=worst_adv_10y].value"
+  },
+  {
+   "name": "n_renter_ahead_10y",
+   "meaning": "Number of 10-year start months with advantage <= 0.",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=n_renter_ahead_10y].value"
+  },
+  {
+   "name": "n_15y",
+   "meaning": "Number of start months s >= 1991-01 with a rate in s and index and CPI rent for every month s..s+180.",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=n_15y].value"
+  },
+  {
+   "name": "first_15y",
+   "meaning": "First start month of the 15-year set.",
+   "unit": "month",
+   "from": "result.json → numbers[id=first_15y].value"
+  },
+  {
+   "name": "last_15y",
+   "meaning": "Last start month of the 15-year set.",
+   "unit": "month",
+   "from": "result.json → numbers[id=last_15y].value"
+  },
+  {
+   "name": "share_buyer_ahead_15y",
+   "meaning": "Share of the 15-year set with advantage > 0, rounded to 0.1.",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=share_buyer_ahead_15y].value"
+  },
+  {
+   "name": "median_adv_15y",
+   "meaning": "Median advantage over the 15-year set, rounded to whole dollars.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=median_adv_15y].value"
+  },
+  {
+   "name": "best_start_15y",
+   "meaning": "Start month with the largest 15-year advantage (earliest on ties).",
+   "unit": "month",
+   "from": "result.json → numbers[id=best_start_15y].value"
+  },
+  {
+   "name": "best_adv_15y",
+   "meaning": "Advantage of best_start_15y.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=best_adv_15y].value"
+  },
+  {
+   "name": "worst_start_15y",
+   "meaning": "Start month with the smallest 15-year advantage (earliest on ties).",
+   "unit": "month",
+   "from": "result.json → numbers[id=worst_start_15y].value"
+  },
+  {
+   "name": "worst_adv_15y",
+   "meaning": "Advantage of worst_start_15y (negative = renter ahead; statements quote the absolute value with 'behind').",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=worst_adv_15y].value"
+  },
+  {
+   "name": "n_renter_ahead_15y",
+   "meaning": "Number of 15-year start months with advantage <= 0.",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=n_renter_ahead_15y].value"
+  },
+  {
+   "name": "best_rate_10y",
+   "meaning": "Month-average 30-year rate in best_start_10y.",
+   "unit": "percent",
+   "from": "result.json → numbers[id=best_rate_10y].value"
+  },
+  {
+   "name": "best_price_change_10y",
+   "meaning": "100*(HPI(s+120)/HPI(s)-1) for s = best_start_10y.",
+   "unit": "percent",
+   "from": "result.json → numbers[id=best_price_change_10y].value"
+  },
+  {
+   "name": "best_rent_change_10y",
+   "meaning": "100*(CPIrent(s+120)/CPIrent(s)-1) for s = best_start_10y.",
+   "unit": "percent",
+   "from": "result.json → numbers[id=best_rent_change_10y].value"
+  },
+  {
+   "name": "best_equity_10y",
+   "meaning": "Buyer's net equity after 120 months for s = best_start_10y.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=best_equity_10y].value"
+  },
+  {
+   "name": "best_pot_10y",
+   "meaning": "Renter's pot after 120 months for s = best_start_10y.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=best_pot_10y].value"
+  },
+  {
+   "name": "worst_rate_10y",
+   "meaning": "Month-average 30-year rate in worst_start_10y.",
+   "unit": "percent",
+   "from": "result.json → numbers[id=worst_rate_10y].value"
+  },
+  {
+   "name": "worst_price_change_10y",
+   "meaning": "100*(HPI(s+120)/HPI(s)-1) for s = worst_start_10y.",
+   "unit": "percent",
+   "from": "result.json → numbers[id=worst_price_change_10y].value"
+  },
+  {
+   "name": "worst_rent_change_10y",
+   "meaning": "100*(CPIrent(s+120)/CPIrent(s)-1) for s = worst_start_10y.",
+   "unit": "percent",
+   "from": "result.json → numbers[id=worst_rent_change_10y].value"
+  },
+  {
+   "name": "worst_equity_10y",
+   "meaning": "Buyer's net equity after 120 months for s = worst_start_10y.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=worst_equity_10y].value"
+  },
+  {
+   "name": "worst_pot_10y",
+   "meaning": "Renter's pot after 120 months for s = worst_start_10y.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=worst_pot_10y].value"
+  },
+  {
+   "name": "era_1990s_n",
+   "meaning": "Number of 10-year start months in the 1990s period (1990s = 1991-01..1999-12, 2002-2007 = 2002-01..2007-12, 2009-2016 = 2009-01..2016-07).",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=era_1990s_n].value"
+  },
+  {
+   "name": "era_1990s_share",
+   "meaning": "Share of the 1990s 10-year starts with advantage > 0.",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=era_1990s_share].value"
+  },
+  {
+   "name": "era_1990s_median",
+   "meaning": "Median 10-year advantage over the 1990s starts.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=era_1990s_median].value"
+  },
+  {
+   "name": "era_2002-2007_n",
+   "meaning": "Number of 10-year start months in the 2002-2007 period (1990s = 1991-01..1999-12, 2002-2007 = 2002-01..2007-12, 2009-2016 = 2009-01..2016-07).",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=era_2002-2007_n].value"
+  },
+  {
+   "name": "era_2002-2007_share",
+   "meaning": "Share of the 2002-2007 10-year starts with advantage > 0.",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=era_2002-2007_share].value"
+  },
+  {
+   "name": "era_2002-2007_median",
+   "meaning": "Median 10-year advantage over the 2002-2007 starts.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=era_2002-2007_median].value"
+  },
+  {
+   "name": "era_2009-2016_n",
+   "meaning": "Number of 10-year start months in the 2009-2016 period (1990s = 1991-01..1999-12, 2002-2007 = 2002-01..2007-12, 2009-2016 = 2009-01..2016-07).",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=era_2009-2016_n].value"
+  },
+  {
+   "name": "era_2009-2016_share",
+   "meaning": "Share of the 2009-2016 10-year starts with advantage > 0.",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=era_2009-2016_share].value"
+  },
+  {
+   "name": "era_2009-2016_median",
+   "meaning": "Median 10-year advantage over the 2009-2016 starts.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=era_2009-2016_median].value"
+  },
+  {
+   "name": "renter_first_10y",
+   "meaning": "Earliest 10-year start month with advantage <= 0.",
+   "unit": "month",
+   "from": "result.json → numbers[id=renter_first_10y].value"
+  },
+  {
+   "name": "renter_last_10y",
+   "meaning": "Latest 10-year start month with advantage <= 0.",
+   "unit": "month",
+   "from": "result.json → numbers[id=renter_last_10y].value"
+  },
+  {
+   "name": "yield_median_10y",
+   "meaning": "Median starting rent yield y(s) over the 10-year set.",
+   "unit": "percent per year",
+   "from": "result.json → numbers[id=yield_median_10y].value"
+  },
+  {
+   "name": "yield_max_renter_ahead_10y",
+   "meaning": "Largest starting rent yield y(s) among 10-year starts with advantage <= 0.",
+   "unit": "percent per year",
+   "from": "result.json → numbers[id=yield_max_renter_ahead_10y].value"
+  },
+  {
+   "name": "share_tbills_10y",
+   "meaning": "Share of 10-year starts with advantage > 0 when the pot earns TB3MS/1200 each month.",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=share_tbills_10y].value"
+  },
+  {
+   "name": "n_tbills_10y",
+   "meaning": "Number of 10-year starts in the T-bill variant.",
+   "unit": "purchase months",
+   "from": "result.json → numbers[id=n_tbills_10y].value"
+  },
+  {
+   "name": "share_yield4pct_10y",
+   "meaning": "Share of 10-year starts with advantage > 0 when the anchor rent yield is 4%.",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=share_yield4pct_10y].value"
+  },
+  {
+   "name": "share_yield6pct_10y",
+   "meaning": "Share of 10-year starts with advantage > 0 when the anchor rent yield is 6%.",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=share_yield6pct_10y].value"
+  },
+  {
+   "name": "share_fixedyield_10y",
+   "meaning": "Share of 10-year starts with advantage > 0 when every start uses a fixed 5% rent yield (no drift with CPI rent/HPI).",
+   "unit": "% of start months",
+   "from": "result.json → numbers[id=share_fixedyield_10y].value"
+  },
+  {
+   "name": "yield_first_10y",
+   "meaning": "y(s) at first_10y.",
+   "unit": "percent per year",
+   "from": "result.json → numbers[id=yield_first_10y].value"
+  },
+  {
+   "name": "yield_worst_10y",
+   "meaning": "y(s) at worst_start_10y.",
+   "unit": "percent per year",
+   "from": "result.json → numbers[id=yield_worst_10y].value"
+  },
+  {
+   "name": "yield_min_10y",
+   "meaning": "Smallest y(s) over the 10-year set.",
+   "unit": "percent per year",
+   "from": "result.json → numbers[id=yield_min_10y].value"
+  },
+  {
+   "name": "yield_max_10y",
+   "meaning": "Largest y(s) over the 10-year set.",
+   "unit": "percent per year",
+   "from": "result.json → numbers[id=yield_max_10y].value"
+  },
+  {
+   "name": "rent_to_outlay_min_10y",
+   "meaning": "Smallest month-1 rent / buyer month-1 outlay (payment + owner costs) over the 10-year set.",
+   "unit": "percent",
+   "from": "result.json → numbers[id=rent_to_outlay_min_10y].value"
+  },
+  {
+   "name": "rent_to_outlay_min_start_10y",
+   "meaning": "Start month of rent_to_outlay_min_10y.",
+   "unit": "month",
+   "from": "result.json → numbers[id=rent_to_outlay_min_start_10y].value"
+  },
+  {
+   "name": "today_buyer_month1",
+   "meaning": "Payment on $320,000 at rate_latest over 360 months + 2.5%/12 of $400,000.",
+   "unit": "dollars per month",
+   "from": "result.json → numbers[id=today_buyer_month1].value"
+  },
+  {
+   "name": "today_rent_month1",
+   "meaning": "5% of $400,000 / 12 (anchor rent yield).",
+   "unit": "dollars per month",
+   "from": "result.json → numbers[id=today_rent_month1].value"
+  },
+  {
+   "name": "today_rent_to_outlay",
+   "meaning": "today_rent_month1 / today_buyer_month1 (unrounded).",
+   "unit": "percent",
+   "from": "result.json → numbers[id=today_rent_to_outlay].value"
+  },
+  {
+   "name": "price",
+   "meaning": "Illustrative purchase price; every dollar result scales linearly with it.",
+   "unit": "dollars",
+   "from": "result.json → numbers[id=price].value"
+  },
+  {
+   "name": "yield_anchor_pct",
+   "meaning": "Assumed gross rent / price at the anchor month (ILLUSTRATIVE).",
+   "unit": "percent per year",
+   "from": "result.json → numbers[id=yield_anchor_pct].value"
+  },
+  {
+   "name": "anchor_month",
+   "meaning": "Anchor month for the rent yield (last month of the price index).",
+   "unit": "month",
+   "from": "result.json → numbers[id=anchor_month].value"
+  }
+ ],
+ "newKindNeeds": {
+  "inputs": "(1) Monthly house price index, no gaps (FRED HPIPONM226N, NSA, Jan 1991=100). (2) Monthly rent CPI (FRED CUUR0000SEHA, NSA; '.' or empty = missing; the one interior missing month 2025-10 is filled with the geometric mean of its neighbours). (3) Weekly 30-year fixed rate in percent (FRED MORTGAGE30US). (4) Monthly 3-month T-bill rate in percent (FRED TB3MS), robustness only. Params: price, downShare, closingShare, ownerCostShare (per year, of current value), sellShare, termMonths, rentYieldAnchor, anchorMonth, firstStart, horizonsYears, mainYears, eras, robust.",
+  "computation": "R(m) = mean of weekly rates dated in month m. For start s and horizon H (n = 12H months, e = s + n, needs R(s), HPI(s..e), CPI(s..e-1)): loan L = (1-down)P, x = R(s)/1200, p = L*x/(1-(1+x)^-360). Rent yield y(s) = Y*(CPI(s)/HPI(s))/(CPI(a)/HPI(a)). For k = 0..n-1 with m = s+k: V = P*HPI(m)/HPI(s); out = p + ownerCostShare/12*V; rent = y(s)*P/12*CPI(m)/CPI(s); pot += out - rent (pot starts at (down+closing)*P; in the T-bill variant pot *= 1 + TB3MS(m)/1200 after the deposit); balance = balance*(1+x) - p. Equity = (1-sellShare)*P*HPI(e)/HPI(s) - balance. Advantage = equity - pot. Shares = % of starts with advantage > 0; best/worst = max/min advantage, earliest on ties; eras by start month; rent-to-outlay = month-1 rent / month-1 out.",
+  "outputs": "Per horizon: n, first, last, share_buyer_ahead, median_adv, best/worst start and advantage, n_renter_ahead. 10-year: best/worst rate, price change, rent change, equity, pot; era n/share/median; renter_first/last; yield median, max among renter wins, min/max, first, worst; robustness shares (T-bills, anchor 4% and 6%, fixed 5%); rent_to_outlay min and its month; today's month-1 outlay, rent and ratio at the latest complete rate month. Per-start table {start, rate, y, price change, rent change, equity, pot, advantage}.",
+  "invariants": "Cash case: advantage = total rent - total buyer outlay - (down+closing)*P + equity (±1e-6). Balance after n < 360 payments is > 0 and decreasing in k. Advantage rises with rentYieldAnchor (share at 4% <= share at 5% <= share at 6%). T-bill variant advantage <= cash case advantage whenever the pot stays positive. Multiplying HPI or CPI by a constant changes nothing; all dollar outputs scale linearly with P. The ranking of today's rent-to-outlay against history does not depend on rentYieldAnchor. Every window ends at or before the last index month (no extrapolation).",
+  "dataNow": "HPI to 2026-07; CPI rent to 2026-08 (2025-10 missing at source); PMMS weekly to 2026-10-08, latest complete month 2026-09; TB3MS to 2026-09. Retrieved 2026-10-11."
+ }
+}
