@@ -325,6 +325,7 @@ Also, from the TOP VIDEO TITLES below, write up to 3 abstract title templates (e
 and 3-6 search keywords for a video description.
 Return JSON only: {"questions": [{"q": "...", "weight": "high"|"medium"|"low"}], "situations": ["..."], "weaknesses": ["..."], "requests": ["..."],
 "title_templates": ["..."], "keywords": ["..."]}.
+Never quote video titles or comments in ANY field (no quotation marks around their words); describe patterns in your own words.
 If there are few comments, infer conservatively from the topic and say so in a field "note".
 
 TOP VIDEO TITLES:

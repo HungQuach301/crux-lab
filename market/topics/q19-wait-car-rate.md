@@ -11,23 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 8–15 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
-1. Will car loan rates drop enough within a year to offset the cost of waiting? — trọng số cao
-2. How much does a 1-2 point rate difference change total interest over a typical 60-72 month loan? — trọng số cao
-3. How can I get a better rate now through pre-approval, credit unions, or by improving my credit score? — trọng số cao
-4. Is paying cash or financing the better choice at current rates? — trọng số vừa
-5. Can I refinance later if rates fall, and what does that cost? — trọng số vừa
+1. Will auto loan rates realistically drop enough within a year to justify waiting, and how much does a small rate change actually cost over the loan term? — trọng số cao
+2. How do I compare the total cost of paying cash, financing, and leasing, including interest paid and the value the car loses? — trọng số cao
+3. What steps lower the rate I'm offered, such as credit score, down payment, loan term, and shopping lenders before the dealership? — trọng số cao
+4. What is a reasonable car loan rate in 2026 for each credit tier, and how do I tell whether a dealer's offer is fair? — trọng số vừa
+5. Does refinancing later help, and what are the costs and limits of doing it? — trọng số thấp
 
-_Ghi chú máy: No audience comments were provided, so the questions, situations, and weaknesses are inferred from the topic and the video titles, not from viewer feedback. Weights are estimates. No topics were requested, so requests is empty. Weaknesses are inferred and should be checked against real comments before use._
+_Ghi chú máy: No audience comments were provided, so every item is inferred from the topic and the title patterns. Weights are estimates, not measured viewer data._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A buyer whose current car is failing and cannot easily wait a year, weighing a 7-8% offer against the repair costs of delaying.
-- A buyer with good credit who has a quoted rate near 7.75% and is deciding whether to lock it in or wait for a drop.
-- A buyer whose credit score is low or recovering and who expects it to improve within 12 months, so waiting may earn a better rate.
+- A buyer with a fair credit score who needs a vehicle soon for commuting and is weighing whether a year of waiting for better rates is worth the cost of keeping an old car running.
+- A household with good credit and savings that can pay cash but is considering financing to keep cash available for emergencies or other goals.
+- A first-time buyer who gets a dealership financing offer that feels high, has limited time, and needs to decide whether to shop lenders or accept the offer.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Inferred, not from comments: rate forecasts are presented as near-certain, with little discussion of uncertainty.
-- Inferred, not from comments: the opportunity cost of waiting, such as repair bills or lost use of a vehicle, is often left out of the math.
-- Inferred, not from comments: general rate guides may not separate new-car and used-car financing or account for dealer incentives and price changes.
+- Likely to show a single generic rate figure without explaining that rates vary a lot by credit tier, term, and vehicle type.
+- Likely to focus on the dealer-bashing angle without giving a step-by-step lender comparison a viewer can follow.
+- Likely to skip the calculation details, so viewers cannot check the math or adapt it to their own loan amount.
 - Phương pháp của 5 video đầu bảng: 4 giả định cố định, 1 ý kiến, không tính.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,10 +45,10 @@ _Ghi chú máy: No audience comments were provided, so the questions, situations
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- Lock In Now or Wait? The Total Interest Cost Over N Months
-- X% Today vs Y% Next Year: Which Car Loan Costs Less?
-- Financing vs Paying Cash: What the Numbers Show After N Years
+- X vs Y: Which Costs More Over N Years?
+- Should You Wait for Lower Rates? A Break-Even Test for Your Loan
+- The Real Cost of Financing vs Paying Cash: Running the Numbers
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-car loan interest rates 2026, should I wait to buy a car, auto loan rate comparison, car financing tips, how to get a lower car loan rate, refinance car loan
+car loan interest rates 2026, should I wait to buy a car, auto loan rate comparison, cash vs financing a car, how to get a cheap car loan, car loan refinance

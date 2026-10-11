@@ -11,23 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 6–11 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
-1. How many years must I keep the loan for the upfront cost of points to pay off in lower monthly payments (the break-even point)? — trọng số cao
-2. Is paying points worth it compared with taking a slightly higher rate and keeping the cash? — trọng số cao
-3. How does a temporary 2-1 buydown work, and who pays for it? — trọng số vừa
-4. Does paying mortgage points still give a tax deduction, and how is it treated when I itemize versus take the standard deduction? — trọng số vừa
-5. If I might refinance or sell within a few years, does buying points still make sense? — trọng số vừa
+1. Does paying points to lower the rate actually save money once you account for the upfront cost and how long you keep the loan? — trọng số cao
+2. How do I calculate the break-even point for a buydown, and how many months of lower payments does it take to recover the cost? — trọng số cao
+3. Is a permanent rate buydown better than a temporary one, and what does a 2-1 or similar temporary buydown cost the borrower over its life? — trọng số vừa
+4. Is it better to spend the cash on points, on a bigger down payment, or to keep it for reserves? — trọng số vừa
+5. Would refinancing later make paying points a waste, and how does the chance of moving or refinancing change the answer? — trọng số thấp
 
-_Ghi chú máy: No audience comments were provided, so all questions, situations, weaknesses, and requests below are inferred from the topic and video titles, not from viewer feedback. Weights are conservative guesses._
+_Ghi chú máy: No audience comments were provided, so every question, situation, weakness, and request below is inferred from the topic and the video titles' framing, not from viewer feedback. Weights are conservative estimates._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A first-time buyer with limited cash after closing costs who is deciding between a lower rate with upfront points and a higher rate with more reserves.
-- A buyer in a high-rate market who expects to refinance once rates fall and wonders whether points paid now will be wasted.
-- A seller or builder offering concessions who asks whether those funds should go toward a rate buydown or toward the price or closing costs.
+- A first-time buyer with limited cash who must choose between points, a larger down payment, and an emergency fund.
+- A buyer who expects to sell or refinance within a few years and wants to know whether the points will ever pay off.
+- A buyer comparing a seller-paid rate buydown offer against a lower sale price, trying to decide which gives a better monthly payment.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Likely skips the break-even calculation or shows only a single example without a worked comparison across time horizons.
-- Likely glosses over the refinance and early-sale scenario, where unrecovered points become a sunk cost.
-- Likely oversimplifies US tax rules for points, which depend on whether the loan is for a purchase, whether you itemize, and how points are paid.
+- Content often leans on general rules of thumb instead of showing a full break-even calculation with real numbers.
+- Explanations of temporary buydowns often skip who funds the subsidy and how the payment schedule changes year by year.
+- Comparisons tend to ignore the tax treatment of points and the opportunity cost of the cash used to buy them down.
 - Phương pháp của 6 video đầu bảng: 6 giả định cố định.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,10 +45,10 @@ _Ghi chú máy: No audience comments were provided, so all questions, situations
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- X vs Y: Which Costs More Over N Years?
-- The Break-Even Point Most Buyers Miss: [Topic] Explained
-- Is [Option] Worth It? Running the Numbers on [Scenario]
+- Buy Down the Rate or Lower the Price? Which Saves More Over N Years?
+- The Break-Even Month for Mortgage Points: How to Find Yours in Five Minutes
+- Temporary vs. Permanent Rate Buydowns: What Each Costs at Different Loan Sizes
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-mortgage points, rate buydown, break-even point, 2-1 buydown, mortgage discount points, buy down mortgage rate
+mortgage points, rate buydown, mortgage break-even calculation, temporary buydown 2-1, buy down mortgage rate, points vs down payment

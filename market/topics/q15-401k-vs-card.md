@@ -11,23 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 7–18 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. When does a 401(k) loan actually beat an emergency fund or credit card debt, and when is it a trap? — trọng số cao
-2. What does a 401(k) hardship withdrawal really cost after taxes and the 10% penalty, compared with borrowing? — trọng số cao
-3. What happens to my 401(k) loan if I lose or leave my job, and how fast must it be repaid? — trọng số cao
-4. Does a 401(k) loan hurt my savings growth, employer match, or retirement balance because of lost market returns and paused contributions? — trọng số vừa
-5. Where should an emergency fund sit (high-yield savings, money market, Treasuries) and when is a credit card the right stopgap? — trọng số vừa
+1. When does borrowing from a 401(k) beat tapping the emergency fund or carrying credit card debt, and what does each option really cost in interest, taxes, and lost growth? — trọng số cao
+2. What happens to the account if you leave or lose your job while a 401(k) loan is outstanding, and how fast must it be repaid? — trọng số cao
+3. How does a 401(k) hardship withdrawal differ from a loan in taxes, penalties, and repayment, and when is each one actually allowed? — trọng số cao
+4. Does a 401(k) loan hurt employer matching contributions or long-term compounding while it is being repaid? — trọng số vừa
+5. Where should a true emergency fund live (high-yield savings, money market, Roth contributions), and how does that compare to revolving card debt at high APRs? — trọng số vừa
 
-_Ghi chú máy: Based on 40 paraphrased comments, mostly anecdotal and split between endorsements and never-borrow rebuttals. Weights reflect the rough frequency of these themes in the comments and titles; they are inferred conservatively, not measured._
+_Ghi chú máy: Only 27 short comments were provided, mostly about 401(k) loans for home purchases and debt payoff. Hardship withdrawals and emergency-fund placement have little direct audience signal, so those items are inferred from the topic and video titles._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A worker with $1,000 in unexpected car repairs and a small emergency fund, deciding between a 401(k) loan and a 0% or high-APR credit card.
-- A mid-career couple using a 401(k) loan to consolidate credit card debt, then wondering whether cutting up the cards and repaying on time was enough.
-- A renter in their 30s planning a home down payment who is weighing a 401(k) loan against PMI costs and a slower savings timeline.
+- A household with a $1,000 car repair and a credit card balance at a high APR, weighing whether to pay with the card, drain savings, or borrow from the 401(k).
+- A worker in their 30s who recently changed jobs and wants to know whether a 401(k) loan from the old employer is still safe to take or repay.
+- A late-career saver close to 59.5 with a mortgage at a mid-6% rate considering whether a 401(k) loan could replace mortgage payments.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Absolute 'never borrow from your 401(k)' verdicts without quantifying the scenarios where a loan is the lower-cost option.
-- Ignoring the double-taxation point or misstating it, which makes comparisons between loans and hardship withdrawals unreliable.
-- Math that assumes steady returns or an 8-14% savings rate without showing the assumptions, so viewers dispute the numbers.
+- Advice often treats all 401(k) loans as either always good or always terrible, without weighing the borrower's job stability and cash-flow situation.
+- Comparisons tend to ignore the tax double-taxation point on loan repayments and the lost market growth during the loan period.
+- Few videos give a concrete, numeric side-by-side of hardship withdrawal, loan, emergency fund, and card debt for the same $1,000 need.
 - Phương pháp của 6 video đầu bảng: 4 ý kiến, không tính, 2 giả định cố định.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,15 +45,14 @@ _Ghi chú máy: Based on 40 paraphrased comments, mostly anecdotal and split bet
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- X vs Y: Which Costs More Over N Years?
-- Should You Borrow From Your 401(k)? The Job-Loss Test
-- I Had $1,000 to Cover: Here's What Each Option Really Cost
+- 401(k) Loan vs Credit Card: Which Costs More for a $X Emergency Over N Years?
+- Emergency Fund vs Hardship Withdrawal: What Each Choice Really Costs
+- Job Change With a 401(k) Loan: What Happens and What to Do Before the Deadline
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-401k loan vs hardship withdrawal, emergency fund vs credit card debt, 401k loan repayment if you lose your job, 401k loan double taxation, where to keep emergency fund
+401k loan, 401k hardship withdrawal, emergency fund, credit card debt, emergency savings, retirement account borrowing
 
 ## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- A step-by-step comparison of 401(k) loan vs hardship withdrawal vs credit card for a specific $1,000 emergency, with the tax and penalty math shown.
-- A video on what to do if you leave your job with an outstanding 401(k) loan, including the rollover deadline.
-- A breakdown of early distribution rules while still working (age 59.5, exceptions, and the 55 separation rule).
+- A worked example comparing a 401(k) loan, a hardship withdrawal, and card debt for the same $1,000 expense over several years.
+- A walkthrough of what happens to a 401(k) loan if you change jobs, including rollover and repayment deadlines.

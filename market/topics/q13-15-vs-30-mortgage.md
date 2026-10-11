@@ -11,21 +11,21 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 10–24 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. Should I prepay my low-rate mortgage or invest the extra money instead? — trọng số cao
-2. How do I make extra principal payments so they actually cut interest and shorten the loan? — trọng số cao
-3. How can I remove PMI early, and does this strategy work with VA or FHA loans? — trọng số cao
-4. Can an average household afford extra principal payments, or is this only realistic in cheaper housing markets? — trọng số vừa
-5. Is a 15-year loan better than a 30-year loan I pay down early, and what does each cost monthly? — trọng số vừa
+1. Is it better to prepay the mortgage or invest the extra money, given the loan's interest rate and expected market returns? — trọng số cao
+2. How much faster does a 30-year loan pay off with extra monthly principal, and how much payment increase is needed to hit a target payoff date? — trọng số cao
+3. Does a yearly lump-sum principal payment work as well as steady monthly extra payments? — trọng số vừa
+4. How can PMI be removed early through home value increases, reappraisal, or reaching 20% equity, and what are the steps? — trọng số vừa
+5. Why does extra principal not lower the monthly interest charge right away, and when does reamortizing or recasting make sense? — trọng số vừa
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- Mid-career homeowner with a 2.5% to 3.5% mortgage who prepays aggressively, then redirects the freed payment to investing or a leisure fund.
-- Recent buyer with PMI whose home value rose after purchase, asking whether a lender reappraisal can remove PMI before 20% equity is reached.
-- Veteran or military household on a VA or similar loan with no PMI, making large extra payments toward a debt-free retirement target.
+- A homeowner with a low fixed rate who has spare monthly cash, weighing whether to make extra principal payments, invest the difference, or keep reserves for a move or emergencies.
+- A buyer in a high-cost metro area with a large monthly payment and little room in the budget, wondering whether a 15-year payoff is realistic and how to handle PMI or escrowed taxes first.
+- A veteran or near-retiree with a VA or other government-backed loan who wants to be debt free before retiring, while still paying heavy state and local property taxes.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Ignores opportunity cost: commenters argue that investing or a high-yield savings account can beat prepaying a low-rate loan.
-- Assumes viewers can afford large extra payments, which is unrealistic in high-cost markets like Southern California.
-- Glosses over loan-type differences (FHA mortgage insurance rules, VA loans, flat amortization in some countries) and the risk of secured debt like HELOCs.
+- Treats early payoff as the default best choice and gives little weight to opportunity cost, investment returns, or liquidity.
+- Assumes viewers can easily afford large extra payments and rarely shows how to plan around tight budgets or high-cost housing.
+- Glosses over differences between loan types (FHA mortgage insurance, VA rules), escrow, and property taxes, so the numbers may not apply to everyone.
 - Phương pháp của 6 video đầu bảng: 6 giả định cố định.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,15 +45,15 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 - Bob Sharpe — [ittb9eOt46M](https://youtu.be/ittb9eOt46M) — 10–15 phút — ≥ 5× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- [Strategy] vs [Alternative]: The Real Break-Even on a [Rate]% Loan
-- I Paid Off My [Loan Type] in [N] Years: The Exact Monthly Math
-- Should You Prepay a [Loan Type] or Invest? Honest Numbers for [Income Level]
+- X vs Y: Which Costs More Over N Years?
+- Paying Extra on a N-Year Loan: How Many Years Does It Really Save?
+- Removing PMI Early: When It Works, When It Doesn't, and What It Costs
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-extra mortgage principal payments, prepay mortgage vs invest, remove PMI early reappraisal, how to pay off mortgage early, VA loan extra payments, mortgage payoff calculator
+15 year vs 30 year mortgage, extra mortgage principal payment, pay off mortgage early, prepay mortgage vs invest, remove PMI from mortgage, mortgage amortization schedule
 
 ## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- A follow-up video comparing investing and prepaying that includes cash flow, monthly bill coverage, and liquidity.
-- A debt payoff order video covering credit cards first, then student loans.
-- A detailed walkthrough of lump-sum yearly principal payments, including reamortization and whether to request a recast.
+- A video on whether to pay off credit cards and student loans before extra mortgage principal.
+- A side-by-side comparison of investing versus prepaying that covers cash flow, monthly bill coverage, and the risk of tying up money in home equity.
+- A follow-up video on the next strategy covered in the series.

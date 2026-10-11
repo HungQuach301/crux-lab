@@ -11,23 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 7–13 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
-1. Does 'no tax on overtime' mean overtime pay is untaxed, or is it only a deduction? — trọng số cao
-2. How much of a $48/hour overtime rate actually reduces my federal income tax, and how much still goes to Social Security and Medicare? — trọng số cao
-3. After taxes, is a second job worth the extra hours compared with the same hours at my main job? — trọng số cao
-4. Who qualifies for the overtime deduction, and at what income does it phase out? — trọng số vừa
-5. Do I need to do anything at filing, such as a form or a specific line, to claim the overtime deduction? — trọng số vừa
+1. How much of my overtime pay is actually exempt from income tax, and how is that amount calculated? — trọng số cao
+2. Does the overtime deduction reduce payroll taxes like Social Security and Medicare, or only income tax? — trọng số cao
+3. After taxes, is a second job at this hourly rate worth the extra hours, once I count self-employment tax, commuting, and lost time? — trọng số cao
+4. Does the overtime deduction phase out at higher incomes, and at what level does it stop helping me? — trọng số vừa
+5. How do I check my paycheck or withholding to confirm the overtime change is showing up? — trọng số vừa
 
-_Ghi chú máy: No comments were provided, so every question, situation, weakness, and request is inferred from the topic and the video titles. Weaknesses are marked as inferred and should be checked against real comments once available._
+_Ghi chú máy: No audience comments were provided, so every field is inferred from the topic and the video titles. Treat the weights as estimates, not measured frequencies._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A warehouse worker paid time-and-a-half who wants to know whether picking up weekend shifts still makes sense after taxes.
-- A nurse with a salaried-plus-shift schedule weighing a per-diem second job against extra overtime at the main hospital.
-- A tradesperson who is self-employed on the side and wonders how a W-2 overtime deduction interacts with 1099 income and self-employment tax.
+- A salaried-to-hourly worker who now earns a higher hourly rate and wants to know whether extra shifts still leave a meaningful net gain after federal and state taxes.
+- A full-time employee with a steady day job who is considering a weekend part-time gig paid as a contractor and is unsure how self-employment taxes and quarterly estimates change the math.
+- A household filer whose combined income is near a deduction threshold and who wants to know whether one spouse's overtime or a side job pushes the other spouse's benefits or credits down.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Inferred, not observed: many overtime videos state the headline deduction cap without showing the math on a real paycheck, so viewers are left unsure what changes.
-- Inferred, not observed: titles promise a 'shocking' or 'nobody explains' reveal, and viewers may feel the content does not deliver a clear, practical answer.
-- Inferred, not observed: explainers often blur the difference between a tax deduction and a tax exemption, which is the point most likely to confuse viewers.
+- Explanations often treat the overtime deduction as a blanket exemption, leaving out that only the premium portion of overtime pay typically qualifies and that payroll taxes still apply.
+- Content tends to give headline dollar caps without showing a worked example at a realistic hourly rate, so viewers cannot see their own net result.
+- Videos often mix overtime rules with tips or other income rules without separating them, which makes the eligibility limits confusing.
 - Phương pháp của 6 video đầu bảng: 4 giả định cố định, 2 ý kiến, không tính.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,10 +45,10 @@ _Ghi chú máy: No comments were provided, so every question, situation, weaknes
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- [Deduction] vs [Headline Claim]: What Actually Hits Your Paycheck?
-- [Extra Hours] Versus [Second Job]: Which Keeps More After Taxes Over [N] Months?
-- How Much of [Hourly Rate] Overtime Do You Really Keep? A Worked Example by [Filing Status]
+- Overtime at $X/Hour vs a Second Job: Which Keeps More After Tax?
+- The Real Take-Home Math on Overtime Pay: What Changes at $Y Income
+- Tax-Free Overtime Explained: How Much You Actually Keep at $Z/Hour
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-overtime tax deduction, qualified overtime compensation, second job after taxes, overtime pay explained, W-2 overtime deduction, take home pay calculator
+overtime tax deduction, overtime pay take home, second job after taxes, qualified overtime deduction, self-employment tax side job

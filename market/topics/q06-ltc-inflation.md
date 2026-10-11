@@ -11,21 +11,21 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 12–27 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. Will a long-term care policy actually pay when I need care, or will claims be denied or delayed? — trọng số cao
-2. Is long-term care insurance worth the premiums compared with self-funding by investing the money? — trọng số cao
-3. How much does long-term care really cost, and how long do people typically need it? — trọng số cao
-4. Can I cover long-term care with savings or home equity if I'm single, childfree, or have no heirs? — trọng số vừa
-5. What alternatives exist, such as hybrid policies with inflation protection, HSAs, tax deductions, Medicaid, or CCRCs? — trọng số vừa
+1. Will a long-term care policy actually pay out when I need it, and how hard is the claims process? — trọng số cao
+2. Is paying premiums for decades worth it compared with investing that money and self-funding care? — trọng số cao
+3. How much does care really cost, and how long do people typically need it? — trọng số cao
+4. What are the realistic ways to pay for care, such as hybrid policies, HSAs, home equity, Medicaid, or tax deductions? — trọng số vừa
+5. How do the numbers change for singles without children, for couples, and for people in different states? — trọng số vừa
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A parent in assisted living is denied benefits under strict criteria after decades of premiums, and the family ends up hiring lawyers.
-- A single, childfree retiree with no heirs decides to self-insure care costs using investments and a reverse mortgage as backup, hoping to receive home care.
-- A couple with little saved buys a policy late or not at all, and when one spouse needs memory care, the policy pays only partly or late, leaving the other to draw down savings.
+- Single retiree in their late 60s with no children or nearby siblings, weighing whether to self-fund care or buy a policy and worried about who would manage the decisions.
+- Married couple in their early 60s with a paid-off home and moderate savings, comparing a hybrid policy with investing the premium money in index funds.
+- Adult child who has just finished managing a parent's dementia care, dealing with a stalled claim, and deciding whether to buy coverage for themselves.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Barely explains the claims process, including paperwork burden, eligibility criteria, and how lapses in documentation can end coverage, so viewers feel the denial risk is glossed over.
-- Math and slide percentages are internally inconsistent; viewers report that early figures do not add up and that the narration contradicts the slides.
-- Omits hybrid policies with inflation protection and death benefits, tax deductibility of qualified care costs above 7.5% of AGI, facility quality variation, and Medicaid acceptance issues.
+- Glosses over claim denials, heavy paperwork, and benefit triggers, which makes insurance look more reliable than viewers experience it.
+- Omits hybrid policies, inflation riders, and death-benefit options, so the comparison covers only traditional policies.
+- Presents slide percentages and averages that do not reconcile and ignore large state and regional differences in care costs and facility quality.
 - Phương pháp của 6 video đầu bảng: 1 dữ liệu lịch sử thật, 1 giả định cố định, 4 ý kiến, không tính.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -43,17 +43,17 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 - Erin Talks Money · Erin Moriarity — [ugef5CPZaFs](https://youtu.be/ugef5CPZaFs) — 20–30 phút — ≥ 3× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- Claim Denied or Self-Funded? What Happens When Care Is Needed at Age [X]
-- Hybrid vs. Standalone LTC: Which Protects Against [X]% Inflation Over [N] Years?
-- Single, No Heirs, No Safety Net: The Real Math on Paying for [N] Years of Care
+- [Payment Option A] vs [Payment Option B]: Which Leaves More Money After [N] Years of Care?
+- The Real Odds of Needing Care by Age [X]: What the Numbers Mean for Your Plan
+- Can [Asset Type] Cover [Care Setting] for [N] Years? A Scenario-by-Scenario Breakdown
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-long term care insurance, long term care costs, self-fund long term care, hybrid life insurance long term care, long term care inflation protection, pay for long term care in retirement
+long term care insurance inflation protection, hybrid life insurance long term care, paying for long term care in retirement, self-funding long term care costs, long term care costs by state, long term care claim denial
 
 ## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- Numbers and a dedicated video for single people without children or siblings, including whether self-funding works and how early premiums compare.
-- Clarify whether couple figures assume both spouses need care at once.
-- Deep-dive series on alternatives such as downsizing, family housing, gift rules, and expert guests.
-- Discussion of Type A CCRC communities as a long-term care plan option.
-- Review of standalone LTC policies with inflation riders, distinct from whole life.
+- Break out the numbers for single people without heirs, including how early costs differ from later ones.
+- State whether the couple figures assume both spouses need care, and show scenarios where only one does.
+- Deep-dive on alternatives such as downsizing, family housing, and CCRC communities, including expert guests.
+- Explain how care costs are treated for taxes, including itemizing, HSA use, and the 7.5 percent of AGI threshold.
+- Cover Medicaid rules, state partnership programs, and how Medicaid coordinates with Medicare.

@@ -172,7 +172,7 @@ def cmd_queue():
     for ln in q.read_text().splitlines():
         cells = ln.split(' | ')
         if ln.startswith('| # |') and 'Cầu' not in ln:
-            ln = ln[:-1] + ' Cầu | Khoảng trống |'
+            ln = ln.rstrip() + ' Cầu | Khoảng trống |'
         elif ln.startswith('|---') and ln.count('|') == 8:
             ln = ln + '---|---|'
         elif re.match(r'^\| \d+ \|', ln):

@@ -11,21 +11,21 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 14–17 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. Which cash vehicle pays the most right now: T-bills, CDs, high-yield savings, or money market funds, and how do the rankings shift after a rate hike? — trọng số cao
-2. Why not buy T-bills directly through TreasuryDirect and build a ladder instead of paying for an ETF or fund? — trọng số cao
-3. How do state and federal taxes change the ranking, and when do munis or T-bill ETFs beat taxable options? — trọng số vừa
-4. Is it worth locking a 1-year or 5-year CD now, or is a rolling short-term ladder better if rates keep moving? — trọng số vừa
-5. Does the comparison account for share price changes and dividend reinvestment when the alternative is an equity income fund like SCHD? — trọng số thấp
+1. Is chasing the highest cash yield worth the effort on a modest balance, or does the extra return disappear once you count time and hassle? — trọng số cao
+2. Which is simpler and pays more for short-term cash: a CD ladder, self-directed Treasury bills through TreasuryDirect, or a T-bill ETF? — trọng số cao
+3. How do state and federal income taxes change the ranking of CDs, T-bills, money market funds, and high-yield savings? — trọng số cao
+4. When rates are moving, should you roll short-term CDs or lock a longer term to secure today's rate? — trọng số vừa
+5. Are T-bill and bond ETFs as safe and liquid as CDs or money market funds for holding cash? — trọng số vừa
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A saver with $10,000 in cash buys a 12-month CD each month so that one CD matures each month and the money stays liquid.
-- A taxable-account investor in a high-income-tax state holds a T-bill ETF and weighs it against a municipal money market fund and a bond ETF.
-- A retiree with a large lump sum compares locking a multi-year CD against manually rolling four-week T-bills, and asks whether the hassle is worth the extra yield.
+- A saver with a $10,000 lump sum in a 12-month CD who rebuys a new CD each month so that one matures every month and the cash stays accessible.
+- A California resident who moved cash from a money market fund into a T-bill ETF to avoid state income tax and to lower fees.
+- A retiree with a roughly $400K cash position split across a money market fund, a T-bill ETF, and CDs, deciding whether to lock a multi-year rate or keep rolling short-term.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Ignores state income tax exemption on Treasury interest, which changes the ranking for viewers in high-tax states such as California.
-- Leaves out the most recent 26- and 52-week T-bill auction rates, which viewers say matter more than the funds discussed.
-- Uses an unrealistic $400,000 lump-sum premise and treats SCHD as a yield play, ignoring price appreciation and dividend reinvestment.
+- Compares headline yields without converting them to after-tax returns, so state-tax exemptions and federal rates are left out of the ranking.
+- Skips the mechanics of building a T-bill or CD ladder, and never explains why self-directed Treasury purchases are an alternative to ETFs and funds.
+- Uses oversimplified premises such as large lump sums and ignores the latest short-term Treasury auction rates, which many viewers consider more relevant than the funds it compares.
 - Phương pháp của 6 video đầu bảng: 3 ý kiến, không tính, 3 giả định cố định.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -43,16 +43,17 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- [Instrument A] vs [Instrument B]: Which Pays More After Tax Over [N] Months?
-- Ladder or Lock? What [Cash Vehicle] Earns Over [N] Years When Rates Move
-- Build a [N]-Rung [Cash Product] Ladder: Liquidity vs Yield at [Rate Level]
+- X vs Y vs Z: Which Cash Vehicle Keeps the Most After Tax Over N Years?
+- Lock or Roll? How to Pick a CD Term When Rates Are Moving
+- Build a Short-Term Treasury Ladder: TreasuryDirect vs CDs vs T-Bill ETFs
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-CD ladder, T-bills vs CDs, high yield savings rates, TreasuryDirect ladder, after-tax cash yield, money market vs T-bill ETF
+CD ladder, Treasury bills, TreasuryDirect, T-bill ETF, high yield savings, after-tax yield
 
 ## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- Step-by-step TreasuryDirect T-bill ladder build, including reinvestment and reimbursement timing
-- After-tax comparison of T-bills, CDs, money market funds, and municipal bond funds across federal and state brackets
-- Comparison of floating-rate Treasury ETFs against CDs and T-bills for cash in a rising-rate environment
-- Monthly CD ladder walkthrough showing how to keep one maturity per month
+- A comparison of a floating-rate Treasury ETF as a cash holding during rising-rate periods.
+- A step-by-step walkthrough of building a T-bill ladder through TreasuryDirect.
+- A look at the latest 26-week and 52-week T-bill auction rates versus current fund yields.
+- Whether municipal bond funds make sense for cash held in a high-state-tax location.
+- An explanation of brokerage sweep accounts versus core positions and how each affects cash yield and insurance.

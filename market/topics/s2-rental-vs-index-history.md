@@ -11,23 +11,21 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 10–22 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. Is rental property actually better than index funds once you count all costs, vacancies, taxes, and your time? — trọng số cao
-2. What returns do rentals and stocks really produce over 10 to 16 years, and how sensitive is the answer to the start date and purchase price? — trọng số cao
-3. How much do leverage, mortgage paydown, and appreciation change the result compared with a cash-only stock investor? — trọng số cao
-4. Does the comparison include tax treatment (depreciation, deductions, capital gains, dividend taxes) and selling costs? — trọng số vừa
-5. Can I hold both, and does the answer change depending on whether I already own a home or have a stable income? — trọng số vừa
-
-_Ghi chú máy: Comment sample was large and varied, so these rankings reflect frequency and weight in the provided comments. Situations are composites with no real individuals._
+1. Does the comparison count every source of return on both sides, including rent collected, leverage, appreciation, and reinvested cash flow? — trọng số cao
+2. How do taxes change the outcome, including depreciation, deductible expenses, capital gains on sale, and yearly taxes on dividends? — trọng số cao
+3. What do time, effort, vacancies, repairs, and tenant problems cost compared with a passive index fund, and are they priced into the result? — trọng số cao
+4. Are the inputs realistic, such as purchase price, mortgage rate, rent level, property tax growth, insurance, and selling costs? — trọng số vừa
+5. Can someone do both, and which path fits a given income, risk tolerance, and willingness to manage property? — trọng số vừa
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- Owns one or two paid-off rentals plus an index fund portfolio and wonders whether to keep both or sell the property.
-- Has modest savings and is deciding between a down payment on a first rental and starting monthly index fund contributions.
-- Already owns a home, has the stock market as their main investment, and is tempted by rental income but worried about tenant problems and time commitment.
+- A salaried professional with a modest down payment saved, deciding between buying a first rental and contributing the same money to tax-advantaged index fund accounts.
+- A near-retiree who owns a paid-off rental and is weighing whether to sell and move the proceeds into funds to reduce landlord work while keeping similar income.
+- A younger investor who already owns a primary home and has a steady monthly surplus, wondering whether to add a rental or keep investing in index funds.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Scenarios assume unrealistic inputs such as retail purchase prices, static interest rates, no reinvestment of rent surplus, or long vacancy periods.
-- Comparisons are unequal: one side gets ongoing contributions or reinvested cash flow while the other does not, and the final math is hard to follow.
-- Omits taxes, selling costs, insurance, property tax increases, and the time or effort required to manage a rental.
+- Compares one property against a lump sum or a differently funded stock portfolio, so the contribution amounts and timing are not equal.
+- Leaves out tax effects such as depreciation, deductions, capital gains, and yearly dividend taxes, or ignores selling costs entirely.
+- Treats the rental as if it runs itself, ignoring management time, vacancy, maintenance, and the chance of a single-property concentration risk.
 - Phương pháp của 6 video đầu bảng: 4 giả định cố định, 1 ý kiến, không tính, 1 dữ liệu lịch sử thật.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -47,15 +45,15 @@ _Ghi chú máy: Comment sample was large and varied, so these rankings reflect f
 - MoneywithSwAbi — [2MTkmrpltbQ](https://youtu.be/2MTkmrpltbQ) — 10–15 phút — ≥ 5× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- X vs Y: Which Wins After N Years When You Count Every Cost?
-- One Property vs Index Funds: Does Leverage Change the Answer?
-- Rental Income vs Dividend Growth: What Happens to Your Net Worth?
+- [Asset A] vs [Asset B]: Who Wins After [N] Years Once Taxes and Costs Are Counted?
+- I Gave [Strategy A] and [Strategy B] the Same Monthly Cash: Here Is the Honest Result
+- [Strategy A] or [Strategy B]? A Fair Scorecard With Vacancies, Taxes, and Time Costs Included
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-rental property vs index funds, real estate vs stocks, rental property returns, index fund investing, REIT vs rental property, real estate investing math
+rental property vs index funds, real estate vs stock market returns, rental property ROI calculation, index fund returns comparison, real estate depreciation tax benefits, passive income rental vs ETF
 
 ## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- A side-by-side video comparing REITs with direct residential or commercial rental property.
-- A video that uses the same starting capital and contribution schedule for both options, with a clearly shown calculation.
-- A breakdown of how leverage works in both real estate and brokerage accounts, including margin risk.
+- A video explaining REITs as a way to get property exposure without owning or managing a building.
+- A comparison of REITs against owning commercial rental property for income.
+- A side-by-side look at REITs, direct residential rentals, and index funds for someone who wants monthly income.

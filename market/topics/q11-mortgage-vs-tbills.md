@@ -11,21 +11,16 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 14–20 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. Should I pay off my low-rate mortgage early or invest the money, and which option holds up better if I lose my job? — trọng số cao
-2. Should I build a 6-12 month emergency fund before making extra mortgage payments? — trọng số cao
-3. When I lose my job, should I sell all my investments or withdraw only what I need until I'm re-employed? — trọng số cao
-4. Does a 3% mortgage still make sense to keep once I factor in inflation, the mortgage interest deduction, and the after-tax rate? — trọng số vừa
-5. Would a hybrid approach, splitting extra money between payoff and investing, work better than choosing one strategy? — trọng số vừa
+1. Is it better to pay off a low-rate mortgage early or invest the extra money, and how big is the difference in dollars over the loan's life? — trọng số cao
+2. How should I choose between prepaying and investing once I account for my actual rate, tax situation, and time horizon? — trọng số cao
+3. Should I build a full emergency fund before putting extra money toward the mortgage, given that home equity can't be quickly accessed? — trọng số cao
+4. Does the mortgage interest deduction change the math, and at what rate does prepaying stop being worth it? — trọng số vừa
+5. Is a hybrid approach, splitting extra cash between payoff and investing, a reasonable compromise, and how should the split shift over time? — trọng số vừa
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- Mid-40s to 50s homeowner with 15-20 years left on a 30-year mortgage at 3-4%, splitting extra cash between investing and principal, and choosing based on peace of mind as much as the math.
-- Single-income household that wants the house paid off for job-security reasons, possibly after a past layoff, and treats the payoff as protection against losing the home.
-- Near-retirement household that has already paid off the mortgage and lives on pension or dividend income, weighing liquidity, taxes, and how withdrawals affect healthcare subsidies.
+- chưa có
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Ignores liquidity risk and the emergency fund: home equity is illiquid, so the comparison leaves out what happens during a job loss or medical emergency.
-- Oversimplifies taxes and inflation: it doesn't account for itemized mortgage interest deductions, non-deductible principal withdrawals in retirement, or how fixed payments lose real value over time.
-- Uses fixed return assumptions and an incomplete time horizon, often leaving out rent avoided or saved, the spending of freed-up cash, and the effects of market volatility over the full loan term.
 - Phương pháp của 6 video đầu bảng: 2 dữ liệu lịch sử thật, 3 giả định cố định, 1 ý kiến, không tính.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,17 +40,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 - Home Loan Education — [3hIh9xT1C1o](https://youtu.be/3hIh9xT1C1o) — 10–15 phút — ≥ 5× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- X% Mortgage vs Y% Index Fund: Which Wins Over N Years?
-- Pay Off the House or Build a Cash Cushion? A Job-Loss Scenario Explained
-- The Break-Even Rate: When Prepaying Your Mortgage Beats Investing
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-mortgage payoff vs investing, prepay mortgage early, low interest mortgage strategy, emergency fund before paying off mortgage, mortgage vs index fund returns, early mortgage payoff calculator
-
-## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- A job-loss scenario that compares selling investments with withdrawing only what's needed until re-employment.
-- A retirement-stage comparison covering taxes, ACA subsidies, and withdrawal planning after the mortgage is paid off.
-- A break-even calculator or rate threshold showing when prepaying beats investing, based on the user's own rate and time horizon.
-- A hybrid-strategy walkthrough that shows how to split extra money between prepayment and investing over time.
-- A Canada-specific or mortgage-renewal explanation, since payments can change at each term renewal.
+chưa có

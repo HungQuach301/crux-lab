@@ -11,23 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 10–13 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
-1. How much more total interest do I pay on a 72-month loan than a 60-month loan for the same car? — trọng số cao
-2. How much car can I afford based on my income, down payment, and monthly budget? — trọng số cao
-3. Is a lower monthly payment from a longer term worth the extra interest? — trọng số cao
-4. How do I avoid being upside down (owing more than the car is worth) on a long loan? — trọng số vừa
-5. Should I make extra payments, refinance, or pay off early if I already took a 72-month loan? — trọng số vừa
+1. How much total interest does a 72-month loan cost compared with a 60-month loan on the same amount? — trọng số cao
+2. What monthly payment can I comfortably afford on my income once insurance, fuel, and maintenance are included? — trọng số cao
+3. Is a longer loan term ever worth it to keep the monthly payment low, and when does it become a trap? — trọng số cao
+4. How do I work out the price of a car I can afford using a simple rule based on salary or take-home pay? — trọng số vừa
+5. Will I owe more than the car is worth for most of a long loan, and how does that affect trading or refinancing? — trọng số vừa
 
-_Ghi chú máy: No audience comments were provided, so weights, questions, situations, weaknesses, and requests are inferred conservatively from the topic and video titles, not from audience feedback._
+_Ghi chú máy: No audience comments were provided, so all questions, situations, weaknesses, and requests are inferred from the topic and the video titles. Weights are estimates, not measured frequencies._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A first-time buyer with a modest salary is offered a $35,000 loan and is choosing between a payment that fits their budget and a shorter term that costs less overall.
-- A buyer focused on the monthly payment at the dealership is steered toward 72 months without seeing the total cost of the loan.
-- A driver with a trade-in or small down payment is deciding whether a longer loan keeps them from owing more than the car is worth.
+- A first-time buyer with a steady salary who is choosing between a 60-month and a 72-month payment that fits a monthly budget but stretches the total cost.
+- A household already stretched by rent or a mortgage that wants to add a second car and is tempted by the lowest possible monthly payment.
+- A borrower a year into a 72-month loan who wants to know whether to refinance, pay extra, or keep going, and how much equity they have.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Inferred, not from comments: titles promise a 'real cost' but may not state the interest rate assumed, so viewers cannot check the math.
-- Inferred, not from comments: affordability videos often stop at the car payment and skip insurance, fuel, maintenance, and registration.
-- Inferred, not from comments: examples may use a single rate or term without showing how results change across a range of rates.
+- Frequently skips the total-cost comparison and focuses on the monthly payment alone, which leaves the true price unclear.
+- Often assumes a single affordability rule of thumb without showing how insurance, fuel, and maintenance change the result for different incomes.
+- Likely to present the math without a worked example using realistic interest rates and an actual payoff schedule, so viewers cannot check it themselves.
 - Phương pháp của 6 video đầu bảng: 6 giả định cố định.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,10 +45,10 @@ _Ghi chú máy: No audience comments were provided, so weights, questions, situa
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- Lower Payment, Higher Price: What Extra Loan Months Really Cost
-- The Total Cost of a $X Loan at Two Term Lengths: Step-by-Step
-- How Much Car Fits Your Income? A Budget Check Before You Sign
+- X vs Y: Which Costs More Over N Years?
+- How Much Can You Afford on a Salary of $X? (Full Breakdown)
+- The Hidden Cost of Stretching a Loan from N to M Months
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-car loan term length, 72 month car loan, total interest car loan, how much car can I afford, car payment calculator, negative equity car loan
+car loan term length, 72 month car loan, how much car can I afford, auto loan interest calculator, car payment budget, negative equity car loan

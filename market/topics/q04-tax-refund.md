@@ -11,23 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 9–12 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
-1. Is a big tax refund actually bad, or is it just money I should have been getting each paycheck? — trọng số vừa
-2. How do I change my W-4 withholding so I keep more of each paycheck without owing a penalty at tax time? — trọng số vừa
-3. How much could I earn or save by investing or paying down debt with the money I overpaid the IRS during the year? — trọng số vừa
-4. Are there situations where a large refund is the right outcome, such as forced savings or a credit I qualify for? — trọng số thấp
-5. What is the penalty risk if I adjust withholding too far and end up owing at filing time? — trọng số thấp
+1. Is a large tax refund actually bad, and what does it mean that the government holds my money interest-free? — trọng số cao
+2. How do I change my W-4 withholding so I keep more money in each paycheck? — trọng số cao
+3. What refund size should I aim for, and how do I tell whether my withholding is too high or too low? — trọng số cao
+4. Will reducing withholding cause an underpayment penalty or a surprise bill at filing time? — trọng số vừa
+5. How do multiple jobs, a working spouse, dependents, or side income change the withholding math? — trọng số vừa
 
-_Ghi chú máy: No comments were provided, so all questions, situations, and weaknesses are inferred conservatively from the topic and the top video titles. Weights are therefore set low-to-medium rather than high, and no viewer requests were available to report._
+_Ghi chú máy: No audience comments were provided, so all questions, situations, weaknesses, and requests are inferred from the topic and typical viewer intent, not from observed comment data. Treat weights as estimates._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A salaried employee in their 30s who gets a $3,000 refund every spring and treats it as an annual bonus to pay for a vacation or holiday spending.
-- A two-income household that recently added a second job or side income, so the original withholding no longer matches their tax bill and they are unsure whether to update the W-4.
-- A recent homeowner or parent claiming new credits or deductions for the first time, who wants to adjust withholding so the refund does not swing too high or too low.
+- A dual-income household where each spouse set up withholding separately, so the combined amount overshoots and produces a large refund each spring.
+- A salaried employee with a side freelance business who has no withholding on that income and is unsure whether the W-4 or quarterly estimates should cover the gap.
+- A new parent or someone who recently married, divorced, or bought a home who updated life events late in the year and now wonders whether the old W-4 still fits.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- No audience comments were provided, so weaknesses cannot be confirmed from viewer complaints. Inferred from the title set only: the titles lean on fear-based framing ("Trap", "Bad News", "Mistake That Can Wipe Out"), which may alienate viewers who see a refund as a welcome forced-savings habit.
-- Titles promise a single dollar-figure takeaway ("$3,000 Loan", "21% Mistake") without showing how the number was calculated, which may leave viewers feeling the claim is overstated.
-- The title set leans toward a single verdict ("refund is bad") and may not address the nuance that refunds are sometimes a reasonable outcome, which a more balanced explanation could serve better.
+- Advice tends to stop at the principle that a refund is an interest-free loan without showing a worked example with real numbers, so viewers are left without a concrete target.
+- Coverage often ignores state income tax withholding and the interaction between federal and state adjustments, which leaves part of the decision unaddressed.
+- Explanations of the W-4 steps can skip how to handle two-job and multiple-income households, where the standard worksheet gives people the most trouble.
 - Phương pháp của 6 video đầu bảng: 5 ý kiến, không tính, 1 giả định cố định.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,10 +45,10 @@ _Ghi chú máy: No comments were provided, so all questions, situations, and wea
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- Big Refund vs Smaller Paychecks: Which Leaves You Richer by Year-End?
-- Your W-4 Setting, Explained: How Many Dollars Per Paycheck Are You Really Giving Up?
-- Forced Savings or Lost Interest? A Calculator Walk-Through for Your Next Tax Refund
+- [Lump Sum] vs [Monthly Amount]: What Each Option Is Worth Over [Number] Years
+- The Hidden Cost of a [Dollar Amount] Refund: A [Year] Withholding Walkthrough
+- [Dollar Amount] More Per Paycheck: How to Recalculate Your W-4 in [Number] Minutes
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-W-4 withholding, tax refund bad, adjust withholding, paycheck withholding calculator, IRS refund explained, tax refund vs paycheck
+adjust w4 withholding, big tax refund bad, w4 withholding calculator, reduce tax refund paycheck, irs withholding estimator, tax refund interest free loan

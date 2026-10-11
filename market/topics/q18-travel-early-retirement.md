@@ -11,21 +11,21 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 13–27 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. Should I spend more in my early retirement (go-go) years, or hold back for later? — trọng số cao
-2. How do I know whether my portfolio can support higher spending, and how should I adjust withdrawals when markets rise or fall? — trọng số cao
-3. How much should I set aside for healthcare, assisted living, or long-term care, and can those costs wipe out my savings? — trọng số cao
-4. How do I stop being afraid to spend savings I was raised to protect? — trọng số vừa
-5. How do taxes, Social Security timing, RMDs, and Medicare premiums change how much I can actually spend? — trọng số vừa
+1. Is it safe to spend more in the early years of retirement, and how much does front-loading spending shrink the money available later? — trọng số cao
+2. How much should be reserved for healthcare, Medicare and drug costs, and especially long-term care or assisted living, which can be very expensive and unpredictable? — trọng số cao
+3. Does spending naturally decline with age, and does that pattern hold for my own lifestyle and health outlook? — trọng số cao
+4. How do I overcome the fear of running out of money when I grew up frugal or poor, and when is it rational to spend savings rather than hoard them? — trọng số cao
+5. How should withdrawals change with market performance, and how do taxes, RMDs and the 4% rule fit into a flexible plan? — trọng số vừa
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A frugal couple in their early 60s with about $1.2M saved and no debt wants to take a bucket-list anniversary trip while they're healthy, but one spouse keeps resisting because of a childhood of financial scarcity.
-- A single retiree at 58 with a military pension and investment income is comfortable and debt-free, but is unsure whether to delay Social Security to 70 or spend more now while active.
-- An adult child is covering a shortfall for a parent whose savings ran out before assisted living costs were planned, and is now deciding how much to save for their own care versus enjoying retirement early.
+- A frugal saver who grew up with financial hardship, has a large nest egg and no debt, but feels anxious about spending and wants reassurance that the numbers support spending more.
+- A recently retired couple in good health who want to take a big trip while they are still mobile, but one spouse is hesitant and worried about future care costs and the portfolio's longevity.
+- A single retiree with a pension and modest savings who is supporting an aging parent or helping family, weighing whether to retire early or work longer, and worried about assisted-living costs.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Uses gross figures and ignores US Medicare premiums, out-of-pocket medical and drug costs, and taxes, so retirement spending looks understated.
-- Treats assisted living and long-term care as a minor caveat rather than modeling their high, unpredictable monthly cost.
-- Relies on fixed success rates and rigid withdrawal assumptions, with examples that contain math errors and switch from conservative to aggressive return assumptions midway.
+- Models use gross figures and skip taxes, Medicare, drug and out-of-pocket medical costs, so the spending targets look more affordable than they are.
+- Long-term care and assisted-living costs are often omitted or treated as an afterthought, even though they are a major risk for many retirees.
+- Success rates and fixed-return assumptions are presented with too much confidence, with little discussion of inflation, sequence risk, or outcomes for smaller portfolios.
 - Phương pháp của 6 video đầu bảng: 1 ý kiến, không tính, 2 dữ liệu lịch sử thật, 3 giả định cố định.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,17 +45,17 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 - Erin Talks Money · Erin Moriarity — [XR_MAoJ9QXs](https://youtu.be/XR_MAoJ9QXs) — 10–15 phút — ≥ 3× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- [Spend More Now] vs [Hold Back for Later]: Which Keeps You Solvent Past Age [N]?
-- How Much Can a [Single/Couple] Spend in the Go-Go Years With $[X] Saved?
-- [Dynamic Withdrawal Rule] Test: Does Spending More Early Survive a [N]-Year Retirement?
+- Spend Now or Later: What Front-Loading Retirement Withdrawals Really Costs Over 30 Years
+- Fixed Budget vs Flexible Guardrails: Which Withdrawal Plan Holds Up in a Bad Decade?
+- Healthy Years vs Reserve Years: How Much Care Money Should You Hold Before Spending More?
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-early retirement travel budget, go-go years retirement spending, retirement withdrawal guardrails, assisted living costs retirement, how much to spend in retirement
+retirement spending strategy, early retirement travel budget, withdrawal rate guardrails, retirement spending phases, long-term care costs retirement, dynamic withdrawal strategy
 
 ## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- Model net-of-tax withdrawals, not gross, so the spending figure reflects take-home money.
-- Add a full healthcare and long-term care module, including Medicare, IRMAA, and assisted living scenarios.
-- Show annuity payouts by pension size for singles and couples, and the main factors that affect them.
-- Include more single-focused scenarios, especially military pensions and their role in retirement planning.
-- Compare Social Security claiming ages with the cost of working longer, including how each choice affects health-span years.
+- A net-of-tax withdrawal model showing how much pre-tax income is needed to reach a target take-home spending level.
+- A healthcare and long-term care cost planner covering Medicare, IRMAA surcharges, and a realistic care reserve by age.
+- Scenarios for single retirees, including those with military or other pensions, and for smaller portfolios.
+- A comparison of annuity payouts across pension sizes for singles and couples, with the main factors that drive annuity rates.
+- A guide to estimating Social Security benefits and how claiming age changes them.

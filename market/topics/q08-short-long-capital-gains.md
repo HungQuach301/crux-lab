@@ -11,23 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 7–20 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. How do I pick specific tax lots when selling, and which brokerages actually allow it instead of forcing FIFO or LIFO? — trọng số cao
-2. Is a sale a short-term or long-term gain, and how does the sell date change the tax bill? — trọng số cao
-3. Does lot-level selection or the same tax-lot math work inside an IRA? — trọng số vừa
-4. When every lot shows a gain, which lots should I sell first to minimize tax on a large appreciated position? — trọng số vừa
-5. Does deferring the gain actually help, or only delay it? What about loss harvesting, donating shares, or borrowing against the position? — trọng số vừa
+1. How do I choose which specific shares or tax lots to sell so I control the gain or loss, and how do I find that option at my broker? — trọng số cao
+2. Does my brokerage honor lot-level selection, or does it force FIFO, LIFO, or average cost for the whole year, and does this differ by account type? — trọng số cao
+3. How do I tell whether a sale counts as short-term or long-term, and what does waiting past the one-year mark actually save? — trọng số vừa
+4. If every lot I own shows a gain, which lots should I sell first, and can gains from other investments such as options be offset? — trọng số vừa
+5. Do lot-selection tactics work inside an IRA or other retirement account, where capital gains tax normally doesn't apply? — trọng số thấp
 
-_Ghi chú máy: Based on about 25 short comments, so the weights are rough. Situations and weaknesses are partly inferred from the topic and the recurring rebuttals rather than from many direct complaints._
+_Ghi chú máy: Only 23 short comments were provided, most with low weight, so the ranking and some items are inferred from the topic and the video titles._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A retiree or low-income seller who has a zero-rate tax year and sells appreciated shares in pieces each quarter, choosing lots to stay in the 0% bracket.
-- An investor whose brokerage forces year-wide FIFO or LIFO, so they can't choose lots and want to know whether switching brokers or accounts is worth it.
-- A long-term holder of one concentrated stock bought years ago with a gain of over 2000%, who wants to sell or diversify without a large tax bill.
+- An investor with a low-income or zero-rate tax year who wants to realize gains tax-free by selling higher-basis lots in stages across the year.
+- An investor whose broker defaults to FIFO and who can't find a lot-selection setting, and who is deciding whether to change settings or switch brokerages.
+- A long-term holder with a large position in one stock that has grown many times over, weighing whether to sell near the one-year mark or hold longer, possibly considering the rules that apply at age 65.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Presents lot selection as a universal trick, but viewers report it's only available at some brokerages and needs the right account setup.
-- Uses an example with a 2026 sale that viewers say is a short-term gain, not long-term, which undermines the core claim.
-- Calls the strategy a way to avoid tax, while viewers point out it mostly defers the gain and the example is too rare to apply to typical sales.
+- Examples present rare or extreme scenarios as if they were typical, and viewers push back that ordinary sales wouldn't be affected.
+- Strategies are presented as tax savings even though they only defer the bill; viewers point out that the tax eventually comes due and that loss harvesting or donation may matter more.
+- Holding-period math is sometimes wrong, so a future sale is treated as long-term when it would be short-term and taxed at a higher rate.
 - Phương pháp của 6 video đầu bảng: 2 giả định cố định, 4 ý kiến, không tính.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,16 +45,17 @@ _Ghi chú máy: Based on about 25 short comments, so the weights are rough. Situ
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- Which Tax Lot Do You Sell? Same Shares, Different Tax Bill
-- Short-Term vs Long-Term: How Your Sell Date Changes What You Owe
-- Deferral or Avoidance? What a Capital Gains Strategy Really Saves
+- Sell Now or Wait Past 12 Months: What the Tax Bill Looks Like at Each Date
+- Which Shares to Sell First: Lot Selection vs FIFO Across Brokerages
+- Deferral vs Elimination: When Delaying a Capital Gains Tax Bill Actually Helps
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-tax lot selection, specific identification cost basis, short term vs long term capital gains, FIFO vs LIFO brokerage, capital gains tax on stocks, holding period capital gains
+tax lot selection, specific identification cost basis, short-term vs long-term capital gains, FIFO vs specific lot, holding period capital gains, capital gains tax strategy
 
 ## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- A step-by-step guide to finding and using specific lot selection at Fidelity, Schwab, Vanguard, and Robinhood.
-- A check of whether lot selection and cost-basis rules apply to IRA and other tax-advantaged accounts.
-- A video on holding-period math, showing exactly when a lot crosses from short-term to long-term.
-- A comparison of deferral, loss harvesting, charitable donation, and selling losers, with their trade-offs.
+- A broker-by-broker walkthrough showing how to turn on specific lot identification and where to find it in each app.
+- A clear answer on whether lot selection and tax-lot tactics apply inside IRAs and other retirement accounts.
+- A worked example combining lot selection with options gains and losses.
+- A comparison of deferring gains versus harvesting losses or donating appreciated shares as exit strategies.
+- A breakdown of whether borrowing against a portfolio to reduce taxable income is a sound approach.

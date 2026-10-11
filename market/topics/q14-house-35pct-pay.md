@@ -11,23 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 9–13 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
-1. How much house can I afford on my salary, and what does the 28% rule actually measure? — trọng số cao
-2. What is the difference between the front-end 28% housing ratio and the back-end 36% to 43% total debt ratio, and which one do lenders use? — trọng số cao
-3. What counts as being house poor, and how can I tell before I sign? — trọng số cao
-4. How do property taxes, homeowners insurance, HOA fees, and PMI change the affordable price? — trọng số vừa
-5. How much does the current mortgage rate change how much house I can afford? — trọng số vừa
+1. How much house can someone with a given salary actually afford once monthly debts, taxes, and insurance are included? — trọng số cao
+2. Does the 28% housing-cost rule still hold when mortgage rates, property taxes, and insurance have all risen? — trọng số cao
+3. What are the warning signs that a buyer is becoming house poor, and how do I avoid it? — trọng số vừa
+4. How do the 28% and 36% debt-to-income guidelines differ, and which one do lenders actually use? — trọng số vừa
+5. Should I keep renting or buy, given the down payment, closing costs, and monthly cost of each? — trọng số vừa
 
-_Ghi chú máy: No audience comments were provided, so all questions, situations, weaknesses, and requests are inferred from the topic and the video titles, not from viewer data. Weights are estimates._
+_Ghi chú máy: No audience comments were provided, so every field is inferred from the topic and the video titles. Treat weights and weaknesses as hypotheses to check against real comments._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A dual-income couple in a high-cost metro with a combined gross income near the median, saving for a first home with student loan payments and a car loan.
-- A single renter in their late 20s with a steady salary who wants to know whether buying beats continuing to rent in a mid-sized city.
-- A household whose income rose recently and is considering a larger home, unsure whether a 35% housing share of gross pay is safe given variable bonuses or commission.
+- A single earner with student loans and a car payment wants to know whether a starter home fits within a stretched budget.
+- A dual-income couple planning for childcare costs asks whether their combined income supports a larger mortgage without cutting savings.
+- A first-time buyer in a high-cost metro compares the monthly cost of renting against buying with a small down payment.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Titles promise a single 'real rule' or 'shocking reality' but often do not show the calculation step by step, so viewers may leave without a usable number.
-- Videos tend to use gross salary without explaining how take-home pay, retirement contributions, and childcare costs reduce what is actually affordable.
-- Many titles are dated or frame 2026 numbers without stating the rate and tax assumptions, so the figures may not transfer to a viewer's own situation.
+- Likely oversimplifies by using gross salary and one percentage rule without showing how taxes, insurance, and HOA fees change the result.
+- Likely treats the 28% and 36% guidelines as fixed rules without explaining that lenders, regions, and loan types vary.
+- Likely ignores the emotional and lifestyle side of being house poor, such as savings, retirement contributions, and emergency funds.
 - Phương pháp của 6 video đầu bảng: 4 ý kiến, không tính, 2 giả định cố định.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,10 +45,10 @@ _Ghi chú máy: No audience comments were provided, so all questions, situations
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- X Salary vs Y Home Price: What Monthly Payment Really Fits?
-- The 28% Rule vs the 36% Rule: Which One Protects Your Budget More Over N Years?
-- How Much House Can a $X Income Buy After Taxes, Insurance, and Rate Changes?
+- X Salary vs Y Monthly Payment: What Home Can You Really Afford in N Years?
+- The X% Rule vs the Real Budget: Which Number Keeps You Out of Trouble?
+- Renting vs Buying at Your Income: Which Costs More Over N Years?
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-how much house can I afford, 28 percent rule, house poor, debt to income ratio mortgage, affordable home price calculator, mortgage payment by salary
+how much house can I afford, 28 percent rule mortgage, house poor signs, debt to income ratio mortgage, affordable home by salary, rent vs buy calculator

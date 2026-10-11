@@ -11,23 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 11–15 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
-1. If I have $130,000 in W-2 wages, can a rental property loss still reduce my taxes, or is it trapped? — trọng số cao
-2. How does the $25,000 special allowance for rental losses phase out as MAGI rises between $100,000 and $150,000? — trọng số cao
-3. Does a short-term rental with an average stay of 7 days or less avoid passive loss limits, and what material participation hours are required? — trọng số cao
-4. What happens to suspended passive losses over time, and when are they released (for example, on a full sale of the property)? — trọng số vừa
-5. Do cost segregation studies and bonus depreciation make it practical to generate large first-year losses, and what recapture risks come with them? — trọng số vừa
+1. If I earn about $130,000 in W-2 wages, can my rental property losses still reduce my taxable income, or are they suspended? — trọng số cao
+2. How do the passive activity rules and the $25,000 special allowance phase out at this income level, and which income figure (wages or MAGI) controls the phase-out? — trọng số cao
+3. Do I need active participation in the rental, and what does that require in practice? — trọng số cao
+4. Does a short-term rental avoid passive treatment, and what material participation tests would I need to meet to use its losses against wages? — trọng số vừa
+5. What happens to suspended losses over time, and how are they released when I sell the property or stop owning it? — trọng số vừa
 
-_Ghi chú máy: No audience comments were provided, so questions, situations, weaknesses, and requests are inferred conservatively from the topic and the video titles. Weaknesses are unverified assumptions, not observed viewer complaints._
+_Ghi chú máy: No audience comments were provided, so all entries are inferred from the topic and the video titles, not from viewer feedback._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A dual-income couple earning about $130,000 in W-2 wages buys a long-term rental and wants to know whether the first-year paper loss offsets their salary.
-- A salaried engineer with $130,000 in wages buys a short-term rental, plans to self-manage it, and asks whether it can offset W-2 income without qualifying as a real estate professional.
-- A single filer with a $130,000 salary owns a rental that has produced suspended losses for several years and is considering selling it to unlock those losses.
+- A W-2 professional with a household income near the phase-out range who bought one long-term rental and wants to know whether the paper loss lowers this year's tax bill.
+- A married couple where one spouse has a high salary and the other spends many hours managing rental properties, asking whether the spouse can qualify as a real estate professional.
+- An owner of a short-term rental who books guest stays for a few nights at a time and wants to know whether it can offset a salaried income without owning a full-time property management business.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Inferred, not observed: creators may skip the MAGI phase-out math and give a flat 'yes' or 'no' that does not fit a $130,000 income.
-- Inferred, not observed: explanations may blur short-term rental material participation rules with the real estate professional test, leaving viewers unsure which applies.
-- Inferred, not observed: content may stress aggressive strategies (such as cost segregation) without covering recapture on sale or audit documentation requirements.
+- Inferred: explanations often treat the $25,000 allowance as a flat benefit and skip the phase-out math at income between $100,000 and $150,000.
+- Inferred: content may blur wages with modified adjusted gross income, which is the figure that actually controls eligibility for the allowance.
+- Inferred: videos may promote short-term rental strategies without clearly stating the average stay test, the hour thresholds, or the documentation needed to prove material participation.
 - Phương pháp của 6 video đầu bảng: 5 ý kiến, không tính, 1 giả định cố định.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,10 +45,10 @@ _Ghi chú máy: No audience comments were provided, so questions, situations, we
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- Rental Losses vs Your Salary: Which Ones Actually Reduce Your Tax Bill?
-- Short-Term vs Long-Term Rentals: Which Wipes Out More W-2 Tax Over N Years?
-- Suspended Losses Explained: When Does a Trapped Deduction Finally Pay Off?
+- Why Your Rental Loss Might Not Hit Your Paycheck: The Income Limits That Decide It
+- Short-Term vs Long-Term Rentals: Which Loss Rules Work Against Your Salary?
+- How Many Hours Does It Take to Use a Rental Loss Against W-2 Income? A Step-by-Step Test
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-rental property tax deductions, passive activity loss rules, short-term rental tax loophole, material participation rental, $25000 special allowance rental losses, suspended passive losses
+rental loss passive activity rules, W-2 income rental property deduction, short-term rental material participation, real estate professional status test, suspended passive losses carryforward, special allowance rental losses phase-out

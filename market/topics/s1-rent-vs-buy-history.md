@@ -11,21 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 11–23 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. Do the hidden costs of owning (property taxes, maintenance, closing costs, HOA) get counted alongside the hidden costs of renting (forced moves, rent increases, renter's insurance)? — trọng số cao
-2. How much do the results change under different assumptions: mortgage rate, investment return, rent growth, and how long you stay? — trọng số cao
-3. Does renting really build wealth, or do most renters fail to invest the difference consistently? — trọng số cao
-4. What happens if the landlord sells or ends the lease, and what does a forced move actually cost? — trọng số vừa
-5. Which choice fits a specific life stage, such as retirement, aging in place, raising kids, or needing flexibility for work? — trọng số vừa
+1. Over a realistic holding period, does renting actually cost more than buying once you count interest, taxes, insurance, and maintenance? — trọng số cao
+2. How do the numbers change with different mortgage rates, home price growth, and rent increases? — trọng số cao
+3. What hidden costs does each option carry, such as closing costs, moving expenses, repairs, and renter's insurance? — trọng số cao
+4. Is the money saved by renting actually invested, and does that investment outcome beat home equity? — trọng số vừa
+5. How do non-financial factors like stability, control over the home, flexibility, and family needs weigh against the math? — trọng số vừa
+
+_Ghi chú máy: Comments were varied and numerous, so the ranking reflects weight and frequency of the rebuttals and situations. Titles and comment wording are paraphrased, not copied._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A homeowner who lives with aging parents and rents out their own house so the tenant covers the mortgage, weighing whether to keep the property or sell.
-- A retiree or widowed senior who is tired of upkeep and considering selling to rent, balancing stable fixed costs against a limited income and rising rents.
-- A young family with a stable job debating between a mortgage for long-term stability and renting while investing the down payment and monthly savings.
+- A dual-income household in a high-cost metro weighing a mortgage against a long-term lease while saving for a down payment
+- A retiree or near-retiree deciding whether to sell a paid-off home and rent for lower upkeep and easier aging in place
+- A young professional who expects to move for work within a few years and is comparing short-term renting with buying
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Ignores or underweights the risk of landlords ending leases, which forces moves, packing, and new searches that add real costs.
-- Leaves out property taxes, closing costs, maintenance, and renter's insurance, so the totals on each side are incomplete.
-- Relies on unrealistic inputs such as a fixed high stock return, flat rent, and an assumption that renters will invest every saved dollar.
+- Assumes investment returns and rent growth without showing sensitivity to different scenarios
+- Leaves out transaction costs, property taxes, and the risk of forced moves when landlords end leases
+- Treats the comparison as purely financial and ignores lifestyle, emotional, and family factors
 - Phương pháp của 6 video đầu bảng: 3 giả định cố định, 2 ý kiến, không tính, 1 dữ liệu lịch sử thật.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -45,15 +47,15 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 - MoneywithSwAbi — [YOBf21X3umI](https://youtu.be/YOBf21X3umI) — 10–15 phút — ≥ 5× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- [Option A] vs [Option B] at [Age]: Which Costs More Once Hidden Expenses Count?
-- Renting vs Buying Over [N] Years: The Assumptions That Flip the Answer
-- Should You Rent or Own in [Life Stage]? A Full Cost Breakdown
+- Renting vs Buying in [City]: Which Wins Over [N] Years?
+- Rent or Buy: How Much Do Hidden Costs Change the Answer?
+- Buying vs Renting at [Interest Rate]: When Does Each Option Win?
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-rent vs buy a home, renting vs buying total cost, is renting a waste of money, homeownership hidden costs, buy or rent calculator, renting in retirement
+rent vs buy, renting vs buying a home, is renting a waste of money, buying a house calculator, total cost of homeownership, rent vs buy break-even
 
 ## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- A follow-up showing a family of four's full monthly budget, including utilities, food, and everyday spending, for both renting and buying.
-- A sensitivity analysis showing how results change with different mortgage rates, shorter ownership periods, and different rent growth rates.
-- A video told from the perspective of a paid-off homeowner in a small town, covering the stability and fixed-cost side of owning.
+- A follow-up that shows how the result changes with different mortgage rates or shorter ownership periods
+- A comparison for a family of four that includes utilities, food, and everyday spending
+- A retiree-focused episode covering downsizing, renting, and housing costs on a fixed income

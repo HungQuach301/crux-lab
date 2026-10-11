@@ -11,21 +11,23 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Dải thời lượng | 8–15 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
-1. Do annuity payouts actually beat bonds, Treasuries, or high-yield alternatives once you compare them on the same basis? — trọng số cao
-2. Does a 2% COLA or inflation-adjusted annuity keep my purchasing power intact, and what does that protection cost? — trọng số cao
-3. What happens to the money if I die early, and can heirs get any of it? — trọng số cao
-4. How much do fees, surrender charges, caps, and seller commissions reduce what I actually receive? — trọng số vừa
-5. How long do I need to live for an annuity to break even compared with investing and withdrawing on my own? — trọng số vừa
+1. Does a fixed annuity's guaranteed payout keep pace with inflation over a long retirement, and what does the real purchasing power look like after 10 to 20 years? — trọng số cao
+2. How do annuity payout rates compare with safe alternatives like Treasuries, CDs, bond ladders, or high-yield savings, once fees, taxes, and risk are counted? — trọng số cao
+3. What happens to the money at death: do heirs receive anything, and how do period-certain, refund, or cash-refund options change the trade-off? — trọng số cao
+4. Which annuity type fits which situation: immediate income annuity, deferred annuity, fixed indexed, MYGA, or inflation-adjusted SPIA, and what do the inflation riders (COLA) actually cost? — trọng số vừa
+5. How much can an insurer's failure or changing future rates affect an annuity, and how do state guaranty associations limit that risk? — trọng số vừa
+
+_Ghi chú máy: Only a small set of comments was provided (mostly rebuttals and a few personal situations), so the questions, situations, and requests are partly inferred from the topic. Weights reflect the relative frequency and weight of the comments that point to each theme._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
-- A 69-year-old with about $100k in a 401(k) and a similar amount in a Roth IRA is considering annuitizing half at 71 to get a simple, steady paycheck.
-- A retiree whose late father bought an annuity that paid nothing to the family after death is now weighing whether to put part of a $300k portfolio into one.
-- A 35-year-old plans to invest $40k a year and asks whether an annuity quoted at 8% would return the full amount paid in, and how that compares with index funds.
+- A retiree in their late 60s with a mid-sized pension pot who wants a simple, predictable income and is weighing a lump sum against an annuity purchase
+- A widowed or single parent deciding whether to leave a legacy for children versus locking in lifetime income for themselves
+- A near-retiree in their 30s to 50s who is saving aggressively and asks whether an annuity's stated payout is a good return on the amount they put in
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Treats a quoted payout rate as if it were an interest rate or a total return, without explaining the difference.
-- Headline payout figures ignore inflation, so later payments are presented without showing how much they will buy.
-- Skips what happens at death, and does not disclose fees, surrender charges, caps, or the seller's commission.
+- Headline payout or yield figures are presented without explaining that they are payout rates rather than interest rates, and without showing the principal and what it would take to break even
+- Inflation impact is shown only as a percentage or a single chart, without a year-by-year real-dollar illustration of how purchasing power erodes
+- Little attention is paid to how the outcome changes for different lifespans, heirs, or market rate environments, so the analysis feels one-sided in either direction
 - Phương pháp của 6 video đầu bảng: 4 giả định cố định, 1 ý kiến, không tính, 1 tin tức.
 
 ## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)
@@ -43,17 +45,15 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 - chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
-- [Product] vs [Alternative]: Which Pays More After Inflation Over [N] Years?
-- Will an Annuity Outlast You? Break-Even Math at Ages [X] vs [Y]
-- What Happens to an Annuity When You Die? The [Heir Scenario] Explained
+- Annuity vs Bond Ladder: Which Keeps Up With Inflation Over N Years?
+- Annuity Payouts Explained: What Your Heirs Actually Get at Death
+- Inflation-Adjusted vs Level Annuity: Which Costs More in Real Dollars?
 - Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).
 
 ## Từ khoá mô tả
-income annuity inflation, annuity vs bond ladder, annuity COLA rider cost, annuity death benefit heirs, annuity break-even age
+annuity inflation protection, fixed annuity vs bond ladder, SPIA payout explained, annuity cost of living rider, annuity heirs death benefit, retirement income annuity
 
 ## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)
-- Strategies for retirees with no heirs who want to spend down to zero safely
-- A side-by-side comparison of annuities versus a bond or CD ladder, including taxes
-- Break-even math showing how long you must live to come out ahead of the alternatives
-- How annuity death benefits and beneficiary transfers work, including for a sole heir
-- Whether it makes sense to buy an annuity while young versus later in retirement
+- A side-by-side calculator-style walkthrough comparing an annuity with a bond or CD ladder over 20 to 30 years, in real dollars
+- A practical guide to inflation-adjusted versus level annuities, including how COLA riders are priced
+- A breakdown of what happens to an annuity at death under each payout option, with a worked example
