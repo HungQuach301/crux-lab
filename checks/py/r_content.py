@@ -459,11 +459,12 @@ def s13_sentence_flow(ctx):
                             *[{'from': r[0].get('id'), 'texts': [x['text'] for x in r]} for r in runs[:10]]])
 
 
-FORMATS = {'lab': {'breaks': 2, 'minTotal': 540.0}, '101': {'breaks': 1, 'minTotal': None}}   # D-006 bổ sung, checks-appeal A4 (K3.8)
+FORMATS = {'lab': {'breaks': 2, 'minTotal': 540.0, 'length': [540.0, 660.0]}, '101': {'breaks': 1, 'minTotal': None, 'length': [480.0, 540.0]},   # D-006, A4 (K3.8)
+           'deep': {'breaks': [2, 3], 'minTotal': 840.0, 'length': [840.0, 1020.0], 'minGap': 180.0}}   # D-012 deep 14–17 phút, mid-roll 2–3 (K4.2b, A31 phương án 2b)
 
 
 def episode_format(ctx):
-    """contract.json `format` (D-006: "lab" | "101"). A contract written before D-006 has none: read as "lab" (Episodes 1–3 are lab), noted in details."""
+    """contract.json `format` (D-006: "lab" | "101"; D-012, K4.2b: "deep"). A contract written before D-006 has none: read as "lab" (Episodes 1–3 are lab), noted in details."""
     try:
         f = ctx.contract().get('format')
     except Missing:
@@ -476,8 +477,8 @@ def episode_format(ctx):
 
 
 @rule('S14', 'DX-S10', 'out/adbreaks.json times; act boundaries from out/timeline.json acts; natural silence = span where the master RMS (50 ms/10 ms) stays ≤ −40 dBFS; '
-      'K3.8 (A4): number of breaks by contract.json format (lab 2, 101 1; no format = lab)',
-      'lab: 2 breaks, 101: 1 break; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s; '
+      'K3.8 (A4): number of breaks by contract.json format (lab 2, 101 1; no format = lab); K4.2b (A31, D-012): deep 2–3 breaks, consecutive breaks ≥ 180 s apart',
+      'lab: 2 breaks, 101: 1 break, deep: 2–3 breaks ≥ 180 s apart; each within ±1.0 s of a boundary between two acts (not inside cold open/ident); each inside a silence ≥ 1.0 s; '
       'each ≥ 120 s after the start and ≥ 120 s before the end')
 def s14_adbreaks(ctx):
     br = ctx.json('out/adbreaks.json')['breaks']
@@ -490,8 +491,13 @@ def s14_adbreaks(ctx):
     bad_s = [b for b in br if not any(a <= b <= e and e - a >= 1.0 for a, e in sp)]
     total = ctx.total()
     edge = [b for b in br if b < 120.0 or b > total - 120.0]
-    return verdict('S14', [metric('ad breaks', len(br), '==', FORMATS[fmt]['breaks']), metric('breaks off an act boundary', len(bad_b), '<=', 0),
-                           metric('breaks without ≥1 s silence', len(bad_s), '<=', 0), metric('breaks in the first or last 120 s', len(edge), '<=', 0)],
+    nb = FORMATS[fmt]['breaks']
+    ms = [metric('ad breaks', len(br), 'in' if isinstance(nb, list) else '==', nb), metric('breaks off an act boundary', len(bad_b), '<=', 0),
+          metric('breaks without ≥1 s silence', len(bad_s), '<=', 0), metric('breaks in the first or last 120 s', len(edge), '<=', 0)]
+    if FORMATS[fmt].get('minGap'):   # K4.2b: spacing only for deep (lab/101 unchanged)
+        sb = sorted(br)
+        ms.append(metric(f'breaks closer than {FORMATS[fmt]["minGap"]:g} s', sum(1 for a, b in zip(sb, sb[1:]) if b - a < FORMATS[fmt]['minGap']), '<=', 0))
+    return verdict('S14', ms,
                    details=[{'format': fmt, 'note': note, 'breaks': br, 'boundaries': bounds}])
 
 
@@ -499,8 +505,8 @@ ORDER = ['cold-open', 'ident', 'act1', 'act2', 'act3', 'method', 'outro']
 
 
 @rule('S15', 'DX-S1', 'out/timeline.json acts[] (id, start, end) and scenes[].act; acts contiguous and in the brief\'s order; K3.8 (A2, A4): no cold-open cap (S18 '
-      'times the hook and the promise instead); total floor by contract.json format (lab 540 s; 101 none: no padding; no format = lab)',
-      'order cold-open, ident, act1, act2, act3, method, outro; ident ≤ 3 s; outro ≥ 20 s; timeline total ≥ 540 s (lab); every scene inside its act')
+      'times the hook and the promise instead); total floor by contract.json format (lab 540 s; deep 840 s, K4.2b; 101 none: no padding; no format = lab)',
+      'order cold-open, ident, act1, act2, act3, method, outro; ident ≤ 3 s; outro ≥ 20 s; timeline total ≥ 540 s (lab), ≥ 840 s (deep); every scene inside its act')
 def s15_structure(ctx):
     acts = ctx.acts()
     ids = [a['id'] for a in acts]

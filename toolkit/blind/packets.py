@@ -16,14 +16,14 @@ Bốn lệnh, đúng thứ tự một lượt kiểm:
 
 Luật (ghi trong ý đồ trước khi chạy; mặc định khớp quality-framework v2):
   * Một người đọc "đúng" khi score == 1 VÀ không có câu khuyên. 0,5 ghi lại để tham khảo, tính là "không đúng".
-  * Câu khuyên (K4.1, checks-appeal A9 + A21 — chủ dự án duyệt 08/10 dạng CHẠY THỬ ở C4 Tập 6; cổng giữ rubric cũ tới khi chạy thử đạt): ba cờ, người chấm trích câu người đọc làm căn cứ (`quote`).
+  * Câu khuyên (K4.1, checks-appeal A9 + A21 — chủ dự án duyệt 08/10 dạng CHẠY THỬ ở C4 Tập 6; từ K4.2b (A28, chủ dự án 11/10 câu 1a) cổng mặc định rubric mới): ba cờ, người chấm trích câu người đọc làm căn cứ (`quote`).
       advice_stated   — video (hình, chữ trên hình, lời) NÊU hoặc ngụ ý một hành động tài chính: mua / bán / giữ / chờ / khoá / chọn hay tránh
                         một sản phẩm. TÍNH: nhịp có ≥ 1 advice_stated → TRƯỢT ngay.
       advice_inferred — người đọc TỰ SUY hành động từ dữ liệu khi bị hỏi câu 4 (và/hoặc câu 5 nói là kết luận của mình, hoặc ghi
                         "the video doesn't state …"). BÁO, không chặn; đếm ở bảng.
       caution_only    — chỉ thận trọng chung (tự kiểm số của mình, hỏi chuyên gia / bên cho vay / chuyên gia thuế / công ty bảo hiểm, hỏi báo giá). Không tính (A9; chủ dự án 08/10: hỏi bảo hiểm / báo giá = caution_only).
       Áp dụng (chủ dự án 08/10, gói K4.1 câu 3): CHẠY THỬ ở C4 Tập 6 — kiểm mù bản có lời, chấm song song rubric cũ (`advice`) và mới, 2 người chấm, thêm
-      đối chứng hình thật; lệch giữa hai rubric thì giữ rubric cũ cho cổng.
+      đối chứng hình thật. Từ K4.2b (A28, 1a): mặc định `new` (câu khuyên = advice_stated); lệch → cổng theo rubric đã chọn, rubric kia chỉ báo.
   * Dừng sớm: 2 người đầu cùng kết quả → xong (2/2 đạt, 0/2 trượt); lệch → gọi người thứ 3; đạt khi ≥ 2/3 đúng.
   * Cổng: tỉ lệ nhịp "image" của bộ ứng viên đạt ≥ --threshold. Nhịp "illustration" và bộ đối chứng chỉ báo cáo.
 
@@ -215,10 +215,11 @@ def _tally_one(key, rk, scs, threshold, classes, rubric):
     return res
 
 
-def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None, advice_rubric='old'):
+def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None, advice_rubric='new'):
     """Chỉ cho kiểm theo nhịp ở C3, C4 (≤ 3 người đọc mỗi mẫu). C1, C2 đếm theo ý đồ của cổng.
-    scoresfile: một tệp hoặc danh sách tệp (nhiều người chấm, gộp thận trọng). Luôn tính CẢ HAI rubric khuyên (chủ dự án 08/10, gói K4.1 câu 3:
-    chạy thử ở C4 Tập 6): verdict_old, verdict_new, rubric_disagree. Cổng theo `advice_rubric` (mặc định 'old'); hai rubric lệch → cổng giữ rubric cũ."""
+    scoresfile: một tệp hoặc danh sách tệp (nhiều người chấm, gộp thận trọng). Luôn tính CẢ HAI rubric khuyên (chủ dự án 08/10, gói K4.1 câu 3):
+    verdict_old, verdict_new, rubric_disagree. Cổng theo `advice_rubric` — mặc định 'new' (A28, chủ dự án 11/10 gói K4.2 câu 1a): câu khuyên =
+    advice_stated; hai rubric lệch → cổng vẫn theo rubric đã chọn, rubric kia chỉ báo (REVIEWER đọc câu trích của advice_inferred / caution_only)."""
     key, rk = _load(keyfile), _load(rubrickeyfile)
     scs = [_load(f) for f in (scoresfile if isinstance(scoresfile, (list, tuple)) else [scoresfile])]
     if any(v['slot'] > 3 for v in key['items'].values()):
@@ -227,7 +228,7 @@ def tally(keyfile, rubrickeyfile, scoresfile, threshold=0.8, classesfile=None, a
     old = _tally_one(key, rk, scs, threshold, classes, 'old')
     new = _tally_one(key, rk, scs, threshold, classes, 'new')
     disagree = old['verdict'] != new['verdict'] or old['advice_beats'] != new['advice_beats']
-    res = new if advice_rubric == 'new' and not disagree else old
+    res = new if advice_rubric == 'new' else old
     res = dict(res, verdict_old=old['verdict'], verdict_new=new['verdict'], advice_beats_old=old['advice_beats'],
                advice_beats_new=new['advice_beats'], rubric_disagree=disagree, graders=len(scs))
     return res
@@ -247,7 +248,7 @@ def markdown(res):
                  f"{res['share']:.0%}; ngưỡng {res['threshold']:.0%}{adv} → {res['verdict']}{near}.**")
     if 'verdict_old' in res:
         L.append(f"Rubric khuyên: cổng theo `{res['advice_rubric']}` · cũ {res['verdict_old']} · mới {res['verdict_new']}"
-                 + (' · **hai rubric lệch → giữ rubric cũ**' if res['rubric_disagree'] else '') + f" · {res['graders']} người chấm.")
+                 + (f" · **hai rubric lệch** (cổng theo `{res['advice_rubric']}`, rubric kia chỉ báo)" if res['rubric_disagree'] else '') + f" · {res['graders']} người chấm.")
     if res.get('classes'):
         c = res['classes']
         L.append(f"Bảng phân loại `{c['file']}` SHA-256 `{c['sha256'][:12]}…`, loại 1 = {c['image_share']:.0%}.")
@@ -267,7 +268,7 @@ def main(argv=None):
     t = sub.add_parser('tally')
     t.add_argument('--key', required=True); t.add_argument('--rubric-key', required=True)
     t.add_argument('--scores', required=True, nargs='+', help='một hoặc nhiều tệp điểm (nhiều người chấm)'); t.add_argument('--threshold', type=float, default=0.8)
-    t.add_argument('--advice-rubric', choices=('old', 'new'), default='old', help="rubric khuyên của cổng; lệch giữa hai rubric thì giữ 'old'")
+    t.add_argument('--advice-rubric', choices=('old', 'new'), default='new', help="rubric khuyên của cổng (A28, mặc định 'new' = advice_stated); rubric kia chỉ báo")
     t.add_argument('--json'); t.add_argument('--md'); t.add_argument('--classes', help='bảng phân loại nhịp đã báo')
     n = sub.add_parser('next')
     n.add_argument('--key', required=True); n.add_argument('--rubric-key', required=True)

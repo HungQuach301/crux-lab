@@ -2095,13 +2095,331 @@ def frw_invariants(ctx, params):
             metric('worst / best starts that are not the earliest among equal values', e8, '<=', 0)]
 
 
+
+# ---- kind "term-pair-weekly-replay" (Tập 7, K4.2: a short-term loan vs the long-term loan paid on the short schedule, every paired week of two weekly rate series) ----
+# Spec: topics-r2/machine/debt-1/model.json → newKindNeeds; the episode's extensions from episodes/ep007/numbers.md and K-brief (never model.py / calc.py).
+#   Paired weeks = dates where both series have a value (blank or "." = missing, never 0); nothing else is joined or interpolated.
+#   pay(r, n) = P·x/(1 − (1 + x)^−n), x = r/1200 (r = 0: P/n). Per week w: short loan pay(rS, nS); long loan on the short schedule pay(rL, nS); long loan
+#   required pay(rL, nL); extra_month = pay(rL, nS) − pay(rS, nS); extra_total = extra_month · nS; spread = rL − rS (rounded to 1e-9: two-decimal rates).
+#   months_at_payS = −ln(1 − P·x/pay(rS, nS))/ln(1 + x), x = rL/1200 (continuous formula, not a payment count; null when pay(rS, nS) ≤ P·x).
+#   Interest totals: pay·n − P. Medians: numpy (mean of the two middle values for an even count). Shares are fractions (0..1). Min / max weeks: the earliest
+#   on ties. Eras [from, to]: paired weeks with from ≤ week ≤ to (dates), labelled by the year of `from`; the model file's era from/to = its first/last
+#   paired week. Prepay simulation (optional, at the latest week's long rate): balance B0 = P; each month B += B·x, then pay min(B, required + extra(k));
+#   months = payments until B ≤ $0.000001; interest = Σ B·x. monthly: extra(k) = pay(rL, nS) − pay(rL, nL) every month; yearly lump: 12 × that, with
+#   payments 12, 24, …
+#   Rounding only at the output: S01 compares a model value rounded to d decimals (d = max(the decimals it is written with, the floor of its type)) within
+#   half a unit of d — a value computed from already rounded numbers (e.g. 2828.16 − 2215.62 = 612.54 for 612.5478) is off.
+#   Key labels come from the parameters: terms in years ("15", "30": pay15_now, r30_min, extra_vs15_total_now), bands 100·b on 3 digits ("050").
+TPW_USD, TPW_USDM, TPW_PCT, TPW_PP, TPW_SHARE, TPW_MON, TPW_CNT, TPW_WEEK = 'usd', 'usd/month', 'pct', 'pp', 'share', 'months', 'count', 'week'
+TPW_FLOOR = {TPW_USD: 0, TPW_USDM: 2, TPW_PCT: 2, TPW_PP: 2, TPW_SHARE: 2, TPW_MON: 1}       # S01: fewest decimals a model value may be rounded to
+TPW_TOL = {TPW_USD: 0.5, TPW_USDM: 0.005, TPW_PCT: 0.005, TPW_PP: 0.005, TPW_SHARE: 0.005, TPW_MON: 0.05, TPW_CNT: 0}   # S05
+
+
+def _tpw_params(params):
+    lo, sh, P, ns, nl = _need(params, 'long', 'short', 'principal', 'shortMonths', 'longMonths')
+    ns, nl, P = int(ns), int(nl), float(P)
+    if not 0 < ns < nl or ns % 12 or nl % 12 or P <= 0:
+        raise Missing('contract.json: model.params: 0 < shortMonths < longMonths, both whole years; principal > 0')
+    guide = params.get('guide')
+    if guide is not None and (not guide.get('name') or _lfp_day(guide.get('week', '')) is None):
+        raise Missing('contract.json: model.params.guide = {name, week: YYYY-MM-DD}')
+    eras = params.get('eras') or []
+    if any(not isinstance(e, list) or len(e) != 2 or _lfp_day(e[0]) is None or _lfp_day(e[1]) is None for e in eras):
+        raise Missing('contract.json: model.params.eras = [[from, to] dates]')
+    return {'long': lo, 'short': sh, 'P': P, 'ns': ns, 'nl': nl, 'L': str(nl // 12), 'S': str(ns // 12), 'guide': guide, 'eras': eras,
+            'bands': [float(b) for b in params.get('spreadBands') or []], 'prepay': bool(params.get('prepay'))}
+
+
+def _tpw_series(ctx, spec, field):
+    """{file, dateColumn, valueColumn}: {YYYY-MM-DD: rate}. A blank or "." value is missing (never 0); a repeated or bad date is MISSING."""
+    if not isinstance(spec, dict) or not all(spec.get(k) for k in ('file', 'dateColumn', 'valueColumn')):
+        raise Missing(f'contract.json: model.params.{field} = {{file, dateColumn, valueColumn}}')
+    by = {}
+    for r in csv.DictReader(open(ctx.need(spec['file']))):
+        d = _lfp_day(r.get(spec['dateColumn'], ''))
+        if d is None or d.isoformat() in by:
+            raise Missing(f'{spec["file"]}: one row per date (YYYY-MM-DD); bad row {r.get(spec["dateColumn"])!r}')
+        v = (r.get(spec['valueColumn']) or '').strip()
+        if v not in ('', '.'):
+            by[d.isoformat()] = float(v)
+    if not by:
+        raise Missing(f'{spec["file"]}: column {spec["valueColumn"]}')
+    return by
+
+
+def tpw_pay(P, r, n):
+    x = r / 1200
+    return P / n if x == 0 else P * x / (1 - (1 + x) ** -n)
+
+
+def tpw_months_at(P, r, pay):
+    x = r / 1200
+    if x == 0:
+        return P / pay
+    return None if pay <= P * x else -math.log(1 - P * x / pay) / math.log(1 + x)
+
+
+def tpw_simulate(P, r, required, extra, every=1):
+    """Months until the balance is paid off and the interest paid: interest first, then min(balance, required (+ extra on months every, 2·every, …))."""
+    x, B, m, interest = r / 1200, P, 0, 0.0
+    while B > 1e-6 and m < 1200:
+        m += 1
+        i = B * x
+        interest += i
+        B += i
+        B -= min(B, required + (extra if m % every == 0 else 0.0))
+    return m, interest
+
+
+def _tpw_week(P, ns, nl, rL, rS):
+    s15, l15, l30 = tpw_pay(P, rS, ns), tpw_pay(P, rL, ns), tpw_pay(P, rL, nl)
+    return {'payS': s15, 'payLonS': l15, 'payL': l30, 'extra_month': l15 - s15, 'extra_total': (l15 - s15) * ns, 'spread': round(rL - rS, 9),
+            'gap': s15 - l30, 'months_at': tpw_months_at(P, rL, s15)}
+
+
+def tpw_run(ctx, params, scale=1.0):
+    """Every quantity (unrounded) as {key: (value, type)}; trees: eras (list), series (dict of lists). scale multiplies the principal (invariant replay)."""
+    c = _tpw_params(params)
+    RL, RS = _tpw_series(ctx, c['long'], 'long'), _tpw_series(ctx, c['short'], 'short')
+    weeks = sorted(set(RL) & set(RS))
+    if not weeks:
+        raise Missing('contract.json: model.params.long / short: no week where both series have a value')
+    P, ns, nl, L, S = c['P'] * scale, c['ns'], c['nl'], c['L'], c['S']
+    W = [dict(_tpw_week(P, ns, nl, RL[w], RS[w]), week=w, rL=RL[w], rS=RS[w]) for w in weeks]
+    now = W[-1]
+    o = {'n_weeks': (len(W), TPW_CNT), 'first_week': (weeks[0], TPW_WEEK), 'last_week': (weeks[-1], TPW_WEEK),
+         f'r{L}_now': (now['rL'], TPW_PCT), f'r{S}_now': (now['rS'], TPW_PCT), 'spread_now': (now['spread'], TPW_PP),
+         f'pay{S}_now': (now['payS'], TPW_USDM), f'pay{L}_now': (now['payL'], TPW_USDM), f'pay{L}on{S}_now': (now['payLonS'], TPW_USDM),
+         f'extra_vs{S}_month_now': (now['extra_month'], TPW_USDM), f'extra_vs{S}_total_now': (now['extra_total'], TPW_USD),
+         'fallback_gap_now': (now['gap'], TPW_USDM), 'extra_principal_needed_now': (now['payLonS'] - now['payL'], TPW_USDM),
+         f'months_at_pay{S}_now': (now['months_at'], TPW_MON),
+         f'months_late_at_pay{S}_now': (None if now['months_at'] is None else now['months_at'] - ns, TPW_MON),
+         f'interest_{S}_now': (now['payS'] * ns - P, TPW_USD), f'interest_{L}on{S}_now': (now['payLonS'] * ns - P, TPW_USD),
+         f'interest_{L}full_now': (now['payL'] * nl - P, TPW_USD), 'bar_now': (now['rL'], TPW_PCT)}
+    sp = [w['spread'] for w in W]
+    et = [w['extra_total'] for w in W]
+    rl = [w['rL'] for w in W]
+    o.update({'spread_mean': (sum(sp) / len(sp), TPW_PP), 'spread_min': (min(sp), TPW_PP), 'spread_max': (max(sp), TPW_PP)})
+    for b in c['bands']:
+        o[f'share_spread_ge_{round(100 * b):03d}'] = (sum(s >= b - 1e-9 for s in sp) / len(sp), TPW_SHARE)
+    i_min = min(range(len(W)), key=lambda i: (et[i], i))
+    i_max = max(range(len(W)), key=lambda i: (et[i], -i))
+    r_min = min(range(len(W)), key=lambda i: (rl[i], i))
+    r_max = max(range(len(W)), key=lambda i: (rl[i], -i))
+    o.update({'extra_total_median': (float(np.median(et)), TPW_USD), 'extra_total_min': (et[i_min], TPW_USD), 'extra_total_min_week': (weeks[i_min], TPW_WEEK),
+              'extra_total_max': (et[i_max], TPW_USD), 'extra_total_max_week': (weeks[i_max], TPW_WEEK),
+              'share_extra_ge_now': (sum(e >= now['extra_total'] for e in et) / len(et), TPW_SHARE),
+              f'r{L}_min': (rl[r_min], TPW_PCT), f'r{L}_min_week': (weeks[r_min], TPW_WEEK), f'r{L}_max': (rl[r_max], TPW_PCT),
+              f'r{L}_max_week': (weeks[r_max], TPW_WEEK), f'share_r{L}_ge_now': (sum(r >= now['rL'] for r in rl) / len(rl), TPW_SHARE)})
+    g = c['guide']
+    if g is not None:
+        gw = next((w for w in W if w['week'] == _lfp_day(g['week']).isoformat()), None)
+        if gw is None:
+            raise Missing(f'contract.json: model.params.guide.week {g["week"]} is not a paired week')
+        n = g['name']
+        o.update({f'{n}_r{L}': (gw['rL'], TPW_PCT), f'{n}_r{S}': (gw['rS'], TPW_PCT), f'{n}_extra_vs{S}_total': (gw['extra_total'], TPW_USD),
+                  f'{n}_extra_vs{S}_month': (gw['extra_month'], TPW_USDM), f'{n}_fallback_gap': (gw['gap'], TPW_USDM)})
+    eras = []
+    for a, b in c['eras']:
+        a_, b_ = _lfp_day(a).isoformat(), _lfp_day(b).isoformat()
+        ew = [w for w in W if a_ <= w['week'] <= b_]
+        y = a_[:4]
+        if f'era{y}_median_spread' in o:
+            raise Missing(f'contract.json: model.params.eras: two eras start in {y} (keys are labelled by the year of from)')
+        if not ew:
+            raise Missing(f'contract.json: model.params.eras [{a}, {b}] holds no paired week')
+        med = {f'median_r{L}': float(np.median([w['rL'] for w in ew])), 'median_spread': float(np.median([w['spread'] for w in ew])),
+               'median_extra_total': float(np.median([w['extra_total'] for w in ew]))}
+        eras.append({'from': ew[0]['week'], 'to': ew[-1]['week'], 'weeks': len(ew), **med})
+        o[f'era{y}_median_r{L}'] = (med[f'median_r{L}'], TPW_PCT)
+        o[f'era{y}_median_spread'] = (med['median_spread'], TPW_PP)
+        o[f'era{y}_median_extra_total'] = (med['median_extra_total'], TPW_USD)
+    if c['prepay']:
+        need = now['payLonS'] - now['payL']
+        mm, mi = tpw_simulate(P, now['rL'], now['payL'], need)
+        ym_, yi = tpw_simulate(P, now['rL'], now['payL'], 12 * need, every=12)
+        o.update({'monthly_extra_months': (mm, TPW_CNT), 'monthly_extra_interest': (mi, TPW_USD), 'yearly_lump': (12 * need, TPW_USDM),
+                  'yearly_lump_months': (ym_, TPW_CNT), 'yearly_lump_interest': (yi, TPW_USD), 'yearly_vs_monthly_interest': (yi - mi, TPW_USD)})
+    return {'c': c, 'W': W, 'eras': eras, 'out': o}
+
+
+def _tpw_cached(ctx, params, scale=1.0):
+    return ctx.memo(('tpw-run', id(params), scale), lambda: (params, tpw_run(ctx, params, scale)))[1]
+
+
+def _tpw_dec(t):
+    """Decimals a model value is written with (repr of the float; 6 at most: an unrounded value is compared within 5e-7)."""
+    s = repr(float(t))
+    if 'e' in s or 'E' in s:
+        return 6
+    return min(6, len(s.split('.')[1].rstrip('0'))) if '.' in s else 0
+
+
+def _tpw_ok(t, v, how):
+    """Model value t vs re-computed v. Weeks: the same date. Counts: exactly. Others: t within half a unit of max(decimals written, the type's floor)."""
+    if v is None or t is None:
+        return t is None and v is None
+    if how == TPW_WEEK:
+        d = _lfp_day(t) if isinstance(t, str) else None
+        return d is not None and d.isoformat() == v
+    if isinstance(t, bool) or not isinstance(t, (int, float)):
+        return False
+    if how == TPW_CNT:
+        return abs(t - v) <= 1e-9
+    d = max(_tpw_dec(t), TPW_FLOOR[how])
+    return abs(t - v) <= 0.5 * 10 ** -d + 1e-9
+
+
+def _tpw_flat(out):
+    """The model file: {quantities: {key: {value, …} | value}, eras?: [...], series?: {weeks, r<L>, r<S>, extra_total}} or a flat {key: value} (read as quantities)."""
+    q = out.get('quantities') if isinstance(out.get('quantities'), dict) else None
+    if q is None:
+        return {k: v for k, v in out.items() if k not in ('model', 'params', 'eras', 'series')}, False
+    return {k: (v.get('value') if isinstance(v, dict) and 'value' in v else v) for k, v in q.items()}, True
+
+
+def tpw_compare(ctx, params, out):
+    """S01: every quantity the kind computes (rounding as _tpw_ok); eras element by element (from/to/weeks exactly, medians by their type); series
+    (weeks exactly, rates within 1e-9, extra_total by its rounding) element by element. A key the kind does not compute (and not in conventions / notModel)
+    is listed; "model" (a name) and "params" (an echo) are not compared."""
+    run = _tpw_cached(ctx, params)
+    o, c = run['out'], run['c']
+    q, nested = _tpw_flat(out)
+    bad, checked = [], 0
+    for k, (v, how) in o.items():
+        checked += 1
+        t = q.get(k, '<absent>')
+        if t == '<absent>':
+            bad.append((k, 'absent', v))
+        elif not _tpw_ok(t, v, how):
+            bad.append((k, t, v))
+    L = c['L']
+    if 'eras' in out:
+        checked += 1
+        te = out['eras']
+        typ = {'from': TPW_WEEK, 'to': TPW_WEEK, 'weeks': TPW_CNT, f'median_r{L}': TPW_PCT, 'median_spread': TPW_PP, 'median_extra_total': TPW_USD}
+        if not isinstance(te, list) or len(te) != len(run['eras']):
+            bad.append(('eras', f'{len(te) if isinstance(te, list) else te!r} eras', len(run['eras'])))
+        else:
+            for i, (a, b) in enumerate(zip(te, run['eras'])):
+                for f, how in typ.items():
+                    if not isinstance(a, dict) or not _tpw_ok(a.get(f), b[f], how):
+                        bad.append((f'eras[{i}].{f}', a.get(f) if isinstance(a, dict) else a, b[f]))
+    if 'series' in out:
+        checked += 1
+        ts, W = out['series'], run['W']
+        cols = {'weeks': ('week', TPW_WEEK), f'r{L}': ('rL', None), f'r{c["S"]}': ('rS', None), 'extra_total': ('extra_total', TPW_USD)}
+        for f, (mine, how) in cols.items():
+            col = ts.get(f) if isinstance(ts, dict) else None
+            if not isinstance(col, list) or len(col) != len(W):
+                bad.append((f'series.{f}', f'{len(col) if isinstance(col, list) else col!r} values', len(W)))
+                continue
+            for i, (a, w) in enumerate(zip(col, W)):
+                ok = _tpw_ok(a, w[mine], how) if how else (isinstance(a, (int, float)) and abs(a - w[mine]) <= 1e-9)
+                if not ok:
+                    bad.append((f'series.{f}[{i}] ({w["week"]})', a, w[mine]))
+                    break
+        extra = sorted(set(ts) - set(cols)) if isinstance(ts, dict) else []
+    else:
+        extra = []
+    for k, v in (params.get('conventions') or {}).items():
+        checked += 1
+        if q.get(k) != v:
+            bad.append((k, q.get(k), v))
+    covered = set(o) | set(params.get('conventions') or {}) | set(params.get('notModel', []))
+    unrec = sorted(set(q) - covered) + [f'series.{f}' for f in extra if f'series.{f}' not in covered]
+    if nested:
+        unrec += sorted(set(out) - {'model', 'params', 'quantities', 'eras', 'series'} - covered)
+    return checked, bad, unrec
+
+
+def tpw_value(ctx, params, key):
+    """Keys (S05): every quantity the kind computes (e.g. "extra_vs15_total_now", "months_at_pay15_now", "share_r30_ge_now", "era2020_median_r30",
+    "leo_extra_vs15_total", "yearly_lump_months"); "era<year>_weeks" (paired weeks of an era); "pct:<share key>" = 100 × the share. Tolerances: dollars 0.50;
+    dollars a month, rates, points, shares 0.005; pct: 0.05; continuous months 0.05; counts exactly; weeks by equality (YYYY-MM-DD)."""
+    run = _tpw_cached(ctx, params)
+    o = run['out']
+    m = re.fullmatch(r'era(\d{4})_weeks', key)
+    if m:
+        e = next((e for e, (a, _) in zip(run['eras'], run['c']['eras']) if str(a)[:4] == m.group(1)), None)
+        if e is not None:
+            return float(e['weeks']), 0
+    pct = key.startswith('pct:')
+    k = key[4:] if pct else key
+    if k not in o or pct and o[k][1] != TPW_SHARE:
+        raise Missing(f'contract.json: model.claims key "{key}" is not a quantity of kind term-pair-weekly-replay')
+    v, how = o[k]
+    if v is None or how == TPW_WEEK:
+        return Exact(v), 0
+    if pct:
+        return 100 * float(v), 0.05
+    return float(v), TPW_TOL[how]
+
+
+def tpw_invariants(ctx, params):
+    """The spec's invariants (newKindNeeds.invariants) and the K-brief's, on the contract's own inputs:
+    (1) pay(rL, nS) ≥ pay(rS, nS) in every week with rL ≥ rS; (2) extra_total increases with the spread at a given short rate (rL + 0.01 point → larger) in
+    every week; (3) pay(rL, nL) < pay(rS, nS) in every week; (4) months_at_payS > nS iff rL > rS (= nS iff equal) in every week; (5) paired weeks only: every
+    week has both rates, the count = the dates both series hold, none of the dates only one series holds is used; (6) the identities of unrounded outputs:
+    extra total = extra a month × nS, interest totals = pay × n − P, months late = months − nS, prepay: monthly extra pays off in nS months with the interest
+    of the long loan on the short schedule, yearly − monthly interest = the difference; (7) doubling the principal doubles every dollar quantity and leaves
+    rates, shares, months, counts and weeks unchanged; (8) min / max weeks are the earliest among equal values."""
+    run = _tpw_cached(ctx, params)
+    c, W, o = run['c'], run['W'], run['out']
+    P, ns, nl, L, S = c['P'], c['ns'], c['nl'], c['L'], c['S']
+    e1 = sum(1 for w in W if w['rL'] >= w['rS'] and w['payLonS'] < w['payS'] - 1e-9)
+    e2 = sum(1 for w in W if not _tpw_week(P, ns, nl, w['rL'] + 0.01, w['rS'])['extra_total'] > w['extra_total'])
+    e3 = sum(1 for w in W if not w['payL'] < w['payS'])
+    e4 = sum(1 for w in W if w['months_at'] is None or (w['months_at'] > ns + 1e-9) != (w['rL'] > w['rS'])
+             or (w['rL'] == w['rS'] and abs(w['months_at'] - ns) > 1e-9))
+    RL, RS = _tpw_series(ctx, c['long'], 'long'), _tpw_series(ctx, c['short'], 'short')
+    both = set(RL) & set(RS)
+    used = {w['week'] for w in W}
+    e5 = int(len(W) != len(both)) + len(used - both) + sum(1 for w in W if RL.get(w['week']) != w['rL'] or RS.get(w['week']) != w['rS'])
+    v = {k: x for k, (x, _) in o.items()}
+    ids = [abs(v[f'extra_vs{S}_total_now'] - v[f'extra_vs{S}_month_now'] * ns), abs(v[f'interest_{S}_now'] - (v[f'pay{S}_now'] * ns - P)),
+           abs(v[f'interest_{L}on{S}_now'] - (v[f'pay{L}on{S}_now'] * ns - P)), abs(v[f'interest_{L}full_now'] - (v[f'pay{L}_now'] * nl - P)),
+           abs(v['fallback_gap_now'] - (v[f'pay{S}_now'] - v[f'pay{L}_now'])), abs(v['extra_principal_needed_now'] - (v[f'pay{L}on{S}_now'] - v[f'pay{L}_now']))]
+    if v[f'months_at_pay{S}_now'] is not None:
+        ids.append(abs(v[f'months_late_at_pay{S}_now'] - (v[f'months_at_pay{S}_now'] - ns)))
+    e6 = sum(1 for d in ids if d > 1e-6)
+    if c['prepay']:
+        e6 += int(v['monthly_extra_months'] != ns) + int(abs(v['monthly_extra_interest'] - v[f'interest_{L}on{S}_now']) > 1e-4)
+        e6 += int(abs(v['yearly_vs_monthly_interest'] - (v['yearly_lump_interest'] - v['monthly_extra_interest'])) > 1e-6)
+    o2 = _tpw_cached(ctx, params, 2.0)['out']
+    e7 = 0
+    for k, (x, how) in o.items():
+        y = o2[k][0]
+        if how in (TPW_USD, TPW_USDM):
+            e7 += int(x is None or y is None or abs(y - 2 * x) > 1e-6 * max(1.0, abs(x)))
+        elif how in (TPW_WEEK, TPW_CNT):
+            e7 += int(y != x)
+        else:
+            e7 += int((x is None) != (y is None) or x is not None and abs(y - x) > 1e-9)
+    et = [w['extra_total'] for w in W]
+    rl = [w['rL'] for w in W]
+    e8 = int(o['extra_total_min_week'][0] != next(w['week'] for w in W if w['extra_total'] == min(et)))
+    e8 += int(o['extra_total_max_week'][0] != next(w['week'] for w in W if w['extra_total'] == max(et)))
+    e8 += int(o[f'r{L}_min_week'][0] != next(w['week'] for w in W if w['rL'] == min(rl)))
+    e8 += int(o[f'r{L}_max_week'][0] != next(w['week'] for w in W if w['rL'] == max(rl)))
+    return [metric(f'weeks where the {L}-year loan on the {S}-year schedule pays less than the {S}-year loan (rate not lower)', e1, '<=', 0),
+            metric('weeks where a wider spread does not raise the extra total', e2, '<=', 0),
+            metric(f'weeks where the {L}-year required payment is not below the {S}-year payment', e3, '<=', 0),
+            metric(f'weeks where months at the {S}-year payment > {ns} does not match the long rate > the short rate', e4, '<=', 0),
+            metric('weeks not paired in both series, or a paired-week count ≠ the dates both series hold', e5, '<=', 0),
+            metric('unrounded identities that do not hold (totals, interest, months late, prepay)', e6, '<=', 0),
+            metric('quantities that do not scale with the principal (dollars ×2, the rest unchanged)', e7, '<=', 0),
+            metric('min / max weeks that are not the earliest among equal values', e8, '<=', 0)]
+
+
 KINDS = {'retirement-6040': (ret_compare, ret_value, ret_invariants),
          'refinance-breakeven': (refi_compare, refi_value, lambda ctx, p: []),
          'float-vs-fixed-replay': (fvf_compare, fvf_value, fvf_invariants),
          'lock-vs-roll-replay': (lvr_compare, lvr_value, lvr_invariants),
          'fixed-cap-vs-index-growth': (fci_compare, fci_value, fci_invariants),
          'ltv-first-passage': (lfp_compare, lfp_value, lfp_invariants),
-         'fixed-raise-vs-index-windows': (frw_compare, frw_value, frw_invariants)}
+         'fixed-raise-vs-index-windows': (frw_compare, frw_value, frw_invariants),
+         'term-pair-weekly-replay': (tpw_compare, tpw_value, tpw_invariants)}
 
 
 def kind(ctx):

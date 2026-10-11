@@ -134,15 +134,17 @@ class Packets(unittest.TestCase):
             else:
                 sc[lab] = {'score': 0, 'advice_stated': False, 'caution_only': True, 'why': ''}
         sp = os.path.join(self.d, 'scores.json'); json.dump(sc, open(sp, 'w'))
-        # chủ dự án 08/10 (gói K4.1 câu 3): chạy thử — luôn tính cả hai rubric; cổng mặc định rubric cũ; lệch → giữ rubric cũ
+        # A28 (chủ dự án 11/10, gói K4.2 câu 1a): luôn tính cả hai rubric; cổng mặc định rubric MỚI, kể cả khi hai rubric lệch
         res = packets.tally(self.key, rk, sp, threshold=0.8)
         rows = {r['id']: r for r in res['rows']}
-        self.assertEqual((res['advice_rubric'], rows['KEY-1']['status']), ('old', 'FAIL'))          # cũ: tự suy cũng chặn
+        self.assertEqual((res['advice_rubric'], rows['KEY-1']['status']), ('new', 'PASS'))         # mới: tự suy không chặn (chỉ báo)
+        self.assertEqual(rows['KEY-1']['advice_inferred'], 2)
+        old = packets.tally(self.key, rk, sp, threshold=0.8, advice_rubric='old')
+        self.assertEqual((old['advice_rubric'], {r['id']: r for r in old['rows']}['KEY-1']['status']), ('old', 'FAIL'))   # cũ: tự suy cũng chặn
         self.assertEqual(sorted(res['advice_beats_old']), ['KEY-1', 'KEY-2', 'KEY-3'])
         self.assertEqual(sorted(res['advice_beats_new']), ['KEY-2', 'KEY-3'])                       # mới: chỉ video nói
         self.assertTrue(res['rubric_disagree'])
-        res2 = packets.tally(self.key, rk, sp, threshold=0.8, advice_rubric='new')
-        self.assertEqual(res2['advice_rubric'], 'old')                                              # lệch → giữ rubric cũ
+        self.assertIn('hai rubric lệch', packets.markdown(res))                                     # lệch: vẫn báo, cổng theo rubric mới
         new = packets._tally_one(json.load(open(self.key)), json.load(open(rk)), [json.load(open(sp))], 0.8, None, 'new')
         nrows = {r['id']: r for r in new['rows']}
         self.assertEqual((nrows['KEY-1']['status'], nrows['KEY-1']['advice'], nrows['KEY-1']['advice_inferred']), ('PASS', 0, 2))

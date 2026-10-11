@@ -1,0 +1,36 @@
+apiKeySource: ANTHROPIC_API_KEY
+{"turns": 44, "is_error": false, "cost_usd": 2.1724125000000005, "input": 84, "cache_write": 106544, "cache_read": 4331455, "output": 22658}
+--- trả về ---
+11=685.41, 155.716 so với 155.76.
+- **Fixture bad:** mỗi fixture trượt đúng ở khoá được nhắm.
+- **SH06:** khớp `core.js:320-337` (vt, room 936, hook 64 px ở VSAFE.y0+70, line height 1.2, ascent 0.78). Đo PIL cho 845.5 + 485.4 px, đỉnh hộp 143.08; SH1/SH2/SH3 ra 860.3/796.6/915.3 px.
+- **Gói chủ dự án:** đối chiếu khớp report*.json: thời lượng 591.3 / 585.6 / 481.57 / 462.63 s; khoảng mid-roll 130.66 / 158.93 / 169.25 s. Số A28 khớp `C4-answer.md`.
+- **fingerprints.json:** 99/99, changed 0. Diff chỉ thêm code mới, cộng một dòng KINDS và `import os`.
+
+**CHẶN**
+1. `checks/README.md:469` vẫn còn chỗ trống "Kết quả: **Python {PY}, trang {PG}**". Chưa có tệp nào ghi kết quả selftest, nên điều kiện D-008 §2(b) chưa có bằng chứng.
+   - Sửa: chạy `checks/selftest/run.sh`, ghi số thật vào chỗ trống (vd "Python 350/350, trang 67/67"), rồi tính lại `checks/LOCK` trong commit khoá như K4.1.
+
+**CHÍNH**
+1. Lỗ ở S05: `r_model.py:2356` dùng sai số cố định chứ không theo luật "làm tròn chỉ ở đầu ra".
+   - Ví dụ: claim `extra_vs15_total_now` = 120.12 × 180 = 21621.60, trong khi đúng là 21621.81. Lệch 0.21 ≤ 0.50 nên đạt S05.
+   - Sửa: với kind này, S05 so `value` bằng `_tpw_ok(value, v, how)` thay cho `TPW_TOL`. Thêm selftest: claim 21621.6 → trượt.
+2. Lỗ ở S01: `r_model.py:2250` `_tpw_dec` đếm chữ số bằng `repr`, nên mất số 0 cuối.
+   - Ví dụ: ghi `interest_15_now` = 189069.40 (ý là 2 chữ số, sai ở xu; đúng là 189069.37) thì bị đọc thành d=1 và đạt.
+   - Sửa: ghi vào điểm mù của README và CONTRACT câu "số chữ số đã ghi = số chữ số của số JSON sau khi bỏ 0 cuối; muốn so tới xu thì ghi `display`".
+   - Ghi đúng phạm vi: khi ghi ít chữ số hơn, mức sàn vẫn giữ. Ghi số nguyên chỉ đạt khi nó là một cách làm tròn đúng của số thật.
+3. D-008 §2(c) yêu cầu chạy lại tập trước và so báo cáo trước/sau. K4.2 mới có fingerprint, chưa có lần chạy lại (K3.9 đã làm việc này).
+   - Sửa: chạy S01, S05, SH01–SH06 của Tập 6 ở HEAD và ở cây làm việc, lưu `checks-runs/K42/ep006-before-after.json`, thêm một dòng vào README:463.
+
+**PHỤ**
+1. `README.md:466`: lý do bỏ luật tập 2 chưa đúng. Các từ K-brief đề xuất ("guaranteed", "risk-free", "beats the market") không bắt nhầm S25.3, và kịch bản không có từ nào trong số đó.
+   - Sửa: "…là phán đoán nghĩa; `forbiddenTerms` chưa có trong máy kiểm (thêm luật = lô sau) → REVIEWER/kiểm mù".
+2. `GOI-chu-du-an.md:3` và `checks-appeal.md:78` viết "đã (tự) merge `main`" trong khi chưa merge.
+   - Sửa: merge trước khi gửi gói, hoặc đổi thành "merge sau REVIEWER".
+3. SH06 sẽ báo MISSING cho tập có `shorts` nhưng không có hook ở cả contract lẫn `episode.yaml`. Tập 1–2 không có `episode.yaml`.
+   - Sửa: thêm vào mục điểm mù ở README:468.
+
+**Mục (1)–(6):** không còn điểm nào khác cần sửa.
+- (1) Kind theo đúng đặc tả ở mọi đại lượng được hỏi; ngoài các lỗ nêu trên, không có chỗ nào khớp nhờ sai số rộng.
+- (4) Không có thay đổi nào thực chất là sửa luật cũ.
+- (5) Gói có 2 câu, mỗi câu có phương án và khuyến nghị; Tập 4 bị trượt hồi tố được nói rõ, không tô vẽ.

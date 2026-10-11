@@ -14,7 +14,7 @@ _B = 'kỹ thuật file'
 TIERS = {
     # file technique
     'F01': (BLOCK, _B), 'F02': (BLOCK, _B), 'F03': (BLOCK, _B), 'F04': (BLOCK, _B), 'F05': (BLOCK, _B), 'F06': (BLOCK, _B),
-    'F07': (MAJOR, 'độ dài theo CHARTER §1 (8–15 phút); chủ dự án hạ CHÍNH: chặn độ dài dễ dẫn tới giãn thời gian'),
+    'F07': (MAJOR, 'độ dài theo CHARTER §1 theo format (101 8–9, lab 9–11, deep 14–17 phút); chủ dự án hạ CHÍNH: chặn độ dài dễ dẫn tới giãn thời gian (K4.2b: trần cũng CHÍNH)'),
     'F08': (BLOCK, 'kỹ thuật file: banding do mã hoá'),
     'F09': (BLOCK, 'kỹ thuật file: phụ đề đúng lời, đúng quy cách'),
     'F10': (BLOCK, 'kỹ thuật file: chapters hợp lệ với YouTube (≥ 3, từ 0:00, mỗi chương ≥ 10 s)'),
@@ -60,6 +60,7 @@ TIERS = {
     'SH01': (BLOCK, 'kỹ thuật file: Short 1080×1920'), 'SH02': (BLOCK, 'kỹ thuật file: Short ≤ 180 s'),
     'SH03': (BLOCK, 'âm lượng: Short'), 'SH04': (BLOCK, 'true peak: Short'),
     'SH05': (BLOCK, 'claim: Short không khuyên, không dự báo (gen được bảo vệ)'),
+    'SH06': (MAJOR, 'chữ: móc Short một dòng trong vùng an toàn dọc, đo trên spec trước render (A30)'),
     # rhythm
     'R01': (REFERENCE, 'luật nhịp'), 'R02': (REFERENCE, 'luật nhịp'), 'R03': (REFERENCE, 'luật nhịp'),
     'R04': (REFERENCE, 'luật nhịp'), 'R05': (REFERENCE, 'luật nhịp'), 'R06': (REFERENCE, 'luật nhịp'),

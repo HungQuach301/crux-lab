@@ -1,0 +1,115 @@
+{
+ "episode": "ep006",
+ "head": "main@38fda7d (worktree)",
+ "k42": "checks-k42 working tree",
+ "runs": {
+  "S01-S05": {
+   "contract": "contract.json c\u1ee7a t\u1eadp; FRED t\u1ea3i l\u1ea1i b\u1eb1ng data/fetch.py --verify (SHA 4/4)",
+   "rules": [
+    {
+     "rule": "S01",
+     "head": "PASS",
+     "k42": "PASS",
+     "sameMetricsAndDetails": true,
+     "note": null
+    },
+    {
+     "rule": "S05",
+     "head": "PASS",
+     "k42": "PASS",
+     "sameMetricsAndDetails": true,
+     "note": null
+    },
+    {
+     "rule": "SH01",
+     "head": "MISSING",
+     "k42": "MISSING",
+     "sameMetricsAndDetails": true,
+     "note": "artifact missing: out/shorts/SH1.mp4"
+    },
+    {
+     "rule": "SH02",
+     "head": "MISSING",
+     "k42": "MISSING",
+     "sameMetricsAndDetails": true,
+     "note": "artifact missing: out/shorts/SH1.mp4"
+    },
+    {
+     "rule": "SH03",
+     "head": "MISSING",
+     "k42": "MISSING",
+     "sameMetricsAndDetails": true,
+     "note": "artifact missing: out/shorts/SH1.mp4"
+    },
+    {
+     "rule": "SH04",
+     "head": "MISSING",
+     "k42": "MISSING",
+     "sameMetricsAndDetails": true,
+     "note": "artifact missing: out/shorts/SH1.mp4"
+    },
+    {
+     "rule": "SH05",
+     "head": "MISSING",
+     "k42": "MISSING",
+     "sameMetricsAndDetails": true,
+     "note": "artifact missing: out/shorts/SH1.mp4"
+    },
+    {
+     "rule": "SH06",
+     "head": null,
+     "k42": "PASS",
+     "sameMetricsAndDetails": false,
+     "note": null
+    }
+   ]
+  },
+  "SH01-SH06": {
+   "contract": "contract.json c\u1ee7a t\u1eadp, shorts tr\u1ecf review-g2/short-SH{1,2,3}.mp4 (out/shorts/ ngo\u00e0i git)",
+   "rules": [
+    {
+     "rule": "SH01",
+     "head": "PASS",
+     "k42": "PASS",
+     "sameMetricsAndDetails": true,
+     "note": null
+    },
+    {
+     "rule": "SH02",
+     "head": "PASS",
+     "k42": "PASS",
+     "sameMetricsAndDetails": true,
+     "note": null
+    },
+    {
+     "rule": "SH03",
+     "head": "PASS",
+     "k42": "PASS",
+     "sameMetricsAndDetails": true,
+     "note": null
+    },
+    {
+     "rule": "SH04",
+     "head": "PASS",
+     "k42": "PASS",
+     "sameMetricsAndDetails": true,
+     "note": null
+    },
+    {
+     "rule": "SH05",
+     "head": "ERROR",
+     "k42": "ERROR",
+     "sameMetricsAndDetails": false,
+     "note": "TypeError: open() got an unexpected keyword argument 'metadata_errors'"
+    },
+    {
+     "rule": "SH06",
+     "head": null,
+     "k42": "PASS",
+     "sameMetricsAndDetails": false,
+     "note": null
+    }
+   ]
+  }
+ }
+}
