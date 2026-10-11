@@ -17,7 +17,9 @@ export async function boot(res) {
     wB1: { pos: [-7.2, 2.7, 8.4], tgt: [-1.4, 1.3, 0], fov: 40, chart: 0 },
     cB: { pos: [0.6, 1.7, 22], tgt: [0.6, 1.7, 0], fov: 19.6, chart: 1 },
     wB5: { pos: [-8.0, 2.5, 8.0], tgt: [-2.2, 1.2, 0], fov: 40, chart: 0 },
-    cTop: { pos: [1.8, 2.9, 16], tgt: [1.8, 2.9, 0], fov: 10, chart: 1 },
+    // vòng bố cục 1: cTop không còn cắt chân hai thanh dưới dải chân trang — ≈ 200 px/đơn vị (lát ≈ 24 px ở 1080), sàn py ≈ 840, hai thanh lệch
+    // trái để nhãn $2,948 và "+$120" đứng bên phải thanh 30 năm (không vào dải góc trên)
+    cTop: { pos: [3.5, 1.5, 16], tgt: [3.5, 1.5, 0], fov: 19.16, chart: 1 },
     wStack: { pos: [-4.9, 1.9, 5.8], tgt: [-2.2, 1.1, 0], fov: 38, chart: 0 },
     cRates: { pos: [21.0, 2.6, 20], tgt: [21.0, 2.6, 0], fov: 16.6, chart: 1 },
     cTowers: { pos: [8.6, 3.3, 26], tgt: [8.6, 3.3, 0], fov: 20.5, chart: 1 },
@@ -91,8 +93,8 @@ export async function boot(res) {
     let nf = 0, trail = null;
     for (let k = 0; k < 15 && nf < flies.length; k++) {
       const t0 = S.leave[k], t1 = t0 + S.fly, f = flies[nf];
-      if (k === 0 && t >= b.b7.same - 0.05 && t < t0) {   // tách khỏi đỉnh thanh, nhấc lên HOVER, lơ lửng tới "Over"
-        const u = ease(t, b.b7.same - 0.05, b.b7.same + 0.3);
+      if (k === 0 && t >= b.b7.same - 0.3 && t < t0) {   // tách khỏi đỉnh thanh, nhấc lên HOVER, lơ lửng tới "Over" (sync_audit +0,26 → sớm 0,25 s)
+        const u = ease(t, b.b7.same - 0.3, b.b7.same + 0.05);
         f.position.set(X.bar30, top15 + sliver / 2 + HOVER * u, 0); f.scale.set(BAR_W / FLY_W, sliver / BUNDLE_TH, BAR_D / FLY_D); f.visible = true; nf++; continue;
       }
       if (t < t0 || t >= t1) continue;
@@ -111,10 +113,13 @@ export async function boot(res) {
     zero.visible = dr > 0 && rAl > 0.01; zero.material.opacity = rAl;
     // S08–S09: tháp lãi dâng tới tổng ở từ số; 15 bó chênh hoá warn ở "difference", rời tháp từng bó (trên cùng trước) và đáp lên the stack
     for (const k of ['full', 'on15', 'y15']) {
+      // về thế giới (S09.2): tháp thu đi — máy thế giới cắt tháp ở mép phải, dưới huy hiệu ILLUSTRATIVE (vòng bố cục 1); tháp 30-trong-15 đi
+      // sau khi bó chênh cuối đã rời
       const [a, z, usd] = T[k], cnt = n(usd) * lin(t, a, z);
-      if (k !== 'on15') { tw[k].set({ count: cnt }); continue; }
+      if (k !== 'on15') { tw[k].set({ count: cnt, a: 1 - ease(t, MV.m_w9.t0, MV.m_w9.t0 + 1.0) }); continue; }
       let started = 0; for (let j = 0; j < 15; j++) if (t >= lift(j)) started++;
-      tw.on15.set({ count: cnt, warnFrom: t >= b.c3.difference - 0.05 ? SEC0 : Infinity, hideFrom: started ? SEC0 + 15 - started : Infinity });
+      tw.on15.set({ count: cnt, warnFrom: t >= b.c3.difference - 0.05 ? SEC0 : Infinity, hideFrom: started ? SEC0 + 15 - started : Infinity,
+        a: 1 - ease(t, lift(14) + 0.1, lift(14) + 0.9) });
     }
     let gl = 0;
     for (let j = 0; j < 15; j++) {
@@ -124,7 +129,8 @@ export async function boot(res) {
       f.position.set(mix(x0, x1, p), mix(y0, y1, p) + 1.6 * Math.sin(Math.PI * p), mix(z0, 0, p) + 0.6 * Math.sin(Math.PI * p)); f.scale.set(1, 0.92, 1);
     }
     glow.material.opacity = 0.35 * Math.max(gl, pulse(t, b.c4.price, 0.8), pulse(t, b.c5.unusual, 0.9), pulse(t, b.b9.stack, 0.9)); glow.visible = glow.material.opacity > 0.01;
-    ghosts.forEach((m, i) => { const g = ease(t, b.c5.normal + 0.06 * i, b.c5.normal + 0.06 * i + 0.8); m.scale.y = Math.max(0.001, m.userData.h * g); m.material.opacity = 0.32 * g; m.visible = g > 0.01; });
+    // sync_audit +0,57 → hàng chồng mờ bắt đầu mọc 0,3 s trước "normal", so le 0,03 s, mỗi chồng 0,6 s (đỉnh chuyển động quanh từ khoá)
+    ghosts.forEach((m, i) => { const g = ease(t, b.c5.normal - 0.3 + 0.03 * i, b.c5.normal - 0.3 + 0.03 * i + 0.6); m.scale.y = Math.max(0.001, m.userData.h * g); m.material.opacity = 0.32 * g; m.visible = g > 0.01; });
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
@@ -143,9 +149,12 @@ export async function boot(res) {
     label(O, D('pay30_now'), b30x1 + 20, y30 + 52, { kind: 'number', alpha: Math.min(1, rq), claims: ['pay30_now'] });
     log.roi['b2.two'] = [b30x1 + 10, y30 - 50, b30x1 + 520, y30 + 70];
     // S05: ngoặc đường lui (cushion) cạnh thanh 30 năm + nhãn phía trên hai thanh
-    const s5 = MV.m_w5.t0 - 0.05, bA = ok * show(t, b.b3.gap, s5);
+    // vòng bố cục 1 (đạo diễn: không thấy ngoặc ở khung giữa S05): ngoặc + vạch mức 15 năm ĐỨNG cả S05 — qua đời Tessa (thế giới, cùng hộp
+    // cushion 3D) tới "finishing"; ở thế giới nhãn chữ "fallback" (không số) cạnh ngoặc thay nhãn số
+    const s5 = MV.m_w5.t0 - 0.05, bA = show(t, b.b3.gap, b.b6.finishing - 0.05);
     vbrace(O, b30x1 + 26, y15, y30, C.cushion, bA, 6, 16);
     seg2(O, b15x0 + 0.5 * (b30x1 - b15x0) - 60, y15, b30x1 + 26, y15, C.muted, 0.7 * bA, 3, [10, 8]);
+    label(O, 'fallback', b30x1 + 46, (y15 + y30) / 2 + 16, { kind: 'name', px: 48, color: '#7FD8C4', alpha: bA * (1 - cw) * show(t, MV.m_w5.t0 + 0.3) });
     const lxC = (b15x0 + b30x1) / 2;
     label(O, `fallback: ${D('fallback_gap_now')} lower`, lxC, y15 - 135, { align: 'center', kind: 'number', alpha: ok * show(t, b.b3.six, s5), color: '#7FD8C4', claims: ['fallback_gap_now'] });
     label(O, `the least the ${D('term_long')} asks`, lxC, y15 - 72, { align: 'center', kind: 'number', alpha: ok * show(t, b.b3.least, s5), claims: ['term_long'] });
@@ -157,13 +166,21 @@ export async function boot(res) {
     const [vx, vy] = sc(lx0, top15, LZ);
     label(O, D('pay15_month'), vx - 14, vy + 16, { align: 'right', kind: 'number', alpha: ok * show(t, MV.m_c6.t1 - 0.05, MV.m_top.t0), claims: ['pay15_month'] });
     log.roi['b6.finishing'] = [...sc(lx0, top15 + 0.15, LZ), ...sc(lx1, top15 - 0.15, LZ)];
-    const [pcx] = sc((X.bar15 + X.bar30) / 2, 0), [, y48] = sc(X.bar30, G.pay30on15 * SCALE);
-    label(O, `${D('term_long')} paid ${D('paid_in_short')}: ${D('pay30on15_now')}`, pcx, y48 - 92, { align: 'center', kind: 'number', alpha: ok * show(t, b.b6.forty, MV.m_w7.t0 - 0.05), claims: ['term_long', 'paid_in_short', 'pay30on15_now'] });
-    log.roi['b6.forty'] = [pcx - 520, y48 - 140, pcx + 520, y48 + 10];
+    // cB: nhãn $2,948 căn giữa trên hai thanh; cTop (đẩy vào): trượt sang BÊN PHẢI thanh 30 năm, ngang đỉnh thanh (kT = phần đã đẩy vào)
+    const [pcx] = sc((X.bar15 + X.bar30) / 2, 0), [, y48] = sc(X.bar30, G.pay30on15 * SCALE), kT = ease(t, MV.m_top.t0, MV.m_top.t1) * (1 - ease(t, MV.m_back.t0, MV.m_back.t1));
+    const s48 = `${D('term_long')} paid ${D('paid_in_short')}: ${D('pay30on15_now')}`;
+    { const c = O.ctx; c.save(); c.font = '700 52px Inter'; const w48 = c.measureText(s48).width; c.restore();
+      const x48 = mix(pcx, Math.min(b30x1 + 26 + w48 / 2, 1810 - w48 / 2), kT), yl = mix(y48 - 92, y48 - 40, kT);
+      label(O, s48, x48, yl, { align: 'center', kind: 'number', alpha: ok * show(t, b.b6.forty, MV.m_w7.t0 - 0.05), claims: ['term_long', 'paid_in_short', 'pay30on15_now'] });
+      log.roi['b6.forty'] = [x48 - 520, yl - 50, x48 + 520, y48 + 10]; }
     const [xs, ys] = sc(X.bar30 + BAR_W / 2, top15 + sliver / 2);
-    label(O, `+${D('extra_vs15_month_now')}`, xs + 26, ys + 18, { kind: 'number', px: 56, alpha: ok * show(t, b.b7.one, MV.m_w7.t0 - 0.05), claims: ['extra_vs15_month_now'] });
+    label(O, `+${D('extra_vs15_month_now')}`, xs + 26, ys + 18 + 12 * kT, { kind: 'number', px: 56, alpha: ok * show(t, b.b7.one, MV.m_w7.t0 - 0.05), claims: ['extra_vs15_month_now'] });
     log.roi['b7.one'] = [xs - 140, ys - 50, xs + 420, ys + 40];
     { const [hx, hy] = sc(X.bar30, top15 + sliver + HOVER + 0.1); log.roi['b7.same'] = [hx - 120, hy - 40, hx + 120, hy + 50]; }
+    // S06: tên hai thanh ở chân (chữ, không số tiền) — người tắt tiếng biết thanh nào khi đẩy máy vào đỉnh; 15 năm bên trái, 30 năm bên phải
+    { const nA = ok * show(t, MV.m_c6.t1 - 0.05, MV.m_w7.t0 - 0.05), [, yf] = sc(X.bar15, 0, BAR_D / 2);
+      label(O, D('term_short'), b15x0 - 12, yf - 20, { align: 'right', kind: 'number', px: 48, color: '#C9CED6', alpha: nA, claims: ['term_short'] });
+      label(O, D('term_long'), b30x1 + 12, yf - 20, { kind: 'number', px: 48, color: '#C9CED6', alpha: nA, claims: ['term_long'] }); }
     if (trail && ok) {   // vệt đường bay của bó mới nhất (warn mờ, nét đứt): nối đỉnh thanh 30 năm với bó
       const c = O.ctx; c.save(); c.globalAlpha = 0.35 * (1 - ease(trail.p, 0.75, 1)); c.strokeStyle = TRACK.warn; c.lineWidth = 4; c.setLineDash([10, 10]); c.beginPath();
       for (let i = 0; i <= 16; i++) { const [x, y, z] = path(trail.k, (trail.p * i) / 16), [qx, qy] = sc(x, y, z); i ? c.lineTo(qx, qy) : c.moveTo(qx, qy); }
@@ -172,7 +189,9 @@ export async function boot(res) {
     const [kx, ky] = sc(X.stack - 0.3, 15 * BUNDLE_TH), stA = ok * show(t, b.b8.twenty, MV.m_w7.t0 - 0.05);
     label(O, `the stack: ${D('extra_vs15_total_now')}`, kx, ky - 90, { align: 'center', kind: 'number', alpha: stA, claims: ['extra_vs15_total_now'] });
     label(O, `extra paid over ${D('term_short_years')}`, kx, ky - 30, { align: 'center', kind: 'number', alpha: stA, claims: ['term_short_years'] });
-    log.roi['b8.over'] = [...sc(X.stack - 0.6, 15 * BUNDLE_TH + 0.3), ...sc(X.bar30 + 0.5, 0)]; log.roi['b8.twenty'] = [kx - 420, ky - 140, kx + 420, ky - 10];
+    // "Over": vật phản ứng ở từ khoá = lát RỜI đỉnh thanh 30 năm (mỗi 0,16 s một lát) — đo ở chỗ rời, không ở chỗ chồng nhận bó (chạm sau 0,6 s;
+    // sync_audit +0,45 khi vùng đo gồm cả chồng)
+    log.roi['b8.over'] = [...sc(X.bar30 - 0.7, top15 + sliver + HOVER + 0.45), ...sc(X.bar30 + 0.55, top15 - 0.2)]; log.roi['b8.twenty'] = [kx - 420, ky - 140, kx + 420, ky - 10];
     // S07.1 (thế giới): tên vật — không số
     { const [x, y0] = sc(X.stack, 15 * BUNDLE_TH + 0.2), y = Math.max(250, y0);   // máy gần: đỉnh chồng sát mép trên → nhãn không vào dải góc trên
       label(O, 'the stack = the price of the fallback', Math.min(Math.max(x, 590), 1330), y - 30, { align: 'center', kind: 'name', px: 48, alpha: show(t, b.b9.stack, MV.m_c7.t0) * (1 - cw), color: C.warn });
@@ -199,9 +218,12 @@ export async function boot(res) {
       label(O, `${D('term_long')} on its own schedule:`, ax1 + 24, ay + 34, { kind: 'number', px: 48, alpha: aA, claims: ['term_long'] });
       label(O, `${D('interest_30full_now')} interest`, ax1 + 24, ay + 94, { kind: 'number', alpha: aA, claims: ['interest_30full_now'] });
       log.roi['c1.thirty'] = [ax - 160, ay - 20, ax + 160, sc(0, 0)[1]]; log.roi['c1.four'] = [ax1, ay - 20, ax1 + 900, ay + 110]; }
-    { const [bx, by] = tl('on15'), bA2 = ok * show(t, b.c2.two, MV.m_w9.t0);
-      label(O, `${D('term_long')} paid ${D('paid_in_short')}: ${D('interest_30on15_now')}`, bx, by - 130, { align: 'center', kind: 'number', alpha: bA2, claims: ['term_long', 'paid_in_short', 'interest_30on15_now'] });
-      log.roi['c2.fifteen'] = [bx - 200, by - 20, bx + 200, sc(0, 0)[1]]; log.roi['c2.two'] = [bx - 460, by - 175, bx + 460, by - 110]; }
+    // vòng bố cục 1 (đạo diễn: nhãn $210,691 nằm trên tháp $477,622): nhãn bắt đầu NGAY PHẢI tháp 30 năm, sát trên đỉnh tháp CỦA NÓ, dây dẫn xuống
+    // đỉnh tháp đó; đẩy máy vào hai tháp (S09.1) thì nhãn lên cao như cũ (chỗ dưới cho "difference = the stack"), dây tắt
+    { const [bx, by] = tl('on15'), [fx1] = sc(X.full + tw.full.halfW, 0), bA2 = ok * show(t, b.c2.two, MV.m_w9.t0), kS = ease(t, MV.m_tops.t0, MV.m_tops.t1), yl = by - 62 - 68 * kS;
+      label(O, `${D('term_long')} paid ${D('paid_in_short')}: ${D('interest_30on15_now')}`, fx1 + 24, yl, { kind: 'number', alpha: bA2, claims: ['term_long', 'paid_in_short', 'interest_30on15_now'] });
+      seg2(O, bx, yl + 18, bx, by - 8, C.muted, 0.85 * bA2 * (1 - kS), 3);
+      log.roi['c2.fifteen'] = [bx - 200, by - 20, bx + 200, sc(0, 0)[1]]; log.roi['c2.two'] = [fx1 + 14, yl - 50, fx1 + 940, yl + 20]; }
     { const [cx, cy] = tl('y15'), cA = ok * show(t, b.c3.one, MV.m_w9.t0);
       label(O, `${D('term_short')}: ${D('interest_15_now')} interest`, cx, cy - 40, { align: 'center', kind: 'number', alpha: cA, claims: ['term_short', 'interest_15_now'] });
       log.roi['c3.fifteen'] = [cx - 200, cy - 20, cx + 200, sc(0, 0)[1]]; log.roi['c3.one'] = [cx - 420, cy - 90, cx + 420, cy - 25]; }

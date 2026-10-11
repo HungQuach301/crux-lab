@@ -34,8 +34,10 @@ export async function boot(res) {
     const e = p * p * (3 - 2 * p);
     return [door[0] + (stack.position.x - door[0]) * e, door[1] + (BUNDLE_TH / 2 - door[1]) * e + 0.55 * Math.sin(Math.PI * p), door[2] * (1 - e) + 0.35 * Math.sin(Math.PI * p)];
   };
-  // thẻ: hiện ở từ khoá, mờ khi lùi máy ra dải tuần (dải nằm sau thẻ), về lại khi đẩy máy về thẻ
-  const cardsA = (t) => 1 - ease(t, MV.m_pull.t0, MV.m_pull.t0 + 0.5) + ease(t, MV.m_push.t0 + 0.3, MV.m_push.t1);
+  // thẻ: hiện ở từ khoá, mờ khi lùi máy ra dải tuần (dải nằm sau thẻ), về lại khi đẩy máy về thẻ; về thế giới (S03.2) thẻ THU ĐI cùng lúc chữ
+  // tắt (tên thẻ có chữ số → chỉ ở đồ thị) — vòng bố cục 1: không còn hai hộp tối rỗng 45–53 s
+  const wOut = (t) => 1 - ease(t, MV.m_w.t0, MV.m_w.t0 + 0.3);
+  const cardsA = (t) => (1 - ease(t, MV.m_pull.t0, MV.m_pull.t0 + 0.5) + ease(t, MV.m_push.t0 + 0.3, MV.m_push.t1)) * wOut(t);
 
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
@@ -49,7 +51,7 @@ export async function boot(res) {
     const cA = cardsA(t);
     cardA.set({ a: show(t, b.a2.fifteen) * Math.min(1, cA) }); cardB.set({ a: show(t, b.a2.thirty) * Math.min(1, cA), band: ease(t, b.a2.kept - 0.05, b.a2.kept + 0.6) });
     const sA = 1 - ease(t, MV.m_push.t0, MV.m_push.t0 + 0.6);
-    strip.set({ grow: lin(t, b.a3.every, b.a3.every + 1.2), rise: ease(t, b.a3.price, b.a3.price + 1.4), lastA: ease(t, b.a3.price + 1.0, b.a3.price + 1.6), a: sA });
+    strip.set({ grow: lin(t, b.a3.every, b.a3.every + 1.2), rise: ease(t, b.a3.price - 0.35, b.a3.price + 1.05), lastA: ease(t, b.a3.price + 1.0, b.a3.price + 1.6), a: sA });
     bill.visible = t > b.a3.extra - 0.1 && t < b.a3.extra + 2.9;
     bill.scale.setScalar(0.6 * Math.min(ease(t, b.a3.extra - 0.1, b.a3.extra + 0.2), 1 - ease(t, b.a3.extra + 2.5, b.a3.extra + 2.9)) + 0.001);
     renderer.render(scene, cam);
@@ -60,19 +62,24 @@ export async function boot(res) {
     if (nb) { const ip = pulse(t, b.a4.illustrative, 1.4); seg2(O, nb[0], nb[3] + 14, nb[2], nb[3] + 14, C.warn, ip, 5); log.roi['a4.illustrative'] = [nb[0] - 10, nb[1] - 20, nb[2] + 10, nb[3] + 24]; }
     const [dx, dy] = O.toScreen(...door); log.roi['a0.costs'] = [dx - 90, dy - 70, dx + 90, dy + 50];
     const [tx, ty] = O.toScreen(...tag.top()); log.roi['a1.borrowing'] = [tx - 70, ty - 20, tx + 70, ty + 130];
-    // S01: nhãn giá (hai dòng, căn giữa trên chồng) hiện cùng lúc bó đầu chạm (5,94 s); nhãn khoản vay trên tấm giấy vay ("dollars")
-    // nhãn S01 tắt khi thẻ khoản vay đầu hiện (S02.1)
+    // S01: nhãn giá (hai dòng) hiện cùng lúc bó đầu chạm (5,94 s); nhãn khoản vay ("dollars"). Nhãn S01 tắt khi thẻ khoản vay đầu hiện (S02.1).
+    // Vòng bố cục 1 (đạo diễn: giá đọc thành giá của khoản vay vì nằm ngay dưới nhãn khoản vay, cùng cột với tấm giấy vay): mỗi nhãn neo VẬT của
+    // nó bằng dây dẫn và đứng ở hai phía khác nhau — giá: khối trên-phải CHỒNG, dây xuống đỉnh chồng; khoản vay: dòng trên-trái, dây xuống tấm giấy
+    // vay; hai khối cách nhau ≥ 80 px theo chiều đứng
     const cS1 = b.a2.fifteen - 0.35, [sx, sy] = O.toScreen(stack.position.x, Math.max(h, 0.17) + 0.12, 0);
-    const pa = ok * show(t, S.land, cS1);
-    label(O, 'price of the fallback:', sx, sy - 82, { align: 'center', kind: 'number', alpha: pa });
-    label(O, D('extra_vs15_month_now'), sx, sy - 20, { align: 'center', kind: 'number', px: 60, alpha: pa, claims: ['extra_vs15_month_now'] });
-    log.roi['a1.land'] = [sx - 320, sy - 140, sx + 320, sy + 60];
-    label(O, `${D('principal')} loan · week of ${D('last_week_short')}`, tx, ty - 34, { align: 'center', kind: 'number', alpha: ok * show(t, b.a1.dollars, cS1), claims: ['principal', 'last_week_short'] });
-    log.roi['a1.dollars'] = [tx - 480, ty - 80, tx + 480, ty - 20];
+    const pa = ok * show(t, S.land, cS1), px = Math.min(sx + 150, 1500);
+    label(O, 'price of the fallback:', px, sy - 200, { align: 'center', kind: 'number', alpha: pa });
+    label(O, D('extra_vs15_month_now'), px, sy - 135, { align: 'center', kind: 'number', px: 60, alpha: pa, claims: ['extra_vs15_month_now'] });
+    seg2(O, sx, sy - 110, sx, sy + 14, C.warn, 0.85 * pa, 3);
+    log.roi['a1.land'] = [px - 320, sy - 250, px + 320, sy + 20];
+    const la = ok * show(t, b.a1.dollars, cS1), lx = tx - 260, ly = ty - 220;
+    label(O, `${D('principal')} loan · week of ${D('last_week_short')}`, lx, ly, { align: 'center', kind: 'number', alpha: la, claims: ['principal', 'last_week_short'] });
+    seg2(O, tx, ly + 20, tx, ty - 8, C.muted, 0.85 * la, 3);
+    log.roi['a1.dollars'] = [lx - 480, ly - 50, lx + 480, ty];
     // S02.1 / S03.1: chữ trên hai thẻ (tên khoản vay; lãi của tuần ở dòng hai)
     for (const [card, title, cl, rate, rc, at, rt] of [[cardA, `${D('term_short')} mortgage`, ['term_short'], D('r15_now'), 'r15_now', b.a2.fifteen, b.a4.six],
       [cardB, `${D('term_long')} paid ${D('paid_in_short')}`, ['term_long', 'paid_in_short'], D('r30_now'), 'r30_now', b.a2.thirty, b.a4.seven]]) {
-      const [cx, cy] = O.toScreen(card.position.x, card.position.y, 0.05), vis = ok * show(t, at) * Math.min(1, cA) * (1 - ease(t, MV.m_w.t0, MV.m_w.t0 + 0.25));
+      const [cx, cy] = O.toScreen(card.position.x, card.position.y, 0.05), vis = ok * show(t, at) * Math.min(1, cA);
       const two = show(t, rt);
       label(O, title, cx, cy - 4 - 22 * two, { align: 'center', kind: 'number', px: 48, alpha: vis, claims: cl });
       label(O, rate, cx, cy + 46, { align: 'center', kind: 'number', px: 56, alpha: vis * two, claims: [rc] });

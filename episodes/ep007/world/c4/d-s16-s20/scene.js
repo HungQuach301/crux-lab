@@ -1,17 +1,20 @@
 // Tập 7 · C4 · ĐOẠN D = S16–S20. Hàng chồng theo tuần (đoạn c) tách bốn nhóm thập kỷ; trước mỗi nhóm một chồng điển hình (W2, bó của the stack);
-// đường lãi 30 năm (accent) chạy qua hàng: lãi tụt mạnh vào 2010s trong khi chồng 2010s cao hơn 1990s (vạch nét đứt) → bốn ngoặc khoảng chênh
+// đường lãi 30 năm (accent, dải thấp sát sàn) chạy dọc hàng: lãi tụt mạnh vào 2010s trong khi chồng 2010s cao hơn 1990s (vạch nét đứt) → bốn ngoặc khoảng chênh
 // (V6, cùng thang cột khoảng chênh của đoạn c) khớp chồng, không khớp đường lãi → 2020s gần ngang the stack của Tessa → về thế giới. Mốc giờ: spine.json.
 import { setup, figure, gesture, figTag, WeekRow, theStack, stackSet, BUNDLE_TH, modeLook, followLight, chrome, label, seg2, vbrace, dip,
   show, pulse, C, ease, lin, mix, THREE } from '/episodes/ep007/world/c4kit.js';
 import { Ribbon } from '/toolkit/factory/world/lib3d.js';
 
 const SEG = '/episodes/ep007/world/c4/d-s16-s20/';
-const RY = 0.35;
+// vòng bố cục 1 (verify CHẶN F-2: đường lãi xuyên thẻ thập kỷ): đường lãi nằm ở DẢI THẤP sát sàn (py ≈ 740–840 ở 1080, sau bốn chồng),
+// thẻ thập kỷ là khối 3 dòng (tên · giá · khoảng chênh) PHÍA TRÊN chồng, ngoặc và vạch của Tessa → không đường nào đi qua chữ
+const RB = 0.1375, RY = 0.133;
 
 export async function boot(res) {
   const poses = {
     wD0: { pos: [-7.4, 2.9, 10.4], tgt: [1.8, 1.2, -0.8], fov: 46, chart: 0 },
-    cD: { pos: [2.2, 3.0, 26], tgt: [2.2, 3.0, 0], fov: 20.6, chart: 1 },
+    // lùi nhẹ + dời phải (≈ 110 px/đơn vị ở chồng, sàn py ≈ 899): khối thẻ 2020s và 2010s không chạm nhau, chồng 2020s trong vùng an toàn
+    cD: { pos: [2.6, 3.264, 26], tgt: [2.6, 3.264, 0], fov: 22.39, chart: 1 },
     wEnd: { pos: [-7.6, 2.6, 7.6], tgt: [-2.4, 1.0, 0], fov: 38, chart: 0 },
   };
   const { S, D, G, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
@@ -38,11 +41,14 @@ export async function boot(res) {
     const sp = ease(t, b.e0.decade - 0.05, b.e0.decade + 0.9), dx = (i) => (dec(i) - 1.5) * X.split * sp;
     // nhóm đang nói sáng; S19 cả bốn như nhau; sau S20 về thế giới cả hàng tối nhẹ
     const cur = t < S.up[0] ? -1 : t < S.up[1] ? 0 : t < S.up[2] ? 1 : t < b.e4.gap ? 2 : t < S.up[3] ? 9 : 3;
-    row.set({ grow: 1, dx, color: (i, c) => { const d = dec(i), on = cur === -1 || cur === 9 ? 0.55 : d === cur ? 1 : 0.3; c.copy(cWd).lerp(cW, on); } });
+    // từ S19 ý là BỐN CHỒNG + ngoặc: hàng tuần mờ hẳn (nền sạch cho thẻ, ngoặc); về thế giới thì hiện lại
+    const rowA = 1 - 0.85 * ease(t, b.e4.gap - 0.3, b.e4.gap + 0.5) * (1 - ease(t, MV.m_w20.t0, MV.m_w20.t1));
+    row.set({ grow: 1, dx, a: rowA, color: (i, c) => { const d = dec(i), on = cur === -1 || cur === 9 ? 0.55 : d === cur ? 1 : 0.3; c.copy(cWd).lerp(cW, on); } });
     stacks.forEach((s, k) => stackSet(s, S.med[k] * ease(t, S.up[k], S.up[k] + 1.1)));
-    // đường lãi 30 năm qua hàng (dời theo nhóm); đoạn 2010s loé ở "far" (lãi thấp hẳn) và "lower"
-    const pts = [], p10 = []; for (let i = 0; i < N; i += 2) { const p = [xw(i) + dx(i), S.r30[i] * RY]; pts.push(p); if (dec(i) === 2) p10.push(p); }
-    const rA = ease(t, b.e0.decade, b.e0.decade + 0.8) * (1 - ease(t, MV.m_w20.t0, MV.m_w20.t0 + 0.5));
+    // đường lãi 30 năm, dải thấp sát sàn (dời theo nhóm); đoạn 2010s loé ở "far" (lãi thấp hẳn) và "lower". Vào cùng cú chuyển sang đồ thị,
+    // tắt sau S19.2 (ý "lãi thấp hơn" đã nói xong) — S20 chỉ còn chồng, ngoặc và the stack của Tessa
+    const pts = [], p10 = []; for (let i = 0; i < N; i += 2) { const p = [xw(i) + dx(i), RB + S.r30[i] * RY]; pts.push(p); if (dec(i) === 2) p10.push(p); }
+    const rA = ease(t, MV.m_c16.t0, MV.m_c16.t1) * (1 - ease(t, b.e6.twenty - 0.2, b.e6.twenty + 0.4));
     l30.set(pts); l30.visible = rA > 0.01; l30.material.opacity = rA * (0.75 + 0.25 * pulse(t, b.e5.lower, 1.0));
     const hA = rA * Math.max(pulse(t, b.e3.far, 1.6), pulse(t, b.e5.lower, 1.2)); l10.set(p10); l10.visible = hA > 0.01; l10.material.opacity = hA;
     renderer.render(scene, cam);
@@ -52,43 +58,53 @@ export async function boot(res) {
     figTag(O, hm);
     const sc = (x, y, z = 0) => O.toScreen(x, y, z), [, yF] = sc(X.x0, 0, X.zs), [xL] = sc(X.x0, 0, 0.05), [xR] = sc(X.x1, 0, 0.05), end = MV.m_w20.t0 - 0.05;
     const top = (k) => sc(stacks[k].position.x, S.med[k] * U, X.zs);
+    // khung bố cục (px 1080, chỉ đọc khi ở đồ thị): ngoặc k = cạnh TRÁI chồng k (0,62), cao ×1,06 khi rung; đường của Tessa = đỉnh the stack.
+    // Đáy khối thẻ k (anchor) = trên đỉnh chồng, đỉnh ngoặc và vạch của Tessa → ba dòng (tên y−142 · giá y−86 · khoảng chênh y−30) không bị
+    // đường nào cắt; dây dẫn mảnh từ đáy khối xuống đỉnh chồng (chồng thấp: khối nổi cao hơn đỉnh)
+    const bxOf = (k) => stacks[k].position.x - 0.62, [sx, sy] = sc(X.stack + 0.45, G.stack_total * U, 0), [tx] = sc(X.stack, 0);
+    const anchor = (k) => Math.min(top(k)[1], sc(bxOf(k), S.spd[k] * GS * 1.07, X.zs)[1], sy - 14) - 8;
+    const tagX = (k) => { const x = top(k)[0]; return k === 0 ? x + 30 : k === 3 ? Math.min(x, 1684) : x; };   // 1990s: xa dây nối của Tessa; 2020s: trong vùng an toàn
+    const [, rTop] = sc(0, RB + 9.5 * RY, 0.6), [, rBot] = sc(0, RB + 2.5 * RY, 0.6);
     log.roi['e0.decade'] = [xL, sc(0, 3.6)[1], xR, yF];
-    // nhãn trên (thập kỷ đang nói) + thẻ trên mỗi chồng điển hình (giữ tới hết)
+    // nhãn trên (thập kỷ đang nói) + khối thẻ trên mỗi chồng điển hình (giữ tới hết)
     for (let k = 0; k < 4; k++) {
-      const [name, rate, usd, cl, cu, , ] = LAB[k], nx = k < 3 ? S.up[k + 1] - 0.1 : end, [x, y] = top(k);
+      const [name, rate, usd, cl, cu, , ] = LAB[k], nx = k < 3 ? S.up[k + 1] - 0.1 : end, [x, y] = top(k), ay = anchor(k), xt = tagX(k);
       log.roi[['e1.typical', 'e2.y2000s', 'e3.y2010s', 'e6.twenty'][k]] = [x - 70, y - 20, x + 70, yF];
       if (k < 3) {
-        label(O, `${name}: rate near ${rate}`, 960, 205, { align: 'center', kind: 'number', alpha: ok * show(t, tagAt[k], k === 2 ? b.e4.gap - 0.1 : nx), claims: cl });
-        label(O, `typical stack ${usd}`, 960, 268, { align: 'center', kind: 'number', alpha: ok * show(t, tagAt[k], k === 2 ? b.e4.gap - 0.1 : nx), claims: [cu] });
+        // 2010s tắt hẳn trước khi "typical gap…" hiện cùng chỗ (verify WARN 29 s: hai nhãn chồng lúc chuyển)
+        const z = k === 2 ? b.e4.gap - 0.4 : nx;
+        label(O, `${name}: rate near ${rate}`, 960, 205, { align: 'center', kind: 'number', alpha: ok * show(t, tagAt[k], z), claims: cl });
+        label(O, `typical stack ${usd}`, 960, 268, { align: 'center', kind: 'number', alpha: ok * show(t, tagAt[k], z), claims: [cu] });
         log.roi[['e1.fifteen', 'e2.fourteen', 'e3.twenty'][k]] = [500, 150, 1420, 290];
       }
-      const ta = ok * show(t, tagAt[k], end), xt = Math.min(x, 1715);   // 2020s: thẻ không chạm mép phải vùng an toàn
-      label(O, name, xt, y - 74, { align: 'center', kind: 'number', px: 48, alpha: ta, claims: [cl[0]] });
-      label(O, usd, xt, y - 18, { align: 'center', kind: 'number', px: 48, alpha: ta, claims: [cu] });
+      const ta = ok * show(t, tagAt[k], end);
+      label(O, name, xt, ay - 142, { align: 'center', kind: 'number', px: 48, alpha: ta, claims: [cl[0]] });
+      label(O, usd, xt, ay - 86, { align: 'center', kind: 'number', px: 48, alpha: ta, claims: [cu] });
+      seg2(O, x, ay - 4, x, y - 6, C.muted, 0.6 * ta, 2);
     }
-    // S18 "more": vạch nét đứt từ đỉnh chồng 1990s sang chồng 2010s
+    // S18 "more": vạch nét đứt từ đỉnh chồng 1990s sang chồng 2010s (dưới mọi khối thẻ)
     { const [x0, y0] = top(0), [x2] = top(2), a = ok * show(t, b.e3.more, b.e4.gap - 0.1);
       seg2(O, x0 + 55, y0, mix(x0 + 55, x2 + 60, lin(t, b.e3.more, b.e3.more + 0.5)), y0, C.ink, 0.85 * a, 4, [14, 10]);
-      log.roi['e3.more'] = [x0, y0 - 30, x2 + 70, y0 + 30]; log.roi['e3.far'] = [sc(xc(2) - 1.5, 0)[0], sc(0, 2.0)[1], sc(xc(2) + 1.5, 0)[0], sc(0, 1.0)[1]]; }
-    // S19: bốn ngoặc khoảng chênh (accent) bên trái mỗi chồng điển hình + thẻ
+      log.roi['e3.more'] = [x0, y0 - 30, x2 + 70, y0 + 30]; log.roi['e3.far'] = [sc(xc(2) - 1.5, 0)[0], rTop - 10, sc(xc(2) + 1.5, 0)[0], rBot + 10]; }
+    // S19: bốn ngoặc khoảng chênh (accent) sát cạnh trái mỗi chồng điển hình; số khoảng chênh = dòng thứ ba của khối thẻ (cùng màu ngoặc)
     label(O, `typical gap: ${D('term_long')} minus ${D('term_short')} rate`, 960, 205, { align: 'center', kind: 'number', alpha: ok * show(t, b.e4.gap, S.up[3] - 0.1), claims: ['term_long', 'term_short'] });
     log.roi['e4.gap'] = [400, 150, 1520, 230];
     for (let k = 0; k < 4; k++) {
-      const bx = stacks[k].position.x - 0.62, h = S.spd[k] * GS * (1 + 0.06 * Math.sin(12 * (t - b.e7.moved)) * pulse(t, b.e7.moved, 1.4));
-      const [x, y0] = sc(bx, 0, X.zs), [, y1] = sc(bx, h, X.zs), a = ok * show(t, brAt[k], end);
+      const bx = bxOf(k), h = S.spd[k] * GS * (1 + 0.06 * Math.sin(12 * (t - b.e7.moved)) * pulse(t, b.e7.moved, 1.4));
+      const [x, y0] = sc(bx, 0, X.zs), [, y1] = sc(bx, h, X.zs), a = ok * show(t, brAt[k], end), ay = anchor(k), xt = tagX(k);
       vbrace(O, x, y1, y0, C.accent, a * (0.8 + 0.2 * pulse(t, b.e5.wider, 1.0)), 6 + 3 * pulse(t, b.e5.wider, 1.0), -14);
-      label(O, LAB[k][5], x - 18, (y0 + y1) / 2 + 16, { align: 'right', kind: 'number', px: 48, color: '#A9C6FF', alpha: a, claims: [LAB[k][6]] });
-      if (k === 2) log.roi['e4.seven'] = [x - 300, y1 - 10, x + 20, y0];
-      if (k === 0) log.roi['e4.four'] = [x - 300, y1 - 10, x + 20, y0];
+      label(O, LAB[k][5], xt, ay - 30, { align: 'center', kind: 'number', px: 48, color: '#A9C6FF', alpha: a, claims: [LAB[k][6]] });
+      if (k === 2) log.roi['e4.seven'] = [x - 20, ay - 80, xt + 150, y0];
+      if (k === 0) log.roi['e4.four'] = [x - 20, ay - 80, xt + 150, y0];
     }
-    log.roi['e5.lower'] = [xL, sc(0, 3.4)[1], xR, sc(0, 0.8)[1]]; log.roi['e5.wider'] = [xL, sc(0, 3.0, X.zs)[1], xR, yF];
-    // S20: 2020s; vạch từ đỉnh the stack sang chồng 2020s (gần ngang); nhãn
+    log.roi['e5.lower'] = [xL, rTop - 10, xR, rBot + 10]; log.roi['e5.wider'] = [xL, sc(0, 3.0, X.zs)[1], xR, yF];
+    // S20: 2020s; vạch từ đỉnh the stack sang chồng 2020s (gần ngang, dưới mọi khối thẻ); nhãn
     label(O, `${D('era2020_name')}: typical stack ${D('era2020_median_extra_total')}`, 960, 268, { align: 'center', kind: 'number', alpha: ok * show(t, b.e6.one, end), claims: ['era2020_name', 'era2020_median_extra_total'] });
     log.roi['e6.one'] = [500, 215, 1420, 290];
-    { const [sx, sy] = sc(X.stack + 0.45, G.stack_total * U, 0), [x3] = top(3), a = ok * show(t, b.e6.tessa, end), [tx] = sc(X.stack, 0);
+    { const [x3] = top(3), a = ok * show(t, b.e6.tessa, end);
       seg2(O, sx, sy, mix(sx, x3 + 60, lin(t, b.e6.tessa, b.e6.tessa + 0.7)), sy, C.ink, 0.85 * a, 4, [14, 10]);
-      seg2(O, tx, 352, tx, sy - 30, C.ink, 0.8 * a, 3);
-      label(O, "Tessa's stack · ILLUSTRATIVE", 130, 335, { align: 'left', kind: 'name', alpha: a, char: 'Tessa' });
+      seg2(O, tx, 367, tx, sy - 30, C.ink, 0.8 * a, 3);
+      label(O, "Tessa's stack · ILLUSTRATIVE", 130, 350, { align: 'left', kind: 'name', alpha: a, char: 'Tessa' });
       log.roi['e6.tessa'] = [sx - 120, sy - 30, x3 + 70, sy + 30]; }
     // S20.2: dòng góc gạch chân ("history, not a forecast")
     { const c = O.ctx; c.save(); c.font = '600 54px Inter'; const w0 = c.measureText('US only · ').width, wAll = c.measureText('US only · history, not a forecast').width; c.restore();
