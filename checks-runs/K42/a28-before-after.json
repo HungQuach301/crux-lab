@@ -1,0 +1,216 @@
+[
+ {
+  "run": "root-c5b",
+  "main": {
+   "gate": "old",
+   "verdict": "FAIL",
+   "pass": "0/4",
+   "advice_beats": [
+    "B04",
+    "B14",
+    "B29",
+    "B30"
+   ],
+   "verdict_old": "FAIL",
+   "verdict_new": "FAIL",
+   "disagree": true
+  },
+  "k42b": {
+   "gate": "new",
+   "verdict": "FAIL",
+   "pass": "2/4",
+   "advice_beats": [],
+   "verdict_old": "FAIL",
+   "verdict_new": "FAIL",
+   "disagree": true
+  }
+ },
+ {
+  "run": "root-c5b-ctl",
+  "main": {
+   "gate": "old",
+   "verdict": "FAIL",
+   "pass": "0/2",
+   "advice_beats": [
+    "B04",
+    "B29"
+   ],
+   "verdict_old": "FAIL",
+   "verdict_new": "PENDING",
+   "disagree": true
+  },
+  "k42b": {
+   "gate": "new",
+   "verdict": "PENDING",
+   "pass": "1/2",
+   "advice_beats": [],
+   "verdict_old": "FAIL",
+   "verdict_new": "PENDING",
+   "disagree": true
+  }
+ },
+ {
+  "run": "root-c5c",
+  "main": {
+   "gate": "old",
+   "verdict": "FAIL",
+   "pass": "0/2",
+   "advice_beats": [
+    "B04",
+    "B29"
+   ],
+   "verdict_old": "FAIL",
+   "verdict_new": "FAIL",
+   "disagree": true
+  },
+  "k42b": {
+   "gate": "new",
+   "verdict": "FAIL",
+   "pass": "1/2",
+   "advice_beats": [],
+   "verdict_old": "FAIL",
+   "verdict_new": "FAIL",
+   "disagree": true
+  }
+ },
+ {
+  "run": "root-r1",
+  "main": {
+   "gate": "old",
+   "verdict": "FAIL",
+   "pass": "3/23",
+   "advice_beats": [
+    "B01",
+    "B04",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10",
+    "B12",
+    "B14",
+    "B19",
+    "B21",
+    "B22",
+    "B24",
+    "B25",
+    "B27",
+    "B29",
+    "B30"
+   ],
+   "verdict_old": "FAIL",
+   "verdict_new": "PENDING",
+   "disagree": true
+  },
+  "k42b": {
+   "gate": "new",
+   "verdict": "PENDING",
+   "pass": "16/23",
+   "advice_beats": [
+    "B08"
+   ],
+   "verdict_old": "FAIL",
+   "verdict_new": "PENDING",
+   "disagree": true
+  }
+ },
+ {
+  "run": "root-r2",
+  "main": {
+   "gate": "old",
+   "verdict": "FAIL",
+   "pass": "0/3",
+   "advice_beats": [
+    "B03",
+    "B04",
+    "B12"
+   ],
+   "verdict_old": "FAIL",
+   "verdict_new": "PENDING",
+   "disagree": true
+  },
+  "k42b": {
+   "gate": "new",
+   "verdict": "PENDING",
+   "pass": "0/3",
+   "advice_beats": [],
+   "verdict_old": "FAIL",
+   "verdict_new": "PENDING",
+   "disagree": true
+  }
+ },
+ {
+  "run": "root-r3",
+  "main": {
+   "gate": "old",
+   "verdict": "FAIL",
+   "pass": "0/2",
+   "advice_beats": [
+    "B12",
+    "B32"
+   ],
+   "verdict_old": "FAIL",
+   "verdict_new": "PENDING",
+   "disagree": true
+  },
+  "k42b": {
+   "gate": "new",
+   "verdict": "PENDING",
+   "pass": "0/2",
+   "advice_beats": [],
+   "verdict_old": "FAIL",
+   "verdict_new": "PENDING",
+   "disagree": true
+  }
+ },
+ {
+  "run": "root-r4",
+  "main": {
+   "gate": "old",
+   "verdict": "FAIL",
+   "pass": "0/4",
+   "advice_beats": [
+    "B01",
+    "B04",
+    "B12",
+    "B15"
+   ],
+   "verdict_old": "FAIL",
+   "verdict_new": "FAIL",
+   "disagree": true
+  },
+  "k42b": {
+   "gate": "new",
+   "verdict": "FAIL",
+   "pass": "2/4",
+   "advice_beats": [],
+   "verdict_old": "FAIL",
+   "verdict_new": "FAIL",
+   "disagree": true
+  }
+ },
+ {
+  "run": "voiced-r1",
+  "main": {
+   "gate": "old",
+   "verdict": "PENDING",
+   "pass": "0/0",
+   "advice_beats": [
+    "S29",
+    "WHOLE"
+   ],
+   "verdict_old": "PENDING",
+   "verdict_new": "PENDING",
+   "disagree": true
+  },
+  "k42b": {
+   "gate": "new",
+   "verdict": "PENDING",
+   "pass": "0/0",
+   "advice_beats": [],
+   "verdict_old": "PENDING",
+   "verdict_new": "PENDING",
+   "disagree": true
+  }
+ }
+]

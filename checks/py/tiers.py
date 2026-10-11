@@ -14,7 +14,7 @@ _B = 'kỹ thuật file'
 TIERS = {
     # file technique
     'F01': (BLOCK, _B), 'F02': (BLOCK, _B), 'F03': (BLOCK, _B), 'F04': (BLOCK, _B), 'F05': (BLOCK, _B), 'F06': (BLOCK, _B),
-    'F07': (MAJOR, 'độ dài theo CHARTER §1 (8–15 phút); chủ dự án hạ CHÍNH: chặn độ dài dễ dẫn tới giãn thời gian'),
+    'F07': (MAJOR, 'độ dài theo CHARTER §1 theo format (101 8–9, lab 9–11, deep 14–17 phút); chủ dự án hạ CHÍNH: chặn độ dài dễ dẫn tới giãn thời gian (K4.2b: trần cũng CHÍNH)'),
     'F08': (BLOCK, 'kỹ thuật file: banding do mã hoá'),
     'F09': (BLOCK, 'kỹ thuật file: phụ đề đúng lời, đúng quy cách'),
     'F10': (BLOCK, 'kỹ thuật file: chapters hợp lệ với YouTube (≥ 3, từ 0:00, mỗi chương ≥ 10 s)'),

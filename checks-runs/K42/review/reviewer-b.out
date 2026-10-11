@@ -1,0 +1,25 @@
+apiKeySource: ANTHROPIC_API_KEY
+{"turns": 32, "is_error": false, "cost_usd": 1.0469569, "input": 52, "cache_write": 63157, "cache_read": 1667367, "output": 10389}
+--- trả về ---
+**ĐẠT có sửa.** Không có lỗi CHẶN. Có 3 lỗi CHÍNH cần sửa trước khi merge.
+
+**Đã kiểm**
+- **(1) Mã khớp 2b.** F07 lấy khoảng theo format: 101 480–540, lab 540–660, deep 840–1020; vẫn là CHÍNH; không có format thì đọc là lab. Không thêm F13, không có luật trần CHẶN. Điều kiện cách ≥ 180 s chỉ áp cho deep (`r_content.py:497`). Số đo của lab/101 ở S14/S15 không đổi. Các số khớp CHARTER §1.
+- **(2) Mã khớp 1a.** `tally` và CLI cùng mặc định `new`. Khi hai rubric lệch thì cổng theo rubric đã chọn, rubric kia vẫn báo (`packets.py:231`, `:251`).
+- **(3) Selftest.** `test_py.py --only F07,S14,S15`: 16/16. `test_toolkit_v2.py`: 9/9 OK. Fixture bad trượt đúng lý do: S14/deep chỉ trượt ở "breaks closer than 180 s" = 1, còn số điểm 2 nằm trong [2,3]; S15/deep chỉ trượt ở total 830 < 840.
+- **(4) Trước/sau.** Chạy lại `before_after_a31.py` cho đúng kết quả: chỉ Tập 4 F07 đổi PASS → FAIL. A28 trong json đúng 8 lượt, không lượt nào FAIL → PASS. Cách áp ngưỡng lên số đo đã ghi là hợp lệ vì cách đo không đổi. Tập 7 chỉ là độ dài ước. Tôi không chạy lại được `before_after_a28.py` vì lệnh bị từ chối quyền, nên A28 chỉ đọc từ json.
+- **(5) Bảng.** measure, threshold, tierReason của F07/S14/S15 trong README khớp `--list`. Fingerprint khớp `fingerprints-K42b.json`. Số luật 36/14/50 = 100.
+
+**CHÍNH**
+1. `toolkit/blind/packets.py:19,26`: docstring đầu tệp vẫn viết như luật hiện hành ("cổng giữ rubric cũ tới khi chạy thử đạt"; "lệch giữa hai rubric thì giữ rubric cũ cho cổng"). Sửa dòng 19 thành: "…dạng CHẠY THỬ ở C4 Tập 6; từ K4.2b (A28, 1a) cổng mặc định rubric mới): ba cờ…". Sửa dòng 26 thành: "đối chứng hình thật. Từ K4.2b (A28, 1a): mặc định `new`; lệch → cổng theo rubric đã chọn, rubric kia chỉ báo."
+2. `checks/README.md:691,692`: ô cuối (cột Máy) của S14/S15 đang chứa ngưỡng cũ. Thay cả ô đó bằng `Python`.
+3. `checks/README.md:487`: chỗ "Python {PY}, trang {PG}" chưa điền. Chạy selftest đầy đủ rồi điền số trước khi merge.
+
+**PHỤ**
+4. `checks/README.md:220`: dòng F07 trong bảng ngưỡng vẫn là 480–900 s. Sửa thành `| F07 *(K3; K4.2b)* | 101 480–540 · lab 540–660 · deep 840–1020 s (CHARTER §1) |`.
+5. `playbook/quality-framework.md:70`: đoạn K4.1 vẫn viết "`--advice-rubric old` mặc định" và "lệch → giữ rubric cũ". Thêm "(đến K4.2b)" sau cả hai cụm.
+6. `checks/README.md:484`: câu "các lượt còn lại từ FAIL thành PENDING" sai một chỗ, vì `voiced-r1` đã là PENDING từ trước. Sửa thành "`root-c5b-ctl`, `root-r1`, `root-r2`, `root-r3` FAIL → PENDING; `voiced-r1` vẫn PENDING".
+7. `checks/selftest/test_py.py`: thiếu fixture chứng minh khoảng cách chỉ áp cho deep. Thêm một ca good: S14 lab với hai điểm cách 150 s thì phải PASS.
+8. Ngoài lô này: `toolkit/factory/spec.py:18` chưa có `deep`, nên nhà máy sẽ không nhận một tập deep.
+
+Một ghi chú về quy trình: vài lệnh Bash đầu của tôi có nối `&&`, sai yêu cầu "mỗi lệnh Bash là một lệnh". Các lệnh đó chỉ đọc, không đổi gì.
