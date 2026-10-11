@@ -1,0 +1,23 @@
+{
+ "answer": "1. T2. It states my exact situation in plain words: a 30-year loan that I pay off in 15 years. \"What It Really Costs\" promises a concrete dollar answer rather than a vague debate.\n\n2. T3. \"1,833 Weeks of Real Rates\" is confusing. I don't know why weeks are the unit, and it sounds like a data-nerd video that won't answer my question. It also reads like clutter, with a question, a number and a phrase all competing. \"Real Rates\" makes me think it's about rate history, not my decision.\n\n3. I expect a side-by-side comparison of a 30-year mortgage with extra payments versus a true 15-year, probably using a $300k-ish loan. It should cover:\n- The monthly payment difference.\n- Total interest paid under each.\n- The rate gap between the two products, since 15-year rates are usually lower.\n- The flexibility of the 30-year, where I can drop back to the minimum payment if money gets tight.\n- Whether the discipline of being locked into 15 years is worth the lower rate.\n\nI'd expect a verdict like \"the 15-year saves X in interest, but the 30-year paid early gives you flexibility at a small cost,\" ideally with numbers I can plug my own situation into.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1441,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 147,
+   "in": 1441,
+   "out": 147
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 1481,
+   "cache_read": 1382,
+   "output": 402,
+   "in": 2865,
+   "out": 402
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0103038
+}

@@ -1,23 +1,23 @@
-# Script — Episode 7 (format `lab`, C2 v2, WRITER, 2026-10-11)
+# Script — Episode 7 (format `lab`, C2 v3 sau REVIEWER, 2026-10-11)
 
 Working title: *15-Year Mortgage or a 30-Year Paid in 15? The Real Price* · Logline **L1** (C1, `gates/C1-logline.md`). Hook used: **H-B "Chi phí ẩn"** (a cost the viewer hasn't counted, on a present-day fact; `hooks.md`). Format: **`lab`** (`episode.yaml`, "lab 11 phút").
 
-**Checker (`python3 episodes/ep007/story/check_script.py episodes/ep007/story/script.md --cast Tessa,Leo`, from the repo root, final run C2 v2 — exit 0):**
+**Checker (`python3 episodes/ep007/story/check_script.py episodes/ep007/story/script.md --cast Tessa,Leo`, from the repo root, final run C2 v3 — exit 0):**
 
 ```
 số cốt lõi extra_vs15_total_now: đọc ['S06.3'], nhắc bằng lời ['S07.1', 'S09.1', 'S09.2', 'S09.3', 'S15.2', 'S15.3', 'S20.1', 'S30.4', 'S31.2', 'S33.1']
-móc script: M1 3.8 s ĐẠT · M2 28.2 s ĐẠT · M3 18.8 s ĐẠT · M4 8.7 s ĐẠT · M5 39.2 s ĐẠT · M6 0.0 s ĐẠT
+móc script: M1 3.8 s ĐẠT · M2 27.1 s ĐẠT · M3 18.8 s ĐẠT · M4 8.7 s ĐẠT · M5 38.1 s ĐẠT · M6 0.0 s ĐẠT
 
-79 câu, 1273 từ viết (1454 từ đọc), độ dài ước 10:05 (1454 / 2.4 từ/s, lab); trục mốc giây 9:38 (2.66 từ/s + hold 28.7 s + ident 3 s)
+81 câu, 1261 từ viết (1422 từ đọc), độ dài ước 9:52 (1422 / 2.4 từ/s, lab); trục mốc giây 9:26 (2.66 từ/s + hold 28.7 s + ident 3 s)
 | Phần | Từ | Thời gian | Tỉ lệ | Khuôn lab | Δ |
-| hook | 111 | 0:00–0:50 | 8.8 % | 8 % | +0.8 |
-| concept | 245 | 0:50–2:50 | 20.7 % | 15 % | +5.7  ← > ±5 (THAM KHẢO, nêu ở C2) |
-| experiment | 551 | 2:50–7:00 | 43.2 % | 45 % | -1.8 |
-| buyers | 291 | 7:00–9:06 | 21.8 % | 20 % | +1.8 |
-| limits | 75 | 9:06–9:38 | 5.5 % | 12 % | -6.5  ← > ±5 (THAM KHẢO, nêu ở C2) |
-mid-roll: ĐỦ điều kiện theo độ dài ước 10:05 (cần ≥ 8:00 thật; ≥ 2 phút đầu/cuối; lặng ≥ 1 s) — chốt bằng độ dài thật sau khi sinh lời (≥ 8:10) và ở C5 (≥ 8:00)
-mid-roll ≈ 2:50 sau S09.3 (hold 1.5 s), cách cuối 408 s: ĐẠT
-mid-roll ≈ 7:00 sau S24.3 (hold 1.5 s), cách cuối 158 s: ĐẠT
+| hook | 109 | 0:00–0:49 | 8.8 % | 8 % | +0.8 |
+| concept | 245 | 0:49–2:49 | 21.1 % | 15 % | +6.1  ← > ±5 (THAM KHẢO, nêu ở C2) |
+| experiment | 555 | 2:49–6:56 | 43.6 % | 45 % | -1.4 |
+| buyers | 275 | 6:56–8:53 | 20.7 % | 20 % | +0.7 |
+| limits | 77 | 8:53–9:26 | 5.8 % | 12 % | -6.2  ← > ±5 (THAM KHẢO, nêu ở C2) |
+mid-roll: ĐỦ điều kiện theo độ dài ước 9:52 (cần ≥ 8:00 thật; ≥ 2 phút đầu/cuối; lặng ≥ 1 s) — chốt bằng độ dài thật sau khi sinh lời (≥ 8:10) và ở C5 (≥ 8:00)
+mid-roll ≈ 2:49 sau S09.3 (hold 1.5 s), cách cuối 397 s: ĐẠT
+mid-roll ≈ 6:56 sau S24.3 (hold 1.5 s), cách cuối 150 s: ĐẠT
 beats.md: 33 nhịp đã kiểm số trên hình
 hooks HA (4 câu riêng + S03 chung, phần riêng tới 26.3 s): M1 3.8 s ĐẠT · M2 26.3 s ĐẠT · M3 11.3 s ĐẠT · M4 8.7 s ĐẠT · M5 36.8 s ĐẠT · M6 0.0 s ĐẠT
 hooks HB (4 câu riêng + S03 chung, phần riêng tới 28.2 s): M1 3.8 s ĐẠT · M2 28.2 s ĐẠT · M3 18.8 s ĐẠT · M4 8.7 s ĐẠT · M5 38.7 s ĐẠT · M6 0.0 s ĐẠT
@@ -25,9 +25,9 @@ hooks HC (4 câu riêng + S03 chung, phần riêng tới 27.8 s): M1 4.5 s ĐẠ
 
 ĐẠT
 Cảnh báo (không chặn):
-  mật độ: ≥ 3 số mới trong 8 s tại ~[218, 241, 243, 283, 459, 462, 465, 468] s
-  khuôn tỉ lệ: concept lệch +5.7 điểm
-  khuôn tỉ lệ: limits lệch -6.5 điểm
+  mật độ: ≥ 3 số mới trong 8 s tại ~[217, 456] s
+  khuôn tỉ lệ: concept lệch +6.1 điểm
+  khuôn tỉ lệ: limits lệch -6.2 điểm
 ```
 
 **C2 v2 changes (blind read r1: 6/6 lost attention at the S32 limits block; 4/5 T said "invest" was unanswered; pre-registered fallback in `gates/C2-intent.md`):** S32 cut from 7 sentences to 2 (keeps "US only", "history, not a forecast", "doesn't say which loan to take"); every other limit moved to the V7 card (B32) and the description (end of `beats.md`); one new sentence, S25.5, says the episode doesn't test whether any investment clears the bar. No other scene changed, no new number. Limits now 5.5 % vs the template's 12 % (−6.5, THAM KHẢO): deliberate, per story §3 (method = 1 spoken line + V7 card + description). The C2 v1 summary below keeps its v1 figures.

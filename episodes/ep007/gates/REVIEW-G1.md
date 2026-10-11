@@ -1,0 +1,23 @@
+# REVIEWER G1 lô Tập 7–8 (headless Opus, khoá Console, $0.79)
+
+**ĐẠT có sửa.** Không có lỗi CHẶN. Có 6 lỗi CHÍNH, cần sửa trước khi gửi gói. Mọi dòng dưới là số dòng trong `episodes/ep007/gates/G1.md`.
+
+**Đạt:** (2) các số đối chiếu khớp `numbers.md`, `table-read.json` (M1–M6), `C2-blind` và REPORT #20, gồm $120/$21,622/$613/$733, 6.097/29.502/16.631, 15 tháng, 4 tháng, $8,200, 2,65–9,25, 75,6/64,2/92,2/66,4, ba thời kỳ, chi $8,84≈8,9. (3) Kiểm mù nói đúng: câu khuyên trượt 2 vòng theo rubric, v3 chưa kiểm mù, T 0/5. (5) Đã gọi EL `/subscription`, ra 401 `user_read`, báo đúng như vậy và không có khoá trong gói. (6) Tiêu đề và thumbnail không có lời khuyên. (8) Rủi ro #20 được nêu đúng là ngoại lệ phải hỏi theo CHARTER §5.
+
+**CHÍNH**
+1. **Dòng 40, gói hỏi quá 3 câu.** "Trả lời gọn" có 5 mục (1, 2, 3, EL, CHARTER §5). Câu 1 và 2 lại gộp thêm 4 lựa chọn con. Sửa: chuyển EL và CHARTER §5 thành dòng thông tin có khuyến nghị mặc định. Nguyên văn: "EL: mặc định giữ `lab` cả hai; anh chỉ trả lời nếu muốn bật `user_read` hoặc nâng gói · CHARTER §5: mặc định phiên kế sửa dòng G2, anh không phản đối là áp."
+2. **Dòng 11, Tập 8 tự đặt thêm một mốc ngoài quyền.** Câu trả lời 2 viết: "Tập 8: xét cùng cách ở G1 lô". Gói lại đặt mốc "trước G1 của Tập 8", trong khi D-011 lô không có G1 riêng cho Tập 8. Sửa: "**Tập 8: `lab`** — cùng luật: F-14 chưa đạt ở G1 lô. Muốn `deep` khi F-14 đạt sau này thì cần anh quyết lại."
+3. **Dòng 20, đếm sai câu hỏi khán giả.** Nếu bỏ nhịp Q3 thì còn "1, 2, 5 = 3/5", nhưng Q1 chỉ trả lời một nửa. Thực tế là 2,5/5, dưới ngưỡng ≥ 3/5 của §7 mục 10. Sửa: "…còn Q1 (một nửa), Q2, Q5 = **2,5/5, dưới ngưỡng ≥ 3/5** — phương án (b) và nhánh 'bỏ Q3' của (a) làm trượt §7.10 nếu không bù (vd trả Q4 PMI)."
+4. **Dòng 36, thiếu token, và PLAN/ledger không khớp gói (§7 mục 5).** Gói trỏ "token phiên: PLAN mục 5" nhưng không có `episodes/ep007/PLAN.md`. `PLAN.md` gốc vẫn ghi "Tổng kết Tập 6 chờ trả lời". `ledger.md` dừng ở C1, chưa có dòng C2, REVIEWER C2, kiểm mù C2, bản đọc thử, hồ sơ #20 hay G1. Sửa: tạo PLAN tập từ `templates/PLAN-tap.md` có mục 5 ghi 4 số token từ log; thêm các dòng còn thiếu vào ledger; cập nhật dòng 12–18 của `PLAN.md` gốc.
+5. **Dòng 3, 11, 19: số v3 không có nguồn.** Các số trong gói (81 câu, 9:53, MR2 ≈ 6:57, clip ≈ 70 s, EL 1.233) không có trong tệp nào:
+   - Header `story/script.md` (dòng 11, 20) vẫn là v2: 79 câu, 10:05, MR2 7:00.
+   - `table-read.json` ghi `clip_s 48.7` và `el_chars_spent 260`.
+   
+   Sửa: cập nhật header script và `table-read.json` theo v3 và bản đọc S04. Hoặc trỏ dòng 3, 11, 19 về log chứa các số đó.
+6. **Dòng 30, tiêu đề Tập 8 có số không có claim.** "25 Years of Real Prices" không khớp claim nào: các tháng bắt đầu trải 1991-01 → 2016-07, còn dữ liệu kéo tới 2026. Sửa: "Rent vs Buy a Home: Every Month Since 1991, Replayed". Ngoài ra, dòng thị trường Tập 8 (dòng 24) thiếu "trả lời câu hỏi X, Y, Z" và 3 video vượt trội có nhãn "tự tính". Bổ sung: "Q1, Q2, Q3 (một phần)", 3 link vượt trội, và ghi rõ 2,5–3/5 là sát ngưỡng.
+
+**PHỤ**
+- **Dòng 37:** gói ghi "146.637 ký tự / 30 ngày", còn ledger dòng 9 ghi "280.042 / 60 ngày". Cần chọn một con số và ghi cả hai nơi.
+- **Dòng 29:** "PAY EXTRA AT 7.4%?" dùng `display` khác claim ("7.40% a year, before taxes"), và đặt cạnh "pay extra" dễ đọc thành lợi suất (luật K đề xuất 2). Đề xuất bỏ phương án 2, hoặc ghi "before taxes" trong mô tả.
+- **Dòng 3:** `gates/REVIEW-G1.md` chưa có. Ghi kết quả soát này vào đó trước khi gửi gói.
+- **Dòng 7:** REPORT #20 ghi `novelty.json` "cần chạy lại trước C1" (WebSearch bị từ chối). Gói chưa nói đã chạy lại chưa, nên nhãn "khoảng trống vừa" của Tập 8 chưa có kiểm web.
