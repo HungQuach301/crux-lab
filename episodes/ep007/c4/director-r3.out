@@ -1,0 +1,54 @@
+===== S01+S06 0.1868897
+S01: Tessa's fallback
+
+Scores: emotion/story 2, understood with sound off 2, pacing 2, composition/legibility 3
+
+1. At 3.54 s, one bundle sits by the door with no price over it, even though "$120 a month" was spoken from 1.8 to 3.2 s. The price label doesn't show until 8.26 s, about 5 s late. Fix: drop the first bundle on "one" at 1.8 s and put "$120/mo" over it on "month" at 3.2 s.
+2. From 8.26 to 10.62 s the frame doesn't change. The stack never grows, and this is the core idea of the scene. Fix: add one bundle on each beat ("borrowing" 4.5, "thousand" 6.2, "city" 8.3, "biggest" 9.8) so the stack climbs toward the roofline.
+3. At 5.9 s the camera pulls back and the bundle slides about 100 px away from the house. It reads as an object left behind, not something tied to Tessa. Fix: keep the stack touching the house wall and keep the 1.18 s framing. The house is now small in a mostly empty dark frame.
+4. At 10.62 s, "biggest bill" refers to the mortgage payment, but the only thing on screen is the $120 stack, so viewers may read $120 as her biggest bill. Fix: on "payment" at 8.9 s, show a large slab for the mortgage payment next to the thin $120 stack.
+
+S06: The 15-year finish
+
+Scores: emotion/story 3, understood with sound off 4, pacing 3, composition/legibility 3
+
+1. At 2.7 s the green "fallback" ghost bar and its label are almost black on black and can't be read. The bars also have no labels. Fix: raise the brightness of the ghost bar and show the 15-year and 30-year labels from the start.
+2. At 13.48 s the house and Tessa disappear, the bars jump left, and the "$2,948" line ends up next to the ILLUSTRATIVE badge. By 18.88 s everything snaps back. This is a framing pop with no reason behind it. Fix: hold the 8.09 s framing for the whole scene.
+3. At 18.88 s only the first bill is falling, but "month after month" has been implied since 9.3 s. The stack then appears almost all at once before 24.27 s. Fix: start peeling bills off the sliver at "more" (12.2 s) and drop them at a steady rate so the stack grows the whole way to 24.9 s.
+4. At 8.09 s the gold sliver is only a few pixels tall. Fix: push in on the bar tops from 9.3 to 12.2 s so the gap fills the frame, then pull back for the stack.
+===== S21+S23 0.19558089999999997
+**S21 (25.2 s)**
+
+Scores: Emotion 3 · Sound-off 2 · Pacing 2 · Composition 3
+
+1. **2.5 s:** The stage is empty, just the house and Tessa, while she is "reaching for a shortcut." Fix: start the scene with the 180-tile track already laid and the 15-year mark showing, so the stakes are visible from frame one.
+2. **7.6 s:** The setup ("pay the 30-year what the 15-year costs") is never shown. We get a tilted grid with a faint diagonal of pale tiles that means nothing. Fix: show the bigger 15-year-sized payment block landing on tile 1, then tiles filling one by one. Keep the camera in the frontal angle used from 12.6 s instead of cutting from the 3/4 view.
+3. **17.7 s:** The amber "about 15 months late" text sits on top of the amber overflow tiles and can barely be read. Bills are also piling up in column 1 before $733 is mentioned (19.6 s). Fix: put the late label in a dark plate above the rail and hold the bills until 19.3 s.
+4. **22.7 s:** The payoff doesn't land. The amber tiles just vanish, and the "thin slab" is a speck on each tile. Fix: make the slab a clearly separate green layer, then show the 15 amber tiles pulling back behind the rail one by one as the slabs land, ending on the rail. Also, the "Tessa · ILLUSTRATIVE" tag runs into the track's left edge, so shorten it to "Tessa."
+
+**S23 (13.0 s)**
+
+Scores: Emotion 3 · Sound-off 4 · Pacing 3 · Composition 3
+
+1. **1.3 s:** Slabs are floating loose above the grid. It reads as a render glitch. Fix: keep them seated, or lift them off in a deliberate, ordered sweep.
+2. **3.9 s → 6.5 s:** The camera jumps from the 3/4 view to frontal in the middle of the question. Fix: open on the frontal view S21 ended on.
+3. **9.1 s:** All 15 stacks are already standing along the back row, where they read as a fence, not as "every 12th tile." Fix: march the payment along the track so stack N drops on tile 12, 24, 36… and the empty tiles between stacks dim. That shows the idle months.
+4. **11.7 s:** The 4 amber tiles are small and in the lower-right corner, away from Tessa's eye-line. Fix: push the camera in on the rail as they light, and have Tessa turn toward them. The caption and timing are fine.
+===== S25 0.110884
+**S25 — scores**
+- Emotion/story: 2
+- Understood with sound off: 3
+- Pacing: 3
+- Composition / eye-line / legibility: 2
+
+The meaning gets across through text cards, not the picture. After 8.7 s Tessa doesn't move, and the visual comparison the scene is about never happens.
+
+**Notes**
+
+1. **0.4–4.8 s:** The beam isn't there yet when "extra dollar of principal stops interest" is said. At 2.9 s we only see a dollar floating next to the house, and Tessa points at the roof instead of the dollar. Fix: have Tessa push the dollar into the house, or into a visible loan stack, on "principal" (1.3 s). Then start the beam rising from the house wall on "rate" (5.7 s), so the dollar rides up with it.
+
+2. **8.7 s:** The beam floats up and to the right of the house. The tick ruler has no values or baseline, so the beam's height doesn't stand for anything and "7.40%" lives only in the caption. Fix: make the beam come out of the house's side wall. Mark the ruler's 0 at ground level and put a single 7.4% tick at the beam. Bring the caption up to full opacity by "percent" (9.3 s); at 8.7 s it's still dim.
+
+3. **14.5 s:** "Not an investment return; it's interest she no longer pays" is shown only as a text card. Fix: show a small interest coin about to drop onto the house, blocked by the dollar on the beam, and let it fade out on "no longer pays" (15.6 s). That lets you cut most of the card.
+
+4. **20.3–26.1 s:** The "any other use" dollar doesn't match the brief. It's a faint, dashed ghost far off to the right, nobody holds it, and it's never set against the beam. At 26.1 s it sits level with the beam about 70 px away, so there's no comparison and no tension. Fix: on "any other use" (18.2 s), have Tessa turn and hold up a solid dollar right against the beam's end. Leave its height unresolved, for example wobbling above and below the line on "risk and taxes" (25.0 s), so "isn't tested" reads as an open question. The text is also crowding the ruler at 26.1 s: shorten the "not tested" card or move it under the beam so the right-hand column is clear.
