@@ -1,0 +1,76 @@
+{
+ "segment": "episodes/ep007/world/c3/s06-stack",
+ "res": 540,
+ "out": "episodes/ep007/world/c3/out/s06-stack.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.3,
+   "ok": true,
+   "problems": [],
+   "files": 18
+  },
+  "spine": {
+   "seconds": 0.5,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 129.1,
+   "ok": true,
+   "shots": 2,
+   "rendered": [
+    "s0",
+    "s1"
+   ],
+   "cached": 0,
+   "wall_s": 128.4,
+   "film_s": 27.81,
+   "wall_per_film_s_rendered": 6.37,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 15.6,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 1.8,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 3.1,
+   "ok": false,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+   },
+   "modes": {
+    "world_share": 0.23,
+    "chart_share": 0.77,
+    "first_5s_world": true
+   },
+   "F2": {
+    "level": "BLOCK",
+    "sfx_per_min": 15.1,
+    "sfx_max_10s": 6,
+    "sfx_on_speech": 6,
+    "sfx_on_plain_words": 0,
+    "sfx_events": 7,
+    "keyword_hits": 5,
+    "min_keyword_snr_db": 21.7,
+    "label_overlaps": 63,
+    "line_crossings": 0,
+    "block": [
+     "15-year × 30-year 0–6.2 s (63 mẫu)"
+    ],
+    "warn": []
+   }
+  }
+ },
+ "staging": "episodes/ep007/world/c3/out/.staging-s06-stack-16248"
+}
