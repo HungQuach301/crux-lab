@@ -3,7 +3,7 @@
 Chủ dự án: Hung Quach. v3 (05/10/2026, D-006): 3 cổng G1/G2/G3, rút gọn. v4 (06/10/2026, D-009, D-010): chất lượng là ưu tiên tuyệt đối; thế giới 3D tối giản. Đây là nguồn thẩm quyền số một. Chi tiết nằm ở playbook; mọi file khác phải khớp với hiến chương.
 
 ## 1. Định vị
-- **Kênh:** `us-personal-finance`, tiếng Anh Mỹ, không lộ mặt, data-explainer. Hai định dạng: `lab` (9–11 phút), `101` (8–9 phút), kèm 2–3 Shorts mỗi tập.
+- **Kênh:** `us-personal-finance`, tiếng Anh Mỹ, không lộ mặt, data-explainer. Ba định dạng: `lab` (9–11 phút), `101` (8–9 phút), `deep` (14–17 phút, chỉ khi đủ ba điều kiện không độn và nhà máy đạt nhịp hình trước — D-012, `episode.md` §9), kèm 2–3 Shorts mỗi tập.
 - **Định vị:** *phòng thí nghiệm quyết định tài chính*. Mỗi tập trả lời một quyết định cụ thể bằng mô phỏng trên dữ liệu thật; nguồn và phương pháp minh bạch.
 - **Ba trụ nội dung:** vay và nợ · nghỉ hưu và đầu tư dài hạn · thuế và chính sách.
 - **Mục tiêu:** tập đạt chuẩn → khán giả → nhiều kênh → thương mại hoá phương pháp kiểm chứng.
