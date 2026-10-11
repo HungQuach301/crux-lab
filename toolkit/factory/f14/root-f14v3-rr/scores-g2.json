@@ -1,0 +1,56 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might then compare the quote's two payout options on whether either one adjusts for inflation.",
+  "why": "Thin left cluster on CPI grids; PCE has wider teal block; advice is own",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might also conclude that an inflation-adjusted payout option deserves a closer look.",
+  "why": "Near-identical CPI grids, larger PCE teal block, mostly not kept up; advice own",
+  "q5": "own"
+ },
+ "R03": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might then want to compare it with a payout that rises with inflation. That is my inference",
+  "why": "Core idea right but PCE contrast muddled, teal placement confused",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might infer that when comparing two annuity payouts, they should consider whether the payment adjusts for inflation.",
+  "why": "Nearly all months fail, thin left cluster kept up (17 of 715)",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might then ask whether an annuity option with inflation adjustment is worth a lower starting payment. That is my inference",
+  "why": "Almost never kept up, small highlighted left slice; advice own",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The takeaway about comparing level and inflation-adjusted payouts is my own conclusion.",
+  "why": "Notes left highlight and 17 of 715 but unsure what kept up means",
+  "q5": "own"
+ }
+}

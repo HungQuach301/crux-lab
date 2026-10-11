@@ -1,0 +1,433 @@
+{
+ "candidate_set": "ep006",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep006",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Crates darken with '?'; never reaches 9 lit / Crates dim, check grows; no 9 lit stated",
+    "Crates darken, '?' seen; no 9-lit count / Crates dim with '?' but 9 lit not stated"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B03",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Fixed line, Ruth ends below; only checking / 100% line; check line ends under it",
+    "Fixed line, Ruth ends below; only asks / 100% reference line, Ruth ends just under"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Two cards, '?' not modeled; consider inferred / Two cards, gap not modeled with '?'",
+    "Two cards with '?' and not modeled; weighing inferred / Level vs rising cards, gap '?' not modeled"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B06",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "+48.6 vs +64.3 correct; weighing inferred / Check +48.6% below prices +64.3%",
+    "+48.6 vs +64.3 correct; weighing inferred / +48.6% vs +64.3% bars correct"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B07",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "10 crates to 9 lit correct; general caution only / 10 crates, about 9 lit; correct",
+    "9 of 10 crates correct; only looking / 10 crates to about 9 lit; correct"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B08",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "6 of 10 versus 9; different start sizes noted; no action / Level 6 of 10, rising 9; different starts noted",
+    "6 of 10 versus 9; weighing inferred / Level row 6 of 10; different starting sizes noted"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    1,
+    1,
+    0.5
+   ],
+   "readers": 3,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Line dips and recovers vs first check; no action / At/above 12 of 15, dips recovered; no action drawn",
+    "Line dips below 100% early, recovers; no action drawn / Dips early, recovered each time; no advice drawn",
+    "Dip-and-recover seen, but reads prices above, inverting meaning / Dips and recovery seen, but reads line as prices, inverted"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B10",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Slightly above then drops below; advice self-drawn / Just above at year 15, then below; correct",
+    "Slightly above then drops below; only asking / Above at year 15, then below; correct"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B12",
+   "kind": "image",
+   "scores": [
+    0.5,
+    1,
+    1
+   ],
+   "readers": 3,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Level falls to 9 in 10, but rising line misread / Level falls fast; misreads rising check as starting lower",
+    "Level falls fast, rising holds; no advice / Level falls fast, 9 in 10 by year 5; no advice",
+    "Level falls fast, 9 in 10 by year 5; implication inferred / Level falls fast, 9 in 10 by year 5"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B13",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Ruth's tile in grid of 715 starts; weighing inferred / Ruth's stretch is one of 715 windows; correct",
+    "Ruth's stretch among 715 tiles; general takeaway only / Ruth one of 715 stretches in grid"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B14",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "17 of 715 correct; left cluster not tied to kept-up / 17 of 715, 1 in 42; mostly short tiles",
+    "Few kept up (17/715) but left cluster not linked / Rarely kept up (17 of 715) captured; comparison advice is own"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B15",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Left cluster, then none since; only checking / Left cluster only; none since matched it",
+    "Left cluster, none since; deserving a look inferred / Left cluster only; none since; correct"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B16",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "80.7% and 8 of 10 crates correct; compare inferred / 80.7% median and 8 of 10 crates correct",
+    "80.7% and 8 of 10 crates; choice inferred / 80.7% median, 8 of 10 crates"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B17",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Median ~half and year 8 correct; closer look is inferred advice / Median 54.3% about half, by year 8; correct",
+    "Median ~half, year 8 correct; COLA consideration inferred / Median about half, year 8 marker captured"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B19",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "1990s and 2000s blocks all short of 100%; weighing inferred / 1990s/2000s starts all short; Ruth 90.4%",
+    "1990s and 2000s blocks and Ruth correct; advice inferred / 0 of 120 and 0 of 79; Ruth 90.4%"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B21",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Longer-tile grid, 0 of 655; weighing inferred / 0 of 655 kept up; no cushion tile",
+    "25-year grid, 0 of 655 cushion; compare inferred / 0 of 655, no tile kept up; correct"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "NEED_3RD",
+   "why": [
+    "CPI-W near same, PCE more scattered; advice inferred / Parallel index grids nearly same; PCE mostly short",
+    "Side grids seen but PCE reading confused / Gets grids and counts but confused on PCE"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B24",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Carl dims to ~4, Ruth inset; weighing inferred / Carl dims to about 4; Ruth inset",
+    "Carl's row dims to 4, Ruth inset; comparison inferred / Carl 4 of 10, Ruth inset recovers; correct"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Carl's ~4 of 10, 29% level captured; better-option inferred / Carl about 4 of 10; 43.1% vs 29.0%",
+    "Carl's ~4 of 10, level 29% captured; weighing inferred / Carl about 4 of 10; level below a third captured"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B27",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Edna all lit, overlap 1966–69; comparing inferred / Edna all lit; Carl overlap in 1966–69",
+    "Edna all lit, overlapping 20-year windows; only asks about adjustment / Edna all lit, windows overlap; advice is only asking"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B29",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Three retirees correct; reader draws payout-choice weighing themself / Three outcomes correct; weighing level vs adjusted is own inference",
+    "Edna 10, Ruth 9, Carl 4 correct; weighing inferred / Edna 10, Ruth 9, Carl 4 lit; correct"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B30",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Ladder, half at 3.1, all at 6.38; weighing inferred / Raise ladder with shares; half 3.1, all 6.38",
+    "Ladder of raises, half at 3.1, all at top; general only / Raise ladder; half at 3.1, all at 6.38 correct"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B32",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Ruth 9 of 10 lit; comparing inferred / Ruth, rising card, 9 of 10 lit",
+    "Ruth 9 of 10 lit; considering inferred / Ruth, rising card, 9 of 10 lit"
+   ]
+  }
+ ],
+ "gate_beats": 23,
+ "gate_pass": 20,
+ "pending": [
+  "B22"
+ ],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "verdict": "PENDING"
+}
