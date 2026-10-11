@@ -1,0 +1,102 @@
+{
+ "titles": [
+  {
+   "i": 1,
+   "trend": 4,
+   "match": 4,
+   "note": "Questions inflation protection mechanism, matches video's 2% raise focus well"
+  },
+  {
+   "i": 2,
+   "trend": 4,
+   "match": 5,
+   "note": "Directly describes the 20-year replay structure shown in video"
+  },
+  {
+   "i": 3,
+   "trend": 3,
+   "match": 5,
+   "note": "States exact statistic from video, very specific and accurate"
+  },
+  {
+   "i": 4,
+   "trend": 3,
+   "match": 4,
+   "note": "Question format fits pattern, prices matches what video shows"
+  }
+ ],
+ "thumbs": [
+  {
+   "i": 1,
+   "trend": 5,
+   "match": 5,
+   "readable": 5,
+   "objects_seen": "purple figure, check illustration, row of crates, text 20 YEARS LATER",
+   "note": "Perfect minimal 3D world, shows exact video elements clearly"
+  },
+  {
+   "i": 2,
+   "trend": 5,
+   "match": 5,
+   "readable": 5,
+   "objects_seen": "three figures (mint, purple, pink), rows of crates, text 2% RAISE ENOUGH?",
+   "note": "Shows Carl/Edna/Ruth figures with crate comparisons, clean and readable"
+  },
+  {
+   "i": 3,
+   "trend": 5,
+   "match": 5,
+   "readable": 4,
+   "objects_seen": "purple figure, check illustration, row of crates, text BIGGER CHECK BUYS LESS?",
+   "note": "Clear messaging with exact video elements, slight readability challenge"
+  },
+  {
+   "i": 4,
+   "trend": 5,
+   "match": 5,
+   "readable": 5,
+   "objects_seen": "purple figure, check illustration, row of crates, text Bigger check. Buys less?",
+   "note": "Same concept as T3 with better text hierarchy"
+  },
+  {
+   "i": 5,
+   "trend": 4,
+   "match": 5,
+   "readable": 5,
+   "objects_seen": "purple figure, check illustration, row of crates, text +48.6% on paper",
+   "note": "Shows specific statistic with visual proof, very clear"
+  },
+  {
+   "i": 6,
+   "trend": 3,
+   "match": 4,
+   "readable": 5,
+   "objects_seen": "text 17 of 715 kept up 2% a year, chart/graph",
+   "note": "Graph element less consistent with minimal 3D world style"
+  }
+ ],
+ "default_title": 3,
+ "default_thumb": 1,
+ "test_compare_order": [
+  1,
+  4,
+  5
+ ],
+ "why": "Title 3 most accurate; T1 shows core concept cleanly; T4/T5 test question vs statistic framing",
+ "cost_usd_est": 0.0206,
+ "titles_in": [
+  "Annuity inflation protection: did a 2% raise keep up?",
+  "Annuity 2% raise vs inflation: the 20-year scorecard",
+  "Retirement income annuity: a 2% raise kept up 17 of 715",
+  "Does a 2% Annuity Raise Really Keep Up With Prices?"
+ ],
+ "thumbs_in": [
+  "tongket-t6/thumbs/api-1.png",
+  "tongket-t6/thumbs/api-2.png",
+  "tongket-t6/thumbs/api-3.png",
+  "episodes/ep006/out/package/thumb-1.png",
+  "episodes/ep006/out/package/thumb-2.png",
+  "episodes/ep006/out/package/thumb-3.png"
+ ],
+ "post_time": "thứ Hai, 12–16 UTC (sáng giờ Mỹ) — tín hiệu yếu, market/REPORT.md §4"
+}

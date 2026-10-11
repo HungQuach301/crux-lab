@@ -99,3 +99,62 @@ Theo D-012 mục 1: dải vượt trội có trung vị ~15–16 phút (`market/
 **ElevenLabs:** 2.120–2.450 từ nói × ≈ 5,9 ký tự/từ + ≈ 10 % sinh lại ≈ **13.000–15.000 ký tự/tập**, gấp ≈ 2 lần Tập 6 (7.699). Bốn tập/tháng ≈ 60.000 ký tự. **Chủ dự án cần kiểm hạn mức gói ElevenLabs.** Không đủ thì hoặc dùng `lab`, hoặc nâng gói (đó là chi tiêu mới).
 
 **CHARTER §1 chưa sửa:** hiện ghi "hai định dạng". Phiên P1 Tập 7 sửa sau khi chủ dự án duyệt câu 2 (D-012 "Thay").
+
+## 4. Đóng gói: khớp nội dung + xu hướng + đề xuất (D-012 mục 3)
+
+Luật nằm ở `playbook/packaging.md` §7. Ngoài ra đã sửa `episode.md` §1b.5, §3.12, §5, §5c (thành đường dự phòng), §10.4–5, §11, cùng `templates/G1.md` mục 3 và `templates/PACKAGING-BRIEF.md`. Công cụ mới: `toolkit/market/anchors.py`, `toolkit/package/{text,thumbs,rescore}.py`. Chi trong phiên: YouTube API 1.212/10.000 đơn vị · Claude (Console) ≈ $0,13 · OpenAI ảnh ≈ $0,25.
+
+### 4a. Video neo cho G1 (`anchors.py anchors`; số thô ở `~/market-cache/`, repo chỉ nhận nhãn)
+Chọn: cùng câu hỏi khán giả (Haiku xét), đăng 30–90 ngày, tốc độ lượt xem/ngày cao nhất đề tài. Không dùng `relatedToVideoId`.
+| Đề tài | Neo (tốc độ tự tính so trung vị đề tài) | Khác biệt của Crux (máy viết, xem lại ở G1) |
+|---|---|---|
+| #12 (Tập 6, hồi tố) | Diamond NestEgg [qFuVEfm68ps](https://youtu.be/qFuVEfm68ps) · cao · giả định cố định | chiếu khoản COLA theo giả định; không phát lại lạm phát 20 năm thật |
+| **#13 (Tập 7)** | Home Loan Education [9bTPEGduDww](https://youtu.be/9bTPEGduDww) · Real Estate The Ramsey Way [8Z5KjkQk5gk](https://youtu.be/8Z5KjkQk5gk) · James Johnson [BLgV27v3xlI](https://youtu.be/BLgV27v3xlI) — cả ba cao | giả định cố định / ý kiến; không đặt khoản vay 15 năm thật cạnh 30 năm trả trong 15; không có lịch sử lãi thật |
+| **#20 (Tập 8)** | Logical Money [nkT_K8l1rEw](https://youtu.be/nkT_K8l1rEw) · HinExp [VSnf3GaGgMU](https://youtu.be/VSnf3GaGgMU) · Amuk Tamuk [8dBnUXzMaXQ](https://youtu.be/8dBnUXzMaXQ) — cả ba cao | hai người giả định tăng trưởng cố định; không có giá thuê/giá nhà lịch sử thật |
+Đã ghi lại hai lỗi của cách chọn neo:
+- Câu hỏi đưa vào mà có cả phương pháp ("…over real history") → Haiku loại mọi video, ra 0 neo. Câu hỏi phải là câu của khán giả.
+- `regionCode=US` vẫn trả video Ấn Độ/Anh (₹, lakh, SIP) → đã thêm bộ lọc.
+
+### 4b. Chữ do Claude viết (`toolkit/package/text.py`, Tập 6; $0,07, một lượt Opus headless)
+| | |
+|---|---|
+| 3 tiêu đề | "Annuity inflation protection: did a 2% raise keep up?" · "Annuity 2% raise vs inflation: the 20-year scorecard" · "Retirement income annuity: a 2% raise kept up 17 of 715" |
+| 2 dòng đầu mô tả | "Annuity inflation protection, replayed: a check rising 2% a year vs US prices. / Every 20-year stretch from 1947 to Aug 2006, 715 in all." |
+| Chương | 6 chương giữ mốc timeline, tên có từ khoá ("Ruth's 2% annuity raise question" …) |
+| Tag | 5 |
+| Kiểm | **ĐẠT**: S21 PASS · claim-risk 0 · số có claim · chương khớp hồi · không có từ cấm (basket…) |
+Tệp: `tongket-t6/package-ep006/{text.json, description.md}`. Có một tag lấy từ hồ sơ ("annuity cost of living rider") không khớp nội dung tập; REVIEWER G2 phải đọc cả tag.
+
+### 4c. Thumbnail lai: OpenAI image API **chạy được** qua proxy
+`images/edits` gpt-image-1, chất lượng medium, ≈ $0,063 và ≈ 23 s mỗi ảnh. Lần thử đầu với PNG 1,5 MB bị proxy trả **502**; gửi JPEG thì qua. Khoá do proxy gắn; không có biến `EMBEDDINGS_API_KEY` trong phiên.
+| Ảnh (`tongket-t6/thumbs/`) | Khung | Chữ (bộ nhận diện) | Giữ vật thể | Lệch |
+|---|---|---|---|---|
+| api-1 | đoạn a 4,0 s (Ruth, séc, 10 thùng) | 20 YEARS / LATER | thùng, séc, nhân vật tím, low-poly ✓ | thùng thành 2 tầng |
+| api-2 | đoạn e 140 s (Edna, Ruth, Carl, 3 hàng thùng) | 2% RAISE / ENOUGH? | 3 nhân vật đúng màu, thùng tối bên phải ✓ | lần 1: nhân vật phóng to, thùng mất → lần 2 (prompt "giữ khoảng cách máy") đạt. Chữ đè hàng thùng bên trái → luật: khung chừa góc dưới trái |
+| api-3 | đoạn b 70,2 s (Ruth, séc lớn, thùng cuối tối) | BIGGER CHECK / BUYS LESS? | thùng, thùng cuối tối, séc ✓ | số thùng không còn đúng 10 |
+Lớp chữ do máy vẽ (logo "M.", Inter Bold, vị trí cố định, màu trụ nghỉ hưu `#3FBF7F`), nên chữ đúng từng ký tự. **Model ảnh giữ được loại vật thể nhưng không giữ số lượng.** Bản cuối vì thế phải được người xem lại ở G2.
+
+### 4d. P4: quét 7 ngày + chấm lại (`anchors.py trend`, `rescore.py`; Sonnet, ≈ $0,02)
+- Mẫu đang lên của #12 trong 7 ngày (sau lọc): tiêu đề kiểu "thu nhập trọn đời / ngưỡng có đủ không"; thumbnail có người dẫn chỉ vào máy (Crux không dùng), biểu đồ, chia đôi; từ khoá "retirement income strategies", "lifetime retirement paycheck", "TIPS".
+- Gợi ý tìm kiếm YouTube (`suggestqueries.google.com`): **proxy chặn (CONNECT 403)** → bỏ; ghi ở `packaging.md` §7.5.
+- Giờ đăng gợi ý: thứ Hai 12–16 UTC (tín hiệu yếu).
+
+### 4e. Sau đăng
+Thành luật ở `episode.md` §10 mục 4–5: đổi/giữ ở mốc 48–72 giờ theo CTR + nguồn "video đề xuất"; hằng tháng gợi ý đổi tiêu đề video cũ khi đề tài lên lại. Chưa dựng công cụ; prompt Phiên Analytics để sau.
+
+### 4f. Phép thử trên Tập 6
+| | Thumbnail: trend · khớp · đọc ở 168×94 (Sonnet 1–5) | Ghi chú |
+|---|---|---|
+| **API lai** api-1 · api-2 · api-3 | 5·5·5 · 5·5·5 · 5·5·4 | đúng vật thể (crates), thế giới 3D, một màu kênh; số thùng lệch (api-1, api-3) |
+| Nhà máy thumb-1 · 2 · 3 (G2) | 5·5·5 · 4·5·5 · 3·4·5 | thumb-3 (đối chứng 2D) thấp nhất ở trend |
+| **ChatGPT của chủ dự án** ("20 YEARS LATER", "2% RAISE ENOUGH?", "BIGGER CHECK BUYS LESS?") | **chưa chấm**: ảnh không có trong repo/phiên | theo mô tả của chủ dự án thì trượt luật vật thể: "baskets" ≠ crates, ảnh chụp ≠ thế giới 3D, 3 màu khác nhau → theo thang thì "khớp" ≤ 2. Chạy lại khi có ảnh: `python3 toolkit/package/rescore.py … --thumb <ảnh ChatGPT>` |
+
+| Tiêu đề | trend · khớp |
+|---|---|
+| Claude 1 "Annuity inflation protection: did a 2% raise keep up?" | 4 · 4 |
+| Claude 2 "Annuity 2% raise vs inflation: the 20-year scorecard" | 4 · 5 |
+| Claude 3 "Retirement income annuity: a 2% raise kept up 17 of 715" | 3 · 5 |
+| T1 (G1) "Does a 2% Annuity Raise Really Keep Up With Prices?" | 3 · 4 |
+| Tiêu đề ChatGPT | chưa chấm (chủ dự án chưa gửi nguyên văn) |
+
+**Đọc kết quả:** Sonnet chấm rộng tay (gần như mọi ảnh 4–5) và không bắt được lỗi số thùng. Vì vậy nó chỉ là bộ lọc thô: nó loại được vật thể sai và ảnh chụp, nhưng không chọn được giữa các phương án tốt. Chênh lệch thật nằm ở luật cứng: đường API lai giữ đúng vật thể, thế giới và màu kênh theo cách làm; đường ChatGPT thì không (T6-11). Thước đo thật vẫn là Test & Compare và CTR sau đăng (§10.4).

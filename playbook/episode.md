@@ -52,7 +52,7 @@ Nguồn: `market/` (`CHANNELS.md`, `topics/<đề tài>.md` = hồ sơ cầu, `R
 2. **C1:** logline **trả lời câu hỏi trọng số cao nhất** của hồ sơ cầu (câu 1 mục "Câu hỏi khán giả"); kiểm mù kể lại giữ nguyên.
 3. **C2 (WRITER):** §3 mục 11. **REVIEWER:** `quality-framework.md` §7 mục 10 (trả lời ≥ 3/5 câu hỏi).
 4. **Kiểm mù lời C2:** vai người đọc = **người hỏi** câu hỏi trọng số cao nhất, nhập vai từ một hoàn cảnh điển hình của hồ sơ (thay vai khán giả chung; câu hỏi cố định giữ nguyên, thêm một câu: *"Did the video answer the question you came with? Which part?"*). Ghi vào ý đồ `gates/C2-intent.md` trước khi chạy như mọi ý đồ.
-5. **G1:** gói thêm **1 dòng** "trả lời câu hỏi X, Y, Z (hồ sơ cầu)" + **3 video vượt trội cùng đề tài** (liên kết, kênh, nhãn ≥ 3× / ≥ 5×) — không thêm câu hỏi cho chủ dự án (`templates/G1.md`).
+5. **G1:** gói thêm **1 dòng** "trả lời câu hỏi X, Y, Z (hồ sơ cầu)" + **3 video vượt trội cùng đề tài** (liên kết, kênh, nhãn ≥ 3× / ≥ 5×) — không thêm câu hỏi cho chủ dự án (`templates/G1.md`). **Từ Tập 7 (D-012):** thêm dòng **"neo: …; khác biệt: …"** (`python3 toolkit/market/anchors.py anchors --topic <id> --question "<câu hỏi khán giả, không nêu phương pháp>"`, P1 Việc 0) và **ý tưởng tiêu đề + thumbnail chốt ở G1** (`playbook/packaging.md` §7).
 6. **P3 → G2 → P4 (đóng gói qua ChatGPT):** §5c.
 7. **Sau phát hành:** vòng tự hiệu chỉnh nhãn cầu §10.
 
@@ -109,6 +109,8 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 
 11. **Hồ sơ cầu (`market/topics/<đề tài>.md`, §1b):** nhân vật dẫn đường dựng từ **một hoàn cảnh điển hình** của hồ sơ (vẫn ILLUSTRATIVE); kịch bản **trả lời ≥ 3/5 câu hỏi khán giả** (ghi câu nào trả ở cảnh nào trong bảng nhịp); **một nhịp xử lý một điểm yếu đối thủ** của hồ sơ (vd "giả định lợi suất cố định" → phát lại lịch sử thật) mà không nêu tên kênh; **độ dài trong dải thời lượng vượt trội** của hồ sơ **và** trong khung `format` §9 — hai dải không giao nhau thì theo `format` và ghi một vế trong dòng **Độ dài** sẵn có của G1 (đổi khuôn là quyền chủ dự án).
 
+12. **Video neo (D-012, `packaging.md` §7.1):** lời hứa trả lời trong **30 s đầu** (M2) đúng câu hỏi của video neo, và một nhịp lấp **đúng khoảng trống** của neo (dòng "khác biệt" ở G1, thường là phát lại lịch sử thật) — không nêu tên kênh, không chép tiêu đề.
+
 **Móc do máy chọn (D-006 Q4):**
 - WRITER viết **3 phương án 30 s đầu**, mỗi phương án một kiểu móc khác nhau (`packaging.md` §2). Cả ba đều theo story §1: 5 s đầu là được–mất hoặc câu hỏi trên sự thật hiện tại; lời hứa trước 0:30.
 - **So cặp móc — ỨNG VIÊN, đã hiệu chuẩn chính thức (P1 Tập 4, `episodes/ep004/cal-hook/`, lessons G1):** chọn bản gốc 7/8, mỗi mẫu ≥ 3/4, mỗi vị trí ≥ 3/4 — **đạt đúng bằng ngưỡng** ở cả ba điều kiện; mẫu mới (Tập 1 + kịch bản mới), thứ tự X/Y cân bằng. **Mới chứng minh phân biệt "có móc / bỏ móc"**, chưa chứng minh chọn đúng giữa ba móc đều tốt (Tập 4: người đọc chọn vị trí Y 7/9 ở vòng tròn). Cách dùng (chủ dự án, G1 Tập 4):
@@ -126,7 +128,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 - **Tiêu đề:** nháp ở G1 (so cặp một vòng, Tham khảo).
 - **Thumbnail:** ở G2 chỉ đưa 3 thumbnail đã qua claim-risk; **không so cặp** (Tập 3–4: người đọc chọn trùng chủ dự án 2/2, lessons H2). Chủ dự án chọn mặc định + thứ tự Test & Compare; T&C là số đo thật.
 - **Thumbnail bằng hình thế giới 3D (tổng kết Tập 5 §3.9, từ Tập 6):** thumbnail = **một khung tĩnh của thế giới** (nhà, người không mặt, chồng tiền) render bằng chính `build_seg.py` ở 1280×720 từ cảnh đã duyệt C3, cộng **tối đa 3–4 từ lớn**; bỏ chữ + cột 2D (`design/g2/thumbs.js` cũ). Ba phương án mỗi tập: (1) cảnh thế giới + 3 từ; (2) cảnh thế giới + 1 số "on paper"; (3) kiểu Tập 5 thumb-3 (chữ + cột 2D) làm **đối chứng trong Test & Compare ít nhất 2 tập**. Claim-risk áp như mọi khung (ILLUSTRATIVE, "on paper", không nêu số tiền phí khi tập cấm). Kiểm đọc được ở 168×94 px trước G2.
-- **Từ Tập 7 — đóng gói qua ChatGPT (§5c):** tiêu đề, mô tả, thumbnail do **chủ dự án làm trên ChatGPT** từ `PACKAGING-BRIEF.md`; máy render **2–3 khung thế giới không chữ** (`out/package/bg-*.png`, cách render như đoạn trên) làm ảnh nền thay cho 3 thumbnail có chữ; phương án (3) đối chứng kiểu Tập 5 vẫn render cho Test & Compare đến khi đủ 2 tập.
+- **Từ Tập 7 — gói khớp video + xu hướng + đề xuất (D-012, `packaging.md` §7; thay "đóng gói qua ChatGPT"):** P3 trước G2: chữ do Claude viết (`python3 toolkit/package/text.py episodes/epNNN --topic <id> --objects … --banned … --g1-title "…" --anchors <neo.json>`), thumbnail lai từ 3 khung thế giới (`python3 toolkit/package/thumbs.py --frame … --keep … --text "…|…" --pillar debt|retire|tax --character`), gói G2 đưa 3 tiêu đề + mô tả + 3 thumbnail đã qua claim-risk. **Dự phòng** khi API chặn (thoát 3): brief + khung `--no-api` → ChatGPT thủ công (§5c). Phương án (3) đối chứng kiểu Tập 5 vẫn render cho Test & Compare đến khi đủ 2 tập.
 - **Không tóm tắt AI ở G2** (0/3 lần đổi quyết định); sức kéo của móc đo ở C2 (§3.9).
 - **Shorts 2–3 cái 9:16 mỗi tập**, cắt từ nhịp then chốt đã qua checks:
   - ≤ 60 s;
@@ -137,7 +139,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
   Dựng bằng thư viện mẫu khi phiên nhà máy xong (`moc-b/PLAN-FACTORY.md`). Trước đó cắt tay từ bản cuối.
 - **Hướng dẫn đăng:** `episodes/epNNN/HUONG-DAN-DANG.md` theo mẫu `playbook/templates/HUONG-DAN-DANG.md`.
 
-## 5c. Đóng gói qua ChatGPT (Phiên Thị trường bước 7, từ Tập 7; không thêm lượt chạm)
+## 5c. Đóng gói qua ChatGPT — ĐƯỜNG DỰ PHÒNG từ Tập 7 (D-012; đường chính §5 + `packaging.md` §7). Brief chạy với `--objects/--banned` (lessons T6-11); P4 kiểm bản ChatGPT bằng `package_check.py` + `toolkit/package/rescore.py` (vật thể thấy trên ảnh).
 1. **P3, trước G2:** `python3 toolkit/market/brief.py episodes/epNNN --topic <id hồ sơ cầu> --bg out/package/bg-1.png --bg …` → `out/package/PACKAGING-BRIEF.md` (tiếng Anh, ≤ 1 trang, mẫu `playbook/templates/PACKAGING-BRIEF.md`): tóm tắt tập, số được phép (claim có trong `claims.json`) / bị cấm, "history, not a forecast", ILLUSTRATIVE, không khuyên, không số tiền thiếu nguồn, chương + mốc giờ từ `out/timeline.json`, 3 khuôn tiêu đề thắng + kiểu thumbnail thắng (`market/REPORT.md`), từ khoá mô tả, câu hỏi khán giả đã trả lời, ảnh nền + màu/font kênh, ≤ 4 từ lớn trên ảnh. Brief đi kèm gói G2, câu (2).
 2. **Giữa G2 và P4:** chủ dự án dán brief vào ChatGPT (đính kèm ảnh nền), rồi dán **tiêu đề + mô tả + ảnh thumbnail** vào prompt P4 cùng câu trả lời G2 (PLAN tập mục 7) — cùng một lượt dán, không lượt chạm mới.
 3. **P4, chốt kiểm:** `python3 toolkit/market/package_check.py episodes/epNNN --title "…" --description <tệp> --thumb <ảnh>` — **S21** (luật khoá, trên mô tả), claim-risk (ADVICE/FORECAST/FOUR/WE_BAD, số có claim, cụm bắt buộc, ILLUSTRATIVE), **chương khớp timeline** (±2 s đầu hồi, ≥ 10 s/chương), **chữ trên ảnh** (≤ 4 từ lớn, số có claim). Dòng `[METHOD AND SOURCES]` trong mô tả được thay bằng khối phương pháp + nguồn của máy. ĐẠT → ghi vào `HUONG-DAN-DANG.md`. TRƯỢT → `out/package/package-check.md` có **câu sửa sẵn** (tiếng Anh) cho mỗi lỗi; P4 đưa câu sửa cho chủ dự án cùng lúc báo giao hàng (G3), chủ dự án sửa trên ChatGPT trước khi đăng.
@@ -226,6 +228,8 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 1. **Sau mỗi tập:** ghi vào `market/CALIBRATION.md` một dòng: tập, đề tài, nhãn cầu lúc chọn (cao/vừa/thấp), nhãn khoảng trống, **lượt xem 28 ngày** của tập (kênh mình — số của Crux, được ghi). Số 28 ngày lấy cùng ảnh YouTube Studio ở mốc 7 ngày khi có, không thì ở tổng kết tập kế.
 2. **Sau mỗi 3 tập có nhãn:** nếu trung vị lượt xem 28 ngày của các tập nhãn "cao" **không hơn** các tập nhãn "vừa" → nhãn cầu sai: sửa cách tính trong `toolkit/market/analyze.py` (`cmd_profile`: trọng số lượt xem/ngày, số video vượt trội, số bình luận yêu cầu) trên nhánh `market-*`, chạy lại `report.py topics`, ghi lý do vào `market/CALIBRATION.md`. Chưa đủ 3 tập "cao" và 3 "vừa" → ghi "chưa đủ mẫu", không sửa.
 3. **Hằng tháng khi có Analytics kênh mình:** kênh nằm trong nguồn lưu lượng "video đề xuất" (suggested videos) của Crux → thêm/giữ ở `market/CHANNELS.md` (vòng tương ứng, lý do "nguồn đề xuất"); kênh trong danh sách 3 tháng liền không xuất hiện và không có video nổ → bỏ. Danh sách mới nổi hết hạn thử việc 90 ngày được xét cùng lúc.
+4. **Sau đăng 48–72 giờ (luật D-012; công cụ chưa dựng — Phiên Analytics sau):** đọc **tỷ lệ nhấp (CTR) lượt hiển thị** và tỷ trọng nguồn **"video đề xuất"** (suggested) + "duyệt qua" của tập. CTR dưới trung vị 5 tập gần nhất của kênh **và** nguồn đề xuất < nguồn tìm kiếm → đề xuất **đổi** thumbnail sang phương án Test & Compare kế tiếp / tiêu đề T2 (chủ dự án duyệt, một dòng). CTR ≥ trung vị → **giữ**. Ghi quyết định + số vào `audience.md`.
+5. **Hằng tháng:** chạy `anchors.py trend` cho đề tài của các tập đã đăng; đề tài có video mới đang lên (tốc độ "cao") → gợi ý **đổi tiêu đề video cũ** theo cụm tìm kiếm đang lên (không đổi nghĩa, không số mới, claim-risk như P4); chủ dự án duyệt.
 
 ## 11. Công cụ
 | Việc | Lệnh |
@@ -244,6 +248,11 @@ Kiểm mù 0,6 · dựng 0,75 · WRITER 0,4 · REVIEWER 0,45 · checks 0,15 · �
 | Thị trường: làm mới / hồ sơ cầu | `toolkit/market/{purge,discover,pull,analyze,report}.py` (§1b) |
 | Brief đóng gói ChatGPT · kiểm gói P4 | `python3 toolkit/market/brief.py …` · `python3 toolkit/market/package_check.py …` (§5c) |
 | Token phiên (đóng phiên) | `python3 toolkit/usage/from_events.py --session <id> --close trang*.json` |
+| Video neo (G1) · xu hướng 7 ngày (P4) | `python3 toolkit/market/anchors.py anchors --topic <id> --question "…"` · `… trend --topic <id> --days 7` |
+| Chữ gói (Claude) · thumbnail lai · chấm lại P4 | `python3 toolkit/package/text.py …` · `python3 toolkit/package/thumbs.py …` · `python3 toolkit/package/rescore.py …` (`packaging.md` §7) |
+| Headless khoá Console (dựng/đọc) | `bash toolkit/api.sh <build\|review> <đầu-bài.md> <log.jsonl>` |
+| Checks đủ bộ chạy tiếp được | `EP=episodes/epNNN bash toolkit/checks_split.sh <thư mục ngoài repo>` (`RESUME=1`, `KEEP=1`) |
+| Tốc độ đọc thật theo tập | `python3 toolkit/usage/measure_pace.py <tập…>` |
 
 ## 11b. An toàn chạy nền (tổng kết Tập 5 mục 12; cine-lab BAI-HOC-LL #38, #67, #70)
 - **Trần 2 h của lệnh nền (lessons T6-4; Tập 6: checks 10,3 h, 1080p 7,7 h, ba lần bị cắt).** Việc ước > 1,5 h phải **chạy tiếp được**: `build.sh` (cache đoạn/cảnh) và `EP=episodes/epNNN bash toolkit/checks_split.sh <thư mục ra cố định ngoài repo>` (`RESUME=1` khi bị cắt; `KEEP=1` giữ cache trang theo cảnh giữa các lượt → chỉ cảnh đổi lấy mẫu lại; `K_JOBS=4`). Bị cắt → chạy lại **đúng lệnh đó**, không bắt đầu lại từ đầu. Đoạn thế giới dựng song song khi máy rảnh; **không** chạy checks song song với render. Biến môi trường nới trần (`BASH_MAX_TIMEOUT_MS`) **chưa xác minh** có tác dụng với lệnh nền — thử ở BƯỚC 0 P3, ghi kết quả vào lessons, không dựa vào khi chưa đo.

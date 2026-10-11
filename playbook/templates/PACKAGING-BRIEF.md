@@ -1,5 +1,5 @@
 # Packaging brief — Episode {N}: {working title}
-<!-- Mẫu (Phiên Thị trường bước 7). P3 sinh bản điền sẵn bằng `python3 toolkit/market/brief.py episodes/epNNN --topic <id hồ sơ cầu>`
+<!-- Từ Tập 7 (D-012): ĐƯỜNG DỰ PHÒNG — đường chính là toolkit/package/text.py + thumbs.py (playbook/packaging.md §7). Mẫu (Phiên Thị trường bước 7). P3 sinh bản điền sẵn bằng `python3 toolkit/market/brief.py episodes/epNNN --topic <id hồ sơ cầu>`
      → episodes/epNNN/out/package/PACKAGING-BRIEF.md, gửi kèm gói G2. Tiếng Anh, ≤ 1 trang, chủ dự án dán NGUYÊN khối dưới vạch vào ChatGPT,
      đính kèm 2–3 ảnh nền bg-*.png. ChatGPT làm tiêu đề, mô tả, thumbnail; chủ dự án dán kết quả vào prompt P4 (cùng câu trả lời G2);
      P4 kiểm bằng toolkit/market/package_check.py (S21, claim-risk, chương khớp timeline, chữ trên ảnh). -->
@@ -19,7 +19,9 @@ You are packaging one YouTube video for **Crux**, a US personal-finance channel 
 2. {frame 2}
 3. {frame 3}
 
-**Thumbnail:** {winning style from market/REPORT.md §3}. Max **{3–4} large words**; one idea; readable at phone size (168×94). Use an attached frame as the background (3D world, faceless figures, money stacks). Colors: background #0E1116, text #F2F4F7, accent #4C8DFF, warn #F2B441, positive #3FBF7F, negative #E5484D. Font: Inter Bold. No faces, no logos, no arrows that imply a prediction.
+**Objects (exact words, never substitute):** {objects}. **Never:** {banned}.
+
+**Thumbnail:** keep the attached 3D frame's objects, figures, colors and low-poly style (no photos). {winning style from market/REPORT.md §3}. Max **{3–4} large words**; one idea; readable at phone size (168×94). Use an attached frame as the background (3D world, faceless figures, money stacks). Colors: background #0E1116, text #F2F4F7, accent #4C8DFF, warn #F2B441, positive #3FBF7F, negative #E5484D. Font: Inter Bold. Kit (fixed): "M." logo top-left and last headline line in {pillar_color}; headline bottom-left; ILLUSTRATIVE badge top-right if a figure shows; footer "US only · history, not a forecast". No faces, no other logos, no prediction arrows.
 
 **Description keywords** (first 2 lines, ~150 characters, must contain the first keyword): {keywords}
 

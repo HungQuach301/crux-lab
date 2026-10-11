@@ -1,0 +1,29 @@
+{
+ "texts": [
+  "2% RAISE",
+  "ENOUGH?"
+ ],
+ "claims": [
+  "raise_2pct"
+ ],
+ "frame": "/tmp/claude-0/frames/e-s24-s29-t140.00.png",
+ "path": "openai images/edits gpt-image-1",
+ "quality": "medium",
+ "prompt": "Edit this frame from an explainer video into a YouTube thumbnail background. KEEP exactly these objects and characters, same shapes, same colors, same count, same arrangement: KEEP THE SAME CAMERA DISTANCE AND SCALE: three small faceless low-poly figures in a line, left mint-green, middle lavender, right pink; each figure stands next to a small white check and its own horizontal row of 10 crates that is wider than the figure. Left row: 10 white crates. Middle row: 9 white then 1 dark. Right row: 4 white then 6 dark. The three crate rows are the main subject and must stay fully visible. Make them larger and closer to the camera, with dramatic soft key light, deeper shadows and gentle depth of field on a dark charcoal background (#0E1116). Style stays minimal low-poly 3D, matte, not photorealistic. Remove ALL text, labels, numbers, badges, captions and logos from the image. Do not add any new object, person, face, hand, money bill, coin, basket, arrow or chart. Characters stay faceless. Keep the top and bottom dark bands empty (they will be cropped). Leave the lower-left third darker and calm for a headline.",
+ "usage": {
+  "input_tokens": 610,
+  "input_tokens_details": {
+   "image_tokens": 323,
+   "text_tokens": 287
+  },
+  "output_tokens": 1568,
+  "output_tokens_details": {
+   "image_tokens": 1568,
+   "text_tokens": 0
+  },
+  "total_tokens": 2178
+ },
+ "cost_usd_est": 0.063,
+ "pillar": "retire",
+ "character": true
+}
