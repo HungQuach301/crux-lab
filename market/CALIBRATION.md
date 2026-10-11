@@ -14,4 +14,4 @@ Ba dòng đầu là **nhãn hồi tố** (đề tài đã làm trước khi có 
 - (chưa có)
 
 ## Danh sách kênh theo nguồn "video đề xuất" (hằng tháng, khi có Analytics)
-- (chưa có Analytics kênh Crux trong repo — lần đầu khi chủ dự án gửi ảnh nguồn lưu lượng)
+- (chưa có Analytics kênh Crux trong repo — lấy từ ảnh YouTube Studio mốc 7 ngày đã có ở `playbook/episode.md` §10, không yêu cầu ảnh thêm)

@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **vừa** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | vừa | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 8:48–14:18 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 8–15 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. Do annuity payouts actually beat bonds, Treasuries, or high-yield alternatives once you compare them on the same basis? — trọng số cao
@@ -32,11 +32,11 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Nanalyze | [SIWaHTeSDSM](https://youtu.be/SIWaHTeSDSM) | 14:18 | giả định cố định |
-| Diamond NestEgg | [qFuVEfm68ps](https://youtu.be/qFuVEfm68ps) | 19:48 | giả định cố định |
-| Learning to Retire | [aX-RQJP8_IA](https://youtu.be/aX-RQJP8_IA) | 8:48 | giả định cố định |
-| Stan The Annuity Man | [yFDgRQk6Wl8](https://youtu.be/yFDgRQk6Wl8) | 9:30 | ý kiến, không tính |
-| Steve Larsen | [TSxVZprmHZE](https://youtu.be/TSxVZprmHZE) | 7:48 | giả định cố định |
+| Nanalyze | [SIWaHTeSDSM](https://youtu.be/SIWaHTeSDSM) | 10–15 phút | giả định cố định |
+| Diamond NestEgg | [qFuVEfm68ps](https://youtu.be/qFuVEfm68ps) | 15–20 phút | giả định cố định |
+| Learning to Retire | [aX-RQJP8_IA](https://youtu.be/aX-RQJP8_IA) | 5–10 phút | giả định cố định |
+| Stan The Annuity Man | [yFDgRQk6Wl8](https://youtu.be/yFDgRQk6Wl8) | 5–10 phút | ý kiến, không tính |
+| Steve Larsen | [TSxVZprmHZE](https://youtu.be/TSxVZprmHZE) | 5–10 phút | giả định cố định |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

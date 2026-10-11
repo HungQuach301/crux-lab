@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **cao** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **vừa** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | cao | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 10:12–21:48 | tứ phân vị 25–75 % của video vượt trội cùng đề tài |
+| Dải thời lượng | 10–22 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. Is rental property actually better than index funds once you count all costs, vacancies, taxes, and your time? — trọng số cao
@@ -34,17 +34,17 @@ _Ghi chú máy: Comment sample was large and varied, so these rankings reflect f
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Logical Money | [bbP8Mr_MThk](https://youtu.be/bbP8Mr_MThk) | 15:48 | giả định cố định |
-| Pranjal Kamra | [9FYOUIZnZjU](https://youtu.be/9FYOUIZnZjU) | 11:06 | ý kiến, không tính |
-| MoneywithSwAbi | [2MTkmrpltbQ](https://youtu.be/2MTkmrpltbQ) | 10:12 | dữ liệu lịch sử thật |
-| Tom – Lazy Real Estate | [LoQNLmpzPfE](https://youtu.be/LoQNLmpzPfE) | 21:48 | giả định cố định |
-| Samuel Leeds | [fNRfwdIPXwU](https://youtu.be/fNRfwdIPXwU) | 14:18 | giả định cố định |
+| Logical Money | [bbP8Mr_MThk](https://youtu.be/bbP8Mr_MThk) | 15–20 phút | giả định cố định |
+| Pranjal Kamra | [9FYOUIZnZjU](https://youtu.be/9FYOUIZnZjU) | 10–15 phút | ý kiến, không tính |
+| MoneywithSwAbi | [2MTkmrpltbQ](https://youtu.be/2MTkmrpltbQ) | 10–15 phút | dữ liệu lịch sử thật |
+| Tom – Lazy Real Estate | [LoQNLmpzPfE](https://youtu.be/LoQNLmpzPfE) | 20–30 phút | giả định cố định |
+| Samuel Leeds | [fNRfwdIPXwU](https://youtu.be/fNRfwdIPXwU) | 10–15 phút | giả định cố định |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 
-- Logical Money — [bbP8Mr_MThk](https://youtu.be/bbP8Mr_MThk) — 15:48 — ≥ 5× (tự tính)
-- Tom – Lazy Real Estate — [LoQNLmpzPfE](https://youtu.be/LoQNLmpzPfE) — 21:48 — ≥ 5× (tự tính)
-- MoneywithSwAbi — [2MTkmrpltbQ](https://youtu.be/2MTkmrpltbQ) — 10:12 — ≥ 5× (tự tính)
+- Logical Money — [bbP8Mr_MThk](https://youtu.be/bbP8Mr_MThk) — 15–20 phút — ≥ 5× (tự tính)
+- Tom – Lazy Real Estate — [LoQNLmpzPfE](https://youtu.be/LoQNLmpzPfE) — 20–30 phút — ≥ 5× (tự tính)
+- MoneywithSwAbi — [2MTkmrpltbQ](https://youtu.be/2MTkmrpltbQ) — 10–15 phút — ≥ 5× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
 - X vs Y: Which Wins After N Years When You Count Every Cost?

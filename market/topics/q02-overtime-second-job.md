@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **thấp** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | thấp | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 7:12–12:24 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 7–13 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
 1. Does 'no tax on overtime' mean overtime pay is untaxed, or is it only a deduction? — trọng số cao
@@ -34,11 +34,11 @@ _Ghi chú máy: No comments were provided, so every question, situation, weaknes
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| The Money and Power Code | [qMvQV7Shn84](https://youtu.be/qMvQV7Shn84) | 7:18 | giả định cố định |
-| Ben Golden | [ZKOOIif53r4](https://youtu.be/ZKOOIif53r4) | 13:54 | giả định cố định |
-| Farhat Lectures. The # 1 CPA & Accounting Courses | [leOHYLfgmgw](https://youtu.be/leOHYLfgmgw) | 7:12 | ý kiến, không tính |
-| Boss Tax Pro | [QuaSF0vqE54](https://youtu.be/QuaSF0vqE54) | 12:24 | giả định cố định |
-| Chelle Hollingsworth | [18lBTwlQOVU](https://youtu.be/18lBTwlQOVU) | 5:42 | ý kiến, không tính |
+| The Money and Power Code | [qMvQV7Shn84](https://youtu.be/qMvQV7Shn84) | 5–10 phút | giả định cố định |
+| Ben Golden | [ZKOOIif53r4](https://youtu.be/ZKOOIif53r4) | 10–15 phút | giả định cố định |
+| Farhat Lectures. The # 1 CPA & Accounting Courses | [leOHYLfgmgw](https://youtu.be/leOHYLfgmgw) | 5–10 phút | ý kiến, không tính |
+| Boss Tax Pro | [QuaSF0vqE54](https://youtu.be/QuaSF0vqE54) | 10–15 phút | giả định cố định |
+| Chelle Hollingsworth | [18lBTwlQOVU](https://youtu.be/18lBTwlQOVU) | 5–10 phút | ý kiến, không tính |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **cao** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **vừa** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | cao | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 11:06–22:12 | tứ phân vị 25–75 % của video vượt trội cùng đề tài |
+| Dải thời lượng | 11–23 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. Do the hidden costs of owning (property taxes, maintenance, closing costs, HOA) get counted alongside the hidden costs of renting (forced moves, rent increases, renter's insurance)? — trọng số cao
@@ -32,17 +32,17 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Logical Money | [nkT_K8l1rEw](https://youtu.be/nkT_K8l1rEw) | 17:42 | giả định cố định |
-| HinExp | [VSnf3GaGgMU](https://youtu.be/VSnf3GaGgMU) | 19:36 | giả định cố định |
-| A2D Channel | [9RzbEmPEa8g](https://youtu.be/9RzbEmPEa8g) | 19:24 | ý kiến, không tính |
-| TED-Ed | [h6CmKF-mN2U](https://youtu.be/h6CmKF-mN2U) | 6:06 | ý kiến, không tính |
-| MoneywithSwAbi | [YOBf21X3umI](https://youtu.be/YOBf21X3umI) | 11:06 | giả định cố định |
+| Logical Money | [nkT_K8l1rEw](https://youtu.be/nkT_K8l1rEw) | 15–20 phút | giả định cố định |
+| HinExp | [VSnf3GaGgMU](https://youtu.be/VSnf3GaGgMU) | 15–20 phút | giả định cố định |
+| A2D Channel | [9RzbEmPEa8g](https://youtu.be/9RzbEmPEa8g) | 15–20 phút | ý kiến, không tính |
+| TED-Ed | [h6CmKF-mN2U](https://youtu.be/h6CmKF-mN2U) | 5–10 phút | ý kiến, không tính |
+| MoneywithSwAbi | [YOBf21X3umI](https://youtu.be/YOBf21X3umI) | 10–15 phút | giả định cố định |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 
-- Logical Money — [nkT_K8l1rEw](https://youtu.be/nkT_K8l1rEw) — 17:42 — ≥ 5× (tự tính)
-- Retirement 4 the Rest of Us — [oX6bDeoE3bg](https://youtu.be/oX6bDeoE3bg) — 22:12 — ≥ 5× (tự tính)
-- MoneywithSwAbi — [YOBf21X3umI](https://youtu.be/YOBf21X3umI) — 11:06 — ≥ 5× (tự tính)
+- Logical Money — [nkT_K8l1rEw](https://youtu.be/nkT_K8l1rEw) — 15–20 phút — ≥ 5× (tự tính)
+- Retirement 4 the Rest of Us — [oX6bDeoE3bg](https://youtu.be/oX6bDeoE3bg) — 20–30 phút — ≥ 5× (tự tính)
+- MoneywithSwAbi — [YOBf21X3umI](https://youtu.be/YOBf21X3umI) — 10–15 phút — ≥ 5× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
 - [Option A] vs [Option B] at [Age]: Which Costs More Once Hidden Expenses Count?

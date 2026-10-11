@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **thấp** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | vừa | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 9:24–11:42 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 9–12 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
 1. Is a big tax refund actually bad, or is it just money I should have been getting each paycheck? — trọng số vừa
@@ -34,11 +34,11 @@ _Ghi chú máy: No comments were provided, so all questions, situations, and wea
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Finance Guru | [zqyFpAIJabo](https://youtu.be/zqyFpAIJabo) | 11:42 | ý kiến, không tính |
-| Bookkeeping Made Simple | [gQvmnujxamE](https://youtu.be/gQvmnujxamE) | 10:18 | ý kiến, không tính |
-| Rowan Invests | [SWi_iZiEXgM](https://youtu.be/SWi_iZiEXgM) | 12:36 | giả định cố định |
-| Money Decode | [4MybkNUTV9A](https://youtu.be/4MybkNUTV9A) | 6:00 | ý kiến, không tính |
-| Scott's Ledger | [zQAAnCc8rdA](https://youtu.be/zQAAnCc8rdA) | 9:24 | ý kiến, không tính |
+| Finance Guru | [zqyFpAIJabo](https://youtu.be/zqyFpAIJabo) | 10–15 phút | ý kiến, không tính |
+| Bookkeeping Made Simple | [gQvmnujxamE](https://youtu.be/gQvmnujxamE) | 10–15 phút | ý kiến, không tính |
+| Rowan Invests | [SWi_iZiEXgM](https://youtu.be/SWi_iZiEXgM) | 10–15 phút | giả định cố định |
+| Money Decode | [4MybkNUTV9A](https://youtu.be/4MybkNUTV9A) | 5–10 phút | ý kiến, không tính |
+| Scott's Ledger | [zQAAnCc8rdA](https://youtu.be/zQAAnCc8rdA) | 5–10 phút | ý kiến, không tính |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **cao** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | vừa | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 15:54–17:24 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 15–18 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
 1. How much gain can I exclude when I sell my primary home ($250k single, $500k married filing jointly), and what does that cover? — trọng số cao
@@ -34,11 +34,11 @@ _Ghi chú máy: No audience comments were provided, so all questions, weights, s
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Covenant Wealth Advisors | [DFTwvd2SK3A](https://youtu.be/DFTwvd2SK3A) | 19:48 | ý kiến, không tính |
-| Tom – Lazy Real Estate | [_ON_ZNmp7Zg](https://youtu.be/_ON_ZNmp7Zg) | 17:24 | giả định cố định |
-| thecpadude | [J0Eh63AqCdg](https://youtu.be/J0Eh63AqCdg) | 9:12 | ý kiến, không tính |
-| Mark Calloway | [TlowWbJarYc](https://youtu.be/TlowWbJarYc) | 16:48 | ý kiến, không tính |
-| Joseph Retires | [wsO7KQp8-Os](https://youtu.be/wsO7KQp8-Os) | 15:54 | giả định cố định |
+| Covenant Wealth Advisors | [DFTwvd2SK3A](https://youtu.be/DFTwvd2SK3A) | 15–20 phút | ý kiến, không tính |
+| Tom – Lazy Real Estate | [_ON_ZNmp7Zg](https://youtu.be/_ON_ZNmp7Zg) | 15–20 phút | giả định cố định |
+| thecpadude | [J0Eh63AqCdg](https://youtu.be/J0Eh63AqCdg) | 5–10 phút | ý kiến, không tính |
+| Mark Calloway | [TlowWbJarYc](https://youtu.be/TlowWbJarYc) | 15–20 phút | ý kiến, không tính |
+| Joseph Retires | [wsO7KQp8-Os](https://youtu.be/wsO7KQp8-Os) | 15–20 phút | giả định cố định |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

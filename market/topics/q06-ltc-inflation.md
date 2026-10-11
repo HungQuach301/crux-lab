@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **cao** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **vừa** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | cao | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 12:48–26:18 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 12–27 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. Will a long-term care policy actually pay when I need care, or will claims be denied or delayed? — trọng số cao
@@ -32,15 +32,15 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Erin Talks Money · Erin Moriarity | [ugef5CPZaFs](https://youtu.be/ugef5CPZaFs) | 26:18 | dữ liệu lịch sử thật |
-| Erin Talks Money · Erin Moriarity | [nJYzAGFEk_M](https://youtu.be/nJYzAGFEk_M) | 27:00 | giả định cố định |
-| Erin Talks Money · Erin Moriarity | [mb1VPz-neRM](https://youtu.be/mb1VPz-neRM) | 21:18 | ý kiến, không tính |
-| The Art of Planning Before Investing | [2-_TDlxZhwk](https://youtu.be/2-_TDlxZhwk) | 12:48 | ý kiến, không tính |
-| Erin Talks Money · Erin Moriarity | [ERIfxnZ50gg](https://youtu.be/ERIfxnZ50gg) | 8:24 | ý kiến, không tính |
+| Erin Talks Money · Erin Moriarity | [ugef5CPZaFs](https://youtu.be/ugef5CPZaFs) | 20–30 phút | dữ liệu lịch sử thật |
+| Erin Talks Money · Erin Moriarity | [nJYzAGFEk_M](https://youtu.be/nJYzAGFEk_M) | 20–30 phút | giả định cố định |
+| Erin Talks Money · Erin Moriarity | [mb1VPz-neRM](https://youtu.be/mb1VPz-neRM) | 20–30 phút | ý kiến, không tính |
+| The Art of Planning Before Investing | [2-_TDlxZhwk](https://youtu.be/2-_TDlxZhwk) | 10–15 phút | ý kiến, không tính |
+| Erin Talks Money · Erin Moriarity | [ERIfxnZ50gg](https://youtu.be/ERIfxnZ50gg) | 5–10 phút | ý kiến, không tính |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 
-- Erin Talks Money · Erin Moriarity — [ugef5CPZaFs](https://youtu.be/ugef5CPZaFs) — 26:18 — ≥ 3× (tự tính)
+- Erin Talks Money · Erin Moriarity — [ugef5CPZaFs](https://youtu.be/ugef5CPZaFs) — 20–30 phút — ≥ 3× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
 - Claim Denied or Self-Funded? What Happens When Care Is Needed at Age [X]

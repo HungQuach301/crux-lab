@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **thấp** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | vừa | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 14:42–16:24 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 14–17 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. Which cash vehicle pays the most right now: T-bills, CDs, high-yield savings, or money market funds, and how do the rankings shift after a rate hike? — trọng số cao
@@ -32,11 +32,11 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Rob Berger | [BkHhGbtb2EM](https://youtu.be/BkHhGbtb2EM) | 15:48 | ý kiến, không tính |
-| Dividend Hustle Mark | [bN_KMvvItrI](https://youtu.be/bN_KMvvItrI) | 18:12 | giả định cố định |
-| Dividend Hustle Mark | [B18i-RrxQpg](https://youtu.be/B18i-RrxQpg) | 14:42 | giả định cố định |
-| Dividend Hustle Mark | [38XFfYhfYUg](https://youtu.be/38XFfYhfYUg) | 16:24 | giả định cố định |
-| The Algorithm Investor | [xEyXGHjs0TQ](https://youtu.be/xEyXGHjs0TQ) | 10:18 | ý kiến, không tính |
+| Rob Berger | [BkHhGbtb2EM](https://youtu.be/BkHhGbtb2EM) | 15–20 phút | ý kiến, không tính |
+| Dividend Hustle Mark | [bN_KMvvItrI](https://youtu.be/bN_KMvvItrI) | 15–20 phút | giả định cố định |
+| Dividend Hustle Mark | [B18i-RrxQpg](https://youtu.be/B18i-RrxQpg) | 10–15 phút | giả định cố định |
+| Dividend Hustle Mark | [38XFfYhfYUg](https://youtu.be/38XFfYhfYUg) | 15–20 phút | giả định cố định |
+| The Algorithm Investor | [xEyXGHjs0TQ](https://youtu.be/xEyXGHjs0TQ) | 10–15 phút | ý kiến, không tính |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

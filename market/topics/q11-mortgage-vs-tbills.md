@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **cao** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **thấp** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | cao | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 14:12–19:00 | tứ phân vị 25–75 % của video vượt trội cùng đề tài |
+| Dải thời lượng | 14–20 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. Should I pay off my low-rate mortgage early or invest the money, and which option holds up better if I lose my job? — trọng số cao
@@ -32,17 +32,17 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Erin Talks Money · Erin Moriarity | [cjFIFu7eI6k](https://youtu.be/cjFIFu7eI6k) | 22:24 | dữ liệu lịch sử thật |
-| Home Loan Education | [jBhOfdzgy8E](https://youtu.be/jBhOfdzgy8E) | 16:54 | giả định cố định |
-| Bob Sharpe | [rikT1MHdDYg](https://youtu.be/rikT1MHdDYg) | 15:36 | dữ liệu lịch sử thật |
-| Home Loan Education | [8kSSRN2ooU4](https://youtu.be/8kSSRN2ooU4) | 17:24 | ý kiến, không tính |
-| Bob Sharpe | [cavk66DEdOM](https://youtu.be/cavk66DEdOM) | 13:00 | giả định cố định |
+| Erin Talks Money · Erin Moriarity | [cjFIFu7eI6k](https://youtu.be/cjFIFu7eI6k) | 20–30 phút | dữ liệu lịch sử thật |
+| Home Loan Education | [jBhOfdzgy8E](https://youtu.be/jBhOfdzgy8E) | 15–20 phút | giả định cố định |
+| Bob Sharpe | [rikT1MHdDYg](https://youtu.be/rikT1MHdDYg) | 15–20 phút | dữ liệu lịch sử thật |
+| Home Loan Education | [8kSSRN2ooU4](https://youtu.be/8kSSRN2ooU4) | 15–20 phút | ý kiến, không tính |
+| Bob Sharpe | [cavk66DEdOM](https://youtu.be/cavk66DEdOM) | 10–15 phút | giả định cố định |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 
-- Home Loan Education — [jBhOfdzgy8E](https://youtu.be/jBhOfdzgy8E) — 16:54 — ≥ 5× (tự tính)
-- Home Loan Education — [8kSSRN2ooU4](https://youtu.be/8kSSRN2ooU4) — 17:24 — ≥ 5× (tự tính)
-- Home Loan Education — [3hIh9xT1C1o](https://youtu.be/3hIh9xT1C1o) — 14:12 — ≥ 5× (tự tính)
+- Home Loan Education — [jBhOfdzgy8E](https://youtu.be/jBhOfdzgy8E) — 15–20 phút — ≥ 5× (tự tính)
+- Home Loan Education — [8kSSRN2ooU4](https://youtu.be/8kSSRN2ooU4) — 15–20 phút — ≥ 5× (tự tính)
+- Home Loan Education — [3hIh9xT1C1o](https://youtu.be/3hIh9xT1C1o) — 10–15 phút — ≥ 5× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
 - X% Mortgage vs Y% Index Fund: Which Wins Over N Years?

@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **cao** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **thấp** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | cao | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 13:18–26:54 | tứ phân vị 25–75 % của video vượt trội cùng đề tài |
+| Dải thời lượng | 13–27 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. Should I spend more in my early retirement (go-go) years, or hold back for later? — trọng số cao
@@ -32,17 +32,17 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Holy Schmidt! | [rWWH9jtVjUw](https://youtu.be/rWWH9jtVjUw) | 13:18 | ý kiến, không tính |
-| James Shack | [-EGrPGUBGn0](https://youtu.be/-EGrPGUBGn0) | 18:24 | dữ liệu lịch sử thật |
-| Erin Talks Money · Erin Moriarity | [XR_MAoJ9QXs](https://youtu.be/XR_MAoJ9QXs) | 13:00 | giả định cố định |
-| Erin Talks Money · Erin Moriarity | [PCZ0UDPWG-U](https://youtu.be/PCZ0UDPWG-U) | 15:24 | giả định cố định |
-| Erin Talks Money · Erin Moriarity | [IOPWlBtsPNU](https://youtu.be/IOPWlBtsPNU) | 19:18 | dữ liệu lịch sử thật |
+| Holy Schmidt! | [rWWH9jtVjUw](https://youtu.be/rWWH9jtVjUw) | 10–15 phút | ý kiến, không tính |
+| James Shack | [-EGrPGUBGn0](https://youtu.be/-EGrPGUBGn0) | 15–20 phút | dữ liệu lịch sử thật |
+| Erin Talks Money · Erin Moriarity | [XR_MAoJ9QXs](https://youtu.be/XR_MAoJ9QXs) | 10–15 phút | giả định cố định |
+| Erin Talks Money · Erin Moriarity | [PCZ0UDPWG-U](https://youtu.be/PCZ0UDPWG-U) | 15–20 phút | giả định cố định |
+| Erin Talks Money · Erin Moriarity | [IOPWlBtsPNU](https://youtu.be/IOPWlBtsPNU) | 15–20 phút | dữ liệu lịch sử thật |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 
-- Hannah Invests — [O3w5P-dc1vU](https://youtu.be/O3w5P-dc1vU) — 26:54 — ≥ 5× (tự tính)
-- Holy Schmidt! — [rWWH9jtVjUw](https://youtu.be/rWWH9jtVjUw) — 13:18 — ≥ 5× (tự tính)
-- Erin Talks Money · Erin Moriarity — [XR_MAoJ9QXs](https://youtu.be/XR_MAoJ9QXs) — 13:00 — ≥ 3× (tự tính)
+- Hannah Invests — [O3w5P-dc1vU](https://youtu.be/O3w5P-dc1vU) — 20–30 phút — ≥ 5× (tự tính)
+- Holy Schmidt! — [rWWH9jtVjUw](https://youtu.be/rWWH9jtVjUw) — 10–15 phút — ≥ 5× (tự tính)
+- Erin Talks Money · Erin Moriarity — [XR_MAoJ9QXs](https://youtu.be/XR_MAoJ9QXs) — 10–15 phút — ≥ 3× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
 - [Spend More Now] vs [Hold Back for Later]: Which Keeps You Solvent Past Age [N]?

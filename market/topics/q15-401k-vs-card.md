@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **vừa** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | vừa | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 7:48–17:18 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 7–18 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. When does a 401(k) loan actually beat an emergency fund or credit card debt, and when is it a trap? — trọng số cao
@@ -34,11 +34,11 @@ _Ghi chú máy: Based on 40 paraphrased comments, mostly anecdotal and split bet
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Holy Schmidt! | [FqS9sI8N1oI](https://youtu.be/FqS9sI8N1oI) | 17:18 | ý kiến, không tính |
-| Money With Britt  | [L8M9ri_FMAg](https://youtu.be/L8M9ri_FMAg) | 7:00 | ý kiến, không tính |
-| Debra's Money Journey | [5c5jthMEKmw](https://youtu.be/5c5jthMEKmw) | 17:48 | ý kiến, không tính |
-| Mitlin Financial Inc® | [zmgnrV9EGjk](https://youtu.be/zmgnrV9EGjk) | 7:48 | giả định cố định |
-| The Wealth Workshop | [f2BpN0ody_o](https://youtu.be/f2BpN0ody_o) | 8:36 | ý kiến, không tính |
+| Holy Schmidt! | [FqS9sI8N1oI](https://youtu.be/FqS9sI8N1oI) | 15–20 phút | ý kiến, không tính |
+| Money With Britt  | [L8M9ri_FMAg](https://youtu.be/L8M9ri_FMAg) | 5–10 phút | ý kiến, không tính |
+| Debra's Money Journey | [5c5jthMEKmw](https://youtu.be/5c5jthMEKmw) | 15–20 phút | ý kiến, không tính |
+| Mitlin Financial Inc® | [zmgnrV9EGjk](https://youtu.be/zmgnrV9EGjk) | 5–10 phút | giả định cố định |
+| The Wealth Workshop | [f2BpN0ody_o](https://youtu.be/f2BpN0ody_o) | 5–10 phút | ý kiến, không tính |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

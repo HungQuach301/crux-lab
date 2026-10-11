@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **thấp** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | thấp | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 8:48–14:54 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 8–15 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
 1. Will car loan rates drop enough within a year to offset the cost of waiting? — trọng số cao
@@ -34,11 +34,11 @@ _Ghi chú máy: No audience comments were provided, so the questions, situations
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Home Loan Education | [v4e7xMZ0rus](https://youtu.be/v4e7xMZ0rus) | 18:30 | giả định cố định |
-| Camber Hazard | [P2wedKXfO7A](https://youtu.be/P2wedKXfO7A) | 8:48 | ý kiến, không tính |
-| Money Vids | [chrwsGfbUsY](https://youtu.be/chrwsGfbUsY) | 6:36 | giả định cố định |
-| Peter Invests | [qitTWeGdFPI](https://youtu.be/qitTWeGdFPI) | 14:54 | giả định cố định |
-| The Hidden Money Equation  | [HOs8pQcncHQ](https://youtu.be/HOs8pQcncHQ) | 10:18 | giả định cố định |
+| Home Loan Education | [v4e7xMZ0rus](https://youtu.be/v4e7xMZ0rus) | 15–20 phút | giả định cố định |
+| Camber Hazard | [P2wedKXfO7A](https://youtu.be/P2wedKXfO7A) | 5–10 phút | ý kiến, không tính |
+| Money Vids | [chrwsGfbUsY](https://youtu.be/chrwsGfbUsY) | 5–10 phút | giả định cố định |
+| Peter Invests | [qitTWeGdFPI](https://youtu.be/qitTWeGdFPI) | 10–15 phút | giả định cố định |
+| The Hidden Money Equation  | [HOs8pQcncHQ](https://youtu.be/HOs8pQcncHQ) | 10–15 phút | giả định cố định |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

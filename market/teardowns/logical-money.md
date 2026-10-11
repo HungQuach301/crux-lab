@@ -4,20 +4,20 @@ Phiên Thị trường `market-r1`, 11/10/2026. **Chỉ phân tích, không ché
 
 **Kênh:** Logical Money (`UCKhpM-cu2Cod-GyG6KngNYg`) — kênh **< 2 năm** (tạo giữa 2026), ~1,5 video dài/tuần, giọng đọc + hoạt hình, không mặt người. Nhãn "từ chủ dự án": **bỏ thử việc** (bình thường sẽ vào danh sách "mới nổi"). Máy phân loại ghi quốc gia kênh ngoài Mỹ — giữ vì nội dung và khán giả là tài chính cá nhân Mỹ.
 
-| Video | Liên kết | Thời lượng (API) | Vượt trội (tự tính) | Ghi chú |
+| Video | Liên kết | Thời lượng (chủ dự án ghi) | Vượt trội (tự tính) | Ghi chú |
 |---|---|---|---|---|
-| "Meet Ryan and Steve" — thuê vs mua nhà 20 năm | [nkT_K8l1rEw](https://www.youtube.com/watch?v=nkT_K8l1rEw) | 17:41 | **≥ 5×** (rất cao) | không chương; mô tả liệt kê ~14 khoản đã tính |
-| "Meet Ethan and Lucas" — nhà cho thuê vs quỹ chỉ số 20 năm | [bbP8Mr_MThk](https://www.youtube.com/watch?v=bbP8Mr_MThk) | 15:47 | **≥ 5×** | không chương; mô tả liệt kê ~13 khoản |
+| "Meet Ryan and Steve" — thuê vs mua nhà 20 năm | [nkT_K8l1rEw](https://www.youtube.com/watch?v=nkT_K8l1rEw) | 17:37 | **≥ 5×** (rất cao) | không chương; mô tả là danh sách dài các khoản đã tính |
+| "Meet Ethan and Lucas" — nhà cho thuê vs quỹ chỉ số 20 năm | [bbP8Mr_MThk](https://www.youtube.com/watch?v=bbP8Mr_MThk) | 15:43 | **≥ 5×** | không chương; mô tả là danh sách dài các khoản đã tính |
 
-Thời lượng API lệch +4 s so với số chủ dự án ghi (17:37, 15:43) — cùng video, khác cách làm tròn/hiển thị. Cả hai tiêu đề theo khuôn **"X vs Y — (Which …?) The Real Math"**; cùng khuôn được **≥ 7 kênh khác** dùng trong 6 tháng (The Hidden Money Equation, Rich by Routine, Finance Flow, Grayson Invests, WealthCraft, MoneyMechanics, Jack Explains Money…) — khuôn đang bão hoà: phần lớn video mang đuôi "The Real Math" của các kênh đó **không** vượt trội (tự tính), nên đuôi tiêu đề không phải nguyên nhân; nội dung hai nhân vật mới là.
+API xác nhận đúng hai video (thời lượng khớp số chủ dự án ghi trong vài giây). Cả hai tiêu đề theo khuôn **"X vs Y — (Which …?) The Real Math"**; cùng khuôn được **≥ 7 kênh khác** dùng trong 6 tháng (The Hidden Money Equation, Rich by Routine, Finance Flow, Grayson Invests, WealthCraft, MoneyMechanics, Jack Explains Money…) — khuôn đang bão hoà: phần lớn video mang đuôi "The Real Math" của các kênh đó **không** vượt trội (tự tính), nên đuôi tiêu đề không phải nguyên nhân; nội dung hai nhân vật mới là.
 
 ## Cấu trúc (đã có từ chat chiến lược, máy xác nhận bằng metadata)
-1. **Hai nhân vật xuất phát giống hệt** (cùng tiền, cùng lương — mô tả nói rõ "same amount … same salary"), **khác tính cách → quyết định khác.** Khán giả nhận mình vào một trong hai người trước khi thấy số.
+1. **Hai nhân vật xuất phát giống hệt** (cùng số vốn, cùng thu nhập — mô tả kênh nhấn mạnh điểm này), **khác tính cách → quyết định khác.** Khán giả nhận mình vào một trong hai người trước khi thấy số.
 2. **Tua theo mốc năm** (năm 1, 5, 10, 20): mỗi mốc là một cảnh "chấm điểm" — dễ theo, dễ giữ chân.
-3. **Phá quan niệm giữa video** ("rent is throwing money away" bị đặt lại ngay trong mô tả): cú đảo nằm ở khoảng giữa, không ở đầu.
-4. **Kết bằng 2 câu hỏi, không khuyên** — trả quyết định lại cho người xem; câu mời bình luận là câu hỏi quyết định ("bạn là Ryan hay Steve?").
+3. **Phá quan niệm giữa video** (quan niệm "thuê nhà là ném tiền qua cửa sổ" bị đặt lại): cú đảo nằm ở khoảng giữa, không ở đầu.
+4. **Kết bằng 2 câu hỏi, không khuyên** — trả quyết định lại cho người xem; câu mời bình luận là câu hỏi quyết định (người xem tự xếp mình vào phe nhân vật nào).
 5. **Câu xen hài** giữa các mốc làm mềm đoạn số.
-6. **Mô tả = danh sách "chúng tôi đã tính cả …"** (thuế nhà, bảo hiểm, sửa chữa, chi phí giao dịch, chi phí cơ hội…): bán sự **đầy đủ**, không bán đáp án.
+6. **Mô tả = danh sách các khoản đã tính** (thuế nhà, bảo hiểm, sửa chữa, chi phí giao dịch, chi phí cơ hội…): bán sự **đầy đủ**, không bán đáp án.
 
 ## Điểm yếu = khoảng trống của Crux
 - **Giả định lợi suất cố định** (cổ phiếu ~10 %/năm, nhà ~3–4 %/năm) chạy đều 20 năm. **Không phát lại lịch sử thật**: không có năm 2008 cho nhà, không có thập niên 2000 cho cổ phiếu, không có lãi vay đổi theo thời kỳ. Kết quả vì vậy phụ thuộc hoàn toàn vào hai con số giả định — đúng chỗ Crux mạnh (dữ liệu thật, "history, not a forecast", nhiều cửa sổ xuất phát).

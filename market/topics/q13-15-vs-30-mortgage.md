@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **cao** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | cao | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 10:48–23:06 | tứ phân vị 25–75 % của video vượt trội cùng đề tài |
+| Dải thời lượng | 10–24 phút | tứ phân vị 25–75 % của video vượt trội cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. Should I prepay my low-rate mortgage or invest the extra money instead? — trọng số cao
@@ -32,17 +32,17 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Home Loan Education | [EbJAgIuORTg](https://youtu.be/EbJAgIuORTg) | 23:06 | giả định cố định |
-| Bob Sharpe | [ittb9eOt46M](https://youtu.be/ittb9eOt46M) | 10:48 | giả định cố định |
-| Home Loan Education | [9bTPEGduDww](https://youtu.be/9bTPEGduDww) | 22:30 | giả định cố định |
-| Erin Talks Money · Erin Moriarity | [R_9DQ7KrQJc](https://youtu.be/R_9DQ7KrQJc) | 18:18 | giả định cố định |
-| The Shred Method™ | [siRuke_ZlvI](https://youtu.be/siRuke_ZlvI) | 8:06 | giả định cố định |
+| Home Loan Education | [EbJAgIuORTg](https://youtu.be/EbJAgIuORTg) | 20–30 phút | giả định cố định |
+| Bob Sharpe | [ittb9eOt46M](https://youtu.be/ittb9eOt46M) | 10–15 phút | giả định cố định |
+| Home Loan Education | [9bTPEGduDww](https://youtu.be/9bTPEGduDww) | 20–30 phút | giả định cố định |
+| Erin Talks Money · Erin Moriarity | [R_9DQ7KrQJc](https://youtu.be/R_9DQ7KrQJc) | 15–20 phút | giả định cố định |
+| The Shred Method™ | [siRuke_ZlvI](https://youtu.be/siRuke_ZlvI) | 5–10 phút | giả định cố định |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 
-- Home Loan Education — [EbJAgIuORTg](https://youtu.be/EbJAgIuORTg) — 23:06 — ≥ 5× (tự tính)
-- Home Loan Education — [9bTPEGduDww](https://youtu.be/9bTPEGduDww) — 22:30 — ≥ 5× (tự tính)
-- Bob Sharpe — [ittb9eOt46M](https://youtu.be/ittb9eOt46M) — 10:48 — ≥ 5× (tự tính)
+- Home Loan Education — [EbJAgIuORTg](https://youtu.be/EbJAgIuORTg) — 20–30 phút — ≥ 5× (tự tính)
+- Home Loan Education — [9bTPEGduDww](https://youtu.be/9bTPEGduDww) — 20–30 phút — ≥ 5× (tự tính)
+- Bob Sharpe — [ittb9eOt46M](https://youtu.be/ittb9eOt46M) — 10–15 phút — ≥ 5× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
 - [Strategy] vs [Alternative]: The Real Break-Even on a [Rate]% Loan

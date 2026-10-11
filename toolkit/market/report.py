@@ -66,7 +66,7 @@ def cmd_channels():
          'Ứng viên = kênh có video dài xuất hiện ở **≥ 3 đề tài**, + kênh nổi bật (channelSections) của chúng, + kênh **mới nổi** '
          '(kênh < 2 năm có video ≥ 3× số người đăng ký hoặc lượt xem/ngày thuộc 10 % cao nhất), + hạt giống chủ dự án. '
          'Phân loại vòng tròn và lý do loại: Haiku headless trên tên + mô tả + 15 tiêu đề gần nhất (máy đoán, có thể sai — sửa ở đây).', '',
-         '**Không dừng hỏi duyệt.** Chủ dự án phản đối được ở **G1 Tập 7** (một dòng: "bỏ kênh X / thêm kênh Y"). Hiệu chỉnh hằng tháng theo nguồn '
+         '**Không dừng hỏi duyệt, không phải câu hỏi G1.** Nếu muốn sửa, chủ dự án ghi tự do trong câu trả lời G1 Tập 7 ("bỏ kênh X / thêm kênh Y"); không ghi gì = giữ. Hiệu chỉnh hằng tháng theo nguồn '
          '"video đề xuất" khi có Analytics kênh mình (`playbook/episode.md` §10).', '']
     L += ['## Từ chủ dự án (bỏ thử việc)', '', '| Kênh | Vòng | Kiểu | Video nổ | Ghi chú |', '|---|---|---|---|---|']
     for r in seed:
@@ -101,8 +101,12 @@ METHOD = {'real_history': 'dữ liệu lịch sử thật', 'fixed_assumption': 
 WEIGHT = {'high': 'cao', 'medium': 'vừa', 'low': 'thấp'}
 
 
-def mmss(m):
-    return f"{int(m)}:{int(round((m - int(m)) * 60)):02d}"
+def band(m):
+    """Thời lượng → dải phút làm tròn (không ghi thời lượng chính xác của video người khác)."""
+    for lo, hi in ((0, 5), (5, 10), (10, 15), (15, 20), (20, 30)):
+        if m < hi:
+            return f'{lo}–{hi} phút'
+    return '> 30 phút'
 
 
 def cmd_topics():
@@ -126,7 +130,7 @@ def cmd_topics():
              f"| Mức cầu (trừ thời sự) | **{p['demand']}** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |",
              f"| Khoảng trống | **{p['gap']}** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |",
              f"| Số video gắn đề tài | {p['n_tagged_label']} | embeddings, chỉ cặp khớp cao (cosine ≥ {A.SIM_MIN}, biên ≥ {A.SIM_MARGIN}) |",
-             f"| Dải thời lượng | {mmss(dr[0]) + '–' + mmss(dr[1]) if dr else 'chưa có'} | tứ phân vị 25–75 % của video {p.get('dur_src', '')} cùng đề tài |", '',
+             f"| Dải thời lượng | {str(int(dr[0])) + '–' + str(int(dr[1]) + 1) + ' phút' if dr else 'chưa có'} | tứ phân vị 25–75 % của video {p.get('dur_src', '')} cùng đề tài, làm tròn ra phút nguyên |", '',
              '## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)' if p['n_comments_kept'] else
              '## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)']
         L += [f"{i}. {x['q']} — trọng số {WEIGHT.get(x.get('weight'), x.get('weight'))}" for i, x in enumerate(qs, 1)] or ['chưa có']
@@ -142,9 +146,9 @@ def cmd_topics():
         L += ['', '## Video đối thủ theo tập (đầu bảng theo lượt xem; liên kết để WRITER/REVIEWER xem, không chép)', '', '| Kênh | Video | Thời lượng | Phương pháp |', '|---|---|---|---|']
         for c in p['competitors']:
             g = gm.get(c['id'], {})
-            L.append(f"| {c['channel'].replace('|', '·')} | [{c['id']}](https://youtu.be/{c['id']}) | {mmss(c['min'])} | {METHOD.get(g.get('method'), '—')} |")
+            L.append(f"| {c['channel'].replace('|', '·')} | [{c['id']}](https://youtu.be/{c['id']}) | {band(c['min'])} | {METHOD.get(g.get('method'), '—')} |")
         L += ['', '## Video vượt trội cùng đề tài (cho dòng G1)', '']
-        L += [f"- {o['channel'].replace('|', '·')} — [{o['id']}](https://youtu.be/{o['id']}) — {mmss(o['min'])} — {o['band']} (tự tính)" for o in p['outliers']] or \
+        L += [f"- {o['channel'].replace('|', '·')} — [{o['id']}](https://youtu.be/{o['id']}) — {band(o['min'])} — {o['band']} (tự tính)" for o in p['outliers']] or \
              ['- chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo']
         L += ['', '## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail']
         L += [f"- {x}" for x in q.get('title_templates', [])[:3]]

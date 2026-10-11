@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **thấp** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **vừa** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | vừa | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 6:54–8:18 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 6–9 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. Can FHA mortgage insurance (MIP) ever be removed, or does it last the life of the loan? — trọng số cao
@@ -32,15 +32,15 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Home Loan Education | [PomJeQEkhaA](https://youtu.be/PomJeQEkhaA) | 16:12 | giả định cố định |
-| Nathan Udomsri | [Yy0DP1EGPWA](https://youtu.be/Yy0DP1EGPWA) | 5:24 | ý kiến, không tính |
-| Wise Money Show | [3htUqeXWGio](https://youtu.be/3htUqeXWGio) | 8:18 | giả định cố định |
-| Winning With Wade · Mortgage Education & Strategy | [5u_n29D1LlA](https://youtu.be/5u_n29D1LlA) | 6:54 | ý kiến, không tính |
-| Money Rerouted | [1o-2RJ-DdfE](https://youtu.be/1o-2RJ-DdfE) | 7:48 | dữ liệu lịch sử thật |
+| Home Loan Education | [PomJeQEkhaA](https://youtu.be/PomJeQEkhaA) | 15–20 phút | giả định cố định |
+| Nathan Udomsri | [Yy0DP1EGPWA](https://youtu.be/Yy0DP1EGPWA) | 5–10 phút | ý kiến, không tính |
+| Wise Money Show | [3htUqeXWGio](https://youtu.be/3htUqeXWGio) | 5–10 phút | giả định cố định |
+| Winning With Wade · Mortgage Education & Strategy | [5u_n29D1LlA](https://youtu.be/5u_n29D1LlA) | 5–10 phút | ý kiến, không tính |
+| Money Rerouted | [1o-2RJ-DdfE](https://youtu.be/1o-2RJ-DdfE) | 5–10 phút | dữ liệu lịch sử thật |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 
-- Home Loan Education — [PomJeQEkhaA](https://youtu.be/PomJeQEkhaA) — 16:12 — ≥ 5× (tự tính)
+- Home Loan Education — [PomJeQEkhaA](https://youtu.be/PomJeQEkhaA) — 15–20 phút — ≥ 5× (tự tính)
 
 ## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail
 - Dropping Mortgage Insurance Early: Does a Reappraisal Beat Waiting Out the Timeline?

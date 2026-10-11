@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **thấp** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | vừa | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 7:36–19:06 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 7–20 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)
 1. How do I pick specific tax lots when selling, and which brokerages actually allow it instead of forcing FIFO or LIFO? — trọng số cao
@@ -34,11 +34,11 @@ _Ghi chú máy: Based on about 25 short comments, so the weights are rough. Situ
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Toby Mathis Esq · Tax Planning & Asset Protection  | [JpufIL0n00I](https://youtu.be/JpufIL0n00I) | 17:18 | giả định cố định |
-| Michael D. Brennan | [wqdyIDumuNM](https://youtu.be/wqdyIDumuNM) | 19:12 | giả định cố định |
-| Upstox Pro | [ub4yCbtFBIg](https://youtu.be/ub4yCbtFBIg) | 6:00 | ý kiến, không tính |
-| FinoMoji: Stock Market Educator 📈 | [dBHUJXp7sZI](https://youtu.be/dBHUJXp7sZI) | 19:06 | ý kiến, không tính |
-| Financial Enhancement Group | [2CY3i1EFC9I](https://youtu.be/2CY3i1EFC9I) | 7:36 | ý kiến, không tính |
+| Toby Mathis Esq · Tax Planning & Asset Protection  | [JpufIL0n00I](https://youtu.be/JpufIL0n00I) | 15–20 phút | giả định cố định |
+| Michael D. Brennan | [wqdyIDumuNM](https://youtu.be/wqdyIDumuNM) | 15–20 phút | giả định cố định |
+| Upstox Pro | [ub4yCbtFBIg](https://youtu.be/ub4yCbtFBIg) | 5–10 phút | ý kiến, không tính |
+| FinoMoji: Stock Market Educator 📈 | [dBHUJXp7sZI](https://youtu.be/dBHUJXp7sZI) | 15–20 phút | ý kiến, không tính |
+| Financial Enhancement Group | [2CY3i1EFC9I](https://youtu.be/2CY3i1EFC9I) | 5–10 phút | ý kiến, không tính |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

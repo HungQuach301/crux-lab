@@ -4,7 +4,7 @@ Sinh bằng `python3 toolkit/market/report.py channels` từ `~/market-cache/<ng
 
 **Cách chọn** (`toolkit/market/discover.py`): tìm theo VIDEO trước — 21 đề tài (19 dòng hàng đợi + 2 "từ hạt giống") × 3 lượt search (30 ngày theo lượt xem, 90 ngày theo lượt xem, top 20 theo độ liên quan; regionCode US, tiếng Anh, 4–20 phút) + 3 search vòng "hình thức". Ứng viên = kênh có video dài xuất hiện ở **≥ 3 đề tài**, + kênh nổi bật (channelSections) của chúng, + kênh **mới nổi** (kênh < 2 năm có video ≥ 3× số người đăng ký hoặc lượt xem/ngày thuộc 10 % cao nhất), + hạt giống chủ dự án. Phân loại vòng tròn và lý do loại: Haiku headless trên tên + mô tả + 15 tiêu đề gần nhất (máy đoán, có thể sai — sửa ở đây).
 
-**Không dừng hỏi duyệt.** Chủ dự án phản đối được ở **G1 Tập 7** (một dòng: "bỏ kênh X / thêm kênh Y"). Hiệu chỉnh hằng tháng theo nguồn "video đề xuất" khi có Analytics kênh mình (`playbook/episode.md` §10).
+**Không dừng hỏi duyệt, không phải câu hỏi G1.** Nếu muốn sửa, chủ dự án ghi tự do trong câu trả lời G1 Tập 7 ("bỏ kênh X / thêm kênh Y"); không ghi gì = giữ. Hiệu chỉnh hằng tháng theo nguồn "video đề xuất" khi có Analytics kênh mình (`playbook/episode.md` §10).
 
 ## Từ chủ dự án (bỏ thử việc)
 

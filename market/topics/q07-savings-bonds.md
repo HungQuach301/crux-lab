@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **thấp** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **thấp** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | thấp | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 12:24–18:54 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 12–19 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
 1. Do EE bonds really double in 20 years, and what rate do they actually earn? — trọng số cao
@@ -34,11 +34,11 @@ _Ghi chú máy: No audience comments were provided, so these questions, situatio
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Retire With Style | [pkbwgnRq8II](https://youtu.be/pkbwgnRq8II) | 9:06 | ý kiến, không tính |
-| Harry's Bull Run | [thadNc64xNo](https://youtu.be/thadNc64xNo) | 12:24 | giả định cố định |
-| Sab Invests | [5EhuvbJ9f0g](https://youtu.be/5EhuvbJ9f0g) | 13:06 | ý kiến, không tính |
-| Be Your Own Chief Investment Officer | [P_RqgLUU4vQ](https://youtu.be/P_RqgLUU4vQ) | 19:30 | ý kiến, không tính |
-| Finance Flow | [lThPhPQiiXQ](https://youtu.be/lThPhPQiiXQ) | 18:54 | dữ liệu lịch sử thật |
+| Retire With Style | [pkbwgnRq8II](https://youtu.be/pkbwgnRq8II) | 5–10 phút | ý kiến, không tính |
+| Harry's Bull Run | [thadNc64xNo](https://youtu.be/thadNc64xNo) | 10–15 phút | giả định cố định |
+| Sab Invests | [5EhuvbJ9f0g](https://youtu.be/5EhuvbJ9f0g) | 10–15 phút | ý kiến, không tính |
+| Be Your Own Chief Investment Officer | [P_RqgLUU4vQ](https://youtu.be/P_RqgLUU4vQ) | 15–20 phút | ý kiến, không tính |
+| Finance Flow | [lThPhPQiiXQ](https://youtu.be/lThPhPQiiXQ) | 15–20 phút | dữ liệu lịch sử thật |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **vừa** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | thấp | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 9:42–12:30 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 9–13 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
 1. How much house can I afford on my salary, and what does the 28% rule actually measure? — trọng số cao
@@ -34,11 +34,11 @@ _Ghi chú máy: No audience comments were provided, so all questions, situations
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| Rich by Routine  | [AerJ36xbD6M](https://youtu.be/AerJ36xbD6M) | 9:42 | ý kiến, không tính |
-| Sparky | [_-AgkWy1VmI](https://youtu.be/_-AgkWy1VmI) | 11:00 | ý kiến, không tính |
-| Nick Rickert · Sioux Falls Mortgage | [LA3Ap-TZeL8](https://youtu.be/LA3Ap-TZeL8) | 9:24 | ý kiến, không tính |
-| Math Invests | [rZhAXNHNYjk](https://youtu.be/rZhAXNHNYjk) | 18:24 | giả định cố định |
-| Adding another zero to the bank account | [0PySpvVkb8g](https://youtu.be/0PySpvVkb8g) | 12:30 | ý kiến, không tính |
+| Rich by Routine  | [AerJ36xbD6M](https://youtu.be/AerJ36xbD6M) | 5–10 phút | ý kiến, không tính |
+| Sparky | [_-AgkWy1VmI](https://youtu.be/_-AgkWy1VmI) | 10–15 phút | ý kiến, không tính |
+| Nick Rickert · Sioux Falls Mortgage | [LA3Ap-TZeL8](https://youtu.be/LA3Ap-TZeL8) | 5–10 phút | ý kiến, không tính |
+| Math Invests | [rZhAXNHNYjk](https://youtu.be/rZhAXNHNYjk) | 15–20 phút | giả định cố định |
+| Adding another zero to the bank account | [0PySpvVkb8g](https://youtu.be/0PySpvVkb8g) | 10–15 phút | ý kiến, không tính |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 

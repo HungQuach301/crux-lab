@@ -8,7 +8,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 | Mức cầu (trừ thời sự) | **vừa** | trung vị lượt xem/ngày của 10 video gắn đề tài mạnh nhất (≤ 24 tháng, bỏ video cờ thời sự), chia ba bậc trên 21 đề tài |
 | Khoảng trống | **cao** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |
 | Số video gắn đề tài | vừa | embeddings, chỉ cặp khớp cao (cosine ≥ 0.55, biên ≥ 0.04) |
-| Dải thời lượng | 11:30–14:00 | tứ phân vị 25–75 % của video đầu bảng cùng đề tài |
+| Dải thời lượng | 11–15 phút | tứ phân vị 25–75 % của video đầu bảng cùng đề tài, làm tròn ra phút nguyên |
 
 ## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)
 1. If I have $130,000 in W-2 wages, can a rental property loss still reduce my taxes, or is it trapped? — trọng số cao
@@ -34,11 +34,11 @@ _Ghi chú máy: No audience comments were provided, so questions, situations, we
 
 | Kênh | Video | Thời lượng | Phương pháp |
 |---|---|---|---|
-| George Ghazarian, CPA | [SG7WPcirkIA](https://youtu.be/SG7WPcirkIA) | 8:54 | ý kiến, không tính |
-| Business Finance Coach | [3vgYxfsVnZQ](https://youtu.be/3vgYxfsVnZQ) | 15:36 | ý kiến, không tính |
-| Clear Tax Accountants | [oNVOxzelpvY](https://youtu.be/oNVOxzelpvY) | 11:30 | ý kiến, không tính |
-| Edward Collins, JD, CFP®, AAMS, RFC | [rdTJxbVMn4E](https://youtu.be/rdTJxbVMn4E) | 14:00 | giả định cố định |
-| Sean Graham CPA | [ulsOeECK-NM](https://youtu.be/ulsOeECK-NM) | 11:36 | ý kiến, không tính |
+| George Ghazarian, CPA | [SG7WPcirkIA](https://youtu.be/SG7WPcirkIA) | 5–10 phút | ý kiến, không tính |
+| Business Finance Coach | [3vgYxfsVnZQ](https://youtu.be/3vgYxfsVnZQ) | 15–20 phút | ý kiến, không tính |
+| Clear Tax Accountants | [oNVOxzelpvY](https://youtu.be/oNVOxzelpvY) | 10–15 phút | ý kiến, không tính |
+| Edward Collins, JD, CFP®, AAMS, RFC | [rdTJxbVMn4E](https://youtu.be/rdTJxbVMn4E) | 10–15 phút | giả định cố định |
+| Sean Graham CPA | [ulsOeECK-NM](https://youtu.be/ulsOeECK-NM) | 10–15 phút | ý kiến, không tính |
 
 ## Video vượt trội cùng đề tài (cho dòng G1)
 
