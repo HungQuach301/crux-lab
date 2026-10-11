@@ -214,3 +214,14 @@ Dừng ở G1 lô (đóng phiên theo D-011, hoặc bản sửa nếu 1a duyệt
 Câu trả lời tổng kết Tập 6:
 <<DÁN CÂU TRẢ LỜI TỔNG KẾT TẬP 6 Ở ĐÂY>>
 ```
+
+## 7. Chi phí phiên tổng kết (T6, `session_014Vb71…`)
+- **Token phiên** (transcript cục bộ, đến lúc đóng): sinh ra 0,19 · đầu vào mới 1,02 · đọc cache 42,08 · **trần 1,21 triệu** · ngữ cảnh cuối ≈ 0,41 triệu · 0 agent con.
+- **Console (Claude):** 3 lượt REVIEWER headless $1,54 + $2,03 + $0,77 · chữ gói $0,07 · chấm lại ≈ $0,03 · neo/xu hướng ≈ $0,03 → **≈ $4,5**.
+- **OpenAI ảnh:** 4 lượt `images/edits` medium + 2 lượt thử low ≈ **$0,28** (ước theo bảng giá).
+- **YouTube Data API:** 1.212 / 10.000 đơn vị.
+- **Giờ máy:** ≈ 0,2 h (khung thế giới, không render video).
+- REVIEWER (`tongket-t6/review/`):
+  - lượt 1 ĐẠT có sửa (2 CHẶN, trong đó 1 là dương tính giả nhưng lộ ra T6-12);
+  - lượt 2 ĐẠT có sửa (0 CHẶN, 5 CHÍNH);
+  - lượt 3 ĐẠT có sửa (0 CHẶN, 0 CHÍNH, 7 PHỤ — đã áp).
