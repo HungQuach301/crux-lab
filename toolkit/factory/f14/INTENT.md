@@ -55,3 +55,8 @@ Báo thêm (không là đích): R08, V14, qc nhà máy, F-2 (sfx/nhãn đè), m�
 ## 6. Ngân sách
 Trần chi cảnh báo **$45** (Console: cổng gốc 2 bản ≈ $3, REVIEWER ≈ $1–2). Việc nặng chạy headless khoá Console (`toolkit/api.sh`),
 0 agent con. Render 1080p ≈ 1–3 h máy, checks đủ bộ ≈ 5–10 h máy: tách lệnh chạy tiếp được (`toolkit/factory/f14/rebuild.sh <bước>`, episode.md §11b).
+
+## 7. Bổ sung trước khi đo (11/10, trước lần đo đầu tiên của bản F-14)
+Bản F-14 thêm cue hình MỚI (vd ba mục giỏ "rent / medical care / gasoline", nhãn giá trị của bậc thang) → mẫu số R07 đổi. Để cue dễ đo không thổi
+phồng tỉ lệ: **R07 báo hai cách và đích ≥ 90 % phải đạt ở CẢ HAI**: (1) toàn bộ cue của bản F-14; (2) **chỉ 118 cue của bản giao** (cùng tên cue,
+cùng cách đo). Cue đổi tên/bỏ khỏi `visual_cues` = tính là trượt ở cách (2). Tương tự, thước spine báo cả "chỉ cue cũ".
