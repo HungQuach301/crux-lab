@@ -1,7 +1,8 @@
 // Tập 7 · C4 · ĐOẠN E = S21–S24. N1 Month track BẢN C4 (c4kit.TrackC4): vách 15 năm làm đích → 180 ô đặt tới vách → (3/4) 14,6 ô trễ quá vách →
-// TẤM trả thêm dày, phát quang RƠI vào từng cột, ô bắt buộc tối hẳn, ô trễ rút hết → đường xong đúng ô 180 → bóng lịch 30 năm rút về vách, thanh mức
-// bắt buộc đứng yên, một khoản bắt buộc tách lãi/gốc (lãi co lại) → một tấm nhấc lên (tháng khó, đường lui còn) → sóng mỗi tháng một lớp, gom thành
-// khối năm 12 lớp có khe → 4 ô trễ → chồng lãi nhỏ + khay tài khoản (đối trọng S24.2) → tờ đô la từ tay Tessa. Mốc giờ chỉ từ spine.json.
+// mỗi tháng MỘT TỜ ĐÔ LA (nhỏ hơn ô) từ tay Tessa đặt lên mặt ô, ô bắt buộc giữ ink-muted quanh tờ, ô trễ rút hết → đường xong đúng ô 180 → bóng lịch
+// 30 năm rút về vách, thanh mức bắt buộc đứng yên, một khoản bắt buộc tách lãi/gốc (lãi co lại) → một tờ nhấc lên (tháng khó, đường lui còn) → sóng
+// mỗi tháng một tờ, 12 tờ của năm gom thành MỘT XẤP có khe → 4 ô trễ → chồng lãi nhỏ + khay tài khoản 12 tờ (đối trọng S24.2) → tờ đô la từ tay Tessa.
+// Mốc giờ chỉ từ spine.json.
 import { setup, figure, gesture, figTag, TrackC4, SplitBar, TRK, BUNDLE_TH, modeLook, followLight, chrome, SRC_SIM, label, seg2, dip,
   kf, show, pulse, C, ease, lin, mix, THREE, setOpacity } from '/episodes/ep007/world/c4kit.js';
 import { TRACK_POSES } from '/episodes/ep007/world/c3kit.js';
@@ -26,15 +27,46 @@ export async function boot(res) {
   const ist = Stack({ unitUsd: G.bundle_usd / BUNDLE_TH, bundleUsd: G.bundle_usd, w: 0.9, d: 0.6, maxUsd: 9000 }); ist.position.set(X.istack[0], 0, X.istack[1]); scene.add(ist);
   ist.userData.checks = { role: 'bar', series: 'yearly-extra-interest', key: 'yearly-extra-interest' };
   const IUSD = 8166;   // yearly_vs_monthly_interest (độ cao vật; nhãn qua claim)
-  // S24.2: khay "tài khoản" cạnh Tessa — 12 tấm đang chờ tới kỳ trả năm
+  // S21.3 (C4 r2, ĐỔI LOẠI HÌNH lần 2 — tấm phủ của kit đọc thành "the tiles turn white"): phần trả thêm của mỗi tháng = MỘT TỜ ĐÔ LA (Bill của obj7,
+  // vật tiền của S24.3/S25, sáng hơn chút) NHỎ HƠN Ô (62 % × 41 % cạnh ô) nằm TRÊN mặt ô; ô bắt buộc giữ ink-muted và thấy quanh tờ ở mọi khung
+  // (tấm của kit tắt: drop = 0, cover = 0). Tờ rời tay Tessa, qua mép trước cột đầu rồi rải vào từng cột-năm (chạm ở land[c], một nốt mỗi cột).
+  // S23: 12 tờ của năm trượt về ô thứ 12 thành MỘT XẤP 12 tờ có khe (BLP); màu lưới không đổi
+  const BS = new THREE.Vector3(0.34, 1.8, 0.5), BH = 0.02 * BS.y, BLP = BH + 0.04;
+  const glowBill = (g) => { g.traverse((m) => { if (m.isMesh) { m.material = m.material.clone(); m.material.emissive = m.material.color.clone().lerp(new THREE.Color('#FFFFFF'), 0.3); m.material.emissiveIntensity = 0.7; } }); return g; };
+  const proto = glowBill(Bill({ name: 'extra-month' })), bills = proto.children.map((p) => {
+    const im = new THREE.InstancedMesh(p.geometry.clone().translate(p.position.x, p.position.y, p.position.z), p.material, T.n);
+    im.castShadow = im.receiveShadow = true; im.frustumCulled = false; scene.add(im); return im; });
+  bills[0].userData.checks = { role: 'mark', series: 'tessa', key: 'track-tessa-extra-bills' };
+  // S24.2: khay "tài khoản" (trước lưới, bên phải tên Tessa — C4 r2: không đè "Tessa · ILLUSTRATIVE") — 12 tờ đang chờ tới kỳ trả năm
   const tray = new THREE.Group(), trayBox = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.12, 0.62), new THREE.MeshStandardMaterial({ color: TRK.req, transparent: true, opacity: 0.35, depthWrite: false }));
   trayBox.position.y = 0.06; tray.add(trayBox);
-  for (let k = 0; k < 12; k++) { const s = new THREE.Mesh(new THREE.BoxGeometry(0.29, 0.06, 0.29), new THREE.MeshStandardMaterial({ color: TRK.ink, emissive: new THREE.Color(TRK.ink), emissiveIntensity: 0.7, transparent: true }));
-    s.position.set(0, 0.14 + k * 0.085, 0); tray.add(s); }
+  for (let k = 0; k < 12; k++) { const s = glowBill(Bill({ name: 'account' })); s.scale.set(1, 2, 1); s.position.set(0, 0.14 + k * 0.085, 0); tray.add(s); }
   tray.position.set(X.tray[0], 0, X.tray[1]); scene.add(tray); tray.userData.checks = { role: 'mark', key: 'account-tray' };
   const bill = Bill({ name: 'extra-dollar' }); scene.add(bill);
   const hand = [X.tessa[0] + 0.35, 0.7, X.tessa[1] + 0.2], dest = [X.house[0] + 0.1, 2.1, X.house[1] + 0.9];
   const lay = S.lay, land = S.land, NC = 15;
+  const cl = (x) => Math.min(1, Math.max(0, x)), sm = (u) => u * u * (3 - 2 * u);
+  const dep = (c) => land[0] - S.drop + 0.07 * c, via = [track.colX(0, -1) - 0.25, 0.95], zEnd = track.tileAt(T.cols - 1)[2];
+  const blockTop = (c) => { const [x, y, z] = track.tileAt(c * T.cols + T.cols - 1); return [x, y + T.cols * BLP, z]; };
+  const BM = new THREE.Matrix4(), BQ = new THREE.Quaternion(), BE = new THREE.Euler(), BP = new THREE.Vector3(), HIDE = new THREE.Matrix4().makeScale(0, 0, 0);
+  // tờ tháng i: bay (Bezier tay → mép trước cột đầu → ô) rồi nằm trên ô; gathered(c), bob(i), lift = {i, a} như kit
+  function setBills(t, gathered, bob, lift) {
+    for (let i = 0; i < T.n; i++) {
+      const c = Math.floor(i / T.cols), r = i % T.cols, t0 = dep(c);
+      if (t < t0) { for (const m of bills) m.setMatrixAt(i, HIDE); continue; }
+      const [x, yt, z] = track.tileAt(i), yR = yt + BH / 2 + 0.004, u = sm(lin(t, t0, land[c]));
+      if (u < 1) {
+        const v = 1 - u, zm = mix(hand[2], z, 0.5);
+        BP.set(v * v * hand[0] + 2 * v * u * via[0] + u * u * x, v * v * hand[1] + 2 * v * u * via[1] + u * u * yR, v * v * hand[2] + 2 * v * u * zm + u * u * z);
+        BE.set(0.95 * v, 0.25 * Math.sin(Math.PI * u), 0);
+      } else {
+        const k = T.cols - 1 - r, dl = 0.35 * k / (T.cols - 1), e = sm(cl((gathered(c) - dl) / (1 - dl))), y1 = yt + 0.004 + k * BLP + BH / 2;
+        BP.set(x, yR + (y1 - yR) * e + 0.08 * Math.sin(Math.PI * e) + bob(i) + (lift.i === i ? 1.1 * lift.a : 0), z + (zEnd - z) * e); BE.set(0, 0, 0);
+      }
+      BM.compose(BP, BQ.setFromEuler(BE), BS); for (const m of bills) m.setMatrixAt(i, BM);
+    }
+    for (const m of bills) m.instanceMatrix.needsUpdate = true;
+  }
 
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
@@ -42,12 +74,13 @@ export async function boot(res) {
     const late = t < S.clear_t ? kf(S.late21, t) : kf(S.late23, t);
     const curM = Math.min(179, Math.max(0, Math.floor(179 * lin(t, S.cursor[0], S.cursor[1])))), curOn = t > S.cursor[0] - 0.05 && t < S.cursor[1] + 0.4 ? 1 : 0;
     const gc = 15 * ease(t, b.b0.requires - 0.05, b.b0.requires + 1.2) * (1 - ease(t, b.b0.sooner - 0.05, b.b0.sooner + 0.6));
-    track.set({ lit: kf(S.lit, t), late,
-      flash: (c) => Math.min(1, pulse(t, lay[c] + 0.2, 0.6) + 0.5 * pulse(t, b.a2.required, 0.9) + curOn * (Math.floor(curM / 12) === c ? 0.7 : 0) + (c === 9 ? pulse(t, b.b2.later, 1.2) : 0)),
-      cover: (c) => ease(t, land[c] - 0.12, land[c] + 0.15), drop: (c) => lin(t, land[c] - S.drop, land[c]),
-      gathered: (c) => ease(t, S.gather[c][0], S.gather[c][1]),
-      bob: (i) => { const u = (t - (S.wave[0] + (S.wave[1] - S.wave[0] - 0.3) * i / 179)) / 0.3; return (u > 0 && u < 1 ? 0.14 * Math.sin(Math.PI * u) : 0) + (i < 12 ? 0.12 * pulse(t, b.b3.once, 0.4) : 0); },
-      lift: { i: S.lift.i, a: ease(t, S.lift.t[0] - 0.05, S.lift.t[0] + 0.45) * (1 - ease(t, S.lift.t[1], S.lift.t[1] + 0.5)) },
+    const gathered = (c) => ease(t, S.gather[c][0], S.gather[c][1]),
+      bob = (i) => { const u = (t - (S.wave[0] + (S.wave[1] - S.wave[0] - 0.3) * i / 179)) / 0.3; return (u > 0 && u < 1 ? 0.14 * Math.sin(Math.PI * u) : 0) + (i < 12 ? 0.12 * pulse(t, b.b3.once, 0.4) : 0); },
+      lift = { i: S.lift.i, a: ease(t, S.lift.t[0] - 0.05, S.lift.t[0] + 0.45) * (1 - ease(t, S.lift.t[1], S.lift.t[1] + 0.5)) };
+    setBills(t, gathered, bob, lift);
+    // ô bắt buộc: ink-muted suốt (cover = 0, không tấm kit: drop = 0); loé "required" nhẹ (0,3) để lưới không đọc thành trắng
+    track.set({ lit: kf(S.lit, t), late, cover: 0, drop: 0,
+      flash: (c) => Math.min(1, pulse(t, lay[c] + 0.2, 0.6) + 0.3 * pulse(t, b.a2.required, 0.9) + curOn * (Math.floor(curM / 12) === c ? 0.7 : 0) + (c === 9 ? pulse(t, b.b2.later, 1.2) : 0)),
       ghost: gc, ghostA: gc > 0.01 ? 1 : 0,
       markA: ease(t, S.mark_t - 0.05, S.mark_t + 0.5) * (0.75 + 0.6 * pulse(t, b.a0.same, 1.0)) * (1 + 0.5 * pulse(t, b.b0.sooner, 1.0)),
       pulse: show(t, b.a1.late) * (1 - show(t, b.a1.late + 0.6)) + show(t, b.b5.four) * (1 - show(t, b.b5.four + 0.6)) });
@@ -85,8 +118,8 @@ export async function boot(res) {
     // "about 15 months late" (mới ở C4) cạnh ô trễ; tắt khi ô trễ bắt đầu rút (cột đầu phủ xong)
     label(O, D('months_late_at_pay15_now'), 1810, ly - 80, { align: 'right', kind: 'number', color: C.warn, alpha: ok * show(t, b.a1.late, land[0] - 0.1), claims: ['months_late_at_pay15_now'] });
     log.roi['a1.late'] = [1200, ly - 130, 1810, ly - 60];
-    // S21.3: tấm rơi; nhãn hai dòng chỉ hiện khi không còn ô trễ nào
-    log.roi['a2.finish'] = [fx0 - 10, gy0 - 120, track.colX ? sc(track.colX(1, 1), 0, track.frontZ())[0] + 10 : fx0 + 100, fy0 + 10];
+    // S21.3: tờ tiền từ tay Tessa tới cột đầu; nhãn hai dòng chỉ hiện khi không còn ô trễ nào
+    { const [hx, hy] = sc(...hand); log.roi['a2.finish'] = [Math.min(hx, fx0) - 40, Math.min(hy, gy0) - 60, sc(track.colX(1, 1), 0, track.frontZ())[0] + 10, Math.max(hy, fy0) + 10]; }
     log.roi['a2.required'] = grid;
     const s7 = ok * show(t, b.a2.seven, b.b0.requires - 0.1) * (late <= 0 ? 1 : 0);
     label(O, `to finish in ${D('monthly_extra_months')}:`, 960, 205, { align: 'center', kind: 'number', alpha: s7, claims: ['monthly_extra_months'] });
@@ -111,8 +144,8 @@ export async function boot(res) {
     // S22.3 (thế giới): cột năm 10 loé, một tấm nhấc lên
     { const [x, y] = sc(...track.tileAt(S.lift.i)); log.roi['b2.later'] = [x - 60, y - 160, x + 60, y + 60]; log.roi['b2.wrong'] = log.roi['b2.later']; }
     // S23
-    log.roi['b3.send'] = grid; { const [x, y] = sc(...track.blockTop(0)); log.roi['b3.once'] = [Math.min(gx0, fx0) - 10, y - 30, x + 60, fy0 + 10]; }
-    log.roi['b4.extra'] = [Math.min(gx0, fx0), sc(...track.blockTop(7))[1] - 30, mx, my];
+    log.roi['b3.send'] = grid; { const [x, y] = sc(...blockTop(0)); log.roi['b3.once'] = [Math.min(gx0, fx0) - 10, y - 30, x + 60, fy0 + 10]; }
+    log.roi['b4.extra'] = [Math.min(gx0, fx0), sc(...blockTop(7))[1] - 30, mx, my];
     const s24 = b.b7.verdict - 0.35;   // hai nhãn S23 giữ qua S24.1 (≥ 3 s đọc), nhường chỗ cho hai nhãn đối trọng S24.2
     label(O, `${D('yearly_lump')} (${D('yearly_lump_formula')})`, 960, 205, { align: 'center', kind: 'number', alpha: ok * show(t, b.b4.one, s24), claims: ['yearly_lump', 'yearly_lump_formula'] });
     log.roi['b4.one'] = [400, 150, 1520, 230];
@@ -125,7 +158,7 @@ export async function boot(res) {
     { const [x, y] = sc(X.istack[0], IUSD / G.bundle_usd * BUNDLE_TH, X.istack[1]), [, y0] = sc(X.istack[0], 0, X.istack[1]);
       label(O, `${D('yearly_vs_monthly_interest')} more interest`, 1810, y - 40, { align: 'right', kind: 'number', alpha: ok * show(t, b.b6.about, w24), claims: ['yearly_vs_monthly_interest'] });
       log.roi['b6.charges'] = [x - 70, y - 20, x + 70, y0 + 10]; log.roi['b6.about'] = [1100, y - 90, 1810, y - 30]; }
-    log.roi['b6.sits'] = [Math.min(gx0, fx0), sc(...track.blockTop(0))[1] - 30, mx, fy0];
+    log.roi['b6.sits'] = [Math.min(gx0, fx0), sc(...blockTop(0))[1] - 30, mx, fy0];
     label(O, 'not a verdict on paying yearly', 960, 205, { align: 'center', kind: 'compare', alpha: ok * show(t, b.b7.verdict, w24) });
     label(O, 'what it earns there: not counted', 960, 268, { align: 'center', kind: 'compare', alpha: ok * show(t, b.b7.counted, w24) });
     log.roi['b7.verdict'] = [460, 150, 1460, 230]; log.roi['b7.counted'] = [460, 215, 1460, 290];

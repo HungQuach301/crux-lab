@@ -1,6 +1,6 @@
 // Tập 7 · C4 · ĐOẠN F = S25–S28. the bar (bản C3 s25-bar + sửa C4): tờ đô la trả thêm từ tay Tessa chạm chỗ cạnh nhà đúng "charged", thanh (W3, ink-muted)
 // trồi từ sàn rồi dâng tới độ cao lãi → đồ thị: THANG ĐỘ CAO có khắc (sàn → thanh), ba khối chữ (the bar · interest… · not tested…), bóng "any other use"
-// lên xuống LIÊN TỤC qua độ cao thanh (không dừng ngang mép), nhãn đi theo bóng, vạch "đo" ngang → lia sang lịch sử lãi 30 năm (cùng thang): đoạn
+// đứng tách, lên xuống LIÊN TỤC qua độ cao thanh (không dừng ngang mép, KHÔNG vạch so ngang), nhãn đi theo bóng → lia sang lịch sử lãi 30 năm (cùng thang): đoạn
 // thanh cưỡi đầu đường, đỉnh 9.25% Nov 1994, đáy 2.65% Jan 2021 → vạch độ cao thanh của Tessa qua cả lịch sử: đoạn cao hơn sáng (≈ 1 tuần trong 5).
 import { setup, figure, gesture, figTag, modeLook, followLight, chrome, SRC, SRC_SIM, label, seg2, dip,
   kf, show, pulse, C, ease, lin, mix, THREE, setOpacity } from '/episodes/ep007/world/c4kit.js';
@@ -18,7 +18,8 @@ export async function boot(res) {
     cH: { pos: [3.7, 2.2, 27.5], tgt: [3.7, 2.2, 0], fov: 20, chart: 1 },
   };
   const { S, D, G, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
-  const b = cue, X = S.x, BX = X.bx, BL = X.bl, GX = BX + BL / 2 + 1.2, N = S.r30.length;
+  // GX: bóng đứng tách xa đầu thanh (C4 r2: đỉnh bóng không chạm khối "the bar"; nhãn bóng không chạm khối 2)
+  const b = cue, X = S.x, BX = X.bx, BL = X.bl, GX = BX + BL / 2 + 1.5, N = S.r30.length;
   const hm = figure(scene, { x: X.house });
   const beam = Beam({ length: BL }); beam.scale.set(1, 2.2, 1.4); scene.add(beam); beam.userData.checks = { role: 'mark', series: 'bar', key: 'the-bar' };
   const rider = Beam({ length: 0.7 }); rider.scale.set(1, 2.2, 1.4); scene.add(rider); rider.userData.checks = { role: 'mark', series: 'bar', key: 'bar-rider' };
@@ -34,7 +35,7 @@ export async function boot(res) {
     // thanh: sàn trống tới "charged"; trồi đúng "charged" (0,25 s), dâng tới độ cao lãi ở "rate"
     const up = ease(t, b.a0.charged - 0.02, b.a0.charged + 0.23), Hb = kf(S.bar, t) * PER_PCT, H = -0.12 + (0.12 + Math.max(0.06, Hb)) * up;
     beam.position.set(BX, H, 0); beam.visible = up > 0.01; beam.userData.checks.value = +kf(S.bar, t).toFixed(3);
-    beam.glow(0.6 * Math.max(pulse(t, b.a3.bar, 1.0), pulse(t, b.b0.taken, 1.0), pulse(t, b.b3.tessa, 1.2)), C.ink);
+    beam.glow(0.6 * Math.max(pulse(t, b.a3.bar, 1.0), 0.6 * pulse(t, b.a3.measured, 0.9), pulse(t, b.b0.taken, 1.0), pulse(t, b.b3.tessa, 1.2)), C.ink);
     // tờ 1: trong tay Tessa → bay vòng, CHẠM mặt thanh đúng "charged", cưỡi theo thanh
     const a1 = show(t, S.dollar1.appear), x1 = ease(t, land0, land1), top = [BX - 0.5, Math.max(H, 0.06) + 0.22, 0];
     d1.rotation.x = (Math.PI / 2) * Math.max(x1, 0.35);
@@ -68,8 +69,10 @@ export async function boot(res) {
         c.moveTo(dx - 16, by); c.lineTo(bx0 - 4, by); c.stroke(); c.restore(); }
       log.roi['a1.scale'] = [dx - 30, by - 10, dx + 30, fy + 10]; }
     // khối 1: the bar; khối 2: interest…; khối 3: not tested… (cột chữ dưới thanh, bên phải thước)
-    label(O, `the bar: ${D('bar_now')}`, bc, by - 118, { align: 'center', kind: 'number', alpha: ok * show(t, b.a1.seven, s25), claims: ['bar_now'] });
-    log.roi['a1.seven'] = [bc - 520, by - 182, bc + 520, by - 102];
+    // khối 1 cao hơn và lệch trái (C4 r2, verify F-2): mép phải trước mép trái bóng, đáy trên đỉnh bóng (Hb + BOB + nửa tờ)
+    const L1x = bc - 120, L1y = by - 150;
+    label(O, `the bar: ${D('bar_now')}`, L1x, L1y, { align: 'center', kind: 'number', alpha: ok * show(t, b.a1.seven, s25), claims: ['bar_now'] });
+    log.roi['a1.seven'] = [L1x - 520, L1y - 64, L1x + 520, L1y + 16];
     const XR = 820, i2 = ok * show(t, b.a2.investment, s25), n4 = ok * show(t, b.a4.whether, s25);
     label(O, 'interest no longer charged,', XR, by + 215, { kind: 'compare', px: 48, alpha: i2 });
     label(O, 'not an investment return', XR, by + 280, { kind: 'compare', px: 48, alpha: i2 });
@@ -85,12 +88,10 @@ export async function boot(res) {
       c.save(); c.globalAlpha = a2; c.strokeStyle = C.ink; c.lineWidth = 3; c.setLineDash([9, 7]); c.beginPath();
       q.forEach(([x, y], i) => (i ? c.lineTo(x, y) : c.moveTo(x, y))); c.closePath(); c.stroke(); c.restore();
     }
-    label(O, 'any other use', gx, gy + 84, { align: 'center', kind: 'name', px: 48, alpha: a2 });
-    { const [x0, y0] = sc(GX - 0.5, Hb + BOB + 0.3, 0), [x1, y1] = sc(GX + 0.5, Hb - BOB - 0.3, 0); log.roi['a3.other'] = [x0, y0, x1, y1]; }
-    // "measured": vạch nét đứt ngang độ cao thanh, từ đầu thanh tới chỗ bóng (phép đo)
-    { const [gx1] = sc(GX + 0.35, Hb, 0), a = ok * show(t, b.a3.measured, s25);
-      seg2(O, bx1 + 6, by, mix(bx1 + 6, gx1, lin(t, b.a3.measured - 0.05, b.a3.measured + 0.4)), by, C.ink, 0.85 * a, 3, [12, 9]);
-      log.roi['a3.measured'] = [bx1, by - 30, gx1 + 10, by + 30]; }
+    label(O, 'any other use', gx, gy + 76, { align: 'center', kind: 'name', px: 48, alpha: a2 });
+    { const [x0, y0] = sc(GX - 0.5, Hb + BOB + 0.3, 0), [x1, y1] = sc(GX + 0.5, Hb - BOB - 0.3, 0); log.roi['a3.other'] = [x0, y0, x1, y1];
+      // "measured": KHÔNG vạch so ngang (C4 r2, C3 câu 5: vạch ngang độ cao thanh mời đọc "phải vượt mốc") — cue hình = thanh loé nhẹ, bóng vẫn lên xuống
+      log.roi['a3.measured'] = [bx0 - 20, y0, x1, y1]; }
     // S26–S28: lịch sử
     const [h0x, hy0] = sc(X.h0, 0, 0.1), [h1x] = sc(X.h1, 0, 0.1);
     log.roi['b0.moves'] = [h0x, sc(0, 3.0)[1], h1x, hy0]; log.roi['b0.taken'] = log.roi['b0.moves'];

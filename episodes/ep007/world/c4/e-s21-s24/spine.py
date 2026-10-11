@@ -1,22 +1,23 @@
 """Tập 7 · C4 · ĐOẠN E = S21–S24 (Hồi 2 kết: Tessa tự thử khoản vay của cô — Q2 S21, Q5 S22, Q3 S23–S24; kết ở MR2). Lời + giờ = timeline của nhà máy.
   python3 episodes/ep007/world/c4/e-s21-s24/spine.py → spine.json (thoát 1 nếu vi phạm quy tắc 2/3/7, lặng MR2, 'land')
-N1 Month track BẢN C4 (c4kit.TrackC4) — sửa lỗi CHÍNH của C3 (C3-answer câu 1) bằng ĐỔI LOẠI HÌNH: lớp trả thêm là TẤM NỔI dày (≈ ô) RƠI từ trên cao
-vào từng cột-năm (một nốt mỗi cột), ô bắt buộc TỐI HẲN khi tấm của cột tới, tấm phát quang; máy ở góc 3/4 (cQ, ~40°) suốt lúc phủ — cạnh tấm thấy được.
+N1 Month track BẢN C4 (c4kit.TrackC4) — sửa lỗi CHÍNH của C3 (C3-answer câu 1) bằng ĐỔI LOẠI HÌNH (C4 r2, lần 2: tấm phủ đọc thành "the tiles turn
+white"): phần trả thêm của mỗi tháng = MỘT TỜ ĐÔ LA (Bill, obj7) nhỏ hơn ô, đặt TRÊN mặt ô; ô bắt buộc giữ ink-muted, thấy quanh tờ ở mọi khung; tờ đi
+từ tay Tessa qua cột đầu rồi rải vào từng cột-năm (một nốt mỗi cột); máy 3/4 (cQ, ~40°) — thấy độ nổi của tờ. Tấm của kit tắt (drop = 0, cover = 0).
 B21 (S21, KEY-9): thế giới — "pay" vách 15 năm (thấp, trong mờ) hiện mờ làm đích, 15 cột × 12 ô ĐẶT DẦN tới vách (mỗi cột một nốt + loé); "same" vách loé
   (= ngày "cùng ngày"). Nhân quả: cột cuối tới vách TRƯỚC, ô trễ chỉ hiện SAU khi lời nói "doesn't". → ĐỒ THỊ (3/4): "doesn't" → "ends" 14,6 ô warn
   (to ×1,2, cao ×2,5) quá vách; "ends" = "pay $2,828 on the 30-year: about 195 months"; "late" = "about 15 months late" (mới ở C4, cạnh ô trễ).
-  "finish" tấm thứ nhất rơi; 15 tấm rơi theo nhịp tới trước "seven", ô trễ rút một ô mỗi cột và TẮT hẳn khi cột 14 phủ xong (không khung nào vừa đủ
-  15 cột phủ vừa còn ô warn); "seven" = "to finish in 180 months:" / "about $733 extra on top of the $2,216 required" (không "+", không "=":
+  "finish" tờ của cột đầu rời tay Tessa; 15 cột nhận tờ theo nhịp tới trước "seven", ô trễ rút một ô mỗi cột và TẮT hẳn khi cột 14 nhận tờ (không khung
+  nào vừa đủ 15 cột có tờ vừa còn ô warn); "seven" = "to finish in 180 months:" / "about $733 extra on top of the $2,216 required" (không "+", không "=":
   không mời phép cộng $2,949 ≠ $2,948); "required" ô bắt buộc loé.
 B22 (S22, Q5): "requires" bóng 15 cột mờ quá vách = lịch 30 năm nếu chỉ trả bắt buộc + thanh mức bắt buộc (ink-muted) dọc mép trước; "stays" thanh loé
   "required payment: stays $2,216"; "sooner" bóng rút về vách "loan ends sooner". "cut" một khoản bắt buộc tách hai phần (lãi dưới, gốc trên), con trỏ
   chạy qua các tháng: phần lãi co lại, tổng cao không đổi — "interest" = "next month's interest ↓, payment fixed". → THẾ GIỚI: "later" cột năm 10 loé;
-  "wrong" một tấm của tháng đó NHẤC LÊN (tháng khó: chỉ trả bắt buộc), ô bắt buộc vẫn đó (đường lui còn).
-B23 (S23, Q3): thế giới — sóng "mỗi tháng một lớp" chạy qua 180 tấm (thấy lớp tháng TRƯỚC khi gom); "once" 12 tấm của cột đầu nảy rồi trượt về ô thứ 12
-  thành khối 12 lớp CÓ KHE; → ĐỒ THỊ: "one" → "extra" 14 cột còn lại gom (cột cuối xong đúng "extra"); "one" = "$8,792 once a year (12 × $732.67)";
+  "wrong" tờ tiền của tháng đó NHẤC LÊN (tháng khó: chỉ trả bắt buộc), ô bắt buộc vẫn đó (đường lui còn).
+B23 (S23, Q3): thế giới — sóng "mỗi tháng một tờ" chạy qua 180 tờ (thấy tờ mỗi tháng TRƯỚC khi gom); "once" 12 tờ của cột đầu nảy rồi trượt về ô thứ 12
+  thành MỘT XẤP 12 tờ CÓ KHE; → ĐỒ THỊ: "one" → "extra" 14 cột còn lại gom (cột cuối xong đúng "extra"); "one" = "$8,792 once a year (12 × $732.67)";
   "ends" 4 ô warn quá vách; "four" = "ends in 184 months: 4 months later than monthly". Màu lưới KHÔNG đổi khi gom.
 B24 (S24): "charges" chồng lãi nhỏ (bó, màu tiền) dâng cạnh ô trễ; "about" = "about $8,200 more interest"; "sits" khối năm loé. Đối trọng S24.2 TRÊN HÌNH:
-  "verdict" = "not a verdict on paying yearly"; "account" khay "tài khoản" cạnh Tessa chứa 12 tấm đang chờ; "counted" = "what it earns there: not
+  "verdict" = "not a verdict on paying yearly"; "account" khay "tài khoản" trước lưới (không đè tên Tessa) chứa 12 tờ đang chờ; "counted" = "what it earns there: not
   counted" (khay viền nét đứt). Không hình nào nói trả tháng hơn trả năm. → THẾ GIỚI: "dollar" một tờ đô la từ tay Tessa bay lên về phía nhà; giữ → MR2."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); W7 = os.path.dirname(os.path.dirname(HERE))
@@ -31,15 +32,15 @@ B = [
   {'pay': '@S21.1:pay', 'assume': '@S21.1:assume', 'same': '@S21.1:same'}, ['nốt dữ liệu mỗi cột-năm', 'tick'], 0.3, 'tò mò', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
  ('a1', 'S21.2', 'chart', 'Không: xong muộn khoảng 15 tháng.', '14,6 ô warn quá vạch; hai nhãn.',
   {'doesnt': '@S21.2:doesn', 'ends': '@S21.2:ends', 'late': '@S21.2:late'}, ['nốt dữ liệu sáng mỗi ô trễ', 'tick', 'tick'], 0.5, 'nghiêm', '(liền)'),
- ('a2', 'S21.3', 'chart', 'Muốn xong trong 15 năm: thêm $733 mỗi tháng trên khoản bắt buộc.', 'tấm trả thêm rơi vào từng cột, ô bắt buộc tối xuống, ô trễ rút hết; nhãn.',
+ ('a2', 'S21.3', 'chart', 'Muốn xong trong 15 năm: thêm $733 mỗi tháng trên khoản bắt buộc.', 'mỗi tháng một tờ đô la từ tay Tessa đặt lên ô (ô bắt buộc vẫn thấy quanh tờ), ô trễ rút hết; nhãn.',
   {'finish': '@S21.3:finish', 'add': '@S21.3:add', 'seven': '@S21.3:seven', 'required': '@S21.3:required'}, ['nốt dữ liệu mỗi tấm', 'tick'], 0.44, 'hiểu', '(liền)'),
  ('b0', 'S22.1', 'chart', 'Trả thêm không làm giảm khoản bắt buộc; khoản vay chỉ xong sớm hơn.', 'bóng lịch 30 năm; thanh mức bắt buộc; bóng rút về vách.',
   {'requires': '@S22.1:requires', 'stays': '@S22.1:stays', 'sooner': '@S22.1:sooner'}, ['rise', 'tick', 'nốt dữ liệu'], 0.4, 'hiểu', '—'),
  ('b1', 'S22.2', 'chart', 'Mỗi đô la thêm cắt lãi tháng sau; khoản trả giữ nguyên nên nhiều hơn vào gốc.', 'khoản bắt buộc tách lãi/gốc; con trỏ qua các tháng, lãi co lại.',
   {'cut': '@S22.2:cut', 'interest': '@S22.2:interest', 'fixed': '@S22.2:fixed', 'principal': '@S22.2:principal'}, ['nốt dữ liệu mỗi năm (giảm dần)', 'tick'], 0.42, 'hiểu', 'CHUYỂN CHẾ ĐỘ → thế giới'),
- ('b2', 'S22.3', 'world', 'Vì thế đường lui còn đó nhiều năm sau, nếu một tháng trục trặc.', 'cột năm 10 loé; một tấm nhấc lên, ô bắt buộc vẫn đó.',
+ ('b2', 'S22.3', 'world', 'Vì thế đường lui còn đó nhiều năm sau, nếu một tháng trục trặc.', 'cột năm 10 loé; một tờ nhấc lên, ô bắt buộc vẫn đó.',
   {'later': '@S22.3:later', 'wrong': '@S22.3:wrong'}, ['tick', 'nốt dữ liệu'], 0.4, 'yên', '—'),
- ('b3', 'S23.1', 'world', 'Gửi phần thêm mỗi năm một lần thay vì mỗi tháng?', 'sóng mỗi tháng một lớp; cột đầu gom 12 tấm thành khối 12 lớp.',
+ ('b3', 'S23.1', 'world', 'Gửi phần thêm mỗi năm một lần thay vì mỗi tháng?', 'sóng mỗi tháng một tờ; cột đầu gom 12 tờ thành một xấp.',
   {'send': '@S23.1:send', 'once': '@S23.1:once'}, ['rise', 'nốt dữ liệu khi cột gom'], 0.34, 'tò mò', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
  ('b4', 'S23.2', 'chart', 'Một khoản mỗi năm, cùng tổng.', '14 cột còn lại gom; nhãn.',
   {'one': '@S23.2:one', 'extra': '@S23.2:extra'}, ['nốt dữ liệu mỗi cột', 'tick'], 0.4, 'hiểu', '(liền)'),
@@ -47,7 +48,7 @@ B = [
   {'ends': '@S23.3:ends', 'four': '@S23.3:four'}, ['nốt dữ liệu sáng mỗi ô trễ', 'tick'], 0.46, 'bình thản', '(liền)'),
  ('b6', 'S24.1', 'chart', 'Và tốn thêm khoảng $8,200 tiền lãi vì mỗi đô la nằm trên dư nợ lâu hơn.', 'chồng lãi nhỏ dâng; nhãn; khối năm loé.',
   {'charges': '@S24.1:charges', 'about': '@S24.1:about', 'sits': '@S24.1:sits'}, ['rise', 'tick', 'tick'], 0.44, 'hiểu', '—'),
- ('b7', 'S24.2', 'chart', 'Không phải phán xét trả năm: tiền nằm trong tài khoản lâu hơn, lãi ở đó không tính.', 'khay tài khoản cạnh Tessa; hai nhãn đối trọng.',
+ ('b7', 'S24.2', 'chart', 'Không phải phán xét trả năm: tiền nằm trong tài khoản lâu hơn, lãi ở đó không tính.', 'khay tài khoản 12 tờ trước lưới; hai nhãn đối trọng.',
   {'verdict': '@S24.2:verdict', 'account': '@S24.2:account', 'counted': '@S24.2:counted'}, ['tick', 'nốt dữ liệu', 'tick'], 0.4, 'cân bằng', 'CHUYỂN CHẾ ĐỘ → thế giới'),
  ('b8', 'S24.3', 'world', 'Câu hỏi bên dưới: đô la thêm vào khoản vay thực sự được gì?', 'tờ đô la từ tay Tessa bay lên về phía nhà; giữ.',
   {'tessa': '@S24.3:Tessa', 'dollar': '@S24.3:dollar', 'earn': '@S24.3:earn'}, ['nốt dữ liệu'], 0.5, 'tò mò', 'MR2'),
@@ -108,7 +109,8 @@ ev += [{'t': cue['a0']['same'], 'kind': 'tick', 'v': 0.4}, {'t': cue['a1']['ends
        {'t': cue['b6']['charges'], 'kind': 'rise', 'dur': 0.7}, {'t': cue['b6']['about'], 'kind': 'tick', 'v': 0.45}, {'t': cue['b6']['sits'], 'kind': 'tick', 'v': 0.3},
        {'t': cue['b7']['verdict'], 'kind': 'tick', 'v': 0.4}, {'t': cue['b7']['account'], 'kind': 'data', 'v': 0.45}, {'t': cue['b7']['counted'], 'kind': 'tick', 'v': 0.35},
        {'t': cue['b8']['dollar'], 'kind': 'data', 'v': 0.7}]
-X = {'tray': [-0.9, 0.9], 'bar': [-0.9, 0.9], 'istack': [8.1, -2.2], 'house': [-1.55, -1.4], 'tessa': [-2.7, -0.5]}
+# tray (C4 r2): trước mép trước lưới, phải tên "Tessa · ILLUSTRATIVE" (cQ: hộp nét đứt ≈ x 760–950, y 750–900 px; tên ≈ x 66–594)
+X = {'tray': [1.8, 1.5], 'bar': [-0.9, 0.9], 'istack': [8.1, -2.2], 'house': [-1.55, -1.4], 'tessa': [-2.7, -0.5]}
 gestures = [{'t': cue['a0']['pay'], 'kind': 'lean', 'to': 3.0, 'hold': 1.4},                   # ô bắt đầu đặt (thế giới)
             {'t': cue['a1']['doesnt'], 'kind': 'arm', 'to': 6.6, 'hold': 1.6},               # ô trễ qua vách (đồ thị)
             {'t': cue['a2']['finish'], 'kind': 'arm', 'to': 3.0, 'hold': 2.0},               # tấm trả thêm rơi

@@ -5,7 +5,7 @@ B25 (S25, KEY-10; bản C3 s25-bar + gates/C3.md §3 #6 + C3-answer câu 5): th�
   từ sàn tới thanh có KHẮC mỗi điểm % (7 khắc + đỉnh), không chỉ chữ; "seven" = "the bar: 7.40% a year, before taxes" (khối 1); "investment" =
   "interest no longer charged, / not an investment return" (khối 2); "other" = BÓNG đô la thứ hai (mờ, viền nét đứt) tách đầu thanh, lên xuống LIÊN
   TỤC qua cả trên lẫn dưới độ cao thanh với biên độ đủ ngay từ đầu (không bao giờ dừng ngang mép thanh, kể cả lúc mờ đi), nhãn "any other use" ĐI THEO
-  bóng; "measured" = vạch nét đứt ngang độ cao thanh từ đầu thanh tới chỗ bóng (phép "đo", cue hình mới — C3 −0,30 s); "whether" = "not tested: how any
+  bóng; "measured" = thanh loé nhẹ (C4 r2: BỎ vạch nét đứt ngang đầu thanh → bóng — mời đọc "phải vượt mốc", trái C3 câu 5); "whether" = "not tested: how any
   investment compares, / once risk and taxes count" (khối 3). Không xà/cột đỡ, không "trèo qua", không lợi suất đầu tư nào.
 B26 (S26): lia sang lịch sử: "moves" đường lãi 30 năm từ Aug 1991 vẽ trái → phải, một đoạn thanh ngắn CƯỠI theo đầu đường; "taken" thanh + đoạn cưỡi loé;
   "high" mốc đỉnh; "nine" = "highest: 9.25% · Nov 1994".
@@ -29,7 +29,7 @@ B = [
   {'seven': '@S25.2:seven'}, ['tick'], 0.4, 'rõ', '(liền)'),
  ('a2', 'S25.3', 'chart', 'Không phải lợi suất đầu tư; là lãi không còn phải trả.', 'khối chữ 2.',
   {'investment': '@S25.3:investment'}, ['tick'], 0.4, 'rõ', '(liền)'),
- ('a3', 'S25.4', 'chart', 'Lãi đó là mốc để so mọi cách dùng khác của đồng đô la, trước thuế.', 'bóng đô la thứ hai lên xuống liên tục; nhãn đi theo; vạch đo ngang.',
+ ('a3', 'S25.4', 'chart', 'Lãi đó là mốc để so mọi cách dùng khác của đồng đô la, trước thuế.', 'bóng đô la thứ hai đứng tách, lên xuống liên tục; nhãn đi theo; không vạch so ngang.',
   {'bar': '@S25.4:bar', 'other': '@S25.4:other', 'measured': '@S25.4:measured'}, ['tick', 'tick', 'nốt dữ liệu'], 0.45, 'cân nhắc', '(liền)'),
  ('a4', 'S25.5', 'chart', 'Đầu tư so ra sao khi tính rủi ro và thuế: không kiểm ở đây.', 'khối chữ 3.',
   {'whether': '@S25.5:whether'}, ['tick'], 0.36, 'thận trọng', 'lia sang lịch sử'),

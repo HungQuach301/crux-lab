@@ -1633,7 +1633,7 @@
    "sid": "S21.3",
    "mode": "chart",
    "idea": "Muốn xong trong 15 năm: thêm $733 mỗi tháng trên khoản bắt buộc.",
-   "visual": "tấm trả thêm rơi vào từng cột, ô bắt buộc tối xuống, ô trễ rút hết; nhãn.",
+   "visual": "mỗi tháng một tờ đô la từ tay Tessa đặt lên ô (ô bắt buộc vẫn thấy quanh tờ), ô trễ rút hết; nhãn.",
    "line": "To finish in 15 years, she'd add $733 a month on top of the required payment.",
    "sound": [
     "nốt dữ liệu mỗi tấm",
@@ -1702,7 +1702,7 @@
    "sid": "S22.3",
    "mode": "world",
    "idea": "Vì thế đường lui còn đó nhiều năm sau, nếu một tháng trục trặc.",
-   "visual": "cột năm 10 loé; một tấm nhấc lên, ô bắt buộc vẫn đó.",
+   "visual": "cột năm 10 loé; một tờ nhấc lên, ô bắt buộc vẫn đó.",
    "line": "That's why the fallback is still there years later, if a month goes wrong.",
    "sound": [
     "tick",
@@ -1723,7 +1723,7 @@
    "sid": "S23.1",
    "mode": "world",
    "idea": "Gửi phần thêm mỗi năm một lần thay vì mỗi tháng?",
-   "visual": "sóng mỗi tháng một lớp; cột đầu gom 12 tấm thành khối 12 lớp.",
+   "visual": "sóng mỗi tháng một tờ; cột đầu gom 12 tờ thành một xấp.",
    "line": "Tessa has another practical question: could she send the extra once a year instead of every month?",
    "sound": [
     "rise",
@@ -1809,7 +1809,7 @@
    "sid": "S24.2",
    "mode": "chart",
    "idea": "Không phải phán xét trả năm: tiền nằm trong tài khoản lâu hơn, lãi ở đó không tính.",
-   "visual": "khay tài khoản cạnh Tessa; hai nhãn đối trọng.",
+   "visual": "khay tài khoản 12 tờ trước lưới; hai nhãn đối trọng.",
    "line": "That isn't a verdict on paying yearly: the money stays in her account longer, and what it earns there isn't counted.",
    "sound": [
     "tick",
@@ -3311,8 +3311,8 @@
  "mr2": 83.34,
  "x": {
   "tray": [
-   -0.9,
-   0.9
+   1.8,
+   1.5
   ],
   "bar": [
    -0.9,
@@ -3388,7 +3388,7 @@
   {
    "t": 70.557,
    "kind": "arm",
-   "to": -0.9,
+   "to": 1.8,
    "hold": 1.6
   },
   {
