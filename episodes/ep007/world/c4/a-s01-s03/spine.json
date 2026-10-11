@@ -924,10 +924,10 @@
    "sid": "S01.1",
    "mode": "world",
    "idea": "Đường lui trong khoản vay của Tessa có giá mỗi tháng.",
-   "visual": "Tessa cạnh nhà; bó tiền (warn) trồi ra ở bậc cửa (\"costs\").",
+   "visual": "Tessa cạnh nhà; từ \"costs\" 4 bó (warn) lần lượt ra cửa, bay vào chồng sát tường nhà — chồng mọc theo nhịp.",
    "line": "Tessa's mortgage fallback costs $120 a month.",
    "sound": [
-    "nốt dữ liệu khi bó ra cửa"
+    "nốt dữ liệu mỗi bó chạm chồng"
    ],
    "music": 0.3,
    "emotion": "tò mò",
@@ -944,11 +944,11 @@
    "sid": "S01.2",
    "mode": "chart",
    "idea": "Vay $320,000; khoản trả là hoá đơn lớn nhất.",
-   "visual": "tấm giấy vay (\"borrowing\", thế giới) → đồ thị: bó đầu chạm chồng + nhãn giá (5,94 s); nhãn khoản vay (\"dollars\").",
+   "visual": "tấm giấy vay (\"borrowing\", thế giới) → đồ thị: chồng đứng yên + nhãn giá (5,94 s); nhãn khoản vay (\"dollars\").",
    "line": "She's borrowing $320,000, and in her city that payment is her biggest bill.",
    "sound": [
     "tick tấm giấy vay",
-    "nốt dữ liệu khi bó chạm",
+    "tick nhãn giá",
     "tick nhãn"
    ],
    "music": 0.45,
@@ -1130,9 +1130,24 @@
    "gain": 0.7
   },
   {
-   "t": 1.467,
+   "t": 1.917,
    "kind": "data",
-   "v": 0.2
+   "v": 0.38
+  },
+  {
+   "t": 2.76,
+   "kind": "data",
+   "v": 0.46
+  },
+  {
+   "t": 3.487,
+   "kind": "data",
+   "v": 0.54
+  },
+  {
+   "t": 4.15,
+   "kind": "data",
+   "v": 0.62
   },
   {
    "t": 4.536,
@@ -1152,7 +1167,7 @@
   },
   {
    "t": 5.94,
-   "kind": "data",
+   "kind": "tick",
    "v": 0.45
   },
   {
@@ -1348,26 +1363,62 @@
    0.0
   ],
   [
-   5.94,
+   1.917,
    0.0
   ],
   [
-   5.99,
+   1.967,
    1441.47
+  ],
+  [
+   2.76,
+   1441.47
+  ],
+  [
+   2.81,
+   2882.94
+  ],
+  [
+   3.487,
+   2882.94
+  ],
+  [
+   3.537,
+   4324.41
+  ],
+  [
+   4.15,
+   4324.41
+  ],
+  [
+   4.2,
+   5765.88
   ]
  ],
  "land": 5.94,
- "fly": 0.6,
- "out0": 1.467,
+ "lands": [
+  1.917,
+  2.76,
+  3.487,
+  4.15
+ ],
+ "fly": 0.5,
+ "pop_out": 0.25,
  "ident": [
   51.933,
   54.9334
  ],
  "gestures": [
   {
+   "t": 1.917,
+   "kind": "arm",
+   "to": 1.0,
+   "hold": 2.8330000000000006
+  },
+  {
    "t": 5.94,
    "kind": "arm",
-   "to": 1.85,
+   "to": 1.0,
    "hold": 1.4
   },
   {
@@ -1398,7 +1449,8 @@
   -1.65,
   1.65
  ],
- "stack_x": 1.85,
+ "stack_x": 1.0,
+ "stack_z": -0.1,
  "weeks_extra": [
   13006,
   11981,

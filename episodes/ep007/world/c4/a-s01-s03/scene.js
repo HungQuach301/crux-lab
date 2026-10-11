@@ -1,5 +1,5 @@
-// Tập 7 · C4 · ĐOẠN A = S01–S03 + ident. Tessa cạnh nhà; bó đầu ra từ cửa nhà, tấm giấy vay (vật riêng) → đồ thị: bó chạm the stack (dừng ở một bó)
-// + "price of the fallback: $120 a month" (5,94 s), "$320,000 loan · week of Oct 8, 2026" trên tấm giấy vay → hai thẻ khoản vay (V4 adapted) → lùi
+// Tập 7 · C4 · ĐOẠN A = S01–S03 + ident. Tessa cạnh nhà; 4 bó lần lượt ra cửa nhà bay vào the stack sát tường nhà (mọc theo nhịp S01.1, dừng
+// trước S01.2), tấm giấy vay (vật riêng, trước mặt tiền) → đồ thị: "price of the fallback: $120 a month" (5,94 s), "$320,000 loan · week of Oct 8, 2026" trên tấm giấy vay → hai thẻ khoản vay (V4 adapted) → lùi
 // máy: dải 1.833 tuần (V1 xem trước) mọc thành cột giá → hai thẻ có lãi tuần 8/10/2026 → thế giới, dòng góc gạch chân, đối trọng; ident tối dần.
 import { setup, figure, gesture, figTag, LoanTag, OfferCard, WeekStrip, nameTag, theStack, stackSet, BUNDLE_TH, modeLook, followLight, chrome, label, seg2, dip,
   kf, show, pulse, C, ease, lin, THREE } from '/episodes/ep007/world/c4kit.js';
@@ -19,20 +19,23 @@ export async function boot(res) {
   };
   const { S, D, G, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
   const b = cue;
-  const hm = figure(scene, { x: -0.3 }), stack = theStack(scene, G, { x: S.stack_x }), tag = LoanTag(scene, hm);
+  const hm = figure(scene, { x: -0.3 }), stack = theStack(scene, G, { x: S.stack_x, z: S.stack_z }), tag = LoanTag(scene, hm);
+  // C4 r3: chồng sát tường phải → tấm giấy vay dời sang trước mặt tiền (phải cửa), không đứng trước chồng; vẫn là vật của nhà
+  tag.position.x = hm.house.position.x + hm.w * 0.34;
   const cardA = OfferCard(scene, { x: S.cards[0], y: 2.6, w: 3.0, h: 0.8 }), cardB = OfferCard(scene, { x: S.cards[1], y: 2.6, w: 3.0, h: 0.8 });
   const strip = WeekStrip(scene, S.weeks_extra, { x0: -9, width: 15, z: -3.2 });
   // tờ đô la trả thêm (S02.2 "each extra dollar"): ở đầu cánh tay của Tessa, mặt hướng máy
   const bill = Bill({ name: 'extra-dollar' }); bill.rotation.x = Math.PI / 2; bill.scale.setScalar(0.6); bill.position.y = -hm.h * 0.24; hm.pivot.children[0].add(bill);
-  // bó bay: hộp warn + đai (như bó trong chồng)
-  const fly = new THREE.Group();
-  fly.add(new THREE.Mesh(new THREE.BoxGeometry(FLY_W, BUNDLE_TH * 0.92, FLY_D), new THREE.MeshStandardMaterial({ color: TRACK.warn, roughness: 0.8 })),
-    new THREE.Mesh(new THREE.BoxGeometry(FLY_W * 0.16, BUNDLE_TH * 0.94, FLY_D * 1.02), new THREE.MeshStandardMaterial({ color: '#E9E2CF', roughness: 0.8 })));
-  fly.children[0].castShadow = true; scene.add(fly);
+  // bó bay: hộp warn + đai (như bó trong chồng) — một bó cho mỗi lần chạm (S.lands)
+  const flies = S.lands.map(() => {
+    const f = new THREE.Group();
+    f.add(new THREE.Mesh(new THREE.BoxGeometry(FLY_W, BUNDLE_TH * 0.92, FLY_D), new THREE.MeshStandardMaterial({ color: TRACK.warn, roughness: 0.8 })),
+      new THREE.Mesh(new THREE.BoxGeometry(FLY_W * 0.16, BUNDLE_TH * 0.94, FLY_D * 1.02), new THREE.MeshStandardMaterial({ color: '#E9E2CF', roughness: 0.8 })));
+    f.children[0].castShadow = true; scene.add(f); return f; });
   const door = [hm.house.position.x, BUNDLE_TH / 2 + 0.02, 0.58 + FLY_D / 2 + 0.05];   // bậc cửa (lib3d House: cửa giữa mặt trước)
-  const path = (p) => {   // bậc cửa → đỉnh chồng (bó đầu), vòng ra trước rồi hạ xuống
-    const e = p * p * (3 - 2 * p);
-    return [door[0] + (stack.position.x - door[0]) * e, door[1] + (BUNDLE_TH / 2 - door[1]) * e + 0.55 * Math.sin(Math.PI * p), door[2] * (1 - e) + 0.35 * Math.sin(Math.PI * p)];
+  const path = (p, k) => {   // bậc cửa → chỗ của bó k trong chồng, vòng ra trước rồi hạ xuống
+    const e = p * p * (3 - 2 * p), y1 = k * BUNDLE_TH + BUNDLE_TH / 2;
+    return [door[0] + (stack.position.x - door[0]) * e, door[1] + (y1 - door[1]) * e + 0.55 * Math.sin(Math.PI * p), door[2] + (stack.position.z - door[2]) * e + 0.35 * Math.sin(Math.PI * p)];
   };
   // thẻ: hiện ở từ khoá, mờ khi lùi máy ra dải tuần (dải nằm sau thẻ), về lại khi đẩy máy về thẻ; về thế giới (S03.2) thẻ THU ĐI cùng lúc chữ
   // tắt (tên thẻ có chữ số → chỉ ở đồ thị) — vòng bố cục 1: không còn hai hộp tối rỗng 45–53 s
@@ -43,10 +46,12 @@ export async function boot(res) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
     followLight(key, pose.tgt); modeLook(scene, floor, cw); gesture(hm, t, S.gestures);
     const h = stackSet(stack, kf(S.stack, t));
-    // bó đầu: trồi ra ở bậc cửa từ "costs", đợi ở đó, bay FLY s, chạm chồng đúng LAND; sau LAND không còn vật nào ở cửa (một chồng duy nhất)
-    const born = ease(t, S.out0, S.out0 + 0.35), t0f = S.land - S.fly;
-    fly.visible = born > 0.01 && t < S.land;
-    if (fly.visible) { const p = Math.min(1, Math.max(0, (t - t0f) / S.fly)), [x, y, z] = path(p); fly.position.set(x, y, z - (1 - born) * 0.3); fly.scale.setScalar(0.25 + 0.75 * born); }
+    // bó k: trồi ra ở bậc cửa POP_OUT s, bay FLY s, chạm chồng đúng S.lands[k] (chồng nhận bó cùng lúc); sau chạm không còn vật nào ở cửa
+    S.lands.forEach((tl, k) => {
+      const f = flies[k], t0f = tl - S.fly, born = ease(t, t0f - S.pop_out, t0f);
+      f.visible = born > 0.01 && t < tl;
+      if (f.visible) { const [x, y, z] = path(Math.min(1, Math.max(0, (t - t0f) / S.fly)), k); f.position.set(x, y, z - (1 - born) * 0.3); f.scale.setScalar(0.25 + 0.75 * born); }
+    });
     tag.set(show(t, b.a1.borrowing));
     const cA = cardsA(t);
     cardA.set({ a: show(t, b.a2.fifteen) * Math.min(1, cA) }); cardB.set({ a: show(t, b.a2.thirty) * Math.min(1, cA), band: ease(t, b.a2.kept - 0.05, b.a2.kept + 0.6) });
@@ -67,12 +72,13 @@ export async function boot(res) {
     // nó bằng dây dẫn và đứng ở hai phía khác nhau — giá: khối trên-phải CHỒNG, dây xuống đỉnh chồng; khoản vay: dòng trên-trái, dây xuống tấm giấy
     // vay; hai khối cách nhau ≥ 80 px theo chiều đứng
     const cS1 = b.a2.fifteen - 0.35, [sx, sy] = O.toScreen(stack.position.x, Math.max(h, 0.17) + 0.12, 0);
-    const pa = ok * show(t, S.land, cS1), px = Math.min(sx + 150, 1500);
+    const pa = ok * show(t, S.land, cS1), px = Math.min(sx + 200, 1500);   // r3: lệch phải thêm — dây của nhãn khoản vay (x tấm giấy) không cắt khối giá
     label(O, 'price of the fallback:', px, sy - 200, { align: 'center', kind: 'number', alpha: pa });
     label(O, D('extra_vs15_month_now'), px, sy - 135, { align: 'center', kind: 'number', px: 60, alpha: pa, claims: ['extra_vs15_month_now'] });
     seg2(O, sx, sy - 110, sx, sy + 14, C.warn, 0.85 * pa, 3);
     log.roi['a1.land'] = [px - 320, sy - 250, px + 320, sy + 20];
-    const la = ok * show(t, b.a1.dollars, cS1), lx = tx - 260, ly = ty - 220;
+    // C4 r3: tấm giấy vay giờ ở trước mặt tiền, gần chồng hơn → nhãn khoản vay lên cao hơn (trên mái), cách khối giá ≥ 80 px theo chiều đứng
+    const la = ok * show(t, b.a1.dollars, cS1), lx = Math.max(560, tx - 260), ly = ty - 330;
     label(O, `${D('principal')} loan · week of ${D('last_week_short')}`, lx, ly, { align: 'center', kind: 'number', alpha: la, claims: ['principal', 'last_week_short'] });
     seg2(O, tx, ly + 20, tx, ty - 8, C.muted, 0.85 * la, 3);
     log.roi['a1.dollars'] = [lx - 480, ly - 50, lx + 480, ty];

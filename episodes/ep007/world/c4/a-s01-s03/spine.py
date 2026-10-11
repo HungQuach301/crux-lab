@@ -1,9 +1,9 @@
 """Tập 7 · C4 · ĐOẠN A = S01–S03 + ident (cold open). Lời + giờ = timeline của nhà máy (c4kit.Seg, 0 ký tự EL).
   python3 episodes/ep007/world/c4/a-s01-s03/spine.py → spine.json (thoát 1 nếu vi phạm quy tắc 2/3/7, lặng, 'land')
-B01 (S01, bản C3 s01-stack đã duyệt + hàng chờ C4 gates/C3.md §3 #1–#2): Tessa cạnh nhà; "costs" = bó đầu trồi ra ở bậc cửa (thế giới);
-"borrowing" = TẤM GIẤY VAY (vật riêng gắn với nhà, LoanTag) hiện trước góc nhà — khoản vay không phải chồng; → ĐỒ THỊ từ 5,0 s (quy tắc 7), bó đầu
-bay từ cửa, CHẠM chồng ở 5,94 s cùng lúc "price of the fallback: $120 a month" (C3 câu 3 = a), Tessa giơ tay về phía chồng; chồng DỪNG ở bó
-đầu (không mọc trong lời "$320,000"; không bó nào ở lại cửa nhà); "dollars" = "$320,000 loan · week of Oct 8, 2026" trên tấm giấy vay.
+B01 (S01, bản C3 s01-stack đã duyệt + hàng chờ C4 gates/C3.md §3 #1–#2 + C4 r3): Tessa cạnh nhà; từ "costs" chồng MỌC 4 bó theo nhịp S01.1
+(thế giới): mỗi bó trồi ra ở bậc cửa rồi bay vào the stack SÁT tường phải của nhà, Tessa giơ tay về phía chồng; chồng DỪNG trước S01.2 (không mọc
+trong lời "$320,000"); "borrowing" = TẤM GIẤY VAY (vật riêng gắn với nhà, LoanTag, trước mặt tiền) — khoản vay không phải chồng; → ĐỒ THỊ từ 5,0 s
+(quy tắc 7); 5,94 s "price of the fallback: $120 a month" (C3 câu 3 = a); "dollars" = "$320,000 loan · week of Oct 8, 2026" trên tấm giấy vay.
 B02 (S02): "fifteen-year" / "thirty-year" = hai thẻ khoản vay treo trên Tessa (V4 adapted), "kept" = dải cushion (đường lui) trên thẻ 30 năm;
 lùi máy → "every" = dải 1.833 tuần sau nhà (V1 xem trước) "every week since Aug 1991"; "price" = mỗi ô mọc thành cột giá đường lui của tuần đó;
 "extra" = một tờ đô la trong tay Tessa (xem trước the bar).
@@ -18,10 +18,10 @@ SV, G = K.SV, K.G
 M = json.load(open(os.path.join(K.EP, 'out', 'model.json')))
 S = K.Seg(['S01', 'S02', 'S03'])
 B = [
- ('a0', 'S01.1', 'world', 'Đường lui trong khoản vay của Tessa có giá mỗi tháng.', 'Tessa cạnh nhà; bó tiền (warn) trồi ra ở bậc cửa ("costs").',
-  {'costs': '@S01.1:costs', 'month': '@S01.1:month'}, ['nốt dữ liệu khi bó ra cửa'], 0.3, 'tò mò', '—'),
- ('a1', 'S01.2', 'chart', 'Vay $320,000; khoản trả là hoá đơn lớn nhất.', 'tấm giấy vay ("borrowing", thế giới) → đồ thị: bó đầu chạm chồng + nhãn giá (5,94 s); nhãn khoản vay ("dollars").',
-  {'borrowing': '@S01.2:borrowing', 'dollars': '@S01.2:dollars'}, ['tick tấm giấy vay', 'nốt dữ liệu khi bó chạm', 'tick nhãn'], 0.45, 'tò mò', '—'),
+ ('a0', 'S01.1', 'world', 'Đường lui trong khoản vay của Tessa có giá mỗi tháng.', 'Tessa cạnh nhà; từ "costs" 4 bó (warn) lần lượt ra cửa, bay vào chồng sát tường nhà — chồng mọc theo nhịp.',
+  {'costs': '@S01.1:costs', 'month': '@S01.1:month'}, ['nốt dữ liệu mỗi bó chạm chồng'], 0.3, 'tò mò', '—'),
+ ('a1', 'S01.2', 'chart', 'Vay $320,000; khoản trả là hoá đơn lớn nhất.', 'tấm giấy vay ("borrowing", thế giới) → đồ thị: chồng đứng yên + nhãn giá (5,94 s); nhãn khoản vay ("dollars").',
+  {'borrowing': '@S01.2:borrowing', 'dollars': '@S01.2:dollars'}, ['tick tấm giấy vay', 'tick nhãn giá', 'tick nhãn'], 0.45, 'tò mò', '—'),
  ('a2', 'S02.1', 'chart', 'Câu hỏi: khoản 15 năm, hay 30 năm trả xong trong 15 năm, giữ khoản trả thấp cho tháng khó?', 'hai thẻ khoản vay treo trên Tessa; dải cushion trên thẻ 30 năm.',
   {'fifteen': '@S02.1:fifteen-year', 'thirty': '@S02.1:thirty-year', 'kept': '@S02.1:kept'}, ['nốt dữ liệu mỗi thẻ', 'tick dải'], 0.5, 'tò mò', 'lùi máy'),
  ('a3', 'S02.2', 'chart', 'Lời hứa: phát lại mọi tuần khảo sát lãi Mỹ, định giá đường lui bằng đô la, và đô la trả thêm được gì.', 'dải 1.833 tuần mọc trái → phải; mỗi ô thành cột giá; tờ đô la trong tay Tessa.',
@@ -54,10 +54,13 @@ moves = K.moves_of([
 ])
 MV = {m['id']: m for m in moves}
 assert MV['m_c1']['t0'] >= 5.0 and MV['m_c1']['t1'] <= LAND - K.PAD, MV['m_c1']
-FLY = 0.6
-OUT0 = cue['a0']['costs']
-stack, ev = K.steps([LAND], [G['bundle_usd']], ramp=0.05, v0=0.0, pitch=lambda v: 0.45)      # ĐÚNG MỘT bó (dừng sau bó đầu)
-ev += [{'t': round(OUT0, 3), 'kind': 'data', 'v': 0.2},
+# C4 r3 (B01 "grows by one bundle on each beat"): ở THẾ GIỚI, trong S01.1, NB bó lần lượt trồi ra ở bậc cửa rồi bay vào the stack sát tường phải của
+# nhà — chạm ở LANDS (theo nhịp "costs" / "dollars" / "month" / nghỉ sau "month."); chồng DỪNG trước S01.2 (không mọc trong lời "$320,000" — sửa C3)
+FLY, POP_OUT, NB = 0.5, 0.25, 4
+LANDS = [round(t, 3) for t in (cue['a0']['costs'] + 0.45, S.at('@S01.1:dollars'), cue['a0']['month'] + 0.3, S.at('@S01.2') - 0.16)]
+assert all(b - a >= FLY + 0.1 for a, b in zip(LANDS, LANDS[1:])) and LANDS[0] - FLY - POP_OUT > MV['m_push0']['t1'] - 0.3 and LANDS[-1] + 0.1 < S.at('@S01.2'), LANDS
+stack, ev = K.steps(LANDS, [G['bundle_usd'] * (k + 1) for k in range(NB)], ramp=0.05, v0=0.0, pitch=lambda v: 0.3 + 0.08 * v / G['bundle_usd'])
+ev += [{'t': LAND, 'kind': 'tick', 'v': 0.45},                                                   # nhãn giá (5,94 s, C3 câu 3 = a)
        {'t': cue['a1']['borrowing'], 'kind': 'tick', 'v': 0.35}, {'t': cue['a1']['dollars'], 'kind': 'tick', 'v': 0.5},
        {'t': cue['a2']['fifteen'], 'kind': 'data', 'v': 0.5}, {'t': cue['a2']['thirty'], 'kind': 'data', 'v': 0.62}, {'t': cue['a2']['kept'], 'kind': 'tick', 'v': 0.4},
        {'t': cue['a3']['every'], 'kind': 'rise', 'dur': 1.3}, {'t': cue['a3']['surveys'], 'kind': 'tick', 'v': 0.45},
@@ -65,14 +68,17 @@ ev += [{'t': round(OUT0, 3), 'kind': 'data', 'v': 0.2},
        {'t': cue['a4']['october'], 'kind': 'tick', 'v': 0.45},
        {'t': cue['a4']['six'], 'kind': 'data', 'v': 0.673}, {'t': cue['a4']['seven'], 'kind': 'data', 'v': 0.74},
        {'t': cue['a6']['say'], 'kind': 'tick', 'v': 0.3}]                  # ident: không sfx (nhạc hiệu A phát ở 3 s cuối đuôi S03, music.post)
-CARD_A, CARD_B, STACK_X = -1.65, 1.65, 1.85
-gestures = [{'t': LAND, 'kind': 'arm', 'to': STACK_X, 'hold': 1.4},                       # bó chạm chồng (đồ thị): Tessa giơ tay về phía chồng
+# the stack SÁT tường phải của nhà (nhà w 1,6 ở x −0,3: tường phải 0,5; bó rộng 0,9) — không trượt xa nhà khi máy lùi (đạo diễn #3)
+CARD_A, CARD_B, STACK_X, STACK_Z = -1.65, 1.65, 1.0, -0.1
+gestures = [{'t': LANDS[0], 'kind': 'arm', 'to': STACK_X, 'hold': LANDS[-1] - LANDS[0] + 0.6},   # chồng mọc theo nhịp (thế giới): Tessa giơ tay về phía chồng
+            {'t': LAND, 'kind': 'arm', 'to': STACK_X, 'hold': 1.4},                       # nhãn giá (đồ thị)
             {'t': S.at('@S01.2:biggest'), 'kind': 'nod', 'hold': 0.5},
             {'t': cue['a2']['thirty'], 'kind': 'lean', 'to': CARD_B, 'hold': 1.0},       # thẻ 30 năm hiện
             {'t': cue['a3']['extra'], 'kind': 'arm', 'to': 3.0, 'hold': 2.4},           # tờ đô la trả thêm trong tay
             {'t': cue['a4']['seven'], 'kind': 'lean', 'to': CARD_B, 'hold': 1.0}]        # lãi 30 năm lên thẻ
 K.finish(HERE, S, 'ep007 C4 · A = S01–S03 + ident (cold open)', beats, moves, ev,
-         {'stack': stack, 'land': LAND, 'fly': FLY, 'out0': round(OUT0, 3), 'ident': IDENT, 'gestures': gestures, 'cards': [CARD_A, CARD_B], 'stack_x': STACK_X,
+         {'stack': stack, 'land': LAND, 'lands': LANDS, 'fly': FLY, 'pop_out': POP_OUT, 'ident': IDENT, 'gestures': gestures, 'cards': [CARD_A, CARD_B],
+          'stack_x': STACK_X, 'stack_z': STACK_Z,
           'weeks_extra': M['series']['extra_total']},
          {'a1.land': 'price of the fallback:','a1.dollars': '$320,000 loan · week of Oct 8, 2026', 'a2.fifteen': '15-year mortgage',
           'a2.thirty': '30-year paid in 15', 'a3.surveys': 'every week since Aug 1991', 'a4.october': 'week of Oct 8, 2026', 'a4.six': '6.73%',

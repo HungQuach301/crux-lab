@@ -1,21 +1,23 @@
 """Tập 7 · C4 · ĐOẠN E = S21–S24 (Hồi 2 kết: Tessa tự thử khoản vay của cô — Q2 S21, Q5 S22, Q3 S23–S24; kết ở MR2). Lời + giờ = timeline của nhà máy.
   python3 episodes/ep007/world/c4/e-s21-s24/spine.py → spine.json (thoát 1 nếu vi phạm quy tắc 2/3/7, lặng MR2, 'land')
-N1 Month track BẢN C4 (c4kit.TrackC4) — sửa lỗi CHÍNH của C3 (C3-answer câu 1) bằng ĐỔI LOẠI HÌNH (C4 r2, lần 2: tấm phủ đọc thành "the tiles turn
-white"): phần trả thêm của mỗi tháng = MỘT TỜ ĐÔ LA (Bill, obj7) nhỏ hơn ô, đặt TRÊN mặt ô; ô bắt buộc giữ ink-muted, thấy quanh tờ ở mọi khung; tờ đi
-từ tay Tessa qua cột đầu rồi rải vào từng cột-năm (một nốt mỗi cột); máy 3/4 (cQ, ~40°) — thấy độ nổi của tờ. Tấm của kit tắt (drop = 0, cover = 0).
+N1 Month track BẢN C4 (c4kit.TrackC4) — sửa lỗi CHÍNH của C3 (C3-answer câu 1) bằng ĐỔI LOẠI HÌNH (C4 r3, lần cuối: tờ nhỏ trên lưới xa không đọc
+thành "lớp thêm"): CẬN CẢNH MỘT ĐƠN VỊ — máy đẩy vào ô tháng 1 (tối); giữa "$733" một tờ đô la to (≈ 75 % cạnh ô, dày, xanh tiền sáng, bóng đổ) hạ
+xuống nằm trên ô; giữ ≥ 1,2 s; máy lùi về 3/4 (cQ) trong khi tờ rơi vào từng cột-năm (một nốt mỗi cột), ô trễ rút từng ô khi tiền tới; khung cuối
+lưới hai màu: ô tối + một tờ sáng trên mỗi ô. Tấm của kit tắt (drop = 0); cover của kit làm tối ô.
 B21 (S21, KEY-9): thế giới — "pay" vách 15 năm (thấp, trong mờ) hiện mờ làm đích, 15 cột × 12 ô ĐẶT DẦN tới vách (mỗi cột một nốt + loé); "same" vách loé
   (= ngày "cùng ngày"). Nhân quả: cột cuối tới vách TRƯỚC, ô trễ chỉ hiện SAU khi lời nói "doesn't". → ĐỒ THỊ (3/4): "doesn't" → "ends" 14,6 ô warn
   (to ×1,2, cao ×2,5) quá vách; "ends" = "pay $2,828 on the 30-year: about 195 months"; "late" = "about 15 months late" (mới ở C4, cạnh ô trễ).
-  "finish" tờ của cột đầu rời tay Tessa; 15 cột nhận tờ theo nhịp tới trước "seven", ô trễ rút một ô mỗi cột và TẮT hẳn khi cột 14 nhận tờ (không khung
-  nào vừa đủ 15 cột có tờ vừa còn ô warn); "seven" = "to finish in 180 months:" / "about $733 extra on top of the $2,216 required" (không "+", không "=":
-  không mời phép cộng $2,949 ≠ $2,948); "required" ô bắt buộc loé.
+  "finish"→"add" máy đẩy vào ô tháng 1; "seven" tờ tháng 1 hạ lên ô (cận cảnh, ô trễ ngoài khung); lùi ra: 15 cột nhận tờ theo nhịp, ô trễ rút một ô mỗi
+  cột 1–14 và TẮT hẳn trước "required"; "seven" = "to finish in 180 months:" / "about $733 extra on top of the $2,216 required" (không "+", không "=":
+  không mời phép cộng $2,949 ≠ $2,948); "required" ô bắt buộc loé. "late" trên nền tối, phía trên vách (không đè ô amber).
 B22 (S22, Q5): "requires" bóng 15 cột mờ quá vách = lịch 30 năm nếu chỉ trả bắt buộc + thanh mức bắt buộc (ink-muted) dọc mép trước; "stays" thanh loé
   "required payment: stays $2,216"; "sooner" bóng rút về vách "loan ends sooner". "cut" một khoản bắt buộc tách hai phần (lãi dưới, gốc trên), con trỏ
   chạy qua các tháng: phần lãi co lại, tổng cao không đổi — "interest" = "next month's interest ↓, payment fixed". → THẾ GIỚI: "later" cột năm 10 loé;
   "wrong" tờ tiền của tháng đó NHẤC LÊN (tháng khó: chỉ trả bắt buộc), ô bắt buộc vẫn đó (đường lui còn).
-B23 (S23, Q3): thế giới — sóng "mỗi tháng một tờ" chạy qua 180 tờ (thấy tờ mỗi tháng TRƯỚC khi gom); "once" 12 tờ của cột đầu nảy rồi trượt về ô thứ 12
-  thành MỘT XẤP 12 tờ CÓ KHE; → ĐỒ THỊ: "one" → "extra" 14 cột còn lại gom (cột cuối xong đúng "extra"); "one" = "$8,792 once a year (12 × $732.67)";
-  "ends" 4 ô warn quá vách; "four" = "ends in 184 months: 4 months later than monthly". Màu lưới KHÔNG đổi khi gom.
+B23 (S23, Q3): mở ở góc 3/4 S21 kết thúc (đổi chế độ giữa hai câu) — tờ nằm yên trên ô (gợn rất nhẹ, không lơ lửng); "once" cột đầu: 12 tờ nhấc theo
+  thứ tự (sau → trước), gom thành xấp trên ô 12 rồi HẠ xuống ô 12 (một nốt), 11 ô giữa mờ đi (tháng không trả thêm); "one" → "extra" 14 cột còn lại
+  lần lượt như vậy (xấp N hạ ở ô 12N); "one" = "$8,792 once a year (12 × $732.67)"; máy đẩy vào vách; "ends" 4 ô warn quá vách (Tessa giơ tay về
+  phía đó); "four" = "ends in 184 months: 4 months later than monthly"; S24.1 lùi về cả lưới trước "sits".
 B24 (S24): "charges" chồng lãi nhỏ (bó, màu tiền) dâng cạnh ô trễ; "about" = "about $8,200 more interest"; "sits" khối năm loé. Đối trọng S24.2 TRÊN HÌNH:
   "verdict" = "not a verdict on paying yearly"; "account" khay "tài khoản" trước lưới (không đè tên Tessa) chứa 12 tờ đang chờ; "counted" = "what it earns there: not
   counted" (khay viền nét đứt). Không hình nào nói trả tháng hơn trả năm. → THẾ GIỚI: "dollar" một tờ đô la từ tay Tessa bay lên về phía nhà; giữ → MR2."""
@@ -32,18 +34,18 @@ B = [
   {'pay': '@S21.1:pay', 'assume': '@S21.1:assume', 'same': '@S21.1:same'}, ['nốt dữ liệu mỗi cột-năm', 'tick'], 0.3, 'tò mò', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
  ('a1', 'S21.2', 'chart', 'Không: xong muộn khoảng 15 tháng.', '14,6 ô warn quá vạch; hai nhãn.',
   {'doesnt': '@S21.2:doesn', 'ends': '@S21.2:ends', 'late': '@S21.2:late'}, ['nốt dữ liệu sáng mỗi ô trễ', 'tick', 'tick'], 0.5, 'nghiêm', '(liền)'),
- ('a2', 'S21.3', 'chart', 'Muốn xong trong 15 năm: thêm $733 mỗi tháng trên khoản bắt buộc.', 'mỗi tháng một tờ đô la từ tay Tessa đặt lên ô (ô bắt buộc vẫn thấy quanh tờ), ô trễ rút hết; nhãn.',
+ ('a2', 'S21.3', 'chart', 'Muốn xong trong 15 năm: thêm $733 mỗi tháng trên khoản bắt buộc.', 'cận cảnh ô tháng 1 (tối): một tờ đô la to hạ xuống nằm trên ô; lùi ra: mỗi ô một tờ, ô trễ rút từng ô; nhãn.',
   {'finish': '@S21.3:finish', 'add': '@S21.3:add', 'seven': '@S21.3:seven', 'required': '@S21.3:required'}, ['nốt dữ liệu mỗi tấm', 'tick'], 0.44, 'hiểu', '(liền)'),
  ('b0', 'S22.1', 'chart', 'Trả thêm không làm giảm khoản bắt buộc; khoản vay chỉ xong sớm hơn.', 'bóng lịch 30 năm; thanh mức bắt buộc; bóng rút về vách.',
   {'requires': '@S22.1:requires', 'stays': '@S22.1:stays', 'sooner': '@S22.1:sooner'}, ['rise', 'tick', 'nốt dữ liệu'], 0.4, 'hiểu', '—'),
  ('b1', 'S22.2', 'chart', 'Mỗi đô la thêm cắt lãi tháng sau; khoản trả giữ nguyên nên nhiều hơn vào gốc.', 'khoản bắt buộc tách lãi/gốc; con trỏ qua các tháng, lãi co lại.',
   {'cut': '@S22.2:cut', 'interest': '@S22.2:interest', 'fixed': '@S22.2:fixed', 'principal': '@S22.2:principal'}, ['nốt dữ liệu mỗi năm (giảm dần)', 'tick'], 0.42, 'hiểu', 'CHUYỂN CHẾ ĐỘ → thế giới'),
  ('b2', 'S22.3', 'world', 'Vì thế đường lui còn đó nhiều năm sau, nếu một tháng trục trặc.', 'cột năm 10 loé; một tờ nhấc lên, ô bắt buộc vẫn đó.',
-  {'later': '@S22.3:later', 'wrong': '@S22.3:wrong'}, ['tick', 'nốt dữ liệu'], 0.4, 'yên', '—'),
- ('b3', 'S23.1', 'world', 'Gửi phần thêm mỗi năm một lần thay vì mỗi tháng?', 'sóng mỗi tháng một tờ; cột đầu gom 12 tờ thành một xấp.',
-  {'send': '@S23.1:send', 'once': '@S23.1:once'}, ['rise', 'nốt dữ liệu khi cột gom'], 0.34, 'tò mò', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
+  {'later': '@S22.3:later', 'wrong': '@S22.3:wrong'}, ['tick', 'nốt dữ liệu'], 0.4, 'yên', 'CHUYỂN CHẾ ĐỘ → đồ thị (giữa hai câu)'),
+ ('b3', 'S23.1', 'chart', 'Gửi phần thêm mỗi năm một lần thay vì mỗi tháng?', 'tờ nằm yên trên ô; cột đầu: 12 tờ nhấc theo thứ tự, gom trên ô 12 rồi hạ thành một xấp.',
+  {'send': '@S23.1:send', 'once': '@S23.1:once'}, ['nốt dữ liệu khi cột gom'], 0.34, 'tò mò', '(liền)'),
  ('b4', 'S23.2', 'chart', 'Một khoản mỗi năm, cùng tổng.', '14 cột còn lại gom; nhãn.',
-  {'one': '@S23.2:one', 'extra': '@S23.2:extra'}, ['nốt dữ liệu mỗi cột', 'tick'], 0.4, 'hiểu', '(liền)'),
+  {'one': '@S23.2:one', 'extra': '@S23.2:extra'}, ['nốt dữ liệu mỗi cột', 'tick'], 0.4, 'hiểu', 'ĐẨY vào vách'),
  ('b5', 'S23.3', 'chart', 'Trả kiểu đó, khoản vay xong muộn 4 tháng.', '4 ô warn quá vách; nhãn.',
   {'ends': '@S23.3:ends', 'four': '@S23.3:four'}, ['nốt dữ liệu sáng mỗi ô trễ', 'tick'], 0.46, 'bình thản', '(liền)'),
  ('b6', 'S24.1', 'chart', 'Và tốn thêm khoảng $8,200 tiền lãi vì mỗi đô la nằm trên dư nợ lâu hơn.', 'chồng lãi nhỏ dâng; nhãn; khối năm loé.',
@@ -56,18 +58,6 @@ B = [
 beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
 MR, SIL = K.midroll(S, 1)
-moves = K.moves_of([
-    ('m_push0', 'push', 'wT0', 'wT', 0.0, cue['a0']['pay'], 2.4, 'mở đoạn: máy lại gần nhà Tessa và khoảng sàn nơi đường tháng sẽ chạy, trước ô đầu ("pay")', 'whoosh_air', {}),
-    ('m_c21', 'mode', 'wT', 'cQ', cue['a0']['same'], cue['a1']['doesnt'], 1.3,
-     'lời S21.2–S21.3 đặt số tháng và số tiền (số chỉ ở đồ thị, quy tắc 1) → góc 3/4 (không nhìn thẳng xuống): đếm ô trễ, thấy CẠNH tấm trả thêm', 'whoosh_mode', {}),
-    ('m_w22', 'mode', 'cQ', 'wT', cue['b1']['principal'], cue['b2']['later'], 1.4,
-     'lời S22.3 "if a month goes wrong" (đời Tessa, không số): về thế giới, gần đường tháng và nhà', 'whoosh_mode', {}),
-    ('m_c23', 'mode', 'wT', 'cQ', cue['b3']['once'], cue['b4']['one'], 1.2,
-     'lời S23.2–S24.2 đặt số tiền, số tháng, tiền lãi (số) → góc 3/4: thấy độ cao khối năm 12 lớp và đếm ô trễ', 'whoosh_mode', {}),
-    ('m_w24', 'mode', 'cQ', 'wT', cue['b7']['counted'], cue['b8']['tessa'], 1.5,
-     'lời S24.3 câu hỏi của hồi 3 về đô la của Tessa (không số): về thế giới, Tessa và nhà', 'whoosh_mode', {'start': S.at('@S24.3:Tessa') - 0.32 - 1.5}),
-])
-MV = {m['id']: m for m in moves}
 L = G['late_months']; nl = int(L) + (1 if L % 1 else 0)
 # S21.1: 15 cột đặt dần từ "pay" tới trước "assume" (cột cuối tới vách TRƯỚC "same"; ô trễ chỉ sau "doesn't")
 lay = K.spread(cue['a0']['pay'], cue['a0']['assume'] - 0.3, 15)
@@ -75,13 +65,36 @@ lit, ev = K.steps(lay, [12 * (k + 1) for k in range(15)], ramp=0.22, v0=0, pitch
 assert lay[-1] + 0.22 < cue['a0']['same'] - 0.3 and cue['a0']['same'] < cue['a1']['doesnt']
 lt = K.spread(cue['a1']['doesnt'] + 0.1, cue['a1']['ends'] - 0.12, nl)
 late_up, e2 = K.steps(lt, [min(L, k + 1) for k in range(nl)], ramp=0.07, v0=0, pitch=lambda v: 0.62 + 0.3 * v / L, over=True)
-# S21.3: tấm của cột c CHẠM ở land[c] (rơi DROP s trước đó); ô trễ rút một ô mỗi cột, hết hẳn khi cột 14 chạm — trước cột 15 và trước nhãn "seven"
-DROP = 0.38
-land = K.spread(cue['a2']['finish'] + DROP, cue['a2']['seven'] - 0.45, 15)
-late_dn, _ = K.steps(land[:14], [round(L * max(0.0, 1 - (k + 1) / 14), 3) for k in range(14)], ramp=0.1, v0=L)
-assert land[13] + 0.1 <= land[14] and land[14] < cue['a2']['seven'] - 0.3, 'ô trễ tắt trước cột cuối và trước nhãn "180 months"'
+# S21.3 (C4 r3, ĐỔI LOẠI HÌNH lần cuối: cận cảnh MỘT đơn vị): máy đẩy vào ô tháng 1 (tối) trước "add"; giữa "$733" MỘT tờ đô la to hạ xuống nằm
+# trên ô (chạm ở U1, rơi U1DROP s); giữ ≥ 1,2 s rồi máy lùi về cQ trong khi tờ rơi vào từng cột (cột c chạm ở land[c]: cột 0 = tháng 2–12);
+# ô trễ rút một ô mỗi cột 1–14 khi tờ tới, hết hẳn ở cột 14 — trước "required"
+U1, U1DROP, DROP = round(cue['a2']['seven'] + 0.16, 3), 0.55, 0.45
+land = K.spread(U1 + 1.45, cue['a2']['required'] - 0.3, 15)
+late_dn, _ = K.steps(land[1:], [round(L * max(0.0, 1 - (k + 1) / 14), 3) for k in range(14)], ramp=0.1, v0=L)
+assert land[14] + 0.1 < cue['a2']['required'], 'ô trễ tắt trước "required"'
 late21 = late_up + [p for p in late_dn if p[0] > late_up[-1][0]]
-ev += e2 + [{'t': round(t, 3), 'kind': 'data', 'v': round(0.3 + 0.3 * (k + 1) / 15, 3)} for k, t in enumerate(land)]
+ev += e2 + [{'t': U1, 'kind': 'data', 'v': 0.62}] + [{'t': round(t, 3), 'kind': 'data', 'v': round(0.3 + 0.3 * (k + 1) / 15, 3)} for k, t in enumerate(land)]
+moves = K.moves_of([
+    ('m_push0', 'push', 'wT0', 'wT', 0.0, cue['a0']['pay'], 2.4, 'mở đoạn: máy lại gần nhà Tessa và khoảng sàn nơi đường tháng sẽ chạy, trước ô đầu ("pay")', 'whoosh_air', {}),
+    ('m_c21', 'mode', 'wT', 'cQ', cue['a0']['same'], cue['a1']['doesnt'], 1.3,
+     'lời S21.2–S21.3 đặt số tháng và số tiền (số chỉ ở đồ thị, quy tắc 1) → góc 3/4 (không nhìn thẳng xuống): đếm ô trễ, thấy cạnh tờ trả thêm', 'whoosh_mode', {}),
+    ('m_u21', 'push', 'cQ', 'cU', cue['a2']['finish'], cue['a2']['add'], 1.45,
+     'lời S21.3 "add $733 a month": cận cảnh MỘT ô tháng (tối) để thấy một tờ đô la nằm trên ô = phần trả thêm của tháng đó', 'whoosh_air', {}),
+    ('m_o21', 'pull', 'cU', 'cQ', cue['a2']['seven'], cue['a2']['required'], 1.6,
+     'giữ cận cảnh ≥ 1,2 s sau khi tờ chạm, rồi lùi về lưới: mỗi ô tháng nhận một tờ, ô trễ rút', 'whoosh_air', {'start': U1 + 1.25}),
+    ('m_w22', 'mode', 'cQ', 'wT', cue['b1']['principal'], cue['b2']['later'], 1.4,
+     'lời S22.3 "if a month goes wrong" (đời Tessa, không số): về thế giới, gần đường tháng và nhà', 'whoosh_mode', {}),
+    ('m_c23', 'mode', 'wT', 'cQ', cue['b2']['wrong'], cue['b3']['send'], 1.2,
+     'giữa hai câu (sau S22.3, trước S23): câu hỏi S23 mở ở đúng góc 3/4 S21 kết thúc, không đổi góc giữa câu', 'whoosh_mode', {'start': S.last['S22'] + 0.08}),
+    ('m_p23', 'push', 'cQ', 'cW', cue['b4']['extra'], cue['b5']['ends'], 1.2,
+     'lời S23.3 "ends four months later": máy đẩy vào vách trước khi 4 ô trễ sáng', 'whoosh_air', {}),
+    ('m_q24', 'pull', 'cW', 'cQ', cue['b5']['four'], cue['b6']['charges'], 1.4,
+     'sau "four" (4 ô trễ đã sáng ở cận vách): lùi về cả lưới trước S24.1 — chồng lãi, 15 xấp năm, khay đều trong khung', 'whoosh_air', {'start': cue['b5']['four'] + 0.75}),
+    ('m_w24', 'mode', 'cQ', 'wT', cue['b7']['counted'], cue['b8']['tessa'], 1.5,
+     'lời S24.3 câu hỏi của hồi 3 về đô la của Tessa (không số): về thế giới, Tessa và nhà', 'whoosh_mode', {'start': S.at('@S24.3:Tessa') - 0.32 - 1.5}),
+])
+MV = {m['id']: m for m in moves}
+assert MV['m_u21']['t1'] < U1 - U1DROP and MV['m_o21']['t0'] >= U1 + 1.2, 'máy đứng yên trong cận cảnh khi tờ hạ + giữ ≥ 1,2 s'
 # S22.2: phần lãi trong khoản BẮT BUỘC theo tháng khi trả thêm (lãi tháng = dư nợ × r/12; dư nợ giảm theo khoản bắt buộc + phần thêm)
 r = Q['r30_now'] / 1200; Bal = M['params']['principal']; share = []
 for m in range(180):
@@ -101,11 +114,11 @@ lt2 = K.spread(cue['b5']['ends'] + 0.02, cue['b5']['four'] - 0.1, LL)
 late23, e5 = K.steps(lt2, [k + 1 for k in range(LL)], ramp=0.07, v0=0, pitch=lambda v: 0.65 + 0.1 * v, over=True)
 ev += e5
 ev += [{'t': cue['a0']['same'], 'kind': 'tick', 'v': 0.4}, {'t': cue['a1']['ends'], 'kind': 'tick', 'v': 0.45}, {'t': cue['a1']['late'], 'kind': 'tick', 'v': 0.6},
-       {'t': cue['a2']['seven'], 'kind': 'tick', 'v': 0.55}, {'t': cue['a2']['required'], 'kind': 'tick', 'v': 0.35},
+       {'t': cue['a2']['required'], 'kind': 'tick', 'v': 0.35},   # "seven": nốt dữ liệu của tờ tháng 1 (U1) thay tick
        {'t': cue['b0']['requires'], 'kind': 'rise', 'dur': 1.2}, {'t': cue['b0']['stays'], 'kind': 'tick', 'v': 0.45}, {'t': cue['b0']['sooner'], 'kind': 'data', 'v': 0.3},
        {'t': cue['b1']['interest'], 'kind': 'tick', 'v': 0.45}, {'t': cue['b1']['fixed'], 'kind': 'tick', 'v': 0.35},
        {'t': cue['b2']['later'], 'kind': 'tick', 'v': 0.35}, {'t': cue['b2']['wrong'], 'kind': 'data', 'v': 0.5, 'over': True},
-       {'t': wave[0], 'kind': 'rise', 'dur': round(wave[1] - wave[0], 3)}, {'t': cue['b4']['one'], 'kind': 'tick', 'v': 0.5}, {'t': cue['b5']['four'], 'kind': 'tick', 'v': 0.35},
+       {'t': cue['b4']['one'], 'kind': 'tick', 'v': 0.5}, {'t': cue['b5']['four'], 'kind': 'tick', 'v': 0.35},   # sóng S23 (gợn 0,03): bỏ tiếng 'rise' (C4 r3)
        {'t': cue['b6']['charges'], 'kind': 'rise', 'dur': 0.7}, {'t': cue['b6']['about'], 'kind': 'tick', 'v': 0.45}, {'t': cue['b6']['sits'], 'kind': 'tick', 'v': 0.3},
        {'t': cue['b7']['verdict'], 'kind': 'tick', 'v': 0.4}, {'t': cue['b7']['account'], 'kind': 'data', 'v': 0.45}, {'t': cue['b7']['counted'], 'kind': 'tick', 'v': 0.35},
        {'t': cue['b8']['dollar'], 'kind': 'data', 'v': 0.7}]
@@ -118,14 +131,14 @@ gestures = [{'t': cue['a0']['pay'], 'kind': 'lean', 'to': 3.0, 'hold': 1.4},    
             {'t': cue['b1']['cut'], 'kind': 'arm', 'to': X['bar'][0], 'hold': 1.6},          # khoản bắt buộc tách lãi/gốc
             {'t': cue['b2']['wrong'], 'kind': 'lean', 'to': 3.8, 'hold': 1.4},
             {'t': cue['b3']['once'], 'kind': 'arm', 'to': 0.5, 'hold': 1.4},                 # khối năm đầu gom
-            {'t': cue['b5']['ends'], 'kind': 'lean', 'to': 6.6, 'hold': 1.4},
+            {'t': cue['b5']['ends'], 'kind': 'arm', 'to': 6.6, 'hold': 1.8},                 # quay về 4 ô trễ ở vách
             {'t': cue['b6']['charges'], 'kind': 'lean', 'to': X['istack'][0], 'hold': 1.2},
             {'t': cue['b7']['account'], 'kind': 'arm', 'to': X['tray'][0], 'hold': 1.6},     # khay tài khoản của cô
             {'t': cue['b8']['dollar'], 'kind': 'arm', 'to': X['house'][0], 'hold': 2.6}]      # tờ đô la từ tay cô
 K.finish(HERE, S, 'ep007 C4 · E = S21–S24 (Tessa tự thử: trả bằng khoản 15 năm, trả thêm, khoản bắt buộc đứng yên, trả năm) + MR2', beats, moves, ev,
-         {'lit': lit, 'lay': [round(t, 3) for t in lay], 'late21': late21, 'clear_t': round(land[13] + 0.1, 3), 'land': [round(t, 3) for t in land], 'drop': DROP,
-          'mark_t': cue['a0']['pay'], 'share': share, 'cursor': [round(t, 3) for t in cur], 'wave': wave, 'gather': gs, 'late23': late23,
-          'lift': {'i': 9 * 12 + 6, 't': [cue['b2']['wrong'], round(cue['b3']['send'] - 1.2, 3)]}, 'mr2': MR, 'x': X, 'gestures': gestures},
+         {'lit': lit, 'lay': [round(t, 3) for t in lay], 'late21': late21, 'clear_t': round(land[14] + 0.2, 3), 'land': [round(t, 3) for t in land], 'drop': DROP,
+          'u1': U1, 'u1drop': U1DROP, 'mark_t': cue['a0']['pay'], 'share': share, 'cursor': [round(t, 3) for t in cur], 'wave': wave, 'gather': gs, 'late23': late23,
+          'lift': {'i': 9 * 12 + 6, 't': [cue['b2']['wrong'], round(S.last['S22'] + 0.15, 3)]}, 'mr2': MR, 'x': X, 'gestures': gestures},
          {'a1.ends': 'pay $2,828 on the 30-year: about 195 months', 'a1.late': 'about 15 months late', 'a2.seven': 'to finish in 180 months:',
           'b0.stays': 'required payment: stays $2,216', 'b0.sooner': 'loan ends sooner', 'b1.interest': "next month's interest ↓, payment fixed",
           'b4.one': '$8,792 once a year (12 × $732.67)', 'b5.four': 'ends in 184 months: 4 months later than monthly', 'b6.about': 'about $8,200 more interest',

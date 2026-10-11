@@ -1,6 +1,7 @@
 // Tập 7 · C4 · ĐOẠN F = S25–S28. the bar (bản C3 s25-bar + sửa C4): tờ đô la trả thêm từ tay Tessa chạm chỗ cạnh nhà đúng "charged", thanh (W3, ink-muted)
-// trồi từ sàn rồi dâng tới độ cao lãi → đồ thị: THANG ĐỘ CAO có khắc (sàn → thanh), ba khối chữ (the bar · interest… · not tested…), bóng "any other use"
-// đứng tách, lên xuống LIÊN TỤC qua độ cao thanh (không dừng ngang mép, KHÔNG vạch so ngang), nhãn đi theo bóng → lia sang lịch sử lãi 30 năm (cùng thang): đoạn
+// trồi ra từ tường nhà rồi dâng tới độ cao lãi → đồ thị: thước "zero" (sàn) → "7.40%" (độ cao thanh), "the bar: …", đồng lãi rơi về phía nhà bị tờ đô la
+// trên thanh chặn ("interest no longer charged"), bóng "any other use" + "not tested" đứng tách xa, lên xuống LIÊN TỤC qua độ cao thanh (không dừng
+// ngang mép, KHÔNG vạch so ngang), nhãn đi theo bóng → lia sang lịch sử lãi 30 năm (cùng thang): đoạn
 // thanh cưỡi đầu đường, đỉnh 9.25% Nov 1994, đáy 2.65% Jan 2021 → vạch độ cao thanh của Tessa qua cả lịch sử: đoạn cao hơn sáng (≈ 1 tuần trong 5).
 import { setup, figure, gesture, figTag, modeLook, followLight, chrome, SRC, SRC_SIM, label, seg2, dip,
   kf, show, pulse, C, ease, lin, mix, THREE, setOpacity } from '/episodes/ep007/world/c4kit.js';
@@ -18,9 +19,12 @@ export async function boot(res) {
     cH: { pos: [3.7, 2.2, 27.5], tgt: [3.7, 2.2, 0], fov: 20, chart: 1 },
   };
   const { S, D, G, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
-  // GX: bóng đứng tách xa đầu thanh (C4 r2: đỉnh bóng không chạm khối "the bar"; nhãn bóng không chạm khối 2)
-  const b = cue, X = S.x, BX = X.bx, BL = X.bl, GX = BX + BL / 2 + 1.5, N = S.r30.length;
-  const hm = figure(scene, { x: X.house });
+  // GX: bóng đứng tách xa đầu thanh (C4 r3: xa hơn — thước đứng giữa đầu thanh và bóng); WALL: tường phải của nhà (thanh trồi ra từ đó)
+  const b = cue, X = S.x, BX = X.bx, BL = X.bl, GX = BX + BL / 2 + 2.3, N = S.r30.length;
+  const hm = figure(scene, { x: X.house }), WALL = X.house + hm.w / 2;
+  // S25.3: đồng lãi (costlier, đứng mặt về máy) — rơi về phía nhà theo đường qua tờ đô la trên thanh, bị tờ chặn
+  const coin = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.04, 24), new THREE.MeshStandardMaterial({ color: C.costlier, emissive: new THREE.Color(C.costlier), emissiveIntensity: 0.45, transparent: true }));
+  coin.rotation.x = Math.PI / 2; coin.castShadow = true; scene.add(coin); coin.userData.checks = { role: 'mark', key: 'interest-coin' };
   const beam = Beam({ length: BL }); beam.scale.set(1, 2.2, 1.4); scene.add(beam); beam.userData.checks = { role: 'mark', series: 'bar', key: 'the-bar' };
   const rider = Beam({ length: 0.7 }); rider.scale.set(1, 2.2, 1.4); scene.add(rider); rider.userData.checks = { role: 'mark', series: 'bar', key: 'bar-rider' };
   const d1 = Bill({ name: 'extra-dollar' }), d2 = Bill({ name: 'any-other-use' }); scene.add(d1, d2);
@@ -32,15 +36,21 @@ export async function boot(res) {
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
     followLight(key, pose.tgt); modeLook(scene, floor, cw); gesture(hm, t, S.gestures);
-    // thanh: sàn trống tới "charged"; trồi đúng "charged" (0,25 s), dâng tới độ cao lãi ở "rate"
-    const up = ease(t, b.a0.charged - 0.02, b.a0.charged + 0.23), Hb = kf(S.bar, t) * PER_PCT, H = -0.12 + (0.12 + Math.max(0.06, Hb)) * up;
-    beam.position.set(BX, H, 0); beam.visible = up > 0.01; beam.userData.checks.value = +kf(S.bar, t).toFixed(3);
+    // thanh (C4 r3): TRỒI RA TỪ TƯỜNG NHÀ sát sàn (0,33 s, xong ngay trước "charged" để tờ chạm), rồi dâng dọc tường tới độ cao lãi ở "rate"
+    const up = ease(t, b.a0.charged - 0.35, b.a0.charged - 0.02), Hb = kf(S.bar, t) * PER_PCT, H = Math.max(0.06, Hb);
+    beam.scale.x = Math.max(0.001, up); beam.position.set(WALL + BL * up / 2, H, 0); beam.visible = up > 0.01; beam.userData.checks.value = +kf(S.bar, t).toFixed(3);
     beam.glow(0.6 * Math.max(pulse(t, b.a3.bar, 1.0), 0.6 * pulse(t, b.a3.measured, 0.9), pulse(t, b.b0.taken, 1.0), pulse(t, b.b3.tessa, 1.2)), C.ink);
     // tờ 1: trong tay Tessa → bay vòng, CHẠM mặt thanh đúng "charged", cưỡi theo thanh
     const a1 = show(t, S.dollar1.appear), x1 = ease(t, land0, land1), top = [BX - 0.5, Math.max(H, 0.06) + 0.22, 0];
     d1.rotation.x = (Math.PI / 2) * Math.max(x1, 0.35);
     d1.position.set(mix(hand[0], top[0], x1), mix(hand[1], top[1], x1) + 1.0 * Math.sin(Math.PI * x1), mix(hand[2], top[2], x1) + 1.0 * Math.sin(Math.PI * x1));
     d1.scale.setScalar(Math.max(0.001, a1)); d1.visible = a1 > 0.01;
+    // đồng lãi: từ trên-phải (ngoài khung) rơi nhanh dần về phía nhà, CHẠM đỉnh tờ đô la trên thanh ở coin[1] (nảy nhẹ), nằm đó, mờ ở "pays"
+    const cP = [top[0], H + 0.52, 0.05], cHouse = [X.house + 0.3, 0.55], cd = [cP[0] - cHouse[0], cP[1] - cHouse[1]], cl = Math.hypot(...cd);
+    const cS = [cP[0] + 2.4 * cd[0] / cl, cP[1] + 2.4 * cd[1] / cl], cu = lin(t, S.coin[0], S.coin[1]) ** 2;
+    const ca = ease(t, S.coin[0] - 0.05, S.coin[0] + 0.15) * (1 - ease(t, S.coin[2], S.coin[2] + 0.5));
+    coin.position.set(mix(cS[0], cP[0], cu), mix(cS[1], cP[1], cu) + 0.08 * Math.sin(Math.PI * Math.min(1, Math.max(0, (t - S.coin[1]) / 0.25))), cP[2]);
+    coin.material.opacity = ca; coin.visible = ca > 0.01;
     // tờ 2 (bóng): hiện tại chỗ ở "other", lên xuống LIÊN TỤC với biên độ đủ ngay từ đầu (qua độ cao thanh ở tốc độ lớn nhất, đứng lại chỉ ở đỉnh/đáy
     // cách mép ±1,5 điểm); mờ đi khi lia sang lịch sử — vẫn đang chuyển động
     const a2 = show(t, S.dollar2.appear) * (1 - ease(t, MV.m_pan.t0, MV.m_pan.t0 + 0.8)), bob = BOB * Math.sin((2 * Math.PI * (t - S.dollar2.appear)) / BOB_T);
@@ -62,33 +72,35 @@ export async function boot(res) {
     const [bx0, by] = sc(BX - BL / 2, Hb, 0), [bx1] = sc(BX + BL / 2, Hb, 0), [, fy] = sc(BX, 0, 0), bc = (bx0 + bx1) / 2;
     { const [x, y] = sc(...hand); log.roi['a0.dollar'] = [x - 80, y - 80, x + 80, y + 80]; }
     log.roi['a0.charged'] = [bx0 - 20, by - 40, bx1 + 20, fy + 10];
-    // THANG ĐỘ CAO: vạch đo đứng ink-muted từ sàn tới thanh, KHẮC mỗi điểm % (khắc dài mỗi 5 điểm), khắc đỉnh ở thanh — không chữ
-    { const [dx] = sc(BX - BL / 2 - 0.22, 0, 0), a = ok * (t < s25 + 0.3 ? 1 - ease(t, s25, s25 + 0.3) : 0), c = O.ctx;
+    // THƯỚC (C4 r3, đạo diễn #2): vạch đo đứng ink-muted ở đầu PHẢI thanh, từ sàn tới thanh; khắc "zero" ở sàn và MỘT khắc "7.40%" đúng độ cao thanh
+    { const [dx] = sc(BX + BL / 2 + 0.22, 0, 0), a = ok * (t < s25 + 0.3 ? 1 - ease(t, s25, s25 + 0.3) : 0), c = O.ctx;
       if (a > 0.01) { c.save(); c.globalAlpha = a; c.strokeStyle = C.muted; c.lineWidth = 4; c.beginPath(); c.moveTo(dx, fy); c.lineTo(dx, by);
-        for (let k = 0; k <= Math.floor(G.bar); k++) { const [, yk] = sc(BX, k * PER_PCT, 0), w = k % 5 === 0 ? 20 : 11; c.moveTo(dx - w, yk); c.lineTo(dx + w, yk); }
-        c.moveTo(dx - 16, by); c.lineTo(bx0 - 4, by); c.stroke(); c.restore(); }
+        c.moveTo(dx - 18, fy); c.lineTo(dx + 18, fy); c.moveTo(bx1 + 4, by); c.lineTo(dx + 18, by); c.stroke(); c.restore(); }
+      label(O, 'zero', dx + 26, fy + 16, { kind: 'name', px: 48, color: C.muted, alpha: a });
+      label(O, D('r30_now'), dx + 26, by + 16, { kind: 'number', px: 48, alpha: a, claims: ['r30_now'] });
       log.roi['a1.scale'] = [dx - 30, by - 10, dx + 30, fy + 10]; }
-    // khối 1: the bar; khối 2: interest…; khối 3: not tested… (cột chữ dưới thanh, bên phải thước)
-    // khối 1 cao hơn và lệch trái (C4 r2, verify F-2): mép phải trước mép trái bóng, đáy trên đỉnh bóng (Hb + BOB + nửa tờ)
+    // khối 1: the bar (trên thanh; tắt khi đồng lãi bắt đầu rơi qua chỗ đó); khối 2: MỘT dòng, phải-trên (đường rơi của đồng lãi ở bên trái nó)
     const L1x = bc - 120, L1y = by - 150;
-    label(O, `the bar: ${D('bar_now')}`, L1x, L1y, { align: 'center', kind: 'number', alpha: ok * show(t, b.a1.seven, s25), claims: ['bar_now'] });
+    label(O, `the bar: ${D('bar_now')}`, L1x, L1y, { align: 'center', kind: 'number', alpha: ok * show(t, b.a1.seven, S.coin[0] - 0.1), claims: ['bar_now'] });
     log.roi['a1.seven'] = [L1x - 520, L1y - 64, L1x + 520, L1y + 16];
-    const XR = 820, i2 = ok * show(t, b.a2.investment, s25), n4 = ok * show(t, b.a4.whether, s25);
-    label(O, 'interest no longer charged,', XR, by + 215, { kind: 'compare', px: 48, alpha: i2 });
-    label(O, 'not an investment return', XR, by + 280, { kind: 'compare', px: 48, alpha: i2 });
-    log.roi['a2.investment'] = [XR - 10, by + 165, XR + 700, by + 300];
-    label(O, 'not tested: how any investment compares,', XR, by + 365, { kind: 'compare', px: 48, alpha: n4 });
-    label(O, 'once risk and taxes count', XR, by + 430, { kind: 'compare', px: 48, alpha: n4 });
-    log.roi['a4.whether'] = [XR - 10, by + 315, 1840, by + 450];
+    label(O, 'interest no longer charged', 1810, by - 82, { align: 'right', kind: 'compare', px: 48, alpha: ok * show(t, b.a2.investment, s25) });
+    log.roi['a2.investment'] = [1100, by - 130, 1810, by - 70];
+    { const [x0, y0] = sc(cS[0], cS[1], cP[2]), [x1, y1] = sc(cP[0], cP[1], cP[2]), [hx2, hy2] = sc(cHouse[0], cHouse[1], 0);
+      log.roi['a2.interest'] = [Math.min(x0, x1) - 40, Math.max(0, y0), Math.max(x0, x1) + 40, y1 + 40]; log.roi['a2.pays'] = [x1 - 50, y1 - 50, x1 + 50, y1 + 50];
+      // đường đồng lãi lẽ ra đi tiếp vào nhà (nét đứt mờ) — thấy được là tờ đô la đã chặn nó
+      seg2(O, x1 - 30 * (x1 - hx2) / Math.hypot(x1 - hx2, y1 - hy2), y1 - 30 * (y1 - hy2) / Math.hypot(x1 - hx2, y1 - hy2), hx2, hy2, C.costlier,
+        0.55 * ca * ease(t, S.coin[1], S.coin[1] + 0.2), 3, [8, 8]); }
     log.roi['a3.bar'] = [bx0 - 20, by - 40, bx1 + 20, by + 40];
-    // bóng: viền nét đứt (cùng cỡ tờ thật) + nhãn "any other use" ĐI THEO bóng (ngay dưới bóng)
-    const [gx, gy] = sc(...p2);
+    // bóng: viền nét đứt (cùng cỡ tờ thật) + nhãn "any other use" ĐI THEO bóng (ngay dưới bóng); "not tested" ngay dưới nhãn đó ở "whether"
+    const [gx, gy] = sc(...p2), n4 = ok * show(t, b.a4.whether, s25);
     if (a2 > 0.01) {
       const q = [[-0.31, -0.14], [0.31, -0.14], [0.31, 0.14], [-0.31, 0.14]].map(([u, v]) => sc(p2[0] + u * a2, p2[1] + v * a2, p2[2] + 0.02)), c = O.ctx;
       c.save(); c.globalAlpha = a2; c.strokeStyle = C.ink; c.lineWidth = 3; c.setLineDash([9, 7]); c.beginPath();
       q.forEach(([x, y], i) => (i ? c.lineTo(x, y) : c.moveTo(x, y))); c.closePath(); c.stroke(); c.restore();
     }
-    label(O, 'any other use', gx, gy + 76, { align: 'center', kind: 'name', px: 48, alpha: a2 });
+    label(O, 'any other use', 1810, gy + 76, { align: 'right', kind: 'name', px: 48, alpha: a2 });
+    label(O, 'not tested', 1810, gy + 136, { align: 'right', kind: 'compare', px: 48, color: C.muted, alpha: n4 * Math.min(1, a2 / 0.9) });
+    log.roi['a4.whether'] = [1300, gy + 30, 1810, gy + 150];
     { const [x0, y0] = sc(GX - 0.5, Hb + BOB + 0.3, 0), [x1, y1] = sc(GX + 0.5, Hb - BOB - 0.3, 0); log.roi['a3.other'] = [x0, y0, x1, y1];
       // "measured": KHÔNG vạch so ngang (C4 r2, C3 câu 5: vạch ngang độ cao thanh mời đọc "phải vượt mốc") — cue hình = thanh loé nhẹ, bóng vẫn lên xuống
       log.roi['a3.measured'] = [bx0 - 20, y0, x1, y1]; }

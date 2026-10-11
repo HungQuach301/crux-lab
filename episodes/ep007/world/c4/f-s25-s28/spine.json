@@ -902,10 +902,11 @@
    "sid": "S25.3",
    "mode": "chart",
    "idea": "Không phải lợi suất đầu tư; là lãi không còn phải trả.",
-   "visual": "khối chữ 2.",
+   "visual": "một dòng \"interest no longer charged\"; đồng lãi rơi về phía nhà bị tờ đô la trên thanh chặn, mờ ở \"pays\".",
    "line": "It isn't an investment return; it's interest she no longer pays.",
    "sound": [
-    "tick"
+    "tick",
+    "nốt dữ liệu khi chặn"
    ],
    "music": 0.4,
    "emotion": "rõ",
@@ -913,7 +914,9 @@
    "t0": 12.053,
    "t1": 16.32,
    "cues": {
-    "investment": 12.684
+    "investment": 12.684,
+    "interest": 14.213,
+    "pays": 15.632
    }
   },
   {
@@ -944,7 +947,7 @@
    "sid": "S25.5",
    "mode": "chart",
    "idea": "Đầu tư so ra sao khi tính rủi ro và thuế: không kiểm ở đây.",
-   "visual": "khối chữ 3.",
+   "visual": "\"not tested\" ngay dưới nhãn bóng (câu hỏi để mở).",
    "line": "Whether any investment clears it, once risk and taxes count, isn't tested here.",
    "sound": [
     "tick"
@@ -1104,6 +1107,11 @@
    "t": 12.684,
    "kind": "tick",
    "v": 0.45
+  },
+  {
+   "t": 14.813,
+   "kind": "data",
+   "v": 0.3
   },
   {
    "t": 17.84,
@@ -1306,9 +1314,14 @@
  "dollar2": {
   "appear": 18.533
  },
+ "coin": [
+  14.213,
+  14.813,
+  15.632
+ ],
  "x": {
   "house": -2.0,
-  "bx": 0.6,
+  "bx": 0.3,
   "bl": 3.0,
   "h0": 3.4,
   "h1": 11.4
@@ -1317,19 +1330,19 @@
   {
    "t": 0.777,
    "kind": "arm",
-   "to": 0.6,
+   "to": 0.3,
    "hold": 2.2
   },
   {
    "t": 5.68,
    "kind": "lean",
-   "to": 0.6,
+   "to": 0.3,
    "hold": 1.2
   },
   {
    "t": 18.533,
    "kind": "lean",
-   "to": 3.6,
+   "to": 3.3,
    "hold": 1.4
   },
   {
@@ -3197,9 +3210,9 @@
  },
  "label_cues": {
   "a1.seven": "the bar: 7.40% a year, before taxes",
-  "a2.investment": "interest no longer charged,",
+  "a2.investment": "interest no longer charged",
   "a3.other": "any other use",
-  "a4.whether": "not tested: how any investment compares,",
+  "a4.whether": "not tested",
   "b1.nine": "highest: 9.25% · Nov 1994",
   "b2.two": "lowest: 2.65% · Jan 2021",
   "b3.one": "weeks with a bar this high: about 1 week in 5"
@@ -3209,6 +3222,8 @@
   "a0.charged",
   "a1.seven",
   "a2.investment",
+  "a2.interest",
+  "a2.pays",
   "a3.bar",
   "a3.other",
   "a3.measured",
