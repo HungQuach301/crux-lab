@@ -148,7 +148,7 @@ def do_read(run, kind, slots, only):
                                                     'candidate_set': 'ep007', 'items': {}}
     taken = {(v['set'], v['id'], v['slot']) for v in key['items'].values()}
     jobs = []
-    for sid, st, kd, body, files in samples(kind):
+    for sid, st, sk, body, files in samples(kind):
         if only and sid not in only:
             continue
         for k in slots:
@@ -160,8 +160,8 @@ def do_read(run, kind, slots, only):
                 dst = o / f'{h}-{i + 1}{Path(f).suffix}'
                 dst.write_bytes(Path(f).read_bytes()); fl.append(str(dst))
             opn = ('Use the Read tool to open exactly ' + ('this one file' if len(fl) == 1 else f'these {len(fl)} files') + ' and nothing else: ' + ', '.join(fl))
-            (o / f'{h}.txt').write_text(f'{T}\n\n{opn}\n{body}\n{QS["root" if kd == "image" else "voiced"]}')
-            key['items'][h] = {'id': sid, 'set': st, 'kind': 'image' if kd == 'image' else 'voiced', 'slot': k, 'sha256': packets._sha(o / f'{h}.txt')}
+            (o / f'{h}.txt').write_text(f'{T}\n\n{opn}\n{body}\n{QS["root" if sk == "image" else "voiced"]}')
+            key['items'][h] = {'id': sid, 'set': st, 'kind': 'image' if sk == 'image' else 'voiced', 'slot': k, 'sha256': packets._sha(o / f'{h}.txt')}
             jobs.append(h)
     with cf.ThreadPoolExecutor(6) as ex:
         res = dict(zip(jobs, ex.map(lambda h: blind.run(o / f'{h}.txt', o / f'{h}.json', read=True), jobs)))
