@@ -20,10 +20,10 @@ Nhánh `tongket-t6` (từ `main` f614e6b). Quyết định chủ dự án 11/10 
 | P4 (trong P3c) | áp G2 → giao → merge | 0,03 | 0,11 | 7,71 | **0,14** | | 0 | 0 | 0 |
 | K (`018m7H…`) | kind Tập 6 (K4.0.2) + K4.1 | 0,30 | 1,56 | 120,78 | **1,86** | $41,2 | 2 | ≈ 2,6 h (selftest, lấy mẫu trang, ASR) | 0 |
 | Kiểm mù headless thuê bao (P1–P3b, 274 lượt) | | | | | **1,04** | | | | |
-| Headless khoá Console (P3c: 6 lượt dựng Opus, REVIEWER G2, ≈ 30 lượt kiểm mù) | | | | | ≈ 1,4 (ước*) | **chi $25,5** | | | |
-| **Cả tập** | | 2,84 | ≈ 80 | ≈ 826 | **≈ 83,1** | ≈ $605 niêm yết + **$25,5 chi** | **25** | **≈ 23,4 h** | **7.699** |
+| Headless khoá Console (P3c: 6 lượt dựng Opus, REVIEWER G2, ≈ 30 lượt kiểm mù) | | | | | ≈ 1,3 (ước*) | **chi $25,5** | | | |
+| **Cả tập** | | 2,84 | ≈ 80 | ≈ 826 | **≈ 83,1** | ≥ $605 niêm yết (P3c chỉ có tiến trình cuối) + **$25,5 chi** | **25** | **≈ 23,4 h** | **7.699** |
 
-\* X/Y/Z có đủ 4 trường (trần 0,706 triệu, $13,49 → 0,052 triệu/$). Các lượt Console khác chỉ có số $, nên phần trần của chúng ước theo cùng tỉ lệ.
+\* X/Y/Z có đủ 4 trường: input + ghi cache + sinh ra theo `archive/PLAN-history.md`, bản đóng P3b mục 5 (228.104 + 246.213 + 231.962 = 0,706 triệu, $13,49 → 0,052 triệu/$). Ledger ghi "≈ 0,65" là số làm tròn sớm. Các lượt Console khác chỉ có số $, nên phần trần của chúng ước theo cùng tỉ lệ: 0,706 + 12,0 × 0,052 ≈ 1,33.
 Agent con: ledger ghi 23. Log đếm 25 (P1 4 · P2 8 · P3 1 · P3b 10 · K 2); 2 agent của K không thuộc trần 40 của tập.
 
 **Chủ dự án chạm ≈ 11 lượt.** Đếm từ `gates/*-answer.md`, ledger và lệnh mở phiên, không đếm từ log: mở P1 · G1 · C3 · quyền merge F-12 (mở P3b) · mở K + trả lời K4.1 · C4 chốt an toàn (rubric mới) · mở P3c với khoá Console · cho P3c chạy quá 300 nghìn ngữ cảnh · G2 + lệnh P4 · thumbnail ChatGPT. Tập 5 cũng ≈ 11.
@@ -33,16 +33,18 @@ Agent con: ledger ghi 23. Log đếm 25 (P1 4 · P2 8 · P3 1 · P3b 10 · K 2);
 |---|---|---|
 | Trần cả tập | ≈ 85,4 | **≈ 83,1** (−3 %) |
 | Phiên | 1 điều phối + 1 K | 6 điều phối (P1, P2, P3, P3b, P3c+P4) + 1 K |
-| Khoản lớn nhất | agent con dựng W4 + W5: 71,4 (84 %) | **P3b: 72,95 (87 %)**, cũng là agent con dựng C4 |
-| Mức cảnh báo | 3,0 (đo cũ) | 15 → vượt **× 5,6** |
+| Khoản lớn nhất | agent con dựng W4 + W5: 71,4 (84 %) | **P3b: 72,95 (88 %)**, cũng là agent con dựng C4 |
+| Mức cảnh báo | 3,0 (đo cũ) | 15 → vượt **× 5,5** |
 | EL | 10.850 | 7.699 |
 | Thời lượng | 7:46, không mid-roll | **8:56,6, 1 mid-roll** |
 | L3 | 4·4·4·4·4·4 | ≥ 4 cả 6 dòng |
 
+**±5 % quanh ngưỡng:** độ dài 8:56,6 sát trần cứng `101` 9:00 (−0,6 %); EL 7.699 so với mức duyệt 7.700; cổng gốc 87 % so với ngưỡng 80 % (+7 điểm, ngoài ±5 %).
+
 D-011 (mỗi chặng một phiên) có tác dụng ở phía điều phối: P1, P2, P3, P3c, P4 cộng lại 5,8 triệu, so với 8,7 triệu luồng chính của Tập 5. Nhưng P3b dùng lại đúng mô hình agent con dựng của Tập 5 (luật "agent dựng không chờ" ở `episode.md` §1 **không cứu được**), nên tổng gần như không đổi.
 
 ### 1c. Ba khoản tốn nhất
-1. **P3b — agent con dựng C4 vòng 1: 72,95 triệu (87 %), $485 niêm yết.** Ghi cache 71,55 triệu so với sinh ra 1,36 triệu (53 : 1). P3b có 10 agent: đầu vào animatic (ngữ cảnh cuối 0,56 triệu), 3 vòng F-2, 2 lượt đạo diễn đọc nhiều ảnh (0,16 và 0,35 triệu), 3 agent FIX-R1, 1 REVIEWER. Luồng chính cũng nạp lại ≈ 0,39 triệu mỗi lần thức (lượt cuối 12:08: ghi cache 391.865). Log tích luỹ không tách được agent với luồng chính. **Nguyên nhân:** mỗi agent mang ngữ cảnh 0,1–0,56 triệu, mỗi lần chờ render (3 lượt 720p ≈ 2,5 h) rồi thức lại phải nạp lại ngữ cảnh đó; luật "trả việc ngay" không chặn được việc agent ở lại sửa nhiều vòng.
+1. **P3b — agent con dựng C4 vòng 1: 72,95 triệu (88 %), $485 niêm yết.** Ghi cache 71,55 triệu so với sinh ra 1,36 triệu (53 : 1). P3b có 10 agent: đầu vào animatic (ngữ cảnh cuối 0,56 triệu), 3 vòng F-2, 2 lượt đạo diễn đọc nhiều ảnh (0,16 và 0,35 triệu), 3 agent FIX-R1, 1 REVIEWER. Luồng chính cũng nạp lại ≈ 0,39 triệu mỗi lần thức (lượt cuối 12:08: ghi cache 391.865). Log tích luỹ không tách được agent với luồng chính. **Nguyên nhân:** mỗi agent mang ngữ cảnh 0,1–0,56 triệu, mỗi lần chờ render (3 lượt 720p ≈ 2,5 h) rồi thức lại phải nạp lại ngữ cảnh đó; luật "trả việc ngay" không chặn được việc agent ở lại sửa nhiều vòng.
 2. **Giờ máy P3c: ≈ 18 h** (1080p 7,7 h qua 6 lần + checks 10,3 h qua 4 lượt), trong tổng ≈ 23,4 h. Có hai nguyên nhân. (i) Trần 2 h của lệnh nền: lượt 1080p thứ 2 dừng ở 7.135 s; P3b chạy checks hai lần đều bị cắt khi bộ lấy mẫu trang chưa xong. (ii) Lấy mẫu trang chạy lại mọi khung, kể cả cảnh không đổi. Không tốn token, nhưng kéo dài P3c sang 2 ngày và làm ngữ cảnh phiên lên ≈ 265 nghìn.
 3. **Phiên K 1,86 triệu + P2 1,73 triệu.** K: 60 lượt trong một phiên, nạp lại ngữ cảnh ≈ 0,52 triệu (`first_request_input_tokens` 521.227). P2: 8 agent (WRITER, nhạc, 3 vòng N1, đạo diễn, REVIEWER). Hai phiên này cỡ bằng nhau và **nhỏ hơn P3b 40 lần**; ghi ra để thấy sau P3b không còn khoản nào lớn.
 
@@ -50,10 +52,10 @@ D-011 (mỗi chặng một phiên) có tác dụng ở phía điều phối: P1,
 | | P3b (agent con) | **P3c (headless Console)** |
 |---|---|---|
 | Việc | C4 vòng 1: 1 đầu vào + 3 F-2 + 3 FIX-R1 + 2 đạo diễn + REVIEWER | C4 vòng 2–4 (X, Y, Z), C5b (A, B), thumbnail (C), REVIEWER G2, ≈ 30 lượt kiểm mù, 4 checks, 6 lượt 1080p |
-| Token | 72,95 triệu trần | phiên 2,67 + Console ≈ 1,4 ≈ **4,1 triệu** |
+| Token | 72,95 triệu trần | phiên 2,67 + Console ≈ 1,3 ≈ **4,0 triệu** |
 | Một lượt dựng | ≈ 7 triệu ghi cache/agent (72 ÷ 10) | X: 83 lượt, ghi cache **0,16 triệu**, đọc cache 6,8 triệu, $4,01 |
 | Tiền | $485 niêm yết (thuê bao) | **$25,5 chi thật** + phiên thuê bao (P3c+P4 ≈ $29 niêm yết ở tiến trình cuối) |
-| Chất lượng | — | đạt: cổng gốc 21/23, checks Tập ĐẠT (CHẶN 36/36, CHÍNH 13/13), L3 ≥ 4 mọi dòng |
+| Chất lượng | — | đạt: cổng gốc bản giao **20/23 = 87 %** (C4: 21/23), checks Tập ĐẠT (CHẶN 36/36, CHÍNH 13/13), L3 ≥ 4 mọi dòng |
 
 - **Ghi cache mỗi lượt dựng giảm ≈ 40 lần** (7 → 0,16–0,18 triệu). Lượt headless chạy một mạch rồi thoát, không ngồi chờ render, nên không có lượt nạp lại > 0,3 triệu nào. Đây là phép kiểm `episode.md` §1 hỏi: X, Y, Z mỗi lượt cộng cả 80–100 lượt gọi mới ghi 0,16–0,18 triệu.
 - **Không phải đối chứng sạch:** P3c bỏ lượt đạo diễn (chủ dự án quyết 10/10), và đó là khoản đọc ảnh lớn của P3b. Sửa ở vòng sau nhỏ hơn vòng 1. Chất lượng không giảm theo thước cuối (L3 ≥ 4, checks ĐẠT, cổng gốc 87–91 %). Ước khi bỏ phần đạo diễn (0,5 triệu theo số công cụ báo, phần log còn lớn hơn): mỗi lượt dựng vẫn rẻ hơn ≥ 20 lần.
@@ -67,9 +69,9 @@ Chi tiết từng mục (số đo, nguyên nhân gốc, luật) ở `playbook/le
 |---|---|---|---|
 | (a) không mở phiên mới khi tệp lớn đang ở container | P3 → P3b → P3c: mỗi PLAN chép "dựng lại ≈ 2,8 h nếu container mới"; P4 chạy trong P3c: 0,14 triệu | **CHỜ** (sửa D-011) | lessons T6-3 |
 | (b) trần 2 h lệnh nền | checks 10,3 h · 1080p 7,7 h · 3 lần bị cắt | **ÁP** (tách chạy tiếp, cache theo cảnh, `K_JOBS=4`) + **CHỜ K** A29; biến môi trường **chưa xác minh** | `episode.md` §11b, `toolkit/checks_split.sh`, `checks-appeal.md` A29 |
-| (c) hằng tốc độ | đọc 2,66 (hằng 2,75) · thời lượng 2,40 (hằng 2,52, −4,8 %) | **ÁP**: hằng mới 2,66/2,40; chạy lại kịch bản Tập 6 → ước 8:56 = thật 8:56,6 | `templates/check_script.py`, `toolkit/usage/measure_pace.py` |
+| (c) hằng tốc độ | đọc 2,66 (hằng 2,75) · thời lượng 2,40 (hằng 2,52, −4,8 %) | **ÁP**: hằng mới 2,66/2,40; chạy lại kịch bản Tập 6 → ước 8:56 = thật 8:56,6 (khớp **trong mẫu**, vì hằng đo trên chính tập này; kiểm ngoài mẫu ở Tập 7) | `templates/check_script.py`, `toolkit/usage/measure_pace.py` |
 | (d) nhịp hình | spine: 7 quãng tĩnh > 8 s (dài nhất 11,3 s; Tập 5: 6, dài nhất 16,4 s) · freezedetect 206 s / 51 đoạn · R07 70,3 % · "3%" trễ 1,26 s | **CHỜ** (gu hình D-010 + gen §4): F-14 làm ở nhà máy **trước** tập dài đầu tiên | `toolkit/factory/BACKLOG.md` F-14 |
-| (e) B01/B15 hết 3 vòng | 0,5 · 0,5 qua 4 lượt; "none since" đè mép dải cảnh báo | **ÁP**: vòng 3 phải đổi loại hình hoặc hạ ý cần đọc | `episode.md` §1 |
+| (e) B01/B15 hết 3 vòng | 0,5 · 0,5 qua 4 lượt; "none since" đè mép dải cảnh báo | **ÁP**: vòng 3 phải đổi loại hình hoặc hạ ý cần đọc; việc hạ ý phải được nêu trong gói C4/G2 để chủ dự án thấy | `episode.md` §1 |
 | (f) phiếu L3 kèm mức gợi ý | G2 Tập 6 "≥ 4" không số | **CHỜ** (nguy cơ neo điểm) | `playbook/templates/L3.md` (nháp) |
 | (g) khoá Console = chuẩn | $25,5 · ghi cache/lượt dựng ÷ 40 (§1d) | **CHỜ** (chi tiêu) | `toolkit/api.sh` (dời từ ep006, công cụ có sẵn) |
 | (h) móc Shorts đo vùng an toàn khi viết | SH1/SH3 186 / 98 hộp ngoài vùng | **ÁP** (luật viết) + **CHỜ K** A30 | `episode.md` §5, `checks-appeal.md` A30 |
@@ -93,10 +95,10 @@ Theo D-012 mục 1: dải vượt trội có trung vị ~15–16 phút (`market/
 **Đã áp** (không phải gu; con số `deep` chờ duyệt nên ghi "chờ" ngay trong văn bản):
 - `playbook/episode.md` §9: dòng `deep`, điều kiện không độn, mid-roll, "nhà máy trước".
 - `playbook/episode.md` §8: mức cảnh báo theo format.
-- `playbook/templates/check_script.py`: `LEN_LIMITS['deep']` (882, 1020); khuôn `deep`; ACT 4; mid-roll 2–3 và khoảng cách ≥ 180 s. Thử trên bản sao kịch bản Tập 6 khai `deep` → TRƯỢT độ dài (536 < 882 s, thiếu ≈ 830 từ) và TRƯỢT mid-roll (1 < 2). Kịch bản Tập 6 với `101` cho cùng kết quả như trước, trừ phần do hằng mới.
+- `playbook/templates/check_script.py`: `LEN_LIMITS['deep']` (882, 1020); khuôn `deep`; **ACT 4 bắt buộc**; mid-roll **2 khi < 15:30, 3 khi ≥ 15:30**; khoảng cách ≥ 180 s. Thử trên bản sao kịch bản Tập 6 khai `deep` → TRƯỢT độ dài (536 < 882 s, thiếu ≈ 830 từ) và TRƯỢT mid-roll (1 < 2). Kịch bản Tập 6 với `101` cho cùng kết quả như trước, trừ phần do hằng mới.
 - `checks-appeal.md` A31: luật độ dài theo format cho lô K (F07 + mid-roll), chạy trước C4 Tập 7.
 
-**ElevenLabs:** 2.120–2.450 từ nói × ≈ 5,9 ký tự/từ + ≈ 10 % sinh lại ≈ **13.000–15.000 ký tự/tập**, gấp ≈ 2 lần Tập 6 (7.699). Bốn tập/tháng ≈ 60.000 ký tự. **Chủ dự án cần kiểm hạn mức gói ElevenLabs.** Không đủ thì hoặc dùng `lab`, hoặc nâng gói (đó là chi tiêu mới).
+**ElevenLabs:** 2.120–2.450 từ nói × ≈ 6,0 ký tự/từ ≈ **13.000–15.000 ký tự/tập**, gấp ≈ 2 lần Tập 6. Hệ số 6,0 lấy từ Tập 6 (7.699 ÷ 1.288), **đã gồm** phần sinh lại; Tập 5 sinh lại 40 % thì cận trên ≈ 17.000. Bốn tập/tháng ≈ 52.000–60.000 ký tự. **Chủ dự án cần kiểm hạn mức gói ElevenLabs.** Không đủ thì hoặc dùng `lab`, hoặc nâng gói (đó là chi tiêu mới).
 
 **CHARTER §1 chưa sửa:** hiện ghi "hai định dạng". Phiên P1 Tập 7 sửa sau khi chủ dự án duyệt câu 2 (D-012 "Thay").
 
@@ -161,38 +163,49 @@ Thành luật ở `episode.md` §10 mục 4–5: đổi/giữ ở mốc 48–72 
 
 ## 5. Gói cho chủ dự án (≤ 3 câu, mỗi câu có khuyến nghị)
 
-**Câu 1: duyệt các luật ở §2 cần quyền chủ dự án?**
-- (a) **Sửa D-011.** Khi chặng sau cần tệp lớn ngoài git đang nằm ở container, chạy tiếp trong phiên đó sau `/compact` thay vì mở phiên mới. Vẫn đóng chặng bằng PLAN ≤ 1 trang + prompt, để mở phiên mới được nếu container mất.
-- (d) **F-14 nhịp hình**, làm ở nhà máy trước tập dài đầu tiên: chuyển động nền liên tục **có nghĩa** khi máy đứng; mỗi ≤ 8 s một thay đổi mang nghĩa; nhãn neo vào từ. Đích đo trên Tập 6 dựng lại: 7 → 0 quãng tĩnh, freezedetect < 60 s, R07 ≥ 90 %, "3%" ≤ 0,2 s, cổng gốc không tụt.
-- (f) **Phiếu L3** kèm số máy và mức gợi ý, đặt **sau** ô điểm của chủ dự án.
-- (g) **Khoá Console là cách chuẩn** cho dựng, đọc và soát. Trần chi/tập: `101` $35 · `lab` $45 · `deep` $60.
-- **Khuyến nghị: duyệt cả bốn.** (d) và (f) chạy thử 3 tập rồi hiệu chuẩn lại.
+**Câu 1: duyệt các luật ở §2 cần quyền chủ dự án?** Mỗi mục kèm đánh đổi:
+- (a) **Sửa D-011.** Khi chặng sau cần tệp lớn ngoài git đang nằm ở container, chạy tiếp trong phiên đó sau `/compact`. Vẫn đóng chặng bằng PLAN ≤ 1 trang + prompt.
+  - Được: không phải dựng lại ≈ 2,8 h.
+  - Mất: ngữ cảnh lớn dần qua nhiều chặng; container có thể bị thu hồi khi anh chưa trả lời.
+- (d) **F-14 nhịp hình**, làm ở nhà máy: chuyển động nền **có nghĩa** khi máy đứng; mỗi ≤ 8 s một thay đổi mang nghĩa; nhãn neo vào từ. Đích đo trên Tập 6 dựng lại: 7 → 0 quãng tĩnh, freezedetect < 60 s, R07 ≥ 90 %, "3%" ≤ 0,2 s, cổng gốc không tụt.
+  - Mất: một phiên nhà máy (≈ 1 ngày máy, chạy song song P1 Tập 7); có nguy cơ thành chuyển động trang trí — chống bằng gen §4 và cổng gốc.
+- (f) **Phiếu L3** kèm số máy và mức gợi ý, đặt **sau** ô điểm của anh.
+  - Được: so được giữa các tập.
+  - Mất: nguy cơ neo điểm.
+- (g) **Khoá Console là cách chuẩn** cho dựng, đọc và soát. Trần chi/tập: `101` $35 · `lab` $45 · `deep` $60, tức ≈ $140–240/tháng chi thật.
+  - Được: tránh mô hình agent con đã tốn 72,95 triệu ở P3b; thuê bao thì không mất tiền nhưng tốn hạn mức tuần (P3b phải dừng ở ≈ 6 % hạn mức còn lại).
+- **Khuyến nghị: duyệt cả bốn.** (d) và (f) dùng thử 3 tập rồi hiệu chuẩn lại.
 
 **Câu 2: format `deep` và format Tập 7–8?**
-- `deep` 14–17 phút, ước G1 ≥ 14:42, 2–3 mid-roll (3 khi ≥ 15:30, các điểm cách nhau ≥ 3 phút).
+- `deep` 14–17 phút, ước G1 ≥ 14:42, mid-roll 2 điểm (3 khi ≥ 15:30), các điểm cách nhau ≥ 3 phút.
 - Ba điều kiện không độn: ≥ 3 cửa sổ lịch sử cho kết quả khác nhau · hai nhân vật · ≥ 3 câu hỏi khán giả.
 - Trần cảnh báo: 20 triệu token, $60, ≈ 22 h máy.
-- **ElevenLabs ≈ 13.000–15.000 ký tự/tập** (≈ 60.000/tháng nếu 4 tập). **Anh kiểm hạn mức gói ElevenLabs.**
+- **ElevenLabs ≈ 13.000–15.000 ký tự/tập**, ≈ 52.000–60.000/tháng nếu 4 tập. **Anh kiểm hạn mức gói ElevenLabs.**
 - **Khuyến nghị:**
-  - Tập 7 (#13) = `deep` nếu F-14 đạt đích trước C3. #13 có đủ ba điều kiện: nhiều năm bắt đầu theo lãi thật — lãi 15 năm có từ 1991 theo Freddie Mac PMMS, kiểm ở Việc 0 —, hai người cùng một căn nhà khác kỳ hạn, câu hỏi "trả sớm hay đầu tư" của khán giả. Nếu F-14 không đạt, hoặc gói EL không đủ → `lab` 11 phút.
+  - Tập 7 (#13) = `deep`, **với điều kiện F-14 đạt đích trước G1 lô.** Phiên nhà máy chạy song song P1. Nếu chưa đạt, G1 chọn `lab` 11 phút, để không phải viết kịch bản 15 phút rồi cắt lại.
+  - #13 có đủ ba điều kiện:
+    - nhiều năm bắt đầu theo lãi thật (lãi 15 năm của Freddie Mac PMMS có từ 1991; kiểm ở Việc 0);
+    - hai người cùng một căn nhà, khác kỳ hạn;
+    - câu hỏi "trả sớm hay đầu tư" của khán giả.
   - Tập 8 (#20) xét cùng cách ở G1 lô.
 
-**Câu 3: đường thumbnail?** Phép thử §4f trên Tập 6:
+**Câu 3: đường thumbnail và bộ nhận diện?** Phép thử §4f trên Tập 6:
 - **API lai** (khung 3D thật → OpenAI `images/edits` → lớp chữ máy) giữ đúng vật thể (thùng, không phải giỏ), giữ thế giới 3D và một màu kênh, ≈ $0,25/tập. Nó lệch số thùng ở 2/3 ảnh, nên người phải xem ở G2.
-- **ChatGPT thủ công** lệch cả ba điểm (giỏ, ảnh chụp, 3 màu).
-- Bộ nhận diện "M." (Inter Bold, chữ dưới trái, màu theo trụ; `packaging.md` §7.4) là gu, cần anh duyệt.
-- **Khuyến nghị: API lai là đường chính, ChatGPT dự phòng; duyệt bộ nhận diện như ảnh `tongket-t6/thumbs/api-*.png`.** Vẫn render đối chứng 2D cho Test & Compare đến hết Tập 7.
+- **ChatGPT thủ công** lệch cả ba điểm (giỏ, ảnh chụp, 3 màu) theo mô tả của anh. Máy chưa chấm được vì không có ảnh.
+- Bộ nhận diện "Money Rerouted" (logo "M.", Inter Bold, chữ dưới trái, màu theo trụ; `packaging.md` §7.4) là gu.
+- **Khuyến nghị: API lai là đường chính, ChatGPT dự phòng; duyệt bộ nhận diện như ảnh `tongket-t6/thumbs/api-*.png`.** Vẫn render đối chứng 2D cho Test & Compare đến hết Tập 7. Anh xác nhận giúp "Money Rerouted" là kênh của Crux (lessons T6-12).
 
-**Trả lời gọn:** `1 a·d·f·g: duyệt/sửa … · 2 deep: duyệt/sửa …; Tập 7: deep/lab; EL: đủ/không · 3 API lai/ChatGPT; nhận diện: duyệt/sửa …`
+**Trả lời gọn:** `1 a·d·f·g: duyệt/sửa … · 2 deep: duyệt/sửa …; Tập 7: deep (nếu F-14 đạt)/lab; EL: đủ/không · 3 API lai/ChatGPT; nhận diện: duyệt/sửa …; Money Rerouted = kênh mình: đúng/sai`
 
 ## 6. Prompt P1 Tập 7 (G1 lô Tập 7–8) — chủ dự án dán nguyên khối vào phiên mới
 ```
-Chạy Tập 7, đề tài #13 (15-year mortgage vs a 30-year paid off in 15), phiên P1 — G1 LÔ Tập 7–8 (D-011 Q1, D-012). Nhánh ep007 từ main (sau khi tongket-t6 đã merge). Mở bằng `bash toolkit/verify.sh ep007`.
-Đọc trước: CHARTER.md, decisions/D-012.md, tongket-t6/REPORT.md §2–§5, playbook/episode.md (§1b, §3.12, §5, §8, §9), playbook/packaging.md §7, playbook/prompts/P1.md, market/topics/q13-15-vs-30-mortgage.md, tongket-t6/anchors/q13-15-vs-30-mortgage.json.
-Việc đầu tiên: chép câu trả lời tổng kết Tập 6 dưới đây vào tongket-t6/ANSWER.md, commit; áp phần được duyệt (D-011 sửa, F-14, phiếu L3, khoá Console, format deep → CHARTER §1 + episode.md §9 bỏ chữ "chờ", bộ nhận diện kênh). Câu 1 (d) được duyệt → F-14 trên nhánh factory-f14 TRƯỚC C3 Tập 7 (đo trên Tập 6 dựng lại, đối chứng bản giao f96da0ea).
-Tập 7: P1 Việc 0 → C1 → C2 → G1 theo P1.md. Format theo câu 2. Video neo + ý tưởng tiêu đề/thumbnail chốt ở G1 (packaging.md §7.1). Việc nặng headless khoá Console (toolkit/api.sh), 0 agent con trừ khi cần công cụ phiên.
+Chạy Tập 7, đề tài #13 (15-year mortgage vs a 30-year paid off in 15), phiên P1 — G1 LÔ Tập 7–8 (D-011 Q1, D-012).
+BƯỚC 0: `git fetch origin main`; main phải có merge tongket-t6 (tongket-t6/REPORT.md có trên main). Chưa có → dừng, báo chủ dự án (phiên điều phối duy nhất merge main).
+BƯỚC 1 (nhánh tongket-t6-answer từ main): chép câu trả lời dưới đây vào tongket-t6/ANSWER.md; áp mục được duyệt: D-011 sửa (1a), phiếu L3 bỏ chữ "nháp" (1f), toolkit/api.sh là chuẩn + trần chi (1g), format deep → CHARTER §1 + episode.md §8–§9 bỏ chữ "chờ" (2), bộ nhận diện + đường thumbnail (3), OWN_CHANNELS (T6-12). Mục bác → giữ nguyên trạng; mục sửa → áp theo câu sửa. Ghi taste-ledger.md, AUTHORSHIP.md. Merge main, rồi mới tạo ep007 từ main. Nếu 1d duyệt: viết đầu bài phiên nhà máy F-14 (nhánh factory-f14, đo trên Tập 6 dựng lại, đối chứng master SHA-256 f96da0ea…), để ở tongket-t6/F14-brief.md cho chủ dự án mở song song — P1 không làm F-14.
+Mở bằng `bash toolkit/verify.sh ep007`. Đọc (≤ 8): CHARTER.md · decisions/D-012.md · tongket-t6/ANSWER.md · playbook/episode.md · playbook/packaging.md (§7) · playbook/prompts/P1.md · market/topics/q13-15-vs-30-mortgage.md · tongket-t6/anchors/q13-15-vs-30-mortgage.json.
+Tập 7: P1 Việc 0 → C1 → C2 → G1 theo P1.md. Format theo câu 2 (deep chỉ khi F-14 đã đạt trước G1). Video neo + ý tưởng tiêu đề/thumbnail chốt ở G1 (packaging.md §7.1). Việc nặng headless khoá Console (toolkit/api.sh), 0 agent con trừ khi cần công cụ phiên.
 Tập 8 (#20 thuê vs mua, phát lại lịch sử thật; dự phòng #6): song song, chạy máy đề tài làm hồ sơ #20 (topic-dossier.md §4: quyền dữ liệu giá thuê/giá nhà); G1 lô có đề tài + logline + format + neo (tongket-t6/anchors/s1-rent-vs-buy-history.json) cho Tập 8. Hồ sơ #20 không qua §4 → #6.
-Dừng ở G1 lô (đóng phiên theo D-011 / bản sửa nếu duyệt).
+Dừng ở G1 lô (đóng phiên theo D-011, hoặc bản sửa nếu 1a duyệt).
 Câu trả lời tổng kết Tập 6:
 <<DÁN CÂU TRẢ LỜI TỔNG KẾT TẬP 6 Ở ĐÂY>>
 ```

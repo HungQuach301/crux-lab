@@ -80,8 +80,8 @@ Anchor videos this one follows (same question, rising now; do not copy their tit
         s = t['title']
         if len(s) > 60: fails.append(f'title "{s}": {len(s)} ký tự > 60')
         fails += [f'title "{s}": {k} "{m}"' for k, m in scan(s)] + [f'title "{s}": số "{n}" không có claim' for n in bad_numbers(s, ok)]
-        if t.get('search_phrase') and not s.lower().startswith(t['search_phrase'].lower()[:12]): fails.append(f'title "{s}": cụm tìm kiếm không đứng đầu')
-    if len(head) > 160: fails.append(f'2 dòng đầu mô tả {len(head)} ký tự > 150')
+        if t.get('search_phrase') and not s.lower().startswith(t['search_phrase'].lower()): fails.append(f'title "{s}": cụm tìm kiếm không đứng đầu')
+    if len(head) > 150: fails.append(f'2 dòng đầu mô tả {len(head)} ký tự > 150')
     fails += [f'mô tả: {k} "{m}"' for k, m in scan(desc)] + [f'mô tả: số "{n}" không có claim' for n in bad_numbers(head, ok)]
     allt = ' '.join([t['title'] for t in titles] + [head, chap, ' '.join(r.get('tags', []))]).lower()
     fails += [f'từ cấm "{b}" (vật thể của video là: {objects})' for b in banned.split(',') if b and re.search(rf'\b{re.escape(b)}\b', allt)]

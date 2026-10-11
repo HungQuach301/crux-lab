@@ -12,7 +12,7 @@ không đổi lấy mẫu có mặt người/mũi tên dự báo/số tiền kh�
 import base64, io, json, os, pathlib, sys, urllib.request
 from PIL import Image
 
-MODEL = 'claude-sonnet-4-5'
+MODEL = 'claude-sonnet-5-5'
 
 
 def b64(path, size):
@@ -50,7 +50,7 @@ no unsourced dollar amounts) and "match" (shows/says exactly what the video show
 Return JSON {{"titles":[{{"i":1,"trend":n,"match":n,"note":"<=12 words"}}],"thumbs":[{{"i":1,"trend":n,"match":n,"readable":n,"objects_seen":"...","note":"<=12 words"}}],
 "default_title":i,"default_thumb":i,"test_compare_order":[i,i,i],"why":"<=25 words"}}. Match outranks trend."""})
     r, cost = call(content)
-    r['cost_usd_est'] = round(cost, 4); r['titles_in'] = titles; r['thumbs_in'] = thumbs
+    r['model'] = MODEL; r['cost_usd_est'] = round(cost, 4); r['titles_in'] = titles; r['thumbs_in'] = thumbs
     r['post_time'] = 'thứ Hai, 12–16 UTC (sáng giờ Mỹ) — tín hiệu yếu, market/REPORT.md §4'
     if opt('--out'): pathlib.Path(opt('--out')).write_text(json.dumps(r, ensure_ascii=False, indent=1))
     print(json.dumps(r, ensure_ascii=False, indent=1))

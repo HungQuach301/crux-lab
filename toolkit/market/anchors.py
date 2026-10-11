@@ -14,7 +14,7 @@ Hạn mức: 2 search/đề tài (200 đơn vị) + videos.list; dừng trước
 """
 import datetime as dt, json, pathlib, re, statistics as st, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from mcommon import yt, videos, iso_dur, cache_dir, jdump, jload, label   # noqa: E402
+from mcommon import yt, videos, iso_dur, cache_dir, jdump, jload, label, OWN_CHANNELS   # noqa: E402
 import ai   # noqa: E402
 
 TOPICS = {t['id']: t for t in jload(pathlib.Path(__file__).parent / 'topics.json')['topics']}
@@ -32,8 +32,8 @@ def pool(topic, days_max, days_min=0):
         ids += [it['id']['videoId'] for it in r.get('items', [])]
     now = dt.datetime.now(dt.timezone.utc); rows = []
     for vid, it in videos(ids).items():
-        if iso_dur(it['contentDetails'].get('duration')) < 240:
-            continue   # bỏ Shorts và video < 4 phút
+        if iso_dur(it['contentDetails'].get('duration')) < 240 or it['snippet'].get('channelId') in OWN_CHANNELS:
+            continue   # bỏ Shorts, video < 4 phút, và video của chính kênh mình
         t = it['snippet']['title']
         if re.search(r'₹|\blakh|\bcrore|\bSIP\b|\bSWP\b|\bEPF|\bNPS\b|£|\bUK\b|\bCanada|\bTFSA|\bRRSP|\bsuper(annuation)?\b', t, re.I) \
                 or sum(ord(ch) > 0x24F for ch in t) > 3 or it['snippet'].get('defaultAudioLanguage', 'en')[:2] not in ('en', ''):
@@ -59,6 +59,8 @@ def cmd_anchors(topic, question, n=3):
                    + '\n'.join(f'{i}. {r["title"]} — {r["desc"][:300]}' for i, r in enumerate(top)), task='anchors')
     out = []
     for j in judge:
+        if not 0 <= j.get('i', -1) < len(top):
+            continue
         r = top[j['i']]
         if j.get('same') and len(out) < n:
             out.append({'link': f'https://youtu.be/{r["id"]}', 'channel': r['channel'], 'speed': label(r['vpd'] / med, 1.5, 3) if med else 'chưa có',

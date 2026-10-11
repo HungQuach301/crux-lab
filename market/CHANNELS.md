@@ -63,7 +63,7 @@ Kênh < 2 năm. **≥ 2 video nổ trong 90 ngày → lên vòng tương ứng**
 | [Mr Finance Wise](https://www.youtube.com/channel/UCcg7VnTDboJDOIz3CMsve6g) | trực tiếp | 2D animated math comparisons | 0 | mới nổi: lượt xem ≥ 3× người đăng ký, lượt xem/ngày cao |
 | [Worthspring](https://www.youtube.com/channel/UChllrfC2MDdVnilJdVX4-sw) | trực tiếp | simple investing explainers with real numbers | 0 | ≥ 3 đề tài |
 | [Grayson Invests](https://www.youtube.com/channel/UCjKDjHbyiChzOhV-WC8S0vg) | trực tiếp | animated money-math explainers | 0 | ≥ 3 đề tài |
-| [Money Rerouted](https://www.youtube.com/channel/UCtpaYePfaqqBsD0SFwlEQwg) | trực tiếp | worked-example loan and rate math | 0 | ≥ 3 đề tài |
+| [Money Rerouted](https://www.youtube.com/channel/UCtpaYePfaqqBsD0SFwlEQwg) — **KÊNH CỦA CRUX, không phải đối thủ** (tổng kết Tập 6, lessons T6-12; `mcommon.OWN_CHANNELS`) | (của mình) | — | — | — |
 | [MoneyMechanics](https://www.youtube.com/channel/UCuGKWV2U0dyfk89LtRxm5AQ) | trực tiếp | plain-English topic explainers with worked math | 0 | ≥ 3 đề tài |
 | [In Depth Analysis](https://www.youtube.com/channel/UCWjOxV02a6UpzILHx98BkCg) | hình thức | data-driven narrated explainer | 0 | mới nổi: lượt xem ≥ 3× người đăng ký, lượt xem/ngày cao |
 

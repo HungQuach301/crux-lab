@@ -377,6 +377,10 @@ print(f'mid-roll: {"ĐỦ" if _mr_ok else "KHÔNG ĐỦ"} điều kiện theo đ
       'chốt bằng độ dài thật sau khi sinh lời (≥ 8:10) và ở C5 (≥ 8:00)')
 if mid and not _mr_ok:
     warn.append(f'mid-roll khai trong kịch bản nhưng độ dài ước {fmt(EST)} < 8:00 — không được ghi là có mid-roll (T6-1)')
+if FORMAT == 'deep':   # episode.md §9: 2 điểm khi < 15:30, 3 khi ≥ 15:30 (theo độ dài ước; chốt lại trên độ dài thật)
+    NMID = (3, 3) if EST >= 930 else (2, 2)
+    if 'questions' not in span:
+        fail.append('deep thiếu ACT 4 (câu hỏi khán giả, episode.md §9)')
 if not NMID[0] <= len(mid) <= NMID[1] and not (G1_SHORT and not mid):
     fail.append(f'mid-roll: {len(mid)} điểm ({FORMAT} cần {NMID[0]}–{NMID[1]}; bỏ mid-roll chỉ khi G1 duyệt, --g1-short)')
 for a, b in zip(sorted(mid), sorted(mid)[1:]):

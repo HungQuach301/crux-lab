@@ -29,7 +29,7 @@ def font(px):
 
 
 PROMPT = ('Edit this frame from an explainer video into a YouTube thumbnail background. KEEP exactly these objects and characters, same shapes, '
-          'same colors, same count, same arrangement: {keep}. Make them larger and closer to the camera, with dramatic soft key light, '
+          'same colors, same count, same arrangement: {keep}. Keep the same camera distance and framing; do not zoom in. Add dramatic soft key light, '
           'deeper shadows and gentle depth of field on a dark charcoal background (#0E1116). Style stays minimal low-poly 3D, matte, '
           'not photorealistic. Remove ALL text, labels, numbers, badges, captions and logos from the image. Do not add any new object, '
           'person, face, hand, money bill, coin, basket, arrow or chart. Characters stay faceless. Keep the top and bottom dark bands empty '
@@ -81,7 +81,7 @@ if __name__ == '__main__':
     a.add_argument('--frame', required=True); a.add_argument('--keep', default=''); a.add_argument('--text', required=True)
     a.add_argument('--pillar', choices=list(PILLAR), required=True); a.add_argument('--out', required=True)
     a.add_argument('--character', action='store_true'); a.add_argument('--no-api', action='store_true')
-    a.add_argument('--quality', default='high', choices=list(PRICE)); a.add_argument('--claims', default='')
+    a.add_argument('--quality', default='medium', choices=list(PRICE)); a.add_argument('--claims', default='')
     o = a.parse_args()
     lines = o.text.split('|')
     if sum(len(l.split()) for l in lines) > 4:
@@ -90,9 +90,9 @@ if __name__ == '__main__':
         base, usage, prompt, cost = Image.open(o.frame).convert('RGB').resize((W, H)), {}, None, 0
     else:
         base, usage, prompt = api_edit(o.frame, o.keep, o.quality); cost = PRICE[o.quality]
-        base.save(o.out.replace('.png', '-bg.png'))
+        base.save(pathlib.Path(o.out).with_name(pathlib.Path(o.out).stem + '-bg.jpg'), quality=88)
     overlay(base, lines, o.pillar, o.character).save(o.out)
     meta = {'texts': lines, 'claims': [c for c in o.claims.split(',') if c], 'frame': o.frame, 'path': 'no-api' if o.no_api else 'openai images/edits gpt-image-1',
             'quality': o.quality, 'prompt': prompt, 'usage': usage, 'cost_usd_est': cost, 'pillar': o.pillar, 'character': o.character}
-    pathlib.Path(o.out.replace('.png', '.json')).write_text(json.dumps(meta, ensure_ascii=False, indent=1))
+    pathlib.Path(o.out).with_suffix('.json').write_text(json.dumps(meta, ensure_ascii=False, indent=1))
     print(o.out, meta['path'], f'≈ ${cost}')

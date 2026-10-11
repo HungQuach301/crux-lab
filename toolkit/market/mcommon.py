@@ -8,6 +8,9 @@ COST = {'search': 100}           # mọi phương thức đọc khác 1 đơn v�
 DAY_UNITS, DAY_SEARCH = 10_000, 100
 SAFE_UNITS, SAFE_SEARCH = 9_500, 95   # chừa đệm cho lệnh kiểm
 
+# Kênh của chính Crux trên YouTube ("Money Rerouted"; chủ dự án 11/10, D-012): loại khỏi đối thủ, neo, xu hướng, khoảng trống (lessons T6-12)
+OWN_CHANNELS = {'UCtpaYePfaqqBsD0SFwlEQwg'}
+
 CACHE_ROOT = pathlib.Path(os.environ.get('MARKET_CACHE', pathlib.Path.home() / 'market-cache'))
 
 
