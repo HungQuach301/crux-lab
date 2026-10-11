@@ -1,10 +1,10 @@
-// Tập 6 · C4 · ĐOẠN D = S13–S23 (Hồi 2). "Bức tường" 715 thanh (V1/V2, c4kit.Strip): mỗi quãng 20 năm một thanh theo tháng bắt đầu, cao = sức mua
+// [F-14 overlay] Tập 6 · C4 · ĐOẠN D = S13–S23 (Hồi 2). "Bức tường" 715 thanh (V1/V2, c4kit.Strip): mỗi quãng 20 năm một thanh theo tháng bắt đầu, cao = sức mua
 // của séc tăng 2 % sau 20 năm; vạch "first check" cố định; phán màu ở S14; cụm 1947–1949; trung vị 80,7 % / 54,3 %; 1990–2006; 25 năm; ba chỉ số;
 // về thế giới ở S23 (ba thanh loé: 1949, 1966, 2006 — sang hồi 3). Mốc giờ chỉ từ spine.json; dữ liệu world/grid.json (derive.py).
 import * as THREE from 'three';
 import { Person, Crates } from '/toolkit/factory/world/lib3d.js';
 import { CK } from '/toolkit/factory/world/core.js';
-import { setup, Strip, stripYearX, modeLook, followLight, chrome, label, seg2, dip, show, pulse, setOpacity, CHAR, C, ease, lin, mix, rgba } from '/episodes/ep006/world/c4kit.js';
+import { setup, Strip, stripYearX, modeLook, followLight, chrome, label, seg2, dip, show, pulse, setOpacity, at, CHAR, C, ease, lin, mix, rgba } from '/episodes/ep006/world/c4kit.js';
 
 const SEG = '/episodes/ep006/world/c4/d-s13-s23/';
 const UNIT = 8, W = 40;
@@ -40,26 +40,36 @@ export async function boot(res) {
   // quét sáng trái → phải (đếm / hỏi từng quãng / xếp theo tháng): thanh i loé khi đầu quét đi qua
   const tw = (s, px = 48) => { const c = O.ctx; c.save(); c.font = `700 ${px}px Inter`; const w = c.measureText(s).width; c.restore(); return w; };
   const sweep = (t, a, d) => { if (t < a || t > a + d + 0.3) return null; const p = (t - a) / d * (n + 80) - 40; return (i) => Math.max(0, 1 - Math.abs(i - p) / 40); };
+  // F-14 (a): quét theo tháng bắt đầu trong khoảng [i0, i1] (đầu quét CÓ MẶT ngay ở mốc đầu — đổi hình đúng từ), K = S.life.<tên>.keys
+  const walk = (t, K, i0 = 0, i1 = n - 1, w = 30) => { if (t < K[0][0] || t > K[1][0] + 0.3) return null; const p = i0 + (i1 - i0) * lin(t, K[0][0], K[1][0]);
+    return (i) => (i < i0 - w || i > i1 + w ? 0 : Math.max(0, 1 - Math.abs(i - p) / w)); };
+  const kept = v20.map((v, i) => [v, i]).filter(([v]) => v >= 100).map(([, i]) => i);   // 17 quãng theo kịp (thứ tự tháng)
+  const iSep = iOf('1947-09');
 
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
     followLight(key, pose.tgt); modeLook(scene, floor, cw);
     const grow = lin(t, S.grow[0], S.grow[1]);
     const verdict = ease(t, b.e4.kept - 0.05, b.e4.kept + 0.6);
-    const mx = ease(t, b.f5.twenty - 0.1, b.f5.twenty + 1.0) * (1 - ease(t, b.f6.social - 0.6, b.f6.social + 0.2));
+    const mx = ease(t, b.f5.twenty - 0.05, b.f5.twenty + 1.0) * (1 - ease(t, b.f6.social - 0.6, b.f6.social + 0.2));   // F-14: bắt đầu ĐÚNG "twenty" (R07 −0,25 s)
     const f19 = show(t, b.f4.gentler, MV.m_pull21.t0 - 0.3);
-    const dimMini = show(t, b.f6.social - 0.3, MV.m_w23.t0 - 0.2);
+    const dimMini = show(t, b.f6.social, MV.m_w23.t0 - 0.2);   // F-14: dải nhỏ hiện ĐÚNG "Social" (R07 f6.social −0,29 s)
     const hiP = Math.max(pulse(t, b.f7.start, 1.6), 0.6 * show(t, b.f7.start));
+    const stW = walk(t, S.life.starts.keys, 0, n - 1, 60);   // F-14 (a) S23.1: ánh sáng dọc tường theo tháng bắt đầu (thế giới)
     // R1 động tác theo lời: S13 "seven hundred fifteen" quét đếm, "question … least" quét hỏi từng quãng, "month" quét theo tháng;
     // S16 "typical" sáng các quãng quanh trung vị; S17 "level" tường đổi sang séc ĐỀU (cùng quãng), về séc tăng khi đẩy máy S19
-    const sw = sweep(t, b.e1.seven, 1.5) || sweep(t, b.e2.question, b.e2.least - b.e2.question) || sweep(t, b.e3.month, 1.0);
+    const LF = S.life, ksN = 17 * lin(t, LF.seventeen.keys[0][0], LF.seventeen.keys[1][0]);
+    // F-14: quét "question" có đầu quét ngay ở từ (R07 e2.question) và tắt ≥ 0,7 s trước "least" (R07 e2.least: nền đo yên)
+    const sw = sweep(t, b.e1.seven, 1.5) || walk(t, LF.recent.keys, 0, n - 1, 40) || walk(t, [[b.e2.question], [b.e2.least - 0.9]], 0, n - 1, 40) || sweep(t, b.e3.month, 1.0)
+      || walk(t, LF.cluster.keys, iSep, iE, 4) || walk(t, LF.closest.keys, i90, iR, 20) || walk(t, LF.none25.keys, 0, n - 1, 40)
+      || (t >= LF.seventeen.keys[0][0] && t < LF.seventeen.keys[1][0] + 0.6 ? (i) => { const j = kept.indexOf(i); return j < 0 ? 0 : Math.max(0, 1 - Math.abs(ksN - j - 0.5) * 0.8); } : null);
     const fT = show(t, b.e8.typical, b.e9.eighty + 1.2), medV = S.med.rising;
     const ml = ease(t, b.f1.level, b.f1.level + 1.6) * (1 - ease(t, MV.m_push19.t0, MV.m_push19.t1));
     const hR = Math.max(pulse(t, b.e1.ruths, 1.4), pulse(t, tRuth15, 1.6), hiP);
     strip.set({
       grow, verdict, morph: ml > 0.001 ? { to: lv20, x: ml } : mx > 0 ? { to: v25, x: mx } : null, dim: 1 - 0.85 * dimMini, opacity: 1 - 0.97 * dimMini,
       focus: (i) => (f19 > 0 ? mix(1, i >= i90 ? 1 : 0.15, f19) : fT > 0 ? mix(1, Math.abs(v20[i] - medV) <= 2.5 ? 1 : 0.3, fT) : 1),
-      hi: (i) => Math.max(sw ? sw(i) : 0, i === iR ? hR : i === iE || i === iC ? hiP : (i === 300 ? pulse(t, b.e3.tile, 1.2) : 0)),
+      hi: (i) => Math.max(sw ? sw(i) : 0, stW ? 0.5 * stW(i) : 0, i === iR ? hR : i === iE || i === iC ? hiP : (i === 300 ? pulse(t, b.e3.tile, 1.2) : 0)),
     });
     setOpacity(ruth, 1 - dimMini);
     strip.line.visible = t >= b.e2.least - 0.05 && dimMini < 0.99; strip.line.material.opacity = ease(t, b.e2.least - 0.05, b.e2.least + 0.4) * (1 - dimMini);
@@ -68,7 +78,8 @@ export async function boot(res) {
     medR.visible = t >= tRising16 - 0.05 && t < b.f5.twenty; medR.material.opacity = ease(t, tRising16 - 0.05, tRising16 + 0.3); medR.position.y = UNIT * yR / 100;
     medL.visible = t >= b.f1.level - 0.05 && t < b.f5.twenty; medL.material.opacity = ease(t, b.f1.level - 0.05, b.f1.level + 0.3); medL.position.y = UNIT * yL / 100;
     const cA = show(t, b.f0.crates, b.f1.level + 0.7);
-    crates.set({ value: mix(1, S.med.rising / 100, ease(t, b.f0.most - 0.1, b.f0.most + 0.9)), appear: cA, pulse: pulse(t, b.f0.ten, 0.8) });
+    // F-14: thùng điển hình mờ dần từ "crates" tới "most" (sống theo câu), loé gọn ĐÚNG "most" (R07 f0.most không đo được)
+    crates.set({ value: mix(1, S.med.rising / 100, ease(t, b.f0.crates + 0.4, b.f0.most)), appear: cA, pulse: pulse(t, b.f0.ten, 0.8) + 1.4 * pulse(t, b.f0.most, 0.7) });
     renderer.render(scene, cam);
     // ---------------- lớp phủ
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
@@ -89,7 +100,7 @@ export async function boot(res) {
     // C5b (V03): nhãn canh trái ở mép tường lùi vào ≥ 102 px — mực chữ (lề trái của glyph) không ra ngoài x 96
     const lx0 = Math.max(fx0, 102);
     label(O, 'first check', lx0, ly - 26, { align: 'left', kind: 'name', px: 48, w: 600, color: C.muted, alpha: ok * wide * (1 - s15) * show(t, b.e2.least) * (1 - show(t, b.f6.social - 0.3)) });
-    label(O, L['e3.tile'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.e3.tile, b.e4.kept - 0.3) });
+    label(O, L['e3.tile'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, at(S, 'e3.tile', b.e3.tile), b.e4.kept) });   // F-14: tắt ĐÚNG "kept" (R07 e4.kept −0,21 s)
     // vòng sửa 3 (B15: trục ngang đọc ra "thời gian của một séc"): từ S15 nhãn trục cả ở cLeft (tắt khi lùi máy), mốc năm bắt đầu 1966 · 1986 giữa
     // "1947" và "Aug 2006" + chú thích trục "starting month" — mỗi thanh = một quãng 20 năm theo tháng bắt đầu; mốc ngoài khung thì ẩn
     const ax = ok * show(t, b.e3.month) * (1 - show(t, b.f6.social - 0.3)), wS = t > MV.m_push15.t1 && t < MV.m_pull15.t1 + 1 ? 1 - show(t, MV.m_pull15.t0 - 0.1, MV.m_pull15.t1 - 0.3) : wide;
@@ -136,11 +147,15 @@ export async function boot(res) {
     { const [x0, y0] = O.toScreen(crates.edgeX(0), 11.5, 0), [x1] = O.toScreen(crates.edgeX(10), 11.5, 0);
       label(O, L['f0.ten'], (x0 + x1) / 2, y0 + 70, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.f0.ten, b.f1.level + 0.7) }); log.roi['f0.most'] = [x0 - 10, y0 - 60, x1 + 10, y0 + 90]; }
     { const [, y] = O.toScreen(0, UNIT * yL / 100, 0.3); label(O, L.m54, fx1 + 10, y + 16, { align: 'left', kind: 'number', px: 48, color: C.muted, alpha: ok * show(t, b.f1.fifty, MV.m_push19.t0) }); }
+    // F-14 (a) "about half": vạch 50 % kẻ dần trái → phải từ "fifty-four" tới "sunk" (S.life.half)
+    { const HK = S.life.half.keys, hp = lin(t, HK[0][0], HK[1][0]), [, yh] = O.toScreen(0, UNIT * 0.5, 0.3);
+      if (hp > 0) seg2(O, fx0, yh, fx0 + (fx1 - fx0) * hp, yh, C.muted, ok * 0.8 * (1 - show(t, MV.m_push19.t0)), 3, [10, 8]); }
     label(O, L['f1.fifty'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.f1.fifty, MV.m_push19.t0) });
     const yA = ok * show(t, b.f2.sunk, MV.m_push19.t0);   // R1: hàng 20 ô năm hiện từ "sunk", tô dần từng năm tới đúng "eight" (số hiện ở "eight")
     if (yA > 0.01) {   // ô nhỏ: 20 năm, 8 ô đầu tô (séc đều chạm mức cuối của séc tăng khoảng năm 8)
       const c = O.ctx, x0 = 300, w = 60, y = 360; c.save(); c.globalAlpha = yA;
-      for (let k = 0; k < 20; k++) { c.fillStyle = k < 8 * lin(t, b.f2.sunk + 0.3, b.f2.eight) ? C.muted : rgba(C.grid, 0.9); c.fillRect(x0 + k * w + 3, y, w - 6, 34); }
+      const SN = S.life.sinks.keys, kS = mix(8, 20, lin(t, SN[0][0], SN[1][0]));   // F-14 (a): năm 9 → 20 vẫn chìm (tô nhạt) từ "eight" tới "own"
+      for (let k = 0; k < 20; k++) { c.fillStyle = k < 8 * lin(t, b.f2.sunk + 0.3, b.f2.eight) ? C.muted : k < kS && t > SN[0][0] ? rgba(C.muted, 0.5) : rgba(C.grid, 0.9); c.fillRect(x0 + k * w + 3, y, w - 6, 34); }
       c.restore(); label(O, L['f2.eight'], 960, 312, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.f2.eight, MV.m_push19.t0) });
       log.roi['f2.eight'] = [x0, 280, x0 + 20 * w, 400];
     }
@@ -150,7 +165,7 @@ export async function boot(res) {
       label(O, L['f4.n90'], xa, 236, { align: 'left', kind: 'number', px: 52, alpha: ok * f19 });
       label(O, L['f4.m90'], xa, 312, { align: 'left', kind: 'number', px: 52, alpha: ok * f19 });
       label(O, L['f4.n00'], 1820, 388, { align: 'right', kind: 'number', px: 52, alpha: ok * f19 });
-      label(O, L['f4.ruth'], xr, fy + 64, { align: 'right', kind: 'number', px: 48, color: CHAR.ruth, alpha: ok * f19 * show(t, b.f4.ruths) });
+      label(O, L['f4.ruths'], xr, fy + 64, { align: 'right', kind: 'number', px: 48, color: CHAR.ruth, alpha: ok * f19 * show(t, at(S, 'f4.ruths', b.f4.ruths)) });
       log.roi['f4.gentler'] = [xa - 10, ya - 20, xr + 20, fy]; log.roi['f4.ruths'] = [xr - 300, yr - 20, xr + 20, fy + 80]; }
     // S21: 25 năm
     label(O, L['f5.one'], 960, 236, { align: 'center', kind: 'number', px: 52, alpha: ok * show(t, b.f5.one, b.f6.social - 0.9) });   // R1: tắt hẳn trước nhãn CPI-U
@@ -163,13 +178,18 @@ export async function boot(res) {
       for (let r = 0; r < 3; r++) {
         const a = ok * dimMini * (r === 0 ? 1 : show(t, tags[r][1])); if (a < 0.01) continue;
         c.save(); c.globalAlpha = a; const off = r === 2 ? pceOff : 0;
-        mini[r].forEach((v, i) => { c.fillStyle = v >= 100 ? C.cushion : rgba(C.warn, 0.85); const h = v * hS; c.fillRect(x0 + (i + off) * pw, rowsY[r] - h, Math.max(1, pw - 0.6), h); });
+        // F-14 (a): dải CPI-W / PCE chạy theo tháng bắt đầu từ lúc lời nói tới nó tới từ khoá sau (S.life.cpiw / pce); CPI-U (đã có ở tường) hiện đủ
+        const gK = r === 1 ? S.life.cpiw.keys : r === 2 ? S.life.pce.keys : null, gN = gK ? mini[r].length * (0.12 + 0.88 * lin(t, gK[0][0], gK[1][0])) : mini[r].length;
+        mini[r].forEach((v, i) => { if (i > gN) return; c.fillStyle = v >= 100 ? C.cushion : rgba(C.warn, 0.85); const h = v * hS; c.fillRect(x0 + (i + off) * pw, rowsY[r] - h, Math.max(1, pw - 0.6), h); });
         c.restore(); seg2(O, x0, rowsY[r] - 100 * hS, x1, rowsY[r] - 100 * hS, C.muted, a * 0.9, 2);
         label(O, L[tags[r][0]], x0, rowsY[r] - 194, { align: 'left', kind: 'number', px: 48, alpha: a });
       }
       log.roi['f6.social'] = [x0, 440, x1, 670]; log.roi['f6.gentler'] = [x0, 680, x1, 910];
     }
     { const [x, y] = top(iC, v20[iC]); log.roi['f7.start'] = [x - 400, y - 200, x + 400, fy]; }
+    // F-14 (c) S23.1 "from one start to another": ba thanh sáng + tên ba người của hồi 3 (Edna 1949, Carl 1966, Ruth 2006 — tên, không số) ĐÚNG "start"
+    { const nA = (1 - cw) * show(t, at(S, 'f7.start', b.f7.start));
+      if (nA > 0.01) for (const [i, nm, col] of [[iE, 'Edna', CHAR.edna], [iC, 'Carl', CHAR.carl]]) { const [x, y] = top(i, v20[i] + 12); label(O, nm, x, y - 20, { align: 'center', kind: 'name', px: 48, w: 600, color: col, alpha: nA }); } }
     const cwA = show(t, b.f3.own, b.f4.gentler);
     chrome(O, 1, cwA > 0.01 ? L['f3.own'] : null, cwA);
     st.compose(); log.camMoving = CAM.moving(t); return log;

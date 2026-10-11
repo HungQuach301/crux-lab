@@ -4,7 +4,7 @@
 // Mốc giờ chỉ từ spine.json.
 import * as THREE from 'three';
 import { Ribbon, Crates } from '/toolkit/factory/world/lib3d.js';
-import { setup, column, showColumn, nameTag, rowBox, modeLook, followLight, chrome, label, seg2, dot, kf, show, pulse, CHAR, C, ease, mix } from '/episodes/ep006/world/c4kit.js';
+import { setup, column, showColumn, nameTag, rowBox, modeLook, followLight, chrome, label, seg2, dot, kf, show, pulse, at, CHAR, C, ease, lin, mix } from '/episodes/ep006/world/c4kit.js';
 import { checkLook } from '/episodes/ep006/world/c4/checklook.js';
 
 const SEG = '/episodes/ep006/world/c4/c-s09-s12/';
@@ -17,6 +17,7 @@ export async function boot(res) {
     cNear0: { pos: [3.4, 2.15, 19], tgt: [3.4, 2.15, 0], fov: 14, chart: 1 },
     cNear: { pos: [5.4, 2.0, 18], tgt: [5.4, 2.0, 0], fov: 14, chart: 1 },
     cWide: { pos: [5.0, 1.75, 27], tgt: [5.0, 1.75, 0], fov: 14, chart: 1 },
+    cWide2: { pos: [5.0, 1.75, 31], tgt: [5.0, 1.75, 0], fov: 14, chart: 1 },   // F-14 (a): S12.4 lùi chậm (câu hỏi mở hồi 2)
   };
   const { S, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
   const b = cue, P = S.ruth_path, PL = S.level_path;
@@ -42,7 +43,14 @@ export async function boot(res) {
     if (u2 % 1 > 0) lp.push([u2 * KX, VY(vAt(PL, u2))]);
     lvl.visible = lp.length > 1; if (lvl.visible) lvl.set(lp, 0.05, C.muted);
     row.position.y = mix(1.0, 0.2, ease(t, MV.m_pull.t0, MV.m_pull.t1));   // R1: hàng nhỏ nâng khỏi dải chân trang ở cNear0/cNear (y 0,2 → đáy 940–990 px); cWide hạ về 0,2 (dưới đường séc đều)
-    row.set({ value: vAt(P, Math.max(0, u)), pulse: pulse(t, b.d3.fell, 0.9), appear: aC });
+    // F-14 (a): hàng nhỏ = sức mua của séc ĐANG được nói: S11.1 năm 16 của Ruth; S12.2 séc đều năm 0 → 5; S12.3 séc tăng năm 0 → 20 (S.life.*)
+    const L5 = S.life.level5.keys, R20 = S.life.rise20.keys, C16 = S.life.count16.keys;
+    const rowV = t >= R20[0][0] ? vAt(P, 20 * lin(t, R20[0][0], R20[1][0])) : t >= L5[0][0] ? vAt(PL, 5 * lin(t, L5[0][0], L5[1][0]))
+      : t >= C16[0][0] && t < MV.m_pull.t0 ? P[16] : vAt(P, Math.max(0, u));
+    row.set({ value: rowV, pulse: pulse(t, b.d3.fell, 0.9), appear: aC });
+    // F-14 (a): đếm thùng sáng (S10.1: 1 → 10 tới "more"; S11.1: 1 → 9,45 tới "ninety-four")
+    for (const CK of [S.life.count10.keys, C16]) if (t > CK[0][0] && t < CK[1][0] + 0.6) { const cn = CK[1][1] * lin(t, CK[0][0], CK[1][0]), cr = row.userData.crates;
+      for (let j = 0; j < Math.ceil(CK[1][1]); j++) cr[j].m.emissiveIntensity += 0.5 * Math.max(0, 1 - Math.abs(cn - j - 0.5) * 1.6); }
     ruth.row.set({ value: vAt(P, Math.max(0, u)), pulse: pulse(t, b.d0.twelve, 0.9) }); ruth.card.set({ k: Math.min(20, u), appear: 1 }); showColumn(ruth, 1);
     renderer.render(scene, cam);
     // ---------------- lớp phủ
@@ -71,7 +79,9 @@ export async function boot(res) {
     { const [x, y] = sc(15, P[15]); const a = ok * show(t, b.d2.august); dot(O, x, y, 13 + 8 * pulse(t, b.d2.more, 1.0), C.cushion, a);
       // R1: nhãn đặt TRÊN đỉnh cao nhất của đường năm 0–15 (không nằm lên đường)
       let yTop = y; for (let k = 0; k <= 15; k++) yTop = Math.min(yTop, sc(k, P[k])[1]);
-      label(O, L['d2.august'], x - 30, yTop - 44, { align: 'right', kind: 'number', px: 48, alpha: a * (1 - show(t, MV.m_pull.t0)) }); log.roi['d2.august'] = [x - 700, yTop - 110, x + 30, y + 30]; }
+      label(O, L['d2.august'], x - 30, yTop - 44, { align: 'right', kind: 'number', px: 48, alpha: a * (1 - show(t, MV.m_pull.t0)) }); log.roi['d2.august'] = [x - 700, yTop - 110, x + 30, y + 30];
+      // F-14 (c) "a little more than her first one": nhãn neo vào "more", tắt ở cú rơi ("fell")
+      label(O, L['d2.more'], x - 30, yTop - 112, { align: 'right', kind: 'name', px: 48, w: 600, color: C.cushion, alpha: ok * show(t, at(S, 'd2.more', b.d2.more), b.d3.fell) }); }
     { const [x, y] = sc(16, P[16]); const a = ok * show(t, b.d4.august); dot(O, x, y, 13, C.warn, a);
       // R1: dưới-trái điểm năm 16 (đường trước đó ở trên vạch, sau đó ở bên phải) — không đè đường, không ra mép phải
       label(O, L['d4.august'], x - 30, y + 64, { align: 'right', kind: 'number', px: 48, alpha: a * (1 - show(t, MV.m_pull.t0)) }); log.roi['d4.august'] = [x - 700, y + 10, x + 30, y + 100]; }

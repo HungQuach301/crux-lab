@@ -67,7 +67,8 @@ B = [
 beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
 moves = K.moves_of([
-    ('m_pan24', 'pan', 'wRuth', 'wCarl', cue['b0']['best'], cue['b1']['carl'], 0.75, 'lời S24.2 chuyển sang Carl: lia qua hàng của Ruth sang chỗ hàng của Carl', 'whoosh_soft', {}),
+    # F-14: lia TRONG S24.1 ("isn't the worst case … best") — xong trước "best", "Carl" rơi vào khung đứng yên (R07 b1.carl: nền đo không lẫn cú máy)
+    ('m_pan24', 'pan', 'wRuth', 'wCarl', cue['b0']['ruth'] + 0.6, cue['b0']['best'], 0.75, 'lời S24.1 "not the worst case, not the best": lia từ Ruth sang chỗ của trường hợp tệ nhất (Carl)', 'whoosh_soft', {'late': True}),
     ('m_c24', 'mode', 'wCarl', 'cCarl', cue['b1']['january'], cue['b2']['fastest'], 1.2, 'lời S24.2–S24.3 đặt số (1966, 6.38%): số chỉ ở đồ thị (quy tắc 1)', 'whoosh_mode', {}),
     ('m_pan25', 'pan', 'cCarl', 'cCarl2', cue['c0']['forty'], cue['c1']['level'], 1.2, 'lời S25.2 "a level check, in his stretch": lia cho chỗ hàng séc đều của Carl', 'whoosh_soft', {}),
     ('m_w27', 'mode', 'cCarl2', 'wEdna', cue['c3']['forty'], cue['d0']['edna'], 1.0, 'lời S27.1 giới thiệu Edna: về thế giới, người và hàng thùng của bà (hiện sẵn trước tên)', 'whoosh_mode', {}),
@@ -128,9 +129,9 @@ K.finish(HERE, S, 'ep006 C4 · E = S24–S29 (Hồi 3: Carl, Edna, Ruth, ba thá
           'carl27': [round(t, 3) for t in cy]}, 'reset': reset, 'ruth_path': Pr, 'yoy': K.CLAIMS.get('cpi_yoy_latest_pct', {}).get('value') or YOY, 'price_growth': (1 + K.CLAIMS['raise_needed_all_20y_pct']['value'] / 100) ** 20},
          {'b2.fastest': 'prices: 6.38% a year, the fastest stretch', 'b1.january': 'Carl · ILLUSTRATIVE · Jan 1966', 'b3.first': 'first check: 10 crates',
           'b3.check': 'check: +2% a year', 'b4.before': 'less buying power on 20 of 20 anniversaries', 'b4.y20': 'year 20: about 4 of 10 crates',
-          'b5.ruths': 'Ruth · ILLUSTRATIVE: back above in early years', 'c0.forty': 'rising check: 43.1%', 'c1.twenty': 'level check: 29.0%',
+          'b5.ruths': 'back above in early years',   # F-14: đúng chữ nhãn trên hình (trước: không khớp nhãn nào → R07 không thấy) 'c0.forty': 'rising check: 43.1%', 'c1.twenty': 'level check: 29.0%',
           'c2.half': 'less than half', 'c3.forty': '1960s starts, typical: 44.3%', 'd0.kept': 'kept up: the last start month that did',
-          'd0.edna': 'Edna · ILLUSTRATIVE · Jan 1949', 'd1.check': 'check: +2% a year', 'd1.y20': 'year 20: all 10 still lit',
+          'd0.edna': 'Edna · ILLUSTRATIVE', 'd0.ednaDate': 'Edna · ILLUSTRATIVE · Jan 1949',   # F-14 (c): tên neo vào "Edna" ở thế giới; ngày ở đồ thị 'd1.check': 'check: +2% a year', 'd1.y20': 'year 20: all 10 still lit',
           'd3.carl': 'Carl · ILLUSTRATIVE · from Jan 1966', 'd4.same': 'same years of prices: her last, his first', 'd4.lit': 'all 10 crates still lit',
           'e0.eighty': 'Ruth · ILLUSTRATIVE · age 85', 'e1.three': '12 months to Aug 2026: prices +3.4%', 'e1.two': 'her raise: +2%',
           'e2.history': 'One year of history, not a forecast', 'f1.crates': 'crates at year 20 · same 2% raise', 'f1.full': '10', 'f1.nine': 'about 9',
@@ -138,4 +139,20 @@ K.finish(HERE, S, 'ep006 C4 · E = S24–S29 (Hồi 3: Carl, Edna, Ruth, ba thá
          ['b0.ruth', 'b1.carl', 'b2.fastest', 'b3.first', 'b3.check', 'b4.every', 'b4.before', 'b5.ruths', 'b5.never', 'c0.forty', 'c1.level', 'c1.twenty', 'c2.half',
           'c3.sixties', 'd0.edna', 'd0.kept', 'd1.twenty', 'd1.check', 'd2.answer', 'd3.carl', 'd4.same', 'd4.end', 'd4.start', 'e0.eighty', 'e1.three', 'e1.two',
           'e2.history', 'f0.edna', 'f0.ruth', 'f0.carl', 'f1.full', 'f1.nine', 'f1.four', 'f2.month'],
-         accents=[cue['b4']['every'], cue['c0']['forty'], cue['f1']['four']], anchors=['S25.1'])
+         accents=[cue['b4']['every'], cue['c0']['forty'], cue['f1']['four']], anchors=['S25.1'],
+         changes={k: 'major' for k in ('b0.ruth', 'b1.carl', 'b2.fastest', 'b3.first', 'b4.every', 'b4.before', 'b5.ruths', 'c0.forty', 'c1.level', 'c2.half', 'c3.sixties',
+                                       'd0.edna', 'd0.kept', 'd1.twenty', 'd2.answer', 'd3.carl', 'd4.same', 'd4.end', 'd4.start', 'e0.eighty', 'e1.three', 'e1.two',
+                                       'f0.same', 'f0.edna', 'f0.ruth', 'f0.carl', 'f1.full', 'f1.nine', 'f1.four', 'f2.month')},
+         label_at={k: cue[k.split('.')[0]][k.split('.')[1]] for k in ('b2.fastest', 'b3.first', 'b3.check', 'b4.before', 'b5.ruths', 'c0.forty', 'c1.twenty', 'c2.half',
+                   'd0.kept', 'd0.edna', 'd1.check', 'd3.carl', 'd4.same', 'e0.eighty', 'e1.three', 'e1.two', 'e2.history', 'f1.crates', 'f1.full', 'f1.nine', 'f1.four')},
+         life={'ruth9': {'what': 'S24.1 (Ruth, không tệ nhất, không tốt nhất): đếm các thùng còn sáng của bà (≈ 9) từ "Ruth" tới cú lia', 'keys': [[cue['b0']['ruth'], 0], [cue['b0']['ruth'] + 1.8, 9]]},
+               'carl10': {'what': 'S24.2 "took the same kind of rising check": 10 thùng của séc đầu Carl hiện lần lượt từ "Carl" tới "January"',
+                          'keys': [[cue['b1']['carl'], 0], [cue['b1']['january'], 1]]},
+               'yearly': {'what': 'S24.3 "6.38 percent a year": 20 vạch năm trên thanh giá (mỗi năm +6,38 %) hiện lần lượt từ lời đọc số tới "first"',
+                          'keys': [[S.at('@S24.3:six'), 0], [cue['b3']['first'], 20]]},
+               'helped': {'what': 'S25.3 "His raise helped": phần thùng séc tăng giữ hơn séc đều (2,9 → 4,31) được viền dần từ "helped" tới "half"',
+                          'keys': [[cue['c2']['helped'], 0], [cue['c2']['half'], 1]]},
+               'sixties': {'what': 'S26.1 "stretches that began in the 1960s": đi qua các tháng bắt đầu 1960–1969 từ "1960s" tới "forty-four"',
+                           'keys': [[cue['c3']['sixties'], 0], [cue['c3']['forty'], 1]]},
+               'sameyears': {'what': 'S27.5 "the same few years of prices": vạch đi qua 1966 → 1969 trong phần chồng từ "end" tới "start"',
+                             'keys': [[cue['d4']['end'] + 0.9, 0], [cue['d4']['start'], 1]]}})
