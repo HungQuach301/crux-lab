@@ -173,6 +173,39 @@ async function closeEnv(env) {
   await env.browser.close();
 }
 
+// A29: what a sequential run carries into the first sample frame f0 of a scene job (text boxes and visible claims of the previous object sample, the moving
+// collisions of the last pixel sample before f0 that had text). Plain data: it goes into the scene's cache key, so a change in an earlier scene that changes
+// what is carried in is a miss.
+async function warmState(env, f0) {
+  const { seek, objects, collide } = env;
+  const ws = { prevBoxes: [], prevVisible: [], prevMovingHits: [] };
+  if (!(f0 > 0)) return ws;
+  let prevBoxes = new Map(), prevMovingHits = new Set();
+  const prevVisible = new Set();
+  const visibleClaims = (objs) => { const out = []; for (const t of objs) if (t.kind === 'text' && t.opacity > 0.5) for (const sp of t.claims || []) if (sp.opacity > 0.5 && R.onFrame({ l: sp.box[0], t: sp.box[1], r: sp.box[2], b: sp.box[3] })) out.push({ sp, t }); return out; };
+  const boxesAt = (os) => new Map(os.filter((o) => o.kind === 'text').map((o) => [o.tid, o.box]));
+  await seek((f0 - STEP) / FPS);
+  const op = await objects();
+  prevBoxes = boxesAt(op);
+  visibleClaims(op).forEach((x) => prevVisible.add(x.sp.id + '|' + x.sp.text));
+  for (let g = Math.floor((f0 - 1) / PSTEP) * PSTEP; g >= 0; g -= PSTEP) {
+    await seek(g / FPS);
+    let og = await objects();
+    const T = og.filter((o) => o.kind === 'text' && o.opacity > 0.5 && R.onFrame(R.B(o)));
+    if (!T.length) continue;
+    let pb = new Map();
+    if (g > 0) { await seek((g - STEP) / FPS); pb = boxesAt(await objects()); await seek(g / FPS); og = await objects(); }
+    const mv = new Map();
+    for (const o of og) if (o.kind === 'text') { const p = pb.get(o.tid); mv.set(o.id, p ? Math.max(...o.box.map((v, i) => Math.abs(v - p[i]))) : 0); }
+    const T2 = og.filter((o) => o.kind === 'text' && o.opacity > 0.5 && R.onFrame(R.B(o)));
+    const { list } = await collide(T2, (o) => (mv.get(o.id) || 0) >= TEXT_MOVING);
+    prevMovingHits = new Set(list.map(([o, other]) => o.tid + '|' + other));
+    break;
+  }
+  ws.prevBoxes = [...prevBoxes]; ws.prevVisible = [...prevVisible]; ws.prevMovingHits = [...prevMovingHits];
+  return ws;
+}
+
 // One sampling job: the object and pixel rules on the given sample frames (consecutive samples of one scene, or every sample). warm: restore what a
 // sequential run carries into the first frame from earlier samples: the previous sample's text boxes and visible claims, and the moving collisions of the
 // last pixel sample that had text (V11 persistence).
@@ -231,27 +264,10 @@ async function sampleJob(env, frameList, warm) {
   const pf0 = frameList.length ? Math.ceil(frameList[0] / PSTEP) * PSTEP : 0;
   const video = videoReader(path.join(ROOT, 'out/video.mp4'), PSTEP, 'rgb24', pf0);
   const videoY = videoReader(path.join(ROOT, 'out/video.mp4'), PSTEP, 'gray', pf0); // the coded luma plane (full resolution; no chroma subsampling in it)
-  if (warm && frameList.length && frameList[0] > 0) {
-    const f0 = frameList[0];
-    const boxesAt = (os) => new Map(os.filter((o) => o.kind === 'text').map((o) => [o.tid, o.box]));
-    await seek((f0 - STEP) / FPS);
-    const op = await objects();
-    prevBoxes = boxesAt(op);
-    visibleClaims(op).forEach((x) => prevVisible.add(x.sp.id + '|' + x.sp.text));
-    for (let g = Math.floor((f0 - 1) / PSTEP) * PSTEP; g >= 0; g -= PSTEP) {
-      await seek(g / FPS);
-      let og = await objects();
-      const T = og.filter((o) => o.kind === 'text' && o.opacity > 0.5 && R.onFrame(R.B(o)));
-      if (!T.length) continue;
-      let pb = new Map();
-      if (g > 0) { await seek((g - STEP) / FPS); pb = boxesAt(await objects()); await seek(g / FPS); og = await objects(); }
-      const mv = new Map();
-      for (const o of og) if (o.kind === 'text') { const p = pb.get(o.tid); mv.set(o.id, p ? Math.max(...o.box.map((v, i) => Math.abs(v - p[i]))) : 0); }
-      const T2 = og.filter((o) => o.kind === 'text' && o.opacity > 0.5 && R.onFrame(R.B(o)));
-      const { list } = await collide(T2, (o) => (mv.get(o.id) || 0) >= TEXT_MOVING);
-      prevMovingHits = new Set(list.map(([o, other]) => o.tid + '|' + other));
-      break;
-    }
+  if (warm) {   // A29: state carried in from earlier samples, computed by warmState() (also part of the scene's cache key)
+    prevBoxes = new Map(warm.prevBoxes);
+    warm.prevVisible.forEach((x) => prevVisible.add(x));
+    prevMovingHits = new Set(warm.prevMovingHits);
   }
   for (const f of frameList) {
     const t = f / FPS, s = sceneAt(t), PS = per[s.id];
@@ -556,21 +572,62 @@ function sceneFrames(env, frames) {
 const sha = (x) => require('crypto').createHash('sha256').update(x).digest('hex');
 // per-scene cache key: sampler code, steps, episode inputs the sampler reads, the scene, and the video packets (MD5) from the key frame at or before the
 // scene's first sample to the key frame after its last one (closed GOPs: every sampled frame decodes from these packets alone). Page files are checked on
-// read: the job records every local file the page served (sha256), and a changed file is a miss.
+// read: the job records every local file the page served (sha256), and a changed file is a miss (A29: except a one-file world page, keyed per segment).
 function videoPackets() {
   const r = require('child_process').spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_data_hash', 'MD5', '-show_entries', 'packet=pts_time,flags,data_hash',
     '-of', 'csv=p=0', path.join(ROOT, 'out/video.mp4')], { maxBuffer: 1 << 28 });
   return String(r.stdout).trim().split('\n').map((l) => { const [t, h, fl] = l.split(','); return { t: +t, key: (fl || '').includes('K'), h }; });
 }
-function sceneKey(base, pk, frames) {
+function sceneKey(base, pk, frames, cam, segKey, warm) {
   const a = frames[0] / FPS, b = frames[frames.length - 1] / FPS;
   let i0 = 0;
   for (let i = 0; i < pk.length; i++) if (pk[i].key && pk[i].t <= a + 1e-6) i0 = i;
   let i1 = pk.length;
   for (let i = i0 + 1; i < pk.length; i++) if (pk[i].key && pk[i].t > b + 1e-6) { i1 = i; break; }
-  return sha(base + '|' + frames.join(',') + '|' + pk.slice(i0, i1).map((p) => p.h).join(''));
+  // A29: camera frames the scene's samples read (speed at t uses the neighbouring frames), the page segment the scene is drawn by, and the carried-in state
+  const camPart = cam ? JSON.stringify(cam.filter((f) => f.t >= a - 3 / FPS && f.t <= b + 3 / FPS)) : '-';
+  const segPart = segKey ? segKey.at(a) : '-';
+  return sha(base + '|' + frames.join(',') + '|' + pk.slice(i0, i1).map((p) => p.h).join('') + '|' + camPart + '|' + segPart + '|' + JSON.stringify(warm || null));
 }
-function localFiles(env) {
+// A29: a one-file world page (toolkit/factory/world/episode_page.py: window.__CRUX = {mods, segs, json, …}) is keyed per segment instead of as one file, so
+// a change in one segment does not resample the others. Segment key = Merkle hash of its scene module's import closure (module indices replaced by content
+// hashes, so modules added elsewhere do not shift it) + the JSON in its own spine directory (segment ↔ spine.json by episode_t0 = t0) + everything shared:
+// the core closure, JSON outside every segment's spine directory, claims, fps, view, and the page HTML outside the data blob (runtime, fonts). Any other
+// page (or a blob that does not map cleanly) → null: the whole page file is checked as before (filesStillSame).
+function pageSegments(url) {
+  try {
+    const u = new URL(url);
+    if (u.protocol !== 'file:') return null;
+    const file = decodeURIComponent(u.pathname);
+    const html = fs.readFileSync(file, 'utf8');
+    const m = html.match(/<script>window\.__CRUX = (\{[\s\S]*?\});<\/script>/);
+    if (!m) return null;
+    const B = JSON.parse(m[1]);
+    const mh = new Array(B.mods.length);
+    const modHash = (i, seen = new Set()) => {
+      if (mh[i]) return mh[i];
+      if (seen.has(i)) throw new Error('import cycle');
+      seen.add(i);
+      mh[i] = sha(B.mods[i].src.replace(/__CRUXMOD_(\d+)__/g, (_, k) => 'M' + modHash(+k, seen)));
+      return mh[i];
+    };
+    const spines = Object.keys(B.json).filter((k) => k.endsWith('/spine.json')).map((k) => ({ dir: k.slice(0, -'spine.json'.length), t0: JSON.parse(B.json[k]).episode_t0 }));
+    const dirOf = {};
+    for (const g of B.segs) {
+      const c = spines.filter((x) => typeof x.t0 === 'number' && Math.abs(x.t0 - g.t0) < 0.5 / (B.fps || 30));
+      if (c.length !== 1) return null;
+      dirOf[g.id] = c[0].dir;
+    }
+    if (new Set(Object.values(dirOf)).size !== B.segs.length) return null;
+    const segDirs = Object.values(dirOf);
+    const jsonIn = (pred) => JSON.stringify(Object.keys(B.json).sort().filter(pred).map((k) => [k, sha(B.json[k])]));
+    const shared = sha([html.replace(m[0], ''), modHash(B.core), jsonIn((k) => !segDirs.some((d) => k.startsWith(d))), JSON.stringify(B.claims), B.fps, JSON.stringify(B.view || null)].join('|'));
+    const keys = B.segs.map((g) => ({ t0: g.t0, t1: g.t1, k: sha([shared, g.id, g.t0, g.t1, modHash(g.mod), jsonIn((k) => k.startsWith(dirOf[g.id]))].join('|')) }));
+    const EPS = 1e-6;
+    return { page: file, at: (t) => { const g = keys.find((x) => t >= x.t0 - EPS && t < x.t1 - EPS) || (t >= keys[keys.length - 1].t1 - EPS ? keys[keys.length - 1] : null); return g ? g.k : 'no-segment:' + shared; } };
+  } catch (e) { return null; }
+}
+function localFiles(env, skip) {
   const out = {};
   const u0 = new URL(env.url);
   for (const r of env.resources.requests) {
@@ -580,6 +637,7 @@ function localFiles(env) {
       const rel = decodeURIComponent(u.pathname).replace(/^\//, '');
       const candidates = u.protocol === 'file:' ? [decodeURIComponent(u.pathname)] : [path.join(ROOT, rel), path.join(ROOT, '..', '..', rel)];
       const p_ = candidates.find((c) => fs.existsSync(c) && fs.statSync(c).isFile());
+      if (skip && p_ === skip) continue;   // A29: the one-file world page is keyed per segment (pageSegments), not as one file
       out[r.url] = p_ ? sha(fs.readFileSync(p_)) : null;
     } catch (e) { /* not a URL */ }
   }
@@ -605,9 +663,14 @@ async function run() {
   const cdir = path.join(ROOT, 'out', 'checks', 'cache', 'page-scenes');
   fs.mkdirSync(cdir, { recursive: true });
   const code = ['sampler.js', 'objrules.js', 'pixels.js'].map((f) => fs.readFileSync(path.join(__dirname, f), 'utf8')).join('');
-  const inputs = ['out/timeline.json', 'out/claims.json', 'design/tokens.json', 'out/page.json', 'out/camera.json'].map((f) => fs.existsSync(path.join(ROOT, f)) ? fs.readFileSync(path.join(ROOT, f), 'utf8') : '-').join('|');
-  const base = sha(code + '|' + STEP + '|' + PSTEP + '|' + inputs);
+  // A29: episode-wide inputs only (out/camera.json is keyed per scene below; contract.json conditions are read by S17 and were missing from the key)
+  const inputs = ['out/timeline.json', 'out/claims.json', 'design/tokens.json', 'out/page.json'].map((f) => fs.existsSync(path.join(ROOT, f)) ? fs.readFileSync(path.join(ROOT, f), 'utf8') : '-').join('|');
+  const cpath = process.env.K_CONTRACT ? path.resolve(process.env.K_CONTRACT) : path.join(ROOT, 'contract.json');
+  const conds = fs.existsSync(cpath) ? JSON.stringify((JSON.parse(fs.readFileSync(cpath, 'utf8')).claims || {}).conditions || []) : '-';
+  const base = sha(code + '|' + STEP + '|' + PSTEP + '|' + inputs + '|' + conds);
   const pk = NO_CACHE ? [] : videoPackets();
+  const cam = NO_CACHE || !fs.existsSync(path.join(ROOT, 'out/camera.json')) ? null : J('out/camera.json').frames || [];
+  const segKey = NO_CACHE ? null : pageSegments(envs[0].url);
   const states = new Array(groups.length);
   // longest scenes first (better balance); merged in time order
   const order = groups.map((g, i) => i).sort((x, y) => groups[y].frames.length - groups[x].frames.length || x - y);
@@ -615,15 +678,16 @@ async function run() {
   await Promise.all(envs.map(async (env) => {
     while (next < order.length) {
       const k = order[next++], g = groups[k];
-      const key = NO_CACHE ? null : sceneKey(base, pk, g.frames), cf = key && path.join(cdir, key + '.json');
+      const warm = await warmState(env, g.frames[0]);
+      const key = NO_CACHE ? null : sceneKey(base, pk, g.frames, cam, segKey, warm), cf = key && path.join(cdir, key + '.json');
       if (cf && fs.existsSync(cf)) {
         const c = JSON.parse(fs.readFileSync(cf, 'utf8'));
         if (filesStillSame(c.files)) { states[k] = c.state; hits++; continue; }
       }
       const n0 = env.resources.requests.length;
-      states[k] = await sampleJob(env, g.frames, true);
+      states[k] = await sampleJob(env, g.frames, warm);
       if (process.env.K_PROGRESS) console.error(`scene ${g.id} done ${((Date.now() - t0) / 1000).toFixed(0)}s`);
-      if (cf) fs.writeFileSync(cf, JSON.stringify({ state: states[k], files: localFiles({ url: env.url, resources: { requests: env.resources.requests } }) }));
+      if (cf) fs.writeFileSync(cf, JSON.stringify({ state: states[k], files: localFiles({ url: env.url, resources: { requests: env.resources.requests } }, segKey ? segKey.page : null) }));
     }
   }));
   for (const env of envs) await closeEnv(env);
@@ -652,4 +716,4 @@ function diffBox(a, b) {
 }
 
 if (require.main === module) run().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
-module.exports = { diffBox };
+module.exports = { diffBox, pageSegments };
