@@ -1,5 +1,5 @@
 {
- "video": "/home/user/crux-lab/episodes/ep007/world/c3/out/.staging-s21-track-6040/s21-track.mp4",
+ "video": "/home/user/crux-lab/episodes/ep007/world/c3/out/.staging-s21-track-11374/s21-track.mp4",
  "rule1": {
   "violations": 0,
   "examples": []
@@ -13,20 +13,20 @@
   "missing_reason_or_sound": []
  },
  "modes": {
-  "world_share": 0.453,
-  "chart_share": 0.547,
+  "world_share": 0.475,
+  "chart_share": 0.525,
   "first_5s_world": true
  },
  "F2": {
   "summary": {
    "level": "OK",
-   "sfx_per_min": 13.5,
+   "sfx_per_min": 13.7,
    "sfx_max_10s": 5,
    "sfx_on_speech": 4,
    "sfx_on_plain_words": 1,
    "sfx_events": 6,
    "keyword_hits": 3,
-   "min_keyword_snr_db": 22.2,
+   "min_keyword_snr_db": 19.9,
    "label_overlaps": 0,
    "line_crossings": 0,
    "block": 0,
@@ -37,18 +37,18 @@
   "warn": [],
   "sfx": {
    "events": 6,
-   "duration_s": 26.69,
-   "per_min": 13.5,
+   "duration_s": 26.29,
+   "per_min": 13.7,
    "max_window": {
     "count": 5,
-    "t0": 11.364,
-    "t1": 21.364,
+    "t0": 11.763,
+    "t1": 21.763,
     "times": [
-     11.364,
-     12.664,
-     15.048,
-     16.848,
-     20.92
+     11.763,
+     13.063,
+     15.08,
+     16.6,
+     20.187
     ]
    },
    "on_speech": {
@@ -56,25 +56,25 @@
     "plain_words": 1,
     "times": [
      {
-      "t": 12.664,
+      "t": 13.063,
       "kind": "land",
-      "word": "eight",
+      "word": "October",
       "keyword": false
      },
      {
-      "t": 15.048,
+      "t": 15.08,
       "kind": "tick",
       "word": "ends",
       "keyword": true
      },
      {
-      "t": 16.848,
+      "t": 16.6,
       "kind": "tick",
       "word": "late.",
       "keyword": true
      },
      {
-      "t": 20.92,
+      "t": 20.187,
       "kind": "tick",
       "word": "seven",
       "keyword": true
@@ -85,43 +85,43 @@
     {
      "keyword": "a1.ends",
      "word": "ends",
-     "s": 15.048,
-     "e": 15.24,
+     "s": 15.08,
+     "e": 15.4,
      "events": [
       [
-       15.048,
+       15.08,
        "tick"
       ]
      ],
-     "snr_db": 29.5,
+     "snr_db": 31.2,
      "level": "OK"
     },
     {
      "keyword": "a1.late",
      "word": "late.",
-     "s": 16.848,
-     "e": 17.32,
+     "s": 16.6,
+     "e": 17.08,
      "events": [
       [
-       16.848,
+       16.6,
        "tick"
       ]
      ],
-     "snr_db": 22.9,
+     "snr_db": 25.1,
      "level": "OK"
     },
     {
      "keyword": "a2.seven",
      "word": "seven",
-     "s": 20.92,
-     "e": 21.32,
+     "s": 20.187,
+     "e": 20.52,
      "events": [
       [
-       20.92,
+       20.187,
        "tick"
       ]
      ],
-     "snr_db": 22.2,
+     "snr_db": 19.9,
      "level": "OK"
     }
    ],
@@ -130,7 +130,7 @@
    "block": []
   },
   "labels": {
-   "samples": 267,
+   "samples": 263,
    "overlaps": {
     "count": 0,
     "spans": [],

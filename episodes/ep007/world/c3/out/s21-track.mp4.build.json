@@ -17,7 +17,7 @@
    ]
   },
   "render": {
-   "seconds": 174.0,
+   "seconds": 158.6,
    "ok": true,
    "shots": 3,
    "rendered": [
@@ -26,21 +26,21 @@
     "s2"
    ],
    "cached": 0,
-   "wall_s": 173.3,
-   "film_s": 26.69,
-   "wall_per_film_s_rendered": 12.32,
+   "wall_s": 157.9,
+   "film_s": 26.29,
+   "wall_per_film_s_rendered": 11.68,
    "cores": 4
   },
   "audio": {
-   "seconds": 14.6,
+   "seconds": 14.2,
    "ok": true
   },
   "mux": {
-   "seconds": 1.9,
+   "seconds": 2.1,
    "ok": true
   },
   "verify": {
-   "seconds": 2.8,
+   "seconds": 3.9,
    "ok": true,
    "rule1": 0,
    "rule2": 0,
@@ -51,19 +51,19 @@
     "skipped": "video 960×540; C14 đo trên bản 1920×1080"
    },
    "modes": {
-    "world_share": 0.453,
-    "chart_share": 0.547,
+    "world_share": 0.475,
+    "chart_share": 0.525,
     "first_5s_world": true
    },
    "F2": {
     "level": "OK",
-    "sfx_per_min": 13.5,
+    "sfx_per_min": 13.7,
     "sfx_max_10s": 5,
     "sfx_on_speech": 4,
     "sfx_on_plain_words": 1,
     "sfx_events": 6,
     "keyword_hits": 3,
-    "min_keyword_snr_db": 22.2,
+    "min_keyword_snr_db": 19.9,
     "label_overlaps": 0,
     "line_crossings": 0,
     "block": [],
@@ -71,5 +71,5 @@
    }
   }
  },
- "total_seconds": 194.1
+ "total_seconds": 179.6
 }
