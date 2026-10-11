@@ -2603,6 +2603,122 @@ def frw_s05_fell_case(bad):
 EXTRA.update({'S01/fixed-raise': frw_s01_case, 'S05/fixed-raise': frw_s05_case, 'S05/fixed-raise-fell': frw_s05_fell_case})
 
 
+
+# ---- K4.2: kind "term-pair-weekly-replay" (Tập 7) — every number by hand from the spec, never by calling the rule's code -------------------------------
+# P = $1,200, short term 12 months, long term 24 (labels "1" and "2"). pay(r, n) = P·x/(1 − (1 + x)^−n), x = r/1200; r = 0: P/n.
+# Weeks (long %, short %): 2020-01-03 (6, 6) · 2020-01-10 (0, 0) · 2020-01-17 (".", 4: long missing, NOT paired) · 2020-01-24 (5, — : no short row, NOT
+# paired) · 2020-01-31 (12, 0) = now. Paired weeks 3 (a "." or an absent row is missing, never 0).
+#   pay(6, 12) = 6/(1 − 1.005^−12) = 103.27972; pay(6, 24) = 6/(1 − 1.005^−24) = 53.18473; pay(12, 12) = 12/(1 − 1.01^−12) = 106.61855;
+#   pay(12, 24) = 12/(1 − 1.01^−24) = 56.48817; pay(0, 12) = 100; pay(0, 24) = 50.
+#   extra a month: 0, 0, 106.61855 − 100 = 6.61855 → extra total ×12: 0, 0, 79.42256 (min 0: the tie 01-03 / 01-10 → the earliest, 2020-01-03).
+#   spread 0, 0, 12 → mean 4, share ≥ 0.5 = 1/3. now: gap 100 − 56.48817 = 43.51183; need 106.61855 − 56.48817 = 50.13038;
+#   months at 100 a month on the 12% long loan: −ln(1 − 12/100)/ln(1.01) = 12.84715 (late 0.84715); interest 0 · 79.42256 · 56.48817·24 − 1200 = 155.71600.
+#   Prepay at 12%: monthly 106.61855 → 12 months, interest 79.42256; yearly lump 12 × 50.13038 = 601.56456 with payment 12: B11 = 685.41, month 12 pays
+#   658.05 → 34.22 left, month 13 pays 34.56 → 13 months, interest 113.97883 (+34.55628 vs monthly).
+TPW_PARAMS = {'long': {'file': 'data/rates.csv', 'dateColumn': 'week', 'valueColumn': 'long'}, 'short': {'file': 'data/short.csv', 'dateColumn': 'week', 'valueColumn': 'short'},
+              'principal': 1200, 'shortMonths': 12, 'longMonths': 24, 'guide': {'name': 'g', 'week': '2020-01-10'},
+              'eras': [['2019-12-01', '2020-01-15'], ['2020-01-16', '2020-12-31']], 'spreadBands': [0.5]}
+TPW_Q = {'n_weeks': 3, 'first_week': '2020-01-03', 'last_week': '2020-01-31', 'r2_now': 12, 'r1_now': 0, 'spread_now': 12, 'pay1_now': 100.0,
+         'pay2_now': 56.49, 'pay2on1_now': 106.62, 'extra_vs1_month_now': 6.62, 'extra_vs1_total_now': 79, 'fallback_gap_now': 43.51,
+         'extra_principal_needed_now': 50.13, 'months_at_pay1_now': 12.8, 'months_late_at_pay1_now': 0.8, 'interest_1_now': 0, 'interest_2on1_now': 79,
+         'interest_2full_now': 155.72, 'bar_now': 12, 'spread_mean': 4, 'spread_min': 0, 'spread_max': 12, 'share_spread_ge_050': 0.33,
+         'extra_total_median': 0, 'extra_total_min': 0, 'extra_total_min_week': '2020-01-03', 'extra_total_max': 79.42, 'extra_total_max_week': '2020-01-31',
+         'share_extra_ge_now': 0.333, 'r2_min': 0, 'r2_min_week': '2020-01-10', 'r2_max': 12, 'r2_max_week': '2020-01-31', 'share_r2_ge_now': 0.33,
+         'g_r2': 0, 'g_r1': 0, 'g_extra_vs1_total': 0, 'g_extra_vs1_month': 0, 'g_fallback_gap': 50,
+         'era2019_median_r2': 3, 'era2019_median_spread': 0, 'era2019_median_extra_total': 0,
+         'era2020_median_r2': 12, 'era2020_median_spread': 12, 'era2020_median_extra_total': 79.42}
+
+
+def tpw_files(f):
+    with open(f.p('data/rates.csv'), 'w') as fh:
+        fh.write('week,long\n2020-01-03,6\n2020-01-10,0\n2020-01-17,.\n2020-01-24,5\n2020-01-31,12\n')
+    with open(f.p('data/short.csv'), 'w') as fh:
+        fh.write('week,short\n2020-01-03,6\n2020-01-10,0\n2020-01-17,4\n2020-01-31,0\n')
+
+
+def tpw_s01_variant(name, q):
+    f = F('S01-tpw-' + name)
+    try:
+        tpw_files(f)
+        f.contract(model={'kind': 'term-pair-weekly-replay', 'output': 'out/model.json', 'params': TPW_PARAMS})
+        f.json('out/model.json', {'model': 'fixture', 'params': {'principal': 1200}, 'quantities': {k: {'value': v} for k, v in q.items()},
+                                  'eras': [{'from': '2020-01-03', 'to': '2020-01-10', 'weeks': 2, 'median_r2': 3, 'median_spread': 0, 'median_extra_total': 0},
+                                           {'from': '2020-01-31', 'to': '2020-01-31', 'weeks': 1, 'median_r2': 12, 'median_spread': 12, 'median_extra_total': 79}],
+                                  'series': {'weeks': ['2020-01-03', '2020-01-10', '2020-01-31'], 'r2': [6, 0, 12], 'r1': [6, 0, 0], 'extra_total': [0, 0, 79]}})
+        return f.run('S01')
+    finally:
+        f.close()
+
+
+def tpw_s01_case(bad):
+    """S01 kind term-pair-weekly-replay (hand table above), model values rounded at the output; bad = the week with no short row read as paired
+    (4 weeks: a missing value counted, not skipped)."""
+    return tpw_s01_variant('main', dict(TPW_Q, n_weeks=4 if bad else 3))
+
+
+def tpw_s01_round_case(bad):
+    """S01: rounding only at the output — interest on the long schedule 155.72 (from 56.48817 unrounded); bad = 155.76 (56.49 × 24 − 1200, from the rounded
+    payment)."""
+    return tpw_s01_variant('round', dict(TPW_Q, interest_2full_now=155.76 if bad else 155.72))
+
+
+def tpw_s05_variant(name, claims, extra=None):
+    f = F('S05-tpw-' + name)
+    try:
+        tpw_files(f)
+        f.contract(model={'kind': 'term-pair-weekly-replay', 'output': 'out/model.json', 'params': dict(TPW_PARAMS, **(extra or {})),
+                          'claims': {cid: key for cid, key, _ in claims}},
+                   characters={}, claims={'illustrative': [], 'core': [], 'decisive': []})
+        f.json('out/claims.json', {'claims': [{'claimId': cid, 'value': v, 'display': str(v)} for cid, _, v in claims]})
+        return f.run('S05')
+    finally:
+        f.close()
+
+
+def tpw_s05_case(bad):
+    """S05: headline, guide, era and pct: keys; bad = the min extra-total week written as the later of the tie (2020-01-10; the earliest is 2020-01-03)."""
+    return tpw_s05_variant('main', [('n', 'n_weeks', 3), ('t', 'extra_vs1_total_now', 79.42), ('m', 'months_at_pay1_now', 12.85),
+                                    ('w', 'extra_total_min_week', '2020-01-10' if bad else '2020-01-03'), ('s', 'pct:share_spread_ge_050', 33.3),
+                                    ('g', 'g_fallback_gap', 50.0), ('e', 'era2019_median_r2', 3.0), ('ew', 'era2019_weeks', 2), ('i', 'interest_2full_now', 155.72)])
+
+
+def tpw_s05_prepay_case(bad):
+    """S05 prepay at the latest long rate: the yearly lump pays off in 13 months, interest 113.98 (+34.56 vs monthly); bad = 12 months (the lump read as
+    paid every month)."""
+    return tpw_s05_variant('prepay', [('ym', 'yearly_lump_months', 12 if bad else 13), ('yi', 'yearly_lump_interest', 113.98), ('mm', 'monthly_extra_months', 12),
+                                      ('d', 'yearly_vs_monthly_interest', 34.56), ('l', 'yearly_lump', 601.56)], extra={'prepay': True})
+
+
+EXTRA.update({'S01/term-pair': tpw_s01_case, 'S01/term-pair-round': tpw_s01_round_case, 'S05/term-pair': tpw_s05_case, 'S05/term-pair-prepay': tpw_s05_prepay_case})
+
+
+# ---- K4.2: SH06 (checks-appeal A30) — the hook line of a Short, on the spec before render ----------------------------------------------------------
+# Tập 6 hooks as delivered (one line, ≤ 915 px at 64 px); the bad hook wraps in the 936 px safe width (845 + 485 px): two lines, box top 270 − 77 − 50 = 143 < 200.
+def sh06_case(bad):
+    """SH06 from the spec (episode.yaml shorts[].hook, no render yet); bad = "A 2% raise every year, and still it buys less" (two lines at 64 px)."""
+    f = F('SH06')
+    try:
+        f.contract(format='lab', shorts=[{'file': 'out/shorts/SH1.mp4'}])
+        hook = 'A 2% raise every year, and still it buys less' if bad else 'A raise every year, still less'
+        with open(f.p('episode.yaml'), 'w') as fh:
+            fh.write(f'shorts:\n  - {{id: SH1, hook: "{hook}"}}\n  - {{id: SH2, hook: "How often did it keep up?"}}\n')
+        return f.run('SH06')
+    finally:
+        f.close()
+
+
+def sh06_px_case(bad):
+    """SH06 from contract.json shorts[].hook/hookPx: a one-line hook at 48 px is under the 56 px floor (bad); at 56 px it passes."""
+    f = F('SH06-px')
+    try:
+        f.contract(format='lab', shorts=[{'file': 'out/shorts/SH1.mp4', 'hook': 'How often did it keep up?', 'hookPx': 48 if bad else 56}])
+        return f.run('SH06')
+    finally:
+        f.close()
+
+
+EXTRA.update({'SH06': sh06_case, 'SH06/px': sh06_px_case})
+
 def main():
     only = set(sys.argv[sys.argv.index('--only') + 1].split(',')) if '--only' in sys.argv else None
     rows = []

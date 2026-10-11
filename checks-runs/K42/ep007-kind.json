@@ -1,0 +1,464 @@
+{
+ "root": "/tmp/claude-0/-home-user-crux-lab/95c999f3-ff26-5e15-9123-5eac56ff3357/scratchpad/ep007/episodes/ep007",
+ "sha": {
+  "MORTGAGE15US.csv": "8d6d0fa4695bfd2037499cbc00913eb61cd7019188e370a5fcbc778b6400c606",
+  "MORTGAGE30US.csv": "93663891f9167cf71dfd50b7cbe54ef60fab42f788371d84bf665fb1c5e6c354",
+  "OBMMIC15YF.csv": "39c0ada9b8835596370bb0c02f2cc491f381344a5236e8bd656ca7d3c5ab9238",
+  "OBMMIC30YF.csv": "cb7f400f73f8d31d8e3fe015851cf50639f1c1e2f5010d9cd6f7a8cac59516de"
+ },
+ "S01": {
+  "checked": 59,
+  "mismatches": [],
+  "notRecomputed": []
+ },
+ "claims": {
+  "rows": 57,
+  "compared": 57,
+  "ok": 57,
+  "mismatch": 0,
+  "notKind": [],
+  "detail": [
+   {
+    "claim": "n_weeks",
+    "numbers.md": "1833",
+    "kind": 1833.0,
+    "tol": 0,
+    "ok": true
+   },
+   {
+    "claim": "first_week",
+    "numbers.md": "1991-08-30",
+    "kind": "1991-08-30",
+    "tol": 0,
+    "ok": true
+   },
+   {
+    "claim": "last_week",
+    "numbers.md": "2026-10-08",
+    "kind": "2026-10-08",
+    "tol": 0,
+    "ok": true
+   },
+   {
+    "claim": "r30_now",
+    "numbers.md": "7.4",
+    "kind": 7.4,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "r15_now",
+    "numbers.md": "6.73",
+    "kind": 6.73,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "spread_now",
+    "numbers.md": "0.67",
+    "kind": 0.67,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "pay15_now",
+    "numbers.md": "2828.16",
+    "kind": 2828.163160360543,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "pay30_now",
+    "numbers.md": "2215.62",
+    "kind": 2215.6153601890733,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "pay30on15_now",
+    "numbers.md": "2948.28",
+    "kind": 2948.284303300025,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "extra_vs15_month_now",
+    "numbers.md": "120.12",
+    "kind": 120.12114293948207,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "extra_vs15_total_now",
+    "numbers.md": "21622",
+    "kind": 21621.805729106774,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "fallback_gap_now",
+    "numbers.md": "612.55",
+    "kind": 612.5478001714696,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "extra_principal_needed_now",
+    "numbers.md": "732.67",
+    "kind": 732.6689431109517,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "months_at_pay15_now",
+    "numbers.md": "194.6",
+    "kind": 194.62146019087956,
+    "tol": 0.05,
+    "ok": true
+   },
+   {
+    "claim": "months_late_at_pay15_now",
+    "numbers.md": "14.6",
+    "kind": 14.62146019087956,
+    "tol": 0.05,
+    "ok": true
+   },
+   {
+    "claim": "interest_15_now",
+    "numbers.md": "189069",
+    "kind": 189069.3688648977,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "interest_30on15_now",
+    "numbers.md": "210691",
+    "kind": 210691.17459400452,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "interest_30full_now",
+    "numbers.md": "477622",
+    "kind": 477621.5296680664,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "spread_mean",
+    "numbers.md": "0.57",
+    "kind": 0.574899072558647,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "spread_min",
+    "numbers.md": "0.2",
+    "kind": 0.2,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "spread_max",
+    "numbers.md": "1.0",
+    "kind": 1.0,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "share_spread_ge_050",
+    "numbers.md": "0.63",
+    "kind": 0.629569012547736,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "extra_total_median",
+    "numbers.md": "16631",
+    "kind": 16631.231013925397,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "extra_total_min",
+    "numbers.md": "6097",
+    "kind": 6097.49594413719,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "extra_total_min_week",
+    "numbers.md": "2008-12-04",
+    "kind": "2008-12-04",
+    "tol": 0,
+    "ok": true
+   },
+   {
+    "claim": "extra_total_max",
+    "numbers.md": "29502",
+    "kind": 29502.026524160494,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "extra_total_max_week",
+    "numbers.md": "2023-01-26",
+    "kind": "2023-01-26",
+    "tol": 0,
+    "ok": true
+   },
+   {
+    "claim": "share_extra_ge_now",
+    "numbers.md": "0.187",
+    "kind": 0.18657937806873978,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "bar_now",
+    "numbers.md": "7.4",
+    "kind": 7.4,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "r30_min",
+    "numbers.md": "2.65",
+    "kind": 2.65,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "r30_min_week",
+    "numbers.md": "2021-01-07",
+    "kind": "2021-01-07",
+    "tol": 0,
+    "ok": true
+   },
+   {
+    "claim": "r30_max",
+    "numbers.md": "9.25",
+    "kind": 9.25,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "r30_max_week",
+    "numbers.md": "1994-11-25",
+    "kind": "1994-11-25",
+    "tol": 0,
+    "ok": true
+   },
+   {
+    "claim": "share_r30_ge_now",
+    "numbers.md": "0.19",
+    "kind": 0.18985270049099837,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "leo_r30",
+    "numbers.md": "2.65",
+    "kind": 2.65,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "leo_r15",
+    "numbers.md": "2.16",
+    "kind": 2.16,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "leo_extra_vs15_total",
+    "numbers.md": "13231",
+    "kind": 13231.155021704699,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "leo_extra_vs15_month",
+    "numbers.md": "73.51",
+    "kind": 73.50641678724833,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "leo_fallback_gap",
+    "numbers.md": "793.4",
+    "kind": 793.4041170730013,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "era1991_median_extra_total",
+    "numbers.md": "15118",
+    "kind": 15117.54582603644,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "era1991_median_r30",
+    "numbers.md": "7.73",
+    "kind": 7.73,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "era1991_median_spread",
+    "numbers.md": "0.46",
+    "kind": 0.46,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "era2000_median_extra_total",
+    "numbers.md": "14210",
+    "kind": 14210.488666944479,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "era2000_median_r30",
+    "numbers.md": "6.18",
+    "kind": 6.18,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "era2000_median_spread",
+    "numbers.md": "0.45",
+    "kind": 0.45,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "era2010_median_extra_total",
+    "numbers.md": "20374",
+    "kind": 20374.0095323071,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "era2010_median_r30",
+    "numbers.md": "4.03",
+    "kind": 4.03,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "era2010_median_spread",
+    "numbers.md": "0.72",
+    "kind": 0.72,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "era2020_median_extra_total",
+    "numbers.md": "21345",
+    "kind": 21345.297155041935,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "era2020_median_r30",
+    "numbers.md": "6.28",
+    "kind": 6.275,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "era2020_median_spread",
+    "numbers.md": "0.7",
+    "kind": 0.7,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "monthly_extra_months",
+    "numbers.md": "180",
+    "kind": 180.0,
+    "tol": 0,
+    "ok": true
+   },
+   {
+    "claim": "monthly_extra_interest",
+    "numbers.md": "210691",
+    "kind": 210691.17459400374,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "yearly_lump",
+    "numbers.md": "8792.03",
+    "kind": 8792.02731733142,
+    "tol": 0.005,
+    "ok": true
+   },
+   {
+    "claim": "yearly_lump_months",
+    "numbers.md": "184",
+    "kind": 184.0,
+    "tol": 0,
+    "ok": true
+   },
+   {
+    "claim": "yearly_lump_interest",
+    "numbers.md": "218857",
+    "kind": 218856.78374204235,
+    "tol": 0.5,
+    "ok": true
+   },
+   {
+    "claim": "yearly_vs_monthly_interest",
+    "numbers.md": "8166",
+    "kind": 8165.609148038609,
+    "tol": 0.5,
+    "ok": true
+   }
+  ]
+ },
+ "invariants": [
+  {
+   "name": "weeks where the 30-year loan on the 15-year schedule pays less than the 15-year loan (rate not lower)",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "weeks where a wider spread does not raise the extra total",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "weeks where the 30-year required payment is not below the 15-year payment",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "weeks where months at the 15-year payment > 180 does not match the long rate > the short rate",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "weeks not paired in both series, or a paired-week count ≠ the dates both series hold",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "unrounded identities that do not hold (totals, interest, months late, prepay)",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "quantities that do not scale with the principal (dollars ×2, the rest unchanged)",
+   "value": 0,
+   "pass": true
+  },
+  {
+   "name": "min / max weeks that are not the earliest among equal values",
+   "value": 0,
+   "pass": true
+  }
+ ]
+}

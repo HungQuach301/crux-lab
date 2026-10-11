@@ -1,0 +1,19 @@
+{
+ "episode": "ep007",
+ "note": "Nháp phần model của K4.2 (bên dựng viết hợp đồng thật ở C4; giữ nguyên khối model.kind/params). Input là hai file FRED thô (data/raw), không phải file chuẩn hoá của bên dựng: máy kiểm tự ghép tuần.",
+ "model": {
+  "kind": "term-pair-weekly-replay",
+  "output": "out/model.json",
+  "params": {
+   "long": {"file": "data/raw/MORTGAGE30US.csv", "dateColumn": "observation_date", "valueColumn": "MORTGAGE30US"},
+   "short": {"file": "data/raw/MORTGAGE15US.csv", "dateColumn": "observation_date", "valueColumn": "MORTGAGE15US"},
+   "principal": 320000,
+   "shortMonths": 180,
+   "longMonths": 360,
+   "guide": {"name": "leo", "week": "2021-01-07"},
+   "eras": [["1991-08-30", "1999-12-31"], ["2000-01-01", "2009-12-31"], ["2010-01-01", "2019-12-31"], ["2020-01-01", "2026-12-31"]],
+   "spreadBands": [0.5],
+   "prepay": true
+  }
+ }
+}
