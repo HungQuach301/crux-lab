@@ -17,7 +17,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 4. Does a 401(k) loan hurt employer matching contributions or long-term compounding while it is being repaid? — trọng số vừa
 5. Where should a true emergency fund live (high-yield savings, money market, Roth contributions), and how does that compare to revolving card debt at high APRs? — trọng số vừa
 
-_Ghi chú máy: Only 27 short comments were provided, mostly about 401(k) loans for home purchases and debt payoff. Hardship withdrawals and emergency-fund placement have little direct audience signal, so those items are inferred from the topic and video titles._
+_Ghi chú máy: Only vài short comments were provided, mostly about vài(k) loans for home purchases and debt payoff. Hardship withdrawals and emergency-fund placement have little direct audience signal, so those items are inferred from the topic and video titles._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
 - A household with a $1,000 car repair and a credit card balance at a high APR, weighing whether to pay with the card, drain savings, or borrow from the 401(k).

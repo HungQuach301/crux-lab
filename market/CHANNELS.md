@@ -21,7 +21,7 @@ Sinh bằng `python3 toolkit/market/report.py channels` từ `~/market-cache/<ng
 | [James Retires](https://www.youtube.com/channel/UCHpnFtErfky9Td9JIwypF8g) | nhỏ | step-by-step US retirement tax breakdowns with dollar examples | 2 | mới nổi: lượt xem ≥ 3× người đăng ký · kênh < 2 năm, ≥ 2 video nổ → lên thẳng |
 | [Tom – Lazy Real Estate](https://www.youtube.com/channel/UCDOCO-HOYrwDpIu_a-9f4KQ) | nhỏ | year-by-year net-worth scorecards | 1 | ≥ 3 đề tài |
 | [Finance Flow](https://www.youtube.com/channel/UCjN2vUJcsQezdjFxSfJFxmw) | nhỏ | animated what-if investing simulations | 1 | ≥ 3 đề tài |
-| [Rich by Routine](https://www.youtube.com/channel/UCtsSIzNJVBR1Az9d5b5XTbw) | nhỏ | "The Real Math" comparison breakdowns | 0 | ≥ 3 đề tài |
+| [Rich by Routine](https://www.youtube.com/channel/UCtsSIzNJVBR1Az9d5b5XTbw) | nhỏ | The Real Math comparison breakdowns | 0 | ≥ 3 đề tài |
 
 ## Vòng lân cận — giáo dục tài chính có mặt người (nói trước máy, cố vấn, podcast)
 

@@ -36,7 +36,7 @@ def channel_rows():
         age = (NOW - dt.datetime.fromisoformat(p['publishedAt'].replace('Z', '+00:00'))).days
         n5 = sum(1 for r in out.values() if r['channelId'] == c and r['flag5'])
         rows.append({'id': c, 'title': p['title'].strip(), 'keep': c in keep, 'circle': x.get('circle'), 'exclude': x.get('exclude', []),
-                     'young': age < 730, 'size': size(p['subs']), 'boom': n5, 'style': x.get('style', ''), 'presenter': x.get('presenter'),
+                     'young': age < 730, 'size': size(p['subs']), 'boom': n5, 'style': x.get('style', '').replace('"', ''), 'presenter': x.get('presenter'),
                      'why': why.get(c, []), 'ld90': x.get('long_videos_last_90d', 0), 'seed': c in A.SEEDS})
     return rows
 
@@ -143,7 +143,7 @@ def cmd_topics():
              '## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)']
         L += [f"{i}. {x['q']} — trọng số {WEIGHT.get(x.get('weight'), x.get('weight'))}" for i, x in enumerate(qs, 1)] or ['chưa có']
         if q.get('note'):
-            L += ['', f"_Ghi chú máy: {q['note']}_"]
+            L += ['', f"_Ghi chú máy: {re.sub(r'[0-9]+', 'vài', q['note'])}_"]   # không ghi số đếm nào
         L += ['', '## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)']
         L += [f"- {x}" for x in clean(q.get('situations', []))[:3]] or ['- chưa có']
         L += ['', '## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)']

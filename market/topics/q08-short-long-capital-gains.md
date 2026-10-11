@@ -17,7 +17,7 @@ Sinh bằng `python3 toolkit/market/report.py topics` từ `~/market-cache/` (ng
 4. If every lot I own shows a gain, which lots should I sell first, and can gains from other investments such as options be offset? — trọng số vừa
 5. Do lot-selection tactics work inside an IRA or other retirement account, where capital gains tax normally doesn't apply? — trọng số thấp
 
-_Ghi chú máy: Only 23 short comments were provided, most with low weight, so the ranking and some items are inferred from the topic and the video titles._
+_Ghi chú máy: Only vài short comments were provided, most with low weight, so the ranking and some items are inferred from the topic and the video titles._
 
 ## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)
 - An investor with a low-income or zero-rate tax year who wants to realize gains tax-free by selling higher-basis lots in stages across the year.
