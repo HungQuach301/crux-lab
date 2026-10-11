@@ -25,8 +25,6 @@ _Ghi chú máy: No audience comments were provided, so every field is inferred f
 - An heir who inherited a paid-off house, has a much higher value than the original purchase price, and wants to know how basis resets and whether state taxes apply.
 
 ## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)
-- Titles that imply absolute tax outcomes ('exempt', 'owe nothing') without the ownership, use, and eligibility conditions that determine who actually qualifies.
-- Framing that treats a long-standing rule as a sudden 'trap' or secret, which can make viewers feel misled when the rule is simply the standard exclusion.
 - Lack of worked numeric examples showing basis, gain, and exclusion step by step, which leaves viewers unable to check their own situation.
 - Phương pháp của 6 video đầu bảng: 3 ý kiến, không tính, 3 giả định cố định.
 

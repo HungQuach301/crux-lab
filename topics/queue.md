@@ -2,7 +2,7 @@
 
 Đề tài chủ dự án đã "Có" ở bước 2. Vào hàng đợi **chưa** phải là chọn làm tập: chọn đề tài nào cho tập nào vẫn là quyền chủ dự án (D-004 §1). Hồ sơ đầy đủ (dữ liệu, `calc.py`, nguồn, mới lạ, rủi ro claim) ở thư mục ghi trong cột "Hồ sơ". **Luôn dùng đường dẫn đầy đủ có tiền tố vòng** (`topics-r1/…`, `topics-r2/…`): tên hồ sơ vòng 2 trùng vòng 1 (debt-2, tax-2, retire-4…). Số thứ tự dòng không đổi; dòng mới thêm vào cuối.
 
-| # | Vòng | Đề tài (tiêu đề nháp) | Trụ | Bước 1 | Hồ sơ | Rủi ro cần xử lý trước khi làm  Cầu | Khoảng trống |
+| # | Vòng | Đề tài (tiêu đề nháp) | Trụ | Bước 1 | Hồ sơ | Rủi ro cần xử lý trước khi làm | Cầu | Khoảng trống |
 |---|---|---|---|---|---|---|---|---|
 | 1 | 1 | 7.5% Variable or 9% Fixed? Grad Loans Through History | vay nợ | 5 | `topics-r1/machine/debt-2/` | khoản vay thật dùng chỉ số kiểu SOFR, có trần lãi và biên theo tín dụng — tập không được nói 'khoản vay của bạn sẽ…'. | vừa | vừa |
 | 2 | 1 | Overtime or a Second Job at $48 an Hour: Which Pays More? | thuế | 4 | `topics-r1/machine/tax-4/` | báo chí đã nói 'chỉ phần trả thêm được trừ'; cái mới là so với việc thứ hai. Câu kết quả đã sửa thành 29,65 % (errata 2026-10-04); có `model.json` + `statements.json`. | thấp | cao |

@@ -109,6 +109,14 @@ def band(m):
     return '> 30 phút'
 
 
+QUOTE = re.compile(r'["“”]|(?<![A-Za-z])\'[A-Za-z][^\']{3,}\'')
+
+
+def clean(xs):
+    """Bỏ mục máy viết có đoạn trong ngoặc kép (có thể là trích tiêu đề/bình luận của người khác)."""
+    return [x for x in xs if not QUOTE.search(x)]
+
+
 def cmd_topics():
     d = A.day()
     prof = jload(d / 'analysis' / 'profile.json')['profiles']
@@ -119,7 +127,7 @@ def cmd_topics():
     labels = {}
     for tid, p in prof.items():
         q = p['questions'] if isinstance(p['questions'], dict) else {}
-        qs = q.get('questions', [])[:5]
+        qs = [x for x in q.get('questions', []) if not QUOTE.search(x.get('q', ''))][:5]
         gm = {x['id']: x for x in gap.get(tid, [])}
         dr = p.get('dur_range_min')
         L = [f"# Hồ sơ cầu — {p['title']}", '',
@@ -137,9 +145,9 @@ def cmd_topics():
         if q.get('note'):
             L += ['', f"_Ghi chú máy: {q['note']}_"]
         L += ['', '## Ba hoàn cảnh điển hình (tổng hợp, không phải người thật — nhân vật dẫn đường dựng từ đây, vẫn ILLUSTRATIVE)']
-        L += [f"- {x}" for x in q.get('situations', [])[:3]] or ['- chưa có']
+        L += [f"- {x}" for x in clean(q.get('situations', []))[:3]] or ['- chưa có']
         L += ['', '## Điểm yếu đối thủ (khán giả phàn nàn / máy thấy)']
-        L += [f"- {x}" for x in q.get('weaknesses', [])[:3]]
+        L += [f"- {x}" for x in clean(q.get('weaknesses', []))[:3]]
         meth = [METHOD.get(x.get('method'), x.get('method')) for x in gap.get(tid, [])]
         if meth:
             L.append(f"- Phương pháp của {len(meth)} video đầu bảng: " + ', '.join(f"{meth.count(m)} {m}" for m in dict.fromkeys(meth)) + '.')
@@ -151,14 +159,14 @@ def cmd_topics():
         L += [f"- {o['channel'].replace('|', '·')} — [{o['id']}](https://youtu.be/{o['id']}) — {band(o['min'])} — {o['band']} (tự tính)" for o in p['outliers']] or \
              ['- chưa có video vượt trội ≥ 3× (không thời sự) gắn chắc vào đề tài này trong các kênh đã kéo']
         L += ['', '## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail']
-        L += [f"- {x}" for x in q.get('title_templates', [])[:3]]
+        L += [f"- {x}" for x in clean(q.get('title_templates', []))[:3]]
         L += ['- Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).', '', '## Từ khoá mô tả', ', '.join(q.get('keywords', [])[:6]) or 'chưa có']
         if q.get('requests') and p['n_comments_kept']:   # chỉ yêu cầu có thật trong bình luận, không lấy phần máy suy
-            L += ['', '## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)'] + [f"- {x}" for x in q['requests'][:5]]
+            L += ['', '## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)'] + [f"- {x}" for x in clean(q['requests'])[:5]]
         (od / f'{tid}.md').write_text('\n'.join(L) + '\n')
         labels[tid] = (p['demand'], p['gap'])
     jdump_labels = ROOT / 'market' / 'topics' / 'labels.json'
-    jdump_labels.write_text(json.dumps({'day': d.name, 'labels': labels}, ensure_ascii=False, indent=1))
+    jdump_labels.write_text(json.dumps({'day': d.name, 'note': 'tự tính, không phải chỉ số YouTube', 'labels': labels}, ensure_ascii=False, indent=1))
     print(len(labels), 'hồ sơ cầu →', od)
 
 
@@ -172,7 +180,7 @@ def cmd_queue():
     for ln in q.read_text().splitlines():
         cells = ln.split(' | ')
         if ln.startswith('| # |') and 'Cầu' not in ln:
-            ln = ln.rstrip() + ' Cầu | Khoảng trống |'
+            ln = ln.rstrip().rstrip('|').rstrip() + ' | Cầu | Khoảng trống |'
         elif ln.startswith('|---') and ln.count('|') == 8:
             ln = ln + '---|---|'
         elif re.match(r'^\| \d+ \|', ln):
