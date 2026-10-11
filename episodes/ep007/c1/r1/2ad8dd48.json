@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video is for someone buying a home with roughly a $320,000 mortgage who can afford 15-year payments. It looks at whether to take a 15-year loan at 6.73% or a 30-year loan at 7.40% that you pay off in 15 years anyway, keeping the lower required payment as a safety net. It will replay every week of US mortgage rates since 1991 to put a dollar price on that safety net and to show what each extra dollar of principal earns.\n\n2. I expect to know roughly what the 30-year's flexibility costs in dollars, and what return paying down principal gives, which is the bar any alternative use of the money must beat.\n\n3. Mostly clear, but a few phrases are fuzzy. \"put a dollar price on that fallback\" is vague: I'm not sure if it means the extra interest from the higher rate or something else. \"what each extra dollar of principal actually earns\" is also a bit abstract, though I can guess it means a guaranteed return equal to the loan rate. \"the bar any other use of that money has to clear\" is slightly jargony.\n\n4. No. The description says outright that it is \"History, not a forecast,\" so it won't predict rates. It also says it \"won't tell you which loan to take, or whether to invest.\" It sounds like it will supply numbers (the fallback's cost and the return on prepaying) for me to decide with.\n\n5. Little direct advice, by design. A viewer would likely take away a way of thinking: treat the 30-year as a 15-year plus an option to pay less, weigh what that option costs against how much you value it, and compare any investment's expected return to the guaranteed return from prepaying. The decision itself stays with the viewer.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1607,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 187,
+   "in": 1607,
+   "out": 187
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2494,
+   "cache_read": 535,
+   "output": 535,
+   "in": 3031,
+   "out": 535
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0156377
+}

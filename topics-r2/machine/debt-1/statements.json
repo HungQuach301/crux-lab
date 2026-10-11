@@ -1,0 +1,123 @@
+[
+ {
+  "n": 1,
+  "where": "result.answer",
+  "text": "At the rates of the week of 2026-09-24 (30-year 7.03%, 15-year 6.42%), a $320,000 15-year loan costs $2,773.49 a month.",
+  "uses": [
+   "last_week",
+   "rate30_latest",
+   "rate15_latest",
+   "pay15_latest"
+  ],
+  "check": "python3 calc.py --statement 1 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 2,
+  "where": "result.answer",
+  "text": "Paying the 30-year loan off in the same 15 years takes $2,881.62 a month: $108.13 more each month and $19,464 more over 15 years.",
+  "uses": [
+   "pay30on15_latest",
+   "extra_month_latest",
+   "extra_total_latest"
+  ],
+  "check": "python3 calc.py --statement 2 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 3,
+  "where": "result.answer",
+  "text": "Paying only the 15-year payment on the 30-year loan finishes in 192.9 months, about a year late.",
+  "uses": [
+   "months_payoff_at_pay15"
+  ],
+  "check": "python3 calc.py --statement 3 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 4,
+  "where": "result.answer",
+  "text": "The 30-year loan's required payment is $2,135.42, so that $19,464 is the price of being allowed to drop to the lower payment.",
+  "uses": [
+   "pay30_latest",
+   "extra_total_latest"
+  ],
+  "check": "python3 calc.py --statement 4 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 5,
+  "where": "result.answer",
+  "text": "Across 1,831 weeks since August 1991 the 30-year rate was 0.2 to 1.0 point above the 15-year (mean 0.57; at least half a point in 62.9% of weeks), and the same extra cost ranged from $6,097 to $29,502 (median $16,594).",
+  "uses": [
+   "n_weeks",
+   "first_week",
+   "spread_min",
+   "spread_max",
+   "spread_mean",
+   "share_spread_ge_050",
+   "extra_total_min",
+   "extra_total_max",
+   "extra_total_median"
+  ],
+  "check": "python3 calc.py --statement 5 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 6,
+  "where": "result.changesDecision",
+  "text": "At today's spread it is about $108 a month and close to $19,500 over 15 years on $320,000, and it has never cost less than about $6,100 since 1991.",
+  "uses": [
+   "extra_month_latest",
+   "extra_total_latest",
+   "extra_total_min"
+  ],
+  "check": "python3 calc.py --statement 6 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 7,
+  "where": "result.changesDecision",
+  "text": "A buyer can weigh that dollar figure against the right to fall back to the required 30-year payment, about $640 below the 15-year payment.",
+  "uses": [
+   "pay15_latest",
+   "pay30_latest"
+  ],
+  "check": "python3 calc.py --statement 7 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 8,
+  "where": "claim-risk.md",
+  "text": "The extra cost buys a real option (a required payment about $640 lower than the 15-year payment).",
+  "uses": [
+   "pay15_latest",
+   "pay30_latest"
+  ],
+  "check": "python3 calc.py --statement 8 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 9,
+  "where": "claim-risk.md",
+  "text": "Only at the 2026-09-24 survey rates on $320,000; the historical range is $6,097 to $29,502.",
+  "uses": [
+   "last_week",
+   "extra_total_min",
+   "extra_total_max"
+  ],
+  "check": "python3 calc.py --statement 9 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 10,
+  "where": "claim-risk.md",
+  "text": "The weekly spread ranged 0.2 to 1.0 point since 1991.",
+  "uses": [
+   "spread_min",
+   "spread_max",
+   "first_week"
+  ],
+  "check": "python3 calc.py --statement 10 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ },
+ {
+  "n": 11,
+  "where": "result.guess",
+  "text": "The guess 'at most a few thousand dollars' is contradicted: the smallest extra cost in any paired week is above $6,000.",
+  "uses": [
+   "extra_total_min"
+  ],
+  "check": "python3 calc.py --statement 11 → True (run in a folder with data/MORTGAGE30US.csv, data/MORTGAGE15US.csv pinned per sources.json)"
+ }
+]

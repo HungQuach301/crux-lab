@@ -1,0 +1,139 @@
+{
+ "kind": null,
+ "kindStatus": "new",
+ "params": {
+  "series": {
+   "r30": {
+    "file": "data/MORTGAGE30US.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "MORTGAGE30US"
+   },
+   "r15": {
+    "file": "data/MORTGAGE15US.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "MORTGAGE15US"
+   }
+  },
+  "principal": 320000,
+  "termShort": 180,
+  "termLong": 360,
+  "pairing": "weeks where both series have a value"
+ },
+ "quantities": [
+  {
+   "name": "n_weeks",
+   "meaning": "Number of paired weeks.",
+   "unit": "weeks",
+   "from": "result.json → numbers.n_weeks"
+  },
+  {
+   "name": "first_week",
+   "meaning": "First paired week.",
+   "unit": "date",
+   "from": "result.json → numbers.first_week"
+  },
+  {
+   "name": "last_week",
+   "meaning": "Last paired week.",
+   "unit": "date",
+   "from": "result.json → numbers.last_week"
+  },
+  {
+   "name": "rate30_latest",
+   "meaning": "30-year rate in the last paired week.",
+   "unit": "percent",
+   "from": "result.json → numbers.rate30_latest"
+  },
+  {
+   "name": "rate15_latest",
+   "meaning": "15-year rate in the last paired week.",
+   "unit": "percent",
+   "from": "result.json → numbers.rate15_latest"
+  },
+  {
+   "name": "pay15_latest",
+   "meaning": "Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. Payment on a 15-year loan (n=180) at the 15-year rate, rounded to cents.",
+   "unit": "dollars per month",
+   "from": "result.json → numbers.pay15_latest"
+  },
+  {
+   "name": "pay30on15_latest",
+   "meaning": "Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. Payment that retires the 30-year loan in 15 years: level payment with n=180 at the 30-year rate, rounded to cents.",
+   "unit": "dollars per month",
+   "from": "result.json → numbers.pay30on15_latest"
+  },
+  {
+   "name": "pay30_latest",
+   "meaning": "Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. Required payment on the 30-year loan (n=360) at the 30-year rate, rounded to cents.",
+   "unit": "dollars per month",
+   "from": "result.json → numbers.pay30_latest"
+  },
+  {
+   "name": "extra_month_latest",
+   "meaning": "Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. pay30on15 minus pay15 (unrounded), rounded to cents.",
+   "unit": "dollars per month",
+   "from": "result.json → numbers.extra_month_latest"
+  },
+  {
+   "name": "extra_total_latest",
+   "meaning": "Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. (pay30on15 - pay15) * 180 using unrounded payments, rounded to whole dollars: extra paid over 15 years for paying the 30-year loan on a 15-year schedule.",
+   "unit": "dollars",
+   "from": "result.json → numbers.extra_total_latest"
+  },
+  {
+   "name": "months_payoff_at_pay15",
+   "meaning": "Latest paired week 2026-09-24: 30-year 7.03%, 15-year 6.42%. Months to pay off the 30-year loan at the 30-year rate if the borrower pays exactly the 15-year payment (unrounded): n = -ln(1 - P*x/pay15)/ln(1+x), rounded to 0.1.",
+   "unit": "months",
+   "from": "result.json → numbers.months_payoff_at_pay15"
+  },
+  {
+   "name": "spread_mean",
+   "meaning": "Spread = 30-year rate - 15-year rate per paired week; mean of spreads, rounded to 0.01.",
+   "unit": "percentage points",
+   "from": "result.json → numbers.spread_mean"
+  },
+  {
+   "name": "spread_min",
+   "meaning": "Smallest weekly spread (30-year minus 15-year), rounded to 0.01.",
+   "unit": "percentage points",
+   "from": "result.json → numbers.spread_min"
+  },
+  {
+   "name": "spread_max",
+   "meaning": "Largest weekly spread (30-year minus 15-year), rounded to 0.01.",
+   "unit": "percentage points",
+   "from": "result.json → numbers.spread_max"
+  },
+  {
+   "name": "share_spread_ge_050",
+   "meaning": "Share of paired weeks with spread >= 0.50 point, rounded to 0.001.",
+   "unit": "share of weeks",
+   "from": "result.json → numbers.share_spread_ge_050"
+  },
+  {
+   "name": "extra_total_median",
+   "meaning": "For every paired week: (payment at the 30-year rate with n=180 - payment at the 15-year rate with n=180) * 180. Median over weeks, rounded to whole dollars.",
+   "unit": "dollars",
+   "from": "result.json → numbers.extra_total_median"
+  },
+  {
+   "name": "extra_total_min",
+   "meaning": "Same weekly quantity as extra_total_median; minimum over weeks, rounded to whole dollars.",
+   "unit": "dollars",
+   "from": "result.json → numbers.extra_total_min"
+  },
+  {
+   "name": "extra_total_max",
+   "meaning": "Same weekly quantity as extra_total_median; maximum over weeks, rounded to whole dollars.",
+   "unit": "dollars",
+   "from": "result.json → numbers.extra_total_max"
+  }
+ ],
+ "newKindNeeds": {
+  "inputs": "Two weekly rate series in percent (FRED CSV: observation_date, value; blank or '.' = missing): long-term rate r30 (MORTGAGE30US) and short-term rate r15 (MORTGAGE15US). Principal P, short term n_s=180 months, long term n_l=360 months.",
+  "computation": "Pair weeks where both rates exist. For each week w: level payment pay(r,n)=P*x/(1-(1+x)^-n), x=r/1200. Short loan pay(r15,180); long loan paid on the short schedule pay(r30,180); long loan required pay(r30,360). extra_total(w)=(pay(r30,180)-pay(r15,180))*180. Months to pay off the long loan at the short-loan payment: n=-ln(1-P*x/pay15)/ln(1+x). Spread(w)=r30-r15.",
+  "outputs": "Per-week extra_total, spread; summary: count of paired weeks, first/last week, latest-week payments and extra cost, months_at_pay15, spread mean/min/max/share>=0.5, extra_total median/min/max with weeks; optional: monthly simulation with yearly lump vs monthly extra (episode ep007).",
+  "invariants": "pay(r30,180) >= pay(r15,180) whenever r30 >= r15; extra_total is increasing in the spread at a given level; pay(r30,360) < pay(r15,180) for all weeks in the data; months_at_pay15 > 180 iff r30 > r15; no rounding before outputs; paired weeks only (1991-08-30 onward).",
+  "dataNow": "sources.json lastObservation 2026-09-24 (dossier pin); episode ep007 refreshes to 2026-10-08 (episodes/ep007/data/sources.json)."
+ }
+}

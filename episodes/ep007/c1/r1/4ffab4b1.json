@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video is for a home buyer borrowing about $320,000 who is choosing between a 15-year mortgage at 6.73% and a 30-year at 7.40% that they plan to pay off in 15 years anyway. It looks at what the 30-year's lower required payment, which works as a fallback, is worth in dollars. It answers this by replaying every week of US mortgage rates since 1991, and it also shows what each extra dollar of principal earns, which is the bar any other use of that money has to clear.\n\n2. By the end I expect to know roughly what the 30-year's payment flexibility would have cost or been worth historically, and what return paying down principal gives.\n\n3. Mostly nothing, but a few phrases are vague. \"Put a dollar price on that fallback\" doesn't say how the price is measured (extra interest paid, or the value of an option). \"The bar any other use of that money has to clear\" is a bit abstract until it's tied to the loan rate. \"Replay every week\" doesn't say what is being replayed, such as the rate gap between the two loans or a refinancing path.\n\n4. No. The description says outright that it is \"history, not a forecast\" and that it \"won't tell you which loan to take, or whether to invest.\" It will give figures to compare against, not a recommendation or a rate prediction.\n\n5. Little direct advice. A viewer would take a way of thinking: treat the 30-year's lower required payment as an option with a price, and treat paying down principal as earning a return that other uses of the money must beat. They would still have to decide for themselves.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1540,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 23,
+   "in": 1540,
+   "out": 23
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2429,
+   "cache_read": 535,
+   "output": 493,
+   "in": 2966,
+   "out": 493
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.014869
+}

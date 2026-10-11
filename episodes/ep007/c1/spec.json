@@ -1,0 +1,44 @@
+{
+ "samples": {
+  "L1": "This week, a buyer borrowing $320,000 can take a 15-year mortgage at 6.73%, or a 30-year at 7.40% and pay it off in 15 years anyway, keeping the lower required payment as a fallback. We replay every week of US mortgage rates since 1991 to put a dollar price on that fallback, and to show what each extra dollar of principal actually earns: the bar any other use of that money has to clear. History, not a forecast: it won't tell you which loan to take, or whether to invest.",
+  "L2": "Pay extra on the mortgage, or invest the difference? Each extra dollar of principal earns exactly the loan's rate, so the answer starts with that rate. We follow a buyer borrowing $320,000 this week who can take a 15-year loan at 6.73%, or a 30-year at 7.40% paid off in 15 years, and replay every week of US mortgage rates since 1991: what the 30-year's lower fallback payment has cost, and how high the prepayment bar has been. History, not a forecast: no loan or investment pick."
+ },
+ "roles": {
+  "T": "You are an American about to buy a home with a mortgage of about $320,000. You can afford a 15-year payment, and you wonder whether to take a 30-year loan and pay extra, or invest the spare cash.",
+  "G": ""
+ },
+ "intro": "Below is the short description of an upcoming YouTube video. Read it once.",
+ "questions": [
+  "In 2-3 sentences, retell what this video will be about: who it is for, what decision it looks at, and how it will answer it.",
+  "What do you expect to know by the end? (one sentence)",
+  "Was anything confusing or hard to follow? Quote the exact words, or say \"nothing\".",
+  "Does it sound like the video will tell you which loan to take, whether to invest, or predict future mortgage rates? Answer yes or no, then why.",
+  "What advice, if any, would a viewer take from this?"
+ ],
+ "plan": [
+  [
+   "L1",
+   "T"
+  ],
+  [
+   "L1",
+   "T"
+  ],
+  [
+   "L1",
+   "G"
+  ],
+  [
+   "L2",
+   "T"
+  ],
+  [
+   "L2",
+   "T"
+  ],
+  [
+   "L2",
+   "G"
+  ]
+ ]
+}

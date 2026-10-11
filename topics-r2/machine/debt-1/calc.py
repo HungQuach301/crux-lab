@@ -42,3 +42,25 @@ out = {
     'extra_total_min': round(min(extra_total)), 'extra_total_max': round(max(extra_total)),
 }
 print(json.dumps(out))
+
+
+# --statement N (topic-dossier.md §3): recompute the numbers of statements.json sentence N from the data above; prints True/False
+import sys  # noqa: E402
+if '--statement' in sys.argv:
+    o = out
+    gap = pay(r15, 180) - pay(r30, 360)
+    checks = {
+        1: o['last_week'] == '2026-09-24' and (r30, r15) == (7.03, 6.42) and round(p15, 2) == 2773.49,
+        2: round(p30_15, 2) == 2881.62 and round(p30_15 - p15, 2) == 108.13 and round((p30_15 - p15) * 180) == 19464,
+        3: round(months_at_p15, 1) == 192.9 and 0.9 <= (months_at_p15 - 180) / 12 <= 1.2,
+        4: round(p30, 2) == 2135.42 and round((p30_15 - p15) * 180) == 19464,
+        5: (o['n_weeks'], o['first_week'][:7], o['spread_min'], o['spread_max'], o['spread_mean'], round(100 * o['share_spread_ge_050'], 1),
+            o['extra_total_min'], o['extra_total_max'], o['extra_total_median']) == (1831, '1991-08', 0.2, 1.0, 0.57, 62.9, 6097, 29502, 16594),
+        6: round(p30_15 - p15) == 108 and abs((p30_15 - p15) * 180 - 19500) < 100 and abs(min(extra_total) - 6100) < 50,
+        7: abs(gap - 640) < 5,
+        8: abs(gap - 640) < 5,
+        9: o['last_week'] == '2026-09-24' and (o['extra_total_min'], o['extra_total_max']) == (6097, 29502),
+        10: (o['spread_min'], o['spread_max']) == (0.2, 1.0) and o['first_week'][:4] == '1991',
+        11: min(extra_total) > 6000,
+    }
+    print(checks[int(sys.argv[sys.argv.index('--statement') + 1])])

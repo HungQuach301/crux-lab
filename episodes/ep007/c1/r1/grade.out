@@ -1,0 +1,65 @@
+{
+ "grader_tokens": 13233,
+ "scores": [
+  {
+   "file": "2ad8dd48",
+   "sample": "L1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "overclaim": false,
+   "why": "Has the 15-year vs 30-year-paid-in-15 choice, the weekly rate history since 1991, and the dollar price of flexibility plus the return on extra principal. Q4 is no and Q5 describes a framework only."
+  },
+  {
+   "file": "4ffab4b1",
+   "sample": "L1",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "overclaim": false,
+   "why": "Covers all three: the 15-year vs 30-year-paid-in-15 choice, weekly US rates since 1991, and the dollar value of the lower payment plus the bar other uses of money must clear. No advice, and the reader says it is not a forecast."
+  },
+  {
+   "file": "50b87200",
+   "sample": "L2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "overclaim": false,
+   "why": "Has the 15-year vs 30-year-paid-in-15 choice, every week since 1991, and the cost of flexibility plus the prepay bar. Q5 states the loan-rate return as understanding, not an action."
+  },
+  {
+   "file": "5f9fe16c",
+   "sample": "L2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "overclaim": false,
+   "why": "Has the 30-year with extra payments vs the 15-year, the weekly history since 1991, and the cost of the lower payment plus the return investing must beat. Q4 is no and there is no action advice."
+  },
+  {
+   "file": "81a6c93c",
+   "sample": "L2",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "overclaim": false,
+   "why": "Has the 15-year vs early-payoff 30-year choice with prepay vs invest, the weekly history since 1991, and the cost of the lower payment plus the loan-rate return. Q4 is no and the decision is left to the viewer."
+  },
+  {
+   "file": "c939e975",
+   "sample": "L1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "overclaim": false,
+   "why": "Has the 15-year vs 30-year-paid-in-15 choice, every week of US rates since 1991, and the dollar value of the safety net plus the return on extra principal. Q4 is no and Q5 is a framework, not an action."
+  }
+ ]
+}

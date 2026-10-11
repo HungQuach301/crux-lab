@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video is for a home buyer borrowing about $320,000 who can afford 15-year payments and is choosing between two paths: a 15-year loan at 6.73%, or a 30-year at 7.40% that they pay off in 15 years by making extra payments. It uses every week of US mortgage rates since 1991 to look at what the 30-year's lower required payment (the fallback) has cost and how high the return needed from investing instead of prepaying has been. It treats this as a historical look, not a forecast or a recommendation.\n\n2. By the end I expect to know how the cost of keeping the 30-year's flexibility, and the return an investment would need to beat prepaying, have varied across past mortgage-rate environments.\n\n3. Nothing is badly confusing, but a few phrases are vague: \"what the 30-year's lower fallback payment has cost\" (it isn't clear what \"cost\" is measured in, such as the rate gap or total interest), and \"how high the prepayment bar has been\" (the \"bar\" is only implied to be the loan rate that investing must beat). \"Each extra dollar of principal earns exactly the loan's rate\" is clear once you think about it, but it is dense for a first read.\n\n4. No. The description says outright \"History, not a forecast: no loan or investment pick.\" It sets up a historical replay of past rates, so it won't predict future rates, name the better loan, or tell you whether to invest.\n\n5. Little direct advice. A viewer might take away the framing that prepaying earns a guaranteed return equal to the loan's rate, so any investment has to beat that rate to be worth it. They might also learn how much the 30-year's flexibility has historically cost. The decision itself stays with the viewer.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1616,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 1616,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2501,
+   "cache_read": 535,
+   "output": 548,
+   "in": 3038,
+   "out": 548
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.015714099999999998
+}

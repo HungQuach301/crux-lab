@@ -1,0 +1,61 @@
+Bạn là NGƯỜI KIỂM SỐ ĐỘC LẬP (Crux, Tập 7). Tính lại TỪ ĐỊNH NGHĨA mọi đại lượng dưới đây, bằng mã của chính bạn. KHÔNG đọc `episodes/ep007/model/` hay `episodes/ep007/out/` (đó là mã/kết quả bên dựng). Chỉ đọc dữ liệu gốc: `episodes/ep007/data/raw/MORTGAGE30US.csv` và `episodes/ep007/data/raw/MORTGAGE15US.csv` (CSV FRED: observation_date, giá trị %; ô trống hoặc "." = thiếu). Chạy mã bằng `python3 -c '…'` hoặc `python3 - <<…` (một lệnh mỗi lần, không nối lệnh bằng && hay ;).
+Chung: tuần ghép = ngày có cả hai chuỗi. Khoản vay P = $320,000. Khoản trả đều = P*x/(1-(1+x)^-n), x = lãi/1200. Chỉ gốc + lãi. Làm tròn chỉ ở đầu ra.
+Đại lượng (giá trị bên dựng ghi sau dấu =; tính lại và so):
+- n_weeks = 1833 (weeks): Number of paired weeks.
+- first_week = 1991-08-30 (date): First paired week.
+- last_week = 2026-10-08 (date): Last paired week ("now" of the data).
+- r30_now = 7.4 (percent): 30-year rate in the last paired week.
+- r15_now = 6.73 (percent): 15-year rate in the last paired week.
+- spread_now = 0.67 (percentage points): 30-year minus 15-year rate in the last paired week.
+- pay15_now = 2828.16 (dollars per month): Payment on a 15-year loan (n=180) at the last week 15-year rate.
+- pay30_now = 2215.62 (dollars per month): Required payment on a 30-year loan (n=360) at the last week 30-year rate.
+- pay30on15_now = 2948.28 (dollars per month): Payment that retires the 30-year loan in 15 years: n=180 at the last week 30-year rate.
+- extra_vs15_month_now = 120.12 (dollars per month): pay30on15_now minus pay15_now (unrounded inputs).
+- extra_vs15_total_now = 21622 (dollars): (pay30on15_now - pay15_now) * 180, unrounded inputs: extra paid over 15 years for paying the 30-year loan on a 15-year schedule instead of taking the 15-year loan.
+- fallback_gap_now = 612.55 (dollars per month): pay15_now minus pay30_now: how much lower the 30-year required payment is than the 15-year payment.
+- extra_principal_needed_now = 732.67 (dollars per month): pay30on15_now minus pay30_now: extra principal each month on top of the 30-year required payment to finish in 180 months.
+- months_at_pay15_now = 194.6 (months): Months to pay off the 30-year loan at the last week 30-year rate when paying exactly pay15_now each month (continuous formula).
+- months_late_at_pay15_now = 14.6 (months): months_at_pay15_now minus 180.
+- interest_15_now = 189069 (dollars): Total interest on the 15-year loan: pay15_now*180 - 320000.
+- interest_30on15_now = 210691 (dollars): Total interest on the 30-year loan paid in 15 years: pay30on15_now*180 - 320000.
+- interest_30full_now = 477622 (dollars): Total interest on the 30-year loan paid on its own 30-year schedule: pay30_now*360 - 320000.
+- spread_mean = 0.57 (percentage points): Mean weekly spread (30-year minus 15-year).
+- spread_min = 0.2 (percentage points): Smallest weekly spread.
+- spread_max = 1.0 (percentage points): Largest weekly spread.
+- share_spread_ge_050 = 0.63 (share of weeks): Share of paired weeks with spread >= 0.50 point.
+- extra_total_median = 16631 (dollars): For every paired week: (n=180 payment at the 30-year rate - n=180 payment at the 15-year rate) * 180. Median over weeks.
+- extra_total_min = 6097 (dollars): Same weekly quantity as extra_total_median; minimum over weeks.
+- extra_total_min_week = 2008-12-04 (date): Week of extra_total_min.
+- extra_total_max = 29502 (dollars): Same weekly quantity as extra_total_median; maximum over weeks.
+- extra_total_max_week = 2023-01-26 (date): Week of extra_total_max.
+- share_extra_ge_now = 0.187 (share of weeks): Share of paired weeks whose extra_total is at least extra_vs15_total_now (unrounded).
+- bar_now = 7.4 (percent per year): Return earned by each extra dollar of principal on the 30-year loan = the loan rate (interest no longer charged), before taxes: the last week 30-year rate.
+- r30_min = 2.65 (percent): Lowest weekly 30-year rate over the paired weeks.
+- r30_min_week = 2021-01-07 (date): First week of r30_min.
+- r30_max = 9.25 (percent): Highest weekly 30-year rate over the paired weeks.
+- r30_max_week = 1994-11-25 (date): First week of r30_max.
+- share_r30_ge_now = 0.19 (share of weeks): Share of paired weeks with a 30-year rate at least r30_now.
+- leo_r30 = 2.65 (percent): 30-year rate in the week 2021-01-07.
+- leo_r15 = 2.16 (percent): 15-year rate in the week 2021-01-07.
+- leo_extra_vs15_total = 13231 (dollars): extra_total for the week 2021-01-07.
+- leo_extra_vs15_month = 73.51 (dollars per month): (n=180 payment at the 30-year rate - n=180 payment at the 15-year rate) in the week 2021-01-07.
+- leo_fallback_gap = 793.4 (dollars per month): 15-year payment minus 30-year required payment in the week 2021-01-07.
+- era1991_median_extra_total = 15118 (dollars): Median weekly extra_total over paired weeks 1991-08-30 to 1999-12-31.
+- era1991_median_r30 = 7.73 (percent): Median weekly 30-year rate over paired weeks 1991-08-30 to 1999-12-31.
+- era1991_median_spread = 0.46 (percentage points): Median weekly spread over paired weeks 1991-08-30 to 1999-12-31.
+- era2000_median_extra_total = 14210 (dollars): Median weekly extra_total over paired weeks 2000-01-07 to 2009-12-31.
+- era2000_median_r30 = 6.18 (percent): Median weekly 30-year rate over paired weeks 2000-01-07 to 2009-12-31.
+- era2000_median_spread = 0.45 (percentage points): Median weekly spread over paired weeks 2000-01-07 to 2009-12-31.
+- era2010_median_extra_total = 20374 (dollars): Median weekly extra_total over paired weeks 2010-01-07 to 2019-12-26.
+- era2010_median_r30 = 4.03 (percent): Median weekly 30-year rate over paired weeks 2010-01-07 to 2019-12-26.
+- era2010_median_spread = 0.72 (percentage points): Median weekly spread over paired weeks 2010-01-07 to 2019-12-26.
+- era2020_median_extra_total = 21345 (dollars): Median weekly extra_total over paired weeks 2020-01-02 to 2026-10-08.
+- era2020_median_r30 = 6.28 (percent): Median weekly 30-year rate over paired weeks 2020-01-02 to 2026-10-08.
+- era2020_median_spread = 0.7 (percentage points): Median weekly spread over paired weeks 2020-01-02 to 2026-10-08.
+- monthly_extra_months = 180 (months): Monthly simulation at r30_now: required payment + extra_principal_needed_now every month; number of payments until the balance reaches zero.
+- monthly_extra_interest = 210691 (dollars): Total interest in the monthly-extra simulation.
+- yearly_lump = 8792.03 (dollars): 12 * extra_principal_needed_now, paid once a year with payments 12, 24, ...
+- yearly_lump_months = 184 (months): Monthly simulation at r30_now: required payment every month + yearly_lump with payments 12, 24, ...; number of payments until the balance reaches zero.
+- yearly_lump_interest = 218857 (dollars): Total interest in the yearly-lump simulation.
+- yearly_vs_monthly_interest = 8166 (dollars): yearly_lump_interest minus monthly_extra_interest (unrounded).
+Trả về: bảng ngắn `id | bên dựng | bạn tính | KHỚP/LỆCH`, chỉ liệt kê đầy đủ các dòng LỆCH và đếm KHỚP x/y. Lệch do làm tròn (ví dụ hiệu của hai số đã làm tròn so với làm tròn hiệu) ghi "KHỚP (làm tròn)" và nêu cách hiển thị an toàn. Cuối: một dòng kết luận ĐẠT/TRƯỢT, và bất kỳ định nghĩa nào mơ hồ (hai cách hiểu cho hai kết quả khác nhau).
