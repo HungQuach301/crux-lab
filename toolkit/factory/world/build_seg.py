@@ -82,7 +82,8 @@ def main():
         r = run([sys.executable, os.path.join(seg, 'spine.py')])
         info = {'stdout': r.stdout.strip().splitlines()[-1:]}
         sj = os.path.join(ROOT, seg, 'spine.json')
-        if r.returncode == 0 and os.path.exists(sj):   # F-14: khai change/anchor/label_at/life (chỉ khi spine có `f14`); lỗi = dừng, quãng > 8 s = CẢNH BÁO
+        # F-14: kiểm khai báo change, anchor, label_at, life khi spine có khoá f14 (lỗi thì dừng; quãng lời dài hơn 8 s chỉ cảnh báo)
+        if r.returncode == 0 and os.path.exists(sj):
             sp = json.load(open(sj))
             if 'f14' in sp:
                 import spine as SV
