@@ -12,12 +12,14 @@ của nhánh không đổi. Master F-14: SHA-256 `3a97e6ed200ffbe1364034c57b74a6
 | quãng tĩnh có lời > 8 s (spine_pace) | 0 · cả nhãn 0 | 7 · 4 | **0 · 0** | ĐẠT (chỉ báo) |
 | ″ chỉ tính cue của bản giao (INTENT §7) | báo | 7 · 4 | 7 · 4 | báo: hết tĩnh là nhờ cue hình MỚI gắn từ (mục 2) |
 | freezedetect ∩ lời (số chính) | < 60 s | 206,01 s (51 quãng) | **44,83 s** (15 quãng) | **ĐẠT** |
-| R07 ±0,2 s (số chính) — checks khoá | ≥ 90 % cả hai cách (INTENT §7) | 70,3 % (83/118) | ⏳ checks khoá đang chạy — bản sao cách đo: (1) **93,8 %** (121/129) · (2) 118 cue cũ theo luật R07 93,2 % (110/118); **118 cue cũ, giữ cách đo của bản giao cho 9 cue nay có nhãn neo: 86,4 % (102/118)** | **TRƯỢT** theo §7 đọc chặt (mục 1b) |
-| nhãn "3%" | ≤ 0,2 s | 1,29 s (textTrack) · 1,26 s (G2) | ⏳ textTrack (cách ghi trước) · tham khảo nhật ký trang 1080p 0,15 s (`out/f14-3pct.json`) | chờ |
+| R07 ±0,2 s (số chính) — checks khoá | ≥ 90 % cả hai cách (INTENT §7) | 70,3 % (83/118, FAIL) | (1) checks khoá **93,8 %** (121/129, PASS; giọng lệch trung vị 0,00 s) · (2) 118 cue cũ theo luật R07 93,2 % (110/118); **118 cue cũ, giữ cách đo của bản giao cho 9 cue nay có nhãn neo: 86,4 % (102/118)** | (1) ĐẠT · (2) **TRƯỢT** theo §7 đọc chặt (mục 1b) |
+| nhãn "3%" | ≤ 0,2 s | 1,29 s (textTrack) · 1,26 s (G2) | **0,09 s** (textTrack checks: 459,70 − 459,61; nhật ký trang 0,15 s) — `out/f14-3pct.json` | **ĐẠT** |
 | cổng gốc (khoá nghĩa, số chính) | ≥ 20/23 và mọi nhịp ĐẠT ở bản giao vẫn ĐẠT (tụt → đọc lại 3 người) | 20/23 bản giao · **19/23 đọc lại cùng phiên** | **21/23**, advice_stated 0; **B22 tụt, đọc lại 3 người vẫn tụt** (1 · 0,5 · 0,5) | **TRƯỢT** (luật ghi trước) |
-| CHẶN | 0 | 0 (36/36) | ⏳ checks đang chạy | chờ |
+| CHẶN | 0 | 0 (36/36) | **0 (36/36)**; REG: 0 hồi quy CHẶN trên 98 luật so được với `run-c5d` | **ĐẠT** |
+| (báo) CHÍNH | — | 13/13 | **12/13: V11 TRƯỢT** — 1 mẫu 0,1 s ở 510,2 s: tiêu đề thẻ V7 "How we know this" hiện khi "dollars paid out: not compared" còn mờ dần (F-14 dời lúc tắt nhãn về đúng "card") → tập "CHỜ GIẢI THÍCH" | do F-14 gây ra; sửa một dòng (mục 5) |
+| (báo) R08 / V14 | — | R08 FAIL (7) · V14 FAIL | R08 **PASS (0)** · V14 FAIL như cũ ("first-5 s beats not in the world" 1: quy tắc 7 đã đổi theo F-14 c) | |
 
-**Kết luận tạm (trước checks khoá): F-14 TRƯỢT** — cổng gốc (B22) và R07 theo INTENT §7 đọc chặt (86,4 % < 90 %). Freezedetect (44,8 s) và spine (0 · 0) đạt; "3%", R07 chính thức và CHẶN chờ checks khoá. Không hạ đích.
+**Kết luận: F-14 TRƯỢT** — cổng gốc (B22 tụt sau đọc lại 3 người) và R07 theo INTENT §7 đọc chặt (86,4 % < 90 %). Đạt: freezedetect 206 → **44,8 s**, R07 checks 70,3 → **93,8 %**, "3%" 1,29 → **0,09 s**, CHẶN **0**, spine 7 → **0**. Mới hỏng: V11 (CHÍNH, 1 mẫu). Không hạ đích; không merge — báo số cho phiên điều phối.
 
 **1b. R07 — vì sao đọc chặt.** 9 cue cũ (`c2.level`, `c4.bigger`, `d1.climbed`, `f0.most`, `f4.ruths`, `f7.start`, `g1.forty`, `g2.half`, `g3.carls`) nay có nhãn neo vào từ, nên luật R07 đo chúng bằng `textTrack` (nhãn) thay cho chênh khung; cả 9 vào ±0,2 s (ở bản giao chỉ 1). Các nhãn là thật và đúng lời, trừ `f7.start` = "Carl" (tên hiện ở "start", câu S23.1 không nói "Carl"). INTENT §7 ghi "cùng tên cue, cùng cách đo" → giữ cách đo cũ cho 9 cue đó: 102/118 = **86,4 %** → TRƯỢT. Cue đo bằng chênh khung ở cả hai bản: 26/46 → **39/46** (cải thiện thật, không nhờ nhãn).
 
@@ -65,14 +67,14 @@ trên nhật ký trang. 6 spine.json Tập 6 sinh lại **trùng byte** khi khô
 ## 4. Chi phí, token, giờ máy
 - Console (headless, 0 agent con): cổng gốc đối chứng $1,58 · F-14 v1 $1,57 · F-14 v3 $2,12 · đọc lại 3 người $0,23 · REVIEWER headless $1,47 → **≈ $7,0** (+ một lượt chấm
   đối chứng bị ghi đè, chưa đếm, ≈ $0,4). REVIEWER: ĐẠT, 0 CHẶN, 6 CHÍNH, 5 GỢI Ý — đã sửa REPORT theo 6 CHÍNH + #7, #9). Trần cảnh báo $45: dưới trần.
-- Token phiên chính (`episodes/ep006/c5/session_tokens.py`, tới lúc viết): 289 lượt, sinh ra 0,25 triệu, đầu vào mới 0,60 triệu → **trần 0,84 triệu**;
-  đọc cache 120,5 triệu.
+- Token phiên chính (`episodes/ep006/c5/session_tokens.py`, lúc đóng): 357 lượt, sinh ra 0,30 triệu, đầu vào mới 0,73 triệu → **trần 1,02 triệu**;
+  đọc cache 148,5 triệu.
+- Môi trường checks: lượt đầu ERROR/MISSING vì thiếu dữ liệu FRED ghim (tải lại `data/fetch.py --verify`: **sha256 khớp bản ghim**), Shorts chưa chép vào `out/shorts`, và PyAV 19 không nhận `metadata_errors` của faster-whisper → ghim `av==13.1.0` (môi trường, không đổi checks/); chạy lại phần Python với trang đã lấy mẫu. Báo cáo: `out/checks/report.{json,md}`, `page.json.gz`.
 - Giờ máy: 1080p đầy đủ lần đầu ≈ 1 h 55 (thế giới 67 min, Shorts 12 min); hai lần dựng lại sau cổng gốc ≈ 1 h + 45 min (cache theo cảnh); 7 vòng nháp
-  360p ≈ 15 min/vòng; checks khoá ⏳.
+  360p ≈ 15 min/vòng; checks khoá: lấy mẫu trang 1 h 47 (4 job) + luật Python ≈ 25 min.
 
 ## 5. Đề xuất (không tự áp)
-1. Điều phối/chủ dự án quyết với số trên: F-14 TRƯỢT cổng gốc ở đúng một nhịp (B22) theo luật ghi trước. Nếu muốn một ứng viên v4 (B22 hiện dải đủ ở từ),
-   phải đo lại cả cổng — khoảng 1 h máy + $2.
+1. Điều phối/chủ dự án quyết với số trên. Ứng viên v4 nếu muốn: (i) B22 — hai dải CPI-W/PCE hiện đủ ở từ khoá (bỏ life `cpiw`/`pce`); (ii) V11 — tiêu đề thẻ V7 hiện từ "card" + 0,15 s; (iii) R07 §7 — không sửa được bằng nhãn (đó chính là điều §7 chặn): cần đổi hình bằng vật ở 9 cue đó. Mỗi vòng ≈ 1,5 h máy + checks ≈ 2 h + cổng gốc ≈ $2; đo lại cả cổng.
 2. `checks-appeal.md` (đề xuất cho phiên K): luật "không nhịp nào tụt" của cổng gốc cần biên nhiễu — đối chứng đọc lại cùng phiên "tụt" 4 nhịp không đổi hình;
    đề xuất so với **đối chứng cùng phiên** và cho mỗi nhịp tụt 3 người đọc mới + 2 người chấm, hoặc ngưỡng theo số nhịp.
 3. Nhà máy: comment_guard không bắt chú thích cuối dòng chèn giữa dict/khai báo nhiều biến (nuốt mã 3 lần trong phiên) — thêm kiểm `node --check` trên
