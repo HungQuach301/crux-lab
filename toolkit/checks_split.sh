@@ -20,5 +20,7 @@ L=$(cd "$OUT/checks" && find . -type f ! -name LOCK ! -path '*/__pycache__/*' | 
 python3 -c "import json,sys; c=json.load(open('$OUT/$E/contract.json')); sys.exit(0 if c['lock']=='$L' else 3)" || { echo "contract.json lock ≠ checks/LOCK"; exit 3; }
 echo "LOCK $L ok (checks/LOCK = contract.json lock)"
 fi
-[ -n "${PYONLY:-}" ] || node "$OUT/checks/page/sampler.js" "$OUT/$E" --jobs "${K_JOBS:-4}" && echo "page sampler OK"
+if [ -z "${PYONLY:-}" ]; then   # REVIEWER T6: sampler lỗi phải dừng, không để run.sh chấm trên page.json cũ
+  node "$OUT/checks/page/sampler.js" "$OUT/$E" --jobs "${K_JOBS:-4}" || { echo "sampler lỗi"; exit 4; }; echo "page sampler OK"
+fi
 SKIP_PAGE=1 bash "$OUT/checks/run.sh" "$OUT/$E" --contract "$OUT/$E/contract.json" "$@" || true

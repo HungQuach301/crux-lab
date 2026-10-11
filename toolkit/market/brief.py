@@ -66,7 +66,10 @@ def main(a):
             .replace('{0:00 … from out/timeline.json acts}', '\n'.join(chap))
             .replace('{winning style from market/REPORT.md §3}', thumb)
             .replace('{3–4}', '4').replace('{keywords}', kw).replace('{X, Y, Z}', qs))
-    pillar_color = {'hưu trí': '#3FBF7F', 'vay nợ': '#F2B441', 'thuế': '#4C8DFF'}.get(next((t.get('pillar') for t in json.loads((ROOT / 'toolkit/market/topics.json').read_text())['topics'] if t['id'] == topic), ''), '#4C8DFF')
+    pillar = next((t.get('pillar') for t in json.loads((ROOT / 'toolkit/market/topics.json').read_text())['topics'] if t['id'] == topic), None)
+    pillar_color = {'hưu trí': '#3FBF7F', 'vay nợ': '#F2B441', 'thuế': '#4C8DFF'}.get(pillar)
+    if not pillar_color:
+        print(f'cảnh báo: không thấy trụ của đề tài {topic!r} trong topics.json — màu trụ để trống, điền tay', file=sys.stderr); pillar_color = '{pillar color}'
     body = (body.replace('{objects}', a[a.index('--objects') + 1] if '--objects' in a else '{objects — tên vật thể trung tâm như trong kịch bản}')
             .replace('{banned}', a[a.index('--banned') + 1] if '--banned' in a else '{vật thay thế bị cấm}').replace('{pillar_color}', pillar_color))
     for i, f in enumerate(frames[:3], 1):

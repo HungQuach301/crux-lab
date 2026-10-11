@@ -383,7 +383,7 @@ if FORMAT == 'deep':   # episode.md §9: 2 điểm khi < 15:30, 3 khi ≥ 15:30 
         fail.append('deep thiếu ACT 4 (câu hỏi khán giả, episode.md §9)')
 if not NMID[0] <= len(mid) <= NMID[1] and not (G1_SHORT and not mid):
     fail.append(f'mid-roll: {len(mid)} điểm ({FORMAT} cần {NMID[0]}–{NMID[1]}; bỏ mid-roll chỉ khi G1 duyệt, --g1-short)')
-for a, b in zip(sorted(mid), sorted(mid)[1:]):
+for a, b in zip(sorted(mid), sorted(mid)[1:]) if FORMAT == 'deep' else []:
     if b - a < 180:
         fail.append(f'mid-roll {fmt(a)} và {fmt(b)} cách nhau {b - a:.0f} s < 180 s (deep: 2–3 điểm, mỗi điểm một ranh giới hồi)')
 for m in mid:

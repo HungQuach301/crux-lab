@@ -21,7 +21,7 @@ You are packaging one YouTube video for **Crux**, a US personal-finance channel 
 
 **Objects (exact words, never substitute):** {objects}. **Never:** {banned}.
 
-**Thumbnail:** keep the attached 3D frame's objects, figures, colors and low-poly style (no photos). {winning style from market/REPORT.md §3}. Max **{3–4} large words**; one idea; readable at phone size (168×94). Use an attached frame as the background (3D world, faceless figures, money stacks). Colors: background #0E1116, text #F2F4F7, accent #4C8DFF, warn #F2B441, positive #3FBF7F, negative #E5484D. Font: Inter Bold. Kit (fixed): "M." logo top-left and last headline line in {pillar_color}; headline bottom-left; ILLUSTRATIVE badge top-right if a figure shows; footer "US only · history, not a forecast". No faces, no other logos, no prediction arrows.
+**Thumbnail:** keep the attached 3D frame's objects, figures, colors and low-poly style (no photos). {winning style from market/REPORT.md §3}. Max **{3–4} large words**; one idea; readable at phone size (168×94). Use an attached frame as the background (3D world, faceless figures, the episode's own objects). Colors: background #0E1116, text #F2F4F7, accent #4C8DFF, warn #F2B441, positive #3FBF7F, negative #E5484D. Font: Inter Bold. Kit (proposed, pending owner approval): "M." logo top-left and last headline line in {pillar_color}; headline bottom-left; ILLUSTRATIVE badge top-right if a figure shows; footer "US only · history, not a forecast". No faces, no other logos, no prediction arrows.
 
 **Description keywords** (first 2 lines, ~150 characters, must contain the first keyword): {keywords}
 

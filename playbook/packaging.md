@@ -110,7 +110,7 @@ Kết quả: `episodes/ep001/review-c6/pack-test/results.md`. Chủ dự án ch�
    - 3 khung thế giới 3D 1280×720 có vật thể trung tâm (`render_shots.js --stills`) → OpenAI image API `images/edits`. Prompt: giữ vật thể/nhân vật/màu/low-poly, bỏ mọi chữ, không thêm vật, không ảnh chụp, không mặt.
    - **Lớp chữ do máy vẽ**, nên đúng từng ký tự và qua claim-risk.
    - Không có API (proxy/quyền chặn, thoát 3) → `--no-api` + brief (`templates/PACKAGING-BRIEF.md`, có `--objects/--banned`) cho **ChatGPT thủ công**. Đây là đường dự phòng.
-4. **Bộ nhận diện kênh "Money Rerouted"** (tên kênh YouTube của Crux — chủ dự án nêu 11/10; cố định mọi tập; đổi là quyền chủ dự án):
+4. **Bộ nhận diện kênh "Money Rerouted"** *(CHỜ chủ dự án duyệt — gói tổng kết Tập 6 câu 3; đến khi duyệt chỉ là đề xuất)* (tên kênh YouTube của Crux — chủ dự án nêu 11/10; đổi là quyền chủ dự án):
    - logo **"M."** trong ô bo góc màu trụ, trên trái (32, 28, 80×80 px ở 1280×720);
    - **một font**: Inter Bold (`toolkit/render/fonts`);
    - chữ lớn **dưới trái** (x = 48, đáy cách 64 px), 96–112 px, viền nền 3 px, **dòng cuối màu trụ**;

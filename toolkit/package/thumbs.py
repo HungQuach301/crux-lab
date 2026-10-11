@@ -80,12 +80,23 @@ if __name__ == '__main__':
     a = argparse.ArgumentParser()
     a.add_argument('--frame', required=True); a.add_argument('--keep', default=''); a.add_argument('--text', required=True)
     a.add_argument('--pillar', choices=list(PILLAR), required=True); a.add_argument('--out', required=True)
-    a.add_argument('--character', action='store_true'); a.add_argument('--no-api', action='store_true')
+    a.add_argument('--character', action='store_true', help='(mặc định đã bật; giữ để tương thích)'); a.add_argument('--no-character', action='store_true')
+    a.add_argument('--ep', help='thư mục tập: kiểm claim-risk chữ trên ảnh với out/claims.json'); a.add_argument('--no-api', action='store_true')
     a.add_argument('--quality', default='medium', choices=list(PRICE)); a.add_argument('--claims', default='')
     o = a.parse_args()
     lines = o.text.split('|')
     if sum(len(l.split()) for l in lines) > 4:
         sys.exit('chữ lớn > 4 từ (packaging.md §7)')
+    o.character = not o.no_character   # mặc định có nhãn ILLUSTRATIVE: quên cờ thì khung có nhân vật thiếu nhãn (REVIEWER T6)
+    if o.ep:   # claim-risk chữ trên ảnh: S10 + mọi số có claim (dùng lại package_check, luật khoá chỉ đọc)
+        sys.path.insert(0, str(ROOT / 'toolkit' / 'market'))
+        from package_check import scan, bad_numbers, claim_number_set
+        cl = json.loads((pathlib.Path(o.ep) / 'out' / 'claims.json').read_text()); cl = cl['claims'] if isinstance(cl, dict) else cl
+        txt = ' '.join(lines); bad = [f'{k} "{m}"' for k, m in scan(txt)] + [f'số "{n}" không có claim' for n in bad_numbers(txt, claim_number_set(cl))]
+        if bad:
+            sys.exit('claim-risk chữ thumbnail: ' + '; '.join(bad))
+    else:
+        print('cảnh báo: không có --ep → chưa kiểm claim-risk chữ trên ảnh', file=sys.stderr)
     if o.no_api:
         base, usage, prompt, cost = Image.open(o.frame).convert('RGB').resize((W, H)), {}, None, 0
     else:
