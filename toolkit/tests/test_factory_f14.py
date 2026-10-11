@@ -27,7 +27,7 @@ class F14(unittest.TestCase):
         s['changes'] = {'b0.a': 'major', 'b0.b': 'major', 'b0.c': 'major'}
         self.assertEqual(SV.still_major(s), [])                            # khoảng dài nhất 9→15 = 6 s
         s['changes']['b0.b'] = 'minor'
-        self.assertEqual([x['dur'] for x in SV.still_major(s)], [12.4])    # 2,5–14,9 s
+        self.assertEqual([x['dur'] for x in SV.still_major(s)], [12.9])    # từ 2,0–14,9 s
         errs, warn = SV.check_f14(s)
         self.assertFalse(errs); self.assertEqual(len(warn), 1)
 
