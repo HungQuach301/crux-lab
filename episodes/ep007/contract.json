@@ -1,0 +1,57 @@
+{
+ "episode": "ep007",
+ "lock": "dc4981b3f63e1f86872706fc73102794822ff75dbc65196dd3c0d87cebcab3d0",
+ "format": "lab",
+ "question": "For a $320,000 US mortgage, what does keeping the 30-year's lower required payment cost when it is paid off in 15 years anyway, versus a real 15-year loan, replaying every week of Freddie Mac survey rates since August 1991 (US only, history, not a forecast; not advice on which loan, or on investing)",
+ "model": {
+  "kind": "term-pair-weekly-replay",
+  "output": "out/model.json",
+  "params": {
+   "long": {
+    "file": "data/raw/MORTGAGE30US.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "MORTGAGE30US"
+   },
+   "short": {
+    "file": "data/raw/MORTGAGE15US.csv",
+    "dateColumn": "observation_date",
+    "valueColumn": "MORTGAGE15US"
+   },
+   "principal": 320000,
+   "shortMonths": 180,
+   "longMonths": 360,
+   "guide": {
+    "name": "leo",
+    "week": "2021-01-07"
+   },
+   "eras": [
+    [
+     "1991-08-30",
+     "1999-12-31"
+    ],
+    [
+     "2000-01-01",
+     "2009-12-31"
+    ],
+    [
+     "2010-01-01",
+     "2019-12-31"
+    ],
+    [
+     "2020-01-01",
+     "2026-12-31"
+    ]
+   ],
+   "spreadBands": [
+    0.5
+   ],
+   "prepay": true
+  }
+ },
+ "data": {
+  "sources": "data/sources.json"
+ },
+ "pending": {
+  "_about": "C4 P3: bên dựng điền characters, claims (core/decisive/conditions/illustrative), coverage, sonification, shorts, artefacts; khối model giữ nguyên (K4.2, checks-runs/K42/contract-ep007-draft.json)"
+ }
+}
