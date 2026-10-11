@@ -60,12 +60,12 @@ if os.path.exists(_yaml):
 LEN_LIMITS = {'101': (505, 540), 'lab': (540, 660), 'deep': (882, 1020)}   # (đích tối thiểu ước, tối đa cứng) giây; 101 ≥ 8:25 (lessons T6-1); deep ≥ 14:42 ước = sàn 14:00 + 5 % (D-012, episode.md §9)
 MIDROLL_MIN_S = 480   # YouTube chỉ cho mid-roll khi video ≥ 8:00 (lessons T6-1)
 BANNED_NAMES = {'Nora', 'Walt', 'Anjali', 'Leah', 'Dana', 'Rosa', 'Frank', 'Maya', 'Grace', 'Owen', 'Victor', 'Ruth', 'Carl', 'Edna'}   # TẬP: thêm tên tập trước
-CAST = []           # TẬP: tên nhân vật minh hoạ của tập (nhân vật dẫn đường đứng đầu); hoặc --cast A,B,C
+CAST = ['Tessa', 'Leo']   # TẬP: Tập 7 — Tessa dẫn đường, Leo đối trọng hồi 3; hoặc --cast A,B,C
 if '--cast' in sys.argv:
     CAST = [x for x in sys.argv[sys.argv.index('--cast') + 1].split(',') if x]
 PERSON_PROMISE = re.compile(r'\b(meet|buyers?|people|person|illustrative|retirees?|borrowers?|families|workers?|savers?)\b', re.I)
-CORE = []           # TẬP: [(claim_id, regex số đọc lên)] số cốt lõi — đọc bằng số 1 lần, nhắc lại ≥ 3 lần bằng lời
-FULL_FORM = {}      # TẬP: {'PMI': 'private mortgage insurance'} viết tắt phải có dạng đầy đủ ở lần đầu
+CORE = [('extra_vs15_total_now', r'21,622')]   # TẬP: Tập 7 — giá đường lui $21,622 ("the stack"): đọc bằng số 1 lần, nhắc lại ≥ 3 lần bằng lời
+FULL_FORM = {'PMI': 'private mortgage insurance'}   # TẬP: Tập 7 — lời chỉ nói dạng đầy đủ; chặn nếu viết tắt lọt vào
 ROLES = ('hook', 'promise', 'question', 'constraint', 'define', 'promise_character', 'peak')
 IMPERATIVE = re.compile(r'(^|[.!?;:]\s+|^(so|and|but|now),?\s+)(say|take|imagine|picture|look|think|remember|check|compare|ask|wait|buy|sell|keep|consider|make|avoid|'
                         r'start|stop|talk|plan|call|get|use|try|put|run|don\'t|do not|never|always|let\'s|save|rent|refinance|shop)\b', re.I)
@@ -73,7 +73,7 @@ ADVICE_EXTRA = re.compile(r"\b(you should|you need|you'd want|it's time to|best 
                           r"right move|smart move|better to (buy|wait|rent))\b", re.I)
 WORDNUM = {'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12,
            'twenty': 20, 'thirty': 30, 'forty': 40, 'fifty': 50, 'sixty': 60, 'hundred': 100, 'thousand': 1000}
-WORD_EXEMPT = []    # TẬP: cụm số không phải số liệu (vd r'\bthree illustrative buyers\b')
+WORD_EXEMPT = [r'\b(1990|2000|2010|2020)s\b']   # TẬP: Tập 7 — tên thập niên (khung era*_median_* trong numbers.md), không phải số liệu
 TEMPLATES = {'101': {'hook': 8, 'concept': 25, 'experiment': 30, 'buyers': 25, 'limits': 12},   # khuôn 101 (story §4)
              'lab': {'hook': 8, 'concept': 15, 'experiment': 45, 'buyers': 20, 'limits': 12},   # khuôn lab (story §4): móc · bối cảnh/nhân vật · hành trình · đáp án + ngưỡng · giới hạn (Tập 7)
              # deep (D-012, episode.md §9): móc · khái niệm + hai nhân vật · phát lại nhiều cửa sổ · nhân vật 2 / ca đối chứng · câu hỏi khán giả · giới hạn

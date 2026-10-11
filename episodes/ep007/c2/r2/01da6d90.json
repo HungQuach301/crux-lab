@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative buyer borrowing $320,000 in an expensive city. She can just afford the 15-year payment, and she wants to be debt-free in 15 years. She is deciding between a true 15-year loan and a 30-year loan paid off in 15 years, which keeps a lower required payment for a bad month. It prices that \"fallback\" for her week: $120 a month, or $21,622 over 15 years. It then replays every week since 1991 (1,833 weeks) to see whether that price is normal. Last, it explains the \"bar,\" meaning that an extra principal dollar earns the loan's own rate, and contrasts Tessa with Leo, who borrowed in January 2021.\n\n2. The 30-year paid in 15 years is the 15-year loan plus a fallback, and the fallback has a price. For Tessa it is about $120 a month, because the 30-year rate is 7.40% against 6.73%, a gap of 0.67 point. Historically the price depends on that rate gap, not on the rate level. It ranged from $6,097 (Dec 2008) to $29,502 (Jan 2023), with a median of $16,631. Tessa's is high by history, but it isn't a mistake. Each extra dollar she pays earns 7.40% before taxes, as interest avoided. That is a bar any other use of the money would have to clear.\n\n3. One passage confused me: \"His fallback was cheaper: $13,231 over 15 years, about $74 a month. And it was bigger: his required payment sat about $793 a month below the 15-year's.\" Saying the fallback was both \"cheaper\" and \"bigger\" without explanation made me stop and work out that \"bigger\" means a larger payment cushion. The line \"That makes Tessa's fallback expensive by history, not a mistake\" was also slightly unclear, since \"mistake\" hadn't been raised before.\n\n4. \"In the 2000s, with rates near 6.18 percent, it cost about the same: $14,210.\" My attention dropped in the decade-by-decade run. Several similar dollar figures and rate levels came in a row, and the useful point (the gap matters, not the rate) only arrives a few lines later.\n\n5. No to all three. The video says explicitly that it \"won't say which loan to take, or whether to invest,\" and that \"it's history, not a forecast.\" It does not predict future rates. It also says the gap has moved before and nothing in the data says where it goes next.\n\n6. The advice is implicit. The 30-year paid in 15 years carries a quantifiable price for flexibility, so compare your own two rate offers to see what the fallback costs. Your extra-payment return equals your loan's rate, which is a benchmark for other uses of the money. Monthly extra payments beat a yearly lump sum on interest (about $8,200 less in Tessa's case). Paying the 15-year amount on a 30-year loan will not finish on time. The video also warns that money paid into the house is hard to get back in a bad month.\n\n7. Partly. My question was whether to pay extra or invest the spare cash. The video gives a clear ruler for that: the 7.40% bar, plus the price of keeping flexibility. But it states that it does not test whether investments clear the bar, so the invest-versus-prepay comparison itself goes unanswered. The best-answered part was the 15-year versus 30-year-paid-in-15 comparison, with its $120 a month price tag.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3932,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 3932,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3974,
+   "cache_read": 1382,
+   "output": 1873,
+   "in": 5358,
+   "out": 1873
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0351724
+}

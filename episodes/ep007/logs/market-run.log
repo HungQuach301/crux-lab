@@ -115,3 +115,64 @@ UCjKDjHbyiChzOhV-WC8S0vg Grayson Invests  56 (7094, 66)
 UCjN2vUJcsQezdjFxSfJFxmw Finance Flow 48 (7097, 66)
 UCl18g6vdg0a2YoWG6gvem1A Money Mindset With Luke 35 (7100, 66)
 UCl9IwlpNczNQllEfeIrzscQ Holy Schmidt! 220 (7133, 66)
+UClR2DV-thtqsaY5p1jNBc0Q Jeff & Sarah Reed - Gold IRA Blueprint 5474 (7382, 66)
+UCmubs5trP19z0oXWPeJpHmg Ray Finance 11 (7385, 66)
+UCpxabBXB2UAt2grCl0pIJ9g Scrimp and Spend 70 (7390, 66)
+UCqRwPJ5UDRa6wPmi9fPJZrw Nathan Udomsri 90 (7407, 66)
+UCsBB7JYXEV_W8uVh4yrSSag Filipino Way 11 (7410, 66)
+UCtDoMEqEFNoSq2J2A7fuFpQ Dividend Hustle Mark 189 (7419, 66)
+UCtEZdShBmMsq858MVXRfsfg Healthy Wealthy Life Hack Picks 196 (7438, 66)
+UCtd_UQcUq7368v7ENPQTpJg Retirement Without Kids with Ari Taublieb, CFP® 1 (7441, 66)
+UCtsSIzNJVBR1Az9d5b5XTbw Rich by Routine  17 (7444, 66)
+UCtxnhpliXK2GhCPvJHie_Ww UK Finance Simplified 26 (7447, 66)
+UCuGKWV2U0dyfk89LtRxm5AQ MoneyMechanics 51 (7452, 66)
+UCugwwKRUS5juG0qYif2HABA Home Loan Education 64 (7459, 66)
+UCuo7iQC6soA3ExG4IMMZC8g MoneywithSwAbi 94 (7490, 66)
+UCv09moG9-_c1DafpwBHLV3Q Data Penguin 79 (7499, 66)
+UCyN8MSuZ27wOJZAzIBJFY0g Calm Dollar 57 (7504, 66)
+UCytiKJcsuKFARvAeUABvRBA HinExp 54 (7509, 66)
+UCzwWL05SqOntZAruBD4fKMQ DOAC Money Moments 8 (7512, 66)
++ python3 toolkit/market/discover.py classify
+57 kênh đã phân loại
++ for s in tag outliers comments gap profile
++ python3 toolkit/market/analyze.py tag
+667/13152 video gắn đề tài (cosine ≥ 0.55, biên ≥ 0.04)
++ for s in tag outliers comments gap profile
++ python3 toolkit/market/analyze.py outliers
+1078 video có hệ số; 136 ≥3×; 88 ≥5×; 23 cờ thời sự
++ for s in tag outliers comments gap profile
++ python3 toolkit/market/analyze.py comments
+EbJAgIuORTg q13-15-vs-30-mortgage 50 → 23 (7518, 66)
+jBhOfdzgy8E q11-mortgage-vs-tbills 50 → 28 (7519, 66)
+8kSSRN2ooU4 q11-mortgage-vs-tbills 50 → 40 (7520, 66)
+nkT_K8l1rEw s1-rent-vs-buy-history 50 → 24 (7521, 66)
+bbP8Mr_MThk s2-rental-vs-index-history 50 → 25 (7522, 66)
+YOBf21X3umI s1-rent-vs-buy-history 50 → 44 (7523, 66)
+O3w5P-dc1vU q18-travel-early-retirement 12 → 3 (7524, 66)
+kWn8GaajX28 q11-mortgage-vs-tbills 33 → 25 (7525, 66)
+GK0na2mr5nI q11-mortgage-vs-tbills 8 → 6 (7526, 66)
+rikT1MHdDYg q11-mortgage-vs-tbills 50 → 31 (7527, 66)
+PomJeQEkhaA q17-pmi-10pct 49 → 42 (7527, 66)
+3hIh9xT1C1o q11-mortgage-vs-tbills 50 → 31 (7529, 66)
+9bTPEGduDww q13-15-vs-30-mortgage 14 → 7 (7530, 66)
+cavk66DEdOM q11-mortgage-vs-tbills 50 → 41 (7531, 66)
+vvdYarUiI0c q06-ltc-inflation 23 → 11 (7532, 66)
+2MTkmrpltbQ s2-rental-vs-index-history 50 → 32 (7533, 66)
+JpufIL0n00I q08-short-long-capital-gains 50 → 20 (7534, 66)
+h_5zFbZ40Iw q11-mortgage-vs-tbills 50 → 34 (7535, 66)
+ittb9eOt46M q13-15-vs-30-mortgage 50 → 37 (7536, 66)
+bN_KMvvItrI q10-cd-ladder 8 → 5 (7537, 66)
+rWWH9jtVjUw q18-travel-early-retirement 50 → 38 (7537, 66)
+L8M9ri_FMAg q15-401k-vs-card 3 → 0 (7539, 66)
+BkHhGbtb2EM q10-cd-ladder 50 → 27 (7540, 66)
+aX-RQJP8_IA q12-annuity-raise 15 → 11 (7541, 66)
+SIWaHTeSDSM q12-annuity-raise 50 → 34 (7541, 66)
+-EGrPGUBGn0 q18-travel-early-retirement 50 → 26 (7541, 66)
+FqS9sI8N1oI q15-401k-vs-card 32 → 27 (7541, 66)
+VSnf3GaGgMU s1-rent-vs-buy-history 50 → 34 (7541, 66)
+9FYOUIZnZjU s2-rental-vs-index-history 50 → 36 (7541, 66)
++ for s in tag outliers comments gap profile
++ python3 toolkit/market/analyze.py gap
+{'q01-grad-variable-fixed': ['fixed_assumption', 'opinion', 'real_history', 'news'], 'q02-overtime-second-job': ['fixed_assumption', 'fixed_assumption', 'opinion', 'fixed_assumption', 'opinion', 'fixed_assumption'], 'q03-home-sale-500k': ['opinion', 'fixed_assumption', 'opinion', 'opinion', 'fixed_assumption', 'fixed_assumption'], 'q04-tax-refund': ['opinion', 'opinion', 'fixed_assumption', 'opinion', 'opinion', 'opinion'], 'q05-car-loan-term': ['fixed_assumption', 'opinion', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption'], 'q06-ltc-inflation': ['opinion', 'opinion', 'opinion', 'opinion', 'opinion', 'opinion'], 'q07-savings-bonds': ['opinion', 'fixed_assumption', 'opinion', 'opinion', 'real_history', 'real_history'], 'q08-short-long-capital-gains': ['fixed_assumption', 'fixed_assumption', 'opinion', 'opinion', 'opinion', 'opinion'], 'q09-mortgage-points': ['opinion', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption'], 'q10-cd-ladder': ['opinion', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption', 'opinion', 'opinion'], 'q11-mortgage-vs-tbills': ['fixed_assumption', 'real_history', 'opinion', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption'], 'q12-annuity-raise': ['fixed_assumption', 'fixed_assumption', 'fixed_assumption', 'opinion', 'fixed_assumption', 'fixed_assumption'], 'q13-15-vs-30-mortgage': ['fixed_assumption', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption', 'opinion'], 'q14-house-35pct-pay': ['opinion', 'opinion', 'opinion', 'fixed_assumption', 'opinion', 'fixed_assumption'], 'q15-401k-vs-card': ['opinion', 'opinion', 'opinion', 'opinion', 'opinion', 'opinion'], 'q16-rental-losses': ['opinion', 'opinion', 'opinion', 'opinion', 'opinion', 'opinion'], 'q17-pmi-10pct': ['fixed_assumption', 'opinion', 'opinion', 'opinion', 'real_history', 'opinion'], 'q18-travel-early-retirement': ['opinion', 'real_history', 'opinion', 'opinion', 'real_history', 'opinion'], 'q19-wait-car-rate': ['fixed_assumption', 'opinion', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption'], 's1-rent-vs-buy-history': ['fixed_assumption', 'fixed_assumption', 'opinion', 'fixed_assumption', 'real_history', 'opinion'], 's2-rental-vs-index-history': ['fixed_assumption', 'opinion', 'real_history', 'fixed_assumption', 'fixed_assumption', 'fixed_assumption']}
++ for s in tag outliers comments gap profile
++ python3 toolkit/market/analyze.py profile

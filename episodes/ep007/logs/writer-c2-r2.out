@@ -1,0 +1,14 @@
+apiKeySource: ANTHROPIC_API_KEY
+{"turns": 28, "is_error": false, "cost_usd": 0.9138731, "input": 30, "cache_write": 57855, "cache_read": 915707, "output": 13369}
+--- trả về ---
+**ĐẠT.** Checker chạy 3 lượt: lượt 2 trượt vì dòng mới trên thẻ V7 có số tiền gắn với Tessa mà thiếu nhãn ILLUSTRATIVE; thêm nhãn vào thì ĐẠT. Lượt 3 chạy sau khi cập nhật đầu script.md, vẫn ĐẠT. Độ dài ước **10:05** (1.454 từ đọc, khoảng 605 s, trên mức 540 s); trục mốc giây 9:38. Có 2 cảnh báo không chặn về tỉ lệ so với khuôn lab (chỉ để tham khảo): giới hạn 5,5 % so với khuôn 12 % (−6,5, chủ ý theo story §3), và concept +5,7. Phần concept không đổi, chỉ lệch thêm vì tổng số từ giảm.
+
+**M1–M6:** M1 3.8 s · M2 28.2 s · M3 18.8 s · M4 8.7 s · M5 39.2 s · M6 0.0 s, tất cả ĐẠT. Ba phương án móc HA, HB, HC cũng đều ĐẠT.
+
+**S32 mới:**
+- S32.1 "What this leaves out is on the method card and in the description."
+- S32.2 "This is US only, and it's history, not a forecast; it doesn't say which loan to take." (hold 1.0)
+
+**Câu mới S25.5** (sau S25.4, vì "the bar" phải được gọi tên trước): "Whether any investment clears it isn't tested here: the bar is a ruler to hold another choice up against." Câu này không có số, không khuyên, không mệnh lệnh.
+
+**beats.md:** thẻ V7 (B32) giờ có tiêu đề + 6 dòng chứa đủ các giới hạn đã chuyển ra khỏi lời; B25 thêm dòng chữ "not tested: whether any investment clears it"; mốc giờ B25–B33 được dời theo trục mới; cuối tệp thêm khối "Description — method and limits". Ở script.md, khối đầu ra checker, dòng "C2 v2 changes" và các tham chiếu tới S32 đã được cập nhật. Đoạn "Summary (C2 v1)" giữ số liệu v1 và có ghi chú như vậy.

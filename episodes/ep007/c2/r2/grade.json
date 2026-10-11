@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\":{\"score\":1,\"advice\":true,\"block\":\"số dày\",\"scene\":\"In the 2000s, with rates near 6.18 percent\",\"answered_own\":false,\"why\":\"Có đủ câu hỏi, giá $120/$21,622, dải lịch sử và mốc 7.40%; Q6 nêu 'trả theo tháng hơn trả theo năm' nên tính là lời khuyên; câu hỏi đầu tư vs trả thêm chưa được trả lời.\"},\"R2\":{\"score\":1,\"advice\":true,\"block\":\"số dày\",\"scene\":\"195 months, 15 months late, $733 extra\",\"answered_own\":false,\"why\":\"Đủ câu hỏi và đáp án (120/21,622, dải 6,097–29,502, 7.40%); Q6 có 'trả theo tháng tốt hơn trả một lần/năm' và 'cần $2,948' là hành động; chỉ trả lời nửa vế trả thêm.\"},\"R3\":{\"score\":1,\"advice\":true,\"block\":\"khác\",\"scene\":\"What this leaves out is on the method card\",\"answered_own\":false,\"why\":\"Đủ câu hỏi và đáp án (giá $120, $21,622, trung vị, 7.40%); Q6 có 'trả thêm hàng tháng tốt hơn một lần/năm' nên tính advice; vế đầu tư không được trả lời.\"},\"R4\":{\"score\":1,\"advice\":true,\"block\":\"khác\",\"scene\":\"same disclaimer, method card and description\",\"answered_own\":false,\"why\":\"Đủ câu hỏi và đáp án (120/21,622, dải lịch sử, 7.40%); Q6 có 'trả thêm hàng tháng tốt hơn hàng năm' nên advice; câu hỏi đầu tư chưa được trả lời.\"},\"R5\":{\"score\":1,\"advice\":true,\"block\":\"định nghĩa\",\"scene\":\"The bar is that loan's own rate; stack metaphors\",\"answered_own\":true,\"why\":\"Đủ câu hỏi và đáp án (120/21,622, dải 6,097–29,502, 7.40%); Q6 có 'trả hàng tháng tốt hơn hàng năm' nên advice; người đọc coi câu hỏi 15 vs 30-trả-15 đã được trả lời bằng đô la.\"},\"R6\":{\"score\":1,\"advice\":true,\"block\":\"số dày\",\"scene\":\"In the 2000s, with rates near 6.18 percent\",\"answered_own\":false,\"why\":\"Đủ câu hỏi và đáp án (120/21,622, trung vị, 7.40%); Q6 có 'trả thêm hàng năm tốn thêm $8,200' tức khuyên trả theo tháng nên advice; câu hỏi đầu tư vs trả thêm chưa được trả lời.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 9187,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 515,
+   "in": 9187,
+   "out": 515
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 9229,
+   "cache_read": 1382,
+   "output": 2093,
+   "in": 10613,
+   "out": 2093
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0591644
+}

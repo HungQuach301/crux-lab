@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative buyer borrowing $320,000 this week at 6.73% for 15 years or 7.40% for 30 years. She wants to be debt-free in 15 years but also wants a cheaper required payment for a bad month. It prices that \"fallback\" as the extra cost of a 30-year paid like a 15-year versus a true 15-year: $120 a month, or $21,622 over 15 years. It then replays 1,833 weeks of rate history since 1991 to show whether that price is normal, and explains that an extra dollar of principal \"earns\" the loan's own rate, which it calls the bar.\n\n2. The video says a 30-year loan paid off in 15 years is not the same as a 15-year loan. It is the 15-year plus a fallback, and this week the fallback costs Tessa about $120 a month. The cost comes from the 30-year rate being 0.67 point higher than the 15-year rate. Across history the price ranged from $6,097 (Dec 2008) to $29,502 (Jan 2023), with a median of $16,631. Tessa's price is expensive by history but not a mistake. For the \"pay extra vs. invest\" part, the answer is that each extra dollar earns 7.40% a year pre-tax for her. That is the bar any alternative use must clear, and it is high, since only about 1 week in 5 had a bar that high.\n\n3. Two passages confused me.\n- \"And it was bigger: his required payment sat about $793 a month below the 15-year's.\" The \"it\" is unclear. It seems to mean Leo's fallback (the cushion) was bigger even though its price was smaller, but that took me a moment to work out.\n- The word \"fallback\" is used for two things: the $613 a month gap in required payments, and its price of $120 a month. The opening line, \"Tessa's mortgage fallback costs $120 a month,\" is fine once you know this, but I had to sort it out.\n\nI was also briefly thrown by \"Her answer: the 30-year paid in 15 is the 15-year plus a fallback,\" because Tessa never actually decides anything.\n\n4. My attention dropped most in the caveats paragraph: \"The rates are weekly US survey averages for borrowers with strong credit and a large down payment; real offers differ in points, fees and terms. Payments here are principal and interest only: no property taxes, no homeowners insurance, no private mortgage insurance, no tax deductions.\" It is a long run of exclusions in one flat list, after the story had already peaked, so it reads as a legal disclaimer. The decade-by-decade comparison (medians, rates, gaps) was also number-heavy, but it had a payoff, which was that lower rates did not mean a cheaper fallback.\n\n5. No to all three, and the video says so explicitly. It states it won't say which loan to take or whether to invest, and that it is \"history, not a forecast.\" It also notes that the bar \"isn't compared with any market return here.\" It only prices the fallback and states the bar.\n\n6. The video gives no direct advice, but a viewer could take away these points:\n- Compare your own pair of offers. The price of flexibility depends on the gap between the 15-year and 30-year rates that week.\n- An extra dollar of principal earns your loan's own rate, pre-tax, and that is the number to beat.\n- A lower rate does not mean a cheaper fallback, because a wider gap does.\n- Paying the 30-year at the 15-year's payment amount ends late, and a lump sum once a year costs more interest than monthly extras.\n- Money paid into the house is hard to get back in a bad month, which is what the fallback is for.\n\n7. Partly. I came wondering whether to pay extra or invest. The video answered the first half: paying extra earns exactly the loan's rate (7.40% pre-tax for Tessa), and it showed what keeping flexibility costs ($120 a month). It did not answer the invest half, since it never says what investments might return or whether to prefer them. I left with the bar to beat but without a decision.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4063,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 23,
+   "in": 4063,
+   "out": 23
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4103,
+   "cache_read": 1382,
+   "output": 2418,
+   "in": 5487,
+   "out": 2418
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.041152
+}

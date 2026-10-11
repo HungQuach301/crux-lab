@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative buyer borrowing $320,000 at this week's rates: 6.73% for the 15-year loan and 7.40% for the 30-year. She is deciding between a true 15-year loan and a 30-year loan that she pays off in 15 years. The 30-year keeps a lower required payment ($2,216 vs $2,828) as a fallback for a bad month. The video prices that fallback at $120 a month, or $21,622 over 15 years, then compares it with every week's rates since 1991 (1,833 weeks). It ends by reframing extra principal payments as earning the loan's own rate, 7.40% before tax for Tessa, and uses Leo's 2021 loan at 2.65% as a contrast.\n\n2. Its answer is that a 30-year paid in 15 is the 15-year loan plus a fallback, and the fallback has a price. This week it costs Tessa $120 a month, or $21,622 in extra interest. That is high by history: the median week was $16,631, the range was $6,097 (Dec 2008) to $29,502 (Jan 2023), and fewer than 1 in 5 weeks cost this much. The driver is the gap between the 30-year and 15-year rates (0.67 point now, against a 0.57 average), not the level of rates. Each extra principal dollar earns the loan's own rate (7.40% pre-tax for Tessa), and that rate is the bar any alternative must clear.\n\n3. One passage confused me: \"And it was bigger: his required payment sat about $793 a month below the 15-year's.\" \"It\" is unclear. I think it means his fallback in monthly protection was bigger, while its dollar cost was smaller, but that comes right after \"His fallback was cheaper,\" so it reads like a contradiction. A smaller point is the opening line, \"Tessa's mortgage fallback costs $120 a month,\" which uses \"fallback\" before it is defined. I also wasn't sure why Leo's stack was only $13,231 when his required payment sat $793 below the 15-year's, which was a bigger gap than Tessa's.\n\n4. My attention dropped most in the disclaimer paragraph, especially: \"The rates are weekly US survey averages for borrowers with strong credit and a large down payment; real offers differ in points, fees and terms. Payments here are principal and interest only: no property taxes, no homeowners insurance, no private mortgage insurance, no tax deductions.\" It is a long run of exclusions in one block with no new idea. The decade-by-decade run of medians and rates was also dense with numbers.\n\n5. No to all three, and the video says so explicitly: \"It won't say which loan to take, or whether to invest,\" and \"it's history, not a forecast.\" It prices the fallback and states the 7.40% bar, but it deliberately doesn't compare that bar with any market return or say what the lower payment is worth to the viewer.\n\n6. The video gives no direct advice. A viewer could take away a few things:\n- Ask what the lower-payment fallback costs.\n- Compare your own loan rate, which is the bar, with what else you could do with the money.\n- Remember that money paid into the house is hard to get back in a bad month.\n- Treat the rate gap between the 15-year and 30-year offers as the main driver of the price.\n\n7. Partly. I came wondering whether to pay extra or invest instead. The video answers the paying-extra side well: an extra dollar earns the loan's rate, 7.40% pre-tax, and keeping the fallback costs $120 a month this week. It does not answer the invest side, because it never compares the bar with an investment return. It also doesn't say what to do given that I can only just afford the 15-year payment, so I'm left to make that judgment myself.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4063,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 24,
+   "in": 4063,
+   "out": 24
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4103,
+   "cache_read": 1382,
+   "output": 2734,
+   "in": 5487,
+   "out": 2734
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.044312500000000005
+}

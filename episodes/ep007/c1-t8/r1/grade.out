@@ -1,0 +1,32 @@
+{
+ "grader_tokens": 8404,
+ "scores": [
+  {
+   "file": "001ea356",
+   "sample": "L1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "why": "Q1 has all three: the buy-vs-rent decision with two people starting together, real US data for every start month 1991-2016, and how often the buyer is ahead after 10 years and when buying lost. Q4 says no, and Q5 gives no buy/rent action."
+  },
+  {
+   "file": "ccf0571a",
+   "sample": "L1",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "why": "Q1 has all three: the buy-vs-rent decision with a buyer and renter starting together, real US prices/rents/rates for every start month 1991-2016, and how often the buyer is ahead after 10 years and when buying lost. Q4 says no, and Q5 explicitly says it is not a recommendation."
+  },
+  {
+   "file": "fc1a176f",
+   "sample": "L1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "why": "Q1 has all three: the buy-vs-rent decision, real US data for every start month 1991-2016, and how often the buyer is ahead after 10 years and when buying lost. Q4 says no, and Q5 only suggests checking local data, not buying or renting."
+  }
+ ]
+}

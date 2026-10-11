@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative buyer borrowing $320,000 at this week's rates (6.73% for 15 years, 7.40% for 30). She is choosing between a true 15-year loan and a 30-year loan paid off in 15 years. It replays every week since 1991 (1,833 weeks) to price the difference. The 30-year paid in 15 costs $120 a month more, or $21,622 over 15 years, and that is the price of keeping a lower required payment as a fallback. It then shows that the price depends on the gap between the 15-year and 30-year rates, and that an extra dollar of principal earns the loan's own rate, which is the \"bar\" any alternative use of the money must clear.\n\n2. The main answer is that a 30-year paid in 15 is the 15-year loan plus a fallback, and this week the fallback costs Tessa about $120 a month. Her required payment would be $2,216 instead of $2,828, a cushion of roughly $612 a month in a bad month. Her price is high by history: the median across all weeks is $16,631, the range is $6,097 to $29,502, and fewer than 1 in 5 weeks cost more. Her extra principal earns 7.40% a year before taxes, which is high compared with history (about 1 week in 5 had a bar that high).\n\n3. Several spots confused me:\n- \"And it was bigger: his required payment sat about $793 a month below the 15-year's.\" It follows \"His fallback was cheaper,\" and \"bigger\" doesn't say what is bigger. I had to infer that it means the payment cushion.\n- \"That makes Tessa's fallback expensive by history, not a mistake.\" No one suggested a mistake, so \"not a mistake\" comes out of nowhere.\n- \"Same plan, a different week, and it means something else.\" This is vague.\n- \"Her answer: the 30-year paid in 15 is the 15-year plus a fallback...\" This is framed as Tessa's answer, but earlier the video said it won't say which loan to take, so it reads like a conclusion nobody reached.\n- A small mismatch: the payments given ($2,828 and $2,216) differ by $612, but the narration says \"about $613.\"\n\n4. My attention dropped most in the closing caveats: \"How this was built is on the method card and in the description. The rates are weekly US survey averages for borrowers with strong credit and a large down payment; real offers differ in points, fees and terms.\" It is a long run of disclaimers in a flat list, said right after the interesting Leo comparison. Some of it repeats the intro's \"US only, history, not a forecast.\"\n\n5. No to all three, and the video says so itself. It states it \"won't say which loan to take, or whether to invest,\" and that it is \"history, not a forecast.\" It also says the bar \"isn't compared with any market return here.\" It describes and prices a tradeoff but never recommends or forecasts.\n\n6. There is no explicit advice, but a viewer could take away these points:\n- Price the fallback for your own loan by looking at the gap between that week's 15-year and 30-year rates.\n- Treat your own loan's rate as the bar. Extra principal earns that rate, before taxes, with certainty.\n- Don't assume paying the 15-year amount on a 30-year loan ends it in 15 years. It ran about 15 months late in Tessa's case.\n- Extra payments don't lower the required payment, so the cushion stays.\n- Paying extra monthly beats one lump sum a year, which cost about $8,200 more in interest.\n- Money paid into the house is hard to get back in a bad month, and the video doesn't value that.\n\n7. Only partly. My question was whether to pay extra on the mortgage or invest the spare cash. The video answers a neighboring question well: what it costs to keep a lower required payment while paying like a 15-year borrower. It also gives the key number for the invest-versus-prepay comparison, the 7.40% pre-tax bar. But it deliberately doesn't compare that bar with investment returns, taxes, or risk, so it never answers the invest-or-prepay question. Because I can just afford the 15-year payment, the fallback-cost framing is useful to me, but I'd have to do the investing comparison myself.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4063,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 28,
+   "in": 4063,
+   "out": 28
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4105,
+   "cache_read": 1382,
+   "output": 4353,
+   "in": 5489,
+   "out": 4353
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0605125
+}

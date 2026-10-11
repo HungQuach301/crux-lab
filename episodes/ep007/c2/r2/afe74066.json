@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative borrower taking a $320,000 mortgage, who is deciding between a true 15-year loan and a 30-year loan paid off in 15 years. It prices the 30-year's lower required payment (the \"fallback\") as the extra $120 a month, or $21,622 over 15 years, then replays every survey week since 1991 to see whether that price is typical. It shows the price depends on the gap between 15- and 30-year rates, compares Tessa to Leo (a 2021 borrower), and ends by framing each extra principal dollar as earning the loan's own rate, a \"bar\" other uses of money must clear.\n\n2. The 30-year paid in 15 years is the 15-year loan plus a fallback, and the fallback has a price. For Tessa it is $120 a month ($2,948 vs. $2,828), or $21,622 over 15 years, equal to the interest difference between the two paid-off-in-15 loans ($210,691 vs. $189,069). By history that is expensive: the median is $16,631, the range is $6,097 to $29,502, and fewer than 1 in 5 weeks cost more. The driver is the rate gap (this week 0.67 point, typical 0.57), not the rate level. Extra principal earns her 7.40% before taxes, a high bar, in about the top fifth of weeks.\n\n3. \"Fewer than 1 in 5 weeks since 1991 put a price this high on it. That makes Tessa's fallback expensive by history, not a mistake\" is mildly confusing, since \"not a mistake\" appears without anyone having called it one. Also, Leo's passage: \"His fallback was cheaper: $13,231... And it was bigger: his required payment sat about $793 a month below the 15-year's.\" \"Bigger\" is unclear until you realize it means the payment cushion, not the cost. The $733 extra versus the $613 gap, and \"the extra never lowers what the loan requires,\" also took a re-think.\n\n4. \"Any fixed-rate borrower can set their own pair beside hers. The bar is that loan's own rate, printed on the paperwork, and the stack depends on how far apart the 15-year and 30-year offers sit that week.\" Attention dipped there because it is abstract after the concrete Tessa/Leo comparison, and the \"stack\" and \"bar\" metaphors get heavy. The decade-by-decade run of figures (7.73%, 6.18%, 4.03%, $15,118, $14,210, $20,374) was also number-dense.\n\n5. No, on all three. It states that it won't say which loan to take or whether to invest (\"whether any investment clears it isn't tested here\"), and it says it is history, not a forecast, noting the gap has moved before and nothing says where it goes.\n\n6. There is no direct advice, but a viewer would take away a few things. Compare the 15-year and 30-year rate gap, since that sets what a fallback costs. Know your loan's own rate as the bar any extra-dollar use must clear. Remember that dollars paid into the house are hard to get back in a bad month. Monthly extra payments beat a once-a-year lump sum on interest (about $8,200 less).\n\n7. Taking the likely question as \"is paying a 30-year like a 15-year worth it versus just taking the 15-year?\", it was answered in dollars: the fallback costs $120 a month this week, higher than usual, and it depends on the rate gap. The part that did it was the Tessa stack and the historical replay. It deliberately did not answer whether the fallback is worth that price to a given person.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3870,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 28,
+   "in": 3870,
+   "out": 28
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3910,
+   "cache_read": 1382,
+   "output": 1156,
+   "in": 5294,
+   "out": 1156
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0277432
+}
