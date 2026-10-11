@@ -158,3 +158,41 @@ Thành luật ở `episode.md` §10 mục 4–5: đổi/giữ ở mốc 48–72 
 | Tiêu đề ChatGPT | chưa chấm (chủ dự án chưa gửi nguyên văn) |
 
 **Đọc kết quả:** Sonnet chấm rộng tay (gần như mọi ảnh 4–5) và không bắt được lỗi số thùng. Vì vậy nó chỉ là bộ lọc thô: nó loại được vật thể sai và ảnh chụp, nhưng không chọn được giữa các phương án tốt. Chênh lệch thật nằm ở luật cứng: đường API lai giữ đúng vật thể, thế giới và màu kênh theo cách làm; đường ChatGPT thì không (T6-11). Thước đo thật vẫn là Test & Compare và CTR sau đăng (§10.4).
+
+## 5. Gói cho chủ dự án (≤ 3 câu, mỗi câu có khuyến nghị)
+
+**Câu 1: duyệt các luật ở §2 cần quyền chủ dự án?**
+- (a) **Sửa D-011.** Khi chặng sau cần tệp lớn ngoài git đang nằm ở container, chạy tiếp trong phiên đó sau `/compact` thay vì mở phiên mới. Vẫn đóng chặng bằng PLAN ≤ 1 trang + prompt, để mở phiên mới được nếu container mất.
+- (d) **F-14 nhịp hình**, làm ở nhà máy trước tập dài đầu tiên: chuyển động nền liên tục **có nghĩa** khi máy đứng; mỗi ≤ 8 s một thay đổi mang nghĩa; nhãn neo vào từ. Đích đo trên Tập 6 dựng lại: 7 → 0 quãng tĩnh, freezedetect < 60 s, R07 ≥ 90 %, "3%" ≤ 0,2 s, cổng gốc không tụt.
+- (f) **Phiếu L3** kèm số máy và mức gợi ý, đặt **sau** ô điểm của chủ dự án.
+- (g) **Khoá Console là cách chuẩn** cho dựng, đọc và soát. Trần chi/tập: `101` $35 · `lab` $45 · `deep` $60.
+- **Khuyến nghị: duyệt cả bốn.** (d) và (f) chạy thử 3 tập rồi hiệu chuẩn lại.
+
+**Câu 2: format `deep` và format Tập 7–8?**
+- `deep` 14–17 phút, ước G1 ≥ 14:42, 2–3 mid-roll (3 khi ≥ 15:30, các điểm cách nhau ≥ 3 phút).
+- Ba điều kiện không độn: ≥ 3 cửa sổ lịch sử cho kết quả khác nhau · hai nhân vật · ≥ 3 câu hỏi khán giả.
+- Trần cảnh báo: 20 triệu token, $60, ≈ 22 h máy.
+- **ElevenLabs ≈ 13.000–15.000 ký tự/tập** (≈ 60.000/tháng nếu 4 tập). **Anh kiểm hạn mức gói ElevenLabs.**
+- **Khuyến nghị:**
+  - Tập 7 (#13) = `deep` nếu F-14 đạt đích trước C3. #13 có đủ ba điều kiện: nhiều năm bắt đầu theo lãi thật — lãi 15 năm có từ 1991 theo Freddie Mac PMMS, kiểm ở Việc 0 —, hai người cùng một căn nhà khác kỳ hạn, câu hỏi "trả sớm hay đầu tư" của khán giả. Nếu F-14 không đạt, hoặc gói EL không đủ → `lab` 11 phút.
+  - Tập 8 (#20) xét cùng cách ở G1 lô.
+
+**Câu 3: đường thumbnail?** Phép thử §4f trên Tập 6:
+- **API lai** (khung 3D thật → OpenAI `images/edits` → lớp chữ máy) giữ đúng vật thể (thùng, không phải giỏ), giữ thế giới 3D và một màu kênh, ≈ $0,25/tập. Nó lệch số thùng ở 2/3 ảnh, nên người phải xem ở G2.
+- **ChatGPT thủ công** lệch cả ba điểm (giỏ, ảnh chụp, 3 màu).
+- Bộ nhận diện "M." (Inter Bold, chữ dưới trái, màu theo trụ; `packaging.md` §7.4) là gu, cần anh duyệt.
+- **Khuyến nghị: API lai là đường chính, ChatGPT dự phòng; duyệt bộ nhận diện như ảnh `tongket-t6/thumbs/api-*.png`.** Vẫn render đối chứng 2D cho Test & Compare đến hết Tập 7.
+
+**Trả lời gọn:** `1 a·d·f·g: duyệt/sửa … · 2 deep: duyệt/sửa …; Tập 7: deep/lab; EL: đủ/không · 3 API lai/ChatGPT; nhận diện: duyệt/sửa …`
+
+## 6. Prompt P1 Tập 7 (G1 lô Tập 7–8) — chủ dự án dán nguyên khối vào phiên mới
+```
+Chạy Tập 7, đề tài #13 (15-year mortgage vs a 30-year paid off in 15), phiên P1 — G1 LÔ Tập 7–8 (D-011 Q1, D-012). Nhánh ep007 từ main (sau khi tongket-t6 đã merge). Mở bằng `bash toolkit/verify.sh ep007`.
+Đọc trước: CHARTER.md, decisions/D-012.md, tongket-t6/REPORT.md §2–§5, playbook/episode.md (§1b, §3.12, §5, §8, §9), playbook/packaging.md §7, playbook/prompts/P1.md, market/topics/q13-15-vs-30-mortgage.md, tongket-t6/anchors/q13-15-vs-30-mortgage.json.
+Việc đầu tiên: chép câu trả lời tổng kết Tập 6 dưới đây vào tongket-t6/ANSWER.md, commit; áp phần được duyệt (D-011 sửa, F-14, phiếu L3, khoá Console, format deep → CHARTER §1 + episode.md §9 bỏ chữ "chờ", bộ nhận diện kênh). Câu 1 (d) được duyệt → F-14 trên nhánh factory-f14 TRƯỚC C3 Tập 7 (đo trên Tập 6 dựng lại, đối chứng bản giao f96da0ea).
+Tập 7: P1 Việc 0 → C1 → C2 → G1 theo P1.md. Format theo câu 2. Video neo + ý tưởng tiêu đề/thumbnail chốt ở G1 (packaging.md §7.1). Việc nặng headless khoá Console (toolkit/api.sh), 0 agent con trừ khi cần công cụ phiên.
+Tập 8 (#20 thuê vs mua, phát lại lịch sử thật; dự phòng #6): song song, chạy máy đề tài làm hồ sơ #20 (topic-dossier.md §4: quyền dữ liệu giá thuê/giá nhà); G1 lô có đề tài + logline + format + neo (tongket-t6/anchors/s1-rent-vs-buy-history.json) cho Tập 8. Hồ sơ #20 không qua §4 → #6.
+Dừng ở G1 lô (đóng phiên theo D-011 / bản sửa nếu duyệt).
+Câu trả lời tổng kết Tập 6:
+<<DÁN CÂU TRẢ LỜI TỔNG KẾT TẬP 6 Ở ĐÂY>>
+```
