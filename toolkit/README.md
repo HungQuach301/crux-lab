@@ -21,6 +21,12 @@ Nó **không phải nền tảng**. Code thực thi là đồ dùng một lần 
 | `audio/` | `loudness.py`, `d_music_selfsim.py`, `d_tension.py` | `audio/` | Đo BS.1770; đo độ tự tương đồng của nhạc; đo bản đồ căng–chùng. |
 | `finish/` | `m3-glue.js`, `m3-finish.sh`, `frame-change.py` | `src/d/` | Sinh các file hợp đồng: tempo map, transitions, silences, phụ đề, cues, sfx-events. Mux hình và tiếng, xuất bản xem trước, đo frame-change. |
 
+## Thêm sau khi chép
+
+| Thư mục | Việc |
+|---|---|
+| `market/` | Phiên Thị trường (11/10/2026): YouTube Data API → kênh cùng chủ đề, video vượt trội, hồ sơ cầu, brief đóng gói ChatGPT, kiểm gói P4. Số liệu thô ngoài git (`~/market-cache/`). Xem `market/README.md`. |
+
 ## Đã bỏ khi chép
 
 - **Toàn bộ phần 3D** (CHARTER §5; BRIEF-D-amendments 11):

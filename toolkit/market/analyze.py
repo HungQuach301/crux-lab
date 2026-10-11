@@ -184,28 +184,33 @@ def cmd_comments():
     tt = {t['id']: t['title'] for t in TOPICS}
     od = day() / 'analysis' / 'comments'
     od.mkdir(parents=True, exist_ok=True)
-    for vid, topic in pick.items():
+
+    def one(vid, topic):
         f = od / f'{vid}.json'
         if f.exists():
-            continue
+            return
         try:
             r = yt('commentThreads', part='snippet', videoId=vid, order='relevance', maxResults=50, textFormat='plainText')
         except RuntimeError as e:     # bình luận tắt
             jdump({'video': vid, 'topic': topic, 'error': str(e)[:120], 'kept': []}, f)
-            continue
+            return
         cm = [{'likes': it['snippet']['topLevelComment']['snippet'].get('likeCount', 0),
                'replies': it['snippet'].get('totalReplyCount', 0),
                'text': it['snippet']['topLevelComment']['snippet']['textDisplay'][:600]} for it in r.get('items', [])]
         if not cm:
             jdump({'video': vid, 'topic': topic, 'kept': []}, f)
-            continue
+            return
         lines = '\n'.join(f"{i}\t{c['likes']}\t{c['replies']}\t{c['text'].replace(chr(10), ' ')}" for i, c in enumerate(cm))
         kept = ask(COMMENT_PROMPT % (tt.get(topic, topic) + ' / video title: ' + vids.get(vid, {}).get('title', ''), lines), task='comments')
         for k in kept:
             c = cm[k['i']] if 0 <= k.get('i', -1) < len(cm) else {'likes': 0, 'replies': 0}
             k['weight'] = 1 + c['likes'] + 2 * c['replies']    # trọng số tự tính: 1 + like + 2 × phản hồi
         jdump({'video': vid, 'topic': topic, 'n': len(cm), 'kept': kept}, f)   # chỉ giữ ý diễn đạt lại, không lưu nguyên văn
-        print(vid, topic, len(cm), '→', len(kept), quota_used())
+        print(vid, topic, len(cm), '→', len(kept), quota_used(), flush=True)
+
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(6) as ex:      # 6 lượt Haiku song song; mỗi lượt gọi API YouTube vẫn ghi quota.jsonl
+        list(ex.map(lambda kv: one(*kv), pick.items()))
 
 
 # ---------- packaging ----------

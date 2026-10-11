@@ -127,7 +127,8 @@ def cmd_topics():
              f"| Khoảng trống | **{p['gap']}** | video đầu bảng có phát lại dữ liệu lịch sử thật không: cao = không video nào, vừa = 1, thấp = ≥ 2 (Haiku đọc tiêu đề + mô tả) |",
              f"| Số video gắn đề tài | {p['n_tagged_label']} | embeddings, chỉ cặp khớp cao (cosine ≥ {A.SIM_MIN}, biên ≥ {A.SIM_MARGIN}) |",
              f"| Dải thời lượng | {mmss(dr[0]) + '–' + mmss(dr[1]) if dr else 'chưa có'} | tứ phân vị 25–75 % của video {p.get('dur_src', '')} cùng đề tài |", '',
-             '## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)']
+             '## Câu hỏi khán giả (xếp theo trọng số: like + 2 × phản hồi, tự tính)' if p['n_comments_kept'] else
+             '## Câu hỏi khán giả (SUY TỪ ĐỀ TÀI — chưa có bình luận đã lọc cho đề tài này; trọng số là ước của máy, làm mới ở Việc 0)']
         L += [f"{i}. {x['q']} — trọng số {WEIGHT.get(x.get('weight'), x.get('weight'))}" for i, x in enumerate(qs, 1)] or ['chưa có']
         if q.get('note'):
             L += ['', f"_Ghi chú máy: {q['note']}_"]
@@ -148,7 +149,7 @@ def cmd_topics():
         L += ['', '## Mẫu tiêu đề (khuôn trừu tượng, không chép) và thumbnail']
         L += [f"- {x}" for x in q.get('title_templates', [])[:3]]
         L += ['- Thumbnail: theo mẫu thắng chung ở `market/REPORT.md` §3 (đề tài này chưa đủ mẫu riêng).', '', '## Từ khoá mô tả', ', '.join(q.get('keywords', [])[:6]) or 'chưa có']
-        if q.get('requests'):
+        if q.get('requests') and p['n_comments_kept']:   # chỉ yêu cầu có thật trong bình luận, không lấy phần máy suy
             L += ['', '## Đề tài khán giả yêu cầu (→ hàng đợi nhãn "từ khán giả" nếu chưa có)'] + [f"- {x}" for x in q['requests'][:5]]
         (od / f'{tid}.md').write_text('\n'.join(L) + '\n')
         labels[tid] = (p['demand'], p['gap'])
