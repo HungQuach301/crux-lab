@@ -31,3 +31,6 @@ Như lượt 1: không đổi chữ kịch bản, không sinh giọng (33/33 tak
 
 ## Trả về (≤ 25 dòng)
 Tệp đã viết/sửa; tổng timeline (s), MR1/MR2; kết quả lint/spine/spec; S21 đã đổi loại hình thế nào (một đoạn mô tả để phiên chính viết ý đồ kiểm mù); S23, S25 làm gì; đồng bộ dự kiến; rủi ro; **lệnh build chính xác** cả tập.
+
+## Kết quả lượt 1 (đọc trước khi làm)
+Ranh giới (s): a 0–54,93 · b –189,33 · c –294,17 · d –358,60 · e –442,70 · f –489,20 · g –602,70; MR1 188,58, MR2 441,94; số neo S06.1, S18.1, S28.1 (lặng 0,75 s trong đuôi cảnh trước). Lượt 1 đã khai `contract.json coverage` = 1.833 tuần ở hồi 2: **đoạn c phải gắn `case` theo tuần cho vật dữ liệu** (lưới V1 / hàng chồng), nếu không S06 của checks trượt. Kiểm khai: `node --import ./episodes/ep007/c4/smoke/register.mjs episodes/ep007/c4/smoke/run.mjs <đoạn>`. Thay khung tối thiểu c–g bằng đoạn thật.
