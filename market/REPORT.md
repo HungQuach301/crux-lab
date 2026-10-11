@@ -43,7 +43,8 @@ Haiku đọc 6 video đầu bảng mỗi đề tài: phần lớn là **giả đ
 - thumbnail: split scene — two faceless figures from the same starting point on two paths in the 3D world, or one big claim number plus 1–2 words; high contrast (yellow/red/green on dark), no faces
 
 ## 4. Dải thời lượng
-- Video vượt trội **dài hơn** video thường của chính kênh đó: trung vị ~15–16 phút (tứ phân vị ~12–19) so với ~12–13 phút (tự tính, kênh trực tiếp + lân cận). Cụm hạt giống Logical Money 15–18 phút (số chủ dự án ghi).
+- Video vượt trội **dài hơn** video thường của chính kênh đó: trung vị ~15–16 phút (tứ phân vị ~12–19) so với ~12–13 phút (tự tính, kênh trực tiếp + lân cận).
+  - **Tính lại 11/10 sau T6-12** (P1 Tập 7; cache mới ngày 11/10, đã loại kênh Crux "Money Rerouted" trong `analyze.all_videos`; kênh trực tiếp + lân cận, cờ ≥ 3× không thời sự): vượt trội **trung vị ~15 phút (tứ phân vị ~11–18)**, n = 130, so với video thường **~12 phút** (~10–17), n = 927 — kết luận không đổi (vượt trội dài hơn ~2–3 phút). Hồ sơ q01 (cầu vừa, khoảng trống vừa — không đổi) và q17 (cầu thấp, khoảng trống **vừa → cao**) làm lại cùng ngày; các hồ sơ khác giữ bản 11/10 cũ (dữ liệu mới gợi ý khoảng trống q06 vừa → cao, q07 thấp → vừa, q11 thấp → vừa — chưa ghi, chờ lần làm mới kế). Cụm hạt giống Logical Money 15–18 phút (số chủ dự án ghi).
 - Khuôn Crux: `101` 8–9 phút, `lab` 9–11 phút — **ngắn hơn dải vượt trội** ở các đề tài nhà ở (11–22 phút). Không đổi khuôn ở phiên này (quyền chủ dự án); WRITER theo `format`, G1 nêu khi hai dải không giao (`playbook/episode.md` §3.11). Đề tài có thể dài hơn tự nhiên: so sánh hai nhân vật × nhiều cửa sổ lịch sử (`lab` lên trần 11 phút).
 - Giờ đăng của video vượt trội dồn vào **sáng giờ Mỹ (12–16 UTC)** và **thứ Hai**; thường đăng trải đều — tín hiệu yếu, chỉ tham khảo cho `HUONG-DAN-DANG.md`.
 
