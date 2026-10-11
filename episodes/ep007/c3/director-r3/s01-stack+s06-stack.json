@@ -1,0 +1,23 @@
+{
+ "answer": "**s01-stack**\nScores: emotion/story 2 · sound-off 2 · pacing 2 · composition 3\n\n1. **4.1 s:** \"$120 a month\" is spoken from 3.2 to 4.6 s, but the frame shows no price. The first bundle also lands in front of the door, overlapping the house. **Fix:** drop the bundle beside the house to the right at \"one\" (3.2 s) and show the $120 price over it at the same moment.\n2. **9.57 s:** A stray bundle is still sitting at the door while the real stack is to the right. It looks like two stacks, or a glitch. **Fix:** move that first bundle onto the right-hand stack so there is only ever one stack.\n3. **6.8–12.3 s:** The stack grows six bundles while she talks about the $320,000 loan. That reads as \"the loan is $720\" or as nothing. **Fix:** stop the stack after one bundle. For the loan, show the house getting taller, or a big pale loan block behind it. On \"biggest bill\" (11.2 s), make the payment block the tallest of several small bill blocks.\n4. **Whole segment:** Tessa never reacts, and \"ILLUSTRATIVE\" appears twice, once over her name. **Fix:** give her one small motion when the stack lands (a slight lean toward it or a step back). Keep only the corner \"ILLUSTRATIVE\" badge.\n\n**s06-stack**\nScores: emotion/story 2 · sound-off 3 · pacing 3 · composition 2\n\n1. **8.34 s:** The narration has just said $2,948, but the screen shows $2,828, which is never spoken, and the 30-year bar hasn't been raised yet. **Fix:** raise the 30-year bar from \"finishing\" (3.1 s) to \"fifteen\" (4.2 s). It should end just above the 15-year line by \"two thousand\" (6.0 s), and the $2,948 should be on screen at that point.\n2. **19.47 s:** A bundle in mid-fall crosses the \"30-year paid in 15\" text. The stack is already half built before \"Over those 15 years\" (19.5 s). **Fix:** start the bundles falling at 19.5 s, from the gold sliver down to the stack. Route them below the text.\n3. **25.03 s:** The finished stack stands taller than the payment bars. That implies they share a scale, which misreads $21,622 against $2,948. Three labels are also crammed under the header. **Fix:** move the stack to the left of the house, or push the bars back and dim them once the stack takes over. Keep at most two labels and remove the leftover \"$2,828\".\n4. **Whole segment:** The sliver is about 4 px, which is unreadable on mobile. **Fix:** push the camera in on the bar tops at 10.6–12.8 s so the gold sliver fills the frame, then pull back for the stack.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2814,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 24,
+   "in": 2814,
+   "out": 24
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 11059,
+   "cache_read": 7732,
+   "output": 2759,
+   "in": 18795,
+   "out": 2759
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1455078
+}
