@@ -20,8 +20,9 @@ QS = {'root': Q14 + "5. Did the animation itself (picture or on-screen text) sug
       'voiced': Q14 + "5. Did the video itself (picture, on-screen text or narration) suggest this, or is it your own conclusion? If you gave no advice in 4, answer 'none'.\n"}
 QUESTION_ID = 'C4 Tập 7: vai T + câu 1–5 (gates/C4-intent.md)'
 IMAGE = ['B01', 'B04', 'B05', 'B06', 'B08', 'B09', 'B10', 'B11', 'B13', 'B15', 'B18', 'B19', 'B21', 'B22', 'B23', 'B25', 'B28', 'B29', 'B30', 'B31', 'B33']
-EXTRA = ('Also return "extra_layer_seen": true if the reader describes something EXTRA being added on top of each month\'s payment (a slab, layer, '
-         'top-up or additional payment placed on the monthly tiles), false if they only describe blocks, colours or a grid changing.')
+EXTRA = ('Also return "extra_layer_seen": true only if the reader describes a VISIBLE extra layer, slab or block placed on top of each month\'s tile '
+         '(its colour, position or movement), with a quote; false if they only describe blocks, colours or a grid changing, or only repeat the $733 '
+         'number or a label.')
 BEAT = ('Also return "must_beat_or_guaranteed": true if the reader says the video tells them that any other use of the money HAS TO BEAT / must clear '
         'the 7.40% rate, or that paying extra is a guaranteed / sure / risk-free saving or return; quote it. False otherwise.')
 LINE = re.compile(r'^(S\d\d)\.(\d+)\s+(?:\{\w+\}\s+)?(?:\[[a-z ]+\]\s+)?(.+?)\s*<!--')
@@ -86,10 +87,10 @@ def do_strips(video, tag):
     sc = {s['id']: s for s in tl['scenes']}
     REV.mkdir(exist_ok=True)
     spans, meta = {}, {}
-    for b in IMAGE:
+    for b in IMAGE + ['B24']:   # B24 (loại 2) chỉ cho mẫu có lời S23-S24 (REVIEWER CHẶN-1)
         s = sc[bt[b]['scene']]
         spans[b] = [round(s['start'] + 0.2, 3), round(s['end'] - 0.2, 3)]
-        meta[b] = {'scene': bt[b]['scene'], 'muted_read': bt[b]['muted_read'], 'span': spans[b]}
+        meta[b] = {'scene': bt[b]['scene'], 'muted_read': bt[b]['muted_read'], 'span': spans[b], 'kind': 'root' if b in IMAGE else 'voiced-only'}
     json.dump({'video': str(video), 'tag': tag, 'strips': meta}, open(REV / 'spans.json', 'w'), indent=1, ensure_ascii=False)
     json.dump(spans, open(REV / 'spans-flat.json', 'w'))
     subprocess.run([sys.executable, str(ROOT / 'toolkit/blind/strips.py'), str(video), str(REV / 'spans-flat.json'), str(REV / 'strips')], check=True)
@@ -133,9 +134,16 @@ def samples(kind):
             ('S25', 'ep007', 'voiced', voiced('S24', ['S25'], 1), [st / 'B25.png'])]
 
 
+def keydir(run):
+    """Khoá + câu trả lời ngoài thư mục người đọc (REVIEWER PHỤ-10): <lượt>.key/"""
+    d = (EP / (run.rstrip('/') + '.key')).resolve(); d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
 def do_read(run, kind, slots, only):
     o = (EP / run).resolve(); o.mkdir(parents=True, exist_ok=True)
-    kp = o / 'KEY.json'
+    kd = keydir(run)
+    kp = kd / 'KEY.json'
     key = json.load(open(kp)) if kp.exists() else {'_': 'GIẢI MÃ — không đưa cho người đọc hay người chấm.', 'question': QUESTION_ID,
                                                     'candidate_set': 'ep007', 'items': {}}
     taken = {(v['set'], v['id'], v['slot']) for v in key['items'].values()}
@@ -158,9 +166,9 @@ def do_read(run, kind, slots, only):
     with cf.ThreadPoolExecutor(6) as ex:
         res = dict(zip(jobs, ex.map(lambda h: blind.run(o / f'{h}.txt', o / f'{h}.json', read=True), jobs)))
     json.dump(key, open(kp, 'w'), indent=1, ensure_ascii=False)
-    ans = json.load(open(o / 'answers.json')) if (o / 'answers.json').exists() else {}
+    ans = json.load(open(kd / 'answers.json')) if (kd / 'answers.json').exists() else {}
     ans.update({h: r['answer'] for h, r in res.items() if r})
-    json.dump(ans, open(o / 'answers.json', 'w'), indent=1, ensure_ascii=False)
+    json.dump(ans, open(kd / 'answers.json', 'w'), indent=1, ensure_ascii=False)
     tok = {h: sum(v['input'] + v['cache_write'] + v['output'] for v in r['tokens'].values()) for h, r in res.items() if r}
     print(json.dumps({'runs': len(jobs), 'ok': len(tok), 'trần': sum(tok.values()), 'failed': [h for h in jobs if not res[h]]}))
 
@@ -177,6 +185,8 @@ def rubric():
     items = {b: {'meaning': bt[b]['muted_read'] + (' ' + EXTRA if b == 'B21' else ''), 'description_only': 'lists shapes, colours, numbers or labels without the idea above'} for b in IMAGE}
     c2 = (EP / 'c2/rubric-r3.md').read_text()
     whole = c2[c2.index('**Đúng câu hỏi**'):c2.index('**Câu khuyên')].strip()   # nguyên văn c2/rubric-r3.md
+    whole += (' Note: the "bar" idea is met when the reader says the loan rate is what another use of the money is MEASURED AGAINST; "has to beat" is '
+              'neither needed nor rewarded. ' + BEAT)
     items.update({'WHOLE': {'meaning': whole, 'description_only': 'retells scenes without the idea'},
                   'S21': {'meaning': bt['B21']['muted_read'] + ' ' + EXTRA, 'description_only': 'lists tiles and colours without the idea'},
                   'S23-S24': {'meaning': bt['B23']['muted_read'] + ' Then: paying yearly costs about $8,200 more interest, but the money waits in an account '
@@ -187,14 +197,14 @@ def rubric():
 
 
 def do_pack(run):
-    o = (EP / run).resolve()
+    o = (EP / run).resolve(); kd = keydir(run)
     json.dump(rubric(), open(o / 'rubric.json', 'w'), indent=1, ensure_ascii=False)
-    labs = packets.packet(str(o / 'KEY.json'), str(o / 'answers.json'), str(o / 'rubric.json'), str(o / 'packet.json'), str(o / 'rubric-key.json'))
-    print(len(labs), 'nhãn; commit packet.json + rubric-key.json + KEY.json trước khi chấm')
+    labs = packets.packet(str(kd / 'KEY.json'), str(kd / 'answers.json'), str(o / 'rubric.json'), str(o / 'packet.json'), str(o / 'rubric-key.json'))
+    print(len(labs), 'nhãn; commit packet.json + rubric-key.json + <lượt>.key/KEY.json trước khi chấm')
 
 
 def do_grade(run, n):
-    o = (EP / run).resolve()
+    o = (EP / run).resolve(); kd = keydir(run)
     pk = json.load(open(o / 'packet.json'))
     body = ('# Grading packet (blind). You are an independent grader. Each label Rxx is one reader\'s answers about part of a personal-finance video. '
             'Grade each label literally with the rules and the expected meaning given for it. You know nothing else.\n\n'
@@ -217,14 +227,25 @@ def do_grade(run, n):
 
 
 def do_tally(run):
-    o = (EP / run).resolve()
+    o = (EP / run).resolve(); kd = keydir(run)
     sc = sorted(str(p) for p in o.glob('scores-g*.json'))
-    key, rk = packets._load(str(o / 'KEY.json')), packets._load(str(o / 'rubric-key.json'))
+    key, rk = packets._load(str(kd / 'KEY.json')), packets._load(str(o / 'rubric-key.json'))
     if any(v['kind'] == 'image' for v in key['items'].values()):
-        res = packets.tally(str(o / 'KEY.json'), str(o / 'rubric-key.json'), sc, threshold=0.8)
+        res = packets.tally(str(kd / 'KEY.json'), str(o / 'rubric-key.json'), sc, threshold=0.8)
+        scs = [json.load(open(p)) for p in sc]
+        b21 = []   # REVIEWER CHẶN-2: chốt CHÍNH C3 câu 1 — mỗi người đọc B21: nghĩa 1 (min) VÀ extra_layer_seen (mọi người chấm), có câu trích
+        for lab, h in sorted(rk.items()):
+            if key['items'][h]['id'] != 'B21':
+                continue
+            vs = [s_[lab] for s_ in scs if lab in s_]
+            b21.append({'slot': key['items'][h]['slot'], 'meaning1': min(v['score'] for v in vs) == 1,
+                        'extra': all(v.get('extra_layer_seen') for v in vs), 'quote': [v.get('quote') for v in vs]})
+        ok = sum(r['meaning1'] and r['extra'] for r in b21)
+        res['B21_extra_layer'] = {'readers': b21, 'ok': ok, 'verdict': 'ĐẠT' if b21 and ok * 3 >= 2 * len(b21) and ok >= 2 else 'TRƯỢT'}
         json.dump(res, open(o / 'tally.json', 'w'), indent=1, ensure_ascii=False)
-        (o / 'tally.md').write_text(packets.markdown(res))
-        print(packets.markdown(res))
+        md = packets.markdown(res) + f"\n\nB21 extra_layer_seen (nghĩa 1 VÀ lớp thấy bằng hình): {ok}/{len(b21)} → {res['B21_extra_layer']['verdict']}\n"
+        (o / 'tally.md').write_text(md)
+        print(md)
         return
     # B/C/E: đếm thẳng (không theo nhịp): mỗi mẫu, mỗi người đọc → nghĩa (điểm thấp nhất), cờ theo hai rubric (bất kỳ người chấm)
     scs = [json.load(open(p)) for p in sc]
@@ -232,6 +253,9 @@ def do_tally(run):
     for lab, h in rk.items():
         it = key['items'][h]; vs = [s[lab] for s in scs if lab in s]
         r = rows.setdefault(f"{it['set']}/{it['id']}", {'readers': 0, 'meaning1': 0, 'old': 0, 'new': 0, 'inferred': 0, 'caution': 0, 'quotes': []})
+        for v in vs:   # REVIEWER PHỤ-7: cờ phải có câu trích
+            if any(v.get(f) for f in ('advice_stated', 'advice_inferred', 'must_beat_or_guaranteed', 'extra_layer_seen')) and not v.get('quote'):
+                sys.exit(f'{lab}: cờ không có câu trích — chấm lại')
         r['readers'] += 1
         r['meaning1'] += min(v['score'] for v in vs) == 1
         r['old'] += any(packets._advice(v, 'old') for v in vs)

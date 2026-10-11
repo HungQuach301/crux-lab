@@ -1,0 +1,20 @@
+# REVIEWER — soát ý đồ kiểm mù C4 Tập 7 (`gates/C4-intent.md`, `c4/blind_c4.py`) · 2026-10-11, trước khi chạy
+
+**Kết luận: ĐẠT có sửa.** Ý đồ có đủ ba chốt của C3-answer: câu 1 → A·B21 + C1, câu 2 → C2 có nhánh dự phòng đã duyệt, câu 5 → C3. 21 nhịp loại 1 khớp `beats.md` (21/33 = 64 % ≥ 60 %). Rubric khuyên mới khớp danh sách hành động và `caution_only` của `c2/rubric-r3.md`. Gộp thận trọng đúng hướng (`min` điểm; `advice`/`must_beat` dùng `any`; `extra_layer_seen` dùng `all`). Lời lấy từ `captions.srt`. Không lộ tên dự án hay đáp án cho người đọc. Phải sửa 2 mục CHẶN trước lượt đọc đầu tiên.
+
+## CHẶN
+1. **`blind_c4.py:132` — thiếu dải B24.** B24 là nhịp loại 2 nên không có trong `IMAGE`, và `do_strips` không dựng `strips/B24.png`. Khi đó `read … voiced` gặp `FileNotFoundError` ở mẫu S23-S24. Sửa: dựng thêm dải B24 trong `do_strips` (cùng luật cảnh ±0,2 s) và ghi B24 vào `spans.json` với `kind` = `voiced-only`.
+2. **`blind_c4.py:223-228` — nhánh ảnh `root` không đếm `extra_layer_seen`.** `packets.tally`/`markdown` bỏ mọi cờ phụ, nên chốt CHÍNH của câu 1 (A·B21) không xuất hiện trong `tally.md`/`tally.json`. Sửa: sau `packets.tally`, đếm `extra_layer_seen` riêng cho B21 (cần mọi người chấm cùng bật, theo từng người đọc) và in một dòng "B21 extra_layer_seen k/n → ĐẠT/TRƯỢT" vào `tally.md`. Nếu B21 lệch 1/1 thì gọi người đọc thứ 3 (`--slots 3 --only B21`), kể cả khi điểm nghĩa không lệch.
+
+## CHÍNH
+3. **Ý đồ §A — chốt B21 "độc lập với điểm nghĩa" là một lỗ hổng.** B21 có thể "đạt" CHÍNH khi nghĩa = 0. Cờ cũng có thể bật chỉ vì người đọc chép nhãn "$2,216 required + $733 a month", mà không thấy lớp trong hình. Sửa: "Đạt CHÍNH khi ≥ 2/3 người đọc có nghĩa 1 VÀ `extra_layer_seen`. Cờ chỉ tính khi người đọc tả một lớp/tấm/khối nhìn thấy (màu, vị trí, chuyển động), có câu trích. Nếu chỉ nhắc con số $733 thì cờ = false." Sửa luôn `EXTRA` cho khớp.
+4. **Ý đồ §C1 — `extra_layer_seen` ở bản có lời bị lời nhiễm** (S21.3: "add $733 a month on top of the required payment"). Ghi: "Câu 1 C3-answer (thấy **bằng hình**) chỉ được tính ở A (tắt tiếng). Ở C1, cờ chỉ báo, không thay được A."
+5. **Rubric nghĩa của B thưởng đúng câu bị cấm.** `c2/rubric-r3.md` "Đúng đáp án" có câu "mốc cách dùng tiền khác **phải vượt**", trái với câu 5 của C3-answer. Đoạn này được chép nguyên văn vào mục WHOLE. B (S25 nằm trong cả tập) cũng không có cờ `BEAT`. Sửa: thêm `BEAT` vào mục WHOLE, ngưỡng 0/3. Ghi chú cho người chấm: "ý 'mốc' đủ khi người đọc nói là mốc để so sánh (measured against); không cần, và không thưởng, 'phải vượt'."
+6. **Ý đồ §C2 — chưa có ranh giới khuyên của Q3** (C3 §2 r3: "paying monthly is slightly better…", 2/2 người đọc). Thêm ví dụ để cả hai người chấm cùng nhận: "'yearly costs about $8,200 more interest' / 'ends 4 months later' = sự thật, không cờ. 'pay monthly rather than yearly' / 'monthly is better', khi gán cho video = `advice_stated`. 'what the money earns in the account isn't counted' = `caution_only`." Làm tương tự cho S25: "'each extra dollar saves 7.40%' = sự thật. 'so pay extra' gán cho video = `advice_stated`."
+
+## PHỤ
+7. Nhánh có lời (`blind_c4.py:229-249`) không chặn cờ thiếu câu trích (`quote`), trong khi `packets._tally_one` có chặn. Thêm cùng kiểm tra đó cho `advice_*`, `must_beat_or_guaranteed` và `extra_layer_seen`.
+8. Vùng ±5 %: ghi tên cả **16/21 (76,2 %)** và 17/21 (81,0 %). Chạy tally A với `--classes`, ghi SHA (như PHỤ-11 Tập 6).
+9. §B/§C chưa có luật khi người đọc lệch (C1 2 người, C3 2 người). Ghi: "lệch nghĩa → người thứ 3; cờ khuyên/BEAT không gọi thêm người, ≥ 1 là trượt." Ghi luôn lệnh chạy cho WHOLE và S23-S24: `--slots 3 --only WHOLE,S23-S24`.
+10. `KEY.json` và `answers.json` nằm cùng thư mục với tệp hex của người đọc (`do_read`). Việc giữ mù đang dựa hoàn toàn vào khoá Console `--read`. Nên chuyển khoá ra ngoài thư mục người đọc (như `packets.deal`).
+11. `packet.scale` (tiếng Việt, danh sách chung "mua/bán/giữ…") đứng cạnh `rules` (tiếng Anh, danh sách Tập 7). Ghi một câu: "`rules` của mục thắng khi hai bên khác nhau."
