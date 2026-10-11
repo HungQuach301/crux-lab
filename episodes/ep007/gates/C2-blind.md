@@ -14,3 +14,10 @@
 - Đã hết 2 vòng (`episode.md` §2). **v3 sau REVIEWER (CHƯA kiểm mù):** S24.2 đối trọng mới ("That isn't a verdict on paying yearly: the money stays in her account longer, and what it earns there isn't counted."); S25.4–S25.5 bỏ "has to clear it to come out ahead" (người đọc viết "no risk / guaranteed"); S30.1, S15.3–S15.4 tách câu; ngày và lãi thập kỷ ở S13–S18, S26–S27 chuyển lên hình; S22.2 trả câu hỏi khán giả 5 (lãi tháng sau giảm); S33.3 "What she now knows". Kiểm máy v3 ĐẠT, ước **9:53**. → G1 nêu: cờ khuyên trượt 2 vòng; bản sửa chưa kiểm mù; khuyến nghị kiểm mù vòng 3 (6 người đọc) đầu chặng sau trước C3, hoặc bỏ nhịp Q3.
 - **Câu hỏi mang tới: T 0/5 cả hai vòng** — người hỏi "trả thêm hay đầu tư" muốn vế đầu tư; tập chỉ đưa mốc (lãi khoản vay), không có lợi suất thị trường.
 - Chi: vòng 1 + 2 ≈ 0,17 triệu trần headless, $0,60; WRITER v1 $3,34, v2 $0,91.
+
+## Vòng 3 (P2, G1 câu 2 = a) — ý đồ ghi TRƯỚC khi chạy
+- **Bản:** C2 v3.1 = v3 (REVIEWER) + mốc tuần dữ liệu thay "this week" (G1 câu 2) — `c2/sample-r3.txt` (33 cảnh, 1.280 từ viết), checker ĐẠT ước 10:01.
+- **Người đọc:** 6 Sonnet headless khoá Console (5 T vai cũ "trả thêm hay đầu tư" + 1 G), câu hỏi 1–7 như vòng 2 + **câu 8** (nguồn lời khuyên: video / own / none — để chấm rubric mới) — `c2/spec-r3.json`. 1 người chấm độc lập, `c2/rubric-r3.md` (rubric MỚI theo G1 câu 2; phần đúng / mất chú ý / câu hỏi mang tới giữ nguyên).
+- **Qua:** `advice_stated` = 0/6 **và** đúng ≥ 5/6 (dừng khi 2 sai) **và** không loại khối mất chú ý ≥ 4/6. `advice_inferred`/`caution_only` chỉ báo, câu trích vào bảng.
+- **Trượt khuyên (`advice_stated` ≥ 1):** theo G1 câu 2 — bỏ nhịp Q3 (S23–S24), bù để đạt ≥ 3/5 câu hỏi khán giả (vd Q4 PMI), WRITER mới; không mở thêm vòng kiểm cùng bản.
+- Loại khối mất chú ý ≥ 2/6 → ghi, sửa ở bản trước sinh giọng nếu sửa được bằng hình (D-009: hình trước, nhãn cuối).
