@@ -1,13 +1,13 @@
 # PLAN Phiên K lô Tập 7 (K4.2) — đóng 11/10/2026 (≤ 1 trang, D-011)
 
-**Nhánh:** `checks-k42` (từ `origin/main` @ `38fda7d`) · **Phiên:** `session_01DyXYSVjKZym6fUpRYA21ze` · **Khoá:** `checks/LOCK` trong commit "Khoá K4.2"
+**Nhánh:** `checks-k42` (từ `origin/main` @ `38fda7d`) · **Phiên:** `session_01DyXYSVjKZym6fUpRYA21ze` · **Khoá:** LOCK `d9a694e5…`
 
 ## 1. Trạng thái
 Phần **chỉ thêm** đã xong và đã tự merge `main` theo D-008 §2, **trước C4 Tập 7**:
 - Kind `term-pair-weekly-replay`: Tập 7 S01 59 mục, 0 lệch; 57/57 claim; 8/8 bất biến; 12/12 đối chứng nhiễu.
 - SH06, luật mới cho A30.
 - 99/99 luật cũ giữ nguyên fingerprint và cấp. Chạy lại Tập 6 cho kết quả trùng.
-- Selftest: xem README K4.2.
+- Selftest Python 356/356, trang 67/67.
 
 REVIEWER headless: **ĐẠT có sửa**, đã sửa hết; chi $2,17.
 
