@@ -1,4 +1,4 @@
-# PLAN kênh Crux (≤ 1 trang) — cập nhật 11/10/2026 (tổng kết Tập 6)
+# PLAN kênh Crux (≤ 1 trang) — cập nhật 11/10/2026 (P1 Tập 7: G1 lô Tập 7–8)
 
 PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLAN-tap.md`). PLAN Tập 1 cũ: `archive/ep001-v1/PLAN.md`. Thẩm quyền: `CHARTER.md` → `decisions/` (mới nhất D-012).
 
@@ -8,15 +8,14 @@ PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLA
 | 3 | savings bond vs T-bills | `lab` | — | **đã đăng 09/10** |
 | 4 | #3 giới hạn $500,000 khi bán nhà | — | — | **KHÔNG đăng** (chủ dự án 09/10: không đủ chất lượng — hình nghèo, nhiều chữ; sổ gu) |
 | 5 | #17 PMI 10 % trả trước | `101` | — (đã merge `main` 6e0ae01) | **đã đăng 09/10**; tổng kết `tongket-t5/` áp xong (D-011) |
-| 6 | #12 "Does a 2% Annuity Raise Really Keep Up With Prices?" | `101` | — (merge squash `main` 99e90d4) | **G3: chờ chủ dự án đăng**; tổng kết `tongket-t6/REPORT.md` (chờ trả lời) |
-| **7** | **#13 15 năm vs 30 năm trả trong 15** (D-012) | `deep` nếu F-14 đạt trước G1, không thì `lab` (gói T6 câu 2) | `ep007` | **P1 → G1 lô Tập 7–8**: prompt `tongket-t6/REPORT.md` §6 |
-| 8 | #20 thuê vs mua — phát lại lịch sử thật (dự phòng #6) | như Tập 7 | — | hồ sơ máy đề tài #20 song song P1 Tập 7 |
+| 6 | #12 "Does a 2% Annuity Raise Really Keep Up With Prices?" | `101` | — (merge squash `main` 99e90d4) | **G3: chờ chủ dự án đăng**; tổng kết `tongket-t6/` đã trả lời + áp (`ANSWER.md`) |
+| **7** | **#13 15 năm vs 30 năm trả trong 15** (D-012) | `lab` (F-14 chưa đạt trước G1) | `ep007` | **G1 lô chờ** (`episodes/ep007/gates/G1.md`); phiên kế P2 (C3): prompt `episodes/ep007/PLAN.md` mục 7 |
+| 8 | #20 thuê vs mua — phát lại lịch sử thật (dự phòng #6) | `lab` (đề xuất G1 lô) | — | hồ sơ `topics-r2/machine/rent-buy-1/` §4 ĐẠT; chờ G1 lô (điều kiện tỉ lệ thuê/giá có nguồn) |
 
-**Mở Tập 7:** phiên mới, dán prompt `tongket-t6/REPORT.md` §6 + câu trả lời tổng kết Tập 6.
+**Tiếp Tập 7:** phiên mới, dán prompt `episodes/ep007/PLAN.md` mục 7 + câu trả lời G1.
 
 ## Việc treo
-- **Tổng kết Tập 6 chờ trả lời** (`tongket-t6/REPORT.md` §5: luật cần quyền, format `deep`, đường thumbnail + bộ nhận diện). Nhánh `tongket-t6` merge `main` ở bước 0 của P1 Tập 7.
-- **F-14 nhịp hình** (`toolkit/factory/BACKLOG.md`) trước tập dài đầu tiên; **A29–A31** cho lô K Tập 7; hồ sơ q01/q17 + `market/REPORT.md` §4 tính lại sau khi loại kênh mình (T6-12).
+- **F-14 nhịp hình**: đầu bài `tongket-t6/F14-brief.md` (chủ dự án mở `factory-f14` song song); **lô K Tập 7**: `episodes/ep007/K-brief.md` (kind mới) + A29–A31, trước C4. Hồ sơ q01/q17 + §4: xong 11/10. **EL:** khoá thiếu `user_read` (hạn mức chưa đọc được).
 - **Phiên K lô (tongket-t5 §4, D-011 Q3):** chạy **song song Tập 6 P1**, merge `main` **trước C3** Tập 6 (hàng chờ dưới).
 - **Nhạc hiệu kênh** (episode.md §5b): dựng ở Tập 6, chủ dự án duyệt **bằng clip có âm ở C3 Tập 6**.
 - **Thước chỉ báo** (episode.md §2b, `toolkit/indicators/`): báo ở Tập 6, chưa là ngưỡng; thước xếp sai thứ tự hiệu chuẩn đã bỏ.
