@@ -1,7 +1,7 @@
 episode: ep007
 format: "lab"          # Câu trả lời tổng kết Tập 6 câu 2: deep chỉ khi F-14 đạt đích trước G1 lô; F-14 chưa chạy (11/10) → lab 11 phút. Chủ dự án chốt ở G1 lô.
 topic: "queue #13 — topics-r2/machine/debt-1 (D-012 mục 2, chủ dự án 11/10)"
-title: "15-Year Mortgage or a 30-Year Paid in 15? The Real Price"   # nháp (hồ sơ); ý tưởng tiêu đề chốt ở G1 (packaging.md §7.1)
+title: "30-Year Mortgage Paid Off in 15 Years: What It Really Costs"   # T2, chủ dự án chốt ở G1 lô (gates/G1-answer.md câu 3)
 pillar: vay nợ
 tokenCeiling: {episode: 15000000, consoleUsd: 45, note: "mức cảnh báo lab (episode.md §8, chủ dự án duyệt 11/10); trần = đầu vào mới + sinh ra từ log phiên + headless"}
 voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1007, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
