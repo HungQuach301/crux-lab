@@ -1,0 +1,117 @@
+{
+ "baseline": {
+  "mismatches": 0,
+  "notRecomputed": 0
+ },
+ "cases": [
+  {
+   "case": "fallback_gap from rounded payments",
+   "why": "2828.16 − 2215.62 (rounded inputs; brief: round only at output)",
+   "want": "fallback_gap_now",
+   "got": [
+    "fallback_gap_now"
+   ],
+   "ok": true
+  },
+  {
+   "case": "interest_30on15 from rounded payment",
+   "why": "2948.28 × 180 − 320000",
+   "want": "interest_30on15_now",
+   "got": [
+    "interest_30on15_now"
+   ],
+   "ok": true
+  },
+  {
+   "case": "interest_30full from rounded payment",
+   "why": "2215.62 × 360 − 320000",
+   "want": "interest_30full_now",
+   "got": [
+    "interest_30full_now"
+   ],
+   "ok": true
+  },
+  {
+   "case": "yearly_lump from rounded need",
+   "why": "12 × 732.67",
+   "want": "yearly_lump",
+   "got": [
+    "yearly_lump"
+   ],
+   "ok": true
+  },
+  {
+   "case": "months_at_pay15 as a payment count",
+   "why": "continuous formula 194.6, not 195 payments",
+   "want": "months_at_pay15_now",
+   "got": [
+    "months_at_pay15_now"
+   ],
+   "ok": true
+  },
+  {
+   "case": "era2020 median r30 shown 6.3",
+   "why": "median 6.275: 6.28 / 6.27 are its roundings, 6.3 is display",
+   "want": "era2020_median_r30",
+   "got": [
+    "era2020_median_r30"
+   ],
+   "ok": true
+  },
+  {
+   "case": "share_r30_ge_now strict >",
+   "why": "share ≥ now, rounded",
+   "want": "share_r30_ge_now",
+   "got": [
+    "share_r30_ge_now"
+   ],
+   "ok": true
+  },
+  {
+   "case": "r30_min_week the last tie",
+   "why": "first week of the min",
+   "want": "r30_min_week",
+   "got": [
+    "r30_min_week"
+   ],
+   "ok": true
+  },
+  {
+   "case": "yearly_lump_months 183",
+   "why": "simulation count",
+   "want": "yearly_lump_months",
+   "got": [
+    "yearly_lump_months"
+   ],
+   "ok": true
+  },
+  {
+   "case": "era weeks 437",
+   "why": "paired weeks of the 1990s era",
+   "want": "eras[0].weeks",
+   "got": [
+    "eras[0].weeks"
+   ],
+   "ok": true
+  },
+  {
+   "case": "series extra_total one week",
+   "why": "one element of the weekly series",
+   "want": "series.extra_total[100]",
+   "got": [
+    "series.extra_total[100]"
+   ],
+   "ok": true
+  },
+  {
+   "case": "series r15 one week",
+   "why": "one rate of the weekly series",
+   "want": "series.r15[5]",
+   "got": [
+    "series.r15[5]"
+   ],
+   "ok": true
+  }
+ ],
+ "pass": "12/12"
+}

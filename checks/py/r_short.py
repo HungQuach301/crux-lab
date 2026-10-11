@@ -3,6 +3,7 @@ A contract written before D-006 (no `format`) and without `shorts` has no Shorts
 (with `format`) without `shorts` = MISSING.
 Text size, the player-UI zones and the on-frame labels (ILLUSTRATIVE, "history, not a forecast") need the vertical page's objects (window.CHECKS): they
 wait for the factory page to expose them (checks-appeal A8); the rules below measure the delivered file and what the viewer hears."""
+import os
 import re
 
 from common import Missing, ebur128, ffprobe, metric, rule, verdict
@@ -96,3 +97,66 @@ def sh05_identity(ctx):
                     hits.append({'file': f.rsplit('/', 1)[-1], 'kind': k, 'sentence': sent[:90]})
                     break
     return verdict('SH05', [metric('advice / forecast / 4% / "we" sentences', len(hits), '<=', 0)], details=hits[:10])
+
+
+# ---- SH06 (K4.2, checks-appeal A30): the Short's hook fits one line in the vertical safe area, measured on the spec before any render --------------
+SH_FONT = os.path.join(os.path.dirname(__file__), '..', '..', 'toolkit', 'render', 'fonts', 'inter-latin-700-normal.woff2')   # Inter Bold, the factory's font
+SH_SAFE = (72, 200, 1008, 1600)   # vertical safe area of the factory (toolkit/factory/qc.py SAFE['v'] = world/core.js VSAFE): x0, y0, x1, y1
+SH_FLOOR, SH_HOOK_PX, SH_HOOK_Y = 56, 64, 270   # floor px of vertical text; the hook's size and baseline in the world Short renderer (core.js: VSAFE.y0 + 70)
+
+
+def _hooks(ctx):
+    """[(id, hook, px)] from contract.json shorts[].hook (with hookPx), else from the spec episode.yaml shorts[].hook (before any render)."""
+    c = ctx.contract()
+    rows = [x for x in (c.get('shorts') or []) if isinstance(x, dict) and x.get('hook')]
+    if not rows and ctx.has('episode.yaml'):
+        import yaml
+        rows = [x for x in (yaml.safe_load(open(ctx.path('episode.yaml'))) or {}).get('shorts') or [] if isinstance(x, dict) and x.get('hook')]
+    if not rows:
+        if c.get('format') is None and c.get('shorts') is None:
+            return None
+        raise Missing('contract.json shorts[].hook or episode.yaml shorts[].hook (the hook line of every Short)')
+    return [(str(x.get('id') or x.get('file') or i), str(x['hook']), float(x.get('hookPx') or SH_HOOK_PX)) for i, x in enumerate(rows)]
+
+
+def hook_lines(text, px):
+    """Lines of the hook as the factory wraps it (greedy by words in the safe width, core.js vt), widths in px (Inter Bold, tabular digits)."""
+    from PIL import ImageFont
+    f = ImageFont.truetype(SH_FONT, int(round(px)))
+    w = lambda s: f.getlength(s, features=['tnum'])
+    room = SH_SAFE[2] - SH_SAFE[0]
+    lines, cur = [], ''
+    for word in text.split():
+        t = cur + ' ' + word if cur else word
+        if cur and w(t) > room:
+            lines.append(cur)
+            cur = word
+        else:
+            cur = t
+    lines.append(cur)
+    return [(ln, w(ln)) for ln in lines]
+
+
+@rule('SH06', 'D-006 Q3, lessons T6-10, checks-appeal A30', 'every Short\'s hook line (contract.json shorts[].hook, or the spec episode.yaml shorts[].hook before '
+      'render) at its size (shorts[].hookPx, default 64 px = the world Short renderer; floor 56 px), Inter Bold (toolkit/render/fonts/inter-latin-700-normal.woff2, '
+      'tabular digits), wrapped by words in the vertical safe width 936 px (x 72–1008) as the factory wraps it; the hook box with its last line on baseline '
+      'y 270 (line height 1.2 × px, ascent 0.78 × px) must stay inside the vertical safe area (y ≥ 200)',
+      'every hook: size ≥ 56 px, 1 line, the line ≤ 936 px wide, box top ≥ 200 px')
+def sh06_hook(ctx):
+    hs = _hooks(ctx)
+    if hs is None:
+        return _none('SH06')
+    if not os.path.isfile(SH_FONT):
+        raise Missing('toolkit/render/fonts/inter-latin-700-normal.woff2 (the font SH06 measures with)')
+    rows, bad = [], []
+    for sid, text, px in hs:
+        ls = hook_lines(text, px)
+        top = SH_HOOK_Y - (len(ls) - 1) * round(px * 1.2) - 0.78 * px
+        r = {'short': sid, 'hook': text, 'px': px, 'lines': len(ls), 'widthPx': round(max(w for _, w in ls), 1), 'boxTop': round(top, 1)}
+        rows.append(r)
+        if px < SH_FLOOR or len(ls) > 1 or top < SH_SAFE[1]:
+            bad.append(r)
+    import hashlib
+    return verdict('SH06', [metric('hooks', len(rows), '>=', 1), metric('hooks over one line, below 56 px or out of the safe area', len(bad), '<=', 0),
+                            metric('widest hook px', max(r['widthPx'] for r in rows), '<=', SH_SAFE[2] - SH_SAFE[0], 'px')],
+                   details=[{'font': hashlib.sha256(open(SH_FONT, 'rb').read()).hexdigest()[:16]}, *rows])
