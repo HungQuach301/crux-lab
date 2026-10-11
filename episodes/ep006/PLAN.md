@@ -1,6 +1,6 @@
 # PLAN Tập 6 — Does a 2% Annuity Raise Really Keep Up With Prices?  (≤ 1 trang; viết lại khi đóng phiên)
 
-**Nhánh:** `ep006` (đẩy cả `ep006` và `claude/gracious-brown-rccz2m`) → **merge squash vào `main` @ `MERGE_SHA`** · **Đề tài:** #12 · **Format:** `101` · **Phiên vừa đóng:** P4 giao file, chạy tiếp trong phiên P3c (`session_01QNrEnsRn8CMnf6J5ujL79c`, lệnh chủ dự án 11/10) · lịch sử: `archive/PLAN-history.md`
+**Nhánh:** `ep006` (đẩy cả `ep006` và `claude/gracious-brown-rccz2m`) → **merge squash vào `main` @ `99e90d4`** · **Đề tài:** #12 · **Format:** `101` · **Phiên vừa đóng:** P4 giao file, chạy tiếp trong phiên P3c (`session_01QNrEnsRn8CMnf6J5ujL79c`, lệnh chủ dự án 11/10) · lịch sử: `archive/PLAN-history.md`
 
 ## 1. Trạng thái
 **G3 chờ chủ dự án đăng** — G2 duyệt 11/10 (`gates/G2-answer.md`: L3 ≥ 4 cả 6 dòng, phát hành CÓ). Bản cuối không đổi → checks `run-c5d` (LOCK `4d688acd`) là của bản giao: Tập ĐẠT, CHẶN 36/36, CHÍNH 13/13. Giao: nhánh `ep006-delivery` @ `d4d8c48` — master nguyên byte `f96da0ea…` (13 phần 90 MB) + Shorts + thumbnail + phụ đề + mô tả; tải ngược `sha256sum -c` **22/22 OK**. Hướng dẫn: `HUONG-DAN-DANG.md` (link tải thẳng + SHA). Merge squash `ep006` → `main` (gồm F-13; không có WAV 265 MB của df9c2d4 — đã ngoài cây), LOCK trên main `4d688acd` khớp.
