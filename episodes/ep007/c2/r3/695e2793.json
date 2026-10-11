@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative borrower of $320,000, who is deciding between a 15-year mortgage and a 30-year mortgage paid off in 15 years. It prices the 30-year's lower required payment (the \"fallback\") at $120 a month, or $21,622 over 15 years, then replays 1,833 weeks of US mortgage rates to show whether that price is normal. It finds the price depends on the gap between 30-year and 15-year rates, compares Tessa to Leo (who borrowed in January 2021), and ends by explaining that each extra principal dollar earns the loan's own rate, which is 7.4 percent for Tessa.\n\n2. The answer is that the 30-year paid in 15 years is the 15-year loan plus a fallback, and the fallback has a price. For Tessa, in the week of October 8, 2026, it costs $120 a month ($2,948 versus $2,828), or $21,622 over 15 years. That is expensive by history: the typical week since 1991 was $16,631, the range was $6,097 to $29,502, and fewer than 1 in 5 weeks cost this much. The driver is the rate gap (0.67 point for Tessa), not the level of rates.\n\n3. \"That extra never lowers what the loan requires: the required payment stays where it was, and the loan simply ends sooner. Each extra dollar does cut the next month's interest; the payment just stays fixed, so more of it goes to principal.\" The passage was hard to follow because it first says the extra has no effect on the loan and then says each dollar does cut interest, so I had to work out that these refer to different things (the required payment versus the interest charged). Also, \"$733 a month on top of the required payment\" sits oddly beside the earlier \"$120 a month more than the 15-year loan,\" and the connection between those two numbers was not explained clearly.\n\n4. \"Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day.\" My attention dropped there because the video had just reached its main conclusion about decades and gaps, and this section started a new set of numbers (195 months, 15 months late, $733, $8,792 once a year, $8,200 more in interest) that felt like a side track before the final question.\n\n5. No. The video says outright that it won't say which loan to take or whether to invest, and that it is history, not a forecast. It only prices the fallback in past weeks and says the bar for any alternative use of a dollar is the loan's own rate, without testing whether investments clear it. It also says \"nothing here says where [the gap] goes.\"\n\n6. Little direct advice. A viewer might take away that if they plan to pay a 30-year like a 15-year, they should recognize that the keep-the-fallback option has a price that depends on the gap between the two rates in the week they borrow, and that they can compare that price to what a lower required payment is worth to them in a bad month. They might also remember that extra principal earns the loan's own rate, before taxes, and use that as the bar for other uses of the money.\n\n7. I came without a specific question beyond the premise, which was whether a 15-year loan or a 30-year paid in 15 is better. The video answered a narrower version of it: it didn't say which is better, but it priced the difference clearly, in the section where Tessa's $120 a month and $21,622 stack are shown and then compared with the history of weekly gaps.\n\n8. Own. The video explicitly declines to give advice, and my conclusion in 6 is my inference from its framing. The closest sentence is: \"Clearing the bar isn't the whole story: a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for.\"",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3945,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 28,
+   "in": 3945,
+   "out": 28
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3995,
+   "cache_read": 1382,
+   "output": 1202,
+   "in": 5379,
+   "out": 1202
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0285507
+}

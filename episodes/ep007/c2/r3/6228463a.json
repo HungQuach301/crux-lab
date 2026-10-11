@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative buyer borrowing $320,000 in an expensive city, who is choosing between a 15-year mortgage and a 30-year mortgage paid off in 15 years. It prices the difference using the October 8, 2026 survey rates (6.73% for the 15-year, 7.4% for the 30-year). It then compares that price with every week of US survey rates since 1991, adds Leo (who borrowed in January 2021) as a contrast, and ends with what an extra principal dollar earns. It repeatedly says it is US-only history, not a forecast, and not a recommendation.\n\n2. The 30-year paid in 15 years is the 15-year loan plus a fallback, meaning the lower required payment kept for a bad month, and that fallback has a price. For Tessa it is $120 a month ($2,948 vs $2,828), or $21,622 over 15 years. By history that is expensive: the median week was $16,631, the range was $6,097 to $29,502, and fewer than 1 in 5 weeks cost more. The price is driven by how far the 30-year rate sits above the 15-year rate, not by the level of rates. Separately, each extra principal dollar \"earns\" the loan's own rate, 7.4% pre-tax for Tessa, and about 1 week in 5 since 1991 had a rate that high.\n\n3. \"That extra never lowers what the loan requires: the required payment stays where it was, and the loan simply ends sooner. Each extra dollar does cut the next month's interest; the payment just stays fixed, so more of it goes to principal. That's why the fallback is still there years later, if a month goes wrong.\" It's a dense passage heard once, and the \"stack\" and \"bar\" metaphors make the logic harder to follow by ear. A smaller point is that the opening line, \"Tessa's mortgage fallback costs $120 a month,\" uses \"fallback\" before it is defined.\n\n4. \"Tessa has another practical question: could she send the extra once a year instead of every month?\" My attention dropped here because it is a tangent. The yearly-lump-sum detail ($8,792, four months later, about $8,200 more interest) doesn't feed into the main question or the conclusion.\n\n5. No. The video explicitly says it \"won't say which loan to take, or whether to invest,\" and that it is \"history, not a forecast.\" It says again that whether any investment clears the bar \"isn't tested here.\"\n\n6. The video gives no direct advice. A viewer could take away a method:\n- Get both the 15-year and 30-year quotes.\n- Price the fallback as the cost of the 30-year paid on a 15-year schedule minus the real 15-year loan.\n- Treat your loan's own rate as the pre-tax bar for any use of extra cash.\n- Remember that money paid into the house is hard to get back in a bad month.\n\n7. Only partly. The question I came with was whether to pay extra on the mortgage or invest the spare cash. The video does give the guaranteed pre-tax return of extra payments, which is the loan's rate (7.4% for Tessa), and notes the liquidity cost. But it doesn't compare that with investing, and it spends most of its time on 15-year vs 30-year-paid-in-15, which is a different question.\n\n8. Video. The method is the video's own suggestion: \"Any fixed-rate borrower can set their own pair beside hers. The bar is that loan's own rate, printed on the paperwork, and the stack depends on how far apart the 15-year and 30-year offers sit that week.\" The caution about liquidity comes from \"a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for.\"",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4007,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 33,
+   "in": 4007,
+   "out": 33
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 748,
+   "cache_read": 4691,
+   "output": 2731,
+   "in": 5441,
+   "out": 2731
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0311923
+}

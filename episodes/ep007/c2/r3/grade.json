@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": false, \"caution_only\": true, \"quote\": \"\", \"attention\": \"khác: tangent về trả thêm một lần mỗi năm (\\\"Tessa has another practical question: could she send the extra once a year\\\")\", \"answered_own\": true, \"why\": \"Đúng câu hỏi; đáp án đủ ($120/tháng, $21,622, dải lịch sử, mốc lãi 7.4%); Q5 'không', Q8 trích là khung so sánh chứ không phải hành động.\"}, \"R2\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": false, \"caution_only\": true, \"quote\": \"\", \"attention\": \"số dày: nhánh phụ trả thêm mỗi năm với nhiều con số ($8,792, four months, $8,200)\", \"answered_own\": true, \"why\": \"Đúng câu hỏi và đáp án đủ (đường lui $120, $21,622, dải lịch sử, mốc 7.4%); chỉ có khung và thận trọng, không có hành động.\"}, \"R3\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": false, \"caution_only\": true, \"quote\": \"\", \"attention\": \"khác: tangent trả thêm mỗi năm (\\\"could she send the extra once a year instead of every month?\\\")\", \"answered_own\": false, \"why\": \"Đúng câu hỏi và đáp án đủ; Q6 là phương pháp (lấy báo giá, định giá đường lui, mốc lãi), chỉ thận trọng; người đọc nói video trả lời một câu hỏi khác.\"}, \"R4\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": true, \"quote\": \"Own. The video explicitly declines to give advice, and my conclusion in 6 is my inference from its framing.\", \"attention\": \"số dày: đoạn mới nhiều số (195 months, 15 months late, $733, $8,792, $8,200) — \\\"a shortcut many people reach for\\\"\", \"answered_own\": false, \"why\": \"Đúng câu hỏi; đáp án đủ ($120, $21,622, trung vị, dải, <1/5 tuần, chênh lãi); Q8 'own' nên chỉ suy ra, không có lời khuyên từ video.\"}, \"R5\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": false, \"caution_only\": true, \"quote\": \"\", \"attention\": \"số dày: chuỗi số về thời điểm trả hết nợ (\\\"Back to Tessa's own loan, and a shortcut many people reach for\\\")\", \"answered_own\": true, \"why\": \"Đúng câu hỏi và đáp án đủ (đường lui $120, $21,622, trung vị, mốc 7.4%); Q5 'không', Q8 trích mốc và thanh khoản chỉ là thận trọng.\"}, \"R6\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": false, \"caution_only\": true, \"quote\": \"\", \"attention\": \"phương pháp: khái quát trừu tượng \\\"Any fixed-rate borrower can set their own pair beside hers\\\"\", \"answered_own\": true, \"why\": \"Đúng câu hỏi và đáp án đủ ($120, $21,622, $6,097–$29,502, trung vị, 7.4%); chỉ so sánh giá đường lui với giá trị của nó, thuộc thận trọng chung.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 9527,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 342,
+   "in": 9527,
+   "out": 342
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 9575,
+   "cache_read": 1382,
+   "output": 2483,
+   "in": 10959,
+   "out": 2483
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0643959
+}

@@ -21,3 +21,20 @@
 - **Qua:** `advice_stated` = 0/6 **và** đúng ≥ 5/6 (dừng khi 2 sai) **và** không loại khối mất chú ý ≥ 4/6. `advice_inferred`/`caution_only` chỉ báo, câu trích vào bảng.
 - **Trượt khuyên (`advice_stated` ≥ 1):** theo G1 câu 2 — bỏ nhịp Q3 (S23–S24), bù để đạt ≥ 3/5 câu hỏi khán giả (vd Q4 PMI), WRITER mới; không mở thêm vòng kiểm cùng bản.
 - Loại khối mất chú ý ≥ 2/6 → ghi, sửa ở bản trước sinh giọng nếu sửa được bằng hình (D-009: hình trước, nhãn cuối).
+
+### Vòng 3 — kết quả (`c2/r3/`; người đọc 67.796 token, chấm `c2/r3/grade.out`)
+| Hex | Vai | Điểm | Cờ (S/I/C) | Câu 8 | Mất chú ý (loại: cảnh) |
+|---|---|---|---|---|---|
+| 2e1ac893 | T | 1 | C | video* | khác: S23 trả mỗi năm (lạc đề) |
+| 5565cb0f | T | 1 | C | video* | số dày: S23–S24 ($8,792, four months, $8,200) |
+| 6228463a | T | 1 | C | video* | khác: S23 trả mỗi năm (lạc đề) |
+| 695e2793 | G | 1 | I · C | own | số dày: S21–S24 (195 months, 15 months late, $733, $8,792, $8,200) |
+| 704516bf | T | 1 | C | — | số dày: S21 (195 months, 15 months late, $733) |
+| 86277015 | T | 1 | C | video* | phương pháp: S31 "Any fixed-rate borrower can set their own pair beside hers" |
+
+\* "video" ở câu 8 trỏ tới **khung hiểu** (S31 "set their own pair beside hers", S25.4 "the bar… gets measured against", S31 "hard to get back in a bad month"), không tới hành động — rubric: "so lãi khoản vay với cách dùng tiền khác / biết giá của đường lui là hiểu lời hứa" → `caution_only`.
+
+**Kết luận theo luật ghi trước:** đúng **6/6** · **`advice_stated` 0/6 → QUA** (rubric mới) · `advice_inferred` 1/6 (G: *"my conclusion in 6 is my inference from its framing"*) · rubric cũ (song song, báo): 0/6 người đọc nêu "trả tháng hơn trả năm" — câu đối trọng S24.2 v3 gỡ được nguồn trượt vòng 1–2 · không loại khối ≥ 4/6 → **QUA cổng**. Nhịp Q3 (S23–S24) **giữ** (G1 câu 2: chỉ bỏ khi còn `advice_stated`).
+- **Loại khối ≥ 2/6:** số dày **3/6** (S21–S24) + khác 2/6 (S23 "lạc đề") — cùng một đoạn. Sửa bằng hình (D-009): lời S21.2 bỏ "195 months", S23.2 bỏ "$8,792" → chỉ trên hình B21/B23 (checker ĐẠT, ước 9:54). Không mở vòng kiểm thêm; REVIEWER C3 đọc lại; C4 kiểm mù bản có lời đo lại đoạn này.
+- **Câu trích cần REVIEWER đọc:** 2e1ac893 câu 7 *"extra principal earns the loan's rate (7.4% for Tessa) with no risk"* — người đọc tự thêm "no risk" dù lời đã bỏ "has to clear it"; 86277015 câu 6 *"the bar any alternative use of the money has to beat"* (diễn lại S25.4). Ghi cho chữ phát hành (G1 câu 1: không dùng "has to clear").
+- **Câu hỏi mang tới:** T **một phần 4/5** (vòng 1–2: 0/5) — người đọc nhận nửa "trả thêm được bao nhiêu" (mốc 7,4 % trước thuế) và đường lui có giá; nửa đầu tư vẫn không (S25.5 chủ ý).

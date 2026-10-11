@@ -180,7 +180,7 @@ S20.2 That's history, not a forecast: the gap has moved before, and nothing here
 ## S21 — The shortcut (viewer question 2)
 
 S21.1 Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day. <!-- claims: pay15_now, pay30on15_now -->
-S21.2 At the October 8 rates, it doesn't: it ends after about 195 months, about 15 months late. <!-- claims: months_at_pay15_now, months_late_at_pay15_now; hold: 1.0 -->
+S21.2 At the October 8 rates, it doesn't: it ends about 15 months late. <!-- claims: months_at_pay15_now, months_late_at_pay15_now; hold: 1.0 -->
 S21.3 To finish in 15 years, she'd add $733 a month on top of the required payment. <!-- claims: extra_principal_needed_now -->
 
 ## S22 — The extra doesn't touch the required payment
@@ -192,7 +192,7 @@ S22.3 That's why the fallback is still there years later, if a month goes wrong.
 ## S23 — Once a year instead of monthly (viewer question 3)
 
 S23.1 Tessa has another practical question: could she send the extra once a year instead of every month? <!-- claims: — -->
-S23.2 At the October 8 rates, that's $8,792 once a year, the same total as the monthly extra. <!-- claims: yearly_lump, extra_principal_needed_now -->
+S23.2 That's one payment a year, the same total as the monthly extra. <!-- claims: yearly_lump, extra_principal_needed_now -->
 S23.3 Paid that way, the loan ends four months later. <!-- claims: yearly_lump_months; hold: 0.8 -->
 
 ## S24 — What the timing costs

@@ -84,3 +84,5 @@ On-screen text in quotes is what the checker reads; every number in it maps to a
 
 ## C2 v3 (sau REVIEWER, 2026-10-11)
 Lời S13.2, S14.1, S16.2, S17.1, S18.1, S26.2, S27.1 bỏ ngày/lãi thập kỷ → **chữ trên hình** của B13 ("Dec 2008"), B14 ("Jan 2023"), B16–B18 (lãi 30 năm điển hình "7.73%", "6.18%", "4.03%"), B26 ("Nov 1994"), B27 ("Jan 2021"); claim giữ như cũ (extra_total_min_week, extra_total_max_week, era*_median_r30, r30_max_week, r30_min_week). B25: "is held up against the beam" (không "climb over"); B29: "$74 a month" lên nhãn (leo_extra_vs15_month). B22: nhãn "next month's interest ↓, payment fixed" (Q5).
+
+**C2 v3.1 (P2, kiểm mù vòng 3: số dày S21–S23 3/6):** lời S21.2 bỏ "195 months", S23.2 bỏ "$8,792" → chỉ còn **chữ trên hình** B21 ("about 195 months") và B23 ("$8,792 once a year"); claim giữ.

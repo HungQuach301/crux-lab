@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative US buyer with a $320,000 mortgage, who is deciding between a 15-year loan and a 30-year loan paid off in 15 years. It reframes the 30-year paid in 15 as \"the 15-year plus a fallback\" (the lower required payment kept for a bad month). It prices that fallback using every weekly US mortgage survey since 1991 (1,833 weeks). It compares Tessa's week to history and to Leo, who borrowed in January 2021, and then explains what an extra principal dollar earns (the loan's own rate, before taxes).\n\n2. The answer is that the 30-year paid in 15 is not the same as the 15-year; it costs more for the fallback. At the October 8, 2026 rates (15-year 6.73%, 30-year 7.4%), Tessa pays $2,948 a month instead of $2,828, which is $120 more a month and $21,622 over 15 years. Historically the fallback cost ranged from $6,097 to $29,502, with a median of $16,631. Tessa's is more expensive than all but fewer than 1 in 5 weeks. Each extra dollar of principal earns 7.4% before taxes, the loan's rate. The video doesn't say which choice is better.\n\n3. \"Paid on its own 30-year schedule, her loan would charge $477,622 in interest. Paid in 15 years, it charges $210,691.\" This was confusing because the two figures are presented without noting that $477,622 is a different scenario than the stack, and the jump to \"the difference between those last two totals is exactly the stack\" refers to $210,691 and $189,069, which takes a moment to track. Also, \"That extra never lowers what the loan requires\" is a bit unclear at first, and the $733 versus $120 extra figures (the shortcut paying $2,828 versus the $2,948 needed) are easy to mix up.\n\n4. \"Any fixed-rate borrower can set their own pair beside hers. The bar is that loan's own rate, printed on the paperwork, and the stack depends on how far apart the 15-year and 30-year offers sit that week.\" Attention dropped here because it's an abstract generalization after several concrete examples, and the stack/bar metaphor is stretched to a viewer's own situation without numbers.\n\n5. No on all three, and the video says so itself. It states \"It won't say which loan to take, or whether to invest,\" that it's \"history, not a forecast,\" and that the gap \"has moved before, and nothing here says where it goes.\" It also says whether any investment clears the bar \"isn't tested here.\"\n\n6. A viewer might take away that a 30-year paid like a 15-year costs extra for the flexibility (here $120 a month for Tessa), so they should compare that price against how much they value the fallback. They'd also learn that paying extra principal earns the loan's own rate, before taxes, which is the bar any alternative use of the money has to beat. They'd also see that the gap between 15- and 30-year rates drives the price, not the rate level.\n\n7. Partly. The question I came with was whether to pay extra or invest the spare cash. The video gave me the bar (7.4%, before taxes) for the pay-extra side, which is the useful part, but it explicitly doesn't test investing, so it doesn't settle the question. It focused more on 15-year versus 30-year paid in 15.\n\n8. Video. The advice in 6 follows from: \"So the 30-year paid in 15 isn't the same loan as the 15-year: it's the 15-year plus a fallback, and the fallback has a price.\" and \"That rate is the bar any other use of that dollar gets measured against, before taxes.\" The suggestion to weigh the price against the fallback's value is partly my own synthesis, though the video notes \"a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for.\"",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4007,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 31,
+   "in": 4007,
+   "out": 31
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4057,
+   "cache_read": 1382,
+   "output": 1251,
+   "in": 5441,
+   "out": 1251
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0292964
+}

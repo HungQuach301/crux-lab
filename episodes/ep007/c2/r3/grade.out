@@ -1,0 +1,89 @@
+{
+ "grader_tokens": 23311,
+ "scores": [
+  {
+   "file": "2e1ac893",
+   "sample": "v3",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": false,
+   "caution_only": true,
+   "quote": "",
+   "attention": "khác: tangent về trả thêm một lần mỗi năm (\"Tessa has another practical question: could she send the extra once a year\")",
+   "answered_own": true,
+   "why": "Đúng câu hỏi; đáp án đủ ($120/tháng, $21,622, dải lịch sử, mốc lãi 7.4%); Q5 'không', Q8 trích là khung so sánh chứ không phải hành động."
+  },
+  {
+   "file": "5565cb0f",
+   "sample": "v3",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": false,
+   "caution_only": true,
+   "quote": "",
+   "attention": "số dày: nhánh phụ trả thêm mỗi năm với nhiều con số ($8,792, four months, $8,200)",
+   "answered_own": true,
+   "why": "Đúng câu hỏi và đáp án đủ (đường lui $120, $21,622, dải lịch sử, mốc 7.4%); chỉ có khung và thận trọng, không có hành động."
+  },
+  {
+   "file": "6228463a",
+   "sample": "v3",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": false,
+   "caution_only": true,
+   "quote": "",
+   "attention": "khác: tangent trả thêm mỗi năm (\"could she send the extra once a year instead of every month?\")",
+   "answered_own": false,
+   "why": "Đúng câu hỏi và đáp án đủ; Q6 là phương pháp (lấy báo giá, định giá đường lui, mốc lãi), chỉ thận trọng; người đọc nói video trả lời một câu hỏi khác."
+  },
+  {
+   "file": "695e2793",
+   "sample": "v3",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": true,
+   "quote": "Own. The video explicitly declines to give advice, and my conclusion in 6 is my inference from its framing.",
+   "attention": "số dày: đoạn mới nhiều số (195 months, 15 months late, $733, $8,792, $8,200) — \"a shortcut many people reach for\"",
+   "answered_own": false,
+   "why": "Đúng câu hỏi; đáp án đủ ($120, $21,622, trung vị, dải, <1/5 tuần, chênh lãi); Q8 'own' nên chỉ suy ra, không có lời khuyên từ video."
+  },
+  {
+   "file": "704516bf",
+   "sample": "v3",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": false,
+   "caution_only": true,
+   "quote": "",
+   "attention": "số dày: chuỗi số về thời điểm trả hết nợ (\"Back to Tessa's own loan, and a shortcut many people reach for\")",
+   "answered_own": true,
+   "why": "Đúng câu hỏi và đáp án đủ (đường lui $120, $21,622, trung vị, mốc 7.4%); Q5 'không', Q8 trích mốc và thanh khoản chỉ là thận trọng."
+  },
+  {
+   "file": "86277015",
+   "sample": "v3",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": false,
+   "caution_only": true,
+   "quote": "",
+   "attention": "phương pháp: khái quát trừu tượng \"Any fixed-rate borrower can set their own pair beside hers\"",
+   "answered_own": true,
+   "why": "Đúng câu hỏi và đáp án đủ ($120, $21,622, $6,097–$29,502, trung vị, 7.4%); chỉ so sánh giá đường lui với giá trị của nó, thuộc thận trọng chung."
+  }
+ ]
+}
