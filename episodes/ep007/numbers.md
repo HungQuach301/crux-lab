@@ -12,6 +12,7 @@ Tính: `model/model.py` (từ định nghĩa hồ sơ, không gọi calc.py). ca
 | `n_weeks` | 1833 | 1,833 weeks | Number of paired weeks. | data/normalized/pmms_weekly.csv | history |
 | `first_week` | 1991-08-30 | August 1991 | First paired week. | data/normalized/pmms_weekly.csv | history |
 | `last_week` | 2026-10-08 | the week of October 8, 2026 | Last paired week ("now" of the data). | data/normalized/pmms_weekly.csv | present fact |
+| `principal` | 320000 | $320,000 | Loan amount used for every loan calculation (model parameter `params.principal`). | out/model.json | ILLUSTRATIVE loan size (Tessa); C3 P2: thêm dòng claim cho nhãn "$320,000 loan" |
 | `r30_now` | 7.4 | 7.40% | 30-year rate in the last paired week. | data/normalized/pmms_weekly.csv | present fact |
 | `r15_now` | 6.73 | 6.73% | 15-year rate in the last paired week. | data/normalized/pmms_weekly.csv | present fact |
 | `spread_now` | 0.67 | 0.67 point | 30-year minus 15-year rate in the last paired week. | data/normalized/pmms_weekly.csv | present fact |

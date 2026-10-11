@@ -1,0 +1,28 @@
+apiKeySource: ANTHROPIC_API_KEY
+{"turns": 4, "is_error": false, "cost_usd": 8.764400499999999, "input": 10, "cache_write": 3029, "cache_read": 1269955, "output": 2721}
+--- trả về ---
+Xong C3 Tập 7: cả năm đoạn dựng đạt `build_seg` (lint → spine → render → audio → mux → verify OK), và quy tắc 2/3/7 của spine đều OK. Chưa commit; tôi không chạy kiểm mù.
+
+**Tệp đã tạo** (`episodes/ep007/`)
+- `world/`: `obj7.js` (N1 `MonthTrack` + `PayBar` + `Bill`), `c3kit.py`, `c3kit.js`, `wlib.py`, `derive.py`, `claims.json`.
+- Năm đoạn `world/c3/<đoạn>/{spine.py, scene.js, spine.json, inputs.json}` và clip `world/c3/out/<đoạn>.mp4` (kèm log, verify, sync).
+- `world/c3/`: `README.md` (thiết kế, lý do màu/bố cục, lệnh tái lập, số đo), `voice_c3.py`, `voice-scenes.json`, `review.py`, `spans.json`.
+- Giọng: 5 take mới trong `voice-takes/`, chữ take khớp lời kịch bản.
+- `review-c3/c3-clip.mp4` (+ `.json`) và `review-c3/strips-r1/` (5 dải PNG, tắt tiếng, giữ chữ/số, kèm spans/strips json).
+
+**Số đo**
+- **Giọng:** dùng 1.493 ký tự (trần 3.000), sinh lại cả S01.
+- **Độ dài đoạn:** s01 13,65 s · s06 27,81 s · s21 26,69 s · s23 14,05 s · s25 30,05 s. Render 66–174 s máy mỗi đoạn.
+- **Clip duyệt:** 118,33 s, −14,0 LUFS, −1,9 dBTP. Lần đầu đỉnh ra −0,7 dBTP sau mã hoá AAC, nên tôi hạ trần loudnorm xuống −2,0.
+- **Đồng bộ ±0,2 s:** s01 4/4 · s06 4/5 · s21 5/7 · s23 4/5 · s25 6/7. Các cue lệch (−0,30 đến +0,27 s) đều là chuyển động liên tục: bó tiền đang bay, dốc 0,2 s của cột đầu, tờ đô la đang trượt vào thanh.
+- **Bố cục N1:** lịch 15 cột × 12 ô thay vì một hàng 180 ô, vì ở 1080p mỗi ô chỉ còn ~9 px, không đếm được 15 hay 4 ô trễ.
+- **Màu lớp/khối trả thêm:** `cushion`, vì $733 lấy từ khoảng dự phòng. Lý do chi tiết ở README.
+- **Tự xem lại:** ít nhất 2 khung mỗi đoạn và cả 5 dải. Đã sửa nhãn đè nhau và Tessa bị cắt mép ở s06/s21/s25, tờ đô la bay xuyên mái nhà ở s25. s25 vòng đầu trượt F-2 BLOCK (vạch đo cắt nhãn Tessa); đã sửa và dựng lại.
+
+**Vấn đề còn mở**
+1. **"$320,000" không có dòng claim trong `numbers.md`.** Tôi lấy từ `params.principal` của `model.json` và ghi rõ trong `claims.json`. Cần thêm claim chính thức.
+2. **Bộ chuẩn hoá đọc "October 8" thành "October eight"** (S21.2), không phải "eighth". Lỗi nằm ở `toolkit/voice/normalize.js`, tôi không được sửa; take S21 đã đọc như vậy.
+3. **Lớp bắt buộc có cả trong S01**, theo mẫu `c3kit.js` Tập 6. Theo `beats.md`, trong phim các nhãn góc chỉ xuất hiện từ S03.2.
+4. **Màu `cushion` cho phần trả thêm có rủi ro:** hũ đệm Tập 2 từng bị đọc thành "tiết kiệm". Cần xem kết quả cổng gốc.
+5. **Thanh trả tháng và chồng tiền dùng hai thang khác nhau** ở s06, mỗi cái có nhãn số riêng. 15 bó rơi tượng trưng mỗi bó một năm, không phải 180 lần rơi theo tháng như cụm "month after month" trong muted read.
+6. **Hai khung 3 của dải s21/s25 rơi đúng giữa lúc chuyển chế độ máy**, đúng như cách chọn tâm 6 lát đều nhau.

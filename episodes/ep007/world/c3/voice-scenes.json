@@ -3,7 +3,7 @@
   "take": "802858880ff8d129.mp3",
   "duration": 10.8,
   "chars": 172,
-  "cached": false,
+  "cached": true,
   "sentences": [
    "S01.1",
    "S01.2"
@@ -14,7 +14,7 @@
   "take": "4fdff35e031f5b4b.mp3",
   "duration": 25.76,
   "chars": 347,
-  "cached": false,
+  "cached": true,
   "sentences": [
    "S06.1",
    "S06.2",
@@ -23,9 +23,9 @@
   "text_matches_script": true
  },
  "S21": {
-  "take": "337b6d7096c5ff8d.mp3",
-  "duration": 24.64,
-  "chars": 349,
+  "take": "afae5c2784e3af06.mp3",
+  "duration": 24.24,
+  "chars": 350,
   "cached": false,
   "sentences": [
    "S21.1",
@@ -38,7 +38,7 @@
   "take": "619cd9648ad2ba2f.mp3",
   "duration": 12.0,
   "chars": 210,
-  "cached": false,
+  "cached": true,
   "sentences": [
    "S23.1",
    "S23.2",
@@ -50,7 +50,7 @@
   "take": "06f4efe1052f1b38.mp3",
   "duration": 28.0,
   "chars": 415,
-  "cached": false,
+  "cached": true,
   "sentences": [
    "S25.1",
    "S25.2",
@@ -60,7 +60,7 @@
   ],
   "text_matches_script": true
  },
- "_spent_chars": 1493,
+ "_spent_chars": 350,
  "_config": {
   "voice": "cjVigY5qzO86Huf0OWal",
   "model": "eleven_v3",

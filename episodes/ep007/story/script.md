@@ -75,7 +75,7 @@ S02.2 {promise} We replayed every week of US mortgage surveys to price that fall
 
 ## S03 — Who Tessa is, her week's rates (dated), the limits (shared continuation for all three hooks)
 
-S03.1 {hook} Tessa is illustrative, but her rates are real: the survey for the week of October 8, 2026 has the 15-year at 6.73 percent and the 30-year at 7.4 percent. <!-- claims: last_week, r15_now, r30_now -->
+S03.1 {hook} Tessa is illustrative, but her rates are real: the survey for the week of October eighth, 2026 has the 15-year at 6.73 percent and the 30-year at 7.4 percent. <!-- claims: last_week, r15_now, r30_now -->
 S03.2 {constraint} This is US only, and it's history, not a forecast. <!-- claims: — -->
 S03.3 {constraint} It won't say which loan to take, or whether to invest. <!-- claims: —; hold: 0.8 -->
 
@@ -104,7 +104,7 @@ S06.3 Over those 15 years, the extra adds up to $21,622. <!-- claims: extra_vs15
 ## S07 — The stack
 
 S07.1 In Tessa's world, that price is a stack of bills beside her house: the stack is what keeping the fallback costs. <!-- claims: extra_vs15_total_now -->
-S07.2 It exists because the 30-year carries a higher rate on the same balance: on October 8, 0.67 point higher. <!-- claims: spread_now -->
+S07.2 It exists because the 30-year carries a higher rate on the same balance: on October eighth, 0.67 point higher. <!-- claims: spread_now -->
 
 ## S08 — Why paying in 15 matters at all
 
@@ -115,7 +115,7 @@ S08.2 Paid in 15 years, it charges $210,691. <!-- claims: interest_30on15_now; h
 
 S09.1 The 15-year loan charges $189,069, and the difference between those last two totals is exactly the stack. <!-- claims: interest_15_now, interest_30on15_now, extra_vs15_total_now; hold: 0.8 -->
 S09.2 So the 30-year paid in 15 isn't the same loan as the 15-year: it's the 15-year plus a fallback, and the fallback has a price. <!-- claims: pay30on15_now, extra_vs15_total_now -->
-S09.3 Is Tessa's stack a normal price for that fallback, or is the week of October 8 unusual? <!-- claims: extra_vs15_total_now; hold: 1.5 -->
+S09.3 Is Tessa's stack a normal price for that fallback, or is the week of October eighth unusual? <!-- claims: extra_vs15_total_now; hold: 1.5 -->
 
 >>> MID-ROLL 1 (in the 1.5 s hold after S09.3; end of act 1, act-2 question open)
 
@@ -136,7 +136,7 @@ S11.2 Since 1991, that gap has run from 0.2 point to 1.0 point. <!-- claims: spr
 ## S12 — Typical gap
 
 S12.1 It averaged 0.57 point, and was at least half a point in about 2 in 3 weeks. <!-- claims: spread_mean, share_spread_ge_050 -->
-S12.2 Tessa's gap on October 8 sits a little above that average. <!-- claims: spread_now, spread_mean -->
+S12.2 Tessa's gap on October eighth sits a little above that average. <!-- claims: spread_now, spread_mean -->
 
 ## S13 — The smallest stack
 
@@ -180,7 +180,7 @@ S20.2 That's history, not a forecast: the gap has moved before, and nothing here
 ## S21 — The shortcut (viewer question 2)
 
 S21.1 Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day. <!-- claims: pay15_now, pay30on15_now -->
-S21.2 At the October 8 rates, it doesn't: it ends about 15 months late. <!-- claims: months_at_pay15_now, months_late_at_pay15_now; hold: 1.0 -->
+S21.2 At the October eighth rates, it doesn't: it ends about 15 months late. <!-- claims: months_at_pay15_now, months_late_at_pay15_now; hold: 1.0 -->
 S21.3 To finish in 15 years, she'd add $733 a month on top of the required payment. <!-- claims: extra_principal_needed_now -->
 
 ## S22 — The extra doesn't touch the required payment
@@ -256,4 +256,4 @@ S32.2 This is US only, and it's history, not a forecast; it doesn't say which lo
 
 S33.1 Beside Tessa's house now stand a tall stack and a high bar. <!-- claims: extra_vs15_total_now, bar_now -->
 S33.2 She asked: a 15-year, or a 30-year paid in 15? <!-- claims: pay30on15_now -->
-S33.3 [thoughtful] What she now knows: the 30-year paid in 15 is the 15-year plus a fallback, and at the rates of the week of October 8, 2026, that fallback costs her $120 a month. <!-- claims: extra_vs15_month_now, pay30on15_now, last_week; hold: 1.5 -->
+S33.3 [thoughtful] What she now knows: the 30-year paid in 15 is the 15-year plus a fallback, and at the rates of the week of October eighth, 2026, that fallback costs her $120 a month. <!-- claims: extra_vs15_month_now, pay30on15_now, last_week; hold: 1.5 -->
