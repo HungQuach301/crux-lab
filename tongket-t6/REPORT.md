@@ -75,6 +75,7 @@ Chi tiết từng mục (số đo, nguyên nhân gốc, luật) ở `playbook/le
 | (f) phiếu L3 kèm mức gợi ý | G2 Tập 6 "≥ 4" không số | **CHỜ** (nguy cơ neo điểm) | `playbook/templates/L3.md` (nháp) |
 | (g) khoá Console = chuẩn | $25,5 · ghi cache/lượt dựng ÷ 40 (§1d) | **CHỜ** (chi tiêu) | `toolkit/api.sh` (dời từ ep006, công cụ có sẵn) |
 | (h) móc Shorts đo vùng an toàn khi viết | SH1/SH3 186 / 98 hộp ngoài vùng | **ÁP** (luật viết) + **CHỜ K** A30 | `episode.md` §5, `checks-appeal.md` A30 |
+| T6-12 kênh của mình lẫn vào đối thủ | "Money Rerouted" (video Tập 2, Tập 5) ở `market/CHANNELS.md` là kênh "trực tiếp"; hồ sơ q01, q17 hạ khoảng trống | **ÁP** (`mcommon.OWN_CHANNELS`, `anchors.py`, `CHANNELS.md`) + việc treo: chạy lại hồ sơ q01/q17 | lessons T6-12 |
 | (i) gói ChatGPT lệch video | "baskets" ≠ crates · ảnh chụp ≠ thế giới 3D · mỗi thumbnail một màu · tiêu đề ≠ T1 | **ÁP** qua mục 4 | `playbook/packaging.md` §7, `episode.md` §5c, `toolkit/package/` |
 
 **Đo (d) trên Tập 6** (`python3 toolkit/indicators/spine_pace.py episodes/ep006/world/c4/*/spine.json --labels`): các quãng tĩnh có lời là 0:29–0:40 (11,2 s), 1:35–1:44, 1:47–1:56, 2:43–2:51, **3:41–3:53 (11,3 s)**, 4:40–4:50, 8:07–8:16. Thước này chưa hiệu chuẩn (A23: đối chứng dương 2/4), nên chỉ dùng làm chỉ báo. Đích của F-14 đo trên Tập 6 dựng lại, đối chứng là bản giao.
@@ -200,7 +201,7 @@ Thành luật ở `episode.md` §10 mục 4–5: đổi/giữ ở mốc 48–72 
 ## 6. Prompt P1 Tập 7 (G1 lô Tập 7–8) — chủ dự án dán nguyên khối vào phiên mới
 ```
 Chạy Tập 7, đề tài #13 (15-year mortgage vs a 30-year paid off in 15), phiên P1 — G1 LÔ Tập 7–8 (D-011 Q1, D-012).
-BƯỚC 0: `git fetch origin main`; main phải có merge tongket-t6 (tongket-t6/REPORT.md có trên main). Chưa có → dừng, báo chủ dự án (phiên điều phối duy nhất merge main).
+BƯỚC 0: `git fetch origin main tongket-t6`; main chưa có tongket-t6 → phiên này (điều phối, duy nhất merge main — CHARTER §7) merge `tongket-t6` vào main (fetch trước; xung đột chỉ ở tệp dùng chung → giữ cả hai phần), push.
 BƯỚC 1 (nhánh tongket-t6-answer từ main): chép câu trả lời dưới đây vào tongket-t6/ANSWER.md; áp mục được duyệt: D-011 sửa (1a), phiếu L3 bỏ chữ "nháp" (1f), toolkit/api.sh là chuẩn + trần chi (1g), format deep → CHARTER §1 + episode.md §8–§9 bỏ chữ "chờ" (2), bộ nhận diện + đường thumbnail (3), OWN_CHANNELS (T6-12). Mục bác → giữ nguyên trạng; mục sửa → áp theo câu sửa. Ghi taste-ledger.md, AUTHORSHIP.md. Merge main, rồi mới tạo ep007 từ main. Nếu 1d duyệt: viết đầu bài phiên nhà máy F-14 (nhánh factory-f14, đo trên Tập 6 dựng lại, đối chứng master SHA-256 f96da0ea…), để ở tongket-t6/F14-brief.md cho chủ dự án mở song song — P1 không làm F-14.
 Mở bằng `bash toolkit/verify.sh ep007`. Đọc (≤ 8): CHARTER.md · decisions/D-012.md · tongket-t6/ANSWER.md · playbook/episode.md · playbook/packaging.md (§7) · playbook/prompts/P1.md · market/topics/q13-15-vs-30-mortgage.md · tongket-t6/anchors/q13-15-vs-30-mortgage.json.
 Tập 7: P1 Việc 0 → C1 → C2 → G1 theo P1.md. Format theo câu 2 (deep chỉ khi F-14 đã đạt trước G1). Video neo + ý tưởng tiêu đề/thumbnail chốt ở G1 (packaging.md §7.1). Việc nặng headless khoá Console (toolkit/api.sh), 0 agent con trừ khi cần công cụ phiên.
