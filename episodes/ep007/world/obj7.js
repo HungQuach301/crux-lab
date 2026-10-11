@@ -2,12 +2,14 @@
 //  N1 MonthTrack — "đường tháng": một ô = MỘT khoản trả tháng; ô giống hệt nhau; trái → phải = thời gian.
 //   Bố cục lịch: cột = một năm (cols = 12 ô), cột nối nhau trái → phải; trong cột, tháng 1 ở mép trước (+z), tháng 12 ở mép sau.
 //   180 ô = 15 cột đủ. Ô quá n (trễ) = warn, sáng theo PHẦN như W10 (14,6 → 14 ô đủ + ô thứ 15 sáng 60 %). Vạch 15 năm (sau ô n) = ink-muted, đứng yên.
-//   Trả thêm: lớp mỏng `cushion` trên mỗi ô (extra) hoặc một khối `cushion` trên ô thứ 12 mỗi cột (yearly) — khối = đúng thể tích 12 lớp.
+//   Màu theo vai E2 (beats.md Colour roles, vòng 3): ô khoản bắt buộc = ink-muted ("the required-payment level"), lớp trả thêm của Tessa = ink
+//   ("the payments", sáng, nổi trên ô). Trả thêm: lớp mỏng trên mỗi ô (extra); gom (S23): 12 lớp của một cột-năm TRƯỢT về ô thứ 12 và chồng
+//   lên nhau thành một khối 12 lớp (cùng tổng).
 //  PayBar — thanh khoản trả tháng (ink), phần trên mức warnAbove = warn (giá của khoản dự phòng). Chiều cao = USD × scale.
 //  Bill — một tờ đô la low-poly (màu vật liệu tiền của lib3d, không chữ) cho S25.
 import * as THREE from 'three';
 
-export const TRACK = { ink: '#F2F4F7', warn: '#F2B441', extra: '#269783', mark: '#9AA4B2', empty: '#2A303B' };   // ink · warn · cushion · ink-muted · grid (E2)
+export const TRACK = { ink: '#F2F4F7', warn: '#F2B441', extra: '#F2F4F7', mark: '#9AA4B2', empty: '#2A303B' };   // ink · warn · ink (trả thêm) · ink-muted · grid (E2)
 const mat = (c, o = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.8, transparent: true, ...o });
 const cl01 = (x) => Math.min(1, Math.max(0, x));
 
@@ -15,51 +17,51 @@ const cl01 = (x) => Math.min(1, Math.max(0, x));
 export function MonthTrack({ n = 180, cols = 12, spare = 2, tile = 0.34, gap = 0.08, th = 0.07, slab = 0.035, name = 'track' } = {}) {
   const g = new THREE.Group(), pitch = tile + gap, years = Math.ceil(n / cols), nmax = n + spare * cols;
   const box = (h, f = 1) => new THREE.BoxGeometry(tile * f, h, tile * f);
-  // lớp trả thêm phủ 72 % mặt ô (vành ink của khoản bắt buộc vẫn thấy); khối năm cùng mặt cắt, cao = 12 lớp (cùng thể tích)
-  const SF = 0.72;
-  const tiles = new THREE.InstancedMesh(box(th), mat('#FFFFFF', { emissive: new THREE.Color('#FFFFFF'), emissiveIntensity: 0.12 }), nmax);
-  const slabs = new THREE.InstancedMesh(box(slab, SF), mat(TRACK.extra, { emissive: new THREE.Color(TRACK.extra), emissiveIntensity: 0.25 }), n);
-  const lumpH = slab * cols, lumps = new THREE.InstancedMesh(box(lumpH, SF), mat(TRACK.extra, { emissive: new THREE.Color(TRACK.extra), emissiveIntensity: 0.25 }), years);
-  for (const m of [tiles, slabs, lumps]) { m.castShadow = m.receiveShadow = true; m.frustumCulled = false; g.add(m); }
+  // lớp trả thêm phủ 72 % mặt ô (vành ink-muted của khoản bắt buộc vẫn thấy); khi gom, lớp chồng lên nhau cách SG → khối = 12 lớp đếm được
+  const SF = 0.72, SG = 0.006;
+  const tiles = new THREE.InstancedMesh(box(th), mat('#FFFFFF', { emissive: new THREE.Color('#FFFFFF'), emissiveIntensity: 0 }), nmax);
+  const slabs = new THREE.InstancedMesh(box(slab, SF), mat(TRACK.extra, { emissive: new THREE.Color(TRACK.extra), emissiveIntensity: 0.8 }), n);
+  for (const m of [tiles, slabs]) { m.castShadow = m.receiveShadow = true; m.frustumCulled = false; g.add(m); }
   // vạch 15 năm: thanh mảnh đứng yên dọc theo cột, ngay sau ô n (giữa cột years-1 và years)
   const markX = years * pitch - gap / 2, depth = cols * pitch - gap;
   const mark = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.32, depth + 0.5), mat(TRACK.mark, { emissive: new THREE.Color(TRACK.mark), emissiveIntensity: 0.4 }));
   mark.position.set(markX, 0.16, -depth / 2 + tile / 2); mark.castShadow = true; g.add(mark);
   const pos = (i) => [Math.floor(i / cols) * pitch + tile / 2, -(i % cols) * pitch];   // x, z của tâm ô i (0-based)
-  const M = new THREE.Matrix4(), col = new THREE.Color(), C = { ink: new THREE.Color(TRACK.ink), warn: new THREE.Color(TRACK.warn), empty: new THREE.Color(TRACK.empty) };
+  const M = new THREE.Matrix4(), col = new THREE.Color(), C = { req: new THREE.Color(TRACK.mark), warn: new THREE.Color(TRACK.warn), empty: new THREE.Color(TRACK.empty) };
   const hide = new THREE.Matrix4().makeScale(0, 0, 0);
   tiles.userData.checks = { role: 'mark', series: name, key: `track-${name}-tiles` };
   slabs.userData.checks = { role: 'mark', series: name, key: `track-${name}-extra` };
-  lumps.userData.checks = { role: 'mark', series: name, key: `track-${name}-yearly` };
   mark.userData.checks = { role: 'mark', series: name, key: `track-${name}-mark` };
-  g.userData = { n, cols, pitch, tile, th, years, nmax, markX, depth };
+  g.userData = { n, cols, pitch, tile, th, years, nmax, markX, depth, slab, SG };
+  const sm = (u) => u * u * (3 - 2 * u);
   // lit: số ô thường đã đặt (0 … n, thực: ô cuối mọc dần); late: số ô trễ (warn, thực); extra: số cột-năm (0 … years, thực) đã có lớp mỏng,
-  // trái → phải; gathered: số cột-năm (từ trái) mà lớp mỏng đã gom đi (S23: 12 lớp → một khối); yearly: số cột-năm đã có khối năm;
-  // markA ∈ [0,1]: vạch 15 năm; pulse ∈ [0,1]: loé nhẹ ô trễ
-  g.set = ({ lit = n, late = 0, extra = 0, gathered = 0, yearly = 0, markA = 1, pulse = 0 } = {}) => {
+  // trái → phải; gathered: số cột-năm (từ trái, thực) mà 12 lớp đã trượt về ô thứ 12 thành một khối (phần lẻ = đang trượt; lớp xa ô 12
+  // khởi hành muộn hơn, đến sau, nằm trên cùng) — hoặc mảng tiến độ [0,1] từng cột (nhiều cột trượt cùng lúc); markA ∈ [0,1]: vạch 15 năm; pulse ∈ [0,1]: loé nhẹ ô trễ
+  g.set = ({ lit = n, late = 0, extra = 0, gathered = 0, markA = 1, pulse = 0 } = {}) => {
     for (let i = 0; i < nmax; i++) {
       const [x, z] = pos(i), isLate = i >= n, a = isLate ? cl01(late - (i - n)) : cl01(lit - i);
       if (a <= 0.002) { tiles.setMatrixAt(i, hide); continue; }
       const s = isLate ? 1 : a;   // ô thường mọc từ sàn; ô trễ hiện đủ cỡ, sáng theo phần (như W10)
       M.makeScale(1, s, 1).setPosition(x, th * s / 2, z); tiles.setMatrixAt(i, M);
-      col.copy(C.empty).lerp(isLate ? C.warn : C.ink, isLate ? a * (0.85 + 0.15 * pulse) : 1); tiles.setColorAt(i, col);
+      col.copy(C.empty).lerp(isLate ? C.warn : C.req, isLate ? a * (0.85 + 0.15 * pulse) : 1); tiles.setColorAt(i, col);
     }
+    const zEnd = pos(cols - 1)[1];
     for (let i = 0; i < n; i++) {
-      const c = Math.floor(i / cols), a = cl01(extra - c) * cl01(c + 1 - gathered) * cl01(lit - i), [x, z] = pos(i);
+      const c = Math.floor(i / cols), r = i % cols, a = cl01(extra - c) * cl01(lit - i), [x, z] = pos(i);
       if (a <= 0.002) { slabs.setMatrixAt(i, hide); continue; }
-      M.makeScale(1, a, 1).setPosition(x, th + slab * a / 2 + 0.002, z); slabs.setMatrixAt(i, M);
+      const gp = Array.isArray(gathered) ? (gathered[c] || 0) : cl01(gathered - c);
+      const k = cols - 1 - r, dl = 0.35 * k / (cols - 1), e = sm(cl01((gp - dl) / (1 - dl)));
+      const y0 = th + slab * a / 2 + 0.002, y1 = th + 0.002 + k * (slab + SG) + slab / 2;
+      M.makeScale(1, a, 1).setPosition(x, y0 + (y1 - y0) * e + 0.05 * Math.sin(Math.PI * e), z + (zEnd - z) * e); slabs.setMatrixAt(i, M);
     }
-    for (let c = 0; c < years; c++) {
-      const i = c * cols + cols - 1, a = cl01(yearly - c) * cl01(lit - i), [x, z] = pos(i);
-      if (a <= 0.002) { lumps.setMatrixAt(c, hide); continue; }
-      M.makeScale(1, a, 1).setPosition(x, th + lumpH * a / 2 + 0.002, z); lumps.setMatrixAt(c, M);
-    }
-    for (const m of [tiles, slabs, lumps]) m.instanceMatrix.needsUpdate = true;
+    for (const m of [tiles, slabs]) m.instanceMatrix.needsUpdate = true;
     if (tiles.instanceColor) tiles.instanceColor.needsUpdate = true;
     mark.material.opacity = markA; mark.visible = markA > 0.01;
     tiles.userData.checks.level = +Math.min(n, lit).toFixed(2); tiles.userData.checks.late = +late.toFixed(2);
-    slabs.userData.checks.level = +extra.toFixed(3); lumps.userData.checks.level = +yearly.toFixed(3);
+    slabs.userData.checks.level = +extra.toFixed(3); slabs.userData.checks.gathered = Array.isArray(gathered) ? +gathered.reduce((s, v) => s + v, 0).toFixed(3) : +gathered.toFixed(3);
   };
+  // đỉnh khối năm của cột c (toạ độ thế giới) — cho nhãn S23
+  g.blockTop = (c) => { const [x, z] = pos(c * cols + cols - 1); return [g.position.x + x, g.position.y + th + cols * (slab + SG), g.position.z + z]; };
   // toạ độ thế giới (đã cộng vị trí nhóm) — cho nhãn/ngoặc ở lớp phủ: tâm ô i, mép trái/phải của cột c, mép trước/sau
   g.tileAt = (i) => { const [x, z] = pos(i); return [g.position.x + x, g.position.y + th, g.position.z + z]; };
   g.colX = (c, side = 0) => g.position.x + c * pitch + (side < 0 ? 0 : side > 0 ? tile : tile / 2);

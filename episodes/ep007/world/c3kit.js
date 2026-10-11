@@ -27,9 +27,11 @@ export function home(scene, { x = 0, z = 0, w = 1.6, h = 1.15, side = -1 } = {})
   person.userData.checks = { role: 'mark', char: 'Tessa', key: 'person-tessa' };
   return { house, person, x, z, w, h };
 }
+// tên (vòng 3, REVIEW-C3 PHỤ): ngay dưới chân hình người, căn giữa theo người — không chồng lên mái nhà, luôn cạnh người; dx/dy chỉnh khi cần;
+// kẹp tâm x ≥ 330 (cả dòng trong khung) và đường chân chữ ≤ 880 (trên dòng "US only …" khi máy di chuyển)
 export function nameTag(O, hm, a = 1, o = {}) {
-  const [hx, hy] = O.toScreen(hm.person.position.x, hm.h + 0.12, hm.person.position.z);
-  return label(O, 'Tessa · ILLUSTRATIVE', hx + (o.dx || 0), hy - 24 + (o.dy || 0), { align: 'center', kind: 'name', px: 48, w: 600, alpha: a, char: 'Tessa' });
+  const [fx, fy] = O.toScreen(hm.person.position.x, 0, hm.person.position.z);
+  return label(O, 'Tessa · ILLUSTRATIVE', Math.max(330, fx + (o.dx || 0)), Math.min(880, fy + 50 + (o.dy || 0)), { align: o.align || 'center', kind: 'name', px: 48, w: 600, alpha: a, char: 'Tessa' });
 }
 
 // the stack (W2): bó mệnh giá CỐ ĐỊNH = một năm của khoản dự phòng (extra_vs15_total_now / 15 ≈ 12 × $120); 15 bó = $21,622.
@@ -45,13 +47,13 @@ export const stackSet = (s, usd) => { s.set({ usd, warnAboveUsd: -1 }); s.userDa
 // N1 đường tháng chạy từ nhà Tessa (s21-track, s23-track dùng chung hình học + tư thế máy): nhà bên trái, cột-năm nối nhau sang phải,
 // tháng 1 ở mép trước. Đồ thị = nhìn gần thẳng xuống mặt lưới (nghiêng 19°, tiêu cự dài) → lưới đọc như lịch 15 cột × 12 ô.
 export const TRACK_POSES = {
-  wT0: { pos: [-4.6, 3.4, 6.8], tgt: [2.4, 0, -1.8], fov: 40, chart: 0 },
-  wT: { pos: [-3.4, 4.2, 5.4], tgt: [2.6, 0, -2.0], fov: 40, chart: 0 },
+  wT0: { pos: [-5.2, 3.4, 7.0], tgt: [1.7, 0, -1.8], fov: 40, chart: 0 },   // vòng 3: lệch trái 0,7 → Tessa (trái nhà) + tên trong khung
+  wT: { pos: [-4.0, 4.2, 5.8], tgt: [1.9, 0, -2.0], fov: 40, chart: 0 },
   cT: { pos: [2.45, 13.2, 5.1], tgt: [2.45, 0, -2.0], fov: 31, chart: 1 },
 };
 export async function trackWorld(scene, MonthTrack) {
   const hm = home(scene, { x: -1.55, z: -1.4, side: 1 });
-  hm.person.position.set(-1.2, 0, 0.75);
+  hm.person.position.set(-2.7, 0, -0.5);   // vòng 3: trái-trước nhà (tên dưới chân không chạm lưới / nhãn số / nhà)
   const track = MonthTrack({ name: 'tessa' }); track.position.set(0, 0, 0); scene.add(track);
   return { hm, track };
 }

@@ -1,0 +1,32 @@
+{
+ "segment": "episodes/ep007/world/c3/s21-track",
+ "res": 540,
+ "out": "episodes/ep007/world/c3/out/s21-track.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.3,
+   "ok": true,
+   "problems": [],
+   "files": 18
+  },
+  "spine": {
+   "seconds": 0.5,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 1.2,
+   "ok": false,
+   "shots": null,
+   "rendered": null,
+   "cached": null,
+   "wall_s": null,
+   "film_s": null,
+   "wall_per_film_s_rendered": null,
+   "cores": null
+  }
+ },
+ "staging": "episodes/ep007/world/c3/out/.staging-s21-track-25707"
+}

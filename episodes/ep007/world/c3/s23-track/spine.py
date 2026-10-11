@@ -1,8 +1,9 @@
 """Tập 7 · C3 · s23-track (B23) — lời thật S23.1–S23.3 (cả cảnh; S23.2 bản hiện tại không nói "$8,792": số đó chỉ ở chữ trên hình).
   python3 episodes/ep007/world/c3/s23-track/spine.py → spine.json (thoát 1 nếu vi phạm quy tắc 2/3/7)
-Thế giới: tiếp trạng thái cuối s21-track — đường tháng 180 ô, mỗi ô một lớp trả thêm mỏng (cushion), vạch 15 năm. "once" = cột-năm đầu gom
-12 lớp mỏng thành MỘT khối trên ô thứ 12 (cùng thể tích). → ĐỒ THỊ: "one" → "extra" 14 cột còn lại gom lần lượt (mỗi cột một nốt dữ liệu);
-"one" = "$8,792 once a year" trên hàng ô thứ 12; "ends" → 4 ô warn quá vạch (nốt bội âm sáng); "four" = "ends in 184 months: 4 months later". Giữ."""
+Thế giới: tiếp trạng thái cuối s21-track — đường tháng 180 ô (ink-muted), mỗi ô một lớp trả thêm mỏng (ink), vạch 15 năm. Vòng 3: "once" = 12 lớp
+của cột-năm đầu TRƯỢT dọc cột về ô thứ 12 và chồng thành MỘT khối 12 lớp (cùng tổng) trong 0,9 s. → ĐỒ THỊ, máy GIỮ góc 3/4 (khối cao đọc được;
+không cắt sang nhìn thẳng): "one" → "extra" 14 cột còn lại trượt gom thành sóng trái → phải (mỗi cột một nốt dữ liệu khi khối đủ);
+"one" = "$8,792 once a year" trên hàng khối; "ends" → 4 ô warn quá vạch (nốt bội âm sáng); "four" = "ends in 184 months: 4 months later than monthly". Giữ."""
 import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); W7 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W7)
@@ -22,16 +23,18 @@ beats = SV.beats_from(B, A, lines)
 cue = {b['id']: b['cues'] for b in beats}
 moves = K.moves_from([
     ('push', 'wT0', 'wT', 0.0, cue['a0']['send'], 2.4, 'mở đoạn: máy lại gần đường tháng (lớp trả thêm trên từng ô) trước khi phần thêm đổi cách đến ("send")', 'whoosh_air', {}),
-    ('mode', 'wT', 'cT', cue['a0']['once'], cue['a1']['one'], 1.2,
-     'S23.2–S23.3 đặt số tiền và số tháng; số chỉ ở chế độ đồ thị (quy tắc 1) → nhìn xuống lưới đếm khối năm và ô trễ', 'whoosh_mode', {'start': 5.0})])
-gt = [cue['a0']['once']] + K.spread(cue['a1']['one'], cue['a1']['extra'], 14)
-gk, ev = K.steps(gt, [k + 1 for k in range(15)], ramp=0.25, v0=0, pitch=lambda v: 0.3 + 0.35 * v / 15)
+    ('mode', 'wT', 'cQ', cue['a0']['once'], cue['a1']['one'], 1.2,
+     'S23.2–S23.3 đặt số tiền và số tháng; số chỉ ở chế độ đồ thị (quy tắc 1) → lùi nhẹ, vẫn góc 3/4 để thấy độ cao khối năm và đếm ô trễ', 'whoosh_mode', {'start': 5.0})])
+G0 = 0.9; GD = 0.75   # cột đầu trượt chậm (thế giới); 14 cột còn lại mỗi cột 0,75 s, chồng lấn thành sóng
+gs = [[cue['a0']['once'], cue['a0']['once'] + G0]] + [[s, s + GD] for s in K.spread(cue['a1']['one'], cue['a1']['extra'] - GD + 0.25, 14)]
+gs = [[round(a, 3), round(z, 3)] for a, z in gs]
+ev = [{'t': z, 'kind': 'data', 'v': round(0.3 + 0.35 * (k + 1) / 15, 3)} for k, (a, z) in enumerate(gs)]
 LL = G['lump_late_months']
 lt = K.spread(cue['a2']['ends'] + 0.02, cue['a2']['four'] - 0.1, LL)
 late, e2 = K.steps(lt, [k + 1 for k in range(LL)], ramp=0.07, v0=0, pitch=lambda v: 0.65 + 0.1 * v, over=True)
 ev += e2 + [{'t': cue['a1']['one'], 'kind': 'tick', 'v': 0.5}, {'t': cue['a2']['four'], 'kind': 'tick', 'v': 0.35}]
 K.finish(HERE, 'ep007 C3 · s23-track (S23)', words, takes, lines, end, beats, moves, ev,
-         {'gathered': gk, 'late': late,
-          'label_cues': {'a1.one': '$8,792 once a year', 'a2.four': 'ends in 184 months: 4 months later'},
+         {'gather': gs, 'late': late,
+          'label_cues': {'a1.one': '$8,792 once a year', 'a2.four': 'ends in 184 months: 4 months later than monthly'},
           'visual_cues': ['a0.once', 'a1.one', 'a1.extra', 'a2.ends', 'a2.four']},
          [cue['a0']['once'], cue['a1']['one'], cue['a2']['four']], hold=1.2)

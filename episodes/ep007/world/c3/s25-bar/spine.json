@@ -573,7 +573,7 @@
    "sid": "S25.4",
    "mode": "chart",
    "idea": "Lãi đó là mốc để so mọi cách dùng khác của đồng đô la, trước thuế.",
-   "visual": "đô la thứ hai \"any other use\" đặt áp vào đầu thanh, ngang thanh.",
+   "visual": "bóng đô la thứ hai \"any other use\" đứng tách đầu thanh, lên xuống quanh độ cao thanh (để mở).",
    "line": "That rate is the bar any other use of that dollar gets measured against, before taxes.",
    "sound": [
     "nốt dữ liệu khi đô la thứ hai áp vào thanh"
@@ -592,8 +592,8 @@
    "id": "a4",
    "sid": "S25.5",
    "mode": "chart",
-   "idea": "Đầu tư có vượt mốc không: không kiểm ở đây.",
-   "visual": "nhãn \"not tested: whether any investment clears it\". Giữ.",
+   "idea": "Đầu tư so ra sao khi tính rủi ro và thuế: không kiểm ở đây.",
+   "visual": "nhãn \"not tested: how any investment compares, once risk and taxes count\". Giữ.",
    "line": "Whether any investment clears it, once risk and taxes count, isn't tested here.",
    "sound": [
     "tick khi nhãn hiện"
@@ -752,7 +752,7 @@
   "a1.seven": "the bar: 7.40% a year, before taxes",
   "a2.investment": "interest no longer charged,",
   "a3.other": "any other use",
-  "a4.whether": "not tested: whether any investment clears it"
+  "a4.whether": "not tested: how any investment compares,"
  },
  "visual_cues": [
   "a0.dollar",

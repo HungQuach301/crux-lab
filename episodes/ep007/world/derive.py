@@ -30,6 +30,9 @@ assert '4 months later' in rows['yearly_lump_months'] and Q['yearly_lump_months'
 # s06 (vòng 2): khoản 15 năm ghi kèm "a month" cạnh vạch mức 15 năm — cùng claim pay15_now, chuỗi = cả cột Hiển thị
 cl['pay15_month'] = {'value': Q['pay15_now']['value'], 'display': '$2,828 a month', 'display_full': rows['pay15_now'], 'of': 'pay15_now'}
 assert cl['pay15_month']['display'] in rows['pay15_now']
+# s21 (vòng 3): "to finish in 180 months: $2,216 required + $733 a month" — khoản bắt buộc không kèm "a month" (đoạn nguyên vẹn của Hiển thị)
+cl['pay30_amt'] = {'value': Q['pay30_now']['value'], 'display': '$2,216', 'display_full': rows['pay30_now'], 'of': 'pay30_now'}
+assert cl['pay30_amt']['display'] in rows['pay30_now']
 cl['principal'] = {'value': model['params']['principal'], 'display': '$320,000', 'display_full': '$320,000 (params.principal; ILLUSTRATIVE loan)'}
 assert model['params']['principal'] == 320000
 
