@@ -2,7 +2,7 @@
 #  - chữ (phân loại kênh, bình luận): `claude -p` Haiku, chạy từ thư mục trống, không công cụ, ANTHROPIC_API_KEY="$CONSOLE_API_KEY".
 #  - ảnh thumbnail: Messages API với ảnh dạng URL (Sonnet đọc thẳng từ i.ytimg.com; không tải, không lưu ảnh).
 import json, os, re, subprocess, tempfile, time, urllib.request
-from common import cache_dir
+from mcommon import cache_dir
 
 HAIKU, SONNET = 'claude-haiku-4-5', 'claude-sonnet-4-5'
 

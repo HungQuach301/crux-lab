@@ -9,7 +9,7 @@ Repo không chứa số liệu thô nên không có gì để xoá trong git; ch
 """
 import datetime as dt, pathlib, shutil, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from common import CACHE_ROOT
+from mcommon import CACHE_ROOT
 
 MAX_DAYS = 30
 

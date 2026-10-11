@@ -13,7 +13,7 @@ vẫn vào qua pull.py khi kênh đã là ứng viên). Video dài = > 3 phút, 
 """
 import datetime as dt, json, pathlib, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from common import yt, videos, channels, cache_dir, jdump, jload, is_long, quota_used
+from mcommon import yt, videos, channels, cache_dir, jdump, jload, is_long, quota_used
 
 HERE = pathlib.Path(__file__).parent
 TOPICS = jload(HERE / 'topics.json')

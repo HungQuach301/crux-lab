@@ -19,7 +19,7 @@ Mọi chỉ số ở đây là TỰ TÍNH, KHÔNG PHẢI CHỈ SỐ YOUTUBE. Rep
 """
 import datetime as dt, json, math, os, pathlib, re, statistics as stx, sys, urllib.request
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from common import yt, cache_dir, latest_cache, jdump, jload, quota_used, label
+from mcommon import yt, cache_dir, latest_cache, jdump, jload, quota_used, label
 
 HERE = pathlib.Path(__file__).parent
 TOPICS = jload(HERE / 'topics.json')['topics']
@@ -46,7 +46,7 @@ def all_videos():
         for v in p['videos']:
             out[v['id']] = dict(v, channelId=p['channel']['id'], channelTitle=p['channel']['title'], subs=p['channel']['subs'], src='pull')
     dv = jload(day() / 'discover' / 'videos.json')
-    from common import is_long, iso_dur
+    from mcommon import is_long, iso_dur
     for v in dv.values():
         if v['id'] in out or not is_long(v):
             continue

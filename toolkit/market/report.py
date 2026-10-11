@@ -11,7 +11,7 @@ dạng diễn giải ngắn hoặc khuôn trừu tượng, không chép nguyên;
 import datetime as dt, json, pathlib, re, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import analyze as A
-from common import jload
+from mcommon import jload
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 NOW = dt.datetime.now(dt.timezone.utc)
