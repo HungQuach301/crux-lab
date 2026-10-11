@@ -1,0 +1,416 @@
+{
+ "sentences": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "text": "Tessa's mortgage fallback costs $120 a month.",
+   "role": "hook"
+  },
+  {
+   "id": "S01.2",
+   "scene": "S01",
+   "text": "She's borrowing $320,000, and in her city that payment is her biggest bill.",
+   "role": "hook"
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "text": "[curious] A 15-year mortgage, or a 30-year paid off in 15 years anyway, with its lower payment kept for a bad month?"
+  },
+  {
+   "id": "S02.2",
+   "scene": "S02",
+   "text": "We replayed every week of US mortgage surveys to price that fallback in dollars, and what each extra dollar of principal earns.",
+   "role": "promise"
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "text": "Tessa is illustrative, but her rates are real: the survey for the week of October eighth, 2026 has the 15-year at 6.73 percent and the 30-year at 7.4 percent.",
+   "role": "hook"
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "text": "This is US only, and it's history, not a forecast."
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "text": "It won't say which loan to take, or whether to invest."
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "text": "Here is what Tessa is weighing.",
+   "role": "hook"
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "text": "On $320,000, the 15-year loan's payment is $2,828 a month.",
+   "role": "hook"
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "text": "The 30-year loan only requires $2,216.",
+   "role": "hook"
+  },
+  {
+   "id": "S05.1",
+   "scene": "S05",
+   "text": "That gap, about $613 a month, is the fallback: in a tight month, it's the least the 30-year asks of her."
+  },
+  {
+   "id": "S05.2",
+   "scene": "S05",
+   "text": "The bigger payment fits her budget today, but only just, and a job change or a big repair could squeeze it."
+  },
+  {
+   "id": "S05.3",
+   "scene": "S05",
+   "text": "Still, she wants the house paid off in 15 years, so the 30-year only works for her if she pays it like a short loan."
+  },
+  {
+   "id": "S06.1",
+   "scene": "S06",
+   "text": "At 7.4 percent, finishing that loan in 15 years takes $2,948 a month."
+  },
+  {
+   "id": "S06.2",
+   "scene": "S06",
+   "text": "That's $120 a month more than the 15-year loan, for the same house and the same 15 years."
+  },
+  {
+   "id": "S06.3",
+   "scene": "S06",
+   "text": "Over those 15 years, the extra adds up to $21,622."
+  },
+  {
+   "id": "S07.1",
+   "scene": "S07",
+   "text": "In Tessa's world, that price is a stack of bills beside her house: the stack is what keeping the fallback costs."
+  },
+  {
+   "id": "S07.2",
+   "scene": "S07",
+   "text": "It exists because the 30-year carries a higher rate on the same balance: on October eighth, 0.67 point higher."
+  },
+  {
+   "id": "S08.1",
+   "scene": "S08",
+   "text": "Paid on its own 30-year schedule, her loan would charge $477,622 in interest."
+  },
+  {
+   "id": "S08.2",
+   "scene": "S08",
+   "text": "Paid in 15 years, it charges $210,691."
+  },
+  {
+   "id": "S09.1",
+   "scene": "S09",
+   "text": "The 15-year loan charges $189,069, and the difference between those last two totals is exactly the stack."
+  },
+  {
+   "id": "S09.2",
+   "scene": "S09",
+   "text": "So the 30-year paid in 15 isn't the same loan as the 15-year: it's the 15-year plus a fallback, and the fallback has a price."
+  },
+  {
+   "id": "S09.3",
+   "scene": "S09",
+   "text": "Is Tessa's stack a normal price for that fallback, or is the week of October eighth unusual?"
+  },
+  {
+   "id": "S10.1",
+   "scene": "S10",
+   "text": "Many walk-throughs of this question use one assumed rate and treat paying early as the obvious win."
+  },
+  {
+   "id": "S10.2",
+   "scene": "S10",
+   "text": "Here, a real 15-year loan stands next to the 30-year paid in 15, at the real rates of every week since 1991."
+  },
+  {
+   "id": "S10.3",
+   "scene": "S10",
+   "text": "We priced the same $320,000 both ways in each of 1,833 weeks, at that week's own survey rates; how it was built is on screen and in the description."
+  },
+  {
+   "id": "S10.4",
+   "scene": "S10",
+   "text": "Tessa's week is the last of them, and in every earlier week we asked her question: what would the fallback have cost then?"
+  },
+  {
+   "id": "S11.1",
+   "scene": "S11",
+   "text": "The answer comes down to one thing: how far the 30-year rate sits above the 15-year."
+  },
+  {
+   "id": "S11.2",
+   "scene": "S11",
+   "text": "Since 1991, that gap has run from 0.2 point to 1.0 point."
+  },
+  {
+   "id": "S12.1",
+   "scene": "S12",
+   "text": "It averaged 0.57 point, and was at least half a point in about 2 in 3 weeks."
+  },
+  {
+   "id": "S12.2",
+   "scene": "S12",
+   "text": "Tessa's gap on October eighth sits a little above that average."
+  },
+  {
+   "id": "S13.1",
+   "scene": "S13",
+   "text": "Stand a stack beside every week, and the stacks rise and fall with that gap."
+  },
+  {
+   "id": "S13.2",
+   "scene": "S13",
+   "text": "The smallest was $6,097."
+  },
+  {
+   "id": "S14.1",
+   "scene": "S14",
+   "text": "The tallest was $29,502."
+  },
+  {
+   "id": "S15.1",
+   "scene": "S15",
+   "text": "The typical week, the median, priced the fallback at $16,631."
+  },
+  {
+   "id": "S15.2",
+   "scene": "S15",
+   "text": "[serious] Fewer than 1 in 5 weeks since 1991 put a price this high on it."
+  },
+  {
+   "id": "S15.3",
+   "scene": "S15",
+   "text": "That makes Tessa's fallback expensive by history."
+  },
+  {
+   "id": "S15.4",
+   "scene": "S15",
+   "text": "What a lower payment is worth in a bad month, this replay can't measure."
+  },
+  {
+   "id": "S16.1",
+   "scene": "S16",
+   "text": "Line the weeks up by decade, and the pattern is not the one most people expect."
+  },
+  {
+   "id": "S16.2",
+   "scene": "S16",
+   "text": "In the 1990s, the typical fallback cost $15,118."
+  },
+  {
+   "id": "S17.1",
+   "scene": "S17",
+   "text": "In the 2000s, with lower rates, it cost about the same: $14,210."
+  },
+  {
+   "id": "S18.1",
+   "scene": "S18",
+   "text": "In the 2010s, rates were far lower, yet the fallback cost more: $20,374."
+  },
+  {
+   "id": "S19.1",
+   "scene": "S19",
+   "text": "The reason is the gap: in the 2010s and 2020s it typically ran about 0.7 point, against about 0.45 in the 1990s and 2000s."
+  },
+  {
+   "id": "S19.2",
+   "scene": "S19",
+   "text": "A lower rate didn't mean a cheaper fallback; a wider gap meant a pricier one."
+  },
+  {
+   "id": "S20.1",
+   "scene": "S20",
+   "text": "Since 2020, the typical week priced it at $21,345, close to Tessa's own stack."
+  },
+  {
+   "id": "S20.2",
+   "scene": "S20",
+   "text": "That's history, not a forecast: the gap has moved before, and nothing here says where it goes."
+  },
+  {
+   "id": "S21.1",
+   "scene": "S21",
+   "text": "Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day."
+  },
+  {
+   "id": "S21.2",
+   "scene": "S21",
+   "text": "At the October eighth rates, it doesn't: it ends about 15 months late."
+  },
+  {
+   "id": "S21.3",
+   "scene": "S21",
+   "text": "To finish in 15 years, she'd add $733 a month on top of the required payment."
+  },
+  {
+   "id": "S22.1",
+   "scene": "S22",
+   "text": "That extra never lowers what the loan requires: the required payment stays where it was, and the loan simply ends sooner."
+  },
+  {
+   "id": "S22.2",
+   "scene": "S22",
+   "text": "Each extra dollar does cut the next month's interest; the payment just stays fixed, so more of it goes to principal."
+  },
+  {
+   "id": "S22.3",
+   "scene": "S22",
+   "text": "That's why the fallback is still there years later, if a month goes wrong."
+  },
+  {
+   "id": "S23.1",
+   "scene": "S23",
+   "text": "Tessa has another practical question: could she send the extra once a year instead of every month?"
+  },
+  {
+   "id": "S23.2",
+   "scene": "S23",
+   "text": "That's one payment a year, the same total as the monthly extra."
+  },
+  {
+   "id": "S23.3",
+   "scene": "S23",
+   "text": "Paid that way, the loan ends four months later."
+  },
+  {
+   "id": "S24.1",
+   "scene": "S24",
+   "text": "And it charges about $8,200 more in interest, because each dollar sits on the balance longer before it arrives."
+  },
+  {
+   "id": "S24.2",
+   "scene": "S24",
+   "text": "That isn't a verdict on paying yearly: the money stays in her account longer, and what it earns there isn't counted."
+  },
+  {
+   "id": "S24.3",
+   "scene": "S24",
+   "text": "Which leaves the question underneath all of this: when Tessa puts an extra dollar into the mortgage, what does it actually earn?"
+  },
+  {
+   "id": "S25.1",
+   "scene": "S25",
+   "text": "Every extra dollar of principal stops interest from being charged on that dollar, at the loan's own rate."
+  },
+  {
+   "id": "S25.2",
+   "scene": "S25",
+   "text": "On Tessa's 30-year, that's 7.4 percent a year, before taxes."
+  },
+  {
+   "id": "S25.3",
+   "scene": "S25",
+   "text": "It isn't an investment return; it's interest she no longer pays."
+  },
+  {
+   "id": "S25.4",
+   "scene": "S25",
+   "text": "That rate is the bar any other use of that dollar gets measured against, before taxes."
+  },
+  {
+   "id": "S25.5",
+   "scene": "S25",
+   "text": "Whether any investment clears it, once risk and taxes count, isn't tested here."
+  },
+  {
+   "id": "S26.1",
+   "scene": "S26",
+   "text": "The bar moves with the rate a loan was taken at."
+  },
+  {
+   "id": "S26.2",
+   "scene": "S26",
+   "text": "Since 1991, it has stood as high as 9.25 percent."
+  },
+  {
+   "id": "S27.1",
+   "scene": "S27",
+   "text": "And as low as 2.65 percent."
+  },
+  {
+   "id": "S28.1",
+   "scene": "S28",
+   "text": "Only about 1 week in 5 had a bar as high as Tessa's."
+  },
+  {
+   "id": "S29.1",
+   "scene": "S29",
+   "text": "Leo, also illustrative, took a 30-year loan of the same size in January 2021, the week of that lowest rate, and paid it like a 15-year too."
+  },
+  {
+   "id": "S29.2",
+   "scene": "S29",
+   "text": "His fallback was cheaper: $13,231 over 15 years."
+  },
+  {
+   "id": "S30.1",
+   "scene": "S30",
+   "text": "And it left him more room: his required payment sat about $793 a month below the 15-year's."
+  },
+  {
+   "id": "S30.2",
+   "scene": "S30",
+   "text": "But his bar was 2.65 percent: each extra dollar he paid earned only that, before taxes."
+  },
+  {
+   "id": "S30.3",
+   "scene": "S30",
+   "text": "[thoughtful] Same plan, a different week, and it means something else."
+  },
+  {
+   "id": "S30.4",
+   "scene": "S30",
+   "text": "For Leo, the stack was short and the bar was low; for Tessa, the stack is tall and the bar is high."
+  },
+  {
+   "id": "S31.1",
+   "scene": "S31",
+   "text": "Any fixed-rate borrower can set their own pair beside hers."
+  },
+  {
+   "id": "S31.2",
+   "scene": "S31",
+   "text": "The bar is that loan's own rate, printed on the paperwork, and the stack depends on how far apart the 15-year and 30-year offers sit that week."
+  },
+  {
+   "id": "S31.3",
+   "scene": "S31",
+   "text": "Clearing the bar isn't the whole story: a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for."
+  },
+  {
+   "id": "S32.1",
+   "scene": "S32",
+   "text": "What this leaves out is on the method card and in the description."
+  },
+  {
+   "id": "S32.2",
+   "scene": "S32",
+   "text": "This is US only, and it's history, not a forecast; it doesn't say which loan to take."
+  },
+  {
+   "id": "S33.1",
+   "scene": "S33",
+   "text": "Beside Tessa's house now stand a tall stack and a high bar."
+  },
+  {
+   "id": "S33.2",
+   "scene": "S33",
+   "text": "She asked: a 15-year, or a 30-year paid in 15?"
+  },
+  {
+   "id": "S33.3",
+   "scene": "S33",
+   "text": "[thoughtful] What she now knows: the 30-year paid in 15 is the 15-year plus a fallback, and at the rates of the week of October eighth, 2026, that fallback costs her $120 a month."
+  }
+ ]
+}

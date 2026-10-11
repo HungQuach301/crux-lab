@@ -1,0 +1,1860 @@
+{
+ "claims": [
+  {
+   "claimId": "n_weeks",
+   "value": 1833,
+   "display": "1,833 weeks",
+   "unit": "weeks",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Number of paired weeks.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    }
+   ]
+  },
+  {
+   "claimId": "first_week",
+   "value": "1991-08-30",
+   "display": "August 1991",
+   "unit": "date",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. First paired week.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    },
+    {
+     "scene": "S11",
+     "sentence": "S11.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S26",
+     "sentence": "S26.2"
+    }
+   ]
+  },
+  {
+   "claimId": "last_week",
+   "value": "2026-10-08",
+   "display": "October 8, 2026",
+   "unit": "date",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Last paired week (\"now\" of the data).",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.4"
+    },
+    {
+     "scene": "S33",
+     "sentence": "S33.3"
+    }
+   ]
+  },
+  {
+   "claimId": "r30_now",
+   "value": 7.4,
+   "display": "7.40%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. 30-year rate in the last paired week.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.1"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.1"
+    }
+   ]
+  },
+  {
+   "claimId": "r15_now",
+   "value": 6.73,
+   "display": "6.73%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. 15-year rate in the last paired week.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.1"
+    }
+   ]
+  },
+  {
+   "claimId": "spread_now",
+   "value": 0.67,
+   "display": "0.67 point",
+   "unit": "percentage points",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. 30-year minus 15-year rate in the last paired week.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S07",
+     "sentence": "S07.2"
+    },
+    {
+     "scene": "S11",
+     "sentence": "S11.1"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.2"
+    },
+    {
+     "scene": "S31",
+     "sentence": "S31.2"
+    }
+   ]
+  },
+  {
+   "claimId": "pay15_now",
+   "value": 2828.16,
+   "display": "$2,828",
+   "unit": "dollars per month",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Payment on a 15-year loan (n=180) at the last week 15-year rate.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    },
+    {
+     "scene": "S21",
+     "sentence": "S21.1"
+    }
+   ]
+  },
+  {
+   "claimId": "pay30_now",
+   "value": 2215.62,
+   "display": "$2,216 a month",
+   "unit": "dollars per month",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Required payment on a 30-year loan (n=360) at the last week 30-year rate.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.3"
+    }
+   ]
+  },
+  {
+   "claimId": "pay30on15_now",
+   "value": 2948.28,
+   "display": "$2,948 a month",
+   "unit": "dollars per month",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Payment that retires the 30-year loan in 15 years: n=180 at the last week 30-year rate.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.1"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.3"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.1"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.2"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.2"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    },
+    {
+     "scene": "S21",
+     "sentence": "S21.1"
+    },
+    {
+     "scene": "S33",
+     "sentence": "S33.2"
+    },
+    {
+     "scene": "S33",
+     "sentence": "S33.3"
+    }
+   ]
+  },
+  {
+   "claimId": "extra_vs15_month_now",
+   "value": 120.12,
+   "display": "$120 a month",
+   "unit": "dollars per month",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. pay30on15_now minus pay15_now (unrounded inputs).",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S06",
+     "sentence": "S06.2"
+    },
+    {
+     "scene": "S33",
+     "sentence": "S33.3"
+    }
+   ]
+  },
+  {
+   "claimId": "extra_vs15_total_now",
+   "value": 21622,
+   "display": "$21,622",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. (pay30on15_now - pay15_now) * 180, unrounded inputs: extra paid over 15 years for paying the 30-year loan on a 15-year schedule instead of taking the 15-year loan.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S06",
+     "sentence": "S06.3"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.1"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.2"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    },
+    {
+     "scene": "S20",
+     "sentence": "S20.1"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.4"
+    },
+    {
+     "scene": "S31",
+     "sentence": "S31.2"
+    },
+    {
+     "scene": "S33",
+     "sentence": "S33.1"
+    }
+   ]
+  },
+  {
+   "claimId": "fallback_gap_now",
+   "value": 612.55,
+   "display": "about $613 a month",
+   "unit": "dollars per month",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. pay15_now minus pay30_now: how much lower the 30-year required payment is than the 15-year payment.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    }
+   ]
+  },
+  {
+   "claimId": "extra_principal_needed_now",
+   "value": 732.67,
+   "display": "$733 a month",
+   "unit": "dollars per month",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. pay30on15_now minus pay30_now: extra principal each month on top of the 30-year required payment to finish in 180 months.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S21",
+     "sentence": "S21.3"
+    },
+    {
+     "scene": "S23",
+     "sentence": "S23.2"
+    }
+   ]
+  },
+  {
+   "claimId": "months_at_pay15_now",
+   "value": 194.6,
+   "display": "about 195 months",
+   "unit": "months",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Months to pay off the 30-year loan at the last week 30-year rate when paying exactly pay15_now each month (continuous formula).",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S21",
+     "sentence": "S21.2"
+    }
+   ]
+  },
+  {
+   "claimId": "months_late_at_pay15_now",
+   "value": 14.6,
+   "display": "about 15 months late",
+   "unit": "months",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. months_at_pay15_now minus 180.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S21",
+     "sentence": "S21.2"
+    }
+   ]
+  },
+  {
+   "claimId": "interest_15_now",
+   "value": 189069,
+   "display": "$189,069",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Total interest on the 15-year loan: pay15_now*180 - 320000.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.3"
+    }
+   ]
+  },
+  {
+   "claimId": "interest_30on15_now",
+   "value": 210691,
+   "display": "$210,691",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Total interest on the 30-year loan paid in 15 years: pay30on15_now*180 - 320000.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.2"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    }
+   ]
+  },
+  {
+   "claimId": "interest_30full_now",
+   "value": 477622,
+   "display": "$477,622",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Total interest on the 30-year loan paid on its own 30-year schedule: pay30_now*360 - 320000.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.1"
+    }
+   ]
+  },
+  {
+   "claimId": "spread_mean",
+   "value": 0.57,
+   "display": "0.57 point",
+   "unit": "percentage points",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Mean weekly spread (30-year minus 15-year).",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S12",
+     "sentence": "S12.1"
+    },
+    {
+     "scene": "S12",
+     "sentence": "S12.2"
+    }
+   ]
+  },
+  {
+   "claimId": "spread_min",
+   "value": 0.2,
+   "display": "0.2 point",
+   "unit": "percentage points",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Smallest weekly spread.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S11",
+     "sentence": "S11.2"
+    }
+   ]
+  },
+  {
+   "claimId": "spread_max",
+   "value": 1.0,
+   "display": "1.0 point",
+   "unit": "percentage points",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Largest weekly spread.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S11",
+     "sentence": "S11.2"
+    }
+   ]
+  },
+  {
+   "claimId": "share_spread_ge_050",
+   "value": 0.63,
+   "display": "63%",
+   "unit": "share of weeks",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Share of paired weeks with spread >= 0.50 point.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S12",
+     "sentence": "S12.1"
+    }
+   ]
+  },
+  {
+   "claimId": "extra_total_median",
+   "value": 16631,
+   "display": "$16,631",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. For every paired week: (n=180 payment at the 30-year rate - n=180 payment at the 15-year rate) * 180. Median over weeks.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    }
+   ]
+  },
+  {
+   "claimId": "extra_total_min",
+   "value": 6097,
+   "display": "$6,097",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Same weekly quantity as extra_total_median; minimum over weeks.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.2"
+    }
+   ]
+  },
+  {
+   "claimId": "extra_total_min_week",
+   "value": "2008-12-04",
+   "display": "December 2008",
+   "unit": "date",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Week of extra_total_min.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "extra_total_max",
+   "value": 29502,
+   "display": "$29,502",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Same weekly quantity as extra_total_median; maximum over weeks.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.1"
+    }
+   ]
+  },
+  {
+   "claimId": "extra_total_max_week",
+   "value": "2023-01-26",
+   "display": "January 2023",
+   "unit": "date",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Week of extra_total_max.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_extra_ge_now",
+   "value": 0.187,
+   "display": "18.7%",
+   "unit": "share of weeks",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Share of paired weeks whose extra_total is at least extra_vs15_total_now (unrounded).",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    }
+   ]
+  },
+  {
+   "claimId": "bar_now",
+   "value": 7.4,
+   "display": "7.40% a year, before taxes",
+   "unit": "percent per year",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Return earned by each extra dollar of principal on the 30-year loan = the loan rate (interest no longer charged), before taxes: the last week 30-year rate.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "before-taxes",
+   "core": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S25",
+     "sentence": "S25.1"
+    },
+    {
+     "scene": "S25",
+     "sentence": "S25.2"
+    },
+    {
+     "scene": "S25",
+     "sentence": "S25.3"
+    },
+    {
+     "scene": "S25",
+     "sentence": "S25.4"
+    },
+    {
+     "scene": "S28",
+     "sentence": "S28.1"
+    },
+    {
+     "scene": "S31",
+     "sentence": "S31.2"
+    },
+    {
+     "scene": "S33",
+     "sentence": "S33.1"
+    }
+   ]
+  },
+  {
+   "claimId": "r30_min",
+   "value": 2.65,
+   "display": "2.65%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Lowest weekly 30-year rate over the paired weeks.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S27",
+     "sentence": "S27.1"
+    }
+   ]
+  },
+  {
+   "claimId": "r30_min_week",
+   "value": "2021-01-07",
+   "display": "January 2021",
+   "unit": "date",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. First week of r30_min.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S29",
+     "sentence": "S29.1"
+    }
+   ]
+  },
+  {
+   "claimId": "r30_max",
+   "value": 9.25,
+   "display": "9.25%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Highest weekly 30-year rate over the paired weeks.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S26",
+     "sentence": "S26.2"
+    }
+   ]
+  },
+  {
+   "claimId": "r30_max_week",
+   "value": "1994-11-25",
+   "display": "November 1994",
+   "unit": "date",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. First week of r30_max.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_r30_ge_now",
+   "value": 0.19,
+   "display": "19%",
+   "unit": "share of weeks",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Share of paired weeks with a 30-year rate at least r30_now.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S28",
+     "sentence": "S28.1"
+    }
+   ]
+  },
+  {
+   "claimId": "leo_r30",
+   "value": 2.65,
+   "display": "2.65%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. 30-year rate in the week 2021-01-07.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "leo",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S29",
+     "sentence": "S29.1"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.2"
+    }
+   ]
+  },
+  {
+   "claimId": "leo_r15",
+   "value": 2.16,
+   "display": "2.16%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. 15-year rate in the week 2021-01-07.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "leo",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "leo_extra_vs15_total",
+   "value": 13231,
+   "display": "$13,231",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. extra_total for the week 2021-01-07.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "leo",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S29",
+     "sentence": "S29.2"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.4"
+    }
+   ]
+  },
+  {
+   "claimId": "leo_extra_vs15_month",
+   "value": 73.51,
+   "display": "$74 a month",
+   "unit": "dollars per month",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. (n=180 payment at the 30-year rate - n=180 payment at the 15-year rate) in the week 2021-01-07.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "leo",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S29",
+     "sentence": "S29.2"
+    }
+   ]
+  },
+  {
+   "claimId": "leo_fallback_gap",
+   "value": 793.4,
+   "display": "about $793 a month",
+   "unit": "dollars per month",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. 15-year payment minus 30-year required payment in the week 2021-01-07.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "leo",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S30",
+     "sentence": "S30.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era1991_median_extra_total",
+   "value": 15118,
+   "display": "$15,118",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly extra_total over paired weeks 1991-08-30 to 1999-12-31.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    }
+   ]
+  },
+  {
+   "claimId": "era1991_median_r30",
+   "value": 7.73,
+   "display": "7.73%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly 30-year rate over paired weeks 1991-08-30 to 1999-12-31.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era1991_median_spread",
+   "value": 0.46,
+   "display": "0.46 point",
+   "unit": "percentage points",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly spread over paired weeks 1991-08-30 to 1999-12-31.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era2000_median_extra_total",
+   "value": 14210,
+   "display": "$14,210",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly extra_total over paired weeks 2000-01-07 to 2009-12-31.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era2000_median_r30",
+   "value": 6.18,
+   "display": "6.18%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly 30-year rate over paired weeks 2000-01-07 to 2009-12-31.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era2000_median_spread",
+   "value": 0.45,
+   "display": "0.45 point",
+   "unit": "percentage points",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly spread over paired weeks 2000-01-07 to 2009-12-31.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era2010_median_extra_total",
+   "value": 20374,
+   "display": "$20,374",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly extra_total over paired weeks 2010-01-07 to 2019-12-26.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era2010_median_r30",
+   "value": 4.03,
+   "display": "4.03%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly 30-year rate over paired weeks 2010-01-07 to 2019-12-26.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era2010_median_spread",
+   "value": 0.72,
+   "display": "0.72 point",
+   "unit": "percentage points",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly spread over paired weeks 2010-01-07 to 2019-12-26.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era2020_median_extra_total",
+   "value": 21345,
+   "display": "$21,345",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly extra_total over paired weeks 2020-01-02 to 2026-10-08.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S20",
+     "sentence": "S20.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era2020_median_r30",
+   "value": 6.28,
+   "display": "about 6.3%",
+   "unit": "percent",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly 30-year rate over paired weeks 2020-01-02 to 2026-10-08.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era2020_median_spread",
+   "value": 0.7,
+   "display": "0.70 point",
+   "unit": "percentage points",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Median weekly spread over paired weeks 2020-01-02 to 2026-10-08.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "monthly_extra_months",
+   "value": 180,
+   "display": "180 months",
+   "unit": "months",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Monthly simulation at r30_now: required payment + extra_principal_needed_now every month; number of payments until the balance reaches zero.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S29",
+     "sentence": "S29.1"
+    }
+   ]
+  },
+  {
+   "claimId": "monthly_extra_interest",
+   "value": 210691,
+   "display": "$210,691",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Total interest in the monthly-extra simulation.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yearly_lump",
+   "value": 8792.03,
+   "display": "$8,792 once a year",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. 12 * extra_principal_needed_now, paid once a year with payments 12, 24, ...",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S23",
+     "sentence": "S23.2"
+    }
+   ]
+  },
+  {
+   "claimId": "yearly_lump_months",
+   "value": 184,
+   "display": "184 months",
+   "unit": "months",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Monthly simulation at r30_now: required payment every month + yearly_lump with payments 12, 24, ...; number of payments until the balance reaches zero.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S23",
+     "sentence": "S23.3"
+    }
+   ]
+  },
+  {
+   "claimId": "yearly_lump_interest",
+   "value": 218857,
+   "display": "$218,857",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. Total interest in the yearly-lump simulation.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yearly_vs_monthly_interest",
+   "value": 8166,
+   "display": "$8,166",
+   "unit": "dollars",
+   "formula": "Data: Freddie Mac Primary Mortgage Market Survey via FRED (MORTGAGE30US, MORTGAGE15US; weekly averages, percent), paired weeks where both series have a value. Loan math on $320,000: level payment = P*x/(1-(1+x)^-n), x = rate/1200; principal and interest only. yearly_lump_interest minus monthly_extra_interest (unrounded).",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "tessa",
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S24",
+     "sentence": "S24.1"
+    }
+   ]
+  },
+  {
+   "claimId": "last_week_short",
+   "value": "2026-10-08",
+   "display": "Oct 8, 2026",
+   "unit": "date",
+   "formula": "same quantity as last_week: the week of October 8, 2026",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "last_week",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "yearly_lump_late",
+   "value": 4,
+   "display": "4 months later",
+   "unit": "months",
+   "formula": "same quantity as yearly_lump_months: 184 months (4 months later)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "of": "yearly_lump_months",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "character": "tessa"
+  },
+  {
+   "claimId": "pay15_month",
+   "value": 2828.16,
+   "display": "$2,828 a month",
+   "unit": "dollars per month",
+   "formula": "same quantity as pay15_now: $2,828 a month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "of": "pay15_now",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "character": "tessa"
+  },
+  {
+   "claimId": "pay30_amt",
+   "value": 2215.62,
+   "display": "$2,216",
+   "unit": "dollars per month",
+   "formula": "same quantity as pay30_now: $2,216 a month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "of": "pay30_now",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "character": "tessa"
+  },
+  {
+   "claimId": "principal",
+   "value": 320000.0,
+   "display": "$320,000",
+   "unit": "const",
+   "formula": "same quantity as params.principal: $320,000 (params.principal; ILLUSTRATIVE loan)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": true,
+   "of": "params.principal",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "character": "tessa"
+  },
+  {
+   "claimId": "first_week_short",
+   "value": "1991-08-30",
+   "display": "Aug 1991",
+   "unit": "date",
+   "formula": "same quantity as first_week: August 1991",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "first_week",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "term_short",
+   "value": 15.0,
+   "display": "15-year",
+   "unit": "const",
+   "formula": "same quantity as params.termShort: 15-year (params.termShort = 180 months)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.termShort",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "term_long",
+   "value": 30.0,
+   "display": "30-year",
+   "unit": "const",
+   "formula": "same quantity as params.termLong: 30-year (params.termLong = 360 months)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.termLong",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "term_short_years",
+   "value": 15.0,
+   "display": "15 years",
+   "unit": "months",
+   "formula": "same quantity as monthly_extra_months: 180 months (15 years)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "of": "monthly_extra_months",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "character": "tessa"
+  },
+  {
+   "claimId": "paid_in_short",
+   "value": 15.0,
+   "display": "in 15",
+   "unit": "months",
+   "formula": "same quantity as monthly_extra_months: 30-year paid in 15 (monthly_extra_months = 180 months)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "of": "monthly_extra_months",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "character": "tessa"
+  }
+ ]
+}

@@ -1,5 +1,5 @@
 """Tập 7 · tiện ích chung cho các đoạn thế giới 3D (spine v2, D-010) — chép từ episodes/ep006/world/wlib.py, đổi nguồn take:
-take của cảnh theo episodes/ep007/world/c3/voice-scenes.json (sinh bằng world/c3/voice_c3.py, take commit ở voice-takes/).
+take của cảnh theo episodes/ep007/review-g1/voice-scenes.json (cả tập, story/voice_scenes.py; C3 dùng world/c3/voice-scenes.json — cùng take), commit ở voice-takes/.
   scene_take(sc)        → take của cảnh, kiểm chữ take == chữ kịch bản hiện tại
   scene_words(sc)       → từ (đã nói, có sid = câu kịch bản), đầu từ chỉnh theo năng lượng (onset.refine), giờ tính trong take
   clip_voice(runs, lead)→ lời cho một đoạn ngắn (C3): cắt từ take theo câu (wav trong work/, không commit), từ đã dời giờ
@@ -13,7 +13,8 @@ sys.path.insert(0, os.path.join(ROOT, 'toolkit', 'factory'))
 sys.dont_write_bytecode = True
 from onset import refine  # noqa: E402
 TAKES = os.path.join(EP, 'voice-takes')
-SCENES = os.path.join(HERE, 'c3', 'voice-scenes.json')
+# C4: take cả tập (33/33, story/voice_scenes.py → review-g1/voice-scenes.json); 5 cảnh của C3 trùng take với world/c3/voice-scenes.json
+SCENES = os.path.join(EP, 'review-g1', 'voice-scenes.json')
 LINE = re.compile(r'^(S\d\d)\.(\d+)\s+(?:\{(\w+)\}\s+)?(.+?)\s*<!--')
 TAIL = 1.0
 

@@ -69,6 +69,41 @@
   "display": "$2,216 a month",
   "display_full": "$2,216 a month"
  },
+ "r15_now": {
+  "value": 6.73,
+  "display": "6.73%",
+  "display_full": "6.73%"
+ },
+ "spread_now": {
+  "value": 0.67,
+  "display": "0.67 point",
+  "display_full": "0.67 point"
+ },
+ "fallback_gap_now": {
+  "value": 612.55,
+  "display": "about $613 a month",
+  "display_full": "about $613 a month"
+ },
+ "interest_30full_now": {
+  "value": 477622,
+  "display": "$477,622",
+  "display_full": "$477,622 (about $478,000)"
+ },
+ "interest_30on15_now": {
+  "value": 210691,
+  "display": "$210,691",
+  "display_full": "$210,691 (about $211,000)"
+ },
+ "interest_15_now": {
+  "value": 189069,
+  "display": "$189,069",
+  "display_full": "$189,069 (about $189,000)"
+ },
+ "n_weeks": {
+  "value": 1833,
+  "display": "1,833 weeks",
+  "display_full": "1,833 weeks"
+ },
  "last_week_short": {
   "value": "2026-10-08",
   "display": "Oct 8, 2026",
@@ -97,6 +132,36 @@
   "value": 320000.0,
   "display": "$320,000",
   "display_full": "$320,000 (params.principal; ILLUSTRATIVE loan)"
+ },
+ "first_week_short": {
+  "value": "1991-08-30",
+  "display": "Aug 1991",
+  "display_full": "August 1991",
+  "of": "first_week"
+ },
+ "term_short": {
+  "value": 15.0,
+  "display": "15-year",
+  "display_full": "15-year (params.termShort = 180 months)",
+  "of": "params.termShort"
+ },
+ "term_long": {
+  "value": 30.0,
+  "display": "30-year",
+  "display_full": "30-year (params.termLong = 360 months)",
+  "of": "params.termLong"
+ },
+ "term_short_years": {
+  "value": 15.0,
+  "display": "15 years",
+  "display_full": "180 months (15 years)",
+  "of": "monthly_extra_months"
+ },
+ "paid_in_short": {
+  "value": 15.0,
+  "display": "in 15",
+  "display_full": "30-year paid in 15 (monthly_extra_months = 180 months)",
+  "of": "monthly_extra_months"
  },
  "_geom": {
   "bundle_usd": 1441.47,

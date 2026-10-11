@@ -16,7 +16,10 @@ for ln in open(os.path.join(EP, 'numbers.md'), encoding='utf-8'):
 disp = {'extra_vs15_month_now': '$120 a month', 'extra_vs15_total_now': '$21,622', 'pay30on15_now': '$2,948 a month', 'pay15_now': '$2,828',
         'last_week': 'October 8, 2026', 'months_at_pay15_now': 'about 195 months', 'months_late_at_pay15_now': 'about 15 months late',
         'extra_principal_needed_now': '$733 a month', 'monthly_extra_months': '180 months', 'yearly_lump': '$8,792 once a year',
-        'yearly_lump_months': '184 months', 'bar_now': '7.40% a year, before taxes', 'r30_now': '7.40%', 'pay30_now': '$2,216 a month'}
+        'yearly_lump_months': '184 months', 'bar_now': '7.40% a year, before taxes', 'r30_now': '7.40%', 'pay30_now': '$2,216 a month',
+        # C4 (đoạn a, b): nhãn B03–B09
+        'r15_now': '6.73%', 'spread_now': '0.67 point', 'fallback_gap_now': 'about $613 a month', 'interest_30full_now': '$477,622',
+        'interest_30on15_now': '$210,691', 'interest_15_now': '$189,069', 'n_weeks': '1,833 weeks'}
 cl = {}
 for k, d in disp.items():
     full = rows[k]
@@ -35,6 +38,18 @@ cl['pay30_amt'] = {'value': Q['pay30_now']['value'], 'display': '$2,216', 'displ
 assert cl['pay30_amt']['display'] in rows['pay30_now']
 cl['principal'] = {'value': model['params']['principal'], 'display': '$320,000', 'display_full': '$320,000 (params.principal; ILLUSTRATIVE loan)'}
 assert model['params']['principal'] == 320000
+# C4 (B02): "every week since Aug 1991" — cùng tuần first_week, dạng tháng rút gọn như last_week_short
+assert Q['first_week']['value'] == '1991-08-30'
+cl['first_week_short'] = {'value': '1991-08-30', 'display': 'Aug 1991', 'display_full': rows['first_week'], 'of': 'first_week'}
+# C4: kỳ hạn hai khoản vay trên hình (thẻ hai khoản B02, nhãn thanh B04–B09) = params.termShort / termLong (tháng) ÷ 12 — chữ số trên hình nào
+# cũng qua claim; "in 15" = trả xong trong 15 năm (monthly_extra_months = 180 tháng)
+P = model['params']
+assert P['termShort'] == 180 and P['termLong'] == 360 and Q['monthly_extra_months']['value'] == 180
+cl['term_short'] = {'value': P['termShort'] / 12, 'display': '15-year', 'display_full': '15-year (params.termShort = 180 months)', 'of': 'params.termShort'}
+cl['term_long'] = {'value': P['termLong'] / 12, 'display': '30-year', 'display_full': '30-year (params.termLong = 360 months)', 'of': 'params.termLong'}
+cl['term_short_years'] = {'value': P['termShort'] / 12, 'display': '15 years', 'display_full': rows['monthly_extra_months'], 'of': 'monthly_extra_months'}
+cl['paid_in_short'] = {'value': P['termShort'] / 12, 'display': 'in 15', 'display_full': '30-year paid in 15 (monthly_extra_months = 180 months)', 'of': 'monthly_extra_months'}
+assert '15 years' in rows['monthly_extra_months']
 
 # kiểm chéo dùng cho hình
 v = lambda k: Q[k]['value']

@@ -6,4 +6,94 @@ pillar: vay nợ
 tokenCeiling: {episode: 15000000, consoleUsd: 45, note: "mức cảnh báo lab (episode.md §8, chủ dự án duyệt 11/10); trần = đầu vào mới + sinh ra từ log phiên + headless"}
 voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1007, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
 music: {style: C}      # G-016; nhạc hiệu kênh A + khúc đóng A (episode.md §5b)
-dossier: {script_md: story/script.md, numbers: numbers.md, model: out/model.json, sources: data/sources.json}
+# F-3 (D-010 §5) + episode.md §5b: nhạc bằng mã theo bản đồ căng, MỖI HỒI MỘT CUE (khoá/nhịp/hình riêng, không lặp vòng) — world/music/{tension,bed}.py.
+# Nhạc về 0 quanh MR1, MR2 (midrolls[].t) và 0,75 s trước ba số neo (spine `anchor: true`, mỗi số mở đầu cảnh: S06.1 "$2,948 a month", S18.1
+# "$20,374", S28.1 "about 1 week in 5" — lặng nằm TRONG đuôi 1,0 s của cảnh trước, không cộng giây vào tập). Khúc đóng A (toolkit/factory/theme/close-A.wav) do bed.py đặt: điểm chạm
+# 0,6 s sau chữ cuối. Đổi timeline (đuôi, MR) → `build_inputs.py --timeline --bed` sinh lại work/factory/music/bed.wav; đoạn thế giới dùng đúng lát
+# nhạc này (c4kit.music_plan).
+audio:
+  lufs: -14
+  true_peak: -2.0     # như Tập 5–6: −2,0 để bản AAC cuối còn dư ≤ −1,5 dBTP
+  music: work/factory/music/bed.wav
+  music_cmd: "python3 episodes/ep007/world/music/bed.py {total} {out} --timeline episodes/ep007/out/factory/timeline.json"
+  ident: {after: S03}            # F-12: nhạc hiệu A 3 s cuối đuôi S03 (toolkit/factory/theme/ident-A.wav)
+  close_lift_db: 12              # F-12: nhạc +12 dB trong 0,5 s sau chữ cuối (khúc đóng A nghe rõ ở thẻ cuối)
+
+# ---- C4 animatic cả tập (nhà máy, D-010): MỌI cảnh là đoạn thế giới 3D (world:), không shot 2D; 720p xem trước (C5 đổi res: 1080).
+#   python3 episodes/ep007/world/derive.py && python3 episodes/ep007/c4/build_inputs.py --timeline   (gen + timeline khô + nhạc nền, 0 ký tự EL)
+#   for s in a-s01-s03 b-s04-s09 c-s10-s15 d-s16-s20 e-s21-s24 f-s25-s28 g-s29-s33; do python3 episodes/ep007/world/c4/$s/spine.py && \
+#     node --import ./episodes/ep007/c4/smoke/register.mjs episodes/ep007/c4/smoke/run.mjs $s; done      (kiểm khai, không render)
+#   bash toolkit/build.sh episodes/ep007/episode.yaml && python3 episodes/ep007/c4/build_inputs.py --out
+scope: full
+script: c4/gen/script.json
+claims: c4/gen/claims.json
+tokens: c4/gen/tokens.json
+data: {file: c4/gen/data.json}
+fps: 30
+res: 720    # C4 animatic; C5 bản cuối đổi 1080 (đoạn thế giới render lại một lần, cache theo cảnh)
+dossier: {script_md: story/script.md, numbers: numbers.md, model: out/model.json, sources: data/sources.json, contract: contract.json}
+acts:   # theo các dòng `=== … ===` của story/script.md
+  - {id: cold-open, scenes: [S01, S02, S03]}
+  - {id: ident, scenes: [S03]}          # 3 s cuối S03 (đuôi), không lời: nhạc hiệu A trên thế giới tối dần
+  - {id: act1, scenes: [S04, S05, S06, S07, S08, S09]}
+  - {id: act2, scenes: [S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24]}
+  - {id: act3, scenes: [S25, S26, S27, S28, S29, S30, S31]}
+  - {id: limits, scenes: [S32, S33]}
+# tail = max(1,0; hold câu cuối của cảnh) — như story/timeline_len.py (out/timeline-len.json); + ident 3 s sau S03
+scenes:
+  - {id: S01, tail: 1.0, shots: []}
+  - {id: S02, tail: 1.0, shots: []}     # S02.2 hold 0,5 → 1,0
+  - {id: S03, tail: 4.0, shots: []}     # S03.3 hold 0,8 → 1,0 + ident A 3 s (audio.ident)
+  - {id: S04, tail: 1.0, shots: []}     # S04.3 hold 0,8 → 1,0
+  - {id: S05, tail: 1.0, shots: []}
+  - {id: S06, tail: 1.2, shots: []}     # S06.3 hold 1,2 (the stack đủ cao, giữ)
+  - {id: S07, tail: 1.0, shots: []}
+  - {id: S08, tail: 1.0, shots: []}     # S08.2 hold 0,8 → 1,0
+  - {id: S09, tail: 1.5, shots: []}     # S09.3 hold 1,5 → MR1 (lặng ≥ 1 s cả bản trộn)
+  - {id: S10, tail: 1.0, shots: []}
+  - {id: S11, tail: 1.2, shots: []}     # S11.2 hold 1,2
+  - {id: S12, tail: 1.0, shots: []}
+  - {id: S13, tail: 1.0, shots: []}     # S13.2 hold 1,0
+  - {id: S14, tail: 1.0, shots: []}     # S14.1 hold 1,0
+  - {id: S15, tail: 1.0, shots: []}
+  - {id: S16, tail: 1.0, shots: []}
+  - {id: S17, tail: 1.0, shots: []}
+  - {id: S18, tail: 1.0, shots: []}     # S18.1 hold 1,0
+  - {id: S19, tail: 1.0, shots: []}     # S19.2 hold 1,0
+  - {id: S20, tail: 1.0, shots: []}
+  - {id: S21, tail: 1.0, shots: []}
+  - {id: S22, tail: 1.0, shots: []}
+  - {id: S23, tail: 1.0, shots: []}     # S23.3 hold 0,8 → 1,0
+  - {id: S24, tail: 1.5, shots: []}     # S24.3 hold 1,5 → MR2 (lặng ≥ 1 s cả bản trộn)
+  - {id: S25, tail: 1.0, shots: []}
+  - {id: S26, tail: 1.0, shots: []}     # S26.2 hold 1,0
+  - {id: S27, tail: 1.0, shots: []}     # S27.1 hold 1,0
+  - {id: S28, tail: 1.0, shots: []}     # S28.1 hold 1,0
+  - {id: S29, tail: 1.0, shots: []}
+  - {id: S30, tail: 1.0, shots: []}
+  - {id: S31, tail: 1.0, shots: []}     # S31.3 hold 1,0
+  - {id: S32, tail: 1.0, shots: []}     # S32.2 hold 1,0
+  - {id: S33, tail: 1.5, shots: []}     # S33.3 hold 1,5 → khúc đóng A chạm sau chữ cuối (close_lift_db)
+# lab: 2 mid-roll, mỗi cái giữa khoảng giữ 1,5 s sau câu cuối hồi (giờ = lời thật của out/factory/timeline.json); cả bản trộn lặng ≥ 1 s
+# (đoạn b / e: spine mix.silences tới hết đoạn; nhạc nền: bed.py MR_HOLD); ≥ 120 s từ đầu và từ cuối.
+midrolls:
+  - {after_act: act1, scene: S09, t: 188.58}   # giữa khoảng giữ: lời S09 hết 187,833 s ("unusual?"), cảnh hết 189,333 s → cả bản trộn lặng [187,93; 189,333] = 1,40 s
+  - {after_act: act2, scene: S24, t: 441.94}   # lời S24 hết 441,187 s ("earn?"), cảnh hết 442,7 s → lặng [441,29; 442,7] = 1,41 s (đoạn e, lượt 2); 160,8 s tới cuối
+counterweights:
+  - {id: us-only, text: "US only · history, not a forecast", when: historical}
+  - {id: illustrative, text: "Tessa and Leo are illustrative · real survey rates", claims: [principal, pay15_now, pay30_now, pay30on15_now, extra_vs15_month_now, extra_vs15_total_now, leo_extra_vs15_total, leo_fallback_gap]}
+  - {id: no-advice, text: "Not advice on which loan, or on investing", claims: [extra_vs15_total_now, bar_now, share_extra_ge_now]}
+  - {id: before-taxes, text: "The bar is before taxes · not an investment return", claims: [bar_now, leo_r30]}
+world:    # D-010: bảy đoạn thế giới phủ cả tập (ranh giới: ident tối dần · MR1 · phương pháp/lưới tuần → thập kỷ · Tessa tự thử (N1) · MR2 the bar · Leo)
+  - {id: a-s01-s03, dir: world/c4/a-s01-s03, scenes: [S01, S02, S03]}
+  - {id: b-s04-s09, dir: world/c4/b-s04-s09, scenes: [S04, S05, S06, S07, S08, S09]}
+  - {id: c-s10-s15, dir: world/c4/c-s10-s15, scenes: [S10, S11, S12, S13, S14, S15]}
+  - {id: d-s16-s20, dir: world/c4/d-s16-s20, scenes: [S16, S17, S18, S19, S20]}
+  - {id: e-s21-s24, dir: world/c4/e-s21-s24, scenes: [S21, S22, S23, S24]}
+  - {id: f-s25-s28, dir: world/c4/f-s25-s28, scenes: [S25, S26, S27, S28]}
+  - {id: g-s29-s33, dir: world/c4/g-s29-s33, scenes: [S29, S30, S31, S32, S33]}
+shorts:   # nháp C4: dựng lại 1080×1920 từ MỘT đoạn thế giới (F-9; Short vắt hai đoạn → đường 2D cũ, nên B01+B06 không ghép được: SH1 = B06–B07
+          # trong đoạn b); móc một dòng ≤ 26 ký tự, không chữ số — SH06 đo trên spec (Inter Bold 64 px, rộng an toàn 936 px): xem c4/BRIEF-build.md
+  - {id: SH1, from: "@S06.1", to: "@S07.1$", hook: "The price of a fallback", end: "Full episode on the channel"}       # B06–B07: thanh dâng, lát bay thành the stack (đoạn b)
+  - {id: SH2, from: "@S21.1", to: "@S21.3$", hook: "Same payment, months late", end: "Full episode on the channel"}     # B21: N1 Month track, ô trễ + lớp trả thêm (đoạn e)
+  - {id: SH3, from: "@S25.1", to: "@S25.5$", hook: "What an extra dollar earns", end: "Full episode on the channel"}    # B25: the bar (đoạn f)
