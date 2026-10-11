@@ -21,7 +21,7 @@ Nhánh `tongket-t6` (từ `main` f614e6b). Quyết định chủ dự án 11/10 
 | K (`018m7H…`) | kind Tập 6 (K4.0.2) + K4.1 | 0,30 | 1,56 | 120,78 | **1,86** | $41,2 | 2 | ≈ 2,6 h (selftest, lấy mẫu trang, ASR) | 0 |
 | Kiểm mù headless thuê bao (P1–P3b, 274 lượt) | | | | | **1,04** | | | | |
 | Headless khoá Console (P3c: 6 lượt dựng Opus, REVIEWER G2, ≈ 30 lượt kiểm mù) | | | | | ≈ 1,4 (ước*) | **chi $25,5** | | | |
-| **Cả tập** | | 2,84 | ≈ 80 | ≈ 826 | **≈ 83,4** | ≈ $606 niêm yết + **$25,5 chi** | **25** | **≈ 23,4 h** | **7.699** |
+| **Cả tập** | | 2,84 | ≈ 80 | ≈ 826 | **≈ 83,1** | ≈ $605 niêm yết + **$25,5 chi** | **25** | **≈ 23,4 h** | **7.699** |
 
 \* X/Y/Z có đủ 4 trường (trần 0,706 triệu, $13,49 → 0,052 triệu/$). Các lượt Console khác chỉ có số $, nên phần trần của chúng ước theo cùng tỉ lệ.
 Agent con: ledger ghi 23. Log đếm 25 (P1 4 · P2 8 · P3 1 · P3b 10 · K 2); 2 agent của K không thuộc trần 40 của tập.
@@ -58,3 +58,21 @@ D-011 (mỗi chặng một phiên) có tác dụng ở phía điều phối: P1,
 - **Ghi cache mỗi lượt dựng giảm ≈ 40 lần** (7 → 0,16–0,18 triệu). Lượt headless chạy một mạch rồi thoát, không ngồi chờ render, nên không có lượt nạp lại > 0,3 triệu nào. Đây là phép kiểm `episode.md` §1 hỏi: X, Y, Z mỗi lượt cộng cả 80–100 lượt gọi mới ghi 0,16–0,18 triệu.
 - **Không phải đối chứng sạch:** P3c bỏ lượt đạo diễn (chủ dự án quyết 10/10), và đó là khoản đọc ảnh lớn của P3b. Sửa ở vòng sau nhỏ hơn vòng 1. Chất lượng không giảm theo thước cuối (L3 ≥ 4, checks ĐẠT, cổng gốc 87–91 %). Ước khi bỏ phần đạo diễn (0,5 triệu theo số công cụ báo, phần log còn lớn hơn): mỗi lượt dựng vẫn rẻ hơn ≥ 20 lần.
 - **Giá:** một lượt dựng Opus ≈ $3,3–4,9; cả P3c tốn $25,5 trên trần $170.
+
+## 2. Bài học → luật
+
+Chi tiết từng mục (số đo, nguyên nhân gốc, luật) ở `playbook/lessons.md` T6-3 … T6-11. **ÁP** = đã sửa trong phiên này (không phải gu, không đụng luật khoá). **CHỜ** = cần quyền chủ dự án (gói §5 câu 1) hoặc phiên K.
+
+| Mục | Số đo Tập 6 | Trạng thái | Sửa ở đâu |
+|---|---|---|---|
+| (a) không mở phiên mới khi tệp lớn đang ở container | P3 → P3b → P3c: mỗi PLAN chép "dựng lại ≈ 2,8 h nếu container mới"; P4 chạy trong P3c: 0,14 triệu | **CHỜ** (sửa D-011) | lessons T6-3 |
+| (b) trần 2 h lệnh nền | checks 10,3 h · 1080p 7,7 h · 3 lần bị cắt | **ÁP** (tách chạy tiếp, cache theo cảnh, `K_JOBS=4`) + **CHỜ K** A29; biến môi trường **chưa xác minh** | `episode.md` §11b, `toolkit/checks_split.sh`, `checks-appeal.md` A29 |
+| (c) hằng tốc độ | đọc 2,66 (hằng 2,75) · thời lượng 2,40 (hằng 2,52, −4,8 %) | **ÁP**: hằng mới 2,66/2,40; chạy lại kịch bản Tập 6 → ước 8:56 = thật 8:56,6 | `templates/check_script.py`, `toolkit/usage/measure_pace.py` |
+| (d) nhịp hình | spine: 7 quãng tĩnh > 8 s (dài nhất 11,3 s; Tập 5: 6, dài nhất 16,4 s) · freezedetect 206 s / 51 đoạn · R07 70,3 % · "3%" trễ 1,26 s | **CHỜ** (gu hình D-010 + gen §4): F-14 làm ở nhà máy **trước** tập dài đầu tiên | `toolkit/factory/BACKLOG.md` F-14 |
+| (e) B01/B15 hết 3 vòng | 0,5 · 0,5 qua 4 lượt; "none since" đè mép dải cảnh báo | **ÁP**: vòng 3 phải đổi loại hình hoặc hạ ý cần đọc | `episode.md` §1 |
+| (f) phiếu L3 kèm mức gợi ý | G2 Tập 6 "≥ 4" không số | **CHỜ** (nguy cơ neo điểm) | `playbook/templates/L3.md` (nháp) |
+| (g) khoá Console = chuẩn | $25,5 · ghi cache/lượt dựng ÷ 40 (§1d) | **CHỜ** (chi tiêu) | `toolkit/api.sh` (dời từ ep006, công cụ có sẵn) |
+| (h) móc Shorts đo vùng an toàn khi viết | SH1/SH3 186 / 98 hộp ngoài vùng | **ÁP** (luật viết) + **CHỜ K** A30 | `episode.md` §5, `checks-appeal.md` A30 |
+| (i) gói ChatGPT lệch video | "baskets" ≠ crates · ảnh chụp ≠ thế giới 3D · mỗi thumbnail một màu · tiêu đề ≠ T1 | **ÁP** qua mục 4 | `playbook/packaging.md` §7, `episode.md` §5c, `toolkit/package/` |
+
+**Đo (d) trên Tập 6** (`python3 toolkit/indicators/spine_pace.py episodes/ep006/world/c4/*/spine.json --labels`): các quãng tĩnh có lời là 0:29–0:40 (11,2 s), 1:35–1:44, 1:47–1:56, 2:43–2:51, **3:41–3:53 (11,3 s)**, 4:40–4:50, 8:07–8:16. Thước này chưa hiệu chuẩn (A23: đối chứng dương 2/4), nên chỉ dùng làm chỉ báo. Đích của F-14 đo trên Tập 6 dựng lại, đối chứng là bản giao.
