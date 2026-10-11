@@ -199,7 +199,7 @@ export async function boot(res) {
     { const [x, y] = top(iC, v20[iC]); log.roi['f7.start'] = [x - 400, y - 200, x + 400, fy]; }
     // F-14 (c) S23.1 "from one start to another": ba thanh sáng + tên ba người của hồi 3 (Edna 1949, Carl 1966, Ruth 2006 — tên, không số) ĐÚNG "start"
     { const nA = (1 - cw) * show(t, at(S, 'f7.start', b.f7.start));
-      if (nA > 0.01) for (const [i, nm, col] of [[iE, 'Edna', CHAR.edna], [iC, 'Carl', CHAR.carl]]) { const [x, y] = top(i, v20[i] + 12); label(O, nm, x, y - 20, { align: 'center', kind: 'name', px: 48, w: 600, color: col, alpha: nA }); } }
+      if (nA > 0.01) for (const [i, nm, col] of [[iE, 'Edna', CHAR.edna], [iC, 'Carl', CHAR.carl]]) { const [x, y] = top(i, v20[i] * 0.55); label(O, nm, x, y, { align: 'center', kind: 'name', px: 48, w: 600, color: col, alpha: nA }); } }
     const cwA = show(t, b.f3.own, b.f4.gentler);
     chrome(O, 1, cwA > 0.01 ? L['f3.own'] : null, cwA);
     st.compose(); log.camMoving = CAM.moving(t); return log;

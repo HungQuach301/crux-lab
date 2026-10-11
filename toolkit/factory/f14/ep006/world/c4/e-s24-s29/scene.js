@@ -97,7 +97,7 @@ export async function boot(res) {
     if (t < M.m_w27.t1) label(O, L['c0.forty'], (RC.x0 + RC.x1) / 2, RC.yb + 76, { align: 'center', kind: 'number', px: 48, alpha: ok * show(t, b.c0.forty, M.m_w27.t0) });
     if (t < M.m_pan25.t1) {
       label(O, L['b1.january'], 120, 330, { kind: 'number', px: 48, w: 600, color: CHAR.carl, alpha: ok * show(t, M.m_c24.t1, b.b5.ruths) });
-      const [pxl, pyt] = O.toScreen(price.position.x - 0.25, price.scale.y, 0.2);
+      const [pxl, pyt] = O.toScreen(price.position.x - 0.25, SZ.cbase * S.price_growth, 0.2);   // F-14: nhãn ở đỉnh CUỐI của thanh (hiện từ "fastest", thanh mọc tới nó)
       label(O, L['b2.fastest'], pxl - 24, pyt + 36, { align: 'right', kind: 'number', px: 48, alpha: ok * show(t, at(S, 'b2.fastest', six), b.b4.before - 0.35) });   // F-14 (c): neo vào "fastest"
       if (nYr > 0 && pgA > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = ok * pgA * 0.6; c.fillStyle = C.bg;   // năm chẵn tô sẫm: 20 năm xếp chồng trên thanh giá
         for (let j = 0; j < Math.min(20, Math.floor(nYr)); j += 2) { const [qx0, qa] = O.toScreen(price.position.x - 0.25, SZ.cbase * Math.pow(S.price_growth, j / 20), 0.2), [qx1, qb] = O.toScreen(price.position.x + 0.25, SZ.cbase * Math.pow(S.price_growth, (j + 1) / 20), 0.2);
