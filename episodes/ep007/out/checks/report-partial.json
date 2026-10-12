@@ -2,16 +2,14 @@
  "root": "/home/user/crux-lab/episodes/ep007",
  "contract": "/home/user/crux-lab/episodes/ep007/contract.json",
  "lock": "dc4981b3f63e1f86872706fc73102794822ff75dbc65196dd3c0d87cebcab3d0",
- "video_sha256": null,
- "episode": "TRƯỢT",
+ "video_sha256": "1df85ee399ff6d3090b2e65a6ab0b8b70c37381771196b7dc64583ad290998a7",
+ "episode": "ĐẠT",
  "tiers": {
   "BLOCK": {
    "label": "CHẶN",
-   "rules": 2,
-   "pass": 1,
-   "notPass": [
-    "S05 MISSING"
-   ]
+   "rules": 3,
+   "pass": 3,
+   "notPass": []
   },
   "MAJOR": {
    "label": "CHÍNH",
@@ -29,12 +27,35 @@
   }
  },
  "counts": {
-  "PASS": 1,
+  "PASS": 3,
   "FAIL": 0,
-  "MISSING": 1,
+  "MISSING": 0,
   "ERROR": 0
  },
- "near": [],
+ "near": [
+  {
+   "rule": "S04",
+   "tier": "BLOCK",
+   "name": "mortgage30 tolerance",
+   "value": 0.5,
+   "op": "<=",
+   "threshold": 0.5,
+   "unit": "pp",
+   "pass": true,
+   "near": true
+  },
+  {
+   "rule": "S04",
+   "tier": "BLOCK",
+   "name": "mortgage15 tolerance",
+   "value": 0.5,
+   "op": "<=",
+   "threshold": 0.5,
+   "unit": "pp",
+   "pass": true,
+   "near": true
+  }
+ ],
  "results": [
   {
    "id": "S01",
@@ -79,19 +100,207 @@
    "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
    "fingerprint": "bd6d0ee85cf6c7c1",
    "tier": "BLOCK",
-   "seconds": 0.5
+   "seconds": 0.1
+  },
+  {
+   "id": "S04",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "series pairs",
+     "value": 2,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mortgage30 tolerance",
+     "value": 0.5,
+     "op": "<=",
+     "threshold": 0.5,
+     "unit": "pp",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "mortgage15 tolerance",
+     "value": 0.5,
+     "op": "<=",
+     "threshold": 0.5,
+     "unit": "pp",
+     "pass": true,
+     "near": true
+    },
+    {
+     "name": "used keys missing in a source",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "out-of-tolerance keys not reported",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "pairs": [
+      {
+       "series": "mortgage30",
+       "overTolerance": 0
+      },
+      {
+       "series": "mortgage15",
+       "overTolerance": 0
+      }
+     ],
+     "unreported": [],
+     "missing": []
+    }
+   ],
+   "note": null,
+   "section": "DX-H5",
+   "threshold": "≥ 1 pair; every declared tolerance ≤ 0.5 (pp); every used key present in both series; every key outside tolerance listed in \"mismatches\" (reported, not silently resolved)",
+   "fingerprint": "952fa38fc028f677",
+   "tier": "BLOCK",
+   "seconds": 0.0
   },
   {
    "id": "S05",
-   "status": "MISSING",
-   "metrics": [],
-   "details": [],
-   "note": "artifact missing: contract.json: claims.illustrative",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "mapped claims",
+     "value": 57,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "mapped claims absent",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims off their re-computation",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "weeks where the 30-year loan on the 15-year schedule pays less than the 15-year loan (rate not lower)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "weeks where a wider spread does not raise the extra total",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "weeks where the 30-year required payment is not below the 15-year payment",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "weeks where months at the 15-year payment > 180 does not match the long rate > the short rate",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "weeks not paired in both series, or a paired-week count ≠ the dates both series hold",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "unrounded identities that do not hold (totals, interest, months late, prepay)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "quantities that do not scale with the principal (dollars ×2, the rest unchanged)",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "min / max weeks that are not the earliest among equal values",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "claims missing their ILLUSTRATIVE flag",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "off": [],
+     "absent": [],
+     "missingIllustrative": []
+    }
+   ],
+   "note": null,
    "section": "DX-H1, DX-H2",
    "threshold": "≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months after normalisation, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag",
    "fingerprint": "e57ec71dadeccbb2",
    "tier": "BLOCK",
-   "seconds": 0.0
+   "seconds": 0.2
   }
  ]
 }
