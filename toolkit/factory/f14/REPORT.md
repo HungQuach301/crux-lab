@@ -5,6 +5,55 @@ Bản dựng lại: 1080p, cùng kịch bản / 30 take giọng (0 ký tự EL) 
 của nhánh không đổi. Master F-14: SHA-256 `3a97e6ed200ffbe1364034c57b74a626b116a1defbffb81f89fdb60dec707904` (không commit, 1,16 GB; dựng lại:
 `bash toolkit/factory/f14/rebuild.sh build`). Đối chứng: master bản giao `f96da0ea…5edcaa74` (`sha256sum -c` OK).
 
+## v4 · 12/10/2026 (INTENT §8 ghi trước, chủ dự án duyệt) — **F-14 v4 TRƯỢT** (cổng gốc)
+
+v4 = v3 + ba sửa đã duyệt: B22 (hai dải CPI-W/PCE hiện đủ ở từ khoá, bỏ life `cpiw`/`pce`, thêm đổi trạng thái ở "same"/"often"/"most"),
+V11 (tiêu đề thẻ V7 hiện từ "card" + 0,15 s), 9 cue R07 đổi hình bằng VẬT đúng từ (`c2.level` đèn mức sáng lại, `c4.bigger` hai séc chớp,
+`d1.climbed` quầng đệm, `f0.most` thùng chớp, `f4.ruths` thanh ≥ mốc chớp, `f7.start` tường mờ + 3 thanh sáng, **không** tên Carl, `g1.forty`/`g2.half`/`g3.carls`);
+nhãn neo vào từ MỞ ý; đếm thùng theo bậc, thanh 50/50 bậc+tuyến (freeze). `node --check` mã cảnh trước build. Nhánh rebase lên `origin/main` @ `76ef2b1`, test chạy lại
+(`test_factory_f14` 5/5). Master v4 1080p: SHA-256 `800bb58c7b4a25ea9bd7895e6ad42e72ba4bd8968736913e62482faddbd41d3f` (không commit).
+
+| Thước (đích ghi trước) | Đối chứng | v4 | Kết |
+|---|---|---|---|
+| **Cổng gốc §8 (i)** ≥ 20/23, advice_stated 0 | **19/23** đọc lại cùng phiên (TRƯỢT B01, B10, B13, B30) | **19/23** (TRƯỢT B01, B13, **B14**, B30), advice_stated 0 | **TRƯỢT** |
+| **(iii)** nhịp ĐẠT ở đối chứng mà tụt ở v4 → 3 người đọc mới + 2 người chấm | — | B14: ctl 1·1·0,5 ĐẠT / v4 0,5·0,5·1 **vẫn tụt** · B24: ctl 1·1·1 / v4 0,5·1·1 ĐẠT | **TRƯỢT** (B14) |
+| **(iv)** B22 ĐẠT | 1·1 | **1·1** | ĐẠT |
+| freezedetect ∩ lời < 60 s | 206,01 s | **47,85 s** (16 quãng; v3 44,83) | ĐẠT |
+| R07 (1) checks khoá, mọi cue ≥ 90 % | 70,3 % | **94,6 %** (122/129; luật nay THAM KHẢO ≥ 92 % → PASS) | ĐẠT |
+| R07 (2) đọc chặt 118 cue bản giao, cùng cách đo ≥ 90 % | 70,3 % | **94,1 %** (111/118; trang checks v4 và nhật ký render cho cùng số) | ĐẠT |
+| "3%" ≤ 0,2 s (textTrack checks) | 1,29 s | **0,09 s** (459,70 − 459,61) | ĐẠT |
+| CHẶN 0 | 0 | **0** (36/36) | ĐẠT |
+| spine quãng tĩnh > 8 s (chỉ báo) | 7 · 4 | **0 · 0** | ĐẠT |
+| (báo) CHÍNH | 13/13 | **14/14 — V11 ĐẠT** (0 va chữ) | sửa v3 đã ăn |
+| (báo) REG so `run-c5d` | — | **PASS**: 95 luật so được, 0 hồi quy CHẶN | |
+| (báo) R08 | FAIL (7) | **PASS (0)** | |
+
+**Kết luận v4: TRƯỢT** — chỉ ở cổng gốc (§8 (i) 19/23 < 20 và (iii) B14 tụt sau 3 người đọc mới). Mọi số chính khác ĐẠT. Theo `episode.md` §9: Tập 8 **không** mở `deep` trên F-14 v4.
+Không hạ đích, không merge.
+
+**Cổng gốc v4 chi tiết** (`root_v4.py`; người đọc Sonnet MỚI, rubric mới, gộp thận trọng): gói chung `root-v4/` (92 nhãn, đối chứng + v4 trộn, 2 người chấm) →
+ctl 18 + chờ B16 · v4 18 + chờ B14, B24, B30. Đọc lại theo (iii) `root-v4-rr/` (B14, B24, cả hai bản, 3 người đọc mới mỗi bản, 12 nhãn một gói, 2 người chấm).
+Người thứ 3 cho nhịp tách đôi (như cũ) `root-v4-p3/` (B16 ctl → ĐẠT, B30 v4 1·0·0 → TRƯỢT; gói riêng chấm lại cả 3 câu trả lời của nhịp đó).
+- **B14 (S14, "gần như mọi ô `warn`, cụm `cushion` mỏng ở mép trái"):** dải 6 khung hai bản gần như trùng điểm ảnh (cùng "kept up: 17 of 715", "about 1 in 42");
+  khác thấy được: ở khung 2–4 v4 có vệt xanh lam trên cụm thanh đầu (bản giao: xanh `cushion`) — nguồn trong mã v4 chưa truy xong (ứng viên: highlight `hi` của thanh 1949 mới thêm ở `d-s13-s23/scene.js`).
+  Người đọc v4 nói "trả cố định mất sức mua" nhưng 2/3 không nói "hầu như không tháng nào theo kịp" → 0,5. Có thể là nhiễu người đọc (ở gói đọc lại, đối chứng cũng có
+  một 0,5), nhưng luật ghi trước tính là tụt → TRƯỢT. Nếu muốn v5: tìm và bỏ vệt lam đó trong S14 để S14 trùng bản giao.
+- **B30:** TRƯỢT ở cả hai bản (ctl 0,5·0,5; v4 1·0·0) → không tính tụt nhưng kéo (i) xuống 19. **B10:** đối chứng TRƯỢT, v4 ĐẠT. **B01, B13:** TRƯỢT cả hai.
+- Đối chứng đọc lại hôm nay 19/23 (bản giao 20/23, lượt v3 19/23) — biên nhiễu ±1–2 nhịp vẫn lớn hơn khoảng cách tới ngưỡng 20.
+
+**Đính chính v3:** R07 §7 đọc chặt của v3 là **91,5 %** (đo đúng bằng `r07_local.py --like`), không phải 86,4 % (86,4 % là ước lượng dùng lại kết quả của bản giao cho 9 cue).
+v3 vẫn TRƯỢT vì cổng gốc (B22).
+
+**Môi trường checks v4:** checks LOCK hiện hành `dc4981b3` (main @ `76ef2b1`). `episodes/ep006/contract.json` của **worktree** (không commit) đổi `lock`
+`4d688acd` → `dc4981b3` để `checks_split.sh` chạy (lần đầu dừng "contract.json lock ≠ checks/LOCK"); không sửa `checks/`. Bộ lấy mẫu trang bị dừng ở trần 2 h (16/31 cảnh có cache),
+chạy tiếp `RESUME=1 KEEP=1` → xong 31/31; tổng ≈ 2 h 48. Luật THAM KHẢO mới của LOCK này có A12 ERROR (TypeError trong `checks/py/r_audio.py`), A13 FAIL (`max |stretch-1|` 165,7 — đơn vị có vẻ sai),
+R01 MISSING (`out/tension-map.png`) — không là đích, ghi vào đây để phiên K xem. Báo cáo: `out/checks-v4/report.{json,md}`, `page.json.gz`; số đo `out/v4/`.
+
+**Chi v4 (Console headless, 0 agent con):** cổng gốc gói chung $3,06 · đọc lại 3 người $0,43 · người thứ 3 $0,24 → $3,73; REVIEWER v4 xem dưới. Cả F-14 ≈ $11,1 + REVIEWER v4 (trần cảnh báo $45: dưới trần).
+**Giờ máy v4:** checks ≈ 2 h 48 (lấy mẫu trang 2 lần chạy: 2 h dừng ở trần + 48 min; v3 1 h 47 + 25 min).
+
+# v1–v3 (11/10)
+
 ## 1. Đích và số thật
 
 | Thước | Đích | Đối chứng (bản giao) | F-14 (dựng lại) | Kết |
