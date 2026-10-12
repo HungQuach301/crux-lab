@@ -76,9 +76,15 @@ scenes:
   - {id: S33, tail: 1.5, shots: []}     # S33.3 hold 1,5 → khúc đóng A chạm sau chữ cuối (close_lift_db)
 # lab: 2 mid-roll, mỗi cái giữa khoảng giữ 1,5 s sau câu cuối hồi (giờ = lời thật của out/factory/timeline.json); cả bản trộn lặng ≥ 1 s
 # (đoạn b / e: spine mix.silences tới hết đoạn; nhạc nền: bed.py MR_HOLD); ≥ 120 s từ đầu và từ cuối.
+voice_overrides:   # C5 (A14 CHẶN: ASR small.en mất "Tessa's" / "2 in 3"): seed khác, chữ không đổi — c5/reseed.py, c5/reseed.json
+  S09: {seed: 1009}
+  S12: {seed: 1009}
+  S21: {seed: 1008}
+  S25: {seed: 1008}
+  S33: {seed: 1012}
 midrolls:
-  - {after_act: act1, scene: S09, t: 188.58}   # giữa khoảng giữ: lời S09 hết 187,833 s ("unusual?"), cảnh hết 189,333 s → cả bản trộn lặng [187,93; 189,333] = 1,40 s
-  - {after_act: act2, scene: S24, t: 441.94}   # lời S24 hết 441,187 s ("earn?"), cảnh hết 442,7 s → lặng [441,29; 442,7] = 1,41 s (đoạn e, lượt 2); 160,8 s tới cuối
+  - {after_act: act1, scene: S09, t: 191.30}   # C5 (take S09 seed 1009): lời S09 hết 190,553 s, cảnh hết 192,067 s → lặng [190,65; 192,067] ≈ 1,41 s
+  - {after_act: act2, scene: S24, t: 443.44}   # C5: lời S24 hết 442,687 s, cảnh hết 444,2 s → lặng [442,79; 444,2] ≈ 1,41 s; 163,3 s tới cuối
 counterweights:
   - {id: us-only, text: "US only · history, not a forecast", when: historical}
   - {id: illustrative, text: "Tessa and Leo are illustrative · real survey rates", claims: [principal, pay15_now, pay30_now, pay30on15_now, extra_vs15_month_now, extra_vs15_total_now, leo_extra_vs15_total, leo_fallback_gap]}
