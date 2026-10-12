@@ -59,6 +59,12 @@ tập vào đồ thị trước từ đọc số, nhãn số hiện đúng từ.
 Bài học đo (R07 khoá): cú máy phải xong ≥ 0,5 s trước từ khoá kế (nền đo [t−0,7; t−0,15]); không mờ/tắt gì trong 0,3 s TRƯỚC từ (đổi hình phải bắt đầu ở từ).
 Vòng nháp nhanh 360p (`f14/loop.sh`, khớp bản 1080p: freezedetect 210 / 206 s, R07 71,2 / 70,3 %). Chú ý: chú thích cuối dòng chèn giữa dict/khai báo
 đã 3 lần nuốt mã (comment_guard không bắt) — kiểm `node --check` trên bản sao `.mjs`.
+**Bài học F-14 (đóng 12/10, v4 TRƯỢT cổng gốc; `f14/REPORT.md`) — hợp đồng f14 thêm:** (d) **ở từ khoá, vật dữ liệu phải đủ giá trị đúng như nhãn**:
+chuyển động nền không được làm vật mang giá trị trung gian khi nhãn đã hiện (B30 v4: thanh S30 mọc 50 % bậc + 50 % tuyến để qua freezedetect → lúc "42.4%"
+hiện thanh mới ≈ nửa, người đọc mù đọc thành "giá tăng cộng dồn"). Track `life` gắn với một nhãn khai `label: <khoá nhãn>`; `check_f14` CẢNH BÁO khi
+track còn đi sau mốc nhãn + 0,2 s. (e) **neo nhãn vào từ MỞ ý**, không vào từ cuối câu (B08 v1: "starting sizes: not modeled" neo vào "model" → ra
+khỏi dải nhịp): `check_f14` CẢNH BÁO nhãn chữ (không chứa số) neo vào từ ở 30 % cuối câu > 1 s (nhãn số neo vào chính từ đọc số: không cảnh báo).
+Cả hai chỉ cảnh báo (chưa hiệu chuẩn). Đổi hình chỉ để qua thước (biên độ, nhịp mọc) phải ghi trong REPORT là "đổi vì thước" và soát nghĩa ở cổng gốc.
 
 **Shorts từ đoạn thế giới (F-9):** Short có khoảng nằm trọn trong một đoạn `world:` được DỰNG LẠI 1080×1920 từ scene.js của đoạn
 (`world/shorts.py`, `render_shots.js --span a,b --orient v`): cùng máy quay, khung = cửa sổ dọc của mặt phẳng thiết kế rộng 1080/`scale` px

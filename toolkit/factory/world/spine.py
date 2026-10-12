@@ -148,7 +148,9 @@ def check_f14(spine):
     """Kiểm khai F-14 của spine.json (lỗi = dừng bước spine; cảnh báo = in, không dừng):
     (b) `changes` chỉ major|minor trên cue có thật; `anchor: true` chỉ trên beat; CẢNH BÁO quãng có lời > 8 s không có major.
     (c) `label_at` {nhãn: giây} — mỗi nhãn của label_cues có cue cùng tên phải hiện trong ±0,2 s quanh từ của nó.
-    (a) `life` {tên: {'what': đại lượng, 'keys': [[t, v], …]}} — t tăng dần, có `what` (một dòng: nó biểu diễn gì của câu)."""
+    (a) `life` {tên: {'what': đại lượng, 'keys': [[t, v], …], 'label': nhãn?}} — t tăng dần, có `what` (một dòng: nó biểu diễn gì của câu).
+    CẢNH BÁO (bài học F-14 v4, lessons T6/F-14): (d) track `life` khai `label` mà còn đi SAU khi nhãn đó đã hiện → vật mang giá trị trung gian khi
+    nhãn đã nói giá trị (B30 v4: thanh 50 % lúc "42.4%" hiện); (e) nhãn CHỮ (không phải số) neo vào từ ở 30 % cuối câu → neo vào từ MỞ ý (B08 v1)."""
     errs, warn = [], []
     cues = {f"{b['id']}.{k}": t for b in spine.get('beats', []) for k, t in b.get('cues', {}).items()}
     for n, c in spine.get('changes', {}).items():
@@ -163,6 +165,22 @@ def check_f14(spine):
         ks = tr.get('keys', [])
         if not tr.get('what'): errs.append(f'F-14 (a): life[{n}] thiếu `what` (đại lượng nó biểu diễn) — không có nghĩa = trang trí')
         if any(b[0] < a[0] for a, b in zip(ks, ks[1:])): errs.append(f'F-14 (a): life[{n}] khoá không theo thứ tự giờ')
+    lab = spine.get('label_at', {})
+    for n, tr in spine.get('life', {}).items():
+        ks, ln = tr.get('keys', []), tr.get('label')
+        if ln in lab and ks and ks[-1][0] > lab[ln] + LABEL_TOL + 1e-9:
+            warn.append(f'F-14 (d) CẢNH BÁO: life[{n}] còn đi tới @{ks[-1][0]} sau khi nhãn {ln} hiện @{lab[ln]} — ở từ khoá vật phải đủ giá trị như nhãn')
+    sent = {}
+    for w in spine.get('words', []):
+        a0, a1 = sent.get(w.get('sid'), (w['s'], w['e'])); sent[w.get('sid')] = (min(a0, w['s']), max(a1, w['e']))
+    txt = spine.get('label_cues', {})
+    for n, t in lab.items():
+        if re.search(r'\d', str(txt.get(n, ''))): continue   # nhãn số neo vào chính từ đọc số — đúng chỗ
+        w = next((w for w in spine.get('words', []) if w['s'] - LABEL_TOL <= t <= w['e']), None)
+        if w is None: continue
+        a0, a1 = sent[w.get('sid')]
+        if a1 - a0 > 1.0 and (w['s'] - a0) / (a1 - a0) > 0.7:
+            warn.append(f"F-14 (e) CẢNH BÁO: nhãn {n} neo vào từ {w['w']!r} ở cuối câu {w.get('sid')} — neo vào từ MỞ ý")
     for s in still_major(spine):
         warn.append(f"F-14 (b) CẢNH BÁO: lời {s['t0']}–{s['t1']} ({s['dur']} s) > {MAX_STILL:g} s không có thay đổi major")
     return errs, warn
