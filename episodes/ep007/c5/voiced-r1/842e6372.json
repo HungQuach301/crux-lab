@@ -1,0 +1,23 @@
+{
+ "answer": "1. **The idea.** The video compares a 15-year mortgage with a 30-year mortgage that you pay off in 15 years. The 30-year paid in 15 is the 15-year loan plus a \"fallback\", meaning the lower required payment you can drop back to in a bad month. That fallback has a price. For Tessa's $320,000 loan in the week of October 8, 2026, the price is $120 a month, or $21,622 over 15 years. The video also says that paying extra principal \"earns\" the loan's own interest rate, which it calls the \"bar\". For Tessa that is 7.4% before taxes.\n\n2. **What changes over time.** The video replays 1,833 weekly Freddie Mac surveys from August 1991 to October 2026.\n   - The fallback price depends on the gap between the 30-year and 15-year rates. That gap ran from 0.2 to 1.0 point and averaged 0.57.\n   - The price ranged from $6,097 to $29,502, with a median of $16,631.\n   - By decade, the typical price was $15,118 in the 1990s, $14,210 in the 2000s, $20,374 in the 2010s and $21,345 since 2020. Lower rates did not make it cheaper. A wider gap made it dearer.\n   - The bar moves with the loan's rate. It ran from 9.25% down to 2.65%, and only about 1 week in 5 had a bar as high as Tessa's.\n   - Leo, a second illustrative borrower, took a loan in January 2021. His fallback cost $13,231 and his bar was 2.65%.\n\n3. **What it means.** By history, Tessa's fallback is expensive, because fewer than 1 in 5 weeks priced it higher. Her bar is also high. Each dollar of extra principal saves interest at 7.4%, but that dollar is hard to get back in a bad month. The video says the 30-year-paid-in-15 option is not the same loan as the 15-year. It also says paying extra never lowers the required payment. It only ends the loan sooner. The video does not weigh the value of the fallback against the cost. It says this replay can't measure what a lower payment is worth in a bad month.\n\n4. **Advice a viewer might take.** The video gives no instruction on which loan to take or whether to invest. It states that it is not advice on which loan. A viewer could use it to check their own numbers:\n   - Compare your loan's rate (the bar) with what else you could do with the money.\n   - Compare the gap between the 15-year and 30-year offers (the stack) with what a lower required payment is worth to you.\n\n   I would not treat either check as a recommendation. The video never tests investment returns, taxes, insurance or job-loss scenarios.\n\n5. **Source of the suggestion.** The two checks in point 4 come from the video's closing frames. It says \"your bar = your loan's own rate\" and \"your stack = how far apart the 15-year and 30-year offers sit,\" and the narration says any fixed-rate borrower can set their own pair beside Tessa's. Those frames describe how to compare, not what to choose. The video gives no advice on the extra-payment versus invest question you came with. Any conclusion about what to do is your own.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 6923,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 280,
+   "in": 6923,
+   "out": 280
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 15915,
+   "cache_read": 11844,
+   "output": 1365,
+   "in": 27763,
+   "out": 1365
+  }
+ },
+ "turns": 5,
+ "cost_usd": 0.07933470000000001
+}
