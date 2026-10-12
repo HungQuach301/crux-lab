@@ -12,7 +12,8 @@ export async function boot(res) {
   const poses = {
     wPair0: { pos: [-3.0, 3.2, 11.5], tgt: [-1.4, 1.1, 0], fov: 44, chart: 0 },
     cPair: { pos: [-2.0, 1.7, 19.14], tgt: [-2.0, 1.7, 0], fov: 20, chart: 1 },
-    cThree: { pos: [-0.4, 1.9, 24.24], tgt: [-0.4, 1.9, 0], fov: 20, chart: 1 },
+    // cThree (C4 r4): lệch phải — ô thứ ba trọn trong khung, chừa lề phải cho dây dẫn của hai nhãn S31 (fov giữ 20: tên người không chạm thẻ V7)
+    cThree: { pos: [0.0, 1.9, 24.24], tgt: [0.0, 1.9, 0], fov: 20, chart: 1 },
     wHome: { pos: [-2.2, 2.7, 8.6], tgt: [1.7, 0.9, 0], fov: 40, chart: 0 },
     cHome: { pos: [1.2, 2.2, 16.93], tgt: [1.2, 2.2, 0], fov: 22, chart: 1 },
   };
@@ -27,7 +28,8 @@ export async function boot(res) {
   const room = (x, gap) => { const m = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1, 0.14), new THREE.MeshStandardMaterial({ color: C.cushion, emissive: new THREE.Color(C.cushion), emissiveIntensity: 0.45, transparent: true, depthWrite: false }));
     m.geometry.translate(0, 0.5, 0); m.position.set(x, 0, 1.0); m.userData.h = gap * GAP_U; m.userData.checks = { role: 'mark', key: `fallback-room-${x}`, value: gap }; scene.add(m); return m; };
   const lRoom = room(X.leo_house, S.gap.leo), tRoom = room(X.house, S.gap.tessa);
-  const blankStack = new THREE.Mesh(new THREE.BoxGeometry(0.9, 2.0, 0.6), new THREE.MeshStandardMaterial({ color: C.muted, transparent: true, opacity: 0.12, depthWrite: false }));
+  // ô thứ ba (C4 r4): thanh trống / chồng trống chỉ còn lớp mờ rất nhẹ — hình chính là viền nét đứt vẽ ở lớp phủ (không đặc)
+  const blankStack = new THREE.Mesh(new THREE.BoxGeometry(0.9, 2.0, 0.6), new THREE.MeshStandardMaterial({ color: C.muted, transparent: true, opacity: 0.06, depthWrite: false }));
   blankStack.position.set(X.blank_stack, 1.0, 0); scene.add(blankStack); blankStack.userData.checks = { role: 'mark', key: 'your-stack' };
   const card15 = OfferCard(scene, { x: X.cards[0], y: 4.0, w: 3.6, h: 0.8 }), card30 = OfferCard(scene, { x: X.cards[1], y: 4.0, w: 3.6, h: 0.8 }), cardM = OfferCard(scene, { x: X.merge, y: 4.0, w: 7.4, h: 0.9 });
   const leoH = leo.house, leoP = leo.person;
@@ -43,9 +45,10 @@ export async function boot(res) {
     const lu = ease(t, b.g3.bar - 0.02, b.g3.bar + 0.6); lBar.position.y = -0.12 + (0.12 + S.leo_bar * PER_PCT) * lu; lBar.visible = lu > 0.01;
     const glow = (m, ...ts) => m.glow(0.7 * Math.max(...ts.map(([a, d]) => pulse(t, a, d))), C.ink);
     glow(tBar, [b.g5.high, 1.0], [b.j0.high, 1.2], [b.h1.bar, 0.9]); glow(lBar, [b.g5.low, 1.0], [b.g3.earned, 1.0]);
-    const bA = show(t, b.h0.pair) * (1 - ease(t, MV.m_w33.t0, MV.m_w33.t0 + 0.4));
-    setOpacity(blankBar, 0.35 * bA); blankBar.position.y = 1.5; blankBar.glow(0.6 * pulse(t, b.h1.bar, 1.0), C.ink);
-    blankStack.material.opacity = (0.12 + 0.2 * pulse(t, b.h1.stack, 1.0)) * bA; blankStack.visible = bA > 0.01;
+    // S31.1: ô thứ ba hiện ở "Any" (đế trước, thanh + chồng trống ngay sau), loé ở "pair"
+    const bA = ease(t, b.h0.any - 0.05, b.h0.any + 0.6) * (1 - ease(t, MV.m_w33.t0, MV.m_w33.t0 + 0.4)), oA = bA * ease(t, b.h0.any + 0.2, b.h0.any + 0.8);
+    setOpacity(blankBar, 0.12 * oA); blankBar.position.y = 1.5; blankBar.visible = oA > 0.01; blankBar.glow(0.6 * pulse(t, b.h1.bar, 1.0), C.ink);
+    blankStack.material.opacity = (0.06 + 0.12 * pulse(t, b.h1.stack, 1.0)) * oA; blankStack.visible = oA > 0.01;
     // hộp cushion (đường lui): Leo ở "room", Tessa ngay sau (nhỏ hơn); tắt khi về khung cold open
     const rEnd = 1 - ease(t, MV.m_w33.t0, MV.m_w33.t0 + 0.4);
     for (const [m, a] of [[lRoom, b.g2.room], [tRoom, b.g2.room + 0.3]]) { const u = ease(t, a - 0.05, a + 0.6) * rEnd; m.scale.y = Math.max(0.001, m.userData.h * u); m.visible = u > 0.01;
@@ -93,16 +96,31 @@ export async function boot(res) {
     label(O, `Tessa · ILLUSTRATIVE: stack ${D('extra_vs15_total_now')} · bar ${D('r30_now')}`, 1800, 394, { align: 'right', kind: 'number', alpha: ok * show(t, b.g5.tessa, p31), char: 'Tessa',
       claims: ['extra_vs15_total_now', 'r30_now'] });
     log.roi['g5.tessa'] = [440, 345, 1800, 415];
-    // S31: ô thứ ba trống — viền nét đứt quanh thanh trống và chồng trống; ba nhãn (cột phải)
+    // S31 (C4 r4): ô thứ ba trống THẤY BẰNG HÌNH — đế cùng cỡ lô nhà (nền sáng nhẹ + viền sáng nét đứt trên sàn), trong đó chồng trống và thanh trống là
+    // khối viền nét đứt (12 cạnh, không đặc); nét dày hơn khi lời gọi tên từng vật
+    const [lc, lw, ld] = X.lot, poly = (P, a, lw0, fill) => { const c = O.ctx; c.save(); c.globalAlpha = a; c.beginPath(); P.forEach(([x, y], i) => (i ? c.lineTo(x, y) : c.moveTo(x, y))); c.closePath();
+      if (fill) { c.fillStyle = C.ink; c.globalAlpha = a * fill; c.fill(); c.globalAlpha = a; } c.strokeStyle = C.ink; c.lineWidth = lw0; c.setLineDash([16, 10]); c.stroke(); c.restore(); };
+    const wire = (x0, x1, y0, y1, z0, z1, a, lw0) => { const c = O.ctx, V = (i) => sc(i & 1 ? x1 : x0, i & 2 ? y1 : y0, i & 4 ? z1 : z0); c.save(); c.globalAlpha = a; c.strokeStyle = C.ink; c.lineWidth = lw0; c.setLineDash([10, 7]);
+      c.beginPath(); for (const [i, j] of [[0, 1], [2, 3], [4, 5], [6, 7], [0, 2], [1, 3], [4, 6], [5, 7], [0, 4], [1, 5], [2, 6], [3, 7]]) { const [ax, ay] = V(i), [bx, by] = V(j); c.moveTo(ax, ay); c.lineTo(bx, by); } c.stroke(); c.restore(); };
+    const fin = b.i0.method - 0.45;   // ba nhãn S31 (và dây dẫn) tắt hẳn trước khi thẻ V7 hiện
     if (bA > 0.01) {
-      const box = (x0, y0, x1, y1) => { const P = [[x0, y0], [x1, y0], [x1, y1], [x0, y1]].map(([x, y]) => sc(x, y, 0.3)), c = O.ctx; c.save(); c.globalAlpha = 0.85 * bA; c.strokeStyle = C.muted; c.lineWidth = 3; c.setLineDash([10, 8]);
-        c.beginPath(); P.forEach(([x, y], i) => (i ? c.lineTo(x, y) : c.moveTo(x, y))); c.closePath(); c.stroke(); c.restore(); };
-      box(X.blank_bar - 0.55, 1.38, X.blank_bar + 0.55, 1.62); box(X.blank_stack - 0.48, 0, X.blank_stack + 0.48, 2.0);
+      const lotP = [[lc - lw / 2, -ld / 2], [lc + lw / 2, -ld / 2], [lc + lw / 2, ld / 2], [lc - lw / 2, ld / 2]].map(([x, z]) => sc(x, 0.01, z));
+      poly(lotP, 0.95 * bA,4 + 3 * pulse(t, b.h0.pair, 1.0), 0.1);
+      wire(X.blank_stack - 0.45, X.blank_stack + 0.45, 0, 2.0, -0.3, 0.3, 0.95 * oA, 3 + 3 * pulse(t, b.h1.stack, 1.0));
+      wire(X.blank_bar - 0.5, X.blank_bar + 0.5, 1.38, 1.62, -0.25, 0.25, 0.95 * oA, 3 + 3 * pulse(t, b.h1.bar, 1.0));
     }
-    { const [x0, y0] = sc(X.blank_bar - 0.6, 2.1), [x1, y1] = sc(X.blank_stack + 0.5, 0); log.roi['h0.pair'] = [x0, y0, x1, y1]; }
-    const fin = b.i0.method - 0.45;   // ba nhãn S31 tắt hẳn trước khi thẻ V7 hiện
-    label(O, "your bar = your loan's own rate", 1810, 205, { align: 'right', kind: 'name', alpha: ok * show(t, b.h1.bar, fin) });
-    label(O, 'your stack = how far apart', 1810, 268, { align: 'right', kind: 'name', alpha: ok * show(t, b.h1.stack, fin) });
+    { const xs = [-1, 1].flatMap((u) => [-1, 1].map((v) => sc(lc + u * lw / 2, 0, v * ld / 2)[0])), [, yT] = sc(X.blank_stack, 2.1), [, yB] = sc(lc, 0, ld / 2);
+      log.roi['h0.any'] = [Math.min(...xs), yT, Math.max(...xs), yB]; log.roi['h0.pair'] = log.roi['h0.any']; }
+    // hai nhãn (cột phải) + dây dẫn đi ở lề phải ngoài chữ: thanh (lề ngoài, x 1878) vào cạnh phải thanh trống; chồng (lề trong, x 1850) qua TRÊN đỉnh thanh
+    // vào đỉnh chồng trống — hai dây không cắt nhau, không cắt chữ
+    const aB = ok * show(t, b.h1.bar, fin), aS = ok * show(t, b.h1.stack, fin);
+    label(O, "your bar = your loan's own rate", 1810, 205, { align: 'right', kind: 'name', alpha: aB });
+    label(O, 'your stack = how far apart', 1810, 268, { align: 'right', kind: 'name', alpha: aS });
+    { const lead = (P, a) => { if (a <= 0.01) return; const c = O.ctx; c.save(); c.globalAlpha = 0.9 * a; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath();
+        P.forEach(([x, y], i) => (i ? c.lineTo(x, y) : c.moveTo(x, y))); c.stroke(); const [ex, ey] = P[P.length - 1]; c.fillStyle = C.ink; c.beginPath(); c.arc(ex, ey, 7, 0, 2 * Math.PI); c.fill(); c.restore(); };
+      const [bx, by] = sc(X.blank_bar + 0.5, 1.5), [sx, sy] = sc(X.blank_stack, 2.0), yS = Math.min(sy - 22, sc(X.blank_bar, 1.62)[1] - 30);
+      lead([[1818, 191], [1878, 191], [1878, by], [bx + 6, by]], aB);
+      lead([[1818, 254], [1850, 254], [1850, yS], [sx, yS], [sx, sy - 4]], aS); }
     label(O, `the ${D('term_short')} and ${D('term_long')} offers sit`, 1810, 331, { align: 'right', kind: 'number', alpha: ok * show(t, b.h1.stack, fin), claims: ['term_short', 'term_long'] });
     log.roi['h1.bar'] = [900, 150, 1810, 230]; log.roi['h1.stack'] = [800, 215, 1810, 350];
     label(O, 'a dollar in the house is hard to get back', 1810, 394, { align: 'right', kind: 'compare', alpha: ok * show(t, b.h2.hard, fin) });

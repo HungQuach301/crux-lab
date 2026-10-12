@@ -2070,10 +2070,10 @@
    "sid": "S31.1",
    "mode": "chart",
    "idea": "Người vay lãi cố định nào cũng đặt được cặp của mình cạnh cô.",
-   "visual": "ô thứ ba trống hiện.",
+   "visual": "ô thứ ba trống hiện (đế nét đứt + thanh trống + chồng trống), máy lia tới.",
    "line": "Any fixed-rate borrower can set their own pair beside hers.",
    "sound": [
-    "rise"
+    "nốt dữ liệu"
    ],
    "music": 0.46,
    "emotion": "mở",
@@ -2081,6 +2081,7 @@
    "t0": 50.16,
    "t1": 53.62,
    "cues": {
+    "any": 50.16,
     "pair": 52.244
    }
   },
@@ -2249,9 +2250,9 @@
    "verb": "pan",
    "from": "cPair",
    "to": "cThree",
-   "t0": 49.584,
-   "t1": 51.184,
-   "reason": "lời S31.1 \"any borrower … their own pair beside hers\": lia sang phải cho ô thứ ba",
+   "t0": 50.41,
+   "t1": 51.984,
+   "reason": "lời S31.1 \"Any fixed-rate borrower … their own pair beside hers\": lia sang phải, máy hướng vào ô thứ ba khi nó hiện (\"Any\")",
    "sound": "whoosh_soft"
   },
   {
@@ -2413,15 +2414,15 @@
    "v": 0.668
   },
   {
-   "t": 49.584,
-   "kind": "whoosh_soft",
-   "dur": 1.6,
-   "gain": 0.8
+   "t": 50.16,
+   "kind": "data",
+   "v": 0.5
   },
   {
-   "t": 52.244,
-   "kind": "rise",
-   "dur": 0.8
+   "t": 50.41,
+   "kind": "whoosh_soft",
+   "dur": 1.574,
+   "gain": 0.8
   },
   {
    "t": 54.26,
@@ -2592,11 +2593,11 @@
   {
    "id": "s1",
    "t0": 5.0,
-   "t1": 49.584
+   "t1": 50.41
   },
   {
    "id": "s2",
-   "t0": 49.584,
+   "t0": 50.41,
    "t1": 85.191
   },
   {
@@ -2657,8 +2658,13 @@
   "house": 1.1,
   "stack": 2.75,
   "bar": -1.3,
-  "blank_bar": 4.5,
-  "blank_stack": 6.0,
+  "blank_stack": 4.1,
+  "blank_bar": 5.5,
+  "lot": [
+   4.8,
+   2.8,
+   1.6
+  ],
   "cards": [
    -0.9,
    3.3
@@ -2679,10 +2685,10 @@
    "hold": 1.4
   },
   {
-   "t": 52.244,
+   "t": 50.16,
    "kind": "arm",
-   "to": 6.0,
-   "hold": 1.6
+   "to": 4.8,
+   "hold": 2.0
   },
   {
    "t": 69.524,
@@ -2851,6 +2857,7 @@
   "g5.tessa",
   "g5.tall",
   "g5.high",
+  "h0.any",
   "h0.pair",
   "h1.bar",
   "h1.stack",

@@ -1,5 +1,5 @@
 // Tập 7 · C4 · ĐOẠN E = S21–S24. N1 Month track BẢN C4 (c4kit.TrackC4): vách 15 năm làm đích → 180 ô đặt tới vách → (3/4) 14,6 ô trễ quá vách →
-// cận cảnh ô tháng 1 (tối): MỘT TỜ ĐÔ LA to hạ xuống nằm trên ô → lùi ra: mỗi ô tối một tờ sáng, ô trễ rút từng ô → đường xong đúng ô 180 → bóng lịch
+// mỗi tháng MỘT TỜ ĐÔ LA (nhỏ hơn ô) từ tay Tessa đặt lên mặt ô, ô bắt buộc giữ ink-muted quanh tờ, ô trễ rút hết → đường xong đúng ô 180 → bóng lịch
 // 30 năm rút về vách, thanh mức bắt buộc đứng yên, một khoản bắt buộc tách lãi/gốc (lãi co lại) → một tờ nhấc lên (tháng khó, đường lui còn) → tờ nằm
 // yên; mỗi năm 12 tờ nhấc theo thứ tự, gom thành MỘT XẤP hạ xuống ô 12N, 11 ô giữa tối hẳn → đẩy vào vách: 4 ô trễ → chồng lãi nhỏ + khay tài khoản 12
 // tờ (đối trọng S24.2) → tờ đô la từ tay Tessa.
@@ -15,10 +15,9 @@ const SEG = '/episodes/ep007/world/c4/e-s21-s24/';
 export async function boot(res) {
   // cQ: góc 3/4 (~40°) trước lưới — KHÔNG nhìn thẳng xuống lúc tấm trả thêm phủ (thấy cạnh tấm); vách thấp + trong mờ không che ô trễ;
   // Tessa, khoản bắt buộc tách hai phần (S22.2) và chồng lãi nhỏ (S24) đều trong khung
-  // cU (C4 r3): cận cảnh ô tháng 1 ở góc thấp (~33°) — ô ≈ 1/4 khung, thấy cạnh dày của tờ; ô nằm dưới tâm (nhãn hai dòng ở trên không đè).
   // cW: đẩy vào vách + ô trễ của S23.3 (chồng lãi S24.1 cũng trong khung)
   const poses = { ...TRACK_POSES, cQ: { pos: [2.2, 5.4, 5.9], tgt: [2.5, 0.3, -1.9], fov: 52, chart: 1 },
-    cU: { pos: [-0.2, 0.98, 1.12], tgt: [0.17, 0.08, -0.02], fov: 25, chart: 1 }, cW: { pos: [6.1, 3.0, 3.2], tgt: [6.4, 0.1, -1.3], fov: 40, chart: 1 } };
+    cW: { pos: [6.1, 3.0, 3.2], tgt: [6.4, 0.1, -1.3], fov: 40, chart: 1 } };
   const { S, D, G, cue, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
   const b = cue, X = S.x;
   const hm = figure(scene, { x: X.house[0], z: X.house[1], side: 1 }); hm.person.position.set(X.tessa[0], 0, X.tessa[1]);
@@ -31,13 +30,12 @@ export async function boot(res) {
   const ist = Stack({ unitUsd: G.bundle_usd / BUNDLE_TH, bundleUsd: G.bundle_usd, w: 0.9, d: 0.6, maxUsd: 9000 }); ist.position.set(X.istack[0], 0, X.istack[1]); scene.add(ist);
   ist.userData.checks = { role: 'bar', series: 'yearly-extra-interest', key: 'yearly-extra-interest' };
   const IUSD = 8166;   // yearly_vs_monthly_interest (độ cao vật; nhãn qua claim)
-  // S21.3 (C4 r3, ĐỔI LOẠI HÌNH lần cuối — tờ nhỏ 62 % × 41 % trên lưới xa: "no slab described"): phần trả thêm của mỗi tháng = MỘT TỜ ĐÔ LA TO
-  // (Bill của obj7: 0,25 × 0,2 trên ô 0,34 ≈ 75 % cạnh, dày 0,06 ≈ ô, xanh tiền sáng, có bóng đổ) nằm TRÊN ô tối (cover của kit). Tờ tháng 1 hạ thẳng
-  // xuống ô ở cận cảnh (cU, chạm U1); các tờ khác hạ thẳng vào từng cột-năm khi máy lùi (chạm ở land[c], một nốt mỗi cột). Tấm của kit tắt (drop = 0).
-  // S23: 12 tờ của năm nhấc theo thứ tự (sau → trước), gom thành xấp có khe (BLP) lơ lửng ngay trên ô 12 rồi HẠ xuống ô 12; 11 ô giữa tối hẳn
-  const BS = new THREE.Vector3(0.25 / 0.62, 3, 0.2 / 0.28), BH = 0.02 * BS.y, BLP = BH + 0.03, HOV = 0.3;
-  const glowBill = (g) => { g.traverse((m) => { if (m.isMesh) { m.material = m.material.clone(); m.material.color.lerp(new THREE.Color('#8FE09E'), 0.45);
-    m.material.emissive = m.material.color.clone(); m.material.emissiveIntensity = 0.55; } }); return g; };
+  // S21.3 (C4 r2 — khoá nghĩa ở r4: cận cảnh tờ to của r3 hạ B21 → bỏ): phần trả thêm của mỗi tháng = MỘT TỜ ĐÔ LA (Bill của obj7, vật tiền của
+  // S24.3/S25, sáng hơn chút) NHỎ HƠN Ô (62 % × 41 % cạnh ô) nằm TRÊN mặt ô; ô bắt buộc giữ ink-muted và thấy quanh tờ ở mọi khung (tấm của kit tắt:
+  // drop = 0). Tờ rời tay Tessa, qua mép trước cột đầu rồi rải vào từng cột-năm (chạm ở land[c], một nốt mỗi cột).
+  // S23 (C4 r3): 12 tờ của năm nhấc theo thứ tự (sau → trước), gom thành xấp có khe (BLP) lơ lửng ngay trên ô 12 rồi HẠ xuống ô 12; 11 ô giữa tối hẳn
+  const BS = new THREE.Vector3(0.34, 1.8, 0.5), BH = 0.02 * BS.y, BLP = BH + 0.04, HOV = 0.3;
+  const glowBill = (g) => { g.traverse((m) => { if (m.isMesh) { m.material = m.material.clone(); m.material.emissive = m.material.color.clone().lerp(new THREE.Color('#FFFFFF'), 0.3); m.material.emissiveIntensity = 0.7; } }); return g; };
   const proto = glowBill(Bill({ name: 'extra-month' })), bills = proto.children.map((p) => {
     const im = new THREE.InstancedMesh(p.geometry.clone().translate(p.position.x, p.position.y, p.position.z), p.material, T.n);
     im.castShadow = im.receiveShadow = true; im.frustumCulled = false; scene.add(im); return im; });
@@ -51,17 +49,20 @@ export async function boot(res) {
   const hand = [X.tessa[0] + 0.35, 0.7, X.tessa[1] + 0.2], dest = [X.house[0] + 0.1, 2.1, X.house[1] + 0.9];
   const lay = S.lay, land = S.land, NC = 15;
   const cl = (x) => Math.min(1, Math.max(0, x)), sm = (u) => u * u * (3 - 2 * u);
-  const zEnd = track.tileAt(T.cols - 1)[2];
+  const dep = (c) => land[0] - S.drop + 0.07 * c, via = [track.colX(0, -1) - 0.25, 0.95], zEnd = track.tileAt(T.cols - 1)[2];
   const blockTop = (c) => { const [x, y, z] = track.tileAt(c * T.cols + T.cols - 1); return [x, y + T.cols * BLP, z]; };
   const BM = new THREE.Matrix4(), BQ = new THREE.Quaternion(), BE = new THREE.Euler(), BP = new THREE.Vector3(), HIDE = new THREE.Matrix4().makeScale(0, 0, 0);
-  // tờ tháng i: hạ thẳng xuống ô (rơi nhanh dần, nghiêng nhẹ rồi nằm phẳng) và nằm yên; gathered(c), bob(i), lift = {i, a}
+  // tờ tháng i: bay (Bezier tay → mép trước cột đầu → ô) rồi nằm trên ô; gathered(c), bob(i), lift = {i, a}
   function setBills(t, gathered, bob, lift) {
     for (let i = 0; i < T.n; i++) {
-      const c = Math.floor(i / T.cols), r = i % T.cols, tL = i === 0 ? S.u1 : land[c], fall = i === 0 ? S.u1drop : S.drop, t0 = tL - fall;
+      const c = Math.floor(i / T.cols), r = i % T.cols, t0 = dep(c);
       if (t < t0) { for (const m of bills) m.setMatrixAt(i, HIDE); continue; }
-      const [x, yt, z] = track.tileAt(i), yR = yt + BH / 2 + 0.004, u = lin(t, t0, tL);
-      if (u < 1) { BP.set(x, yR + (i === 0 ? 0.7 : 0.6) * (1 - u * u), z); BE.set(0.35 * (1 - u), 0.5 * (1 - u), 0); }
-      else {
+      const [x, yt, z] = track.tileAt(i), yR = yt + BH / 2 + 0.004, u = sm(lin(t, t0, land[c]));
+      if (u < 1) {
+        const v = 1 - u, zm = mix(hand[2], z, 0.5);
+        BP.set(v * v * hand[0] + 2 * v * u * via[0] + u * u * x, v * v * hand[1] + 2 * v * u * via[1] + u * u * yR, v * v * hand[2] + 2 * v * u * zm + u * u * z);
+        BE.set(0.95 * v, 0.25 * Math.sin(Math.PI * u), 0);
+      } else {
         // gom: tờ k (k = 0 ở ô 12, đáy xấp) nhấc ở dl(k), bay tới chỗ của nó trong xấp lơ lửng HOV trên ô 12; cả xấp hạ ở 0,8–1
         const g = gathered(c), k = T.cols - 1 - r, e = sm(cl((g - 0.5 * k / (T.cols - 1)) / 0.3)), dn = sm(cl((g - 0.8) / 0.2)), y1 = yt + 0.004 + k * BLP + BH / 2;
         BP.set(x, yR + (y1 + HOV * (1 - dn) - yR) * e + 0.12 * Math.sin(Math.PI * e) + bob(i) + (lift.i === i ? 1.1 * lift.a : 0), z + (zEnd - z) * e); BE.set(0, 0, 0);
@@ -82,9 +83,8 @@ export async function boot(res) {
       bob = (i) => { const u = (t - (S.wave[0] + (S.wave[1] - S.wave[0] - 0.3) * i / 179)) / 0.3; return u > 0 && u < 1 ? 0.03 * Math.sin(Math.PI * u) : 0; },
       lift = { i: S.lift.i, a: ease(t, S.lift.t[0] - 0.05, S.lift.t[0] + 0.45) * (1 - ease(t, S.lift.t[1], S.lift.t[1] + 0.5)) };
     setBills(t, gathered, bob, lift);
-    // ô bắt buộc: tối dần khi máy đẩy vào ô tháng 1 (ink-muted → xám đậm 0,6: tờ sáng / ô tối), tối hẳn khi năm đã gom (11 ô không trả thêm);
-    // không tấm kit (drop = 0); loé "required" nhẹ (0,3)
-    const dk = 0.6 * ease(t, MV.m_u21.t0, MV.m_u21.t1), cover = (c) => dk + (0.95 - dk) * cl((gathered(c) - 0.8) / 0.2);
+    // ô bắt buộc: ink-muted suốt S21–S22 (C4 r2), tối hẳn khi năm đã gom (S23, C4 r3: 11 ô không trả thêm); không tấm kit (drop = 0); loé "required" nhẹ (0,3)
+    const cover = (c) => 0.95 * cl((gathered(c) - 0.8) / 0.2);
     track.set({ lit: kf(S.lit, t), late, cover, drop: 0,
       flash: (c) => Math.min(1, pulse(t, lay[c] + 0.2, 0.6) + 0.3 * pulse(t, b.a2.required, 0.9) + curOn * (Math.floor(curM / 12) === c ? 0.7 : 0) + (c === 9 ? pulse(t, b.b2.later, 1.2) : 0)),
       ghost: gc, ghostA: gc > 0.01 ? 1 : 0,
@@ -122,15 +122,14 @@ export async function boot(res) {
     label(O, `pay ${D('pay15_now')} on the ${D('term_long')}: ${D('months_at_pay15_now')}`, 960, 205, { align: 'center', kind: 'number', alpha: ok * show(t, b.a1.ends, old),
       claims: ['pay15_now', 'term_long', 'months_at_pay15_now'] });
     log.roi['a1.ends'] = [300, 150, 1620, 230];
-    // "about 15 months late" (mới ở C4): trên NỀN TỐI đặc, phía trên đầu sau của vách (không đè ô amber); tắt khi máy bắt đầu đẩy vào ô tháng 1
+    // "about 15 months late" (mới ở C4): trên NỀN TỐI đặc, phía trên đầu sau của vách (không đè ô amber); tắt khi ô trễ bắt đầu rút
     { const lx3 = Math.min(1530, Math.max(400, mbx)), ly3 = mby - 70;
-      label(O, D('months_late_at_pay15_now'), lx3, ly3, { align: 'center', kind: 'number', color: C.warn, plateA: 0.95, alpha: ok * show(t, b.a1.late, MV.m_u21.t0), claims: ['months_late_at_pay15_now'] });
+      label(O, D('months_late_at_pay15_now'), lx3, ly3, { align: 'center', kind: 'number', color: C.warn, plateA: 0.95, alpha: ok * show(t, b.a1.late, land[0] - 0.1), claims: ['months_late_at_pay15_now'] });
       log.roi['a1.late'] = [lx3 - 300, ly3 - 50, lx3 + 300, ly3 + 20]; }
-    // S21.3: cận cảnh ô tháng 1 + tờ hạ xuống; nhãn hai dòng ở "seven" (ô trễ ngoài khung cận cảnh, rút từng ô khi máy lùi)
-    { const [ax, ay] = sc(track.colX(0, -1), T.th, track.frontZ()), [bx2, by2] = sc(track.colX(0, 1), T.th + 0.75, track.frontZ() - T.tile);
-      log.roi['a2.finish'] = [Math.min(ax, bx2) - 10, Math.min(ay, by2) - 10, Math.max(ax, bx2) + 10, Math.max(ay, by2) + 10]; }
+    // S21.3: tờ tiền từ tay Tessa tới cột đầu; nhãn hai dòng chỉ hiện khi không còn ô trễ nào
+    { const [hx, hy] = sc(...hand); log.roi['a2.finish'] = [Math.min(hx, fx0) - 40, Math.min(hy, gy0) - 60, sc(track.colX(1, 1), 0, track.frontZ())[0] + 10, Math.max(hy, fy0) + 10]; }
     log.roi['a2.required'] = grid;
-    const s7 = ok * show(t, b.a2.seven, b.b0.requires - 0.1);
+    const s7 = ok * show(t, b.a2.seven, b.b0.requires - 0.1) * (late <= 0 ? 1 : 0);
     label(O, `to finish in ${D('monthly_extra_months')}:`, 960, 205, { align: 'center', kind: 'number', alpha: s7, claims: ['monthly_extra_months'] });
     label(O, `${D('extra_month_about')} extra on top of the ${D('pay30_amt')} required`, 960, 268, { align: 'center', kind: 'number', alpha: s7, claims: ['extra_month_about', 'pay30_amt'] });
     log.roi['a2.seven'] = [300, 150, 1620, 290];
