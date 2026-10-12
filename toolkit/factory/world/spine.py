@@ -95,8 +95,9 @@ def shots_for(moves, total):
     return [{'id': f's{i}', 't0': round(a, 3), 't1': round(b, 3)} for i, (a, b) in enumerate(zip(cuts, cuts[1:]))]
 
 
-def check_rules(beats, moves, pad, rule3=True):
-    """Quy tắc 2 (máy đứng yên ± pad quanh mọi từ khoá), 3 (động tác hữu hạn, có lý do + âm), 7 (5 s đầu ở chế độ thế giới)."""
+def check_rules(beats, moves, pad, rule3=True, episode_t0=None):
+    """Quy tắc 2 (máy đứng yên ± pad quanh mọi từ khoá), 3 (động tác hữu hạn, có lý do + âm), 7 (5 s đầu ở chế độ thế giới).
+    F-14 (c): episode_t0 (giờ tập của đầu đoạn) → quy tắc 7 chỉ giữ 5 s ĐẦU TẬP (đoạn bắt đầu sau 5 s không bị buộc); None = cách cũ (mọi đoạn)."""
     errs, C = [], cue_list(beats)
     for m in moves:
         for t, name in C:
@@ -105,6 +106,88 @@ def check_rules(beats, moves, pad, rule3=True):
             errs.append(f'quy tắc 3: động tác {m} thiếu lý do/âm hoặc động từ ngoài {VERBS}')
         if m.get('style', 'dissolve') not in MODE_STYLES or (m.get('style') == 'fly' and m['verb'] != 'mode'):
             errs.append(f'F-1: kiểu chuyển {m.get("style")!r} không hợp lệ cho {m["verb"]} (chỉ mode, {MODE_STYLES})')
-    if beats[0]['mode'] != 'world' or any(m['verb'] == 'mode' and m['t0'] < 5.0 for m in moves):
-        errs.append('quy tắc 7: 5 s đầu phải ở chế độ thế giới')
+    lim = 5.0 if episode_t0 is None else 5.0 - episode_t0
+    if lim > 0 and (beats[0]['mode'] != 'world' or any(m['verb'] == 'mode' and m['t0'] < lim for m in moves)):
+        errs.append('quy tắc 7: 5 s đầu ' + ('phải' if episode_t0 is None else 'của TẬP phải') + ' ở chế độ thế giới')
     return errs
+
+
+# ---------------------------------------------------------------- F-14 (BACKLOG): nhịp hình trước khi kéo dài tập — mọi thứ dưới đây là opt-in
+CHANGE = ('major', 'minor')
+MAX_STILL = 8.0      # quãng có lời dài nhất không có thay đổi `major` (lessons T6-6; cine-lab Q15) — CẢNH BÁO, chưa chặn (A23 chưa hiệu chuẩn)
+LABEL_TOL = 0.2      # nhãn neo vào từ: mốc hiện nhãn − mốc từ ∈ [−0,2; +0,2] s
+
+
+def major_changes(spine):
+    """[(t0, t1, tên)] các thay đổi `major` của một spine.json F-14: cú máy đổi chế độ (mặc định major) hoặc cú máy khai `change: major`;
+    cue hình khai trong spine['changes'] = {'b3.each': 'major'|'minor'}. Nhãn, `life` và cue không khai = không phải major."""
+    out = [(m['t0'], m['t1'], m.get('id', m['verb'])) for m in spine.get('moves', [])
+           if m.get('change', 'major' if m['verb'] == 'mode' else 'minor') == 'major']
+    cues = {f"{b['id']}.{k}": t for b in spine.get('beats', []) for k, t in b.get('cues', {}).items()}
+    out += [(cues[n], cues[n], n) for n, c in spine.get('changes', {}).items() if c == 'major' and n in cues]
+    return sorted(out)
+
+
+def still_major(spine, max_s=MAX_STILL):
+    """Quãng CÓ LỜI > max_s giữa hai thay đổi major liền nhau (từ đầu tiên → từ cuối cùng; định nghĩa như indicators/spine_pace.py)."""
+    words = [(w['s'], w['e']) for w in spine.get('words', []) if not w['w'].startswith('[')]
+    edges, cur = [], 0.0
+    for a, b, _ in major_changes(spine):
+        if a > cur: edges.append((cur, a))
+        cur = max(cur, b)
+    edges.append((cur, spine.get('total', cur)))
+    off, out = spine.get('episode_t0', 0.0) or 0.0, []
+    for a, b in edges:
+        ws = [w for w in words if w[0] >= a and w[1] <= b]
+        if ws and ws[-1][1] - ws[0][0] > max_s:
+            out.append({'t0': round(ws[0][0] + off, 2), 't1': round(ws[-1][1] + off, 2), 'dur': round(ws[-1][1] - ws[0][0], 2)})
+    return out
+
+
+def check_f14(spine):
+    """Kiểm khai F-14 của spine.json (lỗi = dừng bước spine; cảnh báo = in, không dừng):
+    (b) `changes` chỉ major|minor trên cue có thật; `anchor: true` chỉ trên beat; CẢNH BÁO quãng có lời > 8 s không có major.
+    (c) `label_at` {nhãn: giây} — mỗi nhãn của label_cues có cue cùng tên phải hiện trong ±0,2 s quanh từ của nó.
+    (a) `life` {tên: {'what': đại lượng, 'keys': [[t, v], …], 'label': nhãn?}} — t tăng dần, có `what` (một dòng: nó biểu diễn gì của câu).
+    CẢNH BÁO (bài học F-14 v4, lessons T6/F-14): (d) track `life` khai `label` mà còn đi SAU khi nhãn đó đã hiện → vật mang giá trị trung gian khi
+    nhãn đã nói giá trị (B30 v4: thanh 50 % lúc "42.4%" hiện); (e) nhãn CHỮ (không phải số) neo vào từ ở 30 % cuối câu → neo vào từ MỞ ý (B08 v1)."""
+    errs, warn = [], []
+    cues = {f"{b['id']}.{k}": t for b in spine.get('beats', []) for k, t in b.get('cues', {}).items()}
+    for n, c in spine.get('changes', {}).items():
+        if c not in CHANGE: errs.append(f'F-14 (b): changes[{n}] = {c!r} (major|minor)')
+        if n not in cues: errs.append(f'F-14 (b): changes[{n}] không phải cue của beats')
+    for m in spine.get('moves', []):
+        if m.get('change', 'major') not in CHANGE: errs.append(f"F-14 (b): move {m.get('id')} change={m['change']!r}")
+    for n, t in spine.get('label_at', {}).items():
+        if n in cues and abs(t - cues[n]) > LABEL_TOL + 1e-9:
+            errs.append(f'F-14 (c): nhãn {n} hiện @{t} lệch từ @{cues[n]} = {t - cues[n]:+.2f} s (> ±{LABEL_TOL})')
+    for n, tr in spine.get('life', {}).items():
+        ks = tr.get('keys', [])
+        if not tr.get('what'): errs.append(f'F-14 (a): life[{n}] thiếu `what` (đại lượng nó biểu diễn) — không có nghĩa = trang trí')
+        if any(b[0] < a[0] for a, b in zip(ks, ks[1:])): errs.append(f'F-14 (a): life[{n}] khoá không theo thứ tự giờ')
+    lab = spine.get('label_at', {})
+    for n, tr in spine.get('life', {}).items():
+        ks, ln = tr.get('keys', []), tr.get('label')
+        if ln in lab and ks and ks[-1][0] > lab[ln] + LABEL_TOL + 1e-9:
+            warn.append(f'F-14 (d) CẢNH BÁO: life[{n}] còn đi tới @{ks[-1][0]} sau khi nhãn {ln} hiện @{lab[ln]} — ở từ khoá vật phải đủ giá trị như nhãn')
+    sent = {}
+    for w in spine.get('words', []):
+        a0, a1 = sent.get(w.get('sid'), (w['s'], w['e'])); sent[w.get('sid')] = (min(a0, w['s']), max(a1, w['e']))
+    txt = spine.get('label_cues', {})
+    for n, t in lab.items():
+        if re.search(r'\d', str(txt.get(n, ''))): continue   # nhãn số neo vào chính từ đọc số — đúng chỗ
+        w = next((w for w in spine.get('words', []) if w['s'] - LABEL_TOL <= t <= w['e']), None)
+        if w is None: continue
+        a0, a1 = sent[w.get('sid')]
+        if a1 - a0 > 1.0 and (w['s'] - a0) / (a1 - a0) > 0.7:
+            warn.append(f"F-14 (e) CẢNH BÁO: nhãn {n} neo vào từ {w['w']!r} ở cuối câu {w.get('sid')} — neo vào từ MỞ ý")
+    for s in still_major(spine):
+        warn.append(f"F-14 (b) CẢNH BÁO: lời {s['t0']}–{s['t1']} ({s['dur']} s) > {MAX_STILL:g} s không có thay đổi major")
+    return errs, warn
+
+
+def life_keys(points):
+    """F-14 (a): chuẩn hoá các mốc [(t, v)] gắn vào từ của một track `life` (sắp theo giờ, làm tròn ms) → [[t, v]]. Việc nội suy tuyến tính giữa
+    hai mốc do scene làm (c4kit.kf / lin) — vật đi dần theo thời gian của câu thay vì bậc 0,3 s rồi đứng."""
+    pts = sorted((round(float(t), 3), v) for t, v in points)
+    return [[t, v] for t, v in pts]

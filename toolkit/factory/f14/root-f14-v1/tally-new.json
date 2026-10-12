@@ -1,0 +1,431 @@
+{
+ "candidate_set": "ep006",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep006",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Crates fade to a gray last crate under the +2% check. / Last crate greys despite +2% check; '?'",
+    "Crates fade despite the 2% raise; the last crate goes gray. / Crates dim despite +2% raise; '?' noted"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B03",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Fixed 100% line and Ruth ending below it are correct. / Fixed line vs Ruth's line ending just under; no action",
+    "100% line with Ruth ending below it; no advice. / Ruth's line slips just under first-check line"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "NEED_3RD",
+   "why": [
+    "Level versus rising cards with an unmodeled gap. / Two cards, greyed '?' not modeled gap",
+    "Two cards, flat versus 2% rising, with the gap 'not modeled'. / Two cards seen; gap misread as buying-power loss"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B06",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Both bars, +48.6% and +64.3%, are correct; the advice is inferred. / +48.6% vs +64.3% captured; reader's own comparison",
+    "Check bar +48.6% versus price bar +64.3% is correct. / +48.6% vs +64.3% bars captured"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B07",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "9 of 10 crates at 90.4% is correct. / 9 of 10 crates, 90.4% despite +2%",
+    "9 of 10 crates, 90.4%, is correct; only general care. / 9 of 10 crates lit; only a look"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B08",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "6 of 10 is right; the different-start-sizes note is missed. / 6 of 10 vs 9 of 10; trade-off noted",
+    "6 of 10 is right; 'same start' contradicts the grey note. / 6 of 10 captured; wrongly says same start size"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "12 of 15 and dips that recover are correct. / Dips early, back above each time",
+    "Early dips that recover are captured; no action is drawn. / Early dips recovered, 12 of 15; no action drawn"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B10",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Near the baseline, back at Aug 2021, then below the line. / Near baseline at age 80, then drops below",
+    "Above through year 15, then under to the end; no advice. / Just above at age 80, then drops under"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B12",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Level line falls to 9 in 10 by year 5, with '?' over 20 years. / Level ~9 in 10 by year 5; '?' misread slightly",
+    "Level line crosses the 9 in 10 level at year 5; '?' noted. / Level falls to 9 in 10 by year 5"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B13",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Ruth's stretch is one of 715 in the grid; this is the reader's own inference. / 715 stretches, Ruth one tile; own inference",
+    "Ruth's chart is one of 715 windows; general care only. / 715 windows, Ruth's tile in the grid"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B14",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Rare 17 of 715, about 1 in 42, is correct. / Rare 17 of 715; thin left cluster",
+    "Matches 17 of 715; the compare-options step is the reader's own. / 17 of 715 and 1 in 42 match; own inference"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B15",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Left window, 'none since' and Ruth are correct; no action. / Left cluster high, none since, rest low; no action",
+    "Left cluster, 'none since' and Ruth's tile are read correctly. / Early cluster high, none since; only a check"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B16",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "NEED_3RD",
+   "why": [
+    "Median near 80.7% and 8 of 10 crates are correct. / 80.7% median and 8 of 10 crates",
+    "Crates 8 of 10 are right; '80.7% above' is misread. / 8 of 10 crates seen; 80.7% misread as above"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B17",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Median 54.3% near half and year 8 are correct. / Median ~half and year 8 captured",
+    "Median 54.3% and year 8 are correct. / 54.3% median, year 8 captured"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B19",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Both start windows and Ruth's 90.4% are correct. / 1990s and 2000s blocks, Ruth 90.4% captured",
+    "Both start windows and Ruth's tile are correct. / 0 of 120, 0 of 79, Ruth 90.4% captured"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B21",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "0 of 655 kept up is correct; the option step is inferred. / 0 of 655 kept up captured; own inference",
+    "0 of 655 kept up is correct. / 0 of 655 kept up captured"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "CPI-W 21 of 715 and PCE 19.2% are correct. / CPI-U, CPI-W, PCE grids captured",
+    "CPI-W and PCE grids are read correctly. / CPI-W near same, PCE shorter; mostly kept-up scarce"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B24",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Carl's 1966 row dims to about 4 of 10. / Carl's crates dim to ~4; Ruth inset",
+    "Carl's crates dim to 4 and the Ruth inset is noted. / Carl crates dim to 4; Ruth inset noted"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Both rows under half and level under a third are correct. / 43.1% and 29.0%, both under half",
+    "43.1% and 29.0%, with fewer than half and a third, are correct. / Under half and under a third captured"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B27",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Edna fully lit, with the shared-years overlap. / Edna all lit; overlapping shared years",
+    "Edna fully lit, with the shared-years overlap with Carl. / Edna lit, shared 1966–69 overlap captured"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B29",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Edna, Ruth and Carl crate counts are correct. / Edna 10, Ruth 9, Carl 4 captured",
+    "Edna 10, Ruth 9, Carl 4 are correct. / Edna 10, Ruth 9, Carl 4 captured"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B30",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "NEED_3RD",
+   "why": [
+    "Ladder, half at 3.1 and all at 6.38 (Carl) are correct. / Ladder with half at 3.1, all at top",
+    "Ladder and median-versus-worst are seen; the bar meaning is wrong. / Ladder seen; bar meaning misread as price rise"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B32",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "9 of 10 crates despite the 2% raise is correct. / 9 of 10 crates, rising card captured",
+    "9 of 10 crates at 2% a year is correct. / Age 85, 9 in 10 captured"
+   ]
+  }
+ ],
+ "gate_beats": 23,
+ "gate_pass": 19,
+ "pending": [
+  "B04",
+  "B16",
+  "B30"
+ ],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "verdict": "PENDING"
+}

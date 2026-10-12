@@ -49,6 +49,23 @@ giới; tốc độ máy theo bề rộng khung không phụ thuộc thang này;
 khung nó thật sự vang sau khi dời vào khe lời, `audio-report.json data_events`).
 **Banding (F-6, checks F08):** `core.CK.dither` (mặc định 2): `material.dithering` của three + dither CỐ ĐỊNH theo màn hình ±4 mã (TPDF, ô 2×2 ở
 1080) ở điểm ảnh tối (luma < 72) trước khi mã hoá — mẫu đứng yên sống qua hai lần x264 (nhiễu đổi theo khung bị khung P xoá). `?dither=0` tắt.
+**Nhịp hình (F-14, `toolkit/factory/f14/`, opt-in: spine.json có khoá `f14`):** (a) `life` = `{tên: {what, keys: [[t, v]…]}}` — vật dữ liệu sống
+theo thời gian của câu (đếm thùng, hàng mọc lần lượt, vùng tô dần…), bắt đầu ĐÚNG từ khoá; mỗi track phải có `what` (đại lượng nó biểu diễn), không
+đếm là thay đổi trên `indicators/spine_pace.py`/R08 (chống tự chấm). Đổi hình phải **tích luỹ đủ diện tích** (freezedetect so với khung mốc: một vệt sáng
+đi qua vài thùng nhỏ không phá được quãng đứng yên — `c4kit.countBand`). (b) `changes` `{cue: major|minor}` + cú máy `change` (mặc định: đổi chế độ = major);
+`spine.check_f14` → build_seg bước spine in CẢNH BÁO mọi quãng có lời > 8 s không có major. (c) `label_at` `{nhãn: giây}` = mốc từ của cue cùng tên ±0,2 s
+(spine chặn khi lệch); quy tắc 7 chỉ giữ **5 s đầu tập** (`check_rules(..., episode_t0)`, verify_seg `first_5s_world` chỉ cho đoạn mở trước 5 s) → đoạn giữa
+tập vào đồ thị trước từ đọc số, nhãn số hiện đúng từ. verify_seg báo `labels` (mốc hiện thật trên nhật ký trang − mốc từ), > 0,2 s = CẢNH BÁO.
+Bài học đo (R07 khoá): cú máy phải xong ≥ 0,5 s trước từ khoá kế (nền đo [t−0,7; t−0,15]); không mờ/tắt gì trong 0,3 s TRƯỚC từ (đổi hình phải bắt đầu ở từ).
+Vòng nháp nhanh 360p (`f14/loop.sh`, khớp bản 1080p: freezedetect 210 / 206 s, R07 71,2 / 70,3 %). Chú ý: chú thích cuối dòng chèn giữa dict/khai báo
+đã 3 lần nuốt mã (comment_guard không bắt) — kiểm `node --check` trên bản sao `.mjs`.
+**Bài học F-14 (đóng 12/10, v4 TRƯỢT cổng gốc; `f14/REPORT.md`) — hợp đồng f14 thêm:** (d) **ở từ khoá, vật dữ liệu phải đủ giá trị đúng như nhãn**:
+chuyển động nền không được làm vật mang giá trị trung gian khi nhãn đã hiện (B30 v4: thanh S30 mọc 50 % bậc + 50 % tuyến để qua freezedetect → lúc "42.4%"
+hiện thanh mới ≈ nửa, người đọc mù đọc thành "giá tăng cộng dồn"). Track `life` gắn với một nhãn khai `label: <khoá nhãn>`; `check_f14` CẢNH BÁO khi
+track còn đi sau mốc nhãn + 0,2 s. (e) **neo nhãn vào từ MỞ ý**, không vào từ cuối câu (B08 v1: "starting sizes: not modeled" neo vào "model" → ra
+khỏi dải nhịp): `check_f14` CẢNH BÁO nhãn chữ (không chứa số) neo vào từ ở 30 % cuối câu > 1 s (nhãn số neo vào chính từ đọc số: không cảnh báo).
+Cả hai chỉ cảnh báo (chưa hiệu chuẩn). Đổi hình chỉ để qua thước (biên độ, nhịp mọc) phải ghi trong REPORT là "đổi vì thước" và soát nghĩa ở cổng gốc.
+
 **Shorts từ đoạn thế giới (F-9):** Short có khoảng nằm trọn trong một đoạn `world:` được DỰNG LẠI 1080×1920 từ scene.js của đoạn
 (`world/shorts.py`, `render_shots.js --span a,b --orient v`): cùng máy quay, khung = cửa sổ dọc của mặt phẳng thiết kế rộng 1080/`scale` px
 (`scale` của Short trong `episode.yaml`, mặc định 0,75; 3D render đúng cửa sổ bằng `setViewOffset`, không cắt ảnh 16:9); chữ của cảnh nâng lên

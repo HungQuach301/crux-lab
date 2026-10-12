@@ -80,7 +80,18 @@ def main():
 
     def spine():
         r = run([sys.executable, os.path.join(seg, 'spine.py')])
-        return r.returncode == 0, {'stdout': r.stdout.strip().splitlines()[-1:] }
+        info = {'stdout': r.stdout.strip().splitlines()[-1:]}
+        sj = os.path.join(ROOT, seg, 'spine.json')
+        # F-14: kiểm khai báo change, anchor, label_at, life khi spine có khoá f14 (lỗi thì dừng; quãng lời dài hơn 8 s chỉ cảnh báo)
+        if r.returncode == 0 and os.path.exists(sj):
+            sp = json.load(open(sj))
+            if 'f14' in sp:
+                import spine as SV
+                errs, warn = SV.check_f14(sp)
+                for m in errs + warn: print('  ' + m)
+                info['f14'] = {'errors': errs, 'warn': warn}
+                return not errs, info
+        return r.returncode == 0, info
 
     def render():
         env = {**os.environ, 'NODE_PATH': subprocess.run(['npm', 'root', '-g'], capture_output=True, text=True).stdout.strip()}
@@ -117,7 +128,10 @@ def main():
         for lv in ('block', 'warn'):
             for m in f2[lv]: print(f'  F-2 {lv.upper()}: {m}')
         ok = not (fail['rule1'] or fail['rule2'] or fail['rule3'] or fail['hard_cuts']) and fail['first_5s_world'] and not c14 and f2['level'] != 'BLOCK'
-        return ok, {**fail, 'C14': v['C14'], 'modes': v['modes'], 'F2': {**f2['summary'], 'block': f2['block'], 'warn': f2['warn']}}
+        if 'labels' in v:   # F-14 (c): nhãn lệch từ > 0,2 s = CẢNH BÁO
+            for x in v['labels']['late']: print(f"  F-14 (c) CẢNH BÁO: nhãn {x['cue']} lệch {x['lag']} s")
+        return ok, {**fail, 'C14': v['C14'], 'modes': v['modes'], 'F2': {**f2['summary'], 'block': f2['block'], 'warn': f2['warn']},
+                    **({'labels': v['labels']} if 'labels' in v else {})}
 
     for name, fn in (('lint', lint), ('spine', spine), ('render', render), ('audio', audio), ('mux', mux), ('verify', verify)):
         step(name, fn)

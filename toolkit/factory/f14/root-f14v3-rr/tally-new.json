@@ -1,0 +1,55 @@
+{
+ "candidate_set": "ep006",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep006",
+   "id": "B14",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5,
+    1
+   ],
+   "readers": 3,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 3,
+   "status": "PASS",
+   "why": [
+    "Almost never kept up, small left slice highlighted; advice self-drawn / Almost never kept up, small highlighted left slice; advice own",
+    "Left highlight and 17/715 noted, but meaning of kept up uncertain / Notes left highlight and 17 of 715 but unsure what kept up means",
+    "Mostly failing, thin left cluster kept up (17/715); advice self-drawn / Nearly all months fail, thin left cluster kept up (17 of 715)"
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5,
+    0.5
+   ],
+   "readers": 3,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 3,
+   "status": "FAIL",
+   "why": [
+    "SS grid same as main, PCE more favorable; advice self-drawn / Thin left cluster on CPI grids; PCE has wider teal block; advice is own",
+    "Notes PCE differs but overstates divergence; SS grid similarity not clear / Near-identical CPI grids, larger PCE teal block, mostly not kept up; advice own",
+    "Similar across measures, but PCE unclear and teal placement muddled / Core idea right but PCE contrast muddled, teal placement confused"
+   ]
+  }
+ ],
+ "gate_beats": 2,
+ "gate_pass": 1,
+ "pending": [],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "share": 0.5,
+ "verdict": "FAIL",
+ "near_threshold": false
+}

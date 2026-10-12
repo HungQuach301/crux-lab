@@ -1,0 +1,112 @@
+{
+ "ctl": {
+  "candidate_set": "ctl",
+  "threshold": 0.8,
+  "rows": [
+   {
+    "set": "ctl",
+    "id": "B16",
+    "kind": "image",
+    "scores": [
+     1,
+     1,
+     0.5
+    ],
+    "readers": 3,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Correct 80.7% median and 8 of 10 crates; only asks insurer. / Median 80.7% and 8 of 10 crates correct; only asking.",
+     "Correct 80.7% median and 8/10 crates; reader drew the action themself. / Correct 80.7% and 8-of-10 crates; reader's own compare-options conclusion.",
+     "Has 80.7% and 8 of 10 crates, but confuses fixed versus rising check. / Has 80.7% and 8 of 10 crates but calls it a fixed check."
+    ]
+   },
+   {
+    "set": "v4",
+    "id": "B30",
+    "kind": "image",
+    "scores": [
+     1,
+     0,
+     0
+    ],
+    "readers": 3,
+    "correct": 1,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Correctly reads bars as share of stretches kept up with; half at 3.1. / Correct ladder: 3.1 covers half, only top rung covers all.",
+     "Misreads bars as cumulative price rise; misses share-of-stretches meaning. / Misreads ladder as price rises; own inference about inflation-rising option.",
+     "Got half at 3.1 and Carl's top rung, but misread bars as cumulative inflation. / Misreads bars as cumulative price rises, not share of stretches kept up with."
+    ]
+   }
+  ],
+  "gate_beats": 1,
+  "gate_pass": 1,
+  "pending": [],
+  "advice_beats": [],
+  "classes": null,
+  "advice_rubric": "new",
+  "share": 1.0,
+  "verdict": "PASS",
+  "near_threshold": false
+ },
+ "v4": {
+  "candidate_set": "v4",
+  "threshold": 0.8,
+  "rows": [
+   {
+    "set": "v4",
+    "id": "B30",
+    "kind": "image",
+    "scores": [
+     1,
+     0,
+     0
+    ],
+    "readers": 3,
+    "correct": 1,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Correctly reads bars as share of stretches kept up with; half at 3.1. / Correct ladder: 3.1 covers half, only top rung covers all.",
+     "Misreads bars as cumulative price rise; misses share-of-stretches meaning. / Misreads ladder as price rises; own inference about inflation-rising option.",
+     "Got half at 3.1 and Carl's top rung, but misread bars as cumulative inflation. / Misreads bars as cumulative price rises, not share of stretches kept up with."
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B16",
+    "kind": "image",
+    "scores": [
+     1,
+     1,
+     0.5
+    ],
+    "readers": 3,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Correct 80.7% median and 8 of 10 crates; only asks insurer. / Median 80.7% and 8 of 10 crates correct; only asking.",
+     "Correct 80.7% median and 8/10 crates; reader drew the action themself. / Correct 80.7% and 8-of-10 crates; reader's own compare-options conclusion.",
+     "Has 80.7% and 8 of 10 crates, but confuses fixed versus rising check. / Has 80.7% and 8 of 10 crates but calls it a fixed check."
+    ]
+   }
+  ],
+  "gate_beats": 1,
+  "gate_pass": 0,
+  "pending": [],
+  "advice_beats": [],
+  "classes": null,
+  "advice_rubric": "new",
+  "share": 0.0,
+  "verdict": "FAIL",
+  "near_threshold": false
+ }
+}

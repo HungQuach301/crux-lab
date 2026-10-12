@@ -1,0 +1,433 @@
+{
+ "candidate_set": "ep006",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep006",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Check +2%, crates dim to 9; only general awareness / Check grows 2%, last crate greyed, buying power shrinks.",
+    "+2% check, crates go dark to 9 / Check +2%, crates dim, last grey."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B03",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "First-check line; Ruth's line dips just under / First-check baseline; Ruth's line ends below.",
+    "100% first-check line, Ruth ends just under / 100% first-check line; Ruth ends just under."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Level vs rising cards, '?' gap not modeled / Level vs rising cards, size gap not modeled.",
+    "Level vs rising cards with greyed '?' gap; asks for numbers / Level vs rising, size gap not modeled."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B06",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Check bar +48.6% below price bar +64.3%; own consideration / +48.6% vs +64.3% bars.",
+    "Bars +48.6% vs +64.3% captured / Check +48.6% vs prices +64.3%."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B07",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "9 of 10 crates lit, 90.4% / 9 of 10 crates still lit today.",
+    "9 of 10 crates, 90.4% after +2% raises / Check +2% yet 9 of 10 crates."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B08",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Level row 6 of 10, 60.9%; start sizes not modeled / Level 6 of 10, starting sizes not compared.",
+    "Level row 6 of 10, starting sizes not modeled / Level 6 of 10, starting sizes not modeled."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Dips early then returns seen; meaning partly misread / Dips below baseline early then back; reading uncertain.",
+    "Early dips and recovery seen; misread as prices vs baseline / Dips under baseline early and returns, but interpretation muddled."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B10",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Line crossing under baseline captured; 100.3% misread as price doubling / Crosses below baseline, but misreads 100.3% as doubled prices.",
+    "Line just above then clearly under baseline; own compare inference / Line above then falls below, but misreads axis and peak."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B12",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Level line falls, 9 in 10 by year 5, '?' span / Level falls by year 5; rising comparison muddled.",
+    "Level line falls, 9 in 10 by year 5, '?' / Level falls; crossing at year 5 and ? partly captured."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B13",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5,
+    0.5
+   ],
+   "readers": 3,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 3,
+   "status": "FAIL",
+   "why": [
+    "715 stretches, Ruth marker; tile-grid shrink not described / 715 stretches noted; chart-into-tile and meaning vague.",
+    "715 stretches noted; Ruth's chart shrinking into grid tile missing / Ruth one of 715 stretches; tile grid unclear.",
+    "Ruth shrinks to marker, 715 stretches; tile grid filling not described / Ruth one of many stretches; grid tiling unclear."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B14",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "17 of 715 kept up, 1 in 42 / 17 of 715 kept up, rare.",
+    "17 of 715 kept up, about 1 in 42, left cluster / 17 of 715, almost all lost, thin left cluster."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B15",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Left cluster, none since, Ruth at end / Early cluster only; none since up to Ruth.",
+    "Left cluster then all warn up to Ruth; own weighing / Early cluster kept up; none since through Ruth."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B16",
+   "kind": "image",
+   "scores": [
+    1,
+    1,
+    1
+   ],
+   "readers": 3,
+   "correct": 3,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "80.7% typical line and 8 of 10 crates / 80.7% line, 8 of 10 crates lit.",
+    "Typical 80.7% line and 8 of 10 crates; no advice / Typical 80.7%, 8 of 10 crates lit.",
+    "Typical 80.7%, 8 of 10 crates captured; reader's own weigh-and-compare action / 80.7% line and 8 of 10 crates lit match."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B17",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "54.3% about half, year 8 captured / Typical level check about half by year 8.",
+    "54.3% about half by year 8 captured / Typical level check about half by year 8."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B19",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "0 of 120, 0 of 79, Ruth 90.4% captured / 1990s and 2000-06 all short, Ruth 90.4%.",
+    "1990s and 2000-06 blocks all warn, near 100%, Ruth 90.4% / 1990s and 2000-06 starts all fell short, Ruth 90.4%."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B21",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "0 of 655 kept up captured; own weighing advice / 0 of 655 kept up over 25 years.",
+    "0 of 655 kept up captured; own look-at-option action / 0 of 655 25-year stretches kept up."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "CPI-W and PCE side grids mostly warn; own inference / Social Security and PCE grids, mostly lost, captured.",
+    "CPI-W and PCE grids mostly not kept up; own weighing / CPI-W and PCE grids, mostly failing, captured."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B24",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Carl 1966 crates fade to 4, Ruth inset / Carl 1966, 10 crates to about 4, Ruth inset.",
+    "Carl 1966 crates dim to 4, Ruth inset; own weighing / Carl 1966, crates dim to 4, Ruth inset."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Carl's row, 43.1% vs 29.0% captured / Carl's crates; level 29.0% under half.",
+    "Carl 4 of 10 crates; 43.1% vs 29.0% / Carl about 4 of 10; level 29.0% vs rising 43.1%."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B27",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Edna full row, overlap years of 1966-69 shared / Edna fully lit; overlapping bars with Carl.",
+    "Edna full crates; Carl overlap 1966-69 captured / Edna fully lit; shared 1966-69 years."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B29",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Edna 10, Ruth 9, Carl 4 crates / Edna 10, Ruth 9, Carl 4 crates.",
+    "Edna 10, Ruth 9, Carl 4 crates; question only / Edna 10, Ruth 9, Carl 4 crates."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B30",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Raise ladder: 2.4%, 42.4%, half at 3.1, all at 6.38 / Raise ladder; half at 3.1%, all at 6.38%.",
+    "Raise ladder shares of stretches, 6.38% covers all / Raise ladder; half at 3.1%, all at 6.38%."
+   ]
+  },
+  {
+   "set": "ep006",
+   "id": "B32",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Ruth, 9 of 10 crates, +2% a year / Ruth, rising check, about 9 of 10 crates.",
+    "Opening frame, about 9 of 10 crates / Ruth at 85, about 9 of 10 crates."
+   ]
+  }
+ ],
+ "gate_beats": 23,
+ "gate_pass": 19,
+ "pending": [],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "share": 0.826,
+ "verdict": "PASS",
+ "near_threshold": true
+}
