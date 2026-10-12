@@ -24,6 +24,7 @@ nhãn neo vào từ MỞ ý; đếm thùng theo bậc, thanh 50/50 bậc+tuyến
 | "3%" ≤ 0,2 s (textTrack checks) | 1,29 s | **0,09 s** (459,70 − 459,61) | ĐẠT |
 | CHẶN 0 | 0 | **0** (36/36) | ĐẠT |
 | spine quãng tĩnh > 8 s (chỉ báo) | 7 · 4 | **0 · 0** | ĐẠT |
+| ″ chỉ cue của bản giao (INTENT §7) | 7 · 4 | 7 · 4 (`out/v4/spine-oldcues.json`) | báo: hết tĩnh nhờ cue MỚI gắn từ |
 | (báo) CHÍNH | 13/13 | **14/14 — V11 ĐẠT** (0 va chữ) | sửa v3 đã ăn |
 | (báo) REG so `run-c5d` | — | **PASS**: 95 luật so được, 0 hồi quy CHẶN | |
 | (báo) R08 | FAIL (7) | **PASS (0)** | |
@@ -35,11 +36,19 @@ Không hạ đích, không merge.
 ctl 18 + chờ B16 · v4 18 + chờ B14, B24, B30. Đọc lại theo (iii) `root-v4-rr/` (B14, B24, cả hai bản, 3 người đọc mới mỗi bản, 12 nhãn một gói, 2 người chấm).
 Người thứ 3 cho nhịp tách đôi (như cũ) `root-v4-p3/` (B16 ctl → ĐẠT, B30 v4 1·0·0 → TRƯỢT; gói riêng chấm lại cả 3 câu trả lời của nhịp đó).
 - **B14 (S14, "gần như mọi ô `warn`, cụm `cushion` mỏng ở mép trái"):** dải 6 khung hai bản gần như trùng điểm ảnh (cùng "kept up: 17 of 715", "about 1 in 42");
-  khác thấy được: ở khung 2–4 v4 có vệt xanh lam trên cụm thanh đầu (bản giao: xanh `cushion`) — nguồn trong mã v4 chưa truy xong (ứng viên: highlight `hi` của thanh 1949 mới thêm ở `d-s13-s23/scene.js`).
+  khác thấy được: ở khung 2–4 v4 có vệt xanh lam trên cụm thanh đầu (bản giao: xanh `cushion`). Không do `hi` mới của v4 (bật từ "start" ≈ 327 s, S14 ở 242–248 s);
+  nguồn hợp lý hơn (REVIEWER v4 #3) là accent `life.seventeen` (0,9 trên các thanh theo kịp, `d-s13-s23/scene.js:68`, có từ v3) — chưa kiểm bằng khung.
   Người đọc v4 nói "trả cố định mất sức mua" nhưng 2/3 không nói "hầu như không tháng nào theo kịp" → 0,5. Có thể là nhiễu người đọc (ở gói đọc lại, đối chứng cũng có
-  một 0,5), nhưng luật ghi trước tính là tụt → TRƯỢT. Nếu muốn v5: tìm và bỏ vệt lam đó trong S14 để S14 trùng bản giao.
-- **B30:** TRƯỢT ở cả hai bản (ctl 0,5·0,5; v4 1·0·0) → không tính tụt nhưng kéo (i) xuống 19. **B10:** đối chứng TRƯỢT, v4 ĐẠT. **B01, B13:** TRƯỢT cả hai.
+  một 0,5), nhưng luật ghi trước tính là tụt → TRƯỢT. Nếu muốn v5: kiểm accent `life.seventeen` trong S14 và bỏ nếu đúng nó.
+- **B30:** TRƯỢT ở cả hai bản (ctl 0,5·0,5; v4 1·0·0) → không tính tụt nhưng kéo (i) xuống 19. **Rủi ro nghĩa (REVIEWER v4 #1–#2):** ở v4 hai người đọc
+  "đọc thanh là giá tăng cộng dồn" (`root-v4-p3/tally-v4.json`) — tệ hơn đối chứng. Nguyên nhân hợp lý: thanh S30 v4 mọc 50 % bậc + 50 % tuyến tính (`f-s30-s32/scene.js:32`,
+  sửa để qua freezedetect) nên ở từ khoá thanh mới ≈ nửa giá trị, khi nhãn "42.4%" đã hiện — trái INTENT §5 ("giá trị ở mỗi từ khoá trùng giá trị cũ"). Đây là đổi vì thước
+  làm hỏng nghĩa; v5 (nếu có) phải trả thanh về đủ giá trị ở từ và tìm đổi hình khác cho freeze. **B10:** đối chứng TRƯỢT, v4 ĐẠT. **B01, B13:** TRƯỢT cả hai.
 - Đối chứng đọc lại hôm nay 19/23 (bản giao 20/23, lượt v3 19/23) — biên nhiễu ±1–2 nhịp vẫn lớn hơn khoảng cách tới ngưỡng 20.
+
+**Đổi vì thước, ghi rõ (REVIEWER v4 #5, #7):** `f0.most` biên độ chớp 1,4 → 4 (nghĩa có sẵn, tăng để vượt ngưỡng đo); R07 đọc chặt bằng chênh khung vẫn tính điểm ảnh của nhãn neo
+ hiện cùng từ (g1/g2/g3, f0.most, f4.ruths) — 94,1 % không tự chứng minh VẬT đổi đúng từ; bằng chứng VẬT là mã (9 cue đều có đổi vật, `f7.start` không tên Carl).
+**REVIEWER v4** (headless, $1,69): ĐẠT, 0 CHẶN, 4 CHÍNH (đã đưa vào REPORT: thanh S30 50 %, rủi ro B30, chẩn đoán B14, spine chỉ cue cũ), 7 GỢI Ý — `reviewer/REVIEW-v4.md`.
 
 **Đính chính v3:** R07 §7 đọc chặt của v3 là **91,5 %** (đo đúng bằng `r07_local.py --like`), không phải 86,4 % (86,4 % là ước lượng dùng lại kết quả của bản giao cho 9 cue).
 v3 vẫn TRƯỢT vì cổng gốc (B22).
@@ -49,7 +58,8 @@ v3 vẫn TRƯỢT vì cổng gốc (B22).
 chạy tiếp `RESUME=1 KEEP=1` → xong 31/31; tổng ≈ 2 h 48. Luật THAM KHẢO mới của LOCK này có A12 ERROR (TypeError trong `checks/py/r_audio.py`), A13 FAIL (`max |stretch-1|` 165,7 — đơn vị có vẻ sai),
 R01 MISSING (`out/tension-map.png`) — không là đích, ghi vào đây để phiên K xem. Báo cáo: `out/checks-v4/report.{json,md}`, `page.json.gz`; số đo `out/v4/`.
 
-**Chi v4 (Console headless, 0 agent con):** cổng gốc gói chung $3,06 · đọc lại 3 người $0,43 · người thứ 3 $0,24 → $3,73; REVIEWER v4 xem dưới. Cả F-14 ≈ $11,1 + REVIEWER v4 (trần cảnh báo $45: dưới trần).
+**Chi v4 (Console headless, 0 agent con):** cổng gốc gói chung $3,06 · đọc lại 3 người $0,43 · người thứ 3 $0,24 → $3,73; REVIEWER v4 $1,69 → v4 **$5,42**. Cả F-14 ≈ **$12,8** (+ ≈ $0,4 chưa đếm ở v1) — dưới trần cảnh báo $45.
+**Token phiên chính** (`session_tokens.py`, cả F-14 v1–v4, lúc đóng v4): 539 lượt · sinh ra 0,39 triệu · đầu vào mới 1,01 triệu · đọc cache 210,8 triệu → **trần 1,41 triệu**.
 **Giờ máy v4:** checks ≈ 2 h 48 (lấy mẫu trang 2 lần chạy: 2 h dừng ở trần + 48 min; v3 1 h 47 + 25 min).
 
 # v1–v3 (11/10)
