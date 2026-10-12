@@ -212,7 +212,7 @@ S25.1 Every extra dollar of principal stops interest from being charged on that 
 S25.2 On Tessa's 30-year, that's 7.4 percent a year, before taxes. <!-- claims: bar_now; hold: 1.0 -->
 S25.3 It isn't an investment return; it's interest she no longer pays. <!-- claims: bar_now -->
 S25.4 That rate is the bar any other use of that dollar gets measured against, before taxes. <!-- claims: bar_now -->
-S25.5 Whether any investment clears it, once risk and taxes count, isn't tested here. <!-- claims: — -->
+S25.5 How any investment compares, once risk and taxes count, isn't tested here. <!-- claims: — -->
 
 ## S26 — The bar's history
 
@@ -243,7 +243,7 @@ S30.4 For Leo, the stack was short and the bar was low; for Tessa, the stack is 
 
 S31.1 Any fixed-rate borrower can set their own pair beside hers. <!-- claims: — -->
 S31.2 The bar is that loan's own rate, printed on the paperwork, and the stack depends on how far apart the 15-year and 30-year offers sit that week. <!-- claims: bar_now, extra_vs15_total_now, spread_now -->
-S31.3 Clearing the bar isn't the whole story: a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for. <!-- claims: —; hold: 1.0 -->
+S31.3 The bar isn't the whole story: a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for. <!-- claims: —; hold: 1.0 -->
 
 === LIMITS ===
 
