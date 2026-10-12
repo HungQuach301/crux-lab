@@ -103,11 +103,12 @@ export async function boot(res) {
     const wire = (x0, x1, y0, y1, z0, z1, a, lw0) => { const c = O.ctx, V = (i) => sc(i & 1 ? x1 : x0, i & 2 ? y1 : y0, i & 4 ? z1 : z0); c.save(); c.globalAlpha = a; c.strokeStyle = C.ink; c.lineWidth = lw0; c.setLineDash([10, 7]);
       c.beginPath(); for (const [i, j] of [[0, 1], [2, 3], [4, 5], [6, 7], [0, 2], [1, 3], [4, 6], [5, 7], [0, 4], [1, 5], [2, 6], [3, 7]]) { const [ax, ay] = V(i), [bx, by] = V(j); c.moveTo(ax, ay); c.lineTo(bx, by); } c.stroke(); c.restore(); };
     const fin = b.i0.method - 0.45;   // ba nhãn S31 (và dây dẫn) tắt hẳn trước khi thẻ V7 hiện
-    if (bA > 0.01) {
+    const kA = 1 - cardA;   // C4 r4b: đế + khối viền ô thứ ba tắt khi thẻ V7 hiện (verify F-2: đường dưới chữ thẻ)
+    if (bA * kA > 0.01) {
       const lotP = [[lc - lw / 2, -ld / 2], [lc + lw / 2, -ld / 2], [lc + lw / 2, ld / 2], [lc - lw / 2, ld / 2]].map(([x, z]) => sc(x, 0.01, z));
-      poly(lotP, 0.95 * bA,4 + 3 * pulse(t, b.h0.pair, 1.0), 0.1);
-      wire(X.blank_stack - 0.45, X.blank_stack + 0.45, 0, 2.0, -0.3, 0.3, 0.95 * oA, 3 + 3 * pulse(t, b.h1.stack, 1.0));
-      wire(X.blank_bar - 0.5, X.blank_bar + 0.5, 1.38, 1.62, -0.25, 0.25, 0.95 * oA, 3 + 3 * pulse(t, b.h1.bar, 1.0));
+      poly(lotP, 0.95 * bA * kA, 4 + 3 * pulse(t, b.h0.pair, 1.0), 0.1);
+      wire(X.blank_stack - 0.45, X.blank_stack + 0.45, 0, 2.0, -0.3, 0.3, 0.95 * oA * kA, 3 + 3 * pulse(t, b.h1.stack, 1.0));
+      wire(X.blank_bar - 0.5, X.blank_bar + 0.5, 1.38, 1.62, -0.25, 0.25, 0.95 * oA * kA, 3 + 3 * pulse(t, b.h1.bar, 1.0));
     }
     { const xs = [-1, 1].flatMap((u) => [-1, 1].map((v) => sc(lc + u * lw / 2, 0, v * ld / 2)[0])), [, yT] = sc(X.blank_stack, 2.1), [, yB] = sc(lc, 0, ld / 2);
       log.roi['h0.any'] = [Math.min(...xs), yT, Math.max(...xs), yB]; log.roi['h0.pair'] = log.roi['h0.any']; }
