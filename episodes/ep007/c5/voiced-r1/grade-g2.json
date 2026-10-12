@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R01\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":true,\"quote\":\"A viewer could check their own loan's rate and the current 15-year versus 30-year gap, and so work out what the fallback costs them.\",\"why\":\"Has the priced fallback, weekly figures, historical range and loan-rate bar; only comparison care.\",\"q5\":\"video\",\"must_beat_or_guaranteed\":true,\"mbg_quote\":\"extra principal earns a relatively strong guaranteed rate, before taxes\"},\"R02\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":true,\"quote\":\"A viewer could take away a way to compare options: use the loan rate as the benchmark for any other use of the money.\",\"why\":\"Beam as loan rate before taxes, interest avoided, nothing tested; benchmark only.\",\"q5\":\"none\",\"must_beat_or_guaranteed\":true,\"mbg_quote\":\"That rate is the bar any other use of the dollar has to clear.\"},\"R03\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":true,\"quote\":\"A viewer could use it to check their own numbers: Compare your loan's rate (the bar) with what else you could do with the money.\",\"why\":\"Full question and answer: priced fallback, $120/$21,622, history, 7.4% bar; checks only.\",\"q5\":\"own\",\"must_beat_or_guaranteed\":false,\"mbg_quote\":\"\"},\"R04\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":true,\"quote\":\"Compare the fallback's price with how much they value the flexibility.\",\"why\":\"Full question and answer with figures and history; takeaways are the reader's own comparison framing.\",\"q5\":\"own\",\"must_beat_or_guaranteed\":false,\"mbg_quote\":\"\"},\"R05\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":true,\"quote\":\"They would still have to compare that against their own loan rate, taxes, and risk.\",\"why\":\"Bar as loan rate, interest avoided, not an investment return, nothing compared.\",\"q5\":\"none\",\"must_beat_or_guaranteed\":true,\"mbg_quote\":\"paying extra principal on a mortgage works like earning a guaranteed return equal to the loan's interest rate\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 8821,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 8821,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 745,
+   "cache_read": 9503,
+   "output": 1833,
+   "in": 10250,
+   "out": 1833
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0231569
+}
