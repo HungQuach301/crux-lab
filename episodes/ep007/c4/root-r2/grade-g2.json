@@ -1,23 +1,23 @@
 {
- "answer": "{\"R01\":{\"score\":0.5,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"Any advice would be my own conclusion.\",\"why\":\"Gets extra $120 stacking to $21,622; misses bar raised to 15-year level and bills dropping.\",\"q5\":\"own\"},\"R02\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"The advice in 4 is my own conclusion.\",\"why\":\"Bar raised to 15-year level by gold cap; coins stack to $21,622.\",\"q5\":\"own\"},\"R03\":{\"score\":0.5,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"The \\\"monthly is better\\\" takeaway is my own conclusion from that result.\",\"why\":\"Gets 4 months later but not lump block every 12th tile.\",\"q5\":\"own\"},\"R04\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"the answer to question 4 is only my reading of the bar comparison\",\"why\":\"Bar at loan rate, dollar on it, 'any other use' dashed dollar against it.\",\"q5\":\"own\"},\"R05\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"Any advice in 4 is my own conclusion.\",\"why\":\"Gold top slice lifts off and lands beside Tessa's house as the stack.\",\"q5\":\"own\"},\"R06\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"Any advice would be my own conclusion.\",\"why\":\"Monthly blocks regrouped into annual lumps; ends 4 months later.\",\"q5\":\"own\"},\"R07\":{\"score\":0.5,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"Any advice to prepay is my own conclusion.\",\"why\":\"Gets 195 vs 180 month track; no visible extra slab on tiles.\",\"q5\":\"own\",\"extra_layer_seen\":false},\"R08\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"Any lesson about shorter loans saving interest would be my own reading, not something the animation says.\",\"why\":\"Gold slice lifts off, becomes the stack beside Tessa's house.\",\"q5\":\"own\"},\"R09\":{\"score\":0.5,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"The advice in 4 is my own conclusion.\",\"why\":\"Stack of money beside house with $120 monthly price; growth by bundle unclear.\",\"q5\":\"own\"},\"R10\":{\"score\":0.5,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"The takeaway in point 4 is my own interpretation, and the animation doesn't tell viewers what to do.\",\"why\":\"Money stack beside house with monthly price; no growth by bundle described.\",\"q5\":\"own\"},\"R11\":{\"score\":1,\"advice_stated\":false,\"advice_inferred\":false,\"caution_only\":false,\"quote\":\"\",\"why\":\"Bar at loan rate, dollar on it, 'any other use' dollar compared.\",\"q5\":\"none\"},\"R12\":{\"score\":0.5,\"advice_stated\":false,\"advice_inferred\":true,\"caution_only\":false,\"quote\":\"Any advice to pay extra is a conclusion the viewer would draw themselves.\",\"why\":\"Track shortens to 180 with extra; no visible slab layer described.\",\"q5\":\"own\",\"extra_layer_seen\":false}}",
+ "answer": "{\"R13\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"The advice in 4 is my own conclusion.\", \"why\": \"Extra $120 monthly slabs pile up to full stack; matches expected meaning.\", \"q5\": \"own\"}, \"R14\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"The takeaway about paying extra or choosing a 15-year loan is my own reading, because the frames never state a recommendation.\", \"why\": \"Gap section lifts off and lands beside house as stack; matches.\", \"q5\": \"own\"}, \"R15\": {\"score\": 0.5, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"The advice in 4 is my own conclusion.\", \"why\": \"Annual lump sum and 4-month delay captured; block-every-12th-tile track imagery missing.\", \"q5\": \"own\"}}",
  "tokens": {
   "claude-haiku-5-5": {
-   "input": 11346,
+   "input": 4639,
    "cache_write": 0,
    "cache_read": 0,
-   "output": 23,
-   "in": 11346,
-   "out": 23
+   "output": 230,
+   "in": 4639,
+   "out": 230
   },
   "claude-sonnet-5-5": {
    "input": 2,
-   "cache_write": 11389,
+   "cache_write": 4682,
    "cache_read": 1382,
-   "output": 1221,
-   "in": 12773,
-   "out": 1221
+   "output": 330,
+   "in": 6066,
+   "out": 330
   }
  },
  "turns": 1,
- "cost_usd": 0.0590543
+ "cost_usd": 0.0227491
 }

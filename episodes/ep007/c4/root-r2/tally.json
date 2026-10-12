@@ -16,8 +16,8 @@
    "advice_inferred": 2,
    "status": "FAIL",
    "why": [
-    "Stack beside house with $120 monthly price; growth by bundle not described. / Stack of money beside house with $120 monthly price; growth by bundle unclear.",
-    "Stack and $120 price seen; growth per beat not described. / Money stack beside house with monthly price; no growth by bundle described."
+    "Stack beside house with $120 monthly price; growth by bundle not described. / Stack beside house with $120 monthly price; growth by bundle not described. / Stack of money beside house with $120 monthly price; growth by bundle unclear. / Stack of money beside house with $120 monthly price; growth by bundle unclear.",
+    "Stack and $120 price seen; growth per beat not described. / Stack and $120 price seen; growth per beat not described. / Money stack beside house with monthly price; no growth by bundle described. / Money stack beside house with monthly price; no growth by bundle described."
    ]
   },
   {
@@ -26,16 +26,18 @@
    "kind": "image",
    "scores": [
     1,
-    0.5
+    0.5,
+    1
    ],
-   "readers": 2,
-   "correct": 1,
+   "readers": 3,
+   "correct": 2,
    "advice": 0,
-   "advice_inferred": 2,
-   "status": "NEED_3RD",
+   "advice_inferred": 3,
+   "status": "PASS",
    "why": [
-    "Gold cap raises bar to 15-year level; stack of extra paid. / Bar raised to 15-year level by gold cap; coins stack to $21,622.",
-    "Bar raised to 15-year level, gold slivers stack up; no advice from video. / Gets extra $120 stacking to $21,622; misses bar raised to 15-year level and bills dropping."
+    "Gold cap raises bar to 15-year level; stack of extra paid. / Gold cap raises bar to 15-year level; stack of extra paid. / Bar raised to 15-year level by gold cap; coins stack to $21,622. / Bar raised to 15-year level by gold cap; coins stack to $21,622.",
+    "Bar raised to 15-year level, gold slivers stack up; no advice from video. / Bar raised to 15-year level, gold slivers stack up; no advice from video. / Gets extra $120 stacking to $21,622; misses bar raised to 15-year level and bills dropping. / Gets extra $120 stacking to $21,622; misses bar raised to 15-year level and bills dropping.",
+    "Correctly describes the extra $120 slabs piling up to the $21,622 stack; takeaway self-drawn. / Extra $120 monthly slabs pile up to full stack; matches expected meaning."
    ]
   },
   {
@@ -44,16 +46,18 @@
    "kind": "image",
    "scores": [
     1,
+    0.5,
     0.5
    ],
-   "readers": 2,
+   "readers": 3,
    "correct": 1,
    "advice": 0,
-   "advice_inferred": 2,
-   "status": "NEED_3RD",
+   "advice_inferred": 3,
+   "status": "FAIL",
    "why": [
-    "Extra top section lifts off, lands beside house as the stack. / Gold top slice lifts off and lands beside Tessa's house as the stack.",
-    "Gold slice lifts off beside house, but reader unsure of its meaning. / Gold slice lifts off, becomes the stack beside Tessa's house."
+    "Extra top section lifts off, lands beside house as the stack. / Extra top section lifts off, lands beside house as the stack. / Gold top slice lifts off and lands beside Tessa's house as the stack. / Gold top slice lifts off and lands beside Tessa's house as the stack.",
+    "Gold slice lifts off beside house, but reader unsure of its meaning. / Gold slice lifts off beside house, but reader unsure of its meaning. / Gold slice lifts off, becomes the stack beside Tessa's house. / Gold slice lifts off, becomes the stack beside Tessa's house.",
+    "Gets gap lifting to Tessa's house, but misreads the stack's meaning. / Gap section lifts off and lands beside house as stack; matches."
    ]
   },
   {
@@ -70,8 +74,8 @@
    "advice_inferred": 2,
    "status": "FAIL",
    "why": [
-    "Gold last tiles, shorter grid to 180; no visible extra slab on tiles. / Gets 195 vs 180 month track; no visible extra slab on tiles.",
-    "Track of tiles, gold strip past 180, ends at 180; no extra slab described. / Track shortens to 180 with extra; no visible slab layer described."
+    "Gold last tiles, shorter grid to 180; no visible extra slab on tiles. / Gold last tiles, shorter grid to 180; no visible extra slab on tiles. / Gets 195 vs 180 month track; no visible extra slab on tiles. / Gets 195 vs 180 month track; no visible extra slab on tiles.",
+    "Track of tiles, gold strip past 180, ends at 180; no extra slab described. / Track of tiles, gold strip past 180, ends at 180; no extra slab described. / Track shortens to 180 with extra; no visible slab layer described. / Track shortens to 180 with extra; no visible slab layer described."
    ]
   },
   {
@@ -80,16 +84,18 @@
    "kind": "image",
    "scores": [
     0.5,
-    1
+    1,
+    0.5
    ],
-   "readers": 2,
+   "readers": 3,
    "correct": 1,
    "advice": 0,
-   "advice_inferred": 2,
-   "status": "NEED_3RD",
+   "advice_inferred": 3,
+   "status": "FAIL",
    "why": [
-    "Gets 4 months later, lump yearly; misses extra-principal block every 12th tile. / Gets 4 months later but not lump block every 12th tile.",
-    "Annual lumps replace monthly tiles; track ends 4 months later. / Monthly blocks regrouped into annual lumps; ends 4 months later."
+    "Gets 4 months later, lump yearly; misses extra-principal block every 12th tile. / Gets 4 months later, lump yearly; misses extra-principal block every 12th tile. / Gets 4 months later but not lump block every 12th tile. / Gets 4 months later but not lump block every 12th tile.",
+    "Annual lumps replace monthly tiles; track ends 4 months later. / Annual lumps replace monthly tiles; track ends 4 months later. / Monthly blocks regrouped into annual lumps; ends 4 months later. / Monthly blocks regrouped into annual lumps; ends 4 months later.",
+    "Gets annual lump and 4 months later; misses extra principal block every 12th tile. / Annual lump sum and 4-month delay captured; block-every-12th-tile track imagery missing."
    ]
   },
   {
@@ -106,24 +112,22 @@
    "advice_inferred": 1,
    "status": "PASS",
    "why": [
-    "Bar at loan rate, dollar on top, 'any other use' dollar compared. / Bar at loan rate, dollar on it, 'any other use' dashed dollar against it.",
-    "Bar at 7.40%, dollar on it, 'any other use' dollar held against. / Bar at loan rate, dollar on it, 'any other use' dollar compared."
+    "Bar at loan rate, dollar on top, 'any other use' dollar compared. / Bar at loan rate, dollar on top, 'any other use' dollar compared. / Bar at loan rate, dollar on it, 'any other use' dashed dollar against it. / Bar at loan rate, dollar on it, 'any other use' dashed dollar against it.",
+    "Bar at 7.40%, dollar on it, 'any other use' dollar held against. / Bar at 7.40%, dollar on it, 'any other use' dollar held against. / Bar at loan rate, dollar on it, 'any other use' dollar compared. / Bar at loan rate, dollar on it, 'any other use' dollar compared."
    ]
   }
  ],
  "gate_beats": 6,
- "gate_pass": 1,
- "pending": [
-  "B06",
-  "B09",
-  "B23"
- ],
+ "gate_pass": 2,
+ "pending": [],
  "advice_beats": [],
  "classes": null,
  "advice_rubric": "new",
- "verdict": "PENDING",
+ "share": 0.333,
+ "verdict": "FAIL",
+ "near_threshold": false,
  "verdict_old": "FAIL",
- "verdict_new": "PENDING",
+ "verdict_new": "FAIL",
  "advice_beats_old": [
   "B01",
   "B06",
@@ -134,7 +138,7 @@
  ],
  "advice_beats_new": [],
  "rubric_disagree": true,
- "graders": 2,
+ "graders": 4,
  "B21_extra_layer": {
   "readers": [
    {
@@ -142,6 +146,8 @@
     "meaning1": false,
     "extra": false,
     "quote": [
+     "Any advice to prepay is my own conclusion.",
+     "Any advice to prepay is my own conclusion.",
      "Any advice to prepay is my own conclusion.",
      "Any advice to prepay is my own conclusion."
     ]
@@ -151,6 +157,8 @@
     "meaning1": false,
     "extra": false,
     "quote": [
+     "Any advice to pay extra is a conclusion the viewer would draw themselves.",
+     "Any advice to pay extra is a conclusion the viewer would draw themselves.",
      "Any advice to pay extra is a conclusion the viewer would draw themselves.",
      "Any advice to pay extra is a conclusion the viewer would draw themselves."
     ]
