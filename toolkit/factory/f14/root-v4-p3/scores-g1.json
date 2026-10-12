@@ -1,0 +1,56 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Since I'm about to retire, I would take that as a reason to compare the two payout options with inflation in mind.",
+  "why": "Correct 80.7% median and 8/10 crates; reader drew the action themself.",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer might infer that inflation matters when comparing a flat payout with one that rises over time, and that they shouldn't assume a mild average.",
+  "why": "Got half at 3.1 and Carl's top rung, but misread bars as cumulative inflation.",
+  "q5": "own"
+ },
+ "R03": {
+  "score": 0,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "that could mean thinking about whether one option rises with inflation",
+  "why": "Misreads bars as cumulative price rise; misses share-of-stretches meaning.",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "it's worth asking how each annuity option handles inflation",
+  "why": "Correct 80.7% median and 8 of 10 crates; only asks insurer.",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer might take away that a flat payout, or one with a small annual raise, carries inflation risk.",
+  "why": "Correctly reads bars as share of stretches kept up with; half at 3.1.",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "that suggests asking whether either one adjusts for inflation",
+  "why": "Has 80.7% and 8 of 10 crates, but confuses fixed versus rising check.",
+  "q5": "own"
+ }
+}

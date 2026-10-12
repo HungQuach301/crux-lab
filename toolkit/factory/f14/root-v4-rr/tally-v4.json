@@ -1,0 +1,192 @@
+{
+ "ctl": {
+  "candidate_set": "ctl",
+  "threshold": 0.8,
+  "rows": [
+   {
+    "set": "ctl",
+    "id": "B14",
+    "kind": "image",
+    "scores": [
+     1,
+     1,
+     0.5
+    ],
+    "readers": 3,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Correct: at or above start in only 17 of 715; caution only / Check worth less than first in most months",
+     "Fixed check nearly always buys less; only a look-closely caution / Fixed check rarely keeps up; 1 in 42 conveyed",
+     "Gets 17 of 715 but vague on meaning; admits bars unclear / Rare keeping up noted, but bar meaning unsure; no warn contrast"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B24",
+    "kind": "image",
+    "scores": [
+     1,
+     1,
+     1
+    ],
+    "readers": 3,
+    "correct": 3,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Carl's crates fade to 4; Ruth inset; comparison attributed to user / Crates shrink to 4 of 10; Ruth inset noted",
+     "Crates dim to 4, Ruth's early recovery noted; comparison own / Crates fade to 4 of 10; Ruth early-year chart",
+     "Crates fade to about 4; Ruth inset; caution only / Crates dim to about 4; Ruth inset mentioned"
+    ]
+   },
+   {
+    "set": "v4",
+    "id": "B14",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5,
+     1
+    ],
+    "readers": 3,
+    "correct": 1,
+    "advice": 0,
+    "advice_inferred": 3,
+    "status": "FAIL",
+    "why": [
+     "17 of 715 grasped, but 'kept up' unsure; lean-toward advice is own / Gets 17 of 715 kept up, but unsure what bars measure",
+     "Guesses meaning of 'kept up'; 'weighing' advice is own conclusion / 17 of 715 noted but guessing, bars puzzling",
+     "Flat check kept up only 17 of 715; closer-look caution / Flat check kept up only 17 of 715 months"
+    ]
+   },
+   {
+    "set": "v4",
+    "id": "B24",
+    "kind": "image",
+    "scores": [
+     0.5,
+     1,
+     1
+    ],
+    "readers": 3,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Crates dimming to 4 right; Ruth inset misread as dropping below / Carl crates fade right; Ruth inset described wrongly",
+     "Crates dim to about 4; Ruth inset noted; weighing advice own / Carl's crates fade to about 4; Ruth early above",
+     "Crates fade to 4, Ruth inset noted; asking only / Crates fade to about 4; Ruth inset unclear but ok"
+    ]
+   }
+  ],
+  "gate_beats": 2,
+  "gate_pass": 2,
+  "pending": [],
+  "advice_beats": [],
+  "classes": null,
+  "advice_rubric": "new",
+  "share": 1.0,
+  "verdict": "PASS",
+  "near_threshold": false
+ },
+ "v4": {
+  "candidate_set": "v4",
+  "threshold": 0.8,
+  "rows": [
+   {
+    "set": "v4",
+    "id": "B14",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5,
+     1
+    ],
+    "readers": 3,
+    "correct": 1,
+    "advice": 0,
+    "advice_inferred": 3,
+    "status": "FAIL",
+    "why": [
+     "17 of 715 grasped, but 'kept up' unsure; lean-toward advice is own / Gets 17 of 715 kept up, but unsure what bars measure",
+     "Guesses meaning of 'kept up'; 'weighing' advice is own conclusion / 17 of 715 noted but guessing, bars puzzling",
+     "Flat check kept up only 17 of 715; closer-look caution / Flat check kept up only 17 of 715 months"
+    ]
+   },
+   {
+    "set": "v4",
+    "id": "B24",
+    "kind": "image",
+    "scores": [
+     0.5,
+     1,
+     1
+    ],
+    "readers": 3,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Crates dimming to 4 right; Ruth inset misread as dropping below / Carl crates fade right; Ruth inset described wrongly",
+     "Crates dim to about 4; Ruth inset noted; weighing advice own / Carl's crates fade to about 4; Ruth early above",
+     "Crates fade to 4, Ruth inset noted; asking only / Crates fade to about 4; Ruth inset unclear but ok"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B14",
+    "kind": "image",
+    "scores": [
+     1,
+     1,
+     0.5
+    ],
+    "readers": 3,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Correct: at or above start in only 17 of 715; caution only / Check worth less than first in most months",
+     "Fixed check nearly always buys less; only a look-closely caution / Fixed check rarely keeps up; 1 in 42 conveyed",
+     "Gets 17 of 715 but vague on meaning; admits bars unclear / Rare keeping up noted, but bar meaning unsure; no warn contrast"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B24",
+    "kind": "image",
+    "scores": [
+     1,
+     1,
+     1
+    ],
+    "readers": 3,
+    "correct": 3,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Carl's crates fade to 4; Ruth inset; comparison attributed to user / Crates shrink to 4 of 10; Ruth inset noted",
+     "Crates dim to 4, Ruth's early recovery noted; comparison own / Crates fade to 4 of 10; Ruth early-year chart",
+     "Crates fade to about 4; Ruth inset; caution only / Crates dim to about 4; Ruth inset mentioned"
+    ]
+   }
+  ],
+  "gate_beats": 2,
+  "gate_pass": 1,
+  "pending": [],
+  "advice_beats": [],
+  "classes": null,
+  "advice_rubric": "new",
+  "share": 0.5,
+  "verdict": "FAIL",
+  "near_threshold": false
+ }
+}

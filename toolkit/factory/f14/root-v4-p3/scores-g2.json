@@ -1,0 +1,56 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "I would take that as a reason to compare the two payout options with inflation in mind.",
+  "why": "Correct 80.7% and 8-of-10 crates; reader's own compare-options conclusion.",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 0,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Misreads bars as cumulative price rises, not share of stretches kept up with.",
+  "q5": "own"
+ },
+ "R03": {
+  "score": 0,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "that could mean thinking about whether one option rises with inflation",
+  "why": "Misreads ladder as price rises; own inference about inflation-rising option.",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "it's worth asking how each annuity option handles inflation",
+  "why": "Median 80.7% and 8 of 10 crates correct; only asking.",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Correct ladder: 3.1 covers half, only top rung covers all.",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "that suggests asking whether either one adjusts for inflation",
+  "why": "Has 80.7% and 8 of 10 crates but calls it a fixed check.",
+  "q5": "own"
+ }
+}

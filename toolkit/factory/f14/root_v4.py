@@ -60,7 +60,7 @@ def read(run, slots, only, sets):
 def pack(run):
     o = ROOT / run
     rub = BC.rubric()
-    rub['items'].update({f'ctl:{b}': rub['items'][b] for b in BC.IMAGE})   # cùng nghĩa kỳ vọng cho hai bản; gói không lộ bản nào
+    rub['items'].update({f'ctrl:{b}': rub['items'][b] for b in BC.IMAGE})   # cùng nghĩa kỳ vọng cho hai bản; gói không lộ bản nào
     json.dump(rub, open(o / 'rubric.json', 'w'), indent=1, ensure_ascii=False)
     for f in ('rubric-key.json', 'packet.json'):
         (o / f).unlink(missing_ok=True)
