@@ -83,8 +83,9 @@ export async function boot(res) {
     const L1x = bc - 120, L1y = by - 150;
     label(O, `the bar: ${D('bar_now')}`, L1x, L1y, { align: 'center', kind: 'number', alpha: ok * show(t, b.a1.seven, S.coin[0] - 0.1), claims: ['bar_now'] });
     log.roi['a1.seven'] = [L1x - 520, L1y - 64, L1x + 520, L1y + 16];
-    label(O, 'interest no longer charged', 1810, by - 82, { align: 'right', kind: 'compare', px: 48, alpha: ok * show(t, b.a2.investment, s25) });
-    log.roi['a2.investment'] = [1100, by - 130, 1810, by - 70];
+    // C4 r3b: dưới nửa phải thanh, trái thước (verify F-2: nhãn cũ ở phải-trên bị viền bóng 'any other use' cắt khi bóng lên)
+    label(O, 'interest no longer charged', bx1 - 10, by + 74, { align: 'right', kind: 'compare', px: 48, alpha: ok * show(t, b.a2.investment, s25) });
+    log.roi['a2.investment'] = [bx1 - 700, by + 20, bx1 - 10, by + 90];
     { const [x0, y0] = sc(cS[0], cS[1], cP[2]), [x1, y1] = sc(cP[0], cP[1], cP[2]), [hx2, hy2] = sc(cHouse[0], cHouse[1], 0);
       log.roi['a2.interest'] = [Math.min(x0, x1) - 40, Math.max(0, y0), Math.max(x0, x1) + 40, y1 + 40]; log.roi['a2.pays'] = [x1 - 50, y1 - 50, x1 + 50, y1 + 50];
       // đường đồng lãi lẽ ra đi tiếp vào nhà (nét đứt mờ) — thấy được là tờ đô la đã chặn nó
