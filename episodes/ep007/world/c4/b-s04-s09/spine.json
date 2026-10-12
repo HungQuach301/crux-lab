@@ -2258,9 +2258,10 @@
    "sid": "S05.2",
    "mode": "world",
    "idea": "Khoản lớn vừa đủ với ngân sách hôm nay; mất việc, sửa nhà có thể làm nó chật.",
-   "visual": "thanh 15 năm loé (\"squeeze\").",
+   "visual": "cờ lê ép thanh 15 năm (\"squeeze\"), rồi ép hộp cushion (hấp thụ).",
    "line": "The bigger payment fits her budget today, but only just, and a job change or a big repair could squeeze it.",
    "sound": [
+    "tick",
     "tick"
    ],
    "music": 0.3,
@@ -2270,6 +2271,7 @@
    "t1": 33.56,
    "cues": {
     "budget": 27.926,
+    "repair": 32.04,
     "squeeze": 32.89
    }
   },
@@ -2278,9 +2280,10 @@
    "sid": "S05.3",
    "mode": "world",
    "idea": "Cô muốn trả xong nhà trong 15 năm: khoản 30 năm phải trả như khoản ngắn.",
-   "visual": "Tessa giơ tay về nhà; bóng mờ thanh 30 năm.",
+   "visual": "Tessa giơ tay về nhà; 15 ô năm + cờ mốc; bóng mờ thanh 30 năm.",
    "line": "Still, she wants the house paid off in 15 years, so the 30-year only works for her if she pays it like a short loan.",
    "sound": [
+    "tick",
     "tick"
    ],
    "music": 0.32,
@@ -2290,6 +2293,8 @@
    "t1": 43.32,
    "cues": {
     "house": 36.013,
+    "paid": 36.328,
+    "fifteen": 37.06,
     "short": 42.427
    }
   },
@@ -2298,7 +2303,7 @@
    "sid": "S06.1",
    "mode": "world",
    "idea": "Ở 7,4 %, trả xong trong 15 năm cần $2,948 mỗi tháng.",
-   "visual": "vạch mức 15 năm; đồ thị: required; thanh 30 năm dâng qua vạch; nhãn đúng \"forty\".",
+   "visual": "vạch mức 15 năm; thanh 30 năm dâng qua vạch từ \"finishing\" tới \"two\"; nhãn đúng \"two\".",
    "line": "At 7.4 percent, finishing that loan in 15 years takes $2,948 a month.",
    "sound": [
     "tick",
@@ -2312,7 +2317,7 @@
    "t1": 53.373,
    "cues": {
     "finishing": 46.871,
-    "forty": 51.64
+    "two": 49.773
    },
    "anchor": true
   },
@@ -2384,7 +2389,7 @@
    "sid": "S07.2",
    "mode": "chart",
    "idea": "Nó có vì khoản 30 năm lãi cao hơn: tuần 8/10 cao hơn 0,67 điểm.",
-   "visual": "hai đường lãi khảo sát; khoảng giữa; ngoặc + nhãn.",
+   "visual": "chồng hoá khoảng giữa hai đường lãi; ngoặc + nhãn; đẩy máy vào ngoặc, lát vàng rơi vào ngoặc.",
    "line": "It exists because the 30-year carries a higher rate on the same balance: on October eighth, 0.67 point higher.",
    "sound": [
     "nốt dữ liệu ×2",
@@ -2401,7 +2406,8 @@
     "thirty": 80.317,
     "higher": 81.666,
     "october": 84.15,
-    "zero": 85.48
+    "zero": 85.48,
+    "higher2": 87.231
    }
   },
   {
@@ -2430,11 +2436,12 @@
    "sid": "S08.2",
    "mode": "chart",
    "idea": "Trả trong 15 năm: $210,691.",
-   "visual": "tháp thấp hơn nhiều.",
+   "visual": "tháp thấp hơn nhiều; tên ở \"fifteen\", số ở \"two\"; tô bóng phần trống tới đỉnh tháp cao.",
    "line": "Paid in 15 years, it charges $210,691.",
    "sound": [
     "rise",
-    "nốt dữ liệu"
+    "nốt dữ liệu",
+    "tick"
    ],
    "music": 0.44,
    "emotion": "hiểu",
@@ -2443,7 +2450,8 @@
    "t1": 105.113,
    "cues": {
     "fifteen": 99.323,
-    "two": 101.393
+    "two": 101.393,
+    "gap": 104.473
    }
   },
   {
@@ -2476,10 +2484,12 @@
    "sid": "S09.2",
    "mode": "world",
    "idea": "30 năm trả trong 15 = 15 năm + đường lui, và đường lui có giá.",
-   "visual": "phần chênh đáp lên the stack; Tessa giơ tay; chồng loé.",
+   "visual": "phần chênh đáp lên the stack; thanh 15 năm mọc lại, \"plus\" khối vàng rơi lên đỉnh; chồng loé.",
    "line": "So the 30-year paid in 15 isn't the same loan as the 15-year: it's the 15-year plus a fallback, and the fallback has a price.",
    "sound": [
     "nốt dữ liệu khi đáp",
+    "rise",
+    "nốt dữ liệu",
     "tick"
    ],
    "music": 0.58,
@@ -2488,6 +2498,7 @@
    "t0": 115.633,
    "t1": 126.38,
    "cues": {
+    "fifteen": 119.12,
     "plus": 121.956,
     "price": 125.313
    }
@@ -2497,10 +2508,10 @@
    "sid": "S09.3",
    "mode": "world",
    "idea": "Chồng của Tessa có phải giá bình thường, hay tuần 8/10 khác thường?",
-   "visual": "hàng chồng mờ các tuần khác mọc sau nhà; chồng của Tessa loé.",
+   "visual": "chồng của Tessa loé ở \"normal\" và \"unusual\".",
    "line": "Is Tessa's stack a normal price for that fallback, or is the week of October eighth unusual?",
    "sound": [
-    "rise",
+    "tick",
     "tick"
    ],
    "music": 0.52,
@@ -2516,22 +2527,12 @@
  ],
  "moves": [
   {
-   "id": "m_push0",
-   "verb": "push",
-   "from": "wB0",
-   "to": "wB1",
-   "t0": 1.261,
-   "t1": 2.161,
-   "reason": "lời S04.1 \"what Tessa is weighing\": máy lại gần Tessa và nhà",
-   "sound": "whoosh_air"
-  },
-  {
    "id": "m_c1",
    "verb": "mode",
    "from": "wB1",
    "to": "cB",
-   "t0": 5.0,
-   "t1": 6.2,
+   "t0": 5.36,
+   "t1": 6.36,
    "reason": "lời S04.2 đặt số tiền mỗi tháng: số chỉ ở đồ thị (quy tắc 1), sau 5 s thế giới (quy tắc 7)",
    "sound": "whoosh_mode"
   },
@@ -2542,7 +2543,7 @@
    "to": "wB5",
    "t0": 25.81,
    "t1": 27.11,
-   "reason": "lời S05.2 nói về đời Tessa (ngân sách, mất việc, sửa nhà), không số: về thế giới",
+   "reason": "lời S05.2 nói về đời Tessa (ngân sách, mất việc, sửa nhà), không số: về thế giới (chính diện)",
    "sound": "whoosh_mode"
   },
   {
@@ -2552,7 +2553,7 @@
    "to": "cB",
    "t0": 47.451,
    "t1": 48.451,
-   "reason": "lời S06.1 đặt số $2,948: đồ thị SỚM (sau vạch mức 15 năm) để thấy thanh 30 năm ở mức bắt buộc có nhãn TRƯỚC khi dâng",
+   "reason": "lời S06.1 đặt số $2,948: đồ thị khi thanh 30 năm đang dâng, trước con số",
    "sound": "whoosh_mode"
   },
   {
@@ -2562,7 +2563,7 @@
    "to": "wStack",
    "t0": 70.177,
    "t1": 71.377,
-   "reason": "lời S07.1 \"in Tessa's world … beside her house\": về thế giới, chồng cạnh nhà",
+   "reason": "lời S07.1 \"in Tessa's world … beside her house\": về thế giới, chồng trượt về cạnh nhà",
    "sound": "whoosh_mode"
   },
   {
@@ -2572,13 +2573,23 @@
    "to": "cRates",
    "t0": 78.13,
    "t1": 79.73,
-   "reason": "lời S07.2 so lãi hai khoản trong tuần 8/10 (số): đồ thị hai đường lãi khảo sát",
+   "reason": "lời S07.2 so lãi hai khoản trong tuần 8/10 (số): chồng hoá khoảng giữa hai đường lãi khảo sát",
    "sound": "whoosh_mode"
+  },
+  {
+   "id": "m_rz",
+   "verb": "push",
+   "from": "cRates",
+   "to": "cRatesZ",
+   "t0": 85.73,
+   "t1": 86.83,
+   "reason": "lời S07.2 \"0.67 point higher\": khoảng chênh nhỏ trên trục từ 0 → đẩy máy vào ngoặc",
+   "sound": "whoosh_push"
   },
   {
    "id": "m_out8",
    "verb": "pull",
-   "from": "cRates",
+   "from": "cRatesZ",
    "to": "cTowers",
    "t0": 88.27,
    "t1": 89.55,
@@ -2608,12 +2619,6 @@
  ],
  "events": [
   {
-   "t": 1.261,
-   "kind": "whoosh_air",
-   "dur": 0.9,
-   "gain": 0.7
-  },
-  {
    "t": 2.427,
    "kind": "tick",
    "v": 0.3
@@ -2624,13 +2629,13 @@
    "v": 0.94272
   },
   {
-   "t": 5.0,
+   "t": 5.36,
    "kind": "whoosh_mode",
-   "dur": 1.2,
+   "dur": 1.0,
    "gain": 0.6
   },
   {
-   "t": 6.2,
+   "t": 6.36,
    "kind": "land",
    "mode": true
   },
@@ -2676,9 +2681,19 @@
    "mode": true
   },
   {
+   "t": 32.04,
+   "kind": "tick",
+   "v": 0.25
+  },
+  {
    "t": 32.89,
    "kind": "tick",
    "v": 0.3
+  },
+  {
+   "t": 37.06,
+   "kind": "tick",
+   "v": 0.4
   },
   {
    "t": 42.427,
@@ -2689,6 +2704,11 @@
    "t": 46.871,
    "kind": "tick",
    "v": 0.35
+  },
+  {
+   "t": 46.921,
+   "kind": "rise",
+   "dur": 2.752
   },
   {
    "t": 47.451,
@@ -2702,12 +2722,7 @@
    "mode": true
   },
   {
-   "t": 50.557,
-   "kind": "rise",
-   "dur": 1.2
-  },
-  {
-   "t": 51.64,
+   "t": 49.773,
    "kind": "data",
    "v": 0.9827600000000001,
    "over": true
@@ -2857,6 +2872,17 @@
    "v": 0.25
   },
   {
+   "t": 85.73,
+   "kind": "whoosh_push",
+   "dur": 1.1,
+   "gain": 0.7
+  },
+  {
+   "t": 87.231,
+   "kind": "data",
+   "v": 0.5
+  },
+  {
    "t": 88.27,
    "kind": "whoosh_soft",
    "dur": 1.28,
@@ -2881,6 +2907,11 @@
    "t": 101.393,
    "kind": "data",
    "v": 0.421
+  },
+  {
+   "t": 104.473,
+   "kind": "tick",
+   "v": 0.35
   },
   {
    "t": 106.22,
@@ -2932,14 +2963,24 @@
    "v": 0.62
   },
   {
+   "t": 119.12,
+   "kind": "rise",
+   "dur": 0.7
+  },
+  {
+   "t": 121.956,
+   "kind": "data",
+   "v": 0.5
+  },
+  {
    "t": 125.313,
    "kind": "tick",
    "v": 0.5
   },
   {
    "t": 127.997,
-   "kind": "rise",
-   "dur": 1.2
+   "kind": "tick",
+   "v": 0.45
   },
   {
    "t": 132.1,
@@ -3025,36 +3066,36 @@
   {
    "id": "s0",
    "t0": 0,
-   "t1": 1.261
+   "t1": 5.36
   },
   {
    "id": "s1",
-   "t0": 1.261,
-   "t1": 5.0
-  },
-  {
-   "id": "s2",
-   "t0": 5.0,
+   "t0": 5.36,
    "t1": 25.81
   },
   {
-   "id": "s3",
+   "id": "s2",
    "t0": 25.81,
    "t1": 47.451
   },
   {
-   "id": "s4",
+   "id": "s3",
    "t0": 47.451,
    "t1": 70.177
   },
   {
-   "id": "s5",
+   "id": "s4",
    "t0": 70.177,
    "t1": 78.13
   },
   {
-   "id": "s6",
+   "id": "s5",
    "t0": 78.13,
+   "t1": 85.73
+  },
+  {
+   "id": "s6",
+   "t0": 85.73,
    "t1": 88.27
   },
   {
@@ -3082,7 +3123,7 @@
   "stop": 134.4,
   "release": 134.4,
   "accents": [
-   51.64,
+   49.773,
    66.15
   ]
  },
@@ -3276,11 +3317,11 @@
    2215.62
   ],
   [
-   50.557,
+   46.921,
    2215.62
   ],
   [
-   51.757,
+   49.673,
    2948.28
   ]
  ],
@@ -3311,28 +3352,29 @@
  "x": {
   "house": -3.3,
   "stack": -1.6,
-  "bar15": 1.2,
-  "bar30": 2.4,
+  "bar15": 0.4,
+  "bar30": 2.2,
+  "stack6": 3.4,
   "full": 5.5,
   "on15": 8.6,
   "y15": 11.7,
   "towers": 8.6,
   "rates": [
-   16.0,
-   20.4
+   4.0,
+   12.0
   ]
  },
  "gestures": [
   {
-   "t": 11.166,
+   "t": 12.112,
    "kind": "lean",
-   "to": 2.4,
-   "hold": 1.2
+   "to": 2.2,
+   "hold": 1.4
   },
   {
    "t": 18.12,
    "kind": "arm",
-   "to": 2.4,
+   "to": 2.2,
    "hold": 1.2
   },
   {
@@ -3347,15 +3389,15 @@
    "hold": 1.4
   },
   {
-   "t": 51.64,
+   "t": 49.773,
    "kind": "lean",
-   "to": 2.4,
+   "to": 2.2,
    "hold": 1.4
   },
   {
    "t": 63.219,
    "kind": "arm",
-   "to": -1.6,
+   "to": 3.4,
    "hold": 3.0
   },
   {
@@ -3394,20 +3436,7 @@
    "hold": 1.3
   }
  ],
- "ghosts": [
-  17562,
-  16418,
-  12816,
-  17329,
-  14091,
-  11227,
-  15478,
-  22293,
-  21297,
-  16030,
-  18518,
-  22976
- ],
+ "bar_up": 0.7,
  "rates": {
   "r30": [
    6.44,
@@ -3627,19 +3656,21 @@
   ]
  },
  "label_cues": {
-  "b1.two": "15-year: $2,828 a month",
+  "b1.two": "$2,828 a month",
   "b2.two": "30-year required:",
   "b3.six": "fallback: about $613 a month lower",
   "b3.least": "the least the 30-year asks",
-  "b6.forty": "30-year paid in 15: $2,948 a month",
+  "b6.two": "30-year paid in 15: $2,948 a month",
   "b7.one": "+$120 a month",
   "b8.twenty": "the stack: $21,622",
   "b9.stack": "the stack = the price of the fallback",
+  "c0.thirty": "30-year rate",
   "c0.october": "30-year: 7.40%",
   "c0.zero": "30-year rate 0.67 point higher",
   "c1.four": "$477,622 interest",
-  "c2.two": "30-year paid in 15: $210,691",
-  "c3.one": "15-year: $189,069 interest",
+  "c2.fifteen": "paid in 15:",
+  "c2.two": "$210,691",
+  "c3.one": "$189,069 interest",
   "c3.stack": "difference = the stack: $21,622"
  },
  "visual_cues": [
@@ -3651,11 +3682,13 @@
   "b3.gap",
   "b3.six",
   "b3.least",
+  "b4.repair",
   "b4.squeeze",
   "b5.house",
+  "b5.fifteen",
   "b5.short",
   "b6.finishing",
-  "b6.forty",
+  "b6.two",
   "b7.one",
   "b7.same",
   "b8.over",
@@ -3665,14 +3698,17 @@
   "c0.higher",
   "c0.october",
   "c0.zero",
+  "c0.higher2",
   "c1.thirty",
   "c1.four",
   "c2.fifteen",
   "c2.two",
+  "c2.gap",
   "c3.fifteen",
   "c3.one",
   "c3.difference",
   "c3.stack",
+  "c4.fifteen",
   "c4.plus",
   "c4.price",
   "c5.normal",

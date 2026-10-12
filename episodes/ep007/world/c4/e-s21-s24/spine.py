@@ -4,6 +4,9 @@ N1 Month track BẢN C4 (c4kit.TrackC4) — sửa lỗi CHÍNH của C3 (C3-answ
 white"): phần trả thêm của mỗi tháng = MỘT TỜ ĐÔ LA (Bill, obj7) nhỏ hơn ô, đặt TRÊN mặt ô; ô bắt buộc giữ ink-muted, thấy quanh tờ ở mọi khung; tờ đi
 từ tay Tessa qua cột đầu rồi rải vào từng cột-năm (một nốt mỗi cột); máy 3/4 (cQ, ~40°) — thấy độ nổi của tờ. Tấm của kit tắt (drop = 0).
 C4 r4 (khoá nghĩa): S21 về đúng hình C4 r2 (cận cảnh ô tháng 1 của r3 hạ nghĩa B21 → bỏ); giữ mọi sửa r3 của S22–S24, nhãn "late" nền tối, tên Tessa.
+C5 (chỉ bố cục/nhịp, KHÔNG đổi loại hình — "lớp trả thêm" S21 để G2): S21 đường tháng mọc từ cửa nhà; S22 thanh mức nằm ngang TRÊN khối dư nợ hạ bậc,
+  thanh hai phần sang phải vách (gốc ink / lãi TRK.dark, khe ở chỗ nối), thanh mức giữ qua S22.3 và sáng ở "fallback"; S23 cột đầu gom chậm; S24 lãi nhỏ giọt vào chồng
+  trong khi xấp năm đầu chờ, khay → hũ kính cạnh Tessa (cô nghiêng nhìn), tờ đô la rời tay ở "puts" và bay vòng vào cửa nhà.
 B21 (S21, KEY-9): thế giới — "pay" vách 15 năm (thấp, trong mờ) hiện mờ làm đích, 15 cột × 12 ô ĐẶT DẦN tới vách (mỗi cột một nốt + loé); "same" vách loé
   (= ngày "cùng ngày"). Nhân quả: cột cuối tới vách TRƯỚC, ô trễ chỉ hiện SAU khi lời nói "doesn't". → ĐỒ THỊ (3/4): "doesn't" → "ends" 14,6 ô warn
   (to ×1,2, cao ×2,5) quá vách; "ends" = "pay $2,828 on the 30-year: about 195 months"; "late" = "about 15 months late" (mới ở C4, cạnh ô trễ).
@@ -94,12 +97,17 @@ r = Q['r30_now'] / 1200; Bal = M['params']['principal']; share = []
 for m in range(180):
     share.append(round(min(1.0, Bal * r / Q['pay30_now']), 4)); Bal = max(0.0, Bal * (1 + r) - Q['pay30on15_now'])
 assert Bal < 5.0, Bal                        # trả bắt buộc + $732.67 xong đúng 180 tháng (monthly_extra_months)
+# S22.1 (C5 CHÍNH): khối dư nợ hạ bậc theo cột-năm (dư nợ đầu năm c / gốc, cùng lịch trả thêm ở trên) dưới thanh mức bắt buộc nằm ngang
+Bal = M['params']['principal']; bal = []
+for m in range(180):
+    if m % 12 == 0: bal.append(round(Bal / M['params']['principal'], 4))
+    Bal = max(0.0, Bal * (1 + r) - Q['pay30on15_now'])
 cur = [cue['b1']['cut'], cue['b1']['principal']]
 yr_t = K.spread(cur[0] + 0.15, cur[1] - 0.1, 15)
 ev += [{'t': round(t, 3), 'kind': 'data', 'v': round(0.15 + 0.6 * share[12 * k], 3)} for k, t in enumerate(yr_t)]
 # S23: sóng "mỗi tháng một lớp" từ đầu S23 tới "send"; gom: cột đầu ở "once" (0,9 s), 14 cột còn lại thành sóng, cột cuối xong ĐÚNG "extra"
 wave = [round(S.start['S23'] + 0.15, 3), round(cue['b3']['send'] - 0.05, 3)]
-G0, GD = 0.9, 0.75
+G0, GD = 1.6, 0.75   # C5 CHÍNH: cột đầu gom chậm (1,6 s từ "once") — 12 tờ trượt vào một xấp đọc được ở cQ
 gs = [[cue['b3']['once'], cue['b3']['once'] + G0]] + [[s, s + GD] for s in K.spread(cue['b4']['one'], cue['b4']['extra'] - GD, 14)]
 gs = [[round(a, 3), round(z, 3)] for a, z in gs]
 ev += [{'t': z, 'kind': 'data', 'v': round(0.3 + 0.35 * (k + 1) / 15, 3)} for k, (a, z) in enumerate(gs)]
@@ -107,6 +115,19 @@ LL = G['lump_late_months']
 lt2 = K.spread(cue['b5']['ends'] + 0.02, cue['b5']['four'] - 0.1, LL)
 late23, e5 = K.steps(lt2, [k + 1 for k in range(LL)], ramp=0.07, v0=0, pitch=lambda v: 0.65 + 0.1 * v, over=True)
 ev += e5
+# C5 CHÍNH (neo vào từ, KHÔNG là từ khoá của nhịp: rơi trong cửa sổ máy quay → quy tắc 2 không áp): S21 đường tháng mọc từ cửa nhà ("shortcut", 1,3 s);
+# S22.3 thanh mức sáng ở "fallback"; S24.1 lãi nhỏ giọt vào chồng (10 giọt "about" → "arrives", xấp năm đầu chờ rồi hạ ở "arrives");
+# S24.3 tờ đô la trong tay từ "Tessa", rời tay ở "puts", bay vòng vào cửa nhà tới "mortgage"
+lane = [S.at('@S21.1:shortcut'), round(S.at('@S21.1:shortcut') + 1.3, 3)]
+assert lane[1] < cue['a0']['pay'] - 1.0
+fallback = S.at('@S22.3:fallback')
+arrives = S.at('@S24.1:arrives')
+drip_t = K.spread(cue['b6']['about'] + 0.4, arrives, 10)
+drip, e6 = K.steps(drip_t, [round(0.4 + 0.6 * (k + 1) / 10, 3) for k in range(10)], ramp=0.25, v0=0.4, pitch=lambda v: 0.25 + 0.3 * v)
+drip = [[0.0, 0.0], [cue['b6']['charges'], 0.0], [round(cue['b6']['charges'] + 0.7, 3), 0.4]] + [p for p in drip if p[0] > cue['b6']['charges'] + 0.7]
+ev += e6
+fly = [cue['b8']['tessa'], S.at('@S24.3:puts'), S.at('@S24.3:mortgage')]
+assert fly[0] < fly[1] < fly[2] and fly[2] - fly[1] > 0.9
 ev += [{'t': cue['a0']['same'], 'kind': 'tick', 'v': 0.4}, {'t': cue['a1']['ends'], 'kind': 'tick', 'v': 0.45}, {'t': cue['a1']['late'], 'kind': 'tick', 'v': 0.6},
        {'t': cue['a2']['seven'], 'kind': 'tick', 'v': 0.55}, {'t': cue['a2']['required'], 'kind': 'tick', 'v': 0.35},
        {'t': cue['b0']['requires'], 'kind': 'rise', 'dur': 1.2}, {'t': cue['b0']['stays'], 'kind': 'tick', 'v': 0.45}, {'t': cue['b0']['sooner'], 'kind': 'data', 'v': 0.3},
@@ -115,9 +136,10 @@ ev += [{'t': cue['a0']['same'], 'kind': 'tick', 'v': 0.4}, {'t': cue['a1']['ends
        {'t': cue['b4']['one'], 'kind': 'tick', 'v': 0.5}, {'t': cue['b5']['four'], 'kind': 'tick', 'v': 0.35},   # sóng S23 (gợn 0,03): bỏ tiếng 'rise' (C4 r3)
        {'t': cue['b6']['charges'], 'kind': 'rise', 'dur': 0.7}, {'t': cue['b6']['about'], 'kind': 'tick', 'v': 0.45}, {'t': cue['b6']['sits'], 'kind': 'tick', 'v': 0.3},
        {'t': cue['b7']['verdict'], 'kind': 'tick', 'v': 0.4}, {'t': cue['b7']['account'], 'kind': 'data', 'v': 0.45}, {'t': cue['b7']['counted'], 'kind': 'tick', 'v': 0.35},
-       {'t': cue['b8']['dollar'], 'kind': 'data', 'v': 0.7}]
-# tray (C4 r2): trước mép trước lưới, phải tên "Tessa · ILLUSTRATIVE" (cQ: hộp nét đứt ≈ x 760–950, y 750–900 px; tên ≈ x 66–594)
-X = {'tray': [1.8, 1.5], 'bar': [-0.9, 0.9], 'istack': [8.1, -2.2], 'house': [-1.55, -1.4], 'tessa': [-2.7, -0.5]}
+       {'t': fly[2], 'kind': 'data', 'v': 0.7}]   # nốt khi tờ vào cửa nhà ("mortgage")
+# tray (C5 CHÍNH): hũ kính tài khoản CẠNH Tessa, phải cô, trước góc trái nhà (cQ ≈ x 335–445, y 610–760 px: không chạm người x ≤ 300, trên tên y ≥ 776);
+# bar (C5 CHÍNH): khoản bắt buộc tách hai phần sang PHẢI vách (cQ ≈ x 1560–1740 px) — không che nhà và Tessa
+X = {'tray': [-1.45, 0.0], 'bar': [7.2, -0.2], 'istack': [8.1, -2.2], 'house': [-1.55, -1.4], 'tessa': [-2.7, -0.5]}
 gestures = [{'t': cue['a0']['pay'], 'kind': 'lean', 'to': 3.0, 'hold': 1.4},                   # ô bắt đầu đặt (thế giới)
             {'t': cue['a1']['doesnt'], 'kind': 'arm', 'to': 6.6, 'hold': 1.6},               # ô trễ qua vách (đồ thị)
             {'t': cue['a2']['finish'], 'kind': 'arm', 'to': 3.0, 'hold': 2.0},               # tấm trả thêm rơi
@@ -127,12 +149,14 @@ gestures = [{'t': cue['a0']['pay'], 'kind': 'lean', 'to': 3.0, 'hold': 1.4},    
             {'t': cue['b3']['once'], 'kind': 'arm', 'to': 0.5, 'hold': 1.4},                 # khối năm đầu gom
             {'t': cue['b5']['ends'], 'kind': 'arm', 'to': 6.6, 'hold': 1.8},                 # quay về 4 ô trễ ở vách
             {'t': cue['b6']['charges'], 'kind': 'lean', 'to': X['istack'][0], 'hold': 1.2},
-            {'t': cue['b7']['account'], 'kind': 'arm', 'to': X['tray'][0], 'hold': 1.6},     # khay tài khoản của cô
-            {'t': cue['b8']['dollar'], 'kind': 'arm', 'to': X['house'][0], 'hold': 2.6}]      # tờ đô la từ tay cô
+            {'t': cue['b7']['account'], 'kind': 'arm', 'to': X['tray'][0], 'hold': 1.6},     # hũ tài khoản của cô
+            {'t': cue['b7']['account'], 'kind': 'lean', 'to': X['tray'][0], 'hold': 2.6},    # nghiêng nhìn hũ (C5 CHÍNH: hũ gắn với cô)
+            {'t': cue['b8']['tessa'], 'kind': 'arm', 'to': X['house'][0], 'hold': 2.2}]       # tờ đô la trong tay cô, rời tay ở "puts"
 K.finish(HERE, S, 'ep007 C4 · E = S21–S24 (Tessa tự thử: trả bằng khoản 15 năm, trả thêm, khoản bắt buộc đứng yên, trả năm) + MR2', beats, moves, ev,
          {'lit': lit, 'lay': [round(t, 3) for t in lay], 'late21': late21, 'clear_t': round(land[13] + 0.1, 3), 'land': [round(t, 3) for t in land], 'drop': DROP,
           'mark_t': cue['a0']['pay'], 'share': share, 'cursor': [round(t, 3) for t in cur], 'wave': wave, 'gather': gs, 'late23': late23,
-          'lift': {'i': 9 * 12 + 6, 't': [cue['b2']['wrong'], round(S.last['S22'] + 0.15, 3)]}, 'mr2': MR, 'x': X, 'gestures': gestures},
+          'lift': {'i': 9 * 12 + 6, 't': [cue['b2']['wrong'], round(S.last['S22'] + 0.15, 3)]}, 'mr2': MR, 'x': X, 'gestures': gestures,
+          'bal': bal, 'lane': lane, 'fallback': fallback, 'drip': drip, 'drip_t': [round(t, 3) for t in drip_t], 'arrives': arrives, 'fly': fly},
          {'a1.ends': 'pay $2,828 on the 30-year: about 195 months', 'a1.late': 'about 15 months late', 'a2.seven': 'to finish in 180 months:',
           'b0.stays': 'required payment: stays $2,216', 'b0.sooner': 'loan ends sooner', 'b1.interest': "next month's interest ↓, payment fixed",
           'b4.one': '$8,792 once a year (12 × $732.67)', 'b5.four': 'ends in 184 months: 4 months later than monthly', 'b6.about': 'about $8,200 more interest',

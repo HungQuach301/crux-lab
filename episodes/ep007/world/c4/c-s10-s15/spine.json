@@ -1825,7 +1825,8 @@
    "cues": {
     "real": 7.744,
     "thirty": 10.606,
-    "every": 14.627
+    "every": 14.627,
+    "rates": 13.344
    }
   },
   {
@@ -1848,7 +1849,8 @@
    "cues": {
     "priced": 17.989,
     "both": 20.968,
-    "thirty": 24.149
+    "thirty": 24.149,
+    "built": 29.267
    }
   },
   {
@@ -1957,6 +1959,7 @@
    "t1": 69.013,
    "cues": {
     "eighth": 66.11,
+    "little": 67.457,
     "above": 67.72
    }
   },
@@ -2016,6 +2019,7 @@
    "t0": 79.277,
    "t1": 83.167,
    "cues": {
+    "tallest": 79.407,
     "twenty": 80.176
    }
   },
@@ -2178,7 +2182,7 @@
    "v": 0.45
   },
   {
-   "t": 14.627,
+   "t": 13.344,
    "kind": "rise",
    "dur": 1.5
   },
@@ -2529,8 +2533,8 @@
   "x0": -0.85,
   "x1": 9.75,
   "cards": [
-   0.9,
-   4.7
+   0.5,
+   5.3
   ]
  },
  "gestures": [
@@ -2543,14 +2547,14 @@
   {
    "t": 10.606,
    "kind": "arm",
-   "to": 4.7,
+   "to": 5.3,
    "hold": 1.2
   },
   {
-   "t": 14.627,
+   "t": 13.344,
    "kind": "lean",
    "to": 9.75,
-   "hold": 1.4
+   "hold": 1.8
   },
   {
    "t": 35.024,
@@ -2577,15 +2581,21 @@
    "hold": 1.8
   },
   {
-   "t": 80.176,
+   "t": 75.413,
+   "kind": "lean",
+   "to": 4.363256955810147,
+   "hold": 1.2
+  },
+  {
+   "t": 79.407,
    "kind": "lean",
    "to": 8.6310147299509,
-   "hold": 1.2
+   "hold": 1.4
   },
   {
    "t": 95.111,
    "kind": "arm",
-   "to": -1.6,
+   "to": 9.75,
    "hold": 1.6
   },
   {
@@ -10021,6 +10031,7 @@
  "assumed_rate": 6.13,
  "spread_mean": 0.57,
  "median": 16631,
+ "smallest": 75.413,
  "label_cues": {
   "c0.assumed": "one assumed rate",
   "c1.real": "15-year loan",
@@ -10028,7 +10039,8 @@
   "c1.every": "every real week: 15-year and 30-year",
   "c2.both": "$320,000 priced both ways each week",
   "c2.thirty": "1,833 weeks · Aug 1991 to Oct 2026",
-  "c3.last": "Tessa's week = the last · ILLUSTRATIVE",
+  "c2.built": "method: $320,000 · 15-year vs 30-year paid in 15",
+  "c3.last": "Tessa's week = the last",
   "c5.gap": "30-year minus 15-year rate",
   "c5.one": "gap: 0.2 point to 1.0 point",
   "c6.zero": "average gap: 0.57 point",
@@ -10045,10 +10057,12 @@
   "c0.assumed",
   "c1.real",
   "c1.thirty",
+  "c1.rates",
   "c1.every",
   "c2.priced",
   "c2.both",
   "c2.thirty",
+  "c2.built",
   "c3.last",
   "c3.earlier",
   "c4.far",
@@ -10061,9 +10075,11 @@
   "c6.least",
   "c6.two",
   "c7.eighth",
+  "c7.little",
   "c8.every",
   "c8.rise",
   "c9.six",
+  "d0.tallest",
   "d0.twenty",
   "d1.median",
   "d1.sixteen",

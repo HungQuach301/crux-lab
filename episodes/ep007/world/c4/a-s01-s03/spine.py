@@ -3,13 +3,16 @@
 B01 (S01, bản C3 s01-stack đã duyệt + hàng chờ C4 gates/C3.md §3 #1–#2 + C4 r3): Tessa cạnh nhà; từ "costs" chồng MỌC 4 bó theo nhịp S01.1
 (thế giới): mỗi bó trồi ra ở bậc cửa rồi bay vào the stack SÁT tường phải của nhà, Tessa giơ tay về phía chồng; chồng DỪNG trước S01.2 (không mọc
 trong lời "$320,000"); "borrowing" = TẤM GIẤY VAY (vật riêng gắn với nhà, LoanTag, trước mặt tiền) — khoản vay không phải chồng; → ĐỒ THỊ từ 5,0 s
-(quy tắc 7); 5,94 s "price of the fallback: $120 a month" (C3 câu 3 = a); "dollars" = "$320,000 loan · week of Oct 8, 2026" trên tấm giấy vay.
-B02 (S02): "fifteen-year" / "thirty-year" = hai thẻ khoản vay treo trên Tessa (V4 adapted), "kept" = dải cushion (đường lui) trên thẻ 30 năm;
-lùi máy → "every" = dải 1.833 tuần sau nhà (V1 xem trước) "every week since Aug 1991"; "price" = mỗi ô mọc thành cột giá đường lui của tuần đó;
-"extra" = một tờ đô la trong tay Tessa (xem trước the bar).
-B03 (S03): đẩy máy về hai thẻ: "illustrative" tên Tessa loé; "October" = "week of Oct 8, 2026"; "six" / "seven" = lãi 6.73% / 7.40% trên hai thẻ;
-về thế giới ở S03.2: "only", "history" = dòng góc "US only · history, not a forecast" gạch chân; "say" = đối trọng "Not advice on which loan, or
-on investing"; ident 3 s: thế giới tối dần (nhạc hiệu A do music.post phát)."""
+(quy tắc 7) bằng cú ĐẨY VÀO (C5 r1: không lùi máy ở "$320,000"); 5,94 s "price of the fallback: $120 a month" (C3 câu 3 = a); "dollars" = "$320,000
+loan · week of Oct 8, 2026" ngay trên tấm giấy vay; "city" hai xấp hoá đơn nhỏ, "payment" → "biggest" xấp khoản trả nhà mọc cao vượt, Tessa ngẩng về nó.
+B02 (S02): "fifteen-year" / "thirty-year" = hai thẻ khoản vay treo trên Tessa (V4 adapted), trong thẻ: chồng khoản trả 15 năm (cao) / 30 năm (thấp);
+"kept" = dải cushion + ĐỐNG DỰ PHÒNG (cushion) cạnh chồng 30 năm, sáng ở "bad month"; thẻ giữ tới "replayed", lùi máy (sát "every") → dải 1.833
+tuần mọc theo cú lùi, trên MẶT PHẲNG RIÊNG sau/trên nhà, năm chẵn/lẻ đậm nhạt (từng năm tách), trục "Aug 1991" → "Oct 8, 2026"; "price" = mỗi ô mọc
+thành cột giá đường lui của tuần đó; đẩy máy vào tay Tessa → "extra" = tờ đô la trong tay, "principal" tờ tiền bay vào cửa nhà.
+B03 (S03): đẩy máy về hai thẻ: "illustrative" tên Tessa loé; "October" = "week of Oct 8, 2026"; "six" / "seven" = lãi 6.73% / 7.40% (dòng hai, TRÊN dải
+cushion) trên hai thẻ — thẻ 30 năm đổi tên "30-year mortgage" (lãi 30 năm thường); về thế giới ở S03.2, hai thẻ ở lại (mờ, không chữ): "only", "history"
+= dòng góc "US only · history, not a forecast" gạch chân; "say" = đối trọng "Not advice on which loan, or on investing"; máy đẩy vào Tessa quay về hai
+thẻ; ident 3 s: thế giới tối dần (nhạc hiệu A do music.post phát)."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); W7 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W7)
@@ -45,12 +48,16 @@ moves = K.moves_of([
     ('m_push0', 'push', 'wS0', 'wS', 0.0, cue['a0']['costs'], 1.0, 'mở đoạn: máy lại gần Tessa và cửa nhà trước khi bó đầu ra ("costs")', 'whoosh_air', {}),
     ('m_c1', 'mode', 'wS', 'cS', cue['a1']['borrowing'], LAND, 0.52,   # 0,52 s: tiếng chạm (0,3 s) xong trước "twenty" (5,82), không đè nhãn giá
      'giá $120 chỉ hiện ở chế độ đồ thị (quy tắc 1) → đồ thị ngay sau 5 s thế giới (quy tắc 7), xong trước khi bó đầu chạm chồng', 'whoosh_mode', {'start': 5.0}),
-    ('m_pull', 'pull', 'cS', 'cStrip', cue['a2']['kept'], cue['a3']['every'], 1.6,
-     'lời S02.2 "we replayed every week": lùi máy cho chỗ dải mọi tuần sau nhà (V1 xem trước)', 'whoosh_soft', {}),
-    ('m_push', 'push', 'cStrip', 'cCards', cue['a3']['extra'], cue['a4']['illustrative'], 1.3,
-     'lời S03.1 đặt lãi thật của tuần lên hai khoản vay: đẩy máy về hai thẻ', 'whoosh_push', {}),
+    ('m_pull', 'pull', 'cS', 'cStrip', cue['a2']['kept'], cue['a3']['every'], 1.6,   # C5 r1: SÁT "every" — thẻ giữ tới "replayed", dải mọc theo cú lùi
+     'lời S02.2 "we replayed every week": lùi máy cho chỗ dải mọi tuần trên mặt phẳng riêng sau nhà (V1 xem trước)', 'whoosh_soft', {'late': True}),
+    ('m_hand', 'push', 'cStrip', 'cHand', cue['a3']['price'], cue['a3']['extra'], 1.2,
+     'lời S02.2 "each extra dollar": đẩy máy vào tay Tessa trước khi tờ đô la hiện (C5 r1: tờ tiền không còn là một chấm)', 'whoosh_push', {'late': True}),
+    ('m_push', 'push', 'cHand', 'cCards', cue['a3']['extra'], cue['a4']['illustrative'], 1.3,
+     'lời S03.1 đặt lãi thật của tuần lên hai khoản vay: đẩy máy về hai thẻ (sau khi tờ đô la bay vào nhà)', 'whoosh_push', {'start': cue['a3']['extra'] + 1.6}),
     ('m_w', 'mode', 'cCards', 'wEnd', cue['a4']['seven'], cue['a5']['only'], 1.2,
      'lời S03.2 "US only … history": lớp bắt buộc đứng riêng, về Tessa và nhà (thế giới)', 'whoosh_mode', {'start': SEVEN2 + 1.4}),
+    ('m_in', 'push', 'wEnd', 'wIn', cue['a6']['say'], IDENT[0], 1.6,
+     'C5 r1: hết lời S03.3 không còn khoảng chết — đẩy máy vào Tessa đang quay về hai thẻ (mờ) trước ident', 'whoosh_soft', {'late': True}),
 ])
 MV = {m['id']: m for m in moves}
 assert MV['m_c1']['t0'] >= 5.0 and MV['m_c1']['t1'] <= LAND - K.PAD, MV['m_c1']
@@ -69,17 +76,21 @@ ev += [{'t': LAND, 'kind': 'tick', 'v': 0.45},                                  
        {'t': cue['a4']['six'], 'kind': 'data', 'v': 0.673}, {'t': cue['a4']['seven'], 'kind': 'data', 'v': 0.74},
        {'t': cue['a6']['say'], 'kind': 'tick', 'v': 0.3}]                  # ident: không sfx (nhạc hiệu A phát ở 3 s cuối đuôi S03, music.post)
 # the stack SÁT tường phải của nhà (nhà w 1,6 ở x −0,3: tường phải 0,5; bó rộng 0,9) — không trượt xa nhà khi máy lùi (đạo diễn #3)
-CARD_A, CARD_B, STACK_X, STACK_Z = -1.65, 1.65, 1.0, -0.1
+CARD_A, CARD_B, STACK_X, STACK_Z = -1.5, 1.6, 1.0, -0.1
+BILLS_X = [-2.0, -2.55, -3.0]                  # C5 r1 (S01.2 "biggest bill"): xấp khoản trả nhà (cao) + hai xấp hoá đơn nhỏ, bên trái Tessa
+AT = {k: S.at(f'@{k}') for k in ('S01.2:city', 'S01.2:payment', 'S01.2:biggest', 'S02.1:bad', 'S02.2:replayed', 'S02.2:principal')}
 gestures = [{'t': LANDS[0], 'kind': 'arm', 'to': STACK_X, 'hold': LANDS[-1] - LANDS[0] + 0.6},   # chồng mọc theo nhịp (thế giới): Tessa giơ tay về phía chồng
             {'t': LAND, 'kind': 'arm', 'to': STACK_X, 'hold': 1.4},                       # nhãn giá (đồ thị)
-            {'t': S.at('@S01.2:biggest'), 'kind': 'nod', 'hold': 0.5},
+            {'t': AT['S01.2:biggest'], 'kind': 'lean', 'to': BILLS_X[0], 'hold': 1.0},   # ngẩng về xấp khoản trả cao nhất
             {'t': cue['a2']['thirty'], 'kind': 'lean', 'to': CARD_B, 'hold': 1.0},       # thẻ 30 năm hiện
-            {'t': cue['a3']['extra'], 'kind': 'arm', 'to': 3.0, 'hold': 2.4},           # tờ đô la trả thêm trong tay
-            {'t': cue['a4']['seven'], 'kind': 'lean', 'to': CARD_B, 'hold': 1.0}]        # lãi 30 năm lên thẻ
+            {'t': AT['S02.1:bad'], 'kind': 'arm', 'to': CARD_B, 'hold': 0.9},            # đống dự phòng của thẻ 30 năm sáng ("bad month")
+            {'t': cue['a3']['extra'], 'kind': 'arm', 'to': 3.0, 'hold': AT['S02.2:principal'] - cue['a3']['extra']},   # tờ đô la trong tay tới khi bay vào nhà
+            {'t': cue['a4']['seven'], 'kind': 'lean', 'to': CARD_B, 'hold': 1.0},        # lãi 30 năm lên thẻ
+            {'t': MV['m_in']['t0'], 'kind': 'lean', 'to': CARD_B, 'hold': 1.4}]          # quay về hai thẻ (mờ) khi máy đẩy vào
 K.finish(HERE, S, 'ep007 C4 · A = S01–S03 + ident (cold open)', beats, moves, ev,
          {'stack': stack, 'land': LAND, 'lands': LANDS, 'fly': FLY, 'pop_out': POP_OUT, 'ident': IDENT, 'gestures': gestures, 'cards': [CARD_A, CARD_B],
-          'stack_x': STACK_X, 'stack_z': STACK_Z,
-          'weeks_extra': M['series']['extra_total']},
+          'stack_x': STACK_X, 'stack_z': STACK_Z, 'bills_x': BILLS_X, 'at': AT,
+          'weeks_extra': M['series']['extra_total'], 'weeks_year': [int(w[:4]) for w in M['series']['weeks']]},
          {'a1.land': 'price of the fallback:','a1.dollars': '$320,000 loan · week of Oct 8, 2026', 'a2.fifteen': '15-year mortgage',
           'a2.thirty': '30-year paid in 15', 'a3.surveys': 'every week since Aug 1991', 'a4.october': 'week of Oct 8, 2026', 'a4.six': '6.73%',
           'a4.seven': '7.40%', 'a6.say': 'Not advice on which loan, or on investing'},

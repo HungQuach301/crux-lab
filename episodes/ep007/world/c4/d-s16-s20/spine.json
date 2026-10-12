@@ -1106,6 +1106,7 @@
    "line": "In the 2000s, with lower rates, it cost about the same: $14,210.",
    "sound": [
     "rise",
+    "tick",
     "nốt dữ liệu"
    ],
    "music": 0.42,
@@ -1115,6 +1116,8 @@
    "t1": 18.427,
    "cues": {
     "y2000s": 11.507,
+    "lower": 12.24,
+    "same": 14.411,
     "fourteen": 15.431
    }
   },
@@ -1123,7 +1126,7 @@
    "sid": "S18.1",
    "mode": "chart",
    "idea": "Thập niên 2010, lãi thấp hẳn mà đường lui đắt hơn: $20,374.",
-   "visual": "đoạn đường lãi 2010s loé thấp; chồng 2010s vượt vạch đỉnh 1990s; nhãn.",
+   "visual": "đoạn lãi 2010s rơi dốc; chồng 2010s đứng ở mức 2000s, vượt vạch ở \"more\"; nhãn.",
    "line": "In the 2010s, rates were far lower, yet the fallback cost more: $20,374.",
    "sound": [
     "rise",
@@ -1139,6 +1142,7 @@
    "cues": {
     "y2010s": 19.673,
     "far": 21.153,
+    "yet": 22.343,
     "more": 23.417,
     "twenty": 24.359
    },
@@ -1149,10 +1153,11 @@
    "sid": "S19.1",
    "mode": "chart",
    "idea": "Lý do là khoảng chênh: ~0,7 điểm ở 2010s, 2020s so với ~0,45 ở 1990s, 2000s.",
-   "visual": "bốn ngoặc V6 cạnh bốn chồng + nhãn.",
+   "visual": "ngoặc V6 theo lời (2010s, 2020s + chồng, 1990s, 2000s) + nhãn.",
    "line": "The reason is the gap: in the 2010s and 2020s it typically ran about 0.7 point, against about 0.45 in the 1990s and 2000s.",
    "sound": [
     "tick",
+    "rise",
     "nốt dữ liệu ×2",
     "nốt dữ liệu ×2"
    ],
@@ -1163,7 +1168,10 @@
    "t1": 40.44,
    "cues": {
     "gap": 28.96,
+    "b2010": 30.29,
+    "b2020": 31.16,
     "seven": 34.32,
+    "against": 35.79,
     "four": 37.192
    }
   },
@@ -1216,20 +1224,22 @@
    "sid": "S20.2",
    "mode": "chart",
    "idea": "Đó là lịch sử, không phải dự báo: khoảng chênh từng thay đổi.",
-   "visual": "dòng góc gạch chân; ngoặc rung.",
+   "visual": "dòng góc gạch chân; ngoặc rung; ngoặc ma.",
    "line": "That's history, not a forecast: the gap has moved before, and nothing here says where it goes.",
    "sound": [
+    "tick",
     "tick",
     "tick"
    ],
    "music": 0.36,
    "emotion": "thận trọng",
-   "next": "CHUYỂN CHẾ ĐỘ → thế giới",
+   "next": "cắt sang đoạn e ở \"Back\"",
    "t0": 57.154,
    "t1": 63.44,
    "cues": {
     "history": 57.425,
-    "moved": 59.893
+    "moved": 59.893,
+    "where": 62.427
    }
   }
  ],
@@ -1242,16 +1252,6 @@
    "t0": 5.0,
    "t1": 5.78,
    "reason": "lời S16.2–S20.1 đặt lãi và giá theo thập kỷ (số): đồ thị chính diện cả hàng, sau 5 s thế giới (quy tắc 7)",
-   "sound": "whoosh_mode"
-  },
-  {
-   "id": "m_w20",
-   "verb": "mode",
-   "from": "cD",
-   "to": "wEnd",
-   "t0": 60.962,
-   "t1": 62.361,
-   "reason": "lời S20.2 \"nothing here says where it goes\" (không số): về thế giới, Tessa và the stack cạnh nhà trước khi cô tự thử khoản vay",
    "sound": "whoosh_mode"
   }
  ],
@@ -1298,6 +1298,11 @@
    "v": 0.588
   },
   {
+   "t": 14.411,
+   "kind": "tick",
+   "v": 0.3
+  },
+  {
    "t": 15.431,
    "kind": "tick",
    "v": 0.4
@@ -1310,7 +1315,7 @@
   {
    "t": 20.773,
    "kind": "data",
-   "v": 0.756
+   "v": 0.588
   },
   {
    "t": 21.153,
@@ -1323,6 +1328,11 @@
    "v": 0.5
   },
   {
+   "t": 24.117,
+   "kind": "data",
+   "v": 0.756
+  },
+  {
    "t": 24.359,
    "kind": "tick",
    "v": 0.55
@@ -1331,6 +1341,16 @@
    "t": 28.96,
    "kind": "tick",
    "v": 0.4
+  },
+  {
+   "t": 31.16,
+   "kind": "rise",
+   "dur": 1.1
+  },
+  {
+   "t": 32.26,
+   "kind": "data",
+   "v": 0.782
   },
   {
    "t": 34.32,
@@ -1363,16 +1383,6 @@
    "v": 0.72
   },
   {
-   "t": 48.206,
-   "kind": "rise",
-   "dur": 1.1
-  },
-  {
-   "t": 49.306,
-   "kind": "data",
-   "v": 0.782
-  },
-  {
    "t": 50.566,
    "kind": "tick",
    "v": 0.5
@@ -1393,15 +1403,9 @@
    "v": 0.35
   },
   {
-   "t": 60.962,
-   "kind": "whoosh_mode",
-   "dur": 1.399,
-   "gain": 0.6
-  },
-  {
-   "t": 62.361,
-   "kind": "land",
-   "mode": true
+   "t": 62.427,
+   "kind": "tick",
+   "v": 0.25
   }
  ],
  "tension": [
@@ -1455,11 +1459,6 @@
   {
    "id": "s1",
    "t0": 5.0,
-   "t1": 60.962
-  },
-  {
-   "id": "s2",
-   "t0": 60.962,
    "t1": 64.433
   }
  ],
@@ -1512,8 +1511,8 @@
   "stack": -1.6,
   "x0": -0.85,
   "x1": 9.75,
-  "split": 0.22,
-  "zs": 1.2
+  "split": 0.45,
+  "zs": 0.0
  },
  "gestures": [
   {
@@ -1525,19 +1524,19 @@
   {
    "t": 7.38,
    "kind": "arm",
-   "to": 0.08066557555919246,
+   "to": 0.2501091107474085,
    "hold": 1.2
   },
   {
    "t": 23.417,
    "kind": "lean",
-   "to": 6.306426623022368,
+   "to": -9.3,
    "hold": 1.4
   },
   {
    "t": 34.32,
    "kind": "arm",
-   "to": 6.306426623022368,
+   "to": 6.199004364429896,
    "hold": 1.4
   },
   {
@@ -7091,7 +7090,7 @@
   6.12,
   11.507,
   19.673,
-  48.206
+  31.16
  ],
  "r30_med": [
   7.73,
@@ -7100,13 +7099,23 @@
   6.28
  ],
  "spread_now": 0.67,
+ "hot": {
+  "y1990s": 5.2,
+  "zero2": 36.504
+ },
+ "brk": [
+  35.79,
+  36.504,
+  30.29,
+  31.16
+ ],
  "label_cues": {
   "e1.fifteen": "1991 to 1999: rate near 7.73%",
   "e2.fourteen": "2000s: rate near 6.18%",
   "e3.twenty": "2010s: rate near 4.03%",
   "e4.seven": "0.72 point",
   "e4.four": "0.46 point",
-  "e6.one": "2020s: typical stack $21,345",
+  "e6.one": "$21,345",
   "e6.tessa": "Tessa's stack · ILLUSTRATIVE"
  },
  "visual_cues": [
@@ -7114,13 +7123,19 @@
   "e1.typical",
   "e1.fifteen",
   "e2.y2000s",
+  "e2.lower",
+  "e2.same",
   "e2.fourteen",
   "e3.y2010s",
   "e3.far",
+  "e3.yet",
   "e3.more",
   "e3.twenty",
   "e4.gap",
+  "e4.b2010",
+  "e4.b2020",
   "e4.seven",
+  "e4.against",
   "e4.four",
   "e5.lower",
   "e5.wider",
@@ -7128,7 +7143,8 @@
   "e6.one",
   "e6.tessa",
   "e7.history",
-  "e7.moved"
+  "e7.moved",
+  "e7.where"
  ],
  "checks": {
   "rule2_rule3_rule7": "OK"
