@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation shows that paying a 30-year mortgage at the 15-year payment amount doesn't give a 15-year payoff. Tessa, an illustrative character, has a loan drawn as a grid of tiles, one tile per monthly payment. Paying $2,828 a month on the 30-year loan takes about 195 months, which is roughly 15 months longer than 180. To finish in exactly 180 months, she would pay about $733 extra on top of the required $2,216 payment.\n\n2. The grid of payment tiles grows from nothing in frame 1 to a full block by frame 3. In frame 4, the grid has a gold strip of extra tiles at the end, marking the months past 180. Frame 5 is a close-up of the tiles. In frame 6, the grid is green and exactly 180 months long, with the $733 extra shown in the caption.\n\n3. The 30-year loan has a lower required payment. Its rate and balance don't change, so matching the 15-year loan's payment doesn't reproduce the 15-year loan's schedule, and it ends later. The gap is about 15 months. The \"extra\" needed to finish on time depends on the 30-year loan's own payment, not on the 15-year payment. That is why $733 on top of $2,216 totals $2,949, which is more than $2,828.\n\n4. A viewer would learn not to assume that paying the 15-year amount on a 30-year loan ends it in 15 years. They should work out the extra payment needed for a target payoff date using the loan's own terms. The video doesn't say whether to prepay or invest instead.\n\n5. The video itself suggests the first point, because the narration says \"it doesn't\" end on the same day and gives the $733 figure. The arithmetic note that $733 added to $2,216 comes to $2,949, which is more than $2,828, is my own inference. The video gives no advice about prepaying versus investing, and the on-screen text says \"ILLUSTRATIVE,\" \"US only,\" and \"history, not a forecast.\"",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1594,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 225,
+   "in": 1594,
+   "out": 225
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3907,
+   "cache_read": 6515,
+   "output": 729,
+   "in": 10426,
+   "out": 729
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0238494
+}
