@@ -112,7 +112,7 @@ export async function boot(res) {
       log.roi['e2.lower'] = [xL, rTop - 10, sc(xg(1) + 2.6, 0)[0], rBot + 10];
       log.roi['e3.far'] = [sc(xg(2) - 1.5, 0)[0], rTop - 10, sc(xg(2) + 1.5, 0)[0], rBot + 10]; }
     // chú giải đường lãi (C5 CHÍNH S16: đường không chú giải) — góc dưới phải, TRÊN dải tối chân trang (C14 1080p: ở y 990 bị dải chân che còn 2:1)
-    { const a = ok * Math.min(1, 20 * rA); seg2(O, 1380, 863, 1440, 863, C.accent, a, 6);   // C5 1080 C14: chú giải đi theo độ mờ của đường (đường cố ý mờ) → 2,0:1; chú giải hiện đủ khi đường còn thấy
+    { const a = ok * Math.min(1, 20 * rA) * (1 - ease(t, b.e4.gap - 0.5, b.e4.gap - 0.2)); seg2(O, 1380, 863, 1440, 863, C.accent, a, 6);   // C5 1080 C14: chú giải đi theo độ mờ của đường (đường cố ý mờ) → 2,0:1; chú giải hiện đủ khi đường còn thấy
       label(O, `${D('term_long')} rate`, 1460, 880, { align: 'left', kind: 'number', px: 48, alpha: a, claims: ['term_long'] }); }
     // S19: bốn ngoặc khoảng chênh (accent) sát cạnh trái mỗi chồng điển hình, hiện theo lời; số khoảng chênh = dòng thứ ba của khối thẻ (cùng màu ngoặc)
     label(O, `typical gap: ${D('term_long')} minus ${D('term_short')} rate`, 960, 205, { align: 'center', kind: 'number', alpha: ok * show(t, b.e4.gap, b.e6.twenty - 0.1), claims: ['term_long', 'term_short'] });
