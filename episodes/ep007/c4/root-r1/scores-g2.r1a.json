@@ -1,0 +1,382 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Row of weekly bars, lowest one marked; matches.",
+  "q5": "none"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gap bars fluctuating, range 0.2 to 1.0 marked.",
+  "q5": "none"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Weekly bar series with lowest point marked.",
+  "q5": "none"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer could take away that paying once a year is slightly worse than paying monthly.",
+  "why": "Yearly block, loan ends 4 months later; inferred action.",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The \"pay sooner is cheaper\" takeaway is my own conclusion",
+  "why": "Yearly lump, 184 vs 180 months; own takeaway.",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Decade stacks with gap brackets, later wider.",
+  "q5": "none"
+ },
+ "R07": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "when mortgage rates were low, as in the 2010s, putting spare cash into investments came out ahead",
+  "why": "Rate drop and taller 2010s stack; own invest inference.",
+  "q5": "own"
+ },
+ "R08": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "My reading of the Tessa frames as a \"pay down vs. invest\" tradeoff is my own conclusion",
+  "why": "Misses extra section lifting off to become stack.",
+  "q5": "own"
+ },
+ "R09": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "with a low mortgage rate, spare cash could do better invested than paid toward the loan",
+  "why": "Second figure, Jan 2021, shorter stack seen.",
+  "q5": "own"
+ },
+ "R10": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The conclusion that paying extra shortens the loan and cuts interest is mine.",
+  "why": "Fixed payment, falling interest, loan ends sooner.",
+  "q5": "own"
+ },
+ "R11": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The only lesson in 4 is my own inference.",
+  "why": "Fallback gap between bars, $613 room if tight.",
+  "q5": "own"
+ },
+ "R12": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Any advice to prepay, or to invest instead, would be my own conclusion",
+  "why": "Tall 30-year stack versus short paid-in-15 stack.",
+  "q5": "own"
+ },
+ "R13": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gap brackets per period, later ones wider.",
+  "q5": "none"
+ },
+ "R14": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "the fallback is worth weighing against its $120 monthly cost",
+  "why": "Gets $120 monthly price; misses stack growing per beat.",
+  "q5": "own"
+ },
+ "R15": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gets $120 a month price; misses growing stack.",
+  "q5": "none"
+ },
+ "R16": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Median line, Tessa above, under 1 in 5 weeks.",
+  "q5": "none"
+ },
+ "R17": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "the idea that this is useful for a borrower with a tight budget is my own conclusion",
+  "why": "Two cards merge into 15-year + fallback.",
+  "q5": "own"
+ },
+ "R18": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The takeaway about saving interest is my own reading of the picture.",
+  "why": "Tall versus short interest stacks.",
+  "q5": "own"
+ },
+ "R19": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Median line, Tessa's stack above, few weeks as tall.",
+  "q5": "none"
+ },
+ "R20": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "2010s stack taller as rate drops; dashed comparison.",
+  "q5": "none"
+ },
+ "R21": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "Whether to prepay or invest depends on your mortgage rate compared with what you could expect to earn after tax.",
+  "why": "Dashed bar line, 1 in 5 weeks above.",
+  "q5": "own"
+ },
+ "R22": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice-like takeaway in 4 is my own conclusion.",
+  "why": "Fallback segment between payment bars, $613 gap.",
+  "q5": "own"
+ },
+ "R23": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The takeaway that extra payments save interest is my own reading.",
+  "why": "Misses lifted section becoming Tessa's stack.",
+  "q5": "own"
+ },
+ "R24": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A low rate like 2.65% is a weak reason to prepay, and a high rate like 7.40% is a stronger one.",
+  "why": "Leo and Tessa compared: stacks, fallback, bars.",
+  "q5": "own"
+ },
+ "R25": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gold sliver +$120 drops into growing stack.",
+  "q5": "none"
+ },
+ "R26": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice itself is my own inference.",
+  "why": "Equation merges into 15-year + fallback.",
+  "q5": "own"
+ },
+ "R27": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer would come away with a benchmark: compare any alternative to 7.40% before deciding.",
+  "why": "Beam at loan rate, 'any other use' dollar held against.",
+  "q5": "video"
+ },
+ "R28": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Tessa could take the lower required payment and then pay extra when she can, or invest the difference.",
+  "why": "Shorter 30-year required bar beside taller 15-year.",
+  "q5": "own"
+ },
+ "R29": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gap bars varying, 0.2 to 1.0 marked.",
+  "q5": "own"
+ },
+ "R30": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "compare your own loan's rate with what else you could do with the money",
+  "why": "Legends for own bar/stack; empty slot not described.",
+  "q5": "video"
+ },
+ "R31": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "a viewer shouldn't take it as a recommendation to invest rather than prepay",
+  "why": "Second figure Jan 2021 with shorter stack.",
+  "q5": "none"
+ },
+ "R32": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Bar line across history; rates mostly below it.",
+  "q5": "none"
+ },
+ "R33": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "195 months shrinks to 180 with extra $733.",
+  "q5": "own",
+  "extra_layer_seen": false
+ },
+ "R34": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "locking in the required 15-year payment and keeping a cash cushion may matter more than extra payments",
+  "why": "195 to 180 months; no extra slab described.",
+  "q5": "own",
+  "extra_layer_seen": false
+ },
+ "R35": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer might infer that 7.40% is the number to beat before choosing to invest instead of paying extra.",
+  "why": "Beam at 7.40%, other-use dollar compared.",
+  "q5": "video"
+ },
+ "R36": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Two payment bars, 30-year shorter than 15-year.",
+  "q5": "own"
+ },
+ "R37": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer might take away that the mortgage rate matters when deciding between extra payments and investing.",
+  "why": "Leo short stack/low bar; Tessa tall stack/high bar.",
+  "q5": "own"
+ },
+ "R38": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer could infer that the 15-year loan is cheaper than a 30-year loan prepaid on the same schedule.",
+  "why": "Sliver of +$120 becomes stack of bills.",
+  "q5": "own"
+ },
+ "R39": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "don't rely on a single assumed rate, and check how the choice would have played out across different historical rate periods",
+  "why": "Flat line to real history; 1,833-week grid, last Tessa.",
+  "q5": "none"
+ },
+ "R40": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "no single assumed rate settles whether to pay extra or invest",
+  "why": "Assumed-rate line to weekly history and replay grid.",
+  "q5": "own"
+ },
+ "R41": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Any advice to pay extra is my own inference.",
+  "why": "Fixed payment, falling interest, loan ends sooner.",
+  "q5": "own"
+ },
+ "R42": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "the rate on your own loan matters when deciding between paying down the mortgage and investing",
+  "why": "Legends and faint empty placeholder slot noted.",
+  "q5": "own"
+ }
+}

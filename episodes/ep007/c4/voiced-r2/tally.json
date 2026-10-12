@@ -1,0 +1,84 @@
+{
+ "graders": 2,
+ "rows": {
+  "ep007/WHOLE": {
+   "readers": 3,
+   "meaning1": 3,
+   "old": 0,
+   "new": 0,
+   "inferred": 0,
+   "caution": 3,
+   "quotes": [
+    "Put your own loan's rate (the bar) next to the cost of the fallback",
+    "Put your own loan's rate (the bar) next to the cost of the fallback",
+    "Compare the loan's own rate, which is the bar, against what else they could do with the dollar.",
+    "Compare the loan's own rate, which is the bar, against what else they could do with the dollar.",
+    "Set the loan's own rate, which is the bar, beside how far apart the 15-year and 30-year offers sit that week",
+    "Set the loan's own rate, which is the bar, beside how far apart the 15-year and 30-year offers sit that week"
+   ],
+   "extra_layer_seen": 0,
+   "must_beat_or_guaranteed": 2,
+   "q5": [
+    "video",
+    "video",
+    "none/video"
+   ]
+  },
+  "ep007/S23-S24": {
+   "readers": 3,
+   "meaning1": 3,
+   "old": 0,
+   "new": 0,
+   "inferred": 0,
+   "caution": 0,
+   "quotes": [],
+   "extra_layer_seen": 0,
+   "must_beat_or_guaranteed": 0,
+   "q5": [
+    "none",
+    "video",
+    "none"
+   ]
+  },
+  "ep007/S25": {
+   "readers": 2,
+   "meaning1": 2,
+   "old": 0,
+   "new": 0,
+   "inferred": 0,
+   "caution": 2,
+   "quotes": [
+    "compare the loan's rate to what another use of the money might earn after risk and taxes",
+    "compare the loan's rate to what another use of the money might earn after risk and taxes",
+    "The only takeaway is a way to compare: the benchmark for the spare cash is the mortgage rate",
+    "the benchmark for the spare cash is the mortgage rate, 7.40% before taxes"
+   ],
+   "extra_layer_seen": 0,
+   "must_beat_or_guaranteed": 2,
+   "q5": [
+    "none",
+    "none"
+   ]
+  },
+  "ep007/S21": {
+   "readers": 2,
+   "meaning1": 2,
+   "old": 1,
+   "new": 0,
+   "inferred": 1,
+   "caution": 2,
+   "quotes": [
+    "The takeaway in 4 is my own inference.",
+    "they should work out the extra amount from their own loan's rate and balance",
+    "They should work out the extra payment needed for a target payoff date using the loan's own terms.",
+    "They should work out the extra payment needed for a target payoff date using the loan's own terms"
+   ],
+   "extra_layer_seen": 0,
+   "must_beat_or_guaranteed": 0,
+   "q5": [
+    "own",
+    "none/video"
+   ]
+  }
+ }
+}

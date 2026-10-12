@@ -1,0 +1,103 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "Put your own loan's rate (the bar) next to the cost of the fallback",
+  "why": "Fallback price, $120/$21,622, historical range and loan-rate bar all present.",
+  "q5": "video",
+  "must_beat_or_guaranteed": false
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Lump block, 4 months later, $8,200, account earnings uncounted, not a verdict.",
+  "q5": "none"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "compare the loan's rate to what another use of the money might earn after risk and taxes",
+  "why": "Beam, dollar, 'any other use', before-tax interest saved, not tested.",
+  "q5": "none",
+  "must_beat_or_guaranteed": true,
+  "must_beat_quote": "paying extra principal on a mortgage has a guaranteed return equal to the loan's own rate... a bar that any other use of the money has to clear"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": true,
+  "quote": "The takeaway in 4 is my own inference.",
+  "why": "195 months, 15 late, $733 extra to reach 180; reader infers action.",
+  "q5": "own",
+  "extra_layer_seen": false
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Yearly lump, 4 months later, $8,200, account earnings uncounted, not a verdict.",
+  "q5": "video"
+ },
+ "R06": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "The only takeaway is a way to compare: the benchmark for the spare cash is the mortgage rate",
+  "why": "Bar at loan rate, interest saved not a return, nothing tested.",
+  "q5": "none",
+  "must_beat_or_guaranteed": true,
+  "must_beat_quote": "earns a guaranteed return equal to the loan's interest rate... a bar that any other use of the dollar has to clear"
+ },
+ "R07": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "They should work out the extra payment needed for a target payoff date using the loan's own terms.",
+  "why": "195 months, 15 late, $733 extra on $2,216 to finish at 180.",
+  "q5": "none",
+  "extra_layer_seen": false
+ },
+ "R08": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "Compare the loan's own rate, which is the bar, against what else they could do with the dollar.",
+  "why": "Fallback price $120/$21,622, history range, loan-rate bar all present.",
+  "q5": "video",
+  "must_beat_or_guaranteed": true,
+  "must_beat_quote": "That rate is the bar any other use of the dollar has to clear."
+ },
+ "R09": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "Set the loan's own rate, which is the bar, beside how far apart the 15-year and 30-year offers sit that week",
+  "why": "Fallback price, numbers, range and loan-rate bar all present.",
+  "q5": "none",
+  "must_beat_or_guaranteed": true,
+  "must_beat_quote": "Paying extra on her loan therefore earns a relatively high guaranteed return of 7.4% before taxes."
+ },
+ "R10": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Lump blocks, 4 months later, $8,200, account earnings uncounted, not a verdict.",
+  "q5": "none"
+ }
+}

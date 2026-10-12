@@ -1,0 +1,162 @@
+{
+ "candidate_set": "ep007",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep007",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Stack beside house with $120 monthly price; growth by bundle not described. / Stack of money beside house with $120 monthly price; growth by bundle unclear.",
+    "Stack and $120 price seen; growth per beat not described. / Money stack beside house with monthly price; no growth by bundle described."
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B06",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "NEED_3RD",
+   "why": [
+    "Gold cap raises bar to 15-year level; stack of extra paid. / Bar raised to 15-year level by gold cap; coins stack to $21,622.",
+    "Bar raised to 15-year level, gold slivers stack up; no advice from video. / Gets extra $120 stacking to $21,622; misses bar raised to 15-year level and bills dropping."
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "NEED_3RD",
+   "why": [
+    "Extra top section lifts off, lands beside house as the stack. / Gold top slice lifts off and lands beside Tessa's house as the stack.",
+    "Gold slice lifts off beside house, but reader unsure of its meaning. / Gold slice lifts off, becomes the stack beside Tessa's house."
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B21",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Gold last tiles, shorter grid to 180; no visible extra slab on tiles. / Gets 195 vs 180 month track; no visible extra slab on tiles.",
+    "Track of tiles, gold strip past 180, ends at 180; no extra slab described. / Track shortens to 180 with extra; no visible slab layer described."
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B23",
+   "kind": "image",
+   "scores": [
+    0.5,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "NEED_3RD",
+   "why": [
+    "Gets 4 months later, lump yearly; misses extra-principal block every 12th tile. / Gets 4 months later but not lump block every 12th tile.",
+    "Annual lumps replace monthly tiles; track ends 4 months later. / Monthly blocks regrouped into annual lumps; ends 4 months later."
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Bar at loan rate, dollar on top, 'any other use' dollar compared. / Bar at loan rate, dollar on it, 'any other use' dashed dollar against it.",
+    "Bar at 7.40%, dollar on it, 'any other use' dollar held against. / Bar at loan rate, dollar on it, 'any other use' dollar compared."
+   ]
+  }
+ ],
+ "gate_beats": 6,
+ "gate_pass": 1,
+ "pending": [
+  "B06",
+  "B09",
+  "B23"
+ ],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "verdict": "PENDING",
+ "verdict_old": "FAIL",
+ "verdict_new": "PENDING",
+ "advice_beats_old": [
+  "B01",
+  "B06",
+  "B09",
+  "B21",
+  "B23",
+  "B25"
+ ],
+ "advice_beats_new": [],
+ "rubric_disagree": true,
+ "graders": 2,
+ "B21_extra_layer": {
+  "readers": [
+   {
+    "slot": 1,
+    "meaning1": false,
+    "extra": false,
+    "quote": [
+     "Any advice to prepay is my own conclusion.",
+     "Any advice to prepay is my own conclusion."
+    ]
+   },
+   {
+    "slot": 2,
+    "meaning1": false,
+    "extra": false,
+    "quote": [
+     "Any advice to pay extra is a conclusion the viewer would draw themselves.",
+     "Any advice to pay extra is a conclusion the viewer would draw themselves."
+    ]
+   }
+  ],
+  "ok": 0,
+  "verdict": "TRƯỢT"
+ }
+}

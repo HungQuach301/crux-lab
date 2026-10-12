@@ -16,8 +16,8 @@
    "advice_inferred": 0,
    "status": "FAIL",
    "why": [
-    "Cash bundle and monthly price, misread as extra cost. / Gets $120 a month price; misses growing stack.",
-    "Bundle and $120 price seen; growth per beat missing. / Gets $120 monthly price; misses stack growing per beat."
+    "Cash bundle and monthly price, misread as extra cost. / Cash bundle and monthly price, misread as extra cost. / Gets $120 a month price; misses growing stack. / Gets $120 a month price; misses growing stack.",
+    "Bundle and $120 price seen; growth per beat missing. / Bundle and $120 price seen; growth per beat missing. / Gets $120 monthly price; misses stack growing per beat. / Gets $120 monthly price; misses stack growing per beat."
    ]
   },
   {
@@ -34,8 +34,8 @@
    "advice_inferred": 1,
    "status": "PASS",
    "why": [
-    "30-year payment bar visibly shorter. / Shorter 30-year required bar beside taller 15-year.",
-    "15-year bar taller than 30-year required. / Two payment bars, 30-year shorter than 15-year."
+    "30-year payment bar visibly shorter. / 30-year payment bar visibly shorter. / Shorter 30-year required bar beside taller 15-year. / Shorter 30-year required bar beside taller 15-year.",
+    "15-year bar taller than 30-year required. / 15-year bar taller than 30-year required. / Two payment bars, 30-year shorter than 15-year. / Two payment bars, 30-year shorter than 15-year."
    ]
   },
   {
@@ -52,8 +52,8 @@
    "advice_inferred": 2,
    "status": "PASS",
    "why": [
-    "Gap between payment bars as fallback room. / Fallback gap between bars, $613 room if tight.",
-    "Fallback gap between payment bars shown. / Fallback segment between payment bars, $613 gap."
+    "Gap between payment bars as fallback room. / Gap between payment bars as fallback room. / Fallback gap between bars, $613 room if tight. / Fallback gap between bars, $613 room if tight.",
+    "Fallback gap between payment bars shown. / Fallback gap between payment bars shown. / Fallback segment between payment bars, $613 gap. / Fallback segment between payment bars, $613 gap."
    ]
   },
   {
@@ -70,8 +70,8 @@
    "advice_inferred": 1,
    "status": "PASS",
    "why": [
-    "Sliver becomes bills piling into stack. / Sliver of +$120 becomes stack of bills.",
-    "Sliver over bar becomes dropping bills into stack. / Gold sliver +$120 drops into growing stack."
+    "Sliver becomes bills piling into stack. / Sliver becomes bills piling into stack. / Sliver of +$120 becomes stack of bills. / Sliver of +$120 becomes stack of bills.",
+    "Sliver over bar becomes dropping bills into stack. / Sliver over bar becomes dropping bills into stack. / Gold sliver +$120 drops into growing stack. / Gold sliver +$120 drops into growing stack."
    ]
   },
   {
@@ -88,8 +88,8 @@
    "advice_inferred": 2,
    "status": "PASS",
    "why": [
-    "Tall vs short interest stacks, 30y vs 30y-in-15. / Tall 30-year stack versus short paid-in-15 stack.",
-    "Tall vs short interest stacks. / Tall versus short interest stacks."
+    "Tall vs short interest stacks, 30y vs 30y-in-15. / Tall vs short interest stacks, 30y vs 30y-in-15. / Tall 30-year stack versus short paid-in-15 stack. / Tall 30-year stack versus short paid-in-15 stack.",
+    "Tall vs short interest stacks. / Tall vs short interest stacks. / Tall versus short interest stacks. / Tall versus short interest stacks."
    ]
   },
   {
@@ -106,8 +106,8 @@
    "advice_inferred": 2,
    "status": "FAIL",
    "why": [
-    "Stacks compared, but gold stack lifting off not understood. / Misses extra section lifting off to become stack.",
-    "Stack comparison seen; lifted section unclear. / Misses lifted section becoming Tessa's stack."
+    "Stacks compared, but gold stack lifting off not understood. / Stacks compared, but gold stack lifting off not understood. / Misses extra section lifting off to become stack. / Misses extra section lifting off to become stack.",
+    "Stack comparison seen; lifted section unclear. / Stack comparison seen; lifted section unclear. / Misses lifted section becoming Tessa's stack. / Misses lifted section becoming Tessa's stack."
    ]
   },
   {
@@ -124,8 +124,8 @@
    "advice_inferred": 0,
    "status": "PASS",
    "why": [
-    "Assumed rate replaced by weekly history grid. / Assumed-rate line to weekly history and replay grid.",
-    "Flat line vs real lines, 1,833-cell grid, Tessa last. / Flat line to real history; 1,833-week grid, last Tessa."
+    "Assumed rate replaced by weekly history grid. / Assumed rate replaced by weekly history grid. / Assumed-rate line to weekly history and replay grid. / Assumed-rate line to weekly history and replay grid.",
+    "Flat line vs real lines, 1,833-cell grid, Tessa last. / Flat line vs real lines, 1,833-cell grid, Tessa last. / Flat line to real history; 1,833-week grid, last Tessa. / Flat line to real history; 1,833-week grid, last Tessa."
    ]
   },
   {
@@ -142,8 +142,8 @@
    "advice_inferred": 0,
    "status": "PASS",
    "why": [
-    "Gap bars varying, range 0.2–1.0 labelled. / Gap bars varying, 0.2 to 1.0 marked.",
-    "Gap between 30y and 15y varying, range 0.2–1.0 noted. / Gap bars fluctuating, range 0.2 to 1.0 marked."
+    "Gap bars varying, range 0.2–1.0 labelled. / Gap bars varying, range 0.2–1.0 labelled. / Gap bars varying, 0.2 to 1.0 marked. / Gap bars varying, 0.2 to 1.0 marked.",
+    "Gap between 30y and 15y varying, range 0.2–1.0 noted. / Gap between 30y and 15y varying, range 0.2–1.0 noted. / Gap bars fluctuating, range 0.2 to 1.0 marked. / Gap bars fluctuating, range 0.2 to 1.0 marked."
    ]
   },
   {
@@ -160,8 +160,8 @@
    "advice_inferred": 0,
    "status": "PASS",
    "why": [
-    "Weekly bar skyline with lowest value marked; no advice. / Row of weekly bars, lowest one marked; matches.",
-    "Long bar series, ribbon-like, lowest point marked. / Weekly bar series with lowest point marked."
+    "Weekly bar skyline with lowest value marked; no advice. / Weekly bar skyline with lowest value marked; no advice. / Row of weekly bars, lowest one marked; matches. / Row of weekly bars, lowest one marked; matches.",
+    "Long bar series, ribbon-like, lowest point marked. / Long bar series, ribbon-like, lowest point marked. / Weekly bar series with lowest point marked. / Weekly bar series with lowest point marked."
    ]
   },
   {
@@ -178,8 +178,8 @@
    "advice_inferred": 0,
    "status": "PASS",
    "why": [
-    "Median line, Tessa above, under 1 in 5 as tall. / Median line, Tessa above, under 1 in 5 weeks.",
-    "Median line and Tessa's taller stack; rare weeks. / Median line, Tessa's stack above, few weeks as tall."
+    "Median line, Tessa above, under 1 in 5 as tall. / Median line, Tessa above, under 1 in 5 as tall. / Median line, Tessa above, under 1 in 5 weeks. / Median line, Tessa above, under 1 in 5 weeks.",
+    "Median line and Tessa's taller stack; rare weeks. / Median line and Tessa's taller stack; rare weeks. / Median line, Tessa's stack above, few weeks as tall. / Median line, Tessa's stack above, few weeks as tall."
    ]
   },
   {
@@ -196,8 +196,8 @@
    "advice_inferred": 1,
    "status": "PASS",
    "why": [
-    "Low-rate 2010s with taller stack captured; invest inference own. / Rate drop and taller 2010s stack; own invest inference.",
-    "Rate drops in 2010s, taller stack with dashed line. / 2010s stack taller as rate drops; dashed comparison."
+    "Low-rate 2010s with taller stack captured; invest inference own. / Low-rate 2010s with taller stack captured; invest inference own. / Rate drop and taller 2010s stack; own invest inference. / Rate drop and taller 2010s stack; own invest inference.",
+    "Rate drops in 2010s, taller stack with dashed line. / Rate drops in 2010s, taller stack with dashed line. / 2010s stack taller as rate drops; dashed comparison. / 2010s stack taller as rate drops; dashed comparison."
    ]
   },
   {
@@ -214,8 +214,8 @@
    "advice_inferred": 0,
    "status": "PASS",
    "why": [
-    "Gap brackets beside decade stacks, later wider. / Gap brackets per period, later ones wider.",
-    "Gap brackets per era, later ones wider. / Decade stacks with gap brackets, later wider."
+    "Gap brackets beside decade stacks, later wider. / Gap brackets beside decade stacks, later wider. / Gap brackets per period, later ones wider. / Gap brackets per period, later ones wider.",
+    "Gap brackets per era, later ones wider. / Gap brackets per era, later ones wider. / Decade stacks with gap brackets, later wider. / Decade stacks with gap brackets, later wider."
    ]
   },
   {
@@ -232,8 +232,8 @@
    "advice_inferred": 1,
    "status": "PASS",
    "why": [
-    "Tiles shorten to 180; no slab described. / 195 to 180 months; no extra slab described.",
-    "195 to 180 months captured; no visible extra slab. / 195 months shrinks to 180 with extra $733."
+    "Tiles shorten to 180; no slab described. / Tiles shorten to 180; no slab described. / 195 to 180 months; no extra slab described. / 195 to 180 months; no extra slab described.",
+    "195 to 180 months captured; no visible extra slab. / 195 to 180 months captured; no visible extra slab. / 195 months shrinks to 180 with extra $733. / 195 months shrinks to 180 with extra $733."
    ]
   },
   {
@@ -250,8 +250,8 @@
    "advice_inferred": 2,
    "status": "PASS",
    "why": [
-    "Required payment fixed while loan shortens, interest falls. / Fixed payment, falling interest, loan ends sooner.",
-    "Fixed required payment, interest falls, loan ends sooner. / Fixed payment, falling interest, loan ends sooner."
+    "Required payment fixed while loan shortens, interest falls. / Required payment fixed while loan shortens, interest falls. / Fixed payment, falling interest, loan ends sooner. / Fixed payment, falling interest, loan ends sooner.",
+    "Fixed required payment, interest falls, loan ends sooner. / Fixed required payment, interest falls, loan ends sooner. / Fixed payment, falling interest, loan ends sooner. / Fixed payment, falling interest, loan ends sooner."
    ]
   },
   {
@@ -268,8 +268,8 @@
    "advice_inferred": 2,
    "status": "FAIL",
    "why": [
-    "184 vs 180 months seen; block mechanism only loosely. / Yearly lump, 184 vs 180 months; own takeaway.",
-    "Yearly payment ends 4 months later; no big-block detail. / Yearly block, loan ends 4 months later; inferred action."
+    "184 vs 180 months seen; block mechanism only loosely. / 184 vs 180 months seen; block mechanism only loosely. / Yearly lump, 184 vs 180 months; own takeaway. / Yearly lump, 184 vs 180 months; own takeaway.",
+    "Yearly payment ends 4 months later; no big-block detail. / Yearly payment ends 4 months later; no big-block detail. / Yearly block, loan ends 4 months later; inferred action. / Yearly block, loan ends 4 months later; inferred action."
    ]
   },
   {
@@ -286,8 +286,8 @@
    "advice_inferred": 0,
    "status": "PASS",
    "why": [
-    "Beam at loan rate; other use held against it. / Beam at loan rate, 'any other use' dollar held against.",
-    "Beam at loan rate; other-use dollar compared. / Beam at 7.40%, other-use dollar compared."
+    "Beam at loan rate; other use held against it. / Beam at loan rate; other use held against it. / Beam at loan rate, 'any other use' dollar held against. / Beam at loan rate, 'any other use' dollar held against.",
+    "Beam at loan rate; other-use dollar compared. / Beam at loan rate; other-use dollar compared. / Beam at 7.40%, other-use dollar compared. / Beam at 7.40%, other-use dollar compared."
    ]
   },
   {
@@ -304,8 +304,8 @@
    "advice_inferred": 0,
    "status": "PASS",
    "why": [
-    "Bar line across history, rarely exceeded; general caution only. / Dashed bar line, 1 in 5 weeks above.",
-    "Bar line across history, 1 in 5 weeks above. / Bar line across history; rates mostly below it."
+    "Bar line across history, rarely exceeded; general caution only. / Bar line across history, rarely exceeded; general caution only. / Dashed bar line, 1 in 5 weeks above. / Dashed bar line, 1 in 5 weeks above.",
+    "Bar line across history, 1 in 5 weeks above. / Bar line across history, 1 in 5 weeks above. / Bar line across history; rates mostly below it. / Bar line across history; rates mostly below it."
    ]
   },
   {
@@ -322,8 +322,8 @@
    "advice_inferred": 1,
    "status": "PASS",
    "why": [
-    "Second figure Jan 2021 with shorter stack seen. / Second figure, Jan 2021, shorter stack seen.",
-    "Leo's house appears, dated 2021, shorter stack. / Second figure Jan 2021 with shorter stack."
+    "Second figure Jan 2021 with shorter stack seen. / Second figure Jan 2021 with shorter stack seen. / Second figure, Jan 2021, shorter stack seen. / Second figure, Jan 2021, shorter stack seen.",
+    "Leo's house appears, dated 2021, shorter stack. / Leo's house appears, dated 2021, shorter stack. / Second figure Jan 2021 with shorter stack. / Second figure Jan 2021 with shorter stack."
    ]
   },
   {
@@ -340,8 +340,8 @@
    "advice_inferred": 1,
    "status": "PASS",
    "why": [
-    "Leo low bar short stack; Tessa high bar tall stack. / Leo short stack/low bar; Tessa tall stack/high bar.",
-    "Leo short stack, low bar; Tessa tall, high bar. / Leo and Tessa compared: stacks, fallback, bars."
+    "Leo low bar short stack; Tessa high bar tall stack. / Leo low bar short stack; Tessa high bar tall stack. / Leo short stack/low bar; Tessa tall stack/high bar. / Leo short stack/low bar; Tessa tall stack/high bar.",
+    "Leo short stack, low bar; Tessa tall, high bar. / Leo short stack, low bar; Tessa tall, high bar. / Leo and Tessa compared: stacks, fallback, bars. / Leo and Tessa compared: stacks, fallback, bars."
    ]
   },
   {
@@ -350,16 +350,18 @@
    "kind": "image",
    "scores": [
     1,
-    0.5
+    0.5,
+    0
    ],
-   "readers": 2,
+   "readers": 3,
    "correct": 1,
    "advice": 0,
-   "advice_inferred": 0,
-   "status": "NEED_3RD",
+   "advice_inferred": 1,
+   "status": "FAIL",
    "why": [
-    "Legend text plus empty placeholder slot noticed. / Legends and faint empty placeholder slot noted.",
-    "Legend text read; empty third slot not noticed. / Legends for own bar/stack; empty slot not described."
+    "Legend text plus empty placeholder slot noticed. / Legend text plus empty placeholder slot noticed. / Legends and faint empty placeholder slot noted. / Legends and faint empty placeholder slot noted.",
+    "Legend text read; empty third slot not noticed. / Legend text read; empty third slot not noticed. / Legends for own bar/stack; empty slot not described. / Legends for own bar/stack; empty slot not described.",
+    "Describes text and shapes; misses the empty third slot meaning. / Describes text and shapes; misses empty third slot with blank beam and stack."
    ]
   },
   {
@@ -376,22 +378,22 @@
    "advice_inferred": 2,
    "status": "PASS",
    "why": [
-    "Offer cards merge into 15-year + fallback. / Equation merges into 15-year + fallback.",
-    "Cards merge into 15-year + fallback. / Two cards merge into 15-year + fallback."
+    "Offer cards merge into 15-year + fallback. / Offer cards merge into 15-year + fallback. / Equation merges into 15-year + fallback. / Equation merges into 15-year + fallback.",
+    "Cards merge into 15-year + fallback. / Cards merge into 15-year + fallback. / Two cards merge into 15-year + fallback. / Two cards merge into 15-year + fallback."
    ]
   }
  ],
  "gate_beats": 21,
  "gate_pass": 17,
- "pending": [
-  "B31"
- ],
+ "pending": [],
  "advice_beats": [],
  "classes": null,
  "advice_rubric": "new",
- "verdict": "PENDING",
- "verdict_old": "PENDING",
- "verdict_new": "PENDING",
+ "share": 0.81,
+ "verdict": "PASS",
+ "near_threshold": true,
+ "verdict_old": "FAIL",
+ "verdict_new": "PASS",
  "advice_beats_old": [
   "B04",
   "B05",
@@ -404,11 +406,12 @@
   "B23",
   "B29",
   "B30",
+  "B31",
   "B33"
  ],
  "advice_beats_new": [],
  "rubric_disagree": true,
- "graders": 2,
+ "graders": 4,
  "B21_extra_layer": {
   "readers": [
    {
@@ -416,6 +419,8 @@
     "meaning1": true,
     "extra": false,
     "quote": [
+     "",
+     "",
      "",
      ""
     ]
@@ -426,6 +431,8 @@
     "extra": false,
     "quote": [
      "That suggests locking in the required 15-year payment and keeping a cash cushion may matter more than extra payments.",
+     "That suggests locking in the required 15-year payment and keeping a cash cushion may matter more than extra payments.",
+     "locking in the required 15-year payment and keeping a cash cushion may matter more than extra payments",
      "locking in the required 15-year payment and keeping a cash cushion may matter more than extra payments"
     ]
    }

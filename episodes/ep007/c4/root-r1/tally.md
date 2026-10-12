@@ -19,10 +19,10 @@
 | ep007 | B28 | image | 1 · 1 | 2/2 | 0 | PASS |
 | ep007 | B29 | image | 1 · 1 | 2/2 | 0 | PASS |
 | ep007 | B30 | image | 1 · 1 | 2/2 | 0 | PASS |
-| ep007 | B31 | image | 1 · 0.5 | 1/2 | 0 | NEED_3RD |
+| ep007 | B31 | image | 1 · 0.5 · 0 | 1/3 | 0 | FAIL |
 | ep007 | B33 | image | 1 · 1 | 2/2 | 0 | PASS |
 
-**Chưa xong:** cần người đọc thêm cho B31.
-Rubric khuyên: cổng theo `new` · cũ PENDING · mới PENDING · **hai rubric lệch** (cổng theo `new`, rubric kia chỉ báo) · 2 người chấm.
+**Cổng (ep007, nhịp loại image): 17/21 = 81%; ngưỡng 80% → PASS — **trong ±5% quanh ngưỡng**.**
+Rubric khuyên: cổng theo `new` · cũ FAIL · mới PASS · **hai rubric lệch** (cổng theo `new`, rubric kia chỉ báo) · 4 người chấm.
 
 B21 extra_layer_seen (nghĩa 1 VÀ lớp thấy bằng hình): 0/2 → TRƯỢT
