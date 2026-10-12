@@ -1,0 +1,23 @@
+{
+ "answer": "S11 scores: emotion 2, sound-off 2, pacing 2, composition 3\n\n- 1.44s: Gray bar grid from the previous scene still covers the two rate lines, so the opening line, \"one thing,\" lands on a cluttered frame. Fix: finish the grid's dissolve before 0.5s so the two lines read clean.\n- 4.32s: The lines aren't told apart, and nothing looks like a \"gap\" while she says \"sits above.\" Fix: tint the 30-year line warm and the 15-year line cool, and fill the band between them in a bright accent as she says \"above\" (4.7s).\n- 7.2–10.08s: The fill is dark blue on near-black, so it's almost invisible. Then the shot swaps to a bar chart of the gap, so the band never widens and narrows between the lines as the brief asks. Also, \"Since 1991\" has no year marks. Fix: keep the bright band, add 1991/2008/2024 ticks, then drop the band down into the bars on \"that gap\" (8.5s) so the change is visible.\n- 10.08s: The minimum bracket is tiny and appears on \"zero,\" with no visible target. Fix: lift and brighten the low bar it marks and make the bracket thicker, then repeat that pop for the maximum on \"one\" (11.6s).\n\nS12 scores: emotion 3, sound-off 3, pacing 3, composition 3\n\n- 1.19s: S11's brackets and \"0.2 to 1.0\" caption are still on screen, so two captions stack. Fix: fade the brackets and the old line out by 0.5s.\n- 3.56s: The bars dim for \"half a point,\" but the only line drawn is the 0.57 average. Viewers will read dim as \"below average,\" and bars just under the dashed line stay bright. Fix: draw a separate faint 0.5 line as the threshold for the dimming, or dim against the average and change the wording.\n- 8.31s: Tessa's label sits on top of the tall bars, and her dot is a small white pip on the frame edge. Fix: place the label above the bars, make the dot bigger and gold, and drop a short riser from the dot to the dashed line on \"a little above\" (9.3s) so the small difference shows as a shape.\n- 10.68s: Nothing new happens from about 9s to 11.9s, and Tessa lowers her pointing arm. Fix: hold the point, and use the riser drawing on to carry the last line through the scene cut.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2533,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 268,
+   "in": 2533,
+   "out": 268
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15705,
+   "cache_read": 7448,
+   "output": 2584,
+   "in": 23157,
+   "out": 2584
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1792129
+}

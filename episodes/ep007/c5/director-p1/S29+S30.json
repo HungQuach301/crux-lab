@@ -1,0 +1,23 @@
+{
+ "answer": "**S29: Emotion 3 · Sound-off 3 · Pacing 2 · Composition 3**\n\n1. **0–5.3 s:** Leo and his house are already on screen at the first frame, with no stack and no date. That fits neither \"appear\" nor \"January 2021\" (said at 3.8 s). **Fix:** Have Leo and his house rise in at about 0.6 s (\"also\") and plant a date marker in the ground at his feet at 3.8 s.\n2. **8.87 s:** Leo's stack and the \"Jan 2021 · 30-year at 2.65%\" line arrive about 5 s after the date is spoken. **Fix:** Show the date at 3.8 s. Grow the stack coin by coin from 8.6 s (\"fifteen-year\") so the growth reads as him paying extra.\n3. **0–15.96 s:** A grey bar floats between the two houses and belongs to no one. **Fix:** Attach it to Tessa's stack as her beam, or hide it until S30.\n4. **All frames:** \"ILLUSTRATIVE\" appears three times, which is clutter. **Fix:** Keep the corner badge and use the bare names under the figures.\n\n**S30: Emotion 2 · Sound-off 3 · Pacing 3 · Composition 2**\n\n1. **3.24 s:** The green shapes are translucent boxes over the doors, not a fallback bracket. Leo's is barely bigger than Tessa's. **Fix:** Draw a ground-level bracket beside each house. Make Leo's clearly about 2× wider, and spread it at 3.6 s (\"$793\").\n2. **9.71–16.18 s:** Leo's low beam overlaps his head, his head renders black, and \"bar 2.65%\" is cut off by the beam. Nothing new happens during \"earned only that.\" **Fix:** Move the beam clear of the figure and fix the head material. At 14.1 s, drop a coin from Leo onto the low beam and have it barely move.\n3. **9.71 s:** The caption \"fallback about $793 a month\" misstates the line. The narration says his payment was $793 *below* the 15-year's. **Fix:** Show it in the picture: the gap between the two bracket edges, labeled \"−$793/mo.\"\n4. **22.66–29.13 s:** The top text block grows to five lines, and the Tessa line touches the top of her stack. Her high beam still floats mid-frame, away from her. **Fix:** Cut the top block to one line and anchor each figure's numbers at their own house. Put Tessa's beam over her stack and light each pair at the moment it's said: Leo's short stack and low beam at 24.0/25.6 s, Tessa's tall stack and high beam at 28.7/30.8 s. That turns the closing comparison into the payoff.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2992,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 305,
+   "in": 2992,
+   "out": 305
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 16162,
+   "cache_read": 7905,
+   "output": 2618,
+   "in": 24071,
+   "out": 2618
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1837047
+}

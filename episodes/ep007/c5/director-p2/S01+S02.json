@@ -1,0 +1,23 @@
+{
+ "answer": "**S01: Emotion 2 · Sound-off 3 · Pacing 2 · Composition 3**\n\n1. **1.8 s:** The narration says \"$120 a month\" at 1.8 s, but the \"$120\" label doesn't appear until somewhere between 5.9 and 8.3 s. The stack shows up unlabeled at 3.5 s. Fix: bring in the stack and its price together, landing on \"one hundred twenty.\"\n2. **3.5 s:** The gold banded bricks look like cash or savings, not bills. Viewers will read them as wealth. Fix: model a stack of envelopes or invoices, and grow it one sheet per beat.\n3. **5.9 s:** The camera pulls back just as \"$320,000\" is spoken, so Tessa and the house shrink. The house sign is blank, and the loan label floats on a long leader line. Fix: push in instead, and put \"$320,000\" on the sign itself.\n4. **8.3–11.8 s:** The frames at 8.26 s and 10.62 s are identical, so \"her biggest bill\" has no picture. Fix: on \"biggest\" (9.8 s), make the mortgage envelope grow over smaller utility and grocery envelopes. Tessa looks up at it.\n\n**S02: Emotion 2 · Sound-off 2 · Pacing 2 · Composition 2**\n\n1. **1.8–7.0 s:** The two cards are identical empty boxes. Nothing shows \"lower payment kept for a bad month.\" Fix: hang a smaller bill stack under the 30-year card and a taller one under the 15-year card. On \"bad month\" (6.8 s), add a storm cloud or darkened window, and have the 30-year stack drop down to its lower minimum.\n2. **9.1 s:** The cards are gone and the tiles haven't arrived, which leaves dead time. The scene is a tiny figure in a black void, and the \"Tessa\" label is bigger than she is. Fix: start the pull-back and tile strip on \"replayed\" (9.4 s), and keep the cards visible until then.\n3. **12.8 s:** The tile strip reads as an unlabeled bar chart. It also runs right behind the house and roof, so the silhouettes clash. Fix: lower the camera or raise the strip so it sits on its own horizon behind and above the house. Make the tiles flat and readable as weeks, with a sweeping highlight on \"every week.\"\n4. **16.4 s:** \"each extra dollar of principal earns\" is carried by a dollar the size of a thumbnail. The caption fades to unreadable while it's still visible. Fix: push in on Tessa as she drops a bill onto the 30-year stack and the stack visibly shrinks. Fully clear the faded caption.\n\n**Both scenes:** \"ILLUSTRATIVE\" appears twice, as a badge and in Tessa's label. That's redundant and pulls the eye away from her.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2673,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 20,
+   "in": 2673,
+   "out": 20
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15843,
+   "cache_read": 7586,
+   "output": 2179,
+   "in": 23433,
+   "out": 2179
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1721345
+}

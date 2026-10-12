@@ -1,0 +1,23 @@
+{
+ "answer": "I opened all 10 frames. Overall: S21 lands its main beat, but S22 never shows the picture it promises.\n\n**S21: emotion 3, sound-off 3, pacing 2, composition 3**\n\n1. **2.52 s:** The frame is empty. There's only the house, Tessa and a lot of black, while the narration has already started on the \"shortcut.\" Fix: have the 180-tile track already laid out at 0 s, or have it grow out of the door by about 1.5 s.\n2. **7.57 → 12.62 s:** The track sits at an oblique angle, then cuts to a straight-on view with an end wall. The jump in angle resets the viewer's sense of space, and the 180-month wall only appears at 12.6 s. Fix: open on the straight-on angle and keep it, with the wall visible from \"fifteen-year\" (6.9 s).\n3. **17.66 s:** The 15 amber overrun tiles work well. But the dollar chips piling up at the left edge and on the house look like clutter. The \"about 15 months late\" label is dim amber on black. Fix: lose the chips here, raise the amber tiles slightly so they cast shadows, and brighten the label.\n4. **22.71 s:** The \"thin extra slab\" is just a tiny green dot on each tile, so you can't see the extra payment as a layer. The amber tiles simply vanish, and a two-line caption carries the point. Fix: stack a visibly thicker contrasting slab on each tile, then animate the track pulling back to the wall as the amber tiles retract. Also, \"history, not a forecast\" in the footer reads oddly over loan math that looks forward.\n\n**S22: emotion 2, sound-off 2, pacing 2, composition 2**\n\n1. **2.0–18 s:** The intended chart isn't there. There's no flat payment line running over years and no balance shrinking under it. The thin bar under the grid doesn't read as a payment level. Fix: draw a horizontal ink-muted line above a balance bar or terrain that visibly steps down, month after month, while the line stays flat.\n2. **6.01 s:** \"Loan ends sooner\" is only a label, and the track doesn't get shorter. Fix: have the tail tiles near the wall drop away as the line is spoken.\n3. **10.02–14.02 s:** The principal/interest column covers the house and Tessa's name tag, and by 14 s there are five labels on screen. Fix: move the column into open space on the right and drop the floating text in favor of the column's two colors shifting.\n4. **18.03 s:** The camera resets to the S21 opening angle and every cue disappears just as the narration says \"fallback is still there.\" Fix: hold the flat payment line and light it up on \"fallback\" (15.8 s) instead of resetting.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3031,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 328,
+   "in": 3031,
+   "out": 328
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 16203,
+   "cache_read": 7946,
+   "output": 2195,
+   "in": 24153,
+   "out": 2195
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.17559629999999998
+}

@@ -1,0 +1,23 @@
+{
+ "answer": "**S19 (19.8 s)**\n\nScores: emotion/story 2 · sound-off 3 · pacing 2 · composition 3\n\n1. **0–5.9 s:** Frames 1 and 2 are identical. No gap brackets appear until about 9.9 s, so the picture is static through \"gap\" (0.8 s), \"2010s and 2020s\" (2.1–3.0 s) and \"0.7 point\" (5.3–6.4 s). **Fix:** On \"gap\" (0.8 s), grow the 2010s and 2020s brackets first and make them visibly wider. Draw the 1990s and 2000s brackets on \"0.45\" (8.3 s).\n2. **9.9 s:** The 2020s bracket and its \"0.70 point\" label sit beside an empty slot. The stack doesn't arrive until S20, so the \"stacks line up with brackets\" idea is missing a quarter of its proof. **Fix:** Bring in the 2020s stack here, with its bracket.\n3. **13.9 s:** The only visual for \"A lower rate didn't mean a cheaper fallback\" is a faint glow on the 2010s stretch of the rate line, which is easy to miss. **Fix:** Dim the rate line on \"lower rate\" (13.0 s). On \"wider gap\" (16.2 s), pulse the two wide brackets and raise their stacks together, so the eye moves from the brackets to the stacks and away from the line.\n4. **Throughout:** The \"Tessa · ILLUSTRATIVE\" label overlaps the 1990s bracket. Tessa's tall stack has no label in this scene. **Fix:** Move Tessa's label to sit under the house, and push the 1990s stack right.\n\n**S20 (16.4 s)**\n\nScores: emotion/story 3 · sound-off 4 · pacing 3 · composition 3\n\n1. **1.6 s:** The headline \"2020s: typical stack $21,345\" repeats the stack label right below it, so the same number appears twice. **Fix:** Drop the headline and push the camera in on the 2020s stack instead.\n2. **4.9 s:** The dashed level line and Tessa's pointing gesture work well, but the 1990s and 2000s stacks still carry equal weight. **Fix:** Dim the 1990s and 2000s stacks so that only Tessa's stack and the 2020s stack are lit.\n3. **11.5 s:** The corner tag \"pulse\" is just a thin underline under \"history, not a forecast\", which is close to invisible. On \"gap has moved\" (11.4 s), nothing in the picture moves. **Fix:** Make the gap brackets breathe, widening and narrowing, and pulse the tag with a real scale and brightness change.\n4. **14.8 s:** The shot cuts to a wide 3D angle with every label stripped, 1.6 s before \"Back\" (16.4 s). It reads like the next scene has started early, and \"where it goes\" gets no image. **Fix:** Hold the chart until 16.4 s, and add an empty, faded slot to the right of the 2020s stack with a ghost bracket to stand for the unknown future.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2722,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 244,
+   "in": 2722,
+   "out": 244
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15894,
+   "cache_read": 7637,
+   "output": 2820,
+   "in": 23535,
+   "out": 2820
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1854896
+}

@@ -1,0 +1,23 @@
+{
+ "answer": "**S31: An empty third slot beside the two houses**\n\nScores: emotion/story 2 · sound-off 3 · pacing 2 · composition 3\n\n1. **0–2.9 s:** The dashed slot is small, dim and pushed to the far right edge. The two finished pairs pull the eye, and nobody is standing in the new slot, so \"any borrower can set their own pair\" doesn't come across. Fix: push the camera in or slide toward the slot when \"set their own pair\" is spoken. Put a faceless figure in its spot, outlined like the slot, so it reads as \"you.\"\n2. **4.2 s:** The bar's label doesn't appear until the 7.74 s frame, and \"bar\" is said at 4.2. Fix: on \"bar,\" light up the blank beam and run a short paperwork sheet up into it. Let the action do the explaining, with the text second.\n3. **13.4–18 s:** The 12.9 and 18.06 frames are identical, so the screen is frozen for about 5 s. Fix: on \"how far apart,\" fill the empty stack with coins, then shrink it, then grow it again. That shows the stack depends on the spread.\n4. **17.4–24.2 s:** \"A dollar paid into the house is hard to get back\" is only added as a fourth text line, with no connector line to anything. The fallback is never shown. Fix: show a coin dropping into the house and a door closing on it. Then a small fallback pile beside the figure lights up on \"fallback.\" Cut the redundant \"US only\" footer here to make room.\n\n**S32: Method card**\n\nScores: emotion/story 2 · sound-off 3 · pacing 3 · composition 2\n\n1. **0–10.3 s:** The brief asks for a title and 6 short lines. The card has a title and 9 lines, some of them long, and that can't be read in 10 s. Fix: cut to 6 lines and send the rest to the description, which the narration already points to.\n2. **0–10.3 s:** The card is semi-transparent. The \"Leo · ILLUSTRATIVE\" and \"Tessa · ILLUSTRATIVE\" labels show through and are clipped at its bottom edge, and the scene objects ghost through behind it. Fix: make the card fully opaque, or fade the scene to black first.\n3. **1.0 s:** The title says \"How we know this,\" but the narration says \"what this leaves out.\" Fix: change the title to \"What this leaves out.\"\n4. **4.6–8.8 s:** \"US only · history, not a forecast\" appears twice: once in the persistent footer, which gets underlined at 4.6, and again as the card's last line, which goes bold at 8.8. The underline fires on the footer while the card is the focus. Fix: drop the footer during the card and put both highlights on the card's last line, the first on \"US only\" and the second on \"Not advice on which loan.\"",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2806,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 31,
+   "in": 2806,
+   "out": 31
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15978,
+   "cache_read": 7721,
+   "output": 2355,
+   "in": 23703,
+   "out": 2355
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1767803
+}

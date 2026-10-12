@@ -1,0 +1,23 @@
+{
+ "answer": "**S21 — Emotion 3 · Sound-off 3 · Pacing 3 · Composition 3**\n\n1. **2.52s:** The track hasn't started yet. Tessa and the house fill the left third, and the right two-thirds of the frame is empty. Fix: start building the track as \"loan\" lands (about 0.9s), so the space has something in it before the shortcut is named.\n2. **7.57–12.62s:** \"Pay the 30-year what the 15-year costs\" is never shown. The grid just fills in and gets a wall. Fix: show two payment stacks side by side at Tessa (30-year required, then raised to the 15-year height) at around 5.6–7.8s. Then let the raised stack lay the tiles.\n3. **17.66s:** The 15 amber overflow tiles land well. But the cash props near the house and along the first two columns make the left side busy and pull the eye away from the overrun. Fix: hold the cash props off until the $733 beat, and push the camera in toward the wall and the amber tiles.\n4. **22.71s:** The \"thin extra slab on top\" only shows up as a tiny green dot on each tile, so it doesn't read. The amber overflow vanishes with no visible pull-back. The caption is already dimming while \"on top of the required payment\" is still playing (23.1–24.4s). Fix: put a visible amber slab layer on each tile, then animate the overflow tiles retracting into the wall on \"finish in fifteen years\" (17.7s). Hold the caption until 25s.\n\n**S22 — Emotion 2 · Sound-off 2 · Pacing 2 · Composition 2**\n\n1. **2.0s:** A large dark ghost grid stretches past the wall. With the sound off, that reads as \"the loan gets longer,\" which is the opposite of \"ends sooner.\" Fix: drop the ghost tiles or shrink them to the original 30-year end marker, and have the track end visibly early.\n2. **2.0–14.02s:** The intended picture, a flat payment line with the balance shrinking faster under it, never shows up. The \"required\" line is a thin rail on the floor, and no balance is shown at all. Fix: add an upright wall of payment-height bars along the track with a falling balance surface beneath it.\n3. **6.01–14.02s:** The white pillar blocks the house and Tessa. The \"principal\" and \"interest\" tags overlap the roofline, and the pillar never splits into two colors. Fix: move the pillar to the right of the house and split it into interest and principal blocks. Animate the interest block shrinking on \"cut\" (9.4s) and the principal block growing on \"principal\" (14.3s).\n4. **18.03s:** The camera resets to the wide opening angle, and the line and labels disappear just as \"the fallback is still there\" plays. Fix: keep the required-payment line lit and have a single \"bad month\" tile drop down to it.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3031,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 424,
+   "in": 3031,
+   "out": 424
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 16203,
+   "cache_read": 7946,
+   "output": 2395,
+   "in": 24153,
+   "out": 2395
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1796443
+}
