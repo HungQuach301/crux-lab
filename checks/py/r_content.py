@@ -53,16 +53,21 @@ NO_TAX = re.compile(r'\bno (income )?tax(es)?\b|\bbefore tax(es)?\b|\btaxes? (ar
 NO_FEE = re.compile(r'\bno fees?\b|\bfees? (are )?(not|ignored)|\bwithout fees\b|\bno (fund )?costs?\b', re.I)
 
 
+METHOD_ACTS = ('method', 'limits')
+
+
 @rule('S02', 'DX-H1', 'visible on-screen text (page sampler text track, every 0.1 s): the model assumptions the episode contract declares (K3: contract.json '
       'claims.assumptions [{id, pattern}], each pattern a case-insensitive regular expression; test D: "no taxes" and "no fees", the K1 regexes NO_TAX / NO_FEE), '
-      'looked for in the methodology card scenes (act "method") and in the rest of the video. Contract without claims.assumptions = MISSING',
+      'looked for in the methodology card scenes (act "method" or "limits", or contract claims.methodActs; K4.4b A35) and in the rest of the video. Contract without claims.assumptions = MISSING',
       'every declared assumption visible in the methodology card AND visible outside it; ≥ 1 assumption declared')
 def s02_assumptions(ctx):
     decl = ctx.cfield('claims', 'assumptions', kind=list)
     acts = scene_acts(ctx)
     tx = visible_texts(ctx)
-    inm = [x for x in tx if acts.get(x[1]) == 'method']
-    out = [x for x in tx if acts.get(x[1]) != 'method']
+    # K4.4b (A35, nháp): the methodology card is the act named "method" or "limits" (Tập 7 named it limits), or the acts contract.json claims.methodActs lists
+    ma = set(METHOD_ACTS) | set((ctx.contract().get('claims') or {}).get('methodActs') or [])
+    inm = [x for x in tx if acts.get(x[1]) in ma]
+    out = [x for x in tx if acts.get(x[1]) not in ma]
     f = lambda xs, rx: any(rx.search(x[2]) for x in xs)
     ms = [metric('declared assumptions', len(decl), '>=', 1)]
     for a in decl:
@@ -257,7 +262,8 @@ def claim_canons(c):
 
 
 @rule('S07', 'DX-H1, DX-H2', 'claims registry out/claims.json vs what is shown and said. On screen: every number in visible text (page sampler) must sit inside a '
-      'claim span (data-claim). Narration: every number in out/script.json text must equal (value+unit) the display of a claim listed for that sentence\'s scene. '
+      'claim span (data-claim). Narration: every number in out/script.json text must equal (value+unit) the display of a claim listed for that sentence\'s scene '
+      '(K4.4b A36: a number inside a match of contract claims.termNames — a product name such as "15-year" — is exempt). '
       'Every claim: formula; source or illustrative; historical (source) claims carry dataYear',
       '0 orphan numbers on screen; 0 unregistered numbers in narration; 0 claims without formula; 0 unsourced non-illustrative claims; 0 sourced claims without dataYear')
 def s07_claims(ctx):
@@ -269,9 +275,20 @@ def s07_claims(ctx):
         for sc in c.get('shownIn', []) + [s.get('scene') for s in c.get('spoken', [])]:
             by_scene.setdefault(sc, []).extend(claim_canons(c))
     unreg = []
+    # K4.4b (A36, nháp): a number inside a product name the contract declares (claims.termNames: [regex], e.g. "\\b(15|30)-year\\b") is a name, not a claim
+    try:
+        tn = [re.compile(x, re.I) for x in ((ctx.contract().get('claims') or {}).get('termNames') or [])]
+    except Missing:
+        tn = []
     for s in ctx.sentences():
         have = by_scene.get(s['scene'], [])
+        names = [m.span() for rx in tn for m in rx.finditer(s['text'])]
+        cur = 0
         for cn, span in numbers_in_text(s['text']):
+            i = s['text'].find(span, cur)
+            cur = i + len(span) if i >= 0 else cur
+            if names and i >= 0 and any(a <= i and i + len(span) <= b for a, b in names):
+                continue
             if not canon_matches(cn, have):
                 unreg.append((s.get('id'), span))
     nof = [c['claimId'] for c in cl if not (c.get('formula') or '').strip()]
@@ -300,7 +317,7 @@ BASIS = {'real': re.compile(r"\breal\b|inflation[- ]adjusted|today'?s dollars|\b
 
 @rule('S09', 'DX-H3', 'claims whose display contains "$" must declare basis nominal|real. Screen (page sampler, K3.3): on a frame whose visible $ claims share one basis, a '
       'frame-level label (any visible on-frame text carrying that basis word) covers them all; on a frame mixing bases, each $ claim needs its basis word in the same '
-      'text block or within 300 px (BASIS regex). Narration (K3.2, whole episode): every basis used in the episode (the basis of each $ claim of '
+      'text block or within 300 px (BASIS regex); K4.4b A37: an episode whose $ claims are all nominal needs no on-screen label. Narration (K3.2, whole episode): every basis used in the episode (the basis of each $ claim of '
       'out/claims.json) has its basis word said at least once anywhere in out/script.json; a $ number spoken in the narration that matches no claim has no known basis and counts as missing',
       '0 money claims without basis; 0 frames missing the on-screen basis; 0 bases used but never said in the narration')
 def s09_basis(ctx):
@@ -308,6 +325,10 @@ def s09_basis(ctx):
     money = [c for c in cl if '$' in str(c.get('display', ''))]
     nob = [c['claimId'] for c in money if c.get('basis') not in ('nominal', 'real')]
     r = page(ctx)['rules'].get('S09', {'framesMissing': None})
+    # K4.4b (A37, nháp): nominal is how a loan contract states money; the on-screen basis label is required only when the episode uses a real basis
+    # (alone or mixed with nominal). A nominal-only episode needs no label on screen (its claims still declare basis and the narration still says it once, K3.2)
+    if {c.get('basis') for c in money} <= {'nominal'} and not nob:
+        r = dict(r, framesMissing=0, examples=[])
     sents = ctx.sentences()
     known = set()
     for c in money:

@@ -678,7 +678,9 @@ def s09_both_case(bad):
 
 def s09_screen_case(bad):
     """K3.2 keeps the on-screen part: narration says the basis, but frames showing a $ claim without its basis label must still fail."""
-    return s09_variant('screen', [('a', 'In nominal dollars, Maya paid $5,124.')], frames_missing=4 if bad else 0, claims=NOMINAL_ONLY)
+    # K4.4b (A37, nháp): a nominal-only episode no longer needs the on-screen label, so the kept on-screen part is shown on the real claims of S09_CLAIMS
+    return s09_variant('screen', [('a', 'In nominal dollars, Maya paid $5,124.'), ('a', 'In real terms the balance ends at $120,000.')],
+                       frames_missing=4 if bad else 0, claims=S09_CLAIMS)
 
 
 def s09_unknown_case(bad):
@@ -3081,6 +3083,77 @@ def _want(name, fn):
 
 F13_CASES = {k: _want(k, v) for k, v in F13_CASES.items()}
 EXTRA.update(F13_CASES)
+
+
+# ---- K4.4b (nháp, chờ gói chủ dự án): A35 S02 thẻ "limits", A36 S07 tên kỳ hạn, A37 S09 tập chỉ danh nghĩa ------------------------------------------
+def s02_limits_case(bad):
+    """S02 (A35): the methodology card in an act named "limits" (Tập 7) with "US only · History, not a forecast" → pass; bad = the same card without "US only"."""
+    f = F('S02-limits')
+    try:
+        f.contract(claims={'assumptions': [{'id': 'us-only', 'pattern': r'\bUS only\b'}, {'id': 'history-not-forecast', 'pattern': 'history,? not a forecast'}]})
+        f.json('out/timeline.json', {'total': 100, 'acts': [{'id': 'act1', 'start': 0, 'end': 50}, {'id': 'limits', 'start': 50, 'end': 100}],
+                                     'scenes': [{'id': 'a', 'act': 'act1', 'start': 0, 'dur': 50}, {'id': 'S32', 'act': 'limits', 'start': 50, 'dur': 50}]})
+        card = ('History, not a forecast · Not advice on which loan' if bad else 'US only · History, not a forecast · Not advice on which loan')
+        f.json('out/checks/page.json', {'rules': {}, 'textTrack': [{'t': 10, 'scene': 'a', 'items': [{'text': 'US only · history, not a forecast'}]},
+                                                                   {'t': 60, 'scene': 'S32', 'items': [{'text': 'What this leaves out'}, {'text': card}]}]})
+        return f.run('S02')
+    finally:
+        f.close()
+
+
+def s07_term_case(bad):
+    """S07 (A36): "15-year" / "30-year" inside the contract's claims.termNames are product names, not claims → pass; bad = the same sentence plus "$999"
+    that no claim registers (a stray number is still caught)."""
+    f = F('S07-term')
+    try:
+        f.contract(claims={'termNames': [r'\b(15|30)-year\b']})
+        f.json('out/claims.json', {'claims': BASE_CLAIMS})
+        f.json('out/checks/page.json', {'rules': {}, 'orphanNumbers': []})
+        t = 'A 15-year mortgage, or a 30-year paid like it, ends at $120,000' + (' and $999.' if bad else '.')
+        f.json('out/script.json', {'sentences': [{'id': 's1', 'scene': 'a', 'text': t, 'start': 0, 'end': 2}]})
+        return f.run('S07')
+    finally:
+        f.close()
+
+
+def s09_nominal_case(bad):
+    """S09 (A37): every $ claim nominal (a loan contract) → no on-screen basis label needed (the narration still says "nominal" once); bad = one claim real (mixed):
+    the on-screen label is needed again (frames missing 40)."""
+    f = F('S09-nominal')
+    try:
+        cl = [{'claimId': 'pay', 'value': 2828, 'display': '$2,828', 'formula': 'payment', 'source': {'id': 'pmms'}, 'dataYear': 2026, 'shownIn': ['a'], 'basis': 'nominal'},
+              {'claimId': 'gap', 'value': 613, 'display': '$613', 'formula': 'gap', 'source': {'id': 'pmms'}, 'dataYear': 2026, 'shownIn': ['a'], 'basis': 'real' if bad else 'nominal'}]
+        f.json('out/claims.json', {'claims': cl})
+        f.json('out/checks/page.json', {'rules': {'S09': {'framesMissing': 40, 'examples': []}}})
+        f.json('out/script.json', {'sentences': [{'id': 's1', 'scene': 'a', 'text': 'In nominal dollars, the payment is $2,828 and the gap is $613.' if not bad else
+                                                  'In nominal dollars, the payment is $2,828 and in real terms the gap is $613.', 'start': 0, 'end': 2}]})
+        return f.run('S09')
+    finally:
+        f.close()
+
+
+def a14_medium_case(bad):
+    """A14 (A34): small.en hears "Tesla's" for the possessive name "Tessa's" (Tập 7 S15.3); medium.en on the same clip hears "Tessa's" → pass.
+    bad = medium.en hears "Teresa's" too (the name was not said): still missing."""
+    import r_audio
+    f = F('A14-medium')
+    try:
+        f.video(size='64x36', dur=8, src='color')
+        sents = [{'id': 'S15.3', 'scene': 'a', 'text': "That makes Tessa's fallback expensive by history.", 'start': 1.0, 'end': 4.0},
+                 {'id': 'S15.4', 'scene': 'a', 'text': 'It costs $613 a month.', 'start': 5.0, 'end': 7.0}]
+        f.json('out/script.json', {'sentences': sents})
+        f.json('out/timeline.json', {'total': 8, 'scenes': [{'id': 'a', 'act': 'act1', 'start': 0, 'dur': 8}]})
+        f.asr(asr_words("That makes Tesla's fallback expensive by history.", 1.0) + asr_words('It costs $613 a month.', 5.0))
+        h = common.sha256_file(f.p('out/video.mp4'))[:16]
+        key = r_audio.asr_key(sorted(sents, key=lambda x: x['start']))
+        f.json(f'out/checks/cache/asr-medium-{h}-{key}-S15.3.json',
+               asr_words("That makes Teresa's fallback expensive by history." if bad else "That makes Tessa's fallback expensive by history.", 1.0))
+        return f.run('A14')
+    finally:
+        f.close()
+
+
+EXTRA.update({'A14/medium-second': a14_medium_case, 'S02/limits': s02_limits_case, 'S07/term-names': s07_term_case, 'S09/nominal-only': s09_nominal_case})
 
 
 def main():

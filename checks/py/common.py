@@ -229,6 +229,17 @@ def whisper():
     return _WHISPER[0]
 
 
+_WHISPER_M = []
+
+
+def whisper_medium():
+    """K4.4b (A34, nháp): faster-whisper medium.en (CPU, int8), the second listener A14 asks only for a possessive proper name small.en missed."""
+    if not _WHISPER_M:
+        from faster_whisper import WhisperModel
+        _WHISPER_M.append(WhisperModel('medium.en', device='cpu', compute_type='int8'))
+    return _WHISPER_M[0]
+
+
 def write_wav_tmp(x, sr=SR):
     import soundfile as sf
     fd, p = tempfile.mkstemp(suffix='.wav')
