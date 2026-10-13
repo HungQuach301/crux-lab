@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+ html,body{margin:0;background:#0E1116;overflow:hidden}
+ #ov{position:absolute;left:0;top:0;width:960px;height:540px;pointer-events:none;font-family:Inter,Arial,sans-serif;color:#F2F4F7}
+ .lab{position:absolute;font-weight:700;font-size:26px;padding:6px 12px;border-radius:8px;background:rgba(14,17,22,.72);opacity:0;white-space:nowrap}
+ .muted{color:#9AA4B2}.warn{color:#F2B441}
+</style>
+<script type="importmap">{"imports":{"three":"/toolkit/factory/world/vendor/node_modules/three/build/three.module.js"}}</script>
+</head><body>
+<div id="ov"></div>
+<script type="module">
+import * as THREE from 'three';
+import { PALETTE, Studio, Person, Apartment, House, setOpacity } from '/toolkit/factory/world/lib3d.js';
+import { Street, RentTag, NinaLamp } from '/episodes/ep008/preprod/objclip/obj8.js';
+const clip = new URLSearchParams(location.search).get('clip') || 'street';
+const data = await (await fetch('/episodes/ep008/preprod/objclip/data.json')).json();
+const W = 960, H = 540;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.shadowMap.enabled = true; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.prepend(renderer.domElement);
+const scene = new THREE.Scene(); Studio(scene, { shadowBox: 40 });
+const cam = new THREE.PerspectiveCamera(38, W / H, 0.1, 400);
+const ov = document.getElementById('ov');
+const lab = (html, x, y, cls = '') => { const d = document.createElement('div'); d.className = 'lab ' + cls; d.innerHTML = html; d.style.left = x + 'px'; d.style.top = y + 'px'; ov.appendChild(d); return d; };
+const ease = (a) => a <= 0 ? 0 : a >= 1 ? 1 : a * a * (3 - 2 * a);
+const lerp = (a, b, k) => a + (b - a) * k;
+const ramp = (t, a, b) => ease((t - a) / (b - a));
+const N = data.starts.length, street = Street({ n: N }); scene.add(street);
+const gap = street.userData.gap, L = (N - 1) * gap;
+let seek;
+
+if (clip === 'street') {
+  // 0–1 s: phố tối, máy thấp ở đầu phố · 1–5 s: đèn bật theo thứ tự tháng (người mua hơn) / cửa warn (người thuê hơn), máy lia dọc phố
+  // 5–7 s: máy lùi + khoá chính diện (chế độ đồ thị) — nhãn năm và chú giải chỉ ở đây (quy tắc 1)
+  const ahead = data.ahead['5'];
+  const y0 = lab('1991', 30, 440, 'muted'), y1 = lab('2016', 860, 440, 'muted');
+  const k1 = lab('lit window: the buyer ended ahead after 10 years', 150, 40), k2 = lab('dark, amber door: the renter ended ahead', 210, 92, 'warn');
+  seek = (t) => {
+    const sweep = ramp(t, 1.0, 5.0) * N;
+    street.userData.set({ lit: ahead.map((a, i) => a ? Math.min(1, Math.max(0, sweep - i)) : 0), doorWarn: ahead.map((a, i) => a ? 0 : Math.min(1, Math.max(0, sweep - i))) });
+    const k = ramp(t, 5.0, 6.4), xs = Math.min(L, sweep * gap);
+    const pw = new THREE.Vector3(xs - 4, 1.4, 5.2), lw = new THREE.Vector3(xs + 3, 0.4, 0);
+    const pc = new THREE.Vector3(L / 2, 2.2, 158), lc = new THREE.Vector3(L / 2, 0.4, 0);
+    cam.position.lerpVectors(pw, pc, k); const look = new THREE.Vector3().lerpVectors(lw, lc, k); cam.lookAt(look);
+    cam.fov = lerp(38, 38, k); cam.updateProjectionMatrix();
+    const a = ramp(t, 6.2, 6.6); for (const d of [y0, y1, k1, k2]) d.style.opacity = a;
+  };
+} else if (clip === 'tag') {
+  // Căn hộ của Nina gần máy, thẻ RENT ở cửa; phố phía sau. Thẻ 5 % → 4 % (2,0 s) → 6 % (4,4 s): cả phố bật/tắt đèn theo
+  street.position.set(-L / 2, 0, -9);
+  const apt = Apartment({ w: 2.0, floors: 3 }); apt.position.set(-2.6, 0, 1.2); scene.add(apt);
+  const tag = RentTag({ w: 0.8 }); tag.position.set(-2.6, 0.75, 1.2 + 0.72 + 0.04); scene.add(tag);
+  const pat = (y) => data.ahead[String(y)];
+  const tagY = (t) => t < 2.0 ? 5 : t < 4.4 ? 4 : 6;
+  seek = (t) => {
+    const y = tagY(t), prev = t < 2.0 ? 5 : t < 4.4 ? 5 : 4, t0 = t < 2.0 ? -9 : t < 4.4 ? 2.0 : 4.4;
+    const k = ramp(t, t0 + 0.25, t0 + 1.2), a = pat(y), b = pat(prev);
+    street.userData.set({ lit: a.map((v, i) => lerp(b[i] ? 1 : 0, v ? 1 : 0, k)), doorWarn: a.map((v, i) => lerp(b[i] ? 0 : 1, v ? 0 : 1, k)) });
+    tag.userData.set({ value: y, swing: 0.18 * Math.exp(-3 * Math.max(0, t - t0)) * Math.sin(9 * Math.max(0, t - t0)) });
+    cam.position.set(lerp(-1.2, -0.6, t / 7), 1.6, 6.4); cam.lookAt(-1.0, 0.9, -3);
+  };
+} else {
+  // Nina: dáng nghỉ, đèn ấm riêng; quay nhìn ngôi nhà bên kia đường, đi ba bước ra giữa — căn hộ (thuê) sau lưng, nhà (mua) trước mặt
+  street.visible = false;
+  const apt = Apartment({ w: 2.0, floors: 3 }); apt.position.set(-3.0, 0, -0.5); scene.add(apt);
+  const house = House({ w: 1.8 }); house.position.set(3.2, 0, -0.5); scene.add(house);
+  const nina = Person({ h: 1.0 }); scene.add(nina);
+  const lamp = NinaLamp(); scene.add(lamp);
+  scene.children.forEach((o) => { if (o.isHemisphereLight) o.intensity = 0.45; if (o.isDirectionalLight) o.intensity *= 0.55; });
+  const tag = lab('Nina · ILLUSTRATIVE', 20, 20, 'warn');
+  seek = (t) => {
+    const walk = ramp(t, 2.4, 4.6), x = lerp(-1.9, 0.2, walk);
+    nina.position.set(x, Math.abs(Math.sin(walk * Math.PI * 3)) * 0.04 * (walk > 0 && walk < 1), 0.8);
+    nina.rotation.y = lerp(0, -1.1, ramp(t, 1.0, 2.0)) * (1 - ramp(t, 2.4, 2.8)) + lerp(0, 1.4, ramp(t, 2.4, 2.8)) * (1 - ramp(t, 4.6, 5.3)) + lerp(0, 0.9, ramp(t, 4.6, 5.3));
+    nina.rotation.z = 0.03 * Math.sin(t * 1.7);
+    lamp.position.set(x + 0.32, 1.05 + 0.04 * Math.sin(t * 2.3), 0.95); lamp.userData.set({ on: ramp(t, 0.2, 0.9), t });
+    cam.position.set(lerp(-0.4, 0.4, t / 6), 1.5, 6.0); cam.lookAt(0, 0.8, 0);
+    tag.style.opacity = 1;
+  };
+}
+window.seek = (t) => { seek(t); renderer.render(scene, cam); };
+window.ready = true;
+</script></body></html>
