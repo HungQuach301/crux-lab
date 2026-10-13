@@ -1,0 +1,136 @@
+{
+ "root": "/home/user/chk-c5py2/episodes/ep007",
+ "contract": "/home/user/chk-c5py2/episodes/ep007/contract.json",
+ "lock": "dc4981b3f63e1f86872706fc73102794822ff75dbc65196dd3c0d87cebcab3d0",
+ "video_sha256": "4fecdeed68e809a5251376966a153fea7929fc2ada3d8c7a524ff3a2741f92d0",
+ "episode": "TRƯỢT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 2,
+   "pass": 0,
+   "notPass": [
+    "F10 MISSING",
+    "F11 FAIL"
+   ]
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 1,
+   "pass": 0,
+   "notPass": [
+    "S21 MISSING"
+   ],
+   "explained": {},
+   "unexplained": [
+    "S21"
+   ]
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 1,
+   "pass": 0,
+   "notPass": [
+    "R01 MISSING"
+   ]
+  }
+ },
+ "counts": {
+  "PASS": 0,
+  "FAIL": 1,
+  "MISSING": 3,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "F10",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/package/description.md",
+   "section": "DX-F6",
+   "threshold": "≥ 3 chapters; first at 0:00; each ≥ 10 s; MP4 chapters (if any) equal the description's",
+   "fingerprint": "a9005215f87e44e2",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "F11",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "declared M3 artefacts",
+     "value": 31,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "declared artefacts not delivered",
+     "value": 4,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "release files not declared",
+     "value": 1,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "source": "K2",
+     "notDelivered": [
+      "out/package/description.md",
+      "out/package/thumb-1.png",
+      "out/package/thumb-2.png",
+      "out/package/thumb-3.png"
+     ],
+     "notDeclared": [
+      "out/tension-map.png"
+     ]
+    }
+   ],
+   "note": null,
+   "section": "CH §4 khâu 3 (hợp đồng tập, K2; K4.1: danh sách của nhà máy, checks-appeal A10, A16)",
+   "threshold": "factory: every factory release file delivered; else every declared M3 artefact delivered and every checks/CONTRACT.md release file declared",
+   "fingerprint": "624e902d15608b2b",
+   "tier": "BLOCK",
+   "seconds": 0.0
+  },
+  {
+   "id": "S21",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/package/description.md",
+   "section": "DX-H1 (lỗi số = 0 cả ngoài video), cine-lab BAI-HOC-LL #53, checks-appeal A25",
+   "threshold": "0 numbers in the description without a claim",
+   "fingerprint": "aa920c67fb36c3fc",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  },
+  {
+   "id": "R01",
+   "status": "MISSING",
+   "metrics": [],
+   "details": [],
+   "note": "artifact missing: out/tension-map.png",
+   "section": "DX-R1",
+   "threshold": "Pearson r ≥ 0.8 (cut rate), ≥ 0.7 (music level), ≥ 0.6 (audio density); 0 false peaks; 3 acts with a climax peak; 0 peaks without valley",
+   "fingerprint": "59e28c6b5996ccba",
+   "tier": "REFERENCE",
+   "seconds": 0.0
+  }
+ ]
+}

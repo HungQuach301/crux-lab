@@ -1,0 +1,446 @@
+{
+ "candidate_set": "ep007",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep007",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Stack beside house with $120 monthly price of fallback / Figure by house, stack with $120 monthly fallback price",
+    "Figure with stack beside house priced $120 a month fallback / Figure by house, stack priced $120 a month fallback"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Shorter 30-year required bar beside taller 15-year bar / 30-year required bar visibly shorter than 15-year bar",
+    "Shorter 30-year required bar beside taller 15-year bar / Shorter 30-year required bar beside 15-year bar"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B05",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Room to fall back on; no bracket between bars described / Fallback room under lower 30-year payment",
+    "Lower payment as room; no bracket between bars, flag instead / Fallback slice as room if money gets tight"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B06",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Gold slices pile into stack; bar raised to 15-year not stated / Gold slices drop into $21,622 stack above 15-year level",
+    "Gold slices pile into stack; bar raised to 15-year level not described / Raised bar, gold slices dropping into $21,622 stack"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B08",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Tall 30-year stack, much shorter paid-in-15 stack / Tall 30-year stack versus short paid-in-15 stack",
+    "Tall 30-year stack versus much shorter paid-in-15 stack / Tall 30-year stack versus much shorter paid-in-15 stack"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "NEED_3RD",
+   "why": [
+    "Paid-in-15 stack with gold layer beside 15-year; stack at house / Interest stacks compared; gold difference stack by house",
+    "Stacks compared, gold stack by house; difference link unclear / Interest stacks compared; gold difference stack beside house"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B10",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Assumed rate line to real history, grid, last week Tessa's / Assumed rate replaced by real history; grid with Tessa's week",
+    "Flat assumed line to real history, grid of 1,833, last cell Tessa's / Assumed-rate line replaced by history, 1,833-cell grid, last is Tessa's"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B11",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Gap range 0.2 to 1.0 noted; bars not lines, bracket absent / Gap varies 0.2 to 1.0 with min/max markers",
+    "Gap varies 0.2 to 1.0; markers rather than bracket / Gap between lines varies 0.2 to 1.0, extremes marked"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B13",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Row of weekly bars, smallest marked; link to gap missing / Weekly bars and marked low seen; link to rate gap missing",
+    "Ribbon of weekly bars, lowest marked; no link to gap / Weekly ribbon and marked minimum; gap link missing"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B15",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Median line, Tessa's above, under 1 in 5 weeks as tall / Median line, Tessa's stack above, under 1 in 5 weeks match",
+    "Median line, Tessa's above it, fewer than 1 in 5 weeks / Median line, Tessa's stack above, under 1 in 5 weeks match"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B18",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "2010s stack tallest, rate near 4.03%; sharp drop not stated / 2010s stack tallest, rate falling to about 4.03%",
+    "2010s stack tallest at 4.03% rate; sharp drop not noted / 2010s taller stack at rate near 4.03%"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B19",
+   "kind": "image",
+   "scores": [
+    0,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Describes bars and gaps; misses brackets wider for later decades, stacks track brackets / Decade bars with gap brackets; 2010s widest, dollars track gap",
+    "Decade gaps wider later noted; no brackets beside stacks / Decade bars with gaps; 2010s and latest wider"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B21",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Month grid and 195 vs 180 captured; no extra slab seen / Track and 195 vs 180 seen; no extra slab",
+    "Gold strip cut off to 180; no extra slab layer described / Month track, gold cut-off strip, green marks end at 180"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Principal/interest and shrinking grid; flat payment line vs balance missing / Required payment fixed, interest falls, principal grows, loan ends sooner",
+    "Describes shrinking grid and principal/interest; no flat payment line vs balance / Payment fixed while principal grows, interest falls, loan ends sooner"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B23",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 2,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Annual lump, ends 184 months, 4 months later / Annual payment ends 184 months, 4 later than monthly",
+    "Annual lump, track ends 4 months later, yellow extra tiles / Annual lump ends 184 months, 4 later; monthly-vs-yearly takeaway from video"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Dollar on bar at rate, any-other-use dollar held against / Rate beam with extra dollar and 'any other use' dollar",
+    "Bar at loan rate, dollar on it, other-use dollar held against / Rate beam, extra dollar, 'any other use' dollar held against it"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B28",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Dashed line at 7.40%, only early weeks above, 1 in 5 / 7.40% line across history; early weeks above, about 1 in 5",
+    "Dashed line at 7.40%, scattered early weeks above, 1 in 5 / 7.40% line, only about 1 week in 5 this high"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B29",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Leo's smaller stack, Jan 2021 noted; second figure appearing left unclear / Leo, Jan 2021, shorter stack beside Tessa",
+    "Leo's smaller stack, Jan 2021; second figure appearing unclear / Leo's smaller stack beside Tessa's, Jan 2021"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B30",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Two houses with payment labels, stacks; bracket and beam not described / Two houses and stacks; fallback bracket and beams not understood",
+    "Two houses, payment gaps, bar; fallback bracket unclear / Two houses and stacks seen; fallback bracket and beam meaning missed"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B31",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Bar/stack captions given; empty third slot not described / Your-bar/your-stack captions seen; empty third slot not explicit",
+    "Captions on bar/stack meanings; no empty third slot idea / Your-bar/your-stack placeholders seen; empty third slot not explicit"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B33",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Equation 15-year + fallback; offer cards merging not described / Equation merges to 15-year + a fallback",
+    "Equation merges to 15-year plus fallback; cold-open frame not described / Two options merge into '15-year + a fallback'"
+   ]
+  }
+ ],
+ "gate_beats": 21,
+ "gate_pass": 7,
+ "pending": [
+  "B09"
+ ],
+ "advice_beats": [
+  "B23"
+ ],
+ "classes": null,
+ "advice_rubric": "new",
+ "verdict": "PENDING",
+ "verdict_old": "FAIL",
+ "verdict_new": "PENDING",
+ "advice_beats_old": [
+  "B01",
+  "B04",
+  "B05",
+  "B06",
+  "B08",
+  "B09",
+  "B10",
+  "B13",
+  "B15",
+  "B18",
+  "B21",
+  "B23",
+  "B25",
+  "B28",
+  "B29",
+  "B30",
+  "B31",
+  "B33"
+ ],
+ "advice_beats_new": [
+  "B23"
+ ],
+ "rubric_disagree": true,
+ "graders": 2,
+ "B21_extra_layer": {
+  "readers": [
+   {
+    "slot": 1,
+    "meaning1": false,
+    "extra": false,
+    "quote": [
+     "",
+     "Any suggestion to pay extra or to invest is my own reading"
+    ]
+   },
+   {
+    "slot": 2,
+    "meaning1": false,
+    "extra": false,
+    "quote": [
+     "Any advice about what to do, for example whether to prepay or invest, would be my own conclusion",
+     "small green bill-like marks appear on the tiles"
+    ]
+   }
+  ],
+  "ok": 0,
+  "verdict": "TRƯỢT"
+ }
+}
