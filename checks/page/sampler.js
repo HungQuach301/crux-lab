@@ -28,12 +28,23 @@ const JOBS = Math.max(1, +opt('jobs', process.env.K_JOBS || 1));
 const NO_CACHE = args.includes('--no-cache');
 const J = (rel) => JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 
+const _vsize = {};
+function videoSize(file) {   // "WxH" of the first video stream (ffprobe, once per file)
+  if (!(file in _vsize)) {
+    const r = require('child_process').spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=s=x:p=0', file]);
+    _vsize[file] = String(r.stdout).trim();
+  }
+  return _vsize[file];
+}
+
 // video frames (rgb24) every PSTEP frames, read sequentially from ffmpeg
 function videoReader(file, every, pix = 'rgb24', start = 0) {
   // start (a multiple of every): accurate input seek half a frame before it, so the first decoded frame is frame `start`
   const w = 1920, h = 1080, size = w * h * (pix === 'gray' ? 1 : 3);
   const ss = start > 0 ? ['-ss', ((start - 0.5) / FPS).toFixed(6)] : [];
-  const ff = spawn('ffmpeg', ['-v', 'error', ...ss, '-i', file, '-vf', `select='not(mod(n\\,${every}))'`, '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', pix, '-'], { stdio: ['ignore', 'pipe', 'inherit'] });
+  // K4.4 (A41 a): a draft rendered at another size (540p at M5) is scaled to the 1920×1080 page frame the rules measure in; 1080p reads as before
+  const up = videoSize(file) === '1920x1080' ? '' : ',scale=1920:1080:flags=bicubic';
+  const ff = spawn('ffmpeg', ['-v', 'error', ...ss, '-i', file, '-vf', `select='not(mod(n\\,${every}))'${up}`, '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', pix, '-'], { stdio: ['ignore', 'pipe', 'inherit'] });
   let chunks = [], have = 0, done = false, waiters = [], idx = -1;
   ff.stdout.on('data', (c) => { chunks.push(c); have += c.length; ff.stdout.pause(); flush(); });
   ff.stdout.on('end', () => { done = true; flush(); });
