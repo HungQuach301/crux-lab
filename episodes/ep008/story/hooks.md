@@ -10,7 +10,7 @@ Timing: `check_script.py` (2.66 spoken words/s, numbers read out), M1–M6 recom
 
 HA.1 {hook} It's September 2026, and Nina pays rent again. <!-- claims: rate_month_latest -->
 HA.2 {question} [worried] Is her rent money wasted? <!-- claims: — -->
-HA.3 {hook} She has saved enough for the down payment and the closing costs on a $400,000 home. <!-- claims: price -->
+HA.3 {hook} She has saved enough for the down payment and the closing costs on a home priced at $400,000. <!-- claims: price -->
 HA.4 {promise} We replayed her choice in every month since 1991, one twin buying and one renting, to see whether renting cost more than buying over ten years, and when it didn't. <!-- claims: first_10y, n_10y -->
 
 - Visual: W4 Nina (warm lamp, ILLUSTRATIVE badge) at her apartment door at night, a rent envelope going under the door; then the down-payment and closing-cost stacks beside her; then the fog-covered street at HA.4.
@@ -21,7 +21,7 @@ HA.4 {promise} We replayed her choice in every month since 1991, one twin buying
 HB.1 {hook} "Rent is throwing money away." <!-- claims: — -->
 HB.2 {hook} Nina hears it again in September 2026, and the saying never comes with dates. <!-- claims: rate_month_latest -->
 HB.3 {question} [worried] So is her rent money wasted? <!-- claims: — -->
-HB.4 {hook} She has saved enough for the down payment and the closing costs on a $400,000 home. <!-- claims: price -->
+HB.4 {hook} She has saved enough for the down payment and the closing costs on a home priced at $400,000. <!-- claims: price -->
 HB.5 {promise} We replayed her choice in every month since 1991, one twin buying and one renting, to see whether renting cost more than buying over ten years, and when it didn't. <!-- claims: first_10y, n_10y -->
 
 - Visual: the saying as a quoted caption pinned on the apartment door ("quote, popular belief"), then struck through by a dated calendar strip; HB.2 is the counterweight right after the quote (the saying is never stated as the channel's view).

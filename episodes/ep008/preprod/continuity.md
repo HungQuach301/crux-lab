@@ -1,4 +1,6 @@
-# Bản đồ liền mạch — Tập 8 (luật tạm 13/10; WRITER, C2 v1, 2026-10-13)
+# Bản đồ liền mạch — Tập 8 (luật tạm 13/10; WRITER, C2 v1, 2026-10-13; điều phối cập nhật theo C2 v2 + đọc mù vật thể)
+
+> **Cập nhật C2 v2 (điều phối, sau REVIEWER G1):** độ dài ước **9:49 (589 s)**, 1.415 từ nói → giờ ước các đoạn dưới co lại ≈ 6 % (D6–D8 nhiều nhất: S26–S28 còn 2 câu, S31 còn 1 câu + thẻ V7). **Footage 25 s / 589 s ≈ 4,2 %** (≤ 15 %). **N1** dựng thử dạng **lưới cột = năm (1991 → 2016), hàng = tháng** (một hàng 307 nhà chỉ còn 3 px/nhà ở chế độ đồ thị) — "the street" giữ tên, mỗi cột là một con phố ngắn của một năm (việc gu → G1 câu 3). **N5 sương: trượt đọc mù 2 vòng (đọc thành "nhà khan hiếm") → G1 khuyến nghị bỏ**; nếu bỏ: các ô "N5" dưới đây đổi thành "cuối lưới ở cột 2016, chế độ đồ thị + nhãn data ends July 2026", và lời S08.4/S29.1 đổi chữ "in the fog" (G1 câu 3). **N4** v2: bó tiền bay từ cửa căn hộ vào hộp CASH, Nina đứng cạnh (+ nhãn "cash, not stocks" nếu G1 duyệt).
 
 Nguồn: `story/script.md`, `story/beats.md`, `preprod/vision.md`. Giây = ước theo độ dài cả tập **10:29** (1.510 từ nói ÷ 2,40 từ/s; trục mốc của checker 9:47 nhân ≈ 1,07). Một ĐOẠN = các cảnh liền mạch một không gian máy + một cue nhạc (cue đổi theo hồi, không lặp vòng). Chuyển chế độ: **THẾ GIỚI** (phối cảnh) ↔ **ĐỒ THỊ** (khoá chính diện; số chỉ ở đây). Số neo (≤ 3, lặng 0,8 s trước mỗi số) luôn là **vật thật**, không lớp màu phủ.
 

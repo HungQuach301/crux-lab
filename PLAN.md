@@ -10,7 +10,7 @@ PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLA
 | 5 | #17 PMI 10 % trả trước | `101` | — (đã merge `main` 6e0ae01) | **đã đăng 09/10**; tổng kết `tongket-t5/` áp xong (D-011) |
 | 6 | #12 "Does a 2% Annuity Raise Really Keep Up With Prices?" | `101` | — (merge squash `main` 99e90d4) | **G3: chờ chủ dự án đăng**; tổng kết `tongket-t6/` đã trả lời + áp (`ANSWER.md`) |
 | 7 | #13 "30-Year Mortgage Paid Off in 15 Years: What It Really Costs" | `lab` 10:06,7 | — (merge squash `main`, bản đầy đủ ở nhánh `ep007`) | **đã đăng 13/10** (G3); tổng kết: `episodes/ep007/TONGKET-INPUT.md` (a–q) — phiên tổng kết riêng |
-| **8** | **#20 thuê vs mua — phát lại lịch sử thật (dự phòng #6)** | `lab` (F-14 v4 TRƯỢT — chủ dự án 12/10) | — | **kế tiếp**: P1 Tập 8 (điều kiện G1 lô: tỉ lệ thuê/giá có nguồn công khai hoặc kể như độ nhạy; không được → #6). Trước P1: tổng kết Tập 7 + lô K Tập 8 (A34–A37) |
+| **8** | **#20 thuê vs mua — phát lại lịch sử thật** | `lab` (f14 opt-in) | `ep008` | **G1 chờ chủ dự án** (`episodes/ep008/gates/G1.md`): điều kiện G1 lô tỉ lệ thuê/giá ĐẠT (Census HVS 4,83–5,59 % chờ xác minh PDF + độ nhạy) → giữ #20; C2 6/6; cần C3 (P2); lô K Tập 8 + kind mới trước C4 |
 
 **Tiếp:** phiên tổng kết Tập 7 (`episodes/ep007/TONGKET-INPUT.md`; chủ dự án duyệt trước khi sửa playbook/checks) → lô K Tập 8 (`checks-appeal.md` A34–A37 + kind Tập 8) → **"Chạy Tập 8"** (P1). Bài học P4 cần áp trước Tập 8: bộ lấy mẫu trang chạy ở C4/C5 trước G2 (TONGKET o).
 
