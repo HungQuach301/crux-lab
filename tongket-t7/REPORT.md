@@ -219,7 +219,7 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 ---
 
 ## 7. Dọn PLAN.md kênh (đã làm)
-`PLAN.md` gốc giảm từ 30 dòng còn 29 dòng, nhưng nội dung đổi hẳn: bảng tập chỉ còn trạng thái hiện hành; mục "Tiếp" giữ 3 việc (gói này, lô K Tập 8, đường thử trên tập cũ); việc treo chỉ giữ những việc còn mở; hàng chờ K trỏ về `checks-appeal.md` (A29, A32–A41). Bỏ những dòng đã xong hoặc lỗi thời: nhạc hiệu C3 Tập 6, M4 hiệu chuẩn G1 Tập 6, K4.0–K4.2, phiên K lô tongket-t5. Bản cũ giữ nguyên văn ở `archive/PLAN-kenh-history.md`.
+`PLAN.md` gốc giảm từ 30 dòng còn 29 dòng, nhưng nội dung đổi hẳn: bảng tập chỉ còn trạng thái hiện hành; mục "Tiếp" giữ 4 việc (gói này, lô K Tập 8, lấy mẫu trang trước G2, đường thử trên tập cũ); việc treo chỉ giữ những việc còn mở; hàng chờ K trỏ về `checks-appeal.md` (A29, A32–A41). Bỏ những dòng đã xong hoặc lỗi thời: nhạc hiệu C3 Tập 6, M4 hiệu chuẩn G1 Tập 6, K4.0–K4.2, phiên K lô tongket-t5. Bản cũ giữ nguyên văn ở `archive/PLAN-kenh-history.md`.
 **Rủi ro:** P1 Tập 8 chạy song song có thể sửa `PLAN.md` → phiên merge giữ bản này và thêm dòng trạng thái Tập 8 của P1.
 
 ---
