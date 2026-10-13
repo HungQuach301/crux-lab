@@ -1,0 +1,223 @@
+{
+ "passes": {
+  "p1": 20,
+  "p2": 16,
+  "p3": 19
+ },
+ "pos": {
+  "p3+pos": 19
+ },
+ "floor": 15,
+ "flips": {
+  "B01": [
+   "PASS",
+   "FAIL",
+   "FAIL"
+  ],
+  "B04": [
+   "PASS",
+   "FAIL",
+   "PASS"
+  ],
+  "B10": [
+   "PASS",
+   "FAIL",
+   "FAIL"
+  ],
+  "B12": [
+   "NEED_3RD",
+   "FAIL",
+   "PASS"
+  ],
+  "B13": [
+   "FAIL",
+   "PASS",
+   "FAIL"
+  ],
+  "B15": [
+   "PASS",
+   "FAIL",
+   "PASS"
+  ],
+  "B30": [
+   "PASS",
+   "NEED_3RD",
+   "PASS"
+  ]
+ },
+ "negative": [
+  {
+   "control": "p1",
+   "candidate": "p2",
+   "drops": [
+    "B01",
+    "B04",
+    "B10",
+    "B15",
+    "B30"
+   ],
+   "new_rule": "TRƯỢT",
+   "old_rule": "TRƯỢT"
+  },
+  {
+   "control": "p1",
+   "candidate": "p3",
+   "drops": [
+    "B01",
+    "B10"
+   ],
+   "new_rule": "TRƯỢT",
+   "old_rule": "TRƯỢT"
+  },
+  {
+   "control": "p2",
+   "candidate": "p1",
+   "drops": [
+    "B13"
+   ],
+   "new_rule": "XÁC NHẬN 1 nhịp",
+   "old_rule": "TRƯỢT"
+  },
+  {
+   "control": "p2",
+   "candidate": "p3",
+   "drops": [
+    "B13"
+   ],
+   "new_rule": "XÁC NHẬN 1 nhịp",
+   "old_rule": "TRƯỢT"
+  },
+  {
+   "control": "p3",
+   "candidate": "p1",
+   "drops": [
+    "B12"
+   ],
+   "new_rule": "XÁC NHẬN 1 nhịp",
+   "old_rule": "TRƯỢT"
+  },
+  {
+   "control": "p3",
+   "candidate": "p2",
+   "drops": [
+    "B04",
+    "B12",
+    "B15",
+    "B30"
+   ],
+   "new_rule": "TRƯỢT",
+   "old_rule": "TRƯỢT"
+  }
+ ],
+ "positive": [
+  {
+   "control": "p3",
+   "candidate": "p3+pos",
+   "drops": [],
+   "new_rule": "ĐẠT"
+  }
+ ],
+ "cost_usd": 6.316,
+ "status": {
+  "p1": {
+   "B01": "PASS",
+   "B03": "PASS",
+   "B04": "PASS",
+   "B06": "PASS",
+   "B07": "PASS",
+   "B08": "PASS",
+   "B09": "FAIL",
+   "B10": "PASS",
+   "B12": "NEED_3RD",
+   "B13": "FAIL",
+   "B14": "PASS",
+   "B15": "PASS",
+   "B16": "PASS",
+   "B17": "PASS",
+   "B19": "PASS",
+   "B21": "PASS",
+   "B22": "PASS",
+   "B24": "PASS",
+   "B25": "PASS",
+   "B27": "PASS",
+   "B29": "PASS",
+   "B30": "PASS",
+   "B32": "PASS"
+  },
+  "p2": {
+   "B01": "FAIL",
+   "B03": "PASS",
+   "B04": "FAIL",
+   "B06": "PASS",
+   "B07": "PASS",
+   "B08": "PASS",
+   "B09": "FAIL",
+   "B10": "FAIL",
+   "B12": "FAIL",
+   "B13": "PASS",
+   "B14": "PASS",
+   "B15": "FAIL",
+   "B16": "PASS",
+   "B17": "PASS",
+   "B19": "PASS",
+   "B21": "PASS",
+   "B22": "PASS",
+   "B24": "PASS",
+   "B25": "PASS",
+   "B27": "PASS",
+   "B29": "PASS",
+   "B30": "NEED_3RD",
+   "B32": "PASS"
+  },
+  "p3": {
+   "B01": "FAIL",
+   "B03": "PASS",
+   "B04": "PASS",
+   "B06": "PASS",
+   "B07": "PASS",
+   "B08": "PASS",
+   "B09": "FAIL",
+   "B10": "FAIL",
+   "B12": "PASS",
+   "B13": "FAIL",
+   "B14": "PASS",
+   "B15": "PASS",
+   "B16": "PASS",
+   "B17": "PASS",
+   "B19": "PASS",
+   "B21": "PASS",
+   "B22": "PASS",
+   "B24": "PASS",
+   "B25": "PASS",
+   "B27": "PASS",
+   "B29": "PASS",
+   "B30": "PASS",
+   "B32": "PASS"
+  },
+  "p3+pos": {
+   "B01": "FAIL",
+   "B03": "PASS",
+   "B04": "PASS",
+   "B06": "PASS",
+   "B07": "PASS",
+   "B08": "PASS",
+   "B09": "FAIL",
+   "B10": "FAIL",
+   "B12": "PASS",
+   "B13": "FAIL",
+   "B14": "PASS",
+   "B15": "PASS",
+   "B16": "PASS",
+   "B17": "PASS",
+   "B19": "PASS",
+   "B21": "PASS",
+   "B22": "PASS",
+   "B24": "PASS",
+   "B25": "PASS",
+   "B27": "PASS",
+   "B29": "PASS",
+   "B30": "PASS",
+   "B32": "PASS"
+  }
+ }
+}
