@@ -17,14 +17,13 @@ def local_max(ts, ys, t, span=10.0):
     return sel.any() and np.interp(t, ts, ys) >= ys[sel].max() - 1e-9 - 0.05 * (ys.max() - ys.min())
 
 
-@rule('R01', 'DX-R1', 'out/tension-map.json samples (t, cutRate, audioDensity, musicLevel, tension), peaks[], valleys[]; out/tension-map.png present. '
+@rule('R01', 'DX-R1', 'out/tension-map.json samples (t, cutRate, audioDensity, musicLevel, tension), peaks[], valleys[] (K4.4, A33: the curve is judged from this data; out/tension-map.png is not required). '
       'Declared curves vs measured: cut rate = cuts per 10 s window (out/transitions.json); music level = music-stem RMS dB (1 s); audio density = number of stems '
       '(voice, music, sfx, whoosh) above −45 dBFS per 1 s, 5 s moving mean. Peaks: local maximum of tension within ±10 s (5% of range slack); '
       'each act 1–3 has a peak within ±5 s of its climax (timeline acts[].climax); every peak is followed within 45 s by a declared valley that is ≥ 25% of the range lower',
       'Pearson r ≥ 0.8 (cut rate), ≥ 0.7 (music level), ≥ 0.6 (audio density); 0 false peaks; 3 acts with a climax peak; 0 peaks without valley')
 def r01_tension(ctx):
     tm = ctx.json('out/tension-map.json')
-    ctx.need('out/tension-map.png')
     S = tm['samples']
     ts = np.array([s['t'] for s in S], float)
     ten = np.array([s['tension'] for s in S], float)

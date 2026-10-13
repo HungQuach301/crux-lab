@@ -1,0 +1,119 @@
+{
+ "ep004": {
+  "takesPlaced": 0,
+  "A12": {
+   "status": "MISSING",
+   "note": "artifact missing: out/tempo-map.json",
+   "metrics": {}
+  },
+  "A13": {
+   "status": "MISSING",
+   "note": "artifact missing: out/voice/takes.json: take S01 without raw/final",
+   "metrics": {}
+  },
+  "R01": {
+   "status": "MISSING",
+   "note": "artifact missing: out/tension-map.json",
+   "metrics": {}
+  }
+ },
+ "ep005": {
+  "takesPlaced": 20,
+  "A12": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "accents": 0,
+    "accents on a cut (%)": null,
+    "accents confirmed by onset (%)": null,
+    "beats confirmed by onset (%)": null
+   }
+  },
+  "A13": {
+   "status": "PASS",
+   "note": "",
+   "metrics": {
+    "takes": 20,
+    "max |stretch-1|": 0.007636
+   }
+  },
+  "R01": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "r cut rate": 0.01133,
+    "r music level": 0.026954,
+    "r audio density": 0.046106,
+    "false peaks": 0,
+    "acts with climax peak": 0,
+    "peaks without valley": 2
+   }
+  }
+ },
+ "ep006": {
+  "takesPlaced": 30,
+  "A12": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "accents": 4,
+    "accents on a cut (%)": 0.0,
+    "accents confirmed by onset (%)": 100.0,
+    "beats confirmed by onset (%)": null
+   }
+  },
+  "A13": {
+   "status": "PASS",
+   "note": "",
+   "metrics": {
+    "takes": 30,
+    "max |stretch-1|": 0.068643
+   }
+  },
+  "R01": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "r cut rate": 0.026117,
+    "r music level": -0.022381,
+    "r audio density": 0.002766,
+    "false peaks": 0,
+    "acts with climax peak": 0,
+    "peaks without valley": 0
+   }
+  }
+ },
+ "ep007": {
+  "takesPlaced": 33,
+  "A12": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "accents": 4,
+    "accents on a cut (%)": 0.0,
+    "accents confirmed by onset (%)": 75.0,
+    "beats confirmed by onset (%)": null
+   }
+  },
+  "A13": {
+   "status": "PASS",
+   "note": "",
+   "metrics": {
+    "takes": 33,
+    "max |stretch-1|": 0.011416
+   }
+  },
+  "R01": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "r cut rate": -0.040936,
+    "r music level": 0.002749,
+    "r audio density": 0.171342,
+    "false peaks": 0,
+    "acts with climax peak": 0,
+    "peaks without valley": 0
+   }
+  }
+ }
+}

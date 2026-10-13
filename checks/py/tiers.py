@@ -60,6 +60,7 @@ TIERS = {
     'SH01': (BLOCK, 'kỹ thuật file: Short 1080×1920'), 'SH02': (BLOCK, 'kỹ thuật file: Short ≤ 180 s'),
     'SH03': (BLOCK, 'âm lượng: Short'), 'SH04': (BLOCK, 'true peak: Short'),
     'SH05': (BLOCK, 'claim: Short không khuyên, không dự báo (gen được bảo vệ)'),
+    'SH07': (MAJOR, 'số Short: từ Tập 8 đúng 1 Short mỗi tập (chủ dự án 13/10; K4.4)'),
     'SH06': (MAJOR, 'chữ: móc Short một dòng trong vùng an toàn dọc, đo trên spec trước render (A30)'),
     # rhythm
     'R01': (REFERENCE, 'luật nhịp'), 'R02': (REFERENCE, 'luật nhịp'), 'R03': (REFERENCE, 'luật nhịp'),

@@ -2794,6 +2794,57 @@ def s15_deep_case(bad):
 
 EXTRA.update({'S14/deep': s14_deep_case, 'S14/lab-gap': s14_lab_gap_case, 'S15/deep': s15_deep_case})
 
+# ---- K4.4: A33 (lỗi máy luật THAM KHẢO trên tập nhà máy) -----------------------------------------------------------------------------------------
+def a12_dict_case(bad):
+    """A12 with the factory tempo map: accents {at, t} (Tập 6 form; K4.3 raised TypeError). bad = cuts 0.2 s off the accents."""
+    f = F('A12-dict')
+    try:
+        T['A12'](f, bad)
+        tm = json.load(open(f.p('out/tempo-map.json')))
+        tm['accents'] = [{'at': f'S{k + 1:02d}.1:word', 't': a} for k, a in enumerate(tm['accents'])]
+        f.json('out/tempo-map.json', tm)
+        return f.run('A12')
+    finally:
+        f.close()
+
+
+def a13_stem_case(bad):
+    """A13 with the factory takes list: every take's final is the episode voice stem (Tập 6 form; K4.3 divided the stem's span by one take's: 165.7).
+    Three takes placed in scenes S01–S03 of one stem; bad = the S02 take is stretched 1.2× in the stem."""
+    f = F('A13-stem')
+    try:
+        scenes, stem, takes = [], [], []
+        for k, (start, dur, speech) in enumerate([(0.0, 4.0, 3.0), (4.0, 5.0, 3.5), (9.0, 4.0, 2.8)]):
+            sid = f'S{k + 1:02d}'
+            raw = voice_like(speech + 0.2, [(0.1, 0.1 + speech)])
+            f.wav(f'voice-takes/{sid}.wav', raw)
+            st = 1.2 if (bad and sid == 'S02') else 1.0
+            stem.append(voice_like(dur, [(0.3, 0.3 + speech * st)]))
+            scenes.append({'id': sid, 'start': start, 'dur': dur, 'end': start + dur})
+            takes.append({'id': sid, 'raw': f'voice-takes/{sid}.wav', 'final': 'out/audio/stems/voice.wav'})
+        x = np.concatenate(stem)
+        f.wav('out/audio/stems/voice.wav', np.stack([x, x], 1))
+        f.json('out/voice/takes.json', {'takes': takes})
+        f.json('out/timeline.json', {'total': 13.0, 'scenes': scenes})
+        return f.run('A13')
+    finally:
+        f.close()
+
+
+def r01_no_png_case(bad):
+    """R01 judged from out/tension-map.json alone (the factory writes no PNG; K4.3 = MISSING). bad = the R01 bad fixture without its PNG."""
+    f = F('R01-no-png')
+    try:
+        T['R01'](f, bad)
+        os.remove(f.p('out/tension-map.png'))
+        return f.run('R01')
+    finally:
+        f.close()
+
+
+EXTRA.update({'A12/factory-dict': a12_dict_case, 'A13/episode-stem': a13_stem_case, 'R01/no-png': r01_no_png_case})
+
+
 def main():
     only = set(sys.argv[sys.argv.index('--only') + 1].split(',')) if '--only' in sys.argv else None
     rows = []

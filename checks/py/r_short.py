@@ -1,4 +1,4 @@
-"""Shorts 9:16 (K3.8, checks-appeal A5; D-006 Q3: 2–3 Shorts per episode from Episode 4). contract.json `shorts`: [{file}] (paths from the episode root).
+"""Shorts 9:16 (K3.8, checks-appeal A5; D-006 Q3: 2–3 Shorts per episode from Episode 4; K4.4, chủ dự án 13/10: ONE Short per episode from Episode 8, SH07). contract.json `shorts`: [{file}] (paths from the episode root).
 A contract written before D-006 (no `format`) and without `shorts` has no Shorts to check (Episodes 1–3): the rules pass with a note. A D-006 contract
 (with `format`) without `shorts` = MISSING.
 Text size, the player-UI zones and the on-frame labels (ILLUSTRATIVE, "history, not a forecast") need the vertical page's objects (window.CHECKS): they
@@ -6,7 +6,7 @@ wait for the factory page to expose them (checks-appeal A8); the rules below mea
 import os
 import re
 
-from common import Missing, ebur128, ffprobe, metric, rule, verdict
+from common import ONE_SHORT_FROM, Missing, ebur128, ffprobe, metric, rule, verdict
 
 SH_MAX_S = 180.0   # YouTube accepts square or vertical uploads up to 3 minutes as Shorts (since 2024-10-15); the brief's 60 s is reported, not enforced
 
@@ -17,7 +17,8 @@ def shorts(ctx):
     if sh is None:
         if c.get('format') is None:
             return None
-        raise Missing('contract.json: shorts (D-006: 2–3 Shorts per episode)')
+        raise Missing('contract.json: shorts (' + ('1 Short per episode from Episode 8, chủ dự án 13/10' if (ctx.episode_no() or 0) >= ONE_SHORT_FROM
+                                                  else 'D-006: 2–3 Shorts per episode') + ')')
     if not isinstance(sh, list) or not sh:
         raise Missing('contract.json: shorts = [{file}]')
     return [ctx.need(x['file'] if isinstance(x, dict) else x) for x in sh]
@@ -160,3 +161,20 @@ def sh06_hook(ctx):
     return verdict('SH06', [metric('hooks', len(rows), '>=', 1), metric('hooks over one line, below 56 px or out of the safe area', len(bad), '<=', 0),
                             metric('widest hook px', max(r['widthPx'] for r in rows), '<=', SH_SAFE[2] - SH_SAFE[0], 'px')],
                    details=[{'font': hashlib.sha256(open(SH_FONT, 'rb').read()).hexdigest()[:16]}, *rows])
+
+
+# ---- K4.4: number of Shorts per episode (chủ dự án 13/10/2026) --------------------------------------------------------------------------------------
+@rule('SH07', 'chủ dự án 13/10/2026 (1 Short per episode from Episode 8; D-006 Q3 2–3 before)', 'contract.json shorts[] count; episode number from contract.json '
+      'episode ("ep008" → 8). From Episode 8: exactly one Short. Episodes 4–7: 2–3 (D-006) reported, not enforced (the old rules had no count). '
+      'A contract without format and without shorts (Episodes 1–3): nothing to check', 'from Episode 8: Shorts = 1')
+def sh07_count(ctx):
+    n = ctx.episode_no()
+    sh = ctx.contract().get('shorts')
+    if sh is None and ctx.contract().get('format') is None:
+        return _none('SH07')
+    if n is None or n < ONE_SHORT_FROM:
+        k = len(sh) if isinstance(sh, list) else 0
+        return verdict('SH07', [metric('Shorts', k, '>=', 0)], note=f'episode {n}: before Episode 8 the count (D-006 2–3) is reported only')
+    if not isinstance(sh, list):
+        raise Missing('contract.json: shorts (1 Short per episode from Episode 8, chủ dự án 13/10)')
+    return verdict('SH07', [metric('Shorts', len(sh), '==', 1)], details=[{'shorts': [x.get('id') if isinstance(x, dict) else x for x in sh]}])
