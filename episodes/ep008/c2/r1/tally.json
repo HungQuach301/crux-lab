@@ -1,0 +1,108 @@
+{
+ "grader_tokens": 14116,
+ "scores": [
+  {
+   "file": "26a2fa79",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "renting cost more than buying in most start months"
+   ],
+   "attention_block": "số dày",
+   "attention_scene": "Census 4.83–5.59% rent range after the 4%/6% results",
+   "answered_own": true,
+   "why": "Gets the question, ~3/4, the 2001–2007 renter wins/June 2006 -$82,385, and the rent dependence; the buying lean is the reader's own inference."
+  },
+  {
+   "file": "6cea176f",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "rent isn't wasted by rule"
+   ],
+   "attention_block": "phương pháp",
+   "attention_scene": "closing list of caveats (CPI rent, no taxes, no refinancing)",
+   "answered_own": true,
+   "why": "Correct question and answer (3/4, 2001–2007, June 2006, rent dependence, 5/15 yrs); takeaways are the reader's own and the reader says the video declined to recommend."
+  },
+  {
+   "file": "721b03fe",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "renting cost more than buying in most start months"
+   ],
+   "attention_block": "phương pháp",
+   "attention_scene": "dense assumptions run: cash, T-bills, taxes, refinancing",
+   "answered_own": true,
+   "why": "Full correct answer (3/4, April 2001–Dec 2007, June 2006, rent dependence, 5/15 yrs); 'stay long' is flagged by the reader as their own inference."
+  },
+  {
+   "file": "9931204f",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "renting cost more than buying in most start months",
+    "rent isn't wasted by rule"
+   ],
+   "attention_block": "số dày",
+   "attention_scene": "run of month ranges and counts (72 months, 6 wins)",
+   "answered_own": true,
+   "why": "Correct question and answer including the 2001–2007 range and rent dependence; 'stay longer'/'avoid peak' are labelled the reader's own inference."
+  },
+  {
+   "file": "aa6ef281",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "renting cost more than buying in most start months"
+   ],
+   "attention_block": "số dày",
+   "attention_scene": "Census vacancy survey range and basket caveat",
+   "answered_own": true,
+   "why": "Correct question and answer (3/4, 2001–2007, June 2006, rent dependence, 5/15 yrs); the stay-longer advice is the reader's inference from the 5/10/15 comparison."
+  },
+  {
+   "file": "b4965974",
+   "sample": "v1",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "renting cost more than buying in most start months"
+   ],
+   "attention_block": "số dày",
+   "attention_scene": "Census 4.83–5.59% figures in a row",
+   "answered_own": true,
+   "why": "Gets the rent-wasted question, ~3/4, the dark 2001–2007 stretch, June 2006 and rent dependence; the buying lean is labelled the reader's own conclusion."
+  }
+ ]
+}
