@@ -208,9 +208,12 @@ export function mapCredit(O, a) { if (a > 0.01) label(O, 'Map: Natural Earth (pu
 // ---------------------------------------------------------------- chú giải đèn (cổng gốc M2 r1: người đọc thấy sáng/tối nhưng không biết nghĩa) — mọi khung có phố
 // sáng/tối: ô mẫu + chữ (không số → hợp lệ cả ở thế giới), góc phải dưới, trên dòng nguồn
 export function legend(O, a = 1) {
-  if (a <= 0.01) return; const x = 1820, y = 890, c = O.ctx;
-  for (const [k, col, s] of [[0, LIT, 'lit: buyer ahead after ten years'], [1, DARKW, 'dark: renter ahead']]) {
-    const yy = y + 56 * k; c.save(); c.globalAlpha = a; c.fillStyle = col; c.fillRect(x - 36, yy - 32, 30, 30); c.restore();
-    label(O, s, x - 50, yy - 6, { align: 'right', kind: 'name', px: 40, w: 600, alpha: a, plate: PLATE });
-  }
+  if (a <= 0.01) return; const c = O.ctx, y = 168;
+  // một dòng, góc trên phải dưới dòng nguồn (không chạm nhãn giữa khung ở y ≥ 186 và trục năm ở đáy)
+  const t2 = 'dark: renter ahead', t1 = 'lit: buyer ahead after ten years';
+  c.save(); c.font = '600 36px Inter'; const w2 = c.measureText(t2).width, w1 = c.measureText(t1).width; c.restore();
+  const x2 = 1820 - w2, x1 = x2 - 56 - w1 - 40;
+  for (const [x, col] of [[x1 - 38, LIT], [x2 - 38, DARKW]]) { c.save(); c.globalAlpha = a; c.fillStyle = col; c.fillRect(x, y - 28, 28, 28); c.restore(); }
+  label(O, t1, x1, y, { align: 'left', kind: 'name', px: 36, w: 600, alpha: a, plate: null, color: '#D5DAE2' });
+  label(O, t2, x2, y, { align: 'left', kind: 'name', px: 36, w: 600, alpha: a, plate: null, color: '#D5DAE2' });
 }

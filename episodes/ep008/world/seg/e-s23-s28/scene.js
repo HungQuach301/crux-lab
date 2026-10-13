@@ -60,7 +60,7 @@ export async function boot(res) {
     log.roi['e6.tag'] = [tx - 160, ty - 60, tx + 160, ty + 140]; log.roi['e7.higher'] = [ox - 300, oy - 100, tx + 200, ty + 200];
     // đồ thị: thẻ ở góc trái (số giả định) + thang 2 % → 7 % với dải Census
     const gA = ok * (t > MV.m_c.t1 ? 1 : 0), tv = cur[2];
-    const tagTxt = tv === 4 ? '4%' : tv === 6 ? '6%' : tv === 5 ? '5%' : null, tagKey = tv === 4 ? 'yield4_tag' : tv === 6 ? 'yield6_tag' : 'yield5_tag';
+    const tagTxt = tv === 5 ? '5%' : null, tagKey = tv === 4 ? 'yield4_tag' : tv === 6 ? 'yield6_tag' : 'yield5_tag';
     if (tagTxt) label(O, `rent tag: ${tagTxt}`, 140, 250, { align: 'left', kind: 'number', px: 56, alpha: gA * (t < b.e12.census || t > b.e14.lights ? 1 : 0), claims: [tagKey] });
     label(O, 'rent tag 4%: buyer ahead in 64.2% of start months', 960, 240, { align: 'center', kind: 'number', px: 56, alpha: gA * show(t, b.e9.sixty, b.e10.six - 0.2), claims: ['share_yield4pct_10y', 'yield4_tag'] });
     label(O, 'rent tag 6%: buyer ahead in 92.2%', 960, 240, { align: 'center', kind: 'number', px: 56, alpha: gA * show(t, b.e10.ninety, b.e11.share + 1.8), claims: ['share_yield6pct_10y', 'yield6_tag'] });
