@@ -1,0 +1,15 @@
+{
+ "answer": "1. **Idea:** The frames show a grid of houses, a whole housing market drawn as a neighborhood. Some houses are lit and bright, and others are dark. The caption names the data sources as FHFA home prices, BLS rents and Freddie Mac mortgage rates. It labels the scene \"illustrative\" and says \"US only · history, not a forecast.\" The idea seems to be that housing affordability, or how many homes a typical household can afford, depends on prices, rents and mortgage rates together.\n\n2. **What changes over time:** The bright houses are concentrated at the front left in frame 1, with darker houses behind and to the right. Across frames 2 to 5, a new bright band of houses lights up in the middle of the grid, and the dark area around it shifts. Frame 6 switches to a top-down view. The left block is mostly bright, the middle is mostly dark with a bright vertical strip, and the right block is dark. The pattern of lit versus unlit homes changes as the data moves through time.\n\n3. **What it means:** My best reading is that lit houses are homes that are accessible or affordable, and dark houses are homes that are out of reach. Over the period shown, the share of accessible homes shrinks. It is large on the left, which I take to be earlier, and small on the right, which I take to be later. The image has no legend, so this reading is an inference.\n\n4. **Advice a viewer would take:** None. The image gives no recommendation about renting versus buying. It has no dollar figures, no rent-versus-ownership comparison, and no mention of down payments, property tax, insurance or repairs. The text says only \"illustrative\" and \"history, not a forecast,\" which warns against reading it as a prediction.\n\n5. **Source of the advice:** None.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3764,
+   "cache_read": 6370,
+   "output": 647,
+   "in": 10138,
+   "out": 647
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.022171
+}
