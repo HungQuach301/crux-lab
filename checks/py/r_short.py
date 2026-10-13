@@ -112,7 +112,8 @@ def _hooks(ctx):
     rows = [x for x in (c.get('shorts') or []) if isinstance(x, dict) and x.get('hook')]
     if not rows and ctx.has('episode.yaml'):
         import yaml
-        rows = [x for x in (yaml.safe_load(open(ctx.path('episode.yaml'))) or {}).get('shorts') or [] if isinstance(x, dict) and x.get('hook')]
+        sh = (yaml.safe_load(open(ctx.path('episode.yaml'))) or {}).get('shorts')   # K4.4: `shorts: 1` (a count, Tập 8) has no hooks
+        rows = [x for x in (sh if isinstance(sh, list) else []) if isinstance(x, dict) and x.get('hook')]
     if not rows:
         if c.get('format') is None and c.get('shorts') is None:
             return None

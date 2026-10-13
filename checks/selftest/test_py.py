@@ -2917,30 +2917,45 @@ def p01_none_case(bad):
 EXTRA.update({'F11/package-thumbnails': f11_thumbs_declared_case, 'P01/none': p01_none_case, 'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
 
 
-# ---- K4.4: quyền footage ngoài (F13 CHẶN, F15 CHÍNH; chủ dự án 13/10) -------------------------------------------------------------------------------
+# ---- K4.4: quyền + trung thực footage ngoài (A39 + A44; RIGHTS §F; F13 CHẶN, F15 CHÍNH) ------------------------------------------------------------
 RIGHTS_HEAD = '| Mã | Tệp | Loại | URL | Giấy phép | Trích nguyên văn | Ngày tải | SHA-256 | Ghi nguồn |\n|---|---|---|---|---|---|---|---|---|\n'
 CC_QUOTE = '"You are free to: Share — copy and redistribute the material in any medium or format for any purpose, even commercially."'
 
 
-def rights_fixture(name, *, lic='CC BY 4.0', quote=CC_QUOTE, sha_ok=True, desc_credit=True, rid='X-PIC', undeclared=False, kind='image',
-                   credit='Photo: Jane Doe, CC BY 4.0', ext_t=(1.0, 5.0), total=60.0, cap=None, rule='F13'):
+def rights_fixture(name, *, lic='CC BY 4.0', quote=CC_QUOTE, sha_ok=True, desc_credit=True, rid='X-PIC', undeclared=False, kind='archival',
+                   credit='Photo: Jane Doe, CC BY 4.0', ext_t=(10.0, 15.0), total=60.0, cap=None, episode='ep009', rule='F13', texts=None,
+                   via='timeline', ymlcap=None, yaml_scenes=('S02',)):
     import hashlib as _h
     f = F(name)
     try:
         blob = b'\x89PNG fixture ' + name.encode()
-        os.makedirs(f.p('media'), exist_ok=True)
-        open(f.p('media/pic.png'), 'wb').write(blob)
+        os.makedirs(f.p('work/external'), exist_ok=True)
+        open(f.p('work/external/pic.png'), 'wb').write(blob)
         sha = _h.sha256(blob).hexdigest() if sha_ok else '0' * 64
-        f.text('RIGHTS.md', '# RIGHTS\n\n' + RIGHTS_HEAD + f'| X-PIC | media/pic.png | {kind} | https://example.org/pic | {lic} | {quote} | 2026-10-13 | {sha} | {credit} |\n')
-        sc = [{'id': 'S01', 'start': 0.0, 'dur': total, 'end': total, **({'bg': 'media/other.jpg'} if undeclared else {})}]
-        f.json('out/timeline.json', {'total': total, 'scenes': sc, 'external': [{'file': 'media/pic.png', 'rid': rid, 'kind': kind, 't0': ext_t[0], 't1': ext_t[1]}]})
+        f.text('RIGHTS.md', '# RIGHTS\n\n' + RIGHTS_HEAD + f'| X-PIC | work/external/pic.png | image | https://example.org/pic | {lic} | {quote} | 2026-10-13 | {sha} | {credit} |\n')
+        sc = [{'id': 'S01', 'start': 0.0, 'dur': 10.0, 'end': 10.0}, {'id': 'S02', 'start': 10.0, 'dur': 5.0, 'end': 15.0},
+              {'id': 'S03', 'start': 15.0, 'dur': total - 15.0, 'end': total, **({'bg': 'media/other.jpg'} if undeclared else {})}]
+        ext = [{'file': 'work/external/pic.png', 'rid': rid, 'kind': kind, 't0': ext_t[0], 't1': ext_t[1]}]
+        f.json('out/timeline.json', {'total': total, 'scenes': sc, **({'external': ext} if via == 'timeline' else {})})
+        yml = {}
+        if via == 'yaml':
+            yml['external'] = [{'id': 'f1', 'rights': rid, 'kind': kind, 'file': 'work/external/pic.png', 'scenes': list(yaml_scenes)}]
+        if ymlcap is not None:
+            yml['footage'] = {'max_share': ymlcap}
+        if yml:
+            import yaml as _y
+            f.text('episode.yaml', _y.safe_dump(yml))
         f.text('out/package/description.md', 'About this video.\n\nCredits: ' + (credit if desc_credit else 'none') + '\n')
-        f.json('contract.json', {'episode': 'ep008', 'format': 'lab', **({'rights': {'externalMaxShare': cap}} if cap is not None else {})})
+        f.json('contract.json', {'episode': episode, 'format': 'lab', **({'rights': {'externalMaxShare': cap}} if cap is not None else {})})
+        if texts is not None:
+            f.json('out/checks/page.json', {'rules': {}, 'textTrack': [{'t': t, 'scene': 'S02', 'items': [{'text': x} for x in xs]} for t, xs in texts]})
+            f.json('out/claims.json', {'claims': [{'claimId': 'p', 'value': 613, 'display': '$613', 'formula': 'gap', 'shownIn': ['S02']}]})
         return f.run(rule)
     finally:
         f.close()
 
 
+ARCH_OK = [(9.0, ['chart']), (10.0, ['Source: Library of Congress, 1936'])]
 F13_CASES = {
     'F13': lambda bad: rights_fixture('F13-sha', sha_ok=not bad),
     'F13/verbatim': lambda bad: rights_fixture('F13-verbatim', quote='CC BY 4.0 (see link)' if bad else CC_QUOTE),
@@ -2948,15 +2963,23 @@ F13_CASES = {
     'F13/nc': lambda bad: rights_fixture('F13-nc', lic='CC BY-NC 4.0' if bad else 'CC BY 4.0'),
     'F13/nd': lambda bad: rights_fixture('F13-nd', lic='CC BY-ND 4.0' if bad else 'CC BY 4.0'),
     'F13/by-sa': lambda bad: rights_fixture('F13-by-sa', lic='CC BY-SA 4.0' if bad else 'CC BY 4.0'),
-    'F13/unknown-licence': lambda bad: rights_fixture('F13-unknown', lic='Stock licence (custom)' if bad else 'Public domain (CC0 1.0)'),
+    'F13/whitelist': lambda bad: rights_fixture('F13-whitelist', lic='Stock licence (custom)' if bad else 'Pexels License'),
     'F13/undeclared': lambda bad: rights_fixture('F13-undeclared', undeclared=bad),
     'F13/credit': lambda bad: rights_fixture('F13-credit', desc_credit=not bad),
-    'F13/osm': lambda bad: rights_fixture('F13-osm', kind='map', lic='ODbL 1.0 (OpenStreetMap)',
+    'F13/osm': lambda bad: rights_fixture('F13-osm', lic='ODbL 1.0 (OpenStreetMap data)',
                                           quote='"You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors."',
                                           credit='© OpenStreetMap contributors' if not bad else '—'),
-    'F15': lambda bad: rights_fixture('F15', ext_t=(0.0, 20.0) if bad else (0.0, 10.0), rule='F15'),
-    'F15/raise-ignored': lambda bad: rights_fixture('F15-raise', ext_t=(0.0, 15.0) if bad else (0.0, 10.0), cap=0.5, rule='F15'),
-    'F15/lower': lambda bad: rights_fixture('F15-lower', ext_t=(0.0, 10.0), cap=0.10 if bad else 0.20, rule='F15'),
+    'F13/kind': lambda bad: rights_fixture('F13-kind', kind='image' if bad else 'illustrative'),
+    'F13/share-ep8': lambda bad: rights_fixture('F13-share8', episode='ep008', ext_t=(10.0, 20.0) if bad else (10.0, 18.0)),   # 16.7 % / 13.3 % vs 15 %
+    'F13/share-ep9': lambda bad: rights_fixture('F13-share9', ext_t=(10.0, 23.0) if bad else (10.0, 20.0)),                  # 21.7 % / 16.7 % vs 20 %
+    'F13/share-raise-ignored': lambda bad: rights_fixture('F13-raise', cap=0.5, ext_t=(10.0, 23.0) if bad else (10.0, 20.0)),
+    'F13/share-yaml-lower': lambda bad: rights_fixture('F13-ymlcap', ymlcap=0.10 if bad else 0.20, ext_t=(10.0, 17.0)),       # 11.7 %
+    'F13/yaml-scenes': lambda bad: rights_fixture('F13-yaml', via='yaml', yaml_scenes=['S02', 'S03'] if bad else ['S02']),   # episode.yaml external, times = its scenes: 50 s / 5 s of 60
+    'F15': lambda bad: rights_fixture('F15', rule='F15', texts=[(9.0, ['chart']), (10.0, ['A crowded office' if bad else 'Source: Library of Congress, 1936'])]),
+    'F15/illustrative': lambda bad: rights_fixture('F15-illus', rule='F15', kind='illustrative',
+                                                   texts=[(10.0, ['Illustration', 'gap $613' if bad else 'a tight month'])]),
+    'F15/run': lambda bad: rights_fixture('F15-run', rule='F15', ext_t=(10.0, 17.0) if bad else (10.0, 16.0), texts=ARCH_OK),
+    'F15/opening': lambda bad: rights_fixture('F15-open', rule='F15', ext_t=(3.0, 8.0) if bad else (5.0, 10.0), texts=[(0.0, ['Source: Library of Congress, 1936'])]),
 }
 EXTRA.update(F13_CASES)
 

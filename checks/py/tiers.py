@@ -18,8 +18,8 @@ TIERS = {
     'F08': (BLOCK, 'kỹ thuật file: banding do mã hoá'),
     'F09': (BLOCK, 'kỹ thuật file: phụ đề đúng lời, đúng quy cách'),
     'F10': (BLOCK, 'kỹ thuật file: chapters hợp lệ với YouTube (≥ 3, từ 0:00, mỗi chương ≥ 10 s)'),
-    'F13': (BLOCK, 'quyền footage ngoài: hồ sơ RIGHTS.md đủ (URL, giấy phép nguyên văn, ngày tải, SHA khớp), không NC/ND/BY-SA, ghi nguồn CC BY/OSM trong mô tả (chủ dự án 13/10; K4.4)'),
-    'F15': (MAJOR, 'quyền footage ngoài: thời lượng ≤ 20 % tập (chủ dự án 13/10; K4.4)'),
+    'F13': (BLOCK, 'quyền footage ngoài (A39, RIGHTS §F, D-013): hồ sơ RIGHTS.md đủ (URL, giấy phép nguyên văn, ngày tải, SHA khớp), giấy phép thuộc danh sách trắng và không NC/ND/BY-SA, ghi nguồn CC BY/OSM trong mô tả, thời lượng ≤ trần (Tập 8 15 %, sau 20 %) (K4.4)'),
+    'F15': (MAJOR, 'trung thực footage ngoài (A39, RIGHTS §F3–F4): tư liệu có năm + nguồn trên hình, minh hoạ có nhãn và không đi cùng số claim, mỗi lần ≤ 6 s, không trong 5 s đầu (K4.4)'),
     'F11': (BLOCK, 'kỹ thuật file: artefact phát hành đã giao'),
     'F12': (BLOCK, 'quyền tài sản'),
     # loudness, true peak, the master's audio technique
