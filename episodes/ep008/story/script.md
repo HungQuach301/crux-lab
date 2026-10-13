@@ -60,7 +60,7 @@ Cảnh báo (không chặn):
 
 **Act questions / turns.**
 - Act 1: *What does each twin actually pay, and what is assumed?* Turn S05.1 (the renter's money sits in cash, not stocks) and S07.1 (the one assumption hangs on her door).
-- Act 2: *How often did the buying twin end up ahead?* Turn S13.2 (anchor 1, about 3 in 4) and S17.2 (peak, June 2006); S20–S22 holding period.
+- Act 2: *How often did the buying twin end up ahead?* Turn S13.1 (anchor 1, about 3 in 4) and S17.2 (peak, June 2006); S20–S22 holding period.
 - Act 3: *What made one house bright and another dark?* Turn S23.5 (only the month differed), S24.4–S25.2 (the street follows the tag); S29–S30 Nina's own month; S32 answers the cold-open question (scoreboard, the 0:00 street, Nina's answer S32.4), then S33.1 hands off to the open question.
 
 **Line format.** `Sxx.n {role} [emotion] narration <!-- claims: id, id; hold: s -->`. Emotion tags (4): S02.3 `[worried]`, S17.2 `[serious]` (`{peak}`), S25.2 `[thoughtful]`, S32.4 `[thoughtful]`. Chapter markers: `>>> CHAPTER n: "Name" (on screen + YouTube chapter)` on their own line before the chapter's first scene (ignored by the checker). ASR hotwords: **Nina**, Marcus, Priya, "Treasury bill" (never "T-bill" spoken), "CPI" after its full form (S31.3); no hyphenated year ranges ("2002 through 2007", "2009 to mid-2016"), no "%" in narration.
@@ -162,13 +162,13 @@ S11.2 Those starts ran straight into the fall in national home prices. <!-- clai
 
 S12.1 Then the street lights up again: every start from 2009 to mid-2016 ended with the buyer ahead. <!-- claims: era_2009-2016_share -->
 S12.2 Those buyers started from lower prices and lower mortgage rates. <!-- claims: — -->
+S12.3 Counted along the whole street, the picture is this. <!-- claims: —; hold: 0.8 -->
 
-## S13 — The count (anchor 1: the lights)
+## S13 — The count (anchor 1: the lights; lead-in S12.3)
 
-S13.1 Counted along the whole street, the picture is this. <!-- claims: —; hold: 0.8 -->
-S13.2 In about 3 in 4 of the 307 start months, the buyer ended ahead. <!-- claims: share_buyer_ahead_10y, n_10y; hold: 1.5 -->
-S13.3 In the other 75, the renter did. <!-- claims: n_renter_ahead_10y -->
-S13.4 That count already includes interest, property tax, insurance, repairs, and the cost of buying and of selling. <!-- claims: — -->
+S13.1 In about 3 in 4 of the 307 start months, the buyer ended ahead. <!-- claims: share_buyer_ahead_10y, n_10y; hold: 1.5 -->
+S13.2 In the other 75, the renter did. <!-- claims: n_renter_ahead_10y -->
+S13.3 That count already includes interest, property tax, insurance, repairs, and the cost of buying and of selling. <!-- claims: — -->
 
 ## S14 — A count, not a promise
 
@@ -184,13 +184,13 @@ S15.1 The brightest house is April 2012: ten years later, the buyer was about $4
 
 S16.1 That loan started at 3.91 percent, and national prices more than doubled over the window. <!-- claims: best_rate_10y, best_price_change_10y -->
 S16.2 It's one month at the very top of the range, not a typical one. <!-- claims: — -->
+S16.3 And the darkest house is June 2006. <!-- claims: worst_start_10y; hold: 0.8 -->
 
 >>> CHAPTER 4: "The darkest house" (on screen + YouTube chapter)
 
-## S17 — The darkest house (anchor 2: two stacks; peak)
+## S17 — The darkest house (anchor 2: two stacks; peak; lead-in S16.3)
 
-S17.1 And the darkest house is June 2006. <!-- claims: worst_start_10y; hold: 0.8 -->
-S17.2 {peak} [serious] Ten years on, the June 2006 buyer was $82,385 behind. <!-- claims: worst_start_10y, worst_adv_10y, n_10y; hold: 1.5 -->
+S17.1 {peak} [serious] Ten years on, the June 2006 buyer was $82,385 behind. <!-- claims: worst_start_10y, worst_adv_10y, n_10y; hold: 1.5 -->
 
 ## S18 — Two stacks
 
@@ -235,21 +235,24 @@ S23.4 Priya bought in April 2012, at the brightest, and ended far ahead of hers.
 S23.5 Same rent tag, same costs, same street; only the month was different. <!-- claims: — -->
 S23.6 And on the day each of them bought, neither could see which house they were standing in. <!-- claims: —; hold: 0.5 -->
 
-## S24 — The tag turns (anchor 3: the rent tag)
+## S24 — The tag turns
 
 S24.1 So far, every house used the same tag: a starting rent of 5 percent of the price a year. <!-- claims: yield_anchor_pct -->
 S24.2 A higher starting rent means a pricier rental, so the renting twin sets aside less each month. <!-- claims: — -->
 S24.3 What happens to the street when the tag turns? <!-- claims: —; hold: 0.8 -->
-S24.4 At 4 percent, the buyer ended ahead in 64.2 percent of start months. <!-- claims: share_yield4pct_10y -->
 
-## S25 — Six percent
+## S25 — Four percent (anchor 3: the rent tag)
 
-S25.1 At 6 percent, 92.2 percent. <!-- claims: share_yield6pct_10y; hold: 1.0 -->
-S25.2 [thoughtful] The share moves with the rent you assume. <!-- claims: share_buyer_ahead_10y -->
+S25.1 At 4 percent, the buyer ended ahead in 64.2 percent of start months. <!-- claims: share_yield4pct_10y -->
 
-## S26 — The public range (Census range, its shares and the flip point on screen, B26–B28)
+## S26 — Six percent
 
-S26.1 The Census Bureau's public figures sit inside the range we turned, and they're a reference, not Nina's own rent. <!-- claims: hvs_yield_2025Q4, hvs_yield_2026Q1, share_hvs_2025Q4_10y, share_hvs_2026Q1_10y; hold: 0.5 -->
+S26.1 At 6 percent, 92.2 percent. <!-- claims: share_yield6pct_10y; hold: 1.0 -->
+S26.2 [thoughtful] The share moves with the rent you assume. <!-- claims: share_buyer_ahead_10y -->
+
+## S27 — The public range (Census range, its shares and the flip point on screen, B26–B28)
+
+S27.1 The Census Bureau's public figures sit inside the range we turned, and they're a reference, not Nina's own rent. <!-- claims: hvs_yield_2025Q4, hvs_yield_2026Q1, share_hvs_2025Q4_10y, share_hvs_2026Q1_10y; hold: 0.5 -->
 
 ## S28 — The Treasury bill variant
 

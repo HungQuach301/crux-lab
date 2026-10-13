@@ -34,7 +34,7 @@ def arg(name):
 
 
 def main():
-    cfg = yaml.safe_load(open(f'{EP}/episode.yaml'))['voice']
+    Y = yaml.safe_load(open(f'{EP}/episode.yaml')); cfg0 = Y['voice']
     rs = rows(); scenes = sorted({r['scene'] for r in rs})
     scenes = [s for s in scenes if s not in arg('--skip') and (not arg('--only') or s in arg('--only'))]
     if '--dry' in sys.argv:
@@ -47,6 +47,7 @@ def main():
     rep = json.load(open(rep_p)) if os.path.exists(rep_p) else {}
     for sc in scenes:
         sents = [r for r in rs if r['scene'] == sc]
+        cfg = V.scene_cfg(cfg0, Y.get('voice_overrides'), sc)   # voice_overrides (episode.md B+1)
         v = V.voice_scene(cfg, [{'id': r['id'], 'scene': sc, 'text': r['text']} for r in sents], f'{EP}/voice-takes', f'{EP}/work/voice')
         segs, _ = wm.transcribe(pcm16k(v['wav']), word_timestamps=True, language='en', beam_size=5, condition_on_previous_text=False, hotwords=' '.join(yaml.safe_load(open(f'{EP}/episode.yaml')).get('asr_hotwords', [])) or None)
         words = [{'w': w.word.strip(), 'start': w.start, 'end': w.end} for g in segs for w in g.words]

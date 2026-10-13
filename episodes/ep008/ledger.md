@@ -33,3 +33,7 @@
 | 13/10 | Tự quyết: giữ màu N1 đã duyệt (buyer = ấm `lit`, renter = `warn`), hoàn lại việc WRITER dời màu dữ liệu/huy hiệu; bỏ footage LoC/HUD/Census ở B09/B11/B26 (G1 câu 3); S22.5 "never did" → "hasn't turned yet" (sai nghĩa với hồi 3) | — | điều phối | checker ĐẠT | — |
 | 13/10 | Kiểm mù lời M2 (6 + chấm, một lượt) | Kiểm mù | headless Sonnet | 6/6, advice_stated 0; phương pháp 4/6 (S06.1), nhân vật 2/6 (S23) → G2 | (spend_leg) |
 | 13/10 | ElevenLabs GET /v1/user/subscription | — | lệnh | dùng 93.808 / 144.034 → còn 50.226, làm mới 01/11; cần 8.635 | — |
+| 13/10 | Giọng cả tập (voice_scenes.py, eleven_v3 Eric seed 1008) | — | lệnh | 33 cảnh, 8.162 ký tự; ASR thiếu S12 "2016" ("mid -2016", tách từ), S13 "3 in 4" | — |
+| 13/10 | Tự quyết: số neo S13.2/S17.2/S24.4 đứng giữa cảnh → nhà máy không giữ hold giữa câu (lặng 0,21–0,56 s < 0,7). Dời câu dẫn sang cuối cảnh trước (S13.1→S12.3, S17.1→S16.3), S24.4→S25.1, S25→S26, S26→S27 — **chữ không đổi**; sinh lại S12/S13/S16/S17/S24/S25 | — | điều phối | lặng trước neo 0,99–1,01 s; checker ĐẠT; +1.133 ký tự | — |
+| 13/10 | S13 "3 in 4": small.en + medium.en + large-v3 nghe "three and four" ở seed 1008/1009/1010/1011 (+720 ký tự thử) → giữ seed 1009 (voice_overrides); sửa triệt để = đổi chữ đã duyệt ("3 out of 4") → G2 | — | điều phối | nêu G2 | — |
+| 13/10 | Timeline nhà máy + nhạc nền (bed.py, khoá dời so Tập 7) | — | lệnh | 626,2 s (10:26); MR1 184,0 · MR2 450,1 | — |
