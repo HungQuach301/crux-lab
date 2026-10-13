@@ -28,7 +28,7 @@ ANCHOR_SIL = 0.75        # = world/music/bed.py ANCHOR_SIL
 MR_SIL = 0.65            # lặng của bản trộn bắt đầu MR_SIL s trước mid-roll (bed.py MR_HOLD 0,6 + nhả)
 CLAIMS = json.load(open(os.path.join(HERE, 'claims.json')))
 G = CLAIMS['_geom']
-INPUTS = ['episodes/ep008/world/claims.json', 'episodes/ep008/world/w8.js', 'episodes/ep008/world/data.json']
+INPUTS = ['episodes/ep008/world/claims.json', 'episodes/ep008/world/w8.js', 'episodes/ep008/world/grade8.js', 'episodes/ep008/world/data.json', 'episodes/ep008/world/usmap.json']
 
 
 def timeline():

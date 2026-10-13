@@ -7,6 +7,7 @@
 import * as THREE from 'three';
 import { Studio, House, Apartment, Person, setOpacity, PALETTE } from '/toolkit/factory/world/lib3d.js';
 import { Camera, Stage, loadJSON, fonts, C, CK, ease, lin, mix } from '/toolkit/factory/world/core.js';
+import { grade } from '/episodes/ep008/world/grade8.js';
 
 export { THREE, C, ease, lin, mix, setOpacity, PALETTE };
 export const LIT = '#F6D58E', DARKW = '#8C5E14', LAMP = '#FFB86B', PLATE = '#0B0E13', FIG = PALETTE.person2, DIM = '#3A3E46';
@@ -37,7 +38,10 @@ export async function setup(seg, res, poses, { shadowBox = 30 } = {}) {
   const compose0 = st.compose.bind(st);
   st.compose = () => { compose0(); if (!grey || CK.on) return; const c = st.out.getContext('2d'), w = st.out.width, h = st.out.height, im = c.getImageData(0, 0, w, h), p = im.data;
     for (let i = 0; i < p.length; i += 4) { const y = 0.2126 * p[i] + 0.7152 * p[i + 1] + 0.0722 * p[i + 2]; p[i] = p[i + 1] = p[i + 2] = y; } c.putImageData(im, 0, 0); };
-  return { S, CL, D, DATA, cue, MV, st, O: st.O, renderer: st.renderer, scene, floor, key, CAM: Camera(poses, S.moves), grey };
+  const CAM = Camera(poses, S.moves);
+  // M4 màu theo hồi (grade8.js): tông ánh sáng + nền theo GIỜ TẬP, mỗi khung (CAM.apply là lệnh đầu của mọi frame); bản xám M2 không dùng
+  if (!grey) { const apply0 = CAM.apply.bind(CAM); CAM.apply = (t) => { grade(scene, key, (S.episode_t0 || 0) + t); return apply0(t); }; }
+  return { S, CL, D, DATA, cue, MV, st, O: st.O, renderer: st.renderer, scene, floor, key, CAM, grey };
 }
 export function followLight(key, tgt) {
   key.target.position.set(tgt[0], Math.max(0, tgt[1]), tgt[2]); key.position.set(tgt[0] - 8, Math.max(0, tgt[1]) + 18, tgt[2] + 12); key.target.updateMatrixWorld();
