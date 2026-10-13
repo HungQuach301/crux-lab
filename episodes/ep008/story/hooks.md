@@ -1,38 +1,42 @@
-# Hooks — Episode 8 (C2 v1, WRITER, 2026-10-13)
+# Hooks — Episode 8 (C2 v2 + cold open v3 sau G1, WRITER, 2026-10-13)
 
-Three options for the first ~30 s, each a different hook type (`playbook/packaging.md` §2). Same line format as `script.md` (`Hx.n {role} [emotion] narration <!-- claims: … -->`). Each runs straight into the **shared continuation S03 of `script.md`** (Nina and her twin named as illustrative, real prices/rents/rates → "US only, and history, not a forecast" → "Nothing here says whether to buy or to keep renting" → "a whole street of answers"). Constraints therefore always come after the hook and the promise (story §1.3). All three open on a present-day fact (September 2026) or the viewer's own question (story §1.1).
+Three options for the first ~50 s (story-d013 §1.7), one per opening type: **tin thời sự** (H-A) / **nghịch lý** (H-B) / **được–mất** (H-C). Same line format as `script.md` (`Hx.n {role} [emotion] narration <!-- claims: … -->`). Each option holds its own hook, three `fact` lines and Nina's question; all three then run into the **shared continuation S03 of `script.md`**: the paradox promise (S03.1) → the one spoken limit, "history, not a forecast" (S03.2, after the promise) → "It shows Nina a whole street of answers, one house for each month" (S03.3, Nina returns; closing line of chapter 1 is S03.4) → "the same pair of twins" (S03.4). "US only", "not advice on whether to buy or rent" and "ILLUSTRATIVE" are on screen (beats B01–B03), not spoken.
 
-**Shared promise** (identical in all three; no person words, so no `promise_character`, M6 = 0): *"We replayed her choice in every month since 1991, one twin buying and one renting, to see whether renting cost more than buying over ten years, and when it didn't."* It answers the anchor video's question ("does renting cost more than buying") inside 30 s, and the replay of real US history is the anchor gap (fixed assumptions, no real history).
+**Shared promise** (S03.1, no person words, so no `promise_character`, M6 = 0): *"We replayed her choice in every month since 1991, one twin buying, one renting, and after ten years, the same rules gave opposite answers."* Paradox: same rules, opposite answers; the street (S08–S22) and the rent tag (S24–S28) take it apart. The core number ("3 in 4") is not spoken in any hook; it is read in digits once, at S13.2.
 
-Timing: `check_script.py` (2.66 spoken words/s, numbers read out), M1–M6 recomputed for each option with S03 appended; output pasted at the top of `script.md`.
+Rules for all three (story-d013 §1.1–1.5): hook ≤ 5 s (M1) on a present-day or dated fact with a claim · 3 `fact` lines, the third ending ≤ 35 s (M7) · Nina's question ≤ 40 s (M3) · promise ≤ 50 s (M2) · ≤ 1 `constraint` line in 0:00–1:00, after the promise (M8) · Nina back ≤ 45 s (M5). Timing: `check_script.py` (2.66 spoken words/s), each option with S03 appended; output at the top of `script.md`.
 
-## H-A — "Câu hỏi của người xem" (the viewer's own question) — **USED in `script.md` (S01–S02)**
+## H-A — "Tin thời sự" (today's rent, Nina's own question) — **USED in `script.md` (S01–S02)**
 
-HA.1 {hook} It's September 2026, and Nina pays rent again. <!-- claims: rate_month_latest -->
-HA.2 {question} [worried] Is her rent money wasted? <!-- claims: — -->
-HA.3 {hook} She has saved enough for the down payment and the closing costs on a home priced at $400,000. <!-- claims: price -->
-HA.4 {promise} We replayed her choice in every month since 1991, one twin buying and one renting, to see whether renting cost more than buying over ten years, and when it didn't. <!-- claims: first_10y, n_10y -->
+HA.1 {hook} It's September 2026, and Nina's rent looks cheap beside buying. <!-- claims: rate_month_latest, today_rent_to_outlay -->
+HA.2 {fact} Against a buyer's first month, her rent is a smaller share than in any month we replayed. <!-- claims: today_rent_to_outlay, rent_to_outlay_min_10y -->
+HA.3 {hook} Nina has a down payment saved for a $400,000 home. <!-- claims: price, down_usd -->
+HA.4 {fact} In 72 start months in a row, the buyer ended ahead just 6 times. <!-- claims: era_2002-2007_n, era_2002-2007_share -->
+HA.5 {fact} Yet over fifteen years, the buyer ended ahead every time. <!-- claims: n_15y, share_buyer_ahead_15y -->
+HA.6 {question} [worried] Is her rent money wasted? <!-- claims: — -->
 
-- Visual: W4 Nina (warm lamp, ILLUSTRATIVE badge) at her apartment door at night, a rent envelope going under the door; then the down-payment and closing-cost stacks beside her; then the fog-covered street at HA.4.
-- Strength: the dossier's top question and the keyword "is renting a waste of money", in her words; the ending (S32.3) answers this exact question. Risk (packaging §2): the question is familiar; the stake is carried by the $400,000 home and the promise, not by a dollar loss.
+- Visual: Nina (warm lamp, ILLUSTRATIVE) at her apartment door at the end of an unlit street; the rent tag beside a buyer's first-month stack; the down-payment and closing-cost stacks; a run of 72 grid cells going dark with 6 lit (dates on screen: "2002 to 2007"); the 15-year grid all lit; the question as text.
+- Why used: keeps H-A's idea (her own question, the dossier's top question, answered by S32.4), now opened on a dated present-day fact. The three facts swing the viewer twice (rent looks cheap today → a 72-month run where renting mostly came out ahead → over fifteen years buying always did), so the question arrives already unsettled. The 72-month run is named "2002 through 2007" at S11.1 (callback).
 
-## H-B — "Luật quen bị thử" (a familiar rule, tested)
+## H-B — "Nghịch lý" (two facts that seem unable to both be true)
 
-HB.1 {hook} "Rent is throwing money away." <!-- claims: — -->
-HB.2 {hook} Nina hears it again in September 2026, and the saying never comes with dates. <!-- claims: rate_month_latest -->
-HB.3 {question} [worried] So is her rent money wasted? <!-- claims: — -->
-HB.4 {hook} She has saved enough for the down payment and the closing costs on a home priced at $400,000. <!-- claims: price -->
-HB.5 {promise} We replayed her choice in every month since 1991, one twin buying and one renting, to see whether renting cost more than buying over ten years, and when it didn't. <!-- claims: first_10y, n_10y -->
+HB.1 {hook} Over fifteen years, the buyer ended ahead every time. <!-- claims: n_15y, share_buyer_ahead_15y -->
+HB.2 {fact} Yet in 72 start months in a row, the buyer ended ahead just 6 times. <!-- claims: era_2002-2007_n, era_2002-2007_share -->
+HB.3 {fact} And from 2009 to mid-2016, every start ended with the buyer ahead. <!-- claims: era_2009-2016_share -->
+HB.4 {fact} In September 2026, Nina's rent is a smaller share of a buyer's first month than in any month we replayed. <!-- claims: rate_month_latest, today_rent_to_outlay, rent_to_outlay_min_10y -->
+HB.5 {question} [worried] So is her rent money wasted? <!-- claims: — -->
 
-- Visual: the saying as a quoted caption pinned on the apartment door ("quote, popular belief"), then struck through by a dated calendar strip; HB.2 is the counterweight right after the quote (the saying is never stated as the channel's view).
-- Strength: a belief with a built-in counter. Risk: the quoted phrase is on the list of advice-like words — allowed only as a quote with the counterweight in the next sentence; REVIEWER checks it reads as a quote.
+- Visual: the 15-year grid fully lit, then the 10-year grid with its dark 72-month block ("2002 to 2007" on screen), then the lit 2009–2016 columns; Nina at the end of the street with her tag.
+- Risk: opens on a historical fact, not today's; Nina arrives at ~18 s (still < 45 s, M5) and the savings that put her at the decision are only on screen.
 
 ## H-C — "Được–mất" (a stake, on today's numbers)
 
 HC.1 {hook} Nina's rent is $1,667 a month. <!-- claims: today_rent_month1 -->
-HC.2 {hook} At September 2026 rates, buying the same home would cost her $2,933 in the first month. <!-- claims: today_buyer_month1, rate_month_latest -->
-HC.3 {question} [worried] So is the rent she pays wasted? <!-- claims: — -->
-HC.4 {promise} We replayed her choice in every month since 1991, one twin buying and one renting, to see whether renting cost more than buying over ten years, and when it didn't. <!-- claims: first_10y, n_10y -->
+HC.2 {fact} In September 2026, buying the same home would cost her $2,933 in the first month. <!-- claims: rate_month_latest, today_buyer_month1 -->
+HC.3 {fact} Her rent is a smaller share of that than in any month we replayed. <!-- claims: today_rent_to_outlay, rent_to_outlay_min_10y -->
+HC.4 {fact} Yet over fifteen years, the buyer ended ahead every time. <!-- claims: n_15y, share_buyer_ahead_15y -->
+HC.5 {hook} Nina has her down payment saved. <!-- claims: down_usd -->
+HC.6 {question} [worried] Is her rent money wasted? <!-- claims: — -->
 
-- Visual: the rent tag on Nina's door beside a taller W2 stack for the buyer's first month (both ILLUSTRATIVE, dated).
-- Strength: two concrete monthly numbers in 10 s. Risk: claim-risk — the first-month gap is easy to read as "renting is cheaper, so…"; the episode only says this is first months (S30.3), and using it as the hook spends act 3's "today" beat in the first seconds. Not chosen for that reason.
+- Visual: the rent tag on Nina's door beside a taller stack for the buyer's first month (both dated, ILLUSTRATIVE), then the 15-year grid all lit.
+- Risk: claim-risk — two monthly dollar figures in the first 11 s read easily as "renting is cheaper, so…"; the episode only says these are first months (S30.3), and the hook spends act 3's "today" beat. Not chosen.
