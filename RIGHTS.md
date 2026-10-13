@@ -54,6 +54,7 @@ Mỗi tệp ảnh/video/bản đồ ngoài một dòng, trước khi dựng (F5)
 
 | Mã | Tệp | Loại | URL | Giấy phép | Bậc (F1) | Trích nguyên văn | Ngày tải | SHA-256 | Ghi nguồn |
 |---|---|---|---|---|---|---|---|---|---|
+| M-NE-ADM1 | `episodes/ep008/work/external/ne_50m_admin_1.geojson` (đường viền 48 bang dẫn xuất ở `episodes/ep008/world/usmap.json`, vẽ trên mặt đất của thế giới, S07.1) | illustrative | https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_1_states_provinces_lakes.geojson | Natural Earth (public domain) | 2 | "All versions of Natural Earth raster + vector map data found on this website are in the public domain. You may use the maps in any manner, including modifying the content and design, electronic dissemination, and offset printing." | 2026-10-13 | b92c3f709b691240f6320e5cd7fade78cedfa3b91ecff14cecd3de0616c764b9 | Map: Natural Earth (public domain) |
 
 ## G. SFX ghi âm thật (D-013)
 Chỉ **CC0** hoặc **CC BY** (4.0 ưu tiên; 3.0 nhận được khi ghi công đủ tiêu đề–tác giả–nguồn–giấy phép) (Freesound lọc theo giấy phép; trang tệp, không trang bộ sưu tập). Cấm: CC BY-NC, Sampling+, BBC RemArc (phi thương mại), kho trả phí, YouTube Audio Library. Mỗi tệp một dòng ở bảng trên (mã `S-<tên>`, URL tệp, tác giả, giấy phép trích nguyên văn + link, ngày tải); CC BY → ghi công trong mô tả tập dùng nó. Nhạc vẫn bằng mã (A-MUSIC); nhạc người sáng tác CC BY xét lại ở G1 Tập 9; không nhạc AI.
