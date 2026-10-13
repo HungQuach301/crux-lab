@@ -84,8 +84,9 @@ TEMPLATE = TEMPLATES.get(FORMAT, TEMPLATES['101'])
 # ---------- numbers.md ----------
 NUM_MD = open(os.path.join(os.path.dirname(HERE), 'numbers.md'), encoding='utf-8').read()
 CLAIM = {}
-for m in re.finditer(r'^\| `([^`]+)` \| ([^|]*) \| ([^|]*) \| ([^|]*) \| ([^|]*) \|', NUM_MD, re.M):
-    raw, rest = m.group(1), ' '.join(m.group(2, 3, 4, 5))   # giá trị, hiển thị, định nghĩa, nguồn
+# checks-appeal A42 (K4.4): bảng 4 cột (Claim ID · Giá trị · Hiển thị · Định nghĩa, Tập 8) hoặc 5 cột (+ Nguồn/Ghi chú, Tập 7)
+for m in re.finditer(r'^\| `([^`]+)` \| ([^|]*) \| ([^|]*) \| ([^|]*) \|(?: ([^|]*) \|)?', NUM_MD, re.M):
+    raw, rest = m.group(1), ' '.join(x for x in m.group(2, 3, 4, 5) if x)   # giá trị, hiển thị, định nghĩa, nguồn (tuỳ chọn)
     parts = [p.strip() for p in raw.split('/')]
     ids = [parts[0]] + [p if '_' in p and p.split('_')[0] == parts[0].split('_')[0] else parts[0].split('_')[0] + '_' + p for p in parts[1:]]
     for i in ids:
