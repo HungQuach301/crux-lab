@@ -562,6 +562,8 @@ def main():
     B.step('parts', B.do_parts)
     if '--no-shorts' not in argv:   # nháp/animatic 540p (Tập 8): Short 1080×1920 chỉ dựng sau G2
         B.step('shorts', B.do_shorts)
+    else:
+        B.shorts = []
     import qc as QC
     B.step('qc', lambda: QC.run(B))
     B.report['total_seconds'] = round(time.time() - t, 2)
