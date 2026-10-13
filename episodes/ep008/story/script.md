@@ -1,6 +1,63 @@
 # Script — Episode 8 (format `lab`, C2 v1, WRITER, 2026-10-13)
 
-(header written after the checker passes)
+Working title: *Is Rent Money Wasted? Rent vs Buy, Replayed Through Real US History* · Logline **L1** (C1, `gates/C1-logline.md`; lead renamed Nina). Hook used: **H-A "Câu hỏi của người xem"** (`hooks.md`). Format: **`lab`**.
+
+**Checker (`python3 episodes/ep008/story/check_script.py episodes/ep008/story/script.md --cast Nina`, from the repo root, final run C2 v1 — exit 0):**
+
+```
+số cốt lõi share_buyer_ahead_10y: đọc ['S13.2'], nhắc bằng lời ['S14.1', 'S25.2', 'S32.2', 'S32.3']
+móc script: M1 3.4 s ĐẠT · M2 24.7 s ĐẠT · M3 5.3 s ĐẠT · M4 8.6 s ĐẠT · M5 30.8 s ĐẠT · M6 0.0 s ĐẠT
+
+96 câu, 1391 từ viết (1510 từ đọc), độ dài ước 10:29 (1510 / 2.4 từ/s, lab); trục mốc giây 9:47 (2.66 từ/s + hold 16.8 s + ident 3 s)
+| Phần | Từ | Thời gian | Tỉ lệ | Khuôn lab | Δ |
+| hook | 106 | 0:00–0:46 | 7.9 % | 8 % | -0.1 |
+| concept | 303 | 0:46–2:45 | 20.2 % | 15 % | +5.2  ← > ±5 (THAM KHẢO, nêu ở C2) |
+| experiment | 532 | 2:45–6:37 | 39.5 % | 45 % | -5.5  ← > ±5 (THAM KHẢO, nêu ở C2) |
+| buyers | 325 | 6:37–8:58 | 24.0 % | 20 % | +4.0 |
+| limits | 125 | 8:58–9:47 | 8.4 % | 12 % | -3.6 |
+mid-roll: ĐỦ điều kiện theo độ dài ước 10:29 (cần ≥ 8:00 thật; ≥ 2 phút đầu/cuối; lặng ≥ 1 s) — chốt bằng độ dài thật sau khi sinh lời (≥ 8:10) và ở C5 (≥ 8:00)
+mid-roll ≈ 2:45 sau S07.4 (hold 1.5 s), cách cuối 422 s: ĐẠT
+mid-roll ≈ 6:37 sau S22.4 (hold 1.5 s), cách cuối 190 s: ĐẠT
+beats.md: 32 nhịp đã kiểm số trên hình
+hooks HA (4 câu riêng + S03 chung, phần riêng tới 24.1 s): M1 3.4 s ĐẠT · M2 24.1 s ĐẠT · M3 5.3 s ĐẠT · M4 6.4 s ĐẠT · M5 29.7 s ĐẠT · M6 0.0 s ĐẠT
+hooks HB (5 câu riêng + S03 chung, phần riêng tới 28.6 s): M1 1.9 s ĐẠT · M2 28.6 s ĐẠT · M3 9.8 s ĐẠT · M4 6.4 s ĐẠT · M5 34.2 s ĐẠT · M6 0.0 s ĐẠT
+hooks HC (4 câu riêng + S03 chung, phần riêng tới 26.7 s): M1 4.1 s ĐẠT · M2 26.7 s ĐẠT · M3 15.0 s ĐẠT · M4 6.4 s ĐẠT · M5 32.3 s ĐẠT · M6 0.0 s ĐẠT
+
+ĐẠT
+Cảnh báo (không chặn):
+  mật độ: ≥ 3 số mới trong 8 s tại ~[229, 288, 358, 448] s
+  khuôn tỉ lệ: concept lệch +5.2 điểm
+  khuôn tỉ lệ: experiment lệch -5.5 điểm
+  hooks HB: M2 = 28.6 s trong ±5 % ngưỡng 30 (nêu tên, CHARTER §4)
+```
+
+**Summary.** Nina (ILLUSTRATIVE) rents in September 2026 and has saved enough for the down payment and closing costs on a $400,000 home; her question (S01.2): *"Is her rent money wasted?"* Two identical twins per start month, one buys, one rents and keeps the cash; 307 start months (January 1991 → July 2016) on one street, each followed ten years. Act 1: what each twin pays, the renter's cash sits still (C1 lesson, before any historical number), the one assumption on her door (the rent tag). Act 2: walking the street — the 1990s all lit, the dark stretch April 2001 → December 2007 (6 of 72 in 2002 through 2007), lit again 2009 → mid-2016; anchor 1 "about 3 in 4"; extremes April 2012 / June 2006 (anchor 2, peak); five / fifteen years. Act 3: Marcus and Priya (counterweights), the rent tag turns (anchor 3: 4 % → 64.2 %, 6 % → 92.2 %, Census range 73.6–87.3 %, flip below about 2.4 %, Treasury bill variant about 2 in 3), Nina's first month today (56.8 %, below every replayed month, first months only). Limits, then Nina's answer.
+
+**Characters (all ILLUSTRATIVE, badge on every frame).** **Nina** = lead (story §2b; dossier situation 1 adapted: a renter with savings for 20 % down near the national median, card `viewer`). Own warm lamp (N3). Through the method: S04.3, S08.4 (her month sits past the end of the street), S22.4, S26.2, S29. **Marcus** (June 2006 start) and **Priya** (April 2012 start): counterweights in act 3 only (S23), no new numbers. No `promise_character` (M6 = 0).
+
+**Core number:** `share_buyer_ahead_10y` — "about 3 in 4" in digits once (S13.2, fact, anchor 1), then in words: S14.1 "that lit share … a count of history, not a promise" (meaning), S25.2 "the share moves with the rent you assume" (comparison: it moves with the tag), S32.2 "most houses are lit … the lights move with the tag on her door" (callback), S32.3 Nina's answer "in most start months … depends on the rent she assumes" (her threshold).
+
+**Peak** (S17.2, `{peak}`, 10 words): *"Ten years on, the June 2006 buyer was $82,385 behind."*
+**Final line (Nina's, answers S01.2):** S32.3 *"Nina's answer: her rent isn't wasted by rule; renting cost more than buying in most start months, and how many depends on the rent she assumes."*
+
+**Claim-risk applied (`topics-r2/machine/rent-buy-1/claim-risk.md` + `numbers.md` "Luật nói"):** no advice — S03.3 "Nothing here says whether to buy or to keep renting", no imperatives, conclusions only as "in X of Y start months, the buyer ended ahead" + counterweight (S13.3, S14.1, S16.2, S19.3, S22.4, S26.2, S30.3); never "buying wins" — S25.2 "the share moves with the rent you assume"; "history, not a forecast" + "US only" — S03.2, S31.4, fog past July 2016 (N5); national index, not one house — S19.3, S31.2; starting rent is an assumption — S06.4, S07.1–S07.2, S24.1, S31.2; CPI rent follows sitting tenants, can understate market rent growth — S31.3; renter's cash in cash / Treasury bill variant, not stocks, viewer question 4 not answered — S05.1–S05.5 (before the first historical number); no income taxes / deduction / refinancing / moving costs / renter's insurance — S05.6, S31.4, V7; "today" = first month only, not a forecast, 2026 is not 2006 — S30.3; `worst_price_change_10y` used only as "the window of the worst start" (S19.1); illustrative people — S03.1, S23.2, badges; not called "first" (description cites Beracha & Johnson 2012).
+
+**Advice-like word list (13/10):** none of should / need to / have to / better off / worth it / pays off / wins / beat / safe / risky / the bar / the test / threshold / consider / make sure in narration or on screen. "wasted" only in Nina's question (S01.2, B32) and in her answer's negation (S32.3). "Throwing money away" appears only in hook H-B (unused), as a quote followed by its counterweight.
+
+**Checker edits:** `# TẬP:` lines — CAST = Nina · CORE = `share_buyer_ahead_10y` / `3 in 4` · FULL_FORM = CPI → "consumer price index" · WORD_EXEMPT = `\b2002 through 2007\b` (era name; the years are in the claim id `era_2002-2007_*`, not in its value column). BANNED_NAMES unchanged (Nina, Marcus, Priya not in it). **One non-`TẬP` line changed, flagged:** the `numbers.md` table regex — Episode 8's `numbers.md` has 4 columns (no source column) and the template regex needed 5, so it read **0 claims**; the 5th column is now optional (`(?: ([^|\n]*) \|)?`, `g or ''`). Nothing else changed.
+
+**Claims wanted (blocking for the C1 wording, not for the checker):** `numbers.md` has no rows for the savings ($92,000), the down payment ($80,000, 20 %), closing costs ($12,000, 3 %), selling cost (6 %) or ownership costs (2.5 % a year = property tax 1.0 + insurance 0.5 + repairs 1.0). Rule "every spoken or on-screen number is a `numbers.md` claim" → the script names these costs **without figures** (S01.3, S04.2–S04.3, S13.4) and keeps down payment and closing costs as **two separate labelled stacks** (B02). When ANALYST adds the rows, drop-in lines: S01.3 → *"She has saved $92,000: $80,000 for a down payment on a $400,000 home, and $12,000 for closing costs."*; S04.3 + *"Property tax, insurance and repairs come to 2.5 percent of the price a year, and selling costs 6 percent."* (+ ≈ 20 words; scene density re-checked).
+
+**Statements without a numbers.md number (qualitative, for REVIEWER):** S05.2–S05.3 the renter's pile = down payment + closing costs + monthly savings (card `renter`); S06.1–S06.2 competitor weakness (dossier: 3 of 6 top videos use fixed assumptions; no channel named); S07.3 / S24.2 mechanism of the rent tag (rent level sets the monthly saving); S09.3 / S11.2 / S12.2 why eras differ (prices climbing / the national price fall / lower prices and rates at start — read off the replay inputs, no figure); S21.2 five years leaves little time to cover buying and selling costs; S23.6 neither could see the outcome at purchase. B13 anchor object "232 lit / 75 dark" = 307 − 75 (not on screen as text).
+
+**Mid-roll:** MR1 ≈ 2:45 (axis), in the 1.5 s hold after S07.4 (end of act 1, act-2 question open); MR2 ≈ 6:37, in the 1.5 s hold after S22.4 (end of act 2), 190 s from the end.
+
+**Act questions / turns.**
+- Act 1: *What does each twin actually pay, and what is assumed?* Turn S05.1 (the renter's money sits in cash, not stocks) and S07.1 (the one assumption hangs on her door).
+- Act 2: *How often did the buying twin end up ahead?* Turn S13.2 (anchor 1, about 3 in 4) and S17.2 (peak, June 2006); S20–S22 holding period.
+- Act 3: *What made one house bright and another dark?* Turn S23.5 (only the month differed), S24.4–S25.2 (the street follows the tag); S29–S30 Nina's own month; S32 answers the cold-open question with the same words ("rent money wasted"), the last sentence hers.
+
+**Line format.** `Sxx.n {role} [emotion] narration <!-- claims: id, id; hold: s -->`. Emotion tags (4): S01.2 `[worried]`, S17.2 `[serious]` (`{peak}`), S25.2 `[thoughtful]`, S32.3 `[thoughtful]`. ASR hotwords: **Nina**, Marcus, Priya, "Treasury bill" (never "T-bill" spoken), "CPI" after its full form (S31.3); no hyphenated year ranges ("2002 through 2007", "2009 to mid-2016"), no "%" in narration.
 
 ---
 
@@ -32,6 +89,7 @@ S03.4 {hook} What it shows Nina is a whole street of answers, one house for each
 S04.1 {question} So what does each twin actually pay? <!-- claims: — -->
 S04.2 {define} The twin who buys pays the down payment and the closing costs, then takes a 30-year fixed mortgage at that month's average rate. <!-- claims: rate_latest -->
 S04.3 {hook} Every month after that, Nina's buying twin pays interest, property tax, insurance and repairs, and at the end, the cost of selling. <!-- claims: — -->
+S04.3b {define} Property tax, insurance and repairs come to 2.5 percent of the home's value a year, and selling costs 6 percent. <!-- claims: owner_cost_pct, sell_pct -->
 S04.4 The twin who rents moves into an equivalent home and keeps the same savings. <!-- claims: — -->
 
 ## S05 — The renter's cash sits still (C1 blind-read lesson; viewer question 4 not answered)

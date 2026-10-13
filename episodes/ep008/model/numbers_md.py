@@ -34,7 +34,7 @@ DISP = {
     'rate_month_latest': 'September 2026', 'rate_latest': '6.86% (September 2026 average)',
     'today_buyer_month1': '$2,933 a month', 'today_rent_month1': '$1,667 a month', 'today_rent_to_outlay': '56.8%',
     'rent_to_outlay_min_10y': '57.9%', 'rent_to_outlay_min_start_10y': 'July 2006',
-    'price': '$400,000', 'yield_anchor_pct': '5% a year (assumption)',
+    'price': '$400,000', 'savings_usd': '$92,000', 'down_usd': '$80,000', 'closing_usd': '$12,000', 'down_pct': '20 percent', 'closing_pct': '3 percent', 'sell_pct': '6 percent', 'owner_cost_pct': '2.5 percent of the home'"'"'s value a year', 'yield_anchor_pct': '5% a year (assumption)',
 }
 rows = ['| `%s` | %s | %s | %s |' % (k, v(k), d, q[k]['definition']) for k, d in DISP.items()]
 txt = HEAD.replace('FLIP', str(v('flip_yield_10y'))) + '\n' + '\n'.join(rows) + \

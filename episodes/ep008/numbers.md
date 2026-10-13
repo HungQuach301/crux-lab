@@ -52,6 +52,13 @@ Dữ liệu (FRED, tải 2026-10-13, `data/fetch.py`; không commit): HPIPONM226
 | `rent_to_outlay_min_10y` | 57.9 | 57.9% | lowest month-1 rent / buyer outlay |
 | `rent_to_outlay_min_start_10y` | 2006-07 | July 2006 | start of that minimum |
 | `price` | 400000.0 | $400,000 | ILLUSTRATIVE price |
+| `savings_usd` | 92000 | $92,000 | upfront cash of both twins = down payment + closing costs (renter pot start) |
+| `down_usd` | 80000 | $80,000 | down payment = downShare x price (model parameter) |
+| `closing_usd` | 12000 | $12,000 | closing costs = closingShare x price (model parameter) |
+| `down_pct` | 20 | 20 percent | down payment share of price |
+| `closing_pct` | 3 | 3 percent | closing costs share of price |
+| `sell_pct` | 6 | 6 percent | selling cost share of the end value |
+| `owner_cost_pct` | 2.5 | 2.5 percent of the home's value a year | ownership costs per year, share of current value: property tax 1.0 + insurance 0.5 + repairs 1.0 (dossier assumption) |
 | `yield_anchor_pct` | 5.0 | 5% a year (assumption) | anchor yield (assumption) |
 
 Đại lượng còn lại ở `out/model.json`; chỉ dòng trên được nói/hiện. Câu "today" so tháng đầu, **không phải dự báo** (claim-risk hồ sơ).

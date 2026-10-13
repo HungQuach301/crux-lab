@@ -405,6 +405,41 @@
    "unit": "USD",
    "definition": "ILLUSTRATIVE price"
   },
+  "down_usd": {
+   "value": 80000,
+   "unit": "USD",
+   "definition": "down payment = downShare x price (model parameter)"
+  },
+  "closing_usd": {
+   "value": 12000,
+   "unit": "USD",
+   "definition": "closing costs = closingShare x price (model parameter)"
+  },
+  "savings_usd": {
+   "value": 92000,
+   "unit": "USD",
+   "definition": "upfront cash of both twins = down payment + closing costs (renter pot start)"
+  },
+  "down_pct": {
+   "value": 20,
+   "unit": "%",
+   "definition": "down payment share of price"
+  },
+  "closing_pct": {
+   "value": 3,
+   "unit": "%",
+   "definition": "closing costs share of price"
+  },
+  "sell_pct": {
+   "value": 6,
+   "unit": "%",
+   "definition": "selling cost share of the end value"
+  },
+  "owner_cost_pct": {
+   "value": 2.5,
+   "unit": "% a year",
+   "definition": "ownership costs per year, share of current value: property tax 1.0 + insurance 0.5 + repairs 1.0 (dossier assumption)"
+  },
   "yield_anchor_pct": {
    "value": 5.0,
    "unit": "%",
