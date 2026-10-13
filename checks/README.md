@@ -487,6 +487,34 @@ Nguồn: gói `checks-runs/K42/GOI-chu-du-an.md` (A28, A31). Câu 2 chọn **2b*
 - Selftest: `F07` (600 s không `format` = lab đạt; 5 s trượt), `F07/too-long` sửa (lab 661 s trượt, 660 s đạt; trước: 905/480 s), thêm `F07/101` (545 s trượt, 480 s đạt), `F07/deep` (660 s khai `deep` trượt, 900 s đạt), `S14/deep` (hai điểm cách 150 s trượt, cách 300 s đạt), `S14/lab-gap` (lab: hai điểm cách 150 s vẫn đạt — khoảng cách chỉ áp `deep`; bad = 3 điểm), `S15/deep` (tổng 830 s trượt, 850 s đạt). `toolkit/tests/test_toolkit_v2.py` 9/9 (ca rubric: mặc định `new`, tự suy không chặn; `old` khi gọi rõ). Kết quả: **Python 366/366, trang 67/67** (`checks/page/` không đổi so với `main`).
 - Số luật không đổi: **36 CHẶN · 14 CHÍNH · 50 THAM KHẢO** (100).
 
+## Thay đổi ở khoá K4.4 (tự khoá: lỗi máy, mục chủ dự án đã quyết, luật mới — lệnh mở phiên 13/10 + cập nhật chủ dự án 13/10; D-013)
+
+Nguồn: `checks-appeal.md` khối K4.4 (A29, A33, A38–A45). Bằng chứng: `checks-runs/K44/`. Mục nới luật CHẶN cũ / đổi cổng gốc (A32, A34–A37) **không** ở khoá này: gói `checks-runs/K44/GOI-chu-du-an.md`.
+
+| Mã | Thay đổi | Nguồn |
+|---|---|---|
+| A12 (THAM KHẢO) *sửa* | accent/beat của `out/tempo-map.json` là số giây **hoặc** `{t, …}` (dạng nhà máy `{at, t}`); trước: `TypeError` (Tập 6, 7) | A33 (lỗi máy) |
+| A13 (THAM KHẢO) *sửa* | `final` dùng chung cho nhiều take = stem giọng cả tập → cắt stem theo cảnh của take `[start, end)`; trước: chia độ dài cả tập cho một take (165,7 ở Tập 6) | A33 |
+| R01 (THAM KHẢO) *sửa* | chấm từ `out/tension-map.json`; không đòi `.png` | A33 |
+| F11 (CHẶN) *sửa* | thumbnail phát hành = `thumb-1..N`, N = `contract.json package.thumbnails`, không khai = **0 từ Tập 8**, 3 trước | A38, D-013 mục 2 |
+| P01 (THAM KHẢO) *sửa* | chấm N thumbnail như trên; N = 0 → ĐẠT kèm ghi chú | A38 |
+| **SH07 mới (CHÍNH)** | từ Tập 8 đúng **1 Short**; Tập 4–7 báo số (2–3, D-006), không chấm | A38, D-013 mục 2 |
+| **F13 mới (CHẶN)** | footage ngoài (timeline `external[]` / `episode.yaml external[]` / chuỗi media không khai): dòng RIGHTS §F6 đủ URL, trích nguyên văn, ngày tải, SHA khớp tệp; giấy phép thuộc danh sách trắng RIGHTS §F1, không NC/ND/BY-SA; CC BY/ODbL có ghi nguồn trong mô tả; tổng ≤ **15 % Tập 8 / 20 %** | A39 (+ A44), RIGHTS §F, D-013 mục 3 |
+| **F15 mới (CHÍNH)** | tư liệu có **năm + nguồn** trên hình mọi trạng thái chữ trong khoảng footage (`textTrack`); minh hoạ có nhãn, không số claim; mỗi lần ≤ 6 s; không trong 5 s đầu | A39, RIGHTS §F3–F4 |
+| **S23 mới (CHÍNH)** | lời + chữ trên hình không chứa từ dễ đọc thành lời khuyên (danh sách chủ dự án 13/10, `ADVICE_TERMS`) trừ ngoại lệ khai `claims.allowTerms` (lý do ≥ 5 từ) | A45 (ep008), A40 (2) → CHÍNH |
+| **R09 mới (THAM KHẢO)** | bản đồ liền mạch: chuyển hồi không cắt cứng (match / J / L), khung nhìn ≤ 20 %, bố cục ≤ 2 cảnh liền, `map:` khai so với đo | A41 (b) |
+| bộ lấy mẫu trang | **A29:** cache theo đoạn của trang một-file (Merkle module + JSON thư mục spine) + lát máy quay của cảnh + trạng thái mang vào (`warmState`) + điều kiện contract; **A41 (a):** video khác 1920×1080 (nháp 540p) phóng về khung trang | A29, A41 (a) |
+| báo cáo `run.py` | mỗi luật không đạt ghi **loại**: lỗi thật / pháp lý / thủ tục (theo chỉ số trượt, `tiers.NATURE`); bảng cấp thêm ba cột | A40 (3) |
+| ngoài `checks/` | `playbook/templates/check_script.py` đọc `numbers.md` 4 hoặc 5 cột (A42); RIGHTS §F6 bảng footage | A42, A39 |
+
+- **A40 áp:** (2) luật CHẶN mới F13 có đối chứng dương **thật** — bản sao Tập 7 chèn ảnh LoC FSA 1936 thật (tệp + dòng quyền thật của cine-lab): hồ sơ đủ → ĐẠT; không dòng RIGHTS / tệp lưu lại sau khi ghi SHA / 130 s (21,4 %) → TRƯỢT (`a39/real-controls.json`); 0 báo sai trên Tập 5–7 (0 footage). S23 báo trên Tập 5–7 (2 / 4 / 8 câu, phần lớn đúng nghĩa đen) → **CHÍNH**, không CHẶN. (1) Không luật CHẶN nào FAIL trên ≥ 2 tập đã đăng (Tập 4–7: S02, S07, S09, C07 chỉ FAIL ở Tập 7; Tập 4 MISSING). (3) báo cáo như bảng trên.
+- **A43** (quy tắc 1 cho nhãn giả định trên vật): quy tắc 1 đo ở `toolkit/factory/world/verify_seg.py` — chuyển nhánh nhà máy.
+- **Trước/sau Tập 4–7, A33** (`checks-runs/K44/a33/`, stem giọng tái dựng từ take thô vì stem nhà máy không có trong git; trước = mã `main` c735828): A13 Tập 5/6/7 FAIL 80,5 / **165,7** / 223,6 → PASS 0,008 / 0,069 / 0,011 (165,7 trùng số báo cáo F-14 v4 → tái dựng đúng); A12 Tập 6/7 ERROR → chạy được; R01 Tập 5–7 MISSING (PNG) → chấm được. Tập 4 không đổi (MISSING).
+- **A29 (cache trang theo đoạn) tách sang K4.4.1:** đo trùng byte `page.json` có cache với `--no-cache` trên Tập 6 và 7 mất ≈ 3 h mỗi lượt (4 lượt); để luật footage vào `main` trước M3 Tập 8, K4.4 khoá bộ lấy mẫu của `main` (+ A41 a). Chuỗi đo chạy trên đúng mã A29 sẽ khoá (`b0e529ae`, `checks-runs/K44/a29/`).
+- **A41 (a):** bộ lấy mẫu đọc được nháp khác 1080p (1080p: nhánh mã không đổi). Đối chiếu đủ bộ 540p/1080p trên Tập 7 (bản 540p hạ từ master, `a41/`) chạy sau chuỗi A29, ghi ở K4.4.1. Đánh dấu phụ thuộc độ phân giải: luật đọc khung video giải mã = F05, F08, R03, R04, V05, V10 (Python) và V08, V12, C14 (bộ lấy mẫu, so khung video với trang); luật đối tượng trang đo ở viewport 1920×1080, không phụ thuộc video.
+- **Fingerprint** (`checks-runs/K44/fingerprints-K44.json`): 95/100 luật cũ trùng fingerprint và cấp với `main` @ `c735828`; đổi có chủ ý F11, A12, A13, R01, P01; mới F13, F15, SH07, S23, R09. Số luật: **37 CHẶN · 17 CHÍNH · 51 THAM KHẢO** (105).
+- Selftest (`checks-runs/K44/selftest/`): **Python 432/432, trang 67/67.** Ca mới: `A12/factory-dict`, `A13/episode-stem`, `R01/no-png` (cả ba tái hiện lỗi trên mã `main`), `SH07`, `SH07/before-ep8`, `F11/ep008-no-thumbs`, `F11/package-thumbnails`, `P01/none`, `F13` ×16 (SHA, trích nguyên văn, dòng, NC, ND, BY-SA, danh sách trắng, chuỗi media không khai, ghi nguồn, OSM, kind, trần Tập 8/9, không nâng trần, hạ trần bằng `episode.yaml`, khai `episode.yaml` theo cảnh), `F15` ×4 (năm + nguồn, minh hoạ, ≤ 6 s, 5 s đầu), `S23`, `S23/allow`, `R09`, `R09/view`, `A40/nature`.
+
 ## Test tự chứng minh
 
 `checks/selftest/run.sh` chạy hai phần. Mỗi luật có một fixture **phải trượt** và một fixture **phải đạt**.
