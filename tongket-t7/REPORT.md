@@ -75,3 +75,53 @@ P1 1.233 (bản đọc thử 973 + 260) · P2 1.843 (C3 1.493 + S21 350) · P3 1
 | 7 | REVIEWER ở các bước trung gian | C3 1,42 + 1,09 · C4 ý đồ 0,69 → ≈ $3,2; chưa lần nào đổi quyết định cổng | soát gói không đi tới chủ dự án | 3 |
 
 **Kết luận mục 1:** chỗ tốn nhất **không phải** thiếu máy hay thiếu kiểm. Chỗ tốn nhất là **sửa muộn, trên bản đắt**. Thiết kế hình bị đẩy vào khâu dựng (hạng 3), lỗi chỉ được sửa sau khi đã có 1080p (hạng 1–2), và kiểm định chạy sau G2 (hạng 5). Đây đúng là hướng "nâng từ tiền kỳ" mà chủ dự án đặt ra ngày 13/10.
+
+---
+
+## 2. Mô hình xưởng: thẻ vai + quy trình 6 mốc
+
+### 2a. Nguyên tắc
+- **Vai là một đầu bài, không phải một agent sống.** Mỗi vai chạy bằng một lượt headless khoá Console (`toolkit/api.sh`, 0 agent con) hoặc bằng lệnh máy, rồi thoát. Không vai nào giữ ngữ cảnh qua lúc chờ render (lesson T6-9; hạng 4 ở mục 1).
+- **Vai nào không có phép thử riêng thì không thêm.** Phép thử riêng nghĩa là một phép đo có thể trượt **độc lập** với phép đo của các vai khác, và do một bên khác đo (máy, người đọc mù, hoặc chủ dự án), không phải chính vai đó tự đo. Nếu phép thử của vai trùng với phép thử của một vai đã có thì gộp hai vai làm một.
+- **Quyền:** không vai nào tự quyết gu, sửa luật khoá, hay đổi kịch bản đã duyệt (CHARTER §6). Vai chỉ chọn trong phạm vi **bản tầm nhìn** đã được duyệt ở G1.
+- Mẫu theo cine-lab `cine-worker.md`: mỗi vai chỉ sửa trong thư mục của gói việc mình được giao. Vai không đọc mã `checks/`. Mỗi tài sản mới phải có dòng RIGHTS. Việc cần chủ dự án quyết thì ghi vào hàng chờ, không tự quyết.
+
+### 2b. Thẻ vai
+| Vai | Đầu vào | Đầu ra | **Phép thử riêng** (ai đo) | Quyền / không được |
+|---|---|---|---|---|
+| **Đạo diễn sáng tạo** | logline, kịch bản C2, hồ sơ cầu, sổ gu | **bản tầm nhìn** ≤ 1 trang (`TAM-NHIN.md`): câu hỏi của phim, 3 khoảnh khắc phải nhớ, cảm xúc theo hồi, màu hồi, 3 số neo + vật thể, chỗ đặt footage | **Kiểm mù nhớ lại** trên nháp 540p (headless, 3 người xem dải khung + lời): ≥ 2/3 người kể lại được **≥ 2/3 khoảnh khắc** đã ghi trong bản tầm nhìn, và nói đúng câu hỏi của phim. Phép thử này khác cổng gốc: cổng gốc đo nghĩa từng nhịp khi tắt tiếng, còn phép này đo cái người xem nhớ được sau cả tập (gần với L3 dòng 1 và 6) | chọn phương án trong phạm vi bản tầm nhìn; **không** đổi kịch bản, gu, nhạc |
+| **Thiết kế hình** | bản tầm nhìn, thư viện hình, gen CHARTER §4 | **bảng vật thể**: mỗi vật thể (số neo, danh từ chính) có ảnh xoay 3 góc + clip 3 s ở trạng thái đổi, kèm RIGHTS cho tài sản ngoài | **Nhận dạng mù**: 2 người đọc headless chỉ xem clip 3 s (tắt tiếng), phải gọi đúng vật thể và chiều đổi (mọc/giảm/tách) ≥ 2/2. Máy kiểm gen (bảng màu kênh, không mặt, low-poly) | thêm vật thể vào thư viện sau G1; **không** dùng vật thể có ≥ 2 vòng trượt nhận dạng |
+| **Previz** | kịch bản, bảng nhịp, bảng vật thể, timeline từ bản đọc thử | **animatic 540p xám** (khối, máy quay, thời điểm theo lời thật, chưa có chất liệu) | **Cổng gốc tắt tiếng trên animatic**, đọc theo biên nhiễu A32: mọi nhịp loại 1 đạt. Đây là thước đã dùng ở C3/C4, chỉ dời lên **trước khi** dựng đẹp. S21 Tập 7 lẽ ra lộ ở đây với ≈ $3, thay vì qua 7 vòng | đổi bố cục và máy quay; **không** đổi lời |
+| **Editor** | nháp 540p theo cảnh, stem lời/nhạc/SFX, bản đồ liền mạch | **danh sách cắt**: J/L-cut ở ranh giới cảnh, nhịp, chỗ lặng, mid-roll | **Nhịp trên nháp**: quãng có lời mà không đổi hình > 8 s = 0; freezedetect ≥ 3 s có lời đè ≤ 30 s/tập. **Kiểm mù "chỗ muốn tua"**: không đoạn nào bị ≥ 2/3 người nêu | đổi thứ tự shot trong cảnh, độ dài lặng; **không** đổi lời |
+| **Giám sát liền mạch** | bản tầm nhìn, kịch bản, `numbers.md`, nháp | **bản đồ liền mạch** (`BAN-DO-LIEN-MACH.md` → `map:` trong `episode.yaml`) + báo cáo lệch | **Máy đối chiếu nháp với bản đồ**: mỗi số neo có vật thể hiện trong ±1 s quanh từ đọc (cine Q29); mỗi chuyển hồi dùng đúng kiểu đã khai; tông màu trung bình mỗi hồi khớp màu đã khai; số trên hình = số trong lời (L1 có sẵn); footage có năm + nguồn trên hình | báo lệch, mở việc cho vai sở hữu; **không** tự sửa hình |
+| **Line producer** | trần theo format, ledger, `build-report.json`, log phiên | **sổ chi theo mốc** ($ Console, giờ máy, EL, đọc cache, lượt chạm), mỗi mốc một dòng | **Ngắt theo mốc** (máy, `toolkit/usage/`): chi một mốc vượt 150 % ngân sách mốc → dừng mốc, báo trong gói kế tiếp. Riêng 1080p chạy lần 2 phải có lý do ghi trước. **Không** cắt bước chất lượng (CHARTER §5) | ngắt và báo; **không** quyết chi tiêu mới |
+| WRITER (có sẵn) | hồ sơ cầu, `story.md` | kịch bản, bảng nhịp, 3 móc | kiểm mù lời C2 (6 + 1) + M1–M6 | như cũ |
+| K (có sẵn) | `checks-appeal.md` | luật khoá + LOCK | selftest; 0 lệch trên tập cũ; **mới (A40):** luật CHẶN phải bắt được ≥ 1 lỗi thật trên đối chứng và không báo sai trên 3 tập đã đăng | như cũ |
+| Nhà máy (có sẵn) | spine, thế giới, lời | nháp 540p, 1080p, Shorts | verify đoạn, đồng bộ ±0,2 s, trùng byte so với cache | như cũ |
+
+**Vai không thêm:**
+- **REVIEWER trung gian**: không có phép thử riêng. Việc soát số và soát gen đã có L1 và Giám sát liền mạch. Chỉ giữ REVIEWER ở các gói đi tới chủ dự án (G1, G2), chạy headless (mục 3).
+- **"Đạo diễn máy" như một vai sửa**: lượt đạo diễn máy hạ xuống thành **chẩn đoán cho Editor/Previz**. Lời phê của nó chỉ thành việc sửa khi phép thử của vai sở hữu cũng trượt ở đúng chỗ đó (bài học từ hạng 1 ở mục 1).
+
+### 2c. Quy trình 6 mốc
+| Mốc | Việc (vai) | Đầu ra | Cổng / dừng | Chủ dự án |
+|---|---|---|---|---|
+| **M1 Phát triển** | Việc 0 (dữ liệu, mô hình, kiểm độc lập) · C1 · C2 (WRITER, kiểm mù lời) | kịch bản v-cuối, bảng nhịp, `numbers.md` | M1–M6, kiểm mù lời; ≤ 2 vòng | — |
+| **M2 Tiền kỳ** | bản tầm nhìn (ĐDST) · bảng vật thể (TKH) · animatic 540p xám (Previz) · bản đồ liền mạch (GSLM) · ngân sách (LP) · footage: RIGHTS trước khi tải | `TAM-NHIN.md`, `BAN-DO-LIEN-MACH.md`, `preprod/animatic.mp4` | nhận dạng mù + cổng gốc animatic; ≤ 2 vòng/lỗi | **G1**: duyệt kịch bản + vật thể/animatic + tiêu đề nháp (một gói ≤ 3 câu). **Gộp C3** |
+| **M3 Sản xuất nháp 540p** | nhà máy dựng thế giới, giọng (một lần), nhạc/SFX/footage | nháp 540p theo cảnh | verify đoạn, đồng bộ | — |
+| **M4 Hậu kỳ** | Editor: J/L-cut, nhịp · màu theo hồi · mix | nháp 540p cả tập | nhịp trên nháp | — |
+| **M5 Kiểm định trên nháp** | **L1 đủ bộ, gồm lấy mẫu trang** · cổng gốc · nhớ lại (ĐDST) · liền mạch (GSLM) · REVIEWER gói G2 | gói G2 + nháp 720p để xem | **≤ 2 vòng mỗi lỗi**. Một vòng chỉ được giữ khi điểm vượt bản tốt nhất **ngoài biên nhiễu** (A32); hết 2 vòng → trước/sau cho chủ dự án | **G2**: phiếu L3 trên nháp |
+| **M6 Giao** | **1080p một lần** + **1 Short** · L1 kỹ thuật trên 1080p (độ phân giải, loudness, C14, SSIM so với nháp ≥ 0,97) | master, Short, gói (tiêu đề, mô tả, tag; **không thumbnail**) | sai lệch kỹ thuật thì sửa mà không mở lại G2 | **G3** đăng |
+
+**Chủ dự án chạm: G1, G2, G3** (+ lệnh "Chạy Tập N"). Ngoài cổng chỉ có các ngoại lệ phải hỏi của CHARTER §5.
+
+### 2d. Đánh giá đề xuất 2
+| | |
+|---|---|
+| **Ưu** | Lỗi hình lộ ra ở animatic, nơi một vòng tốn ≈ $3 và < 1 h thay vì một vòng C4/C5 tốn $13–26. Kiểm định đủ bộ chạy **trước** G2, nên lần chạm số 8 của mục 1 không còn. Bỏ được ≈ 20 h 1080p chạy lại. Mỗi vai có thước để biết khi nào xong, nên vòng lặp có điểm dừng. |
+| **Nhược** | G1 đến muộn hơn ≈ 0,5 ngày vì phải đợi animatic. Nếu chủ dự án bác kịch bản ở G1 thì mất phần tiền kỳ (≈ $5–8, 2–3 h). Thêm 2 mẫu tài liệu. Phép thử "nhớ lại" và "nhận dạng" **chưa hiệu chuẩn**. |
+| **Chất lượng** | Tăng: hình được thiết kế trước khi dựng. Có thêm phép đo cái người xem nhớ được. Không bỏ bước kiểm nào, chỉ dời lên sớm hơn. |
+| **Thời gian / token** | Giờ máy ước ≈ −60 % (mục 6). Console ước ≈ −65 %. Token phiên: nhiều phiên ngắn thay cho một phiên 26 h, nên đọc cache giảm ≈ 5×, ước theo số lượt. |
+| **Rủi ro** | (1) Nháp 540p giấu lỗi chỉ có ở 1080p (chữ nhỏ, răng cưa) → M6 có L1 kỹ thuật + SSIM; chữ đo theo hộp chữ ở spine, không đo trên ảnh. (2) Hai phép thử mới bị Goodhart → hiệu chuẩn trên Tập 6/7 trước khi dùng (đường 1 ở mục 6). (3) Chủ dự án chấm L3 trên nháp 720p có thể lệch với bản cuối → G2 kèm 3 khung 1080p của cảnh đinh. |
+
+Mẫu (bản nháp, **chưa đưa vào playbook**): `tongket-t7/de-xuat/playbook/templates/TAM-NHIN.md`, `BAN-DO-LIEN-MACH.md`.
