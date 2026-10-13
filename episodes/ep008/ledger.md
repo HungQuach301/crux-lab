@@ -29,3 +29,7 @@
 | 13/10 | Chép G1 → `gates/G1-answer.md`; sổ gu, AUTHORSHIP, RIGHTS D-CENSUS-HVS = đã xác minh (chủ dự án), `numbers.md` | — | điều phối | — | — |
 | 13/10 | Đổi số khiếu nại Tập 8 A38–A41 → A42–A45 (lệnh chủ dự án; tongket-t7 giữ A38–A41) | — | điều phối | `checks-appeal.md` | — |
 | 13/10 | Đọc 4 số token luồng chính P1 (`list_events` kinds=result, 1 sự kiện, một lượt 203 vòng) | Điều phối | điều phối | sinh 0,162 · vào mới 0,494 · cache 56,46 · trần 0,656 triệu (Opus + Haiku); giá niêm yết thuê bao $17,81 (không phải Console) | — |
+| 13/10 16:1x | WRITER cold open v3 + chương + kết (api.sh Opus, 75 lượt) | Khác | api.sh | checker ĐẠT M1–M8, ước 10:23 | $3.37 |
+| 13/10 | Tự quyết: giữ màu N1 đã duyệt (buyer = ấm `lit`, renter = `warn`), hoàn lại việc WRITER dời màu dữ liệu/huy hiệu; bỏ footage LoC/HUD/Census ở B09/B11/B26 (G1 câu 3); S22.5 "never did" → "hasn't turned yet" (sai nghĩa với hồi 3) | — | điều phối | checker ĐẠT | — |
+| 13/10 | Kiểm mù lời M2 (6 + chấm, một lượt) | Kiểm mù | headless Sonnet | 6/6, advice_stated 0; phương pháp 4/6 (S06.1), nhân vật 2/6 (S23) → G2 | (spend_leg) |
+| 13/10 | ElevenLabs GET /v1/user/subscription | — | lệnh | dùng 93.808 / 144.034 → còn 50.226, làm mới 01/11; cần 8.635 | — |

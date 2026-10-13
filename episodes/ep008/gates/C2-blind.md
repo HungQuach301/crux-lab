@@ -22,3 +22,16 @@
 | T | 1 | 0 | 1 | — | số dày · 72 tháng, %, $ | Partly |
 | T | 1 | 0 | 1 | "the dark doors thin out" | định nghĩa · 2,5 % | Partly |
 **Đúng 6/6 · advice_stated 0/6 · không loại khối ≥ 2/6** (khác 2/6 — hai chỗ khác nhau) → **C2 ĐẠT ở vòng 2.** Câu kết S32.3 không còn bị trích làm căn cứ khuyên (v1: 5/6). advice_inferred vẫn 6/6 (báo): người đọc tự suy "giữ đủ lâu / tránh mua đỉnh" — nêu ở G1. `answered_own`: cả hai vòng người đọc đều trả "Partly" (lịch sử có, năm 2026 không) — người chấm v1 ghi true, v2 ghi false: lệch người chấm, không phải lệch nội dung.
+
+## Lượt sau G1 (M2, 13/10) — một lượt duy nhất (G1 câu 2), ý đồ `gates/C2-intent.md` mục cuối
+Mẫu `c2/sample-m2.txt` (cold open v3 + chương + kết bảng điểm), 6 người đọc headless Sonnet (5 T + 1 G) + 1 người chấm, rubric cũ `c2/rubric.md`; nguyên văn `c2/m2/` (khoá `key.json`, `label-key.json`).
+
+| | Kết quả | Ngưỡng |
+|---|---|---|
+| Đúng | **6/6** (mọi người đọc: ≈ 3/4, dãy 2001–2007, June 2006, phụ thuộc thẻ tiền thuê) | ≥ 5/6 — ĐẠT |
+| `advice_stated` | **0/6** | = 0 — ĐẠT |
+| `advice_inferred` | 6/6 (người đọc tự ghi là kết luận của mình: "giữ lâu", "tự kiểm giả định") | chỉ báo |
+| `advice_words` | 0 | — |
+| Mất chú ý theo loại khối | **phương pháp 4/6** — cùng chỗ S06.1 "Most rent or buy math picks one growth rate…" · **nhân vật 2/6** — S23 Marcus/Priya "nhắc lại kết quả" | ≥ 2/6 → **ghi G2, không mở vòng** (chủ dự án: đúng một lượt) |
+
+Cách xử lý không đổi lời: S06 (B06) và S23 (B23) là nhịp loại 1 — animatic/nháp cho chúng **đổi hình mạnh** (B06: đường giả định phẳng vẽ ra rồi bản ghi thật tích từng tháng; B23: hai người đứng trước hai căn sáng/tối thật trên phố), đo ở cổng gốc tắt tiếng; G2 nêu hai khối này kèm câu chữ đề xuất rút gọn nếu chủ dự án muốn (đổi lời đã duyệt = quyền chủ dự án). Chi: 7 lượt.
