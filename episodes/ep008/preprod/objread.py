@@ -48,7 +48,7 @@ def grade(outdir):
                          f'or picture states or implies buy, rent, wait, choose/avoid), advice_inferred (reader\'s own conclusion), caution_only.\n\n'
                          f'## Rubric\n{RUBRIC}\n\nOutput JSON only (no prose, no code fence): {{"R1": {{"score": 1|0.5|0, "advice_stated": true|false, '
                          f'"advice_inferred": true|false, "caution_only": true|false, "why": "<one line, quote the reader>"}}, ...}}\n']
-    names = {'street': 'N1 the street', 'tag': 'N2 the rent tag', 'nina': 'N3 Nina + đèn riêng'}
+    names = {'street': 'N1 the street', 'tag': 'N2 the rent tag', 'nina': 'N3 Nina + đèn riêng', 'box': 'N4 the glass box', 'fog': 'N5 the fog'}
     for i, k in enumerate(sorted(key, key=lambda k: k['file'])):
         lab = f'R{i + 1}'; labels[lab] = k['file']
         parts.append(f'### {lab} — object {names[k["obj"]]}\n{json.load(open(o / (k["file"] + ".json")))["answer"]}\n')

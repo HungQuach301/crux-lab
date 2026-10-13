@@ -12,7 +12,7 @@
 <script type="module">
 import * as THREE from 'three';
 import { PALETTE, Studio, Person, Apartment, House, setOpacity } from '/toolkit/factory/world/lib3d.js';
-import { Street, RentTag, NinaLamp } from '/episodes/ep008/preprod/objclip/obj8.js';
+import { Street, RentTag, NinaLamp, GlassBox, FogWall, EmptyPlots } from '/episodes/ep008/preprod/objclip/obj8.js';
 const clip = new URLSearchParams(location.search).get('clip') || 'street';
 const data = await (await fetch('/episodes/ep008/preprod/objclip/data.json')).json();
 const W = 960, H = 540;
@@ -64,6 +64,33 @@ if (clip === 'street') {
     tag.userData.set({ value: y, swing: 0.18 * Math.exp(-3 * Math.max(0, t - t0)) * Math.sin(9 * Math.max(0, t - t0)) });
     cam.position.set(lerp(-13.6, -13.0, t / 7), 4.2, 12.5); cam.lookAt(-4.5, 0.6, 0.5);
   };
+} else if (clip === 'box') {
+  // N4 vòng 2 (fix: picture): Nina (đèn riêng) đứng cạnh căn hộ của cô; mỗi 0,45 s một bó tiền bay ra từ CỬA căn hộ theo cung, rơi vào hộp kính CASH đóng kín
+  street.visible = false;
+  const apt = Apartment({ w: 1.8, floors: 3 }); apt.position.set(-1.8, 0, -0.6); scene.add(apt);
+  const rt = RentTag({ w: 0.6, head: 'RENT', blank: true }); rt.position.set(-1.8, 0.62, -0.6 + 0.63 + 0.04); scene.add(rt);
+  const box = GlassBox(); box.position.set(1.2, 0, 0.5); scene.add(box);
+  const nina = Person({ h: 1.0 }); nina.position.set(-0.3, 0, 1.1); scene.add(nina);
+  const lamp = NinaLamp(); scene.add(lamp);
+  const tagN = lab('Nina · ILLUSTRATIVE', 20, 20, 'warn');
+  const fly = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.11, 0.2), new THREE.MeshStandardMaterial({ color: PALETTE.bill })); scene.add(fly);
+  const door = new THREE.Vector3(-1.8, 0.3, 0.1), into = new THREE.Vector3(1.2, 1.3, 0.5);
+  seek = (t) => {
+    const n = Math.max(0, (t - 0.6) / 0.45), f = n - Math.floor(n);
+    box.userData.set({ n: Math.floor(n) });
+    fly.visible = t > 0.6 && Math.floor(n) < 12; fly.position.lerpVectors(door, into, f); fly.position.y += Math.sin(Math.PI * f) * 0.9;
+    lamp.position.set(-0.3 + 0.32, 1.05 + 0.04 * Math.sin(t * 2.3), 1.25); lamp.userData.set({ on: 1, t });
+    nina.rotation.z = 0.03 * Math.sin(t * 1.7); tagN.style.opacity = 1;
+    cam.position.set(lerp(0.4, -0.2, t / 7), 1.7, 5.4); cam.lookAt(-0.2, 0.7, 0);
+  };
+} else if (clip === 'fog') {
+  // N5 vòng 2 (fix: picture): nhà KHÔNG bị sương phủ; sau cột nhà cuối là lô đất trống viền đứt (chưa xây) chạy tiếp vào sương nhạt ở xa
+  const ahead = data.ahead['5']; street.userData.set({ lit: ahead.map((a) => a ? 1 : 0), doorWarn: ahead.map((a) => a ? 0 : 1) });
+  const plots = EmptyPlots({ cols: 10 }); plots.position.set(L + gap, 0, 0); scene.add(plots);
+  const fog = FogWall({ w: 14, h: 3.2, depth: 7 }); fog.position.set(L + 5.5, 0, -D / 2); scene.add(fog);
+  const road = new THREE.Mesh(new THREE.BoxGeometry(16, 0.02, 0.5), new THREE.MeshStandardMaterial({ color: '#232934' })); road.position.set(L + 8, 0.01, 1.0); scene.add(road);
+  seek = (t) => { fog.userData.set({ t }); const k = ramp(t, 0, 6.5);
+    cam.position.set(lerp(L - 7, L - 2.5, k), 4.2, 6.5); cam.lookAt(lerp(L - 1, L + 4, k), 0.3, -D / 2); };
 } else {
   // Nina: dáng nghỉ, đèn ấm riêng; đứng giữa căn hộ (thuê) và ngôi nhà (mua), đưa đèn nhìn bên này rồi bên kia
   street.visible = false;

@@ -1,0 +1,15 @@
+{
+ "answer": "{\"R1\": {\"score\": 0.5, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"why\": \"Đúng (a) và (b): tiền cất trong hộp 'CASH' cạnh tòa 'RENT', hộp đầy dần ('grows from a thin layer in frame 2 to a nearly full pile by frame 6'). Chưa rõ (c): người đọc chỉ nói tiền 'piles up instead of going into a purchase' và rằng hoạt ảnh 'says nothing about... investment returns', không đọc ra là tiền nằm yên, không sinh lời. Kết luận 'renting can leave you with savings' là của riêng người đọc ('The advice in 4 is my own conclusion').\"}}",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3275,
+   "cache_read": 1382,
+   "output": 770,
+   "in": 4659,
+   "out": 770
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0209422
+}

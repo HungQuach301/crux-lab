@@ -44,6 +44,14 @@ elif clip == 'tag':
         for k in range(10):                                # cả phố đổi đèn: rơi xuống (4 %) / dâng lên (6 %)
             f = (400 + 60 * k) if up else (900 - 60 * k)
             tone(t0 + 0.3 + 0.08 * k, 0.3, f, 0.035, decay=10)
+elif clip == 'box':
+    for k in range(13):
+        t0 = 0.6 + 0.45 * k + 0.35
+        noise(t0, 0.1, 0.10, lp=0.25, decay=40); tone(t0, 0.25, 1800, 0.012, decay=25)   # bó tiền rơi vào hộp kính (bịch giấy + keng kính khẽ)
+elif clip == 'fog':
+    s = rng.standard_normal(n)
+    for i in range(1, n): s[i] = 0.02 * s[i] + 0.98 * s[i - 1]
+    y += 0.4 * s * np.clip(t / 6.5, 0, 1)                    # gió sương dâng dần khi tới mép
 else:
     a, b = int(0.2 * SR), int(6.0 * SR)                    # đèn của Nina: tiếng ù ấm riêng, vào dần
     env = np.clip((t[a:b] - 0.2) / 0.7, 0, 1)

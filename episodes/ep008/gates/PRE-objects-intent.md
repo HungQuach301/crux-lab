@@ -14,3 +14,9 @@ Ngày 2026-10-13. Mẫu: clip 540p 5–8 s (`work/objclip/<vật>.mp4`, dựng `
 Cờ `advice_stated` (hình/chữ nêu hay ngụ ý mua/thuê/chờ) → vật trượt ngay. `advice_inferred`, `caution_only`: báo, không chặn.
 **Ngưỡng mỗi vật:** 2/2 đúng (điểm 1, không `advice_stated`) → ĐẠT; 0/2 → TRƯỢT; lệch → người thứ 3, đạt khi ≥ 2/3.
 **Trượt → đổi loại hình trước G1** (luật tạm 13/10 (c); E6 sửa bằng hình trước, nhãn là cách cuối), tối đa 2 vòng mỗi vật (luật tạm: ≤ 2 vòng mỗi lỗi cả tập); vòng 2 vẫn trượt → G1 nêu bản trước/sau cho chủ dự án. Mỗi vòng ghi `fix: picture|label` + lý do.
+
+## Bổ sung (13/10, ghi TRƯỚC khi đọc; vật mới WRITER khai ở C2 v1 `story/beats.md`): cùng giao thức, cùng ngưỡng
+| Vật | Đúng nghĩa (1) cần đủ | 0,5 | 0 |
+|---|---|---|---|
+| **N4 the glass box** (hộp kính tiền mặt của người thuê) | (a) tiền (các bó) được cất trong một hộp kính đóng kín, cạnh căn hộ = tiền để dành của người thuê; (b) hộp đầy dần: mỗi lần thêm một bó (để dành thêm theo thời gian); (c) tiền chỉ nằm đó, không được đầu tư / không sinh lời thị trường | đủ 2/3 | ≤ 1/3 |
+| **N5 the fog** (sương cuối phố) | (a) cuối dãy nhà là sương/mù, con đường đi tiếp vào sương; (b) trong sương không có nhà/kết quả nào; (c) phần sau dữ liệu (tương lai, các năm gần đây) chưa biết — không có kết quả, không dự đoán | đủ 2/3 | ≤ 1/3 |

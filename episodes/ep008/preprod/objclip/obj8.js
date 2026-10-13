@@ -78,3 +78,49 @@ export function NinaLamp() {
   } };
   return g;
 }
+
+// N4 GlassBox: hộp kính đóng kín (cạnh căn hộ) chứa các bó tiền của người thuê; .set({n}) số bó (bó thứ n rơi vào trong 0,4 s)
+export function GlassBox({ w = 1.2, h = 1.0, d = 0.8, max = 12 } = {}) {
+  const g = new THREE.Group();
+  const glass = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), new THREE.MeshPhysicalMaterial({ color: '#BFD3E6', transparent: true, opacity: 0.18, roughness: 0.05, metalness: 0, depthWrite: false }));
+  glass.position.y = h / 2; g.add(glass);
+  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(w, h, d)), new THREE.LineBasicMaterial({ color: PALETTE.muted }));
+  edges.position.y = h / 2; g.add(edges);
+  const plate = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.16, 0.02), new THREE.MeshStandardMaterial({ map: (() => { const c = document.createElement('canvas'); c.width = 256; c.height = 80; const x = c.getContext('2d'); x.fillStyle = '#171B22'; x.fillRect(0, 0, 256, 80); x.fillStyle = PALETTE.ink; x.font = 'bold 54px Inter, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('CASH', 128, 42); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; })() }));
+  plate.position.set(0, 0.12, d / 2 + 0.012); g.add(plate);
+  const bundles = [];
+  for (let i = 0; i < max; i++) {
+    const b = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.11, 0.2), mat(i % 2 ? PALETTE.bill2 : PALETTE.bill));
+    const col = i % 3, row = Math.floor(i / 3);
+    b.userData.home = new THREE.Vector3(-0.38 + col * 0.38, 0.06 + row * 0.115, 0); b.castShadow = true; g.add(b); bundles.push(b);
+  }
+  g.userData = { set({ n = 0 } = {}) {
+    bundles.forEach((b, i) => { const k = Math.min(1, Math.max(0, n - i)); b.visible = k > 0;
+      b.position.copy(b.userData.home); b.position.y += (1 - k) * (h + 0.6); });
+  } };
+  return g;
+}
+
+// N5 Fog: bức sương cuối phố (các tấm mờ chồng nhau, trôi chậm); con đường đi tiếp vào trong, không có nhà
+export function FogWall({ w = 14, h = 3, depth = 6, layers = 7 } = {}) {
+  const g = new THREE.Group(), cv = document.createElement('canvas'); cv.width = cv.height = 128;
+  const x = cv.getContext('2d'), gr = x.createRadialGradient(64, 64, 0, 64, 64, 64);
+  gr.addColorStop(0, 'rgba(210,218,230,0.9)'); gr.addColorStop(0.6, 'rgba(210,218,230,0.45)'); gr.addColorStop(1, 'rgba(200,210,224,0)'); x.fillStyle = gr; x.fillRect(0, 0, 128, 128);
+  const tex = new THREE.CanvasTexture(cv), planes = [];
+  for (let i = 0; i < layers; i++) {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w * 1.6, h * 1.8), new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.75, depthWrite: false, color: '#C3CCD8' }));
+    m.position.set(i * depth / layers, h / 2 - 0.2, 0); m.rotation.y = -Math.PI / 2; m.renderOrder = 10; m.material.side = THREE.DoubleSide; g.add(m); planes.push(m);
+  }
+  g.userData = { set({ t = 0 } = {}) { planes.forEach((m, i) => { m.position.z = 0.5 * Math.sin(t * 0.4 + i); m.position.x = i * depth / layers + 0.2 * Math.sin(t * 0.3 + 2 * i); }); } };
+  return g;
+}
+
+// N5b EmptyPlots: lô đất trống viền đứt (chưa xây) nối tiếp sau ngôi nhà cuối, chạy vào sương
+export function EmptyPlots({ cols = 6, rows = 12, gap = 0.95, rowGap = 0.95, size = 0.55 } = {}) {
+  const g = new THREE.Group(), m = new THREE.LineDashedMaterial({ color: PALETTE.muted, dashSize: 0.08, gapSize: 0.06, transparent: true, opacity: 0.8 });
+  for (let c = 0; c < cols; c++) for (let r = 0; r < rows; r++) {
+    const q = size / 2, pts = [[-q, -q], [q, -q], [q, q], [-q, q], [-q, -q]].map(([x, z]) => new THREE.Vector3(x, 0.02, z));
+    const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), m); l.computeLineDistances(); l.position.set(c * gap, 0, -r * rowGap); g.add(l);
+  }
+  return g;
+}
