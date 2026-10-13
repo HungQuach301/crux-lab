@@ -61,7 +61,7 @@ export async function boot(res) {
     // đồ thị: thẻ ở góc trái (số giả định) + thang 2 % → 7 % với dải Census
     const gA = ok * (t > MV.m_c.t1 ? 1 : 0), tv = cur[2];
     const tagTxt = tv === 4 ? '4%' : tv === 6 ? '6%' : tv === 5 ? '5%' : null, tagKey = tv === 4 ? 'yield4_tag' : tv === 6 ? 'yield6_tag' : 'yield5_tag';
-    if (tagTxt) label(O, `rent tag: ${tagTxt}`, 140, 250, { align: 'left', kind: 'number', px: 56, alpha: gA * (t < b.e12.census || t > b.e13.treasury ? 1 : 0), claims: [tagKey] });
+    if (tagTxt) label(O, `rent tag: ${tagTxt}`, 140, 250, { align: 'left', kind: 'number', px: 56, alpha: gA * (t < b.e12.census || t > b.e14.lights ? 1 : 0), claims: [tagKey] });
     label(O, '64.2%', 960, 240, { align: 'center', kind: 'number', px: 72, alpha: gA * show(t, b.e9.sixty, b.e10.six - 0.2), claims: ['share_yield4pct_10y'] });
     label(O, '92.2%', 960, 240, { align: 'center', kind: 'number', px: 72, alpha: gA * show(t, b.e10.ninety, b.e11.share + 1.8), claims: ['share_yield6pct_10y'] });
     label(O, 'the share moves with the rent you assume', 960, 330, { align: 'center', kind: 'name', px: 48, alpha: gA * show(t, b.e11.share, b.e12.census - 0.2) });

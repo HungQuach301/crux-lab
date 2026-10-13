@@ -40,7 +40,7 @@ moves = K.moves_of([
     ('m_grid', 'pull', 'cIdx', 'cGrid', cue['d8']['national'], cue['d9']['stay'], 1.2, 'thời gian ở: cả lưới, đổi 5 / 10 / 15 năm', 'whoosh_soft', {'late': True}),
     ('m_w', 'mode', 'cGrid', 'wNina', cue['d15']['gone'], cue['d16']['nina'], 1.6, 'phố không nói Nina ở bao lâu: về Nina qua cuối phố', 'whoosh_mode', {}),
 ])
-ev = [{'t': cue['d0']['about'], 'kind': 'data', 'v': 0.9}, {'t': cue['d1']['three'], 'kind': 'tick', 'v': 0.39}, {'t': cue['d3']['june'], 'kind': 'data', 'v': 0.15},
+ev = [{'t': cue['d0']['about'], 'kind': 'data', 'v': 0.9}, {'t': cue['d3']['june'], 'kind': 'data', 'v': 0.15},
       {'t': cue['d5']['equity'], 'kind': 'data', 'v': 0.35}, {'t': cue['d5']['cash'], 'kind': 'data', 'v': 0.6}, {'t': cue['d6']['three'], 'kind': 'tick', 'v': 0.3},
       {'t': cue['d7']['six'], 'kind': 'tick', 'v': 0.67}, {'t': cue['d10']['five'], 'kind': 'data', 'v': 0.5}, {'t': cue['d11']['may'], 'kind': 'data', 'v': 0.1},
       {'t': cue['d13']['every'], 'kind': 'rise', 'dur': 1.4}, {'t': cue['d14']['weakest'], 'kind': 'tick', 'v': 0.4},

@@ -67,7 +67,7 @@ export async function boot(res) {
     label(O, 'one month at the very top, not a typical one', 960, 230, { align: 'center', kind: 'name', px: 48, alpha: ok * show(t, b.d2.top, MV.m_dark.t0) });
     log.roi['d0.april'] = [bx - 200, by - 90, bx + 200, by + 200]; log.roi['d0.about'] = [sx - 60, sy - 70, sx + 560, sy + 300];
     const [dx, dy] = O.toScreen(DX, 0.9 + 1.0, DZ);
-    label(O, 'June 2006', dx, dy - 30, { align: 'center', kind: 'number', alpha: ok * show(t, b.d3.june, MV.m_idx.t0), color: C.warn, claims: ['worst_start_10y'] });
+    label(O, 'June 2006', dx, dy + 280, { align: 'center', kind: 'number', alpha: ok * show(t, b.d3.june, MV.m_idx.t0), color: C.warn, claims: ['worst_start_10y'] });
     label(O, '$82,385 behind', 960, 230, { align: 'center', kind: 'number', px: 64, alpha: ok * show(t, b.d4.eighty, b.d5.equity - 0.4), color: C.warn, claims: ['worst_adv_10y'] });
     log.roi['d3.june'] = [dx - 220, dy - 90, dx + 220, dy + 220]; log.roi['d4.eighty'] = [dx - 400, 160, dx + 400, dy + 220];
     const [ex, ey] = O.toScreen(DX - 0.45, eq.top(115374) + 0.08, FZ), [cx, cy] = O.toScreen(DX + 0.45, cash.top(197760) + 0.08, FZ);

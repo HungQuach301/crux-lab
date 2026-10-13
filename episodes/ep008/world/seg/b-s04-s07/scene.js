@@ -83,8 +83,8 @@ export async function boot(res) {
     nameTag(O, nina, t < MV.m_c2.t0 || t > MV.m_w2.t1 ? (t > MV.m_c3.t0 && t < MV.m_w3.t1 ? 0 : 1) : 0);
     const [hx, hy] = O.toScreen(BUY.x, 1.6, BUY.z), [ax2, ay2] = O.toScreen(APT.x, 1.9, APT.z);
     const wl = cw < 0.05 ? 1 : 0;
-    label(O, 'buys', hx, hy - 30, { align: 'center', kind: 'name', px: 48, alpha: wl * show(t, b.b0.pay, b.b2.selling + 1), color: LIT });
-    label(O, 'rents', ax2, ay2 - 30, { align: 'center', kind: 'name', px: 48, alpha: wl * show(t, b.b0.pay, b.b5.cash - 0.8), color: C.warn });
+    label(O, 'buys', hx, hy - 30, { align: 'center', kind: 'name', px: 48, alpha: wl * show(t, Math.max(b.b0.pay, S.chapter[0] + 2.7), b.b2.selling + 1), color: LIT });
+    label(O, 'rents', ax2, ay2 - 30, { align: 'center', kind: 'name', px: 48, alpha: wl * show(t, Math.max(b.b0.pay, S.chapter[0] + 2.7), MV.m_w1.t0 - 0.3), color: C.warn });
     label(O, 'mortgage', hx + 160, hy + 90, { align: 'left', kind: 'name', px: 44, alpha: wl * show(t, b.b1.mortgage, b.b2.interest - 0.1) });
     [['interest', 'interest'], ['property', 'property tax'], ['insurance', 'insurance'], ['repairs', 'repairs'], ['selling', 'cost of selling']].forEach(([k, s], i) =>
       label(O, s, hx + 170, hy - 40 + 52 * i, { align: 'left', kind: 'name', px: 44, alpha: wl * show(t, b.b2[k], MV.m_c1.t0 + 0.2) }));
@@ -92,10 +92,10 @@ export async function boot(res) {
     label(O, "upkeep: 2.5 percent a year · selling: 6 percent", 960, 250, { align: 'center', kind: 'number', alpha: ok * show(t, b.b3.two, MV.m_w1.t0), claims: ['owner_cost_pct', 'sell_pct'] });
     log.roi['b3.two'] = [400, 190, 1520, 270];
     const [bx, by] = O.toScreen(...box.top());
-    label(O, 'cash, not stocks', bx, by - 30, { align: 'center', kind: 'name', alpha: wl * show(t, b.b5.stocks, MV.m_c2.t0), color: C.warn });
+    label(O, 'cash, not stocks', bx, by - 30, { align: 'center', kind: 'name', alpha: wl * show(t, b.b5.stocks, b.b9.investing - 0.3), color: C.warn });
     label(O, 'Treasury bill interest only', bx, by + 40, { align: 'center', kind: 'name', px: 44, alpha: wl * show(t, b.b8.treasury, b.b9.investing) });
     const [b2x, b2y] = O.toScreen(BOX.x - 1.3, 1.1, BOX.z);
-    label(O, 'invested? not measured here', b2x - 40, b2y - 30, { align: 'center', kind: 'name', px: 44, alpha: wl * show(t, b.b9.investing, b.b10.card) });
+    label(O, 'invested? not measured here', b2x - 40, b2y + 260, { align: 'center', kind: 'name', px: 44, alpha: wl * show(t, b.b9.investing, b.b10.card) });
     log.roi['b5.cash'] = [bx - 200, by - 80, bx + 200, by + 200]; log.roi['b9.investing'] = [b2x - 300, b2y - 80, b2x + 200, b2y + 200];
     v7Card(O, 'Not counted on either side', ["moving costs · renter's insurance", 'income taxes · mortgage interest deduction', 'refinancing'], show(t, b.b10.card, MV.m_c2.t0 + 0.2));
     // S06: nhãn đồ thị
@@ -104,8 +104,8 @@ export async function boot(res) {
     label(O, 'one assumed growth rate', ex - 40, ey - 40, { align: 'right', kind: 'name', px: 48, alpha: rA * show(t, b.b11.growth, b.b13.prices), color: '#C9D0DA' });
     label(O, 'the real monthly US record', 960, 230, { align: 'center', kind: 'name', alpha: rA * show(t, b.b13.prices) });
     label(O, 'home prices', px2 + 20, py2, { align: 'left', kind: 'name', px: 44, alpha: rA * show(t, b.b13.prices + 2.4), color: C.accent });
-    label(O, 'rents', qx + 20, qy + 10, { align: 'left', kind: 'name', px: 44, alpha: rA * show(t, b.b13.rents + 2.4), color: '#8FB4FF' });
-    label(O, 'mortgage rates', mx + 20, my, { align: 'left', kind: 'name', px: 44, alpha: rA * show(t, b.b13.rates + 2.4), color: '#C9D3E2' });
+    label(O, 'rents', qx + 20, qy - 40, { align: 'left', kind: 'name', px: 44, alpha: rA * show(t, b.b13.rents + 2.4), color: '#8FB4FF' });
+    label(O, 'mortgage rates', mx + 20, my + 60, { align: 'left', kind: 'name', px: 44, alpha: rA * show(t, b.b13.rates + 2.4), color: '#C9D3E2' });
     const [ox, oy] = O.toScreen(RX, RY, RZ), [zx] = O.toScreen(RX + RW, RY, RZ);
     label(O, 'January 1991', ox, oy + 60, { align: 'left', kind: 'number', px: 44, alpha: rA * show(t, b.b13.prices), color: C.muted, claims: ['first_10y'] });
     label(O, 'starting rent: ?', 960, 900, { align: 'center', kind: 'name', alpha: rA * show(t, b.b14.rent), color: C.warn });

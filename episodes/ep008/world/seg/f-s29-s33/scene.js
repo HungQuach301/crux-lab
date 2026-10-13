@@ -63,7 +63,7 @@ export async function boot(res) {
     log.roi['f2.six'] = [500, 170, 1420, 250]; log.roi['f2.two'] = [500, 250, 1420, 330]; log.roi['f3.fifty'] = [500, 330, 1420, 410];
     const pA = ok * dA, [mx, my] = O.toScreen(X(iMin), Y(r1[iMin]), RZ), [qx, qy] = O.toScreen(NX, Y(0.568), RZ), [ox, oy] = O.toScreen(RX, Y(0.5), RZ);
     label(O, 'lowest replayed: 57.9%, July 2006', mx, my + 70, { align: 'center', kind: 'number', px: 44, alpha: pA * show(t, b.f4.lowest), claims: ['rent_to_outlay_min_10y', 'rent_to_outlay_min_start_10y'] });
-    label(O, "Nina's first month", qx - 20, qy - 40, { align: 'right', kind: 'name', px: 44, alpha: pA, color: '#FFB86B' });
+    label(O, "Nina's first month", qx - 20, qy - 40, { align: 'right', kind: 'name', px: 44, alpha: pA * (1 - show(t, b.f6.card - 0.3)), color: '#FFB86B' });
     label(O, 'first months only, not a forecast', 960, 230, { align: 'center', kind: 'name', alpha: pA * show(t, b.f5.compares) });
     label(O, 'rent ÷ buyer\'s first month, each start month', ox, 900, { align: 'left', kind: 'name', px: 40, alpha: pA, color: C.muted });
     log.roi['f4.lowest'] = [mx - 300, my - 60, qx + 60, my + 120]; log.roi['f5.compares'] = [400, 170, 1520, 250];

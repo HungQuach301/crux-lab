@@ -62,8 +62,8 @@ export async function boot(res) {
     nameTag(O, nina, t > MV.m_w1.t1 && t < MV.m_pair.t1 ? 1 : 0);
     const gA = ok * (t < MV.m_adv.t0 ? 1 : 0);
     const [ax, ay] = O.toScreen(0, 0, 0.9), [zx] = O.toScreen(25 * 0.95, 0, 0.9);
-    label(O, 'January 1991', ax, ay + 60, { align: 'center', kind: 'number', px: 48, alpha: gA * show(t, b.c1.january), color: C.muted, claims: ['first_10y'] });
-    label(O, 'July 2016', zx, ay + 60, { align: 'center', kind: 'number', px: 48, alpha: gA * show(t, b.c1.right), color: C.muted, claims: ['last_10y'] });
+    label(O, 'January 1991', ax, ay + 60, { align: 'center', kind: 'number', px: 48, alpha: gA * show(t, b.c1.january, b.c18.interest - 0.3), color: C.muted, claims: ['first_10y'] });
+    label(O, 'July 2016', zx, ay + 60, { align: 'center', kind: 'number', px: 48, alpha: gA * show(t, b.c1.right, b.c18.interest - 0.3), color: C.muted, claims: ['last_10y'] });
     label(O, '307 start months · ten years each', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.c2.three, MV.m_w1.t0), claims: ['n_10y'] });
     log.roi['c1.each'] = [ax - 60, 300, zx + 60, ay + 80]; log.roi['c2.three'] = [500, 180, 1420, 260];
     const [nx, ny] = O.toScreen(NINA.x - 1.6, 0.05, NINA.z - 1.2), wA = cw < 0.05 ? 1 : 0;
@@ -75,8 +75,8 @@ export async function boot(res) {
     log.roi['c4.lights'] = [e1x - 200, e1y - 100, e1x + 200, e1y + 160]; log.roi['c5.dark'] = [e2x - 200, e2y - 100, e2x + 200, e2y + 160];
     label(O, '2002 to 2007: 6 of 72 (8.3%)', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.c11.six, b.c13.again), claims: ['era_2002-2007_share', 'era_2002-2007_pct'] });
     label(O, 'every start 2009 to mid-2016', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.c13.every, b.c15.counted), claims: ['era_2009-2016_share'] });
-    label(O, 'about 3 in 4 (75.6%)', 960, 230, { align: 'center', kind: 'number', px: 64, alpha: gA * show(t, b.c16.three, MV.m_adv.t0), color: LIT, claims: ['share_buyer_ahead_10y', 'share_buyer_ahead_10y_pct'] });
-    label(O, '75 of 307', 960, 320, { align: 'center', kind: 'number', alpha: gA * show(t, b.c17.seventy, MV.m_adv.t0), color: C.warn, claims: ['n_renter_ahead_10y'] });
+    label(O, 'about 3 in 4 (75.6%)', 960, 230, { align: 'center', kind: 'number', px: 64, alpha: gA * show(t, b.c16.three, b.c19.lit - 0.3), color: LIT, claims: ['share_buyer_ahead_10y', 'share_buyer_ahead_10y_pct'] });
+    label(O, '75 of 307', 960, 320, { align: 'center', kind: 'number', alpha: gA * show(t, b.c17.seventy, b.c19.lit - 0.3), color: C.warn, claims: ['n_renter_ahead_10y'] });
     label(O, 'counted: interest · tax · insurance · repairs · buying and selling', 960, 900, { align: 'center', kind: 'name', px: 44, alpha: gA * show(t, b.c18.interest, MV.m_adv.t0) });
     log.roi['c11.six'] = [500, 180, 1420, 900]; log.roi['c16.three'] = [300, 170, 1620, 900]; log.roi['c17.seventy'] = [700, 270, 1220, 350];
     // S14: đồ thị chênh lệch
