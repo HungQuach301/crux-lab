@@ -8,7 +8,7 @@
 ## 2. Việc tiếp (≤ 3) và việc treo
 1. P2: chép G1 → `gates/G1-answer.md`; ghi `taste-ledger.md`, `AUTHORSHIP.md`, ledger; áp (N5, N4 nhãn, N1 lưới, "khác" 2/6, tiêu đề).
 2. P2 = C3 (hình mới: 5 vật + chuyển cảnh bản đồ → phố + footage), clip có chuyển động và âm.
-3. **Trước C4:** phiên K (kind mới, `K-brief.md`; lô A34–A41); xác minh 4 số Census HVS (PDF) + điều khoản; chủ dự án tải footage LoC/HUD/Census theo URL ở `preprod/continuity.md`.
+3. **Trước C4:** phiên K (kind mới, `K-brief.md`; lô A34–A37 + A42–A45 (Tập 8; A38–A41 là của tongket-t7)); xác minh 4 số Census HVS (PDF) + điều khoản; chủ dự án tải footage LoC/HUD/Census theo URL ở `preprod/continuity.md`.
 - Treo: lô K Tập 8 lẽ ra chạy trước P1 (PLAN kênh) — chưa chạy; tổng kết Tập 7 — chưa rõ đã chạy.
 
 ## 3. Quyết định đã có (chủ dự án)
@@ -26,8 +26,8 @@
 ## 5. Mức cảnh báo, token, chi (`lab`: 15 triệu · Console $45; **P1 trần CỨNG $12**)
 | Phiên | Đến (UTC) | Sinh ra | Đầu vào mới | Đọc cache | Trần | Headless + api.sh (trần) | Console |
 |---|---|---|---|---|---|---|---|
-| P1 | 13/10 | chưa đọc được ¹ | chưa đọc được ¹ | chưa đọc được ¹ | chưa đọc được ¹ | headless 44 lượt: sinh 0,046 · vào mới 0,188 · cache 0,134 · **trần 0,23 triệu**; api.sh 5 lượt: sinh 0,102 · vào mới 0,296 · cache 4,09 · **trần 0,40 triệu** | **≈ $6,3** (`logs/usage/spend.py`) |
-¹ P1 chạy trong **một lượt** → log phiên chưa có sự kiện `result` (`list_events(kinds=["result"])` 13/10: không có). **P2 đọc**: `list_events(session_id="session_01PgYotX9apRQ11gZoym31kJ", kinds=["result"], limit=100)` lật `before_id` → `python3 toolkit/usage/from_events.py --session session_01PgYotX9apRQ11gZoym31kJ --close trang*.json` → điền dòng này. Agent con 0. EL: 1.116 ký tự (còn ≈ 49.600 / 144.034, làm mới 01/11). Giờ render: clip vật thể ≈ 0,4 h (Playwright 540p).
+| P1 | 13/10 15:55 (một lượt, 203 vòng) | 0,162 | 0,494 | 56,46 | **0,656** | headless 44 lượt: sinh 0,046 · vào mới 0,188 · cache 0,134 · **trần 0,23 triệu**; api.sh 5 lượt: sinh 0,102 · vào mới 0,296 · cache 4,09 · **trần 0,40 triệu** | **≈ $6,3** (`logs/usage/spend.py`) |
+¹ Đọc ở chặng sau G1 (13/10 16:1x): sự kiện `result` duy nhất của P1 (Opus + Haiku, `modelUsage`). Cách đọc: `list_events(session_id="session_01PgYotX9apRQ11gZoym31kJ", kinds=["result"], limit=100)` lật `before_id` → `python3 toolkit/usage/from_events.py --session session_01PgYotX9apRQ11gZoym31kJ --close trang*.json` → điền dòng này. Agent con 0. EL: 1.116 ký tự (còn ≈ 49.600 / 144.034, làm mới 01/11). Giờ render: clip vật thể ≈ 0,4 h (Playwright 540p).
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
 1. `CHARTER.md` 2. `playbook/episode.md` 3. `playbook/quality-framework.md` 4. `episodes/ep008/PLAN.md` 5. `episodes/ep008/gates/G1.md` 6. `episodes/ep008/gates/G1-answer.md` 7. `episodes/ep008/preprod/continuity.md` 8. `episodes/ep008/gates/PRE-objects.md`

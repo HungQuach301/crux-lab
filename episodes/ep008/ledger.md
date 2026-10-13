@@ -25,3 +25,7 @@
 | 13/10 | C2 kiểm mù lời r2 (6 + chấm, chấm lần 1 thiếu nhãn → chấm lại) | Kiểm mù | headless Sonnet | 6/6, 0 khuyên, "khác" 2/6 | $0.30 (8 lượt) |
 | 13/10 | Table read S01–S04 (EL eleven_v3 Eric, ASR hotwords Nina) | — | lệnh | M1–M6 ĐẠT; 1.116 ký tự | — |
 | 13/10 | REVIEWER G1 | Khác | api.sh Opus | ĐẠT có sửa | $1.06 |
+| 13/10 16:03 | verify.sh ep008 (chặng sau G1) | — | điều phối | ĐẠT (main c735828, LOCK dc4981b3) | — |
+| 13/10 | Chép G1 → `gates/G1-answer.md`; sổ gu, AUTHORSHIP, RIGHTS D-CENSUS-HVS = đã xác minh (chủ dự án), `numbers.md` | — | điều phối | — | — |
+| 13/10 | Đổi số khiếu nại Tập 8 A38–A41 → A42–A45 (lệnh chủ dự án; tongket-t7 giữ A38–A41) | — | điều phối | `checks-appeal.md` | — |
+| 13/10 | Đọc 4 số token luồng chính P1 (`list_events` kinds=result, 1 sự kiện, một lượt 203 vòng) | Điều phối | điều phối | sinh 0,162 · vào mới 0,494 · cache 56,46 · trần 0,656 triệu (Opus + Haiku); giá niêm yết thuê bao $17,81 (không phải Console) | — |
