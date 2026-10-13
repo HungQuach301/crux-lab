@@ -29,8 +29,8 @@ G1 → `gates/G1-answer.md` · C3 → `gates/C3-answer.md` · 12–13/10 giữa 
 |---|---|---|---|---|---|---|---|
 | P1 | 11/10 13:49 | 0,10 | 0,32 | 27,51 | 0,41 triệu | 0,81 triệu | ≈ $8,9 |
 | P2 | 11/10 15:32 | ≥ 0,08 | ≥ 0,28 | ≥ 34,79 | ≥ 0,36 triệu | ≈ 0,5 triệu | ≈ $22,3 |
-| P3 | 13/10 | **chưa đọc được** | **chưa đọc được** | **chưa đọc được** | **chưa đọc được** | 189 lượt (kiểm mù, đạo diễn) | **≈ $83,5** |
-P3: một lượt kéo dài ≈ 2 ngày → log chưa có sự kiện `result` (`episode.md` §8: chỉ ghi được đến lượt trước) — P4 đọc bằng `list_events(kinds=["result"])` + `from_events.py --session session_01PyBa4wV9BaBLVGdCDRJC6K`. **Cả tập Console ≈ $115** (chủ dự án biết 12/10). EL: dư 66.164 / 144.034 (làm mới 01/11). Giờ máy P3 ≈ 30 h.
+| P3 | 13/10 02:04 | **0,31** | **0,71** | **266,85** | **1,02 triệu** ¹ | 189 lượt (kiểm mù, đạo diễn) | **≈ $83,5** |
+¹ P4 đọc 13/10 (`list_events(kinds=["result"])` → `logs/usage/p3-result-page.json` → `from_events.py --close`): sự kiện `result` cuối của P3 (13/10 02:03 UTC; tiến trình tiếp sau gián đoạn `resume_reason=interrupted_turn`, 26,4 h, 358 lượt, Opus $65,27 theo giá niêm yết). **Chỉ gồm tiến trình cuối**: các tiến trình trước gián đoạn không lật được hết (trang 100 sự kiện, log ≈ 2 ngày) → trần P3 thật ≥ 1,02 triệu (tổng kết mục j). **Cả tập Console ≈ $115** (chủ dự án biết 12/10). EL: dư 66.164 / 144.034 (làm mới 01/11). Giờ máy P3 ≈ 30 h.
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
 1. `CHARTER.md` 2. `playbook/episode.md` 3. `playbook/prompts/P3.md` (chặng P4) 4. `episodes/ep007/PLAN.md` 5. `episodes/ep007/gates/G2.md` 6. `episodes/ep007/gates/G2-answer.md` 7. `episodes/ep007/gates/C4-answer.md` 8. `playbook/packaging.md` §7
