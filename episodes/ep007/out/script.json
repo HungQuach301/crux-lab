@@ -1,0 +1,659 @@
+{
+ "sentences": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "text": "Tessa's mortgage fallback costs $120 a month.",
+   "spoken": "Tessa's mortgage fallback costs one hundred twenty dollars a month.",
+   "start": 0.0,
+   "end": 3.68,
+   "role": "hook"
+  },
+  {
+   "id": "S01.2",
+   "scene": "S01",
+   "text": "She's borrowing $320,000, and in her city that payment is her biggest bill.",
+   "spoken": "She's borrowing three hundred twenty thousand dollars, and in her city that payment is her biggest bill.",
+   "start": 3.86,
+   "end": 10.8,
+   "role": "hook"
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "text": "A 15-year mortgage, or a 30-year paid off in 15 years anyway, with its lower payment kept for a bad month?",
+   "spoken": "[curious] A fifteen-year mortgage, or a thirty-year paid off in fifteen years anyway, with its lower payment kept for a bad month?",
+   "start": 11.8,
+   "end": 19.32
+  },
+  {
+   "id": "S02.2",
+   "scene": "S02",
+   "text": "We replayed every week of US mortgage surveys to price that fallback in dollars, and what each extra dollar of principal earns.",
+   "spoken": "We replayed every week of U.S. mortgage surveys to price that fallback in dollars, and what each extra dollar of principal earns.",
+   "start": 19.933,
+   "end": 29.08,
+   "role": "promise"
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "text": "Tessa is illustrative, but her rates are real: the survey for the week of October eighth, 2026 has the 15-year at 6.73 percent and the 30-year at 7.4 percent.",
+   "spoken": "Tessa is illustrative, but her rates are real: the survey for the week of October eighth, twenty twenty-six has the fifteen-year at six point seven three percent and the thirty-year at seven point four percent.",
+   "start": 30.067,
+   "end": 42.867,
+   "role": "hook"
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "text": "This is US only, and it's history, not a forecast.",
+   "spoken": "This is U.S. only, and it's history, not a forecast.",
+   "start": 43.043,
+   "end": 47.107
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "text": "It won't say which loan to take, or whether to invest.",
+   "spoken": "It won't say which loan to take, or whether to invest.",
+   "start": 47.347,
+   "end": 50.947
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "text": "Here is what Tessa is weighing.",
+   "spoken": "Here is what Tessa is weighing.",
+   "start": 54.933,
+   "end": 56.373,
+   "role": "hook"
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "text": "On $320,000, the 15-year loan's payment is $2,828 a month.",
+   "spoken": "On three hundred twenty thousand dollars, the fifteen-year loan's payment is two thousand eight hundred twenty-eight dollars a month.",
+   "start": 56.693,
+   "end": 64.933,
+   "role": "hook"
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "text": "The 30-year loan only requires $2,216.",
+   "spoken": "The thirty-year loan only requires two thousand two hundred sixteen dollars.",
+   "start": 65.213,
+   "end": 71.733,
+   "role": "hook"
+  },
+  {
+   "id": "S05.1",
+   "scene": "S05",
+   "text": "That gap, about $613 a month, is the fallback: in a tight month, it's the least the 30-year asks of her.",
+   "spoken": "That gap, about six hundred thirteen dollars a month, is the fallback: in a tight month, it's the least the thirty-year asks of her.",
+   "start": 72.733,
+   "end": 81.293
+  },
+  {
+   "id": "S05.2",
+   "scene": "S05",
+   "text": "The bigger payment fits her budget today, but only just, and a job change or a big repair could squeeze it.",
+   "spoken": "The bigger payment fits her budget today, but only just, and a job change or a big repair could squeeze it.",
+   "start": 81.453,
+   "end": 88.493
+  },
+  {
+   "id": "S05.3",
+   "scene": "S05",
+   "text": "Still, she wants the house paid off in 15 years, so the 30-year only works for her if she pays it like a short loan.",
+   "spoken": "Still, she wants the house paid off in fifteen years, so the thirty-year only works for her if she pays it like a short loan.",
+   "start": 88.68,
+   "end": 98.253
+  },
+  {
+   "id": "S06.1",
+   "scene": "S06",
+   "text": "At 7.4 percent, finishing that loan in 15 years takes $2,948 a month.",
+   "spoken": "At seven point four percent, finishing that loan in fifteen years takes two thousand nine hundred forty-eight dollars a month.",
+   "start": 99.267,
+   "end": 108.307
+  },
+  {
+   "id": "S06.2",
+   "scene": "S06",
+   "text": "That's $120 a month more than the 15-year loan, for the same house and the same 15 years.",
+   "spoken": "That's one hundred twenty dollars a month more than the fifteen-year loan, for the same house and the same fifteen years.",
+   "start": 108.531,
+   "end": 117.747
+  },
+  {
+   "id": "S06.3",
+   "scene": "S06",
+   "text": "Over those 15 years, the extra adds up to $21,622.",
+   "spoken": "Over those fifteen years, the extra adds up to twenty-one thousand six hundred twenty-two dollars.",
+   "start": 117.843,
+   "end": 125.027
+  },
+  {
+   "id": "S07.1",
+   "scene": "S07",
+   "text": "In Tessa's world, that price is a stack of bills beside her house: the stack is what keeping the fallback costs.",
+   "spoken": "In Tessa's world, that price is a stack of bills beside her house: the stack is what keeping the fallback costs.",
+   "start": 126.233,
+   "end": 133.273
+  },
+  {
+   "id": "S07.2",
+   "scene": "S07",
+   "text": "It exists because the 30-year carries a higher rate on the same balance: on October eighth, 0.67 point higher.",
+   "spoken": "It exists because the thirty-year carries a higher rate on the same balance: on October eighth, zero point six seven point higher.",
+   "start": 133.486,
+   "end": 142.953
+  },
+  {
+   "id": "S08.1",
+   "scene": "S08",
+   "text": "Paid on its own 30-year schedule, her loan would charge $477,622 in interest.",
+   "spoken": "Paid on its own thirty-year schedule, her loan would charge four hundred seventy-seven thousand six hundred twenty-two dollars in interest.",
+   "start": 143.967,
+   "end": 152.927
+  },
+  {
+   "id": "S08.2",
+   "scene": "S08",
+   "text": "Paid in 15 years, it charges $210,691.",
+   "spoken": "Paid in fifteen years, it charges two hundred ten thousand six hundred ninety-one dollars.",
+   "start": 153.167,
+   "end": 160.047
+  },
+  {
+   "id": "S09.1",
+   "scene": "S09",
+   "text": "The 15-year loan charges $189,069, and the difference between those last two totals is exactly the stack.",
+   "spoken": "The fifteen-year loan charges one hundred eighty-nine thousand sixty-nine dollars, and the difference between those last two totals is exactly the stack.",
+   "start": 161.033,
+   "end": 170.713
+  },
+  {
+   "id": "S09.2",
+   "scene": "S09",
+   "text": "So the 30-year paid in 15 isn't the same loan as the 15-year: it's the 15-year plus a fallback, and the fallback has a price.",
+   "spoken": "So the thirty-year paid in fifteen isn't the same loan as the fifteen-year: it's the fifteen-year plus a fallback, and the fallback has a price.",
+   "start": 171.06,
+   "end": 182.473
+  },
+  {
+   "id": "S09.3",
+   "scene": "S09",
+   "text": "Is Tessa's stack a normal price for that fallback, or is the week of October eighth unusual?",
+   "spoken": "Is Tessa's stack a normal price for that fallback, or is the week of October eighth unusual?",
+   "start": 182.953,
+   "end": 190.553
+  },
+  {
+   "id": "S10.1",
+   "scene": "S10",
+   "text": "Many walk-throughs of this question use one assumed rate and treat paying early as the obvious win.",
+   "spoken": "Many walk-throughs of this question use one assumed rate and treat paying early as the obvious win.",
+   "start": 192.067,
+   "end": 198.387
+  },
+  {
+   "id": "S10.2",
+   "scene": "S10",
+   "text": "Here, a real 15-year loan stands next to the 30-year paid in 15, at the real rates of every week since 1991.",
+   "spoken": "Here, a real fifteen-year loan stands next to the thirty-year paid in fifteen, at the real rates of every week since nineteen ninety-one.",
+   "start": 198.627,
+   "end": 209.027
+  },
+  {
+   "id": "S10.3",
+   "scene": "S10",
+   "text": "We priced the same $320,000 both ways in each of 1,833 weeks, at that week's own survey rates; how it was built is on screen and in the description.",
+   "spoken": "We priced the same three hundred twenty thousand dollars both ways in each of one thousand eight hundred thirty-three weeks, at that week's own survey rates; how it was built is on screen and in the description.",
+   "start": 209.347,
+   "end": 224.547
+  },
+  {
+   "id": "S10.4",
+   "scene": "S10",
+   "text": "Tessa's week is the last of them, and in every earlier week we asked her question: what would the fallback have cost then?",
+   "spoken": "Tessa's week is the last of them, and in every earlier week we asked her question: what would the fallback have cost then?",
+   "start": 225.307,
+   "end": 234.787
+  },
+  {
+   "id": "S11.1",
+   "scene": "S11",
+   "text": "The answer comes down to one thing: how far the 30-year rate sits above the 15-year.",
+   "spoken": "The answer comes down to one thing: how far the thirty-year rate sits above the fifteen-year.",
+   "start": 235.8,
+   "end": 242.48
+  },
+  {
+   "id": "S11.2",
+   "scene": "S11",
+   "text": "Since 1991, that gap has run from 0.2 point to 1.0 point.",
+   "spoken": "Since nineteen ninety-one, that gap has run from zero point two point to one point zero point.",
+   "start": 242.553,
+   "end": 249.0
+  },
+  {
+   "id": "S12.1",
+   "scene": "S12",
+   "text": "It averaged 0.57 point, and was at least half a point in about 2 in 3 weeks.",
+   "spoken": "It averaged zero point five seven point, and was at least half a point in about two in three weeks.",
+   "start": 250.2,
+   "end": 256.6
+  },
+  {
+   "id": "S12.2",
+   "scene": "S12",
+   "text": "Tessa's gap on October eighth sits a little above that average.",
+   "spoken": "Tessa's gap on October eighth sits a little above that average.",
+   "start": 257.0,
+   "end": 261.32
+  },
+  {
+   "id": "S13.1",
+   "scene": "S13",
+   "text": "Stand a stack beside every week, and the stacks rise and fall with that gap.",
+   "spoken": "Stand a stack beside every week, and the stacks rise and fall with that gap.",
+   "start": 262.333,
+   "end": 267.613
+  },
+  {
+   "id": "S13.2",
+   "scene": "S13",
+   "text": "The smallest was $6,097.",
+   "spoken": "The smallest was six thousand ninety-seven dollars.",
+   "start": 267.633,
+   "end": 270.493
+  },
+  {
+   "id": "S14.1",
+   "scene": "S14",
+   "text": "The tallest was $29,502.",
+   "spoken": "The tallest was twenty-nine thousand five hundred two dollars.",
+   "start": 271.5,
+   "end": 275.5
+  },
+  {
+   "id": "S15.1",
+   "scene": "S15",
+   "text": "The typical week, the median, priced the fallback at $16,631.",
+   "spoken": "The typical week, the median, priced the fallback at sixteen thousand six hundred thirty-one dollars.",
+   "start": 276.5,
+   "end": 282.58
+  },
+  {
+   "id": "S15.2",
+   "scene": "S15",
+   "text": "Fewer than 1 in 5 weeks since 1991 put a price this high on it.",
+   "spoken": "[serious] Fewer than one in five weeks since nineteen ninety-one put a price this high on it.",
+   "start": 283.22,
+   "end": 288.18
+  },
+  {
+   "id": "S15.3",
+   "scene": "S15",
+   "text": "That makes Tessa's fallback expensive by history.",
+   "spoken": "That makes Tessa's fallback expensive by history.",
+   "start": 288.356,
+   "end": 291.54
+  },
+  {
+   "id": "S15.4",
+   "scene": "S15",
+   "text": "What a lower payment is worth in a bad month, this replay can't measure.",
+   "spoken": "What a lower payment is worth in a bad month, this replay can't measure.",
+   "start": 291.684,
+   "end": 296.18
+  },
+  {
+   "id": "S16.1",
+   "scene": "S16",
+   "text": "Line the weeks up by decade, and the pattern is not the one most people expect.",
+   "spoken": "Line the weeks up by decade, and the pattern is not the one most people expect.",
+   "start": 297.167,
+   "end": 301.327
+  },
+  {
+   "id": "S16.2",
+   "scene": "S16",
+   "text": "In the 1990s, the typical fallback cost $15,118.",
+   "spoken": "In the 1990s, the typical fallback cost fifteen thousand one hundred eighteen dollars.",
+   "start": 301.62,
+   "end": 307.247
+  },
+  {
+   "id": "S17.1",
+   "scene": "S17",
+   "text": "In the 2000s, with lower rates, it cost about the same: $14,210.",
+   "spoken": "In the 2000s, with lower rates, it cost about the same: fourteen thousand two hundred ten dollars.",
+   "start": 308.233,
+   "end": 315.593
+  },
+  {
+   "id": "S18.1",
+   "scene": "S18",
+   "text": "In the 2010s, rates were far lower, yet the fallback cost more: $20,374.",
+   "spoken": "In the 2010s, rates were far lower, yet the fallback cost more: twenty thousand three hundred seventy-four dollars.",
+   "start": 316.6,
+   "end": 324.36
+  },
+  {
+   "id": "S19.1",
+   "scene": "S19",
+   "text": "The reason is the gap: in the 2010s and 2020s it typically ran about 0.7 point, against about 0.45 in the 1990s and 2000s.",
+   "spoken": "The reason is the gap: in the 2010s and 2020s it typically ran about zero point seven point, against about zero point four five in the 1990s and 2000s.",
+   "start": 325.367,
+   "end": 337.607
+  },
+  {
+   "id": "S19.2",
+   "scene": "S19",
+   "text": "A lower rate didn't mean a cheaper fallback; a wider gap meant a pricier one.",
+   "spoken": "A lower rate didn't mean a cheaper fallback; a wider gap meant a pricier one.",
+   "start": 337.967,
+   "end": 344.167
+  },
+  {
+   "id": "S20.1",
+   "scene": "S20",
+   "text": "Since 2020, the typical week priced it at $21,345, close to Tessa's own stack.",
+   "spoken": "Since twenty twenty, the typical week priced it at twenty-one thousand three hundred forty-five dollars, close to Tessa's own stack.",
+   "start": 345.167,
+   "end": 353.247
+  },
+  {
+   "id": "S20.2",
+   "scene": "S20",
+   "text": "That's history, not a forecast: the gap has moved before, and nothing here says where it goes.",
+   "spoken": "That's history, not a forecast: the gap has moved before, and nothing here says where it goes.",
+   "start": 353.471,
+   "end": 360.607
+  },
+  {
+   "id": "S21.1",
+   "scene": "S21",
+   "text": "Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day.",
+   "spoken": "Back to Tessa's own loan, and a shortcut many people reach for: pay the thirty-year exactly what the fifteen-year would cost, and assume it ends on the same day.",
+   "start": 361.6,
+   "end": 371.76
+  },
+  {
+   "id": "S21.2",
+   "scene": "S21",
+   "text": "At the October eighth rates, it doesn't: it ends about 15 months late.",
+   "spoken": "At the October eighth rates, it doesn't: it ends about fifteen months late.",
+   "start": 371.973,
+   "end": 377.2
+  },
+  {
+   "id": "S21.3",
+   "scene": "S21",
+   "text": "To finish in 15 years, she'd add $733 a month on top of the required payment.",
+   "spoken": "To finish in fifteen years, she'd add seven hundred thirty-three dollars a month on top of the required payment.",
+   "start": 377.387,
+   "end": 384.32
+  },
+  {
+   "id": "S22.1",
+   "scene": "S22",
+   "text": "That extra never lowers what the loan requires: the required payment stays where it was, and the loan simply ends sooner.",
+   "spoken": "That extra never lowers what the loan requires: the required payment stays where it was, and the loan simply ends sooner.",
+   "start": 385.333,
+   "end": 392.773
+  },
+  {
+   "id": "S22.2",
+   "scene": "S22",
+   "text": "Each extra dollar does cut the next month's interest; the payment just stays fixed, so more of it goes to principal.",
+   "spoken": "Each extra dollar does cut the next month's interest; the payment just stays fixed, so more of it goes to principal.",
+   "start": 392.965,
+   "end": 400.293
+  },
+  {
+   "id": "S22.3",
+   "scene": "S22",
+   "text": "That's why the fallback is still there years later, if a month goes wrong.",
+   "spoken": "That's why the fallback is still there years later, if a month goes wrong.",
+   "start": 400.405,
+   "end": 404.373
+  },
+  {
+   "id": "S23.1",
+   "scene": "S23",
+   "text": "Tessa has another practical question: could she send the extra once a year instead of every month?",
+   "spoken": "Tessa has another practical question: could she send the extra once a year instead of every month?",
+   "start": 405.367,
+   "end": 410.807
+  },
+  {
+   "id": "S23.2",
+   "scene": "S23",
+   "text": "That's one payment a year, the same total as the monthly extra.",
+   "spoken": "That's one payment a year, the same total as the monthly extra.",
+   "start": 410.935,
+   "end": 414.327
+  },
+  {
+   "id": "S23.3",
+   "scene": "S23",
+   "text": "Paid that way, the loan ends four months later.",
+   "spoken": "Paid that way, the loan ends four months later.",
+   "start": 414.471,
+   "end": 417.367
+  },
+  {
+   "id": "S24.1",
+   "scene": "S24",
+   "text": "And it charges about $8,200 more in interest, because each dollar sits on the balance longer before it arrives.",
+   "spoken": "And it charges about eight thousand two hundred dollars more in interest, because each dollar sits on the balance longer before it arrives.",
+   "start": 418.367,
+   "end": 426.687
+  },
+  {
+   "id": "S24.2",
+   "scene": "S24",
+   "text": "That isn't a verdict on paying yearly: the money stays in her account longer, and what it earns there isn't counted.",
+   "spoken": "That isn't a verdict on paying yearly: the money stays in her account longer, and what it earns there isn't counted.",
+   "start": 426.879,
+   "end": 434.487
+  },
+  {
+   "id": "S24.3",
+   "scene": "S24",
+   "text": "Which leaves the question underneath all of this: when Tessa puts an extra dollar into the mortgage, what does it actually earn?",
+   "spoken": "Which leaves the question underneath all of this: when Tessa puts an extra dollar into the mortgage, what does it actually earn?",
+   "start": 434.587,
+   "end": 442.687
+  },
+  {
+   "id": "S25.1",
+   "scene": "S25",
+   "text": "Every extra dollar of principal stops interest from being charged on that dollar, at the loan's own rate.",
+   "spoken": "Every extra dollar of principal stops interest from being charged on that dollar, at the loan's own rate.",
+   "start": 444.2,
+   "end": 451.0
+  },
+  {
+   "id": "S25.2",
+   "scene": "S25",
+   "text": "On Tessa's 30-year, that's 7.4 percent a year, before taxes.",
+   "spoken": "On Tessa's thirty-year, that's seven point four percent a year, before taxes.",
+   "start": 451.48,
+   "end": 456.84
+  },
+  {
+   "id": "S25.3",
+   "scene": "S25",
+   "text": "It isn't an investment return; it's interest she no longer pays.",
+   "spoken": "It isn't an investment return; it's interest she no longer pays.",
+   "start": 457.107,
+   "end": 462.2
+  },
+  {
+   "id": "S25.4",
+   "scene": "S25",
+   "text": "That rate is the bar any other use of that dollar gets measured against, before taxes.",
+   "spoken": "That rate is the bar any other use of that dollar gets measured against, before taxes.",
+   "start": 462.424,
+   "end": 468.52
+  },
+  {
+   "id": "S25.5",
+   "scene": "S25",
+   "text": "How any investment compares, once risk and taxes count, isn't tested here.",
+   "spoken": "How any investment compares, once risk and taxes count, isn't tested here.",
+   "start": 468.74,
+   "end": 474.28
+  },
+  {
+   "id": "S26.1",
+   "scene": "S26",
+   "text": "The bar moves with the rate a loan was taken at.",
+   "spoken": "The bar moves with the rate a loan was taken at.",
+   "start": 475.267,
+   "end": 477.827
+  },
+  {
+   "id": "S26.2",
+   "scene": "S26",
+   "text": "Since 1991, it has stood as high as 9.25 percent.",
+   "spoken": "Since nineteen ninety-one, it has stood as high as nine point two five percent.",
+   "start": 477.934,
+   "end": 483.027
+  },
+  {
+   "id": "S27.1",
+   "scene": "S27",
+   "text": "And as low as 2.65 percent.",
+   "spoken": "And as low as two point six five percent.",
+   "start": 484.033,
+   "end": 486.993
+  },
+  {
+   "id": "S28.1",
+   "scene": "S28",
+   "text": "Only about 1 week in 5 had a bar as high as Tessa's.",
+   "spoken": "Only about one week in five had a bar as high as Tessa's.",
+   "start": 488.0,
+   "end": 491.76
+  },
+  {
+   "id": "S29.1",
+   "scene": "S29",
+   "text": "Leo, also illustrative, took a 30-year loan of the same size in January 2021, the week of that lowest rate, and paid it like a 15-year too.",
+   "spoken": "Leo, also illustrative, took a thirty-year loan of the same size in January twenty twenty-one, the week of that lowest rate, and paid it like a fifteen-year too.",
+   "start": 492.767,
+   "end": 502.447
+  },
+  {
+   "id": "S29.2",
+   "scene": "S29",
+   "text": "His fallback was cheaper: $13,231 over 15 years.",
+   "spoken": "His fallback was cheaper: thirteen thousand two hundred thirty-one dollars over fifteen years.",
+   "start": 502.647,
+   "end": 509.487
+  },
+  {
+   "id": "S30.1",
+   "scene": "S30",
+   "text": "And it left him more room: his required payment sat about $793 a month below the 15-year's.",
+   "spoken": "And it left him more room: his required payment sat about seven hundred ninety-three dollars a month below the fifteen-year's.",
+   "start": 510.5,
+   "end": 518.1
+  },
+  {
+   "id": "S30.2",
+   "scene": "S30",
+   "text": "But his bar was 2.65 percent: each extra dollar he paid earned only that, before taxes.",
+   "spoken": "But his bar was two point six five percent: each extra dollar he paid earned only that, before taxes.",
+   "start": 518.34,
+   "end": 527.22
+  },
+  {
+   "id": "S30.3",
+   "scene": "S30",
+   "text": "Same plan, a different week, and it means something else.",
+   "spoken": "[thoughtful] Same plan, a different week, and it means something else.",
+   "start": 527.94,
+   "end": 532.26
+  },
+  {
+   "id": "S30.4",
+   "scene": "S30",
+   "text": "For Leo, the stack was short and the bar was low; for Tessa, the stack is tall and the bar is high.",
+   "spoken": "For Leo, the stack was short and the bar was low; for Tessa, the stack is tall and the bar is high.",
+   "start": 532.46,
+   "end": 541.86
+  },
+  {
+   "id": "S31.1",
+   "scene": "S31",
+   "text": "Any fixed-rate borrower can set their own pair beside hers.",
+   "spoken": "Any fixed-rate borrower can set their own pair beside hers.",
+   "start": 542.867,
+   "end": 546.387
+  },
+  {
+   "id": "S31.2",
+   "scene": "S31",
+   "text": "The bar is that loan's own rate, printed on the paperwork, and the stack depends on how far apart the 15-year and 30-year offers sit that week.",
+   "spoken": "The bar is that loan's own rate, printed on the paperwork, and the stack depends on how far apart the fifteen-year and thirty-year offers sit that week.",
+   "start": 546.527,
+   "end": 556.747
+  },
+  {
+   "id": "S31.3",
+   "scene": "S31",
+   "text": "The bar isn't the whole story: a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for.",
+   "spoken": "The bar isn't the whole story: a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for.",
+   "start": 556.857,
+   "end": 566.147
+  },
+  {
+   "id": "S32.1",
+   "scene": "S32",
+   "text": "What this leaves out is on the method card and in the description.",
+   "spoken": "What this leaves out is on the method card and in the description.",
+   "start": 567.134,
+   "end": 570.813
+  },
+  {
+   "id": "S32.2",
+   "scene": "S32",
+   "text": "This is US only, and it's history, not a forecast; it doesn't say which loan to take.",
+   "spoken": "This is U.S. only, and it's history, not a forecast; it doesn't say which loan to take.",
+   "start": 570.942,
+   "end": 576.413
+  },
+  {
+   "id": "S33.1",
+   "scene": "S33",
+   "text": "Beside Tessa's house now stand a tall stack and a high bar.",
+   "spoken": "Beside Tessa's house now stand a tall stack and a high bar.",
+   "start": 577.4,
+   "end": 581.4
+  },
+  {
+   "id": "S33.2",
+   "scene": "S33",
+   "text": "She asked: a 15-year, or a 30-year paid in 15?",
+   "spoken": "She asked: a fifteen-year, or a thirty-year paid in fifteen?",
+   "start": 581.6,
+   "end": 586.52
+  },
+  {
+   "id": "S33.3",
+   "scene": "S33",
+   "text": "What she now knows: the 30-year paid in 15 is the 15-year plus a fallback, and at the rates of the week of October eighth, 2026, that fallback costs her $120 a month.",
+   "spoken": "[thoughtful] What she now knows: the thirty-year paid in fifteen is the fifteen-year plus a fallback, and at the rates of the week of October eighth, twenty twenty-six, that fallback costs her one hundred twenty dollars a month.",
+   "start": 587.28,
+   "end": 605.24
+  }
+ ]
+}

@@ -1,0 +1,311 @@
+{
+ "fps": 30,
+ "total": 606.7335,
+ "acts": [
+  {
+   "id": "cold-open",
+   "start": 0.0,
+   "end": 51.9334
+  },
+  {
+   "id": "ident",
+   "start": 51.9334,
+   "end": 54.9334
+  },
+  {
+   "id": "act1",
+   "start": 54.9334,
+   "end": 192.0667
+  },
+  {
+   "id": "act2",
+   "start": 192.0667,
+   "end": 444.2
+  },
+  {
+   "id": "act3",
+   "start": 444.2,
+   "end": 567.1335
+  },
+  {
+   "id": "limits",
+   "start": 567.1335,
+   "end": 606.7335
+  }
+ ],
+ "scenes": [
+  {
+   "id": "S01",
+   "start": 0.0,
+   "dur": 11.8,
+   "end": 11.8,
+   "world": null,
+   "act": "cold-open"
+  },
+  {
+   "id": "S02",
+   "start": 11.8,
+   "dur": 18.2667,
+   "end": 30.0667,
+   "world": null,
+   "act": "cold-open"
+  },
+  {
+   "id": "S03",
+   "start": 30.0667,
+   "dur": 21.8667,
+   "end": 51.9334,
+   "world": null,
+   "act": "cold-open"
+  },
+  {
+   "id": "IDENT",
+   "start": 51.9334,
+   "dur": 3.0,
+   "end": 54.9334,
+   "world": null,
+   "act": "ident"
+  },
+  {
+   "id": "S04",
+   "start": 54.9334,
+   "dur": 17.8,
+   "end": 72.7334,
+   "world": null,
+   "act": "act1"
+  },
+  {
+   "id": "S05",
+   "start": 72.7334,
+   "dur": 26.5333,
+   "end": 99.2667,
+   "world": null,
+   "act": "act1"
+  },
+  {
+   "id": "S06",
+   "start": 99.2667,
+   "dur": 26.9667,
+   "end": 126.2334,
+   "world": null,
+   "act": "act1"
+  },
+  {
+   "id": "S07",
+   "start": 126.2334,
+   "dur": 17.7333,
+   "end": 143.9667,
+   "world": null,
+   "act": "act1"
+  },
+  {
+   "id": "S08",
+   "start": 143.9667,
+   "dur": 17.0667,
+   "end": 161.0334,
+   "world": null,
+   "act": "act1"
+  },
+  {
+   "id": "S09",
+   "start": 161.0334,
+   "dur": 31.0333,
+   "end": 192.0667,
+   "world": null,
+   "act": "act1"
+  },
+  {
+   "id": "S10",
+   "start": 192.0667,
+   "dur": 43.7333,
+   "end": 235.8,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S11",
+   "start": 235.8,
+   "dur": 14.4,
+   "end": 250.2,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S12",
+   "start": 250.2,
+   "dur": 12.1333,
+   "end": 262.3333,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S13",
+   "start": 262.3333,
+   "dur": 9.1667,
+   "end": 271.5,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S14",
+   "start": 271.5,
+   "dur": 5.0,
+   "end": 276.5,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S15",
+   "start": 276.5,
+   "dur": 20.6667,
+   "end": 297.1667,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S16",
+   "start": 297.1667,
+   "dur": 11.0667,
+   "end": 308.2334,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S17",
+   "start": 308.2334,
+   "dur": 8.3667,
+   "end": 316.6001,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S18",
+   "start": 316.6001,
+   "dur": 8.7667,
+   "end": 325.3668,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S19",
+   "start": 325.3668,
+   "dur": 19.8,
+   "end": 345.1668,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S20",
+   "start": 345.1668,
+   "dur": 16.4333,
+   "end": 361.6001,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S21",
+   "start": 361.6001,
+   "dur": 23.7333,
+   "end": 385.3334,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S22",
+   "start": 385.3334,
+   "dur": 20.0333,
+   "end": 405.3667,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S23",
+   "start": 405.3667,
+   "dur": 13.0,
+   "end": 418.3667,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S24",
+   "start": 418.3667,
+   "dur": 25.8333,
+   "end": 444.2,
+   "world": null,
+   "act": "act2"
+  },
+  {
+   "id": "S25",
+   "start": 444.2,
+   "dur": 31.0667,
+   "end": 475.2667,
+   "world": null,
+   "act": "act3"
+  },
+  {
+   "id": "S26",
+   "start": 475.2667,
+   "dur": 8.7667,
+   "end": 484.0334,
+   "world": null,
+   "act": "act3"
+  },
+  {
+   "id": "S27",
+   "start": 484.0334,
+   "dur": 3.9667,
+   "end": 488.0001,
+   "world": null,
+   "act": "act3"
+  },
+  {
+   "id": "S28",
+   "start": 488.0001,
+   "dur": 4.7667,
+   "end": 492.7668,
+   "world": null,
+   "act": "act3"
+  },
+  {
+   "id": "S29",
+   "start": 492.7668,
+   "dur": 17.7333,
+   "end": 510.5001,
+   "world": null,
+   "act": "act3"
+  },
+  {
+   "id": "S30",
+   "start": 510.5001,
+   "dur": 32.3667,
+   "end": 542.8668,
+   "world": null,
+   "act": "act3"
+  },
+  {
+   "id": "S31",
+   "start": 542.8668,
+   "dur": 24.2667,
+   "end": 567.1335,
+   "world": null,
+   "act": "act3"
+  },
+  {
+   "id": "S32",
+   "start": 567.1335,
+   "dur": 10.2667,
+   "end": 577.4002,
+   "world": null,
+   "act": "limits"
+  },
+  {
+   "id": "S33",
+   "start": 577.4002,
+   "dur": 29.3333,
+   "end": 606.7335,
+   "world": null,
+   "act": "limits"
+  }
+ ],
+ "world": []
+}

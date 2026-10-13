@@ -98,8 +98,7 @@ world:    # D-010: bảy đoạn thế giới phủ cả tập (ranh giới: ide
   - {id: e-s21-s24, dir: world/c4/e-s21-s24, scenes: [S21, S22, S23, S24]}
   - {id: f-s25-s28, dir: world/c4/f-s25-s28, scenes: [S25, S26, S27, S28]}
   - {id: g-s29-s33, dir: world/c4/g-s29-s33, scenes: [S29, S30, S31, S32, S33]}
-shorts:   # nháp C4: dựng lại 1080×1920 từ MỘT đoạn thế giới (F-9; Short vắt hai đoạn → đường 2D cũ, nên B01+B06 không ghép được: SH1 = B06–B07
+shorts:   # SH3 bỏ theo chủ dự án 13/10 (S25 dọc > 2 h/lượt, chốt C3 câu 5 trượt; bản thay B33 cũng bỏ) · nháp C4: dựng lại 1080×1920 từ MỘT đoạn thế giới (F-9; Short vắt hai đoạn → đường 2D cũ, nên B01+B06 không ghép được: SH1 = B06–B07
           # trong đoạn b); móc một dòng ≤ 26 ký tự, không chữ số — SH06 đo trên spec (Inter Bold 64 px, rộng an toàn 936 px): xem c4/BRIEF-build.md
   - {id: SH1, from: "@S06.1", to: "@S07.1$", hook: "The price of a fallback", end: "Full episode on the channel"}       # B06–B07: thanh dâng, lát bay thành the stack (đoạn b)
   - {id: SH2, from: "@S30.1", to: "@S30.4$", hook: "Same plan, different week", end: "Full episode on the channel"}     # B30 (C5: thay B21 — S21 render dọc > 2 h/lượt, nhịp B21 còn trượt CHÍNH): Leo vs Tessa, đoạn g
-  - {id: SH3, from: "@S33.1", to: "@S33.3$", hook: "What her fallback costs", end: "Full episode on the channel"}     # B33 (C5: thay B25 — S25 render dọc > 2 h/lượt, chốt C3 câu 5 còn trượt): Tessa, the stack + the bar, thẻ nhập
