@@ -16,3 +16,6 @@ Bộ lấy mẫu trang chạy 2 lượt (trần 2 h, `RESUME=1`) + luật Python
 | REG | MISSING (không có báo cáo nền) | thủ tục: chạy `--first` hoặc `--baseline` |
 
 CHÍNH mới (page): V08 (1 mẫu tương phản 1,01), V09 (nhân vật khai báo không thấy = 0), V11 (285 va chạm chữ), V12 (17 mẫu NCC < 0,97), L1 (tỉ lệ lời/dữ liệu 1–4 kHz).
+
+## Quyết định chủ dự án 13/10 (AskUserQuestion)
+**"Giao, chấp nhận + khiếu nại"**: giao bản G2 nguyên hình/lời, không render lại. C07, S02, S07, S09 chấp nhận có ý thức; khiếu nại **A35** (S02 nhận diện thẻ), **A36** (S07 đăng ký số trong lời), **A37** (S09 cơ sở tiền) → lô K Tập 8; **C07** (cột S09 tràn khung, hình thật) → tổng kết Tập 7. REG, CHÍNH trang (V08, V09, V11, V12, L1) ghi báo.
