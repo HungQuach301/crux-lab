@@ -69,7 +69,7 @@ Cảnh báo (không chặn):
 
 S01.1 {hook} It's September 2026, and Nina pays rent again. <!-- claims: rate_month_latest -->
 S01.2 {question} [worried] Is her rent money wasted? <!-- claims: —; hold: 0.6 -->
-S01.3 {hook} She has saved enough for the down payment and the closing costs on a $400,000 home. <!-- claims: price -->
+S01.3 {hook} She has saved enough for the down payment and the closing costs on a home priced at $400,000. <!-- claims: price -->
 
 ## S02 — The promise
 
@@ -113,7 +113,7 @@ S06.4 One thing can't come from that record: the rent level the renting twin sta
 ## S07 — The rent tag
 
 S07.1 So it hangs on the apartment door as a tag: a starting rent of 5 percent of the home's price a year. <!-- claims: yield_anchor_pct -->
-S07.2 On a $400,000 home, that's $1,667 a month today, carried back through history with the government's rent index. <!-- claims: price, today_rent_month1 -->
+S07.2 On a home priced at $400,000, that's $1,667 a month today, carried back through history with the government's rent index. <!-- claims: price, today_rent_month1 -->
 S07.3 The tag matters because the rent decides how much the renting twin sets aside each month, and so how big that cash pile grows. <!-- claims: — -->
 S07.4 Later, the tag turns, and the answer turns with it. <!-- claims: —; hold: 1.5 -->
 
