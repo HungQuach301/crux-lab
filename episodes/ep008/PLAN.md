@@ -3,7 +3,7 @@
 **Nhánh:** `ep008` · **Đề tài:** #20 `topics-r2/machine/rent-buy-1` · **Format:** `lab` (F-14 v4 trượt; f14 opt-in khai `episode.yaml`) · **Phiên vừa đóng:** P1 (`session_01PgYotX9apRQ11gZoym31kJ`) — **dừng ở G1**
 
 ## 1. Trạng thái
-**G1 chờ chủ dự án** (`gates/G1.md`, issue `[G1] Tập 8`). Việc 0: 4/4 SHA, model 76/76, độc lập 49/49; điều kiện G1 lô (tỉ lệ thuê/giá) ĐẠT — Census HVS 4,83–5,59 % (chờ mở PDF xác minh) + độ nhạy. C1 L1 3/3. C2 v2 kiểm mù 6/6, 0 khuyên ("khác" 2/6 → chủ dự án). M1–M6 ĐẠT trên bản đọc thật; ước 9:49; 2 mid-roll. Tiền kỳ: tầm nhìn, bản đồ liền mạch, 5 vật mới (N1, N2 ĐẠT; N3, N4, N5 trượt 2 vòng → G1 trước/sau). REVIEWER G1: ĐẠT có sửa (đã sửa).
+**G1 chờ chủ dự án** (`gates/G1.md`, issue [HungQuach301/crux-lab#55](https://github.com/HungQuach301/crux-lab/issues/55)). Việc 0: 4/4 SHA, model 76/76, độc lập 49/49; điều kiện G1 lô (tỉ lệ thuê/giá) ĐẠT — Census HVS 4,83–5,59 % (chờ mở PDF xác minh) + độ nhạy. C1 L1 3/3. C2 v2 kiểm mù 6/6, 0 khuyên ("khác" 2/6 → chủ dự án). M1–M6 ĐẠT trên bản đọc thật; ước 9:49; 2 mid-roll. Tiền kỳ: tầm nhìn, bản đồ liền mạch, 5 vật mới (N1, N2 ĐẠT; N3, N4, N5 trượt 2 vòng → G1 trước/sau). REVIEWER G1: ĐẠT có sửa (đã sửa).
 
 ## 2. Việc tiếp (≤ 3) và việc treo
 1. P2: chép G1 → `gates/G1-answer.md`; ghi `taste-ledger.md`, `AUTHORSHIP.md`, ledger; áp (N5, N4 nhãn, N1 lưới, "khác" 2/6, tiêu đề).
@@ -34,7 +34,7 @@
 
 ## 7. Prompt phiên kế (D-011)
 ```
-Chạy Tập 8, phiên P2 (C3 hình mới). Nhánh ep008 (@ <sha cuối P1>). Mở bằng `bash toolkit/verify.sh ep008`; đọc mục 6 của episodes/ep008/PLAN.md.
+Chạy Tập 8, phiên P2 (C3 hình mới). Nhánh ep008 (@ d17122a hoặc mới hơn). Mở bằng `bash toolkit/verify.sh ep008`; đọc mục 6 của episodes/ep008/PLAN.md.
 Gói đã gửi: episodes/ep008/gates/G1.md. Việc đầu tiên: chép câu trả lời dưới đây vào episodes/ep008/gates/G1-answer.md; ghi taste-ledger.md, AUTHORSHIP.md, ledger; đọc 4 số token P1 (PLAN §5 chú thích ¹); commit, push.
 Luật tạm 13/10 vẫn áp (≤ 2 vòng mỗi lỗi, footage ≤ 15 %, headless khoá Console, 0 agent con, dừng tiến trình bằng PID, push sau mỗi bước lớn).
 Chặng này: áp G1 → C3 (clip có chuyển động và âm) → dừng ở C3 (đóng phiên theo playbook/prompts/RUN.md "Đóng phiên").
