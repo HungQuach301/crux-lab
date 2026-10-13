@@ -2882,7 +2882,39 @@ def f11_no_thumbs_case(bad):
         f.close()
 
 
-EXTRA.update({'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
+def f11_thumbs_declared_case(bad):
+    """F11 (A38): contract.json package.thumbnails = 2 (Tập 7: the owner asked for two) → thumb-1, thumb-2 suffice in Episode 7; bad = only thumb-1."""
+    import r_file
+    f = F('F11-thumbs-declared')
+    try:
+        f.json('out/timeline.json', {'total': 60.0, 'scenes': []})
+        f.json('out/factory/build-report.json', {'steps': {'resolve': {'total': 60.0}}})
+        f.json('contract.json', {'episode': 'ep007', 'format': 'lab', 'package': {'thumbnails': 2}})
+        for x in r_file.FACTORY_CORE:
+            if x not in r_file.THUMBS and not os.path.exists(f.p(x)):
+                f.text(x.replace('.*', '.flac'), 'x')
+        for x in r_file.THUMBS[:1 if bad else 2]:
+            f.text(x, 'x')
+        return f.run('F11')
+    finally:
+        f.close()
+
+
+def p01_none_case(bad):
+    """P01 (A38): Episode 8 with no thumbnail passes with a note; bad = the same tree in Episode 7 with package.thumbnails 1 and a 640×360 thumb-1."""
+    f = F('P01-none')
+    try:
+        f.json('contract.json', {'episode': 'ep007', 'package': {'thumbnails': 1}} if bad else {'episode': 'ep008'})
+        f.json('design/tokens.json', {'colors': {'bg': '#000000', 'grid': '#222222', 'muted': '#888888'}})
+        if bad:
+            f.ff('-f', 'lavfi', '-i', 'color=c=black:s=640x360', '-frames:v', '1', f.p('out/package/thumb-1.png'))
+            f.json('out/package/thumb-1.json', {'texts': []})
+        return f.run('P01')
+    finally:
+        f.close()
+
+
+EXTRA.update({'F11/package-thumbnails': f11_thumbs_declared_case, 'P01/none': p01_none_case, 'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
 
 
 # ---- K4.4: quyền footage ngoài (F13 CHẶN, F15 CHÍNH; chủ dự án 13/10) -------------------------------------------------------------------------------

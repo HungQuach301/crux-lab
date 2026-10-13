@@ -251,17 +251,28 @@ FACTORY_CORE = ['out/video.mp4', 'out/captions.srt', 'out/package/description.md
 THUMBS = ['out/package/thumb-1.png', 'out/package/thumb-2.png', 'out/package/thumb-3.png']
 
 
-def no_thumbs(ctx):
-    """K4.4 (chủ dự án 13/10/2026): no thumbnail in the delivery from Episode 8 (contract.json episode number); earlier episodes keep it."""
+def thumbs_required(ctx):
+    """K4.4 (chủ dự án 13/10/2026; checks-appeal A38): how many thumbnails the delivery holds — contract.json package.thumbnails when declared,
+    else 0 from Episode 8 (contract.json episode number) and 3 before. The release list then needs out/package/thumb-1..N.png."""
     from common import ONE_SHORT_FROM
-    return (ctx.episode_no() or 0) >= ONE_SHORT_FROM
+    try:
+        n = (ctx.contract().get('package') or {}).get('thumbnails')
+    except Missing:
+        n = None
+    if isinstance(n, int) and 0 <= n <= 3:
+        return n
+    return 0 if (ctx.episode_no() or 0) >= ONE_SHORT_FROM else 3
+
+
+def no_thumbs(ctx):
+    return thumbs_required(ctx) < 3
 
 
 def factory_release(ctx):
     """The release list of a factory build, from out/factory/build-report.json (+ out/factory/splice.json for world segments)."""
     br = ctx.json('out/factory/build-report.json')
     st = br.get('steps') or {}
-    req = [r for r in FACTORY_CORE if not (no_thumbs(ctx) and r in THUMBS)]
+    req = [r for r in FACTORY_CORE if r not in THUMBS[thumbs_required(ctx):]]
     for seg in ((st.get('mix') or {}).get('world') or {}).get('segments') or []:
         req += [f'out/audio/stems/{k}.*' for k in (seg.get('layers_rms_dbfs') or {})]
     a = st.get('artefacts') or {}
@@ -314,8 +325,8 @@ def _repo_path(ctx, rel):
 @rule('F11', 'CH §4 khâu 3 (hợp đồng tập, K2; K4.1: danh sách của nhà máy, checks-appeal A10, A16)', 'factory build (out/factory/build-report.json present and its resolved total = out/timeline.json total ±0.5 s; an excerpt does not count): the release list '
       'is factory_release — FACTORY_CORE, every stem the mix wrote (steps.mix.world.segments[].layers_rms_dbfs), out/camera.json / out/sonify-events.json / out/page.json '
       'when the artefacts step made them, and per spliced world segment (out/factory/splice.json) its video and build_seg products (.build.json, .verify.json, .log.json); '
-      'each must match ≥ 1 file (globs; a factory path may be relative to the repository); contract.json artefacts.M3 is reported, not required. K4.4: from Episode 8 '
-      '(contract.json episode) the three thumbnails out/package/thumb-1..3.png are not release files (chủ dự án 13/10: no thumbnail). Other builds (K2): '
+      'each must match ≥ 1 file (globs; a factory path may be relative to the repository); contract.json artefacts.M3 is reported, not required. K4.4 (A38): the thumbnails '
+      'out/package/thumb-1..N.png are release files for N = contract.json package.thumbnails, else 0 from Episode 8 (contract.json episode; chủ dự án 13/10: no thumbnail) and 3 before. Other builds (K2): '
       'artefacts.M3 of the episode contract, each matching ≥ 1 file under the root, and it must include every release file of checks/CONTRACT.md (RELEASE_FILES); '
       'contract without artefacts.M3 = MISSING',
       'factory: every factory release file delivered; else every declared M3 artefact delivered and every checks/CONTRACT.md release file declared')
@@ -331,7 +342,7 @@ def f11_artefacts(ctx):
                                  'declaredNotMadeByFactory': [d for d in decl if not any(fnmatch.fnmatch(r, d) or fnmatch.fnmatch(d, r) for r in req)]}])
     decl = ctx.cfield('artefacts', 'M3', kind=list)
     absent = [p for p in decl if not glob.glob(ctx.path(p))]
-    undeclared = [r for r in RELEASE_FILES if not (no_thumbs(ctx) and r in THUMBS) and not any(fnmatch.fnmatch(r, d) or fnmatch.fnmatch(d, r) for d in decl)]
+    undeclared = [r for r in RELEASE_FILES if r not in THUMBS[thumbs_required(ctx):] and not any(fnmatch.fnmatch(r, d) or fnmatch.fnmatch(d, r) for d in decl)]
     return verdict('F11', [metric('declared M3 artefacts', len(decl), '>=', 1), metric('declared artefacts not delivered', len(absent), '<=', 0),
                            metric('release files not declared', len(undeclared), '<=', 0)], details=[{'source': 'K2', 'notDelivered': absent[:30], 'notDeclared': undeclared}])
 
