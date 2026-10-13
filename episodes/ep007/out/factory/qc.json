@@ -1,0 +1,297 @@
+{
+ "items": [
+  {
+   "item": "master sàn chữ",
+   "result": "ĐẠT",
+   "value": null,
+   "threshold": "≥ 40 px",
+   "note": "0 lần engine nâng cỡ"
+  },
+  {
+   "item": "master tương phản",
+   "result": "ĐẠT",
+   "value": null,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "master vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "master va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "master nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "master nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "0 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "master đối trọng \"US only · history, not a forecast\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"Tessa and Leo are illustrative · real survey rates\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"Not advice on which loan, or on investing\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"The bar is before taxes · not an investment return\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "trục từ 0",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 shot bars/line có min > 0",
+   "note": "swarm: vị trí chấm, không phải độ dài"
+  },
+  {
+   "item": "freezedetect d=3 ∩ lời",
+   "result": "TRƯỢT",
+   "value": 190.21,
+   "threshold": "0 s",
+   "note": "47 đoạn đứng yên ≥ 3 s cả phim: [[14.9333, 18.0333], [29.8, 34.5], [36.8333, 41.4]]"
+  },
+  {
+   "item": "mốc hình ≥ mốc từ",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": "0 mốc"
+  },
+  {
+   "item": "loudness",
+   "result": "TRƯỢT",
+   "value": "-14.0 LUFS / -1.9 dBTP",
+   "threshold": "-14 ± 1 LUFS, ≤ -2.0 dBTP",
+   "note": ""
+  },
+  {
+   "item": "kích thước phần",
+   "result": "ĐẠT",
+   "value": 60.92,
+   "threshold": "≤ 90 MB mỗi phần",
+   "note": "3 phần 720p"
+  },
+  {
+   "item": "SH1 thời lượng",
+   "result": "ĐẠT",
+   "value": 35.9,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH1 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "733 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH1 tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH1 vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "SH1 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "180 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH1 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 1032,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"Tessa and Leo are illustrative · real survey rates\"",
+   "result": "ĐẠT",
+   "value": 360,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"Not advice on which loan, or on investing\"",
+   "result": "ĐẠT",
+   "value": 360,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"The bar is before taxes · not an investment return\"",
+   "result": "ĐẠT",
+   "value": 312,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 loudness",
+   "result": "ĐẠT",
+   "value": "-13.8 LUFS / -1.8 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "SH2 thời lượng",
+   "result": "ĐẠT",
+   "value": 33.267,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH2 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "800 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH2 tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH2 vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "SH2 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH2 nhãn giao nhau (F-2)",
+   "result": "CẢNH BÁO",
+   "value": 27,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": "Leo's stack: $13,231 ($74 a month) × about $613 a month 3.667–8.867 s"
+  },
+  {
+   "item": "SH2 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "167 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH2 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 954,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"Tessa and Leo are illustrative · real survey rates\"",
+   "result": "ĐẠT",
+   "value": 360,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"Not advice on which loan, or on investing\"",
+   "result": "ĐẠT",
+   "value": 324,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 đối trọng \"The bar is before taxes · not an investment return\"",
+   "result": "ĐẠT",
+   "value": 270,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH2 loudness",
+   "result": "ĐẠT",
+   "value": "-13.9 LUFS / -1.9 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
+  },
+  {
+   "item": "luật format",
+   "result": "ĐẠT",
+   "value": "lab",
+   "threshold": "scope full",
+   "note": ""
+  }
+ ],
+ "near": [
+  {
+   "item": "SH1 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  },
+  {
+   "item": "SH2 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  }
+ ],
+ "pass": false
+}
