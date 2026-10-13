@@ -40,3 +40,6 @@ Lỗi trượt thật (CHẶN/CHÍNH, nhịp hồi quy đã xác nhận, câu kh
 - **P11:** nhớ lại + chỗ muốn tua: người chấm headless độc lập mù tập; bên dựng không chấm.
 - **P12:** ngắt: chi M5 vượt **$8,3** (150 % ngân sách mốc) → dừng mốc, báo; tổng chặng chạm **$25** → dừng hỏi.
 - **P13:** J/L-cut: chỉ L-cut S30 → S31; **lệch lệnh G1 (M4 J/L-cut)** nêu đích danh ở G2 kèm số R09.
+
+## Cập nhật chủ dự án 14/10 (`gates/update-14-10.md`) — thắng §2 ở trên
+Cổng gốc trên nháp = **chẩn đoán** (không tự trượt, không mở thêm vòng sửa); G2 nêu nhịp lật với khung trước/sau ghép cạnh nhau; L3 là thước cuối. Checks đủ bộ chạy sau khi merge K4.4b (nếu đã vào `main`).

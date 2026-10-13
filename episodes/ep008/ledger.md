@@ -41,3 +41,4 @@
 | 13/10 | Cổng gốc r1 (48 + 1 đọc, 2 × 2 chấm; chấm bổ sung ghi đè → chấm lại gói gốc) | Kiểm mù | headless Sonnet | 13/24, B32 khuyên | (spend_leg) |
 | 13/10 | Vòng sửa 1: chú giải đèn, nhãn chủ ngữ, bảng điểm dạng đo | Dựng | điều phối | — | — |
 | 13/10 | Cổng gốc r2 (22 + 1 đọc, 2 × 2 chấm) | Kiểm mù | headless Sonnet | 19/24 (±5 %), 0 khuyên; B09 B10 B20 B24 B25 → G2 | (spend_leg $5,75 cả chặng) |
+| 14/10 | Cập nhật chủ dự án (A32 = 1a): cổng gốc so hai bản = chẩn đoán; merge K4.4b trước checks | — | điều phối | gates/update-14-10.md | — |
