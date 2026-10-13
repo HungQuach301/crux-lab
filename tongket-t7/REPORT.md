@@ -177,3 +177,41 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 | **Chất lượng** | + nếu đặt ảnh trong thế giới hoặc hoà từ 3D. − nếu dùng toàn khung và cắt thẳng (cine #93). Trần 15 % ở Tập 8 giới hạn phần rủi ro. |
 | **Thời gian / token** | Tìm + kiểm quyền ≈ 0,5–1 h/tập (vai Thiết kế hình, headless ≈ $1–2). Giờ máy ≈ 0, ảnh rẻ hơn cảnh 3D. |
 | **Rủi ro** | Pháp lý: ảnh liên bang do nhà thầu chụp, giấy phép Pexels/Pixabay đổi theo thời gian → bản chụp giấy phép có băm, A39 chặn. Trung thực: người xem đọc ảnh minh hoạ như bằng chứng → nhãn + không đi cùng claim. Proxy chặn Wikimedia (cine #82) → nguồn bậc 1 tải qua API của cơ quan. |
+
+---
+
+## 6. Đích kinh tế mặc định
+
+### 6a. Tập 9 trở đi (`lab`): 8–12 h máy · Console $25–40 · chủ dự án ≈ 1–1,5 h/tập
+| Mốc | Console (ước) | Giờ máy (ước) | Tập 7 thực (để so) |
+|---|---|---|---|
+| M1 Phát triển | $6–8 (Việc 0, WRITER 1–2 lượt, kiểm mù C1/C2) | ≤ 0,5 | P1 $8,9 |
+| M2 Tiền kỳ | $6–10 (Thiết kế hình, Previz animatic, nhận dạng + cổng gốc, REVIEWER G1) | 1–1,5 (animatic 540p xám) | C3 + C4: ≈ $64, giờ chưa ghi |
+| M3 Nháp 540p | $5–9 (dựng thế giới 1–2 lượt headless) | 1,5–2 | — (Tập 7 dựng thẳng 720p/1080p) |
+| M4 Hậu kỳ | $1–3 | ≤ 0,5 | — |
+| M5 Kiểm định trên nháp | $5–8 (cổng gốc, nhớ lại, ≤ 2 vòng sửa, REVIEWER G2) | 2–3 (đủ bộ, gồm lấy mẫu trang; ít hơn khi A29 qua K) | sửa C5 $25,93 + kiểm $10,8; checks sau G2 2,9 h |
+| M6 1080p + 1 Short | ≤ $1 | 3–4 (1080p một lần ≈ 2,8–3 h + Short + L1 kỹ thuật) | 1080p ≈ 20 h (7 + 3 lần chạy) |
+| **Cộng** | **$25–40** | **8–12 h** | **$115,6 · ≥ 36 h** |
+
+**Chủ dự án:** G1 30–40 phút (kịch bản + animatic + vật thể) · G2 25–35 phút (xem nháp 720p + phiếu L3) · G3 10–15 phút → **≈ 1–1,5 h**. Tập 7: 10 lần chạm, ước ≥ 3–4 h.
+**Token:** trần phiên ≤ 3 triệu/tập (Tập 7: ≥ 2,80, đạt). **Thêm hai mức cảnh báo mới:** **đọc cache ≤ 60 triệu/tập** (Tập 7 ≥ 371) và **≤ 150 lượt/phiên** (P3: 358). Hai thước này bắt đúng chỗ tốn của Tập 7, thước trần thì không bắt được (mục 1a).
+**EL:** ≤ 8.500 ký tự chữ/tập `lab` (giữ mức cũ). Giọng sinh một lần ở M3; sinh lại chỉ khi lời đổi (Tập 7 có 5.839 ký tự seed lại vì A14).
+**Ghi mới vào PLAN tập §5 (vai Line producer):** $ theo mốc · giờ máy theo mốc · đọc cache · số lượt · **số lần chủ dự án chạm + phút ước**.
+
+### 6b. Tập 8 là tập chuyển đổi: 15–20 h máy · Console $45–60
+- **Ranh giới:** P1 Tập 8 đang chạy theo mẫu cũ (phiên song song, không chạm). Mô hình mới vào **sau G1 Tập 8**: chặng kế làm phần tiền kỳ M2 (bản tầm nhìn, bảng vật thể, animatic, bản đồ liền mạch, footage ≤ 15 %), rồi M3–M6. Nếu G1 Tập 8 đã ghi "cần C3" thì bước kiểm tiền kỳ thay đúng chỗ của C3, **không thêm lượt chạm**. Nếu không có C3, chủ dự án chạm thêm 1 lần, chỉ ở Tập 8.
+- **Lý do Tập 8 tốn hơn:** lần đầu tải và kiểm quyền SFX/nhạc/footage (≈ 1–2 h), lần đầu viết bản tầm nhìn và bản đồ liền mạch, và hai phép thử mới chạy song song với cổng cũ để so.
+- **Đường 1 (thử trên tập cũ, trước hoặc song song P1→G1 Tập 8, nhánh `factory-t7lab`, không chạm `ep008`):**
+  1. animatic xám của S21/S25 Tập 7 + cổng gốc: animatic có bắt được lỗi mà C3–C5 mất 7 vòng mới thấy không;
+  2. hiệu chuẩn "nhớ lại" trên Tập 6/7 bản giao, đối chứng âm là Tập 1;
+  3. J/L-cut + màu hồi + SFX thật trên một đoạn nháp của Tập 7;
+  4. chạy checks đủ bộ trên nháp 540p và trên 1080p của Tập 7 rồi so (A41a).
+
+  Ước ≈ $8–12, 6–8 h máy. Phần này tính vào việc không phải tập (CHARTER §2.3 cho tối đa 20 %). Thử nào trượt thì không đưa mục đó vào Tập 8, và Tập 8 làm theo cách cũ cho mục đó.
+
+| | |
+|---|---|
+| **Ưu** | Đích bám đúng các chỗ mất đã đo ở mục 1. Có thêm hai thước (đọc cache, lượt chạm) bắt được thứ thước trần bỏ sót. Tập 8 không phải đánh cược vì mọi mục đã thử trên tập cũ trước. |
+| **Nhược** | Đích của Tập 9 dựa trên ước, chưa có tập nào chạy theo mô hình 6 mốc. Tập 8 tốn hơn Tập 9 khoảng $15–20. |
+| **Chất lượng** | Không đổi lấy chi phí: mọi bước kiểm giữ nguyên, chỉ dời lên sớm hơn. Vượt đích thì báo trong gói, **không** cắt bước chất lượng (CHARTER §5). |
+| **Rủi ro** | Đích sai do ước → sau Tập 8 và 9 đo lại theo mốc rồi sửa đích ở tổng kết Tập 9. Nháp 540p không đủ để chấm L3 → G2 kèm 3 khung 1080p của cảnh đinh (mục 2d). |
