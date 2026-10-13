@@ -215,3 +215,29 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 | **Nhược** | Đích của Tập 9 dựa trên ước, chưa có tập nào chạy theo mô hình 6 mốc. Tập 8 tốn hơn Tập 9 khoảng $15–20. |
 | **Chất lượng** | Không đổi lấy chi phí: mọi bước kiểm giữ nguyên, chỉ dời lên sớm hơn. Vượt đích thì báo trong gói, **không** cắt bước chất lượng (CHARTER §5). |
 | **Rủi ro** | Đích sai do ước → sau Tập 8 và 9 đo lại theo mốc rồi sửa đích ở tổng kết Tập 9. Nháp 540p không đủ để chấm L3 → G2 kèm 3 khung 1080p của cảnh đinh (mục 2d). |
+
+---
+
+## 7. Dọn PLAN.md kênh (đã làm)
+`PLAN.md` gốc giảm từ 30 dòng còn 29 dòng, nhưng nội dung đổi hẳn: bảng tập chỉ còn trạng thái hiện hành; mục "Tiếp" giữ 3 việc (gói này, lô K Tập 8, đường thử trên tập cũ); việc treo chỉ giữ những việc còn mở; hàng chờ K trỏ về `checks-appeal.md` (A29, A32–A41). Bỏ những dòng đã xong hoặc lỗi thời: nhạc hiệu C3 Tập 6, M4 hiệu chuẩn G1 Tập 6, K4.0–K4.2, phiên K lô tongket-t5. Bản cũ giữ nguyên văn ở `archive/PLAN-kenh-history.md`.
+**Rủi ro:** P1 Tập 8 chạy song song có thể sửa `PLAN.md` → phiên merge giữ bản này và thêm dòng trạng thái Tập 8 của P1.
+
+---
+
+## 8. Gói gửi chủ dự án (≤ 3 câu)
+
+**Câu 1 — Mô hình xưởng 6 mốc** (mục 2–3): 6 vai có phép thử riêng; tiền kỳ có animatic và được duyệt ở G1 (gộp C3); kiểm định đủ bộ trên nháp trước G2, ≤ 2 vòng mỗi lỗi; 1080p một lần; 1 Short; chủ dự án chạm G1/G2/G3; bỏ C3/C4 cổng riêng, REVIEWER trung gian, prompt dài (→ "Chạy Tập N"); A40 cho luật bắt nhầm.
+(a) duyệt cả gói, vào Tập 8 sau G1 · (b) duyệt nhưng giữ 3 vòng mỗi lỗi · (c) chỉ thử trên tập cũ, Tập 8 làm theo mẫu cũ.
+**Khuyến nghị (a).** Chỗ mất hạng 1–3 của Tập 7 (≈ $90, ≈ 20 h máy, cổng gốc 16 → 5–7) đều do sửa muộn trên bản đắt. Đánh đổi: G1 muộn hơn ≈ 0,5 ngày, và hai phép thử mới phải hiệu chuẩn trên tập cũ trước.
+
+**Câu 2 — Footage ngoài + âm thanh** (mục 4–5): sửa CHARTER §4 (thêm 2 dòng) + RIGHTS §F (danh sách trắng 5 bậc, danh sách cấm, ≤ 15 % ở Tập 8, năm + nguồn trên hình); SFX ghi âm thật CC0/CC BY; nhạc do người sáng tác, CC BY, thay nhạc bằng mã (đổi D-010 §5, đây là gu).
+(a) duyệt cả hai · (b) duyệt footage + SFX, giữ nhạc bằng mã · (c) hoãn.
+**Khuyến nghị (b) cho Tập 8, xét nhạc ở G1 Tập 9.** Footage và SFX đã có thủ tục quyền và luật A39. Nhạc CC BY có rủi ro Content ID và không chốt hợp âm đúng từ khoá; anh nên nghe thử clip 2 cue (đường thử trên tập cũ) trước khi đổi gu.
+
+**Câu 3 — Đích kinh tế** (mục 6): Tập 9+ đặt đích 8–12 h máy, $25–40, chủ dự án ≈ 1–1,5 h; Tập 8 chuyển đổi 15–20 h, $45–60. Thêm hai mức cảnh báo: đọc cache ≤ 60 triệu/tập và ≤ 150 lượt/phiên. Ghi thêm số lần chạm + phút chủ dự án.
+(a) duyệt · (b) duyệt đích, chưa thêm mức cảnh báo mới.
+**Khuyến nghị (a).** Ở Tập 7, thước trần (2,80 triệu, đạt) không bắt được chỗ tốn thật (đọc cache ≥ 371 triệu). Vượt đích chỉ là cảnh báo, không cắt bước chất lượng.
+
+**Trả lời gọn:** `1 a/b/c · 2 a/b/c · 3 a/b`
+
+REVIEWER (headless): `tongket-t7/review/REVIEW-r1.md`.
