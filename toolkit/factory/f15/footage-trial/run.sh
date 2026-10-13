@@ -18,7 +18,7 @@ json.dump({'src': '/toolkit/factory/f15/footage-trial/assets/loc.jpg', 'subject'
 PY
 else
   rm -f $S/plate.json $S/map.json; mv $S/inputs.json $S/inputs.json.hold
-  node toolkit/factory/world/render_shots.js $S 1080 $H/out/still.mp4 --stills 0.4 --stills-dir $A >/dev/null
+  node toolkit/factory/world/render_shots.js $S 1080 $H/out/still.mp4 --stills 0.4 --stills-dir $A --cache $H/out/cache >/dev/null
   mv $S/inputs.json.hold $S/inputs.json; mv $A/seg-t0.40.png $A/standin.png
   python3 - "$S/plate.json" <<'PY'
 import json, sys
