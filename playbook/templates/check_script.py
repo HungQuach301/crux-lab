@@ -5,7 +5,7 @@ Dòng kịch bản: `Sxx.n {role} [emotion] lời <!-- claims: id, id; hold: s -
 
 TỐC ĐỘ ĐỌC (tổng kết Tập 5 §2c/§3.1, chủ dự án duyệt 08/10; đo lại sau mỗi tập bằng `tongket-t5/measure_pace.py`, đổi hằng khi lệch > 2 %):
   - WPS_SPEECH = 2,75 từ nói / giây lời — Eric `eleven_v3`, stability 0.5, speed 0.9 (Tập 4 2,72 · Tập 5 2,75). Dùng cho mốc giây trong tập:
-    móc M1–M6, mật độ số, mid-roll, khuôn tỉ lệ (cộng hold + ident).
+    móc M1–M8, mật độ số, mid-roll, khuôn tỉ lệ (cộng hold + ident).
   - WPS_TOTAL = 2,52 từ nói / giây thời lượng — gồm phần nhà máy thêm ngoài lời (giữ, ident, đuôi cảnh; Tập 4 2,53 · Tập 5 2,51).
     Dùng cho ĐỘ DÀI CẢ TẬP. Kiểm ngược: Tập 4 → 484 s (thật 481,6), Tập 5 → 463 s (thật 465,7).
   - Đổi giọng/model/speed → đo lại hai hằng. Thước cũ 2,4 từ/s (≈ 8:19 cho Tập 5, thật 7:46) bỏ.
@@ -22,9 +22,10 @@ CHẶN (exit 1):
   - ASR (episode.md §3.1): dải năm có gạch nối, "minus", số âm, ký hiệu %/×/≈/~ trong lời, viết tắt có gạch nối; viết tắt trong
     FULL_FORM phải có dạng đầy đủ ở lần đầu
   - mật độ: ≤ 2 số mới mỗi cảnh; số cốt lõi (CORE) đọc bằng số đúng 1 lần, nhắc lại ≥ 3 lần bằng lời
-  - móc (episode.md §3.9) ở WPS_SPEECH: mọi câu bắt đầu trước 1:00 có vai; M1 câu hook đầu kết thúc ≤ 5,0 s; M2 lời hứa ≤ 30 s;
-    M3 câu hỏi ≤ 30 s; M4 khối constraint/define liền ≤ 10 s trong 0:00–1:00; M5 hook/nhân vật quay lại ≤ 45 s (sau lời hứa);
-    M6 (story §2b.2) mỗi câu vai `promise_character` được trả — tên nhân vật trong CAST xuất hiện — ≤ 90 s sau khi câu hứa kết thúc
+  - móc (episode.md §3.9) ở WPS_SPEECH: mọi câu bắt đầu trước 1:00 có vai; M1 câu hook đầu kết thúc ≤ 5,0 s; M2 lời hứa (nghịch lý) ≤ 50 s;
+    M3 câu hỏi ≤ 40 s (D-013); M4 khối constraint/define liền ≤ 10 s trong 0:00–1:00; M5 hook/nhân vật quay lại ≤ 45 s (sau lời hứa);
+    M6 (story §2b.2) mỗi câu vai `promise_character` được trả — tên nhân vật trong CAST xuất hiện — ≤ 90 s sau khi câu hứa kết thúc;
+    M7 ≥ 3 câu vai `fact` (sự thật lật kỳ vọng), câu thứ 3 kết thúc ≤ 35 s; M8 ≤ 1 câu vai `constraint` trong 0:00–1:00 (D-013)
   - thẻ cảm xúc 2–4; độ dài theo format (ở WPS_TOTAL); mid-roll ở ranh giới hồi, sau hold ≥ 1 s, cách đầu và cuối ≥ 120 s
   - tên nhân vật không trùng tên đã dùng (BANNED_NAMES)
 CẢNH BÁO: ≥ 3 số mới trong 8 s; mốc trong ±5 % quanh ngưỡng (nêu tên, CHARTER §4); khuôn tỉ lệ story §4 lệch > ±5 điểm (THAM KHẢO);
@@ -66,7 +67,7 @@ if '--cast' in sys.argv:
 PERSON_PROMISE = re.compile(r'\b(meet|buyers?|people|person|illustrative|retirees?|borrowers?|families|workers?|savers?)\b', re.I)
 CORE = []           # TẬP: [(claim_id, regex số đọc lên)] số cốt lõi — đọc bằng số 1 lần, nhắc lại ≥ 3 lần bằng lời
 FULL_FORM = {}      # TẬP: {'PMI': 'private mortgage insurance'} viết tắt phải có dạng đầy đủ ở lần đầu
-ROLES = ('hook', 'promise', 'question', 'constraint', 'define', 'promise_character', 'peak')
+ROLES = ('hook', 'promise', 'question', 'constraint', 'define', 'promise_character', 'peak', 'fact')  # fact: sự thật lật kỳ vọng (M7, story §1)
 IMPERATIVE = re.compile(r'(^|[.!?;:]\s+|^(so|and|but|now),?\s+)(say|take|imagine|picture|look|think|remember|check|compare|ask|wait|buy|sell|keep|consider|make|avoid|'
                         r'start|stop|talk|plan|call|get|use|try|put|run|don\'t|do not|never|always|let\'s|save|rent|refinance|shop)\b', re.I)
 ADVICE_EXTRA = re.compile(r"\b(you should|you need|you'd want|it's time to|best time|good time to|lock in|don't miss|we recommend|we suggest|worth it to buy|"
@@ -317,9 +318,14 @@ def mconds(rs, name):
         pay = next((x for x in rs[i + 1:] if any(re.search(r'\b' + c + r'\b', x['text']) for c in CAST)), None)
         m6 = max(m6, (pay['start'] - r['end']) if pay else float('inf'))
     out['M6'] = m6
-    lim = {'M1': 5.0, 'M2': 30, 'M3': 30, 'M4': 10, 'M5': 45, 'M6': 90}
+    # M7 (D-013, story §1.2): câu `fact` thứ 3 kết thúc ≤ 35 s; ít hơn 3 câu fact → không đạt
+    facts = [r for r in rs if r['role'] == 'fact']
+    out['M7'] = facts[2]['end'] if len(facts) >= 3 else None
+    # M8 (D-013, story §1.5): ≤ 1 câu `constraint` (miễn trừ, ≤ 1 vế) trong 0:00–1:00; phần còn lại lên hình
+    out['M8'] = float(sum(1 for r in rs if r['role'] == 'constraint' and r['start'] < 60))
+    lim = {'M1': 5.0, 'M2': 50, 'M3': 40, 'M4': 10, 'M5': 45, 'M6': 90, 'M7': 35, 'M8': 1}
     res = []
-    for k in ('M1', 'M2', 'M3', 'M4', 'M5', 'M6'):
+    for k in ('M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'):
         ok = out[k] is not None and out[k] <= lim[k]
         res.append(f'{k} {"–" if out[k] is None else f"{out[k]:.1f}"} s {"ĐẠT" if ok else "TRƯỢT"}')
         if not ok:
