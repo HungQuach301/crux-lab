@@ -3,7 +3,7 @@
 **Nhánh:** `ep007` · **Đề tài:** #13 · **Format:** `lab` · **Phiên vừa đóng:** P3 (`session_01PyBa4wV9BaBLVGdCDRJC6K`) — **dừng ở G2** · Lịch sử: `archive/PLAN-history.md`
 
 ## 1. Trạng thái
-**G2 chờ chủ dự án** (`gates/G2.md`, REVIEWER `gates/REVIEW-G2.md` áp đủ). Bản 1080p 606,7 s (10:06,7), MR1 191,3 / MR2 443,4 s, −14,0 LUFS; Shorts SH1 (B06–B07), SH2 (B30); SH3 bỏ. Cổng gốc bản cuối **5–7/21** (C4 tốt nhất 16/21; hồi quy 10 nhịp sau sửa C5 theo đạo diễn). Chưa đạt: S21 lớp trả thêm (C3 câu 1, quá 3 vòng), S25 "phải vượt" 2/2 (C3 câu 5; lời S25.4/tên "the bar"). Checks Python: CHẶN A14 (S15.3, S25.2 "Tessa's" — A34), F11 (gói P4); bộ lấy mẫu trang chưa chạy. Master 1080p `out/video.mp4` **chỉ ở container** (không commit).
+**P4: giao hàng xong, chờ G3 (chủ dự án đăng).** G2 → `gates/G2-answer.md` (phát hành bản hiện tại). Master 1080p dựng lại (SHA `529471f0…`, = bản G2). Gói chữ + 3 thumbnail do Claude viết (chủ dự án 13/10), `HUONG-DAN-DANG.md`. Checks: A14 + CHẶN mới C07/S02/S07/S09 chấp nhận (A35–A37, `gates/P4-checks.md`). Nhánh `ep007-delivery` @ `6d3cc32`, kiểm ngược 24/24 OK.
 
 ## 2. Việc tiếp (≤ 3) và việc treo
 1. Chép câu trả lời G2 → `gates/G2-answer.md`; áp (hoàn 10 cảnh? sửa "her" ×2 cho A14? S25 giữ/sửa S25.4?).
