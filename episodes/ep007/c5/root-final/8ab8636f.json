@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation compares the monthly payment on a 15-year mortgage with the payment on a 30-year mortgage. The example is a homebuyer named Tessa, labeled \"illustrative.\" The data source is named as the Freddie Mac weekly mortgage survey.\n\n2. Tessa and her house shrink to the left. A tall gray bar appears for the 15-year loan, labeled $2,828 a month. A shorter green bar then appears for the 30-year loan, labeled \"30-year required: $2,216 a month.\" A dotted line links the 15-year bar to its label.\n\n3. The 30-year loan has a lower required monthly payment than the 15-year loan, about $612 a month less in this example. The 15-year loan costs more each month because it is paid off faster. The footer says \"US only · history, not a forecast,\" so the figures are not predictions.\n\n4. The animation gives no explicit advice. A viewer might take away that a 30-year loan leaves more room in the monthly budget. They might then think about paying extra on it or investing the difference. That is an inference, and the animation doesn't say it.\n\n5. That takeaway is my own conclusion. The pictures and text only show the two payment amounts and the \"illustrative\" and \"history, not a forecast\" caveats. They say nothing about paying extra or investing.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1455,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 154,
+   "in": 1455,
+   "out": 154
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3766,
+   "cache_read": 6376,
+   "output": 502,
+   "in": 10146,
+   "out": 502
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0209521
+}
