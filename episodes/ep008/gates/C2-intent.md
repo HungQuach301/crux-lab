@@ -5,3 +5,5 @@ Mẫu: `c2/sample.txt` = lời C2 v1 (sau khi thêm S04.3b, bộ kiểm ĐẠT),
 - **Ngưỡng (quality-framework §4 C2):** đúng ≥ 5/6; `advice_stated` 0/6; không loại khối nào bị ≥ 2/6 nêu mất chú ý (episode.md §2: theo loại khối). **Dừng:** gặp `advice_stated` đầu tiên hoặc 2 sai (chạy song song cả 6, ghi nếu dừng sớm sẽ đổi gì).
 - **Trượt → vòng 2** (≤ 2 vòng; luật tạm: mỗi lỗi ≤ 2 vòng cả tập): WRITER MỚI, đầu bài ngắn (cảnh + lý do); khối mất chú ý → rút còn 1 câu + thẻ + mô tả. Vẫn trượt → giữ bản điểm cao nhất, nêu ở G1 trước/sau.
 - Dự kiến 7 lượt (≈ $0,4).
+
+**Vòng 2 (ghi trước khi chạy):** mẫu `c2/sample-r2.txt` (C2 v2: S26–S28 rút còn 2 câu/1 số nói, số Census + điểm lật lên hình; S05.6, S31 = 1 câu + thẻ V7; S32.3 viết lại; S04.4 bỏ "6 percent" nói → nhãn hình B04). Cùng spec/câu hỏi/rubric/ngưỡng, **6 người đọc mới**, người chấm mới. Đây là vòng cuối (≤ 2): trượt → giữ bản điểm cao hơn, G1 nêu trước/sau.

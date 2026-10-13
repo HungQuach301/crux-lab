@@ -1,23 +1,23 @@
-# Script — Episode 8 (format `lab`, C2 v1, WRITER, 2026-10-13)
+# Script — Episode 8 (format `lab`, C2 v2, WRITER, 2026-10-13)
 
 Working title: *Is Rent Money Wasted? Rent vs Buy, Replayed Through Real US History* · Logline **L1** (C1, `gates/C1-logline.md`; lead renamed Nina). Hook used: **H-A "Câu hỏi của người xem"** (`hooks.md`). Format: **`lab`**.
 
-**Checker (`python3 episodes/ep008/story/check_script.py episodes/ep008/story/script.md --cast Nina`, from the repo root, final run C2 v1 — exit 0):**
+**Checker (`python3 episodes/ep008/story/check_script.py episodes/ep008/story/script.md --cast Nina`, from the repo root, final run C2 v2 — exit 0, lượt 1):**
 
 ```
 số cốt lõi share_buyer_ahead_10y: đọc ['S13.2'], nhắc bằng lời ['S14.1', 'S25.2', 'S32.2', 'S32.3']
 móc script: M1 3.4 s ĐẠT · M2 24.7 s ĐẠT · M3 5.3 s ĐẠT · M4 8.6 s ĐẠT · M5 30.8 s ĐẠT · M6 0.0 s ĐẠT
 
-96 câu, 1391 từ viết (1510 từ đọc), độ dài ước 10:29 (1510 / 2.4 từ/s, lab); trục mốc giây 9:47 (2.66 từ/s + hold 16.8 s + ident 3 s)
+90 câu, 1302 từ viết (1411 từ đọc), độ dài ước 9:47 (1411 / 2.4 từ/s, lab); trục mốc giây 9:11 (2.66 từ/s + hold 17.8 s + ident 3 s)
 | Phần | Từ | Thời gian | Tỉ lệ | Khuôn lab | Δ |
-| hook | 106 | 0:00–0:46 | 7.9 % | 8 % | -0.1 |
-| concept | 303 | 0:46–2:45 | 20.2 % | 15 % | +5.2  ← > ±5 (THAM KHẢO, nêu ở C2) |
-| experiment | 532 | 2:45–6:37 | 39.5 % | 45 % | -5.5  ← > ±5 (THAM KHẢO, nêu ở C2) |
-| buyers | 325 | 6:37–8:58 | 24.0 % | 20 % | +4.0 |
-| limits | 125 | 8:58–9:47 | 8.4 % | 12 % | -3.6 |
-mid-roll: ĐỦ điều kiện theo độ dài ước 10:29 (cần ≥ 8:00 thật; ≥ 2 phút đầu/cuối; lặng ≥ 1 s) — chốt bằng độ dài thật sau khi sinh lời (≥ 8:10) và ở C5 (≥ 8:00)
-mid-roll ≈ 2:45 sau S07.4 (hold 1.5 s), cách cuối 422 s: ĐẠT
-mid-roll ≈ 6:37 sau S22.4 (hold 1.5 s), cách cuối 190 s: ĐẠT
+| hook | 106 | 0:00–0:46 | 8.4 % | 8 % | +0.4 |
+| concept | 314 | 0:46–2:50 | 22.5 % | 15 % | +7.5  ← > ±5 (THAM KHẢO, nêu ở C2) |
+| experiment | 532 | 2:50–6:42 | 42.1 % | 45 % | -2.9 |
+| buyers | 274 | 6:42–8:40 | 21.5 % | 20 % | +1.5 |
+| limits | 76 | 8:40–9:11 | 5.6 % | 12 % | -6.4  ← > ±5 (THAM KHẢO, nêu ở C2) |
+mid-roll: ĐỦ điều kiện theo độ dài ước 9:47 (cần ≥ 8:00 thật; ≥ 2 phút đầu/cuối; lặng ≥ 1 s) — chốt bằng độ dài thật sau khi sinh lời (≥ 8:10) và ở C5 (≥ 8:00)
+mid-roll ≈ 2:50 sau S07.4 (hold 1.5 s), cách cuối 381 s: ĐẠT
+mid-roll ≈ 6:42 sau S22.4 (hold 1.5 s), cách cuối 149 s: ĐẠT
 beats.md: 32 nhịp đã kiểm số trên hình
 hooks HA (4 câu riêng + S03 chung, phần riêng tới 24.1 s): M1 3.4 s ĐẠT · M2 24.1 s ĐẠT · M3 5.3 s ĐẠT · M4 6.4 s ĐẠT · M5 29.7 s ĐẠT · M6 0.0 s ĐẠT
 hooks HB (5 câu riêng + S03 chung, phần riêng tới 28.6 s): M1 1.9 s ĐẠT · M2 28.6 s ĐẠT · M3 9.8 s ĐẠT · M4 6.4 s ĐẠT · M5 34.2 s ĐẠT · M6 0.0 s ĐẠT
@@ -25,9 +25,9 @@ hooks HC (4 câu riêng + S03 chung, phần riêng tới 26.7 s): M1 4.1 s ĐẠ
 
 ĐẠT
 Cảnh báo (không chặn):
-  mật độ: ≥ 3 số mới trong 8 s tại ~[229, 288, 358, 448] s
-  khuôn tỉ lệ: concept lệch +5.2 điểm
-  khuôn tỉ lệ: experiment lệch -5.5 điểm
+  mật độ: ≥ 3 số mới trong 8 s tại ~[234, 293, 363, 453] s
+  khuôn tỉ lệ: concept lệch +7.5 điểm
+  khuôn tỉ lệ: limits lệch -6.4 điểm
   hooks HB: M2 = 28.6 s trong ±5 % ngưỡng 30 (nêu tên, CHARTER §4)
 ```
 
@@ -35,14 +35,16 @@ Cảnh báo (không chặn):
 
 **Characters (all ILLUSTRATIVE, badge on every frame).** **Nina** = lead (story §2b; dossier situation 1 adapted: a renter with savings for 20 % down near the national median, card `viewer`). Own warm lamp (N3). Through the method: S04.3, S08.4 (her month sits past the end of the street), S22.4, S26.2, S29. **Marcus** (June 2006 start) and **Priya** (April 2012 start): counterweights in act 3 only (S23), no new numbers. No `promise_character` (M6 = 0).
 
-**Core number:** `share_buyer_ahead_10y` — "about 3 in 4" in digits once (S13.2, fact, anchor 1), then in words: S14.1 "that lit share … a count of history, not a promise" (meaning), S25.2 "the share moves with the rent you assume" (comparison: it moves with the tag), S32.2 "most houses are lit … the lights move with the tag on her door" (callback), S32.3 Nina's answer "in most start months … depends on the rent she assumes" (her threshold).
+**Core number:** `share_buyer_ahead_10y` — "about 3 in 4" in digits once (S13.2, fact, anchor 1), then in words: S14.1 "that lit share … a count of history, not a promise" (meaning), S25.2 "the share moves with the rent you assume" (comparison: it moves with the tag), S32.2 "most houses are lit … the lights move with the tag on her door" (callback), S32.3 Nina's answer "depends on the month she starts and the rent she assumes … the lights are history".
 
 **Peak** (S17.2, `{peak}`, 10 words): *"Ten years on, the June 2006 buyer was $82,385 behind."*
-**Final line (Nina's, answers S01.2):** S32.3 *"Nina's answer: her rent isn't wasted by rule; renting cost more than buying in most start months, and how many depends on the rent she assumes."*
+**Final line (Nina's, answers S01.2):** S32.3 *"Nina's answer: not by any rule; it depends on the month she starts and the rent she assumes, and the lights are history."* (C2 v2: no verdict, no "wasted", 23 words.)
 
-**Claim-risk applied (`topics-r2/machine/rent-buy-1/claim-risk.md` + `numbers.md` "Luật nói"):** no advice — S03.3 "Nothing here says whether to buy or to keep renting", no imperatives, conclusions only as "in X of Y start months, the buyer ended ahead" + counterweight (S13.3, S14.1, S16.2, S19.3, S22.4, S26.2, S30.3); never "buying wins" — S25.2 "the share moves with the rent you assume"; "history, not a forecast" + "US only" — S03.2, S31.4, fog past July 2016 (N5); national index, not one house — S19.3, S31.2; starting rent is an assumption — S06.4, S07.1–S07.2, S24.1, S31.2; CPI rent follows sitting tenants, can understate market rent growth — S31.3; renter's cash in cash / Treasury bill variant, not stocks, viewer question 4 not answered — S05.1–S05.5 (before the first historical number); no income taxes / deduction / refinancing / moving costs / renter's insurance — S05.6, S31.4, V7; "today" = first month only, not a forecast, 2026 is not 2006 — S30.3; `worst_price_change_10y` used only as "the window of the worst start" (S19.1); illustrative people — S03.1, S23.2, badges; not called "first" (description cites Beracha & Johnson 2012).
+**C2 v2 changes (blind read r1):** S26–S28 now 2 spoken lines, 1 spoken number (S28.1 Treasury bill "about 2 in 3"); Census range, its shares (73.6–87.3 %) and the flip point (below about 2.4 %) on screen only (B26–B28). S05.6 and S31 each 1 spoken line + V7 card (B05, B31 list the items). S32.3 rewritten (above).
 
-**Advice-like word list (13/10):** none of should / need to / have to / better off / worth it / pays off / wins / beat / safe / risky / the bar / the test / threshold / consider / make sure in narration or on screen. "wasted" only in Nina's question (S01.2, B32) and in her answer's negation (S32.3). "Throwing money away" appears only in hook H-B (unused), as a quote followed by its counterweight.
+**Claim-risk applied (`topics-r2/machine/rent-buy-1/claim-risk.md` + `numbers.md` "Luật nói"):** no advice — S03.3 "Nothing here says whether to buy or to keep renting", no imperatives, conclusions only as "in X of Y start months, the buyer ended ahead" + counterweight (S13.3, S14.1, S16.2, S19.3, S22.4, S26.2, S30.3); never "buying wins" — S25.2 "the share moves with the rent you assume"; "history, not a forecast" + "US only" — S03.2, S31.1 (+ V7 card B31), fog past July 2016 (N5); national index, not one house — S19.3, V7 card B31; starting rent is an assumption — S06.4, S07.1–S07.2, S24.1, V7 card B31; CPI rent follows sitting tenants, can understate market rent growth — V7 card B31 (on screen, full form); renter's cash in cash / Treasury bill variant, not stocks, viewer question 4 not answered — S05.1–S05.5 (before the first historical number); no income taxes / deduction / refinancing / moving costs / renter's insurance — S05.6 (+ V7 card B05), V7 card B31; "today" = first month only, not a forecast, 2026 is not 2006 — S30.3; `worst_price_change_10y` used only as "the window of the worst start" (S19.1); illustrative people — S03.1, S23.2, badges; not called "first" (description cites Beracha & Johnson 2012).
+
+**Advice-like word list (13/10):** none of should / need to / have to / better off / worth it / pays off / wins / beat / safe / risky / the bar / the test / threshold / consider / make sure in narration or on screen. "wasted" only in Nina's question (S01.2, B32); not in her answer (S32.3, C2 v2). "Throwing money away" appears only in hook H-B (unused), as a quote followed by its counterweight.
 
 **Checker edits:** `# TẬP:` lines — CAST = Nina · CORE = `share_buyer_ahead_10y` / `3 in 4` · FULL_FORM = CPI → "consumer price index" · WORD_EXEMPT = `\b2002 through 2007\b` (era name; the years are in the claim id `era_2002-2007_*`, not in its value column). BANNED_NAMES unchanged (Nina, Marcus, Priya not in it). **One non-`TẬP` line changed, flagged:** the `numbers.md` table regex — Episode 8's `numbers.md` has 4 columns (no source column) and the template regex needed 5, so it read **0 claims**; the 5th column is now optional (`(?: ([^|\n]*) \|)?`, `g or ''`). Nothing else changed.
 
@@ -89,8 +91,8 @@ S03.4 {hook} What it shows Nina is a whole street of answers, one house for each
 S04.1 {question} So what does each twin actually pay? <!-- claims: — -->
 S04.2 {define} The twin who buys pays the down payment and the closing costs, then takes a 30-year fixed mortgage at that month's average rate. <!-- claims: rate_latest -->
 S04.3 {hook} Every month after that, Nina's buying twin pays interest, property tax, insurance and repairs, and at the end, the cost of selling. <!-- claims: — -->
-S04.3b {define} Property tax, insurance and repairs come to 2.5 percent of the home's value a year, and selling costs 6 percent. <!-- claims: owner_cost_pct, sell_pct -->
-S04.4 The twin who rents moves into an equivalent home and keeps the same savings. <!-- claims: — -->
+S04.4 {define} Property tax, insurance and repairs come to 2.5 percent of the home's value a year. <!-- claims: owner_cost_pct -->
+S04.5 The twin who rents moves into an equivalent home and keeps the same savings. <!-- claims: — -->
 
 ## S05 — The renter's cash sits still (C1 blind-read lesson; viewer question 4 not answered)
 
@@ -99,7 +101,7 @@ S05.2 That pile starts as the down payment and closing costs that never went int
 S05.3 Whatever renting saves each month is added to the same pile. <!-- claims: — -->
 S05.4 In one variant, the cash earns Treasury bill interest, and nothing more. <!-- claims: — -->
 S05.5 So whether investing the difference would have done better is a different question, and this episode doesn't answer it. <!-- claims: — -->
-S05.6 It also leaves out moving costs, renter's insurance, income taxes and the mortgage interest deduction, and nobody refinances. <!-- claims: —; hold: 0.5 -->
+S05.6 A few costs are left out on both sides, and the card lists them. <!-- claims: —; hold: 0.5 -->
 
 ## S06 — One assumption, in plain sight (competitor weakness, anchor gap)
 
@@ -228,19 +230,13 @@ S24.4 At 4 percent, the buyer ended ahead in 64.2 percent of start months. <!-- 
 S25.1 At 6 percent, 92.2 percent. <!-- claims: share_yield6pct_10y; hold: 1.0 -->
 S25.2 [thoughtful] The share moves with the rent you assume. <!-- claims: share_buyer_ahead_10y -->
 
-## S26 — The public range
+## S26 — The public range (Census range, its shares and the flip point on screen, B26–B28)
 
-S26.1 For reference, the Census Bureau's vacancy survey puts asking rents between 4.83 and 5.59 percent of asking prices a year in its latest reports. <!-- claims: hvs_yield_2025Q4, hvs_yield_2026Q1 -->
-S26.2 Those are different baskets of empty homes, so it's a reference range, not Nina's own rent. <!-- claims: — -->
+S26.1 The Census Bureau's public figures sit inside the range we turned, and they're a reference, not Nina's own rent. <!-- claims: hvs_yield_2025Q4, hvs_yield_2026Q1, share_hvs_2025Q4_10y, share_hvs_2026Q1_10y; hold: 0.5 -->
 
-## S27 — Across that range
+## S28 — The Treasury bill variant
 
-S27.1 Across that range, the buyer ended ahead in 73.6 to 87.3 percent of start months. <!-- claims: share_hvs_2025Q4_10y, share_hvs_2026Q1_10y -->
-
-## S28 — Where it flips, and the Treasury bill variant
-
-S28.1 The majority flips to the renter only when the tag drops below about 2.4 percent. <!-- claims: flip_yield_10y -->
-S28.2 And if the renter's cash earns Treasury bill interest, the buyer's share falls to about 2 in 3. <!-- claims: share_tbills_10y; hold: 0.5 -->
+S28.1 And if the renter's cash earns Treasury bill interest, the buyer's share falls to about 2 in 3. <!-- claims: share_tbills_10y, flip_yield_10y; hold: 1.0 -->
 
 ## S29 — Nina's month today
 
@@ -258,14 +254,10 @@ S30.3 It compares first months only: it doesn't say how a 2026 start ends, and i
 
 ## S31 — Limits and method
 
-S31.1 The limits, briefly. <!-- claims: — -->
-S31.2 The house is a national price index, not one home, and the starting rent is an assumption. <!-- claims: — -->
-S31.3 The rent history comes from the consumer price index for rent, CPI, which follows sitting tenants and can understate how fast market rents grew. <!-- claims: — -->
-S31.4 No income taxes, no mortgage interest deduction, no refinancing; US only, and history, not a forecast. <!-- claims: — -->
-S31.5 The full method is in the description. <!-- claims: —; hold: 0.8 -->
+S31.1 The limits are on the card and the full method is in the description: US only, and history, not a forecast. <!-- claims: —; hold: 0.8 -->
 
 ## S32 — Nina's answer
 
 S32.1 So, back to the question Nina started with. <!-- claims: — -->
 S32.2 On her street, most houses are lit, a dark stretch sits in the middle, and the lights move with the tag on her door. <!-- claims: share_buyer_ahead_10y -->
-S32.3 [thoughtful] Nina's answer: her rent isn't wasted by rule; renting cost more than buying in most start months, and how many depends on the rent she assumes. <!-- claims: share_buyer_ahead_10y; hold: 1.5 -->
+S32.3 [thoughtful] Nina's answer: not by any rule; it depends on the month she starts and the rent she assumes, and the lights are history. <!-- claims: share_buyer_ahead_10y; hold: 1.5 -->
