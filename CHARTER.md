@@ -1,9 +1,9 @@
-# CRUX — HIẾN CHƯƠNG v4
+# CRUX — HIẾN CHƯƠNG v5
 
-Chủ dự án: Hung Quach. v3 (05/10/2026, D-006): 3 cổng G1/G2/G3, rút gọn. v4 (06/10/2026, D-009, D-010): chất lượng là ưu tiên tuyệt đối; thế giới 3D tối giản. Đây là nguồn thẩm quyền số một. Chi tiết nằm ở playbook; mọi file khác phải khớp với hiến chương.
+Chủ dự án: Hung Quach. v3 (05/10/2026, D-006): 3 cổng G1/G2/G3, rút gọn. v4 (06/10/2026, D-009, D-010): chất lượng là ưu tiên tuyệt đối; thế giới 3D tối giản. v5 (13/10/2026, D-013): mô hình xưởng 6 mốc, 1 Short, không thumbnail, footage ngoài có trần. Đây là nguồn thẩm quyền số một. Chi tiết nằm ở playbook; mọi file khác phải khớp với hiến chương.
 
 ## 1. Định vị
-- **Kênh:** `us-personal-finance`, tiếng Anh Mỹ, không lộ mặt, data-explainer. Ba định dạng: `lab` (9–11 phút), `101` (8–9 phút), `deep` (14–17 phút, chỉ khi đủ ba điều kiện không độn và nhà máy đạt nhịp hình trước — D-012, `episode.md` §9), kèm 2–3 Shorts mỗi tập.
+- **Kênh:** `us-personal-finance`, tiếng Anh Mỹ, không lộ mặt, data-explainer. Ba định dạng: `lab` (9–11 phút), `101` (8–9 phút), `deep` (14–17 phút, chỉ khi đủ ba điều kiện không độn và nhà máy đạt nhịp hình trước — D-012, `episode.md` §9), kèm **1 Short** mỗi tập (D-013).
 - **Định vị:** *phòng thí nghiệm quyết định tài chính*. Mỗi tập trả lời một quyết định cụ thể bằng mô phỏng trên dữ liệu thật; nguồn và phương pháp minh bạch.
 - **Ba trụ nội dung:** vay và nợ · nghỉ hưu và đầu tư dài hạn · thuế và chính sách.
 - **Mục tiêu:** tập đạt chuẩn → khán giả → nhiều kênh → thương mại hoá phương pháp kiểm chứng.
@@ -34,19 +34,19 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
   - "US only";
   - "history, not a forecast" với dữ liệu lịch sử;
   - nhân vật minh hoạ mang nhãn ILLUSTRATIVE;
-  - thế giới 3D tối giản: low-poly, màu kênh, không chân thực ảnh, nhân vật không mặt, không chi tiết trang trí không mang nghĩa (D-010).
+  - thế giới 3D tối giản: low-poly, màu kênh, không chân thực ảnh, nhân vật không mặt, không chi tiết trang trí không mang nghĩa (D-010). **Thế giới 3D là hình chính;**
+  - **footage ngoài** chỉ làm tư liệu, ≤ 20 % thời lượng, năm + nguồn trên hình, không làm bằng chứng, không người thật vai nhân vật — luật đủ ở `RIGHTS.md` §F (D-013).
 
 ## 5. Ba cổng (`playbook/episode.md`)
 | Cổng | Khi | Chủ dự án quyết |
 |---|---|---|
-| **G1** | Sau C2 | Đề tài, logline, kịch bản (cấu trúc, cold open, móc), tiêu đề nháp. Được duyệt theo lô cả mùa (đề tài + logline) |
-| (C3) | Khi tập có hình mới (ký hiệu, vật thể, hero object, mẫu chuyển cảnh) | Hình mới — xem clip có chuyển động và âm |
-| **G2** | = C6 | Bản cuối, Shorts. Gói phát hành (tiêu đề, mô tả, thumbnail, tag): chủ dự án làm trên ChatGPT ở P4 theo brief, phiên kiểm đầu ra (D-012 câu 3) |
-| **G3** | Phát hành | Đăng |
+| **G1** | Sau tiền kỳ (M2) | Đề tài, logline, kịch bản (cấu trúc, mở đầu, chương, kết), **vật thể + animatic** (thay C3), tiêu đề. Đề tài + logline duyệt theo lô cả mùa |
+| **G2** | Sau kiểm định trên nháp (M5) | Bản nháp 540p (phiếu L3), Short (mô tả + mốc). Không thumbnail; mô tả/chương/tag do máy viết ở M6 |
+| **G3** | Sau 1080p một lần (M6) | Đăng |
 
-- **Các cổng còn lại là TỰ ĐỘNG:** ngưỡng ghi trước, tối đa 2 vòng, nhánh dự phòng đặt sẵn, báo qua issue, không chờ.
+- **Các bước còn lại là TỰ ĐỘNG** (6 mốc, `episode.md` §1): ngưỡng ghi trước, **tối đa 2 vòng mỗi lỗi**, nhánh dự phòng đặt sẵn, không chờ.
 - **Chất lượng trước (D-009):** lỗi CHÍNH phải sửa trước phát hành. Ngoại lệ duy nhất: sửa làm hỏng một yếu tố chất lượng khác — gói nêu yếu tố đó, kèm số đo hoặc bản trước/sau, chủ dự án chọn.
-- **Token:** trần chỉ để cảnh báo; vượt thì báo số thực trong gói; không cắt bước chất lượng (kiểm mù, lượt đạo diễn, REVIEWER) vì token.
+- **Token:** trần chỉ để cảnh báo; vượt thì báo số thực trong gói; không cắt bước chất lượng (kiểm mù, lượt đạo diễn, REVIEWER) vì token. Cảnh báo thêm: đọc cache ≤ 60 triệu/tập, ≤ 150 lượt/phiên (D-013).
 - **Ngoại lệ phải hỏi:**
   - đổi kịch bản đã duyệt;
   - số không xác minh được nguồn;
@@ -61,22 +61,23 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
 - **Không biến thể nào sửa bộ đo đang chấm nó.** Luật kiểm chỉ đổi qua phiên K, chủ dự án duyệt; đề xuất đổi luật gom ở `checks-appeal.md`. Không có số đo trên sản phẩm cuối thì coi như chưa làm.
 - **Chỉ chủ dự án quyết:**
   - việc không đảo ngược được: phát hành, chi tiêu mới, tài khoản/secret, nhà cung cấp mới, sửa hiến chương hoặc gen được bảo vệ;
-  - gu: giọng, hướng hình, màu, nhạc, cấu trúc truyện, logline, tiêu đề, thumbnail. Móc do máy chọn; chủ dự án đổi khi muốn.
+  - gu: giọng, hướng hình, màu, nhạc, cấu trúc truyện, logline, tiêu đề. Móc do máy chọn; chủ dự án đổi khi muốn.
 - Phiên chỉ tự quyết trong danh sách đóng (`quality-framework.md` §6).
 
 ## 7. Vai trò
 | Vai | Làm | Không làm |
 |---|---|---|
 | Chủ dự án | Định hướng, gu, duyệt G1/G2/G3, quyết việc không đảo ngược được (`AUTHORSHIP.md`) | Không dựng, không viết luật |
-| Phiên điều phối (mỗi chặng một phiên, mở mới ở mỗi điểm dừng chờ chủ dự án — G1, C3 nếu có, G2; D-011) | Giữ `PLAN.md`, chạy cổng, giao kiểm mù; đóng bằng PLAN ≤ 1 trang + prompt phiên kế; **duy nhất merge `main`** | Không tự quyết gu, không sửa luật, không chấm kiểm mù |
-| WRITER / REVIEWER | Viết theo `story.md` / soát mọi gói và issue trước khi gửi | Không quyết |
+| Phiên điều phối (mỗi chặng một phiên ngắn tới cổng kế, mở bằng "Chạy Tập N" — D-011, D-013) | Giữ `PLAN.md`, chạy cổng, giao kiểm mù; đóng bằng PLAN ≤ 1 trang; **duy nhất merge `main`** | Không tự quyết gu, không sửa luật, không chấm kiểm mù |
+| WRITER / REVIEWER | Viết theo `story.md` / soát gói G1, ý đồ kiểm định, gói G2 | Không quyết |
+| Vai xưởng (D-013): Đạo diễn sáng tạo, Thiết kế hình, Previz, Editor, Giám sát liền mạch, Line producer | Mỗi vai một đầu bài headless, một phép thử riêng (`episode.md` §1a) | Không quyết gu, không đổi kịch bản đã duyệt |
 | Phiên K | Viết, giữ luật; xử lý `checks-appeal.md` theo lô; mở riêng chỉ khi cần kind mới | Không dựng |
 | Phiên R&D / tổng kết | Đề xuất biến thể, thí nghiệm, tổng kết tập | Không tự áp dụng khi chưa duyệt |
 
 ## 8. Chỉ số
 - **Chất lượng:** phiếu L3, luật đạt, lỗi số = 0.
 - **Khán giả:** CTR, giữ chân giây 30, thời lượng xem, điểm rời (`audience.md`).
-- **Hiệu quả:** số lần chủ dự án tham gia/tập, vòng/cổng, số agent, ký tự giọng, thời gian, token thực đọc từ log phiên (trần = đầu vào mới + sinh ra, so với mức cảnh báo), giờ render.
+- **Hiệu quả:** số lần chủ dự án tham gia/tập (kèm phút), vòng/cổng, số agent, ký tự giọng, thời gian, token thực đọc từ log phiên (trần = đầu vào mới + sinh ra, đọc cache, lượt/phiên, so với mức cảnh báo), giờ render.
 - **Cảnh báo:** việc không phải tập > 20 %, chu kỳ không ra tập, máy móc phình, hồi quy.
 
 ## 9. Thẩm quyền

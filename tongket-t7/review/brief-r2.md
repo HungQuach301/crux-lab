@@ -1,0 +1,3 @@
+Bạn là REVIEWER (playbook/quality-framework.md §7), LƯỢT 2 soát gói TỔNG KẾT TẬP 7 (nhánh tongket-t7, thư mục hiện tại). CHỈ ĐỌC, không đọc checks/.
+Lượt 1: tongket-t7/review/REVIEW-r1.md. Việc: (1) kiểm từng mục CHẶN, CHÍNH, PHỤ của lượt 1 đã sửa đúng chưa (`git log -3 -p` và các tệp tongket-t7/REPORT.md, tongket-t7/de-xuat/**, checks-appeal.md A38–A41, PLAN.md); (2) tìm lỗi mới do lần sửa gây ra (số mâu thuẫn giữa các mục, phép cộng mốc $ và giờ ở mục 6a, câu chữ nói quá).
+Trả về tiếng Việt: dòng đầu "ĐẠT", "ĐẠT có sửa" hoặc "TRƯỢT"; rồi CHẶN / CHÍNH / PHỤ (tệp:dòng, vấn đề, câu sửa). ≤ 30 dòng.
