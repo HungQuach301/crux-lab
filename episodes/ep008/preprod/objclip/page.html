@@ -65,7 +65,7 @@ if (clip === 'street') {
     cam.position.set(lerp(-13.6, -13.0, t / 7), 4.2, 12.5); cam.lookAt(-4.5, 0.6, 0.5);
   };
 } else {
-  // Nina: dáng nghỉ, đèn ấm riêng; quay nhìn ngôi nhà bên kia đường, đi ba bước ra giữa — căn hộ (thuê) sau lưng, nhà (mua) trước mặt
+  // Nina: dáng nghỉ, đèn ấm riêng; đứng giữa căn hộ (thuê) và ngôi nhà (mua), đưa đèn nhìn bên này rồi bên kia
   street.visible = false;
   const apt = Apartment({ w: 2.0, floors: 3 }); apt.position.set(-3.0, 0, -0.5); scene.add(apt);
   const house = House({ w: 1.8 }); house.position.set(3.2, 0, -0.5); scene.add(house);
@@ -73,12 +73,15 @@ if (clip === 'street') {
   const lamp = NinaLamp(); scene.add(lamp);
   scene.children.forEach((o) => { if (o.isHemisphereLight) o.intensity = 0.45; if (o.isDirectionalLight) o.intensity *= 0.55; });
   const tag = lab('Nina · ILLUSTRATIVE', 20, 20, 'warn');
+  const rt = RentTag({ w: 0.7, head: 'RENT', blank: true }); rt.position.set(-3.0, 0.62, -0.5 + 0.7 + 0.04); scene.add(rt);
+  const bt = RentTag({ w: 0.7, head: 'BUY', blank: true }); bt.position.set(3.2 - 0.0, 0.5, -0.5 + 0.65 + 0.06); scene.add(bt);
+  // vòng 2 (fix: picture): Nina ĐỨNG YÊN ở giữa, quay nhìn căn hộ (thuê) rồi ngôi nhà (mua) rồi lại căn hộ — không bước về phía nào
   seek = (t) => {
-    const walk = ramp(t, 2.4, 4.6), x = lerp(-1.9, 0.2, walk);
-    nina.position.set(x, Math.abs(Math.sin(walk * Math.PI * 3)) * 0.04 * (walk > 0 && walk < 1), 0.8);
-    nina.rotation.y = lerp(0, -1.1, ramp(t, 1.0, 2.0)) * (1 - ramp(t, 2.4, 2.8)) + lerp(0, 1.4, ramp(t, 2.4, 2.8)) * (1 - ramp(t, 4.6, 5.3)) + lerp(0, 0.9, ramp(t, 4.6, 5.3));
-    nina.rotation.z = 0.03 * Math.sin(t * 1.7);
-    lamp.position.set(x + 0.32, 1.05 + 0.04 * Math.sin(t * 2.3), 0.95); lamp.userData.set({ on: ramp(t, 0.2, 0.9), t });
+    nina.position.set(0, 0, 0.8);
+    const look = -Math.sin(Math.PI * 2 * ramp(t, 0.8, 5.6));   // −1 = nhìn căn hộ (trái), +1 = nhìn nhà (phải)
+    nina.rotation.y = 0; nina.rotation.z = -0.07 * look + 0.02 * Math.sin(t * 1.7);   // nghiêng người về phía đang nhìn
+    lamp.position.set(0.45 * look, 1.05 + 0.04 * Math.sin(t * 2.3), 1.0);              // đèn của cô đưa về phía đang nhìn
+    rt.scale.setScalar(1 + 0.12 * Math.max(0, -look)); bt.scale.setScalar(1 + 0.12 * Math.max(0, look)); lamp.userData.set({ on: ramp(t, 0.2, 0.9), t });
     cam.position.set(lerp(-0.4, 0.4, t / 6), 1.5, 6.0); cam.lookAt(0, 0.8, 0);
     tag.style.opacity = 1;
   };

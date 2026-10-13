@@ -42,26 +42,26 @@ export function Street({ starts, gap = 0.95, rowGap = 0.95, w = 0.55 } = {}) {
   return g;
 }
 
-function tagTexture(text) {
+function tagTexture(text, head = 'RENT') {
   const c = document.createElement('canvas'); c.width = 512; c.height = 256;
   const x = c.getContext('2d');
   x.fillStyle = '#171B22'; x.fillRect(0, 0, 512, 256);
   x.strokeStyle = PALETTE.muted; x.lineWidth = 10; x.strokeRect(8, 8, 496, 240);
   x.fillStyle = PALETTE.ink; x.font = 'bold 64px Inter, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle';
-  x.fillText('RENT', 256, 72); x.fillStyle = PALETTE.muted; x.font = 'bold 96px Inter, sans-serif'; x.fillText(text, 256, 170);
+  x.fillText(head, 256, 72); x.fillStyle = PALETTE.muted; x.font = 'bold 96px Inter, sans-serif'; x.fillText(text, 256, 170);
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
 }
 
-export function RentTag({ w = 0.9 } = {}) {
+export function RentTag({ w = 0.9, head = 'RENT', blank = false } = {}) {
   const g = new THREE.Group();
   const card = new THREE.Mesh(new THREE.BoxGeometry(w, w / 2, 0.03), [mat('#171B22'), mat('#171B22'), mat('#171B22'), mat('#171B22'),
-    new THREE.MeshStandardMaterial({ map: tagTexture('5%'), roughness: 0.6 }), mat('#171B22')]);
+    new THREE.MeshStandardMaterial({ map: tagTexture(blank ? '' : '5%', head), roughness: 0.6 }), mat('#171B22')]);
   g.add(card);
   const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.35), mat(PALETTE.muted)); cord.position.set(0, w / 4 + 0.17, 0); g.add(cord);
   let last = null;
   g.userData = { set({ value = 5, swing = 0 } = {}) {
     const txt = value.toFixed(0) + '%';
-    if (txt !== last) { card.material[4].map.dispose(); card.material[4].map = tagTexture(txt); card.material[4].needsUpdate = true; last = txt; }
+    if (!blank && txt !== last) { card.material[4].map.dispose(); card.material[4].map = tagTexture(txt); card.material[4].needsUpdate = true; last = txt; }
     g.rotation.z = swing;
   } };
   return g;

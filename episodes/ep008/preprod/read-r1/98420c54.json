@@ -1,0 +1,15 @@
+{
+ "answer": "1. It shows a grid of many small 3D houses, one for each starting year from 1991 to 2016. Each house stands for a person who bought a home in that year instead of renting. The final frame adds a legend. A lit house means the buyer ended up ahead after 10 years. A dark house with an amber door means the renter ended up ahead.\n\n2. At first all the houses are gray and unlit. Then they light up in amber, starting from the early-1990s columns. The lighting sweeps across the grid. A block of houses in the middle stays dark, with a few scattered exceptions. The camera moves from a low angle at the edge of the grid to a top-down view. That final view is labeled with the years 1991, 2001, 2007 and 2016.\n\n3. For most starting years, buying beat renting over a 10-year horizon. The exception is a band of starting years from roughly 2001 to 2007, where the renter came out ahead. Those 10-year periods would have included the mid-2000s housing peak and the crash that followed. In other words, the answer depended heavily on when you bought. I'm reading the dark band's exact boundaries off a small, blurry frame, so treat them as approximate.\n\n4. A viewer like me would probably take away three things:\n   - Buying usually wins over a decade, so renting isn't automatically the cheaper choice.\n   - Timing matters. Buying near a market peak can leave you worse off than a renter after 10 years.\n   - Buying makes more sense if you expect to stay about 10 years or longer.\n\n   It isn't personal advice. The animation doesn't account for my local prices, my mortgage rate in 2026, my down payment or my job stability.\n\n5. The animation itself suggests the first three points. It shows the buyer-versus-renter outcome by year and the dark gap around 2001–2007. The advice in point 4 is my own conclusion. The frames contain no explicit recommendation, and I can't see what assumptions it used, such as rates, rent growth, costs or location. I also can't tell from these frames whether it covers the whole US or one city. Those details would change how well it applies to my situation.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 4486,
+   "cache_read": 5417,
+   "output": 746,
+   "in": 9907,
+   "out": 746
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.025953700000000003
+}

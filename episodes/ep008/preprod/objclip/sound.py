@@ -48,7 +48,7 @@ else:
     a, b = int(0.2 * SR), int(6.0 * SR)                    # đèn của Nina: tiếng ù ấm riêng, vào dần
     env = np.clip((t[a:b] - 0.2) / 0.7, 0, 1)
     y[a:b] += 0.02 * env * (np.sin(2 * np.pi * 110 * t[a:b]) + 0.4 * np.sin(2 * np.pi * 220 * t[a:b])) * (0.85 + 0.15 * np.sin(2 * np.pi * 0.33 * t[a:b]))
-    for k in range(6): noise(2.45 + 0.36 * k, 0.12, 0.12, lp=0.3, decay=45)   # bước chân
+    for t0 in (1.6, 3.2, 4.8): tone(t0, 0.5, 330, 0.03, decay=5)   # vòng 2: không bước chân; mỗi lần đổi hướng nhìn một nốt mềm
 y = np.clip(y / max(1e-9, np.abs(y).max()) * 0.5, -1, 1)
 st = np.stack([y, y], 1)
 with wave.open(out, 'wb') as w:
