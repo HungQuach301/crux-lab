@@ -25,3 +25,18 @@ Ngày 2026-10-13 (sau merge `main` 44229bc1: D-013 + K4.4). Nháp = build `CRUX_
 Lỗi trượt thật (CHẶN/CHÍNH, nhịp hồi quy đã xác nhận, câu khuyên) → sửa bằng hình trước, ≤ 2 vòng mỗi lỗi, vòng chỉ giữ khi vượt bản tốt nhất ngoài biên nhiễu. Hết vòng → trước/sau ở G2. **G2** (`templates/G2.md` nếu có, ≤ 3 câu): nháp 540p (đường dẫn), 3 khung tĩnh 1080p cảnh đinh (B01, B17–B18, B24/B32 — render `--res 1080` chỉ khung đơn, ≈ 5 phút máy), phiếu L3 (`templates/L3.md`), trước/sau, Short (mô tả + mốc giây, dựng ở M6), câu hỏi mở (S13 "3 in 4", câu chuyền tập kế). REVIEWER headless soát gói trước khi gửi.
 
 **Chi dự kiến (Console):** cổng gốc ≈ $1,6 · nhớ lại ≈ $0,3 · đạo diễn ≈ $1 · REVIEWER ý đồ + gói ≈ $2,5 → ≈ $5,5; chặng hiện $5,75 → ≈ $11–12 / trần $25 cứng.
+
+## Sửa theo REVIEWER (`gates/REVIEW-M5-intent.md`: ĐẠT có sửa, 5 CHÍNH + 8 PHỤ — áp đủ, TRƯỚC khi chạy)
+- **C1 (§2):** điểm cổng lấy theo **lượt đọc đầu** trên nháp; lượt đọc lại chỉ xác nhận lỗi cần sửa, **không thay điểm**.
+- **C2 (§1):** CHẶN dự kiến trượt/MISSING vì thiếu hợp đồng đã biết, ghi trước: **S01, S05** (`r_model.kind`: kind `rent-buy-twin-replay` chưa có ở KINDS — phiên K kind mới chưa chạy), **S04** (contract không khai `data.crosscheck`: hồ sơ #20 không có chuỗi đối chiếu thứ hai). **Mọi CHẶN khác là trượt thật.**
+- **C3 (§1):** luật phụ thuộc độ phân giải (K4.4): **F05, F08, R03, R04, V05, V10, V08, V12, C14** — trên 540p **chỉ báo** (đối chiếu 540p/1080p của A41 (a) để K4.4.1); đo lại ở M6 trên 1080p.
+- **C4 (§1):** không thêm `claims.allowTerms`/ngoại lệ S23 sau khi thấy kết quả; S23 trúng câu lời đã duyệt → giữ CHÍNH, nêu G2. Ngoại lệ (nếu có) ghi lý do ≥ 5 từ, liệt kê ở G2.
+- **C5 (§4):** phép thử Editor đúng `episode.md` §1a: **quãng có lời không đổi hình > 8 s = 0** (đo: spine `f14` + freezedetect), **freezedetect ≥ 3 s có lời ≤ 30 s/tập**; **kiểm mù "chỗ muốn tua"**: 3 người đọc headless mới, cùng 4 tấm khung + lời có mốc giây như bài nhớ lại, câu "Where would you skip ahead, if anywhere? Give the time." — không đoạn (cảnh) nào bị ≥ 2/3 người chọn. Trượt → sửa (≤ 2 vòng) ở nhịp/hình, không đổi lời.
+- **P6:** liền mạch thêm: số trên hình = lời (S07 có sẵn), chuyển hồi đúng kiểu khai (R09, chỉ báo), màu lựa chọn đúng (lit = người mua, warn = người thuê); bản đồ = **minh hoạ** (`kind: illustrative`) → F15: có nhãn "US only" + "Map: Natural Earth (public domain)", không số claim trong khoảng, ≤ 6 s, không trong 5 s đầu.
+- **P7:** "có lời" = chồng với vùng stem giọng > −45 dBFS (như K).
+- **P8:** rubric cổng gốc = cột Muted read của `story/beats.md` @ ae2c3becc305 (bản r2); dải khung cùng tham số `strips.py` như r2; dưới 20/24 → nêu G2, không mở vòng ngoài lỗi đã xác nhận.
+- **P9:** hồi quy do màu/chất liệu = lỗi mới, ≤ 2 vòng; vòng 2 đổi loại hình (Previz).
+- **P10:** lượt đạo diễn lấy khung theo `quality-framework.md` §10 (`select=not(mod(n\,15))`), giới hạn 12 khung mỗi tấm.
+- **P11:** nhớ lại + chỗ muốn tua: người chấm headless độc lập mù tập; bên dựng không chấm.
+- **P12:** ngắt: chi M5 vượt **$8,3** (150 % ngân sách mốc) → dừng mốc, báo; tổng chặng chạm **$25** → dừng hỏi.
+- **P13:** J/L-cut: chỉ L-cut S30 → S31; **lệch lệnh G1 (M4 J/L-cut)** nêu đích danh ở G2 kèm số R09.
