@@ -99,7 +99,9 @@ def episode_verdict(res, expl):
     for t in (tiers.BLOCK, tiers.MAJOR, tiers.REFERENCE):
         rs = [r for r in res if r['tier'] == t]
         summ[t] = {'label': tiers.LABEL[t], 'rules': len(rs), 'pass': sum(1 for r in rs if r['status'] == 'PASS'),
-                   'notPass': [f"{r['id']} {r['status']}" for r in rs if r['status'] != 'PASS']}
+                   'notPass': [f"{r['id']} {r['status']}" for r in rs if r['status'] != 'PASS'],
+                   # K4.4 (A40 (3)): non-passing rules by nature — lỗi thật / pháp lý / thủ tục
+                   'byNature': {k: [r['id'] for r in rs if r['status'] != 'PASS' and tiers.nature(r) == k] for k in ('real', 'legal', 'procedure')}}
     unexplained = [r['id'] for r in res if r['tier'] == tiers.MAJOR and r['status'] != 'PASS' and r['id'] not in expl]
     summ[tiers.MAJOR]['explained'] = {r['id']: expl[r['id']] for r in res if r['tier'] == tiers.MAJOR and r['status'] != 'PASS' and r['id'] in expl}
     summ[tiers.MAJOR]['unexplained'] = unexplained
@@ -132,6 +134,7 @@ def main():
         r['threshold'] = fn.meta['threshold']
         r['fingerprint'] = fn.meta['fingerprint']
         r['tier'] = tiers.tier(fn.rid)
+        r['nature'] = tiers.nature(r) if r['status'] != 'PASS' else None
         r['seconds'] = round(time.time() - t0, 1)
         res.append(r)
         print(f"{r['id']:4} {r['status']:7} {r['seconds']:6}s  " + '; '.join(f"{m['name']}={m['value']}" for m in r['metrics'] if not m['pass'])[:200] + (('  ' + r['note']) if r.get('note') else ''), flush=True)
@@ -156,17 +159,19 @@ def main():
     with open(ctx.path(f'out/checks/{name}.md'), 'w') as f:
         f.write(f"# checks/ report\n\nroot: `{ctx.root}`  \nlock: `{lock}`  \nmaster SHA-256: `{vsha}`  \n{counts}\n\n"
                 f"**Tập: {verdict_}** (chỉ luật CHẶN làm trượt tập; luật CHÍNH không đạt cần bên dựng giải thích; luật THAM KHẢO chỉ báo số đo)\n\n"
-                "| cấp | luật | đạt | không đạt |\n|---|---|---|---|\n")
+                "| cấp | luật | đạt | không đạt | lỗi thật | pháp lý | thủ tục |\n|---|---|---|---|---|---|---|\n")
         for t, x in summ.items():
-            f.write(f"| {x['label']} | {x['rules']} | {x['pass']} | {', '.join(x['notPass']) or '—'} |\n")
+            bn = x['byNature']
+            f.write(f"| {x['label']} | {x['rules']} | {x['pass']} | {', '.join(x['notPass']) or '—'} | {', '.join(bn['real']) or '—'} | "
+                    f"{', '.join(bn['legal']) or '—'} | {', '.join(bn['procedure']) or '—'} |\n")
         if summ[tiers.MAJOR]['unexplained']:
             f.write(f"\nCHÍNH không đạt, chưa có giải thích trong `out/explanations.json`: {', '.join(summ[tiers.MAJOR]['unexplained'])}\n")
         f.write('\n## Chỉ số trong ±5% quanh ngưỡng\n\n' + ('\n'.join(f"- {n['rule']} ({tiers.LABEL[n['tier']]}) · {n['name']} = {n['value']} (ngưỡng {n['op']} {n['threshold']}, "
                                                                      f"{'đạt' if n['pass'] else 'không đạt'})" for n in near) or 'không có') + '\n')
-        f.write("\n| rule | tier | § | status | failing metrics |\n|---|---|---|---|---|\n")
+        f.write("\n| rule | tier | § | status | loại (A40) | failing metrics |\n|---|---|---|---|---|---|\n")
         for r in res:
             bad = '; '.join(f"{m['name']} = {m['value']} (need {m['op']} {m['threshold']})" for m in r['metrics'] if not m['pass'])
-            f.write(f"| {r['id']} | {tiers.LABEL[r['tier']]} | {r['section']} | {r['status']} | {bad or r.get('note') or ''} |\n")
+            f.write(f"| {r['id']} | {tiers.LABEL[r['tier']]} | {r['section']} | {r['status']} | {tiers.NATURE_LABEL.get(r.get('nature'), '')} | {bad or r.get('note') or ''} |\n")
     for n in near:
         print(f"near {n['rule']} ({tiers.LABEL[n['tier']]}) {n['name']} = {n['value']} (threshold {n['op']} {n['threshold']})")
     print(json.dumps(counts), 'episode:', verdict_)

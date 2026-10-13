@@ -96,3 +96,32 @@ TIERS = {
 
 def tier(rid):
     return TIERS[rid][0]
+
+
+# K4.4 (checks-appeal A40 (3), chủ dự án duyệt 13/10): every non-passing rule is reported as one of three natures, from its failing metrics.
+#   real      = an error a viewer can see or hear (default: any failing metric not listed below);
+#   legal     = rights / terms (not visible, never waived: CHARTER §5 asks the owner);
+#   procedure = a bookkeeping gap in the dossier (a declaration, a registration, a file not delivered) — the film may be right.
+# MISSING / ERROR are procedure (the rule could not measure). Keys: (rule, metric name) or (rule, '*').
+NATURE = {
+    ('F11', '*'): 'procedure', ('F12', '*'): 'legal', ('S03', '*'): 'legal', ('F13', 'footage without a complete rights record'): 'legal',
+    ('F13', 'footage under a forbidden or unrecognised licence'): 'legal', ('F13', 'attribution licences without the credit in the description'): 'legal',
+    ('S07', 'unregistered numbers in narration'): 'procedure', ('S07', 'claims without formula'): 'procedure',
+    ('S07', 'unsourced non-illustrative claims'): 'procedure', ('S07', 'sourced claims without dataYear'): 'procedure',
+    ('S09', 'money claims without basis'): 'procedure', ('REG', '*'): 'procedure',
+}
+NATURE_LABEL = {'real': 'lỗi thật', 'legal': 'pháp lý', 'procedure': 'thủ tục'}
+
+
+def nature(r):
+    """Nature of a non-passing result (dict with id, status, metrics): real > legal > procedure over its failing metrics."""
+    if r['status'] in ('MISSING', 'ERROR'):
+        return 'procedure'
+    got = set()
+    for m in r.get('metrics', []):
+        if not m.get('pass'):
+            got.add(NATURE.get((r['id'], m['name'])) or NATURE.get((r['id'], '*')) or 'real')
+    for k in ('real', 'legal', 'procedure'):
+        if k in got:
+            return k
+    return 'real'

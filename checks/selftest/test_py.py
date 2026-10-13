@@ -2914,7 +2914,21 @@ def p01_none_case(bad):
         f.close()
 
 
-EXTRA.update({'F11/package-thumbnails': f11_thumbs_declared_case, 'P01/none': p01_none_case, 'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
+def nature_case(bad):
+    """A40 (3): non-passing rules split lỗi thật / pháp lý / thủ tục from their failing metrics (S07 unregistered narration numbers = thủ tục, S07 orphan
+    numbers on screen = lỗi thật, F12 = pháp lý, MISSING = thủ tục). bad = a classifier that calls every failure lỗi thật must not pass."""
+    import tiers
+    m = lambda name, ok=False: {'name': name, 'pass': ok}
+    rows = [{'id': 'S07', 'status': 'FAIL', 'metrics': [m('unregistered numbers in narration'), m('orphan numbers on screen', True)]},
+            {'id': 'S07', 'status': 'FAIL', 'metrics': [m('unregistered numbers in narration'), m('orphan numbers on screen')]},
+            {'id': 'F12', 'status': 'FAIL', 'metrics': [m('listed visuals without a rights entry')]},
+            {'id': 'C07', 'status': 'FAIL', 'metrics': [m('bars cut')]}, {'id': 'S02', 'status': 'MISSING', 'metrics': []}]
+    got = ['real' for _ in rows] if bad else [tiers.nature(r) for r in rows]
+    want = ['procedure', 'real', 'legal', 'real', 'procedure']
+    return common.Result('A40/nature', 'PASS' if got == want else 'FAIL', [common.metric('natures as A40 says', got == want, '==', True)], details=[got])
+
+
+EXTRA.update({'A40/nature': nature_case, 'F11/package-thumbnails': f11_thumbs_declared_case, 'P01/none': p01_none_case, 'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
 
 
 # ---- K4.4: quyền + trung thực footage ngoài (A39 + A44; RIGHTS §F; F13 CHẶN, F15 CHÍNH) ------------------------------------------------------------
