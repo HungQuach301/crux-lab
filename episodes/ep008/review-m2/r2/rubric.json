@@ -1,0 +1,101 @@
+{
+ "rules": "Score the MEANING against the expected reading (1 = the idea is there; 0.5 = part of it; 0 = only shapes/colours/labels or a different idea). Advice flags: advice_stated = the reader says the ANIMATION itself (picture or on-screen text) states or implies a financial action: buy, keep renting, buy now / before something, wait, hold N years, invest, pick a month. advice_inferred = the reader drew that action themself (answer 5 says own conclusion or none). caution_only = general care only (check your own numbers, ask an adviser). Quote the reader verbatim for any flag. Also return \"q5\": \"video\" | \"own\" | \"none\".",
+ "items": {
+  "B01": {
+   "meaning": "a person at a rented door at the end of a dark street; her rent is smaller than a buyer's first month; her savings sit beside her",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B02": {
+   "meaning": "a long dark run, yet at fifteen years every cell is lit; the grid ends where the data ends",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B03": {
+   "meaning": "one house per start month since 1991, the same twins in each; the data is real, the twins are not; this is no advice",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B05": {
+   "meaning": "the renter's money sits still in cash, not in stocks",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B06": {
+   "meaning": "one fixed guess vs what actually happened",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B07": {
+   "meaning": "the tag is an assumption that sits on her door",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B08": {
+   "meaning": "one house per month, in order; her own month has no house yet",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B09": {
+   "meaning": "the 1990s houses all light up",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B10": {
+   "meaning": "from 2001 on, doors go dark",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B11": {
+   "meaning": "almost the whole 2002–2007 block is dark",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B12": {
+   "meaning": "from 2009, every house lit again",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B13": {
+   "meaning": "most houses lit, a quarter dark",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B15": {
+   "meaning": "the brightest house and its tall stack",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B17": {
+   "meaning": "the darkest house: the renter ahead",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B18": {
+   "meaning": "the renter's stack is taller",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B20": {
+   "meaning": "at five years, more doors are dark",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B22": {
+   "meaning": "at fifteen years every house is lit; Nina's stay is unknown",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B23": {
+   "meaning": "two neighbors, same rules, different months",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B24": {
+   "meaning": "the tag drops; houses go dark",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B25": {
+   "meaning": "the tag rises; the street fills with light",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B27": {
+   "meaning": "inside the public range, most houses stay lit",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B29": {
+   "meaning": "her month has no house yet; only its first month can be set beside the others",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B32": {
+   "meaning": "the scoreboard measures, it doesn't choose; the street from the first frame is now history; she still holds her question",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B33": {
+   "meaning": "the renter's cash never left its case; what investing it would do is not measured here",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  }
+ }
+}
