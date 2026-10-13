@@ -9,27 +9,34 @@ import { PALETTE, House } from '/toolkit/factory/world/lib3d.js';
 const mat = (c, o = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.85, transparent: true, ...o });
 export const LAMP = '#FFB86B';
 
-export function Street({ n = 307, gap = 0.62, w = 0.5 } = {}) {
+export function Street({ starts, gap = 0.95, rowGap = 0.95, w = 0.55 } = {}) {
+  // lưới các tháng mua: cột = năm (trái → phải 1991 → 2016), hàng = tháng (Jan ở trước máy); mỗi nhà một tháng bắt đầu
   const g = new THREE.Group(), houses = [];
-  const road = new THREE.Mesh(new THREE.BoxGeometry(n * gap + 2, 0.02, 0.9), mat('#232934'));
-  road.position.set((n - 1) * gap / 2, 0.01, 0.75); road.receiveShadow = true; g.add(road);
-  for (let i = 0; i < n; i++) {
-    const h = House({ w, lit: false });
-    h.position.set(i * gap, 0, 0);
-    const wins = [], doors = [];
-    h.traverse((o) => { if (o.isMesh && o.material.emissive && o.geometry.parameters && o.geometry.parameters.depth === 0.03) wins.push(o); });
-    h.children.forEach((o) => { if (o.isMesh && o.material.color && o.material.color.getHexString() === '3b4a5a') doors.push(o); });
-    for (const m of wins) m.material = m.material.clone();
-    for (const m of doors) m.material = m.material.clone();
-    houses.push({ h, wins, doors }); g.add(h);
+  const y0 = Number(starts[0].slice(0, 4)), ny = Number(starts[starts.length - 1].slice(0, 4)) - y0 + 1;
+  for (let c = 0; c < ny; c++) {   // mỗi năm một con phố ngắn (dải đường dưới cột)
+    const road = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.02, 12 * rowGap), mat('#232934'));
+    road.position.set(c * gap + 0.42, 0.01, -5.5 * rowGap); road.receiveShadow = true; g.add(road);
   }
-  const warn = new THREE.Color(PALETTE.warn), door0 = new THREE.Color('#3B4A5A');
-  g.userData = { gap, n,
+  starts.forEach((s, i) => {
+    const c = Number(s.slice(0, 4)) - y0, r = Number(s.slice(5, 7)) - 1;
+    const h = House({ w, lit: false }); h.rotation.y = Math.PI / 2; h.position.set(c * gap, 0, -r * rowGap);
+    const wins = [], doors = [], walls = [], roofs = [];
+    h.traverse((o) => { if (!o.isMesh) return; const hx = o.material.color.getHexString();
+      if (o.material.emissive && o.geometry.parameters && o.geometry.parameters.depth === 0.03) wins.push(o);
+      else if (hx === '3b4a5a') doors.push(o); else if (hx === 'd9d4c7') walls.push(o); else roofs.push(o); });
+    for (const m of [...wins, ...doors, ...walls, ...roofs]) m.material = m.material.clone();
+    houses.push({ wins, doors, walls, roofs }); g.add(h);
+  });
+  const warn = new THREE.Color(PALETTE.warn), door0 = new THREE.Color('#3B4A5A'), glow = new THREE.Color('#F6D58E');
+  const neutral = new THREE.Color('#7E838C'), dim = new THREE.Color('#3A3E46'), roof0 = new THREE.Color('#5B5F66'), roofLit = new THREE.Color('#C98A4E');
+  g.userData = { gap, rowGap, ny, y0,
     set({ lit = [], doorWarn = [] } = {}) {
       houses.forEach((o, i) => {
         const a = lit[i] || 0, d = doorWarn[i] || 0;
-        for (const m of o.wins) m.material.emissiveIntensity = 1.1 * a;
-        for (const m of o.doors) { m.material.color.copy(door0).lerp(warn, d); m.material.emissive = warn.clone(); m.material.emissiveIntensity = 0.35 * d; }
+        for (const m of o.wins) m.material.emissiveIntensity = 1.5 * a;
+        for (const m of o.walls) { m.material.color.copy(neutral).lerp(glow, a).lerp(dim, d); m.material.emissive = glow; m.material.emissiveIntensity = 0.55 * a; }
+        for (const m of o.roofs) { m.material.color.copy(roof0).lerp(roofLit, a).lerp(dim, d); m.material.emissive = roofLit; m.material.emissiveIntensity = 0.35 * a; }
+        for (const m of o.doors) { m.material.color.copy(door0).lerp(warn, d); m.material.emissive = warn; m.material.emissiveIntensity = 0.5 * d; }
       });
     } };
   return g;

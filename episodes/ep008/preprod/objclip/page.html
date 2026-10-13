@@ -26,31 +26,35 @@ const lab = (html, x, y, cls = '') => { const d = document.createElement('div');
 const ease = (a) => a <= 0 ? 0 : a >= 1 ? 1 : a * a * (3 - 2 * a);
 const lerp = (a, b, k) => a + (b - a) * k;
 const ramp = (t, a, b) => ease((t - a) / (b - a));
-const N = data.starts.length, street = Street({ n: N }); scene.add(street);
-const gap = street.userData.gap, L = (N - 1) * gap;
+const N = data.starts.length, street = Street({ starts: data.starts }); scene.add(street);
+const gap = street.userData.gap, L = (street.userData.ny - 1) * gap, D = 11 * street.userData.rowGap;
+const order = data.starts.map((s, i) => i);   // thứ tự thời gian = chỉ số
 let seek;
 
 if (clip === 'street') {
-  // 0–1 s: phố tối, máy thấp ở đầu phố · 1–5 s: đèn bật theo thứ tự tháng (người mua hơn) / cửa warn (người thuê hơn), máy lia dọc phố
-  // 5–7 s: máy lùi + khoá chính diện (chế độ đồ thị) — nhãn năm và chú giải chỉ ở đây (quy tắc 1)
+  // 0–1 s: lưới xám, máy thấp ở năm 1991 · 1–5 s: đèn bật theo thứ tự tháng (người mua hơn) / cửa amber (người thuê hơn); máy cẩu lên, lia theo năm
+  // 5–6,4 s: máy lên thẳng đứng nhìn xuống (chế độ đồ thị) — nhãn năm + chú giải chỉ ở đây (quy tắc 1)
   const ahead = data.ahead['5'];
-  const y0 = lab('1991', 30, 440, 'muted'), y1 = lab('2016', 860, 440, 'muted');
-  const k1 = lab('lit window: the buyer ended ahead after 10 years', 150, 40), k2 = lab('dark, amber door: the renter ended ahead', 210, 92, 'warn');
+  const yl = [['1991', 0], ['2001', 10], ['2007', 16], ['2016', 25]].map(([t, c]) => [lab(t, 0, 0, 'muted'), c]);
+  const k1 = lab('lit house: the buyer ended ahead after 10 years', 0, 0), k2 = lab('dark, amber door: the renter ended ahead', 0, 0, 'warn');
+  k1.style.left = '20px'; k1.style.top = '14px'; k2.style.left = '20px'; k2.style.top = '58px';
   seek = (t) => {
     const sweep = ramp(t, 1.0, 5.0) * N;
     street.userData.set({ lit: ahead.map((a, i) => a ? Math.min(1, Math.max(0, sweep - i)) : 0), doorWarn: ahead.map((a, i) => a ? 0 : Math.min(1, Math.max(0, sweep - i))) });
-    const k = ramp(t, 5.0, 6.4), xs = Math.min(L, sweep * gap);
-    const pw = new THREE.Vector3(xs - 4, 1.4, 5.2), lw = new THREE.Vector3(xs + 3, 0.4, 0);
-    const pc = new THREE.Vector3(L / 2, 2.2, 158), lc = new THREE.Vector3(L / 2, 0.4, 0);
-    cam.position.lerpVectors(pw, pc, k); const look = new THREE.Vector3().lerpVectors(lw, lc, k); cam.lookAt(look);
-    cam.fov = lerp(38, 38, k); cam.updateProjectionMatrix();
-    const a = ramp(t, 6.2, 6.6); for (const d of [y0, y1, k1, k2]) d.style.opacity = a;
+    const k = ramp(t, 5.0, 6.4), xs = Math.min(L, (sweep / 12) * gap);
+    const pw = new THREE.Vector3(xs - 3.5, lerp(1.6, 5.5, ramp(t, 1, 5)), 4.5), lw = new THREE.Vector3(xs + 1.0, 0.3, -D / 2);
+    const pc = new THREE.Vector3(L / 2, 29, -D / 2 - 1.2 + 0.01), lc = new THREE.Vector3(L / 2, 0, -D / 2 - 1.2);
+    cam.position.lerpVectors(pw, pc, k); cam.lookAt(new THREE.Vector3().lerpVectors(lw, lc, k));
+    cam.updateMatrixWorld();
+    const a = ramp(t, 6.2, 6.6);
+    for (const [d, c] of yl) { const v = new THREE.Vector3(c * gap, 0, 1.0).project(cam); d.style.left = ((v.x + 1) / 2 * W - 30) + 'px'; d.style.top = ((1 - v.y) / 2 * H) + 'px'; d.style.opacity = a; }
+    k1.style.opacity = a; k2.style.opacity = a;
   };
 } else if (clip === 'tag') {
   // Căn hộ của Nina gần máy, thẻ RENT ở cửa; phố phía sau. Thẻ 5 % → 4 % (2,0 s) → 6 % (4,4 s): cả phố bật/tắt đèn theo
-  street.position.set(-L / 2, 0, -9);
-  const apt = Apartment({ w: 2.0, floors: 3 }); apt.position.set(-2.6, 0, 1.2); scene.add(apt);
-  const tag = RentTag({ w: 0.8 }); tag.position.set(-2.6, 0.75, 1.2 + 0.72 + 0.04); scene.add(tag);
+  street.position.set(-L / 2 + 2, 0, -1.5);
+  const apt = Apartment({ w: 1.6, floors: 3 }); apt.position.set(-10.5, 0, 5.5); scene.add(apt);
+  const tag = RentTag({ w: 0.8 }); tag.position.set(-10.5, 0.75, 5.5 + 0.56 + 0.04); scene.add(tag);
   const pat = (y) => data.ahead[String(y)];
   const tagY = (t) => t < 2.0 ? 5 : t < 4.4 ? 4 : 6;
   seek = (t) => {
@@ -58,7 +62,7 @@ if (clip === 'street') {
     const k = ramp(t, t0 + 0.25, t0 + 1.2), a = pat(y), b = pat(prev);
     street.userData.set({ lit: a.map((v, i) => lerp(b[i] ? 1 : 0, v ? 1 : 0, k)), doorWarn: a.map((v, i) => lerp(b[i] ? 0 : 1, v ? 0 : 1, k)) });
     tag.userData.set({ value: y, swing: 0.18 * Math.exp(-3 * Math.max(0, t - t0)) * Math.sin(9 * Math.max(0, t - t0)) });
-    cam.position.set(lerp(-1.2, -0.6, t / 7), 1.6, 6.4); cam.lookAt(-1.0, 0.9, -3);
+    cam.position.set(lerp(-13.6, -13.0, t / 7), 4.2, 12.5); cam.lookAt(-4.5, 0.6, 0.5);
   };
 } else {
   // Nina: dáng nghỉ, đèn ấm riêng; quay nhìn ngôi nhà bên kia đường, đi ba bước ra giữa — căn hộ (thuê) sau lưng, nhà (mua) trước mặt
