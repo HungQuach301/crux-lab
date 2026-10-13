@@ -4,8 +4,8 @@
   "advice_stated": false,
   "advice_inferred": false,
   "caution_only": true,
-  "quote": "A viewer could check their own loan's rate and the current 15-year versus 30-year gap",
-  "why": "Fallback priced in dollars, with weekly figure, history range, and bar; no advice.",
+  "quote": "There is no explicit advice. The video says it does not say which loan to take or whether to invest.",
+  "why": "Fallback priced in dollars, with numbers, historical range and loan-rate bar; only comparison suggested.",
   "q5": "own",
   "must_beat_or_guaranteed": false
  },
@@ -15,17 +15,17 @@
   "advice_inferred": false,
   "caution_only": false,
   "quote": "",
-  "why": "Bar is loan rate, interest avoided, pre-tax; alternatives not tested. Says 'has to clear' but also 'guaranteed return'.",
+  "why": "Loan rate as bar, interest avoided, pre-tax, no investment tested; matches expected.",
   "q5": "none",
   "must_beat_or_guaranteed": true
  },
  "R03": {
   "score": 1,
   "advice_stated": false,
-  "advice_inferred": true,
+  "advice_inferred": false,
   "caution_only": true,
-  "quote": "Any conclusion about what to do is your own.",
-  "why": "Full idea with numbers; checks are comparison only, no recommendation.",
+  "quote": "A viewer could use it to check their own numbers",
+  "why": "Fallback price, weekly numbers, history range, and bar all covered; only checking own numbers.",
   "q5": "own",
   "must_beat_or_guaranteed": false
  },
@@ -33,9 +33,9 @@
   "score": 1,
   "advice_stated": false,
   "advice_inferred": true,
-  "caution_only": true,
-  "quote": "The \"what a viewer would take\" part is my own reading.",
-  "why": "Fallback price, history range and bar all present; hurdle framing is reader's own.",
+  "caution_only": false,
+  "quote": "Treat their loan's rate as the hurdle any other use of the money has to beat.",
+  "why": "Full idea with numbers; hurdle framing is reader's own reading, not video's.",
   "q5": "own",
   "must_beat_or_guaranteed": false
  },
@@ -43,9 +43,9 @@
   "score": 1,
   "advice_stated": false,
   "advice_inferred": false,
-  "caution_only": true,
-  "quote": "They would still have to compare that against their own loan rate, taxes, and risk.",
-  "why": "Bar is loan rate, interest avoided, pre-tax; no investment compared.",
+  "caution_only": false,
+  "quote": "",
+  "why": "Beam, loan rate, pre-tax interest avoided, other use untested; matches expected meaning.",
   "q5": "none",
   "must_beat_or_guaranteed": true
  }

@@ -1,42 +1,47 @@
 # PLAN Tập 7 — 30-Year Mortgage Paid Off in 15 Years: What It Really Costs (≤ 1 trang)
 
-**Nhánh:** `ep007` · **Đề tài:** #13 (debt-1) · **Format:** `lab` · **Phiên hiện hành:** P2 (`session_01X1ixSVAUdXqW3ZNBYE9qy9`) → C3 đã trả lời (11/10), sang P3 · Lịch sử: `archive/PLAN-history.md`
+**Nhánh:** `ep007` · **Đề tài:** #13 · **Format:** `lab` · **Phiên vừa đóng:** P3 (`session_01PyBa4wV9BaBLVGdCDRJC6K`) — **dừng ở G2** · Lịch sử: `archive/PLAN-history.md`
 
 ## 1. Trạng thái
-**C3 đã trả lời** (`gates/C3-answer.md`: duyệt có điều kiện; **S21 lớp trả thêm không thấy bằng hình = CHÍNH**, C4 sửa + kiểm mù lại; 2, 4, 5 đồng ý; 3 a). `main` 76ef2b1 (K4.2 kind `term-pair-weekly-replay` Tập 7 + SH06; K4.2b A28/A31; A29 hoãn; LOCK dc4981b3) đã merge vào `ep007`. G1 lô áp (`gates/G1-answer.md`) · C2 v3.1 (mốc "October eighth", số S21/S23 lên hình) kiểm máy ĐẠT ước 9:54 · kiểm mù C2 vòng 3 rubric MỚI: đúng 6/6, `advice_stated` 0/6 · C3: 5 đoạn thế giới (the stack S01/S06, N1 Month track S21/S23, the bar S25), cổng gốc tắt tiếng vòng 3 **5/5 ĐẠT 2/2, stated 0** · REVIEWER C3 hai lượt ĐẠT có sửa (câu chữ đã áp; còn hàng chờ C4 bắt buộc §3 của gói).
+**G2 chờ chủ dự án** (`gates/G2.md`, REVIEWER `gates/REVIEW-G2.md` áp đủ). Bản 1080p 606,7 s (10:06,7), MR1 191,3 / MR2 443,4 s, −14,0 LUFS; Shorts SH1 (B06–B07), SH2 (B30); SH3 bỏ. Cổng gốc bản cuối **5–7/21** (C4 tốt nhất 16/21; hồi quy 10 nhịp sau sửa C5 theo đạo diễn). Chưa đạt: S21 lớp trả thêm (C3 câu 1, quá 3 vòng), S25 "phải vượt" 2/2 (C3 câu 5; lời S25.4/tên "the bar"). Checks Python: CHẶN A14 (S15.3, S25.2 "Tessa's" — A34), F11 (gói P4); bộ lấy mẫu trang chưa chạy. Master 1080p `out/video.mp4` **chỉ ở container** (không commit).
 
 ## 2. Việc tiếp (≤ 3) và việc treo
-1. **C4 mở được** (khoá K4.2/K4.2b có kind Tập 7 đã ở `ep007`). **S21 lớp trả thêm phải thấy bằng hình (CHÍNH, C3 câu 1) + kiểm mù lại.** Hàng chờ C4 bắt buộc khác: `gates/C3.md` §3 (S21 lớp trả thêm không thấy, S25 bóng "hoà mốc", S01 chồng lớn trong lời "$320,000" + bó sót ở cửa, S23 khối năm, Tessa đứng yên, lệch làm tròn $8,792/$8,796 và $2,949/$2,948, đồng bộ S06 2/5) + chốt kiểm mù bản có lời S23–S24 và S25 (§Anh chọn 2, 5).
-2. Giọng cả tập: **đọc `GET /v1/user/subscription` trước**, báo ký tự còn (P2: 72.750 / 144.034, làm mới 01/11); ước ≈ 8.600; thiếu → dừng hỏi.
-- Treo: F-14 (`factory-f14`, quyết `deep` Tập 8 trước C2 Tập 8); EL lệch ≈ 5.947 ký tự chưa rõ nguồn; ≈ 300 MB tệp trung gian `world/c3/out` đã vào lịch sử `ep007` (đã bỏ theo dõi).
+1. Chép câu trả lời G2 → `gates/G2-answer.md`; áp (hoàn 10 cảnh? sửa "her" ×2 cho A14? S25 giữ/sửa S25.4?).
+2. P4: gói ChatGPT (`packaging.md` §7), **checks đủ bộ có bộ lấy mẫu trang** (≈ 6–8 h ở 1080p, `RESUME=1` khi bị cắt), giao hàng, G3, merge `main` **squash** (lịch sử `ep007` có ≈ 300 MB tệp nặng).
+3. Lô K Tập 8: A34 (A14 tên riêng sở hữu cách), A29 (`checks-k43` @3a00e91: chưa đạt tiêu chí so byte, Tập 6 chưa thử).
+- Treo: `api.sh` không chặn agent con trong headless (hai lượt C5 dùng) — việc nhà máy; F-14 (Tập 8).
 
 ## 3. Quyết định đã có (chủ dự án)
-- 11/10 tổng kết Tập 6: `tongket-t6/ANSWER.md`. · 11/10 G1 lô: `gates/G1-answer.md` (#13 L1; #20 có điều kiện / #6; rubric khuyên MỚI; mốc ngày; `lab` ~9:53; T2; thumbnail "the stack" "$120 A MONTH?"; N1 duyệt; CHARTER §5 sửa; EL `user_read`).
-- 11/10 C3: `gates/C3-answer.md`.
-- 11/10 lệnh P2: lượt đạo diễn + REVIEWER headless khoá Console, 0 agent con, ≤ ~10 khung/lượt, không in/ghi khoá; đọc hạn mức EL trước khi sinh giọng cả tập.
+G1 → `gates/G1-answer.md` · C3 → `gates/C3-answer.md` · 12–13/10 giữa chặng (lời S25.5/S31.3, phạm vi C5, A29 chỉ Tập 7, A34, SH3 bỏ, S25 không sửa thêm, G2 ngay, push sau mỗi bước, dừng tiến trình theo PID) → `gates/C4-answer.md`.
 
 ## 4. Đã sửa gì, vì sao
 | Vòng | Cảnh | Lỗi | Sửa | Kết quả đo | Còn |
 |---|---|---|---|---|---|
-| C2 r3 | S21–S24 | số dày 3/6 | "195 months", "$8,792" chỉ trên hình | checker ĐẠT 9:54 | đo lại C4 |
-| C3 r2 | S06 | chồng = "tiền để dành", không thấy thanh dâng | nhãn trước khi dâng, vạch 15 năm, lát bay từ đỉnh thanh, "extra paid" | 2/2 | — |
-| C3 r3 | S01, S21, S23, S25 | REVIEWER: tiết kiệm 3/3, ô trễ sót, teal = "còn nợ", "guaranteed / has to beat" | bó từ cửa nhà, N1 `ink-muted`/`ink`/`warn`, gom 12 lớp, bóng đô la tách | 5/5 2/2 | §3 gói |
-| lời | S21 | ASR "October eight" | "October eighth" | take mới | — |
+| C4 v1–v3 | S21 | lớp trả thêm không thấy (CHÍNH) | tấm sáng · tờ đô la · cận cảnh | extra 0/2 mọi vòng | G2 trước/sau |
+| C4 r1–r4 | a–g | bố cục, F-2, S01/S06/S09/S23/S25/S31 | `briefs/builder-c4-*` | cổng gốc 16/21 | — |
+| C5 r1 | cả tập | đạo diễn lặp CHÍNH, đúng-số S13/S30 | `briefs/builder-c5-r1{A,B}` | **5–7/21 (hồi quy 10 nhịp)** | G2 |
+| C5 | S25/S31 lời | "clears" | S25.5/S31.3 | must_beat 2/2 vẫn | G2 |
+| C5 | A14 | ASR "Tessa's" | seed khác 5 cảnh | còn S15.3, S25.2 | "her" hoặc A34 |
+| C5 | d, f, g 1080p | C14, F-2, cache hỏng (đĩa đầy) | chú giải, nhãn, xoá cache | verify 7/7 | — |
 
-## 5. Mức cảnh báo, token, chi (`episode.md` §8, `lab`: 15 triệu · Console $45)
-| Phiên | Đến (UTC) | Sinh ra | Đầu vào mới | Đọc cache | Trần | Headless (trần) | Console |
+## 5. Mức cảnh báo, token, chi (`lab`: 15 triệu · Console $45)
+| Phiên | Đến (UTC) | Sinh ra | Đầu vào mới | Đọc cache | Trần | Headless | Console |
 |---|---|---|---|---|---|---|---|
-| P1 | 11/10 13:49 | 0,10 | 0,32 | 27,51 | **0,41 triệu** | 0,81 triệu | ≈ $8,9 |
-| P2 | 11/10 15:32 (list_events, result cuối của tiến trình hiện tại; lượt đóng phiên chưa tính) | ≥ 0,08 | ≥ 0,28 | ≥ 34,79 | **≥ 0,36 triệu** | ≈ 0,5 triệu (đọc mù + cổng gốc + đạo diễn) | **≈ $22,3** (dựng 3 lượt $17,97 · REVIEWER $2,51 · cổng gốc $0,82 · đạo diễn $0,77 · kiểm mù $0,25) |
-0 agent con · EL P2 1.843 ký tự (tổng tập 3.076) · giờ render C3 ≈ 25 phút máy (540p).
+| P1 | 11/10 13:49 | 0,10 | 0,32 | 27,51 | 0,41 triệu | 0,81 triệu | ≈ $8,9 |
+| P2 | 11/10 15:32 | ≥ 0,08 | ≥ 0,28 | ≥ 34,79 | ≥ 0,36 triệu | ≈ 0,5 triệu | ≈ $22,3 |
+| P3 | 13/10 | **chưa đọc được** | **chưa đọc được** | **chưa đọc được** | **chưa đọc được** | 189 lượt (kiểm mù, đạo diễn) | **≈ $83,5** |
+P3: một lượt kéo dài ≈ 2 ngày → log chưa có sự kiện `result` (`episode.md` §8: chỉ ghi được đến lượt trước) — P4 đọc bằng `list_events(kinds=["result"])` + `from_events.py --session session_01PyBa4wV9BaBLVGdCDRJC6K`. **Cả tập Console ≈ $115** (chủ dự án biết 12/10). EL: dư 66.164 / 144.034 (làm mới 01/11). Giờ máy P3 ≈ 30 h.
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
-1. `CHARTER.md` 2. `playbook/episode.md` 3. `playbook/prompts/P3.md` 4. `episodes/ep007/PLAN.md` 5. `episodes/ep007/gates/C3.md` 6. `episodes/ep007/gates/C3-answer.md` (đã chép) 7. `episodes/ep007/world/c3/README.md` 8. `episodes/ep007/story/beats.md`
+1. `CHARTER.md` 2. `playbook/episode.md` 3. `playbook/prompts/P3.md` (chặng P4) 4. `episodes/ep007/PLAN.md` 5. `episodes/ep007/gates/G2.md` 6. `episodes/ep007/gates/G2-answer.md` 7. `episodes/ep007/gates/C4-answer.md` 8. `playbook/packaging.md` §7
 
-## 7. Prompt phiên kế (D-011) — chủ dự án dán nguyên khối vào phiên mới
+## 7. Prompt phiên kế (D-011)
 ```
-Chạy Tập 7, phiên P3 (C4 → C5 → Shorts → G2). Nhánh ep007. Mở bằng `bash toolkit/verify.sh ep007`; đọc mục 6 của episodes/ep007/PLAN.md.
-C3 đã trả lời và đã chép (episodes/ep007/gates/C3-answer.md); main 76ef2b1 (khoá K4.2 kind Tập 7 + K4.2b) đã merge vào ep007 — merge main lần nữa nếu có khoá mới. Sửa D-011: nếu container còn tệp lớn của P2 (world/c3/out, vendor) thì chạy tiếp trong phiên đó sau /compact.
-Chặng này: hàng chờ C4 bắt buộc (gates/C3.md §3; S21 lớp trả thêm thấy bằng hình = CHÍNH + kiểm mù lại; chốt C3-answer câu 2, 5) → đọc GET /v1/user/subscription của ElevenLabs, báo ký tự còn, rồi mới sinh giọng cả tập (thiếu → dừng hỏi) → C4 → C5 → Shorts → G2 (P3.md việc 1–4) → dừng ở G2 (đóng phiên theo playbook/prompts/RUN.md "Đóng phiên").
-Việc nặng: headless khoá Console (toolkit/api.sh; kiểm mù headless.sh), 0 agent con; lượt đạo diễn và REVIEWER xem tối đa ~10 khung mỗi lượt; không in hay ghi khoá ra đâu.
+Chạy Tập 7, phiên P4 (áp G2 → gói ChatGPT → checks đủ bộ → giao hàng → G3). Nhánh ep007. Mở bằng `bash toolkit/verify.sh ep007`; đọc mục 6 của episodes/ep007/PLAN.md.
+Gói đã gửi: episodes/ep007/gates/G2.md. Việc đầu tiên: chép câu trả lời dưới đây vào episodes/ep007/gates/G2-answer.md, ghi taste-ledger.md, AUTHORSHIP.md, ledger; commit, push.
+Master 1080p chỉ ở container P3 (out/video.mp4, không commit): còn tệp thì chạy tiếp ở đó (D-011); mất thì dựng lại `bash toolkit/build.sh episodes/ep007/episode.yaml` (res 1080; ≈ 4–5 h, chạy tiếp được) rồi `c5/shorts_only.py`.
+Đọc 4 số token của P3 (session_01PyBa4wV9BaBLVGdCDRJC6K) ghi vào PLAN §5. Checks đủ bộ có bộ lấy mẫu trang trước giao hàng (RESUME=1 khi bị cắt). Merge main sau G3: squash.
+Việc nặng: headless khoá Console (toolkit/api.sh), 0 agent con; dừng tiến trình bằng PID đã lưu; push sau mỗi bước lớn.
+Câu trả lời G2:
+<<DÁN CÂU TRẢ LỜI G2 Ở ĐÂY>>
 ```

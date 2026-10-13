@@ -41,3 +41,9 @@
 | 2026-10-11/12 | C4 | REVIEWER ý đồ | `briefs/reviewer-c4-intent.md` | `gates/REVIEW-C4-intent.md` | $0,69 | ĐẠT có sửa (2 CHẶN, 4 CHÍNH, 5 PHỤ — áp đủ) |
 | 2026-10-11/12 | C4 | kiểm mù | `c4/blind_c4.py` (Sonnet headless khoá Console, 2 người chấm) r1–r3 | `c4/root-r{1,2,3}`, `c4/voiced-r{1,2}`, `gates/C4-result.md` | ≈ $3 | cổng gốc 16/21 TRƯỢT (±5 %); S21 extra 0/2 TRƯỢT; S23–S24 stated 0 ĐẠT; S25 must_beat 2/2 TRƯỢT (lời) |
 | 2026-10-11 | C4 | đạo diễn lượt 3 (C3 câu 4) | `c4/director.py` Opus, S01 S06 S21 S23 S25 | `c4/director-r3.out` | $0,49 | điểm 2–4; áp phần không trái C3 vào vòng 3 |
+| 2026-10-12/13 | C5 | dựng sửa vòng 1 (A S01–S15, B S16–S33) | `briefs/builder-c5-r1{A,B}.md` (headless; dùng agent con bên trong — trái 0 agent con) | `world/c4/` | $12,03 + $13,90 | đúng-số S13, S30; nhận xét lặp CHÍNH; lời S25.5/S31.3 |
+| 2026-10-12 | C5 | giọng | lời mới S25/S31 (761 ký tự chữ) + seed A14 S09/S12/S21/S25/S33 (`c5/reseed.py`, 5.839 chữ) | `voice-takes/`, `c5/reseed.json` | EL dư 66.164 | S15 không seed nào đạt small.en (A34) |
+| 2026-10-12/13 | C5 | 1080p | `build.sh` × 7 lần (trần 2 h, đĩa đầy 1 lần, 4 cảnh cache hỏng) + `c5/shorts_only.py` | `out/video.mp4` 606,7 s, `out/shorts/SH1,SH2` | — | 7 đoạn verify OK; −14,0 LUFS / −1,9 dBTP; SH2 = B30; SH3 bỏ (chủ dự án 13/10) |
+| 2026-10-13 | C5 | cổng gốc bản cuối | `c4/blind_c4.py` root, 42 lượt + chấm 2 lượt độc lập | `c5/root-final/` | ≈ $1 | 5–7/21 (C4 16/21) — hồi quy 10 nhịp; G2 ngay (chủ dự án) |
+| 2026-10-13 | C5 | checks lần 2 | luật Python trên bản sao khoá (`c5/checks-reports/chk-c5py2.log`); bộ lấy mẫu trang dừng (≈ 6–8 h) | — | — | CHẶN: A14 (S15.3, S25.2 "Tessa's"), F11 (gói P4) |
+| 2026-10-13 | G2 | REVIEWER | `briefs/reviewer-g2.md` | `gates/REVIEW-G2.md` | $1,33 | ĐẠT có sửa (4 CHÍNH, 5 PHỤ — áp đủ) |
