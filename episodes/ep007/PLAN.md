@@ -3,7 +3,7 @@
 **Nhánh:** `ep007` · **Đề tài:** #13 · **Format:** `lab` · **Phiên vừa đóng:** P3 (`session_01PyBa4wV9BaBLVGdCDRJC6K`) — **dừng ở G2** · Lịch sử: `archive/PLAN-history.md`
 
 ## 1. Trạng thái
-**P4: giao hàng xong, chờ G3 (chủ dự án đăng).** G2 → `gates/G2-answer.md` (phát hành bản hiện tại). Master 1080p dựng lại (SHA `529471f0…`, = bản G2). Gói chữ + 3 thumbnail do Claude viết (chủ dự án 13/10), `HUONG-DAN-DANG.md`. Checks: A14 + CHẶN mới C07/S02/S07/S09 chấp nhận (A35–A37, `gates/P4-checks.md`). Nhánh `ep007-delivery` @ `6d3cc32`, kiểm ngược 24/24 OK.
+**ĐÃ ĐĂNG (G3, 13/10/2026)** — chủ dự án báo; link chờ điền (`audience.md`). Master `529471f0…` (= bản G2), giao `ep007-delivery` @ `6d3cc32` (24/24 OK). Squash vào `main` (không tệp nặng; danh sách loại `ARCHIVE.md`, bản đầy đủ ở nhánh `ep007`). Tổng kết: `TONGKET-INPUT.md` (a–q) — phiên tổng kết riêng.
 
 ## 2. Việc tiếp (≤ 3) và việc treo
 1. Chép câu trả lời G2 → `gates/G2-answer.md`; áp (hoàn 10 cảnh? sửa "her" ×2 cho A14? S25 giữ/sửa S25.4?).

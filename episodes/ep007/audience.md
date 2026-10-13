@@ -7,7 +7,7 @@ Mẫu chuẩn (Mốc B, D-006 Q4). Số giữ chân YouTube là **thước đo t
 ## Bản phát hành
 | Mục | Giá trị |
 |---|---|
-| Video ID · ngày đăng | (chủ dự án điền sau G3) |
+| Video ID · ngày đăng | (link chủ dự án điền) · 13/10/2026 |
 | `format` | `lab` (10:06,7) |
 | Tiêu đề · thumbnail mặc định · bộ Test & Compare | T2 "30-Year Mortgage Paid Off in 15 Years: What It Really Costs" · thumb-1 ("$120 A MONTH?", the stack) · T&C thumb-1, thumb-2 ("THE BAR"), thumb-3 — hoặc bản ChatGPT của chủ dự án |
 | SHA-256 bản giao | `529471f0f2283f4fd5b502c7d4e650f4e2e0b96e36ed33ba8c96a19e13a8d601` (master nguyên byte = `ep007-youtube.mp4`) |

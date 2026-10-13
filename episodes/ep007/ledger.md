@@ -51,3 +51,5 @@
 | 2026-10-13 | P4 | master 1080p dựng lại | `build.sh` × 3 (2 trượt môi trường: bed.wav, three.js; 1 bị cắt 2 h) + `build_inputs.py --out` | `out/video.mp4` SHA 529471f0… | — | 606,733 s, −14,0 LUFS/−1,9 dBTP; SSIM ≥ 0,970 so full-720p G2; ≈ 1,9 h máy |
 | 2026-10-13 | P4 | gói phát hành | brief (`brief.py` + tay), trend 7 ngày (Sonnet $0,01), mô tả/tag/3 thumbnail (Claude), `package_check.py`, REVIEWER headless | `out/package/`, `gates/REVIEW-P4-package.md` | ≈ $0,86 | package_check ĐẠT; F10, S21 ĐẠT; REVIEWER ĐẠT có sửa (CHÍNH-1 áp) |
 | 2026-10-13 | P4 | checks đủ bộ | lấy mẫu trang 2 lượt (2 h + RESUME) + Python | `c5/checks-reports/chk-p4-*`, `gates/P4-checks.md` | — | CHẶN: A14 (đã chấp nhận) + C07, S02, S07, S09 MỚI → chủ dự án: giao + A35–A37; F11, SH01–05 ĐẠT |
+| 2026-10-13 | P4 | giao hàng | `c5/deliver.sh` (master nguyên byte, 15 phần 90 MB) | nhánh `ep007-delivery` @ `6d3cc32` | — | tải ngược 24/24 OK |
+| 2026-10-13 | G3 | đăng | chủ dự án đăng YouTube (link chờ điền) | `HUONG-DAN-DANG.md`, `audience.md` | — | squash `ep007` → `main` (không tệp nặng, `ARCHIVE.md`); `TONGKET-INPUT.md` |

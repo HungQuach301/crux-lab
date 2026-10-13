@@ -1,4 +1,4 @@
-# PLAN kênh Crux (≤ 1 trang) — cập nhật 11/10/2026 (P2 Tập 7: C3 đã trả lời → P3)
+# PLAN kênh Crux (≤ 1 trang) — cập nhật 13/10/2026 (P4 Tập 7: đã đăng → Tập 8)
 
 PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLAN-tap.md`). PLAN Tập 1 cũ: `archive/ep001-v1/PLAN.md`. Thẩm quyền: `CHARTER.md` → `decisions/` (mới nhất D-012).
 
@@ -9,10 +9,10 @@ PLAN của từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLA
 | 4 | #3 giới hạn $500,000 khi bán nhà | — | — | **KHÔNG đăng** (chủ dự án 09/10: không đủ chất lượng — hình nghèo, nhiều chữ; sổ gu) |
 | 5 | #17 PMI 10 % trả trước | `101` | — (đã merge `main` 6e0ae01) | **đã đăng 09/10**; tổng kết `tongket-t5/` áp xong (D-011) |
 | 6 | #12 "Does a 2% Annuity Raise Really Keep Up With Prices?" | `101` | — (merge squash `main` 99e90d4) | **G3: chờ chủ dự án đăng**; tổng kết `tongket-t6/` đã trả lời + áp (`ANSWER.md`) |
-| **7** | **#13 15 năm vs 30 năm trả trong 15** (D-012) | `lab` (F-14 chưa đạt trước G1) | `ep007` | **C3 đã trả lời** (`episodes/ep007/gates/C3-answer.md`); kế: P3 (C4 → G2), prompt `episodes/ep007/PLAN.md` mục 7 |
-| 8 | #20 thuê vs mua — phát lại lịch sử thật (dự phòng #6) | `lab` (đề xuất G1 lô) | — | hồ sơ `topics-r2/machine/rent-buy-1/` §4 ĐẠT; chờ G1 lô (điều kiện tỉ lệ thuê/giá có nguồn) |
+| 7 | #13 "30-Year Mortgage Paid Off in 15 Years: What It Really Costs" | `lab` 10:06,7 | — (merge squash `main`, bản đầy đủ ở nhánh `ep007`) | **đã đăng 13/10** (G3); tổng kết: `episodes/ep007/TONGKET-INPUT.md` (a–q) — phiên tổng kết riêng |
+| **8** | **#20 thuê vs mua — phát lại lịch sử thật (dự phòng #6)** | `lab` (F-14 v4 TRƯỢT — chủ dự án 12/10) | — | **kế tiếp**: P1 Tập 8 (điều kiện G1 lô: tỉ lệ thuê/giá có nguồn công khai hoặc kể như độ nhạy; không được → #6). Trước P1: tổng kết Tập 7 + lô K Tập 8 (A34–A37) |
 
-**Tiếp Tập 7:** C3 đã trả lời (S21 lớp trả thêm = CHÍNH, C4 sửa + kiểm mù lại); khoá K4.2/K4.2b (kind Tập 7) đã merge vào `ep007` → P3 (C4 → G2): chạy tiếp trong container này sau `/compact` (D-011 sửa) hoặc phiên mới với prompt `episodes/ep007/PLAN.md` mục 7.
+**Tiếp:** phiên tổng kết Tập 7 (`episodes/ep007/TONGKET-INPUT.md`; chủ dự án duyệt trước khi sửa playbook/checks) → lô K Tập 8 (`checks-appeal.md` A34–A37 + kind Tập 8) → **"Chạy Tập 8"** (P1). Bài học P4 cần áp trước Tập 8: bộ lấy mẫu trang chạy ở C4/C5 trước G2 (TONGKET o).
 
 ## Việc treo
 - **F-14 nhịp hình**: đầu bài `tongket-t6/F14-brief.md` (chủ dự án mở `factory-f14` song song); **lô K Tập 7**: `episodes/ep007/K-brief.md` (kind mới) + A29–A31, trước C4. Hồ sơ q01/q17 + §4: xong 11/10. **EL:** `user_read` bật; còn 72.750 / 144.034 ký tự (11/10, làm mới 01/11).
