@@ -1,0 +1,15 @@
+{
+ "answer": "1. The animation shows how inflation wears down the buying power of a fixed income. A character named Ruth holds a check, and a row of crates stands for what that check buys. The labels say \"US consumer prices (CPI-U)\", \"ILLUSTRATIVE\", and \"US only · history, not a forecast\".\n\n2. Over the frames, Ruth ages to 85, and the row of crates shrinks. At first the check buys about 10 crates, and the last crate is greyed out. By frame 6 the check buys only about 9 of the original 10 crates, and the label says \"first check: 10 crates\". The check is labeled \"+2% a year\", so it grows, but not enough to keep pace with prices.\n\n3. A payout that rises 2% a year can still lose buying power if prices rise faster than that. In this example, by age 85 the check buys about 90% of what the first check did. The plain reading is that the check's dollar amount can grow while its purchasing power falls.\n\n4. A viewer might take away that they should look at whether an annuity payout adjusts for inflation, and how closely. Since I'm imagining myself at 64 with two payout options, I might compare a flat payout, a fixed-escalator payout and an inflation-linked payout, rather than judge only by the starting amount. The animation doesn't tell anyone which option to pick.\n\n5. This is my own conclusion. The animation shows a +2% check losing about 10% of its buying power. It gives no advice, doesn't mention annuity options, and says it's \"history, not a forecast\". The comparison between payout options comes from the setup you gave me.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3703,
+   "cache_read": 6315,
+   "output": 589,
+   "in": 10022,
+   "out": 589
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0213415
+}

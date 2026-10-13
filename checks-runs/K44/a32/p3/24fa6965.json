@@ -1,0 +1,15 @@
+{
+ "answer": "1. The animation shows inflation eroding the buying power of an income annuity. A character named Ruth has two possible payout checks. One is a level check that never changes. The other is a rising check that grows 2% a year. The animation labels itself \"illustrative,\" US-only (CPI-U), and \"history, not a forecast.\"\n\n2. Ruth and the two checks shrink as the frames go on. The level check stays the same in dollars, but its buying power falls as prices rise. In the later frames, a row of boxes marks the number of years. The final frame says buying power is measured against each check's own first check. The rising check's size is a hatched \"?\" in frame 3, and frame 4 says \"how much smaller: not modeled.\" So the animation doesn't say how much either check shrinks.\n\n3. A check that is fixed in dollars buys less each year as consumer prices rise. A check that rises 2% a year is meant to offset some of that loss. The animation does not say whether 2% is enough, because the size of the loss is \"not modeled.\"\n\n4. The animation gives no direct advice. A viewer might take away that they should think about inflation when comparing a level payout with a rising one. That is my reading of the context, not something the animation says.\n\n5. The advice is my own conclusion, not the animation's. The animation only illustrates the concept and explicitly says it is not a forecast and does not model the size of the effect. It never tells the viewer which option to choose. Any lean toward the rising check comes from my reading as someone comparing two quotes.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3705,
+   "cache_read": 6316,
+   "output": 559,
+   "in": 10025,
+   "out": 559
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.021049599999999998
+}
