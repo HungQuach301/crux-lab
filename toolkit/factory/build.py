@@ -205,6 +205,11 @@ class Build:
         # F-15 (b): build nguyên tử — sản phẩm vào thư mục tạm, thay bản cũ khi mọi bước đạt; cache (render, giọng, đoạn thế giới) dùng chung
         self.atomic = atomic and '--no-atomic' not in argv   # chỉ lệnh build (main); dùng như thư viện (build_inputs --timeline) ghi thẳng như cũ
         self.stage = os.path.join(self.work_final, f'.new-{os.getpid()}') if self.atomic else None
+        if self.atomic and os.path.isdir(self.work_final):   # thư mục tạm của lượt trượt trước (tiến trình đã chết) → xoá, giữ đĩa
+            for d in os.listdir(self.work_final):
+                m = re.match(r'\.new-(\d+)$', d)
+                if m and not os.path.exists(f'/proc/{m[1]}'):
+                    shutil.rmtree(os.path.join(self.work_final, d), ignore_errors=True)
         self.work = os.path.join(self.stage, 'work') if self.atomic else self.work_final
         self.out = os.path.join(self.stage, 'out-factory') if self.atomic else self.out_final
         self.epout = os.path.join(self.stage, 'ep-out') if self.atomic else self.epout_final
