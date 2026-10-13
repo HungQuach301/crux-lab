@@ -7,14 +7,14 @@
  "tiers": {
   "BLOCK": {
    "label": "CHẶN",
-   "rules": 3,
-   "pass": 3,
+   "rules": 0,
+   "pass": 0,
    "notPass": []
   },
   "MAJOR": {
    "label": "CHÍNH",
-   "rules": 0,
-   "pass": 0,
+   "rules": 1,
+   "pass": 1,
    "notPass": [],
    "explained": {},
    "unexplained": []
@@ -27,43 +27,20 @@
   }
  },
  "counts": {
-  "PASS": 3,
+  "PASS": 1,
   "FAIL": 0,
   "MISSING": 0,
   "ERROR": 0
  },
- "near": [
-  {
-   "rule": "S04",
-   "tier": "BLOCK",
-   "name": "mortgage30 tolerance",
-   "value": 0.5,
-   "op": "<=",
-   "threshold": 0.5,
-   "unit": "pp",
-   "pass": true,
-   "near": true
-  },
-  {
-   "rule": "S04",
-   "tier": "BLOCK",
-   "name": "mortgage15 tolerance",
-   "value": 0.5,
-   "op": "<=",
-   "threshold": 0.5,
-   "unit": "pp",
-   "pass": true,
-   "near": true
-  }
- ],
+ "near": [],
  "results": [
   {
-   "id": "S01",
+   "id": "SH06",
    "status": "PASS",
    "metrics": [
     {
-     "name": "values compared",
-     "value": 59,
+     "name": "hooks",
+     "value": 3,
      "op": ">=",
      "threshold": 1,
      "unit": "",
@@ -71,7 +48,7 @@
      "near": false
     },
     {
-     "name": "mismatches",
+     "name": "hooks over one line, below 56 px or out of the safe area",
      "value": 0,
      "op": "<=",
      "threshold": 0,
@@ -80,227 +57,50 @@
      "near": false
     },
     {
-     "name": "model parts not re-computed",
-     "value": 0,
+     "name": "widest hook px",
+     "value": 871.9,
      "op": "<=",
-     "threshold": 0,
-     "unit": "",
+     "threshold": 936,
+     "unit": "px",
      "pass": true,
      "near": false
     }
    ],
    "details": [
     {
-     "kind": "term-pair-weekly-replay",
-     "notRecomputed": []
+     "font": "6f56409fd3d64bb8"
+    },
+    {
+     "short": "SH1",
+     "hook": "The price of a fallback",
+     "px": 64.0,
+     "lines": 1,
+     "widthPx": 700.1,
+     "boxTop": 220.1
+    },
+    {
+     "short": "SH2",
+     "hook": "Same payment, months late",
+     "px": 64.0,
+     "lines": 1,
+     "widthPx": 871.9,
+     "boxTop": 220.1
+    },
+    {
+     "short": "SH3",
+     "hook": "What an extra dollar earns",
+     "px": 64.0,
+     "lines": 1,
+     "widthPx": 828.9,
+     "boxTop": 220.1
     }
    ],
    "note": null,
-   "section": "DX-H1",
-   "threshold": "every re-computed value within max($0.50, 1e-6 relative) (money), 0.005 (rates, payments), exactly (months); 0 mismatches; 0 model parts not re-computed; ≥ 1 value compared",
-   "fingerprint": "bd6d0ee85cf6c7c1",
-   "tier": "BLOCK",
-   "seconds": 0.1
-  },
-  {
-   "id": "S04",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "series pairs",
-     "value": 2,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "mortgage30 tolerance",
-     "value": 0.5,
-     "op": "<=",
-     "threshold": 0.5,
-     "unit": "pp",
-     "pass": true,
-     "near": true
-    },
-    {
-     "name": "mortgage15 tolerance",
-     "value": 0.5,
-     "op": "<=",
-     "threshold": 0.5,
-     "unit": "pp",
-     "pass": true,
-     "near": true
-    },
-    {
-     "name": "used keys missing in a source",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "out-of-tolerance keys not reported",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "pairs": [
-      {
-       "series": "mortgage30",
-       "overTolerance": 0
-      },
-      {
-       "series": "mortgage15",
-       "overTolerance": 0
-      }
-     ],
-     "unreported": [],
-     "missing": []
-    }
-   ],
-   "note": null,
-   "section": "DX-H5",
-   "threshold": "≥ 1 pair; every declared tolerance ≤ 0.5 (pp); every used key present in both series; every key outside tolerance listed in \"mismatches\" (reported, not silently resolved)",
-   "fingerprint": "952fa38fc028f677",
-   "tier": "BLOCK",
+   "section": "D-006 Q3, lessons T6-10, checks-appeal A30",
+   "threshold": "every hook: size ≥ 56 px, 1 line, the line ≤ 936 px wide, box top ≥ 200 px",
+   "fingerprint": "4c16d986ff501fa9",
+   "tier": "MAJOR",
    "seconds": 0.0
-  },
-  {
-   "id": "S05",
-   "status": "PASS",
-   "metrics": [
-    {
-     "name": "mapped claims",
-     "value": 57,
-     "op": ">=",
-     "threshold": 1,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "mapped claims absent",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "claims off their re-computation",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "weeks where the 30-year loan on the 15-year schedule pays less than the 15-year loan (rate not lower)",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "weeks where a wider spread does not raise the extra total",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "weeks where the 30-year required payment is not below the 15-year payment",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "weeks where months at the 15-year payment > 180 does not match the long rate > the short rate",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "weeks not paired in both series, or a paired-week count ≠ the dates both series hold",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "unrounded identities that do not hold (totals, interest, months late, prepay)",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "quantities that do not scale with the principal (dollars ×2, the rest unchanged)",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "min / max weeks that are not the earliest among equal values",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    },
-    {
-     "name": "claims missing their ILLUSTRATIVE flag",
-     "value": 0,
-     "op": "<=",
-     "threshold": 0,
-     "unit": "",
-     "pass": true,
-     "near": false
-    }
-   ],
-   "details": [
-    {
-     "off": [],
-     "absent": [],
-     "missingIllustrative": []
-    }
-   ],
-   "note": null,
-   "section": "DX-H1, DX-H2",
-   "threshold": "≥ 1 mapped claim; each mapped claim present and within its tolerance (0.005 pp for rates and means, exact for months after normalisation, $0.50 for money); every invariant holds; 0 claims missing their ILLUSTRATIVE flag",
-   "fingerprint": "e57ec71dadeccbb2",
-   "tier": "BLOCK",
-   "seconds": 0.2
   }
  ]
 }
