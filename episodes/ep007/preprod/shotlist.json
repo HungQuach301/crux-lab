@@ -1,0 +1,242 @@
+{
+ "shots": [
+  {
+   "id": "a-s01-s03:m_push0",
+   "scene": "S01",
+   "size": "world",
+   "move": "push",
+   "moveReason": "mở đoạn: máy lại gần Tessa và cửa nhà trước khi bó đầu ra (\"costs\")"
+  },
+  {
+   "id": "a-s01-s03:m_c1",
+   "scene": "S01",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "giá $120 chỉ hiện ở chế độ đồ thị (quy tắc 1) → đồ thị ngay sau 5 s thế giới (quy tắc 7), xong trước khi bó đầu chạm chồng"
+  },
+  {
+   "id": "a-s01-s03:m_pull",
+   "scene": "S02",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời S02.2 \"we replayed every week\": lùi máy cho chỗ dải mọi tuần trên mặt phẳng riêng sau nhà (V1 xem trước)"
+  },
+  {
+   "id": "a-s01-s03:m_hand",
+   "scene": "S02",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời S02.2 \"each extra dollar\": đẩy máy vào tay Tessa trước khi tờ đô la hiện (C5 r1: tờ tiền không còn là một chấm)"
+  },
+  {
+   "id": "a-s01-s03:m_push",
+   "scene": "S02",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời S03.1 đặt lãi thật của tuần lên hai khoản vay: đẩy máy về hai thẻ (sau khi tờ đô la bay vào nhà)"
+  },
+  {
+   "id": "a-s01-s03:m_w",
+   "scene": "S03",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S03.2 \"US only … history\": lớp bắt buộc đứng riêng, về Tessa và nhà (thế giới)"
+  },
+  {
+   "id": "a-s01-s03:m_in",
+   "scene": "S03",
+   "size": "world",
+   "move": "push",
+   "moveReason": "C5 r1: hết lời S03.3 không còn khoảng chết — đẩy máy vào Tessa đang quay về hai thẻ (mờ) trước ident"
+  },
+  {
+   "id": "b-s04-s09:m_c1",
+   "scene": "S04",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S04.2 đặt số tiền mỗi tháng: số chỉ ở đồ thị (quy tắc 1), sau 5 s thế giới (quy tắc 7)"
+  },
+  {
+   "id": "b-s04-s09:m_w5",
+   "scene": "S05",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S05.2 nói về đời Tessa (ngân sách, mất việc, sửa nhà), không số: về thế giới (chính diện)"
+  },
+  {
+   "id": "b-s04-s09:m_c6",
+   "scene": "S06",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S06.1 đặt số $2,948: đồ thị khi thanh 30 năm đang dâng, trước con số"
+  },
+  {
+   "id": "b-s04-s09:m_w7",
+   "scene": "S06",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S07.1 \"in Tessa's world … beside her house\": về thế giới, chồng trượt về cạnh nhà"
+  },
+  {
+   "id": "b-s04-s09:m_c7",
+   "scene": "S07",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S07.2 so lãi hai khoản trong tuần 8/10 (số): chồng hoá khoảng giữa hai đường lãi khảo sát"
+  },
+  {
+   "id": "b-s04-s09:m_rz",
+   "scene": "S07",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời S07.2 \"0.67 point higher\": khoảng chênh nhỏ trên trục từ 0 → đẩy máy vào ngoặc"
+  },
+  {
+   "id": "b-s04-s09:m_out8",
+   "scene": "S07",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lời S08 so hai tổng tiền lãi rất lớn: lùi xa cho chỗ hai tháp lãi"
+  },
+  {
+   "id": "b-s04-s09:m_tops",
+   "scene": "S09",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời S09.1 \"the difference between those last two totals\": đẩy máy vào đỉnh hai tháp gần bằng nhau"
+  },
+  {
+   "id": "b-s04-s09:m_w9",
+   "scene": "S09",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S09.2 \"the 15-year plus a fallback\": khối chênh đã nhấc bay về cạnh nhà, máy theo nó về thế giới"
+  },
+  {
+   "id": "c-s10-s15:m_c10",
+   "scene": "S10",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S10.2–S10.3 đặt lãi thật + số tuần (số): đồ thị sau 5 s thế giới (quy tắc 7), trục thời gian chung chính diện"
+  },
+  {
+   "id": "c-s10-s15:m_w13",
+   "scene": "S12",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S13.1 \"stand a stack beside every week\": về thế giới, nhìn dọc hàng từ chỗ Tessa để thấy chồng mọc"
+  },
+  {
+   "id": "c-s10-s15:m_c13",
+   "scene": "S13",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S13.2 đặt số chồng nhỏ nhất: đồ thị chính diện cả hàng"
+  },
+  {
+   "id": "c-s10-s15:m_w15",
+   "scene": "S15",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S15.4 nói về tháng khó của Tessa (không số): về thế giới, lại gần Tessa và nhà"
+  },
+  {
+   "id": "d-s16-s20:m_c16",
+   "scene": "S16",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S16.2–S20.1 đặt lãi và giá theo thập kỷ (số): đồ thị chính diện cả hàng, sau 5 s thế giới (quy tắc 7)"
+  },
+  {
+   "id": "e-s21-s24:m_push0",
+   "scene": "S21",
+   "size": "world",
+   "move": "push",
+   "moveReason": "mở đoạn: máy lại gần nhà Tessa và khoảng sàn nơi đường tháng sẽ chạy, trước ô đầu (\"pay\")"
+  },
+  {
+   "id": "e-s21-s24:m_c21",
+   "scene": "S21",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S21.2–S21.3 đặt số tháng và số tiền (số chỉ ở đồ thị, quy tắc 1) → góc 3/4 (không nhìn thẳng xuống): đếm ô trễ, thấy cạnh tờ trả thêm"
+  },
+  {
+   "id": "e-s21-s24:m_w22",
+   "scene": "S22",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S22.3 \"if a month goes wrong\" (đời Tessa, không số): về thế giới, gần đường tháng và nhà"
+  },
+  {
+   "id": "e-s21-s24:m_c23",
+   "scene": "S22",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "giữa hai câu (sau S22.3, trước S23): câu hỏi S23 mở ở đúng góc 3/4 S21 kết thúc, không đổi góc giữa câu"
+  },
+  {
+   "id": "e-s21-s24:m_p23",
+   "scene": "S23",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "lời S23.3 \"ends four months later\": máy đẩy vào vách trước khi 4 ô trễ sáng"
+  },
+  {
+   "id": "e-s21-s24:m_q24",
+   "scene": "S23",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "sau \"four\" (4 ô trễ đã sáng ở cận vách): lùi về cả lưới trước S24.1 — chồng lãi, 15 xấp năm, khay đều trong khung"
+  },
+  {
+   "id": "e-s21-s24:m_w24",
+   "scene": "S24",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S24.3 câu hỏi của hồi 3 về đô la của Tessa (không số): về thế giới, Tessa và nhà"
+  },
+  {
+   "id": "f-s25-s28:m_c25",
+   "scene": "S25",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "S25.2 đặt lãi (số chỉ ở đồ thị, quy tắc 1) → chính diện vào độ cao thanh, sau khi thanh dâng xong (≥ 5 s thế giới)"
+  },
+  {
+   "id": "f-s25-s28:m_pan",
+   "scene": "S25",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời S26 \"the bar moves with the rate\": lia sang phải, chỗ lịch sử lãi 30 năm 1991–2026 cùng thang với thanh"
+  },
+  {
+   "id": "g-s29-s33:m_c29",
+   "scene": "S29",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S29–S30 đặt ngày, lãi, giá của Leo (số): đồ thị chính diện hai cụm, sau 5 s thế giới (quy tắc 7)"
+  },
+  {
+   "id": "g-s29-s33:m_pan31",
+   "scene": "S31",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lời S31.1 \"Any fixed-rate borrower … their own pair beside hers\": lia sang phải, máy hướng vào ô thứ ba khi nó hiện (\"Any\")"
+  },
+  {
+   "id": "g-s29-s33:m_w33",
+   "scene": "S32",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "lời S33.1 \"beside Tessa's house now stand…\" (không số): về khung cold open, Tessa cạnh nhà"
+  },
+  {
+   "id": "g-s29-s33:m_c33",
+   "scene": "S33",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "lời S33.2–S33.3 đặt tên hai khoản vay + giá tuần (số): đồ thị chính diện"
+  }
+ ]
+}
