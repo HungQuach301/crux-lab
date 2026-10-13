@@ -1,0 +1,99 @@
+LOCK dc4981b3f63e1f86872706fc73102794822ff75dbc65196dd3c0d87cebcab3d0 ok (checks/LOCK = contract.json lock)
+F01  PASS       0.2s  
+F02  PASS       1.0s  
+F03  PASS       0.0s  
+F04  PASS       0.0s  
+F05  PASS     118.4s  
+F06  PASS       0.8s  
+F07  PASS       0.0s  
+F08  PASS     161.6s  
+F09  PASS       0.0s  
+F10  MISSING    0.0s    artifact missing: out/package/description.md
+F11  FAIL       0.0s  declared artefacts not delivered=4; release files not declared=1
+F12  MISSING    0.0s    artifact missing: out/checks/page.json
+A01  PASS      10.9s  
+A02  PASS       0.0s  
+A03  FAIL       0.0s  LRA LU=3.6
+A04  PASS      11.1s  
+A05  PASS       0.6s  
+A06  PASS      15.6s  
+A07  PASS      10.1s  
+A08  PASS       7.7s  
+A09  PASS      17.3s  
+A10  FAIL      13.2s  Spearman speed~whoosh=0.075535; fast moves without whoosh=25
+A11  FAIL       2.2s  Pearson pan~x=None
+A12  ERROR     21.7s    TypeError: unsupported operand type(s) for -: 'float' and 'dict'
+A13  FAIL     102.7s  max |stretch-1|=223.504638
+A14  FAIL     991.3s  key words missing=2
+A15  FAIL       0.0s  wpm act cold-open=168.048694; wpm act act2=171.385506; wpm act act3=167.070972; wpm act limits=160.047421; sentences > 175 wpm=29
+A16  FAIL       0.0s  fake break marks=15; sentences with a fake break=15
+A17  FAIL      10.7s  abnormal sentences share=0.148148; abnormal gaps share=0.1875
+A18  PASS       0.0s  
+S01  PASS       0.1s  
+S02  MISSING    0.0s    artifact missing: out/checks/page.json
+S03  PASS       0.0s  
+S04  PASS       0.0s  
+S05  PASS       0.2s  
+S06  MISSING    0.0s    artifact missing: out/checks/page.json
+S07  MISSING    0.0s    artifact missing: out/checks/page.json
+S08  MISSING    0.0s    artifact missing: out/checks/page.json
+S09  MISSING    0.0s    artifact missing: out/checks/page.json
+S10  PASS       0.0s  
+S11  MISSING    0.0s    artifact missing: out/checks/page.json
+S12  MISSING    0.0s    artifact missing: out/checks/page.json
+S13  PASS       0.0s  
+S14  PASS      14.8s  
+S15  FAIL       0.0s  act order=['cold-open', 'ident', 'act1', 'act2', 'act3', 'limits']; outro s=None
+S16  FAIL       0.0s  share tied to a character or scenario=0.428571
+S17  MISSING    0.0s    artifact missing: out/checks/page.json
+S18  PASS       0.0s  
+S19  PASS       0.0s    contract.json declares no claims.forbiddenAmounts: nothing to check
+S20  PASS       0.0s  
+S21  MISSING    0.0s    artifact missing: out/package/description.md
+S22  PASS       0.0s  
+SH01 PASS       0.4s  
+SH02 PASS       0.3s  
+SH03 PASS       1.4s  
+SH04 PASS       0.0s  
+SH05 PASS      45.4s  
+SH06 PASS       0.1s  
+R01  MISSING    0.0s    artifact missing: out/tension-map.png
+R02  FAIL       0.0s  longest stretch without a break s=253.36
+R03  FAIL      10.7s  shortest pause s=0.0; pauses < 1.0 s=6
+R04  FAIL       0.0s  cuts on beat/action (%)=16.666667
+R05  FAIL       0.0s  shots > 12 s=23; act-2 scenes before climax=0
+R06  PASS      89.7s  
+R07  FAIL     206.5s  visual cues within ±0.2 s (%)=64.150943
+R08  FAIL       0.0s  still stretches > 8 s=1; longest still stretch s=9.19
+V01  FAIL       0.0s  scenes without a shot=12; storyboard present=False; colour script present=False
+V02  MISSING    0.0s    artifact missing: out/checks/page.json
+V03  MISSING    0.0s    artifact missing: out/checks/page.json
+V04  MISSING    0.0s    artifact missing: out/checks/page.json
+V05  FAIL     146.7s  worst ease ratio=0.78; anticipation in moves ≥1 s (%)=0.0; overshoot in moves ≥1 s (%)=0.0; peak |a| fw/s²=8.97
+V08  MISSING    0.0s    artifact missing: out/checks/page.json
+V09  MISSING    0.0s    artifact missing: out/checks/page.json
+V10  FAIL     112.4s  verified match cuts=0; verified J/L cuts=0
+V11  MISSING    0.0s    artifact missing: out/checks/page.json
+V12  MISSING    0.0s    artifact missing: out/checks/page.json
+V13  PASS       0.0s  
+V14  FAIL       0.0s  first-5 s beats not in the world=2
+V15  MISSING    0.0s    artifact missing: out/checks/page.json
+V17  MISSING    0.0s    artifact missing: out/checks/page.json
+C01  MISSING    0.0s    artifact missing: out/checks/page.json
+C02  MISSING    0.0s    artifact missing: out/checks/page.json
+C03  MISSING    0.0s    artifact missing: out/checks/page.json
+C04  MISSING    0.0s    artifact missing: out/checks/page.json
+C05  MISSING    0.0s    artifact missing: out/checks/page.json
+C06  MISSING    0.0s    artifact missing: out/checks/page.json
+C07  MISSING    0.0s    artifact missing: out/checks/page.json
+C10  MISSING    0.0s    artifact missing: out/checks/page.json
+C11  FAIL       0.0s  layout repeats >2 in 90 s=32
+C12  MISSING    0.0s    artifact missing: out/checks/page.json
+C13  MISSING    0.0s    artifact missing: out/checks/page.json
+C14  MISSING    0.0s    artifact missing: out/checks/page.json
+C15  MISSING    0.0s    artifact missing: out/checks/page.json
+P01  MISSING    0.0s    artifact missing: out/package/thumb-1.png
+T1   PASS      97.6s  
+T2   PASS       8.2s  
+T3   FAIL      52.0s  entries outside 150–400 ms=3
+T4   PASS       0.0s  

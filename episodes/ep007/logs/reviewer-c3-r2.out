@@ -1,0 +1,19 @@
+apiKeySource: ANTHROPIC_API_KEY
+{"turns": 44, "is_error": false, "cost_usd": 1.0879332, "input": 36, "cache_write": 73242, "cache_read": 1236656, "output": 12715}
+--- trả về ---
+ người đọc nào gọi khối là "khoản còn nợ". Tên Tessa đã nằm dưới chân, không chồng mái.
+
+**CHÍNH**
+1. **S25: §2 viết "giảm so với vòng 1 ('guaranteed')" là sai.** b2c98bbc vẫn viết "a guaranteed saving", và ở mục 1 còn nêu như ý của hình: "any other use … has to beat that bar to come out ahead". 201ceea4 viết "7.40% is the bar any other use … would have to beat". Khung `s25-bar-5` cho thấy bóng đứng ngang mép thanh, đúng như đạo diễn r1 #4 và r3 #4 thấy. Thay câu trong §2 bằng: *"S25 (2/2): 'has to beat 7.40%' vẫn còn, 1/2 'guaranteed saving'; đạo diễn r1+r3: bóng dừng ngang thanh = 'hoà mốc' — lặp ≥ 2 nguồn, chưa sửa xong, sửa ở C4 và đo lại."* Ở §1 S25, đổi "không dừng" thành *"(ý đồ: không dừng; khung cuối r3 bóng dừng ngang mép thanh — §3 #6)"*.
+2. **S01: hàng chờ bỏ sót một nhận xét lặp ở cả hai lượt đạo diễn.** Chồng vẫn lớn lên trong lúc lời nói về khoản vay $320,000. Lượt r1 #3 đọc thành "savings", lượt r3 #3 đọc thành "the loan is $720". Lượt r3 #2 thêm một lỗi mới do bản sửa gây ra: một bó còn nằm ở cửa nhà lúc 9,57 s, nhìn như có hai chồng. Thêm vào §3: *"S01: chồng lớn trong lời '$320,000' (đạo diễn r1 #3 + r3 #3) — dừng chồng sau bó đầu, khoản vay bằng vật riêng; bó sót ở cửa 9,57 s (r3 #2, do sửa vòng 3) — gom về một chồng."*
+3. **S21: §3 #4 "chưa đủ nổi" đánh giá nhẹ hơn thực tế.** Đạo diễn r1 #3 và r3 #3 nói không thấy lớp trả thêm. 2/2 người đọc tả "all blocks white", nên ý của đoạn chỉ còn nằm ở chữ. Ngoài ra 2/2 người đọc tự cộng $2,216 + $733 = $2,949, khác $2,948 ở S06. Đây cùng loại lệch làm tròn với $8,792/$8,796. Thay #4 bằng: *"S21: lớp trả thêm không thấy (đạo diễn r1+r3, 2/2 người đọc 'all white') — ý chỉ còn ở chữ, sửa bắt buộc; lệch làm tròn $2,216 + $733 = $2,949 ≠ $2,948 (2/2 người đọc tự cộng) — sửa cùng nhãn S23."*
+4. **Câu hỏi cho chủ dự án còn thiếu một quyết định về S25.** Câu 2 chỉ đặt chốt `advice_stated` = 0 cho S23–S24, trong khi ý "phải vượt 7,40 %" ở S25 vẫn còn khi tắt tiếng. Đây đúng là điều G1 câu 1 cấm. Thêm câu 5: *"5. Chốt C4 cho S25: bản có lời kiểm mù không còn 'phải vượt/guaranteed' (≥ 1/2 người đọc thì sửa tiếp hình bóng + nhãn). Khuyến nghị: đồng ý."*
+
+**PHỤ**
+- Đạo diễn r1 (S23 #4) và r3 (S21 #4, S25 #4) cùng đề nghị bỏ "Freddie Mac…/history, not a forecast". Thêm vào §3: *"Không áp ý bỏ thẻ góc (luật kênh, beats.md Colour roles); xét lại tiêu đề nguồn ở cảnh mô phỏng S21/S23/S25 ở C4."*
+- "ILLUSTRATIVE" hiện hai lần bị nêu lặp (r1 S01 #4; r3 S01, S21, S25). Thêm vào §3: *"ILLUSTRATIVE hai lần là chủ ý (huy hiệu + tên, beats.md) — giữ."*
+- B21 trong `beats.md` vẫn liệt kê "about 15 months late", nhưng bản dựng và người đọc đều không có dòng này. Cần bỏ khỏi beats hoặc thêm vào hình.
+- S23: đạo diễn r1 #2 và r3 #2 đều thấy khối trả năm không đọc ra là 12 lớp: nằm ở hàng đầu, lưới đổi màu mà không có lý do. Thêm vào §3 #5.
+- §5 "REVIEWER $1,42 (+ lượt soát lại)": điền số thật của lượt soát lại này.
+
+Gợi ý câu trả lời gọn sau khi sửa: `1 duyệt có điều kiện · 2 đồng ý · 3 a · 4 đồng ý · 5 đồng ý`.

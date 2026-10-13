@@ -1,0 +1,176 @@
+{
+ "files": [
+  {
+   "path": "data/raw/MORTGAGE30US.csv",
+   "role": "primary",
+   "series": "MORTGAGE30US",
+   "what": "30-Year Fixed Rate Mortgage Average in the United States, percent, weekly (Freddie Mac PMMS via FRED)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-10-08",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+   "sha256": "93663891f9167cf71dfd50b7cbe54ef60fab42f788371d84bf665fb1c5e6c354",
+   "downloaded": "2026-10-11",
+   "bytes": 46963,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep007/data/fetch.py --verify",
+   "firstObservation": "1971-04-02",
+   "lastObservation": {
+    "date": "2026-10-08",
+    "value": 7.4,
+    "updatedQuote": "Updated: Oct 8, 2026 11:02 AM CDT",
+    "unitsQuote": "Percent , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "retrieved": "2026-10-11"
+   },
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "citation": "MORTGAGE30US, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MORTGAGE30US"
+   }
+  },
+  {
+   "path": "data/raw/MORTGAGE15US.csv",
+   "role": "primary",
+   "series": "MORTGAGE15US",
+   "what": "15-Year Fixed Rate Mortgage Average in the United States, percent, weekly (Freddie Mac PMMS via FRED)",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE15US",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE15US&coed=2026-10-08",
+   "seriesPage": "https://fred.stlouisfed.org/series/MORTGAGE15US",
+   "sha256": "8d6d0fa4695bfd2037499cbc00913eb61cd7019188e370a5fcbc778b6400c606",
+   "downloaded": "2026-10-11",
+   "bytes": 29358,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep007/data/fetch.py --verify",
+   "firstObservation": "1991-08-30",
+   "lastObservation": {
+    "date": "2026-10-08",
+    "value": 6.73,
+    "updatedQuote": "Updated: Oct 8, 2026 11:02 AM CDT",
+    "unitsQuote": "Percent , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/MORTGAGE15US",
+    "retrieved": "2026-10-11"
+   },
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE15US",
+    "citation": "MORTGAGE15US, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MORTGAGE15US"
+   }
+  },
+  {
+   "path": "data/raw/OBMMIC30YF.csv",
+   "role": "crosscheck",
+   "series": "OBMMIC30YF",
+   "what": "30-Year Fixed Rate Conforming Mortgage Index, percent, daily (Optimal Blue via FRED): crosscheck of PMMS 30-year, internal only",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YF",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC30YF&coed=2026-10-08",
+   "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC30YF",
+   "sha256": "cb7f400f73f8d31d8e3fe015851cf50639f1c1e2f5010d9cd6f7a8cac59516de",
+   "downloaded": "2026-10-11",
+   "bytes": 42809,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep007/data/fetch.py --verify",
+   "firstObservation": "2017-01-03",
+   "lastObservation": {
+    "date": "2026-10-08",
+    "value": 7.424,
+    "updatedQuote": "Updated: Oct 9, 2026 7:02 AM CDT",
+    "unitsQuote": "Percent , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/OBMMIC30YF",
+    "retrieved": "2026-10-11"
+   },
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/OBMMIC30YF",
+    "citation": "OBMMIC30YF, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/OBMMIC30YF"
+   }
+  },
+  {
+   "path": "data/raw/OBMMIC15YF.csv",
+   "role": "crosscheck",
+   "series": "OBMMIC15YF",
+   "what": "15-Year Fixed Rate Conforming Mortgage Index, percent, daily (Optimal Blue via FRED): crosscheck of PMMS 15-year, internal only",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC15YF",
+   "pinnedUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=OBMMIC15YF&coed=2026-10-08",
+   "seriesPage": "https://fred.stlouisfed.org/series/OBMMIC15YF",
+   "sha256": "39c0ada9b8835596370bb0c02f2cc491f381344a5236e8bd656ca7d3c5ab9238",
+   "downloaded": "2026-10-11",
+   "bytes": 42809,
+   "inRepo": false,
+   "fetch": "python3 episodes/ep007/data/fetch.py --verify",
+   "firstObservation": "2017-01-03",
+   "lastObservation": {
+    "date": "2026-10-08",
+    "value": 6.735,
+    "updatedQuote": "Updated: Oct 9, 2026 7:02 AM CDT",
+    "unitsQuote": "Percent , Not Seasonally Adjusted",
+    "quotedFrom": "https://fred.stlouisfed.org/series/OBMMIC15YF",
+    "retrieved": "2026-10-11"
+   },
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/OBMMIC15YF",
+    "citation": "OBMMIC15YF, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/OBMMIC15YF"
+   }
+  }
+ ],
+ "mismatches": [],
+ "derived": [
+  {
+   "path": "data/normalized/pmms_weekly.csv",
+   "sha256": "d33348131ee76334ae771b52a954d9aa3070af3c7b3117d8a39ca1aca8f150db",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  },
+  {
+   "path": "data/normalized/crosscheck30.csv",
+   "sha256": "0717049190a1295585320a2fcfa3013215a677674442f07503e5deb7fceb0cf5",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  },
+  {
+   "path": "data/normalized/crosscheck15.csv",
+   "sha256": "505732d0fdc443b5ef0186993d6a0f940e07d17ce8bf03ed7bdc6b068c208f31",
+   "from": "data/fetch.py normalize() over data/raw/*"
+  }
+ ],
+ "crosscheckSummary": {
+  "mortgage30": {
+   "weeks": 510,
+   "within": 510,
+   "maxGapPp": 0.384,
+   "meanGapPp": 0.145,
+   "from": "2017-01-05",
+   "to": "2026-10-08",
+   "note": "Optimal Blue (locked rates, conforming) vs PMMS (survey, prime, ~20% down): different populations; tolerance 0.5 pt."
+  },
+  "mortgage15": {
+   "weeks": 510,
+   "within": 510,
+   "maxGapPp": 0.282,
+   "meanGapPp": 0.12,
+   "from": "2017-01-05",
+   "to": "2026-10-08",
+   "note": "Optimal Blue (locked rates, conforming) vs PMMS (survey, prime, ~20% down): different populations; tolerance 0.5 pt."
+  }
+ },
+ "dossierPins": [
+  {
+   "series": "MORTGAGE30US",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-09-24",
+   "sha256Dossier": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+   "sha256Now": "b2b254ffbdb7210029ada9e99feb345e124f6aeed7f20bdfbd7e5eff04f37a8a",
+   "matchesDossier": true,
+   "freshPrefixIdentical": true,
+   "freshAddsObservations": 2
+  },
+  {
+   "series": "MORTGAGE15US",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE15US&coed=2026-09-24",
+   "sha256Dossier": "5533aa2ff7d0b088425e870ec8464e187b0bc81a090ffaf9af34cab6dd3fe403",
+   "sha256Now": "5533aa2ff7d0b088425e870ec8464e187b0bc81a090ffaf9af34cab6dd3fe403",
+   "matchesDossier": true,
+   "freshPrefixIdentical": true,
+   "freshAddsObservations": 2
+  }
+ ],
+ "provisions": [],
+ "_about": "FRED copies, not committed (python3 episodes/ep007/data/fetch.py --verify re-downloads from pinnedUrl and checks SHA-256). \"Now\" of the data: PMMS to 2026-10-08 (weekly survey, released Thursdays; downloaded 2026-10-11)."
+}

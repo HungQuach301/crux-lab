@@ -1,0 +1,23 @@
+{
+ "answer": "**S15 (20.7 s)**\nScores: emotion/story 3 · sound-off 3 · pacing 2 · composition 2\n\n1. **2.07 s:** The median is spoken at 1.1 s, but its label doesn't appear until about 6 s. Meanwhile the leftover \"tallest: $29,502 · Jan 2023\" callout from the last scene pulls the eye to the wrong bar. Fix: remove the tallest callout at the cut, and brighten or pulse the median line itself at 1.1 s. That brightened line can carry the $16,631.\n2. **10.33 s:** The lit weeks and the dashed line at Tessa's height land well on \"1 in 5.\" But Tessa's stack is at the left end, not the right end as intended, so the comparison runs against the reading direction. Fix: put her stack after 2023 at the right end, so the dashed line runs back across history to it.\n3. **14.47 s:** Her stack's value appears about 1.7 s after \"Tessa's\" (12.8 s). It is also the third caption piled into one block, and its leader line hangs in empty space. The median line now stops short of the last bars. Fix: raise her stack slightly at 12.8 s and dim the unlit weeks further. Show the value only on her stack, not in the top block, and run the median line to the end of the row.\n4. **18.6 s:** The brief says \"Hold,\" but the camera pushes into a low angle and the median line, dashed line and lit/unlit contrast all disappear. Fix: keep the hold. For \"can't measure,\" fade only the history row to grey and leave Tessa and her stack lit.\n\n**S16 (11.1 s)**\nScores: emotion/story 2 · sound-off 2 · pacing 3 · composition 2\n\n1. **1.11 s:** The camera pullback leaves the top half of the frame empty and the row small. Fix: frame tighter on the row so the four gaps open large in the centre.\n2. **5.53 s:** A blue line appears with no key, and nothing on screen shows the pattern the narration says is unexpected. Fix: either cut the line or make it the payoff: draw it at \"pattern\" (2.1 s) and add a short key on the line.\n3. **5.2 s, at \"1990s\":** The 1990s group is never singled out; every group is dimmed about the same. Fix: at 5.2 s, light the first group and darken the other three.\n4. **7.75–9.96 s:** \"$15,118\" appears twice, in the top caption and in the callout. The 1990s stack drops through the floor, overlaps the \"Tessa\" label and covers the 1990s bars. Fix: set the 1990s stack on the floor right beside Tessa's stack so the height difference is the point, and keep a single label. The rest (7.75–9.96 s) is a dead hold, so begin the drop at \"typical\" (6.1 s).",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2713,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 230,
+   "in": 2713,
+   "out": 230
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15885,
+   "cache_read": 7628,
+   "output": 2709,
+   "in": 23517,
+   "out": 2709
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1831879
+}

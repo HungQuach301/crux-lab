@@ -1,0 +1,23 @@
+{
+ "answer": "**s06-stack (27.8 s)**\n\nScores: Emotion/story 2 · Sound-off 3 · Pacing 2 · Composition 3\n\n**What works:** The gold sliver above the $2,828 line clearly shows \"a little more each month.\" The finished stack, taller than both bars, gives a strong closing image.\n\n**Notes:**\n\n1. **2.78 s.** The bars have no labels and nothing in the picture shows 7.4% or the idea of finishing in 15. Nothing moves while \"at 7.4 percent, finishing that loan…\" plays, and the rate never appears. **Fix:** Start on the two labeled bars. On \"finishing\" (3.1), start pushing the 30-year bar upward so the change begins with the word. Put the rate on the bars as a tag that slides up the 30-year bar as it rises.\n\n2. **8.34 s.** The \"$2,948\" label is already up, but the 30-year bar is still well below the 15-year line. The number arrives before the bar does, and the label floats about 60 px above the bar with nothing tying it to it. **Fix:** Finish the rise by \"two thousand\" (6.0) so the bar crosses the line as the number is spoken. Pin the label to the bar's top edge so it travels up with the bar.\n\n3. **19.47 s.** The stack is already about half built before \"Over those 15 years\" (19.5). It started stacking during S06.2, so the payoff is spent early. The bills also appear to drop from near the label text, not from the sliver. **Fix:** Hold the stack at zero until 19.5. Have each bill visibly peel off the gold sliver and fall onto the stack. Speed up the drops so the stack reaches full height at \"twenty-one thousand\" (22.4), with a small settle on \"dollars\" (25.5).\n\n4. **25.03 s.** Four text lines sit stacked in the upper right (\"the stack…\", \"30-year paid in 15…\", \"+$120…\", plus the source line), so the eye bounces around. The stack is also wedged against the house and Tessa never reacts, so nothing carries the emotion. **Fix:** Fade out the \"$2,948\" and \"+$120\" labels once the stack starts. Move the stack right of the bars into open space and push the camera in on it. Have Tessa turn toward the stack or step back as it tops out, which gives a physical \"that's a lot\" beat in place of another caption.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2242,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 20,
+   "in": 2242,
+   "out": 20
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 6437,
+   "cache_read": 7160,
+   "output": 1776,
+   "in": 13601,
+   "out": 1776
+  }
+ },
+ "turns": 6,
+ "cost_usd": 0.0886982
+}

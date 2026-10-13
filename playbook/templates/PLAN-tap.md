@@ -35,11 +35,12 @@ Chặng này: {việc} → dừng ở {cổng kế} (đóng phiên theo playbook
 Câu trả lời {cổng}:
 <<DÁN CÂU TRẢ LỜI {cổng} Ở ĐÂY>>
 ```
-Khi phiên kế là **P4** (sau G2), thêm vào cuối khối trên (`episode.md` §5c — cùng một lượt dán, không lượt chạm mới):
+Khi phiên kế là **P4** (sau G2; chạy tiếp trong phiên P3 sau `/compact` nếu tệp lớn còn ở container — sửa D-011): P4 sinh `out/package/PACKAGING-BRIEF.md` (a)–(f) + 3–4 khung khi video hoàn tất (`packaging.md` §7.2); chủ dự án dán brief vào ChatGPT rồi dán lại vào **chính phiên P4** (không thêm cổng):
 ```
-Gói ChatGPT (từ out/package/PACKAGING-BRIEF.md) — phiên chép vào out/package/chatgpt/ rồi chạy toolkit/market/package_check.py:
+Gói ChatGPT — phiên chép vào out/package/chatgpt/ rồi kiểm (package_check.py + rescore.py + đọc; câu sửa sẵn nếu lệch):
 Tiêu đề: <<DÁN TIÊU ĐỀ>>
 Mô tả:
 <<DÁN MÔ TẢ>>
+Tag: <<DÁN TAG>>
 Thumbnail: <<ĐÍNH KÈM ẢNH>>
 ```

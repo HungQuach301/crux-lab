@@ -1,0 +1,23 @@
+{
+ "answer": "**S23: once-a-year extra**\nScores: emotion/story 3 · sound-off 3 · pacing 3 · composition 2\n\n1. **3.9 s:** On \"once a year\" only two or three tiny bills lift from the first column. The idea of gathering a year's extras is nearly invisible. Fix: have one full row of 12 bills slide together into a single stack at 3.7 s, and push in a little so the motion fills the frame.\n2. **9.1 s:** The yearly money ends up as 15 tall stacks along the back edge, off the track. They read as a bar chart, not as payments arriving once a year. Fix: drop each stack onto the first tile of its year row, one by one with a small bounce, so the gaps between payments are visible on the track itself.\n3. **9.1 s:** The camera move cuts Tessa off at the left edge and leaves her house half out of frame. Fix: frame her in or remove her completely; a half-cut figure looks like a mistake.\n4. **11.7 s:** In the close-up on the 4 gold tiles, the top-left stacks run into the title and the two caption lines. Fix: tilt the camera down or move the gold extension lower in the frame so the top band is empty behind the captions.\n\n**S24: the cost, and the open question**\nScores: emotion/story 3 · sound-off 3 · pacing 2 · composition 3\n\n1. **2.6–7.75 s:** The frames are identical. The picture stands still for about 5 s while the narration says \"each dollar sits on the balance longer.\" Fix: hold one yearly stack in place while the tiles in its row tick past, and send a small interest chip from each tile into the green stack, so the stack visibly grows.\n2. **2.6 s:** The \"$8,200\" caption is drawn over the last five stacks. Fix: move the green interest stack and its caption to the empty lower right and leave the stacks clear.\n3. **12.9 s:** On \"stays in her account,\" a cash stack appears on a plain pedestal under the grid, far from Tessa, and nothing connects it to her. Fix: show it as her account (a jar or bank box) next to her, and slide a stack from the track into it.\n4. **18.1–23.25 s:** Everything dims under a dashed box, then the camera cuts to a new angle where the bill is already high above the roof, so the bill leaving her hand is never seen. Fix: start the bill rising from her hand at \"puts an extra dollar\" (20.2 s) and track it up to the house, then hold for the next scene (MR2).",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2888,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 27,
+   "in": 2888,
+   "out": 27
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 16056,
+   "cache_read": 7799,
+   "output": 2545,
+   "in": 23859,
+   "out": 2545
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1812261
+}

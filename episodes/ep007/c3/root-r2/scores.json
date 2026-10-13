@@ -1,0 +1,24 @@
+[
+ {
+  "file": "06450940",
+  "sample": "N1-s06-stack",
+  "role": "T",
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might infer that a true 15-year loan costs less overall than a 30-year loan paid off early. They might also infer that the 30-year loan's lower required payment ($2,216) offers flexibility. Neither point is stated.",
+  "why": "Matches the muted read: the 30-year bar is raised, the gold slices drop and build a stack to full height. The advice is only the reader's own inference, and the reader says the animation gives none."
+ },
+ {
+  "file": "dee48d18",
+  "sample": "N1-s06-stack",
+  "role": "T",
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might infer that if they're sure they'll pay off in 15 years, a true 15-year loan is cheaper than a 30-year loan with extra payments.",
+  "why": "Matches the muted read: the 30-year bar is raised by a slice, the gold pieces drop to build the stack, and the stack ends full. The advice is flagged as the reader's own inference, and the reader says the animation never tells the viewer what to do."
+ }
+]

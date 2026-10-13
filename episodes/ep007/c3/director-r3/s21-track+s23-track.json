@@ -1,0 +1,23 @@
+{
+ "answer": "**s21-track (26.3 s)**\nEmotion/story 2 · Sound-off 2 · Pacing 2 · Composition 3\n\n1. **2.6 s:** The frame holds only the house and Tessa while the \"shortcut\" line plays. Nothing happens on screen. Fix: start laying the track tiles from the house on \"Back\" (0.7 s) so the scene opens with movement.\n2. **13.2–18.4 s:** The 15 gold overflow tiles are already past the wall while only 5 of the 15 columns are lit. The picture says \"late\" before the payments get there, so the cause and effect are reversed. Fix: run the fill all the way to the wall first, then spill the gold tiles one after another starting on \"late\" (16.6 s).\n3. **23.7 s:** There's no visible extra slab. The tiles look the same as before and the gold overflow just vanishes, so the fix only exists in the caption. Fix: give each tile a thin coloured slab on top, sweep it across the grid on \"add\" (19.9 s), and pull the overflow back to the wall.\n4. **All frames:** The \"Freddie Mac weekly mortgage survey\" header doesn't match this scene. \"ILLUSTRATIVE\" appears twice. From 13 s the overhead camera shrinks Tessa to a speck, and the caption at 23.7 s touches the top row. Fix: drop the header, keep one \"ILLUSTRATIVE\" tag, use a lower camera angle so Tessa stays readable, and move the caption up.\n\n**s23-track (14.1 s)**\nEmotion/story 2 · Sound-off 3 · Pacing 2 · Composition 3\n\n1. **1.4–4.2 s:** The same lit grid sits still for about 6 s, and the monthly-slab version is never shown, so there's nothing to compare against. Fix: open on thin slabs on every tile, then on \"once a year\" (4.3 s) have each column's slabs merge into one block.\n2. **7.0–9.9 s:** The grid turns from lit white to grey with no reason given, and the blocks sit at the top row instead of on every 12th tile. Fix: keep the grid's colour the same and put each block on the last tile of its year.\n3. **7.0 s:** \"$8,792\" doesn't match the narration. $733 × 12 = $8,796, so an attentive viewer will think it's an error. Fix: show $8,796 on screen, or change the narration to \"about $733\".\n4. **12.7 s:** The 4 gold tiles are small and partly hidden behind the wall, and the caption is doing the explaining. Fix: dolly in to the wall and drop in the 4 tiles one at a time on \"four months later\" (11.5–12.1 s).",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2930,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 276,
+   "in": 2930,
+   "out": 276
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 11165,
+   "cache_read": 7848,
+   "output": 2701,
+   "in": 19017,
+   "out": 2701
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1453566
+}

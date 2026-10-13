@@ -1,0 +1,9530 @@
+{
+ "fps": 30,
+ "total": 606.7335,
+ "scenes": [
+  {
+   "id": "S01",
+   "start": 0.0,
+   "dur": 11.8,
+   "world": "a-s01-s03"
+  },
+  {
+   "id": "S02",
+   "start": 11.8,
+   "dur": 18.2667,
+   "world": "a-s01-s03"
+  },
+  {
+   "id": "S03",
+   "start": 30.0667,
+   "dur": 24.8667,
+   "world": "a-s01-s03"
+  },
+  {
+   "id": "S04",
+   "start": 54.9334,
+   "dur": 17.8,
+   "world": "b-s04-s09"
+  },
+  {
+   "id": "S05",
+   "start": 72.7334,
+   "dur": 26.5333,
+   "world": "b-s04-s09"
+  },
+  {
+   "id": "S06",
+   "start": 99.2667,
+   "dur": 26.9667,
+   "world": "b-s04-s09"
+  },
+  {
+   "id": "S07",
+   "start": 126.2334,
+   "dur": 17.7333,
+   "world": "b-s04-s09"
+  },
+  {
+   "id": "S08",
+   "start": 143.9667,
+   "dur": 17.0667,
+   "world": "b-s04-s09"
+  },
+  {
+   "id": "S09",
+   "start": 161.0334,
+   "dur": 31.0333,
+   "world": "b-s04-s09"
+  },
+  {
+   "id": "S10",
+   "start": 192.0667,
+   "dur": 43.7333,
+   "world": "c-s10-s15"
+  },
+  {
+   "id": "S11",
+   "start": 235.8,
+   "dur": 14.4,
+   "world": "c-s10-s15"
+  },
+  {
+   "id": "S12",
+   "start": 250.2,
+   "dur": 12.1333,
+   "world": "c-s10-s15"
+  },
+  {
+   "id": "S13",
+   "start": 262.3333,
+   "dur": 9.1667,
+   "world": "c-s10-s15"
+  },
+  {
+   "id": "S14",
+   "start": 271.5,
+   "dur": 5.0,
+   "world": "c-s10-s15"
+  },
+  {
+   "id": "S15",
+   "start": 276.5,
+   "dur": 20.6667,
+   "world": "c-s10-s15"
+  },
+  {
+   "id": "S16",
+   "start": 297.1667,
+   "dur": 11.0667,
+   "world": "d-s16-s20"
+  },
+  {
+   "id": "S17",
+   "start": 308.2334,
+   "dur": 8.3667,
+   "world": "d-s16-s20"
+  },
+  {
+   "id": "S18",
+   "start": 316.6001,
+   "dur": 8.7667,
+   "world": "d-s16-s20"
+  },
+  {
+   "id": "S19",
+   "start": 325.3668,
+   "dur": 19.8,
+   "world": "d-s16-s20"
+  },
+  {
+   "id": "S20",
+   "start": 345.1668,
+   "dur": 16.4333,
+   "world": "d-s16-s20"
+  },
+  {
+   "id": "S21",
+   "start": 361.6001,
+   "dur": 23.7333,
+   "world": "e-s21-s24"
+  },
+  {
+   "id": "S22",
+   "start": 385.3334,
+   "dur": 20.0333,
+   "world": "e-s21-s24"
+  },
+  {
+   "id": "S23",
+   "start": 405.3667,
+   "dur": 13.0,
+   "world": "e-s21-s24"
+  },
+  {
+   "id": "S24",
+   "start": 418.3667,
+   "dur": 25.8333,
+   "world": "e-s21-s24"
+  },
+  {
+   "id": "S25",
+   "start": 444.2,
+   "dur": 31.0667,
+   "world": "f-s25-s28"
+  },
+  {
+   "id": "S26",
+   "start": 475.2667,
+   "dur": 8.7667,
+   "world": "f-s25-s28"
+  },
+  {
+   "id": "S27",
+   "start": 484.0334,
+   "dur": 3.9667,
+   "world": "f-s25-s28"
+  },
+  {
+   "id": "S28",
+   "start": 488.0001,
+   "dur": 4.7667,
+   "world": "f-s25-s28"
+  },
+  {
+   "id": "S29",
+   "start": 492.7668,
+   "dur": 17.7333,
+   "world": "g-s29-s33"
+  },
+  {
+   "id": "S30",
+   "start": 510.5001,
+   "dur": 32.3667,
+   "world": "g-s29-s33"
+  },
+  {
+   "id": "S31",
+   "start": 542.8668,
+   "dur": 24.2667,
+   "world": "g-s29-s33"
+  },
+  {
+   "id": "S32",
+   "start": 567.1335,
+   "dur": 10.2667,
+   "world": "g-s29-s33"
+  },
+  {
+   "id": "S33",
+   "start": 577.4002,
+   "dur": 29.3333,
+   "world": "g-s29-s33"
+  }
+ ],
+ "shots": [],
+ "sentences": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "text": "Tessa's mortgage fallback costs $120 a month.",
+   "spoken": "Tessa's mortgage fallback costs one hundred twenty dollars a month.",
+   "start": 0.0,
+   "end": 3.68
+  },
+  {
+   "id": "S01.2",
+   "scene": "S01",
+   "text": "She's borrowing $320,000, and in her city that payment is her biggest bill.",
+   "spoken": "She's borrowing three hundred twenty thousand dollars, and in her city that payment is her biggest bill.",
+   "start": 3.86,
+   "end": 10.8
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "text": "[curious] A 15-year mortgage, or a 30-year paid off in 15 years anyway, with its lower payment kept for a bad month?",
+   "spoken": "[curious] A fifteen-year mortgage, or a thirty-year paid off in fifteen years anyway, with its lower payment kept for a bad month?",
+   "start": 11.8,
+   "end": 19.32
+  },
+  {
+   "id": "S02.2",
+   "scene": "S02",
+   "text": "We replayed every week of US mortgage surveys to price that fallback in dollars, and what each extra dollar of principal earns.",
+   "spoken": "We replayed every week of U.S. mortgage surveys to price that fallback in dollars, and what each extra dollar of principal earns.",
+   "start": 19.933,
+   "end": 29.08
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "text": "Tessa is illustrative, but her rates are real: the survey for the week of October eighth, 2026 has the 15-year at 6.73 percent and the 30-year at 7.4 percent.",
+   "spoken": "Tessa is illustrative, but her rates are real: the survey for the week of October eighth, twenty twenty-six has the fifteen-year at six point seven three percent and the thirty-year at seven point four percent.",
+   "start": 30.067,
+   "end": 42.867
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "text": "This is US only, and it's history, not a forecast.",
+   "spoken": "This is U.S. only, and it's history, not a forecast.",
+   "start": 43.043,
+   "end": 47.107
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "text": "It won't say which loan to take, or whether to invest.",
+   "spoken": "It won't say which loan to take, or whether to invest.",
+   "start": 47.347,
+   "end": 50.947
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "text": "Here is what Tessa is weighing.",
+   "spoken": "Here is what Tessa is weighing.",
+   "start": 54.933,
+   "end": 56.373
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "text": "On $320,000, the 15-year loan's payment is $2,828 a month.",
+   "spoken": "On three hundred twenty thousand dollars, the fifteen-year loan's payment is two thousand eight hundred twenty-eight dollars a month.",
+   "start": 56.693,
+   "end": 64.933
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "text": "The 30-year loan only requires $2,216.",
+   "spoken": "The thirty-year loan only requires two thousand two hundred sixteen dollars.",
+   "start": 65.213,
+   "end": 71.733
+  },
+  {
+   "id": "S05.1",
+   "scene": "S05",
+   "text": "That gap, about $613 a month, is the fallback: in a tight month, it's the least the 30-year asks of her.",
+   "spoken": "That gap, about six hundred thirteen dollars a month, is the fallback: in a tight month, it's the least the thirty-year asks of her.",
+   "start": 72.733,
+   "end": 81.293
+  },
+  {
+   "id": "S05.2",
+   "scene": "S05",
+   "text": "The bigger payment fits her budget today, but only just, and a job change or a big repair could squeeze it.",
+   "spoken": "The bigger payment fits her budget today, but only just, and a job change or a big repair could squeeze it.",
+   "start": 81.453,
+   "end": 88.493
+  },
+  {
+   "id": "S05.3",
+   "scene": "S05",
+   "text": "Still, she wants the house paid off in 15 years, so the 30-year only works for her if she pays it like a short loan.",
+   "spoken": "Still, she wants the house paid off in fifteen years, so the thirty-year only works for her if she pays it like a short loan.",
+   "start": 88.68,
+   "end": 98.253
+  },
+  {
+   "id": "S06.1",
+   "scene": "S06",
+   "text": "At 7.4 percent, finishing that loan in 15 years takes $2,948 a month.",
+   "spoken": "At seven point four percent, finishing that loan in fifteen years takes two thousand nine hundred forty-eight dollars a month.",
+   "start": 99.267,
+   "end": 108.307
+  },
+  {
+   "id": "S06.2",
+   "scene": "S06",
+   "text": "That's $120 a month more than the 15-year loan, for the same house and the same 15 years.",
+   "spoken": "That's one hundred twenty dollars a month more than the fifteen-year loan, for the same house and the same fifteen years.",
+   "start": 108.531,
+   "end": 117.747
+  },
+  {
+   "id": "S06.3",
+   "scene": "S06",
+   "text": "Over those 15 years, the extra adds up to $21,622.",
+   "spoken": "Over those fifteen years, the extra adds up to twenty-one thousand six hundred twenty-two dollars.",
+   "start": 117.843,
+   "end": 125.027
+  },
+  {
+   "id": "S07.1",
+   "scene": "S07",
+   "text": "In Tessa's world, that price is a stack of bills beside her house: the stack is what keeping the fallback costs.",
+   "spoken": "In Tessa's world, that price is a stack of bills beside her house: the stack is what keeping the fallback costs.",
+   "start": 126.233,
+   "end": 133.273
+  },
+  {
+   "id": "S07.2",
+   "scene": "S07",
+   "text": "It exists because the 30-year carries a higher rate on the same balance: on October eighth, 0.67 point higher.",
+   "spoken": "It exists because the thirty-year carries a higher rate on the same balance: on October eighth, zero point six seven point higher.",
+   "start": 133.486,
+   "end": 142.953
+  },
+  {
+   "id": "S08.1",
+   "scene": "S08",
+   "text": "Paid on its own 30-year schedule, her loan would charge $477,622 in interest.",
+   "spoken": "Paid on its own thirty-year schedule, her loan would charge four hundred seventy-seven thousand six hundred twenty-two dollars in interest.",
+   "start": 143.967,
+   "end": 152.927
+  },
+  {
+   "id": "S08.2",
+   "scene": "S08",
+   "text": "Paid in 15 years, it charges $210,691.",
+   "spoken": "Paid in fifteen years, it charges two hundred ten thousand six hundred ninety-one dollars.",
+   "start": 153.167,
+   "end": 160.047
+  },
+  {
+   "id": "S09.1",
+   "scene": "S09",
+   "text": "The 15-year loan charges $189,069, and the difference between those last two totals is exactly the stack.",
+   "spoken": "The fifteen-year loan charges one hundred eighty-nine thousand sixty-nine dollars, and the difference between those last two totals is exactly the stack.",
+   "start": 161.033,
+   "end": 170.713
+  },
+  {
+   "id": "S09.2",
+   "scene": "S09",
+   "text": "So the 30-year paid in 15 isn't the same loan as the 15-year: it's the 15-year plus a fallback, and the fallback has a price.",
+   "spoken": "So the thirty-year paid in fifteen isn't the same loan as the fifteen-year: it's the fifteen-year plus a fallback, and the fallback has a price.",
+   "start": 171.06,
+   "end": 182.473
+  },
+  {
+   "id": "S09.3",
+   "scene": "S09",
+   "text": "Is Tessa's stack a normal price for that fallback, or is the week of October eighth unusual?",
+   "spoken": "Is Tessa's stack a normal price for that fallback, or is the week of October eighth unusual?",
+   "start": 182.953,
+   "end": 190.553
+  },
+  {
+   "id": "S10.1",
+   "scene": "S10",
+   "text": "Many walk-throughs of this question use one assumed rate and treat paying early as the obvious win.",
+   "spoken": "Many walk-throughs of this question use one assumed rate and treat paying early as the obvious win.",
+   "start": 192.067,
+   "end": 198.387
+  },
+  {
+   "id": "S10.2",
+   "scene": "S10",
+   "text": "Here, a real 15-year loan stands next to the 30-year paid in 15, at the real rates of every week since 1991.",
+   "spoken": "Here, a real fifteen-year loan stands next to the thirty-year paid in fifteen, at the real rates of every week since nineteen ninety-one.",
+   "start": 198.627,
+   "end": 209.027
+  },
+  {
+   "id": "S10.3",
+   "scene": "S10",
+   "text": "We priced the same $320,000 both ways in each of 1,833 weeks, at that week's own survey rates; how it was built is on screen and in the description.",
+   "spoken": "We priced the same three hundred twenty thousand dollars both ways in each of one thousand eight hundred thirty-three weeks, at that week's own survey rates; how it was built is on screen and in the description.",
+   "start": 209.347,
+   "end": 224.547
+  },
+  {
+   "id": "S10.4",
+   "scene": "S10",
+   "text": "Tessa's week is the last of them, and in every earlier week we asked her question: what would the fallback have cost then?",
+   "spoken": "Tessa's week is the last of them, and in every earlier week we asked her question: what would the fallback have cost then?",
+   "start": 225.307,
+   "end": 234.787
+  },
+  {
+   "id": "S11.1",
+   "scene": "S11",
+   "text": "The answer comes down to one thing: how far the 30-year rate sits above the 15-year.",
+   "spoken": "The answer comes down to one thing: how far the thirty-year rate sits above the fifteen-year.",
+   "start": 235.8,
+   "end": 242.48
+  },
+  {
+   "id": "S11.2",
+   "scene": "S11",
+   "text": "Since 1991, that gap has run from 0.2 point to 1.0 point.",
+   "spoken": "Since nineteen ninety-one, that gap has run from zero point two point to one point zero point.",
+   "start": 242.553,
+   "end": 249.0
+  },
+  {
+   "id": "S12.1",
+   "scene": "S12",
+   "text": "It averaged 0.57 point, and was at least half a point in about 2 in 3 weeks.",
+   "spoken": "It averaged zero point five seven point, and was at least half a point in about two in three weeks.",
+   "start": 250.2,
+   "end": 256.6
+  },
+  {
+   "id": "S12.2",
+   "scene": "S12",
+   "text": "Tessa's gap on October eighth sits a little above that average.",
+   "spoken": "Tessa's gap on October eighth sits a little above that average.",
+   "start": 257.0,
+   "end": 261.32
+  },
+  {
+   "id": "S13.1",
+   "scene": "S13",
+   "text": "Stand a stack beside every week, and the stacks rise and fall with that gap.",
+   "spoken": "Stand a stack beside every week, and the stacks rise and fall with that gap.",
+   "start": 262.333,
+   "end": 267.613
+  },
+  {
+   "id": "S13.2",
+   "scene": "S13",
+   "text": "The smallest was $6,097.",
+   "spoken": "The smallest was six thousand ninety-seven dollars.",
+   "start": 267.633,
+   "end": 270.493
+  },
+  {
+   "id": "S14.1",
+   "scene": "S14",
+   "text": "The tallest was $29,502.",
+   "spoken": "The tallest was twenty-nine thousand five hundred two dollars.",
+   "start": 271.5,
+   "end": 275.5
+  },
+  {
+   "id": "S15.1",
+   "scene": "S15",
+   "text": "The typical week, the median, priced the fallback at $16,631.",
+   "spoken": "The typical week, the median, priced the fallback at sixteen thousand six hundred thirty-one dollars.",
+   "start": 276.5,
+   "end": 282.58
+  },
+  {
+   "id": "S15.2",
+   "scene": "S15",
+   "text": "[serious] Fewer than 1 in 5 weeks since 1991 put a price this high on it.",
+   "spoken": "[serious] Fewer than one in five weeks since nineteen ninety-one put a price this high on it.",
+   "start": 283.22,
+   "end": 288.18
+  },
+  {
+   "id": "S15.3",
+   "scene": "S15",
+   "text": "That makes Tessa's fallback expensive by history.",
+   "spoken": "That makes Tessa's fallback expensive by history.",
+   "start": 288.356,
+   "end": 291.54
+  },
+  {
+   "id": "S15.4",
+   "scene": "S15",
+   "text": "What a lower payment is worth in a bad month, this replay can't measure.",
+   "spoken": "What a lower payment is worth in a bad month, this replay can't measure.",
+   "start": 291.684,
+   "end": 296.18
+  },
+  {
+   "id": "S16.1",
+   "scene": "S16",
+   "text": "Line the weeks up by decade, and the pattern is not the one most people expect.",
+   "spoken": "Line the weeks up by decade, and the pattern is not the one most people expect.",
+   "start": 297.167,
+   "end": 301.327
+  },
+  {
+   "id": "S16.2",
+   "scene": "S16",
+   "text": "In the 1990s, the typical fallback cost $15,118.",
+   "spoken": "In the 1990s, the typical fallback cost fifteen thousand one hundred eighteen dollars.",
+   "start": 301.62,
+   "end": 307.247
+  },
+  {
+   "id": "S17.1",
+   "scene": "S17",
+   "text": "In the 2000s, with lower rates, it cost about the same: $14,210.",
+   "spoken": "In the 2000s, with lower rates, it cost about the same: fourteen thousand two hundred ten dollars.",
+   "start": 308.233,
+   "end": 315.593
+  },
+  {
+   "id": "S18.1",
+   "scene": "S18",
+   "text": "In the 2010s, rates were far lower, yet the fallback cost more: $20,374.",
+   "spoken": "In the 2010s, rates were far lower, yet the fallback cost more: twenty thousand three hundred seventy-four dollars.",
+   "start": 316.6,
+   "end": 324.36
+  },
+  {
+   "id": "S19.1",
+   "scene": "S19",
+   "text": "The reason is the gap: in the 2010s and 2020s it typically ran about 0.7 point, against about 0.45 in the 1990s and 2000s.",
+   "spoken": "The reason is the gap: in the 2010s and 2020s it typically ran about zero point seven point, against about zero point four five in the 1990s and 2000s.",
+   "start": 325.367,
+   "end": 337.607
+  },
+  {
+   "id": "S19.2",
+   "scene": "S19",
+   "text": "A lower rate didn't mean a cheaper fallback; a wider gap meant a pricier one.",
+   "spoken": "A lower rate didn't mean a cheaper fallback; a wider gap meant a pricier one.",
+   "start": 337.967,
+   "end": 344.167
+  },
+  {
+   "id": "S20.1",
+   "scene": "S20",
+   "text": "Since 2020, the typical week priced it at $21,345, close to Tessa's own stack.",
+   "spoken": "Since twenty twenty, the typical week priced it at twenty-one thousand three hundred forty-five dollars, close to Tessa's own stack.",
+   "start": 345.167,
+   "end": 353.247
+  },
+  {
+   "id": "S20.2",
+   "scene": "S20",
+   "text": "That's history, not a forecast: the gap has moved before, and nothing here says where it goes.",
+   "spoken": "That's history, not a forecast: the gap has moved before, and nothing here says where it goes.",
+   "start": 353.471,
+   "end": 360.607
+  },
+  {
+   "id": "S21.1",
+   "scene": "S21",
+   "text": "Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day.",
+   "spoken": "Back to Tessa's own loan, and a shortcut many people reach for: pay the thirty-year exactly what the fifteen-year would cost, and assume it ends on the same day.",
+   "start": 361.6,
+   "end": 371.76
+  },
+  {
+   "id": "S21.2",
+   "scene": "S21",
+   "text": "At the October eighth rates, it doesn't: it ends about 15 months late.",
+   "spoken": "At the October eighth rates, it doesn't: it ends about fifteen months late.",
+   "start": 371.973,
+   "end": 377.2
+  },
+  {
+   "id": "S21.3",
+   "scene": "S21",
+   "text": "To finish in 15 years, she'd add $733 a month on top of the required payment.",
+   "spoken": "To finish in fifteen years, she'd add seven hundred thirty-three dollars a month on top of the required payment.",
+   "start": 377.387,
+   "end": 384.32
+  },
+  {
+   "id": "S22.1",
+   "scene": "S22",
+   "text": "That extra never lowers what the loan requires: the required payment stays where it was, and the loan simply ends sooner.",
+   "spoken": "That extra never lowers what the loan requires: the required payment stays where it was, and the loan simply ends sooner.",
+   "start": 385.333,
+   "end": 392.773
+  },
+  {
+   "id": "S22.2",
+   "scene": "S22",
+   "text": "Each extra dollar does cut the next month's interest; the payment just stays fixed, so more of it goes to principal.",
+   "spoken": "Each extra dollar does cut the next month's interest; the payment just stays fixed, so more of it goes to principal.",
+   "start": 392.965,
+   "end": 400.293
+  },
+  {
+   "id": "S22.3",
+   "scene": "S22",
+   "text": "That's why the fallback is still there years later, if a month goes wrong.",
+   "spoken": "That's why the fallback is still there years later, if a month goes wrong.",
+   "start": 400.405,
+   "end": 404.373
+  },
+  {
+   "id": "S23.1",
+   "scene": "S23",
+   "text": "Tessa has another practical question: could she send the extra once a year instead of every month?",
+   "spoken": "Tessa has another practical question: could she send the extra once a year instead of every month?",
+   "start": 405.367,
+   "end": 410.807
+  },
+  {
+   "id": "S23.2",
+   "scene": "S23",
+   "text": "That's one payment a year, the same total as the monthly extra.",
+   "spoken": "That's one payment a year, the same total as the monthly extra.",
+   "start": 410.935,
+   "end": 414.327
+  },
+  {
+   "id": "S23.3",
+   "scene": "S23",
+   "text": "Paid that way, the loan ends four months later.",
+   "spoken": "Paid that way, the loan ends four months later.",
+   "start": 414.471,
+   "end": 417.367
+  },
+  {
+   "id": "S24.1",
+   "scene": "S24",
+   "text": "And it charges about $8,200 more in interest, because each dollar sits on the balance longer before it arrives.",
+   "spoken": "And it charges about eight thousand two hundred dollars more in interest, because each dollar sits on the balance longer before it arrives.",
+   "start": 418.367,
+   "end": 426.687
+  },
+  {
+   "id": "S24.2",
+   "scene": "S24",
+   "text": "That isn't a verdict on paying yearly: the money stays in her account longer, and what it earns there isn't counted.",
+   "spoken": "That isn't a verdict on paying yearly: the money stays in her account longer, and what it earns there isn't counted.",
+   "start": 426.879,
+   "end": 434.487
+  },
+  {
+   "id": "S24.3",
+   "scene": "S24",
+   "text": "Which leaves the question underneath all of this: when Tessa puts an extra dollar into the mortgage, what does it actually earn?",
+   "spoken": "Which leaves the question underneath all of this: when Tessa puts an extra dollar into the mortgage, what does it actually earn?",
+   "start": 434.587,
+   "end": 442.687
+  },
+  {
+   "id": "S25.1",
+   "scene": "S25",
+   "text": "Every extra dollar of principal stops interest from being charged on that dollar, at the loan's own rate.",
+   "spoken": "Every extra dollar of principal stops interest from being charged on that dollar, at the loan's own rate.",
+   "start": 444.2,
+   "end": 451.0
+  },
+  {
+   "id": "S25.2",
+   "scene": "S25",
+   "text": "On Tessa's 30-year, that's 7.4 percent a year, before taxes.",
+   "spoken": "On Tessa's thirty-year, that's seven point four percent a year, before taxes.",
+   "start": 451.48,
+   "end": 456.84
+  },
+  {
+   "id": "S25.3",
+   "scene": "S25",
+   "text": "It isn't an investment return; it's interest she no longer pays.",
+   "spoken": "It isn't an investment return; it's interest she no longer pays.",
+   "start": 457.107,
+   "end": 462.2
+  },
+  {
+   "id": "S25.4",
+   "scene": "S25",
+   "text": "That rate is the bar any other use of that dollar gets measured against, before taxes.",
+   "spoken": "That rate is the bar any other use of that dollar gets measured against, before taxes.",
+   "start": 462.424,
+   "end": 468.52
+  },
+  {
+   "id": "S25.5",
+   "scene": "S25",
+   "text": "How any investment compares, once risk and taxes count, isn't tested here.",
+   "spoken": "How any investment compares, once risk and taxes count, isn't tested here.",
+   "start": 468.74,
+   "end": 474.28
+  },
+  {
+   "id": "S26.1",
+   "scene": "S26",
+   "text": "The bar moves with the rate a loan was taken at.",
+   "spoken": "The bar moves with the rate a loan was taken at.",
+   "start": 475.267,
+   "end": 477.827
+  },
+  {
+   "id": "S26.2",
+   "scene": "S26",
+   "text": "Since 1991, it has stood as high as 9.25 percent.",
+   "spoken": "Since nineteen ninety-one, it has stood as high as nine point two five percent.",
+   "start": 477.934,
+   "end": 483.027
+  },
+  {
+   "id": "S27.1",
+   "scene": "S27",
+   "text": "And as low as 2.65 percent.",
+   "spoken": "And as low as two point six five percent.",
+   "start": 484.033,
+   "end": 486.993
+  },
+  {
+   "id": "S28.1",
+   "scene": "S28",
+   "text": "Only about 1 week in 5 had a bar as high as Tessa's.",
+   "spoken": "Only about one week in five had a bar as high as Tessa's.",
+   "start": 488.0,
+   "end": 491.76
+  },
+  {
+   "id": "S29.1",
+   "scene": "S29",
+   "text": "Leo, also illustrative, took a 30-year loan of the same size in January 2021, the week of that lowest rate, and paid it like a 15-year too.",
+   "spoken": "Leo, also illustrative, took a thirty-year loan of the same size in January twenty twenty-one, the week of that lowest rate, and paid it like a fifteen-year too.",
+   "start": 492.767,
+   "end": 502.447
+  },
+  {
+   "id": "S29.2",
+   "scene": "S29",
+   "text": "His fallback was cheaper: $13,231 over 15 years.",
+   "spoken": "His fallback was cheaper: thirteen thousand two hundred thirty-one dollars over fifteen years.",
+   "start": 502.647,
+   "end": 509.487
+  },
+  {
+   "id": "S30.1",
+   "scene": "S30",
+   "text": "And it left him more room: his required payment sat about $793 a month below the 15-year's.",
+   "spoken": "And it left him more room: his required payment sat about seven hundred ninety-three dollars a month below the fifteen-year's.",
+   "start": 510.5,
+   "end": 518.1
+  },
+  {
+   "id": "S30.2",
+   "scene": "S30",
+   "text": "But his bar was 2.65 percent: each extra dollar he paid earned only that, before taxes.",
+   "spoken": "But his bar was two point six five percent: each extra dollar he paid earned only that, before taxes.",
+   "start": 518.34,
+   "end": 527.22
+  },
+  {
+   "id": "S30.3",
+   "scene": "S30",
+   "text": "[thoughtful] Same plan, a different week, and it means something else.",
+   "spoken": "[thoughtful] Same plan, a different week, and it means something else.",
+   "start": 527.94,
+   "end": 532.26
+  },
+  {
+   "id": "S30.4",
+   "scene": "S30",
+   "text": "For Leo, the stack was short and the bar was low; for Tessa, the stack is tall and the bar is high.",
+   "spoken": "For Leo, the stack was short and the bar was low; for Tessa, the stack is tall and the bar is high.",
+   "start": 532.46,
+   "end": 541.86
+  },
+  {
+   "id": "S31.1",
+   "scene": "S31",
+   "text": "Any fixed-rate borrower can set their own pair beside hers.",
+   "spoken": "Any fixed-rate borrower can set their own pair beside hers.",
+   "start": 542.867,
+   "end": 546.387
+  },
+  {
+   "id": "S31.2",
+   "scene": "S31",
+   "text": "The bar is that loan's own rate, printed on the paperwork, and the stack depends on how far apart the 15-year and 30-year offers sit that week.",
+   "spoken": "The bar is that loan's own rate, printed on the paperwork, and the stack depends on how far apart the fifteen-year and thirty-year offers sit that week.",
+   "start": 546.527,
+   "end": 556.747
+  },
+  {
+   "id": "S31.3",
+   "scene": "S31",
+   "text": "The bar isn't the whole story: a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for.",
+   "spoken": "The bar isn't the whole story: a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for.",
+   "start": 556.857,
+   "end": 566.147
+  },
+  {
+   "id": "S32.1",
+   "scene": "S32",
+   "text": "What this leaves out is on the method card and in the description.",
+   "spoken": "What this leaves out is on the method card and in the description.",
+   "start": 567.134,
+   "end": 570.813
+  },
+  {
+   "id": "S32.2",
+   "scene": "S32",
+   "text": "This is US only, and it's history, not a forecast; it doesn't say which loan to take.",
+   "spoken": "This is U.S. only, and it's history, not a forecast; it doesn't say which loan to take.",
+   "start": 570.942,
+   "end": 576.413
+  },
+  {
+   "id": "S33.1",
+   "scene": "S33",
+   "text": "Beside Tessa's house now stand a tall stack and a high bar.",
+   "spoken": "Beside Tessa's house now stand a tall stack and a high bar.",
+   "start": 577.4,
+   "end": 581.4
+  },
+  {
+   "id": "S33.2",
+   "scene": "S33",
+   "text": "She asked: a 15-year, or a 30-year paid in 15?",
+   "spoken": "She asked: a fifteen-year, or a thirty-year paid in fifteen?",
+   "start": 581.6,
+   "end": 586.52
+  },
+  {
+   "id": "S33.3",
+   "scene": "S33",
+   "text": "[thoughtful] What she now knows: the 30-year paid in 15 is the 15-year plus a fallback, and at the rates of the week of October eighth, 2026, that fallback costs her $120 a month.",
+   "spoken": "[thoughtful] What she now knows: the thirty-year paid in fifteen is the fifteen-year plus a fallback, and at the rates of the week of October eighth, twenty twenty-six, that fallback costs her one hundred twenty dollars a month.",
+   "start": 587.28,
+   "end": 605.24
+  }
+ ],
+ "words": [
+  {
+   "w": "Tessa's",
+   "s": 0.0,
+   "e": 0.4,
+   "sid": "S01.1"
+  },
+  {
+   "w": "mortgage",
+   "s": 0.444,
+   "e": 0.8,
+   "sid": "S01.1"
+  },
+  {
+   "w": "fallback",
+   "s": 0.862,
+   "e": 1.36,
+   "sid": "S01.1"
+  },
+  {
+   "w": "costs",
+   "s": 1.427,
+   "e": 1.76,
+   "sid": "S01.1"
+  },
+  {
+   "w": "one",
+   "s": 1.82,
+   "e": 2.0,
+   "sid": "S01.1"
+  },
+  {
+   "w": "hundred",
+   "s": 2.04,
+   "e": 2.32,
+   "sid": "S01.1"
+  },
+  {
+   "w": "twenty",
+   "s": 2.377,
+   "e": 2.72,
+   "sid": "S01.1"
+  },
+  {
+   "w": "dollars",
+   "s": 2.76,
+   "e": 3.04,
+   "sid": "S01.1"
+  },
+  {
+   "w": "a",
+   "s": 3.08,
+   "e": 3.12,
+   "sid": "S01.1"
+  },
+  {
+   "w": "month.",
+   "s": 3.187,
+   "e": 3.68,
+   "sid": "S01.1"
+  },
+  {
+   "w": "She's",
+   "s": 3.86,
+   "e": 4.48,
+   "sid": "S01.2"
+  },
+  {
+   "w": "borrowing",
+   "s": 4.536,
+   "e": 5.04,
+   "sid": "S01.2"
+  },
+  {
+   "w": "three",
+   "s": 5.12,
+   "e": 5.52,
+   "sid": "S01.2"
+  },
+  {
+   "w": "hundred",
+   "s": 5.55,
+   "e": 5.76,
+   "sid": "S01.2"
+  },
+  {
+   "w": "twenty",
+   "s": 5.817,
+   "e": 6.16,
+   "sid": "S01.2"
+  },
+  {
+   "w": "thousand",
+   "s": 6.204,
+   "e": 6.56,
+   "sid": "S01.2"
+  },
+  {
+   "w": "dollars,",
+   "s": 6.63,
+   "e": 7.6,
+   "sid": "S01.2"
+  },
+  {
+   "w": "and",
+   "s": 7.66,
+   "e": 7.84,
+   "sid": "S01.2"
+  },
+  {
+   "w": "in",
+   "s": 7.893,
+   "e": 8.0,
+   "sid": "S01.2"
+  },
+  {
+   "w": "her",
+   "s": 8.06,
+   "e": 8.24,
+   "sid": "S01.2"
+  },
+  {
+   "w": "city",
+   "s": 8.304,
+   "e": 8.56,
+   "sid": "S01.2"
+  },
+  {
+   "w": "that",
+   "s": 8.624,
+   "e": 8.88,
+   "sid": "S01.2"
+  },
+  {
+   "w": "payment",
+   "s": 8.95,
+   "e": 9.44,
+   "sid": "S01.2"
+  },
+  {
+   "w": "is",
+   "s": 9.493,
+   "e": 9.6,
+   "sid": "S01.2"
+  },
+  {
+   "w": "her",
+   "s": 9.64,
+   "e": 9.76,
+   "sid": "S01.2"
+  },
+  {
+   "w": "biggest",
+   "s": 9.81,
+   "e": 10.16,
+   "sid": "S01.2"
+  },
+  {
+   "w": "bill.",
+   "s": 10.24,
+   "e": 10.8,
+   "sid": "S01.2"
+  },
+  {
+   "w": "[curious]",
+   "s": 11.8,
+   "e": 11.86,
+   "sid": "S02.1"
+  },
+  {
+   "w": "A",
+   "s": 11.87,
+   "e": 11.88,
+   "sid": "S02.1"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 11.93,
+   "e": 12.52,
+   "sid": "S02.1"
+  },
+  {
+   "w": "mortgage,",
+   "s": 12.582,
+   "e": 13.16,
+   "sid": "S02.1"
+  },
+  {
+   "w": "or",
+   "s": 13.24,
+   "e": 13.4,
+   "sid": "S02.1"
+  },
+  {
+   "w": "a",
+   "s": 13.48,
+   "e": 13.56,
+   "sid": "S02.1"
+  },
+  {
+   "w": "thirty-year",
+   "s": 13.629,
+   "e": 14.36,
+   "sid": "S02.1"
+  },
+  {
+   "w": "paid",
+   "s": 14.424,
+   "e": 14.68,
+   "sid": "S02.1"
+  },
+  {
+   "w": "off",
+   "s": 14.72,
+   "e": 14.84,
+   "sid": "S02.1"
+  },
+  {
+   "w": "in",
+   "s": 14.893,
+   "e": 15.0,
+   "sid": "S02.1"
+  },
+  {
+   "w": "fifteen",
+   "s": 15.05,
+   "e": 15.4,
+   "sid": "S02.1"
+  },
+  {
+   "w": "years",
+   "s": 15.453,
+   "e": 15.72,
+   "sid": "S02.1"
+  },
+  {
+   "w": "anyway,",
+   "s": 15.777,
+   "e": 16.2,
+   "sid": "S02.1"
+  },
+  {
+   "w": "with",
+   "s": 16.36,
+   "e": 17.0,
+   "sid": "S02.1"
+  },
+  {
+   "w": "its",
+   "s": 17.04,
+   "e": 17.16,
+   "sid": "S02.1"
+  },
+  {
+   "w": "lower",
+   "s": 17.213,
+   "e": 17.48,
+   "sid": "S02.1"
+  },
+  {
+   "w": "payment",
+   "s": 17.53,
+   "e": 17.88,
+   "sid": "S02.1"
+  },
+  {
+   "w": "kept",
+   "s": 17.96,
+   "e": 18.28,
+   "sid": "S02.1"
+  },
+  {
+   "w": "for",
+   "s": 18.32,
+   "e": 18.44,
+   "sid": "S02.1"
+  },
+  {
+   "w": "a",
+   "s": 18.48,
+   "e": 18.52,
+   "sid": "S02.1"
+  },
+  {
+   "w": "bad",
+   "s": 18.58,
+   "e": 18.76,
+   "sid": "S02.1"
+  },
+  {
+   "w": "month?",
+   "s": 18.827,
+   "e": 19.32,
+   "sid": "S02.1"
+  },
+  {
+   "w": "We",
+   "s": 19.933,
+   "e": 21.16,
+   "sid": "S02.2"
+  },
+  {
+   "w": "replayed",
+   "s": 21.229,
+   "e": 21.72,
+   "sid": "S02.2"
+  },
+  {
+   "w": "every",
+   "s": 21.773,
+   "e": 22.04,
+   "sid": "S02.2"
+  },
+  {
+   "w": "week",
+   "s": 22.088,
+   "e": 22.28,
+   "sid": "S02.2"
+  },
+  {
+   "w": "of",
+   "s": 22.307,
+   "e": 22.36,
+   "sid": "S02.2"
+  },
+  {
+   "w": "U.S.",
+   "s": 22.48,
+   "e": 22.76,
+   "sid": "S02.2"
+  },
+  {
+   "w": "mortgage",
+   "s": 22.804,
+   "e": 23.16,
+   "sid": "S02.2"
+  },
+  {
+   "w": "surveys",
+   "s": 23.22,
+   "e": 23.64,
+   "sid": "S02.2"
+  },
+  {
+   "w": "to",
+   "s": 23.693,
+   "e": 23.8,
+   "sid": "S02.2"
+  },
+  {
+   "w": "price",
+   "s": 23.867,
+   "e": 24.2,
+   "sid": "S02.2"
+  },
+  {
+   "w": "that",
+   "s": 24.232,
+   "e": 24.36,
+   "sid": "S02.2"
+  },
+  {
+   "w": "fallback",
+   "s": 24.422,
+   "e": 24.92,
+   "sid": "S02.2"
+  },
+  {
+   "w": "in",
+   "s": 24.973,
+   "e": 25.08,
+   "sid": "S02.2"
+  },
+  {
+   "w": "dollars,",
+   "s": 25.14,
+   "e": 26.12,
+   "sid": "S02.2"
+  },
+  {
+   "w": "and",
+   "s": 26.16,
+   "e": 26.28,
+   "sid": "S02.2"
+  },
+  {
+   "w": "what",
+   "s": 26.328,
+   "e": 26.52,
+   "sid": "S02.2"
+  },
+  {
+   "w": "each",
+   "s": 26.584,
+   "e": 26.84,
+   "sid": "S02.2"
+  },
+  {
+   "w": "extra",
+   "s": 26.907,
+   "e": 27.24,
+   "sid": "S02.2"
+  },
+  {
+   "w": "dollar",
+   "s": 27.297,
+   "e": 27.64,
+   "sid": "S02.2"
+  },
+  {
+   "w": "of",
+   "s": 27.667,
+   "e": 27.72,
+   "sid": "S02.2"
+  },
+  {
+   "w": "principal",
+   "s": 27.776,
+   "e": 28.28,
+   "sid": "S02.2"
+  },
+  {
+   "w": "earns.",
+   "s": 28.36,
+   "e": 29.08,
+   "sid": "S02.2"
+  },
+  {
+   "w": "Tessa",
+   "s": 30.067,
+   "e": 30.387,
+   "sid": "S03.1"
+  },
+  {
+   "w": "is",
+   "s": 30.44,
+   "e": 30.547,
+   "sid": "S03.1"
+  },
+  {
+   "w": "illustrative,",
+   "s": 30.597,
+   "e": 31.347,
+   "sid": "S03.1"
+  },
+  {
+   "w": "but",
+   "s": 31.387,
+   "e": 31.507,
+   "sid": "S03.1"
+  },
+  {
+   "w": "her",
+   "s": 31.587,
+   "e": 31.827,
+   "sid": "S03.1"
+  },
+  {
+   "w": "rates",
+   "s": 31.88,
+   "e": 32.147,
+   "sid": "S03.1"
+  },
+  {
+   "w": "are",
+   "s": 32.167,
+   "e": 32.227,
+   "sid": "S03.1"
+  },
+  {
+   "w": "real:",
+   "s": 32.307,
+   "e": 33.427,
+   "sid": "S03.1"
+  },
+  {
+   "w": "the",
+   "s": 33.447,
+   "e": 33.507,
+   "sid": "S03.1"
+  },
+  {
+   "w": "survey",
+   "s": 33.564,
+   "e": 33.907,
+   "sid": "S03.1"
+  },
+  {
+   "w": "for",
+   "s": 33.927,
+   "e": 33.987,
+   "sid": "S03.1"
+  },
+  {
+   "w": "the",
+   "s": 34.007,
+   "e": 34.067,
+   "sid": "S03.1"
+  },
+  {
+   "w": "week",
+   "s": 34.115,
+   "e": 34.307,
+   "sid": "S03.1"
+  },
+  {
+   "w": "of",
+   "s": 34.334,
+   "e": 34.387,
+   "sid": "S03.1"
+  },
+  {
+   "w": "October",
+   "s": 34.437,
+   "e": 34.787,
+   "sid": "S03.1"
+  },
+  {
+   "w": "eighth,",
+   "s": 34.844,
+   "e": 35.307,
+   "sid": "S03.1"
+  },
+  {
+   "w": "twenty",
+   "s": 35.324,
+   "e": 35.427,
+   "sid": "S03.1"
+  },
+  {
+   "w": "twenty-six",
+   "s": 35.461,
+   "e": 36.467,
+   "sid": "S03.1"
+  },
+  {
+   "w": "has",
+   "s": 36.567,
+   "e": 36.867,
+   "sid": "S03.1"
+  },
+  {
+   "w": "the",
+   "s": 36.907,
+   "e": 37.027,
+   "sid": "S03.1"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 37.077,
+   "e": 37.747,
+   "sid": "S03.1"
+  },
+  {
+   "w": "at",
+   "s": 37.854,
+   "e": 38.067,
+   "sid": "S03.1"
+  },
+  {
+   "w": "six",
+   "s": 38.127,
+   "e": 38.307,
+   "sid": "S03.1"
+  },
+  {
+   "w": "point",
+   "s": 38.36,
+   "e": 38.627,
+   "sid": "S03.1"
+  },
+  {
+   "w": "seven",
+   "s": 38.654,
+   "e": 38.787,
+   "sid": "S03.1"
+  },
+  {
+   "w": "three",
+   "s": 38.827,
+   "e": 39.027,
+   "sid": "S03.1"
+  },
+  {
+   "w": "percent",
+   "s": 39.127,
+   "e": 39.827,
+   "sid": "S03.1"
+  },
+  {
+   "w": "and",
+   "s": 39.947,
+   "e": 40.307,
+   "sid": "S03.1"
+  },
+  {
+   "w": "the",
+   "s": 40.327,
+   "e": 40.387,
+   "sid": "S03.1"
+  },
+  {
+   "w": "thirty-year",
+   "s": 40.433,
+   "e": 41.027,
+   "sid": "S03.1"
+  },
+  {
+   "w": "at",
+   "s": 41.134,
+   "e": 41.347,
+   "sid": "S03.1"
+  },
+  {
+   "w": "seven",
+   "s": 41.4,
+   "e": 41.667,
+   "sid": "S03.1"
+  },
+  {
+   "w": "point",
+   "s": 41.72,
+   "e": 41.987,
+   "sid": "S03.1"
+  },
+  {
+   "w": "four",
+   "s": 42.019,
+   "e": 42.147,
+   "sid": "S03.1"
+  },
+  {
+   "w": "percent.",
+   "s": 42.217,
+   "e": 42.867,
+   "sid": "S03.1"
+  },
+  {
+   "w": "This",
+   "s": 43.043,
+   "e": 43.747,
+   "sid": "S03.2"
+  },
+  {
+   "w": "is",
+   "s": 43.8,
+   "e": 43.907,
+   "sid": "S03.2"
+  },
+  {
+   "w": "U.S.",
+   "s": 43.987,
+   "e": 44.427,
+   "sid": "S03.2"
+  },
+  {
+   "w": "only,",
+   "s": 44.467,
+   "e": 45.107,
+   "sid": "S03.2"
+  },
+  {
+   "w": "and",
+   "s": 45.127,
+   "e": 45.187,
+   "sid": "S03.2"
+  },
+  {
+   "w": "it's",
+   "s": 45.214,
+   "e": 45.347,
+   "sid": "S03.2"
+  },
+  {
+   "w": "history,",
+   "s": 45.397,
+   "e": 45.987,
+   "sid": "S03.2"
+  },
+  {
+   "w": "not",
+   "s": 46.027,
+   "e": 46.147,
+   "sid": "S03.2"
+  },
+  {
+   "w": "a",
+   "s": 46.187,
+   "e": 46.227,
+   "sid": "S03.2"
+  },
+  {
+   "w": "forecast.",
+   "s": 46.298,
+   "e": 47.107,
+   "sid": "S03.2"
+  },
+  {
+   "w": "It",
+   "s": 47.347,
+   "e": 47.827,
+   "sid": "S03.3"
+  },
+  {
+   "w": "won't",
+   "s": 47.867,
+   "e": 48.067,
+   "sid": "S03.3"
+  },
+  {
+   "w": "say",
+   "s": 48.127,
+   "e": 48.307,
+   "sid": "S03.3"
+  },
+  {
+   "w": "which",
+   "s": 48.347,
+   "e": 48.547,
+   "sid": "S03.3"
+  },
+  {
+   "w": "loan",
+   "s": 48.595,
+   "e": 48.787,
+   "sid": "S03.3"
+  },
+  {
+   "w": "to",
+   "s": 48.814,
+   "e": 48.867,
+   "sid": "S03.3"
+  },
+  {
+   "w": "take,",
+   "s": 48.947,
+   "e": 49.347,
+   "sid": "S03.3"
+  },
+  {
+   "w": "or",
+   "s": 49.48,
+   "e": 49.747,
+   "sid": "S03.3"
+  },
+  {
+   "w": "whether",
+   "s": 49.787,
+   "e": 50.067,
+   "sid": "S03.3"
+  },
+  {
+   "w": "to",
+   "s": 50.094,
+   "e": 50.147,
+   "sid": "S03.3"
+  },
+  {
+   "w": "invest.",
+   "s": 50.227,
+   "e": 50.947,
+   "sid": "S03.3"
+  },
+  {
+   "w": "Here",
+   "s": 54.933,
+   "e": 55.093,
+   "sid": "S04.1"
+  },
+  {
+   "w": "is",
+   "s": 55.12,
+   "e": 55.173,
+   "sid": "S04.1"
+  },
+  {
+   "w": "what",
+   "s": 55.221,
+   "e": 55.413,
+   "sid": "S04.1"
+  },
+  {
+   "w": "Tessa",
+   "s": 55.453,
+   "e": 55.733,
+   "sid": "S04.1"
+  },
+  {
+   "w": "is",
+   "s": 55.786,
+   "e": 55.893,
+   "sid": "S04.1"
+  },
+  {
+   "w": "weighing.",
+   "s": 55.937,
+   "e": 56.373,
+   "sid": "S04.1"
+  },
+  {
+   "w": "On",
+   "s": 56.693,
+   "e": 57.333,
+   "sid": "S04.2"
+  },
+  {
+   "w": "three",
+   "s": 57.36,
+   "e": 57.493,
+   "sid": "S04.2"
+  },
+  {
+   "w": "hundred",
+   "s": 57.533,
+   "e": 57.813,
+   "sid": "S04.2"
+  },
+  {
+   "w": "twenty",
+   "s": 57.859,
+   "e": 58.133,
+   "sid": "S04.2"
+  },
+  {
+   "w": "thousand",
+   "s": 58.186,
+   "e": 58.613,
+   "sid": "S04.2"
+  },
+  {
+   "w": "dollars,",
+   "s": 58.673,
+   "e": 59.413,
+   "sid": "S04.2"
+  },
+  {
+   "w": "the",
+   "s": 59.433,
+   "e": 59.493,
+   "sid": "S04.2"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 59.543,
+   "e": 60.053,
+   "sid": "S04.2"
+  },
+  {
+   "w": "loan's",
+   "s": 60.101,
+   "e": 60.453,
+   "sid": "S04.2"
+  },
+  {
+   "w": "payment",
+   "s": 60.543,
+   "e": 61.173,
+   "sid": "S04.2"
+  },
+  {
+   "w": "is",
+   "s": 61.306,
+   "e": 61.573,
+   "sid": "S04.2"
+  },
+  {
+   "w": "two",
+   "s": 61.633,
+   "e": 61.813,
+   "sid": "S04.2"
+  },
+  {
+   "w": "thousand",
+   "s": 61.875,
+   "e": 62.373,
+   "sid": "S04.2"
+  },
+  {
+   "w": "eight",
+   "s": 62.453,
+   "e": 62.853,
+   "sid": "S04.2"
+  },
+  {
+   "w": "hundred",
+   "s": 62.893,
+   "e": 63.173,
+   "sid": "S04.2"
+  },
+  {
+   "w": "twenty-eight",
+   "s": 63.253,
+   "e": 63.893,
+   "sid": "S04.2"
+  },
+  {
+   "w": "dollars",
+   "s": 63.943,
+   "e": 64.293,
+   "sid": "S04.2"
+  },
+  {
+   "w": "a",
+   "s": 64.373,
+   "e": 64.453,
+   "sid": "S04.2"
+  },
+  {
+   "w": "month.",
+   "s": 64.506,
+   "e": 64.933,
+   "sid": "S04.2"
+  },
+  {
+   "w": "The",
+   "s": 65.213,
+   "e": 66.053,
+   "sid": "S04.3"
+  },
+  {
+   "w": "thirty-year",
+   "s": 66.099,
+   "e": 66.533,
+   "sid": "S04.3"
+  },
+  {
+   "w": "loan",
+   "s": 66.613,
+   "e": 66.933,
+   "sid": "S04.3"
+  },
+  {
+   "w": "only",
+   "s": 67.045,
+   "e": 67.493,
+   "sid": "S04.3"
+  },
+  {
+   "w": "requires",
+   "s": 67.564,
+   "e": 68.133,
+   "sid": "S04.3"
+  },
+  {
+   "w": "two",
+   "s": 68.253,
+   "e": 68.613,
+   "sid": "S04.3"
+  },
+  {
+   "w": "thousand",
+   "s": 68.666,
+   "e": 69.093,
+   "sid": "S04.3"
+  },
+  {
+   "w": "two",
+   "s": 69.233,
+   "e": 69.653,
+   "sid": "S04.3"
+  },
+  {
+   "w": "hundred",
+   "s": 69.703,
+   "e": 70.053,
+   "sid": "S04.3"
+  },
+  {
+   "w": "sixteen",
+   "s": 70.153,
+   "e": 70.853,
+   "sid": "S04.3"
+  },
+  {
+   "w": "dollars.",
+   "s": 70.923,
+   "e": 71.733,
+   "sid": "S04.3"
+  },
+  {
+   "w": "That",
+   "s": 72.733,
+   "e": 72.973,
+   "sid": "S05.1"
+  },
+  {
+   "w": "gap,",
+   "s": 73.053,
+   "e": 73.373,
+   "sid": "S05.1"
+  },
+  {
+   "w": "about",
+   "s": 73.453,
+   "e": 73.853,
+   "sid": "S05.1"
+  },
+  {
+   "w": "six",
+   "s": 73.913,
+   "e": 74.093,
+   "sid": "S05.1"
+  },
+  {
+   "w": "hundred",
+   "s": 74.113,
+   "e": 74.253,
+   "sid": "S05.1"
+  },
+  {
+   "w": "thirteen",
+   "s": 74.297,
+   "e": 74.653,
+   "sid": "S05.1"
+  },
+  {
+   "w": "dollars",
+   "s": 74.693,
+   "e": 74.973,
+   "sid": "S05.1"
+  },
+  {
+   "w": "a",
+   "s": 75.053,
+   "e": 75.133,
+   "sid": "S05.1"
+  },
+  {
+   "w": "month,",
+   "s": 75.186,
+   "e": 75.693,
+   "sid": "S05.1"
+  },
+  {
+   "w": "is",
+   "s": 75.826,
+   "e": 76.093,
+   "sid": "S05.1"
+  },
+  {
+   "w": "the",
+   "s": 76.113,
+   "e": 76.173,
+   "sid": "S05.1"
+  },
+  {
+   "w": "fallback:",
+   "s": 76.244,
+   "e": 77.533,
+   "sid": "S05.1"
+  },
+  {
+   "w": "in",
+   "s": 77.586,
+   "e": 77.693,
+   "sid": "S05.1"
+  },
+  {
+   "w": "a",
+   "s": 77.733,
+   "e": 77.773,
+   "sid": "S05.1"
+  },
+  {
+   "w": "tight",
+   "s": 77.813,
+   "e": 78.013,
+   "sid": "S05.1"
+  },
+  {
+   "w": "month,",
+   "s": 78.08,
+   "e": 78.493,
+   "sid": "S05.1"
+  },
+  {
+   "w": "it's",
+   "s": 78.546,
+   "e": 78.733,
+   "sid": "S05.1"
+  },
+  {
+   "w": "the",
+   "s": 78.753,
+   "e": 78.813,
+   "sid": "S05.1"
+  },
+  {
+   "w": "least",
+   "s": 78.893,
+   "e": 79.293,
+   "sid": "S05.1"
+  },
+  {
+   "w": "the",
+   "s": 79.333,
+   "e": 79.453,
+   "sid": "S05.1"
+  },
+  {
+   "w": "thirty-year",
+   "s": 79.51,
+   "e": 80.173,
+   "sid": "S05.1"
+  },
+  {
+   "w": "asks",
+   "s": 80.285,
+   "e": 80.733,
+   "sid": "S05.1"
+  },
+  {
+   "w": "of",
+   "s": 80.76,
+   "e": 80.813,
+   "sid": "S05.1"
+  },
+  {
+   "w": "her.",
+   "s": 80.873,
+   "e": 81.293,
+   "sid": "S05.1"
+  },
+  {
+   "w": "The",
+   "s": 81.453,
+   "e": 81.933,
+   "sid": "S05.2"
+  },
+  {
+   "w": "bigger",
+   "s": 81.967,
+   "e": 82.173,
+   "sid": "S05.2"
+  },
+  {
+   "w": "payment",
+   "s": 82.213,
+   "e": 82.493,
+   "sid": "S05.2"
+  },
+  {
+   "w": "fits",
+   "s": 82.541,
+   "e": 82.733,
+   "sid": "S05.2"
+  },
+  {
+   "w": "her",
+   "s": 82.753,
+   "e": 82.813,
+   "sid": "S05.2"
+  },
+  {
+   "w": "budget",
+   "s": 82.859,
+   "e": 83.133,
+   "sid": "S05.2"
+  },
+  {
+   "w": "today,",
+   "s": 83.2,
+   "e": 83.613,
+   "sid": "S05.2"
+  },
+  {
+   "w": "but",
+   "s": 83.673,
+   "e": 83.853,
+   "sid": "S05.2"
+  },
+  {
+   "w": "only",
+   "s": 83.949,
+   "e": 84.333,
+   "sid": "S05.2"
+  },
+  {
+   "w": "just,",
+   "s": 84.429,
+   "e": 85.293,
+   "sid": "S05.2"
+  },
+  {
+   "w": "and",
+   "s": 85.313,
+   "e": 85.373,
+   "sid": "S05.2"
+  },
+  {
+   "w": "a",
+   "s": 85.413,
+   "e": 85.453,
+   "sid": "S05.2"
+  },
+  {
+   "w": "job",
+   "s": 85.553,
+   "e": 85.853,
+   "sid": "S05.2"
+  },
+  {
+   "w": "change",
+   "s": 85.922,
+   "e": 86.333,
+   "sid": "S05.2"
+  },
+  {
+   "w": "or",
+   "s": 86.413,
+   "e": 86.573,
+   "sid": "S05.2"
+  },
+  {
+   "w": "a",
+   "s": 86.613,
+   "e": 86.653,
+   "sid": "S05.2"
+  },
+  {
+   "w": "big",
+   "s": 86.713,
+   "e": 86.893,
+   "sid": "S05.2"
+  },
+  {
+   "w": "repair",
+   "s": 86.973,
+   "e": 87.453,
+   "sid": "S05.2"
+  },
+  {
+   "w": "could",
+   "s": 87.506,
+   "e": 87.773,
+   "sid": "S05.2"
+  },
+  {
+   "w": "squeeze",
+   "s": 87.823,
+   "e": 88.173,
+   "sid": "S05.2"
+  },
+  {
+   "w": "it.",
+   "s": 88.226,
+   "e": 88.493,
+   "sid": "S05.2"
+  },
+  {
+   "w": "Still,",
+   "s": 88.68,
+   "e": 90.253,
+   "sid": "S05.3"
+  },
+  {
+   "w": "she",
+   "s": 90.293,
+   "e": 90.413,
+   "sid": "S05.3"
+  },
+  {
+   "w": "wants",
+   "s": 90.48,
+   "e": 90.813,
+   "sid": "S05.3"
+  },
+  {
+   "w": "the",
+   "s": 90.833,
+   "e": 90.893,
+   "sid": "S05.3"
+  },
+  {
+   "w": "house",
+   "s": 90.946,
+   "e": 91.213,
+   "sid": "S05.3"
+  },
+  {
+   "w": "paid",
+   "s": 91.261,
+   "e": 91.453,
+   "sid": "S05.3"
+  },
+  {
+   "w": "off",
+   "s": 91.513,
+   "e": 91.693,
+   "sid": "S05.3"
+  },
+  {
+   "w": "in",
+   "s": 91.773,
+   "e": 91.933,
+   "sid": "S05.3"
+  },
+  {
+   "w": "fifteen",
+   "s": 91.993,
+   "e": 92.413,
+   "sid": "S05.3"
+  },
+  {
+   "w": "years,",
+   "s": 92.48,
+   "e": 93.373,
+   "sid": "S05.3"
+  },
+  {
+   "w": "so",
+   "s": 93.48,
+   "e": 93.693,
+   "sid": "S05.3"
+  },
+  {
+   "w": "the",
+   "s": 93.753,
+   "e": 93.933,
+   "sid": "S05.3"
+  },
+  {
+   "w": "thirty-year",
+   "s": 93.99,
+   "e": 94.653,
+   "sid": "S05.3"
+  },
+  {
+   "w": "only",
+   "s": 94.717,
+   "e": 94.973,
+   "sid": "S05.3"
+  },
+  {
+   "w": "works",
+   "s": 95.026,
+   "e": 95.293,
+   "sid": "S05.3"
+  },
+  {
+   "w": "for",
+   "s": 95.313,
+   "e": 95.373,
+   "sid": "S05.3"
+  },
+  {
+   "w": "her",
+   "s": 95.453,
+   "e": 95.693,
+   "sid": "S05.3"
+  },
+  {
+   "w": "if",
+   "s": 95.853,
+   "e": 96.173,
+   "sid": "S05.3"
+  },
+  {
+   "w": "she",
+   "s": 96.233,
+   "e": 96.413,
+   "sid": "S05.3"
+  },
+  {
+   "w": "pays",
+   "s": 96.461,
+   "e": 96.653,
+   "sid": "S05.3"
+  },
+  {
+   "w": "it",
+   "s": 96.733,
+   "e": 96.893,
+   "sid": "S05.3"
+  },
+  {
+   "w": "like",
+   "s": 96.957,
+   "e": 97.213,
+   "sid": "S05.3"
+  },
+  {
+   "w": "a",
+   "s": 97.253,
+   "e": 97.293,
+   "sid": "S05.3"
+  },
+  {
+   "w": "short",
+   "s": 97.36,
+   "e": 97.693,
+   "sid": "S05.3"
+  },
+  {
+   "w": "loan.",
+   "s": 97.773,
+   "e": 98.253,
+   "sid": "S05.3"
+  },
+  {
+   "w": "At",
+   "s": 99.267,
+   "e": 99.427,
+   "sid": "S06.1"
+  },
+  {
+   "w": "seven",
+   "s": 99.48,
+   "e": 99.747,
+   "sid": "S06.1"
+  },
+  {
+   "w": "point",
+   "s": 99.827,
+   "e": 100.227,
+   "sid": "S06.1"
+  },
+  {
+   "w": "four",
+   "s": 100.259,
+   "e": 100.387,
+   "sid": "S06.1"
+  },
+  {
+   "w": "percent,",
+   "s": 100.477,
+   "e": 101.667,
+   "sid": "S06.1"
+  },
+  {
+   "w": "finishing",
+   "s": 101.715,
+   "e": 102.147,
+   "sid": "S06.1"
+  },
+  {
+   "w": "that",
+   "s": 102.179,
+   "e": 102.307,
+   "sid": "S06.1"
+  },
+  {
+   "w": "loan",
+   "s": 102.371,
+   "e": 102.627,
+   "sid": "S06.1"
+  },
+  {
+   "w": "in",
+   "s": 102.68,
+   "e": 102.787,
+   "sid": "S06.1"
+  },
+  {
+   "w": "fifteen",
+   "s": 102.847,
+   "e": 103.267,
+   "sid": "S06.1"
+  },
+  {
+   "w": "years",
+   "s": 103.347,
+   "e": 103.747,
+   "sid": "S06.1"
+  },
+  {
+   "w": "takes",
+   "s": 103.894,
+   "e": 104.627,
+   "sid": "S06.1"
+  },
+  {
+   "w": "two",
+   "s": 104.667,
+   "e": 104.787,
+   "sid": "S06.1"
+  },
+  {
+   "w": "thousand",
+   "s": 104.858,
+   "e": 105.427,
+   "sid": "S06.1"
+  },
+  {
+   "w": "nine",
+   "s": 105.571,
+   "e": 106.147,
+   "sid": "S06.1"
+  },
+  {
+   "w": "hundred",
+   "s": 106.187,
+   "e": 106.467,
+   "sid": "S06.1"
+  },
+  {
+   "w": "forty-eight",
+   "s": 106.574,
+   "e": 107.187,
+   "sid": "S06.1"
+  },
+  {
+   "w": "dollars",
+   "s": 107.247,
+   "e": 107.667,
+   "sid": "S06.1"
+  },
+  {
+   "w": "a",
+   "s": 107.747,
+   "e": 107.827,
+   "sid": "S06.1"
+  },
+  {
+   "w": "month.",
+   "s": 107.894,
+   "e": 108.307,
+   "sid": "S06.1"
+  },
+  {
+   "w": "That's",
+   "s": 108.531,
+   "e": 109.507,
+   "sid": "S06.2"
+  },
+  {
+   "w": "one",
+   "s": 109.567,
+   "e": 109.747,
+   "sid": "S06.2"
+  },
+  {
+   "w": "hundred",
+   "s": 109.777,
+   "e": 109.987,
+   "sid": "S06.2"
+  },
+  {
+   "w": "twenty",
+   "s": 110.044,
+   "e": 110.387,
+   "sid": "S06.2"
+  },
+  {
+   "w": "dollars",
+   "s": 110.447,
+   "e": 110.867,
+   "sid": "S06.2"
+  },
+  {
+   "w": "a",
+   "s": 110.947,
+   "e": 111.027,
+   "sid": "S06.2"
+  },
+  {
+   "w": "month",
+   "s": 111.08,
+   "e": 111.347,
+   "sid": "S06.2"
+  },
+  {
+   "w": "more",
+   "s": 111.507,
+   "e": 112.147,
+   "sid": "S06.2"
+  },
+  {
+   "w": "than",
+   "s": 112.211,
+   "e": 112.467,
+   "sid": "S06.2"
+  },
+  {
+   "w": "the",
+   "s": 112.487,
+   "e": 112.547,
+   "sid": "S06.2"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 112.607,
+   "e": 113.267,
+   "sid": "S06.2"
+  },
+  {
+   "w": "loan,",
+   "s": 113.347,
+   "e": 114.147,
+   "sid": "S06.2"
+  },
+  {
+   "w": "for",
+   "s": 114.167,
+   "e": 114.227,
+   "sid": "S06.2"
+  },
+  {
+   "w": "the",
+   "s": 114.247,
+   "e": 114.307,
+   "sid": "S06.2"
+  },
+  {
+   "w": "same",
+   "s": 114.371,
+   "e": 114.627,
+   "sid": "S06.2"
+  },
+  {
+   "w": "house",
+   "s": 114.76,
+   "e": 115.427,
+   "sid": "S06.2"
+  },
+  {
+   "w": "and",
+   "s": 115.507,
+   "e": 115.747,
+   "sid": "S06.2"
+  },
+  {
+   "w": "the",
+   "s": 115.767,
+   "e": 115.827,
+   "sid": "S06.2"
+  },
+  {
+   "w": "same",
+   "s": 115.907,
+   "e": 116.227,
+   "sid": "S06.2"
+  },
+  {
+   "w": "fifteen",
+   "s": 116.307,
+   "e": 116.867,
+   "sid": "S06.2"
+  },
+  {
+   "w": "years.",
+   "s": 116.934,
+   "e": 117.747,
+   "sid": "S06.2"
+  },
+  {
+   "w": "Over",
+   "s": 117.843,
+   "e": 118.227,
+   "sid": "S06.3"
+  },
+  {
+   "w": "those",
+   "s": 118.267,
+   "e": 118.467,
+   "sid": "S06.3"
+  },
+  {
+   "w": "fifteen",
+   "s": 118.527,
+   "e": 118.947,
+   "sid": "S06.3"
+  },
+  {
+   "w": "years,",
+   "s": 119.014,
+   "e": 119.667,
+   "sid": "S06.3"
+  },
+  {
+   "w": "the",
+   "s": 119.707,
+   "e": 119.827,
+   "sid": "S06.3"
+  },
+  {
+   "w": "extra",
+   "s": 119.907,
+   "e": 120.307,
+   "sid": "S06.3"
+  },
+  {
+   "w": "adds",
+   "s": 120.371,
+   "e": 120.627,
+   "sid": "S06.3"
+  },
+  {
+   "w": "up",
+   "s": 120.707,
+   "e": 120.867,
+   "sid": "S06.3"
+  },
+  {
+   "w": "to",
+   "s": 120.92,
+   "e": 121.027,
+   "sid": "S06.3"
+  },
+  {
+   "w": "twenty-one",
+   "s": 121.084,
+   "e": 121.507,
+   "sid": "S06.3"
+  },
+  {
+   "w": "thousand",
+   "s": 121.578,
+   "e": 122.147,
+   "sid": "S06.3"
+  },
+  {
+   "w": "six",
+   "s": 122.307,
+   "e": 122.787,
+   "sid": "S06.3"
+  },
+  {
+   "w": "hundred",
+   "s": 122.827,
+   "e": 123.107,
+   "sid": "S06.3"
+  },
+  {
+   "w": "twenty-two",
+   "s": 123.221,
+   "e": 124.067,
+   "sid": "S06.3"
+  },
+  {
+   "w": "dollars.",
+   "s": 124.147,
+   "e": 125.027,
+   "sid": "S06.3"
+  },
+  {
+   "w": "In",
+   "s": 126.233,
+   "e": 126.313,
+   "sid": "S07.1"
+  },
+  {
+   "w": "Tessa's",
+   "s": 126.393,
+   "e": 126.793,
+   "sid": "S07.1"
+  },
+  {
+   "w": "world,",
+   "s": 126.86,
+   "e": 127.513,
+   "sid": "S07.1"
+  },
+  {
+   "w": "that",
+   "s": 127.545,
+   "e": 127.673,
+   "sid": "S07.1"
+  },
+  {
+   "w": "price",
+   "s": 127.74,
+   "e": 128.073,
+   "sid": "S07.1"
+  },
+  {
+   "w": "is",
+   "s": 128.126,
+   "e": 128.233,
+   "sid": "S07.1"
+  },
+  {
+   "w": "a",
+   "s": 128.273,
+   "e": 128.313,
+   "sid": "S07.1"
+  },
+  {
+   "w": "stack",
+   "s": 128.366,
+   "e": 128.633,
+   "sid": "S07.1"
+  },
+  {
+   "w": "of",
+   "s": 128.66,
+   "e": 128.713,
+   "sid": "S07.1"
+  },
+  {
+   "w": "bills",
+   "s": 128.766,
+   "e": 129.033,
+   "sid": "S07.1"
+  },
+  {
+   "w": "beside",
+   "s": 129.09,
+   "e": 129.433,
+   "sid": "S07.1"
+  },
+  {
+   "w": "her",
+   "s": 129.453,
+   "e": 129.513,
+   "sid": "S07.1"
+  },
+  {
+   "w": "house:",
+   "s": 129.58,
+   "e": 130.713,
+   "sid": "S07.1"
+  },
+  {
+   "w": "the",
+   "s": 130.733,
+   "e": 130.793,
+   "sid": "S07.1"
+  },
+  {
+   "w": "stack",
+   "s": 130.873,
+   "e": 131.273,
+   "sid": "S07.1"
+  },
+  {
+   "w": "is",
+   "s": 131.3,
+   "e": 131.353,
+   "sid": "S07.1"
+  },
+  {
+   "w": "what",
+   "s": 131.385,
+   "e": 131.513,
+   "sid": "S07.1"
+  },
+  {
+   "w": "keeping",
+   "s": 131.553,
+   "e": 131.833,
+   "sid": "S07.1"
+  },
+  {
+   "w": "the",
+   "s": 131.853,
+   "e": 131.913,
+   "sid": "S07.1"
+  },
+  {
+   "w": "fallback",
+   "s": 131.966,
+   "e": 132.393,
+   "sid": "S07.1"
+  },
+  {
+   "w": "costs.",
+   "s": 132.486,
+   "e": 133.273,
+   "sid": "S07.1"
+  },
+  {
+   "w": "It",
+   "s": 133.486,
+   "e": 133.913,
+   "sid": "S07.2"
+  },
+  {
+   "w": "exists",
+   "s": 133.982,
+   "e": 134.393,
+   "sid": "S07.2"
+  },
+  {
+   "w": "because",
+   "s": 134.453,
+   "e": 134.873,
+   "sid": "S07.2"
+  },
+  {
+   "w": "the",
+   "s": 134.953,
+   "e": 135.193,
+   "sid": "S07.2"
+  },
+  {
+   "w": "thirty-year",
+   "s": 135.25,
+   "e": 135.913,
+   "sid": "S07.2"
+  },
+  {
+   "w": "carries",
+   "s": 135.983,
+   "e": 136.473,
+   "sid": "S07.2"
+  },
+  {
+   "w": "a",
+   "s": 136.513,
+   "e": 136.553,
+   "sid": "S07.2"
+  },
+  {
+   "w": "higher",
+   "s": 136.599,
+   "e": 136.873,
+   "sid": "S07.2"
+  },
+  {
+   "w": "rate",
+   "s": 136.937,
+   "e": 137.193,
+   "sid": "S07.2"
+  },
+  {
+   "w": "on",
+   "s": 137.246,
+   "e": 137.353,
+   "sid": "S07.2"
+  },
+  {
+   "w": "the",
+   "s": 137.373,
+   "e": 137.433,
+   "sid": "S07.2"
+  },
+  {
+   "w": "same",
+   "s": 137.497,
+   "e": 137.753,
+   "sid": "S07.2"
+  },
+  {
+   "w": "balance:",
+   "s": 137.813,
+   "e": 138.953,
+   "sid": "S07.2"
+  },
+  {
+   "w": "on",
+   "s": 138.98,
+   "e": 139.033,
+   "sid": "S07.2"
+  },
+  {
+   "w": "October",
+   "s": 139.083,
+   "e": 139.433,
+   "sid": "S07.2"
+  },
+  {
+   "w": "eighth,",
+   "s": 139.49,
+   "e": 140.313,
+   "sid": "S07.2"
+  },
+  {
+   "w": "zero",
+   "s": 140.393,
+   "e": 140.713,
+   "sid": "S07.2"
+  },
+  {
+   "w": "point",
+   "s": 140.793,
+   "e": 141.193,
+   "sid": "S07.2"
+  },
+  {
+   "w": "six",
+   "s": 141.273,
+   "e": 141.513,
+   "sid": "S07.2"
+  },
+  {
+   "w": "seven",
+   "s": 141.54,
+   "e": 141.673,
+   "sid": "S07.2"
+  },
+  {
+   "w": "point",
+   "s": 141.74,
+   "e": 142.073,
+   "sid": "S07.2"
+  },
+  {
+   "w": "higher.",
+   "s": 142.164,
+   "e": 142.953,
+   "sid": "S07.2"
+  },
+  {
+   "w": "Paid",
+   "s": 143.967,
+   "e": 144.127,
+   "sid": "S08.1"
+  },
+  {
+   "w": "on",
+   "s": 144.18,
+   "e": 144.287,
+   "sid": "S08.1"
+  },
+  {
+   "w": "its",
+   "s": 144.327,
+   "e": 144.447,
+   "sid": "S08.1"
+  },
+  {
+   "w": "own",
+   "s": 144.507,
+   "e": 144.687,
+   "sid": "S08.1"
+  },
+  {
+   "w": "thirty-year",
+   "s": 144.744,
+   "e": 145.327,
+   "sid": "S08.1"
+  },
+  {
+   "w": "schedule,",
+   "s": 145.38,
+   "e": 146.287,
+   "sid": "S08.1"
+  },
+  {
+   "w": "her",
+   "s": 146.327,
+   "e": 146.447,
+   "sid": "S08.1"
+  },
+  {
+   "w": "loan",
+   "s": 146.511,
+   "e": 146.767,
+   "sid": "S08.1"
+  },
+  {
+   "w": "would",
+   "s": 146.794,
+   "e": 146.927,
+   "sid": "S08.1"
+  },
+  {
+   "w": "charge",
+   "s": 146.996,
+   "e": 147.407,
+   "sid": "S08.1"
+  },
+  {
+   "w": "four",
+   "s": 147.487,
+   "e": 147.807,
+   "sid": "S08.1"
+  },
+  {
+   "w": "hundred",
+   "s": 147.857,
+   "e": 148.207,
+   "sid": "S08.1"
+  },
+  {
+   "w": "seventy-seven",
+   "s": 148.287,
+   "e": 149.087,
+   "sid": "S08.1"
+  },
+  {
+   "w": "thousand",
+   "s": 149.158,
+   "e": 149.727,
+   "sid": "S08.1"
+  },
+  {
+   "w": "six",
+   "s": 149.927,
+   "e": 150.527,
+   "sid": "S08.1"
+  },
+  {
+   "w": "hundred",
+   "s": 150.567,
+   "e": 150.847,
+   "sid": "S08.1"
+  },
+  {
+   "w": "twenty-two",
+   "s": 150.938,
+   "e": 151.647,
+   "sid": "S08.1"
+  },
+  {
+   "w": "dollars",
+   "s": 151.707,
+   "e": 152.127,
+   "sid": "S08.1"
+  },
+  {
+   "w": "in",
+   "s": 152.207,
+   "e": 152.367,
+   "sid": "S08.1"
+  },
+  {
+   "w": "interest.",
+   "s": 152.42,
+   "e": 152.927,
+   "sid": "S08.1"
+  },
+  {
+   "w": "Paid",
+   "s": 153.167,
+   "e": 154.127,
+   "sid": "S08.2"
+  },
+  {
+   "w": "in",
+   "s": 154.154,
+   "e": 154.207,
+   "sid": "S08.2"
+  },
+  {
+   "w": "fifteen",
+   "s": 154.257,
+   "e": 154.607,
+   "sid": "S08.2"
+  },
+  {
+   "w": "years,",
+   "s": 154.687,
+   "e": 155.647,
+   "sid": "S08.2"
+  },
+  {
+   "w": "it",
+   "s": 155.674,
+   "e": 155.727,
+   "sid": "S08.2"
+  },
+  {
+   "w": "charges",
+   "s": 155.797,
+   "e": 156.287,
+   "sid": "S08.2"
+  },
+  {
+   "w": "two",
+   "s": 156.327,
+   "e": 156.447,
+   "sid": "S08.2"
+  },
+  {
+   "w": "hundred",
+   "s": 156.487,
+   "e": 156.767,
+   "sid": "S08.2"
+  },
+  {
+   "w": "ten",
+   "s": 156.827,
+   "e": 157.007,
+   "sid": "S08.2"
+  },
+  {
+   "w": "thousand",
+   "s": 157.06,
+   "e": 157.487,
+   "sid": "S08.2"
+  },
+  {
+   "w": "six",
+   "s": 157.647,
+   "e": 158.127,
+   "sid": "S08.2"
+  },
+  {
+   "w": "hundred",
+   "s": 158.177,
+   "e": 158.527,
+   "sid": "S08.2"
+  },
+  {
+   "w": "ninety-one",
+   "s": 158.618,
+   "e": 159.327,
+   "sid": "S08.2"
+  },
+  {
+   "w": "dollars.",
+   "s": 159.407,
+   "e": 160.047,
+   "sid": "S08.2"
+  },
+  {
+   "w": "The",
+   "s": 161.033,
+   "e": 161.113,
+   "sid": "S09.1"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 161.173,
+   "e": 161.753,
+   "sid": "S09.1"
+  },
+  {
+   "w": "loan",
+   "s": 161.817,
+   "e": 162.073,
+   "sid": "S09.1"
+  },
+  {
+   "w": "charges",
+   "s": 162.133,
+   "e": 162.553,
+   "sid": "S09.1"
+  },
+  {
+   "w": "one",
+   "s": 162.613,
+   "e": 162.793,
+   "sid": "S09.1"
+  },
+  {
+   "w": "hundred",
+   "s": 162.843,
+   "e": 163.193,
+   "sid": "S09.1"
+  },
+  {
+   "w": "eighty-nine",
+   "s": 163.25,
+   "e": 163.833,
+   "sid": "S09.1"
+  },
+  {
+   "w": "thousand",
+   "s": 163.886,
+   "e": 164.313,
+   "sid": "S09.1"
+  },
+  {
+   "w": "sixty-nine",
+   "s": 164.393,
+   "e": 165.033,
+   "sid": "S09.1"
+  },
+  {
+   "w": "dollars,",
+   "s": 165.093,
+   "e": 166.073,
+   "sid": "S09.1"
+  },
+  {
+   "w": "and",
+   "s": 166.093,
+   "e": 166.153,
+   "sid": "S09.1"
+  },
+  {
+   "w": "the",
+   "s": 166.193,
+   "e": 166.313,
+   "sid": "S09.1"
+  },
+  {
+   "w": "difference",
+   "s": 166.349,
+   "e": 166.713,
+   "sid": "S09.1"
+  },
+  {
+   "w": "between",
+   "s": 166.763,
+   "e": 167.113,
+   "sid": "S09.1"
+  },
+  {
+   "w": "those",
+   "s": 167.14,
+   "e": 167.273,
+   "sid": "S09.1"
+  },
+  {
+   "w": "last",
+   "s": 167.337,
+   "e": 167.593,
+   "sid": "S09.1"
+  },
+  {
+   "w": "two",
+   "s": 167.613,
+   "e": 167.673,
+   "sid": "S09.1"
+  },
+  {
+   "w": "totals",
+   "s": 167.799,
+   "e": 168.553,
+   "sid": "S09.1"
+  },
+  {
+   "w": "is",
+   "s": 168.713,
+   "e": 169.033,
+   "sid": "S09.1"
+  },
+  {
+   "w": "exactly",
+   "s": 169.123,
+   "e": 169.753,
+   "sid": "S09.1"
+  },
+  {
+   "w": "the",
+   "s": 169.853,
+   "e": 170.153,
+   "sid": "S09.1"
+  },
+  {
+   "w": "stack.",
+   "s": 170.233,
+   "e": 170.713,
+   "sid": "S09.1"
+  },
+  {
+   "w": "So",
+   "s": 171.06,
+   "e": 171.753,
+   "sid": "S09.2"
+  },
+  {
+   "w": "the",
+   "s": 171.793,
+   "e": 171.913,
+   "sid": "S09.2"
+  },
+  {
+   "w": "thirty-year",
+   "s": 171.97,
+   "e": 172.553,
+   "sid": "S09.2"
+  },
+  {
+   "w": "paid",
+   "s": 172.633,
+   "e": 172.953,
+   "sid": "S09.2"
+  },
+  {
+   "w": "in",
+   "s": 172.98,
+   "e": 173.033,
+   "sid": "S09.2"
+  },
+  {
+   "w": "fifteen",
+   "s": 173.173,
+   "e": 174.153,
+   "sid": "S09.2"
+  },
+  {
+   "w": "isn't",
+   "s": 174.233,
+   "e": 174.553,
+   "sid": "S09.2"
+  },
+  {
+   "w": "the",
+   "s": 174.573,
+   "e": 174.633,
+   "sid": "S09.2"
+  },
+  {
+   "w": "same",
+   "s": 174.697,
+   "e": 174.953,
+   "sid": "S09.2"
+  },
+  {
+   "w": "loan",
+   "s": 175.049,
+   "e": 175.433,
+   "sid": "S09.2"
+  },
+  {
+   "w": "as",
+   "s": 175.513,
+   "e": 175.673,
+   "sid": "S09.2"
+  },
+  {
+   "w": "the",
+   "s": 175.693,
+   "e": 175.753,
+   "sid": "S09.2"
+  },
+  {
+   "w": "fifteen-year:",
+   "s": 175.823,
+   "e": 177.113,
+   "sid": "S09.2"
+  },
+  {
+   "w": "it's",
+   "s": 177.166,
+   "e": 177.353,
+   "sid": "S09.2"
+  },
+  {
+   "w": "the",
+   "s": 177.373,
+   "e": 177.433,
+   "sid": "S09.2"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 177.513,
+   "e": 178.313,
+   "sid": "S09.2"
+  },
+  {
+   "w": "plus",
+   "s": 178.457,
+   "e": 179.033,
+   "sid": "S09.2"
+  },
+  {
+   "w": "a",
+   "s": 179.153,
+   "e": 179.273,
+   "sid": "S09.2"
+  },
+  {
+   "w": "fallback,",
+   "s": 179.344,
+   "e": 180.313,
+   "sid": "S09.2"
+  },
+  {
+   "w": "and",
+   "s": 180.333,
+   "e": 180.393,
+   "sid": "S09.2"
+  },
+  {
+   "w": "the",
+   "s": 180.433,
+   "e": 180.553,
+   "sid": "S09.2"
+  },
+  {
+   "w": "fallback",
+   "s": 180.651,
+   "e": 181.433,
+   "sid": "S09.2"
+  },
+  {
+   "w": "has",
+   "s": 181.533,
+   "e": 181.833,
+   "sid": "S09.2"
+  },
+  {
+   "w": "a",
+   "s": 181.973,
+   "e": 182.113,
+   "sid": "S09.2"
+  },
+  {
+   "w": "price.",
+   "s": 182.16,
+   "e": 182.473,
+   "sid": "S09.2"
+  },
+  {
+   "w": "Is",
+   "s": 182.953,
+   "e": 183.913,
+   "sid": "S09.3"
+  },
+  {
+   "w": "Tessa's",
+   "s": 183.993,
+   "e": 184.393,
+   "sid": "S09.3"
+  },
+  {
+   "w": "stack",
+   "s": 184.46,
+   "e": 184.793,
+   "sid": "S09.3"
+  },
+  {
+   "w": "a",
+   "s": 184.873,
+   "e": 184.953,
+   "sid": "S09.3"
+  },
+  {
+   "w": "normal",
+   "s": 185.022,
+   "e": 185.433,
+   "sid": "S09.3"
+  },
+  {
+   "w": "price",
+   "s": 185.486,
+   "e": 185.753,
+   "sid": "S09.3"
+  },
+  {
+   "w": "for",
+   "s": 185.773,
+   "e": 185.833,
+   "sid": "S09.3"
+  },
+  {
+   "w": "that",
+   "s": 185.865,
+   "e": 185.993,
+   "sid": "S09.3"
+  },
+  {
+   "w": "fallback,",
+   "s": 186.055,
+   "e": 187.113,
+   "sid": "S09.3"
+  },
+  {
+   "w": "or",
+   "s": 187.22,
+   "e": 187.433,
+   "sid": "S09.3"
+  },
+  {
+   "w": "is",
+   "s": 187.593,
+   "e": 187.913,
+   "sid": "S09.3"
+  },
+  {
+   "w": "the",
+   "s": 187.933,
+   "e": 187.993,
+   "sid": "S09.3"
+  },
+  {
+   "w": "week",
+   "s": 188.057,
+   "e": 188.313,
+   "sid": "S09.3"
+  },
+  {
+   "w": "of",
+   "s": 188.34,
+   "e": 188.393,
+   "sid": "S09.3"
+  },
+  {
+   "w": "October",
+   "s": 188.463,
+   "e": 188.953,
+   "sid": "S09.3"
+  },
+  {
+   "w": "eighth",
+   "s": 189.033,
+   "e": 189.513,
+   "sid": "S09.3"
+  },
+  {
+   "w": "unusual?",
+   "s": 189.613,
+   "e": 190.553,
+   "sid": "S09.3"
+  },
+  {
+   "w": "Many",
+   "s": 192.067,
+   "e": 192.227,
+   "sid": "S10.1"
+  },
+  {
+   "w": "walk-throughs",
+   "s": 192.291,
+   "e": 192.867,
+   "sid": "S10.1"
+  },
+  {
+   "w": "of",
+   "s": 192.894,
+   "e": 192.947,
+   "sid": "S10.1"
+  },
+  {
+   "w": "this",
+   "s": 192.979,
+   "e": 193.107,
+   "sid": "S10.1"
+  },
+  {
+   "w": "question",
+   "s": 193.151,
+   "e": 193.507,
+   "sid": "S10.1"
+  },
+  {
+   "w": "use",
+   "s": 193.587,
+   "e": 193.827,
+   "sid": "S10.1"
+  },
+  {
+   "w": "one",
+   "s": 193.927,
+   "e": 194.227,
+   "sid": "S10.1"
+  },
+  {
+   "w": "assumed",
+   "s": 194.297,
+   "e": 194.787,
+   "sid": "S10.1"
+  },
+  {
+   "w": "rate",
+   "s": 194.851,
+   "e": 195.107,
+   "sid": "S10.1"
+  },
+  {
+   "w": "and",
+   "s": 195.227,
+   "e": 195.587,
+   "sid": "S10.1"
+  },
+  {
+   "w": "treat",
+   "s": 195.64,
+   "e": 195.907,
+   "sid": "S10.1"
+  },
+  {
+   "w": "paying",
+   "s": 195.953,
+   "e": 196.227,
+   "sid": "S10.1"
+  },
+  {
+   "w": "early",
+   "s": 196.32,
+   "e": 196.787,
+   "sid": "S10.1"
+  },
+  {
+   "w": "as",
+   "s": 196.894,
+   "e": 197.107,
+   "sid": "S10.1"
+  },
+  {
+   "w": "the",
+   "s": 197.127,
+   "e": 197.187,
+   "sid": "S10.1"
+  },
+  {
+   "w": "obvious",
+   "s": 197.257,
+   "e": 197.747,
+   "sid": "S10.1"
+  },
+  {
+   "w": "win.",
+   "s": 197.847,
+   "e": 198.387,
+   "sid": "S10.1"
+  },
+  {
+   "w": "Here,",
+   "s": 198.627,
+   "e": 199.667,
+   "sid": "S10.2"
+  },
+  {
+   "w": "a",
+   "s": 199.707,
+   "e": 199.747,
+   "sid": "S10.2"
+  },
+  {
+   "w": "real",
+   "s": 199.811,
+   "e": 200.067,
+   "sid": "S10.2"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 200.137,
+   "e": 200.787,
+   "sid": "S10.2"
+  },
+  {
+   "w": "loan",
+   "s": 200.883,
+   "e": 201.267,
+   "sid": "S10.2"
+  },
+  {
+   "w": "stands",
+   "s": 201.381,
+   "e": 202.067,
+   "sid": "S10.2"
+  },
+  {
+   "w": "next",
+   "s": 202.115,
+   "e": 202.307,
+   "sid": "S10.2"
+  },
+  {
+   "w": "to",
+   "s": 202.36,
+   "e": 202.467,
+   "sid": "S10.2"
+  },
+  {
+   "w": "the",
+   "s": 202.507,
+   "e": 202.627,
+   "sid": "S10.2"
+  },
+  {
+   "w": "thirty-year",
+   "s": 202.673,
+   "e": 203.347,
+   "sid": "S10.2"
+  },
+  {
+   "w": "paid",
+   "s": 203.427,
+   "e": 203.747,
+   "sid": "S10.2"
+  },
+  {
+   "w": "in",
+   "s": 203.8,
+   "e": 203.907,
+   "sid": "S10.2"
+  },
+  {
+   "w": "fifteen,",
+   "s": 203.987,
+   "e": 204.787,
+   "sid": "S10.2"
+  },
+  {
+   "w": "at",
+   "s": 204.947,
+   "e": 205.267,
+   "sid": "S10.2"
+  },
+  {
+   "w": "the",
+   "s": 205.287,
+   "e": 205.347,
+   "sid": "S10.2"
+  },
+  {
+   "w": "real",
+   "s": 205.411,
+   "e": 205.667,
+   "sid": "S10.2"
+  },
+  {
+   "w": "rates",
+   "s": 205.747,
+   "e": 206.147,
+   "sid": "S10.2"
+  },
+  {
+   "w": "of",
+   "s": 206.307,
+   "e": 206.627,
+   "sid": "S10.2"
+  },
+  {
+   "w": "every",
+   "s": 206.694,
+   "e": 207.027,
+   "sid": "S10.2"
+  },
+  {
+   "w": "week",
+   "s": 207.091,
+   "e": 207.347,
+   "sid": "S10.2"
+  },
+  {
+   "w": "since",
+   "s": 207.44,
+   "e": 207.907,
+   "sid": "S10.2"
+  },
+  {
+   "w": "nineteen",
+   "s": 207.951,
+   "e": 208.307,
+   "sid": "S10.2"
+  },
+  {
+   "w": "ninety-one.",
+   "s": 208.364,
+   "e": 209.027,
+   "sid": "S10.2"
+  },
+  {
+   "w": "We",
+   "s": 209.347,
+   "e": 209.987,
+   "sid": "S10.3"
+  },
+  {
+   "w": "priced",
+   "s": 210.056,
+   "e": 210.467,
+   "sid": "S10.3"
+  },
+  {
+   "w": "the",
+   "s": 210.527,
+   "e": 210.707,
+   "sid": "S10.3"
+  },
+  {
+   "w": "same",
+   "s": 210.787,
+   "e": 211.107,
+   "sid": "S10.3"
+  },
+  {
+   "w": "three",
+   "s": 211.16,
+   "e": 211.427,
+   "sid": "S10.3"
+  },
+  {
+   "w": "hundred",
+   "s": 211.447,
+   "e": 211.587,
+   "sid": "S10.3"
+  },
+  {
+   "w": "twenty",
+   "s": 211.633,
+   "e": 211.907,
+   "sid": "S10.3"
+  },
+  {
+   "w": "thousand",
+   "s": 211.943,
+   "e": 212.227,
+   "sid": "S10.3"
+  },
+  {
+   "w": "dollars",
+   "s": 212.297,
+   "e": 212.787,
+   "sid": "S10.3"
+  },
+  {
+   "w": "both",
+   "s": 212.915,
+   "e": 213.427,
+   "sid": "S10.3"
+  },
+  {
+   "w": "ways",
+   "s": 213.523,
+   "e": 213.907,
+   "sid": "S10.3"
+  },
+  {
+   "w": "in",
+   "s": 214.067,
+   "e": 214.387,
+   "sid": "S10.3"
+  },
+  {
+   "w": "each",
+   "s": 214.467,
+   "e": 214.787,
+   "sid": "S10.3"
+  },
+  {
+   "w": "of",
+   "s": 214.867,
+   "e": 215.027,
+   "sid": "S10.3"
+  },
+  {
+   "w": "one",
+   "s": 215.087,
+   "e": 215.267,
+   "sid": "S10.3"
+  },
+  {
+   "w": "thousand",
+   "s": 215.311,
+   "e": 215.667,
+   "sid": "S10.3"
+  },
+  {
+   "w": "eight",
+   "s": 215.707,
+   "e": 215.907,
+   "sid": "S10.3"
+  },
+  {
+   "w": "hundred",
+   "s": 215.937,
+   "e": 216.147,
+   "sid": "S10.3"
+  },
+  {
+   "w": "thirty-three",
+   "s": 216.216,
+   "e": 216.787,
+   "sid": "S10.3"
+  },
+  {
+   "w": "weeks,",
+   "s": 216.88,
+   "e": 217.907,
+   "sid": "S10.3"
+  },
+  {
+   "w": "at",
+   "s": 217.934,
+   "e": 217.987,
+   "sid": "S10.3"
+  },
+  {
+   "w": "that",
+   "s": 218.035,
+   "e": 218.227,
+   "sid": "S10.3"
+  },
+  {
+   "w": "week's",
+   "s": 218.291,
+   "e": 218.627,
+   "sid": "S10.3"
+  },
+  {
+   "w": "own",
+   "s": 218.727,
+   "e": 219.027,
+   "sid": "S10.3"
+  },
+  {
+   "w": "survey",
+   "s": 219.096,
+   "e": 219.507,
+   "sid": "S10.3"
+  },
+  {
+   "w": "rates;",
+   "s": 219.6,
+   "e": 220.867,
+   "sid": "S10.3"
+  },
+  {
+   "w": "how",
+   "s": 220.907,
+   "e": 221.027,
+   "sid": "S10.3"
+  },
+  {
+   "w": "it",
+   "s": 221.054,
+   "e": 221.107,
+   "sid": "S10.3"
+  },
+  {
+   "w": "was",
+   "s": 221.147,
+   "e": 221.267,
+   "sid": "S10.3"
+  },
+  {
+   "w": "built",
+   "s": 221.334,
+   "e": 221.667,
+   "sid": "S10.3"
+  },
+  {
+   "w": "is",
+   "s": 221.747,
+   "e": 221.907,
+   "sid": "S10.3"
+  },
+  {
+   "w": "on",
+   "s": 221.96,
+   "e": 222.067,
+   "sid": "S10.3"
+  },
+  {
+   "w": "screen",
+   "s": 222.193,
+   "e": 222.947,
+   "sid": "S10.3"
+  },
+  {
+   "w": "and",
+   "s": 223.087,
+   "e": 223.507,
+   "sid": "S10.3"
+  },
+  {
+   "w": "in",
+   "s": 223.614,
+   "e": 223.827,
+   "sid": "S10.3"
+  },
+  {
+   "w": "the",
+   "s": 223.847,
+   "e": 223.907,
+   "sid": "S10.3"
+  },
+  {
+   "w": "description.",
+   "s": 223.954,
+   "e": 224.547,
+   "sid": "S10.3"
+  },
+  {
+   "w": "Tessa's",
+   "s": 225.307,
+   "e": 226.387,
+   "sid": "S10.4"
+  },
+  {
+   "w": "week",
+   "s": 226.451,
+   "e": 226.707,
+   "sid": "S10.4"
+  },
+  {
+   "w": "is",
+   "s": 226.787,
+   "e": 226.947,
+   "sid": "S10.4"
+  },
+  {
+   "w": "the",
+   "s": 226.967,
+   "e": 227.027,
+   "sid": "S10.4"
+  },
+  {
+   "w": "last",
+   "s": 227.091,
+   "e": 227.347,
+   "sid": "S10.4"
+  },
+  {
+   "w": "of",
+   "s": 227.374,
+   "e": 227.427,
+   "sid": "S10.4"
+  },
+  {
+   "w": "them,",
+   "s": 227.475,
+   "e": 228.147,
+   "sid": "S10.4"
+  },
+  {
+   "w": "and",
+   "s": 228.227,
+   "e": 228.467,
+   "sid": "S10.4"
+  },
+  {
+   "w": "in",
+   "s": 228.547,
+   "e": 228.707,
+   "sid": "S10.4"
+  },
+  {
+   "w": "every",
+   "s": 228.774,
+   "e": 229.107,
+   "sid": "S10.4"
+  },
+  {
+   "w": "earlier",
+   "s": 229.167,
+   "e": 229.587,
+   "sid": "S10.4"
+  },
+  {
+   "w": "week",
+   "s": 229.667,
+   "e": 229.987,
+   "sid": "S10.4"
+  },
+  {
+   "w": "we",
+   "s": 230.12,
+   "e": 230.387,
+   "sid": "S10.4"
+  },
+  {
+   "w": "asked",
+   "s": 230.454,
+   "e": 230.787,
+   "sid": "S10.4"
+  },
+  {
+   "w": "her",
+   "s": 230.847,
+   "e": 231.027,
+   "sid": "S10.4"
+  },
+  {
+   "w": "question:",
+   "s": 231.08,
+   "e": 231.587,
+   "sid": "S10.4"
+  },
+  {
+   "w": "what",
+   "s": 231.779,
+   "e": 232.547,
+   "sid": "S10.4"
+  },
+  {
+   "w": "would",
+   "s": 232.574,
+   "e": 232.707,
+   "sid": "S10.4"
+  },
+  {
+   "w": "the",
+   "s": 232.727,
+   "e": 232.787,
+   "sid": "S10.4"
+  },
+  {
+   "w": "fallback",
+   "s": 232.849,
+   "e": 233.347,
+   "sid": "S10.4"
+  },
+  {
+   "w": "have",
+   "s": 233.363,
+   "e": 233.427,
+   "sid": "S10.4"
+  },
+  {
+   "w": "cost",
+   "s": 233.539,
+   "e": 233.987,
+   "sid": "S10.4"
+  },
+  {
+   "w": "then?",
+   "s": 234.083,
+   "e": 234.787,
+   "sid": "S10.4"
+  },
+  {
+   "w": "The",
+   "s": 235.8,
+   "e": 235.88,
+   "sid": "S11.1"
+  },
+  {
+   "w": "answer",
+   "s": 235.926,
+   "e": 236.2,
+   "sid": "S11.1"
+  },
+  {
+   "w": "comes",
+   "s": 236.253,
+   "e": 236.52,
+   "sid": "S11.1"
+  },
+  {
+   "w": "down",
+   "s": 236.552,
+   "e": 236.68,
+   "sid": "S11.1"
+  },
+  {
+   "w": "to",
+   "s": 236.733,
+   "e": 236.84,
+   "sid": "S11.1"
+  },
+  {
+   "w": "one",
+   "s": 236.92,
+   "e": 237.16,
+   "sid": "S11.1"
+  },
+  {
+   "w": "thing:",
+   "s": 237.227,
+   "e": 237.561,
+   "sid": "S11.1"
+  },
+  {
+   "w": "how",
+   "s": 237.76,
+   "e": 238.36,
+   "sid": "S11.1"
+  },
+  {
+   "w": "far",
+   "s": 238.44,
+   "e": 238.68,
+   "sid": "S11.1"
+  },
+  {
+   "w": "the",
+   "s": 238.72,
+   "e": 238.84,
+   "sid": "S11.1"
+  },
+  {
+   "w": "thirty-year",
+   "s": 238.897,
+   "e": 239.48,
+   "sid": "S11.1"
+  },
+  {
+   "w": "rate",
+   "s": 239.56,
+   "e": 239.88,
+   "sid": "S11.1"
+  },
+  {
+   "w": "sits",
+   "s": 239.992,
+   "e": 240.44,
+   "sid": "S11.1"
+  },
+  {
+   "w": "above",
+   "s": 240.507,
+   "e": 240.84,
+   "sid": "S11.1"
+  },
+  {
+   "w": "the",
+   "s": 240.92,
+   "e": 241.16,
+   "sid": "S11.1"
+  },
+  {
+   "w": "fifteen-year.",
+   "s": 241.24,
+   "e": 242.48,
+   "sid": "S11.1"
+  },
+  {
+   "w": "Since",
+   "s": 242.553,
+   "e": 242.92,
+   "sid": "S11.2"
+  },
+  {
+   "w": "nineteen",
+   "s": 242.956,
+   "e": 243.24,
+   "sid": "S11.2"
+  },
+  {
+   "w": "ninety-one,",
+   "s": 243.286,
+   "e": 244.12,
+   "sid": "S11.2"
+  },
+  {
+   "w": "that",
+   "s": 244.152,
+   "e": 244.28,
+   "sid": "S11.2"
+  },
+  {
+   "w": "gap",
+   "s": 244.34,
+   "e": 244.52,
+   "sid": "S11.2"
+  },
+  {
+   "w": "has",
+   "s": 244.58,
+   "e": 244.76,
+   "sid": "S11.2"
+  },
+  {
+   "w": "run",
+   "s": 244.82,
+   "e": 245.0,
+   "sid": "S11.2"
+  },
+  {
+   "w": "from",
+   "s": 245.064,
+   "e": 245.32,
+   "sid": "S11.2"
+  },
+  {
+   "w": "zero",
+   "s": 245.4,
+   "e": 245.72,
+   "sid": "S11.2"
+  },
+  {
+   "w": "point",
+   "s": 245.8,
+   "e": 246.2,
+   "sid": "S11.2"
+  },
+  {
+   "w": "two",
+   "s": 246.22,
+   "e": 246.28,
+   "sid": "S11.2"
+  },
+  {
+   "w": "point",
+   "s": 246.36,
+   "e": 246.76,
+   "sid": "S11.2"
+  },
+  {
+   "w": "to",
+   "s": 246.947,
+   "e": 247.32,
+   "sid": "S11.2"
+  },
+  {
+   "w": "one",
+   "s": 247.36,
+   "e": 247.48,
+   "sid": "S11.2"
+  },
+  {
+   "w": "point",
+   "s": 247.587,
+   "e": 248.12,
+   "sid": "S11.2"
+  },
+  {
+   "w": "zero",
+   "s": 248.168,
+   "e": 248.36,
+   "sid": "S11.2"
+  },
+  {
+   "w": "point.",
+   "s": 248.44,
+   "e": 249.0,
+   "sid": "S11.2"
+  },
+  {
+   "w": "It",
+   "s": 250.2,
+   "e": 250.28,
+   "sid": "S12.1"
+  },
+  {
+   "w": "averaged",
+   "s": 250.324,
+   "e": 250.68,
+   "sid": "S12.1"
+  },
+  {
+   "w": "zero",
+   "s": 250.744,
+   "e": 251.0,
+   "sid": "S12.1"
+  },
+  {
+   "w": "point",
+   "s": 251.067,
+   "e": 251.4,
+   "sid": "S12.1"
+  },
+  {
+   "w": "five",
+   "s": 251.48,
+   "e": 251.8,
+   "sid": "S12.1"
+  },
+  {
+   "w": "seven",
+   "s": 251.827,
+   "e": 251.96,
+   "sid": "S12.1"
+  },
+  {
+   "w": "point,",
+   "s": 252.04,
+   "e": 252.68,
+   "sid": "S12.1"
+  },
+  {
+   "w": "and",
+   "s": 252.72,
+   "e": 252.84,
+   "sid": "S12.1"
+  },
+  {
+   "w": "was",
+   "s": 252.9,
+   "e": 253.08,
+   "sid": "S12.1"
+  },
+  {
+   "w": "at",
+   "s": 253.107,
+   "e": 253.16,
+   "sid": "S12.1"
+  },
+  {
+   "w": "least",
+   "s": 253.227,
+   "e": 253.56,
+   "sid": "S12.1"
+  },
+  {
+   "w": "half",
+   "s": 253.672,
+   "e": 254.12,
+   "sid": "S12.1"
+  },
+  {
+   "w": "a",
+   "s": 254.16,
+   "e": 254.2,
+   "sid": "S12.1"
+  },
+  {
+   "w": "point",
+   "s": 254.253,
+   "e": 254.52,
+   "sid": "S12.1"
+  },
+  {
+   "w": "in",
+   "s": 254.573,
+   "e": 254.68,
+   "sid": "S12.1"
+  },
+  {
+   "w": "about",
+   "s": 254.72,
+   "e": 254.92,
+   "sid": "S12.1"
+  },
+  {
+   "w": "two",
+   "s": 255.02,
+   "e": 255.32,
+   "sid": "S12.1"
+  },
+  {
+   "w": "in",
+   "s": 255.427,
+   "e": 255.64,
+   "sid": "S12.1"
+  },
+  {
+   "w": "three",
+   "s": 255.68,
+   "e": 255.88,
+   "sid": "S12.1"
+  },
+  {
+   "w": "weeks.",
+   "s": 255.947,
+   "e": 256.6,
+   "sid": "S12.1"
+  },
+  {
+   "w": "Tessa's",
+   "s": 257.0,
+   "e": 257.72,
+   "sid": "S12.2"
+  },
+  {
+   "w": "gap",
+   "s": 257.8,
+   "e": 258.04,
+   "sid": "S12.2"
+  },
+  {
+   "w": "on",
+   "s": 258.067,
+   "e": 258.12,
+   "sid": "S12.2"
+  },
+  {
+   "w": "October",
+   "s": 258.18,
+   "e": 258.6,
+   "sid": "S12.2"
+  },
+  {
+   "w": "eighth",
+   "s": 258.657,
+   "e": 259.0,
+   "sid": "S12.2"
+  },
+  {
+   "w": "sits",
+   "s": 259.144,
+   "e": 259.72,
+   "sid": "S12.2"
+  },
+  {
+   "w": "a",
+   "s": 259.76,
+   "e": 259.8,
+   "sid": "S12.2"
+  },
+  {
+   "w": "little",
+   "s": 259.834,
+   "e": 260.04,
+   "sid": "S12.2"
+  },
+  {
+   "w": "above",
+   "s": 260.107,
+   "e": 260.44,
+   "sid": "S12.2"
+  },
+  {
+   "w": "that",
+   "s": 260.488,
+   "e": 260.68,
+   "sid": "S12.2"
+  },
+  {
+   "w": "average.",
+   "s": 260.73,
+   "e": 261.32,
+   "sid": "S12.2"
+  },
+  {
+   "w": "Stand",
+   "s": 262.333,
+   "e": 262.653,
+   "sid": "S13.1"
+  },
+  {
+   "w": "a",
+   "s": 262.693,
+   "e": 262.733,
+   "sid": "S13.1"
+  },
+  {
+   "w": "stack",
+   "s": 262.8,
+   "e": 263.133,
+   "sid": "S13.1"
+  },
+  {
+   "w": "beside",
+   "s": 263.213,
+   "e": 263.693,
+   "sid": "S13.1"
+  },
+  {
+   "w": "every",
+   "s": 263.76,
+   "e": 264.093,
+   "sid": "S13.1"
+  },
+  {
+   "w": "week,",
+   "s": 264.157,
+   "e": 264.573,
+   "sid": "S13.1"
+  },
+  {
+   "w": "and",
+   "s": 264.613,
+   "e": 264.733,
+   "sid": "S13.1"
+  },
+  {
+   "w": "the",
+   "s": 264.753,
+   "e": 264.813,
+   "sid": "S13.1"
+  },
+  {
+   "w": "stacks",
+   "s": 264.87,
+   "e": 265.213,
+   "sid": "S13.1"
+  },
+  {
+   "w": "rise",
+   "s": 265.293,
+   "e": 265.613,
+   "sid": "S13.1"
+  },
+  {
+   "w": "and",
+   "s": 265.653,
+   "e": 265.773,
+   "sid": "S13.1"
+  },
+  {
+   "w": "fall",
+   "s": 265.837,
+   "e": 266.093,
+   "sid": "S13.1"
+  },
+  {
+   "w": "with",
+   "s": 266.125,
+   "e": 266.253,
+   "sid": "S13.1"
+  },
+  {
+   "w": "that",
+   "s": 266.285,
+   "e": 266.413,
+   "sid": "S13.1"
+  },
+  {
+   "w": "gap.",
+   "s": 266.513,
+   "e": 267.613,
+   "sid": "S13.1"
+  },
+  {
+   "w": "The",
+   "s": 267.633,
+   "e": 267.693,
+   "sid": "S13.2"
+  },
+  {
+   "w": "smallest",
+   "s": 267.746,
+   "e": 268.173,
+   "sid": "S13.2"
+  },
+  {
+   "w": "was",
+   "s": 268.233,
+   "e": 268.413,
+   "sid": "S13.2"
+  },
+  {
+   "w": "six",
+   "s": 268.473,
+   "e": 268.653,
+   "sid": "S13.2"
+  },
+  {
+   "w": "thousand",
+   "s": 268.697,
+   "e": 269.053,
+   "sid": "S13.2"
+  },
+  {
+   "w": "ninety-seven",
+   "s": 269.11,
+   "e": 269.693,
+   "sid": "S13.2"
+  },
+  {
+   "w": "dollars.",
+   "s": 269.753,
+   "e": 270.493,
+   "sid": "S13.2"
+  },
+  {
+   "w": "The",
+   "s": 271.5,
+   "e": 271.66,
+   "sid": "S14.1"
+  },
+  {
+   "w": "tallest",
+   "s": 271.72,
+   "e": 272.14,
+   "sid": "S14.1"
+  },
+  {
+   "w": "was",
+   "s": 272.2,
+   "e": 272.38,
+   "sid": "S14.1"
+  },
+  {
+   "w": "twenty-nine",
+   "s": 272.449,
+   "e": 273.1,
+   "sid": "S14.1"
+  },
+  {
+   "w": "thousand",
+   "s": 273.171,
+   "e": 273.74,
+   "sid": "S14.1"
+  },
+  {
+   "w": "five",
+   "s": 273.804,
+   "e": 274.06,
+   "sid": "S14.1"
+  },
+  {
+   "w": "hundred",
+   "s": 274.1,
+   "e": 274.38,
+   "sid": "S14.1"
+  },
+  {
+   "w": "two",
+   "s": 274.46,
+   "e": 274.7,
+   "sid": "S14.1"
+  },
+  {
+   "w": "dollars.",
+   "s": 274.78,
+   "e": 275.5,
+   "sid": "S14.1"
+  },
+  {
+   "w": "The",
+   "s": 276.5,
+   "e": 276.58,
+   "sid": "S15.1"
+  },
+  {
+   "w": "typical",
+   "s": 276.62,
+   "e": 276.9,
+   "sid": "S15.1"
+  },
+  {
+   "w": "week,",
+   "s": 276.98,
+   "e": 277.38,
+   "sid": "S15.1"
+  },
+  {
+   "w": "the",
+   "s": 277.42,
+   "e": 277.54,
+   "sid": "S15.1"
+  },
+  {
+   "w": "median,",
+   "s": 277.609,
+   "e": 278.1,
+   "sid": "S15.1"
+  },
+  {
+   "w": "priced",
+   "s": 278.157,
+   "e": 278.5,
+   "sid": "S15.1"
+  },
+  {
+   "w": "the",
+   "s": 278.52,
+   "e": 278.58,
+   "sid": "S15.1"
+  },
+  {
+   "w": "fallback",
+   "s": 278.642,
+   "e": 279.14,
+   "sid": "S15.1"
+  },
+  {
+   "w": "at",
+   "s": 279.22,
+   "e": 279.38,
+   "sid": "S15.1"
+  },
+  {
+   "w": "sixteen",
+   "s": 279.43,
+   "e": 279.78,
+   "sid": "S15.1"
+  },
+  {
+   "w": "thousand",
+   "s": 279.842,
+   "e": 280.34,
+   "sid": "S15.1"
+  },
+  {
+   "w": "six",
+   "s": 280.42,
+   "e": 280.66,
+   "sid": "S15.1"
+  },
+  {
+   "w": "hundred",
+   "s": 280.71,
+   "e": 281.06,
+   "sid": "S15.1"
+  },
+  {
+   "w": "thirty-one",
+   "s": 281.151,
+   "e": 281.94,
+   "sid": "S15.1"
+  },
+  {
+   "w": "dollars.",
+   "s": 282.01,
+   "e": 282.58,
+   "sid": "S15.1"
+  },
+  {
+   "w": "[serious]",
+   "s": 283.22,
+   "e": 284.02,
+   "sid": "S15.2"
+  },
+  {
+   "w": "Fewer",
+   "s": 284.04,
+   "e": 284.18,
+   "sid": "S15.2"
+  },
+  {
+   "w": "than",
+   "s": 284.212,
+   "e": 284.34,
+   "sid": "S15.2"
+  },
+  {
+   "w": "one",
+   "s": 284.38,
+   "e": 284.5,
+   "sid": "S15.2"
+  },
+  {
+   "w": "in",
+   "s": 284.58,
+   "e": 284.74,
+   "sid": "S15.2"
+  },
+  {
+   "w": "five",
+   "s": 284.788,
+   "e": 284.98,
+   "sid": "S15.2"
+  },
+  {
+   "w": "weeks",
+   "s": 285.033,
+   "e": 285.3,
+   "sid": "S15.2"
+  },
+  {
+   "w": "since",
+   "s": 285.353,
+   "e": 285.62,
+   "sid": "S15.2"
+  },
+  {
+   "w": "nineteen",
+   "s": 285.664,
+   "e": 286.02,
+   "sid": "S15.2"
+  },
+  {
+   "w": "ninety-one",
+   "s": 286.054,
+   "e": 286.5,
+   "sid": "S15.2"
+  },
+  {
+   "w": "put",
+   "s": 286.58,
+   "e": 286.82,
+   "sid": "S15.2"
+  },
+  {
+   "w": "a",
+   "s": 286.86,
+   "e": 286.9,
+   "sid": "S15.2"
+  },
+  {
+   "w": "price",
+   "s": 286.953,
+   "e": 287.22,
+   "sid": "S15.2"
+  },
+  {
+   "w": "this",
+   "s": 287.252,
+   "e": 287.38,
+   "sid": "S15.2"
+  },
+  {
+   "w": "high",
+   "s": 287.444,
+   "e": 287.7,
+   "sid": "S15.2"
+  },
+  {
+   "w": "on",
+   "s": 287.753,
+   "e": 287.86,
+   "sid": "S15.2"
+  },
+  {
+   "w": "it.",
+   "s": 287.913,
+   "e": 288.18,
+   "sid": "S15.2"
+  },
+  {
+   "w": "That",
+   "s": 288.356,
+   "e": 289.06,
+   "sid": "S15.3"
+  },
+  {
+   "w": "makes",
+   "s": 289.1,
+   "e": 289.3,
+   "sid": "S15.3"
+  },
+  {
+   "w": "Tessa's",
+   "s": 289.34,
+   "e": 289.62,
+   "sid": "S15.3"
+  },
+  {
+   "w": "fallback",
+   "s": 289.673,
+   "e": 290.1,
+   "sid": "S15.3"
+  },
+  {
+   "w": "expensive",
+   "s": 290.156,
+   "e": 290.66,
+   "sid": "S15.3"
+  },
+  {
+   "w": "by",
+   "s": 290.713,
+   "e": 290.82,
+   "sid": "S15.3"
+  },
+  {
+   "w": "history.",
+   "s": 290.88,
+   "e": 291.54,
+   "sid": "S15.3"
+  },
+  {
+   "w": "What",
+   "s": 291.684,
+   "e": 292.26,
+   "sid": "S15.4"
+  },
+  {
+   "w": "a",
+   "s": 292.3,
+   "e": 292.34,
+   "sid": "S15.4"
+  },
+  {
+   "w": "lower",
+   "s": 292.38,
+   "e": 292.58,
+   "sid": "S15.4"
+  },
+  {
+   "w": "payment",
+   "s": 292.62,
+   "e": 292.9,
+   "sid": "S15.4"
+  },
+  {
+   "w": "is",
+   "s": 292.953,
+   "e": 293.06,
+   "sid": "S15.4"
+  },
+  {
+   "w": "worth",
+   "s": 293.127,
+   "e": 293.46,
+   "sid": "S15.4"
+  },
+  {
+   "w": "in",
+   "s": 293.487,
+   "e": 293.54,
+   "sid": "S15.4"
+  },
+  {
+   "w": "a",
+   "s": 293.58,
+   "e": 293.62,
+   "sid": "S15.4"
+  },
+  {
+   "w": "bad",
+   "s": 293.68,
+   "e": 293.86,
+   "sid": "S15.4"
+  },
+  {
+   "w": "month,",
+   "s": 293.94,
+   "e": 294.5,
+   "sid": "S15.4"
+  },
+  {
+   "w": "this",
+   "s": 294.548,
+   "e": 294.74,
+   "sid": "S15.4"
+  },
+  {
+   "w": "replay",
+   "s": 294.82,
+   "e": 295.3,
+   "sid": "S15.4"
+  },
+  {
+   "w": "can't",
+   "s": 295.36,
+   "e": 295.62,
+   "sid": "S15.4"
+  },
+  {
+   "w": "measure.",
+   "s": 295.67,
+   "e": 296.18,
+   "sid": "S15.4"
+  },
+  {
+   "w": "Line",
+   "s": 297.167,
+   "e": 297.327,
+   "sid": "S16.1"
+  },
+  {
+   "w": "the",
+   "s": 297.347,
+   "e": 297.407,
+   "sid": "S16.1"
+  },
+  {
+   "w": "weeks",
+   "s": 297.447,
+   "e": 297.647,
+   "sid": "S16.1"
+  },
+  {
+   "w": "up",
+   "s": 297.7,
+   "e": 297.807,
+   "sid": "S16.1"
+  },
+  {
+   "w": "by",
+   "s": 297.86,
+   "e": 297.967,
+   "sid": "S16.1"
+  },
+  {
+   "w": "decade,",
+   "s": 298.036,
+   "e": 298.527,
+   "sid": "S16.1"
+  },
+  {
+   "w": "and",
+   "s": 298.667,
+   "e": 299.087,
+   "sid": "S16.1"
+  },
+  {
+   "w": "the",
+   "s": 299.107,
+   "e": 299.167,
+   "sid": "S16.1"
+  },
+  {
+   "w": "pattern",
+   "s": 299.217,
+   "e": 299.567,
+   "sid": "S16.1"
+  },
+  {
+   "w": "is",
+   "s": 299.62,
+   "e": 299.727,
+   "sid": "S16.1"
+  },
+  {
+   "w": "not",
+   "s": 299.787,
+   "e": 299.967,
+   "sid": "S16.1"
+  },
+  {
+   "w": "the",
+   "s": 299.987,
+   "e": 300.047,
+   "sid": "S16.1"
+  },
+  {
+   "w": "one",
+   "s": 300.087,
+   "e": 300.207,
+   "sid": "S16.1"
+  },
+  {
+   "w": "most",
+   "s": 300.255,
+   "e": 300.447,
+   "sid": "S16.1"
+  },
+  {
+   "w": "people",
+   "s": 300.481,
+   "e": 300.687,
+   "sid": "S16.1"
+  },
+  {
+   "w": "expect.",
+   "s": 300.756,
+   "e": 301.327,
+   "sid": "S16.1"
+  },
+  {
+   "w": "In",
+   "s": 301.62,
+   "e": 302.207,
+   "sid": "S16.2"
+  },
+  {
+   "w": "the",
+   "s": 302.227,
+   "e": 302.287,
+   "sid": "S16.2"
+  },
+  {
+   "w": "1990s,",
+   "s": 302.367,
+   "e": 303.167,
+   "sid": "S16.2"
+  },
+  {
+   "w": "the",
+   "s": 303.187,
+   "e": 303.247,
+   "sid": "S16.2"
+  },
+  {
+   "w": "typical",
+   "s": 303.287,
+   "e": 303.567,
+   "sid": "S16.2"
+  },
+  {
+   "w": "fallback",
+   "s": 303.629,
+   "e": 304.127,
+   "sid": "S16.2"
+  },
+  {
+   "w": "cost",
+   "s": 304.191,
+   "e": 304.447,
+   "sid": "S16.2"
+  },
+  {
+   "w": "fifteen",
+   "s": 304.517,
+   "e": 305.007,
+   "sid": "S16.2"
+  },
+  {
+   "w": "thousand",
+   "s": 305.069,
+   "e": 305.567,
+   "sid": "S16.2"
+  },
+  {
+   "w": "one",
+   "s": 305.607,
+   "e": 305.727,
+   "sid": "S16.2"
+  },
+  {
+   "w": "hundred",
+   "s": 305.757,
+   "e": 305.967,
+   "sid": "S16.2"
+  },
+  {
+   "w": "eighteen",
+   "s": 306.02,
+   "e": 306.447,
+   "sid": "S16.2"
+  },
+  {
+   "w": "dollars.",
+   "s": 306.517,
+   "e": 307.247,
+   "sid": "S16.2"
+  },
+  {
+   "w": "In",
+   "s": 308.233,
+   "e": 308.313,
+   "sid": "S17.1"
+  },
+  {
+   "w": "the",
+   "s": 308.353,
+   "e": 308.473,
+   "sid": "S17.1"
+  },
+  {
+   "w": "2000s,",
+   "s": 308.673,
+   "e": 309.273,
+   "sid": "S17.1"
+  },
+  {
+   "w": "with",
+   "s": 309.289,
+   "e": 309.353,
+   "sid": "S17.1"
+  },
+  {
+   "w": "lower",
+   "s": 309.406,
+   "e": 309.673,
+   "sid": "S17.1"
+  },
+  {
+   "w": "rates,",
+   "s": 309.74,
+   "e": 310.633,
+   "sid": "S17.1"
+  },
+  {
+   "w": "it",
+   "s": 310.66,
+   "e": 310.713,
+   "sid": "S17.1"
+  },
+  {
+   "w": "cost",
+   "s": 310.793,
+   "e": 311.113,
+   "sid": "S17.1"
+  },
+  {
+   "w": "about",
+   "s": 311.153,
+   "e": 311.353,
+   "sid": "S17.1"
+  },
+  {
+   "w": "the",
+   "s": 311.393,
+   "e": 311.513,
+   "sid": "S17.1"
+  },
+  {
+   "w": "same:",
+   "s": 311.577,
+   "e": 312.473,
+   "sid": "S17.1"
+  },
+  {
+   "w": "fourteen",
+   "s": 312.517,
+   "e": 312.873,
+   "sid": "S17.1"
+  },
+  {
+   "w": "thousand",
+   "s": 312.935,
+   "e": 313.433,
+   "sid": "S17.1"
+  },
+  {
+   "w": "two",
+   "s": 313.553,
+   "e": 313.913,
+   "sid": "S17.1"
+  },
+  {
+   "w": "hundred",
+   "s": 313.963,
+   "e": 314.313,
+   "sid": "S17.1"
+  },
+  {
+   "w": "ten",
+   "s": 314.413,
+   "e": 314.713,
+   "sid": "S17.1"
+  },
+  {
+   "w": "dollars.",
+   "s": 314.793,
+   "e": 315.593,
+   "sid": "S17.1"
+  },
+  {
+   "w": "In",
+   "s": 316.6,
+   "e": 316.68,
+   "sid": "S18.1"
+  },
+  {
+   "w": "the",
+   "s": 316.7,
+   "e": 316.76,
+   "sid": "S18.1"
+  },
+  {
+   "w": "2010s,",
+   "s": 316.84,
+   "e": 317.72,
+   "sid": "S18.1"
+  },
+  {
+   "w": "rates",
+   "s": 317.76,
+   "e": 317.96,
+   "sid": "S18.1"
+  },
+  {
+   "w": "were",
+   "s": 318.008,
+   "e": 318.2,
+   "sid": "S18.1"
+  },
+  {
+   "w": "far",
+   "s": 318.28,
+   "e": 318.52,
+   "sid": "S18.1"
+  },
+  {
+   "w": "lower,",
+   "s": 318.573,
+   "e": 319.4,
+   "sid": "S18.1"
+  },
+  {
+   "w": "yet",
+   "s": 319.44,
+   "e": 319.56,
+   "sid": "S18.1"
+  },
+  {
+   "w": "the",
+   "s": 319.58,
+   "e": 319.64,
+   "sid": "S18.1"
+  },
+  {
+   "w": "fallback",
+   "s": 319.693,
+   "e": 320.12,
+   "sid": "S18.1"
+  },
+  {
+   "w": "cost",
+   "s": 320.2,
+   "e": 320.52,
+   "sid": "S18.1"
+  },
+  {
+   "w": "more:",
+   "s": 320.584,
+   "e": 321.4,
+   "sid": "S18.1"
+  },
+  {
+   "w": "twenty",
+   "s": 321.446,
+   "e": 321.72,
+   "sid": "S18.1"
+  },
+  {
+   "w": "thousand",
+   "s": 321.8,
+   "e": 322.44,
+   "sid": "S18.1"
+  },
+  {
+   "w": "three",
+   "s": 322.467,
+   "e": 322.6,
+   "sid": "S18.1"
+  },
+  {
+   "w": "hundred",
+   "s": 322.63,
+   "e": 322.84,
+   "sid": "S18.1"
+  },
+  {
+   "w": "seventy-four",
+   "s": 322.89,
+   "e": 323.56,
+   "sid": "S18.1"
+  },
+  {
+   "w": "dollars.",
+   "s": 323.63,
+   "e": 324.36,
+   "sid": "S18.1"
+  },
+  {
+   "w": "The",
+   "s": 325.367,
+   "e": 325.447,
+   "sid": "S19.1"
+  },
+  {
+   "w": "reason",
+   "s": 325.481,
+   "e": 325.687,
+   "sid": "S19.1"
+  },
+  {
+   "w": "is",
+   "s": 325.767,
+   "e": 325.927,
+   "sid": "S19.1"
+  },
+  {
+   "w": "the",
+   "s": 325.947,
+   "e": 326.007,
+   "sid": "S19.1"
+  },
+  {
+   "w": "gap:",
+   "s": 326.127,
+   "e": 327.127,
+   "sid": "S19.1"
+  },
+  {
+   "w": "in",
+   "s": 327.154,
+   "e": 327.207,
+   "sid": "S19.1"
+  },
+  {
+   "w": "the",
+   "s": 327.247,
+   "e": 327.367,
+   "sid": "S19.1"
+  },
+  {
+   "w": "2010s",
+   "s": 327.447,
+   "e": 328.087,
+   "sid": "S19.1"
+  },
+  {
+   "w": "and",
+   "s": 328.107,
+   "e": 328.167,
+   "sid": "S19.1"
+  },
+  {
+   "w": "2020s",
+   "s": 328.327,
+   "e": 329.367,
+   "sid": "S19.1"
+  },
+  {
+   "w": "it",
+   "s": 329.5,
+   "e": 329.767,
+   "sid": "S19.1"
+  },
+  {
+   "w": "typically",
+   "s": 329.807,
+   "e": 330.167,
+   "sid": "S19.1"
+  },
+  {
+   "w": "ran",
+   "s": 330.227,
+   "e": 330.407,
+   "sid": "S19.1"
+  },
+  {
+   "w": "about",
+   "s": 330.447,
+   "e": 330.647,
+   "sid": "S19.1"
+  },
+  {
+   "w": "zero",
+   "s": 330.711,
+   "e": 330.967,
+   "sid": "S19.1"
+  },
+  {
+   "w": "point",
+   "s": 331.047,
+   "e": 331.447,
+   "sid": "S19.1"
+  },
+  {
+   "w": "seven",
+   "s": 331.487,
+   "e": 331.687,
+   "sid": "S19.1"
+  },
+  {
+   "w": "point,",
+   "s": 331.78,
+   "e": 332.807,
+   "sid": "S19.1"
+  },
+  {
+   "w": "against",
+   "s": 332.867,
+   "e": 333.287,
+   "sid": "S19.1"
+  },
+  {
+   "w": "about",
+   "s": 333.34,
+   "e": 333.607,
+   "sid": "S19.1"
+  },
+  {
+   "w": "zero",
+   "s": 333.671,
+   "e": 333.927,
+   "sid": "S19.1"
+  },
+  {
+   "w": "point",
+   "s": 333.994,
+   "e": 334.327,
+   "sid": "S19.1"
+  },
+  {
+   "w": "four",
+   "s": 334.359,
+   "e": 334.487,
+   "sid": "S19.1"
+  },
+  {
+   "w": "five",
+   "s": 334.599,
+   "e": 335.047,
+   "sid": "S19.1"
+  },
+  {
+   "w": "in",
+   "s": 335.127,
+   "e": 335.287,
+   "sid": "S19.1"
+  },
+  {
+   "w": "the",
+   "s": 335.327,
+   "e": 335.447,
+   "sid": "S19.1"
+  },
+  {
+   "w": "1990s",
+   "s": 335.727,
+   "e": 336.247,
+   "sid": "S19.1"
+  },
+  {
+   "w": "and",
+   "s": 336.287,
+   "e": 336.407,
+   "sid": "S19.1"
+  },
+  {
+   "w": "2000s.",
+   "s": 336.567,
+   "e": 337.607,
+   "sid": "S19.1"
+  },
+  {
+   "w": "A",
+   "s": 337.967,
+   "e": 338.327,
+   "sid": "S19.2"
+  },
+  {
+   "w": "lower",
+   "s": 338.38,
+   "e": 338.647,
+   "sid": "S19.2"
+  },
+  {
+   "w": "rate",
+   "s": 338.711,
+   "e": 338.967,
+   "sid": "S19.2"
+  },
+  {
+   "w": "didn't",
+   "s": 339.015,
+   "e": 339.287,
+   "sid": "S19.2"
+  },
+  {
+   "w": "mean",
+   "s": 339.351,
+   "e": 339.607,
+   "sid": "S19.2"
+  },
+  {
+   "w": "a",
+   "s": 339.727,
+   "e": 339.847,
+   "sid": "S19.2"
+  },
+  {
+   "w": "cheaper",
+   "s": 339.887,
+   "e": 340.167,
+   "sid": "S19.2"
+  },
+  {
+   "w": "fallback;",
+   "s": 340.238,
+   "e": 341.447,
+   "sid": "S19.2"
+  },
+  {
+   "w": "a",
+   "s": 341.487,
+   "e": 341.527,
+   "sid": "S19.2"
+  },
+  {
+   "w": "wider",
+   "s": 341.594,
+   "e": 341.927,
+   "sid": "S19.2"
+  },
+  {
+   "w": "gap",
+   "s": 342.027,
+   "e": 342.327,
+   "sid": "S19.2"
+  },
+  {
+   "w": "meant",
+   "s": 342.407,
+   "e": 342.807,
+   "sid": "S19.2"
+  },
+  {
+   "w": "a",
+   "s": 342.927,
+   "e": 343.047,
+   "sid": "S19.2"
+  },
+  {
+   "w": "pricier",
+   "s": 343.127,
+   "e": 343.687,
+   "sid": "S19.2"
+  },
+  {
+   "w": "one.",
+   "s": 343.767,
+   "e": 344.167,
+   "sid": "S19.2"
+  },
+  {
+   "w": "Since",
+   "s": 345.167,
+   "e": 345.327,
+   "sid": "S20.1"
+  },
+  {
+   "w": "twenty",
+   "s": 345.373,
+   "e": 345.647,
+   "sid": "S20.1"
+  },
+  {
+   "w": "twenty,",
+   "s": 345.704,
+   "e": 346.127,
+   "sid": "S20.1"
+  },
+  {
+   "w": "the",
+   "s": 346.147,
+   "e": 346.207,
+   "sid": "S20.1"
+  },
+  {
+   "w": "typical",
+   "s": 346.247,
+   "e": 346.527,
+   "sid": "S20.1"
+  },
+  {
+   "w": "week",
+   "s": 346.575,
+   "e": 346.767,
+   "sid": "S20.1"
+  },
+  {
+   "w": "priced",
+   "s": 346.824,
+   "e": 347.167,
+   "sid": "S20.1"
+  },
+  {
+   "w": "it",
+   "s": 347.22,
+   "e": 347.327,
+   "sid": "S20.1"
+  },
+  {
+   "w": "at",
+   "s": 347.434,
+   "e": 347.647,
+   "sid": "S20.1"
+  },
+  {
+   "w": "twenty-one",
+   "s": 347.693,
+   "e": 348.127,
+   "sid": "S20.1"
+  },
+  {
+   "w": "thousand",
+   "s": 348.198,
+   "e": 348.767,
+   "sid": "S20.1"
+  },
+  {
+   "w": "three",
+   "s": 348.834,
+   "e": 349.167,
+   "sid": "S20.1"
+  },
+  {
+   "w": "hundred",
+   "s": 349.207,
+   "e": 349.487,
+   "sid": "S20.1"
+  },
+  {
+   "w": "forty-five",
+   "s": 349.54,
+   "e": 350.127,
+   "sid": "S20.1"
+  },
+  {
+   "w": "dollars,",
+   "s": 350.187,
+   "e": 351.247,
+   "sid": "S20.1"
+  },
+  {
+   "w": "close",
+   "s": 351.314,
+   "e": 351.647,
+   "sid": "S20.1"
+  },
+  {
+   "w": "to",
+   "s": 351.7,
+   "e": 351.807,
+   "sid": "S20.1"
+  },
+  {
+   "w": "Tessa's",
+   "s": 351.887,
+   "e": 352.287,
+   "sid": "S20.1"
+  },
+  {
+   "w": "own",
+   "s": 352.347,
+   "e": 352.527,
+   "sid": "S20.1"
+  },
+  {
+   "w": "stack.",
+   "s": 352.607,
+   "e": 353.247,
+   "sid": "S20.1"
+  },
+  {
+   "w": "That's",
+   "s": 353.471,
+   "e": 354.567,
+   "sid": "S20.2"
+  },
+  {
+   "w": "history,",
+   "s": 354.592,
+   "e": 354.927,
+   "sid": "S20.2"
+  },
+  {
+   "w": "not",
+   "s": 354.967,
+   "e": 355.087,
+   "sid": "S20.2"
+  },
+  {
+   "w": "a",
+   "s": 355.127,
+   "e": 355.167,
+   "sid": "S20.2"
+  },
+  {
+   "w": "forecast:",
+   "s": 355.238,
+   "e": 356.447,
+   "sid": "S20.2"
+  },
+  {
+   "w": "the",
+   "s": 356.467,
+   "e": 356.527,
+   "sid": "S20.2"
+  },
+  {
+   "w": "gap",
+   "s": 356.607,
+   "e": 356.847,
+   "sid": "S20.2"
+  },
+  {
+   "w": "has",
+   "s": 356.887,
+   "e": 357.007,
+   "sid": "S20.2"
+  },
+  {
+   "w": "moved",
+   "s": 357.06,
+   "e": 357.327,
+   "sid": "S20.2"
+  },
+  {
+   "w": "before,",
+   "s": 357.396,
+   "e": 358.207,
+   "sid": "S20.2"
+  },
+  {
+   "w": "and",
+   "s": 358.247,
+   "e": 358.367,
+   "sid": "S20.2"
+  },
+  {
+   "w": "nothing",
+   "s": 358.417,
+   "e": 358.767,
+   "sid": "S20.2"
+  },
+  {
+   "w": "here",
+   "s": 358.831,
+   "e": 359.087,
+   "sid": "S20.2"
+  },
+  {
+   "w": "says",
+   "s": 359.183,
+   "e": 359.567,
+   "sid": "S20.2"
+  },
+  {
+   "w": "where",
+   "s": 359.594,
+   "e": 359.727,
+   "sid": "S20.2"
+  },
+  {
+   "w": "it",
+   "s": 359.78,
+   "e": 359.887,
+   "sid": "S20.2"
+  },
+  {
+   "w": "goes.",
+   "s": 359.967,
+   "e": 360.607,
+   "sid": "S20.2"
+  },
+  {
+   "w": "Back",
+   "s": 361.6,
+   "e": 361.68,
+   "sid": "S21.1"
+  },
+  {
+   "w": "to",
+   "s": 361.733,
+   "e": 361.84,
+   "sid": "S21.1"
+  },
+  {
+   "w": "Tessa's",
+   "s": 361.92,
+   "e": 362.32,
+   "sid": "S21.1"
+  },
+  {
+   "w": "own",
+   "s": 362.36,
+   "e": 362.48,
+   "sid": "S21.1"
+  },
+  {
+   "w": "loan,",
+   "s": 362.56,
+   "e": 363.12,
+   "sid": "S21.1"
+  },
+  {
+   "w": "and",
+   "s": 363.16,
+   "e": 363.28,
+   "sid": "S21.1"
+  },
+  {
+   "w": "a",
+   "s": 363.32,
+   "e": 363.36,
+   "sid": "S21.1"
+  },
+  {
+   "w": "shortcut",
+   "s": 363.44,
+   "e": 364.08,
+   "sid": "S21.1"
+  },
+  {
+   "w": "many",
+   "s": 364.128,
+   "e": 364.32,
+   "sid": "S21.1"
+  },
+  {
+   "w": "people",
+   "s": 364.366,
+   "e": 364.64,
+   "sid": "S21.1"
+  },
+  {
+   "w": "reach",
+   "s": 364.68,
+   "e": 364.88,
+   "sid": "S21.1"
+  },
+  {
+   "w": "for:",
+   "s": 364.96,
+   "e": 365.92,
+   "sid": "S21.1"
+  },
+  {
+   "w": "pay",
+   "s": 365.98,
+   "e": 366.16,
+   "sid": "S21.1"
+  },
+  {
+   "w": "the",
+   "s": 366.18,
+   "e": 366.24,
+   "sid": "S21.1"
+  },
+  {
+   "w": "thirty-year",
+   "s": 366.286,
+   "e": 366.8,
+   "sid": "S21.1"
+  },
+  {
+   "w": "exactly",
+   "s": 366.88,
+   "e": 367.44,
+   "sid": "S21.1"
+  },
+  {
+   "w": "what",
+   "s": 367.488,
+   "e": 367.68,
+   "sid": "S21.1"
+  },
+  {
+   "w": "the",
+   "s": 367.7,
+   "e": 367.76,
+   "sid": "S21.1"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 367.83,
+   "e": 368.48,
+   "sid": "S21.1"
+  },
+  {
+   "w": "would",
+   "s": 368.507,
+   "e": 368.64,
+   "sid": "S21.1"
+  },
+  {
+   "w": "cost,",
+   "s": 368.736,
+   "e": 369.6,
+   "sid": "S21.1"
+  },
+  {
+   "w": "and",
+   "s": 369.62,
+   "e": 369.68,
+   "sid": "S21.1"
+  },
+  {
+   "w": "assume",
+   "s": 369.737,
+   "e": 370.08,
+   "sid": "S21.1"
+  },
+  {
+   "w": "it",
+   "s": 370.133,
+   "e": 370.24,
+   "sid": "S21.1"
+  },
+  {
+   "w": "ends",
+   "s": 370.32,
+   "e": 370.64,
+   "sid": "S21.1"
+  },
+  {
+   "w": "on",
+   "s": 370.667,
+   "e": 370.72,
+   "sid": "S21.1"
+  },
+  {
+   "w": "the",
+   "s": 370.74,
+   "e": 370.8,
+   "sid": "S21.1"
+  },
+  {
+   "w": "same",
+   "s": 370.864,
+   "e": 371.12,
+   "sid": "S21.1"
+  },
+  {
+   "w": "day.",
+   "s": 371.22,
+   "e": 371.76,
+   "sid": "S21.1"
+  },
+  {
+   "w": "At",
+   "s": 371.973,
+   "e": 372.4,
+   "sid": "S21.2"
+  },
+  {
+   "w": "the",
+   "s": 372.42,
+   "e": 372.48,
+   "sid": "S21.2"
+  },
+  {
+   "w": "October",
+   "s": 372.54,
+   "e": 372.96,
+   "sid": "S21.2"
+  },
+  {
+   "w": "eighth",
+   "s": 373.006,
+   "e": 373.28,
+   "sid": "S21.2"
+  },
+  {
+   "w": "rates,",
+   "s": 373.36,
+   "e": 374.08,
+   "sid": "S21.2"
+  },
+  {
+   "w": "it",
+   "s": 374.107,
+   "e": 374.16,
+   "sid": "S21.2"
+  },
+  {
+   "w": "doesn't:",
+   "s": 374.213,
+   "e": 375.2,
+   "sid": "S21.2"
+  },
+  {
+   "w": "it",
+   "s": 375.227,
+   "e": 375.28,
+   "sid": "S21.2"
+  },
+  {
+   "w": "ends",
+   "s": 375.328,
+   "e": 375.52,
+   "sid": "S21.2"
+  },
+  {
+   "w": "about",
+   "s": 375.573,
+   "e": 375.84,
+   "sid": "S21.2"
+  },
+  {
+   "w": "fifteen",
+   "s": 375.9,
+   "e": 376.32,
+   "sid": "S21.2"
+  },
+  {
+   "w": "months",
+   "s": 376.366,
+   "e": 376.64,
+   "sid": "S21.2"
+  },
+  {
+   "w": "late.",
+   "s": 376.72,
+   "e": 377.2,
+   "sid": "S21.2"
+  },
+  {
+   "w": "To",
+   "s": 377.387,
+   "e": 377.76,
+   "sid": "S21.3"
+  },
+  {
+   "w": "finish",
+   "s": 377.806,
+   "e": 378.08,
+   "sid": "S21.3"
+  },
+  {
+   "w": "in",
+   "s": 378.107,
+   "e": 378.16,
+   "sid": "S21.3"
+  },
+  {
+   "w": "fifteen",
+   "s": 378.22,
+   "e": 378.64,
+   "sid": "S21.3"
+  },
+  {
+   "w": "years,",
+   "s": 378.707,
+   "e": 379.52,
+   "sid": "S21.3"
+  },
+  {
+   "w": "she'd",
+   "s": 379.56,
+   "e": 379.76,
+   "sid": "S21.3"
+  },
+  {
+   "w": "add",
+   "s": 379.84,
+   "e": 380.08,
+   "sid": "S21.3"
+  },
+  {
+   "w": "seven",
+   "s": 380.12,
+   "e": 380.32,
+   "sid": "S21.3"
+  },
+  {
+   "w": "hundred",
+   "s": 380.35,
+   "e": 380.56,
+   "sid": "S21.3"
+  },
+  {
+   "w": "thirty-three",
+   "s": 380.617,
+   "e": 381.04,
+   "sid": "S21.3"
+  },
+  {
+   "w": "dollars",
+   "s": 381.09,
+   "e": 381.44,
+   "sid": "S21.3"
+  },
+  {
+   "w": "a",
+   "s": 381.48,
+   "e": 381.52,
+   "sid": "S21.3"
+  },
+  {
+   "w": "month",
+   "s": 381.587,
+   "e": 381.92,
+   "sid": "S21.3"
+  },
+  {
+   "w": "on",
+   "s": 382.107,
+   "e": 382.48,
+   "sid": "S21.3"
+  },
+  {
+   "w": "top",
+   "s": 382.58,
+   "e": 382.88,
+   "sid": "S21.3"
+  },
+  {
+   "w": "of",
+   "s": 382.96,
+   "e": 383.12,
+   "sid": "S21.3"
+  },
+  {
+   "w": "the",
+   "s": 383.14,
+   "e": 383.2,
+   "sid": "S21.3"
+  },
+  {
+   "w": "required",
+   "s": 383.253,
+   "e": 383.68,
+   "sid": "S21.3"
+  },
+  {
+   "w": "payment.",
+   "s": 383.74,
+   "e": 384.32,
+   "sid": "S21.3"
+  },
+  {
+   "w": "That",
+   "s": 385.333,
+   "e": 385.493,
+   "sid": "S22.1"
+  },
+  {
+   "w": "extra",
+   "s": 385.573,
+   "e": 385.973,
+   "sid": "S22.1"
+  },
+  {
+   "w": "never",
+   "s": 386.026,
+   "e": 386.293,
+   "sid": "S22.1"
+  },
+  {
+   "w": "lowers",
+   "s": 386.362,
+   "e": 386.773,
+   "sid": "S22.1"
+  },
+  {
+   "w": "what",
+   "s": 386.789,
+   "e": 386.853,
+   "sid": "S22.1"
+  },
+  {
+   "w": "the",
+   "s": 386.893,
+   "e": 387.013,
+   "sid": "S22.1"
+  },
+  {
+   "w": "loan",
+   "s": 387.061,
+   "e": 387.253,
+   "sid": "S22.1"
+  },
+  {
+   "w": "requires:",
+   "s": 387.324,
+   "e": 388.453,
+   "sid": "S22.1"
+  },
+  {
+   "w": "the",
+   "s": 388.473,
+   "e": 388.533,
+   "sid": "S22.1"
+  },
+  {
+   "w": "required",
+   "s": 388.586,
+   "e": 389.013,
+   "sid": "S22.1"
+  },
+  {
+   "w": "payment",
+   "s": 389.053,
+   "e": 389.333,
+   "sid": "S22.1"
+  },
+  {
+   "w": "stays",
+   "s": 389.386,
+   "e": 389.653,
+   "sid": "S22.1"
+  },
+  {
+   "w": "where",
+   "s": 389.68,
+   "e": 389.813,
+   "sid": "S22.1"
+  },
+  {
+   "w": "it",
+   "s": 389.84,
+   "e": 389.893,
+   "sid": "S22.1"
+  },
+  {
+   "w": "was,",
+   "s": 389.993,
+   "e": 390.693,
+   "sid": "S22.1"
+  },
+  {
+   "w": "and",
+   "s": 390.733,
+   "e": 390.853,
+   "sid": "S22.1"
+  },
+  {
+   "w": "the",
+   "s": 390.873,
+   "e": 390.933,
+   "sid": "S22.1"
+  },
+  {
+   "w": "loan",
+   "s": 391.013,
+   "e": 391.333,
+   "sid": "S22.1"
+  },
+  {
+   "w": "simply",
+   "s": 391.402,
+   "e": 391.813,
+   "sid": "S22.1"
+  },
+  {
+   "w": "ends",
+   "s": 391.877,
+   "e": 392.133,
+   "sid": "S22.1"
+  },
+  {
+   "w": "sooner.",
+   "s": 392.19,
+   "e": 392.773,
+   "sid": "S22.1"
+  },
+  {
+   "w": "Each",
+   "s": 392.965,
+   "e": 393.733,
+   "sid": "S22.2"
+  },
+  {
+   "w": "extra",
+   "s": 393.786,
+   "e": 394.053,
+   "sid": "S22.2"
+  },
+  {
+   "w": "dollar",
+   "s": 394.099,
+   "e": 394.373,
+   "sid": "S22.2"
+  },
+  {
+   "w": "does",
+   "s": 394.437,
+   "e": 394.693,
+   "sid": "S22.2"
+  },
+  {
+   "w": "cut",
+   "s": 394.773,
+   "e": 395.013,
+   "sid": "S22.2"
+  },
+  {
+   "w": "the",
+   "s": 395.033,
+   "e": 395.093,
+   "sid": "S22.2"
+  },
+  {
+   "w": "next",
+   "s": 395.141,
+   "e": 395.333,
+   "sid": "S22.2"
+  },
+  {
+   "w": "month's",
+   "s": 395.36,
+   "e": 395.573,
+   "sid": "S22.2"
+  },
+  {
+   "w": "interest;",
+   "s": 395.617,
+   "e": 396.453,
+   "sid": "S22.2"
+  },
+  {
+   "w": "the",
+   "s": 396.473,
+   "e": 396.533,
+   "sid": "S22.2"
+  },
+  {
+   "w": "payment",
+   "s": 396.583,
+   "e": 396.933,
+   "sid": "S22.2"
+  },
+  {
+   "w": "just",
+   "s": 396.981,
+   "e": 397.173,
+   "sid": "S22.2"
+  },
+  {
+   "w": "stays",
+   "s": 397.226,
+   "e": 397.493,
+   "sid": "S22.2"
+  },
+  {
+   "w": "fixed,",
+   "s": 397.56,
+   "e": 398.373,
+   "sid": "S22.2"
+  },
+  {
+   "w": "so",
+   "s": 398.453,
+   "e": 398.613,
+   "sid": "S22.2"
+  },
+  {
+   "w": "more",
+   "s": 398.677,
+   "e": 398.933,
+   "sid": "S22.2"
+  },
+  {
+   "w": "of",
+   "s": 398.986,
+   "e": 399.093,
+   "sid": "S22.2"
+  },
+  {
+   "w": "it",
+   "s": 399.12,
+   "e": 399.173,
+   "sid": "S22.2"
+  },
+  {
+   "w": "goes",
+   "s": 399.237,
+   "e": 399.493,
+   "sid": "S22.2"
+  },
+  {
+   "w": "to",
+   "s": 399.52,
+   "e": 399.573,
+   "sid": "S22.2"
+  },
+  {
+   "w": "principal.",
+   "s": 399.621,
+   "e": 400.293,
+   "sid": "S22.2"
+  },
+  {
+   "w": "That's",
+   "s": 400.405,
+   "e": 400.933,
+   "sid": "S22.3"
+  },
+  {
+   "w": "why",
+   "s": 400.953,
+   "e": 401.013,
+   "sid": "S22.3"
+  },
+  {
+   "w": "the",
+   "s": 401.033,
+   "e": 401.093,
+   "sid": "S22.3"
+  },
+  {
+   "w": "fallback",
+   "s": 401.146,
+   "e": 401.573,
+   "sid": "S22.3"
+  },
+  {
+   "w": "is",
+   "s": 401.6,
+   "e": 401.653,
+   "sid": "S22.3"
+  },
+  {
+   "w": "still",
+   "s": 401.693,
+   "e": 401.893,
+   "sid": "S22.3"
+  },
+  {
+   "w": "there",
+   "s": 401.933,
+   "e": 402.133,
+   "sid": "S22.3"
+  },
+  {
+   "w": "years",
+   "s": 402.186,
+   "e": 402.453,
+   "sid": "S22.3"
+  },
+  {
+   "w": "later,",
+   "s": 402.506,
+   "e": 403.093,
+   "sid": "S22.3"
+  },
+  {
+   "w": "if",
+   "s": 403.146,
+   "e": 403.253,
+   "sid": "S22.3"
+  },
+  {
+   "w": "a",
+   "s": 403.293,
+   "e": 403.333,
+   "sid": "S22.3"
+  },
+  {
+   "w": "month",
+   "s": 403.373,
+   "e": 403.573,
+   "sid": "S22.3"
+  },
+  {
+   "w": "goes",
+   "s": 403.637,
+   "e": 403.893,
+   "sid": "S22.3"
+  },
+  {
+   "w": "wrong.",
+   "s": 403.946,
+   "e": 404.373,
+   "sid": "S22.3"
+  },
+  {
+   "w": "Tessa",
+   "s": 405.367,
+   "e": 405.687,
+   "sid": "S23.1"
+  },
+  {
+   "w": "has",
+   "s": 405.747,
+   "e": 405.927,
+   "sid": "S23.1"
+  },
+  {
+   "w": "another",
+   "s": 405.967,
+   "e": 406.247,
+   "sid": "S23.1"
+  },
+  {
+   "w": "practical",
+   "s": 406.295,
+   "e": 406.727,
+   "sid": "S23.1"
+  },
+  {
+   "w": "question:",
+   "s": 406.78,
+   "e": 407.287,
+   "sid": "S23.1"
+  },
+  {
+   "w": "could",
+   "s": 407.434,
+   "e": 408.167,
+   "sid": "S23.1"
+  },
+  {
+   "w": "she",
+   "s": 408.207,
+   "e": 408.327,
+   "sid": "S23.1"
+  },
+  {
+   "w": "send",
+   "s": 408.375,
+   "e": 408.567,
+   "sid": "S23.1"
+  },
+  {
+   "w": "the",
+   "s": 408.587,
+   "e": 408.647,
+   "sid": "S23.1"
+  },
+  {
+   "w": "extra",
+   "s": 408.714,
+   "e": 409.047,
+   "sid": "S23.1"
+  },
+  {
+   "w": "once",
+   "s": 409.095,
+   "e": 409.287,
+   "sid": "S23.1"
+  },
+  {
+   "w": "a",
+   "s": 409.327,
+   "e": 409.367,
+   "sid": "S23.1"
+  },
+  {
+   "w": "year",
+   "s": 409.431,
+   "e": 409.687,
+   "sid": "S23.1"
+  },
+  {
+   "w": "instead",
+   "s": 409.727,
+   "e": 410.007,
+   "sid": "S23.1"
+  },
+  {
+   "w": "of",
+   "s": 410.034,
+   "e": 410.087,
+   "sid": "S23.1"
+  },
+  {
+   "w": "every",
+   "s": 410.114,
+   "e": 410.247,
+   "sid": "S23.1"
+  },
+  {
+   "w": "month?",
+   "s": 410.314,
+   "e": 410.807,
+   "sid": "S23.1"
+  },
+  {
+   "w": "That's",
+   "s": 410.935,
+   "e": 411.527,
+   "sid": "S23.2"
+  },
+  {
+   "w": "one",
+   "s": 411.567,
+   "e": 411.687,
+   "sid": "S23.2"
+  },
+  {
+   "w": "payment",
+   "s": 411.727,
+   "e": 412.007,
+   "sid": "S23.2"
+  },
+  {
+   "w": "a",
+   "s": 412.047,
+   "e": 412.087,
+   "sid": "S23.2"
+  },
+  {
+   "w": "year,",
+   "s": 412.135,
+   "e": 412.407,
+   "sid": "S23.2"
+  },
+  {
+   "w": "the",
+   "s": 412.427,
+   "e": 412.487,
+   "sid": "S23.2"
+  },
+  {
+   "w": "same",
+   "s": 412.551,
+   "e": 412.807,
+   "sid": "S23.2"
+  },
+  {
+   "w": "total",
+   "s": 412.86,
+   "e": 413.127,
+   "sid": "S23.2"
+  },
+  {
+   "w": "as",
+   "s": 413.154,
+   "e": 413.207,
+   "sid": "S23.2"
+  },
+  {
+   "w": "the",
+   "s": 413.227,
+   "e": 413.287,
+   "sid": "S23.2"
+  },
+  {
+   "w": "monthly",
+   "s": 413.327,
+   "e": 413.607,
+   "sid": "S23.2"
+  },
+  {
+   "w": "extra.",
+   "s": 413.674,
+   "e": 414.327,
+   "sid": "S23.2"
+  },
+  {
+   "w": "Paid",
+   "s": 414.471,
+   "e": 415.047,
+   "sid": "S23.3"
+  },
+  {
+   "w": "that",
+   "s": 415.095,
+   "e": 415.287,
+   "sid": "S23.3"
+  },
+  {
+   "w": "way,",
+   "s": 415.327,
+   "e": 415.527,
+   "sid": "S23.3"
+  },
+  {
+   "w": "the",
+   "s": 415.547,
+   "e": 415.607,
+   "sid": "S23.3"
+  },
+  {
+   "w": "loan",
+   "s": 415.655,
+   "e": 415.847,
+   "sid": "S23.3"
+  },
+  {
+   "w": "ends",
+   "s": 415.911,
+   "e": 416.167,
+   "sid": "S23.3"
+  },
+  {
+   "w": "four",
+   "s": 416.231,
+   "e": 416.487,
+   "sid": "S23.3"
+  },
+  {
+   "w": "months",
+   "s": 416.533,
+   "e": 416.807,
+   "sid": "S23.3"
+  },
+  {
+   "w": "later.",
+   "s": 416.86,
+   "e": 417.367,
+   "sid": "S23.3"
+  },
+  {
+   "w": "And",
+   "s": 418.367,
+   "e": 418.687,
+   "sid": "S24.1"
+  },
+  {
+   "w": "it",
+   "s": 418.74,
+   "e": 418.847,
+   "sid": "S24.1"
+  },
+  {
+   "w": "charges",
+   "s": 418.897,
+   "e": 419.247,
+   "sid": "S24.1"
+  },
+  {
+   "w": "about",
+   "s": 419.3,
+   "e": 419.567,
+   "sid": "S24.1"
+  },
+  {
+   "w": "eight",
+   "s": 419.594,
+   "e": 419.727,
+   "sid": "S24.1"
+  },
+  {
+   "w": "thousand",
+   "s": 419.78,
+   "e": 420.207,
+   "sid": "S24.1"
+  },
+  {
+   "w": "two",
+   "s": 420.267,
+   "e": 420.447,
+   "sid": "S24.1"
+  },
+  {
+   "w": "hundred",
+   "s": 420.487,
+   "e": 420.767,
+   "sid": "S24.1"
+  },
+  {
+   "w": "dollars",
+   "s": 420.817,
+   "e": 421.167,
+   "sid": "S24.1"
+  },
+  {
+   "w": "more",
+   "s": 421.215,
+   "e": 421.407,
+   "sid": "S24.1"
+  },
+  {
+   "w": "in",
+   "s": 421.46,
+   "e": 421.567,
+   "sid": "S24.1"
+  },
+  {
+   "w": "interest,",
+   "s": 421.629,
+   "e": 422.767,
+   "sid": "S24.1"
+  },
+  {
+   "w": "because",
+   "s": 422.797,
+   "e": 423.007,
+   "sid": "S24.1"
+  },
+  {
+   "w": "each",
+   "s": 423.071,
+   "e": 423.327,
+   "sid": "S24.1"
+  },
+  {
+   "w": "dollar",
+   "s": 423.384,
+   "e": 423.727,
+   "sid": "S24.1"
+  },
+  {
+   "w": "sits",
+   "s": 423.807,
+   "e": 424.127,
+   "sid": "S24.1"
+  },
+  {
+   "w": "on",
+   "s": 424.18,
+   "e": 424.287,
+   "sid": "S24.1"
+  },
+  {
+   "w": "the",
+   "s": 424.307,
+   "e": 424.367,
+   "sid": "S24.1"
+  },
+  {
+   "w": "balance",
+   "s": 424.417,
+   "e": 424.767,
+   "sid": "S24.1"
+  },
+  {
+   "w": "longer",
+   "s": 424.836,
+   "e": 425.247,
+   "sid": "S24.1"
+  },
+  {
+   "w": "before",
+   "s": 425.304,
+   "e": 425.647,
+   "sid": "S24.1"
+  },
+  {
+   "w": "it",
+   "s": 425.7,
+   "e": 425.807,
+   "sid": "S24.1"
+  },
+  {
+   "w": "arrives.",
+   "s": 425.877,
+   "e": 426.687,
+   "sid": "S24.1"
+  },
+  {
+   "w": "That",
+   "s": 426.879,
+   "e": 427.647,
+   "sid": "S24.2"
+  },
+  {
+   "w": "isn't",
+   "s": 427.687,
+   "e": 427.887,
+   "sid": "S24.2"
+  },
+  {
+   "w": "a",
+   "s": 427.927,
+   "e": 427.967,
+   "sid": "S24.2"
+  },
+  {
+   "w": "verdict",
+   "s": 428.007,
+   "e": 428.287,
+   "sid": "S24.2"
+  },
+  {
+   "w": "on",
+   "s": 428.34,
+   "e": 428.447,
+   "sid": "S24.2"
+  },
+  {
+   "w": "paying",
+   "s": 428.493,
+   "e": 428.767,
+   "sid": "S24.2"
+  },
+  {
+   "w": "yearly:",
+   "s": 428.824,
+   "e": 429.727,
+   "sid": "S24.2"
+  },
+  {
+   "w": "the",
+   "s": 429.747,
+   "e": 429.807,
+   "sid": "S24.2"
+  },
+  {
+   "w": "money",
+   "s": 429.847,
+   "e": 430.047,
+   "sid": "S24.2"
+  },
+  {
+   "w": "stays",
+   "s": 430.1,
+   "e": 430.367,
+   "sid": "S24.2"
+  },
+  {
+   "w": "in",
+   "s": 430.394,
+   "e": 430.447,
+   "sid": "S24.2"
+  },
+  {
+   "w": "her",
+   "s": 430.487,
+   "e": 430.607,
+   "sid": "S24.2"
+  },
+  {
+   "w": "account",
+   "s": 430.657,
+   "e": 431.007,
+   "sid": "S24.2"
+  },
+  {
+   "w": "longer,",
+   "s": 431.076,
+   "e": 431.887,
+   "sid": "S24.2"
+  },
+  {
+   "w": "and",
+   "s": 431.907,
+   "e": 431.967,
+   "sid": "S24.2"
+  },
+  {
+   "w": "what",
+   "s": 431.999,
+   "e": 432.127,
+   "sid": "S24.2"
+  },
+  {
+   "w": "it",
+   "s": 432.154,
+   "e": 432.207,
+   "sid": "S24.2"
+  },
+  {
+   "w": "earns",
+   "s": 432.26,
+   "e": 432.527,
+   "sid": "S24.2"
+  },
+  {
+   "w": "there",
+   "s": 432.58,
+   "e": 432.847,
+   "sid": "S24.2"
+  },
+  {
+   "w": "isn't",
+   "s": 432.967,
+   "e": 433.407,
+   "sid": "S24.2"
+  },
+  {
+   "w": "counted.",
+   "s": 433.467,
+   "e": 434.487,
+   "sid": "S24.2"
+  },
+  {
+   "w": "Which",
+   "s": 434.587,
+   "e": 435.087,
+   "sid": "S24.3"
+  },
+  {
+   "w": "leaves",
+   "s": 435.121,
+   "e": 435.327,
+   "sid": "S24.3"
+  },
+  {
+   "w": "the",
+   "s": 435.367,
+   "e": 435.487,
+   "sid": "S24.3"
+  },
+  {
+   "w": "question",
+   "s": 435.531,
+   "e": 435.887,
+   "sid": "S24.3"
+  },
+  {
+   "w": "underneath",
+   "s": 435.938,
+   "e": 436.447,
+   "sid": "S24.3"
+  },
+  {
+   "w": "all",
+   "s": 436.547,
+   "e": 436.847,
+   "sid": "S24.3"
+  },
+  {
+   "w": "of",
+   "s": 436.874,
+   "e": 436.927,
+   "sid": "S24.3"
+  },
+  {
+   "w": "this:",
+   "s": 436.991,
+   "e": 437.567,
+   "sid": "S24.3"
+  },
+  {
+   "w": "when",
+   "s": 437.679,
+   "e": 438.127,
+   "sid": "S24.3"
+  },
+  {
+   "w": "Tessa",
+   "s": 438.207,
+   "e": 438.527,
+   "sid": "S24.3"
+  },
+  {
+   "w": "puts",
+   "s": 438.575,
+   "e": 438.767,
+   "sid": "S24.3"
+  },
+  {
+   "w": "an",
+   "s": 438.794,
+   "e": 438.847,
+   "sid": "S24.3"
+  },
+  {
+   "w": "extra",
+   "s": 438.9,
+   "e": 439.167,
+   "sid": "S24.3"
+  },
+  {
+   "w": "dollar",
+   "s": 439.213,
+   "e": 439.487,
+   "sid": "S24.3"
+  },
+  {
+   "w": "into",
+   "s": 439.535,
+   "e": 439.727,
+   "sid": "S24.3"
+  },
+  {
+   "w": "the",
+   "s": 439.747,
+   "e": 439.807,
+   "sid": "S24.3"
+  },
+  {
+   "w": "mortgage,",
+   "s": 439.86,
+   "e": 440.607,
+   "sid": "S24.3"
+  },
+  {
+   "w": "what",
+   "s": 440.719,
+   "e": 441.167,
+   "sid": "S24.3"
+  },
+  {
+   "w": "does",
+   "s": 441.215,
+   "e": 441.407,
+   "sid": "S24.3"
+  },
+  {
+   "w": "it",
+   "s": 441.46,
+   "e": 441.567,
+   "sid": "S24.3"
+  },
+  {
+   "w": "actually",
+   "s": 441.62,
+   "e": 442.047,
+   "sid": "S24.3"
+  },
+  {
+   "w": "earn?",
+   "s": 442.143,
+   "e": 442.687,
+   "sid": "S24.3"
+  },
+  {
+   "w": "Every",
+   "s": 444.2,
+   "e": 444.52,
+   "sid": "S25.1"
+  },
+  {
+   "w": "extra",
+   "s": 444.587,
+   "e": 444.92,
+   "sid": "S25.1"
+  },
+  {
+   "w": "dollar",
+   "s": 444.977,
+   "e": 445.32,
+   "sid": "S25.1"
+  },
+  {
+   "w": "of",
+   "s": 445.347,
+   "e": 445.4,
+   "sid": "S25.1"
+  },
+  {
+   "w": "principal",
+   "s": 445.456,
+   "e": 445.96,
+   "sid": "S25.1"
+  },
+  {
+   "w": "stops",
+   "s": 446.093,
+   "e": 446.76,
+   "sid": "S25.1"
+  },
+  {
+   "w": "interest",
+   "s": 446.804,
+   "e": 447.16,
+   "sid": "S25.1"
+  },
+  {
+   "w": "from",
+   "s": 447.192,
+   "e": 447.32,
+   "sid": "S25.1"
+  },
+  {
+   "w": "being",
+   "s": 447.347,
+   "e": 447.48,
+   "sid": "S25.1"
+  },
+  {
+   "w": "charged",
+   "s": 447.55,
+   "e": 448.04,
+   "sid": "S25.1"
+  },
+  {
+   "w": "on",
+   "s": 448.12,
+   "e": 448.28,
+   "sid": "S25.1"
+  },
+  {
+   "w": "that",
+   "s": 448.312,
+   "e": 448.44,
+   "sid": "S25.1"
+  },
+  {
+   "w": "dollar,",
+   "s": 448.497,
+   "e": 449.16,
+   "sid": "S25.1"
+  },
+  {
+   "w": "at",
+   "s": 449.32,
+   "e": 449.64,
+   "sid": "S25.1"
+  },
+  {
+   "w": "the",
+   "s": 449.66,
+   "e": 449.72,
+   "sid": "S25.1"
+  },
+  {
+   "w": "loan's",
+   "s": 449.8,
+   "e": 450.28,
+   "sid": "S25.1"
+  },
+  {
+   "w": "own",
+   "s": 450.34,
+   "e": 450.52,
+   "sid": "S25.1"
+  },
+  {
+   "w": "rate.",
+   "s": 450.6,
+   "e": 451.0,
+   "sid": "S25.1"
+  },
+  {
+   "w": "On",
+   "s": 451.48,
+   "e": 452.44,
+   "sid": "S25.2"
+  },
+  {
+   "w": "Tessa's",
+   "s": 452.52,
+   "e": 452.92,
+   "sid": "S25.2"
+  },
+  {
+   "w": "thirty-year,",
+   "s": 452.954,
+   "e": 453.48,
+   "sid": "S25.2"
+  },
+  {
+   "w": "that's",
+   "s": 453.528,
+   "e": 453.88,
+   "sid": "S25.2"
+  },
+  {
+   "w": "seven",
+   "s": 453.96,
+   "e": 454.36,
+   "sid": "S25.2"
+  },
+  {
+   "w": "point",
+   "s": 454.427,
+   "e": 454.76,
+   "sid": "S25.2"
+  },
+  {
+   "w": "four",
+   "s": 454.776,
+   "e": 454.84,
+   "sid": "S25.2"
+  },
+  {
+   "w": "percent",
+   "s": 454.89,
+   "e": 455.24,
+   "sid": "S25.2"
+  },
+  {
+   "w": "a",
+   "s": 455.32,
+   "e": 455.4,
+   "sid": "S25.2"
+  },
+  {
+   "w": "year,",
+   "s": 455.448,
+   "e": 455.72,
+   "sid": "S25.2"
+  },
+  {
+   "w": "before",
+   "s": 455.766,
+   "e": 456.04,
+   "sid": "S25.2"
+  },
+  {
+   "w": "taxes.",
+   "s": 456.133,
+   "e": 456.84,
+   "sid": "S25.2"
+  },
+  {
+   "w": "It",
+   "s": 457.107,
+   "e": 457.64,
+   "sid": "S25.3"
+  },
+  {
+   "w": "isn't",
+   "s": 457.7,
+   "e": 457.96,
+   "sid": "S25.3"
+  },
+  {
+   "w": "an",
+   "s": 458.013,
+   "e": 458.12,
+   "sid": "S25.3"
+  },
+  {
+   "w": "investment",
+   "s": 458.164,
+   "e": 458.6,
+   "sid": "S25.3"
+  },
+  {
+   "w": "return;",
+   "s": 458.68,
+   "e": 459.72,
+   "sid": "S25.3"
+  },
+  {
+   "w": "it's",
+   "s": 459.773,
+   "e": 459.96,
+   "sid": "S25.3"
+  },
+  {
+   "w": "interest",
+   "s": 460.022,
+   "e": 460.52,
+   "sid": "S25.3"
+  },
+  {
+   "w": "she",
+   "s": 460.62,
+   "e": 460.92,
+   "sid": "S25.3"
+  },
+  {
+   "w": "no",
+   "s": 460.973,
+   "e": 461.08,
+   "sid": "S25.3"
+  },
+  {
+   "w": "longer",
+   "s": 461.126,
+   "e": 461.4,
+   "sid": "S25.3"
+  },
+  {
+   "w": "pays.",
+   "s": 461.512,
+   "e": 462.2,
+   "sid": "S25.3"
+  },
+  {
+   "w": "That",
+   "s": 462.424,
+   "e": 463.32,
+   "sid": "S25.4"
+  },
+  {
+   "w": "rate",
+   "s": 463.4,
+   "e": 463.72,
+   "sid": "S25.4"
+  },
+  {
+   "w": "is",
+   "s": 463.773,
+   "e": 463.88,
+   "sid": "S25.4"
+  },
+  {
+   "w": "the",
+   "s": 463.9,
+   "e": 463.96,
+   "sid": "S25.4"
+  },
+  {
+   "w": "bar",
+   "s": 464.08,
+   "e": 464.44,
+   "sid": "S25.4"
+  },
+  {
+   "w": "any",
+   "s": 464.54,
+   "e": 464.84,
+   "sid": "S25.4"
+  },
+  {
+   "w": "other",
+   "s": 464.88,
+   "e": 465.08,
+   "sid": "S25.4"
+  },
+  {
+   "w": "use",
+   "s": 465.14,
+   "e": 465.32,
+   "sid": "S25.4"
+  },
+  {
+   "w": "of",
+   "s": 465.347,
+   "e": 465.4,
+   "sid": "S25.4"
+  },
+  {
+   "w": "that",
+   "s": 465.448,
+   "e": 465.64,
+   "sid": "S25.4"
+  },
+  {
+   "w": "dollar",
+   "s": 465.697,
+   "e": 466.04,
+   "sid": "S25.4"
+  },
+  {
+   "w": "gets",
+   "s": 466.104,
+   "e": 466.36,
+   "sid": "S25.4"
+  },
+  {
+   "w": "measured",
+   "s": 466.396,
+   "e": 466.68,
+   "sid": "S25.4"
+  },
+  {
+   "w": "against,",
+   "s": 466.73,
+   "e": 467.24,
+   "sid": "S25.4"
+  },
+  {
+   "w": "before",
+   "s": 467.297,
+   "e": 467.64,
+   "sid": "S25.4"
+  },
+  {
+   "w": "taxes.",
+   "s": 467.733,
+   "e": 468.52,
+   "sid": "S25.4"
+  },
+  {
+   "w": "How",
+   "s": 468.74,
+   "e": 469.4,
+   "sid": "S25.5"
+  },
+  {
+   "w": "any",
+   "s": 469.46,
+   "e": 469.64,
+   "sid": "S25.5"
+  },
+  {
+   "w": "investment",
+   "s": 469.684,
+   "e": 470.12,
+   "sid": "S25.5"
+  },
+  {
+   "w": "compares,",
+   "s": 470.209,
+   "e": 471.08,
+   "sid": "S25.5"
+  },
+  {
+   "w": "once",
+   "s": 471.128,
+   "e": 471.32,
+   "sid": "S25.5"
+  },
+  {
+   "w": "risk",
+   "s": 471.4,
+   "e": 471.72,
+   "sid": "S25.5"
+  },
+  {
+   "w": "and",
+   "s": 471.74,
+   "e": 471.8,
+   "sid": "S25.5"
+  },
+  {
+   "w": "taxes",
+   "s": 471.867,
+   "e": 472.2,
+   "sid": "S25.5"
+  },
+  {
+   "w": "count,",
+   "s": 472.267,
+   "e": 473.08,
+   "sid": "S25.5"
+  },
+  {
+   "w": "isn't",
+   "s": 473.14,
+   "e": 473.4,
+   "sid": "S25.5"
+  },
+  {
+   "w": "tested",
+   "s": 473.457,
+   "e": 473.8,
+   "sid": "S25.5"
+  },
+  {
+   "w": "here.",
+   "s": 473.848,
+   "e": 474.28,
+   "sid": "S25.5"
+  },
+  {
+   "w": "The",
+   "s": 475.267,
+   "e": 475.347,
+   "sid": "S26.1"
+  },
+  {
+   "w": "bar",
+   "s": 475.407,
+   "e": 475.587,
+   "sid": "S26.1"
+  },
+  {
+   "w": "moves",
+   "s": 475.654,
+   "e": 475.987,
+   "sid": "S26.1"
+  },
+  {
+   "w": "with",
+   "s": 476.019,
+   "e": 476.147,
+   "sid": "S26.1"
+  },
+  {
+   "w": "the",
+   "s": 476.187,
+   "e": 476.307,
+   "sid": "S26.1"
+  },
+  {
+   "w": "rate",
+   "s": 476.355,
+   "e": 476.547,
+   "sid": "S26.1"
+  },
+  {
+   "w": "a",
+   "s": 476.627,
+   "e": 476.707,
+   "sid": "S26.1"
+  },
+  {
+   "w": "loan",
+   "s": 476.771,
+   "e": 477.027,
+   "sid": "S26.1"
+  },
+  {
+   "w": "was",
+   "s": 477.067,
+   "e": 477.187,
+   "sid": "S26.1"
+  },
+  {
+   "w": "taken",
+   "s": 477.24,
+   "e": 477.507,
+   "sid": "S26.1"
+  },
+  {
+   "w": "at.",
+   "s": 477.587,
+   "e": 477.827,
+   "sid": "S26.1"
+  },
+  {
+   "w": "Since",
+   "s": 477.934,
+   "e": 478.467,
+   "sid": "S26.2"
+  },
+  {
+   "w": "nineteen",
+   "s": 478.503,
+   "e": 478.787,
+   "sid": "S26.2"
+  },
+  {
+   "w": "ninety-one,",
+   "s": 478.821,
+   "e": 479.507,
+   "sid": "S26.2"
+  },
+  {
+   "w": "it",
+   "s": 479.534,
+   "e": 479.587,
+   "sid": "S26.2"
+  },
+  {
+   "w": "has",
+   "s": 479.627,
+   "e": 479.747,
+   "sid": "S26.2"
+  },
+  {
+   "w": "stood",
+   "s": 479.8,
+   "e": 480.067,
+   "sid": "S26.2"
+  },
+  {
+   "w": "as",
+   "s": 480.147,
+   "e": 480.307,
+   "sid": "S26.2"
+  },
+  {
+   "w": "high",
+   "s": 480.387,
+   "e": 480.707,
+   "sid": "S26.2"
+  },
+  {
+   "w": "as",
+   "s": 480.787,
+   "e": 480.947,
+   "sid": "S26.2"
+  },
+  {
+   "w": "nine",
+   "s": 481.027,
+   "e": 481.347,
+   "sid": "S26.2"
+  },
+  {
+   "w": "point",
+   "s": 481.427,
+   "e": 481.827,
+   "sid": "S26.2"
+  },
+  {
+   "w": "two",
+   "s": 481.847,
+   "e": 481.907,
+   "sid": "S26.2"
+  },
+  {
+   "w": "five",
+   "s": 481.971,
+   "e": 482.227,
+   "sid": "S26.2"
+  },
+  {
+   "w": "percent.",
+   "s": 482.307,
+   "e": 483.027,
+   "sid": "S26.2"
+  },
+  {
+   "w": "And",
+   "s": 484.033,
+   "e": 484.193,
+   "sid": "S27.1"
+  },
+  {
+   "w": "as",
+   "s": 484.246,
+   "e": 484.353,
+   "sid": "S27.1"
+  },
+  {
+   "w": "low",
+   "s": 484.453,
+   "e": 484.753,
+   "sid": "S27.1"
+  },
+  {
+   "w": "as",
+   "s": 484.833,
+   "e": 484.993,
+   "sid": "S27.1"
+  },
+  {
+   "w": "two",
+   "s": 485.053,
+   "e": 485.233,
+   "sid": "S27.1"
+  },
+  {
+   "w": "point",
+   "s": 485.313,
+   "e": 485.713,
+   "sid": "S27.1"
+  },
+  {
+   "w": "six",
+   "s": 485.793,
+   "e": 486.033,
+   "sid": "S27.1"
+  },
+  {
+   "w": "five",
+   "s": 486.065,
+   "e": 486.193,
+   "sid": "S27.1"
+  },
+  {
+   "w": "percent.",
+   "s": 486.273,
+   "e": 486.993,
+   "sid": "S27.1"
+  },
+  {
+   "w": "Only",
+   "s": 488.0,
+   "e": 488.24,
+   "sid": "S28.1"
+  },
+  {
+   "w": "about",
+   "s": 488.293,
+   "e": 488.56,
+   "sid": "S28.1"
+  },
+  {
+   "w": "one",
+   "s": 488.64,
+   "e": 488.88,
+   "sid": "S28.1"
+  },
+  {
+   "w": "week",
+   "s": 488.928,
+   "e": 489.12,
+   "sid": "S28.1"
+  },
+  {
+   "w": "in",
+   "s": 489.173,
+   "e": 489.28,
+   "sid": "S28.1"
+  },
+  {
+   "w": "five",
+   "s": 489.408,
+   "e": 489.92,
+   "sid": "S28.1"
+  },
+  {
+   "w": "had",
+   "s": 490.0,
+   "e": 490.24,
+   "sid": "S28.1"
+  },
+  {
+   "w": "a",
+   "s": 490.28,
+   "e": 490.32,
+   "sid": "S28.1"
+  },
+  {
+   "w": "bar",
+   "s": 490.38,
+   "e": 490.56,
+   "sid": "S28.1"
+  },
+  {
+   "w": "as",
+   "s": 490.613,
+   "e": 490.72,
+   "sid": "S28.1"
+  },
+  {
+   "w": "high",
+   "s": 490.752,
+   "e": 490.88,
+   "sid": "S28.1"
+  },
+  {
+   "w": "as",
+   "s": 490.907,
+   "e": 490.96,
+   "sid": "S28.1"
+  },
+  {
+   "w": "Tessa's.",
+   "s": 491.04,
+   "e": 491.76,
+   "sid": "S28.1"
+  },
+  {
+   "w": "Leo,",
+   "s": 492.767,
+   "e": 493.327,
+   "sid": "S29.1"
+  },
+  {
+   "w": "also",
+   "s": 493.407,
+   "e": 493.727,
+   "sid": "S29.1"
+  },
+  {
+   "w": "illustrative,",
+   "s": 493.777,
+   "e": 494.527,
+   "sid": "S29.1"
+  },
+  {
+   "w": "took",
+   "s": 494.575,
+   "e": 494.766,
+   "sid": "S29.1"
+  },
+  {
+   "w": "a",
+   "s": 494.767,
+   "e": 494.768,
+   "sid": "S29.1"
+  },
+  {
+   "w": "thirty-year",
+   "s": 494.813,
+   "e": 495.247,
+   "sid": "S29.1"
+  },
+  {
+   "w": "loan",
+   "s": 495.311,
+   "e": 495.567,
+   "sid": "S29.1"
+  },
+  {
+   "w": "of",
+   "s": 495.594,
+   "e": 495.647,
+   "sid": "S29.1"
+  },
+  {
+   "w": "the",
+   "s": 495.687,
+   "e": 495.807,
+   "sid": "S29.1"
+  },
+  {
+   "w": "same",
+   "s": 495.855,
+   "e": 496.047,
+   "sid": "S29.1"
+  },
+  {
+   "w": "size",
+   "s": 496.127,
+   "e": 496.447,
+   "sid": "S29.1"
+  },
+  {
+   "w": "in",
+   "s": 496.474,
+   "e": 496.527,
+   "sid": "S29.1"
+  },
+  {
+   "w": "January",
+   "s": 496.597,
+   "e": 497.087,
+   "sid": "S29.1"
+  },
+  {
+   "w": "twenty",
+   "s": 497.121,
+   "e": 497.327,
+   "sid": "S29.1"
+  },
+  {
+   "w": "twenty-one,",
+   "s": 497.373,
+   "e": 498.607,
+   "sid": "S29.1"
+  },
+  {
+   "w": "the",
+   "s": 498.647,
+   "e": 498.767,
+   "sid": "S29.1"
+  },
+  {
+   "w": "week",
+   "s": 498.815,
+   "e": 499.007,
+   "sid": "S29.1"
+  },
+  {
+   "w": "of",
+   "s": 499.034,
+   "e": 499.087,
+   "sid": "S29.1"
+  },
+  {
+   "w": "that",
+   "s": 499.135,
+   "e": 499.327,
+   "sid": "S29.1"
+  },
+  {
+   "w": "lowest",
+   "s": 499.384,
+   "e": 499.727,
+   "sid": "S29.1"
+  },
+  {
+   "w": "rate,",
+   "s": 499.791,
+   "e": 500.527,
+   "sid": "S29.1"
+  },
+  {
+   "w": "and",
+   "s": 500.567,
+   "e": 500.687,
+   "sid": "S29.1"
+  },
+  {
+   "w": "paid",
+   "s": 500.735,
+   "e": 500.927,
+   "sid": "S29.1"
+  },
+  {
+   "w": "it",
+   "s": 500.98,
+   "e": 501.087,
+   "sid": "S29.1"
+  },
+  {
+   "w": "like",
+   "s": 501.119,
+   "e": 501.247,
+   "sid": "S29.1"
+  },
+  {
+   "w": "a",
+   "s": 501.287,
+   "e": 501.327,
+   "sid": "S29.1"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 501.377,
+   "e": 501.887,
+   "sid": "S29.1"
+  },
+  {
+   "w": "too.",
+   "s": 501.967,
+   "e": 502.447,
+   "sid": "S29.1"
+  },
+  {
+   "w": "His",
+   "s": 502.647,
+   "e": 503.247,
+   "sid": "S29.2"
+  },
+  {
+   "w": "fallback",
+   "s": 503.309,
+   "e": 503.807,
+   "sid": "S29.2"
+  },
+  {
+   "w": "was",
+   "s": 503.867,
+   "e": 504.047,
+   "sid": "S29.2"
+  },
+  {
+   "w": "cheaper:",
+   "s": 504.087,
+   "e": 505.007,
+   "sid": "S29.2"
+  },
+  {
+   "w": "thirteen",
+   "s": 505.051,
+   "e": 505.407,
+   "sid": "S29.2"
+  },
+  {
+   "w": "thousand",
+   "s": 505.478,
+   "e": 506.047,
+   "sid": "S29.2"
+  },
+  {
+   "w": "two",
+   "s": 506.167,
+   "e": 506.527,
+   "sid": "S29.2"
+  },
+  {
+   "w": "hundred",
+   "s": 506.567,
+   "e": 506.847,
+   "sid": "S29.2"
+  },
+  {
+   "w": "thirty-one",
+   "s": 506.916,
+   "e": 507.407,
+   "sid": "S29.2"
+  },
+  {
+   "w": "dollars",
+   "s": 507.477,
+   "e": 507.967,
+   "sid": "S29.2"
+  },
+  {
+   "w": "over",
+   "s": 508.047,
+   "e": 508.367,
+   "sid": "S29.2"
+  },
+  {
+   "w": "fifteen",
+   "s": 508.427,
+   "e": 508.847,
+   "sid": "S29.2"
+  },
+  {
+   "w": "years.",
+   "s": 508.914,
+   "e": 509.487,
+   "sid": "S29.2"
+  },
+  {
+   "w": "And",
+   "s": 510.5,
+   "e": 510.58,
+   "sid": "S30.1"
+  },
+  {
+   "w": "it",
+   "s": 510.607,
+   "e": 510.66,
+   "sid": "S30.1"
+  },
+  {
+   "w": "left",
+   "s": 510.708,
+   "e": 510.9,
+   "sid": "S30.1"
+  },
+  {
+   "w": "him",
+   "s": 510.94,
+   "e": 511.06,
+   "sid": "S30.1"
+  },
+  {
+   "w": "more",
+   "s": 511.108,
+   "e": 511.3,
+   "sid": "S30.1"
+  },
+  {
+   "w": "room:",
+   "s": 511.364,
+   "e": 512.34,
+   "sid": "S30.1"
+  },
+  {
+   "w": "his",
+   "s": 512.38,
+   "e": 512.5,
+   "sid": "S30.1"
+  },
+  {
+   "w": "required",
+   "s": 512.544,
+   "e": 512.9,
+   "sid": "S30.1"
+  },
+  {
+   "w": "payment",
+   "s": 512.96,
+   "e": 513.38,
+   "sid": "S30.1"
+  },
+  {
+   "w": "sat",
+   "s": 513.44,
+   "e": 513.62,
+   "sid": "S30.1"
+  },
+  {
+   "w": "about",
+   "s": 513.687,
+   "e": 514.02,
+   "sid": "S30.1"
+  },
+  {
+   "w": "seven",
+   "s": 514.073,
+   "e": 514.34,
+   "sid": "S30.1"
+  },
+  {
+   "w": "hundred",
+   "s": 514.37,
+   "e": 514.58,
+   "sid": "S30.1"
+  },
+  {
+   "w": "ninety-three",
+   "s": 514.649,
+   "e": 515.14,
+   "sid": "S30.1"
+  },
+  {
+   "w": "dollars",
+   "s": 515.19,
+   "e": 515.54,
+   "sid": "S30.1"
+  },
+  {
+   "w": "a",
+   "s": 515.62,
+   "e": 515.7,
+   "sid": "S30.1"
+  },
+  {
+   "w": "month",
+   "s": 515.767,
+   "e": 516.1,
+   "sid": "S30.1"
+  },
+  {
+   "w": "below",
+   "s": 516.233,
+   "e": 516.9,
+   "sid": "S30.1"
+  },
+  {
+   "w": "the",
+   "s": 516.96,
+   "e": 517.14,
+   "sid": "S30.1"
+  },
+  {
+   "w": "fifteen-year's.",
+   "s": 517.2,
+   "e": 518.1,
+   "sid": "S30.1"
+  },
+  {
+   "w": "But",
+   "s": 518.34,
+   "e": 519.06,
+   "sid": "S30.2"
+  },
+  {
+   "w": "his",
+   "s": 519.1,
+   "e": 519.22,
+   "sid": "S30.2"
+  },
+  {
+   "w": "bar",
+   "s": 519.34,
+   "e": 519.7,
+   "sid": "S30.2"
+  },
+  {
+   "w": "was",
+   "s": 519.8,
+   "e": 520.1,
+   "sid": "S30.2"
+  },
+  {
+   "w": "two",
+   "s": 520.16,
+   "e": 520.34,
+   "sid": "S30.2"
+  },
+  {
+   "w": "point",
+   "s": 520.407,
+   "e": 520.74,
+   "sid": "S30.2"
+  },
+  {
+   "w": "six",
+   "s": 520.78,
+   "e": 520.9,
+   "sid": "S30.2"
+  },
+  {
+   "w": "five",
+   "s": 520.948,
+   "e": 521.14,
+   "sid": "S30.2"
+  },
+  {
+   "w": "percent:",
+   "s": 521.22,
+   "e": 522.58,
+   "sid": "S30.2"
+  },
+  {
+   "w": "each",
+   "s": 522.628,
+   "e": 522.82,
+   "sid": "S30.2"
+  },
+  {
+   "w": "extra",
+   "s": 522.887,
+   "e": 523.22,
+   "sid": "S30.2"
+  },
+  {
+   "w": "dollar",
+   "s": 523.266,
+   "e": 523.54,
+   "sid": "S30.2"
+  },
+  {
+   "w": "he",
+   "s": 523.62,
+   "e": 523.78,
+   "sid": "S30.2"
+  },
+  {
+   "w": "paid",
+   "s": 523.924,
+   "e": 524.5,
+   "sid": "S30.2"
+  },
+  {
+   "w": "earned",
+   "s": 524.557,
+   "e": 524.9,
+   "sid": "S30.2"
+  },
+  {
+   "w": "only",
+   "s": 524.964,
+   "e": 525.22,
+   "sid": "S30.2"
+  },
+  {
+   "w": "that,",
+   "s": 525.284,
+   "e": 525.62,
+   "sid": "S30.2"
+  },
+  {
+   "w": "before",
+   "s": 525.723,
+   "e": 526.34,
+   "sid": "S30.2"
+  },
+  {
+   "w": "taxes.",
+   "s": 526.433,
+   "e": 527.22,
+   "sid": "S30.2"
+  },
+  {
+   "w": "[thoughtful]",
+   "s": 527.94,
+   "e": 528.84,
+   "sid": "S30.3"
+  },
+  {
+   "w": "Same",
+   "s": 528.852,
+   "e": 528.9,
+   "sid": "S30.3"
+  },
+  {
+   "w": "plan,",
+   "s": 528.996,
+   "e": 529.46,
+   "sid": "S30.3"
+  },
+  {
+   "w": "a",
+   "s": 529.58,
+   "e": 529.7,
+   "sid": "S30.3"
+  },
+  {
+   "w": "different",
+   "s": 529.732,
+   "e": 530.02,
+   "sid": "S30.3"
+  },
+  {
+   "w": "week,",
+   "s": 530.084,
+   "e": 530.82,
+   "sid": "S30.3"
+  },
+  {
+   "w": "and",
+   "s": 530.84,
+   "e": 530.9,
+   "sid": "S30.3"
+  },
+  {
+   "w": "it",
+   "s": 530.953,
+   "e": 531.06,
+   "sid": "S30.3"
+  },
+  {
+   "w": "means",
+   "s": 531.113,
+   "e": 531.38,
+   "sid": "S30.3"
+  },
+  {
+   "w": "something",
+   "s": 531.42,
+   "e": 531.78,
+   "sid": "S30.3"
+  },
+  {
+   "w": "else.",
+   "s": 531.86,
+   "e": 532.26,
+   "sid": "S30.3"
+  },
+  {
+   "w": "For",
+   "s": 532.46,
+   "e": 533.06,
+   "sid": "S30.4"
+  },
+  {
+   "w": "Leo,",
+   "s": 533.18,
+   "e": 533.78,
+   "sid": "S30.4"
+  },
+  {
+   "w": "the",
+   "s": 533.8,
+   "e": 533.86,
+   "sid": "S30.4"
+  },
+  {
+   "w": "stack",
+   "s": 533.927,
+   "e": 534.26,
+   "sid": "S30.4"
+  },
+  {
+   "w": "was",
+   "s": 534.3,
+   "e": 534.42,
+   "sid": "S30.4"
+  },
+  {
+   "w": "short",
+   "s": 534.5,
+   "e": 534.9,
+   "sid": "S30.4"
+  },
+  {
+   "w": "and",
+   "s": 534.96,
+   "e": 535.14,
+   "sid": "S30.4"
+  },
+  {
+   "w": "the",
+   "s": 535.16,
+   "e": 535.22,
+   "sid": "S30.4"
+  },
+  {
+   "w": "bar",
+   "s": 535.34,
+   "e": 535.7,
+   "sid": "S30.4"
+  },
+  {
+   "w": "was",
+   "s": 535.78,
+   "e": 536.02,
+   "sid": "S30.4"
+  },
+  {
+   "w": "low;",
+   "s": 536.14,
+   "e": 537.3,
+   "sid": "S30.4"
+  },
+  {
+   "w": "for",
+   "s": 537.34,
+   "e": 537.46,
+   "sid": "S30.4"
+  },
+  {
+   "w": "Tessa,",
+   "s": 537.54,
+   "e": 538.26,
+   "sid": "S30.4"
+  },
+  {
+   "w": "the",
+   "s": 538.34,
+   "e": 538.58,
+   "sid": "S30.4"
+  },
+  {
+   "w": "stack",
+   "s": 538.633,
+   "e": 538.9,
+   "sid": "S30.4"
+  },
+  {
+   "w": "is",
+   "s": 538.953,
+   "e": 539.06,
+   "sid": "S30.4"
+  },
+  {
+   "w": "tall",
+   "s": 539.156,
+   "e": 539.54,
+   "sid": "S30.4"
+  },
+  {
+   "w": "and",
+   "s": 539.7,
+   "e": 540.18,
+   "sid": "S30.4"
+  },
+  {
+   "w": "the",
+   "s": 540.2,
+   "e": 540.26,
+   "sid": "S30.4"
+  },
+  {
+   "w": "bar",
+   "s": 540.38,
+   "e": 540.74,
+   "sid": "S30.4"
+  },
+  {
+   "w": "is",
+   "s": 540.9,
+   "e": 541.22,
+   "sid": "S30.4"
+  },
+  {
+   "w": "high.",
+   "s": 541.3,
+   "e": 541.86,
+   "sid": "S30.4"
+  },
+  {
+   "w": "Any",
+   "s": 542.867,
+   "e": 543.027,
+   "sid": "S31.1"
+  },
+  {
+   "w": "fixed-rate",
+   "s": 543.08,
+   "e": 543.587,
+   "sid": "S31.1"
+  },
+  {
+   "w": "borrower",
+   "s": 543.64,
+   "e": 544.067,
+   "sid": "S31.1"
+  },
+  {
+   "w": "can",
+   "s": 544.147,
+   "e": 544.387,
+   "sid": "S31.1"
+  },
+  {
+   "w": "set",
+   "s": 544.447,
+   "e": 544.627,
+   "sid": "S31.1"
+  },
+  {
+   "w": "their",
+   "s": 544.654,
+   "e": 544.787,
+   "sid": "S31.1"
+  },
+  {
+   "w": "own",
+   "s": 544.827,
+   "e": 544.947,
+   "sid": "S31.1"
+  },
+  {
+   "w": "pair",
+   "s": 545.011,
+   "e": 545.267,
+   "sid": "S31.1"
+  },
+  {
+   "w": "beside",
+   "s": 545.324,
+   "e": 545.667,
+   "sid": "S31.1"
+  },
+  {
+   "w": "hers.",
+   "s": 545.763,
+   "e": 546.387,
+   "sid": "S31.1"
+  },
+  {
+   "w": "The",
+   "s": 546.527,
+   "e": 546.947,
+   "sid": "S31.2"
+  },
+  {
+   "w": "bar",
+   "s": 547.027,
+   "e": 547.267,
+   "sid": "S31.2"
+  },
+  {
+   "w": "is",
+   "s": 547.347,
+   "e": 547.507,
+   "sid": "S31.2"
+  },
+  {
+   "w": "that",
+   "s": 547.539,
+   "e": 547.667,
+   "sid": "S31.2"
+  },
+  {
+   "w": "loan's",
+   "s": 547.747,
+   "e": 548.227,
+   "sid": "S31.2"
+  },
+  {
+   "w": "own",
+   "s": 548.287,
+   "e": 548.467,
+   "sid": "S31.2"
+  },
+  {
+   "w": "rate,",
+   "s": 548.547,
+   "e": 549.347,
+   "sid": "S31.2"
+  },
+  {
+   "w": "printed",
+   "s": 549.377,
+   "e": 549.587,
+   "sid": "S31.2"
+  },
+  {
+   "w": "on",
+   "s": 549.614,
+   "e": 549.667,
+   "sid": "S31.2"
+  },
+  {
+   "w": "the",
+   "s": 549.687,
+   "e": 549.747,
+   "sid": "S31.2"
+  },
+  {
+   "w": "paperwork,",
+   "s": 549.811,
+   "e": 550.787,
+   "sid": "S31.2"
+  },
+  {
+   "w": "and",
+   "s": 550.807,
+   "e": 550.867,
+   "sid": "S31.2"
+  },
+  {
+   "w": "the",
+   "s": 550.887,
+   "e": 550.947,
+   "sid": "S31.2"
+  },
+  {
+   "w": "stack",
+   "s": 551.04,
+   "e": 551.507,
+   "sid": "S31.2"
+  },
+  {
+   "w": "depends",
+   "s": 551.577,
+   "e": 552.067,
+   "sid": "S31.2"
+  },
+  {
+   "w": "on",
+   "s": 552.12,
+   "e": 552.227,
+   "sid": "S31.2"
+  },
+  {
+   "w": "how",
+   "s": 552.267,
+   "e": 552.387,
+   "sid": "S31.2"
+  },
+  {
+   "w": "far",
+   "s": 552.447,
+   "e": 552.627,
+   "sid": "S31.2"
+  },
+  {
+   "w": "apart",
+   "s": 552.68,
+   "e": 552.947,
+   "sid": "S31.2"
+  },
+  {
+   "w": "the",
+   "s": 552.987,
+   "e": 553.107,
+   "sid": "S31.2"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 553.157,
+   "e": 553.827,
+   "sid": "S31.2"
+  },
+  {
+   "w": "and",
+   "s": 553.927,
+   "e": 554.227,
+   "sid": "S31.2"
+  },
+  {
+   "w": "thirty-year",
+   "s": 554.273,
+   "e": 554.787,
+   "sid": "S31.2"
+  },
+  {
+   "w": "offers",
+   "s": 554.844,
+   "e": 555.187,
+   "sid": "S31.2"
+  },
+  {
+   "w": "sit",
+   "s": 555.327,
+   "e": 555.747,
+   "sid": "S31.2"
+  },
+  {
+   "w": "that",
+   "s": 555.779,
+   "e": 555.907,
+   "sid": "S31.2"
+  },
+  {
+   "w": "week.",
+   "s": 555.987,
+   "e": 556.747,
+   "sid": "S31.2"
+  },
+  {
+   "w": "The",
+   "s": 556.857,
+   "e": 557.187,
+   "sid": "S31.3"
+  },
+  {
+   "w": "bar",
+   "s": 557.267,
+   "e": 557.507,
+   "sid": "S31.3"
+  },
+  {
+   "w": "isn't",
+   "s": 557.587,
+   "e": 557.907,
+   "sid": "S31.3"
+  },
+  {
+   "w": "the",
+   "s": 557.947,
+   "e": 558.067,
+   "sid": "S31.3"
+  },
+  {
+   "w": "whole",
+   "s": 558.094,
+   "e": 558.227,
+   "sid": "S31.3"
+  },
+  {
+   "w": "story:",
+   "s": 558.32,
+   "e": 559.347,
+   "sid": "S31.3"
+  },
+  {
+   "w": "a",
+   "s": 559.387,
+   "e": 559.427,
+   "sid": "S31.3"
+  },
+  {
+   "w": "dollar",
+   "s": 559.484,
+   "e": 559.827,
+   "sid": "S31.3"
+  },
+  {
+   "w": "paid",
+   "s": 559.907,
+   "e": 560.227,
+   "sid": "S31.3"
+  },
+  {
+   "w": "into",
+   "s": 560.259,
+   "e": 560.387,
+   "sid": "S31.3"
+  },
+  {
+   "w": "the",
+   "s": 560.407,
+   "e": 560.467,
+   "sid": "S31.3"
+  },
+  {
+   "w": "house",
+   "s": 560.547,
+   "e": 560.947,
+   "sid": "S31.3"
+  },
+  {
+   "w": "is",
+   "s": 561.107,
+   "e": 561.427,
+   "sid": "S31.3"
+  },
+  {
+   "w": "hard",
+   "s": 561.475,
+   "e": 561.667,
+   "sid": "S31.3"
+  },
+  {
+   "w": "to",
+   "s": 561.694,
+   "e": 561.747,
+   "sid": "S31.3"
+  },
+  {
+   "w": "get",
+   "s": 561.787,
+   "e": 561.907,
+   "sid": "S31.3"
+  },
+  {
+   "w": "back",
+   "s": 561.987,
+   "e": 562.307,
+   "sid": "S31.3"
+  },
+  {
+   "w": "in",
+   "s": 562.36,
+   "e": 562.467,
+   "sid": "S31.3"
+  },
+  {
+   "w": "a",
+   "s": 562.507,
+   "e": 562.547,
+   "sid": "S31.3"
+  },
+  {
+   "w": "bad",
+   "s": 562.627,
+   "e": 562.867,
+   "sid": "S31.3"
+  },
+  {
+   "w": "month,",
+   "s": 562.92,
+   "e": 563.827,
+   "sid": "S31.3"
+  },
+  {
+   "w": "which",
+   "s": 563.854,
+   "e": 563.987,
+   "sid": "S31.3"
+  },
+  {
+   "w": "is",
+   "s": 564.014,
+   "e": 564.067,
+   "sid": "S31.3"
+  },
+  {
+   "w": "exactly",
+   "s": 564.147,
+   "e": 564.707,
+   "sid": "S31.3"
+  },
+  {
+   "w": "what",
+   "s": 564.739,
+   "e": 564.867,
+   "sid": "S31.3"
+  },
+  {
+   "w": "the",
+   "s": 564.887,
+   "e": 564.947,
+   "sid": "S31.3"
+  },
+  {
+   "w": "fallback",
+   "s": 565.0,
+   "e": 565.427,
+   "sid": "S31.3"
+  },
+  {
+   "w": "is",
+   "s": 565.48,
+   "e": 565.587,
+   "sid": "S31.3"
+  },
+  {
+   "w": "for.",
+   "s": 565.687,
+   "e": 566.147,
+   "sid": "S31.3"
+  },
+  {
+   "w": "What",
+   "s": 567.134,
+   "e": 567.214,
+   "sid": "S32.1"
+  },
+  {
+   "w": "this",
+   "s": 567.245,
+   "e": 567.374,
+   "sid": "S32.1"
+  },
+  {
+   "w": "leaves",
+   "s": 567.419,
+   "e": 567.693,
+   "sid": "S32.1"
+  },
+  {
+   "w": "out",
+   "s": 567.774,
+   "e": 568.014,
+   "sid": "S32.1"
+  },
+  {
+   "w": "is",
+   "s": 568.094,
+   "e": 568.254,
+   "sid": "S32.1"
+  },
+  {
+   "w": "on",
+   "s": 568.307,
+   "e": 568.413,
+   "sid": "S32.1"
+  },
+  {
+   "w": "the",
+   "s": 568.433,
+   "e": 568.494,
+   "sid": "S32.1"
+  },
+  {
+   "w": "method",
+   "s": 568.551,
+   "e": 568.894,
+   "sid": "S32.1"
+  },
+  {
+   "w": "card",
+   "s": 568.974,
+   "e": 569.293,
+   "sid": "S32.1"
+  },
+  {
+   "w": "and",
+   "s": 569.413,
+   "e": 569.774,
+   "sid": "S32.1"
+  },
+  {
+   "w": "in",
+   "s": 569.827,
+   "e": 569.933,
+   "sid": "S32.1"
+  },
+  {
+   "w": "the",
+   "s": 569.954,
+   "e": 570.014,
+   "sid": "S32.1"
+  },
+  {
+   "w": "description.",
+   "s": 570.061,
+   "e": 570.813,
+   "sid": "S32.1"
+  },
+  {
+   "w": "This",
+   "s": 570.942,
+   "e": 571.454,
+   "sid": "S32.2"
+  },
+  {
+   "w": "is",
+   "s": 571.507,
+   "e": 571.614,
+   "sid": "S32.2"
+  },
+  {
+   "w": "U.S.",
+   "s": 571.693,
+   "e": 572.094,
+   "sid": "S32.2"
+  },
+  {
+   "w": "only,",
+   "s": 572.125,
+   "e": 572.334,
+   "sid": "S32.2"
+  },
+  {
+   "w": "and",
+   "s": 572.354,
+   "e": 572.413,
+   "sid": "S32.2"
+  },
+  {
+   "w": "it's",
+   "s": 572.466,
+   "e": 572.654,
+   "sid": "S32.2"
+  },
+  {
+   "w": "history,",
+   "s": 572.704,
+   "e": 573.134,
+   "sid": "S32.2"
+  },
+  {
+   "w": "not",
+   "s": 573.173,
+   "e": 573.293,
+   "sid": "S32.2"
+  },
+  {
+   "w": "a",
+   "s": 573.334,
+   "e": 573.374,
+   "sid": "S32.2"
+  },
+  {
+   "w": "forecast;",
+   "s": 573.454,
+   "e": 574.654,
+   "sid": "S32.2"
+  },
+  {
+   "w": "it",
+   "s": 574.681,
+   "e": 574.734,
+   "sid": "S32.2"
+  },
+  {
+   "w": "doesn't",
+   "s": 574.774,
+   "e": 575.053,
+   "sid": "S32.2"
+  },
+  {
+   "w": "say",
+   "s": 575.094,
+   "e": 575.214,
+   "sid": "S32.2"
+  },
+  {
+   "w": "which",
+   "s": 575.254,
+   "e": 575.454,
+   "sid": "S32.2"
+  },
+  {
+   "w": "loan",
+   "s": 575.502,
+   "e": 575.693,
+   "sid": "S32.2"
+  },
+  {
+   "w": "to",
+   "s": 575.746,
+   "e": 575.854,
+   "sid": "S32.2"
+  },
+  {
+   "w": "take.",
+   "s": 575.933,
+   "e": 576.413,
+   "sid": "S32.2"
+  },
+  {
+   "w": "Beside",
+   "s": 577.4,
+   "e": 577.72,
+   "sid": "S33.1"
+  },
+  {
+   "w": "Tessa's",
+   "s": 577.76,
+   "e": 578.12,
+   "sid": "S33.1"
+  },
+  {
+   "w": "house",
+   "s": 578.173,
+   "e": 578.44,
+   "sid": "S33.1"
+  },
+  {
+   "w": "now",
+   "s": 578.48,
+   "e": 578.6,
+   "sid": "S33.1"
+  },
+  {
+   "w": "stand",
+   "s": 578.68,
+   "e": 579.08,
+   "sid": "S33.1"
+  },
+  {
+   "w": "a",
+   "s": 579.12,
+   "e": 579.16,
+   "sid": "S33.1"
+  },
+  {
+   "w": "tall",
+   "s": 579.24,
+   "e": 579.56,
+   "sid": "S33.1"
+  },
+  {
+   "w": "stack",
+   "s": 579.653,
+   "e": 580.12,
+   "sid": "S33.1"
+  },
+  {
+   "w": "and",
+   "s": 580.14,
+   "e": 580.2,
+   "sid": "S33.1"
+  },
+  {
+   "w": "a",
+   "s": 580.28,
+   "e": 580.36,
+   "sid": "S33.1"
+  },
+  {
+   "w": "high",
+   "s": 580.44,
+   "e": 580.76,
+   "sid": "S33.1"
+  },
+  {
+   "w": "bar.",
+   "s": 580.86,
+   "e": 581.4,
+   "sid": "S33.1"
+  },
+  {
+   "w": "She",
+   "s": 581.6,
+   "e": 582.2,
+   "sid": "S33.2"
+  },
+  {
+   "w": "asked:",
+   "s": 582.28,
+   "e": 582.96,
+   "sid": "S33.2"
+  },
+  {
+   "w": "a",
+   "s": 583.1,
+   "e": 583.24,
+   "sid": "S33.2"
+  },
+  {
+   "w": "fifteen-year,",
+   "s": 583.3,
+   "e": 584.44,
+   "sid": "S33.2"
+  },
+  {
+   "w": "or",
+   "s": 584.493,
+   "e": 584.6,
+   "sid": "S33.2"
+  },
+  {
+   "w": "a",
+   "s": 584.64,
+   "e": 584.68,
+   "sid": "S33.2"
+  },
+  {
+   "w": "thirty-year",
+   "s": 584.726,
+   "e": 585.32,
+   "sid": "S33.2"
+  },
+  {
+   "w": "paid",
+   "s": 585.4,
+   "e": 585.72,
+   "sid": "S33.2"
+  },
+  {
+   "w": "in",
+   "s": 585.773,
+   "e": 585.88,
+   "sid": "S33.2"
+  },
+  {
+   "w": "fifteen?",
+   "s": 585.95,
+   "e": 586.52,
+   "sid": "S33.2"
+  },
+  {
+   "w": "[thoughtful]",
+   "s": 587.28,
+   "e": 588.16,
+   "sid": "S33.3"
+  },
+  {
+   "w": "What",
+   "s": 588.168,
+   "e": 588.2,
+   "sid": "S33.3"
+  },
+  {
+   "w": "she",
+   "s": 588.24,
+   "e": 588.36,
+   "sid": "S33.3"
+  },
+  {
+   "w": "now",
+   "s": 588.42,
+   "e": 588.6,
+   "sid": "S33.3"
+  },
+  {
+   "w": "knows:",
+   "s": 588.667,
+   "e": 589.08,
+   "sid": "S33.3"
+  },
+  {
+   "w": "the",
+   "s": 589.26,
+   "e": 589.8,
+   "sid": "S33.3"
+  },
+  {
+   "w": "thirty-year",
+   "s": 589.846,
+   "e": 590.36,
+   "sid": "S33.3"
+  },
+  {
+   "w": "paid",
+   "s": 590.408,
+   "e": 590.6,
+   "sid": "S33.3"
+  },
+  {
+   "w": "in",
+   "s": 590.627,
+   "e": 590.68,
+   "sid": "S33.3"
+  },
+  {
+   "w": "fifteen",
+   "s": 590.75,
+   "e": 591.24,
+   "sid": "S33.3"
+  },
+  {
+   "w": "is",
+   "s": 591.453,
+   "e": 591.88,
+   "sid": "S33.3"
+  },
+  {
+   "w": "the",
+   "s": 591.9,
+   "e": 591.96,
+   "sid": "S33.3"
+  },
+  {
+   "w": "fifteen-year",
+   "s": 592.04,
+   "e": 592.92,
+   "sid": "S33.3"
+  },
+  {
+   "w": "plus",
+   "s": 593.064,
+   "e": 593.64,
+   "sid": "S33.3"
+  },
+  {
+   "w": "a",
+   "s": 593.76,
+   "e": 593.88,
+   "sid": "S33.3"
+  },
+  {
+   "w": "fallback,",
+   "s": 593.96,
+   "e": 595.48,
+   "sid": "S33.3"
+  },
+  {
+   "w": "and",
+   "s": 595.5,
+   "e": 595.56,
+   "sid": "S33.3"
+  },
+  {
+   "w": "at",
+   "s": 595.613,
+   "e": 595.72,
+   "sid": "S33.3"
+  },
+  {
+   "w": "the",
+   "s": 595.74,
+   "e": 595.8,
+   "sid": "S33.3"
+  },
+  {
+   "w": "rates",
+   "s": 595.88,
+   "e": 596.28,
+   "sid": "S33.3"
+  },
+  {
+   "w": "of",
+   "s": 596.36,
+   "e": 596.52,
+   "sid": "S33.3"
+  },
+  {
+   "w": "the",
+   "s": 596.54,
+   "e": 596.6,
+   "sid": "S33.3"
+  },
+  {
+   "w": "week",
+   "s": 596.68,
+   "e": 597.0,
+   "sid": "S33.3"
+  },
+  {
+   "w": "of",
+   "s": 597.08,
+   "e": 597.24,
+   "sid": "S33.3"
+  },
+  {
+   "w": "October",
+   "s": 597.31,
+   "e": 597.8,
+   "sid": "S33.3"
+  },
+  {
+   "w": "eighth,",
+   "s": 597.869,
+   "e": 598.52,
+   "sid": "S33.3"
+  },
+  {
+   "w": "twenty",
+   "s": 598.554,
+   "e": 598.76,
+   "sid": "S33.3"
+  },
+  {
+   "w": "twenty-six,",
+   "s": 598.806,
+   "e": 599.88,
+   "sid": "S33.3"
+  },
+  {
+   "w": "that",
+   "s": 599.992,
+   "e": 600.44,
+   "sid": "S33.3"
+  },
+  {
+   "w": "fallback",
+   "s": 600.502,
+   "e": 601.0,
+   "sid": "S33.3"
+  },
+  {
+   "w": "costs",
+   "s": 601.08,
+   "e": 601.48,
+   "sid": "S33.3"
+  },
+  {
+   "w": "her",
+   "s": 601.54,
+   "e": 601.72,
+   "sid": "S33.3"
+  },
+  {
+   "w": "one",
+   "s": 601.92,
+   "e": 602.52,
+   "sid": "S33.3"
+  },
+  {
+   "w": "hundred",
+   "s": 602.56,
+   "e": 602.84,
+   "sid": "S33.3"
+  },
+  {
+   "w": "twenty",
+   "s": 602.931,
+   "e": 603.48,
+   "sid": "S33.3"
+  },
+  {
+   "w": "dollars",
+   "s": 603.57,
+   "e": 604.2,
+   "sid": "S33.3"
+  },
+  {
+   "w": "a",
+   "s": 604.36,
+   "e": 604.52,
+   "sid": "S33.3"
+  },
+  {
+   "w": "month.",
+   "s": 604.6,
+   "e": 605.24,
+   "sid": "S33.3"
+  }
+ ],
+ "anchors": [],
+ "world": [
+  {
+   "id": "a-s01-s03",
+   "scenes": [
+    "S01",
+    "S02",
+    "S03"
+   ],
+   "t0": 0.0,
+   "t1": 54.9334,
+   "f0": 0,
+   "f1": 1648
+  },
+  {
+   "id": "b-s04-s09",
+   "scenes": [
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09"
+   ],
+   "t0": 54.9334,
+   "t1": 192.0667,
+   "f0": 1648,
+   "f1": 5762
+  },
+  {
+   "id": "c-s10-s15",
+   "scenes": [
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14",
+    "S15"
+   ],
+   "t0": 192.0667,
+   "t1": 297.1667,
+   "f0": 5762,
+   "f1": 8915
+  },
+  {
+   "id": "d-s16-s20",
+   "scenes": [
+    "S16",
+    "S17",
+    "S18",
+    "S19",
+    "S20"
+   ],
+   "t0": 297.1667,
+   "t1": 361.6001,
+   "f0": 8915,
+   "f1": 10848
+  },
+  {
+   "id": "e-s21-s24",
+   "scenes": [
+    "S21",
+    "S22",
+    "S23",
+    "S24"
+   ],
+   "t0": 361.6001,
+   "t1": 444.2,
+   "f0": 10848,
+   "f1": 13326
+  },
+  {
+   "id": "f-s25-s28",
+   "scenes": [
+    "S25",
+    "S26",
+    "S27",
+    "S28"
+   ],
+   "t0": 444.2,
+   "t1": 492.7668,
+   "f0": 13326,
+   "f1": 14783
+  },
+  {
+   "id": "g-s29-s33",
+   "scenes": [
+    "S29",
+    "S30",
+    "S31",
+    "S32",
+    "S33"
+   ],
+   "t0": 492.7668,
+   "t1": 606.7335,
+   "f0": 14783,
+   "f1": 18202
+  }
+ ]
+}

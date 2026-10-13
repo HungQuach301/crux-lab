@@ -1,0 +1,17 @@
+{
+  "viewer": "Renters in 2026 with enough saved for 20% down on a home near the national median, deciding whether to buy now or keep renting.",
+  "decision": "Buy a home and hold it about 10 years, or rent an equivalent home and keep the cash?",
+  "promise": "Two identical people, one buys and one rents, replayed from every month since 1991 with real home prices, real rents and real mortgage rates: how often did buying win, and when did it lose?",
+  "title": "Rent vs Buy a Home — Replayed Through Real History",
+  "thumbnail": "Two front doors side by side, one with a SOLD sign, one with a FOR RENT sign / \"2006 vs 2012\"",
+  "characters": {
+    "buyer": "ILLUSTRATIVE: buys a $400,000 home in the start month, 20% down, 30-year fixed at that month's average rate.",
+    "renter": "ILLUSTRATIVE: same start month, same cash, rents an equivalent home and keeps the difference in cash."
+  },
+  "guideWindows": ["worst_start_10y", "best_start_10y", "era_1990s_share"],
+  "audienceQuestionsAnswered": [1, 2, 3],
+  "audienceQuestionsNotAnswered": {
+    "4": "Investing the renter's savings in stocks is not modelled (only a T-bill variant).",
+    "5": "Non-financial factors are not measured."
+  }
+}

@@ -1,0 +1,138 @@
+t=190.0 45s
+t=540.0 69s
+t=510.0 293s
+t=580.0 421s
+t=195.0 477s
+t=545.0 487s
+t=515.0 830s
+t=585.0 865s
+t=200.0 864s
+t=550.0 936s
+t=205.0 1286s
+t=590.0 1296s
+t=520.0 1356s
+t=555.0 1408s
+t=595.0 1682s
+t=210.0 1691s
+t=525.0 1893s
+t=560.0 1897s
+t=600.0 2073s
+t=215.0 2169s
+scene S33 done 2329s
+t=565.0 2441s
+scene S31 done 2492s
+t=530.0 2517s
+t=490.0 56s
+t=275.0 306s
+t=220.0 2777s
+t=495.0 547s
+t=535.0 3227s
+t=225.0 3391s
+t=500.0 1014s
+t=280.0 1402s
+scene S30 done 3912s
+t=230.0 4007s
+t=505.0 1551s
+t=235.0 231s
+scene S29 done 4274s
+scene S10 done 4423s
+t=240.0 732s
+t=250.0 580s
+t=570.0 499s
+t=285.0 2626s
+t=575.0 1003s
+scene S32 done 5482s
+t=245.0 1623s
+t=260.0 161s
+t=255.0 1851s
+scene S11 done 6221s
+t=290.0 4236s
+t=270.0 389s
+t=265.0 1448s
+page.evaluate: Target page, context or browser has been closed
+    at layer (/home/user/k43/checks/page/sampler.js:113:34)
+    at shotMask (/home/user/k43/checks/page/sampler.js:114:141)
+    at async collide (/home/user/k43/checks/page/sampler.js:128:32)
+    at async sampleJob (/home/user/k43/checks/page/sampler.js:350:41)
+    at async /home/user/k43/checks/page/sampler.js:688:19
+    at async run (/home/user/k43/checks/page/sampler.js:678:3)
+[vost#0:0/rawvideo @ 0x55a21a0942c0] [vost#0:0/rawvideo @ 0x55e9e42612c0] Error submitting a packet to the muxer: Connection reset by peer
+Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x55a21a0190c0] [out#0/rawvideo @ 0x55e9e41e60c0] Error muxing a packet
+Error muxing a packet
+[vost#0:0/rawvideo @ 0x564b5655b2c0] [vost#0:0/rawvideo @ 0x556c21dfb2c0] Error submitting a packet to the muxer: Connection reset by peer
+Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x564b564e00c0] Error muxing a packet
+[out#0/rawvideo @ 0x556c21d800c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55bd971362c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x55bd970bb0c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x5585417c22c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x5585417470c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x56503ab442c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x56503aac90c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55af5a8142c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x55af5a7990c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55d7347012c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x55d7346860c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x557f4e8052c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x557f4e78a0c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x56099dab42c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x56099da390c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55bddfa352c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x55bddf9ba0c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55a7f523d2c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x55a7f51c20c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x5596884d92c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x55968845e0c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x558ea1b5e2c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x558ea1ae30c0] Error muxing a packet
+[out#0/rawvideo @ 0x557f4e78a0c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x557f4e78a0c0] Error closing file: Connection reset by peer
+[vost#0:0/rawvideo @ 0x5618a3a392c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x5618a39be0c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x5571c7ede2c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x5571c7e630c0] Error muxing a packet
+[out#0/rawvideo @ 0x56503aac90c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x56503aac90c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x556c21d800c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x556c21d800c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x55bd970bb0c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x55bd970bb0c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x5571c7e630c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x5571c7e630c0] Error closing file: Connection reset by peer
+[vost#0:0/rawvideo @ 0x555bc39822c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x555bc39070c0] Error muxing a packet
+[out#0/rawvideo @ 0x55af5a7990c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x55af5a7990c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x55e9e41e60c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x55e9e41e60c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x558ea1ae30c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x558ea1ae30c0] Error closing file: Connection reset by peer
+[vost#0:0/rawvideo @ 0x556b4297f2c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x556b429040c0] Error muxing a packet
+[vost#0:0/rawvideo @ 0x55e8663da2c0] Error submitting a packet to the muxer: Connection reset by peer
+[out#0/rawvideo @ 0x55e86635f0c0] Error muxing a packet
+[out#0/rawvideo @ 0x55d7346860c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x55d7346860c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x564b564e00c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x564b564e00c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x5585417470c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x5585417470c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x55968845e0c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x55968845e0c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x55bddf9ba0c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x55bddf9ba0c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x55e86635f0c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x55e86635f0c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x56099da390c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x56099da390c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x5618a39be0c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x5618a39be0c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x55a21a0190c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x55a21a0190c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x55a7f51c20c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x55a7f51c20c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x555bc39070c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x555bc39070c0] Error closing file: Connection reset by peer
+[out#0/rawvideo @ 0x556b429040c0] Error writing trailer: Connection reset by peer
+[out#0/rawvideo @ 0x556b429040c0] Error closing file: Connection reset by peer

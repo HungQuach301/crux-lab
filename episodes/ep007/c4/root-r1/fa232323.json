@@ -1,0 +1,23 @@
+{
+ "answer": "1. **The idea:** The animation compares a 15-year mortgage with a 30-year mortgage that is paid off in 15 years. It does this for a $320,000 loan, using a character called Tessa. Past US mortgage rates from the Freddie Mac weekly survey replace the usual single assumed rate. The point is that the answer depends on which week you borrow in.\n\n2. **What changes:** Frame 1 shows one assumed rate as a dashed line next to a house and a stack of coins. Frame 2 labels the two options. In frame 3 the flat line becomes a jagged history of actual weekly rates, which fall and then rise at the end. In frames 4 and 5, the loan is priced both ways for each of 1,833 weeks from Aug 1991 to Oct 2026, and those weeks appear as a grid of columns. In frame 6, Tessa's own week is marked as the last one in the grid.\n\n3. **What it means:** One assumed rate hides the fact that the outcome varies with the rate environment at the time of borrowing. The animation lays out every historical starting week so the viewer can see the spread of outcomes, with Tessa's week as one point among them. The frames don't show the results of the comparison, only the setup. The labels \"illustrative\" and \"history, not a forecast\" mean the past rates are not a prediction.\n\n4. **Advice:** None is stated or implied. The frames never say whether to pay extra or invest the spare cash, and they don't show which option came out ahead. A viewer could only take away a general lesson: don't rely on a single assumed rate, and check how the choice would have played out across different historical rate periods.\n\n5. **Source:** None. I'm giving no advice from the animation. The only guidance-like content is the on-screen caveat \"history, not a forecast\". The general lesson in 4 is my own reading of the setup.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1454,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 1454,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3762,
+   "cache_read": 6373,
+   "output": 678,
+   "in": 10139,
+   "out": 678
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0226297
+}

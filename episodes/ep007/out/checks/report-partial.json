@@ -1,0 +1,106 @@
+{
+ "root": "/home/user/crux-lab/episodes/ep007",
+ "contract": "/home/user/crux-lab/episodes/ep007/contract.json",
+ "lock": "dc4981b3f63e1f86872706fc73102794822ff75dbc65196dd3c0d87cebcab3d0",
+ "video_sha256": "1df85ee399ff6d3090b2e65a6ab0b8b70c37381771196b7dc64583ad290998a7",
+ "episode": "ĐẠT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 0,
+   "pass": 0,
+   "notPass": []
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 1,
+   "pass": 1,
+   "notPass": [],
+   "explained": {},
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 0,
+   "pass": 0,
+   "notPass": []
+  }
+ },
+ "counts": {
+  "PASS": 1,
+  "FAIL": 0,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "SH06",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "hooks",
+     "value": 3,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "hooks over one line, below 56 px or out of the safe area",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "widest hook px",
+     "value": 871.9,
+     "op": "<=",
+     "threshold": 936,
+     "unit": "px",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "font": "6f56409fd3d64bb8"
+    },
+    {
+     "short": "SH1",
+     "hook": "The price of a fallback",
+     "px": 64.0,
+     "lines": 1,
+     "widthPx": 700.1,
+     "boxTop": 220.1
+    },
+    {
+     "short": "SH2",
+     "hook": "Same payment, months late",
+     "px": 64.0,
+     "lines": 1,
+     "widthPx": 871.9,
+     "boxTop": 220.1
+    },
+    {
+     "short": "SH3",
+     "hook": "What an extra dollar earns",
+     "px": 64.0,
+     "lines": 1,
+     "widthPx": 828.9,
+     "boxTop": 220.1
+    }
+   ],
+   "note": null,
+   "section": "D-006 Q3, lessons T6-10, checks-appeal A30",
+   "threshold": "every hook: size ≥ 56 px, 1 line, the line ≤ 936 px wide, box top ≥ 200 px",
+   "fingerprint": "4c16d986ff501fa9",
+   "tier": "MAJOR",
+   "seconds": 0.0
+  }
+ ]
+}

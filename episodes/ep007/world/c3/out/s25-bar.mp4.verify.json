@@ -1,0 +1,194 @@
+{
+ "video": "/home/user/crux-lab/episodes/ep007/world/c3/out/.staging-s25-bar-27319/s25-bar.mp4",
+ "rule1": {
+  "violations": 0,
+  "examples": []
+ },
+ "rule2": {
+  "keywords": 9,
+  "camera_moving_at_keyword": []
+ },
+ "rule3": {
+  "moves": 1,
+  "missing_reason_or_sound": []
+ },
+ "modes": {
+  "world_share": 0.259,
+  "chart_share": 0.741,
+  "first_5s_world": true
+ },
+ "F2": {
+  "summary": {
+   "level": "OK",
+   "sfx_per_min": 14.0,
+   "sfx_max_10s": 5,
+   "sfx_on_speech": 6,
+   "sfx_on_plain_words": 1,
+   "sfx_events": 7,
+   "keyword_hits": 5,
+   "min_keyword_snr_db": 25.3,
+   "label_overlaps": 0,
+   "line_crossings": 0,
+   "block": 0,
+   "warn": 0
+  },
+  "level": "OK",
+  "block": [],
+  "warn": [],
+  "sfx": {
+   "events": 7,
+   "duration_s": 30.05,
+   "per_min": 14.0,
+   "max_window": {
+    "count": 5,
+    "t0": 3.77,
+    "t1": 13.77,
+    "times": [
+     3.77,
+     7.085,
+     8.385,
+     9.2,
+     13.284
+    ]
+   },
+   "on_speech": {
+    "count": 6,
+    "plain_words": 1,
+    "times": [
+     {
+      "t": 3.77,
+      "kind": "rise",
+      "word": "charged",
+      "keyword": true
+     },
+     {
+      "t": 8.385,
+      "kind": "land",
+      "word": "thirty-year,",
+      "keyword": false
+     },
+     {
+      "t": 9.2,
+      "kind": "tick",
+      "word": "seven",
+      "keyword": true
+     },
+     {
+      "t": 13.284,
+      "kind": "tick",
+      "word": "investment",
+      "keyword": true
+     },
+     {
+      "t": 19.133,
+      "kind": "tick",
+      "word": "other",
+      "keyword": true
+     },
+     {
+      "t": 23.69,
+      "kind": "tick",
+      "word": "Whether",
+      "keyword": true
+     }
+    ]
+   },
+   "keyword_hits": [
+    {
+     "keyword": "a0.charged",
+     "word": "charged",
+     "s": 3.77,
+     "e": 4.12,
+     "events": [
+      [
+       3.77,
+       "rise"
+      ]
+     ],
+     "snr_db": 25.3,
+     "level": "OK"
+    },
+    {
+     "keyword": "a1.seven",
+     "word": "seven",
+     "s": 9.2,
+     "e": 9.4,
+     "events": [
+      [
+       9.2,
+       "tick"
+      ]
+     ],
+     "snr_db": 25.3,
+     "level": "OK"
+    },
+    {
+     "keyword": "a2.investment",
+     "word": "investment",
+     "s": 13.284,
+     "e": 13.72,
+     "events": [
+      [
+       13.284,
+       "tick"
+      ]
+     ],
+     "snr_db": 33.2,
+     "level": "OK"
+    },
+    {
+     "keyword": "a3.other",
+     "word": "other",
+     "s": 19.133,
+     "e": 19.4,
+     "events": [
+      [
+       19.133,
+       "tick"
+      ]
+     ],
+     "snr_db": 28.3,
+     "level": "OK"
+    },
+    {
+     "keyword": "a4.whether",
+     "word": "Whether",
+     "s": 23.69,
+     "e": 23.8,
+     "events": [
+      [
+       23.69,
+       "tick"
+      ]
+     ],
+     "snr_db": 27.5,
+     "level": "OK"
+    }
+   ],
+   "stems": true,
+   "warn": [],
+   "block": []
+  },
+  "labels": {
+   "samples": 301,
+   "overlaps": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "line_crossings": {
+    "count": 0,
+    "spans": [],
+    "examples": []
+   },
+   "warn": [],
+   "block": []
+  }
+ },
+ "cuts": {
+  "hard_cuts": []
+ },
+ "C14": {
+  "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+ }
+}

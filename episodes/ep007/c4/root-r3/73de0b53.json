@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation shows a homeowner, \"Tessa\" (labeled illustrative), who has a $320,000 loan. The loan is dated to the week of Oct 8, 2026 and tied to the Freddie Mac weekly mortgage survey. A stack of gold money is set next to the house, and a \"price of the fallback: $120 a month\" label points to it. The idea is that choosing one option over another has a cost of about $120 a month. The frames never say which option is the \"fallback.\"\n\n2. Early on, the house stands alone with Tessa. Then the gold stack slides in beside it, and a sign appears in front of the house. Next, the scene shrinks and gains labels for the loan size, the date, and the $120-a-month price. In the last frames, Tessa's arm lowers and she stands still. Nothing numeric changes over time. The only change is the build-up of elements and the labels.\n\n3. It means that the fallback option, which the picture links to the loan, costs roughly $120 a month for a $320,000 loan at that week's survey rate. The footer says \"US only · history, not a forecast.\" So the figure is a historical snapshot, not a prediction.\n\n4. The animation gives no explicit advice. A viewer could take away that the choice has a price and that the price is small, about $120 a month. But the frames don't say whether to pay extra on the mortgage or invest, or which one is better.\n\n5. The picture and on-screen text suggested the $120-a-month price and the \"history, not a forecast\" caveat. Any advice about what to do is my own conclusion, because the animation never recommends an action.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1455,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 1455,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 4613,
+   "cache_read": 5529,
+   "output": 591,
+   "in": 10146,
+   "out": 591
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.025079399999999998
+}

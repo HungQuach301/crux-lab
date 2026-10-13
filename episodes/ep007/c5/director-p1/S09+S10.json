@@ -1,0 +1,23 @@
+{
+ "answer": "**S09: emotion 3 · sound-off 2 · pacing 2 · composition 3**\n\n1. **2.83 s:** The labels \"30-year paid in 15\" and \"15-year\" sit almost on top of each other, and their leader tick points between the two stacks. It's hard to tell which number belongs to which stack. Also, two leftover white pillars at the left edge have no meaning yet. Fix: put each value directly on top of its own stack, and keep the pillars out of shot until they're needed.\n2. **8.49 s:** The gold difference slab works, but the camera has pushed in so the 477k stack is cut off at the left edge. Fix: frame only the 210k and 189k stacks, side by side, with matching bases.\n3. **14.6 s (\"15-year plus a fallback\"):** We've cut away to the house, so the main idea is never shown. Fix: stay on the stacks and animate the gold slab dropping onto the 15-year stack, so the 15-year plus the slab equals the 30-year paid in 15. Then carry the slab over to the house.\n4. **14–25 s:** The shot holds still for about 11 s. The white pillars on the right aren't explained, and at 25.47 grey blocks fade in with no clear purpose. Fix: on \"normal price?\" (22.3 s), show a question mark or ghost copies of the gold stack. On \"October eighth\" (24.8 s), push in on Tessa's stack.\n\n**S10: emotion 2 · sound-off 2 · pacing 3 · composition 2**\n\n1. **4.37 s:** The dashed line recedes in perspective, so it reads as sloped, not flat. Its grey label also has low contrast. Fix: show it front-on and level, in brighter type.\n2. **13.12 s:** The two \"cards\" are just text boxes, and the second box's border clips into its text. The real survey lines don't appear until about 21 s, but the narration says \"every week since 1991\" at 13–16 s. The left/right comparison is never on screen at the same time. Fix: bring both wiggling lines in at 13.3 s, to the right of the still-visible dashed line, and turn the cards into small 3D objects.\n3. **21.87 s:** The grey grid covers the rate lines, which become unreadable, and the lines run past the grid's right edge. Fix: dim or drop the lines behind the grid, or build the grid below them.\n4. **39.36 s:** Tessa's cell isn't lit. It's a grey sliver with a long leader line, and \"ILLUSTRATIVE\" now appears three times. The \"how it was built\" cue (28.8 s) also has nothing on screen. Fix: at 33.2 s, light the last cell gold to match her stack and pulse it. Cut the extra ILLUSTRATIVE tags, and put up a short method strip at 28.8 s.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3476,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 259,
+   "in": 3476,
+   "out": 259
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 16646,
+   "cache_read": 8389,
+   "output": 2456,
+   "in": 25039,
+   "out": 2456
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1844589
+}

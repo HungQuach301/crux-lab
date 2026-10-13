@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation compares the total interest on a 30-year mortgage with the interest on the same loan paid off in 15 years. It uses stacks of cash to show the two amounts. The labels say \"Freddie Mac weekly mortgage survey\" and \"ILLUSTRATIVE\", with the notes \"US only · history, not a forecast\".\n\n2. In frames 1–3, a stack of cash grows tall, ending at the label \"30-year on its own schedule: $477,622 interest\". In frame 4 the stack is redrawn to a different scale. In frames 5–6 a second, much shorter stack appears beside it, labeled \"30-year paid in 15: $210,691\".\n\n3. Paying a 30-year loan off in 15 years would cost about $267,000 less in interest. That is roughly 56% less, or a bit under half of the original figure. The extra payments shorten the loan, so interest has less time to build up.\n\n4. The animation gives no explicit advice. A viewer might take away that paying a mortgage off faster saves a lot of interest. The animation doesn't mention the other side of your question, which is what invested money could earn instead. The \"history, not a forecast\" and \"illustrative\" labels warn against reading it as a prediction.\n\n5. The advice in 4 is my own conclusion. The picture and text show only the two interest totals and say nothing about what to do. They also don't compare against investment returns, so they can't settle whether paying extra or investing is better for you.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1455,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 167,
+   "in": 1455,
+   "out": 167
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3766,
+   "cache_read": 6376,
+   "output": 551,
+   "in": 10146,
+   "out": 551
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0214486
+}

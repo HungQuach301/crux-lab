@@ -1,0 +1,110 @@
+LOCK dc4981b3f63e1f86872706fc73102794822ff75dbc65196dd3c0d87cebcab3d0 ok (checks/LOCK = contract.json lock)
+F01  FAIL       0.1s  size=1280x720
+F02  PASS       1.0s  
+F03  PASS       0.0s  
+F04  PASS       0.0s  
+F05  PASS      24.1s  
+F06  PASS       0.8s  
+F07  PASS       0.0s  
+F08  PASS      35.5s  
+F09  PASS       0.0s  
+F10  MISSING    0.0s    artifact missing: out/package/description.md
+F11  FAIL       0.0s  declared artefacts not delivered=4; release files not declared=1
+F12  MISSING    0.0s    artifact missing: out/checks/page.json
+A01  PASS      10.8s  
+A02  PASS       0.0s  
+A03  FAIL       0.0s  LRA LU=3.7
+A04  PASS      10.4s  
+A05  PASS       0.4s  
+A06  PASS      20.5s  
+A07  PASS      13.0s  
+A08  PASS       6.6s  
+A09  PASS      22.9s  
+A10  FAIL       6.8s  Spearman speed~whoosh=0.065174; fast moves without whoosh=27
+A11  FAIL       1.6s  Pearson pan~x=None
+A12  ERROR     16.9s    TypeError: unsupported operand type(s) for -: 'float' and 'dict'
+A13  FAIL     124.6s  max |stretch-1|=222.148423
+A14  FAIL     438.6s  key words missing=7
+A15  FAIL       0.0s  wpm act cold-open=169.017833; wpm act act2=170.765851; wpm act act3=164.898126; wpm act limits=174.644243; sentences > 175 wpm=31
+A16  FAIL       0.0s  fake break marks=15; sentences with a fake break=15
+A17  FAIL      10.3s  abnormal sentences share=0.148148; abnormal gaps share=0.1875
+A18  PASS       0.0s  
+S01  PASS       0.1s  
+S02  MISSING    0.0s    artifact missing: out/checks/page.json
+S03  PASS       0.0s  
+S04  MISSING    0.0s    artifact missing: contract.json: data.crosscheck[].used ({"from","to"} or "crosscheck")
+S05  MISSING    0.0s    artifact missing: contract.json: model.claims
+S06  MISSING    0.0s    artifact missing: out/checks/page.json
+S07  MISSING    0.0s    artifact missing: out/checks/page.json
+S08  MISSING    0.0s    artifact missing: out/checks/page.json
+S09  MISSING    0.0s    artifact missing: out/checks/page.json
+S10  PASS       0.0s  
+S11  MISSING    0.0s    artifact missing: out/checks/page.json
+S12  MISSING    0.0s    artifact missing: out/checks/page.json
+S13  PASS       0.0s  
+S14  PASS      11.6s  
+S15  FAIL       0.0s  act order=['cold-open', 'ident', 'act1', 'act2', 'act3', 'limits']; outro s=None
+S16  FAIL       0.0s  share tied to a character or scenario=0.428571
+S17  MISSING    0.0s    artifact missing: out/checks/page.json
+S18  PASS       0.0s  
+S19  PASS       0.0s    contract.json declares no claims.forbiddenAmounts: nothing to check
+S20  PASS       0.0s  
+S21  MISSING    0.0s    artifact missing: out/package/description.md
+S22  PASS       0.0s  
+SH01 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH02 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH03 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH04 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH05 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH06 PASS       0.0s  
+R01  MISSING    0.0s    artifact missing: out/tension-map.png
+R02  FAIL       0.0s  longest stretch without a break s=253.36
+R03  FAIL       1.2s  shortest pause s=0.0; pauses < 1.0 s=6
+R04  FAIL       0.0s  cuts on beat/action (%)=0.0
+R05  FAIL       0.0s  shots > 12 s=22; act-2 scenes before climax=0
+R06  PASS      20.5s  
+R07  FAIL      52.2s  visual cues within ±0.2 s (%)=61.320755
+R08  FAIL       0.0s  still stretches > 8 s=1; longest still stretch s=9.19
+V01  FAIL       0.0s  scenes without a shot=12; storyboard present=False; colour script present=False
+V02  MISSING    0.0s    artifact missing: out/checks/page.json
+V03  MISSING    0.0s    artifact missing: out/checks/page.json
+V04  MISSING    0.0s    artifact missing: out/checks/page.json
+V05  FAIL      23.6s  worst ease ratio=0.78; anticipation in moves ≥1 s (%)=0.0; overshoot in moves ≥1 s (%)=0.0; peak |a| fw/s²=8.97
+V08  MISSING    0.0s    artifact missing: out/checks/page.json
+V09  MISSING    0.0s    artifact missing: out/checks/page.json
+V10  FAIL      19.3s  verified match cuts=0; verified J/L cuts=0
+V11  MISSING    0.0s    artifact missing: out/checks/page.json
+V12  MISSING    0.0s    artifact missing: out/checks/page.json
+V13  PASS       0.0s  
+V14  FAIL       0.0s  first-5 s beats not in the world=2
+V15  MISSING    0.0s    artifact missing: out/checks/page.json
+V17  MISSING    0.0s    artifact missing: out/checks/page.json
+C01  MISSING    0.0s    artifact missing: out/checks/page.json
+C02  MISSING    0.0s    artifact missing: out/checks/page.json
+C03  MISSING    0.0s    artifact missing: out/checks/page.json
+C04  MISSING    0.0s    artifact missing: out/checks/page.json
+C05  MISSING    0.0s    artifact missing: out/checks/page.json
+C06  MISSING    0.0s    artifact missing: out/checks/page.json
+C07  MISSING    0.0s    artifact missing: out/checks/page.json
+C10  MISSING    0.0s    artifact missing: out/checks/page.json
+C11  FAIL       0.0s  layout repeats >2 in 90 s=32
+C12  MISSING    0.0s    artifact missing: out/checks/page.json
+C13  MISSING    0.0s    artifact missing: out/checks/page.json
+C14  MISSING    0.0s    artifact missing: out/checks/page.json
+C15  MISSING    0.0s    artifact missing: out/checks/page.json
+P01  MISSING    0.0s    artifact missing: out/package/thumb-1.png
+T1   PASS      67.7s  
+T2   PASS       4.5s  
+T3   FAIL      27.7s  entries outside 150–400 ms=1
+T4   PASS       0.0s  
+L1   FAIL    1081.3s  voice/data 1–4 kHz ratio, 10th percentile (dB)=18.552113
+REG  PASS       first version: nothing to compare
+near A09 (THAM KHẢO) silences 0.8-1.5 s = 3 (threshold >= 3)
+near A15 (THAM KHẢO) wpm act act1 = 156.886434 (threshold in [150.0, 160.0])
+near A15 (THAM KHẢO) wpm act act3 = 164.898126 (threshold in [150.0, 160.0])
+near A18 (CHÍNH) distinct voices (provider, voiceId, model) = 1 (threshold <= 1)
+near S15 (THAM KHẢO) ident s = 3.0 (threshold <= 3.0)
+near S18 (THAM KHẢO) promise ends s = 28.693 (threshold <= 30.0)
+near T2 (THAM KHẢO) longest run of repeated phrases = 1 (threshold <= 1)
+near T4 (THAM KHẢO) most events in 10 s = 6 (threshold <= 6)
+{"PASS": 33, "FAIL": 25, "MISSING": 41, "ERROR": 1} episode: TRƯỢT

@@ -1,0 +1,23 @@
+{
+ "answer": "**s25-bar: director's notes (5 frames)**\n\n**Scores**\n- Emotion/story: 2. Tessa is a static pill at the far left for all 30 s. Nothing she does connects her to the dollar or to the bar.\n- Understood with sound off: 3. You can read \"beam plus dollar on top equals a 7.40% bar\". But the meaning comes from the captions, not from what happens in the picture.\n- Pacing: 3. The beam lands on time, but the number and the second dollar each trail their cue words. By the end, captions pile up instead of the picture changing.\n- Composition / eye-line / legibility: 2. The right half is a stack of four floating text blocks. The \"any other use\" label gets left behind when its dollar moves. Tessa and the house are crammed into the lower left. \"ILLUSTRATIVE\" appears twice.\n\n**Notes**\n\n1. **3.0 s:** The dollar floats in empty space at a 3/4 angle with no beam. The camera then cuts to a flat front view by 9.0 s. The beam should rise during \"principal stops interest\" (2.4–3.8 s) with the dollar riding on it. Choose one camera angle, or move between them in one continuous push-in so it doesn't read as a jump.\n\n2. **9.0 s:** \"seven point four\" is spoken at 9.2 s, but the beam has no value and no scale. The 7.40% only shows up later as a heading. Add a vertical rate axis with tick marks and have the beam's height snap to the 7.4 tick at 9.2 s. The height itself then carries the number.\n\n3. **21.0 s:** The \"any other use\" dollar is a faint, dashed ghost below the beam, and nobody is holding it. The brief says \"held up against the beam\", so have Tessa walk over and lift it until it's level with the beam's edge. That gives her something to do, and the comparison becomes a physical action.\n\n4. **27.0 s:** The second dollar ends exactly at beam height, which looks like \"ties the bar\". That contradicts \"isn't tested here\". Its label is also left stranded 60 px lower and collides with the caption below. Keep the dollar bobbing above and below the beam without ever settling, and attach its label to the dollar. Remove the \"interest no longer charged\" block and the \"not tested\" block, and let the unsettled motion carry that point. Also drop the \"Freddie Mac weekly survey\" and \"history, not a forecast\" lines from this segment. This is a forward-looking comparison, not historical data, and those lines take up the frame.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2387,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 240,
+   "in": 2387,
+   "out": 240
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 6582,
+   "cache_read": 7305,
+   "output": 1752,
+   "in": 13891,
+   "out": 1752
+  }
+ },
+ "turns": 6,
+ "cost_usd": 0.08953169999999999
+}

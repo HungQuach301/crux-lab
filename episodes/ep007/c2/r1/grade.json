@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice\": false, \"block\": \"phương pháp\", \"scene\": \"\\\"How this was built is on the method card... strong credit and a large down payment\\\"\", \"answered_own\": true, \"why\": \"Right question (15-yr vs 30-yr paid in 15, Tessa) and right answer ($120/mo, $21,622, historical range, 7.40% bar); no advice.\"}, \"R2\": {\"score\": 1, \"advice\": false, \"block\": \"phương pháp\", \"scene\": \"caveats paragraph: \\\"no property taxes, no homeowners insurance...\\\"\", \"answered_own\": false, \"why\": \"Question and answer both correct (fallback price $120, $21,622, range, 7.40% bar); no advice; says only partly answered own question.\"}, \"R3\": {\"score\": 1, \"advice\": false, \"block\": \"phương pháp\", \"scene\": \"disclaimer paragraph: \\\"weekly US survey averages... strong credit\\\"\", \"answered_own\": false, \"why\": \"Correct question and answer with price, range, and bar; takeaways are understanding, not advice; own question only partly answered.\"}, \"R4\": {\"score\": 1, \"advice\": false, \"block\": \"phương pháp\", \"scene\": \"\\\"rates are weekly US survey averages... points, fees and terms\\\"\", \"answered_own\": false, \"why\": \"Correct question and answer ($120, $21,622, history, 7.40% bar); no advice; invest half unanswered.\"}, \"R5\": {\"score\": 1, \"advice\": false, \"block\": \"phương pháp\", \"scene\": \"closing caveats: \\\"How this was built is on the method card\\\"\", \"answered_own\": false, \"why\": \"Both question and answer present with numbers, range and bar; no advice; only partly answered own question.\"}, \"R6\": {\"score\": 1, \"advice\": false, \"block\": \"phương pháp\", \"scene\": \"caveat block: \\\"principal and interest only: no property taxes...\\\"\", \"answered_own\": false, \"why\": \"Right question and answer ($120, $21,622, median, gap, 7.40% bar); no advice; own question only partly answered.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 9839,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 716,
+   "in": 9839,
+   "out": 716
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 9879,
+   "cache_read": 1382,
+   "output": 1733,
+   "in": 11263,
+   "out": 1733
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0583301
+}

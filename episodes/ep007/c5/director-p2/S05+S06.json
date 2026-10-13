@@ -1,0 +1,23 @@
+{
+ "answer": "**S05 (26.5 s)**\nScores: emotion/story 2, sound-off clarity 2, pacing 1, composition 2\n\n- **2.65 s:** The bars have no labels, so with the sound off nobody can tell which bar is the 15-year and which is the 30-year. The caption \"$613 a month lower\" also doesn't say lower than what. Fix: add the \"15-year\" / \"30-year\" base tags here, as S06 already has them.\n- **8.1–26.5 s:** The camera swings to an oblique wide shot, and then nothing changes for about 18 s. The bars shrink to a corner and \"fallback\" becomes small. \"Tight month,\" \"job change,\" \"big repair\" and \"squeeze\" get no picture at all. Fix: show the pressure. A wrench or repair icon and a briefcase drop onto Tessa's budget, push the taller payment bar's top down against a ceiling line, and the green fallback block visibly absorbs it.\n- **17.6–25.0 s:** \"Wants the house paid off in 15 years\" has no image. Tessa's only action is a small gesture at the house. Fix: put a 15-year finish line or calendar marker beside the bars, and have Tessa walk toward it. That sets up S06's raise.\n- **8–26 s:** The oblique angle tucks the green block behind the left bar, so the gap is hard to read. Fix: keep the front-on framing, or push in on the bars instead of pulling wide.\n\n**S06 (27.0 s)**\nScores: emotion/story 3, sound-off clarity 4, pacing 3, composition 3\n\n- **2.7 s:** The bar is already raised and \"$2,948\" is already on screen, about 3 s before the narrator says the number (5.4–8.0 s). Fix: animate the 30-year bar rising from its old height during 2.4–5.4 s (\"finishing that loan in 15 years\") and land it on \"$2,948.\"\n- **8–13 s:** The $120 sliver is only a few pixels tall, so the payoff of the scene is hard to see. Fix: push the camera in on the bar tops while \"$120 more\" is spoken (10.3–12.2 s), then pull back.\n- **18.88 s:** One bill floats with no stack and no destination in view, so \"month after month\" doesn't read. Fix: put the stack base in frame from 18 s on, place it next to the bars, and show a steady stream of bills (with a month counter on the stack) falling from the sliver.\n- **24.27 s:** The stack is jammed against the house sign. Its two-line label takes the spot the \"$2,828\" tag used to hold, and that tag is now gone. Fix: move the stack between the house and the bars with clear space around it, and keep the $2,828 tag.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3082,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 3082,
+   "out": 22
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 16256,
+   "cache_read": 7999,
+   "output": 2607,
+   "in": 24259,
+   "out": 2607
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.184123
+}

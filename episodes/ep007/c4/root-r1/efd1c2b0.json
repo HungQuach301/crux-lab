@@ -1,0 +1,23 @@
+{
+ "answer": "1. **The idea:** The animation shows how extra mortgage payments shorten a loan. An illustrative homeowner, Tessa, pays about $733 a month on top of a required $2,216 payment. That finishes the loan in 180 months (15 years), using the Oct 8, 2026 survey rate.\n\n2. **What changes over time:**\n   - The grid of payment tiles, one per month, shrinks. In frame 2 part of it goes dark, and in frame 3 the label says \"loan ends sooner.\"\n   - In frames 4 and 5 a block splits into \"principal\" and \"interest.\" The text says next month's interest goes down while the payment stays fixed.\n   - In frame 6 the grid is shorter and the house and Tessa stand in front of it.\n   - The required payment stays at $2,216 throughout.\n\n3. **What it means:** Extra money goes to principal. A lower balance means less interest each month, so more of each fixed payment goes to principal and the loan is paid off earlier. The tiles that disappear are the payments Tessa no longer has to make.\n\n4. **Advice a viewer might take:** The animation gives no explicit advice. It doesn't say to prepay rather than invest, and it doesn't compare the mortgage rate with investment returns. A viewer could infer that extra payments end the loan sooner and cut interest. The footer \"US only · history, not a forecast\" and the \"ILLUSTRATIVE\" tags also tell viewers not to treat it as a prediction or a recommendation.\n\n5. **Source of the conclusion:** The picture and on-screen text suggest the mechanism: \"loan ends sooner,\" \"next month's interest ↓, payment fixed,\" and the shrinking grid. Any advice to pay extra is my own inference. The animation never tells the viewer what to do. It also never mentions investing, so it doesn't answer your question about whether to invest the spare cash instead.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1457,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 130,
+   "in": 1457,
+   "out": 130
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3768,
+   "cache_read": 6376,
+   "output": 702,
+   "in": 10148,
+   "out": 702
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0229483
+}

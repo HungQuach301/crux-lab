@@ -1,0 +1,17 @@
+apiKeySource: ANTHROPIC_API_KEY
+{"turns": 67, "is_error": false, "cost_usd": 2.3630831000000003, "input": 78, "cache_write": 97333, "cache_read": 3212392, "output": 47051}
+--- trả về ---
+Hồ sơ `topics-r2/machine/rent-buy-1/` đạt cả 4 mục §4; chưa commit. Có một lỗ hổng: không tìm web được (WebSearch bị chặn), nên `novelty.json` chỉ dựa trên hồ sơ cầu và bài mổ xẻ Logical Money — cần chạy lại 3 truy vấn trước C1. Lệnh `git status` cũng bị chặn, nên chưa xác nhận bằng máy là ngoài thư mục ra không có tệp nào đổi; tôi chỉ ghi vào thư mục đó.
+
+- **§4:** (1) ĐẠT — không kind nào trong `checks/CONTRACT.md` khớp, nên `kindStatus: "new"` và `newKindNeeds` đủ năm phần, không đặt tên kind. (2) ĐẠT — 76 đại lượng, mọi `uses` đều có trong `quantities`. (3) ĐẠT — đã chạy thật `calc.py --statement 1…11`, cả 11 câu ra True, kết quả dán trong REPORT.md. (4) ĐẠT — mục `dataNow`: giá nhà đến 7/2026, CPI tiền thuê đến 8/2026, PMMS tuần đến 8/10/2026, T-bill đến 9/2026.
+- **Quyền dữ liệu:** cả 4 chuỗi hiển thị được trên video có quảng cáo, kèm ghi nguồn:
+  - HPIPONM226N, CUUR0000SEHA, TB3MS: "Public Domain: Citation Requested".
+  - MORTGAGE30US: "Copyrighted: Citation Required".
+  - Không dùng chuỗi nào "Pre-Approval Required". RIGHTS.md chưa có dòng cho 3 chuỗi mới; P2 thêm khi chọn làm tập.
+- **Answer:** Qua 307 tháng mua (1/1991–7/2016), giữ nhà 10 năm thì người mua hơn người thuê ở 75,6 % cửa sổ (trung vị hơn $157.104 trên căn $400.000). Tệ nhất là mua 6/2006 (thua $82.385), tốt nhất là mua 4/2012 (hơn $483.975).
+- **Tỉ lệ này phụ thuộc giả định tiền thuê ban đầu** (5 %/năm của giá nhà vào 7/2026, không có nguồn): ra 64,2 % nếu thuê 4 %, 92,2 % nếu 6 %, và 66,4 % nếu tiền người thuê hưởng lãi T-bill.
+- **3 thời kỳ khác kết quả** (tỉ lệ người mua hơn, kỳ 10 năm): mua trong thập niên 1990 → 100 %; 2002–2007 → 8,3 %; 2009–2016 → 100 %. Kỳ 5 năm: 74,4 %; kỳ 15 năm: 100 %.
+- **Câu hỏi khán giả:**
+  - Trả lời được: 1 và 2; câu 3 chỉ một phần (thiếu chi phí chuyển nhà và bảo hiểm người thuê).
+  - Không trả lời được: 4 (không mô hình đầu tư vào cổ phiếu) và 5 (yếu tố phi tài chính).
+- **Điều kiện `deep`:** đủ ba phần — 5 câu hỏi khán giả trả lời được 1 và 2, câu 3 một phần; dựa vào câu 3 thì mới tính là đủ "≥ 3". ≥ 3 cửa sổ khác kết quả và hai nhân vật ILLUSTRATIVE (một mua, một thuê) đều có.

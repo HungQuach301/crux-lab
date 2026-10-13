@@ -1,0 +1,55 @@
+# Ledger — Tập 7 (#13, 15 năm vs 30 năm trả trong 15)
+
+| Ngày | Cổng | Loại việc | Lệnh / agent | Ra | Token / chi | Kết quả |
+|---|---|---|---|---|---|---|
+| 2026-10-11 | BƯỚC 0–1 | điều phối | merge `tongket-t6` → main (1a69c71); áp câu trả lời tổng kết (nhánh `tongket-t6-answer`, c586128) → main a6c2f93 | `tongket-t6/ANSWER.md`, `F14-brief.md` | — | verify.sh ep007 ĐẠT |
+| 2026-10-11 | Việc 0 | dữ liệu | `data/fetch.py` | `data/sources.json` | — | PMMS 1.833 tuần ghép 1991-08-30 → 2026-10-08; đối chiếu OB 510/510 (≤ 0,5 điểm); ghim hồ sơ SHA khớp, +2 tuần |
+| 2026-10-11 | Việc 0 | mô hình | `model/model.py`; calc.py hồ sơ trên ghim 18/18 | `out/model.json`, `numbers.md` | — | 57 đại lượng |
+| 2026-10-11 | Việc 0 | kiểm độc lập | `toolkit/api.sh review briefs/independent.md` (Opus, khoá Console) | `model/independent/report.md` | $0,28 | **57/57 khớp** (5 do làm tròn → đô la nguyên) |
+| 2026-10-11 | Việc 0 | EL | `GET /v1/user/subscription` → 401 (khoá thiếu quyền `user_read`); `GET /v1/usage/character-stats` đọc được | — | — | đã dùng 60 ngày 280.042 ký tự; tháng 10 đến 09/10: 71.409; giới hạn/ngày làm mới: không đọc được |
+| 2026-10-11 | C1 | kiểm mù | `blind.py` 6 người đọc + 1 chấm (Sonnet headless, khoá Console) | `c1/r1/`, `gates/C1-logline.md` | xem C1-logline | L1 3/3 · L2 3/3 · khuyên 0 · overclaim 0 → **L1** (luật hoà) |
+| 2026-10-11 | hồ sơ #13 | dữ liệu | bổ sung `model.json`, `statements.json`, `calc.py --statement` | `topics-r2/machine/debt-1/CHECK.md` | — | §4 ĐẠT, 11/11 True |
+| 2026-10-11 | Tập 8 | hồ sơ #20 | `toolkit/api.sh build briefs/t8-dossier.md` (Opus) | `topics-r2/machine/rent-buy-1/` | $2,36 | §4 ĐẠT 4/4; 11/11 True (chạy lại); rủi ro: tiền thuê ban đầu giả định |
+| 2026-10-11 | Tập 8 | C1 | `blind.py` 3 người đọc + chấm | `c1-t8/r1/` | ≈ 15 nghìn | logline 3/3, khuyên 0 |
+| 2026-10-11 | C2 | WRITER | `toolkit/api.sh build briefs/writer-c2.md` (Opus) | `story/` v1 | $3,34 | checker ĐẠT 10:36 |
+| 2026-10-11 | C2 | kiểm mù r1 | 6 Sonnet + chấm | `c2/r1/` | xem C2-blind | đúng 6/6 · khuyên 0/6 (đúng rubric 5/6) · phương pháp 6/6 |
+| 2026-10-11 | C2 | WRITER mới r2 | `briefs/writer-c2-r2.md` | `story/` v2 | $0,91 | S32 rút; checker ĐẠT 10:05 |
+| 2026-10-11 | C2 | kiểm mù r2 | 6 Sonnet + chấm | `c2/r2/` | 2 vòng ≈ 0,17 triệu, $0,60 | đúng 6/6 · khuyên 6/6 · số dày 3/6 |
+| 2026-10-11 | C2 | REVIEWER | `briefs/reviewer-c2.md` (Opus) | `gates/REVIEW-C2.md` | $1,06 | ĐẠT có sửa: 1 CHẶN (gói), 6 CHÍNH → áp v3 (checker ĐẠT 9:53) |
+| 2026-10-11 | G1 | bản đọc thử | `story/table_read.py` (EL Eric) | `review-g1/` | EL 973 + 260 | M2 30,6 → rút S02.2 → 29,8; M1–M6 ĐẠT |
+| 2026-10-11 | G1 | tiêu đề | `blind.py` 3 người đọc | `c1/titles/r1/` | ≈ 15 nghìn | T2 3/3 |
+| 2026-10-11 | việc treo | thị trường | discover/pull/classify/analyze/report (Haiku/Sonnet Console, YouTube ≈ 7.300 đv) | q01, q17, `market/REPORT.md` §4 (cherry-pick main 4e72338) | — | `analyze.all_videos` lọc kênh Crux; q17 khoảng trống vừa → cao; §4 ~15 phút (11–18) vs ~12 |
+| 2026-10-11 | G1 | REVIEWER | `briefs/reviewer-g1.md` (Opus) | `gates/REVIEW-G1.md` | xem tệp | ĐẠT có sửa: 6 CHÍNH → áp |
+| 2026-10-11 | G1 trả lời | điều phối | P2: verify.sh ep007; merge `origin/main` (2 commit) vào ep007; chép câu trả lời | `gates/G1-answer.md`, `taste-ledger.md`, `AUTHORSHIP.md`, CHARTER §5 dòng G2 | — | áp G1: #13 L1 · (a) kiểm mù vòng 3 rubric MỚI · mốc ngày thay "this week" · T2 · N1 duyệt |
+| 2026-10-11 | G1 câu 2 | WRITER (điều phối, sửa máy) | mốc tuần dữ liệu thay "this week": S01.2 bỏ, S03.1 ngày đầy đủ, S07.2/S09.3/S12.2/S21.2/S23.2 "October 8", S33.3 ngày đầy đủ; hình B01/B03/B32/B33; checker miễn đúng ngày `last_week` | `story/`, `numbers.md` | — | checker ĐẠT, M2 ước 26,3 s, 10:01 |
+| 2026-10-11 | C2 vòng 3 | kiểm mù | `blind.py` 6 Sonnet + 1 chấm (headless khoá Console), rubric MỚI, câu 8 nguồn khuyên | `c2/r3/`, `gates/C2-blind.md` | đọc 67.796 token + chấm | đúng 6/6 · `advice_stated` 0/6 → QUA · inferred 1/6 · số dày S21–S24 3/6 → S21.2/S23.2 số lên hình (ước 9:54) |
+| 2026-10-11 | EL | hạn mức | `GET /v1/user/subscription` (quyền `user_read` đã bật) | — | — | creator: đã dùng 63.494 / 144.034 → **còn 80.540 ký tự**, làm mới 2026-11-01 06:57 UTC; đủ Tập 7 (≈ 8.600) + Tập 8 |
+| 2026-10-11 | C3 | dựng | `toolkit/api.sh build briefs/builder-c3.md` (Opus, khoá Console) | `world/`, `review-c3/` | $8,76 | 5 đoạn 540p verify OK; EL 1.493 ký tự; clip 1:58 −14,0 LUFS |
+| 2026-10-11 | C3 | lời | S21 "October eighth" (bộ chuẩn hoá đọc "8" → "eight"); sinh lại S21 | `voice-takes/`, `story/` | EL 350 | hạn mức đọc lại: còn 72.750 (lệch ≈ 5.947 chưa rõ nguồn) |
+| 2026-10-11 | C3 | cổng gốc r1 | `c3/root_run.py` 10 + 1 (người thứ 3 S01) Sonnet headless + chấm | `c3/root/`, `c3/root-s01x/` | $0,37 | S01 2/3 · **S06 0,5·0,5 TRƯỢT** · S21/S23/S25 2/2 · stated 0 |
+| 2026-10-11 | C3 | đạo diễn r1 | `c3/director.py` Opus headless, 2 lượt × 10 khung + S06 5 khung | `c3/director/`, `c3/director-r2/` | $0,39 | điểm 2–3 |
+| 2026-10-11 | C3 | dựng sửa S06 r2 | `toolkit/api.sh build briefs/builder-c3-fix-s06.md` (Bash bị chặn → phiên tự dựng; F-2 BLOCK nhãn tên thanh → chỉ ở đồ thị) | `world/c3/s06-stack/` | $1,67 | cổng gốc r2 S06 **2/2** |
+| 2026-10-11 | C3 | REVIEWER | `toolkit/api.sh review briefs/reviewer-c3.md` (Opus, ≤ 10 khung) | `gates/REVIEW-C3.md` | $1,42 | ĐẠT có sửa, 5 CHÍNH (chấm nới r1) |
+| 2026-10-11 | C3 | dựng sửa r3 | `toolkit/api.sh build briefs/builder-c3-fix-r3.md` | `world/` | $7,54 | S01/S21/S23/S25 + PHỤ; verify OK 5/5 |
+| 2026-10-11 | C3 | cổng gốc r3 + đạo diễn r3 | 10 đọc + chấm; Opus 3 lượt ≤ 10 khung | `c3/root-r3/`, `c3/director-r3/` | $0,45 + $0,38 | **5/5 2/2, stated 0** · hàng chờ C4 §3 |
+| 2026-10-11 | C3 | REVIEWER lượt 2 | `briefs/reviewer-c3-r2.md` | `gates/REVIEW-C3-r2.md` | $1,09 | ĐẠT có sửa → câu chữ áp vào gói |
+| 2026-10-11 | đóng P2 | điều phối | PLAN ≤ 1 trang + prompt P3; `world/c3/out` bỏ theo dõi (≈ 300 MB đã vào lịch sử) | `PLAN.md`, `archive/PLAN-history.md` | Console P2 ≈ $22,3 | **dừng ở C3** |
+| 2026-10-11 | C3 trả lời | điều phối | chép câu trả lời; sổ gu, AUTHORSHIP | `gates/C3-answer.md` | — | 1 duyệt có điều kiện (S21 = CHÍNH, sửa + kiểm mù lại ở C4) · 2 đồng ý · 3 a · 4 đồng ý · 5 đồng ý |
+| 2026-10-11 | P3 mở | EL hạn mức | `GET /v1/user/subscription` + `/v1/usage/character-stats` (ngày, giờ; breakdown voice/model/user) + `/v1/history` | — | — | creator: đã dùng 71.790 / 144.034 → **còn 72.244**, làm mới 01/11. **Lệch ≈ 5.947 ở C3 đã rõ nguồn:** cùng tài khoản/khoá, một dự án KHÁC (video Carnegie/thép, `eleven_multilingual_v2`, Eric + thử Matilda/River) 11/10 14:14–15:06 UTC = 7.484 ký tự; trong khoảng giữa hai lần đọc của P2 (14:12–14:28): thép 7.132 + ep007 658 = **7.790** đúng bằng lệch. Ngày 11/10 cả tài khoản 8.837 = thép 7.484 + ep007 (`eleven_v3`) 1.353. ep007 tính tiền thật thấp hơn số ký tự take ghi (`eleven_v3` ≈ 0,44 × độ dài chữ: take 350 ký tự → 154). Sau P2: 506 = ep007 154 (14:48) + thép 352 (15:06). Giọng cả tập ước ≈ 8.600 < 72.244 → không dừng |
+| 2026-10-11 | C4 | giọng cả tập | `story/voice_scenes.py` (Eric `eleven_v3` seed 1007; 5 cảnh C3 + S02, S04 từ cache) | `voice-takes/`, `review-g1/voice-scenes.json`, `out/timeline-len.json` | EL 6.256 ký tự chữ (tính tiền 2.754; còn 69.490) | 33/33; **timeline thật 602,7 s = 10:02,7** (lab 9–11 ĐẠT); MR1 188,1 s, MR2 441,4 s hợp lệ; ASR small.en "Tess's" ×5, "two and three" S12 — medium.en nghe "Tessa's" (S12, S28), "Tess's" (S33): sở hữu cách đọc liền, cùng hiện tượng take S21 đã duyệt C3; không sinh lại, A14 đo lại ở checks |
+| 2026-10-11/12 | C4 | dựng | `toolkit/api.sh build briefs/builder-c4-{1,2}.md` + sửa vòng 1–4 (`builder-c4-fix-r{1,2,3,4}.md`) | `world/c4/`, `c4/`, `episode.yaml`, `contract.json` | $14,61 + $13,48 + $4,39 + $2,83 + $7,43 + vòng 4 | 602,70 s; 7 đoạn verify OK; 0 ký tự EL |
+| 2026-10-11/12 | C4 | REVIEWER ý đồ | `briefs/reviewer-c4-intent.md` | `gates/REVIEW-C4-intent.md` | $0,69 | ĐẠT có sửa (2 CHẶN, 4 CHÍNH, 5 PHỤ — áp đủ) |
+| 2026-10-11/12 | C4 | kiểm mù | `c4/blind_c4.py` (Sonnet headless khoá Console, 2 người chấm) r1–r3 | `c4/root-r{1,2,3}`, `c4/voiced-r{1,2}`, `gates/C4-result.md` | ≈ $3 | cổng gốc 16/21 TRƯỢT (±5 %); S21 extra 0/2 TRƯỢT; S23–S24 stated 0 ĐẠT; S25 must_beat 2/2 TRƯỢT (lời) |
+| 2026-10-11 | C4 | đạo diễn lượt 3 (C3 câu 4) | `c4/director.py` Opus, S01 S06 S21 S23 S25 | `c4/director-r3.out` | $0,49 | điểm 2–4; áp phần không trái C3 vào vòng 3 |
+| 2026-10-12/13 | C5 | dựng sửa vòng 1 (A S01–S15, B S16–S33) | `briefs/builder-c5-r1{A,B}.md` (headless; dùng agent con bên trong — trái 0 agent con) | `world/c4/` | $12,03 + $13,90 | đúng-số S13, S30; nhận xét lặp CHÍNH; lời S25.5/S31.3 |
+| 2026-10-12 | C5 | giọng | lời mới S25/S31 (761 ký tự chữ) + seed A14 S09/S12/S21/S25/S33 (`c5/reseed.py`, 5.839 chữ) | `voice-takes/`, `c5/reseed.json` | EL dư 66.164 | S15 không seed nào đạt small.en (A34) |
+| 2026-10-12/13 | C5 | 1080p | `build.sh` × 7 lần (trần 2 h, đĩa đầy 1 lần, 4 cảnh cache hỏng) + `c5/shorts_only.py` | `out/video.mp4` 606,7 s, `out/shorts/SH1,SH2` | — | 7 đoạn verify OK; −14,0 LUFS / −1,9 dBTP; SH2 = B30; SH3 bỏ (chủ dự án 13/10) |
+| 2026-10-13 | C5 | cổng gốc bản cuối | `c4/blind_c4.py` root, 42 lượt + chấm 2 lượt độc lập | `c5/root-final/` | ≈ $1 | 5–7/21 (C4 16/21) — hồi quy 10 nhịp; G2 ngay (chủ dự án) |
+| 2026-10-13 | C5 | checks lần 2 | luật Python trên bản sao khoá (`c5/checks-reports/chk-c5py2.log`); bộ lấy mẫu trang dừng (≈ 6–8 h) | — | — | CHẶN: A14 (S15.3, S25.2 "Tessa's"), F11 (gói P4) |
+| 2026-10-13 | G2 | REVIEWER | `briefs/reviewer-g2.md` | `gates/REVIEW-G2.md` | $1,33 | ĐẠT có sửa (4 CHÍNH, 5 PHỤ — áp đủ) |
+| 2026-10-13 | G2 | trả lời chủ dự án | chép nguyên văn | `gates/G2-answer.md`, `taste-ledger.md`, `AUTHORSHIP.md` | — | PHÁT HÀNH bản hiện tại, không sửa hình/lời; chấp nhận cổng gốc 5–7/21, S21, S25 (giữ), B23, A14 (A34) → tổng kết; T2; SH1, SH2 duyệt |
+| 2026-10-13 | P4 | master 1080p dựng lại | `build.sh` × 3 (2 trượt môi trường: bed.wav, three.js; 1 bị cắt 2 h) + `build_inputs.py --out` | `out/video.mp4` SHA 529471f0… | — | 606,733 s, −14,0 LUFS/−1,9 dBTP; SSIM ≥ 0,970 so full-720p G2; ≈ 1,9 h máy |
+| 2026-10-13 | P4 | gói phát hành | brief (`brief.py` + tay), trend 7 ngày (Sonnet $0,01), mô tả/tag/3 thumbnail (Claude), `package_check.py`, REVIEWER headless | `out/package/`, `gates/REVIEW-P4-package.md` | ≈ $0,86 | package_check ĐẠT; F10, S21 ĐẠT; REVIEWER ĐẠT có sửa (CHÍNH-1 áp) |
+| 2026-10-13 | P4 | checks đủ bộ | lấy mẫu trang 2 lượt (2 h + RESUME) + Python | `c5/checks-reports/chk-p4-*`, `gates/P4-checks.md` | — | CHẶN: A14 (đã chấp nhận) + C07, S02, S07, S09 MỚI → chủ dự án: giao + A35–A37; F11, SH01–05 ĐẠT |
+| 2026-10-13 | P4 | giao hàng | `c5/deliver.sh` (master nguyên byte, 15 phần 90 MB) | nhánh `ep007-delivery` @ `6d3cc32` | — | tải ngược 24/24 OK |
+| 2026-10-13 | G3 | đăng | chủ dự án đăng YouTube (link chờ điền) | `HUONG-DAN-DANG.md`, `audience.md` | — | squash `ep007` → `main` (không tệp nặng, `ARCHIVE.md`); `TONGKET-INPUT.md` |

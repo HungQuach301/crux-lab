@@ -1,0 +1,23 @@
+{
+ "answer": "**S07 (17.7 s)**\nScores: Emotion 2 · Sound-off 2 · Pacing 2 · Composition 2\n\n1. **1.8 s:** The stack is already standing when \"stack of bills\" is spoken at 2.1 s, so the reveal is lost. The two white pillars on the right are unexplained, and the ILLUSTRATIVE badge clips them. Fix: start with only the house and Tessa, grow the stack on \"stack\" at 2.1 s, and cut or explain the pillars.\n2. **8.9 s:** The frame is empty black during \"because the thirty-year carries…\". It's dead time on the causal line of the scene. Fix: have the stack slide or morph into the space between the two rate lines, so the object becomes the gap with no cut.\n3. **12.4 s:** The rate lines are drawing on unlabeled and fill only the left 45% of the frame. They also run off the left edge, and the right half is empty. Fix: center the chart, bring it in from the frame margin, and show the two lines in different accent colors from their first frame.\n4. **16.0 s:** The gap bracket is tiny compared with the chart. The stack is gold here, but S08 uses green bills, which breaks continuity. Fix: put a small gold stack inside the bracket so \"0.67 point\" reads as the same object, and use one bill color across both scenes.\n\n**S08 (17.1 s)**\nScores: Emotion 2 · Sound-off 3 · Pacing 3 · Composition 3\n\n1. **1.7 s:** A short green stack and the cropped white pillars appear with no context, and Tessa and her house are gone. Fix: keep Tessa's house in frame so the money belongs to her. Cut the pillars or reuse them as the two loan terms.\n2. **5.1–8.5 s:** The tall stack stays frozen for 3.4 s after it reaches full height. Fix: keep it rising slowly until \"interest\" at 8.5 s, or slow-push the camera up to its top.\n3. **12.0 s:** The short stack is shown without its label until about 15 s, so for 3 s viewers can't tell what it is. Fix: show the label as the stack lands at about 10.7 s on \"fifteen years.\"\n4. **15.4 s:** The real payoff is the difference of about $267k, and it isn't shown. Fix: draw a ghost outline on the short stack up to the tall stack's height, so the missing bills read as money Tessa keeps.\n\nBoth scenes cover the intended picture's elements, but the sound-off reading fails in S07 because the stack-to-gap link is broken by the black frame.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2666,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 352,
+   "in": 2666,
+   "out": 352
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15834,
+   "cache_read": 7577,
+   "output": 2249,
+   "in": 23415,
+   "out": 2249
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.173626
+}

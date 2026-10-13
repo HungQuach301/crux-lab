@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R11\": {\"score\": 0.5, \"advice_stated\": false, \"advice_inferred\": false, \"caution_only\": false, \"quote\": \"\", \"why\": \"Gets fallback price $120/month and money stack; misses faceless figure meaning, unsure what fallback is.\", \"q5\": \"own\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2854,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 360,
+   "in": 2854,
+   "out": 360
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2899,
+   "cache_read": 1382,
+   "output": 99,
+   "in": 4283,
+   "out": 99
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0131936
+}

@@ -1,0 +1,121 @@
+{
+ "root": "/home/user/chk-c5py/episodes/ep007",
+ "contract": "/home/user/chk-c5py/episodes/ep007/contract.json",
+ "lock": "dc4981b3f63e1f86872706fc73102794822ff75dbc65196dd3c0d87cebcab3d0",
+ "video_sha256": "1df85ee399ff6d3090b2e65a6ab0b8b70c37381771196b7dc64583ad290998a7",
+ "episode": "TRƯỢT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 1,
+   "pass": 0,
+   "notPass": [
+    "A14 FAIL"
+   ]
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "explained": {},
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 0,
+   "pass": 0,
+   "notPass": []
+  }
+ },
+ "counts": {
+  "PASS": 0,
+  "FAIL": 1,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "A14",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "key words",
+     "value": 152,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "key words missing",
+     "value": 7,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "sentence": "S09.3",
+     "t": 181.513,
+     "missing": [
+      "Tessa's"
+     ],
+     "heard": "a price. Is Tesla's stack a normal price for that fallback? Or is the week of October 8th unusual? Many"
+    },
+    {
+     "sentence": "S12.1",
+     "t": 247.467,
+     "missing": [
+      "2",
+      "3"
+     ],
+     "heard": "It averaged 0.57 point and was at least half a point in about two and three weeks. Tessa's gap on"
+    },
+    {
+     "sentence": "S15.3",
+     "t": 285.356,
+     "missing": [
+      "Tessa's"
+     ],
+     "heard": "a price this high That on it. makes Tesla's fallback expensive by history. What a lower payment is"
+    },
+    {
+     "sentence": "S21.1",
+     "t": 358.6,
+     "missing": [
+      "Tessa's"
+     ],
+     "heard": "Back to Tess's own loan, and a shortcut many people reach for. Pay the 30 -year exactly what the 15 -year would cost, and assume it ends on the same day. At the October 8th"
+    },
+    {
+     "sentence": "S25.2",
+     "t": 450.087,
+     "missing": [
+      "Tessa's"
+     ],
+     "heard": "own rate. On Tesla's 30 -year, that's 7.4% a year before taxes. It isn't an investment"
+    },
+    {
+     "sentence": "S33.1",
+     "t": 575.667,
+     "missing": [
+      "Tessa's"
+     ],
+     "heard": "take. Beside Tess's house now stand a tall stack and a high bar. asked,"
+    }
+   ],
+   "note": null,
+   "section": "DX-A7",
+   "threshold": "0 key words missing (no percentage threshold)",
+   "fingerprint": "01110949f33e3fce",
+   "tier": "BLOCK",
+   "seconds": 4.1
+  }
+ ]
+}

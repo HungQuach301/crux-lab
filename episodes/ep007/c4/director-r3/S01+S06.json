@@ -1,0 +1,23 @@
+{
+ "answer": "S01: Tessa's fallback\n\nScores: emotion/story 2, understood with sound off 2, pacing 2, composition/legibility 3\n\n1. At 3.54 s, one bundle sits by the door with no price over it, even though \"$120 a month\" was spoken from 1.8 to 3.2 s. The price label doesn't show until 8.26 s, about 5 s late. Fix: drop the first bundle on \"one\" at 1.8 s and put \"$120/mo\" over it on \"month\" at 3.2 s.\n2. From 8.26 to 10.62 s the frame doesn't change. The stack never grows, and this is the core idea of the scene. Fix: add one bundle on each beat (\"borrowing\" 4.5, \"thousand\" 6.2, \"city\" 8.3, \"biggest\" 9.8) so the stack climbs toward the roofline.\n3. At 5.9 s the camera pulls back and the bundle slides about 100 px away from the house. It reads as an object left behind, not something tied to Tessa. Fix: keep the stack touching the house wall and keep the 1.18 s framing. The house is now small in a mostly empty dark frame.\n4. At 10.62 s, \"biggest bill\" refers to the mortgage payment, but the only thing on screen is the $120 stack, so viewers may read $120 as her biggest bill. Fix: on \"payment\" at 8.9 s, show a large slab for the mortgage payment next to the thin $120 stack.\n\nS06: The 15-year finish\n\nScores: emotion/story 3, understood with sound off 4, pacing 3, composition/legibility 3\n\n1. At 2.7 s the green \"fallback\" ghost bar and its label are almost black on black and can't be read. The bars also have no labels. Fix: raise the brightness of the ghost bar and show the 15-year and 30-year labels from the start.\n2. At 13.48 s the house and Tessa disappear, the bars jump left, and the \"$2,948\" line ends up next to the ILLUSTRATIVE badge. By 18.88 s everything snaps back. This is a framing pop with no reason behind it. Fix: hold the 8.09 s framing for the whole scene.\n3. At 18.88 s only the first bill is falling, but \"month after month\" has been implied since 9.3 s. The stack then appears almost all at once before 24.27 s. Fix: start peeling bills off the sliver at \"more\" (12.2 s) and drop them at a steady rate so the stack grows the whole way to 24.9 s.\n4. At 8.09 s the gold sliver is only a few pixels tall. Fix: push in on the bar tops from 9.3 to 12.2 s so the gap fills the frame, then pull back for the stack.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2769,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 24,
+   "in": 2769,
+   "out": 24
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15941,
+   "cache_read": 7684,
+   "output": 2876,
+   "in": 23629,
+   "out": 2876
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1868897
+}

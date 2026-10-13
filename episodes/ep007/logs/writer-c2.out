@@ -1,0 +1,24 @@
+apiKeySource: ANTHROPIC_API_KEY
+{"turns": 47, "is_error": false, "cost_usd": 3.3375329, "input": 56, "cache_write": 159224, "cache_read": 3570396, "output": 67435}
+--- trả về ---
+Kịch bản Tập 7 **ĐẠT** checker (exit 0), sau 3 lượt chạy. Còn một cảnh báo không chặn: 4 cụm có ≥ 3 số mới trong 8 s (S11–S12, S13–S14, S16–S17, S26–S28), chi tiết trong đầu `script.md`. Không commit, chỉ ghi vào `episodes/ep007/story/`.
+
+- **Độ dài:** 1.528 từ nói, ước **10:36**. Lệch khuôn `lab` đều trong ±5 điểm.
+- **Móc:** M1 3,8 s · M2 28,2 s · M3 18,8 s · M4 8,7 s · M5 39,2 s · M6 0 s (không hứa nhân vật). Cả 3 phương án móc đều ĐẠT M1–M6.
+- **Mid-roll:** MR1 ≈ 2:50 sau S09.3, MR2 ≈ 7:00 sau S24.3. Cả hai lặng 1,5 s, ở ranh giới hồi, ≥ 120 s từ đầu và cuối.
+- **Câu hỏi khán giả (4/5):** Q1 ở S25 (thêm S26–S28, S30, S31.3), Q2 ở S21, Q3 ở S23–S24, Q5 ở S22. Q4 (PMI) không trả lời.
+- **Vật thể trung tâm:** "the stack" (W2 Stack, chồng tiền $21,622 cạnh nhà Tessa); vật thứ hai là "the bar" (W3 Beam ở mức 7.40%).
+- **Hình mới → C3: có.** N1 "Month track" (180 ô tháng, cho Q2 và Q3), thêm V4 dùng lại cho hai khoản cố định, cần kiểm lại ở C3.
+- **3 móc:**
+  - HA "Câu hỏi của người xem", dùng đúng cụm từ của video neo.
+  - **HB "Chi phí ẩn" — đã dùng:** "Tessa's mortgage fallback costs $120 a month."
+  - HC "Luật quen bị thử": trả sớm "obvious win" so với mốc 7.40%.
+- **Câu đỉnh (14 từ):** "Fewer than 1 in 5 weeks since 1991 put a price this high on it."
+  - Đầu bài ghi "đắt hơn 81% số tuần", nhưng tôi đọc theo cột Hiển thị của `share_extra_ge_now` ("fewer than 1 in 5 weeks").
+- **Câu kết:** "Her answer: the 30-year paid in 15 is the 15-year plus a fallback, and this week, that fallback costs her $120 a month."
+
+Các tệp nằm trong `episodes/ep007/story/`:
+- script.md
+- beats.md
+- hooks.md
+- check_script.py

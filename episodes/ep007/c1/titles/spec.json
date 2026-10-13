@@ -1,0 +1,28 @@
+{
+ "samples": {
+  "s": "T1: 15 vs 30 Year Mortgage Paid in 15: The Real Price\nT2: 30-Year Mortgage Paid Off in 15 Years: What It Really Costs\nT3: 15-Year or a 30-Year Paid Early? 1,833 Weeks of Real Rates"
+ },
+ "roles": {
+  "T": "You are an American about to take a mortgage of about $320,000, wondering whether to take a 15-year loan or a 30-year and pay it off early. You are scrolling YouTube."
+ },
+ "intro": "Below are three possible titles for the same YouTube video. Read them once.",
+ "questions": [
+  "Which ONE would you click first? Answer with its label (T1, T2 or T3) and one reason.",
+  "Which one would you click last, and why?",
+  "What do you expect the video to tell you, based on the title you picked?"
+ ],
+ "plan": [
+  [
+   "s",
+   "T"
+  ],
+  [
+   "s",
+   "T"
+  ],
+  [
+   "s",
+   "T"
+  ]
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation shows how paying a mortgage once a year changes the loan, compared with paying monthly. The character is Tessa, and the loan is illustrative, run at the Oct 8, 2026 survey rate. A grid of tiles stands for the loan's monthly payments. The text reads \"$8,792 once a year (12 × $732.67)\".\n\n2. The grid of payment tiles gets used up. In frames 1–3 the grid is full. In frames 4–5 the tiles are cleared in yearly batches, so the grid goes dark. In frame 6 only a short gold stack remains at the end of the grid.\n\n3. Paying the same total in one yearly lump instead of twelve monthly installments pays the loan off sooner. The text says it \"ends in 184 months: 4 months later than monthly\". I can't tell what the monthly baseline is. The wording \"4 months later\" seems to say that yearly payments finish 4 months after monthly ones, which would make the lump-sum schedule slightly worse. The frames alone don't settle whether the monthly schedule is 180 months (a 15-year loan) or something else. A yearly payment leaves the balance outstanding longer within each year, so interest accrues on it for longer. That would explain the delay.\n\n4. The animation gives no advice about extra payments versus investing. A viewer could take away that paying less often costs a little more in time, so paying monthly (or more often) is slightly better. That says nothing about whether to prepay or invest.\n\n5. The on-screen text supports the point about timing: \"4 months later than monthly\". The caption \"US only · history, not a forecast\" and the \"ILLUSTRATIVE\" tag explicitly say it is not advice or a prediction. Any advice about prepaying versus investing would be my own conclusion, not something the animation suggests.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1456,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 130,
+   "in": 1456,
+   "out": 130
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3768,
+   "cache_read": 6377,
+   "output": 667,
+   "in": 10149,
+   "out": 667
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0225983
+}

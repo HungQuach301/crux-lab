@@ -1,0 +1,122 @@
+LOCK dc4981b3f63e1f86872706fc73102794822ff75dbc65196dd3c0d87cebcab3d0 ok (checks/LOCK = contract.json lock)
+F01  PASS       0.1s  
+F02  PASS       0.8s  
+F03  PASS       0.0s  
+F04  PASS       0.0s  
+F05  PASS      30.8s  
+F06  PASS       0.5s  
+F07  PASS       0.0s  
+F08  PASS      45.2s  
+F09  PASS       0.0s  
+F10  PASS       0.0s  
+F11  PASS       0.0s  
+F12  PASS      25.7s  
+A01  PASS       6.1s  
+A02  PASS       0.0s  
+A03  FAIL       0.0s  LRA LU=3.6
+A04  PASS       5.4s  
+A05  PASS       0.5s  
+A06  PASS      12.9s  
+A07  PASS       1.3s  
+A08  PASS       3.5s  
+A09  PASS      10.3s  
+A10  FAIL       1.7s  Spearman speed~whoosh=0.075535; fast moves without whoosh=25
+A11  FAIL       0.0s  Pearson pan~x=None
+A12  ERROR     17.5s    TypeError: unsupported operand type(s) for -: 'float' and 'dict'
+A13  FAIL      64.4s  max |stretch-1|=223.504638
+A14  FAIL     247.7s  key words missing=3
+A15  FAIL       0.0s  wpm act cold-open=168.942888; wpm act act2=169.887019; wpm act act3=167.895051; sentences > 175 wpm=28
+A16  FAIL       0.0s  fake break marks=15; sentences with a fake break=15
+A17  FAIL       5.5s  abnormal sentences share=0.148148; abnormal gaps share=0.1875
+A18  PASS       0.0s  
+S01  PASS       0.1s  
+S02  FAIL       0.0s  us-only in method card=False; history-not-forecast in method card=False
+S03  PASS       0.0s  
+S04  PASS       0.0s  
+S05  PASS       0.1s  
+S06  PASS       0.1s  
+S07  FAIL       0.0s  unregistered numbers in narration=52
+S08  PASS       0.0s  
+S09  FAIL       0.0s  money claims without basis=29; frames missing basis on screen=2384
+S10  PASS       0.0s  
+S11  FAIL       0.0s  pay15_now scenes=2; pay15_now callbacks w/ distinct meaning=0; pay30on15_now scenes=1; pay30on15_now acts=1; pay30on15_now callbacks w/ distinct meaning=0; extra_vs15_month_now callbacks w/ distinct m
+S12  FAIL       0.0s  max new numbers in a scene=6
+S13  PASS       0.0s  
+S14  PASS       8.4s  
+S15  FAIL       0.0s  act order=['cold-open', 'ident', 'act1', 'act2', 'act3', 'limits']; outro s=None
+S16  FAIL       0.0s  share tied to a character or scenario=0.428571
+S17  PASS       0.0s  
+S18  PASS       0.0s  
+S19  PASS       0.0s    contract.json declares no claims.forbiddenAmounts: nothing to check
+S20  PASS       0.0s  
+S21  PASS       0.0s  
+S22  PASS       0.0s  
+SH01 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH02 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH03 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH04 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH05 MISSING    0.0s    artifact missing: out/shorts/SH1.mp4
+SH06 PASS       0.0s  
+R01  FAIL       3.2s  r cut rate=-0.040936; r audio density=0.095885; acts with climax peak=0
+R02  FAIL       0.0s  longest stretch without a break s=252.14
+R03  FAIL       1.3s  shortest pause s=0.0; pauses < 1.0 s=6
+R04  FAIL       0.0s  cuts on beat/action (%)=0.0
+R05  FAIL       0.0s  shots > 12 s=23; act-2 scenes before climax=0
+R06  PASS      23.1s  
+R07  FAIL       1.1s  visual cues within ±0.2 s (%)=71.698113
+R08  FAIL       0.0s  still stretches > 8 s=1; longest still stretch s=9.19
+V01  FAIL       0.0s  scenes without a shot=12; storyboard present=False; colour script present=False
+V02  FAIL       0.0s  level-1 samples=0; level-1 placed (%)=None
+V03  PASS       0.0s  
+V04  FAIL       0.0s  tessa seen=False; leo seen=False
+V05  FAIL      27.6s  worst ease ratio=0.78; anticipation in moves ≥1 s (%)=0.0; overshoot in moves ≥1 s (%)=0.0; peak |a| fw/s²=8.97
+V08  FAIL       0.0s  worst text contrast=1.01; samples below 4.5:1=1
+V09  FAIL       0.0s  declared characters seen on screen=0
+V10  FAIL      22.5s  verified match cuts=0; verified J/L cuts=0
+V11  FAIL       0.0s  text collisions=285
+V12  FAIL       0.0s  text samples below NCC 0.97=17
+V13  PASS       0.0s  
+V14  FAIL       0.0s  first-5 s beats not in the world=2
+V15  PASS       0.0s  
+V17  FAIL       0.0s  labels on screen too short to read=3
+C01  PASS       0.0s  
+C02  PASS       0.0s  
+C03  PASS       0.0s  
+C04  FAIL       0.0s  frames flagged=2175
+C05  PASS       0.0s  
+C06  FAIL       0.0s  frames flagged=5287
+C07  FAIL       0.0s  frames flagged=122
+C10  PASS       0.0s  
+C11  FAIL       0.0s  layout repeats >2 in 90 s=32
+C12  FAIL       0.0s  split-view runs=2
+C13  FAIL       0.0s  worst |offset| ms=21240; pairs > 250 ms=50
+C14  PASS       0.0s  
+C15  FAIL       0.0s  frames flagged=43516
+P01  MISSING    0.0s    artifact missing: out/package/thumb-1.json
+T1   FAIL      46.5s  share of slots heard in a pause=0.313673
+T2   PASS       1.8s  
+T3   FAIL      20.5s  entries outside 150–400 ms=1
+T4   PASS       0.0s  
+L1   FAIL     494.3s  voice/data 1–4 kHz ratio, 10th percentile (dB)=17.432024
+REG  MISSING    no baseline report (--baseline <previous report.json>) and not declared --first
+near A09 (THAM KHẢO) silences 0.8-1.5 s = 3 (threshold >= 3)
+near A15 (THAM KHẢO) wpm act act1 = 152.833472 (threshold in [150.0, 160.0])
+near A15 (THAM KHẢO) wpm act act3 = 167.895051 (threshold in [150.0, 160.0])
+near A15 (THAM KHẢO) wpm act limits = 159.952607 (threshold in [150.0, 160.0])
+near A18 (CHÍNH) distinct voices (provider, voiceId, model) = 1 (threshold <= 1)
+near S04 (CHẶN) mortgage30 tolerance = 0.5 (threshold <= 0.5)
+near S04 (CHẶN) mortgage15 tolerance = 0.5 (threshold <= 0.5)
+near S06 (CHẶN) coverage statements = 1 (threshold >= 1)
+near S06 (CHẶN) case values shown in act2 = 1833 (threshold >= 1833)
+near S11 (THAM KHẢO) pay15_now acts = 2 (threshold >= 2)
+near S11 (THAM KHẢO) extra_vs15_month_now scenes = 3 (threshold >= 3)
+near S11 (THAM KHẢO) extra_vs15_total_now scenes = 3 (threshold >= 3)
+near S11 (THAM KHẢO) extra_vs15_total_now acts = 2 (threshold >= 2)
+near S11 (THAM KHẢO) share_extra_ge_now scenes = 3 (threshold >= 3)
+near S11 (THAM KHẢO) share_extra_ge_now acts = 2 (threshold >= 2)
+near S11 (THAM KHẢO) bar_now scenes = 3 (threshold >= 3)
+near S15 (THAM KHẢO) ident s = 3.0 (threshold <= 3.0)
+near S18 (THAM KHẢO) promise ends s = 28.693 (threshold <= 30.0)
+near T2 (THAM KHẢO) longest run of repeated phrases = 1 (threshold <= 1)
+near T4 (THAM KHẢO) most events in 10 s = 6 (threshold <= 6)
+{"PASS": 49, "FAIL": 43, "MISSING": 7, "ERROR": 1} episode: TRƯỢT

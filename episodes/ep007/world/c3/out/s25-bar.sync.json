@@ -1,0 +1,29 @@
+{
+ "video": "episodes/ep007/world/c3/out/s25-bar.mp4",
+ "asr_words_matched": 65,
+ "asr_words_ref": 70,
+ "voice_offset_s": {
+  "median": -0.017,
+  "p90_abs": 0.103
+ },
+ "visual_peak_vs_keyword_s": {
+  "a0.dollar": 0.056,
+  "a0.charged": -0.203,
+  "a1.seven": 0.1,
+  "a2.investment": 0.116,
+  "a3.other": 0.167,
+  "a3.measured": -0.303,
+  "a4.whether": 0.11
+ },
+ "method": {
+  "a0.dollar": "motion-roi",
+  "a0.charged": "motion-roi",
+  "a1.seven": "label",
+  "a2.investment": "label",
+  "a3.other": "label",
+  "a3.measured": "motion-roi",
+  "a4.whether": "label"
+ },
+ "visual_within_0.2s": "5/7",
+ "visual_not_detected": []
+}

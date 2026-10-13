@@ -1,0 +1,23 @@
+{
+ "answer": "**S33 — Director review (27.3 s)**\n\n**Scores:** Emotion/story 2 · Sound-off 3 · Pacing 2 · Composition 3\n\nThe cards make the point for anyone watching without sound. They do it as text, though: nothing in the 3D world changes after about 3 s.\n\n**Notes**\n\n1. **2.73 s: the \"high bar\" is hard to see.** At \"high bar\" (3.0–3.4) the beam is a small grey sliver floating far behind the house. Nobody would read it as the counterpart to the tall stack. There is also a second house with a shorter stack at frame left, which confuses which house is Tessa's.\n   *Fix:* Restore the cold-open layout. Put Tessa's house in the center, the tall stack on one side and the beam on the other, each the same height and size in frame. Raise and light the beam as \"high bar\" is spoken. Remove the extra house and stack, or push them out of frame.\n\n2. **2.73 → 8.2 s: the reframe lands too late and then nothing moves.** The camera settles into a wide shot by about 8 s. From there to 27.3 s (about 19 s) the world is completely still and only the cards change. The \"[thoughtful]\" beat at 9.9–10.8 has nothing to look at.\n   *Fix:* Play the beat on Tessa. She turns from the stack to the beam at 9.9, and the camera pushes in slowly toward her from 10.8 through the end.\n\n3. **13.67 s: the merge isn't shown and the result doesn't point to the world.** The two cards are still separate at 13.67; by 19.13 a single card has replaced them, so the merge itself may never be seen. The merged card also has no visual link to the stack or the beam.\n   *Fix:* Slide the two cards together on \"plus\" (15.7). When \"fallback\" is spoken (16.4), draw a line or glow from the \"+ a fallback\" part of the card down to the beam. The idea then sits in the picture, not just in the sentence.\n\n4. **24.6 s: $120 is subtitle-sized and the label sits on the house.** \"$120 a month\" is small secondary text, the same weight as the date. Separately, \"Tessa · ILLUSTRATIVE\" covers her house's door and front wall in every frame.\n   *Fix:* On \"one hundred twenty\" (23.7), lift a small coin slab labeled \"$120/mo\" off the stack onto the beam, and make $120 the largest number on screen. Move Tessa's label to empty ground on the left so it no longer covers the house.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2290,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 210,
+   "in": 2290,
+   "out": 210
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 8947,
+   "cache_read": 7205,
+   "output": 1602,
+   "in": 16156,
+   "out": 1602
+  }
+ },
+ "turns": 6,
+ "cost_usd": 0.105407
+}

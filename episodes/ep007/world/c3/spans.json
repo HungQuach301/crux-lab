@@ -1,0 +1,131 @@
+{
+ "note": "C3 cổng gốc Tập 7 (gates/C3-root-intent.md): mỗi đoạn một clip 540p riêng (episodes/ep007/world/c3/out/<đoạn>.mp4, dựng bằng build_seg.py); span = [0, total] giây của clip; times = tâm 6 lát bằng nhau (toolkit/blind/strips.py frame_times); muted_read = cột \"muted read (type 1)\" của story/beats.md, chép nguyên văn; dải TẮT TIẾNG, GIỮ chữ/số.",
+ "strips": {
+  "N1-s01-stack": {
+   "clip": "episodes/ep007/world/c3/out/s01-stack.mp4",
+   "segment": "episodes/ep007/world/c3/s01-stack",
+   "beat": "B01",
+   "scene": "S01",
+   "type": 1,
+   "span": [
+    0.0,
+    13.65
+   ],
+   "times": [
+    1.137,
+    3.413,
+    5.688,
+    7.962,
+    10.238,
+    12.513
+   ],
+   "narration": [
+    "S01.1 Tessa's mortgage fallback costs $120 a month.",
+    "S01.2 She's borrowing $320,000, and in her city that payment is her biggest bill."
+   ],
+   "muted_read": "A faceless figure by her house; a thin stack of bills appears beside the house and grows by one bundle on each beat, with a monthly price over it."
+  },
+  "N1-s06-stack": {
+   "clip": "episodes/ep007/world/c3/out/s06-stack.mp4",
+   "segment": "episodes/ep007/world/c3/s06-stack",
+   "beat": "B06",
+   "scene": "S06",
+   "type": 1,
+   "span": [
+    0.0,
+    27.81
+   ],
+   "times": [
+    2.317,
+    6.952,
+    11.587,
+    16.223,
+    20.857,
+    25.492
+   ],
+   "narration": [
+    "S06.1 At 7.4 percent, finishing that loan in 15 years takes $2,948 a month.",
+    "S06.2 That's $120 a month more than the 15-year loan, for the same house and the same 15 years.",
+    "S06.3 Over those 15 years, the extra adds up to $21,622."
+   ],
+   "muted_read": "The 30-year bar is raised to finish in 15 years and ends just above the 15-year bar; the sliver above becomes bills that drop onto the stack, month after month, until it stands at its full height."
+  },
+  "N1-s21-track": {
+   "clip": "episodes/ep007/world/c3/out/s21-track.mp4",
+   "segment": "episodes/ep007/world/c3/s21-track",
+   "beat": "B21",
+   "scene": "S21",
+   "type": 1,
+   "span": [
+    0.0,
+    26.29
+   ],
+   "times": [
+    2.191,
+    6.573,
+    10.954,
+    15.336,
+    19.717,
+    24.099
+   ],
+   "narration": [
+    "S21.1 Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day.",
+    "S21.2 At the October eighth rates, it doesn't: it ends about 15 months late.",
+    "S21.3 To finish in 15 years, she'd add $733 a month on top of the required payment."
+   ],
+   "muted_read": "A month track runs from Tessa's house: 180 tiles, then 15 more tiles light in warn past the 15-year mark. Then a thin extra slab on top of the required payment makes the track end exactly at 180."
+  },
+  "N1-s23-track": {
+   "clip": "episodes/ep007/world/c3/out/s23-track.mp4",
+   "segment": "episodes/ep007/world/c3/s23-track",
+   "beat": "B23",
+   "scene": "S23",
+   "type": 1,
+   "span": [
+    0.0,
+    14.05
+   ],
+   "times": [
+    1.171,
+    3.513,
+    5.854,
+    8.196,
+    10.537,
+    12.879
+   ],
+   "narration": [
+    "S23.1 Tessa has another practical question: could she send the extra once a year instead of every month?",
+    "S23.2 That's one payment a year, the same total as the monthly extra.",
+    "S23.3 Paid that way, the loan ends four months later."
+   ],
+   "muted_read": "On the month track, extra principal arrives as one big block every 12th tile instead of thin slabs; the track ends 4 tiles later."
+  },
+  "N1-s25-bar": {
+   "clip": "episodes/ep007/world/c3/out/s25-bar.mp4",
+   "segment": "episodes/ep007/world/c3/s25-bar",
+   "beat": "B25",
+   "scene": "S25",
+   "type": 1,
+   "span": [
+    0.0,
+    30.05
+   ],
+   "times": [
+    2.504,
+    7.513,
+    12.521,
+    17.529,
+    22.537,
+    27.546
+   ],
+   "narration": [
+    "S25.1 Every extra dollar of principal stops interest from being charged on that dollar, at the loan's own rate.",
+    "S25.2 On Tessa's 30-year, that's 7.4 percent a year, before taxes.",
+    "S25.3 It isn't an investment return; it's interest she no longer pays.",
+    "S25.4 That rate is the bar any other use of that dollar gets measured against, before taxes.",
+    "S25.5 Whether any investment clears it, once risk and taxes count, isn't tested here."
+   ],
+   "muted_read": "A horizontal beam rises beside the house to the height of the loan rate; a single extra dollar sits on top of it; a second dollar, labelled \"any other use\", is held up against the beam."
+  }
+ }
+}

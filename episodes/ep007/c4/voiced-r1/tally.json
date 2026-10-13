@@ -1,0 +1,87 @@
+{
+ "graders": 2,
+ "rows": {
+  "ep007/WHOLE": {
+   "readers": 3,
+   "meaning1": 3,
+   "old": 0,
+   "new": 0,
+   "inferred": 0,
+   "caution": 3,
+   "quotes": [
+    "A viewer would come away with a way to compare options. They could check the gap between the 15-year and 30-year rates, price the fallback in dollars, and compare their loan's rate with what else they could do with the money.",
+    "The video gives no instruction on which loan to take or whether to invest.",
+    "Compare the loan's own rate (the bar) with whatever else they might do with the dollar.",
+    "Compare the loan's own rate (the bar) with whatever else they might do with the dollar.",
+    "Compare the loan's own rate with what other uses of the money might earn.",
+    "Compare the loan's own rate with what other uses of the money might earn."
+   ],
+   "extra_layer_seen": 0,
+   "must_beat_or_guaranteed": 1,
+   "q5": [
+    "video",
+    "video",
+    "video"
+   ]
+  },
+  "ep007/S23-S24": {
+   "readers": 3,
+   "meaning1": 3,
+   "old": 1,
+   "new": 0,
+   "inferred": 1,
+   "caution": 0,
+   "quotes": [
+    "A viewer could take away that, for the loan's interest alone, paying extra monthly beats paying it yearly... The slight lean toward monthly in point 4 is my reading of the loan-only numbers.",
+    "The slight lean toward monthly in point 4 is my reading of the loan-only numbers."
+   ],
+   "extra_layer_seen": 0,
+   "must_beat_or_guaranteed": 0,
+   "q5": [
+    "own",
+    "none/video",
+    "none"
+   ]
+  },
+  "ep007/S21": {
+   "readers": 2,
+   "meaning1": 0,
+   "old": 2,
+   "new": 1,
+   "inferred": 1,
+   "caution": 1,
+   "quotes": [
+    "If you want to be done in 15 years, work out the extra amount against your own loan's terms.",
+    "If you want to be done in 15 years, work out the extra amount against your own loan's terms. For Tessa that's about $733 a month.",
+    "The point that the viewer should calculate against their own loan's terms is my own reading. The video doesn't state it.",
+    "The point that the viewer should calculate against their own loan's terms is my own reading."
+   ],
+   "extra_layer_seen": 0,
+   "must_beat_or_guaranteed": 0,
+   "q5": [
+    "video",
+    "own"
+   ]
+  },
+  "ep007/S25": {
+   "readers": 2,
+   "meaning1": 2,
+   "old": 2,
+   "new": 0,
+   "inferred": 2,
+   "caution": 0,
+   "quotes": [
+    "The video presents this as the bar that any other use of the dollar has to clear... Prepaying the loan gives a guaranteed saving equal to the loan rate.",
+    "The video presents this as the bar that any other use of the dollar has to clear.",
+    "The video presents that rate as a bar, or hurdle, that any other use of the dollar has to beat.",
+    "The video presents that rate as a bar, or hurdle, that any other use of the dollar has to beat."
+   ],
+   "extra_layer_seen": 0,
+   "must_beat_or_guaranteed": 2,
+   "q5": [
+    "none",
+    "none"
+   ]
+  }
+ }
+}

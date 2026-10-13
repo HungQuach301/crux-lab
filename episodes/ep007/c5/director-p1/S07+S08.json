@@ -1,0 +1,23 @@
+{
+ "answer": "**S07 (17.7 s)**\nScores: emotion/story 2 · sound off 2 · pacing 2 · composition 2\n\n- **8.87 s:** The frame is completely empty except the title and footer, right when \"It exists because the thirty-year…\" is spoken, so the stack world just disappears. Fix: don't cut away. Move the camera off the gold stack onto the two rate lines so the stack visibly turns into, or sits beside, the gap.\n- **12.41 s:** The lines are drawing without labels, squeezed into the top-left third, with the bottom two-thirds empty. Fix: start the draw at about 9.0 s (\"thirty-year\"), scale the chart to fill the frame, and have the right-edge endpoints arrive on \"higher rate\" (10.4 s).\n- **15.96 s:** The gap is the subject, but its bracket is tiny (about 45 px) and the stack never appears again, so nothing ties the 0.67 back to the stack. Fix: zoom in on the endpoint gap and drop a sliver of the gold stack into the bracket, so the gap is filled by the price.\n- **1.77 s:** Two unexplained white pillars on the right are cut off by the ILLUSTRATIVE badge and pull the eye away from the stack. The Tessa label also covers her body. Fix: take the pillars out of this beat (or set them back in depth) and move Tessa's label below her feet.\n\n**S08 (17.1 s)**\nScores: emotion/story 3 · sound off 4 · pacing 3 · composition 3\n\n- **1.71 s:** The 30-year stack is the same height the 15-year stack ends up, so for a moment it reads as the small one. Fix: hold it at zero until \"charge\" (3.0 s), then grow it fast so it peaks on \"thousand\" (5.2 s).\n- **5.12–8.53 s:** Nothing moves for about 3.4 s. Fix: keep the tall stack growing slowly through \"dollars in interest,\" or pull the camera back so it seems to tower over the frame.\n- **11.95 s:** The short stack is already there but has no label until about 15 s, even though \"fifteen years\" was said at 10.3 s. Fix: start the short stack's rise on \"fifteen\" and land its label on \"two hundred ten thousand\" (12.9 s).\n- **15.36 s:** Everything sits in the left 60% of the frame, the cut-off white pillars are still on the left edge, and the $267k difference isn't shown. Fix: remove the pillars, center the two stacks, and shade the empty space above the short stack up to the tall stack's top so the saving is visible.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2666,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 245,
+   "in": 2666,
+   "out": 245
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15834,
+   "cache_read": 7577,
+   "output": 2241,
+   "in": 23415,
+   "out": 2241
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1734125
+}

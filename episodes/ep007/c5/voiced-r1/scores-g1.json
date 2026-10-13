@@ -1,0 +1,52 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "There is no explicit advice. The video says it does not say which loan to take or whether to invest.",
+  "why": "Fallback priced in dollars, with numbers, historical range and loan-rate bar; only comparison suggested.",
+  "q5": "own",
+  "must_beat_or_guaranteed": false
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Loan rate as bar, interest avoided, pre-tax, no investment tested; matches expected.",
+  "q5": "none",
+  "must_beat_or_guaranteed": true
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer could use it to check their own numbers",
+  "why": "Fallback price, weekly numbers, history range, and bar all covered; only checking own numbers.",
+  "q5": "own",
+  "must_beat_or_guaranteed": false
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Treat their loan's rate as the hurdle any other use of the money has to beat.",
+  "why": "Full idea with numbers; hurdle framing is reader's own reading, not video's.",
+  "q5": "own",
+  "must_beat_or_guaranteed": false
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Beam, loan rate, pre-tax interest avoided, other use untested; matches expected meaning.",
+  "q5": "none",
+  "must_beat_or_guaranteed": true
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"A viewer might infer that a true 15-year loan costs less overall than a 30-year loan paid off early. They might also infer that the 30-year loan's lower required payment ($2,216) offers flexibility. Neither point is stated.\", \"why\": \"Matches the muted read: the 30-year bar is raised, the gold slices drop and build a stack to full height. The advice is only the reader's own inference, and the reader says the animation gives none.\"}, \"R2\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"A viewer might infer that if they're sure they'll pay off in 15 years, a true 15-year loan is cheaper than a 30-year loan with extra payments.\", \"why\": \"Matches the muted read: the 30-year bar is raised by a slice, the gold pieces drop to build the stack, and the stack ends full. The advice is flagged as the reader's own inference, and the reader says the animation never tells the viewer what to do.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3151,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 290,
+   "in": 3151,
+   "out": 290
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3199,
+   "cache_read": 1382,
+   "output": 880,
+   "in": 4583,
+   "out": 880
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0221983
+}

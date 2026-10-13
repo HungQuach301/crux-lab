@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation shows how extra mortgage payments work. A fictional borrower, Tessa, pays about $733 a month on top of the required $2,216. That is enough to finish the loan in 180 months (15 years). The figures are labeled \"illustrative\" and based on the Oct 8, 2026 survey rate.\n\n2. In frame 1, a grid of payment blocks stands for the full loan schedule. In frames 2 and 3, the right-hand part of the grid goes dark and the label \"loan ends sooner\" appears. The required payment stays at $2,216. In frames 4 and 5, a \"principal\" block grows larger than the \"interest\" block. The text reads \"next month's interest ↓, payment fixed.\" In frame 6, Tessa stands by the house with a shorter grid.\n\n3. Extra payments go straight to principal. A lower balance means less interest accrues the next month, and the required payment doesn't change. Because more of each payment then goes to principal, the loan is paid off earlier and the later payments disappear.\n\n4. The animation doesn't say what to do. A viewer might take away that extra payments shorten the loan and reduce interest. It says nothing about whether this beats investing the money. The on-screen text doesn't compare the two or give any investment return, and it carries the caveat \"US only · history, not a forecast.\"\n\n5. None. The animation doesn't give advice, so this is not applicable. Any takeaway about paying extra versus investing would be my own conclusion, not something the picture or text suggests.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1455,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 176,
+   "in": 1455,
+   "out": 176
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3766,
+   "cache_read": 6376,
+   "output": 568,
+   "in": 10146,
+   "out": 568
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0216231
+}

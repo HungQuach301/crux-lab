@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video is for people weighing whether to buy a home or keep renting. It looks at that decision using history: a buyer (20% down on a $400,000 home, 30-year mortgage) and a renter with the same savings start in the same month, and every start month from 1991 to 2016 is replayed with real US prices, rents and mortgage rates. It counts how often the buyer was ahead after 10 years and when buying lost.\n\n2. I expect to know what share of historical start months left the buyer better off than the renter after 10 years, and in which periods buying did worse.\n\n3. Nothing is really confusing. The one phrase I'd want clarified is \"came out ahead\", since it's not stated how that is measured (probably net wealth, including the renter investing their savings), and \"real\" could mean inflation-adjusted or simply actual data.\n\n4. No. The description says outright that it is \"history, not a forecast\" and that it \"won't tell you whether to buy,\" so it won't give a personal buy-or-rent verdict or predict future home prices. It also notes the prices are a national index, not any specific house or city.\n\n5. Little direct advice. A viewer might take away a sense of how often and when buying has historically won or lost over a 10-year horizon, as one input to their own decision. They should not treat it as a recommendation, since local markets, their own finances, and future conditions may differ.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1513,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 1513,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 1553,
+   "cache_read": 1382,
+   "output": 430,
+   "in": 2937,
+   "out": 430
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.010816
+}

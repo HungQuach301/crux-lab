@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, a hypothetical borrower taking out $320,000 in a high-cost city. She is weighing a true 15-year mortgage against a 30-year loan that she pays off in 15 years anyway. It prices the \"fallback\" (the option to drop to the lower required payment in a bad month) at $120 a month, or $21,622 over 15 years. It then replays 1,833 weeks of rates since 1991 to show that this price depends on the gap between 15-year and 30-year rates, not on the rate level. It ends by treating a loan's own rate as the \"bar\" any extra-principal alternative must clear.\n\n2. The 30-year paid in 15 years is the 15-year loan plus a fallback, and the fallback has a price. For Tessa it is $120 a month more (about $2,948 vs $2,828), or $21,622 in total, because the 30-year rate is 0.67 point higher (7.40% vs 6.73%). By history that is expensive. The median week since 1991 was $16,631, and fewer than 1 in 5 weeks cost this much. Each extra dollar of principal \"earns\" her loan's rate, 7.40% before taxes, which only about 1 week in 5 has matched or beaten.\n\n3. Quote: \"And it was bigger: his required payment sat about $793 a month below the 15-year's.\"\nIt was unclear because \"bigger\" has no clear referent. I think it means the fallback was bigger, since the required payment was much lower, but it comes right after \"cheaper.\" Two other spots were mildly confusing. \"Tessa's mortgage fallback costs $120 a month\" sits beside the $613 gap, which is also called \"the fallback,\" so it takes a moment to see that $613 is the cushion and $120 is its price. The closing line, \"Her answer:\", also reads oddly, because Tessa never actually decides.\n\n4. Quote: \"What this leaves out is on the method card and in the description. This is US only, and it's history, not a forecast; it doesn't say which loan to take.\"\nMy attention dropped there because I'd already heard this caveat in nearly the same words near the start and again mid-video. By the end it read as boilerplate, and I was waiting for the conclusion. The decade-by-decade run of rates and dollar figures was also dense, but it was doing real work.\n\n5. No to all three. It says outright that it won't say which loan to take, whether to invest, or where rates or the gap will go. It offers the 7.40% bar as a ruler for comparing other choices, but it does not test whether any investment clears it.\n\n6. There is no direct advice, but a viewer could take away these points:\n- Paying a 30-year at the 15-year's payment won't finish in 15 years. It runs about 15 months late.\n- Paying the extra monthly beats paying it once a year, which costs about $8,200 more in interest.\n- You can price the fallback by comparing that week's 15-year and 30-year offers.\n- Your loan's rate is the guaranteed, pre-tax return on extra principal.\n- Extra principal is hard to get back in a bad month, which is the cost of not having the fallback.\n\n7. Partly. My question was whether to pay extra or invest, given that I can just afford the 15-year payment. The video answered the pay-extra side well. It showed what flexibility costs ($120 a month), what extra principal earns (my loan's rate, pre-tax), and how timing matters. It did not answer the invest side, since it never compares the bar to expected investment returns. It also didn't say whether the flexibility is worth $120 a month when I can only just afford the 15-year payment, so the final decision is left to me.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3932,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 28,
+   "in": 3932,
+   "out": 28
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3972,
+   "cache_read": 1382,
+   "output": 2714,
+   "in": 5356,
+   "out": 2714
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0435774
+}

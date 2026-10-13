@@ -1,0 +1,23 @@
+{
+ "answer": "**S33: Director review (27.3 s)**\n\n**Scores**\n- Emotion/story: 2. Tessa is a tiny figure that never turns or reacts, so the \"what she now knows\" moment has no payoff.\n- Understood with sound off: 3. The merged card and the \"$120 a month\" line carry the point, but the picture doesn't.\n- Pacing: 2. The frames at 8.2 and 13.67 are identical, and the merge comes after its line.\n- Composition / eye-line / text: 2. The \"high bar\" is a small grey sliver, a duplicate house and stack on the left pull focus, and the \"Tessa\" label covers the door.\n\n**Notes**\n\n1. **0.0–3.4 s.** \"A high bar\" is a thin grey slab floating far from Tessa, and it's hard to see. Nothing at frame left reads as the high beam. Meanwhile a second house and short stack on the far left look like a second Tessa. **Fix:** Remove the left house and stack. Build the high beam as a thick beam on two posts at Tessa's left, at about the stack's height, so the two objects mirror each other around her house.\n\n2. **5.5–13.67 s.** The two offer cards float at the top with no tie to the objects, and the picture doesn't change from 8.2 to 13.67. **Fix:** Drop each card onto its object: the 15-year card on the stack and the 30-year-paid-in-15 card on the beam. Have each one land on its word (5.6 and 6.9). This also fills the dead time.\n\n3. **13.5–16.4 s.** The cards are still separate at 13.67, so the merge comes after \"is the fifteen-year plus a fallback\" has started. It's also just a text swap. **Fix:** Start sliding the beam card into the stack card at 14.3 (\"is\"). Lock the merged card at 15.7 (\"plus\"), and pop a teal \"fallback\" strip onto it at 16.4. At the same time, slide the beam in beside the stack so the two objects merge in the world as well.\n\n4. **22.2–25.3 s.** \"$120 a month\" is plain text with no link to anything in the scene. Tessa faces away, and her label sits on top of the house door. **Fix:** At 23.7, show $120 as a small coin slice falling from the fallback strip onto Tessa's side. Turn Tessa three-quarters toward the merged card at 10.8 (\"What she now knows\"). Move her label below her feet and clear of the house, then push in slowly for the hold.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2290,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 320,
+   "in": 2290,
+   "out": 320
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 8945,
+   "cache_read": 7203,
+   "output": 1504,
+   "in": 16152,
+   "out": 1504
+  }
+ },
+ "turns": 6,
+ "cost_usd": 0.10348560000000001
+}

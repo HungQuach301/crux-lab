@@ -1,0 +1,23 @@
+{
+ "answer": "I opened only the 10 listed frames.\n\n**S01: emotion 2 · sound-off 3 · pacing 2 · composition 3**\n\n1. **3.54 s:** The stacks of bills show up but carry no price. \"$120 a month\" is spoken at 1.8–3.2 s, yet the label doesn't appear until about 8.26 s, roughly 5 s late. Fix: drop the $120 tag onto the stack as it lands, on \"one hundred twenty.\"\n2. **5.9 s:** The camera pulls back and Tessa and the house shrink, just as \"$320,000\" is spoken. The house sign stays blank. Fix: hold the medium shot and have $320,000 write onto the sign on \"three hundred twenty thousand.\"\n3. **8.26–10.62 s:** Frames 4 and 5 are identical, so \"her biggest bill\" gets no picture. Fix: make the mortgage stack visibly the tallest beside the smaller stacks of her other bills, or have the stack grow taller than the house. Tessa could also turn toward it, since she currently faces away from the bills.\n4. **Throughout:** Three fixed text layers plus two \"ILLUSTRATIVE\" tags crowd a small subject on a dark, empty floor. Fix: keep one ILLUSTRATIVE tag, and light the ground plane or add a horizon so the house sits somewhere.\n\n**S02: emotion 2 · sound-off 2 · pacing 2 · composition 3**\n\n1. **5.48 s:** Both cards are blank boxes. \"Lower payment kept for a bad month\" doesn't appear anywhere in the picture. Fix: put a tall payment stack under the 15-year card and a shorter stack plus a small set-aside pile under the 30-year card.\n2. **9.13 s:** The cards vanish and the wide shot shows a tiny figure in a black void. That's about 2 s of dead frame on \"We replayed.\" Fix: start the strip of weekly tiles building outward from Tessa as the camera pulls back, so the pullback reveals it.\n3. **12.79 s:** The strip reads as an audio waveform or skyline, not weeks of rates. Tessa and the house are drawn over its center, which hides the data. Fix: use separate tiles with visible gaps and add a 1991 → 2026 time axis underneath. Lift the strip above the house or set it behind on a separate plane.\n4. **16.44 s:** \"What each extra dollar of principal earns\" shows up only as a dot-sized bill in Tessa's hand. The caption also fades out at the payoff moment. Fix: show a dollar flying from her hand into the house and a small coin coming back, then push the camera in on that exchange.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2673,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 258,
+   "in": 2673,
+   "out": 258
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 16694,
+   "cache_read": 6743,
+   "output": 2193,
+   "in": 23441,
+   "out": 2193
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1791729
+}

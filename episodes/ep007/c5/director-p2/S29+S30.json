@@ -1,0 +1,23 @@
+{
+ "answer": "**S29: Emotion 2 · Sound-off 3 · Pacing 2 · Composition 3**\n\n1. **1.8–5.3 s:** Frames 1 and 2 are almost identical. Leo is already standing there with no stack and no date, and \"January 2021\" (at 3.8 s) gets no visual. Fix: hold Leo off-screen and slide him and his house in at \"took\" (1.8 s). Then pop a calendar or date plinth onto his roof at 3.8 s instead of waiting for S30's \"Jan 2021\" tag.\n2. **8.9 s:** Leo's stack shows up full height after the camera push, so we never see it come up short. Fix: build his stack coin by coin from 9.9 to 12.3 s and stop it well below Tessa's. Let the dashed comparison line draw at 12.3 s.\n3. **12.4 s:** \"$13,231\" is still dimmed while the number is being spoken. \"($74 a month)\" is never said, so it confuses. Fix: show the figure at full brightness by 12.3 s and drop the $74 or explain it.\n4. **Whole scene:** \"ILLUSTRATIVE\" appears 4 times, and an unlabelled grey slab floats in the middle. Fix: keep the corner badge only. Anchor the slab to Tessa (her beam) or hide it until S30.\n\n**S30: Emotion 2 · Sound-off 2 · Pacing 2 · Composition 2**\n\n1. **3.2 s:** \"Room\" is a translucent green column over each door. It doesn't read as a bracket, and Leo's isn't clearly wider. The text also says \"fallback about $793 a month\", but $793 is the gap below the 15-year payment, not his payment. Fix: draw a horizontal green bracket whose width is the $793 gap and widen it on \"below\" (5.7 s). Change the label to \"$793/mo less than 15-yr\".\n2. **9.7–16.2 s:** Dead hold through \"each extra dollar… earned only that\". Fix: drop a coin onto Leo's low beam and have it barely rise, at about 12.8 s.\n3. **9.7 s:** Leo's beam and the \"bar 2.65%\" label sit on top of his figure, and his head renders black. Tessa's high beam is the floating slab, which isn't attached to her and isn't labelled until 29 s. Fix: put each beam behind its own house at the right height and label both at 8.8 s. Check the black head.\n4. **22.7–29.1 s:** Text keeps piling up: 5 lines, and Tessa's line hits the edge of the frame. The dates arrive about 19 s late. Fix: clear the header block on \"[thoughtful]\" (17.4 s) and let the picture carry the recap: light up Leo's short stack and low beam at 24.0 s, then Tessa's tall stack and high beam at 28.7 s.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2992,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 309,
+   "in": 2992,
+   "out": 309
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 16164,
+   "cache_read": 7907,
+   "output": 2692,
+   "in": 24075,
+   "out": 2692
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1852031
+}

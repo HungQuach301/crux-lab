@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation shows that paying a 30-year mortgage the same amount a 15-year loan would cost does not make it finish in 15 years. Tessa's loan is shown as a grid of tiles, one per monthly payment. At the October 8, 2026 survey rate, paying $2,828 a month on the 30-year takes about 195 months. That is about 15 months past the 180-month target.\n\n2. The number of payment tiles changes. The grid grows in frames 2 and 3, then in frame 4 it shows 180 months of grey tiles plus a gold strip of extra months at the end. Frame 5 zooms in on individual tiles. In frame 6 the grid shrinks back to 180 tiles, now green. The label there reads \"to finish in 180 months: about $733 extra on top of the $2,216 required.\"\n\n3. The 15-year payment amount does not carry over to the 30-year loan. The 30-year loan has a higher interest rate than the 15-year, so matching the 15-year payment leaves it about 15 months short of paying off on schedule. To hit 180 months, Tessa has to pay the 30-year's required $2,216 plus about $733 extra, which is roughly $2,949 a month. The frames also label everything \"ILLUSTRATIVE,\" \"US only,\" and \"history, not a forecast.\"\n\n4. The video gives no direct advice. A viewer could take away that if they want to pay off a 30-year loan in 15 years, they should work out the extra amount from their own loan's rate and balance. They should not assume the 15-year payment will do it. This is my reading of the numbers, not something the video tells viewers to do.\n\n5. None of that advice came from the video. The narration, picture and on-screen text only state the numbers and the comparison. The takeaway in 4 is my own inference.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1594,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 276,
+   "in": 1594,
+   "out": 276
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3907,
+   "cache_read": 6515,
+   "output": 664,
+   "in": 10426,
+   "out": 664
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0232249
+}

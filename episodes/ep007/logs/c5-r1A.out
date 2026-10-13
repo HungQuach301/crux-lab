@@ -1,0 +1,34 @@
+apiKeySource: ANTHROPIC_API_KEY
+{"turns": 5, "is_error": false, "cost_usd": 12.0296117, "input": 6, "cache_write": 5251, "cache_read": 530051, "output": 2893}
+--- trả về ---
+gest bill", xấp khoản trả nhà mọc cao hơn hai xấp hoá đơn nhỏ, Tessa ngẩng về phía nó. Nhãn giá vẫn ở 5,94 s.
+- **S02:** trong thẻ có chồng khoản trả 15 năm (cao), 30 năm (thấp) và đống dự phòng, sáng ở "bad month". Thẻ giữ tới "replayed", dải tuần mọc theo cú lùi máy, nằm trên mặt phẳng riêng phía trên mái nhà, năm chẵn/lẻ đậm nhạt khác nhau, trục "Aug 1991 → Oct 8, 2026". Máy đẩy vào tay Tessa, tờ đô la bay vào cửa nhà.
+- **S03:** thẻ đổi tên thành "30-year mortgage"; số lãi nằm trên dải cushion. Thẻ ở lại (mờ, không chữ) trong phần thế giới, cuối cảnh máy đẩy vào, Tessa quay về phía thẻ.
+- **S04–S09 (tác tử phụ):**
+  - S04: khung đứng yên, thanh 30 năm màu teal, hai nhãn chung một cột.
+  - S05: nhãn chân "15-year"/"30-year", góc chính diện, cờ lê ép thanh, cờ cắm ở mốc 15 năm.
+  - S06: thanh dâng đúng lời, số $2,948 hiện ở "two", chồng tiền rơi ra từ thanh, giữ nhãn $2,828.
+  - S07: chồng biến thành khoảng giữa hai đường, hai đường căn giữa và khác màu, lát vàng rơi vào ngoặc.
+  - S08: nhãn chạm đất đúng lời, có hộp bóng mờ cho phần chênh.
+  - S09: mỗi nhãn đặt trên tháp của nó, khối vàng rơi xuống ở "plus".
+- **S10:** khung thế giới chính diện. Thẻ rộng hơn, hai đường lãi vào ở "real rates" và có vạch màu dưới thẻ tương ứng. Lưới nằm phía trên hai đường, không đè lên. Có dải phương pháp ở "built". Ô của Tessa sáng vàng; bỏ chữ ILLUSTRATIVE thứ ba.
+- **S11:** hai đường khác màu (accent/ink), khoảng giữa tô sáng từ "far"; cột nhỏ nhất và lớn nhất có cột đánh dấu kèm ngoặc.
+- **S12:** thêm vạch 0,5 riêng; chấm Tessa vàng to hơn, nhãn đưa lên trên mọi cột.
+- **S14:** chồng Jan 2023 sáng lên ở "tallest".
+- **S15:** nhãn cũ tắt, vạch trung vị sáng và nối với nhãn của nó. Chồng của Tessa chuyển sang đầu phải, số ghi ngay trên chồng, chỉ còn một dòng chữ trên cùng. Khung giữ phẳng (chính diện) tới hết cảnh.
+
+**Nhận xét PHỤ:** làm 9/14. Chưa làm: S03 dời thẻ góc, S08 thêm chuyển động trong 5,1–8,5 s, S13 dời nhãn tên Tessa, S14 lia máy. Ở S14, thay vì thu nhỏ nhãn "smallest" (cỡ chữ dưới 48 px sẽ trượt kiểm smoke), tôi cho nhãn này tắt ở "tallest", cột đánh dấu vẫn còn.
+
+**Kết quả kiểm:**
+- Đã chạy `build_inputs.py --timeline`; điểm bắt đầu các cảnh khớp `timeline.json` (tổng 603,0 s).
+- `spine.py` cả ba đoạn: checks OK; tối đa 6 / 5 / 6 sfx trong 10 s (A / B / C).
+- `comment_guard`: OK (35 tệp).
+- Smoke A, B, C: 0 lỗi, 0 chồng chữ, 0 ra mép, 0 quy tắc 1, 0 số ngoài claim; nhãn lệch tối đa 0,17 s.
+- `a6.say` báo null trong smoke: đã có từ trước (smoke không đếm dòng đối trọng của lớp chrome).
+
+**Rủi ro:**
+- Góc máy mới ở S01, S04, S05, S10, S15, phép biến chồng thành khoảng ở S07 và cột đánh dấu mới chỉ tính tay; cần render để xem.
+- Thẻ góc lặp chữ "Aug 1991" ngay dưới nhãn "every week since Aug 1991".
+- Màu ở đoạn B lệch quy ước trong `beats.md`: thân thanh 30 năm tô cushion, khoảng giữa hai đường tô warn.
+- Hai nhãn tháp ở S09 chỉ cách nhau khoảng 9 px.
+- `spine.json` và `inputs.json` ở cả 7 đoạn đều đang có thay đổi; các đoạn D–G là của phiên kia.

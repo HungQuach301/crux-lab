@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative borrower taking a $320,000 mortgage, who wants to pay it off in 15 years but is torn between a true 15-year loan and a 30-year loan paid down on a 15-year schedule. It shows that the 30-year paid in 15 costs $120 a month more ($21,622 over 15 years) than the real 15-year, and that this extra is the price of keeping a lower required payment as a fallback. It then replays every survey week since 1991 to show this week's price is high by history (driven by the gap between 30- and 15-year rates, not the rate level). Finally it covers side questions (matching the 15-year payment, yearly vs. monthly extras) and the \"bar\": an extra principal dollar earns the loan's own rate, 7.40% pre-tax for Tessa.\n\n2. The answer: the 30-year paid in 15 is the 15-year loan plus a fallback, and this week that fallback costs Tessa $120 a month, or $21,622 in total interest difference ($210,691 vs. $189,069). That price is higher than typical: the median since 1991 is $16,631, the range is $6,097 to $29,502, and fewer than 1 in 5 weeks cost more. The price tracks the 30-vs-15 rate gap (0.67 point this week vs. a 0.57 average), not the rate level. The fallback itself is a roughly $613 monthly drop in required payment.\n\n3. \"The bigger payment fits her budget today, but only just\" is mildly confusing, since it's not obvious at first whether \"bigger payment\" means the 15-year's $2,828 or the $2,948 paid-early version. Also \"His fallback was cheaper: $13,231 over 15 years, about $74 a month. And it was bigger: his required payment sat about $793 a month below...\" reads oddly because \"cheaper\" and \"bigger\" refer to different things (price vs. size of the payment cushion). Lastly, \"the difference between those last two totals is exactly the stack\" is slightly muddled because the list of three interest totals comes before it and \"last two\" isn't obvious on first hearing.\n\n4. \"The bar moves with the rate a loan was taken at. Since 1991, it has stood as high as 9.25 percent, in November 1994.\" Attention dipped in the stretch of decade-by-decade figures and rate extremes, where several similar numbers stack up (7.73, 6.18, 4.03, and $15,118, $14,210, $20,374) and are hard to hold in mind by ear. The most notable drop was the lengthy disclaimer paragraph: \"How this was built is on the method card and in the description. The rates are weekly US survey averages for borrowers with strong credit and a large down payment...\" because it's a dense list of caveats with no new narrative.\n\n5. No on all three. The video explicitly says it is US only, history rather than a forecast, and that it won't say which loan to take or whether to invest. It prices the fallback and states the bar (the loan's rate, pre-tax) without comparing it to any market return, and it says the value of a lower payment in a emergency isn't measured.\n\n6. A viewer wouldn't get a directive, but they could take away: if you plan to pay a 30-year like a 15-year, you're buying a fallback, so ask what it costs in your week's actual rate pair; look at the gap between 30- and 15-year offers, not just the rate level; extra principal earns your loan's own rate before taxes, which is the bar other uses of money must clear; and monthly extras beat a yearly lump sum on interest, though that's a cash-flow choice.\n\n7. Yes, for the question the video itself posed: how much the fallback costs, whether that's normal, and what an extra principal dollar earns. The pricing and history sections (the $120 a month, $21,622 stack, and the median/range comparison) answered it most directly. It did not answer the question of which loan to choose, which it said up front it wouldn't.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4001,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 29,
+   "in": 4001,
+   "out": 29
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4039,
+   "cache_read": 1382,
+   "output": 1281,
+   "in": 5423,
+   "out": 1281
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.029522800000000002
+}

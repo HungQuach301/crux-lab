@@ -1,0 +1,23 @@
+{
+ "answer": "**S19: Gap brackets per decade**\n\nScores: Emotion/story 2 · Sound-off 3 · Pacing 2 · Composition 3\n\n1. **0.8–9.9 s:** The narration says \"gap\" at 0.8 s and \"0.7 point\" at about 6 s, but frames 1 and 2 are identical, with no brackets and no gap figures. The brackets first show up somewhere between 5.94 and 9.9 s, after the 0.45 line has already started. Fix: draw the 2010s and 2020s brackets as \"2010s\" (2.1 s) and \"2020s\" (3.0 s) are spoken. Draw the 1990s and 2000s brackets at \"against\" (7.5 s).\n2. **9.9 s:** The 2020s bracket has no stack beside it, so you can't see \"the stacks line up with the brackets\" for that decade. The stack only appears in S20. Fix: grow the 2020s stack inside its bracket in this scene, at about 6.1 s.\n3. **13.0–17.8 s:** The frame is static for nearly 8 s. The only change is a faint glow on the low 2010s stretch of the rate line around \"lower rate\", and nothing happens on \"wider gap … pricier\". Fix: at 13.0 s, dip the 2010s rate line visibly while its stack stays tall. At 16.2 s, widen both later brackets and push their stacks up together.\n4. **Throughout:** The tall stack on the left has no label in S19, and the \"Tessa · ILLUSTRATIVE\" label overlaps that stack. The label's right edge also runs into the 1990s bracket. Fix: move Tessa's label left and below her.\n\n**S20: 2020s stack next to Tessa's**\n\nScores: Emotion/story 3 · Sound-off 4 · Pacing 3 · Composition 3\n\n1. **4.9 s:** The headline \"2020s: typical stack $21,345\" repeats the label sitting above the stack. Fix: drop the headline and pulse the 2020s stack itself as \"$21,345\" is spoken (2.5–5.0 s).\n2. **8.2 s:** There are three ILLUSTRATIVE tags on screen at once (corner, Tessa, Tessa's stack). Tessa's stack label also floats high on a long leader line and nearly runs into the 1990s label. Fix: drop the stack's own tag, since the corner tag already covers it, and let the dashed level line and Tessa's pointing do the work.\n3. **9.4–11.5 s:** The \"corner tag pulse\" is only a thin underline under \"history, not a forecast\", and it's easy to miss. Fix: briefly scale and brighten the tag on \"history\" (9.4 s). In the picture, fog over the empty space to the right of the 2020s stack.\n4. **14.8 s:** The camera cuts to a wide 3D angle while the narration is still running. All labels and brackets disappear, and the 2020s stack is cropped off the right edge, so the 2020s stack and Tessa's stack are no longer shown side by side. Fix: hold the level shot until \"goes.\" ends (about 15.3 s) and start the move on \"Back\" (16.4 s). For \"nothing says where it goes,\" flicker the 2020s bracket between different widths while the level shot holds.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2722,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 364,
+   "in": 2722,
+   "out": 364
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15896,
+   "cache_read": 7639,
+   "output": 3156,
+   "in": 23539,
+   "out": 3156
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.192286
+}

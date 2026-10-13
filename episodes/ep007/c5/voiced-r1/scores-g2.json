@@ -1,0 +1,57 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer could check their own loan's rate and the current 15-year versus 30-year gap, and so work out what the fallback costs them.",
+  "why": "Covers question, priced fallback, $120/$21,622, historical range, bar; only comparison caution.",
+  "q5": "video",
+  "must_beat_or_guaranteed": true,
+  "must_beat_quote": "so extra principal earns a relatively strong guaranteed rate, before taxes"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer could take away a way to compare options: use the loan rate as the benchmark for any other use of the money.",
+  "why": "Bar at loan rate, pre-tax, interest avoided, no comparison tested; benchmark caution only.",
+  "q5": "none",
+  "must_beat_or_guaranteed": true,
+  "must_beat_quote": "That rate is the bar any other use of the dollar has to clear. / Paying down principal gives a guaranteed return equal to the loan rate"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer could use it to check their own numbers: Compare your loan's rate (the bar) with what else you could do with the money.",
+  "why": "Full question and answer with numbers, history, bar; only check-your-numbers caution.",
+  "q5": "own",
+  "must_beat_or_guaranteed": false,
+  "must_beat_quote": ""
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "Compare the fallback's price with how much they value the flexibility.",
+  "why": "Full question, answer, numbers, history, bar; comparison framing only, reader calls it own reading.",
+  "q5": "own",
+  "must_beat_or_guaranteed": false,
+  "must_beat_quote": ""
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "They would still have to compare that against their own loan rate, taxes, and risk.",
+  "why": "Beam at loan rate, interest avoided, pre-tax, other use untested; caution only.",
+  "q5": "none",
+  "must_beat_or_guaranteed": true,
+  "must_beat_quote": "works like earning a guaranteed return equal to the loan's interest rate ... That 7.40% is the bar any other use of the dollar has to beat."
+ }
+}

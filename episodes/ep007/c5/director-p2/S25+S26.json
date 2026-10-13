@@ -1,0 +1,23 @@
+{
+ "answer": "**S25 scores:** Emotion 2 · Sound-off 3 · Pacing 2 · Composition 3\n\n1. **2.9 s:** The dollar floats next to a grey stub at ground level and there is no beam yet. The beam only appears by 8.7 s, detached and upper-right, so it never \"rises beside the house.\" Fix: from about 1.8 s (\"stops\"), have the beam grow up from the ground beside the house wall and stop level with the 7.40% tick. The dollar should ride up on it.\n2. **8.7–29 s:** After the beam arrives the frame is static for about 20 s. Only the labels change, and Tessa stands idle. Fix: at 14.0 s (\"interest she no longer pays\"), show coins leaving the house and stopping at the beam. At 16.5 s (\"That rate is the bar\"), push the camera in on the beam.\n3. **20.3 s:** The \"any other use\" dollar is a faint dashed ghost floating far right, below the beam. It isn't held up against the beam, so no comparison reads. Fix: have Tessa lift a solid second dollar and slide it beside the beam at the same height at 18.2 s (\"any other\").\n4. **26.1 s:** That dollar now sits above the 7.40% line, which visually says it clears the bar. That contradicts \"isn't tested here.\" Fix: hold it exactly level with the beam and let it wobble up and down without settling. Also, a red smudge artifact sits at the top centre at 14.5 s.\n\n**S26 scores:** Emotion 2 · Sound-off 3 · Pacing 3 · Composition 3\n\n1. **0.88–7.89 s:** The beam and dollar stay parked on the left, and a separate grey stub sits at the end of the line. The beam never rides the line. Fix: drop the left beam and move the dollar-topped beam along the curve from 1991 to today as the line draws (0.4–2.7 s).\n2. **2.63 s onward:** The chart has no axis, years or 7.40% reference, so with sound off 9.25% has no scale and \"since 1991\" isn't shown. Fix: add a faint 7.40% gridline running back from today's beam, so the 1994 peak visibly towers over it.\n3. **4.38 s:** The \"highest 9.25%\" label pops in with no leader line, 1.4 s before \"nine point two five\" (5.8 s). The dot only lands at 6.14 s. Fix: have the beam itself jump up to the peak at 5.8 s and show the label and dot together.\n4. **All frames:** The lower half of the frame is empty and Tessa is tiny and passive in the corner. Fix: scale the chart up to fill the frame, and have Tessa turn to look up at the peak at 5.8 s.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2839,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 243,
+   "in": 2839,
+   "out": 243
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 16009,
+   "cache_read": 7752,
+   "output": 2519,
+   "in": 23765,
+   "out": 2519
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.18042380000000002
+}

@@ -1,0 +1,23 @@
+{
+ "answer": "**S31 (25.8 s)**\nScores: emotion/story 2 · understood with sound off 3 · pacing 2 · composition 3\n\n1. **4.2 s, late cue.** \"your bar\" is still missing at 2.58 s, which is fine, but the beam stays a grey dashed box until the end of the scene. Fix: when \"printed on the paperwork\" lands (6.5 s), slide a small paper sheet into the slot and lift the beam off it to a height.\n2. **8.1–13.4 s, the stack does nothing.** The stack is a dashed outline the whole time, and the caption says what it means instead of the picture showing it. Fix: put two rate tags (15-yr and 30-yr) beside the slot and have them pull apart on \"how far apart\" (9.5 s), with the dashed stack growing to match. Then let it settle at \"that week\" (13.4 s).\n3. **14.0–25.8 s, about 12 s of dead picture.** \"Hard to get back\" is only a fourth caption line. The fallback (23.3 s) never appears, and the frames at 18 s and 23 s are almost identical. Fix: have a coin drop into the third house and hit a locked door on \"hard to get back\" (19.4 s). Bring the fallback object up on \"fallback\" (23.3 s).\n4. **Whole scene, layout.** The four-line caption block in the top right pulls the eye away from the slot. Only the first line of the stack caption has a leader line. Leo's beam is cut off at the left edge. \"ILLUSTRATIVE\" appears three times. Fix: dolly right so the third slot is centre frame and Leo is cropped out. Put a short tag next to each object instead of the block.\n\n**S32 (10.3 s)**\nScores: emotion/story 2 · understood with sound off 3 · pacing 3 · composition 2\n\n1. **1.03 s, density.** The card has a title plus 9 lines (about 70 words) instead of 6 short lines, and no one can read that in 10 s. Fix: cut it to 6 lines of 6 words or fewer and leave the detail for the description.\n2. **0–10 s, the scene shows through.** Leo's beam and the Leo and Tessa labels poke out under the bottom edge of the card. Fix: give the card an opaque background, or dim the whole scene to black behind it.\n3. **5.0 s, emphasis in the wrong place.** On \"US only\" and \"history\" the underlines appear on the bottom strip, not on the card. Fix: brighten the matching line on the card at 4.6 s and 5.6 s, as already happens with \"Not advice\" at 9.24 s, and remove the bottom strip while the card is up.\n4. **0.3 s, title doesn't match the narration.** The card says \"How we know this\" while the narration says \"what this leaves out.\" Fix: change the title to \"What this leaves out\" so it matches the voice-over at 0.3 s.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2806,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 304,
+   "in": 2806,
+   "out": 304
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15976,
+   "cache_read": 7719,
+   "output": 2389,
+   "in": 23699,
+   "out": 2389
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1775804
+}

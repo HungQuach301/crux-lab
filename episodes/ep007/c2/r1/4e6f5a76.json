@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative buyer borrowing $320,000 in an expensive city. She can just afford a 15-year loan, and she wonders whether to take a 30-year loan and pay it off in 15 years, keeping the lower required payment as a fallback. It prices that fallback at this week's rates: $120 a month, or $21,622 over 15 years. It then compares that price with every week since 1991 and shows it depends on the gap between the 15-year and 30-year rates. It ends by explaining that an extra dollar of principal \"earns\" the loan's own rate, which it calls the bar. It uses Leo, who borrowed in January 2021, as a contrast.\n\n2. The main question is whether to take a 15-year loan or a 30-year paid in 15. Its answer is that the 30-year paid in 15 is the 15-year loan plus a fallback, and this week that fallback costs Tessa $120 a month. The extra interest is $210,691 versus $189,069, a difference of $21,622. By history that is expensive. The median week is $16,631, the range runs from $6,097 to $29,502, and fewer than 1 in 5 weeks cost more. The price tracks the 30-year-over-15-year rate gap (0.67 point now, against an average of 0.57), not the level of rates. Her bar for extra principal is 7.40% before taxes, which is high: only about 1 week in 5 had a bar that high.\n\n3. \"And it was bigger: his required payment sat about $793 a month below the 15-year's.\" Right after saying Leo's fallback was cheaper, \"it was bigger\" has no clear referent until the rest of the sentence arrives. It means the payment cushion was bigger, not the cost, and that was hard to follow by ear. I was also briefly unsure about the opening line, \"Tessa's mortgage fallback costs $120 a month,\" because \"fallback\" isn't defined until later. It resolved itself.\n\n4. \"The rates are weekly US survey averages for borrowers with strong credit and a large down payment; real offers differ in points, fees and terms.\" This sits in the long disclaimer paragraph near the end. It is a dense run of caveats (no taxes, insurance, PMI, deductions, no market comparison, and so on) delivered in a flat list right after the emotional payoff of Leo and the bar. The attention drop is from the density and from there being no new information to follow.\n\n5. No to all three. The video says outright that it \"won't say which loan to take, or whether to invest,\" and that it's \"history, not a forecast.\" It says the gap has moved before and nothing in it says where the gap goes. It only prices the fallback and states the bar.\n\n6. The video gives no direct advice, but a viewer could take away these points:\n- The fallback has a dollar price, and it depends on the 15-year/30-year rate gap, so compare both offers.\n- Paying the 15-year amount on a 30-year doesn't finish in 15 years. It ends about 15 months late, and she'd need $733 extra a month.\n- Monthly extra payments cost less interest than one yearly lump sum, by about $8,200 here.\n- Your own loan rate is the bar that any other use of the money has to clear.\n- A dollar paid into the house is hard to get back in a bad month.\n\n7. Partly. My question was whether to pay extra or invest, with a 15-year payment I can barely afford. It answered the 15-year versus 30-year-paid-in-15 part well: the fallback costs $120 a month, and that is high by history. It also gave the bar, 7.40% before taxes, for extra principal. It never compared that bar with any investment return, and it declined to say what the fallback is worth in a bad month. So the invest-versus-prepay half of my question went unanswered.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4063,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 23,
+   "in": 4063,
+   "out": 23
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4107,
+   "cache_read": 1382,
+   "output": 2547,
+   "in": 5491,
+   "out": 2547
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.042458
+}

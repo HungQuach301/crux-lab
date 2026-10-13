@@ -1,0 +1,23 @@
+{
+ "answer": "**S27 (4.0 s): lowest point marked**\n\nScores: Emotion 2 · Sound-off 4 · Pacing 2 · Composition 3\n\n1. **0.4 s:** The low-point dot and its tick are already drawn before \"low\" (0.4 s), so the reveal is spoiled. Fix: keep the trough unmarked and have the dot drop into the trough on \"low\" (0.4 s).\n2. **1.19 s:** The \"lowest: 2.65%\" label pops in fully formed while \"two\" is still being spoken. The number lands at 1.8–2.2 s. Fix: have the label count down from 9.25 to 2.65 over 1.0–2.2 s so it settles exactly on \"five.\"\n3. **1.2–4.0 s:** After the label lands, nothing moves for about 2.8 s. Fix: zoom slowly toward the 2021 trough, or let the stretch of line around it glow and spread outward.\n4. **Whole scene:** Tessa stands static far left and nothing connects her to the low point. The \"highest\" label is still on screen, competing with \"lowest.\" Fix: dim the \"highest\" label once the low lands, and turn Tessa toward the trough or project a ghost of her bar down to that level so the gap between the two is visible.\n\n**S28 (4.8 s): line at Tessa's bar, few weeks above it**\n\nScores: Emotion 2 · Sound-off 3 · Pacing 2 · Composition 3\n\n1. **0.48 s:** The dashed line stops around the 2010s and doesn't reach today's stub until about 1.4 s, so \"across the whole history\" reads late. Fix: sweep the line left to right over 0–0.6 s, timed to \"Only about.\"\n2. **1.43 s:** The weeks under the line are dark navy on black and nearly disappear, so the line loses its shape. The highlighted weeks above it show up only at the far left and a sliver at the right, not \"mostly 1990s and 2000s,\" and there's no year axis to confirm the decades. Fix: keep the under-line weeks a mid-gray-blue. Add light year ticks (1990/2000/2010/2020) under the line. Check that the above-line stretches match the data in the brief.\n3. **1.4–4.8 s:** \"1 in 5\" is told only by the caption and never shown. Fix: on \"one week in five\" (0.6–1.4 s), lift the above-line segments out and stack them into a strip beside a full-length strip so the 1:5 ratio is visible.\n4. **3.0–4.8 s:** The only change on \"Tessa's\" is a faint brightening of her bar, then about 1.5 s of dead hold before \"Leo.\" Fix: on \"Tessa's,\" slide her bar along the dashed line to the right end. Have the figure lean back or glance at the house to land the \"rare\" feeling, then start the handoff to Leo early.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2177,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 230,
+   "in": 2177,
+   "out": 230
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15351,
+   "cache_read": 7094,
+   "output": 2444,
+   "in": 22449,
+   "out": 2444
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.17345549999999998
+}

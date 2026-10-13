@@ -1,0 +1,23 @@
+{
+ "answer": "**S27: Lowest point marked (4.0 s)**\n\nScores: emotion/story 2 · sound-off 3 · pacing 2 · composition 3\n\n1. **0.4 s:** The low dot and its tick already show before \"low\" lands. There's no build, so the low point doesn't feel discovered. Fix: start with the low point unmarked and have a marker travel down the line from the 1994 peak, so it lands in the trough on \"two\" at 1.0 s.\n2. **1.2–4.0 s:** After the label appears, the frame doesn't change for about 2.8 s. Fix: on \"percent\" at 2.2 s, flash Tessa's bar shrinking toward the 2.65% line, or push the camera in on the trough, so the low point means something to her.\n3. **Whole scene:** The \"highest\" label is still the same size and weight as \"lowest\", so the eye splits between them. Fix: dim or shrink the 1994 marker when the low appears.\n4. **Whole scene:** There's no time axis or rate scale, and Tessa's bar floats in a gap left of the chart with no link to it. Fix: add a faint year axis (1990, 2000, 2010, 2020) and run a guide line from her bar into the chart.\n\n**S28: Line at Tessa's bar (4.8 s)**\n\nScores: emotion/story 3 · sound-off 3 · pacing 3 · composition 3\n\n1. **0.48 s:** The dashed line stops at about 2015 when it should span the whole history. It reaches full width by 1.43 s. Fix: have the line finish drawing by \"one\" at 0.6 s so the \"above\" highlight reads at once.\n2. **Whole scene:** The brief says \"mostly the 1990s and 2000s\", but there's no year axis, so a viewer can't tell which era rises above the line. Fix: add a faint year axis and tint the above-line stretches a warm colour, not near-white, so they stand out from the dashed line.\n3. **1.4 s:** \"1 week in 5\" exists only as text. Fix: show the ratio in the picture, e.g. a row of five week-blocks under the chart with one lit, timed to \"five\" at 1.4 s.\n4. **3.0–4.8 s:** Tessa's bar brightens on \"Tessa's\", but it's too subtle and far from her figure, so the payoff (\"hers is rare\") has no emotional beat. Then the frame sits static until the cut. Fix: on 3.0 s, pulse her bar and have her figure turn toward the chart, or slump. Hold that reaction as the scene ends rather than a frozen frame.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2177,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 278,
+   "in": 2177,
+   "out": 278
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15347,
+   "cache_read": 7090,
+   "output": 2295,
+   "in": 22441,
+   "out": 2295
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1704667
+}

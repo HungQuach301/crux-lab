@@ -1,0 +1,25 @@
+apiKeySource: ANTHROPIC_API_KEY
+{"turns": 192, "is_error": false, "cost_usd": 7.544310500000001, "input": 194, "cache_write": 256660, "cache_read": 17190075, "output": 102587}
+--- trả về ---
+êm phủ từ "finish". Ô trễ rút về nhanh hơn lớp phủ một cột, tắt hẳn trước khi cột cuối được phủ; nhãn chỉ hiện khi không còn ô trễ nào. Từ lúc phủ đủ 15 cột, không khung nào còn ô `warn` ngoài vách (đã soi khung 19,3 s, 19,6 s và dải r3). Nhãn "to finish in 180 months: $2,216 required + $733 a month" nằm một dòng trên lưới. Thêm claim `pay30_amt` ("$2,216", `of: pay30_now`) qua `derive.py`.
+- **Màu N1:** ô khoản bắt buộc là `ink-muted`, lớp/khối trả thêm là `ink` sáng nổi trên ô, ô trễ `warn`. Đã bỏ `cushion` và ghi lý do vào README.
+- **S23:** 12 lớp của mỗi năm trượt dọc cột về ô thứ 12, chồng thành một khối cao khoảng 12 lớp và vẫn đếm được từng lớp. Máy giữ góc 3/4, đặt phía trước lưới vì nhìn từ bên trái thì vạch 15 năm che mất 4 ô trễ. Nhãn đúng như đầu bài.
+- **S25:** sàn để trống đến khi tờ đô la tới, rồi thanh trồi từ dưới sàn lên và dâng. Đô la thứ hai là bóng mờ có viền nét đứt, đứng tách khỏi đầu thanh và lên xuống liên tục quanh độ cao thanh. Nhãn mới "not tested: how any investment compares, / once risk and taxes count" chia hai dòng.
+- **S01:** bó đầu trồi ra ở bậc cửa nhà ("costs"), mỗi bó bay từ cửa sang chồng. Nhãn "price of the fallback: / $120 a month" (hai dòng) hiện cùng lúc bó đầu chạm chồng, ở "borrowing" 5,94 s. Nhãn "$320,000 loan · week of Oct 8, 2026" chuyển lên "three" (6,52 s, trước là 10,3 s).
+- **PHỤ:** tên "Tessa · ILLUSTRATIVE" nay ở ngay dưới chân hình người ở cả 5 đoạn, không còn chồng lên mái. S06 chỉ đổi đúng nhãn $2,948: nhãn bám theo đỉnh thanh 30 năm và chỉ hiện khi đỉnh đã qua vạch.
+
+**Verify:** cả 5 đoạn OK. S21 lần đầu bị F-2 BLOCK (tên Tessa chạm dòng "US only…" lúc máy chuyển chế độ); đã kẹp vị trí tên rồi dựng lại.
+
+**Sync (cue trong ±0,2 s):** S01 3/3 · S06 2/5 · S21 6/7 · S23 3/5 · S25 5/7. Clip duyệt 117,92 s, −14,0 LUFS, −1,9 dBTP. README đã thêm mục "Vòng 3" và bảng số đo khớp `spans.json`.
+
+**Vấn đề còn mở**
+- **Cue $2,120 trong S01 vẫn muộn so với lời:** "$120" được nói ở khoảng 3,2–4,6 s nhưng nhãn hiện ở 5,94 s. Đó là sớm nhất có thể, vì số chỉ được hiện ở chế độ đồ thị và 5 s đầu phải ở thế giới. Hai luật đó cứ để nguyên thì không làm sớm hơn được.
+- **S06 tụt từ 3/5 xuống 2/5:**
+  - `a0.forty` trễ +1,29 s là do nhãn $2,948 chỉ hiện khi đỉnh đã qua vạch (đúng yêu cầu PHỤ). Muốn sớm hơn thì phải cho thanh dâng nhanh hơn, mà như vậy là đổi thêm S06.
+  - `a1.same` +0,53 s thì phần mã liên quan mình không đổi; chưa rõ nguyên nhân.
+- **Các cue lệch còn lại:**
+  - S21 `a0.pay` +0,50 s: ô `ink-muted` mờ hơn ô cũ nên khó bắt chuyển động.
+  - S23 `a0.once` +0,37 s và `a1.extra` −0,31 s: do hoạt cảnh trượt gom.
+  - S25 `a3.measured` −0,30 s: bóng đô la đã lên xuống từ "other".
+- **Cần đo lại cổng gốc** (người đọc tắt tiếng) cho S01, S21, S23, S25.
+- **Thư mục tạm còn sót:** hai thư mục `.staging-s21-track-*` từ các lần dựng hỏng vẫn nằm trong `out/`, và commit tự động "tệp trung gian vòng 3" (4cfed1d, không phải mình commit) đã đưa một thư mục vào git. Bash không cho chạy `rm` nên mình chưa xoá được.

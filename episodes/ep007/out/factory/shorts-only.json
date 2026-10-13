@@ -1,0 +1,86 @@
+{
+ "shorts": [
+  {
+   "id": "SH1",
+   "file": "episodes/ep007/work/factory/SH1.mp4",
+   "from": 99.2667,
+   "to": 133.6667,
+   "duration": 35.9,
+   "world": "b-s04-s09",
+   "render_world": {
+    "wall_s": 1,
+    "film_s": 34.4,
+    "rendered": [],
+    "cached": 7
+   },
+   "endcard": {
+    "segments": 1,
+    "rendered": 0,
+    "cache_hits": 1,
+    "frames": 0,
+    "seconds": 0
+   },
+   "audio": {
+    "measured_I": -14.22
+   }
+  },
+  {
+   "id": "SH2",
+   "file": "episodes/ep007/work/factory/SH2.mp4",
+   "from": 510.5,
+   "to": 542.2667,
+   "duration": 33.267,
+   "world": "g-s29-s33",
+   "render_world": {
+    "wall_s": 0.9,
+    "film_s": 31.766699999999997,
+    "rendered": [],
+    "cached": 7
+   },
+   "endcard": {
+    "segments": 1,
+    "rendered": 0,
+    "cache_hits": 1,
+    "frames": 0,
+    "seconds": 0
+   },
+   "audio": {
+    "measured_I": -14.01
+   }
+  },
+  {
+   "id": "SH3",
+   "file": "episodes/ep007/work/factory/SH3.mp4",
+   "from": 577.4,
+   "to": 605.6333,
+   "duration": 29.733,
+   "world": "g-s29-s33",
+   "render_world": {
+    "wall_s": 401.8,
+    "film_s": 28.2333,
+    "rendered": [
+     "span1",
+     "span2",
+     "span0",
+     "span3",
+     "span5",
+     "span4"
+    ],
+    "cached": 0
+   },
+   "endcard": {
+    "segments": 1,
+    "rendered": 1,
+    "cache_hits": 0,
+    "frames": 45,
+    "seconds": 4.96,
+    "fps": 9.07,
+    "workers": 4,
+    "fmt": "jpeg"
+   },
+   "audio": {
+    "measured_I": -14.08
+   }
+  }
+ ]
+}

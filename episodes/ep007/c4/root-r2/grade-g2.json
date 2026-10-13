@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R13\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"The advice in 4 is my own conclusion.\", \"why\": \"Extra $120 monthly slabs pile up to full stack; matches expected meaning.\", \"q5\": \"own\"}, \"R14\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"The takeaway about paying extra or choosing a 15-year loan is my own reading, because the frames never state a recommendation.\", \"why\": \"Gap section lifts off and lands beside house as stack; matches.\", \"q5\": \"own\"}, \"R15\": {\"score\": 0.5, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"The advice in 4 is my own conclusion.\", \"why\": \"Annual lump sum and 4-month delay captured; block-every-12th-tile track imagery missing.\", \"q5\": \"own\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4639,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 230,
+   "in": 4639,
+   "out": 230
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4682,
+   "cache_read": 1382,
+   "output": 330,
+   "in": 6066,
+   "out": 330
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0227491
+}

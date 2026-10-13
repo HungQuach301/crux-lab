@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice\": false, \"why\": \"Q1 has all three: the buy-vs-rent decision with two people starting together, real US data for every start month 1991-2016, and how often the buyer is ahead after 10 years and when buying lost. Q4 says no, and Q5 gives no buy/rent action.\"}, \"R2\": {\"score\": 1, \"advice\": false, \"why\": \"Q1 has all three: the buy-vs-rent decision with a buyer and renter starting together, real US prices/rents/rates for every start month 1991-2016, and how often the buyer is ahead after 10 years and when buying lost. Q4 says no, and Q5 explicitly says it is not a recommendation.\"}, \"R3\": {\"score\": 1, \"advice\": false, \"why\": \"Q1 has all three: the buy-vs-rent decision, real US data for every start month 1991-2016, and how often the buyer is ahead after 10 years and when buying lost. Q4 says no, and Q5 only suggests checking local data, not buying or renting.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2962,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 405,
+   "in": 2962,
+   "out": 405
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3004,
+   "cache_read": 1382,
+   "output": 649,
+   "in": 4388,
+   "out": 649
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0191469
+}

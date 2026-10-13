@@ -1,0 +1,23 @@
+{
+ "answer": "**S11: Emotion 2 · Sound-off 3 · Pacing 3 · Composition 2**\n\n1. **1.44 s:** A grey grid of tiles from the last scene sits over the two rate lines, and the \"Tessa's week = the last\" pointer is still there. The opening frame is cluttered and confusing. Fix: clear the grid and the pointer before 0.5 s so the two lines start on a clean field.\n2. **4.32 s:** The narrator says \"how far the 30-year sits above the 15-year,\" but the picture shows two light-blue lines with nothing in between and no way to tell which is which. The fill only shows up by 7.2 s. Fix: give the lines clearly different colours and flood the space between them by about 2.6 s, on \"far.\"\n3. **10.08 s:** The smallest-gap bracket stands beside a tall spike, not on the shortest bar near x≈760, so it looks like a stray tick. Fix: put the bracket on the shortest bar and light that bar up, then do the same for the tallest bar at 11.8 s.\n4. **Whole scene:** Tessa, the house and the coin stack take up the left third and never move. \"ILLUSTRATIVE\" appears three times, and the Tessa caption runs over the house. Fix: push the props back and dim them, or have Tessa turn toward the chart. Keep one ILLUSTRATIVE badge.\n\n**S12: Emotion 3 · Sound-off 3 · Pacing 3 · Composition 3**\n\n1. **1.19 s:** The \"0.2 to 1.0\" caption and both brackets carry over and stack under the new caption. Fix: fade them out as the average line draws in.\n2. **3.56 s:** Bars are dimmed at the half-point mark, but the only line on screen is the 0.57 average. Some bright bars end below that line, which looks like a mistake. Fix: briefly draw a separate half-point line while the dimming happens, or animate a 2-out-of-3 count of the bright bars.\n3. **8.31 s:** Tessa's dot is a tiny white dot at the far right edge, and the dark box behind her caption cuts off the tops of the bars. Tessa raises her arm toward the house, not the chart. Fix: make the dot bigger, move the caption into empty space above the bars, and turn her gesture toward the dot.\n4. **8.5–11.9 s:** Nothing moves for about 3 seconds through \"a little above that average.\" Fix: on \"little\" (9.3 s), draw a short highlighted line between the dot and the average line to show the 0.1-point difference, and pulse it.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2533,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 302,
+   "in": 2533,
+   "out": 302
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15709,
+   "cache_read": 7452,
+   "output": 3366,
+   "in": 23165,
+   "out": 3366
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.19490269999999998
+}

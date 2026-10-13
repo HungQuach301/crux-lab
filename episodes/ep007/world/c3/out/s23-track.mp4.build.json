@@ -1,0 +1,75 @@
+{
+ "segment": "episodes/ep007/world/c3/s23-track",
+ "res": 540,
+ "out": "episodes/ep007/world/c3/out/s23-track.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.3,
+   "ok": true,
+   "problems": [],
+   "files": 18
+  },
+  "spine": {
+   "seconds": 0.4,
+   "ok": true,
+   "stdout": [
+    "checks OK"
+   ]
+  },
+  "render": {
+   "seconds": 95.7,
+   "ok": true,
+   "shots": 3,
+   "rendered": [
+    "s0",
+    "s1",
+    "s2"
+   ],
+   "cached": 0,
+   "wall_s": 94.9,
+   "film_s": 14.05,
+   "wall_per_film_s_rendered": 11.96,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 8.1,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 1.0,
+   "ok": true
+  },
+  "verify": {
+   "seconds": 1.9,
+   "ok": true,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 0,
+   "first_5s_world": true,
+   "C14": {
+    "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+   },
+   "modes": {
+    "world_share": 0.397,
+    "chart_share": 0.603,
+    "first_5s_world": true
+   },
+   "F2": {
+    "level": "OK",
+    "sfx_per_min": 21.4,
+    "sfx_max_10s": 4,
+    "sfx_on_speech": 3,
+    "sfx_on_plain_words": 1,
+    "sfx_events": 5,
+    "keyword_hits": 2,
+    "min_keyword_snr_db": 16.6,
+    "label_overlaps": 0,
+    "line_crossings": 0,
+    "block": [],
+    "warn": []
+   }
+  }
+ },
+ "total_seconds": 107.5
+}

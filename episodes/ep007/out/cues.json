@@ -1,0 +1,90 @@
+{
+ "cues": [
+  {
+   "t": 0.0,
+   "end": 51.933,
+   "function": "cold open",
+   "cue": "Q",
+   "key": "E dorian",
+   "tempo": 106.29,
+   "bars": 23
+  },
+  {
+   "t": 54.733,
+   "end": 190.7,
+   "function": "act 1",
+   "cue": "A1",
+   "key": "E dorian -2",
+   "tempo": 107.67,
+   "bars": 61
+  },
+  {
+   "t": 191.9,
+   "end": 442.84,
+   "function": "act 2 every week since 1991",
+   "cue": "A2",
+   "key": "E dorian +2",
+   "tempo": 108.07,
+   "bars": 113
+  },
+  {
+   "t": 444.04,
+   "end": 566.693,
+   "function": "act 3 the bar, Leo",
+   "cue": "A3",
+   "key": "G major",
+   "tempo": 107.62,
+   "bars": 55
+  },
+  {
+   "t": 566.693,
+   "end": 606.734,
+   "function": "limits + outro",
+   "cue": "O",
+   "key": "G major",
+   "tempo": 108.47,
+   "bars": 19
+  },
+  {
+   "t": 597.419,
+   "end": 606.734,
+   "function": "closing cue A (F-12)",
+   "cue": "close-A",
+   "key": "F major",
+   "tempo": 114.0,
+   "touch": 605.84
+  }
+ ],
+ "silences": [
+  {
+   "what": "MR1",
+   "t": 190.7,
+   "end": 191.9
+  },
+  {
+   "what": "MR2",
+   "t": 442.84,
+   "end": 444.04
+  },
+  {
+   "what": "ident",
+   "t": 51.933,
+   "end": 54.933
+  },
+  {
+   "what": "anchor S06.1",
+   "t": 98.547,
+   "end": 99.297
+  },
+  {
+   "what": "anchor S18.1",
+   "t": 315.86,
+   "end": 316.61
+  },
+  {
+   "what": "anchor S28.1",
+   "t": 487.29,
+   "end": 488.04
+  }
+ ]
+}

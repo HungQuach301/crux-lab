@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation shows a common shortcut and why it fails. Say Tessa has a 30-year mortgage and pays it at the monthly amount a 15-year loan would require. People often assume that pays it off in 15 years. It doesn't. The 15-year payment is calculated at the 15-year rate, and the 30-year loan usually carries a higher rate, so the same payment doesn't finish the 30-year loan on time.\n\n2. The loan's payoff time changes as the payment changes. Frames 1 to 3 build a grid of tiles beside Tessa's house, with each tile standing for a month of payments. In frame 4, paying $2,828 a month on the 30-year loan takes about 195 months, and the extra gold tiles mark the months beyond 180. In frames 5 and 6 the extra tiles shrink and then disappear. Finishing in 180 months takes about $733 extra on top of the $2,216 required payment, so about $2,949 in total.\n\n3. It means that paying the 15-year payment amount toward a 30-year loan won't get you a 15-year payoff. Narration puts the shortfall at about 15 months (195 − 180). The \"extra payment\" needed depends on the 30-year loan's own rate and balance, and it is bigger than the shortcut suggests. The labels say this is illustrative, uses the Oct 8, 2026 survey rate, covers the US only, and is history, not a forecast.\n\n4. The video gives a practical takeaway. Don't assume that matching a 15-year payment on a 30-year loan ends it in 15 years. If you want to be done in 15 years, work out the extra amount against your own loan's terms. For Tessa that's about $733 a month. The video doesn't say whether she should do this or invest the money instead. It also doesn't say whether the extra payments are worth it for you.\n\n5. The calculation advice comes from the video itself. The narration and on-screen text state the 195 months, the $733 extra, and the 15-month delay. I have no basis in the video for a recommendation on paying extra versus investing, and I'm not making one from it.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1595,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 309,
+   "in": 1595,
+   "out": 309
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3909,
+   "cache_read": 6516,
+   "output": 763,
+   "in": 10429,
+   "out": 763
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0242396
+}

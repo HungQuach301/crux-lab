@@ -1,0 +1,23 @@
+{
+ "answer": "**S13 (9.2 s)**\nScores: emotion 2 · sound-off 2 · pacing 2 · composition 3\n\n1. **4.58 s:** The bars are drawn, but nothing ties them to \"the gap\", and no ribbon runs along their tops. The blue-to-gold colour change at 2.75 s happens on \"stacks\" and doesn't explain anything. **Fix:** grow the stacks left to right in time with \"every week\". Then run a bright ribbon along the tops on \"rise and fall\" (3.0–4.2 s) so the line moves with the words.\n2. **6.42 s:** The marked \"smallest\" bar (Dec 2008) doesn't look like the shortest. The trough at about x 760 looks as low or lower. $6,097 should stand about one fifth as tall as $29,502, but the baseline seems cut off, so every bar looks 50–90% tall. **Fix:** start the bars from zero on a visible floor, and drop the Dec 2008 stack into a clear gap so it reads as the shortest without the label.\n3. **6.42–9.2 s:** Frames 4 and 5 are identical, so about 2.8 s is a frozen shot. **Fix:** on \"smallest\" (5.4 s), push the camera in or dim every other stack, and let the marked stack pulse on \"six thousand\".\n4. **6.42 s:** The re-framed shot pushes Tessa and the house into the bottom-left corner. The \"Tessa · ILLUSTRATIVE\" label covers both, and Tessa isn't looking at the data. **Fix:** move the name label off the figures and turn Tessa toward the smallest stack.\n\n**S14 (5.0 s)**\nScores: emotion 2 · sound-off 3 · pacing 2 · composition 3\n\n1. **0.5 s:** The \"tallest\" label is already fully on screen before \"twenty-nine\" (0.9 s), so it gives away the number. **Fix:** bring the marker in on \"tallest\" (0.2 s) and count the number up through \"two dollars\" (3.0–3.3 s).\n2. **0.5–5.0 s:** All five frames are the same, which makes this a static 5-second shot. **Fix:** move the camera from the smallest stack to the tallest one so the viewer sees the spread between them.\n3. **1.5 s:** The tallest stack is marked only by a thin grey strip that's hard to see, and its neighbour, plus the Dec 2019 peak at about x 915, look just as tall. **Fix:** light the Jan 2023 stack gold-white, make it clearly taller than the rest, and darken the others.\n4. **1.5 s:** The two labels are stacked close together and the \"smallest\" label sits far from its bar. This makes the top-right busy and pulls the eye away from the bars. **Fix:** fade the \"smallest\" label to a small tag on its bar when \"tallest\" comes in, so only the tallest label is large.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2256,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 19,
+   "in": 2256,
+   "out": 19
+  },
+  "claude-opus-5-5": {
+   "input": 4,
+   "cache_write": 15428,
+   "cache_read": 7171,
+   "output": 2590,
+   "in": 22603,
+   "out": 2590
+  }
+ },
+ "turns": 11,
+ "cost_usd": 0.1769093
+}

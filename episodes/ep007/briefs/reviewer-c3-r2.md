@@ -1,0 +1,7 @@
+# REVIEWER C3 lượt 2 — Tập 7 (headless khoá Console, chỉ đọc)
+
+Bạn là REVIEWER độc lập. Lượt 1 của bạn: `episodes/ep007/gates/REVIEW-C3.md` (ĐẠT có sửa, 5 CHÍNH). Phiên đã sửa hình (vòng 3) và viết lại gói `episodes/ep007/gates/C3.md`. Kiểm: (1) mỗi CHÍNH 1–5 và PHỤ đã được xử lý hoặc nêu trung thực trong gói; (2) bảng §2 khớp `episodes/ep007/c3/root-r3/scores.json` (+ câu trả lời `c3/root-r3/<hex>.json`), khoá nhãn r3 commit trước khi chấm (`git log --stat -- episodes/ep007/c3/root-r3`); (3) §3 khớp hai lượt đạo diễn `c3/director/*.json`, `c3/director-r3/*.json`; (4) chữ trên hình khớp claim (`numbers.md`, `world/claims.json`, `story/beats.md` B01/B06/B21/B23/B25); (5) câu hỏi cho chủ dự án rõ, có khuyến nghị, không thiếu quyết định nào cần chủ dự án. Đọc thêm `world/c3/README.md` mục "Vòng 3", `world/c3/out/*.sync.json`.
+
+**Ảnh: mở TỐI ĐA 10 khung**, đúng danh sách: episodes/ep007/c3/director-r3/s01-stack-3.png, episodes/ep007/c3/director-r3/s01-stack-5.png, episodes/ep007/c3/director-r3/s06-stack-5.png, episodes/ep007/c3/director-r3/s21-track-4.png, episodes/ep007/c3/director-r3/s21-track-5.png, episodes/ep007/c3/director-r3/s23-track-3.png, episodes/ep007/c3/director-r3/s23-track-5.png, episodes/ep007/c3/director-r3/s25-bar-4.png, episodes/ep007/c3/director-r3/s25-bar-5.png, episodes/ep007/c3/director-r3/s06-stack-2.png
+
+Ra (tiếng Việt, ≤ 40 dòng): **ĐẠT / ĐẠT có sửa / KHÔNG ĐẠT**; lỗi còn lại xếp CHẶN / CHÍNH / PHỤ, mỗi lỗi một câu sửa nguyên văn cho gói nếu là chữ.

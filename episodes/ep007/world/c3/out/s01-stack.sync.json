@@ -1,0 +1,21 @@
+{
+ "video": "episodes/ep007/world/c3/out/s01-stack.mp4",
+ "asr_words_matched": 18,
+ "asr_words_ref": 27,
+ "voice_offset_s": {
+  "median": 0.003,
+  "p90_abs": 0.267
+ },
+ "visual_peak_vs_keyword_s": {
+  "a0.costs": 0.133,
+  "a1.borrowing": 0.164,
+  "a1.three": 0.08
+ },
+ "method": {
+  "a0.costs": "motion-roi",
+  "a1.borrowing": "label",
+  "a1.three": "label"
+ },
+ "visual_within_0.2s": "3/3",
+ "visual_not_detected": []
+}

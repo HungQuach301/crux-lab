@@ -1,0 +1,77 @@
+{
+ "grader_tokens": 23551,
+ "scores": [
+  {
+   "file": "14fa5f34",
+   "sample": "v1",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "phương pháp",
+   "scene": "\"How this was built is on the method card... strong credit and a large down payment\"",
+   "answered_own": true,
+   "why": "Right question (15-yr vs 30-yr paid in 15, Tessa) and right answer ($120/mo, $21,622, historical range, 7.40% bar); no advice."
+  },
+  {
+   "file": "4af5069b",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "phương pháp",
+   "scene": "caveats paragraph: \"no property taxes, no homeowners insurance...\"",
+   "answered_own": false,
+   "why": "Question and answer both correct (fallback price $120, $21,622, range, 7.40% bar); no advice; says only partly answered own question."
+  },
+  {
+   "file": "4bba6150",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "phương pháp",
+   "scene": "disclaimer paragraph: \"weekly US survey averages... strong credit\"",
+   "answered_own": false,
+   "why": "Correct question and answer with price, range, and bar; takeaways are understanding, not advice; own question only partly answered."
+  },
+  {
+   "file": "4e6f5a76",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "phương pháp",
+   "scene": "\"rates are weekly US survey averages... points, fees and terms\"",
+   "answered_own": false,
+   "why": "Correct question and answer ($120, $21,622, history, 7.40% bar); no advice; invest half unanswered."
+  },
+  {
+   "file": "beb52945",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "phương pháp",
+   "scene": "closing caveats: \"How this was built is on the method card\"",
+   "answered_own": false,
+   "why": "Both question and answer present with numbers, range and bar; no advice; only partly answered own question."
+  },
+  {
+   "file": "eeb113a3",
+   "sample": "v1",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice": false,
+   "block": "phương pháp",
+   "scene": "caveat block: \"principal and interest only: no property taxes...\"",
+   "answered_own": false,
+   "why": "Right question and answer ($120, $21,622, median, gap, 7.40% bar); no advice; own question only partly answered."
+  }
+ ]
+}

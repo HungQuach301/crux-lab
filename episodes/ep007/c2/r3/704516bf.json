@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Tessa, an illustrative buyer borrowing $320,000 who is choosing between a true 15-year mortgage and a 30-year mortgage paid off in 15 years. It prices the 30-year's lower required payment (the \"fallback\") by comparing the two loans at the real survey rates of every week since 1991. It shows that Tessa's fallback costs $120 a month ($21,622 over 15 years), which is high by historical standards because the gap between 30-year and 15-year rates is wide. It also explains that extra principal \"earns\" the loan's own rate (7.4% for Tessa, before taxes), and contrasts her with Leo, who took a loan in January 2021 at a low rate.\n\n2. The 30-year paid in 15 years is the 15-year loan plus a fallback, and the fallback has a price. At the October 8, 2026 rates (15-year 6.73%, 30-year 7.4%), Tessa pays $2,948 a month versus $2,828, so $120 more a month. That adds up to $21,622 over 15 years, which is higher than the typical week (median $16,631) and higher than about 4 in 5 weeks since 1991. Each extra dollar of principal earns 7.4% before taxes, which is the bar any other use of the money must beat.\n\n3. \"The 15-year loan charges $189,069, and the difference between those last two totals is exactly the stack.\" It is confusing because \"those last two totals\" has to be worked out. The two totals before it are $477,622 and $210,691, but the sentence just gave a third figure, $189,069. The stack is $210,691 minus $189,069 = $21,622, so the reference is to the last two (15-year paid in 15 versus the true 15-year), but it is easy to misread.\n\n   A second spot: \"Tessa's gap on October 8 sits a little above that average.\" It follows 0.57 and 0.67, but the viewer is never told the gap explicitly, so it requires inference.\n\n4. \"Back to Tessa's own loan, and a shortcut many people reach for: pay the 30-year exactly what the 15-year would cost, and assume it ends on the same day.\" Attention dropped here because the video switches from the price of the fallback to a new tangent about payoff timing, with a string of numbers (195 months, 15 months late, $733 extra) before the point about the required payment staying fixed becomes clear. The annual-payment segment right after it also felt like a detour.\n\n5. Yes, it says no to all three. It says explicitly: \"It won't say which loan to take, or whether to invest,\" and \"it's history, not a forecast.\" It also says \"Whether any investment clears it, once risk and taxes count, isn't tested here.\" The video limits itself to pricing the fallback and describing the return on extra principal, and it does not recommend a loan, say whether to invest, or predict rates.\n\n6. A viewer would take away a framework rather than a directive. Treat \"30-year paid like a 15-year\" as a 15-year plus a purchased fallback, check the gap between current 15- and 30-year rates to see what that fallback costs, and compare the loan's own rate (the bar) against what they could earn elsewhere after risk and taxes. They should also remember that money sent to the mortgage is hard to get back in a bad month, which is what the fallback is for.\n\n7. Partly. My question was whether to pay extra on the mortgage or invest the spare cash. The video answered the first half of the underlying issue: extra principal earns the loan's rate (7.4% before taxes) and the fallback has a price, so it gives the benchmark. It does not answer whether investing would beat that, since it explicitly leaves that untested. The loan-choice parts (stack, history, Leo comparison) were useful context but not what I came for.\n\n8. Video. The framework in 6 comes from these sentences: \"That rate is the bar any other use of that dollar gets measured against, before taxes,\" and \"Clearing the bar isn't the whole story: a dollar paid into the house is hard to get back in a bad month, which is exactly what the fallback is for.\"",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4007,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 33,
+   "in": 4007,
+   "out": 33
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 744,
+   "cache_read": 4691,
+   "output": 1315,
+   "in": 5437,
+   "out": 1315
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0170163
+}
