@@ -1,0 +1,12 @@
+Bạn là REVIEWER độc lập của Crux (Opus). Soát lô K4.4 (phần TỰ KHOÁ) TRƯỚC khi merge `main`. Chỉ đọc. Không agent con. Mỗi lệnh Bash là MỘT lệnh. Không in biến môi trường. Không chạy bộ lấy mẫu trang (nặng); selftest Python được chạy.
+Phạm vi tự khoá (lệnh mở phiên 13/10 + cập nhật chủ dự án 13/10): lỗi máy A33 (A12/A13/R01) và A29 (cache trang); mục chủ dự án đã quyết (1 Short, không thumbnail = A38); luật mới footage (A39 + A44, RIGHTS.md §F, D-013); A40 (nguyên tắc: luật CHẶN mới phải có đối chứng dương thật và 0 báo sai trên 3 tập đã đăng; báo cáo tách lỗi thật/thủ tục); A41 (a) bộ lấy mẫu đọc nháp khác 1080p, (b) R09 THAM KHẢO; A42 mẫu check_script; A45 → S23. KHÔNG thuộc lô khoá: A32, A34–A37 (gói chủ dự án, nháp ở nhánh khác).
+Đọc: `git diff origin/main -- checks/ playbook/templates/check_script.py RIGHTS.md` · `checks/README.md` (mục K4.4, bảng cấp, bảng luật các dòng K4.4) · `checks/CONTRACT.md` · `checks-appeal.md` (A29, A33, A38–A45 + khối K4.4) · `decisions/D-013.md` · `RIGHTS.md` §F · `checks-runs/K44/` (fingerprints-K44.json, a33/, a39/, a42/, a29/, ba/ trước/sau) · `CHARTER.md` §4–§6.
+Soát:
+(1) Mỗi thay đổi đúng phạm vi tự khoá: không nới luật CHẶN cũ nào; luật cũ đổi fingerprint chỉ F11, A12, A13, R01, P01 và đúng lý do; tập cũ (≤ Tập 7) giữ kết quả cũ ở F11/P01/SH* trừ chỗ có `package.thumbnails`.
+(2) F13/F15 khớp RIGHTS §F (danh sách trắng 6 bậc, danh sách cấm, trần 15 %/20 %, ≤ 6 s, năm + nguồn, minh hoạ) và A39; chỗ nào lệch (vd bậc 4 Pexels/Pixabay: luật không đọc được loại ảnh người/logo/AI) phải được nêu. Có lỗ để footage không khai lọt qua không (chuỗi media trong timeline; episode.yaml)? A40 (2): đối chứng dương thật của F13 (`a39/real-controls.json`) có đủ thuyết phục là "thật" không?
+(3) S23 cấp CHÍNH đúng A40 (2) (báo sai Tập 5–7); R09 THAM KHẢO; SH07 CHÍNH.
+(4) A29: tiêu chí so byte (`a29/RESULT.md`): cách so (trường bỏ qua) có che lệch thật không; khoá cache có thiếu đầu vào nào (vd tệp trang ngoài blob, contract, video) làm cache trả kết quả cũ sai.
+(5) A33: sửa A13 cắt stem theo cảnh có đúng với take không trùng cảnh; R01 bỏ PNG có hợp lý.
+(6) Selftest: ca bad trượt đúng lý do (F13 ×16, F15 ×4, SH07, F11, P01, S23, R09, A40/nature, A12/A13/R01). Chạy `python3 checks/selftest/test_py.py --only F13,F15,SH07,F11,P01,S23,R09,A40,A12,A13,R01`.
+(7) README/CONTRACT khớp `python3 checks/py/run.py x --list` (measure, threshold, tier) cho các luật K4.4.
+Trả về: **ĐẠT / ĐẠT có sửa / TRƯỢT**; CHẶN / CHÍNH / PHỤ (tệp:dòng, vấn đề, sửa nguyên văn). ≤ 40 dòng.
