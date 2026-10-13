@@ -1,51 +1,66 @@
-# Sổ tay chạy một tập (playbook v4, Mốc V, 06/10/2026)
+# Sổ tay chạy một tập (playbook v5, D-013, 13/10/2026)
 
-Áp từ Tập 4 (`decisions/D-006.md`); v4 áp D-009 (chất lượng là ưu tiên tuyệt đối) và D-010 (thế giới 3D, 8 quy tắc hình–âm) từ Tập 5. Khung: `playbook/quality-framework.md`. Biên kịch: `playbook/story.md`. Prompt mẫu: `playbook/prompts/`. Một tập mở bằng một dòng: **"Chạy Tập N"** (hoặc "Chạy Tập N, đề tài #k") — phiên P1; mỗi chặng sau là một phiên MỚI mở bằng prompt phiên kế mà phiên trước để ở PLAN tập mục 7 (D-011): P2 (chỉ khi G1 ghi "cần C3") → P3 → P4.
+Áp từ Tập 4 (`decisions/D-006.md`); v4 áp D-009 (chất lượng là ưu tiên tuyệt đối) và D-010 (thế giới 3D, 8 quy tắc hình–âm) từ Tập 5; **v5 áp D-013 (mô hình xưởng 6 mốc, tổng kết Tập 7) từ Tập 8, ở ranh giới sau G1 Tập 8**. Khung: `playbook/quality-framework.md`. Biên kịch: `playbook/story.md`. Một tập chạy bằng **một prompt mẫu**: `playbook/prompts/CHAY-TAP-N.md` ("Chạy Tập N." + câu trả lời cổng nếu có); mỗi chặng tới cổng kế là một phiên ngắn.
 
 ## 0. Mở phiên
 `bash toolkit/verify.sh <nhánh-lệnh-ghi>`: kiểm công cụ, nhánh đúng lệnh (không tự đặt nhánh), `main` mới nhất. Trượt thì báo, không làm tiếp.
 
-## 1. Ba cổng, mỗi chặng một phiên (D-011)
+## 1. Sáu mốc, ba cổng, thẻ vai (D-013; thay "ba cổng, mỗi chặng một phiên" D-011)
 
-**Từ Tập 6:** phiên điều phối mới ở mỗi điểm dừng chờ chủ dự án (G1, C3 nếu có, G2); phiên cũ đóng bằng PLAN tập ≤ 1 trang + prompt phiên kế (tên nhánh, chỗ dán câu trả lời) — `prompts/RUN.md` mục "Đóng phiên". Bảng dưới là các chặng.
-**Sửa D-011 (tổng kết Tập 6 câu 1a, chủ dự án duyệt 11/10; lessons T6-3):** khi chặng sau cần **tệp lớn ngoài git** (bản dựng, đoạn thế giới, stem, cache trang, `node_modules`) đang nằm ở container hiện tại → **chạy tiếp trong phiên đó sau `/compact`**; vẫn đóng chặng bằng PLAN ≤ 1 trang + prompt phiên kế (để mở phiên mới được nếu container mất). Mở phiên mới chỉ khi container không còn tệp đó, hoặc ngữ cảnh sau `/compact` vẫn > 300 nghìn. P1 → G1 (chưa có tệp lớn) vẫn đóng và mở phiên mới. Dùng thử 3 tập rồi xem lại cùng (d), (f).
+**Nguyên tắc (chủ dự án 13/10):** chất lượng chỉ tăng; nâng từ tiền kỳ; kiểm–sửa có điểm dừng. Nâng cấp mới thử trên tập cũ trước, chỉ vào tập đang chạy ở ranh giới cổng.
 
-| Phiên | Việc | Kết thúc ở | Chủ dự án |
-|---|---|---|---|
-| **P1** | Việc 0 (dữ liệu, mô hình, kiểm độc lập) → C1 máy (≤ 3 đề tài + logline, kiểm mù kể lại) → C2 (kịch bản, móc, kiểm máy + kiểm mù lời) → giao phiên K → **G1** | G1 trả lời | **G1** (1 lần) |
-| **P2** *(khi tập có hình mới: ký hiệu, vật thể 3D, hero object, mẫu chuyển cảnh)* | C3 hình mới (không trần số; cổng gốc; **clip có chuyển động và âm**) | C3 trả lời | C3 |
-| **P3** | C4 animatic (TỰ ĐỘNG) → C5 render + L1 (TỰ ĐỘNG) → **G2** | G2 trả lời | **G2** |
-| **P4** *(phiên mới sau G2)* | Áp G2 → giao hàng → **G3** → merge `main` | Chủ dự án đăng; merge `main` | **G3** |
+| Mốc | Việc (vai) | Đầu ra | Cổng / dừng | Chủ dự án |
+|---|---|---|---|---|
+| **M1 Phát triển** | Việc 0 (dữ liệu, mô hình, kiểm độc lập) · C1 · C2 (WRITER, kiểm mù lời; `story.md` §1–§1c) · giao phiên K | kịch bản, bảng nhịp, chương, `numbers.md` | M1–M8 (`templates/check_script.py`), kiểm mù lời; ≤ 2 vòng | — |
+| **M2 Tiền kỳ** | bản tầm nhìn (Đạo diễn sáng tạo) · bảng vật thể (Thiết kế hình) · animatic 540p xám (Previz) · bản đồ liền mạch (Giám sát liền mạch) · ngân sách (Line producer) · footage: dòng RIGHTS **trước khi** tải (`RIGHTS.md` §F) | `preprod/TAM-NHIN.md`, `preprod/BAN-DO-LIEN-MACH.md`, `preprod/animatic.mp4`, clip 3 s mỗi vật thể | nhận dạng mù + cổng gốc trên animatic; ≤ 2 vòng mỗi lỗi; REVIEWER gói G1 | **G1**: kịch bản + vật thể/animatic + tiêu đề nháp (≤ 3 câu, `templates/G1.md`). **C3 gộp vào đây** |
+| **M3 Sản xuất nháp 540p** | nhà máy dựng thế giới, giọng (sinh một lần), nhạc bằng mã, SFX ghi âm thật, footage | nháp 540p theo cảnh | verify đoạn, đồng bộ ±0,2 s | — |
+| **M4 Hậu kỳ** | Editor: J/L-cut, nhịp, lặng · màu theo hồi · mix | nháp 540p cả tập | nhịp trên nháp | — |
+| **M5 Kiểm định trên nháp** | REVIEWER ý đồ (trước) · **checks đủ bộ, gồm bộ lấy mẫu trang** · cổng gốc · nhớ lại (Đạo diễn sáng tạo) · liền mạch (Giám sát) · lượt đạo diễn (chẩn đoán) · REVIEWER gói G2 | gói G2 + nháp 540p + 3 khung tĩnh 1080p của cảnh đinh | **≤ 2 vòng mỗi lỗi** (dưới) | **G2**: phiếu L3 trên nháp (`templates/L3.md`) |
+| **M6 Giao** | **1080p một lần** + **1 Short** · L1 kỹ thuật trên 1080p (độ phân giải, loudness, C14, SSIM so nháp ≥ 0,97) · gói chữ (tiêu đề G1, mô tả, chương, tag — **không thumbnail**) · giao hàng · merge `main` squash | master, Short, `HUONG-DAN-DANG.md` | lệch kỹ thuật thì sửa, không mở lại G2 | **G3** đăng |
 
-- **G1 sau C2** (D-006 Q2), một gói ≤ 3 câu:
-  1. đề tài + logline;
-  2. kịch bản: cấu trúc, cold open và móc đã chọn **dạng chữ**, kèm 2 phương án móc còn lại, mỗi phương án một dòng;
-  3. tiêu đề nháp + danh sách hình mới (→ C3).
-  Gói có dòng **mid-roll đủ điều kiện hay không** (§9, lessons T6-1); mẫu `playbook/templates/G1.md`.
-- **Duyệt theo lô:** một G1 được duyệt 3–4 đề tài + logline cho cả mùa (`topics/season.md`). Tập sau lấy đề tài kế tiếp trong danh sách; G1 của tập đó chỉ còn câu 2–3.
-- **Chưa có danh sách mùa:** P1 viết C2 cho đề tài được khuyến nghị; G1 hiện hai ứng viên kia, mỗi ứng viên một dòng. Đánh đổi: chủ dự án đổi đề tài → C2 viết lại (≈ 1 lượt WRITER + 6 người đọc). Máy không tự chọn đề tài (D-004).
+- **Chủ dự án chạm G1, G2, G3** (+ lệnh "Chạy Tập N"). Ngoài cổng chỉ hỏi khi gặp ngoại lệ CHARTER §5. Mỗi lượt chạm ghi vào PLAN tập §5 kèm phút ước.
+- **Mỗi chặng một phiên ngắn** (M1–M2 → G1; M3–M5 → G2; M6 → G3). Đóng chặng: PLAN tập ≤ 1 trang theo `templates/PLAN-tap.md` (mục 1 = mốc kế), commit, push, dừng. Phiên kế mở bằng "Chạy Tập N" — không viết prompt riêng. Tệp lớn ngoài git còn ở container thì chạy tiếp trong phiên đó sau `/compact` (sửa D-011, T6-3); không thì dựng lại theo `episode.yaml`.
+- **Tập 8 (chuyển đổi):** P1 Tập 8 chạy theo mẫu cũ tới G1 — kiểm kịch bản bằng `check_script.py` bản `c7358285` (M2/M3 30 s, không M7/M8; kịch bản cũ không có vai `fact` nên M7 bản mới luôn trượt); công thức mở đầu D-013 áp từ kịch bản Tập 9 hoặc khi WRITER Tập 8 viết lại sau G1; sau G1 làm M2 (tiền kỳ) rồi M3–M6. G1 Tập 8 đã ghi "cần C3" thì kiểm tiền kỳ thay đúng chỗ C3 (không thêm chạm); không thì thêm 1 lượt chạm, chỉ ở Tập 8.
+
+### 1a. Thẻ vai — vai là một đầu bài (một lượt headless khoá Console hoặc lệnh máy, 0 agent con), không phải agent sống. Vai không có phép thử riêng thì không thêm.
+| Vai | Đầu vào | Đầu ra | Phép thử riêng (ai đo) | Quyền / không được |
+|---|---|---|---|---|
+| **Đạo diễn sáng tạo** | logline, kịch bản, hồ sơ cầu, sổ gu | `TAM-NHIN.md` (câu hỏi của phim, 3 khoảnh khắc, màu lựa chọn/hồi, số neo + vật thể, chương, kết, footage) | **nhớ lại** trên nháp 540p (3 người headless, dải khung + lời): ≥ 2/3 người kể được ≥ 2/3 khoảnh khắc và đúng câu hỏi của phim — **chỉ báo cho tới khi hiệu chuẩn** (Tập 6/7, đối chứng âm Tập 1) | chọn trong phạm vi bản tầm nhìn đã duyệt ở G1; **không** đổi kịch bản, gu, nhạc |
+| **Thiết kế hình** | bản tầm nhìn, `toolkit/visual-library/`, gen CHARTER §4 | bảng vật thể: ảnh 3 góc + clip 3 s ở trạng thái đổi; RIGHTS cho tài sản ngoài | **nhận dạng mù**: 2 người headless xem clip 3 s tắt tiếng, gọi đúng vật thể **và ý** (chiều đổi) ≥ 2/2; máy kiểm bảng màu kênh, không mặt, low-poly | thêm vật thể vào thư viện sau G1; **không** dùng vật thể trượt nhận dạng 2 vòng |
+| **Previz** | kịch bản, bảng nhịp, bảng vật thể, timeline bản đọc thử | animatic 540p xám (khối, máy quay, thời điểm theo lời thật) | **cổng gốc tắt tiếng trên animatic** (`quality-framework.md` §4.7), đọc theo biên nhiễu A32 (chưa khoá: dùng tạm "≥ 2 lượt đọc lại đồng ý") | đổi bố cục, máy quay; **không** đổi lời |
+| **Editor** | nháp 540p theo cảnh, stem, bản đồ liền mạch | danh sách cắt: J/L-cut ở chuyển hồi, nhịp, lặng, mid-roll | **nhịp trên nháp**: quãng có lời không đổi hình > 8 s = 0; freezedetect ≥ 3 s có lời ≤ 30 s/tập; kiểm mù "chỗ muốn tua": không đoạn nào ≥ 2/3 | đổi thứ tự shot trong cảnh, độ dài lặng; **không** đổi lời |
+| **Giám sát liền mạch** | bản tầm nhìn, kịch bản, `numbers.md`, nháp | `BAN-DO-LIEN-MACH.md` → `map:`; báo cáo lệch | **máy đối chiếu nháp với bản đồ**: số neo/danh từ chính có vật thể ±1 s; chuyển hồi đúng kiểu khai; màu hồi và màu lựa chọn đúng; số trên hình = lời; footage có năm + nguồn (A41b, A39 — trước khi khoá: đối chiếu tay) | báo lệch cho vai sở hữu; **không** tự sửa hình |
+| **Line producer** | trần theo format, ledger, `build-report.json`, log phiên | sổ chi theo mốc (PLAN tập §5) | **sổ chi khớp nguồn** ±2 % (`total_cost_usd`, `from_events.py`, `build-report.json`). Kèm luật ngắt: một mốc vượt 150 % ngân sách mốc → dừng mốc, báo trong gói; 1080p chạy lần 2 phải có lý do ghi trước | ngắt và báo; **không** quyết chi tiêu mới, **không** cắt bước chất lượng |
+| WRITER | hồ sơ cầu, `story.md` | kịch bản, bảng nhịp, chương, 3 phương án mở | kiểm mù lời + M1–M8 | như cũ (§3) |
+| K | `checks-appeal.md` | luật khoá + LOCK | selftest; 0 lệch tập cũ; luật CHẶN mới cần đối chứng dương thật (A40, D-013) | như cũ (§7) |
+| Nhà máy | spine, thế giới, lời | nháp 540p, 1080p, Short | verify đoạn, đồng bộ, trùng byte so cache | như cũ |
+
+- **REVIEWER** (headless) chỉ ở gói G1, ý đồ kiểm định trước M5, gói G2 — không ở bước trung gian (D-013).
+- **Lượt đạo diễn máy là chẩn đoán** (D-010 §6). Lời phê chỉ thành việc sửa khi phép thử của vai sở hữu (Editor/Previz) **cũng trượt** ở đúng chỗ đó (tổng kết Tập 7: vòng sửa C5 theo lời phê trên bản cuối, cổng gốc đo 16/21 → 5–7/21).
+
+### 1b'. Vòng sửa — ≤ 2 vòng mỗi lỗi (D-013; thay 3 vòng, lessons V1)
+- Một lỗi ở một cảnh sửa tối đa **2 vòng**; hết 2 vòng → gói nêu **bản trước/sau** kèm số đo để chủ dự án chọn (D-009 E3).
+- **Khoá nghĩa (V2):** một vòng chỉ được giữ khi điểm vượt bản tốt nhất **ngoài biên nhiễu** (A32; chưa khoá → "≥ 2 lượt đọc lại đồng ý"); có câu khuyên → tự loại, sửa tiếp từ bản tốt nhất.
+- **Vòng 2 đổi loại hình (T6-7):** vòng 1 trượt với cùng câu trả lời người đọc → vòng 2 phải đổi loại hình (đếm → hàng có số thứ tự; vùng → vật thể riêng) hoặc hạ "ý cần đọc ra" về mức hình nói được (ghi `beats.md` trước khi chạy, nêu trong gói). Việc đổi loại hình làm ở **Previz trên animatic**, không trên bản dựng.
+- Nhãn đè đúng vùng cần đọc (V11.plateOverGraphics > 0) → sửa trước vòng tiếp.
+- **Duyệt theo lô:** G1 lô vẫn duyệt 3–4 đề tài + logline cho cả mùa (`topics/season.md`); G1 của tập sau chỉ còn kịch bản + tiền kỳ. Máy không tự chọn đề tài (D-004).
+
 - **Giọng, nhạc, hướng hình** dùng mặc định đã chốt (Eric `eleven_v3`; nhạc bằng mã theo bản đồ căng, biên độ rộng; hướng hình "một thế giới, hai chế độ máy quay" D-010 + thư viện hình). Muốn đổi thì chủ dự án nêu ở G1.
 - **Chất lượng trước (D-009):** lỗi CHÍNH **sửa trước phát hành** (ngoại lệ: sửa làm hỏng yếu tố chất lượng khác → gói nêu, kèm số đo/bản trước-sau, chủ dự án chọn). Cổng gốc trượt nghĩa → **sửa bằng hình trước**, nhãn là cách cuối. Token chỉ cảnh báo (§8). **Ngoại lệ phải hỏi:**
   - đổi kịch bản đã duyệt;
   - số không xác minh được nguồn;
   - rủi ro pháp lý/bản quyền;
   - chi tiêu mới (CHARTER §6).
-- Mỗi tập một nhánh `epNNN` từ `main`. Chỉ phiên điều phối chặng cuối (sau G2) merge (fetch trước; trong file dùng chung chỉ sửa phần của tập).
-- **Bàn giao qua `episodes/epNNN/PLAN.md` ≤ 1 trang** theo mẫu `playbook/templates/PLAN-tap.md` (tổng kết Tập 5 §3.7): 1 trạng thái · 2 việc tiếp (≤ 3) + việc treo · 3 quyết định đã có (trỏ `gates/*-answer.md`) · 4 đã sửa gì, vì sao · 5 mức cảnh báo + 4 số token mỗi phiên + giờ render · 6 **phiên sau đọc ≤ 8 tệp** · 7 prompt phiên kế (D-011). Bảng cổng chi tiết, lệnh cũ, giao file → `episodes/epNNN/archive/PLAN-history.md`; quyết định còn hiệu lực không chỉ nằm ở archive. `PLAN.md` gốc repo là **PLAN kênh** ≤ 1 trang (tập hiện hành, nhánh, việc treo, hàng chờ K) — phiên điều phối chặng cuối cập nhật khi merge.
+- Mỗi tập một nhánh `epNNN` từ `main`. Chỉ phiên chặng M6 (sau G2) merge `main` squash (fetch trước; trong file dùng chung chỉ sửa phần của tập).
+- **Bàn giao qua `episodes/epNNN/PLAN.md` ≤ 1 trang** theo `playbook/templates/PLAN-tap.md` (D-013): 1 mốc hiện tại · 2 việc tiếp (≤ 3) + việc treo · 3 quyết định đã có (trỏ `gates/*-answer.md`) · 4 đã sửa gì, vì sao · 5 sổ chi theo mốc (token 4 số + đọc cache + lượt + $ + giờ máy + EL + lượt chạm và phút chủ dự án) · 6 **phiên sau đọc ≤ 8 tệp** · 7 mở chặng kế bằng `prompts/CHAY-TAP-N.md`. Lịch sử → `episodes/epNNN/archive/PLAN-history.md`. `PLAN.md` gốc repo là **PLAN kênh** ≤ 1 trang — phiên M6 cập nhật khi merge.
   Phiên sau chỉ đọc các tệp ở mục 6 của PLAN tập.
-- **Tối đa 3 vòng mỗi lỗi (lessons V1):** một lỗi ở một cảnh sửa tối đa **3 vòng**; hết 3 vòng → gói nêu **bản trước/sau** kèm số đo để chủ dự án chọn (D-009 E3). **Khoá nghĩa (V2):** bản mới có điểm cổng gốc thấp hơn bản tốt nhất trước đó, hoặc có câu khuyên, thì tự loại — sửa tiếp từ bản tốt nhất. **Vòng 3 đổi loại hình (lessons T6-7):** vòng 2 trượt với cùng câu trả lời của người đọc → vòng 3 phải đổi loại hình (đếm → hàng có số thứ tự; vùng → vật thể riêng) hoặc hạ "ý cần đọc ra" về mức hình nói được (ghi `beats.md` trước khi chạy, và nêu trong gói C4/G2 để chủ dự án thấy ý đã hạ); nhãn đè đúng vùng cần đọc (V11.plateOverGraphics > 0 ở nhịp đó) → sửa trước vòng tiếp.
-- **Lượt đạo diễn (bắt buộc, chẩn đoán — D-009 E5, D-010 §6):** trước render bản cuối, mỗi đoạn có hình mới qua một lượt đạo diễn trên bản 540p (`quality-framework.md` §10): 4 trục + lời phê theo mốc giây. Lời phê là việc nên xem, không phải ngưỡng; **chỉ sửa nhận xét lặp ở ≥ 2 lượt độc lập** (lessons V3); không mở vòng sửa thẩm mỹ chỉ vì điểm máy. Thước đo cuối là phiếu L3 ở G2 (≥ 4 mọi dòng).
+- **Lượt đạo diễn (bắt buộc, chẩn đoán — D-009 E5, D-010 §6):** ở M5, mỗi đoạn có hình mới qua một lượt đạo diễn trên nháp 540p (`quality-framework.md` §10): 4 trục + lời phê theo mốc giây. Lời phê là việc nên xem, không phải ngưỡng; chỉ thành việc sửa khi phép thử của vai sở hữu cũng trượt ở đó (§1a); không mở vòng sửa thẩm mỹ chỉ vì điểm máy. Thước đo cuối là phiếu L3 ở G2 (≥ 4 mọi dòng).
 - **Đoạn thế giới 3D:** khai `world:` trong `episode.yaml`; dựng và kiểm bằng `toolkit/factory/world/build_seg.py`. **Ghép vào master** bằng bước `splice` của nhà máy (BACKLOG F-5 xong 07/10, `toolkit/factory/world/splice.py`, test `test_world_splice.py`): hình thay khung các cảnh đoạn chiếm, tiếng đoạn vào stem tập, loudnorm chung; `spec.py` chặn cảnh không liên tiếp hoặc một cảnh nằm trong hai đoạn. Đoạn dựng (lint → spine → render theo cảnh có cache → âm → verify quy tắc 1/2/3/7); đồng bộ ±0,2 s bằng `sync_audit.py`; C14 trên bản 1080p.
-- **Sửa nhà máy gom đầu tập (tổng kết Tập 5 §3.8):** việc nhà máy làm trên nhánh `factory-*` trước G1 hoặc sau G1 trước C3, merge `main` rồi mới dùng. Giữa tập (C3 → G2) chỉ sửa lỗi **chặn = CHẶN + CHÍNH** của tập đang làm; cải tiến khác ghi `toolkit/factory/BACKLOG.md`.
+- **Sửa nhà máy gom đầu tập (tổng kết Tập 5 §3.8):** việc nhà máy làm trên nhánh `factory-*` trước G1 hoặc sau G1 trước M3, merge `main` rồi mới dùng; thử trên tập cũ trước (D-013). Giữa tập (M3 → G2) chỉ sửa lỗi **chặn = CHẶN + CHÍNH** của tập đang làm; cải tiến khác ghi `toolkit/factory/BACKLOG.md`.
 - **Số nói (B+2):** ≤ 2 số **mới** được nói mỗi cảnh (`toolkit/factory/numbers_said.py`, BLOCK trong `spec.py`); số thứ ba trở đi lên nhãn trên hình (người biên tập chọn), phạm vi không đổi.
 - **Giọng theo cảnh (B+1):** `voice_overrides: {Sxx: {seed | settings | voice | model | take}}` trong `episode.yaml` khi một cảnh cần take khác (vd Tập 5 S18 seed 1006).
-- Trước mỗi gói cổng và mỗi issue TỰ ĐỘNG: **REVIEWER** soát (`quality-framework.md` §7).
-- **Agent dựng không chờ (tổng kết Tập 5 §1e.1, chủ dự án duyệt 08/10).** Tập 5: agent con dựng W4 + W5 tốn ≈ 71 triệu trần (83 % cả tập), W5 ghi cache 49,6 triệu so với sinh ra 0,36 triệu — phần lớn là agent ngồi chờ lượt 1080p (≈ 1,5 h) và checks (≈ 1,3 h), mỗi lần thức dậy nạp lại cả ngữ cảnh 0,4–0,65 triệu.
-  1. Agent dựng **khởi chạy build/checks bằng công cụ chạy nền của phiên** (an toàn chạy nền: §11b) rồi **trả việc ngay** — không chờ, không hỏi trạng thái theo vòng.
-  2. Phiên điều phối nhận thông báo lệnh nền xong, rồi giao **agent MỚI, đầu bài ngắn** đọc `out/factory/build-report.json` / `checks-runs/<run>/report.json` (ngữ cảnh ≈ 50–100 nghìn), quyết vòng sửa.
-  3. **Một vòng sửa = một agent.** Không gọi lại agent cũ, không giữ agent sống qua một lượt render.
-  4. Đầu bài agent mới **chép "đã sửa gì, vì sao"** của các vòng trước (≤ 10 dòng, lấy từ PLAN tập — mẫu `playbook/templates/PLAN-tap.md`) để không mất ngữ cảnh sửa: cảnh, lỗi (mã luật), cách sửa, kết quả đo, việc còn lại.
-  Cùng lệnh dựng, cùng checks, cùng kiểm mù → chất lượng không đổi; số đo đối chiếu: CHẶN/CHÍNH và cổng gốc như C5c Tập 5. Kiểm ở Tập 6: đọc transcript một agent dựng, đếm lượt ghi cache > 0,3 triệu.
+- **REVIEWER** (headless, `quality-framework.md` §7) soát gói G1, ý đồ kiểm định trước M5 và gói G2 (D-013); không soát bước trung gian.
+- **Agent dựng không chờ** (tổng kết Tập 5 §1e.1) — chỉ áp khi buộc dùng agent con (cách chuẩn là headless, §2): khởi chạy build/checks bằng công cụ chạy nền rồi trả việc ngay; một vòng sửa = một lượt mới, đầu bài chép PLAN tập mục 4. Chi tiết: `archive/prompts-v4/` và lessons T5.
 
 ## 1b. Dữ liệu thị trường trong quy trình (Phiên Thị trường `market-r1`, chủ dự án duyệt hướng 10–11/10) — KHÔNG thêm cổng, phiên hay lượt chạm
 Nguồn: `market/` (`CHANNELS.md`, `topics/<đề tài>.md` = hồ sơ cầu, `REPORT.md`, `teardowns/`), công cụ `toolkit/market/` (README ở đầu mỗi tệp). Số liệu thô YouTube **chỉ** ở `~/market-cache/<ngày>/` ngoài git (YouTube API Developer Policies III.E.4); repo nhận nhãn (cao/vừa/thấp) và kết luận định tính; chỉ số tự tính ghi "tự tính, không phải chỉ số YouTube". Mọi bước dưới là việc máy trong chặng sẵn có; thiếu dữ liệu thì ghi "chưa có" và làm tiếp, không hỏi.
@@ -53,8 +68,8 @@ Nguồn: `market/` (`CHANNELS.md`, `topics/<đề tài>.md` = hồ sơ cầu, `R
 2. **C1:** logline **trả lời câu hỏi trọng số cao nhất** của hồ sơ cầu (câu 1 mục "Câu hỏi khán giả"); kiểm mù kể lại giữ nguyên.
 3. **C2 (WRITER):** §3 mục 11. **REVIEWER:** `quality-framework.md` §7 mục 10 (trả lời ≥ 3/5 câu hỏi).
 4. **Kiểm mù lời C2:** vai người đọc = **người hỏi** câu hỏi trọng số cao nhất, nhập vai từ một hoàn cảnh điển hình của hồ sơ (thay vai khán giả chung; câu hỏi cố định giữ nguyên, thêm một câu: *"Did the video answer the question you came with? Which part?"*). Ghi vào ý đồ `gates/C2-intent.md` trước khi chạy như mọi ý đồ.
-5. **G1:** gói thêm **1 dòng** "trả lời câu hỏi X, Y, Z (hồ sơ cầu)" + **3 video vượt trội cùng đề tài** (liên kết, kênh, nhãn ≥ 3× / ≥ 5×) — không thêm câu hỏi cho chủ dự án (`templates/G1.md`). **Từ Tập 7 (D-012):** thêm dòng **"neo: …; khác biệt: …"** (`python3 toolkit/market/anchors.py anchors --topic <id> --question "<câu hỏi khán giả, không nêu phương pháp>"`, P1 Việc 0) và **ý tưởng tiêu đề + thumbnail chốt ở G1** (`playbook/packaging.md` §7).
-6. **P4 (video hoàn tất, trước G3) → ChatGPT của chủ dự án → P4 kiểm:** §5c + `packaging.md` §7.
+5. **G1:** gói thêm **1 dòng** "trả lời câu hỏi X, Y, Z (hồ sơ cầu)" + **3 video vượt trội cùng đề tài** (liên kết, kênh, nhãn ≥ 3× / ≥ 5×) — không thêm câu hỏi cho chủ dự án (`templates/G1.md`). **Từ Tập 7 (D-012):** thêm dòng **"neo: …; khác biệt: …"** (`python3 toolkit/market/anchors.py anchors --topic <id> --question "<câu hỏi khán giả, không nêu phương pháp>"`, P1 Việc 0) và **tiêu đề chốt ở G1** (D-013: không thumbnail).
+6. **M6:** mô tả + chương + tag do máy viết, kiểm `package_check.py` (§5). Không thumbnail (D-013).
 7. **Sau phát hành:** vòng tự hiệu chỉnh nhãn cầu §10.
 
 ## 2. Model, effort, số agent
@@ -72,14 +87,14 @@ Mỗi agent con tốn **≈ 32–49 nghìn token cố định** (Mốc B, Tập 
 **Kiểm mù (Tập 5, lessons H2–H3):**
 - **C1:** 3 người đọc mỗi logline (2 T + 1 G), không đối chứng, không so cặp tiêu đề; dừng khi 2 sai.
 - **C2:** 6 người đọc + 1 người chấm, ≤ 2 vòng; dừng khi gặp khuyên_tính đầu tiên (A9) hoặc 2 sai; không dừng sớm khi đạt.
-- **Cổng gốc (C3/C4):** chỉ nhịp loại 1; 2 người đọc mỗi nhịp, người thứ 3 chỉ khi chia; người chấm độc lập.
+- **Cổng gốc (M2 trên animatic, M5 trên nháp):** chỉ nhịp loại 1; 2 người đọc mỗi nhịp, người thứ 3 chỉ khi chia; người chấm độc lập.
 - **Không chạy:** tóm tắt AI ở G2, so cặp thumbnail, đối chứng trong tập thường (chỉ khi rubric mới, việc lô K), hiệu chuẩn so cặp móc (đã xong).
 - **Headless là cách kiểm mù chính** (tổng kết Tập 5 §2a, chủ dự án duyệt 08/10): C2 Tập 5 so song song 6 headless + 3 `Explore` — đạt/trượt trùng (6/6, 3/3, 0 khuyên); khối mất chú ý nhiều nhất khác cảnh nhưng **cùng loại** (khối phương pháp: S19 thẻ 4/6 vs S10.1 3/3); headless ≈ 1/4 giá, mù thật. **Không dùng `Explore` cho kiểm mù.**
 - **Câu mất chú ý** hỏi ở mọi kiểm mù lời (C2). Ngưỡng so/sửa đọc theo **loại khối**, không theo cảnh: *phương pháp / định nghĩa / số dày / nhân vật*. Một loại khối được **≥ 2/6** người đọc nêu → WRITER mới sửa khối đó (như Tập 5 v2: S19 còn 1 câu → S18 3/6).
 - **Một lượt người đọc model khác ở C2 mỗi 3 tập** (Tập 6, 9, 12…): thêm 1–2 người đọc headless Opus hoặc Haiku (`headless.sh --model`) trên cùng gói lời, cùng người chấm; giảm điểm mù chung của Sonnet (người đọc cùng model tương quan cao, lessons H3). Ghi kết quả so với 6 người Sonnet vào ledger; lệch đạt/trượt hoặc lệch loại khối → nêu ở G1.
 
 ## 2b. Thước chỉ báo chống tụt hình (tổng kết Tập 5 §3.2–3.3, từ Tập 6)
-Chạy ở C4 (spine + animatic) và C5 (bản cuối), báo một bảng trong gói G2; **chỉ báo, không ngưỡng, không mở vòng sửa chỉ vì số** (CHARTER §4). Lệnh và trạng thái: `toolkit/indicators/README.md`; hiệu chuẩn 08/10 trên Tập 1 (đối chứng âm), Tập 4 v3k, Tập 5: `tongket-t5/indicators/CALIBRATION.md`.
+Chạy ở M2 (spine + animatic) và M5 (nháp), báo một bảng trong gói G2; **chỉ báo, không ngưỡng, không mở vòng sửa chỉ vì số** (CHARTER §4). Lệnh và trạng thái: `toolkit/indicators/README.md`; hiệu chuẩn 08/10 trên Tập 1 (đối chứng âm), Tập 4 v3k, Tập 5: `tongket-t5/indicators/CALIBRATION.md`.
 - **Giữ:** nhịp trên spine (quãng có lời không cú máy/không vật đổi trạng thái > 8 s — **chưa hiệu chuẩn**, đối chứng dương 2/4); đa dạng khung nhìn theo máy quay (xếp đúng: Tập 1 cụm lớn nhất 58,5 %, Tập 5 6,8 %); mỗi vật thể đổi trạng thái có tiếng riêng (cine-lab Q28 c; Tập 1 0 % · v3k 52 % · Tập 5 40 % → chỉ báo; không đặt đích — nếu cần, chủ dự án quyết ở G1 Tập 6).
 - **Bỏ (xếp sai):** chấm mù khung, xem liền mạch mù — người đọc headless xếp Tập 1 trên Tập 5 / coi chuyển chế độ D-010 là "đổi phong cách". Gu hình đo bằng L3.
 - **Chưa đo đúng định nghĩa:** tông màu theo hồi (cine-lab Q30 = đúng tông đã khai cho từng hồi; Crux chưa khai màu hồi) — khai `map.color` là việc gu, chủ dự án quyết.
@@ -99,25 +114,27 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 6. **Bảng nhịp** có cột loại nhịp (1 "hình tự mang ý" + câu "ý người xem phải đọc ra" / 2 "minh hoạ lời"). Hình lấy từ thư viện; ký hiệu mới phải ghi lý do.
 7. Gen được bảo vệ và gu đã chốt (CHARTER §4, `taste-ledger.md`). Không chép kịch bản tập cũ.
 8. **Mỗi lần sửa kịch bản giao một agent WRITER MỚI với đầu bài ngắn** (file cần sửa + danh sách dòng cần đổi + lý do), **không gọi lại agent cũ**: gọi lại tốn bằng toàn bộ ngữ cảnh của agent đó (Tập 4: 3 lượt WRITER ≈ 0,56 triệu token; lessons G2).
-9. **Điều kiện móc — TỰ ĐỘNG ở C2, đo trước G1** (lessons H4; Tập 4: móc kết thúc 8,1 s, câu hỏi người xem 1:34, AI hook 2/5). WRITER gắn vai mỗi câu trong 60 s đầu (`hook`/`promise`/`question`/`constraint`/`define`). Mốc thời gian lấy từ timeline nhà máy hoặc ASR table read của **bản đọc thử trước G1**:
-   - **M1** câu móc kết thúc ≤ 5,0 s;
-   - **M2** lời hứa kết thúc ≤ 30 s;
-   - **M3** câu hỏi của người xem ≤ 30 s (được trùng M1);
-   - **M4** 0:00–1:00 không khối `constraint`/`define` liền > 10 s (phần thừa lên nhãn hình, thẻ V7, mô tả);
-   - **M5** nhân vật hoặc cái được–mất quay lại ≤ 0:45;
-   - **M6** (từ Tập 6, `story.md` §2b.2) mọi lời hứa về nhân vật (vd "three buyers who got very different answers") được trả — nhân vật có tên và xuất hiện — **≤ 90 s** sau câu hứa; không trả được thì không hứa. Đo cả tập, không chỉ 60 s đầu; WRITER gắn vai `promise_character` cho câu hứa.
-   Trượt → WRITER mới sửa (≤ 2 vòng), vẫn trượt → nêu ở G1. G1 báo 6 mốc thành một dòng.
+9. **Điều kiện mở — TỰ ĐỘNG ở C2, đo trước G1** (lessons H4; D-013: công thức `story.md` §1). WRITER gắn vai mỗi câu trong 60 s đầu (`hook`/`fact`/`question`/`promise`/`constraint`/`define`). Mốc thời gian lấy từ timeline nhà máy hoặc ASR table read của **bản đọc thử trước G1**:
+   - **M1** câu móc (tin thời sự / nghịch lý ở 0:00) kết thúc ≤ 5,0 s;
+   - **M7** ≥ 3 câu `fact` (sự thật lật kỳ vọng), câu thứ 3 kết thúc ≤ 35 s;
+   - **M3** câu hỏi của người xem ≤ 40 s;
+   - **M2** lời hứa đáp án dạng nghịch lý ≤ 50 s;
+   - **M8** ≤ 1 câu `constraint` (miễn trừ ≤ 1 vế) trong 0:00–1:00 — phần còn lại lên hình;
+   - **M4** 0:00–1:00 không khối `constraint`/`define` liền > 10 s;
+   - **M5** nhân vật hoặc cái được–mất xuất hiện lần đầu ≤ 0:45;
+   - **M6** (`story.md` §2b.2) mọi lời hứa về nhân vật được trả ≤ 90 s sau câu hứa; WRITER gắn vai `promise_character`.
+   Trượt → WRITER mới sửa (≤ 2 vòng), vẫn trượt → nêu ở G1. G1 báo 8 mốc thành một dòng. **Chương** (`story.md` §1b) và **kết** (§1c) ghi trong bảng nhịp: tên chương gợi hình, câu chốt cuối chương, bảng điểm 3–4 mục, hình mở đầu quay lại, câu chuyền tập kế. **Số nói bằng tỉ lệ con người, mỗi lựa chọn một màu** (`story.md` §3).
 
 10. **Năm luật nhân vật (`story.md` §2b, từ Tập 6):** một nhân vật dẫn đường từ cold open đến kết (trước 0:45, đi qua phần phương pháp, câu kết là câu của người đó); lời hứa nhân vật trả ≤ 90 s (M6); cái được–mất bằng vật cụ thể khi không được nêu số tiền ("23 more bills"); câu ở đỉnh cảm xúc ≤ 15 từ, một ý một câu; kết quay về câu hỏi của nhân vật. WRITER ghi trong bảng nhịp: tên nhân vật dẫn đường, câu đỉnh cảm xúc (số từ), câu kết.
 
 11. **Hồ sơ cầu (`market/topics/<đề tài>.md`, §1b):** nhân vật dẫn đường dựng từ **một hoàn cảnh điển hình** của hồ sơ (vẫn ILLUSTRATIVE); kịch bản **trả lời ≥ 3/5 câu hỏi khán giả** (ghi câu nào trả ở cảnh nào trong bảng nhịp); **một nhịp xử lý một điểm yếu đối thủ** của hồ sơ (vd "giả định lợi suất cố định" → phát lại lịch sử thật) mà không nêu tên kênh; **độ dài trong dải thời lượng vượt trội** của hồ sơ **và** trong khung `format` §9 — hai dải không giao nhau thì theo `format` và ghi một vế trong dòng **Độ dài** sẵn có của G1 (đổi khuôn là quyền chủ dự án).
 
-12. **Video neo (D-012, `packaging.md` §7.1):** lời hứa trả lời trong **30 s đầu** (M2) đúng câu hỏi của video neo, và một nhịp lấp **đúng khoảng trống** của neo (dòng "khác biệt" ở G1, thường là phát lại lịch sử thật) — không nêu tên kênh, không chép tiêu đề.
+12. **Video neo (D-012, `packaging.md` §7.1):** lời hứa trả lời trong **50 s đầu** (M2, D-013) đúng câu hỏi của video neo, và một nhịp lấp **đúng khoảng trống** của neo (dòng "khác biệt" ở G1, thường là phát lại lịch sử thật) — không nêu tên kênh, không chép tiêu đề.
 
 **Móc do máy chọn (D-006 Q4):**
-- WRITER viết **3 phương án 30 s đầu**, mỗi phương án một kiểu móc khác nhau (`packaging.md` §2). Cả ba đều theo story §1: 5 s đầu là được–mất hoặc câu hỏi trên sự thật hiện tại; lời hứa trước 0:30.
+- WRITER viết **3 phương án 50 s đầu**, mỗi phương án một kiểu mở khác nhau (tin thời sự / nghịch lý / được–mất). Cả ba đều theo `story.md` §1 (M1–M8).
 - **So cặp móc — ỨNG VIÊN, đã hiệu chuẩn chính thức (P1 Tập 4, `episodes/ep004/cal-hook/`, lessons G1):** chọn bản gốc 7/8, mỗi mẫu ≥ 3/4, mỗi vị trí ≥ 3/4 — **đạt đúng bằng ngưỡng** ở cả ba điều kiện; mẫu mới (Tập 1 + kịch bản mới), thứ tự X/Y cân bằng. **Mới chứng minh phân biệt "có móc / bỏ móc"**, chưa chứng minh chọn đúng giữa ba móc đều tốt (Tập 4: người đọc chọn vị trí Y 7/9 ở vòng tròn). Cách dùng (chủ dự án, G1 Tập 4):
-  - **từ Tập 5:** REVIEWER chấm 3 phương án theo story §1 + điều kiện M1–M6 (§3.9); so cặp vòng tròn (headless, 3 lượt mỗi cặp, thứ tự xoay, báo lệch vị trí) **chỉ khi REVIEWER không tách được** (Tập 4: 9 người đọc, 0,29 triệu, H1/H2 không phân biệt);
+  - **từ Tập 5:** REVIEWER chấm 3 phương án theo story §1 + điều kiện M1–M8 (§3.9); so cặp vòng tròn (headless, 3 lượt mỗi cặp, thứ tự xoay, báo lệch vị trí) **chỉ khi REVIEWER không tách được** (Tập 4: 9 người đọc, 0,29 triệu, H1/H2 không phân biệt);
   - **kèm WRITER + REVIEWER**: REVIEWER chấm 3 phương án theo story §1 (lý do một dòng); khi so cặp và REVIEWER lệch nhau, hoặc khi thắng thua chỉ do bản đứng cùng một vị trí, G1 nêu cả hai;
   - mỗi lần dùng ghi kết quả + lệch vị trí vào ledger; hiệu chuẩn lại khi đổi model người đọc. Thước đo thật vẫn là giữ chân YouTube.
 - G1 hiện móc đã chọn dạng chữ trong kịch bản + 2 phương án còn lại, mỗi phương án một dòng. Chủ dự án chỉ đổi khi muốn. **Không sinh giọng cho phương án không chọn.**
@@ -127,30 +144,28 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 - Phối nhạc style C, đo độ lặp T2 (Tham khảo).
 - Lời theo cảnh: tên take theo hash chữ; kiểm từ khoá ASR ngay khi sinh; chỉ sinh lại cảnh đổi chữ.
 
-## 5. Gói phát hành và Shorts (G2)
-- **Tiêu đề:** nháp ở G1 (so cặp một vòng, Tham khảo).
-- **Thumbnail, tiêu đề, mô tả, tag: chủ dự án làm trên ChatGPT từ Tập 7** (câu trả lời tổng kết Tập 6 câu 3; §5c, `packaging.md` §7). G2 không còn câu chọn thumbnail. **Không so cặp** thumbnail (lessons H2). Test & Compare là số đo thật.
-- **Khung tham chiếu (thay "thumbnail bằng hình thế giới 3D" của Tập 6):** P4 trích **3–4 khung đẹp nhất** của bản cuối (1280×720, không chữ, có vật thể trung tâm) cho brief mục (f). **Không render đối chứng 2D**; thumbnail API lai **không dùng** (chủ dự án bác 11/10). `toolkit/package/text.py`, `thumbs.py` là công cụ phụ, chỉ chạy khi chủ dự án yêu cầu.
-- **Không tóm tắt AI ở G2** (0/3 lần đổi quyết định); sức kéo của móc đo ở C2 (§3.9).
-- **Shorts 2–3 cái 9:16 mỗi tập**, cắt từ nhịp then chốt đã qua checks:
+## 5. Gói phát hành và Short (D-013: 1 Short, 0 thumbnail; G2 không còn ChatGPT/thumbnail)
+- **Tiêu đề:** chốt ở G1 (so cặp một vòng, Tham khảo); M6 dùng đúng tiêu đề G1 trừ khi chủ dự án đổi ở G2.
+- **Mô tả, chương, tag: máy viết ở M6** từ claims, `out/timeline.json` (chương = tên chương gợi hình, `story.md` §1b) và hồ sơ cầu; kiểm bằng `python3 toolkit/market/package_check.py episodes/epNNN --title "…" --description <tệp>` (S21, claim-risk, chương khớp timeline ±2 s, ≥ 10 s/chương) + REVIEWER không cần (gói không tới chủ dự án trước G3; lệch thì sửa trước G3). Khối `[METHOD AND SOURCES]` + ghi công CC BY (RIGHTS) trong mô tả.
+- **Không thumbnail** (chủ dự án 13/10): không brief ChatGPT, không khung tham chiếu, không ảnh. YouTube tự chọn khung; `HUONG-DAN-DANG.md` ghi 3 khung 1080p đề nghị (mốc giây) để chủ dự án đặt nếu muốn. `toolkit/package/{text,thumbs}.py`, `toolkit/market/brief.py` là công cụ phụ, chỉ chạy khi chủ dự án yêu cầu. Checks: A38.
+- **Không tóm tắt AI ở G2.**
+- **1 Short 9:16 mỗi tập**, cắt từ nhịp then chốt đã qua checks (thường là số neo hoặc nghịch lý mở đầu), dựng một lần ở M6:
   - ≤ 60 s;
   - chữ ≥ sàn dọc 56 px ở 1080×1920;
   - vùng an toàn dọc (trên 200 px, dưới 320 px);
-  - ILLUSTRATIVE và "history, not a forecast" trên mọi khung có số.
-  - **móc Shorts ≤ 1 dòng ở cỡ sàn 56 px** (≈ ≤ 26 ký tự Inter Bold trong bề rộng an toàn 960 px), đo bằng hộp chữ **khi viết** (bước spine Shorts), không đợi qc C5 (lessons T6-10; Tập 6 SH1/SH3 móc 2 dòng ra ngoài vùng an toàn).
-  Dựng bằng thư viện mẫu khi phiên nhà máy xong (`moc-b/PLAN-FACTORY.md`). Trước đó cắt tay từ bản cuối.
-- **Hướng dẫn đăng:** `episodes/epNNN/HUONG-DAN-DANG.md` theo mẫu `playbook/templates/HUONG-DAN-DANG.md`.
-
-## 5c. Đóng gói qua ChatGPT — ĐƯỜNG CHÍNH từ Tập 7 (câu trả lời tổng kết Tập 6 câu 3, 11/10; luật ở `packaging.md` §7)
-1. **P4, video hoàn tất, trước G3:** `python3 toolkit/market/anchors.py trend --topic <id> --save out/package/trend7.json` rồi `python3 toolkit/market/brief.py episodes/epNNN --topic <id hồ sơ cầu> --trend out/package/trend7.json --anchors <neo.json của G1> --g1-title "…" --objects "…" --banned "…" --frame out/package/frame-1.png …` → `out/package/PACKAGING-BRIEF.md` (tiếng Anh, mẫu `playbook/templates/PACKAGING-BRIEF.md`) gồm (a) quét tốc độ 7 ngày, (b) 1–3 video neo + cụm từ chính + khác biệt, (c) khuôn tiêu đề thắng + cụm tìm kiếm đặt đầu tiêu đề và 2 dòng đầu mô tả, (d) kiểu thumbnail thắng 90 ngày + vật thể trung tâm đúng tên gọi trong lời, (e) claim được/bị cấm, chương + mốc giờ từ `out/timeline.json`, câu hỏi khán giả đã trả lời, (f) 3–4 khung PNG đẹp nhất. P4 đưa brief + khung cho chủ dự án.
-2. **Chủ dự án** dán brief vào ChatGPT (đính kèm khung), rồi dán **tiêu đề + mô tả + ảnh thumbnail** (+ tag) của ChatGPT lại vào P4.
-3. **P4, chốt kiểm:** `python3 toolkit/market/package_check.py episodes/epNNN --title "…" --description <tệp> --thumb <ảnh>` — **S21** (luật khoá, trên mô tả), claim-risk (ADVICE/FORECAST/FOUR/WE_BAD, số có claim, cụm bắt buộc, ILLUSTRATIVE), **chương khớp timeline** (±2 s đầu hồi, ≥ 10 s/chương), **chữ trên ảnh** (≤ 4 từ lớn, số có claim); `python3 toolkit/package/rescore.py …` (bộ lọc thô: vật thể thấy trên ảnh, mức bám xu hướng/neo); phiên đọc ảnh + chữ: **từ ngữ vật thể khớp lời**, cụm tìm kiếm đứng đầu. Dòng `[METHOD AND SOURCES]` trong mô tả được thay bằng khối phương pháp + nguồn của máy. ĐẠT → ghi vào `HUONG-DAN-DANG.md`. Lệch → `out/package/package-check.md` có **câu sửa sẵn** (tiếng Anh, dán lại vào ChatGPT); chủ dự án sửa trước khi đăng (G3).
+  - ILLUSTRATIVE và "history, not a forecast" trên mọi khung có số;
+  - **móc Short ≤ 1 dòng ở cỡ sàn 56 px** (≈ ≤ 26 ký tự Inter Bold trong bề rộng an toàn 960 px), đo bằng hộp chữ khi viết (bước spine Short; SH06, lessons T6-10).
+  Short duyệt ở G2 dưới dạng mô tả + mốc giây (dựng sau G2, ở M6); lệch kỹ thuật sửa không mở lại G2.
+- **Hướng dẫn đăng:** `episodes/epNNN/HUONG-DAN-DANG.md` theo `playbook/templates/HUONG-DAN-DANG.md`.
+- **Đường ChatGPT (§5c cũ, Tập 7) bỏ từ Tập 8** — giữ ở `packaging.md` §7 làm tham chiếu.
 
 ## 5b. Âm: nhạc hiệu, cue theo hồi, lặng trước số neo (tổng kết Tập 5 §3.4, từ Tập 6)
 - **Nhạc hiệu kênh:** 3 s ở ident (`IDENT_S = 3`) và **một khúc đóng khác**; nhạc bằng mã (D-010 §5), dựng một lần cho cả kênh. Gu nhạc là quyền chủ dự án (CHARTER §6): **chủ dự án duyệt nhạc hiệu bằng clip có âm ở C3 Tập 6** (một lần cho cả kênh), sau đó dùng lại mọi tập.
 - **Mỗi hồi một cue riêng, không lặp vòng:** nhạc vẫn theo bản đồ căng (F-3 Tập 5: dâng ở phần phát lại, chốt hợp âm đúng từ khoá), thêm ràng buộc cue khác nhau giữa các hồi và không lặp vòng trong hồi.
 - **Lặng 0,7–0,9 s trước mỗi số neo** (≤ 3 số neo/tập, §3.2.4 của tổng kết; beat khai `anchor: true` trong spine). Tiếng hiệu ứng "land" đè đúng từ khoá số neo phải bỏ (F-2: sfx chỉ thấp hơn lời 11 dB).
 - **Không tăng mật độ sfx** khi thêm cue (F-2 cảnh báo đoạn a Tập 5: 21,7 sự kiện/phút, 8 trong 10 s). Lặng trước số làm tập dài ≈ 2–3 s — tính vào ước độ dài.
+- **SFX ghi âm thật (D-013):** tiếng vật thể đổi trạng thái (giấy, kim loại, gỗ, tiền xu) dùng bản ghi âm thật **CC0 hoặc CC BY 4.0** (Freesound lọc giấy phép; **không** CC BY-NC, Sampling+, BBC RemArc, kho trả phí), thay tiếng tổng hợp khi đã có trong thư viện `toolkit/audio/sfx/` (mỗi tệp một dòng `RIGHTS.md`: URL, tác giả, giấy phép trích nguyên văn, ngày tải; CC BY → ghi công trong mô tả). Mật độ không tăng (dòng trên). Thử trên đoạn Tập 7 trước (đường thử tập cũ), vào tập đang chạy ở ranh giới cổng.
+- **Nhạc giữ bằng mã** (D-010 §5; xét lại nhạc người sáng tác CC BY ở G1 Tập 9 — D-013). Không nhạc AI, không NC/ND, không YouTube Audio Library.
 
 ## 6. Giao hàng
 - Lệnh: `python3 toolkit/deliver/deliver.py episodes/epNNN/out/video.mp4 --out episodes/epNNN/work/delivery --name epNNN --branch epNNN-delivery --push`
@@ -161,9 +176,22 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 ## 7. Phiên K và hàng chờ luật
 - K chạy **một lần mỗi tập**, ngay khi claim C2 chốt. Tên `model.kind`/params do K quyết.
 - Mọi đề xuất đổi luật (của bên dựng, tổng kết, REVIEWER) ghi vào **`checks-appeal.md`**. K xử lý theo lô ở lần chạy của tập kế tiếp. Chỉ mở phiên K riêng khi cần **kind mới**.
-- Checks khi dựng: chỉ luật liên quan cảnh vừa sửa. Đủ bộ hai lần: cuối C4 và ở C5, trên bản sao khoá có server riêng (`episodes/ep003/design/c5/checks.sh` là mẫu).
+- Checks khi dựng: chỉ luật liên quan cảnh vừa sửa. **Đủ bộ (gồm bộ lấy mẫu trang) ở M5 trên nháp, trước G2** (TONGKET Tập 7 o; A41a); trên 1080p ở M6 chỉ nhóm kỹ thuật + SSIM. Chạy trên bản sao khoá có server riêng (`episodes/ep003/design/c5/checks.sh` là mẫu).
 
 ## 8. KPI và trần token
+
+**Mức cảnh báo D-013 (từ Tập 8; chỉ cảnh báo, D-009 c — vượt thì báo số thực trong gói, không cắt bước chất lượng).** Vai Line producer ghi theo mốc vào PLAN tập §5:
+| | Tập 9+ `lab` (đích) | Tập 8 (chuyển đổi) | Tập 7 thực |
+|---|---|---|---|
+| Trần token (log phiên + headless) | 15 triệu (giữ) | 15 triệu | ≥ 4,1 |
+| **Đọc cache** (log phiên, cộng các phiên) | **≤ 60 triệu/tập** | ≤ 60 triệu | ≥ 371 |
+| **Lượt mỗi phiên** | **≤ 150** | ≤ 150 | P3: 358 |
+| Console | $25–40 | $45–60 | $115,6 |
+| Giờ máy | 8–12 h | 15–20 h | ≈ 36 h |
+| Chủ dự án | G1 + G2 + G3 ≈ 1–1,5 h | + 1 chạm nếu không có C3 | 10 lần chạm |
+- **Ghi lượt chạm + phút chủ dự án** mỗi lần chủ dự án quyết hay trả lời (PLAN tập §5 cột cuối; ledger loại việc "chủ dự án").
+- Đọc cache và số lượt lấy cùng lúc với 4 số token (`from_events.py --close`: `modelUsage.cacheReadInputTokens`, `num_turns` — cộng các tiến trình của phiên). Phiên chạm 150 lượt → đóng chặng sớm (PLAN ≤ 1 trang, phiên mới "Chạy Tập N").
+- Bảng KPI và mức cảnh báo dưới đây là lịch sử (Tập 2–7); phần còn hiệu lực: trần token theo format, EL theo format, giờ máy `deep`.
 
 | KPI | Tập 2 | Tập 3 | Đích Tập 4 |
 |---|---|---|---|
